@@ -3,33 +3,32 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 
 import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:GlobalLayoutStore')
 
-const Media = t.model('Media', {
-  mobile: t.optional(t.boolean, false),
-  tablet: t.optional(t.boolean, false),
-  laptop: t.optional(t.boolean, false),
-  desktop: t.optional(t.boolean, false),
+const Media = T.model('Media', {
+  mobile: T.optional(T.boolean, false),
+  tablet: T.optional(T.boolean, false),
+  laptop: T.optional(T.boolean, false),
+  desktop: T.optional(T.boolean, false),
 })
 
-const Platform = t.model('Platform', {
-  isChrome: t.optional(t.boolean, true),
-  isFirefox: t.optional(t.boolean, false),
-  isSafari: t.optional(t.boolean, false),
-  isIE: t.optional(t.boolean, false),
-  isEdge: t.optional(t.boolean, false),
+const Platform = T.model('Platform', {
+  isChrome: T.optional(T.boolean, true),
+  isFirefox: T.optional(T.boolean, false),
+  isSafari: T.optional(T.boolean, false),
+  isIE: T.optional(T.boolean, false),
+  isEdge: T.optional(T.boolean, false),
 })
 
-const GlobalLayoutStore = t
-  .model('GlobalLayoutStore', {
-    online: t.optional(t.boolean, true),
-    media: t.optional(Media, {}),
-    platform: t.optional(Platform, {}),
-  })
+const GlobalLayoutStore = T.model('GlobalLayoutStore', {
+  online: T.optional(T.boolean, true),
+  media: T.optional(Media, {}),
+  platform: T.optional(Platform, {}),
+})
   .views(self => ({
     get root() {
       return getParent(self)

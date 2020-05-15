@@ -5,10 +5,6 @@
 */
 
 import React from 'react'
-{{#if wantMessages}}
-  import { FormattedMessage } from 'react-intl'
-  import messages from './messages'
-{{/if}}
 
 import { connectStore, buildLog } from '@/utils'
 
@@ -34,9 +30,6 @@ class {{ properCase name }}Container extends React.Component {
       <div>
         <h2>{{ properCase name }} container!</h2>
         <div>impress me!</div>
-        {{#if wantMessages}}
-        <FormattedMessage {...messages.header} />
-        {{/if}}
       </div>
     )
   }

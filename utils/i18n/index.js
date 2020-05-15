@@ -1,4 +1,4 @@
-// this is tmp, use react-intl .. later
+// this is tmp, use react-i18n .. later
 
 const I18nDict = {
   community: '社区',

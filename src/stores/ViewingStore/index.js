@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { THREAD } from '@/constant'
@@ -15,23 +15,22 @@ const log = buildLog('S:ViewingStore')
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 
-const ViewingStore = t
-  .model('ViewingStore', {
-    user: t.optional(User, {}),
-    community: t.optional(Community, {}),
-    post: t.optional(Post, {}),
-    job: t.optional(Job, {}),
-    video: t.optional(Video, {}),
-    repo: t.optional(Repo, {}),
-    activeThread: t.optional(
-      t.enumeration('activeThread', R.values(THREAD)),
-      THREAD.POST
-    ),
-    // for preview usage
-    viewingThread: t.maybeNull(
-      t.enumeration('viewingThread', PREVIEWABLE_THREADS)
-    ),
-  })
+const ViewingStore = T.model('ViewingStore', {
+  user: T.optional(User, {}),
+  community: T.optional(Community, {}),
+  post: T.optional(Post, {}),
+  job: T.optional(Job, {}),
+  video: T.optional(Video, {}),
+  repo: T.optional(Repo, {}),
+  activeThread: T.optional(
+    T.enumeration('activeThread', R.values(THREAD)),
+    THREAD.POST
+  ),
+  // for preview usage
+  viewingThread: T.maybeNull(
+    T.enumeration('viewingThread', PREVIEWABLE_THREADS)
+  ),
+})
   .views(self => ({
     get root() {
       return getParent(self)

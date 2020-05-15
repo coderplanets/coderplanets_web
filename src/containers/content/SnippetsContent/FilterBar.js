@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { SNIPPET } from '@/constant'
+import { useTrans } from '@/hooks'
 
 import Sticky from '@/components/Sticky'
 import { OrButton } from '@/components/Buttons'
@@ -26,6 +27,8 @@ import {
 import { topFilterOnChange, mainViewOnChange } from './logic'
 
 const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
+  const { t } = useTrans()
+
   return (
     <Wrapper>
       <TopFilter>
@@ -35,13 +38,13 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           iconSrc={`${ICON_CMD}/header/more_snippets.svg`}
         />
         {topFilter !== 'all' && (
-          <Option onClick={() => topFilterOnChange('all')}>全部</Option>
+          <Option onClick={() => topFilterOnChange('all')}>{t('all')}</Option>
         )}
         <Option
           active={topFilter === 'favorite'}
           onClick={() => topFilterOnChange('favorite')}
         >
-          <OptionItem>我的收藏</OptionItem>
+          <OptionItem>{t('filter:myFavorite')}</OptionItem>
           <FavoriteIcon
             src={`${ICON_CMD}/navi/heart.svg`}
             active={topFilter === 'favorite'}
@@ -51,7 +54,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           active={topFilter === 'latest'}
           onClick={() => topFilterOnChange('latest')}
         >
-          <OptionItem>最近更新</OptionItem>
+          <OptionItem>{t('filter:latestUpdate')}</OptionItem>
           <ClockIcon
             src={`${ICON_CMD}/navi/clock-solid.svg`}
             active={topFilter === 'latest'}

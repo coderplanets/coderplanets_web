@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 import { markStates, buildLog, stripMobx } from '@/utils'
 import { Tag } from '@/model'
@@ -11,12 +11,12 @@ import { Tag } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:Labeler')
 
-const RealLabel = t.model('RealLabel', {
-  uniqId: t.string,
-  popVisible: t.optional(t.boolean, false),
-  tags: t.optional(t.array(Tag), []),
-  label: t.optional(
-    t.enumeration([
+const RealLabel = T.model('RealLabel', {
+  uniqId: T.string,
+  popVisible: T.optional(T.boolean, false),
+  tags: T.optional(T.array(Tag), []),
+  label: T.optional(
+    T.enumeration([
       'default',
       'salary',
       'city',
@@ -28,8 +28,8 @@ const RealLabel = t.model('RealLabel', {
     ]),
     'default'
   ),
-  multi: t.optional(t.boolean, false),
-  selected: t.optional(t.array(t.string), []),
+  multi: T.optional(T.boolean, false),
+  selected: T.optional(T.array(T.string), []),
 })
 
 /*
@@ -40,10 +40,9 @@ const RealLabel = t.model('RealLabel', {
    connect to the same store in the rootStore. so i manulay ass a uniqId to store
    each copy of the current labeler store.
  */
-const Labeler = t
-  .model('Labeler', {
-    labelEntries: t.optional(t.array(RealLabel), []),
-  })
+const Labeler = T.model('Labeler', {
+  labelEntries: T.optional(T.array(RealLabel), []),
+})
   .views(self => ({
     get root() {
       return getParent(self)

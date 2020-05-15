@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { USER_THREAD } from '@/constant'
@@ -12,14 +12,13 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:UserContent')
 
-const UserContent = t
-  .model('UserContent', {
-    activeThread: t.optional(
-      t.enumeration('activeThread', R.values(USER_THREAD)),
-      USER_THREAD.PUBLISH
-    ),
-    following: t.optional(t.boolean, false),
-  })
+const UserContent = T.model('UserContent', {
+  activeThread: T.optional(
+    T.enumeration('activeThread', R.values(USER_THREAD)),
+    USER_THREAD.PUBLISH
+  ),
+  following: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

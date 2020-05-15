@@ -1,14 +1,8 @@
 {
-  "presets": [
-    [
-      "next/babel"
-    ]
-  ],
+  "presets": [["next/babel"]],
   "env": {
     "development": {
-      "plugins": [
-        "inline-dotenv"
-      ]
+      "plugins": ["inline-dotenv"]
     },
     "production": {
       "presets": [
@@ -26,9 +20,7 @@
       ]
     },
     "test": {
-      "plugins": [
-        "inline-dotenv"
-      ]
+      "plugins": ["inline-dotenv"]
     }
   },
   "plugins": [
@@ -48,19 +40,11 @@
         "preprocess": false
       }
     ],
-    [
-      "react-intl",
-      {
-        "messagesDir": "lang/.messages/"
-      }
-    ],
     "ramda",
     [
       "module-resolver",
       {
-        "root": [
-          "./"
-        ],
+        "root": ["./"],
         "alias": {
           "@/containers": "./src/containers",
           "@/components": "./src/components",
@@ -74,7 +58,8 @@
           "@/utils": "./utils",
           "@/schemas": "./src/schemas",
           "@/Img": "./src/components/Img",
-          "@/SvgIcons": "./src/components/SvgIcons"
+          "@/SvgIcons": "./src/components/SvgIcons",
+          "@/i18n": "./i18n"
         }
       }
     ]

@@ -10,6 +10,8 @@ import { DefaultSeo } from 'next-seo'
  */
 import SEO from '@/config/next_seo'
 import { sentry } from '@/services'
+import { appWithTranslation } from '@/i18n'
+
 import CrashErrorHint from '@/components/CrashErrorHint'
 
 const { Sentry, captureException } = sentry({
@@ -18,7 +20,7 @@ const { Sentry, captureException } = sentry({
 
 // const { SENTRY_TOKEN } = process.env
 
-export default class AppPage extends App {
+class AppPage extends App {
   constructor() {
     /* eslint-disable-next-line */
     super(...arguments)
@@ -92,3 +94,5 @@ export default class AppPage extends App {
     )
   }
 }
+
+export default appWithTranslation(AppPage)

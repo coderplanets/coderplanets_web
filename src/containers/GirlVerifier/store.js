@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
@@ -11,11 +11,10 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:GirlVerifier')
 
-const GirlVerifier = t
-  .model('GirlVerifier', {
-    showModal: t.optional(t.boolean, false),
-    message: t.optional(t.string, ''),
-  })
+const GirlVerifier = T.model('GirlVerifier', {
+  showModal: T.optional(T.boolean, false),
+  message: T.optional(T.string, ''),
+})
   .views(self => ({
     get root() {
       return getParent(self)

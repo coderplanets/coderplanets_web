@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { TYPE, ERR } from '@/constant'
@@ -13,22 +13,21 @@ import { Cheatsheet } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:CheatsheetThread')
 
-const CheatsheetThread = t
-  .model('CheatsheetThread', {
-    cheatsheet: t.optional(Cheatsheet, { readme: '' }),
-    current: t.optional(t.string, ''),
-    curView: t.optional(
-      t.enumeration('curView', [
-        TYPE.RESULT,
-        TYPE.LOADING,
-        TYPE.NOT_FOUND,
-        TYPE.RESULT_EMPTY,
-      ]),
-      TYPE.RESULT
-    ),
-    errorType: t.maybeNull(t.string),
-    showSyncWarning: t.optional(t.boolean, false),
-  })
+const CheatsheetThread = T.model('CheatsheetThread', {
+  cheatsheet: T.optional(Cheatsheet, { readme: '' }),
+  current: T.optional(T.string, ''),
+  curView: T.optional(
+    T.enumeration('curView', [
+      TYPE.RESULT,
+      TYPE.LOADING,
+      TYPE.NOT_FOUND,
+      TYPE.RESULT_EMPTY,
+    ]),
+    TYPE.RESULT
+  ),
+  errorType: T.maybeNull(T.string),
+  showSyncWarning: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

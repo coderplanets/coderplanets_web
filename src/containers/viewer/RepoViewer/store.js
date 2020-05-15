@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { ERR } from '@/constant'
@@ -12,10 +12,9 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:RepoViewer')
 
-const RepoViewer = t
-  .model('RepoViewer', {
-    loading: t.optional(t.boolean, false),
-  })
+const RepoViewer = T.model('RepoViewer', {
+  loading: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

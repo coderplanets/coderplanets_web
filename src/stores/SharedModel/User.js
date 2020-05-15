@@ -1,147 +1,147 @@
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '@/config'
 import { C11N } from '@/constant'
 
 import { Community /* PagedCommunities */ } from './Community'
 
-const PagedCommunities = t.model('pagedCommunities', {
-  entries: t.optional(t.array(Community), []),
-  totalCount: t.optional(t.number, 0),
+const PagedCommunities = T.model('pagedCommunities', {
+  entries: T.optional(T.array(Community), []),
+  totalCount: T.optional(T.number, 0),
 })
 
-const ContributeRecord = t.model('ContributeRecord', {
-  date: t.string,
-  count: t.number,
+const ContributeRecord = T.model('ContributeRecord', {
+  date: T.string,
+  count: T.number,
 })
 
-const Contributes = t.model('Contributes', {
-  records: t.optional(t.array(ContributeRecord), []),
-  startDate: t.maybeNull(t.string),
-  endDate: t.maybeNull(t.string),
-  totalCount: t.maybeNull(t.number),
+const Contributes = T.model('Contributes', {
+  records: T.optional(T.array(ContributeRecord), []),
+  startDate: T.maybeNull(T.string),
+  endDate: T.maybeNull(T.string),
+  totalCount: T.maybeNull(T.number),
 })
 
-const GithubProfile = t.model('GithubProfile', {
-  login: t.string,
-  htmlUrl: t.string,
+const GithubProfile = T.model('GithubProfile', {
+  login: T.string,
+  htmlUrl: T.string,
 })
 
-export const EduBackground = t.model('EduBackground', {
-  school: t.optional(t.string, ''),
-  major: t.optional(t.string, ''),
+export const EduBackground = T.model('EduBackground', {
+  school: T.optional(T.string, ''),
+  major: T.optional(T.string, ''),
 })
 
-export const WorkBackground = t.model('WorkBackground', {
-  company: t.optional(t.string, ''),
-  title: t.maybeNull(t.string),
+export const WorkBackground = T.model('WorkBackground', {
+  company: T.optional(T.string, ''),
+  title: T.maybeNull(T.string),
 })
 
-const SourceContribute = t.model('SourceContribute', {
-  web: t.maybeNull(t.boolean),
-  server: t.maybeNull(t.boolean),
-  mobile: t.maybeNull(t.boolean),
-  weApp: t.maybeNull(t.boolean),
-  h5: t.maybeNull(t.boolean),
+const SourceContribute = T.model('SourceContribute', {
+  web: T.maybeNull(T.boolean),
+  server: T.maybeNull(T.boolean),
+  mobile: T.maybeNull(T.boolean),
+  weApp: T.maybeNull(T.boolean),
+  h5: T.maybeNull(T.boolean),
 })
 
-export const Achievement = t.model('Achievement', {
-  reputation: t.optional(t.number, 0),
-  contentsStaredCount: t.optional(t.number, 0),
-  contentsFavoritedCount: t.optional(t.number, 0),
-  sourceContribute: t.optional(SourceContribute, {
+export const Achievement = T.model('Achievement', {
+  reputation: T.optional(T.number, 0),
+  contentsStaredCount: T.optional(T.number, 0),
+  contentsFavoritedCount: T.optional(T.number, 0),
+  sourceContribute: T.optional(SourceContribute, {
     web: false,
     server: false,
     mobile: false,
     weApp: false,
     h5: false,
   }),
-  donateMember: t.optional(t.boolean, false),
-  seniorMember: t.optional(t.boolean, false),
-  sponsorMember: t.optional(t.boolean, false),
+  donateMember: T.optional(T.boolean, false),
+  seniorMember: T.optional(T.boolean, false),
+  sponsorMember: T.optional(T.boolean, false),
 })
 
-const Customization = t.model('Customization', {
-  bannerLayout: t.optional(
-    t.enumeration('contentsLayout', [C11N.DIGEST, C11N.BRIEF]),
+const Customization = T.model('Customization', {
+  bannerLayout: T.optional(
+    T.enumeration('contentsLayout', [C11N.DIGEST, C11N.BRIEF]),
     C11N.DIGEST
   ),
-  contentsLayout: t.optional(
-    t.enumeration('contentsLayout', [C11N.DIGEST, C11N.LIST]),
+  contentsLayout: T.optional(
+    T.enumeration('contentsLayout', [C11N.DIGEST, C11N.LIST]),
     C11N.DIGEST
   ),
-  contentDivider: t.optional(t.boolean, false),
-  contentHover: t.optional(t.boolean, true),
-  markViewed: t.optional(t.boolean, true),
-  displayDensity: t.optional(
-    t.enumeration('displayDensity', ['20', '25', '30']),
+  contentDivider: T.optional(T.boolean, false),
+  contentHover: T.optional(T.boolean, true),
+  markViewed: T.optional(T.boolean, true),
+  displayDensity: T.optional(
+    T.enumeration('displayDensity', ['20', '25', '30']),
     '20'
   ),
   // theme
   // ...
 })
 
-const UserSocial = t.model('UserSocial', {
-  qq: t.maybeNull(t.string),
-  weibo: t.maybeNull(t.string),
-  weichat: t.maybeNull(t.string),
-  github: t.maybeNull(t.string),
-  zhihu: t.maybeNull(t.string),
-  douban: t.maybeNull(t.string),
-  twitter: t.maybeNull(t.string),
-  facebook: t.maybeNull(t.string),
-  dribble: t.maybeNull(t.string),
-  instagram: t.maybeNull(t.string),
-  pinterest: t.maybeNull(t.string),
-  huaban: t.maybeNull(t.string),
+const UserSocial = T.model('UserSocial', {
+  qq: T.maybeNull(T.string),
+  weibo: T.maybeNull(T.string),
+  weichat: T.maybeNull(T.string),
+  github: T.maybeNull(T.string),
+  zhihu: T.maybeNull(T.string),
+  douban: T.maybeNull(T.string),
+  twitter: T.maybeNull(T.string),
+  facebook: T.maybeNull(T.string),
+  dribble: T.maybeNull(T.string),
+  instagram: T.maybeNull(T.string),
+  pinterest: T.maybeNull(T.string),
+  huaban: T.maybeNull(T.string),
 })
 
-export const User = t.model('User', {
+export const User = T.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
-  /* id: t.optional(t.string, ''), */
-  id: t.maybeNull(t.string),
-  login: t.maybeNull(t.string),
-  nickname: t.maybeNull(t.string),
-  bio: t.maybeNull(t.string),
-  avatar: t.maybeNull(t.string),
-  views: t.optional(t.number, 0),
-  email: t.maybeNull(t.string),
-  location: t.maybeNull(t.string),
-  geoCity: t.maybeNull(t.string),
+  /* id: T.optional(T.string, ''), */
+  id: T.maybeNull(T.string),
+  login: T.maybeNull(T.string),
+  nickname: T.maybeNull(T.string),
+  bio: T.maybeNull(T.string),
+  avatar: T.maybeNull(T.string),
+  views: T.optional(T.number, 0),
+  email: T.maybeNull(T.string),
+  location: T.maybeNull(T.string),
+  geoCity: T.maybeNull(T.string),
   // TODO: backgrounds
-  educationBackgrounds: t.optional(t.array(EduBackground), []),
-  workBackgrounds: t.optional(t.array(WorkBackground), []),
-  sex: t.maybeNull(t.string),
+  educationBackgrounds: T.optional(T.array(EduBackground), []),
+  workBackgrounds: T.optional(T.array(WorkBackground), []),
+  sex: T.maybeNull(T.string),
   // social
-  social: t.optional(UserSocial, {}),
-  fromGithub: t.optional(t.boolean, false),
-  /* fromWeixin: t.optional(t.boolean, false), */
-  /* subscribedCommunities: t.optional(pagedCommunities, {}), */
-  subscribedCommunities: t.maybeNull(PagedCommunities),
-  subscribedCommunitiesCount: t.optional(t.number, 0),
-  contributes: t.optional(Contributes, {}),
-  githubProfile: t.maybeNull(GithubProfile),
-  // cmsPassportString: t.optional(t.string, '{}'),
+  social: T.optional(UserSocial, {}),
+  fromGithub: T.optional(T.boolean, false),
+  /* fromWeixin: T.optional(T.boolean, false), */
+  /* subscribedCommunities: T.optional(pagedCommunities, {}), */
+  subscribedCommunities: T.maybeNull(PagedCommunities),
+  subscribedCommunitiesCount: T.optional(T.number, 0),
+  contributes: T.optional(Contributes, {}),
+  githubProfile: T.maybeNull(GithubProfile),
+  // cmsPassportString: T.optional(T.string, '{}'),
 
-  followingsCount: t.optional(t.number, 0),
-  followersCount: t.optional(t.number, 0),
+  followingsCount: T.optional(T.number, 0),
+  followersCount: T.optional(T.number, 0),
 
-  achievement: t.maybeNull(Achievement),
-  editableCommunities: t.maybeNull(PagedCommunities),
+  achievement: T.maybeNull(Achievement),
+  editableCommunities: T.maybeNull(PagedCommunities),
 
-  insertedAt: t.optional(t.string, ''),
-  updatedAt: t.optional(t.string, ''),
+  insertedAt: T.optional(T.string, ''),
+  updatedAt: T.optional(T.string, ''),
 
-  viewerHasFollowed: t.optional(t.boolean, false),
-  customization: t.optional(Customization, {}),
+  viewerHasFollowed: T.optional(T.boolean, false),
+  customization: T.optional(Customization, {}),
 })
 
-export const SimpleUser = t.model('SimpleUser2', {
-  id: t.maybeNull(t.string),
-  login: t.maybeNull(t.string),
-  nickname: t.maybeNull(t.string),
-  bio: t.maybeNull(t.string),
-  avatar: t.maybeNull(t.string),
+export const SimpleUser = T.model('SimpleUser2', {
+  id: T.maybeNull(T.string),
+  login: T.maybeNull(T.string),
+  nickname: T.maybeNull(T.string),
+  bio: T.maybeNull(T.string),
+  avatar: T.maybeNull(T.string),
 })
 
 export const EmptyAchievement = {
@@ -170,10 +170,10 @@ export const EmptyUser = {
   ...EmptyAchievement,
 }
 
-export const PagedUsers = t.model('PagedUsers', {
-  entries: t.optional(t.array(User), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedUsers = T.model('PagedUsers', {
+  entries: T.optional(T.array(User), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })

@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
@@ -11,10 +11,9 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:UpgradePackges')
 
-const UpgradePackges = t
-  .model('UpgradePackges', {
-    show: t.optional(t.boolean, false),
-  })
+const UpgradePackges = T.model('UpgradePackges', {
+  show: T.optional(T.boolean, false),
+})
   .views(self => ({
     get isLogin() {
       return self.root.account.isLogin

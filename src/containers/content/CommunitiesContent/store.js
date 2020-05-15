@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { ICON_CMD } from '@/config'
@@ -13,27 +13,26 @@ import { PagedCommunities, PagedCategories, emptyPagiData } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitiesContentStore')
 
-const CommunitiesContentStore = t
-  .model('CommunitiesContentStore', {
-    // current active sidbar menu id
-    activeCatalogId: t.maybeNull(t.string),
-    pagedCommunities: t.optional(PagedCommunities, emptyPagiData),
-    searching: t.optional(t.boolean, false),
-    // cur active category
-    /* category: t.optional(t.string, ''), */
-    // for UI loading state
-    subscribing: t.optional(t.boolean, false),
-    subscribingId: t.maybeNull(t.string),
-    pagedCategories: t.maybeNull(PagedCategories),
-    // search status
-    isSearchMode: t.optional(t.boolean, false),
-    searchResultCount: t.optional(t.number, 0),
-    searchValue: t.optional(t.string, ''),
-    showSearchMask: t.optional(t.boolean, true),
-    showCreateHint: t.optional(t.boolean, true),
-    showSearchHint: t.optional(t.boolean, false),
-    searchfocused: t.optional(t.boolean, false),
-  })
+const CommunitiesContentStore = T.model('CommunitiesContentStore', {
+  // current active sidbar menu id
+  activeCatalogId: T.maybeNull(T.string),
+  pagedCommunities: T.optional(PagedCommunities, emptyPagiData),
+  searching: T.optional(T.boolean, false),
+  // cur active category
+  /* category: T.optional(T.string, ''), */
+  // for UI loading state
+  subscribing: T.optional(T.boolean, false),
+  subscribingId: T.maybeNull(T.string),
+  pagedCategories: T.maybeNull(PagedCategories),
+  // search status
+  isSearchMode: T.optional(T.boolean, false),
+  searchResultCount: T.optional(T.number, 0),
+  searchValue: T.optional(T.string, ''),
+  showSearchMask: T.optional(T.boolean, true),
+  showCreateHint: T.optional(T.boolean, true),
+  showSearchHint: T.optional(T.boolean, false),
+  searchfocused: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

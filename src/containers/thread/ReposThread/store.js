@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { TYPE } from '@/constant'
@@ -13,21 +13,20 @@ import { PagedRepos, Tag, ContentFilter, emptyPagiData } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:ReposThread')
 
-const ReposThread = t
-  .model('ReposThread', {
-    pagedRepos: t.optional(PagedRepos, emptyPagiData),
-    filters: t.optional(ContentFilter, {}),
-    activeTag: t.maybeNull(Tag),
-    curView: t.optional(
-      t.enumeration('curView', [
-        TYPE.RESULT,
-        TYPE.LOADING,
-        TYPE.NOT_FOUND,
-        TYPE.RESULT_EMPTY,
-      ]),
-      TYPE.RESULT
-    ),
-  })
+const ReposThread = T.model('ReposThread', {
+  pagedRepos: T.optional(PagedRepos, emptyPagiData),
+  filters: T.optional(ContentFilter, {}),
+  activeTag: T.maybeNull(Tag),
+  curView: T.optional(
+    T.enumeration('curView', [
+      TYPE.RESULT,
+      TYPE.LOADING,
+      TYPE.NOT_FOUND,
+      TYPE.RESULT_EMPTY,
+    ]),
+    TYPE.RESULT
+  ),
+})
   .views(self => ({
     get root() {
       return getParent(self)

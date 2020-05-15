@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
@@ -12,33 +12,32 @@ import { Post, Mention } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:PostEditorf')
 
-const PostEditor = t
-  .model('PostEditor', {
-    editPost: t.optional(Post, {}),
+const PostEditor = T.model('PostEditor', {
+  editPost: T.optional(Post, {}),
 
-    mentionList: t.optional(t.array(Mention), []),
-    // current "@user" in valid array format
-    referUsers: t.optional(t.array(Mention), []),
-    // current "@user" in string list
-    extractMentions: t.optional(t.array(t.string), []),
+  mentionList: T.optional(T.array(Mention), []),
+  // current "@user" in valid array format
+  referUsers: T.optional(T.array(Mention), []),
+  // current "@user" in string list
+  extractMentions: T.optional(T.array(T.string), []),
 
-    curView: t.optional(
-      t.enumeration('curView', [
-        'MARKDOWN_HELP_VIEW',
-        'EDIT_VIEW',
-        'CREATE_VIEW',
-        'PREVIEW_VIEW',
-      ]),
-      'CREATE_VIEW'
-    ),
-    contentDomId: t.optional(t.string, 'post_editor_content_id'),
+  curView: T.optional(
+    T.enumeration('curView', [
+      'MARKDOWN_HELP_VIEW',
+      'EDIT_VIEW',
+      'CREATE_VIEW',
+      'PREVIEW_VIEW',
+    ]),
+    'CREATE_VIEW'
+  ),
+  contentDomId: T.optional(T.string, 'post_editor_content_id'),
 
-    publishing: t.optional(t.boolean, false),
-    // TODO: rename to isEditMode
-    isEdit: t.optional(t.boolean, false),
-    /* show radar note if radar source not supported */
-    showRadarNote: t.optional(t.boolean, false),
-  })
+  publishing: T.optional(T.boolean, false),
+  // TODO: rename to isEditMode
+  isEdit: T.optional(T.boolean, false),
+  /* show radar note if radar source not supported */
+  showRadarNote: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

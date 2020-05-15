@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, buildLog, stripMobx, changeset, flashState } from '@/utils'
@@ -12,14 +12,13 @@ import { Video } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:VideoEditor')
 
-const VideoEditor = t
-  .model('VideoEditor', {
-    editVideo: t.optional(Video, { source: 'youtube' }),
-    isEdit: t.optional(t.boolean, false),
-    publishing: t.optional(t.boolean, false),
+const VideoEditor = T.model('VideoEditor', {
+  editVideo: T.optional(Video, { source: 'youtube' }),
+  isEdit: T.optional(T.boolean, false),
+  publishing: T.optional(T.boolean, false),
 
-    ratKey: t.optional(t.string, ''),
-  })
+  ratKey: T.optional(T.string, ''),
+})
   .views(self => ({
     get root() {
       return getParent(self)

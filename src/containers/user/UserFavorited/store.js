@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
@@ -21,42 +21,41 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('S:UserFavorited')
 
-const UserFavorited = t
-  .model('UserFavorited', {
-    curCategory: t.maybeNull(FavoriteCategory),
-    curThread: t.optional(
-      t.enumeration('favoriteThread', [
-        THREAD.POST,
-        THREAD.VIDEO,
-        THREAD.JOB,
-        THREAD.REPO,
-      ]),
-      THREAD.POST
-    ),
-    parentView: t.optional(
-      t.enumeration('parentView', [
-        // category list view
-        'CATEGORY_LIST',
-        // details of a single category
-        'CATEGORY_DETAIL',
-      ]),
-      'CATEGORY_LIST'
-    ),
+const UserFavorited = T.model('UserFavorited', {
+  curCategory: T.maybeNull(FavoriteCategory),
+  curThread: T.optional(
+    T.enumeration('favoriteThread', [
+      THREAD.POST,
+      THREAD.VIDEO,
+      THREAD.JOB,
+      THREAD.REPO,
+    ]),
+    THREAD.POST
+  ),
+  parentView: T.optional(
+    T.enumeration('parentView', [
+      // category list view
+      'CATEGORY_LIST',
+      // details of a single category
+      'CATEGORY_DETAIL',
+    ]),
+    'CATEGORY_LIST'
+  ),
 
-    curView: t.optional(
-      t.enumeration('curView', [
-        TYPE.RESULT,
-        TYPE.LOADING,
-        TYPE.NOT_FOUND,
-        TYPE.RESULT_EMPTY,
-      ]),
-      TYPE.LOADING
-    ),
-    pagedPosts: t.optional(PagedPosts, emptyPagiData),
-    pagedJobs: t.optional(PagedJobs, emptyPagiData),
-    pagedVideos: t.optional(PagedVideos, emptyPagiData),
-    pagedRepos: t.optional(PagedRepos, emptyPagiData),
-  })
+  curView: T.optional(
+    T.enumeration('curView', [
+      TYPE.RESULT,
+      TYPE.LOADING,
+      TYPE.NOT_FOUND,
+      TYPE.RESULT_EMPTY,
+    ]),
+    TYPE.LOADING
+  ),
+  pagedPosts: T.optional(PagedPosts, emptyPagiData),
+  pagedJobs: T.optional(PagedJobs, emptyPagiData),
+  pagedVideos: T.optional(PagedVideos, emptyPagiData),
+  pagedRepos: T.optional(PagedRepos, emptyPagiData),
+})
   .views(self => ({
     get root() {
       return getParent(self)

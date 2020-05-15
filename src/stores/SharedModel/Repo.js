@@ -1,4 +1,4 @@
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '@/config'
 
@@ -6,64 +6,64 @@ import { User, PagedUsers } from './User'
 import { Community } from './Community'
 import { Tag } from './Tag'
 
-const Contributor = t.model('Contributor', {
-  avatar: t.string,
-  nickname: t.string,
-  htmlUrl: t.string,
+const Contributor = T.model('Contributor', {
+  avatar: T.string,
+  nickname: T.string,
+  htmlUrl: T.string,
 })
 
-const Language = t.model('Language', {
-  name: t.string,
-  color: t.string,
+const Language = T.model('Language', {
+  name: T.string,
+  color: T.string,
 })
 
-export const Repo = t.model('Reop', {
-  id: t.maybeNull(t.string),
-  title: t.optional(t.string, ''),
-  ownerName: t.maybeNull(t.string),
-  ownerUrl: t.maybeNull(t.string),
-  repoUrl: t.maybeNull(t.string),
+export const Repo = T.model('Reop', {
+  id: T.maybeNull(T.string),
+  title: T.optional(T.string, ''),
+  ownerName: T.maybeNull(T.string),
+  ownerUrl: T.maybeNull(T.string),
+  repoUrl: T.maybeNull(T.string),
 
-  desc: t.maybeNull(t.string),
-  homepageUrl: t.maybeNull(t.string),
-  readme: t.maybeNull(t.string),
+  desc: T.maybeNull(T.string),
+  homepageUrl: T.maybeNull(T.string),
+  readme: T.maybeNull(T.string),
 
-  issuesCount: t.optional(t.number, 0),
-  prsCount: t.optional(t.number, 0),
-  starCount: t.optional(t.number, 0),
-  forkCount: t.optional(t.number, 0),
-  watchCount: t.optional(t.number, 0),
+  issuesCount: T.optional(T.number, 0),
+  prsCount: T.optional(T.number, 0),
+  starCount: T.optional(T.number, 0),
+  forkCount: T.optional(T.number, 0),
+  watchCount: T.optional(T.number, 0),
 
-  primaryLanguage: t.optional(Language, { name: '', color: 'grey' }),
-  license: t.maybeNull(t.string),
-  releaseTag: t.maybeNull(t.string),
-  contributors: t.array(Contributor),
+  primaryLanguage: T.optional(Language, { name: '', color: 'grey' }),
+  license: T.maybeNull(T.string),
+  releaseTag: T.maybeNull(T.string),
+  contributors: T.array(Contributor),
 
-  author: t.maybeNull(User),
-  views: t.optional(t.number, 0),
-  pin: t.maybeNull(t.boolean),
+  author: T.maybeNull(User),
+  views: T.optional(T.number, 0),
+  pin: T.maybeNull(T.boolean),
 
-  favoritedCount: t.optional(t.number, 0),
-  viewerHasFavorited: t.optional(t.boolean, false),
-  favoritedCategoryId: t.maybeNull(t.string),
+  favoritedCount: T.optional(T.number, 0),
+  viewerHasFavorited: T.optional(T.boolean, false),
+  favoritedCategoryId: T.maybeNull(T.string),
 
-  communities: t.optional(t.array(Community), []),
-  origialCommunity: t.optional(Community, {}),
-  tags: t.optional(t.array(Tag), []),
+  communities: T.optional(T.array(Community), []),
+  origialCommunity: T.optional(Community, {}),
+  tags: T.optional(T.array(Tag), []),
 
-  lastSync: t.maybeNull(t.string),
-  pagedCommentsParticipators: t.optional(PagedUsers, {}),
+  lastSync: T.maybeNull(T.string),
+  pagedCommentsParticipators: T.optional(PagedUsers, {}),
 
-  viewerHasViewed: t.optional(t.boolean, false),
+  viewerHasViewed: T.optional(T.boolean, false),
 
-  insertedAt: t.optional(t.string, ''),
-  updatedAt: t.optional(t.string, ''),
+  insertedAt: T.optional(T.string, ''),
+  updatedAt: T.optional(T.string, ''),
 })
 
-export const PagedRepos = t.model('PagedRepos', {
-  entries: t.optional(t.array(Repo), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedRepos = T.model('PagedRepos', {
+  entries: T.optional(T.array(Repo), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })

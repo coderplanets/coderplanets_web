@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { TYPE } from '@/constant'
@@ -15,64 +15,63 @@ const log = buildLog('S:CommentsStore')
 
 const mentionMapper = m => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
-const CommentsStore = t
-  .model('CommentsStore', {
-    // toggle main comment box
-    showInputBox: t.optional(t.boolean, false),
-    // toggle editor inside the comment box
-    showInputEditor: t.optional(t.boolean, false),
-    // toggle markdown preview inside the comment box
-    showInputPreview: t.optional(t.boolean, false),
+const CommentsStore = T.model('CommentsStore', {
+  // toggle main comment box
+  showInputBox: T.optional(T.boolean, false),
+  // toggle editor inside the comment box
+  showInputEditor: T.optional(T.boolean, false),
+  // toggle markdown preview inside the comment box
+  showInputPreview: T.optional(T.boolean, false),
 
-    // toggle modal editor for reply
-    showReplyBox: t.optional(t.boolean, false),
-    showReplyEditor: t.optional(t.boolean, false),
-    showReplyPreview: t.optional(t.boolean, false),
+  // toggle modal editor for reply
+  showReplyBox: T.optional(T.boolean, false),
+  showReplyEditor: T.optional(T.boolean, false),
+  showReplyPreview: T.optional(T.boolean, false),
 
-    // current to be delete comment id, use to target the confirm mask
-    tobeDeleteId: t.maybeNull(t.string),
-    // words count for current comment (include reply comment)
-    countCurrent: t.optional(t.number, 0),
-    // cur filter type of comment list
-    filterType: t.optional(
-      t.enumeration('filterType', [
-        TYPE.DESC_INSERTED,
-        TYPE.ASC_INSERTED,
-        TYPE.MOST_LIKES,
-        TYPE.MOST_DISLIKES,
-      ]),
-      TYPE.ASC_INSERTED
-    ),
-    // content input of current comment editor
-    editContent: t.optional(t.string, ''),
-    // content input of current reply comment editor
-    replyContent: t.optional(t.string, ''),
-    // comments pagination data of current COMMUNITY / PART
-    pagedComments: t.optional(PagedComments, emptyPagiData),
+  // current to be delete comment id, use to target the confirm mask
+  tobeDeleteId: T.maybeNull(T.string),
+  // words count for current comment (include reply comment)
+  countCurrent: T.optional(T.number, 0),
+  // cur filter type of comment list
+  filterType: T.optional(
+    T.enumeration('filterType', [
+      TYPE.DESC_INSERTED,
+      TYPE.ASC_INSERTED,
+      TYPE.MOST_LIKES,
+      TYPE.MOST_DISLIKES,
+    ]),
+    TYPE.ASC_INSERTED
+  ),
+  // content input of current comment editor
+  editContent: T.optional(T.string, ''),
+  // content input of current reply comment editor
+  replyContent: T.optional(T.string, ''),
+  // comments pagination data of current COMMUNITY / PART
+  pagedComments: T.optional(PagedComments, emptyPagiData),
 
-    isEdit: t.optional(t.boolean, false),
-    editComment: t.maybeNull(Comment),
+  isEdit: T.optional(T.boolean, false),
+  editComment: T.maybeNull(Comment),
 
-    // current "@user" in valid array format
-    referUsers: t.optional(t.array(Mention), []),
-    // current "@user" in string list
-    extractMentions: t.optional(t.array(t.string), []),
+  // current "@user" in valid array format
+  referUsers: T.optional(T.array(Mention), []),
+  // current "@user" in string list
+  extractMentions: T.optional(T.array(T.string), []),
 
-    // parrent comment of current reply
-    replyToComment: t.maybeNull(Comment),
+  // parrent comment of current reply
+  replyToComment: T.maybeNull(Comment),
 
-    // mention users in content
-    mentionList: t.optional(t.array(Mention), []),
+  // mention users in content
+  mentionList: T.optional(T.array(Mention), []),
 
-    // toggle loading for creating comment
-    creating: t.optional(t.boolean, false),
-    // toggle loading for creating reply comment
-    replying: t.optional(t.boolean, false),
-    // toggle loading for comments list
-    loading: t.optional(t.boolean, false),
-    // toggle loading for first item of commetns list
-    loadingFresh: t.optional(t.boolean, false),
-  })
+  // toggle loading for creating comment
+  creating: T.optional(T.boolean, false),
+  // toggle loading for creating reply comment
+  replying: T.optional(T.boolean, false),
+  // toggle loading for comments list
+  loading: T.optional(T.boolean, false),
+  // toggle loading for first item of commetns list
+  loadingFresh: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
@@ -11,8 +11,7 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:VideoContent')
 
-const VideoContent = t
-  .model('VideoContent', {})
+const VideoContent = T.model('VideoContent', {})
   .views(self => ({
     get root() {
       return getParent(self)

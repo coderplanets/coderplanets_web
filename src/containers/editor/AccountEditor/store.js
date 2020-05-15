@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, buildLog, stripMobx, changeset, flashState } from '@/utils'
@@ -12,22 +12,21 @@ import { User, EduBackground, WorkBackground } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:AccountEditorStore')
 
-const AccountEditorStore = t
-  .model('AccountEditorStore', {
-    // user: t.optional(User, {}),
-    editUser: t.optional(User, {}),
-    showSocials: t.optional(t.boolean, false),
+const AccountEditorStore = T.model('AccountEditorStore', {
+  // user: T.optional(User, {}),
+  editUser: T.optional(User, {}),
+  showSocials: T.optional(T.boolean, false),
 
-    educationBg: t.optional(EduBackground, { school: '', major: '' }),
-    workBg: t.optional(WorkBackground, { company: '', title: '' }),
+  educationBg: T.optional(EduBackground, { school: '', major: '' }),
+  workBg: T.optional(WorkBackground, { company: '', title: '' }),
 
-    updating: t.optional(t.boolean, false),
-    success: t.optional(t.boolean, false),
-    error: t.optional(t.boolean, false),
-    warn: t.optional(t.boolean, false),
-    statusMsg: t.optional(t.string, ''),
-    ratKey: t.optional(t.string, ''),
-  })
+  updating: T.optional(T.boolean, false),
+  success: T.optional(T.boolean, false),
+  error: T.optional(T.boolean, false),
+  warn: T.optional(T.boolean, false),
+  statusMsg: T.optional(T.string, ''),
+  ratKey: T.optional(T.string, ''),
+})
   .views(self => ({
     get root() {
       return getParent(self)

@@ -1,12 +1,12 @@
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 import { GithubUser } from './GithubUser'
 
-const Cheatsheet = t.model('Cheatsheet', {
-  id: t.maybeNull(t.string),
-  readme: t.maybeNull(t.string),
-  lastSync: t.maybeNull(t.string),
-  views: t.maybeNull(t.number),
-  contributors: t.optional(t.array(GithubUser), []),
+const Cheatsheet = T.model('Cheatsheet', {
+  id: T.maybeNull(T.string),
+  readme: T.maybeNull(T.string),
+  lastSync: T.maybeNull(T.string),
+  views: T.maybeNull(T.number),
+  contributors: T.optional(T.array(GithubUser), []),
 })
 
 export default Cheatsheet

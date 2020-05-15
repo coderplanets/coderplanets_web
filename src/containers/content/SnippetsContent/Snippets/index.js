@@ -7,9 +7,9 @@
 import React from 'react'
 
 import { GALLERY } from '@/constant'
+
 import Pagi from '@/components/Pagi'
 import { PagiOptionSwitcher } from '@/components/Switcher'
-
 import { SnippetGallery, ImageGallery } from '@/components/GalleryHub'
 
 import Footer from '../Footer'
@@ -71,5 +71,9 @@ const Content = ({ galleryType }) => {
     </Wrapper>
   )
 }
+
+Content.getInitialProps = async () => ({
+  namespacesRequired: ['home'],
+})
 
 export default React.memo(Content)

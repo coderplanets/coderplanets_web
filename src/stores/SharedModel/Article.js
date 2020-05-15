@@ -1,9 +1,9 @@
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 
-const Article = t.model('Article', {
-  id: t.maybeNull(t.string),
-  title: t.maybeNull(t.string),
-  desc: t.optional(t.string, ''),
+const Article = T.model('Article', {
+  id: T.maybeNull(T.string),
+  title: T.maybeNull(T.string),
+  desc: T.optional(T.string, ''),
 })
 
 export default Article

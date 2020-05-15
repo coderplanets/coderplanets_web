@@ -1,42 +1,42 @@
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '@/config'
 
 // avoid cicle import
-const SimpleUser = t.model('SimpleUser', {
-  id: t.maybeNull(t.string),
-  nickname: t.maybeNull(t.string),
-  bio: t.maybeNull(t.string),
-  avatar: t.maybeNull(t.string),
+const SimpleUser = T.model('SimpleUser', {
+  id: T.maybeNull(T.string),
+  nickname: T.maybeNull(T.string),
+  bio: T.maybeNull(T.string),
+  avatar: T.maybeNull(T.string),
 })
 
-export const MailStatus = t.model('MailStatus', {
-  hasMail: t.optional(t.boolean, false),
-  mentionCount: t.optional(t.number, 0),
-  notificationCount: t.optional(t.number, 0),
-  totalCount: t.optional(t.number, 0),
+export const MailStatus = T.model('MailStatus', {
+  hasMail: T.optional(T.boolean, false),
+  mentionCount: T.optional(T.number, 0),
+  notificationCount: T.optional(T.number, 0),
+  totalCount: T.optional(T.number, 0),
 })
 
-export const MentionMsg = t.model('MentionMsg', {
-  id: t.maybeNull(t.string),
+export const MentionMsg = T.model('MentionMsg', {
+  id: T.maybeNull(T.string),
   fromUser: SimpleUser,
-  sourceTitle: t.string,
-  sourceId: t.string,
-  sourcePreview: t.maybeNull(t.string),
-  sourceType: t.maybeNull(t.string),
+  sourceTitle: T.string,
+  sourceId: T.string,
+  sourcePreview: T.maybeNull(T.string),
+  sourceType: T.maybeNull(T.string),
 
-  parentId: t.maybeNull(t.string),
-  parentType: t.maybeNull(t.string),
-  floor: t.maybeNull(t.number),
+  parentId: T.maybeNull(T.string),
+  parentType: T.maybeNull(T.string),
+  floor: T.maybeNull(T.number),
 
-  community: t.maybeNull(t.string),
-  read: t.optional(t.boolean, false),
+  community: T.maybeNull(T.string),
+  read: T.optional(T.boolean, false),
 })
 
-export const PagedMentionMessages = t.model('PagedMentionMessages', {
-  entries: t.optional(t.array(MentionMsg), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedMentionMessages = T.model('PagedMentionMessages', {
+  entries: T.optional(T.array(MentionMsg), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })

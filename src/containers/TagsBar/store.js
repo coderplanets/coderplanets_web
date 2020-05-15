@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { TOPIC } from '@/constant'
@@ -13,15 +13,14 @@ import { Tag } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:TagsBar')
 
-const TagsBar = t
-  .model('TagsBar', {
-    tags: t.optional(t.array(Tag), []),
-    activeTag: t.maybeNull(Tag),
-    thread: t.maybeNull(t.string),
-    topic: t.optional(t.string, TOPIC.POST),
+const TagsBar = T.model('TagsBar', {
+  tags: T.optional(T.array(Tag), []),
+  activeTag: T.maybeNull(Tag),
+  thread: T.maybeNull(T.string),
+  topic: T.optional(T.string, TOPIC.POST),
 
-    loading: t.optional(t.boolean, false),
-  })
+  loading: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

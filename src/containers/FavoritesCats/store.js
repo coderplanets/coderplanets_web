@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { THREAD } from '@/constant'
@@ -25,30 +25,29 @@ const emptyCat = {
   private: false,
 }
 
-const FavoritesCats = t
-  .model('FavoritesCats', {
-    displayMode: t.optional(
-      t.enumeration('displayMode', ['list', 'hide']),
-      'hide'
-    ),
-    pagedCategories: t.optional(PagedFavoriteCategories, emptyPagiData),
-    editCategory: t.optional(FavoriteCategory, emptyCat),
-    /* curView: t.optional(t.enumeration('curView', ['box', 'list']), 'box'), */
-    showModal: t.optional(t.boolean, false),
-    showUpdater: t.optional(t.boolean, false),
-    showCreator: t.optional(t.boolean, false),
-    showSetter: t.optional(t.boolean, false),
-    // open creator from setter, so we can go back to setter based on this state
-    createfromSetter: t.optional(t.boolean, false),
-    thread: t.maybeNull(
-      t.enumeration(
-        [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO],
-        THREAD.POST
-      )
-    ),
-    loading: t.optional(t.boolean, false),
-    doing: t.optional(t.boolean, false),
-  })
+const FavoritesCats = T.model('FavoritesCats', {
+  displayMode: T.optional(
+    T.enumeration('displayMode', ['list', 'hide']),
+    'hide'
+  ),
+  pagedCategories: T.optional(PagedFavoriteCategories, emptyPagiData),
+  editCategory: T.optional(FavoriteCategory, emptyCat),
+  /* curView: T.optional(T.enumeration('curView', ['box', 'list']), 'box'), */
+  showModal: T.optional(T.boolean, false),
+  showUpdater: T.optional(T.boolean, false),
+  showCreator: T.optional(T.boolean, false),
+  showSetter: T.optional(T.boolean, false),
+  // open creator from setter, so we can go back to setter based on this state
+  createfromSetter: T.optional(T.boolean, false),
+  thread: T.maybeNull(
+    T.enumeration(
+      [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO],
+      THREAD.POST
+    )
+  ),
+  loading: T.optional(T.boolean, false),
+  doing: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

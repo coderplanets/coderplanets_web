@@ -100,7 +100,7 @@ module.exports = {
         path: `${STORE_TARGET_DIR}/RootStore/index.js`,
         pattern: /(\/\/ GEN: PLUG SUBSTORE TO ROOTSTORE)/g,
         template:
-          '    {{ camelCase name}}: t.optional({{properCase name}}Store, {{preCurly ""}}{{afterCurly ""}}),',
+          '    {{ camelCase name}}: T.optional({{properCase name}}Store, {{preCurly ""}}{{afterCurly ""}}),',
       },
     ]
 
@@ -109,16 +109,6 @@ module.exports = {
         type: 'add',
         path: `${TARGET_DIR}/{{properCase name}}/service.js`,
         templateFile: './container/service.js.hbs',
-        abortOnFail: true,
-      })
-    }
-
-    // If they want a i18n messages file
-    if (data.wantI18n) {
-      actions.push({
-        type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/lang.js`,
-        templateFile: './container/lang.js.hbs',
         abortOnFail: true,
       })
     }

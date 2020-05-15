@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { TYPE } from '@/constant'
@@ -13,30 +13,29 @@ import { PagedUsers, emptyPagiData } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:UserLister')
 
-const UserLister = t
-  .model('UserLister', {
-    show: t.optional(t.boolean, false),
-    curView: t.optional(
-      t.enumeration('curView', [TYPE.RESULT, TYPE.LOADING, TYPE.RESULT_EMPTY]),
-      TYPE.LOADING
-    ),
-    pagedUsers: t.optional(PagedUsers, emptyPagiData),
-    type: t.optional(
-      t.enumeration('type', [
-        TYPE.USER_LISTER_FAVORITES,
-        TYPE.USER_LISTER_STARS,
-        TYPE.USER_LISTER_COMMUNITY_EDITORS,
-        TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS,
-        TYPE.USER_LISTER_FOLLOWINGS,
-        TYPE.USER_LISTER_FOLLOWERS,
-      ]),
-      TYPE.USER_LISTER_FAVORITES
-    ),
-    id: t.maybeNull(t.string),
-    thread: t.maybeNull(t.string),
-    action: t.maybeNull(t.string),
-    brief: t.optional(t.string, ''),
-  })
+const UserLister = T.model('UserLister', {
+  show: T.optional(T.boolean, false),
+  curView: T.optional(
+    T.enumeration('curView', [TYPE.RESULT, TYPE.LOADING, TYPE.RESULT_EMPTY]),
+    TYPE.LOADING
+  ),
+  pagedUsers: T.optional(PagedUsers, emptyPagiData),
+  type: T.optional(
+    T.enumeration('type', [
+      TYPE.USER_LISTER_FAVORITES,
+      TYPE.USER_LISTER_STARS,
+      TYPE.USER_LISTER_COMMUNITY_EDITORS,
+      TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS,
+      TYPE.USER_LISTER_FOLLOWINGS,
+      TYPE.USER_LISTER_FOLLOWERS,
+    ]),
+    TYPE.USER_LISTER_FAVORITES
+  ),
+  id: T.maybeNull(T.string),
+  thread: T.maybeNull(T.string),
+  action: T.maybeNull(T.string),
+  brief: T.optional(T.string, ''),
+})
   .views(self => ({
     get root() {
       return getParent(self)

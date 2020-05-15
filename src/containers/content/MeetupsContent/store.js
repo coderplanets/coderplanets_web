@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
@@ -11,8 +11,7 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:MeetupsContent')
 
 // NOTE: add me to stores/index && stores/RootStore/index
-const MeetupsContent = t
-  .model('MeetupsContent', {})
+const MeetupsContent = T.model('MeetupsContent', {})
   .views(self => ({
     get root() {
       return getParent(self)

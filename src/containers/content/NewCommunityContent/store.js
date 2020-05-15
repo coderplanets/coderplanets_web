@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 
 // stripMobx
 import { markStates, buildLog } from '@/utils'
@@ -12,43 +12,42 @@ import { LN } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitiesContentStore')
 
-const CommunitiesContentStore = t
-  .model('NewCommunityContentStore', {
-    step: t.optional(
-      t.enumeration([
-        LN.STEP.SELECT_TYPE,
-        LN.STEP.SETUP_DOMAIN,
-        LN.STEP.SETUP_INFO,
-      ]),
-      LN.STEP.SELECT_TYPE // SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
-    ),
+const CommunitiesContentStore = T.model('NewCommunityContentStore', {
+  step: T.optional(
+    T.enumeration([
+      LN.STEP.SELECT_TYPE,
+      LN.STEP.SETUP_DOMAIN,
+      LN.STEP.SETUP_INFO,
+    ]),
+    LN.STEP.SELECT_TYPE // SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
+  ),
 
-    communityType: t.maybeNull(
-      t.enumeration([
-        LN.COMMUNITY_TYPE.STANDER,
-        LN.COMMUNITY_TYPE.CITY,
-        LN.COMMUNITY_TYPE.WORK,
-        LN.COMMUNITY_TYPE.TEAM,
-      ])
-    ),
+  communityType: T.maybeNull(
+    T.enumeration([
+      LN.COMMUNITY_TYPE.STANDER,
+      LN.COMMUNITY_TYPE.CITY,
+      LN.COMMUNITY_TYPE.WORK,
+      LN.COMMUNITY_TYPE.TEAM,
+    ])
+  ),
 
-    domainValue: t.optional(t.string, ''),
-    titleValue: t.optional(t.string, ''),
-    descValue: t.optional(t.string, ''),
+  domainValue: T.optional(T.string, ''),
+  titleValue: T.optional(T.string, ''),
+  descValue: T.optional(T.string, ''),
 
-    // current active sidbar menu id
-    // cur active category
+  // current active sidbar menu id
+  // cur active category
 
-    // search status
-    // searching: t.optional(t.boolean, false),
-    // isSearchMode: t.optional(t.boolean, false),
-    // searchResultCount: t.optional(t.number, 0),
-    // searchValue: t.optional(t.string, ''),
-    // showSearchMask: t.optional(t.boolean, true),
-    // showCreateHint: t.optional(t.boolean, true),
-    // showSearchHint: t.optional(t.boolean, false),
-    // searchfocused: t.optional(t.boolean, false),
-  })
+  // search status
+  // searching: T.optional(T.boolean, false),
+  // isSearchMode: T.optional(T.boolean, false),
+  // searchResultCount: T.optional(T.number, 0),
+  // searchValue: T.optional(T.string, ''),
+  // showSearchMask: T.optional(T.boolean, true),
+  // showCreateHint: T.optional(T.boolean, true),
+  // showSearchHint: T.optional(T.boolean, false),
+  // searchfocused: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

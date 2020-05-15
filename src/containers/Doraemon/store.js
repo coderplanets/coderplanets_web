@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { THREAD } from '@/constant'
@@ -39,42 +39,41 @@ const convertThreadsToMaps = com => {
   }
 }
 
-const Suggestion = t.model('Suggestion', {
-  title: t.string,
-  desc: t.maybeNull(t.string),
-  raw: t.string,
-  id: t.maybeNull(t.string),
-  logo: t.maybeNull(t.string),
-  cmd: t.maybeNull(t.enumeration('cmd', ['theme', 'log'])),
-  descType: t.optional(
-    t.enumeration('descType', ['text', 'component']),
+const Suggestion = T.model('Suggestion', {
+  title: T.string,
+  desc: T.maybeNull(T.string),
+  raw: T.string,
+  id: T.maybeNull(T.string),
+  logo: T.maybeNull(T.string),
+  cmd: T.maybeNull(T.enumeration('cmd', ['theme', 'log'])),
+  descType: T.optional(
+    T.enumeration('descType', ['text', 'component']),
     'text'
   ),
 })
 
-const DoraemonStore = t
-  .model('DoraemonStore', {
-    visible: t.optional(t.boolean, false),
-    searching: t.optional(t.boolean, false),
-    showAlert: t.optional(t.boolean, false),
-    showUtils: t.optional(t.boolean, false),
-    showThreadSelector: t.optional(t.boolean, false),
-    searchedTotalCount: t.optional(t.number, 0),
+const DoraemonStore = T.model('DoraemonStore', {
+  visible: T.optional(T.boolean, false),
+  searching: T.optional(T.boolean, false),
+  showAlert: T.optional(T.boolean, false),
+  showUtils: T.optional(T.boolean, false),
+  showThreadSelector: T.optional(T.boolean, false),
+  searchedTotalCount: T.optional(T.number, 0),
 
-    searchThread: t.optional(
-      t.enumeration('searchThread', [...R.values(THREAD), 'community']),
-      'community'
-    ),
+  searchThread: T.optional(
+    T.enumeration('searchThread', [...R.values(THREAD), 'community']),
+    'community'
+  ),
 
-    inputValue: t.optional(t.string, ''),
-    suggestions: t.optional(t.array(Suggestion), []),
-    activeRaw: t.maybeNull(t.string),
-    // TODO: prefix -> cmdPrefix, and prefix be a getter
-    prefix: t.optional(t.string, ''),
-    // for log config, input login/password ... etc
-    inputForOtherUse: t.optional(t.boolean, false),
-    cmdChain: t.maybeNull(t.array(t.string)),
-  })
+  inputValue: T.optional(T.string, ''),
+  suggestions: T.optional(T.array(Suggestion), []),
+  activeRaw: T.maybeNull(T.string),
+  // TODO: prefix -> cmdPrefix, and prefix be a getter
+  prefix: T.optional(T.string, ''),
+  // for log config, input login/password ... etc
+  inputForOtherUse: T.optional(T.boolean, false),
+  cmdChain: T.maybeNull(T.array(T.string)),
+})
   .views(self => ({
     get root() {
       return getParent(self)

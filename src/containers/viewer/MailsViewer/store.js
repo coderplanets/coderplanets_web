@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -12,20 +12,19 @@ import { PagedMentionMessages, emptyPagiData } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:MailsViewer')
 
-const MailsViewer = t
-  .model('MailsViewer', {
-    pagedMentions: t.optional(PagedMentionMessages, emptyPagiData),
-    readState: t.optional(t.boolean, false),
-    activeRaw: t.optional(
-      t.enumeration('notifications', [
-        'notifications',
-        'mentions',
-        'sys_notifications',
-      ]),
-      'mentions'
-    ),
-    loading: t.optional(t.boolean, false),
-  })
+const MailsViewer = T.model('MailsViewer', {
+  pagedMentions: T.optional(PagedMentionMessages, emptyPagiData),
+  readState: T.optional(T.boolean, false),
+  activeRaw: T.optional(
+    T.enumeration('notifications', [
+      'notifications',
+      'mentions',
+      'sys_notifications',
+    ]),
+    'mentions'
+  ),
+  loading: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

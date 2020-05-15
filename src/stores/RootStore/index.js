@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { EVENT } from '@/constant'
@@ -110,113 +110,112 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('S:rootStore')
 
-const rootStore = t
-  .model({
-    // domain stores
-    account: t.optional(AccountStore, {}),
-    route: t.optional(RouteStore, {}),
-    viewing: t.optional(ViewingStore, {}),
-    comments: t.optional(CommentsStore, {}),
-    theme: t.optional(ThemeStore, ThemeDefaults),
-    appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
-    appLangs: t.map(t.frozen()),
-    // domain end
+const rootStore = T.model({
+  // domain stores
+  account: T.optional(AccountStore, {}),
+  route: T.optional(RouteStore, {}),
+  viewing: T.optional(ViewingStore, {}),
+  comments: T.optional(CommentsStore, {}),
+  theme: T.optional(ThemeStore, ThemeDefaults),
+  appLocale: T.optional(T.enumeration('locale', ['zh', 'en']), 'zh'),
+  appLangs: T.map(T.frozen()),
+  // domain end
 
-    // toolbox
-    sidebar: t.optional(SidebarStore, { menuItems: [] }),
-    preview: t.optional(PreviewStore, { visible: false }),
-    doraemon: t.optional(DoraemonStore, {}),
-    jobEditor: t.optional(JobEditorStore, {}),
-    postEditor: t.optional(PostEditorStore, {}),
-    videoEditor: t.optional(VideoEditorStore, {}),
-    repoEditor: t.optional(RepoEditorStore, {}),
-    accountEditor: t.optional(AccountEditorStore, {}),
-    upgradePackges: t.optional(UpgradePackgesStore, {}),
-    mailBox: t.optional(MailBoxStore, {}),
-    labeler: t.optional(LabelerStore, {}),
-    docUploader: t.optional(DocUploaderStore, {}),
-    avatarAdder: t.optional(AvatarAdderStore, {}),
-    // toolbox end
+  // toolbox
+  sidebar: T.optional(SidebarStore, { menuItems: [] }),
+  preview: T.optional(PreviewStore, { visible: false }),
+  doraemon: T.optional(DoraemonStore, {}),
+  jobEditor: T.optional(JobEditorStore, {}),
+  postEditor: T.optional(PostEditorStore, {}),
+  videoEditor: T.optional(VideoEditorStore, {}),
+  repoEditor: T.optional(RepoEditorStore, {}),
+  accountEditor: T.optional(AccountEditorStore, {}),
+  upgradePackges: T.optional(UpgradePackgesStore, {}),
+  mailBox: T.optional(MailBoxStore, {}),
+  labeler: T.optional(LabelerStore, {}),
+  docUploader: T.optional(DocUploaderStore, {}),
+  avatarAdder: T.optional(AvatarAdderStore, {}),
+  // toolbox end
 
-    // layouts > xxx > papers
-    // layouts
-    globalLayout: t.optional(GlobalLayoutStore, {}),
-    richEditor: t.optional(RichEditorStore, {}),
-    header: t.optional(HeaderStore, {}),
-    // layouts end
+  // layouts > xxx > papers
+  // layouts
+  globalLayout: T.optional(GlobalLayoutStore, {}),
+  richEditor: T.optional(RichEditorStore, {}),
+  header: T.optional(HeaderStore, {}),
+  // layouts end
 
-    errorBox: t.optional(ErrorBoxStore, {}),
+  errorBox: T.optional(ErrorBoxStore, {}),
 
-    // banners
-    articleBanner: t.optional(ArticleBannerStore, {}),
-    communityBanner: t.optional(CommunityBannerStore, {}),
-    userBanner: t.optional(UserBannerStore, {}),
+  // banners
+  articleBanner: T.optional(ArticleBannerStore, {}),
+  communityBanner: T.optional(CommunityBannerStore, {}),
+  userBanner: T.optional(UserBannerStore, {}),
 
-    // content
-    communityContent: t.optional(CommunityContentStore, {}),
+  // content
+  communityContent: T.optional(CommunityContentStore, {}),
 
-    communitiesContent: t.optional(CommunitiesContentStore, {}),
-    newCommunityContent: t.optional(NewCommunityContentStore, {}),
-    postContent: t.optional(PostContentStore, {}),
-    jobContent: t.optional(JobContentStore, {}),
-    videoContent: t.optional(VideoContentStore, {}),
-    repoContent: t.optional(RepoContentStore, {}),
-    userContent: t.optional(UserContentStore, {}),
-    // content end
+  communitiesContent: T.optional(CommunitiesContentStore, {}),
+  newCommunityContent: T.optional(NewCommunityContentStore, {}),
+  postContent: T.optional(PostContentStore, {}),
+  jobContent: T.optional(JobContentStore, {}),
+  videoContent: T.optional(VideoContentStore, {}),
+  repoContent: T.optional(RepoContentStore, {}),
+  userContent: T.optional(UserContentStore, {}),
+  // content end
 
-    // footer
-    footer: t.optional(FooterStore, {}),
-    // threads
-    postsThread: t.optional(PostsThreadStore, {}),
-    videosThread: t.optional(VideosThreadStore, {}),
-    reposThread: t.optional(ReposThreadStore, {}),
-    wikiThread: t.optional(WikiThreadStore, {}),
-    jobsThread: t.optional(JobsThreadStore, {}),
-    usersThread: t.optional(UsersThreadStore, {}),
-    cheatsheetThread: t.optional(CheatsheetThreadStore, {}),
+  // footer
+  footer: T.optional(FooterStore, {}),
+  // threads
+  postsThread: T.optional(PostsThreadStore, {}),
+  videosThread: T.optional(VideosThreadStore, {}),
+  reposThread: T.optional(ReposThreadStore, {}),
+  wikiThread: T.optional(WikiThreadStore, {}),
+  jobsThread: T.optional(JobsThreadStore, {}),
+  usersThread: T.optional(UsersThreadStore, {}),
+  cheatsheetThread: T.optional(CheatsheetThreadStore, {}),
 
-    tagsBar: t.optional(TagsBarStore, {}),
-    userLister: t.optional(UserListerStore, {}),
-    informer: t.optional(InformerStore, {}),
-    girlVerifier: t.optional(GirlVerifierStore, {}),
-    cashier: t.optional(CashierStore, {}),
-    articleAuthorCard: t.optional(ArticleAuthorCardStore, {}),
-    communitySetter: t.optional(CommunitySetterStore, {}),
+  tagsBar: T.optional(TagsBarStore, {}),
+  userLister: T.optional(UserListerStore, {}),
+  informer: T.optional(InformerStore, {}),
+  girlVerifier: T.optional(GirlVerifierStore, {}),
+  cashier: T.optional(CashierStore, {}),
+  articleAuthorCard: T.optional(ArticleAuthorCardStore, {}),
+  communitySetter: T.optional(CommunitySetterStore, {}),
 
-    articleViewerHeader: t.optional(ArticleViewerHeader, {}),
-    articleBodyHeader: t.optional(ArticleBodyHeaderStore, {}),
-    // viewers (for preview usage)
-    postViewer: t.optional(PostViewerStore, {}),
-    jobViewer: t.optional(JobViewerStore, {}),
-    videoViewer: t.optional(VideoViewerStore, {}),
-    repoViewer: t.optional(RepoViewerStore, {}),
-    mailsViewer: t.optional(MailsViewerStore, {}),
-    accountViewer: t.optional(AccountViewerStore, {}),
+  articleViewerHeader: T.optional(ArticleViewerHeader, {}),
+  articleBodyHeader: T.optional(ArticleBodyHeaderStore, {}),
+  // viewers (for preview usage)
+  postViewer: T.optional(PostViewerStore, {}),
+  jobViewer: T.optional(JobViewerStore, {}),
+  videoViewer: T.optional(VideoViewerStore, {}),
+  repoViewer: T.optional(RepoViewerStore, {}),
+  mailsViewer: T.optional(MailsViewerStore, {}),
+  accountViewer: T.optional(AccountViewerStore, {}),
 
-    // user page
-    userPublished: t.optional(UserPublishedStore, {}),
-    userPublishedComments: t.optional(UserPublishedCommentsStore, {}),
-    userBilling: t.optional(UserBillingStore, {}),
-    userSettings: t.optional(UserSettingsStore, {}),
-    userStared: t.optional(UserStaredStore, {}),
-    userFavorited: t.optional(UserFavoritedStore, {}),
-    favoritesCats: t.optional(FavoritesCatsStore, {}),
+  // user page
+  userPublished: T.optional(UserPublishedStore, {}),
+  userPublishedComments: T.optional(UserPublishedCommentsStore, {}),
+  userBilling: T.optional(UserBillingStore, {}),
+  userSettings: T.optional(UserSettingsStore, {}),
+  userStared: T.optional(UserStaredStore, {}),
+  userFavorited: T.optional(UserFavoritedStore, {}),
+  favoritesCats: T.optional(FavoritesCatsStore, {}),
 
-    // have a drink
-    meetupsContent: t.optional(MeetupsContentStore, {}),
-    haveADrinkContent: t.optional(HaveADrinkContentStore, {}),
-    coolGuideContent: t.optional(CoolGuideContentStore, {}),
+  // have a drink
+  meetupsContent: T.optional(MeetupsContentStore, {}),
+  haveADrinkContent: T.optional(HaveADrinkContentStore, {}),
+  coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
-    // GEN: PLUG SUBSTORE TO ROOTSTORE
-    interviewContent: t.optional(InterviewContentStore, {}),
-    snippetsContent: t.optional(SnippetsContentStore, {}),
-    sponsorContent: t.optional(SponsorContentStore, {}),
-    joinModal: t.optional(JoinModalStore, {}),
-    trendingContent: t.optional(TrendingContentStore, {}),
-    worksContent: t.optional(WorksContentStore, {}),
-    c11NSettingPanel: t.optional(C11NSettingPanelStore, {}),
-    roadmapThread: t.optional(RoadmapThreadStore, {}),
-  })
+  // GEN: PLUG SUBSTORE TO ROOTSTORE
+  interviewContent: T.optional(InterviewContentStore, {}),
+  snippetsContent: T.optional(SnippetsContentStore, {}),
+  sponsorContent: T.optional(SponsorContentStore, {}),
+  joinModal: T.optional(JoinModalStore, {}),
+  trendingContent: T.optional(TrendingContentStore, {}),
+  worksContent: T.optional(WorksContentStore, {}),
+  c11NSettingPanel: T.optional(C11NSettingPanelStore, {}),
+  roadmapThread: T.optional(RoadmapThreadStore, {}),
+})
   .views(self => ({
     get isOnline() {
       return self.globalLayout.online
