@@ -12,6 +12,7 @@ export const Wrapper = styled.aside.attrs(props => ({
   position: fixed;
   height: 100vh;
   top: 0;
+  left: 0;
   width: ${({ pin }) => (pin ? '260px' : '56px')};
   box-shadow: ${({ pin }) => (pin ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
   background: ${theme('sidebar.bg')};

@@ -1,4 +1,4 @@
-describe('home page layout', () => {
+describe('home page layout: ', () => {
   // beforeEach(() => {
   before(() => {
     cy.visit('/home/posts')
