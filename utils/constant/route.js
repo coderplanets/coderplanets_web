@@ -26,7 +26,7 @@ const ROUTE = {
   WORKS: 'works',
   TRENDING: 'trending',
   SPONSOR: 'sponsor',
-  SNIPPETS: 'snippets',
+  RECIPES: 'recipes',
   INTERVIEW: 'interview',
 }
 

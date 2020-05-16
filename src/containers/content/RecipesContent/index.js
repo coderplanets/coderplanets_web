@@ -2,14 +2,14 @@
 
 /*
  *
- * SnippetsContent
+ * RecipesContent
  *
  */
 
 import React from 'react'
 
 import { connectStore, buildLog } from '@/utils'
-import { SNIPPET } from '@/constant'
+import { RECIPE } from '@/constant'
 
 import Snippets from './Snippets'
 import Cheatsheets from './Cheatsheets'
@@ -19,15 +19,15 @@ import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:SnippetsContent')
+const log = buildLog('C:RecipesContent')
 
-const SnippetsContentContainer = ({ snippetsContent }) => {
-  useInit(snippetsContent)
+const RecipesContentContainer = ({ recipesContent }) => {
+  useInit(recipesContent)
 
-  const { galleryType, mainView } = snippetsContent
+  const { galleryType, mainView } = recipesContent
 
   return (
-    <Wrapper testid="snippetsContent">
+    <Wrapper testid="recipes-content">
       <InnerWrapper>
         <FilterBar
           mainView={mainView}
@@ -36,7 +36,7 @@ const SnippetsContentContainer = ({ snippetsContent }) => {
           // initActiveMenuId={initActiveMenuId}
         />
         <ContentWrapper>
-          {mainView === SNIPPET.SNIPPETS_VIEW ? (
+          {mainView === RECIPE.SNIPPETS_VIEW ? (
             <Snippets galleryType={galleryType} />
           ) : (
             <Cheatsheets galleryType={galleryType} />
@@ -47,4 +47,4 @@ const SnippetsContentContainer = ({ snippetsContent }) => {
   )
 }
 
-export default connectStore(SnippetsContentContainer)
+export default connectStore(RecipesContentContainer)

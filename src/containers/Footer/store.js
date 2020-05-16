@@ -35,7 +35,7 @@ const Footer = T.model('Footer', {
         ROUTE.WORKS,
         ROUTE.TRENDING,
         ROUTE.SPONSOR,
-        ROUTE.SNIPPETS,
+        ROUTE.RECIPES,
         ROUTE.INTERVIEW,
       ])
     },

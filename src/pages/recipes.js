@@ -15,7 +15,7 @@ import {
 import initRootStore from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
-import SnippetsContent from '@/containers/content/SnippetsContent'
+import RecipesContent from '@/containers/content/RecipesContent'
 
 import { P } from '@/schemas'
 
@@ -40,7 +40,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class CoolGuidePage extends React.Component {
+export default class RecipesPage extends React.Component {
   static async getInitialProps(props) {
     const { mainPath, subPath } = parseURL(props)
     let resp
@@ -66,7 +66,7 @@ export default class CoolGuidePage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath, subPath: ROUTE.SNIPPETS },
+      route: { mainPath, subPath: ROUTE.RECIPES },
     }
   }
 
@@ -83,7 +83,7 @@ export default class CoolGuidePage extends React.Component {
     const { statusCode, target } = this.props
 
     const seoConfig = {
-      url: `${SITE_URL}/${ROUTE.SNIPPETS}`,
+      url: `${SITE_URL}/${ROUTE.RECIPES}`,
       title: 'coderplanets 社区',
       description: '最性感的开发者社区',
     }
@@ -93,12 +93,12 @@ export default class CoolGuidePage extends React.Component {
         <GlobalLayout
           noSidebar
           metric="default"
-          page={ROUTE.SNIPPETS}
+          page={ROUTE.RECIPES}
           seoConfig={seoConfig}
           errorCode={statusCode}
           errorPath={target}
         >
-          <SnippetsContent />
+          <RecipesContent />
         </GlobalLayout>
       </Provider>
     )

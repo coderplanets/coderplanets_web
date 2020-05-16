@@ -20,7 +20,7 @@ import { topFilterOnChange } from './logic'
 
 const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
   return (
-    <Wrapper>
+    <Wrapper testid="filter-bar">
       <TopFilter>
         <NaviIntro
           title="酷导游"

@@ -7,11 +7,11 @@ import { buildLog } from '@/utils'
 let store = null
 
 /* eslint-disable-next-line */
-const log = buildLog('L:SnippetsContent')
+const log = buildLog('L:RecipesContent')
 
 export const topFilterOnChange = () => {}
 /**
- * change main view (snippets or cheatsheet)
+ * change main view (recipes or cheatsheet)
  * @param {string} mainView
  */
 export const mainViewOnChange = mainView => {
@@ -19,7 +19,7 @@ export const mainViewOnChange = mainView => {
 }
 
 /**
- * change the display type of current snippets
+ * change the display type of current recipes
  * @param {string} displayType
  */
 export const galleryTypeOnChange = ({ key: galleryType }) => {

@@ -122,11 +122,11 @@ const ssrCache = new LRUCache({
     renderAndCache(req, res, '/sponsor', req.query)
   )
 
-  server.get('/snippets/', (req, res) =>
-    renderAndCache(req, res, '/snippets', req.query)
+  server.get('/recipes/', (req, res) =>
+    renderAndCache(req, res, '/recipes', req.query)
   )
-  server.get('/snippets/*', (req, res) =>
-    renderAndCache(req, res, '/snippets', req.query)
+  server.get('/recipes/*', (req, res) =>
+    renderAndCache(req, res, '/recipes', req.query)
   )
 
   server.get('/interview/', (req, res) =>

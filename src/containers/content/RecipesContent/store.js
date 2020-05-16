@@ -1,20 +1,20 @@
 /*
- * SnippetsContent store
+ * RecipesContent store
  *
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { GALLERY, SNIPPET } from '@/constant'
+import { GALLERY, RECIPE } from '@/constant'
 import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
-const log = buildLog('S:SnippetsContent')
+const log = buildLog('S:RecipesContent')
 
-const SnippetsContent = T.model('SnippetsContent', {
+const RecipesContent = T.model('RecipesContent', {
   mainView: T.optional(
-    T.enumeration([SNIPPET.SNIPPETS_VIEW, SNIPPET.CHEATSHEETS_VIEW]),
-    SNIPPET.SNIPPETS_VIEW
+    T.enumeration([RECIPE.SNIPPETS_VIEW, RECIPE.CHEATSHEETS_VIEW]),
+    RECIPE.SNIPPETS_VIEW
   ),
   galleryType: T.optional(
     T.enumeration([
@@ -36,4 +36,4 @@ const SnippetsContent = T.model('SnippetsContent', {
     },
   }))
 
-export default SnippetsContent
+export default RecipesContent

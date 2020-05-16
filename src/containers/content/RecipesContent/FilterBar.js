@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { SNIPPET } from '@/constant'
+import { RECIPE } from '@/constant'
 import { useTrans } from '@/hooks'
 
 import Sticky from '@/components/Sticky'
@@ -30,12 +30,13 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
   const { t } = useTrans()
 
   return (
-    <Wrapper>
+    <Wrapper testid="filter-bar">
       <TopFilter>
         <NaviIntro
           title="代码片段"
-          desc="useful snippets"
+          desc="useful recipes"
           iconSrc={`${ICON_CMD}/header/more_snippets.svg`}
+          testid="filter-navi-intro"
         />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>{t('all')}</Option>
@@ -69,11 +70,11 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           activeKey={mainView}
           group={[
             {
-              key: SNIPPET.SNIPPETS_VIEW,
+              key: RECIPE.SNIPPETS_VIEW,
               title: '片段',
             },
             {
-              key: SNIPPET.CHEATSHEETS_VIEW,
+              key: RECIPE.CHEATSHEETS_VIEW,
               title: '速查表',
             },
           ]}
@@ -92,6 +93,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           withDivider={false}
           showMoreItem
           onShowMore={() => console.log('show more')}
+          testid="filter-navi-menu"
         />
       </Sticky>
     </Wrapper>
