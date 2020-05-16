@@ -65,8 +65,6 @@ const parseSubDomain = args => {
     // on server side
     const { subdomains } = args.req
     // eslint-disable-next-line no-console
-    console.log('subdomains: ', subdomains)
-
     // NOTE:  subdomains is reversed
     // http://expressjs.com/en/4x/api.html#req.subdomains
     if (!R.isEmpty(subdomains)) {

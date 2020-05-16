@@ -30,7 +30,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
   const { t } = useTrans()
 
   return (
-    <Wrapper>
+    <Wrapper testid="filter-bar">
       <TopFilter>
         <NaviIntro
           title="代码片段"

@@ -24,7 +24,7 @@ const CoolGuideContentContainer = ({ coolGuideContent }) => {
   const { initActiveMenuId, topFilter, displayType } = coolGuideContent
 
   return (
-    <Wrapper>
+    <Wrapper testid="cool-guide-content">
       <InnerWrapper>
         <FilterBar
           topFilter={topFilter}

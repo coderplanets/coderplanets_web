@@ -27,7 +27,7 @@ const SnippetsContentContainer = ({ snippetsContent }) => {
   const { galleryType, mainView } = snippetsContent
 
   return (
-    <Wrapper testid="snippetsContent">
+    <Wrapper testid="snippets-content">
       <InnerWrapper>
         <FilterBar
           mainView={mainView}
