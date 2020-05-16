@@ -1,5 +1,5 @@
 //
-describe('communities page layout', () => {
+describe('communities page: ', () => {
   // beforeEach(() => {
   before(() => {
     cy.visit('/communities')
