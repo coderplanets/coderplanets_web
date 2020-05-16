@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:3000",
   "projectId": "w5dkjg",
-  "pageLoadTimeout": 6000000
+  "pageLoadTimeout": 6000000,
+  "blacklistHosts": "www.googletagmanager.com"
 }
