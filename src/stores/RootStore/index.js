@@ -98,7 +98,7 @@ import {
 
   // GEN: IMPORT SUBSTORE
   InterviewContentStore,
-  SnippetsContentStore,
+  RecipesContentStore,
   SponsorContentStore,
   JoinModalStore,
   TrendingContentStore,
@@ -208,7 +208,7 @@ const rootStore = T.model({
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
   interviewContent: T.optional(InterviewContentStore, {}),
-  snippetsContent: T.optional(SnippetsContentStore, {}),
+  recipesContent: T.optional(RecipesContentStore, {}),
   sponsorContent: T.optional(SponsorContentStore, {}),
   joinModal: T.optional(JoinModalStore, {}),
   trendingContent: T.optional(TrendingContentStore, {}),

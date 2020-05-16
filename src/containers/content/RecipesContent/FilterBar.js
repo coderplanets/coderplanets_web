@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { SNIPPET } from '@/constant'
+import { RECIPE } from '@/constant'
 import { useTrans } from '@/hooks'
 
 import Sticky from '@/components/Sticky'
@@ -34,7 +34,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
       <TopFilter>
         <NaviIntro
           title="代码片段"
-          desc="useful snippets"
+          desc="useful recipes"
           iconSrc={`${ICON_CMD}/header/more_snippets.svg`}
         />
         {topFilter !== 'all' && (
@@ -69,11 +69,11 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           activeKey={mainView}
           group={[
             {
-              key: SNIPPET.SNIPPETS_VIEW,
+              key: RECIPE.SNIPPETS_VIEW,
               title: '片段',
             },
             {
-              key: SNIPPET.CHEATSHEETS_VIEW,
+              key: RECIPE.CHEATSHEETS_VIEW,
               title: '速查表',
             },
           ]}

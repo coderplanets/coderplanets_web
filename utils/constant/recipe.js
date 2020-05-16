@@ -1,4 +1,4 @@
-const SNIPPET = {
+const RECIPE = {
   SNIPPETS_VIEW: 'snippets_view',
   CHEATSHEETS_VIEW: 'cheatsheets_view',
   DEFAULT: 'DEFAULT',
@@ -6,4 +6,4 @@ const SNIPPET = {
   MASONRY: 'SNIPPETS_MASONRY',
 }
 
-export default SNIPPET
+export default RECIPE
