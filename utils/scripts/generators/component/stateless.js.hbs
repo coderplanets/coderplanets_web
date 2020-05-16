@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-// import T from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 {{#if wantI18n}}
@@ -19,14 +19,13 @@ import { Wrapper } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:{{ properCase name }}:index')
 
-const {{ properCase name }} = () => {
+const {{ properCase name }} = ({{preCurly ""}} testid {{afterCurly ""}}) => {
   {{#if wantI18n}}
   const { t } = useTrans()
   {{/if}}
-
   return (
     {{#if wantStyle}}
-    <Wrapper testid="{{ camelCase name}}">
+    <Wrapper testid={testid}>
       {{/if}}
       <div>
         <h2>{{ properCase name }} component</h2>
@@ -39,12 +38,11 @@ const {{ properCase name }} = () => {
 }
 
 {{ properCase name }}.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  // attr: PropTypes.string,
+  testid: T.string,
 }
 
 {{ properCase name }}.defaultProps = {
-  // attr: '{{ camelCase name }}',
+  testid: '{{ camelCase name}}',
 }
 
 export default React.memo({{ properCase name }})
