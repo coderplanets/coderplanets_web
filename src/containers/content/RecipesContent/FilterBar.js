@@ -36,6 +36,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           title="代码片段"
           desc="useful recipes"
           iconSrc={`${ICON_CMD}/header/more_snippets.svg`}
+          testid="filter-navi-intro"
         />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>{t('all')}</Option>
@@ -92,6 +93,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           withDivider={false}
           showMoreItem
           onShowMore={() => console.log('show more')}
+          testid="filter-navi-menu"
         />
       </Sticky>
     </Wrapper>

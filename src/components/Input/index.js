@@ -29,13 +29,14 @@ const Input = ({
   prefixActive,
   suffixIcon,
   suffixActive,
+  testid,
   ...restProps
 }) => {
   const handleOnChange = useCallback(e => onChange && onChange(e), [onChange])
   const validProps = R.pickBy(v => v !== null, restProps)
 
   return behavior === 'default' ? (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <PrefixWrapper show={!nilOrEmpty(prefixIcon)}>
         {prefixIcon && <Icon src={prefixIcon} active={prefixActive} />}
       </PrefixWrapper>
@@ -51,7 +52,11 @@ const Input = ({
       </SuffixWrapper>
     </Wrapper>
   ) : (
-    <TextAreaWrapper onChange={handleOnChange} {...validProps} />
+    <TextAreaWrapper
+      testid={testid}
+      onChange={handleOnChange}
+      {...validProps}
+    />
   )
 }
 
@@ -66,6 +71,7 @@ Input.propTypes = {
   suffixActive: T.bool,
   disabled: T.bool,
   autoFocus: T.bool,
+  testid: T.string,
 }
 
 Input.defaultProps = {
@@ -79,6 +85,7 @@ Input.defaultProps = {
   suffixActive: false,
   disabled: false,
   autoFocus: false,
+  testid: 'input',
 }
 
 export default React.memo(Input)
