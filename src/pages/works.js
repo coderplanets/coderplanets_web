@@ -52,7 +52,6 @@ export default class CommunitiesPage extends React.Component {
     const { sessionState, subscribedCommunities } = resp
 
     return {
-      langSetup: {},
       theme: {
         curTheme: parseTheme(sessionState),
       },

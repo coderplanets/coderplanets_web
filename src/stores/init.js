@@ -9,13 +9,13 @@ import RootStore from './RootStore'
 
 let rootStore = null
 
-const createRootStore = ({ langSetup, ...restData }) => {
-  return RootStore.create({ appLangs: langSetup || {}, ...restData }, {})
+const createRootStore = ({ ...restData }) => {
+  return RootStore.create({ ...restData }, {})
 }
 
-function initRootStore({ langSetup, ...restData }) {
+function initRootStore({ ...restData }) {
   if (rootStore === null) {
-    rootStore = createRootStore({ langSetup, ...restData })
+    rootStore = createRootStore({ ...restData })
   }
 
   rootStore.mark({ ...restData })

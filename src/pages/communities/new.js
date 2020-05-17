@@ -83,7 +83,6 @@ export default class NewCommunityPage extends React.Component {
     } = resp
 
     return {
-      langSetup: {},
       theme: {
         curTheme: parseTheme(sessionState),
       },

@@ -117,8 +117,7 @@ const rootStore = T.model({
   viewing: T.optional(ViewingStore, {}),
   comments: T.optional(CommentsStore, {}),
   theme: T.optional(ThemeStore, ThemeDefaults),
-  appLocale: T.optional(T.enumeration('locale', ['zh', 'en']), 'zh'),
-  appLangs: T.map(T.frozen()),
+  locale: T.optional(T.enumeration('locale', ['zh', 'en']), 'zh'),
   // domain end
 
   // toolbox
@@ -223,17 +222,6 @@ const rootStore = T.model({
     get media() {
       return self.globalLayout.media
     },
-    get locale() {
-      return self.appLocale
-    },
-    get langs() {
-      return self.appLangs
-    },
-    get langMessages() {
-      // TODO: try - catch
-      // return self.langs.toJSON()[self.appLocale]
-      return self.langs.get(self.locale)
-    },
     get doraemonVisible() {
       // TODO self.doraemon.visible
       return self.doraemon.visible
@@ -266,16 +254,6 @@ const rootStore = T.model({
     },
     changeTheme(name) {
       self.theme.changeTheme(name)
-    },
-    changeLocale(locale) {
-      self.appLocale = locale
-    },
-    setLangMessages(key, val) {
-      // self.appLangs.set({ en: { fic: 2 } })
-      self.appLangs.set(key, val)
-    },
-    isLocaleExist(locale) {
-      return !!self.langs.get(locale)
     },
     setViewing(sobj) {
       self.viewing.setViewing(sobj)
