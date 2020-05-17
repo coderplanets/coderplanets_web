@@ -20,7 +20,7 @@ import ThemeWrapper from '@/containers/ThemeWrapper'
 import Sidebar from '@/containers/Sidebar'
 import Preview from '@/containers/Preview'
 import Doraemon from '@/containers/Doraemon'
-import Route from '@/containers/Route'
+// import Route from '@/containers/Route'
 import Header from '@/containers/Header'
 import ErrorBox from '@/containers/ErrorBox'
 import Footer from '@/containers/Footer'
@@ -68,12 +68,16 @@ const GlobalLayoutContainer = ({
   const innerWrapperRef = React.createRef()
 
   useEffect(() => {
-    setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  }, [innerWrapperRef])
+    if (errorCode === null) {
+      setInnerMinWidth(calcInitWidth(innerWrapperRef))
+    }
+  }, [innerWrapperRef, errorCode])
 
   useEffect(() => {
-    setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  }, [innerMinWidth, innerWrapperRef])
+    if (errorCode === null) {
+      setInnerMinWidth(calcInitWidth(innerWrapperRef))
+    }
+  }, [innerMinWidth, innerWrapperRef, errorCode])
 
   useResize(() => setInnerMinWidth('none'))
 
@@ -95,7 +99,7 @@ const GlobalLayoutContainer = ({
                 ref={innerWrapperRef}
                 minWidth={innerMinWidth}
               >
-                <Route />
+                {/* <Route /> */}
                 {!noSidebar && <Sidebar />}
                 <Preview />
                 <Doraemon />

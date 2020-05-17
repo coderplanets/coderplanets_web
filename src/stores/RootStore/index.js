@@ -118,6 +118,7 @@ const rootStore = T.model({
   comments: T.optional(CommentsStore, {}),
   theme: T.optional(ThemeStore, ThemeDefaults),
   locale: T.optional(T.enumeration('locale', ['zh', 'en']), 'zh'),
+  statusCode: T.maybeNull(T.number),
   // domain end
 
   // toolbox

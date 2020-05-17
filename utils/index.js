@@ -57,6 +57,7 @@ export {
 
 export {
   parseURL,
+  ssrParseURL,
   akaTranslate,
   getParameterByName,
   getQueryFromUrl,

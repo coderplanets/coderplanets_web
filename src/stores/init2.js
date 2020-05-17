@@ -3,7 +3,7 @@
  *
  */
 
-// import { useMemo } from 'react'
+import { useMemo } from 'react'
 
 import RootStore from './RootStore'
 
@@ -14,7 +14,7 @@ const createRootStore = ({ ...restData }) => {
   return RootStore.create({ ...restData }, {})
 }
 
-function initRootStore({ ...restData }) {
+export function initRootStore({ ...restData }) {
   if (rootStore === null) {
     rootStore = createRootStore({ ...restData })
   }
@@ -24,13 +24,13 @@ function initRootStore({ ...restData }) {
   return rootStore
 }
 
-// export function useStore(initialState) {
-//   // const store = useMemo(() => initializeStore(initialState), [initialState])
-//   const store = useMemo(() => initRootStore(initialState), [initialState])
-//   return store
-// }
+export function useStore(initialState) {
+  // const store = useMemo(() => initializeStore(initialState), [initialState])
+  const store = useMemo(() => initRootStore(initialState), [initialState])
+  return store
+}
 
-export default initRootStore
+// export default initRootStore
 
 // not work, TODO
 /*

@@ -4,10 +4,10 @@ import { theme, cs } from '@/utils'
 import Img from '@/Img'
 import PromptIcon from '@/components/PromptIcon'
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   ${cs.flexColumn('align-center', 'justify-between')};
-
   height: 100vh;
+  width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
   background: ${theme('banner.bg')};
   background-image: url('https://www.transparenttextures.com/patterns/transparent-square-tiles.png');
   border-top: 4px solid;

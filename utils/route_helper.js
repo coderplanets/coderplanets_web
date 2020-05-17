@@ -20,7 +20,8 @@ const parsePathList = R.compose(
   R.reject(R.contains('=')),
   R.reject(R.isEmpty),
   R.split('?'),
-  R.prop('asPath')
+  // R.prop('asPath')
+  R.prop('url')
 )
 
 const INDEX = ''
@@ -28,6 +29,8 @@ const getMainPath = args => {
   // if (R.isEmpty(args)) return INDEX
   if (args.asPath === '/') return INDEX
 
+  // console.log('--2 args req: ', args)
+  console.log('--2 args req: ', args.asPath)
   return parseMainPath(args)
 }
 
@@ -81,7 +84,6 @@ const parseSubDomain = args => {
       communityPath = domainList[0]
     }
     // eslint-disable-next-line no-console
-    console.log('communityPath: ', communityPath)
   }
   return communityPath
 }
@@ -115,6 +117,47 @@ export const parseURL = args => {
     mainPath,
     subPath,
     thridPath,
+  }
+}
+
+// --------------
+
+const ssrParsePathList = R.compose(
+  R.reject(R.isEmpty),
+  R.split('/'),
+  R.head,
+  R.reject(R.contains('=')),
+  R.reject(R.isEmpty),
+  R.split('?')
+)
+
+const ssrGetMainPath = R.compose(
+  R.head,
+  R.split('?'),
+  R.head,
+  R.reject(R.isEmpty),
+  R.split('/')
+)
+
+export const ssrParseURL = req => {
+  const { url } = req
+  console.log('ssrParseURL url: ', url)
+  console.log('getMainPath: ', ssrGetMainPath(url))
+  console.log('ssrParsePathList: ', ssrParsePathList(url))
+  const pathList = ssrParsePathList(url)
+  const mainPath = pathList[0]
+  const subPath = pathList[1]
+
+  const thread = R.endsWith('s', subPath) ? R.slice(0, -1, subPath) : subPath
+  // return uppper ? R.toUpper(thread) : R.toLower(thread)
+
+  return {
+    communityPath: mainPath,
+    threadPath: subPath,
+    mainPath,
+    subPath,
+    thridPath: '',
+    thread: R.toUpper(thread),
   }
 }
 

@@ -42,7 +42,11 @@ async function fetchData(props, opt) {
 
 export default class CoolGuidePage extends React.Component {
   static async getInitialProps(props) {
+    console.log('###2 getServerSideProps ... params: ', props.req.params)
     const { mainPath, subPath } = parseURL(props)
+
+    console.log('###2 getServerSideProps ... mainPath: ', parseURL(props))
+
     let resp
     try {
       resp = await fetchData(props)
