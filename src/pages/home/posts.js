@@ -120,7 +120,6 @@ export default class HomePage extends React.Component {
     // init state on server side
     return R.merge(
       {
-        langSetup: {},
         theme: {
           curTheme: parseTheme(sessionState),
         },
@@ -153,7 +152,7 @@ export default class HomePage extends React.Component {
   constructor(props) {
     super(props)
     const store = props.statusCode
-      ? initRootStore({ langSetup: {} })
+      ? initRootStore()
       : initRootStore({ ...props })
 
     this.store = store

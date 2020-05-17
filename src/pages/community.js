@@ -122,7 +122,6 @@ export default class CommunityPage extends React.Component {
     // init state on server side
     return R.merge(
       {
-        langSetup: {},
         theme: {
           curTheme: parseTheme(sessionState),
         },
@@ -154,8 +153,9 @@ export default class CommunityPage extends React.Component {
 
   constructor(props) {
     super(props)
+    console.log('# hello #')
     const store = props.statusCode
-      ? initRootStore({ langSetup: {} })
+      ? initRootStore()
       : initRootStore({ ...props })
 
     this.store = store

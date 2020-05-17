@@ -15,7 +15,7 @@ export const DynamicRichEditor = dynamic({
 })
 
 const Editor = () => {
-  const store = initRootStore({ langSetup: {} })
+  const store = initRootStore()
 
   return (
     <Provider store={store}>

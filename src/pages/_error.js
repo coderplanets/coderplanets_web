@@ -17,7 +17,7 @@ export default class TheErrorPage extends React.Component {
 
   constructor(props) {
     super(props)
-    this.store = initRootStore({ langSetup: {} })
+    this.store = initRootStore()
   }
 
   render() {

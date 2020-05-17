@@ -45,14 +45,8 @@ const SidebarStore = T.model('SidebarStore', {
     get theme() {
       return self.root.theme
     },
-    get langs() {
-      return self.root.langs
-    },
     get getLoading() {
       return self.loading
-    },
-    get langMessages() {
-      return self.root.langMessages
     },
     get communitiesData() {
       const { searchCommunityValue } = self

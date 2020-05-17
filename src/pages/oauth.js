@@ -15,7 +15,7 @@ export default class Index extends React.Component {
 
   constructor(props) {
     super(props)
-    this.store = initRootStore({ langSetup: '' })
+    this.store = initRootStore()
   }
 
   render() {

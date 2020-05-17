@@ -72,7 +72,6 @@ export default class VideoPage extends React.Component {
     }
 
     return {
-      langSetup: {},
       theme: {
         curTheme: parseTheme(sessionState),
       },
@@ -94,7 +93,7 @@ export default class VideoPage extends React.Component {
   constructor(props) {
     super(props)
     const store = props.statusCode
-      ? initRootStore({ langSetup: {} })
+      ? initRootStore()
       : initRootStore({ ...props })
 
     this.store = store
