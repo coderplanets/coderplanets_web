@@ -3,6 +3,7 @@ const dev =
 
 const next = require('next')
 const express = require('express')
+const cacheableResponse = require('cacheable-response')
 
 const cookieParser = require('cookie-parser')
 const uuidv4 = require('uuid/v4')
@@ -28,14 +29,35 @@ const SERVE_PORT = process.env.SERVE_PORT || 3000
 const HOME_PAGE = '/home/posts'
 
 // SSR for mobx
+// TODO:  remove it ?
 mobxReact.useStaticRendering(true)
 
 // This is where we cache our rendered HTML pages
-const ssrCache = new LRUCache({
-  max: 1000, // cache item count
-  // maxAge: 1000 * 60 * 60, // 1hour
-  maxAge: 1000 * 30, // 30 ses
-  // eslint-disable-next-line prettier/prettier
+const renderAndCache2 = cacheableResponse({
+  ttl: 1000 * 60 * 1, // 1min
+  get: async ({ req, res, pagePath, queryParams }) => {
+    const data = await app.renderToHTML(req, res, pagePath, queryParams)
+
+    // Add here custom logic for when you do not want to cache the page, for
+    // example when the page returns a 404 status code:
+    if (res.statusCode === 404) {
+      console.log('----------------------------')
+      console.log('### cache fuck ..')
+      console.log('----------------------------')
+
+      res.end(data)
+      return
+    }
+
+    return { data }
+  },
+  send: ({ data, res }) => {
+    console.log('----------------------------')
+    console.log('### cache send ..')
+    console.log('----------------------------')
+
+    return res.send(data)
+  },
 })
 
 // eslint-disable-next-line prettier/prettier
@@ -49,9 +71,9 @@ const ssrCache = new LRUCache({
 
   // server.use(Sentry.Handlers.requestHandler())
   server.use(cookieParser())
-  server.use(responseTime())
-  server.use(sessionCookie)
-  server.get(/\.map$/, sourcemapsForSentryOnly(process.env.SENTRY_TOKEN))
+  // server.use(responseTime())
+  // server.use(sessionCookie)
+  // server.get(/\.map$/, sourcemapsForSentryOnly(process.env.SENTRY_TOKEN))
 
   // redirect all the www request to non-www addr
   server.use(reDirectToNakedUrl)
@@ -66,113 +88,129 @@ const ssrCache = new LRUCache({
   server.use(nextI18NextMiddleware(nextI18next))
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
+  server.get('/__nextjs_original-stack-frame/:page?', (req, res) =>
+    handle(req, res)
+  )
 
   server.get('/', (req, res) => res.redirect(HOME_PAGE))
 
-  server.get('/editor', (req, res) =>
-    app.render(req, res, '/editor', req.query)
-  )
+  // server.get('/editor', (req, res) =>
+  //   app.render(req, res, '/editor', req.query)
+  // )
 
-  server.get('/oauth/', (req, res) =>
-    renderAndCache(req, res, '/oauth', req.query)
-  )
+  // server.get('/oauth/', (req, res) =>
+  //   renderAndCache(req, res, '/oauth', req.query)
+  // )
 
-  server.get('/sentry/', (req, res) =>
-    renderAndCache(req, res, '/sentry', req.query)
-  )
+  // server.get('/sentry/', (req, res) =>
+  //   renderAndCache(req, res, '/sentry', req.query)
+  // )
 
-  server.get('/meetups/', (req, res) =>
-    renderAndCache(req, res, '/meetups', req.query)
-  )
-  server.get('/meetups/*', (req, res) =>
-    renderAndCache(req, res, '/meetups', req.query)
-  )
-  server.get('/have-a-drink/', (req, res) =>
-    renderAndCache(req, res, '/have-a-drink', req.query)
-  )
-  server.get('/have-a-drink/*', (req, res) =>
-    renderAndCache(req, res, '/have-a-drink', req.query)
-  )
+  // server.get('/meetups/', (req, res) =>
+  //   renderAndCache(req, res, '/meetups', req.query)
+  // )
+  // server.get('/meetups/*', (req, res) =>
+  //   renderAndCache(req, res, '/meetups', req.query)
+  // )
+  // server.get('/have-a-drink/', (req, res) =>
+  //   renderAndCache(req, res, '/have-a-drink', req.query)
+  // )
+  // server.get('/have-a-drink/*', (req, res) =>
+  //   renderAndCache(req, res, '/have-a-drink', req.query)
+  // )
 
-  server.get('/cool-guide/', (req, res) =>
-    renderAndCache(req, res, '/cool-guide', req.query)
-  )
-  server.get('/cool-guide/*', (req, res) =>
-    renderAndCache(req, res, '/cool-guide', req.query)
-  )
+  // server.get('/cool-guide/', (req, res) =>
+  //   renderAndCache(req, res, '/cool-guide', req.query)
+  // )
+  // server.get('/cool-guide/*', (req, res) =>
+  //   renderAndCache(req, res, '/cool-guide', req.query)
+  // )
 
-  server.get('/works/', (req, res) =>
-    renderAndCache(req, res, '/works', req.query)
-  )
-  server.get('/works/*', (req, res) =>
-    renderAndCache(req, res, '/works', req.query)
-  )
+  // server.get('/works/', (req, res) =>
+  //   renderAndCache(req, res, '/works', req.query)
+  // )
+  // server.get('/works/*', (req, res) =>
+  //   renderAndCache(req, res, '/works', req.query)
+  // )
 
-  server.get('/trending/', (req, res) =>
-    renderAndCache(req, res, '/trending', req.query)
-  )
-  server.get('/trending/*', (req, res) =>
-    renderAndCache(req, res, '/trending', req.query)
-  )
+  // server.get('/trending/', (req, res) =>
+  //   renderAndCache(req, res, '/trending', req.query)
+  // )
+  // server.get('/trending/*', (req, res) =>
+  //   renderAndCache(req, res, '/trending', req.query)
+  // )
 
-  server.get('/sponsor/', (req, res) =>
-    renderAndCache(req, res, '/sponsor', req.query)
-  )
-  server.get('/sponsor/*', (req, res) =>
-    renderAndCache(req, res, '/sponsor', req.query)
-  )
+  // server.get('/sponsor/', (req, res) =>
+  //   renderAndCache(req, res, '/sponsor', req.query)
+  // )
+  // server.get('/sponsor/*', (req, res) =>
+  //   renderAndCache(req, res, '/sponsor', req.query)
+  // )
 
-  server.get('/recipes/', (req, res) =>
-    renderAndCache(req, res, '/recipes', req.query)
-  )
-  server.get('/recipes/*', (req, res) =>
-    renderAndCache(req, res, '/recipes', req.query)
-  )
+  // server.get('/recipes/', (req, res) =>
+  //   renderAndCache(req, res, '/recipes', req.query)
+  // )
+  // server.get('/recipes/*', (req, res) =>
+  //   renderAndCache(req, res, '/recipes', req.query)
+  // )
 
-  server.get('/interview/', (req, res) =>
-    renderAndCache(req, res, '/interview', req.query)
-  )
-  server.get('/interview/*', (req, res) =>
-    renderAndCache(req, res, '/interview', req.query)
-  )
+  // server.get('/interview/', (req, res) =>
+  //   renderAndCache(req, res, '/interview', req.query)
+  // )
+  // server.get('/interview/*', (req, res) =>
+  //   renderAndCache(req, res, '/interview', req.query)
+  // )
 
-  server.get('/service-worker.js', (req, res) =>
-    res.sendFile(`${__dirname}/.next/service-worker.js`)
-  )
+  // server.get('/service-worker.js', (req, res) =>
+  //   res.sendFile(`${__dirname}/.next/service-worker.js`)
+  // )
 
-  // app.render(req, res, '/user', req.query)
-  server.get('/user/:userId', (req, res) =>
-    renderAndCache(req, res, '/user', req.query)
-  )
+  // // app.render(req, res, '/user', req.query)
+  // server.get('/user/:userId', (req, res) =>
+  //   renderAndCache(req, res, '/user', req.query)
+  // )
 
-  server.get('/:community/post/:id', (req, res) =>
-    renderAndCache(req, res, '/post', req.query)
-  )
+  // server.get('/:community/post/:id', (req, res) =>
+  //   renderAndCache(req, res, '/post', req.query)
+  // )
 
-  server.get('/:community/job/:id', (req, res) =>
-    renderAndCache(req, res, '/job', req.query)
-  )
+  // server.get('/:community/job/:id', (req, res) =>
+  //   renderAndCache(req, res, '/job', req.query)
+  // )
 
-  server.get('/:community/video/:id', (req, res) =>
-    renderAndCache(req, res, '/video', req.query)
-  )
+  // server.get('/:community/video/:id', (req, res) =>
+  //   renderAndCache(req, res, '/video', req.query)
+  // )
 
-  server.get('/:community/repo/:id', (req, res) =>
-    renderAndCache(req, res, '/repo', req.query)
-  )
+  // server.get('/:community/repo/:id', (req, res) =>
+  //   renderAndCache(req, res, '/repo', req.query)
+  // )
 
-  server.get('/communities', (req, res) => res.redirect('/communities/pl'))
-  server.get('/communities/new', (req, res) =>
-    renderAndCache(req, res, '/communities/new', req.query)
-  )
+  // server.get('/communities', (req, res) => res.redirect('/communities/pl'))
+  // server.get('/communities/new', (req, res) =>
+  //   renderAndCache(req, res, '/communities/new', req.query)
+  // )
 
-  server.get('/communities/:category', (req, res) =>
-    renderAndCache(req, res, '/communities', req.query)
-  )
+  // server.get('/communities/:category', (req, res) =>
+  //   renderAndCache(req, res, '/communities', req.query)
+  // )
 
-  server.get('/:community/', (req, res) =>
-    res.redirect(`/${req.params.community}/posts`)
-  )
+  // server.get('/:community/', (req, res) =>
+  //   res.redirect(`/${req.params.community}/posts`)
+  // )
+
+  // server.get('/:community/:thread', (req, res) => {
+  //   if (
+  //     R.has('preview', req.query) &&
+  //     R.has('id', req.query) &&
+  //     R.has('community', req.query)
+  //   ) {
+  //     const { community, preview, id } = req.query
+  //     return res.redirect(`/${community}/${preview}/${id}`)
+  //   }
+
+  //   return renderAndCache(req, res, '/community', req.query)
+  // })
 
   server.get('/:community/:thread', (req, res) => {
     if (
@@ -184,7 +222,16 @@ const ssrCache = new LRUCache({
       return res.redirect(`/${community}/${preview}/${id}`)
     }
 
-    return renderAndCache(req, res, '/community', req.query)
+    const query = req.query
+
+    const queryParams = req.query
+    const pagePath = '/community'
+
+    console.log('the fucking query: ', queryParams)
+    // const pagePath = '/blog'
+
+    // return app.render(req, res, '/community', req.query)
+    return renderAndCache2({ req, res, pagePath, queryParams })
   })
 
   server.get('*', (req, res) => handle(req, res))

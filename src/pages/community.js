@@ -3,7 +3,6 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
-// import initRootStore from '@/stores/init'
 import { useStore } from '@/stores/init2'
 
 import {
@@ -86,9 +85,7 @@ async function fetchData(props, opt) {
 }
 
 export async function getServerSideProps(props) {
-  // const { communityPath, threadPath, thread } = ssrParseURL(props.req)
   const { communityPath, thread } = ssrParseURL(props.req)
-  // const thread = extractThreadFromPath(props)
 
   let resp
   try {
@@ -102,7 +99,7 @@ export async function getServerSideProps(props) {
     } else {
       return {
         props: {
-          statusCode: 404,
+          errorCode: 404,
           target: communityPath,
           viewing: {
             community: {
@@ -139,33 +136,20 @@ export async function getServerSideProps(props) {
       viewing: {
         community,
         activeThread: R.toLower(thread),
-        post: {},
-        job: {},
-        video: {},
-        repo: {},
-        user: {},
       },
-      // route: {
-      //   communityPath: community.raw,
-      //   mainPath: community.raw,
-      //   threadPath,
-      //   subPath: threadPath,
-      // },
       tagsBar: { tags: partialTags },
     },
     contentsThread
   )
 
-  return { props: { statusCode: null, ...initProps } }
+  return { props: { errorCode: null, ...initProps } }
 }
 
 function CommunityPage(props) {
-  console.log('CommunityPage data- > : ', props)
+  // console.log('CommunityPage data- > : ', props)
   const store = useStore(props)
-  const { statusCode, viewing } = store
+  const { errorCode, viewing } = store
   const { community, activeThread } = viewing
-
-  console.log('begian to render statusCode: ', statusCode)
 
   const seoConfig = {
     url: `${SITE_URL}/${community.raw}/${activeThread}`,
@@ -178,7 +162,7 @@ function CommunityPage(props) {
       <GlobalLayout
         page="community"
         seoConfig={seoConfig}
-        errorCode={statusCode}
+        errorCode={errorCode}
         errorPath={community.raw}
       >
         <CommunityBanner />
