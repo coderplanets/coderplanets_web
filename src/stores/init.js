@@ -7,22 +7,29 @@
 
 import RootStore from './RootStore'
 
-let rootStore = null
+// let rootStore = null
 
 const createRootStore = ({ langSetup, ...restData }) => {
   return RootStore.create({ appLangs: langSetup || {}, ...restData }, {})
 }
 
+// function initRootStore({ langSetup, ...restData }) {
+//   if (rootStore === null) {
+//     rootStore = createRootStore({ langSetup, ...restData })
+//   }
+
+//   rootStore.mark({ ...restData })
+
+//   return rootStore
+// }
+
 function initRootStore({ langSetup, ...restData }) {
-  if (rootStore === null) {
-    rootStore = createRootStore({ langSetup, ...restData })
-  }
+  const rootStore = createRootStore({ langSetup, ...restData })
 
   rootStore.mark({ ...restData })
 
   return rootStore
 }
-
 export default initRootStore
 
 // not work, TODO
