@@ -131,7 +131,7 @@
     "shortid": "^2.2.8",
     "store": "^2.0.12",
     "stringz": "^2.0.0",
-    "styled-components": "4.3.2",
+    "styled-components": "5.1.0",
     "timeago-react": "3.0.0",
     "uuid": "^3.3.2"
   },
