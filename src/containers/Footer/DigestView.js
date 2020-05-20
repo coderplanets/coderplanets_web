@@ -48,7 +48,7 @@ const DigestView = () => (
               rel="noopener noreferrer"
               target="_blank"
             >
-              powered by mastani-stack.
+              powered by mastani-stack..
             </SiteDesc>
             <SiteDesc
               href="http://www.miitbeian.gov.cn"
