@@ -5,6 +5,8 @@ import Helmet from 'react-helmet'
 /* eslint-disable */
 export default class DocumentPage extends Document {
   static async getInitialProps({ renderPage }) {
+    // const sheet = new ServerStyleSheet()
+    // const originalRenderPage = ctx.renderPage
     const sheet = new ServerStyleSheet()
 
     try {
@@ -13,8 +15,9 @@ export default class DocumentPage extends Document {
       )
       const styleTags = sheet.getStyleElement()
       return { ...page, styleTags, helmet: Helmet.renderStatic() }
-    } finally {
+    } catch (e) {
       sheet.seal()
+      throw e
     }
   }
 
