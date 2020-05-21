@@ -5,41 +5,32 @@
 
 // import { onAction } from 'mobx-state-tree'
 
+import { applySnapshot } from 'mobx-state-tree'
 import RootStore from './RootStore'
 
 // let rootStore = null
+let clientSideRootStore
 
 const createRootStore = ({ ...restData }) => {
   return RootStore.create({ ...restData }, {})
 }
 
-// function initRootStore({ langSetup, ...restData }) {
-//   if (rootStore === null) {
-//     rootStore = createRootStore({ langSetup, ...restData })
-//   }
+function initRootStore(snapshot = null) {
+  if (!snapshot && clientSideRootStore) return clientSideRootStore
 
-//   rootStore.mark({ ...restData })
+  const rootStore = createRootStore(snapshot)
 
-//   return rootStore
-// }
+  if (snapshot) {
+    applySnapshot(rootStore, snapshot)
+  }
 
-function initRootStore({ langSetup, ...restData }) {
-  const rootStore = createRootStore({ langSetup, ...restData })
+  // For SSG and SSR always create a new store
+  if (typeof window === 'undefined') return rootStore
+  // Create the store once in the client
+  if (!clientSideRootStore) clientSideRootStore = rootStore
 
-  rootStore.mark({ ...restData })
-
+  // rootStore.mark({ ...restData })
   return rootStore
 }
-export default initRootStore
 
-// not work, TODO
-/*
-if (module.hot) {
-  if (module.hot.data && module.hot.data.rootStore) {
-    // applySnapshot(module.hot.data.old, module.hot.data.rootStore)
-  }
-  module.hot.dispose(data => {
-   // getSnapshot ...
-  })
-}
-*/
+export default initRootStore
