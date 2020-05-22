@@ -13,7 +13,8 @@ export const Wrapper = styled.footer`
 export const InnerWrapper = styled.div`
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  padding: 0 6vw;
+  padding: 50px 6vw;
+  padding-bottom: 25px;
 `
 export const MainInfos = styled.div`
   ${cs.flex('justify-start')};
@@ -33,7 +34,8 @@ export const MainInfos = styled.div`
 
 export const Column = styled.div`
   ${cs.flexColumn()};
-  min-width: 170px;
+  min-width: 100px;
+  margin-right: ${({ margin }) => margin || '50px'};
 `
 export const MainColumn = styled(Column)`
   min-width: 240px;
@@ -88,7 +90,7 @@ export const Item = styled.a`
 
   &:hover {
     color: ${theme('footer.hover')};
-    text-decoration: underline;
+    text-decoration: ${({ normal }) => (normal ? 'none' : 'underline')};
     cursor: pointer;
   }
   transition: color 0.2s;
