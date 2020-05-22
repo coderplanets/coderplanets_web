@@ -9,7 +9,6 @@ const cookieParser = require('cookie-parser')
 const uuidv4 = require('uuid/v4')
 const responseTime = require('response-time')
 
-const LRUCache = require('lru-cache')
 const helmet = require('helmet')
 const mobxReact = require('mobx-react')
 const R = require('ramda')
@@ -32,32 +31,23 @@ const HOME_PAGE = '/home/posts'
 // TODO:  remove it ?
 mobxReact.useStaticRendering(true)
 
-// This is where we cache our rendered HTML pages
-const renderAndCache2 = cacheableResponse({
-  ttl: 1000 * 60 * 1, // 1min
+const renderAndCache = cacheableResponse({
+  ttl: CONFIG.SSR_CACHE_TIME,
   get: async ({ req, res, pagePath, queryParams }) => {
-    const data = await app.renderToHTML(req, res, pagePath, queryParams)
+    const reqPath = pagePath || req.path
+    const reqQuery = queryParams || req.query
+    const data = await app.renderToHTML(req, res, reqPath, reqQuery)
 
     // Add here custom logic for when you do not want to cache the page, for
     // example when the page returns a 404 status code:
     if (res.statusCode === 404) {
-      console.log('----------------------------')
-      console.log('### cache fuck ..')
-      console.log('----------------------------')
-
       res.end(data)
       return
     }
 
     return { data }
   },
-  send: ({ data, res }) => {
-    console.log('----------------------------')
-    console.log('### cache send ..')
-    console.log('----------------------------')
-
-    return res.send(data)
-  },
+  send: ({ data, res }) => res.send(data),
 })
 
 // eslint-disable-next-line prettier/prettier
@@ -88,129 +78,77 @@ const renderAndCache2 = cacheableResponse({
   server.use(nextI18NextMiddleware(nextI18next))
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
-  server.get('/__nextjs_original-stack-frame/:page?', (req, res) =>
-    handle(req, res)
-  )
 
   server.get('/', (req, res) => res.redirect(HOME_PAGE))
 
-  // server.get('/editor', (req, res) =>
-  //   app.render(req, res, '/editor', req.query)
-  // )
+  server.get('/editor', (req, res) =>
+    app.render(req, res, '/editor', req.query)
+  )
 
-  // server.get('/oauth/', (req, res) =>
-  //   renderAndCache(req, res, '/oauth', req.query)
-  // )
+  server.get('/oauth/', (req, res) => renderAndCache({ req, res }))
+  server.get('/sentry/', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/sentry/', (req, res) =>
-  //   renderAndCache(req, res, '/sentry', req.query)
-  // )
+  server.get('/meetups/', (req, res) => renderAndCache({ req, res }))
+  server.get('/meetups/*', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/meetups/', (req, res) =>
-  //   renderAndCache(req, res, '/meetups', req.query)
-  // )
-  // server.get('/meetups/*', (req, res) =>
-  //   renderAndCache(req, res, '/meetups', req.query)
-  // )
-  // server.get('/have-a-drink/', (req, res) =>
-  //   renderAndCache(req, res, '/have-a-drink', req.query)
-  // )
-  // server.get('/have-a-drink/*', (req, res) =>
-  //   renderAndCache(req, res, '/have-a-drink', req.query)
-  // )
+  server.get('/have-a-drink/', (req, res) => renderAndCache({ req, res }))
+  server.get('/have-a-drink/*', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/cool-guide/', (req, res) =>
-  //   renderAndCache(req, res, '/cool-guide', req.query)
-  // )
-  // server.get('/cool-guide/*', (req, res) =>
-  //   renderAndCache(req, res, '/cool-guide', req.query)
-  // )
+  server.get('/cool-guide/', (req, res) => renderAndCache({ req, res }))
+  server.get('/cool-guide/*', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/works/', (req, res) =>
-  //   renderAndCache(req, res, '/works', req.query)
-  // )
-  // server.get('/works/*', (req, res) =>
-  //   renderAndCache(req, res, '/works', req.query)
-  // )
+  server.get('/works/', (req, res) => renderAndCache({ req, res }))
+  server.get('/works/*', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/trending/', (req, res) =>
-  //   renderAndCache(req, res, '/trending', req.query)
-  // )
-  // server.get('/trending/*', (req, res) =>
-  //   renderAndCache(req, res, '/trending', req.query)
-  // )
+  server.get('/trending/', (req, res) => renderAndCache({ req, res }))
+  server.get('/trending/*', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/sponsor/', (req, res) =>
-  //   renderAndCache(req, res, '/sponsor', req.query)
-  // )
-  // server.get('/sponsor/*', (req, res) =>
-  //   renderAndCache(req, res, '/sponsor', req.query)
-  // )
+  server.get('/sponsor/', (req, res) => renderAndCache({ req, res }))
+  server.get('/sponsor/*', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/recipes/', (req, res) =>
-  //   renderAndCache(req, res, '/recipes', req.query)
-  // )
-  // server.get('/recipes/*', (req, res) =>
-  //   renderAndCache(req, res, '/recipes', req.query)
-  // )
+  server.get('/recipes/', (req, res) => renderAndCache({ req, res }))
+  server.get('/recipes/*', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/interview/', (req, res) =>
-  //   renderAndCache(req, res, '/interview', req.query)
-  // )
-  // server.get('/interview/*', (req, res) =>
-  //   renderAndCache(req, res, '/interview', req.query)
-  // )
+  server.get('/interview/', (req, res) => renderAndCache({ req, res }))
+  server.get('/interview/*', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/service-worker.js', (req, res) =>
-  //   res.sendFile(`${__dirname}/.next/service-worker.js`)
-  // )
+  server.get('/service-worker.js', (req, res) =>
+    res.sendFile(`${__dirname}/.next/service-worker.js`)
+  )
 
-  // // app.render(req, res, '/user', req.query)
-  // server.get('/user/:userId', (req, res) =>
-  //   renderAndCache(req, res, '/user', req.query)
-  // )
+  // app.render(req, res, '/user', req.query)
+  server.get('/user/:userId', (req, res) => {
+    const pagePath = '/user'
+    return renderAndCache({ req, res, pagePath })
+  })
 
-  // server.get('/:community/post/:id', (req, res) =>
-  //   renderAndCache(req, res, '/post', req.query)
-  // )
+  server.get('/:community/post/:id', (req, res) => {
+    const pagePath = '/post'
+    return renderAndCache({ req, res, pagePath })
+  })
 
-  // server.get('/:community/job/:id', (req, res) =>
-  //   renderAndCache(req, res, '/job', req.query)
-  // )
+  server.get('/:community/job/:id', (req, res) => {
+    const pagePath = '/job'
+    return renderAndCache({ req, res, pagePath })
+  })
 
-  // server.get('/:community/video/:id', (req, res) =>
-  //   renderAndCache(req, res, '/video', req.query)
-  // )
+  server.get('/:community/video/:id', (req, res) => {
+    const pagePath = '/video'
+    return renderAndCache({ req, res, pagePath })
+  })
 
-  // server.get('/:community/repo/:id', (req, res) =>
-  //   renderAndCache(req, res, '/repo', req.query)
-  // )
+  server.get('/:community/repo/:id', (req, res) => {
+    const pagePath = '/repo'
+    return renderAndCache({ req, res, pagePath })
+  })
 
-  // server.get('/communities', (req, res) => res.redirect('/communities/pl'))
-  // server.get('/communities/new', (req, res) =>
-  //   renderAndCache(req, res, '/communities/new', req.query)
-  // )
+  server.get('/communities', (req, res) => res.redirect('/communities/pl'))
+  server.get('/communities/new', (req, res) => renderAndCache({ req, res }))
 
-  // server.get('/communities/:category', (req, res) =>
-  //   renderAndCache(req, res, '/communities', req.query)
-  // )
-
-  // server.get('/:community/', (req, res) =>
-  //   res.redirect(`/${req.params.community}/posts`)
-  // )
-
-  // server.get('/:community/:thread', (req, res) => {
-  //   if (
-  //     R.has('preview', req.query) &&
-  //     R.has('id', req.query) &&
-  //     R.has('community', req.query)
-  //   ) {
-  //     const { community, preview, id } = req.query
-  //     return res.redirect(`/${community}/${preview}/${id}`)
-  //   }
-
-  //   return renderAndCache(req, res, '/community', req.query)
-  // })
+  server.get('/communities/:category', (req, res) => {
+    const pagePath = '/communities'
+    return renderAndCache({ req, res, pagePath })
+  })
 
   server.get('/:community/:thread', (req, res) => {
     if (
@@ -222,16 +160,8 @@ const renderAndCache2 = cacheableResponse({
       return res.redirect(`/${community}/${preview}/${id}`)
     }
 
-    const query = req.query
-
-    const queryParams = req.query
     const pagePath = '/community'
-
-    console.log('the fucking query: ', queryParams)
-    // const pagePath = '/blog'
-
-    // return app.render(req, res, '/community', req.query)
-    return renderAndCache2({ req, res, pagePath, queryParams })
+    return renderAndCache({ req, res, pagePath })
   })
 
   server.get('*', (req, res) => handle(req, res))
@@ -251,42 +181,6 @@ const reDirectToNakedUrl = (req, res, next) => {
   }
 
   next()
-}
-
-/*
- * NB: make sure to modify this to take into account anything that should trigger
- * an immediate page change (e.g a locale stored in req.session)
- */
-const getCacheKey = req => `${req.url}`
-
-async function renderAndCache(req, res, pagePath, queryParams) {
-  const key = getCacheKey(req)
-
-  // If we have a page in the cache, let's serve it
-  if (ssrCache.has(key)) {
-    res.setHeader('x-cache', 'HIT')
-    res.send(ssrCache.get(key))
-    return
-  }
-
-  try {
-    // If not let's render the page into HTML
-    const html = await app.renderToHTML(req, res, pagePath, queryParams)
-
-    // Something is wrong with the request, let's skip the cache
-    if (res.statusCode !== 200) {
-      res.send(html)
-      return
-    }
-
-    // Let's cache this page
-    ssrCache.set(key, html)
-
-    res.setHeader('x-cache', 'MISS')
-    res.send(html)
-  } catch (err) {
-    app.renderError(err, req, res, pagePath, queryParams)
-  }
 }
 
 // for sentry

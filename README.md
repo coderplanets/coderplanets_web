@@ -52,7 +52,7 @@ English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/RE
 
 ## social
 
-zhihu: https://www.zhihu.com/people/xie-yiming-75/activities
+zhihu: https://www.zhihu.com/people/xieyimian
 
 ## credit
 

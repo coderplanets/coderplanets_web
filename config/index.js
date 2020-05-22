@@ -34,5 +34,5 @@ export {
   EMAIL_SUPPORT,
   EMAIL_HELLO,
   EMAIL_BUSINESS,
-  CUR_VERION,
+  BUILD_VERSION,
 } from './config.json'

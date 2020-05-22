@@ -19,6 +19,7 @@ export const Logo = styled(Img)`
     opacity: 1;
   }
   transition: all 0.2s;
+  transition-delay: 0.2s;
 `
 export const PartnerInfo = styled.div`
   ${cs.flexColumn('justify-center')};

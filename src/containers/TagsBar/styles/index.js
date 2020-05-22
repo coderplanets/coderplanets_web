@@ -6,8 +6,7 @@ import { theme, cs } from '@/utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
   margin-top: 30px;
-  margin-left: 10px;
-  padding-left: 5%;
+  margin-left: 32px;
 `
 export const TagItem = styled.div`
   ${cs.flex('align-center')};

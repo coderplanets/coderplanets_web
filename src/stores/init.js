@@ -5,6 +5,7 @@
 
 // import { useMemo } from 'react'
 
+import { applySnapshot } from 'mobx-state-tree'
 import RootStore from './RootStore'
 
 let rootStore = null
@@ -14,13 +15,21 @@ const createRootStore = ({ ...restData }) => {
   return RootStore.create({ ...restData }, {})
 }
 
-function initRootStore({ ...restData }) {
-  if (rootStore === null) {
-    rootStore = createRootStore({ ...restData })
+function initRootStore(snapshot = null) {
+  if (!snapshot && clientSideRootStore) return clientSideRootStore
+
+  const rootStore = createRootStore(snapshot)
+
+  if (snapshot) {
+    applySnapshot(rootStore, snapshot)
   }
 
-  rootStore.mark({ ...restData })
+  // For SSG and SSR always create a new store
+  if (typeof window === 'undefined') return rootStore
+  // Create the store once in the client
+  if (!clientSideRootStore) clientSideRootStore = rootStore
 
+  // rootStore.mark({ ...restData })
   return rootStore
 }
 
@@ -31,15 +40,3 @@ function initRootStore({ ...restData }) {
 // }
 
 export default initRootStore
-
-// not work, TODO
-/*
-if (module.hot) {
-  if (module.hot.data && module.hot.data.rootStore) {
-    // applySnapshot(module.hot.data.old, module.hot.data.rootStore)
-  }
-  module.hot.dispose(data => {
-   // getSnapshot ...
-  })
-}
-*/

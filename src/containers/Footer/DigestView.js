@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR } from '@/config'
+import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 
 import SocialList from './SocialList'
 import BottomInfo from './BottomInfo'
@@ -110,6 +110,20 @@ const DigestView = ({ hasTopBorder }) => (
           <Body>
             <Item onClick={toggleBusBanner}>赞助社区</Item>
             <Item onClick={toggleBusBanner}>商务合作</Item>
+          </Body>
+        </Column>
+        <Column margin="30px">
+          <Title>本站状态</Title>
+          <Body>
+            <Item as="span" normal>
+              构建版本: {BUILD_VERSION}
+            </Item>
+            <Item as="span" normal>
+              注册人数: --
+            </Item>
+            <Item as="span" normal>
+              在线人数: --
+            </Item>
           </Body>
         </Column>
       </MainInfos>
