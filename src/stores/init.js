@@ -8,7 +8,7 @@
 import { applySnapshot } from 'mobx-state-tree'
 import RootStore from './RootStore'
 
-let rootStore = null
+let clientSideRootStore
 // let store
 
 const createRootStore = ({ ...restData }) => {

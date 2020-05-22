@@ -79,67 +79,73 @@ const renderAndCache = cacheableResponse({
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
-  server.get('/', (req, res) => res.redirect(HOME_PAGE))
-
-  server.get('/editor', (req, res) =>
-    app.render(req, res, '/editor', req.query)
-  )
-
-  server.get('/oauth/', (req, res) => renderAndCache({ req, res }))
-  server.get('/sentry/', (req, res) => renderAndCache({ req, res }))
-
-  server.get('/meetups/', (req, res) => renderAndCache({ req, res }))
-  server.get('/meetups/*', (req, res) => renderAndCache({ req, res }))
-
-  server.get('/have-a-drink/', (req, res) => renderAndCache({ req, res }))
-  server.get('/have-a-drink/*', (req, res) => renderAndCache({ req, res }))
-
-  server.get('/cool-guide/', (req, res) => renderAndCache({ req, res }))
-  server.get('/cool-guide/*', (req, res) => renderAndCache({ req, res }))
-
-  server.get('/works/', (req, res) => renderAndCache({ req, res }))
-  server.get('/works/*', (req, res) => renderAndCache({ req, res }))
-
-  server.get('/trending/', (req, res) => renderAndCache({ req, res }))
-  server.get('/trending/*', (req, res) => renderAndCache({ req, res }))
-
-  server.get('/sponsor/', (req, res) => renderAndCache({ req, res }))
-  server.get('/sponsor/*', (req, res) => renderAndCache({ req, res }))
-
-  server.get('/recipes/', (req, res) => renderAndCache({ req, res }))
-  server.get('/recipes/*', (req, res) => renderAndCache({ req, res }))
-
-  server.get('/interview/', (req, res) => renderAndCache({ req, res }))
-  server.get('/interview/*', (req, res) => renderAndCache({ req, res }))
-
   server.get('/service-worker.js', (req, res) =>
     res.sendFile(`${__dirname}/.next/service-worker.js`)
   )
 
+  server.get('/', (req, res) => res.redirect(HOME_PAGE))
+
+  // tmp
+  server.get('/editor', (req, res) =>
+    app.render(req, res, '/editor', req.query)
+  )
+
+  // oauth popup window
+  server.get('/oauth/', (req, res) => renderAndCache({ req, res }))
+  // sentry staff
+  server.get('/sentry/', (req, res) => renderAndCache({ req, res }))
+
+  server.get('/meetups/:sub?', (req, res) => {
+    return renderAndCache({ req, res, pagePath: '/meetups' })
+  })
+
+  server.get('/have-a-drink/:sub?', (req, res) => {
+    return renderAndCache({ req, res, pagePath: '/have-a-drink' })
+  })
+
+  server.get('/cool-guide/:sub?', (req, res) => {
+    return renderAndCache({ req, res, pagePath: '/cool-guide' })
+  })
+
+  server.get('/works/:sub?', (req, res) => {
+    return renderAndCache({ req, res, pagePath: '/works' })
+  })
+
+  server.get('/trending/:sub?', (req, res) => {
+    return renderAndCache({ req, res, pagePath: '/trending' })
+  })
+
+  server.get('/sponsor/:sub?', (req, res) => {
+    return renderAndCache({ req, res, pagePath: '/sponsor' })
+  })
+
+  server.get('/recipes/:sub?', (req, res) => {
+    return renderAndCache({ req, res, pagePath: '/recipes' })
+  })
+
+  server.get('/interview/:sub?', (req, res) => {
+    return renderAndCache({ req, res, pagePath: '/interview' })
+  })
+
   // app.render(req, res, '/user', req.query)
   server.get('/user/:userId', (req, res) => {
-    const pagePath = '/user'
-    return renderAndCache({ req, res, pagePath })
+    return renderAndCache({ req, res, pagePath: '/user' })
   })
 
   server.get('/:community/post/:id', (req, res) => {
-    const pagePath = '/post'
-    return renderAndCache({ req, res, pagePath })
+    return renderAndCache({ req, res, pagePath: '/post' })
   })
 
   server.get('/:community/job/:id', (req, res) => {
-    const pagePath = '/job'
-    return renderAndCache({ req, res, pagePath })
+    return renderAndCache({ req, res, pagePath: '/job' })
   })
 
   server.get('/:community/video/:id', (req, res) => {
-    const pagePath = '/video'
-    return renderAndCache({ req, res, pagePath })
+    return renderAndCache({ req, res, pagePath: '/video' })
   })
 
   server.get('/:community/repo/:id', (req, res) => {
-    const pagePath = '/repo'
-    return renderAndCache({ req, res, pagePath })
+    return renderAndCache({ req, res, pagePath: '/repo' })
   })
 
   server.get('/communities', (req, res) => res.redirect('/communities/pl'))
@@ -160,8 +166,7 @@ const renderAndCache = cacheableResponse({
       return res.redirect(`/${community}/${preview}/${id}`)
     }
 
-    const pagePath = '/community'
-    return renderAndCache({ req, res, pagePath })
+    return renderAndCache({ req, res, pagePath: '/community' })
   })
 
   server.get('*', (req, res) => handle(req, res))

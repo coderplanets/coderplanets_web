@@ -8,7 +8,6 @@ import { applySnapshot } from 'mobx-state-tree'
 
 import RootStore from './RootStore'
 
-// let rootStore = null
 let clientSideRootStore
 
 const createRootStore = ({ ...restData }) => {
@@ -16,9 +15,8 @@ const createRootStore = ({ ...restData }) => {
 }
 
 export function initRootStore(snapshot = null) {
-  if (!snapshot && clientSideRootStore) return clientSideRootStore
-
-  const rootStore = createRootStore(snapshot)
+  // if (!snapshot) return clientSideRootStore
+  const rootStore = createRootStore(snapshot || {})
 
   if (snapshot) {
     applySnapshot(rootStore, snapshot)
@@ -34,9 +32,6 @@ export function initRootStore(snapshot = null) {
 }
 
 export function useStore(initialState) {
-  // const store = useMemo(() => initializeStore(initialState), [initialState])
   const store = useMemo(() => initRootStore(initialState), [initialState])
   return store
 }
-
-export default initRootStore
