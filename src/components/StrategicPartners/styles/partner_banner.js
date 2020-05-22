@@ -17,6 +17,7 @@ export const ItemWrapper = styled.div`
     background: #093846;
   }
   transition: all 0.25s;
+  transition-delay: 0.2s;
 `
 export const Logo = styled(Img)`
   width: 20px;
@@ -26,6 +27,7 @@ export const Logo = styled(Img)`
   /* TODO: for dark themes */
   filter: saturate(0.8);
   transition: all 0.25s;
+  transition-delay: 0.2s;
 
   ${ItemWrapper}:hover & {
     width: 24px;
@@ -54,4 +56,5 @@ export const Desc = styled.div`
     height: 14px;
   }
   transition: all 0.25s;
+  transition-delay: 0.2s;
 `
