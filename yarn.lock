@@ -8482,6 +8482,7 @@ next-compose-plugins@^2.2.0:
 next-i18next@^4.4.2:
   version "4.4.1"
   resolved "https://registry.npm.taobao.org/next-i18next/download/next-i18next-4.4.1.tgz#04bc3459015cb5c620cdf6b1388350b0a62fbd38"
+  integrity sha1-BLw0WQFctcYgzfaxOINQsKYvvTg=
   dependencies:
     core-js "^2"
     detect-node "^2.0.4"

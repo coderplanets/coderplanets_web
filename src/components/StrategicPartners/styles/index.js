@@ -4,8 +4,8 @@ import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  margin-left: 20px;
-  margin-top: 45%;
+  margin-left: 32px;
+  margin-top: 40px;
 `
 export const Header = styled.div`
   ${cs.flex('justify-between', 'align-end')};
@@ -14,6 +14,10 @@ export const Header = styled.div`
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
+  border-top: 1px solid;
+  border-top-color: ${theme('thread.articleSpliter')};
+  padding-top: 15px;
+  width: 80px;
 `
 export const AboutIcon = styled(Img)`
   width: 14px;
