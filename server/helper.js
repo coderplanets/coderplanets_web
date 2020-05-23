@@ -9,10 +9,12 @@ const CONFIG = require('../config/config.json')
 
 const renderAndCache = cacheableResponse({
   ttl: CONFIG.SSR_CACHE_TIME,
-  get: async ({ req, res, pagePath, queryParams }) => {
-    const reqPath = pagePath || req.path
-    const reqQuery = queryParams || req.query
-    const data = await app.renderToHTML(req, res, reqPath, reqQuery)
+  get: async ({ req, res, path }) => {
+    const pagePath = path || req.path
+    const data = await app.renderToHTML(req, res, pagePath, {
+      ...req.query,
+      ...req.params,
+    })
 
     // Add here custom logic for when you do not want to cache the page, for
     // example when the page returns a 404 status code:

@@ -19,79 +19,72 @@ router
 // oauth popup window
 router.route('/oauth/').get((req, res) => renderAndCache({ req, res }))
 
-// // tmp
-// server.get('/editor', (req, res) =>
-//   app.render(req, res, '/editor', req.query)
-// )
-
-// // sentry test
-// server.get('/sentry/', (req, res) => renderAndCache({ req, res }))
-
+// 将首页重定向到 HOME_PAGE
 router.route('/').get((req, res) => res.redirect(HOME_PAGE))
 
 // 来一杯
 router.route('/have-a-drink/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/have-a-drink' })
+  return renderAndCache({ req, res, path: '/have-a-drink' })
 })
 
 // 热点
 router.route('/trending/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/trending' })
+  return renderAndCache({ req, res, path: '/trending' })
 })
 
 // 赞助与广告
 router.route('/sponsor/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/sponsor' })
+  return renderAndCache({ req, res, path: '/sponsor' })
 })
 
 // 代码片段
 router.route('/recipes/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/recipes' })
+  return renderAndCache({ req, res, path: '/recipes' })
 })
 
 // 面经
 router.route('/interview/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/interview' })
+  return renderAndCache({ req, res, path: '/interview' })
 })
 
 // 活动
 router.route('/meetups/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/meetups' })
+  return renderAndCache({ req, res, path: '/meetups' })
 })
 
 // 酷导游
 router.route('/cool-guide/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/cool-guide' })
+  return renderAndCache({ req, res, path: '/cool-guide' })
 })
 
 // 作品集市
 router.route('/works/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/works' })
+  return renderAndCache({ req, res, path: '/works' })
 })
 
 // 用户页
 router.route('/user/:userId').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/user' })
+  return renderAndCache({ req, res, path: '/user' })
 })
 
 // 帖子页
 router.route('/:community/post/:id').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/post' })
+  return renderAndCache({ req, res, path: '/post' })
 })
 
 // job 帖子页
 router.route('/:community/job/:id').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/job' })
+  return renderAndCache({ req, res, path: '/job' })
 })
 
 // video 帖子页
 router.route('/:community/video/:id').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/video' })
+  return renderAndCache({ req, res, path: '/video' })
 })
 
 // repo 帖子页
 router.route('/:community/repo/:id').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/repo' })
+  return renderAndCache({ req, res, path: '/repo' })
 })
 
 // 创建新社区
@@ -102,7 +95,7 @@ router.route('/communities/new').get((req, res) => {
 router.route('/communities').get((req, res) => res.redirect('/communities/pl'))
 
 router.route('/communities/:category').get((req, res) => {
-  return renderAndCache({ req, res, pagePath: '/communities' })
+  return renderAndCache({ req, res, path: '/communities' })
 })
 
 // 社区主页
@@ -116,7 +109,7 @@ router.route('/:community/:thread').get((req, res) => {
     return res.redirect(`/${community}/${preview}/${id}`)
   }
 
-  return renderAndCache({ req, res, pagePath: '/community' })
+  return renderAndCache({ req, res, path: '/community' })
 })
 
 router.route('*').get((req, res) => handle(req, res))
