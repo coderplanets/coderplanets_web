@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     ${cs.media.mobile`
       position: relative;
    `};
+    background-color: ${theme('htmlBg')};
   }
   *::-moz-selection {
     background-color: ${theme('selectionBg')} !important;
