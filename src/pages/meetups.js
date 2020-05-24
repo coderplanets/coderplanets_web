@@ -5,19 +5,13 @@ import R from 'ramda'
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
 
-import {
-  getJwtToken,
-  makeGQClient,
-  parseURL,
-  ssrAmbulance,
-  parseTheme,
-} from '@/utils'
-import initRootStore from '@/stores/init'
+import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
+import { P } from '@/schemas'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import MeetupsContent from '@/containers/content/MeetupsContent'
 
-import { P } from '@/schemas'
+import { useStore } from '@/stores/init2'
 
 async function fetchData(props, opt) {
   const { realname } = R.merge({ realname: true }, opt)
@@ -25,7 +19,6 @@ async function fetchData(props, opt) {
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
 
-  // query data
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -40,66 +33,53 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class PostPage extends React.Component {
-  static async getInitialProps(props) {
-    const { mainPath, subPath } = parseURL(props)
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: subPath }
-      }
-    }
-
-    const { sessionState, subscribedCommunities } = resp
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: { mainPath, subPath: ROUTE.HAVE_A_DRINK },
+export async function getServerSideProps(props) {
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
     }
   }
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
-
-    this.store = store
+  const { sessionState, subscribedCommunities } = resp
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    route: {
+      mainPath: ROUTE.RECIPES,
+      subPath: '',
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-
-    const seoConfig = {
-      url: `${SITE_URL}/${ROUTE.COOL_GUIDE}`,
-      title: 'coderplanets 社区',
-      description: '最性感的开发者社区',
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          noSidebar
-          metric="default"
-          page={ROUTE.COOL_GUIDE}
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-        >
-          <MeetupsContent />
-        </GlobalLayout>
-      </Provider>
-    )
+  return {
+    props: { errorCode: null, namespacesRequired: ['general'], ...initProps },
   }
 }
+
+const MeetupsPage = props => {
+  const store = useStore(props)
+
+  const seoConfig = {
+    url: `${SITE_URL}/works`,
+    title: '线下活动 | coderplanets',
+    description: '线下分享，行业交流',
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout page={ROUTE.MEETUPS} seoConfig={seoConfig} noSidebar>
+        <MeetupsContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default MeetupsPage
