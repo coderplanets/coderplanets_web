@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
+import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
+import DotDivider from '@/components/DotDivider'
 import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.footer`
@@ -18,13 +20,25 @@ export const MainInfos = styled.footer`
   margin-bottom: 20px;
   ${cs.media.tablet`display: none;`};
 `
+export const CenterLogosWrapper = styled.div`
+  ${cs.flex('align-both')};
+  margin-left: 70px;
+  margin-right: 70px;
+`
 export const SiteLogo = styled(CommunityFaceLogo)`
   width: 20px;
   height: 20px;
   display: block;
-  margin-left: 70px;
-  margin-right: 70px;
   margin-top: -2px;
+`
+export const LogoDivider = styled(DotDivider)`
+  background: ${theme('footer.text')};
+`
+export const GithubLogo = styled(Img)`
+  fill: ${theme('footer.text')};
+  width: 18px;
+  height: 18px;
+  display: block;
 `
 const Link = styled.a`
   text-decoration: none;

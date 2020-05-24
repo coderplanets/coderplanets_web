@@ -66,7 +66,6 @@ export const SiteLogo = styled(CommunityFaceLogo)`
   width: 30px;
   height: 30px;
   display: block;
-  margin-top: 10px;
   margin-bottom: 18px;
   margin-left: 3px;
 `
