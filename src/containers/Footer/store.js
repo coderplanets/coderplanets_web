@@ -45,11 +45,7 @@ const Footer = T.model('Footer', {
     get curView() {
       const { mainPath, subPath } = self.root.curRoute
       if (
-        R.contains(mainPath, [
-          ROUTE.USER,
-          ROUTE.COMMUNITIES,
-          ROUTE.CHEATSHEET,
-        ]) ||
+        R.contains(mainPath, [ROUTE.USER, ROUTE.CHEATSHEET]) ||
         R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
       ) {
         return 'BRIEF'

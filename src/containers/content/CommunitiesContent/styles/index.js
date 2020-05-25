@@ -19,7 +19,6 @@ export const InnerWrapper = styled.div`
   width: 100%;
   height: 100%;
   max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
-  padding-left: 2vw;
 `
 export const ContentsWrapper = styled.div`
   ${cs.flexColumn('justify-center')};
