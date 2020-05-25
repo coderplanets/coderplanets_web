@@ -1300,44 +1300,9 @@
     prop-types "^15.6.2"
     tippy.js "^5.1.1"
 
-"@types/blob-util@1.3.3":
-  version "1.3.3"
-  resolved "https://registry.npm.taobao.org/@types/blob-util/download/@types/blob-util-1.3.3.tgz#adba644ae34f88e1dd9a5864c66ad651caaf628a"
-
-"@types/bluebird@3.5.29":
-  version "3.5.29"
-  resolved "https://registry.npm.taobao.org/@types/bluebird/download/@types/bluebird-3.5.29.tgz?cache=0&sync_timestamp=1590010618987&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fbluebird%2Fdownload%2F%40types%2Fbluebird-3.5.29.tgz#7cd933c902c4fc83046517a1bef973886d00bdb6"
-
-"@types/chai-jquery@1.1.40":
-  version "1.1.40"
-  resolved "https://registry.npm.taobao.org/@types/chai-jquery/download/@types/chai-jquery-1.1.40.tgz#445bedcbbb2ae4e3027f46fa2c1733c43481ffa1"
-  dependencies:
-    "@types/chai" "*"
-    "@types/jquery" "*"
-
-"@types/chai@*":
-  version "4.2.11"
-  resolved "https://registry.npm.taobao.org/@types/chai/download/@types/chai-4.2.11.tgz#d3614d6c5f500142358e6ed24e1bf16657536c50"
-
-"@types/chai@4.2.7":
-  version "4.2.7"
-  resolved "https://registry.npm.taobao.org/@types/chai/download/@types/chai-4.2.7.tgz#1c8c25cbf6e59ffa7d6b9652c78e547d9a41692d"
-
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/@types/color-name/download/@types/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
-
-"@types/jquery@*":
-  version "3.3.38"
-  resolved "https://registry.npm.taobao.org/@types/jquery/download/@types/jquery-3.3.38.tgz?cache=0&sync_timestamp=1588637834205&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjquery%2Fdownload%2F%40types%2Fjquery-3.3.38.tgz#6385f1e1b30bd2bff55ae8ee75ea42a999cc3608"
-  dependencies:
-    "@types/sizzle" "*"
-
-"@types/jquery@3.3.31":
-  version "3.3.31"
-  resolved "https://registry.npm.taobao.org/@types/jquery/download/@types/jquery-3.3.31.tgz?cache=0&sync_timestamp=1588637834205&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjquery%2Fdownload%2F%40types%2Fjquery-3.3.31.tgz#27c706e4bf488474e1cb54a71d8303f37c93451b"
-  dependencies:
-    "@types/sizzle" "*"
 
 "@types/jss@^9.5.6":
   version "9.5.8"
@@ -1346,21 +1311,9 @@
     csstype "^2.0.0"
     indefinite-observable "^1.0.1"
 
-"@types/lodash@4.14.149":
-  version "4.14.149"
-  resolved "https://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
-
-"@types/minimatch@3.0.3":
-  version "3.0.3"
-  resolved "https://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
-
 "@types/minimist@^1.2.0":
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/@types/minimist/download/@types/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
-
-"@types/mocha@5.2.7":
-  version "5.2.7"
-  resolved "https://registry.npm.taobao.org/@types/mocha/download/@types/mocha-5.2.7.tgz#315d570ccb56c53452ff8638738df60726d5b6ea"
 
 "@types/node@*", "@types/node@>=6":
   version "14.0.4"
@@ -1391,28 +1344,12 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/sinon-chai@3.2.3":
-  version "3.2.3"
-  resolved "https://registry.npm.taobao.org/@types/sinon-chai/download/@types/sinon-chai-3.2.3.tgz#afe392303dda95cc8069685d1e537ff434fa506e"
-  dependencies:
-    "@types/chai" "*"
-    "@types/sinon" "*"
-
-"@types/sinon@*":
-  version "9.0.3"
-  resolved "https://registry.npm.taobao.org/@types/sinon/download/@types/sinon-9.0.3.tgz#c803f2ebf96db44230ce4e632235c279830edd45"
-  dependencies:
-    "@types/sinonjs__fake-timers" "*"
-
-"@types/sinon@7.5.1":
-  version "7.5.1"
-  resolved "https://registry.npm.taobao.org/@types/sinon/download/@types/sinon-7.5.1.tgz#d27b81af0d1cfe1f9b24eebe7a24f74ae40f5b7c"
-
-"@types/sinonjs__fake-timers@*":
+"@types/sinonjs__fake-timers@6.0.1":
   version "6.0.1"
-  resolved "https://registry.npm.taobao.org/@types/sinonjs__fake-timers/download/@types/sinonjs__fake-timers-6.0.1.tgz#681df970358c82836b42f989188d133e218c458e"
+  resolved "https://registry.yarnpkg.com/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-6.0.1.tgz#681df970358c82836b42f989188d133e218c458e"
+  integrity sha512-yYezQwGWty8ziyYLdZjwxyMb0CZR49h8JALHGrxjQHWlqGgc8kLdHEgWrgL0uZ29DMvEVBDnHU2Wg36zKSIUtA==
 
-"@types/sizzle@*", "@types/sizzle@2.3.2":
+"@types/sizzle@2.3.2":
   version "2.3.2"
   resolved "https://registry.npm.taobao.org/@types/sizzle/download/@types/sizzle-2.3.2.tgz?cache=0&sync_timestamp=1588201710389&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fsizzle%2Fdownload%2F%40types%2Fsizzle-2.3.2.tgz#a811b8c18e2babab7d542b3365887ae2e4d9de47"
 
@@ -3980,23 +3917,15 @@ cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/cyclist/download/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
 
-cypress@4.5.0:
-  version "4.5.0"
-  resolved "https://registry.npm.taobao.org/cypress/download/cypress-4.5.0.tgz#01940d085f6429cec3c87d290daa47bb976a7c7b"
+cypress@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-4.6.0.tgz#ac76786500580df1347a0a50be63e5c59ffbef59"
+  integrity sha512-vIPXAceRP+Nxvnm/O9ruY9EQaRGmVVybtk9F1sfC9mH3067YbitrdBTynaaLuHFj90p9e0U2ZCV7OkX4x4V/Wg==
   dependencies:
     "@cypress/listr-verbose-renderer" "0.4.1"
     "@cypress/request" "2.88.5"
     "@cypress/xvfb" "1.2.4"
-    "@types/blob-util" "1.3.3"
-    "@types/bluebird" "3.5.29"
-    "@types/chai" "4.2.7"
-    "@types/chai-jquery" "1.1.40"
-    "@types/jquery" "3.3.31"
-    "@types/lodash" "4.14.149"
-    "@types/minimatch" "3.0.3"
-    "@types/mocha" "5.2.7"
-    "@types/sinon" "7.5.1"
-    "@types/sinon-chai" "3.2.3"
+    "@types/sinonjs__fake-timers" "6.0.1"
     "@types/sizzle" "2.3.2"
     arch "2.1.1"
     bluebird "3.7.2"
@@ -8480,9 +8409,9 @@ next-compose-plugins@^2.2.0:
   resolved "https://registry.npm.taobao.org/next-compose-plugins/download/next-compose-plugins-2.2.0.tgz#95cd8eb40ab0652070d76572fb648354191628b0"
 
 next-i18next@^4.4.2:
-  version "4.4.1"
-  resolved "https://registry.npm.taobao.org/next-i18next/download/next-i18next-4.4.1.tgz#04bc3459015cb5c620cdf6b1388350b0a62fbd38"
-  integrity sha1-BLw0WQFctcYgzfaxOINQsKYvvTg=
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-4.4.2.tgz#ba7ed45d93b9123baa6f06abc29c784e06e2c088"
+  integrity sha512-J7A0x4MFqDw2O2nJGId98pmeSTNwRpMHTSNboi4xeQsvl4PN5T3MrA/LZN0GJCa8rsRWR63dkNVYN8fx5OOg1A==
   dependencies:
     core-js "^2"
     detect-node "^2.0.4"
