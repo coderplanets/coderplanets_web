@@ -21,12 +21,6 @@ export const InnerWrapper = styled.div`
   max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
   padding-left: 2vw;
 `
-export const FiltersWrapper = styled.div`
-  ${cs.flex('justify-end')}
-  display: ${({ show }) => (show ? 'flex' : 'none')};
-  width: 120px;
-  margin-right: 20px;
-`
 export const ContentsWrapper = styled.div`
   ${cs.flexColumn('justify-center')};
   width: ${({ center }) => (center ? '100%' : 'calc(100% - 140px)')};

@@ -14,6 +14,7 @@ import FiltersMenu from '@/components/FiltersMenu'
 import Pagi from '@/components/Pagi'
 
 import Banner from './Banner'
+import Sidebar from './Sidebar'
 import CommunityList from './CommunityList'
 import NotFound from './NotFound'
 
@@ -21,8 +22,7 @@ import {
   Wrapper,
   ContentWrapper,
   InnerWrapper,
-  FiltersWrapper,
-  ContentsWrapper, // move out
+  ContentsWrapper,
 } from './styles'
 import { useInit, pageOnChange, menuOnChange } from './logic'
 
@@ -47,17 +47,12 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
       <Banner searchStatus={searchStatus} />
       <ContentWrapper center={isSearchMode}>
         <InnerWrapper>
-          <FiltersWrapper show={showFilterSidebar}>
-            <Sticky offsetTop={60}>
-              <FiltersMenu
-                items={pagedCategoriesData}
-                onItemClick={menuOnChange}
-                activeId={activeMenuId}
-                itemBgHighlight={false}
-                noFilter
-              />
-            </Sticky>
-          </FiltersWrapper>
+          <Sidebar
+            show={showFilterSidebar}
+            items={pagedCategoriesData}
+            onItemClick={menuOnChange}
+            activeId={activeMenuId}
+          />
           <ContentsWrapper center={isSearchMode}>
             {!R.isEmpty(pagedCommunitiesData.entries) ? (
               <React.Fragment>
