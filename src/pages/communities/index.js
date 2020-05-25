@@ -13,19 +13,18 @@ import {
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
+  ssrParseURL,
   nilOrEmpty,
   ssrAmbulance,
   parseTheme,
 } from '@/utils'
 
-import initRootStore from '@/stores/init'
+import { useStore } from '@/stores/init2'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import CommunitiesContent from '@/containers/content/CommunitiesContent'
 
 import { P } from '@/schemas'
-
-/* import PostsThreadSchema from '@/containers/PostsThread/schema' */
 
 async function fetchData(props, opt) {
   const { realname } = R.merge({ realname: true }, opt)
@@ -33,12 +32,10 @@ async function fetchData(props, opt) {
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-  const { subPath } = parseURL(props)
+  const { subPath } = ssrParseURL(props.req)
   const category = subPath !== '' ? subPath : 'pl'
 
-  const { asPath } = props
-
-  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }) }
+  const filter = { ...queryStringToJSON(props.req.url, { pagi: 'number' }) }
 
   const sessionState = gqClient.request(P.sessionState)
   const pagedCommunities = gqClient.request(P.pagedCommunities, {
@@ -63,63 +60,70 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class CommunitiesPage extends React.Component {
-  static async getInitialProps(props) {
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      }
-    }
+export async function getServerSideProps(props) {
+  const { communityPath, thread } = ssrParseURL(props.req)
 
-    const {
-      category,
-      sessionState,
-      pagedCategories,
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
+    }
+  }
+
+  const {
+    category,
+    sessionState,
+    pagedCategories,
+    pagedCommunities,
+    subscribedCommunities,
+  } = resp
+
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    route: {
+      mainPath: ROUTE.COMMUNITIES,
+      subPath: category,
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
+    communitiesContent: {
       pagedCommunities,
-      subscribedCommunities,
-    } = resp
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      route: {
-        mainPath: ROUTE.COMMUNITIES,
-        subPath: category,
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      communitiesContent: {
-        pagedCommunities,
-        pagedCategories,
-      },
-    }
+      pagedCategories,
+    },
   }
 
-  constructor(props) {
-    super(props)
-    this.store = initRootStore({ ...props })
-  }
-
-  render() {
-    const seoConfig = {
-      url: `${SITE_URL}/communities`,
-      title: 'coderplanets | 社区索引',
-      description: 'coderplanets | 社区索引',
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout page={ROUTE.COMMUNITIES} seoConfig={seoConfig}>
-          <CommunitiesContent />
-        </GlobalLayout>
-      </Provider>
-    )
-  }
+  return { props: { errorCode: null, ...initProps } }
 }
+
+const CommunitiesPage = props => {
+  const store = useStore(props)
+
+  const { errorCode, viewing } = store
+
+  const seoConfig = {
+    url: `${SITE_URL}/communities`,
+    title: '社区索引 | coderplanets',
+    description: 'coderplanets 所有社区节点',
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        page={ROUTE.COMMUNITIES}
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+      >
+        <CommunitiesContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default CommunitiesPage

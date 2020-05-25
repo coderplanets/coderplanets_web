@@ -3,19 +3,14 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
-import initRootStore from '@/stores/init'
-
-import GlobalLayout from '@/containers/GlobalLayout'
-import CommunityBanner from '@/containers/banner/CommunityBanner'
-import CommunityContent from '@/containers/content/CommunityContent'
+import { useStore } from '@/stores/init2'
 
 import {
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
-  parseURL,
+  ssrParseURL,
   akaTranslate,
-  extractThreadFromPath,
   buildLog,
   nilOrEmpty,
   ssrPagedSchema,
@@ -26,6 +21,10 @@ import {
   validCommunityFilters,
   parseTheme,
 } from '@/utils'
+
+import GlobalLayout from '@/containers/GlobalLayout'
+import CommunityBanner from '@/containers/banner/CommunityBanner'
+import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
 
@@ -39,17 +38,15 @@ async function fetchData(props, opt) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
-  const { asPath } = props
+  // const { asPath } = props
   // schema
 
-  // utils: filter, tags staff
-  const { communityPath, subPath: topic } = parseURL(props)
+  const { communityPath, threadPath: topic, thread } = ssrParseURL(props.req)
   const community = akaTranslate(communityPath)
-  const thread = extractThreadFromPath(props)
 
   let filter = addTopicIfNeed(
     {
-      ...queryStringToJSON(asPath, { pagi: 'number' }),
+      ...queryStringToJSON(props.req.url, { pagi: 'number' }),
       community,
     },
     thread,
@@ -87,102 +84,92 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class HomePage extends React.Component {
-  static async getInitialProps(props) {
-    const { communityPath, threadPath } = parseURL(props)
-    const thread = extractThreadFromPath(props)
+export async function getServerSideProps(props) {
+  const { communityPath, thread } = ssrParseURL(props.req)
 
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return {
-          statusCode: 404,
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch (e) {
+    const {
+      response: { errors },
+    } = e
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
+    } else {
+      return {
+        props: {
+          errorCode: 404,
           target: communityPath,
-          viewing: { community: {} },
-          route: {},
-        }
+          viewing: {
+            community: {
+              raw: communityPath,
+              title: communityPath,
+              desc: communityPath,
+            },
+          },
+        },
       }
     }
+  }
 
-    const {
-      filter,
-      sessionState,
-      partialTags,
-      community,
-      subscribedCommunities,
-    } = resp
-    const contentsThread = ssrContentsThread(resp, thread, filter)
+  const {
+    filter,
+    sessionState,
+    partialTags,
+    community,
+    subscribedCommunities,
+  } = resp
+  const contentsThread = ssrContentsThread(resp, thread, filter)
 
-    // init state on server side
-    return R.merge(
-      {
-        theme: {
-          curTheme: parseTheme(sessionState),
-        },
-        account: {
-          user: sessionState.user || {},
-          isValidSession: sessionState.isValid,
-          userSubscribedCommunities: subscribedCommunities,
-        },
-        viewing: {
-          community,
-          activeThread: R.toLower(thread),
-          post: {},
-          job: {},
-          video: {},
-          repo: {},
-          user: {},
-        },
-        route: {
-          communityPath: community.raw,
-          mainPath: community.raw,
-          threadPath,
-          subPath: threadPath,
-        },
-        tagsBar: { tags: partialTags },
+  // // init state on server side
+  const initProps = R.merge(
+    {
+      theme: {
+        curTheme: parseTheme(sessionState),
       },
-      contentsThread
-    )
-  }
+      account: {
+        user: sessionState.user || {},
+        isValidSession: sessionState.isValid,
+        userSubscribedCommunities: subscribedCommunities,
+      },
+      viewing: {
+        community,
+        activeThread: R.toLower(thread),
+      },
+      tagsBar: { tags: partialTags },
+    },
+    contentsThread
+  )
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
-
-    this.store = store
-    // this.store = initRootStore({ ...props })
-  }
-
-  render() {
-    const { statusCode, target } = this.props
-    const {
-      viewing: { community },
-    } = this.props
-
-    const seoConfig = {
-      url: `${SITE_URL}/home/posts`,
-      title: 'coderplanets',
-      description: `${community.desc}`,
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          page="community"
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-        >
-          <CommunityBanner />
-          <CommunityContent />
-        </GlobalLayout>
-      </Provider>
-    )
-  }
+  return { props: { errorCode: null, ...initProps } }
 }
+
+function CommunityPage(props) {
+  const store = useStore(props)
+
+  const { errorCode, viewing } = store
+  const { community, activeThread } = viewing
+
+  const seoConfig = {
+    url: `${SITE_URL}/${community.raw}/${activeThread}`,
+    title: `${community.title} | coderplanets`,
+    description: `${community.desc}`,
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        page="community"
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+        errorPath={community.raw}
+      >
+        <CommunityBanner />
+        <CommunityContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default CommunityPage

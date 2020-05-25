@@ -146,7 +146,6 @@ export async function getServerSideProps(props) {
 }
 
 function CommunityPage(props) {
-  // console.log('CommunityPage data- > : ', props)
   const store = useStore(props)
 
   const { errorCode, viewing } = store
@@ -171,7 +170,6 @@ function CommunityPage(props) {
       </GlobalLayout>
     </Provider>
   )
-  // <div>CommunityPage-6</div>
 }
 
 export default CommunityPage
