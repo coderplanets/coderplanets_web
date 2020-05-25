@@ -6,9 +6,6 @@ import { theme, cs } from '@/utils'
 export const Wrapper = styled.footer`
   ${cs.flexColumn('align-center')};
   width: 100%;
-  border-top: 1px solid;
-  border-top-color: ${({ hasTopBorder }) =>
-    hasTopBorder ? '#02394a' : 'transparent'};
 `
 export const InnerWrapper = styled.div`
   width: 100%;

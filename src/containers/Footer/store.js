@@ -26,19 +26,6 @@ const Footer = T.model('Footer', {
     get curRoute() {
       return self.root.curRoute
     },
-    get hasTopBorder() {
-      const { mainPath } = self.curRoute
-
-      return R.contains(mainPath, [
-        ROUTE.MEETUPS,
-        ROUTE.COOL_GUIDE,
-        ROUTE.WORKS,
-        ROUTE.TRENDING,
-        ROUTE.SPONSOR,
-        ROUTE.RECIPES,
-        ROUTE.INTERVIEW,
-      ])
-    },
     get accountInfo() {
       return self.root.accountInfo
     },

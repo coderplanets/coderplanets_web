@@ -26,8 +26,8 @@ import {
   toggleSeniorHelper,
 } from './logic'
 
-const DigestView = ({ hasTopBorder }) => (
-  <Wrapper hasTopBorder={hasTopBorder}>
+const DigestView = () => (
+  <Wrapper>
     <InnerWrapper>
       <MainInfos>
         <MainColumn>
