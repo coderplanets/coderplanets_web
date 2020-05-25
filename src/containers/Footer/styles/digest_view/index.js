@@ -11,14 +11,15 @@ export const InnerWrapper = styled.div`
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 50px 6vw;
-  padding-bottom: 25px;
+  padding-bottom: 0;
+  border-bottom: 1px solid;
+  border-bottom-color: #02394a;
 `
 export const MainInfos = styled.div`
   ${cs.flex('justify-start')};
   margin-bottom: 20px;
   margin-top: 20px;
   margin-bottom: 30px;
-
   opacity: 0.9;
 
   &:hover {
@@ -42,6 +43,16 @@ export const SiteInfo = styled.div`
   ${cs.flex()};
   align-items: end;
   margin-bottom: 10px;
+  margin-top: 5px;
+`
+export const SiteTitle = styled.div`
+  margin-bottom: 5px;
+  color: ${theme('footer.text')};
+  display: block;
+  text-decoration: none;
+
+  font-size: 14px;
+  margin-bottom: 5px;
 `
 export const SiteDesc = styled.a`
   margin-bottom: 5px;
@@ -49,7 +60,7 @@ export const SiteDesc = styled.a`
   display: block;
   text-decoration: none;
 
-  font-size: 0.8rem;
+  font-size: 13px;
   margin-bottom: 5px;
 
   &:hover {
@@ -76,13 +87,13 @@ export const Body = styled.div`
   ${cs.flexColumn('justify-start')};
   color: ${theme('footer.text')};
 `
-
 export const Item = styled.a`
   color: ${theme('footer.text')};
 
   font-size: 0.8rem;
   margin-bottom: 8px;
   margin-top: ${({ offsetTop }) => offsetTop || '0'};
+  text-decoration: none;
 
   &:hover {
     color: ${theme('footer.hover')};
