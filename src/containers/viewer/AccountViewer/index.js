@@ -23,15 +23,10 @@ import { useInit, editProfile, onLogout, changeTheme } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:AccountViewer')
 
-const AccountViewerContainer = ({ accountViewer, user }) => {
-  useInit(accountViewer, user)
+const AccountViewerContainer = ({ accountViewer: store, user }) => {
+  useInit(store, user)
 
-  const {
-    curTheme,
-    viewingType,
-    userInfoData,
-    subscribedCommunities,
-  } = accountViewer
+  const { curTheme, viewingType, userInfoData, subscribedCommunities } = store
 
   const { contributes } = userInfoData // accountInfo
 

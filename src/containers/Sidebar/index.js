@@ -21,8 +21,8 @@ import { useInit, onSortMenuEnd } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Sidebar:index')
 
-const SidebarContainer = ({ sidebar }) => {
-  useInit(sidebar)
+const SidebarContainer = ({ sidebar: store }) => {
+  useInit(store)
 
   const {
     curCommunity,
@@ -31,7 +31,7 @@ const SidebarContainer = ({ sidebar }) => {
     sortOptActive,
     communitiesData,
     forceRerender,
-  } = sidebar
+  } = store
 
   // onMouseLeave={logic.leaveSidebar}
   // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492

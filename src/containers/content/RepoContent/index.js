@@ -35,10 +35,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:RepoContent')
 
-const RepoContentContainer = ({ repoContent }) => {
-  useInit(repoContent)
+const RepoContentContainer = ({ repoContent: store }) => {
+  useInit(store)
 
-  const { viewingData } = repoContent
+  const { viewingData } = store
 
   return (
     <Wrapper>

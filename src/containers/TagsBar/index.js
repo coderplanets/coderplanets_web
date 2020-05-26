@@ -27,10 +27,16 @@ import { useInit, onTagSelect } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:TagsBar')
 
-const TagsBarContainer = ({ tagsBar, thread, topic, active, onSelect }) => {
-  useInit(tagsBar, thread, topic, active)
+const TagsBarContainer = ({
+  tagsBar: store,
+  thread,
+  topic,
+  active,
+  onSelect,
+}) => {
+  useInit(store, thread, topic, active)
 
-  const { tagsData, activeTagData } = tagsBar
+  const { tagsData, activeTagData } = store
 
   const sortedTags = sortByColor(tagsData)
   const emptytag = { id: '', title: '', color: '' }

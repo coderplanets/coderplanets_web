@@ -38,10 +38,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:JobContent')
 
-const JobContentContainer = ({ jobContent }) => {
-  useInit(jobContent)
+const JobContentContainer = ({ jobContent: store }) => {
+  useInit(store)
 
-  const { curRoute, viewingData } = jobContent
+  const { curRoute, viewingData } = store
   const { mainPath: communityRaw } = curRoute
 
   return (

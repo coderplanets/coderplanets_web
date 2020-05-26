@@ -21,15 +21,10 @@ import { useInit, onClose } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitySetter')
 
-const CommunitySetterContainer = ({ communitySetter }) => {
-  useInit(communitySetter)
+const CommunitySetterContainer = ({ communitySetter: store }) => {
+  useInit(store)
 
-  const {
-    visible,
-    curBelongIds,
-    pagedCommunitiesData,
-    searchValue,
-  } = communitySetter
+  const { visible, curBelongIds, pagedCommunitiesData, searchValue } = store
 
   return (
     <Modal width="700px" show={visible} showCloseBtn onClose={onClose}>

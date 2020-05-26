@@ -75,8 +75,8 @@ const SpecThread = ({ community, thread, cityCommunities }) => {
   return <ConstructingThread thread={thread} />
 }
 
-const PostsThreadContainer = ({ postsThread }) => {
-  useInit(postsThread)
+const PostsThreadContainer = ({ postsThread: store }) => {
+  useInit(store)
 
   const {
     pagedPostsData,
@@ -92,7 +92,7 @@ const PostsThreadContainer = ({ postsThread }) => {
     curThread,
     pagedCityCommunitiesData,
     showFilterBar,
-  } = postsThread
+  } = store
 
   const { subPath } = curRoute
   const { totalCount } = pagedPostsData

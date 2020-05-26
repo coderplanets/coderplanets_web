@@ -40,13 +40,13 @@ import {
 const log = buildLog('C:ArticleBodyHeader')
 
 const ArticleBodyHeaderContainer = ({
-  articleBodyHeader,
+  articleBodyHeader: store,
   communityRaw,
   thread,
   data,
   middle,
 }) => {
-  useInit(articleBodyHeader)
+  useInit(store)
 
   const tagTitleList = R.pluck('title', data.tags)
 

@@ -22,10 +22,10 @@ import { useInit, toggleModal, onMessageChange, onConfirm } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:GirlVerifier')
 
-const GirlVerifierContainer = ({ girlVerifier }) => {
-  useInit(girlVerifier)
+const GirlVerifierContainer = ({ girlVerifier: store }) => {
+  useInit(store)
 
-  const { showModal, accountInfo, message } = girlVerifier
+  const { showModal, accountInfo, message } = store
 
   return (
     <Modal width="500px" show={showModal} showCloseBtn onClose={toggleModal}>

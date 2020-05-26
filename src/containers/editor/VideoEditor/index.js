@@ -22,11 +22,11 @@ import { useInit, inputOnChange, canclePublish, onPublish } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:VideoEditor')
 
-const VideoEditorContainer = ({ videoEditor, attachment }) => {
+const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
   log('VideoEditorContainer come')
-  useInit(videoEditor, attachment)
+  useInit(store, attachment)
 
-  const { editVideoData, publishing, ratKey, isEdit } = videoEditor
+  const { editVideoData, publishing, ratKey, isEdit } = store
 
   return (
     <Wrapper>

@@ -30,10 +30,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:JobViewer')
 
-const JobViewerContainer = ({ jobViewer, attachment }) => {
-  useInit(jobViewer, attachment)
+const JobViewerContainer = ({ jobViewer: store, attachment }) => {
+  useInit(store, attachment)
 
-  const { curCommunity, viewingData, loading } = jobViewer
+  const { curCommunity, viewingData, loading } = store
 
   const company = {
     title: viewingData.company,

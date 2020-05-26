@@ -72,8 +72,8 @@ const View = ({
   return <DynamicMarkDownHelper />
 }
 
-const PostEditorContainer = ({ postEditor, attachment }) => {
-  useInit(postEditor, attachment)
+const PostEditorContainer = ({ postEditor: store, attachment }) => {
+  useInit(store, attachment)
 
   const {
     copyRight,
@@ -86,7 +86,7 @@ const PostEditorContainer = ({ postEditor, attachment }) => {
     referUsersData,
     contentDomId,
     showRadarNote,
-  } = postEditor
+  } = store
 
   log('editData in views: ', editData)
 

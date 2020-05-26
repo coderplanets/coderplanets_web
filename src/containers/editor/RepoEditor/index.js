@@ -52,8 +52,8 @@ const View = ({
   }
 }
 
-const RepoEditorContainer = ({ repoEditor }) => {
-  useInit(repoEditor)
+const RepoEditorContainer = ({ repoEditor: store }) => {
+  useInit(store)
 
   const {
     curView,
@@ -63,7 +63,7 @@ const RepoEditorContainer = ({ repoEditor }) => {
     editRepoData,
     subView,
     tokenValue,
-  } = repoEditor
+  } = store
 
   return (
     <Wrapper>

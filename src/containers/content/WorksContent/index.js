@@ -61,10 +61,10 @@ const tmpUsers = [
   },
 ]
 
-const WorksContentContainer = ({ worksContent }) => {
-  useInit(worksContent)
+const WorksContentContainer = ({ worksContent: store }) => {
+  useInit(store)
 
-  const { activeView } = worksContent
+  const { activeView } = store
 
   return (
     <Wrapper testid="worksContent">

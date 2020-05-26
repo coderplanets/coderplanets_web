@@ -62,8 +62,8 @@ const View = ({
   return <DynamicMarkDownHelper />
 }
 
-const JobEditorContainer = ({ jobEditor, attachment }) => {
-  useInit(jobEditor, attachment)
+const JobEditorContainer = ({ jobEditor: store, attachment }) => {
+  useInit(store, attachment)
 
   const {
     copyRight,
@@ -75,7 +75,7 @@ const JobEditorContainer = ({ jobEditor, attachment }) => {
     mentionListData,
     referUsersData,
     contentDomId,
-  } = jobEditor
+  } = store
 
   log('editData in views: ', editData)
 

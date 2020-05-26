@@ -30,13 +30,13 @@ import { useInit, inAnchor, outAnchor } from './logic'
 const log = buildLog('C:ArticleBanner')
 
 const ArticleBannerContainer = ({
-  articleBanner,
+  articleBanner: store,
   showStar,
   showWordCount,
   showLastSync,
 }) => {
   const { direction: scrollDirection } = useScrollEvent()
-  useInit(articleBanner, scrollDirection)
+  useInit(store, scrollDirection)
 
   const {
     activeThread,
@@ -44,7 +44,7 @@ const ArticleBannerContainer = ({
     starLoading,
     favoriteLoading,
     isHeaderFixed,
-  } = articleBanner
+  } = store
 
   return (
     <Wrapper>

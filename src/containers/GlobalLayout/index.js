@@ -39,7 +39,7 @@ import {
 import { useInit, openDoraemon, queryDoraemon, calcInitWidth } from './logic'
 
 const GlobalLayoutContainer = ({
-  globalLayout,
+  globalLayout: store,
   page,
   seoConfig,
   errorCode,
@@ -55,10 +55,10 @@ const GlobalLayoutContainer = ({
   const media = useMedia()
   const platform = usePlatform()
 
-  useInit(globalLayout, { online, media, platform })
+  useInit(store, { online, media, platform })
 
   useShortcut('ctrl+p', openDoraemon)
-  const { sidebarPin } = globalLayout
+  const { sidebarPin } = store
 
   /*
    * solve page jump when switch beteen threads

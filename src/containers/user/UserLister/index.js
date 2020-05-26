@@ -49,8 +49,8 @@ const renderContent = (curView, pagedUsersData, accountInfo) => {
   }
 }
 
-const UserListerContainer = ({ userLister }) => {
-  useInit(userLister)
+const UserListerContainer = ({ userLister: store }) => {
+  useInit(store)
 
   const {
     curView,
@@ -60,7 +60,7 @@ const UserListerContainer = ({ userLister }) => {
     pagedUsersData,
     accountInfo,
     curCommunity,
-  } = userLister
+  } = store
 
   return (
     <Modal width="700px" show={show} showCloseBtn onClose={onClose}>

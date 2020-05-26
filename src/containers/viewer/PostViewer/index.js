@@ -33,10 +33,10 @@ import { useInit, onTagSelect, onTagUnselect, onCommentCreate } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:PostViewer')
 
-const PostViewerContainer = ({ postViewer, attachment }) => {
-  useInit(postViewer, attachment)
+const PostViewerContainer = ({ postViewer: store, attachment }) => {
+  useInit(store, attachment)
 
-  const { curCommunity, viewingData, loading } = postViewer
+  const { curCommunity, viewingData, loading } = store
   const tagTitleList = R.pluck('title', viewingData.tags)
 
   return (

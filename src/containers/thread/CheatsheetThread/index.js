@@ -52,8 +52,8 @@ const renderView = (cheatsheetData, type, communityRaw) => {
   }
 }
 
-const CheatsheetThreadContainer = ({ cheatsheetThread }) => {
-  useInit(cheatsheetThread)
+const CheatsheetThreadContainer = ({ cheatsheetThread: store }) => {
+  useInit(store)
 
   const {
     cheatsheetData,
@@ -61,7 +61,7 @@ const CheatsheetThreadContainer = ({ cheatsheetThread }) => {
     curCommunity,
     showSyncWarning,
     isLogin,
-  } = cheatsheetThread
+  } = store
 
   const communityRaw = curCommunity.raw
 

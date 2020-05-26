@@ -17,14 +17,9 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesContent')
 
-const NewCommunityContentContainer = ({ newCommunityContent }) => {
-  useInit(newCommunityContent)
-  const {
-    step,
-    selectTypeStatus,
-    setupDomainStatus,
-    setupInfoStatus,
-  } = newCommunityContent
+const NewCommunityContentContainer = ({ newCommunityContent: store }) => {
+  useInit(store)
+  const { step, selectTypeStatus, setupDomainStatus, setupInfoStatus } = store
 
   return (
     <Wrapper>

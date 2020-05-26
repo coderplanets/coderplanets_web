@@ -18,10 +18,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleAuthorCard')
 
-const ArticleAuthorCardContainer = ({ articleAuthorCard, user }) => {
-  useInit(articleAuthorCard, user)
+const ArticleAuthorCardContainer = ({ articleAuthorCard: store, user }) => {
+  useInit(store, user)
 
-  const { isSelfViewing } = articleAuthorCard
+  const { isSelfViewing } = store
 
   return (
     <Wrapper>

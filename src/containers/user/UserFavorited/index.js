@@ -24,8 +24,8 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:UserFavorited')
 
-const UserFavoritedContainer = ({ userFavorited }) => {
-  useInit(userFavorited)
+const UserFavoritedContainer = ({ userFavorited: store }) => {
+  useInit(store)
 
   const {
     pagedData,
@@ -34,7 +34,7 @@ const UserFavoritedContainer = ({ userFavorited }) => {
     curCategoryData,
     curThread,
     viewingUser,
-  } = userFavorited
+  } = store
 
   const { totalCount } = pagedData
 

@@ -19,10 +19,10 @@ import { useInit, onC11NChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:C11NSettingPanel')
 
-const C11NSettingPanelContainer = ({ c11NSettingPanel }) => {
-  useInit(c11NSettingPanel)
+const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
+  useInit(store)
 
-  const { accountInfo, curThread } = c11NSettingPanel
+  const { accountInfo, curThread } = store
 
   const {
     customization: {

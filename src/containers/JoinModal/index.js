@@ -21,10 +21,10 @@ import { useInit, onClose } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:JoinModal')
 
-const JoinModalContainer = ({ joinModal }) => {
-  useInit(joinModal)
+const JoinModalContainer = ({ joinModal: store }) => {
+  useInit(store)
 
-  const { show } = joinModal
+  const { show } = store
 
   return (
     <Modal width="600px" show={show} showCloseBtn onClose={onClose}>

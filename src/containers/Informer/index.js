@@ -21,10 +21,10 @@ import { useInit, toggleModal } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Informer')
 
-const InformerContainer = ({ informer, title, children }) => {
-  useInit(informer)
+const InformerContainer = ({ informer: store, title, children }) => {
+  useInit(store)
 
-  const { showModal, curView, viewingData, type, message } = informer
+  const { showModal, curView, viewingData, type, message } = store
 
   return (
     <React.Fragment>

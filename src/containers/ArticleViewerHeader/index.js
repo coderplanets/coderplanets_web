@@ -27,7 +27,7 @@ import { useInit } from './logic'
 const log = buildLog('C:ArticleViewerHeader')
 
 const ArticleViewerHeaderContainer = ({
-  articleViewerHeader,
+  articleViewerHeader: store,
   thread,
   author,
   company,
@@ -36,9 +36,9 @@ const ArticleViewerHeaderContainer = ({
   showLastSync,
   showStar,
 }) => {
-  useInit(articleViewerHeader)
+  useInit(store)
 
-  const { starLoading, favoriteLoading } = articleViewerHeader
+  const { starLoading, favoriteLoading } = store
 
   return (
     <Wrapper>

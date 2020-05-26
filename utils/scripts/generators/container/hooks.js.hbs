@@ -20,8 +20,8 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:{{ properCase name }}')
 
-const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}, testid {{afterCurly ""}}) => {
-  useInit({{ camelCase name }})
+const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: store, testid {{afterCurly ""}}) => {
+  useInit(store)
   {{#if wantMessages}}
   const { t } = useTrans()
   {{/if}}

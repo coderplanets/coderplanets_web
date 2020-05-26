@@ -44,8 +44,8 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:JobsThread')
 
-const JobsThreadContainer = ({ jobsThread }) => {
-  useInit(jobsThread)
+const JobsThreadContainer = ({ jobsThread: store }) => {
+  useInit(store)
 
   const {
     pagedJobsData,
@@ -57,7 +57,7 @@ const JobsThreadContainer = ({ jobsThread }) => {
     curCommunity,
     showPublishNote,
     showFilterBar,
-  } = jobsThread
+  } = store
 
   const { totalCount } = pagedJobsData
 

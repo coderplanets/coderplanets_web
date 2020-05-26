@@ -35,10 +35,10 @@ const DynamicBuyMeChuanChuan = dynamic({
   /* eslint-enable */
 })
 
-const FooterContainer = ({ footer }) => {
-  useInit(footer)
+const FooterContainer = ({ footer: store }) => {
+  useInit(store)
 
-  const { showSponsor, showBusBanner, curView, accountInfo } = footer
+  const { showSponsor, showBusBanner, curView, accountInfo } = store
 
   return (
     <Wrapper data-testid="footer">

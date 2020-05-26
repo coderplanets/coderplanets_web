@@ -17,16 +17,10 @@ import { useInit, onThreadChange, onReload, onPreview } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:UserPublished')
 
-const UserPublishedContainer = ({ userPublished }) => {
-  useInit(userPublished)
+const UserPublishedContainer = ({ userPublished: store }) => {
+  useInit(store)
 
-  const {
-    pagedData,
-    curView,
-    curThread,
-    viewingUser,
-    accountInfo,
-  } = userPublished
+  const { pagedData, curView, curThread, viewingUser, accountInfo } = store
 
   const { totalCount } = pagedData
 

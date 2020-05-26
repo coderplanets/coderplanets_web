@@ -23,8 +23,8 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CoolGuideContent')
 
-const MeetupsContentContainer = ({ meetupsContent }) => {
-  useInit(meetupsContent)
+const MeetupsContentContainer = ({ meetupsContent: store }) => {
+  useInit(store)
 
   return (
     <Wrapper>

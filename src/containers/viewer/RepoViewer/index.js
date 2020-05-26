@@ -21,10 +21,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:RepoViewer')
 
-const RepoViewerContainer = ({ repoViewer, attachment }) => {
-  useInit(repoViewer, attachment)
+const RepoViewerContainer = ({ repoViewer: store, attachment }) => {
+  useInit(store, attachment)
 
-  const { curCommunity, viewingData, loading } = repoViewer
+  const { curCommunity, viewingData, loading } = store
 
   return (
     <React.Fragment>

@@ -19,10 +19,10 @@ import { useInit, menuOnSelect } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CoolGuideContent')
 
-const CoolGuideContentContainer = ({ coolGuideContent }) => {
-  useInit(coolGuideContent)
+const CoolGuideContentContainer = ({ coolGuideContent: store }) => {
+  useInit(store)
 
-  const { initActiveMenuId, topFilter, displayType } = coolGuideContent
+  const { initActiveMenuId, topFilter, displayType } = store
 
   return (
     <Wrapper testid="cool-guide-content">

@@ -87,8 +87,8 @@ const TabberContent = ({ active }) => {
   }
 }
 
-const UserContentContainer = ({ userContent }) => {
-  useInit(userContent)
+const UserContentContainer = ({ userContent: store }) => {
+  useInit(store)
 
   const {
     activeThread,
@@ -96,7 +96,7 @@ const UserContentContainer = ({ userContent }) => {
     accountInfo,
     isSelfViewing,
     following,
-  } = userContent
+  } = store
 
   const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
 

@@ -29,8 +29,9 @@ import { useInit, pageOnChange, menuOnChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesContent')
 
-const CommunitiesContentContainer = ({ communitiesContent }) => {
-  useInit(communitiesContent)
+const CommunitiesContentContainer = ({ communitiesContent: store }) => {
+  useInit(store)
+
   const {
     searchStatus,
     pagedCommunitiesData,
@@ -38,7 +39,7 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
     activeMenuId,
     pagiInfo,
     showFilterSidebar,
-  } = communitiesContent
+  } = store
 
   const { isSearchMode, searchValue } = searchStatus
 

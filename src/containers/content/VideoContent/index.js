@@ -37,10 +37,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:VideoContent')
 
-const VideoContentContainer = ({ videoContent }) => {
-  useInit(videoContent)
+const VideoContentContainer = ({ videoContent: store }) => {
+  useInit(store)
 
-  const { curRoute, viewingData } = videoContent
+  const { curRoute, viewingData } = store
   const { mainPath: communityRaw } = curRoute
 
   return (

@@ -162,8 +162,8 @@ import { Wrapper, ViewerWrapper } from './styles'
 import { connectStore, buildLog } from '@/utils'
 import { useInit, changeView, onPublish, canclePublish } from './logic'
 
-const PostEditorContainer = ({ postEditor, attachment }) =>{
-  useInit(postEditor)
+const PostEditorContainer = ({ postEditor: store, attachment }) =>{
+  useInit(store)
 
   const { copyRight,  thread,   curView,    // ...   } = postEditor
 
