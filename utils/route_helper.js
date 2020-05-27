@@ -122,7 +122,7 @@ export const parseURL = args => {
 
 // --------------
 
-const ssrParsePathList = R.compose(
+export const getRoutePathList = R.compose(
   R.reject(R.isEmpty),
   R.split('/'),
   R.head,
@@ -131,7 +131,7 @@ const ssrParsePathList = R.compose(
   R.split('?')
 )
 
-const ssrGetMainPath = R.compose(
+export const getRouteMainPath = R.compose(
   R.head,
   R.split('?'),
   R.head,
@@ -142,9 +142,9 @@ const ssrGetMainPath = R.compose(
 export const ssrParseURL = req => {
   const { url } = req
   console.log('ssrParseURL url: ', url)
-  console.log('getMainPath: ', ssrGetMainPath(url))
-  console.log('ssrParsePathList: ', ssrParsePathList(url))
-  const pathList = ssrParsePathList(url)
+  console.log('getMainPath: ', getRouteMainPath(url))
+  console.log('ssrParsePathList: ', getRoutePathList(url))
+  const pathList = getRoutePathList(url)
   const mainPath = pathList[0]
   const subPath = pathList[1]
 

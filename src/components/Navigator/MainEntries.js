@@ -1,9 +1,11 @@
 import React from 'react'
 import T from 'prop-types'
 import Link from 'next/link'
+import { withRouter } from 'next/router'
 
 import { ICON_CMD } from '@/config'
 import { ROUTE } from '@/constant'
+import { getRouteMainPath } from '@/utils'
 
 // import Tooltip from '@/components/Tooltip'
 import Tooltip from '@/components/Tooltip'
@@ -12,7 +14,9 @@ import { Wrapper, DotDivider, SiteLink, Icon } from './styles/main_entries'
 
 const splitMargin = '7px'
 
-const MainEntries = ({ curRoute: { mainPath }, type }) => {
+const MainEntries = ({ router, type }) => {
+  const mainPath = getRouteMainPath(router.asPath)
+
   return (
     <Wrapper type={type}>
       <Link href="/communities" passHref>
@@ -83,9 +87,6 @@ const MainEntries = ({ curRoute: { mainPath }, type }) => {
 }
 
 MainEntries.propTypes = {
-  curRoute: T.shape({
-    mainPath: T.string,
-  }).isRequired,
   type: T.oneOfType([T.string, T.instanceOf(null)]),
 }
 
@@ -93,4 +94,4 @@ MainEntries.defaultProps = {
   type: null,
 }
 
-export default React.memo(MainEntries)
+export default React.memo(withRouter(MainEntries))

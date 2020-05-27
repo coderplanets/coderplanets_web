@@ -7,9 +7,10 @@
 import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
+import { withRouter } from 'next/router'
 
 import { ROUTE, C11N } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog, getRoutePathList } from '@/utils'
 
 import DigestView from './DigestView'
 import BriefView from './BriefView'
@@ -17,22 +18,22 @@ import BriefView from './BriefView'
 /* eslint-disable-next-line */
 const log = buildLog('c:Navigator:index')
 
-const Navigator = ({ curCommunity, layout, curRoute }) => {
-  const { mainPath, subPath } = curRoute
+const Navigator = ({ curCommunity, layout, router }) => {
+  const [mainPath, subPath] = getRoutePathList(router.asPath)
 
   if (
     R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
     R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
-    return <DigestView curRoute={curRoute} />
+    return <DigestView />
   }
 
   return (
     <React.Fragment>
       {layout === C11N.DIGEST ? (
-        <DigestView curRoute={curRoute} />
+        <DigestView />
       ) : (
-        <BriefView community={curCommunity} curRoute={curRoute} />
+        <BriefView community={curCommunity} />
       )}
     </React.Fragment>
   )
@@ -41,10 +42,6 @@ const Navigator = ({ curCommunity, layout, curRoute }) => {
 Navigator.propTypes = {
   curCommunity: T.object,
   layout: T.oneOf([C11N.DIGEST, C11N.BRIEF]),
-  curRoute: T.shape({
-    mainPath: T.string,
-    subPath: T.string,
-  }).isRequired,
 }
 
 Navigator.defaultProps = {
@@ -52,4 +49,4 @@ Navigator.defaultProps = {
   layout: C11N.DIGEST,
 }
 
-export default React.memo(Navigator)
+export default React.memo(withRouter(Navigator))

@@ -64,7 +64,6 @@ const Header = ({
           ) : (
             <Navigator
               curCommunity={curCommunity}
-              curRoute={curRoute}
               layout={accountInfo.customization.bannerLayout}
             />
           )}
