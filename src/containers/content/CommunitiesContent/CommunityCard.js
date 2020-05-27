@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { NON_FILL_COMMUNITY } from '@/constant'
 import { prettyNum, cutFrom } from '@/utils'
@@ -26,7 +26,7 @@ const CommunityCard = ({ community, restProps }) => (
       target="_blank"
     >
       <CommunityIcon
-        nonFill={R.contains(community.raw, NON_FILL_COMMUNITY)}
+        nonFill={contains(community.raw, NON_FILL_COMMUNITY)}
         src={community.logo}
         loading={<CommunityHolder text={community.raw} place="communities" />}
       />

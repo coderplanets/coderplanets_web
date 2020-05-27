@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import EmptyLabel from '@/components/EmptyLabel'
 import Pagi from '@/components/Pagi'
@@ -32,7 +32,7 @@ import { loadMentions } from './logic'
 const getLinkAddr = item => {
   const { community, parentType, parentId, sourceType, sourceId } = item
 
-  if (!R.isEmpty(parentType)) {
+  if (!isEmpty(parentType)) {
     // comment
     return `/${community}/${parentType}/${parentId}`
   }
@@ -44,7 +44,7 @@ const getLinkAddr = item => {
 
 const AtMessage = ({ item }) => {
   const { parentType, floor, sourceType } = item
-  if (!R.isEmpty(parentType)) {
+  if (!isEmpty(parentType)) {
     if (sourceType === 'comment_reply') {
       return (
         <span>
@@ -68,7 +68,7 @@ const MentionList = ({
   data: { entries, pageNumber, pageSize, totalCount },
   readState,
 }) => {
-  if (R.isEmpty(entries))
+  if (isEmpty(entries))
     return (
       <Wrapper>
         <InfoWrapper>

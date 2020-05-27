@@ -1,4 +1,12 @@
-import R from 'ramda'
+import {
+  findIndex,
+  propEq,
+  reject,
+  uniq,
+  concat,
+  contains,
+  toUpper,
+} from 'ramda'
 
 import { buildLog, asyncSuit, makeGQClient } from '@/utils'
 import S from './schema'
@@ -14,7 +22,7 @@ let store = null
 
 export const loadTags = uniqId => {
   const communityId = store.curCommunity.id
-  const thread = R.toUpper(store.curThread)
+  const thread = toUpper(store.curThread)
 
   const args = { communityId, thread }
   const { request } = makeGQClient()
@@ -25,16 +33,13 @@ export const loadTags = uniqId => {
 }
 
 export const onOptionSelect = (uniqId, item) => {
-  const index = R.findIndex(R.propEq('uniqId', uniqId))(store.labelEntriesData)
+  const index = findIndex(propEq('uniqId', uniqId))(store.labelEntriesData)
   if (index < 0) return false
   // return false
   // toggle item if exist
-  if (R.contains(item, store.labelEntriesData[index].selected)) {
+  if (contains(item, store.labelEntriesData[index].selected)) {
     return store.markUniqState(uniqId, {
-      selected: R.reject(
-        e => e === item,
-        store.labelEntriesData[index].selected
-      ),
+      selected: reject(e => e === item, store.labelEntriesData[index].selected),
     })
   }
   // replace selected if single select mode
@@ -43,7 +48,7 @@ export const onOptionSelect = (uniqId, item) => {
   }
   // push to selected if multi select mode
   store.markUniqState(uniqId, {
-    selected: R.uniq(R.concat(store.labelEntriesData[index].selected, [item])),
+    selected: uniq(concat(store.labelEntriesData[index].selected, [item])),
   })
 }
 
@@ -54,7 +59,7 @@ export const getSelectedTagId = label => {
 export const onVisibleChange = (uniqId, popVisible) => {
   store.markUniqState(uniqId, { popVisible })
 
-  const index = R.findIndex(R.propEq('uniqId', uniqId))(store.labelEntriesData)
+  const index = findIndex(propEq('uniqId', uniqId))(store.labelEntriesData)
   if (index < 0) return false
 
   const needLoad =

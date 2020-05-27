@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { filter, propEq } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
@@ -36,7 +36,7 @@ const SidebarContainer = ({ sidebar: store }) => {
   // onMouseLeave={logic.leaveSidebar}
   // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
   const activeRaw = curCommunity.raw
-  const homeCommunity = R.filter(R.propEq('raw', 'home'), communitiesData)[0]
+  const homeCommunity = filter(propEq('raw', 'home'), communitiesData)[0]
 
   return (
     <Wrapper pin={pin} testid="sidebar" className={TYPE.GLOBAL_BLUR_CLASS}>

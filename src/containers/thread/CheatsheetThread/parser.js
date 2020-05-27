@@ -1,22 +1,18 @@
-import R from 'ramda'
+import { compose, head, trim, split, map, nth } from 'ramda'
 
 const groupSpliter = '{{ ::group:: }}'
 const cardsHeaderSpliter = '{{ ::cards-header:: }}'
 const cardItemSpliter = '{{ ::card-item:: }}'
 
-const getCardHeader = R.compose(R.trim, R.head, R.split(cardsHeaderSpliter))
-const getCardList = R.compose(R.trim, R.nth(1), R.split(cardsHeaderSpliter))
+const getCardHeader = compose(trim, head, split(cardsHeaderSpliter))
+const getCardList = compose(trim, nth(1), split(cardsHeaderSpliter))
 
-const getCardItems = R.compose(
-  R.map(R.trim),
-  R.split(cardItemSpliter),
-  getCardList
-)
+const getCardItems = compose(map(trim), split(cardItemSpliter), getCardList)
 const formatFromer = v => ({
   header: getCardHeader(v),
   cards: getCardItems(v),
 })
 
-const parser = R.compose(R.map(formatFromer), R.split(groupSpliter), R.trim)
+const parser = compose(map(formatFromer), split(groupSpliter), trim)
 
 export default parser

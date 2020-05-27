@@ -4,7 +4,18 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import {
+  map,
+  findIndex,
+  filter,
+  contains,
+  clone,
+  propEq,
+  uniq,
+  concat,
+  toUpper,
+  merge,
+} from 'ramda'
 
 import { TYPE } from '@/constant'
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
@@ -85,10 +96,7 @@ const CommentsStore = T.model('CommentsStore', {
     get referUsersData() {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
-      return R.filter(
-        user => R.contains(user.name, extractMentions),
-        referUsers
-      )
+      return filter(user => contains(user.name, extractMentions), referUsers)
     },
     get participators() {
       const { commentsParticipators } = self.root.viewing.viewingData
@@ -107,7 +115,7 @@ const CommentsStore = T.model('CommentsStore', {
         },
       ]
       */
-      return R.map(mentionMapper, commentsParticipators)
+      return map(mentionMapper, commentsParticipators)
     },
     get mentionListData() {
       return stripMobx(self.mentionList)
@@ -129,7 +137,7 @@ const CommentsStore = T.model('CommentsStore', {
     },
     get activeThread() {
       const { activeThread, viewingThread } = self.root.viewing
-      return R.toUpper(viewingThread || activeThread)
+      return toUpper(viewingThread || activeThread)
     },
     get viewingData() {
       return self.root.viewingData
@@ -168,7 +176,7 @@ const CommentsStore = T.model('CommentsStore', {
       }
     },
     addReferUser(user) {
-      const index = R.findIndex(u => u.id === String(user.id), self.referUsers)
+      const index = findIndex(u => u.id === String(user.id), self.referUsers)
       if (index === -1) {
         self.referUsers.push({
           id: String(user.id),
@@ -178,20 +186,20 @@ const CommentsStore = T.model('CommentsStore', {
       }
     },
     updateMentionList(mentionArray) {
-      const curMentionList = R.clone(self.mentionList)
-      const uniqList = R.concat(curMentionList, mentionArray)
-      const mentionList = R.map(mentionMapper, uniqList)
+      const curMentionList = clone(self.mentionList)
+      const uniqList = concat(curMentionList, mentionArray)
+      const mentionList = map(mentionMapper, uniqList)
 
       // log('mentionList: ', mentionList)
       // log('uniq: ', R.uniq(R.concat(mentionList, self.participators)))
 
-      self.mentionList = R.uniq(R.concat(mentionList, self.participators))
+      self.mentionList = uniq(concat(mentionList, self.participators))
     },
     updateOneComment(id, comment = {}) {
       const { entries } = self.pagedCommentsData
 
-      const index = R.findIndex(R.propEq('id', id), entries)
-      self.pagedComments.entries[index] = R.merge(entries[index], comment)
+      const index = findIndex(propEq('id', id), entries)
+      self.pagedComments.entries[index] = merge(entries[index], comment)
     },
     mark(sobj) {
       markStates(sobj, self)

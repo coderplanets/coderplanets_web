@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge, values } from 'ramda'
 
 import { PAYMENT_USAGE, PAYMENT_METHOD } from '@/constant'
 import { markStates, buildLog } from '@/utils'
@@ -28,11 +28,11 @@ const Cashier = T.model('Cashier', {
     'pay'
   ),
   paymentMethod: T.optional(
-    T.enumeration('paymentMethod', R.values(PAYMENT_METHOD)),
+    T.enumeration('paymentMethod', values(PAYMENT_METHOD)),
     PAYMENT_METHOD.ALIPAY
   ),
   paymentUsage: T.optional(
-    T.enumeration('paymentUsage', R.values(PAYMENT_USAGE)),
+    T.enumeration('paymentUsage', values(PAYMENT_USAGE)),
     PAYMENT_USAGE.SENIOR
   ),
   amount: T.optional(
@@ -56,10 +56,10 @@ const Cashier = T.model('Cashier', {
       self.root.authWarning(options)
     },
     toastDone(options) {
-      self.root.toast('success', R.merge({ position: 'topCenter' }, options))
+      self.root.toast('success', merge({ position: 'topCenter' }, options))
     },
     toastError(options) {
-      self.root.toast('error', R.merge({ position: 'topCenter' }, options))
+      self.root.toast('error', merge({ position: 'topCenter' }, options))
     },
     callCashier({ paymentUsage, amount }) {
       self.show = true

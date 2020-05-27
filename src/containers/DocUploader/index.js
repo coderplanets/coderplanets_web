@@ -6,7 +6,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import T from 'prop-types'
-import R from 'ramda'
+import { startsWith } from 'ramda'
 
 import { ASSETS_ENDPOINT } from '@/config'
 import { buildLog, storePlug, uid, Global } from '@/utils'
@@ -150,7 +150,7 @@ class DocUploaderContainer extends React.Component {
     const { ossScriptLoaded } = this.state
     // eslint-disable-next-line no-alert
     if (!ossScriptLoaded) return alert('脚本未加载...')
-    if (!file || !R.startsWith('image/', file.type)) return false
+    if (!file || !startsWith('image/', file.type)) return false
 
     const fileSize = file.size / 1024 / 1024
     // eslint-disable-next-line no-alert

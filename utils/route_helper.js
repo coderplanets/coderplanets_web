@@ -1,32 +1,44 @@
-import R from 'ramda'
+import {
+  compose,
+  contains,
+  isEmpty,
+  head,
+  split,
+  reject,
+  prop,
+  endsWith,
+  slice,
+  clone,
+  toUpper,
+  toLower,
+  merge,
+} from 'ramda'
 import { Global } from './functions'
 import { isServerSide } from './ssr_helper'
 
 // example: /getme/xxx?aa=bb&cc=dd
-const parseMainPath = R.compose(
-  R.head,
-  R.split('?'),
-  R.head,
-  R.reject(R.isEmpty),
-  R.split('/'),
-  R.prop('asPath')
+const parseMainPath = compose(
+  head,
+  split('?'),
+  head,
+  reject(isEmpty),
+  split('/'),
+  prop('asPath')
 )
 
 // example: /xxx/getme?aa=bb&cc=dd
-const parsePathList = R.compose(
-  R.reject(R.isEmpty),
-  R.split('/'),
-  R.head,
-  R.reject(R.contains('=')),
-  R.reject(R.isEmpty),
-  R.split('?'),
-  // R.prop('asPath')
-  R.prop('url')
+const parsePathList = compose(
+  reject(isEmpty),
+  split('/'),
+  head,
+  reject(contains('=')),
+  reject(isEmpty),
+  split('?'),
+  prop('url')
 )
 
 const INDEX = ''
 const getMainPath = args => {
-  // if (R.isEmpty(args)) return INDEX
   if (args.asPath === '/') return INDEX
 
   // console.log('--2 args req: ', args)
@@ -35,7 +47,6 @@ const getMainPath = args => {
 }
 
 const getSubPath = args => {
-  // if (R.isEmpty(args)) return INDEX
   if (args.asPath === '/') return INDEX
 
   const asPathList = parsePathList(args)
@@ -46,7 +57,6 @@ const getSubPath = args => {
 }
 
 const getThirdPath = args => {
-  // if (R.isEmpty(args)) return INDEX
   if (args.asPath === '/') return INDEX
 
   const asPathList = parsePathList(args)
@@ -70,7 +80,7 @@ const parseSubDomain = args => {
     // eslint-disable-next-line no-console
     // NOTE:  subdomains is reversed
     // http://expressjs.com/en/4x/api.html#req.subdomains
-    if (!R.isEmpty(subdomains)) {
+    if (!isEmpty(subdomains)) {
       communityPath = subdomains[subdomains.length - 1]
     }
   } else {
@@ -122,21 +132,21 @@ export const parseURL = args => {
 
 // --------------
 
-export const getRoutePathList = R.compose(
-  R.reject(R.isEmpty),
-  R.split('/'),
-  R.head,
-  R.reject(R.contains('=')),
-  R.reject(R.isEmpty),
-  R.split('?')
+export const getRoutePathList = compose(
+  reject(isEmpty),
+  split('/'),
+  head,
+  reject(contains('=')),
+  reject(isEmpty),
+  split('?')
 )
 
-export const getRouteMainPath = R.compose(
-  R.head,
-  R.split('?'),
-  R.head,
-  R.reject(R.isEmpty),
-  R.split('/')
+export const getRouteMainPath = compose(
+  head,
+  split('?'),
+  head,
+  reject(isEmpty),
+  split('/')
 )
 
 export const ssrParseURL = req => {
@@ -148,8 +158,7 @@ export const ssrParseURL = req => {
   const mainPath = pathList[0]
   const subPath = pathList[1]
 
-  const thread = R.endsWith('s', subPath) ? R.slice(0, -1, subPath) : subPath
-  // return uppper ? R.toUpper(thread) : R.toLower(thread)
+  const thread = endsWith('s', subPath) ? slice(0, -1, subPath) : subPath
 
   return {
     communityPath: mainPath,
@@ -157,7 +166,7 @@ export const ssrParseURL = req => {
     mainPath,
     subPath,
     thridPath: '',
-    thread: R.toUpper(thread),
+    thread: toUpper(thread),
   }
 }
 
@@ -183,20 +192,13 @@ export const akaTranslate = communityRaw => {
 export const extractThreadFromPath = (props, uppper = true) => {
   const pathList = parsePathList(props)
   const subPath = pathList.length > 1 ? pathList[1] : pathList[0]
+  const thread = endsWith('s', subPath) ? slice(0, -1, subPath) : subPath
 
-  /*
-  let thread = subPath
-  if (subPath !== 'news') {
-    thread = R.endsWith('s', subPath) ? R.slice(0, -1, subPath) : subPath
-  }
-  */
-  const thread = R.endsWith('s', subPath) ? R.slice(0, -1, subPath) : subPath
-
-  return uppper ? R.toUpper(thread) : R.toLower(thread)
+  return uppper ? toUpper(thread) : toLower(thread)
 }
 
 export const mergeRouteQuery = (query = {}, opt = { pagi: 'string' }) => {
-  const routeQuery = R.clone(query)
+  const routeQuery = clone(query)
 
   let defaultQuery = { page: '1', size: '20' }
 
@@ -208,11 +210,11 @@ export const mergeRouteQuery = (query = {}, opt = { pagi: 'string' }) => {
     routeQuery.page = parseInt(routeQuery.page, 10)
   }
 
-  return R.merge(defaultQuery, routeQuery)
+  return merge(defaultQuery, routeQuery)
 }
 
 export const queryStringToJSON = (path, opt = { pagi: 'string' }) => {
-  const splited = R.split('?', path)
+  const splited = split('?', path)
   // if (splited.length !== 1) return mergeRouteQuery({}, opt)
   if (splited.length === 1) return mergeRouteQuery({}, opt)
 
@@ -262,7 +264,7 @@ export const serializeQuery = obj => {
     }, [])
     .join('&')
 
-  return R.isEmpty(qstring) ? '' : `?${qstring}`
+  return isEmpty(qstring) ? '' : `?${qstring}`
   /* eslint-enable */
 }
 

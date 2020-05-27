@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { curry, isEmpty, mergeDeepRight } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
 import { TYPE, EVENT, ERR } from '@/constant'
@@ -35,7 +35,7 @@ const defaultArgs = {
 export const loadComents = (args = {}) => {
   // log('loadComents passed in: ', args)
   if (store.loading || store.loadingFresh) return false
-  args = R.mergeDeepRight(defaultArgs, args)
+  args = mergeDeepRight(defaultArgs, args)
   args.id = store.viewingData.id
   args.userHasLogin = store.isLogin
   args.thread = store.activeThread
@@ -55,7 +55,7 @@ const markLoading = fresh => {
 }
 
 /* eslint-disable-next-line */
-export const createComment = R.curry((cb, e) => {
+export const createComment = curry((cb, e) => {
   if (!store.validator('create')) return false
 
   store.mark({ creating: true })
@@ -64,7 +64,7 @@ export const createComment = R.curry((cb, e) => {
     body: store.editContent,
     thread: store.activeThread,
     community: store.communityRaw,
-    mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
+    mentionUsers: store.referUsersData.map(user => ({ id: user.id })),
   }
 
   log('createComment args: ', args)
@@ -132,7 +132,7 @@ export const createReplyComment = () => {
     body: store.replyContent,
     community: store.curCommunity.raw,
     thread: store.activeThread,
-    mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
+    mentionUsers: store.referUsersData.map(user => ({ id: user.id })),
   })
 }
 
@@ -266,7 +266,7 @@ export const onReplyEditorClose = () => {
 }
 
 const saveDraftIfNeed = content => {
-  if (R.isEmpty(content)) return false
+  if (isEmpty(content)) return false
   const curDraftContent = BStore.get('recentDraft')
 
   if (curDraftContent !== content) BStore.set('recentDraft', content)

@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { curry, isEmpty, clone, omit, reject, equals, merge } from 'ramda'
 
 import { TYPE, EVENT, ERR } from '@/constant'
 import {
@@ -27,42 +27,39 @@ let sub$ = null
 export const goBack = () =>
   send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
-export const inputOnChange = R.curry((part, e) => updateEditing(store, part, e))
+export const inputOnChange = curry((part, e) => updateEditing(store, part, e))
 /* eslint-disable no-unused-vars */
-export const sexChange = R.curry((sex, e) => store.updateEditing({ sex }))
+export const sexChange = curry((sex, e) => store.updateEditing({ sex }))
 
 /* eslint-disable no-unused-vars */
-export const socialOnChange = R.curry((part, e) => {
+export const socialOnChange = curry((part, e) => {
   const { editUserData: editUser } = store
   editUser.social[part] = e.target.value
 
   store.mark({ editUser })
 })
 
-export const updateBackground = R.curry((key, part, { target: { value } }) =>
-  store.mark({ [key]: R.merge(store[key], { [part]: value }) })
+export const updateBackground = curry((key, part, { target: { value } }) =>
+  store.mark({ [key]: merge(store[key], { [part]: value }) })
 )
 
 /* eslint-disable no-unused-vars */
-export const addBackground = R.curry((type, e) => store.addBackground(type))
+export const addBackground = curry((type, e) => store.addBackground(type))
 
 /* eslint-disable no-unused-vars */
-export const removeWorkBackground = R.curry((company, title, e) => {
+export const removeWorkBackground = curry((company, title, e) => {
   const { editUserData } = store
   const { workBackgrounds } = editUserData
-  const newWorkBackgrounds = R.reject(
-    R.equals({ company, title }),
-    workBackgrounds
-  )
+  const newWorkBackgrounds = reject(equals({ company, title }), workBackgrounds)
   store.updateEditing({ workBackgrounds: newWorkBackgrounds })
 })
 
 /* eslint-disable no-unused-vars */
-export const removeEduBackground = R.curry((school, major, e) => {
+export const removeEduBackground = curry((school, major, e) => {
   const { editUserData } = store
   const { educationBackgrounds } = editUserData
-  const newEducationBackgrounds = R.reject(
-    R.equals({ school, major }),
+  const newEducationBackgrounds = reject(
+    equals({ school, major }),
     educationBackgrounds
   )
   store.updateEditing({ educationBackgrounds: newEducationBackgrounds })
@@ -72,21 +69,18 @@ export const updateConfirm = () => {
   if (!store.statusClean) return false
   let profile = cast(updateFields, store.editUserData)
 
-  const educationBackgrounds = R.clone(profile.educationBackgrounds)
-  const workBackgrounds = R.clone(profile.workBackgrounds)
-  const social = R.reject(nilOrEmpty, R.clone(profile.social))
+  const educationBackgrounds = clone(profile.educationBackgrounds)
+  const workBackgrounds = clone(profile.workBackgrounds)
+  const social = reject(nilOrEmpty, clone(profile.social))
 
-  profile = R.omit(
-    ['educationBackgrounds', 'workBackgrounds', 'social'],
-    profile
-  )
+  profile = omit(['educationBackgrounds', 'workBackgrounds', 'social'], profile)
 
   const args = { profile }
 
-  if (!R.isEmpty(educationBackgrounds))
+  if (!isEmpty(educationBackgrounds))
     args.educationBackgrounds = educationBackgrounds
-  if (!R.isEmpty(workBackgrounds)) args.workBackgrounds = workBackgrounds
-  if (!R.isEmpty(social)) args.social = social
+  if (!isEmpty(workBackgrounds)) args.workBackgrounds = workBackgrounds
+  if (!isEmpty(social)) args.social = social
 
   store.mark({ updating: true })
   log('args: ', args)

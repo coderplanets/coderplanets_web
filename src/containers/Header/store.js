@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge, contains } from 'ramda'
 
 import { ROUTE } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -62,7 +62,7 @@ const HeaderStore = T.model('HeaderStore', {
     get hasNoBottomBorder() {
       const { mainPath } = self.curRoute
 
-      return R.contains(mainPath, [ROUTE.COMMUNITIES, ROUTE.SPONSOR])
+      return contains(mainPath, [ROUTE.COMMUNITIES, ROUTE.SPONSOR])
     },
   }))
   .actions(self => ({
@@ -73,7 +73,7 @@ const HeaderStore = T.model('HeaderStore', {
       self.root.account.updateSesstion(state)
     },
     toastInfo(options) {
-      self.root.toast('info', R.merge({ position: 'topCenter' }, options))
+      self.root.toast('info', merge({ position: 'topCenter' }, options))
     },
     setFix(fixed = false) {
       self.preSidebarPin = self.root.sidebar.pin

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { theme, animate, cs } from '@/utils'
@@ -52,7 +52,7 @@ export const PreviewWrapper = styled.div`
   border-radius: 0px;
   height: 100%;
   width: ${({ type }) =>
-    R.contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
+    contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
   max-width: 1000px;
   right: ${({ rightOffset }) => rightOffset};
   position: fixed;

@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { curry } from 'ramda'
 
 import { buildLog } from '@/utils'
 import { githubAPI } from '@/services'
@@ -25,7 +25,7 @@ export const onSearch = e => {
 }
 
 /* eslint-disable-next-line */
-export const adderOnConfirm = R.curry((user, cb, e) => {
+export const adderOnConfirm = curry((user, cb, e) => {
   store.mark({
     searching: false,
     githubUser: null,

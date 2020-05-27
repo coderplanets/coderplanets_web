@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { Global } from '@/utils'
 
@@ -20,7 +20,7 @@ import {
 
 const getSelection = () => {
   const selectText = Global.getSelection().toString()
-  if (!R.isEmpty(selectText)) {
+  if (!isEmpty(selectText)) {
     // TODO: then use window.getSelection().getRangeAt(0).getBoundingClientRect() to draw a button
   }
 }

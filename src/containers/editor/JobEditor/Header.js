@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import AvatarsRow from '@/components/AvatarsRow'
 import { ICON_CMD } from '@/config'
@@ -44,7 +44,7 @@ const Header = ({ isEdit, curView, referUsers }) => {
           <UsageText>
             <DoingText isEdit={isEdit} />
             工作
-            {!R.isEmpty(referUsers) && (
+            {!isEmpty(referUsers) && (
               <RefUsersWrapper>
                 <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />
                 <RefUserList>

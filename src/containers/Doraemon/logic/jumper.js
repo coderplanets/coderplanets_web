@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { contains, startsWith } from 'ramda'
 
 import { EVENT, TYPE, ROUTE, THREAD } from '@/constant'
 import { Global, send, thread2Subpath } from '@/utils'
@@ -7,8 +7,8 @@ export const jumpToCommunity = (store, communityRaw) => {
   const { mainPath, subPath } = store.curRoute
 
   if (
-    R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
-    R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
+    contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
+    contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
     Global.location.href = `/${communityRaw}/posts`
     return false
@@ -35,19 +35,19 @@ export const jumpToContent = store => {
   let thread = THREAD.POST
 
   // jump to job
-  if (R.startsWith('job-raw', store.activeSuggestion.raw)) {
+  if (startsWith('job-raw', store.activeSuggestion.raw)) {
     type = TYPE.PREVIEW_JOB_VIEW
     thread = THREAD.JOB
   }
 
   // jump to repo
-  if (R.startsWith('repo-raw', store.activeSuggestion.raw)) {
+  if (startsWith('repo-raw', store.activeSuggestion.raw)) {
     type = TYPE.PREVIEW_REPO_VIEW
     thread = THREAD.REPO
   }
 
   // jump to video
-  if (R.startsWith('video-raw', store.activeSuggestion.raw)) {
+  if (startsWith('video-raw', store.activeSuggestion.raw)) {
     type = TYPE.PREVIEW_VIDEO_VIEW
     thread = THREAD.VIDEO
   }

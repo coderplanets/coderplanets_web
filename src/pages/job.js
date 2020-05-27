@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { TYPE, ROUTE, THREAD } from '@/constant'
@@ -34,7 +34,7 @@ async function fetchData(props) {
   const pagedComments = gqClient.request(P.pagedComments, {
     id,
     userHasLogin,
-    thread: R.toUpper(THREAD.JOB),
+    thread: toUpper(THREAD.JOB),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
   })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {

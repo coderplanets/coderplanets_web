@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isNil } from 'ramda'
 import TimeAgo from 'timeago-react'
 import { Waypoint } from 'react-waypoint'
 
@@ -50,7 +50,7 @@ const ArticleBannerContainer = ({
     <Wrapper>
       <FavoritesCats />
       <FloatHeader show={isHeaderFixed} data={viewingData} />
-      {!R.isNil(viewingData.id) && (
+      {!isNil(viewingData.id) && (
         <InnerWrapper>
           <BannerContent>
             <Brief>

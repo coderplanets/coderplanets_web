@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
@@ -20,7 +20,7 @@ import InterviewContent from '@/containers/content/InterviewContent'
 import { P } from '@/schemas'
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)

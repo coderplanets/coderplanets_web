@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { pickBy } from 'ramda'
 
 import { TYPE, EVENT, THREAD } from '@/constant'
 import { asyncSuit, buildLog, send, scrollToTabber, notEmpty } from '@/utils'
@@ -45,7 +45,7 @@ export const loadRepos = (page = 1) => {
     userHasLogin,
   }
 
-  args.filter = R.pickBy(notEmpty, args.filter)
+  args.filter = pickBy(notEmpty, args.filter)
 
   log('load repos --> ', args)
   store.mark({ curView: TYPE.LOADING })

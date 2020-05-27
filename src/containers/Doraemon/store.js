@@ -4,7 +4,20 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import {
+  map,
+  forEach,
+  merge,
+  startsWith,
+  last,
+  append,
+  filter,
+  toLower,
+  findIndex,
+  propEq,
+  values,
+  isEmpty,
+} from 'ramda'
 
 import { THREAD } from '@/constant'
 import {
@@ -23,7 +36,7 @@ import cmds from './logic/defaultSuggestion'
 const convertThreadsToMaps = com => {
   const { title, desc, logo, raw } = com
   const threads = {}
-  R.forEach(t => {
+  forEach(t => {
     threads[t.title] = {
       title: t.title,
       raw: t.raw,
@@ -61,7 +74,7 @@ const DoraemonStore = T.model('DoraemonStore', {
   searchedTotalCount: T.optional(T.number, 0),
 
   searchThread: T.optional(
-    T.enumeration('searchThread', [...R.values(THREAD), 'community']),
+    T.enumeration('searchThread', [...values(THREAD), 'community']),
     'community'
   ),
 
@@ -82,10 +95,10 @@ const DoraemonStore = T.model('DoraemonStore', {
       return self.root.curRoute
     },
     get inputValueRaw() {
-      if (R.startsWith('/', self.inputValue)) {
-        return R.last(self.inputValue.split('/'))
+      if (startsWith('/', self.inputValue)) {
+        return last(self.inputValue.split('/'))
       }
-      if (R.startsWith('@', self.inputValue)) return self.inputValue.slice(1)
+      if (startsWith('@', self.inputValue)) return self.inputValue.slice(1)
 
       return self.inputValue
     },
@@ -94,9 +107,9 @@ const DoraemonStore = T.model('DoraemonStore', {
         return [self.activeRaw]
       }
       if (self.cmdChain && self.activeRaw) {
-        return R.append(
+        return append(
           self.activeRaw,
-          R.filter(el => el !== 'threads', R.map(R.toLower, self.cmdChain))
+          filter(el => el !== 'threads', map(toLower, self.cmdChain))
         )
       }
       return null
@@ -111,19 +124,19 @@ const DoraemonStore = T.model('DoraemonStore', {
 
       const subscribedCommunitiesMaps = {}
 
-      R.forEach(com => {
+      forEach(com => {
         subscribedCommunitiesMaps[com.title] = {
           ...com,
         }
-      }, R.map(convertThreadsToMaps, entries))
+      }, map(convertThreadsToMaps, entries))
 
-      return R.merge(subscribedCommunitiesMaps, cmds)
+      return merge(subscribedCommunitiesMaps, cmds)
     },
     get suggestionCount() {
       return self.suggestions.length
     },
     get activeSuggestionIndex() {
-      return R.findIndex(R.propEq('raw', self.activeRaw))(self.suggestions)
+      return findIndex(propEq('raw', self.activeRaw))(self.suggestions)
     },
     get activeTitle() {
       if (self.activeSuggestionIndex === -1) {
@@ -158,7 +171,7 @@ const DoraemonStore = T.model('DoraemonStore', {
       self.suggestions = suggestion.data
       self.prefix = suggestion.prefix
 
-      if (!R.isEmpty(suggestion.data)) {
+      if (!isEmpty(suggestion.data)) {
         self.activeRaw = suggestion.data[0].raw
       }
       if (self.suggestionCount === 0) {

@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { reject, propEq } from 'ramda'
 
 import { sortByIndex } from '@/utils'
 import Tooltip from '@/components/Tooltip'
@@ -17,7 +17,7 @@ const Planets = ({ subscribedCommunities, viewingType }) => {
   if (!subscribedCommunities) return null
 
   const { entries, totalCount } = subscribedCommunities
-  const subedCommunities = R.reject(R.propEq('raw', 'home'), entries)
+  const subedCommunities = reject(propEq('raw', 'home'), entries)
   const sortedCommunities = sortByIndex(subedCommunities)
 
   return (

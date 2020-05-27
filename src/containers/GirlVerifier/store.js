@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
 
@@ -28,10 +28,10 @@ const GirlVerifier = T.model('GirlVerifier', {
       self.showModal = true
     },
     toastDone(options) {
-      self.root.toast('success', R.merge({ position: 'topCenter' }, options))
+      self.root.toast('success', merge({ position: 'topCenter' }, options))
     },
     toastError(options) {
-      self.root.toast('error', R.merge({ position: 'topCenter' }, options))
+      self.root.toast('error', merge({ position: 'topCenter' }, options))
     },
     mark(sobj) {
       markStates(sobj, self)

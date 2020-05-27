@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { pickBy } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import {
@@ -44,7 +44,7 @@ export const loadVideos = (page = 1) => {
     userHasLogin,
   }
 
-  args.filter = R.pickBy(notEmpty, args.filter)
+  args.filter = pickBy(notEmpty, args.filter)
 
   log('load videos --> ', args)
   store.mark({ curView: TYPE.LOADING })

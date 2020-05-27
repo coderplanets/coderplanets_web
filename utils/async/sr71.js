@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { forEach } from 'ramda'
 import PubSub from 'pubsub-js'
 import { Subject, timer } from 'rxjs'
 
@@ -68,7 +68,7 @@ class SR71 {
   // Private
   initEventSubscription() {
     if (Array.isArray(this.recieve)) {
-      R.forEach(event => {
+      forEach(event => {
         this.subscriptEvent(event)
       }, this.recieve)
     } else {

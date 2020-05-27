@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
@@ -9,7 +9,7 @@ import { Wrapper, Divider } from './styles/digest_bar'
 
 const JobDigestBar = ({ data }) => (
   <Wrapper>
-    <Labeler label="city" selected={R.pluck('title', data.tags)} readOnly />
+    <Labeler label="city" selected={pluck('title', data.tags)} readOnly />
     <Divider src={`${ICON_CMD}/more.svg`} />
     <Labeler label="education" selected={[data.education]} readOnly />
     <Divider src={`${ICON_CMD}/more.svg`} />

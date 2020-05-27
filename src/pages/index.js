@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
@@ -31,8 +31,8 @@ export default class PageCommunity extends React.Component {
     const { communityPath, threadPath } = parseURL(props)
 
     const hideSidebar =
-      R.contains(communityPath, [ROUTE.USER]) ||
-      R.contains(threadPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
+      contains(communityPath, [ROUTE.USER]) ||
+      contains(threadPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
 
     return {
       hideSidebar,

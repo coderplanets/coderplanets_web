@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge, clone, concat } from 'ramda'
 
 import { markStates, buildLog, stripMobx, changeset, flashState } from '@/utils'
 import { User, EduBackground, WorkBackground } from '@/model'
@@ -113,7 +113,7 @@ const AccountEditorStore = T.model('AccountEditorStore', {
     },
 
     updateEditing(sobj) {
-      const editUser = R.merge(self.editUser, { ...sobj })
+      const editUser = merge(self.editUser, { ...sobj })
       self.mark({ editUser })
     },
 
@@ -121,15 +121,15 @@ const AccountEditorStore = T.model('AccountEditorStore', {
       if (!self.validator(type)) return false
 
       if (type === 'work') {
-        let workBackgrounds = R.clone(self.editUserData.workBackgrounds)
-        workBackgrounds = R.concat([self.workBgData], workBackgrounds)
+        let workBackgrounds = clone(self.editUserData.workBackgrounds)
+        workBackgrounds = concat([self.workBgData], workBackgrounds)
 
         self.updateEditing({ workBackgrounds })
         return self.mark({ workBg: { company: '', title: '' } })
       }
 
-      let educationBackgrounds = R.clone(self.editUserData.educationBackgrounds)
-      educationBackgrounds = R.concat(
+      let educationBackgrounds = clone(self.editUserData.educationBackgrounds)
+      educationBackgrounds = concat(
         [self.educationBgData],
         educationBackgrounds
       )

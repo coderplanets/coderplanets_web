@@ -4,8 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
-// import Router from 'next/router'
+import { merge, pickBy, omit, isEmpty } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
 import {
@@ -64,7 +63,7 @@ const RouteStore = T.model('RouteStore', {
      */
     markRoute(query, opt) {
       const defaultOpt = { onlyDesktop: false }
-      const option = R.merge(defaultOpt, opt)
+      const option = merge(defaultOpt, opt)
 
       if (!isClientSide) return false
       if (option.onlyDesktop && self.isNotDesktop) {
@@ -72,15 +71,15 @@ const RouteStore = T.model('RouteStore', {
       }
 
       const { mainPath, subPath, page } = query
-      query = R.pickBy(v => !R.isEmpty(v), query)
+      query = pickBy(v => !isEmpty(v), query)
 
       if (mainPath) self.mainPath = mainPath
       if (subPath) self.subPath = subPath
 
-      if (page && String(page) === '1') query = R.omit(['page'], query)
+      if (page && String(page) === '1') query = omit(['page'], query)
 
       // const allQueryString = serializeQuery(query)
-      const queryString = serializeQuery(R.omit(['mainPath', 'subPath'], query))
+      const queryString = serializeQuery(omit(['mainPath', 'subPath'], query))
 
       // const url = `/${allQueryString}`
       const asPath = `/${self.mainPath}/${self.subPath}${queryString}`

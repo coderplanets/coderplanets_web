@@ -3,7 +3,7 @@ import { Remarkable } from 'remarkable'
 import remarkableemoj from 'remarkable-emoji'
 import mentions from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
-import R from 'ramda'
+import { filter, keys } from 'ramda'
 
 import { MENTION_USER_ADDR } from '@/config'
 import { uid } from '@/utils'
@@ -21,7 +21,7 @@ const notTooLong = l => l.length < 20
 
 /* eslint-disable react/no-danger */
 const Emojis = () => {
-  const source = R.filter(notTooLong, R.keys(fullEmojis))
+  const source = filter(notTooLong, keys(fullEmojis))
 
   return (
     <EmojiWraper>

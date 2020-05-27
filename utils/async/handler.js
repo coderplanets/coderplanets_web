@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { join, isEmpty } from 'ramda'
 
 /* import { Observable } from 'rxjs/Observable' */
 import { of } from 'rxjs'
@@ -29,7 +29,7 @@ const formatDetail = errors => {
       return message.map(msg => {
         return details.push({
           detail: msg.message,
-          path: path ? R.join(' |> ', path) : '',
+          path: path ? join(' |> ', path) : '',
           key: msg.key || '',
           code,
         })
@@ -37,7 +37,7 @@ const formatDetail = errors => {
     }
     return details.push({
       detail: key ? `${key}:${message}` : `${message}`,
-      path: path ? R.join(' |> ', path) : '',
+      path: path ? join(' |> ', path) : '',
       key: key || '',
       code,
     })
@@ -51,7 +51,7 @@ export const formatGraphErrors = error => {
   }
 
   const { graphQLErrors } = error
-  if (!R.isEmpty(graphQLErrors)) {
+  if (!isEmpty(graphQLErrors)) {
     // graphQLErrors may not catch in graph query (wrang sytax etc ...)
     // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
     return { error: ERR.GRAPHQL, details: formatDetail(graphQLErrors) }

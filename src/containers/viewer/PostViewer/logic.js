@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { merge, toUpper } from 'ramda'
 
 import { TYPE, EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, closePreviewer, errRescue } from '@/utils'
@@ -20,7 +20,7 @@ let store = null
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
-  const thread = R.toUpper(store.activeThread)
+  const thread = toUpper(store.activeThread)
 
   sr71$.mutate(S.setTag, { thread, id, tagId, communityId })
 }
@@ -28,7 +28,7 @@ export const onTagSelect = tagId => {
 export const onTagUnselect = tagId => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
-  const thread = R.toUpper(store.activeThread)
+  const thread = toUpper(store.activeThread)
 
   sr71$.mutate(S.unsetTag, { thread, id, tagId, communityId })
 }
@@ -67,7 +67,7 @@ const DataSolver = [
   {
     match: asyncRes('post'),
     action: ({ post }) => {
-      store.setViewing({ post: R.merge(store.viewingData, post) })
+      store.setViewing({ post: merge(store.viewingData, post) })
       store.syncViewingItem(post)
       markLoading(false)
     },

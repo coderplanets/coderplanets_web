@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { contains, pluck, toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { TYPE, ROUTE, THREAD } from '@/constant'
@@ -33,7 +33,7 @@ async function fetchData(props) {
   const pagedComments = gqClient.request(P.pagedComments, {
     id,
     userHasLogin,
-    thread: R.toUpper(THREAD.JOB),
+    thread: toUpper(THREAD.JOB),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
   })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -67,7 +67,7 @@ export default class VideoPage extends React.Component {
 
     const { sessionState, video, pagedComments, subscribedCommunities } = resp
 
-    if (!R.contains(communityPath, R.pluck('raw', video.communities))) {
+    if (!contains(communityPath, pluck('raw', video.communities))) {
       return { statusCode: 404, target: subPath }
     }
 

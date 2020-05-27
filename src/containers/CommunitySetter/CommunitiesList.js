@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import Pagi from '@/components/Pagi'
 import Community from './Community'
@@ -17,7 +17,7 @@ const CommunitiesList = ({
         <Community
           key={item.id}
           entry={item}
-          belong={R.contains(item.id, curBelongIds)}
+          belong={contains(item.id, curBelongIds)}
         />
       ))}
     </EntriesWrapper>

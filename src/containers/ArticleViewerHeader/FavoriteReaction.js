@@ -1,6 +1,6 @@
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { values } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { TYPE, THREAD } from '@/constant'
@@ -55,7 +55,7 @@ const FavoriteReation = ({ data, thread, show, loading }) => (
 )
 
 FavoriteReation.propTypes = {
-  thread: T.oneOf(R.values(THREAD)),
+  thread: T.oneOf(values(THREAD)),
   data: T.shape({
     id: T.string,
     title: T.string,

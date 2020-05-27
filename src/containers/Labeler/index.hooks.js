@@ -8,7 +8,7 @@
 import React, { useState } from 'react'
 import T from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import R from 'ramda'
+import { findIndex, reject, propEq } from 'ramda'
 
 import { LABEL_POOL } from '@/config'
 import { connectStore, buildLog, storePlug, uid } from '@/utils'
@@ -54,7 +54,7 @@ const LabelerContainer = ({
   // useInit(labeler, options)
 
   const { labelEntriesData } = labeler
-  const targetIndex = R.findIndex(R.propEq('uniqId', uniqId))(labelEntriesData)
+  const targetIndex = findIndex(propEq('uniqId', uniqId))(labelEntriesData)
 
   const { tags, popVisible, selected: selectedOnes } =
     labelEntriesData[targetIndex] || {}
@@ -63,7 +63,7 @@ const LabelerContainer = ({
   log('labelEntriesData -> ', labelEntriesData)
   log('tags --> : ', tags)
 
-  const tagsList = tags ? R.reject(t => t.title === 'refined', tags) : []
+  const tagsList = tags ? reject(t => t.title === 'refined', tags) : []
 
   const callbacks = { onTagSelectCb, onTagUnselectCb }
 

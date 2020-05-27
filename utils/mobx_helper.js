@@ -1,4 +1,16 @@
-import R from 'ramda'
+import {
+  path,
+  has,
+  curry,
+  head,
+  split,
+  toLower,
+  forEachObjIndexed,
+  keys,
+  isEmpty,
+  contains,
+} from 'ramda'
+
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import { toJS } from 'mobx'
@@ -15,13 +27,13 @@ import { isObject } from './validator'
  * 一个容器组件只能连接到一个和它相关的子状态树
  *
  */
-const storeFilter = R.curry((selectedStore, props) => ({
-  [selectedStore]: R.path(['store', selectedStore], props),
+const storeFilter = curry((selectedStore, props) => ({
+  [selectedStore]: path(['store', selectedStore], props),
 }))
 
 // TODO: remove it
-export const storePlug = R.curry((selectedStore, props) => ({
-  [selectedStore]: R.path(['store', selectedStore], props),
+export const storePlug = curry((selectedStore, props) => ({
+  [selectedStore]: path(['store', selectedStore], props),
 }))
 
 /*
@@ -43,9 +55,8 @@ export const connectStore = (container, store) => {
   if (store) {
     subStoreName = store
   } else {
-    // const cname = R.head(R.split('Container', container.name))
-    const cname = R.head(R.split('Container', container.displayName))
-    subStoreName = R.toLower(R.head(cname)) + cname.slice(1)
+    const cname = head(split('Container', container.displayName))
+    subStoreName = toLower(head(cname)) + cname.slice(1)
   }
 
   return inject(storeFilter(subStoreName))(observer(container))
@@ -66,7 +77,7 @@ const matchResolver = (resolveArray, data) => {
   console.warn('unMatched resovle data: ', data)
 }
 
-export const $solver = R.curry((dataResolver, errResolver, data) =>
+export const $solver = curry((dataResolver, errResolver, data) =>
   data.error
     ? matchResolver(errResolver, data)
     : matchResolver(dataResolver, data)
@@ -80,12 +91,12 @@ export const markStates = (sobj, self) => {
   if (!isObject(sobj)) {
     throw new Error('mark: invalid sobj, exepect a object')
   }
-  const selfKeys = R.keys(self)
+  const selfKeys = keys(self)
 
-  R.forEachObjIndexed((val, key) => {
-    if (!R.contains(key, selfKeys)) return false
+  forEachObjIndexed((val, key) => {
+    if (!contains(key, selfKeys)) return false
     if (
-      !R.isEmpty(val) &&
+      !isEmpty(val) &&
       !Array.isArray(val) &&
       isObject(val) &&
       self[key] !== null
@@ -114,7 +125,7 @@ export const flashState = (store, state, value, secs = 5) => {
    only boolean now
  */
 export const meteorState = (store, state, secs, statusMsg = '') => {
-  if (!R.has(state, store)) {
+  if (!has(state, store)) {
     /* eslint-disable */
     console.error(`Error: meteorState not found ${state}`)
     /* eslint-enable */
@@ -138,15 +149,6 @@ export const meteorState = (store, state, secs, statusMsg = '') => {
 export const stripMobx = obj => {
   if (!obj) return obj
   return toJS(obj)
-
-  /*
-  return R.map(v => {
-    if (isObject(v) && R.has('$mobx')) {
-      return v.toJSON()
-    }
-    return v
-  }, obj)
-  */
 }
 
 /*
@@ -162,7 +164,7 @@ export const updateEditing = (store, part, e) => {
     return console.warn('Error: updateEditing not found in store: ', store)
 
   let value = e
-  if (isObject(e) && R.has('target', e)) {
+  if (isObject(e) && has('target', e)) {
     /* eslint-disable prefer-destructuring */
     value = e.target.value
     /* eslint-enable prefer-destructuring */

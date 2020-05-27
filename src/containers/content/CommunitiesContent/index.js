@@ -5,12 +5,10 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { connectStore, buildLog } from '@/utils'
 
-import Sticky from '@/components/Sticky'
-import FiltersMenu from '@/components/FiltersMenu'
 import Pagi from '@/components/Pagi'
 
 import Banner from './Banner'
@@ -55,11 +53,11 @@ const CommunitiesContentContainer = ({ communitiesContent: store }) => {
             activeId={activeMenuId}
           />
           <ContentsWrapper center={isSearchMode}>
-            {!R.isEmpty(pagedCommunitiesData.entries) ? (
+            {!isEmpty(pagedCommunitiesData.entries) ? (
               <React.Fragment>
                 <CommunityList
                   entries={pagedCommunitiesData.entries}
-                  restProps={{ ...communitiesContent }}
+                  restProps={{ ...store }}
                 />
                 <Pagi
                   {...pagiInfo}

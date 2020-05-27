@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { values } from 'ramda'
 
 import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
@@ -75,7 +75,7 @@ const ArticleViewerHeaderContainer = ({
 
 ArticleViewerHeaderContainer.propTypes = {
   articleViewerHeader: T.any.isRequired,
-  thread: T.oneOf(R.values(THREAD)),
+  thread: T.oneOf(values(THREAD)),
   author: T.object,
   company: T.any,
   data: T.any,

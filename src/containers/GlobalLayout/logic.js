@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { curry } from 'ramda'
 
 import { EVENT } from '@/constant'
 import { buildLog, send, cs } from '@/utils'
@@ -11,7 +11,7 @@ let store = null
 
 export const openDoraemon = () => store.openDoraemon()
 /* eslint-disable no-unused-vars */
-export const queryDoraemon = R.curry((data, e) =>
+export const queryDoraemon = curry((data, e) =>
   send(EVENT.QUERY_DORAMON, { data })
 )
 

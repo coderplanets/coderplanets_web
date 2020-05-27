@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { markStates, buildLog, stripMobx, changeset, flashState } from '@/utils'
 import { Video } from '@/model'
@@ -40,7 +40,7 @@ const VideoEditor = T.model('VideoEditor', {
       self.root.changesetErr(options)
     },
     updateEditing(sobj) {
-      const editVideo = R.merge(self.editVideoData, { ...sobj })
+      const editVideo = merge(self.editVideoData, { ...sobj })
       self.mark({ editVideo })
     },
     validator(type) {
@@ -70,12 +70,12 @@ const VideoEditor = T.model('VideoEditor', {
             .exist(
               { publishAt: '发布日期' },
               self.changesetErr,
-              R.merge(opt, { skip: self.isEdit })
+              merge(opt, { skip: self.isEdit })
             )
             .dateFmt(
               { publishAt: '发布日期' },
               self.changesetErr,
-              R.merge(opt, { skip: self.isEdit })
+              merge(opt, { skip: self.isEdit })
             )
             .done()
 

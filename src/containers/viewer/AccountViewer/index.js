@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { connectStore, buildLog } from '@/utils'
 
@@ -32,7 +32,7 @@ const AccountViewerContainer = ({ accountViewer: store, user }) => {
 
   return (
     <AccountWrapper>
-      {!R.isEmpty(userInfoData.id) && (
+      {!isEmpty(userInfoData.id) && (
         <React.Fragment>
           <AccountContent>
             <UserBrief
@@ -45,7 +45,7 @@ const AccountViewerContainer = ({ accountViewer: store, user }) => {
 
             <Divider top="20px" bottom="0px" />
             <SiteSocial user={userInfoData} />
-            <Maybe test={!R.isEmpty(subscribedCommunities)}>
+            <Maybe test={!isEmpty(subscribedCommunities)}>
               <React.Fragment>
                 <Divider top="0px" bottom="20px" />
                 <Planets

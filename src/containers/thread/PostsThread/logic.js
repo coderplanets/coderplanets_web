@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { values, contains, pickBy, merge } from 'ramda'
 import { useEffect } from 'react'
 
 import {
@@ -68,9 +68,9 @@ export const loadPosts = (page = 1) => {
   }
 
   if (curCommunity.raw === ROUTE.HOME) {
-    args.filter = R.merge(args.filter, { topic })
+    args.filter = merge(args.filter, { topic })
   }
-  args.filter = R.pickBy(notEmpty, args.filter)
+  args.filter = pickBy(notEmpty, args.filter)
 
   store.mark({ curView: TYPE.LOADING })
   sr71$.query(S.pagedPosts, args)
@@ -192,7 +192,7 @@ const DataSolver = [
     action: res => {
       const { data } = res[EVENT.TABBER_CHANGE]
 
-      if (R.contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY]))
+      if (contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY]))
         return false
 
       const { curCommunity, curRoute } = store
@@ -200,7 +200,7 @@ const DataSolver = [
         return loadCityCommunities()
       }
 
-      if (!R.contains(data.activeThread, R.values(COMMUNITY_SPEC_THREADS))) {
+      if (!contains(data.activeThread, values(COMMUNITY_SPEC_THREADS))) {
         store.mark({ activeTag: null })
         loadPosts()
       }

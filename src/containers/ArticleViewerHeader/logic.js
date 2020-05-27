@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { toUpper, merge } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, send, errRescue } from '@/utils'
@@ -35,7 +35,7 @@ export const onReaction = (action, userDid, { id }) => {
   }
 
   markLoading(true)
-  const args = { id, thread: R.toUpper(thread), action }
+  const args = { id, thread: toUpper(thread), action }
 
   return userDid
     ? sr71$.mutate(S.undoReaction, args)
@@ -75,7 +75,7 @@ const DataSolver = [
   {
     match: asyncRes('post'),
     action: ({ post }) => {
-      store.setViewing({ post: R.merge(store.viewingData, post) })
+      store.setViewing({ post: merge(store.viewingData, post) })
       store.syncViewingItem(post)
       markLoading(false)
     },
@@ -83,7 +83,7 @@ const DataSolver = [
   {
     match: asyncRes('job'),
     action: ({ job }) => {
-      store.setViewing({ job: R.merge(store.viewingData, job) })
+      store.setViewing({ job: merge(store.viewingData, job) })
       store.syncViewingItem(job)
       markLoading(false)
     },
@@ -92,14 +92,14 @@ const DataSolver = [
     match: asyncRes('video'),
     action: ({ video }) => {
       markLoading(false)
-      store.setViewing({ video: R.merge(store.viewingData, video) })
+      store.setViewing({ video: merge(store.viewingData, video) })
       // store.syncViewingItem(video)
     },
   },
   {
     match: asyncRes('repo'),
     action: ({ repo }) => {
-      store.setViewing({ repo: R.merge(store.viewingData, repo) })
+      store.setViewing({ repo: merge(store.viewingData, repo) })
       store.syncViewingItem(repo)
       markLoading(false)
     },

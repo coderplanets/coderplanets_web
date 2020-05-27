@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { ROUTE } from '@/constant'
 import { markStates, buildLog } from '@/utils'
@@ -32,8 +32,8 @@ const Footer = T.model('Footer', {
     get curView() {
       const { mainPath, subPath } = self.root.curRoute
       if (
-        R.contains(mainPath, [ROUTE.USER, ROUTE.CHEATSHEET]) ||
-        R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
+        contains(mainPath, [ROUTE.USER, ROUTE.CHEATSHEET]) ||
+        contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
       ) {
         return 'BRIEF'
       }

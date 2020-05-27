@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { debounce } from '@/utils'
 
@@ -28,7 +28,7 @@ const useScrollEvent = cb => {
       if (cb) cb()
 
       setScroll(
-        R.merge(inialState, {
+        merge(inialState, {
           direction,
           scrollPos,
         })

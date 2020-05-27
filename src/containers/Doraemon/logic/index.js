@@ -1,6 +1,6 @@
-import R from 'ramda'
 import { useEffect } from 'react'
 import Router from 'next/router'
+import { map, last, slice, isEmpty, startsWith } from 'ramda'
 
 import { ISSUE_ADDR } from '@/config'
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
@@ -132,7 +132,7 @@ const doNavigate = () => {
   if (store.searching) return false
 
   // jump to user
-  if (R.startsWith('user-raw', store.activeSuggestion.raw)) {
+  if (startsWith('user-raw', store.activeSuggestion.raw)) {
     const { raw } = store.activeSuggestion
     const login = raw.split('user-raw-')[1]
     const data = { login }
@@ -192,7 +192,7 @@ const DataSolver = [
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities }) => {
-      const data = R.map(
+      const data = map(
         e => ({
           id: e.id,
           logo: e.logo,
@@ -210,7 +210,7 @@ const DataSolver = [
   {
     match: asyncRes('searchUsers'),
     action: ({ searchUsers }) => {
-      const data = R.map(
+      const data = map(
         e => ({
           id: e.id,
           logo: e.avatar,
@@ -227,7 +227,7 @@ const DataSolver = [
   {
     match: asyncRes('searchPosts'),
     action: ({ searchPosts }) => {
-      const data = R.map(
+      const data = map(
         e => ({
           id: e.id,
           logo: e.author.avatar,
@@ -244,7 +244,7 @@ const DataSolver = [
   {
     match: asyncRes('searchJobs'),
     action: ({ searchJobs }) => {
-      const data = R.map(
+      const data = map(
         e => ({
           id: e.id,
           logo: e.companyLogo,
@@ -261,7 +261,7 @@ const DataSolver = [
   {
     match: asyncRes('searchVideos'),
     action: ({ searchVideos }) => {
-      const data = R.map(
+      const data = map(
         e => ({
           id: e.id,
           logo: e.thumbnil,
@@ -278,7 +278,7 @@ const DataSolver = [
   {
     match: asyncRes('searchRepos'),
     action: ({ searchRepos }) => {
-      const data = R.map(
+      const data = map(
         e => ({
           id: e.id,
           raw: `repo-raw-${e.id}`,
@@ -397,7 +397,7 @@ const initSpecCmdResolver = () => {
     {
       match: SAK.stepTwoCmd('theme'),
       action: cmdpath => {
-        const theme = R.last(cmdpath)
+        const theme = last(cmdpath)
         store.changeTheme(theme)
         send(EVENT.SET_C11N, { data: { theme } })
       },
@@ -406,7 +406,7 @@ const initSpecCmdResolver = () => {
       match: SAK.stepTwoCmd('login'),
       action: cmdpath => {
         log('stepTwoCmd login->: ', cmdpath)
-        switch (R.last(cmdpath)) {
+        switch (last(cmdpath)) {
           case 'github': {
             hidePanel()
             return githubLoginHandler(store, sr71$)
@@ -436,7 +436,7 @@ const initSpecCmdResolver = () => {
     {
       match: SAK.stepTwoCmd('log'),
       action: cmdpath => {
-        const cmd = R.last(cmdpath)
+        const cmd = last(cmdpath)
         if (cmd === 'github') {
           Global.window.open('https://github.com/visionmedia/log', '_blank')
         } else if (cmd === 'write') {
@@ -506,7 +506,7 @@ export const useInit = _store => {
     initSpecCmdResolver()
 
     pockect$.search().subscribe(res => {
-      if (R.isEmpty(res)) return emptySearchStates()
+      if (isEmpty(res)) return emptySearchStates()
 
       store.mark({
         searching: true,
@@ -518,14 +518,14 @@ export const useInit = _store => {
     })
 
     pockect$.searchUser().subscribe(name => {
-      const nickname = R.slice(1, Infinity, name)
+      const nickname = slice(1, Infinity, name)
       store.mark({
         prefix: '@',
         searchThread: THREAD.USER,
         showThreadSelector: true,
         showAlert: false,
       })
-      if (R.isEmpty(nickname)) return false
+      if (isEmpty(nickname)) return false
       searchContents(store, sr71$, nickname)
     })
 

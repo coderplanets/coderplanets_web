@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge, contains } from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
 import {
@@ -126,13 +126,11 @@ const PreviewStore = T.model('PreviewStore', {
     open({ type, data, thread }) {
       // NOTE: currently the attachment is only used for article-like content
       if (type === TYPE.PREVIEW_USER_VIEW) {
-        self.attUser = R.merge(data, EmptyAchievement)
+        self.attUser = merge(data, EmptyAchievement)
       } else if (data) {
-        self.attachment = R.merge(data, { type })
+        self.attachment = merge(data, { type })
       }
-      // if (data) self.attachment = R.merge({ type }, data)
-
-      if ((thread, R.contains(thread, PREVIEWABLE_THREADS))) {
+      if ((thread, contains(thread, PREVIEWABLE_THREADS))) {
         self.setViewing({ [thread]: data, viewingThread: thread })
       }
 

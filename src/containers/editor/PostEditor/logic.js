@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { map, contains, repeat, isEmpty, slice, trim } from 'ramda'
 import { useEffect } from 'react'
 
 import { EVENT, ERR, THREAD } from '@/constant'
@@ -37,14 +37,14 @@ const getDigest = body => {
 
   /* eslint-enable no-undef */
   const innerImagesLength = extractAttachments(body).length
-  let digest = R.slice(0, 65, R.trim(digestContainer.innerText))
+  let digest = slice(0, 65, trim(digestContainer.innerText))
 
   if (innerImagesLength > 0 && innerImagesLength <= 2) {
-    const imgDigest = `${R.repeat('[图片]', innerImagesLength)}`
-    digest = R.isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
+    const imgDigest = `${repeat('[图片]', innerImagesLength)}`
+    digest = isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
   } else if (innerImagesLength > 2) {
-    const imgDigest = `${R.repeat('[图片]', 2)} x ${innerImagesLength}`
-    digest = R.isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
+    const imgDigest = `${repeat('[图片]', 2)} x ${innerImagesLength}`
+    digest = isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
   }
 
   return digest
@@ -55,7 +55,7 @@ const supportedRadarSource = ['wanqu', 'solidot', 'techcrunch']
 const specCheck = () => {
   if (store.activeThread === THREAD.RADAR) {
     const domain = parseDomain(store.editPost.linkAddr)
-    if (!R.contains(domain, supportedRadarSource)) {
+    if (!contains(domain, supportedRadarSource)) {
       store.mark({ showRadarNote: true })
       return false
     }
@@ -81,9 +81,9 @@ export const onPublish = () => {
     digest,
     length,
     topic,
-    mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
+    mentionUsers: map(user => ({ id: user.id }), store.referUsersData),
   }
-  if (!R.isEmpty(store.labelsData.tags)) {
+  if (!isEmpty(store.labelsData.tags)) {
     variables.tags = store.labelsData.tags
   }
 
@@ -149,7 +149,7 @@ export const bodyInputOnChange = content => {
 }
 
 const saveDraftIfNeed = content => {
-  if (R.isEmpty(content)) return false
+  if (isEmpty(content)) return false
   const curDraftContent = BStore.get('recentDraft')
 
   if (curDraftContent !== content) BStore.set('recentDraft', content)

@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { toUpper } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, send, pagedFilter, errRescue } from '@/utils'
@@ -56,7 +56,7 @@ export const onPreview = data => {
   const { curThread: thread } = store
 
   send(EVENT.PREVIEW_OPEN, {
-    type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
+    type: TYPE[`PREVIEW_${toUpper(thread)}_VIEW`],
     thread: store.curThread,
     data,
   })

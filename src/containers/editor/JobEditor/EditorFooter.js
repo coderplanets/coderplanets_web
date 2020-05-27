@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { uid } from '@/utils'
@@ -36,7 +36,7 @@ const PicUploader = ({ divider }) => (
 
 const LabelList = ({ data }) => (
   <Wrapper>
-    <Labeler label="city" selected={R.pluck('title', data.tags)} multi />
+    <Labeler label="city" selected={pluck('title', data.tags)} multi />
     <Divider src={`${ICON_CMD}/more.svg`} />
     <Labeler label="education" selected={[data.education]} />
     <Divider src={`${ICON_CMD}/more.svg`} />

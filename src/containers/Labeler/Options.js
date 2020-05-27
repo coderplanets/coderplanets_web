@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import LABEL_POOL from '@/config/label_pool'
 import { ICON_CMD } from '@/config'
@@ -20,7 +20,7 @@ const OptionItems = ({ items, selected, onOptionSelect }) => (
       <OptionItem key={uid.gen()}>
         <OptionCheckIcon
           src={`${ICON_CMD}/check.svg`}
-          active={R.contains(item, selected)}
+          active={contains(item, selected)}
         />
         <OptionText onClick={onOptionSelect.bind(this, item)}>
           {item}

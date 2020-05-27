@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { curry, isEmpty, pick, contains, toUpper } from 'ramda'
 
 import { EVENT, ERR, THREAD, TOPIC } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
@@ -18,7 +18,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable no-unused-vars */
-export const onTagSelect = R.curry((tag, cb, e) => {
+export const onTagSelect = curry((tag, cb, e) => {
   store.selectTag(tag)
   cb(tag)
 })
@@ -27,10 +27,10 @@ const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
 
 export const loadTags = (topic = TOPIC.POST) => {
   const { curThread } = store
-  if (R.contains(curThread, NO_TAG_THREADS)) return false
+  if (contains(curThread, NO_TAG_THREADS)) return false
 
   const community = store.curCommunity.raw
-  const thread = R.toUpper(curThread)
+  const thread = toUpper(curThread)
 
   const args = { community, thread, topic }
 
@@ -96,8 +96,8 @@ export const useInit = (_store, thread, topic, active) => {
     store = _store
     log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    let activeTag = R.pick(['id', 'title', 'color'], active)
-    if (R.isEmpty(activeTag.title)) activeTag = null
+    let activeTag = pick(['id', 'title', 'color'], active)
+    if (isEmpty(activeTag.title)) activeTag = null
     store.mark({ thread, topic, activeTag })
 
     return () => {

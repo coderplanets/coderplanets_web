@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { pluck } from 'ramda'
 
 import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
@@ -37,7 +37,7 @@ const PostViewerContainer = ({ postViewer: store, attachment }) => {
   useInit(store, attachment)
 
   const { curCommunity, viewingData, loading } = store
-  const tagTitleList = R.pluck('title', viewingData.tags)
+  const tagTitleList = pluck('title', viewingData.tags)
 
   return (
     <React.Fragment>

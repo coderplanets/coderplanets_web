@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge, contains, toUpper, pluck } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { TYPE, ROUTE, THREAD } from '@/constant'
@@ -21,7 +21,7 @@ import PostContent from '@/containers/content/PostContent'
 import { P } from '@/schemas'
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
@@ -36,7 +36,7 @@ async function fetchData(props, opt) {
   const pagedComments = gqClient.request(P.pagedComments, {
     id,
     userHasLogin,
-    thread: R.toUpper(THREAD.POST),
+    thread: toUpper(THREAD.POST),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
   })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -71,7 +71,7 @@ export default class PostPage extends React.Component {
 
     const { sessionState, post, pagedComments, subscribedCommunities } = resp
 
-    if (!R.contains(mainPath, R.pluck('raw', post.communities))) {
+    if (!contains(mainPath, pluck('raw', post.communities))) {
       return { statusCode: 404, target: subPath }
     }
 

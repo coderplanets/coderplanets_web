@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { merge, slice, trim, isEmpty, repeat } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import {
@@ -36,14 +36,14 @@ const getDigest = body => {
   const digestContainer = document.getElementById(store.contentDomId)
   /* eslint-enable no-undef */
   const innerImagesLength = extractAttachments(body).length
-  let digest = R.slice(0, 65, R.trim(digestContainer.innerText))
+  let digest = slice(0, 65, trim(digestContainer.innerText))
 
   if (innerImagesLength > 0 && innerImagesLength <= 2) {
-    const imgDigest = `${R.repeat('[图片]', innerImagesLength)}`
-    digest = R.isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
+    const imgDigest = `${repeat('[图片]', innerImagesLength)}`
+    digest = isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
   } else if (innerImagesLength > 2) {
-    const imgDigest = `${R.repeat('[图片]', 2)} x ${innerImagesLength}`
-    digest = R.isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
+    const imgDigest = `${repeat('[图片]', 2)} x ${innerImagesLength}`
+    digest = isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
   }
 
   return digest
@@ -70,7 +70,7 @@ export const onPublish = () => {
     digest,
     length,
     communityId: store.viewing.community.id,
-    mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
+    mentionUsers: store.referUsersData.map(user => ({ id: user.id })),
   }
 
   if (nilOrEmpty(variables.desc)) variables.desc = '不加班,福利好,美女多..'
@@ -79,7 +79,7 @@ export const onPublish = () => {
   if (isEdit) {
     const args = cast(
       updatableJobFields,
-      R.merge(variables, { tags: store.labelsData.tags })
+      merge(variables, { tags: store.labelsData.tags })
     )
     return sr71$.mutate(S.updateJob, args)
   }
@@ -141,7 +141,7 @@ export const bodyInputOnChange = content => {
 }
 
 const saveDraftIfNeed = content => {
-  if (R.isEmpty(content)) return false
+  if (isEmpty(content)) return false
   const curDraftContent = BStore.get('recentDraft')
 
   if (curDraftContent !== content) BStore.set('recentDraft', content)

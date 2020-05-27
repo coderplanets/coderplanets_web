@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { startsWith } from 'ramda'
 import PubSub from 'pubsub-js'
 
 import { Subject, of } from 'rxjs'
@@ -47,7 +47,7 @@ export default class Pockect {
 
     /* this.search$ = this.generalInput$.pipe(filter(v => !searchablePrefix(v))) */
     this.search$ = this.generalInput$.pipe(filter(searchablePrefix))
-    this.searchUser$ = this.generalInput$.pipe(filter(R.startsWith('@')))
+    this.searchUser$ = this.generalInput$.pipe(filter(startsWith('@')))
 
     this.cmdSuggestionCommon = this.generalInput$.pipe(
       filter(startWithSlash),

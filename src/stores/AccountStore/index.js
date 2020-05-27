@@ -4,8 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
-// import { PAGE_SIZE } from '@/config'
+import { merge, clone, remove, insert, findIndex, propEq } from 'ramda'
 
 import { markStates, buildLog, stripMobx, BStore } from '@/utils'
 import { User, EmptyUser, PagedCommunities } from '@/model'
@@ -59,7 +58,7 @@ const AccountStore = T.model('AccountStore', {
       return achievement[type] || false
     },
     updateAccount(sobj) {
-      const user = R.merge(stripMobx(self.user), { ...sobj })
+      const user = merge(stripMobx(self.user), { ...sobj })
 
       self.mark({ user })
     },
@@ -95,7 +94,7 @@ const AccountStore = T.model('AccountStore', {
         userSubscribedCommunities: { entries },
       } = self
 
-      self.userSubscribedCommunities.entries = R.insert(0, community, entries)
+      self.userSubscribedCommunities.entries = insert(0, community, entries)
       self.userSubscribedCommunities.totalCount += 1
 
       // self.root.communitiesContent.toggleSubscribe(community)
@@ -108,7 +107,7 @@ const AccountStore = T.model('AccountStore', {
         },
       } = self
 
-      self.user.subscribedCommunities.entries = R.insert(0, community, entries)
+      self.user.subscribedCommunities.entries = insert(0, community, entries)
       self.user.subscribedCommunities.totalCount += 1
 
       self.root.communitiesContent.toggleSubscribe(community)
@@ -120,24 +119,24 @@ const AccountStore = T.model('AccountStore', {
         userSubscribedCommunities: { entries },
       } = self
 
-      const index = R.findIndex(R.propEq('id', community.id), entries)
-      self.userSubscribedCommunities.entries = R.remove(index, 1, entries)
+      const index = findIndex(propEq('id', community.id), entries)
+      self.userSubscribedCommunities.entries = remove(index, 1, entries)
       self.userSubscribedCommunities.totalCount -= 1
 
       // self.root.communitiesContent.toggleSubscribe(community)
       /*
          const { user: { subscribedCommunities: { entries } } } = self
 
-         const index = R.findIndex(R.propEq('id', community.id), entries)
-         self.user.subscribedCommunities.entries = R.remove(index, 1, entries)
+         const index = findIndex(propEq('id', community.id), entries)
+         self.user.subscribedCommunities.entries = remove(index, 1, entries)
          self.user.subscribedCommunities.totalCount -= 1
 
          self.root.communitiesContent.toggleSubscribe(community)
        */
     },
     updateC11N(options) {
-      const curCustomization = R.clone(self.accountInfo.customization)
-      self.user.customization = R.merge(curCustomization, options)
+      const curCustomization = clone(self.accountInfo.customization)
+      self.user.customization = merge(curCustomization, options)
     },
     mark(sobj) {
       markStates(sobj, self)

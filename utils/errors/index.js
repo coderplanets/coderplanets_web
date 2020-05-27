@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { find, propEq } from 'ramda'
 
 const DEFAULT_BASE = 4000
 // const CHANGESET_BASE = 4100
@@ -36,7 +36,7 @@ export const errorForHuman = details => {
 }
 
 const checkLoginError = errors =>
-  !!(R.find(R.propEq('code', LOGIN_ERROR))(errors) || false)
+  !!(find(propEq('code', LOGIN_ERROR))(errors) || false)
 
 export const ssrAmbulance = {
   hasLoginError: checkLoginError,

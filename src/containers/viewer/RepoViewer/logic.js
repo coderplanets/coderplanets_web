@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { merge } from 'ramda'
 
 import { TYPE, EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
@@ -45,14 +45,14 @@ const DataSolver = [
     match: asyncRes('repo'),
     action: ({ repo }) => {
       markLoading(false)
-      store.setViewing({ repo: R.merge(store.viewingData, repo) })
+      store.setViewing({ repo: merge(store.viewingData, repo) })
     },
   },
   {
     match: asyncRes('updateRepo'),
     action: ({ updateRepo }) => {
       markLoading(false)
-      store.setViewing({ repo: R.merge(store.viewingData, updateRepo) })
+      store.setViewing({ repo: merge(store.viewingData, updateRepo) })
     },
   },
   {

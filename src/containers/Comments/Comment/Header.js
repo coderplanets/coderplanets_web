@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { forEach, clone, pluck } from 'ramda'
 
 import AvatarsRow from '@/components/AvatarsRow'
 import DotDivider from '@/components/DotDivider'
@@ -19,12 +19,12 @@ import { previewReply } from '../logic'
 
 const getAuthors = comment => {
   /* eslint-disable no-return-assign */
-  const replies = R.forEach(reply => {
+  const replies = forEach(reply => {
     return (reply.author.extra_id = reply.id)
-  }, R.clone(comment.replies))
+  }, clone(comment.replies))
   /* eslint-enable */
 
-  return R.pluck('author', replies)
+  return pluck('author', replies)
 }
 
 const CommentHeader = ({ data }) => (

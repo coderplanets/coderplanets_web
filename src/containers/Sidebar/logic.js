@@ -1,6 +1,6 @@
-import R from 'ramda'
 import { useEffect } from 'react'
 import { arrayMove } from 'react-sortable-hoc'
+import { addIndex, map, reject, propEq, contains } from 'ramda'
 
 import { EVENT, ERR, THREAD, ROUTE } from '@/constant'
 import {
@@ -40,7 +40,7 @@ export const searchCommunityValueOnChange = e =>
 export const onCommunitySelect = community => {
   // NOTE: check page, if current it's from communities then redirect whole page
   const { mainPath } = store.curRoute
-  if (R.contains(mainPath, [ROUTE.COMMUNITIES])) {
+  if (contains(mainPath, [ROUTE.COMMUNITIES])) {
     Global.location.href = `/${community.raw}/posts`
     return false
   }
@@ -64,7 +64,7 @@ export const sortBtnOnClick = () => {
   store.mark({ sortOptActive: !store.sortOptActive })
 }
 
-const mapIndexed = R.addIndex(R.map)
+const mapIndexed = addIndex(map)
 export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
   const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
   setC11N(sortedCommunities)
@@ -74,7 +74,7 @@ export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
 const setC11N = sortedCommunities => {
   if (!store.isLogin) return store.authWarning()
 
-  sortedCommunities = R.reject(R.propEq('raw', 'home'), sortedCommunities)
+  sortedCommunities = reject(propEq('raw', 'home'), sortedCommunities)
   const sidebarCommunitiesIndex = mapIndexed(
     (c, index) => ({ community: c.raw, index }),
     sortedCommunities

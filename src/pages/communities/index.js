@@ -3,13 +3,12 @@
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
 
 import {
-  parseURL,
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
@@ -27,7 +26,7 @@ import CommunitiesContent from '@/containers/content/CommunitiesContent'
 import { P } from '@/schemas'
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
@@ -61,8 +60,7 @@ async function fetchData(props, opt) {
 }
 
 export async function getServerSideProps(props) {
-  const { communityPath, thread } = ssrParseURL(props.req)
-
+  // const { communityPath, thread } = ssrParseURL(props.req)
   let resp
   try {
     resp = await fetchData(props)
@@ -105,7 +103,7 @@ export async function getServerSideProps(props) {
 const CommunitiesPage = props => {
   const store = useStore(props)
 
-  const { errorCode, viewing } = store
+  const { errorCode } = store
 
   const seoConfig = {
     url: `${SITE_URL}/communities`,

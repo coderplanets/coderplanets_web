@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge, pick, toLower } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { useStore } from '@/stores/init2'
@@ -32,7 +32,7 @@ import { P } from '@/schemas'
 const log = buildLog('page:community')
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
@@ -53,7 +53,7 @@ async function fetchData(props, opt) {
     topic
   )
 
-  filter = R.pick(validCommunityFilters, filter)
+  filter = pick(validCommunityFilters, filter)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -123,7 +123,7 @@ export async function getServerSideProps(props) {
   const contentsThread = ssrContentsThread(resp, thread, filter)
 
   // // init state on server side
-  const initProps = R.merge(
+  const initProps = merge(
     {
       theme: {
         curTheme: parseTheme(sessionState),
@@ -135,7 +135,7 @@ export async function getServerSideProps(props) {
       },
       viewing: {
         community,
-        activeThread: R.toLower(thread),
+        activeThread: toLower(thread),
       },
       tagsBar: { tags: partialTags },
     },

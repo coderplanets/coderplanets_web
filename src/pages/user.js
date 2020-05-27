@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge, toLower } from 'ramda'
 
 import { SITE_URL } from '@/config'
 import { ROUTE, USER_THREAD } from '@/constant'
@@ -26,13 +26,13 @@ import UserContent from '@/containers/content/UserContent'
 import { P } from '@/schemas'
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
   const { subPath } = parseURL(props)
-  const login = R.toLower(subPath)
+  const login = toLower(subPath)
 
   const sessionState = gqClient.request(P.sessionState)
   const user = gqClient.request(P.user, { login, userHasLogin })

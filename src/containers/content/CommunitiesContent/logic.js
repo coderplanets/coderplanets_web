@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { isEmpty } from 'ramda'
 
 import { EVENT, ERR } from '@/constant'
 import {
@@ -30,7 +30,7 @@ let sub$ = null
  */
 export const loadCommunities = (page = 1) => {
   const { subPath } = store.curRoute
-  const category = !R.isEmpty(subPath) ? subPath : 'pl'
+  const category = !isEmpty(subPath) ? subPath : 'pl'
 
   const args = {
     filter: { ...pagedFilter(page), category },

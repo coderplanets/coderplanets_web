@@ -4,7 +4,7 @@
  */
 
 import { types as T } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { EVENT } from '@/constant'
 import {
@@ -277,7 +277,7 @@ const rootStore = T.model({
       const themeData = themeSkins[self.theme.curTheme]
       const progressBarColor = toastBarColor(type, themeData)
 
-      const toastOpt = R.merge(options, { progressBarColor })
+      const toastOpt = merge(options, { progressBarColor })
       toast[type](toastOpt)
     },
     authWarning(options = {}) {
@@ -290,7 +290,7 @@ const rootStore = T.model({
       if (options.hideToast && options.hideToast === true) {
         // pass
       } else {
-        self.toast('warn', R.merge(defaultOpt, options))
+        self.toast('warn', merge(defaultOpt, options))
       }
 
       send(EVENT.LOGIN_PANEL)

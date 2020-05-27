@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { findIndex, propEq } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
@@ -34,11 +34,11 @@ const mailTabs = [
 
 const MailsPannel = ({ activeRaw, mailStatus, pagedMentions }) => {
   if (mailStatus.mentionCount !== 0) {
-    const index = R.findIndex(R.propEq('raw', 'mentions'), mailTabs)
+    const index = findIndex(propEq('raw', 'mentions'), mailTabs)
     mailTabs[index].count = mailStatus.mentionCount
   }
   if (mailStatus.notificationCount !== 0) {
-    const index = R.findIndex(R.propEq('raw', 'sys_notifications'), mailTabs)
+    const index = findIndex(propEq('raw', 'sys_notifications'), mailTabs)
     mailTabs[index].count = mailStatus.notificationCount
   }
 

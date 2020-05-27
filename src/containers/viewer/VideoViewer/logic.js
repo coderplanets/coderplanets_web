@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { merge } from 'ramda'
 
 import { TYPE, ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
@@ -31,7 +31,7 @@ const DataSolver = [
     match: asyncRes('video'),
     action: ({ video }) => {
       markLoading(false)
-      store.setViewing({ video: R.merge(store.viewingData, video) })
+      store.setViewing({ video: merge(store.viewingData, video) })
       /* loading(false) */
     },
   },

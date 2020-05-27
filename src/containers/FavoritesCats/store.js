@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
@@ -110,10 +110,10 @@ const FavoritesCats = T.model('FavoritesCats', {
       return self.root.isMemberOf(type)
     },
     changesetErr(options) {
-      self.root.changesetErr(R.merge({ position: 'topCenter' }, options))
+      self.root.changesetErr(merge({ position: 'topCenter' }, options))
     },
     updateEditing(sobj) {
-      const editCategory = R.merge(self.editCategoryData, { ...sobj })
+      const editCategory = merge(self.editCategoryData, { ...sobj })
       self.mark({ editCategory })
     },
     validator(type) {

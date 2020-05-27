@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { values } from 'ramda'
 
 import { USER_THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -14,7 +14,7 @@ const log = buildLog('S:UserContent')
 
 const UserContent = T.model('UserContent', {
   activeThread: T.optional(
-    T.enumeration('activeThread', R.values(USER_THREAD)),
+    T.enumeration('activeThread', values(USER_THREAD)),
     USER_THREAD.PUBLISH
   ),
   following: T.optional(T.boolean, false),

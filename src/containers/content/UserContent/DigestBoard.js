@@ -1,6 +1,6 @@
 import React from 'react'
-import R from 'ramda'
 import TimeAgo from 'timeago-react'
+import { any, equals, values } from 'ramda'
 
 import DotDivider from '@/components/DotDivider'
 import FollowButton from '@/components/FollowButton'
@@ -15,7 +15,7 @@ import { CardWrapper, AttactWrapper, AttactIcon } from './styles/digest_board'
 
 import * as logic from './logic'
 
-const anyTrue = obj => R.any(R.equals(true), R.values(obj))
+const anyTrue = obj => any(equals(true), values(obj))
 
 const DigestBoard = ({ user, accountId, following }) => (
   <React.Fragment>

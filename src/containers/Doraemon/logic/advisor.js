@@ -1,49 +1,72 @@
 /*
  * provide advise to Pocket
  */
-import R from 'ramda'
+import {
+  not,
+  compose,
+  split,
+  filter,
+  init,
+  head,
+  last,
+  slice,
+  startsWith,
+  endsWith,
+  anyPass,
+  append,
+  insert,
+  isEmpty,
+  path as pathFn,
+  ifElse,
+  identity,
+  tail,
+  values,
+  pick,
+  map,
+  pickBy,
+} from 'ramda'
 
 import { from } from 'rxjs'
 
 import { ICON_CMD } from '@/config'
 import { notEmpty } from '@/utils'
 
-const cmdSplit = R.compose(R.split('/'), R.slice(1, Infinity))
-const cmdFull = R.compose(R.filter(notEmpty), cmdSplit)
-const cmdHead = R.compose(R.head, cmdSplit)
-const cmdLast = R.compose(R.last, cmdFull)
-const cmdInit = R.compose(R.init, cmdFull)
+const cmdSplit = compose(split('/'), slice(1, Infinity))
+const cmdFull = compose(filter(notEmpty), cmdSplit)
+const cmdHead = compose(head, cmdSplit)
+const cmdLast = compose(last, cmdFull)
+const cmdInit = compose(init, cmdFull)
 
-export const startWithSlash = R.startsWith('/')
+export const startWithSlash = startsWith('/')
 
-export const searchablePrefix = R.compose(
-  R.not,
-  R.anyPass([
-    R.startsWith('/'),
-    R.startsWith('?'),
-    R.startsWith('#'),
-    R.startsWith('@'),
-    R.startsWith('>'),
-    R.startsWith('<'),
+export const searchablePrefix = compose(
+  not,
+  anyPass([
+    startsWith('/'),
+    startsWith('?'),
+    startsWith('#'),
+    startsWith('@'),
+    startsWith('>'),
+    startsWith('<'),
   ])
 )
 
-export const startWithSpecialPrefix = R.anyPass([
-  R.startsWith('?'),
-  R.startsWith('#'),
-  R.startsWith('>'),
-  R.startsWith('<'),
+export const startWithSpecialPrefix = anyPass([
+  startsWith('?'),
+  startsWith('#'),
+  startsWith('>'),
+  startsWith('<'),
 ])
 
 // TODO need refactor
 export const insertBetweenPath = (path, word = 'threads') => {
   switch (path.length) {
     case 2:
-      return R.append(word, R.insert(1, word, path))
+      return append(word, insert(1, word, path))
     // case 3:
     //  return R.append(word, R.insert(1, word, path))
     default:
-      return R.append(word, path)
+      return append(word, path)
   }
 }
 
@@ -54,38 +77,38 @@ export class Advisor {
   }
 
   getSuggestionPath = p => {
-    if (R.isEmpty(p)) {
-      return R.path(p, this.curSuggestions)
+    if (isEmpty(p)) {
+      return pathFn(p, this.curSuggestions)
     }
     const cmdChain = insertBetweenPath(p)
     this.store.mark({ cmdChain })
-    return R.path(cmdChain, this.curSuggestions) || {}
+    return pathFn(cmdChain, this.curSuggestions) || {}
   }
 
-  suggestionPathInit = R.compose(this.getSuggestionPath, cmdInit)
+  suggestionPathInit = compose(this.getSuggestionPath, cmdInit)
 
-  suggestionPath = R.compose(this.getSuggestionPath, cmdFull)
+  suggestionPath = compose(this.getSuggestionPath, cmdFull)
 
   suggestionPathThenStartsWith = val => {
     const init = this.suggestionPathInit(val)
-    return R.pickBy((_, k) => R.startsWith(cmdLast(val), k), init)
+    return pickBy((_, k) => startsWith(cmdLast(val), k), init)
   }
 
-  walkSuggestion = R.ifElse(
-    R.endsWith('/'),
+  walkSuggestion = ifElse(
+    endsWith('/'),
     this.suggestionPath,
     this.suggestionPathThenStartsWith
   )
 
-  suggestionBreif = R.compose(
-    R.values,
-    R.map(R.pick(['title', 'desc', 'raw', 'logo', 'cmd'])),
+  suggestionBreif = compose(
+    values,
+    map(pick(['title', 'desc', 'raw', 'logo', 'cmd'])),
     this.walkSuggestion
   )
 
-  getSuggestion = R.ifElse(
-    R.compose(R.startsWith('/'), R.tail), // avoid multi /, like /////
-    () => R.identity([]),
+  getSuggestion = ifElse(
+    compose(startsWith('/'), tail), // avoid multi /, like /////
+    () => identity([]),
     this.suggestionBreif
   )
 
@@ -104,7 +127,7 @@ export class Advisor {
 
   specialSuggestions = val => {
     return {
-      prefix: R.head(val),
+      prefix: head(val),
       data: [
         {
           title: '关于本站',

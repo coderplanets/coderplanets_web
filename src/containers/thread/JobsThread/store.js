@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { findIndex, merge, pickBy, isEmpty, propEq } from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
@@ -51,7 +51,7 @@ const JobsThreadStore = T.model('JobsThreadStore', {
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      return stripMobx(pickBy(v => !isEmpty(v), self.filters))
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || {}
@@ -68,16 +68,16 @@ const JobsThreadStore = T.model('JobsThreadStore', {
       return self.root.account.pageDensity
     },
     get showFilterBar() {
-      const curFilter = stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      const curFilter = stripMobx(pickBy(v => !isEmpty(v), self.filters))
       const pagedJobs = stripMobx(self.pagedJobs)
 
-      return !R.isEmpty(curFilter) || !R.isEmpty(pagedJobs.entries)
+      return !isEmpty(curFilter) || !isEmpty(pagedJobs.entries)
     },
   }))
   .actions(self => ({
     selectFilter(option) {
       const curfilter = self.filtersData
-      self.filters = R.merge(curfilter, option)
+      self.filters = merge(curfilter, option)
     },
     authWarning(options) {
       self.root.authWarning(options)
@@ -95,16 +95,16 @@ const JobsThreadStore = T.model('JobsThreadStore', {
     },
     setViewedFlag(id) {
       const { entries } = self.pagedJobsData
-      const index = R.findIndex(R.propEq('id', id), entries)
+      const index = findIndex(propEq('id', id), entries)
       if (index >= 0) {
         self.pagedJobs.entries[index].viewerHasViewed = true
       }
     },
     updateItem(item) {
       const { entries } = self.pagedJobsData
-      const index = R.findIndex(R.propEq('id', item.id), entries)
+      const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
-        self.pagedJobs.entries[index] = R.merge(
+        self.pagedJobs.entries[index] = merge(
           stripMobx(self.pagedJobs.entries[index]),
           item
         )

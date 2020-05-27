@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import CityCard from './CityCard'
 import CitySideNote from './CitySideNote'
@@ -31,7 +31,7 @@ const Lists = ({ items }) => (
 const CityList = ({ items }) => (
   <Wrapper>
     <ListWrapper>
-      {R.isEmpty(items) ? <Loading /> : <Lists items={items} />}
+      {isEmpty(items) ? <Loading /> : <Lists items={items} />}
     </ListWrapper>
     <Sidebar>
       <CitySideNote />

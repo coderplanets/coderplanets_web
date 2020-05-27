@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { propEq, findIndex } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { markStates, buildLog, stripMobx, Trans } from '@/utils'
@@ -107,8 +107,8 @@ const CommunitiesContentStore = T.model('CommunitiesContentStore', {
       self.root.authWarning(options)
     },
     toggleSubscribe(community) {
-      const index = R.findIndex(
-        R.propEq('id', community.id),
+      const index = findIndex(
+        propEq('id', community.id),
         self.pagedCommunities.entries
       )
       if (index === -1) return false

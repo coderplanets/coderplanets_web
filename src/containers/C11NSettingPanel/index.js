@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { connectStore, buildLog } from '@/utils'
 import { THREAD, C11N } from '@/constant'
@@ -68,7 +68,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
           浏览内容时列表的显示方式, 部分板块(如视频，开源项目等)不支持列表视图。
         </Desc>
 
-        {!R.contains(curThread, [THREAD.VIDEO, THREAD.REPO]) ? (
+        {!contains(curThread, [THREAD.VIDEO, THREAD.REPO]) ? (
           <React.Fragment>
             <Br top="10px" />
             <Radio
@@ -141,7 +141,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
         }
       />
 
-      {R.contains(curThread, [THREAD.POST, THREAD.JOB]) ? (
+      {contains(curThread, [THREAD.POST, THREAD.JOB]) ? (
         <React.Fragment>
           <Br top="25px" />
           <Desc>在帖子/文章下方显示辅助分割线。</Desc>

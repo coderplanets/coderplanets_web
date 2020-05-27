@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { Global, cs, debounce } from '@/utils'
 
@@ -19,19 +19,19 @@ const useMedia = (/* { breakpoint } */) => {
       const { innerWidth } = Global
 
       if (innerWidth <= cs.mediaBreakPoints.mobile) {
-        setMedia(R.merge(defaultMedia, { mobile: true }))
+        setMedia(merge(defaultMedia, { mobile: true }))
       } else if (
         innerWidth > cs.mediaBreakPoints.mobile &&
         innerWidth <= cs.mediaBreakPoints.tablet
       ) {
-        setMedia(R.merge(defaultMedia, { tablet: true }))
+        setMedia(merge(defaultMedia, { tablet: true }))
       } else if (
         innerWidth > cs.mediaBreakPoints.tablet &&
         innerWidth <= cs.mediaBreakPoints.laptop
       ) {
-        setMedia(R.merge(defaultMedia, { laptop: true }))
+        setMedia(merge(defaultMedia, { laptop: true }))
       } else {
-        setMedia(R.merge(defaultMedia, { desktop: true }))
+        setMedia(merge(defaultMedia, { desktop: true }))
       }
     }
 

@@ -6,7 +6,7 @@
 
 import React from 'react'
 import { Waypoint } from 'react-waypoint'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { THREAD, ROUTE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
@@ -56,7 +56,7 @@ const LabelText = {
 }
 
 const isSpecThread = (community, thread) => {
-  if (R.contains(thread, [THREAD.GROUP, THREAD.COMPANY])) {
+  if (contains(thread, [THREAD.GROUP, THREAD.COMPANY])) {
     return true
   }
 
