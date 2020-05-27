@@ -6,9 +6,10 @@
 
 import React from 'react'
 
+import CalendarCard from './CalendarCard'
 import Cell from './Cell'
 
-import { Wrapper, DatesWrapper } from '../styles/date_selector'
+import { Wrapper, CellsWrapper, DatesWrapper } from '../styles/date_selector'
 
 let dates = []
 
@@ -28,16 +29,20 @@ const DateSelector = () => {
 
   return (
     <Wrapper>
-      <DatesWrapper>
-        {items.slice(0, 15).map(item => (
-          <Cell key={item.id} item={item} />
-        ))}
-      </DatesWrapper>
-      <DatesWrapper>
-        {items.slice(15).map(item => (
-          <Cell key={item.id} item={item} />
-        ))}
-      </DatesWrapper>
+      <CalendarCard />
+
+      <CellsWrapper>
+        <DatesWrapper>
+          {items.slice(0, 15).map(item => (
+            <Cell key={item.id} item={item} />
+          ))}
+        </DatesWrapper>
+        <DatesWrapper>
+          {items.slice(15).map(item => (
+            <Cell key={item.id} item={item} />
+          ))}
+        </DatesWrapper>
+      </CellsWrapper>
     </Wrapper>
   )
 }

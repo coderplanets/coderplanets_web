@@ -5,7 +5,7 @@ import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${cs.flex()}
-  width: 300px;
+  width: 33%;
   height: 210px;
   padding: 20px 5px;
   border-bottom: 1px solid #054353;

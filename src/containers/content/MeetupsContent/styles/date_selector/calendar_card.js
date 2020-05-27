@@ -4,16 +4,17 @@ import styled from 'styled-components'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center', 'justify-end')};
-  width: 100%;
-  margin-bottom: 25px;
+  ${cs.flex('justify-start')};
+  width: 100px;
+  height: 90px;
   color: ${theme('thread.articleDigest')};
+  border: 1px solid;
+  border-color: #004354;
 `
 export const SelectorRow = styled.div`
   position: relative;
   ${cs.flexColumn('align-end')};
   width: 100%;
-  height: 90px;
   padding-top: 10px;
   padding-right: 10px;
   background: #08323e;

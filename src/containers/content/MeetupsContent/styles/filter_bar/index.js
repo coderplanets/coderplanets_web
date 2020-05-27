@@ -1,14 +1,24 @@
 import styled from 'styled-components'
 
-// import Img from '@/Img'
+import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
   margin-right: 25px;
 `
+export const MeetupIcon = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
+  height: 70px;
+  width: 100px;
+  display: block;
+  margin-top: -17px;
+`
+export const LogoDesc = styled.div`
+  color: ${theme('thread.articleDigest')};
+`
 export const NaviFooter = styled.div`
-  ${cs.flexColumn('align-end')};
+  ${cs.flexColumn('align-start')};
   border-top: 1px solid;
   border-top-color: #0d4353;
   padding-top: 20px;
