@@ -1,5 +1,3 @@
-// import R from 'ramda'
-
 import { useEffect } from 'react'
 
 import { ERR } from '@/constant'

@@ -6,7 +6,7 @@
 
 import React, { useEffect } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isEmpty, findIndex, propEq } from 'ramda'
 
 import { buildLog } from '@/utils'
 import { SpaceGrow, Space } from '@/components/Common'
@@ -48,8 +48,8 @@ const RootMenu = ({
   pinNumberHoverType,
 }) => {
   useEffect(() => {
-    if (!initDone && !R.isEmpty(initActiveMenuId)) {
-      const index = R.findIndex(R.propEq('id', initActiveMenuId), menuItems)
+    if (!initDone && !isEmpty(initActiveMenuId)) {
+      const index = findIndex(propEq('id', initActiveMenuId), menuItems)
 
       onSelect(menuItems[index])
       setInitDone(true)

@@ -1,4 +1,3 @@
-// import R from 'ramda'
 import { useEffect } from 'react'
 
 import { asyncSuit, buildLog } from '@/utils'

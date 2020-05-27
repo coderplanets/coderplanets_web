@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { buildLog } from '@/utils'
 import Perv from './Perv'
@@ -53,7 +53,7 @@ const Pagi = ({
   emptyMsg,
   noMoreMsg,
 }) => {
-  const margin = R.merge(defaultMargin, marginProp)
+  const margin = merge(defaultMargin, marginProp)
 
   if (totalCount === 0) {
     return (

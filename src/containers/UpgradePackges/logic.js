@@ -1,4 +1,3 @@
-// import R from 'ramda'
 import { useEffect } from 'react'
 
 import { SENIOR_AMOUNT_THRESHOLD } from '@/config'

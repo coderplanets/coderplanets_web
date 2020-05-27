@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { findIndex, propEq } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
 
@@ -23,7 +23,7 @@ import {
 const log = buildLog('c:IconSwitcher:index')
 
 const IconSwitcher = ({ items, activeKey, onChange }) => {
-  const slideIndex = R.findIndex(R.propEq('key', activeKey), items)
+  const slideIndex = findIndex(propEq('key', activeKey), items)
 
   return (
     <Wrapper testid="selectors">

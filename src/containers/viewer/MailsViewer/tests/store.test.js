@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import MailsViewer from '../index'
 
 it('TODO: store test MailsViewer', () => {

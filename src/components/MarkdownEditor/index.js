@@ -4,7 +4,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { filter, startsWith, toLower, equals, isEmpty } from 'ramda'
 import PubSub from 'pubsub-js'
 
 import { EditorState, ContentState, Modifier } from 'draft-js'
@@ -37,7 +37,7 @@ const mentionThemeClass = {
 }
 
 const mentionFilter = (value, mentions) =>
-  R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)
+  filter(m => startsWith(value, toLower(m.name)), mentions)
 
 class MarkdownEditor extends React.Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class MarkdownEditor extends React.Component {
     /* eslint-disable react/destructuring-assignment */
     if (
       nextProps.mentionList &&
-      !R.equals(nextProps.mentionList, this.state.mentionList)
+      !equals(nextProps.mentionList, this.state.mentionList)
     ) {
       this.loadUserSuggestions(nextProps.mentionList)
     }
@@ -90,7 +90,7 @@ class MarkdownEditor extends React.Component {
     const { body } = this.props
 
     const recentDraft = BStore.get('recentDraft')
-    if (!R.isEmpty(recentDraft) && !body) {
+    if (!isEmpty(recentDraft) && !body) {
       return this.loadDraftRaw(recentDraft)
     }
 

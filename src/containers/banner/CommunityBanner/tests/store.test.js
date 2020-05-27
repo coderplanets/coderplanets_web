@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import CommunityBanner from '../index'
 
 it('TODO: store test CommunityBanner', () => {

@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { buildLog } from '@/utils'
 
@@ -86,7 +86,7 @@ const FiltersMenu = ({
               options={item.options}
               revert={revert}
               onSelect={(parentId, item) =>
-                setActiveMap(R.merge(activeMap, { [parentId]: item }))
+                setActiveMap(merge(activeMap, { [parentId]: item }))
               }
             />
           )}

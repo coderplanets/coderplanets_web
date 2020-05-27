@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import VideoEditor from '../index'
 
 it('TODO: store test VideoEditor', () => {

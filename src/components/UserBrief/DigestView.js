@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { either, isNil, isEmpty } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
@@ -12,7 +12,7 @@ import {
 
 import BackgroundList from './BackgroundList'
 
-const emptyBacgrounds = R.either(R.isNil, R.isEmpty)
+const emptyBacgrounds = either(isNil, isEmpty)
 
 const DigestView = ({ user, toggleDetail }) => (
   <React.Fragment>

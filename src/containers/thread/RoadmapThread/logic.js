@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-// import R from 'ramda'
 
 import { buildLog } from '@/utils'
 // import S from './service'

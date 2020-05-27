@@ -237,7 +237,7 @@ const PostEditor = T
        ...
     },
     updateEditing(sobj) {
-      const editPost = R.merge(self.editData, { ...sobj })
+      const editPost = merge(self.editData, { ...sobj })
       return self.mark({ editPost })
     },
     reset() {
@@ -260,7 +260,7 @@ All the states here are only used by components in this container directory, bel
 Although it is OK, I think the logic does not belong to the `view` layer, and the `view` layer should have no "side effects". So I put all the logic, whether synchronous or asynchronous, as a convention into the logic.js in the same directory. A simplified version of the logic.js file is as follows
 
 ```js
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { asyncRes, asyncErr, $solver } from '@/utils'
 

@@ -1,4 +1,3 @@
-// import R from 'ramda'
 import { useEffect } from 'react'
 
 import { EVENT, PAYMENT_USAGE } from '@/constant'

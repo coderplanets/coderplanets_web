@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import AvatarAdder from '../index'
 
 it('TODO: store test AvatarAdder', () => {

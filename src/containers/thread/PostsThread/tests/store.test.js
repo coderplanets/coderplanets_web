@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import PostsThreadStore from '../index'
 
 it('TODO: test PostsThreadStore', () => {

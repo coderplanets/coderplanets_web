@@ -199,7 +199,6 @@ store.js 类似于 MVC 架构下的 M 层，基于 [mobx-state-tree](https://git
 ```js
 ...
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
 
 import { Post, Mention } from '@/model'
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
@@ -234,7 +233,7 @@ const PostEditor = T
        ...
     },
     updateEditing(sobj) {
-      const editPost = R.merge(self.editData, { ...sobj })
+      const editPost = merge(self.editData, { ...sobj })
       return self.mark({ editPost })
     },
     reset() {
@@ -257,7 +256,7 @@ export default PostEditor
 尽管可以，但我认为逻辑并不属于 `view` 层，`view` 层应该是没有"副作用"的。因此我把所有的逻辑, 不论同步的还是异步的，都作为惯例提取到同目录下的 logic.js 中, 一个简化版的 logic.js 文件如下：
 
 ```js
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { asyncRes, asyncErr, $solver } from '@/utils'
 

@@ -6,7 +6,7 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isEmpty, findIndex } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { buildLog, isString } from '@/utils'
@@ -52,8 +52,8 @@ const temItems = [
  * @returns number
  */
 const getDefaultActiveTabIndex = (items, activeKey) => {
-  if (R.isEmpty(activeKey)) return 0
-  const index = R.findIndex(item => {
+  if (isEmpty(activeKey)) return 0
+  const index = findIndex(item => {
     return isString(item)
       ? activeKey === item
       : activeKey === (item.raw || item.title)

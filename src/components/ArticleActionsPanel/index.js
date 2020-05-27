@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { values } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
@@ -97,7 +97,7 @@ ArticleActionsPanel.propTypes = {
     ),
   }).isRequired,
   communityRaw: T.string.isRequired,
-  thread: T.oneOf(R.values(THREAD)),
+  thread: T.oneOf(values(THREAD)),
   onInform: T.func,
   onDelete: T.func,
   onEdit: T.func,

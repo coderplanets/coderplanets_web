@@ -1,4 +1,3 @@
-// import R from 'ramda'
 import { timeout } from 'promise-timeout'
 import { TIMEOUT_SEC } from './config'
 

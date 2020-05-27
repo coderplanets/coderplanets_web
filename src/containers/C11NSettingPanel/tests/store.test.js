@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import C11NSettingPanel from '../index'
 
 it('TODO: store test C11NSettingPanel', () => {

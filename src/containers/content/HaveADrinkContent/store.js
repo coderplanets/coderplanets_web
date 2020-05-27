@@ -4,10 +4,8 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
-
 import { LN } from './logic'
 
 const { VIEW } = LN

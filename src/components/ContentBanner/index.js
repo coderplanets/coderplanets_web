@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { contains, pluck, isNil, isEmpty } from 'ramda'
 import TimeAgo from 'timeago-react'
 
 import { buildLog } from '@/utils'
@@ -28,16 +28,16 @@ const log = buildLog('c:ContentBanner:index')
 
 // TODO: add a Loading effect
 const ContentBanner = ({ data, middleNode }) => {
-  const isRefined = R.contains('refined', R.pluck('title', data.tags))
+  const isRefined = contains('refined', pluck('title', data.tags))
 
   return (
     <BannerContainer>
-      {!R.isNil(data.id) && (
+      {!isNil(data.id) && (
         <BannerContentWrapper>
           <PostBrief>
             <Title>{data.title}</Title>
             <React.Fragment>
-              {!R.isEmpty(middleNode) && <div>{middleNode}</div>}
+              {!isEmpty(middleNode) && <div>{middleNode}</div>}
             </React.Fragment>
             <Desc>
               {isRefined ? <MarkTag>精华</MarkTag> : <div />}

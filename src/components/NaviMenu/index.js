@@ -6,7 +6,7 @@
 
 import React, { useState, useCallback } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { findIndex } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
 
@@ -21,7 +21,7 @@ const log = buildLog('c:NaviMenu:index')
 
 // get parrentMenuIndex and child menu items
 const getMenuInfo = (items, parentMenuId) => {
-  const parentMenuIndex = R.findIndex(item => item.id === parentMenuId, items)
+  const parentMenuIndex = findIndex(item => item.id === parentMenuId, items)
 
   const childMenuItems =
     parentMenuIndex >= 0 ? items[parentMenuIndex].childMenu : []

@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { buildLog, cutFrom } from '@/utils'
@@ -143,7 +143,7 @@ const ProductGallery = ({ items }) => {
           </Header>
 
           {item.desc && <Desc>{cutFrom(item.desc, 50)}</Desc>}
-          {!item.desc && !R.isEmpty(item.tags) && (
+          {!item.desc && !isEmpty(item.tags) && (
             <InlineTags items={item.tags} />
           )}
 

@@ -6,7 +6,7 @@
 
 import React, { useEffect, useState } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { contains, keys } from 'ramda'
 
 import dynamic from 'next/dynamic'
 
@@ -41,7 +41,7 @@ const CrashErrorHint = ({ onReport }) => {
   useEffect(() => {
     // init theme settings
     const cusThemeName = BStore.get(TYPE.CUR_THEME)
-    if (cusThemeName && R.contains(cusThemeName, R.keys(themeSkins))) {
+    if (cusThemeName && contains(cusThemeName, keys(themeSkins))) {
       setThemeName(cusThemeName)
     }
 

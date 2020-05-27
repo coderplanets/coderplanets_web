@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import RepoContent from '../index'
 
 it('TODO: store test RepoContent', () => {

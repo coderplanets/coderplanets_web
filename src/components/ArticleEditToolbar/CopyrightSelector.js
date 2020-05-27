@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { path, reject, find, propEq } from 'ramda'
 // import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
@@ -36,10 +36,10 @@ const FullOptions = [
 const getOptions = thread => {
   switch (thread) {
     case THREAD.JOB:
-      return R.reject(o => o.value === 'translate', FullOptions)
+      return reject(o => o.value === 'translate', FullOptions)
 
     case THREAD.RADAR:
-      return R.reject(o => o.value === 'original', FullOptions)
+      return reject(o => o.value === 'original', FullOptions)
 
     default:
       return FullOptions
@@ -47,7 +47,7 @@ const getOptions = thread => {
 }
 
 const getCpTitle = cptype =>
-  R.path(['title'], R.find(R.propEq('value', cptype), FullOptions))
+  path(['title'], find(propEq('value', cptype), FullOptions))
 
 const CopyrightContent = ({ active, thread, onCopyrightChange }) => (
   <Wrapper>

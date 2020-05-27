@@ -13,7 +13,6 @@
 /*
 
 import React from 'react'
-import R from 'ramda'
 import T from 'prop-types'
 
 import { Remarkable } from 'remarkable'

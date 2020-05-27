@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { toUpper, isEmpty } from 'ramda'
 
 import { nilOrEmpty } from '@/utils'
 import Maybe from '@/components/Maybe'
@@ -96,7 +96,7 @@ const StatesContainers = ({ repo }) => (
         <Label>License</Label>
         {repo.license ? (
           <Number small={repo.license.length > 5}>
-            {R.toUpper(repo.license) || '--'}
+            {toUpper(repo.license) || '--'}
           </Number>
         ) : (
           <Number>--</Number>
@@ -106,7 +106,7 @@ const StatesContainers = ({ repo }) => (
     <BoxWrapper grow nomargin nohover>
       <Label>Contributers</Label>
       <Maybe
-        test={!R.isEmpty(repo.contributors)}
+        test={!isEmpty(repo.contributors)}
         loading={<div>api rate limit</div>}
       >
         <BuilderList entries={repo.contributors} />

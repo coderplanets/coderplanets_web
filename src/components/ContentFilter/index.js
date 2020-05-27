@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { values } from 'ramda'
 
 import { THREAD } from '@/constant'
 import { buildLog } from '@/utils'
@@ -66,7 +66,7 @@ ContentFilter.propTypes = {
     source: T.string,
   }),
   onSelect: T.func.isRequired,
-  thread: T.oneOf(R.values(THREAD)),
+  thread: T.oneOf(values(THREAD)),
   accountInfo: T.shape({
     isLogin: T.bool,
   }),

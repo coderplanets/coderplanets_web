@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { contains } from 'ramda'
 import { withRouter } from 'next/router'
 
 import { ROUTE, C11N } from '@/constant'
@@ -22,8 +22,8 @@ const Navigator = ({ curCommunity, layout, router }) => {
   const [mainPath, subPath] = getRoutePathList(router.asPath)
 
   if (
-    R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
-    R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
+    contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
+    contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
     return <DigestView />
   }

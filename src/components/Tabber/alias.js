@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { merge, clone, keys, findIndex, forEach } from 'ramda'
 
 const alias = {
   home: {
@@ -18,16 +18,16 @@ const alias = {
 
 export const mapAlias = (_source, communityRaw) => {
   const communityAlias = alias[communityRaw]
-  const source = R.clone(_source)
+  const source = clone(_source)
 
   if (!communityAlias) return source
 
-  const aliasKeys = R.keys(communityAlias)
+  const aliasKeys = keys(communityAlias)
 
-  R.forEach(key => {
-    const index = R.findIndex(item => item.raw === key, source)
+  forEach(key => {
+    const index = findIndex(item => item.raw === key, source)
     if (index >= 0) {
-      source[index] = R.merge(source[index], { alias: communityAlias[key] })
+      source[index] = merge(source[index], { alias: communityAlias[key] })
     }
   }, aliasKeys)
 

@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import JoinModal from '../index'
 
 it('TODO: store test JoinModal', () => {

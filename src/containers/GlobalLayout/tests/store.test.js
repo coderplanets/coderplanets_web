@@ -3,7 +3,6 @@
  *
  */
 
-// import R from 'ramda'
 // import GlobalLayoutStore from '../index'
 
 it('GlobalLayoutStore 1 + 1 = 2', () => {

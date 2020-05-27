@@ -1,5 +1,3 @@
-// import R from 'ramda'
-
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, send, errRescue } from '@/utils'
 

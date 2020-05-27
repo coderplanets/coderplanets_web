@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import RecipesContent from '../index'
 
 it('TODO: store test RecipesContent', () => {

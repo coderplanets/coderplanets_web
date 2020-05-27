@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import UserBilling from '../index'
 
 it('TODO: store test UserBilling', () => {

@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import RichEditor from '../index'
 
 it('TODO: store test RichEditor', () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { range } from 'ramda'
 import ContentLoader from 'react-content-loader'
 import { withTheme } from 'styled-components'
 
@@ -34,7 +34,7 @@ const LoadingBlock = ({ theme }) => (
 
 const CheatSheetLoading = ({ column, theme }) => (
   <Wrapper>
-    {R.range(0, column).map(item => (
+    {range(0, column).map(item => (
       <LoadingBlock key={item} theme={theme} />
     ))}
   </Wrapper>
