@@ -12,7 +12,8 @@ import Pagi from '@/components/Pagi'
 
 import FilterBar from './FilterBar'
 import DateSelector from './DateSelector'
-import ActivityCard from './ActivityCard'
+// import ActivityCard from './ActivityCard'
+import Card from './Card'
 
 import filtersItems from './fakeFiltersItems'
 import meetups from './fakeMeetups'
@@ -34,7 +35,8 @@ const MeetupsContentContainer = ({ meetupsContent: store }) => {
           <DateSelector />
           <CardsWrapper>
             {meetups.map(item => (
-              <ActivityCard key={item.id} item={item} />
+              <Card key={item.id} item={item} />
+              // <ActivityCard key={item.id} item={item} />
             ))}
           </CardsWrapper>
           <Pagi margin={{ top: '40px', bottom: '60px' }} />
