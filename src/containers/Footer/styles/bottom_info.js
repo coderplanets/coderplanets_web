@@ -30,4 +30,6 @@ export const Thanks = styled.div`
 `
 export const ThxTitle = styled.div``
 
-export const BeianLink = styled(SiteDesc)``
+export const BeianLink = styled(SiteDesc)`
+  margin-bottom: 0;
+`

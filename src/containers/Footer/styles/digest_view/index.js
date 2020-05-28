@@ -61,7 +61,6 @@ export const SiteDesc = styled.a`
   text-decoration: none;
 
   font-size: 13px;
-  margin-bottom: 5px;
 
   &:hover {
     color: ${theme('footer.hover')};

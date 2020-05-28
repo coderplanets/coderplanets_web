@@ -31,10 +31,10 @@ export const SubscribeBtn = styled(Button)`
   transition: all 0.25s;
 `
 export const SubscribeText = styled.div`
-  font-size: 11px;
+  font-size: 12px;
   color: ${theme('footer.hover')};
   width: 200px;
-  line-height: 1.9;
+  line-height: 1.7;
   opacity: 0;
 
   ${SubscribeWrapper}:hover & {
