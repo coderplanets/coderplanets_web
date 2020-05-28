@@ -22,7 +22,7 @@ const FilterBar = ({ filtersItems }) => {
     <Wrapper>
       <Sticky offsetTop={30}>
         <MeetupIcon src={`${ICON_CMD}/navi/meetup_logo.svg`} />
-        <LogoDesc>来和志同道合的朋友一起聊聊?</LogoDesc>
+        <LogoDesc>来和志同道合的朋友们一起聊聊?</LogoDesc>
         <Br bottom="34px" />
         <FiltersMenu items={filtersItems} revert />
         <NaviFooter>

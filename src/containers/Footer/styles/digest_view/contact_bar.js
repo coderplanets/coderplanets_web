@@ -25,8 +25,14 @@ export const SubscribeBtn = styled(Button)`
   margin-right: 18px;
   filter: saturate(0.7);
 
+  padding: 4px 10px;
+  padding-top: 3px;
+  height: 28px;
+
   ${SubscribeWrapper}:hover & {
     filter: saturate(1);
+    padding: 4px 15px;
+    height: 32px;
   }
   transition: all 0.25s;
 `
