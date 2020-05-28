@@ -15,9 +15,13 @@ import {
 const weekends = [5, 6, 18, 19, 27, 28]
 const activitiesDates = [3, 4, 19, 23, 24]
 
-const Cell = ({ item }) => {
+const Cell = ({ item, isLeapMonth }) => {
   return (
-    <Wrapper key={item.id} active={contains(item.id, activitiesDates)}>
+    <Wrapper
+      key={item.id}
+      active={contains(item.id, activitiesDates)}
+      isLeapMonth={isLeapMonth}
+    >
       <Head>
         <DateText active={item.id === 9}>{item.date}</DateText>
         {contains(item.id, weekends) && <WeekendHint>六</WeekendHint>}

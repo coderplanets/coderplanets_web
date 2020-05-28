@@ -16,6 +16,7 @@ export const CellsWrapper = styled.div`
   margin-left: 15px;
 `
 export const DatesWrapper = styled.div`
+  position: relative;
   ${cs.flex()}
   flex-wrap: wrap;
   width: 100%;

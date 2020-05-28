@@ -7,11 +7,14 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('justify-between')};
   border: 1px solid;
   border-color: #004354;
-  width: 55px;
+  width: ${({ isLeapMonth }) => (isLeapMonth ? '50px' : '55px')};
   height: 45px;
   padding-left: 3px;
   background: ${({ active }) => (active ? '#003b4c' : '#04303c')};
   border-top-color: ${({ active }) => (active ? '#3680AD' : '#004354')};
+  @media (max-width: 1255px) {
+    width: 50px;
+  }
 `
 export const WeekName = styled.div`
   ${cs.flex('align-both')};
