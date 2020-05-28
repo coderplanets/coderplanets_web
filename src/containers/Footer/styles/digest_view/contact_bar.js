@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { Button } from '@/components/Buttons'
 import Input from '@/components/Input'
 
 import { theme, cs } from '@/utils'
@@ -19,14 +20,20 @@ export const SubscribeWrapper = styled.div`
   ${cs.flex('align-center')};
 `
 export const SubscribeInput = styled(Input)``
-export const SubscribeBtn = styled.div`
+export const SubscribeBtn = styled(Button)`
   margin-left: 15px;
   margin-right: 18px;
+  filter: saturate(0.7);
+
+  ${SubscribeWrapper}:hover & {
+    filter: saturate(1);
+  }
+  transition: all 0.25s;
 `
 export const SubscribeText = styled.div`
   font-size: 11px;
-  color: ${theme('footer.text')};
-  width: 140px;
+  color: ${theme('footer.hover')};
+  width: 200px;
   line-height: 1.9;
   opacity: 0;
 
