@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { values, merge } from 'ramda'
 
 import { THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -23,7 +23,7 @@ const ViewingStore = T.model('ViewingStore', {
   video: T.optional(Video, {}),
   repo: T.optional(Repo, {}),
   activeThread: T.optional(
-    T.enumeration('activeThread', R.values(THREAD)),
+    T.enumeration('activeThread', values(THREAD)),
     THREAD.POST
   ),
   // for preview usage
@@ -78,7 +78,7 @@ const ViewingStore = T.model('ViewingStore', {
       }
     },
     updateViewingUser(sobj) {
-      const user = R.merge(self.user, sobj)
+      const user = merge(self.user, sobj)
       return self.mark({ user })
     },
     syncViewingItem(item) {
