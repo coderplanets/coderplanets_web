@@ -36,7 +36,14 @@ import {
   SubCommunitiesExpander,
   ExpanderIcon,
 } from './styles'
-import { useInit, openDoraemon, queryDoraemon, calcInitWidth } from './logic'
+
+import {
+  useInit,
+  openDoraemon,
+  queryDoraemon,
+  calcInitWidth,
+  logBuddha,
+} from './logic'
 
 const GlobalLayoutContainer = ({
   globalLayout: store,
@@ -48,10 +55,10 @@ const GlobalLayoutContainer = ({
   noSidebar,
   metric,
 }) => {
+  useEffect(() => logBuddha(), [])
+
   const [innerMinWidth, setInnerMinWidth] = useState('100%')
-
   const { online } = useNetwork()
-
   const media = useMedia()
   const platform = usePlatform()
 
