@@ -6,6 +6,7 @@
 
 import React, { useEffect, useState } from 'react'
 import T from 'prop-types'
+import dynamic from 'next/dynamic'
 
 import useNetwork from 'react-use/lib/useNetwork'
 
@@ -17,14 +18,10 @@ import { useShortcut, useMedia, usePlatform, useResize } from '@/hooks'
 import AnalysisService from '@/services/Analysis'
 import ThemeWrapper from '@/containers/ThemeWrapper'
 
-import Sidebar from '@/containers/Sidebar'
-import Preview from '@/containers/Preview'
-import Doraemon from '@/containers/Doraemon'
-// import Route from '@/containers/Route'
 import Header from '@/containers/Header'
-import ErrorBox from '@/containers/ErrorBox'
-import Footer from '@/containers/Footer'
+import Sidebar from '@/containers/Sidebar'
 import ErrorPage from '@/components/ErrorPage'
+import { Doraemon, Preview, ErrorBox, Footer } from './dynamic'
 
 import SEO from './SEO'
 
@@ -106,7 +103,6 @@ const GlobalLayoutContainer = ({
                 ref={innerWrapperRef}
                 minWidth={innerMinWidth}
               >
-                {/* <Route /> */}
                 {!noSidebar && <Sidebar />}
                 <Preview />
                 <Doraemon />
