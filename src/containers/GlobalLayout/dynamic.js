@@ -27,3 +27,10 @@ export const Footer = dynamic({
   loading: () => <div />,
   ssr: false,
 })
+
+export const ErrorPage = dynamic({
+  loader: () => import('@/components/ErrorPage'),
+  // eslint-disable-next-line react/display-name
+  loading: () => <div />,
+  ssr: false,
+})

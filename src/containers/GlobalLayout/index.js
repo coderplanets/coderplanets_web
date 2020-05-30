@@ -20,8 +20,7 @@ import ThemeWrapper from '@/containers/ThemeWrapper'
 
 import Header from '@/containers/Header'
 import Sidebar from '@/containers/Sidebar'
-import ErrorPage from '@/components/ErrorPage'
-import { Doraemon, Preview, ErrorBox, Footer } from './dynamic'
+import { Doraemon, Preview, ErrorBox, Footer, ErrorPage } from './dynamic'
 
 import SEO from './SEO'
 
