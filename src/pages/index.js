@@ -62,7 +62,7 @@ export default class PageCommunity extends React.Component {
       <Provider store={this.store}>
         <GlobalLayout
           noSidebar={hideSidebar}
-          page="community"
+          page={ROUTE.COMMUNITY}
           seoConfig={seoConfig}
           errorCode={statusCode}
           errorPath={target}

@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic'
 import useNetwork from 'react-use/lib/useNetwork'
 
 import { ICON_CMD } from '@/config'
-import { TYPE } from '@/constant'
+import { TYPE, ROUTE } from '@/constant'
 import { connectStore } from '@/utils'
 import { useShortcut, useMedia, usePlatform, useResize } from '@/hooks'
 
@@ -113,7 +113,7 @@ const GlobalLayoutContainer = ({
                 >
                   <ContentWrapper
                     offsetLeft={
-                      !!(page === 'community' || page === 'communities')
+                      !!(page === ROUTE.COMMUNITY || page === ROUTE.COMMUNITIES)
                     }
                   >
                     <Header metric={metric} />

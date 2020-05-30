@@ -3,6 +3,7 @@ import { Provider } from 'mobx-react'
 import { merge, pick, toLower } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
+import { ROUTE } from '@/constant'
 import { useStore } from '@/stores/init2'
 
 import {
@@ -160,7 +161,7 @@ function CommunityPage(props) {
   return (
     <Provider store={store}>
       <GlobalLayout
-        page="community"
+        page={ROUTE.COMMUNITY}
         seoConfig={seoConfig}
         errorCode={errorCode}
         errorPath={community.raw}
