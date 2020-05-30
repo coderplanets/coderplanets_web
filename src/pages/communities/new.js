@@ -8,24 +8,22 @@ import { merge } from 'ramda'
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
 
+import { useStore } from '@/stores/init2'
+
 import {
-  parseURL,
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
   nilOrEmpty,
   ssrAmbulance,
+  ssrParseURL,
   parseTheme,
 } from '@/utils'
-
-import initRootStore from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import NewCommunityContent from '@/containers/content/NewCommunityContent'
 
 import { P } from '@/schemas'
-
-/* import PostsThreadSchema from '@/containers/PostsThread/schema' */
 
 async function fetchData(props, opt) {
   const { realname } = merge({ realname: true }, opt)
@@ -33,12 +31,10 @@ async function fetchData(props, opt) {
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-  const { subPath } = parseURL(props)
+  const { subPath } = ssrParseURL(props.req)
   const category = subPath !== '' ? subPath : 'pl'
 
-  const { asPath } = props
-
-  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }) }
+  const filter = { ...queryStringToJSON(props.req.url, { pagi: 'number' }) }
 
   const sessionState = gqClient.request(P.sessionState)
   const pagedCommunities = gqClient.request(P.pagedCommunities, {
@@ -63,63 +59,63 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class NewCommunityPage extends React.Component {
-  static async getInitialProps(props) {
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      }
+export async function getServerSideProps(props) {
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
     }
+  }
 
-    const {
-      category,
-      sessionState,
-      pagedCategories,
+  const {
+    category,
+    sessionState,
+    pagedCategories,
+    pagedCommunities,
+    subscribedCommunities,
+  } = resp
+
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    route: {
+      mainPath: ROUTE.COMMUNITIES,
+      subPath: category,
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
+    communitiesContent: {
       pagedCommunities,
-      subscribedCommunities,
-    } = resp
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      route: {
-        mainPath: ROUTE.COMMUNITIES,
-        subPath: category,
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      communitiesContent: {
-        pagedCommunities,
-        pagedCategories,
-      },
-    }
+      pagedCategories,
+    },
   }
 
-  constructor(props) {
-    super(props)
-    this.store = initRootStore({ ...props })
-  }
-
-  render() {
-    const seoConfig = {
-      url: `${SITE_URL}/communities`,
-      title: 'coderplanets | 社区索引',
-      description: 'coderplanets | 社区索引',
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout page={ROUTE.COMMUNITIES} seoConfig={seoConfig}>
-          <NewCommunityContent />
-        </GlobalLayout>
-      </Provider>
-    )
-  }
+  return { props: { errorCode: null, ...initProps } }
 }
+
+function NewCommunityPage(props) {
+  const store = useStore(props)
+
+  const seoConfig = {
+    url: `${SITE_URL}/communities`,
+    title: 'coderplanets | 社区索引',
+    description: 'coderplanets | 社区索引',
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout page={ROUTE.COMMUNITIES} seoConfig={seoConfig}>
+        {/* <h2>22</h2> */}
+        <NewCommunityContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default NewCommunityPage

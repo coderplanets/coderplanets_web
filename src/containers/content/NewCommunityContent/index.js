@@ -41,4 +41,8 @@ const NewCommunityContentContainer = ({ newCommunityContent: store }) => {
   )
 }
 
+NewCommunityContentContainer.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
 export default connectStore(NewCommunityContentContainer)
