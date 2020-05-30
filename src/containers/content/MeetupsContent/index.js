@@ -24,6 +24,17 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CoolGuideContent')
 
+// const GALLERY_TYPES = [
+//   {
+//     icon: GALLERY.MAIN_COLUMN,
+//     key: '0',
+//   },
+//   {
+//     icon: GALLERY.MASONRY_COLUMN,
+//     key: '1',
+//   },
+// ]
+
 const MeetupsContentContainer = ({ meetupsContent: store }) => {
   useInit(store)
 
@@ -39,7 +50,15 @@ const MeetupsContentContainer = ({ meetupsContent: store }) => {
               // <ActivityCard key={item.id} item={item} />
             ))}
           </CardsWrapper>
-          <Pagi margin={{ top: '40px', bottom: '60px' }} />
+
+          <Pagi margin={{ top: '60px', bottom: '80px' }}>
+            {/* <PagiOptionSwitcher
+              activeKey={activeGalleryType}
+              title="显示模式"
+              items={GALLERY_TYPES}
+              onChange={item => console.log(item.key)}
+            /> */}
+          </Pagi>
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>

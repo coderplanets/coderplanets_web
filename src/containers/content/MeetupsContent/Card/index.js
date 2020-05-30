@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON_CMD, ASSETS_ENDPOINT } from '@/config'
 import DotDivider from '@/components/DotDivider'
 
 import Date from './Date'
@@ -10,7 +10,9 @@ import {
   ContentsWrapper,
   Label,
   Title,
+  Body,
   Desc,
+  PreviewImg,
   BodyWrapper,
   LocationWrapper,
   Company,
@@ -24,9 +26,12 @@ const Card = ({ item }) => {
       <ContentsWrapper>
         <Label>前端</Label>
         <Title>Groupher 从构想到实现</Title>
-        <Desc>
-          GNU计划有多反资本家呢？他们甚至，此协议 规定不得阻止用户再分发。
-        </Desc>
+        <Body>
+          <Desc>
+            GNU计划有多反资本家呢？他们甚至，此协议 规定不得阻止用户再分发。
+          </Desc>
+          <PreviewImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
+        </Body>
         <BodyWrapper>
           <Company>{item.company}</Company>
           <DotDivider radius="3px" space="7px" />

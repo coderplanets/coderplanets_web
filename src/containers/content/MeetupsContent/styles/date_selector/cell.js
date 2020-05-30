@@ -12,6 +12,9 @@ export const Wrapper = styled.div`
   padding-left: 3px;
   background: ${({ active }) => (active ? '#003b4c' : '#04303c')};
   border-top-color: ${({ active }) => (active ? '#3680AD' : '#004354')};
+  @media (max-width: 1400px) {
+    width: ${({ isLeapMonth }) => (isLeapMonth ? '52px' : '56px')};
+  }
   @media (max-width: 1255px) {
     width: 50px;
   }

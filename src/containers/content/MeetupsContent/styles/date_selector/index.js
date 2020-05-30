@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   ${cs.flex()};
   margin-left: 8px;
 `
-
 export const CellsWrapper = styled.div`
   ${cs.flexColumn('align-center')};
   color: ${theme('thread.articleDigest')};
