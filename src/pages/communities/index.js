@@ -82,10 +82,6 @@ export async function getServerSideProps(props) {
     theme: {
       curTheme: parseTheme(sessionState),
     },
-    route: {
-      mainPath: ROUTE.COMMUNITIES,
-      subPath: category,
-    },
     account: {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,

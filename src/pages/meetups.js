@@ -48,10 +48,6 @@ export async function getServerSideProps(props) {
     theme: {
       curTheme: parseTheme(sessionState),
     },
-    route: {
-      mainPath: ROUTE.RECIPES,
-      subPath: '',
-    },
     account: {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,
@@ -68,7 +64,7 @@ const MeetupsPage = props => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/works`,
+    url: `${SITE_URL}/${ROUTE.MEETUPS}`,
     title: '线下活动 | coderplanets',
     description: '线下分享，行业交流',
   }

@@ -47,10 +47,6 @@ export async function getServerSideProps(props) {
     theme: {
       curTheme: parseTheme(sessionState),
     },
-    route: {
-      mainPath: ROUTE.TRENDING,
-      subPath: '',
-    },
     account: {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,
@@ -67,14 +63,14 @@ const TrendingPage = props => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/works`,
+    url: `${SITE_URL}/${ROUTE.TRENDING}`,
     title: '热点 | coderplanets',
     description: '站内外热门讨论',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.WORKS} seoConfig={seoConfig} noSidebar>
+      <GlobalLayout page={ROUTE.TRENDING} seoConfig={seoConfig} noSidebar>
         <TrendingContent />
       </GlobalLayout>
     </Provider>

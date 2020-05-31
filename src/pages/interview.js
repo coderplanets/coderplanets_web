@@ -5,14 +5,9 @@ import { merge } from 'ramda'
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
 
-import {
-  getJwtToken,
-  makeGQClient,
-  parseURL,
-  ssrAmbulance,
-  parseTheme,
-} from '@/utils'
-import initRootStore from '@/stores/init'
+import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
+
+import { useStore } from '@/stores/init2'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import InterviewContent from '@/containers/content/InterviewContent'
@@ -40,66 +35,54 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class InterviewPage extends React.Component {
-  static async getInitialProps(props) {
-    const { mainPath, subPath } = parseURL(props)
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: subPath }
-      }
-    }
-
-    const { sessionState, subscribedCommunities } = resp
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: { mainPath, subPath: ROUTE.INTERVIEW },
+export async function getServerSideProps(props) {
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
     }
   }
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
-
-    this.store = store
+  const { sessionState, subscribedCommunities } = resp
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-
-    const seoConfig = {
-      url: `${SITE_URL}/${ROUTE.INTERVIEW}`,
-      title: 'coderplanets 社区',
-      description: '最性感的开发者社区',
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          noSidebar
-          metric="default"
-          page={ROUTE.INTERVIEW}
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-        >
-          <InterviewContent />
-        </GlobalLayout>
-      </Provider>
-    )
+  return {
+    props: { errorCode: null, namespacesRequired: ['general'], ...initProps },
   }
 }
+
+const InterviewPage = props => {
+  const store = useStore(props)
+
+  const seoConfig = {
+    url: `${SITE_URL}/${ROUTE.INTERVIEW}`,
+    title: '面经 | coderplanets',
+    description: '面试题库，面试经验分享交流',
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        noSidebar
+        metric="default"
+        page={ROUTE.INTERVIEW}
+        seoConfig={seoConfig}
+      >
+        <InterviewContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default InterviewPage

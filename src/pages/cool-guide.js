@@ -48,10 +48,6 @@ export async function getServerSideProps(props) {
     theme: {
       curTheme: parseTheme(sessionState),
     },
-    route: {
-      mainPath: ROUTE.RECIPES,
-      subPath: '',
-    },
     account: {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,
@@ -75,7 +71,7 @@ const CoolGuidePage = props => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.MEETUPS} seoConfig={seoConfig} noSidebar>
+      <GlobalLayout page={ROUTE.COOL_GUIDE} seoConfig={seoConfig} noSidebar>
         <CoolGuideContent />
       </GlobalLayout>
     </Provider>

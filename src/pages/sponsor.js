@@ -47,10 +47,6 @@ export async function getServerSideProps(props) {
     theme: {
       curTheme: parseTheme(sessionState),
     },
-    route: {
-      mainPath: ROUTE.RECIPES,
-      subPath: '',
-    },
     account: {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,
@@ -67,7 +63,7 @@ const SponsorPage = props => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/works`,
+    url: `${SITE_URL}/${ROUTE.SPONSOR}`,
     title: '赞助与广告 | coderplanets',
     description: '赞助与广告',
   }

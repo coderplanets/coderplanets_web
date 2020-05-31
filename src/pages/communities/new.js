@@ -81,10 +81,6 @@ export async function getServerSideProps(props) {
     theme: {
       curTheme: parseTheme(sessionState),
     },
-    route: {
-      mainPath: ROUTE.COMMUNITIES,
-      subPath: category,
-    },
     account: {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,
@@ -104,8 +100,8 @@ function NewCommunityPage(props) {
 
   const seoConfig = {
     url: `${SITE_URL}/communities`,
-    title: 'coderplanets | 社区索引',
-    description: 'coderplanets | 社区索引',
+    title: '建立新社区 | coderplanets',
+    description: '建立新社区',
   }
 
   return (

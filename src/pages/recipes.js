@@ -47,10 +47,6 @@ export async function getServerSideProps(props) {
     theme: {
       curTheme: parseTheme(sessionState),
     },
-    route: {
-      mainPath: ROUTE.RECIPES,
-      subPath: '',
-    },
     account: {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,
@@ -67,14 +63,14 @@ const RecipesPage = props => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/works`,
+    url: `${SITE_URL}/${ROUTE.RECIPES}`,
     title: '代码片段 | coderplanets',
     description: '各种语言框架的代码片段和速查手册',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.WORKS} seoConfig={seoConfig} noSidebar>
+      <GlobalLayout page={ROUTE.RECIPES} seoConfig={seoConfig} noSidebar>
         <RecipesContent />
       </GlobalLayout>
     </Provider>
