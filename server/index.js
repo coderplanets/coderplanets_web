@@ -9,7 +9,6 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const responseTime = require('response-time')
-const helmet = require('helmet')
 const mobxReact = require('mobx-react')
 // inspect graphql model
 const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
@@ -48,7 +47,6 @@ mobxReact.useStaticRendering(true)
   // redirect all the www request to non-www addr
   server.use(redirectToNakedUrl)
   server.use(express.static('public'))
-  server.use(helmet())
   server.use(
     '/model-graphs',
     voyagerMiddleware({ endpointUrl: CONFIG.GRAPHQL_ENDPOINT })
