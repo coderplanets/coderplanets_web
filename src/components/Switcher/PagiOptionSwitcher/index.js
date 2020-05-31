@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import T from 'prop-types'
 
 import { GALLERY } from '@/constant'
@@ -43,12 +43,16 @@ const getLocalIcon = (item, activeKey) => {
 }
 
 const PagiOptionSwitcher = ({ title, items, activeKey, onChange }) => {
-  const mapedItems = items.map(item => {
-    return {
-      ...item,
-      localIcon: getLocalIcon(item, activeKey),
-    }
-  })
+  const [desc, setDesc] = useState(null)
+
+  const mapedItems = useMemo(() =>
+    items.map(item => {
+      return {
+        ...item,
+        localIcon: getLocalIcon(item, activeKey),
+      }
+    })
+  )
 
   return (
     <Wrapper testid="PagiOptionSwitcher">
@@ -69,6 +73,7 @@ PagiOptionSwitcher.propTypes = {
       iconSrc: T.string,
       localIcon: T.string,
       key: T.string,
+      desc: T.string,
     })
   ).isRequired,
   activeKey: T.string.isRequired,

@@ -49,6 +49,23 @@ export const Label = styled.label`
     cursor: pointer;
   }
 `
+export const IconHoverWrapper = styled.div`
+  position: relative;
+`
+export const HoverText = styled.span`
+  position: absolute;
+  width: 80px;
+  left: -20px;
+  top: 30px;
+  font-size: 12px;
+  opacity: 0;
+  overflow: hidden;
+  ${IconHoverWrapper}:hover & {
+    opacity: 1;
+  }
+  transition-delay: 0.8s;
+  transition: opacity 0.25s;
+`
 export const Icon = styled(Img)`
   fill: ${({ checked }) =>
     checked ? '#66b5e8' : theme('thread.articleDigest')};

@@ -31,10 +31,12 @@ const GALLERY_TYPES = [
   {
     iconSrc: `${ASSETS_ENDPOINT}/words_only.svg`,
     key: GALLERY.TEXT_ONLY,
+    desc: '文字模式',
   },
   {
     iconSrc: `${ASSETS_ENDPOINT}/text_with_image.svg`,
     key: GALLERY.TEXT_WITH_IMAGE,
+    desc: '图文模式',
   },
 ]
 
