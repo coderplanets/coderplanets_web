@@ -13,7 +13,9 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:MeetupsContent')
 
-export const someMethod = () => {}
+export const changeGalleryType = ({ key: activeGalleryType }) => {
+  store.mark({ activeGalleryType })
+}
 
 // const const cancleLoading = () => {}
 

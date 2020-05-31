@@ -30,9 +30,6 @@ export const Title = styled.div`
   margin-bottom: 10px;
   cursor: pointer;
 `
-export const Body = styled.div`
-  ${cs.flex()};
-`
 export const Desc = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
@@ -47,13 +44,10 @@ export const PreviewImg = styled(Img)`
   display: block;
   margin-left: 10px;
 `
-export const BodyWrapper = styled.div`
+export const FooterWrapper = styled.div`
   ${cs.flex('align-center')}
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
-`
-export const LocationWrapper = styled(BodyWrapper)`
-  margin-top: 3px;
 `
 export const Company = styled.div`
   color: ${theme('thread.articleTitle')};
