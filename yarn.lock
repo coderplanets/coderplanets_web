@@ -8528,6 +8528,12 @@ next@9.3.0:
     webpack-hot-middleware "2.25.0"
     webpack-sources "1.4.3"
 
+nextjs-progressbar@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npm.taobao.org/nextjs-progressbar/download/nextjs-progressbar-0.0.5.tgz#0116731b77838d05e9be520c3a894975fe4bf01c"
+  dependencies:
+    nprogress "^0.2.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.npm.taobao.org/nice-try/download/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -8685,6 +8691,10 @@ npm-run-path@^3.0.0:
   resolved "https://registry.npm.taobao.org/npm-run-path/download/npm-run-path-3.1.0.tgz?cache=0&sync_timestamp=1577053378987&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnpm-run-path%2Fdownload%2Fnpm-run-path-3.1.0.tgz#7f91be317f6a466efed3c9f2980ad8a4ee8b0fa5"
   dependencies:
     path-key "^3.0.0"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/nprogress/download/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
 
 nth-check@~1.0.1:
   version "1.0.2"

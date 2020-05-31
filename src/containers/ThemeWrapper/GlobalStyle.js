@@ -144,6 +144,10 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme('searchHighlight.doramonFg')};
   }
 
+  #nprogress .spinner {
+    top: 10px !important;
+  }
+
   ${({ showCustomScrollbar }) =>
     showCustomScrollbar ||
     css`
