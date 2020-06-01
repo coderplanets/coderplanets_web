@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   &:hover {
     background: #04303c;
+    border-radius: 6px;
   }
   transition: all 0.25s;
 `

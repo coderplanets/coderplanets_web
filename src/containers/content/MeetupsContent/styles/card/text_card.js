@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-
-import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { Wrapper as WrapperBase } from './index'
 
 export {
   ContentsWrapper,
@@ -12,8 +10,6 @@ export {
   Company,
   Icon,
 } from './index'
-
-import { Wrapper as WrapperBase } from './index'
 
 export const Wrapper = styled(WrapperBase)`
   padding-right: 18px;

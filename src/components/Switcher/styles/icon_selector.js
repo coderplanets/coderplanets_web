@@ -63,8 +63,8 @@ export const HoverText = styled.span`
   ${IconHoverWrapper}:hover & {
     opacity: 1;
   }
-  transition-delay: 0.8s;
   transition: opacity 0.25s;
+  transition-delay: 0.3s;
 `
 export const Icon = styled(Img)`
   fill: ${({ checked }) =>

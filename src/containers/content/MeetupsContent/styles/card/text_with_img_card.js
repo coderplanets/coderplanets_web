@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { cs } from '@/utils'
+
+import { Wrapper as WrapperBase } from './index'
 
 export {
   ContentsWrapper,
@@ -13,10 +15,9 @@ export {
   Icon,
 } from './index'
 
-import { Wrapper as WrapperBase } from './index'
-
 export const Wrapper = styled(WrapperBase)`
   padding-right: 38px;
+  padding-left: 10px;
 `
 export const Header = styled.div`
   ${cs.flex('align-start')};

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import T from 'prop-types'
 
 import { GALLERY } from '@/constant'
@@ -43,15 +43,13 @@ const getLocalIcon = (item, activeKey) => {
 }
 
 const PagiOptionSwitcher = ({ title, items, activeKey, onChange }) => {
-  const [desc, setDesc] = useState(null)
-
-  const mapedItems = useMemo(() =>
-    items.map(item => {
-      return {
+  const mapedItems = useMemo(
+    () =>
+      items.map(item => ({
         ...item,
         localIcon: getLocalIcon(item, activeKey),
-      }
-    })
+      })),
+    [items, activeKey]
   )
 
   return (
