@@ -68,6 +68,7 @@ const Tooltip = ({
 
   useOutsideClick(ref, e => {
     if (!hideOnClick && instance) {
+      // if (instance) {
       // NOTE:  this is a hack, svg will swallow events like click
       // and the pointer-events solution not work
       const { nodeName } = e.target
@@ -103,11 +104,14 @@ const Tooltip = ({
       content={PopoverContent}
       placement={placement}
       hideOnClick={hideOnClick}
-      onHide={() => {
+      onHide={instance => {
+        setInstance(instance)
         setActive(false)
         onHide && onHide()
       }}
-      onShow={() => {
+      onShow={instance => {
+        console.log('on show: ', instance)
+        setInstance(instance)
         setActive(true)
         onShow && onShow()
       }}

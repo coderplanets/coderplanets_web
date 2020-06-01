@@ -9,7 +9,7 @@ import { getRouteMainPath } from '@/utils'
 
 // import Tooltip from '@/components/Tooltip'
 import Tooltip from '@/components/Tooltip'
-import MoreContent from './MoreContent'
+import MorePanel from './MorePanel'
 import { Wrapper, DotDivider, SiteLink, Icon } from './styles/main_entries'
 
 const splitMargin = '7px'
@@ -73,7 +73,8 @@ const MainEntries = ({ router, type }) => {
       </Link>
       <DotDivider space={splitMargin} />
       <Tooltip
-        content={<MoreContent />}
+        content={<MorePanel />}
+        hideOnClick={false}
         placement="bottom"
         noDefaultPadding
         trigger="click"
