@@ -14,7 +14,7 @@ import Modal from '@/components/Modal'
 
 import BriefView from './BriefView'
 import DigestView from './DigestView'
-import BussinessNote from './BussinessNote'
+import BusinessNote from './BusinessNote'
 
 import { Wrapper } from './styles'
 import {
@@ -43,7 +43,7 @@ const FooterContainer = ({ footer: store }) => {
   return (
     <Wrapper data-testid="footer">
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
-        <BussinessNote />
+        <BusinessNote />
       </Modal>
 
       <JoinModal />

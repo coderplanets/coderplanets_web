@@ -20,6 +20,9 @@ export const SubscribeWrapper = styled.div`
   ${cs.flex('align-center')};
 `
 export const SubscribeInput = styled(Input)``
+export const SubscribeBtnWrapper = styled.div`
+  width: 88px;
+`
 export const SubscribeBtn = styled(Button)`
   margin-left: 15px;
   margin-right: 18px;
@@ -38,7 +41,7 @@ export const SubscribeBtn = styled(Button)`
 `
 export const SubscribeText = styled.div`
   font-size: 12px;
-  color: ${theme('footer.hover')};
+  color: ${theme('thread.articleDigest')};
   width: 200px;
   line-height: 1.7;
   opacity: 0;
@@ -47,5 +50,11 @@ export const SubscribeText = styled.div`
     opacity: 1;
   }
 
-  transition: all 0.25s;
+  transition: opacity 0.25s;
+  transition-delay: 0.5s;
+`
+export const SubscribeCancel = styled.span`
+  color: ${theme('footer.hover')};
+  padding: 0 2px;
+  cursor: pointer;
 `
