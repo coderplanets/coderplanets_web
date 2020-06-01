@@ -13,11 +13,12 @@ export const BodyWrapper = styled.div`
   flex-wrap: wrap;
   margin-top: 25px;
 `
-export const Entry = styled.div`
+export const Entry = styled.a`
   ${cs.flex('align-start')};
   width: 225px;
   height: 75px;
   padding-left: 15px;
+  text-decoration: none;
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleTitle')};

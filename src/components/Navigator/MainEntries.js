@@ -74,6 +74,7 @@ const MainEntries = ({ router, type }) => {
       <DotDivider space={splitMargin} />
       <Tooltip
         content={<MoreContent />}
+        hideOnClick={false}
         placement="bottom"
         noDefaultPadding
         trigger="click"
