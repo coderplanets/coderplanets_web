@@ -151,12 +151,13 @@ export const getRouteMainPath = compose(
 
 export const ssrParseURL = req => {
   const { url } = req
-  console.log('ssrParseURL url: ', url)
-  console.log('getMainPath: ', getRouteMainPath(url))
-  console.log('ssrParsePathList: ', getRoutePathList(url))
+  // console.log('ssrParseURL url: ', url)
+  // console.log('getMainPath: ', getRouteMainPath(url))
+  // console.log('ssrParsePathList: ', getRoutePathList(url))
   const pathList = getRoutePathList(url)
   const mainPath = pathList[0]
   const subPath = pathList[1]
+  const thridPath = pathList[2] || ''
 
   const thread = endsWith('s', subPath) ? slice(0, -1, subPath) : subPath
 
@@ -165,7 +166,7 @@ export const ssrParseURL = req => {
     threadPath: subPath,
     mainPath,
     subPath,
-    thridPath: '',
+    thridPath,
     thread: toUpper(thread),
   }
 }

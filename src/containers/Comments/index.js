@@ -44,7 +44,7 @@ const CommentsContainer = ({ comments: store, ssr, locked, onCreate }) => {
             show={showReplyEditor}
             accountInfo={accountInfo}
             referUsers={referUsersData}
-            restProps={{ ...comments }}
+            restProps={{ ...store }}
             mentionList={mentionListData}
             showReplyPreview={showReplyPreview}
           />
@@ -59,14 +59,14 @@ const CommentsContainer = ({ comments: store, ssr, locked, onCreate }) => {
           accountInfo={accountInfo}
           referUsers={referUsersData}
           mentionList={mentionListData}
-          restProps={{ ...comments }}
+          restProps={{ ...store }}
         />
       )}
 
       <CommentsList
         accountInfo={accountInfo}
         pagedComments={pagedCommentsData}
-        restProps={{ ...comments }}
+        restProps={{ ...store }}
       />
     </Wrapper>
   )

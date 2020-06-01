@@ -1,78 +1,176 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import { contains } from 'ramda'
+import { merge, pick, toLower } from 'ramda'
 
-import { SITE_URL } from '@/config'
+import { PAGE_SIZE, SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
-import { buildLog, parseURL, isServerSide } from '@/utils'
+import { useStore } from '@/stores/init2'
+
+import {
+  getJwtToken,
+  makeGQClient,
+  queryStringToJSON,
+  ssrParseURL,
+  akaTranslate,
+  buildLog,
+  nilOrEmpty,
+  ssrPagedSchema,
+  ssrPagedFilter,
+  ssrContentsThread,
+  addTopicIfNeed,
+  ssrAmbulance,
+  validCommunityFilters,
+  parseTheme,
+} from '@/utils'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import CommunityBanner from '@/containers/banner/CommunityBanner'
 import CommunityContent from '@/containers/content/CommunityContent'
-// import Banner from '@/containers/Banner'
-// import Content from '@/containers/Content'
 
-import initRootStore from '@/stores/init'
-// import { AnalysisService, ErrorPage } from '@/components'
+import { P } from '@/schemas'
 
 /* eslint-disable-next-line */
 const log = buildLog('page:community')
 
-/*
-   NOTE: in dev mode, this index page is always be required, even the server
-   is not routing to this page, it's very confused, help needed
+async function fetchData(props, opt) {
+  const { realname } = merge({ realname: true }, opt)
 
-   currently it's just the community page with no data fetch, works fine though
- */
-export default class PageCommunity extends React.Component {
-  static async getInitialProps(props) {
-    if (!isServerSide) return {}
+  const token = realname ? getJwtToken(props) : null
+  const gqClient = makeGQClient(token)
+  const userHasLogin = nilOrEmpty(token) === false
 
-    const { communityPath, threadPath } = parseURL(props)
+  // const { asPath } = props
+  // schema
 
-    const hideSidebar =
-      contains(communityPath, [ROUTE.USER]) ||
-      contains(threadPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
+  const { communityPath, threadPath: topic, thread } = ssrParseURL(props.req)
+  const community = akaTranslate(communityPath)
 
-    return {
-      hideSidebar,
-    }
-  }
+  let filter = addTopicIfNeed(
+    {
+      ...queryStringToJSON(props.req.url, { pagi: 'number' }),
+      community,
+    },
+    thread,
+    topic
+  )
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
+  filter = pick(validCommunityFilters, filter)
 
-    this.store = store
-    // this.store = initRootStore({ ...props })
-  }
+  // query data
+  const sessionState = gqClient.request(P.sessionState)
+  const curCommunity = gqClient.request(P.community, {
+    raw: community,
+    userHasLogin,
+  })
+  const pagedContents = gqClient.request(
+    ssrPagedSchema(thread),
+    ssrPagedFilter(community, thread, filter, userHasLogin)
+  )
 
-  render() {
-    const { statusCode, target, hideSidebar } = this.props
+  const partialTags = gqClient.request(P.partialTags, { thread, community })
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: PAGE_SIZE.M,
+    },
+  })
 
-    const seoConfig = {
-      url: `${SITE_URL}`,
-      title: 'coderplanets 社区',
-      description: '最性感的开发者社区',
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          noSidebar={hideSidebar}
-          page={ROUTE.COMMUNITY}
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-        >
-          <CommunityBanner />
-          <CommunityContent />
-          {/* <Banner />
-          <Content /> */}
-        </GlobalLayout>
-      </Provider>
-    )
+  return {
+    filter,
+    ...(await sessionState),
+    ...(await curCommunity),
+    ...(await pagedContents),
+    ...(await partialTags),
+    ...(await subscribedCommunities),
   }
 }
+
+export async function getServerSideProps(props) {
+  const { communityPath, thread } = ssrParseURL(props.req)
+
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch (e) {
+    const {
+      response: { errors },
+    } = e
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
+    } else {
+      return {
+        props: {
+          errorCode: 404,
+          target: communityPath,
+          viewing: {
+            community: {
+              raw: communityPath,
+              title: communityPath,
+              desc: communityPath,
+            },
+          },
+        },
+      }
+    }
+  }
+
+  const {
+    filter,
+    sessionState,
+    partialTags,
+    community,
+    subscribedCommunities,
+  } = resp
+  const contentsThread = ssrContentsThread(resp, thread, filter)
+
+  // // init state on server side
+  const initProps = merge(
+    {
+      theme: {
+        curTheme: parseTheme(sessionState),
+      },
+      account: {
+        user: sessionState.user || {},
+        isValidSession: sessionState.isValid,
+        userSubscribedCommunities: subscribedCommunities,
+      },
+      viewing: {
+        community,
+        activeThread: toLower(thread),
+      },
+      tagsBar: { tags: partialTags },
+    },
+    contentsThread
+  )
+
+  return { props: { errorCode: null, ...initProps } }
+}
+
+function CommunityPage(props) {
+  const store = useStore(props)
+
+  const { errorCode, viewing } = store
+  const { community, activeThread } = viewing
+
+  const seoConfig = {
+    url: `${SITE_URL}/${community.raw}/${activeThread}`,
+    title: `${community.title} | coderplanets`,
+    description: `${community.desc}`,
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        page={ROUTE.COMMUNITY}
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+        errorPath={community.raw}
+      >
+        <CommunityBanner />
+        <CommunityContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default CommunityPage
