@@ -87,7 +87,7 @@ export default class JobPage extends React.Component {
       viewing: {
         job,
         activeThread: THREAD.JOB,
-        community: job.origialCommunity,
+        community: job.originalCommunity,
       },
       comments: { pagedComments },
     }

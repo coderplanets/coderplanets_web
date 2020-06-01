@@ -24,7 +24,7 @@ export const video = `
         }
         totalCount
       }
-      origialCommunity {
+      originalCommunity {
         ${F.community}
       }
       communities {

@@ -85,7 +85,7 @@ export default class RepoPage extends React.Component {
       viewing: {
         repo,
         activeThread: THREAD.REPO,
-        community: repo.origialCommunity,
+        community: repo.originalCommunity,
       },
       comments: { pagedComments },
     }

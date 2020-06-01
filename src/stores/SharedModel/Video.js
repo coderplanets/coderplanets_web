@@ -26,7 +26,7 @@ export const Video = T.model('Video', {
   pin: T.maybeNull(T.boolean),
 
   communities: T.optional(T.array(Community), []),
-  origialCommunity: T.optional(Community, {}),
+  originalCommunity: T.optional(Community, {}),
   tags: T.optional(T.array(Tag), []),
   /* comments: T.optional(T.array(Comment), []), */
   favoritedCount: T.optional(T.number, 0),

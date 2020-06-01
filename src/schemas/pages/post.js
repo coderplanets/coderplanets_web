@@ -30,7 +30,7 @@ export const post = `
         }
         totalCount
       }
-      origialCommunity {
+      originalCommunity {
         ${F.community}
       }
       communities {

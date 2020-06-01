@@ -76,7 +76,7 @@ export async function getServerSideProps(props) {
   //   return { props: { errorCode: 404, target: subPath } }
   // }
 
-  const { origialCommunity: community, ...viewingContent } = post
+  const { originalCommunity: community, ...viewingContent } = post
   const initProps = {
     theme: {
       curTheme: parseTheme(sessionState),
@@ -171,7 +171,7 @@ export default PostPage
 //       viewing: {
 //         post,
 //         activeThread: THREAD.POST,
-//         community: post.origialCommunity,
+//         community: post.originalCommunity,
 //       },
 //       comments: { pagedComments },
 //     }

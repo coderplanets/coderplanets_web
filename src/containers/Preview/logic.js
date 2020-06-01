@@ -50,7 +50,7 @@ const DataResolver = [
           targetUrl = `/user/${data.login}`
         } else {
           const communityRaw =
-            store.curCommunity.raw || data.origialCommunity.raw
+            store.curCommunity.raw || data.originalCommunity.raw
 
           targetUrl = `/${communityRaw}/${thread}/${data.id}`
         }

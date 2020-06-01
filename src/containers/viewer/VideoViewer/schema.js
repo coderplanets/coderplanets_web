@@ -12,7 +12,7 @@ const video = gql`
       tags {
         ${F.tag}
       }
-      origialCommunity {
+      originalCommunity {
         ${F.community}
       }
       favoritedCount

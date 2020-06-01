@@ -49,7 +49,7 @@ const PostBrief = T.model('PostBrief', {
   author: T.maybeNull(User),
   commentsCount: T.maybeNull(T.number),
   communities: T.optional(T.array(Community), []),
-  origialCommunity: T.optional(Community, {}),
+  originalCommunity: T.optional(Community, {}),
 })
 
 const PostComment = T.model('PostComment', {
@@ -74,7 +74,7 @@ const JobBrief = T.model('JobBrief', {
   author: T.maybeNull(User),
   commentsCount: T.maybeNull(T.number),
   communities: T.optional(T.array(Community), []),
-  origialCommunity: T.optional(Community, {}),
+  originalCommunity: T.optional(Community, {}),
 })
 
 const JobComment = T.model('JobComment', {
@@ -96,7 +96,7 @@ const VideoBrief = T.model('VideoBrief', {
   author: T.maybeNull(User),
   commentsCount: T.maybeNull(T.number),
   communities: T.optional(T.array(Community), []),
-  origialCommunity: T.optional(Community, {}),
+  originalCommunity: T.optional(Community, {}),
 })
 
 const VideoComment = T.model('VideoComment', {
@@ -120,7 +120,7 @@ const RepoBrief = T.model('RepoBrief', {
   repoUrl: T.maybeNull(T.string),
   commentsCount: T.maybeNull(T.number),
   communities: T.optional(T.array(Community), []),
-  origialCommunity: T.optional(Community, {}),
+  originalCommunity: T.optional(Community, {}),
 })
 
 const RepoComment = T.model('RepoComment', {

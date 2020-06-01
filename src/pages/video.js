@@ -84,7 +84,7 @@ export default class VideoPage extends React.Component {
       viewing: {
         video,
         activeThread: THREAD.VIDEO,
-        community: video.origialCommunity,
+        community: video.originalCommunity,
       },
       comments: { pagedComments },
     }
