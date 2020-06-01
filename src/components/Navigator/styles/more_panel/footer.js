@@ -13,10 +13,11 @@ export const Wrapper = styled.div`
   padding: 26px 20px;
   padding-bottom: 20px;
 `
-export const Entry = styled.div`
+export const Entry = styled.a`
   ${cs.flex('align-center')};
   width: 100%;
   margin-bottom: 10px;
+  text-decoration: none;
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleTitle')};

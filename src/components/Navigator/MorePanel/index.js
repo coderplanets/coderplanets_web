@@ -15,7 +15,7 @@ import {
   Title,
   Desc,
   Wip,
-} from '../styles/more_content'
+} from '../styles/more_panel'
 
 const MoreContent = () => (
   <Wrapper>
