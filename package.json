@@ -84,7 +84,7 @@
     "mobx-react-lite": "2.0.7",
     "mobx-state-tree": "3.16.0",
     "module-alias": "^2.0.1",
-    "next": "9.3.0",
+    "next": "9.4.4",
     "next-compose-plugins": "^2.2.0",
     "next-i18next": "4.4.1",
     "next-offline": "4.0.6",
