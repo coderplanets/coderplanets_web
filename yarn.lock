@@ -9984,9 +9984,9 @@ react-masonry-component@^6.0.1:
     masonry-layout "^4.2.0"
     prop-types "^15.5.8"
 
-react-resize-detector@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/react-resize-detector/download/react-resize-detector-4.2.1.tgz?cache=0&sync_timestamp=1586936555649&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-resize-detector%2Fdownload%2Freact-resize-detector-4.2.1.tgz#8982b74c3e1cf949afaa3c41050458c87b033982"
+react-resize-detector@4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-4.2.3.tgz#7df258668a30bdfd88e655bbdb27db7fd7b23127"
   dependencies:
     lodash "^4.17.15"
     lodash-es "^4.17.15"

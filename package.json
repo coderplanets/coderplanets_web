@@ -106,7 +106,7 @@
     "react-json-view": "1.19.1",
     "react-lazy-load-image-component": "^1.4.3",
     "react-masonry-component": "^6.0.1",
-    "react-resize-detector": "4.2.1",
+    "react-resize-detector": "4.2.3",
     "react-sortable-hoc": "1.7.1",
     "react-svg": "8.0.0",
     "react-tooltip": "^3.4.0",
