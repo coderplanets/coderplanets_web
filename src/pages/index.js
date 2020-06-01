@@ -4,7 +4,7 @@ import { merge, pick, toLower } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
-import { useStore } from '@/stores/init2'
+import { useStore } from '@/stores/init'
 
 import {
   getJwtToken,

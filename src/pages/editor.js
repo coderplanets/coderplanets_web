@@ -2,7 +2,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { Provider } from 'mobx-react'
 
-import initRootStore from '@/stores/init'
+import { useStore } from '@/stores/init'
 import ThemeWrapper from '@/containers/ThemeWrapper'
 // import EditorJS from '@editorjs/editorjs'
 
@@ -14,8 +14,8 @@ export const DynamicRichEditor = dynamic({
   ssr: false,
 })
 
-const Editor = () => {
-  const store = initRootStore()
+export const EditorPage = props => {
+  const store = useStore(props)
 
   return (
     <Provider store={store}>
@@ -43,4 +43,4 @@ const Editor = () => {
   )
 }
 
-export default Editor
+export default EditorPage

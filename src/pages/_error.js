@@ -5,7 +5,7 @@ import AnalysisService from '@/services/Analysis'
 import ThemeWrapper from '@/containers/ThemeWrapper'
 import ErrorPage from '@/components/ErrorPage'
 
-import { useStore } from '@/stores/init2'
+import { useStore } from '@/stores/init'
 
 import { Wrapper } from '@/containers/GlobalLayout/styles'
 

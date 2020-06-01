@@ -11,7 +11,7 @@ import { P } from '@/schemas'
 import GlobalLayout from '@/containers/GlobalLayout'
 import CoolGuideContent from '@/containers/content/CoolGuideContent'
 
-import { useStore } from '@/stores/init2'
+import { useStore } from '@/stores/init'
 
 async function fetchData(props, opt) {
   const { realname } = merge({ realname: true }, opt)

@@ -10,7 +10,7 @@ import { P } from '@/schemas'
 import GlobalLayout from '@/containers/GlobalLayout'
 import SponsorContent from '@/containers/content/SponsorContent'
 
-import { useStore } from '@/stores/init2'
+import { useStore } from '@/stores/init'
 
 async function fetchData(props, opt) {
   const { realname } = merge({ realname: true }, opt)

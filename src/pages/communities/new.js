@@ -8,7 +8,7 @@ import { merge } from 'ramda'
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
 
-import { useStore } from '@/stores/init2'
+import { useStore } from '@/stores/init'
 
 import {
   getJwtToken,

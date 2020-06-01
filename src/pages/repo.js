@@ -12,7 +12,7 @@ import {
   ssrAmbulance,
   parseTheme,
 } from '@/utils'
-import { useStore } from '@/stores/init2'
+import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import ArticleBanner from '@/containers/banner/ArticleBanner'
