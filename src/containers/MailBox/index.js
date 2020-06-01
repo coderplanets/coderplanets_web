@@ -17,10 +17,10 @@ import { useInit, visibleOnChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:MailBox')
 
-const MailBoxContainer = ({ mailBox }) => {
-  useInit(mailBox)
+const MailBoxContainer = ({ mailBox: store }) => {
+  useInit(store)
 
-  const { activeRaw, mailStatusData, pagedMentionsData } = mailBox
+  const { activeRaw, mailStatusData, pagedMentionsData } = store
 
   return (
     <Tooltip

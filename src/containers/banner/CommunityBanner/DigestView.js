@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { NON_FILL_COMMUNITY } from '@/constant'
@@ -43,7 +43,7 @@ const CommunityBrief = ({ content, descExpand }) => {
       <LogoWrapper raw={content.raw}>
         {content.logo ? (
           <CommunityLogo
-            nonFill={R.contains(content.raw, NON_FILL_COMMUNITY)}
+            nonFill={contains(content.raw, NON_FILL_COMMUNITY)}
             src={content.logo}
             raw={content.raw}
             loading={<CommunityHolder text={content.raw} />}

@@ -1,6 +1,6 @@
-import R from 'ramda'
 import { useEffect } from 'react'
 import Prism from 'mastani-codehighlight'
+import { startsWith, isEmpty } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@/utils'
@@ -48,7 +48,7 @@ export const syncCheetsheetFromGithub = () => {
   githubAPI
     .searchCheatsheet(store.curCommunity.raw)
     .then(res => {
-      if (!res || R.startsWith('404', res))
+      if (!res || startsWith('404', res))
         return store.mark({ curView: TYPE.NOT_FOUND })
 
       syncCheatsheet(res)
@@ -72,7 +72,7 @@ const DataSolver = [
   {
     match: asyncRes('cheatsheet'),
     action: ({ cheatsheet }) => {
-      const curView = R.isEmpty(cheatsheet.readme)
+      const curView = isEmpty(cheatsheet.readme)
         ? TYPE.RESULT_EMPTY
         : TYPE.RESULT
       store.mark({ cheatsheet, curView })

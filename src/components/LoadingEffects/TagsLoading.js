@@ -1,6 +1,6 @@
 import React from 'react'
-import R from 'ramda'
 import T from 'prop-types'
+import { range } from 'ramda'
 import styled from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
@@ -27,7 +27,7 @@ const LoadingItem = () => (
 )
 
 const TagListLoading = ({ num }) => {
-  return R.range(0, num).map(item => (
+  return range(0, num).map(item => (
     <LoadingWrapper key={item}>
       <LoadingItem />
     </LoadingWrapper>

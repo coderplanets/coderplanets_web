@@ -6,7 +6,7 @@
 
 import React, { useCallback } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { pickBy } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
 
@@ -33,7 +33,7 @@ const Input = ({
   ...restProps
 }) => {
   const handleOnChange = useCallback(e => onChange && onChange(e), [onChange])
-  const validProps = R.pickBy(v => v !== null, restProps)
+  const validProps = pickBy(v => v !== null, restProps)
 
   return behavior === 'default' ? (
     <Wrapper testid={testid}>

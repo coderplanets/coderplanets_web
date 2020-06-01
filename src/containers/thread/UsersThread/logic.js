@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-// import R from 'ramda'
 
 import { ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'

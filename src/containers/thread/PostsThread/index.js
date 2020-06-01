@@ -6,7 +6,7 @@
 
 import React from 'react'
 import { Waypoint } from 'react-waypoint'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { THREAD, ROUTE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
@@ -56,7 +56,7 @@ const LabelText = {
 }
 
 const isSpecThread = (community, thread) => {
-  if (R.contains(thread, [THREAD.GROUP, THREAD.COMPANY])) {
+  if (contains(thread, [THREAD.GROUP, THREAD.COMPANY])) {
     return true
   }
 
@@ -75,8 +75,8 @@ const SpecThread = ({ community, thread, cityCommunities }) => {
   return <ConstructingThread thread={thread} />
 }
 
-const PostsThreadContainer = ({ postsThread }) => {
-  useInit(postsThread)
+const PostsThreadContainer = ({ postsThread: store }) => {
+  useInit(store)
 
   const {
     pagedPostsData,
@@ -92,7 +92,7 @@ const PostsThreadContainer = ({ postsThread }) => {
     curThread,
     pagedCityCommunitiesData,
     showFilterBar,
-  } = postsThread
+  } = store
 
   const { subPath } = curRoute
   const { totalCount } = pagedPostsData

@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
 import { User } from '@/model'
@@ -41,7 +41,7 @@ const ArticleAuthorCard = T.model('ArticleAuthorCard', {
       self.root.authWarning(options)
     },
     updateUser(sobj) {
-      const user = R.merge(self.user, { ...sobj })
+      const user = merge(self.user, { ...sobj })
       self.mark({ user })
     },
     mark(sobj) {

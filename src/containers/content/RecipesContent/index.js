@@ -21,10 +21,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:RecipesContent')
 
-const RecipesContentContainer = ({ recipesContent }) => {
-  useInit(recipesContent)
+const RecipesContentContainer = ({ recipesContent: store }) => {
+  useInit(store)
 
-  const { galleryType, mainView } = recipesContent
+  const { galleryType, mainView } = store
 
   return (
     <Wrapper testid="recipes-content">

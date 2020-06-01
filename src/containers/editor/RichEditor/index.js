@@ -17,12 +17,12 @@ import { Wrapper } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('C:RichEditor')
 
-const RichEditorContainer = ({ richEditor }) => {
+const RichEditorContainer = ({ richEditor: store }) => {
   const [loaded] = useScript(
     'https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest'
   )
 
-  useInit(richEditor, loaded)
+  useInit(store, loaded)
 
   return (
     <Wrapper>

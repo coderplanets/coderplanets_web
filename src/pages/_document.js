@@ -1,10 +1,11 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import Helmet from 'react-helmet'
 
 /* eslint-disable */
 export default class DocumentPage extends Document {
   static async getInitialProps({ renderPage }) {
+    // const sheet = new ServerStyleSheet()
+    // const originalRenderPage = ctx.renderPage
     const sheet = new ServerStyleSheet()
 
     try {
@@ -12,28 +13,11 @@ export default class DocumentPage extends Document {
         sheet.collectStyles(<App {...props} />)
       )
       const styleTags = sheet.getStyleElement()
-      return { ...page, styleTags, helmet: Helmet.renderStatic() }
-    } finally {
-      console.log('## seal now ..')
+      return { ...page, styleTags }
+    } catch (e) {
       sheet.seal()
+      throw e
     }
-  }
-
-  // should render on <html>
-  get helmetHtmlAttrComponents() {
-    return this.props.helmet.htmlAttributes.toComponent()
-  }
-
-  // should render on <body>
-  get helmetBodyAttrComponents() {
-    return this.props.helmet.bodyAttributes.toComponent()
-  }
-
-  // should render on <head>
-  get helmetHeadComponents() {
-    return Object.keys(this.props.helmet)
-      .filter(el => el !== 'htmlAttributes' && el !== 'bodyAttributes')
-      .map(el => this.props.helmet[el].toComponent())
   }
 
   render() {

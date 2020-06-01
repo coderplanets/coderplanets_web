@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { ICON_BASE, ISSUE_ADDR } from '@/config'
 
@@ -60,7 +60,7 @@ const NotFound = ({ msg, desc }) => (
     <Text>
       <Title>{msg}</Title>
       <DescWrapper>
-        {R.isEmpty(desc) ? <DefaultDesc /> : <Desc>{desc}</Desc>}
+        {isEmpty(desc) ? <DefaultDesc /> : <Desc>{desc}</Desc>}
       </DescWrapper>
     </Text>
   </Wrapper>

@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import DocUploader from '@/containers/DocUploader'
 
@@ -25,7 +25,7 @@ const CompanyInfoEditor = ({
         onUploadDone={inputOnChange.bind(this, 'companyLogo')}
         pasteImage={false}
       >
-        {R.isEmpty(companyLogo) ? (
+        {isEmpty(companyLogo) ? (
           <LogoUploadBox>
             <UploadHint>公司 Logo</UploadHint>
           </LogoUploadBox>

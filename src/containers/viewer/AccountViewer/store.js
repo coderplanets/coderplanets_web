@@ -4,7 +4,6 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
 import { User, EmptyUser } from '@/model'

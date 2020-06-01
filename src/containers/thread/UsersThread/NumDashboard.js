@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { sort, isEmpty } from 'ramda'
 
 // import { ICON_CMD } from '../../config'
 import DotDivider from '@/components/DotDivider'
@@ -19,10 +19,10 @@ import {
 
 import { ToggleNumBashboard } from './logic'
 
-export const sortByValue = source => R.sort((a, b) => b.value - a.value, source)
+export const sortByValue = source => sort((a, b) => b.value - a.value, source)
 
 const NumDashboard = ({ total, geoData, expand }) => {
-  if (R.isEmpty(geoData)) return null
+  if (isEmpty(geoData)) return null
 
   const sortGeo = sortByValue(geoData) || []
   const maxValue = sortGeo[0].value || 0

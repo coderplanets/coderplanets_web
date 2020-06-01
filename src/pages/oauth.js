@@ -6,27 +6,20 @@ import ThemeWrapper from '@/containers/ThemeWrapper'
 import AnalysisService from '@/services/Analysis'
 import OauthHinter from '@/components/OauthHinter'
 
-import initRootStore from '@/stores/init'
+import { useStore } from '@/stores/init'
 
-export default class Index extends React.Component {
-  static getInitialProps() {
-    return {}
-  }
+const OAuthPage = props => {
+  const store = useStore(props)
 
-  constructor(props) {
-    super(props)
-    this.store = initRootStore()
-  }
-
-  render() {
-    return (
-      <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            <OauthHinter />
-          </ThemeWrapper>
-        </AnalysisService>
-      </Provider>
-    )
-  }
+  return (
+    <Provider store={store}>
+      <AnalysisService>
+        <ThemeWrapper>
+          <OauthHinter />
+        </ThemeWrapper>
+      </AnalysisService>
+    </Provider>
+  )
 }
+
+export default OAuthPage

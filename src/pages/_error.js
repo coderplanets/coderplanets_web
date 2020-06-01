@@ -5,32 +5,28 @@ import AnalysisService from '@/services/Analysis'
 import ThemeWrapper from '@/containers/ThemeWrapper'
 import ErrorPage from '@/components/ErrorPage'
 
-import initRootStore from '@/stores/init'
+import { useStore } from '@/stores/init'
 
-export default class TheErrorPage extends React.Component {
-  static getInitialProps({ res, err }) {
-    /* eslint-disable */
-    const statusCode = res ? res.statusCode : err ? err.statusCode : null
-    /* eslint-enable */
-    return { statusCode }
-  }
+import { Wrapper } from '@/containers/GlobalLayout/styles'
 
-  constructor(props) {
-    super(props)
-    this.store = initRootStore()
-  }
+const DefaultErrorPage = props => {
+  const store = useStore(props)
 
-  render() {
-    const { statusCode, page, target } = this.props
-
-    return (
-      <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            <ErrorPage errorCode={statusCode} page={page} target={target} />
-          </ThemeWrapper>
-        </AnalysisService>
-      </Provider>
-    )
-  }
+  return (
+    <Provider store={store}>
+      <AnalysisService>
+        <ThemeWrapper>
+          <Wrapper>
+            <ErrorPage />
+          </Wrapper>
+        </ThemeWrapper>
+      </AnalysisService>
+    </Provider>
+  )
 }
+
+DefaultErrorPage.getInitialProps = async () => ({
+  namespacesRequired: ['general'],
+})
+
+export default DefaultErrorPage

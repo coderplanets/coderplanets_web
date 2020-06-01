@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { toUpper, merge } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, send, closePreviewer, errRescue } from '@/utils'
@@ -59,7 +59,7 @@ export const onPin = thread => {
 
     default: {
       const { subPath: topic } = store.curRoute
-      return sr71$.mutate(S.pinPost, R.merge(args, { topic }))
+      return sr71$.mutate(S.pinPost, merge(args, { topic }))
     }
   }
 }
@@ -82,7 +82,7 @@ export const onUndoPin = thread => {
 
     default: {
       const { subPath: topic } = store.curRoute
-      return sr71$.mutate(S.undoPinPost, R.merge(args, { topic }))
+      return sr71$.mutate(S.undoPinPost, merge(args, { topic }))
     }
   }
 }
@@ -91,12 +91,12 @@ const getRefinedArgs = thread => {
   let args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
-    thread: R.toUpper(thread),
+    thread: toUpper(thread),
   }
 
   if (thread === THREAD.POST) {
     const { subPath: topic } = store.curRoute
-    args = R.merge(args, { topic })
+    args = merge(args, { topic })
   }
 
   return args
@@ -130,7 +130,7 @@ export const onDelete = () => {
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
-  const thread = R.toUpper(store.activeThread)
+  const thread = toUpper(store.activeThread)
 
   sr71$.mutate(S.setTag, { thread, id, tagId, communityId })
 }
@@ -138,7 +138,7 @@ export const onTagSelect = tagId => {
 export const onTagUnselect = tagId => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
-  const thread = R.toUpper(store.activeThread)
+  const thread = toUpper(store.activeThread)
 
   sr71$.mutate(S.unsetTag, { thread, id, tagId, communityId })
 }

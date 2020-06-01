@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { has } from 'ramda'
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@/constant'
@@ -22,7 +22,7 @@ const classifyGQErrors = errors => {
     return log('invalid errors: ', errors)
   }
 
-  if (R.has('path', errors[0])) {
+  if (has('path', errors[0])) {
     if (isObject(errors[0].message)) {
       return store.mark({
         graphqlType: 'changeset',

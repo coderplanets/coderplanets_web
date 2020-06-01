@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { findIndex, merge, propEq, isEmpty, pickBy } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty } from '@/utils'
@@ -47,7 +47,7 @@ const ReposThread = T.model('ReposThread', {
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      return stripMobx(pickBy(v => !isEmpty(v), self.filters))
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || {}
@@ -64,10 +64,10 @@ const ReposThread = T.model('ReposThread', {
       return self.root.account.pageDensity
     },
     get showFilterBar() {
-      const curFilter = stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      const curFilter = stripMobx(pickBy(v => !isEmpty(v), self.filters))
       const pagedRepos = stripMobx(self.pagedRepos)
 
-      return !R.isEmpty(curFilter) || !R.isEmpty(pagedRepos.entries)
+      return !isEmpty(curFilter) || !isEmpty(pagedRepos.entries)
     },
   }))
   .actions(self => ({
@@ -76,7 +76,7 @@ const ReposThread = T.model('ReposThread', {
     },
     selectFilter(option) {
       const curfilter = self.filtersData
-      self.filters = R.merge(curfilter, option)
+      self.filters = merge(curfilter, option)
     },
     selectTag(tag) {
       const cur = tag.title === '' ? null : tag
@@ -91,16 +91,16 @@ const ReposThread = T.model('ReposThread', {
     },
     setViewedFlag(id) {
       const { entries } = self.pagedReposData
-      const index = R.findIndex(R.propEq('id', id), entries)
+      const index = findIndex(propEq('id', id), entries)
       if (index >= 0) {
         self.pagedRepos.entries[index].viewerHasViewed = true
       }
     },
     updateItem(item) {
       const { entries } = self.pagedReposData
-      const index = R.findIndex(R.propEq('id', item.id), entries)
+      const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
-        self.pagedRepos.entries[index] = R.merge(
+        self.pagedRepos.entries[index] = merge(
           stripMobx(self.pagedRepos.entries[index]),
           item
         )

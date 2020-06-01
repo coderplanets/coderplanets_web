@@ -21,8 +21,8 @@ import { useInit, hide, onClose } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ErrorBox')
 
-const ErrorBoxContainer = ({ errorBox }) => {
-  useInit(errorBox)
+const ErrorBoxContainer = ({ errorBox: store }) => {
+  useInit(store)
   useShortcut(['ctrl+c', 'ctrl+g', 'esc'], hide)
 
   const {
@@ -35,7 +35,7 @@ const ErrorBoxContainer = ({ errorBox }) => {
     changesetErrorData,
     parseErrorData,
     customErrorData,
-  } = errorBox
+  } = store
 
   return (
     <Modal

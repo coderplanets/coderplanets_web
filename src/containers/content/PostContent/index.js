@@ -36,10 +36,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')
 
-const PostContentContainer = ({ postContent }) => {
-  useInit()
+const PostContentContainer = ({ postContent: store }) => {
+  useInit(store)
 
-  const { curRoute, viewingData } = postContent
+  const { curRoute, viewingData } = store
   const { mainPath: communityRaw } = curRoute
 
   return (

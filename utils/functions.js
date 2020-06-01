@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { curry, reduce, keys, sort, uniq, tap } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
@@ -17,24 +17,24 @@ export const o2s = JSON.stringify
 export const s2o = JSON.parse
 
 // see https://github.com/ramda/ramda/issues/1361
-export const mapKeys = R.curry((fn, obj) => {
-  return R.reduce(
+export const mapKeys = curry((fn, obj) => {
+  return reduce(
     (acc, key) => {
       acc[fn(key)] = obj[key]
       return acc
     },
     {},
-    R.keys(obj)
+    keys(obj)
   )
 })
 
 export const sortByColor = source =>
-  R.sort(
+  sort(
     (t1, t2) => TAG_COLOR_ORDER[t1.color] - TAG_COLOR_ORDER[t2.color],
     source
   )
 
-export const sortByIndex = source => R.sort((a, b) => a.index - b.index, source)
+export const sortByIndex = source => sort((a, b) => a.index - b.index, source)
 
 /* eslint-disable */
 const log = (...args) => data => {
@@ -44,7 +44,7 @@ const log = (...args) => data => {
 /* eslint-enable */
 
 // reference: https://blog.carbonfive.com/2017/12/20/easy-pipeline-debugging-with-curried-console-log/
-export const Rlog = (arg = 'Rlog: ') => R.tap(log(arg))
+export const Rlog = (arg = 'Rlog: ') => tap(log(arg))
 
 /**
  * cut extra length of a string
@@ -163,7 +163,7 @@ export const extractMentions = text => {
     matches = matches.map(match => {
       return match.slice(1)
     })
-    return R.uniq(matches)
+    return uniq(matches)
   }
   return []
 }

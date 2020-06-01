@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { keys, merge } from 'ramda'
 
 import { DEFAULT_THEME } from '@/config'
 import { buildLog, markStates, themeSkins } from '@/utils'
@@ -17,10 +17,7 @@ export const ThemeDefaults = {
 }
 
 export const ThemeStore = T.model('ThemeStore', {
-  curTheme: T.optional(
-    T.enumeration('theme', R.keys(themeSkins)),
-    DEFAULT_THEME
-  ),
+  curTheme: T.optional(T.enumeration('theme', keys(themeSkins)), DEFAULT_THEME),
 })
   .views(self => ({
     get root() {
@@ -47,7 +44,7 @@ export const ThemeStore = T.model('ThemeStore', {
         title: '保存主题设置失败',
         msg: '仅支持高级会员以打赏用户',
       }
-      self.root.toast('warn', R.merge({ position: 'topCenter' }, options))
+      self.root.toast('warn', merge({ position: 'topCenter' }, options))
     },
     changeTheme(name) {
       self.curTheme = name

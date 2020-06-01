@@ -37,8 +37,8 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:AccountEditor')
 
-const AccountEditorContainer = ({ accountEditor }) => {
-  useInit(accountEditor)
+const AccountEditorContainer = ({ accountEditor: store }) => {
+  useInit(store)
 
   const {
     showSocials,
@@ -51,7 +51,7 @@ const AccountEditorContainer = ({ accountEditor }) => {
     warn,
     statusMsg,
     ratKey,
-  } = accountEditor
+  } = store
 
   return (
     <Wrapper className="normal-form">

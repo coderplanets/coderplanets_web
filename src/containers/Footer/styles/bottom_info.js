@@ -17,7 +17,7 @@ export const InnerWrapper = styled.div`
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 5vw;
-  padding-right: 100px;
+  padding-right: 80px;
 `
 export const Copyrights = styled.div`
   margin-left: 10px;
@@ -30,4 +30,6 @@ export const Thanks = styled.div`
 `
 export const ThxTitle = styled.div``
 
-export const BeianLink = styled(SiteDesc)``
+export const BeianLink = styled(SiteDesc)`
+  margin-bottom: 0;
+`

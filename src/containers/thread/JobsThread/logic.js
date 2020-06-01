@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { merge, pickBy } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD, ROUTE } from '@/constant'
 import {
@@ -53,10 +53,10 @@ export const loadJobs = (page = 1) => {
 
   // if is not home community, load spec job in that community
   if (curCommunity.raw !== ROUTE.HOME) {
-    args.filter = R.merge(args.filter, { community: curCommunity.raw })
+    args.filter = merge(args.filter, { community: curCommunity.raw })
   }
 
-  args.filter = R.pickBy(notEmpty, args.filter)
+  args.filter = pickBy(notEmpty, args.filter)
 
   log('######## loadJobs args: ', args)
   store.mark({ curView: TYPE.LOADING })

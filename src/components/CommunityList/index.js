@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { buildLog } from '@/utils'
 import Tooltip from '@/components/Tooltip'
@@ -26,8 +26,8 @@ import {
 const log = buildLog('c:CommunityList:index')
 
 const CommunityList = ({ items, size, bottom, emptyHint }) => {
-  if (R.isEmpty(items)) {
-    return !R.isEmpty(emptyHint) && <React.Fragment>{emptyHint}</React.Fragment>
+  if (isEmpty(items)) {
+    return !isEmpty(emptyHint) && <React.Fragment>{emptyHint}</React.Fragment>
   }
 
   return (

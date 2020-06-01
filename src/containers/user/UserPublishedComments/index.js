@@ -17,10 +17,10 @@ import { useInit, threadOnChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:UserPublishedComments')
 
-const UserPublishedCommentsContainer = ({ userPublishedComments }) => {
-  useInit(userPublishedComments)
+const UserPublishedCommentsContainer = ({ userPublishedComments: store }) => {
+  useInit(store)
 
-  const { curThread, curView, pagedCommentsData } = userPublishedComments
+  const { curThread, curView, pagedCommentsData } = store
   const { totalCount } = pagedCommentsData
 
   return (

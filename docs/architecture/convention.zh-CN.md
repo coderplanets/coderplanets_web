@@ -65,7 +65,6 @@ import ArticleEditFooter from '@/components/ArticleEditFooter'
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
-import R from 'ramda'
 
 // 2. import utils
 import { connectStore, buildLog, ROUTE, THREAD } from '@/utils'
@@ -94,9 +93,6 @@ const log = buildLog('C:PostsThread')
 逻辑文件请遵守如下引用顺序(1-7):
 
 ```js
-// 1. import global deps
-import R from 'ramda'
-
 // 2. import utils
 import {
   asyncRes,

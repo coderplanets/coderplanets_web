@@ -1,6 +1,6 @@
 import React from 'react'
-import R from 'ramda'
 import Highlighter from 'react-highlight-words'
+import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
@@ -43,7 +43,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
           <SuggestIcon
             raw={suggestion.raw}
             suggestion={suggestion}
-            round={R.contains(searchThread, [THREAD.POST, THREAD.USER])}
+            round={contains(searchThread, [THREAD.POST, THREAD.USER])}
             searchThread={searchThread}
           />
           <ContentWraper>

@@ -6,7 +6,7 @@
 
 import React, { useCallback } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { findIndex, isEmpty, propEq } from 'ramda'
 
 import { buildLog, nilOrEmpty, o2s, s2o } from '@/utils'
 import { SpaceGrow } from '@/components/Common'
@@ -20,7 +20,7 @@ const log = buildLog('c:NaviMenu:index')
 
 // const activeIdCache = {}
 const isChildItemActive = (childMenuId, childMenu) => {
-  return R.findIndex(R.propEq('id', childMenuId), childMenu || []) >= 0
+  return findIndex(propEq('id', childMenuId), childMenu || []) >= 0
 }
 
 const CataLogItem = ({
@@ -42,7 +42,7 @@ const CataLogItem = ({
         <SpaceGrow />
         <Icon active={isActive} src={item.icon} />
       </Item>
-      {item.childMenu && !R.isEmpty(item.childMenu) && (
+      {item.childMenu && !isEmpty(item.childMenu) && (
         <ChildrenItems
           childMenuId={childMenuId}
           expandMenuId={expandMenuId}

@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { forEach } from 'ramda'
 import { TYPE } from '@/constant'
 // side effects, need refactor
 /* eslint-disable no-undef */
@@ -127,7 +127,7 @@ export const toggleGlobalBlur = visible => {
   const blurableEls = document.querySelectorAll(`.${TYPE.GLOBAL_BLUR_CLASS}`)
 
   if (blurableEls) {
-    R.forEach(el => {
+    forEach(el => {
       visible
         ? el.classList.add('global_blur')
         : el.classList.remove('global_blur')

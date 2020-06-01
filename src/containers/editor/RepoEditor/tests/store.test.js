@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import RepoEditor from '../index'
 
 it('TODO: store test RepoEditor', () => {

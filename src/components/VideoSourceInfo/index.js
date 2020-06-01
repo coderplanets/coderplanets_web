@@ -5,8 +5,8 @@
  */
 
 import React from 'react'
-import R from 'ramda'
 import T from 'prop-types'
+import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
@@ -27,10 +27,10 @@ const colorMaps = {
 
 const VideoSourceInfo = ({ value }) => (
   <Wrapper>
-    <Maybe test={!R.contains(value, recommandSources)}>
+    <Maybe test={!contains(value, recommandSources)}>
       <LinkIcon src={`${ICON_CMD}/link.svg`} />
     </Maybe>
-    <Maybe test={R.contains(value, recommandSources)}>
+    <Maybe test={contains(value, recommandSources)}>
       <LogoIcon src={`${ICON_CMD}/${value}.svg`} color={colorMaps[value]} />
     </Maybe>
     <Text>{value}</Text>

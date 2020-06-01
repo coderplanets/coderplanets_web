@@ -5,15 +5,14 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { connectStore, buildLog } from '@/utils'
 
-import Sticky from '@/components/Sticky'
-import FiltersMenu from '@/components/FiltersMenu'
 import Pagi from '@/components/Pagi'
 
 import Banner from './Banner'
+import Sidebar from './Sidebar'
 import CommunityList from './CommunityList'
 import NotFound from './NotFound'
 
@@ -21,16 +20,16 @@ import {
   Wrapper,
   ContentWrapper,
   InnerWrapper,
-  FiltersWrapper,
-  ContentsWrapper, // move out
+  ContentsWrapper,
 } from './styles'
 import { useInit, pageOnChange, menuOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesContent')
 
-const CommunitiesContentContainer = ({ communitiesContent }) => {
-  useInit(communitiesContent)
+const CommunitiesContentContainer = ({ communitiesContent: store }) => {
+  useInit(store)
+
   const {
     searchStatus,
     pagedCommunitiesData,
@@ -38,7 +37,7 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
     activeMenuId,
     pagiInfo,
     showFilterSidebar,
-  } = communitiesContent
+  } = store
 
   const { isSearchMode, searchValue } = searchStatus
 
@@ -47,23 +46,18 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
       <Banner searchStatus={searchStatus} />
       <ContentWrapper center={isSearchMode}>
         <InnerWrapper>
-          <FiltersWrapper show={showFilterSidebar}>
-            <Sticky offsetTop={60}>
-              <FiltersMenu
-                items={pagedCategoriesData}
-                onItemClick={menuOnChange}
-                activeId={activeMenuId}
-                itemBgHighlight={false}
-                noFilter
-              />
-            </Sticky>
-          </FiltersWrapper>
+          <Sidebar
+            show={showFilterSidebar}
+            items={pagedCategoriesData}
+            onItemClick={menuOnChange}
+            activeId={activeMenuId}
+          />
           <ContentsWrapper center={isSearchMode}>
-            {!R.isEmpty(pagedCommunitiesData.entries) ? (
+            {!isEmpty(pagedCommunitiesData.entries) ? (
               <React.Fragment>
                 <CommunityList
                   entries={pagedCommunitiesData.entries}
-                  restProps={{ ...communitiesContent }}
+                  restProps={{ ...store }}
                 />
                 <Pagi
                   {...pagiInfo}

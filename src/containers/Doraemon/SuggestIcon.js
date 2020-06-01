@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { DEFAULT_ICON } from '@/config'
 import { NON_FILL_COMMUNITY } from '@/constant'
@@ -46,7 +46,7 @@ const SuggestIcon = ({ round, suggestion: { raw, logo, cmd } }) => {
             round={round}
             src={logo || DEFAULT_ICON}
             raw={raw}
-            nonFill={R.contains(raw, NON_FILL_COMMUNITY)}
+            nonFill={contains(raw, NON_FILL_COMMUNITY)}
           />
         </Wrapper>
       )}

@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { Trans } from '@/utils'
@@ -43,7 +43,7 @@ const JobsList = ({ props }) => {
     case TYPE.RESULT_EMPTY:
       return (
         <React.Fragment>
-          {R.isEmpty(emptyPrefix) ? (
+          {isEmpty(emptyPrefix) ? (
             <EmptyThread community={community} thread={thread} />
           ) : (
             <EmptyLabel

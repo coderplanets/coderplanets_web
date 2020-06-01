@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import CommentsStore from '../index'
 
 it('TODO: test CommentsStore', () => {

@@ -1,11 +1,11 @@
 import React from 'react'
-import R from 'ramda'
+import { pluck } from 'ramda'
 
 import { Trans, nilOrEmpty } from '@/utils'
 import { Wrapper, Item, SlashDivider } from './styles/city_list'
 
 const CityList = ({ data }) => {
-  const items = R.pluck('title', data)
+  const items = pluck('title', data)
   if (nilOrEmpty(items)) return null
   const itemsLength = items.length
 

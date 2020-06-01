@@ -17,15 +17,10 @@ import { useInit, adderOnConfirm, onPopoverVisible } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:AvatarAdder')
 
-const AvatarAdderContainer = ({ avatarAdder, onConfirm }) => {
-  useInit(avatarAdder)
+const AvatarAdderContainer = ({ avatarAdder: store, onConfirm }) => {
+  useInit(store)
 
-  const {
-    popoverVisiable,
-    githubUserData,
-    searching,
-    searchValue,
-  } = avatarAdder
+  const { popoverVisiable, githubUserData, searching, searchValue } = store
 
   return (
     <Tooltip

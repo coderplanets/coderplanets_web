@@ -18,8 +18,6 @@ const { Sentry, captureException } = sentry({
   release: process.env.SENTRY_RELEASE,
 })
 
-// const { SENTRY_TOKEN } = process.env
-
 class AppPage extends App {
   constructor() {
     /* eslint-disable-next-line */

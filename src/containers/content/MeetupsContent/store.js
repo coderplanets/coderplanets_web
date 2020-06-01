@@ -4,14 +4,18 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
 
+import { GALLERY } from '@/constant'
 import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:MeetupsContent')
 
-// NOTE: add me to stores/index && stores/RootStore/index
-const MeetupsContent = T.model('MeetupsContent', {})
+const MeetupsContent = T.model('MeetupsContent', {
+  activeGalleryType: T.optional(
+    T.enumeration([GALLERY.TEXT_ONLY, GALLERY.TEXT_WITH_IMAGE]),
+    GALLERY.TEXT_ONLY
+  ),
+})
   .views(self => ({
     get root() {
       return getParent(self)

@@ -6,8 +6,8 @@
  */
 
 import React from 'react'
-import R from 'ramda'
 import T from 'prop-types'
+import { startsWith, isEmpty, path, split } from 'ramda'
 
 import { buildLog, BStore, nilOrEmpty } from '@/utils'
 
@@ -18,8 +18,8 @@ const getDisplayName = WrappedComp =>
   WrappedComp.displayName || WrappedComp.name || 'Component'
 
 const getRawPassport = passport => {
-  if (R.startsWith('owner;', passport)) {
-    return R.split('owner;', passport)[1]
+  if (startsWith('owner;', passport)) {
+    return split('owner;', passport)[1]
   }
 
   return passport
@@ -46,13 +46,13 @@ const withGuardian = WrappedComponent => {
       // or root
       if (nilOrEmpty(passport) || accountPassports.root) {
         isValid = true
-      } else if (R.startsWith('owner', passport)) {
+      } else if (startsWith('owner', passport)) {
         // check if owner is login user ...
         isValid = loginUser.id === ownerId
       } else {
         const rawPassport = getRawPassport(passport)
-        const checkPath = R.split('->', rawPassport || '')
-        isValid = !!R.path(checkPath, accountPassports)
+        const checkPath = split('->', rawPassport || '')
+        isValid = !!path(checkPath, accountPassports)
       }
 
       this.state = { isValid }
@@ -66,11 +66,7 @@ const withGuardian = WrappedComponent => {
         return <WrappedComponent {...this.props} />
       }
 
-      if (
-        !isValid &&
-        !R.isEmpty(fallbackProps) &&
-        fallbackProps === 'readOnly'
-      ) {
+      if (!isValid && !isEmpty(fallbackProps) && fallbackProps === 'readOnly') {
         return <WrappedComponent {...this.props} readOnly />
       }
 

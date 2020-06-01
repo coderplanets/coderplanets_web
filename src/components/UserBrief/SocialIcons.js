@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { nilOrEmpty, SOCIAL_LISTS } from '@/utils'
@@ -8,7 +8,7 @@ import Tooltip from '@/components/Tooltip'
 import { Wrapper, Linker, SocialIcon } from './styles/social_icons'
 
 const DisplayIcon = ({ user, social }) => {
-  if (user[social.key] && !R.contains(social.key, ['qq', 'weichat'])) {
+  if (user[social.key] && !contains(social.key, ['qq', 'weichat'])) {
     return (
       <Linker
         href={`${user[social.key]}`}

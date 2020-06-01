@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { isEmpty, startsWith } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@/utils'
@@ -46,7 +46,7 @@ export const syncWikiFromGithub = () => {
   githubAPI
     .searchWiki(store.curCommunity.raw)
     .then(res => {
-      if (!res || R.startsWith('404', res))
+      if (!res || startsWith('404', res))
         return store.mark({ curView: TYPE.NOT_FOUND })
       syncWiki(res)
     })
@@ -69,7 +69,7 @@ const DataSolver = [
   {
     match: asyncRes('wiki'),
     action: ({ wiki }) => {
-      const curView = R.isEmpty(wiki.readme) ? TYPE.RESULT_EMPTY : TYPE.RESULT
+      const curView = isEmpty(wiki.readme) ? TYPE.RESULT_EMPTY : TYPE.RESULT
       store.mark({ wiki, curView })
     },
   },

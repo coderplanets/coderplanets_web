@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import ArticleViewerHeader from '../index'
 
 it('TODO: store test ArticleViewerHeader', () => {

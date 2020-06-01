@@ -3,18 +3,28 @@ import T from 'prop-types'
 
 import { Wrapper, RedWrapper } from './styles/button'
 
-const Button = ({ children, ghost, type, onClick, size }) => {
+const Button = ({ children, ghost, type, onClick, size, className }) => {
   switch (type) {
     case 'red': {
       return (
-        <RedWrapper ghost={ghost} onClick={onClick} size={size}>
+        <RedWrapper
+          ghost={ghost}
+          onClick={onClick}
+          size={size}
+          className={className}
+        >
           {children}
         </RedWrapper>
       )
     }
     default: {
       return (
-        <Wrapper ghost={ghost} onClick={onClick} size={size}>
+        <Wrapper
+          ghost={ghost}
+          onClick={onClick}
+          size={size}
+          className={className}
+        >
           {children}
         </Wrapper>
       )
@@ -28,6 +38,7 @@ Button.propTypes = {
   type: T.oneOf(['primary', 'red', 'ghost']),
   size: T.oneOf(['default', 'small']),
   onClick: T.func,
+  className: T.string,
 }
 
 Button.defaultProps = {
@@ -37,6 +48,7 @@ Button.defaultProps = {
   size: 'default',
   // eslint-disable-next-line no-console
   onClick: console.log,
+  className: '',
 }
 
 export default Button

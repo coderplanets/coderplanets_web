@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import Informer from '../index'
 
 it('TODO: store test Informer', () => {

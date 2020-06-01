@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import TagsBar from '../index'
 
 it('TODO: store test TagsBar', () => {

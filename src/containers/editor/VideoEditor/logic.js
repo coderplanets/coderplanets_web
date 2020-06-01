@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { merge, isEmpty } from 'ramda'
 
 import { TYPE, EVENT, ERR } from '@/constant'
 import {
@@ -33,13 +33,13 @@ export const onPublish = () => {
   const communityId = store.curCommunity.id
   const publishAt = new Date(store.editVideoData.publishAt).toISOString()
   const durationSec = 2000
-  const args = R.merge(store.editVideoData, {
+  const args = merge(store.editVideoData, {
     communityId,
     publishAt,
     durationSec,
   })
 
-  if (!R.isEmpty(store.labelsData.tags)) {
+  if (!isEmpty(store.labelsData.tags)) {
     args.tags = store.labelsData.tags
   }
 

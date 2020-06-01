@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
@@ -13,7 +13,7 @@ const TagList = ({ items, selected, onOptionSelect }) => (
       <TagItem key={uid.gen()} onClick={onOptionSelect.bind(this, tag.title)}>
         <OptionCheckIcon
           src={`${ICON_CMD}/check.svg`}
-          active={R.contains(tag.title, selected)}
+          active={contains(tag.title, selected)}
         />
         <TagDot color={tag.color} />
         <TagTitle title={tag.title}>{Trans(tag.title)}</TagTitle>

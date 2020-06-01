@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge, toLower } from 'ramda'
 
 import { SITE_URL } from '@/config'
 import { ROUTE, USER_THREAD } from '@/constant'
@@ -11,13 +11,14 @@ import {
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
+  ssrParseURL,
   nilOrEmpty,
-  parseURL,
   pagedFilter,
   ssrAmbulance,
   parseTheme,
 } from '@/utils'
-import initRootStore from '@/stores/init'
+
+import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import UserBanner from '@/containers/banner/UserBanner'
@@ -26,13 +27,13 @@ import UserContent from '@/containers/content/UserContent'
 import { P } from '@/schemas'
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-  const { subPath } = parseURL(props)
-  const login = R.toLower(subPath)
+  const { subPath } = ssrParseURL(props.req)
+  const login = toLower(subPath)
 
   const sessionState = gqClient.request(P.sessionState)
   const user = gqClient.request(P.user, { login, userHasLogin })
@@ -49,76 +50,66 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class UserPage extends React.Component {
-  static async getInitialProps(props) {
-    const { asPath } = props
+export async function getServerSideProps(props) {
+  const query = queryStringToJSON(props.req.url)
 
-    const query = queryStringToJSON(asPath)
-    const { subPath } = parseURL(props)
-
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: subPath }
-      }
-    }
-
-    const { sessionState, user, subscribedCommunities } = resp
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: { mainPath: ROUTE.USER, subPath: user.id, query },
-      userContent: { activeThread: query.tab || USER_THREAD.PUBLISH },
-      viewing: { user },
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
+    } else {
+      return { errorCode: 404 }
     }
   }
 
-  constructor(props) {
-    super(props)
+  const { sessionState, user, subscribedCommunities } = resp
 
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
-
-    this.store = store
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
+    route: { mainPath: ROUTE.USER, subPath: user.id, query },
+    userContent: { activeThread: query.tab || USER_THREAD.PUBLISH },
+    viewing: { user },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-    const {
-      viewing: { user },
-    } = this.props
-
-    const seoConfig = {
-      name: `${user.nickname}`,
-      url: `${SITE_URL}/user/${user.login}`,
-      sameAs: [],
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          page="user"
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-          noSidebar
-        >
-          <UserBanner />
-          <UserContent />
-        </GlobalLayout>
-      </Provider>
-    )
+  return {
+    props: { errorCode: null, namespacesRequired: ['general'], ...initProps },
   }
 }
+
+const UserPage = props => {
+  const store = useStore(props)
+
+  const { viewing, errorCode } = props
+  const { user } = viewing
+
+  const seoConfig = {
+    name: `${user.nickname}`,
+    url: `${SITE_URL}/user/${user.login}`,
+    sameAs: [],
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        page={ROUTE.USER}
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+        noSidebar={`/user/${user.login}`}
+      >
+        <UserBanner />
+        <UserContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default UserPage

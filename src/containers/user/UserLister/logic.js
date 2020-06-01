@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { merge, toUpper } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
 import { TYPE, EVENT, ERR } from '@/constant'
@@ -33,10 +33,10 @@ const loadUsers = (type, data, page = 1) => {
   switch (type) {
     case TYPE.USER_LISTER_FAVORITES:
     case TYPE.USER_LISTER_STARS: {
-      const args = R.merge(
+      const args = merge(
         { ...data },
         {
-          thread: R.toUpper(data.thread),
+          thread: toUpper(data.thread),
           filter: { page, size: PAGE_SIZE.D },
           userHasLogin: store.isLogin,
         }

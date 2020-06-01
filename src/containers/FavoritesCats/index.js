@@ -26,11 +26,11 @@ import { useInit, onModalClose, changeViewTo } from './logic'
 const log = buildLog('C:FavoritesCats')
 
 const FavoritesCatsContainer = ({
-  favoritesCats,
+  favoritesCats: store,
   onSelect,
   displayMode: displayModeProp,
 }) => {
-  useInit(favoritesCats, displayModeProp)
+  useInit(store, displayModeProp)
 
   const {
     viewingData,
@@ -43,7 +43,7 @@ const FavoritesCatsContainer = ({
     pagedCategoriesData,
     isSelfViewing,
     hasLockAuth,
-  } = favoritesCats
+  } = store
 
   const { entries } = pagedCategoriesData
 

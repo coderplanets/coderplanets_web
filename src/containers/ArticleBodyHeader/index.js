@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
@@ -40,15 +40,15 @@ import {
 const log = buildLog('C:ArticleBodyHeader')
 
 const ArticleBodyHeaderContainer = ({
-  articleBodyHeader,
+  articleBodyHeader: store,
   communityRaw,
   thread,
   data,
   middle,
 }) => {
-  useInit(articleBodyHeader)
+  useInit(store)
 
-  const tagTitleList = R.pluck('title', data.tags)
+  const tagTitleList = pluck('title', data.tags)
 
   return (
     <Wrapper>

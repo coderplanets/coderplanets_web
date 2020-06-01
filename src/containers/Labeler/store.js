@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { forEach, merge, reject, findIndex, propEq, concat } from 'ramda'
 import { markStates, buildLog, stripMobx } from '@/utils'
 import { Tag } from '@/model'
 
@@ -62,10 +62,10 @@ const Labeler = T.model('Labeler', {
       const labelList = stripMobx(self.labelEntries)
 
       const mapData = { tags: [] }
-      R.forEach(label => {
+      forEach(label => {
         if (label.label === 'city' || label.label === 'default') {
           if (label.multi) {
-            R.forEach(selectedLabel => {
+            forEach(selectedLabel => {
               const tagId = self.root.tagsBar.getTagIdByTitle(selectedLabel)
               if (tagId !== false) {
                 mapData.tags.push({ id: tagId })
@@ -97,7 +97,7 @@ const Labeler = T.model('Labeler', {
     // getSelectedTagId(uniqId, label) {
     getSelectedTagId(label) {
       // const labelList = stripMobx(self.labelEntries)
-      // const index = R.findIndex(R.propEq('uniqId', uniqId))(
+      // const index = findIndex(propEq('uniqId', uniqId))(
       //  self.labelEntriesData
       // )
 
@@ -105,20 +105,18 @@ const Labeler = T.model('Labeler', {
       return tagId
     },
     markUniqState(uniqId, sobj) {
-      sobj = R.merge(sobj, { uniqId })
-      const index = R.findIndex(R.propEq('uniqId', uniqId))(
-        self.labelEntriesData
-      )
+      sobj = merge(sobj, { uniqId })
+      const index = findIndex(propEq('uniqId', uniqId))(self.labelEntriesData)
 
       if (index >= 0) {
-        self.labelEntries[index] = R.merge(self.labelEntriesData[index], sobj)
+        self.labelEntries[index] = merge(self.labelEntriesData[index], sobj)
       } else {
-        self.labelEntries = R.concat(self.labelEntriesData, [sobj])
+        self.labelEntries = concat(self.labelEntriesData, [sobj])
       }
     },
     uninit(uniqId) {
-      self.labelEntries = R.reject(
-        R.propEq('uniqId', uniqId),
+      self.labelEntries = reject(
+        propEq('uniqId', uniqId),
         self.labelEntriesData
       )
     },

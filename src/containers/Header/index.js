@@ -17,8 +17,8 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
 
-const HeaderContainer = ({ header, metric }) => {
-  useInit(header)
+const HeaderContainer = ({ header: store, metric }) => {
+  useInit(store)
 
   const {
     isOnline,
@@ -30,7 +30,7 @@ const HeaderContainer = ({ header, metric }) => {
     activeInfo,
     curCommunity,
     hasNoBottomBorder,
-  } = header
+  } = store
 
   const props = {
     metric,

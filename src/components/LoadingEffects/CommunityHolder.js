@@ -1,6 +1,6 @@
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { toUpper } from 'ramda'
 
 import {
   BannerWrapper,
@@ -12,10 +12,10 @@ import {
 const CommunityHolder = ({ place, text }) => {
   switch (place) {
     case 'sidebar':
-      return <SidebarText>{R.toUpper(text.slice(0, 1))}</SidebarText>
+      return <SidebarText>{toUpper(text.slice(0, 1))}</SidebarText>
 
     case 'communities':
-      return <CommunitiesText>{R.toUpper(text.slice(0, 2))}</CommunitiesText>
+      return <CommunitiesText>{toUpper(text.slice(0, 2))}</CommunitiesText>
 
     default:
       return (

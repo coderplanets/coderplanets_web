@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { buildLog } from '@/utils'
 
@@ -14,12 +14,12 @@ import { buildLog } from '@/utils'
 const log = buildLog('c:Maybe:index')
 
 const MaybeLoading = ({ loading }) => {
-  if (R.isEmpty(loading)) return <div />
+  if (isEmpty(loading)) return <div />
   return <div>{loading}</div>
 }
 
 const Maybe = ({ children, test, loading }) => {
-  if (Array.isArray(test) && R.isEmpty(test)) {
+  if (Array.isArray(test) && isEmpty(test)) {
     return <MaybeLoading loading={loading} />
   }
 

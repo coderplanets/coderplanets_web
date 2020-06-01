@@ -4,7 +4,16 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import {
+  merge,
+  filter,
+  contains,
+  clone,
+  uniq,
+  concat,
+  map,
+  findIndex,
+} from 'ramda'
 
 import { THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
@@ -73,10 +82,7 @@ const JobEditorStore = T.model('JobEditorStore', {
     get referUsersData() {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
-      return R.filter(
-        user => R.contains(user.name, extractMentions),
-        referUsers
-      )
+      return filter(user => contains(user.name, extractMentions), referUsers)
     },
   }))
   .actions(self => ({
@@ -131,7 +137,7 @@ const JobEditorStore = T.model('JobEditorStore', {
       }
     },
     updateEditing(sobj) {
-      const editJob = R.merge(self.editData, { ...sobj })
+      const editJob = merge(self.editData, { ...sobj })
       return self.mark({ editJob })
     },
     reset() {
@@ -139,13 +145,13 @@ const JobEditorStore = T.model('JobEditorStore', {
       self.editJob = { title: '', body: '' }
     },
     updateMentionList(mentionArray) {
-      const curMentionList = R.clone(self.mentionList)
-      const uniqList = R.uniq(R.concat(curMentionList, mentionArray))
-      const mentionList = R.map(m => ({ ...m, name: m.nickname }), uniqList)
+      const curMentionList = clone(self.mentionList)
+      const uniqList = uniq(concat(curMentionList, mentionArray))
+      const mentionList = map(m => ({ ...m, name: m.nickname }), uniqList)
       self.mentionList = mentionList
     },
     addReferUser(user) {
-      const index = R.findIndex(u => u.id === String(user.id), self.referUsers)
+      const index = findIndex(u => u.id === String(user.id), self.referUsers)
       if (index === -1) {
         self.referUsers.push({
           id: String(user.id),

@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { keys } from 'ramda'
 
 import { isEmptyValue } from '@/utils'
 
@@ -39,7 +39,7 @@ const FilterTag = ({ onSelect, active, type }) => {
 
 const SelectedTags = ({ onSelect, activeFilter }) => (
   <Wrapper>
-    {R.keys(activeFilter).map(filterKey => (
+    {keys(activeFilter).map(filterKey => (
       <FilterTag
         key={filterKey}
         onSelect={onSelect}

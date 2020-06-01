@@ -17,8 +17,8 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:TrendingContent')
 
-const TrendingContentContainer = ({ trendingContent }) => {
-  useInit(trendingContent)
+const TrendingContentContainer = ({ trendingContent: store }) => {
+  useInit(store)
 
   return (
     <Wrapper testid="trendingContent">

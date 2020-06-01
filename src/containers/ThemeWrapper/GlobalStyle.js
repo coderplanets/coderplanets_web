@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     ${cs.media.mobile`
       position: relative;
    `};
+    background-color: ${theme('htmlBg')};
   }
   *::-moz-selection {
     background-color: ${theme('selectionBg')} !important;
@@ -141,6 +142,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${theme('searchHighlight.doramonBg')};
     padding: 0 1px;
     color: ${theme('searchHighlight.doramonFg')};
+  }
+
+  #nprogress .spinner {
+    top: 10px !important;
   }
 
   ${({ showCustomScrollbar }) =>

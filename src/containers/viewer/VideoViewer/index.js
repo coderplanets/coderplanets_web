@@ -22,10 +22,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:VideoViewer')
 
-const VideoViewerContainer = ({ videoViewer, attachment }) => {
-  useInit(videoViewer, attachment)
+const VideoViewerContainer = ({ videoViewer: store, attachment }) => {
+  useInit(store, attachment)
 
-  const { curCommunity, viewingData } = videoViewer
+  const { curCommunity, viewingData } = store
 
   return (
     <Wrapper>

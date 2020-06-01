@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import Footer2 from '../index'
 
 it('TODO: store test Footer2', () => {

@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import JobViewer from '../index'
 
 it('TODO: store test JobViewer', () => {

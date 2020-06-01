@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import ViewingStore from '../index'
 
 it('TODO: test ViewingStore', () => {

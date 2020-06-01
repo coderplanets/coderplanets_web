@@ -3,7 +3,6 @@
  *
  */
 
-// import R from 'ramda'
 // import HeaderStore from '../index'
 
 it('HeaderStore todo: 1 + 1 = 2', () => {

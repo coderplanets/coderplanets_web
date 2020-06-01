@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-// import R from 'ramda'
 
 import { EVENT } from '@/constant'
 import { asyncSuit, buildLog } from '@/utils'

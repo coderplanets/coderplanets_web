@@ -40,7 +40,6 @@
         "preprocess": false
       }
     ],
-    "ramda",
     [
       "module-resolver",
       {

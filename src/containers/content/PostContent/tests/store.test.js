@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import PostContentStore from '../index'
 
 it('TODO: test PostContentStore', () => {

@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isNil } from 'ramda'
 import TimeAgo from 'timeago-react'
 import { Waypoint } from 'react-waypoint'
 
@@ -30,13 +30,13 @@ import { useInit, inAnchor, outAnchor } from './logic'
 const log = buildLog('C:ArticleBanner')
 
 const ArticleBannerContainer = ({
-  articleBanner,
+  articleBanner: store,
   showStar,
   showWordCount,
   showLastSync,
 }) => {
   const { direction: scrollDirection } = useScrollEvent()
-  useInit(articleBanner, scrollDirection)
+  useInit(store, scrollDirection)
 
   const {
     activeThread,
@@ -44,13 +44,13 @@ const ArticleBannerContainer = ({
     starLoading,
     favoriteLoading,
     isHeaderFixed,
-  } = articleBanner
+  } = store
 
   return (
     <Wrapper>
       <FavoritesCats />
       <FloatHeader show={isHeaderFixed} data={viewingData} />
-      {!R.isNil(viewingData.id) && (
+      {!isNil(viewingData.id) && (
         <InnerWrapper>
           <BannerContent>
             <Brief>

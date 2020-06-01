@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import VideosThread from '../index'
 
 it('TODO: store test VideosThread', () => {

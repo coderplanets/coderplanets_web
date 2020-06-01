@@ -49,10 +49,10 @@ const ComunityContent = ({ curRoute }) => {
   }
 }
 
-const CommunityContentContainer = ({ communityContent }) => {
-  useInit(communityContent)
+const CommunityContentContainer = ({ communityContent: store }) => {
+  useInit(store)
 
-  const { curRoute } = communityContent
+  const { curRoute } = store
 
   return (
     <Wrapper testid="community-content">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge, toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { TYPE, ROUTE, THREAD } from '@/constant'
@@ -8,11 +8,11 @@ import {
   getJwtToken,
   nilOrEmpty,
   makeGQClient,
-  parseURL,
+  ssrParseURL,
   ssrAmbulance,
   parseTheme,
 } from '@/utils'
-import initRootStore from '@/stores/init'
+import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import ArticleBanner from '@/containers/banner/ArticleBanner'
@@ -21,14 +21,14 @@ import PostContent from '@/containers/content/PostContent'
 import { P } from '@/schemas'
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const { thridPath: id } = parseURL(props)
+  const { thirdPath: id } = ssrParseURL(props.req)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -36,7 +36,7 @@ async function fetchData(props, opt) {
   const pagedComments = gqClient.request(P.pagedComments, {
     id,
     userHasLogin,
-    thread: R.toUpper(THREAD.POST),
+    thread: toUpper(THREAD.POST),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
   })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -55,86 +55,82 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class PostPage extends React.Component {
-  static async getInitialProps(props) {
-    const { mainPath, subPath } = parseURL(props)
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: subPath }
-      }
-    }
+export async function getServerSideProps(props) {
+  const { mainPath } = ssrParseURL(props.req)
 
-    const { sessionState, post, pagedComments, subscribedCommunities } = resp
-
-    if (!R.contains(mainPath, R.pluck('raw', post.communities))) {
-      return { statusCode: 404, target: subPath }
-    }
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: { mainPath, subPath: ROUTE.POST },
-      viewing: {
-        post,
-        activeThread: THREAD.POST,
-        community: post.origialCommunity,
-      },
-      comments: { pagedComments },
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
+    } else {
+      return { errorCode: 404 }
     }
   }
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
+  const { sessionState, post, pagedComments, subscribedCommunities } = resp
 
-    this.store = store
+  // if (!contains(mainPath, pluck('raw', post.communities))) {
+  //   console.log("## hello 1.1 --> ", subPath)
+  //   return { props: { errorCode: 404 } }
+  // }
+
+  const { origialCommunity: community, ...viewingContent } = post
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
+    route: { mainPath, subPath: ROUTE.POST },
+    viewing: {
+      post: viewingContent,
+      activeThread: THREAD.POST,
+      community,
+    },
+    // TODO: load comments on Client
+    comments: { pagedComments },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-    const {
-      viewing: { post },
-      route,
-    } = this.props
-    const { mainPath } = route
-
-    const seoConfig = {
-      url: `${SITE_URL}/${mainPath}/post/${post.id}`,
-      title: `${post.title}`,
-      datePublished: `${post.insertedAt}`,
-      dateModified: `${post.updatedAt}`,
-      authorName: `${post.author.nickname}`,
-      description: `${post.title}`,
-      images: [],
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          page="post"
-          metric="article"
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-          noSidebar
-        >
-          <ArticleBanner />
-          <PostContent />
-        </GlobalLayout>
-      </Provider>
-    )
-  }
+  return { props: { errorCode: null, ...initProps } }
 }
+
+const PostPage = props => {
+  const store = useStore(props)
+  const { viewing, route, errorCode } = props
+  const { post } = viewing
+
+  const { mainPath } = route
+
+  const seoConfig = {
+    url: `${SITE_URL}/${mainPath}/post/${post.id}`,
+    title: `${post.title}`,
+    datePublished: `${post.insertedAt}`,
+    dateModified: `${post.updatedAt}`,
+    authorName: `${post.author.nickname}`,
+    description: `${post.title}`,
+    images: [],
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        page={ROUTE.POST}
+        metric="article"
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+        errorPath={`/${mainPath}/post/${post.id}`}
+        noSidebar
+      >
+        <ArticleBanner />
+        <PostContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default PostPage

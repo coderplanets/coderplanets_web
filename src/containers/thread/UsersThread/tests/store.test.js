@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import UsersThread from '../index'
 
 it('TODO: store test UsersThread', () => {

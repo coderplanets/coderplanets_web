@@ -11,18 +11,18 @@
  * Earthsung https://atom.io/themes/earthsung-by-jackson-syntax
  */
 
-import R from 'ramda'
+import { map, path, split } from 'ramda'
 import skinsData from './skins'
 
 export const themeSkins = { ...skinsData }
 
 // cover color of a theme
-export const themeCoverMap = R.map(R.path(['cover']), themeSkins)
+export const themeCoverMap = map(path(['cover']), themeSkins)
 // the "T" color in themeSelector
-export const themeCoverIndexMap = R.map(R.path(['coverIndex']), themeSkins)
+export const themeCoverIndexMap = map(path(['coverIndex']), themeSkins)
 
 // curried shorthand for style-components
 export const theme = themepath =>
-  R.path(['theme', ...R.split('.', themepath)]) || 'wheat'
+  path(['theme', ...split('.', themepath)]) || 'wheat'
 
 export { default as themeMeta } from './theme_meta'

@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import ArticleAuthorCard from '../index'
 
 it('TODO: store test ArticleAuthorCard', () => {

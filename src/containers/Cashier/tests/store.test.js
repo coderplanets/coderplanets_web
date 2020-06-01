@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import Cashier from '../index'
 
 it('TODO: store test Cashier', () => {

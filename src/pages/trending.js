@@ -1,31 +1,23 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
+import { P } from '@/schemas'
 
-import {
-  getJwtToken,
-  makeGQClient,
-  parseURL,
-  ssrAmbulance,
-  parseTheme,
-} from '@/utils'
-import initRootStore from '@/stores/init'
-
+import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 import GlobalLayout from '@/containers/GlobalLayout'
 import TrendingContent from '@/containers/content/TrendingContent'
 
-import { P } from '@/schemas'
+import { useStore } from '@/stores/init'
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
 
-  // query data
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -40,66 +32,49 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class CoolGuidePage extends React.Component {
-  static async getInitialProps(props) {
-    const { mainPath, subPath } = parseURL(props)
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: subPath }
-      }
-    }
-
-    const { sessionState, subscribedCommunities } = resp
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: { mainPath, subPath: ROUTE.HAVE_A_DRINK },
+export async function getServerSideProps(props) {
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
     }
   }
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
-
-    this.store = store
+  const { sessionState, subscribedCommunities } = resp
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-
-    const seoConfig = {
-      url: `${SITE_URL}/${ROUTE.TRENDING}`,
-      title: 'coderplanets 社区',
-      description: '最性感的开发者社区',
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          noSidebar
-          metric="default"
-          page={ROUTE.TRENDING}
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-        >
-          <TrendingContent />
-        </GlobalLayout>
-      </Provider>
-    )
+  return {
+    props: { errorCode: null, namespacesRequired: ['general'], ...initProps },
   }
 }
+
+const TrendingPage = props => {
+  const store = useStore(props)
+
+  const seoConfig = {
+    url: `${SITE_URL}/${ROUTE.TRENDING}`,
+    title: '热点 | coderplanets',
+    description: '站内外热门讨论',
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout page={ROUTE.TRENDING} seoConfig={seoConfig} noSidebar>
+        <TrendingContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default TrendingPage

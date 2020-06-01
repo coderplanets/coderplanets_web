@@ -18,8 +18,8 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:RoadmapThread')
 
-const RoadmapThreadContainer = ({ roadmapThread }) => {
-  useInit(roadmapThread)
+const RoadmapThreadContainer = ({ roadmapThread: store }) => {
+  useInit(store)
 
   return (
     <Wrapper testid="roadmapThread">

@@ -41,8 +41,8 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:ReposThread')
 
-const ReposThreadContainer = ({ reposThread }) => {
-  useInit(reposThread)
+const ReposThreadContainer = ({ reposThread: store }) => {
+  useInit(store)
 
   const {
     pagedReposData,
@@ -53,7 +53,7 @@ const ReposThreadContainer = ({ reposThread }) => {
     curRoute,
     accountInfo,
     showFilterBar,
-  } = reposThread
+  } = store
 
   const { mainPath } = curRoute
   const { totalCount } = pagedReposData

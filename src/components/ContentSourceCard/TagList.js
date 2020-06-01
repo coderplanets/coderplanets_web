@@ -1,10 +1,10 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { Wrapper, TagDot, TagTitle, NomoreDesc } from './styles/tag_list'
 
 const TagList = ({ items }) => {
-  if (R.isEmpty(items)) return <NomoreDesc>无标签</NomoreDesc>
+  if (isEmpty(items)) return <NomoreDesc>无标签</NomoreDesc>
 
   return (
     <React.Fragment>

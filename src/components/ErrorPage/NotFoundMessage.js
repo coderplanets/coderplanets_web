@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { ISSUE_ADDR } from '@/config'
 import { HintTitle, IssueLink } from './styles'
@@ -10,7 +10,7 @@ const NotFoundMessage = ({ page, target }) => {
       return (
         <HintTitle>
           未找到该用户
-          {!R.isEmpty(target) && <span>: {target}</span>}
+          {!isEmpty(target) && <span>: {target}</span>}
         </HintTitle>
       )
 
@@ -30,7 +30,7 @@ const NotFoundMessage = ({ page, target }) => {
       return (
         <HintTitle>
           未找到社区
-          {!R.isEmpty(target) && <span>: {target}</span>},
+          {!isEmpty(target) && <span>: {target}</span>},
           如果你觉得该社区很重要，欢迎
           <IssueLink
             href={`${ISSUE_ADDR}/280`}

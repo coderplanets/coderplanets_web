@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { findIndex, merge, propEq, isEmpty, pickBy } from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
 import { buildLog, markStates, stripMobx, nilOrEmpty, isObject } from '@/utils'
@@ -64,10 +64,10 @@ const VideosThread = T.model('VideosThread', {
       return self.root.account.pageDensity
     },
     get showFilterBar() {
-      const curFilter = stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      const curFilter = stripMobx(pickBy(v => !isEmpty(v), self.filters))
       const pagedVideos = stripMobx(self.pagedVideos)
 
-      return !R.isEmpty(curFilter) || !R.isEmpty(pagedVideos.entries)
+      return !isEmpty(curFilter) || !isEmpty(pagedVideos.entries)
     },
   }))
   .actions(self => ({
@@ -76,7 +76,7 @@ const VideosThread = T.model('VideosThread', {
     },
     selectFilter(option) {
       const curfilter = self.filtersData
-      self.filters = R.merge(curfilter, option)
+      self.filters = merge(curfilter, option)
     },
     selectTag(tag) {
       const cur = tag.title === '' ? null : tag
@@ -91,16 +91,16 @@ const VideosThread = T.model('VideosThread', {
     },
     setViewedFlag(id) {
       const { entries } = self.pagedVideosData
-      const index = R.findIndex(R.propEq('id', id), entries)
+      const index = findIndex(propEq('id', id), entries)
       if (index >= 0) {
         self.pagedVideos.entries[index].viewerHasViewed = true
       }
     },
     updateItem(item) {
       const { entries } = self.pagedVideosData
-      const index = R.findIndex(R.propEq('id', item.id), entries)
+      const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
-        self.pagedVideos.entries[index] = R.merge(
+        self.pagedVideos.entries[index] = merge(
           stripMobx(self.pagedVideos.entries[index]),
           item
         )

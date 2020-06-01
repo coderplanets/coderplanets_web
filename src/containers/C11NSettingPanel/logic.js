@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import R from 'ramda'
+import { has } from 'ramda'
 
 import { EVENT } from '@/constant'
 import { buildLog, send } from '@/utils'
@@ -16,7 +16,7 @@ export const onC11NChange = option => {
   store.updateC11N(option)
   const { curThread: thread } = store
 
-  if (R.has('displayDensity', option)) {
+  if (has('displayDensity', option)) {
     send(EVENT.C11N_DENSITY_CHANGE, { type: thread })
     //   loadPosts(store.pagedPosts.pageNumber)
   }

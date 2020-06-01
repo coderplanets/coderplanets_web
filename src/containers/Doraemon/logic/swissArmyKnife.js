@@ -1,21 +1,35 @@
-import R from 'ramda'
+import {
+  curry,
+  compose,
+  equals,
+  contains,
+  isEmpty,
+  length,
+  any,
+  and,
+  isNil,
+  pluck,
+  toLower,
+  head,
+  last,
+} from 'ramda'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 
-export const lengthE1 = R.compose(R.equals(1), R.length)
-export const lengthE2 = R.compose(R.equals(2), R.length)
-export const anyNil = R.any(R.isNil)
+export const lengthE1 = compose(equals(1), length)
+export const lengthE2 = compose(equals(2), length)
+export const anyNil = any(isNil)
 
 export class SwissArmyKnife {
   constructor(store) {
     this.store = store
-    this.communities = R.pluck('raw', store.subscribedCommunities)
+    this.communities = pluck('raw', store.subscribedCommunities)
   }
 
   completeInput = (into = false) => {
     if (anyNil([this.store.prefix, this.store.activeRaw])) return
 
-    const prefix = R.toLower(this.store.prefix)
-    const activeRawLast = R.last(this.store.curCmdChain)
+    const prefix = toLower(this.store.prefix)
+    const activeRawLast = last(this.store.curCmdChain)
 
     let inputValue = ''
     // TODO: support ? opt
@@ -49,7 +63,7 @@ export class SwissArmyKnife {
 
   navSuggestion = direction => {
     const { prefix, activeRaw } = this.store
-    if (anyNil([prefix, activeRaw]) || R.isEmpty(activeRaw)) return false
+    if (anyNil([prefix, activeRaw]) || isEmpty(activeRaw)) return false
 
     if (direction === 'up') {
       this.store.activeUp()
@@ -68,20 +82,17 @@ export class SwissArmyKnife {
   communityLinker = cmdpath => {
     // console.log('communityLinker: ', cmdpath)
     // console.log('communityLinker this.communities: ', this.communities)
-    return R.and(
-      R.contains(R.head(cmdpath), this.communities),
-      lengthE1(cmdpath)
-    )
+    return and(contains(head(cmdpath), this.communities), lengthE1(cmdpath))
   }
 
   communityInsideLinker = cmdpath =>
-    R.and(R.contains(R.head(cmdpath), this.communities), lengthE2(cmdpath))
+    and(contains(head(cmdpath), this.communities), lengthE2(cmdpath))
 
-  stepTwoCmd = R.curry((name, cmdpath) =>
-    R.and(R.equals(name, R.head(cmdpath)), lengthE2(cmdpath))
+  stepTwoCmd = curry((name, cmdpath) =>
+    and(equals(name, head(cmdpath)), lengthE2(cmdpath))
   )
 
-  stepOneCmd = R.curry((name, cmdpath) =>
-    R.and(R.equals(name, R.head(cmdpath)), lengthE1(cmdpath))
+  stepOneCmd = curry((name, cmdpath) =>
+    and(equals(name, head(cmdpath)), lengthE1(cmdpath))
   )
 }

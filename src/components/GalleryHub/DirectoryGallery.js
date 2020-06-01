@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
@@ -46,7 +46,7 @@ const DirectoryGallery = ({ items, onSelect }) => {
             </IntroHead>
           </Header>
 
-          <InlineTags items={R.pluck('title', item.childMenu.slice(0, 8))} />
+          <InlineTags items={pluck('title', item.childMenu.slice(0, 8))} />
 
           <Footer clickable={onSelect !== null}>
             <UpdatedAt>最后更新：2天前</UpdatedAt>

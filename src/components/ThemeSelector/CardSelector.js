@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { keys } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { themeMeta } from '@/utils'
@@ -18,7 +18,7 @@ import {
 
 const CardSelector = ({ curTheme, changeTheme }) => (
   <Wrapper>
-    {R.keys(themeMeta).map(name => (
+    {keys(themeMeta).map(name => (
       <IntroBox key={name} active={curTheme === name}>
         <ThemeDot
           large

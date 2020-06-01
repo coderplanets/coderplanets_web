@@ -6,7 +6,7 @@
 
 import React, { useCallback } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { compose, not, isNil, filter, reverse, slice } from 'ramda'
 
 import { ATATARS_LIST_LENGTH } from '@/config'
 import { buildLog, o2s, s2o } from '@/utils'
@@ -26,7 +26,7 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:AvatarsRow:index')
 
-const validUser = R.compose(R.not, R.isNil)
+const validUser = compose(not, isNil)
 
 const getUniqueArray = (arr, comp) => {
   const unique = arr
@@ -50,7 +50,7 @@ const AvatarsRow = ({
   onUserSelect,
   onTotalSelect,
   showTotalNumber,
-  reverse,
+  reverse: isReverse,
 }) => {
   const handleUserSelect = useCallback(
     e => {
@@ -64,8 +64,8 @@ const AvatarsRow = ({
     return <span />
   }
 
-  users = R.filter(validUser, getUniqueArray(users, 'id'))
-  const sortedUsers = reverse ? users : R.reverse(users)
+  users = filter(validUser, getUniqueArray(users, 'id'))
+  const sortedUsers = isReverse ? users : reverse(users)
 
   return (
     <Wrapper height={height}>
@@ -80,7 +80,7 @@ const AvatarsRow = ({
         />
       )}
 
-      {R.slice(0, limit, sortedUsers).map(user => (
+      {slice(0, limit, sortedUsers).map(user => (
         <AvatarsItem key={user.id}>
           <Tooltip content={user.nickname} duration={0}>
             <AvatarsImg

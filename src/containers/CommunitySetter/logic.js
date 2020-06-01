@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { isEmpty, merge } from 'ramda'
 
 import { EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
@@ -26,7 +26,7 @@ export const onSearchChange = e => store.mark({ searchValue: e.target.value })
 export const onSearch = () => {
   const { searchValue } = store
 
-  return R.isEmpty(searchValue)
+  return isEmpty(searchValue)
     ? loadCommunities()
     : searchCommunities(searchValue)
 }
@@ -97,7 +97,7 @@ const DataSolver = [
   {
     match: asyncRes('post'),
     action: ({ post }) =>
-      store.setViewing({ post: R.merge(store.viewingData, post) }),
+      store.setViewing({ post: merge(store.viewingData, post) }),
   },
 ]
 const ErrSolver = [

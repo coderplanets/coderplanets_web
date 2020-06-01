@@ -14,7 +14,7 @@ import Modal from '@/components/Modal'
 
 import BriefView from './BriefView'
 import DigestView from './DigestView'
-import BussinessNote from './BussinessNote'
+import BusinessNote from './BusinessNote'
 
 import { Wrapper } from './styles'
 import {
@@ -35,21 +35,15 @@ const DynamicBuyMeChuanChuan = dynamic({
   /* eslint-enable */
 })
 
-const FooterContainer = ({ footer }) => {
-  useInit(footer)
+const FooterContainer = ({ footer: store }) => {
+  useInit(store)
 
-  const {
-    showSponsor,
-    showBusBanner,
-    curView,
-    accountInfo,
-    hasTopBorder,
-  } = footer
+  const { showSponsor, showBusBanner, curView, accountInfo } = store
 
   return (
     <Wrapper data-testid="footer">
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
-        <BussinessNote />
+        <BusinessNote />
       </Modal>
 
       <JoinModal />
@@ -62,11 +56,7 @@ const FooterContainer = ({ footer }) => {
         onPay={onPay}
       />
 
-      {curView === 'DIGEST' ? (
-        <DigestView hasTopBorder={hasTopBorder} />
-      ) : (
-        <BriefView />
-      )}
+      {curView === 'DIGEST' ? <DigestView /> : <BriefView />}
     </Wrapper>
   )
 }

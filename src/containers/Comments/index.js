@@ -21,8 +21,8 @@ import { useInit, createComment, onReplyEditorClose } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Comments')
 
-const CommentsContainer = ({ comments, ssr, locked, onCreate }) => {
-  useInit(comments, ssr, locked)
+const CommentsContainer = ({ comments: store, ssr, locked, onCreate }) => {
+  useInit(store, ssr, locked)
 
   const {
     pagedCommentsData,
@@ -33,7 +33,7 @@ const CommentsContainer = ({ comments, ssr, locked, onCreate }) => {
     showReplyPreview,
     mentionListData,
     isEdit,
-  } = comments
+  } = store
 
   return (
     <Wrapper>
@@ -44,7 +44,7 @@ const CommentsContainer = ({ comments, ssr, locked, onCreate }) => {
             show={showReplyEditor}
             accountInfo={accountInfo}
             referUsers={referUsersData}
-            restProps={{ ...comments }}
+            restProps={{ ...store }}
             mentionList={mentionListData}
             showReplyPreview={showReplyPreview}
           />
@@ -59,14 +59,14 @@ const CommentsContainer = ({ comments, ssr, locked, onCreate }) => {
           accountInfo={accountInfo}
           referUsers={referUsersData}
           mentionList={mentionListData}
-          restProps={{ ...comments }}
+          restProps={{ ...store }}
         />
       )}
 
       <CommentsList
         accountInfo={accountInfo}
         pagedComments={pagedCommentsData}
-        restProps={{ ...comments }}
+        restProps={{ ...store }}
       />
     </Wrapper>
   )

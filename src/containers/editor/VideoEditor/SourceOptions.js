@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { compose, trim, toLower, contains, map, pluck, isEmpty } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { Wrapper, ItemWrapper, Title, Icon } from './styles/source_options'
@@ -27,16 +27,14 @@ const other = {
   icon: `${ICON_CMD}/more.svg`,
 }
 
-const trimLower = R.compose(R.trim, R.toLower)
+const trimLower = compose(trim, toLower)
 
 const SourceOptions = ({ active, sourceOnSelect }) => {
   if (!active) active = ''
 
   const otherOption =
-    !R.contains(
-      trimLower(active),
-      R.map(trimLower, R.pluck('title', recommands))
-    ) && !R.isEmpty(active)
+    !contains(trimLower(active), map(trimLower, pluck('title', recommands))) &&
+    !isEmpty(active)
 
   return (
     <Wrapper>
@@ -47,10 +45,10 @@ const SourceOptions = ({ active, sourceOnSelect }) => {
         >
           <Icon
             src={s.icon}
-            active={R.toLower(s.title) === trimLower(active)}
+            active={toLower(s.title) === trimLower(active)}
             activeColor={s.activeColor}
           />
-          <Title active={R.toLower(s.title) === trimLower(active)}>
+          <Title active={toLower(s.title) === trimLower(active)}>
             {s.title}
           </Title>
         </ItemWrapper>

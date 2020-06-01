@@ -4,7 +4,8 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge, prop, trim, filter, contains } from 'ramda'
+
 import { buildLog, markStates, stripMobx, sortByIndex, notEmpty } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -52,9 +53,9 @@ const SidebarStore = T.model('SidebarStore', {
       const { searchCommunityValue } = self
       const { subscribedCommunities } = self.root.account
 
-      if (notEmpty(R.trim(searchCommunityValue))) {
-        return R.filter(
-          item => R.contains(searchCommunityValue, R.prop('title', item)),
+      if (notEmpty(trim(searchCommunityValue))) {
+        return filter(
+          item => contains(searchCommunityValue, prop('title', item)),
           subscribedCommunities.entries
         )
       }
@@ -76,7 +77,7 @@ const SidebarStore = T.model('SidebarStore', {
       self.root.account.loadSubscribedCommunities(data)
     },
     onSortCommunities(entries) {
-      const data = R.merge(self.root.account.subscribedCommunities, { entries })
+      const data = merge(self.root.account.subscribedCommunities, { entries })
       self.loadCommunities(data)
     },
     setViewing(sobj) {

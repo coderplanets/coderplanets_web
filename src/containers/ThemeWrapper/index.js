@@ -5,9 +5,11 @@
  */
 
 import React from 'react'
+import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
-import Helmet from 'react-helmet'
+import NextNprogress from 'nextjs-progressbar'
 
+import { TYPE } from '@/constant'
 import { connectStore } from '@/utils'
 import { usePlatform } from '@/hooks'
 
@@ -24,8 +26,17 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
   return (
     <ThemeProvider theme={themeData}>
       <React.Fragment>
-        <Helmet
-          meta={[{ name: 'theme-color', content: themeData.mobileTab }]}
+        <Head>
+          <meta name="theme-color" content={themeData.mobileTab} />
+        </Head>
+        <NextNprogress
+          color={themeData.logoText}
+          startPosition={0.3}
+          stopDelayMs={200}
+          option={{
+            minimum: 0.1,
+            parent: `#${TYPE.APP_HEADER_ID}`,
+          }}
         />
         <div>{children}</div>
         <CodeSyxHighlight />

@@ -4,8 +4,8 @@
  *
  */
 import React from 'react'
-import R from 'ramda'
 import T from 'prop-types'
+import { replace } from 'ramda'
 
 import { Remarkable } from 'remarkable'
 import emojiPlugin from 'remarkable-emoji'
@@ -60,7 +60,7 @@ class MarkDownRender extends React.Component {
        NOTE: the '---' in normal markdown will break the render process
        this is the most mother fucking disgusting bug i ever seen
      */
-    const safeBody = R.replace(/---(\r\n|\r|\n)/g, '----', body || '')
+    const safeBody = replace(/---(\r\n|\r|\n)/g, '----', body || '')
     const html = md.render(safeBody)
 
     return (

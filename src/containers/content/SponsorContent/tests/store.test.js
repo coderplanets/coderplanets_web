@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import SponsorContent from '../index'
 
 it('TODO: store test SponsorContent', () => {

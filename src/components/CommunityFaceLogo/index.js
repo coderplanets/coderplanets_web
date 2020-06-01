@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { buildLog } from '@/utils'
 
@@ -17,7 +17,7 @@ import { Logo } from './styles'
 const log = buildLog('c:CommunityFaceLogo:index')
 
 const CommunityFaceLogo = ({ noFill, src, raw, loading, className }) => {
-  if (raw === 'home' || R.isEmpty(src)) {
+  if (raw === 'home' || isEmpty(src)) {
     return <HomeLogo className={className} />
   }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { contains, pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { withGuardian } from '@/hoc'
@@ -9,7 +9,7 @@ import { Option, OptionIcon, OptionTitle } from './styles'
 
 const RefineOption = ({ data, thread, onSetRefined, onUnsetRefined }) => (
   <React.Fragment>
-    {R.contains('refined', R.pluck('title', data.tags)) ? (
+    {contains('refined', pluck('title', data.tags)) ? (
       <Option onClick={onUnsetRefined.bind(this, thread)}>
         <OptionIcon src={`${ICON_CMD}/diamond_frame.svg`} />
         <OptionTitle>取消精华</OptionTitle>

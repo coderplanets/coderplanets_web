@@ -22,8 +22,8 @@ import { useInit, hidePanel } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Doraemon')
 
-const DoraemonContainer = ({ doraemon }) => {
-  useInit(doraemon)
+const DoraemonContainer = ({ doraemon: store }) => {
+  useInit(store)
   const { Portal } = usePortal()
 
   const {
@@ -39,7 +39,7 @@ const DoraemonContainer = ({ doraemon }) => {
     showThreadSelector,
     searchThread,
     searchedTotalCount,
-  } = doraemon
+  } = store
 
   useEffect(() => toggleGlobalBlur(visible), [visible])
 

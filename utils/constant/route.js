@@ -1,6 +1,8 @@
 const ROUTE = {
   // NOTE: the lower-case is MUST
   HOME: 'home',
+  // this page is not exist on url, but serves default community page
+  COMMUNITY: 'community',
   COMMUNITIES: 'communities',
   CHEATSHEETS: 'cheatsheets',
   POSTS: 'posts',

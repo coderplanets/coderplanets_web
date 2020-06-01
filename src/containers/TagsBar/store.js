@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { findIndex, propEq } from 'ramda'
 
 import { TOPIC } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -50,7 +50,7 @@ const TagsBar = T.model('TagsBar', {
     getTagIdByTitle(title) {
       if (!title) return false
 
-      const index = R.findIndex(R.propEq('title', title), self.tagsData)
+      const index = findIndex(propEq('title', title), self.tagsData)
       if (index >= 0) {
         return self.tagsData[index].id
       }

@@ -21,7 +21,7 @@ import MainEntries from './MainEntries'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const BriefView = ({ community, curRoute }) => {
+const BriefView = ({ community }) => {
   return (
     <Wrapper>
       <CardWrapper>
@@ -43,7 +43,7 @@ const BriefView = ({ community, curRoute }) => {
         </CommunityWrapper>
       </CardWrapper>
       <Breadcrumbs>
-        <MainEntries curRoute={curRoute} type="brief" />
+        <MainEntries type="brief" />
       </Breadcrumbs>
     </Wrapper>
   )
@@ -51,10 +51,6 @@ const BriefView = ({ community, curRoute }) => {
 
 BriefView.propTypes = {
   community: T.object.isRequired,
-  curRoute: T.shape({
-    mainPath: T.string,
-    subPath: T.string,
-  }).isRequired,
 }
 
 BriefView.defaultProps = {}

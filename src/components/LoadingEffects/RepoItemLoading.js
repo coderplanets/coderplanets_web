@@ -1,6 +1,6 @@
 import React from 'react'
-import R from 'ramda'
 import T from 'prop-types'
+import { range } from 'ramda'
 import styled, { withTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
@@ -28,7 +28,7 @@ const LoadingItem = ({ theme }) => (
 )
 
 const RepoItemLoading = ({ num, theme }) =>
-  R.range(0, num).map(item => (
+  range(0, num).map(item => (
     <LoadingWrapper key={item}>
       <LoadingItem theme={theme} />
     </LoadingWrapper>

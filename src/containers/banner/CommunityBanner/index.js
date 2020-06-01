@@ -16,8 +16,8 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityBanner')
 
-const CommunityBannerContainer = ({ communityBanner }) => {
-  useInit(communityBanner)
+const CommunityBannerContainer = ({ communityBanner: store }) => {
+  useInit(store)
 
   const {
     accountInfo: {
@@ -25,7 +25,7 @@ const CommunityBannerContainer = ({ communityBanner }) => {
     },
     viewing: { community, activeThread },
     descExpand,
-  } = communityBanner
+  } = store
 
   return (
     <div data-testid="community-banner">

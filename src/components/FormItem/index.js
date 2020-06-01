@@ -5,8 +5,8 @@
  */
 
 import React from 'react'
-import R from 'ramda'
 import T from 'prop-types'
+import { isEmpty } from 'ramda'
 
 import { buildLog, hasValue } from '@/utils'
 import Maybe from '@/components/Maybe'
@@ -67,7 +67,7 @@ const FormContent = ({
             disabled={disabled}
             autoFocus={autoFocus}
           />
-          <Maybe test={!R.isEmpty(att)}>{att}</Maybe>
+          <Maybe test={!isEmpty(att)}>{att}</Maybe>
         </FormInput>
       )
   }
@@ -89,7 +89,7 @@ const FormItem = ({
   autoFocus,
 }) => (
   <FormItemWrapper className="normal-form" bottom={bottom}>
-    <Maybe test={!R.isEmpty(label)}>
+    <Maybe test={!isEmpty(label)}>
       <FormLable error={hasValue(raw) && raw === ratKey}>{label}</FormLable>
     </Maybe>
 

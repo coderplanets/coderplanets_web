@@ -1,18 +1,18 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { TYPE, ROUTE, THREAD } from '@/constant'
 import {
   getJwtToken,
   makeGQClient,
-  parseURL,
+  ssrParseURL,
   nilOrEmpty,
   ssrAmbulance,
   parseTheme,
 } from '@/utils'
-import initRootStore from '@/stores/init'
+import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import ArticleBanner from '@/containers/banner/ArticleBanner'
@@ -26,7 +26,7 @@ async function fetchData(props) {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const { thridPath: id } = parseURL(props)
+  const { thirdPath: id } = ssrParseURL(props.req)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -34,7 +34,7 @@ async function fetchData(props) {
   const pagedComments = gqClient.request(P.pagedComments, {
     id,
     userHasLogin,
-    thread: R.toUpper(THREAD.JOB),
+    thread: toUpper(THREAD.JOB),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
   })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -52,88 +52,83 @@ async function fetchData(props) {
   }
 }
 
-export default class JobPage extends React.Component {
-  static async getInitialProps(props) {
-    let resp
-    const { communityPath, threadPath } = parseURL(props)
+export async function getServerSideProps(props) {
+  const { mainPath } = ssrParseURL(props.req)
 
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: threadPath }
-      }
-    }
-
-    const { sessionState, pagedComments, subscribedCommunities, job } = resp
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: {
-        communityPath,
-        mainPath: communityPath,
-        threadPath: ROUTE.JOB,
-        subPath: ROUTE.JOB,
-      },
-      viewing: {
-        job,
-        activeThread: THREAD.JOB,
-        community: job.origialCommunity,
-      },
-      comments: { pagedComments },
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
+    } else {
+      return { props: { errorCode: 404 } }
     }
   }
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
+  const { sessionState, job, pagedComments, subscribedCommunities } = resp
 
-    this.store = store
+  // if (!contains(mainPath, pluck('raw', post.communities))) {
+  //   console.log("## hello 1.1 --> ", subPath)
+  //   return { props: { errorCode: 404 } }
+  // }
+
+  const { origialCommunity: community, ...viewingContent } = job
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
+    route: { mainPath, subPath: ROUTE.JOB },
+    viewing: {
+      job: viewingContent,
+      activeThread: THREAD.JOB,
+      community,
+    },
+    // TODO: load comments on Client
+    comments: { pagedComments },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-    const {
-      viewing: { job },
-      route,
-    } = this.props
-    const { mainPath } = route
-
-    const seoConfig = {
-      url: `${SITE_URL}/${mainPath}/job/${job.id}`,
-      title: `${job.title}`,
-      datePublished: `${job.insertedAt}`,
-      dateModified: `${job.updatedAt}`,
-      authorName: `${job.author.nickname}`,
-      description: `${job.title}`,
-      images: [],
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          page="job"
-          metric="article"
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-          noSidebar
-        >
-          <ArticleBanner showStar={false} />
-          <JobContent />
-        </GlobalLayout>
-      </Provider>
-    )
-  }
+  return { props: { errorCode: null, ...initProps } }
 }
+
+const JobPage = props => {
+  const store = useStore(props)
+
+  const { viewing, route, errorCode } = props
+  const { job } = viewing
+
+  const { mainPath } = route
+
+  const seoConfig = {
+    url: `${SITE_URL}/${mainPath}/job/${job.id}`,
+    title: `${job.title}`,
+    datePublished: `${job.insertedAt}`,
+    dateModified: `${job.updatedAt}`,
+    authorName: `${job.author.nickname}`,
+    description: `${job.title}`,
+    images: [],
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        page={ROUTE.JOB}
+        metric="article"
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+        errorPath={`/${mainPath}/job/${job.id}`}
+        noSidebar
+      >
+        <ArticleBanner showStar={false} />
+        <JobContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default JobPage

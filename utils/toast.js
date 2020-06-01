@@ -2,7 +2,7 @@
  *
  */
 
-import R from 'ramda'
+import { merge, reject } from 'ramda'
 
 import { Global } from './functions'
 import { nilOrEmpty } from './validator'
@@ -24,7 +24,7 @@ const doNotify = (options = {}) => {
   if (!checkValid()) return false
 
   /* eslint-disable no-undef */
-  iziToast.show(R.merge(defaultOptions, R.reject(nilOrEmpty, options)))
+  iziToast.show(merge(defaultOptions, reject(nilOrEmpty, options)))
   return false
 }
 

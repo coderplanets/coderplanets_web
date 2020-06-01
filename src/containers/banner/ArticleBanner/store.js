@@ -4,7 +4,6 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
 
 import { TYPE } from '@/constant'
 import { markStates, buildLog } from '@/utils'

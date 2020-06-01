@@ -21,10 +21,10 @@ import { useInit, changeTheme, c11nOnChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:UserSettings')
 
-const UserSettingsContainer = ({ userSettings }) => {
-  useInit(userSettings)
+const UserSettingsContainer = ({ userSettings: store }) => {
+  useInit(store)
 
-  const { curTheme, accountInfo, isSelfViewing } = userSettings
+  const { curTheme, accountInfo, isSelfViewing } = store
   const { customization } = accountInfo
 
   return (

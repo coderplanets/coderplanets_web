@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { curry, isEmpty } from 'ramda'
 
 import { EVENT, ERR } from '@/constant'
 import {
@@ -54,9 +54,9 @@ export const onGithubSearch = () => {
 }
 
 /* eslint-disable-next-line */
-export const changeView = R.curry((curView, e) => store.mark({ curView }))
+export const changeView = curry((curView, e) => store.mark({ curView }))
 /* eslint-disable-next-line */
-export const changeSubView = R.curry((subView, e) => store.mark({ subView }))
+export const changeSubView = curry((subView, e) => store.mark({ subView }))
 
 export const searchOnChange = ({ target: { value: searchValue } }) =>
   store.mark({ searchValue })
@@ -127,7 +127,7 @@ export const useInit = (_store, attachment) => {
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     const tokenValue = BStore.get('github_token') || ''
-    const subView = R.isEmpty(tokenValue) ? 'token' : 'search'
+    const subView = isEmpty(tokenValue) ? 'token' : 'search'
     store.mark({ tokenValue, subView })
 
     return () => {

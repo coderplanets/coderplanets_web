@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { values } from 'ramda'
 import { types as T } from 'mobx-state-tree'
 
 import { TAG_COLORS, PAGE_SIZE } from '@/config'
@@ -16,8 +16,7 @@ export const Tag = T.model('Tag', {
   title: T.maybeNull(T.string),
   color: T.optional(T.enumeration('color', TAG_COLORS), TAG_COLORS[0]),
   topic: T.maybeNull(Topic),
-  /* thread: T.optional(T.enumeration('thread', R.values(THREAD)), THREAD.POST), */
-  thread: T.optional(T.enumeration('thread', R.values(THREAD)), THREAD.POST),
+  thread: T.optional(T.enumeration('thread', values(THREAD)), THREAD.POST),
   community: T.maybeNull(Community),
   insertedAt: T.optional(T.string, ''),
   updatedAt: T.optional(T.string, ''),

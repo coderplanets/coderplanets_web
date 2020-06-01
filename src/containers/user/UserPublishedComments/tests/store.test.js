@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import UserPublishedComments from '../index'
 
 it('TODO: store test UserPublishedComments', () => {

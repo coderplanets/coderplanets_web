@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import R from 'ramda'
+import { contains, propEq, findIndex, reject } from 'ramda'
 
 import LABEL_POOL from '@/config/label_pool'
 import { buildLog, storePlug, uid, Trans } from '@/utils'
@@ -47,7 +47,7 @@ class LabelerContainer extends React.Component {
     // const { labelsData, labelEntriesData } = labeler
     logic.onOptionSelect(uniqId, item)
     const tagId = logic.getSelectedTagId(item)
-    if (R.contains(item, selected)) {
+    if (contains(item, selected)) {
       onTagUnselect(tagId)
     } else {
       onTagSelect(tagId)
@@ -59,12 +59,10 @@ class LabelerContainer extends React.Component {
     const { labeler, label, readOnly } = this.props
     /* const { tagsData, popVisible, selectedData, labelEntriesData } = labeler */
     const { labelEntriesData } = labeler
-    const targetIndex = R.findIndex(R.propEq('uniqId', uniqId))(
-      labelEntriesData
-    )
+    const targetIndex = findIndex(propEq('uniqId', uniqId))(labelEntriesData)
 
     const { tags, popVisible, selected } = labelEntriesData[targetIndex] || {}
-    const tagsList = R.reject(t => t.title === 'refined', tags)
+    const tagsList = reject(t => t.title === 'refined', tags)
 
     return (
       <Wrapper>

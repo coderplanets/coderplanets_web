@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils'
@@ -16,7 +16,7 @@ const log = buildLog('c:FocusLine:index')
 
 const FocusLine = ({ iconSrc, before, focus, after }) => (
   <Wrapper>
-    <Icon src={iconSrc} show={!R.isEmpty(iconSrc)} />
+    <Icon src={iconSrc} show={!isEmpty(iconSrc)} />
     <TextWrapper>
       <Text>{before}</Text> <Focus>{focus}</Focus> <Text>{after}</Text>
     </TextWrapper>

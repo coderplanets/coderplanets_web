@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { pluck } from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
 import { PagedCommunities } from '@/model'
@@ -27,7 +27,7 @@ const CommunitySetter = T.model('CommunitySetter', {
     get curBelongIds() {
       const { communities } = self.root.viewingData
 
-      return R.pluck('id', communities)
+      return pluck('id', communities)
     },
     get currentThread() {
       return self.root.viewing.currentThread

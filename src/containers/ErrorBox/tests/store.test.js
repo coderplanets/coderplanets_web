@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import ErrorBox from '../index'
 
 it('TODO: store test ErrorBox', () => {

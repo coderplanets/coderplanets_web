@@ -1,24 +1,18 @@
 /*
- * the entry of the App store
+ * the entry of the App root store
  *
  */
 
-// import { onAction } from 'mobx-state-tree'
-
+import { useMemo } from 'react'
 import { applySnapshot } from 'mobx-state-tree'
+
 import RootStore from './RootStore'
 
-// let rootStore = null
 let clientSideRootStore
 
-const createRootStore = ({ ...restData }) => {
-  return RootStore.create({ ...restData }, {})
-}
-
-function initRootStore(snapshot = null) {
-  if (!snapshot && clientSideRootStore) return clientSideRootStore
-
-  const rootStore = createRootStore(snapshot)
+const initRootStore = (snapshot = null) => {
+  // if (!snapshot) return clientSideRootStore
+  const rootStore = RootStore.create(snapshot, {})
 
   if (snapshot) {
     applySnapshot(rootStore, snapshot)
@@ -33,4 +27,9 @@ function initRootStore(snapshot = null) {
   return rootStore
 }
 
-export default initRootStore
+export const useStore = initialState => {
+  const store = useMemo(() => initRootStore(initialState), [initialState])
+  return store
+}
+
+export const holder = 1

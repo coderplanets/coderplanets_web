@@ -5,8 +5,8 @@
  */
 
 import React from 'react'
-import R from 'ramda'
 import T from 'prop-types'
+import { isEmpty } from 'ramda'
 
 import { buildLog } from '@/utils'
 
@@ -51,7 +51,7 @@ const dencodeGqError = msg => {
 */
 
 const ErrorMessages = ({ show, msg }) => {
-  if (R.isEmpty(msg)) {
+  if (isEmpty(msg)) {
     return (
       <ErrorMsgBox show={show}>
         <Msg>出错了</Msg>

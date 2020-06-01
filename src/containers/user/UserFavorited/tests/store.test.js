@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import UserFavorited from '../index'
 
 it('TODO: store test UserFavorited', () => {

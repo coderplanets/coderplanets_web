@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import EmptyLabel from '@/components/EmptyLabel'
 
@@ -29,7 +29,7 @@ import { previewUser } from './logic'
 const getLinkAddr = item => {
   const { community, parentType, parentId, sourceType, sourceId } = item
 
-  if (!R.isEmpty(parentType)) {
+  if (!isEmpty(parentType)) {
     // comment
     return `/${community}/${parentType}/${parentId}`
   }
@@ -41,7 +41,7 @@ const getLinkAddr = item => {
 
 const AtMessage = ({ item }) => {
   const { parentType, floor, sourceType } = item
-  if (!R.isEmpty(parentType)) {
+  if (!isEmpty(parentType)) {
     if (sourceType === 'comment_reply') {
       return (
         <span>
@@ -63,7 +63,7 @@ const AtMessage = ({ item }) => {
 }
 
 const MentionList = ({ data }) => {
-  if (R.isEmpty(data.entries)) return <EmptyLabel text="还没有人提到(@)你" />
+  if (isEmpty(data.entries)) return <EmptyLabel text="还没有人提到(@)你" />
 
   return (
     <Wrapper>

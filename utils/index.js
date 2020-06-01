@@ -57,6 +57,7 @@ export {
 
 export {
   parseURL,
+  ssrParseURL,
   akaTranslate,
   getParameterByName,
   getQueryFromUrl,
@@ -67,6 +68,8 @@ export {
   extractThreadFromPath,
   subPath2Thread,
   thread2Subpath,
+  getRoutePathList,
+  getRouteMainPath,
 } from './route_helper'
 
 export {

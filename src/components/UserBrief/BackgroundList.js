@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import {
   BackgroundItem,
@@ -8,7 +8,7 @@ import {
 } from './styles'
 
 const WorkBackgroundList = ({ user: { workBackgrounds }, first }) => {
-  if (R.isEmpty(workBackgrounds)) return null
+  if (isEmpty(workBackgrounds)) return null
 
   if (first) {
     const bg = workBackgrounds[0]
@@ -34,7 +34,7 @@ const WorkBackgroundList = ({ user: { workBackgrounds }, first }) => {
 }
 
 const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
-  if (R.isEmpty(educationBackgrounds)) return null
+  if (isEmpty(educationBackgrounds)) return null
 
   if (first) {
     const bg = educationBackgrounds[0]

@@ -1,4 +1,12 @@
-import R from 'ramda'
+import {
+  isEmpty,
+  contains,
+  merge,
+  toLower,
+  omit,
+  findIndex,
+  propEq,
+} from 'ramda'
 import { DEFAULT_THEME } from '@/config'
 import { TYPE, THREAD } from '@/constant'
 import { P } from '@/schemas'
@@ -20,7 +28,7 @@ export const getJwtToken = props => {
 }
 
 export const ssrPagedSchema = thread => {
-  switch (R.toLower(thread)) {
+  switch (toLower(thread)) {
     case THREAD.JOB:
       return P.pagedJobs
 
@@ -42,12 +50,12 @@ export const ssrPagedSchema = thread => {
 }
 
 export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
-  thread = R.toLower(thread)
+  thread = toLower(thread)
   if (thread === THREAD.CHEATSHEET || thread === THREAD.WIKI)
     return { community }
 
   if (community === 'home' && thread === THREAD.JOB) {
-    filter = R.omit(['community'], filter)
+    filter = omit(['community'], filter)
     return { filter, userHasLogin }
   }
 
@@ -58,9 +66,9 @@ const getCurView = source =>
   source.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
 const getActiveTag = (tagTitle, tagList) => {
-  if (!tagTitle || R.isEmpty(tagList)) return null
+  if (!tagTitle || isEmpty(tagList)) return null
 
-  const index = R.findIndex(R.propEq('title', tagTitle), tagList)
+  const index = findIndex(propEq('title', tagTitle), tagList)
 
   if (index < 0) return null
   return tagList[index]
@@ -70,7 +78,7 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
   // console.log('filter in resp: ', resp.filter)
   const activeTag = getActiveTag(resp.filter.tag, resp.partialTags)
 
-  switch (R.toLower(thread)) {
+  switch (toLower(thread)) {
     case THREAD.JOB:
       return {
         jobsThread: {
@@ -105,7 +113,7 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
       return {
         cheatsheetThread: {
           cheatsheet: resp.cheatsheet,
-          curView: R.isEmpty(resp.cheatsheet.readme)
+          curView: isEmpty(resp.cheatsheet.readme)
             ? TYPE.NOT_FOUND
             : TYPE.RESULT,
         },
@@ -115,7 +123,7 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
       return {
         wikiThread: {
           wiki: resp.wiki,
-          curView: R.isEmpty(resp.wiki.readme) ? TYPE.NOT_FOUND : TYPE.RESULT,
+          curView: isEmpty(resp.wiki.readme) ? TYPE.NOT_FOUND : TYPE.RESULT,
         },
       }
 
@@ -133,8 +141,8 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
 
 // TODO generl
 export const addTopicIfNeed = (source, thread, topic) => {
-  if (!R.contains(thread, ['JOB', 'VIDEO', 'REPO', 'USER', 'WIKI'])) {
-    return R.merge(source, { topic })
+  if (!contains(thread, ['JOB', 'VIDEO', 'REPO', 'USER', 'WIKI'])) {
+    return merge(source, { topic })
   }
   return source
 }

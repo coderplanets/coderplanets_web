@@ -20,10 +20,10 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:UserBilling')
 
-const UserBillingContainer = ({ userBilling }) => {
-  useInit(userBilling)
+const UserBillingContainer = ({ userBilling: store }) => {
+  useInit(store)
 
-  const { pagedBillRecordsData, accountInfo, isSelfViewing } = userBilling
+  const { pagedBillRecordsData, accountInfo, isSelfViewing } = store
   // log('accountInfo: ', accountInfo.achievement)
   return (
     <Wrapper>

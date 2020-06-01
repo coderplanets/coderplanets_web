@@ -1,6 +1,6 @@
 import React from 'react'
 import T from 'prop-types'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
@@ -47,7 +47,7 @@ const FakeBrowser = ({ domain, title, desc, showContent }) => {
             <LockIcon src={`${ICON_CMD}/new_community/lock.svg`} />
           </ToolbarWrapper>
           <Input>
-            {R.isEmpty(domain) ? (
+            {isEmpty(domain) ? (
               <div>https://coderplanets.com</div>
             ) : (
               <div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { cutFrom } from '@/utils'
 import {
@@ -38,7 +38,7 @@ const CompanyInfo = ({
     </TopHalf>
     <Footer>
       &quot;
-      {R.isEmpty(desc) ? '---' : desc} &quot;
+      {isEmpty(desc) ? '---' : desc} &quot;
     </Footer>
   </Wrapper>
 )

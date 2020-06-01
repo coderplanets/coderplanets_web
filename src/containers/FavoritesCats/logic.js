@@ -1,5 +1,5 @@
-import R from 'ramda'
 import { useEffect } from 'react'
+import { curry, toUpper } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
 import { EVENT, ERR } from '@/constant'
@@ -19,7 +19,7 @@ let sub$ = null
 let store = null
 
 // export const categoryOnChange = (part, e) => updateEditing(store, part, e)
-export const categoryOnChange = R.curry(
+export const categoryOnChange = curry(
   (part, e) => updateEditing(store, part, e)
   // store.updateEditing({ [part]: e.target.value })
 )
@@ -67,7 +67,7 @@ export const switchToUpdater = editCategory => {
 }
 
 /* eslint-disable-next-line */
-export const changeViewTo = R.curry((view, e) => store.changeViewTo(view))
+export const changeViewTo = curry((view, e) => store.changeViewTo(view))
 
 export const onSetterCreateCat = () => {
   store.mark({ createfromSetter: true })
@@ -92,7 +92,7 @@ export const setContent = categoryId => {
 
   const args = {
     id,
-    thread: R.toUpper(thread),
+    thread: toUpper(thread),
     categoryId,
   }
   store.mark({ doing: true })
@@ -107,7 +107,7 @@ export const unSetContent = categoryId => {
 
   const args = {
     id,
-    thread: R.toUpper(thread),
+    thread: toUpper(thread),
     categoryId,
   }
   store.mark({ doing: true })

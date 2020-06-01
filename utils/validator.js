@@ -1,10 +1,29 @@
-import R from 'ramda'
+import {
+  merge,
+  startsWith,
+  compose,
+  not,
+  isNil,
+  isEmpty,
+  trim,
+  either,
+  map,
+  reject,
+  keys,
+  pick,
+  pickBy,
+  length,
+  filter,
+  equals,
+  head,
+  values,
+} from 'ramda'
 
-export const notEmpty = R.compose(R.not, R.isEmpty)
-export const isEmptyValue = R.compose(R.isEmpty, R.trim)
-export const nilOrEmpty = R.either(R.isNil, R.isEmpty)
+export const notEmpty = compose(not, isEmpty)
+export const isEmptyValue = compose(isEmpty, trim)
+export const nilOrEmpty = either(isNil, isEmpty)
 
-export const hasValue = R.compose(R.not, nilOrEmpty)
+export const hasValue = compose(not, nilOrEmpty)
 
 export const isObject = value => {
   const type = typeof value
@@ -18,32 +37,28 @@ export const isString = value => {
   return false
 }
 
-const notNil = R.compose(R.not, R.isNil)
+const notNil = compose(not, isNil)
 
-const validObjects = R.compose(R.pickBy(notNil), R.pickBy(isObject))
+const validObjects = compose(pickBy(notNil), pickBy(isObject))
 
 const emptyArray = obj => Array.isArray(obj) && obj.length === 0
 
 // avoid trim on int
 const trimIfNeed = v => {
-  if (isString(v)) return R.trim(v)
+  if (isString(v)) return trim(v)
   return v
 }
 
-const validValues = R.compose(
-  R.map(trimIfNeed),
-  R.pickBy(notNil),
-  R.reject(isObject)
-)
+const validValues = compose(map(trimIfNeed), pickBy(notNil), reject(isObject))
 
 export const cast = (fields, source) => {
-  const casted = R.pick(fields, source)
+  const casted = pick(fields, source)
 
-  return R.merge(validValues(casted), validObjects(casted))
+  return merge(validValues(casted), validObjects(casted))
 }
 
-const keyOf = R.compose(R.head, R.keys)
-const valueOf = R.compose(R.head, R.values)
+const keyOf = compose(head, keys)
+const valueOf = compose(head, values)
 
 export const changeset = source => ({
   exist: (obj, cb, opt = { skip: false }) => {
@@ -65,7 +80,7 @@ export const changeset = source => ({
       const msg = opt.msg || '不能为空'
 
       cb({ title, msg })
-      return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
+      return changeset(merge(source, { __dirty__: true, __rat__: field }))
     }
     return changeset(source)
   },
@@ -75,12 +90,12 @@ export const changeset = source => ({
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
-    if (R.trim(source[field]).length < num) {
+    if (trim(source[field]).length < num) {
       const title = trans
       const msg = `不能小于 ${num} 个字符`
 
       cb({ title, msg })
-      return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
+      return changeset(merge(source, { __dirty__: true, __rat__: field }))
     }
     return changeset(source)
   },
@@ -89,16 +104,15 @@ export const changeset = source => ({
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
-    if (R.length(R.filter(R.equals(target), pools)) > 0) {
+    if (length(filter(equals(target), pools)) > 0) {
       const title = trans
       const msg = '已经存在了, 请核对。'
 
       cb({ title, msg })
-      return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
+      return changeset(merge(source, { __dirty__: true, __rat__: field }))
     }
 
     return changeset(source)
-    // R.length(R.filter(R.equals(target), source)) > 0
   },
   startsWith: (obj, prefix, cb, condition = true) => {
     if (source.__dirty__ || !condition) return changeset(source)
@@ -106,15 +120,12 @@ export const changeset = source => ({
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
-    if (
-      !hasValue(source[field]) ||
-      !R.startsWith(prefix, R.trim(source[field]))
-    ) {
+    if (!hasValue(source[field]) || !startsWith(prefix, trim(source[field]))) {
       const title = trans
       const msg = `请填写 ${prefix} 开头的链接地址`
 
       cb({ title, msg })
-      return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
+      return changeset(merge(source, { __dirty__: true, __rat__: field }))
     }
     return changeset(source)
   },
@@ -135,7 +146,7 @@ export const changeset = source => ({
     const msg = '格式：mm:ss 或者 hh:mm:ss'
 
     cb({ title, msg })
-    return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
+    return changeset(merge(source, { __dirty__: true, __rat__: field }))
   },
   dateFmt: (obj, cb, opt = { skip: false }) => {
     if (source.__dirty__) return changeset(source)
@@ -154,7 +165,7 @@ export const changeset = source => ({
     const msg = '请输入格式为：YYYY/MM/DD 的合法日期'
 
     cb({ title, msg })
-    return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
+    return changeset(merge(source, { __dirty__: true, __rat__: field }))
   },
   done: () => {
     if (source.__dirty__) {

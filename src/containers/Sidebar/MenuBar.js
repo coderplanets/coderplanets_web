@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import R from 'ramda'
+import { toLower } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { uid } from '@/utils'
@@ -28,25 +28,25 @@ const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => {
     <Wrapper onClick={handleSelect}>
       <ActiveBar
         pin={pin}
-        active={!sortOptActive && activeRaw === R.toLower(item.raw)}
+        active={!sortOptActive && activeRaw === toLower(item.raw)}
       />
       <DragIcon src={`${ICON_CMD}/drag.svg`} show={sortOptActive} />
       <MenuItemBar>
         <MenuRow
           pin={pin}
           sortOptActive={sortOptActive}
-          active={!sortOptActive && activeRaw === R.toLower(item.raw)}
+          active={!sortOptActive && activeRaw === toLower(item.raw)}
         >
           <MenuItemIcon
             key={uid.gen()}
-            active={activeRaw === R.toLower(item.raw)}
+            active={activeRaw === toLower(item.raw)}
             raw={item.raw}
             src={item.logo}
           />
           {/* eslint-disable jsx-a11y/anchor-is-valid */}
           <MenuItemTitle
             pin={pin}
-            active={activeRaw === R.toLower(item.raw)}
+            active={activeRaw === toLower(item.raw)}
             forceRerender={forceRerender}
           >
             {item.title}

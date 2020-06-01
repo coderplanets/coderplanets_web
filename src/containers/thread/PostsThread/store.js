@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+import { merge, isEmpty, findIndex, propEq, pickBy } from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
@@ -59,7 +59,7 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      return stripMobx(pickBy(v => !isEmpty(v), self.filters))
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || {}
@@ -79,15 +79,15 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       return self.root.account.pageDensity
     },
     get showFilterBar() {
-      const curFilter = stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      const curFilter = stripMobx(pickBy(v => !isEmpty(v), self.filters))
       const pagedPosts = stripMobx(self.pagedPosts)
 
-      return !R.isEmpty(curFilter) || !R.isEmpty(pagedPosts.entries)
+      return !isEmpty(curFilter) || !isEmpty(pagedPosts.entries)
     },
   }))
   .actions(self => ({
     toastInfo(options) {
-      self.root.toast('info', R.merge({ position: 'topCenter' }, options))
+      self.root.toast('info', merge({ position: 'topCenter' }, options))
     },
     isMemberOf(type) {
       return self.root.isMemberOf(type)
@@ -100,7 +100,7 @@ const PostsThreadStore = T.model('PostsThreadStore', {
     },
     selectFilter(option) {
       const curfilter = self.filtersData
-      self.filters = R.merge(curfilter, option)
+      self.filters = merge(curfilter, option)
     },
     selectTag(tag) {
       const cur = tag.title === '' ? null : tag
@@ -115,16 +115,16 @@ const PostsThreadStore = T.model('PostsThreadStore', {
     },
     setViewedFlag(id) {
       const { entries } = self.pagedPostsData
-      const index = R.findIndex(R.propEq('id', id), entries)
+      const index = findIndex(propEq('id', id), entries)
       if (index >= 0) {
         self.pagedPosts.entries[index].viewerHasViewed = true
       }
     },
     updateItem(item) {
       const { entries } = self.pagedPostsData
-      const index = R.findIndex(R.propEq('id', item.id), entries)
+      const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
-        self.pagedPosts.entries[index] = R.merge(
+        self.pagedPosts.entries[index] = merge(
           stripMobx(self.pagedPosts.entries[index]),
           item
         )

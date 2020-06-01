@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import PostViewer from '../index'
 
 it('TODO: store test PostViewer', () => {

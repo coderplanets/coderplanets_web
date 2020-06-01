@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import Labeler from '../index'
 
 it('TODO: store test Labeler', () => {

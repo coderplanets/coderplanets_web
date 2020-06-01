@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import { reject, isEmpty } from 'ramda'
 
 import Maybe from '@/components/Maybe'
 import { uid, Trans } from '@/utils'
@@ -7,7 +7,7 @@ import { Wrapper, Item, Hightlight } from './styles/selected'
 
 const renderItems = items => {
   if (!items) return null
-  const tagsList = R.reject(t => t === 'refined', items)
+  const tagsList = reject(t => t === 'refined', items)
 
   switch (tagsList.length) {
     case 0:
@@ -42,7 +42,7 @@ const renderItems = items => {
 
 const renderReadonlyItems = items => {
   if (!items) return null
-  const tagsList = R.reject(t => t === 'refined', items)
+  const tagsList = reject(t => t === 'refined', items)
 
   const totalLength = tagsList.length
 
@@ -68,7 +68,7 @@ const renderReadonlyItems = items => {
 }
 
 const Selected = ({ items, readOnly }) => (
-  <Maybe test={!R.isEmpty(items)}>
+  <Maybe test={!isEmpty(items)}>
     <Maybe test={!readOnly}>
       <Wrapper>{renderItems(items)}</Wrapper>
     </Maybe>

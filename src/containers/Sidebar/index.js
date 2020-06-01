@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { filter, propEq } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
@@ -21,8 +21,8 @@ import { useInit, onSortMenuEnd } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Sidebar:index')
 
-const SidebarContainer = ({ sidebar }) => {
-  useInit(sidebar)
+const SidebarContainer = ({ sidebar: store }) => {
+  useInit(store)
 
   const {
     curCommunity,
@@ -31,12 +31,12 @@ const SidebarContainer = ({ sidebar }) => {
     sortOptActive,
     communitiesData,
     forceRerender,
-  } = sidebar
+  } = store
 
   // onMouseLeave={logic.leaveSidebar}
   // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
   const activeRaw = curCommunity.raw
-  const homeCommunity = R.filter(R.propEq('raw', 'home'), communitiesData)[0]
+  const homeCommunity = filter(propEq('raw', 'home'), communitiesData)[0]
 
   return (
     <Wrapper pin={pin} testid="sidebar" className={TYPE.GLOBAL_BLUR_CLASS}>

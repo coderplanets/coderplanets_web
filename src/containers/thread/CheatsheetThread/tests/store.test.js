@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import CheatsheetThread from '../index'
 
 it('TODO: store test CheatsheetThread', () => {

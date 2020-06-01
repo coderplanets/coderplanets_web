@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import AccountStore from '../index'
 
 it('TODO: test AccountStore', () => {

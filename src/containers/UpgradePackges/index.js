@@ -53,10 +53,10 @@ const platinumUserItems = [
   { title: 'Github 特别鸣谢' },
 ]
 
-const UpgradePackgesContainer = ({ upgradePackges }) => {
-  useInit(upgradePackges)
+const UpgradePackgesContainer = ({ upgradePackges: store }) => {
+  useInit(store)
 
-  const { show } = upgradePackges
+  const { show } = store
 
   return (
     <Modal width="800px" show={show} showCloseBtn onClose={onClose}>

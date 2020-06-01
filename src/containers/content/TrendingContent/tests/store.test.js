@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import TrendingContent from '../index'
 
 it('TODO: store test TrendingContent', () => {

@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import AccountViewerStore from '../index'
 
 it('TODO: test AccountViewerStore', () => {

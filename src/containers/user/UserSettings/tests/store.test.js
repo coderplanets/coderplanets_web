@@ -3,8 +3,6 @@
  *
  */
 
-// import R from 'ramda'
-
 // import UserSettings from '../index'
 
 it('TODO: store test UserSettings', () => {

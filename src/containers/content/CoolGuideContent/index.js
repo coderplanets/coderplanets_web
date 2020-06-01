@@ -8,6 +8,7 @@ import React from 'react'
 
 import { connectStore, buildLog } from '@/utils'
 import { GUIDE } from '@/constant'
+import { useTrans } from '@/hooks'
 
 import FilterBar from './FilterBar'
 import Content from './Content'
@@ -18,10 +19,10 @@ import { useInit, menuOnSelect } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CoolGuideContent')
 
-const CoolGuideContentContainer = ({ coolGuideContent }) => {
-  useInit(coolGuideContent)
+const CoolGuideContentContainer = ({ coolGuideContent: store }) => {
+  useInit(store)
 
-  const { initActiveMenuId, topFilter, displayType } = coolGuideContent
+  const { initActiveMenuId, topFilter, displayType } = store
 
   return (
     <Wrapper testid="cool-guide-content">
@@ -31,7 +32,7 @@ const CoolGuideContentContainer = ({ coolGuideContent }) => {
           menuOnSelect={menuOnSelect}
           initActiveMenuId={initActiveMenuId}
         />
-        <ContentWrapper offset={displayType !== GUIDE.PREVIEW}>
+        <ContentWrapper marginRight={displayType !== GUIDE.PREVIEW}>
           <Content displayType={displayType} />
         </ContentWrapper>
       </InnerWrapper>

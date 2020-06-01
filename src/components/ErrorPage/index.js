@@ -14,7 +14,7 @@ import NotFoundMessage from './NotFoundMessage'
 import ErrorDesc from './ErrorDesc'
 
 import {
-  Container,
+  Wrapper,
   HintWrapper,
   IconsWrapper,
   TextWrapper,
@@ -31,7 +31,7 @@ import {
 const log = buildLog('c:ErrorPage:index')
 
 const ErrorPage = ({ errorCode, page, target }) => (
-  <Container>
+  <Wrapper>
     <LogoWrapper>
       <CPSMdLogo src={`${ICON_CMD}/cps_logo_md.png`} />
     </LogoWrapper>
@@ -51,7 +51,7 @@ const ErrorPage = ({ errorCode, page, target }) => (
       </TextWrapper>
     </HintWrapper>
     <FooterWrapper />
-  </Container>
+  </Wrapper>
 )
 
 ErrorPage.propTypes = {

@@ -1,6 +1,6 @@
 import store from 'store'
 import Cookies from 'js-cookie'
-import R from 'ramda'
+import { path } from 'ramda'
 
 /* eslint-disable */
 function _has_key(cookie, key) {
@@ -12,7 +12,7 @@ function _has_key(cookie, key) {
 // NOTE: this is used only in next's getInitialProps function
 // because getInitialProps is runing on server, do not hove browser cookie
 function from_req(req, key) {
-  const cookie = R.path(['headers', 'cookie'], req)
+  const cookie = path(['headers', 'cookie'], req)
   if (!cookie || !key || !_has_key(cookie, key)) {
     return null
   }

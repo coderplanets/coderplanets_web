@@ -17,16 +17,18 @@ import {
 
 import MainEntries from './MainEntries'
 
-const DigestView = ({ curRoute }) => (
-  <Breadcrumbs>
-    <Link href="/home/posts" passHref>
-      <LogoLink href="/home/posts">
-        <Logo />
-      </LogoLink>
-    </Link>
-    <DotDivider />
-    <MainEntries curRoute={curRoute} />
-  </Breadcrumbs>
-)
+const DigestView = () => {
+  return (
+    <Breadcrumbs>
+      <Link href="/home/posts" passHref>
+        <LogoLink href="/home/posts">
+          <Logo />
+        </LogoLink>
+      </Link>
+      <DotDivider />
+      <MainEntries />
+    </Breadcrumbs>
+  )
+}
 
 export default React.memo(DigestView)

@@ -17,9 +17,9 @@ import { useInit, closePreview } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Preview')
 
-const PreviewContainer = ({ preview }) => {
+const PreviewContainer = ({ preview: store }) => {
   const { width: windowWidth } = useResize()
-  useInit(preview, windowWidth)
+  useInit(store, windowWidth)
   useShortcut('esc', closePreview)
 
   const {
@@ -30,7 +30,7 @@ const PreviewContainer = ({ preview }) => {
     attUserData,
     imageUploading,
     rightOffset,
-  } = preview
+  } = store
 
   return (
     <React.Fragment>

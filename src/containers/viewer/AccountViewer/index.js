@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { connectStore, buildLog } from '@/utils'
 
@@ -23,21 +23,16 @@ import { useInit, editProfile, onLogout, changeTheme } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:AccountViewer')
 
-const AccountViewerContainer = ({ accountViewer, user }) => {
-  useInit(accountViewer, user)
+const AccountViewerContainer = ({ accountViewer: store, user }) => {
+  useInit(store, user)
 
-  const {
-    curTheme,
-    viewingType,
-    userInfoData,
-    subscribedCommunities,
-  } = accountViewer
+  const { curTheme, viewingType, userInfoData, subscribedCommunities } = store
 
   const { contributes } = userInfoData // accountInfo
 
   return (
     <AccountWrapper>
-      {!R.isEmpty(userInfoData.id) && (
+      {!isEmpty(userInfoData.id) && (
         <React.Fragment>
           <AccountContent>
             <UserBrief
@@ -50,7 +45,7 @@ const AccountViewerContainer = ({ accountViewer, user }) => {
 
             <Divider top="20px" bottom="0px" />
             <SiteSocial user={userInfoData} />
-            <Maybe test={!R.isEmpty(subscribedCommunities)}>
+            <Maybe test={!isEmpty(subscribedCommunities)}>
               <React.Fragment>
                 <Divider top="0px" bottom="20px" />
                 <Planets

@@ -121,8 +121,8 @@ const items = [
   },
 ]
 
-const SponsorContentContainer = ({ sponsorContent }) => {
-  useInit(sponsorContent)
+const SponsorContentContainer = ({ sponsorContent: store }) => {
+  useInit(store)
 
   return (
     <Wrapper testid="sponsorContent">

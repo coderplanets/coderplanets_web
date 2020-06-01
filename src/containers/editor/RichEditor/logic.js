@@ -1,4 +1,3 @@
-// import R from 'ramda'
 import { useEffect } from 'react'
 import Header from '@groupher/editor-header'
 import Quote from '@groupher/editor-quote'

@@ -18,8 +18,8 @@ import { useInit, onClose } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Cashier')
 
-const CashierContainer = ({ cashier }) => {
-  useInit(cashier)
+const CashierContainer = ({ cashier: store }) => {
+  useInit(store)
 
   const {
     show,
@@ -30,7 +30,7 @@ const CashierContainer = ({ cashier }) => {
     paymentMethod,
     amount,
     transferAccount,
-  } = cashier
+  } = store
 
   return (
     <Modal width="520px" show={show} showCloseBtn onClose={onClose}>

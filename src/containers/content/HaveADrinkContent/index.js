@@ -37,8 +37,8 @@ const Body = dynamic({
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const HaveADrinkContentContainer = ({ haveADrinkContent }) => {
-  useInit(haveADrinkContent)
+const HaveADrinkContentContainer = ({ haveADrinkContent: store }) => {
+  useInit(store)
 
   useShortcut('space', () => {
     scrollToTop()
@@ -47,13 +47,7 @@ const HaveADrinkContentContainer = ({ haveADrinkContent }) => {
     setTimeout(() => unlockPage(), 1000)
   })
 
-  const {
-    view,
-    timer,
-    timerInterval,
-    curSentence,
-    settingOptions,
-  } = haveADrinkContent
+  const { view, timer, timerInterval, curSentence, settingOptions } = store
 
   return (
     <Wrapper>

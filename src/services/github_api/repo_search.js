@@ -1,4 +1,4 @@
-import R from 'ramda'
+import { isEmpty, forEach } from 'ramda'
 import { timeout } from 'promise-timeout'
 
 import { TIMEOUT_SEC, restEndpoint } from './config'
@@ -37,7 +37,7 @@ export const searchRepoPromise = (owner, name) =>
   ])
 
 const getRelaseTag = releases => {
-  if (R.isEmpty(releases.nodes)) return ''
+  if (isEmpty(releases.nodes)) return ''
   return releases.nodes[0].tag.name
 }
 
@@ -53,7 +53,7 @@ export const transformRepo = res => {
   const readme = res[2]
   const contributors = []
 
-  R.forEach(user => {
+  forEach(user => {
     contributors.push({
       nickname: user.login,
       htmlUrl: user.html_url,

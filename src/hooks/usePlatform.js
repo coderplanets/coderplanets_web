@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { Global } from '@/utils'
 
@@ -48,7 +48,7 @@ const usePlatform = (/* { breakpoint } */) => {
     const isMobile = Global.innerWidth <= 800 && window.innerHeight <= 600
 
     setPlatform(
-      R.merge(inialPlatform, {
+      merge(inialPlatform, {
         isFirefox,
         isSafari,
         isIE,

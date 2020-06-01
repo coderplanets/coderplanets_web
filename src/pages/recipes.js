@@ -1,31 +1,23 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
+import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
 
-import {
-  getJwtToken,
-  makeGQClient,
-  parseURL,
-  ssrAmbulance,
-  parseTheme,
-} from '@/utils'
-import initRootStore from '@/stores/init'
+import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
+import { P } from '@/schemas'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import RecipesContent from '@/containers/content/RecipesContent'
-
-import { P } from '@/schemas'
+import { useStore } from '@/stores/init'
 
 async function fetchData(props, opt) {
-  const { realname } = R.merge({ realname: true }, opt)
+  const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
 
-  // query data
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -40,66 +32,49 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class RecipesPage extends React.Component {
-  static async getInitialProps(props) {
-    const { mainPath, subPath } = parseURL(props)
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: subPath }
-      }
-    }
-
-    const { sessionState, subscribedCommunities } = resp
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: { mainPath, subPath: ROUTE.RECIPES },
+export async function getServerSideProps(props) {
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
     }
   }
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
-
-    this.store = store
+  const { sessionState, subscribedCommunities } = resp
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-
-    const seoConfig = {
-      url: `${SITE_URL}/${ROUTE.RECIPES}`,
-      title: 'coderplanets 社区',
-      description: '最性感的开发者社区',
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          noSidebar
-          metric="default"
-          page={ROUTE.RECIPES}
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-        >
-          <RecipesContent />
-        </GlobalLayout>
-      </Provider>
-    )
+  return {
+    props: { errorCode: null, namespacesRequired: ['general'], ...initProps },
   }
 }
+
+const RecipesPage = props => {
+  const store = useStore(props)
+
+  const seoConfig = {
+    url: `${SITE_URL}/${ROUTE.RECIPES}`,
+    title: '代码片段 | coderplanets',
+    description: '各种语言框架的代码片段和速查手册',
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout page={ROUTE.RECIPES} seoConfig={seoConfig} noSidebar>
+        <RecipesContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default RecipesPage

@@ -2,9 +2,10 @@ import React from 'react'
 
 import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 
-import SocialList from './SocialList'
-import BottomInfo from './BottomInfo'
-import MobilBottomInfo from './MobilBottomInfo'
+import BottomInfo from '../BottomInfo'
+import MobilBottomInfo from '../MobilBottomInfo'
+
+import ContactBar from './ContactBar'
 
 import {
   Wrapper,
@@ -12,22 +13,23 @@ import {
   MainInfos,
   MainColumn,
   SiteInfo,
+  SiteTitle,
   SiteDesc,
   SiteLogo,
   Column,
   Title,
   Body,
   Item,
-} from './styles/digest_view'
+} from '../styles/digest_view'
 
 import {
   toggleSponsorHelper,
   toggleBusBanner,
   toggleSeniorHelper,
-} from './logic'
+} from '../logic'
 
-const DigestView = ({ hasTopBorder }) => (
-  <Wrapper hasTopBorder={hasTopBorder}>
+const DigestView = () => (
+  <Wrapper>
     <InnerWrapper>
       <MainInfos>
         <MainColumn>
@@ -35,6 +37,7 @@ const DigestView = ({ hasTopBorder }) => (
             <SiteLogo />
           </SiteInfo>
           <div>
+            <SiteTitle>coderplaents</SiteTitle>
             <SiteDesc
               href="https://github.com/groupher"
               rel="noopener noreferrer"
@@ -42,7 +45,6 @@ const DigestView = ({ hasTopBorder }) => (
             >
               Power By @Groupher 2020
             </SiteDesc>
-            <SocialList />
           </div>
         </MainColumn>
         <Column>
@@ -128,6 +130,7 @@ const DigestView = ({ hasTopBorder }) => (
         </Column>
       </MainInfos>
     </InnerWrapper>
+    <ContactBar />
     <BottomInfo />
     <MobilBottomInfo />
   </Wrapper>

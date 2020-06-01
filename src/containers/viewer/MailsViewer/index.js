@@ -39,10 +39,10 @@ const mailTabs = [
   },
 ]
 
-const MailsViewerContainer = ({ mailsViewer }) => {
-  useInit(mailsViewer)
+const MailsViewerContainer = ({ mailsViewer: store }) => {
+  useInit(store)
 
-  const { activeRaw, pagedMentionsData, readState } = mailsViewer
+  const { activeRaw, pagedMentionsData, readState } = store
 
   return (
     <Wrapper>
