@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import { merge, pluck, contains, toUpper } from 'ramda'
+import { merge, toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { TYPE, ROUTE, THREAD } from '@/constant'
@@ -8,11 +8,11 @@ import {
   getJwtToken,
   nilOrEmpty,
   makeGQClient,
-  parseURL,
+  ssrParseURL,
   ssrAmbulance,
   parseTheme,
 } from '@/utils'
-import initRootStore from '@/stores/init'
+import { useStore } from '@/stores/init2'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import ArticleBanner from '@/containers/banner/ArticleBanner'
@@ -27,7 +27,7 @@ async function fetchData(props, opt) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
-  const { thridPath: id } = parseURL(props)
+  const { thirdPath: id } = ssrParseURL(props.req)
 
   const sessionState = gqClient.request(P.sessionState)
   const repo = gqClient.request(P.repo, { id })
@@ -52,86 +52,82 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class RepoPage extends React.Component {
-  static async getInitialProps(props) {
-    const { mainPath, subPath } = parseURL(props)
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: subPath }
-      }
-    }
+export async function getServerSideProps(props) {
+  const { mainPath } = ssrParseURL(props.req)
 
-    const { sessionState, repo, pagedComments, subscribedCommunities } = resp
-
-    if (!contains(mainPath, pluck('raw', repo.communities))) {
-      return { statusCode: 404, target: subPath }
-    }
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: { mainPath, subPath: ROUTE.REPO },
-      viewing: {
-        repo,
-        activeThread: THREAD.REPO,
-        community: repo.originalCommunity,
-      },
-      comments: { pagedComments },
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
+    } else {
+      return { props: { errorCode: 404 } }
     }
   }
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
+  const { sessionState, repo, pagedComments, subscribedCommunities } = resp
 
-    this.store = store
+  // if (!contains(mainPath, pluck('raw', post.communities))) {
+  //   console.log("## hello 1.1 --> ", subPath)
+  //   return { props: { errorCode: 404 } }
+  // }
+
+  const { origialCommunity: community, ...viewingContent } = repo
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
+    route: { mainPath, subPath: ROUTE.REPO },
+    viewing: {
+      repo: viewingContent,
+      activeThread: THREAD.REPO,
+      community,
+    },
+    comments: { pagedComments },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-    const {
-      viewing: { repo },
-      route,
-    } = this.props
-    const { mainPath } = route
-
-    const seoConfig = {
-      url: `${SITE_URL}/${mainPath}/repo/${repo.id}`,
-      title: `${repo.title}`,
-      datePublished: `${repo.insertedAt}`,
-      dateModified: `${repo.updatedAt}`,
-      authorName: `${repo.author.nickname}`,
-      description: `${repo.title}`,
-      images: [],
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          page="repo"
-          metric="article"
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-          noSidebar
-        >
-          <ArticleBanner showStar={false} showWordCount={false} showLastSync />
-          <RepoContent />
-        </GlobalLayout>
-      </Provider>
-    )
-  }
+  return { props: { errorCode: null, ...initProps } }
 }
+
+const RepoPage = props => {
+  const store = useStore(props)
+
+  const { viewing, route, errorCode } = props
+  const { repo } = viewing
+
+  const { mainPath } = route
+
+  const seoConfig = {
+    url: `${SITE_URL}/${mainPath}/repo/${repo.id}`,
+    title: `${repo.title}`,
+    datePublished: `${repo.insertedAt}`,
+    dateModified: `${repo.updatedAt}`,
+    authorName: `${repo.author.nickname}`,
+    description: `${repo.title}`,
+    images: [],
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        page={ROUTE.REPO}
+        metric="article"
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+        errorPath={`/${mainPath}/job/${repo.id}`}
+        noSidebar
+      >
+        <ArticleBanner showStar={false} showWordCount={false} showLastSync />
+        <RepoContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default RepoPage

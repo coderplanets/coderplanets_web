@@ -23,7 +23,7 @@ export const repo = `
         }
         totalCount
       }
-      originalCommunity {
+      origialCommunity {
         ${F.community}
       }
       communities {

@@ -133,7 +133,7 @@ const CommentsStore = T.model('CommentsStore', {
       // const viewingCommunity = stripMobx(self.root.viewing.community)
       // if (viewingCommunity.raw) return viewingCommunity.raw
 
-      return self.root.viewing.viewingData.originalCommunity.raw
+      return self.root.viewing.viewingData.origialCommunity.raw
     },
     get activeThread() {
       const { activeThread, viewingThread } = self.root.viewing

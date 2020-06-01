@@ -8,7 +8,7 @@ const repo = gql`
       tags {
         ${F.tag}
       }
-      originalCommunity {
+      origialCommunity {
         ${F.community}
       }
       watchCount

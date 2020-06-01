@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import { contains, pluck, toUpper } from 'ramda'
+import { toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { TYPE, ROUTE, THREAD } from '@/constant'
@@ -8,11 +8,11 @@ import {
   getJwtToken,
   nilOrEmpty,
   makeGQClient,
-  parseURL,
+  ssrParseURL,
   ssrAmbulance,
   parseTheme,
 } from '@/utils'
-import initRootStore from '@/stores/init'
+import { useStore } from '@/stores/init2'
 
 import GlobalLayout from '@/containers/GlobalLayout'
 import ArticleBanner from '@/containers/banner/ArticleBanner'
@@ -25,15 +25,14 @@ async function fetchData(props) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
-  const { thridPath: id } = parseURL(props)
-
+  const { thirdPath: id } = ssrParseURL(props.req)
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const video = gqClient.request(P.video, { id })
   const pagedComments = gqClient.request(P.pagedComments, {
     id,
     userHasLogin,
-    thread: toUpper(THREAD.JOB),
+    thread: toUpper(THREAD.VIDEO),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
   })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -51,86 +50,81 @@ async function fetchData(props) {
   }
 }
 
-export default class VideoPage extends React.Component {
-  static async getInitialProps(props) {
-    const { communityPath, subPath } = parseURL(props)
-    let resp
-    try {
-      resp = await fetchData(props)
-    } catch ({ response: { errors } }) {
-      if (ssrAmbulance.hasLoginError(errors)) {
-        resp = await fetchData(props, { realname: false })
-      } else {
-        return { statusCode: 404, target: subPath }
-      }
-    }
+export async function getServerSideProps(props) {
+  const { mainPath } = ssrParseURL(props.req)
 
-    const { sessionState, video, pagedComments, subscribedCommunities } = resp
-
-    if (!contains(communityPath, pluck('raw', video.communities))) {
-      return { statusCode: 404, target: subPath }
-    }
-
-    return {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
-      route: { communityPath, mainPath: communityPath, subPath: ROUTE.VIDEO },
-      viewing: {
-        video,
-        activeThread: THREAD.VIDEO,
-        community: video.originalCommunity,
-      },
-      comments: { pagedComments },
+  let resp
+  try {
+    resp = await fetchData(props)
+  } catch ({ response: { errors } }) {
+    if (ssrAmbulance.hasLoginError(errors)) {
+      resp = await fetchData(props, { realname: false })
+    } else {
+      return { props: { errorCode: 404 } }
     }
   }
 
-  constructor(props) {
-    super(props)
-    const store = props.statusCode
-      ? initRootStore()
-      : initRootStore({ ...props })
+  const { sessionState, video, pagedComments, subscribedCommunities } = resp
 
-    this.store = store
+  // if (!contains(mainPath, pluck('raw', post.communities))) {
+  //   console.log("## hello 1.1 --> ", subPath)
+  //   return { props: { errorCode: 404 } }
+  // }
+
+  const { origialCommunity: community, ...viewingContent } = video
+  const initProps = {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: subscribedCommunities,
+    },
+    route: { mainPath, subPath: ROUTE.VIDEO },
+    viewing: {
+      video: viewingContent,
+      activeThread: THREAD.VIDEO,
+      community,
+    },
+    comments: { pagedComments },
   }
 
-  render() {
-    const { statusCode, target } = this.props
-    const {
-      viewing: { video },
-      route,
-    } = this.props
-    const { mainPath } = route
-
-    const seoConfig = {
-      url: `${SITE_URL}/${mainPath}/video/${video.id}`,
-      title: `${video.title}`,
-      datePublished: `${video.insertedAt}`,
-      dateModified: `${video.updatedAt}`,
-      authorName: `${video.author.nickname}`,
-      description: `${video.title}`,
-      images: [],
-    }
-
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          page="video"
-          metric="article"
-          seoConfig={seoConfig}
-          errorCode={statusCode}
-          errorPath={target}
-          noSidebar
-        >
-          <ArticleBanner showStar={false} />
-          <VideoContent />
-        </GlobalLayout>
-      </Provider>
-    )
-  }
+  return { props: { errorCode: null, ...initProps } }
 }
+
+const VideoPage = props => {
+  const store = useStore(props)
+
+  const { errorCode, viewing, route } = props
+  const { video } = viewing
+  const { mainPath } = route
+
+  const seoConfig = {
+    url: `${SITE_URL}/${mainPath}/video/${video.id}`,
+    title: `${video.title}`,
+    datePublished: `${video.insertedAt}`,
+    dateModified: `${video.updatedAt}`,
+    authorName: `${video.author.nickname}`,
+    description: `${video.title}`,
+    images: [],
+  }
+
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        page={ROUTE.VIDEO}
+        metric="article"
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+        errorPath={`/${mainPath}/video/${video.id}`}
+        noSidebar
+      >
+        <ArticleBanner showStar={false} />
+        <VideoContent />
+      </GlobalLayout>
+    </Provider>
+  )
+}
+
+export default VideoPage

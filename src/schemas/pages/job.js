@@ -25,7 +25,7 @@ export const job = `
         }
         totalCount
       }
-      originalCommunity {
+      origialCommunity {
         ${F.community}
       }
       communities {

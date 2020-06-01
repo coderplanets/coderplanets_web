@@ -51,7 +51,6 @@ async function fetchData(props, opt) {
 }
 
 export async function getServerSideProps(props) {
-  const { subPath } = ssrParseURL(props.req)
   const query = queryStringToJSON(props.req.url)
 
   let resp
@@ -61,7 +60,7 @@ export async function getServerSideProps(props) {
     if (ssrAmbulance.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
     } else {
-      return { statusCode: 404, target: subPath }
+      return { errorCode: 404 }
     }
   }
 
@@ -89,7 +88,7 @@ export async function getServerSideProps(props) {
 const UserPage = props => {
   const store = useStore(props)
 
-  const { viewing } = props
+  const { viewing, errorCode } = props
   const { user } = viewing
 
   const seoConfig = {
@@ -103,9 +102,8 @@ const UserPage = props => {
       <GlobalLayout
         page={ROUTE.USER}
         seoConfig={seoConfig}
-        // errorCode={statusCode}
-        // errorPath={target}
-        noSidebar
+        errorCode={errorCode}
+        noSidebar={`/user/${user.login}`}
       >
         <UserBanner />
         <UserContent />

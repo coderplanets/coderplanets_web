@@ -179,7 +179,7 @@ export const commentParent = `
   communities {
     ${community}
   }
-  originalCommunity {
+  origialCommunity {
     ${community}
   }
 `

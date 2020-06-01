@@ -104,20 +104,20 @@ export const parseURL = args => {
   // props 也可能来自客户端的 routeObj
   let mainPath = ''
   let subPath = ''
-  let thridPath = ''
+  let thirdPath = ''
   let communityPath = parseSubDomain(args)
   let threadPath = ''
 
   if (communityPath === '') {
     mainPath = getMainPath(args)
     subPath = getSubPath(args)
-    thridPath = getThirdPath(args)
+    thirdPath = getThirdPath(args)
     communityPath = mainPath
     threadPath = subPath
   } else {
     mainPath = communityPath
     subPath = getMainPath(args)
-    thridPath = getSubPath(args)
+    thirdPath = getSubPath(args)
     threadPath = subPath
   }
 
@@ -126,7 +126,7 @@ export const parseURL = args => {
     threadPath,
     mainPath,
     subPath,
-    thridPath,
+    thirdPath,
   }
 }
 
@@ -157,7 +157,7 @@ export const ssrParseURL = req => {
   const pathList = getRoutePathList(url)
   const mainPath = pathList[0]
   const subPath = pathList[1]
-  const thridPath = pathList[2] || ''
+  const thirdPath = pathList[2] || ''
 
   const thread = endsWith('s', subPath) ? slice(0, -1, subPath) : subPath
 
@@ -166,7 +166,7 @@ export const ssrParseURL = req => {
     threadPath: subPath,
     mainPath,
     subPath,
-    thridPath,
+    thirdPath,
     thread: toUpper(thread),
   }
 }

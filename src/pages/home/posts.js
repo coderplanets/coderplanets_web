@@ -86,7 +86,7 @@ async function fetchData(props, opt) {
 }
 
 export async function getServerSideProps(props) {
-  const { communityPath, thread } = ssrParseURL(props.req)
+  const { communityPath, thread, threadPath } = ssrParseURL(props.req)
 
   let resp
   try {
@@ -133,6 +133,12 @@ export async function getServerSideProps(props) {
         user: sessionState.user || {},
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
+      },
+      route: {
+        communityPath: community.raw,
+        mainPath: community.raw,
+        threadPath,
+        subPath: threadPath,
       },
       viewing: {
         community,
