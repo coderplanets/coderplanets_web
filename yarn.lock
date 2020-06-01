@@ -1883,12 +1883,12 @@ apollo-link-http@1.5.16:
     apollo-link-http-common "^0.2.15"
     tslib "^1.9.3"
 
-apollo-link-retry@2.2.15:
-  version "2.2.15"
-  resolved "https://registry.npm.taobao.org/apollo-link-retry/download/apollo-link-retry-2.2.15.tgz#4cc3202fcb6251fed6f6b57ade99b4b1ad05c619"
+apollo-link-retry@2.2.16:
+  version "2.2.16"
+  resolved "https://registry.yarnpkg.com/apollo-link-retry/-/apollo-link-retry-2.2.16.tgz#745ff51e60a7a68b34c8d382832856c43a9c306c"
   dependencies:
     "@types/zen-observable" "0.8.0"
-    apollo-link "^1.2.13"
+    apollo-link "^1.2.14"
     tslib "^1.9.3"
 
 apollo-link@1.2.13:

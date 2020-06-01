@@ -58,7 +58,7 @@
     "apollo-link": "1.2.13",
     "apollo-link-error": "^1.1.12",
     "apollo-link-http": "1.5.16",
-    "apollo-link-retry": "2.2.15",
+    "apollo-link-retry": "2.2.16",
     "cacheable-response": "^2.0.9",
     "chalk": "^2.4.1",
     "compatible-debug": "^1.0.0",
