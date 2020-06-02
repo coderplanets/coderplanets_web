@@ -5864,9 +5864,9 @@ graphql-tag@^2.6.1:
   version "2.10.3"
   resolved "https://registry.npm.taobao.org/graphql-tag/download/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
 
-graphql-voyager@^1.0.0-rc.26:
+graphql-voyager@^1.0.0-rc.31:
   version "1.0.0-rc.31"
-  resolved "https://registry.npm.taobao.org/graphql-voyager/download/graphql-voyager-1.0.0-rc.31.tgz#fced59a1aef56936bcae2438e9dfba18c658d48f"
+  resolved "https://registry.yarnpkg.com/graphql-voyager/-/graphql-voyager-1.0.0-rc.31.tgz#fced59a1aef56936bcae2438e9dfba18c658d48f"
   dependencies:
     "@f/animate" "^1.0.1"
     "@material-ui/core" "^3.9.3"
