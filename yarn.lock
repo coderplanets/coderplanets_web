@@ -1205,9 +1205,9 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@next/bundle-analyzer@^9.4.0":
-  version "9.4.2"
-  resolved "https://registry.npm.taobao.org/@next/bundle-analyzer/download/@next/bundle-analyzer-9.4.2.tgz#0bb38111eb54254ec6f5edcb3467bff2764face7"
+"@next/bundle-analyzer@^9.4.4":
+  version "9.4.4"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-9.4.4.tgz#09ac54a3a2c2a0275a36a502b335100f876997ac"
   dependencies:
     webpack-bundle-analyzer "3.6.1"
 
@@ -3704,11 +3704,11 @@ create-react-class@^15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-cross-env@^6.0.0:
-  version "6.0.3"
-  resolved "https://registry.npm.taobao.org/cross-env/download/cross-env-6.0.3.tgz#4256b71e49b3a40637a0ce70768a6ef5c72ae941"
+cross-env@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-7.0.2.tgz#bd5ed31339a93a3418ac4f3ca9ca3403082ae5f9"
   dependencies:
-    cross-spawn "^7.0.0"
+    cross-spawn "^7.0.1"
 
 cross-fetch@2.2.2:
   version "2.2.2"
@@ -3742,9 +3742,9 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-cross-spawn@^7.0.0:
+cross-spawn@^7.0.1:
   version "7.0.3"
-  resolved "https://registry.npm.taobao.org/cross-spawn/download/cross-spawn-7.0.3.tgz?cache=0&sync_timestamp=1590421014780&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcross-spawn%2Fdownload%2Fcross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
+  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
   dependencies:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
@@ -5864,9 +5864,9 @@ graphql-tag@^2.6.1:
   version "2.10.3"
   resolved "https://registry.npm.taobao.org/graphql-tag/download/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
 
-graphql-voyager@^1.0.0-rc.26:
+graphql-voyager@^1.0.0-rc.31:
   version "1.0.0-rc.31"
-  resolved "https://registry.npm.taobao.org/graphql-voyager/download/graphql-voyager-1.0.0-rc.31.tgz#fced59a1aef56936bcae2438e9dfba18c658d48f"
+  resolved "https://registry.yarnpkg.com/graphql-voyager/-/graphql-voyager-1.0.0-rc.31.tgz#fced59a1aef56936bcae2438e9dfba18c658d48f"
   dependencies:
     "@f/animate" "^1.0.1"
     "@material-ui/core" "^3.9.3"
@@ -9984,9 +9984,9 @@ react-masonry-component@^6.0.1:
     masonry-layout "^4.2.0"
     prop-types "^15.5.8"
 
-react-resize-detector@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/react-resize-detector/download/react-resize-detector-4.2.1.tgz?cache=0&sync_timestamp=1586936555649&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-resize-detector%2Fdownload%2Freact-resize-detector-4.2.1.tgz#8982b74c3e1cf949afaa3c41050458c87b033982"
+react-resize-detector@4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-4.2.3.tgz#7df258668a30bdfd88e655bbdb27db7fd7b23127"
   dependencies:
     lodash "^4.17.15"
     lodash-es "^4.17.15"
