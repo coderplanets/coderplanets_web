@@ -1205,9 +1205,9 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@next/bundle-analyzer@^9.4.0":
-  version "9.4.2"
-  resolved "https://registry.npm.taobao.org/@next/bundle-analyzer/download/@next/bundle-analyzer-9.4.2.tgz#0bb38111eb54254ec6f5edcb3467bff2764face7"
+"@next/bundle-analyzer@^9.4.4":
+  version "9.4.4"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-9.4.4.tgz#09ac54a3a2c2a0275a36a502b335100f876997ac"
   dependencies:
     webpack-bundle-analyzer "3.6.1"
 
