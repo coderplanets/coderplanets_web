@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import Img from '@/components/Img'
-
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -18,6 +16,7 @@ export const IntroWrapper = styled.div`
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 8vw;
   padding-left: 7vw;
+  z-index: 10;
 `
 export const BrandWrapper = styled.div`
   ${cs.flexColumnGrow()};
@@ -46,8 +45,4 @@ export const GradientMask = styled.div`
   height: 50px;
   z-index: 1;
   background: linear-gradient(transparent, #072a34);
-`
-export const CoverImg = styled(Img)`
-  width: 100%;
-  height: 100%;
 `

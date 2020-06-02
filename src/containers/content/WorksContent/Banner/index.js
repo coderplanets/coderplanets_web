@@ -6,11 +6,10 @@
 
 import React from 'react'
 
-import { ASSETS_ENDPOINT } from '@/config'
 import { buildLog } from '@/utils'
-
 import { Button } from '@/components/Buttons'
 
+import Backgrounds from './Backgrounds'
 import Recommendation from './Recommendation'
 
 import {
@@ -21,7 +20,6 @@ import {
   Desc,
   PubButton,
   GradientMask,
-  CoverImg,
 } from '../styles/banner'
 
 /* eslint-disable-next-line */
@@ -42,7 +40,7 @@ const Banner = () => {
         </BrandWrapper>
         <Recommendation />
       </IntroWrapper>
-      <CoverImg src={`${ASSETS_ENDPOINT}/works/space-background.svg`} />
+      <Backgrounds />
       <GradientMask />
     </Wrapper>
   )
