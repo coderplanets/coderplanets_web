@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-// import { cs, theme } from '@/utils'
+import { theme } from '@/utils'
 
 const getSize = size => {
   switch (size) {
@@ -9,10 +9,26 @@ const getSize = size => {
       return '28px'
 
     case 'large':
-      return '60px'
+      return '150px'
+
+    case 'huge':
+      return '420px'
 
     default:
       return '38px'
+  }
+}
+
+const getColor = color => {
+  switch (color) {
+    case 'red':
+      return theme('baseColor.error')
+
+    case 'green':
+      return theme('baseColor.green')
+
+    default:
+      return '#003743'
   }
 }
 
@@ -22,8 +38,8 @@ export const Wrapper = styled.div`
   height: 240px;
 `
 export const Icon = styled(Img)`
-  fill: #003743;
   position: absolute;
+  fill: ${({ color }) => getColor(color)};
   top: ${({ top }) => top || '10%'};
   left: ${({ left }) => left || '10%'};
 
@@ -31,4 +47,5 @@ export const Icon = styled(Img)`
   width: ${({ size }) => getSize(size)};
   height: ${({ size }) => getSize(size)};
   transform: ${({ rotate }) => `rotate(${rotate})` || 'rotate(0deg)'};
+  opacity: ${({ opacity }) => opacity || 1};
 `

@@ -12,69 +12,97 @@ const icons = [
   },
   {
     id: '1',
-    src: `${ASSETS_ENDPOINT}/works/android.svg`,
+    src: `${ASSETS_ENDPOINT}/works/github.svg`,
     position: { top: '10%', left: '15%' },
     size: 'small',
   },
   {
-    id: '2',
-    src: `${ASSETS_ENDPOINT}/works/design.svg`,
-    position: { top: '15%', left: '35%' },
-    size: 'small',
-  },
-  {
-    id: '3',
-    src: `${ASSETS_ENDPOINT}/works/cloud.svg`,
-    position: { top: '17%', left: '45%' },
-    size: 'large',
-  },
-  {
     id: '4',
-    src: `${ASSETS_ENDPOINT}/works/github.svg`,
-    position: { top: '10%', left: '20%' },
+    src: `${ASSETS_ENDPOINT}/works/android.svg`,
+    position: { top: '15%', left: '48%' },
     size: 'small',
-  },
-  {
-    id: '51',
-    src: `${ASSETS_ENDPOINT}/works/desktop.svg`,
-    position: { top: '45%', left: '30%' },
-    // size: 'large',
-    rotate: '5deg',
   },
   {
     id: '5',
-    src: `${ASSETS_ENDPOINT}/works/beer.svg`,
-    position: { top: '45%', left: '40%' },
-    size: 'large',
-    rotate: '-15deg',
+    src: `${ASSETS_ENDPOINT}/works/dinosaur.svg`,
+    position: { top: '18%', left: '20%' },
   },
   {
     id: '6',
-    src: `${ASSETS_ENDPOINT}/works/bitcoin.svg`,
-    position: { top: '40%', left: '25%' },
-    // size: '',
+    src: `${ASSETS_ENDPOINT}/works/snow2.svg`,
+    position: { top: '14%', left: '24%' },
+    size: 'small',
+    color: 'green',
+    rotate: '15deg',
+    opacity: 0.5,
   },
   {
     id: '7',
+    src: `${ASSETS_ENDPOINT}/works/desktop.svg`,
+    position: { top: '45%', left: '25%' },
+    rotate: '5deg',
+    color: 'red',
+    opacity: 0.5,
+  },
+  {
+    id: '8',
     src: `${ASSETS_ENDPOINT}/works/game.svg`,
+    position: { top: '65%', left: '33%' },
+    rotate: '-15deg',
+  },
+  {
+    id: '9',
+    src: `${ASSETS_ENDPOINT}/works/bitcoin.svg`,
+    position: { top: '60%', left: '38%' },
+  },
+  {
+    id: '10',
+    src: `${ASSETS_ENDPOINT}/works/beer.svg`,
     position: { top: '65%', left: '20%' },
-    size: 'large',
     rotate: '25deg',
+  },
+  {
+    id: '11',
+    src: `${ASSETS_ENDPOINT}/works/planet4.svg`,
+    position: { top: '-240px', left: '28%' },
+    size: 'huge',
+    rotate: '0deg',
+    opacity: 0.6,
+  },
+  {
+    id: '12',
+    src: `${ASSETS_ENDPOINT}/works/android.svg`,
+    position: { top: '62%', left: '44%' },
+    size: 'small',
+    rotate: '-35deg',
+  },
+  {
+    id: '14',
+    src: `${ASSETS_ENDPOINT}/works/planet1.svg`,
+    position: { top: '15%', left: '84%' },
+    size: 'large',
+    rotate: '5deg',
+  },
+  {
+    id: '15',
+    src: `${ASSETS_ENDPOINT}/works/cross2.svg`,
+    position: { top: '65%', left: '5%' },
+    rotate: '-5deg',
+  },
+  {
+    id: '16',
+    src: `${ASSETS_ENDPOINT}/works/roket.svg`,
+    position: { top: '60%', left: '13%' },
+    size: 'small',
+    rotate: '5deg',
   },
 ]
 
 const Backgrounds = () => {
   return (
     <Wrapper>
-      {icons.map(item => (
-        <Icon
-          key={item.id}
-          src={item.src}
-          top={item.position.top}
-          left={item.position.left}
-          size={item.size}
-          rotate={item.rotate}
-        />
+      {icons.map(({ id, position, ...restProps }) => (
+        <Icon key={id} top={position.top} left={position.left} {...restProps} />
       ))}
     </Wrapper>
   )
