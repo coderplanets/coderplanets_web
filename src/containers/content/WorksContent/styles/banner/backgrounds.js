@@ -9,10 +9,11 @@ const getSize = size => {
       return '28px'
 
     case 'large':
-      return '60px'
+      return '150px'
 
     case 'huge':
-      return '110px'
+      return '420px'
+
     default:
       return '38px'
   }
@@ -37,8 +38,8 @@ export const Wrapper = styled.div`
   height: 240px;
 `
 export const Icon = styled(Img)`
-  fill: ${({ color }) => getColor(color)};
   position: absolute;
+  fill: ${({ color }) => getColor(color)};
   top: ${({ top }) => top || '10%'};
   left: ${({ left }) => left || '10%'};
 
@@ -46,5 +47,5 @@ export const Icon = styled(Img)`
   width: ${({ size }) => getSize(size)};
   height: ${({ size }) => getSize(size)};
   transform: ${({ rotate }) => `rotate(${rotate})` || 'rotate(0deg)'};
-  opacity: ${({ color }) => (color ? 0.5 : 1)};
+  opacity: ${({ opacity }) => opacity || 1};
 `

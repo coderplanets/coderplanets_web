@@ -32,7 +32,7 @@ const Banner = () => {
         <BrandWrapper>
           <Title>作品集市</Title>
           <Desc>
-            <div>有趣有爱的作品跳蚤集市 - By makers, for makers</div>
+            <div>有趣有爱的作品跳蚤集市 -- By makers, for makers</div>
           </Desc>
           <PubButton>
             <Button type="primary">发布作品</Button>
