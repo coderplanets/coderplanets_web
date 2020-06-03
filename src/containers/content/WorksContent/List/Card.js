@@ -8,10 +8,10 @@ import IconText from '@/components/IconText'
 
 import {
   Wrapper,
-  IntroWrapper,
   IntroImg,
   IntroBlock,
   Title,
+  ExtraInfo,
   UpInfo,
   UpIcon,
   UpNumber,
@@ -29,49 +29,48 @@ import {
 const Card = () => {
   return (
     <Wrapper>
-      <IntroWrapper>
-        <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
+      <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
+      <IntroBlock>
+        <Title>coderplanets</Title>
+        <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
 
-        <IntroBlock>
-          <Title>coderplanets</Title>
-          <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
-
-          <FooterWrapper>
-            <IconText
-              iconSrc={`${ICON_CMD}/works/topic.svg`}
-              margin="1px"
-              size="tiny"
-            >
-              协作工具
-            </IconText>
-            <DotDivider radius="4px" space="10px" /> 网站
-            <Divider />
-            <BuildWithWrapper>
-              <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />
-              <TechIcon src={`${ICON_BASE}/pl/java.svg`} />
-              <TechIcon src={`${ICON_BASE}/pl/elixir.svg`} />
-              <TechIcon src={`${ICON_BASE}/pl/ruby.svg`} />
-            </BuildWithWrapper>
-            {/* <PublishAt>mydearxym / 3小时前</PublishAt> */}
-            <Divider />
-            <IconText
-              iconSrc={`${ICON_CMD}/works/comment.svg`}
-              size="tiny"
-              margin="5px"
-            >
-              44 <CommentSlash>/</CommentSlash> 178
-            </IconText>
-            <Divider />
-            <PublishAt>发布于 3小时前</PublishAt>
-            <SpaceGrow />
-            <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
-          </FooterWrapper>
-        </IntroBlock>
+        <FooterWrapper>
+          <IconText
+            iconSrc={`${ICON_CMD}/works/topic.svg`}
+            margin="1px"
+            size="tiny"
+          >
+            协作工具
+          </IconText>
+          <DotDivider radius="4px" space="10px" /> 网站
+          <Divider />
+          <BuildWithWrapper>
+            <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />
+            <TechIcon src={`${ICON_BASE}/pl/java.svg`} />
+            <TechIcon src={`${ICON_BASE}/pl/elixir.svg`} />
+            <TechIcon src={`${ICON_BASE}/pl/ruby.svg`} />
+          </BuildWithWrapper>
+          {/* <PublishAt>mydearxym / 3小时前</PublishAt> */}
+          <Divider />
+          <IconText
+            iconSrc={`${ICON_CMD}/works/comment.svg`}
+            size="tiny"
+            margin="5px"
+          >
+            44 <CommentSlash>/</CommentSlash> 178
+          </IconText>
+          <Divider />
+          <PublishAt>发布于 3小时前</PublishAt>
+          <SpaceGrow />
+        </FooterWrapper>
+      </IntroBlock>
+      <ExtraInfo>
         <UpInfo>
-          <UpIcon src={`${ICON_CMD}/arrow-up-o.svg`} />
+          <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
           <UpNumber>93</UpNumber>
         </UpInfo>
-      </IntroWrapper>
+        <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
+      </ExtraInfo>
     </Wrapper>
   )
 }
