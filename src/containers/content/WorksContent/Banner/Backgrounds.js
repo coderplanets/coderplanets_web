@@ -46,6 +46,13 @@ const icons = [
     opacity: 0.5,
   },
   {
+    id: '71',
+    src: `${ASSETS_ENDPOINT}/works/sex.svg`,
+    position: { top: '47%', left: '52%' },
+    rotate: '-45deg',
+    size: 'small',
+  },
+  {
     id: '8',
     src: `${ASSETS_ENDPOINT}/works/game.svg`,
     position: { top: '73%', left: '33%' },
