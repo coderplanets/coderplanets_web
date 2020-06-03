@@ -23,6 +23,7 @@ export const BrandWrapper = styled.div`
   ${cs.flexColumnGrow()};
   /* width: 45%; */
   margin-top: -30px;
+  z-index: 2;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

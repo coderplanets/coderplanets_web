@@ -33,13 +33,14 @@ const getColor = color => {
 }
 
 export const Wrapper = styled.div`
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 240px;
-  z-index: 2;
+  /* z-index: 1; */
 `
 export const Icon = styled(Img)`
   position: absolute;
+  z-index: 1;
   fill: ${({ color }) => getColor(color)};
   top: ${({ top }) => top || '10%'};
   left: ${({ left }) => left || '10%'};

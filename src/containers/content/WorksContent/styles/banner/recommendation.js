@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   height: 100%;
 `
 export const Card = styled.div`
+  z-index: 2;
   ${cs.flexColumn('justify-between')};
   height: 160px;
   width: 100%;
