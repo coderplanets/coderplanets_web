@@ -10,13 +10,14 @@ export const Wrapper = styled.div`
 `
 export const IntroWrapper = styled.div`
   ${cs.flex('justify-around', 'align-center')};
+  background: #01262f;
   position: absolute;
   width: 100%;
   height: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 8vw;
   padding-left: 7vw;
-  z-index: 10;
+  z-index: 1;
 `
 export const BrandWrapper = styled.div`
   ${cs.flexColumnGrow()};
@@ -43,6 +44,6 @@ export const GradientMask = styled.div`
   left: 0;
   width: 100%;
   height: 50px;
-  z-index: 1;
+  z-index: 3;
   background: linear-gradient(transparent, #072a34);
 `

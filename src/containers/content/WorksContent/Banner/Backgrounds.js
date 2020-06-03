@@ -19,7 +19,9 @@ const icons = [
   {
     id: '4',
     src: `${ASSETS_ENDPOINT}/works/android.svg`,
-    position: { top: '15%', left: '48%' },
+    position: { top: '15%', left: '50%' },
+    color: 'green',
+    opacity: 0.4,
     size: 'small',
   },
   {
@@ -32,7 +34,6 @@ const icons = [
     src: `${ASSETS_ENDPOINT}/works/snow2.svg`,
     position: { top: '14%', left: '24%' },
     size: 'small',
-    color: 'green',
     rotate: '15deg',
     opacity: 0.5,
   },
@@ -47,13 +48,13 @@ const icons = [
   {
     id: '8',
     src: `${ASSETS_ENDPOINT}/works/game.svg`,
-    position: { top: '65%', left: '33%' },
+    position: { top: '73%', left: '33%' },
     rotate: '-15deg',
   },
   {
     id: '9',
     src: `${ASSETS_ENDPOINT}/works/bitcoin.svg`,
-    position: { top: '60%', left: '38%' },
+    position: { top: '67%', left: '38%' },
   },
   {
     id: '10',
@@ -64,17 +65,17 @@ const icons = [
   {
     id: '11',
     src: `${ASSETS_ENDPOINT}/works/planet4.svg`,
-    position: { top: '-240px', left: '28%' },
+    position: { top: '-150px', left: '28%' },
     size: 'huge',
     rotate: '0deg',
     opacity: 0.6,
   },
   {
     id: '12',
-    src: `${ASSETS_ENDPOINT}/works/android.svg`,
-    position: { top: '62%', left: '44%' },
+    src: `${ASSETS_ENDPOINT}/works/cmd.svg`,
+    position: { top: '66%', left: '45%' },
     size: 'small',
-    rotate: '-35deg',
+    rotate: '-10deg',
   },
   {
     id: '14',

@@ -12,7 +12,7 @@ const getSize = size => {
       return '150px'
 
     case 'huge':
-      return '420px'
+      return '300px'
 
     default:
       return '38px'
@@ -36,6 +36,7 @@ export const Wrapper = styled.div`
   position: relative;
   width: 100%;
   height: 240px;
+  z-index: 2;
 `
 export const Icon = styled(Img)`
   position: absolute;
