@@ -10,11 +10,12 @@ export const Wrapper = styled.div`
   height: 100%;
 `
 export const Card = styled.div`
+  z-index: 2;
   ${cs.flexColumn('justify-between')};
   height: 160px;
   width: 100%;
   padding: 14px 16px;
-  background: #003743;
+  background: #08333e;
   margin-bottom: 14px;
   margin-right: 15px;
   border-radius: 5px;
@@ -48,14 +49,14 @@ export const Desc = styled.div`
   height: 32px;
 `
 export const UpInfo = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${cs.flexColumn('align-both')};
   align-self: flex-start;
   margin-top: 5px;
 `
 export const UpIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   display: block;
 `
 export const UpNumber = styled.div`

@@ -87,7 +87,7 @@ const icons = [
   {
     id: '14',
     src: `${ASSETS_ENDPOINT}/works/planet1.svg`,
-    position: { top: '15%', left: '84%' },
+    position: { top: '15%', left: '85%' },
     size: 'large',
     rotate: '5deg',
   },

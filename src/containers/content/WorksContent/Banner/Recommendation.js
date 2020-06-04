@@ -69,7 +69,7 @@ const Banner = () => {
           </IntroBlock>
 
           <UpInfo>
-            <UpIcon src={`${ICON_CMD}/arrow-up-o.svg`} />
+            <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
             <UpNumber>93</UpNumber>
           </UpInfo>
         </IntroWrapper>
@@ -84,28 +84,6 @@ const Banner = () => {
           <IconText iconSrc={`${ICON_CMD}/works/comment.svg`}>44</IconText>
         </FooterWrapper>
       </Card>
-      {/* <Card>
-        <IntroWrapper>
-          <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
-          <IntroBlock>
-            <Title>coderplanets</Title>
-            <Desc>
-              <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>.</IconText>
-              <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>.</IconText>
-            </Desc>
-          </IntroBlock>
-
-          <UpInfo>
-            <UpIcon src={`${ICON_CMD}/arrow-up-o.svg`} />
-            <UpNumber>93</UpNumber>
-          </UpInfo>
-        </IntroWrapper>
-        <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
-        <FooterWrapper>
-          <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>44</IconText>
-          <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>xx / xx / xx</IconText>
-        </FooterWrapper>
-      </Card> */}
     </Wrapper>
   )
 }

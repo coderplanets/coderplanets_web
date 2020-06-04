@@ -5,21 +5,22 @@ import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   position: relative;
-  ${cs.flexColumn('justify-between')};
+  ${cs.flex('align-center')};
   height: 125px;
   width: 100%;
-  padding: 12px 24px;
+  padding: 12px 30px;
+  padding-right: 38px;
   padding-top: 0;
   border-bottom: 1px solid #0b4152;
   border-radius: 5px;
   &:hover {
     background: #0b2f3a;
   }
+  :last-child {
+    border-bottom: none;
+  }
   transition: all 0.25s;
-`
-export const IntroWrapper = styled.div`
-  ${cs.flex('align-center')};
-  height: 100%;
+  /* border: 1px solid tomato; */
 `
 export const IntroImg = styled(Img)`
   width: 70px;
@@ -31,6 +32,7 @@ export const IntroImg = styled(Img)`
 export const IntroBlock = styled.div`
   ${cs.flexColumnGrow('align-start', 'justify-between')};
   margin-left: 25px;
+  /* border: 1px solid green; */
 `
 export const Title = styled.div`
   font-size: 16px;
@@ -43,18 +45,19 @@ export const TypeTags = styled.div`
   color: ${theme('thread.articleDigest')};
   height: 32px;
 `
+export const ExtraInfo = styled.div`
+  ${cs.flexColumn('align-end', 'justify-around')};
+  height: 100%;
+`
 export const UpInfo = styled.div`
-  position: absolute;
-  right: 22px;
-  top: 15px;
-  ${cs.flexColumn('justify-center')};
-  align-self: flex-start;
+  ${cs.flex('align-center')};
 `
 export const UpIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   display: block;
+  margin-right: 8px;
 `
 export const UpNumber = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -106,7 +109,8 @@ export const TechIcon = styled(BaseBuildIcon)`
 `
 export const GithubIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   display: block;
+  margin-right: 3px;
 `

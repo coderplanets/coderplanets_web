@@ -39,8 +39,8 @@ const Banner = () => {
           </PubButton>
         </BrandWrapper>
         <Recommendation />
+        <Backgrounds />
       </IntroWrapper>
-      <Backgrounds />
       <GradientMask />
     </Wrapper>
   )
