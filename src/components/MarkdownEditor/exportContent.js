@@ -3,7 +3,7 @@
  */
 import { convertToRaw } from 'draft-js'
 
-function encodeContent(text) {
+const encodeContent = text => {
   return text
     .split('&')
     .join('&amp;')
@@ -43,6 +43,8 @@ class MentionGenerator {
   }
 }
 
-export default function exportContent(contentState, options = {}) {
+const exportContent = (contentState, options = {}) => {
   return new MentionGenerator(contentState, options).generate()
 }
+
+export default exportContent

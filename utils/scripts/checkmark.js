@@ -3,7 +3,7 @@ const chalk = require('chalk')
 /**
  * Adds mark check symbol
  */
-function addCheckMark(callback) {
+const addCheckMark = callback => {
   process.stdout.write(chalk.green(' ✓'))
   if (callback) callback()
 }

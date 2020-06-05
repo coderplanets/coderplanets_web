@@ -25,7 +25,7 @@ const WIDE_CASE = [
 const WIDE_WIDTH = '70%'
 const NARROW_WIDTH = '40%'
 
-function doTransform(visible) {
+const doTransform = visible => {
   return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'
 }
 

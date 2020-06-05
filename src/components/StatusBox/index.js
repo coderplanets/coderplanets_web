@@ -25,7 +25,7 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:StatusBox:index')
 
-function getDefaultMsg(success, error) {
+const getDefaultMsg = (success, error) => {
   if (success) {
     return '已保存'
   }

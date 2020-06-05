@@ -20,7 +20,7 @@ import RepoContent from '@/containers/content/RepoContent'
 
 import { P } from '@/schemas'
 
-async function fetchData(props, opt) {
+const fetchData = async (props, opt) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -52,7 +52,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export async function getServerSideProps(props) {
+export const getServerSideProps = async props => {
   const { mainPath } = ssrParseURL(props.req)
 
   let resp
