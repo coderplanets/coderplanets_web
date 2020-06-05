@@ -31,9 +31,9 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'wantService',
+      name: 'wantSchema',
       default: true,
-      message: 'Do you want network service?',
+      message: 'Do you want network schema?',
     },
     {
       type: 'confirm',
@@ -104,11 +104,11 @@ module.exports = {
       },
     ]
 
-    if (data.wantService) {
+    if (data.wantSchema) {
       actions.push({
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/service.js`,
-        templateFile: './container/service.js.hbs',
+        path: `${TARGET_DIR}/{{properCase name}}/schema.js`,
+        templateFile: './container/schema.js.hbs',
         abortOnFail: true,
       })
     }
