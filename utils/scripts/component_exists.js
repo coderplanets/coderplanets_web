@@ -13,7 +13,7 @@ const appComponents = fs.readdirSync(
 const appPages = fs.readdirSync(path.join(__dirname, '../../src/pages'))
 const components = appComponents.concat(appPages)
 
-function componentExists(comp) {
+const componentExists = comp => {
   return components.indexOf(comp) >= 0
 }
 

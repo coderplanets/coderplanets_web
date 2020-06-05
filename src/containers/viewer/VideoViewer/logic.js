@@ -14,7 +14,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-function loadVideo({ id }) {
+const loadVideo = ({ id }) => {
   const userHasLogin = store.isLogin
   const variables = { id, userHasLogin }
   markLoading(true)

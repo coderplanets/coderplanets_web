@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import { path } from 'ramda'
 
 /* eslint-disable */
-function _has_key(cookie, key) {
+const _has_key = (cookie, key) => {
   return new RegExp(
     '(?:^|;\\s*)' + escape(key).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\='
   ).test(cookie)
@@ -11,7 +11,7 @@ function _has_key(cookie, key) {
 
 // NOTE: this is used only in next's getInitialProps function
 // because getInitialProps is runing on server, do not hove browser cookie
-function from_req(req, key) {
+const from_req = (req, key) => {
   const cookie = path(['headers', 'cookie'], req)
   if (!cookie || !key || !_has_key(cookie, key)) {
     return null

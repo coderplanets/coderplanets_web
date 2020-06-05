@@ -25,7 +25,7 @@ import NewCommunityContent from '@/containers/content/NewCommunityContent'
 
 import { P } from '@/schemas'
 
-async function fetchData(props, opt) {
+const fetchData = async (props, opt) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -59,7 +59,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export async function getServerSideProps(props) {
+export const getServerSideProps = async props => {
   let resp
   try {
     resp = await fetchData(props)
@@ -70,7 +70,7 @@ export async function getServerSideProps(props) {
   }
 
   const {
-    category,
+    // category,
     sessionState,
     pagedCategories,
     pagedCommunities,
@@ -95,7 +95,7 @@ export async function getServerSideProps(props) {
   return { props: { errorCode: null, ...initProps } }
 }
 
-function NewCommunityPage(props) {
+const NewCommunityPage = props => {
   const store = useStore(props)
 
   const seoConfig = {
