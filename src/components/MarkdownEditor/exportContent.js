@@ -43,6 +43,8 @@ class MentionGenerator {
   }
 }
 
-export default function exportContent(contentState, options = {}) {
+const exportContent = (contentState, options = {}) => {
   return new MentionGenerator(contentState, options).generate()
 }
+
+export default exportContent
