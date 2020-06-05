@@ -32,7 +32,7 @@ import { P } from '@/schemas'
 /* eslint-disable-next-line */
 const log = buildLog('page:community')
 
-async function fetchData(props, opt) {
+const fetchData = async (props, opt) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -85,7 +85,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export async function getServerSideProps(props) {
+export const getServerSideProps = async props => {
   const { communityPath, thread } = ssrParseURL(props.req)
 
   let resp
@@ -146,7 +146,7 @@ export async function getServerSideProps(props) {
   return { props: { errorCode: null, ...initProps } }
 }
 
-function CommunityPage(props) {
+const CommunityPage = props => {
   const store = useStore(props)
 
   const { errorCode, viewing } = store

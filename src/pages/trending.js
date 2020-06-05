@@ -12,7 +12,7 @@ import TrendingContent from '@/containers/content/TrendingContent'
 
 import { useStore } from '@/stores/init'
 
-async function fetchData(props, opt) {
+const fetchData = async (props, opt) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -32,7 +32,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export async function getServerSideProps(props) {
+export const getServerSideProps = async props => {
   let resp
   try {
     resp = await fetchData(props)

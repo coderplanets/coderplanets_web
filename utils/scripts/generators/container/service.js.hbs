@@ -1,6 +1,6 @@
 import { network } from '@/utils'
 
-async function examplePost(params) {
+const examplePost = async params => {
   return network.post('/nowhere', params)
 }
 

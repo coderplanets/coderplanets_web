@@ -3,7 +3,7 @@
  */
 import { convertToRaw } from 'draft-js'
 
-function encodeContent(text) {
+const encodeContent = text => {
   return text
     .split('&')
     .join('&amp;')
