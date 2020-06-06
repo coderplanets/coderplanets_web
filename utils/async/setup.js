@@ -4,7 +4,6 @@ import { HttpLink } from 'apollo-link-http'
 import { onError } from 'apollo-link-error'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import fetch from 'isomorphic-fetch'
 
 /* import { onError } from 'apollo-link-error' */
 
@@ -45,13 +44,13 @@ const retryLink = new RetryLink({
 })
 
 /* const errorLink = onError(({ operation, graphQLErrors }) => { */
-const errorLink = onError(({ operation: { operationName }, graphQLErrors }) =>
-  errRescue({
+const errorLink = onError(({ operation: { operationName }, graphQLErrors }) => {
+  return errRescue({
     type: ERR.GRAPHQL,
     operation: operationName,
     details: graphQLErrors,
   })
-)
+})
 
 const token = BStore.get('token') || ''
 export const context = {
