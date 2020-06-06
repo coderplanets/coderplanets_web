@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 
 import { ERR } from '@/constant'
-import { buildLog, $solver, asyncErr, errRescue } from '@/utils'
+import { asyncSuit, buildLog, errRescue } from '@/utils'
 
-import SR71 from '@/utils/async/sr71'
+const { SR71, $solver, asyncErr } = asyncSuit
 // import S from './schema'
 
 const sr71$ = new SR71()

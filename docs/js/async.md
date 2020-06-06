@@ -3,8 +3,10 @@ Async is encapsulated based on [rx.js](https://github.com/reactivex/rxjs) in ord
 The sr71 module is introduced in every logic.js file:
 
 ```js
-Import SR71 from '@/utils/async/sr71'
-Const sr71$ = new SR71()
+import { asyncSuit } from '@/utils'
+
+const { SR71 } = asyncSuit
+const sr71$ = new SR71()
 ```
 
 > sr71 is the code name of the US military blackbird reconnaissance plane:

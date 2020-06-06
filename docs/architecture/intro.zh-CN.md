@@ -20,10 +20,6 @@
 ├── deploy                                   // docker related
 │      ├── dev
 │      └── production
-├── lang                                     // i18n support
-│      ├── .messages
-│      ├── en.json
-│      └── zh.json
 ├── pages                                    // app route files
 │      ├── _app.js
 │      ├── _document.js
@@ -132,7 +128,6 @@ tests 目录下包含该组件的基本单元测试。
 ```js
 ├── Editor.js                // sub component
 ├── index.js                 // entry for current container
-├── lang.js                  // i18n messages
 ├── logic.js                 // all the logic belongs to this cotainer
 ├── schema.js                // GraphQL schema
 ├── store.js                 // state  management
@@ -258,10 +253,8 @@ export default PostEditor
 ```js
 import { merge } from 'ramda'
 
-import { asyncRes, asyncErr, $solver } from '@/utils'
-
+import { SR71, asyncRes, asyncErr, $solver } from '@/utils'
 import { S, updatablePostFields } from './schema'
-import SR71 from '@/utils/async/sr71'
 
 const sr71$ = new SR71()
 

@@ -99,6 +99,7 @@ Import R from 'ramda'
 
 // 2. import utils
 Import {
+  SR71,
   asyncRes,
   asyncErr,
   buildLog,
@@ -110,8 +111,6 @@ Import {
   THREAD,
 } from '@/utils'
 
-// 3. import aysnc mudule
-Import SR71 from '@/utils/async/sr71'
 // 4. import graphql schema
 Import S from './schema'
 
