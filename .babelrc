@@ -1,9 +1,6 @@
 {
   "presets": [["next/babel"]],
   "env": {
-    "development": {
-      "plugins": ["inline-dotenv"]
-    },
     "production": {
       "presets": [
         [
@@ -18,9 +15,6 @@
           }
         ]
       ]
-    },
-    "test": {
-      "plugins": ["inline-dotenv"]
     }
   },
   "plugins": [
@@ -31,7 +25,6 @@
         "legacy": true
       }
     ],
-    "transform-inline-environment-variables",
     [
       "babel-plugin-styled-components",
       {

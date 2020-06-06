@@ -104,9 +104,6 @@
   "devDependencies": {
     "@babel/core": "7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
-    "babel-plugin-inline-dotenv": "^1.1.2",
-    "babel-plugin-styled-components": "1.10.7",
-    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
-    "dotenv-webpack": "1.6.0"
+    "babel-plugin-styled-components": "1.10.7"
   }
 }
