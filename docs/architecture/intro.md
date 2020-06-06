@@ -20,10 +20,6 @@ after combining the actual needs of the community and referring to various excel
 ├── deploy                                   // docker related
 │      ├── dev
 │      └── production
-├── lang                                     // i18n support
-│      ├── .messages
-│      ├── en.json
-│      └── zh.json
 ├── pages                                    // app route files
 │      ├── _app.js
 │      ├── _document.js
@@ -135,7 +131,6 @@ A simple Container component is structured as follows:
 ```js
 ├── Editor.js                // sub component
 ├── index.js                 // entry for current container
-├── lang.js                  // i18n messages
 ├── logic.js                 // all the logic belongs to this cotainer
 ├── schema.js                // GraphQL schema
 ├── store.js                 // state  management

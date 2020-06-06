@@ -10,8 +10,8 @@ import React from 'react'
 import T from 'prop-types'
 
 import { connectStore, buildLog } from '@/utils'
-{{#if wantMessages}}
-  import { useTrans } from '@/hooks'
+{{#if wantI18n}}
+import { useTrans } from '@/hooks'
 {{/if}}
 
 import { Wrapper } from './styles'
@@ -22,7 +22,7 @@ const log = buildLog('C:{{ properCase name }}')
 
 const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: store, testid {{afterCurly ""}}) => {
   useInit(store)
-  {{#if wantMessages}}
+  {{#if wantI18n}}
   const { t } = useTrans()
   {{/if}}
 
