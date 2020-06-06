@@ -7,9 +7,6 @@ const addCheckMark = require('./checkmark.js')
 // see README / issue
 // shell.rm('-rf', 'stores/**/*.js')
 
-// process.stdout.write('clean up the lang/.messages')
-// shell.rm('-rf', 'lang/.messages/*')
-
 process.stdout.write('clean up the bin/')
 if (shell.test('-e', 'bin/')) {
   shell.rm('-rf', 'bin/*')

@@ -1,8 +1,7 @@
 import React from 'react'
 import { contains } from 'ramda'
 
-import LABEL_POOL from '@/config/label_pool'
-import { ICON_CMD } from '@/config'
+import { ICON_CMD, LABEL_POOL } from '@/config'
 import { uid } from '@/utils'
 
 import TagList from './TagList'

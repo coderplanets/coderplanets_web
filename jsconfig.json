@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/containers/*": ["src/containers/*"],
+      "@/components/*": ["src/components/*"],
+      "@/services": ["src/services"],
+      "@/services/*": ["src/services/*"],
+      "@/constant": ["utils/constant"],
+      "@/hooks": ["src/hooks"],
+      "@/hoc": ["src/hoc"],
+      "@/config": ["config"],
+      "@/stores/*": ["src/stores/*"],
+      "@/model": ["src/stores/SharedModel"],
+      "@/utils": ["utils"],
+      "@/schemas": ["src/schemas"],
+      "@/Img": ["src/components/Img"],
+      "@/SvgIcons/*": ["src/components/SvgIcons/*"],
+      "@/i18n": ["i18n"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

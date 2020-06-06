@@ -11,7 +11,7 @@
           {
             "preset-env": {
               "useBuiltIns": "usage",
-              "corejs": "3.2.1",
+              "corejs": "3.6.5",
               "targets": "> 0.25%, not dead",
               "debug": false
             }
@@ -38,28 +38,6 @@
         "ssr": true,
         "displayName": true,
         "preprocess": false
-      }
-    ],
-    [
-      "module-resolver",
-      {
-        "root": ["./"],
-        "alias": {
-          "@/containers": "./src/containers",
-          "@/components": "./src/components",
-          "@/services": "./src/services",
-          "@/constant": "./utils/constant/",
-          "@/hooks": "./src/hooks",
-          "@/hoc": "./src/hoc",
-          "@/config": "./config",
-          "@/stores": "./src/stores",
-          "@/model": "./src/stores/SharedModel",
-          "@/utils": "./utils",
-          "@/schemas": "./src/schemas",
-          "@/Img": "./src/components/Img",
-          "@/SvgIcons": "./src/components/SvgIcons",
-          "@/i18n": "./i18n"
-        }
       }
     ]
   ]
