@@ -1357,9 +1357,9 @@
   version "2.3.3"
   resolved "https://registry.npm.taobao.org/@groupher/editor-quote/download/@groupher/editor-quote-2.3.3.tgz#0f51c8168e3c81a21dd57dbedae89435604e65d9"
 
-"@groupher/eslint-config-web@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.npm.taobao.org/@groupher/eslint-config-web/download/@groupher/eslint-config-web-2.0.2.tgz#69bc34eb9a0f495cd20d5406ed9c5b27f2e539c9"
+"@groupher/eslint-config-web@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.npm.taobao.org/@groupher/eslint-config-web/download/@groupher/eslint-config-web-2.0.3.tgz#0b9fb8377de506f8a609a7910fef71657afc5a04"
   dependencies:
     babel-eslint "^10.0.2"
     babel-plugin-module-resolver "^3.2.0"
