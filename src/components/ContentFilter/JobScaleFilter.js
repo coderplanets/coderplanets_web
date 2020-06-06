@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LABEL_POOL from '@/config/label_pool'
+import { LABEL_POOL } from '@/config'
 
 import {
   ColumnWrapper,

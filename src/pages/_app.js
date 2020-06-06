@@ -8,7 +8,8 @@ import { DefaultSeo } from 'next-seo'
  * that will apply to every page. Full info on how the default works
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
-import SEO from '@/config/next_seo'
+
+import { SEO } from '@/config'
 import { sentry } from '@/services'
 import { appWithTranslation } from '@/i18n'
 

@@ -36,9 +36,9 @@ mobxReact.useStaticRendering(true)
 
   // const server = express()
   /* eslint-disable-next-line */
-  // const { Sentry } = require('./src/services/sentry')({ release: app.buildId })
+  const { Sentry } = require('../src/services/sentry')({ release: app.buildId })
 
-  // server.use(Sentry.Handlers.requestHandler())
+  server.use(Sentry.Handlers.requestHandler())
   server.use(cookieParser())
   server.use(responseTime())
   server.use(sessionCookie)
@@ -57,6 +57,9 @@ mobxReact.useStaticRendering(true)
 
   // eslint-disable-next-line global-require
   server.use('/', require('./routes'))
+
+  // This handles errors if they are thrown before reaching the app
+  server.use(Sentry.Handlers.errorHandler())
 
   await server.listen(SERVE_PORT)
   console.log(`> Ready on http://localhost:${SERVE_PORT}`)

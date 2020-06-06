@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
-import LABEL_POOL from '@/config/label_pool'
+import { ICON_CMD, LABEL_POOL } from '@/config'
 
 import {
   ColumnWrapper,

@@ -2,6 +2,7 @@
 // import * as CONFIG from './config.json'
 
 export { default as LABEL_POOL } from './label_pool'
+export { default as SEO } from './next_seo'
 
 // explicit export to avoid eslint warning
 export {

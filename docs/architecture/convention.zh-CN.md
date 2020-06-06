@@ -95,6 +95,7 @@ const log = buildLog('C:PostsThread')
 ```js
 // 2. import utils
 import {
+  SR71,
   asyncRes,
   asyncErr,
   buildLog,
@@ -106,8 +107,6 @@ import {
   THREAD,
 } from '@/utils'
 
-// 3. import aysnc mudule
-import SR71 from '@/utils/async/sr71'
 // 4. import graphql schema
 import S from './schema'
 

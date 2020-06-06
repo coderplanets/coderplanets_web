@@ -9,7 +9,7 @@ import T from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import { findIndex, propEq, reject, contains } from 'ramda'
 
-import LABEL_POOL from '@/config/label_pool'
+import { LABEL_POOL } from '@/config'
 import { buildLog, storePlug, uid, Trans } from '@/utils'
 import { withGuardian } from '@/hoc'
 

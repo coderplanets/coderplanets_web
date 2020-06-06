@@ -3,7 +3,9 @@ async 基于 [rx.js](https://github.com/reactivex/rxjs) 封装而来，目的是
 每一个 logic.js 文件都会引入 sr71 模块：
 
 ```js
-import SR71 from '@/utils/async/sr71'
+import { asyncSuit } from '@/utils'
+
+const { SR71 } = asyncSuit
 const sr71$ = new SR71()
 ```
 

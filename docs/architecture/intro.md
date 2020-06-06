@@ -256,10 +256,9 @@ Although it is OK, I think the logic does not belong to the `view` layer, and th
 ```js
 import { merge } from 'ramda'
 
-import { asyncRes, asyncErr, $solver } from '@/utils'
+import { SR71, asyncRes, asyncErr, $solver } from '@/utils'
 
 import { S, updatablePostFields } from './schema'
-import SR71 from '@/utils/async/sr71'
 
 const sr71$ = new SR71()
 
