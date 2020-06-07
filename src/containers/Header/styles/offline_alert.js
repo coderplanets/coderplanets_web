@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   margin-left: 30px;
   padding: 0 16px;
   border-radius: 4px;
-  animation: ${animate.breathRule};
+  animation: ${animate.breath} 1.5s linear infinite;
 
   ${cs.media.tablet`display: none;`};
 `

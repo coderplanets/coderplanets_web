@@ -10,7 +10,7 @@ export const LoadingIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   width: 26px;
   height: 26px;
-  animation: ${animate.rotate360Rule};
+  animation: ${animate.rotate360} 1s linear infinite;
   display: block;
   margin-right: 3px;
 `

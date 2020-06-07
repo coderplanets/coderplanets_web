@@ -14,14 +14,12 @@ export const LoadingIcon = styled(Img)`
   width: 30px;
   height: 30px;
   margin-top: 20px;
-  animation: ${animate.rotate360Rule};
+  animation: ${animate.rotate360} 1s linear infinite;
 `
-
 export const AddOn = styled.div`
   margin-left: 15px;
   width: 25px;
 `
-
 export const PageOverlay = styled.div`
   //  background-color: rgba(0, 0, 0, 0.4);
   bottom: 0;
