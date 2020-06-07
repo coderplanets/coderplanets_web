@@ -26,6 +26,6 @@ export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
   width: 35px;
   height: 35px;
-  animation: ${animate.rotate360Rule};
+  animation: ${animate.rotate360} 1s linear infinite;
   display: block;
 `

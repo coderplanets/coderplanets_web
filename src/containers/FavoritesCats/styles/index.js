@@ -8,7 +8,7 @@ export const AdderWrapper = styled.div`
   width: 80px;
   text-align: right;
   &:active {
-    animation: ${animate.pulseRule};
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const AdderText = styled.div`

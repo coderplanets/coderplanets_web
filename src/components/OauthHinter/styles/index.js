@@ -52,7 +52,7 @@ export const LinkIcon = styled(Img)`
   margin-left: 25px;
   margin-right: 25px;
   margin-top: 16px;
-  animation: ${animate.rotate360Rule};
+  animation: ${animate.rotate360} 1s linear infinite;
 `
 export const GithubLogoIcon = styled(Img)`
   fill: ${theme('sidebar.bg')};

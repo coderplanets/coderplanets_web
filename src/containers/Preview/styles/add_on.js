@@ -27,7 +27,7 @@ export const CloseTab = styled.div`
       : 'block'};
 
   &:hover:after {
-    animation: ${animate.rotate360CloseRule};
+    animation: ${animate.rotate360Close} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
     font-weight: bold;
   }
   &:after {
@@ -82,5 +82,5 @@ export const UploadLoadingIcon = styled(Img)`
   width: 22px;
   height: 20px;
   display: block;
-  animation: ${animate.rotate360Rule};
+  animation: ${animate.rotate360} 1s linear infinite;
 `

@@ -18,7 +18,7 @@ export const AddonWrapper = styled.div`
   margin-right: 5%;
   display: ${({ show }) => (show ? 'flex' : 'none')};
   &:active {
-    animation: ${animate.pulseRule};
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const Divider = styled.div`

@@ -67,9 +67,8 @@ export const ReactionLoading = styled(Img)`
   display: block;
   margin-right: 2px;
   margin-left: 4px;
-  animation: ${animate.rotate360Rule};
+  animation: ${animate.rotate360} 1s linear infinite;
 `
-
 export const CollectIcon = styled(ReactionIcon)`
   margin-top: -2px;
 `

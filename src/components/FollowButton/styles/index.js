@@ -29,5 +29,5 @@ export const LoadingIcon = styled(BtnIcon)`
 
   height: 15px;
   width: 15px;
-  animation: ${animate.rotate360Rule};
+  animation: ${animate.rotate360} 1s linear infinite;
 `

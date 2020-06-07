@@ -29,7 +29,7 @@ export const NumberTitle = styled.div`
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : theme('banner.active'))};
     text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
-    animation: ${animate.pulseRule};
+    animation: ${animate.pulse} 0.4s linear;
   }
   ${cs.media.tablet`font-size: 0.9rem`};
   ${cs.media.mobile`font-size: 0.9rem`};
@@ -42,21 +42,19 @@ export const NumberItem = styled.div`
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : theme('banner.active'))};
     text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
-    animation: ${animate.pulseRule};
+    animation: ${animate.pulse} 0.4s linear;
   }
 
   ${cs.media.tablet`font-size: 1rem`};
   ${cs.media.mobile`font-size: 1rem`};
 `
-
 export const NumberLoading = styled(Img)`
   fill: ${theme('banner.number')};
   width: 24px;
   height: 24px;
   margin-top: 5px;
-  animation: ${animate.rotate360Rule};
+  animation: ${animate.rotate360} 1s linear infinite;
 `
-
 export const NumberDivider = styled.div`
   border: 1px solid;
   border-color: ${theme('banner.numberDivider')};
