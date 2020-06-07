@@ -164,17 +164,6 @@
     levenary "^1.1.1"
     semver "^5.5.0"
 
-"@babel/helper-create-class-features-plugin@^7.10.0":
-  version "7.10.0"
-  resolved "https://registry.npm.taobao.org/@babel/helper-create-class-features-plugin/download/@babel/helper-create-class-features-plugin-7.10.0.tgz?cache=0&sync_timestamp=1590529788328&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fhelper-create-class-features-plugin%2Fdownload%2F%40babel%2Fhelper-create-class-features-plugin-7.10.0.tgz#3a2b7b86f6365ea4ac3837a49ec5791e65217944"
-  dependencies:
-    "@babel/helper-function-name" "^7.9.5"
-    "@babel/helper-member-expression-to-functions" "^7.10.0"
-    "@babel/helper-optimise-call-expression" "^7.10.0"
-    "@babel/helper-plugin-utils" "^7.8.3"
-    "@babel/helper-replace-supers" "^7.10.0"
-    "@babel/helper-split-export-declaration" "^7.8.3"
-
 "@babel/helper-create-class-features-plugin@^7.10.1", "@babel/helper-create-class-features-plugin@^7.8.3":
   version "7.10.2"
   resolved "https://registry.npm.taobao.org/@babel/helper-create-class-features-plugin/download/@babel/helper-create-class-features-plugin-7.10.2.tgz#7474295770f217dbcf288bf7572eb213db46ee67"
@@ -341,15 +330,6 @@
     "@babel/traverse" "^7.10.1"
     "@babel/types" "^7.10.1"
 
-"@babel/helper-replace-supers@^7.10.0", "@babel/helper-replace-supers@^7.8.6":
-  version "7.10.0"
-  resolved "https://registry.npm.taobao.org/@babel/helper-replace-supers/download/@babel/helper-replace-supers-7.10.0.tgz?cache=0&sync_timestamp=1590529788082&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fhelper-replace-supers%2Fdownload%2F%40babel%2Fhelper-replace-supers-7.10.0.tgz#26bc22ee1a35450934d2e2a9b27de10a22fac9d6"
-  dependencies:
-    "@babel/helper-member-expression-to-functions" "^7.10.0"
-    "@babel/helper-optimise-call-expression" "^7.10.0"
-    "@babel/traverse" "^7.10.0"
-    "@babel/types" "^7.10.0"
-
 "@babel/helper-replace-supers@^7.10.1":
   version "7.10.1"
   resolved "https://registry.npm.taobao.org/@babel/helper-replace-supers/download/@babel/helper-replace-supers-7.10.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fhelper-replace-supers%2Fdownload%2F%40babel%2Fhelper-replace-supers-7.10.1.tgz#ec6859d20c5d8087f6a2dc4e014db7228975f13d"
@@ -358,6 +338,15 @@
     "@babel/helper-optimise-call-expression" "^7.10.1"
     "@babel/traverse" "^7.10.1"
     "@babel/types" "^7.10.1"
+
+"@babel/helper-replace-supers@^7.8.6":
+  version "7.10.0"
+  resolved "https://registry.npm.taobao.org/@babel/helper-replace-supers/download/@babel/helper-replace-supers-7.10.0.tgz?cache=0&sync_timestamp=1590529788082&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fhelper-replace-supers%2Fdownload%2F%40babel%2Fhelper-replace-supers-7.10.0.tgz#26bc22ee1a35450934d2e2a9b27de10a22fac9d6"
+  dependencies:
+    "@babel/helper-member-expression-to-functions" "^7.10.0"
+    "@babel/helper-optimise-call-expression" "^7.10.0"
+    "@babel/traverse" "^7.10.0"
+    "@babel/types" "^7.10.0"
 
 "@babel/helper-simple-access@^7.10.1":
   version "7.10.1"
@@ -448,14 +437,6 @@
   dependencies:
     "@babel/helper-create-class-features-plugin" "^7.8.3"
     "@babel/helper-plugin-utils" "^7.8.3"
-
-"@babel/plugin-proposal-decorators@^7.4.4":
-  version "7.10.0"
-  resolved "https://registry.npm.taobao.org/@babel/plugin-proposal-decorators/download/@babel/plugin-proposal-decorators-7.10.0.tgz?cache=0&sync_timestamp=1590529789260&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fplugin-proposal-decorators%2Fdownload%2F%40babel%2Fplugin-proposal-decorators-7.10.0.tgz#aa1c82288d9af1f2a5bc759e5dffbca8f8d01ea1"
-  dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.10.0"
-    "@babel/helper-plugin-utils" "^7.8.3"
-    "@babel/plugin-syntax-decorators" "^7.8.3"
 
 "@babel/plugin-proposal-dynamic-import@^7.8.3":
   version "7.10.1"
@@ -561,12 +542,6 @@
   resolved "https://registry.npm.taobao.org/@babel/plugin-syntax-bigint/download/@babel/plugin-syntax-bigint-7.8.3.tgz#4c9a6f669f5d0cdf1b90a1671e9a146be5300cea"
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.0"
-
-"@babel/plugin-syntax-decorators@^7.8.3":
-  version "7.8.3"
-  resolved "https://registry.npm.taobao.org/@babel/plugin-syntax-decorators/download/@babel/plugin-syntax-decorators-7.8.3.tgz?cache=0&sync_timestamp=1578952708841&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fplugin-syntax-decorators%2Fdownload%2F%40babel%2Fplugin-syntax-decorators-7.8.3.tgz#8d2c15a9f1af624b0025f961682a9d53d3001bda"
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.8.3"
 
 "@babel/plugin-syntax-dynamic-import@7.8.3", "@babel/plugin-syntax-dynamic-import@^7.8.0":
   version "7.8.3"

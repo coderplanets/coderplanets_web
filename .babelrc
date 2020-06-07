@@ -20,16 +20,11 @@
   "plugins": [
     "add-react-displayname",
     [
-      "@babel/plugin-proposal-decorators",
-      {
-        "legacy": true
-      }
-    ],
-    [
       "babel-plugin-styled-components",
       {
         "ssr": true,
         "displayName": true,
+        "pure": true,
         "preprocess": false
       }
     ]
