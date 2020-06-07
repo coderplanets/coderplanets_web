@@ -4,9 +4,9 @@ import { theme, cs, animate } from '@/utils'
 import { Button } from '@/components/Buttons'
 
 export const Wrapper = styled.div`
-  animation: ${({ updating }) => (updating ? animate.updatingRule : '')};
+  animation: ${({ updating }) =>
+    updating ? `${animate.breath} 1.2s linear infinite` : ''};
 `
-
 export const BodyWrapper = styled.div`
   ${cs.flexColumn('align-center')};
   padding: 20px 30px;

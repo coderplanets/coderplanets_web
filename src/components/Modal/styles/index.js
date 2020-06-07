@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
   border-right: 2px solid;
   border-color: ${({ mode }) =>
     mode === 'default' ? theme('modal.border') : theme('baseColor.error')};
-  animation: ${animate.zoomInRule};
+  animation: ${animate.zoomIn} 0.2s linear;
 
   ${cs.media.tablet`width: 460px`};
   ${cs.media.mobile`width: 320px`};
@@ -54,7 +54,7 @@ export const CloseBtn = styled(Img)`
   z-index: ${cs.zIndex.modalCloseBtn};
 
   &:hover {
-    animation: ${animate.rotate360CloseRule};
+    animation: ${animate.rotate360Close} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
     font-weight: bold;
     cursor: pointer;
   }

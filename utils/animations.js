@@ -1,4 +1,4 @@
-import { css, keyframes } from 'styled-components'
+import { keyframes } from 'styled-components'
 
 const shake = keyframes`
   from,
@@ -78,58 +78,19 @@ const rotate360 = keyframes`
     transform: rotate(360deg);
   }
 `
-
 const breath = keyframes`
   0%    {opacity: 0.6;}
   60%   {opacity:   1;}
   100%  {opacity: 0.6;}
 `
-
-const shakeRule = css`
-  ${shake} 0.3s linear;
-`
-const zoomInRule = css`
-  ${zoomIn} 0.2s linear;
-`
-const fadeInRightRule = css`
-  ${fadeInRight} 0.2s linear;
-`
-const fadeInUpRule = css`
-  ${fadeInUp} 0.5s linear;
-`
-const pulseRule = css`
-  ${pulse} 0.4s linear;
-`
-const rotate360Rule = css`
-  ${rotate360} 1s linear infinite;
-`
-const rotate360CloseRule = css`
-  ${rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
-`
-const breathRule = css`
-  ${breath} 1.5s linear infinite;
-`
-const updatingRule = css`
-  ${breath} 1.2s linear infinite;
-`
-
 const animate = {
-  // fadeInRight,
-  fadeInRightRule,
-  // pulse,
-  pulseRule,
-  // fadeInUp,
-  fadeInUpRule,
-  // shake,
-  shakeRule,
-  // zoomIn,
-  zoomInRule,
-  // rotate360,
-  rotate360Rule,
-  rotate360CloseRule,
-  // breath
-  breathRule,
-  updatingRule,
+  fadeInRight,
+  pulse,
+  fadeInUp,
+  shake,
+  zoomIn,
+  rotate360,
+  breath,
 }
 
 export default animate

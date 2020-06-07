@@ -25,7 +25,7 @@ const WIDE_CASE = [
 const WIDE_WIDTH = '70%'
 const NARROW_WIDTH = '40%'
 
-const doTransform = visible => {
+const doTransform = (visible) => {
   return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'
 }
 
@@ -102,7 +102,7 @@ export const Closer = styled.div`
       : 'block'};
 
   &:hover:after {
-    animation: ${animate.rotate360CloseRule};
+    animation: ${animate.rotate360Close} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
     font-weight: bold;
   }
   &:after {

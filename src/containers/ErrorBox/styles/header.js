@@ -13,7 +13,7 @@ export const ErrorIcon = styled(Img)`
   height: 40px;
   display: block;
   margin-right: 8px;
-  animation: ${animate.breathRule};
+  animation: ${animate.breath} 1.5s linear infinite;
 `
 export const Info = styled.div`
   ${cs.flexColumn()};

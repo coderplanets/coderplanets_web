@@ -28,7 +28,7 @@ export const NumberTitle = styled.div`
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : '#f1c48f')};
     text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
-    animation: ${animate.pulseRule};
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const NumberItem = styled.div`
@@ -39,7 +39,7 @@ export const NumberItem = styled.div`
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : '#f1c48f')};
     text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
-    animation: ${animate.pulseRule};
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const NumberDivider = styled.div`

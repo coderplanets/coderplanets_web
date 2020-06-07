@@ -28,7 +28,7 @@ export const PlayIcon = styled(Img)`
   left: 45%;
   opacity: 0;
   ${Wrapper}:hover & {
-    animation: ${animate.zoomInRule};
+    animation: ${animate.zoomIn} 0.2s linear;
     opacity: 1;
     cursor: pointer;
   }

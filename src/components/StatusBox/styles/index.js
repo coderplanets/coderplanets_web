@@ -11,26 +11,26 @@ export const Msg = styled.span`
 
 export const SuccessMsgBox = styled.div`
   color: ${theme('baseColor.green')};
-  animation: ${animate.fadeInUpRule};
+  animation: ${animate.fadeInUp} 0.5s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
 export const WarningMsgBox = styled.div`
   color: #e8c557;
-  animation: ${animate.pulseRule};
+  animation: ${animate.pulse} 0.4s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
 export const ErrorMsgBox = styled.div`
   color: ${theme('baseColor.error')};
-  animation: ${animate.shakeRule};
+  animation: ${animate.shake} 0.3s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
 export const ErrorArrayWrapper = styled.div`
   ${cs.flexColumn()};
   color: ${theme('baseColor.error')};
-  animation: ${animate.shakeRule};
+  animation: ${animate.shake} 0.3s linear;
 `
 
 export const ErrorMsg = styled.div`
