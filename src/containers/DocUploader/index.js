@@ -110,10 +110,10 @@ class DocUploaderContainer extends React.Component {
     try {
       /* this.state.ossClient = new OSS.Wrapper({ */
       const ossClient = new OSS.Wrapper({
-        region: process.env.ALI_OSS_RESION,
-        accessKeyId: process.env.ALI_ACCESS_KEY,
-        accessKeySecret: process.env.ALI_ACCESS_SECRET,
-        bucket: process.env.ALI_OSS_BUCKET,
+        region: process.env.NEXT_PUBLIC_ALI_OSS_RESION,
+        accessKeyId: process.env.NEXT_PUBLIC_ALI_ACCESS_KEY,
+        accessKeySecret: process.env.NEXT_PUBLIC_ALI_ACCESS_SECRET,
+        bucket: process.env.NEXT_PUBLIC_ALI_OSS_BUCKET,
         /* internal: true, */
         /* secure: true, */
       })
@@ -173,12 +173,12 @@ class DocUploaderContainer extends React.Component {
 
     ossClient
       .multipartUpload(fullpath, file)
-      .then(result => {
+      .then((result) => {
         const url = `${ASSETS_ENDPOINT}/${result.name}`
         sendEvent('finish')
         this.onUploadDone(url)
       })
-      .catch(err => {
+      .catch((err) => {
         sendEvent('finish')
         onUploadError(err)
       })

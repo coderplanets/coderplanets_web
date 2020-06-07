@@ -1,14 +1,13 @@
 //
 /* import { fetch } from 'whatwg-fetch' */
 import { ASSETS_ENDPOINT } from '@/config'
-import fetch from 'isomorphic-fetch'
 import { BStore } from '@/utils'
 
 const endpoint = `${ASSETS_ENDPOINT}/asia.geo.json`
 const bkey = 'asia.geo.data'
 
-const fetchGeoData = () =>
-  new Promise((resolve, reject) => {
+const fetchGeoData = () => {
+  return new Promise((resolve, reject) => {
     const geoData = BStore.get(bkey)
 
     if (typeof geoData === 'object') return resolve(geoData)
@@ -23,5 +22,6 @@ const fetchGeoData = () =>
       })
       .catch(() => reject('error'))
   })
+}
 
 export default fetchGeoData

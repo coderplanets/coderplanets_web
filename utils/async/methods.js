@@ -1,5 +1,4 @@
 import { from } from 'rxjs'
-import fetch from 'isomorphic-fetch'
 
 import { buildLog } from '../logger'
 import { client, context } from './setup'
@@ -9,8 +8,8 @@ import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 /* eslint-disable-next-line */
 const log = buildLog('Async')
 
-const doQuery = (query, variables) =>
-  client
+const doQuery = (query, variables) => {
+  return client
     .query({
       query,
       variables,
@@ -21,9 +20,10 @@ const doQuery = (query, variables) =>
       return res.data
     })
     .catch(formatGraphErrors)
+}
 
-const doMutate = (mutation, variables) =>
-  client
+const doMutate = (mutation, variables) => {
+  return client
     .mutate({
       mutation,
       variables,
@@ -36,16 +36,20 @@ const doMutate = (mutation, variables) =>
       return res.data
     })
     .catch(formatGraphErrors)
+}
 
-const GET = url =>
-  fetch(`${url}`)
+const GET = url => {
+  return fetch(`${url}`)
     .then(getThenHandler)
     .catch(getCatchHandler)
+}
 
-export const queryPromise = ({ query, variables }) =>
-  from(doQuery(query, variables))
+export const queryPromise = ({ query, variables }) => {
+  return from(doQuery(query, variables))
+}
 
-export const mutatePromise = ({ mutation, variables }) =>
-  from(doMutate(mutation, variables))
+export const mutatePromise = ({ mutation, variables }) => {
+  return from(doMutate(mutation, variables))
+}
 
 export const restGetPromise = url => from(GET(url))

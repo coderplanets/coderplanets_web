@@ -1,5 +1,3 @@
-import fetch from 'isomorphic-fetch'
-
 import { BStore, makeGithubExplore } from '@/utils'
 import { graphqlEndpoint } from './config'
 

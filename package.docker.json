@@ -48,7 +48,6 @@
     "graphql-request": "^1.6.0",
     "graphql-tag": "^2.6.1",
     "graphql-voyager": "^1.0.0-rc.26",
-    "isomorphic-fetch": "^2.2.1",
     "js-cookie": "^2.2.0",
     "keyboardjs": "^2.5.1",
     "mastani-codehighlight": "0.0.7",
@@ -103,11 +102,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@babel/core": "7.5.5",
-    "@babel/plugin-proposal-decorators": "^7.4.4",
-    "babel-plugin-inline-dotenv": "^1.1.2",
-    "babel-plugin-styled-components": "1.10.7",
-    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
-    "dotenv-webpack": "1.6.0"
+    "@babel/core": "7.10.2",
+    "babel-plugin-styled-components": "1.10.7"
   }
 }

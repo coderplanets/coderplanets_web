@@ -4,7 +4,7 @@ import oauthPopup from './oauth_window'
 import S from '../../schema'
 
 const githubLoginHandler = (store, sr71$) => {
-  const clientId = process.env.GITHUB_CLIENT_ID
+  const clientId = process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID
   const info = 'from_github'
   const cb = 'https://coderplanets.com/oauth'
   const github = 'https://github.com/login/oauth/authorize'
@@ -12,7 +12,7 @@ const githubLoginHandler = (store, sr71$) => {
 
   oauthPopup(url)
 
-  Global.addEventListener('message', e => {
+  Global.addEventListener('message', (e) => {
     if (e.origin === Global.location.origin) {
       if (e.data.from_oauth_window) {
         const code = getQueryFromUrl('code', e.data.from_oauth_window)
