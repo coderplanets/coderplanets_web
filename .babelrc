@@ -1,9 +1,6 @@
 {
   "presets": [["next/babel"]],
   "env": {
-    "development": {
-      "plugins": ["inline-dotenv"]
-    },
     "production": {
       "presets": [
         [
@@ -18,25 +15,16 @@
           }
         ]
       ]
-    },
-    "test": {
-      "plugins": ["inline-dotenv"]
     }
   },
   "plugins": [
     "add-react-displayname",
     [
-      "@babel/plugin-proposal-decorators",
-      {
-        "legacy": true
-      }
-    ],
-    "transform-inline-environment-variables",
-    [
       "babel-plugin-styled-components",
       {
         "ssr": true,
         "displayName": true,
+        "pure": true,
         "preprocess": false
       }
     ]

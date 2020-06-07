@@ -9,8 +9,8 @@ export default class DocumentPage extends Document {
     const sheet = new ServerStyleSheet()
 
     try {
-      const page = renderPage(App => props =>
-        sheet.collectStyles(<App {...props} />)
+      const page = renderPage((App) => (props) =>
+        sheet.collectStyles(<App {...props} />),
       )
       const styleTags = sheet.getStyleElement()
       return { ...page, styleTags }
@@ -40,7 +40,7 @@ export default class DocumentPage extends Document {
 
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACING_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACING_ID}`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -49,7 +49,7 @@ export default class DocumentPage extends Document {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '${process.env.GA_TRACING_ID}');
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACING_ID}');
               `,
             }}
           />
