@@ -66,7 +66,7 @@ export const nextStep = () => {
  * 改变创建社区类型
  * @public
  */
-export const communityTypeOnChange = communityType =>
+export const communityTypeOnChange = (communityType) =>
   store.mark({ communityType })
 
 /**
@@ -127,7 +127,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

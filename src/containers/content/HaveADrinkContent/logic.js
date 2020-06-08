@@ -33,7 +33,7 @@ export const LN = {
  *
  * @param {string} view, view type
  */
-export const setView = view => {
+export const setView = (view) => {
   store.mark({ view })
   stopTimer()
 }
@@ -56,13 +56,13 @@ export const setSetting = (key, val) => {
  * @return void
  * @priate
  */
-const resetAnimation = elementClassName => {
+const resetAnimation = (elementClassName) => {
   const elements = document.querySelectorAll(`.${elementClassName}`)
 
   // first timer switch the animate part is not visiable
   if (elements.length === 0) return
 
-  elements.forEach(el => {
+  elements.forEach((el) => {
     el.style.animation = 'none'
     el.offsetHeight /* trigger reflow */
     el.style.animation = null
@@ -111,7 +111,7 @@ export const toggleTimer = () => {
  * @param {string} timerInterval, interval of the timer: 3s | 5s | 10s
  * @private
  */
-export const setTimerInterval = timerInterval => {
+export const setTimerInterval = (timerInterval) => {
   stopTimer()
   store.mark({ timerInterval })
   startTimer()
@@ -162,7 +162,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     log('effect init: ', store)

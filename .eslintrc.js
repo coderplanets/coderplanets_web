@@ -27,5 +27,7 @@ module.exports = {
       },
     },
   },
-  rules: {},
+  rules: {
+    'arrow-parens': ['error', 'always'],
+  },
 }

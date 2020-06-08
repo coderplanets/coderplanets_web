@@ -105,7 +105,7 @@ const ErrSolver = [
   },
 ]
 
-const openAttachment = att => {
+const openAttachment = (att) => {
   if (!att) return false
   const { type } = att
   if (type === TYPE.PREVIEW_VIDEO_EDIT) {

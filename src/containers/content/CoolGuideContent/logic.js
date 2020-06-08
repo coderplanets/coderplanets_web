@@ -28,7 +28,7 @@ export const menuOnSelect = (activeMenuId, displayType = 'DEFAULT') => {
  *
  * @param {string} topFilter
  */
-export const topFilterOnChange = topFilter => {
+export const topFilterOnChange = (topFilter) => {
   store.mark({ topFilter })
 }
 
@@ -65,7 +65,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
 

@@ -21,7 +21,7 @@ export const onClose = () => {
   sr71$.stop()
 }
 
-export const onSearchChange = e => store.mark({ searchValue: e.target.value })
+export const onSearchChange = (e) => store.mark({ searchValue: e.target.value })
 
 export const onSearch = () => {
   const { searchValue } = store
@@ -31,7 +31,7 @@ export const onSearch = () => {
     : searchCommunities(searchValue)
 }
 
-export const onSearchPress = e => {
+export const onSearchPress = (e) => {
   if (e.key === 'Enter') {
     onSearch()
   }
@@ -42,7 +42,7 @@ export const loadCommunities = (page = 1) =>
   sr71$.query(S.pagedCommunities, { filter: { page, size: 20 } })
 
 // search spec communities
-const searchCommunities = title => sr71$.query(S.searchCommunities, { title })
+const searchCommunities = (title) => sr71$.query(S.searchCommunities, { title })
 
 export const handleCommunityBelong = (belong, communityId) => {
   const { id } = store.viewingData
@@ -103,7 +103,7 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: err => {
+    action: (err) => {
       log(err)
       // cancelLoading()
     },
@@ -127,7 +127,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

@@ -60,14 +60,14 @@ const searchCommunities = () => {
  * change search status
  * @ppublic
  */
-export const changeSearchStatus = status => store.mark({ ...status })
+export const changeSearchStatus = (status) => store.mark({ ...status })
 
 /**
  * search for communities
  * @param {e} htmlEvent
  * @return {void}
  */
-export const searchOnChange = e => {
+export const searchOnChange = (e) => {
   updateEditing(store, 'searchValue', e)
   searchCommunities()
 }
@@ -90,14 +90,14 @@ export const menuOnChange = ({ id, raw }) => {
  * @param {page} number
  * @public
  */
-export const pageOnChange = page => loadCommunities(page)
+export const pageOnChange = (page) => loadCommunities(page)
 
 /**
  * subscrib / join a community
  * @param {id} string
  * @public
  */
-export const subscribe = id => {
+export const subscribe = (id) => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.subscribeCommunity, { communityId: id })
@@ -112,7 +112,7 @@ export const subscribe = id => {
  * @param {id} string
  * @public
  */
-export const unSubscribe = id => {
+export const unSubscribe = (id) => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
@@ -203,7 +203,7 @@ const loadIfNeed = () => {
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

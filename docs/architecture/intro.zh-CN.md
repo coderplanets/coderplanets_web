@@ -295,7 +295,7 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
+export const init = (_store) => {
   store = _store
 
   if (sub$) return false

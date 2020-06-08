@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import HeaderMailSVG from '@/SvgIcons/HeaderMailSVG'
 import { theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   position: relative;

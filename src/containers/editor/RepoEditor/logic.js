@@ -43,14 +43,14 @@ export const onGithubSearch = () => {
   store.mark({ searching: true })
   githubAPI
     .searchRepo(owner, name)
-    .then(res => {
+    .then((res) => {
       store.mark({
         editRepo: githubAPI.transformRepo(res),
         searching: false,
         curView: 'show',
       })
     })
-    .catch(e => store.handleError(githubAPI.parseError(e)))
+    .catch((e) => store.handleError(githubAPI.parseError(e)))
 }
 
 /* eslint-disable-next-line */

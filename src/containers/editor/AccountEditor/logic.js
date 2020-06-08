@@ -40,7 +40,7 @@ export const socialOnChange = curry((part, e) => {
 })
 
 export const updateBackground = curry((key, part, { target: { value } }) =>
-  store.mark({ [key]: merge(store[key], { [part]: value }) })
+  store.mark({ [key]: merge(store[key], { [part]: value }) }),
 )
 
 /* eslint-disable no-unused-vars */
@@ -60,7 +60,7 @@ export const removeEduBackground = curry((school, major, e) => {
   const { educationBackgrounds } = editUserData
   const newEducationBackgrounds = reject(
     equals({ school, major }),
-    educationBackgrounds
+    educationBackgrounds,
   )
   store.updateEditing({ educationBackgrounds: newEducationBackgrounds })
 })
@@ -138,7 +138,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     // log('effect init')
