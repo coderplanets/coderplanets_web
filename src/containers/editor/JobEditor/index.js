@@ -19,7 +19,7 @@ import Header from './Header'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { useInit, changeView, onPublish, canclePublish } from './logic'
+import { useInit, changeView, onPublish, cancelPublish } from './logic'
 
 export const DynamicMarkDownHelper = dynamic({
   loader: () => import('./MarkDownHelper'),
@@ -95,7 +95,7 @@ const JobEditorContainer = ({ jobEditor: store, attachment }) => {
       <ArticleEditFooter
         isEdit={isEdit}
         publishing={publishing}
-        onCancle={canclePublish}
+        onCancel={cancelPublish}
         onPublish={onPublish}
       />
     </Wrapper>

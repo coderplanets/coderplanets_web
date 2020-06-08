@@ -28,11 +28,11 @@ export const menuOnSelect = (activeMenuId, displayType = 'DEFAULT') => {
  *
  * @param {string} topFilter
  */
-export const topFilterOnChange = topFilter => {
+export const topFilterOnChange = (topFilter) => {
   store.mark({ topFilter })
 }
 
-// const const cancleLoading = () => {}
+// const const cancelLoading = () => {}
 
 // ###############################
 // Data & Error handlers
@@ -43,20 +43,20 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: () => {
-      // cancleLoading()
+      // cancelLoading()
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      // cancleLoading()
+      // cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'CoolGuideContent' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      // cancleLoading()
+      // cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'CoolGuideContent' })
     },
   },
@@ -65,7 +65,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
 

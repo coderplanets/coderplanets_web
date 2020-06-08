@@ -13,7 +13,7 @@ export const ButtonsWrapper = styled.div`
   ${cs.flex('align-both')};
   padding-top: 15px;
 `
-export const CancleButton = styled.div`
+export const CancelButton = styled.div`
   color: ${theme('button.primary')};
 
   &:hover {

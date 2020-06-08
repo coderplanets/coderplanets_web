@@ -17,7 +17,7 @@ import CoverUploader from './CoverUploader'
 import SourceOptions from './SourceOptions'
 
 import { Wrapper, Title, FormWrapper } from './styles'
-import { useInit, inputOnChange, canclePublish, onPublish } from './logic'
+import { useInit, inputOnChange, cancelPublish, onPublish } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:VideoEditor')
@@ -124,7 +124,7 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
       <ArticleEditFooter
         isEdit={isEdit}
         publishing={publishing}
-        onCancle={canclePublish}
+        onCancel={cancelPublish}
         onPublish={onPublish}
       />
     </Wrapper>

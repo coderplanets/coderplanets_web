@@ -51,7 +51,7 @@ export const onPublish = () => {
   sr71$.mutate(S.createVideo, args)
 }
 
-export const canclePublish = () => {
+export const cancelPublish = () => {
   store.mark({ publishing: false })
   sr71$.stop()
   closePreviewer()
@@ -60,7 +60,7 @@ export const canclePublish = () => {
 export const usePosterAsThumbnil = () =>
   store.updateEditing({ poster: store.editVideoData.thumbnil })
 
-const cancleLoading = () => store.mark({ publishing: false })
+const cancelLoading = () => store.mark({ publishing: false })
 
 // ###############################
 // Data & Error handlers
@@ -87,25 +87,25 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'VideoEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'VideoEditor' })
     },
   },
 ]
 
-const openAttachment = att => {
+const openAttachment = (att) => {
   if (!att) return false
   const { type } = att
   if (type === TYPE.PREVIEW_VIDEO_EDIT) {

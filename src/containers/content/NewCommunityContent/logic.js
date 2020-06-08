@@ -66,7 +66,7 @@ export const nextStep = () => {
  * 改变创建社区类型
  * @public
  */
-export const communityTypeOnChange = communityType =>
+export const communityTypeOnChange = (communityType) =>
   store.mark({ communityType })
 
 /**
@@ -88,8 +88,8 @@ export const searchCommunities = () => {
   sr71$.query(S.searchCommunities, args)
 }
 
-/* when error occured cancle all the loading state */
-const cancleLoading = () =>
+/* when error occured cancel all the loading state */
+const cancelLoading = () =>
   store.mark({
     subscribing: false,
     searching: false,
@@ -106,19 +106,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       errRescue({ type: ERR.TIMEOUT, details, path: 'CommunitiesContent' })
-      cancleLoading()
+      cancelLoading()
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'CommunitiesContent' })
     },
   },
@@ -127,7 +127,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

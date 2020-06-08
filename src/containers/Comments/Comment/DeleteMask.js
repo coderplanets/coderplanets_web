@@ -8,13 +8,13 @@ import {
   DeleteBtnGroup,
 } from './styles/delete_mask'
 
-import { cancleDelete, deleteComment } from '../logic'
+import { cancelDelete, deleteComment } from '../logic'
 
 const DeleteMask = ({ show }) => (
   <DeleteOverlay show={show}>
     <DeleteHintText>删除后该该评论将不可恢复</DeleteHintText>
     <DeleteBtnGroup>
-      <Button size="small" type="red" ghost onClick={cancleDelete}>
+      <Button size="small" type="red" ghost onClick={cancelDelete}>
         取消
       </Button>
       &nbsp;&nbsp;

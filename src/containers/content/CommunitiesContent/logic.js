@@ -60,14 +60,14 @@ const searchCommunities = () => {
  * change search status
  * @ppublic
  */
-export const changeSearchStatus = status => store.mark({ ...status })
+export const changeSearchStatus = (status) => store.mark({ ...status })
 
 /**
  * search for communities
  * @param {e} htmlEvent
  * @return {void}
  */
-export const searchOnChange = e => {
+export const searchOnChange = (e) => {
   updateEditing(store, 'searchValue', e)
   searchCommunities()
 }
@@ -90,14 +90,14 @@ export const menuOnChange = ({ id, raw }) => {
  * @param {page} number
  * @public
  */
-export const pageOnChange = page => loadCommunities(page)
+export const pageOnChange = (page) => loadCommunities(page)
 
 /**
  * subscrib / join a community
  * @param {id} string
  * @public
  */
-export const subscribe = id => {
+export const subscribe = (id) => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.subscribeCommunity, { communityId: id })
@@ -112,7 +112,7 @@ export const subscribe = id => {
  * @param {id} string
  * @public
  */
-export const unSubscribe = id => {
+export const unSubscribe = (id) => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
@@ -122,8 +122,8 @@ export const unSubscribe = id => {
   })
 }
 
-/* when error occured cancle all the loading state */
-const cancleLoading = () =>
+/* when error occured cancel all the loading state */
+const cancelLoading = () =>
   store.mark({
     subscribing: false,
     searching: false,
@@ -170,19 +170,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       errRescue({ type: ERR.TIMEOUT, details, path: 'CommunitiesContent' })
-      cancleLoading()
+      cancelLoading()
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'CommunitiesContent' })
     },
   },
@@ -203,7 +203,7 @@ const loadIfNeed = () => {
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')
