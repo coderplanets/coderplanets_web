@@ -29,9 +29,9 @@ let store = null
 let sub$ = null
 let saveDraftTimmer = null
 
-export const changeView = curView => store.mark({ curView })
+export const changeView = (curView) => store.mark({ curView })
 
-const getDigest = body => {
+const getDigest = (body) => {
   /* eslint-disable no-undef */
   const digestContainer = document.getElementById(store.contentDomId)
 
@@ -81,7 +81,7 @@ export const onPublish = () => {
     digest,
     length,
     topic,
-    mentionUsers: map(user => ({ id: user.id }), store.referUsersData),
+    mentionUsers: map((user) => ({ id: user.id }), store.referUsersData),
   }
   if (!isEmpty(store.labelsData.tags)) {
     variables.tags = store.labelsData.tags
@@ -97,13 +97,13 @@ export const onPublish = () => {
   sr71$.mutate(S.createPost, variables)
 }
 
-export const canclePublish = () => {
-  cancleLoading()
+export const cancelPublish = () => {
+  cancelLoading()
   // store.reset()
   closePreviewer()
 }
 
-export const onUploadImageDone = url =>
+export const onUploadImageDone = (url) =>
   send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
 export const insertCode = () => {
@@ -113,7 +113,7 @@ export const insertCode = () => {
   send(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
-export const onMentionSearch = name => {
+export const onMentionSearch = (name) => {
   if (name && name.length >= 2) {
     sr71$.query(S.searchUsers, { name })
   } else {
@@ -121,9 +121,9 @@ export const onMentionSearch = name => {
   }
 }
 
-export const onMention = user => store.addReferUser(user)
+export const onMention = (user) => store.addReferUser(user)
 
-const openAttachment = att => {
+const openAttachment = (att) => {
   if (!att) return false
   // const { type } = att
   // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
@@ -134,11 +134,11 @@ const openAttachment = att => {
 const doneCleanUp = () => {
   closePreviewer()
   store.reset()
-  cancleLoading()
+  cancelLoading()
 }
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
-export const bodyInputOnChange = content => {
+export const bodyInputOnChange = (content) => {
   // draft.js will mis trigger onChange event with empty string.
   // currently this is a bug: in edit can't update to empty.
   if (!store) return false
@@ -148,7 +148,7 @@ export const bodyInputOnChange = content => {
   updateEditing(store, 'body', content)
 }
 
-const saveDraftIfNeed = content => {
+const saveDraftIfNeed = (content) => {
   if (isEmpty(content)) return false
   const curDraftContent = BStore.get('recentDraft')
 
@@ -158,7 +158,7 @@ const saveDraftIfNeed = content => {
 const clearDraft = () => BStore.set('recentDraft', '')
 
 const publishing = (maybe = true) => store.mark({ publishing: maybe })
-const cancleLoading = () => store.mark({ publishing: false })
+const cancelLoading = () => store.mark({ publishing: false })
 
 // ###############################
 // Data & Error handlers
@@ -201,19 +201,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'PostEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'PostEditor' })
     },
   },
@@ -226,7 +226,7 @@ const initDraftTimmer = () => {
 
   saveDraftTimmer = setInterval(
     () => saveDraftIfNeed(store.editPost.body),
-    3000
+    3000,
   )
 }
 

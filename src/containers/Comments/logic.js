@@ -47,7 +47,7 @@ export const loadComents = (args = {}) => {
   sr71$.query(S.pagedComments, args)
 }
 
-const markLoading = fresh => {
+const markLoading = (fresh) => {
   if (fresh) {
     return store.mark({ loadingFresh: true })
   }
@@ -64,7 +64,7 @@ export const createComment = curry((cb, e) => {
     body: store.editContent,
     thread: store.activeThread,
     community: store.communityRaw,
-    mentionUsers: store.referUsersData.map(user => ({ id: user.id })),
+    mentionUsers: store.referUsersData.map((user) => ({ id: user.id })),
   }
 
   log('createComment args: ', args)
@@ -84,7 +84,7 @@ export const backToEditor = () =>
     showInputPreview: false,
   })
 
-export const previewReply = data => {
+export const previewReply = (data) => {
   log('previewReply --> : ', data)
 }
 
@@ -132,25 +132,25 @@ export const createReplyComment = () => {
     body: store.replyContent,
     community: store.curCommunity.raw,
     thread: store.activeThread,
-    mentionUsers: store.referUsersData.map(user => ({ id: user.id })),
+    mentionUsers: store.referUsersData.map((user) => ({ id: user.id })),
   })
 }
 
-export const onCommentInputChange = editContent =>
+export const onCommentInputChange = (editContent) =>
   store.mark({
     countCurrent: countWords(editContent),
     extractMentions: extractMentions(editContent),
     editContent,
   })
 
-export const onReplyInputChange = replyContent =>
+export const onReplyInputChange = (replyContent) =>
   store.mark({
     countCurrent: countWords(replyContent),
     extractMentions: extractMentions(replyContent),
     replyContent,
   })
 
-export const openUpdateEditor = data =>
+export const openUpdateEditor = (data) =>
   store.mark({
     isEdit: true,
     showReplyBox: true,
@@ -160,7 +160,7 @@ export const openUpdateEditor = data =>
     replyContent: data.body,
   })
 
-export const openReplyEditor = data => {
+export const openReplyEditor = (data) => {
   if (!store.isLogin) return store.authWarning()
 
   initDraftTimmer()
@@ -194,7 +194,7 @@ export const closeReplyBox = () => {
   })
 }
 
-export const onFilterChange = filterType => {
+export const onFilterChange = (filterType) => {
   store.mark({ filterType })
   loadComents({ filter: { page: 1, sort: filterType } })
 }
@@ -206,7 +206,7 @@ export const onFilterChange = filterType => {
  * @param {comment.id} string
  * @returns
  */
-export const toggleLikeComment = comment => {
+export const toggleLikeComment = (comment) => {
   if (!store.isLogin) return store.authWarning()
   log('likeComment: ', comment)
 
@@ -220,7 +220,7 @@ export const toggleLikeComment = comment => {
   })
 }
 
-export const onUploadImageDone = url =>
+export const onUploadImageDone = (url) =>
   send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
 export const insertQuote = () =>
@@ -233,8 +233,8 @@ export const insertCode = () => {
   send(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
-export const onMention = user => store.addReferUser(user)
-export const onMentionSearch = name => {
+export const onMention = (user) => store.addReferUser(user)
+export const onMentionSearch = (name) => {
   if (name && name.length >= 1) {
     sr71$.query(S.searchUsers, { name })
   } else {
@@ -249,8 +249,8 @@ export const deleteComment = () =>
   })
 
 // show delete confirm
-export const onDelete = comment => store.mark({ tobeDeleteId: comment.id })
-export const cancleDelete = () => store.mark({ tobeDeleteId: null })
+export const onDelete = (comment) => store.mark({ tobeDeleteId: comment.id })
+export const cancelDelete = () => store.mark({ tobeDeleteId: null })
 
 export const pageChange = (page = 1) => {
   scrollIntoEle('lists-info')
@@ -265,7 +265,7 @@ export const onReplyEditorClose = () => {
   onCommentInputBlur()
 }
 
-const saveDraftIfNeed = content => {
+const saveDraftIfNeed = (content) => {
   if (isEmpty(content)) return false
   const curDraftContent = BStore.get('recentDraft')
 

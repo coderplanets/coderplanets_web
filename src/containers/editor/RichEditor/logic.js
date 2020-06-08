@@ -16,7 +16,7 @@ const log = buildLog('L:RichEditor')
 
 export const someMethod = () => {}
 
-// const const cancleLoading = () => {}
+// const const cancelLoading = () => {}
 
 // ###############################
 // Data & Error handlers

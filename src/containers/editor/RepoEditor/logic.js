@@ -43,14 +43,14 @@ export const onGithubSearch = () => {
   store.mark({ searching: true })
   githubAPI
     .searchRepo(owner, name)
-    .then(res => {
+    .then((res) => {
       store.mark({
         editRepo: githubAPI.transformRepo(res),
         searching: false,
         curView: 'show',
       })
     })
-    .catch(e => store.handleError(githubAPI.parseError(e)))
+    .catch((e) => store.handleError(githubAPI.parseError(e)))
 }
 
 /* eslint-disable-next-line */
@@ -74,7 +74,7 @@ export const setGithubToken = () => {
   })
 }
 
-const cancleLoading = () =>
+const cancelLoading = () =>
   store.mark({
     searching: false,
     publishing: false,
@@ -100,19 +100,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'RepoEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'RepoEditor' })
     },
   },

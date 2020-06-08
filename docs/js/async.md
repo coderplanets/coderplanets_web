@@ -31,7 +31,7 @@ Const DataSolver = [
     Match: asyncRes('updateProfile'),
     Action: () => {
       updateDone()
-      cancleLoading()
+      cancelLoading()
     },
   },
 ]
@@ -96,19 +96,19 @@ The logical unification of error handling is handled by ErrSolver in a unified m
 Const ErrSolver = [
   {
     Match: asyncErr(ERR.GRAPHQL),
-    Action: () => cancleLoading(),
+    Action: () => cancelLoading(),
   },
   {
     Match: asyncErr(ERR.TIMEOUT),
     Action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     Match: asyncErr(ERR.NETWORK),
     Action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'AccountEditor' })
     },
   },

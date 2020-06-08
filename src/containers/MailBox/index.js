@@ -11,7 +11,7 @@ import Tooltip from '@/components/Tooltip'
 
 import MailsPanel from './MailsPanel'
 
-import { Wrapper, NofityDot, HeaderMailIcon } from './styles'
+import { Wrapper, NotifyDot, HeaderMailIcon } from './styles'
 import { useInit, visibleOnChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -37,7 +37,7 @@ const MailBoxContainer = ({ mailBox: store }) => {
       onShow={visibleOnChange}
     >
       <Wrapper testid="account-mailbox">
-        <NofityDot active={mailStatusData.hasMail} />
+        <NotifyDot active={mailStatusData.hasMail} />
         <HeaderMailIcon />
       </Wrapper>
     </Tooltip>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Space } from '@/components/Common'
 import { Button } from '@/components/Buttons'
-import { Wrapper, ButtonsWrapper, CancleButton } from './styles/confirm_footer'
+import { Wrapper, ButtonsWrapper, CancelButton } from './styles/confirm_footer'
 
 const ConfirmFooter = ({ onConfirm }) => {
   return (
@@ -12,7 +12,7 @@ const ConfirmFooter = ({ onConfirm }) => {
           确认
         </Button>
         <Space right="10px" />
-        <CancleButton>取消</CancleButton>
+        <CancelButton>取消</CancelButton>
       </ButtonsWrapper>
     </Wrapper>
   )

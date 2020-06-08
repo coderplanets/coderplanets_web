@@ -25,7 +25,7 @@ import {
   useInit,
   changeView,
   onPublish,
-  canclePublish,
+  cancelPublish,
   onRadarNoteCLose,
 } from './logic'
 
@@ -119,7 +119,7 @@ const PostEditorContainer = ({ postEditor: store, attachment }) => {
       <ArticleEditFooter
         isEdit={isEdit}
         publishing={publishing}
-        onCancle={canclePublish}
+        onCancel={cancelPublish}
         onPublish={onPublish}
       />
     </Wrapper>
