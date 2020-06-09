@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 import { contains } from 'ramda'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 import { ROUTE, C11N } from '@/constant'
 import { buildLog, getRoutePathList } from '@/utils'
@@ -18,7 +18,8 @@ import BriefView from './BriefView'
 /* eslint-disable-next-line */
 const log = buildLog('c:Navigator:index')
 
-const Navigator = ({ curCommunity, layout, router }) => {
+const Navigator = ({ curCommunity, layout }) => {
+  const router = useRouter()
   const [mainPath, subPath] = getRoutePathList(router.asPath)
 
   if (
@@ -49,4 +50,4 @@ Navigator.defaultProps = {
   layout: C11N.DIGEST,
 }
 
-export default React.memo(withRouter(Navigator))
+export default React.memo(Navigator)

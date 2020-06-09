@@ -15,20 +15,6 @@ const browserHistoryBtnClicked = (popstate) => {
 // ###############################
 // init & uninit
 // ###############################
-export const init = (_store, routeObj) => {
-  if (store) return false
-
-  store = _store
-  // sync init router info
-  const { mainPath, subPath } = parseURL(routeObj)
-  const { query } = routeObj
-
-  store.mark({ mainPath, subPath, query })
-
-  Global.onpopstate = browserHistoryBtnClicked
-}
-
-export const uninit = () => {}
 
 export const useInit = (_store, routeObj) => {
   useEffect(() => {
@@ -42,3 +28,5 @@ export const useInit = (_store, routeObj) => {
     Global.onpopstate = browserHistoryBtnClicked
   }, [_store, routeObj])
 }
+
+export const holder = 1

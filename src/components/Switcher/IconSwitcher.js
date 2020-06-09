@@ -71,7 +71,7 @@ IconSwitcher.propTypes = {
   items: T.arrayOf(
     T.shape({
       iconSrc: T.string,
-      localIcon: T.oneOfType(T.string, T.node),
+      localIcon: T.oneOfType([T.string, T.node]),
       key: T.string,
     }),
   ).isRequired,

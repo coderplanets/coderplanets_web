@@ -65,7 +65,7 @@ const ArrowButton = ({
 }
 
 ArrowButton.propTypes = {
-  children: T.oneOfType(T.string, T.node),
+  children: T.oneOfType([T.string, T.node]),
   size: T.oneOf(['tiny', 'small', 'medium', 'large']),
   direction: T.oneOf(['left', 'right']),
   transparentFirst: T.bool,

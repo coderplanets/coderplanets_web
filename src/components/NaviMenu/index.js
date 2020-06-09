@@ -123,7 +123,7 @@ NaviMenu.propTypes = {
       title: T.string,
       icon: T.string,
       displayType: T.string,
-      fixedIcon: T.oneOfType(T.string, T.node),
+      fixedIcon: T.oneOfType([T.string, T.node]),
       pinNumber: T.number,
       childMenu: T.arrayOf(
         T.shape({
