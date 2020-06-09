@@ -133,7 +133,7 @@
     "@babel/core": "7.10.2",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@groupher/eslint-config-web": "2.0.8",
+    "@groupher/eslint-config-web": "2.0.9",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^23.6.0",
     "babel-plugin-styled-components": "1.10.7",
