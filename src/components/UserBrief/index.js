@@ -16,7 +16,7 @@ import {
   BriefTextWrapper,
   UserTitle,
   UserDesc,
-  SocialSpliter,
+  SocialSplit,
 } from './styles'
 
 import SocialIcons from './SocialIcons'
@@ -89,7 +89,7 @@ class UserBrief extends React.Component {
               toggleDetail={this.toggleDetail.bind(this)}
             />
           )}
-          <SocialSpliter />
+          <SocialSplit />
           <UserDesc>
             <SocialIcons user={user} />
           </UserDesc>

@@ -47,7 +47,7 @@ export const Footer = styled.div`
   font-size: 0.9rem;
 `
 
-export const SetTokenWapper = styled.span`
+export const SetTokenWrapper = styled.span`
   margin-left: 3px;
   margin-right: 3px;
   color: ${theme('banner.desc')};

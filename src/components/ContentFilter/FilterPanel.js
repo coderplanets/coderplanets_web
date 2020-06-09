@@ -12,74 +12,74 @@ import JobSalaryFilter from './JobSalaryFilter'
 import JobExpFilter from './JobExpFilter'
 import JobEducationFilter from './JobEducationFilter'
 import JobFieldFilter from './JobFieldFilter'
-import JobFinaceFilter from './JobFinaceFilter'
+import JobFinanceFilter from './JobFinanceFilter'
 import JobScaleFilter from './JobScaleFilter'
 // video
 import VideoSourceFilter from './VideoSourceFilter'
 
-import { FiltrPanelWrapper } from './styles'
+import { FilterPanelWrapper } from './styles'
 
 const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
   switch (thread) {
     case THREAD.POST:
       return (
-        <FiltrPanelWrapper>
+        <FilterPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
           {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}
-        </FiltrPanelWrapper>
+        </FilterPanelWrapper>
       )
 
     case THREAD.VIDEO:
       return (
-        <FiltrPanelWrapper>
+        <FilterPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <VideoSourceFilter activeFilter={activeFilter} onSelect={onSelect} />
           {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}
-        </FiltrPanelWrapper>
+        </FilterPanelWrapper>
       )
 
     case THREAD.REPO:
       return (
-        <FiltrPanelWrapper>
+        <FilterPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <RepoSortFilter activeFilter={activeFilter} onSelect={onSelect} />
           {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}
-        </FiltrPanelWrapper>
+        </FilterPanelWrapper>
       )
 
     case THREAD.JOB:
       return (
-        <FiltrPanelWrapper>
+        <FilterPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <JobSalaryFilter activeFilter={activeFilter} onSelect={onSelect} />
           <JobExpFilter activeFilter={activeFilter} onSelect={onSelect} />
           <JobEducationFilter activeFilter={activeFilter} onSelect={onSelect} />
           <JobFieldFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobFinaceFilter activeFilter={activeFilter} onSelect={onSelect} />
+          <JobFinanceFilter activeFilter={activeFilter} onSelect={onSelect} />
           <JobScaleFilter activeFilter={activeFilter} onSelect={onSelect} />
           {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}
-        </FiltrPanelWrapper>
+        </FilterPanelWrapper>
       )
 
     default:
       return (
-        <FiltrPanelWrapper>
+        <FilterPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
-        </FiltrPanelWrapper>
+        </FilterPanelWrapper>
       )
   }
 }

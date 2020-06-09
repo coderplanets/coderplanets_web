@@ -9,7 +9,7 @@ const log = buildLog('L:ErrorBox')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.ERR_RESCUE],
+  receive: [EVENT.ERR_RESCUE],
 })
 
 let sub$ = null

@@ -28,7 +28,7 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
   } = store
 
   return (
-    <div data-testid="community-banner">
+    <div testid="community-banner">
       {bannerLayout === C11N.DIGEST ? (
         <DigestView
           community={community}

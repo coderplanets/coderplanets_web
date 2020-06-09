@@ -14,7 +14,7 @@ import {
   Salary,
   Main,
   TopHalf,
-  Breif,
+  Brief,
   Title,
   SecondHalf,
   TagsWrapper,
@@ -30,7 +30,7 @@ const ListView = ({ entry, onPreview }) => (
     <CompanyLogo src={entry.companyLogo} />
     <Main>
       <TopHalf>
-        <Breif onClick={onPreview.bind(this, entry)}>
+        <Brief onClick={onPreview.bind(this, entry)}>
           <Title>
             【 {entry.company} 】{cutFrom(entry.title, 45)}
           </Title>
@@ -45,7 +45,7 @@ const ListView = ({ entry, onPreview }) => (
           <TagsWrapper>
             <InlineTags data={entry.tags} />
           </TagsWrapper>
-        </Breif>
+        </Brief>
         <CommentWrapper>
           <CommentIcon src={`${ICON_CMD}/list_comments.svg`} />
           <CommentNum>

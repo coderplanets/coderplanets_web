@@ -16,10 +16,10 @@ import SearchBox from './SearchBox'
 
 import {
   BannerContainer,
-  IntroWraper,
+  IntroWrapper,
   IntroTitle,
   IntroDesc,
-  SlogenTextWrapper,
+  SloganTextWrapper,
   CreateCommunityLink,
   SearchIcon,
 } from './styles/banner'
@@ -27,9 +27,9 @@ import {
 import { searchOnChange } from './logic'
 
 const SlogenText = dynamic({
-  loader: () => import('./SlogenText'),
+  loader: () => import('./SloganText'),
   // eslint-disable-next-line react/display-name
-  loading: () => <SlogenTextWrapper>心爱的作品</SlogenTextWrapper>,
+  loading: () => <SloganTextWrapper>心爱的作品</SloganTextWrapper>,
   ssr: false,
 })
 /* eslint-disable-next-line */
@@ -47,7 +47,7 @@ const Banner = ({
 }) => {
   return (
     <BannerContainer testid="communities-banner">
-      <IntroWraper>
+      <IntroWrapper>
         <IntroTitle>
           <SearchIcon src={`${ICON_CMD}/search.svg`} />
           寻找你感兴趣的社区
@@ -80,7 +80,7 @@ const Banner = ({
             吧！
           </IntroDesc>
         )}
-      </IntroWraper>
+      </IntroWrapper>
     </BannerContainer>
   )
 }

@@ -4,7 +4,7 @@ import { ICON_CMD } from '@/config'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -13,10 +13,10 @@ import {
 
 const VideoSourceFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/player_play.svg`} />
       <SelectTitle>来源</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
     <SelectItem
       active={activeFilter.source === 'youtube'}

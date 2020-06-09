@@ -41,7 +41,7 @@ const FooterContainer = ({ footer: store }) => {
   const { showSponsor, showBusBanner, curView, accountInfo } = store
 
   return (
-    <Wrapper data-testid="footer">
+    <Wrapper testid="footer">
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
         <BusinessNote />
       </Modal>

@@ -5,7 +5,7 @@ import { FILTER } from '@/constant'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -14,10 +14,10 @@ import {
 
 const ViewedFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/user_been_views.svg`} />
       <SelectTitle>阅读</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
     <SelectItem
       active={activeFilter.read === FILTER.READ}

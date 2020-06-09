@@ -250,7 +250,7 @@ export const deleteComment = () =>
 
 // show delete confirm
 export const onDelete = comment => store.mark({ tobeDeleteId: comment.id })
-export const cancleDelete = () => store.mark({ tobeDeleteId: null })
+export const cancelDelete = () => store.mark({ tobeDeleteId: null })
 
 export const pageChange = (page = 1) => {
   scrollIntoEle('lists-info')

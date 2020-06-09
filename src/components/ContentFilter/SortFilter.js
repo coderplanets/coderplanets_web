@@ -5,7 +5,7 @@ import { FILTER } from '@/constant'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -14,10 +14,10 @@ import {
 
 const SortFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/click.svg`} />
       <SelectTitle>排序</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <SelectItem

@@ -4,7 +4,7 @@ import LABEL_POOL from '@/config/label_pool'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -15,10 +15,10 @@ import {
 
 const JobEducationFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={LABEL_POOL.education.iconSrc} />
       <SelectTitle>学历</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     {LABEL_POOL.education.data.map(item => (

@@ -12,7 +12,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   margin-top: 2px;
 `
-export const HomtPage = styled.div`
+export const HomePage = styled.div`
   ${cs.flex('align-center')};
 `
 export const HomeIcon = styled(Img)`

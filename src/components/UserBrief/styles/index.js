@@ -49,11 +49,11 @@ export const UserDetailDesc = styled(UserDesc)`
   margin-top: 8px;
   font-weight: bold;
 `
-export const DescLable = styled.div`
+export const DescLabel = styled.div`
   min-width: 70px;
   opacity: 0.9;
 `
-export const DescIconLable = styled(Img)`
+export const DescIconLabel = styled(Img)`
   fill: ${theme('banner.desc')};
   width: 16px;
   height: 16px;
@@ -72,13 +72,13 @@ export const BackgroundItem = styled.div`
 export const BackgroundDetailItem = styled(BackgroundItem)`
   margin-bottom: 8px;
 `
-export const DetailToggleLabel = styled(DescIconLable)`
+export const DetailToggleLabel = styled(DescIconLabel)`
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 export const ToggleText = styled.div`
   font-size: 0.9rem;
 `
-export const SocialSpliter = styled.div`
+export const SocialSplit = styled.div`
   border-top: 1px solid;
   border-color: ${theme('banner.desc')};
   margin-top: 4px;

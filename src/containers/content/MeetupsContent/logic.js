@@ -17,7 +17,7 @@ export const changeGalleryType = ({ key: activeGalleryType }) => {
   store.mark({ activeGalleryType })
 }
 
-// const const cancleLoading = () => {}
+// const const cancelLoading = () => {}
 
 // ###############################
 // Data & Error handlers
@@ -28,20 +28,20 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: () => {
-      // cancleLoading()
+      // cancelLoading()
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      // cancleLoading()
+      // cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'MeetupsContent' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      // cancleLoading()
+      // cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'MeetupsContent' })
     },
   },

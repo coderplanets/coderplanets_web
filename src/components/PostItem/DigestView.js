@@ -15,7 +15,7 @@ import {
   LinkIcon,
   Main,
   TopHalf,
-  Breif,
+  Brief,
   Title,
   SecondHalf,
   CommentsDiget,
@@ -52,7 +52,7 @@ const DigestView = ({
       )}
       <Main>
         <TopHalf>
-          <Breif onClick={onPreview.bind(this, entry)}>
+          <Brief onClick={onPreview.bind(this, entry)}>
             <Title>{entry.title}</Title>
             {entry.linkAddr && (
               <TitleLink>
@@ -65,7 +65,7 @@ const DigestView = ({
             <TagListWrapper>
               <InlineTags data={entry.tags} />
             </TagListWrapper>
-          </Breif>
+          </Brief>
           <div>
             <AvatarsRow
               onUserSelect={onUserSelect}

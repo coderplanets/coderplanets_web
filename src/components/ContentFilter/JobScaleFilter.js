@@ -4,7 +4,7 @@ import LABEL_POOL from '@/config/label_pool'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -16,10 +16,10 @@ import {
 
 const JobScaleFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={LABEL_POOL.scale.iconSrc} />
       <SelectTitle>规模</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>

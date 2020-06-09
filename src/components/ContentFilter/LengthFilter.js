@@ -5,7 +5,7 @@ import { FILTER } from '@/constant'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -14,10 +14,10 @@ import {
 
 const LengthFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/ruler.svg`} reverse />
       <SelectTitle>长度</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
     <SelectItem
       active={activeFilter.length === FILTER.MOST_WORDS}

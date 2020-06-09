@@ -11,7 +11,7 @@ const log = buildLog('L:ReposThread')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.REFRESH_REPOS,
     EVENT.PREVIEW_CLOSED,
     EVENT.TABBER_CHANGE,

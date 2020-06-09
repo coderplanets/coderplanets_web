@@ -13,7 +13,7 @@ import { THREAD, C11N } from '@/constant'
 import { Br } from '@/components/Common'
 import { Radio } from '@/components/Switcher'
 
-import { Wrapper, HeaderTitle, Title, Desc, Didiver } from './styles'
+import { Wrapper, HeaderTitle, Title, Desc, Divider } from './styles'
 import { useInit, onC11NChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -61,7 +61,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
             })
           }
         />
-        <Didiver />
+        <Divider />
 
         <Title>文章视图</Title>
         <Desc>
@@ -89,10 +89,10 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
                 })
               }
             />
-            <Didiver />
+            <Divider />
           </React.Fragment>
         ) : (
-          <Didiver />
+          <Divider />
         )}
       </React.Fragment>
 
@@ -164,10 +164,10 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
               })
             }
           />
-          <Didiver />
+          <Divider />
         </React.Fragment>
       ) : (
-        <Didiver />
+        <Divider />
       )}
 
       <Title>显示密度</Title>

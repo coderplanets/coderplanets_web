@@ -9,7 +9,7 @@ const log = buildLog('L:JobContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.REFRESH_JOBS],
+  receive: [EVENT.REFRESH_JOBS],
 })
 
 let sub$ = null

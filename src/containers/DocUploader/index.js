@@ -15,7 +15,7 @@ import { Wrapper, InputFile } from './styles'
 
 import {
   init,
-  uninit,
+  unInit,
   onUploadError,
   getOSSDir,
   getOSSFileName,
@@ -71,7 +71,7 @@ class DocUploaderContainer extends React.Component {
     if (pasteImage) {
       Global.removeEventListener('paste', this.handlePaste.bind(this), true)
     }
-    uninit()
+    unInit()
 
     if (ossScriptLoaded) {
       ossScriptAnchor.removeEventListener('load', () => {

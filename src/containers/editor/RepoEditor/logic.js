@@ -19,7 +19,7 @@ const log = buildLog('L:RepoEditor')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.PREVIEW_CLOSED],
+  receive: [EVENT.PREVIEW_CLOSED],
 })
 
 let sub$ = null
@@ -74,7 +74,7 @@ export const setGithubToken = () => {
   })
 }
 
-const cancleLoading = () =>
+const cancelLoading = () =>
   store.mark({
     searching: false,
     publishing: false,
@@ -100,19 +100,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'RepoEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'RepoEditor' })
     },
   },

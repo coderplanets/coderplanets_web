@@ -4,7 +4,7 @@ import LABEL_POOL from '@/config/label_pool'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -16,10 +16,10 @@ import {
 
 const JobExpFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={LABEL_POOL.exp.iconSrc} />
       <SelectTitle>经验</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>

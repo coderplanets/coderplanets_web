@@ -31,13 +31,13 @@ export const Desc = styled.div`
     margin-bottom: 10px;
   `};
 `
-export const Didiver = styled.div`
+export const Divider = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid;
   border-color: ${theme('preview.sideDivider')};
 `
-export const NomoreDesc = styled.div`
+export const NoMoreDesc = styled.div`
   color: ${theme('banner.desc')};
   font-style: italic;
 `

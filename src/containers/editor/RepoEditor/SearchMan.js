@@ -12,7 +12,7 @@ import {
   FormWrapper,
   Letter,
   Footer,
-  SetTokenWapper,
+  SetTokenWrapper,
   SetTokenIssue,
 } from './styles/search_man'
 
@@ -40,9 +40,9 @@ const SearchMan = ({ value, searching, subView, tokenValue }) => (
     </FormWrapper>
     <Footer>
       若有问题请尝试
-      <SetTokenWapper onClick={changeSubView('token')}>
+      <SetTokenWrapper onClick={changeSubView('token')}>
         重新设置token
-      </SetTokenWapper>
+      </SetTokenWrapper>
       或{' '}
       <SetTokenIssue
         href={`${ISSUE_ADDR}/323`}

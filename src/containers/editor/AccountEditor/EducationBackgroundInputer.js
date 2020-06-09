@@ -9,7 +9,7 @@ import {
   Wrapper,
   Adder,
   FormItemWrapper,
-  FormLable,
+  FormLabel,
   FormInput,
   BackgroundsWrapper,
   BackgroundItem,
@@ -23,7 +23,7 @@ import { addBackground, removeEduBackground, updateBackground } from './logic'
 
 const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
   <FormItemWrapper>
-    <FormLable>{label}</FormLable>
+    <FormLabel>{label}</FormLabel>
 
     <FormInput>
       <FormItem

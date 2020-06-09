@@ -31,7 +31,7 @@ export const CompanyLogo = styled(Img)`
   opacity: ${theme('avatarOpacity')};
   display: block;
 `
-export const Breif = styled.div`
+export const Brief = styled.div`
   ${cs.flex('align-center')};
   flex-grow: 1;
   margin-left: 10px;

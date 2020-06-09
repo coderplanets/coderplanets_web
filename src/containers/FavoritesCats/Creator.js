@@ -14,7 +14,7 @@ import {
   Wrapper,
   EditWrapper,
   FormItemWrapper,
-  FormLable,
+  FormLabel,
   FormInput,
   RadiosWrapper,
   Footer,
@@ -35,7 +35,7 @@ const Creator = ({ data, show, hasLockAuth }) => (
     <SectionLabel title="创建收藏夹" iconSrc={`${ICON_CMD}/edit.svg`} />
     <EditWrapper>
       <FormItemWrapper>
-        <FormLable>标题</FormLable>
+        <FormLabel>标题</FormLabel>
         <FormInput>
           <Input
             size="default"
@@ -46,7 +46,7 @@ const Creator = ({ data, show, hasLockAuth }) => (
         </FormInput>
       </FormItemWrapper>
       <FormItemWrapper>
-        <FormLable>描述</FormLable>
+        <FormLabel>描述</FormLabel>
         <FormInput>
           <Input
             value={data.desc}
@@ -59,7 +59,7 @@ const Creator = ({ data, show, hasLockAuth }) => (
 
       {hasLockAuth && (
         <FormItemWrapper>
-          <FormLable>隐私</FormLable>
+          <FormLabel>隐私</FormLabel>
           <RadiosWrapper>
             <Radio
               items={[

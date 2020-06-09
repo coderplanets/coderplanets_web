@@ -12,7 +12,7 @@ const UpInfo = ({ data }) => (
     <div onClick={toggleLikeComment.bind(this, data)}>
       <Icon
         src={`${ICON_CMD}/arrow-up-o.svg`}
-        viewerDid={data.viewerHasliked}
+        viewerDid={data.viewerHasLiked}
       />
     </div>
     <div>{prettyNum(data.likesCount)}</div>

@@ -13,7 +13,7 @@ import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
 import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'
-import { slipmargin } from '../styles/metric/tabs'
+import { getSlipMargin } from '../styles/metric/tabs'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
@@ -107,7 +107,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
   const translateX = `${tabWidthList
     .slice(0, active)
     .reduce((a, b) => a + b, 0) +
-    slipmargin(size) * active}px`
+    getSlipMargin(size) * active}px`
 
   return (
     <Wrapper testid="tabs">

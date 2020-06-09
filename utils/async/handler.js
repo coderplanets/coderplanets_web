@@ -11,7 +11,7 @@ import { buildLog } from '../logger'
 /* eslint-disable-next-line */
 const log = buildLog('Async')
 
-export const TimoutObservable = of({
+export const TimeoutObservable = of({
   error: ERR.TIMEOUT,
   details: `server has no-response in ${Math.round(
     (TIMEOUT_THRESHOLD / 1000) * 100

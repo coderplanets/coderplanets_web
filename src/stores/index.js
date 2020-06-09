@@ -13,7 +13,7 @@ export { default as SidebarStore } from '@/containers/Sidebar/store'
 export { default as PreviewStore } from '@/containers/Preview/store'
 export { default as DoraemonStore } from '@/containers/Doraemon/store'
 export { default as HeaderStore } from '@/containers/Header/store'
-export { default as UpgradePackgesStore } from '@/containers/UpgradePackges/store'
+export { default as UpgradePackagesStore } from '@/containers/UpgradePackages/store'
 export { default as MailBoxStore } from '@/containers/MailBox/store'
 export { default as AvatarAdderStore } from '@/containers/AvatarAdder/store'
 

@@ -5,7 +5,7 @@ import { FILTER } from '@/constant'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -14,10 +14,10 @@ import {
 
 const TimeFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/duration.svg`} />
       <SelectTitle>时间</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
     <SelectItem
       active={activeFilter.when === FILTER.TODAY}

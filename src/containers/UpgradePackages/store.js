@@ -1,5 +1,5 @@
 /*
- * UpgradePackges store
+ * UpgradePackages store
  *
  */
 
@@ -8,9 +8,9 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:UpgradePackges')
+const log = buildLog('S:UpgradePackages')
 
-const UpgradePackges = T.model('UpgradePackges', {
+const UpgradePackages = T.model('UpgradePackages', {
   show: T.optional(T.boolean, false),
 })
   .views(self => ({
@@ -39,4 +39,4 @@ const UpgradePackges = T.model('UpgradePackges', {
     },
   }))
 
-export default UpgradePackges
+export default UpgradePackages

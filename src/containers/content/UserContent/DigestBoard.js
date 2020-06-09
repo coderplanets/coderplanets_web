@@ -11,7 +11,7 @@ import AchieveCard from './AchieveCard'
 import NumbersCard from './NumbersCard'
 import SourceContributeInfo from './SourceContributeInfo'
 
-import { CardWrapper, AttactWrapper, AttactIcon } from './styles/digest_board'
+import { CardWrapper, AttachWrapper, AttachIcon } from './styles/digest_board'
 
 import * as logic from './logic'
 
@@ -40,40 +40,40 @@ const DigestBoard = ({ user, accountId, following }) => (
       />
     </CardWrapper>
 
-    <AttactWrapper>
-      <AttactIcon src={`${ICON_CMD}/join_at.svg`} />第 {user.id} 位会员{' '}
+    <AttachWrapper>
+      <AttachIcon src={`${ICON_CMD}/join_at.svg`} />第 {user.id} 位会员{' '}
       <DotDivider /> 加入时间:
       <Space right="5px" />
       <TimeAgo datetime={user.insertedAt} locale="zh_CN" />
-    </AttactWrapper>
+    </AttachWrapper>
 
-    <AttactWrapper>
-      <AttactIcon src={`${ICON_CMD}/user_been_views.svg`} />
+    <AttachWrapper>
+      <AttachIcon src={`${ICON_CMD}/user_been_views.svg`} />
       主页被浏览 {user.views} 次
-    </AttactWrapper>
+    </AttachWrapper>
 
     {anyTrue(user.achievement.sourceContribute) && (
       <SourceContributeInfo data={user.achievement.sourceContribute} />
     )}
 
     {user.achievement.donateMember && !user.achievement.seniorMember && (
-      <AttactWrapper>
-        <AttactIcon src={`${ICON_CMD}/member_donor.svg`} />
+      <AttachWrapper>
+        <AttachIcon src={`${ICON_CMD}/member_donor.svg`} />
         <div>热心打赏</div>
-      </AttactWrapper>
+      </AttachWrapper>
     )}
 
     {user.achievement.seniorMember && (
-      <AttactWrapper>
-        <AttactIcon src={`${ICON_CMD}/member_senior.svg`} />
+      <AttachWrapper>
+        <AttachIcon src={`${ICON_CMD}/member_senior.svg`} />
         <div>CPS 会员</div>
-      </AttactWrapper>
+      </AttachWrapper>
     )}
     {user.achievement.sponsorMember && (
-      <AttactWrapper>
-        <AttactIcon src={`${ICON_CMD}/member_sponsor.svg`} />
+      <AttachWrapper>
+        <AttachIcon src={`${ICON_CMD}/member_sponsor.svg`} />
         <div>特别赞助</div>
-      </AttactWrapper>
+      </AttachWrapper>
     )}
   </React.Fragment>
 )

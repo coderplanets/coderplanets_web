@@ -10,7 +10,7 @@ const log = buildLog('L:CommunitySetter')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.COMMUNITY_MIRROR],
+  receive: [EVENT.COMMUNITY_MIRROR],
 })
 
 let sub$ = null
@@ -105,20 +105,20 @@ const ErrSolver = [
     match: asyncErr(ERR.GRAPHQL),
     action: err => {
       log(err)
-      // cancleLoading()
+      // cancelLoading()
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      // cancleLoading()
+      // cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'CommunitySetter' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      // cancleLoading()
+      // cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'CommunitySetter' })
     },
   },

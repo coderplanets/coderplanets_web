@@ -5,7 +5,7 @@ import { FILTER } from '@/constant'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   LeftAlignWrapper,
   SelectIcon,
@@ -15,10 +15,10 @@ import {
 
 const RepoSortFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/click.svg`} />
       <SelectTitle>排序</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper offset="10px">

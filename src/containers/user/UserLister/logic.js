@@ -12,7 +12,7 @@ const log = buildLog('L:UserLister')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.USER_LISTER_OPEN],
+  receive: [EVENT.USER_LISTER_OPEN],
 })
 
 let sub$ = null

@@ -94,7 +94,7 @@ export const InputBar = styled.input`
   border-radius: 0;
   transition: all 400ms ease;
 `
-export const ContentWraper = styled.div`
+export const ContentWrapper = styled.div`
   text-align: left;
   flex-grow: 1;
   max-width: 80%;

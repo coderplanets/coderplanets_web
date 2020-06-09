@@ -6,7 +6,7 @@ import { asyncSuit, buildLog } from '@/utils'
 /* import S from './schema' */
 
 /* eslint-disable-next-line */
-const log = buildLog('L:UpgradePackges')
+const log = buildLog('L:UpgradePackages')
 
 const { SR71, $solver } = asyncSuit
 const sr71$ = new SR71()

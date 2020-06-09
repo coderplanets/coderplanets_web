@@ -26,7 +26,7 @@ import {
   ViewIcon,
   Main,
   TopHalf,
-  Breif,
+  Brief,
   Title,
   SecondHalf,
   BodyDigest,
@@ -55,11 +55,11 @@ const VideoItem = ({ entry, active, onPreview, accountInfo }) => (
     </PosterWrapper>
     <Main>
       <TopHalf>
-        <Breif onClick={onPreview.bind(this, entry)}>
+        <Brief onClick={onPreview.bind(this, entry)}>
           <Title>{entry.title}</Title>
           <VideoSourceInfo value={entry.source} />
           <InlineTags data={entry.tags} />
-        </Breif>
+        </Brief>
       </TopHalf>
 
       <SecondHalf>

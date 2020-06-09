@@ -113,7 +113,7 @@ import S from './schema'
 
 // 5. init aysnc
 const sr71$ = new SR71({
-  recieve: [EVENT.REFRESH_POSTS],
+  receive: [EVENT.REFRESH_POSTS],
 })
 
 // 6. init store

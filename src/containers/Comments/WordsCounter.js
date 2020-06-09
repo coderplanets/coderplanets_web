@@ -5,7 +5,7 @@ import { WORD_LIMIT } from '@/config'
 // import { Wrapper } from './styles'
 import {
   Wrapper,
-  CounterSpliter,
+  CounterSplit,
   CounterCur,
   CounterTotal,
 } from './styles/words_counter'
@@ -13,7 +13,7 @@ import {
 const WordsCounter = ({ countCurrent }) => (
   <Wrapper>
     <CounterCur num={countCurrent}>{countCurrent}</CounterCur>
-    <CounterSpliter>/</CounterSpliter>
+    <CounterSplit>/</CounterSplit>
     <CounterTotal>{WORD_LIMIT.COMMENT}</CounterTotal>
   </Wrapper>
 )

@@ -12,7 +12,7 @@ import {
   LinkIcon,
   Main,
   TopHalf,
-  Breif,
+  Brief,
   Title,
   SecondHalf,
   Extra,
@@ -27,7 +27,7 @@ const ListView = ({ entry, onPreview }) => (
     <SmallAvatar src={entry.author.avatar} />
     <Main>
       <TopHalf>
-        <Breif onClick={onPreview.bind(this, entry)}>
+        <Brief onClick={onPreview.bind(this, entry)}>
           <Title>{cutFrom(entry.title, 45)}</Title>
           {entry.linkAddr && (
             <TitleLink>
@@ -38,7 +38,7 @@ const ListView = ({ entry, onPreview }) => (
             </TitleLink>
           )}
           <InlineTags data={entry.tags} />
-        </Breif>
+        </Brief>
         <CommentWrapper>
           <CommentIcon src={`${ICON_CMD}/list_comments.svg`} />
           <CommentNum>

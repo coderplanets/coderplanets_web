@@ -36,7 +36,7 @@ export const Divider = styled.div`
   width: 55%;
   margin-bottom: 20px;
 `
-export const PublishBtns = styled.div`
+export const PublishButtons = styled.div`
   width: 50%;
   text-align: center;
 `

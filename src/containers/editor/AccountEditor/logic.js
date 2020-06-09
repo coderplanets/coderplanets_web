@@ -87,7 +87,7 @@ export const updateConfirm = () => {
   sr71$.mutate(S.updateProfile, args)
 }
 
-export const cancleEdit = () => send(EVENT.PREVIEW_CLOSE)
+export const cancelEdit = () => send(EVENT.PREVIEW_CLOSE)
 
 export const updateDone = () => {
   const editing = cast(updateFields, store.editUserData)
@@ -97,7 +97,7 @@ export const updateDone = () => {
 export const toggleSocials = () =>
   store.mark({ showSocials: !store.showSocials })
 
-const cancleLoading = () => store.mark({ updating: false })
+const cancelLoading = () => store.mark({ updating: false })
 
 // ###############################
 // Data & Error handlers
@@ -109,7 +109,7 @@ const DataSolver = [
     action: () => {
       meteorState(store, 'success', 3)
       updateDone()
-      cancleLoading()
+      cancelLoading()
     },
   },
 ]
@@ -117,19 +117,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'AccountEditor' })
     },
   },

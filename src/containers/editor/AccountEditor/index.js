@@ -30,7 +30,7 @@ import {
   useInit,
   goBack,
   inputOnChange,
-  cancleEdit,
+  cancelEdit,
   updateConfirm,
 } from './logic'
 
@@ -105,7 +105,7 @@ const AccountEditorContainer = ({ accountEditor: store }) => {
 
         <Divider />
         <ActionBtns>
-          <Button type="primary" ghost onClick={cancleEdit}>
+          <Button type="primary" ghost onClick={cancelEdit}>
             取消
           </Button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

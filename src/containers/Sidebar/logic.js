@@ -19,7 +19,7 @@ const log = buildLog('L:Sidebar')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
+  receive: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
 })
 
 let store = null

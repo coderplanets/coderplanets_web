@@ -7,7 +7,7 @@ import S from './schema'
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.REFRESH_POSTS],
+  receive: [EVENT.REFRESH_POSTS],
 })
 
 let sub$ = null

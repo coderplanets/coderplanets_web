@@ -20,11 +20,11 @@ const log = buildLog('C:AvatarAdder')
 const AvatarAdderContainer = ({ avatarAdder: store, onConfirm }) => {
   useInit(store)
 
-  const { popoverVisiable, githubUserData, searching, searchValue } = store
+  const { popoverVisible, githubUserData, searching, searchValue } = store
 
   return (
     <Tooltip
-      visible={popoverVisiable}
+      visible={popoverVisible}
       content={
         <AdderPanel
           user={githubUserData}

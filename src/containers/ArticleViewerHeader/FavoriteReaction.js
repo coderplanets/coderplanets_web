@@ -18,7 +18,7 @@ import {
 
 import { onReaction, onListReactionUsers } from './logic'
 
-const FavoriteReation = ({ data, thread, show, loading }) => (
+const FavoriteReaction = ({ data, thread, show, loading }) => (
   <Maybe test={show}>
     <Reaction>
       <ReactionAction
@@ -54,7 +54,7 @@ const FavoriteReation = ({ data, thread, show, loading }) => (
   </Maybe>
 )
 
-FavoriteReation.propTypes = {
+FavoriteReaction.propTypes = {
   thread: T.oneOf(values(THREAD)),
   data: T.shape({
     id: T.string,
@@ -66,10 +66,10 @@ FavoriteReation.propTypes = {
   loading: T.bool,
 }
 
-FavoriteReation.defaultProps = {
+FavoriteReaction.defaultProps = {
   thread: THREAD.POST,
   show: true,
   loading: false,
 }
 
-export default React.memo(FavoriteReation)
+export default React.memo(FavoriteReaction)

@@ -8,7 +8,7 @@ import { ICON_CMD } from '@/config'
 import SeniorPlan from './SeniorPlan'
 import SponsorPlan from './SponsorPlan'
 import GirlsCodeTooPlan from './GirlsCodeTooPlan'
-import TipingDevsPlan from './TipingDevsPlan'
+import TipsForDeveloperPlan from './TipsForDeveloperPlan'
 
 import { PlanDivider } from './styles/upgrade_menu'
 
@@ -37,7 +37,7 @@ const UpgradeMenu = ({ achievement }) => (
     <PlanDivider />
     <GirlsCodeTooPlan joined={achievement.seniorMember} />
     <PlanDivider hide={achievement.seniorMember} />
-    <TipingDevsPlan />
+    <TipsForDeveloperPlan />
   </React.Fragment>
 )
 

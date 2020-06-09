@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import UpgradePackges from '../index'
+// import UpgradePackages from '../index'
 
-describe('TODO <UpgradePackges />', () => {
+describe('TODO <UpgradePackages />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

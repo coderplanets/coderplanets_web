@@ -41,7 +41,7 @@ const JobItem = ({
       <ArticleItemPrefixLabel
         entry={entry}
         accountInfo={accountInfo}
-        topoffset="9px"
+        topOffset="9px"
       />
       {contentsLayout === C11N.DIGEST ? (
         <DigestView

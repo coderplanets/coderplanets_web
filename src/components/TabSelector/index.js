@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { buildLog } from '@/utils'
 import {
   Wrapper,
-  OptisonsWrapper,
+  OptionsWrapper,
   Option,
   Icon,
   Title,
@@ -22,7 +22,7 @@ const log = buildLog('c:TabSelector:index')
 
 const TabSelector = ({ source, activeRaw, onChange }) => (
   <Wrapper>
-    <OptisonsWrapper>
+    <OptionsWrapper>
       {source.map(opt => (
         <Option
           key={opt.raw}
@@ -36,7 +36,7 @@ const TabSelector = ({ source, activeRaw, onChange }) => (
           </Title>
         </Option>
       ))}
-    </OptisonsWrapper>
+    </OptionsWrapper>
     <HeaderDivider />
   </Wrapper>
 )

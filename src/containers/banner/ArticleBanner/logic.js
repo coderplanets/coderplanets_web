@@ -11,7 +11,7 @@ const log = buildLog('L:ArticleBanner')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.REFRESH_REACTIONS],
+  receive: [EVENT.REFRESH_REACTIONS],
 })
 
 let sub$ = null

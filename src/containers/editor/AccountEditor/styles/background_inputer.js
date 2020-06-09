@@ -10,7 +10,7 @@ export const FormItemWrapper = styled.div`
   ${cs.flex()};
   margin-bottom: 20px;
 `
-export const FormLable = styled.div`
+export const FormLabel = styled.div`
   text-align: right;
   font-size: 0.9rem;
   color: ${theme('form.label')};

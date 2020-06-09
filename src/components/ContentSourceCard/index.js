@@ -11,7 +11,7 @@ import { buildLog } from '@/utils'
 import CommunityList from '@/components/CommunityList'
 
 import UserList from './UserList'
-import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
+import { Wrapper, Divider, Title, Desc, NoMoreDesc } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ContentSourceCard:index')
@@ -24,7 +24,7 @@ const ContentSourceCard = ({
     <Desc>
       <CommunityList
         items={communities}
-        emptyHint={<NomoreDesc>不属于任何社区</NomoreDesc>}
+        emptyHint={<NoMoreDesc>不属于任何社区</NoMoreDesc>}
       />
     </Desc>
 

@@ -18,7 +18,7 @@ const log = buildLog('L:JobsThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.REFRESH_JOBS,
     EVENT.PREVIEW_CLOSED,
     EVENT.TABBER_CHANGE,

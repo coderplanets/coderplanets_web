@@ -14,11 +14,11 @@ import ReadLabel from './ReadLabel'
 /* eslint-disable-next-line */
 const log = buildLog('c:ArticleItemPrefixLabel:index')
 
-const ArticleItemPrefixLabel = ({ entry, accountInfo, topoffset }) => {
-  if (entry.pin) return <PinIcon topoffset={topoffset} />
+const ArticleItemPrefixLabel = ({ entry, accountInfo, topOffset }) => {
+  if (entry.pin) return <PinIcon topOffset={topOffset} />
 
   return (
-    <ReadLabel entry={entry} accountInfo={accountInfo} topoffset={topoffset} />
+    <ReadLabel entry={entry} accountInfo={accountInfo} topOffset={topOffset} />
   )
 }
 
@@ -33,11 +33,11 @@ ArticleItemPrefixLabel.propTypes = {
     viewerHasViewed: T.bool,
     pin: T.bool,
   }).isRequired,
-  topoffset: T.string,
+  topOffset: T.string,
 }
 
 ArticleItemPrefixLabel.defaultProps = {
-  topoffset: '14px',
+  topOffset: '14px',
 }
 
 export default React.memo(ArticleItemPrefixLabel)

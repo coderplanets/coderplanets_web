@@ -28,7 +28,7 @@ const animate = {
   },
 }
 
-const Header2 = ({ index, themeName }) => {
+const HeaderComp = ({ index, themeName }) => {
   return (
     <AnimateOnChange {...animate.fade}>
       <Header>
@@ -40,4 +40,4 @@ const Header2 = ({ index, themeName }) => {
   )
 }
 
-export default React.memo(Header2)
+export default React.memo(HeaderComp)

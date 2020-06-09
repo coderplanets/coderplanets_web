@@ -16,7 +16,7 @@ export const HeaderMailIcon = styled(HeaderMailSVG)`
   cursor: pointer;
   margin-right: 12px;
 `
-export const NofityDot = styled.div`
+export const NotifyDot = styled.div`
   position: absolute;
   display: ${({ active }) => (active ? 'block' : 'none')};
   width: 8px;

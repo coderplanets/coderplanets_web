@@ -8,7 +8,7 @@ import React, { useCallback } from 'react'
 import T from 'prop-types'
 import { compose, not, isNil, filter, reverse, slice } from 'ramda'
 
-import { ATATARS_LIST_LENGTH } from '@/config'
+import { AVATARS_LIST_LENGTH } from '@/config'
 import { buildLog, o2s, s2o } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
@@ -117,7 +117,7 @@ AvatarsRow.propTypes = {
 AvatarsRow.defaultProps = {
   height: '32px',
   users: [],
-  limit: ATATARS_LIST_LENGTH.POSTS,
+  limit: AVATARS_LIST_LENGTH.POSTS,
   onUserSelect: log,
   onTotalSelect: log,
   showTotalNumber: false,

@@ -11,7 +11,7 @@ import {
   timeoutWith,
 } from 'rxjs/operators'
 
-import { TimoutObservable } from './handler'
+import { TimeoutObservable } from './handler'
 import { TIMEOUT_THRESHOLD } from './setup'
 
 import { queryPromise, mutatePromise, restGetPromise } from './methods'
@@ -19,20 +19,20 @@ import { queryPromise, mutatePromise, restGetPromise } from './methods'
 // import { debounceTime, switchMap, merge, timeoutWith } from 'rxjs/operator'
 
 class SR71 {
-  constructor(opts = { recieve: '' }) {
+  constructor(opts = { receive: '' }) {
     this.getInput$ = new Subject()
     this.queryInput$ = new Subject()
     this.mutateInput$ = new Subject()
     this.stop$ = new Subject()
     this.eventInput$ = new Subject()
-    this.recieve = opts.recieve
+    this.receive = opts.receive
 
     this.initEventSubscription()
     this.query$ = this.queryInput$.pipe(
       debounce(() => timer(300)),
       switchMap(q =>
         queryPromise(q).pipe(
-          timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),
+          timeoutWith(TIMEOUT_THRESHOLD, TimeoutObservable),
           takeUntil(this.stop$)
         )
       )
@@ -42,7 +42,7 @@ class SR71 {
       debounce(() => timer(300)),
       switchMap(q =>
         mutatePromise(q).pipe(
-          timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),
+          timeoutWith(TIMEOUT_THRESHOLD, TimeoutObservable),
           takeUntil(this.stop$)
         )
       )
@@ -52,7 +52,7 @@ class SR71 {
       debounce(() => timer(300)),
       switchMap(q =>
         restGetPromise(q).pipe(
-          timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),
+          timeoutWith(TIMEOUT_THRESHOLD, TimeoutObservable),
           takeUntil(this.stop$)
         )
       )
@@ -67,12 +67,12 @@ class SR71 {
 
   // Private
   initEventSubscription() {
-    if (Array.isArray(this.recieve)) {
+    if (Array.isArray(this.receive)) {
       forEach(event => {
         this.subscriptEvent(event)
-      }, this.recieve)
+      }, this.receive)
     } else {
-      this.subscriptEvent(this.recieve)
+      this.subscriptEvent(this.receive)
     }
   }
 

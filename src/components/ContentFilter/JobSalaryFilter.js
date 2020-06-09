@@ -5,7 +5,7 @@ import LABEL_POOL from '@/config/label_pool'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -17,10 +17,10 @@ import {
 
 const JobSalaryFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/money_frame.svg`} />
       <SelectTitle>月薪</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>

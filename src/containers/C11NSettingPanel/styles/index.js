@@ -30,7 +30,7 @@ export const Desc = styled.div`
   margin-bottom: 10px;
   opacity: 0.5;
 `
-export const Didiver = styled.div`
+export const Divider = styled.div`
   margin: 25px 0;
   width: 100%;
 `

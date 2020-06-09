@@ -11,7 +11,7 @@ import { uid } from '@/utils'
 import MarkDownStyle from '@/containers/ThemeWrapper/MarkDownStyle'
 
 import fullEmojis from './emojis'
-import { Wrapper, EmojiWraper, EmojiItem } from './styles/markdown_helper'
+import { Wrapper, EmojiWrapper, EmojiItem } from './styles/markdown_helper'
 
 const md = new Remarkable()
 md.use(mentions({ url: MENTION_USER_ADDR }))
@@ -24,7 +24,7 @@ const Emojis = () => {
   const source = filter(notTooLong, keys(fullEmojis))
 
   return (
-    <EmojiWraper>
+    <EmojiWrapper>
       <MarkDownStyle>
         <div
           className="markdown-body"
@@ -44,7 +44,7 @@ const Emojis = () => {
           ))}
         </div>
       </MarkDownStyle>
-    </EmojiWraper>
+    </EmojiWrapper>
   )
 }
 

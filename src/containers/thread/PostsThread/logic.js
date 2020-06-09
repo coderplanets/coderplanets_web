@@ -27,7 +27,7 @@ const log = buildLog('L:PostsThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.REFRESH_POSTS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,

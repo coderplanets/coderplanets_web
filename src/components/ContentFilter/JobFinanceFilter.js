@@ -4,7 +4,7 @@ import LABEL_POOL from '@/config/label_pool'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -14,12 +14,12 @@ import {
 
 // import { uid } from '@/utils'
 
-const JobFinaceFilter = ({ activeFilter, onSelect }) => (
+const JobFinanceFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={LABEL_POOL.finance.iconSrc} />
       <SelectTitle>融资</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>
@@ -36,4 +36,4 @@ const JobFinaceFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default React.memo(JobFinaceFilter)
+export default React.memo(JobFinanceFilter)

@@ -32,7 +32,7 @@ export const FormItemWrapper = styled.div`
   margin-bottom: ${({ bottom }) => bottom};
   width: 100%;
 `
-export const FormLable = styled.div`
+export const FormLabel = styled.div`
   font-size: 0.9rem;
   color: ${({ error }) =>
     error ? theme('baseColor.error') : theme('form.label')};

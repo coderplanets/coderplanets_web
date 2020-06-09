@@ -15,7 +15,7 @@ import {
 
 import { sponsorHepler } from './logic'
 
-const TipingDevsPlan = () => (
+const TipsForDeveloperPlan = () => (
   <Wrapper>
     <PlanTitle>打赏开发者</PlanTitle>
     <PlanDesc>
@@ -35,4 +35,4 @@ const TipingDevsPlan = () => (
   </Wrapper>
 )
 
-export default React.memo(TipingDevsPlan)
+export default React.memo(TipsForDeveloperPlan)

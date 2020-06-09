@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { AnimateOnChange } from 'react-animation'
 
-import { SlogenTextWrapper } from './styles/banner'
+import { SloganTextWrapper } from './styles/banner'
 
 const coolThings = ['心爱的作品', '骄傲的团队', '沉淀的知识']
 const SWITCH_INTERVAL = 3000
@@ -42,9 +42,9 @@ const SlogenText = () => {
   return (
     <React.Fragment>
       <AnimateOnChange durationOut={500}>
-        <SlogenTextWrapper highlight onClick={fixAnimationStockIfNeed}>
+        <SloganTextWrapper highlight onClick={fixAnimationStockIfNeed}>
           {coolThings[index]}
-        </SlogenTextWrapper>
+        </SloganTextWrapper>
       </AnimateOnChange>
     </React.Fragment>
   )

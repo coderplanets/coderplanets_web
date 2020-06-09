@@ -80,7 +80,7 @@ export const init = _store => {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export const uninit = () => {
+export const unInit = () => {
   if (!sub$) return false
   log('===== do uninit')
   sr71$.stop()

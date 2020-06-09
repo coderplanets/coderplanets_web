@@ -11,7 +11,7 @@ export const CardWrapper = styled.div`
   min-height: 100px;
   margin-bottom: 15px;
 `
-export const AttactWrapper = styled.div`
+export const AttachWrapper = styled.div`
   ${cs.flex('align-center')};
   font-size: 0.8rem;
   color: ${theme('banner.desc')};
@@ -19,7 +19,7 @@ export const AttactWrapper = styled.div`
   margin-bottom: 4px;
 `
 
-export const AttactIcon = styled(Img)`
+export const AttachIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-right: 5px;
   height: 15px;
@@ -27,7 +27,7 @@ export const AttactIcon = styled(Img)`
   display: block;
 `
 
-export const AttactLink = styled.a`
+export const AttachLink = styled.a`
   text-decoration: underline;
   font-weight: bolder;
   transition: color 0.3s;

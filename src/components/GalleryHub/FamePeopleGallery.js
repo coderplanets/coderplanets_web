@@ -27,7 +27,7 @@ import {
   EduWrapper,
   ExpIcon,
   Footer,
-  UpvoteInfo,
+  VoteInfo,
   ViewInfo,
   UpVoteIcon,
   ViewIcon,
@@ -119,10 +119,10 @@ const FamePeopleList = ({ items }) => {
           </ExpWrapper>
 
           <Footer>
-            <UpvoteInfo>
+            <VoteInfo>
               <UpVoteIcon src={`${ICON_CMD}/arrow-up-o.svg`} />
               <Number>22</Number>
-            </UpvoteInfo>
+            </VoteInfo>
             <ViewInfo>
               <ViewIcon src={`${ICON_CMD}/view-o.svg`} />
               <Number>4743</Number>

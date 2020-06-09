@@ -12,7 +12,7 @@ const log = buildLog('L:FavoritesCats')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.SET_FAVORITE_CONTENT],
+  receive: [EVENT.SET_FAVORITE_CONTENT],
 })
 
 let sub$ = null

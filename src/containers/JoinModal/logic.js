@@ -5,7 +5,7 @@ import { asyncSuit, buildLog } from '@/utils'
 
 const { SR71, asyncRes, $solver } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.JOIN_US],
+  receive: [EVENT.JOIN_US],
 })
 
 let store = null

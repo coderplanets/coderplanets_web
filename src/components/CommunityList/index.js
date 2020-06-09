@@ -17,9 +17,9 @@ import {
   Logo,
   PopoverInfo,
   PopCommunityLogo,
-  PopCommnityInfo,
-  PopCommnityTitle,
-  PopCommnityDesc,
+  PopCommunityInfo,
+  PopCommunityTitle,
+  PopCommunityDesc,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -39,10 +39,10 @@ const CommunityList = ({ items, size, bottom, emptyHint }) => {
           content={
             <PopoverInfo>
               <PopCommunityLogo src={community.logo} />
-              <PopCommnityInfo>
-                <PopCommnityTitle>{community.title}</PopCommnityTitle>
-                <PopCommnityDesc>{community.desc}</PopCommnityDesc>
-              </PopCommnityInfo>
+              <PopCommunityInfo>
+                <PopCommunityTitle>{community.title}</PopCommunityTitle>
+                <PopCommunityDesc>{community.desc}</PopCommunityDesc>
+              </PopCommunityInfo>
             </PopoverInfo>
           }
         >

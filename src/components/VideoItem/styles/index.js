@@ -77,7 +77,7 @@ export const SecondHalf = styled.ul`
   margin-top: -10px;
   flex-grow: 1;
 `
-export const Breif = styled.div`
+export const Brief = styled.div`
   ${cs.flexGrow('align-center')};
   margin-left: 10px;
   margin-bottom: 10px;

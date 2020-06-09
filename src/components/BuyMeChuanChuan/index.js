@@ -13,7 +13,7 @@ import { buildLog } from '@/utils'
 import Modal from '@/components/Modal'
 import UserCell from '@/components/UserCell'
 
-import UnloginNote from './UnloginNote'
+import UnLoginNote from './UnLoginNote'
 import ChuanSelector from './ChuanSelector'
 import PaymentFooter from './PaymentFooter'
 
@@ -44,7 +44,7 @@ const BuyMeChuanChuan = ({ show, accountInfo, onClose, onLogin, onPay }) => {
           {accountInfo.isLogin ? (
             <UserCell user={accountInfo} />
           ) : (
-            <UnloginNote onLogin={onLogin} />
+            <UnLoginNote onLogin={onLogin} />
           )}
         </Header>
         <BuyChuanChuan>

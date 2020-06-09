@@ -17,7 +17,7 @@ export const FormItemWrapper = styled.div`
   ${cs.flex()};
   margin-bottom: 20px;
 `
-export const FormLable = styled.div`
+export const FormLabel = styled.div`
   font-size: 0.9rem;
   color: ${theme('form.label')};
   margin-right: 15px;

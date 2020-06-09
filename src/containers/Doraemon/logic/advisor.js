@@ -100,7 +100,7 @@ export class Advisor {
     this.suggestionPathThenStartsWith
   )
 
-  suggestionBreif = compose(
+  suggestionBrief = compose(
     values,
     map(pick(['title', 'desc', 'raw', 'logo', 'cmd'])),
     this.walkSuggestion
@@ -109,7 +109,7 @@ export class Advisor {
   getSuggestion = ifElse(
     compose(startsWith('/'), tail), // avoid multi /, like /////
     () => identity([]),
-    this.suggestionBreif
+    this.suggestionBrief
   )
 
   relateSuggestions = val => {

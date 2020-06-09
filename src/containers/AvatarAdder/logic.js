@@ -29,7 +29,7 @@ export const adderOnConfirm = curry((user, cb, e) => {
   store.mark({
     searching: false,
     githubUser: null,
-    popoverVisiable: false,
+    popoverVisible: false,
   })
 
   cb(user)
@@ -45,7 +45,7 @@ export const onPopoverVisible = visable => {
       githubUser: null,
     })
   }
-  store.mark({ popoverVisiable: visable })
+  store.mark({ popoverVisible: visable })
 }
 
 // ###############################

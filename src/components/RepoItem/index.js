@@ -28,7 +28,7 @@ const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
     <ArticleItemPrefixLabel
       entry={entry}
       accountInfo={accountInfo}
-      topoffset="22px"
+      topOffset="22px"
     />
     <Header entry={entry} onPreview={onPreview.bind(this, entry)} />
     <BodyDigest>{cutFrom(entry.desc, 180)}</BodyDigest>

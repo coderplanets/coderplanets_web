@@ -160,7 +160,7 @@ import Editor from './Editor'
 import { Wrapper, ViewerWrapper } from './styles'
 
 import { connectStore, buildLog } from '@/utils'
-import { useInit, changeView, onPublish, canclePublish } from './logic'
+import { useInit, changeView, onPublish, cancelPublish } from './logic'
 
 const PostEditorContainer = ({ postEditor: store, attachment }) =>{
   useInit(store)
@@ -179,7 +179,7 @@ const PostEditorContainer = ({ postEditor: store, attachment }) =>{
       <ArticleEditFooter
         isEdit={isEdit}
         statusMsg={statusMsg}
-        onCancle={canclePublish}
+        onCancel={cancelPublish}
         onPublish={onPublish}
       />
     </Wrapper>
@@ -297,11 +297,11 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => cancleLoading(),
+    action: ({ details }) => cancelLoading(),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => cancleLoading(),
+    action: ({ details }) => cancelLoading(),
   },
 ]
 

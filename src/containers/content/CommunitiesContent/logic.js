@@ -17,7 +17,7 @@ const log = buildLog('L:CommunitiesContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.LOGOUT, EVENT.LOGIN],
+  receive: [EVENT.LOGOUT, EVENT.LOGIN],
 })
 
 let store = null
@@ -122,8 +122,8 @@ export const unSubscribe = id => {
   })
 }
 
-/* when error occured cancle all the loading state */
-const cancleLoading = () =>
+/* when error occured cancel all the loading state */
+const cancelLoading = () =>
   store.mark({
     subscribing: false,
     searching: false,
@@ -170,19 +170,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       errRescue({ type: ERR.TIMEOUT, details, path: 'CommunitiesContent' })
-      cancleLoading()
+      cancelLoading()
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'CommunitiesContent' })
     },
   },

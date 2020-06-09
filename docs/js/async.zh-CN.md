@@ -29,7 +29,7 @@ const DataSolver = [
     match: asyncRes('updateProfile'),
     action: () => {
       updateDone()
-      cancleLoading()
+      cancelLoading()
     },
   },
 ]
@@ -41,7 +41,7 @@ const DataSolver = [
 
 ```js
 const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.PREVIEW_OPEN,
     EVENT.PREVIEW_CLOSE,
     EVENT.UPLOAD_IMG_START,
@@ -94,19 +94,19 @@ const sr71$ = new SR71({
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'AccountEditor' })
     },
   },

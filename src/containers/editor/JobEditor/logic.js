@@ -87,8 +87,8 @@ export const onPublish = () => {
   sr71$.mutate(S.createJob, variables)
 }
 
-export const canclePublish = () => {
-  cancleLoading()
+export const cancelPublish = () => {
+  cancelLoading()
   // store.reset()
   closePreviewer()
 }
@@ -128,7 +128,7 @@ const openAttachment = att => {
 const doneCleanUp = () => {
   closePreviewer()
   store.reset()
-  cancleLoading()
+  cancelLoading()
 }
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
@@ -150,7 +150,7 @@ const saveDraftIfNeed = content => {
 const clearDraft = () => BStore.set('recentDraft', '')
 
 const publishing = (maybe = true) => store.mark({ publishing: maybe })
-const cancleLoading = () => store.mark({ publishing: false })
+const cancelLoading = () => store.mark({ publishing: false })
 
 // ###############################
 // Data & Error handlers
@@ -198,19 +198,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => cancleLoading(),
+    action: () => cancelLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'JobEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'JobEditor' })
     },
   },

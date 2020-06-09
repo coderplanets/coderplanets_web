@@ -140,20 +140,20 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: () => {
-      // cancleLoading()
+      // cancelLoading()
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      // cancleLoading()
+      // cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'HaveADrinkContent' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      // cancleLoading()
+      // cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'HaveADrinkContent' })
     },
   },

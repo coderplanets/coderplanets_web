@@ -1,4 +1,4 @@
-export const slipmargin = size => {
+export const getSlipMargin = size => {
   switch (size) {
     case 'small': {
       return 0

@@ -29,7 +29,7 @@ Const DataSolver = [
     Match: asyncRes('updateProfile'),
     Action: () => {
       updateDone()
-      cancleLoading()
+      cancelLoading()
     },
   },
 ]
@@ -41,7 +41,7 @@ The container component can listen for asynchronous events that need to be respo
 
 ```js
 Const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.PREVIEW_OPEN,
     EVENT.PREVIEW_CLOSE,
     EVENT.UPLOAD_IMG_START,
@@ -94,19 +94,19 @@ The logical unification of error handling is handled by ErrSolver in a unified m
 Const ErrSolver = [
   {
     Match: asyncErr(ERR.GRAPHQL),
-    Action: () => cancleLoading(),
+    Action: () => cancelLoading(),
   },
   {
     Match: asyncErr(ERR.TIMEOUT),
     Action: ({ details }) => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     Match: asyncErr(ERR.NETWORK),
     Action: () => {
-      cancleLoading()
+      cancelLoading()
       errRescue({ type: ERR.NETWORK, path: 'AccountEditor' })
     },
   },

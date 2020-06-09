@@ -16,7 +16,7 @@ import S from './schema'
 const log = buildLog('L:CommunityBanner')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
-const sr71$ = new SR71({ recieve: [EVENT.COMMUNITY_CHANGE] })
+const sr71$ = new SR71({ receive: [EVENT.COMMUNITY_CHANGE] })
 
 let sub$ = null
 let store = null

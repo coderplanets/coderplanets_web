@@ -12,7 +12,7 @@ import {
   LogoutText,
 } from './styles/operators'
 
-const Opertors = ({ onEdit, onLogout }) => (
+const Operators = ({ onEdit, onLogout }) => (
   <Wrapper>
     <EditWrapper onClick={onEdit}>
       <EditIcon src={`${ICON_CMD}/edit.svg`} />
@@ -24,4 +24,4 @@ const Opertors = ({ onEdit, onLogout }) => (
   </Wrapper>
 )
 
-export default withGuardian(Opertors)
+export default withGuardian(Operators)

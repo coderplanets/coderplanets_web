@@ -16,7 +16,7 @@ export const Wrapper = styled.div.attrs(props => ({
     min-height: 160px;
   }
 `
-export const SlogenTextWrapper = styled.div`
+export const SloganTextWrapper = styled.div`
   margin-left: 3px;
   margin-right: 3px;
 

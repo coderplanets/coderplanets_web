@@ -10,7 +10,7 @@ import SuggestIcon from './SuggestIcon'
 import {
   Wrapper,
   InfoBar,
-  ContentWraper,
+  ContentWrapper,
   Title,
   Desc,
   Hint,
@@ -46,7 +46,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
             round={contains(searchThread, [THREAD.POST, THREAD.USER])}
             searchThread={searchThread}
           />
-          <ContentWraper>
+          <ContentWrapper>
             <Title>
               <Highlighter
                 highlightClassName="doramon-search-highlighter"
@@ -56,7 +56,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
               />
             </Title>
             <Desc>{suggestion.desc}</Desc>
-          </ContentWraper>
+          </ContentWrapper>
           <HintIcon
             index={i}
             active={activeRaw}
