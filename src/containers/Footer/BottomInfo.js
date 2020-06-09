@@ -7,7 +7,6 @@ import {
   Thanks,
   ThxTitle,
   BeianLink,
-  SiteDesc,
 } from './styles/bottom_info'
 import { toggleBusBanner } from './logic'
 

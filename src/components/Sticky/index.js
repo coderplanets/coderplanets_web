@@ -1,6 +1,5 @@
+import React from 'react'
 import dynamic from 'next/dynamic'
-
-import StickyBox from './StickyBox'
 
 const Sticky = dynamic({
   loader: () => import('./StickyBox'),
