@@ -17,9 +17,9 @@ import {
 
 import { previewReply } from '../logic'
 
-const getAuthors = comment => {
+const getAuthors = (comment) => {
   /* eslint-disable no-return-assign */
-  const replies = forEach(reply => {
+  const replies = forEach((reply) => {
     return (reply.author.extra_id = reply.id)
   }, clone(comment.replies))
   /* eslint-enable */

@@ -40,7 +40,7 @@ const RadarNote = () => (
   <Wrapper>
     <Title>感谢参与。目前为保证质量，只支持如下站点源转载信息:</Title>
     <IconsWrapper>
-      {whiteList.map(item => (
+      {whiteList.map((item) => (
         <Site key={item.link}>
           <SiteIcon src={item.logo} />
           <SiteInfo>

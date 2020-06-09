@@ -9,7 +9,7 @@ import EditorFooter from './EditorFooter'
 
 import * as logic from './logic'
 
-const CommentEditor = props => {
+const CommentEditor = (props) => {
   const {
     referUsers,
     accountInfo,

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   position: relative;
@@ -79,7 +79,7 @@ export const InputWrapper = styled.input`
     box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2);
   }
 `
-export const TextAreaWrapper = styled.textarea.attrs(props => ({
+export const TextAreaWrapper = styled.textarea.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${baseInput};

@@ -27,7 +27,7 @@ const AccountEditorStore = T.model('AccountEditorStore', {
   statusMsg: T.optional(T.string, ''),
   ratKey: T.optional(T.string, ''),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -50,7 +50,7 @@ const AccountEditorStore = T.model('AccountEditorStore', {
       return self.root.account.accountInfo
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     changesetErr(options) {
       self.root.changesetErr(options)
     },
@@ -68,7 +68,7 @@ const AccountEditorStore = T.model('AccountEditorStore', {
               },
               self.workBgData,
               workBackgrounds,
-              self.changesetErr
+              self.changesetErr,
             )
             .done()
 
@@ -86,7 +86,7 @@ const AccountEditorStore = T.model('AccountEditorStore', {
               },
               educationBgData,
               educationBackgrounds,
-              self.changesetErr
+              self.changesetErr,
             )
             .done()
 
@@ -131,7 +131,7 @@ const AccountEditorStore = T.model('AccountEditorStore', {
       let educationBackgrounds = clone(self.editUserData.educationBackgrounds)
       educationBackgrounds = concat(
         [self.educationBgData],
-        educationBackgrounds
+        educationBackgrounds,
       )
       self.updateEditing({ educationBackgrounds })
       self.mark({ educationBg: { school: '', major: '' } })

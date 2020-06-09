@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme } from '@/utils'
 
-const getSize = size => {
+const getSize = (size) => {
   switch (size) {
     case 'small':
       return '28px'
@@ -19,7 +19,7 @@ const getSize = size => {
   }
 }
 
-const getColor = color => {
+const getColor = (color) => {
   switch (color) {
     case 'red':
       return theme('baseColor.error')

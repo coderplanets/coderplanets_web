@@ -11,7 +11,7 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 const log = buildLog('S:JobContent')
 
 const JobContent = T.model('JobContent', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -28,7 +28,7 @@ const JobContent = T.model('JobContent', {})
       return self.root.viewingData
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     callInformer() {
       self.root.callInformer()
     },

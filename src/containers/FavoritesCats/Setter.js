@@ -29,7 +29,7 @@ const Setter = ({ show, entries, selectedId }) => (
       iconSrc={`${ICON_CMD}/folder.svg`}
     />
     <ListWrapper>
-      {entries.map(cat => (
+      {entries.map((cat) => (
         <div key={cat.id}>
           <CatWrapper>
             <CatContent>

@@ -10,7 +10,7 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:C11NSettingPanel')
 
 const C11NSettingPanel = T.model('C11NSettingPanel', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -21,7 +21,7 @@ const C11NSettingPanel = T.model('C11NSettingPanel', {})
       return self.root.viewing.activeThread
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     updateC11N(option) {
       self.root.updateC11N(option)
     },

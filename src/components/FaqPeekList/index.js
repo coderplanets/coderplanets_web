@@ -53,7 +53,7 @@ const FaqPeekList = ({ active }) => {
         <Title>常见问题：</Title>
 
         <ListWrapper>
-          {items.map(item => (
+          {items.map((item) => (
             <Post key={item.id} item={item} />
           ))}
         </ListWrapper>

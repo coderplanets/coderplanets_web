@@ -18,7 +18,7 @@ import {
 
 const CardSelector = ({ curTheme, changeTheme }) => (
   <Wrapper>
-    {keys(themeMeta).map(name => (
+    {keys(themeMeta).map((name) => (
       <IntroBox key={name} active={curTheme === name}>
         <ThemeDot
           large

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { cs } from '@/utils'
 
-export const Wrapper = styled.nav.attrs(props => ({
+export const Wrapper = styled.nav.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   position: relative;

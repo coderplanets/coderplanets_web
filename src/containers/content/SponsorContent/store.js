@@ -10,12 +10,12 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:SponsorContent')
 
 const SponsorContent = T.model('SponsorContent', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

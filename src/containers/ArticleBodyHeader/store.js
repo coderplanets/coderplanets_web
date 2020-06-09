@@ -11,7 +11,7 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 const log = buildLog('S:ArticleBodyHeader')
 
 const ArticleBodyHeader = T.model('ArticleBodyHeader', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -35,7 +35,7 @@ const ArticleBodyHeader = T.model('ArticleBodyHeader', {})
       return activeThread
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     callInformer() {
       self.root.callInformer()
     },

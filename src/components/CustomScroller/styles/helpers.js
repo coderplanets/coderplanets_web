@@ -1,6 +1,6 @@
 const ShadowBgColor = '#022029'
 
-const horizontalShadowBg = type => {
+const horizontalShadowBg = (type) => {
   switch (type) {
     case 'small': {
       return `-webkit-radial-gradient(
@@ -24,7 +24,7 @@ const horizontalShadowBg = type => {
     }
   }
 }
-const verticalShadowBg = type => {
+const verticalShadowBg = (type) => {
   switch (type) {
     case 'small': {
       return `
@@ -49,7 +49,7 @@ export const getShadowBackground = (type, direction = 'horizontal') => {
 }
 
 // horizontal getShadowWidth
-export const getShadowSize = type => {
+export const getShadowSize = (type) => {
   switch (type) {
     case 'small': {
       return '30px'
@@ -65,7 +65,7 @@ export const getShadowSize = type => {
 }
 
 // vertical getShadowWidth
-export const getShadowHeight = type => {
+export const getShadowHeight = (type) => {
   switch (type) {
     case 'small': {
       return '20px'
@@ -80,7 +80,7 @@ export const getShadowHeight = type => {
   }
 }
 
-const horizontalScrollbarHeight = type => {
+const horizontalScrollbarHeight = (type) => {
   switch (type) {
     case 'small': {
       return '5px'
@@ -95,7 +95,7 @@ const horizontalScrollbarHeight = type => {
   }
 }
 
-const verticalScrollbarWidth = type => {
+const verticalScrollbarWidth = (type) => {
   switch (type) {
     case 'small': {
       return '7px'

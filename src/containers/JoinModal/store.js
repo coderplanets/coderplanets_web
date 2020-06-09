@@ -12,12 +12,12 @@ const log = buildLog('S:JoinModal')
 const JoinModal = T.model('JoinModal', {
   show: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

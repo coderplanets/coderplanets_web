@@ -30,11 +30,11 @@ const TabItem = ({ item, setWidth, index, size, onClick, activeKey }) => {
   }, [clickableRef])
 
   const handleLabelClick = useCallback(
-    e => {
+    (e) => {
       e.stopPropagation()
       onClick(index, e)
     },
-    [onClick, index]
+    [onClick, index],
   )
 
   return (

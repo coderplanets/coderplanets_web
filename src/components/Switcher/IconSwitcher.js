@@ -43,7 +43,7 @@ const IconSwitcher = ({ items, activeKey, onChange, onHover }) => {
     <Wrapper testid="selectors">
       <AccessZone />
       <Tabs>
-        {items.map(item => (
+        {items.map((item) => (
           <React.Fragment key={item.key}>
             <Label
               onClick={() => onChange(item)}
@@ -72,7 +72,7 @@ IconSwitcher.propTypes = {
       iconSrc: T.string,
       localIcon: T.oneOfType(T.string, T.node),
       key: T.string,
-    })
+    }),
   ).isRequired,
   activeKey: T.string.isRequired,
   onChange: T.func.isRequired,

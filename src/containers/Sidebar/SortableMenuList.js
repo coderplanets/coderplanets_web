@@ -13,7 +13,7 @@ const SortableMenuBar = SortableElement(
       activeRaw={activeRaw}
       forceRerender={forceRerender}
     />
-  )
+  ),
 )
 
 const SortableMenuList = SortableContainer(
@@ -33,7 +33,7 @@ const SortableMenuList = SortableContainer(
         ))}
       </CustomScroller>
     )
-  }
+  },
 )
 
 export default React.memo(SortableMenuList)

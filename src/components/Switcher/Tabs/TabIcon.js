@@ -12,11 +12,11 @@ const TabIcon = ({ item: { localIcon, icon }, clickableRef, active }) => {
   )
 
   const handleClick = useCallback(
-    e => {
+    (e) => {
       e.stopPropagation()
       clickableRef.current.click()
     },
-    [clickableRef]
+    [clickableRef],
   )
 
   return <Wrapper onClick={handleClick}>{IconCmp}</Wrapper>

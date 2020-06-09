@@ -10,7 +10,7 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 const log = buildLog('S:DocUploader')
 
 const DocUploader = T.model('DocUploader', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -27,7 +27,7 @@ const DocUploader = T.model('DocUploader', {})
       return self.root.viewingData
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     toast(type, options) {
       self.root.toast(type, options)
     },

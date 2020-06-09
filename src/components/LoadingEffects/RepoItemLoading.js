@@ -27,12 +27,13 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const RepoItemLoading = ({ num, theme }) =>
-  range(0, num).map(item => (
+const RepoItemLoading = ({ num, theme }) => {
+  return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <LoadingItem theme={theme} />
     </LoadingWrapper>
   ))
+}
 
 RepoItemLoading.propTypes = {
   num: T.number,

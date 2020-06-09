@@ -1,6 +1,6 @@
 import { theme } from '@/utils'
 
-export const getNormalColor = type => {
+export const getNormalColor = (type) => {
   switch (type) {
     case 'green':
       return theme('baseColor.green')
@@ -10,7 +10,7 @@ export const getNormalColor = type => {
   }
 }
 
-export const getActiveColor = type => {
+export const getActiveColor = (type) => {
   switch (type) {
     case 'green':
       return theme('baseColor.green')
@@ -20,7 +20,7 @@ export const getActiveColor = type => {
   }
 }
 
-export const getNormalIconSize = size => {
+export const getNormalIconSize = (size) => {
   switch (size) {
     case 'small':
       return '11px'
@@ -30,7 +30,7 @@ export const getNormalIconSize = size => {
   }
 }
 
-export const getActiveIconSize = size => {
+export const getActiveIconSize = (size) => {
   switch (size) {
     case 'small':
       return '12px'
@@ -40,7 +40,7 @@ export const getActiveIconSize = size => {
   }
 }
 
-export const getNormalTextSize = size => {
+export const getNormalTextSize = (size) => {
   switch (size) {
     case 'small':
       return '11px'

@@ -31,7 +31,7 @@ const log = buildLog('c:UserList:index')
 
 const UsersTable = ({ entries, accountId }) => (
   <TableWrapper>
-    {entries.map(user => (
+    {entries.map((user) => (
       <UserWrapper key={user.id}>
         <UserAvatar src={user.avatar} />
         <UserBrief>

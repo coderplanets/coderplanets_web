@@ -21,12 +21,12 @@ export const loadAccount = () => {
   return sr71$.query(S.user, {})
 }
 
-export const loadUser = user => {
+export const loadUser = (user) => {
   store.mark({ viewingType: 'user', viewingUser: user })
   sr71$.query(S.user, { login: user.login })
 }
 
-export const changeTheme = name => {
+export const changeTheme = (name) => {
   store.changeTheme(name)
   send(EVENT.SET_C11N, { data: { theme: name } })
 }
@@ -84,7 +84,7 @@ const ErrSolver = [
   },
 ]
 
-export const loadUserInfo = user => {
+export const loadUserInfo = (user) => {
   if (user) return loadUser(user)
   loadAccount()
 }

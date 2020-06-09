@@ -38,7 +38,7 @@ const SourceOptions = ({ active, sourceOnSelect }) => {
 
   return (
     <Wrapper>
-      {recommands.map(s => (
+      {recommands.map((s) => (
         <ItemWrapper
           key={s.title}
           onClick={sourceOnSelect.bind(this, trimLower(s.title))}

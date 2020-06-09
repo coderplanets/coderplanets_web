@@ -64,7 +64,7 @@ const Catalog = ({
 }) => {
   // const [expandMenuId, setExpandMenuId] = useState(null)
   const handleSelect = useCallback(
-    e => {
+    (e) => {
       const item = s2o(e.target.dataset.item)
       // setExpandMenuId(item.id)
       onExpand(item)
@@ -73,12 +73,12 @@ const Catalog = ({
         onSelect(item)
       }
     },
-    [onExpand, onSelect]
+    [onExpand, onSelect],
   )
 
   return (
     <Wrapper>
-      {menuItems.map(item => (
+      {menuItems.map((item) => (
         <CataLogItem
           key={item.id}
           item={item}

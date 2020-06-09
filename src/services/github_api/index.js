@@ -10,15 +10,15 @@ import { searchCheatsheeetPromise } from './cheatsheet_search'
 const githubAPI = {
   // search repo
   searchRepo: (owner, name) => searchRepoPromise(owner, name),
-  transformRepo: res => transformRepo(res),
+  transformRepo: (res) => transformRepo(res),
   // search user
-  searchUser: login => searchUserPromise(login),
-  transformUser: res => ransformUser(res),
+  searchUser: (login) => searchUserPromise(login),
+  transformUser: (res) => ransformUser(res),
   // search wiki
-  searchWiki: raw => searchWikiPromise(raw),
-  searchCheatsheet: raw => searchCheatsheeetPromise(raw),
+  searchWiki: (raw) => searchWikiPromise(raw),
+  searchCheatsheet: (raw) => searchCheatsheeetPromise(raw),
 
-  parseError: e => {
+  parseError: (e) => {
     if (e instanceof TimeoutError) return ERR.TIMEOUT
     if (!e || !e.response) return ERR.UNKOWN
     switch (e.response.status) {

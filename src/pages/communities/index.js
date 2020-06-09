@@ -59,7 +59,7 @@ const fetchData = async (props, opt) => {
   }
 }
 
-export const getServerSideProps = async props => {
+export const getServerSideProps = async (props) => {
   // const { communityPath, thread } = ssrParseURL(props.req)
   let resp
   try {
@@ -96,7 +96,7 @@ export const getServerSideProps = async props => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const CommunitiesPage = props => {
+const CommunitiesPage = (props) => {
   const store = useStore(props)
 
   const { errorCode } = store

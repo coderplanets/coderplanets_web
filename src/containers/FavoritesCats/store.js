@@ -28,7 +28,7 @@ const emptyCat = {
 const FavoritesCats = T.model('FavoritesCats', {
   displayMode: T.optional(
     T.enumeration('displayMode', ['list', 'hide']),
-    'hide'
+    'hide',
   ),
   pagedCategories: T.optional(PagedFavoriteCategories, emptyPagiData),
   editCategory: T.optional(FavoriteCategory, emptyCat),
@@ -42,13 +42,13 @@ const FavoritesCats = T.model('FavoritesCats', {
   thread: T.maybeNull(
     T.enumeration(
       [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO],
-      THREAD.POST
-    )
+      THREAD.POST,
+    ),
   ),
   loading: T.optional(T.boolean, false),
   doing: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -102,7 +102,7 @@ const FavoritesCats = T.model('FavoritesCats', {
       return self.isMemberOf('seniorMember') || self.isMemberOf('sponsorMember')
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

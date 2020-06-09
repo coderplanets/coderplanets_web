@@ -13,7 +13,7 @@ const log = buildLog('S:UpgradePackages')
 const UpgradePackages = T.model('UpgradePackages', {
   show: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get isLogin() {
       return self.root.account.isLogin
     },
@@ -21,7 +21,7 @@ const UpgradePackages = T.model('UpgradePackages', {
       return getParent(self)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

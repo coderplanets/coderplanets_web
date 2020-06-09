@@ -14,7 +14,7 @@ export const topFilterOnChange = () => {}
 // init & uninit handlers
 // ###############################
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

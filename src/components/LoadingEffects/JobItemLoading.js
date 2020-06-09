@@ -32,12 +32,13 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const JobItemLoading = ({ num, theme }) =>
-  range(0, num).map(item => (
+const JobItemLoading = ({ num, theme }) => {
+  return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <LoadingItem theme={theme} />
     </LoadingWrapper>
   ))
+}
 
 JobItemLoading.propTypes = {
   num: T.number,

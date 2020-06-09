@@ -46,7 +46,7 @@ export const inputOnChange = ({ target: { value: inputValue } }) => {
   queryPocket()
 }
 
-export const handleKeyDown = e => {
+export const handleKeyDown = (e) => {
   switch (e.key) {
     case 'Tab': {
       SAK.completeInput()
@@ -85,9 +85,9 @@ export const handleKeyDown = e => {
 
 // handle spec key input on input bar, like tab, enter...
 
-export const navSuggestion = direction => SAK.navSuggestion(direction)
+export const navSuggestion = (direction) => SAK.navSuggestion(direction)
 // mounseEnter
-export const navToSuggestion = suggestion => SAK.navToSuggestion(suggestion)
+export const navToSuggestion = (suggestion) => SAK.navToSuggestion(suggestion)
 export const suggestionOnSelect = () => {
   if (store.showThreadSelector) return doNavigate()
   doSpecCmd()
@@ -107,7 +107,7 @@ export const inputOnBlur = () => {
 }
 
 // do dearch when thread changes
-export const searchThreadOnChange = searchThread => {
+export const searchThreadOnChange = (searchThread) => {
   store.mark({ searchThread, showAlert: false })
   searchContents(store, sr71$, store.inputValue)
 }
@@ -193,7 +193,7 @@ const DataSolver = [
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities }) => {
       const data = map(
-        e => ({
+        (e) => ({
           id: e.id,
           logo: e.logo,
           // raw: `community-raw-${e.id}`,
@@ -201,7 +201,7 @@ const DataSolver = [
           title: e.title,
           desc: `${e.desc}`,
         }),
-        searchCommunities.entries
+        searchCommunities.entries,
       )
       const { totalCount } = searchCommunities
       loadSearchSuggestions(data, totalCount)
@@ -211,14 +211,14 @@ const DataSolver = [
     match: asyncRes('searchUsers'),
     action: ({ searchUsers }) => {
       const data = map(
-        e => ({
+        (e) => ({
           id: e.id,
           logo: e.avatar,
           raw: `user-raw-${e.login}`,
           title: e.nickname,
           desc: `${e.bio}`,
         }),
-        searchUsers.entries
+        searchUsers.entries,
       )
       const { totalCount } = searchUsers
       loadSearchSuggestions(data, totalCount)
@@ -228,14 +228,14 @@ const DataSolver = [
     match: asyncRes('searchPosts'),
     action: ({ searchPosts }) => {
       const data = map(
-        e => ({
+        (e) => ({
           id: e.id,
           logo: e.author.avatar,
           raw: `post-raw-${e.id}`,
           title: e.title,
           desc: `${e.commentsCount}/${prettyNum(e.views)}  ${e.digest}`,
         }),
-        searchPosts.entries
+        searchPosts.entries,
       )
       const { totalCount } = searchPosts
       loadSearchSuggestions(data, totalCount)
@@ -245,14 +245,14 @@ const DataSolver = [
     match: asyncRes('searchJobs'),
     action: ({ searchJobs }) => {
       const data = map(
-        e => ({
+        (e) => ({
           id: e.id,
           logo: e.companyLogo,
           raw: `job-raw-${e.id}`,
           title: `${e.company} / ${e.title} / ${e.salary}`,
           desc: `${prettyNum(e.views)}  ${e.digest}`,
         }),
-        searchJobs.entries
+        searchJobs.entries,
       )
       const { totalCount } = searchJobs
       loadSearchSuggestions(data, totalCount)
@@ -262,14 +262,14 @@ const DataSolver = [
     match: asyncRes('searchVideos'),
     action: ({ searchVideos }) => {
       const data = map(
-        e => ({
+        (e) => ({
           id: e.id,
           logo: e.thumbnil,
           raw: `video-raw-${e.id}`,
           title: `${e.title} / ${e.source} / ${e.salary}`,
           desc: `${prettyNum(e.views)} ${e.duration}  ${e.desc}`,
         }),
-        searchVideos.entries
+        searchVideos.entries,
       )
       const { totalCount } = searchVideos
       loadSearchSuggestions(data, totalCount)
@@ -279,13 +279,13 @@ const DataSolver = [
     match: asyncRes('searchRepos'),
     action: ({ searchRepos }) => {
       const data = map(
-        e => ({
+        (e) => ({
           id: e.id,
           raw: `repo-raw-${e.id}`,
           title: `${e.ownerName} / ${cutFrom(e.title, 30)}`,
           desc: `star:${prettyNum(e.starCount)}  ${e.desc}`,
         }),
-        searchRepos.entries
+        searchRepos.entries,
       )
       const { totalCount } = searchRepos
       loadSearchSuggestions(data, totalCount)
@@ -293,7 +293,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.QUERY_DORAMON),
-    action: res => {
+    action: (res) => {
       const { data } = res[EVENT.QUERY_DORAMON]
       const forcus = false
       store.open(forcus)
@@ -375,7 +375,7 @@ const initSpecCmdResolver = () => {
             pathname: '/',
             query: { main: 'cheatsheet' },
           },
-          '/cheatsheet'
+          '/cheatsheet',
         )
         hidePanel()
       },
@@ -389,14 +389,14 @@ const initSpecCmdResolver = () => {
             pathname: '/',
             query: { main: 'communities', sub: 'all' },
           },
-          '/communities'
+          '/communities',
         )
         hidePanel()
       },
     },
     {
       match: SAK.stepTwoCmd('theme'),
-      action: cmdpath => {
+      action: (cmdpath) => {
         const theme = last(cmdpath)
         store.changeTheme(theme)
         send(EVENT.SET_C11N, { data: { theme } })
@@ -404,7 +404,7 @@ const initSpecCmdResolver = () => {
     },
     {
       match: SAK.stepTwoCmd('login'),
-      action: cmdpath => {
+      action: (cmdpath) => {
         log('stepTwoCmd login->: ', cmdpath)
         switch (last(cmdpath)) {
           case 'github': {
@@ -435,7 +435,7 @@ const initSpecCmdResolver = () => {
     },
     {
       match: SAK.stepTwoCmd('log'),
-      action: cmdpath => {
+      action: (cmdpath) => {
         const cmd = last(cmdpath)
         if (cmd === 'github') {
           Global.window.open('https://github.com/visionmedia/log', '_blank')
@@ -447,7 +447,7 @@ const initSpecCmdResolver = () => {
     },
     {
       match: SAK.communityLinker,
-      action: cmdpath => {
+      action: (cmdpath) => {
         const community = cmdpath[0]
         hidePanel()
         jumpToCommunity(store, community)
@@ -455,7 +455,7 @@ const initSpecCmdResolver = () => {
     },
     {
       match: SAK.communityInsideLinker,
-      action: cmdpath => {
+      action: (cmdpath) => {
         log('communityInsideLinker: ', cmdpath)
       },
     },
@@ -496,7 +496,7 @@ const initSpecCmdResolver = () => {
 // ###############################
 // init & uninit handlers
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
 
@@ -505,7 +505,7 @@ export const useInit = _store => {
 
     initSpecCmdResolver()
 
-    pockect$.search().subscribe(res => {
+    pockect$.search().subscribe((res) => {
       if (isEmpty(res)) return emptySearchStates()
 
       store.mark({
@@ -517,7 +517,7 @@ export const useInit = _store => {
       searchContents(store, sr71$, res)
     })
 
-    pockect$.searchUser().subscribe(name => {
+    pockect$.searchUser().subscribe((name) => {
       const nickname = slice(1, Infinity, name)
       store.mark({
         prefix: '@',
@@ -529,7 +529,7 @@ export const useInit = _store => {
       searchContents(store, sr71$, nickname)
     })
 
-    pockect$.cmdSuggesttion().subscribe(res => store.loadSuggestions(res))
+    pockect$.cmdSuggesttion().subscribe((res) => store.loadSuggestions(res))
     pockect$.emptyInput().subscribe(() => store.clearSuggestions())
 
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

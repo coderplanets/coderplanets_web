@@ -14,11 +14,11 @@ const useShortcut = (combination, onKeyDownFn, onKeyUpFn) => {
       return
     }
 
-    const down = event => {
+    const down = (event) => {
       set([true, event])
       if (onKeyDownFn) onKeyDownFn()
     }
-    const up = event => {
+    const up = (event) => {
       set([false, event])
       if (onKeyUpFn) onKeyUpFn()
     }

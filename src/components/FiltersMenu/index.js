@@ -17,7 +17,7 @@ import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:FiltersMenu:index')
 
-const initActiveMap = items => {
+const initActiveMap = (items) => {
   const menuMap = {}
   for (let index = 0; index < items.length; index += 1) {
     const element = items[index]
@@ -106,9 +106,9 @@ FiltersMenu.propTypes = {
         T.shape({
           id: T.string,
           title: T.string,
-        })
+        }),
       ),
-    })
+    }),
   ).isRequired,
   activeId: T.oneOfType([T.string, T.instanceOf(null)]),
   noFilter: T.bool,

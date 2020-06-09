@@ -21,15 +21,15 @@ const CoolGuideContent = T.model('CoolGuideContent', {
       GUIDE.FAME_PEOPLE,
       GUIDE.DEFAULT,
     ]),
-    GUIDE.PREVIEW
+    GUIDE.PREVIEW,
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

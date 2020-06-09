@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgComponent = props => (
+const SvgComponent = (props) => (
   <svg
     className="prefix__icon"
     viewBox="0 0 1367 1024"

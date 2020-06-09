@@ -23,11 +23,11 @@ const JobFinanceFilter = ({ activeFilter, onSelect }) => (
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.finance.data.map(item => (
+      {LABEL_POOL.finance.data.map((item) => (
         <SelectItem
           key={item}
           active={activeFilter.finance === item}
-          onClick={onSelect.bind(this, { finance: item })}
+          onClick={() => onSelect({ finance: item })}
         >
           {item}
         </SelectItem>

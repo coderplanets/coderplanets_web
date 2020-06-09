@@ -34,12 +34,12 @@ const DateSelector = () => {
 
       <CellsWrapper>
         <DatesWrapper>
-          {items.slice(0, 15).map(item => (
+          {items.slice(0, 15).map((item) => (
             <Cell key={item.id} item={item} isLeapMonth={isLeapMonth} />
           ))}
         </DatesWrapper>
         <DatesWrapper>
-          {items.slice(15).map(item => (
+          {items.slice(15).map((item) => (
             <Cell key={item.id} item={item} isLeapMonth={isLeapMonth} />
           ))}
         </DatesWrapper>

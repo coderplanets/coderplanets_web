@@ -11,7 +11,7 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:RepoContent')
 
 const RepoContent = T.model('RepoContent', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -19,7 +19,7 @@ const RepoContent = T.model('RepoContent', {})
       return self.root.viewingData
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

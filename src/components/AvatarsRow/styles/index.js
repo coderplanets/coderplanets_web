@@ -58,7 +58,7 @@ export const AvatarsImg = styled(Img)`
   text-align: center;
 `
 
-const moreTextSize = total => {
+const moreTextSize = (total) => {
   if (total < 99) return '14px'
   if (total >= 100 && total <= 999) return '12px'
   return '10px'

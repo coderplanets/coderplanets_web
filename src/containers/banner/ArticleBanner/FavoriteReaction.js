@@ -23,7 +23,7 @@ const FavoriteReaction = ({ data, show, loading }) => (
           this,
           TYPE.FAVORITE,
           data.viewerHasFavorited,
-          data
+          data,
         )}
       >
         {data.viewerHasFavorited ? <span>已收藏</span> : <span>收藏</span>}

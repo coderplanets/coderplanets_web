@@ -14,7 +14,7 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:UserContent')
 
-export const followUser = userId => {
+export const followUser = (userId) => {
   if (!store.isLogin) return store.authWarning()
 
   log('followUser: ', userId)
@@ -22,7 +22,7 @@ export const followUser = userId => {
   sr71$.mutate(S.follow, { userId })
 }
 
-export const undoFollowUser = userId => {
+export const undoFollowUser = (userId) => {
   if (!store.isLogin) return store.authWarning()
 
   log('undoFollowUser: ', userId)
@@ -36,7 +36,7 @@ const getUserFollowStates = () => {
   sr71$.query(S.user, { login, userHasLogin: store.isLogin })
 }
 
-export const showFollowings = user => {
+export const showFollowings = (user) => {
   const type = TYPE.USER_LISTER_FOLLOWINGS
   const data = {
     id: user.id,
@@ -46,7 +46,7 @@ export const showFollowings = user => {
   send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export const showFollowers = user => {
+export const showFollowers = (user) => {
   const type = TYPE.USER_LISTER_FOLLOWERS
   const data = {
     id: user.id,
@@ -56,7 +56,7 @@ export const showFollowers = user => {
   send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export const tabOnChange = activeThread => {
+export const tabOnChange = (activeThread) => {
   store.mark({ activeThread })
   store.markRoute({ tab: activeThread })
 }
@@ -109,7 +109,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

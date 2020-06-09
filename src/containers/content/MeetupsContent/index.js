@@ -52,7 +52,7 @@ const MeetupsContentContainer = ({ meetupsContent: store }) => {
         <ContentWrapper>
           <DateSelector />
           <CardsWrapper>
-            {meetups.map(item => (
+            {meetups.map((item) => (
               <Card key={item.id} item={item} type={activeGalleryType} />
               // <ActivityCard key={item.id} item={item} />
             ))}

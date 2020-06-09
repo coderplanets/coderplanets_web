@@ -29,7 +29,7 @@ import {
 
 import { loadMentions } from './logic'
 
-const getLinkAddr = item => {
+const getLinkAddr = (item) => {
   const { community, parentType, parentId, sourceType, sourceId } = item
 
   if (!isEmpty(parentType)) {
@@ -85,7 +85,7 @@ const MentionList = ({
       </InfoWrapper>
 
       <ListsWrapper>
-        {entries.map(item => (
+        {entries.map((item) => (
           <MessageLinker
             key={item.id}
             href={`${getLinkAddr(item)}`}

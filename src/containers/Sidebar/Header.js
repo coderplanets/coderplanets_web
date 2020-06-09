@@ -29,7 +29,7 @@ const Header = ({ pin, searchCommunityValue }) => (
             <SearchIcon src={`${ICON_CMD}/search.svg`} />
             <SearchInput
               value={searchCommunityValue}
-              onChange={e => searchCommunityValueOnChange(e)}
+              onChange={(e) => searchCommunityValueOnChange(e)}
               placeholder="订阅的社区"
               onFocus={searchOnFocus}
             />

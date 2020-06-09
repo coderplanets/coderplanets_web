@@ -59,7 +59,7 @@ const fetchData = async (props, opt) => {
   }
 }
 
-export const getServerSideProps = async props => {
+export const getServerSideProps = async (props) => {
   let resp
   try {
     resp = await fetchData(props)
@@ -95,7 +95,7 @@ export const getServerSideProps = async props => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const NewCommunityPage = props => {
+const NewCommunityPage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {

@@ -8,7 +8,7 @@ const getCardHeader = compose(trim, head, split(cardsHeaderSpliter))
 const getCardList = compose(trim, nth(1), split(cardsHeaderSpliter))
 
 const getCardItems = compose(map(trim), split(cardItemSpliter), getCardList)
-const formatFromer = v => ({
+const formatFromer = (v) => ({
   header: getCardHeader(v),
   cards: getCardItems(v),
 })

@@ -17,30 +17,30 @@ const Cashier = T.model('Cashier', {
   transferAccount: T.optional(T.string, ''),
   sidebarView: T.optional(
     T.enumeration('sideView', ['pay', 'question']),
-    'pay'
+    'pay',
   ),
   contentView: T.optional(
     T.enumeration('contentView', ['pay', 'question']),
-    'pay'
+    'pay',
   ),
   subContentView: T.optional(
     T.enumeration('subContentView', ['pay', 'confirm']),
-    'pay'
+    'pay',
   ),
   paymentMethod: T.optional(
     T.enumeration('paymentMethod', values(PAYMENT_METHOD)),
-    PAYMENT_METHOD.ALIPAY
+    PAYMENT_METHOD.ALIPAY,
   ),
   paymentUsage: T.optional(
     T.enumeration('paymentUsage', values(PAYMENT_USAGE)),
-    PAYMENT_USAGE.SENIOR
+    PAYMENT_USAGE.SENIOR,
   ),
   amount: T.optional(
     T.enumeration('amount', ['10.24', '51.2', '102.4', '512', '1024']),
-    '10.24'
+    '10.24',
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -51,7 +51,7 @@ const Cashier = T.model('Cashier', {
       return self.root.account.isLogin
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

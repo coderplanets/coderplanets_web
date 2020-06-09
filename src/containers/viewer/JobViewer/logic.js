@@ -17,7 +17,7 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
-export const onTagSelect = tagId => {
+export const onTagSelect = (tagId) => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
   const thread = toUpper(store.activeThread)
@@ -25,7 +25,7 @@ export const onTagSelect = tagId => {
   sr71$.mutate(S.setTag, { thread, id, tagId, communityId })
 }
 
-export const onTagUnselect = tagId => {
+export const onTagUnselect = (tagId) => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
   const thread = toUpper(store.activeThread)
@@ -41,7 +41,7 @@ const loadJob = ({ id }) => {
   sr71$.query(S.job, variables)
 }
 
-const openAttachment = att => {
+const openAttachment = (att) => {
   if (!att) return false
 
   const { type } = att

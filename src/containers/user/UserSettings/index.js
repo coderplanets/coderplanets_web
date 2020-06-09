@@ -59,7 +59,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
                 },
               ]}
               activeKey={customization.bannerLayout}
-              onChange={item => c11nOnChange('bannerLayout', item.key)}
+              onChange={(item) => c11nOnChange('bannerLayout', item.key)}
             />
           </RadiosWrapper>
           <SectionLabel
@@ -80,7 +80,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
                 },
               ]}
               activeKey={customization.contentsLayout}
-              onChange={item => c11nOnChange('contentsLayout', item.key)}
+              onChange={(item) => c11nOnChange('contentsLayout', item.key)}
             />
           </RadiosWrapper>
 
@@ -99,7 +99,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
                 },
               ]}
               activeKey={customization.contentHover}
-              onChange={item => c11nOnChange('contentHover', item.key)}
+              onChange={(item) => c11nOnChange('contentHover', item.key)}
             />
           </RadiosWrapper>
 
@@ -122,7 +122,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
                 },
               ]}
               activeKey={customization.markViewed}
-              onChange={item => c11nOnChange('markViewed', item.key)}
+              onChange={(item) => c11nOnChange('markViewed', item.key)}
             />
           </RadiosWrapper>
           <SectionLabel
@@ -147,7 +147,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
                 },
               ]}
               activeKey={customization.displayDensity}
-              onChange={item => c11nOnChange('displayDensity', item.key)}
+              onChange={(item) => c11nOnChange('displayDensity', item.key)}
             />
           </RadiosWrapper>
           <SectionLabel

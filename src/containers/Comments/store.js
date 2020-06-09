@@ -24,7 +24,7 @@ import { Comment, PagedComments, emptyPagiData, Mention } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:CommentsStore')
 
-const mentionMapper = m => ({ id: m.id, avatar: m.avatar, name: m.nickname })
+const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
 const CommentsStore = T.model('CommentsStore', {
   // toggle main comment box
@@ -51,7 +51,7 @@ const CommentsStore = T.model('CommentsStore', {
       TYPE.MOST_LIKES,
       TYPE.MOST_DISLIKES,
     ]),
-    TYPE.ASC_INSERTED
+    TYPE.ASC_INSERTED,
   ),
   // content input of current comment editor
   editContent: T.optional(T.string, ''),
@@ -83,7 +83,7 @@ const CommentsStore = T.model('CommentsStore', {
   // toggle loading for first item of commetns list
   loadingFresh: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -96,7 +96,7 @@ const CommentsStore = T.model('CommentsStore', {
     get referUsersData() {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
-      return filter(user => contains(user.name, extractMentions), referUsers)
+      return filter((user) => contains(user.name, extractMentions), referUsers)
     },
     get participators() {
       const { commentsParticipators } = self.root.viewing.viewingData
@@ -146,7 +146,7 @@ const CommentsStore = T.model('CommentsStore', {
       return stripMobx(self.editComment)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },
@@ -176,7 +176,7 @@ const CommentsStore = T.model('CommentsStore', {
       }
     },
     addReferUser(user) {
-      const index = findIndex(u => u.id === String(user.id), self.referUsers)
+      const index = findIndex((u) => u.id === String(user.id), self.referUsers)
       if (index === -1) {
         self.referUsers.push({
           id: String(user.id),

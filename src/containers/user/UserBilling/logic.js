@@ -65,7 +65,7 @@ const ErrSolver = [
 // init & uninit handlers
 // ###############################
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

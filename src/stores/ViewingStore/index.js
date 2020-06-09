@@ -24,14 +24,14 @@ const ViewingStore = T.model('ViewingStore', {
   repo: T.optional(Repo, {}),
   activeThread: T.optional(
     T.enumeration('activeThread', values(THREAD)),
-    THREAD.POST
+    THREAD.POST,
   ),
   // for preview usage
   viewingThread: T.maybeNull(
-    T.enumeration('viewingThread', PREVIEWABLE_THREADS)
+    T.enumeration('viewingThread', PREVIEWABLE_THREADS),
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -63,7 +63,7 @@ const ViewingStore = T.model('ViewingStore', {
       }
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     setViewing(sobj) {
       self.mark(sobj)
     },

@@ -15,7 +15,7 @@ const CommunityBanner = T.model('CommunityBanner', {
   descExpand: T.optional(T.boolean, false),
   subscribeLoading: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -35,7 +35,7 @@ const CommunityBanner = T.model('CommunityBanner', {
       return stripMobx(self.root.viewing.community)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

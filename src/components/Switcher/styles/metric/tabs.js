@@ -1,4 +1,4 @@
-export const getSlipMargin = size => {
+export const getSlipMargin = (size) => {
   switch (size) {
     case 'small': {
       return 0
@@ -9,7 +9,7 @@ export const getSlipMargin = size => {
   }
 }
 
-export const getMarginRight = size => {
+export const getMarginRight = (size) => {
   switch (size) {
     case 'small': {
       return '0'
@@ -20,7 +20,7 @@ export const getMarginRight = size => {
   }
 }
 
-export const getPadding = size => {
+export const getPadding = (size) => {
   switch (size) {
     case 'small': {
       return '5px 10px'

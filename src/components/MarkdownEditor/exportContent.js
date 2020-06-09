@@ -3,7 +3,7 @@
  */
 import { convertToRaw } from 'draft-js'
 
-const encodeContent = text => {
+const encodeContent = (text) => {
   return text
     .split('&')
     .join('&amp;')
@@ -36,7 +36,7 @@ class MentionGenerator {
     const { blocks } = contentRaw
     const { encode } = this.options
     return blocks
-      .map(block => {
+      .map((block) => {
         return encode ? encodeContent(block.text) : block.text
       })
       .join(encode ? '<br />\n' : '\n')

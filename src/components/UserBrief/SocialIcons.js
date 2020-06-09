@@ -40,7 +40,7 @@ const DisplayIcon = ({ user, social }) => {
 
 const SocialIcons = ({ user }) => (
   <Wrapper>
-    {SOCIAL_LISTS.map(social => (
+    {SOCIAL_LISTS.map((social) => (
       <DisplayIcon key={social.key} user={user} social={social} />
     ))}
   </Wrapper>

@@ -17,7 +17,7 @@ const CommunitySetter = T.model('CommunitySetter', {
   searchValue: T.optional(T.string, ''),
   pagedCommunities: T.maybeNull(PagedCommunities),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -36,7 +36,7 @@ const CommunitySetter = T.model('CommunitySetter', {
       return stripMobx(self.pagedCommunities)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

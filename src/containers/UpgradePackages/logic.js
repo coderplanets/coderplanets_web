@@ -32,7 +32,7 @@ export const onClose = () => store.mark({ show: !store.show })
 const DataSolver = []
 const ErrSolver = []
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

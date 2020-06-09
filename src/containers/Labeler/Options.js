@@ -15,7 +15,7 @@ import {
 
 const OptionItems = ({ items, selected, onOptionSelect }) => (
   <OptionWrapper>
-    {items.map(item => (
+    {items.map((item) => (
       <OptionItem key={uid.gen()}>
         <OptionCheckIcon
           src={`${ICON_CMD}/check.svg`}

@@ -24,8 +24,8 @@ export const mapAlias = (_source, communityRaw) => {
 
   const aliasKeys = keys(communityAlias)
 
-  forEach(key => {
-    const index = findIndex(item => item.raw === key, source)
+  forEach((key) => {
+    const index = findIndex((item) => item.raw === key, source)
     if (index >= 0) {
       source[index] = merge(source[index], { alias: communityAlias[key] })
     }

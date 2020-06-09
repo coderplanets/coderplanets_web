@@ -19,7 +19,7 @@ const VideoEditor = T.model('VideoEditor', {
 
   ratKey: T.optional(T.string, ''),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -35,7 +35,7 @@ const VideoEditor = T.model('VideoEditor', {
       }
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     changesetErr(options) {
       self.root.changesetErr(options)
     },
@@ -61,7 +61,7 @@ const VideoEditor = T.model('VideoEditor', {
             .startsWith(
               { originalAuthorLink: '原作者链接' },
               'https://',
-              self.changesetErr
+              self.changesetErr,
             )
             .exist({ desc: '视频描述' }, self.changesetErr, opt)
             .min({ desc: '视频描述' }, 10, self.changesetErr, opt)
@@ -70,12 +70,12 @@ const VideoEditor = T.model('VideoEditor', {
             .exist(
               { publishAt: '发布日期' },
               self.changesetErr,
-              merge(opt, { skip: self.isEdit })
+              merge(opt, { skip: self.isEdit }),
             )
             .dateFmt(
               { publishAt: '发布日期' },
               self.changesetErr,
-              merge(opt, { skip: self.isEdit })
+              merge(opt, { skip: self.isEdit }),
             )
             .done()
 

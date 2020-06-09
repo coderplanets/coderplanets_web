@@ -8,7 +8,7 @@ import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'
 const ChangesetMessages = ({ items }) => (
   <React.Fragment>
     {!nilOrEmpty(items) &&
-      items.map(item => (
+      items.map((item) => (
         <Desc key={uid.gen()}>
           {item.key}: {item.message}
         </Desc>
@@ -19,7 +19,7 @@ const ChangesetMessages = ({ items }) => (
 const ChangesetDetails = ({ errors }) => (
   <React.Fragment>
     {!nilOrEmpty(errors) &&
-      errors.map(item => (
+      errors.map((item) => (
         <div key={uid.gen()}>
           <TitleWrapper>
             <Dot />
@@ -52,7 +52,7 @@ const ParseDetails = ({ errors }) => (
 const CustomDetails = ({ errors }) => (
   <React.Fragment>
     {!nilOrEmpty(errors) &&
-      errors.map(item => (
+      errors.map((item) => (
         <div key={uid.gen()}>
           <TitleWrapper>
             <Dot />

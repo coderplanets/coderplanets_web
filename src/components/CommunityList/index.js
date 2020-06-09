@@ -32,7 +32,7 @@ const CommunityList = ({ items, size, bottom, emptyHint }) => {
 
   return (
     <Wrapper>
-      {items.map(community => (
+      {items.map((community) => (
         <Tooltip
           key={community.id}
           placement="bottom"
@@ -62,7 +62,7 @@ CommunityList.propTypes = {
       raw: T.string,
       title: T.string,
       logo: T.string,
-    })
+    }),
   ),
   size: T.string,
   bottom: T.string,

@@ -22,7 +22,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-const getQueryArgs = page => {
+const getQueryArgs = (page) => {
   store.mark({ curView: TYPE.LOADING })
   // args
   return {
@@ -43,7 +43,7 @@ export const loadVideoComments = (page = 1) =>
 export const loadRepoComments = (page = 1) =>
   sr71$.query(S.publishedRepoComments, getQueryArgs(page))
 
-export const threadOnChange = curThread => {
+export const threadOnChange = (curThread) => {
   // TODO: markRoute
   store.mark({ curThread })
   // reload()
@@ -79,7 +79,7 @@ export const onPageChange = (page = 1) => {
   }
 }
 
-export const onPreview = data => {
+export const onPreview = (data) => {
   const thread = store.curThread
 
   send(EVENT.PREVIEW_OPEN, {
@@ -139,7 +139,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

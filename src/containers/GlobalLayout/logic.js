@@ -12,7 +12,7 @@ let store = null
 export const openDoraemon = () => store.openDoraemon()
 /* eslint-disable no-unused-vars */
 export const queryDoraemon = curry((data, e) =>
-  send(EVENT.QUERY_DORAMON, { data })
+  send(EVENT.QUERY_DORAMON, { data }),
 )
 
 /**
@@ -22,7 +22,7 @@ export const queryDoraemon = curry((data, e) =>
  * @param {ReactRef} ref
  * @returns {string}
  */
-export const calcInitWidth = ref => {
+export const calcInitWidth = (ref) => {
   const { clientWidth } = ref.current
   const MAX_WIDTH = Number(cs.GLOBAL_MAX_WIDTH.slice(0, -2))
   const WINDOW_WIDTH = window.innerWidth
@@ -64,7 +64,7 @@ export const logBuddha = () => {
         '                                                    \n\n' +
         '.........................................................\n\n' +
         ' ##########   https://github.com/coderplanets   #########\n\n' +
-        '.........................................................'
+        '.........................................................',
     )
     /* eslint-enable */
   }

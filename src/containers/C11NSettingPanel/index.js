@@ -55,7 +55,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
             },
           ]}
           activeKey={bannerLayout}
-          onChange={item =>
+          onChange={(item) =>
             onC11NChange({
               bannerLayout: item.key,
             })
@@ -83,7 +83,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
                 },
               ]}
               activeKey={contentsLayout}
-              onChange={item =>
+              onChange={(item) =>
                 onC11NChange({
                   contentsLayout: item.key,
                 })
@@ -112,7 +112,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
           },
         ]}
         activeKey={markViewed}
-        onChange={item =>
+        onChange={(item) =>
           onC11NChange({
             markViewed: item.key,
           })
@@ -134,7 +134,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
           },
         ]}
         activeKey={contentHover}
-        onChange={item =>
+        onChange={(item) =>
           onC11NChange({
             contentHover: item.key,
           })
@@ -158,7 +158,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
               },
             ]}
             activeKey={contentDivider}
-            onChange={item =>
+            onChange={(item) =>
               onC11NChange({
                 contentDivider: item.key,
               })
@@ -189,7 +189,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
           },
         ]}
         activeKey={displayDensity}
-        onChange={item =>
+        onChange={(item) =>
           onC11NChange({
             displayDensity: item.key,
           })

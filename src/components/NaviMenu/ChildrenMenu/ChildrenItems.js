@@ -31,16 +31,16 @@ const ChildrenItems = ({
   const menuItems = items || []
 
   const handleSelect = useCallback(
-    e => {
+    (e) => {
       const item = s2o(e.target.dataset.item)
       onSelect(item, item.displayType)
     },
-    [onSelect]
+    [onSelect],
   )
 
   return (
     <Wrapper active={expandMenuId === parentId}>
-      {menuItems.map(item => (
+      {menuItems.map((item) => (
         <Item
           key={item.id}
           data-item={o2s(item)}

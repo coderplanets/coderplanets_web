@@ -13,7 +13,7 @@ export const topFilterOnChange = () => {}
  * change main view (recipes or cheatsheet)
  * @param {string} mainView
  */
-export const mainViewOnChange = mainView => {
+export const mainViewOnChange = (mainView) => {
   store.mark({ mainView })
 }
 
@@ -30,7 +30,7 @@ export const galleryTypeOnChange = ({ key: galleryType }) => {
 // init & uninit handlers
 // ###############################
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

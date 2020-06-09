@@ -216,7 +216,7 @@ const rootStore = T.model({
   c11NSettingPanel: T.optional(C11NSettingPanelStore, {}),
   roadmapThread: T.optional(RoadmapThreadStore, {}),
 })
-  .views(self => ({
+  .views((self) => ({
     get isOnline() {
       return self.globalLayout.online
     },
@@ -237,7 +237,7 @@ const rootStore = T.model({
       return self.account.accountInfo
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     afterCreate() {
       // self.communities.load()
     },

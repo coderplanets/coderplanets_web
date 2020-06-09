@@ -37,7 +37,7 @@ const mentionThemeClass = {
 }
 
 const mentionFilter = (value, mentions) =>
-  filter(m => startsWith(value, toLower(m.name)), mentions)
+  filter((m) => startsWith(value, toLower(m.name)), mentions)
 
 class MarkdownEditor extends React.Component {
   constructor(props) {
@@ -97,11 +97,11 @@ class MarkdownEditor extends React.Component {
     if (body) this.loadDraftRaw(body)
   }
 
-  loadDraftRaw = content => {
+  loadDraftRaw = (content) => {
     if (!content) return false
     // see: https://stackoverflow.com/questions/35884112/draftjs-how-to-initiate-an-editor-with-content
     const editorState = EditorState.createWithContent(
-      ContentState.createFromText(content)
+      ContentState.createFromText(content),
     )
 
     this.setState({ editorState }, () => {
@@ -109,7 +109,7 @@ class MarkdownEditor extends React.Component {
     })
   }
 
-  insertSnippet = data => {
+  insertSnippet = (data) => {
     const { editorState } = this.state
     /* const contentState = ContentState.createFromText('ni ma') */
     const contentState = editorState.getCurrentContent()
@@ -117,7 +117,7 @@ class MarkdownEditor extends React.Component {
     const nextContentState = Modifier.insertText(
       contentState,
       selection,
-      `\n${data}\n`
+      `\n${data}\n`,
     )
 
     const nextEditorState = EditorState.push(editorState, nextContentState)
@@ -128,7 +128,7 @@ class MarkdownEditor extends React.Component {
 
   onBlur = () => {}
 
-  onChange = editorState => {
+  onChange = (editorState) => {
     const { onChange } = this.props
     // const oldString = toRawString(this.state.editorState.getCurrentContent())
     const newString = toRawString(editorState.getCurrentContent())
@@ -141,12 +141,12 @@ class MarkdownEditor extends React.Component {
     const { onMentionSearch } = this.props
     onMentionSearch(value)
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       suggestions: mentionFilter(value, prevState.mentionList),
     }))
   }
 
-  loadUserSuggestions = propsMentionList => {
+  loadUserSuggestions = (propsMentionList) => {
     /* eslint-disable react/destructuring-assignment */
     const mentionList = propsMentionList || this.props.mentionList
     // log('loadUserSuggestions --->', mentionList)
@@ -154,7 +154,7 @@ class MarkdownEditor extends React.Component {
     /* eslint-enable react/destructuring-assignment */
   }
 
-  onAddMention = user => {
+  onAddMention = (user) => {
     const { onMention } = this.props
     onMention(user)
     // get the mention object selected
@@ -168,7 +168,7 @@ class MarkdownEditor extends React.Component {
 
   clearContent = () => {
     const editorState = EditorState.createWithContent(
-      ContentState.createFromText('')
+      ContentState.createFromText(''),
     )
     this.setState({ editorState })
   }
@@ -185,7 +185,7 @@ class MarkdownEditor extends React.Component {
           onChange={this.onChange}
           onBlur={this.onBlur}
           plugins={plugins}
-          ref={element => {
+          ref={(element) => {
             this.editor = element
           }}
         />
@@ -205,7 +205,7 @@ MarkdownEditor.propTypes = {
       id: T.string,
       avatar: T.string,
       name: T.string,
-    })
+    }),
   ),
   body: T.string,
   onMentionSearch: T.func,

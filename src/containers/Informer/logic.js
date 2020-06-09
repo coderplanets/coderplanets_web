@@ -23,7 +23,7 @@ export const backToOverview = () =>
     curView: 'overview',
   })
 
-export const onMessageChange = e => store.mark({ message: e.target.value })
+export const onMessageChange = (e) => store.mark({ message: e.target.value })
 
 export const onConfirm = () => {
   log('onConfirm')
@@ -35,7 +35,7 @@ export const onConfirm = () => {
   toggleModal()
 }
 
-export const yesReport = type =>
+export const yesReport = (type) =>
   store.mark({
     curView: 'form',
     type,
@@ -65,7 +65,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     // log('effect init')

@@ -19,7 +19,7 @@ const log = buildLog('C:RichEditor')
 
 const RichEditorContainer = ({ richEditor: store }) => {
   const [loaded] = useScript(
-    'https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest'
+    'https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest',
   )
 
   useInit(store, loaded)

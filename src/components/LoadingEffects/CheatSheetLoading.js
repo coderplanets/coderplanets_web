@@ -34,7 +34,7 @@ const LoadingBlock = ({ theme }) => (
 
 const CheatSheetLoading = ({ column, theme }) => (
   <Wrapper>
-    {range(0, column).map(item => (
+    {range(0, column).map((item) => (
       <LoadingBlock key={item} theme={theme} />
     ))}
   </Wrapper>

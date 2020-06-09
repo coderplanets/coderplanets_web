@@ -48,7 +48,7 @@ const SocialIconList = ({ show, user }) => (
     <FormLabel>社交账号:</FormLabel>
 
     <SocialIconsWrapper>
-      {SOCIAL_LISTS.map(social => (
+      {SOCIAL_LISTS.map((social) => (
         <SocialIcon
           key={social.key}
           src={`${ICON_CMD}/${social.key}.svg`}
@@ -79,7 +79,7 @@ const SocialInputer = ({ show, user }) => (
     <InputWrapper show={show}>
       {/* eslint-disable react/jsx-key */}
       {/* set key to SocialItem will cause input lose focus */}
-      {SOCIAL_LISTS.map(social => (
+      {SOCIAL_LISTS.map((social) => (
         <SocialItem
           key={social.key}
           label={social.label}

@@ -28,7 +28,7 @@ const LoadingItem = ({ theme }) => (
 )
 
 const ArticleContentLoading = ({ num, theme }) =>
-  range(0, num).map(item => (
+  range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <LoadingItem theme={theme} />
     </LoadingWrapper>

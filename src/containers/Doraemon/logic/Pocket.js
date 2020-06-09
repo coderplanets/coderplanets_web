@@ -51,19 +51,19 @@ export default class Pockect {
 
     this.cmdSuggestionCommon = this.generalInput$.pipe(
       filter(startWithSlash),
-      switchMap(q =>
-        this.advisor.relateSuggestions$(q).pipe(takeUntil(this.stop$))
+      switchMap((q) =>
+        this.advisor.relateSuggestions$(q).pipe(takeUntil(this.stop$)),
       ),
-      catchError(() => of([]))
+      catchError(() => of([])),
     )
 
     this.cmdSuggestionSpecial = this.generalInput$.pipe(
       filter(startWithSpecialPrefix),
-      map(this.advisor.specialSuggestions)
+      map(this.advisor.specialSuggestions),
     )
 
     this.cmdSuggesttion$ = this.cmdSuggestionCommon.pipe(
-      merge(this.cmdSuggestionSpecial)
+      merge(this.cmdSuggestionSpecial),
     )
   }
 

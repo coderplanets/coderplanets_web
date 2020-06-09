@@ -39,7 +39,7 @@ const PopContent = ({ communityTitle }) => {
       <RulesWrapper>
         <ArrowButton
           size="tiny"
-          onClick={e => {
+          onClick={(e) => {
             e.stopPropagation()
             console.log('oo')
           }}

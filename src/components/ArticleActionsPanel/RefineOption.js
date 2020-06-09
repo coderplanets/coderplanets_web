@@ -10,12 +10,12 @@ import { Option, OptionIcon, OptionTitle } from './styles'
 const RefineOption = ({ data, thread, onSetRefined, onUnsetRefined }) => (
   <React.Fragment>
     {contains('refined', pluck('title', data.tags)) ? (
-      <Option onClick={onUnsetRefined.bind(this, thread)}>
+      <Option onClick={() => onUnsetRefined(thread)}>
         <OptionIcon src={`${ICON_CMD}/diamond_frame.svg`} />
         <OptionTitle>取消精华</OptionTitle>
       </Option>
     ) : (
-      <Option onClick={onSetRefined.bind(this, thread)}>
+      <Option onClick={() => onSetRefined(thread)}>
         <OptionIcon src={`${ICON_CMD}/diamond_frame.svg`} />
         <OptionTitle>设为精华</OptionTitle>
       </Option>
@@ -29,7 +29,7 @@ RefineOption.propTypes = {
       T.shape({
         id: T.string,
         title: T.string,
-      })
+      }),
     ),
   }).isRequired,
   thread: T.string.isRequired,

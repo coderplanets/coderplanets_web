@@ -23,11 +23,11 @@ const JobExpFilter = ({ activeFilter, onSelect }) => (
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.exp.data.map(item => (
+      {LABEL_POOL.exp.data.map((item) => (
         <SelectItem
           key={item}
           active={activeFilter.exp === item}
-          onClick={onSelect.bind(this, { exp: item })}
+          onClick={() => onSelect({ exp: item })}
         >
           {item}
         </SelectItem>

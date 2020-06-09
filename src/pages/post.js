@@ -55,7 +55,7 @@ const fetchData = async (props, opt) => {
   }
 }
 
-export const getServerSideProps = async props => {
+export const getServerSideProps = async (props) => {
   const { mainPath } = ssrParseURL(props.req)
 
   let resp
@@ -99,7 +99,7 @@ export const getServerSideProps = async props => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const PostPage = props => {
+const PostPage = (props) => {
   const store = useStore(props)
   const { viewing, route, errorCode } = props
   const { post } = viewing

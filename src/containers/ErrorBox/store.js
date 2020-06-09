@@ -26,7 +26,7 @@ const ErrorBox = T.model('ErrorBox', {
   show: T.optional(T.boolean, false),
   type: T.optional(
     T.enumeration('type', [ERR.GRAPHQL, ERR.NETWORK, ERR.TIMEOUT]),
-    ERR.GRAPHQL
+    ERR.GRAPHQL,
   ),
   operation: T.optional(T.string, '--'),
   path: T.maybeNull(T.string),
@@ -35,13 +35,13 @@ const ErrorBox = T.model('ErrorBox', {
   // spec type of ERR.GRAPHQL
   graphqlType: T.optional(
     T.enumeration('graphqlType', ['changeset', 'parse', 'custom']),
-    'changeset'
+    'changeset',
   ),
   customError: T.maybeNull(T.array(Message)),
   parseError: T.maybeNull(T.array(Message)),
   changesetError: T.maybeNull(T.array(ChangesetError)),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -55,7 +55,7 @@ const ErrorBox = T.model('ErrorBox', {
       return stripMobx(self.parseError)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

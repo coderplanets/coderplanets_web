@@ -26,7 +26,7 @@ const UserPublished = T.model('UserPublished', {
       THREAD.VIDEO,
       THREAD.REPO,
     ]),
-    THREAD.POST
+    THREAD.POST,
   ),
 
   curView: T.optional(
@@ -36,14 +36,14 @@ const UserPublished = T.model('UserPublished', {
       TYPE.NOT_FOUND,
       TYPE.RESULT_EMPTY,
     ]),
-    TYPE.LOADING
+    TYPE.LOADING,
   ),
   pagedPosts: T.optional(PagedPosts, emptyPagiData),
   pagedJobs: T.optional(PagedJobs, emptyPagiData),
   pagedVideos: T.optional(PagedVideos, emptyPagiData),
   pagedRepos: T.optional(PagedRepos, emptyPagiData),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -69,7 +69,7 @@ const UserPublished = T.model('UserPublished', {
       }
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     markPagedData(pagedData) {
       const curView =
         pagedData.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT

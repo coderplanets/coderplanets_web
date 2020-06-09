@@ -17,7 +17,7 @@ const AccountStore = T.model('AccountStore', {
   isValidSession: T.optional(T.boolean, false),
   userSubscribedCommunities: T.maybeNull(PagedCommunities),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -47,7 +47,7 @@ const AccountStore = T.model('AccountStore', {
       return parseInt(self.user.customization.displayDensity, 10)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     logout() {
       self.root.preview.close()
       self.sessionCleanup()

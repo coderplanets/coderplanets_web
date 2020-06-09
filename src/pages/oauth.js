@@ -8,7 +8,7 @@ import OauthHinter from '@/components/OauthHinter'
 
 import { useStore } from '@/stores/init'
 
-const OAuthPage = props => {
+const OAuthPage = (props) => {
   const store = useStore(props)
 
   return (

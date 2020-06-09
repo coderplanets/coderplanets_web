@@ -20,7 +20,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export const loadTags = uniqId => {
+export const loadTags = (uniqId) => {
   const communityId = store.curCommunity.id
   const thread = toUpper(store.curThread)
 
@@ -39,7 +39,10 @@ export const onOptionSelect = (uniqId, item) => {
   // toggle item if exist
   if (contains(item, store.labelEntriesData[index].selected)) {
     return store.markUniqState(uniqId, {
-      selected: reject(e => e === item, store.labelEntriesData[index].selected),
+      selected: reject(
+        (e) => e === item,
+        store.labelEntriesData[index].selected,
+      ),
     })
   }
   // replace selected if single select mode
@@ -52,7 +55,7 @@ export const onOptionSelect = (uniqId, item) => {
   })
 }
 
-export const getSelectedTagId = label => {
+export const getSelectedTagId = (label) => {
   return store.getSelectedTagId(label)
 }
 
@@ -95,4 +98,4 @@ export const init = (_store, uniqId, options) => {
   store.markUniqState(uniqId, options)
 }
 
-export const uninit = uniqId => store.uninit(uniqId)
+export const uninit = (uniqId) => store.uninit(uniqId)

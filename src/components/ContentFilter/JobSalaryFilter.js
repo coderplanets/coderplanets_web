@@ -23,11 +23,11 @@ const JobSalaryFilter = ({ activeFilter, onSelect }) => (
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.salary.data.map(item => (
+      {LABEL_POOL.salary.data.map((item) => (
         <SelectItem
           key={item}
           active={activeFilter.salary === item}
-          onClick={onSelect.bind(this, { salary: item })}
+          onClick={() => onSelect({ salary: item })}
         >
           {item}
         </SelectItem>

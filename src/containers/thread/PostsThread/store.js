@@ -31,12 +31,12 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       TYPE.NOT_FOUND,
       TYPE.RESULT_EMPTY,
     ]),
-    TYPE.RESULT
+    TYPE.RESULT,
   ),
   pagedCityCommunities: T.optional(PagedCommunities, emptyPagiData),
   faqActive: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -59,7 +59,7 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(pickBy(v => !isEmpty(v), self.filters))
+      return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || {}
@@ -79,13 +79,13 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       return self.root.account.pageDensity
     },
     get showFilterBar() {
-      const curFilter = stripMobx(pickBy(v => !isEmpty(v), self.filters))
+      const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))
       const pagedPosts = stripMobx(self.pagedPosts)
 
       return !isEmpty(curFilter) || !isEmpty(pagedPosts.entries)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     toastInfo(options) {
       self.root.toast('info', merge({ position: 'topCenter' }, options))
     },
@@ -126,7 +126,7 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       if (index >= 0) {
         self.pagedPosts.entries[index] = merge(
           stripMobx(self.pagedPosts.entries[index]),
-          item
+          item,
         )
       }
     },

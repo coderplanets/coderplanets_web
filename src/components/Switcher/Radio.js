@@ -17,7 +17,7 @@ const log = buildLog('c:Radio:index')
 const Radio = ({ items, activeKey, onChange }) => {
   return (
     <Wrapper testid="radio">
-      {items.map(item => (
+      {items.map((item) => (
         <Label
           key={item.key}
           checked={item.key === activeKey}
@@ -37,7 +37,7 @@ Radio.propTypes = {
       value: T.string,
       key: T.oneOfType([T.string, T.bool]),
       dimOnActive: T.oneOfType([T.bool, T.instanceOf(null)]),
-    })
+    }),
   ).isRequired,
   activeKey: T.oneOfType([T.string, T.bool]).isRequired,
   onChange: T.func.isRequired,

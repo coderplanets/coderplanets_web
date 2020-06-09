@@ -15,7 +15,7 @@ const CityList = ({ data }) => {
 
   return (
     <Wrapper>
-      {items.slice(0, itemsLength - 1).map(item => (
+      {items.slice(0, itemsLength - 1).map((item) => (
         <Item key={item}>
           {Trans(item)}
           <SlashDivider>/</SlashDivider>{' '}

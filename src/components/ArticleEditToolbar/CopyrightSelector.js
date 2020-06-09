@@ -33,29 +33,26 @@ const FullOptions = [
   },
 ]
 
-const getOptions = thread => {
+const getOptions = (thread) => {
   switch (thread) {
     case THREAD.JOB:
-      return reject(o => o.value === 'translate', FullOptions)
+      return reject((o) => o.value === 'translate', FullOptions)
 
     case THREAD.RADAR:
-      return reject(o => o.value === 'original', FullOptions)
+      return reject((o) => o.value === 'original', FullOptions)
 
     default:
       return FullOptions
   }
 }
 
-const getCpTitle = cptype =>
+const getCpTitle = (cptype) =>
   path(['title'], find(propEq('value', cptype), FullOptions))
 
 const CopyrightContent = ({ active, thread, onCopyrightChange }) => (
   <Wrapper>
-    {getOptions(thread).map(opt => (
-      <Selector
-        key={opt.value}
-        onClick={onCopyrightChange.bind(this, opt.value)}
-      >
+    {getOptions(thread).map((opt) => (
+      <Selector key={opt.value} onClick={() => onCopyrightChange(opt.value)}>
         <CheckText>{opt.title}</CheckText>
         <CheckIcon
           src={`${ICON_CMD}/check2.svg`}

@@ -43,7 +43,7 @@ export const DotList = styled.div`
   margin-left: 5px;
   margin-right: 3px;
 `
-const dotColor = scale => {
+const dotColor = (scale) => {
   let key = `heatmap.scale_${scale}`
   if (scale === 'empty') {
     key = 'heatmap.empty'
@@ -58,6 +58,6 @@ export const ColorDot = styled.div`
   border-radius: 3px;
   margin-top: 2px;
   margin-right: 2px;
-  background-color: ${props => dotColor(props.scale)(props)};
+  background-color: ${(props) => dotColor(props.scale)(props)};
 `
 /* eslint-enable */

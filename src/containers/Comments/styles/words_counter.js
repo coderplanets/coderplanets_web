@@ -13,7 +13,7 @@ export const CounterSplit = styled.div`
   color: ${theme('comment.placeholder')};
 `
 
-const getColor = num => {
+const getColor = (num) => {
   if (num > WORD_LIMIT.COMMENT) {
     return 'tomato'
   }

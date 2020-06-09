@@ -20,7 +20,7 @@ import {
 
 const BuilderList = ({ entries }) => (
   <BuilderWrapper>
-    {entries.map(builder => (
+    {entries.map((builder) => (
       <Tooltip
         key={builder.htmlUrl}
         content={

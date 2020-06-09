@@ -55,7 +55,7 @@ const Menus = ({ active }) => (
   </MenuWrapper>
 )
 
-const renderFilterIcon = filterType => {
+const renderFilterIcon = (filterType) => {
   switch (filterType) {
     case TYPE.DESC_INSERTED:
       return <RecentlyIcon src={`${ICON_CMD}/recent.svg`} />

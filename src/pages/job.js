@@ -20,7 +20,7 @@ import JobContent from '@/containers/content/JobContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async props => {
+const fetchData = async (props) => {
   const token = getJwtToken(props)
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
@@ -52,7 +52,7 @@ const fetchData = async props => {
   }
 }
 
-export const getServerSideProps = async props => {
+export const getServerSideProps = async (props) => {
   const { mainPath } = ssrParseURL(props.req)
 
   let resp
@@ -96,7 +96,7 @@ export const getServerSideProps = async props => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const JobPage = props => {
+const JobPage = (props) => {
   const store = useStore(props)
 
   const { viewing, route, errorCode } = props

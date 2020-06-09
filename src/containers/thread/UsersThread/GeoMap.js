@@ -93,7 +93,7 @@ class LocationMap extends React.Component {
     const { Stat } = G2
 
     fetchGeoData()
-      .then(mapData => {
+      .then((mapData) => {
         const map = []
         const { features } = mapData
         for (let i = 0; i < features.length; i += 1) {
@@ -121,7 +121,7 @@ class LocationMap extends React.Component {
         bgView
           .polygon()
           .position(Stat.map.region('name', mapData))
-          .color('name', val => {
+          .color('name', (val) => {
             if (val === 'China') {
               return regionBg
             }
@@ -152,7 +152,7 @@ class LocationMap extends React.Component {
           })
         this.chart.render()
       })
-      .catch(ex => log('parsing failed', ex))
+      .catch((ex) => log('parsing failed', ex))
   }
   /* eslint-enable no-undef */
 

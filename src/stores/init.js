@@ -27,7 +27,7 @@ const initRootStore = (snapshot = null) => {
   return rootStore
 }
 
-export const useStore = initialState => {
+export const useStore = (initialState) => {
   const store = useMemo(() => initRootStore(initialState), [initialState])
   return store
 }

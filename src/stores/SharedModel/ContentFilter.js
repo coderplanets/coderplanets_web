@@ -11,7 +11,7 @@ export const ContentFilter = T.model('ContentFilter', {
       FILTER.THIS_MONTH,
       FILTER.THIS_YEAR,
     ]),
-    ''
+    '',
   ),
 
   sort: T.optional(
@@ -25,11 +25,11 @@ export const ContentFilter = T.model('ContentFilter', {
       FILTER.MOST_GITHUB_FORK,
       FILTER.MOST_GITHUB_WATCH,
     ]),
-    ''
+    '',
   ),
   length: T.optional(
     T.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
-    ''
+    '',
   ),
   // job
   salary: T.optional(T.string, ''),

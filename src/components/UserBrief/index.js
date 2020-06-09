@@ -36,7 +36,7 @@ class UserBrief extends React.Component {
   }
 
   toggleDetail() {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       showDetail: !prevState.showDetail,
     }))
   }

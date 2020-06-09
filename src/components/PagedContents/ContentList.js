@@ -29,7 +29,7 @@ const DynamicReposList = dynamic({
 })
 /* eslint-enable */
 
-const ContentList = props => {
+const ContentList = (props) => {
   const { thread } = props
 
   switch (thread) {

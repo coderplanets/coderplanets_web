@@ -30,12 +30,12 @@ const ContentSourceCard = ({
 
     {users.totalCount !== 0 && (
       <React.Fragment>
-        <Didiver />
+        <Divider />
         <Title>参与讨论 ({users.totalCount})</Title>
         <Desc noBottom>
           <UserList items={users.entries} />
         </Desc>
-        <Didiver />
+        <Divider />
       </React.Fragment>
     )}
 
@@ -55,7 +55,7 @@ ContentSourceCard.propTypes = {
         title: T.string,
         logo: T.string,
         raw: T.string,
-      })
+      }),
     ),
     pagedCommentsParticipators: T.shape({
       entries: T.array,
@@ -67,7 +67,7 @@ ContentSourceCard.propTypes = {
         title: T.string,
         color: T.string,
         raw: T.string,
-      })
+      }),
     ),
   }),
 }

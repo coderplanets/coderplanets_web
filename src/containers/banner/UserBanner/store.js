@@ -11,7 +11,7 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 const log = buildLog('S:UserBanner')
 
 const UserBanner = T.model('UserBanner', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -22,7 +22,7 @@ const UserBanner = T.model('UserBanner', {})
       return stripMobx(self.root.viewing.user)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

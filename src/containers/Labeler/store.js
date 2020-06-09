@@ -26,7 +26,7 @@ const RealLabel = T.model('RealLabel', {
       'scale',
       'field',
     ]),
-    'default'
+    'default',
   ),
   multi: T.optional(T.boolean, false),
   selected: T.optional(T.array(T.string), []),
@@ -43,7 +43,7 @@ const RealLabel = T.model('RealLabel', {
 const Labeler = T.model('Labeler', {
   labelEntries: T.optional(T.array(RealLabel), []),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -62,10 +62,10 @@ const Labeler = T.model('Labeler', {
       const labelList = stripMobx(self.labelEntries)
 
       const mapData = { tags: [] }
-      forEach(label => {
+      forEach((label) => {
         if (label.label === 'city' || label.label === 'default') {
           if (label.multi) {
-            forEach(selectedLabel => {
+            forEach((selectedLabel) => {
               const tagId = self.root.tagsBar.getTagIdByTitle(selectedLabel)
               if (tagId !== false) {
                 mapData.tags.push({ id: tagId })
@@ -90,7 +90,7 @@ const Labeler = T.model('Labeler', {
       return mapData
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     toast(type, options) {
       self.root.toast(type, options)
     },
@@ -117,7 +117,7 @@ const Labeler = T.model('Labeler', {
     uninit(uniqId) {
       self.labelEntries = reject(
         propEq('uniqId', uniqId),
-        self.labelEntriesData
+        self.labelEntriesData,
       )
     },
     mark(sobj) {

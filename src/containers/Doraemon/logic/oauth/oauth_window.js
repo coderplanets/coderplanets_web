@@ -2,7 +2,7 @@
 // By https://gist.github.com/gauravtiwari
 
 /* eslint-disable */
-const popup = authUrl => {
+const popup = (authUrl) => {
   const windowArea = {
     width: Math.floor(window.outerWidth * 0.6),
     height: Math.floor(window.outerHeight * 0.5),
@@ -15,10 +15,10 @@ const popup = authUrl => {
     windowArea.height = 550
   }
   windowArea.left = Math.floor(
-    window.screenX + (window.outerWidth - windowArea.width) / 2
+    window.screenX + (window.outerWidth - windowArea.width) / 2,
   )
   windowArea.top = Math.floor(
-    window.screenY + (window.outerHeight - windowArea.height) / 3
+    window.screenY + (window.outerHeight - windowArea.height) / 3,
   )
 
   const sep = authUrl.indexOf('?') !== -1 ? '&' : '?'
@@ -47,7 +47,7 @@ const popup = authUrl => {
     }
     window.postMessage(
       { from_oauth_window: authWindow.location.search },
-      window.location.href
+      window.location.href,
     )
   }, 1000)
 
@@ -55,7 +55,7 @@ const popup = authUrl => {
   const authPromise = new Promise((resolve, reject) => {
     eventer(
       messageEvent,
-      msg => {
+      (msg) => {
         // This doesn't work in Chrome 59
         // if (e.origin !== window.SITE_DOMAIN) {
         // https://stackoverflow.com/questions/25098021/securityerror-blocked-a-frame-with-origin-from-accessing-a-cross-origin-frame
@@ -63,7 +63,7 @@ const popup = authUrl => {
         if (
           /* eslint-disable */
           !~msg.origin.indexOf(
-            `${window.location.protocol}//${window.location.host}`
+            `${window.location.protocol}//${window.location.host}`,
           )
           /* eslint-enable */
         ) {
@@ -82,7 +82,7 @@ const popup = authUrl => {
           // reject('Unauthorised')
         }
       },
-      false
+      false,
     )
   })
 

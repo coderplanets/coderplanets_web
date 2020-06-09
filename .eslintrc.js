@@ -27,5 +27,8 @@ module.exports = {
       },
     },
   },
-  rules: {},
+  rules: {
+    'react/jsx-one-expression-per-line': 0,
+    'operator-linebreak': 0,
+  },
 }

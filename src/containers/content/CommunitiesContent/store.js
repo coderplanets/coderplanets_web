@@ -33,7 +33,7 @@ const CommunitiesContentStore = T.model('CommunitiesContentStore', {
   showSearchHint: T.optional(T.boolean, false),
   searchfocused: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -91,7 +91,7 @@ const CommunitiesContentStore = T.model('CommunitiesContentStore', {
     },
     get pagedCategoriesData() {
       const { entries } = stripMobx(self.pagedCategories)
-      return entries.map(item => ({
+      return entries.map((item) => ({
         id: item.id,
         raw: item.raw,
         title: Trans(item.title),
@@ -99,7 +99,7 @@ const CommunitiesContentStore = T.model('CommunitiesContentStore', {
       }))
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     updateEditing(sobj) {
       self.mark(sobj)
     },
@@ -109,7 +109,7 @@ const CommunitiesContentStore = T.model('CommunitiesContentStore', {
     toggleSubscribe(community) {
       const index = findIndex(
         propEq('id', community.id),
-        self.pagedCommunities.entries
+        self.pagedCommunities.entries,
       )
       if (index === -1) return false
 

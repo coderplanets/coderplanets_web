@@ -24,7 +24,7 @@ const SourceSelector = () => {
         innerHeight="70px"
         shadowSize="small"
       >
-        {sources.map(item => (
+        {sources.map((item) => (
           <Block key={item.id}>
             <Icon src={item.icon} />
             <Title>{item.title}</Title>

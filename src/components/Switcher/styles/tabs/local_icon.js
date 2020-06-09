@@ -27,7 +27,7 @@ export const LableWrapper = styled.div`
   ${cs.flex('align-center')};
 `
 
-const commonIcon = comp =>
+const commonIcon = (comp) =>
   styled(comp)`
     fill: ${({ active }) =>
       active === 1 ? theme('tabs.headerActive') : theme('tabs.header')};

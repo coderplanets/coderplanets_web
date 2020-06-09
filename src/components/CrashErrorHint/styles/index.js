@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { cs, theme, themeSkins } from '@/utils'
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flexColumn('align-center', 'justify-between')};

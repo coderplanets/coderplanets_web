@@ -39,7 +39,7 @@ const CommunityRecommends = () => {
     <Wrapper>
       <Title>热门社区</Title>
       <ListWrapper>
-        {items.map(item => (
+        {items.map((item) => (
           <Community key={item.id}>
             <Tooltip content={item.title} placement="bottom">
               <div>

@@ -44,14 +44,14 @@ const JobEditorStore = T.model('JobEditorStore', {
       'CREATE_VIEW',
       'PREVIEW_VIEW',
     ]),
-    'CREATE_VIEW'
+    'CREATE_VIEW',
   ),
   contentDomId: T.optional(T.string, 'job_editor_content_id'),
 
   publishing: T.optional(T.boolean, false),
   isEdit: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -82,10 +82,10 @@ const JobEditorStore = T.model('JobEditorStore', {
     get referUsersData() {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
-      return filter(user => contains(user.name, extractMentions), referUsers)
+      return filter((user) => contains(user.name, extractMentions), referUsers)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     toast(type, options) {
       self.root.toast(type, options)
     },
@@ -102,7 +102,7 @@ const JobEditorStore = T.model('JobEditorStore', {
               { linkAddr: '原链接地址' },
               'https://',
               self.changesetErr,
-              self.editData.copyRight !== 'original'
+              self.editData.copyRight !== 'original',
             )
             .done()
 
@@ -147,11 +147,11 @@ const JobEditorStore = T.model('JobEditorStore', {
     updateMentionList(mentionArray) {
       const curMentionList = clone(self.mentionList)
       const uniqList = uniq(concat(curMentionList, mentionArray))
-      const mentionList = map(m => ({ ...m, name: m.nickname }), uniqList)
+      const mentionList = map((m) => ({ ...m, name: m.nickname }), uniqList)
       self.mentionList = mentionList
     },
     addReferUser(user) {
-      const index = findIndex(u => u.id === String(user.id), self.referUsers)
+      const index = findIndex((u) => u.id === String(user.id), self.referUsers)
       if (index === -1) {
         self.referUsers.push({
           id: String(user.id),

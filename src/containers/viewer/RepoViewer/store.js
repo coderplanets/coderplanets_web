@@ -14,7 +14,7 @@ const log = buildLog('S:RepoViewer')
 const RepoViewer = T.model('RepoViewer', {
   loading: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -28,7 +28,7 @@ const RepoViewer = T.model('RepoViewer', {
       return stripMobx(self.root.viewing.community)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

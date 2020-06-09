@@ -23,7 +23,7 @@ const log = buildLog('c:TabSelector:index')
 const TabSelector = ({ source, activeRaw, onChange }) => (
   <Wrapper>
     <OptionsWrapper>
-      {source.map(opt => (
+      {source.map((opt) => (
         <Option
           key={opt.raw}
           active={activeRaw === opt.raw}
@@ -50,7 +50,7 @@ TabSelector.propTypes = {
       icon: T.string.isRequired,
       raw: T.string.isRequired,
       count: T.number,
-    })
+    }),
   ).isRequired,
 }
 

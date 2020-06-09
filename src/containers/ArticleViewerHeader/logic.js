@@ -48,7 +48,7 @@ export const onListReactionUsers = (type, data) =>
     data: { ...data, thread: store.activeThread },
   })
 
-const afterReaction = id => {
+const afterReaction = (id) => {
   const thread = store.activeThread
   switch (thread) {
     case THREAD.JOB:
@@ -114,7 +114,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.REFRESH_REACTIONS),
-    action: e => {
+    action: (e) => {
       markLoading(true)
       const { id } = e[EVENT.REFRESH_REACTIONS].data
       afterReaction(id)
@@ -145,7 +145,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

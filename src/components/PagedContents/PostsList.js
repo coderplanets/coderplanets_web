@@ -28,7 +28,7 @@ const PostsList = ({ props }) => {
     case TYPE.RESULT:
       return (
         <React.Fragment>
-          {entries.map(entry => (
+          {entries.map((entry) => (
             <PostItem
               key={entry.id}
               entry={entry}
@@ -37,7 +37,7 @@ const PostsList = ({ props }) => {
               accountInfo={accountInfo}
               onUserSelect={onUserSelect}
               onAuthorSelect={onAuthorSelect}
-              onPreview={onPreview.bind(this, entry)}
+              onPreview={() => onPreview(entry)}
             />
           ))}
         </React.Fragment>

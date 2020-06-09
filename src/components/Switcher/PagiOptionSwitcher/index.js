@@ -45,11 +45,11 @@ const getLocalIcon = (item, activeKey) => {
 const PagiOptionSwitcher = ({ title, items, activeKey, onChange }) => {
   const mappedItems = useMemo(
     () =>
-      items.map(item => ({
+      items.map((item) => ({
         ...item,
         localIcon: getLocalIcon(item, activeKey),
       })),
-    [items, activeKey]
+    [items, activeKey],
   )
 
   return (
@@ -72,7 +72,7 @@ PagiOptionSwitcher.propTypes = {
       localIcon: T.string,
       key: T.string,
       desc: T.string,
-    })
+    }),
   ).isRequired,
   activeKey: T.string.isRequired,
   onChange: T.func.isRequired,

@@ -15,7 +15,7 @@ import { CardWrapper, AttachWrapper, AttachIcon } from './styles/digest_board'
 
 import * as logic from './logic'
 
-const anyTrue = obj => any(equals(true), values(obj))
+const anyTrue = (obj) => any(equals(true), values(obj))
 
 const DigestBoard = ({ user, accountId, following }) => (
   <React.Fragment>

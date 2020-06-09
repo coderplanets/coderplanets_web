@@ -21,7 +21,7 @@ const AvatarAdder = T.model('AvatarAdder', {
   errorType: T.maybeNull(T.string),
   /* ERR_TYPE:  */
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -29,7 +29,7 @@ const AvatarAdder = T.model('AvatarAdder', {
       return stripMobx(self.githubUser)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     changesetErr(options) {
       self.root.changesetErr(options)
     },

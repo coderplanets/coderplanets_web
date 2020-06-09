@@ -25,7 +25,7 @@ const log = buildLog('c:InlineCommunities:index')
 
 const FullList = ({ data }) => (
   <Wrapper>
-    {data.map(c => (
+    {data.map((c) => (
       <Tooltip
         key={c.title}
         placement="bottom"
@@ -55,7 +55,7 @@ const InlineCommunities = ({ data, show, max }) => {
         }
       >
         <Wrapper>
-          {data.slice(0, max).map(c => (
+          {data.slice(0, max).map((c) => (
             <CommunityWrapper key={c.title}>
               <CommunityLogo src={c.logo} />
               <div>{Trans(c.title)}</div>
@@ -81,7 +81,7 @@ InlineCommunities.propTypes = {
       title: T.string,
       logo: T.string,
       raw: T.string,
-    })
+    }),
   ),
   max: T.number,
 }

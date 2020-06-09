@@ -29,7 +29,7 @@ export const getOSSDir = () => {
   return `${thread}/${date.getFullYear()}_${date.getMonth() + 1}/${day}`
 }
 
-export const getOSSFileName = filename => {
+export const getOSSFileName = (filename) => {
   const community = store.curCommunity.raw
   const thread = store.curThread
   const userName = store.accountInfo.nickname
@@ -73,7 +73,7 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
+export const init = (_store) => {
   store = _store
 
   if (sub$) return false

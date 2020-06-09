@@ -21,11 +21,11 @@ const JobEducationFilter = ({ activeFilter, onSelect }) => (
     </SelectLabel>
     <LabelDivider />
 
-    {LABEL_POOL.education.data.map(item => (
+    {LABEL_POOL.education.data.map((item) => (
       <SelectItem
         key={item}
         active={activeFilter.education === item}
-        onClick={onSelect.bind(this, { education: item })}
+        onClick={() => onSelect({ education: item })}
       >
         {item}
       </SelectItem>

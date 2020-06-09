@@ -55,7 +55,7 @@ const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
 const BackgroundList = ({ list }) => (
   <Maybe test={list}>
     <BackgroundsWrapper>
-      {list.map(item => (
+      {list.map((item) => (
         <BackgroundItem key={item.company + item.title}>
           <BgTitle>{item.company}</BgTitle>
           <Maybe test={item.title}>

@@ -23,11 +23,11 @@ const JobScaleFilter = ({ activeFilter, onSelect }) => (
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.scale.data.map(item => (
+      {LABEL_POOL.scale.data.map((item) => (
         <SelectItem
           key={item}
           active={activeFilter.scale === item}
-          onClick={onSelect.bind(this, { scale: item })}
+          onClick={() => onSelect({ scale: item })}
         >
           {item}
         </SelectItem>

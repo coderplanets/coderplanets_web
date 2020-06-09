@@ -29,7 +29,7 @@ const GeoMapSSR = dynamic({
 const UsersThreadContainer = ({ usersThread }) => {
   /* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */
   const [g2ScriptLoaded] = useScript(
-    'https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js'
+    'https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js',
   )
 
   useInit(usersThread)

@@ -68,7 +68,7 @@ class LabelerContainer extends React.Component {
     const targetIndex = findIndex(propEq('uniqId', uniqId))(labelEntriesData)
 
     const { tags, popVisible, selected } = labelEntriesData[targetIndex] || {}
-    const tagsList = reject(t => t.title === 'refined', tags)
+    const tagsList = reject((t) => t.title === 'refined', tags)
 
     return (
       <Wrapper>
@@ -149,5 +149,5 @@ LabelerContainer.defaultProps = {
 }
 
 export default withGuardian(
-  inject(storePlug('labeler'))(observer(LabelerContainer))
+  inject(storePlug('labeler'))(observer(LabelerContainer)),
 )

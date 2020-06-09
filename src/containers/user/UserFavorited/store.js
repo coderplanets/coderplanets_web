@@ -29,7 +29,7 @@ const UserFavorited = T.model('UserFavorited', {
       THREAD.JOB,
       THREAD.REPO,
     ]),
-    THREAD.POST
+    THREAD.POST,
   ),
   parentView: T.optional(
     T.enumeration('parentView', [
@@ -38,7 +38,7 @@ const UserFavorited = T.model('UserFavorited', {
       // details of a single category
       'CATEGORY_DETAIL',
     ]),
-    'CATEGORY_LIST'
+    'CATEGORY_LIST',
   ),
 
   curView: T.optional(
@@ -48,14 +48,14 @@ const UserFavorited = T.model('UserFavorited', {
       TYPE.NOT_FOUND,
       TYPE.RESULT_EMPTY,
     ]),
-    TYPE.LOADING
+    TYPE.LOADING,
   ),
   pagedPosts: T.optional(PagedPosts, emptyPagiData),
   pagedJobs: T.optional(PagedJobs, emptyPagiData),
   pagedVideos: T.optional(PagedVideos, emptyPagiData),
   pagedRepos: T.optional(PagedRepos, emptyPagiData),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -84,7 +84,7 @@ const UserFavorited = T.model('UserFavorited', {
       return stripMobx(self.pagedPosts)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     markPagedData(pagedData) {
       const curView =
         pagedData.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT

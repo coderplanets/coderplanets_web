@@ -57,7 +57,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: data => {
+    action: (data) => {
       const { topic } = data[EVENT.TABBER_CHANGE].data
       loadTags(topic)
       store.mark({ activeTag: null })

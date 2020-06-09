@@ -23,8 +23,8 @@ export const onClose = () => {
   unlockPage()
 }
 
-export const onFollow = userId => sr71$.mutate(S.follow, { userId })
-export const undoFollow = userId => sr71$.mutate(S.undoFollow, { userId })
+export const onFollow = (userId) => sr71$.mutate(S.follow, { userId })
+export const undoFollow = (userId) => sr71$.mutate(S.undoFollow, { userId })
 
 const loadUsers = (type, data, page = 1) => {
   // log('loadUsers type: ', type)
@@ -39,7 +39,7 @@ const loadUsers = (type, data, page = 1) => {
           thread: toUpper(data.thread),
           filter: { page, size: PAGE_SIZE.D },
           userHasLogin: store.isLogin,
-        }
+        },
       )
 
       return sr71$.query(S.reactionUsers, args)
@@ -86,12 +86,12 @@ const loadUsers = (type, data, page = 1) => {
   }
 }
 
-export const onPageChange = page => {
+export const onPageChange = (page) => {
   const { type, id, action, thread } = store
   loadUsers(type, { id, action, thread }, page)
 }
 
-const handleUsersRes = pagedUsers => {
+const handleUsersRes = (pagedUsers) => {
   const curView = pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
   store.mark({ pagedUsers, curView })
 }
@@ -101,7 +101,7 @@ const handleUsersRes = pagedUsers => {
 const DataSolver = [
   {
     match: asyncRes(EVENT.USER_LISTER_OPEN),
-    action: res => {
+    action: (res) => {
       const { type, data } = res.USER_LISTER_OPEN
       store.mark({ show: true, type, ...data })
       loadUsers(type, data)
@@ -161,7 +161,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

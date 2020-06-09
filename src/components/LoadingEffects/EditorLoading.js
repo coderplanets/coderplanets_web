@@ -28,12 +28,13 @@ const Loading = ({ theme }) => (
   </ContentLoader>
 )
 
-const EditorLoading = ({ num, theme }) =>
-  range(0, num).map(item => (
+const EditorLoading = ({ num, theme }) => {
+  return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <Loading theme={theme} />
     </LoadingWrapper>
   ))
+}
 
 EditorLoading.propTypes = {
   num: T.number,

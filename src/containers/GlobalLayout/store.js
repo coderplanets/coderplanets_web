@@ -29,7 +29,7 @@ const GlobalLayoutStore = T.model('GlobalLayoutStore', {
   media: T.optional(Media, {}),
   platform: T.optional(Platform, {}),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -38,7 +38,7 @@ const GlobalLayoutStore = T.model('GlobalLayoutStore', {
       return self.root.sidebar.pin
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     openDoraemon() {
       self.root.openDoraemon()
     },

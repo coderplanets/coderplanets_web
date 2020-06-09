@@ -28,7 +28,7 @@ const loadCheatsheet = () => {
   sr71$.query(S.cheatsheet, { community })
 }
 
-export const syncCheatsheet = readme => {
+export const syncCheatsheet = (readme) => {
   const args = {
     readme,
     lastSync: new Date().toISOString(),
@@ -47,16 +47,16 @@ export const syncCheetsheetFromGithub = () => {
 
   githubAPI
     .searchCheatsheet(store.curCommunity.raw)
-    .then(res => {
+    .then((res) => {
       if (!res || startsWith('404', res))
         return store.mark({ curView: TYPE.NOT_FOUND })
 
       syncCheatsheet(res)
     })
-    .catch(e => store.handleError(githubAPI.parseError(e)))
+    .catch((e) => store.handleError(githubAPI.parseError(e)))
 }
 
-export const addContributor = user => {
+export const addContributor = (user) => {
   const args = {
     id: store.cheatsheetData.id,
     contributor: user,
@@ -92,7 +92,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: res => {
+    action: (res) => {
       const { data } = res[EVENT.TABBER_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.CHEATSHEET) return loadCheatsheet()
@@ -118,7 +118,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

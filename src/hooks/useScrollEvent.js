@@ -10,14 +10,14 @@ const inialState = {
 
 // detect the scroll derection
 // see https://codepen.io/lehollandaisvolant/pen/ryrrGx?editors=1010
-const useScrollEvent = cb => {
+const useScrollEvent = (cb) => {
   const [sroll, setScroll] = useState(inialState)
 
   /* eslint-disable */
   useEffect(() => {
     // adding scroll event
     let scrollPos = scroll.scrollPos
-    const handleScroll = debounce(function() {
+    const handleScroll = debounce(function () {
       // detects new state and compares it with the new one
       let direction =
         document.body.getBoundingClientRect().top > scrollPos ? 'up' : 'down'
@@ -31,7 +31,7 @@ const useScrollEvent = cb => {
         merge(inialState, {
           direction,
           scrollPos,
-        })
+        }),
       )
     }, 50)
 

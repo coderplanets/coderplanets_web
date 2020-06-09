@@ -27,7 +27,7 @@ const LoadingItem = () => (
 )
 
 const TagListLoading = ({ num }) => {
-  return range(0, num).map(item => (
+  return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <LoadingItem />
     </LoadingWrapper>

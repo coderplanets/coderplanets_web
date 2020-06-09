@@ -7,7 +7,7 @@ import GraphQLTitle from './GraphqlTitle'
 
 import { Wrapper, ErrorIcon, Info, Title, Desc } from './styles/header'
 
-const getPath = path => {
+const getPath = (path) => {
   if (!path) return '---'
 
   return `containers/${path}/logic`

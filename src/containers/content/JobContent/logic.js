@@ -72,7 +72,7 @@ export const holder = 1
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     // log('effect init')

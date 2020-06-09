@@ -27,7 +27,7 @@ const FavoriteReaction = ({ data, thread, show, loading }) => (
           this,
           TYPE.FAVORITE,
           data.viewerHasFavorited,
-          data
+          data,
         )}
       >
         <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />

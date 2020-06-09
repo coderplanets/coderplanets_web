@@ -35,7 +35,7 @@ export const closePreview = () => {
 const DataResolver = [
   {
     match: asyncRes(EVENT.PREVIEW_OPEN),
-    action: res => {
+    action: (res) => {
       const payload = res[EVENT.PREVIEW_OPEN]
       /*
          log('should open payload thread: ', payload.thread)

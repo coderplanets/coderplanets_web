@@ -22,7 +22,7 @@ export const onClose = () => store.mark({ show: false })
 const DataResolver = [
   {
     match: asyncRes(EVENT.JOIN_US),
-    action: data => {
+    action: (data) => {
       console.log('--> EVENT.JOIN_US: ', data)
       store.mark({ show: true })
     },
@@ -32,7 +32,7 @@ const DataResolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     log(store)

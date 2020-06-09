@@ -48,7 +48,7 @@ export const searchablePrefix = compose(
     startsWith('@'),
     startsWith('>'),
     startsWith('<'),
-  ])
+  ]),
 )
 
 export const startWithSpecialPrefix = anyPass([
@@ -76,7 +76,7 @@ export class Advisor {
     this.curSuggestions = store.allSuggestions
   }
 
-  getSuggestionPath = p => {
+  getSuggestionPath = (p) => {
     if (isEmpty(p)) {
       return pathFn(p, this.curSuggestions)
     }
@@ -89,7 +89,7 @@ export class Advisor {
 
   suggestionPath = compose(this.getSuggestionPath, cmdFull)
 
-  suggestionPathThenStartsWith = val => {
+  suggestionPathThenStartsWith = (val) => {
     const init = this.suggestionPathInit(val)
     return pickBy((_, k) => startsWith(cmdLast(val), k), init)
   }
@@ -97,22 +97,22 @@ export class Advisor {
   walkSuggestion = ifElse(
     endsWith('/'),
     this.suggestionPath,
-    this.suggestionPathThenStartsWith
+    this.suggestionPathThenStartsWith,
   )
 
   suggestionBrief = compose(
     values,
     map(pick(['title', 'desc', 'raw', 'logo', 'cmd'])),
-    this.walkSuggestion
+    this.walkSuggestion,
   )
 
   getSuggestion = ifElse(
     compose(startsWith('/'), tail), // avoid multi /, like /////
     () => identity([]),
-    this.suggestionBrief
+    this.suggestionBrief,
   )
 
-  relateSuggestions = val => {
+  relateSuggestions = (val) => {
     // sync with store allSuggestions
     this.curSuggestions = this.store.allSuggestions
 
@@ -122,10 +122,10 @@ export class Advisor {
     }
   }
 
-  relateSuggestions$ = q =>
-    from(new Promise(resolve => resolve(this.relateSuggestions(q))))
+  relateSuggestions$ = (q) =>
+    from(new Promise((resolve) => resolve(this.relateSuggestions(q))))
 
-  specialSuggestions = val => {
+  specialSuggestions = (val) => {
     return {
       prefix: head(val),
       data: [

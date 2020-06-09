@@ -69,14 +69,14 @@ JobItem.propTypes = {
         title: T.string,
         color: T.string,
         raw: T.string,
-      })
+      }),
     ),
     communities: T.arrayOf(
       T.shape({
         id: T.string,
         title: T.string,
         logo: T.string,
-      })
+      }),
     ),
     author: T.shape({
       nickname: T.string,

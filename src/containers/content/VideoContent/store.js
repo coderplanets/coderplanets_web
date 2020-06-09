@@ -11,7 +11,7 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:VideoContent')
 
 const VideoContent = T.model('VideoContent', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -25,7 +25,7 @@ const VideoContent = T.model('VideoContent', {})
       return self.root.viewingData
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     callInformer() {
       self.root.callInformer()
     },

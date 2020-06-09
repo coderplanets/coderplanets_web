@@ -20,7 +20,7 @@ import VideoContent from '@/containers/content/VideoContent'
 
 import { P } from '@/schemas'
 
-export const fetchData = async props => {
+export const fetchData = async (props) => {
   const token = getJwtToken(props)
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
@@ -50,7 +50,7 @@ export const fetchData = async props => {
   }
 }
 
-export const getServerSideProps = async props => {
+export const getServerSideProps = async (props) => {
   const { mainPath } = ssrParseURL(props.req)
 
   let resp
@@ -93,7 +93,7 @@ export const getServerSideProps = async props => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const VideoPage = props => {
+const VideoPage = (props) => {
   const store = useStore(props)
 
   const { errorCode, viewing, route } = props

@@ -19,7 +19,7 @@ export const ThemeDefaults = {
 export const ThemeStore = T.model('ThemeStore', {
   curTheme: T.optional(T.enumeration('theme', keys(themeSkins)), DEFAULT_THEME),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -27,7 +27,7 @@ export const ThemeStore = T.model('ThemeStore', {
       return themeSkins[self.curTheme]
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     isMemberOf(type) {
       return self.root.isMemberOf(type)
     },

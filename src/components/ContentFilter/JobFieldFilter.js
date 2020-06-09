@@ -22,11 +22,11 @@ const JobFieldFilter = ({ activeFilter, onSelect }) => (
     </SelectLabel>
     <LabelDivider />
     <LeftAlignWrapper>
-      {LABEL_POOL.field.data.map(item => (
+      {LABEL_POOL.field.data.map((item) => (
         <SelectItem
           key={item}
           active={activeFilter.field === item}
-          onClick={onSelect.bind(this, { field: item })}
+          onClick={() => onSelect({ field: item })}
         >
           {item}
         </SelectItem>

@@ -13,7 +13,7 @@ const log = buildLog('S:PostViewer')
 const PostViewer = T.model('PostViewer', {
   loading: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -34,7 +34,7 @@ const PostViewer = T.model('PostViewer', {
       return activeThread
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

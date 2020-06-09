@@ -22,7 +22,7 @@ const WorkBackgroundList = ({ user: { workBackgrounds }, first }) => {
   }
   return (
     <div>
-      {workBackgrounds.map(bg => (
+      {workBackgrounds.map((bg) => (
         <BackgroundDetailItem key={bg.title + bg.company}>
           {bg.company}
           {bg.title && <BackgroundDivider />}
@@ -48,7 +48,7 @@ const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
   }
   return (
     <div>
-      {educationBackgrounds.map(bg => (
+      {educationBackgrounds.map((bg) => (
         <BackgroundDetailItem key={bg.school + bg.major}>
           {bg.school}
           {bg.major && <BackgroundDivider />}

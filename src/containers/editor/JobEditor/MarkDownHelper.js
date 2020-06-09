@@ -17,7 +17,7 @@ const md = new Remarkable()
 md.use(mentions({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
 
-const notTooLong = l => l.length < 20
+const notTooLong = (l) => l.length < 20
 
 /* eslint-disable react/no-danger */
 const Emojis = () => {
@@ -34,7 +34,7 @@ const Emojis = () => {
             justifyContent: 'center',
           }}
         >
-          {source.map(item => (
+          {source.map((item) => (
             <EmojiItem
               key={uid.gen()}
               dangerouslySetInnerHTML={{

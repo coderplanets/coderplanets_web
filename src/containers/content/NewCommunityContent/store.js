@@ -19,7 +19,7 @@ const CommunitiesContentStore = T.model('NewCommunityContentStore', {
       LN.STEP.SETUP_DOMAIN,
       LN.STEP.SETUP_INFO,
     ]),
-    LN.STEP.SELECT_TYPE // SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
+    LN.STEP.SELECT_TYPE, // SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
   ),
 
   communityType: T.maybeNull(
@@ -28,7 +28,7 @@ const CommunitiesContentStore = T.model('NewCommunityContentStore', {
       LN.COMMUNITY_TYPE.CITY,
       LN.COMMUNITY_TYPE.WORK,
       LN.COMMUNITY_TYPE.TEAM,
-    ])
+    ]),
   ),
 
   domainValue: T.optional(T.string, ''),
@@ -48,7 +48,7 @@ const CommunitiesContentStore = T.model('NewCommunityContentStore', {
   // showSearchHint: T.optional(T.boolean, false),
   // searchfocused: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -77,7 +77,7 @@ const CommunitiesContentStore = T.model('NewCommunityContentStore', {
       return {}
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     updateEditing(sobj) {
       self.mark(sobj)
     },

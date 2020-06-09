@@ -8,7 +8,7 @@ const TagList = ({ items }) => {
 
   return (
     <React.Fragment>
-      {items.map(t => (
+      {items.map((t) => (
         <Wrapper key={t.id}>
           <TagDot color={t.color} />
           <TagTitle>{t.title}</TagTitle>

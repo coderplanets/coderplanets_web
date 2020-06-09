@@ -26,13 +26,13 @@ const log = buildLog('L:Cashier')
 
 let store = null
 
-export const sidebarViewOnChange = sidebarView =>
+export const sidebarViewOnChange = (sidebarView) =>
   store.mark({ sidebarView, contentView: sidebarView })
 
-export const paymentMethodOnChange = paymentMethod =>
+export const paymentMethodOnChange = (paymentMethod) =>
   store.mark({ paymentMethod })
 
-export const subContentViewOnChange = subContentView =>
+export const subContentViewOnChange = (subContentView) =>
   store.mark({ subContentView })
 
 export const transferAccountChange = ({ target: { value } }) =>
@@ -107,7 +107,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

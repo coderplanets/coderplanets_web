@@ -53,12 +53,12 @@ export const loadRepos = (page = 1) => {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export const onPageChange = page => {
+export const onPageChange = (page) => {
   scrollToTabber()
   loadRepos(page)
 }
 
-export const onPreview = data => {
+export const onPreview = (data) => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_REPO_VIEW,
@@ -81,13 +81,13 @@ export const onContentCreate = () => {
   send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
 }
 
-export const onTagSelect = tag => {
+export const onTagSelect = (tag) => {
   store.selectTag(tag)
   loadRepos()
   store.markRoute({ tag: tag.title })
 }
 
-export const onFilterSelect = option => {
+export const onFilterSelect = (option) => {
   store.selectFilter(option)
   store.markRoute({ ...store.filtersData })
   loadRepos()
@@ -111,7 +111,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
-    action: res => {
+    action: (res) => {
       const { type } = res[EVENT.C11N_DENSITY_CHANGE]
       if (type === THREAD.REPO) loadRepos(store.pagedRepos.pageNumber)
     },
@@ -122,7 +122,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: res => {
+    action: (res) => {
       const { data } = res[EVENT.TABBER_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.REPO) {
@@ -148,7 +148,7 @@ const ErrSolver = []
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     // log('effect init')
