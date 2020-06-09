@@ -33,7 +33,7 @@ const Button = ({ children, ghost, type, onClick, size, className }) => {
 }
 
 Button.propTypes = {
-  children: T.oneOfType(T.string, T.node),
+  children: T.oneOfType([T.string, T.node]),
   ghost: T.bool,
   type: T.oneOf(['primary', 'red', 'ghost']),
   size: T.oneOf(['default', 'small']),

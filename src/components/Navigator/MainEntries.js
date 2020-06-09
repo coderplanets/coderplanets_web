@@ -1,7 +1,7 @@
 import React from 'react'
 import T from 'prop-types'
 import Link from 'next/link'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 import { ICON_CMD } from '@/config'
 import { ROUTE } from '@/constant'
@@ -14,7 +14,8 @@ import { Wrapper, DotDivider, SiteLink, Icon } from './styles/main_entries'
 
 const splitMargin = '7px'
 
-const MainEntries = ({ router, type }) => {
+const MainEntries = ({ type }) => {
+  const router = useRouter()
   const mainPath = getRouteMainPath(router.asPath)
 
   return (
@@ -95,4 +96,4 @@ MainEntries.defaultProps = {
   type: null,
 }
 
-export default React.memo(withRouter(MainEntries))
+export default React.memo(MainEntries)
