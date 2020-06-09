@@ -51,12 +51,7 @@ const MainEntries = ({ router, type }) => {
       </Link>
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
-        <SiteLink
-        // active={mainPath === ROUTE.HAVE_A_DRINK}
-        // testid={`header-${ROUTE.HAVE_A_DRINK}`}
-        >
-          工作
-        </SiteLink>
+        <SiteLink>工作</SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.MEETUPS}`} passHref>
