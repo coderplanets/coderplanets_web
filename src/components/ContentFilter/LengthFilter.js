@@ -21,13 +21,13 @@ const LengthFilter = ({ activeFilter, onSelect }) => (
     <LabelDivider />
     <SelectItem
       active={activeFilter.length === FILTER.MOST_WORDS}
-      onClick={onSelect.bind(this, { length: FILTER.MOST_WORDS })}
+      onClick={() => onSelect({ length: FILTER.MOST_WORDS })}
     >
       字数最多
     </SelectItem>
     <SelectItem
       active={activeFilter.length === FILTER.LEAST_WORDS}
-      onClick={onSelect.bind(this, { length: FILTER.LEAST_WORDS })}
+      onClick={() => onSelect({ length: FILTER.LEAST_WORDS })}
     >
       字数最少
     </SelectItem>

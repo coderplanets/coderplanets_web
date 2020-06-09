@@ -40,8 +40,9 @@ export const transferAccountChange = ({ target: { value } }) =>
 
 export const onPaymentConfirm = () => {
   if (!store.isLogin) return store.authWarning({ hideToast: true })
-  if (isEmpty(store.transferAccount))
+  if (isEmpty(store.transferAccount)) {
     return store.toastError({ title: '提交失败', msg: '请填写转账信息' })
+  }
 
   const { paymentMethod, paymentUsage, amount, transferAccount: note } = store
 

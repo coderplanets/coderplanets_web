@@ -1,21 +1,11 @@
 import React from 'react'
 import { AnimateOnChange } from 'react-animation'
 
-import { ICON_BASE } from '@/config'
 import { SpaceGrow } from '@/components/Common'
 
 import EXECUTES from './executes'
 
-import {
-  Wrapper,
-  Header,
-  HintIcon,
-  Title,
-  UL,
-  Li,
-  Action,
-  Footer,
-} from './styles'
+import { Header, HintIcon, Title } from './styles'
 
 const animate = {
   fade: {

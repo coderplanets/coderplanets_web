@@ -37,7 +37,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
           active={activeRaw === suggestion.raw}
           key={suggestion.raw}
           id={suggestion.raw}
-          onMouseEnter={navToSuggestion.bind(this, suggestion)}
+          onMouseEnter={() => navToSuggestion(suggestion)}
           onClick={suggestionOnSelect}
         >
           <SuggestIcon

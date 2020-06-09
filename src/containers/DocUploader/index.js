@@ -69,7 +69,7 @@ class DocUploaderContainer extends React.Component {
     /* eslint-enable */
     const { pasteImage } = this.props
     if (pasteImage) {
-      Global.removeEventListener('paste', this.handlePaste.bind(this), true)
+      Global.removeEventListener('paste', () => this.handlePaste(), true)
     }
     unInit()
 
@@ -101,7 +101,7 @@ class DocUploaderContainer extends React.Component {
 
   initPasteWatcher() {
     log('initPasteWatcher')
-    Global.addEventListener('paste', this.handlePaste.bind(this), true)
+    Global.addEventListener('paste', () => this.handlePaste(), true)
   }
 
   initOssClient() {
@@ -195,7 +195,7 @@ class DocUploaderContainer extends React.Component {
           name={`file-${uniqueId}`}
           id={`file-${uniqueId}`}
           accept={fileType}
-          onChange={this.handleInputChange.bind(this)}
+          onChange={() => this.handleInputChange()}
         />
         {/* eslint-disable */}
         <label htmlFor={`file-${uniqueId}`}>{children}</label>

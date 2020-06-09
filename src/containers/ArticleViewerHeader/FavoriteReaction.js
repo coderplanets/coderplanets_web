@@ -23,12 +23,7 @@ const FavoriteReaction = ({ data, thread, show, loading }) => (
     <Reaction>
       <ReactionAction
         active={data.viewerHasFavorited}
-        onClick={onReaction.bind(
-          this,
-          TYPE.FAVORITE,
-          data.viewerHasFavorited,
-          data,
-        )}
+        onClick={() => onReaction(TYPE.FAVORITE, data.viewerHasFavorited, data)}
       >
         <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />
         <ReactionName>
@@ -39,12 +34,14 @@ const FavoriteReaction = ({ data, thread, show, loading }) => (
         <ReactionLoading src={`${ICON_CMD}/reaction_loading.svg`} />
       ) : (
         <ReactionUserNum
-          onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_FAVORITES, {
-            thread,
-            id: data.id,
-            action: TYPE.FAVORITE,
-            brief: data.title || '',
-          })}
+          onClick={() =>
+            onListReactionUsers(TYPE.USER_LISTER_FAVORITES, {
+              thread,
+              id: data.id,
+              action: TYPE.FAVORITE,
+              brief: data.title || '',
+            })
+          }
         >
           {data.favoritedCount}
         </ReactionUserNum>

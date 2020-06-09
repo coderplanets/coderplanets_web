@@ -37,7 +37,7 @@ const DigestView = ({
   return (
     <React.Fragment>
       {cover === 'avatar' ? (
-        <AvatarWrapper onClick={onAuthorSelect.bind(this, entry.author)}>
+        <AvatarWrapper onClick={() => onAuthorSelect(entry.author)}>
           <Avatar
             src={entry.author.avatar}
             fallback={
@@ -52,7 +52,7 @@ const DigestView = ({
       )}
       <Main>
         <TopHalf>
-          <Brief onClick={onPreview.bind(this, entry)}>
+          <Brief onClick={() => onPreview(entry)}>
             <Title>{entry.title}</Title>
             {entry.linkAddr && (
               <TitleLink>

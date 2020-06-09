@@ -25,7 +25,7 @@ const SubscribedBtn = ({ community, onUndoSubscribe }) => {
         </PopoverInfo>
       }
     >
-      <NumberTitle onClick={onUndoSubscribe.bind(this, community)} small>
+      <NumberTitle onClick={() => onUndoSubscribe(community)} small>
         已加入
       </NumberTitle>
     </Tooltip>
@@ -46,9 +46,7 @@ const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
           </PopoverInfo>
         }
       >
-        <NumberTitle onClick={onSubscribe.bind(this, community)}>
-          加入
-        </NumberTitle>
+        <NumberTitle onClick={() => onSubscribe(community)}>加入</NumberTitle>
       </Tooltip>
     )}
   </React.Fragment>

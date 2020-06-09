@@ -68,7 +68,7 @@ const MentionList = ({
   data: { entries, pageNumber, pageSize, totalCount },
   readState,
 }) => {
-  if (isEmpty(entries))
+  if (isEmpty(entries)) {
     return (
       <Wrapper>
         <InfoWrapper>
@@ -77,6 +77,7 @@ const MentionList = ({
         <EmptyLabel text="还没有人提到(@)你" />
       </Wrapper>
     )
+  }
 
   return (
     <Wrapper>

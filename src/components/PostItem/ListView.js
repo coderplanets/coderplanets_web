@@ -27,7 +27,7 @@ const ListView = ({ entry, onPreview }) => (
     <SmallAvatar src={entry.author.avatar} />
     <Main>
       <TopHalf>
-        <Brief onClick={onPreview.bind(this, entry)}>
+        <Brief onClick={() => onPreview(entry)}>
           <Title>{cutFrom(entry.title, 45)}</Title>
           {entry.linkAddr && (
             <TitleLink>

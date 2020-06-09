@@ -73,20 +73,20 @@ const PaymentSidebar = ({
           <TitleDivider />
           <AliWrapper
             active={paymentMethod === PAYMENT_METHOD.ALIPAY}
-            onClick={paymentMethodOnChange.bind(this, PAYMENT_METHOD.ALIPAY)}
+            onClick={() => paymentMethodOnChange(PAYMENT_METHOD.ALIPAY)}
           >
             <PaymentIcon src={`${ICON_CMD}/alipay-color.svg`} />
             <OptionTitle>支付宝</OptionTitle>
           </AliWrapper>
           <WeixinWrapper
             active={paymentMethod === PAYMENT_METHOD.WECHAT}
-            onClick={paymentMethodOnChange.bind(this, PAYMENT_METHOD.WECHAT)}
+            onClick={() => paymentMethodOnChange(PAYMENT_METHOD.WECHAT)}
           >
             <PaymentIcon src={`${ICON_CMD}/weichat-color.svg`} />
             <OptionTitle>微信支付</OptionTitle>
           </WeixinWrapper>
           <Holder />
-          <QuestionWrapper onClick={sidebarViewOnChange.bind(this, 'question')}>
+          <QuestionWrapper onClick={() => sidebarViewOnChange('question')}>
             <QuestionIcon src={`${ICON_CMD}/question-mark.svg`} />
             <OptionTitle>常见问题</OptionTitle>
           </QuestionWrapper>

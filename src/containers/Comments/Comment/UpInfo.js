@@ -9,7 +9,7 @@ import { toggleLikeComment } from '../logic'
 
 const UpInfo = ({ data }) => (
   <Wrapper>
-    <div onClick={toggleLikeComment.bind(this, data)}>
+    <div onClick={() => toggleLikeComment(data)}>
       <Icon
         src={`${ICON_CMD}/arrow-up-o.svg`}
         viewerDid={data.viewerHasLiked}

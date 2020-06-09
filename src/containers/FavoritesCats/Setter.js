@@ -42,18 +42,14 @@ const Setter = ({ show, entries, selectedId }) => (
               </CatMain>
               <SetBtn>
                 {selectedId === cat.id ? (
-                  <Button
-                    type="red"
-                    ghost
-                    onClick={unSetContent.bind(this, cat.id)}
-                  >
+                  <Button type="red" ghost onClick={() => unSetContent(cat.id)}>
                     移除
                   </Button>
                 ) : (
                   <Button
                     type="primary"
                     ghost
-                    onClick={setContent.bind(this, cat.id)}
+                    onClick={() => setContent(cat.id)}
                   >
                     加入
                   </Button>

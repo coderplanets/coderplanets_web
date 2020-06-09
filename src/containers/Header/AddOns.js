@@ -12,10 +12,10 @@ const AddOns = () => (
         &nbsp;&nbsp;&nbsp;
         <DividerIcon src={`${ICON_CMD}/more.svg`} />
       */}
-    <div onClick={previewState.bind(this, 'mst-state')}>
+    <div onClick={() => previewState('mst-state')}>
       <HeaderStatesIcon />
     </div>
-    <ThemeDot onClick={queryDoraemon.bind(this, '/theme/')} />
+    <ThemeDot onClick={() => queryDoraemon('/theme/')} />
     <Divider>&nbsp;</Divider>
   </Wrapper>
 )

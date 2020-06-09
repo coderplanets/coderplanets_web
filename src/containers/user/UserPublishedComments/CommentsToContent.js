@@ -35,7 +35,7 @@ const CommentsToContent = ({ data, thread, curView }) => {
         <Wrapper>
           {entries.map((comment) => (
             <div key={comment.id}>
-              <CommentBlock onClick={onPreview.bind(this, comment)}>
+              <CommentBlock onClick={() => onPreview(comment)}>
                 <Parent data={comment} thread={thread} />
                 <CommentBox>
                   <CommentHeader>

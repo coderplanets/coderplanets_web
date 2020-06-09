@@ -20,7 +20,7 @@ const Content = () => (
           size="small"
           type="primary"
           ghost
-          onClick={yesReport.bind(this, 'gangjing')}
+          onClick={() => yesReport('gangjing')}
         >
           是的, 去举报
         </Button>
@@ -36,7 +36,7 @@ const Content = () => (
           size="small"
           type="primary"
           ghost
-          onClick={yesReport.bind(this, 'pirate')}
+          onClick={() => yesReport('pirate')}
         >
           是的, 去举报
         </Button>
@@ -52,7 +52,7 @@ const Content = () => (
           size="small"
           type="primary"
           ghost
-          onClick={yesReport.bind(this, 'sensitive')}
+          onClick={() => yesReport('sensitive')}
         >
           是的, 去举报
         </Button>

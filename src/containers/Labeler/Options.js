@@ -21,9 +21,7 @@ const OptionItems = ({ items, selected, onOptionSelect }) => (
           src={`${ICON_CMD}/check.svg`}
           active={contains(item, selected)}
         />
-        <OptionText onClick={onOptionSelect.bind(this, item)}>
-          {item}
-        </OptionText>
+        <OptionText onClick={() => onOptionSelect(item)}>{item}</OptionText>
       </OptionItem>
     ))}
   </OptionWrapper>

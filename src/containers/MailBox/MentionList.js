@@ -77,7 +77,7 @@ const MentionList = ({ data }) => {
           >
             <Message>
               <MessageHeader>
-                <UserLabel onClick={previewUser.bind(this, item.fromUser)}>
+                <UserLabel onClick={() => previewUser(item.fromUser)}>
                   <UserAvatar src={item.fromUser.avatar} />
                   <UserNickname>
                     {cutFrom(item.fromUser.nickname, 8)}

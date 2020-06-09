@@ -165,7 +165,7 @@ class LocationMap extends React.Component {
           refreshRate={500}
           skipOnMount={false}
           querySelector={`#${this.chartId}`}
-          onResize={this.onResize.bind(this)}
+          onResize={() => this.onResize()}
         />
         <div id={this.chartId} />
         <Br bottom="10px" />

@@ -44,7 +44,6 @@ const Attachment = T.model('Attachment', {
     T.enumeration('type', [...THREAD_CONTENT_CURD_TYPES]),
     TYPE.PREVIEW_POST_VIEW,
   ),
-  /* type: T.maybeNull(T.string), // T.optional(T.enumeration('edittype', [TYPE.POST, TYPE.JOB]), TYPE.POST), */
   title: T.string,
   body: T.maybeNull(T.string),
   digest: T.maybeNull(T.string),

@@ -24,39 +24,39 @@ const RepoSortFilter = ({ activeFilter, onSelect }) => (
     <LeftAlignWrapper offset="10px">
       <SelectItem
         active={activeFilter.sort === FILTER.MOST_GITHUB_STAR}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_GITHUB_STAR })}
+        onClick={() => onSelect({ sort: FILTER.MOST_GITHUB_STAR })}
       >
         最多Star
       </SelectItem>
       <SelectItem
         active={activeFilter.sort === FILTER.MOST_GITHUB_FORK}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_GITHUB_FORK })}
+        onClick={() => onSelect({ sort: FILTER.MOST_GITHUB_FORK })}
       >
         最多Fork
       </SelectItem>
 
       <SelectItem
         active={activeFilter.sort === FILTER.MOST_GITHUB_WATCH}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_GITHUB_WATCH })}
+        onClick={() => onSelect({ sort: FILTER.MOST_GITHUB_WATCH })}
       >
         最多Watch
       </SelectItem>
 
       <SelectItem
         active={activeFilter.sort === FILTER.MOST_VIEWS}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_VIEWS })}
+        onClick={() => onSelect({ sort: FILTER.MOST_VIEWS })}
       >
         最多浏览
       </SelectItem>
       <SelectItem
         active={activeFilter.sort === FILTER.MOST_FAVORITES}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_FAVORITES })}
+        onClick={() => onSelect({ sort: FILTER.MOST_FAVORITES })}
       >
         最多收藏
       </SelectItem>
       <SelectItem
         active={activeFilter.sort === FILTER.MOST_COMMENTS}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_COMMENTS })}
+        onClick={() => onSelect({ sort: FILTER.MOST_COMMENTS })}
       >
         最多评论
       </SelectItem>

@@ -25,7 +25,7 @@ const PaymentFooter = ({ num, onPay }) => (
         <PaymentIcon src={`${ICON_CMD}/weichat-color.svg`} /> 微信支付
       </Weixin>
     </PayDesc>
-    <Button type="red" onClick={onPay.bind(this, num * 10.24)}>
+    <Button type="red" onClick={() => onPay(num * 10.24)}>
       资助 <MoneyNum>￥{num * 10.24} 元</MoneyNum>
     </Button>
   </Wrapper>

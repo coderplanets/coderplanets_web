@@ -6,7 +6,6 @@
 
 import React, { useEffect, useState } from 'react'
 import T from 'prop-types'
-import dynamic from 'next/dynamic'
 
 import useNetwork from 'react-use/lib/useNetwork'
 

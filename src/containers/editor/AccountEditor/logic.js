@@ -77,8 +77,9 @@ export const updateConfirm = () => {
 
   const args = { profile }
 
-  if (!isEmpty(educationBackgrounds))
+  if (!isEmpty(educationBackgrounds)) {
     args.educationBackgrounds = educationBackgrounds
+  }
   if (!isEmpty(workBackgrounds)) args.workBackgrounds = workBackgrounds
   if (!isEmpty(social)) args.social = social
 

@@ -27,7 +27,7 @@ const TabSelector = ({ source, activeRaw, onChange }) => (
         <Option
           key={opt.raw}
           active={activeRaw === opt.raw}
-          onClick={onChange.bind(this, opt)}
+          onClick={() => onChange(opt)}
         >
           <Icon src={opt.icon} active={activeRaw === opt.raw} />
           <Title>

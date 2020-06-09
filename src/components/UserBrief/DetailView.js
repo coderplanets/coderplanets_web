@@ -27,7 +27,7 @@ const DetailView = ({ user, toggleDetail }) => (
     <UserDetailDesc>
       <DescLabel>个人主页</DescLabel> {user.github}
     </UserDetailDesc>
-    <UserDetailDesc onClick={toggleDetail.bind(this)} clickable>
+    <UserDetailDesc onClick={() => toggleDetail()} clickable>
       <DescIconLabel src={`${ICON_CMD}/profile_arrow.svg`} />
       <ToggleText>收起详细资料</ToggleText>
     </UserDetailDesc>

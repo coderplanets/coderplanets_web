@@ -55,7 +55,7 @@ const VideoItem = ({ entry, active, onPreview, accountInfo }) => (
     </PosterWrapper>
     <Main>
       <TopHalf>
-        <Brief onClick={onPreview.bind(this, entry)}>
+        <Brief onClick={() => onPreview(entry)}>
           <Title>{entry.title}</Title>
           <VideoSourceInfo value={entry.source} />
           <InlineTags data={entry.tags} />

@@ -48,8 +48,9 @@ export const syncCheetsheetFromGithub = () => {
   githubAPI
     .searchCheatsheet(store.curCommunity.raw)
     .then((res) => {
-      if (!res || startsWith('404', res))
+      if (!res || startsWith('404', res)) {
         return store.mark({ curView: TYPE.NOT_FOUND })
+      }
 
       syncCheatsheet(res)
     })

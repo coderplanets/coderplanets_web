@@ -10,7 +10,7 @@ import { withRouter } from 'next/router'
 
 // import Link from 'next/link'
 
-import { buildLog, storePlug } from 'utils'
+import { buildLog, storePlug } from '@/utils'
 import { init, uninit } from './logic'
 
 /* eslint-disable-next-line */

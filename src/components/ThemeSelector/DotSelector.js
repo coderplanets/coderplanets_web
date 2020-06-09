@@ -11,7 +11,7 @@ const DotSelector = ({ curTheme, changeTheme }) => (
         key={name}
         active={curTheme === name}
         name={name}
-        onClick={changeTheme.bind(this, name)}
+        onClick={() => changeTheme(name)}
       />
     ))}
   </Wrapper>

@@ -23,7 +23,7 @@ import { inputOnChange, usePosterAsThumbnil } from './logic'
 const CoverUploader = ({ thumbnil, poster }) => (
   <Wrapper>
     <DocUploader
-      onUploadDone={inputOnChange.bind(this, 'thumbnil')}
+      onUploadDone={() => inputOnChange('thumbnil')}
       pasteImage={false}
     >
       {nilOrEmpty(thumbnil) ? (
@@ -44,7 +44,7 @@ const CoverUploader = ({ thumbnil, poster }) => (
     {nilOrEmpty(poster) ? (
       <Poster>
         <DocUploader
-          onUploadDone={inputOnChange.bind(this, 'poster')}
+          onUploadDone={() => inputOnChange('poster')}
           pasteImage={false}
         >
           <UploaderLabel>
@@ -64,7 +64,7 @@ const CoverUploader = ({ thumbnil, poster }) => (
       </Poster>
     ) : (
       <DocUploader
-        onUploadDone={inputOnChange.bind(this, 'poster')}
+        onUploadDone={() => inputOnChange('poster')}
         pasteImage={false}
       >
         <Poster>

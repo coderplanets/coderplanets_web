@@ -30,7 +30,7 @@ const ListView = ({ entry, onPreview }) => (
     <CompanyLogo src={entry.companyLogo} />
     <Main>
       <TopHalf>
-        <Brief onClick={onPreview.bind(this, entry)}>
+        <Brief onClick={() => onPreview(entry)}>
           <Title>
             【 {entry.company} 】{cutFrom(entry.title, 45)}
           </Title>

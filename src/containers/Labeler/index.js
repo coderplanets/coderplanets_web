@@ -93,13 +93,13 @@ class LabelerContainer extends React.Component {
                   label={label}
                   items={tagsList}
                   selected={selected}
-                  onOptionSelect={this.onTagSelect.bind(this, uniqId)}
+                  onOptionSelect={() => this.onTagSelect(uniqId)}
                 />
               }
               placement="right"
               trigger="click"
               visible={popVisible}
-              onVisibleChange={onVisibleChange.bind(this, uniqId)}
+              onVisibleChange={() => onVisibleChange(uniqId)}
             >
               <LabelItem>
                 <LabelIcon src={LABEL_POOL[label].iconSrc} />

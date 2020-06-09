@@ -32,7 +32,7 @@ const DigestView = ({ user, toggleDetail }) => (
       <DescIconLabel src={`${ICON_CMD}/profile_education.svg`} />{' '}
       <BackgroundList type="education" user={user} first />
     </UserDesc>
-    <UserDesc onClick={toggleDetail.bind(this)} clickable>
+    <UserDesc onClick={() => toggleDetail()} clickable>
       <DetailToggleLabel src={`${ICON_CMD}/profile_arrow.svg`} reverse />
       <ToggleText>查看详细资料</ToggleText>
     </UserDesc>

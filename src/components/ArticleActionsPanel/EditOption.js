@@ -9,7 +9,7 @@ import { Option, OptionIcon, OptionTitle } from './styles'
 
 const EditOption = ({ thread, onEdit }) => (
   <React.Fragment>
-    <Option onClick={onEdit.bind(this, thread)}>
+    <Option onClick={() => onEdit(thread)}>
       <OptionIcon src={`${ICON_CMD}/edit.svg`} />
       {thread === THREAD.REPO ? (
         <OptionTitle>同步仓库信息</OptionTitle>

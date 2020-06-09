@@ -79,15 +79,9 @@ class UserBrief extends React.Component {
           </UserTitle>
 
           {showDetail ? (
-            <DetailView
-              user={user}
-              toggleDetail={this.toggleDetail.bind(this)}
-            />
+            <DetailView user={user} toggleDetail={() => this.toggleDetail()} />
           ) : (
-            <DigestView
-              user={user}
-              toggleDetail={this.toggleDetail.bind(this)}
-            />
+            <DigestView user={user} toggleDetail={() => this.toggleDetail()} />
           )}
           <SocialSplit />
           <UserDesc>

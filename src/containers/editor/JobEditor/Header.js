@@ -15,7 +15,7 @@ import {
   BackToEditHint,
 } from './styles/header'
 
-import * as logic from './logic'
+import { changeView } from './logic'
 
 const DoingText = ({ isEdit }) => {
   return isEdit ? (
@@ -31,7 +31,7 @@ const Header = ({ isEdit, curView, referUsers }) => {
       return (
         <Wrapper>
           <UsageText>Github Flavor Markdown</UsageText>
-          <BackToEditHint onClick={logic.changeView.bind(this, 'CREATE_VIEW')}>
+          <BackToEditHint onClick={() => changeView('CREATE_VIEW')}>
             <MarkdownIcon src={`${ICON_CMD}/original.svg`} />
             返回编辑
           </BackToEditHint>
@@ -58,9 +58,7 @@ const Header = ({ isEdit, curView, referUsers }) => {
               </RefUsersWrapper>
             )}
           </UsageText>
-          <MarkDownHint
-            onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}
-          >
+          <MarkDownHint onClick={() => changeView('MARKDOWN_HELP_VIEW')}>
             <MarkdownIcon src={`${ICON_CMD}/markdown.svg`} />
             markdown 语法速查
           </MarkDownHint>

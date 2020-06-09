@@ -192,8 +192,9 @@ const DataSolver = [
     action: (res) => {
       const { data } = res[EVENT.TABBER_CHANGE]
 
-      if (contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY]))
+      if (contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY])) {
         return false
+      }
 
       const { curCommunity, curRoute } = store
       if (curCommunity.raw === ROUTE.HOME && curRoute.subPath === THREAD.CITY) {
