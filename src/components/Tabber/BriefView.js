@@ -7,7 +7,7 @@ import { Wrapper } from './styles/brief_view'
 // import TabIcon from './TabIcon'
 
 const BriefView = ({ source, active, onChange }) => {
-  const items = source.map(item => ({ ...item, localIcon: item.raw }))
+  const items = source.map((item) => ({ ...item, localIcon: item.raw }))
 
   return (
     <Wrapper>

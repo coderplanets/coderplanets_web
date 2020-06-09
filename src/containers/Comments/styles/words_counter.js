@@ -7,13 +7,13 @@ export const Wrapper = styled.div`
   ${cs.flex('align-center')};
   color: #c2d9da;
 `
-export const CounterSpliter = styled.div`
+export const CounterSplit = styled.div`
   font-size: 1.5em;
   font-weight: lighter;
   color: ${theme('comment.placeholder')};
 `
 
-const getColor = num => {
+const getColor = (num) => {
   if (num > WORD_LIMIT.COMMENT) {
     return 'tomato'
   }

@@ -42,7 +42,7 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
           raw="title"
           ratKey={ratKey}
           value={editVideoData.title}
-          onChange={inputOnChange.bind(this, 'title')}
+          onChange={() => inputOnChange('title')}
           placeholder="视频标题 #必填#"
         />
         <FormItem
@@ -50,12 +50,12 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
           raw="source"
           ratKey={ratKey}
           value={editVideoData.source}
-          onChange={inputOnChange.bind(this, 'source')}
+          onChange={() => inputOnChange('source')}
           placeholder="YouTube #必填#"
           att={
             <SourceOptions
               active={editVideoData.source}
-              sourceOnSelect={inputOnChange.bind(this, 'source')}
+              sourceOnSelect={() => inputOnChange('source')}
             />
           }
         />
@@ -64,7 +64,7 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
           raw="link"
           ratKey={ratKey}
           value={editVideoData.link}
-          onChange={inputOnChange.bind(this, 'link')}
+          onChange={() => inputOnChange('link')}
           placeholder="https://youtube/xxx #必填#"
         />
         <FormItem
@@ -72,7 +72,7 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
           raw="originalAuthor"
           ratKey={ratKey}
           value={editVideoData.originalAuthor}
-          onChange={inputOnChange.bind(this, 'originalAuthor')}
+          onChange={() => inputOnChange('originalAuthor')}
           placeholder="原视频作者昵称 #必填#"
         />
         <FormItem
@@ -80,7 +80,7 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
           raw="originalAuthorLink"
           ratKey={ratKey}
           value={editVideoData.originalAuthorLink}
-          onChange={inputOnChange.bind(this, 'originalAuthorLink')}
+          onChange={() => inputOnChange('originalAuthorLink')}
           placeholder="视频网站的作者主页||作者社交账号链接 #必填#"
         />
         <FormItem
@@ -88,7 +88,7 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
           raw="duration"
           ratKey={ratKey}
           value={editVideoData.duration}
-          onChange={inputOnChange.bind(this, 'duration')}
+          onChange={() => inputOnChange('duration')}
           placeholder="mm:ss 或 hh:mm:ss #必填#"
         />
         {!isEdit && (
@@ -97,7 +97,7 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
             raw="publishAt"
             ratKey={ratKey}
             value={editVideoData.publishAt}
-            onChange={inputOnChange.bind(this, 'publishAt')}
+            onChange={() => inputOnChange('publishAt')}
             placeholder="原视频发布日期, 格式 YYYY/MM/DD #必填#"
           />
         )}
@@ -106,7 +106,7 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
           raw="desc"
           ratKey={ratKey}
           value={editVideoData.desc}
-          onChange={inputOnChange.bind(this, 'desc')}
+          onChange={() => inputOnChange('desc')}
           type="textarea"
           placeholder="视频描述信息 #必填#"
         />

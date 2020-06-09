@@ -15,7 +15,7 @@ const CategoryCardList = ({
 }) => (
   <Wrapper>
     <CardListWrapper>
-      {entries.map(cat => (
+      {entries.map((cat) => (
         <Folder
           key={cat.id}
           title={cutFrom(cat.title, 10)}

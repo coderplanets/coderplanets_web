@@ -1,4 +1,4 @@
-export const getWidth = type => {
+export const getWidth = (type) => {
   switch (type) {
     case 'large':
       return '240px'
@@ -8,7 +8,7 @@ export const getWidth = type => {
   }
 }
 
-export const getHeight = type => {
+export const getHeight = (type) => {
   switch (type) {
     case 'large':
       return '180px'

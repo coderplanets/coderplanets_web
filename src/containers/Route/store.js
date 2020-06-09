@@ -33,7 +33,7 @@ const RouteStore = T.model('RouteStore', {
   subPath: T.optional(T.string, ''),
   query: T.optional(Query, {}),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -49,7 +49,7 @@ const RouteStore = T.model('RouteStore', {
       return mobile || tablet
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     /**
      * sync query to current url
      * - if current url is subdomain, then we should
@@ -71,7 +71,7 @@ const RouteStore = T.model('RouteStore', {
       }
 
       const { mainPath, subPath, page } = query
-      query = pickBy(v => !isEmpty(v), query)
+      query = pickBy((v) => !isEmpty(v), query)
 
       if (mainPath) self.mainPath = mainPath
       if (subPath) self.subPath = subPath

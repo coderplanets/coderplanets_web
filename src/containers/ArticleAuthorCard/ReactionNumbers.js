@@ -36,10 +36,12 @@ const ReactionNumbers = ({ user }) => {
       <ReactionNum>
         <NumDesc>关注者</NumDesc>
         <Number
-          onClick={onListUsers.bind(this, TYPE.USER_LISTER_FOLLOWERS, {
-            id: user.id,
-            brief: user.nickname,
-          })}
+          onClick={() =>
+            onListUsers(TYPE.USER_LISTER_FOLLOWERS, {
+              id: user.id,
+              brief: user.nickname,
+            })
+          }
         >
           {user.achievement.followersCount}
         </Number>
@@ -47,10 +49,12 @@ const ReactionNumbers = ({ user }) => {
       <ReactionNum>
         <NumDesc>关注中</NumDesc>
         <Number
-          onClick={onListUsers.bind(this, TYPE.USER_LISTER_FOLLOWINGS, {
-            id: user.id,
-            brief: user.nickname,
-          })}
+          onClick={() =>
+            onListUsers(TYPE.USER_LISTER_FOLLOWINGS, {
+              id: user.id,
+              brief: user.nickname,
+            })
+          }
         >
           {user.achievement.followingsCount}
         </Number>

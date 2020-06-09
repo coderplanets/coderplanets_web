@@ -21,7 +21,7 @@ const log = buildLog('L:Header')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.SET_C11N],
+  receive: [EVENT.SET_C11N],
 })
 
 let store = null
@@ -36,7 +36,7 @@ export const previewAccount = () =>
 // to avoid page-cache in server
 export const checkSesstionState = () => sr71$.query(S.sessionState, {})
 
-export const onThreadChange = activeThread => {
+export const onThreadChange = (activeThread) => {
   console.log('onThreadChange: ', activeThread)
 
   // const activeThread = thread.raw
@@ -61,7 +61,7 @@ export const onLogout = () => {
 export const openDoraemon = () => store.openDoraemon()
 export const upgradeHepler = () => store.upgradeHepler()
 
-export const queryDoraemon = data => send(EVENT.QUERY_DORAMON, { data })
+export const queryDoraemon = (data) => send(EVENT.QUERY_DORAMON, { data })
 
 const DataSolver = [
   {
@@ -75,7 +75,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.SET_C11N),
-    action: res => {
+    action: (res) => {
       if (!store.isLogin) {
         store.toastInfo({
           title: '设置未保存',
@@ -119,7 +119,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

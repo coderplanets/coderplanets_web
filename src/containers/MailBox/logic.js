@@ -16,7 +16,7 @@ let store = null
 
 export const selectChange = ({ raw: activeRaw }) => store.mark({ activeRaw })
 
-export const previewUser = user =>
+export const previewUser = (user) =>
   send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
@@ -85,7 +85,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     log('effect init')

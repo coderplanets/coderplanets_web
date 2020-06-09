@@ -64,18 +64,18 @@ export const Achievement = T.model('Achievement', {
 const Customization = T.model('Customization', {
   bannerLayout: T.optional(
     T.enumeration('contentsLayout', [C11N.DIGEST, C11N.BRIEF]),
-    C11N.DIGEST
+    C11N.DIGEST,
   ),
   contentsLayout: T.optional(
     T.enumeration('contentsLayout', [C11N.DIGEST, C11N.LIST]),
-    C11N.DIGEST
+    C11N.DIGEST,
   ),
   contentDivider: T.optional(T.boolean, false),
   contentHover: T.optional(T.boolean, true),
   markViewed: T.optional(T.boolean, true),
   displayDensity: T.optional(
     T.enumeration('displayDensity', ['20', '25', '30']),
-    '20'
+    '20',
   ),
   // theme
   // ...

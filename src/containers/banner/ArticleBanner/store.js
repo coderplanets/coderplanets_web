@@ -15,15 +15,15 @@ const ArticleBanner = T.model('ArticleBanner', {
   loading: T.optional(T.boolean, false),
   action: T.optional(
     T.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
-    TYPE.FAVORITE
+    TYPE.FAVORITE,
   ),
   headerFixed: T.optional(T.boolean, false),
   scrollDirection: T.optional(
     T.enumeration('scrollDirection', ['up', 'down']),
-    'down'
+    'down',
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -51,7 +51,7 @@ const ArticleBanner = T.model('ArticleBanner', {
       return false
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

@@ -15,10 +15,10 @@ const ArticleViewerHeader = T.model('ArticleViewerHeader', {
   loading: T.optional(T.boolean, false),
   action: T.optional(
     T.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
-    TYPE.FAVORITE
+    TYPE.FAVORITE,
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -46,7 +46,7 @@ const ArticleViewerHeader = T.model('ArticleViewerHeader', {
       return false
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

@@ -12,19 +12,19 @@ const log = buildLog('L:RepoViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.PREVIEW_CLOSED, EVENT.SYNC_REPO],
+  receive: [EVENT.PREVIEW_CLOSED, EVENT.SYNC_REPO],
 })
 
 let sub$ = null
 let store = null
 
-const loadRepo = id => {
+const loadRepo = (id) => {
   markLoading(true)
   const userHasLogin = store.isLogin
   sr71$.query(S.repo, { id, userHasLogin })
 }
 
-const openAttachment = att => {
+const openAttachment = (att) => {
   if (!att) return false
   const { type } = att
   if (type === TYPE.PREVIEW_REPO_VIEW) {
@@ -64,10 +64,10 @@ const DataSolver = [
 
       githubAPI
         .searchRepo(ownerName, title)
-        .then(res =>
-          sr71$.mutate(S.updateRepo, { id, ...githubAPI.transformRepo(res) })
+        .then((res) =>
+          sr71$.mutate(S.updateRepo, { id, ...githubAPI.transformRepo(res) }),
         )
-        .catch(e => store.handleError(githubAPI.parseError(e)))
+        .catch((e) => store.handleError(githubAPI.parseError(e)))
     },
   },
 ]

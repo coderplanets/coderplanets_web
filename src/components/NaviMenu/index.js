@@ -21,7 +21,7 @@ const log = buildLog('c:NaviMenu:index')
 
 // get parrentMenuIndex and child menu items
 const getMenuInfo = (items, parentMenuId) => {
-  const parentMenuIndex = findIndex(item => item.id === parentMenuId, items)
+  const parentMenuIndex = findIndex((item) => item.id === parentMenuId, items)
 
   const childMenuItems =
     parentMenuIndex >= 0 ? items[parentMenuIndex].childMenu : []
@@ -54,7 +54,7 @@ const NaviMenu = ({
   // handlers
   const handleGoBack = useCallback(() => setMenuMode('root'), [])
   const handleRootSelect = useCallback(
-    item => {
+    (item) => {
       setParentMenuId(item.id)
       setMenuMode('child')
 
@@ -65,21 +65,21 @@ const NaviMenu = ({
         setExpandChildId('')
       }
     },
-    [onSelect]
+    [onSelect],
   )
 
   const handleChildSelect = useCallback(
-    item => {
+    (item) => {
       setChildMenuId(item.id)
       onSelect(item.id, item.displayType)
       setActiveParentMenuId(parentMenuId)
 
       nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
     },
-    [onSelect, parentMenuId]
+    [onSelect, parentMenuId],
   )
 
-  const handleMenuExpand = useCallback(item => setExpandChildId(item.id), [])
+  const handleMenuExpand = useCallback((item) => setExpandChildId(item.id), [])
 
   return (
     <Wrapper testid={testid}>
@@ -136,11 +136,11 @@ NaviMenu.propTypes = {
               id: T.string,
               title: T.string,
               displayType: T.string,
-            })
+            }),
           ),
-        })
+        }),
       ),
-    })
+    }),
   ),
   pinNumberHoverType: T.oneOf(['pin', 'unpin']),
   showMoreItem: T.bool,

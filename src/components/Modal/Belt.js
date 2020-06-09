@@ -6,11 +6,8 @@ import { Wrapper, Holder } from './styles/belt'
 
 const Belt = () => {
   const [loaded] = useScript(
-    'https://unpkg.com/css-doodle@0.7.7/css-doodle.min.js'
+    'https://unpkg.com/css-doodle@0.7.7/css-doodle.min.js',
   )
-
-  console.log('loaded', loaded)
-
   // 电路图效果
   // content: '\\@hex(@rand(0x2500, 0x257f))';
   // 圈圈圆圆三角效果

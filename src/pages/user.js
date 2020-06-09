@@ -50,7 +50,7 @@ const fetchData = async (props, opt) => {
   }
 }
 
-export const getServerSideProps = async props => {
+export const getServerSideProps = async (props) => {
   const query = queryStringToJSON(props.req.url)
 
   let resp
@@ -85,7 +85,7 @@ export const getServerSideProps = async props => {
   }
 }
 
-const UserPage = props => {
+const UserPage = (props) => {
   const store = useStore(props)
 
   const { viewing, errorCode } = props

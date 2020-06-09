@@ -110,7 +110,7 @@ ArticleBodyHeaderContainer.propTypes = {
         title: T.string,
         color: T.string,
         raw: T.string,
-      })
+      }),
     ),
     linkAddr: T.string,
   }).isRequired,

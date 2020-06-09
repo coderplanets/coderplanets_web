@@ -13,7 +13,7 @@ import { THREAD, C11N } from '@/constant'
 import { Br } from '@/components/Common'
 import { Radio } from '@/components/Switcher'
 
-import { Wrapper, HeaderTitle, Title, Desc, Didiver } from './styles'
+import { Wrapper, HeaderTitle, Title, Desc, Divider } from './styles'
 import { useInit, onC11NChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -55,13 +55,13 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
             },
           ]}
           activeKey={bannerLayout}
-          onChange={item =>
+          onChange={(item) =>
             onC11NChange({
               bannerLayout: item.key,
             })
           }
         />
-        <Didiver />
+        <Divider />
 
         <Title>文章视图</Title>
         <Desc>
@@ -83,16 +83,16 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
                 },
               ]}
               activeKey={contentsLayout}
-              onChange={item =>
+              onChange={(item) =>
                 onC11NChange({
                   contentsLayout: item.key,
                 })
               }
             />
-            <Didiver />
+            <Divider />
           </React.Fragment>
         ) : (
-          <Didiver />
+          <Divider />
         )}
       </React.Fragment>
 
@@ -112,7 +112,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
           },
         ]}
         activeKey={markViewed}
-        onChange={item =>
+        onChange={(item) =>
           onC11NChange({
             markViewed: item.key,
           })
@@ -134,7 +134,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
           },
         ]}
         activeKey={contentHover}
-        onChange={item =>
+        onChange={(item) =>
           onC11NChange({
             contentHover: item.key,
           })
@@ -158,16 +158,16 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
               },
             ]}
             activeKey={contentDivider}
-            onChange={item =>
+            onChange={(item) =>
               onC11NChange({
                 contentDivider: item.key,
               })
             }
           />
-          <Didiver />
+          <Divider />
         </React.Fragment>
       ) : (
-        <Didiver />
+        <Divider />
       )}
 
       <Title>显示密度</Title>
@@ -189,7 +189,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
           },
         ]}
         activeKey={displayDensity}
-        onChange={item =>
+        onChange={(item) =>
           onC11NChange({
             displayDensity: item.key,
           })

@@ -30,7 +30,7 @@ const RepoEditor = T.model('RepoEditor', {
   // errorType
   errorType: T.maybeNull(T.string),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -41,7 +41,7 @@ const RepoEditor = T.model('RepoEditor', {
       return stripMobx(self.editRepo)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     toast(type, options) {
       self.root.toast(type, options)
     },
@@ -83,7 +83,7 @@ const RepoEditor = T.model('RepoEditor', {
             .startsWith(
               { searchValue: 'Github仓库地址' },
               'https://github.com/',
-              self.changesetErr
+              self.changesetErr,
             )
             .min({ searchValue: 'Github仓库地址' }, 20, self.changesetErr)
             .done()

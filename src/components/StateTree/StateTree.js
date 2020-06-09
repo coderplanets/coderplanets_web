@@ -17,7 +17,7 @@ const log = buildLog('c:StateTree:index')
 
 // see all the options in:
 // https://mac-s-g.github.io/react-json-view/demo/dist/
-const getTreeTheme = name => {
+const getTreeTheme = (name) => {
   switch (name) {
     case 'monokai':
       return 'monokai'

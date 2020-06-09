@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils'
 
-export const EmojiWraper = styled.div`
+export const EmojiWrapper = styled.div`
   margin-top: 18px;
 `
 export const EmojiItem = styled.div`

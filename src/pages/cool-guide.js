@@ -33,7 +33,7 @@ const fetchData = async (props, opt) => {
   }
 }
 
-export const getServerSideProps = async props => {
+export const getServerSideProps = async (props) => {
   let resp
   try {
     resp = await fetchData(props)
@@ -60,7 +60,7 @@ export const getServerSideProps = async props => {
   }
 }
 
-const CoolGuidePage = props => {
+const CoolGuidePage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {

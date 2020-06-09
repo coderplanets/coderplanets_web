@@ -4,7 +4,7 @@ import { TIMEOUT_SEC } from './config'
 import { graphqlClient } from './client'
 import S from './schema'
 
-export const searchUserPromise = login =>
+export const searchUserPromise = (login) =>
   timeout(graphqlClient.request(S.user, { login }), TIMEOUT_SEC)
 
 export const ransformUser = ({ user }) => ({

@@ -43,20 +43,20 @@ const getLocalIcon = (item, activeKey) => {
 }
 
 const PagiOptionSwitcher = ({ title, items, activeKey, onChange }) => {
-  const mapedItems = useMemo(
+  const mappedItems = useMemo(
     () =>
-      items.map(item => ({
+      items.map((item) => ({
         ...item,
         localIcon: getLocalIcon(item, activeKey),
       })),
-    [items, activeKey]
+    [items, activeKey],
   )
 
   return (
     <Wrapper testid="PagiOptionSwitcher">
       <Title>{title}</Title>
       <IconSwitcher
-        items={mapedItems}
+        items={mappedItems}
         activeKey={activeKey}
         onChange={onChange}
       />
@@ -72,7 +72,7 @@ PagiOptionSwitcher.propTypes = {
       localIcon: T.string,
       key: T.string,
       desc: T.string,
-    })
+    }),
   ).isRequired,
   activeKey: T.string.isRequired,
   onChange: T.func.isRequired,

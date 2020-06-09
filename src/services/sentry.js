@@ -36,7 +36,7 @@ module.exports = ({ release }) => {
   return {
     Sentry,
     captureException: (err, { req, res, errorInfo, query, pathname }) => {
-      Sentry.configureScope(scope => {
+      Sentry.configureScope((scope) => {
         if (err.message) {
           // De-duplication currently doesn't work correctly for SSR / browser errors
           // so we force deduplication by error message if it is present
@@ -76,8 +76,8 @@ module.exports = ({ release }) => {
         }
 
         if (errorInfo) {
-          Object.keys(errorInfo).forEach(key =>
-            scope.setExtra(key, errorInfo[key])
+          Object.keys(errorInfo).forEach((key) =>
+            scope.setExtra(key, errorInfo[key]),
           )
         }
       })

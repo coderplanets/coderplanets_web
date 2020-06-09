@@ -1,6 +1,6 @@
 /*
  *
- * UpgradePackges
+ * UpgradePackages
  *
  */
 
@@ -27,7 +27,7 @@ import {
 import { useInit, onClose, onUpgrade } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:UpgradePackges')
+const log = buildLog('C:UpgradePackages')
 
 const freeUserItems = [
   { title: '发布各种内容' },
@@ -53,7 +53,7 @@ const platinumUserItems = [
   { title: 'Github 特别鸣谢' },
 ]
 
-const UpgradePackgesContainer = ({ upgradePackges: store }) => {
+const UpgradePackagesContainer = ({ upgradePackges: store }) => {
   useInit(store)
 
   const { show } = store
@@ -114,4 +114,4 @@ const UpgradePackgesContainer = ({ upgradePackges: store }) => {
   )
 }
 
-export default connectStore(UpgradePackgesContainer)
+export default connectStore(UpgradePackagesContainer)

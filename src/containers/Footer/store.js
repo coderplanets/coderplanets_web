@@ -16,7 +16,7 @@ const Footer = T.model('Footer', {
   showSponsor: T.optional(T.boolean, false),
   showBusBanner: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -40,7 +40,7 @@ const Footer = T.model('Footer', {
       return 'DIGEST'
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

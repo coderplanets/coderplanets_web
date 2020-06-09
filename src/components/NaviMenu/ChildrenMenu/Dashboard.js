@@ -24,11 +24,11 @@ const log = buildLog('c:NaviMenu:index')
 
 const Dashboard = ({ view, setView, joinMode, parentMenuItem }) => {
   const handleViewChange = useCallback(
-    e => {
+    (e) => {
       const { view } = e.target.dataset
       setView(view)
     },
-    [setView]
+    [setView],
   )
 
   return (
@@ -57,9 +57,6 @@ const Dashboard = ({ view, setView, joinMode, parentMenuItem }) => {
           >
             <OptionIcon src={`${ICON_CMD}/navi/navi_more.svg`} />
           </FilterOption>
-          {/* 
-        info | add | 提交 bug 说明 
-      */}
         </Footer>
       )}
     </Wrapper>

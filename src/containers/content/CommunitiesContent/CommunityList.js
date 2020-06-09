@@ -7,7 +7,7 @@ import { Wrapper } from './styles/community_list'
 const CommnityList = ({ entries, restProps }) => {
   return (
     <Wrapper>
-      {entries.map(community => (
+      {entries.map((community) => (
         <CommunityCard
           key={community.raw}
           community={community}

@@ -13,7 +13,7 @@ import Maybe from '@/components/Maybe'
 
 import {
   FormItemWrapper,
-  FormLable,
+  FormLabel,
   FormInput,
   NodeWrapper,
   Inputer,
@@ -90,7 +90,7 @@ const FormItem = ({
 }) => (
   <FormItemWrapper className="normal-form" bottom={bottom}>
     <Maybe test={!isEmpty(label)}>
-      <FormLable error={hasValue(raw) && raw === ratKey}>{label}</FormLable>
+      <FormLabel error={hasValue(raw) && raw === ratKey}>{label}</FormLabel>
     </Maybe>
 
     <FormContent

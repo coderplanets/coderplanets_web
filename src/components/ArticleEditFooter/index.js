@@ -12,7 +12,7 @@ import { buildLog } from '@/utils'
 import { Button } from '@/components/Buttons'
 import { Space } from '@/components/Common'
 
-import { Wrapper, RespectText, PublishBtns, Divider } from './styles'
+import { Wrapper, RespectText, PublishButtons, Divider } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ArticleEditFooter:index')
@@ -29,7 +29,7 @@ const ArticleEditFooter = ({ isEdit, publishing, onCancel, onPublish }) => (
   <Wrapper>
     <RespectText>请尊重自己和他人的时间，不要发布无意义的内容。</RespectText>
     <Divider />
-    <PublishBtns>
+    <PublishButtons>
       {publishing ? (
         <div>
           <Button size="default" type="primary" ghost>
@@ -53,7 +53,7 @@ const ArticleEditFooter = ({ isEdit, publishing, onCancel, onPublish }) => (
           </Button>
         </div>
       )}
-    </PublishBtns>
+    </PublishButtons>
   </Wrapper>
 )
 

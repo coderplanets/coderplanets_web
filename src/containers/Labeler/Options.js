@@ -15,15 +15,13 @@ import {
 
 const OptionItems = ({ items, selected, onOptionSelect }) => (
   <OptionWrapper>
-    {items.map(item => (
+    {items.map((item) => (
       <OptionItem key={uid.gen()}>
         <OptionCheckIcon
           src={`${ICON_CMD}/check.svg`}
           active={contains(item, selected)}
         />
-        <OptionText onClick={onOptionSelect.bind(this, item)}>
-          {item}
-        </OptionText>
+        <OptionText onClick={() => onOptionSelect(item)}>{item}</OptionText>
       </OptionItem>
     ))}
   </OptionWrapper>

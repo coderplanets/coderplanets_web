@@ -4,7 +4,7 @@ import { LABEL_POOL } from '@/config'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -16,18 +16,18 @@ import {
 
 const JobExpFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={LABEL_POOL.exp.iconSrc} />
       <SelectTitle>经验</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.exp.data.map(item => (
+      {LABEL_POOL.exp.data.map((item) => (
         <SelectItem
           key={item}
           active={activeFilter.exp === item}
-          onClick={onSelect.bind(this, { exp: item })}
+          onClick={() => onSelect({ exp: item })}
         >
           {item}
         </SelectItem>

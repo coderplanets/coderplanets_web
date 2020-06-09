@@ -53,13 +53,13 @@ class FollowButton extends React.Component {
           <FollowingBtn
             size={size}
             loading={isLoading}
-            onClick={this.onUndoFollow.bind(this)}
+            onClick={() => this.onUndoFollow()}
           />
         ) : (
           <FollowBtn
             size={size}
             loading={isLoading}
-            onClick={this.onFollow.bind(this)}
+            onClick={() => this.onFollow()}
           />
         )}
       </React.Fragment>

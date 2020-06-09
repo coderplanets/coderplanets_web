@@ -11,7 +11,7 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:CommunityContent')
 
 const CommunityContent = T.model('CommunityContent', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -19,7 +19,7 @@ const CommunityContent = T.model('CommunityContent', {})
       return self.root.curRoute
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

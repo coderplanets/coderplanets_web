@@ -15,11 +15,11 @@ const AccountViewerStore = T.model('AccountViewerStore', {
   viewingUser: T.optional(User, EmptyUser),
   viewingType: T.optional(
     T.enumeration('viewingType', ['account', 'user']),
-    'account'
+    'account',
   ),
   loading: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -43,7 +43,7 @@ const AccountViewerStore = T.model('AccountViewerStore', {
       return self.root.theme.curTheme
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     logout() {
       self.root.account.logout()
     },

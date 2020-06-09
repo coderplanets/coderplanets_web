@@ -19,10 +19,11 @@ import { Item, MoreItem, FixedIcon, Icon, ActiveDot } from './styles'
 const log = buildLog('c:NaviMenu:index')
 
 const renderRightIcon = (item, activeParentMenuId, pinNumberHoverType) => {
-  if (item.pinNumber)
+  if (item.pinNumber) {
     return (
       <PinNumber num={item.pinNumber} pinNumberHoverType={pinNumberHoverType} />
     )
+  }
 
   return (
     <React.Fragment>
@@ -60,7 +61,7 @@ const RootMenu = ({
 
   return (
     <React.Fragment>
-      {menuItems.map(item => (
+      {menuItems.map((item) => (
         <Item
           key={item.id}
           active={item.id === activeParentMenuId}

@@ -17,7 +17,7 @@ const log = buildLog('L:CommunitiesContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.LOGOUT, EVENT.LOGIN],
+  receive: [EVENT.LOGOUT, EVENT.LOGIN],
 })
 
 let store = null

@@ -5,7 +5,7 @@ import { Wrapper, Avatar, PopInfo } from './styles/user_list'
 
 const UserList = ({ items }) => (
   <Wrapper>
-    {items.map(user => (
+    {items.map((user) => (
       <Tooltip
         key={user.id}
         placement="bottom"

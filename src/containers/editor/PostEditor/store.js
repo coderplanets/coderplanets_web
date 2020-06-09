@@ -37,7 +37,7 @@ const PostEditor = T.model('PostEditor', {
       'CREATE_VIEW',
       'PREVIEW_VIEW',
     ]),
-    'CREATE_VIEW'
+    'CREATE_VIEW',
   ),
   contentDomId: T.optional(T.string, 'post_editor_content_id'),
 
@@ -47,7 +47,7 @@ const PostEditor = T.model('PostEditor', {
   /* show radar note if radar source not supported */
   showRadarNote: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -78,10 +78,10 @@ const PostEditor = T.model('PostEditor', {
     get referUsersData() {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
-      return filter(user => contains(user.name, extractMentions), referUsers)
+      return filter((user) => contains(user.name, extractMentions), referUsers)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     toast(type, options) {
       self.root.toast(type, options)
     },
@@ -99,7 +99,7 @@ const PostEditor = T.model('PostEditor', {
               { linkAddr: '原链接地址' },
               'https://',
               self.changesetErr,
-              self.editData.copyRight !== 'original'
+              self.editData.copyRight !== 'original',
             )
             .done()
 
@@ -122,11 +122,11 @@ const PostEditor = T.model('PostEditor', {
     updateMentionList(mentionArray) {
       const curMentionList = clone(self.mentionList)
       const uniqList = uniq(concat(curMentionList, mentionArray))
-      const mentionList = map(m => ({ ...m, name: m.nickname }), uniqList)
+      const mentionList = map((m) => ({ ...m, name: m.nickname }), uniqList)
       self.mentionList = mentionList
     },
     addReferUser(user) {
-      const index = findIndex(u => u.id === String(user.id), self.referUsers)
+      const index = findIndex((u) => u.id === String(user.id), self.referUsers)
       if (index === -1) {
         self.referUsers.push({
           id: String(user.id),

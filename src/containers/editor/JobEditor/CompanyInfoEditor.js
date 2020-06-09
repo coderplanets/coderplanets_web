@@ -22,7 +22,7 @@ const CompanyInfoEditor = ({
   <Wrapper>
     <Content>
       <DocUploader
-        onUploadDone={inputOnChange.bind(this, 'companyLogo')}
+        onUploadDone={() => inputOnChange('companyLogo')}
         pasteImage={false}
       >
         {isEmpty(companyLogo) ? (
@@ -38,21 +38,21 @@ const CompanyInfoEditor = ({
           <TitleInputer
             placeholder="公司名称"
             value={company}
-            onChange={inputOnChange.bind(this, 'company')}
+            onChange={() => inputOnChange('company')}
           />
         </div>
         <div>
           <LinkInputer
             placeholder="公司主页链接"
             value={companyLink}
-            onChange={inputOnChange.bind(this, 'companyLink')}
+            onChange={() => inputOnChange('companyLink')}
           />
         </div>
         <div>
           <LinkInputer
             placeholder="不加班,福利好,美女多.."
             value={desc}
-            onChange={inputOnChange.bind(this, 'desc')}
+            onChange={() => inputOnChange('desc')}
           />
         </div>
       </CompanyInfo>

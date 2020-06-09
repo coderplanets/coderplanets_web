@@ -13,7 +13,7 @@ const log = buildLog('S:JobViewer')
 const JobViewer = T.model('JobViewer', {
   loading: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -37,7 +37,7 @@ const JobViewer = T.model('JobViewer', {
       return activeThread
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

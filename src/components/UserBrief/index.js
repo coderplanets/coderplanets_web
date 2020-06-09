@@ -16,7 +16,7 @@ import {
   BriefTextWrapper,
   UserTitle,
   UserDesc,
-  SocialSpliter,
+  SocialSplit,
 } from './styles'
 
 import SocialIcons from './SocialIcons'
@@ -36,7 +36,7 @@ class UserBrief extends React.Component {
   }
 
   toggleDetail() {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       showDetail: !prevState.showDetail,
     }))
   }
@@ -79,17 +79,11 @@ class UserBrief extends React.Component {
           </UserTitle>
 
           {showDetail ? (
-            <DetailView
-              user={user}
-              toggleDetail={this.toggleDetail.bind(this)}
-            />
+            <DetailView user={user} toggleDetail={() => this.toggleDetail()} />
           ) : (
-            <DigestView
-              user={user}
-              toggleDetail={this.toggleDetail.bind(this)}
-            />
+            <DigestView user={user} toggleDetail={() => this.toggleDetail()} />
           )}
-          <SocialSpliter />
+          <SocialSplit />
           <UserDesc>
             <SocialIcons user={user} />
           </UserDesc>

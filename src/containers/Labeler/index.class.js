@@ -62,7 +62,7 @@ class LabelerContainer extends React.Component {
     const targetIndex = findIndex(propEq('uniqId', uniqId))(labelEntriesData)
 
     const { tags, popVisible, selected } = labelEntriesData[targetIndex] || {}
-    const tagsList = reject(t => t.title === 'refined', tags)
+    const tagsList = reject((t) => t.title === 'refined', tags)
 
     return (
       <Wrapper>
@@ -87,13 +87,13 @@ class LabelerContainer extends React.Component {
                   label={label}
                   items={tagsList}
                   selected={selected}
-                  onOptionSelect={this.onTagSelect.bind(this, uniqId)}
+                  onOptionSelect={() => this.onTagSelect(uniqId)}
                 />
               }
               placement="right"
               trigger="click"
               visible={popVisible}
-              onVisibleChange={logic.onVisibleChange.bind(this, uniqId)}
+              onVisibleChange={() => logic.onVisibleChange(uniqId)}
             >
               <LabelItem>
                 <LabelIcon src={LABEL_POOL[label].iconSrc} />
@@ -143,5 +143,5 @@ LabelerContainer.defaultProps = {
 }
 
 export default withGuardian(
-  inject(storePlug('labeler'))(observer(LabelerContainer))
+  inject(storePlug('labeler'))(observer(LabelerContainer)),
 )

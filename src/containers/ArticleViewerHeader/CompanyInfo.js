@@ -11,7 +11,7 @@ import {
   Title,
   PublishAt,
   Username,
-  HomtPage,
+  HomePage,
   HomeIcon,
   HomepageLink,
 } from './styles/company_info'
@@ -21,7 +21,7 @@ const CompanyInfo = ({ company, insertedAt, author }) => (
     <Logo src={company.logo} alt="user_avatar" />
     <div>
       <Title>{cutFrom(company.title, 14)}</Title>
-      <HomtPage>
+      <HomePage>
         <HomeIcon src={`${ICON_CMD}/home.svg`} />
         <HomepageLink
           href={company.link}
@@ -30,7 +30,7 @@ const CompanyInfo = ({ company, insertedAt, author }) => (
         >
           {company.link || '--'}
         </HomepageLink>
-      </HomtPage>
+      </HomePage>
       <PublishAt>
         <Username>{author && author.nickname}</Username>
         <DotDivider />

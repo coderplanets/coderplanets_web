@@ -116,7 +116,7 @@ Import S from './schema'
 
 // 5. init aysnc
 Const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.REFRESH_POSTS,
   ],
 })

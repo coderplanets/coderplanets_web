@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, cs } from '@/utils'
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flexColumn('justify-center')};
@@ -16,7 +16,7 @@ export const Wrapper = styled.div.attrs(props => ({
     min-height: 160px;
   }
 `
-export const SlogenTextWrapper = styled.div`
+export const SloganTextWrapper = styled.div`
   margin-left: 3px;
   margin-right: 3px;
 

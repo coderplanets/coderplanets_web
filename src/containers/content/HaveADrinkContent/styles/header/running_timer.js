@@ -20,7 +20,7 @@ const opa = keyframes`
   }
 `
 
-const getRotaAnimation = interval => css`
+const getRotaAnimation = (interval) => css`
   ${rota} ${interval} linear infinite;
 `
 const getOpaAnimation = (interval, reverse = false) => {

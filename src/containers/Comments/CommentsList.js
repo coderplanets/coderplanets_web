@@ -18,7 +18,7 @@ import {
 
 const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
   <React.Fragment>
-    {entries.map(c => (
+    {entries.map((c) => (
       <Comment
         key={c.id}
         data={c}

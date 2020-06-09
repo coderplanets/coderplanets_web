@@ -3,7 +3,7 @@ import React from 'react'
 import {
   Wrapper,
   MainBar,
-  SubbarWrapper,
+  SubBarWrapper,
   SubBar,
 } from '../styles/pagi_option_selector/main_column'
 
@@ -11,12 +11,12 @@ const MainColumn = ({ active }) => {
   return (
     <Wrapper>
       <MainBar active={active} />
-      <SubbarWrapper>
+      <SubBarWrapper>
         <SubBar active={active} marginBottom />
         <SubBar active={active} marginBottom />
         <SubBar active={active} />
         <SubBar active={active} />
-      </SubbarWrapper>
+      </SubBarWrapper>
     </Wrapper>
   )
 }

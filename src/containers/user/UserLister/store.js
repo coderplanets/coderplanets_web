@@ -17,7 +17,7 @@ const UserLister = T.model('UserLister', {
   show: T.optional(T.boolean, false),
   curView: T.optional(
     T.enumeration('curView', [TYPE.RESULT, TYPE.LOADING, TYPE.RESULT_EMPTY]),
-    TYPE.LOADING
+    TYPE.LOADING,
   ),
   pagedUsers: T.optional(PagedUsers, emptyPagiData),
   type: T.optional(
@@ -29,14 +29,14 @@ const UserLister = T.model('UserLister', {
       TYPE.USER_LISTER_FOLLOWINGS,
       TYPE.USER_LISTER_FOLLOWERS,
     ]),
-    TYPE.USER_LISTER_FAVORITES
+    TYPE.USER_LISTER_FAVORITES,
   ),
   id: T.maybeNull(T.string),
   thread: T.maybeNull(T.string),
   action: T.maybeNull(T.string),
   brief: T.optional(T.string, ''),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -53,7 +53,7 @@ const UserLister = T.model('UserLister', {
       return stripMobx(self.root.viewing.community)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     toggleHasFollow(userId) {
       const { entries } = self.pagedUsersData
 

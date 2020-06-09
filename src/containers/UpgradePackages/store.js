@@ -1,5 +1,5 @@
 /*
- * UpgradePackges store
+ * UpgradePackages store
  *
  */
 
@@ -8,12 +8,12 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:UpgradePackges')
+const log = buildLog('S:UpgradePackages')
 
-const UpgradePackges = T.model('UpgradePackges', {
+const UpgradePackages = T.model('UpgradePackages', {
   show: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get isLogin() {
       return self.root.account.isLogin
     },
@@ -21,7 +21,7 @@ const UpgradePackges = T.model('UpgradePackges', {
       return getParent(self)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },
@@ -39,4 +39,4 @@ const UpgradePackges = T.model('UpgradePackges', {
     },
   }))
 
-export default UpgradePackges
+export default UpgradePackages

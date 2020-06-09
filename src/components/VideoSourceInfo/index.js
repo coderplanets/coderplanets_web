@@ -18,7 +18,7 @@ import { Wrapper, LinkIcon, LogoIcon, Text } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:VideoSourceInfo:index')
 
-const recommandSources = ['youtube', 'vimeo', 'bilibili']
+const recommendSources = ['youtube', 'vimeo', 'bilibili']
 const colorMaps = {
   youtube: '#FF0008',
   vimeo: '#00B7E7',
@@ -27,10 +27,10 @@ const colorMaps = {
 
 const VideoSourceInfo = ({ value }) => (
   <Wrapper>
-    <Maybe test={!contains(value, recommandSources)}>
+    <Maybe test={!contains(value, recommendSources)}>
       <LinkIcon src={`${ICON_CMD}/link.svg`} />
     </Maybe>
-    <Maybe test={contains(value, recommandSources)}>
+    <Maybe test={contains(value, recommendSources)}>
       <LogoIcon src={`${ICON_CMD}/${value}.svg`} color={colorMaps[value]} />
     </Maybe>
     <Text>{value}</Text>

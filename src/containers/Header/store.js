@@ -16,7 +16,7 @@ const HeaderStore = T.model('HeaderStore', {
   fixed: T.optional(T.boolean, false),
   preSidebarPin: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -65,7 +65,7 @@ const HeaderStore = T.model('HeaderStore', {
       return contains(mainPath, [ROUTE.COMMUNITIES, ROUTE.SPONSOR])
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     logout() {
       self.root.account.logout()
     },

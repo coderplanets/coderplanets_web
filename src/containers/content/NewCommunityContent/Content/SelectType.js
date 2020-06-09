@@ -53,7 +53,7 @@ const SelectType = ({ status: { communityType } }) => {
           <Title>示例社区</Title>
         </Header>
         <CommunityDemoWrapper>
-          {intro.demos.map(item => (
+          {intro.demos.map((item) => (
             <DemoCommunity
               key={item.title}
               title={item.title}

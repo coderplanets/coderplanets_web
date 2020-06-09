@@ -13,7 +13,7 @@ import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
 import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'
-import { slipmargin } from '../styles/metric/tabs'
+import { getSlipMargin } from '../styles/metric/tabs'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
@@ -53,7 +53,7 @@ const temItems = [
  */
 const getDefaultActiveTabIndex = (items, activeKey) => {
   if (isEmpty(activeKey)) return 0
-  const index = findIndex(item => {
+  const index = findIndex((item) => {
     return isString(item)
       ? activeKey === item
       : activeKey === (item.raw || item.title)
@@ -90,7 +90,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
       tabWidthList[index] = width
       setTabWidthList(tabWidthList)
     },
-    [tabWidthList]
+    [tabWidthList],
   )
 
   const handleItemClick = useCallback(
@@ -101,13 +101,13 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
       setActive(index)
       onChange(isString(item) ? item : item.raw || item.title)
     },
-    [setSlipWidth, setActive, onChange, items]
+    [setSlipWidth, setActive, onChange, items],
   )
 
-  const translateX = `${tabWidthList
-    .slice(0, active)
-    .reduce((a, b) => a + b, 0) +
-    slipmargin(size) * active}px`
+  const translateX = `${
+    tabWidthList.slice(0, active).reduce((a, b) => a + b, 0) +
+    getSlipMargin(size) * active
+  }px`
 
   return (
     <Wrapper testid="tabs">
@@ -146,7 +146,7 @@ Tabs.propTypes = {
         alias: T.string,
         icon: T.oneOfType([T.string, T.node]),
         localIcon: T.string,
-      })
+      }),
     ),
   ]),
   onChange: T.func,

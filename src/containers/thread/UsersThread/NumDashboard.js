@@ -19,7 +19,7 @@ import {
 
 import { ToggleNumBashboard } from './logic'
 
-export const sortByValue = source => sort((a, b) => b.value - a.value, source)
+export const sortByValue = (source) => sort((a, b) => b.value - a.value, source)
 
 const NumDashboard = ({ total, geoData, expand }) => {
   if (isEmpty(geoData)) return null

@@ -19,7 +19,7 @@ const log = buildLog('L:Sidebar')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
+  receive: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
 })
 
 let store = null
@@ -34,10 +34,10 @@ export const setPin = () => {
 
 export const searchOnFocus = () => store.mark({ pin: true })
 
-export const searchCommunityValueOnChange = e =>
+export const searchCommunityValueOnChange = (e) =>
   store.mark({ searchCommunityValue: e.target.value })
 
-export const onCommunitySelect = community => {
+export const onCommunitySelect = (community) => {
   // NOTE: check page, if current it's from communities then redirect whole page
   const { mainPath } = store.curRoute
   if (contains(mainPath, [ROUTE.COMMUNITIES])) {
@@ -71,13 +71,13 @@ export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
   store.onSortCommunities(sortedCommunities)
 }
 
-const setC11N = sortedCommunities => {
+const setC11N = (sortedCommunities) => {
   if (!store.isLogin) return store.authWarning()
 
   sortedCommunities = reject(propEq('raw', 'home'), sortedCommunities)
   const sidebarCommunitiesIndex = mapIndexed(
     (c, index) => ({ community: c.raw, index }),
-    sortedCommunities
+    sortedCommunities,
   )
 
   const { contentDivider } = store.accountInfo.customization
@@ -163,7 +163,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

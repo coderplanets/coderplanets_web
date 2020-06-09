@@ -4,7 +4,7 @@ import { theme } from '@/utils'
 
 import { BaseBar } from './index'
 
-export const PrefixWraper = styled.div`
+export const PrefixWrapper = styled.div`
   margin-left: 15px;
   width: 25px;
 `

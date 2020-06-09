@@ -29,7 +29,7 @@ export const getOSSDir = () => {
   return `${thread}/${date.getFullYear()}_${date.getMonth() + 1}/${day}`
 }
 
-export const getOSSFileName = filename => {
+export const getOSSFileName = (filename) => {
   const community = store.curCommunity.raw
   const thread = store.curThread
   const userName = store.accountInfo.nickname
@@ -73,14 +73,14 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
+export const init = (_store) => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export const uninit = () => {
+export const unInit = () => {
   if (!sub$) return false
   log('===== do uninit')
   sr71$.stop()

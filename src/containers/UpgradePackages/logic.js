@@ -6,7 +6,7 @@ import { asyncSuit, buildLog } from '@/utils'
 /* import S from './schema' */
 
 /* eslint-disable-next-line */
-const log = buildLog('L:UpgradePackges')
+const log = buildLog('L:UpgradePackages')
 
 const { SR71, $solver } = asyncSuit
 const sr71$ = new SR71()
@@ -32,7 +32,7 @@ export const onClose = () => store.mark({ show: !store.show })
 const DataSolver = []
 const ErrSolver = []
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

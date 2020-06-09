@@ -25,11 +25,11 @@ const usePlatform = (/* { breakpoint } */) => {
     // Safari 3.0+ "[object HTMLElementConstructor]"
     const isSafari =
       /constructor/i.test(Global.HTMLElement) ||
-      (function(p) {
+      (function (p) {
         return p.toString() === '[object SafariRemoteNotification]'
       })(
         !Global.safari ||
-          (typeof safari !== 'undefined' && safari.pushNotification)
+          (typeof safari !== 'undefined' && safari.pushNotification),
       )
 
     // Internet Explorer 6-11
@@ -56,7 +56,7 @@ const usePlatform = (/* { breakpoint } */) => {
         isChrome,
         isMacOS,
         isMobile,
-      })
+      }),
     )
 
     return () => {}

@@ -11,7 +11,7 @@ import {
   SocialIconsWrapper,
   SocialIcon,
   FormItemWrapper,
-  FormLable,
+  FormLabel,
   FormInput,
   UpIcon,
   DownIcon,
@@ -29,7 +29,7 @@ const log = buildLog('C:AccountEditor')
 
 const SocialItem = ({ label, prefix, value, icon, onChange }) => (
   <FormItemWrapper>
-    <FormLable>{label}</FormLable>
+    <FormLabel>{label}</FormLabel>
 
     <FormInput>
       <Input
@@ -45,10 +45,10 @@ const SocialItem = ({ label, prefix, value, icon, onChange }) => (
 
 const SocialIconList = ({ show, user }) => (
   <FormItemWrapper>
-    <FormLable>社交账号:</FormLable>
+    <FormLabel>社交账号:</FormLabel>
 
     <SocialIconsWrapper>
-      {SOCIAL_LISTS.map(social => (
+      {SOCIAL_LISTS.map((social) => (
         <SocialIcon
           key={social.key}
           src={`${ICON_CMD}/${social.key}.svg`}
@@ -79,7 +79,7 @@ const SocialInputer = ({ show, user }) => (
     <InputWrapper show={show}>
       {/* eslint-disable react/jsx-key */}
       {/* set key to SocialItem will cause input lose focus */}
-      {SOCIAL_LISTS.map(social => (
+      {SOCIAL_LISTS.map((social) => (
         <SocialItem
           key={social.key}
           label={social.label}

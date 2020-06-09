@@ -13,9 +13,9 @@ const fetchGeoData = () => {
     if (typeof geoData === 'object') return resolve(geoData)
 
     fetch(endpoint)
-      .then(res => {
+      .then((res) => {
         const geoRes = res.json()
-        geoRes.then(geoData => {
+        geoRes.then((geoData) => {
           BStore.set(bkey, geoData)
           return resolve(geoData)
         })

@@ -129,7 +129,7 @@ const ImageGallery = ({ items, galleryType }) => {
           activeKey={activeGalleryType}
           title="显示模式"
           items={GALLERY_TYPES}
-          onChange={item => setActiveGalleryType(item.key)}
+          onChange={(item) => setActiveGalleryType(item.key)}
         />
       </Pagi>
     </Wrapper>

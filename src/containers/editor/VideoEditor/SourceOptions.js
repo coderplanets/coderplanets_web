@@ -38,10 +38,10 @@ const SourceOptions = ({ active, sourceOnSelect }) => {
 
   return (
     <Wrapper>
-      {recommands.map(s => (
+      {recommands.map((s) => (
         <ItemWrapper
           key={s.title}
-          onClick={sourceOnSelect.bind(this, trimLower(s.title))}
+          onClick={() => sourceOnSelect(trimLower(s.title))}
         >
           <Icon
             src={s.icon}

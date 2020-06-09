@@ -11,7 +11,7 @@ const log = buildLog('L:UserBilling')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.NEW_BILLS],
+  receive: [EVENT.NEW_BILLS],
 })
 
 let sub$ = null
@@ -65,7 +65,7 @@ const ErrSolver = [
 // init & uninit handlers
 // ###############################
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

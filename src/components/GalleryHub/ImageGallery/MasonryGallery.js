@@ -69,7 +69,7 @@ const MasonryGallery = () => {
   return (
     <Wrapper>
       <Masonry withBorder>
-        {items.map(item => (
+        {items.map((item) => (
           <Brick key={item.id}>
             <Image src={item.imgSrc} />
             <Intro>

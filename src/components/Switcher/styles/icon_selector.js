@@ -6,7 +6,7 @@ import { cs, theme } from '@/utils'
 const width = '28px'
 const height = '25px'
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flex('align-center')};

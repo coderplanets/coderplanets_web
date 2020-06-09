@@ -14,10 +14,10 @@ import { buildLog, BStore, nilOrEmpty } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('c:Guardian:index')
 
-const getDisplayName = WrappedComp =>
+const getDisplayName = (WrappedComp) =>
   WrappedComp.displayName || WrappedComp.name || 'Component'
 
-const getRawPassport = passport => {
+const getRawPassport = (passport) => {
   if (startsWith('owner;', passport)) {
     return split('owner;', passport)[1]
   }
@@ -31,7 +31,7 @@ const getRawPassport = passport => {
  *
  */
 
-const withGuardian = WrappedComponent => {
+const withGuardian = (WrappedComponent) => {
   class WithGuardian extends React.Component {
     constructor(props) {
       super(props)

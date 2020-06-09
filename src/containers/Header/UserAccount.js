@@ -33,7 +33,7 @@ const UserAccount = ({ isLogin, accountInfo }) => (
               <LoginName>{accountInfo.login}</LoginName>
             </LoginBadge>
             <MenuDivider />
-            <MenuItem onClick={previewAccount.bind(this, 'account')}>
+            <MenuItem onClick={() => previewAccount('account')}>
               主页面板
             </MenuItem>
             <MenuLink

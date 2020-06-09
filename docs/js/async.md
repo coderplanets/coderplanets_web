@@ -43,7 +43,7 @@ The container component can listen for asynchronous events that need to be respo
 
 ```js
 Const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.PREVIEW_OPEN,
     EVENT.PREVIEW_CLOSE,
     EVENT.UPLOAD_IMG_START,

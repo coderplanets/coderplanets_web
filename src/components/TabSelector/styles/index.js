@@ -6,7 +6,7 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
 `
-export const OptisonsWrapper = styled.div`
+export const OptionsWrapper = styled.div`
   ${cs.flex('justify-evenly')};
   padding-top: 3px;
 `

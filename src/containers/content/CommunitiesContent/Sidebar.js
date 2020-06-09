@@ -19,7 +19,8 @@ const Sidebar = ({ show, onItemClick, activeId, items }) => {
         />
         <Br bottom="150px" />
       </Sticky>
-      {/* without Holder the Sticky will not work because the Sticky Content's Height is too long */}
+      {/* without Holder the Sticky will not work because the
+      Sticky  Content's Height is too long */}
       <Holder />
     </Wrapper>
   )

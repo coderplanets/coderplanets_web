@@ -22,14 +22,13 @@ const log = buildLog('C:InterviewContent')
 const InterviewContentContainer = ({ interviewContent: store }) => {
   useInit(store)
 
+  // topFilter={topFilter}
+  // menuOnSelect={menuOnSelect}
+  // initActiveMenuId={initActiveMenuId}
   return (
     <Wrapper testid="interviewContent">
       <InnerWrapper>
-        <FilterBar
-        // topFilter={topFilter}
-        // menuOnSelect={menuOnSelect}
-        // initActiveMenuId={initActiveMenuId}
-        />
+        <FilterBar />
         <ContentWrapper>
           <Content />
         </ContentWrapper>

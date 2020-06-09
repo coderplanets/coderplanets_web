@@ -21,7 +21,7 @@ export const IntroTitle = styled.div`
   margin-bottom: 20px;
   margin-left: -10px;
 `
-export const SlogenTextWrapper = styled.div`
+export const SloganTextWrapper = styled.div`
   margin-left: 3px;
   margin-right: 3px;
 

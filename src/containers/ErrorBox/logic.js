@@ -9,7 +9,7 @@ const log = buildLog('L:ErrorBox')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.ERR_RESCUE],
+  receive: [EVENT.ERR_RESCUE],
 })
 
 let sub$ = null
@@ -17,7 +17,7 @@ let store = null
 
 export const onClose = () => store.mark({ show: false })
 
-const classifyGQErrors = errors => {
+const classifyGQErrors = (errors) => {
   if (!Array.isArray(errors)) {
     return log('invalid errors: ', errors)
   }
@@ -47,7 +47,7 @@ export const hide = () => store.mark({ show: false })
 const DataSolver = [
   {
     match: asyncRes(EVENT.ERR_RESCUE),
-    action: res => {
+    action: (res) => {
       const {
         type,
         data: { operation, details, path },
@@ -81,7 +81,7 @@ const ErrSolver = []
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     // log('effect init')

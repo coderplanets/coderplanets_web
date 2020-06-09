@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
  *
  * @returns
  */
-const useWindowSize = cb => {
+const useWindowSize = (cb) => {
   const isClient = typeof window === 'object'
 
   const getSize = () => {

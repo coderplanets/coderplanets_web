@@ -71,7 +71,7 @@ import {
   VideoEditorStore,
   RepoEditorStore,
   AccountEditorStore,
-  UpgradePackgesStore,
+  UpgradePackagesStore,
   MailBoxStore,
   LabelerStore,
   DocUploaderStore,
@@ -130,7 +130,7 @@ const rootStore = T.model({
   videoEditor: T.optional(VideoEditorStore, {}),
   repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
-  upgradePackges: T.optional(UpgradePackgesStore, {}),
+  upgradePackges: T.optional(UpgradePackagesStore, {}),
   mailBox: T.optional(MailBoxStore, {}),
   labeler: T.optional(LabelerStore, {}),
   docUploader: T.optional(DocUploaderStore, {}),
@@ -216,7 +216,7 @@ const rootStore = T.model({
   c11NSettingPanel: T.optional(C11NSettingPanelStore, {}),
   roadmapThread: T.optional(RoadmapThreadStore, {}),
 })
-  .views(self => ({
+  .views((self) => ({
     get isOnline() {
       return self.globalLayout.online
     },
@@ -237,7 +237,7 @@ const rootStore = T.model({
       return self.account.accountInfo
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     afterCreate() {
       // self.communities.load()
     },

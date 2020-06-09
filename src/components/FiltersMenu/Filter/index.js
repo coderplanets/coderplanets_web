@@ -27,7 +27,7 @@ const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
       <Item revert={revert}>
         {expandMenuId === id && options ? (
           <RadioWrapper revert={revert}>
-            {options.map(item => (
+            {options.map((item) => (
               <RadioItem
                 key={item.id}
                 onClick={() => onSelect(expandMenuId, item)}
@@ -96,7 +96,7 @@ Filter.propTypes = {
     T.shape({
       id: T.string,
       title: T.string,
-    })
+    }),
   ).isRequired,
   revert: T.bool.isRequired,
   onSelect: T.func.isRequired,

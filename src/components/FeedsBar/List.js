@@ -37,7 +37,7 @@ const List = () => {
       height={`calc(90vh - ${listHeadHeight})`}
       autoHide
     >
-      {fakeSourceList.map(item => (
+      {fakeSourceList.map((item) => (
         <ListItemWrapper key={item.id}>
           <Header>
             <Icon src={item.icon} />

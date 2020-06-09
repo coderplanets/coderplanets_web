@@ -13,7 +13,7 @@ const CommunitiesList = ({
 }) => (
   <Wrapper>
     <EntriesWrapper>
-      {entries.map(item => (
+      {entries.map((item) => (
         <Community
           key={item.id}
           entry={item}

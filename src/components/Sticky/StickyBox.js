@@ -13,12 +13,12 @@ import ResizeObserver from 'resize-observer-polyfill'
 
 import { Global } from '@/utils'
 
-const getScrollParent = node => {
+const getScrollParent = (node) => {
   let parent = node
   // eslint-disable-next-line no-cond-assign
   while ((parent = parent.parentElement)) {
     const overflowYVal = getComputedStyle(parent, null).getPropertyValue(
-      'overflow-y'
+      'overflow-y',
     )
     if (parent === document.body) return Global
     if (overflowYVal === 'auto' || overflowYVal === 'scroll') return parent
@@ -45,8 +45,9 @@ const offsetTill = (node, target) => {
 let stickyProp = null
 if (typeof CSS !== 'undefined' && CSS.supports) {
   if (CSS.supports('position', 'sticky')) stickyProp = 'sticky'
-  else if (CSS.supports('position', '-webkit-sticky'))
+  else if (CSS.supports('position', '-webkit-sticky')) {
     stickyProp = '-webkit-sticky'
+  }
 }
 
 // Inspired by https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
@@ -84,7 +85,7 @@ class StickyBox extends React.Component {
     this.unsubscribes.push(() => ro.disconnect())
   }
 
-  registerContainerRef = n => {
+  registerContainerRef = (n) => {
     if (!stickyProp) return
     this.node = n
     if (n) {
@@ -97,7 +98,7 @@ class StickyBox extends React.Component {
         this.scrollPane,
         'mousewheel',
         this.handleScroll,
-        passiveArg
+        passiveArg,
       )
       if (this.scrollPane === Global) {
         this.addListener(Global, 'resize', this.handleWindowResize)
@@ -114,7 +115,7 @@ class StickyBox extends React.Component {
 
       this.initial()
     } else {
-      this.unsubscribes.forEach(fn => fn())
+      this.unsubscribes.forEach((fn) => fn())
       this.unsubscribes = []
       this.scrollPane = null
     }
@@ -129,7 +130,7 @@ class StickyBox extends React.Component {
       if (bottom) {
         const nextBottom = Math.max(
           0,
-          this.parentHeight - this.nodeHeight - this.offset
+          this.parentHeight - this.nodeHeight - this.offset,
         )
         this.node.style.bottom = `${nextBottom}px`
       } else {
@@ -141,17 +142,17 @@ class StickyBox extends React.Component {
         if (bottom) {
           this.node.style.bottom = `${offsetBottom}px`
         } else {
-          this.node.style.top = `${this.viewPortHeight -
-            this.nodeHeight -
-            offsetBottom}px`
+          this.node.style.top = `${
+            this.viewPortHeight - this.nodeHeight - offsetBottom
+          }px`
         }
       } else {
         // stickyTop
         // eslint-disable-next-line no-lonely-if
         if (bottom) {
-          this.node.style.bottom = `${this.viewPortHeight -
-            this.nodeHeight -
-            offsetBottom}px`
+          this.node.style.bottom = `${
+            this.viewPortHeight - this.nodeHeight - offsetBottom
+          }px`
         } else {
           this.node.style.top = `${offsetTop}px`
         }
@@ -175,7 +176,10 @@ class StickyBox extends React.Component {
     if (this.mode === 'stickyTop') {
       return Math.max(
         0,
-        this.scrollPaneOffset + this.latestScrollY - this.naturalTop + offsetTop
+        this.scrollPaneOffset +
+          this.latestScrollY -
+          this.naturalTop +
+          offsetTop,
       )
     }
     if (this.mode === 'stickyBottom') {
@@ -184,7 +188,7 @@ class StickyBox extends React.Component {
         this.scrollPaneOffset +
           this.latestScrollY +
           this.viewPortHeight -
-          (this.naturalTop + this.nodeHeight + offsetBottom)
+          (this.naturalTop + this.nodeHeight + offsetBottom),
       )
     }
   }
@@ -210,7 +214,7 @@ class StickyBox extends React.Component {
     if (process.env.NODE_ENV !== 'production' && this.viewPortHeight === 0) {
       console.warn(
         'react-sticky-box scroll pane has a height of 0. This seems odd. Please check this node:',
-        this.scrollPane
+        this.scrollPane,
       )
     }
     // Only applicable if scrollPane is an offsetParent
@@ -227,11 +231,11 @@ class StickyBox extends React.Component {
     const computedParentStyle = getComputedStyle(parentNode, null)
     const parentPaddingTop = parseInt(
       computedParentStyle.getPropertyValue('padding-top'),
-      10
+      10,
     )
     const parentPaddingBottom = parseInt(
       computedParentStyle.getPropertyValue('padding-bottom'),
-      10
+      10,
     )
     const verticalParentPadding = parentPaddingTop + parentPaddingBottom
     this.naturalTop =
@@ -271,7 +275,7 @@ class StickyBox extends React.Component {
         const lowestPossible = this.parentHeight - this.nodeHeight
         const nextOffset = Math.min(
           lowestPossible,
-          this.getCurrentOffset() + (bottom ? diff : 0)
+          this.getCurrentOffset() + (bottom ? diff : 0),
         )
         this.offset = Math.max(0, nextOffset)
         if (!bottom || this.mode !== 'stickyBottom') this.changeMode('relative')

@@ -27,7 +27,7 @@ const log = buildLog('L:PostsThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.REFRESH_POSTS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
@@ -77,25 +77,25 @@ export const loadPosts = (page = 1) => {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export const onPageChange = page => {
+export const onPageChange = (page) => {
   scrollToTabber()
   loadPosts(page)
 }
 
-export const onFilterSelect = option => {
+export const onFilterSelect = (option) => {
   store.selectFilter(option)
   log('cur filter: ', store.filtersData)
   store.markRoute({ ...store.filtersData })
   loadPosts()
 }
 
-export const onTagSelect = tag => {
+export const onTagSelect = (tag) => {
   store.selectTag(tag)
   loadPosts()
   store.markRoute({ tag: tag.title })
 }
 
-export const onUserSelect = user =>
+export const onUserSelect = (user) =>
   send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
@@ -106,7 +106,7 @@ export const onUserSelect = user =>
  *
  * @param {*} data {id: string, title: string}
  */
-export const onPreview = data => {
+export const onPreview = (data) => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   const type = TYPE.PREVIEW_POST_VIEW
   const thread = THREAD.POST
@@ -139,7 +139,7 @@ const loadCityCommunities = () => {
   }
 }
 
-export const onCommunitySelect = community => {
+export const onCommunitySelect = (community) => {
   store.setViewing({ community, activeThread: THREAD.POST, post: {} })
 
   store.markRoute({
@@ -189,11 +189,12 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: res => {
+    action: (res) => {
       const { data } = res[EVENT.TABBER_CHANGE]
 
-      if (contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY]))
+      if (contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY])) {
         return false
+      }
 
       const { curCommunity, curRoute } = store
       if (curCommunity.raw === ROUTE.HOME && curRoute.subPath === THREAD.CITY) {
@@ -212,7 +213,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
-    action: res => {
+    action: (res) => {
       const { type } = res[EVENT.C11N_DENSITY_CHANGE]
       if (type === THREAD.POST) loadPosts(store.pagedPosts.pageNumber)
     },
@@ -248,7 +249,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

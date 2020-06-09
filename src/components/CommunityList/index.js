@@ -17,9 +17,9 @@ import {
   Logo,
   PopoverInfo,
   PopCommunityLogo,
-  PopCommnityInfo,
-  PopCommnityTitle,
-  PopCommnityDesc,
+  PopCommunityInfo,
+  PopCommunityTitle,
+  PopCommunityDesc,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -32,17 +32,17 @@ const CommunityList = ({ items, size, bottom, emptyHint }) => {
 
   return (
     <Wrapper>
-      {items.map(community => (
+      {items.map((community) => (
         <Tooltip
           key={community.id}
           placement="bottom"
           content={
             <PopoverInfo>
               <PopCommunityLogo src={community.logo} />
-              <PopCommnityInfo>
-                <PopCommnityTitle>{community.title}</PopCommnityTitle>
-                <PopCommnityDesc>{community.desc}</PopCommnityDesc>
-              </PopCommnityInfo>
+              <PopCommunityInfo>
+                <PopCommunityTitle>{community.title}</PopCommunityTitle>
+                <PopCommunityDesc>{community.desc}</PopCommunityDesc>
+              </PopCommunityInfo>
             </PopoverInfo>
           }
         >
@@ -62,7 +62,7 @@ CommunityList.propTypes = {
       raw: T.string,
       title: T.string,
       logo: T.string,
-    })
+    }),
   ),
   size: T.string,
   bottom: T.string,

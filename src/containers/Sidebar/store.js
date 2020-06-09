@@ -27,7 +27,7 @@ const SidebarStore = T.model('SidebarStore', {
      */
   forceRerender: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -55,8 +55,8 @@ const SidebarStore = T.model('SidebarStore', {
 
       if (notEmpty(trim(searchCommunityValue))) {
         return filter(
-          item => contains(searchCommunityValue, prop('title', item)),
-          subscribedCommunities.entries
+          (item) => contains(searchCommunityValue, prop('title', item)),
+          subscribedCommunities.entries,
         )
       }
 
@@ -65,7 +65,7 @@ const SidebarStore = T.model('SidebarStore', {
         : []
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

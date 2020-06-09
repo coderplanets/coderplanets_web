@@ -53,7 +53,7 @@ const CrashErrorHint = ({ onReport }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setExecuteIndex(
-        executeIndex >= EXECUTES.length - 1 ? 0 : executeIndex + 1
+        executeIndex >= EXECUTES.length - 1 ? 0 : executeIndex + 1,
       )
     }, 3000)
 

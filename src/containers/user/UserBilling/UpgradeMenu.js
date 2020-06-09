@@ -8,7 +8,7 @@ import { ICON_CMD } from '@/config'
 import SeniorPlan from './SeniorPlan'
 import SponsorPlan from './SponsorPlan'
 import GirlsCodeTooPlan from './GirlsCodeTooPlan'
-import TipingDevsPlan from './TipingDevsPlan'
+import TipsForDeveloperPlan from './TipsForDeveloperPlan'
 
 import { PlanDivider } from './styles/upgrade_menu'
 
@@ -16,9 +16,10 @@ const DynamicGirlVerifier = dynamic({
   loader: () => import('@/containers/GirlVerifier'),
 })
 
-const labelText = isSeniorMember => {
-  if (isSeniorMember)
+const labelText = (isSeniorMember) => {
+  if (isSeniorMember) {
     return '您的资助已被用于 coderplanets.com 的发展中，感谢参与！'
+  }
   return '当前账户为免费账户，欢迎升级账户以获得更好的体验/服务, 同时支持社区的发展。'
 }
 
@@ -37,7 +38,7 @@ const UpgradeMenu = ({ achievement }) => (
     <PlanDivider />
     <GirlsCodeTooPlan joined={achievement.seniorMember} />
     <PlanDivider hide={achievement.seniorMember} />
-    <TipingDevsPlan />
+    <TipsForDeveloperPlan />
   </React.Fragment>
 )
 

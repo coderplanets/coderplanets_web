@@ -9,7 +9,7 @@ const log = buildLog('L:VideoContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.REFRESH_VIDEOS],
+  receive: [EVENT.REFRESH_VIDEOS],
 })
 
 let sub$ = null
@@ -55,7 +55,7 @@ export const holder = 1
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     // log('effect init')

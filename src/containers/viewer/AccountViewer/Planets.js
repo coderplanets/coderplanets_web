@@ -37,7 +37,7 @@ const Planets = ({ subscribedCommunities, viewingType }) => {
         </HelpText>
       </HeaderWrapper>
       <IconList>
-        {sortedCommunities.map(community => (
+        {sortedCommunities.map((community) => (
           <Tooltip
             key={community.raw}
             content={community.title}

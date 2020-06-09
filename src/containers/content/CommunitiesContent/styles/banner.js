@@ -4,7 +4,7 @@ import { theme, cs } from '@/utils'
 
 import Img from '@/Img'
 
-export const BannerContainer = styled.div.attrs(props => ({
+export const BannerContainer = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flexColumn('justify-center')};
@@ -18,7 +18,7 @@ export const BannerContainer = styled.div.attrs(props => ({
     min-height: 160px;
   }
 `
-export const IntroWraper = styled.div`
+export const IntroWrapper = styled.div`
   ${cs.flexColumn('align-both')};
   color: ${theme('thread.articleDigest')};
   /* background-image: linear-gradient(#043B49, #022A35); */
@@ -40,7 +40,7 @@ export const IntroDesc = styled.div`
   margin-left: -10px;
   opacity: 0.9;
 `
-export const SlogenTextWrapper = styled.div`
+export const SloganTextWrapper = styled.div`
   margin-left: 3px;
   margin-right: 3px;
 

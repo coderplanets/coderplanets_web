@@ -12,7 +12,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export const changeTheme = theme => {
+export const changeTheme = (theme) => {
   store.changeTheme(theme)
   send(EVENT.SET_C11N, { data: { theme } })
 }
@@ -34,7 +34,7 @@ const ErrSolver = []
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

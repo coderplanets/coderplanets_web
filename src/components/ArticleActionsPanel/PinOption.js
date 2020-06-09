@@ -9,12 +9,12 @@ import { Option, OptionIcon, OptionTitle } from './styles'
 const PinOption = ({ data, thread, onPin, onUndoPin }) => (
   <React.Fragment>
     {data.pin ? (
-      <Option onClick={onUndoPin.bind(this, thread)}>
+      <Option onClick={() => onUndoPin(thread)}>
         <OptionIcon src={`${ICON_CMD}/pin.svg`} reverse />
         <OptionTitle>取消置顶</OptionTitle>
       </Option>
     ) : (
-      <Option onClick={onPin.bind(this, thread)}>
+      <Option onClick={() => onPin(thread)}>
         <OptionIcon src={`${ICON_CMD}/pin.svg`} />
         <OptionTitle>置顶显示</OptionTitle>
       </Option>

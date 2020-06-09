@@ -34,7 +34,7 @@ const PagedBillRecords = T.model('PagedBillRecords', {
 const UserBilling = T.model('UserBilling', {
   pagedBillRecords: T.optional(PagedBillRecords, emptyPagiData),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -48,7 +48,7 @@ const UserBilling = T.model('UserBilling', {
       return self.root.viewing.isSelfViewing
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     upgradeHepler() {
       self.root.upgradeHepler()
     },

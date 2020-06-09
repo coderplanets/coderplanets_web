@@ -11,7 +11,7 @@ const log = buildLog('L:TagsBar')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
+  receive: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
 
 let sub$ = null
@@ -57,7 +57,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: data => {
+    action: (data) => {
       const { topic } = data[EVENT.TABBER_CHANGE].data
       loadTags(topic)
       store.mark({ activeTag: null })

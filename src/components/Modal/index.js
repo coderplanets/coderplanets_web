@@ -51,7 +51,7 @@ const Modal = ({
                 show={showCloseBtn}
                 onClick={onClose}
               />
-              <ChildrenWrapper onClick={e => e.stopPropagation()}>
+              <ChildrenWrapper onClick={(e) => e.stopPropagation()}>
                 {children}
               </ChildrenWrapper>
             </Wrapper>

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect, useState, useRef } from 'react'
+import React from 'react'
 import T from 'prop-types'
 import { findIndex, propEq } from 'ramda'
 
@@ -24,9 +24,10 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:IconSwitcher:index')
 
-const IconComp = ({ item, activeKey, onHover }) => {
-  if (!item.desc)
+const IconComp = ({ item, activeKey }) => {
+  if (!item.desc) {
     return <Icon src={item.iconSrc} checked={activeKey === item.key} />
+  }
 
   return (
     <IconHoverWrapper>
@@ -36,14 +37,14 @@ const IconComp = ({ item, activeKey, onHover }) => {
   )
 }
 
-const IconSwitcher = ({ items, activeKey, onChange, onHover }) => {
+const IconSwitcher = ({ items, activeKey, onChange }) => {
   const slideIndex = findIndex(propEq('key', activeKey), items)
 
   return (
     <Wrapper testid="selectors">
       <AccessZone />
       <Tabs>
-        {items.map(item => (
+        {items.map((item) => (
           <React.Fragment key={item.key}>
             <Label
               onClick={() => onChange(item)}
@@ -55,7 +56,7 @@ const IconSwitcher = ({ items, activeKey, onChange, onHover }) => {
 
               {!nilOrEmpty(item.iconSrc) && (
                 // <Icon src={item.iconSrc} checked={activeKey === item.key} />
-                <IconComp item={item} activeKey={activeKey} onHover={onHover} />
+                <IconComp item={item} activeKey={activeKey} />
               )}
             </Label>
           </React.Fragment>
@@ -72,15 +73,12 @@ IconSwitcher.propTypes = {
       iconSrc: T.string,
       localIcon: T.oneOfType([T.string, T.node]),
       key: T.string,
-    })
+    }),
   ).isRequired,
   activeKey: T.string.isRequired,
   onChange: T.func.isRequired,
-  onHover: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
-IconSwitcher.defaultProps = {
-  onHover: null,
-}
+IconSwitcher.defaultProps = {}
 
 export default React.memo(IconSwitcher)

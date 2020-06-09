@@ -18,7 +18,7 @@ import {
 const Footer = ({ contributors, author, insertedAt }) => (
   <Wrapper>
     <Contributors>
-      {contributors.map(builder => (
+      {contributors.map((builder) => (
         <Tooltip
           placement="bottom"
           key={builder.htmlUrl}

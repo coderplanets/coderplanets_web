@@ -22,12 +22,12 @@ const CheatsheetThread = T.model('CheatsheetThread', {
       TYPE.NOT_FOUND,
       TYPE.RESULT_EMPTY,
     ]),
-    TYPE.RESULT
+    TYPE.RESULT,
   ),
   errorType: T.maybeNull(T.string),
   showSyncWarning: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -41,7 +41,7 @@ const CheatsheetThread = T.model('CheatsheetThread', {
       return stripMobx(self.cheatsheet)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     changesetErr(options) {
       self.root.changesetErr(options)
     },

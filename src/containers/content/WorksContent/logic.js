@@ -12,7 +12,7 @@ const log = buildLog('L:WorksContent')
  * change the view of main content
  * @param {string} activeView works or milestone
  */
-export const changeView = activeView => {
+export const changeView = (activeView) => {
   store.mark({ activeView })
 }
 
@@ -20,7 +20,7 @@ export const changeView = activeView => {
 // init & uninit handlers
 // ###############################
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

@@ -65,7 +65,7 @@ const JobInfo = ({
     </Middle>
     <Footer>
       <Extra>
-        <PublishInfo onClick={onAuthorSelect.bind(this, author)}>
+        <PublishInfo onClick={() => onAuthorSelect(author)}>
           {author.nickname} <DotDivider />
           <TimeAgo datetime={insertedAt} locale="zh_CN" />
           <DotDivider />

@@ -35,15 +35,15 @@ export const PopCommunityLogo = styled(Img)`
   margin-right: 8px;
 `
 
-export const PopCommnityInfo = styled.div`
+export const PopCommunityInfo = styled.div`
   ${cs.flexColumn()};
 `
 
-export const PopCommnityTitle = styled.div`
+export const PopCommunityTitle = styled.div`
   font-weight: bold;
   color: ${theme('thread.articleTitle')};
 `
-export const PopCommnityDesc = styled.div`
+export const PopCommunityDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
 `

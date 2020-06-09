@@ -17,7 +17,7 @@ const ArticleAuthorCard = T.model('ArticleAuthorCard', {
   following: T.optional(T.boolean, false),
   user: T.optional(User, {}),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -36,7 +36,7 @@ const ArticleAuthorCard = T.model('ArticleAuthorCard', {
       return stripMobx(self.user)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

@@ -8,7 +8,7 @@ import React, { useCallback } from 'react'
 import T from 'prop-types'
 import { compose, not, isNil, filter, reverse, slice } from 'ramda'
 
-import { ATATARS_LIST_LENGTH } from '@/config'
+import { AVATARS_LIST_LENGTH } from '@/config'
 import { buildLog, o2s, s2o } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
@@ -30,14 +30,14 @@ const validUser = compose(not, isNil)
 
 const getUniqueArray = (arr, comp) => {
   const unique = arr
-    .map(e => e[comp])
+    .map((e) => e[comp])
 
     // store the keys of the unique objects
     .map((e, i, final) => final.indexOf(e) === i && i)
 
     // eliminate the dead keys & store unique objects
-    .filter(e => arr[e])
-    .map(e => arr[e])
+    .filter((e) => arr[e])
+    .map((e) => arr[e])
 
   return unique
 }
@@ -53,11 +53,11 @@ const AvatarsRow = ({
   reverse: isReverse,
 }) => {
   const handleUserSelect = useCallback(
-    e => {
+    (e) => {
       const user = s2o(e.target.dataset.user)
       onUserSelect(user)
     },
-    [onUserSelect]
+    [onUserSelect],
   )
 
   if (users.length === 0) {
@@ -80,7 +80,7 @@ const AvatarsRow = ({
         />
       )}
 
-      {slice(0, limit, sortedUsers).map(user => (
+      {slice(0, limit, sortedUsers).map((user) => (
         <AvatarsItem key={user.id}>
           <Tooltip content={user.nickname} duration={0}>
             <AvatarsImg
@@ -103,7 +103,7 @@ AvatarsRow.propTypes = {
       avatar: T.string,
       nickname: T.string,
       extra_id: T.string,
-    })
+    }),
   ),
   total: T.number.isRequired,
   height: T.string,
@@ -117,7 +117,7 @@ AvatarsRow.propTypes = {
 AvatarsRow.defaultProps = {
   height: '32px',
   users: [],
-  limit: ATATARS_LIST_LENGTH.POSTS,
+  limit: AVATARS_LIST_LENGTH.POSTS,
   onUserSelect: log,
   onTotalSelect: log,
   showTotalNumber: false,

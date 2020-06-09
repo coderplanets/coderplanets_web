@@ -15,12 +15,12 @@ const Informer = T.model('Informer', {
   showModal: T.optional(T.boolean, false),
   curView: T.optional(
     T.enumeration('curView', ['overview', 'form']),
-    'overview'
+    'overview',
   ),
   type: T.optional(T.string, ''),
   message: T.optional(T.string, ''),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -31,7 +31,7 @@ const Informer = T.model('Informer', {
       return self.root.viewingData
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     show() {
       self.showModal = true
     },

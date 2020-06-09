@@ -15,11 +15,11 @@ const log = buildLog('S:UserContent')
 const UserContent = T.model('UserContent', {
   activeThread: T.optional(
     T.enumeration('activeThread', values(USER_THREAD)),
-    USER_THREAD.PUBLISH
+    USER_THREAD.PUBLISH,
   ),
   following: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -36,7 +36,7 @@ const UserContent = T.model('UserContent', {
       return self.root.viewing.isSelfViewing
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },

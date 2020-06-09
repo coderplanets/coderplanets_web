@@ -21,7 +21,7 @@ const log = buildLog('c:ContributorList:index')
 
 const ContributorList = ({ users, readOnly, addContributor }) => (
   <Wrapper>
-    {users.map(user => (
+    {users.map((user) => (
       <Tooltip
         content={
           <CardWrapper>
@@ -50,7 +50,7 @@ ContributorList.propTypes = {
       company: T.string,
       location: T.string,
       htmlUrl: T.string,
-    })
+    }),
   ).isRequired,
   addContributor: T.func,
   readOnly: T.bool,

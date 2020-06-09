@@ -9,7 +9,7 @@ import React from 'react'
 import { useShortcut } from '@/hooks'
 import InputPrefix from './InputPrefix'
 
-import { EditorBar, InputBar, PrefixWraper } from './styles/input_editor'
+import { EditorBar, InputBar, PrefixWrapper } from './styles/input_editor'
 
 import {
   hidePanel,
@@ -26,9 +26,9 @@ const InputEditor = ({ searching, value, prefix }) => {
 
   return (
     <EditorBar>
-      <PrefixWraper>
+      <PrefixWrapper>
         <InputPrefix prefix={prefix} searching={searching} />
-      </PrefixWraper>
+      </PrefixWrapper>
       <InputBar
         id="doraemonInputbar"
         spellCheck={false}

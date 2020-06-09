@@ -28,12 +28,13 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const VideoItemLoading = ({ num, theme }) =>
-  range(0, num).map(item => (
+const VideoItemLoading = ({ num, theme }) => {
+  return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <LoadingItem theme={theme} />
     </LoadingWrapper>
   ))
+}
 
 VideoItemLoading.propTypes = {
   num: T.number,

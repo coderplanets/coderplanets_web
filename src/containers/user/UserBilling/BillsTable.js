@@ -61,7 +61,7 @@ const BillsTable = ({ data }) => {
               <HeaderItem>时间</HeaderItem>
               <HeaderItem>状态</HeaderItem>
             </TableHeader>
-            {data.entries.map(item => (
+            {data.entries.map((item) => (
               <TableRow key={item.hashId} data={item} />
             ))}
           </TableWrapper>

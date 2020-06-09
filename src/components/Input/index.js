@@ -32,8 +32,8 @@ const Input = ({
   testid,
   ...restProps
 }) => {
-  const handleOnChange = useCallback(e => onChange && onChange(e), [onChange])
-  const validProps = pickBy(v => v !== null, restProps)
+  const handleOnChange = useCallback((e) => onChange && onChange(e), [onChange])
+  const validProps = pickBy((v) => v !== null, restProps)
 
   return behavior === 'default' ? (
     <Wrapper testid={testid}>

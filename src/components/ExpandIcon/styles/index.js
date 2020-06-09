@@ -10,7 +10,7 @@ import {
   getNormalIconSize,
 } from './metric'
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flex('align-center')};

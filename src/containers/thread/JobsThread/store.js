@@ -24,14 +24,14 @@ const JobsThreadStore = T.model('JobsThreadStore', {
       TYPE.NOT_FOUND,
       TYPE.RESULT_EMPTY,
     ]),
-    TYPE.RESULT
+    TYPE.RESULT,
   ),
   showPublishNote: T.optional(T.boolean, false),
   // runtime: ..
   // data: ...
   // TODO: rename to activeArticle
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -51,7 +51,7 @@ const JobsThreadStore = T.model('JobsThreadStore', {
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(pickBy(v => !isEmpty(v), self.filters))
+      return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || {}
@@ -68,13 +68,13 @@ const JobsThreadStore = T.model('JobsThreadStore', {
       return self.root.account.pageDensity
     },
     get showFilterBar() {
-      const curFilter = stripMobx(pickBy(v => !isEmpty(v), self.filters))
+      const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))
       const pagedJobs = stripMobx(self.pagedJobs)
 
       return !isEmpty(curFilter) || !isEmpty(pagedJobs.entries)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     selectFilter(option) {
       const curfilter = self.filtersData
       self.filters = merge(curfilter, option)
@@ -106,7 +106,7 @@ const JobsThreadStore = T.model('JobsThreadStore', {
       if (index >= 0) {
         self.pagedJobs.entries[index] = merge(
           stripMobx(self.pagedJobs.entries[index]),
-          item
+          item,
         )
       }
     },

@@ -24,10 +24,10 @@ const ReposThread = T.model('ReposThread', {
       TYPE.NOT_FOUND,
       TYPE.RESULT_EMPTY,
     ]),
-    TYPE.RESULT
+    TYPE.RESULT,
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -47,7 +47,7 @@ const ReposThread = T.model('ReposThread', {
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(pickBy(v => !isEmpty(v), self.filters))
+      return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || {}
@@ -64,13 +64,13 @@ const ReposThread = T.model('ReposThread', {
       return self.root.account.pageDensity
     },
     get showFilterBar() {
-      const curFilter = stripMobx(pickBy(v => !isEmpty(v), self.filters))
+      const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))
       const pagedRepos = stripMobx(self.pagedRepos)
 
       return !isEmpty(curFilter) || !isEmpty(pagedRepos.entries)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     authWarning(options) {
       self.root.authWarning(options)
     },
@@ -102,7 +102,7 @@ const ReposThread = T.model('ReposThread', {
       if (index >= 0) {
         self.pagedRepos.entries[index] = merge(
           stripMobx(self.pagedRepos.entries[index]),
-          item
+          item,
         )
       }
     },

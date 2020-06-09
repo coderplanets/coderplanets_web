@@ -22,7 +22,7 @@ const UsersThread = T.model('UsersThread', {
   // { city: '成都', value: 1, long: 104.06, lant: 30.67 }
   showNums: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -36,7 +36,7 @@ const UsersThread = T.model('UsersThread', {
       return stripMobx(self.geoInfos)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

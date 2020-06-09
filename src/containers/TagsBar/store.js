@@ -21,7 +21,7 @@ const TagsBar = T.model('TagsBar', {
 
   loading: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -41,7 +41,7 @@ const TagsBar = T.model('TagsBar', {
       return stripMobx(self.activeTag) || { title: '', color: '' }
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     selectTag(tag) {
       const cur = tag.title === '' ? null : tag
 

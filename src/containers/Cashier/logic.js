@@ -17,7 +17,7 @@ import S from './schema'
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 
 const sr71$ = new SR71({
-  recieve: [EVENT.CALL_CASHIER],
+  receive: [EVENT.CALL_CASHIER],
 })
 let sub$ = null
 
@@ -26,13 +26,13 @@ const log = buildLog('L:Cashier')
 
 let store = null
 
-export const sidebarViewOnChange = sidebarView =>
+export const sidebarViewOnChange = (sidebarView) =>
   store.mark({ sidebarView, contentView: sidebarView })
 
-export const paymentMethodOnChange = paymentMethod =>
+export const paymentMethodOnChange = (paymentMethod) =>
   store.mark({ paymentMethod })
 
-export const subContentViewOnChange = subContentView =>
+export const subContentViewOnChange = (subContentView) =>
   store.mark({ subContentView })
 
 export const transferAccountChange = ({ target: { value } }) =>
@@ -40,8 +40,9 @@ export const transferAccountChange = ({ target: { value } }) =>
 
 export const onPaymentConfirm = () => {
   if (!store.isLogin) return store.authWarning({ hideToast: true })
-  if (isEmpty(store.transferAccount))
+  if (isEmpty(store.transferAccount)) {
     return store.toastError({ title: '提交失败', msg: '请填写转账信息' })
+  }
 
   const { paymentMethod, paymentUsage, amount, transferAccount: note } = store
 
@@ -107,7 +108,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

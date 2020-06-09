@@ -21,11 +21,11 @@ const MailBox = T.model('MailBox', {
       'mentions',
       'sys_notifications',
     ]),
-    'mentions'
+    'mentions',
   ),
   loading: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -39,7 +39,7 @@ const MailBox = T.model('MailBox', {
       return stripMobx(self.pagedMentions)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

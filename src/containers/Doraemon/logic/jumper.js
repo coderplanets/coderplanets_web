@@ -28,7 +28,7 @@ export const jumpToCommunity = (store, communityRaw) => {
   send(EVENT.COMMUNITY_CHANGE)
 }
 
-export const jumpToContent = store => {
+export const jumpToContent = (store) => {
   const { id, title } = store.activeSuggestion
   const data = { id, title }
   let type = TYPE.PREVIEW_POST_VIEW // default as post
@@ -55,6 +55,6 @@ export const jumpToContent = store => {
   send(EVENT.PREVIEW_OPEN, { type, thread, data })
 }
 
-export const goToHelpPage = id => {
+export const goToHelpPage = (id) => {
   Global.location.href = `/cps-support/post/${id}`
 }

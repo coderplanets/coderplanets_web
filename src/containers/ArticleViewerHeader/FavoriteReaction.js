@@ -18,17 +18,12 @@ import {
 
 import { onReaction, onListReactionUsers } from './logic'
 
-const FavoriteReation = ({ data, thread, show, loading }) => (
+const FavoriteReaction = ({ data, thread, show, loading }) => (
   <Maybe test={show}>
     <Reaction>
       <ReactionAction
         active={data.viewerHasFavorited}
-        onClick={onReaction.bind(
-          this,
-          TYPE.FAVORITE,
-          data.viewerHasFavorited,
-          data
-        )}
+        onClick={() => onReaction(TYPE.FAVORITE, data.viewerHasFavorited, data)}
       >
         <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />
         <ReactionName>
@@ -39,12 +34,14 @@ const FavoriteReation = ({ data, thread, show, loading }) => (
         <ReactionLoading src={`${ICON_CMD}/reaction_loading.svg`} />
       ) : (
         <ReactionUserNum
-          onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_FAVORITES, {
-            thread,
-            id: data.id,
-            action: TYPE.FAVORITE,
-            brief: data.title || '',
-          })}
+          onClick={() =>
+            onListReactionUsers(TYPE.USER_LISTER_FAVORITES, {
+              thread,
+              id: data.id,
+              action: TYPE.FAVORITE,
+              brief: data.title || '',
+            })
+          }
         >
           {data.favoritedCount}
         </ReactionUserNum>
@@ -54,7 +51,7 @@ const FavoriteReation = ({ data, thread, show, loading }) => (
   </Maybe>
 )
 
-FavoriteReation.propTypes = {
+FavoriteReaction.propTypes = {
   thread: T.oneOf(values(THREAD)),
   data: T.shape({
     id: T.string,
@@ -66,10 +63,10 @@ FavoriteReation.propTypes = {
   loading: T.bool,
 }
 
-FavoriteReation.defaultProps = {
+FavoriteReaction.defaultProps = {
   thread: THREAD.POST,
   show: true,
   loading: false,
 }
 
-export default React.memo(FavoriteReation)
+export default React.memo(FavoriteReaction)

@@ -24,7 +24,7 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
       VIEW.SHARE,
       VIEW.COMMENT,
     ]),
-    VIEW.DEFAULT
+    VIEW.DEFAULT,
   ),
   // refresh timer
   pool: T.optional(T.array(T.string), [
@@ -43,10 +43,10 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
   timer: T.maybeNull(T.number),
   timerInterval: T.optional(
     T.enumeration('timerInterval', ['3s', '5s', '10s']),
-    '3s'
+    '3s',
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -69,7 +69,7 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
       }[timerInterval]
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

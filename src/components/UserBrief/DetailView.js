@@ -4,31 +4,31 @@ import { ICON_CMD } from '@/config'
 
 // import { ICON_CMD } from '@/config'
 // import { Wrapper } from './styles'
-import { UserDetailDesc, DescLable, DescIconLable, ToggleText } from './styles'
+import { UserDetailDesc, DescLabel, DescIconLabel, ToggleText } from './styles'
 import BackgroundList from './BackgroundList'
 
 const DetailView = ({ user, toggleDetail }) => (
   <React.Fragment>
     <UserDetailDesc>
-      <DescLable>个人介绍 </DescLable>
+      <DescLabel>个人介绍 </DescLabel>
       {user.bio}
     </UserDetailDesc>
     <UserDetailDesc>
-      <DescLable>所在城市</DescLable> {user.location}
+      <DescLabel>所在城市</DescLabel> {user.location}
     </UserDetailDesc>
     <UserDetailDesc>
-      <DescLable>职业经历</DescLable>
+      <DescLabel>职业经历</DescLabel>
       <BackgroundList type="work" user={user} />
     </UserDetailDesc>
     <UserDetailDesc>
-      <DescLable>教育经历</DescLable>
+      <DescLabel>教育经历</DescLabel>
       <BackgroundList type="education" user={user} />
     </UserDetailDesc>
     <UserDetailDesc>
-      <DescLable>个人主页</DescLable> {user.github}
+      <DescLabel>个人主页</DescLabel> {user.github}
     </UserDetailDesc>
-    <UserDetailDesc onClick={toggleDetail.bind(this)} clickable>
-      <DescIconLable src={`${ICON_CMD}/profile_arrow.svg`} />
+    <UserDetailDesc onClick={() => toggleDetail()} clickable>
+      <DescIconLabel src={`${ICON_CMD}/profile_arrow.svg`} />
       <ToggleText>收起详细资料</ToggleText>
     </UserDetailDesc>
   </React.Fragment>

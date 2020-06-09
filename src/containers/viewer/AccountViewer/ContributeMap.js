@@ -23,7 +23,7 @@ import {
 
 const log = buildLog('C:Comments')
 
-const customTooltipDataAttrs = value => ({
+const customTooltipDataAttrs = (value) => ({
   'data-tip': value.date === null ? '' : `${value.count} 次 (${value.date})`,
   'data-for': 'user_contribute_map',
   'data-offset': JSON.stringify({ right: 7 }),
@@ -56,7 +56,7 @@ const monthLabels = [
  */
 
 // TODO
-const getClass = value => {
+const getClass = (value) => {
   if (!value) {
     return 'color-empty'
   }
@@ -91,7 +91,7 @@ const ContributeMap = ({ data }) => {
         startDate={data.startDate}
         endDate={data.endDate}
         showMonthLabels
-        onClick={value => log(value)}
+        onClick={(value) => log(value)}
         gutterSize={3}
         tooltipDataAttrs={customTooltipDataAttrs}
         monthLabels={monthLabels}

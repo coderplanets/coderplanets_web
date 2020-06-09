@@ -11,7 +11,7 @@ export const MainFilterWrapper = styled.div`
   ${cs.flex('align-center')};
   flex-grow: 1;
 `
-export const FiltrPanelWrapper = styled.div`
+export const FilterPanelWrapper = styled.div`
   ${cs.flex()};
   min-width: 200px;
   padding: 12px;
@@ -21,7 +21,7 @@ export const ColumnWrapper = styled.div`
   min-width: 60px;
   margin-right: 22px;
 `
-export const SelectLable = styled.div`
+export const SelectLabel = styled.div`
   ${cs.flex('align-center')};
 `
 export const LabelDivider = styled.div`

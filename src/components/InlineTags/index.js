@@ -18,7 +18,7 @@ const log = buildLog('c:InlineTags:index')
 
 const FullList = ({ data, marginLeft }) => (
   <Wrapper marginLeft={marginLeft}>
-    {sortByColor(data).map(tag => (
+    {sortByColor(data).map((tag) => (
       <Tag key={tag.title}>
         <Dot color={tag.color} />
         <Title>{Trans(tag.title)}</Title>
@@ -41,7 +41,7 @@ const InlineTags = ({ data, max, marginLeft }) => {
         <Wrapper marginLeft={marginLeft}>
           {sortByColor(data)
             .slice(0, max)
-            .map(tag => (
+            .map((tag) => (
               <Tag key={tag.title}>
                 <Dot color={tag.color} />
                 <Title>{Trans(tag.title)}</Title>
@@ -65,7 +65,7 @@ InlineTags.propTypes = {
     T.shape({
       title: T.string,
       color: T.string,
-    })
+    }),
   ),
   max: T.number,
   marginLeft: T.bool,

@@ -12,7 +12,7 @@ const log = buildLog('L:WikiThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
+  receive: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
 
 let sub$ = null
@@ -25,7 +25,7 @@ const loadWiki = () => {
   sr71$.query(S.wiki, { community })
 }
 
-const syncWiki = readme => {
+const syncWiki = (readme) => {
   const args = {
     readme,
     lastSync: new Date().toISOString(),
@@ -45,15 +45,16 @@ export const syncWikiFromGithub = () => {
 
   githubAPI
     .searchWiki(store.curCommunity.raw)
-    .then(res => {
-      if (!res || startsWith('404', res))
+    .then((res) => {
+      if (!res || startsWith('404', res)) {
         return store.mark({ curView: TYPE.NOT_FOUND })
+      }
       syncWiki(res)
     })
-    .catch(e => store.handleError(githubAPI.parseError(e)))
+    .catch((e) => store.handleError(githubAPI.parseError(e)))
 }
 
-export const addContributor = user => {
+export const addContributor = (user) => {
   const args = {
     id: store.wikiData.id,
     contributor: user,
@@ -87,7 +88,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: res => {
+    action: (res) => {
       const { data } = res[EVENT.TABBER_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.WIKI) return loadWiki()
@@ -118,7 +119,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

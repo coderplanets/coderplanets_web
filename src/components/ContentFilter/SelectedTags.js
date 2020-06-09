@@ -39,7 +39,7 @@ const FilterTag = ({ onSelect, active, type }) => {
 
 const SelectedTags = ({ onSelect, activeFilter }) => (
   <Wrapper>
-    {keys(activeFilter).map(filterKey => (
+    {keys(activeFilter).map((filterKey) => (
       <FilterTag
         key={filterKey}
         onSelect={onSelect}

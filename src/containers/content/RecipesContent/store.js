@@ -13,7 +13,7 @@ const log = buildLog('S:RecipesContent')
 const RecipesContent = T.model('RecipesContent', {
   mainView: T.optional(
     T.enumeration([RECIPE.SNIPPETS_VIEW, RECIPE.CHEATSHEETS_VIEW]),
-    RECIPE.SNIPPETS_VIEW
+    RECIPE.SNIPPETS_VIEW,
   ),
   galleryType: T.optional(
     T.enumeration([
@@ -21,15 +21,15 @@ const RecipesContent = T.model('RecipesContent', {
       GALLERY.MASONRY_COLUMN,
       GALLERY.THREE_COLUMN,
     ]),
-    GALLERY.MAIN_COLUMN
+    GALLERY.MAIN_COLUMN,
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

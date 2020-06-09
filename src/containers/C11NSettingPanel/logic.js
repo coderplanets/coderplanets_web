@@ -10,7 +10,7 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:C11NSettingPanel')
 
-export const onC11NChange = option => {
+export const onC11NChange = (option) => {
   // TODO:  currently request to server logic is in containers/header, move it to here ?
   send(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
@@ -26,7 +26,7 @@ export const onC11NChange = option => {
 // init & uninit handlers
 // ###############################
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

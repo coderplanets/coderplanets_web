@@ -14,7 +14,7 @@ import { sidebarViewOnChange } from './logic'
 
 const QuestionSidebar = () => (
   <Wrapper>
-    <BackBtnWrapper onClick={sidebarViewOnChange.bind(this, 'pay')}>
+    <BackBtnWrapper onClick={() => sidebarViewOnChange('pay')}>
       <BackIcon src={`${ICON_CMD}/arrow-back.svg`} />
       <BackTitle>返回付款</BackTitle>
     </BackBtnWrapper>

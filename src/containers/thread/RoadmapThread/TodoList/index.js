@@ -87,7 +87,7 @@ const TodoList = ({ label }) => {
         withBorder
         autoHide
       >
-        {fakePosts.map(item => (
+        {fakePosts.map((item) => (
           <Item key={item.id}>
             <UpVote num={28} />
             <PostInfo post={item} />

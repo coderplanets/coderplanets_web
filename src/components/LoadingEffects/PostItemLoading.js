@@ -36,12 +36,13 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const PostItemLoading = ({ num, theme }) =>
-  range(0, num).map(item => (
+const PostItemLoading = ({ num, theme }) => {
+  return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <LoadingItem theme={theme} />
     </LoadingWrapper>
   ))
+}
 
 PostItemLoading.propTypes = {
   num: T.number,

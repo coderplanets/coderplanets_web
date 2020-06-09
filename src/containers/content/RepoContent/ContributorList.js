@@ -14,7 +14,7 @@ import {
 
 const ContributorList = ({ items }) => (
   <Wrapper>
-    {items.map(user => (
+    {items.map((user) => (
       <Tooltip
         placement="bottom"
         key={user.htmlUrl}

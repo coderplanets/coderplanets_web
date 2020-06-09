@@ -14,7 +14,7 @@ export const DynamicRichEditor = dynamic({
   ssr: false,
 })
 
-export const EditorPage = props => {
+export const EditorPage = (props) => {
   const store = useStore(props)
 
   return (

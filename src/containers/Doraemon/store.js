@@ -33,10 +33,10 @@ import cmds from './logic/defaultSuggestion'
 
 // const log = buildLog('S:DoraemonStore')
 
-const convertThreadsToMaps = com => {
+const convertThreadsToMaps = (com) => {
   const { title, desc, logo, raw } = com
   const threads = {}
-  forEach(t => {
+  forEach((t) => {
     threads[t.title] = {
       title: t.title,
       raw: t.raw,
@@ -61,7 +61,7 @@ const Suggestion = T.model('Suggestion', {
   cmd: T.maybeNull(T.enumeration('cmd', ['theme', 'log'])),
   descType: T.optional(
     T.enumeration('descType', ['text', 'component']),
-    'text'
+    'text',
   ),
 })
 
@@ -75,7 +75,7 @@ const DoraemonStore = T.model('DoraemonStore', {
 
   searchThread: T.optional(
     T.enumeration('searchThread', [...values(THREAD), 'community']),
-    'community'
+    'community',
   ),
 
   inputValue: T.optional(T.string, ''),
@@ -87,7 +87,7 @@ const DoraemonStore = T.model('DoraemonStore', {
   inputForOtherUse: T.optional(T.boolean, false),
   cmdChain: T.maybeNull(T.array(T.string)),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -109,7 +109,7 @@ const DoraemonStore = T.model('DoraemonStore', {
       if (self.cmdChain && self.activeRaw) {
         return append(
           self.activeRaw,
-          filter(el => el !== 'threads', map(toLower, self.cmdChain))
+          filter((el) => el !== 'threads', map(toLower, self.cmdChain)),
         )
       }
       return null
@@ -124,7 +124,7 @@ const DoraemonStore = T.model('DoraemonStore', {
 
       const subscribedCommunitiesMaps = {}
 
-      forEach(com => {
+      forEach((com) => {
         subscribedCommunitiesMaps[com.title] = {
           ...com,
         }
@@ -151,7 +151,7 @@ const DoraemonStore = T.model('DoraemonStore', {
       return stripMobx(self.suggestions[self.activeSuggestionIndex])
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     markRoute(query) {
       self.root.markRoute(query)
     },

@@ -15,13 +15,13 @@ const log = buildLog('S:AvatarAdder')
 const AvatarAdder = T.model('AvatarAdder', {
   githubUser: T.maybeNull(GithubUser),
   searchValue: T.optional(T.string, ''),
-  popoverVisiable: T.optional(T.boolean, false),
+  popoverVisible: T.optional(T.boolean, false),
   searching: T.optional(T.boolean, false),
 
   errorType: T.maybeNull(T.string),
   /* ERR_TYPE:  */
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -29,7 +29,7 @@ const AvatarAdder = T.model('AvatarAdder', {
       return stripMobx(self.githubUser)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     changesetErr(options) {
       self.root.changesetErr(options)
     },

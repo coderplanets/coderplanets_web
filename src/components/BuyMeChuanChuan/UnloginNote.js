@@ -3,7 +3,7 @@ import React from 'react'
 // import { ICON_CMD } from '@/config'
 import { Wrapper, LoginLabel } from './styles/unlogin_note'
 
-const UnloginNote = ({ onLogin }) => (
+const UnLoginNote = ({ onLogin }) => (
   <Wrapper>
     下一步操作前, 请先
     <LoginLabel onClick={onLogin}>登录</LoginLabel>
@@ -11,4 +11,4 @@ const UnloginNote = ({ onLogin }) => (
   </Wrapper>
 )
 
-export default React.memo(UnloginNote)
+export default React.memo(UnLoginNote)

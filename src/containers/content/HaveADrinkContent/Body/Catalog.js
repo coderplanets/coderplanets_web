@@ -131,7 +131,7 @@ const items = [
 const Catalog = () => {
   return (
     <Wrapper>
-      {items.map(item => (
+      {items.map((item) => (
         <Block key={item.id} active={item.active}>
           <Header>
             <Intro>

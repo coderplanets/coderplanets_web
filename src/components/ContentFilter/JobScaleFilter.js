@@ -4,7 +4,7 @@ import { LABEL_POOL } from '@/config'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -16,18 +16,18 @@ import {
 
 const JobScaleFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={LABEL_POOL.scale.iconSrc} />
       <SelectTitle>规模</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.scale.data.map(item => (
+      {LABEL_POOL.scale.data.map((item) => (
         <SelectItem
           key={item}
           active={activeFilter.scale === item}
-          onClick={onSelect.bind(this, { scale: item })}
+          onClick={() => onSelect({ scale: item })}
         >
           {item}
         </SelectItem>

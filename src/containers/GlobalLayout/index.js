@@ -6,14 +6,18 @@
 
 import React, { useEffect, useState } from 'react'
 import T from 'prop-types'
-import dynamic from 'next/dynamic'
-
-import useNetwork from 'react-use/lib/useNetwork'
 
 import { ICON_CMD } from '@/config'
 import { TYPE, ROUTE } from '@/constant'
 import { connectStore } from '@/utils'
-import { useShortcut, useMedia, usePlatform, useResize } from '@/hooks'
+
+import {
+  useNetwork,
+  useShortcut,
+  useMedia,
+  usePlatform,
+  useResize,
+} from '@/hooks'
 
 import AnalysisService from '@/services/Analysis'
 import ThemeWrapper from '@/containers/ThemeWrapper'

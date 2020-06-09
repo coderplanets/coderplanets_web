@@ -4,7 +4,7 @@ import { ICON_CMD, LABEL_POOL } from '@/config'
 
 import {
   ColumnWrapper,
-  SelectLable,
+  SelectLabel,
   LabelDivider,
   SelectIcon,
   SelectTitle,
@@ -16,18 +16,18 @@ import {
 
 const JobSalaryFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
-    <SelectLable>
+    <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/money_frame.svg`} />
       <SelectTitle>月薪</SelectTitle>
-    </SelectLable>
+    </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.salary.data.map(item => (
+      {LABEL_POOL.salary.data.map((item) => (
         <SelectItem
           key={item}
           active={activeFilter.salary === item}
-          onClick={onSelect.bind(this, { salary: item })}
+          onClick={() => onSelect({ salary: item })}
         >
           {item}
         </SelectItem>

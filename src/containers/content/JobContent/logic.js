@@ -9,7 +9,7 @@ const log = buildLog('L:JobContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.REFRESH_JOBS],
+  receive: [EVENT.REFRESH_JOBS],
 })
 
 let sub$ = null
@@ -72,7 +72,7 @@ export const holder = 1
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     // log('effect init')

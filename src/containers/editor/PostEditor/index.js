@@ -63,7 +63,7 @@ const View = ({
           <Preview
             editData={editData}
             contentDomId={contentDomId}
-            onBack={changeView.bind(this, 'CREATE_VIEW')}
+            onBack={() => changeView('CREATE_VIEW')}
           />
         </ViewerWrapper>
       </React.Fragment>

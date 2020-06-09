@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { buildLog } from '@/utils'
 import {
   Wrapper,
-  OptisonsWrapper,
+  OptionsWrapper,
   Option,
   Icon,
   Title,
@@ -22,12 +22,12 @@ const log = buildLog('c:TabSelector:index')
 
 const TabSelector = ({ source, activeRaw, onChange }) => (
   <Wrapper>
-    <OptisonsWrapper>
-      {source.map(opt => (
+    <OptionsWrapper>
+      {source.map((opt) => (
         <Option
           key={opt.raw}
           active={activeRaw === opt.raw}
-          onClick={onChange.bind(this, opt)}
+          onClick={() => onChange(opt)}
         >
           <Icon src={opt.icon} active={activeRaw === opt.raw} />
           <Title>
@@ -36,7 +36,7 @@ const TabSelector = ({ source, activeRaw, onChange }) => (
           </Title>
         </Option>
       ))}
-    </OptisonsWrapper>
+    </OptionsWrapper>
     <HeaderDivider />
   </Wrapper>
 )
@@ -50,7 +50,7 @@ TabSelector.propTypes = {
       icon: T.string.isRequired,
       raw: T.string.isRequired,
       count: T.number,
-    })
+    }),
   ).isRequired,
 }
 

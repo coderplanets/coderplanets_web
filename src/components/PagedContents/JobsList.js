@@ -26,14 +26,14 @@ const JobsList = ({ props }) => {
     case TYPE.RESULT:
       return (
         <React.Fragment>
-          {entries.map(entry => (
+          {entries.map((entry) => (
             <JobItem
               key={entry.id}
               entry={entry}
               community={community}
               active={active}
               accountInfo={accountInfo}
-              onPreview={onPreview.bind(this, entry)}
+              onPreview={() => onPreview(entry)}
               onAuthorSelect={onAuthorSelect}
             />
           ))}

@@ -10,20 +10,20 @@ import { uid } from '@/utils'
 import MarkDownStyle from '@/containers/ThemeWrapper/MarkDownStyle'
 
 import fullEmojis from './emojis'
-import { Wrapper, EmojiWraper, EmojiItem } from './styles/markdown_helper'
+import { Wrapper, EmojiWrapper, EmojiItem } from './styles/markdown_helper'
 
 const md = new Remarkable()
 md.use(mentions({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
 
-const notTooLong = l => l.length < 20
+const notTooLong = (l) => l.length < 20
 
 /* eslint-disable react/no-danger */
 const Emojis = () => {
   const source = filter(notTooLong, keys(fullEmojis))
 
   return (
-    <EmojiWraper>
+    <EmojiWrapper>
       <MarkDownStyle>
         <div
           className="markdown-body"
@@ -33,7 +33,7 @@ const Emojis = () => {
             justifyContent: 'center',
           }}
         >
-          {source.map(item => (
+          {source.map((item) => (
             <EmojiItem
               key={uid.gen()}
               dangerouslySetInnerHTML={{
@@ -43,7 +43,7 @@ const Emojis = () => {
           ))}
         </div>
       </MarkDownStyle>
-    </EmojiWraper>
+    </EmojiWrapper>
   )
 }
 

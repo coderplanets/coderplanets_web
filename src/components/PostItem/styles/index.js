@@ -56,7 +56,7 @@ export const SmallAvatar = styled(Avatar)`
   width: 35px;
   height: 35px;
 `
-export const Breif = styled.div`
+export const Brief = styled.div`
   ${cs.flexGrow('align-center')};
   margin-bottom: 10px;
   margin-left: 10px;

@@ -8,7 +8,7 @@ let store = null
 
 // function will fire only when browser history btn clicked
 // see https://developer.mozilla.org/zh-CN/docs/Web/API/Window/onpopstate
-const browserHistoryBtnClicked = popstate => {
+const browserHistoryBtnClicked = (popstate) => {
   Global.location = popstate.state.as
 }
 

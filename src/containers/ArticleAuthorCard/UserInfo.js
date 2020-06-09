@@ -15,7 +15,7 @@ const UserInfo = ({ user, isSelfViewing }) => (
       <Nickname>{user.nickname}</Nickname>
       {user.id && !isSelfViewing && (
         <FollowButton
-          hasFollowd={user.viewerHasFollowed}
+          hasFollowed={user.viewerHasFollowed}
           userId={user.id}
           onFollow={onFollow}
           onUndoFollow={onUndoFollow}

@@ -19,12 +19,12 @@ export const backToCategoryList = () => {
   store.mark({ parentView: 'CATEGORY_LIST' })
 }
 
-export const onCatSelect = curCategory => {
+export const onCatSelect = (curCategory) => {
   store.mark({ curCategory, parentView: 'CATEGORY_DETAIL' })
   loadPosts()
 }
 
-const getQueryArgs = page => {
+const getQueryArgs = (page) => {
   store.mark({ curView: TYPE.LOADING })
   // args
   return {
@@ -46,7 +46,7 @@ export const loadVideos = (page = 1) =>
 export const loadRepos = (page = 1) =>
   sr71$.query(S.favoritedRepos, getQueryArgs(page))
 
-export const onReload = page => {
+export const onReload = (page) => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobs(page)
@@ -62,13 +62,13 @@ export const onReload = page => {
   }
 }
 
-export const changeFavoriteThread = curThread => {
+export const changeFavoriteThread = (curThread) => {
   store.mark({ curThread })
   // TODO:  change route
   onReload()
 }
 
-export const onPreview = data => {
+export const onPreview = (data) => {
   const { curThread: thread } = store
 
   send(EVENT.PREVIEW_OPEN, {
@@ -105,7 +105,7 @@ const ErrSolver = []
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     if (sub$) return false

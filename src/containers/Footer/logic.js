@@ -21,12 +21,12 @@ export const toggleBusBanner = () =>
   store.mark({ showBusBanner: !store.showBusBanner })
 
 export const onLogin = () => store.authWarning({ hideToast: true })
-export const onPay = num => {
+export const onPay = (num) => {
   if (!store.isLogin) return store.authWarning()
   store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: num })
 }
 
-export const queryDoraemon = data => send(EVENT.QUERY_DORAMON, { data })
+export const queryDoraemon = (data) => send(EVENT.QUERY_DORAMON, { data })
 
 // ###############################
 // Data & Error handlers
@@ -38,7 +38,7 @@ const ErrSolver = []
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

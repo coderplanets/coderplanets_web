@@ -14,7 +14,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export const loadUser = user => {
+export const loadUser = (user) => {
   if (!store.isLogin) return false
   const { login } = user
 
@@ -25,11 +25,11 @@ export const loadUser = user => {
 export const onListUsers = (type, data) =>
   send(EVENT.USER_LISTER_OPEN, { type, data })
 
-export const onFollow = userId => {
+export const onFollow = (userId) => {
   store.mark({ following: true })
   sr71$.mutate(S.follow, { userId })
 }
-export const onUndoFollow = userId => {
+export const onUndoFollow = (userId) => {
   store.mark({ following: true })
   sr71$.mutate(S.undoFollow, { userId })
 }

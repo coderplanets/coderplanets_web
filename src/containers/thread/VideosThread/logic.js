@@ -18,7 +18,7 @@ const log = buildLog('L:VideosThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.REFRESH_VIDEOS,
     EVENT.PREVIEW_CLOSED,
     EVENT.TABBER_CHANGE,
@@ -52,7 +52,7 @@ export const loadVideos = (page = 1) => {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export const onPageChange = page => {
+export const onPageChange = (page) => {
   scrollToTabber()
   loadVideos(page)
 }
@@ -62,7 +62,7 @@ export const onPageChange = page => {
  *
  * @param {*} data {id: string, title: string}
  */
-export const onPreview = data => {
+export const onPreview = (data) => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   const type = TYPE.PREVIEW_VIDEO_VIEW
   const thread = THREAD.VIDEO
@@ -77,13 +77,13 @@ export const onContentCreate = () => {
   send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
 }
 
-export const onTagSelect = tag => {
+export const onTagSelect = (tag) => {
   store.selectTag(tag)
   loadVideos()
   store.markRoute({ tag: tag.title })
 }
 
-export const onFilterSelect = option => {
+export const onFilterSelect = (option) => {
   store.selectFilter(option)
   store.markRoute({ ...store.filtersData })
   loadVideos()
@@ -107,7 +107,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: res => {
+    action: (res) => {
       const { data } = res[EVENT.TABBER_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.VIDEO) {
@@ -122,7 +122,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
-    action: res => {
+    action: (res) => {
       const { type } = res[EVENT.C11N_DENSITY_CHANGE]
       if (type === THREAD.VIDEO) loadVideos(store.pagedVideos.pageNumber)
     },
@@ -160,7 +160,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store =>
+export const useInit = (_store) =>
   useEffect(() => {
     store = _store
     // log('effect init')

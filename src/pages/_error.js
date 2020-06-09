@@ -9,7 +9,7 @@ import { useStore } from '@/stores/init'
 
 import { Wrapper } from '@/containers/GlobalLayout/styles'
 
-const DefaultErrorPage = props => {
+const DefaultErrorPage = (props) => {
   const store = useStore(props)
 
   return (

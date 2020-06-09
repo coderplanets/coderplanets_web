@@ -8,7 +8,7 @@ const log = buildLog('L:Preview')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [
+  receive: [
     EVENT.PREVIEW_OPEN,
     EVENT.PREVIEW_CLOSE,
     EVENT.UPLOAD_IMG_START,
@@ -35,7 +35,7 @@ export const closePreview = () => {
 const DataResolver = [
   {
     match: asyncRes(EVENT.PREVIEW_OPEN),
-    action: res => {
+    action: (res) => {
       const payload = res[EVENT.PREVIEW_OPEN]
       /*
          log('should open payload thread: ', payload.thread)

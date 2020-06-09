@@ -93,7 +93,7 @@ ArticleActionsPanel.propTypes = {
         title: T.string,
         color: T.string,
         raw: T.string,
-      })
+      }),
     ),
   }).isRequired,
   communityRaw: T.string.isRequired,

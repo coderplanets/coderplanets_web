@@ -15,7 +15,7 @@ export const TagDot = styled.div`
 export const TagTitle = styled.div`
   margin-top: -5px;
 `
-export const NomoreDesc = styled.div`
+export const NoMoreDesc = styled.div`
   color: ${theme('banner.desc')};
   font-style: italic;
 `

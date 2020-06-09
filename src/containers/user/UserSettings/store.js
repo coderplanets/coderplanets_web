@@ -11,7 +11,7 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:UserSettings')
 
 const UserSettings = T.model('UserSettings', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -25,7 +25,7 @@ const UserSettings = T.model('UserSettings', {})
       return self.root.viewing.isSelfViewing
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     changeTheme(name) {
       self.root.changeTheme(name)
     },

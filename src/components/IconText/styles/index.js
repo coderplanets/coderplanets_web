@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flex('align-center')};
 `
-const getIconSize = size => {
+const getIconSize = (size) => {
   switch (size) {
     case 'large': {
       return '18px'
@@ -25,7 +25,7 @@ const getIconSize = size => {
   }
 }
 
-const getTextSize = size => {
+const getTextSize = (size) => {
   switch (size) {
     case 'large': {
       return '16px'
@@ -39,7 +39,7 @@ const getTextSize = size => {
   }
 }
 
-const getMargin = size => {
+const getMargin = (size) => {
   switch (size) {
     case 'tiny': {
       return '2px'

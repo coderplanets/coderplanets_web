@@ -61,7 +61,7 @@ export class SwissArmyKnife {
     }
   }
 
-  navSuggestion = direction => {
+  navSuggestion = (direction) => {
     const { prefix, activeRaw } = this.store
     if (anyNil([prefix, activeRaw]) || isEmpty(activeRaw)) return false
 
@@ -73,26 +73,26 @@ export class SwissArmyKnife {
     this.scrollIfNeeded()
   }
 
-  navToSuggestion = suggestion => {
+  navToSuggestion = (suggestion) => {
     const activeSuggestion = suggestion.toJSON()
     this.store.activeTo(activeSuggestion.raw)
   }
 
   // TODO rename to linker
-  communityLinker = cmdpath => {
+  communityLinker = (cmdpath) => {
     // console.log('communityLinker: ', cmdpath)
     // console.log('communityLinker this.communities: ', this.communities)
     return and(contains(head(cmdpath), this.communities), lengthE1(cmdpath))
   }
 
-  communityInsideLinker = cmdpath =>
+  communityInsideLinker = (cmdpath) =>
     and(contains(head(cmdpath), this.communities), lengthE2(cmdpath))
 
   stepTwoCmd = curry((name, cmdpath) =>
-    and(equals(name, head(cmdpath)), lengthE2(cmdpath))
+    and(equals(name, head(cmdpath)), lengthE2(cmdpath)),
   )
 
   stepOneCmd = curry((name, cmdpath) =>
-    and(equals(name, head(cmdpath)), lengthE1(cmdpath))
+    and(equals(name, head(cmdpath)), lengthE1(cmdpath)),
   )
 }

@@ -26,7 +26,7 @@ import {
 
 import { previewUser } from './logic'
 
-const getLinkAddr = item => {
+const getLinkAddr = (item) => {
   const { community, parentType, parentId, sourceType, sourceId } = item
 
   if (!isEmpty(parentType)) {
@@ -68,7 +68,7 @@ const MentionList = ({ data }) => {
   return (
     <Wrapper>
       <ListsWrapper>
-        {data.entries.map(item => (
+        {data.entries.map((item) => (
           <MessageLinker
             key={item.id}
             href={`${getLinkAddr(item)}`}
@@ -77,7 +77,7 @@ const MentionList = ({ data }) => {
           >
             <Message>
               <MessageHeader>
-                <UserLabel onClick={previewUser.bind(this, item.fromUser)}>
+                <UserLabel onClick={() => previewUser(item.fromUser)}>
                   <UserAvatar src={item.fromUser.avatar} />
                   <UserNickname>
                     {cutFrom(item.fromUser.nickname, 8)}

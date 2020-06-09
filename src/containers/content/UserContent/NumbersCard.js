@@ -18,12 +18,12 @@ const NumbersCard = ({ user, showFollowers, showFollowings }) => (
       <RepNumber>{prettyNum(user.achievement.reputation)}</RepNumber>
     </NumWrapper>
     <Divider />
-    <NumWrapper onClick={showFollowers.bind(this, user)}>
+    <NumWrapper onClick={() => showFollowers(user)}>
       <NumTitle>关注者</NumTitle>
       <NumNumber>{prettyNum(user.followersCount)}</NumNumber>
     </NumWrapper>
     <Divider />
-    <NumWrapper onClick={showFollowings.bind(this, user)}>
+    <NumWrapper onClick={() => showFollowings(user)}>
       <NumTitle>关注中</NumTitle>
       <NumNumber>{prettyNum(user.followingsCount)}</NumNumber>
     </NumWrapper>

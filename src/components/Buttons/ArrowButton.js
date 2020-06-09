@@ -15,7 +15,7 @@ import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
 /* eslint-disable-next-line */
 const log = buildLog('c:Buttons:index')
 
-const SISE_MAP = {
+const SIZE_MAP = {
   tiny: {
     text: '12px',
     icon: '12px',
@@ -46,16 +46,16 @@ const ArrowButton = ({
       {direction === 'left' ? (
         <React.Fragment>
           <LeftIcon
-            size={SISE_MAP[size].icon}
+            size={SIZE_MAP[size].icon}
             src={`${ICON_CMD}/navi/navi_back.svg`}
           />
-          <Text size={SISE_MAP[size].text}>{children}</Text>
+          <Text size={SIZE_MAP[size].text}>{children}</Text>
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Text size={SISE_MAP[size].text}>{children}</Text>
+          <Text size={SIZE_MAP[size].text}>{children}</Text>
           <RightIcon
-            size={SISE_MAP[size].icon}
+            size={SIZE_MAP[size].icon}
             src={`${ICON_CMD}/navi/navi_back.svg`}
           />
         </React.Fragment>

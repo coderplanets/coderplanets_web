@@ -40,11 +40,11 @@ const VerticalScroller = ({
 
   const handleShowBottomShadow = useCallback(
     () => setShowBottomShadow(true),
-    []
+    [],
   )
   const handleHideBottomShadow = useCallback(
     () => setShowBottomShadow(false),
-    []
+    [],
   )
 
   const ref = useRef(null)

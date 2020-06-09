@@ -19,7 +19,7 @@ import CheatSheetStyle from './styles/CheatsheetMarkStyles'
 const md = new Remarkable()
 
 const Cards = ({ cards }) =>
-  cards.map(item => (
+  cards.map((item) => (
     <CardWrapper key={uid.gen()}>
       <CheatSheetStyle>
         <div
@@ -39,7 +39,7 @@ const Cheatsheet = ({ source, communityRaw }) => {
     data = parser(source)
     return (
       <Wrapper>
-        {data.map(item => (
+        {data.map((item) => (
           <CheatSheetStyle key={uid.gen()}>
             <div
               className="cheatsheet-body"

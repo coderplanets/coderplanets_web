@@ -25,13 +25,13 @@ const ReposList = ({ props }) => {
     case TYPE.RESULT:
       return (
         <React.Fragment>
-          {entries.map(entry => (
+          {entries.map((entry) => (
             <RepoItem
               key={entry.id}
               entry={entry}
               active={active}
               accountInfo={accountInfo}
-              onPreview={onPreview.bind(this, entry)}
+              onPreview={() => onPreview(entry)}
             />
           ))}
         </React.Fragment>

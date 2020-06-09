@@ -13,7 +13,6 @@ import {
   Label,
   Title,
   Desc,
-  PreviewImg,
   FooterWrapper,
   Company,
   Icon,

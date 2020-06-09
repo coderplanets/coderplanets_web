@@ -15,7 +15,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export const onEdit = thread => {
+export const onEdit = (thread) => {
   const data = store.viewingData
   let type
 
@@ -41,7 +41,7 @@ export const onEdit = thread => {
 
 export const onCommunitySet = () => send(EVENT.COMMUNITY_MIRROR)
 
-export const onPin = thread => {
+export const onPin = (thread) => {
   const args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
@@ -64,7 +64,7 @@ export const onPin = thread => {
   }
 }
 
-export const onUndoPin = thread => {
+export const onUndoPin = (thread) => {
   const args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
@@ -87,7 +87,7 @@ export const onUndoPin = thread => {
   }
 }
 
-const getRefinedArgs = thread => {
+const getRefinedArgs = (thread) => {
   let args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
@@ -102,10 +102,10 @@ const getRefinedArgs = thread => {
   return args
 }
 
-export const onSetRefined = thread =>
+export const onSetRefined = (thread) =>
   sr71$.mutate(S.setRefinedTag, getRefinedArgs(thread))
 
-export const onUnsetRefined = thread =>
+export const onUnsetRefined = (thread) =>
   sr71$.mutate(S.unsetRefinedTag, getRefinedArgs(thread))
 
 export const onDelete = () => {
@@ -127,7 +127,7 @@ export const onDelete = () => {
   }
 }
 
-export const onTagSelect = tagId => {
+export const onTagSelect = (tagId) => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
   const thread = toUpper(store.activeThread)
@@ -135,7 +135,7 @@ export const onTagSelect = tagId => {
   sr71$.mutate(S.setTag, { thread, id, tagId, communityId })
 }
 
-export const onTagUnselect = tagId => {
+export const onTagUnselect = (tagId) => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
   const thread = toUpper(store.activeThread)
@@ -256,7 +256,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

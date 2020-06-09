@@ -36,24 +36,24 @@ export const searchRepoPromise = (owner, name) =>
     timeout(readmeQuery(owner, name), TIMEOUT_SEC),
   ])
 
-const getRelaseTag = releases => {
+const getRelaseTag = (releases) => {
   if (isEmpty(releases.nodes)) return ''
   return releases.nodes[0].tag.name
 }
 
-const getLicense = value => {
+const getLicense = (value) => {
   if (!value) return ''
   return value.key
 }
 
 // transform to match our model
-export const transformRepo = res => {
+export const transformRepo = (res) => {
   const baseInfoRes = res[0].repository
   const contributorsRes = res[1]
   const readme = res[2]
   const contributors = []
 
-  forEach(user => {
+  forEach((user) => {
     contributors.push({
       nickname: user.login,
       htmlUrl: user.html_url,

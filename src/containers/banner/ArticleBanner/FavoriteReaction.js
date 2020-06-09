@@ -19,12 +19,7 @@ const FavoriteReaction = ({ data, show, loading }) => (
   <Maybe test={show}>
     <NumberSection active={data.viewerHasFavorited}>
       <NumberTitle
-        onClick={onReaction.bind(
-          this,
-          TYPE.FAVORITE,
-          data.viewerHasFavorited,
-          data
-        )}
+        onClick={() => onReaction(TYPE.FAVORITE, data.viewerHasFavorited, data)}
       >
         {data.viewerHasFavorited ? <span>已收藏</span> : <span>收藏</span>}
       </NumberTitle>
@@ -32,11 +27,13 @@ const FavoriteReaction = ({ data, show, loading }) => (
         <NumberLoading src={`${ICON_CMD}/reaction_loading.svg`} />
       ) : (
         <NumberItem
-          onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
-            id: data.id,
-            action: TYPE.FAVORITE,
-            brief: data.title || '',
-          })}
+          onClick={() =>
+            onListReactionUsers(TYPE.USER_LISTER_STARS, {
+              id: data.id,
+              action: TYPE.FAVORITE,
+              brief: data.title || '',
+            })
+          }
         >
           {numberWithCommas(data.favoritedCount)}
         </NumberItem>

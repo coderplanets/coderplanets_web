@@ -38,7 +38,7 @@ VerticalButton.propTypes = {
     T.shape({
       key: T.string,
       title: T.string,
-    })
+    }),
   ),
 }
 

@@ -105,7 +105,7 @@ const liquid2Rule = css`
   ${liquid2} ${DURATION} infinite;
 `
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   text-align: center;

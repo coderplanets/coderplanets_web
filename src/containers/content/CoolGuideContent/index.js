@@ -8,7 +8,6 @@ import React from 'react'
 
 import { connectStore, buildLog } from '@/utils'
 import { GUIDE } from '@/constant'
-import { useTrans } from '@/hooks'
 
 import FilterBar from './FilterBar'
 import Content from './Content'

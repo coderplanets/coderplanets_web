@@ -29,7 +29,7 @@ import {
 
 import { loadMentions } from './logic'
 
-const getLinkAddr = item => {
+const getLinkAddr = (item) => {
   const { community, parentType, parentId, sourceType, sourceId } = item
 
   if (!isEmpty(parentType)) {
@@ -68,7 +68,7 @@ const MentionList = ({
   data: { entries, pageNumber, pageSize, totalCount },
   readState,
 }) => {
-  if (isEmpty(entries))
+  if (isEmpty(entries)) {
     return (
       <Wrapper>
         <InfoWrapper>
@@ -77,6 +77,7 @@ const MentionList = ({
         <EmptyLabel text="还没有人提到(@)你" />
       </Wrapper>
     )
+  }
 
   return (
     <Wrapper>
@@ -85,7 +86,7 @@ const MentionList = ({
       </InfoWrapper>
 
       <ListsWrapper>
-        {entries.map(item => (
+        {entries.map((item) => (
           <MessageLinker
             key={item.id}
             href={`${getLinkAddr(item)}`}

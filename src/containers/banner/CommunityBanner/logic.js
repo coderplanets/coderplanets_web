@@ -16,7 +16,7 @@ import S from './schema'
 const log = buildLog('L:CommunityBanner')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
-const sr71$ = new SR71({ recieve: [EVENT.COMMUNITY_CHANGE] })
+const sr71$ = new SR71({ receive: [EVENT.COMMUNITY_CHANGE] })
 
 let sub$ = null
 let store = null
@@ -30,7 +30,7 @@ const loadCommunity = () => {
   sr71$.query(S.community, { raw, userHasLogin })
 }
 
-export const tabberChange = activeThread => {
+export const tabberChange = (activeThread) => {
   const subPath = thread2Subpath(activeThread)
   // log('EVENT.activeThread -----> ', activeThread)
   // log('EVENT.subPath -----> ', subPath)
@@ -41,7 +41,7 @@ export const tabberChange = activeThread => {
   send(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
-export const onSubscribe = community => {
+export const onSubscribe = (community) => {
   if (!store.isLogin) return store.authWarning()
   if (store.subscribeLoading) return false
 
@@ -50,7 +50,7 @@ export const onSubscribe = community => {
   sr71$.mutate(S.subscribeCommunity, { communityId: community.id })
 }
 
-export const onUndoSubscribe = community => {
+export const onUndoSubscribe = (community) => {
   if (!store.isLogin) return store.authWarning()
   if (store.subscribeLoading) return false
 
@@ -148,7 +148,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')

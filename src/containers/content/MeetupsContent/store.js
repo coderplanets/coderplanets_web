@@ -13,15 +13,15 @@ const log = buildLog('S:MeetupsContent')
 const MeetupsContent = T.model('MeetupsContent', {
   activeGalleryType: T.optional(
     T.enumeration([GALLERY.TEXT_ONLY, GALLERY.TEXT_WITH_IMAGE]),
-    GALLERY.TEXT_ONLY
+    GALLERY.TEXT_ONLY,
   ),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     mark(sobj) {
       markStates(sobj, self)
     },

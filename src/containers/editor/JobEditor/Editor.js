@@ -27,16 +27,16 @@ const Editor = ({ isEdit, thread, editData, mentionList }) => {
       <ArticleEditToolbar
         thread={thread}
         editData={editData}
-        onCopyrightChange={inputOnChange.bind(this, 'copyRight')}
-        onLinkAddrChange={inputOnChange.bind(this, 'linkAddr')}
-        onPreview={changeView.bind(this, 'PREVIEW_VIEW')}
+        onCopyrightChange={() => inputOnChange('copyRight')}
+        onLinkAddrChange={() => inputOnChange('linkAddr')}
+        onPreview={() => changeView('PREVIEW_VIEW')}
       />
 
       <TitleInput
         placeholder="标 题."
         defaultValue=""
         value={title}
-        onChange={inputOnChange.bind(this, 'title')}
+        onChange={() => inputOnChange('title')}
       />
 
       <br />

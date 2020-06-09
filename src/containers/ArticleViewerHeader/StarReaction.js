@@ -22,7 +22,7 @@ const StarReaction = ({ data, show, loading }) => (
     <Reaction>
       <ReactionAction
         active={data.viewerHasStarred}
-        onClick={onReaction.bind(this, TYPE.STAR, data.viewerHasStarred, data)}
+        onClick={() => onReaction(TYPE.STAR, data.viewerHasStarred, data)}
       >
         <LikeIcon src={`${ICON_CMD}/like.svg`} />
         <ReactionName>
@@ -33,11 +33,13 @@ const StarReaction = ({ data, show, loading }) => (
         <ReactionLoading src={`${ICON_CMD}/reaction_loading.svg`} />
       ) : (
         <ReactionUserNum
-          onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
-            id: data.id,
-            action: TYPE.STAR,
-            brief: data.title || '',
-          })}
+          onClick={() =>
+            onListReactionUsers(TYPE.USER_LISTER_STARS, {
+              id: data.id,
+              action: TYPE.STAR,
+              brief: data.title || '',
+            })
+          }
         >
           {data.starredCount}
         </ReactionUserNum>

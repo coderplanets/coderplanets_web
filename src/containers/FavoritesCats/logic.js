@@ -12,7 +12,7 @@ const log = buildLog('L:FavoritesCats')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.SET_FAVORITE_CONTENT],
+  receive: [EVENT.SET_FAVORITE_CONTENT],
 })
 
 let sub$ = null
@@ -20,11 +20,11 @@ let store = null
 
 // export const categoryOnChange = (part, e) => updateEditing(store, part, e)
 export const categoryOnChange = curry(
-  (part, e) => updateEditing(store, part, e)
+  (part, e) => updateEditing(store, part, e),
   // store.updateEditing({ [part]: e.target.value })
 )
 
-export const privateOnChange = item => {
+export const privateOnChange = (item) => {
   const { editCategoryData } = store
 
   const editCategory = {
@@ -61,7 +61,7 @@ export const loadCategories = (page = 1) => {
   })
 }
 
-export const switchToUpdater = editCategory => {
+export const switchToUpdater = (editCategory) => {
   store.mark({ editCategory })
   store.changeViewTo('updater')
 }
@@ -84,7 +84,7 @@ export const onModalClose = () => {
   store.cleanEditData()
 }
 
-export const setContent = categoryId => {
+export const setContent = (categoryId) => {
   if (store.doing) return false
 
   const { id } = store.viewingData
@@ -99,7 +99,7 @@ export const setContent = categoryId => {
   sr71$.mutate(S.setFavorites, args)
 }
 
-export const unSetContent = categoryId => {
+export const unSetContent = (categoryId) => {
   if (store.doing) return false
 
   const { id } = store.viewingData
@@ -182,7 +182,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.SET_FAVORITE_CONTENT),
-    action: e => {
+    action: (e) => {
       const { thread } = e[EVENT.SET_FAVORITE_CONTENT].data
       store.changeViewTo('setter')
       store.mark({ thread, createfromSetter: true })
@@ -214,7 +214,7 @@ const ErrSolver = [
   },
 ]
 
-const initStates = displayMode => {
+const initStates = (displayMode) => {
   store.mark({ displayMode })
   return loadCategories()
 }

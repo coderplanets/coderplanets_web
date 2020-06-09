@@ -18,22 +18,22 @@ import {
 
 const CardSelector = ({ curTheme, changeTheme }) => (
   <Wrapper>
-    {keys(themeMeta).map(name => (
+    {keys(themeMeta).map((name) => (
       <IntroBox key={name} active={curTheme === name}>
         <ThemeDot
           large
           active={curTheme === name}
           name={name}
-          onClick={changeTheme.bind(this, name)}
+          onClick={() => changeTheme(name)}
         />
         <IntroDesc>
           <ThemeTitle
             active={curTheme === name}
-            onClick={changeTheme.bind(this, name)}
+            onClick={() => changeTheme(name)}
           >
             {name}
           </ThemeTitle>
-          <ThemeDesc onClick={changeTheme.bind(this, name)}>
+          <ThemeDesc onClick={() => changeTheme(name)}>
             {themeMeta[name].desc}
           </ThemeDesc>
           <AuthorInfo>

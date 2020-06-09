@@ -112,10 +112,10 @@ export const Footer = styled.div`
     cursor: pointer;
   }
 `
-export const UpvoteInfo = styled.div`
+export const VoteInfo = styled.div`
   ${cs.flex('align-center')};
 `
-export const ViewInfo = styled(UpvoteInfo)`
+export const ViewInfo = styled(VoteInfo)`
   opacity: 0.8;
 
   ${Block}:hover & {

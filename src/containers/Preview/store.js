@@ -42,9 +42,8 @@ const Attachment = T.model('Attachment', {
   id: T.string,
   type: T.optional(
     T.enumeration('type', [...THREAD_CONTENT_CURD_TYPES]),
-    TYPE.PREVIEW_POST_VIEW
+    TYPE.PREVIEW_POST_VIEW,
   ),
-  /* type: T.maybeNull(T.string), // T.optional(T.enumeration('edittype', [TYPE.POST, TYPE.JOB]), TYPE.POST), */
   title: T.string,
   body: T.maybeNull(T.string),
   digest: T.maybeNull(T.string),
@@ -78,7 +77,7 @@ const PreviewStore = T.model('PreviewStore', {
       ...THREAD_CONTENT_CURD_TYPES,
       //
       TYPE.PREVIEW_C11N_SETINGS,
-    ])
+    ]),
   ),
   attUser: T.maybeNull(User),
   attachment: T.maybeNull(Attachment),
@@ -87,7 +86,7 @@ const PreviewStore = T.model('PreviewStore', {
   // header:
   // body:
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -122,7 +121,7 @@ const PreviewStore = T.model('PreviewStore', {
       return self.visible && Global.innerWidth <= cs.mediaBreakPoints.desktopL
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     open({ type, data, thread }) {
       // NOTE: currently the attachment is only used for article-like content
       if (type === TYPE.PREVIEW_USER_VIEW) {

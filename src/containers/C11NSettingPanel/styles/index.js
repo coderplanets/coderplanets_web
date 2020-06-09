@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { cs, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs(props => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flexColumn('align-start', 'justify-start')};
@@ -30,7 +30,7 @@ export const Desc = styled.div`
   margin-bottom: 10px;
   opacity: 0.5;
 `
-export const Didiver = styled.div`
+export const Divider = styled.div`
   margin: 25px 0;
   width: 100%;
 `

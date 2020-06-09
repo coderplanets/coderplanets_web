@@ -5,7 +5,7 @@ import { Wrapper, Tag } from './styles/inline_tags'
 const InlineTags = ({ items }) => {
   return (
     <Wrapper>
-      {items.map(item => (
+      {items.map((item) => (
         <Tag key={item}>{item}</Tag>
       ))}
     </Wrapper>

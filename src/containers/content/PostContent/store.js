@@ -11,7 +11,7 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:PostContentStore')
 
 const PostContentStore = T.model('PostContentStore', {})
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -25,7 +25,7 @@ const PostContentStore = T.model('PostContentStore', {})
       return self.root.viewingData
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     callInformer() {
       self.root.callInformer()
     },

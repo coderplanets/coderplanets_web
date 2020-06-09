@@ -5,9 +5,9 @@ import Maybe from '@/components/Maybe'
 import { uid, Trans } from '@/utils'
 import { Wrapper, Item, Hightlight } from './styles/selected'
 
-const renderItems = items => {
+const renderItems = (items) => {
   if (!items) return null
-  const tagsList = reject(t => t === 'refined', items)
+  const tagsList = reject((t) => t === 'refined', items)
 
   switch (tagsList.length) {
     case 0:
@@ -40,9 +40,9 @@ const renderItems = items => {
   }
 }
 
-const renderReadonlyItems = items => {
+const renderReadonlyItems = (items) => {
   if (!items) return null
-  const tagsList = reject(t => t === 'refined', items)
+  const tagsList = reject((t) => t === 'refined', items)
 
   const totalLength = tagsList.length
 
@@ -58,7 +58,7 @@ const renderReadonlyItems = items => {
 
   return (
     <Item>
-      {tagsList.slice(0, totalLength - 1).map(tag => (
+      {tagsList.slice(0, totalLength - 1).map((tag) => (
         <Hightlight key={uid.gen()}>{Trans(tag)}, </Hightlight>
       ))}
 

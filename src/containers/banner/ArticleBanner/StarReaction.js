@@ -20,7 +20,7 @@ const StarReaction = ({ data, show, loading }) => (
   <Maybe test={show}>
     <NumberSection active={data.viewerHasStarred}>
       <NumberTitle
-        onClick={onReaction.bind(this, TYPE.STAR, data.viewerHasStarred, data)}
+        onClick={() => onReaction(TYPE.STAR, data.viewerHasStarred, data)}
       >
         {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
       </NumberTitle>
@@ -28,11 +28,13 @@ const StarReaction = ({ data, show, loading }) => (
         <NumberLoading src={`${ICON_CMD}/reaction_loading.svg`} />
       ) : (
         <NumberItem
-          onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
-            id: data.id,
-            action: TYPE.STAR,
-            brief: data.title || '',
-          })}
+          onClick={() =>
+            onListReactionUsers(TYPE.USER_LISTER_STARS, {
+              id: data.id,
+              action: TYPE.STAR,
+              brief: data.title || '',
+            })
+          }
         >
           {numberWithCommas(data.starredCount)}
         </NumberItem>

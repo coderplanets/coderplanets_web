@@ -21,13 +21,13 @@ const WikiThread = T.model('WikiThread', {
       TYPE.NOT_FOUND,
       TYPE.RESULT_EMPTY,
     ]),
-    TYPE.RESULT
+    TYPE.RESULT,
   ),
   // errorType
   errorType: T.maybeNull(T.string),
   showSyncWarning: T.optional(T.boolean, false),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -41,7 +41,7 @@ const WikiThread = T.model('WikiThread', {
       return stripMobx(self.wiki)
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     changesetErr(options) {
       self.root.changesetErr(options)
     },

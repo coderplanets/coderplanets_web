@@ -6,7 +6,7 @@ import PinSVG from '@/SvgIcons/PinSVG'
 export const ReadedLabel = styled.div`
   color: ${theme('thread.articleDigest')};
   position: absolute;
-  top: ${({ topoffset }) => topoffset};
+  top: ${({ topOffset }) => topOffset};
   left: -18px;
   font-size: 0.9rem;
   opacity: 0.9;
@@ -21,7 +21,7 @@ export const PinIcon = styled(PinSVG)`
   position: absolute;
   width: 22px;
   height: 22px;
-  top: ${({ topoffset }) => topoffset};
+  top: ${({ topOffset }) => topOffset};
   left: -22px;
   ${cs.media.mobile`
     width: 18px;

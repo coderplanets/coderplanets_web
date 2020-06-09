@@ -1,4 +1,3 @@
-// font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "MicrosoftYaHei", "WenQuanYi Micro Hei", sans-serif;
 const normalize = `
   html {
     line-height: 1.15; /* 1 */

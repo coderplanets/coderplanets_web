@@ -15,7 +15,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-const getQueryArgs = page => {
+const getQueryArgs = (page) => {
   store.mark({ curView: TYPE.LOADING })
   // args
   return {
@@ -33,7 +33,7 @@ export const loadJobs = (page = 1) =>
 export const loadVideos = (page = 1) =>
   sr71$.query(S.staredVideos, getQueryArgs(page))
 
-export const onReload = page => {
+export const onReload = (page) => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobs(page)
@@ -46,13 +46,13 @@ export const onReload = page => {
   }
 }
 
-export const onThreadChange = curThread => {
+export const onThreadChange = (curThread) => {
   // TODO: markRoute
   store.mark({ curThread })
   onReload()
 }
 
-export const onPreview = data => {
+export const onPreview = (data) => {
   const { curThread: thread } = store
 
   send(EVENT.PREVIEW_OPEN, {
@@ -101,7 +101,7 @@ const ErrSolver = [
 // init & uninit handlers
 // ###############################
 
-export const useInit = _store => {
+export const useInit = (_store) => {
   useEffect(() => {
     store = _store
 

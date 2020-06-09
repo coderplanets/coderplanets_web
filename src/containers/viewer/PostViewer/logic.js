@@ -11,13 +11,13 @@ const log = buildLog('L:PostViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.PREVIEW_CLOSED],
+  receive: [EVENT.PREVIEW_CLOSED],
 })
 
 let sub$ = null
 let store = null
 
-export const onTagSelect = tagId => {
+export const onTagSelect = (tagId) => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
   const thread = toUpper(store.activeThread)
@@ -25,7 +25,7 @@ export const onTagSelect = tagId => {
   sr71$.mutate(S.setTag, { thread, id, tagId, communityId })
 }
 
-export const onTagUnselect = tagId => {
+export const onTagUnselect = (tagId) => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
   const thread = toUpper(store.activeThread)
@@ -45,7 +45,7 @@ const loadPost = ({ id }) => {
   sr71$.query(S.post, variables)
 }
 
-const openAttachment = att => {
+const openAttachment = (att) => {
   if (!att) return false
 
   const { type } = att

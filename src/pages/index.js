@@ -51,7 +51,7 @@ const fetchData = async (props, opt) => {
       community,
     },
     thread,
-    topic
+    topic,
   )
 
   filter = pick(validCommunityFilters, filter)
@@ -64,7 +64,7 @@ const fetchData = async (props, opt) => {
   })
   const pagedContents = gqClient.request(
     ssrPagedSchema(thread),
-    ssrPagedFilter(community, thread, filter, userHasLogin)
+    ssrPagedFilter(community, thread, filter, userHasLogin),
   )
 
   const partialTags = gqClient.request(P.partialTags, { thread, community })
@@ -85,7 +85,7 @@ const fetchData = async (props, opt) => {
   }
 }
 
-export const getServerSideProps = async props => {
+export const getServerSideProps = async (props) => {
   const { communityPath, thread } = ssrParseURL(props.req)
 
   let resp
@@ -140,13 +140,13 @@ export const getServerSideProps = async props => {
       },
       tagsBar: { tags: partialTags },
     },
-    contentsThread
+    contentsThread,
   )
 
   return { props: { errorCode: null, ...initProps } }
 }
 
-const CommunityPage = props => {
+const CommunityPage = (props) => {
   const store = useStore(props)
 
   const { errorCode, viewing } = store

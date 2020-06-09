@@ -15,7 +15,7 @@ const GirlVerifier = T.model('GirlVerifier', {
   showModal: T.optional(T.boolean, false),
   message: T.optional(T.string, ''),
 })
-  .views(self => ({
+  .views((self) => ({
     get root() {
       return getParent(self)
     },
@@ -23,7 +23,7 @@ const GirlVerifier = T.model('GirlVerifier', {
       return self.root.accountInfo
     },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     show() {
       self.showModal = true
     },

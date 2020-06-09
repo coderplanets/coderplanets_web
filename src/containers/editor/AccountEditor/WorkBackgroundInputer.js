@@ -10,7 +10,7 @@ import {
   Wrapper,
   Adder,
   FormItemWrapper,
-  FormLable,
+  FormLabel,
   FormInput,
   BackgroundsWrapper,
   BackgroundItem,
@@ -25,7 +25,7 @@ import { addBackground, removeWorkBackground, updateBackground } from './logic'
 
 const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
   <FormItemWrapper>
-    <FormLable>{label}</FormLable>
+    <FormLabel>{label}</FormLabel>
 
     <FormInput>
       <FormItem
@@ -55,7 +55,7 @@ const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
 const BackgroundList = ({ list }) => (
   <Maybe test={list}>
     <BackgroundsWrapper>
-      {list.map(item => (
+      {list.map((item) => (
         <BackgroundItem key={item.company + item.title}>
           <BgTitle>{item.company}</BgTitle>
           <Maybe test={item.title}>

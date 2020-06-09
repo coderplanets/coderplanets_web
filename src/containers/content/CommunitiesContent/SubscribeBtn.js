@@ -24,7 +24,7 @@ const AlreadySubedBtn = ({ community }) => (
             size="small"
             type="primary"
             ghost
-            onClick={unSubscribe.bind(this, community.id)}
+            onClick={() => unSubscribe(community.id)}
           >
             <BtnWrapper>
               <PrefixIcon src={`${ICON_CMD}/check2.svg`} primary />
@@ -71,7 +71,7 @@ const SubscribeBtn = ({
             <Button
               size="small"
               type="primary"
-              onClick={subscribe.bind(this, community.id)}
+              onClick={() => subscribe(community.id)}
             >
               <BtnWrapper>
                 <PrefixIcon src={`${ICON_CMD}/plus.svg`} />
