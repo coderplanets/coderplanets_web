@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils'
@@ -14,57 +14,47 @@ import FollowBtn from './FollowBtn'
 /* eslint-disable-next-line */
 const log = buildLog('c:FollowButton:index')
 
-class FollowButton extends React.Component {
-  state = { simuLoading: false }
+const FollowButton = ({
+  hasFollowed,
+  size,
+  loading,
+  userId,
+  fakeLoading,
+  onFollow,
+  onUndoFollow,
+}) => {
+  const [simuLoading, setSimuLoading] = useState(false)
+  const isLoading = fakeLoading ? simuLoading : loading
 
-  onFollow() {
-    const { userId, onFollow, fakeLoading } = this.props
-
+  const handleFollow = useCallback(() => {
     if (fakeLoading) {
-      this.doFakeLoading()
+      setSimuLoading(true)
+      setTimeout(() => setSimuLoading(false), 1000)
     }
     onFollow(userId)
-  }
+  }, [fakeLoading, onFollow, userId])
 
-  onUndoFollow() {
-    const { userId, onUndoFollow, fakeLoading } = this.props
-
+  const handleUndoFollow = useCallback(() => {
     if (fakeLoading) {
-      this.doFakeLoading()
+      setSimuLoading(true)
+      setTimeout(() => setSimuLoading(false), 1000)
     }
     onUndoFollow(userId)
-  }
+  }, [fakeLoading, onUndoFollow, userId])
 
-  doFakeLoading() {
-    this.setState({ simuLoading: true })
-    setTimeout(() => {
-      this.setState({ simuLoading: false })
-    }, 1000)
-  }
-
-  render() {
-    const { hasFollowed, size, loading, fakeLoading } = this.props
-    const { simuLoading } = this.state
-    const isLoading = fakeLoading ? simuLoading : loading
-
-    return (
-      <React.Fragment>
-        {hasFollowed ? (
-          <FollowingBtn
-            size={size}
-            loading={isLoading}
-            onClick={() => this.onUndoFollow()}
-          />
-        ) : (
-          <FollowBtn
-            size={size}
-            loading={isLoading}
-            onClick={() => this.onFollow()}
-          />
-        )}
-      </React.Fragment>
-    )
-  }
+  return (
+    <React.Fragment>
+      {hasFollowed ? (
+        <FollowingBtn
+          size={size}
+          loading={isLoading}
+          onClick={handleUndoFollow}
+        />
+      ) : (
+        <FollowBtn size={size} loading={isLoading} onClick={handleFollow} />
+      )}
+    </React.Fragment>
+  )
 }
 
 FollowButton.propTypes = {
