@@ -53,7 +53,7 @@ const platinumUserItems = [
   { title: 'Github 特别鸣谢' },
 ]
 
-const UpgradePackagesContainer = ({ upgradePackges: store }) => {
+const UpgradePackagesContainer = ({ upgradePackages: store }) => {
   useInit(store)
 
   const { show } = store

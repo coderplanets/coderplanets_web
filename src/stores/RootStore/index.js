@@ -130,7 +130,7 @@ const rootStore = T.model({
   videoEditor: T.optional(VideoEditorStore, {}),
   repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
-  upgradePackges: T.optional(UpgradePackagesStore, {}),
+  upgradePackages: T.optional(UpgradePackagesStore, {}),
   mailBox: T.optional(MailBoxStore, {}),
   labeler: T.optional(LabelerStore, {}),
   docUploader: T.optional(DocUploaderStore, {}),
@@ -263,13 +263,13 @@ const rootStore = T.model({
       self.viewing.updateViewingIfNeed(type, sobj)
     },
     upgradeHepler() {
-      self.upgradePackges.upgradeHepler()
+      self.upgradePackages.upgradeHepler()
     },
     sponsorHepler() {
       self.footer.sponsorHepler()
     },
     cashierHelper(opt) {
-      self.upgradePackges.close()
+      self.upgradePackages.close()
       self.footer.closeSponsor()
       self.cashier.callCashier(opt)
     },
