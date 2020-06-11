@@ -18,7 +18,7 @@ import {
 const FilterResult = ({ totalCount, onFaqChange, faqActive }) => {
   return (
     <Wrapper>
-      <ResultText>结果共 {totalCount} 条</ResultText>
+      <ResultText>共 {totalCount} 条</ResultText>
       <ResultDivider />
 
       <MoreOptionWrapper>
