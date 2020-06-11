@@ -21,7 +21,7 @@ export const PinIcon = styled(PinSVG)`
   position: absolute;
   width: 22px;
   height: 22px;
-  top: ${({ topOffset }) => topOffset};
+  top: ${({ top }) => top};
   left: -22px;
   ${cs.media.mobile`
     width: 18px;

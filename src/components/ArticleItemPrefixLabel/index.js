@@ -15,7 +15,7 @@ import ReadLabel from './ReadLabel'
 const log = buildLog('c:ArticleItemPrefixLabel:index')
 
 const ArticleItemPrefixLabel = ({ entry, accountInfo, topOffset }) => {
-  if (entry.pin) return <PinIcon topOffset={topOffset} />
+  if (entry.pin) return <PinIcon top={topOffset} />
 
   return (
     <ReadLabel entry={entry} accountInfo={accountInfo} topOffset={topOffset} />
