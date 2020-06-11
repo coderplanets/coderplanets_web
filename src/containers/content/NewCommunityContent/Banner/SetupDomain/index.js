@@ -29,7 +29,7 @@ const SetupDomain = ({ status }) => {
       <InputBox
         value={domainValue}
         placeholder="your-domain"
-        onChange={() => inputOnChange('domainValue')}
+        onChange={inputOnChange('domainValue')}
         autoFocus
       />
       <NextBtn>

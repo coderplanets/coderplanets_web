@@ -29,14 +29,14 @@ const SetupInfo = ({ status }) => {
       <InputBox
         value={titleValue}
         placeholder="社区名称"
-        onChange={() => inputOnChange('titleValue')}
+        onChange={inputOnChange('titleValue')}
         autoFocus
         noRound
       />
       <InputBox
         value={descValue}
         placeholder="社区一句话描述"
-        onChange={() => inputOnChange('descValue')}
+        onChange={inputOnChange('descValue')}
         noRound
       />
       <NextBtn>
