@@ -52,7 +52,7 @@ const ThreadSelector = ({
         )}
       </div>
     </Tooltip>
-    <LabelCount>结果共 {totalCount} 条</LabelCount>
+    <LabelCount>共 {totalCount} 条</LabelCount>
   </Wrapper>
 )
 

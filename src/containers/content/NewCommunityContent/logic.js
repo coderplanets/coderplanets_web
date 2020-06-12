@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { curry } from 'ramda'
 
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue, updateEditing } from '@/utils'
@@ -75,7 +76,11 @@ export const communityTypeOnChange = (communityType) =>
  * @param {e} htmlEvent
  * @public
  */
-export const inputOnChange = (part, e) => updateEditing(store, part, e)
+export const inputOnChange = curry((part, e) => {
+  console.log('== inputOnChange e: ', e)
+
+  updateEditing(store, part, e)
+})
 
 /**
  * search communities by current searchValue in store

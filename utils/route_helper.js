@@ -23,7 +23,7 @@ const parseMainPath = compose(
   head,
   reject(isEmpty),
   split('/'),
-  prop('asPath')
+  prop('asPath'),
 )
 
 // example: /xxx/getme?aa=bb&cc=dd
@@ -34,11 +34,11 @@ const parsePathList = compose(
   reject(contains('=')),
   reject(isEmpty),
   split('?'),
-  prop('url')
+  prop('url'),
 )
 
 const INDEX = ''
-const getMainPath = args => {
+const getMainPath = (args) => {
   if (args.asPath === '/') return INDEX
 
   // console.log('--2 args req: ', args)
@@ -46,7 +46,7 @@ const getMainPath = args => {
   return parseMainPath(args)
 }
 
-const getSubPath = args => {
+const getSubPath = (args) => {
   if (args.asPath === '/') return INDEX
 
   const asPathList = parsePathList(args)
@@ -56,7 +56,7 @@ const getSubPath = args => {
   return subPath
 }
 
-const getThirdPath = args => {
+const getThirdPath = (args) => {
   if (args.asPath === '/') return INDEX
 
   const asPathList = parsePathList(args)
@@ -72,7 +72,7 @@ const getThirdPath = args => {
  * will return emacs
  * otherwise will return ""
  */
-const parseSubDomain = args => {
+const parseSubDomain = (args) => {
   let communityPath = ''
   if (isServerSide) {
     // on server side
@@ -98,7 +98,7 @@ const parseSubDomain = args => {
   return communityPath
 }
 
-export const parseURL = args => {
+export const parseURL = (args) => {
   // const isServer = typeof window === 'undefined'
   // props 可能来自服务端的 props
   // props 也可能来自客户端的 routeObj
@@ -138,7 +138,7 @@ export const getRoutePathList = compose(
   head,
   reject(contains('=')),
   reject(isEmpty),
-  split('?')
+  split('?'),
 )
 
 export const getRouteMainPath = compose(
@@ -146,10 +146,10 @@ export const getRouteMainPath = compose(
   split('?'),
   head,
   reject(isEmpty),
-  split('/')
+  split('/'),
 )
 
-export const ssrParseURL = req => {
+export const ssrParseURL = (req) => {
   const { url } = req
   // console.log('ssrParseURL url: ', url)
   // console.log('getMainPath: ', getRouteMainPath(url))
@@ -171,7 +171,7 @@ export const ssrParseURL = req => {
   }
 }
 
-export const akaTranslate = communityRaw => {
+export const akaTranslate = (communityRaw) => {
   switch (communityRaw) {
     case 'k8s':
       return 'kubernetes'
@@ -222,7 +222,7 @@ export const queryStringToJSON = (path, opt = { pagi: 'string' }) => {
   const result = {}
   const paris = splited[1].split('&')
 
-  paris.forEach(pair => {
+  paris.forEach((pair) => {
     pair = pair.split('=')
     result[pair[0]] = decodeURIComponent(pair[1] || '')
   })
@@ -234,7 +234,7 @@ export const queryStringToJSON = (path, opt = { pagi: 'string' }) => {
 
 /* eslint-disable */
 
-export const getParameterByName = name => {
+export const getParameterByName = (name) => {
   /* if (!url) url = window.location.href;*/
   const url = Global.location.href
   name = name.replace(/[\[\]]/g, '\\$&')
@@ -256,7 +256,7 @@ export const getQueryFromUrl = (name, url) => {
 }
 /* eslint-enable */
 
-export const serializeQuery = obj => {
+export const serializeQuery = (obj) => {
   /* eslint-disable */
   const qstring = Object.keys(obj)
     .reduce((a, k) => {
@@ -271,7 +271,7 @@ export const serializeQuery = obj => {
 
 /* eslint-disable */
 // see: https://stackoverflow.com/questions/8498592/extract-hostname-name-from-string
-export const parseDomain = url => {
+export const parseDomain = (url) => {
   try {
     const parsedUrl = {}
 
@@ -334,5 +334,5 @@ const TR_MAP = {
   /* map: 'map', */
 }
 
-export const subPath2Thread = path => TR_MAP[path] || path
-export const thread2Subpath = thread => TR_MAP[thread] || thread
+export const subPath2Thread = (path) => TR_MAP[path] || path
+export const thread2Subpath = (thread) => TR_MAP[thread] || thread
