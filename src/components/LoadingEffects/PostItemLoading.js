@@ -1,7 +1,7 @@
 import React from 'react'
 import T from 'prop-types'
 import { range } from 'ramda'
-import styled, { withTheme } from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
 import { cs } from '@/utils'
@@ -36,7 +36,9 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const PostItemLoading = ({ num, theme }) => {
+const PostItemLoading = ({ num }) => {
+  const theme = useTheme()
+
   return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <LoadingItem theme={theme} />
@@ -52,4 +54,4 @@ PostItemLoading.defaultProps = {
   num: 1,
 }
 
-export default withTheme(PostItemLoading)
+export default PostItemLoading

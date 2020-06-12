@@ -6,11 +6,9 @@
 
 import React from 'react'
 
-import { withTheme } from 'styled-components'
-
 import { ICON_CMD, ISSUE_ADDR } from '@/config'
-
 import { buildLog } from '@/utils'
+
 import {
   Container,
   HintWrapper,
@@ -60,4 +58,4 @@ const OauthHinter = () => (
   </Container>
 )
 
-export default withTheme(OauthHinter)
+export default OauthHinter

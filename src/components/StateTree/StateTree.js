@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 import ReactJson from 'react-json-view'
-import { withTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 
 /* import T from 'prop-types' */
 import { buildLog } from '@/utils'
@@ -32,23 +32,26 @@ const getTreeTheme = (name) => {
   }
 }
 
-const StateTree = ({ json, theme }) => (
-  <ReactJson
-    src={json}
-    theme={getTreeTheme(theme.name)}
-    name="rootStore"
-    collapsed={1}
-    iconStyle="circle"
-    displayDataTypes={false}
-    enableClipboard={false}
-  />
-)
+const StateTree = ({ json }) => {
+  const theme = useTheme()
+
+  return (
+    <ReactJson
+      src={json}
+      theme={getTreeTheme(theme.name)}
+      name="rootStore"
+      collapsed={1}
+      iconStyle="circle"
+      displayDataTypes={false}
+      enableClipboard={false}
+    />
+  )
+}
 
 StateTree.propTypes = {
   json: T.object.isRequired,
-  theme: T.object.isRequired,
 }
 
 StateTree.defaultProps = {}
 
-export default withTheme(StateTree)
+export default StateTree
