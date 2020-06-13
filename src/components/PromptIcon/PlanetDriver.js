@@ -1,6 +1,6 @@
 import React from 'react'
 import T from 'prop-types'
-import { withTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 
 import { ICON_BASE } from '@/config'
 
@@ -25,19 +25,21 @@ const rotateAngles = [
   'rotate(330deg)',
 ]
 
-const PlanetDriver = ({ theme, className }) => (
-  <PlanetDriverIcon
-    className={className}
-    src={`${ICON_BASE}/404/not-found-${theme.name}.png`}
-    angle={getRandomAngle()}
-  />
-)
+const PlanetDriver = ({ className }) => {
+  const theme = useTheme()
+  return (
+    <PlanetDriverIcon
+      className={className}
+      src={`${ICON_BASE}/404/not-found-${theme.name}.png`}
+      angle={getRandomAngle()}
+    />
+  )
+}
 
 PlanetDriver.propTypes = {
-  theme: T.object.isRequired,
   className: T.string.isRequired,
 }
 
 PlanetDriver.defaultProps = {}
 
-export default withTheme(PlanetDriver)
+export default PlanetDriver

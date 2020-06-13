@@ -2,7 +2,7 @@ import React from 'react'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
 
-import { buildLog, uid, theme as themeHelper } from '@/utils'
+import { buildLog, uid } from '@/utils'
 
 import { Br } from '@/components/Common'
 import fetchGeoData from './geo_data'
@@ -82,13 +82,16 @@ class LocationMap extends React.Component {
 
   initG2() {
     const { theme } = this.props
-
-    const oceanColor = themeHelper('geoMap.oceanColor')({ theme })
-    const regionBg = themeHelper('geoMap.regionBg')({ theme })
-    const restRegionBg = themeHelper('geoMap.restRegionBg')({ theme })
-    const borderStroke = themeHelper('geoMap.borderStroke')({ theme })
-    const markerBg = themeHelper('geoMap.markerBg')({ theme })
-    const markerShadow = themeHelper('geoMap.markerShadow')({ theme })
+    const {
+      geoMap: {
+        oceanColor,
+        regionBg,
+        restRegionBg,
+        borderStroke,
+        markerBg,
+        markerShadow,
+      },
+    } = theme
 
     const { Stat } = G2
 

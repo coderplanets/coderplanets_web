@@ -1,7 +1,7 @@
 import React from 'react'
 import T from 'prop-types'
 import { range } from 'ramda'
-import styled, { withTheme } from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
@@ -27,12 +27,15 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const ArticleContentLoading = ({ num, theme }) =>
-  range(0, num).map((item) => (
+const ArticleContentLoading = ({ num }) => {
+  const theme = useTheme()
+
+  return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <LoadingItem theme={theme} />
     </LoadingWrapper>
   ))
+}
 
 ArticleContentLoading.propTypes = {
   num: T.number,
@@ -42,4 +45,4 @@ ArticleContentLoading.defaultProps = {
   num: 1,
 }
 
-export default withTheme(ArticleContentLoading)
+export default ArticleContentLoading

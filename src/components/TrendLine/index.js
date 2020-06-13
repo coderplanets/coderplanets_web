@@ -7,22 +7,24 @@
 import React from 'react'
 import T from 'prop-types'
 import Trend from 'react-trend'
-import { withTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 
-import { buildLog, theme as themeHelper } from '@/utils'
+import { buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TrendLine:index')
 
-const TrendLine = ({ data, radius, width, theme }) => {
-  const activityLowColor = themeHelper('heatmap.activityLow')({ theme })
-  const activityHightColor = themeHelper('heatmap.activityHight')({ theme })
+const TrendLine = ({ data, radius, width }) => {
+  const theme = useTheme()
+  const {
+    heatmap: { activityLow, activityHight },
+  } = theme
 
   return (
     <Trend
       smooth
       data={data}
-      gradient={[activityLowColor, activityHightColor]}
+      gradient={[activityLow, activityHight]}
       radius={radius}
       strokeWidth={width}
       strokeLinecap="round"
@@ -33,7 +35,6 @@ const TrendLine = ({ data, radius, width, theme }) => {
 TrendLine.propTypes = {
   // https://www.npmjs.com/package/prop-types
   data: T.array,
-  theme: T.object.isRequired,
   width: T.number,
   radius: T.number,
 }
@@ -44,4 +45,4 @@ TrendLine.defaultProps = {
   width: 3,
 }
 
-export default withTheme(TrendLine)
+export default TrendLine

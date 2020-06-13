@@ -1,7 +1,7 @@
 import React from 'react'
 import T from 'prop-types'
 import { range } from 'ramda'
-import styled, { withTheme } from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
@@ -28,7 +28,9 @@ const Loading = ({ theme }) => (
   </ContentLoader>
 )
 
-const EditorLoading = ({ num, theme }) => {
+const EditorLoading = ({ num }) => {
+  const theme = useTheme()
+
   return range(0, num).map((item) => (
     <LoadingWrapper key={item}>
       <Loading theme={theme} />
@@ -44,4 +46,4 @@ EditorLoading.defaultProps = {
   num: 1,
 }
 
-export default withTheme(EditorLoading)
+export default EditorLoading

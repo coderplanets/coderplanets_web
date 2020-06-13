@@ -2,7 +2,7 @@ import React from 'react'
 import T from 'prop-types'
 import { range } from 'ramda'
 import ContentLoader from 'react-content-loader'
-import { withTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 
 import { buildLog } from '@/utils'
 import { Wrapper, CheatsheetCard } from './styles'
@@ -32,21 +32,24 @@ const LoadingBlock = ({ theme }) => (
   </CheatsheetCard>
 )
 
-const CheatSheetLoading = ({ column, theme }) => (
-  <Wrapper>
-    {range(0, column).map((item) => (
-      <LoadingBlock key={item} theme={theme} />
-    ))}
-  </Wrapper>
-)
+const CheatSheetLoading = ({ column }) => {
+  const theme = useTheme()
+
+  return (
+    <Wrapper>
+      {range(0, column).map((item) => (
+        <LoadingBlock key={item} theme={theme} />
+      ))}
+    </Wrapper>
+  )
+}
 
 CheatSheetLoading.propTypes = {
   column: T.number,
-  theme: T.object.isRequired,
 }
 
 CheatSheetLoading.defaultProps = {
   column: 4,
 }
 
-export default withTheme(CheatSheetLoading)
+export default CheatSheetLoading
