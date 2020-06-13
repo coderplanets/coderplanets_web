@@ -99,8 +99,7 @@
     "store": "^2.0.12",
     "stringz": "^2.0.0",
     "styled-components": "5.1.1",
-    "timeago-react": "3.0.0",
-    "uuid": "^3.3.2"
+    "timeago-react": "3.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.10.2",
