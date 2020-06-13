@@ -27,9 +27,8 @@ export default class DocumentPage extends Document {
        const styleTags = sheet.getStyleElement()
      */
     return (
-      <html {...this.helmetHtmlAttrComponents}>
+      <html>
         <Head>
-          {this.helmetHeadComponents}
           <meta charSet="utf-8" />
           <meta name="renderer" content="webkit" />
           <meta

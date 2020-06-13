@@ -31,7 +31,7 @@ const Tag = ({ children, onClose }) => {
 }
 
 Tag.propTypes = {
-  children: T.oneOfType(T.string, T.node).isRequired,
+  children: T.oneOfType([T.string, T.node]).isRequired,
   onClose: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 

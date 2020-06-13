@@ -32,7 +32,6 @@ const HorizontalButton = ({ onClick, size, activeKey, group }) => {
 }
 
 HorizontalButton.propTypes = {
-  // children: T.oneOfType(T.string, T.node),
   size: T.oneOf(['default', 'small']),
   onClick: T.func,
   activeKey: T.string,

@@ -19,7 +19,7 @@ const AlertBar = ({ children }) => {
 }
 
 AlertBar.propTypes = {
-  children: T.oneOfType(T.string, T.node).isRequired,
+  children: T.oneOfType([T.string, T.node]).isRequired,
 }
 
 AlertBar.defaultProps = {}
