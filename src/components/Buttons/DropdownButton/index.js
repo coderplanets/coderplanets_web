@@ -9,12 +9,12 @@ import OptionPanel from './OptionPanel'
 import {
   Wrapper,
   ButtonWrapper,
-  MoreButtonWrapper,
+  DropdownButtonWrapper,
   MoreIcon,
-} from '../styles/more_button'
+} from '../styles/dropdown_button'
 
 // <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
-const MoreButton = ({ children, options, onClick }) => {
+const DropdownButton = ({ children, options, onClick }) => {
   return (
     <Wrapper>
       <ButtonWrapper onClick={onClick}>{children}</ButtonWrapper>
@@ -25,15 +25,15 @@ const MoreButton = ({ children, options, onClick }) => {
         content={<OptionPanel options={options} onClick={onClick} />}
         noDefaultPadding
       >
-        <MoreButtonWrapper>
+        <DropdownButtonWrapper>
           <MoreIcon src={`${ICON_CMD}/works/vote_up.svg`} onClick={onClick} />
-        </MoreButtonWrapper>
+        </DropdownButtonWrapper>
       </Tooltip>
     </Wrapper>
   )
 }
 
-MoreButton.propTypes = {
+DropdownButton.propTypes = {
   children: T.oneOfType([T.string, T.node]),
   onClick: T.func,
   options: T.arrayOf(
@@ -50,7 +50,7 @@ MoreButton.propTypes = {
   // className: T.string,
 }
 
-MoreButton.defaultProps = {
+DropdownButton.defaultProps = {
   children: 'Button',
   onClick: console.log,
   options: [],
@@ -62,4 +62,4 @@ MoreButton.defaultProps = {
   // className: '',
 }
 
-export default React.memo(MoreButton)
+export default React.memo(DropdownButton)

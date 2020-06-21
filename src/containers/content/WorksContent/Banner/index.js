@@ -8,7 +8,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
-import { MoreButton } from '@/components/Buttons'
+import { DropdownButton } from '@/components/Buttons'
 
 import Backgrounds from './Backgrounds'
 import Recommendation from './Recommendation'
@@ -51,7 +51,7 @@ const Banner = () => {
             <div>有趣有爱的作品跳蚤集市 -- By makers, for makers</div>
           </Desc>
           <PubButton>
-            <MoreButton
+            <DropdownButton
               type="primary"
               options={options}
               onClick={(key) => {
@@ -59,7 +59,7 @@ const Banner = () => {
               }}
             >
               发布作品
-            </MoreButton>
+            </DropdownButton>
           </PubButton>
         </BrandWrapper>
         <Recommendation />

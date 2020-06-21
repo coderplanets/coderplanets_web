@@ -9,7 +9,7 @@ import {
   Intro,
   Title,
   Desc,
-} from '../styles/more_button/option_panel'
+} from '../styles/dropdown_button/option_panel'
 
 const OptionPanel = ({ options, onClick }) => {
   return (

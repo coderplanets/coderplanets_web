@@ -20,7 +20,7 @@ export const ButtonWrapper = styled(NormalButton)`
   border-bottom-right-radius: 0;
   padding-right: 6px;
 `
-export const MoreButtonWrapper = styled(NormalButton)`
+export const DropdownButtonWrapper = styled(NormalButton)`
   height: 30px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
