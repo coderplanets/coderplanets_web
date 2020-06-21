@@ -11,7 +11,6 @@ import { buildLog } from '@/utils'
 import { useOutsideClick } from '@/hooks'
 
 import ConfirmFooter from './ConfirmFooter'
-// import Content from './Content'
 
 import {
   StyledTippy,
