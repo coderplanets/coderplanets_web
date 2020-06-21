@@ -6,8 +6,9 @@
 
 import React from 'react'
 
+import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
-import { Button } from '@/components/Buttons'
+import { DropdownButton } from '@/components/Buttons'
 
 import Backgrounds from './Backgrounds'
 import Recommendation from './Recommendation'
@@ -25,6 +26,21 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:WorksContent')
 
+const options = [
+  {
+    key: '0',
+    icon: `${ICON_CMD}/common_check.svg`,
+    title: '发布作品',
+    desc: '像世界分享你的创意 ..',
+  },
+  {
+    key: '1',
+    icon: `${ICON_CMD}/common_link.svg`,
+    title: '发布限制',
+    desc: '原则上不欢迎此类内容',
+  },
+]
+
 const Banner = () => {
   return (
     <Wrapper testid="worksContent">
@@ -35,7 +51,15 @@ const Banner = () => {
             <div>有趣有爱的作品跳蚤集市 -- By makers, for makers</div>
           </Desc>
           <PubButton>
-            <Button type="primary">发布作品</Button>
+            <DropdownButton
+              type="primary"
+              options={options}
+              onClick={(key) => {
+                console.log('fuck key: ', key)
+              }}
+            >
+              发布作品
+            </DropdownButton>
           </PubButton>
         </BrandWrapper>
         <Recommendation />

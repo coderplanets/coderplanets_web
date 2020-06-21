@@ -1,16 +1,17 @@
 import React from 'react'
 
 import { Space } from '@/components/Common'
-import { Button } from '@/components/Buttons'
+import ConfirmBtn from './ConfirmBtn'
+// import { Button } from '@/components/Buttons'
 import { Wrapper, ButtonsWrapper, CancelButton } from './styles/confirm_footer'
 
 const ConfirmFooter = ({ onConfirm }) => {
   return (
     <Wrapper>
       <ButtonsWrapper>
-        <Button type="red" size="small" onClick={onConfirm}>
+        <ConfirmBtn size="small" onClick={onConfirm}>
           确认
-        </Button>
+        </ConfirmBtn>
         <Space right="10px" />
         <CancelButton>取消</CancelButton>
       </ButtonsWrapper>

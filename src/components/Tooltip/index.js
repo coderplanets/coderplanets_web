@@ -11,7 +11,6 @@ import { buildLog } from '@/utils'
 import { useOutsideClick } from '@/hooks'
 
 import ConfirmFooter from './ConfirmFooter'
-// import Content from './Content'
 
 import {
   StyledTippy,
@@ -110,7 +109,6 @@ const Tooltip = ({
         onHide && onHide()
       }}
       onShow={(instance) => {
-        console.log('on show: ', instance)
         setInstance(instance)
         setActive(true)
         onShow && onShow()
