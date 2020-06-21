@@ -28,6 +28,10 @@ export const Block = styled.div`
   }
   transition: all 0.25s;
 `
+export const IconWrapper = styled.div`
+  ${cs.flex('justify-center')};
+  width: 24px;
+`
 export const Icon = styled(Img)`
   fill: ${theme('button.primary')};
   width: ${({ bigger }) => (bigger ? '24px' : '18px')};

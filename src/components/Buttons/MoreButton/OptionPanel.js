@@ -3,6 +3,7 @@ import T from 'prop-types'
 
 import {
   Wrapper,
+  IconWrapper,
   Block,
   Icon,
   Intro,
@@ -17,7 +18,9 @@ const OptionPanel = ({ options, onClick }) => {
         <Block key={item.key} onClick={() => onClick(item.key)}>
           {/* common_check icon is special, smaller than normal icons,
           and check icon is always the first icon */}
-          <Icon src={item.icon} index={index} bigger={index === 0} />
+          <IconWrapper>
+            <Icon src={item.icon} index={index} bigger={index === 0} />
+          </IconWrapper>
           <Intro>
             <Title>{item.title}</Title>
             <Desc>{item.desc}</Desc>
