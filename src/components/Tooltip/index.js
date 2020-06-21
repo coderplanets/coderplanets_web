@@ -110,7 +110,6 @@ const Tooltip = ({
         onHide && onHide()
       }}
       onShow={(instance) => {
-        console.log('on show: ', instance)
         setInstance(instance)
         setActive(true)
         onShow && onShow()

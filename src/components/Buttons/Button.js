@@ -51,4 +51,4 @@ Button.defaultProps = {
   className: '',
 }
 
-export default Button
+export default React.memo(Button)
