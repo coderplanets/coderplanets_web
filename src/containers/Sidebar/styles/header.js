@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   margin-bottom: ${({ pin }) => (pin ? '0' : '20px')};
   ${IndexWrapper}:hover & {
     margin-bottom: 4px;
+    transition-delay: 0.4s;
   }
 `
 export const InnerWrapper = styled.div`
@@ -33,6 +34,7 @@ export const SiteLogoWrapper = styled.div`
   display: ${({ pin }) => (pin ? 'none' : 'block')};
   ${IndexWrapper}:hover & {
     display: none;
+    transition-delay: 0.4s;
   }
 `
 export const SiteLogo = styled(Img)`
@@ -53,12 +55,10 @@ export const PinIcon = styled(Img)`
   transition: visibility 0s, opacity 0.3s linear;
   cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
-  }
   ${IndexWrapper}:hover & {
     visibility: visible;
     opacity: 1;
+    transition-delay: 0.4s;
   }
 `
 export const SearchWrapper = styled.div`
@@ -69,6 +69,7 @@ export const SearchWrapper = styled.div`
   ${IndexWrapper}:hover & {
     visibility: visible;
     opacity: 1;
+    transition-delay: 0.4s;
   }
 `
 export const SearchInput = styled(Input)`

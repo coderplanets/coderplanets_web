@@ -19,13 +19,16 @@ export const Wrapper = styled.aside.attrs((props) => ({
   border-color: ${theme('sidebar.borderColor')};
   z-index: ${cs.zIndex.sidebar};
 
-  transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,
-    background-color 0.3s;
-
   &:hover {
     width: 260px;
     box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
+    transition-delay: 0.4s;
   }
+
+  transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,
+    background-color 0.3s z-index 0.5s;
+
   ${cs.media.tablet`display: none`};
 `
+
 export const holder = 1

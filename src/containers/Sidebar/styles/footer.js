@@ -31,13 +31,16 @@ export const SettingIcon = styled(Img)`
 `
 
 export const OptionWrapper = styled.div`
-  display: ${({ pin }) => (pin ? 'flex' : 'none')};
+  /* display: ${({ pin }) => (pin ? 'flex' : 'none')}; */
+  ${cs.flex('justify-center')};
+  opacity: ${({ pin }) => (pin ? '1' : '0')};
   justify-content: ${({ pin }) => (pin ? 'center' : '')};
-  width: 100%;
-  margin-left: -8px;
+  width: 1px;
 
   ${SidebarWrapper}:hover & {
-    ${cs.flex('justify-center')};
+    opacity: 1;
+    width: 100%;
+    transition-delay: 0.4s;
   }
 `
 export const OptionDivider = styled.div`
@@ -54,7 +57,5 @@ export const OptionItem = styled.div`
 
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
 
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `

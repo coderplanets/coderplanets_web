@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   z-index: ${cs.zIndex.sidebar + 1};
   &:hover {
     background: ${theme('sidebar.menuHover')};
+    transition-delay: 0.4s;
   }
 `
 export const ActiveBar = styled.div`
