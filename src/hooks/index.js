@@ -9,4 +9,3 @@ export { default as useOutsideClick } from './useOutsideClick'
 export { default as useTrans } from './useTrans'
 
 export { default as useNetwork } from 'react-use/lib/useNetwork'
-export { default as useHover } from 'react-use/lib/useHoverDirty'
