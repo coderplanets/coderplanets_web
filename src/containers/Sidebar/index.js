@@ -41,10 +41,7 @@ const SidebarContainer = ({ sidebar: store }) => {
   return (
     <Wrapper pin={pin} testid="sidebar" className={TYPE.GLOBAL_BLUR_CLASS}>
       <Header pin={pin} searchCommunityValue={searchCommunityValue} />
-
-      {/*
-        move home community out of menulist to avoid rerender
-         */}
+      {/* move home community out of menulist to avoid rerender */}
       <MenuBar pin={pin} item={homeCommunity} activeRaw={activeRaw} />
 
       <MenuList

@@ -12,16 +12,10 @@ export const Wrapper = styled.div`
   z-index: 1;
 `
 export const InnerWrapper = styled.div`
+  ${cs.flex('align-start')};
   height: 5vh;
   color: wheat;
-  ${cs.flex('align-both')};
-  justify-content: ${({ pin }) => (pin ? 'flex-start' : 'center')};
-  padding: ${({ pin }) => (pin ? '0 17px' : '')};
-
-  ${SidebarWrapper}:hover & {
-    justify-content: flex-start;
-    padding: 0 17px;
-  }
+  padding-left: 17px;
 `
 export const SettingIcon = styled(Img)`
   fill: ${theme('sidebar.menuLink')};
@@ -29,15 +23,16 @@ export const SettingIcon = styled(Img)`
   height: 16px;
   display: block;
 `
-
 export const OptionWrapper = styled.div`
-  display: ${({ pin }) => (pin ? 'flex' : 'none')};
+  ${cs.flex('justify-center')};
+  opacity: ${({ pin }) => (pin ? '1' : '0')};
   justify-content: ${({ pin }) => (pin ? 'center' : '')};
-  width: 100%;
-  margin-left: -8px;
+  width: 0;
 
   ${SidebarWrapper}:hover & {
-    ${cs.flex('justify-center')};
+    opacity: 1;
+    width: 100%;
+    transition-delay: 0.5s;
   }
 `
 export const OptionDivider = styled.div`
@@ -54,7 +49,5 @@ export const OptionItem = styled.div`
 
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
 
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `

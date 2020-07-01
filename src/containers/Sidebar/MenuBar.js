@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { toLower } from 'ramda'
 
 import { ICON_CMD } from '@/config'
-import { uid } from '@/utils'
+// import { uid } from '@/utils'
 
 import TrendLine from '@/components/TrendLine'
 
@@ -38,7 +38,7 @@ const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => {
           active={!sortOptActive && activeRaw === toLower(item.raw)}
         >
           <MenuItemIcon
-            key={uid.gen()}
+            key={item.raw}
             active={activeRaw === toLower(item.raw)}
             raw={item.raw}
             src={item.logo}
@@ -54,7 +54,7 @@ const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => {
 
           <MiniChartWrapper pin={pin}>
             <TrendLine
-              key={uid.gen()}
+              key={item.raw}
               data={item.contributesDigest}
               duration={300}
               radius={15}

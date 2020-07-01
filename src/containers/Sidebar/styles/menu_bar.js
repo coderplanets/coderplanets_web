@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { theme, cs } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
-import { Wrapper as IndexWrapper } from './index'
+
+import { Wrapper as SidebarWrapper } from './index'
 
 export const Wrapper = styled.div`
   display: block;
@@ -19,13 +20,10 @@ export const ActiveBar = styled.div`
   background: ${theme('sidebar.activeBar')};
   width: 3px;
   height: 12px;
-  top: ${({ pin }) => (pin ? '20px' : '4px')};
+  /* top: ${({ pin }) => (pin ? '20px' : '4px')}; */
+  top: 20px;
   left: 0;
   border-radius: 3px;
-
-  ${IndexWrapper}:hover & {
-    top: 20px;
-  }
 `
 export const DragIcon = styled(Img)`
   cursor: pointer;
@@ -40,6 +38,7 @@ export const DragIcon = styled(Img)`
 // box-shadow: 0px 6px 4px 0px rgba(0,0,0,0.2);
 // border-bottom: 1px dashed #316d7b;
 export const MenuItemBar = styled.div`
+  ${cs.flex('align-center')};
   cursor: pointer;
   opacity: 1;
   transition: color 0.2s;
@@ -64,26 +63,36 @@ export const MenuItemIcon = styled(CommunityFaceLogo)`
 
   ${MenuRow}:hover & {
     opacity: 1;
+    transition-delay: 0.3s;
   }
   transition: opacity 0.2s;
 `
 export const MenuItemTitle = styled.div`
-  display: ${({ pin }) => (pin ? 'block' : 'none')};
+  /* flex-grow: 1; */
+  width: ${({ pin }) => (pin ? '100%' : '1px')};
+  visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
+  overflow: hidden;
+  /* width: 100%;
+  border: 1px solid tomato; */
   color: ${theme('sidebar.menuLink')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
   letter-spacing: ${({ forceRerender }) => (forceRerender ? '1.3px' : '1.2px')};
-  transition: opacity 0.2s;
   margin-right: 10px;
 
-  ${cs.truncate('110px')};
+  /* ${cs.truncate('110px')}; */
 
   ${MenuRow}:hover & {
+    width: 100%;
     opacity: 1;
     letter-spacing: 2px;
+    transition-delay: 0.3s;
+    visibility: visible;
   }
-  ${IndexWrapper}:hover & {
-    display: block;
+  ${SidebarWrapper}:hover & {
+    width: 100%;
     max-width: 50%;
+    transition-delay: .5s;
+    visibility: visible;
   }
 `
 export const MiniChartWrapper = styled.div`
@@ -93,7 +102,7 @@ export const MiniChartWrapper = styled.div`
   align-items: center;
   position: relative;
 
-  ${IndexWrapper}:hover & {
+  ${SidebarWrapper}:hover & {
     display: flex;
   }
 `

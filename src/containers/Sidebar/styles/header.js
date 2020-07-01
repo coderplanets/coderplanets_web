@@ -4,13 +4,13 @@ import Input from '@/components/Input'
 import Img from '@/Img'
 
 import { theme, cs } from '@/utils'
-import { Wrapper as IndexWrapper } from './index'
+import { Wrapper as SidebarWrapper } from './index'
 
 export const Wrapper = styled.div`
   margin-top: 14px;
-  margin-bottom: ${({ pin }) => (pin ? '0' : '20px')};
-  ${IndexWrapper}:hover & {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
+  ${SidebarWrapper}:hover & {
+    transition-delay: 0.4s;
   }
 `
 export const InnerWrapper = styled.div`
@@ -21,18 +21,23 @@ export const HeaderFuncs = styled.div`
   margin-top: -5px;
 `
 export const PinIconWrapper = styled.div`
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `
 export const SiteLogoWrapper = styled.div`
   margin-left: 15px;
   color: ${theme('sidebar.logoText')};
   letter-spacing: 1px;
   margin-top: -4px;
-  display: ${({ pin }) => (pin ? 'none' : 'block')};
-  ${IndexWrapper}:hover & {
-    display: none;
+  opacity: 1;
+  visibility: visible;
+  width: 25px;
+
+  ${SidebarWrapper}:hover & {
+    width: 1px;
+    visibility: hidden;
+    margin-left: 0px;
+    opacity: 0;
+    transition-delay: 0.4s;
   }
 `
 export const SiteLogo = styled(Img)`
@@ -50,15 +55,13 @@ export const PinIcon = styled(Img)`
   height: 23px;
   visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
   opacity: ${({ pin }) => (pin ? 1 : 0)};
-  transition: visibility 0s, opacity 0.3s linear;
+  /* transition: visibility 0s, opacity 0.3s linear; */
   cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
-  }
-  ${IndexWrapper}:hover & {
+  ${SidebarWrapper}:hover & {
     visibility: visible;
     opacity: 1;
+    transition-delay: 1s;
   }
 `
 export const SearchWrapper = styled.div`
@@ -66,9 +69,10 @@ export const SearchWrapper = styled.div`
   visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
   opacity: ${({ pin }) => (pin ? 1 : 0)};
 
-  ${IndexWrapper}:hover & {
+  ${SidebarWrapper}:hover & {
     visibility: visible;
     opacity: 1;
+    transition-delay: 0.5s;
   }
 `
 export const SearchInput = styled(Input)`

@@ -3,12 +3,10 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme } from '@/utils'
 
-import { Wrapper as IndexWrapper } from './index'
+import { Wrapper as SidebarWrapper } from './index'
 
 export const Wrapper = styled.div`
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `
 export const PinIcon = styled(Img)`
   fill: ${({ pin }) => (pin ? theme('sidebar.pinActive') : 'grey')};
@@ -20,11 +18,9 @@ export const PinIcon = styled(Img)`
   transition: visibility 0s, opacity 0.3s linear;
   cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
-  }
-  ${IndexWrapper}:hover & {
+  ${SidebarWrapper}:hover & {
     visibility: visible;
     opacity: 1;
+    transition-delay: 0.4s;
   }
 `
