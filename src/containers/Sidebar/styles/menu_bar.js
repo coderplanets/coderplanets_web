@@ -92,12 +92,8 @@ export const MenuItemTitle = styled.div`
     width: 100%;
     max-width: 50%;
     transition-delay: .5s;
-    transition-timing-function: ease-in;
     visibility: visible;
   }
-
-  transition: all 0.2s;
-  transition-timing-function: ease-in;
 `
 export const MiniChartWrapper = styled.div`
   display: ${({ pin }) => (pin ? 'flex' : 'none')};
