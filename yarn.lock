@@ -999,15 +999,9 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
-  version "7.10.0"
-  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.10.0.tgz?cache=0&sync_timestamp=1590529686321&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.10.0.tgz#2cdcd6d7a391c24f7154235134c830cfb58ac0b1"
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.4.5":
-  version "7.10.2"
-  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+  version "7.10.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.4.tgz#a6724f1a6b8d2f6ea5236dbfe58c7d7ea9c5eb99"
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1566,11 +1560,11 @@
   dependencies:
     "@sentry/cli" "^1.52.3"
 
-"@tanem/svg-injector@^7.0.6":
-  version "7.0.17"
-  resolved "https://registry.npm.taobao.org/@tanem/svg-injector/download/@tanem/svg-injector-7.0.17.tgz#f7433ec5e1cbaa4ad4d2a3c13cfca7149a3a3b2d"
+"@tanem/svg-injector@^8.0.55":
+  version "8.0.56"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.56.tgz#cd2b60417b8ee9159ffbe22bcc55895e4411e7c8"
   dependencies:
-    "@babel/runtime" "^7.4.4"
+    "@babel/runtime" "^7.10.3"
 
 "@tippy.js/react@^3.1.1":
   version "3.1.1"
@@ -9987,12 +9981,12 @@ react-sortable-hoc@1.7.1:
     invariant "^2.2.4"
     prop-types "^15.5.7"
 
-react-svg@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npm.taobao.org/react-svg/download/react-svg-8.0.0.tgz#a929aed87371fe7bcf61eb9d14c1671c790e4a71"
+react-svg@11.0.28:
+  version "11.0.28"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.28.tgz#6f79776b5527133d3d81c76d50364f4fa650eaf8"
   dependencies:
-    "@babel/runtime" "^7.3.1"
-    "@tanem/svg-injector" "^7.0.6"
+    "@babel/runtime" "^7.10.3"
+    "@tanem/svg-injector" "^8.0.55"
     prop-types "^15.7.2"
 
 react-test-renderer@16.10.0:
