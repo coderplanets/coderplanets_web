@@ -13,8 +13,8 @@ export const LeftPart = styled.div`
   width: 100%;
 `
 export const RightPart = styled.div`
-  min-width: 200px;
-  margin-left: 30px;
+  min-width: 230px;
+  margin-left: 80px;
   padding-top: 5px;
   ${cs.media.tablet`display: none;`};
 `
@@ -26,5 +26,5 @@ export const PublisherWrapper = styled.div`
 export const FilterWrapper = styled.div`
   ${cs.flex('align-center')};
   margin-bottom: 8px;
-  margin-left: 8px;
+  margin-left: -4px;
 `

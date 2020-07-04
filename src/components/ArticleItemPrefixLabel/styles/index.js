@@ -7,8 +7,8 @@ export const ReadedLabel = styled.div`
   color: ${theme('thread.articleDigest')};
   position: absolute;
   top: ${({ topOffset }) => topOffset};
-  left: -18px;
-  font-size: 0.9rem;
+  left: -24px;
+  font-size: 12px;
   opacity: 0.9;
   font-style: italic;
   ${cs.media.mobile`
@@ -19,10 +19,11 @@ export const ReadedLabel = styled.div`
 export const PinIcon = styled(PinSVG)`
   fill: ${theme('thread.articleDigest')};
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   top: ${({ top }) => top};
-  left: -22px;
+  left: -24px;
+
   ${cs.media.mobile`
     width: 18px;
     height: 18px;

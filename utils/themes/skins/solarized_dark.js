@@ -8,7 +8,7 @@ const primaryColor = '#2d7eb1'
 
 const bannerBg = '#003B4A'
 const contentBg = '#002A35'
-const contentBoxBg = '#072d3a'
+const contentBoxBg = '#072d3a' // #07303e
 const fontColor = primaryColor
 const sidebarBg = '#001B21'
 const markdownFont = '#687F82'
@@ -84,7 +84,7 @@ const solarizedDark = {
     articleDigest: '#6B7F83',
     articleTag: primaryColor,
     articleLink: descText,
-    articleDivider: '#4a4a4a',
+    articleDivider: '#0B3B4D',
     commentsUserBorder: contentBoxBg,
     extraInfo: darken(0.04, primaryMate), // '#987d40',
     articleSpliter: '#014454',

@@ -6,7 +6,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flex('justify-center')};
-  width: 95%;
+  width: 93%;
   margin: 40px;
   margin-top: 25px;
   margin-bottom: 10px;

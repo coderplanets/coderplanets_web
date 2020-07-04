@@ -6,7 +6,7 @@ import Img from '@/Img'
 export const Wrapper = styled.article`
   ${cs.flex()};
   position: relative;
-  padding-left: 8px;
+  padding-left: 3px;
   padding-right: 0;
   border-radius: 4px;
   opacity: ${({ opacity }) => opacity};
@@ -37,7 +37,7 @@ export const AvatarWrapper = styled.div`
   }
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('42px')};
+  ${cs.circle('36px')};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
   display: block;
@@ -47,7 +47,7 @@ export const Avatar = styled(Img)`
 `
 export const AvatarFallback = styled.div`
   ${cs.flex('align-both')};
-  ${cs.circle('42px')};
+  ${cs.circle('38px')};
   font-size: 20px;
   color: ${theme('thread.articleTitle')};
   background-color: #164858; /*${theme('thread.articleHover')}; */
@@ -66,7 +66,7 @@ export const Brief = styled.div`
   }
 `
 export const Title = styled.div`
-  font-size: 1rem;
+  font-size: 16px;
   @media (max-width: 1450px) {
     max-width: 500px;
   }
@@ -79,7 +79,7 @@ export const Title = styled.div`
 `
 export const TitleLink = styled.div`
   position: relative;
-  font-size: 0.9rem;
+  font-size: 15px;
   margin-top: -1px;
   color: ${theme('thread.articleLink')};
   margin-left: 10px;
@@ -99,7 +99,7 @@ export const Extra = styled.li`
   display: inline;
   opacity: 0.7;
   transition: opacity 0.2s;
-  font-size: 0.85rem;
+  font-size: 13px;
   color: ${theme('thread.extraInfo')};
 `
 export const CommentsDiget = styled.span`
@@ -116,7 +116,8 @@ export const BodyDigest = styled.li`
   margin-right: 20px;
   white-space: normal;
   display: block;
-  font-size: 0.85rem;
+  font-size: 13px;
+  max-width: 85%;
 
   ${cs.media.mobile`
     ${cs.truncate('250px')};

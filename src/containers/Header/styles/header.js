@@ -6,14 +6,19 @@ import { theme, cs } from '@/utils'
 export const Wrapper = styled.header.attrs((props) => ({
   'data-testid': props.testid,
 }))`
+  position: ${({ fixed }) => (fixed ? 'fixed' : 'relative')};
+  z-index: 2;
+  width: 100%;
   ${cs.flex('justify-center')};
   background: ${({ fixed }) =>
     fixed ? theme('header.fixed') : theme('header.bg')};
+  opacity: ${({ fixed }) => (fixed ? 0.9 : 1)};
   border-bottom: ${({ noBorder }) => (noBorder ? 'none' : '1px solid')};
   border-bottom-color: ${theme('header.spliter')};
   margin-left: ${({ leftOffset }) => leftOffset};
   box-shadow: ${theme('preview.shadow')};
 `
+
 export const InnerWrapper = styled.div`
   ${cs.flex()};
   max-width: ${cs.MAX_CONTENT_WIDTH};
@@ -48,10 +53,4 @@ export const Search = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   color: ${theme('header.fg')};
-`
-export const AffixHeader = styled.div`
-  display: ${({ fixed }) => (fixed ? 'block' : 'none')};
-`
-export const RawHeader = styled.div`
-  display: ${({ fixed }) => (!fixed ? 'block' : 'none')};
 `
