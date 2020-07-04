@@ -81,7 +81,7 @@ const solarizedDark = {
     articleTitle: '#7B8F90',
     articleHover: '#113744',
     articleStrip: contentBoxBg,
-    articleDigest: '#6B7F83',
+    articleDigest: '#617477',
     articleTag: primaryColor,
     articleLink: descText,
     articleDivider: '#0B3B4D',

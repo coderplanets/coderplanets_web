@@ -16,7 +16,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   border: 1px solid;
   border-color: ${theme('content.border')};
   border-radius: 6px;
-  padding-top: 12px;
+  padding-top: 6px;
 
   ${cs.media.tablet`
     width: 100%;
