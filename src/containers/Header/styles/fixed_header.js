@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils'
+import { cs, theme } from '@/utils'
 
 import {
   Wrapper as WrapperBase,
@@ -11,7 +11,7 @@ export { RouterWrapper, HeaderSearchIcon, Operations, Search } from './header'
 
 export const Wrapper = styled(WrapperBase)`
   position: fixed;
-  z-index: 2;
+  z-index: ${cs.zIndex.header};
   top: ${({ fixed }) => (fixed ? '0' : '-33px')};
   width: 100%;
   background: ${theme('header.fixed')};

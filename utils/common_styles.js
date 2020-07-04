@@ -26,7 +26,7 @@ const circle = (width = '30px') => `
   border-radius: 100%;
 `
 
-const flexExpand = rule => {
+const flexExpand = (rule) => {
   switch (rule) {
     case 'align-both':
       return 'align-items: center;justify-content: center;'
@@ -89,6 +89,7 @@ const flexColumnGrow = (rule1, rule2 = '') => `
 `
 
 const zIndex = {
+  header: 3,
   popover: 3000,
   modalOverlay: 2500,
   previewOverlay: 2000,
