@@ -6,7 +6,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flex('justify-center')};
-  width: 95%;
+  width: 93%;
   margin: 40px;
   margin-top: 25px;
   margin-bottom: 10px;
@@ -16,7 +16,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   border: 1px solid;
   border-color: ${theme('content.border')};
   border-radius: 6px;
-  padding-top: 12px;
+  padding-top: 6px;
 
   ${cs.media.tablet`
     width: 100%;

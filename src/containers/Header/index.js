@@ -10,8 +10,8 @@ import T from 'prop-types'
 import { TYPE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import Sticky from '@/components/Sticky'
 import Header from './Header'
+import FixedHeader from './FixedHeader'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -46,13 +46,9 @@ const HeaderContainer = ({ header: store, metric }) => {
   }
 
   return (
-    <div id={TYPE.APP_HEADER_ID}>
-      {fixed && (
-        <Sticky onChange={log}>
-          <Header {...props} />
-        </Sticky>
-      )}
-      {!fixed && <Header {...props} />}
+    <div id={TYPE.APP_HEADER_ID} style={{ position: 'relative' }}>
+      <FixedHeader {...props} />
+      <Header {...props} />
     </div>
   )
 }
