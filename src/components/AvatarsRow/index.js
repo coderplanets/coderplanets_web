@@ -46,6 +46,7 @@ const AvatarsRow = ({
   users,
   total,
   height,
+  size,
   limit,
   onUserSelect,
   onTotalSelect,
@@ -68,7 +69,7 @@ const AvatarsRow = ({
   const sortedUsers = isReverse ? users : reverse(users)
 
   return (
-    <Wrapper height={height}>
+    <Wrapper height={height} size={size}>
       {total <= 1 ? (
         <span />
       ) : (
@@ -81,10 +82,11 @@ const AvatarsRow = ({
       )}
 
       {slice(0, limit, sortedUsers).map((user) => (
-        <AvatarsItem key={user.id}>
+        <AvatarsItem key={user.id} size={size}>
           <Tooltip content={user.nickname} duration={0}>
             <AvatarsImg
               src={user.avatar}
+              size={size}
               data-user={o2s(user)}
               onClick={handleUserSelect}
               fallback={<AvatarFallback>{user.nickname[0]}</AvatarFallback>}
@@ -105,6 +107,7 @@ AvatarsRow.propTypes = {
       extra_id: T.string,
     }),
   ),
+  size: T.oneOf(['small', 'medium']),
   total: T.number.isRequired,
   height: T.string,
   limit: T.number,
@@ -116,6 +119,7 @@ AvatarsRow.propTypes = {
 
 AvatarsRow.defaultProps = {
   height: '32px',
+  size: 'small',
   users: [],
   limit: AVATARS_LIST_LENGTH.POSTS,
   onUserSelect: log,
