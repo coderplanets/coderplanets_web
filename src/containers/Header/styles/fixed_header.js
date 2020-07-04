@@ -1,0 +1,27 @@
+import styled from 'styled-components'
+
+import { theme } from '@/utils'
+
+import {
+  Wrapper as WrapperBase,
+  InnerWrapper as InnerWrapperBase,
+} from './header'
+
+export { RouterWrapper, HeaderSearchIcon, Operations, Search } from './header'
+
+export const Wrapper = styled(WrapperBase)`
+  position: fixed;
+  z-index: 2;
+  top: ${({ fixed }) => (fixed ? '0' : '-33px')};
+  width: 100%;
+  background: ${theme('header.fixed')};
+  opacity: ${({ fixed }) => (fixed ? '0.9' : '0')};
+
+  transition: top 0.3s;
+  transition-delay: 1s;
+`
+
+export const InnerWrapper = styled(InnerWrapperBase)`
+  padding-left: 3vw;
+  padding-right: 10vw;
+`

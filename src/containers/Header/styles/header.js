@@ -6,13 +6,11 @@ import { theme, cs } from '@/utils'
 export const Wrapper = styled.header.attrs((props) => ({
   'data-testid': props.testid,
 }))`
-  position: ${({ fixed }) => (fixed ? 'fixed' : 'relative')};
   z-index: 2;
   width: 100%;
   ${cs.flex('justify-center')};
-  background: ${({ fixed }) =>
-    fixed ? theme('header.fixed') : theme('header.bg')};
-  opacity: ${({ fixed }) => (fixed ? 0.9 : 1)};
+  background: ${theme('header.bg')};
+  opacity: 1;
   border-bottom: ${({ noBorder }) => (noBorder ? 'none' : '1px solid')};
   border-bottom-color: ${theme('header.spliter')};
   margin-left: ${({ leftOffset }) => leftOffset};
