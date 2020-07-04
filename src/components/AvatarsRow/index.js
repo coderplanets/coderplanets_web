@@ -14,14 +14,7 @@ import { buildLog, o2s, s2o } from '@/utils'
 import Tooltip from '@/components/Tooltip'
 import MoreItem from './MoreItem'
 
-import {
-  Wrapper,
-  AvatarsItem,
-  // MoreItem,
-  AvatarsImg,
-  AvatarFallback,
-  // AvatarsMore,
-} from './styles'
+import { Wrapper, AvatarsItem, AvatarsImg, AvatarFallback } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:AvatarsRow:index')
@@ -45,7 +38,6 @@ const getUniqueArray = (arr, comp) => {
 const AvatarsRow = ({
   users,
   total,
-  height,
   size,
   limit,
   onUserSelect,
@@ -69,11 +61,12 @@ const AvatarsRow = ({
   const sortedUsers = isReverse ? users : reverse(users)
 
   return (
-    <Wrapper height={height} size={size}>
+    <Wrapper size={size} total={total}>
       {total <= 1 ? (
         <span />
       ) : (
         <MoreItem
+          size={size}
           total={total}
           users={users}
           showTotalNumber={showTotalNumber}
@@ -89,7 +82,9 @@ const AvatarsRow = ({
               size={size}
               data-user={o2s(user)}
               onClick={handleUserSelect}
-              fallback={<AvatarFallback>{user.nickname[0]}</AvatarFallback>}
+              fallback={
+                <AvatarFallback size={size}>{user.nickname[0]}</AvatarFallback>
+              }
             />
           </Tooltip>
         </AvatarsItem>
@@ -109,7 +104,6 @@ AvatarsRow.propTypes = {
   ),
   size: T.oneOf(['small', 'medium']),
   total: T.number.isRequired,
-  height: T.string,
   limit: T.number,
   onUserSelect: T.func,
   onTotalSelect: T.func,
@@ -118,7 +112,6 @@ AvatarsRow.propTypes = {
 }
 
 AvatarsRow.defaultProps = {
-  height: '32px',
   size: 'small',
   users: [],
   limit: AVATARS_LIST_LENGTH.POSTS,

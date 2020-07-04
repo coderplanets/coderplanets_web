@@ -3,31 +3,28 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, cs } from '@/utils'
 
-import { getLiSize, getAvatarSize, getTotalCountSize } from './metric'
+import { getLiSize, getAvatarSize, getUlMarginRight } from './metric'
 
 export const Wrapper = styled.ul`
-  ${cs.flex()};
+  ${cs.flex('align-center')};
   flex-direction: row-reverse;
   list-style-type: none;
   margin: auto;
-  height: ${({ height }) => height};
   padding: 0px 8px 0px 0px;
+  margin-right: ${({ total }) => getUlMarginRight(total)};
 `
 // height: 49px;
 const BaseAvatarItem = styled.li`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   position: relative;
-  /* width: 25px; */
-  /* width: 20px; */
   width: ${({ size }) => getLiSize(size)};
 
   opacity: 0.75;
   &:hover {
     opacity: 1;
-  }
-  ${Wrapper}:hover & {
-    margin-left: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
   }
   transition: all 0.3s;
 `
@@ -36,15 +33,12 @@ export const AvatarsItem = styled(BaseAvatarItem)`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   position: relative;
-  /* width: 25px; */
   width: ${({ size }) => getLiSize(size)};
   opacity: 0.75;
   &:hover {
     opacity: 1;
   }
-  ${Wrapper}:hover & {
-    margin-left: 5px;
-  }
+
   transition: all 0.3s;
   ${cs.media.mobile`display: none`};
 `
@@ -66,8 +60,7 @@ export const AvatarsImg = styled(Img)`
 `
 export const AvatarsMore = styled.span`
   ${cs.flex('align-both')};
-  font-size: ${({ total }) => getTotalCountSize(total)};
-
+  font-size: 14px;
   border-color: ${theme('thread.articleHover')};
   color: ${theme('thread.articleTitle')};
   background-color: ${theme('thread.articleHover')};
@@ -75,7 +68,7 @@ export const AvatarsMore = styled.span`
   font-family: sans-serif;
   font-weight: ${({ total }) => (total >= 1000 ? 600 : 200)};
 
-  width: ${({ size }) => getAvatarSize(size)};
+  min-width: ${({ size }) => getAvatarSize(size)};
   height: ${({ size }) => getAvatarSize(size)};
 
   padding-left: ${({ total }) => (total >= 1000 ? '5px' : '3px')};

@@ -5,7 +5,7 @@ import Tooltip from '@/components/Tooltip'
 
 import { Wrapper, NumbersMore, TextMore, DotText } from './styles/more_item'
 
-const MoreItem = ({ users, total, onTotalSelect, showTotalNumber }) => {
+const MoreItem = ({ users, size, total, onTotalSelect, showTotalNumber }) => {
   const handleClick = useCallback(() => {
     onTotalSelect({ users, total })
   }, [onTotalSelect, total, users])
@@ -21,7 +21,9 @@ const MoreItem = ({ users, total, onTotalSelect, showTotalNumber }) => {
             <DotText>...</DotText>
           </TextMore>
         ) : (
-          <NumbersMore total={total}>{prettyNum(total)}</NumbersMore>
+          <NumbersMore total={total} size={size}>
+            {prettyNum(total)}
+          </NumbersMore>
         )}
       </Tooltip>
     </Wrapper>
