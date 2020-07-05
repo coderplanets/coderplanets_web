@@ -7,8 +7,13 @@ import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 import { BaseBanner, BaseTabber } from './index'
 
+const getSmallHeightSize = (isSmall) => {
+  return isSmall ? '128px' : '150px'
+}
+
 export const Wrapper = styled(BaseBanner)`
-  min-height: ${({ descExpand }) => (descExpand ? '300px' : '150px')};
+  min-height: ${({ descExpand, small }) =>
+    descExpand ? '300px' : getSmallHeightSize(small)};
 `
 export const InnerWrapper = styled.div`
   ${cs.flex('justify-center')};
@@ -54,14 +59,16 @@ export const LogoWrapper = styled.div`
   position: relative;
   width: 55px;
   margin-right: 5px;
-  margin-top: ${({ raw }) => (raw === 'home' ? '-14px' : 0)};
+  /*  TODO:  use new logo */
+  margin-top: ${({ raw }) => (raw === 'home' ? '-10px' : 0)};
+
   @media (max-height: 800px) {
     margin-top: ${({ raw }) => (raw === 'home' ? '-8px' : 0)};
   }
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
-  width: 55px;
-  height: 55px;
+  width: ${({ small }) => (small ? '45px' : '55px')};
+  height: ${({ small }) => (small ? '45px' : '55px')};
   border-radius: 5px;
 `
 export const CommunityInfo = styled.div`

@@ -37,12 +37,16 @@ import {
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
+// 没有各种外链接，打赏信息等的官方社区
+const NON_STANDARD_COMMUNITIES = ['home', 'feedback']
+
 const CommunityBrief = ({ content, descExpand }) => {
   return (
     <CommunityWrapper descExpand={descExpand}>
       <LogoWrapper raw={content.raw}>
         {content.logo ? (
           <CommunityLogo
+            small={contains(content.raw, NON_STANDARD_COMMUNITIES)}
             nonFill={contains(content.raw, NON_FILL_COMMUNITY)}
             src={content.logo}
             raw={content.raw}
@@ -61,7 +65,7 @@ const CommunityBrief = ({ content, descExpand }) => {
         </TitleWrapper>
         {/* <Desc>{content.desc}</Desc> */}
         <ExpandTexts descExpand={descExpand} />
-        <SocialList />
+        {content.raw !== 'home' && <SocialList />}
       </CommunityInfo>
     </CommunityWrapper>
   )
@@ -69,7 +73,10 @@ const CommunityBrief = ({ content, descExpand }) => {
 
 const DigestView = ({ community, descExpand, activeThread, layout }) => {
   return (
-    <Wrapper descExpand={descExpand}>
+    <Wrapper
+      descExpand={descExpand}
+      small={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+    >
       <InnerWrapper>
         <BannerContentWrapper descExpand={descExpand}>
           <CommunityBrief content={community} descExpand={descExpand} />
