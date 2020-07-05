@@ -18,7 +18,7 @@ export const InnerWrapper = styled.div`
 export const BaseBannerContent = styled.div`
   ${cs.flex('align-center')};
   width: 100%;
-  padding: 0 6vw;
+  padding: 0 8.5vw;
 
   margin-top: -35px;
 

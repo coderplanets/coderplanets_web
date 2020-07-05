@@ -16,6 +16,7 @@ export const RightPart = styled.div`
   min-width: 230px;
   margin-left: 80px;
   padding-top: 38px;
+  padding-left: 25px;
   ${cs.media.tablet`display: none;`};
 `
 export const PublisherWrapper = styled.div`
