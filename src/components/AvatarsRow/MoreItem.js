@@ -13,7 +13,7 @@ const MoreItem = ({ users, size, total, onTotalSelect, showTotalNumber }) => {
   return (
     <Wrapper onClick={handleClick}>
       <Tooltip
-        content={showTotalNumber ? '更多' : `共 ${total} 人`}
+        content={showTotalNumber ? '更多' : `共 ${total} 条评论`}
         duration={0}
       >
         {showTotalNumber ? (

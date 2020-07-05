@@ -23,8 +23,8 @@ const BaseAvatarItem = styled.li`
   opacity: 0.75;
   &:hover {
     opacity: 1;
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '6px')};
+    margin-right: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '6px')};
   }
   transition: all 0.3s;
 `
@@ -42,7 +42,9 @@ export const AvatarsItem = styled(BaseAvatarItem)`
   transition: all 0.3s;
   ${cs.media.mobile`display: none`};
 `
-
+export const TotalOneOffset = styled.span`
+  margin-right: 10px;
+`
 export const AvatarsImg = styled(Img)`
   border: 2px solid;
   border-color: ${theme('thread.commentsUserBorder')};

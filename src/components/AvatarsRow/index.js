@@ -14,7 +14,13 @@ import { buildLog, o2s, s2o } from '@/utils'
 import Tooltip from '@/components/Tooltip'
 import MoreItem from './MoreItem'
 
-import { Wrapper, AvatarsItem, AvatarsImg, AvatarFallback } from './styles'
+import {
+  Wrapper,
+  AvatarsItem,
+  AvatarsImg,
+  AvatarFallback,
+  TotalOneOffset,
+} from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:AvatarsRow:index')
@@ -63,7 +69,7 @@ const AvatarsRow = ({
   return (
     <Wrapper size={size} total={total}>
       {total <= 1 ? (
-        <span />
+        <TotalOneOffset />
       ) : (
         <MoreItem
           size={size}
@@ -75,7 +81,7 @@ const AvatarsRow = ({
       )}
 
       {slice(0, limit, sortedUsers).map((user) => (
-        <AvatarsItem key={user.id} size={size}>
+        <AvatarsItem key={user.id} size={size} noHoverMargin={total === 1}>
           <Tooltip content={user.nickname} duration={0}>
             <AvatarsImg
               src={user.avatar}
