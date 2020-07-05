@@ -22,6 +22,6 @@ export const Wrapper = styled(WrapperBase)`
 `
 
 export const InnerWrapper = styled(InnerWrapperBase)`
-  padding-left: 3vw;
-  padding-right: 10vw;
+  padding-left: 5vw;
+  padding-right: 12vw;
 `

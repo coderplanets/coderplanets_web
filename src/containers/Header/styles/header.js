@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
 import { theme, cs } from '@/utils'
 
+import { getMaxWidth, getPadding } from './metric'
+
 export const Wrapper = styled.header.attrs((props) => ({
   'data-testid': props.testid,
 }))`
@@ -20,8 +22,8 @@ export const Wrapper = styled.header.attrs((props) => ({
 export const InnerWrapper = styled.div`
   ${cs.flex()};
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  max-width: ${({ metric }) => metric.maxWidth};
-  padding: ${({ metric }) => metric.padding};
+  max-width: ${({ type }) => getMaxWidth(type)};
+  padding: ${({ type }) => getPadding(type)};
   width: 100%;
   height: 33px;
   align-items: center;
