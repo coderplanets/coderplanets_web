@@ -117,6 +117,7 @@ export const mediaBreakPoints = {
   mobile: 576,
   tablet: 768,
   laptop: 992,
+  laptopL: 1440,
   desktop: 1600,
   // currently used as forms of preview content (slideout/modal)
   desktopL: 1920,

@@ -32,6 +32,7 @@ const CommunityStatesPad = ({
   onUndoSubscribe,
   onShowEditorList,
   onShowSubscriberList,
+  withoutFounding,
 }) => {
   const {
     editorsCount,
@@ -74,11 +75,15 @@ const CommunityStatesPad = ({
         <NumberTitle readOnly>编辑</NumberTitle>
         <NumberGroup onClick={onShowEditorList} count={editorsCount} />
       </EditorSection>
-      <NumberDivider />
-      <ChargeSection>
-        <NumberTitle>打赏</NumberTitle>
-        <Charger />
-      </ChargeSection>
+      {!withoutFounding && (
+        <React.Fragment>
+          <NumberDivider />
+          <ChargeSection>
+            <NumberTitle>打赏</NumberTitle>
+            <Charger />
+          </ChargeSection>
+        </React.Fragment>
+      )}
     </Wrapper>
   )
 }
@@ -97,6 +102,7 @@ CommunityStatesPad.propTypes = {
   onUndoSubscribe: T.func,
   onShowEditorList: T.func,
   onShowSubscriberList: T.func,
+  withoutFounding: T.bool,
 }
 
 CommunityStatesPad.defaultProps = {
@@ -113,6 +119,7 @@ CommunityStatesPad.defaultProps = {
   onUndoSubscribe: log,
   onShowEditorList: log,
   onShowSubscriberList: log,
+  withoutFounding: true,
 }
 
 export default React.memo(CommunityStatesPad)
