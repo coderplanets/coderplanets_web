@@ -66,7 +66,7 @@ export const Brief = styled.div`
   }
 `
 export const Title = styled.div`
-  font-size: 16px;
+  font-size: 15.5px;
   @media (max-width: 1450px) {
     max-width: 500px;
   }

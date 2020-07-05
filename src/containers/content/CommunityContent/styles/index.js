@@ -8,7 +8,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   ${cs.flex('justify-center')};
   width: 88%;
   margin: 80px;
-  margin-top: 25px;
+  margin-top: 22px;
   margin-bottom: 10px;
   min-height: 70vh;
   color: ${theme('font')};
@@ -17,6 +17,12 @@ export const Wrapper = styled.div.attrs((props) => ({
   border-color: ${theme('content.border')};
   border-radius: 6px;
   padding-top: 6px;
+
+  ${cs.media.laptopL`
+    width: 93%;
+    margin: 50px;
+    margin-top: 22px;
+  `};
 
   ${cs.media.tablet`
     width: 100%;

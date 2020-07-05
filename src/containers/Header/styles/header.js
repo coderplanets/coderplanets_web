@@ -29,6 +29,9 @@ export const InnerWrapper = styled.div`
   align-items: center;
   transition: all 0.2s;
 
+  ${cs.media.laptopL`
+    padding: 0 6vw;
+  `};
   ${cs.media.mobile`padding-right: 0`};
 `
 
