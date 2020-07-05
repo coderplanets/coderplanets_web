@@ -70,10 +70,9 @@ export const MenuItemIcon = styled(CommunityFaceLogo)`
 export const MenuItemTitle = styled.div`
   /* flex-grow: 1; */
   width: ${({ pin }) => (pin ? '100%' : '1px')};
+  max-width: ${({ pin }) => (pin ? '50%' : '')};
   visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
   overflow: hidden;
-  /* width: 100%;
-  border: 1px solid tomato; */
   color: ${theme('sidebar.menuLink')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
   letter-spacing: ${({ forceRerender }) => (forceRerender ? '1.3px' : '1.2px')};

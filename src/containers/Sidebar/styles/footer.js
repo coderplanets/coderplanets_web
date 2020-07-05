@@ -27,7 +27,7 @@ export const OptionWrapper = styled.div`
   ${cs.flex('justify-center')};
   opacity: ${({ pin }) => (pin ? '1' : '0')};
   justify-content: ${({ pin }) => (pin ? 'center' : '')};
-  width: 0;
+  width: ${({ pin }) => (pin ? '100%' : 0)};
 
   ${SidebarWrapper}:hover & {
     opacity: 1;
