@@ -19,7 +19,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   padding-top: 6px;
 
   ${cs.media.laptopL`
-    width: 93%;
+    width: 92%;
     margin: 50px;
     margin-top: 22px;
   `};
@@ -36,4 +36,8 @@ export const InnerWrapper = styled.div`
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 3vw;
+
+  ${cs.media.laptopL`
+    padding-right: 2vw;
+  `};
 `

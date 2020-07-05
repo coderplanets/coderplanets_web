@@ -24,4 +24,9 @@ export const Wrapper = styled(WrapperBase)`
 export const InnerWrapper = styled(InnerWrapperBase)`
   padding-left: 5vw;
   padding-right: 12vw;
+
+  ${cs.media.laptopL`
+    padding-left: 8vw;
+    padding-right: 10vw;
+  `};
 `

@@ -28,6 +28,9 @@ export const Wrapper = styled.aside.attrs((props) => ({
   transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,
     background-color 0.3s z-index 0.5s;
 
+  ${cs.media.desktop`
+    left: 0;
+  `};
   ${cs.media.tablet`display: none`};
 `
 

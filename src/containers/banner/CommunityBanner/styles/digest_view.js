@@ -28,7 +28,7 @@ export const BaseBannerContent = styled.div`
   margin-top: -35px;
 
   ${cs.media.laptopL`
-    padding: 0 6.5vw;
+    padding: 0 7.5vw;
   `};
 
   ${cs.media.mobile`

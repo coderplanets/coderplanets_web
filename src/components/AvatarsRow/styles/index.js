@@ -25,8 +25,9 @@ const BaseAvatarItem = styled.li`
     opacity: 1;
     margin-left: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '6px')};
     margin-right: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '6px')};
+    transition-delay: 0.2s;
   }
-  transition: all 0.3s;
+  transition: all 0.2s;
 `
 
 export const AvatarsItem = styled(BaseAvatarItem)`

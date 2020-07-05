@@ -30,7 +30,8 @@ export const InnerWrapper = styled.div`
   transition: all 0.2s;
 
   ${cs.media.laptopL`
-    padding: 0 6vw;
+    padding-left: calc(7vw + 10px);
+    padding-right: 7vw;
   `};
   ${cs.media.mobile`padding-right: 0`};
 `
