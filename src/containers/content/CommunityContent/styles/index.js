@@ -18,9 +18,9 @@ export const Wrapper = styled.div.attrs((props) => ({
   `};
 `
 export const InnerWrapper = styled.div`
+  margin: 0 5.5%;
   margin-top: 20px;
   width: 100%;
-  max-width: calc(${cs.MAX_CONTENT_WIDTH} - 315px);
 
   padding: 0 3vw;
   color: ${theme('font')};
@@ -31,6 +31,32 @@ export const InnerWrapper = styled.div`
   border-radius: 6px;
 
   ${cs.media.laptopL`
-    padding-right: 2vw;
+    margin: 0 4%;
+    margin-top: 20px;
   `};
+
+  /* ${cs.media.desktop`
+    padding-right: 2vw;
+    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 220px);
+  `};
+
+  ${cs.media.maxContent`
+    padding-right: 2vw;
+    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 260px);
+  `};
+
+  ${cs.media.laptopL`
+    padding-right: 2vw;
+    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 300px);
+  `};
+
+  ${cs.media.laptopM`
+    padding-right: 2vw;
+    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 450px);
+  `};
+
+  ${cs.media.laptop`
+    padding-right: 2vw;
+    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 400px);
+  `}; */
 `

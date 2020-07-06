@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
   ${normalize};
   html {
     background-color: ${theme('htmlBg')};
+    overflow-y: hidden;
   }
   body {
     ${cs.media.mobile`

@@ -117,7 +117,9 @@ export const mediaBreakPoints = {
   mobile: 576,
   tablet: 768,
   laptop: 992,
+  laptopM: 1280,
   laptopL: 1440,
+  maxContent: 1520, // MAX_CONTENT_WIDTH
   desktop: 1600,
   // currently used as forms of preview content (slideout/modal)
   desktopL: 1920,
