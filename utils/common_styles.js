@@ -46,6 +46,9 @@ const flexExpand = (rule) => {
     case 'justify-center':
       return 'justify-content: center;'
 
+    case 'justify-start':
+      return 'justify-content: flex-start;'
+
     case 'justify-end':
       return 'justify-content: flex-end;'
 
