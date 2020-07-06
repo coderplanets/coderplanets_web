@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
   ${normalize};
   html {
     background-color: ${theme('htmlBg')};
-    overflow-y: hidden;
   }
   body {
     ${cs.media.mobile`
@@ -22,6 +21,12 @@ const GlobalStyle = createGlobalStyle`
    `};
     background-color: ${theme('htmlBg')};
   }
+
+  /* wide screnn the content will scroll little bit  */
+  #__next {
+    overflow: hidden;
+  }
+
   *::-moz-selection {
     background-color: ${theme('selectionBg')} !important;
   }
