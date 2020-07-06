@@ -54,11 +54,9 @@ export const CommunityWrapper = styled.div`
     margin-left: 5%;
 `};
 `
-
 export const LogoWrapper = styled.div`
   position: relative;
   width: 55px;
-  margin-right: 5px;
   /*  TODO:  use new logo */
   margin-top: ${({ raw }) => (raw === 'home' ? '-10px' : 0)};
 
@@ -75,7 +73,7 @@ export const CommunityInfo = styled.div`
   ${cs.flexColumn('justify-center')};
 
   margin-top: -6px;
-  margin-left: 1em;
+  margin-left: 12px;
 `
 export const TitleWrapper = styled.div`
   ${cs.flex('align-center')};
