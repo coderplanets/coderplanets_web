@@ -149,7 +149,7 @@ const PostsThreadContainer = ({ postsThread: store }) => {
                 />
               </PublisherWrapper>
 
-              <Sticky offsetTop={150}>
+              <Sticky offsetTop={120}>
                 <TagsBar
                   thread={THREAD.POST}
                   topic={topic}

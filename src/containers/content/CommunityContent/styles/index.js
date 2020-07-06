@@ -6,23 +6,8 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-testid': props.testid,
 }))`
   ${cs.flex('justify-center')};
-  width: 88%;
-  margin: 80px;
-  margin-top: 22px;
-  margin-bottom: 10px;
   min-height: 70vh;
-  color: ${theme('font')};
-  background: ${theme('content.bg')};
-  border: 1px solid;
-  border-color: ${theme('content.border')};
-  border-radius: 6px;
-  padding-top: 6px;
-
-  ${cs.media.laptopL`
-    width: 92%;
-    margin: 50px;
-    margin-top: 22px;
-  `};
+  width: 100%;
 
   ${cs.media.tablet`
     width: 100%;
@@ -33,9 +18,17 @@ export const Wrapper = styled.div.attrs((props) => ({
   `};
 `
 export const InnerWrapper = styled.div`
+  margin-top: 20px;
   width: 100%;
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: calc(${cs.MAX_CONTENT_WIDTH} - 315px);
+
   padding: 0 3vw;
+  color: ${theme('font')};
+  background: ${theme('content.bg')};
+
+  border: 1px solid;
+  border-color: ${theme('content.border')};
+  border-radius: 6px;
 
   ${cs.media.laptopL`
     padding-right: 2vw;
