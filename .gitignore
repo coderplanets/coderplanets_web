@@ -6,7 +6,7 @@ build
 coverage/
 .coveralls.yml
 yarn-error.log
-.env*
+.env.local
 schema.graphql
 cypress//integration/examples
 cypress/videos/
