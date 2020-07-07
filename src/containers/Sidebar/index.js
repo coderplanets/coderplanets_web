@@ -37,7 +37,6 @@ const SidebarContainer = ({ sidebar: store }) => {
   // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
   const activeRaw = curCommunity.raw
   const homeCommunity = filter(propEq('raw', 'home'), communitiesData)[0]
-  console.log('haha')
 
   return (
     <Wrapper pin={pin} testid="sidebar" className={TYPE.GLOBAL_BLUR_CLASS}>
