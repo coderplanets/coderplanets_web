@@ -13,7 +13,7 @@ import { buildLog } from '@/utils'
 import Modal from '@/components/Modal'
 import UserCell from '@/components/UserCell'
 
-import UnLoginNote from './UnLoginNote'
+import UnLoginNote from './UnloginNote'
 import ChuanSelector from './ChuanSelector'
 import PaymentFooter from './PaymentFooter'
 

@@ -11,6 +11,7 @@ import { connectStore, buildLog } from '@/utils'
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 
+import { Wrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -28,7 +29,7 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
   } = store
 
   return (
-    <div testid="community-banner">
+    <Wrapper testid="community-banner">
       {bannerLayout === C11N.DIGEST ? (
         <DigestView
           community={community}
@@ -43,7 +44,7 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
           layout={bannerLayout}
         />
       )}
-    </div>
+    </Wrapper>
   )
 }
 
