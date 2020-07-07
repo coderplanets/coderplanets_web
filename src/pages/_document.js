@@ -55,10 +55,11 @@ export default class DocumentPage extends Document {
           {this.props.styleTags}
         </Head>
         {/* if the site is crashed the style here is ensure to work */}
+        {/* overflowX: wide screnn the content will scroll little bit  */}
         <body
           id="body"
           {...this.helmetBodyAttrComponents}
-          style={{ margin: 0 }}
+          style={{ margin: 0, overflowX: 'hidden' }}
         >
           <Main />
           <NextScript />

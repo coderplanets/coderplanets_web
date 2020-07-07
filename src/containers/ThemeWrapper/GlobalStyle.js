@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
    `};
     background-color: ${theme('htmlBg')};
   }
+
   *::-moz-selection {
     background-color: ${theme('selectionBg')} !important;
   }

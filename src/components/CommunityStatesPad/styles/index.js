@@ -35,7 +35,7 @@ export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   font-size: ${({ small }) => (small ? '11px' : '12px')};
   margin-top: ${({ small }) => (small ? '4px' : '0')};
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : theme('banner.active'))};
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
