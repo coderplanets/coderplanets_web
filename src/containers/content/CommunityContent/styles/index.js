@@ -31,32 +31,7 @@ export const InnerWrapper = styled.div`
   border-radius: 6px;
 
   ${cs.media.laptopL`
-    margin: 0 4%;
+    margin: 0 4.2%;
     margin-top: 20px;
   `};
-
-  /* ${cs.media.desktop`
-    padding-right: 2vw;
-    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 220px);
-  `};
-
-  ${cs.media.maxContent`
-    padding-right: 2vw;
-    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 260px);
-  `};
-
-  ${cs.media.laptopL`
-    padding-right: 2vw;
-    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 300px);
-  `};
-
-  ${cs.media.laptopM`
-    padding-right: 2vw;
-    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 450px);
-  `};
-
-  ${cs.media.laptop`
-    padding-right: 2vw;
-    max-width: calc(${cs.MAX_CONTENT_WIDTH} - 400px);
-  `}; */
 `
