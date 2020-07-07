@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 import { theme, cs } from '@/utils'
 
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-testid': props.testid,
+}))``
+
 export const BaseBanner = styled.nav`
   ${cs.flexColumn('justify-center')};
   position: relative;
