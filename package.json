@@ -28,7 +28,7 @@
     "test:watch": "npm run test -- --watch",
     "test:cover": "npm run test -- --coverage",
     "test:e2e": "cypress open",
-    "cy:run": "./node_modules/.bin/cypress run --key 8b2a5b39-13b5-4247-ad86-ecc42baf8cd7 --record",
+    "cy:run": "./node_modules/.bin/cypress run --key 60eb2dd7-724d-4b39-bd12-f434f3465866 --record",
     "test:ci": "start-server-and-test ci http://localhost:3000 cy:run",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
