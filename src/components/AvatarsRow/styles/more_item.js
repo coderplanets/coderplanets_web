@@ -27,6 +27,7 @@ export const NumbersMore = styled(AvatarsMore)`
   width: ${({ total }) => getMoreTextWidth(total)};
   font-weight: 400;
   padding-left: 2px;
+  margin-left: 4px;
   border-radius: 0 10px 10px 0;
 `
 export const TextMore = styled(AvatarsMore)`

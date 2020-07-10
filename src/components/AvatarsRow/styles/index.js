@@ -20,11 +20,9 @@ const BaseAvatarItem = styled.li`
   position: relative;
   width: ${({ size }) => getLiSize(size)};
 
-  opacity: 0.75;
   &:hover {
-    opacity: 1;
-    margin-left: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '6px')};
-    margin-right: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '6px')};
+    margin-left: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '10px')};
+    margin-right: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '10px')};
     transition-delay: 0.2s;
   }
   transition: all 0.2s;
@@ -35,9 +33,9 @@ export const AvatarsItem = styled(BaseAvatarItem)`
   padding: 0px 0px 0px 0px;
   position: relative;
   width: ${({ size }) => getLiSize(size)};
-  opacity: 0.75;
+  filter: grayscale(0.3);
   &:hover {
-    opacity: 1;
+    filter: grayscale(0);
   }
 
   transition: all 0.3s;
