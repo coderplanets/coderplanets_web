@@ -16,7 +16,8 @@ export const Wrapper = styled.header.attrs((props) => ({
   border-bottom: ${({ noBorder }) => (noBorder ? 'none' : '1px solid')};
   border-bottom-color: ${theme('header.spliter')};
   margin-left: ${({ leftOffset }) => leftOffset};
-  box-shadow: ${theme('preview.shadow')};
+  box-shadow: ${({ noBorder }) =>
+    noBorder ? 'none' : theme('preview.shadow')};
 `
 
 export const InnerWrapper = styled.div`
@@ -29,10 +30,7 @@ export const InnerWrapper = styled.div`
   align-items: center;
   transition: all 0.2s;
 
-  ${cs.media.laptopL`
-    padding-left: calc(7vw + 10px);
-    padding-right: 7vw;
-  `};
+  ${cs.media.laptopLPadding};
   ${cs.media.mobile`padding-right: 0`};
 `
 

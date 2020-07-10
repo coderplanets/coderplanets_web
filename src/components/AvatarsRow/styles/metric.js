@@ -5,15 +5,15 @@
 export const getLiSize = (size) => {
   switch (size) {
     case 'small': {
-      return '20px'
+      return '15px'
     }
 
     case 'medium': {
-      return '25px'
+      return '20px'
     }
 
     default: {
-      return '25px'
+      return '24px'
     }
   }
 }

@@ -97,6 +97,7 @@ export { default as UserSettingsStore } from '@/containers/user/UserSettings/sto
 export { default as UserFavoritedStore } from '@/containers/user/UserFavorited/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as SubscribeContentStore } from '@/containers/content/SubscribeContent/store'
 export { default as InterviewContentStore } from '@/containers/content/InterviewContent/store'
 export { default as RecipesContentStore } from '@/containers/content/RecipesContent/store'
 export { default as SponsorContentStore } from '@/containers/content/SponsorContent/store'

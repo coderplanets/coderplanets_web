@@ -37,6 +37,11 @@ router.route('/sponsor/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/sponsor' })
 })
 
+// 社区订阅
+router.route('/subscribe/:slug?').get((req, res) => {
+  return renderAndCache({ req, res, path: '/subscribe' })
+})
+
 // 代码片段
 router.route('/recipes/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/recipes' })

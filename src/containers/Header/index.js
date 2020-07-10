@@ -4,11 +4,13 @@
  *
  */
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import T from 'prop-types'
+import { contains } from 'ramda'
 
-import { TYPE } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { TYPE, ROUTE } from '@/constant'
+import { connectStore, buildLog, getRoutePathList } from '@/utils'
 
 import Header from './Header'
 import FixedHeader from './FixedHeader'
@@ -20,6 +22,8 @@ const log = buildLog('C:Header')
 const HeaderContainer = ({ header: store, metric }) => {
   useInit(store)
 
+  const [hasNoBottomBorder, setHasNoBottomBorder] = useState(false)
+
   const {
     isOnline,
     fixed,
@@ -29,8 +33,16 @@ const HeaderContainer = ({ header: store, metric }) => {
     isLogin,
     activeInfo,
     curCommunity,
-    hasNoBottomBorder,
   } = store
+
+  const router = useRouter()
+  const [mainPath] = getRoutePathList(router.asPath)
+
+  useEffect(() => {
+    setHasNoBottomBorder(
+      contains(mainPath, [ROUTE.COMMUNITIES, ROUTE.SPONSOR, ROUTE.SUBSCRIBE]),
+    )
+  }, [mainPath])
 
   const props = {
     metric,

@@ -97,6 +97,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  SubscribeContentStore,
   InterviewContentStore,
   RecipesContentStore,
   SponsorContentStore,
@@ -207,6 +208,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  subscribeContent: T.optional(SubscribeContentStore, {}),
   interviewContent: T.optional(InterviewContentStore, {}),
   recipesContent: T.optional(RecipesContentStore, {}),
   sponsorContent: T.optional(SponsorContentStore, {}),

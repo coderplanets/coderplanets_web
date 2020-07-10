@@ -4,9 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import { contains } from 'ramda'
 
-import { ROUTE } from '@/constant'
 import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -23,21 +21,8 @@ const Footer = T.model('Footer', {
     get isLogin() {
       return self.root.account.isLogin
     },
-    get curRoute() {
-      return self.root.curRoute
-    },
     get accountInfo() {
       return self.root.accountInfo
-    },
-    get curView() {
-      const { mainPath, subPath } = self.root.curRoute
-      if (
-        contains(mainPath, [ROUTE.USER, ROUTE.CHEATSHEET]) ||
-        contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
-      ) {
-        return 'BRIEF'
-      }
-      return 'DIGEST'
     },
   }))
   .actions((self) => ({

@@ -15,6 +15,8 @@ export const InnerWrapper = styled.div`
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 6vw;
   height: 68px;
+
+  ${cs.media.laptopLPadding};
 `
 export const SubscribeWrapper = styled.div`
   ${cs.flex('align-center')};

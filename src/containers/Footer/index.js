@@ -4,10 +4,13 @@
  *
  */
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import { contains } from 'ramda'
 
-import { connectStore, buildLog } from '@/utils'
+import { ROUTE } from '@/constant'
+import { connectStore, buildLog, getRoutePathList } from '@/utils'
 
 import JoinModal from '@/containers/JoinModal'
 import Modal from '@/components/Modal'
@@ -37,8 +40,25 @@ const DynamicBuyMeChuanChuan = dynamic({
 
 const FooterContainer = ({ footer: store }) => {
   useInit(store)
+  const { showSponsor, showBusBanner, accountInfo } = store
 
-  const { showSponsor, showBusBanner, curView, accountInfo } = store
+  const router = useRouter()
+  const [mainPath, subPath] = getRoutePathList(router.asPath)
+
+  const [curView, setCurView] = useState('DIGEST')
+
+  useEffect(() => {
+    if (
+      contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
+      contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
+    ) {
+      setCurView('BRIEF')
+    } else if (contains(mainPath, [ROUTE.SUBSCRIBE])) {
+      setCurView('BRIEF_LEFT')
+    } else {
+      setCurView('DIGEST')
+    }
+  }, [mainPath, subPath])
 
   return (
     <Wrapper testid="footer">
@@ -56,7 +76,7 @@ const FooterContainer = ({ footer: store }) => {
         onPay={onPay}
       />
 
-      {curView === 'DIGEST' ? <DigestView /> : <BriefView />}
+      {curView === 'DIGEST' ? <DigestView /> : <BriefView curView={curView} />}
     </Wrapper>
   )
 }

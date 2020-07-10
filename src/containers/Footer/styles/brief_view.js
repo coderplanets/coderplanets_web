@@ -14,9 +14,12 @@ export const InnerWrapper = styled.div`
   max-width: ${cs.MAX_CONTENT_WIDTH};
   width: 100%;
   padding: 0 5vw;
+
+  ${cs.media.laptopLPadding};
 `
 export const MainInfos = styled.footer`
   ${cs.flexColumn('align-center')};
+  align-items: ${({ center }) => (center ? 'center' : 'flex-start')};
   margin-bottom: 20px;
   ${cs.media.tablet`display: none;`};
 `
@@ -59,12 +62,9 @@ export const Support = styled.div`
     color: ${theme('footer.hover')};
   }
 `
-
 export const BaseInfo = styled.div`
   ${cs.flex()};
-  margin-top: 20px;
 `
-
 export const Divider = styled.div`
   margin-left: 12px;
   margin-right: 12px;
