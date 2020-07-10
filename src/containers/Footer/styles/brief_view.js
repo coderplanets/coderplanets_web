@@ -14,11 +14,12 @@ export const InnerWrapper = styled.div`
   max-width: ${cs.MAX_CONTENT_WIDTH};
   width: 100%;
   padding: 0 5vw;
+
+  ${cs.media.laptopLPadding};
 `
 export const MainInfos = styled.footer`
   ${cs.flexColumn('align-center')};
   align-items: ${({ center }) => (center ? 'center' : 'flex-start')};
-  margin-left: ${({ center }) => (center ? '' : '12px')};
   margin-bottom: 20px;
   ${cs.media.tablet`display: none;`};
 `

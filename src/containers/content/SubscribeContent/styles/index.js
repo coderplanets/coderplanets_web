@@ -20,6 +20,8 @@ export const InnerWrapper = styled.div`
   height: 100%;
   min-height: 90vh;
   color: ${theme('thread.articleDigest')};
+
+  ${cs.media.laptopLPadding};
 `
 export const StickyWrapper = styled(Sticky)`
   ${cs.flex('justify-center')}

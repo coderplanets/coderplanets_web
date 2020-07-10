@@ -14,6 +14,8 @@ export const InnerWrapper = styled.div`
   padding-bottom: 0;
   border-bottom: 1px solid;
   border-bottom-color: #02394a;
+
+  ${cs.media.laptopLPadding};
 `
 export const MainInfos = styled.div`
   ${cs.flex('justify-start')};

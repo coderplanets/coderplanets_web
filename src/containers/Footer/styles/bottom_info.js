@@ -18,10 +18,10 @@ export const InnerWrapper = styled.div`
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 5vw;
   padding-right: 80px;
+
+  ${cs.media.laptopLPadding};
 `
-export const Copyrights = styled.div`
-  margin-left: 10px;
-`
+export const Copyrights = styled.div``
 export const Thanks = styled.div`
   color: ${theme('thread.articleDigest')};
   &:hover {
