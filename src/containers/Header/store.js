@@ -4,9 +4,8 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import { merge, contains } from 'ramda'
+import { merge } from 'ramda'
 
-import { ROUTE } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -22,9 +21,6 @@ const HeaderStore = T.model('HeaderStore', {
     },
     get isOnline() {
       return self.root.isOnline
-    },
-    get curRoute() {
-      return self.root.curRoute
     },
     get activeInfo() {
       return stripMobx(self.root.viewing)
@@ -58,11 +54,6 @@ const HeaderStore = T.model('HeaderStore', {
 
       // isPin && !self.preSidebarPin && self.fixed
       return '180px'
-    },
-    get hasNoBottomBorder() {
-      const { mainPath } = self.curRoute
-
-      return contains(mainPath, [ROUTE.COMMUNITIES, ROUTE.SPONSOR])
     },
   }))
   .actions((self) => ({

@@ -21,9 +21,6 @@ const Footer = T.model('Footer', {
     get isLogin() {
       return self.root.account.isLogin
     },
-    get curRoute() {
-      return self.root.curRoute
-    },
     get accountInfo() {
       return self.root.accountInfo
     },
