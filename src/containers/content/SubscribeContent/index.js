@@ -11,7 +11,10 @@ import T from 'prop-types'
 
 import { connectStore, buildLog } from '@/utils'
 
-import { Wrapper, InnerWrapper } from './styles'
+import Content from './Content'
+import Actions from './Actions'
+
+import { Wrapper, InnerWrapper, StickyWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -23,8 +26,10 @@ const SubscribeContentContainer = ({ subscribeContent: store, testid }) => {
   return (
     <Wrapper testid={testid}>
       <InnerWrapper>
-        <h2>SubscribeContent hooks container!</h2>
-        <div>impress me!</div>
+        <Content />
+        <StickyWrapper offsetTop={150}>
+          <Actions />
+        </StickyWrapper>
       </InnerWrapper>
     </Wrapper>
   )
