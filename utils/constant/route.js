@@ -30,6 +30,7 @@ const ROUTE = {
   SPONSOR: 'sponsor',
   RECIPES: 'recipes',
   INTERVIEW: 'interview',
+  SUBSCRIBE: 'subscribe',
 }
 
 export default ROUTE
