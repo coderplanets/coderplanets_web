@@ -21,61 +21,63 @@ import {
 
 import { toggleSponsorHelper, toggleBusBanner } from './logic'
 
-const BriefView = () => (
-  <Wrapper>
-    <InnerWrapper>
-      <MainInfos>
-        <BaseInfo>
-          <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
-            关于
-          </Item>
-          <Divider>|</Divider>
-          <Item
-            href="/cps-support/posts"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            使用指南
-          </Item>
-          <Divider>|</Divider>
-          <Item
-            href={`${ISSUE_ADDR}`}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            反馈与建议
-          </Item>
-          <CenterLogosWrapper>
-            <SiteLogo />
-            <LogoDivider radius="4px" space="10px" />
-            <GithubLogo src={`${ICON_CMD}/github.svg`} />
-          </CenterLogosWrapper>
-          <Item
-            href={`${API_SERVER_ADDR}`}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            API
-          </Item>
-          <Divider>|</Divider>
-          <Item onClick={toggleBusBanner}>商务合作</Item>
+const BriefView = ({ curView }) => {
+  return (
+    <Wrapper>
+      <InnerWrapper>
+        <MainInfos center={curView === 'BRIEF' || false}>
+          <BaseInfo>
+            <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
+              关于
+            </Item>
+            <Divider>|</Divider>
+            <Item
+              href="/cps-support/posts"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              使用指南
+            </Item>
+            <Divider>|</Divider>
+            <Item
+              href={`${ISSUE_ADDR}`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              反馈与建议
+            </Item>
+            <CenterLogosWrapper>
+              <SiteLogo />
+              <LogoDivider radius="4px" space="10px" />
+              <GithubLogo src={`${ICON_CMD}/github.svg`} />
+            </CenterLogosWrapper>
+            <Item
+              href={`${API_SERVER_ADDR}`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              API
+            </Item>
+            <Divider>|</Divider>
+            <Item onClick={toggleBusBanner}>商务合作</Item>
 
-          <Divider>|</Divider>
-          <Support onClick={toggleSponsorHelper}>打赏</Support>
-          <Divider>|</Divider>
-          <Item
-            href={`${ISSUE_ADDR}/269`}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            客户端
-          </Item>
-        </BaseInfo>
-      </MainInfos>
-    </InnerWrapper>
-    <BottomInfo />
-    <MobilBottomInfo />
-  </Wrapper>
-)
+            <Divider>|</Divider>
+            <Support onClick={toggleSponsorHelper}>打赏</Support>
+            <Divider>|</Divider>
+            <Item
+              href={`${ISSUE_ADDR}/269`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              客户端
+            </Item>
+          </BaseInfo>
+        </MainInfos>
+      </InnerWrapper>
+      <BottomInfo />
+      <MobilBottomInfo />
+    </Wrapper>
+  )
+}
 
 export default React.memo(BriefView)
