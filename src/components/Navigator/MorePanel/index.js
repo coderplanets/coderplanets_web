@@ -54,15 +54,17 @@ const MoreContent = () => (
           </Intro>
         </Entry>
       </Link>
-      <Entry>
-        <Logo src={`${ICON_CMD}/header/more_subscribe.svg`} />
-        <Intro>
-          <Title>
-            社区订阅 <Wip>开发中</Wip>
-          </Title>
-          <Desc>各社区动态 RSS / Email 订阅</Desc>
-        </Intro>
-      </Entry>
+      <Link href={`/${ROUTE.SUBSCRIBE}`} passHref>
+        <Entry>
+          <Logo src={`${ICON_CMD}/header/more_subscribe.svg`} />
+          <Intro>
+            <Title>
+              社区订阅 <Wip>开发中</Wip>
+            </Title>
+            <Desc>各社区动态 RSS / Email 订阅</Desc>
+          </Intro>
+        </Entry>
+      </Link>
       <Link href={`/${ROUTE.INTERVIEW}`} passHref>
         <Entry>
           <Logo src={`${ICON_CMD}/header/more_Interview.svg`} />

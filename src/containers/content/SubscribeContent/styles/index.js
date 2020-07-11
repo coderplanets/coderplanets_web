@@ -4,10 +4,13 @@ import styled from 'styled-components'
 import { cs, theme } from '@/utils'
 import Sticky from '@/components/Sticky'
 
-export const Wrapper = styled.div`
-  ${cs.flexColumn('align-both')};
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-testid': props.testid,
+}))`
+  ${cs.flexColumn('align-start')};
   width: 100%;
-  min-height: 100vh;
+  /* 130 means height of (header + footer) */
+  min-height: calc(100vh - 130px);
   margin-bottom: 50px;
   background-image: ${theme('banner.linearGradient')};
 `
@@ -17,13 +20,11 @@ export const InnerWrapper = styled.div`
   padding: 0 6vw;
   margin-top: 6%;
   width: 100%;
-  height: 100%;
-  min-height: 90vh;
   color: ${theme('thread.articleDigest')};
 
   ${cs.media.laptopLPadding};
 `
 export const StickyWrapper = styled(Sticky)`
   ${cs.flex('justify-center')}
-  width: 100%;
+  width: 40%;
 `

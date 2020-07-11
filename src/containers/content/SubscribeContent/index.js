@@ -23,12 +23,14 @@ const log = buildLog('C:SubscribeContent')
 const SubscribeContentContainer = ({ subscribeContent: store, testid }) => {
   useInit(store)
 
+  const { subscribeView } = store
+
   return (
     <Wrapper testid={testid}>
       <InnerWrapper>
         <Content />
-        <StickyWrapper offsetTop={150}>
-          <Actions />
+        <StickyWrapper offsetTop={200}>
+          <Actions view={subscribeView} />
         </StickyWrapper>
       </InnerWrapper>
     </Wrapper>
@@ -41,7 +43,7 @@ SubscribeContentContainer.propTypes = {
 }
 
 SubscribeContentContainer.defaultProps = {
-  testid: 'subscribeContent',
+  testid: 'subscribe-content',
 }
 
 export default connectStore(SubscribeContentContainer)
