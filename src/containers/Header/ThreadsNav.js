@@ -17,7 +17,7 @@ import { onThreadChange } from './logic'
 const ThreadsNav = ({ activeInfo: { community, activeThread } }) => {
   return (
     <Wrapper>
-      <CommunityLogo src={community.logo} raw={community.raw} />
+      <CommunityLogo src={community.logo || ''} raw={community.raw} />
       <MobileHint>
         <DotDivider />
         {Trans(activeThread)}

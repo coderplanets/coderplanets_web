@@ -68,16 +68,6 @@ const HeaderContainer = ({ header: store, metric }) => {
 HeaderContainer.propTypes = {
   metric: T.oneOf(['default', 'article']),
   header: T.any.isRequired,
-  // header: T.objectOf({
-  //   isOnline: T.bool,
-  //   fixed: T.bool,
-  //   curRoute: T.object,
-  //   leftOffset: T.string,
-  //   accountInfo: T.object,
-  //   isLogin: T.bool,
-  //   activeInfo: T.object,
-  //   curCommunity: T.object,
-  // }).isRequired,
 }
 
 HeaderContainer.defaultProps = {

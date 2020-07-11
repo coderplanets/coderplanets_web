@@ -26,7 +26,6 @@ const Header = ({
   metric,
   isOnline,
   activeInfo,
-  curRoute,
   leftOffset,
   fixed,
   isLogin,
@@ -45,7 +44,7 @@ const Header = ({
       <InnerWrapper type={metric}>
         <RouterWrapper>
           {fixed ? (
-            <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />
+            <ThreadsNav activeInfo={activeInfo} />
           ) : (
             <Navigator
               curCommunity={curCommunity}
