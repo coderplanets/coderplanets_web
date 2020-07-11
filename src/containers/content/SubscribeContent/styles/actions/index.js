@@ -4,9 +4,10 @@ import Img from '@/Img'
 import { Button } from '@/components/Buttons'
 import { cs, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-testid': props.testid,
+}))`
   ${cs.flex('align-both')};
-  /* width: 40%; */
   padding-left: 5%;
   margin-top: 10%;
 `

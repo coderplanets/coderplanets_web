@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import { cs, theme } from '@/utils'
 import Sticky from '@/components/Sticky'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-testid': props.testid,
+}))`
   ${cs.flexColumn('align-start')};
   width: 100%;
   /* 130 means height of (header + footer) */

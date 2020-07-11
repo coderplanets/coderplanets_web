@@ -1,4 +1,5 @@
 import React from 'react'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
 
@@ -14,9 +15,9 @@ import {
 
 import { changeView } from '../logic'
 
-const Actions = ({ view }) => {
+const Actions = ({ view, testid }) => {
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <InnerWrapper>
         {view === 'default' ? (
           <React.Fragment>
@@ -34,4 +35,13 @@ const Actions = ({ view }) => {
   )
 }
 
-export default Actions
+Actions.propTypes = {
+  view: T.oneOf(['default', 'detail']).isRequired,
+  testid: T.string,
+}
+
+Actions.defaultProps = {
+  testid: 'subscribe-actions',
+}
+
+export default React.memo(Actions)

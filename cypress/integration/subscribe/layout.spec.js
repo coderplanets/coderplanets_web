@@ -14,10 +14,7 @@ describe('subscribe page: ', () => {
     cy.id('footer').should('be.visible')
   })
 
-  it('filter bar', () => {
-    cy.id('filter-bar').should('be.visible')
-    cy.id('filter-navi-intro').should('be.visible')
-    cy.id('filter-searchbox').should('be.visible')
-    cy.id('filter-navi-menu').should('be.visible')
+  it('actions', () => {
+    cy.id('subscribe-actions').should('be.visible')
   })
 })
