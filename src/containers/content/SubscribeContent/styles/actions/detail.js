@@ -20,7 +20,7 @@ export const Dot = styled(DotDivider)`
   background: ${theme('thread.articleTitle')};
   margin-right: 8px;
 `
-export const Desc = styled.p`
+export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   padding-left: 25px;
   word-break: break-all;
