@@ -6,7 +6,7 @@ import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-both')};
-  width: 40%;
+  /* width: 40%; */
   padding-left: 5%;
   margin-top: 10%;
 `
