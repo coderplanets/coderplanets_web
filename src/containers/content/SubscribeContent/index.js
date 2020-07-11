@@ -43,7 +43,7 @@ SubscribeContentContainer.propTypes = {
 }
 
 SubscribeContentContainer.defaultProps = {
-  testid: 'subscribeContent',
+  testid: 'subscribe-content',
 }
 
 export default connectStore(SubscribeContentContainer)
