@@ -153,7 +153,7 @@
     "pretty-quick": "^1.10.0",
     "react-test-renderer": "16.10.0",
     "shelljs": "0.8.4",
-    "standard-version": "^7.0.0",
+    "standard-version": "^8.0.1",
     "start-server-and-test": "1.10.1"
   }
 }
