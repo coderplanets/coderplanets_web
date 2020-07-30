@@ -7,6 +7,6 @@ Router.onRouteChangeComplete = (url) => {
   GA.pageview(url)
 }
 
-/* eslint-disable */
-export default ({ children }) => <div>{children}</div>
-/* eslint-enable */
+const Analysis = ({ children }) => <div>{children}</div>
+
+export default Analysis
