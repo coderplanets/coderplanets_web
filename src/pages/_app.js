@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import * as Sentry from '@sentry/node'
 
@@ -19,13 +20,24 @@ Sentry.init({
 })
 
 const App = ({ Component, pageProps, err }) => {
-  return err ? (
-    <CrashErrorHint />
-  ) : (
-    /* render normal next.js app */
+  return (
     <React.Fragment>
-      <DefaultSeo {...SEO} />
-      <Component {...pageProps} />
+      {/* see: https://github.com/vercel/next.js/blob/master/errors/no-document-viewport-meta.md */}
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+      </Head>
+      {err ? (
+        <CrashErrorHint />
+      ) : (
+        /* render normal next.js app */
+        <React.Fragment>
+          <DefaultSeo {...SEO} />
+          <Component {...pageProps} />
+        </React.Fragment>
+      )}
     </React.Fragment>
   )
 }
