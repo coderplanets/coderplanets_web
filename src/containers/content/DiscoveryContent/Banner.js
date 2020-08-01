@@ -46,7 +46,7 @@ const Banner = ({
   },
 }) => {
   return (
-    <BannerContainer testid="communities-banner">
+    <BannerContainer testid="discovery-banner">
       <IntroWrapper>
         <IntroTitle>
           <SearchIcon src={`${ICON_CMD}/search.svg`} />
@@ -74,7 +74,7 @@ const Banner = ({
           <IntroDesc>
             或者，来为你
             <SlogenText />
-            <Link href={`/${ROUTE.COMMUNITIES}/new`} passHref>
+            <Link href={`/${ROUTE.DISCOVERY}/new`} passHref>
               <CreateCommunityLink>建立一个社区</CreateCommunityLink>
             </Link>
             吧！

@@ -1,5 +1,5 @@
 /*
-   this page is for /communities
+   this page is for /create/community
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
@@ -86,7 +86,7 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    communitiesContent: {
+    discoveryContent: {
       pagedCommunities,
       pagedCategories,
     },
@@ -95,18 +95,18 @@ export const getServerSideProps = async (props) => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const NewCommunityPage = (props) => {
+const CreateCommunityPage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/communities`,
+    url: `${SITE_URL}/create/community`,
     title: '建立新社区 | coderplanets',
     description: '建立新社区',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.COMMUNITIES} seoConfig={seoConfig}>
+      <GlobalLayout page={ROUTE.DISCOVERY} seoConfig={seoConfig}>
         {/* <h2>22</h2> */}
         <NewCommunityContent />
       </GlobalLayout>
@@ -114,4 +114,4 @@ const NewCommunityPage = (props) => {
   )
 }
 
-export default NewCommunityPage
+export default CreateCommunityPage

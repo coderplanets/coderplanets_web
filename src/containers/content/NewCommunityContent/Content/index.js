@@ -16,7 +16,7 @@ import { Wrapper } from '../styles/content'
 import { LN } from '../logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:NewCommunitiesContent')
+const log = buildLog('C:NewDiscoveryContent')
 
 const Content = ({
   step,

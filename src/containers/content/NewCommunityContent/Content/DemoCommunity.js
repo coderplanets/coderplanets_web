@@ -20,7 +20,7 @@ import {
 // import { searchOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:NewCommunitiesContent')
+const log = buildLog('C:NewDiscoveryContent')
 
 const DemoCommunity = ({ title, type = 'pl' }) => {
   const unit = type === 'city' ? 'svg' : 'png'

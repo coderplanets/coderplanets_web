@@ -1,22 +1,27 @@
+/*
+   this page is for /discovery
+ */
 import React from 'react'
 import { Provider } from 'mobx-react'
-import { merge, toUpper } from 'ramda'
+import { merge } from 'ramda'
 
-import { PAGE_SIZE, SITE_URL } from '@/config'
-import { TYPE, ROUTE, THREAD } from '@/constant'
+import { SITE_URL } from '@/config'
+import { ROUTE } from '@/constant'
+
 import {
   getJwtToken,
-  nilOrEmpty,
   makeGQClient,
+  queryStringToJSON,
   ssrParseURL,
+  nilOrEmpty,
   ssrAmbulance,
   parseTheme,
 } from '@/utils'
+
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
-import ArticleBanner from '@/containers/banner/ArticleBanner'
-import RepoContent from '@/containers/content/RepoContent'
+import DiscoveryContent from '@/containers/content/DiscoveryContent'
 
 import { P } from '@/schemas'
 
@@ -26,17 +31,18 @@ const fetchData = async (props, opt) => {
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
+  const { subPath } = ssrParseURL(props.req)
+  const category = subPath !== '' ? subPath : 'pl'
 
-  const { thirdPath: id } = ssrParseURL(props.req)
+  const filter = { ...queryStringToJSON(props.req.url, { pagi: 'number' }) }
 
   const sessionState = gqClient.request(P.sessionState)
-  const repo = gqClient.request(P.repo, { id })
-  const pagedComments = gqClient.request(P.pagedComments, {
-    id,
+  const pagedCommunities = gqClient.request(P.pagedCommunities, {
+    filter: { ...filter, category },
     userHasLogin,
-    thread: toUpper(THREAD.POST),
-    filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
   })
+  const pagedCategories = gqClient.request(P.pagedCategories, { filter })
+
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -45,30 +51,33 @@ const fetchData = async (props, opt) => {
   })
 
   return {
+    category,
     ...(await sessionState),
-    ...(await repo),
-    ...(await pagedComments),
+    ...(await pagedCategories),
+    ...(await pagedCommunities),
     ...(await subscribedCommunities),
   }
 }
 
 export const getServerSideProps = async (props) => {
-  const { mainPath } = ssrParseURL(props.req)
-
+  // const { communityPath, thread } = ssrParseURL(props.req)
   let resp
   try {
     resp = await fetchData(props)
   } catch ({ response: { errors } }) {
     if (ssrAmbulance.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
-    } else {
-      return { props: { errorCode: 404 } }
     }
   }
 
-  const { sessionState, repo, pagedComments, subscribedCommunities } = resp
+  const {
+    // category,
+    sessionState,
+    pagedCategories,
+    pagedCommunities,
+    subscribedCommunities,
+  } = resp
 
-  const { origialCommunity: community, ...viewingContent } = repo
   const initProps = {
     theme: {
       curTheme: parseTheme(sessionState),
@@ -78,51 +87,37 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    route: { mainPath, subPath: ROUTE.REPO },
-    viewing: {
-      repo: viewingContent,
-      activeThread: THREAD.REPO,
-      community,
+    discoveryContent: {
+      pagedCommunities,
+      pagedCategories,
     },
-    comments: { pagedComments },
   }
 
   return { props: { errorCode: null, ...initProps } }
 }
 
-const RepoPage = (props) => {
+const DiscoveryPage = (props) => {
   const store = useStore(props)
 
-  const { viewing, route, errorCode } = props
-  const { repo } = viewing
-
-  const { mainPath } = route
+  const { errorCode } = store
 
   const seoConfig = {
-    url: `${SITE_URL}/${mainPath}/repo/${repo.id}`,
-    title: `${repo.title}`,
-    datePublished: `${repo.insertedAt}`,
-    dateModified: `${repo.updatedAt}`,
-    authorName: `${repo.author.nickname}`,
-    description: `${repo.title}`,
-    images: [],
+    url: `${SITE_URL}/discovery`,
+    title: '社区索引 | coderplanets',
+    description: 'coderplanets 所有社区节点',
   }
 
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.REPO}
-        metric="article"
+        page={ROUTE.DISCOVERY}
         seoConfig={seoConfig}
         errorCode={errorCode}
-        errorPath={`/${mainPath}/job/${repo.id}`}
-        noSidebar
       >
-        <ArticleBanner showStar={false} showWordCount={false} showLastSync />
-        <RepoContent />
+        <DiscoveryContent />
       </GlobalLayout>
     </Provider>
   )
 }
 
-export default RepoPage
+export default DiscoveryPage

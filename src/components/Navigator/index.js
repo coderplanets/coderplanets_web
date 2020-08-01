@@ -23,7 +23,7 @@ const Navigator = ({ curCommunity, layout }) => {
   const [mainPath, subPath] = getRoutePathList(router.asPath)
 
   if (
-    contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
+    contains(mainPath, [ROUTE.USER, ROUTE.DISCOVERY]) ||
     contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
     return <DigestView />

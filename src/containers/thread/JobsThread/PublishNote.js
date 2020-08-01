@@ -1,7 +1,9 @@
 import React from 'react'
 
-import Modal from '@/components/Modal'
 import { DEFAULT_USER_AVATAR } from '@/config'
+import { ROUTE } from '@/constant'
+
+import Modal from '@/components/Modal'
 
 // import { ICON_CMD } from '@/config'
 import { Wrapper, NoteIcon, NoteDesc, Linker } from './styles/publish_note'
@@ -14,7 +16,7 @@ const PublishNote = ({ show }) => (
       <NoteIcon src={`${DEFAULT_USER_AVATAR}`} />
       <NoteDesc>
         首页（home社区）只展示各个社区的招聘信息, 请将您的招聘信息发布到
-        <Linker href="/communities">对应的社区</Linker>。
+        <Linker href={`/${ROUTE.DISCOVERY}`}>对应的社区</Linker>。
       </NoteDesc>
     </Wrapper>
   </Modal>

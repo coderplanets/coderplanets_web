@@ -46,7 +46,7 @@ import {
   JobContentStore,
   VideoContentStore,
   RepoContentStore,
-  CommunitiesContentStore,
+  DiscoveryContentStore,
   NewCommunityContentStore,
   UserContentStore,
   // footer
@@ -155,7 +155,7 @@ const rootStore = T.model({
   // content
   communityContent: T.optional(CommunityContentStore, {}),
 
-  communitiesContent: T.optional(CommunitiesContentStore, {}),
+  discoveryContent: T.optional(DiscoveryContentStore, {}),
   newCommunityContent: T.optional(NewCommunityContentStore, {}),
   postContent: T.optional(PostContentStore, {}),
   jobContent: T.optional(JobContentStore, {}),
@@ -240,9 +240,6 @@ const rootStore = T.model({
     },
   }))
   .actions((self) => ({
-    afterCreate() {
-      // self.communities.load()
-    },
     markRoute(query, opt) {
       self.route.markRoute(query, opt)
     },

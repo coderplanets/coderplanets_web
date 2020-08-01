@@ -93,14 +93,14 @@ router.route('/:community/repo/:id').get((req, res) => {
 })
 
 // 创建新社区
-router.route('/communities/new').get((req, res) => {
+router.route('/discovery/new').get((req, res) => {
   return renderAndCache({ req, res })
 })
 // 所有社区
-router.route('/communities').get((req, res) => res.redirect('/communities/pl'))
+router.route('/discovery').get((req, res) => res.redirect('/discovery/pl'))
 
-router.route('/communities/:category').get((req, res) => {
-  return renderAndCache({ req, res, path: '/communities' })
+router.route('/discovery/:category').get((req, res) => {
+  return renderAndCache({ req, res, path: '/discovery' })
 })
 
 // 社区主页

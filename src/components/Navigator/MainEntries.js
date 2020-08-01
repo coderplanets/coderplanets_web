@@ -20,12 +20,12 @@ const MainEntries = ({ type }) => {
 
   return (
     <Wrapper type={type}>
-      <Link href="/communities" passHref>
+      <Link href={`/${ROUTE.DISCOVERY}`} passHref>
         <SiteLink
-          active={mainPath === 'communities'}
-          testid="header-communities-link"
+          active={mainPath === ROUTE.DISCOVERY}
+          testid="header-discovery-link"
         >
-          社区
+          发现
         </SiteLink>
       </Link>
       {/* <DotDivider space={splitMargin} />

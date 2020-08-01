@@ -381,15 +381,15 @@ const initSpecCmdResolver = () => {
       },
     },
     {
-      match: SAK.stepOneCmd('communities'),
+      match: SAK.stepOneCmd('discovery'),
       action: () => {
-        log('SAK.stepOneCmd communities')
+        log('SAK.stepOneCmd discovery')
         Router.push(
           {
             pathname: '/',
-            query: { main: 'communities', sub: 'all' },
+            query: { main: 'discovery', sub: 'all' },
           },
-          '/communities',
+          '/discovery',
         )
         hidePanel()
       },

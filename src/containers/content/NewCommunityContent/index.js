@@ -1,6 +1,6 @@
 /*
  *
- * CommunitiesContent
+ * DiscoveryContent
  *
  */
 
@@ -15,7 +15,7 @@ import { Wrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:CommunitiesContent')
+const log = buildLog('C:DiscoveryContent')
 
 const NewCommunityContentContainer = ({ newCommunityContent: store }) => {
   useInit(store)

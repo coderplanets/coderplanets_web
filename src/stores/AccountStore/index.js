@@ -96,22 +96,6 @@ const AccountStore = T.model('AccountStore', {
 
       self.userSubscribedCommunities.entries = insert(0, community, entries)
       self.userSubscribedCommunities.totalCount += 1
-
-      // self.root.communitiesContent.toggleSubscribe(community)
-
-      /*
-
-      const {
-        user: {
-          subscribedCommunities: { entries },
-        },
-      } = self
-
-      self.user.subscribedCommunities.entries = insert(0, community, entries)
-      self.user.subscribedCommunities.totalCount += 1
-
-      self.root.communitiesContent.toggleSubscribe(community)
-      */
     },
 
     removeSubscribedCommunity(community) {
@@ -122,17 +106,6 @@ const AccountStore = T.model('AccountStore', {
       const index = findIndex(propEq('id', community.id), entries)
       self.userSubscribedCommunities.entries = remove(index, 1, entries)
       self.userSubscribedCommunities.totalCount -= 1
-
-      // self.root.communitiesContent.toggleSubscribe(community)
-      /*
-         const { user: { subscribedCommunities: { entries } } } = self
-
-         const index = findIndex(propEq('id', community.id), entries)
-         self.user.subscribedCommunities.entries = remove(index, 1, entries)
-         self.user.subscribedCommunities.totalCount -= 1
-
-         self.root.communitiesContent.toggleSubscribe(community)
-       */
     },
     updateC11N(options) {
       const curCustomization = clone(self.accountInfo.customization)

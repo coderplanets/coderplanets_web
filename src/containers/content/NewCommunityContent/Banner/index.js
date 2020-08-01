@@ -17,7 +17,7 @@ import { Wrapper } from '../styles/banner'
 import { LN } from '../logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:CommunitiesBanner')
+const log = buildLog('C:CreateCommunityBanner')
 
 const Banner = ({
   step,
@@ -42,7 +42,7 @@ const Banner = ({
     }
   }
 
-  return <Wrapper testid="communities-banner">{stepComp}</Wrapper>
+  return <Wrapper testid="create-community-banner">{stepComp}</Wrapper>
 }
 
 export default React.memo(Banner)

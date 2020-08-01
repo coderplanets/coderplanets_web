@@ -13,7 +13,7 @@ import {
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:CommunitiesContent')
+const log = buildLog('L:DiscoveryContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
@@ -175,7 +175,7 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      errRescue({ type: ERR.TIMEOUT, details, path: 'CommunitiesContent' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'DiscoveryContent' })
       cancelLoading()
     },
   },
@@ -183,7 +183,7 @@ const ErrSolver = [
     match: asyncErr(ERR.NETWORK),
     action: () => {
       cancelLoading()
-      errRescue({ type: ERR.NETWORK, path: 'CommunitiesContent' })
+      errRescue({ type: ERR.NETWORK, path: 'DiscoveryContent' })
     },
   },
 ]
