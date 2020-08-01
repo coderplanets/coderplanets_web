@@ -4,7 +4,7 @@ import { lighten } from 'polished'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.button`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-both')};
   -webkit-appearance: button;
   outline: none;
 
@@ -57,6 +57,28 @@ export const Wrapper = styled.button`
     background-color: ${({ ghost }) =>
       !ghost ? theme('button.hoverBg') : 'transparent'};
   }
+`
+export const ChildrenWrapper = styled.div`
+  ${cs.flex('align-both')};
+  position: relative;
+  z-index: 2;
+`
+export const RealChildren = styled.div`
+  opacity: ${({ loading }) => (loading ? 0 : 1)};
+`
+export const LoadingText = styled.div`
+  opacity: ${({ loading }) => (!loading ? 0 : 1)};
+  position: absolute;
+`
+export const LoadingMask = styled.div`
+  position: absolute;
+  width: ${({ width }) => width};
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: ${({ width }) => (width === '100%' ? 'transparent' : '#2c6b94')};
+  z-index: 1;
+  transition: width 0.3s;
 `
 export const RedWrapper = styled(Wrapper)`
   color: ${({ ghost }) => (ghost ? theme('baseColor.error') : 'white')};
