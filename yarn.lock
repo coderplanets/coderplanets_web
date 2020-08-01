@@ -1009,13 +1009,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
-  version "7.10.0"
-  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.10.0.tgz?cache=0&sync_timestamp=1590529686321&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.10.0.tgz#2cdcd6d7a391c24f7154235134c830cfb58ac0b1"
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.4.5":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.10.2"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
   dependencies:
@@ -10078,9 +10072,10 @@ react-resize-detector@4.2.3:
     raf-schd "^4.0.2"
     resize-observer-polyfill "^1.5.1"
 
-react-sortable-hoc@1.7.1:
-  version "1.7.1"
-  resolved "https://registry.npm.taobao.org/react-sortable-hoc/download/react-sortable-hoc-1.7.1.tgz?cache=0&sync_timestamp=1579486466942&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-sortable-hoc%2Fdownload%2Freact-sortable-hoc-1.7.1.tgz#2d61c6003f22523ab3adfe37e69774c5d73c1ac6"
+react-sortable-hoc@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/react-sortable-hoc/-/react-sortable-hoc-1.11.0.tgz#fe4022362bbafc4b836f5104b9676608a40a278f"
+  integrity sha512-v1CDCvdfoR3zLGNp6qsBa4J1BWMEVH25+UKxF/RvQRh+mrB+emqtVHMgZ+WreUiKJoEaiwYoScaueIKhMVBHUg==
   dependencies:
     "@babel/runtime" "^7.2.0"
     invariant "^2.2.4"
