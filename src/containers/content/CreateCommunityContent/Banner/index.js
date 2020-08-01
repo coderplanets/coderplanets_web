@@ -1,6 +1,6 @@
 /*
  *
- * Content
+ * Banner
  *
  */
 
@@ -8,17 +8,18 @@ import React from 'react'
 
 import { buildLog } from '@/utils'
 
+// import SearchBox from './SearchBox'
 import SelectType from './SelectType'
 import SetupDomain from './SetupDomain'
 import SetupInfo from './SetupInfo'
 
-import { Wrapper } from '../styles/content'
+import { Wrapper } from '../styles/banner'
 import { LN } from '../logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:NewCommunitiesContent')
+const log = buildLog('C:CreateCommunityBanner')
 
-const Content = ({
+const Banner = ({
   step,
   selectTypeStatus,
   setupDomainStatus,
@@ -32,20 +33,16 @@ const Content = ({
       stepComp = <SelectType status={selectTypeStatus} />
       break
     }
-    case STEP.SETUP_DOMAIN: {
-      stepComp = <SetupDomain status={setupDomainStatus} />
-      break
-    }
     case STEP.SETUP_INFO: {
       stepComp = <SetupInfo status={setupInfoStatus} />
       break
     }
     default: {
-      stepComp = <div>unknow step</div>
+      stepComp = <SetupDomain status={setupDomainStatus} />
     }
   }
 
-  return <Wrapper>{stepComp}</Wrapper>
+  return <Wrapper testid="create-community-banner">{stepComp}</Wrapper>
 }
 
-export default React.memo(Content)
+export default React.memo(Banner)

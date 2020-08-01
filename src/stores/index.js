@@ -35,8 +35,8 @@ export { default as ArticleBannerStore } from '@/containers/banner/ArticleBanner
 // contents store
 export { default as CommunityContentStore } from '@/containers/content/CommunityContent/store'
 
-export { default as CommunitiesContentStore } from '@/containers/content/CommunitiesContent/store'
-export { default as NewCommunityContentStore } from '@/containers/content/NewCommunityContent/store'
+export { default as DiscoveryContentStore } from '@/containers/content/DiscoveryContent/store'
+export { default as CreateCommunityContentStore } from '@/containers/content/CreateCommunityContent/store'
 export { default as PostContentStore } from '@/containers/content/PostContent/store'
 export { default as JobContentStore } from '@/containers/content/JobContent/store'
 export { default as VideoContentStore } from '@/containers/content/VideoContent/store'

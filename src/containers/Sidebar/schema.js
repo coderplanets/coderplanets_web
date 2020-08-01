@@ -30,7 +30,6 @@ const setCustomization = gql`
 `
 
 const schema = {
-  // communities,
   subscribedCommunities,
   setCustomization,
 }

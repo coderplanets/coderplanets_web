@@ -26,7 +26,7 @@ after combining the actual needs of the community and referring to various excel
 │      ├── _error.js
 |        .... skip ....
 │      ├── api.js
-│      ├── communities.js
+│      ├── discovery.js
 ├── server.js                                // custom node server
 ├── stores                                   // comon/top-level state stores
 │      ├── AccountStore

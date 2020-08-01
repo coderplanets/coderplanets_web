@@ -7,7 +7,7 @@
 ├── _app.js
 ├── _document.js
 ├── _error.js
-├── communities.js
+├── discovery.js
 ├── community.js
 ├── index.js
 ├── job.js

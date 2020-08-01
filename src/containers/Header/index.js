@@ -40,7 +40,7 @@ const HeaderContainer = ({ header: store, metric }) => {
 
   useEffect(() => {
     setHasNoBottomBorder(
-      contains(mainPath, [ROUTE.COMMUNITIES, ROUTE.SPONSOR, ROUTE.SUBSCRIBE]),
+      contains(mainPath, [ROUTE.DISCOVERY, ROUTE.SPONSOR, ROUTE.SUBSCRIBE]),
     )
   }, [mainPath])
 

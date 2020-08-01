@@ -40,7 +40,7 @@ export const searchCommunityValueOnChange = (e) =>
 export const onCommunitySelect = (community) => {
   // NOTE: check page, if current it's from communities then redirect whole page
   const { mainPath } = store.curRoute
-  if (contains(mainPath, [ROUTE.COMMUNITIES])) {
+  if (contains(mainPath, [ROUTE.DISCOVERY])) {
     Global.location.href = `/${community.raw}/posts`
     return false
   }

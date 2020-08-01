@@ -108,7 +108,7 @@ const zIndex = {
 // global max width
 export const GLOBAL_MAX_WIDTH = '1520px'
 
-// home page, communities page
+// home page, discovery page
 export const MAX_CONTENT_WIDTH = '1520px'
 
 // single post/job page

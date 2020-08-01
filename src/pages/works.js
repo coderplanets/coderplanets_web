@@ -1,5 +1,5 @@
 /*
-   this page is for /communities
+   this page is for /works
  */
 import React from 'react'
 import { Provider } from 'mobx-react'

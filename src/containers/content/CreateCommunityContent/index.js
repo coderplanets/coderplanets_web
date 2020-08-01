@@ -1,6 +1,6 @@
 /*
  *
- * CommunitiesContent
+ * DiscoveryContent
  *
  */
 
@@ -15,9 +15,9 @@ import { Wrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:CommunitiesContent')
+const log = buildLog('C:DiscoveryContent')
 
-const NewCommunityContentContainer = ({ newCommunityContent: store }) => {
+const CreateCommunityContentContainer = ({ createCommunityContent: store }) => {
   useInit(store)
   const { step, selectTypeStatus, setupDomainStatus, setupInfoStatus } = store
 
@@ -41,8 +41,8 @@ const NewCommunityContentContainer = ({ newCommunityContent: store }) => {
   )
 }
 
-NewCommunityContentContainer.getInitialProps = async () => ({
+CreateCommunityContentContainer.getInitialProps = async () => ({
   namespacesRequired: ['common'],
 })
 
-export default connectStore(NewCommunityContentContainer)
+export default connectStore(CreateCommunityContentContainer)

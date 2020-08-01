@@ -68,11 +68,6 @@ export const getServerSideProps = async (props) => {
 
   const { sessionState, repo, pagedComments, subscribedCommunities } = resp
 
-  // if (!contains(mainPath, pluck('raw', post.communities))) {
-  //   console.log("## hello 1.1 --> ", subPath)
-  //   return { props: { errorCode: 404 } }
-  // }
-
   const { origialCommunity: community, ...viewingContent } = repo
   const initProps = {
     theme: {

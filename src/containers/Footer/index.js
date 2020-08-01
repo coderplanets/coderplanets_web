@@ -49,7 +49,7 @@ const FooterContainer = ({ footer: store }) => {
 
   useEffect(() => {
     if (
-      contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
+      contains(mainPath, [ROUTE.USER, ROUTE.DISCOVERY]) ||
       contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
     ) {
       setCurView('BRIEF')

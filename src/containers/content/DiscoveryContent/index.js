@@ -1,6 +1,6 @@
 /*
  *
- * CommunitiesContent
+ * DiscoveryContent
  *
  */
 
@@ -25,9 +25,9 @@ import {
 import { useInit, pageOnChange, menuOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:CommunitiesContent')
+const log = buildLog('C:DiscoveryContent')
 
-const CommunitiesContentContainer = ({ communitiesContent: store }) => {
+const DiscoveryContentContainer = ({ discoveryContent: store }) => {
   useInit(store)
 
   const {
@@ -77,4 +77,4 @@ const CommunitiesContentContainer = ({ communitiesContent: store }) => {
   )
 }
 
-export default connectStore(CommunitiesContentContainer)
+export default connectStore(DiscoveryContentContainer)

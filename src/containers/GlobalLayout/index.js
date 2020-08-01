@@ -116,7 +116,7 @@ const GlobalLayoutContainer = ({
                 >
                   <ContentWrapper
                     offsetLeft={
-                      !!(page === ROUTE.COMMUNITY || page === ROUTE.COMMUNITIES)
+                      !!(page === ROUTE.COMMUNITY || page === ROUTE.DISCOVERY)
                     }
                   >
                     <Header metric={metric} />

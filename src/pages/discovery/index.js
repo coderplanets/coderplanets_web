@@ -1,5 +1,5 @@
 /*
-   this page is for /communities
+   this page is for /discovery
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
@@ -8,20 +8,20 @@ import { merge } from 'ramda'
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
 
-import { useStore } from '@/stores/init'
-
 import {
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
+  ssrParseURL,
   nilOrEmpty,
   ssrAmbulance,
-  ssrParseURL,
   parseTheme,
 } from '@/utils'
 
+import { useStore } from '@/stores/init'
+
 import GlobalLayout from '@/containers/GlobalLayout'
-import NewCommunityContent from '@/containers/content/NewCommunityContent'
+import DiscoveryContent from '@/containers/content/DiscoveryContent'
 
 import { P } from '@/schemas'
 
@@ -60,6 +60,7 @@ const fetchData = async (props, opt) => {
 }
 
 export const getServerSideProps = async (props) => {
+  // const { communityPath, thread } = ssrParseURL(props.req)
   let resp
   try {
     resp = await fetchData(props)
@@ -86,7 +87,7 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    communitiesContent: {
+    discoveryContent: {
       pagedCommunities,
       pagedCategories,
     },
@@ -95,23 +96,28 @@ export const getServerSideProps = async (props) => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const NewCommunityPage = (props) => {
+const DiscoveryPage = (props) => {
   const store = useStore(props)
 
+  const { errorCode } = store
+
   const seoConfig = {
-    url: `${SITE_URL}/communities`,
-    title: '建立新社区 | coderplanets',
-    description: '建立新社区',
+    url: `${SITE_URL}/discovery`,
+    title: '社区索引 | coderplanets',
+    description: 'coderplanets 所有社区节点',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.COMMUNITIES} seoConfig={seoConfig}>
-        {/* <h2>22</h2> */}
-        <NewCommunityContent />
+      <GlobalLayout
+        page={ROUTE.DISCOVERY}
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+      >
+        <DiscoveryContent />
       </GlobalLayout>
     </Provider>
   )
 }
 
-export default NewCommunityPage
+export default DiscoveryPage

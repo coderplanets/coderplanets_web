@@ -1,5 +1,5 @@
 /*
-   this page is for /communities
+   this page is for /create/community
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
@@ -8,20 +8,20 @@ import { merge } from 'ramda'
 import { SITE_URL } from '@/config'
 import { ROUTE } from '@/constant'
 
+import { useStore } from '@/stores/init'
+
 import {
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
-  ssrParseURL,
   nilOrEmpty,
   ssrAmbulance,
+  ssrParseURL,
   parseTheme,
 } from '@/utils'
 
-import { useStore } from '@/stores/init'
-
 import GlobalLayout from '@/containers/GlobalLayout'
-import CommunitiesContent from '@/containers/content/CommunitiesContent'
+import CreateCommunityContent from '@/containers/content/CreateCommunityContent'
 
 import { P } from '@/schemas'
 
@@ -60,7 +60,6 @@ const fetchData = async (props, opt) => {
 }
 
 export const getServerSideProps = async (props) => {
-  // const { communityPath, thread } = ssrParseURL(props.req)
   let resp
   try {
     resp = await fetchData(props)
@@ -87,7 +86,7 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    communitiesContent: {
+    discoveryContent: {
       pagedCommunities,
       pagedCategories,
     },
@@ -96,28 +95,23 @@ export const getServerSideProps = async (props) => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const CommunitiesPage = (props) => {
+const CreateCommunityPage = (props) => {
   const store = useStore(props)
 
-  const { errorCode } = store
-
   const seoConfig = {
-    url: `${SITE_URL}/communities`,
-    title: '社区索引 | coderplanets',
-    description: 'coderplanets 所有社区节点',
+    url: `${SITE_URL}/create/community`,
+    title: '建立新社区 | coderplanets',
+    description: '建立新社区',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        page={ROUTE.COMMUNITIES}
-        seoConfig={seoConfig}
-        errorCode={errorCode}
-      >
-        <CommunitiesContent />
+      <GlobalLayout page={ROUTE.DISCOVERY} seoConfig={seoConfig}>
+        {/* <h2>22</h2> */}
+        <CreateCommunityContent />
       </GlobalLayout>
     </Provider>
   )
 }
 
-export default CommunitiesPage
+export default CreateCommunityPage

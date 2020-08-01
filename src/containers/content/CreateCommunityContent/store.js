@@ -1,5 +1,5 @@
 /*
- * CommunitiesContentStore store
+ * DiscoveryContentStore store
  *
  */
 
@@ -10,9 +10,9 @@ import { markStates, buildLog } from '@/utils'
 
 import { LN } from './logic'
 /* eslint-disable-next-line */
-const log = buildLog('S:CommunitiesContentStore')
+const log = buildLog('S:DiscoveryContentStore')
 
-const CommunitiesContentStore = T.model('NewCommunityContentStore', {
+const DiscoveryContentStore = T.model('CreateCommunityContentStore', {
   step: T.optional(
     T.enumeration([
       LN.STEP.SELECT_TYPE,
@@ -92,4 +92,4 @@ const CommunitiesContentStore = T.model('NewCommunityContentStore', {
     },
   }))
 
-export default CommunitiesContentStore
+export default DiscoveryContentStore

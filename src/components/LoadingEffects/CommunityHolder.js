@@ -14,7 +14,7 @@ const CommunityHolder = ({ place, text }) => {
     case 'sidebar':
       return <SidebarText>{toUpper(text.slice(0, 1))}</SidebarText>
 
-    case 'communities':
+    case 'discovery':
       return <CommunitiesText>{toUpper(text.slice(0, 2))}</CommunitiesText>
 
     default:
@@ -28,7 +28,7 @@ const CommunityHolder = ({ place, text }) => {
 
 CommunityHolder.propTypes = {
   text: T.string.isRequired,
-  place: T.oneOf(['banner', 'sidebar', 'communities']),
+  place: T.oneOf(['banner', 'sidebar', 'discovery']),
 }
 
 CommunityHolder.defaultProps = {

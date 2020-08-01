@@ -7,7 +7,7 @@ Simply put, the `directory structure is the route`. The files under the pages di
 ├── _app.js
 ├── _document.js
 ├── _error.js
-├── communities.js
+├── discovery.js
 ├── community.js
 ├── index.js
 ├── job.js

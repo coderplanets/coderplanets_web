@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { GITHUB_WEB_ADDR, ISSUE_ADDR } from '@/config'
+import { ROUTE } from '@/constant'
 import DotDivider from '@/components/DotDivider'
 
 import {
@@ -18,7 +19,7 @@ import { toggleBusBanner, queryDoraemon } from './logic'
 const MobileBottomInfo = () => (
   <React.Fragment>
     <LinkInfoWrapper>
-      <ItemBtn as="a" href="/communities" rel="noopener noreferrer">
+      <ItemBtn as="a" href={`/${ROUTE.DISCOVERY}`} rel="noopener noreferrer">
         所有社区
       </ItemBtn>
       <DotDivider radius="4px" />

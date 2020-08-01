@@ -1,8 +1,8 @@
 //
-describe('communities page: ', () => {
+describe('discovery page: ', () => {
   // beforeEach(() => {
   before(() => {
-    cy.visit('/communities')
+    cy.visit('/discovery')
   })
 
   it('basic layout', () => {
@@ -13,12 +13,12 @@ describe('communities page: ', () => {
 
     cy.id('sidebar').should('be.visible')
 
-    cy.id('communities-banner').should('be.visible')
+    cy.id('discovery-banner').should('be.visible')
     cy.id('footer').should('be.visible')
   })
 
-  it('communities link should be highlight', () => {
-    cy.id('header-communities-link')
+  it('discovery link should be highlight', () => {
+    cy.id('header-discovery-link')
       .should('not.have.css', 'background', 'transparent')
       .and('have.css', 'padding', '5px 3px 3px')
   })

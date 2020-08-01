@@ -21,7 +21,7 @@ const CityCard = ({ community }) => {
     <Wrapper onClick={() => onCommunitySelect(community)}>
       <CommunityIcon
         src={community.logo}
-        loading={<CommunityHolder text={community.raw} place="communities" />}
+        loading={<CommunityHolder text={community.raw} place="discovery" />}
       />
       <CardTitle>{community.title}</CardTitle>
       <CardDesc>{community.desc}</CardDesc>

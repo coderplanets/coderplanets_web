@@ -28,7 +28,7 @@ const CommunityCard = ({ community, restProps }) => (
       <CommunityIcon
         nonFill={contains(community.raw, NON_FILL_COMMUNITY)}
         src={community.logo}
-        loading={<CommunityHolder text={community.raw} place="communities" />}
+        loading={<CommunityHolder text={community.raw} place="discovery" />}
       />
     </a>
     <Title>{community.title}</Title>
