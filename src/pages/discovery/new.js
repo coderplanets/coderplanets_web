@@ -21,7 +21,7 @@ import {
 } from '@/utils'
 
 import GlobalLayout from '@/containers/GlobalLayout'
-import NewCommunityContent from '@/containers/content/NewCommunityContent'
+import CreateCommunityContent from '@/containers/content/CreateCommunityContent'
 
 import { P } from '@/schemas'
 
@@ -108,7 +108,7 @@ const NewCommunityPage = (props) => {
     <Provider store={store}>
       <GlobalLayout page={ROUTE.DISCOVERY} seoConfig={seoConfig}>
         {/* <h2>22</h2> */}
-        <NewCommunityContent />
+        <CreateCommunityContent />
       </GlobalLayout>
     </Provider>
   )

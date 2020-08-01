@@ -47,7 +47,7 @@ import {
   VideoContentStore,
   RepoContentStore,
   DiscoveryContentStore,
-  NewCommunityContentStore,
+  CreateCommunityContentStore,
   UserContentStore,
   // footer
   FooterStore,
@@ -156,7 +156,7 @@ const rootStore = T.model({
   communityContent: T.optional(CommunityContentStore, {}),
 
   discoveryContent: T.optional(DiscoveryContentStore, {}),
-  newCommunityContent: T.optional(NewCommunityContentStore, {}),
+  createCommunityContent: T.optional(CreateCommunityContentStore, {}),
   postContent: T.optional(PostContentStore, {}),
   jobContent: T.optional(JobContentStore, {}),
   videoContent: T.optional(VideoContentStore, {}),

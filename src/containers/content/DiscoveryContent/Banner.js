@@ -9,7 +9,6 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
 import { ICON_CMD } from '@/config'
-import { ROUTE } from '@/constant'
 import { buildLog } from '@/utils'
 
 import SearchBox from './SearchBox'
@@ -74,7 +73,7 @@ const Banner = ({
           <IntroDesc>
             或者，来为你
             <SlogenText />
-            <Link href={`/${ROUTE.DISCOVERY}/new`} passHref>
+            <Link href="/create/community" passHref>
               <CreateCommunityLink>建立一个社区</CreateCommunityLink>
             </Link>
             吧！

@@ -12,7 +12,7 @@ import { LN } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('S:DiscoveryContentStore')
 
-const DiscoveryContentStore = T.model('NewCommunityContentStore', {
+const DiscoveryContentStore = T.model('CreateCommunityContentStore', {
   step: T.optional(
     T.enumeration([
       LN.STEP.SELECT_TYPE,

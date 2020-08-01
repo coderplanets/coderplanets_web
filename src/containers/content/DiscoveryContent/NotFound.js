@@ -22,7 +22,7 @@ const NotFound = ({ searchValue }) => {
         </EmptyTitle>
         <EmptyDesc>
           若没有你感兴趣的社区, 你可以
-          <Link href="/communities/new" passHref>
+          <Link href="/create/community" passHref>
             <IssueLink>参与创建</IssueLink>
           </Link>
         </EmptyDesc>
