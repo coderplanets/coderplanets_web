@@ -27,7 +27,7 @@ const InformerContainer = ({ informer: store, title, children }) => {
   const { showModal, curView, viewingData, type, message } = store
 
   return (
-    <>
+    <React.Fragment>
       <Modal width="500px" show={showModal} showCloseBtn onClose={toggleModal}>
         <>
           <Header data={viewingData} />
@@ -48,7 +48,7 @@ const InformerContainer = ({ informer: store, title, children }) => {
           </Wrapper>
         )}
       </>
-    </>
+    </React.Fragment>
   )
 }
 

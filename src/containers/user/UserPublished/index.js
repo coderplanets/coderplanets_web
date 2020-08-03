@@ -25,7 +25,7 @@ const UserPublishedContainer = ({ userPublished: store }) => {
   const { totalCount } = pagedData
 
   return (
-    <>
+    <React.Fragment>
       <ThreadWrapper>
         <ThreadSelector
           active={curThread}
@@ -44,7 +44,7 @@ const UserPublishedContainer = ({ userPublished: store }) => {
         onPageChange={onReload}
         onPreview={onPreview}
       />
-    </>
+    </React.Fragment>
   )
 }
 

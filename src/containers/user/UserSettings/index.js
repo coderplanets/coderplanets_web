@@ -28,7 +28,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
   const { customization } = accountInfo
 
   return (
-    <>
+    <React.Fragment>
       {isSelfViewing ? (
         <Wrapper>
           <SectionLabel
@@ -193,7 +193,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
       ) : (
         <ErrText>请登录后查看本人的设置信息</ErrText>
       )}
-    </>
+    </React.Fragment>
   )
 }
 

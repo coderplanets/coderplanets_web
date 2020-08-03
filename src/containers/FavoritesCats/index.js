@@ -48,7 +48,7 @@ const FavoritesCatsContainer = ({
   const { entries } = pagedCategoriesData
 
   return (
-    <>
+    <React.Fragment>
       {displayMode === 'list' && (
         <SectionLabel
           title="收藏夹"
@@ -86,7 +86,7 @@ const FavoritesCatsContainer = ({
       {displayMode === 'list' && (
         <BoxView data={pagedCategoriesData} onSelect={onSelect} />
       )}
-    </>
+    </React.Fragment>
   )
 }
 
