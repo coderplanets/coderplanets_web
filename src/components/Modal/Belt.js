@@ -26,7 +26,7 @@ const Belt = () => {
   }
   `
   return (
-    <React.Fragment>
+    <>
       {loaded && (
         <Wrapper>
           <css-doodle>{rule}</css-doodle>
@@ -34,7 +34,7 @@ const Belt = () => {
           <css-doodle>{rule}</css-doodle>
         </Wrapper>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

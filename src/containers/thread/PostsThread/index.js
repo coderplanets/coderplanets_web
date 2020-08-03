@@ -107,7 +107,7 @@ const PostsThreadContainer = ({ postsThread: store }) => {
           cityCommunities={pagedCityCommunitiesData}
         />
       ) : (
-        <React.Fragment>
+        <>
           <LeftPart>
             <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
             <Maybe test={showFilterBar}>
@@ -141,7 +141,7 @@ const PostsThreadContainer = ({ postsThread: store }) => {
           </LeftPart>
 
           <RightPart>
-            <React.Fragment>
+            <>
               <PublisherWrapper>
                 <PublishButton
                   label={LabelText[subPath] || '发布帖子'}
@@ -158,9 +158,9 @@ const PostsThreadContainer = ({ postsThread: store }) => {
                 />
                 <StrategicPartners onClose={onAdsClose} />
               </Sticky>
-            </React.Fragment>
+            </>
           </RightPart>
-        </React.Fragment>
+        </>
       )}
     </Wrapper>
   )

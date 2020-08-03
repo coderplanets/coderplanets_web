@@ -18,7 +18,7 @@ import {
 import { insertCode, onUploadImageDone } from './logic'
 
 const CodeInputer = ({ divider }) => (
-  <React.Fragment>
+  <>
     <Maybe test={!divider}>
       <Divider src={`${ICON_CMD}/more.svg`} />
     </Maybe>
@@ -26,11 +26,11 @@ const CodeInputer = ({ divider }) => (
       <ItemIcon src={`${ICON_CMD}/extra_code.svg`} />
       <ItemTitle>代码</ItemTitle>
     </Item>
-  </React.Fragment>
+  </>
 )
 
 const PicUploader = ({ divider }) => (
-  <React.Fragment>
+  <>
     <Maybe test={!divider}>
       <Divider src={`${ICON_CMD}/more.svg`} />
     </Maybe>
@@ -40,7 +40,7 @@ const PicUploader = ({ divider }) => (
         <ItemTitle>上传图片</ItemTitle>
       </Item>
     </DocUploader>
-  </React.Fragment>
+  </>
 )
 
 const EditorFooter = ({ isEdit, editData }) => (

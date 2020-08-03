@@ -83,7 +83,7 @@ const VideosThreadContainer = ({ videosThread }) => {
       </LeftPart>
 
       <RightPart>
-        <React.Fragment>
+        <>
           <PublisherWrapper>
             <PublishButton
               label="发布视频"
@@ -99,7 +99,7 @@ const VideosThreadContainer = ({ videosThread }) => {
               onSelect={onTagSelect}
             />
           </Sticky>
-        </React.Fragment>
+        </>
       </RightPart>
     </Wrapper>
   )

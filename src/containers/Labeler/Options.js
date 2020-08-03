@@ -51,9 +51,7 @@ const renderOptions = (label, items, selected, onOptionSelect) => {
 }
 
 const Options = ({ label, items, selected, onOptionSelect }) => (
-  <React.Fragment>
-    {renderOptions(label, items, selected, onOptionSelect)}
-  </React.Fragment>
+  <>{renderOptions(label, items, selected, onOptionSelect)}</>
 )
 
 export default React.memo(Options)

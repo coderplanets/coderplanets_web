@@ -33,7 +33,7 @@ const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
                 onClick={() => onSelect(expandMenuId, item)}
               >
                 {!revert ? (
-                  <React.Fragment>
+                  <>
                     <ActiveDot
                       active={isActive(activeMap, expandMenuId, item.id)}
                     />
@@ -42,9 +42,9 @@ const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
                     >
                       {item.title}
                     </RadioTitle>
-                  </React.Fragment>
+                  </>
                 ) : (
-                  <React.Fragment>
+                  <>
                     <RadioTitle
                       active={isActive(activeMap, expandMenuId, item.id)}
                       revert
@@ -54,7 +54,7 @@ const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
                     <ActiveDot
                       active={isActive(activeMap, expandMenuId, item.id)}
                     />
-                  </React.Fragment>
+                  </>
                 )}
               </RadioItem>
             ))}
@@ -63,19 +63,19 @@ const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
           <RadioWrapper value="">
             <RadioItem>
               {!revert ? (
-                <React.Fragment>
+                <>
                   <ActiveDot active />
                   <RadioTitle active>
                     {activeMap[id] ? activeMap[id].title || '全部' : '全部'}
                   </RadioTitle>
-                </React.Fragment>
+                </>
               ) : (
-                <React.Fragment>
+                <>
                   <RadioTitle active revert>
                     {activeMap[id] ? activeMap[id].title || '全部' : '全部'}
                   </RadioTitle>
                   <ActiveDot active />
-                </React.Fragment>
+                </>
               )}
             </RadioItem>
           </RadioWrapper>

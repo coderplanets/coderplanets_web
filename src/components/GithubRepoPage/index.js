@@ -42,13 +42,9 @@ const GithubRepoPage = ({
   readOnly,
 }) => (
   <Wrapper updating={updating}>
-    {!readOnly ? (
-      <React.Fragment>{viewerHeader}</React.Fragment>
-    ) : (
-      <ReadonlyHolder />
-    )}
+    {!readOnly ? <>{viewerHeader}</> : <ReadonlyHolder />}
     <BodyWrapper>
-      {!readOnly && <React.Fragment>{bodyHeader} </React.Fragment>}
+      {!readOnly && <>{bodyHeader} </>}
       <Header repo={repo} />
       <DescriptionWrapper>
         {repo.desc}

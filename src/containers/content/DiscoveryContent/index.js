@@ -54,7 +54,7 @@ const DiscoveryContentContainer = ({ discoveryContent: store }) => {
           />
           <ContentsWrapper center={isSearchMode}>
             {!isEmpty(pagedCommunitiesData.entries) ? (
-              <React.Fragment>
+              <>
                 <CommunityList
                   entries={pagedCommunitiesData.entries}
                   restProps={{ ...store }}
@@ -66,7 +66,7 @@ const DiscoveryContentContainer = ({ discoveryContent: store }) => {
                 >
                   <div>社区行动指南</div>
                 </Pagi>
-              </React.Fragment>
+              </>
             ) : (
               <NotFound searchValue={searchValue} />
             )}

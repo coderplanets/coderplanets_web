@@ -17,7 +17,7 @@ import {
 import { toggleBusBanner, queryDoraemon } from './logic'
 
 const MobileBottomInfo = () => (
-  <React.Fragment>
+  <>
     <LinkInfoWrapper>
       <ItemBtn as="a" href={`/${ROUTE.DISCOVERY}`} rel="noopener noreferrer">
         所有社区
@@ -48,7 +48,7 @@ const MobileBottomInfo = () => (
         <ThxTitle>广告位： (求赞助)</ThxTitle>
       </Thanks>
     </BannerWrapper>
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(MobileBottomInfo)

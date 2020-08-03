@@ -21,11 +21,11 @@ const Loading = () => (
 )
 
 const Lists = ({ items }) => (
-  <React.Fragment>
+  <>
     {items.map((community) => (
       <CityCard key={community.raw} community={community} />
     ))}
-  </React.Fragment>
+  </>
 )
 
 const CityList = ({ items }) => (

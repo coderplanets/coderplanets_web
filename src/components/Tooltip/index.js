@@ -55,12 +55,12 @@ const Tooltip = ({
   )
 
   const PopoverContent = (
-    <React.Fragment>
+    <>
       {content}
       {active && behavior === 'confirm' && (
         <ConfirmFooter onConfirm={onConfirm} />
       )}
-    </React.Fragment>
+    </>
   )
 
   const ref = useRef()

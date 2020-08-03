@@ -66,7 +66,7 @@ const UserList = ({
   data: { entries, pageNumber, pageSize, totalCount },
   onPageChange,
 }) => (
-  <React.Fragment>
+  <>
     <UsersTable entries={entries} accountId={accountInfo.id} />
     <Pagi
       margin={{ left: '-20px' }}
@@ -75,7 +75,7 @@ const UserList = ({
       totalCount={totalCount}
       onChange={onPageChange}
     />
-  </React.Fragment>
+  </>
 )
 
 UserList.propTypes = {

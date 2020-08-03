@@ -8,7 +8,7 @@ const RefinedLabel = ({ tags }) => {
   const isRefined = contains('refined', pluck('title', tags))
 
   return (
-    <React.Fragment>
+    <>
       {isRefined ? (
         <Wrapper>
           <RefinedIcon src={`${ICON_CMD}/diamond_frame.svg`} />
@@ -17,7 +17,7 @@ const RefinedLabel = ({ tags }) => {
       ) : (
         <div />
       )}
-    </React.Fragment>
+    </>
   )
 }
 

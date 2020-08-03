@@ -29,7 +29,7 @@ const NormalImg = ({ className, src, alt, fallback }) => {
   const loaded = loadCheck && loadCheck2
 
   return (
-    <React.Fragment>
+    <>
       <Image
         loaded={!fallback || (fallback && loaded)}
         ref={ref}
@@ -39,8 +39,8 @@ const NormalImg = ({ className, src, alt, fallback }) => {
         onLoad={handleOnLoad}
         onError={handleOnError}
       />
-      {fallback && !loaded && <React.Fragment>{fallback}</React.Fragment>}
-    </React.Fragment>
+      {fallback && !loaded && <>{fallback}</>}
+    </>
   )
 }
 

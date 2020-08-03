@@ -21,7 +21,7 @@ Sentry.init({
 
 const App = ({ Component, pageProps, err }) => {
   return (
-    <React.Fragment>
+    <>
       {/* see: https://github.com/vercel/next.js/blob/master/errors/no-document-viewport-meta.md */}
       <Head>
         <meta
@@ -33,12 +33,12 @@ const App = ({ Component, pageProps, err }) => {
         <CrashErrorHint />
       ) : (
         /* render normal next.js app */
-        <React.Fragment>
+        <>
           <DefaultSeo {...SEO} />
           <Component {...pageProps} />
-        </React.Fragment>
+        </>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

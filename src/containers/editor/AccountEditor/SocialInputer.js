@@ -58,15 +58,15 @@ const SocialIconList = ({ show, user }) => (
 
       <TogglerTextWrapper onClick={toggleSocials}>
         {show ? (
-          <React.Fragment>
+          <>
             <TogglerText>... 收起</TogglerText>
             <UpIcon src={`${ICON_CMD}/arrow.svg`} />
-          </React.Fragment>
+          </>
         ) : (
-          <React.Fragment>
+          <>
             <TogglerText>... 编辑</TogglerText>
             <DownIcon src={`${ICON_CMD}/arrow.svg`} />
-          </React.Fragment>
+          </>
         )}
       </TogglerTextWrapper>
     </SocialIconsWrapper>

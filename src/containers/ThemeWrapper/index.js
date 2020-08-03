@@ -25,7 +25,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
 
   return (
     <ThemeProvider theme={themeData}>
-      <React.Fragment>
+      <>
         <Head>
           <meta name="theme-color" content={themeData.mobileTab} />
         </Head>
@@ -43,7 +43,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
         <CustomOverWrite />
         <RichEditorStyle />
         <GlobalStyle showCustomScrollbar={showCustomScrollbar} />
-      </React.Fragment>
+      </>
     </ThemeProvider>
   )
 }

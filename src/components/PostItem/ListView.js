@@ -23,7 +23,7 @@ import {
 // import { Wrapper } from './styles'
 
 const ListView = ({ entry, onPreview }) => (
-  <React.Fragment>
+  <>
     <SmallAvatar src={entry.author.avatar} />
     <Main>
       <TopHalf>
@@ -54,7 +54,7 @@ const ListView = ({ entry, onPreview }) => (
         </Extra>
       </SecondHalf>
     </Main>
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(ListView)

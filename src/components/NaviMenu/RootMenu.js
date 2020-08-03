@@ -26,13 +26,13 @@ const renderRightIcon = (item, activeParentMenuId, pinNumberHoverType) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       {item.icon ? (
         <Icon active={item.id === activeParentMenuId} src={item.icon} />
       ) : (
         <ActiveDot />
       )}
-    </React.Fragment>
+    </>
   )
 }
 
@@ -60,7 +60,7 @@ const RootMenu = ({
   }, [])
 
   return (
-    <React.Fragment>
+    <>
       {menuItems.map((item) => (
         <Item
           key={item.id}
@@ -83,7 +83,7 @@ const RootMenu = ({
           ~~
         </MoreItem>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

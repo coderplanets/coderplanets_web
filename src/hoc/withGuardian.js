@@ -74,7 +74,7 @@ const withGuardian = (WrappedComponent) => {
     }
 
     render() {
-      return <React.Fragment>{this.renderWappedChild()}</React.Fragment>
+      return <>{this.renderWappedChild()}</>
     }
   }
 

@@ -25,7 +25,7 @@ const JobsList = ({ props }) => {
   switch (curView) {
     case TYPE.RESULT:
       return (
-        <React.Fragment>
+        <>
           {entries.map((entry) => (
             <JobItem
               key={entry.id}
@@ -37,12 +37,12 @@ const JobsList = ({ props }) => {
               onAuthorSelect={onAuthorSelect}
             />
           ))}
-        </React.Fragment>
+        </>
       )
 
     case TYPE.RESULT_EMPTY:
       return (
-        <React.Fragment>
+        <>
           {isEmpty(emptyPrefix) ? (
             <EmptyThread community={community} thread={thread} />
           ) : (
@@ -51,7 +51,7 @@ const JobsList = ({ props }) => {
               size="large"
             />
           )}
-        </React.Fragment>
+        </>
       )
 
     default:

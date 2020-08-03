@@ -12,7 +12,7 @@ import {
 
 const Bottom = ({ disabled, pageNumber, onChange }) => {
   return (
-    <React.Fragment>
+    <>
       {disabled ? (
         <Wrapper disabled>
           <NaviInfo disabled>
@@ -34,7 +34,7 @@ const Bottom = ({ disabled, pageNumber, onChange }) => {
           </ArrowWrapper>
         </Wrapper>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

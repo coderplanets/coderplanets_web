@@ -30,11 +30,11 @@ const CityCard = ({ community }) => {
       </ActivitySpark>
       <Divider />
       <CardFooter>
-        <React.Fragment>
+        <>
           {/* TODO: number color should be different when number grow large */}
           {prettyNum(community.subscribersCount)}{' '}
           {community.subscribersCount < 1000 ? '人关注' : '关注'}
-        </React.Fragment>
+        </>
       </CardFooter>
     </Wrapper>
   )

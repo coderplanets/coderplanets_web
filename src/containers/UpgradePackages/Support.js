@@ -18,14 +18,14 @@ const MarkIcon = ({ not }) => {
 }
 
 const Support = ({ items, not }) => (
-  <React.Fragment>
+  <>
     {items.map((item) => (
       <PkgItem key={item.title}>
         <MarkIcon not={not} />
         <PkgItemTitle not={not}>{item.title}</PkgItemTitle>
       </PkgItem>
     ))}
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(Support)

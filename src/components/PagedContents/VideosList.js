@@ -24,7 +24,7 @@ const VideosList = ({ props }) => {
   switch (curView) {
     case TYPE.RESULT:
       return (
-        <React.Fragment>
+        <>
           {entries.map((entry) => (
             <VideoItem
               key={entry.id}
@@ -34,12 +34,12 @@ const VideosList = ({ props }) => {
               onPreview={() => onPreview(entry)}
             />
           ))}
-        </React.Fragment>
+        </>
       )
 
     case TYPE.RESULT_EMPTY:
       return (
-        <React.Fragment>
+        <>
           {isEmpty(emptyPrefix) ? (
             <EmptyThread community={community} thread={thread} />
           ) : (
@@ -48,7 +48,7 @@ const VideosList = ({ props }) => {
               size="large"
             />
           )}
-        </React.Fragment>
+        </>
       )
 
     default:

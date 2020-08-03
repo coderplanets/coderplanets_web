@@ -42,7 +42,7 @@ const JobViewerContainer = ({ jobViewer: store, attachment }) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <ArticleViewerHeader
         data={viewingData}
         company={company}
@@ -68,7 +68,7 @@ const JobViewerContainer = ({ jobViewer: store, attachment }) => {
       <CommentsWrapper>
         <Comments />
       </CommentsWrapper>
-    </React.Fragment>
+    </>
   )
 }
 

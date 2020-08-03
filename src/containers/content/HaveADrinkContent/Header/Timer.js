@@ -40,7 +40,7 @@ const SettingPanel = ({ timer, timerInterval }) => {
       </SettingItem>
 
       {timer && (
-        <React.Fragment>
+        <>
           <SettingDivider />
           <SettingItem onClick={() => setTimerInterval('3s')}>
             <div>间隔 3 秒</div>
@@ -52,7 +52,7 @@ const SettingPanel = ({ timer, timerInterval }) => {
           <SettingItem onClick={() => setTimerInterval('10s')}>
             间隔 10 秒{timerInterval === '10s' && <SelectDot />}
           </SettingItem>
-        </React.Fragment>
+        </>
       )}
     </SettingPanelWrapper>
   )

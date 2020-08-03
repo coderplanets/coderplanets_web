@@ -29,7 +29,7 @@ const GirlVerifierContainer = ({ girlVerifier: store }) => {
 
   return (
     <Modal width="500px" show={showModal} showCloseBtn onClose={toggleModal}>
-      <React.Fragment>
+      <>
         <Wrapper>
           <SectionLabel
             title={` 你好哇, ${accountInfo.nickname}`}
@@ -56,7 +56,7 @@ const GirlVerifierContainer = ({ girlVerifier: store }) => {
             </Button>
           </Footer>
         </FormWrapper>
-      </React.Fragment>
+      </>
     </Modal>
   )
 }

@@ -53,14 +53,14 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
       </TopFilter>
       <Divider />
       <Sticky offsetTop={30}>
-        <React.Fragment>
+        <>
           <CatTitle>分类</CatTitle>
           <NaviMenu
             onSelect={(id, type) => menuOnSelect(id, type)}
             initActiveMenuId={initActiveMenuId}
             withDivider={false}
           />
-        </React.Fragment>
+        </>
       </Sticky>
     </Wrapper>
   )

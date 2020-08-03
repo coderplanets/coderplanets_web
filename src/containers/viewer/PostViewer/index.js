@@ -40,7 +40,7 @@ const PostViewerContainer = ({ postViewer: store, attachment }) => {
   const tagTitleList = pluck('title', viewingData.tags)
 
   return (
-    <React.Fragment>
+    <>
       <ArticleViewerHeader data={viewingData} author={viewingData.author} />
       <BodyWrapper>
         <ArticleBodyHeader
@@ -69,7 +69,7 @@ const PostViewerContainer = ({ postViewer: store, attachment }) => {
       <CommentsWrapper>
         <Comments onCreate={onCommentCreate} />
       </CommentsWrapper>
-    </React.Fragment>
+    </>
   )
 }
 

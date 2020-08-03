@@ -34,7 +34,7 @@ const Modal = ({
   useEffect(() => toggleGlobalBlur(show), [show])
 
   return (
-    <React.Fragment>
+    <>
       {show && (
         <Portal>
           <Mask show={show} onClick={onClose}>
@@ -58,7 +58,7 @@ const Modal = ({
           </Mask>
         </Portal>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

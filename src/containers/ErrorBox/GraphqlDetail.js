@@ -6,18 +6,18 @@ import { uid, nilOrEmpty } from '@/utils'
 import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'
 
 const ChangesetMessages = ({ items }) => (
-  <React.Fragment>
+  <>
     {!nilOrEmpty(items) &&
       items.map((item) => (
         <Desc key={uid.gen()}>
           {item.key}: {item.message}
         </Desc>
       ))}
-  </React.Fragment>
+  </>
 )
 
 const ChangesetDetails = ({ errors }) => (
-  <React.Fragment>
+  <>
     {!nilOrEmpty(errors) &&
       errors.map((item) => (
         <div key={uid.gen()}>
@@ -31,11 +31,11 @@ const ChangesetDetails = ({ errors }) => (
           <ChangesetMessages items={item.message} />
         </div>
       ))}
-  </React.Fragment>
+  </>
 )
 
 const ParseDetails = ({ errors }) => (
-  <React.Fragment>
+  <>
     {!nilOrEmpty(errors) &&
       errors.map((item, idx) => (
         <div key={uid.gen()}>
@@ -46,11 +46,11 @@ const ParseDetails = ({ errors }) => (
           </TitleWrapper>
         </div>
       ))}
-  </React.Fragment>
+  </>
 )
 
 const CustomDetails = ({ errors }) => (
-  <React.Fragment>
+  <>
     {!nilOrEmpty(errors) &&
       errors.map((item) => (
         <div key={uid.gen()}>
@@ -61,7 +61,7 @@ const CustomDetails = ({ errors }) => (
           </TitleWrapper>
         </div>
       ))}
-  </React.Fragment>
+  </>
 )
 
 const GraphqlDetail = ({

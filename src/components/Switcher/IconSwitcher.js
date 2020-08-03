@@ -45,21 +45,18 @@ const IconSwitcher = ({ items, activeKey, onChange }) => {
       <AccessZone />
       <Tabs>
         {items.map((item) => (
-          <React.Fragment key={item.key}>
-            <Label
-              onClick={() => onChange(item)}
-              checked={activeKey === item.key}
-            >
-              {!nilOrEmpty(item.localIcon) && (
-                <React.Fragment>{item.localIcon}</React.Fragment>
-              )}
+          <Label
+            key={item.key}
+            onClick={() => onChange(item)}
+            checked={activeKey === item.key}
+          >
+            {!nilOrEmpty(item.localIcon) && <>{item.localIcon}</>}
 
-              {!nilOrEmpty(item.iconSrc) && (
-                // <Icon src={item.iconSrc} checked={activeKey === item.key} />
-                <IconComp item={item} activeKey={activeKey} />
-              )}
-            </Label>
-          </React.Fragment>
+            {!nilOrEmpty(item.iconSrc) && (
+              // <Icon src={item.iconSrc} checked={activeKey === item.key} />
+              <IconComp item={item} activeKey={activeKey} />
+            )}
+          </Label>
         ))}
         <Slider index={slideIndex} />
       </Tabs>

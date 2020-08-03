@@ -64,7 +64,7 @@ const Pagi = ({
   }
 
   return (
-    <React.Fragment>
+    <>
       {hasExtraPage(totalCount, pageSize) ? (
         <Wrapper margin={margin}>
           <Perv
@@ -86,7 +86,7 @@ const Pagi = ({
           <BottomFooter show={showBottomMsg} msg={noMoreMsg} />
         </EmptyWrapper>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

@@ -7,7 +7,7 @@ import { withGuardian } from '@/hoc'
 import { Option, OptionIcon, OptionTitle } from './styles'
 
 const PinOption = ({ data, thread, onPin, onUndoPin }) => (
-  <React.Fragment>
+  <>
     {data.pin ? (
       <Option onClick={() => onUndoPin(thread)}>
         <OptionIcon src={`${ICON_CMD}/pin.svg`} reverse />
@@ -19,7 +19,7 @@ const PinOption = ({ data, thread, onPin, onUndoPin }) => (
         <OptionTitle>置顶显示</OptionTitle>
       </Option>
     )}
-  </React.Fragment>
+  </>
 )
 
 PinOption.propTypes = {

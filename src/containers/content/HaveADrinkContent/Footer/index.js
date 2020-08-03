@@ -24,11 +24,11 @@ const View = ({ view }) => {
   switch (view) {
     case VIEW.DEFAULT: {
       return (
-        <React.Fragment>
+        <>
           <Feature />
           <Contributor />
           <Share />
-        </React.Fragment>
+        </>
       )
     }
     default: {

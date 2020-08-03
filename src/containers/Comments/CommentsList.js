@@ -17,7 +17,7 @@ import {
 } from './styles/comments_list'
 
 const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
-  <React.Fragment>
+  <>
     {entries.map((c) => (
       <Comment
         key={c.id}
@@ -26,7 +26,7 @@ const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
         accountInfo={accountInfo}
       />
     ))}
-  </React.Fragment>
+  </>
 )
 
 const TotalCountText = ({ count }) => (
@@ -44,7 +44,7 @@ const CommentsList = ({
   pagedComments: { entries, totalCount, pageSize, pageNumber },
   restProps: { loading, loadingFresh, tobeDeleteId, filterType },
 }) => (
-  <React.Fragment>
+  <>
     <TotalHeader>
       <TotalCountText count={totalCount} />
       <CommentsFilter filterType={filterType} show={totalCount >= 2} />
@@ -78,7 +78,7 @@ const CommentsList = ({
       noMoreMsg="没有更多的评论了"
       emptyMsg="目前还没有评论"
     />
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(CommentsList)

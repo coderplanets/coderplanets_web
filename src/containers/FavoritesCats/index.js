@@ -54,14 +54,14 @@ const FavoritesCatsContainer = ({
           title="收藏夹"
           iconSrc={`${ICON_CMD}/folder.svg`}
           addonNode={
-            <React.Fragment>
+            <>
               {isSelfViewing && (
                 <AdderWrapper onClick={changeViewTo('creator')}>
                   <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
                   <AdderText>创建</AdderText>
                 </AdderWrapper>
               )}
-            </React.Fragment>
+            </>
           }
         />
       )}

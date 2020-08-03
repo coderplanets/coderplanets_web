@@ -37,7 +37,7 @@ const SectionLabel = ({ title, iconSrc, desc, node, addonNode }) => (
       <Desc>{desc}</Desc>
     </Maybe>
     <Maybe test={node}>
-      <React.Fragment>{node}</React.Fragment>
+      <>{node}</>
     </Maybe>
   </Wrapper>
 )

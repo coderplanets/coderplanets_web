@@ -25,7 +25,7 @@ import {
 const log = buildLog('c:EmptyThread:index')
 
 const DescContent = ({ community, thread }) => (
-  <React.Fragment>
+  <>
     <div>
       如果你有 {community} 相关的
       <DetailText>优质</DetailText>
@@ -43,7 +43,7 @@ const DescContent = ({ community, thread }) => (
       </IssueLink>
       <DetailText>，以便于开发者排查修复。</DetailText>
     </div>
-  </React.Fragment>
+  </>
 )
 
 const EmptyThread = ({ community, thread }) => (

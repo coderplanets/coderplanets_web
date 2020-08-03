@@ -18,7 +18,7 @@ import * as logic from './logic'
 const anyTrue = (obj) => any(equals(true), values(obj))
 
 const DigestBoard = ({ user, accountId, following }) => (
-  <React.Fragment>
+  <>
     <CardWrapper>
       <AchieveCard user={user} />
       {user.id !== accountId && (
@@ -75,7 +75,7 @@ const DigestBoard = ({ user, accountId, following }) => (
         <div>特别赞助</div>
       </AttachWrapper>
     )}
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(DigestBoard)

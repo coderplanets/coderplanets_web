@@ -38,7 +38,7 @@ const PagedContents = ({
   }
 
   return (
-    <React.Fragment>
+    <>
       <ContentList
         thread={thread}
         cover={cover}
@@ -60,7 +60,7 @@ const PagedContents = ({
       >
         <CommunityRecommends />
       </Pagi>
-    </React.Fragment>
+    </>
   )
 }
 

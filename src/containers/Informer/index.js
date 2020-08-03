@@ -29,25 +29,25 @@ const InformerContainer = ({ informer: store, title, children }) => {
   return (
     <React.Fragment>
       <Modal width="500px" show={showModal} showCloseBtn onClose={toggleModal}>
-        <React.Fragment>
+        <>
           <Header data={viewingData} />
           {curView === 'form' ? (
             <Form type={type} message={message} />
           ) : (
             <Overview />
           )}
-        </React.Fragment>
+        </>
       </Modal>
-      <React.Fragment>
+      <>
         {children ? (
-          <React.Fragment>{children}</React.Fragment>
+          <>{children}</>
         ) : (
           <Wrapper onClick={toggleModal}>
             <Icon src={`${ICON_CMD}/flag.svg`} />
             <Title>{title}</Title>
           </Wrapper>
         )}
-      </React.Fragment>
+      </>
     </React.Fragment>
   )
 }

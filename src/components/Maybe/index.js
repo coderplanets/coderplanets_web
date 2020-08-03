@@ -26,7 +26,7 @@ const Maybe = ({ children, test, loading }) => {
   if (test === null) return <div />
   if (test === false) return <MaybeLoading loading={loading} />
 
-  return <React.Fragment>{children}</React.Fragment>
+  return <>{children}</>
 }
 
 Maybe.propTypes = {

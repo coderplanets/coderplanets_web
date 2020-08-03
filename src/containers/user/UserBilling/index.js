@@ -28,7 +28,7 @@ const UserBillingContainer = ({ userBilling: store }) => {
   return (
     <Wrapper>
       {isSelfViewing ? (
-        <React.Fragment>
+        <>
           <UpgradeMenu achievement={accountInfo.achievement} />
           <br />
           <SectionLabel
@@ -37,7 +37,7 @@ const UserBillingContainer = ({ userBilling: store }) => {
             node={<TableSectionDesc data={pagedBillRecordsData} />}
           />
           <BillsTable data={pagedBillRecordsData} />
-        </React.Fragment>
+        </>
       ) : (
         <ErrText>请登录后查看本人的账单信息</ErrText>
       )}

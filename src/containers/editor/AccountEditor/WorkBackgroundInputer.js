@@ -59,10 +59,10 @@ const BackgroundList = ({ list }) => (
         <BackgroundItem key={item.company + item.title}>
           <BgTitle>{item.company}</BgTitle>
           <Maybe test={item.title}>
-            <React.Fragment>
+            <>
               <BgDivider>·</BgDivider>
               <BgDesc>{item.title}</BgDesc>
-            </React.Fragment>
+            </>
           </Maybe>
           <div onClick={removeWorkBackground(item.company, item.title)}>
             <DeleteIcon src={`${ICON_CMD}/cross.svg`} />

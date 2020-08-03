@@ -58,10 +58,10 @@ const BackgroundList = ({ list }) => (
           <BgTitle>{item.school}</BgTitle>
 
           <Maybe test={item.major}>
-            <React.Fragment>
+            <>
               <BgDivider>·</BgDivider>
               <BgDesc>{item.major}</BgDesc>
-            </React.Fragment>
+            </>
           </Maybe>
 
           <div onClick={removeEduBackground(item.school, item.major)}>

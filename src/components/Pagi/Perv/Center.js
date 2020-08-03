@@ -12,7 +12,7 @@ import {
 
 const Center = ({ disabled, pageNumber, onChange }) => {
   return (
-    <React.Fragment>
+    <>
       {disabled ? (
         <Wrapper disabled>
           <ArrowWrapper>
@@ -34,7 +34,7 @@ const Center = ({ disabled, pageNumber, onChange }) => {
           </NaviInfo>
         </Wrapper>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

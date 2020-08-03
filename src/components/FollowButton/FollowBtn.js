@@ -7,7 +7,7 @@ import { BtnWrapper, WatchIcon, LoadingIcon } from './styles'
 
 const FollowBtn = ({ size, loading, onClick }) => {
   return (
-    <React.Fragment>
+    <>
       {loading ? (
         <Button size={size} type="primary" ghost>
           <BtnWrapper>
@@ -23,7 +23,7 @@ const FollowBtn = ({ size, loading, onClick }) => {
           </BtnWrapper>
         </Button>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

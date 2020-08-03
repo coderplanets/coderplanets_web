@@ -33,7 +33,7 @@ const PreviewContainer = ({ preview: store }) => {
   } = store
 
   return (
-    <React.Fragment>
+    <>
       <SliderPreview
         visible={slideVisible}
         rightOffset={rightOffset}
@@ -47,7 +47,7 @@ const PreviewContainer = ({ preview: store }) => {
           attUser={attUserData}
         />
       </SliderPreview>
-    </React.Fragment>
+    </>
   )
 }
 
