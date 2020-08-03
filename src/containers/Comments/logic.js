@@ -235,7 +235,7 @@ export const insertCode = () => {
 
 export const onMention = (user) => store.addReferUser(user)
 export const onMentionSearch = (name) => {
-  if (name && name.length >= 1) {
+  if (name?.length >= 1) {
     sr71$.query(S.searchUsers, { name })
   } else {
     store.updateMentionList([])

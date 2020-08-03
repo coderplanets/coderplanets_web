@@ -36,11 +36,11 @@ const DirectoryGallery = ({ items, onSelect }) => {
           key={item.id}
           borderTop={index <= 3}
           borderRight={(index + 1) % 4 !== 0}
-          onClick={() => onSelect && onSelect(item)}
-          clickable={onSelect !== null}
+          onClick={() => onSelect?.(item)}
+          clickable={!!onSelect}
         >
           <Header>
-            <IntroHead clickable={onSelect !== null}>
+            <IntroHead clickable={!!onSelect}>
               <Icon src={item.icon} />
               <Title>{item.title}</Title>
             </IntroHead>

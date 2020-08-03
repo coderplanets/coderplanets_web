@@ -30,7 +30,7 @@ const offsetTill = (node, target) => {
   let current = node
   let offset = 0
   // If target is not an offsetParent itself, subtract its offsetTop and set correct target
-  if (target.firstChild && target.firstChild.offsetParent !== target) {
+  if (target.firstChild?.offsetParent !== target) {
     offset += node.offsetTop - target.offsetTop
     target = node.offsetParent
     offset += -node.offsetTop

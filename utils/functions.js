@@ -24,20 +24,20 @@ export const mapKeys = curry((fn, obj) => {
       return acc
     },
     {},
-    keys(obj)
+    keys(obj),
   )
 })
 
-export const sortByColor = source =>
+export const sortByColor = (source) =>
   sort(
     (t1, t2) => TAG_COLOR_ORDER[t1.color] - TAG_COLOR_ORDER[t2.color],
-    source
+    source,
   )
 
-export const sortByIndex = source => sort((a, b) => a.index - b.index, source)
+export const sortByIndex = (source) => sort((a, b) => a.index - b.index, source)
 
 /* eslint-disable */
-const log = (...args) => data => {
+const log = (...args) => (data) => {
   console.log.apply(null, args.concat([data]))
   return data
 }
@@ -86,12 +86,12 @@ export const prettyNum = (num, digits = 1) => {
 }
 
 // https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
-export const numberWithCommas = x =>
+export const numberWithCommas = (x) =>
   x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 // from https://stackoverflow.com/questions/20396456/how-to-do-word-counts-for-a-mixture-of-english-and-chinese-in-javascript
 // count both chinese-word and english-words
-export const countWords = str => {
+export const countWords = (str) => {
   const matches = str.match(/[\u00ff-\uffff]|\S+/g)
   return matches ? matches.length : 0
 }
@@ -140,10 +140,10 @@ export const errRescue = ({ type, operation, details, path }) =>
 /* eslint-disable */
 export const debounce = (func, wait, immediate) => {
   let timeout
-  return function() {
+  return function () {
     const context = this
     const args = arguments
-    const later = function() {
+    const later = function () {
       timeout = null
       if (!immediate) func.apply(context, args)
     }
@@ -155,12 +155,12 @@ export const debounce = (func, wait, immediate) => {
 }
 /* eslint-enable */
 
-export const extractMentions = text => {
+export const extractMentions = (text) => {
   const mentionsRegex = new RegExp('@([a-zA-Z0-9_.-]+)', 'gim')
 
   let matches = text.match(mentionsRegex)
-  if (matches && matches.length) {
-    matches = matches.map(match => {
+  if (matches?.length) {
+    matches = matches.map((match) => {
       return match.slice(1)
     })
     return uniq(matches)
@@ -169,7 +169,7 @@ export const extractMentions = text => {
 }
 
 // https://blogs.sap.com/2017/07/15/use-regular-expression-to-parse-the-image-reference-in-the-markdown-sourcre-code/
-export const extractAttachments = str => {
+export const extractAttachments = (str) => {
   let m
   const regex = /!\[(.*?)\]\((.*?)\)/g
 

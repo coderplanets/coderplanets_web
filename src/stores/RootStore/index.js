@@ -286,7 +286,7 @@ const rootStore = T.model({
         msg: '暂不支持匿名操作，请登录后再次尝试.',
       }
 
-      if (options.hideToast && options.hideToast === true) {
+      if (options?.hideToast === true) {
         // pass
       } else {
         self.toast('warn', merge(defaultOpt, options))

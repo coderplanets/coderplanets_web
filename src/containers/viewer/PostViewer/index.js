@@ -57,7 +57,7 @@ const PostViewerContainer = ({ postViewer: store, attachment }) => {
         <Footer>
           <Labeler
             passport={`${curCommunity.raw}->${THREAD.POST}.tag.set`}
-            ownerId={viewingData.author && viewingData.author.id}
+            ownerId={viewingData.author?.id}
             fallbackProps="readOnly"
             onTagSelect={onTagSelect}
             onTagUnselect={onTagUnselect}
