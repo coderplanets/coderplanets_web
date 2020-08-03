@@ -25,12 +25,12 @@ export const nilOrEmpty = either(isNil, isEmpty)
 
 export const hasValue = compose(not, nilOrEmpty)
 
-export const isObject = value => {
+export const isObject = (value) => {
   const type = typeof value
   return value != null && (type === 'object' || type === 'function')
 }
 
-export const isString = value => {
+export const isString = (value) => {
   if (typeof value === 'string' || value instanceof String) {
     return true
   }
@@ -41,10 +41,10 @@ const notNil = compose(not, isNil)
 
 const validObjects = compose(pickBy(notNil), pickBy(isObject))
 
-const emptyArray = obj => Array.isArray(obj) && obj.length === 0
+const emptyArray = (obj) => Array.isArray(obj) && obj.length === 0
 
 // avoid trim on int
-const trimIfNeed = v => {
+const trimIfNeed = (v) => {
   if (isString(v)) return trim(v)
   return v
 }
@@ -60,7 +60,7 @@ export const cast = (fields, source) => {
 const keyOf = compose(head, keys)
 const valueOf = compose(head, values)
 
-export const changeset = source => ({
+export const changeset = (source) => ({
   exist: (obj, cb, opt = { skip: false }) => {
     if (source.__dirty__) return changeset(source)
     if (opt.skip) return changeset(source)

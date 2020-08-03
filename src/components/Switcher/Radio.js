@@ -21,7 +21,7 @@ const Radio = ({ items, activeKey, onChange }) => {
         <Label
           key={item.key}
           checked={item.key === activeKey}
-          onClick={() => onChange && onChange(item)}
+          onClick={() => onChange?.(item)}
           dimOnActive={item.dimOnActive}
         >
           {item.value}

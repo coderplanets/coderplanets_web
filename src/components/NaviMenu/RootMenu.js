@@ -75,7 +75,7 @@ const RootMenu = ({
         </Item>
       ))}
       {showMoreItem && (
-        <MoreItem onClick={() => onShowMore && onShowMore()}>
+        <MoreItem onClick={() => onShowMore?.()}>
           ~~
           <Space left="10px" />
           查看更多

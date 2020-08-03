@@ -104,7 +104,7 @@ export const insertCode = () => {
 }
 
 export const onMentionSearch = (name) => {
-  if (name && name.length >= 2) {
+  if (name?.length >= 2) {
     sr71$.query(S.searchUsers, { name })
   } else {
     store.mark({ mentionList: [] })

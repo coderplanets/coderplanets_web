@@ -34,12 +34,12 @@ export const scrollToTop = () => {
  * @param {string} eleID element id
  * @return
  */
-export const scrollIntoEle = eleID => {
+export const scrollIntoEle = (eleID) => {
   const safeDocument = getDocument()
   if (!safeDocument) return false
 
   const e = safeDocument.getElementById(eleID)
-  if (!!e && e.scrollIntoView) {
+  if (e?.scrollIntoView) {
     e.scrollIntoView({ behavior: 'smooth' })
   }
 }
@@ -123,11 +123,11 @@ export const hideDoraemonBarRecover = () => {
  * see issue: https://stackoverflow.com/questions/52937708/css-filter-on-parent-breaks-child-positioning
  * @param {boolean} visible
  */
-export const toggleGlobalBlur = visible => {
+export const toggleGlobalBlur = (visible) => {
   const blurableEls = document.querySelectorAll(`.${TYPE.GLOBAL_BLUR_CLASS}`)
 
   if (blurableEls) {
-    forEach(el => {
+    forEach((el) => {
       visible
         ? el.classList.add('global_blur')
         : el.classList.remove('global_blur')

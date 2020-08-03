@@ -32,7 +32,7 @@ const CompanyInfo = ({ company, insertedAt, author }) => (
         </HomepageLink>
       </HomePage>
       <PublishAt>
-        <Username>{author && author.nickname}</Username>
+        <Username>{author?.nickname}</Username>
         <DotDivider />
         发布于: <TimeAgo datetime={insertedAt} locale="zh_CN" />
       </PublishAt>

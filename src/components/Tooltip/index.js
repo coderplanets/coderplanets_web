@@ -86,12 +86,12 @@ const Tooltip = ({
       onHide={() => {
         setInstance(null)
         setActive(false)
-        onHide && onHide()
+        onHide?.()
       }}
       onShow={(instance) => {
         setInstance(instance)
         setActive(true)
-        onShow && onShow()
+        onShow?.()
       }}
       {...restProps}
     >
@@ -106,12 +106,12 @@ const Tooltip = ({
       onHide={(instance) => {
         setInstance(instance)
         setActive(false)
-        onHide && onHide()
+        onHide?.()
       }}
       onShow={(instance) => {
         setInstance(instance)
         setActive(true)
-        onShow && onShow()
+        onShow?.()
       }}
       {...restProps}
     >

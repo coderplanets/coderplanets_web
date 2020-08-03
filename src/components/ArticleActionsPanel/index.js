@@ -36,49 +36,51 @@ const ArticleActionsPanel = ({
   onInform,
   onDelete,
   onCommunitySet,
-}) => (
-  <Wrapper>
-    <PinOption
-      passport={`${communityRaw}->${thread}.pin`}
-      data={data}
-      thread={thread}
-      onPin={onPin}
-      onUndoPin={onUndoPin}
-    />
-    <RefineOption
-      passport={`${communityRaw}->${thread}.refinedtag.set`}
-      data={data}
-      thread={thread}
-      onSetRefined={onSetRefined}
-      onUnsetRefined={onUnsetRefined}
-    />
+}) => {
+  return (
+    <Wrapper>
+      <PinOption
+        passport={`${communityRaw}->${thread}.pin`}
+        data={data}
+        thread={thread}
+        onPin={onPin}
+        onUndoPin={onUndoPin}
+      />
+      <RefineOption
+        passport={`${communityRaw}->${thread}.refinedtag.set`}
+        data={data}
+        thread={thread}
+        onSetRefined={onSetRefined}
+        onUnsetRefined={onUnsetRefined}
+      />
 
-    <EditOption
-      passport="owner"
-      ownerId={data.author && data.author.id}
-      onEdit={onEdit}
-      thread={thread}
-    />
+      <EditOption
+        passport="owner"
+        ownerId={data.author?.id}
+        onEdit={onEdit}
+        thread={thread}
+      />
 
-    <CommunitySetterOption
-      passport={`${thread}.community.set`}
-      onCommunitySet={onCommunitySet}
-    />
+      <CommunitySetterOption
+        passport={`${thread}.community.set`}
+        onCommunitySet={onCommunitySet}
+      />
 
-    <Informer>
-      <Option onClick={onInform}>
-        <OptionIcon src={`${ICON_CMD}/flag.svg`} />
-        <OptionTitle>举报该内容</OptionTitle>
-      </Option>
-    </Informer>
+      <Informer>
+        <Option onClick={onInform}>
+          <OptionIcon src={`${ICON_CMD}/flag.svg`} />
+          <OptionTitle>举报该内容</OptionTitle>
+        </Option>
+      </Informer>
 
-    <DeleteOption
-      passport="owner"
-      ownerId={data.author && data.author.id}
-      onDelete={onDelete}
-    />
-  </Wrapper>
-)
+      <DeleteOption
+        passport="owner"
+        ownerId={data.author?.id}
+        onDelete={onDelete}
+      />
+    </Wrapper>
+  )
+}
 
 ArticleActionsPanel.propTypes = {
   data: T.shape({

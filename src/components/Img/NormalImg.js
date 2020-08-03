@@ -15,7 +15,7 @@ const NormalImg = ({ className, src, alt, fallback }) => {
 
   useEffect(() => {
     const image = ref.current
-    if (image && image.complete) {
+    if (image?.complete) {
       image.naturalWidth === 0 ? setLoadCheck(false) : setLoadCheck(true)
     }
   }, [ref, loadCheck, loadCheck2])
