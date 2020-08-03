@@ -69,9 +69,9 @@ const CommentsToContent = ({ data, thread, curView }) => {
 
     case TYPE.RESULT_EMPTY:
       return (
-        <React.Fragment>
+        <>
           <EmptyLabel text={`未找到评论的${Trans(thread)}信息`} size="large" />
-        </React.Fragment>
+        </>
       )
 
     default:

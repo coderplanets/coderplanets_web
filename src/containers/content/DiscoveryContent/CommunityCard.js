@@ -37,11 +37,11 @@ const CommunityCard = ({ community, restProps }) => (
       <TrendLine data={community.contributesDigest} />
     </ActivitySpark>
     <Footer>
-      <React.Fragment>
+      <>
         {/* TODO: number color should be different when number grow large */}
         {prettyNum(community.subscribersCount)}{' '}
         {community.subscribersCount < 1000 ? '人加入' : '加入'}
-      </React.Fragment>
+      </>
 
       <SubscribeBtn community={community} restProps={restProps} />
     </Footer>

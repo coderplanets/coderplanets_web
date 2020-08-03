@@ -76,13 +76,13 @@ const CommunityStatesPad = ({
         <NumberGroup onClick={onShowEditorList} count={editorsCount} />
       </EditorSection>
       {!withoutFounding && (
-        <React.Fragment>
+        <>
           <NumberDivider />
           <ChargeSection>
             <NumberTitle>打赏</NumberTitle>
             <Charger />
           </ChargeSection>
-        </React.Fragment>
+        </>
       )}
     </Wrapper>
   )

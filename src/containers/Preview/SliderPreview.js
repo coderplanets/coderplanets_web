@@ -14,13 +14,13 @@ const SliderPreview = ({
   imageUploading,
   children,
 }) => (
-  <React.Fragment>
+  <>
     <PreviewOverlay visible={visible} onClick={closePreview} />
     <PreviewWrapper visible={visible} rightOffset={rightOffset} type={type}>
       <AddOn type={type} imageUploading={imageUploading} />
       <PreviewContent>{children}</PreviewContent>
     </PreviewWrapper>
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(SliderPreview)

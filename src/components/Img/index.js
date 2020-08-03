@@ -18,7 +18,7 @@ const Img = ({ className, src, alt, loading, fallback }) => {
       <ReactSVG
         svgClassName={className}
         src={src}
-        loading={() => <React.Fragment>{loading}</React.Fragment>}
+        loading={() => <>{loading}</>}
       />
     )
   }

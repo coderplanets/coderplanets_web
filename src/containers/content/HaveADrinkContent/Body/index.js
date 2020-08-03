@@ -45,7 +45,7 @@ const View = ({ view, sentence, settingOptions }) => {
     }
     default: {
       return (
-        <React.Fragment>
+        <>
           <Sentence fontSize={settingOptions.fontSize}>
             <AnimateOnChange {...animate[settingOptions.animateType]}>
               {sentence}
@@ -53,7 +53,7 @@ const View = ({ view, sentence, settingOptions }) => {
           </Sentence>
 
           <Hint>按「空格」键或「点击」刷新</Hint>
-        </React.Fragment>
+        </>
       )
     }
   }

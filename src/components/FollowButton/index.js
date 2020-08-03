@@ -43,7 +43,7 @@ const FollowButton = ({
   }, [fakeLoading, onUndoFollow, userId])
 
   return (
-    <React.Fragment>
+    <>
       {hasFollowed ? (
         <FollowingBtn
           size={size}
@@ -53,7 +53,7 @@ const FollowButton = ({
       ) : (
         <FollowBtn size={size} loading={isLoading} onClick={handleFollow} />
       )}
-    </React.Fragment>
+    </>
   )
 }
 

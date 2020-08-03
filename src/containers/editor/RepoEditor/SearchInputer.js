@@ -9,7 +9,7 @@ import { InputWrapper } from './styles/search_man'
 import { onGithubSearch, searchOnChange } from './logic'
 
 const SearchInputer = ({ value, searching }) => (
-  <React.Fragment>
+  <>
     <InputWrapper>
       <FormItem
         value={value}
@@ -30,7 +30,7 @@ const SearchInputer = ({ value, searching }) => (
         Github 搜索
       </Button>
     )}
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(SearchInputer)

@@ -27,7 +27,7 @@ const PostsList = ({ props }) => {
   switch (curView) {
     case TYPE.RESULT:
       return (
-        <React.Fragment>
+        <>
           {entries.map((entry) => (
             <PostItem
               key={entry.id}
@@ -40,12 +40,12 @@ const PostsList = ({ props }) => {
               onPreview={() => onPreview(entry)}
             />
           ))}
-        </React.Fragment>
+        </>
       )
 
     case TYPE.RESULT_EMPTY:
       return (
-        <React.Fragment>
+        <>
           {isEmpty(emptyPrefix) ? (
             <EmptyThread community={community} thread={thread} />
           ) : (
@@ -54,7 +54,7 @@ const PostsList = ({ props }) => {
               size="large"
             />
           )}
-        </React.Fragment>
+        </>
       )
 
     default:

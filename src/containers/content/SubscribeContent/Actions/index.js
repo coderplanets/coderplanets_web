@@ -20,13 +20,13 @@ const Actions = ({ view, testid }) => {
     <Wrapper testid={testid}>
       <InnerWrapper>
         {view === 'default' ? (
-          <React.Fragment>
+          <>
             <SubscribeBtn onClick={() => changeView('detail')}>
               <SubscribeIcon src={`${ICON_CMD}/header/more_subscribe.svg`} />
               订阅内容
             </SubscribeBtn>
             <Desc>可随时取消订阅</Desc>
-          </React.Fragment>
+          </>
         ) : (
           <Detail />
         )}

@@ -35,7 +35,7 @@ const DigestView = ({
   onAuthorSelect,
 }) => {
   return (
-    <React.Fragment>
+    <>
       {cover === 'avatar' ? (
         <AvatarWrapper onClick={() => onAuthorSelect(entry.author)}>
           <Avatar
@@ -90,7 +90,7 @@ const DigestView = ({
           <BodyDigest>{cutFrom(entry.digest, 90)}</BodyDigest>
         </SecondHalf>
       </Main>
-    </React.Fragment>
+    </>
   )
 }
 

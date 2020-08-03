@@ -21,7 +21,7 @@ import {
 import { onUploadImageDone } from './logic'
 
 const PicUploader = ({ divider }) => (
-  <React.Fragment>
+  <>
     <Maybe test={!divider}>
       <Divider src={`${ICON_CMD}/more.svg`} />
     </Maybe>
@@ -31,7 +31,7 @@ const PicUploader = ({ divider }) => (
         <ItemTitle>上传图片</ItemTitle>
       </Item>
     </DocUploader>
-  </React.Fragment>
+  </>
 )
 
 const LabelList = ({ data }) => (

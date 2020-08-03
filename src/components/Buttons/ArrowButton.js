@@ -44,21 +44,21 @@ const ArrowButton = ({
   return (
     <Wrapper onClick={onClick} transparentFirst={transparentFirst}>
       {direction === 'left' ? (
-        <React.Fragment>
+        <>
           <LeftIcon
             size={SIZE_MAP[size].icon}
             src={`${ICON_CMD}/navi/navi_back.svg`}
           />
           <Text size={SIZE_MAP[size].text}>{children}</Text>
-        </React.Fragment>
+        </>
       ) : (
-        <React.Fragment>
+        <>
           <Text size={SIZE_MAP[size].text}>{children}</Text>
           <RightIcon
             size={SIZE_MAP[size].icon}
             src={`${ICON_CMD}/navi/navi_back.svg`}
           />
-        </React.Fragment>
+        </>
       )}
     </Wrapper>
   )

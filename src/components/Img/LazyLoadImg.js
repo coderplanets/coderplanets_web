@@ -11,14 +11,14 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
  */
 const LazyLoadImg = ({ className, src, alt, fallback }) => {
   return (
-    <React.Fragment>
+    <>
       <LazyLoadImage
         className={className}
         src={src}
         alt={alt}
         placeholder={fallback}
       />
-    </React.Fragment>
+    </>
   )
 }
 

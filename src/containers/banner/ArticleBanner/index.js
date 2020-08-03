@@ -61,13 +61,13 @@ const ArticleBannerContainer = ({
                 <Space left="3px" right="3px" />
                 <TimeAgo datetime={viewingData.insertedAt} locale="zh_CN" />
                 <Maybe test={showWordCount}>
-                  <React.Fragment>
+                  <>
                     <DotDivider />
                     字数: {viewingData.length}
-                  </React.Fragment>
+                  </>
                 </Maybe>
                 <Maybe test={showLastSync}>
-                  <React.Fragment>
+                  <>
                     <DotDivider />
                     最后同步:
                     <Space left="3px" right="3px" />
@@ -76,7 +76,7 @@ const ArticleBannerContainer = ({
                     ) : (
                       <span>--</span>
                     )}
-                  </React.Fragment>
+                  </>
                 </Maybe>
               </Desc>
             </Brief>

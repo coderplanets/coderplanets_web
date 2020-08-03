@@ -8,7 +8,7 @@ import { withGuardian } from '@/hoc'
 import { Option, OptionIcon, OptionTitle } from './styles'
 
 const EditOption = ({ thread, onEdit }) => (
-  <React.Fragment>
+  <>
     <Option onClick={() => onEdit(thread)}>
       <OptionIcon src={`${ICON_CMD}/edit.svg`} />
       {thread === THREAD.REPO ? (
@@ -17,7 +17,7 @@ const EditOption = ({ thread, onEdit }) => (
         <OptionTitle>编辑</OptionTitle>
       )}
     </Option>
-  </React.Fragment>
+  </>
 )
 
 EditOption.propTypes = {

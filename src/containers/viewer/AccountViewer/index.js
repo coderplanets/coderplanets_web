@@ -33,7 +33,7 @@ const AccountViewerContainer = ({ accountViewer: store, user }) => {
   return (
     <AccountWrapper>
       {!isEmpty(userInfoData.id) && (
-        <React.Fragment>
+        <>
           <AccountContent>
             <UserBrief
               user={userInfoData}
@@ -46,13 +46,13 @@ const AccountViewerContainer = ({ accountViewer: store, user }) => {
             <Divider top="20px" bottom="0px" />
             <SiteSocial user={userInfoData} />
             <Maybe test={!isEmpty(subscribedCommunities)}>
-              <React.Fragment>
+              <>
                 <Divider top="0px" bottom="20px" />
                 <Planets
                   subscribedCommunities={subscribedCommunities}
                   viewingType={viewingType}
                 />
-              </React.Fragment>
+              </>
             </Maybe>
             <Divider top="10px" bottom="20px" />
 
@@ -60,14 +60,14 @@ const AccountViewerContainer = ({ accountViewer: store, user }) => {
           </AccountContent>
 
           <Maybe test={viewingType === 'account'}>
-            <React.Fragment>
+            <>
               <Divider top="10px" bottom="12px" />
               <ThemeWrapper>
                 <ThemeSelector curTheme={curTheme} changeTheme={changeTheme} />
               </ThemeWrapper>
-            </React.Fragment>
+            </>
           </Maybe>
-        </React.Fragment>
+        </>
       )}
     </AccountWrapper>
   )

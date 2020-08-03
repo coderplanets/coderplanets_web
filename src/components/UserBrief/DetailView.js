@@ -8,7 +8,7 @@ import { UserDetailDesc, DescLabel, DescIconLabel, ToggleText } from './styles'
 import BackgroundList from './BackgroundList'
 
 const DetailView = ({ user, toggleDetail }) => (
-  <React.Fragment>
+  <>
     <UserDetailDesc>
       <DescLabel>个人介绍 </DescLabel>
       {user.bio}
@@ -31,7 +31,7 @@ const DetailView = ({ user, toggleDetail }) => (
       <DescIconLabel src={`${ICON_CMD}/profile_arrow.svg`} />
       <ToggleText>收起详细资料</ToggleText>
     </UserDetailDesc>
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(DetailView)

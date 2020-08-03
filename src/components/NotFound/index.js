@@ -26,7 +26,7 @@ import {
 const log = buildLog('c:NotFound:index')
 
 const DefaultDesc = () => (
-  <React.Fragment>
+  <>
     <div>
       如果没有你关注的语言或框架，你可以
       <IssueLink
@@ -49,7 +49,7 @@ const DefaultDesc = () => (
       </IssueLink>
       ，以便于开发者在第一时间修复。
     </div>
-  </React.Fragment>
+  </>
 )
 
 const NotFound = ({ msg, desc }) => (

@@ -18,11 +18,7 @@ import {
 import { changeView } from './logic'
 
 const DoingText = ({ isEdit }) => {
-  return isEdit ? (
-    <React.Fragment>更新</React.Fragment>
-  ) : (
-    <React.Fragment>发布</React.Fragment>
-  )
+  return isEdit ? <>更新</> : <>发布</>
 }
 
 /*

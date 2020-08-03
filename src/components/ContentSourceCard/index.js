@@ -29,14 +29,14 @@ const ContentSourceCard = ({
     </Desc>
 
     {users.totalCount !== 0 && (
-      <React.Fragment>
+      <>
         <Divider />
         <Title>参与讨论 ({users.totalCount})</Title>
         <Desc noBottom>
           <UserList items={users.entries} />
         </Desc>
         <Divider />
-      </React.Fragment>
+      </>
     )}
 
     {/*

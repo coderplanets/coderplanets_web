@@ -37,7 +37,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
 
   return (
     <Wrapper testid="c11NSettingPanel">
-      <React.Fragment>
+      <>
         <HeaderTitle>自定义阅读设置</HeaderTitle>
         <br />
         <Title>社区视图</Title>
@@ -69,7 +69,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
         </Desc>
 
         {!contains(curThread, [THREAD.VIDEO, THREAD.REPO]) ? (
-          <React.Fragment>
+          <>
             <Br top="10px" />
             <Radio
               items={[
@@ -90,11 +90,11 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
               }
             />
             <Divider />
-          </React.Fragment>
+          </>
         ) : (
           <Divider />
         )}
-      </React.Fragment>
+      </>
 
       <Title>阅读辅助</Title>
       <Br top="10px" />
@@ -142,7 +142,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
       />
 
       {contains(curThread, [THREAD.POST, THREAD.JOB]) ? (
-        <React.Fragment>
+        <>
           <Br top="25px" />
           <Desc>在帖子/文章下方显示辅助分割线。</Desc>
           <Radio
@@ -165,7 +165,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
             }
           />
           <Divider />
-        </React.Fragment>
+        </>
       ) : (
         <Divider />
       )}

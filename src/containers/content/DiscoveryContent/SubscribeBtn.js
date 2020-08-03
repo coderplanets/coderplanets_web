@@ -10,7 +10,7 @@ import { SubscribedBox, BtnWrapper, PrefixIcon } from './styles'
 import { subscribe, unSubscribe } from './logic'
 
 const AlreadySubedBtn = ({ community }) => (
-  <React.Fragment>
+  <>
     {community.raw !== 'home' ? (
       <Tooltip
         content={
@@ -41,7 +41,7 @@ const AlreadySubedBtn = ({ community }) => (
         </BtnWrapper>
       </SubscribedBox>
     )}
-  </React.Fragment>
+  </>
 )
 
 const SubscribeBtn = ({
@@ -56,7 +56,7 @@ const SubscribeBtn = ({
     )
   }
   return (
-    <React.Fragment>
+    <>
       {community.viewerHasSubscribed ? (
         <AlreadySubedBtn community={community} />
       ) : (
@@ -81,7 +81,7 @@ const SubscribeBtn = ({
           </div>
         </Tooltip>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

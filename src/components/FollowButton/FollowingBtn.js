@@ -8,7 +8,7 @@ import { BtnWrapper, WatchedIcon, Popinfo, LoadingIcon } from './styles'
 
 const FollowingBtn = ({ size, loading, onClick }) => {
   return (
-    <React.Fragment>
+    <>
       {loading ? (
         <Button size={size} type="primary">
           <BtnWrapper>
@@ -30,7 +30,7 @@ const FollowingBtn = ({ size, loading, onClick }) => {
           </Button>
         </Tooltip>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

@@ -39,7 +39,7 @@ const SuggestIcon = ({ round, suggestion: { raw, logo, cmd } }) => {
   }
   // normal icons
   return (
-    <React.Fragment>
+    <>
       {logo && (
         <Wrapper>
           <Icon
@@ -50,7 +50,7 @@ const SuggestIcon = ({ round, suggestion: { raw, logo, cmd } }) => {
           />
         </Wrapper>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

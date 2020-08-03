@@ -24,11 +24,11 @@ const View = ({ view, ...restProps }) => {
   switch (view) {
     case VIEW.DEFAULT: {
       return (
-        <React.Fragment>
+        <>
           <IndexStatus />
           <Timer {...restProps} />
           <Reaction />
-        </React.Fragment>
+        </>
       )
     }
 

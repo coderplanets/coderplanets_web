@@ -43,7 +43,7 @@ const UserFavoritedContainer = ({ userFavorited: store }) => {
       {parentView === 'CATEGORY_LIST' ? (
         <FavoritesCats onSelect={onCatSelect} displayMode="list" />
       ) : (
-        <React.Fragment>
+        <>
           <Breadcrumbs
             gotoParent={backToCategoryList}
             category={curCategoryData}
@@ -60,7 +60,7 @@ const UserFavoritedContainer = ({ userFavorited: store }) => {
             onPageChange={onReload}
             onPreview={onPreview}
           />
-        </React.Fragment>
+        </>
       )}
     </div>
   )

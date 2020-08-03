@@ -40,13 +40,13 @@ const SlogenText = () => {
   })
 
   return (
-    <React.Fragment>
+    <>
       <AnimateOnChange durationOut={500}>
         <SloganTextWrapper highlight onClick={fixAnimationStockIfNeed}>
           {coolThings[index]}
         </SloganTextWrapper>
       </AnimateOnChange>
-    </React.Fragment>
+    </>
   )
 }
 

@@ -24,7 +24,7 @@ const labelText = (isSeniorMember) => {
 }
 
 const UpgradeMenu = ({ achievement }) => (
-  <React.Fragment>
+  <>
     <DynamicGirlVerifier />
     <SectionLabel
       title="账单概况"
@@ -39,7 +39,7 @@ const UpgradeMenu = ({ achievement }) => (
     <GirlsCodeTooPlan joined={achievement.seniorMember} />
     <PlanDivider hide={achievement.seniorMember} />
     <TipsForDeveloperPlan />
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(UpgradeMenu)

@@ -22,7 +22,7 @@ const ErrorDesc = ({ errorCode }) => {
       )
     default:
       return (
-        <React.Fragment>
+        <>
           <HintDesc>
             抱歉带给您糟糕的体验, 恳请您
             <IssueLink
@@ -42,7 +42,7 @@ const ErrorDesc = ({ errorCode }) => {
             </IssueLink>{' '}
             描述您遇到的问题 , 我们对此非常重视。
           </HintDesc>
-        </React.Fragment>
+        </>
       )
   }
 }

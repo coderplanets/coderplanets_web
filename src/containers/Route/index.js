@@ -14,7 +14,7 @@ const RouteContainer = ({ route }) => {
   const router = useRouter()
   useInit(route, router)
 
-  return <React.Fragment />
+  return <div />
 }
 
 export default connectStore(RouteContainer)

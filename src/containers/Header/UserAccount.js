@@ -20,7 +20,7 @@ import {
 } from './styles/user_account'
 
 const UserAccount = ({ isLogin, accountInfo }) => (
-  <React.Fragment>
+  <>
     {isLogin ? (
       <Tooltip
         placement="bottom-start"
@@ -79,7 +79,7 @@ const UserAccount = ({ isLogin, accountInfo }) => (
         <DefaultUserIcon src={`${ICON_CMD}/default_user.svg`} />
       </Wrapper>
     )}
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(UserAccount)

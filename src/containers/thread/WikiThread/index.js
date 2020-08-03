@@ -65,7 +65,7 @@ const WikiThreadContainer = ({ wikiThread }) => {
         <WikiWrapper>{renderView(wikiData, curView, communityRaw)}</WikiWrapper>
       </LeftPart>
       <RightPart>
-        <React.Fragment>
+        <>
           <PublisherWrapper>
             <PublishButton
               label="参与编辑"
@@ -82,7 +82,7 @@ const WikiThreadContainer = ({ wikiThread }) => {
             views={wikiData.views}
             lastSync={wikiData.lastSync}
           />
-        </React.Fragment>
+        </>
       </RightPart>
     </Wrapper>
   )

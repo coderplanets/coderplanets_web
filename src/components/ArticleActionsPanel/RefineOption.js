@@ -8,7 +8,7 @@ import { withGuardian } from '@/hoc'
 import { Option, OptionIcon, OptionTitle } from './styles'
 
 const RefineOption = ({ data, thread, onSetRefined, onUnsetRefined }) => (
-  <React.Fragment>
+  <>
     {contains('refined', pluck('title', data.tags)) ? (
       <Option onClick={() => onUnsetRefined(thread)}>
         <OptionIcon src={`${ICON_CMD}/diamond_frame.svg`} />
@@ -20,7 +20,7 @@ const RefineOption = ({ data, thread, onSetRefined, onUnsetRefined }) => (
         <OptionTitle>设为精华</OptionTitle>
       </Option>
     )}
-  </React.Fragment>
+  </>
 )
 
 RefineOption.propTypes = {

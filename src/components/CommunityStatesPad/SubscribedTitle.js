@@ -33,7 +33,7 @@ const SubscribedBtn = ({ community, onUndoSubscribe }) => {
 }
 
 const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
-  <React.Fragment>
+  <>
     {community.viewerHasSubscribed ? (
       <SubscribedBtn community={community} onUndoSubscribe={onUndoSubscribe} />
     ) : (
@@ -49,7 +49,7 @@ const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
         <NumberTitle onClick={() => onSubscribe(community)}>加入</NumberTitle>
       </Tooltip>
     )}
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(SubscribedTitle)

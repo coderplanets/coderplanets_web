@@ -15,7 +15,7 @@ import BackgroundList from './BackgroundList'
 const emptyBacgrounds = either(isNil, isEmpty)
 
 const DigestView = ({ user, toggleDetail }) => (
-  <React.Fragment>
+  <>
     <UserDesc>
       <DescIconLabel src={`${ICON_CMD}/profile_bio.svg`} />{' '}
       <div>{user.bio}</div>
@@ -36,7 +36,7 @@ const DigestView = ({ user, toggleDetail }) => (
       <DetailToggleLabel src={`${ICON_CMD}/profile_arrow.svg`} reverse />
       <ToggleText>查看详细资料</ToggleText>
     </UserDesc>
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(DigestView)

@@ -65,17 +65,17 @@ const FiltersMenu = ({
             revert={revert}
           >
             {!revert ? (
-              <React.Fragment>
+              <>
                 <Icon active={item.id === expandMenuId} src={item.icon} />
                 <SpaceGrow />
                 {item.title}
-              </React.Fragment>
+              </>
             ) : (
-              <React.Fragment>
+              <>
                 {item.title}
                 <SpaceGrow />
                 <Icon active={item.id === expandMenuId} src={item.icon} />
-              </React.Fragment>
+              </>
             )}
           </Item>
           {!noFilter && (

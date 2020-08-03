@@ -14,7 +14,7 @@ import {
 import { tokenOnChange, setGithubToken } from './logic'
 
 const TokenSetter = ({ value, searching }) => (
-  <React.Fragment>
+  <>
     <TokeInputWrapper>
       <FormItem
         value={value}
@@ -39,7 +39,7 @@ const TokenSetter = ({ value, searching }) => (
     <Button type="primary" ghost onClick={setGithubToken}>
       设置 Github Token
     </Button>
-  </React.Fragment>
+  </>
 )
 
 export default React.memo(TokenSetter)

@@ -21,7 +21,7 @@ const StrategicPartners = ({ show, onAbout }) => {
   return (
     <Wrapper>
       {show && (
-        <React.Fragment>
+        <>
           <Header>
             <Title>产品推广</Title>
             <div onClick={onAbout}>
@@ -29,7 +29,7 @@ const StrategicPartners = ({ show, onAbout }) => {
             </div>
           </Header>
           <PartnerBanner />
-        </React.Fragment>
+        </>
       )}
     </Wrapper>
   )

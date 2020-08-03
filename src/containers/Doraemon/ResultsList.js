@@ -74,7 +74,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
       {ListComp}
     </CustomScroller>
   ) : (
-    <React.Fragment>{ListComp}</React.Fragment>
+    <>{ListComp}</>
   )
 }
 

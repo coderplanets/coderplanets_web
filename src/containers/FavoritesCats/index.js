@@ -48,20 +48,20 @@ const FavoritesCatsContainer = ({
   const { entries } = pagedCategoriesData
 
   return (
-    <React.Fragment>
+    <>
       {displayMode === 'list' && (
         <SectionLabel
           title="收藏夹"
           iconSrc={`${ICON_CMD}/folder.svg`}
           addonNode={
-            <React.Fragment>
+            <>
               {isSelfViewing && (
                 <AdderWrapper onClick={changeViewTo('creator')}>
                   <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
                   <AdderText>创建</AdderText>
                 </AdderWrapper>
               )}
-            </React.Fragment>
+            </>
           }
         />
       )}
@@ -86,7 +86,7 @@ const FavoritesCatsContainer = ({
       {displayMode === 'list' && (
         <BoxView data={pagedCategoriesData} onSelect={onSelect} />
       )}
-    </React.Fragment>
+    </>
   )
 }
 

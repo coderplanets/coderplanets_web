@@ -27,7 +27,7 @@ const log = buildLog('c:CommunityList:index')
 
 const CommunityList = ({ items, size, bottom, emptyHint }) => {
   if (isEmpty(items)) {
-    return !isEmpty(emptyHint) && <React.Fragment>{emptyHint}</React.Fragment>
+    return !isEmpty(emptyHint) && <>{emptyHint}</>
   }
 
   return (

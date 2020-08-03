@@ -24,7 +24,7 @@ const ReposList = ({ props }) => {
   switch (curView) {
     case TYPE.RESULT:
       return (
-        <React.Fragment>
+        <>
           {entries.map((entry) => (
             <RepoItem
               key={entry.id}
@@ -34,12 +34,12 @@ const ReposList = ({ props }) => {
               onPreview={() => onPreview(entry)}
             />
           ))}
-        </React.Fragment>
+        </>
       )
 
     case TYPE.RESULT_EMPTY:
       return (
-        <React.Fragment>
+        <>
           {isEmpty(emptyPrefix) ? (
             <EmptyThread community={community} thread={thread} />
           ) : (
@@ -48,7 +48,7 @@ const ReposList = ({ props }) => {
               size="large"
             />
           )}
-        </React.Fragment>
+        </>
       )
 
     default:
