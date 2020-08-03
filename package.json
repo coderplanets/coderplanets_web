@@ -130,7 +130,7 @@
     "timeago-react": "3.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.10.2",
+    "@babel/core": "7.11.0",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@groupher/eslint-config-web": "2.0.9",
