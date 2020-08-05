@@ -43,14 +43,12 @@ const DoraemonContainer = ({ doraemon: store }) => {
 
   useEffect(() => toggleGlobalBlur(visible), [visible])
 
-  console.log('visible --> ', visible)
-
   return (
     <React.Fragment>
       {visible && (
         <Portal>
           <PageOverlay visible={visible} onClick={hidePanel} />
-          <PanelContainer visible={visible}>
+          <PanelContainer testid="doraemon-panel" visible={visible}>
             <InputEditor
               value={inputValue}
               searching={searching}

@@ -4,7 +4,7 @@ describe('home page: ', () => {
     cy.visit('/home/posts')
   })
 
-  it('basic layout shoud be visible', () => {
+  it('basic layout should be visible', () => {
     cy.id('header').should('be.visible')
     cy.id('header-search').should('be.visible')
     cy.id('header-search-icon').should('be.visible')
@@ -22,5 +22,30 @@ describe('home page: ', () => {
       // .should('have.css', 'background')
       // .should('not.have.css', 'border-bottom')
       .and('not.have.css', 'padding', '5px 3px 3px 3px')
+  })
+
+  it('doramon Comp should be seen after search icon clicked', () => {
+    cy.id('header-search').click()
+    cy.id('doraemon-panel').should('be.visible')
+  })
+
+  it('doramon Comp should close after shortcut pressed', () => {
+    // ctrl + C pressed
+    cy.id('header-search').click()
+    cy.id('doraemon-inputer').should('be.visible')
+    cy.id('doraemon-inputer').type('{ctrl}C')
+    cy.id('doraemon-inputer').should('not.be.visible')
+
+    // ctrl + G pressed
+    cy.id('header-search').click()
+    cy.id('doraemon-inputer').should('be.visible')
+    cy.id('doraemon-inputer').type('{ctrl}G')
+    cy.id('doraemon-inputer').should('not.be.visible')
+
+    // esc pressed
+    cy.id('header-search').click()
+    cy.id('doraemon-inputer').should('be.visible')
+    cy.id('doraemon-inputer').type('{esc}')
+    cy.id('doraemon-inputer').should('not.be.visible')
   })
 })

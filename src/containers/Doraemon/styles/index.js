@@ -13,7 +13,9 @@ export const PageOverlay = styled.div`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
-export const PanelContainer = styled.div`
+export const PanelContainer = styled.div.attrs((props) => ({
+  'data-testid': props.testid,
+}))`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   box-shadow: 0px 4px 11px 8px rgba(0, 0, 0, 0.2),
     0 25px 50px 0 rgba(0, 0, 0, 0.1);
