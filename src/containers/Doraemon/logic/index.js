@@ -295,11 +295,9 @@ const DataSolver = [
     match: asyncRes(EVENT.QUERY_DORAMON),
     action: (res) => {
       const { data } = res[EVENT.QUERY_DORAMON]
-      const forcus = false
-      store.open(forcus)
-
+      // focus = false
+      store.open(false)
       /* "doraemonInputbar" */
-
       store.mark({ inputValue: data })
       queryPocket()
     },

@@ -23,7 +23,7 @@ const log = buildLog('C:ErrorBox')
 
 const ErrorBoxContainer = ({ errorBox: store }) => {
   useInit(store)
-  useShortcut(['ctrl+c', 'ctrl+g', 'esc'], hide)
+  useShortcut(['Control+c', 'Control+g', 'Escape'], hide)
 
   const {
     show,

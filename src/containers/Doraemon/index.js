@@ -43,8 +43,10 @@ const DoraemonContainer = ({ doraemon: store }) => {
 
   useEffect(() => toggleGlobalBlur(visible), [visible])
 
+  console.log('visible --> ', visible)
+
   return (
-    <>
+    <React.Fragment>
       {visible && (
         <Portal>
           <PageOverlay visible={visible} onClick={hidePanel} />
@@ -72,7 +74,7 @@ const DoraemonContainer = ({ doraemon: store }) => {
           </PanelContainer>
         </Portal>
       )}
-    </>
+    </React.Fragment>
   )
 }
 

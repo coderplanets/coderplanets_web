@@ -64,7 +64,7 @@ const GlobalLayoutContainer = ({
 
   useInit(store, { online, media, platform })
 
-  useShortcut('ctrl+p', openDoraemon)
+  useShortcut('Control+P', openDoraemon)
   const { sidebarPin } = store
 
   /*

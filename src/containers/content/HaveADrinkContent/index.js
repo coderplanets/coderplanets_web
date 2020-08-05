@@ -40,7 +40,7 @@ const log = buildLog('C:HaveADrinkContent')
 const HaveADrinkContentContainer = ({ haveADrinkContent: store }) => {
   useInit(store)
 
-  useShortcut('space', () => {
+  useShortcut('Space', () => {
     scrollToTop()
     lockPage()
     refreshSentence()

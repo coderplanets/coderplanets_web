@@ -216,9 +216,9 @@ const DoraemonStore = T.model('DoraemonStore', {
     activeTo(activeRaw) {
       self.mark({ activeRaw })
     },
-    open(forcus = true) {
+    open(focus = true) {
       self.visible = true
-      if (forcus) focusDoraemonBar()
+      if (focus) focusDoraemonBar()
       lockPage()
     },
     handleLogin() {

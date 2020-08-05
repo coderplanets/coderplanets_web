@@ -8104,10 +8104,6 @@ jsx-ast-utils@^2.2.1, jsx-ast-utils@^2.2.3:
     array-includes "^3.1.1"
     object.assign "^4.1.0"
 
-keyboardjs@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.npm.taobao.org/keyboardjs/download/keyboardjs-2.5.1.tgz#2eb5d96bd1028e07136cd71919f607579edca716"
-
 keyv@~4.0.0:
   version "4.0.1"
   resolved "https://registry.npm.taobao.org/keyv/download/keyv-4.0.1.tgz#9fe703cb4a94d6d11729d320af033307efd02ee6"
@@ -12354,6 +12350,11 @@ timsort@^0.3.0:
 tiny-emitter@^2.0.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/tiny-emitter/download/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
+
+tinykeys@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/tinykeys/-/tinykeys-1.0.6.tgz#a4e48e994e6c1539859ec33e192afcf5f44e8722"
+  integrity sha512-0m0W18g3HoW3vX+bt+Uw7b8Rbq3ejjpY8w3bQa3Ch2L6d8yWKi8i+z43feKogogDvFEQT6qpPCY+7xnjluofgg==
 
 tippy.js@^5.1.1:
   version "5.2.1"
