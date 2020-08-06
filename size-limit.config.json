@@ -50,6 +50,7 @@
     }
   ],
   "ci": {
+    "repoBranchBase": "dev",
     "trackBranches": ["master", "dev"]
   }
 }
