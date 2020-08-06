@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import { theme, cs } from '@/utils'
 
-export const PageOverlay = styled.div`
+export const PageOverlay = styled.div.attrs((props) => ({
+  'data-testid': props.testid,
+}))`
   bottom: 0;
   left: 0;
   overflow: auto;

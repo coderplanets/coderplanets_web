@@ -20,7 +20,7 @@ import {
 } from './styles/user_account'
 
 const UserAccount = ({ isLogin, accountInfo }) => (
-  <>
+  <React.Fragment>
     {isLogin ? (
       <Tooltip
         placement="bottom-start"
@@ -70,16 +70,16 @@ const UserAccount = ({ isLogin, accountInfo }) => (
           </PopMenu>
         }
       >
-        <Wrapper>
+        <Wrapper testid="header-login-user">
           <AvatarIcon src={accountInfo.avatar} />
         </Wrapper>
       </Tooltip>
     ) : (
-      <Wrapper onClick={onLogin}>
+      <Wrapper testid="header-unlogin-user" onClick={onLogin}>
         <DefaultUserIcon src={`${ICON_CMD}/default_user.svg`} />
       </Wrapper>
     )}
-  </>
+  </React.Fragment>
 )
 
 export default React.memo(UserAccount)

@@ -47,7 +47,11 @@ const DoraemonContainer = ({ doraemon: store }) => {
     <React.Fragment>
       {visible && (
         <Portal>
-          <PageOverlay visible={visible} onClick={hidePanel} />
+          <PageOverlay
+            testid="doraemon-overlay"
+            visible={visible}
+            onClick={hidePanel}
+          />
           <PanelContainer testid="doraemon-panel" visible={visible}>
             <InputEditor
               value={inputValue}
