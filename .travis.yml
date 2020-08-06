@@ -35,6 +35,7 @@ script:
   - ./utils/bin/jq-linux -s '.[0] * .[1]' config/config.json config/config.ci.json > /tmp/config.json
   - cp /tmp/config.json ./config/config.json
   - nvm exec 12.18.0 npm run build.ci
+  - nvm exec 12.18.0 npx bundlesize
   - nvm exec 12.18.0 npm run test:ci
 
 cache:
