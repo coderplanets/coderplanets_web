@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, cs } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-testid': props.testid,
+}))`
   ${cs.media.mobile`
     padding: 0;
     padding-right: 10px;

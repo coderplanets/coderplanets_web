@@ -78,7 +78,6 @@
     "graphql-tag": "^2.6.1",
     "graphql-voyager": "^1.0.0-rc.31",
     "js-cookie": "^2.2.0",
-    "keyboardjs": "^2.5.1",
     "mastani-codehighlight": "0.0.7",
     "mobx": "5.15.4",
     "mobx-react": "6.2.2",
@@ -127,7 +126,8 @@
     "store": "^2.0.12",
     "stringz": "^2.0.0",
     "styled-components": "5.1.1",
-    "timeago-react": "3.0.0"
+    "timeago-react": "3.0.0",
+    "tinykeys": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "7.11.0",
@@ -139,7 +139,7 @@
     "babel-plugin-styled-components": "1.10.7",
     "commitizen": "3.1.2",
     "coveralls": "3.0.6",
-    "cypress": "4.7.0",
+    "cypress": "4.12.1",
     "cz-conventional-changelog": "^3.0.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",

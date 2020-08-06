@@ -1,49 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import tinykeys from 'tinykeys'
 
-// see https://github.com/streamich/react-use/blob/master/src/useKeyboardJs.ts
-const useShortcut = (combination, onKeyDownFn, onKeyUpFn) => {
-  const [state, set] = useState([false, null])
-  const [keyboardJs, setKeyboardJs] = useState(null)
-
+const useShortcut = (combination, cb) => {
   useEffect(() => {
-    import('keyboardjs').then(setKeyboardJs)
-  }, [])
-
-  useEffect(() => {
-    if (!keyboardJs) {
-      return
-    }
-
-    const down = (event) => {
-      set([true, event])
-      if (onKeyDownFn) onKeyDownFn()
-    }
-    const up = (event) => {
-      set([false, event])
-      if (onKeyUpFn) onKeyUpFn()
-    }
-
-    // support multi combination in array style
+    const handlers = {}
     if (Array.isArray(combination)) {
       for (let i = 0; i < combination.length; i += 1) {
-        keyboardJs.bind(combination[i], down, up)
+        handlers[combination[i]] = (event) => {
+          event.preventDefault()
+          return cb()
+        }
       }
     } else {
-      keyboardJs.bind(combination, down, up)
-    }
-
-    return () => {
-      if (Array.isArray(combination)) {
-        for (let i = 0; i < combination.length; i += 1) {
-          keyboardJs.unbind(combination[i], down, up)
-        }
-      } else {
-        keyboardJs.unbind(combination, down, up)
+      handlers[combination] = (event) => {
+        event.preventDefault()
+        return cb()
       }
     }
-  }, [combination, keyboardJs, onKeyDownFn, onKeyUpFn])
 
-  return state
+    const unsubscribe = tinykeys(window, handlers)
+    return () => {
+      unsubscribe()
+    }
+  })
 }
 
 export default useShortcut

@@ -58,8 +58,8 @@ const Header = ({
         </RouterWrapper>
         <AddOns />
         <Operations>
-          <Search onClick={openDoraemon} testid="header-search">
-            <HeaderSearchIcon testid="header-search-icon" />
+          <Search onClick={openDoraemon} testid="fixed-header-search">
+            <HeaderSearchIcon testid="fixed-header-search-icon" />
           </Search>
 
           {isLogin && <MailBox />}

@@ -20,7 +20,7 @@ const log = buildLog('C:Preview')
 const PreviewContainer = ({ preview: store }) => {
   const { width: windowWidth } = useResize()
   useInit(store, windowWidth)
-  useShortcut('esc', closePreview)
+  useShortcut('Escape', closePreview)
 
   const {
     slideVisible,

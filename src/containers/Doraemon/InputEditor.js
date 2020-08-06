@@ -20,9 +20,9 @@ import {
 } from './logic'
 
 const InputEditor = ({ searching, value, prefix }) => {
-  useShortcut(['ctrl+c', 'ctrl+g', 'esc'], hidePanel)
-  useShortcut('ctrl+p', () => navSuggestion('up'))
-  useShortcut('ctrl+n', () => navSuggestion('down'))
+  useShortcut(['Control+c', 'Control+g', 'Escape'], hidePanel)
+  useShortcut('Control+p', () => navSuggestion('up'))
+  useShortcut('Control+n', () => navSuggestion('down'))
 
   return (
     <EditorBar>
@@ -31,6 +31,7 @@ const InputEditor = ({ searching, value, prefix }) => {
       </PrefixWrapper>
       <InputBar
         id="doraemonInputbar"
+        testid="doraemon-inputer"
         spellCheck={false}
         autoCapitalize="off"
         autoCorrect="off"

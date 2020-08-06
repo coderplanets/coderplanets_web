@@ -13,7 +13,9 @@ export const EditorBar = styled(BaseBar)`
   position: relative;
   height: 58px;
 `
-export const InputBar = styled.input`
+export const InputBar = styled.input.attrs((props) => ({
+  'data-testid': props.testid,
+}))`
   caret-color: ${theme('shell.searchInput')};
   flex-grow: 1;
   font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',
