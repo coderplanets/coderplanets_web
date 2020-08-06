@@ -25,6 +25,10 @@
       "maxSize": "280 kB"
     },
     {
+      "path": ".next/server/pages/post.js",
+      "maxSize": "280 kB"
+    },
+    {
       "path": ".next/server/pages/job.js",
       "maxSize": "280 kB"
     },
@@ -44,5 +48,8 @@
       "path": ".next/server/pages/trending.js",
       "maxSize": "280 kB"
     }
-  ]
+  ],
+  "ci": {
+    "trackBranches": ["master", "dev"]
+  }
 }
