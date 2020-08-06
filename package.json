@@ -13,6 +13,7 @@
     "build.prod": "cross-env NODE_ENV=production next build",
     "build.dev": "cross-env NODE_ENV=dev next build",
     "build.ci": "cross-env NODE_ENV=ci next build",
+    "size.check": "bundlewatch --config size-limit.config.json",
     "serve": "cross-env NODE_ENV=production next start -p ${SERVE_PORT}",
     "serve.dev": "cross-env NODE_ENV=dev SERVE_PORT=${SERVE_PORT} node server",
     "serve.prod": "cross-env NODE_ENV=production SERVE_PORT=${SERVE_PORT} node server",
@@ -29,7 +30,8 @@
     "test:cover": "npm run test -- --coverage",
     "test:e2e": "cypress open",
     "cy:run": "./node_modules/.bin/cypress run --key 60eb2dd7-724d-4b39-bd12-f434f3465866 --record",
-    "test:ci": "start-server-and-test ci http://localhost:3000 cy:run",
+    "cy:run:free": "./node_modules/.bin/cypress run",
+    "test:ci": "start-server-and-test ci http://localhost:3000 cy:run:free",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "config": {
@@ -137,6 +139,7 @@
     "babel-eslint": "^10.0.2",
     "babel-jest": "^23.6.0",
     "babel-plugin-styled-components": "1.10.7",
+    "bundlewatch": "^0.2.7",
     "commitizen": "3.1.2",
     "coveralls": "3.0.6",
     "cypress": "4.12.1",

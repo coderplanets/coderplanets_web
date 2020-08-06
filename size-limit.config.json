@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "path": ".next/server/pages/community.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/user.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/discovery.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/cool-guide.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/interview.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/recipes.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/job.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/meetups.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/sponsor.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/works.js",
+      "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/trending.js",
+      "maxSize": "280 kB"
+    }
+  ]
+}
