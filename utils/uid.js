@@ -1,7 +1,7 @@
-import shortid from 'shortid'
+import { nanoid } from 'nanoid'
 
 const uid = {
-  gen: shortid.generate,
+  gen: () => nanoid(5),
 }
 
 export default uid
