@@ -45,6 +45,13 @@ const DigestView = () => (
             >
               Power By @Groupher 2020
             </SiteDesc>
+            <SiteDesc
+              href="http://beian.miit.gov.cn"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              蜀ICP备17043722号-4
+            </SiteDesc>
           </div>
         </MainColumn>
         <Column>

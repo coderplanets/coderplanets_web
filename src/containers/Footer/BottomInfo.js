@@ -3,27 +3,50 @@ import React from 'react'
 import {
   Wrapper,
   InnerWrapper,
-  Copyrights,
+  Links,
+  Site,
   Thanks,
-  ThxTitle,
-  BeianLink,
+  MoreText,
 } from './styles/bottom_info'
+
 import { toggleBusBanner } from './logic'
+
+const FRIENDS = [
+  {
+    title: 'aab',
+    link: 'https://cps.fun',
+  },
+  {
+    title: 'bbb',
+    link: 'https://cps.fun',
+  },
+  {
+    title: 'ccc',
+    link: 'https://cps.fun',
+  },
+  {
+    title: 'ddd',
+    link: 'https://cps.fun',
+  },
+  {
+    title: '暗黑设计',
+    link: 'https://cps.fun',
+  },
+]
 
 const BottomInfo = () => (
   <Wrapper>
     <InnerWrapper>
-      <Copyrights>
-        <BeianLink
-          href="http://www.miitbeian.gov.cn"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          蜀ICP备17043722号-4
-        </BeianLink>
-      </Copyrights>
+      <Links>
+        {FRIENDS.map((site, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Site key={index} href={site.link}>
+            {site.title}
+          </Site>
+        ))}
+      </Links>
       <Thanks onClick={toggleBusBanner}>
-        <ThxTitle>特别鸣谢： (求赞助)</ThxTitle>
+        <MoreText>更多友情链接</MoreText>
       </Thanks>
     </InnerWrapper>
   </Wrapper>

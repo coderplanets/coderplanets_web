@@ -12,8 +12,6 @@ export const InnerWrapper = styled.div`
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 50px 6vw;
   padding-bottom: 0;
-  border-bottom: 1px solid;
-  border-bottom-color: #02394a;
 
   ${cs.media.laptopLPadding};
 `
