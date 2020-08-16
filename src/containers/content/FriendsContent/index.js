@@ -88,7 +88,7 @@ const FriendsContentContainer = ({ friendsContent: store }) => {
   useInit(store)
 
   return (
-    <Wrapper testid="sponsorContent">
+    <Wrapper testid="friends-content">
       <InnerWrapper>
         <Br top="50px" />
         <Title>友情链接</Title>
