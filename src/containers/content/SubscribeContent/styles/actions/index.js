@@ -15,7 +15,6 @@ export const InnerWrapper = styled.div`
   ${cs.flexColumn('align-start')};
 `
 export const SubscribeBtn = styled(Button)`
-  ${cs.flex('align-both')};
   height: 42px;
   width: 210px;
 `

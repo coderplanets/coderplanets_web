@@ -8,9 +8,9 @@ import React from 'react'
 import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
+import { ICON_BASE } from '@/config'
 import { buildLog } from '@/utils'
 
-import HomeLogo from './HomeLogo'
 import { Logo } from './styles'
 
 /* eslint-disable-next-line */
@@ -18,7 +18,13 @@ const log = buildLog('c:CommunityFaceLogo:index')
 
 const CommunityFaceLogo = ({ noFill, src, raw, loading, className }) => {
   if (raw === 'home' || isEmpty(src)) {
-    return <HomeLogo className={className} />
+    return (
+      <Logo
+        src={`${ICON_BASE}/site_logo.svg`}
+        raw={raw}
+        className={className}
+      />
+    )
   }
 
   return (

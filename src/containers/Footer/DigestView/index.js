@@ -43,7 +43,14 @@ const DigestView = () => (
               rel="noopener noreferrer"
               target="_blank"
             >
-              Power By @Groupher 2020
+              Power By Groupher | 2020
+            </SiteDesc>
+            <SiteDesc
+              href="http://beian.miit.gov.cn"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              蜀ICP备17043722号-4
             </SiteDesc>
           </div>
         </MainColumn>
@@ -51,7 +58,7 @@ const DigestView = () => (
           <Title>About</Title>
           <Body>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
-              关于CPS
+              关于本站
             </Item>
             <Item
               href={`${ISSUE_ADDR}`}
@@ -80,7 +87,7 @@ const DigestView = () => (
         <Column>
           <Title>增值服务</Title>
           <Body>
-            <Item onClick={toggleSeniorHelper}>CPS会员</Item>
+            <Item onClick={toggleSeniorHelper}>成为会员</Item>
             <Item onClick={toggleSponsorHelper}>打赏支持</Item>
           </Body>
         </Column>

@@ -64,6 +64,7 @@ export const ChildrenWrapper = styled.div`
   z-index: 2;
 `
 export const RealChildren = styled.div`
+  ${cs.flex('align-both')};
   opacity: ${({ loading }) => (loading ? 0 : 1)};
 `
 export const LoadingText = styled.div`

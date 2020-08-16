@@ -19,7 +19,7 @@ module.exports = {
       name: 'name',
       message: 'What should it be called?',
       default: 'Oven',
-      validate: value => {
+      validate: (value) => {
         if (/.+/.test(value)) {
           return componentExists(value)
             ? 'A component or container with this name already exists'
@@ -42,7 +42,7 @@ module.exports = {
       message: 'Do you want i18n messages (i.e. will this container use text)?',
     },
   ],
-  actions: data => {
+  actions: (data) => {
     // Generate index.js and index.test.js
     const actions = [
       {

@@ -2,7 +2,7 @@
 
 /*
  *
- * SponsorContent
+ * FriendsContent
  *
  */
 
@@ -12,51 +12,14 @@ import { ICON_CMD } from '@/config'
 import { connectStore, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
-import { Tabs } from '@/components/Switcher'
 import { SponsorGallery } from '@/components/GalleryHub'
 import { Button } from '@/components/Buttons'
 
-import {
-  Wrapper,
-  InnerWrapper,
-  TabsWrapper,
-  Title,
-  Desc,
-  HeartIcon,
-} from './styles'
+import { Wrapper, InnerWrapper, Title, Desc, HeartIcon } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:SponsorContent')
-
-const goldItems = [
-  {
-    id: '0',
-    addr: 'xxx.com',
-    title: '坚果云',
-    desc: '最性感的开发者社区',
-    level: 'gold',
-    icon:
-      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
-  },
-  {
-    id: '1',
-    addr: 'elixir.com',
-    title: 'elixir',
-    desc: '最性感的开发者社区',
-    level: 'gold',
-    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
-  },
-  {
-    id: '2',
-    addr: 'clojure-lang.com',
-    title: 'clojure',
-    desc:
-      '最性感的开发者社区少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
-    level: 'gold',
-    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/clojure.png',
-  },
-]
+const log = buildLog('C:FriendsContent')
 
 const items = [
   {
@@ -121,44 +84,21 @@ const items = [
   },
 ]
 
-const SponsorContentContainer = ({ sponsorContent: store }) => {
+const FriendsContentContainer = ({ friendsContent: store }) => {
   useInit(store)
 
   return (
-    <Wrapper testid="sponsor-content">
+    <Wrapper testid="friends-content">
       <InnerWrapper>
-        <TabsWrapper>
-          <Tabs
-            items={[
-              {
-                title: '赞助鸣谢',
-                icon: `${ICON_CMD}/header/more_sponsor.svg`,
-                raw: 'sponsor',
-              },
-              {
-                title: '广告投放',
-                icon: `${ICON_CMD}/header/more_invest.svg`,
-                raw: 'ad',
-              },
-            ]}
-            activeKey="sponsor"
-            // onChange={onChange}
-            slipHeight="1px"
-          />
-        </TabsWrapper>
         <Br top="50px" />
-        <Title>特别赞助</Title>
-        <Desc>感谢以下公司（团队）对本站的特别支持</Desc>
-        <Br top="20px" />
-        <SponsorGallery items={goldItems} column={4} />
-        <Title>赞助商</Title>
-        <Desc>感谢以下公司（团队）对本站的倾情支持</Desc>
+        <Title>友情链接</Title>
+        <Desc>感谢以下公司（团队）对本站的信任</Desc>
         <Br top="50px" />
         <SponsorGallery items={items} column={4} />
         <Br top="80px" />
         <Button type="primary" ghost>
           <HeartIcon src={`${ICON_CMD}/navi/heart.svg`} />
-          成为本站赞助商
+          交换友情链接
         </Button>
         <Br top="120px" />
       </InnerWrapper>
@@ -166,4 +106,4 @@ const SponsorContentContainer = ({ sponsorContent: store }) => {
   )
 }
 
-export default connectStore(SponsorContentContainer)
+export default connectStore(FriendsContentContainer)

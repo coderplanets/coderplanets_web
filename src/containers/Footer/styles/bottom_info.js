@@ -1,18 +1,21 @@
 import styled from 'styled-components'
 
-import { SiteDesc } from './digest_view'
 import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-center')};
-  background: ${theme('footer.bottomBg')};
-  height: 40px;
+  ${cs.flex('align-center', 'justify-between')};
+  /*  TODO:  remove footer.bottomBg key */
+  /* background: ${theme('footer.bottomBg')}; */
+  border-top: 1px solid;
+  border-top-color: #02394a;
+  height: 60px;
   width: 100%;
 
   ${cs.media.tablet`display: none;`};
 `
 export const InnerWrapper = styled.div`
   ${cs.flex('justify-between')};
+  color: ${theme('thread.articleDigest')};
   align-items: center;
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
@@ -21,15 +24,20 @@ export const InnerWrapper = styled.div`
 
   ${cs.media.laptopLPadding};
 `
-export const Copyrights = styled.div``
-export const Thanks = styled.div`
+export const Links = styled.div`
+  ${cs.flex('align-center')};
+`
+export const Site = styled.a`
   color: ${theme('thread.articleDigest')};
+  cursor: pointer;
+  margin-right: 12px;
+  text-decoration: none;
   &:hover {
-    cursor: pointer;
+    text-decoration: underline;
+    color: ${theme('footer.hover')};
   }
 `
-export const ThxTitle = styled.div``
-
-export const BeianLink = styled(SiteDesc)`
-  margin-bottom: 0;
+export const MoreText = styled(Site)`
+  text-decoration: underline;
+  margin-right: 22px;
 `

@@ -21,16 +21,9 @@ export const InnerWrapper = styled.div`
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
-
 export const ContentWrapper = styled.div`
   ${cs.flexColumnGrow()};
   max-width: 100%;
-`
-export const TabsWrapper = styled.div`
-  ${cs.flex('justify-center')};
-  width: 45%;
-  border-bottom: 1px solid;
-  border-bottom-color: #094454;
 `
 export const Title = styled.h2`
   color: ${theme('thread.articleTitle')};
