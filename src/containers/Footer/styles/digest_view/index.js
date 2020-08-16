@@ -29,7 +29,6 @@ export const MainInfos = styled.div`
 
   ${cs.media.tablet`display: none;`};
 `
-
 export const Column = styled.div`
   ${cs.flexColumn()};
   min-width: 100px;
@@ -43,15 +42,13 @@ export const SiteInfo = styled.div`
   ${cs.flex()};
   align-items: end;
   margin-bottom: 10px;
-  margin-top: 5px;
+  margin-top: 3px;
 `
 export const SiteTitle = styled.div`
   margin-bottom: 5px;
   color: ${theme('footer.text')};
-  display: block;
-  text-decoration: none;
-
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: bold;
   margin-bottom: 5px;
 `
 export const SiteDesc = styled.a`
@@ -70,8 +67,8 @@ export const SiteDesc = styled.a`
   transition: color 0.2s;
 `
 export const SiteLogo = styled(CommunityFaceLogo)`
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: block;
   margin-bottom: 18px;
   margin-left: 3px;
@@ -81,7 +78,6 @@ export const Title = styled.div`
   margin-bottom: 12px;
   font-size: 0.9rem;
 `
-
 export const Body = styled.div`
   ${cs.flexColumn('justify-start')};
   color: ${theme('footer.text')};
@@ -101,7 +97,6 @@ export const Item = styled.a`
   }
   transition: color 0.2s;
 `
-
 export const ItemGitSource = styled.div`
   ${cs.flex('align-center')};
 `
