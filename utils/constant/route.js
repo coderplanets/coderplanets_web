@@ -28,6 +28,7 @@ const ROUTE = {
   WORKS: 'works',
   TRENDING: 'trending',
   SPONSOR: 'sponsor',
+  FRIENDS: 'friends',
   RECIPES: 'recipes',
   INTERVIEW: 'interview',
   SUBSCRIBE: 'subscribe',

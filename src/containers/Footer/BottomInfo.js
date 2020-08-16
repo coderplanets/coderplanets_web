@@ -1,15 +1,15 @@
 import React from 'react'
+import Link from 'next/link'
+
+import { ROUTE } from '@/constant'
 
 import {
   Wrapper,
   InnerWrapper,
   Links,
   Site,
-  Thanks,
   MoreText,
 } from './styles/bottom_info'
-
-import { toggleBusBanner } from './logic'
 
 const FRIENDS = [
   {
@@ -45,9 +45,9 @@ const BottomInfo = () => (
           </Site>
         ))}
       </Links>
-      <Thanks onClick={toggleBusBanner}>
-        <MoreText>更多友情链接</MoreText>
-      </Thanks>
+      <Link href={`/${ROUTE.FRIENDS}`} passHref>
+        <MoreText href={ROUTE.FRIENDS}>更多友情链接</MoreText>
+      </Link>
     </InnerWrapper>
   </Wrapper>
 )

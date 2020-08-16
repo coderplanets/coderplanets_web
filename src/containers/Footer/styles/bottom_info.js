@@ -37,12 +37,7 @@ export const Site = styled.a`
     color: ${theme('footer.hover')};
   }
 `
-export const Thanks = styled.div`
-  &:hover {
-    cursor: pointer;
-  }
-`
-export const MoreText = styled.div`
+export const MoreText = styled(Site)`
   text-decoration: underline;
   margin-right: 22px;
 `
