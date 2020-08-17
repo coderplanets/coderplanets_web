@@ -49,13 +49,6 @@
 - [贡献](docs/Contributing.zh-CN.md)
 - [常见错误](docs/Troubleshooting.zh-CN.md)
 
-## credit
-
-[网站
-logo](https://www.flaticon.com/free-icon/keyboard_211884#term=keyboard&page=8&position=88)
-由作者
-[freepik](https://www.flaticon.com/authors/freepik) 分享于
-[flaticon](https://www.flaticon.com), 协议为 [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0)
 
 ## 协议
 
