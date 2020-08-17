@@ -54,11 +54,6 @@ English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/RE
 
 zhihu: https://www.zhihu.com/people/xieyimian
 
-## credit
-
-[keyboard logo](https://www.flaticon.com/free-icon/keyboard_211884#term=keyboard&page=8&position=88) is made by
-[freepik](https://www.flaticon.com/authors/freepik) from
-[flaticon](https://www.flaticon.com), licensed by [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0)
 
 ## License
 
