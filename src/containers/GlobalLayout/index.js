@@ -24,7 +24,9 @@ import ThemeWrapper from '@/containers/ThemeWrapper'
 
 import Header from '@/containers/Header'
 import Sidebar from '@/containers/Sidebar'
-import { Doraemon, Preview, ErrorBox, Footer, ErrorPage } from './dynamic'
+import Preview from '@/containers/Preview'
+
+import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
 import SEO from './SEO'
 

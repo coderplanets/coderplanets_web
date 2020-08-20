@@ -50,7 +50,7 @@ const View = ({
 }) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
-      <>
+      <React.Fragment>
         <ViewerWrapper active={curView === 'CREATE_VIEW'}>
           <Editor
             thread={thread}
@@ -66,7 +66,7 @@ const View = ({
             onBack={() => changeView('CREATE_VIEW')}
           />
         </ViewerWrapper>
-      </>
+      </React.Fragment>
     )
   }
   return <DynamicMarkDownHelper />

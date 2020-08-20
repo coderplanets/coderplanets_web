@@ -27,7 +27,7 @@ const RepoViewerContainer = ({ repoViewer: store, attachment }) => {
   const { curCommunity, viewingData, loading } = store
 
   return (
-    <>
+    <React.Fragment>
       <FavoritesCats />
       <GithubRepoPage
         repo={viewingData}
@@ -53,7 +53,7 @@ const RepoViewerContainer = ({ repoViewer: store, attachment }) => {
       <CommentsWrapper>
         <Comments />
       </CommentsWrapper>
-    </>
+    </React.Fragment>
   )
 }
 
