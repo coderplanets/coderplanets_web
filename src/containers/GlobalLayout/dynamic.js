@@ -8,13 +8,6 @@ export const Doraemon = dynamic({
   ssr: false,
 })
 
-export const Preview = dynamic({
-  loader: () => import('@/containers/Preview'),
-  // eslint-disable-next-line react/display-name
-  loading: () => <div />,
-  ssr: false,
-})
-
 export const ErrorBox = dynamic({
   loader: () => import('@/containers/ErrorBox'),
   // eslint-disable-next-line react/display-name
