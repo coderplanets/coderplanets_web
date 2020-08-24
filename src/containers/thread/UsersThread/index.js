@@ -19,9 +19,8 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:UsersThread')
 
-const GeoMapSSR = dynamic({
-  loader: () => import('./GeoMap.js'),
-  /* eslint-disable-next-line */
+export const GeoMapSSR = dynamic(() => import('./GeoMap.js'), {
+  /* eslint-disable react/display-name */
   loading: () => <MapLoading />,
   ssr: false,
 })

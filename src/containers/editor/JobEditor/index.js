@@ -21,12 +21,12 @@ import { Wrapper, ViewerWrapper } from './styles'
 
 import { useInit, changeView, onPublish, cancelPublish } from './logic'
 
-export const DynamicMarkDownHelper = dynamic({
-  loader: () => import('./MarkDownHelper'),
-  /* eslint-disable-next-line */
+export const MarkDownHelper = dynamic(() => import('./MarkDownHelper'), {
+  /* eslint-disable react/display-name */
   loading: () => <ArticleContentLoading />,
   ssr: false,
 })
+
 /* eslint-disable-next-line */
 const log = buildLog('C:JobEditor')
 
@@ -59,7 +59,7 @@ const View = ({
       </>
     )
   }
-  return <DynamicMarkDownHelper />
+  return <MarkDownHelper />
 }
 
 const JobEditorContainer = ({ jobEditor: store, attachment }) => {

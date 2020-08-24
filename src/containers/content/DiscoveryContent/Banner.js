@@ -25,12 +25,12 @@ import {
 
 import { searchOnChange } from './logic'
 
-const SlogenText = dynamic({
-  loader: () => import('./SloganText'),
-  // eslint-disable-next-line react/display-name
+export const SloganText = dynamic(() => import('./SloganText'), {
+  /* eslint-disable react/display-name */
   loading: () => <SloganTextWrapper>心爱的作品</SloganTextWrapper>,
   ssr: false,
 })
+
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
@@ -72,7 +72,7 @@ const Banner = ({
         {showCreateHint && (
           <IntroDesc>
             或者，来为你
-            <SlogenText />
+            <SloganText />
             <Link href="/create/community" passHref>
               <CreateCommunityLink>建立一个社区</CreateCommunityLink>
             </Link>

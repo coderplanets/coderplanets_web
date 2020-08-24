@@ -8,11 +8,9 @@ import NormalMenuList from './NormalMenuList'
 import { Wrapper } from './styles/menu_list'
 import { onSortMenuEnd } from './logic'
 
-const DynamicSortableMenuList = dynamic({
-  loader: () => import('./SortableMenuList'),
-  /* eslint-disable */
+export const SortableMenuList = dynamic(() => import('./SortableMenuList'), {
+  /* eslint-disable react/display-name */
   loading: () => <div>..</div>,
-  /* eslint-enable */
 })
 
 const MenuList = ({ items, pin, sortOptActive, activeRaw, forceRerender }) => {
@@ -28,7 +26,7 @@ const MenuList = ({ items, pin, sortOptActive, activeRaw, forceRerender }) => {
           forceRerender={forceRerender}
         />
       ) : (
-        <DynamicSortableMenuList
+        <SortableMenuList
           communities={sortableCommunities}
           sortOptActive={sortOptActive}
           pin={pin}

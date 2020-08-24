@@ -29,9 +29,8 @@ import {
   onRadarNoteCLose,
 } from './logic'
 
-export const DynamicMarkDownHelper = dynamic({
-  loader: () => import('./MarkDownHelper'),
-  /* eslint-disable-next-line */
+export const MarkDownHelper = dynamic(() => import('./MarkDownHelper'), {
+  /* eslint-disable react/display-name */
   loading: () => <ArticleContentLoading />,
   ssr: false,
 })
@@ -69,7 +68,7 @@ const View = ({
       </React.Fragment>
     )
   }
-  return <DynamicMarkDownHelper />
+  return <MarkDownHelper />
 }
 
 const PostEditorContainer = ({ postEditor: store, attachment }) => {

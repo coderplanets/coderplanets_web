@@ -27,64 +27,64 @@ const editorConfig = {
 }
 
 // viewers
-export const DynamicAccountViewer = dynamic(
+export const AccountViewer = dynamic(
   () => import('@/containers/viewer/AccountViewer'),
   commonConfig,
 )
 
-export const DynamicPostViewer = dynamic(
+export const PostViewer = dynamic(
   () => import('@/containers/viewer/PostViewer'),
   commonConfig,
 )
 
-export const DynamicJobViewer = dynamic(
+export const JobViewer = dynamic(
   () => import('@/containers/viewer/JobViewer'),
   commonConfig,
 )
 
-export const DynamicMailsViewer = dynamic(
+export const MailsViewer = dynamic(
   () => import('@/containers/viewer/MailsViewer'),
   commonConfig,
 )
 
-export const DynamicRepoViewer = dynamic(
+export const RepoViewer = dynamic(
   () => import('@/containers/viewer/RepoViewer'),
   commonConfig,
 )
 
-export const DynamicVideoViewer = dynamic(
+export const VideoViewer = dynamic(
   () => import('@/containers/viewer/VideoViewer'),
   commonConfig,
 )
 
 // editors
-export const DynamicAccountEditor = dynamic(
+export const AccountEditor = dynamic(
   () => import('@/containers/editor/AccountEditor'),
   editorConfig,
 )
 
-export const DynamicPostEditor = dynamic(
+export const PostEditor = dynamic(
   () => import('@/containers/editor/PostEditor'),
   editorConfig,
 )
 
-export const DynamicJobEditor = dynamic(
+export const JobEditor = dynamic(
   () => import('@/containers/editor/JobEditor'),
   editorConfig,
 )
 
-export const DynamicVideoEditor = dynamic(
+export const VideoEditor = dynamic(
   () => import('@/containers/editor/VideoEditor'),
   editorConfig,
 )
 
-export const DynamicRepoEditor = dynamic(
+export const RepoEditor = dynamic(
   () => import('@/containers/editor/RepoEditor'),
   editorConfig,
 )
 
 // utils
-export const DynamicStateTree = dynamic(
+export const StateTree = dynamic(
   () => import('@/components/StateTree'),
   commonConfig,
 )
