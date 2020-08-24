@@ -1,9 +1,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-const Sticky = dynamic({
-  loader: () => import('./StickyBox'),
-  // eslint-disable-next-line react/display-name
+export const Sticky = dynamic(() => import('./StickyBox'), {
+  /* eslint-disable react/display-name */
   loading: () => <div />,
   ssr: false,
 })

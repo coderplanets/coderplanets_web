@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+
 import React from 'react'
 import dynamic from 'next/dynamic'
 
@@ -10,24 +12,18 @@ import {
   RepoItemLoading,
 } from '@/components/LoadingEffects'
 
-/* eslint-disable */
-const DynamicPostsList = dynamic({
-  loader: () => import('./PostsList'),
+export const DynamicPostsList = dynamic(() => import('./PostsList'), {
   loading: () => <PostItemLoading num={4} />,
 })
-const DynamicJobsList = dynamic({
-  loader: () => import('./JobsList'),
+const DynamicJobsList = dynamic(() => import('./JobsList'), {
   loading: () => <JobItemLoading num={4} />,
 })
-const DynamicVideosList = dynamic({
-  loader: () => import('./VideosList'),
+const DynamicVideosList = dynamic(() => import('./VideosList'), {
   loading: () => <VideoItemLoading num={4} />,
 })
-const DynamicReposList = dynamic({
-  loader: () => import('./ReposList'),
+const DynamicReposList = dynamic(() => import('./ReposList'), {
   loading: () => <RepoItemLoading num={4} />,
 })
-/* eslint-enable */
 
 const ContentList = (props) => {
   const { thread } = props

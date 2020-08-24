@@ -22,9 +22,8 @@ import Footer from './Footer'
 import { Wrapper, InnerWrapper, LoadingSentence } from './styles'
 import { useInit, refreshSentence } from './logic'
 
-const Body = dynamic({
-  loader: () => import('./Body'),
-  // eslint-disable-next-line react/display-name
+export const Body = dynamic(() => import('./Body'), {
+  /* eslint-disable react/display-name */
   loading: () => (
     <LoadingSentence>
       everyday is the opportunity you don&apos;t get back, so live life to the

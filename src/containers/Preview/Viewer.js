@@ -17,7 +17,7 @@ import {
   DynamicRepoEditor,
   //
   DynamicStateTree,
-} from './DynamicComps'
+} from './dynamics'
 
 import { Wrapper } from './styles/viewer'
 import DefaultViewer from './DefaultViewer'

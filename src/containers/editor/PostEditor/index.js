@@ -29,9 +29,8 @@ import {
   onRadarNoteCLose,
 } from './logic'
 
-export const DynamicMarkDownHelper = dynamic({
-  loader: () => import('./MarkDownHelper'),
-  /* eslint-disable-next-line */
+export const DynamicMarkDownHelper = dynamic(() => import('./MarkDownHelper'), {
+  /* eslint-disable react/display-name */
   loading: () => <ArticleContentLoading />,
   ssr: false,
 })

@@ -31,12 +31,14 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:Footer')
 
-const DynamicBuyMeChuanChuan = dynamic({
-  loader: () => import('@/components/BuyMeChuanChuan'),
-  /* eslint-disable */
-  loading: () => <div />,
-  /* eslint-enable */
-})
+export const DynamicBuyMeChuanChuan = dynamic(
+  () => import('@/components/BuyMeChuanChuan'),
+  {
+    /* eslint-disable react/display-name */
+    loading: () => <div />,
+    ssr: false,
+  },
+)
 
 const FooterContainer = ({ footer: store }) => {
   useInit(store)

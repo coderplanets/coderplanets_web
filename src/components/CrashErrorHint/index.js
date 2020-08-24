@@ -18,9 +18,8 @@ import EXECUTES from './executes'
 
 import { Wrapper, Desc, UL, Li, Action, Footer } from './styles'
 
-const DynamicHeader = dynamic({
-  loader: () => import('./Header'),
-  // eslint-disable-next-line react/display-name
+export const DynamicHeader = dynamic(() => import('./Header'), {
+  /* eslint-disable react/display-name */
   loading: () => <div />,
   ssr: false,
 })
