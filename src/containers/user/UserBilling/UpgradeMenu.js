@@ -12,9 +12,7 @@ import TipsForDeveloperPlan from './TipsForDeveloperPlan'
 
 import { PlanDivider } from './styles/upgrade_menu'
 
-export const DynamicGirlVerifier = dynamic(() =>
-  import('@/containers/GirlVerifier'),
-)
+export const GirlVerifier = dynamic(() => import('@/containers/GirlVerifier'))
 
 const labelText = (isSeniorMember) => {
   if (isSeniorMember) {
@@ -25,7 +23,7 @@ const labelText = (isSeniorMember) => {
 
 const UpgradeMenu = ({ achievement }) => (
   <>
-    <DynamicGirlVerifier />
+    <GirlVerifier />
     <SectionLabel
       title="账单概况"
       iconSrc={`${ICON_CMD}/bill.svg`}

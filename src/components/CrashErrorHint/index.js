@@ -18,7 +18,7 @@ import EXECUTES from './executes'
 
 import { Wrapper, Desc, UL, Li, Action, Footer } from './styles'
 
-export const DynamicHeader = dynamic(() => import('./Header'), {
+export const Header = dynamic(() => import('./Header'), {
   /* eslint-disable react/display-name */
   loading: () => <div />,
   ssr: false,
@@ -63,7 +63,7 @@ const CrashErrorHint = ({ onReport }) => {
     <Wrapper testid="crashErrorHint" t={themeName}>
       <div />
       <div>
-        <DynamicHeader index={executeIndex} themeName={themeName} />
+        <Header index={executeIndex} themeName={themeName} />
         <Desc t={themeName}>
           本次请求因为未知原因崩溃，请尝试重新刷新页面或通过以下渠道给我们反馈：
         </Desc>

@@ -16,13 +16,10 @@ import EditorFooter from './EditorFooter'
 
 import * as logic from './logic'
 
-export const DynamicBodyEditor = dynamic(
-  () => import('@/components/MarkdownEditor'),
-  {
-    /* eslint-disable react/display-name */
-    loading: () => <div>loading</div>,
-  },
-)
+export const BodyEditor = dynamic(() => import('@/components/MarkdownEditor'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div>loading</div>,
+})
 
 const CommentReplyEditor = ({
   referUsers,
@@ -47,7 +44,7 @@ const CommentReplyEditor = ({
       {show ? (
         <div className="comment-reply-editor">
           <InputEditorWrapper>
-            <DynamicBodyEditor
+            <BodyEditor
               mentionList={mentionList}
               onChange={debounce(logic.onReplyInputChange, 450)}
               onMention={logic.onMention}

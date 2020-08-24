@@ -31,7 +31,7 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:Footer')
 
-export const DynamicBuyMeChuanChuan = dynamic(
+export const BuyMeChuanChuan = dynamic(
   () => import('@/components/BuyMeChuanChuan'),
   {
     /* eslint-disable react/display-name */
@@ -67,10 +67,8 @@ const FooterContainer = ({ footer: store }) => {
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
         <BusinessNote />
       </Modal>
-
       <JoinModal />
-
-      <DynamicBuyMeChuanChuan
+      <BuyMeChuanChuan
         show={showSponsor}
         accountInfo={accountInfo}
         onClose={toggleSponsorHelper}
