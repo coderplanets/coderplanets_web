@@ -56,7 +56,7 @@ const Header = ({
         <RouterWrapper>
           <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />
         </RouterWrapper>
-        <AddOns />
+        <AddOns mstStateTestId="fixed-header-mst-state" />
         <Operations>
           <Search onClick={openDoraemon} testid="fixed-header-search">
             <HeaderSearchIcon testid="fixed-header-search-icon" />

@@ -33,21 +33,19 @@ const PreviewContainer = ({ preview: store }) => {
   } = store
 
   return (
-    <React.Fragment>
-      <SliderPreview
-        visible={slideVisible}
-        rightOffset={rightOffset}
+    <SliderPreview
+      visible={slideVisible}
+      rightOffset={rightOffset}
+      type={type}
+      imageUploading={imageUploading}
+    >
+      <Viewer
         type={type}
-        imageUploading={imageUploading}
-      >
-        <Viewer
-          type={type}
-          root={root}
-          attachment={attachmentData}
-          attUser={attUserData}
-        />
-      </SliderPreview>
-    </React.Fragment>
+        root={root}
+        attachment={attachmentData}
+        attUser={attUserData}
+      />
+    </SliderPreview>
   )
 }
 

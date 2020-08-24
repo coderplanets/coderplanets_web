@@ -1,7 +1,5 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
-// import { Wrapper } from './styles'
 import AddOn from './AddOn'
 
 import { PreviewOverlay, PreviewWrapper, PreviewContent } from './styles'
@@ -13,14 +11,21 @@ const SliderPreview = ({
   type,
   imageUploading,
   children,
-}) => (
-  <>
-    <PreviewOverlay visible={visible} onClick={closePreview} />
-    <PreviewWrapper visible={visible} rightOffset={rightOffset} type={type}>
-      <AddOn type={type} imageUploading={imageUploading} />
-      <PreviewContent>{children}</PreviewContent>
-    </PreviewWrapper>
-  </>
-)
+}) => {
+  return (
+    <React.Fragment>
+      <PreviewOverlay visible={visible} onClick={closePreview} />
+      <PreviewWrapper
+        testid="preview-sidebar-panel"
+        visible={visible}
+        rightOffset={rightOffset}
+        type={type}
+      >
+        <AddOn type={type} imageUploading={imageUploading} />
+        <PreviewContent>{children}</PreviewContent>
+      </PreviewWrapper>
+    </React.Fragment>
+  )
+}
 
 export default React.memo(SliderPreview)

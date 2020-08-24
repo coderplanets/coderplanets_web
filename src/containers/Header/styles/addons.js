@@ -10,7 +10,9 @@ export const Wrapper = styled.div`
   ${cs.media.tablet`display: none`};
 `
 
-export const HeaderStatesIcon = styled(HeaderStatesSVG)`
+export const HeaderStatesIcon = styled(HeaderStatesSVG).attrs((props) => ({
+  'data-testid': props.testid,
+}))`
   opacity: 0;
   fill: ${theme('header.fg')};
   width: 22px;

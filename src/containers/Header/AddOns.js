@@ -3,7 +3,7 @@ import React from 'react'
 import { Wrapper, HeaderStatesIcon, ThemeDot, Divider } from './styles/addons'
 import { previewState, queryDoraemon } from './logic'
 
-const AddOns = () => (
+const AddOns = ({ mstStateTestId }) => (
   <Wrapper>
     {/*
         <Button size="small" type="primary" ghost onClick={logic.upgradeHepler}>
@@ -13,7 +13,7 @@ const AddOns = () => (
         <DividerIcon src={`${ICON_CMD}/more.svg`} />
       */}
     <div onClick={() => previewState('mst-state')}>
-      <HeaderStatesIcon />
+      <HeaderStatesIcon testid={mstStateTestId} />
     </div>
     <ThemeDot onClick={() => queryDoraemon('/theme/')} />
     <Divider>&nbsp;</Divider>

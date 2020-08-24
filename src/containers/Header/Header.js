@@ -53,7 +53,7 @@ const Header = ({
           )}
           {!isOnline && <OfflineAlert />}
         </RouterWrapper>
-        <AddOns />
+        <AddOns mstStateTestId="mst-state" />
         <Operations>
           <Search onClick={openDoraemon} testid="header-search">
             <HeaderSearchIcon testid="header-search-icon" />
