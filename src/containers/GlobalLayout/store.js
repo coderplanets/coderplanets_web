@@ -28,6 +28,10 @@ const GlobalLayoutStore = T.model('GlobalLayoutStore', {
   online: T.optional(T.boolean, true),
   media: T.optional(Media, {}),
   platform: T.optional(Platform, {}),
+  layout: T.optional(
+    T.enumeration('layout', ['up-down', 'left-right']),
+    'left-right',
+  ),
 })
   .views((self) => ({
     get root() {

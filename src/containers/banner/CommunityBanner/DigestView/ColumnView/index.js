@@ -9,8 +9,8 @@ import Tabber from '@/components/Tabber'
 import CommunityStatesPad from '@/components/CommunityStatesPad'
 import { CommunityHolder } from '@/components/LoadingEffects'
 
-import ExpandTexts from './ExpandTexts'
-import SocialList from './SocialList'
+import ExpandTexts from '../../ExpandTexts'
+import SocialList from '../../SocialList'
 
 import {
   Wrapper,
@@ -25,7 +25,7 @@ import {
   Title,
   TitleText,
   LogoHolder,
-} from './styles/digest_view'
+} from '../../styles/digest_view/column_view'
 
 import {
   tabberChange,
@@ -33,7 +33,7 @@ import {
   onUndoSubscribe,
   onShowEditorList,
   onShowSubscriberList,
-} from './logic'
+} from '../../logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 

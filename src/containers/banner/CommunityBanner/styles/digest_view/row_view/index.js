@@ -5,78 +5,68 @@ import { theme, cs } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
-import { BaseBanner, BaseTabber } from './index'
-
-const getSmallHeightSize = (isSmall) => {
-  return isSmall ? '128px' : '150px'
-}
+import { BaseBanner } from '../../index'
 
 export const Wrapper = styled(BaseBanner)`
-  min-height: ${({ descExpand, small }) =>
-    descExpand ? '300px' : getSmallHeightSize(small)};
+  ${cs.flexColumn('justify-start')};
+  width: 275px;
+  height: calc(100vh - 80px);
+  padding: 10px 22px;
+  margin-top: 20px;
+  margin-left: 30px;
+  border-radius: 5px;
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${cs.flexColumn()};
   width: 100%;
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  height: 100%;
+  padding: 0 8px;
 `
 export const BaseBannerContent = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flexColumn('align-start')};
   width: 100%;
-  padding: 0 8.5vw;
-
-  margin-top: -35px;
-
-  ${cs.media.laptopL`
-    padding: 0 7.5vw;
-  `};
+  height: 100%;
 
   ${cs.media.mobile`
-    margin-left: 0;
-    margin-right: 3%;
-    padding-left: 3%;
-    padding-right: 3%;
+    display: none;
   `};
 `
 export const BannerContentWrapper = styled(BaseBannerContent)`
-  align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
+  /* align-items: ${({ descExpand }) =>
+    descExpand ? 'flex-start' : 'center'}; */
 `
 export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
 `
-export const TabberWrapper = styled(BaseTabber)``
-
 export const CommunityWrapper = styled.div`
-  ${cs.flexGrow('align-center')};
-  align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
+  ${cs.flexColumn('align-center')};
   transition: all 0.5s;
   ${cs.media.mobile`
     margin-left: 5%;
 `};
 `
 export const LogoWrapper = styled.div`
+  ${cs.flex('align-both')};
   position: relative;
-  width: 55px;
-  /*  TODO:  use new logo */
-  margin-top: ${({ raw }) => (raw === 'home' ? '-10px' : 0)};
-
-  @media (max-height: 800px) {
-    margin-top: ${({ raw }) => (raw === 'home' ? '-8px' : 0)};
-  }
+  width: 95px;
+  height: 95px;
+  background: #072d3a;
+  border-radius: 100%;
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
-  width: ${({ small }) => (small ? '45px' : '55px')};
-  height: ${({ small }) => (small ? '45px' : '55px')};
+  width: 55px;
+  height: 55px;
   border-radius: 5px;
 `
 export const CommunityInfo = styled.div`
   ${cs.flexColumn('justify-center')};
-
-  margin-top: -6px;
-  margin-left: 12px;
+  width: 100%;
+  margin-top: 22px;
+  margin-bottom: 20px;
 `
 export const TitleWrapper = styled.div`
   ${cs.flex('align-center')};
+  margin-bottom: 10px;
 `
 export const Title = styled.div`
   ${cs.flex('align-baseline')};
@@ -85,6 +75,11 @@ export const Title = styled.div`
 `
 export const TitleText = styled.span`
   margin-right: 10px;
+`
+export const SubTitle = styled.div`
+  font-size: 14px;
+  color: ${theme('banner.title')};
+  margin-bottom: 12px;
 `
 export const GroupsIcon = styled(Img)`
   fill: ${theme('banner.desc')};

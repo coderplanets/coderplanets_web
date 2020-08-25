@@ -27,5 +27,7 @@ module.exports = {
       },
     },
   },
-  rules: {},
+  rules: {
+    'import/no-named-as-default': 0,
+  },
 }

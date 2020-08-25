@@ -14,6 +14,10 @@ const CommunityBanner = T.model('CommunityBanner', {
   loading: T.optional(T.boolean, false),
   descExpand: T.optional(T.boolean, false),
   subscribeLoading: T.optional(T.boolean, false),
+  layout: T.optional(
+    T.enumeration('layout', ['up-down', 'left-right']),
+    'left-right',
+  ),
 })
   .views((self) => ({
     get root() {

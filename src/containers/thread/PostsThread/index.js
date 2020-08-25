@@ -92,6 +92,7 @@ const PostsThreadContainer = ({ postsThread: store }) => {
     curThread,
     pagedCityCommunitiesData,
     showFilterBar,
+    layout,
   } = store
 
   const { subPath } = curRoute
@@ -140,26 +141,28 @@ const PostsThreadContainer = ({ postsThread: store }) => {
             />
           </LeftPart>
 
-          <RightPart>
-            <>
-              <PublisherWrapper>
-                <PublishButton
-                  label={LabelText[subPath] || '发布帖子'}
-                  onPublish={onContentCreate}
-                />
-              </PublisherWrapper>
+          {layout === 'up-down' && (
+            <RightPart>
+              <>
+                <PublisherWrapper>
+                  <PublishButton
+                    label={LabelText[subPath] || '发布帖子'}
+                    onPublish={onContentCreate}
+                  />
+                </PublisherWrapper>
 
-              <Sticky offsetTop={120}>
-                <TagsBar
-                  thread={THREAD.POST}
-                  topic={topic}
-                  onSelect={onTagSelect}
-                  active={activeTagData}
-                />
-                <StrategicPartners onClose={onAdsClose} />
-              </Sticky>
-            </>
-          </RightPart>
+                <Sticky offsetTop={120}>
+                  <TagsBar
+                    thread={THREAD.POST}
+                    topic={topic}
+                    onSelect={onTagSelect}
+                    active={activeTagData}
+                  />
+                  <StrategicPartners onClose={onAdsClose} />
+                </Sticky>
+              </>
+            </RightPart>
+          )}
         </>
       )}
     </Wrapper>

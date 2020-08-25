@@ -8,7 +8,7 @@ import React from 'react'
 import { C11N } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import DigestView from './DigestView'
+import DigestView from './DigestView/index'
 import BriefView from './BriefView'
 
 import { Wrapper } from './styles'
