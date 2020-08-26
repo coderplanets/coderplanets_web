@@ -12,10 +12,10 @@ import {
   SubscribeCancel,
 } from '../styles/digest_view/contact_bar'
 
-const ContactBar = () => {
+const ContactBar = ({ layout }) => {
   return (
     <Wrapper>
-      <InnerWrapper>
+      <InnerWrapper layout={layout}>
         <SocialList />
         <SubscribeWrapper>
           <SubscribeText>

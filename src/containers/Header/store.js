@@ -14,6 +14,10 @@ const log = buildLog('S:HeaderStore')
 const HeaderStore = T.model('HeaderStore', {
   fixed: T.optional(T.boolean, false),
   preSidebarPin: T.optional(T.boolean, false),
+  layout: T.optional(
+    T.enumeration('layout', ['up-down', 'left-right']),
+    'left-right',
+  ),
 })
   .views((self) => ({
     get root() {

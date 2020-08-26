@@ -13,9 +13,7 @@ export const Wrapper = styled.footer`
 export const InnerWrapper = styled.div`
   max-width: ${cs.MAX_CONTENT_WIDTH};
   width: 100%;
-  padding: 0 5vw;
-
-  ${cs.media.laptopLPadding};
+  padding: ${() => cs.media.laptopLPadding};
 `
 export const MainInfos = styled.footer`
   ${cs.flexColumn('align-center')};

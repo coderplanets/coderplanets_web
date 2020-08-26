@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { theme, cs } from '@/utils'
 
+import { getPadding } from '../metrics'
+
 export const Wrapper = styled.footer`
   ${cs.flexColumn('align-center')};
   width: 100%;
@@ -10,10 +12,8 @@ export const Wrapper = styled.footer`
 export const InnerWrapper = styled.div`
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  padding: 50px 6vw;
+  padding: ${({ layout }) => getPadding(layout)};
   padding-bottom: 0;
-
-  ${cs.media.laptopLPadding};
 `
 export const MainInfos = styled.div`
   ${cs.flex('justify-start')};

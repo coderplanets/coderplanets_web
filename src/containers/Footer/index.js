@@ -42,7 +42,7 @@ export const BuyMeChuanChuan = dynamic(
 
 const FooterContainer = ({ footer: store }) => {
   useInit(store)
-  const { showSponsor, showBusBanner, accountInfo } = store
+  const { showSponsor, showBusBanner, accountInfo, layout } = store
 
   const router = useRouter()
   const [mainPath, subPath] = getRoutePathList(router.asPath)
@@ -63,7 +63,7 @@ const FooterContainer = ({ footer: store }) => {
   }, [mainPath, subPath])
 
   return (
-    <Wrapper testid="footer">
+    <Wrapper testid="footer" layout={layout}>
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
         <BusinessNote />
       </Modal>
@@ -76,7 +76,11 @@ const FooterContainer = ({ footer: store }) => {
         onPay={onPay}
       />
 
-      {curView === 'DIGEST' ? <DigestView /> : <BriefView curView={curView} />}
+      {curView === 'DIGEST' ? (
+        <DigestView layout={layout} />
+      ) : (
+        <BriefView curView={curView} />
+      )}
     </Wrapper>
   )
 }

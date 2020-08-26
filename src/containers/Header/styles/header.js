@@ -19,21 +19,17 @@ export const Wrapper = styled.header.attrs((props) => ({
   box-shadow: ${({ noBorder }) =>
     noBorder ? 'none' : theme('preview.shadow')};
 `
-
 export const InnerWrapper = styled.div`
   ${cs.flex()};
-  max-width: ${cs.MAX_CONTENT_WIDTH};
   max-width: ${({ type }) => getMaxWidth(type)};
-  padding: ${({ type }) => getPadding(type)};
+  padding: ${({ type, layout }) => getPadding(type, layout)};
   width: 100%;
   height: 33px;
   align-items: center;
   transition: all 0.2s;
 
-  ${cs.media.laptopLPadding};
   ${cs.media.mobile`padding-right: 0`};
 `
-
 export const RouterWrapper = styled.div`
   ${cs.flexGrow('align-center')};
   height: 100%;

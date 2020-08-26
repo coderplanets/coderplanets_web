@@ -13,6 +13,10 @@ const log = buildLog('S:Footer')
 const Footer = T.model('Footer', {
   showSponsor: T.optional(T.boolean, false),
   showBusBanner: T.optional(T.boolean, false),
+  layout: T.optional(
+    T.enumeration('layout', ['up-down', 'left-right']),
+    'left-right',
+  ),
 })
   .views((self) => ({
     get root() {

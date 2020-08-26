@@ -34,9 +34,9 @@ const FRIENDS = [
   },
 ]
 
-const BottomInfo = () => (
+const BottomInfo = ({ layout }) => (
   <Wrapper>
-    <InnerWrapper>
+    <InnerWrapper layout={layout}>
       <Links>
         {FRIENDS.map((site, index) => (
           // eslint-disable-next-line react/no-array-index-key

@@ -25,6 +25,7 @@ const HeaderContainer = ({ header: store, metric }) => {
   const [hasNoBottomBorder, setHasNoBottomBorder] = useState(false)
 
   const {
+    layout,
     isOnline,
     fixed,
     curRoute,
@@ -50,6 +51,7 @@ const HeaderContainer = ({ header: store, metric }) => {
   }, [mainPath])
 
   const props = {
+    layout,
     metric,
     isOnline,
     fixed,
