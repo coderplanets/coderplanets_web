@@ -12,6 +12,7 @@ export const Wrapper = styled(BaseBanner)`
   width: 275px;
   height: calc(100vh - 80px);
   padding: 10px 22px;
+  padding-bottom: 20px;
   margin-top: 20px;
   margin-left: 30px;
   border-radius: 5px;
@@ -108,4 +109,11 @@ export const LogoHolder = styled(Img)`
   }
   opacity: 0.6;
   margin-top: 3px;
+`
+export const ChartWrapper = styled.div`
+  margin-top: 30px;
+  width: 85%;
+  svg {
+    height: 100%;
+  }
 `

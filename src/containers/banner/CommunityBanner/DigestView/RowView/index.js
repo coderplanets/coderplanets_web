@@ -8,12 +8,13 @@ import { SpaceGrow } from '@/components/Common'
 import Sticky from '@/components/Sticky'
 import VerifiedSign from '@/components/VerifiedSign'
 import { CommunityHolder } from '@/components/LoadingEffects'
-import IconText from '@/components/IconText'
+import TrendLine from '@/components/TrendLine'
 
 import ExpandTexts from '../../ExpandTexts'
 import SocialList from '../../SocialList'
 
 import Header from './Header'
+import SubscribeInfo from './SubscribeInfo'
 import TeamList from './TeamList'
 
 import {
@@ -29,6 +30,7 @@ import {
   TitleText,
   SubTitle,
   LogoHolder,
+  ChartWrapper,
 } from '../../styles/digest_view/row_view'
 
 // import {
@@ -84,11 +86,17 @@ const RowView = ({ community, descExpand }) => {
         <InnerWrapper>
           <BannerContentWrapper descExpand={descExpand}>
             <CommunityBrief content={community} descExpand={descExpand} />
-            <IconText iconSrc={`${ICON_CMD}/default_user.svg`}>
-              2389 人关注
-            </IconText>
-            <br />
-            <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>89 人在线</IconText>
+            <SubscribeInfo />
+
+            <ChartWrapper>
+              <TrendLine
+                data={[10, 8, 3, 20, 3, 2, 18]}
+                duration={300}
+                radius={15}
+                width={2}
+              />
+            </ChartWrapper>
+
             <SpaceGrow />
             <SubTitle>团队：</SubTitle>
             <TeamList />

@@ -15,12 +15,6 @@ const items = [
   {
     icon: 'https://avatars2.githubusercontent.com/u/6184465?v=4',
   },
-  {
-    icon: 'https://avatars3.githubusercontent.com/u/11154968?v=4',
-  },
-  {
-    icon: 'https://avatars1.githubusercontent.com/u/26295698?v=4',
-  },
 ]
 
 const TeamList = () => {
