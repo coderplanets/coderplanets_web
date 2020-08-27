@@ -5,7 +5,7 @@ import { theme, cs } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
-import { BaseBanner, BaseTabber } from './index'
+import { BaseBanner, BaseTabber } from '../index'
 
 const getSmallHeightSize = (isSmall) => {
   return isSmall ? '128px' : '150px'

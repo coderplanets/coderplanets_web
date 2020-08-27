@@ -19,7 +19,7 @@ const log = buildLog('L:Sidebar')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
+  receive: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSION_ROUTINE],
 })
 
 let store = null
@@ -139,7 +139,7 @@ const DataSolver = [
     action: () => loadCommunities(),
   },
   {
-    match: asyncRes(EVENT.SESSTION_ROUTINE),
+    match: asyncRes(EVENT.SESSION_ROUTINE),
     action: () => refreshSubedCommunitiesIfNeed(),
   },
 ]

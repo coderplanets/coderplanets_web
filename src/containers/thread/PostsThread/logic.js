@@ -127,7 +127,7 @@ export const onAdsClose = () => {
     return log('do custom ads')
   }
 
-  store.upgradeHepler()
+  store.upgradeHelper()
 }
 
 const loadCityCommunities = () => {

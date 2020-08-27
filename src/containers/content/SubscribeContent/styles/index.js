@@ -17,12 +17,10 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const InnerWrapper = styled.div`
   ${cs.flex('align-start')}
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  padding: 0 6vw;
+  padding: ${() => cs.media.laptopLPadding};
   margin-top: 6%;
   width: 100%;
   color: ${theme('thread.articleDigest')};
-
-  ${cs.media.laptopLPadding};
 `
 export const StickyWrapper = styled(Sticky)`
   ${cs.flex('justify-center')}

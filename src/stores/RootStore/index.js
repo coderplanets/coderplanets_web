@@ -263,8 +263,8 @@ const rootStore = T.model({
     updateViewingIfNeed(type, sobj) {
       self.viewing.updateViewingIfNeed(type, sobj)
     },
-    upgradeHepler() {
-      self.upgradePackages.upgradeHepler()
+    upgradeHelper() {
+      self.upgradePackages.upgradeHelper()
     },
     sponsorHepler() {
       self.footer.sponsorHepler()

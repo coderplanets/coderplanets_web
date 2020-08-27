@@ -33,6 +33,9 @@ const HeaderContainer = ({ header: store, metric }) => {
     isLogin,
     activeInfo,
     curCommunity,
+    accountInfo: {
+      customization: { bannerLayout },
+    },
   } = store
 
   const router = useRouter()
@@ -50,6 +53,7 @@ const HeaderContainer = ({ header: store, metric }) => {
   }, [mainPath])
 
   const props = {
+    layout: bannerLayout,
     metric,
     isOnline,
     fixed,

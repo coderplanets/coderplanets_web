@@ -8,7 +8,7 @@ import React from 'react'
 import { C11N } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import DigestView from './DigestView'
+import DigestView from './DigestView/index'
 import BriefView from './BriefView'
 
 import { Wrapper } from './styles'
@@ -26,22 +26,24 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
     },
     viewing: { community, activeThread },
     descExpand,
+    isHeaderFixed,
   } = store
 
   return (
     <Wrapper testid="community-banner">
-      {bannerLayout === C11N.DIGEST ? (
+      {bannerLayout === C11N.BRIEF ? (
+        <BriefView
+          community={community}
+          activeThread={activeThread}
+          layout={bannerLayout}
+        />
+      ) : (
         <DigestView
           community={community}
           activeThread={activeThread}
           layout={bannerLayout}
           descExpand={descExpand}
-        />
-      ) : (
-        <BriefView
-          community={community}
-          activeThread={activeThread}
-          layout={bannerLayout}
+          isHeaderFixed={isHeaderFixed}
         />
       )}
     </Wrapper>

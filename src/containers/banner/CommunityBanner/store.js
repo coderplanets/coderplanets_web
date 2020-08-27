@@ -22,6 +22,9 @@ const CommunityBanner = T.model('CommunityBanner', {
     get isLogin() {
       return self.root.account.isLogin
     },
+    get isHeaderFixed() {
+      return self.root.header.fixed
+    },
     get curRoute() {
       return self.root.curRoute
     },

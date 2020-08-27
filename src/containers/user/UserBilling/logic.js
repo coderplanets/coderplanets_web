@@ -17,7 +17,7 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
-export const upgradeHepler = () => store.upgradeHepler()
+export const upgradeHelper = () => store.upgradeHelper()
 export const sponsorHepler = () => store.sponsorHepler()
 export const girlVerifier = () => store.callGirlVerifier()
 

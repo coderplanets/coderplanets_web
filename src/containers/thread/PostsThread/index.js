@@ -8,7 +8,7 @@ import React from 'react'
 import { Waypoint } from 'react-waypoint'
 import { contains } from 'ramda'
 
-import { THREAD, ROUTE } from '@/constant'
+import { C11N, THREAD, ROUTE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import TagsBar from '@/containers/TagsBar'
@@ -92,6 +92,9 @@ const PostsThreadContainer = ({ postsThread: store }) => {
     curThread,
     pagedCityCommunitiesData,
     showFilterBar,
+    accountInfo: {
+      customization: { bannerLayout },
+    },
   } = store
 
   const { subPath } = curRoute
@@ -140,26 +143,28 @@ const PostsThreadContainer = ({ postsThread: store }) => {
             />
           </LeftPart>
 
-          <RightPart>
-            <>
-              <PublisherWrapper>
-                <PublishButton
-                  label={LabelText[subPath] || '发布帖子'}
-                  onPublish={onContentCreate}
-                />
-              </PublisherWrapper>
+          {bannerLayout === C11N.DIGEST && (
+            <RightPart>
+              <>
+                <PublisherWrapper>
+                  <PublishButton
+                    label={LabelText[subPath] || '发布帖子'}
+                    onPublish={onContentCreate}
+                  />
+                </PublisherWrapper>
 
-              <Sticky offsetTop={120}>
-                <TagsBar
-                  thread={THREAD.POST}
-                  topic={topic}
-                  onSelect={onTagSelect}
-                  active={activeTagData}
-                />
-                <StrategicPartners onClose={onAdsClose} />
-              </Sticky>
-            </>
-          </RightPart>
+                <Sticky offsetTop={120}>
+                  <TagsBar
+                    thread={THREAD.POST}
+                    topic={topic}
+                    onSelect={onTagSelect}
+                    active={activeTagData}
+                  />
+                  <StrategicPartners onClose={onAdsClose} />
+                </Sticky>
+              </>
+            </RightPart>
+          )}
         </>
       )}
     </Wrapper>

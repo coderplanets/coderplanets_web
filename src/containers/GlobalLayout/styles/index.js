@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { C11N } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
 import Img from '@/Img'
 import { theme, cs } from '@/utils'
@@ -18,13 +19,12 @@ export const InnerWrapper = styled.div`
   min-width: ${({ minWidth }) => minWidth};
 /*
   padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};
+  margin-left: ${({ sidebarPin }) => (sidebarPin ? '180px' : '0')};
  */
-
   position: relative;
   height: 100%;
   min-height: 100vh;
   background: ${theme('bodyBg')};
-  /* margin-left: ${({ sidebarPin }) => (sidebarPin ? '180px' : '0')}; */
   transition: all 0.2s;
   overflow-x: ${({ sidebarPin }) => (sidebarPin ? 'hidden' : '')};
   ${cs.media.tablet`
@@ -32,7 +32,11 @@ export const InnerWrapper = styled.div`
     padding-left: 0;
   `};
 `
-
+export const BodyWrapper = styled.div`
+  display: flex;
+  flex-direction: ${({ layout }) =>
+    layout === C11N.DIGEST ? 'column' : 'row'};
+`
 // 180 is the sidebar full width
 export const ContentPinWrapper = styled.div`
   margin-left: ${({ offsetLeft }) => (offsetLeft ? '180px' : '0')};

@@ -1,3 +1,4 @@
+import { C11N } from '@/constant'
 import { cs } from '@/utils'
 
 export const getMaxWidth = (type) => {
@@ -12,14 +13,16 @@ export const getMaxWidth = (type) => {
   }
 }
 
-export const getPadding = (type) => {
+export const getPadding = (type, layout) => {
   switch (type) {
     case 'article': {
-      return '0 5vw'
+      return '0 5vw;'
     }
 
     default: {
-      return '0 8vw'
+      return layout === C11N.DIGEST_ROW
+        ? cs.media.laptopLPaddingColumnLayout
+        : cs.media.laptopLPadding
     }
   }
 }

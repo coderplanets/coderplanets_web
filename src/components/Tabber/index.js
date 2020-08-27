@@ -22,10 +22,10 @@ const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
 
   return (
     <div id={TYPE.APP_TABBER_ID}>
-      {layout === C11N.DIGEST ? (
-        <NormalView source={sortedSource} active={active} onChange={onChange} />
-      ) : (
+      {layout === C11N.BRIEF ? (
         <BriefView source={sortedSource} active={active} onChange={onChange} />
+      ) : (
+        <NormalView source={sortedSource} active={active} onChange={onChange} />
       )}
     </div>
   )
@@ -35,7 +35,7 @@ Tabber.propTypes = {
   onChange: T.func,
   source: T.array.isRequired,
   active: T.string,
-  layout: T.oneOf([C11N.DIGEST, C11N.BRIEF]),
+  layout: T.oneOf([C11N.DIGEST, C11N.DIGEST_ROW, C11N.BRIEF]),
   communityRaw: T.string,
 }
 

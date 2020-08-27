@@ -32,16 +32,17 @@ const Header = ({
   accountInfo,
   curCommunity,
   hasNoBottomBorder,
+  layout,
 }) => {
   return (
     <Wrapper
       id="whereCallShowDoraemon"
+      testid="header"
       leftOffset={leftOffset}
       fixed={fixed}
       noBorder={hasNoBottomBorder}
-      testid="header"
     >
-      <InnerWrapper type={metric}>
+      <InnerWrapper type={metric} layout={layout}>
         <RouterWrapper>
           {fixed ? (
             <ThreadsNav activeInfo={activeInfo} />

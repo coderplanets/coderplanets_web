@@ -28,9 +28,9 @@ import {
   toggleSeniorHelper,
 } from '../logic'
 
-const DigestView = () => (
+const DigestView = ({ layout }) => (
   <Wrapper>
-    <InnerWrapper>
+    <InnerWrapper layout={layout}>
       <MainInfos>
         <MainColumn>
           <SiteInfo>
@@ -137,8 +137,8 @@ const DigestView = () => (
         </Column>
       </MainInfos>
     </InnerWrapper>
-    <ContactBar />
-    <BottomInfo />
+    <ContactBar layout={layout} />
+    <BottomInfo layout={layout} />
     <MobilBottomInfo />
   </Wrapper>
 )
