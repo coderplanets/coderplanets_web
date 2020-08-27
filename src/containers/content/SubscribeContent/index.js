@@ -20,13 +20,13 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:SubscribeContent')
 
-const SubscribeContentContainer = ({ subscribeContent: store, testid }) => {
+const SubscribeContentContainer = ({ subscribeContent: store, testId }) => {
   useInit(store)
 
   const { subscribeView } = store
 
   return (
-    <Wrapper testId={testid}>
+    <Wrapper testId={testId}>
       <InnerWrapper>
         <Content />
         <StickyWrapper offsetTop={200}>
@@ -39,11 +39,11 @@ const SubscribeContentContainer = ({ subscribeContent: store, testid }) => {
 
 SubscribeContentContainer.propTypes = {
   subscribeContent: T.any.isRequired,
-  testid: T.string,
+  testId: T.string,
 }
 
 SubscribeContentContainer.defaultProps = {
-  testid: 'subscribe-content',
+  testId: 'subscribe-content',
 }
 
 export default connectStore(SubscribeContentContainer)

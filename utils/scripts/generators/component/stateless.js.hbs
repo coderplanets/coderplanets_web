@@ -19,13 +19,13 @@ import { Wrapper } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:{{ properCase name }}:index')
 
-const {{ properCase name }} = ({{preCurly ""}} testid {{afterCurly ""}}) => {
+const {{ properCase name }} = ({{preCurly ""}} testId {{afterCurly ""}}) => {
   {{#if wantI18n}}
   const { t } = useTrans()
   {{/if}}
   return (
     {{#if wantStyle}}
-    <Wrapper testId={testid}>
+    <Wrapper testId={testId}>
       {{/if}}
       <div>
         <h2>{{ properCase name }} component</h2>
@@ -38,11 +38,11 @@ const {{ properCase name }} = ({{preCurly ""}} testid {{afterCurly ""}}) => {
 }
 
 {{ properCase name }}.propTypes = {
-  testid: T.string,
+  testId: T.string,
 }
 
 {{ properCase name }}.defaultProps = {
-  testid: '{{ camelCase name}}',
+  testId: '{{ camelCase name}}',
 }
 
 export default React.memo({{ properCase name }})

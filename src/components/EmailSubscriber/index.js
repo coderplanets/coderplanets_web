@@ -21,9 +21,9 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:EmailSubscriber:index')
 
-const EmailSubscriber = ({ testid, withHoverHint }) => {
+const EmailSubscriber = ({ testId, withHoverHint }) => {
   return (
-    <Wrapper testId={testid}>
+    <Wrapper testId={testId}>
       <SubscribeInput />
       <SubscribeBtnWrapper>
         <SubscribeBtn>订阅</SubscribeBtn>
@@ -39,12 +39,12 @@ const EmailSubscriber = ({ testid, withHoverHint }) => {
 }
 
 EmailSubscriber.propTypes = {
-  testid: T.string,
+  testId: T.string,
   withHoverHint: T.bool,
 }
 
 EmailSubscriber.defaultProps = {
-  testid: 'emailSubscriber',
+  testId: 'emailSubscriber',
   withHoverHint: false,
 }
 

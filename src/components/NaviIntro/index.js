@@ -14,9 +14,9 @@ import { Wrapper, Logo, Digest, Title, Desc } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviIntro:index')
 
-const NaviIntro = ({ title, desc, iconSrc, testid }) => {
+const NaviIntro = ({ title, desc, iconSrc, testId }) => {
   return (
-    <Wrapper testId={testid}>
+    <Wrapper testId={testId}>
       <Logo src={iconSrc} />
       <Digest>
         <Title>{title}</Title>
@@ -30,11 +30,11 @@ NaviIntro.propTypes = {
   title: T.string.isRequired,
   desc: T.string.isRequired,
   iconSrc: T.string.isRequired,
-  testid: T.string,
+  testId: T.string,
 }
 
 NaviIntro.defaultProps = {
-  testid: 'navi-intro',
+  testId: 'navi-intro',
 }
 
 export default React.memo(NaviIntro)

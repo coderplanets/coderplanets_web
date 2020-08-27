@@ -20,7 +20,7 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:{{ properCase name }}')
 
-const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: store, testid {{afterCurly ""}}) => {
+const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: store, testId {{afterCurly ""}}) => {
   useInit(store)
   {{#if wantI18n}}
   const { t } = useTrans()
@@ -36,11 +36,11 @@ const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: sto
 
 {{ properCase name }}Container.propTypes = {
   {{ camelCase name }}: T.any.isRequired,
-  testid: T.string,
+  testId: T.string,
 }
 
 {{ properCase name }}Container.defaultProps = {
-  testid: '{{ camelCase name}}',
+  testId: '{{ camelCase name}}',
 }
 
 export default connectStore({{ properCase name }}Container)
