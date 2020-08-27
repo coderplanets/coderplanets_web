@@ -26,6 +26,7 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
     },
     viewing: { community, activeThread },
     descExpand,
+    isHeaderFixed,
   } = store
 
   return (
@@ -36,6 +37,7 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
           activeThread={activeThread}
           layout={bannerLayout}
           descExpand={descExpand}
+          isHeaderFixed={isHeaderFixed}
         />
       ) : (
         <BriefView

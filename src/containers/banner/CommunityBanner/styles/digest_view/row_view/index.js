@@ -9,13 +9,18 @@ import { BaseBanner } from '../../index'
 
 export const Wrapper = styled(BaseBanner)`
   ${cs.flexColumn('justify-start')};
+  position: relative;
   width: 275px;
-  height: calc(100vh - 80px);
-  padding: 10px 22px;
-  padding-bottom: 20px;
+  height: ${({ isHeaderFixed }) =>
+    isHeaderFixed ? 'calc(100vh - 70px)' : 'calc(100vh - 80px)'};
   margin-top: 20px;
   margin-left: 30px;
   border-radius: 5px;
+  transition: height 0.25s linear;
+`
+export const ContentWrapper = styled.div`
+  padding: 10px 22px;
+  padding-bottom: 20px;
 `
 export const InnerWrapper = styled.div`
   ${cs.flexColumn()};

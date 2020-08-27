@@ -19,6 +19,7 @@ import TeamList from './TeamList'
 
 import {
   Wrapper,
+  ContentWrapper,
   InnerWrapper,
   BannerContentWrapper,
   CommunityWrapper,
@@ -75,35 +76,40 @@ const CommunityBrief = ({ content, descExpand }) => {
   )
 }
 
-const RowView = ({ community, descExpand }) => {
+const RowView = ({ community, descExpand, isHeaderFixed }) => {
+  const offsetTop = isHeaderFixed ? 55 : 30
+
   return (
-    <Sticky offsetTop={30}>
+    <Sticky offsetTop={offsetTop}>
       <Wrapper
         descExpand={descExpand}
         small={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+        isHeaderFixed={isHeaderFixed}
       >
-        <Header />
-        <InnerWrapper>
-          <BannerContentWrapper descExpand={descExpand}>
-            <CommunityBrief content={community} descExpand={descExpand} />
-            <SubscribeInfo />
+        <ContentWrapper>
+          <Header />
+          <InnerWrapper>
+            <BannerContentWrapper descExpand={descExpand}>
+              <CommunityBrief content={community} descExpand={descExpand} />
+              <SubscribeInfo />
 
-            <ChartWrapper>
-              <TrendLine
-                data={[10, 8, 3, 20, 3, 2, 18]}
-                duration={300}
-                radius={15}
-                width={2}
-              />
-            </ChartWrapper>
+              <ChartWrapper>
+                <TrendLine
+                  data={[10, 8, 3, 20, 3, 2, 18]}
+                  duration={300}
+                  radius={15}
+                  width={2}
+                />
+              </ChartWrapper>
 
-            <SpaceGrow />
-            <SubTitle>团队：</SubTitle>
-            <TeamList />
-            <SubTitle>联系我们：</SubTitle>
-            <SocialList direction="2-column" size="medium" />
-          </BannerContentWrapper>
-        </InnerWrapper>
+              <SpaceGrow />
+              <SubTitle>团队：</SubTitle>
+              <TeamList />
+              <SubTitle>联系我们：</SubTitle>
+              <SocialList direction="2-column" size="medium" />
+            </BannerContentWrapper>
+          </InnerWrapper>
+        </ContentWrapper>
       </Wrapper>
     </Sticky>
   )
