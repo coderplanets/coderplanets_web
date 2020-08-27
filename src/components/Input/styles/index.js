@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testId,
+  'data-testId': props.testId,
 }))`
   position: relative;
 `
@@ -80,7 +80,7 @@ export const InputWrapper = styled.input`
   }
 `
 export const TextAreaWrapper = styled.textarea.attrs((props) => ({
-  'data-testid': props.testId,
+  'data-testId': props.testId,
 }))`
   ${baseInput};
   background-color: #0e3444;

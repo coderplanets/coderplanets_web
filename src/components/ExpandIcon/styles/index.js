@@ -11,7 +11,7 @@ import {
 } from './metric'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testId,
+  'data-testId': props.testId,
 }))`
   ${cs.flex('align-center')};
   /* margin-left: 12px; */

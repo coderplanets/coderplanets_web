@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testId,
+  'data-testId': props.testId,
 }))`
   ${cs.flex()};
   background: ${theme('thread.bg')};

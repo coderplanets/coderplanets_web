@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { cs } from '@/utils'
 
 export const Wrapper = styled.nav.attrs((props) => ({
-  'data-testid': props.testId,
+  'data-testId': props.testId,
 }))`
   position: relative;
   overflow: hidden;
