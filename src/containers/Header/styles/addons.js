@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 
 export const HeaderStatesIcon = styled(HeaderStatesSVG).attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))`
   opacity: 0;
   fill: ${theme('header.fg')};

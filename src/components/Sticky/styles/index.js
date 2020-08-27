@@ -4,6 +4,6 @@ import styled from 'styled-components'
 // import { theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))``
 export const Title = styled.div``

@@ -14,7 +14,7 @@ export const EditorBar = styled(BaseBar)`
   height: 58px;
 `
 export const InputBar = styled.input.attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))`
   caret-color: ${theme('shell.searchInput')};
   flex-grow: 1;

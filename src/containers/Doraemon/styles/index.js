@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@/utils'
 
 export const PageOverlay = styled.div.attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))`
   bottom: 0;
   left: 0;
@@ -16,7 +16,7 @@ export const PageOverlay = styled.div.attrs((props) => ({
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div.attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   box-shadow: 0px 4px 11px 8px rgba(0, 0, 0, 0.2),

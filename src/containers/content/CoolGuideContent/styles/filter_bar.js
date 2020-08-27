@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))`
   margin-top: 12px;
 `

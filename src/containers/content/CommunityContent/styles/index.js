@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))`
   ${cs.flex('justify-center')};
   min-height: 70vh;

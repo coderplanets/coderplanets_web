@@ -106,7 +106,7 @@ const liquid2Rule = css`
 `
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))`
   text-align: center;
   position: relative;

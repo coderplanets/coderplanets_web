@@ -4,7 +4,7 @@ import HeaderMailSVG from '@/SvgIcons/HeaderMailSVG'
 import { theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testId': props.testId,
+  'data-test-id': props.testId,
 }))`
   position: relative;
 `
