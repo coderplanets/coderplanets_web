@@ -5,7 +5,6 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { C11N } from '@/constant'
 import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -14,10 +13,6 @@ const log = buildLog('S:Footer')
 const Footer = T.model('Footer', {
   showSponsor: T.optional(T.boolean, false),
   showBusBanner: T.optional(T.boolean, false),
-  layout: T.optional(
-    T.enumeration('layout', [C11N.DIGEST, C11N.DIGEST_ROW]),
-    C11N.DIGEST_ROW,
-  ),
 })
   .views((self) => ({
     get root() {

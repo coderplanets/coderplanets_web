@@ -25,7 +25,6 @@ const HeaderContainer = ({ header: store, metric }) => {
   const [hasNoBottomBorder, setHasNoBottomBorder] = useState(false)
 
   const {
-    layout,
     isOnline,
     fixed,
     curRoute,
@@ -34,6 +33,9 @@ const HeaderContainer = ({ header: store, metric }) => {
     isLogin,
     activeInfo,
     curCommunity,
+    accountInfo: {
+      customization: { bannerLayout },
+    },
   } = store
 
   const router = useRouter()
@@ -51,7 +53,7 @@ const HeaderContainer = ({ header: store, metric }) => {
   }, [mainPath])
 
   const props = {
-    layout,
+    layout: bannerLayout,
     metric,
     isOnline,
     fixed,
