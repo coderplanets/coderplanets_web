@@ -34,7 +34,7 @@ export const previewAccount = () =>
   send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
 // to avoid page-cache in server
-export const checkSesstionState = () => sr71$.query(S.sessionState, {})
+export const checkSessionState = () => sr71$.query(S.sessionState, {})
 
 export const onThreadChange = (activeThread) => {
   console.log('onThreadChange: ', activeThread)
@@ -67,9 +67,9 @@ const DataSolver = [
   {
     match: asyncRes('sessionState'),
     action: ({ sessionState: state }) => {
-      store.updateSesstion(state)
+      store.updateSession(state)
       if (state.isValid !== store.accountInfo.isValidSession) {
-        send(EVENT.SESSTION_ROUTINE)
+        send(EVENT.SESSION_ROUTINE)
       }
     },
   },
@@ -117,14 +117,14 @@ const ErrSolver = [
 ]
 
 // ###############################
-// init & uninit
+// init & unInit
 // ###############################
 export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    checkSesstionState()
+    checkSessionState()
 
     return () => {
       sr71$.stop()

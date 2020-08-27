@@ -65,8 +65,8 @@ const HeaderStore = T.model('HeaderStore', {
     logout() {
       self.root.account.logout()
     },
-    updateSesstion(state) {
-      self.root.account.updateSesstion(state)
+    updateSession(state) {
+      self.root.account.updateSession(state)
     },
     toastInfo(options) {
       self.root.toast('info', merge({ position: 'topCenter' }, options))

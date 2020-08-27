@@ -62,7 +62,7 @@ const AccountStore = T.model('AccountStore', {
 
       self.mark({ user })
     },
-    updateSesstion({ isValid, user }) {
+    updateSession({ isValid, user }) {
       self.isValidSession = isValid
       if (isValid) {
         self.setSession(user, BStore.get('token'))
