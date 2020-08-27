@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 import { merge, isEmpty, findIndex, propEq, pickBy } from 'ramda'
 
-import { C11N, TYPE, THREAD } from '@/constant'
+import { TYPE, THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
 
 import {
@@ -35,10 +35,6 @@ const PostsThreadStore = T.model('PostsThreadStore', {
   ),
   pagedCityCommunities: T.optional(PagedCommunities, emptyPagiData),
   faqActive: T.optional(T.boolean, false),
-  layout: T.optional(
-    T.enumeration('layout', [C11N.DIGEST, C11N.DIGEST_ROW]),
-    C11N.DIGEST_ROW,
-  ),
 })
   .views((self) => ({
     get root() {

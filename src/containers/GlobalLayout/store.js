@@ -39,7 +39,9 @@ const GlobalLayoutStore = T.model('GlobalLayoutStore', {
     get root() {
       return getParent(self)
     },
-
+    get accountInfo() {
+      return self.root.accountInfo
+    },
     get sidebarPin() {
       return self.root.sidebar.pin
     },

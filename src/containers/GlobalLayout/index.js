@@ -68,7 +68,12 @@ const GlobalLayoutContainer = ({
   useInit(store, { online, media, platform })
 
   useShortcut('Control+P', openDoraemon)
-  const { sidebarPin, layout } = store
+  const {
+    sidebarPin,
+    accountInfo: {
+      customization: { bannerLayout },
+    },
+  } = store
 
   /*
    * solve page jump when switch beteen threads
@@ -123,7 +128,7 @@ const GlobalLayoutContainer = ({
                     }
                   >
                     <Header metric={metric} />
-                    <BodyWrapper layout={layout}>{children}</BodyWrapper>
+                    <BodyWrapper layout={bannerLayout}>{children}</BodyWrapper>
                     <Footer />
                   </ContentWrapper>
                 </ContentPinWrapper>

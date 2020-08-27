@@ -31,10 +31,10 @@ const Navigator = ({ curCommunity, layout }) => {
 
   return (
     <>
-      {layout === C11N.DIGEST ? (
-        <DigestView />
-      ) : (
+      {layout === C11N.BRIEF ? (
         <BriefView community={curCommunity} />
+      ) : (
+        <DigestView />
       )}
     </>
   )
@@ -42,7 +42,7 @@ const Navigator = ({ curCommunity, layout }) => {
 
 Navigator.propTypes = {
   curCommunity: T.object,
-  layout: T.oneOf([C11N.DIGEST, C11N.BRIEF]),
+  layout: T.oneOf([C11N.DIGEST, C11N.DIGEST_ROW, C11N.BRIEF]),
 }
 
 Navigator.defaultProps = {

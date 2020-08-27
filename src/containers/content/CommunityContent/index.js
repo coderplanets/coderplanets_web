@@ -55,14 +55,16 @@ const CommunityContentContainer = ({ communityContent: store }) => {
 
   const {
     curRoute,
-    layout,
     viewing: { community, activeThread },
+    accountInfo: {
+      customization: { bannerLayout },
+    },
   } = store
 
   return (
     <Wrapper testid="community-content">
       <InnerWrapper>
-        {layout === C11N.DIGEST_ROW && (
+        {bannerLayout === C11N.DIGEST_ROW && (
           <TabberWrapper>
             <Tabber
               source={community.threads}

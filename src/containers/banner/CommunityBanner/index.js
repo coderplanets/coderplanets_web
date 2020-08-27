@@ -31,19 +31,19 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
 
   return (
     <Wrapper testid="community-banner">
-      {bannerLayout === C11N.DIGEST ? (
+      {bannerLayout === C11N.BRIEF ? (
+        <BriefView
+          community={community}
+          activeThread={activeThread}
+          layout={bannerLayout}
+        />
+      ) : (
         <DigestView
           community={community}
           activeThread={activeThread}
           layout={bannerLayout}
           descExpand={descExpand}
           isHeaderFixed={isHeaderFixed}
-        />
-      ) : (
-        <BriefView
-          community={community}
-          activeThread={activeThread}
-          layout={bannerLayout}
         />
       )}
     </Wrapper>

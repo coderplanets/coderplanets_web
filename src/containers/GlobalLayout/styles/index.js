@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { C11N } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
 import Img from '@/Img'
 import { theme, cs } from '@/utils'
@@ -33,7 +34,8 @@ export const InnerWrapper = styled.div`
 `
 export const BodyWrapper = styled.div`
   display: flex;
-  flex-direction: ${({ layout }) => (layout === 'up-down' ? 'column' : 'row')};
+  flex-direction: ${({ layout }) =>
+    layout === C11N.DIGEST ? 'column' : 'row'};
 `
 // 180 is the sidebar full width
 export const ContentPinWrapper = styled.div`

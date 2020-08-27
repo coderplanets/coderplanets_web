@@ -5,18 +5,12 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { C11N } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunityContent')
 
-const CommunityContent = T.model('CommunityContent', {
-  layout: T.optional(
-    T.enumeration('layout', [C11N.DIGEST, C11N.DIGEST_ROW]),
-    C11N.DIGEST_ROW,
-  ),
-})
+const CommunityContent = T.model('CommunityContent', {})
   .views((self) => ({
     get root() {
       return getParent(self)
@@ -26,6 +20,9 @@ const CommunityContent = T.model('CommunityContent', {
     },
     get viewing() {
       return stripMobx(self.root.viewing)
+    },
+    get accountInfo() {
+      return self.root.accountInfo
     },
   }))
   .actions((self) => ({

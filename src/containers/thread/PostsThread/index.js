@@ -8,7 +8,7 @@ import React from 'react'
 import { Waypoint } from 'react-waypoint'
 import { contains } from 'ramda'
 
-import { THREAD, ROUTE } from '@/constant'
+import { C11N, THREAD, ROUTE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import TagsBar from '@/containers/TagsBar'
@@ -92,7 +92,9 @@ const PostsThreadContainer = ({ postsThread: store }) => {
     curThread,
     pagedCityCommunitiesData,
     showFilterBar,
-    layout,
+    accountInfo: {
+      customization: { bannerLayout },
+    },
   } = store
 
   const { subPath } = curRoute
@@ -141,7 +143,7 @@ const PostsThreadContainer = ({ postsThread: store }) => {
             />
           </LeftPart>
 
-          {layout === 'up-down' && (
+          {bannerLayout === C11N.DIGEST && (
             <RightPart>
               <>
                 <PublisherWrapper>

@@ -5,7 +5,6 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { C11N } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -15,10 +14,6 @@ const CommunityBanner = T.model('CommunityBanner', {
   loading: T.optional(T.boolean, false),
   descExpand: T.optional(T.boolean, false),
   subscribeLoading: T.optional(T.boolean, false),
-  layout: T.optional(
-    T.enumeration('layout', [C11N.DIGEST, C11N.DIGEST_ROW]),
-    C11N.DIGEST_ROW,
-  ),
 })
   .views((self) => ({
     get root() {

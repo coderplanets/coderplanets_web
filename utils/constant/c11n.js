@@ -1,6 +1,6 @@
 const C11N = {
   DIGEST: 'digest',
-  DIGEST_ROW: 'digest_ROW',
+  DIGEST_ROW: 'digest_row',
   LIST: 'list',
   BRIEF: 'brief',
 
