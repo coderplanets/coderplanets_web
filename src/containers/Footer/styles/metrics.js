@@ -1,9 +1,10 @@
+import { C11N } from '@/constant'
 import { cs } from '@/utils'
 
-export const holder = 1
-
 export const getPadding = (layout) => {
-  return layout === 'left-right'
+  return layout === C11N.DIGEST_ROW
     ? cs.media.laptopLPaddingColumnLayout
     : cs.media.laptopLPadding
 }
+
+export const holder = 1

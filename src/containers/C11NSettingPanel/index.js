@@ -40,17 +40,21 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
       <>
         <HeaderTitle>自定义阅读设置</HeaderTitle>
         <br />
-        <Title>社区视图</Title>
-        <Desc>社区摘要信息的显示模式。</Desc>
+        <Title>布局模式</Title>
+        <Desc>社区布局的显示模式。</Desc>
         <Br top="10px" />
         <Radio
           items={[
             {
-              value: '扩展模式',
+              value: '上下布局',
               key: C11N.DIGEST,
             },
             {
-              value: '简洁模式',
+              value: '左右布局',
+              key: C11N.DIGEST_ROW,
+            },
+            {
+              value: '简洁布局',
               key: C11N.BRIEF,
             },
           ]}

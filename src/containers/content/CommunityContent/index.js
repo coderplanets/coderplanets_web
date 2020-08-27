@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { ROUTE } from '@/constant'
+import { ROUTE, C11N } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import Tabber from '@/components/Tabber'
@@ -62,7 +62,7 @@ const CommunityContentContainer = ({ communityContent: store }) => {
   return (
     <Wrapper testid="community-content">
       <InnerWrapper>
-        {layout === 'left-right' && (
+        {layout === C11N.DIGEST_ROW && (
           <TabberWrapper>
             <Tabber
               source={community.threads}
