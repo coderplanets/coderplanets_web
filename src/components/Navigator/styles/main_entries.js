@@ -17,7 +17,7 @@ export const DotDivider = styled(DotDividerBase)`
   height: 4px;
 `
 export const SiteLink = styled.a.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-testid': props.testId,
 }))`
   ${cs.flex('align-center')};
   color: ${({ active }) =>

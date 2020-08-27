@@ -110,7 +110,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
   }px`
 
   return (
-    <Wrapper testid="tabs">
+    <Wrapper testId="tabs">
       <Nav ref={ref}>
         {items.map((item, index) => (
           <TabItem

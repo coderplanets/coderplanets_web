@@ -10,7 +10,7 @@ const SearchBox = () => {
       <SearchInput
         placeholder="语言或框架名称"
         suffixIcon={`${ICON_CMD}/search.svg`}
-        testid="filter-searchbox"
+        testId="filter-searchbox"
       />
     </Wrapper>
   )

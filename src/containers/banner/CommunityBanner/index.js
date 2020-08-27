@@ -30,7 +30,7 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
   } = store
 
   return (
-    <Wrapper testid="community-banner">
+    <Wrapper testId="community-banner">
       {bannerLayout === C11N.BRIEF ? (
         <BriefView
           community={community}

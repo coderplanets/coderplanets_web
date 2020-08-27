@@ -53,7 +53,7 @@ const PagiOptionSwitcher = ({ title, items, activeKey, onChange }) => {
   )
 
   return (
-    <Wrapper testid="PagiOptionSwitcher">
+    <Wrapper testId="PagiOptionSwitcher">
       <Title>{title}</Title>
       <IconSwitcher
         items={mappedItems}

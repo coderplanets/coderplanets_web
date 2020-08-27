@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-testid': props.testId,
 }))`
   ${cs.flex('align-center')};
   margin-bottom: 15px;

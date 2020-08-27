@@ -19,7 +19,7 @@ const log = buildLog('c:Charger:index')
 // bubbles effect: https://codepen.io/Johnm__/pen/qZqgGJ
 const Charger = () => {
   return (
-    <Wrapper testid="charger">
+    <Wrapper testId="charger">
       <Battery>
         <Liquid />
         <MoneySign src={`${ICON_CMD}/battery_heart.svg`} />

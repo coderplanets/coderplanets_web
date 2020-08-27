@@ -23,7 +23,7 @@ const log = buildLog('c:EmailSubscriber:index')
 
 const EmailSubscriber = ({ testid, withHoverHint }) => {
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testId={testid}>
       <SubscribeInput />
       <SubscribeBtnWrapper>
         <SubscribeBtn>订阅</SubscribeBtn>

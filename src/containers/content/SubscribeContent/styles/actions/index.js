@@ -5,7 +5,7 @@ import { Button } from '@/components/Buttons'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-testid': props.testId,
 }))`
   ${cs.flex('align-both')};
   padding-left: 5%;

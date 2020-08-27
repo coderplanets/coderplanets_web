@@ -26,7 +26,7 @@ const SubscribeContentContainer = ({ subscribeContent: store, testid }) => {
   const { subscribeView } = store
 
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testId={testid}>
       <InnerWrapper>
         <Content />
         <StickyWrapper offsetTop={200}>

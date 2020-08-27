@@ -17,7 +17,7 @@ import { changeView } from '../logic'
 
 const Actions = ({ view, testid }) => {
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testId={testid}>
       <InnerWrapper>
         {view === 'default' ? (
           <>

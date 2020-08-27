@@ -82,7 +82,7 @@ const NaviMenu = ({
   const handleMenuExpand = useCallback((item) => setExpandChildId(item.id), [])
 
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testId={testid}>
       {menuMode === 'root' || nilOrEmpty(childMenuItems) ? (
         <RootMenu
           menuItems={items}

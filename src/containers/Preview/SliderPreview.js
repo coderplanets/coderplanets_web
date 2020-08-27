@@ -16,7 +16,7 @@ const SliderPreview = ({
     <React.Fragment>
       <PreviewOverlay visible={visible} onClick={closePreview} />
       <PreviewWrapper
-        testid="preview-sidebar-panel"
+        testId="preview-sidebar-panel"
         visible={visible}
         rightOffset={rightOffset}
         type={type}

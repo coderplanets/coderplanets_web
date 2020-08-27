@@ -62,7 +62,7 @@ const CommunityContentContainer = ({ communityContent: store }) => {
   } = store
 
   return (
-    <Wrapper testid="community-content">
+    <Wrapper testId="community-content">
       <InnerWrapper>
         {bannerLayout === C11N.DIGEST_ROW && (
           <TabberWrapper>

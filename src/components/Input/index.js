@@ -36,7 +36,7 @@ const Input = ({
   const validProps = pickBy((v) => v !== null, restProps)
 
   return behavior === 'default' ? (
-    <Wrapper testid={testid}>
+    <Wrapper testId={testid}>
       <PrefixWrapper show={!nilOrEmpty(prefixIcon)}>
         {prefixIcon && <Icon src={prefixIcon} active={prefixActive} />}
       </PrefixWrapper>
@@ -53,7 +53,7 @@ const Input = ({
     </Wrapper>
   ) : (
     <TextAreaWrapper
-      testid={testid}
+      testId={testid}
       onChange={handleOnChange}
       {...validProps}
     />

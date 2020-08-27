@@ -13,7 +13,7 @@ const AddOns = ({ mstStateTestId }) => (
         <DividerIcon src={`${ICON_CMD}/more.svg`} />
       */}
     <div onClick={() => previewState('mst-state')}>
-      <HeaderStatesIcon testid={mstStateTestId} />
+      <HeaderStatesIcon testId={mstStateTestId} />
     </div>
     <ThemeDot onClick={() => queryDoraemon('/theme/')} />
     <Divider>&nbsp;</Divider>

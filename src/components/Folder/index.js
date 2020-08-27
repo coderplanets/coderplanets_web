@@ -33,7 +33,7 @@ const Folder = ({
   onSelect,
 }) => {
   return (
-    <Wrapper testid="folder" size={size}>
+    <Wrapper testId="folder" size={size}>
       {editable && (
         <EditIconWrapper onClick={onEdit}>
           <EditIcon src={`${ICON_CMD}/edit.svg`} />

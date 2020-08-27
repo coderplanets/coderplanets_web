@@ -37,7 +37,7 @@ const Header = ({
   return (
     <Wrapper
       id="whereCallShowDoraemon"
-      testid="header"
+      testId="header"
       leftOffset={leftOffset}
       fixed={fixed}
       noBorder={hasNoBottomBorder}
@@ -56,8 +56,8 @@ const Header = ({
         </RouterWrapper>
         <AddOns mstStateTestId="mst-state" />
         <Operations>
-          <Search onClick={openDoraemon} testid="header-search">
-            <HeaderSearchIcon testid="header-search-icon" />
+          <Search onClick={openDoraemon} testId="header-search">
+            <HeaderSearchIcon testId="header-search-icon" />
           </Search>
 
           {isLogin && <MailBox />}

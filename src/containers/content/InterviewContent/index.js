@@ -26,7 +26,7 @@ const InterviewContentContainer = ({ interviewContent: store }) => {
   // menuOnSelect={menuOnSelect}
   // initActiveMenuId={initActiveMenuId}
   return (
-    <Wrapper testid="interviewContent">
+    <Wrapper testId="interviewContent">
       <InnerWrapper>
         <FilterBar />
         <ContentWrapper>

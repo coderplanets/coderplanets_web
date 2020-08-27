@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-testid': props.testId,
 }))`
   ${cs.media.mobile`
     padding: 0;
