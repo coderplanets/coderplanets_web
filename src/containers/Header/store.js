@@ -87,8 +87,8 @@ const HeaderStore = T.model('HeaderStore', {
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
-    upgradeHepler() {
-      self.root.upgradeHepler()
+    upgradeHelper() {
+      self.root.upgradeHelper()
     },
     toast(type, options) {
       self.root.toast(type, options)

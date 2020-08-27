@@ -16,7 +16,7 @@ import {
   BadgeIcon,
 } from './styles/xxx_plan'
 
-import { upgradeHepler } from './logic'
+import { upgradeHelper } from './logic'
 
 const SponsorPlan = ({ joined }) => {
   if (joined) {
@@ -55,7 +55,7 @@ const SponsorPlan = ({ joined }) => {
         </DescLine>
       </PlanDesc>
       <PurchaseButton>
-        <Button type="primary" ghost onClick={upgradeHepler}>
+        <Button type="primary" ghost onClick={upgradeHelper}>
           升级成赞助商
         </Button>
       </PurchaseButton>

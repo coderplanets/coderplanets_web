@@ -96,8 +96,8 @@ const PostsThreadStore = T.model('PostsThreadStore', {
     isMemberOf(type) {
       return self.root.isMemberOf(type)
     },
-    upgradeHepler() {
-      self.root.upgradeHepler()
+    upgradeHelper() {
+      self.root.upgradeHelper()
     },
     authWarning(options) {
       self.root.authWarning(options)

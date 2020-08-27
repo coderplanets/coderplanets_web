@@ -28,7 +28,7 @@ const UpgradePackages = T.model('UpgradePackages', {
     cashierHelper(opt) {
       self.root.cashierHelper(opt)
     },
-    upgradeHepler() {
+    upgradeHelper() {
       self.show = true
     },
     mark(sobj) {

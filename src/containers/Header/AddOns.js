@@ -6,7 +6,7 @@ import { previewState, queryDoraemon } from './logic'
 const AddOns = ({ mstStateTestId }) => (
   <Wrapper>
     {/*
-        <Button size="small" type="primary" ghost onClick={logic.upgradeHepler}>
+        <Button size="small" type="primary" ghost onClick={logic.upgradeHelper}>
         upgrade
         </Button>
         &nbsp;&nbsp;&nbsp;

@@ -59,7 +59,7 @@ export const onLogout = () => {
 }
 
 export const openDoraemon = () => store.openDoraemon()
-export const upgradeHepler = () => store.upgradeHepler()
+export const upgradeHelper = () => store.upgradeHelper()
 
 export const queryDoraemon = (data) => send(EVENT.QUERY_DORAMON, { data })
 

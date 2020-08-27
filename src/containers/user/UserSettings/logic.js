@@ -21,7 +21,7 @@ export const c11nOnChange = (part, value) => {
   store.updateC11N({ [part]: value })
 }
 
-export const upgradeHepler = () => store.upgradeHepler()
+export const upgradeHelper = () => store.upgradeHelper()
 export const sponsorHepler = () => store.sponsorHepler()
 
 // ###############################
