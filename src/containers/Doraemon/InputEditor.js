@@ -31,7 +31,7 @@ const InputEditor = ({ searching, value, prefix }) => {
       </PrefixWrapper>
       <InputBar
         id="doraemonInputbar"
-        testid="doraemon-inputer"
+        testId="doraemon-inputer"
         spellCheck={false}
         autoCapitalize="off"
         autoCorrect="off"

@@ -15,7 +15,7 @@ import { Wrapper } from './styles'
 const log = buildLog('c:AlertBar:index')
 
 const AlertBar = ({ children }) => {
-  return <Wrapper testid="alertBar">{children}</Wrapper>
+  return <Wrapper testId="alertBar">{children}</Wrapper>
 }
 
 AlertBar.propTypes = {

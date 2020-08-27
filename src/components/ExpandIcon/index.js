@@ -38,7 +38,7 @@ const ExpandIcon = ({
       onShow={() => setActive(true)}
     >
       <Wrapper
-        testid="ExpandIcon"
+        testId="ExpandIcon"
         active={active}
         hideTextOnInit={hideTextOnInit}
       >

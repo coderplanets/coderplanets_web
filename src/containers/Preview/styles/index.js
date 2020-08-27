@@ -41,7 +41,7 @@ export const PreviewOverlay = styled.div`
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
 export const PreviewWrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-test-id': props.testId,
 }))`
   ${cs.flex()};
   display: ${({ visible }) => (visible ? 'flex' : 'none')};

@@ -15,9 +15,9 @@ import {
 
 import { changeView } from '../logic'
 
-const Actions = ({ view, testid }) => {
+const Actions = ({ view, testId }) => {
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testId={testId}>
       <InnerWrapper>
         {view === 'default' ? (
           <>
@@ -37,11 +37,11 @@ const Actions = ({ view, testid }) => {
 
 Actions.propTypes = {
   view: T.oneOf(['default', 'detail']).isRequired,
-  testid: T.string,
+  testId: T.string,
 }
 
 Actions.defaultProps = {
-  testid: 'subscribe-actions',
+  testId: 'subscribe-actions',
 }
 
 export default React.memo(Actions)

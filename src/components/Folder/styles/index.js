@@ -6,7 +6,7 @@ import { cs, theme } from '@/utils'
 import { getWidth, getHeight } from './metric'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-test-id': props.testId,
 }))`
   position: relative;
   ${cs.flexColumn()};

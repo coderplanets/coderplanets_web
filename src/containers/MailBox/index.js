@@ -36,7 +36,7 @@ const MailBoxContainer = ({ mailBox: store }) => {
       trigger="click"
       onShow={visibleOnChange}
     >
-      <Wrapper testid="account-mailbox">
+      <Wrapper testId="account-mailbox">
         <NotifyDot active={mailStatusData.hasMail} />
         <HeaderMailIcon />
       </Wrapper>

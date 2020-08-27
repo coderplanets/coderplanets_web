@@ -47,7 +47,7 @@ const items = [
 
 const FaqPeekList = ({ active }) => {
   return (
-    <Wrapper testid="faqPeekList" active={active}>
+    <Wrapper testId="faqPeekList" active={active}>
       {active && <ArrowIcon src={`${ICON_CMD}/peek-arrow.svg`} />}
       <ContentWrapper active={active}>
         <Title>常见问题：</Title>

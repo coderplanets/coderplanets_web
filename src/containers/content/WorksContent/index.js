@@ -67,7 +67,7 @@ const WorksContentContainer = ({ worksContent: store }) => {
   const { activeView } = store
 
   return (
-    <Wrapper testid="worksContent">
+    <Wrapper testId="worksContent">
       <Banner />
       <ContentWrapper>
         <FilterBar activeView={activeView} />

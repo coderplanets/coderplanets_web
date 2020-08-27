@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-test-id': props.testId,
 }))`
   ${cs.flexColumn()};
   margin-top: 12px;

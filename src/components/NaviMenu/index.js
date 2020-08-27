@@ -38,7 +38,7 @@ const NaviMenu = ({
   showMoreItem,
   onShowMore,
   pinNumberHoverType,
-  testid,
+  testId,
 }) => {
   const [menuMode, setMenuMode] = useState('root')
   // select initial active menu item if need
@@ -82,7 +82,7 @@ const NaviMenu = ({
   const handleMenuExpand = useCallback((item) => setExpandChildId(item.id), [])
 
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testId={testId}>
       {menuMode === 'root' || nilOrEmpty(childMenuItems) ? (
         <RootMenu
           menuItems={items}
@@ -145,7 +145,7 @@ NaviMenu.propTypes = {
   pinNumberHoverType: T.oneOf(['pin', 'unpin']),
   showMoreItem: T.bool,
   onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
-  testid: T.string,
+  testId: T.string,
 }
 
 NaviMenu.defaultProps = {
@@ -157,7 +157,7 @@ NaviMenu.defaultProps = {
   showMoreItem: false,
   onShowMore: null,
   pinNumberHoverType: 'pin',
-  testid: 'navi-menu',
+  testId: 'navi-menu',
 }
 
 export default React.memo(NaviMenu)

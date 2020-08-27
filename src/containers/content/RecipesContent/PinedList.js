@@ -38,7 +38,7 @@ const PinedList = () => {
         // initActiveMenuId={initActiveMenuId}
         withDivider={false}
         pinNumberHoverType="unpin"
-        testid="filter-pined-navi-menu"
+        testId="filter-pined-navi-menu"
       />
     </Wrapper>
   )

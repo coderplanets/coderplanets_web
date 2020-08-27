@@ -125,7 +125,7 @@ const SponsorContentContainer = ({ sponsorContent: store }) => {
   useInit(store)
 
   return (
-    <Wrapper testid="sponsor-content">
+    <Wrapper testId="sponsor-content">
       <InnerWrapper>
         <TabsWrapper>
           <Tabs

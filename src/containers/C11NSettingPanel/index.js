@@ -36,7 +36,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
   } = accountInfo
 
   return (
-    <Wrapper testid="c11NSettingPanel">
+    <Wrapper testId="c11NSettingPanel">
       <>
         <HeaderTitle>自定义阅读设置</HeaderTitle>
         <br />

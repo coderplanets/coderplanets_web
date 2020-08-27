@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { cs } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-test-id': props.testId,
 }))`
   ${cs.flexColumn()};
   min-height: 100vh;

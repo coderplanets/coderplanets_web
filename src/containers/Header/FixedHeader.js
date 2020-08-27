@@ -49,7 +49,7 @@ const Header = ({
     <Wrapper
       leftOffset={leftOffset}
       noBorder={hasNoBottomBorder}
-      testid="header"
+      testId="header"
       fixed={fixed}
     >
       <InnerWrapper metric={METRIC_MAP[metric]}>
@@ -58,8 +58,8 @@ const Header = ({
         </RouterWrapper>
         <AddOns mstStateTestId="fixed-header-mst-state" />
         <Operations>
-          <Search onClick={openDoraemon} testid="fixed-header-search">
-            <HeaderSearchIcon testid="fixed-header-search-icon" />
+          <Search onClick={openDoraemon} testId="fixed-header-search">
+            <HeaderSearchIcon testId="fixed-header-search-icon" />
           </Search>
 
           {isLogin && <MailBox />}

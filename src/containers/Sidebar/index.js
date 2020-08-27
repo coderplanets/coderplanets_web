@@ -39,7 +39,7 @@ const SidebarContainer = ({ sidebar: store }) => {
   const homeCommunity = filter(propEq('raw', 'home'), communitiesData)[0]
 
   return (
-    <Wrapper pin={pin} testid="sidebar" className={TYPE.GLOBAL_BLUR_CLASS}>
+    <Wrapper pin={pin} testId="sidebar" className={TYPE.GLOBAL_BLUR_CLASS}>
       <Header pin={pin} searchCommunityValue={searchCommunityValue} />
       {/* move home community out of menulist to avoid rerender */}
       <MenuBar pin={pin} item={homeCommunity} activeRaw={activeRaw} />

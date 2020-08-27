@@ -6,7 +6,7 @@ import { theme, cs } from '@/utils'
 import { getMaxWidth, getPadding } from './metric'
 
 export const Wrapper = styled.header.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-test-id': props.testId,
 }))`
   z-index: 2;
   width: 100%;
@@ -35,7 +35,7 @@ export const RouterWrapper = styled.div`
   height: 100%;
 `
 export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs((props) => ({
-  'data-testid': props.testid,
+  'data-test-id': props.testId,
 }))`
   fill: ${theme('header.fg')};
   width: 20px;
@@ -48,7 +48,7 @@ export const Operations = styled.div`
   ${cs.flex('align-center')};
 `
 export const Search = styled.div.attrs((props) => ({
-  'data-testid': props.testid,
+  'data-test-id': props.testId,
 }))`
   color: ${theme('header.fg')};
 `

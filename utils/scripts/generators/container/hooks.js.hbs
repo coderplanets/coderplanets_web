@@ -20,14 +20,14 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:{{ properCase name }}')
 
-const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: store, testid {{afterCurly ""}}) => {
+const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: store, testId {{afterCurly ""}}) => {
   useInit(store)
   {{#if wantI18n}}
   const { t } = useTrans()
   {{/if}}
 
   return (
-    <Wrapper testid="{{ dashCase name }}">
+    <Wrapper testId="{{ dashCase name }}">
       <h2>{{ properCase name }} hooks container!</h2>
       <div>impress me!</div>
     </Wrapper>
@@ -36,11 +36,11 @@ const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: sto
 
 {{ properCase name }}Container.propTypes = {
   {{ camelCase name }}: T.any.isRequired,
-  testid: T.string,
+  testId: T.string,
 }
 
 {{ properCase name }}Container.defaultProps = {
-  testid: '{{ camelCase name}}',
+  testId: '{{ camelCase name}}',
 }
 
 export default connectStore({{ properCase name }}Container)
