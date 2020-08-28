@@ -26,7 +26,7 @@ export const MainWrapper = styled.div`
   width: 70%;
   ${cs.media.tablet`width: 100%`};
 `
-export const TabberWrapper = styled.div`
+export const TabBarWrapper = styled.div`
   ${cs.flex()};
   width: 100%;
   border-bottom: 1px solid;

@@ -9,7 +9,7 @@ import React from 'react'
 import { ROUTE, C11N } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import Tabber from '@/components/Tabber'
+import TabBar from '@/components/TabBar'
 import PostsThread from '@/containers//thread/PostsThread'
 import VideosThread from '@/containers/thread/VideosThread'
 import ReposThread from '@/containers/thread/ReposThread'
@@ -18,7 +18,7 @@ import JobsThread from '@/containers/thread/JobsThread'
 import UsersThread from '@/containers/thread/UsersThread'
 import CheatsheetThread from '@/containers/thread/CheatsheetThread'
 
-import { Wrapper, InnerWrapper, TabberWrapper } from './styles'
+import { Wrapper, InnerWrapper, TabBarWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -65,15 +65,15 @@ const CommunityContentContainer = ({ communityContent: store }) => {
     <Wrapper testId="community-content">
       <InnerWrapper>
         {bannerLayout === C11N.DIGEST_ROW && (
-          <TabberWrapper>
-            <Tabber
+          <TabBarWrapper>
+            <TabBar
               source={community.threads}
               onChange={console.log}
               active={activeThread}
               // layout={layout}
               communityRaw={community.raw}
             />
-          </TabberWrapper>
+          </TabBarWrapper>
         )}
 
         <ComunityContent curRoute={curRoute} />

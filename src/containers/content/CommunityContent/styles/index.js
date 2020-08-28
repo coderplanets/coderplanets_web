@@ -35,7 +35,7 @@ export const InnerWrapper = styled.div`
     margin-top: 20px;
   `};
 `
-export const TabberWrapper = styled.div`
+export const TabBarWrapper = styled.div`
   width: 100%;
   border-bottom: 1px solid;
   border-bottom-color: #0c3d4e;

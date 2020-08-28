@@ -9,9 +9,9 @@ import React from 'react'
 import { connectStore, buildLog } from '@/utils'
 import GeneralSettings from './GeneralSettings'
 
-import Tabber from '@/components/Tabber'
+import TabBar from '@/components/TabBar'
 
-import { Wrapper, TabberWrapper } from './styles'
+import { Wrapper, TabBarWrapper } from './styles'
 import { useInit, tabOnChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -36,13 +36,13 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
 
   return (
     <Wrapper testId="c11NSettingPanel">
-      <TabberWrapper>
-        <Tabber
+      <TabBarWrapper>
+        <TabBar
           source={TAB_OPTIONS}
           onChange={tabOnChange}
           active={activeTab}
         />
-      </TabberWrapper>
+      </TabBarWrapper>
       <GeneralSettings curThread={curThread} customization={customization} />
     </Wrapper>
   )

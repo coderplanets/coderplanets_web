@@ -14,7 +14,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   margin-left: 60px;
   margin-bottom: 120px;
 `
-export const TabberWrapper = styled.div`
+export const TabBarWrapper = styled.div`
   margin-bottom: 20px;
   margin-left: -8px;
 `

@@ -1,5 +1,5 @@
 /*
- * Tabber
+ * TabBar
  */
 
 import React from 'react'
@@ -14,9 +14,9 @@ import BriefView from './BriefView'
 import { mapAlias } from './alias'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Tabber:index')
+const log = buildLog('c:TabBar:index')
 
-const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
+const TabBar = ({ source, active, onChange, layout, communityRaw }) => {
   const aliasSource = mapAlias(source, communityRaw)
   const sortedSource = sortByIndex(aliasSource)
 
@@ -31,7 +31,7 @@ const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
   )
 }
 
-Tabber.propTypes = {
+TabBar.propTypes = {
   onChange: T.func,
   source: T.arrayOf(
     T.shape({
@@ -48,11 +48,11 @@ Tabber.propTypes = {
   communityRaw: T.string,
 }
 
-Tabber.defaultProps = {
+TabBar.defaultProps = {
   active: THREAD.POST,
   onChange: log,
   layout: C11N.DIGEST,
   communityRaw: 'home',
 }
 
-export default React.memo(Tabber)
+export default React.memo(TabBar)
