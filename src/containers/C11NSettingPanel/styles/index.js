@@ -17,4 +17,9 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const TabBarWrapper = styled.div`
   margin-bottom: 20px;
   margin-left: -8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid;
+  border-bottom-color: #0a465a;
 `

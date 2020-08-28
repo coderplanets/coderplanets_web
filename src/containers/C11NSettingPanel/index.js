@@ -7,9 +7,10 @@
 import React from 'react'
 
 import { connectStore, buildLog } from '@/utils'
-import GeneralSettings from './GeneralSettings'
 
 import TabBar from '@/components/TabBar'
+import GeneralSettings from './GeneralSettings'
+import ThemeSettings from './ThemeSettings'
 
 import { Wrapper, TabBarWrapper } from './styles'
 import { useInit, tabOnChange } from './logic'
@@ -28,10 +29,24 @@ const TAB_OPTIONS = [
   },
 ]
 
+const Content = ({ activeTab, curTheme, ...restProps }) => {
+  switch (activeTab) {
+    case 'general': {
+      return <GeneralSettings {...restProps} />
+    }
+    case 'theme': {
+      return <ThemeSettings curTheme={curTheme} />
+    }
+    default: {
+      return <div>WoW</div>
+    }
+  }
+}
+
 const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
   useInit(store)
 
-  const { activeTab, accountInfo, curThread } = store
+  const { activeTab, accountInfo, curThread, curTheme } = store
   const { customization } = accountInfo
 
   return (
@@ -43,7 +58,12 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
           active={activeTab}
         />
       </TabBarWrapper>
-      <GeneralSettings curThread={curThread} customization={customization} />
+      <Content
+        activeTab={activeTab}
+        curThread={curThread}
+        customization={customization}
+        curTheme={curTheme}
+      />
     </Wrapper>
   )
 }

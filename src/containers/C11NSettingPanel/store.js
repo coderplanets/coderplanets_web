@@ -25,8 +25,14 @@ const C11NSettingPanel = T.model('C11NSettingPanel', {
     get curThread() {
       return self.root.viewing.activeThread
     },
+    get curTheme() {
+      return self.root.theme.curTheme
+    },
   }))
   .actions((self) => ({
+    changeTheme(name) {
+      self.root.changeTheme(name)
+    },
     updateC11N(option) {
       self.root.updateC11N(option)
     },
