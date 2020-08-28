@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { TYPE } from '@/constant'
-import C11NSettingPanel from '@/containers/C11NSettingPanel'
 import {
   AccountViewer,
   PostViewer,
@@ -17,6 +16,7 @@ import {
   RepoEditor,
   // utils
   StateTree,
+  C11NSettingPanel,
 } from './dynamics'
 
 import { Wrapper } from './styles/viewer'
