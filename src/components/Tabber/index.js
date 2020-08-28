@@ -33,9 +33,18 @@ const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
 
 Tabber.propTypes = {
   onChange: T.func,
-  source: T.array.isRequired,
+  source: T.arrayOf(
+    T.shape({
+      title: T.string,
+      raw: T.string,
+      alias: T.string,
+      icon: T.oneOfType([T.string, T.node]),
+      localIcon: T.string,
+    }),
+  ).isRequired,
   active: T.string,
   layout: T.oneOf([C11N.DIGEST, C11N.DIGEST_ROW, C11N.BRIEF]),
+  // for alias usage
   communityRaw: T.string,
 }
 
