@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import Img from '@/Img'
 import HeaderStatesSVG from '@/SvgIcons/HeaderStatesSVG'
 import { theme, cs } from '@/utils'
 
@@ -13,12 +14,13 @@ export const Wrapper = styled.div`
 export const HeaderStatesIcon = styled(HeaderStatesSVG).attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  opacity: 0;
   fill: ${theme('header.fg')};
+  opacity: 0;
   width: 22px;
   height: 26px;
   cursor: pointer;
   margin-top: 5px;
+  margin-right: 12px;
   transform: rotate(-360deg);
 
   ${HeaderWrapper}:hover & {
@@ -26,18 +28,17 @@ export const HeaderStatesIcon = styled(HeaderStatesSVG).attrs((props) => ({
   }
   transition: opacity 0.3s;
 `
-
-export const ThemeDot = styled.div`
+export const SettingIcon = styled(Img)`
+  fill: ${theme('header.fg')};
   width: 16px;
   height: 16px;
-  background-color: ${theme('cover')};
-  border: 1px solid;
-  border-color: ${theme('header.spliter')};
-  margin-left: 10px;
-  border-radius: 100%;
-  cursor: pointer;
-`
+  margin-top: -2px;
+  display: block;
 
+  &:hover {
+    cursor: pointer;
+  }
+`
 export const Divider = styled.div`
   border-left: 1px solid;
   border-color: ${theme('header.fg')};

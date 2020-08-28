@@ -1,12 +1,12 @@
 import React from 'react'
 
 // import { ICON_CMD } from '@/config'
-import Tabber from '@/components/Tabber'
+import TabBar from '@/components/TabBar'
 
 import {
   Wrapper,
   BannerContentWrapper,
-  TabberWrapper,
+  TabBarWrapper,
 } from './styles/brief_view'
 
 import { tabberChange } from './logic'
@@ -14,15 +14,15 @@ import { tabberChange } from './logic'
 const BriefView = ({ community, activeThread, layout }) => (
   <Wrapper>
     <BannerContentWrapper>
-      <TabberWrapper>
-        <Tabber
+      <TabBarWrapper>
+        <TabBar
           source={community.threads}
           onChange={tabberChange}
           active={activeThread}
           layout={layout}
           communityRaw={community.raw}
         />
-      </TabberWrapper>
+      </TabBarWrapper>
     </BannerContentWrapper>
   </Wrapper>
 )

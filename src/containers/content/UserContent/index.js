@@ -17,14 +17,14 @@ import UserStared from '@/containers/user/UserStared'
 import UserFavorited from '@/containers/user/UserFavorited'
 
 import Sticky from '@/components/Sticky'
-import Tabber from '@/components/Tabber'
+import TabBar from '@/components/TabBar'
 
 import DigestBoard from './DigestBoard'
 
 import {
   Container,
   MainWrapper,
-  TabberWrapper,
+  TabBarWrapper,
   SidebarWrapper,
   MobileBottom,
 } from './styles'
@@ -103,13 +103,13 @@ const UserContentContainer = ({ userContent: store }) => {
   return (
     <Container>
       <MainWrapper>
-        <TabberWrapper className="tabs-with-bottom">
-          <Tabber
+        <TabBarWrapper className="tabs-with-bottom">
+          <TabBar
             source={taberSource}
             onChange={tabOnChange}
             active={activeThread}
           />
-        </TabberWrapper>
+        </TabBarWrapper>
         <TabberContent active={activeThread} />
         <MobileBottom>
           <DigestBoard

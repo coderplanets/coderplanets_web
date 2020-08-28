@@ -44,7 +44,7 @@ export const BannerContentWrapper = styled(BaseBannerContent)`
 export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
 `
-export const TabberWrapper = styled(BaseTabber)``
+export const TabBarWrapper = styled(BaseTabber)``
 
 export const CommunityWrapper = styled.div`
   ${cs.flexGrow('align-center')};

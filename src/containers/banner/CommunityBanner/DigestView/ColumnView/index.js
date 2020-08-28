@@ -5,7 +5,7 @@ import { ICON_CMD } from '@/config'
 import { NON_FILL_COMMUNITY } from '@/constant'
 
 import VerifiedSign from '@/components/VerifiedSign'
-import Tabber from '@/components/Tabber'
+import TabBar from '@/components/TabBar'
 import CommunityStatesPad from '@/components/CommunityStatesPad'
 import { CommunityHolder } from '@/components/LoadingEffects'
 
@@ -16,7 +16,7 @@ import {
   Wrapper,
   InnerWrapper,
   BannerContentWrapper,
-  TabberWrapper,
+  TabBarWrapper,
   CommunityWrapper,
   CommunityLogo,
   LogoWrapper,
@@ -87,15 +87,15 @@ const DigestView = ({ community, descExpand, activeThread, layout }) => {
             onShowEditorList={onShowEditorList}
             onShowSubscriberList={onShowSubscriberList}
           />
-          <TabberWrapper>
-            <Tabber
+          <TabBarWrapper>
+            <TabBar
               source={community.threads}
               onChange={tabberChange}
               active={activeThread}
               layout={layout}
               communityRaw={community.raw}
             />
-          </TabberWrapper>
+          </TabBarWrapper>
         </BannerContentWrapper>
       </InnerWrapper>
     </Wrapper>

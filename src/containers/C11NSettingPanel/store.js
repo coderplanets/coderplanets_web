@@ -9,7 +9,12 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:C11NSettingPanel')
 
-const C11NSettingPanel = T.model('C11NSettingPanel', {})
+const C11NSettingPanel = T.model('C11NSettingPanel', {
+  activeTab: T.optional(
+    T.enumeration('activeTab', ['general', 'theme']),
+    'general',
+  ),
+})
   .views((self) => ({
     get root() {
       return getParent(self)
@@ -20,8 +25,14 @@ const C11NSettingPanel = T.model('C11NSettingPanel', {})
     get curThread() {
       return self.root.viewing.activeThread
     },
+    get curTheme() {
+      return self.root.theme.curTheme
+    },
   }))
   .actions((self) => ({
+    changeTheme(name) {
+      self.root.changeTheme(name)
+    },
     updateC11N(option) {
       self.root.updateC11N(option)
     },

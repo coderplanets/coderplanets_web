@@ -10,6 +10,13 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:C11NSettingPanel')
 
+export const tabOnChange = (activeTab) => store.mark({ activeTab })
+
+export const changeTheme = (theme) => {
+  store.changeTheme(theme)
+  send(EVENT.SET_C11N, { data: { theme } })
+}
+
 export const onC11NChange = (option) => {
   // TODO:  currently request to server logic is in containers/header, move it to here ?
   send(EVENT.SET_C11N, { data: option })

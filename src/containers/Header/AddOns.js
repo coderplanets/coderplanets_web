@@ -1,23 +1,27 @@
 import React from 'react'
 
-import { Wrapper, HeaderStatesIcon, ThemeDot, Divider } from './styles/addons'
-import { previewState, queryDoraemon } from './logic'
+import { ICON_CMD } from '@/config'
 
-const AddOns = ({ mstStateTestId }) => (
-  <Wrapper>
-    {/*
-        <Button size="small" type="primary" ghost onClick={logic.upgradeHelper}>
-        upgrade
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <DividerIcon src={`${ICON_CMD}/more.svg`} />
-      */}
-    <div onClick={() => previewState('mst-state')}>
-      <HeaderStatesIcon testId={mstStateTestId} />
-    </div>
-    <ThemeDot onClick={() => queryDoraemon('/theme/')} />
-    <Divider>&nbsp;</Divider>
-  </Wrapper>
-)
+import {
+  Wrapper,
+  HeaderStatesIcon,
+  SettingIcon,
+  Divider,
+} from './styles/addons'
+import { previewState, openC11NPanel } from './logic'
+
+const AddOns = ({ mstStateTestId }) => {
+  return (
+    <Wrapper>
+      <div onClick={() => previewState('mst-state')}>
+        <HeaderStatesIcon testId={mstStateTestId} />
+      </div>
+      <div onClick={openC11NPanel}>
+        <SettingIcon src={`${ICON_CMD}/magic-setting.svg`} />
+      </div>
+      <Divider>&nbsp;</Divider>
+    </Wrapper>
+  )
+}
 
 export default React.memo(AddOns)

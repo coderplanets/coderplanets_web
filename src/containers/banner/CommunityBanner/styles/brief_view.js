@@ -11,7 +11,7 @@ export const BaseBannerContent = styled.div`
 `
 export const BannerContainer = styled(BaseBanner)``
 
-export const TabberWrapper = styled.div`
+export const TabBarWrapper = styled.div`
   ${cs.flex()};
   max-width: ${cs.MAX_CONTENT_WIDTH};
   width: 100%;
