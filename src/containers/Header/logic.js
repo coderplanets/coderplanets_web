@@ -61,7 +61,9 @@ export const onLogout = () => {
 export const openDoraemon = () => store.openDoraemon()
 export const upgradeHelper = () => store.upgradeHelper()
 
-export const queryDoraemon = (data) => send(EVENT.QUERY_DORAMON, { data })
+export const openC11NPanel = () => {
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_C11N_SETTINGS })
+}
 
 const DataSolver = [
   {

@@ -77,7 +77,7 @@ const renderViewer = (type, root, attachment, attUser) => {
     case TYPE.PREVIEW_ROOT_STORE:
       return <StateTree json={root.toJSON()} />
 
-    case TYPE.PREVIEW_C11N_SETINGS:
+    case TYPE.PREVIEW_C11N_SETTINGS:
       return <C11NSettingPanel />
 
     default:

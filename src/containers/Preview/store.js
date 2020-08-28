@@ -76,7 +76,7 @@ const PreviewStore = T.model('PreviewStore', {
       // article types
       ...THREAD_CONTENT_CURD_TYPES,
       //
-      TYPE.PREVIEW_C11N_SETINGS,
+      TYPE.PREVIEW_C11N_SETTINGS,
     ]),
   ),
   attUser: T.maybeNull(User),

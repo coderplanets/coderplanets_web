@@ -1,9 +1,5 @@
 import React from 'react'
 
-import { EVENT, TYPE } from '@/constant'
-import { ICON_CMD } from '@/config'
-import { send } from '@/utils'
-
 import Tooltip from '@/components/Tooltip'
 
 import {
@@ -12,7 +8,6 @@ import {
   ResultDivider,
   MoreOptionWrapper,
   FaqText,
-  SettingIcon,
 } from './styles/filter_result'
 
 const FilterResult = ({ totalCount, onFaqChange, faqActive }) => {
@@ -33,16 +28,6 @@ const FilterResult = ({ totalCount, onFaqChange, faqActive }) => {
             </FaqText>
           </Tooltip>
         )}
-
-        <ResultDivider />
-
-        <div
-          onClick={() =>
-            send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_C11N_SETINGS })
-          }
-        >
-          <SettingIcon src={`${ICON_CMD}/view_setting.svg`} />
-        </div>
       </MoreOptionWrapper>
     </Wrapper>
   )
