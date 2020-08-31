@@ -20,6 +20,7 @@ export const Wrapper = styled(BaseBanner)`
 `
 export const ContentWrapper = styled.div`
   padding: 10px 22px;
+  height: calc(100vh - 140px);
   padding-bottom: 20px;
 `
 export const InnerWrapper = styled.div`
