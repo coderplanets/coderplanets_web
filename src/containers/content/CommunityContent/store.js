@@ -26,6 +26,12 @@ const CommunityContent = T.model('CommunityContent', {})
     },
   }))
   .actions((self) => ({
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
+    },
+    markRoute(query) {
+      self.root.markRoute(query)
+    },
     mark(sobj) {
       markStates(sobj, self)
     },

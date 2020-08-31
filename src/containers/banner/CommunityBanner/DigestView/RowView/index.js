@@ -95,7 +95,7 @@ const RowView = ({ community, descExpand, isHeaderFixed }) => {
 
               <ChartWrapper>
                 <TrendLine
-                  data={[10, 8, 3, 20, 3, 2, 18]}
+                  data={community.contributesDigest}
                   duration={300}
                   radius={15}
                   width={2}

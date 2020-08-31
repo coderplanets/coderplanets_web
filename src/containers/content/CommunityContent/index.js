@@ -19,7 +19,7 @@ import UsersThread from '@/containers/thread/UsersThread'
 import CheatsheetThread from '@/containers/thread/CheatsheetThread'
 
 import { Wrapper, InnerWrapper, TabBarWrapper } from './styles'
-import { useInit } from './logic'
+import { useInit, tabberChange } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityContent')
@@ -63,12 +63,12 @@ const CommunityContentContainer = ({ communityContent: store }) => {
 
   return (
     <Wrapper testId="community-content">
-      <InnerWrapper>
+      <InnerWrapper lessMargin={bannerLayout === C11N.DIGEST_ROW}>
         {bannerLayout === C11N.DIGEST_ROW && (
           <TabBarWrapper>
             <TabBar
               source={community.threads}
-              onChange={console.log}
+              onChange={tabberChange}
               active={activeThread}
               // layout={layout}
               communityRaw={community.raw}

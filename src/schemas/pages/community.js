@@ -22,6 +22,7 @@ export const community = `
         raw
         index
       }
+      contributesDigest
       subscribersCount
       editorsCount
       postsCount

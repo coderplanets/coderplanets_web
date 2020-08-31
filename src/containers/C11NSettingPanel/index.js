@@ -6,6 +6,7 @@
 
 import React from 'react'
 
+import { ICON_CMD } from '@/config'
 import { connectStore, buildLog } from '@/utils'
 
 import TabBar from '@/components/TabBar'
@@ -22,10 +23,12 @@ const TAB_OPTIONS = [
   {
     title: '常规设置',
     raw: 'general',
+    localIcon: 'settings',
   },
   {
     title: '主题设置',
     raw: 'theme',
+    icon: `${ICON_CMD}/theme_cloth.svg`,
   },
 ]
 

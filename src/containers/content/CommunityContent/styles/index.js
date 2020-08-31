@@ -18,7 +18,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   `};
 `
 export const InnerWrapper = styled.div`
-  margin: 0 5.5%;
+  margin: ${({ lessMargin }) => (lessMargin ? '0 2.5%' : '0 5.5%')};
   margin-top: 20px;
   width: 100%;
 
