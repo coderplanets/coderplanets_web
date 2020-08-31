@@ -63,7 +63,7 @@ const CommunityContentContainer = ({ communityContent: store }) => {
 
   return (
     <Wrapper testId="community-content">
-      <InnerWrapper>
+      <InnerWrapper lessMargin={bannerLayout === C11N.DIGEST_ROW}>
         {bannerLayout === C11N.DIGEST_ROW && (
           <TabBarWrapper>
             <TabBar
