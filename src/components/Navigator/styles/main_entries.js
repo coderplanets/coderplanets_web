@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   ${cs.flex('align-center')};
 
   margin-left: ${({ type }) => (type === 'brief' ? '5px' : '10px')};
-  font-size: 0.9rem;
+  font-size: 15px;
   ${cs.media.tablet`display: none`};
 `
 export const DotDivider = styled(DotDividerBase)`

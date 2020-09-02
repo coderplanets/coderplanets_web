@@ -12,10 +12,17 @@ import { ICON_CMD } from '@/config'
 import { connectStore, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
-import { SponsorGallery } from '@/components/GalleryHub'
+import { FriendsGallery } from '@/components/GalleryHub'
 import { Button } from '@/components/Buttons'
 
-import { Wrapper, InnerWrapper, Title, Desc, HeartIcon } from './styles'
+import {
+  Wrapper,
+  InnerWrapper,
+  FriendsWrapper,
+  Title,
+  Desc,
+  HeartIcon,
+} from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -94,7 +101,9 @@ const FriendsContentContainer = ({ friendsContent: store }) => {
         <Title>友情链接</Title>
         <Desc>感谢以下公司（团队）对本站的信任</Desc>
         <Br top="50px" />
-        <SponsorGallery items={items} column={4} />
+        <FriendsWrapper>
+          <FriendsGallery items={items} column={4} />
+        </FriendsWrapper>
         <Br top="80px" />
         <Button type="primary" ghost>
           <HeartIcon src={`${ICON_CMD}/navi/heart.svg`} />

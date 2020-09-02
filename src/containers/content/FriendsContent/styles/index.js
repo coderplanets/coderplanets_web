@@ -31,6 +31,9 @@ export const Title = styled.h2`
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
 `
+export const FriendsWrapper = styled.div`
+  padding-left: 10vw;
+`
 export const HeartIcon = styled(Img)`
   fill: ${theme('baseColor.error')};
   width: 14px;

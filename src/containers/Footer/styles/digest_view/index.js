@@ -8,6 +8,7 @@ import { getPadding } from '../metrics'
 export const Wrapper = styled.footer`
   ${cs.flexColumn('align-center')};
   width: 100%;
+  margin-top: 30px;
 `
 export const InnerWrapper = styled.div`
   width: 100%;

@@ -45,8 +45,8 @@ const BottomInfo = ({ layout }) => (
           </Site>
         ))}
       </Links>
-      <Link href={`/${ROUTE.FRIENDS}`} passHref>
-        <MoreText href={ROUTE.FRIENDS}>更多友情链接</MoreText>
+      <Link href={`/${ROUTE.SPONSOR}`} passHref>
+        <MoreText href={ROUTE.SPONSOR}>更多赞助商</MoreText>
       </Link>
     </InnerWrapper>
   </Wrapper>
