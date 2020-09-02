@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
+import { ArrowLink } from '@/components/Buttons'
 import { theme, cs } from '@/utils'
 
 import { getPadding } from '../metrics'
@@ -76,8 +77,8 @@ export const SiteLogo = styled(CommunityFaceLogo)`
 `
 export const Title = styled.div`
   color: ${theme('footer.title')};
-  margin-bottom: 12px;
-  font-size: 0.9rem;
+  margin-bottom: 15px;
+  font-size: 14px;
 `
 export const Body = styled.div`
   ${cs.flexColumn('justify-start')};
@@ -86,8 +87,8 @@ export const Body = styled.div`
 export const Item = styled.a`
   color: ${theme('footer.text')};
 
-  font-size: 0.8rem;
-  margin-bottom: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
   margin-top: ${({ offsetTop }) => offsetTop || '0'};
   text-decoration: none;
 
@@ -97,6 +98,9 @@ export const Item = styled.a`
     cursor: pointer;
   }
   transition: color 0.2s;
+`
+export const LinkItem = styled(ArrowLink)`
+  margin-bottom: 10px;
 `
 export const ItemGitSource = styled.div`
   ${cs.flex('align-center')};
