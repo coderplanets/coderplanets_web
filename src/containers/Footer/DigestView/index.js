@@ -89,8 +89,12 @@ const DigestView = ({ layout }) => {
           <Column>
             <Title>增值服务</Title>
             <Body>
-              <Item onClick={toggleSeniorHelper}>成为会员</Item>
-              <Item onClick={toggleSponsorHelper}>打赏支持</Item>
+              <Item as="span" normal onClick={toggleSeniorHelper}>
+                成为会员
+              </Item>
+              <Item as="span" normal onClick={toggleSponsorHelper}>
+                打赏支持
+              </Item>
             </Body>
           </Column>
 
@@ -111,8 +115,12 @@ const DigestView = ({ layout }) => {
           <Column>
             <Title>商务合作</Title>
             <Body>
-              <Item onClick={toggleBusBanner}>赞助社区</Item>
-              <Item onClick={toggleBusBanner}>商务合作</Item>
+              <Item as="span" normal onClick={toggleBusBanner}>
+                赞助社区
+              </Item>
+              <Item as="span" normal onClick={toggleBusBanner}>
+                商务合作
+              </Item>
             </Body>
           </Column>
           <Column margin="30px">
