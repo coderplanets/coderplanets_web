@@ -16,8 +16,6 @@ export const Breadcrumbs = styled.div`
 export const Logo = styled(CommunityFaceLogo)`
   height: 22px;
   width: 22px;
-  margin-top: -5px;
-  opacity: 0.7;
 `
 export const LogoLink = styled.a`
   margin-right: 10px;
