@@ -34,15 +34,9 @@ const SIZE_MAP = {
   },
 }
 
-const ArrowButton = ({
-  children,
-  onClick,
-  size,
-  direction,
-  transparentFirst,
-}) => {
+const ArrowButton = ({ children, onClick, size, direction, dimWhenIdle }) => {
   return (
-    <Wrapper onClick={onClick} transparentFirst={transparentFirst}>
+    <Wrapper onClick={onClick} dimWhenIdle={dimWhenIdle}>
       {direction === 'left' ? (
         <>
           <LeftIcon
@@ -68,7 +62,7 @@ ArrowButton.propTypes = {
   children: T.oneOfType([T.string, T.node]),
   size: T.oneOf(['tiny', 'small', 'medium', 'large']),
   direction: T.oneOf(['left', 'right']),
-  transparentFirst: T.bool,
+  dimWhenIdle: T.bool,
   onClick: T.func,
 }
 
@@ -76,7 +70,7 @@ ArrowButton.defaultProps = {
   children: '下一步',
   size: 'small',
   direction: 'right',
-  transparentFirst: false,
+  dimWhenIdle: false,
   onClick: log,
 }
 
