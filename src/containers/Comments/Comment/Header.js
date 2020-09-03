@@ -1,6 +1,7 @@
 import React from 'react'
 import { forEach, clone, pluck } from 'ramda'
 
+import { useMedia } from '@/hooks'
 import AvatarsRow from '@/components/AvatarsRow'
 import DotDivider from '@/components/DotDivider'
 
@@ -27,29 +28,33 @@ const getAuthors = (comment) => {
   return pluck('author', replies)
 }
 
-const CommentHeader = ({ data }) => (
-  <Wrapper>
-    <Avatar src={data.author.avatar} />
-    <HeaderBaseInfo>
-      <CommentHeaderFirst>
-        <CommentUserName>
-          {data.author.nickname}
-          <DotDivider radius="3px" space="10px" />
-          <FloorNum>{data.floor}F</FloorNum>
-        </CommentUserName>
-        {data.repliesCount !== 0 && (
-          <ReplyUsers>
-            <ReplyTitle>收到回复:</ReplyTitle>
-            <AvatarsRow
-              users={getAuthors(data)}
-              onUserSelect={previewReply}
-              total={data.repliesCount}
-            />
-          </ReplyUsers>
-        )}
-      </CommentHeaderFirst>
-    </HeaderBaseInfo>
-  </Wrapper>
-)
+const CommentHeader = ({ data }) => {
+  const { mobile } = useMedia()
+
+  return (
+    <Wrapper>
+      <Avatar src={data.author.avatar} />
+      <HeaderBaseInfo>
+        <CommentHeaderFirst>
+          <CommentUserName>
+            {data.author.nickname}
+            <DotDivider radius="3px" space="10px" />
+            <FloorNum>{data.floor}F</FloorNum>
+          </CommentUserName>
+          {!mobile && data.repliesCount !== 0 && (
+            <ReplyUsers>
+              <ReplyTitle>收到回复:</ReplyTitle>
+              <AvatarsRow
+                users={getAuthors(data)}
+                onUserSelect={previewReply}
+                total={data.repliesCount}
+              />
+            </ReplyUsers>
+          )}
+        </CommentHeaderFirst>
+      </HeaderBaseInfo>
+    </Wrapper>
+  )
+}
 
 export default React.memo(CommentHeader)

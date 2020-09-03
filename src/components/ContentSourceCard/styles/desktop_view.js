@@ -20,11 +20,6 @@ export const Desc = styled.div`
   margin-bottom: 20px;
   flex-direction: ${({ column }) => (column ? 'column' : 'row')};
   flex-wrap: wrap;
-
-  ${cs.media.mobile`
-    margin-top: 6px;
-    margin-bottom: 10px;
-  `};
 `
 export const Divider = styled.div`
   margin-top: 10px;

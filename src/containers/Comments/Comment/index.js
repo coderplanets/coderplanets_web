@@ -1,47 +1,18 @@
 import React from 'react'
-import { isEmpty } from 'ramda'
 
-import { Global } from '@/utils'
+import { useMedia } from '@/hooks'
 
-import MarkDownRender from '@/components/MarkDownRender'
+import DesktopView from './DesktopView'
+import MobileView from './MobileView'
 
-import UpInfo from './UpInfo'
-import Header from './Header'
-import ReplyBar from './ReplyBar'
-import DeleteMask from './DeleteMask'
-import Footer from './Footer'
+const Comment = (props) => {
+  const { mobile } = useMedia()
 
-import {
-  Wrapper,
-  CommentWrapper,
-  CommentContent,
-  CommentBodyInfo,
-} from './styles'
-
-const getSelection = () => {
-  const selectText = Global.getSelection().toString()
-  if (!isEmpty(selectText)) {
-    // TODO: then use window.getSelection().getRangeAt(0).getBoundingClientRect() to draw a button
-  }
+  return (
+    <React.Fragment>
+      {!mobile ? <DesktopView {...props} /> : <MobileView {...props} />}
+    </React.Fragment>
+  )
 }
-
-const Comment = ({ data, tobeDeleteId, accountInfo }) => (
-  <Wrapper>
-    <DeleteMask show={data.id === tobeDeleteId} />
-    <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
-      <UpInfo data={data} />
-
-      <CommentBodyInfo onMouseUp={getSelection}>
-        <Header data={data} />
-        <CommentContent>
-          {data.replyTo && <ReplyBar data={data.replyTo} />}
-          <MarkDownRender body={data.body} />
-        </CommentContent>
-
-        <Footer data={data} accountInfo={accountInfo} />
-      </CommentBodyInfo>
-    </CommentWrapper>
-  </Wrapper>
-)
 
 export default React.memo(Comment)
