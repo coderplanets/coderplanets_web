@@ -7,7 +7,6 @@ export const ListsContainer = styled.div`
   ${cs.flexColumn('')};
   border-radius: 4px;
 `
-
 export const TotalHeader = styled.div`
   ${cs.flex('align-center')};
   margin-top: 25px;
@@ -16,18 +15,17 @@ export const TotalHeader = styled.div`
 export const TotalCountWrapper = styled.div`
   flex-grow: 1;
 `
-
 export const ListTitle = styled.div`
   color: ${theme('comment.title')};
-  font-size: 1rem;
+  font-size: 14px;
   margin-left: 2px;
 `
-
 export const TotalNum = styled.span`
   color: ${theme('comment.number')};
-  font-size: 1.3em;
+  font-size: 17px;
+  margin-left: 2px;
+  margin-right: 2px;
 `
-
 export const CommentBlock = styled.div`
   ${cs.flex()};
   margin-bottom: 16px;

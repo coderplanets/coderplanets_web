@@ -19,6 +19,9 @@ export const InnerWrapper = styled.div`
   ${cs.media.desktop`
     padding: 0 4vw;
   `};
+  ${cs.media.mobile`
+    padding: 0 3vw;
+  `};
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;
@@ -45,6 +48,7 @@ export const ArticleWrapper = styled.div`
   ${cs.media.mobile`
     padding: 30px;
     min-height: 20vh;
+    margin-right: 0;
   `};
 `
 
@@ -58,6 +62,6 @@ export const CommentsWrapper = styled.div`
   margin-right: 25px;
 
   ${cs.media.mobile`
-    margin: 10px;
+    margin: 5px;
   `};
 `

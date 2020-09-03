@@ -13,19 +13,17 @@ export const Wrapper = styled.div`
   border-radius: 3px;
   background: ${theme('comment.bg')};
 `
-
 // filter: blur(3px);
 export const CommentWrapper = styled.div`
   ${cs.flexGrow()};
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
-
 export const CommentBodyInfo = styled.div`
   ${cs.flexColumn()};
   width: 100%;
 `
 export const CommentContent = styled.div`
-  font-size: 0.9rem;
+  font-size: 15px;
 
   ${cs.media.mobile`
     max-width: 280px;

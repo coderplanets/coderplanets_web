@@ -25,7 +25,7 @@ export const CommentBodyInfo = styled.div`
   width: 100%;
 `
 export const CommentContent = styled.div`
-  font-size: 0.9rem;
+  font-size: 15px;
 
   ${cs.media.mobile`
     max-width: 280px;
