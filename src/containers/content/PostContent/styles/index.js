@@ -61,14 +61,3 @@ export const CommentsWrapper = styled.div`
     margin: 10px;
   `};
 `
-
-export const MobileWrapper = styled.div`
-  ${cs.flex()};
-  margin-top: 15px;
-  width: 100%;
-  display: none;
-
-  ${cs.media.tablet`
-${cs.flex('justify-center')};
-  `};
-`
