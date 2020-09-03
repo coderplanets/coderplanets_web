@@ -43,8 +43,8 @@ const SetupInfo = ({ status }) => {
         <ArrowButton
           size="medium"
           direction="left"
-          dimWhenIdle
           onClick={pervStep}
+          dimWhenIdle
         >
           上一步
         </ArrowButton>
