@@ -5,7 +5,7 @@ import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
-  opacity: ${({ transparentFirst }) => (transparentFirst ? '0.65' : 1)};
+  opacity: ${({ dimWhenIdle }) => (dimWhenIdle ? '0.65' : 1)};
 
   &:hover {
     cursor: pointer;
