@@ -3,14 +3,13 @@ import styled from 'styled-components'
 import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${cs.flex('align-center')};
   width: 100%;
-  min-height: 100px;
+  min-height: 120px;
   padding: 0 25px;
 `
 export const Block = styled.div`
   width: 40%;
-  margin-top: 20px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -25,7 +24,7 @@ export const Desc = styled.div`
   flex-wrap: wrap;
 `
 export const Divider = styled.div`
-  min-height: 50%;
+  min-height: 80px;
   width: 1px;
   margin-left: 5%;
   margin-right: 10%;

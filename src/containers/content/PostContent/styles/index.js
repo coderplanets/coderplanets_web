@@ -46,7 +46,9 @@ export const ArticleWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   min-height: 200px;
   ${cs.media.mobile`
-    padding: 30px;
+    background: #08303c;  /* TODO: same as comment background */
+    padding: 26px;
+    padding-top: 50px;
     min-height: 20vh;
     margin-right: 0;
   `};

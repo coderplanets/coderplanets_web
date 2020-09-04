@@ -39,7 +39,7 @@ const CommentHeader = ({ data }) => {
           <CommentUserName>
             {data.author.nickname}
             <DotDivider radius="3px" space="10px" />
-            <FloorNum>{data.floor}F</FloorNum>
+            <FloorNum>{data.floor}f</FloorNum>
           </CommentUserName>
           {!mobile && data.repliesCount !== 0 && (
             <ReplyUsers>

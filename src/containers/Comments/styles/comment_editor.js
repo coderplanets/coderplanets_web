@@ -13,6 +13,10 @@ export const Container = styled.div`
 
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   border-radius: 3px;
+
+  ${cs.media.mobile`
+    background: #08303c;  /* TODO: same as comment background */
+  `};
 `
 export const InputEditorWrapper = styled.div`
   height: auto;

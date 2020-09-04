@@ -29,16 +29,6 @@ const MobileView = ({
   return (
     <Wrapper>
       <Block>
-        <Title>所属社区</Title>
-        <Desc>
-          <CommunityList
-            items={communities}
-            emptyHint={<NoMoreDesc>不属于任何社区</NoMoreDesc>}
-          />
-        </Desc>
-      </Block>
-      <Divider />
-      <Block>
         {users.totalCount !== 0 && (
           <>
             <Title>参与讨论 ({users.totalCount})</Title>
@@ -47,6 +37,16 @@ const MobileView = ({
             </Desc>
           </>
         )}
+      </Block>
+      <Divider />
+      <Block>
+        <Title>所属社区</Title>
+        <Desc>
+          <CommunityList
+            items={communities}
+            emptyHint={<NoMoreDesc>不属于任何社区</NoMoreDesc>}
+          />
+        </Desc>
       </Block>
     </Wrapper>
   )

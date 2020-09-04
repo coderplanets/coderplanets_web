@@ -49,13 +49,15 @@ const PostContentContainer = ({ postContent: store }) => {
         <InnerWrapper>
           <MainWrapper>
             <ArticleWrapper>
-              <BodyHeaderWrapper>
-                <ArticleBodyHeader
-                  communityRaw={communityRaw}
-                  thread={THREAD.POST}
-                  data={viewingData}
-                />
-              </BodyHeaderWrapper>
+              {!mobile && (
+                <BodyHeaderWrapper>
+                  <ArticleBodyHeader
+                    communityRaw={communityRaw}
+                    thread={THREAD.POST}
+                    data={viewingData}
+                  />
+                </BodyHeaderWrapper>
+              )}
               <MarkDownRender body={viewingData.body} />
             </ArticleWrapper>
 
