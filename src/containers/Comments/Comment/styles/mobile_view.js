@@ -26,10 +26,6 @@ export const CommentBodyInfo = styled.div`
 `
 export const CommentContent = styled.div`
   font-size: 15px;
-
-  ${cs.media.mobile`
-    max-width: 280px;
-  `};
 `
 export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};

@@ -42,7 +42,7 @@ const MobileView = ({ data, tobeDeleteId, accountInfo }) => {
             {data.replyTo && (
               <>
                 <ReplyBar data={data.replyTo} />
-                <Br top="10px" />
+                <Br top="14px" />
               </>
             )}
             <MarkDownRender body={data.body} />

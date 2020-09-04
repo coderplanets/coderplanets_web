@@ -7,7 +7,7 @@ export const Wrapper = styled(ReplyBarBase)`
 `
 export const Label = styled.span`
   font-size: 13px;
-  width: 50px;
+  width: 32px;
 `
 export const ReplyToBody = styled(ReplyToBodyBase)``
 export const ReplyToFloor = styled(ReplyToFloorBase)``
