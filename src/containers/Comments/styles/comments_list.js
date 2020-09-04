@@ -19,6 +19,10 @@ export const ListTitle = styled.div`
   color: ${theme('comment.title')};
   font-size: 14px;
   margin-left: 2px;
+
+  ${cs.media.mobile`
+    margin-left: 18px;
+  `};
 `
 export const TotalNum = styled.span`
   color: ${theme('comment.number')};

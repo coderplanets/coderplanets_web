@@ -5,9 +5,6 @@ import { theme, cs } from '@/utils'
 export const Wrapper = styled.nav`
   ${cs.flexColumn('justify-center')};
   position: relative;
-  /* ${theme('banner.bg')}; */
-  background: #08303c;  /* TODO: same as comment background */
-  border-bottom: ${theme('banner.spliter')};
   padding: 30px 40px;
   padding-top: 0px;
   min-height: 160px;
