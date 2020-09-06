@@ -14,6 +14,7 @@ import {
   unlockPage,
   Global,
   cs,
+  toggleGlobalBlur,
 } from '@/utils'
 import { User, EmptyAchievement } from '@/model'
 
@@ -136,6 +137,9 @@ const PreviewStore = T.model('PreviewStore', {
       self.visible = true
       self.type = type
       lockPage()
+      if (self.media.mobile) {
+        toggleGlobalBlur(true)
+      }
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
@@ -143,6 +147,9 @@ const PreviewStore = T.model('PreviewStore', {
     close() {
       self.visible = false
       unlockPage()
+      if (self.media.mobile) {
+        toggleGlobalBlur(false)
+      }
       // self.type = TYPE.PREVIEW_ROOT_STORE
     },
     mark(sobj) {

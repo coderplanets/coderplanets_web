@@ -8,9 +8,11 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   width: 10%;
   ${cs.flexColumn('align-end')};
-  ${cs.media.mobile`display: none`};
-`
 
+  ${cs.media.mobile`
+    width: 0;
+  `};
+`
 const closeWith = '40px'
 
 export const CloseTab = styled.div`
@@ -39,6 +41,7 @@ export const CloseTab = styled.div`
     color: ${theme('preview.font')};
     font-weight: lighter;
   }
+  ${cs.media.mobile`display: none`};
 `
 
 export const CloserInner = styled.div`
@@ -50,7 +53,23 @@ export const CloserInner = styled.div`
   transform: rotate3d(0, 1, 0, -30deg);
   box-shadow: ${theme('preview.closerShadow')};
 `
+export const MobileCloser = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: block;
 
+  &:after {
+    content: '✕';
+    position: absolute;
+    font-size: 26px;
+    color: ${theme('preview.font')};
+    font-weight: lighter;
+  }
+`
 export const UploadingTab = styled.div`
   ${cs.flexColumn('justify-evenly')};
   align-items: center;

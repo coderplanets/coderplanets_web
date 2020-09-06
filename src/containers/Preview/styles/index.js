@@ -25,8 +25,13 @@ const WIDE_CASE = [
 const WIDE_WIDTH = '70%'
 const NARROW_WIDTH = '40%'
 
-const doTransform = (visible) => {
-  return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'
+const doTransform = (visible, mobile) => {
+  if (mobile) {
+    // return visible ? 'translate(0px, 40%)' : 'translate(0, 100%)' // fromBottom
+    return visible ? 'translate(0, 0)' : 'translate(0, -80%)' // fromTop
+  }
+
+  return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)' // fromRight
 }
 
 export const PreviewOverlay = styled.div`
@@ -43,8 +48,12 @@ export const PreviewOverlay = styled.div`
 export const PreviewWrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
+  position: fixed;
+  right: ${({ rightOffset }) => rightOffset};
+  top: 0px;
   ${cs.flex()};
-  display: ${({ visible }) => (visible ? 'flex' : 'none')};
+  /* display: ${({ visible }) => (visible ? 'flex' : 'none')}; */
+  visibility: ${({ visible }) => (visible ? 'visiable' : 'hidden')};
 
   color: ${theme('preview.font')};
   box-sizing: border-box;
@@ -55,12 +64,19 @@ export const PreviewWrapper = styled.div.attrs((props) => ({
   height: 100%;
   width: ${({ type }) =>
     contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
+
+  min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
   max-width: 1000px;
-  right: ${({ rightOffset }) => rightOffset};
-  position: fixed;
-  transform: ${({ visible }) => doTransform(visible)};
-  top: 0px;
+  transform: ${({ visible, mobile }) => doTransform(visible, mobile)};
   z-index: ${cs.zIndex.preview};
+
+  ${cs.media.mobile`
+    right: 0;
+    width: 100%;
+    min-width: 100%;
+    overflow: scroll;
+    height: 80%;
+  `};
 `
 export const PreviewContent = styled.div`
   width: 90%;
@@ -68,14 +84,15 @@ export const PreviewContent = styled.div`
   height: 100vh;
   overflow-y: scroll;
   box-shadow: ${theme('preview.shadow')};
+
+  ${cs.media.mobile`
+    width: 100%;
+  `};
 `
 export const PreviewHeader = styled.div`
   ${cs.flex()};
   border-bottom: 1px solid grey;
   line-height: 30px;
-`
-export const PreviewCloser = styled.div`
-  width: 10%;
 `
 const closeWith = '40px'
 

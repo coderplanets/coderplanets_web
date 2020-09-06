@@ -43,7 +43,10 @@ const DataResolver = [
          log('payload curCommunity: ', store.curCommunity.raw)
        */
 
-      if (store.media.mobile || store.media.tablet) {
+      if (
+        payload.type !== TYPE.PREVIEW_C11N_SETTINGS &&
+        (store.media.mobile || store.media.tablet)
+      ) {
         const { thread, data, type } = payload
         let targetUrl
         if (type === TYPE.PREVIEW_USER_VIEW) {
