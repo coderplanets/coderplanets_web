@@ -56,6 +56,8 @@ const TYPE = {
 
   // c11n settings
   PREVIEW_C11N_SETTINGS: 'PREVIEW_C11N_SETTINGS',
+  // header navi menu in mobile mode
+  PREVIEW_MOBILE_NAVI_MENU: 'PREVIEW_MOBILE_NAVI_MENU',
 
   // PAGE STATE
   LOADING: 'LOADING',

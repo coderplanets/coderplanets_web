@@ -76,6 +76,7 @@ export const PreviewWrapper = styled.div.attrs((props) => ({
     min-width: 100%;
     overflow: scroll;
     height: 80%;
+    border-bottom: 2px dashed;
   `};
 `
 export const PreviewContent = styled.div`

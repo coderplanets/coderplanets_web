@@ -17,7 +17,7 @@ import {
 } from './styles/brief_view'
 
 import CardPopover from './CardPopover'
-import MainEntries from './MainEntries'
+import MainEntries from './MainEntries/index'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 

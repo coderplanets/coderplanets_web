@@ -17,6 +17,7 @@ import {
   // utils
   StateTree,
   C11NSettingPanel,
+  MobileHeaderNavi,
 } from './dynamics'
 
 import { Wrapper } from './styles/viewer'
@@ -79,6 +80,9 @@ const renderViewer = (type, root, attachment, attUser) => {
 
     case TYPE.PREVIEW_C11N_SETTINGS:
       return <C11NSettingPanel />
+
+    case TYPE.PREVIEW_MOBILE_NAVI_MENU:
+      return <MobileHeaderNavi />
 
     default:
       return <DefaultViewer />
