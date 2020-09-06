@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   text-align: center;
   /* flex: 1; */
   cursor: pointer;
+
+  ${cs.media.mobile`
+    margin-right: 10px;
+  `};
 `
 export const Nav = styled.nav`
   position: relative;
@@ -25,6 +29,7 @@ export const Nav = styled.nav`
 `
 export const Label = styled.span`
   ${cs.flex('align-center')};
+  white-space: nowrap;
 
   color: ${({ active }) =>
     active ? theme('tabs.headerActive') : theme('tabs.header')};
