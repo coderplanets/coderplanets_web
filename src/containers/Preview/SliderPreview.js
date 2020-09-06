@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useMedia } from '@/hooks'
 import AddOn from './AddOn'
 
 import { PreviewOverlay, PreviewWrapper, PreviewContent } from './styles'
@@ -12,6 +13,8 @@ const SliderPreview = ({
   imageUploading,
   children,
 }) => {
+  const { mobile } = useMedia()
+
   return (
     <React.Fragment>
       <PreviewOverlay visible={visible} onClick={closePreview} />
@@ -20,6 +23,7 @@ const SliderPreview = ({
         visible={visible}
         rightOffset={rightOffset}
         type={type}
+        mobile={mobile}
       >
         <AddOn type={type} imageUploading={imageUploading} />
         <PreviewContent>{children}</PreviewContent>

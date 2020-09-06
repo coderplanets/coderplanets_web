@@ -3,39 +3,32 @@ import styled from 'styled-components'
 import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div`
-  min-height: 100px;
-  padding: 10px;
-  padding-bottom: 0;
-  max-width: 300px;
+  ${cs.flex('align-center')};
   width: 100%;
-  flex-wrap: wrap;
-
-  ${cs.media.tablet`
-    width: 50%;
-    padding: 10px;
-  `};
+  min-height: 120px;
+  padding: 0 25px;
+`
+export const Block = styled.div`
+  width: 40%;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 1em;
+  font-size: 14px;
 `
 export const Desc = styled.div`
   ${cs.flex()};
-  margin-top: 15px;
-  margin-bottom: 20px;
-  flex-direction: ${({ column }) => (column ? 'column' : 'row')};
-  flex-wrap: wrap;
-
-  ${cs.media.mobile`
-    margin-top: 6px;
-    margin-bottom: 10px;
-  `};
-`
-export const Divider = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
-  border-bottom: 1px solid;
-  border-color: ${theme('preview.sideDivider')};
+
+  flex-direction: ${({ column }) => (column ? 'column' : 'row')};
+  flex-wrap: wrap;
+`
+export const Divider = styled.div`
+  min-height: 80px;
+  width: 1px;
+  margin-left: 5%;
+  margin-right: 10%;
+  background-color: ${theme('preview.sideDivider')};
 `
 export const NoMoreDesc = styled.div`
   color: ${theme('banner.desc')};

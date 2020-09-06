@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
@@ -16,7 +16,7 @@ import {
   useShortcut,
   useMedia,
   usePlatform,
-  useResize,
+  // useResize,
 } from '@/hooks'
 
 import AnalysisService from '@/services/Analysis'
@@ -40,13 +40,7 @@ import {
   ExpanderIcon,
 } from './styles'
 
-import {
-  useInit,
-  openDoraemon,
-  queryDoraemon,
-  calcInitWidth,
-  logBuddha,
-} from './logic'
+import { useInit, openDoraemon, queryDoraemon, logBuddha } from './logic'
 
 const GlobalLayoutContainer = ({
   globalLayout: store,
@@ -60,14 +54,13 @@ const GlobalLayoutContainer = ({
 }) => {
   useEffect(() => logBuddha(), [])
 
-  const [innerMinWidth, setInnerMinWidth] = useState('100%')
   const { online } = useNetwork()
   const media = useMedia()
   const platform = usePlatform()
 
   useInit(store, { online, media, platform })
-
   useShortcut('Control+P', openDoraemon)
+
   const {
     sidebarPin,
     accountInfo: {
@@ -80,21 +73,7 @@ const GlobalLayoutContainer = ({
    * 要给 innerWrapper 一个最小宽度，否则在切换不同 Threads
    * 时，由于 loading 效果的不同会导致页面横向跳动
    */
-  const innerWrapperRef = React.createRef()
-
-  useEffect(() => {
-    if (errorCode === null) {
-      setInnerMinWidth(calcInitWidth(innerWrapperRef))
-    }
-  }, [innerWrapperRef, errorCode])
-
-  useEffect(() => {
-    if (errorCode === null) {
-      setInnerMinWidth(calcInitWidth(innerWrapperRef))
-    }
-  }, [innerMinWidth, innerWrapperRef, errorCode])
-
-  useResize(() => setInnerMinWidth('none'))
+  // useResize(() => setInnerMinWidth('none'))
 
   return (
     <AnalysisService>
@@ -108,12 +87,7 @@ const GlobalLayoutContainer = ({
                 <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
               </SubCommunitiesExpander>
               <SEO page={page} config={seoConfig} />
-              <InnerWrapper
-                sidebarPin={sidebarPin}
-                noSidebar={noSidebar}
-                ref={innerWrapperRef}
-                minWidth={innerMinWidth}
-              >
+              <InnerWrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
                 {!noSidebar && <Sidebar />}
                 <Preview />
                 <Doraemon />

@@ -14,7 +14,7 @@ import {
   // ShortDesc,
 } from './styles'
 
-import MainEntries from './MainEntries'
+import MainEntries from './MainEntries/index'
 
 const DigestView = () => {
   return (

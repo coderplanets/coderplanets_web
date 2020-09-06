@@ -7,14 +7,11 @@ import DotDivider from '@/components/DotDivider'
 import {
   SiteInfoWrapper,
   LinkInfoWrapper,
-  BannerWrapper,
   Item,
   ItemBtn,
-  Thanks,
-  ThxTitle,
 } from './styles/mobile_bottom_info'
 
-import { toggleBusBanner, queryDoraemon } from './logic'
+import { queryDoraemon } from './logic'
 
 const MobileBottomInfo = () => (
   <>
@@ -30,7 +27,7 @@ const MobileBottomInfo = () => (
       <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
         关于本站
       </Item>
-      <DotDivider />
+      <DotDivider space="10px" radius="4px" />
       <Item
         href={`${GITHUB_WEB_ADDR}`}
         rel="noopener noreferrer"
@@ -38,16 +35,11 @@ const MobileBottomInfo = () => (
       >
         源代码
       </Item>
-      <DotDivider />
+      <DotDivider space="10px" radius="4px" />
       <Item href={`${ISSUE_ADDR}`} rel="noopener noreferrer" target="_blank">
         反馈与建议
       </Item>
     </SiteInfoWrapper>
-    <BannerWrapper>
-      <Thanks onClick={toggleBusBanner}>
-        <ThxTitle>广告位： (求赞助)</ThxTitle>
-      </Thanks>
-    </BannerWrapper>
   </>
 )
 

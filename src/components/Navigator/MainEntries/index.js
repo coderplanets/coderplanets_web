@@ -5,7 +5,7 @@ import { useMedia } from '@/hooks'
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 
-const Comment = (props) => {
+const MainEntries = (props) => {
   const { mobile } = useMedia()
 
   return (
@@ -15,4 +15,4 @@ const Comment = (props) => {
   )
 }
 
-export default React.memo(Comment)
+export default MainEntries

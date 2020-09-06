@@ -7,11 +7,12 @@
 import React from 'react'
 
 import { THREAD } from '@/constant'
+import { useMedia } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
 import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
 import Comments from '@/containers/Comments'
-import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
+// import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
 
 import Sticky from '@/components/Sticky'
 import Maybe from '@/components/Maybe'
@@ -28,7 +29,6 @@ import {
   ArticleWrapper,
   BodyHeaderWrapper,
   CommentsWrapper,
-  MobileWrapper,
 } from './styles'
 
 import { useInit } from './logic'
@@ -38,6 +38,7 @@ const log = buildLog('C:PostContent')
 
 const PostContentContainer = ({ postContent: store }) => {
   useInit(store)
+  const { mobile } = useMedia()
 
   const { curRoute, viewingData } = store
   const { mainPath: communityRaw } = curRoute
@@ -48,20 +49,19 @@ const PostContentContainer = ({ postContent: store }) => {
         <InnerWrapper>
           <MainWrapper>
             <ArticleWrapper>
-              <BodyHeaderWrapper>
-                <ArticleBodyHeader
-                  communityRaw={communityRaw}
-                  thread={THREAD.POST}
-                  data={viewingData}
-                />
-              </BodyHeaderWrapper>
+              {!mobile && (
+                <BodyHeaderWrapper>
+                  <ArticleBodyHeader
+                    communityRaw={communityRaw}
+                    thread={THREAD.POST}
+                    data={viewingData}
+                  />
+                </BodyHeaderWrapper>
+              )}
               <MarkDownRender body={viewingData.body} />
             </ArticleWrapper>
 
-            <MobileWrapper>
-              <ArticleAuthorCard user={viewingData.author} />
-              <ContentSourceCard data={viewingData} />
-            </MobileWrapper>
+            {mobile && <ContentSourceCard data={viewingData} />}
 
             <CommentsWrapper>
               <Comments ssr />

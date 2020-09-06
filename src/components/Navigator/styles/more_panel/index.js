@@ -5,8 +5,9 @@ import Img from '@/Img'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};
-  width: 455px;
+  width: ${({ mobile }) => (!mobile ? '455px' : '100%')};
   min-height: 300px;
+  margin-top: ${({ mobile }) => (!mobile ? 0 : '6%')};
 `
 export const BodyWrapper = styled.div`
   ${cs.flex('align-center')};
@@ -15,7 +16,7 @@ export const BodyWrapper = styled.div`
 `
 export const Entry = styled.a`
   ${cs.flex('align-start')};
-  width: 225px;
+  width: ${({ mobile }) => (!mobile ? '225px' : '48%')};
   height: 75px;
   padding-left: 15px;
   text-decoration: none;

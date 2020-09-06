@@ -15,8 +15,8 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   ${cs.flexColumn()};
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  width: 100%;
-  min-width: ${({ minWidth }) => minWidth};
+  width: 100vw;
+  /* min-width: ${({ minWidth }) => minWidth}; */
 /*
   padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};
   margin-left: ${({ sidebarPin }) => (sidebarPin ? '180px' : '0')};

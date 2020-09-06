@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 
   margin-left: ${({ type }) => (type === 'brief' ? '5px' : '10px')};
   font-size: 15px;
-  ${cs.media.tablet`display: none`};
 `
 export const DotDivider = styled(DotDividerBase)`
   background-color: ${theme('banner.desc')};
@@ -45,4 +44,10 @@ export const Icon = styled(Img)`
   width: 10px;
   height: 10px;
   display: block;
+`
+export const MobileIcon = styled(Icon)`
+  margin-top: 1px;
+  margin-left: 2px;
+  width: 17px;
+  height: 17px;
 `

@@ -93,3 +93,8 @@ export const C11NSettingPanel = dynamic(
   () => import('@/containers/C11NSettingPanel'),
   commonConfig,
 )
+
+export const MobileHeaderNavi = dynamic(
+  () => import('@/components/Navigator/MorePanel'),
+  commonConfig,
+)

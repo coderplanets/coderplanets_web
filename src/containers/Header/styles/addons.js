@@ -8,9 +8,7 @@ import { Wrapper as HeaderWrapper } from './header'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
-  ${cs.media.tablet`display: none`};
 `
-
 export const HeaderStatesIcon = styled(HeaderStatesSVG).attrs((props) => ({
   'data-test-id': props.testId,
 }))`

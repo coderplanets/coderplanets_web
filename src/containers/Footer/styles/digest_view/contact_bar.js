@@ -12,7 +12,8 @@ export const Wrapper = styled.footer`
   width: 100%;
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${cs.flex('align-center')};
+  justify-content: ${({ mobile }) => (!mobile ? 'space-between' : 'center')};
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: ${({ layout }) => getPadding(layout)};

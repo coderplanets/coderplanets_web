@@ -19,6 +19,9 @@ export const InnerWrapper = styled.div`
   ${cs.media.desktop`
     padding: 0 4vw;
   `};
+  ${cs.media.mobile`
+    padding: 0 3vw;
+  `};
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;
@@ -43,7 +46,9 @@ export const ArticleWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   min-height: 200px;
   ${cs.media.mobile`
-    padding: 30px 10px;
+    background: #08303c;  /* TODO: same as comment background */
+    padding: 26px;
+    padding-top: 50px;
     min-height: 20vh;
     margin-right: 0;
   `};
@@ -59,17 +64,6 @@ export const CommentsWrapper = styled.div`
   margin-right: 25px;
 
   ${cs.media.mobile`
-    margin: 10px;
-  `};
-`
-
-export const MobileWrapper = styled.div`
-  ${cs.flex()};
-  margin-top: 15px;
-  width: 100%;
-  display: none;
-
-  ${cs.media.tablet`
-${cs.flex('justify-center')};
+    margin: 5px;
   `};
 `

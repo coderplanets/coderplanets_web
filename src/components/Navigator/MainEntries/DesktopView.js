@@ -9,12 +9,12 @@ import { getRouteMainPath } from '@/utils'
 
 // import Tooltip from '@/components/Tooltip'
 import Tooltip from '@/components/Tooltip'
-import MorePanel from './MorePanel'
-import { Wrapper, DotDivider, SiteLink, Icon } from './styles/main_entries'
+import MorePanel from '../MorePanel'
+import { Wrapper, DotDivider, SiteLink, Icon } from '../styles/main_entries'
 
 const splitMargin = '7px'
 
-const MainEntries = ({ type }) => {
+const DesktopView = ({ type }) => {
   const router = useRouter()
   const mainPath = getRouteMainPath(router.asPath)
 
@@ -83,12 +83,12 @@ const MainEntries = ({ type }) => {
   )
 }
 
-MainEntries.propTypes = {
+DesktopView.propTypes = {
   type: T.oneOfType([T.string, T.instanceOf(null)]),
 }
 
-MainEntries.defaultProps = {
+DesktopView.defaultProps = {
   type: null,
 }
 
-export default React.memo(MainEntries)
+export default React.memo(DesktopView)

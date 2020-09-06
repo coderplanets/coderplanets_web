@@ -52,7 +52,7 @@ export const CommentsWrapper = styled.div`
   margin-right: 25px;
 
   ${cs.media.tablet`
-    margin: 10px;
+    margin: 5px;
   `};
 `
 

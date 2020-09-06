@@ -13,23 +13,19 @@ export const Wrapper = styled.div`
   border-radius: 3px;
   background: ${theme('comment.bg')};
 `
-
 // filter: blur(3px);
 export const CommentWrapper = styled.div`
-  ${cs.flexGrow()};
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
-
+export const HeaderWrapper = styled.div`
+  ${cs.flex('align-center')};
+`
 export const CommentBodyInfo = styled.div`
   ${cs.flexColumn()};
   width: 100%;
 `
 export const CommentContent = styled.div`
-  font-size: 0.9rem;
-
-  ${cs.media.mobile`
-    max-width: 280px;
-  `};
+  font-size: 15px;
 `
 export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};

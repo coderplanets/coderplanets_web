@@ -13,6 +13,10 @@ export const Wrapper = styled.div.attrs((props) => ({
   margin-top: 10px;
   margin-left: 60px;
   margin-bottom: 120px;
+
+  ${cs.media.mobile`
+    margin-left: 6%;
+  `};
 `
 export const TabBarWrapper = styled.div`
   margin-bottom: 20px;
