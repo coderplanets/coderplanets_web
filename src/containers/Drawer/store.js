@@ -1,5 +1,5 @@
 /*
- * PreviewStore store
+ * DrawerStore store
  *
  */
 
@@ -64,7 +64,7 @@ const Attachment = T.model('Attachment', {
   originalAuthorLink: T.maybeNull(T.string),
 })
 
-const PreviewStore = T.model('PreviewStore', {
+const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
   windowWidth: T.optional(T.number, 1520),
   type: T.maybeNull(
@@ -158,4 +158,4 @@ const PreviewStore = T.model('PreviewStore', {
     },
   }))
 
-export default PreviewStore
+export default DrawerStore

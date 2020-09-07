@@ -12,15 +12,15 @@ import { useShortcut, useResize } from '@/hooks'
 import SliderPreview from './SliderPreview'
 import Viewer from './Viewer'
 
-import { useInit, closePreview } from './logic'
+import { useInit, closeDrawer } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Preview')
 
-const PreviewContainer = ({ preview: store }) => {
+const DrawerContainer = ({ drawer: store }) => {
   const { width: windowWidth } = useResize()
   useInit(store, windowWidth)
-  useShortcut('Escape', closePreview)
+  useShortcut('Escape', closeDrawer)
 
   const {
     slideVisible,
@@ -49,4 +49,4 @@ const PreviewContainer = ({ preview: store }) => {
   )
 }
 
-export default connectStore(PreviewContainer)
+export default connectStore(DrawerContainer)

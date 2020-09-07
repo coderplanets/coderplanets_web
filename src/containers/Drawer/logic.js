@@ -19,13 +19,13 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const closePreview = () => {
+export const closeDrawer = () => {
   unlockPage()
   store.close()
   store.mark({ imageUploading: false, type: null })
 
   // force call MDEditor's componentWillUnmount to store the draft
-  // wait until preview move out of the screean
+  // wait until drawer move out of the screean
   setTimeout(() => {
     send(EVENT.PREVIEW_CLOSED)
     store.setViewing({ viewingThread: null })
@@ -68,7 +68,7 @@ const DataResolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSE),
-    action: () => closePreview(),
+    action: () => closeDrawer(),
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_START),

@@ -137,7 +137,7 @@ A simple Container component is structured as follows:
 ├── styles                   // styles
 │   ├── editor.js
 │   ├── index.js
-│   └── preview.js
+│   └── drawer.js
 └── tests                    // tests
     ├── index.test.js
     └── store.test.js

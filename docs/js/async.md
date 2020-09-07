@@ -68,7 +68,7 @@ Corresponding DataSolver:
   },
   {
     Match: asyncRes(EVENT.PREVIEW_CLOSE),
-    Action: () => closePreview(),
+    Action: () => closeDrawer(),
   },
   {
     Match: asyncRes(EVENT.UPLOAD_IMG_START),

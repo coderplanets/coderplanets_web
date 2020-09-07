@@ -64,7 +64,7 @@ import {
 
   // toolbox
   DoraemonStore,
-  PreviewStore,
+  DrawerStore,
   SidebarStore,
   PostEditorStore,
   JobEditorStore,
@@ -125,7 +125,7 @@ const rootStore = T.model({
 
   // toolbox
   sidebar: T.optional(SidebarStore, { menuItems: [] }),
-  preview: T.optional(PreviewStore, { visible: false }),
+  drawer: T.optional(DrawerStore, { visible: false }),
   doraemon: T.optional(DoraemonStore, {}),
   jobEditor: T.optional(JobEditorStore, {}),
   postEditor: T.optional(PostEditorStore, {}),
@@ -186,7 +186,7 @@ const rootStore = T.model({
 
   articleViewerHeader: T.optional(ArticleViewerHeader, {}),
   articleBodyHeader: T.optional(ArticleBodyHeaderStore, {}),
-  // viewers (for preview usage)
+  // viewers (for drawer usage)
   postViewer: T.optional(PostViewerStore, {}),
   jobViewer: T.optional(JobViewerStore, {}),
   videoViewer: T.optional(VideoViewerStore, {}),
@@ -251,8 +251,8 @@ const rootStore = T.model({
     openDoraemon() {
       self.doraemon.open()
     },
-    closePreview() {
-      self.preview.close()
+    closeDrawer() {
+      self.drawer.close()
     },
     changeTheme(name) {
       self.theme.changeTheme(name)

@@ -2,13 +2,13 @@ import React from 'react'
 
 import Modal from '@/components/Modal'
 
-import { closePreview } from './logic'
+import { closeDrawer } from './logic'
 
 const ModalPreview = ({ visible, children }) => (
   <Modal
     width="720px"
     show={visible}
-    onClose={closePreview}
+    onClose={closeDrawer}
     background="preview"
     offsetTop="11%"
   >

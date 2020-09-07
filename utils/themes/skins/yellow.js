@@ -119,7 +119,7 @@ const yellow = {
     searchInputBottomActive: '#A4644B',
     searchInputHolder: '#5D4833',
   },
-  preview: {
+  drawer: {
     title: primaryColor,
     desc: lighten(0.05, descText),
     font: descText,

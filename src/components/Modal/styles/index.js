@@ -18,7 +18,7 @@ export const Mask = styled.div`
 export const Wrapper = styled.div`
   position: relative;
   background-color: ${({ background }) =>
-    background === 'default' ? theme('modal.bg') : theme('preview.bg')};
+    background === 'default' ? theme('modal.bg') : theme('drawer.bg')};
   margin: 0 auto;
   top: ${({ offsetTop }) => offsetTop};
   width: ${({ width }) => width};

@@ -10,7 +10,7 @@ import {
   PreviewContent,
   ContentInnerWrapper,
 } from './styles'
-import { closePreview } from './logic'
+import { closeDrawer } from './logic'
 
 const SliderPreview = ({
   visible,
@@ -23,9 +23,9 @@ const SliderPreview = ({
 
   return (
     <div>
-      <PreviewOverlay visible={visible} onClick={closePreview} />
+      <PreviewOverlay visible={visible} onClick={closeDrawer} />
       <PreviewWrapper
-        testId="preview-sidebar-panel"
+        testId="drawer-sidebar-panel"
         visible={visible}
         rightOffset={rightOffset}
         type={type}

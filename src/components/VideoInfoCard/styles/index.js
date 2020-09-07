@@ -6,7 +6,7 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   ${cs.flex()};
   padding: 20px 40px;
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   min-height: 120px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   ${cs.media.mobile`

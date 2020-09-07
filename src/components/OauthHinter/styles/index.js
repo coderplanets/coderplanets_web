@@ -11,7 +11,7 @@ export const Container = styled.div`
   background: ${theme('banner.bg')};
   background-image: url('https://www.transparenttextures.com/patterns/transparent-square-tiles.png');
   border-top: 4px solid;
-  border-top-color: ${theme('preview.topLine')};
+  border-top-color: ${theme('drawer.topLine')};
 `
 
 export const CPSMdLogoWrapper = styled.div`

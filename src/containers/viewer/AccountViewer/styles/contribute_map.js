@@ -9,20 +9,20 @@ export const TitleWrapper = styled.div`
 `
 
 export const HelpText = styled.div`
-  color: ${theme('preview.helper')};
+  color: ${theme('drawer.helper')};
   margin-top: 2px;
   &:hover {
-    color: ${theme('preview.helperHover')};
+    color: ${theme('drawer.helperHover')};
     cursor: pointer;
   }
   ${TitleWrapper}:hover & {
-    color: ${theme('preview.helperHover')};
+    color: ${theme('drawer.helperHover')};
   }
   transition: color 0.2s;
 `
 export const Title = styled.div`
   font-size: 1em;
-  color: ${theme('preview.title')};
+  color: ${theme('drawer.title')};
   margin-bottom: 7px;
   flex-grow: 1;
 `
@@ -33,9 +33,9 @@ export const DotWrapper = styled.div`
 `
 export const DotText = styled.div`
   font-size: 0.9em;
-  color: ${theme('preview.helper')};
+  color: ${theme('drawer.helper')};
   ${DotWrapper}:hover & {
-    color: ${theme('preview.helperHover')};
+    color: ${theme('drawer.helperHover')};
   }
 `
 export const DotList = styled.div`

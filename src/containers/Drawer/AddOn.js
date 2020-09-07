@@ -11,12 +11,12 @@ import {
   UploadLoadingIcon,
 } from './styles/add_on'
 
-import { closePreview } from './logic'
+import { closeDrawer } from './logic'
 
 const AddOn = ({ type, imageUploading }) => {
   return (
     <Wrapper>
-      <CloseTab type={type} onClick={closePreview}>
+      <CloseTab type={type} onClick={closeDrawer}>
         <CloserInner />
       </CloseTab>
       <UploadingTab show={imageUploading}>

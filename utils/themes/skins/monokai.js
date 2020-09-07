@@ -121,7 +121,7 @@ const monokai = {
     searchInputBottomActive: '#877853',
     searchInputHolder: '#3B3948',
   },
-  preview: {
+  drawer: {
     title: primaryColor,
     desc: lighten(0.05, descText),
     font: fontColor,

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${cs.flexColumn()};
 
   padding: 20px;
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   min-height: 600px;
   margin-top: 25px;
   margin-left: 4%;

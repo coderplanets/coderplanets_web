@@ -36,11 +36,11 @@ export const SidebarWrapper = styled.div`
     display: none;
   `};
 `
-/* background: ${theme('preview.articleBg')}; */
+/* background: ${theme('drawer.articleBg')}; */
 export const ArticleWrapper = styled.div`
   font-size: 1.1rem;
   margin-right: 1.6vw;
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   border-radius: 5px;
   padding: 35px 40px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);

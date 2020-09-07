@@ -31,7 +31,7 @@ const CommentsStore = T.model('CommentsStore', {
   showInputBox: T.optional(T.boolean, false),
   // toggle editor inside the comment box
   showInputEditor: T.optional(T.boolean, false),
-  // toggle markdown preview inside the comment box
+  // toggle markdown drawer inside the comment box
   showInputPreview: T.optional(T.boolean, false),
 
   // toggle modal editor for reply

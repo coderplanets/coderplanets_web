@@ -68,7 +68,7 @@ const sr71$ = new SR71({
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSE),
-    action: () => closePreview(),
+    action: () => closeDrawer(),
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_START),

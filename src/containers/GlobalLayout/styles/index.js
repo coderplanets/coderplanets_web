@@ -64,7 +64,7 @@ export const SubCommunitiesExpander = styled.div`
     border-radius: 0 10px 10px 0;
     height: 40px;
     background-color: ${theme('banner.numberHoverBg')};
-    box-shadow: ${theme('preview.shadow')};
+    box-shadow: ${theme('drawer.shadow')};
   `};
 `
 

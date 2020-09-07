@@ -55,7 +55,7 @@ export const PreviewWrapper = styled.div.attrs((props) => ({
   /* display: ${({ visible }) => (visible ? 'flex' : 'none')}; */
   visibility: ${({ visible }) => (visible ? 'visiable' : 'hidden')};
 
-  color: ${theme('preview.font')};
+  color: ${theme('drawer.font')};
   box-sizing: border-box;
   transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   font-family: Roboto, sans-serif;
@@ -68,7 +68,7 @@ export const PreviewWrapper = styled.div.attrs((props) => ({
   min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
   max-width: 1000px;
   transform: ${({ visible, mobile }) => doTransform(visible, mobile)};
-  z-index: ${cs.zIndex.preview};
+  z-index: ${cs.zIndex.drawer};
 
   ${cs.media.mobile`
     right: 0;
@@ -81,15 +81,15 @@ export const PreviewWrapper = styled.div.attrs((props) => ({
 `
 export const PreviewContent = styled.div`
   width: 90%;
-  background-color: ${theme('preview.bg')};
+  background-color: ${theme('drawer.bg')};
   height: 100vh;
-  box-shadow: ${theme('preview.shadow')};
+  box-shadow: ${theme('drawer.shadow')};
 
   ${cs.media.mobile`
     width: 100%;
     height: auto;
     background: linear-gradient(180deg, ${theme(
-      'preview.bg',
+      'drawer.bg',
     )} calc(100% - 30px),transparent 30px);
   `};
 `

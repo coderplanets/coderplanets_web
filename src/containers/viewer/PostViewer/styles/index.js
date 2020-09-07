@@ -6,7 +6,7 @@ export const BodyWrapper = styled.div`
   ${cs.flexColumn()};
 
   padding: 20px;
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   min-height: 400px;
   margin-top: 5px;
   margin-left: 4%;
@@ -24,7 +24,7 @@ export const CommentsWrapper = styled.div`
 `
 
 export const ArticleTitle = styled.div`
-  color: ${theme('preview.title')};
+  color: ${theme('drawer.title')};
   font-size: 1.2rem;
   align-self: center;
   padding-top: 10px;
@@ -33,7 +33,7 @@ export const ArticleTitle = styled.div`
   padding-right: 20px;
 
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.divider')};
+  border-bottom-color: ${theme('drawer.divider')};
 `
 export const ArticleBody = styled.article`
   padding: 20px;

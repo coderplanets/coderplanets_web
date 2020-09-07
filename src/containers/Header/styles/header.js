@@ -16,8 +16,7 @@ export const Wrapper = styled.header.attrs((props) => ({
   border-bottom: ${({ noBorder }) => (noBorder ? 'none' : '1px solid')};
   border-bottom-color: ${theme('header.spliter')};
   margin-left: ${({ leftOffset }) => leftOffset};
-  box-shadow: ${({ noBorder }) =>
-    noBorder ? 'none' : theme('preview.shadow')};
+  box-shadow: ${({ noBorder }) => (noBorder ? 'none' : theme('drawer.shadow'))};
 `
 export const InnerWrapper = styled.div`
   ${cs.flex()};

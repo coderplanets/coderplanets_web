@@ -34,7 +34,7 @@ export const SidebarWrapper = styled.div`
 export const ArticleWrapper = styled.div`
   font-size: 1.1rem;
   margin-right: 1.6vw;
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   border-radius: 5px;
   padding-top: 30px;
   min-height: 40vh;

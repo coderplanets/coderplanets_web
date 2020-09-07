@@ -9,7 +9,7 @@ export const EmojiItem = styled.div`
   width: 200px;
 `
 export const Wrapper = styled.div`
-  background: ${theme('preview.markdownHelperBg')};
+  background: ${theme('drawer.markdownHelperBg')};
   padding: 20px;
   margin-left: 4%;
   margin-right: 4%;

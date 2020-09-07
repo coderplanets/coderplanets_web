@@ -120,7 +120,7 @@ const green = {
     searchInputBottomActive: '#92C446',
     searchInputHolder: '#607765',
   },
-  preview: {
+  drawer: {
     title: bannerTitle,
     desc: lighten(0.05, descText),
     font: descText,

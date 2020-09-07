@@ -134,7 +134,7 @@ tests 目录下包含该组件的基本单元测试。
 ├── styles                   // styles
 │   ├── editor.js
 │   ├── index.js
-│   └── preview.js
+│   └── drawer.js
 └── tests                    // tests
     ├── index.test.js
     └── store.test.js

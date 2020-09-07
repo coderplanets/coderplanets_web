@@ -38,7 +38,7 @@ export const CloseTab = styled.div`
     top: 9px;
     right: 6px;
     font-size: large;
-    color: ${theme('preview.font')};
+    color: ${theme('drawer.font')};
     font-weight: lighter;
   }
   ${cs.media.mobile`display: none`};
@@ -47,11 +47,11 @@ export const CloseTab = styled.div`
 export const CloserInner = styled.div`
   width: ${closeWith};
   height: 45px;
-  background-color: ${theme('preview.bg')};
-  border-right: 1px solid ${theme('preview.bg')};
+  background-color: ${theme('drawer.bg')};
+  border-right: 1px solid ${theme('drawer.bg')};
   transform-origin: right center 0;
   transform: rotate3d(0, 1, 0, -30deg);
-  box-shadow: ${theme('preview.closerShadow')};
+  box-shadow: ${theme('drawer.closerShadow')};
 `
 export const MobileCloser = styled.div`
   position: absolute;
@@ -66,7 +66,7 @@ export const MobileCloser = styled.div`
     content: '^';
     position: absolute;
     font-size: 26px;
-    color: ${theme('preview.font')};
+    color: ${theme('drawer.font')};
     font-weight: lighter;
   }
 `
@@ -75,11 +75,11 @@ export const UploadingTab = styled.div`
   align-items: center;
   opacity: ${({ show }) => (show ? 1 : 0)};
 
-  color: ${theme('preview.font')};
-  background-color: ${theme('preview.bg')};
+  color: ${theme('drawer.font')};
+  background-color: ${theme('drawer.bg')};
   width: 35px;
   height: 70px;
-  box-shadow: ${theme('preview.closerShadow')};
+  box-shadow: ${theme('drawer.closerShadow')};
   margin-top: 15px;
   transform: rotate3d(0, 1, 0, -30deg);
   transform-origin: right center 0;

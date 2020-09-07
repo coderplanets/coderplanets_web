@@ -22,7 +22,7 @@ import {
 
 import { Wrapper } from './styles/viewer'
 import DefaultViewer from './DefaultViewer'
-import { closePreview } from './logic'
+import { closeDrawer } from './logic'
 
 const renderViewer = (type, root, attachment, attUser) => {
   switch (type) {
@@ -40,20 +40,20 @@ const renderViewer = (type, root, attachment, attUser) => {
       return <PostViewer attachment={attachment} />
 
     case TYPE.PREVIEW_POST_CREATE:
-      return <PostEditor onClose={closePreview} />
+      return <PostEditor onClose={closeDrawer} />
 
     case TYPE.PREVIEW_POST_EDIT:
-      return <PostEditor onClose={closePreview} attachment={attachment} />
+      return <PostEditor onClose={closeDrawer} attachment={attachment} />
 
     // job
     case TYPE.PREVIEW_JOB_CREATE:
-      return <JobEditor onClose={closePreview} />
+      return <JobEditor onClose={closeDrawer} />
 
     case TYPE.PREVIEW_JOB_VIEW:
       return <JobViewer attachment={attachment} />
 
     case TYPE.PREVIEW_JOB_EDIT:
-      return <JobEditor onClose={closePreview} attachment={attachment} />
+      return <JobEditor onClose={closeDrawer} attachment={attachment} />
 
     // repo
     case TYPE.PREVIEW_REPO_VIEW:

@@ -128,7 +128,7 @@ const DataSolver = [
       // const curView = pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
       markLoading(false)
       store.mark({ pagedCategories })
-      // store.closePreview()
+      // store.closeDrawer()
       // send(EVENT.REFRESH_VIDEOS)
     },
   },
