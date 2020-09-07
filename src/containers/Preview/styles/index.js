@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { contains } from 'ramda'
 
 import { TYPE } from '@/constant'
-import { theme, animate, cs } from '@/utils'
+import { theme, cs } from '@/utils'
 
 const WIDE_CASE = [
   // post
@@ -75,63 +75,31 @@ export const PreviewWrapper = styled.div.attrs((props) => ({
     width: 100%;
     min-width: 100%;
     overflow: scroll;
-    height: 80%;
-    border-bottom: 2px dashed;
+    height: auto;
+    max-height: 80%;
   `};
 `
 export const PreviewContent = styled.div`
   width: 90%;
   background-color: ${theme('preview.bg')};
   height: 100vh;
-  overflow-y: scroll;
   box-shadow: ${theme('preview.shadow')};
 
   ${cs.media.mobile`
     width: 100%;
+    height: auto;
+    background: linear-gradient(180deg, ${theme(
+      'preview.bg',
+    )} calc(100% - 30px),transparent 30px);
   `};
+`
+export const ContentInnerWrapper = styled.div`
+  width: 100%;
+  max-height: calc(100% - 30px);
+  overflow-y: scroll;
 `
 export const PreviewHeader = styled.div`
   ${cs.flex()};
   border-bottom: 1px solid grey;
   line-height: 30px;
-`
-const closeWith = '40px'
-
-export const CloserInner = styled.div`
-  width: ${closeWith};
-  height: 45px;
-  background-color: ${theme('preview.bg')};
-  border-right: 1px solid ${theme('preview.bg')};
-  transform-origin: right center 0;
-  transform: rotate3d(0, 1, 0, -30deg);
-  box-shadow: ${theme('preview.closerShadow')};
-`
-// box-shadow: -5px 0px 14px 0px rgba(189, 189, 189, 0.37);
-
-export const Closer = styled.div`
-  float: right;
-  width: ${closeWith};
-  height: ${closeWith};
-  perspective: ${closeWith};
-  cursor: pointer;
-  display: ${({ type }) =>
-    type === TYPE.PREVIEW_ACCOUNT_VIEW ||
-    type === TYPE.PREVIEW_USER_VIEW ||
-    type === TYPE.PREVIEW_ACCOUNT_EDIT
-      ? 'none'
-      : 'block'};
-
-  &:hover:after {
-    animation: ${animate.rotate360Close} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
-    font-weight: bold;
-  }
-  &:after {
-    content: '✕';
-    position: absolute;
-    top: 9px;
-    right: 6px;
-    font-size: large;
-    color: ${theme('preview.font')};
-    font-weight: lighter;
-  }
 `

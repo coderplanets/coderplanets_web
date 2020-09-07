@@ -15,7 +15,15 @@ import { Wrapper, Label } from '../styles/tabs/tab_item'
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
-const TabItem = ({ item, setWidth, index, size, onClick, activeKey }) => {
+const TabItem = ({
+  mobile,
+  item,
+  setWidth,
+  index,
+  size,
+  onClick,
+  activeKey,
+}) => {
   const ref = useRef(null)
   const clickableRef = useRef(null)
 
@@ -38,7 +46,7 @@ const TabItem = ({ item, setWidth, index, size, onClick, activeKey }) => {
   )
 
   return (
-    <Wrapper ref={ref} size={size} onClick={handleWrapperClick}>
+    <Wrapper ref={ref} mobile={mobile} size={size} onClick={handleWrapperClick}>
       <Label
         ref={clickableRef}
         onClick={handleLabelClick}
@@ -58,6 +66,7 @@ const TabItem = ({ item, setWidth, index, size, onClick, activeKey }) => {
 }
 
 TabItem.propTypes = {
+  mobile: T.bool,
   item: T.any.isRequired,
   index: T.number.isRequired,
   setWidth: T.func.isRequired,
@@ -66,6 +75,8 @@ TabItem.propTypes = {
   size: T.oneOf(['default', 'small']).isRequired,
 }
 
-TabItem.defaultProps = {}
+TabItem.defaultProps = {
+  mobile: false,
+}
 
 export default React.memo(TabItem)
