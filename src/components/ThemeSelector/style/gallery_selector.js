@@ -28,7 +28,11 @@ export const IntroBox = styled.div`
   }
   transition: border 0.3s;
 
-  ${cs.media.mobile`width: 160px; margin-right: 10px;`};
+  ${cs.media.mobile`
+    width: 100%; 
+    margin-left: 20px;
+    margin-right: 20px;
+  `};
 `
 export const IntroDesc = styled.div`
   ${cs.flexColumn()};
