@@ -1,4 +1,6 @@
-export const getSlipMargin = (size) => {
+export const getSlipMargin = (size, mobile) => {
+  if (mobile) return 10
+
   switch (size) {
     case 'small': {
       return 0
@@ -9,7 +11,9 @@ export const getSlipMargin = (size) => {
   }
 }
 
-export const getMarginRight = (size) => {
+export const getMarginRight = (size, mobile) => {
+  if (mobile) return '10px'
+
   switch (size) {
     case 'small': {
       return '0'

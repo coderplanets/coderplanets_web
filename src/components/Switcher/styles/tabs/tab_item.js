@@ -10,14 +10,14 @@ export const Wrapper = styled.div`
   position: relative;
   height: 100%;
   z-index: 1;
-  margin-right: ${({ size }) => getMarginRight(size)};
+  margin-right: ${({ size, mobile }) => getMarginRight(size, mobile)};
   padding: ${({ size }) => getPadding(size)};
   text-align: center;
   /* flex: 1; */
   cursor: pointer;
 
   ${cs.media.mobile`
-    margin-right: 10px;
+    margin-right: ${() => getMarginRight('', true)};
   `};
 `
 export const Nav = styled.nav`

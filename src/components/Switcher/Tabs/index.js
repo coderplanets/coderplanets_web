@@ -9,6 +9,7 @@ import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
 import { ICON_CMD } from '@/config'
+import { useMedia } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
@@ -63,6 +64,8 @@ const getDefaultActiveTabIndex = (items, activeKey) => {
 }
 
 const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
+  const { mobile } = useMedia()
+
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)
@@ -106,7 +109,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
 
   const translateX = `${
     tabWidthList.slice(0, active).reduce((a, b) => a + b, 0) +
-    getSlipMargin(size) * active
+    getSlipMargin(size, mobile) * active
   }px`
 
   return (
@@ -115,6 +118,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
         {items.map((item, index) => (
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
+            mobile={mobile}
             activeKey={activeKey}
             index={index}
             item={item}
