@@ -8,7 +8,7 @@ import {
   send,
   cast,
   updateEditing,
-  closePreviewer,
+  closeDrawer,
   errRescue,
 } from '@/utils'
 
@@ -54,7 +54,7 @@ export const onPublish = () => {
 export const cancelPublish = () => {
   store.mark({ publishing: false })
   sr71$.stop()
-  closePreviewer()
+  closeDrawer()
 }
 
 export const usePosterAsThumbnil = () =>
@@ -69,7 +69,7 @@ const DataSolver = [
   {
     match: asyncRes('createVideo'),
     action: () => {
-      closePreviewer()
+      closeDrawer()
       send(EVENT.REFRESH_VIDEOS)
       store.reset()
     },
@@ -77,7 +77,7 @@ const DataSolver = [
   {
     match: asyncRes('updateVideo'),
     action: () => {
-      closePreviewer()
+      closeDrawer()
       send(EVENT.REFRESH_VIDEOS)
       store.reset()
     },

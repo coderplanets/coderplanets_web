@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { merge, toUpper } from 'ramda'
 
 import { TYPE, EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, closePreviewer, errRescue } from '@/utils'
+import { asyncSuit, buildLog, closeDrawer, errRescue } from '@/utils'
 
 import S from './schema'
 
@@ -83,7 +83,7 @@ const DataSolver = [
     match: asyncRes('setTag'),
     action: () => {
       loadPost(store.viewingData)
-      closePreviewer()
+      closeDrawer()
       store.setViewing({ post: {} })
     },
   },
@@ -91,7 +91,7 @@ const DataSolver = [
     match: asyncRes('unsetTag'),
     action: () => {
       loadPost(store.viewingData)
-      closePreviewer()
+      closeDrawer()
       store.setViewing({ post: {} })
     },
   },

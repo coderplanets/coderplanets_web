@@ -23,7 +23,7 @@ export {
   Rlog,
   countWords,
   joinUS,
-  closePreviewer,
+  closeDrawer,
   errRescue,
   debounce,
   extractMentions,

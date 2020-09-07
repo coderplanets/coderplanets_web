@@ -10,7 +10,7 @@ import {
   extractAttachments,
   extractMentions,
   updateEditing,
-  closePreviewer,
+  closeDrawer,
   cast,
   nilOrEmpty,
   errRescue,
@@ -90,7 +90,7 @@ export const onPublish = () => {
 export const cancelPublish = () => {
   cancelLoading()
   // store.reset()
-  closePreviewer()
+  closeDrawer()
 }
 
 export const onUploadImageDone = (url) =>
@@ -126,7 +126,7 @@ const openAttachment = (att) => {
 }
 
 const doneCleanUp = () => {
-  closePreviewer()
+  closeDrawer()
   store.reset()
   cancelLoading()
 }

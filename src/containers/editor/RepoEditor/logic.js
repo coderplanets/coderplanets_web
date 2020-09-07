@@ -6,7 +6,7 @@ import {
   asyncSuit,
   buildLog,
   send,
-  closePreviewer,
+  closeDrawer,
   BStore,
   errRescue,
 } from '@/utils'
@@ -88,7 +88,7 @@ const DataSolver = [
     match: asyncRes('createRepo'),
     action: () => {
       store.mark({ publishing: false })
-      closePreviewer()
+      closeDrawer()
       send(EVENT.REFRESH_REPOS)
     },
   },

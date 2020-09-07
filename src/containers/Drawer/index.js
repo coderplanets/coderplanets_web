@@ -9,8 +9,8 @@ import React from 'react'
 import { connectStore, buildLog } from '@/utils'
 import { useShortcut, useResize } from '@/hooks'
 
-import SliderPreview from './SliderPreview'
 import Viewer from './Viewer'
+import Content from './Content'
 
 import { useInit, closeDrawer } from './logic'
 
@@ -33,19 +33,19 @@ const DrawerContainer = ({ drawer: store }) => {
   } = store
 
   return (
-    <SliderPreview
+    <Viewer
       visible={slideVisible}
       rightOffset={rightOffset}
       type={type}
       imageUploading={imageUploading}
     >
-      <Viewer
+      <Content
         type={type}
         root={root}
         attachment={attachmentData}
         attUser={attUserData}
       />
-    </SliderPreview>
+    </Viewer>
   )
 }
 

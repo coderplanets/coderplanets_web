@@ -118,11 +118,11 @@ export const send = (msg, data = {}) => {
 // TODO:  move to eventShortCuts
 
 /**
- * shortcut for close previewer
+ * shortcut for close Drawer
  *
  * @param {string} [type='']
  */
-export const closePreviewer = (type = '') => send(EVENT.PREVIEW_CLOSE, { type })
+export const closeDrawer = (type = '') => send(EVENT.PREVIEW_CLOSE, { type })
 
 /**
  * hepler for call the JoinModal Container to show wechatQRCode or mail scriscribe list etc ..

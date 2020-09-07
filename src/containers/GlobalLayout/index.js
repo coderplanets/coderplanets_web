@@ -24,7 +24,7 @@ import ThemeWrapper from '@/containers/ThemeWrapper'
 
 import Header from '@/containers/Header'
 import Sidebar from '@/containers/Sidebar'
-import Preview from '@/containers/Preview'
+import Drawer from '@/containers/Drawer'
 
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
@@ -89,7 +89,7 @@ const GlobalLayoutContainer = ({
               <SEO page={page} config={seoConfig} />
               <InnerWrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
                 {!noSidebar && <Sidebar />}
-                <Preview />
+                <Drawer />
                 <Doraemon />
                 <ErrorBox />
                 <ContentPinWrapper

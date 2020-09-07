@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { toUpper, merge } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
-import { asyncSuit, buildLog, send, closePreviewer, errRescue } from '@/utils'
+import { asyncSuit, buildLog, send, closeDrawer, errRescue } from '@/utils'
 
 import S from './schema'
 
@@ -158,7 +158,7 @@ const backToParentThread = () => {
   }
 
   send(REFRESH_EVENT)
-  closePreviewer()
+  closeDrawer()
   store.setViewing({ post: {}, job: {}, repo: {}, video: {} })
 }
 

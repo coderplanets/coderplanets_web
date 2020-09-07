@@ -34,7 +34,7 @@ const doTransform = (visible, mobile) => {
   return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)' // fromRight
 }
 
-export const PreviewOverlay = styled.div`
+export const DrawerOverlay = styled.div`
   bottom: 0;
   left: 0;
   overflow: auto;
@@ -45,7 +45,7 @@ export const PreviewOverlay = styled.div`
   top: 0;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
-export const PreviewWrapper = styled.div.attrs((props) => ({
+export const DrawerWrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   position: fixed;
@@ -79,7 +79,7 @@ export const PreviewWrapper = styled.div.attrs((props) => ({
     max-height: 80%;
   `};
 `
-export const PreviewContent = styled.div`
+export const DrawerContent = styled.div`
   width: 90%;
   background-color: ${theme('drawer.bg')};
   height: 100vh;
