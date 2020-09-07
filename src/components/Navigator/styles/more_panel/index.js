@@ -20,6 +20,10 @@ export const Entry = styled.a`
   height: 75px;
   padding-left: 15px;
   text-decoration: none;
+
+  ${cs.media.mobile`
+    height: 88px;
+  `};
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleTitle')};

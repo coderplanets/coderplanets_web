@@ -2,8 +2,14 @@ import React from 'react'
 
 import { useMedia } from '@/hooks'
 import AddOn from './AddOn'
+import MobileCloser from './MobileCloser'
 
-import { PreviewOverlay, PreviewWrapper, PreviewContent } from './styles'
+import {
+  PreviewOverlay,
+  PreviewWrapper,
+  PreviewContent,
+  ContentInnerWrapper,
+} from './styles'
 import { closePreview } from './logic'
 
 const SliderPreview = ({
@@ -16,7 +22,7 @@ const SliderPreview = ({
   const { mobile } = useMedia()
 
   return (
-    <React.Fragment>
+    <div>
       <PreviewOverlay visible={visible} onClick={closePreview} />
       <PreviewWrapper
         testId="preview-sidebar-panel"
@@ -26,9 +32,16 @@ const SliderPreview = ({
         mobile={mobile}
       >
         <AddOn type={type} imageUploading={imageUploading} />
-        <PreviewContent>{children}</PreviewContent>
+        {!mobile ? (
+          <PreviewContent>{children}</PreviewContent>
+        ) : (
+          <PreviewContent>
+            <ContentInnerWrapper>{children}</ContentInnerWrapper>
+          </PreviewContent>
+        )}
+        {mobile && <MobileCloser />}
       </PreviewWrapper>
-    </React.Fragment>
+    </div>
   )
 }
 

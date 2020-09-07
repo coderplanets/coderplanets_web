@@ -63,7 +63,7 @@ export const MobileCloser = styled.div`
   display: block;
 
   &:after {
-    content: '✕';
+    content: '^';
     position: absolute;
     font-size: 26px;
     color: ${theme('preview.font')};
