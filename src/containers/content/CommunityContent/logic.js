@@ -13,7 +13,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export const tabberChange = (activeThread) => {
+export const tabOnChange = (activeThread) => {
   const subPath = thread2Subpath(activeThread)
   // log('EVENT.activeThread -----> ', activeThread)
   // log('EVENT.subPath -----> ', subPath)

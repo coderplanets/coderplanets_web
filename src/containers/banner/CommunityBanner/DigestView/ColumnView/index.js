@@ -28,7 +28,7 @@ import {
 } from '../../styles/digest_view/column_view'
 
 import {
-  tabberChange,
+  tabOnChange,
   onSubscribe,
   onUndoSubscribe,
   onShowEditorList,
@@ -71,7 +71,7 @@ const CommunityBrief = ({ content, descExpand }) => {
   )
 }
 
-const DigestView = ({ community, descExpand, activeThread, layout }) => {
+const ColumnView = ({ community, descExpand, activeThread, layout }) => {
   return (
     <Wrapper
       descExpand={descExpand}
@@ -90,7 +90,7 @@ const DigestView = ({ community, descExpand, activeThread, layout }) => {
           <TabBarWrapper>
             <TabBar
               source={community.threads}
-              onChange={tabberChange}
+              onChange={tabOnChange}
               active={activeThread}
               layout={layout}
               communityRaw={community.raw}
@@ -102,4 +102,4 @@ const DigestView = ({ community, descExpand, activeThread, layout }) => {
   )
 }
 
-export default React.memo(DigestView)
+export default React.memo(ColumnView)

@@ -30,7 +30,7 @@ const loadCommunity = () => {
   sr71$.query(S.community, { raw, userHasLogin })
 }
 
-export const tabberChange = (activeThread) => {
+export const tabOnChange = (activeThread) => {
   const subPath = thread2Subpath(activeThread)
   // log('EVENT.activeThread -----> ', activeThread)
   // log('EVENT.subPath -----> ', subPath)
