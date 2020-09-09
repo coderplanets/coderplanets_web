@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 /**
  * hooks for detect window size
@@ -9,12 +9,12 @@ import { useState, useEffect } from 'react'
 const useWindowSize = (cb) => {
   const isClient = typeof window === 'object'
 
-  const getSize = () => {
+  const getSize = useCallback(() => {
     return {
       width: isClient ? window.innerWidth : undefined,
       height: isClient ? window.innerHeight : undefined,
     }
-  }
+  }, [isClient])
 
   const [windowSize, setWindowSize] = useState(getSize)
 

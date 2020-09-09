@@ -8,7 +8,7 @@ import OverlayScrollbars from 'overlayscrollbars'
  * @returns
  */
 const useCustomScroll = (ref, option = {}) => {
-  const [inited, setInited] = useState(false)
+  const [init, setInit] = useState(false)
 
   useEffect(() => {
     if (OverlayScrollbars && ref.current) {
@@ -17,16 +17,15 @@ const useCustomScroll = (ref, option = {}) => {
         className: 'os-theme-light',
         callbacks: {
           onInitialized: () => {
-            console.log('setInited')
-            setInited(true)
+            setInit(true)
           },
         },
       }
       OverlayScrollbars(ref.current, Object.assign(defaultOption, option))
     }
-  }, [ref, option, inited]) // Empty array ensures that effect is only run on mount and unmount
+  }, [ref, option, init]) // Empty array ensures that effect is only run on mount and unmount
 
-  return inited
+  return init
 }
 
 export default useCustomScroll

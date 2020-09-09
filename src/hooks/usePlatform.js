@@ -3,7 +3,7 @@ import { merge } from 'ramda'
 
 import { Global } from '@/utils'
 
-const inialPlatform = {
+const initPlatform = {
   isChrome: true,
   isFirefox: false,
   isSafari: false,
@@ -15,7 +15,7 @@ const inialPlatform = {
 
 // see https://stackoverflow.com/questions/49328382/browser-detection-in-reactjs/49328524
 const usePlatform = (/* { breakpoint } */) => {
-  const [platform, setPlatform] = useState(inialPlatform)
+  const [platform, setPlatform] = useState(initPlatform)
 
   /* eslint-disable */
   useEffect(() => {
@@ -48,7 +48,7 @@ const usePlatform = (/* { breakpoint } */) => {
     const isMobile = Global.innerWidth <= 800 && window.innerHeight <= 600
 
     setPlatform(
-      merge(inialPlatform, {
+      merge(initPlatform, {
         isFirefox,
         isSafari,
         isIE,
