@@ -29,7 +29,7 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_POSTS,
-    EVENT.PREVIEW_CLOSED,
+    EVENT.DRAWER_CLOSED,
     EVENT.COMMUNITY_CHANGE,
     EVENT.TABBER_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
@@ -96,7 +96,7 @@ export const onTagSelect = (tag) => {
 }
 
 export const onUserSelect = (user) =>
-  send(EVENT.PREVIEW_OPEN, {
+  send(EVENT.DRAWER_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
@@ -111,14 +111,14 @@ export const onPreview = (data) => {
   const type = TYPE.PREVIEW_POST_VIEW
   const thread = THREAD.POST
 
-  send(EVENT.PREVIEW_OPEN, { type, thread, data })
+  send(EVENT.DRAWER_OPEN, { type, thread, data })
   store.markRoute(data.id)
 }
 
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 
 export const onAdsClose = () => {
@@ -219,7 +219,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.DRAWER_CLOSED),
     action: () => {
       store.setViewing({ post: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })

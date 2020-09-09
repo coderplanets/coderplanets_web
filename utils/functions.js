@@ -122,7 +122,7 @@ export const send = (msg, data = {}) => {
  *
  * @param {string} [type='']
  */
-export const closeDrawer = (type = '') => send(EVENT.PREVIEW_CLOSE, { type })
+export const closeDrawer = (type = '') => send(EVENT.DRAWER_CLOSE, { type })
 
 /**
  * hepler for call the JoinModal Container to show wechatQRCode or mail scriscribe list etc ..

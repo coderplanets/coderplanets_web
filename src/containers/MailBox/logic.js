@@ -17,7 +17,7 @@ let store = null
 export const selectChange = ({ raw: activeRaw }) => store.mark({ activeRaw })
 
 export const previewUser = (user) =>
-  send(EVENT.PREVIEW_OPEN, {
+  send(EVENT.DRAWER_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
@@ -39,7 +39,7 @@ export const visibleOnChange = () => {
 }
 
 export const seeAll = () =>
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
 
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
 

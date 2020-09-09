@@ -20,7 +20,7 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_JOBS,
-    EVENT.PREVIEW_CLOSED,
+    EVENT.DRAWER_CLOSED,
     EVENT.TABBER_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
   ],
@@ -79,7 +79,7 @@ export const onPreview = (data) => {
   const type = TYPE.PREVIEW_JOB_VIEW
   const thread = THREAD.JOB
 
-  send(EVENT.PREVIEW_OPEN, { type, thread, data })
+  send(EVENT.DRAWER_OPEN, { type, thread, data })
   store.markRoute(data.id)
 }
 
@@ -90,7 +90,7 @@ export const onContentCreate = () => {
     return store.mark({ showPublishNote: true })
   }
 
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
 export const onNoteClose = () => store.mark({ showPublishNote: false })
@@ -108,7 +108,7 @@ export const onFilterSelect = (option) => {
 }
 
 export const onUserSelect = (user) =>
-  send(EVENT.PREVIEW_OPEN, {
+  send(EVENT.DRAWER_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
@@ -156,7 +156,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.DRAWER_CLOSED),
     action: () => {
       store.setViewing({ job: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })

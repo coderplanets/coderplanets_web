@@ -9,8 +9,8 @@ const log = buildLog('L:Preview')
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   receive: [
-    EVENT.PREVIEW_OPEN,
-    EVENT.PREVIEW_CLOSE,
+    EVENT.DRAWER_OPEN,
+    EVENT.DRAWER_CLOSE,
     EVENT.UPLOAD_IMG_START,
     EVENT.UPLOAD_IMG_FINISH,
   ],
@@ -27,16 +27,16 @@ export const closeDrawer = () => {
   // force call MDEditor's componentWillUnmount to store the draft
   // wait until drawer move out of the screean
   setTimeout(() => {
-    send(EVENT.PREVIEW_CLOSED)
+    send(EVENT.DRAWER_CLOSED)
     store.setViewing({ viewingThread: null })
   }, 200)
 }
 
 const DataResolver = [
   {
-    match: asyncRes(EVENT.PREVIEW_OPEN),
+    match: asyncRes(EVENT.DRAWER_OPEN),
     action: (res) => {
-      const payload = res[EVENT.PREVIEW_OPEN]
+      const payload = res[EVENT.DRAWER_OPEN]
       /*
          log('should open payload thread: ', payload.thread)
          log('should open payload id: ', payload.data.id)
@@ -67,7 +67,7 @@ const DataResolver = [
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSE),
+    match: asyncRes(EVENT.DRAWER_CLOSE),
     action: () => closeDrawer(),
   },
   {

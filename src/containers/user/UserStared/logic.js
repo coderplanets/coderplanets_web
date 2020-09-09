@@ -55,7 +55,7 @@ export const onThreadChange = (curThread) => {
 export const onPreview = (data) => {
   const { curThread: thread } = store
 
-  send(EVENT.PREVIEW_OPEN, {
+  send(EVENT.DRAWER_OPEN, {
     type: TYPE[`PREVIEW_${toUpper(thread)}_VIEW`],
     thread: store.curThread,
     data,

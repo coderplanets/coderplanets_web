@@ -52,7 +52,7 @@ export const jumpToContent = (store) => {
     thread = THREAD.VIDEO
   }
 
-  send(EVENT.PREVIEW_OPEN, { type, thread, data })
+  send(EVENT.DRAWER_OPEN, { type, thread, data })
 }
 
 export const goToHelpPage = (id) => {

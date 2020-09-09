@@ -36,7 +36,7 @@ export const onEdit = (thread) => {
     }
   }
 
-  send(EVENT.PREVIEW_OPEN, { type, data })
+  send(EVENT.DRAWER_OPEN, { type, data })
 }
 
 export const onCommunitySet = () => send(EVENT.COMMUNITY_MIRROR)

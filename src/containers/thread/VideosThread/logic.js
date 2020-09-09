@@ -20,7 +20,7 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_VIDEOS,
-    EVENT.PREVIEW_CLOSED,
+    EVENT.DRAWER_CLOSED,
     EVENT.TABBER_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
   ],
@@ -67,14 +67,14 @@ export const onPreview = (data) => {
   const type = TYPE.PREVIEW_VIDEO_VIEW
   const thread = THREAD.VIDEO
 
-  send(EVENT.PREVIEW_OPEN, { type, thread, data })
+  send(EVENT.DRAWER_OPEN, { type, thread, data })
   store.markRoute(data.id)
 }
 
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
 }
 
 export const onTagSelect = (tag) => {
@@ -128,7 +128,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.DRAWER_CLOSED),
     action: () => {
       store.setViewing({ video: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })

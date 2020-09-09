@@ -19,7 +19,7 @@ const log = buildLog('L:RepoEditor')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.PREVIEW_CLOSED],
+  receive: [EVENT.DRAWER_CLOSED],
 })
 
 let sub$ = null
@@ -93,7 +93,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.DRAWER_CLOSED),
     action: () => store.mark({ curView: 'search' }),
   },
 ]

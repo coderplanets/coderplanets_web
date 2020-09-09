@@ -28,10 +28,10 @@ let store = null
 let sub$ = null
 
 export const previewState = () =>
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ROOT_STORE })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_ROOT_STORE })
 
 export const previewAccount = () =>
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
 // to avoid page-cache in server
 export const checkSessionState = () => sr71$.query(S.sessionState, {})
@@ -62,7 +62,7 @@ export const openDoraemon = () => store.openDoraemon()
 export const upgradeHelper = () => store.upgradeHelper()
 
 export const openC11NPanel = () => {
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_C11N_SETTINGS })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_C11N_SETTINGS })
 }
 
 const DataSolver = [
