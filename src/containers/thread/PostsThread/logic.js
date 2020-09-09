@@ -31,7 +31,7 @@ const sr71$ = new SR71({
     EVENT.REFRESH_POSTS,
     EVENT.DRAWER_CLOSED,
     EVENT.COMMUNITY_CHANGE,
-    EVENT.TABBER_CHANGE,
+    EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
   ],
 })
@@ -188,9 +188,9 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.TABBER_CHANGE),
+    match: asyncRes(EVENT.THREAD_CHANGE),
     action: (res) => {
-      const { data } = res[EVENT.TABBER_CHANGE]
+      const { data } = res[EVENT.THREAD_CHANGE]
 
       if (contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY])) {
         return false

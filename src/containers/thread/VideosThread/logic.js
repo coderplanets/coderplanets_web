@@ -21,7 +21,7 @@ const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_VIDEOS,
     EVENT.DRAWER_CLOSED,
-    EVENT.TABBER_CHANGE,
+    EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
   ],
 })
@@ -106,9 +106,9 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.TABBER_CHANGE),
+    match: asyncRes(EVENT.THREAD_CHANGE),
     action: (res) => {
-      const { data } = res[EVENT.TABBER_CHANGE]
+      const { data } = res[EVENT.THREAD_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.VIDEO) {
         store.mark({ activeTag: null })

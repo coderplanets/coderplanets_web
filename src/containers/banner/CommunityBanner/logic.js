@@ -38,7 +38,7 @@ export const tabOnChange = (activeThread) => {
   store.markRoute({ subPath })
   store.setViewing({ activeThread })
 
-  send(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
+  send(EVENT.THREAD_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
 export const onSubscribe = (community) => {

@@ -12,7 +12,7 @@ const log = buildLog('L:WikiThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
+  receive: [EVENT.COMMUNITY_CHANGE, EVENT.THREAD_CHANGE],
 })
 
 let sub$ = null
@@ -87,9 +87,9 @@ const DataSolver = [
     action: () => loadWiki(),
   },
   {
-    match: asyncRes(EVENT.TABBER_CHANGE),
+    match: asyncRes(EVENT.THREAD_CHANGE),
     action: (res) => {
-      const { data } = res[EVENT.TABBER_CHANGE]
+      const { data } = res[EVENT.THREAD_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.WIKI) return loadWiki()
     },
