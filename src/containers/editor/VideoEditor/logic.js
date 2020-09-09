@@ -108,7 +108,7 @@ const ErrSolver = [
 const openAttachment = (att) => {
   if (!att) return false
   const { type } = att
-  if (type === TYPE.PREVIEW_VIDEO_EDIT) {
+  if (type === TYPE.DRAWER.VIDEO_EDIT) {
     store.mark({ editVideo: att, isEdit: true })
   }
 }

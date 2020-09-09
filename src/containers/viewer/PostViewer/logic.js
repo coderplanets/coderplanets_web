@@ -50,7 +50,7 @@ const openAttachment = (att) => {
 
   const { type } = att
 
-  if (type === TYPE.PREVIEW_POST_VIEW) {
+  if (type === TYPE.DRAWER.POST_VIEW) {
     loadPost(att)
 
     store.mark({ type })

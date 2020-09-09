@@ -60,7 +60,7 @@ const ErrSolver = [
 const openAttachment = (att) => {
   if (!att) return false
   const { type } = att
-  if (type === TYPE.PREVIEW_VIDEO_VIEW) {
+  if (type === TYPE.DRAWER.VIDEO_VIEW) {
     loadVideo(att)
     store.setViewing({ video: att })
   }

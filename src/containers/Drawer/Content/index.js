@@ -26,62 +26,62 @@ import { closeDrawer } from '../logic'
 
 const renderContent = (type, root, attachment, attUser) => {
   switch (type) {
-    case TYPE.PREVIEW_ACCOUNT_VIEW:
+    case TYPE.DRAWER.ACCOUNT_VIEW:
       return <AccountViewer />
 
-    case TYPE.PREVIEW_USER_VIEW:
+    case TYPE.DRAWER.USER_VIEW:
       return <AccountViewer user={attUser} />
 
-    case TYPE.PREVIEW_ACCOUNT_EDIT:
+    case TYPE.DRAWER.ACCOUNT_EDIT:
       return <AccountEditor />
 
     // post
-    case TYPE.PREVIEW_POST_VIEW:
+    case TYPE.DRAWER.POST_VIEW:
       return <PostViewer attachment={attachment} />
 
-    case TYPE.PREVIEW_POST_CREATE:
+    case TYPE.DRAWER.POST_CREATE:
       return <PostEditor onClose={closeDrawer} />
 
-    case TYPE.PREVIEW_POST_EDIT:
+    case TYPE.DRAWER.POST_EDIT:
       return <PostEditor onClose={closeDrawer} attachment={attachment} />
 
     // job
-    case TYPE.PREVIEW_JOB_CREATE:
+    case TYPE.DRAWER.JOB_CREATE:
       return <JobEditor onClose={closeDrawer} />
 
-    case TYPE.PREVIEW_JOB_VIEW:
+    case TYPE.DRAWER.JOB_VIEW:
       return <JobViewer attachment={attachment} />
 
-    case TYPE.PREVIEW_JOB_EDIT:
+    case TYPE.DRAWER.JOB_EDIT:
       return <JobEditor onClose={closeDrawer} attachment={attachment} />
 
     // repo
-    case TYPE.PREVIEW_REPO_VIEW:
+    case TYPE.DRAWER.REPO_VIEW:
       return <RepoViewer attachment={attachment} />
 
-    case TYPE.PREVIEW_REPO_CREATE:
+    case TYPE.DRAWER.REPO_CREATE:
       return <RepoEditor />
 
     // video
-    case TYPE.PREVIEW_VIDEO_EDIT:
+    case TYPE.DRAWER.VIDEO_EDIT:
       return <VideoEditor attachment={attachment} />
 
-    case TYPE.PREVIEW_VIDEO_VIEW:
+    case TYPE.DRAWER.VIDEO_VIEW:
       return <VideoViewer attachment={attachment} />
 
-    case TYPE.PREVIEW_VIDEO_CREATE:
+    case TYPE.DRAWER.VIDEO_CREATE:
       return <VideoEditor />
 
-    case TYPE.PREVIEW_MAILS_VIEW:
+    case TYPE.DRAWER.MAILS_VIEW:
       return <MailsViewer />
 
-    case TYPE.PREVIEW_ROOT_STORE:
+    case TYPE.DRAWER.ROOT_STORE:
       return <StateTree json={root.toJSON()} />
 
-    case TYPE.PREVIEW_C11N_SETTINGS:
+    case TYPE.DRAWER.C11N_SETTINGS:
       return <C11NSettingPanel />
 
-    case TYPE.PREVIEW_MOBILE_NAVI_MENU:
+    case TYPE.DRAWER.MOBILE_NAVI_MENU:
       return <MobileHeaderNavi />
 
     default:

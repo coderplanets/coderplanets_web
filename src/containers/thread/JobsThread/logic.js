@@ -76,7 +76,7 @@ export const onPageChange = (page) => {
  */
 export const onPreview = (data) => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  const type = TYPE.PREVIEW_JOB_VIEW
+  const type = TYPE.DRAWER.JOB_VIEW
   const thread = THREAD.JOB
 
   send(EVENT.DRAWER_OPEN, { type, thread, data })
@@ -90,7 +90,7 @@ export const onContentCreate = () => {
     return store.mark({ showPublishNote: true })
   }
 
-  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.JOB_CREATE })
 }
 
 export const onNoteClose = () => store.mark({ showPublishNote: false })
@@ -109,7 +109,7 @@ export const onFilterSelect = (option) => {
 
 export const onUserSelect = (user) =>
   send(EVENT.DRAWER_OPEN, {
-    type: TYPE.PREVIEW_USER_VIEW,
+    type: TYPE.DRAWER.USER_VIEW,
     data: user,
   })
 

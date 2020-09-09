@@ -126,7 +126,7 @@ export const onMention = (user) => store.addReferUser(user)
 const openAttachment = (att) => {
   if (!att) return false
   // const { type } = att
-  // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
+  // if (type === TYPE.DRAWER.POST_EDIT) loadPost(att.id)
   store.updateEditing(att)
   store.mark({ isEdit: true })
 }

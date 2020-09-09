@@ -64,7 +64,7 @@ export const onPageChange = (page) => {
  */
 export const onPreview = (data) => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  const type = TYPE.PREVIEW_VIDEO_VIEW
+  const type = TYPE.DRAWER.VIDEO_VIEW
   const thread = THREAD.VIDEO
 
   send(EVENT.DRAWER_OPEN, { type, thread, data })
@@ -74,7 +74,7 @@ export const onPreview = (data) => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.VIDEO_CREATE })
 }
 
 export const onTagSelect = (tag) => {

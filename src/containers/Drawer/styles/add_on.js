@@ -22,9 +22,9 @@ export const CloseTab = styled.div`
   perspective: ${closeWith};
   cursor: pointer;
   display: ${({ type }) =>
-    type === TYPE.PREVIEW_ACCOUNT_VIEW ||
-    type === TYPE.PREVIEW_USER_VIEW ||
-    type === TYPE.PREVIEW_ACCOUNT_EDIT
+    type === TYPE.DRAWER.ACCOUNT_VIEW ||
+    type === TYPE.DRAWER.USER_VIEW ||
+    type === TYPE.DRAWER.ACCOUNT_EDIT
       ? 'none'
       : 'block'};
 

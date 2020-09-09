@@ -31,24 +31,24 @@ export const jumpToCommunity = (store, communityRaw) => {
 export const jumpToContent = (store) => {
   const { id, title } = store.activeSuggestion
   const data = { id, title }
-  let type = TYPE.PREVIEW_POST_VIEW // default as post
+  let type = TYPE.DRAWER.POST_VIEW // default as post
   let thread = THREAD.POST
 
   // jump to job
   if (startsWith('job-raw', store.activeSuggestion.raw)) {
-    type = TYPE.PREVIEW_JOB_VIEW
+    type = TYPE.DRAWER.JOB_VIEW
     thread = THREAD.JOB
   }
 
   // jump to repo
   if (startsWith('repo-raw', store.activeSuggestion.raw)) {
-    type = TYPE.PREVIEW_REPO_VIEW
+    type = TYPE.DRAWER.REPO_VIEW
     thread = THREAD.REPO
   }
 
   // jump to video
   if (startsWith('video-raw', store.activeSuggestion.raw)) {
-    type = TYPE.PREVIEW_VIDEO_VIEW
+    type = TYPE.DRAWER.VIDEO_VIEW
     thread = THREAD.VIDEO
   }
 

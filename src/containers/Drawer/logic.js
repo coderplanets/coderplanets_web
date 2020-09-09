@@ -44,13 +44,13 @@ const DataResolver = [
        */
 
       if (
-        payload.type !== TYPE.PREVIEW_C11N_SETTINGS &&
-        payload.type !== TYPE.PREVIEW_MOBILE_NAVI_MENU &&
+        payload.type !== TYPE.DRAWER.C11N_SETTINGS &&
+        payload.type !== TYPE.DRAWER.MOBILE_NAVI_MENU &&
         (store.media.mobile || store.media.tablet)
       ) {
         const { thread, data, type } = payload
         let targetUrl
-        if (type === TYPE.PREVIEW_USER_VIEW) {
+        if (type === TYPE.DRAWER.USER_VIEW) {
           targetUrl = `/user/${data.login}`
         } else {
           const communityRaw =

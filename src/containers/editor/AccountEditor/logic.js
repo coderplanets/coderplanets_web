@@ -25,7 +25,7 @@ let store = null
 let sub$ = null
 
 export const goBack = () =>
-  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.ACCOUNT_VIEW })
 
 export const inputOnChange = curry((part, e) => updateEditing(store, part, e))
 /* eslint-disable no-unused-vars */

@@ -46,7 +46,7 @@ const openAttachment = (att) => {
 
   const { type } = att
 
-  if (type === TYPE.PREVIEW_JOB_VIEW) {
+  if (type === TYPE.DRAWER.JOB_VIEW) {
     loadJob(att)
     store.mark({ type })
     store.setViewing({ job: att })

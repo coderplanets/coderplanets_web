@@ -97,7 +97,7 @@ export const onTagSelect = (tag) => {
 
 export const onUserSelect = (user) =>
   send(EVENT.DRAWER_OPEN, {
-    type: TYPE.PREVIEW_USER_VIEW,
+    type: TYPE.DRAWER.USER_VIEW,
     data: user,
   })
 
@@ -108,7 +108,7 @@ export const onUserSelect = (user) =>
  */
 export const onPreview = (data) => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  const type = TYPE.PREVIEW_POST_VIEW
+  const type = TYPE.DRAWER.POST_VIEW
   const thread = THREAD.POST
 
   send(EVENT.DRAWER_OPEN, { type, thread, data })
@@ -118,7 +118,7 @@ export const onPreview = (data) => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  send(EVENT.DRAWER_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.POST_CREATE })
 }
 
 export const onAdsClose = () => {

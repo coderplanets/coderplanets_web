@@ -119,7 +119,7 @@ const openAttachment = (att) => {
   if (!att) return false
   // const { id, title, body, digest } = att
   const { type } = att
-  if (type === TYPE.PREVIEW_JOB_EDIT) loadJob(att.id)
+  if (type === TYPE.DRAWER.JOB_EDIT) loadJob(att.id)
 
   store.updateEditing(att)
   store.mark({ isEdit: true })

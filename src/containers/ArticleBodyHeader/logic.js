@@ -21,18 +21,18 @@ export const onEdit = (thread) => {
 
   switch (thread) {
     case THREAD.JOB:
-      type = TYPE.PREVIEW_JOB_EDIT
+      type = TYPE.DRAWER.JOB_EDIT
       break
 
     case THREAD.VIDEO:
-      type = TYPE.PREVIEW_VIDEO_EDIT
+      type = TYPE.DRAWER.VIDEO_EDIT
       break
 
     case THREAD.REPO:
       return send(EVENT.SYNC_REPO)
 
     default: {
-      type = TYPE.PREVIEW_POST_EDIT
+      type = TYPE.DRAWER.POST_EDIT
     }
   }
 

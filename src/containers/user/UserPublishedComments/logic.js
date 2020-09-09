@@ -83,7 +83,7 @@ export const onPreview = (data) => {
   const thread = store.curThread
 
   send(EVENT.DRAWER_OPEN, {
-    type: TYPE[`PREVIEW_${toUpper(thread)}_VIEW`],
+    type: TYPE[`DRAWER_${toUpper(thread)}_VIEW`],
     data: data[thread],
     thread,
   })
