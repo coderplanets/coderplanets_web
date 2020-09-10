@@ -31,11 +31,8 @@ const DrawerContainer = ({ drawer: store }) => {
     attUserData,
     imageUploading,
     rightOffset,
+    animation,
   } = store
-
-  const animation = {
-    from: 'bottom', // 'top', 'right'
-  }
 
   return (
     <Viewer
