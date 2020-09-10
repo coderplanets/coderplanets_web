@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTheme } from 'styled-components'
 
 import { useMedia } from '@/hooks'
 import AddOn from './AddOn'
@@ -8,12 +9,21 @@ import {
   DrawerOverlay,
   DrawerWrapper,
   DrawerContent,
-  ContentInnerWrapper,
+  DrawerMobileContent,
+  MobileInnerContent,
 } from './styles'
 import { closeDrawer } from './logic'
 
-const Viewer = ({ visible, rightOffset, type, imageUploading, children }) => {
+const Viewer = ({
+  visible,
+  animation,
+  rightOffset,
+  type,
+  imageUploading,
+  children,
+}) => {
   const { mobile } = useMedia()
+  const theme = useTheme()
 
   return (
     <div>
@@ -24,16 +34,19 @@ const Viewer = ({ visible, rightOffset, type, imageUploading, children }) => {
         rightOffset={rightOffset}
         type={type}
         mobile={mobile}
+        animation={animation}
       >
         <AddOn type={type} imageUploading={imageUploading} />
         {!mobile ? (
           <DrawerContent>{children}</DrawerContent>
         ) : (
-          <DrawerContent>
-            <ContentInnerWrapper>{children}</ContentInnerWrapper>
-          </DrawerContent>
+          <DrawerMobileContent animation={animation} bgColor={theme.drawer.bg}>
+            <MobileInnerContent animation={animation}>
+              {children}
+            </MobileInnerContent>
+          </DrawerMobileContent>
         )}
-        {mobile && <MobileCloser />}
+        {mobile && <MobileCloser animation={animation} />}
       </DrawerWrapper>
     </div>
   )

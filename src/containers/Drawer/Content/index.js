@@ -19,9 +19,9 @@ import {
   C11NSettingPanel,
   MobileHeaderNavi,
 } from '../dynamics'
+import DefaultContent from './DefaultContent'
 
 import { Wrapper } from '../styles/content'
-import DefaultViewer from './DefaultContent'
 import { closeDrawer } from '../logic'
 
 const renderContent = (type, root, attachment, attUser) => {
@@ -85,7 +85,7 @@ const renderContent = (type, root, attachment, attUser) => {
       return <MobileHeaderNavi />
 
     default:
-      return <DefaultViewer />
+      return <DefaultContent />
   }
 }
 

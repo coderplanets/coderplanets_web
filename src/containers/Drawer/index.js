@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import T from 'prop-types'
 
 import { connectStore, buildLog } from '@/utils'
 import { useShortcut, useResize } from '@/hooks'
@@ -32,8 +33,13 @@ const DrawerContainer = ({ drawer: store }) => {
     rightOffset,
   } = store
 
+  const animation = {
+    from: 'bottom', // 'top', 'right'
+  }
+
   return (
     <Viewer
+      animation={animation}
       visible={slideVisible}
       rightOffset={rightOffset}
       type={type}
@@ -48,5 +54,11 @@ const DrawerContainer = ({ drawer: store }) => {
     </Viewer>
   )
 }
+
+DrawerContainer.propTypes = {
+  drawer: T.any.isRequired,
+}
+
+DrawerContainer.defaultProps = {}
 
 export default connectStore(DrawerContainer)

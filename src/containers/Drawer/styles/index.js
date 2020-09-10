@@ -5,6 +5,13 @@ import { contains } from 'ramda'
 import { TYPE } from '@/constant'
 import { theme, cs } from '@/utils'
 
+import {
+  WIDE_WIDTH,
+  NARROW_WIDTH,
+  getTransform,
+  getContentLinearGradient,
+} from './metrics'
+
 const WIDE_CASE = [
   // post
   TYPE.DRAWER.POST_VIEW,
@@ -22,17 +29,6 @@ const WIDE_CASE = [
   // mails
   TYPE.DRAWER.MAILS_VIEW,
 ]
-const WIDE_WIDTH = '70%'
-const NARROW_WIDTH = '40%'
-
-const doTransform = (visible, mobile) => {
-  if (mobile) {
-    // return visible ? 'translate(0px, 40%)' : 'translate(0, 100%)' // fromBottom
-    return visible ? 'translate(0, 0)' : 'translate(0, -80%)' // fromTop
-  }
-
-  return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)' // fromRight
-}
 
 export const DrawerOverlay = styled.div`
   bottom: 0;
@@ -48,12 +44,11 @@ export const DrawerOverlay = styled.div`
 export const DrawerWrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
+  ${cs.flex()};
   position: fixed;
   right: ${({ rightOffset }) => rightOffset};
   top: 0px;
-  ${cs.flex()};
-  /* display: ${({ visible }) => (visible ? 'flex' : 'none')}; */
-  visibility: ${({ visible }) => (visible ? 'visiable' : 'hidden')};
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 
   color: ${theme('drawer.font')};
   box-sizing: border-box;
@@ -67,7 +62,8 @@ export const DrawerWrapper = styled.div.attrs((props) => ({
 
   min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
   max-width: 1000px;
-  transform: ${({ visible, mobile }) => doTransform(visible, mobile)};
+  transform: ${({ visible, mobile, animation }) =>
+    getTransform(visible, mobile, animation)};
   z-index: ${cs.zIndex.drawer};
 
   ${cs.media.mobile`
@@ -79,25 +75,34 @@ export const DrawerWrapper = styled.div.attrs((props) => ({
     max-height: 80%;
   `};
 `
+
 export const DrawerContent = styled.div`
   width: 90%;
   background-color: ${theme('drawer.bg')};
   height: 100vh;
   box-shadow: ${theme('drawer.shadow')};
-
-  ${cs.media.mobile`
-    width: 100%;
-    height: auto;
-    background: linear-gradient(180deg, ${theme(
-      'drawer.bg',
-    )} calc(100% - 30px),transparent 30px);
-  `};
 `
-export const ContentInnerWrapper = styled.div`
+export const DrawerMobileContent = styled.div`
   width: 100%;
-  max-height: calc(100% - 30px);
+  height: auto;
+  box-shadow: ${theme('drawer.shadow')};
+  background: ${({ animation, bgColor }) =>
+    getContentLinearGradient(animation, bgColor)};
+`
+// bottom
+export const MobileInnerContent = styled.div`
+  width: 100%;
+  max-height: ${({ animation }) =>
+    animation.from === 'bottom' ? 'calc(100% - 100px)' : 'calc(100% - 30px)'};
+  margin-top: ${({ animation }) =>
+    animation.from === 'bottom' ? '15px' : '0'};
   overflow-y: scroll;
 `
+// export const MobileContentInnerWrapper = styled.div`
+//   width: 100%;
+//   max-height: calc(100% - 30px);
+//   overflow-y: scroll;
+// `
 export const PreviewHeader = styled.div`
   ${cs.flex()};
   border-bottom: 1px solid grey;
