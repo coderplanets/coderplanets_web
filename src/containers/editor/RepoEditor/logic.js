@@ -6,7 +6,7 @@ import {
   asyncSuit,
   buildLog,
   send,
-  closePreviewer,
+  closeDrawer,
   BStore,
   errRescue,
 } from '@/utils'
@@ -19,7 +19,7 @@ const log = buildLog('L:RepoEditor')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.PREVIEW_CLOSED],
+  receive: [EVENT.DRAWER_CLOSED],
 })
 
 let sub$ = null
@@ -88,12 +88,12 @@ const DataSolver = [
     match: asyncRes('createRepo'),
     action: () => {
       store.mark({ publishing: false })
-      closePreviewer()
+      closeDrawer()
       send(EVENT.REFRESH_REPOS)
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.DRAWER_CLOSED),
     action: () => store.mark({ curView: 'search' }),
   },
 ]

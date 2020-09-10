@@ -5,22 +5,23 @@
  */
 
 import React from 'react'
+import T from 'prop-types'
 
 import { connectStore, buildLog } from '@/utils'
 import { useShortcut, useResize } from '@/hooks'
 
-import SliderPreview from './SliderPreview'
 import Viewer from './Viewer'
+import Content from './Content'
 
-import { useInit, closePreview } from './logic'
+import { useInit, closeDrawer } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Preview')
 
-const PreviewContainer = ({ preview: store }) => {
+const DrawerContainer = ({ drawer: store }) => {
   const { width: windowWidth } = useResize()
   useInit(store, windowWidth)
-  useShortcut('Escape', closePreview)
+  useShortcut('Escape', closeDrawer)
 
   const {
     slideVisible,
@@ -30,23 +31,31 @@ const PreviewContainer = ({ preview: store }) => {
     attUserData,
     imageUploading,
     rightOffset,
+    animation,
   } = store
 
   return (
-    <SliderPreview
+    <Viewer
+      animation={animation}
       visible={slideVisible}
       rightOffset={rightOffset}
       type={type}
       imageUploading={imageUploading}
     >
-      <Viewer
+      <Content
         type={type}
         root={root}
         attachment={attachmentData}
         attUser={attUserData}
       />
-    </SliderPreview>
+    </Viewer>
   )
 }
 
-export default connectStore(PreviewContainer)
+DrawerContainer.propTypes = {
+  drawer: T.any.isRequired,
+}
+
+DrawerContainer.defaultProps = {}
+
+export default connectStore(DrawerContainer)

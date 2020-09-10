@@ -1,4 +1,4 @@
-describe('preview action: ', () => {
+describe('drawer action: ', () => {
   before(() => {
     cy.visit('/home/posts')
   })
@@ -8,7 +8,7 @@ describe('preview action: ', () => {
     cy.id('mst-state').should('be.visible')
 
     cy.id('mst-state').click()
-    cy.id('preview-sidebar-panel').should('be.visible')
+    cy.id('drawer-sidebar-panel').should('be.visible')
 
     // cypress has issue for dynamic load component
     // see https://github.com/cypress-io/cypress/issues/1379

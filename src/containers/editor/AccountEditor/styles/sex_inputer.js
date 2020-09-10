@@ -21,12 +21,11 @@ export const Dude = styled.div``
 export const Girl = styled.div``
 export const DudeIcon = styled(SexIcon)`
   fill: ${({ value }) =>
-    value === 'dude' ? '#869eec' : theme('preview.divider')};
+    value === 'dude' ? '#869eec' : theme('drawer.divider')};
 `
 
 export const GirlIcon = styled(SexIcon)`
-  fill: ${({ value }) =>
-    value === 'girl' ? 'pink' : theme('preview.divider')};
+  fill: ${({ value }) => (value === 'girl' ? 'pink' : theme('drawer.divider'))};
   margin-top: 1px;
 `
 export const SexLable = styled.div`

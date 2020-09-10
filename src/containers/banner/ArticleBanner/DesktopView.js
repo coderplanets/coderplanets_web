@@ -10,7 +10,7 @@ import { isNil } from 'ramda'
 import TimeAgo from 'timeago-react'
 import { Waypoint } from 'react-waypoint'
 
-import { useScrollEvent } from '@/hooks'
+import { useScroll } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
 import FavoritesCats from '@/containers/FavoritesCats'
@@ -41,7 +41,7 @@ const ArticleBannerContainer = ({
   showWordCount,
   showLastSync,
 }) => {
-  const { direction: scrollDirection } = useScrollEvent()
+  const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection)
 
   const {

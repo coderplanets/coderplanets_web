@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { merge, toUpper } from 'ramda'
 
 import { TYPE, EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, closePreviewer, errRescue } from '@/utils'
+import { asyncSuit, buildLog, closeDrawer, errRescue } from '@/utils'
 
 import S from './schema'
 
@@ -11,7 +11,7 @@ const log = buildLog('L:JobViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.PREVIEW_CLOSED],
+  receive: [EVENT.DRAWER_CLOSED],
 })
 
 let sub$ = null
@@ -46,7 +46,7 @@ const openAttachment = (att) => {
 
   const { type } = att
 
-  if (type === TYPE.PREVIEW_JOB_VIEW) {
+  if (type === TYPE.DRAWER.JOB_VIEW) {
     loadJob(att)
     store.mark({ type })
     store.setViewing({ job: att })
@@ -68,7 +68,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.DRAWER_CLOSED),
     action: () => {
       sr71$.stop()
       markLoading(false)
@@ -78,7 +78,7 @@ const DataSolver = [
     match: asyncRes('setTag'),
     action: () => {
       loadJob(store.viewingData)
-      closePreviewer()
+      closeDrawer()
       store.setViewing({ job: {} })
     },
   },
@@ -86,7 +86,7 @@ const DataSolver = [
     match: asyncRes('unsetTag'),
     action: () => {
       loadJob(store.viewingData)
-      closePreviewer()
+      closeDrawer()
       store.setViewing({ job: {} })
     },
   },

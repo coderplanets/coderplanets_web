@@ -5,10 +5,10 @@ import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   min-height: 200px;
   height: 100%;
-  border-color: ${theme('preview.articleBg')};
+  border-color: ${theme('drawer.articleBg')};
   transition: all 0.3s;
   border-radius: 3px;
 `

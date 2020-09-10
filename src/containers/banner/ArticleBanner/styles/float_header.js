@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   height: 40px;
   background-color: ${theme('header.fixed')};
   display: ${({ show }) => (show ? 'flex' : 'none')};
-  box-shadow: ${theme('preview.shadow')};
+  box-shadow: ${theme('drawer.shadow')};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('header.spliter')};
   width: 100%;

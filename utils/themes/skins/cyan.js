@@ -118,7 +118,7 @@ const cyan = {
     searchInputBottomActive: '#61ABB2',
     searchInputHolder: '#3a7786',
   },
-  preview: {
+  drawer: {
     title: '#83a2a5',
     desc: '#83a2a5',
     font: primaryColor,

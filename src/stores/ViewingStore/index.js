@@ -26,7 +26,7 @@ const ViewingStore = T.model('ViewingStore', {
     T.enumeration('activeThread', values(THREAD)),
     THREAD.POST,
   ),
-  // for preview usage
+  // for drawer usage
   viewingThread: T.maybeNull(
     T.enumeration('viewingThread', PREVIEWABLE_THREADS),
   ),

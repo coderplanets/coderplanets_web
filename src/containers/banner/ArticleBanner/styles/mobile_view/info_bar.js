@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   bottom: -40px;
   left: 0;
   ${cs.flex('justify-between', 'align-center')};
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   padding-left: 16px;
   padding-right: 15px;
   padding-top: 8px;
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   margin-left: 25px;
   height: 60px;
   z-index: 1;
-  box-shadow: ${theme('preview.shadow')};
+  box-shadow: ${theme('drawer.shadow')};
 `
 export const AuthorInfo = styled.div`
   ${cs.flex('align-center')};

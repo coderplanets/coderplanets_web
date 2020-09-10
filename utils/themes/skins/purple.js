@@ -119,7 +119,7 @@ const purple = {
     searchInputBottomActive: '#5F5C75',
     searchInputHolder: '#3B3948',
   },
-  preview: {
+  drawer: {
     title: primaryColor,
     desc: lighten(0.05, descText),
     font: fontColor,

@@ -31,11 +31,11 @@ export const SidebarWrapper = styled.div`
     display: none;
   `};
 `
-/* background: ${theme('preview.articleBg')}; */
+/* background: ${theme('drawer.articleBg')}; */
 export const ArticleWrapper = styled.div`
   font-size: 1.1rem;
   margin-right: 1.6vw;
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   border-radius: 5px;
   padding: 35px 40px;
   min-height: 200px;

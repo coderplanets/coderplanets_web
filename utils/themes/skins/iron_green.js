@@ -118,7 +118,7 @@ const iconGreen = {
     searchInputBottomActive: '#BFE4B4',
     searchInputHolder: '#8ED5B4',
   },
-  preview: {
+  drawer: {
     title: '#C2CDD0',
     desc: descText,
     font: primaryColor,

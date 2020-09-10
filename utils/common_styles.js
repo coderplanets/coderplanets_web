@@ -96,7 +96,7 @@ const zIndex = {
   popover: 3000,
   modalOverlay: 2500,
   previewOverlay: 2000,
-  preview: 2001,
+  drawer: 2001,
   doraemonOverlay: 2600,
   doraemon: 2601,
   modalCloseBtn: 2000,
@@ -124,7 +124,7 @@ export const mediaBreakPoints = {
   laptopL: 1440,
   maxContent: 1520, // MAX_CONTENT_WIDTH
   desktop: 1600,
-  // currently used as forms of preview content (slideout/modal)
+  // currently used as forms of drawer content (slideout/modal)
   desktopL: 1920,
   // laptopL: '1440px',
   // desktop: '2560px'

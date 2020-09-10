@@ -25,7 +25,7 @@ let store = null
 let sub$ = null
 
 export const goBack = () =>
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.ACCOUNT_VIEW })
 
 export const inputOnChange = curry((part, e) => updateEditing(store, part, e))
 /* eslint-disable no-unused-vars */
@@ -88,7 +88,7 @@ export const updateConfirm = () => {
   sr71$.mutate(S.updateProfile, args)
 }
 
-export const cancelEdit = () => send(EVENT.PREVIEW_CLOSE)
+export const cancelEdit = () => send(EVENT.DRAWER_CLOSE)
 
 export const updateDone = () => {
   const editing = cast(updateFields, store.editUserData)

@@ -9,14 +9,14 @@ export const TitleWrapper = styled.div`
   margin-bottom: 5px;
 `
 export const HelpText = styled.div`
-  color: ${theme('preview.helper')};
+  color: ${theme('drawer.helper')};
   margin-top: 2px;
   &:hover {
-    color: ${theme('preview.helperHover')};
+    color: ${theme('drawer.helperHover')};
     cursor: pointer;
   }
   ${TitleWrapper}:hover & {
-    color: ${theme('preview.helperHover')};
+    color: ${theme('drawer.helperHover')};
   }
   transition: color 0.2s;
 `

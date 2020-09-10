@@ -32,7 +32,7 @@ export const changeTheme = (name) => {
 }
 
 export const editProfile = () =>
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_EDIT })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.ACCOUNT_EDIT })
 
 export const onLogout = () => {
   store.logout()

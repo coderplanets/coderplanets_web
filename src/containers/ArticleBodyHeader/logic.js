@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { toUpper, merge } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
-import { asyncSuit, buildLog, send, closePreviewer, errRescue } from '@/utils'
+import { asyncSuit, buildLog, send, closeDrawer, errRescue } from '@/utils'
 
 import S from './schema'
 
@@ -21,22 +21,22 @@ export const onEdit = (thread) => {
 
   switch (thread) {
     case THREAD.JOB:
-      type = TYPE.PREVIEW_JOB_EDIT
+      type = TYPE.DRAWER.JOB_EDIT
       break
 
     case THREAD.VIDEO:
-      type = TYPE.PREVIEW_VIDEO_EDIT
+      type = TYPE.DRAWER.VIDEO_EDIT
       break
 
     case THREAD.REPO:
       return send(EVENT.SYNC_REPO)
 
     default: {
-      type = TYPE.PREVIEW_POST_EDIT
+      type = TYPE.DRAWER.POST_EDIT
     }
   }
 
-  send(EVENT.PREVIEW_OPEN, { type, data })
+  send(EVENT.DRAWER_OPEN, { type, data })
 }
 
 export const onCommunitySet = () => send(EVENT.COMMUNITY_MIRROR)
@@ -158,7 +158,7 @@ const backToParentThread = () => {
   }
 
   send(REFRESH_EVENT)
-  closePreviewer()
+  closeDrawer()
   store.setViewing({ post: {}, job: {}, repo: {}, video: {} })
 }
 

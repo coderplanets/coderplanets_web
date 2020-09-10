@@ -49,7 +49,7 @@ const AccountStore = T.model('AccountStore', {
   }))
   .actions((self) => ({
     logout() {
-      self.root.preview.close()
+      self.root.drawer.close()
       self.sessionCleanup()
     },
     isMemberOf(type) {

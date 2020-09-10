@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { cs } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div`
+const BaseWrapper = styled.div`
   z-index: 1;
   position: absolute;
   bottom: 10px;
@@ -16,6 +16,16 @@ export const Wrapper = styled.div`
   border-bottom-left-radius: 22px;
   border-bottom-right-radius: 22px;
 `
+
+export const BottomWrapper = styled(BaseWrapper)`
+  top: 10px;
+  transform: rotate(180deg);
+`
+
+export const TopWrapper = styled(BaseWrapper)`
+  bottom: 10px;
+`
+
 export const CloseBtn = styled.div`
   ${cs.flex('align-both')};
   width: 50px;

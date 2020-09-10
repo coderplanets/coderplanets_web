@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { merge, toUpper } from 'ramda'
 
 import { TYPE, EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, closePreviewer, errRescue } from '@/utils'
+import { asyncSuit, buildLog, closeDrawer, errRescue } from '@/utils'
 
 import S from './schema'
 
@@ -11,7 +11,7 @@ const log = buildLog('L:PostViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.PREVIEW_CLOSED],
+  receive: [EVENT.DRAWER_CLOSED],
 })
 
 let sub$ = null
@@ -50,7 +50,7 @@ const openAttachment = (att) => {
 
   const { type } = att
 
-  if (type === TYPE.PREVIEW_POST_VIEW) {
+  if (type === TYPE.DRAWER.POST_VIEW) {
     loadPost(att)
 
     store.mark({ type })
@@ -73,7 +73,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.DRAWER_CLOSED),
     action: () => {
       sr71$.stop()
       markLoading(false)
@@ -83,7 +83,7 @@ const DataSolver = [
     match: asyncRes('setTag'),
     action: () => {
       loadPost(store.viewingData)
-      closePreviewer()
+      closeDrawer()
       store.setViewing({ post: {} })
     },
   },
@@ -91,7 +91,7 @@ const DataSolver = [
     match: asyncRes('unsetTag'),
     action: () => {
       loadPost(store.viewingData)
-      closePreviewer()
+      closeDrawer()
       store.setViewing({ post: {} })
     },
   },

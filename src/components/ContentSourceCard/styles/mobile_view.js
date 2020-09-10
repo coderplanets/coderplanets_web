@@ -28,7 +28,7 @@ export const Divider = styled.div`
   width: 1px;
   margin-left: 5%;
   margin-right: 10%;
-  background-color: ${theme('preview.sideDivider')};
+  background-color: ${theme('drawer.sideDivider')};
 `
 export const NoMoreDesc = styled.div`
   color: ${theme('banner.desc')};

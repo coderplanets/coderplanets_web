@@ -43,7 +43,7 @@ export const FormsWrapper = styled.div`
 `
 export const Divider = styled.div`
   border-top: 1px solid;
-  border-top-color: ${theme('preview.divider')};
+  border-top-color: ${theme('drawer.divider')};
   margin-top: 15px;
   width: 75%;
   margin-bottom: 20px;

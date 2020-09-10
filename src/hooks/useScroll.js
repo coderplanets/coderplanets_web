@@ -3,15 +3,15 @@ import { merge } from 'ramda'
 
 import { debounce } from '@/utils'
 
-const inialState = {
+const initState = {
   direction: 'up', // 'down'
   scrollPos: 0,
 }
 
-// detect the scroll derection
+// detect the scroll direction
 // see https://codepen.io/lehollandaisvolant/pen/ryrrGx?editors=1010
-const useScrollEvent = (cb) => {
-  const [sroll, setScroll] = useState(inialState)
+const useScroll = (cb) => {
+  const [scroll, setScroll] = useState(initState)
 
   /* eslint-disable */
   useEffect(() => {
@@ -28,7 +28,7 @@ const useScrollEvent = (cb) => {
       if (cb) cb()
 
       setScroll(
-        merge(inialState, {
+        merge(initState, {
           direction,
           scrollPos,
         }),
@@ -42,7 +42,7 @@ const useScrollEvent = (cb) => {
     }
   }, [])
 
-  return sroll
+  return scroll
 }
 
-export default useScrollEvent
+export default useScroll

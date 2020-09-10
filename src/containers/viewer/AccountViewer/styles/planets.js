@@ -11,14 +11,14 @@ export const HeaderWrapper = styled.div`
 `
 export const Title = styled.div`
   font-size: 1em;
-  color: ${theme('preview.title')};
+  color: ${theme('drawer.title')};
   margin-bottom: 10px;
   flex-grow: 1;
 `
 export const HelpText = styled.div`
-  color: ${theme('preview.helper')};
+  color: ${theme('drawer.helper')};
   ${HeaderWrapper}:hover & {
-    color: ${theme('preview.helperHover')};
+    color: ${theme('drawer.helperHover')};
     cursor: pointer;
   }
   transition: color 0.2s;

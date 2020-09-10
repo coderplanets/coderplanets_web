@@ -7,7 +7,7 @@ export const TableWrapper = styled.div`
   ${cs.flex()};
   flex-wrap: wrap;
 `
-// background: ${theme('preview.articleBg')};
+// background: ${theme('drawer.articleBg')};
 
 export const UserWrapper = styled.div`
   ${cs.flex()};
@@ -17,7 +17,7 @@ export const UserWrapper = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.divider')};
+  border-bottom-color: ${theme('drawer.divider')};
 `
 export const UserAvatar = styled(Img)`
   width: 55px;

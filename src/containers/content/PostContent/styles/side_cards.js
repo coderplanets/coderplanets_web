@@ -13,6 +13,6 @@ export const ReportWrapper = styled.div`
 `
 export const Divider = styled.div`
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.sideDivider')};
+  border-bottom-color: ${theme('drawer.sideDivider')};
   width: 91%;
 `

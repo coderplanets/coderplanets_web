@@ -71,8 +71,8 @@ export const changeFavoriteThread = (curThread) => {
 export const onPreview = (data) => {
   const { curThread: thread } = store
 
-  send(EVENT.PREVIEW_OPEN, {
-    type: TYPE[`PREVIEW_${toUpper(thread)}_VIEW`],
+  send(EVENT.DRAWER_OPEN, {
+    type: TYPE[`DRAWER_${toUpper(thread)}_VIEW`],
     thread,
     data,
   })

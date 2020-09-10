@@ -12,7 +12,7 @@ const log = buildLog('L:RepoViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.PREVIEW_CLOSED, EVENT.SYNC_REPO],
+  receive: [EVENT.DRAWER_CLOSED, EVENT.SYNC_REPO],
 })
 
 let sub$ = null
@@ -27,7 +27,7 @@ const loadRepo = (id) => {
 const openAttachment = (att) => {
   if (!att) return false
   const { type } = att
-  if (type === TYPE.PREVIEW_REPO_VIEW) {
+  if (type === TYPE.DRAWER.REPO_VIEW) {
     // TODO: merge default empty repo
     store.setViewing({ rep: att })
     loadRepo(att.id)

@@ -44,31 +44,31 @@ const DataSolver = [
 ```js
 const sr71$ = new SR71({
   receive: [
-    EVENT.PREVIEW_OPEN,
-    EVENT.PREVIEW_CLOSE,
+    EVENT.DRAWER_OPEN,
+    EVENT.DRAWER_CLOSE,
     EVENT.UPLOAD_IMG_START,
     EVENT.UPLOAD_IMG_FINISH,
   ],
 })
 ```
 
-代表该容器组件接收 4 个消息， 分别是 EVENT.PREVIEW_OPEN, EVENT.PREVIEW_CLOSE, EVENT.UPLOAD_IMG_START, EVENT.UPLOAD_IMG_FINISH
+代表该容器组件接收 4 个消息， 分别是 EVENT.DRAWER_OPEN, EVENT.DRAWER_CLOSE, EVENT.UPLOAD_IMG_START, EVENT.UPLOAD_IMG_FINISH
 
 对应的 DataSolver:
 
 ```js
 {
-    match: asyncRes(EVENT.PREVIEW_OPEN),
+    match: asyncRes(EVENT.DRAWER_OPEN),
     action: res => {
-      const payload = res[EVENT.PREVIEW_OPEN]
+      const payload = res[EVENT.DRAWER_OPEN]
       lockPage()
 
       store.open(payload)
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSE),
-    action: () => closePreview(),
+    match: asyncRes(EVENT.DRAWER_CLOSE),
+    action: () => closeDrawer(),
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_START),

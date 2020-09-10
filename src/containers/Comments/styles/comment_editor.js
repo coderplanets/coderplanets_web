@@ -5,10 +5,10 @@ import { theme, cs } from '@/utils'
 
 export const Container = styled.div`
   ${cs.flexColumn()};
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   min-height: ${({ show }) => (show ? '100px' : '60px')};
   height: auto;
-  border-color: ${theme('preview.articleBg')};
+  border-color: ${theme('drawer.articleBg')};
   transition: all 0.3s;
 
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);

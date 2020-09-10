@@ -1,5 +1,5 @@
 /*
- * PreviewStore store
+ * DrawerStore store
  *
  */
 
@@ -21,29 +21,33 @@ import { User, EmptyAchievement } from '@/model'
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 const THREAD_CONTENT_CURD_TYPES = [
   // post
-  TYPE.PREVIEW_POST_VIEW,
-  TYPE.PREVIEW_POST_CREATE,
-  TYPE.PREVIEW_POST_EDIT,
+  TYPE.DRAWER.POST_VIEW,
+  TYPE.DRAWER.POST_CREATE,
+  TYPE.DRAWER.POST_EDIT,
   // job
-  TYPE.PREVIEW_JOB_VIEW,
-  TYPE.PREVIEW_JOB_CREATE,
-  TYPE.PREVIEW_JOB_EDIT,
+  TYPE.DRAWER.JOB_VIEW,
+  TYPE.DRAWER.JOB_CREATE,
+  TYPE.DRAWER.JOB_EDIT,
   // repo
-  TYPE.PREVIEW_REPO_VIEW,
-  TYPE.PREVIEW_REPO_CREATE,
+  TYPE.DRAWER.REPO_VIEW,
+  TYPE.DRAWER.REPO_CREATE,
   // video
-  TYPE.PREVIEW_VIDEO_VIEW,
-  TYPE.PREVIEW_VIDEO_CREATE,
-  TYPE.PREVIEW_VIDEO_EDIT,
+  TYPE.DRAWER.VIDEO_VIEW,
+  TYPE.DRAWER.VIDEO_CREATE,
+  TYPE.DRAWER.VIDEO_EDIT,
   // mails
-  TYPE.PREVIEW_MAILS_VIEW,
+  TYPE.DRAWER.MAILS_VIEW,
 ]
+
+const Animation = T.model('Animation', {
+  from: T.optional(T.enumeration('from', ['top', 'bottom']), 'bottom'),
+})
 
 const Attachment = T.model('Attachment', {
   id: T.string,
   type: T.optional(
     T.enumeration('type', [...THREAD_CONTENT_CURD_TYPES]),
-    TYPE.PREVIEW_POST_VIEW,
+    TYPE.DRAWER.POST_VIEW,
   ),
   title: T.string,
   body: T.maybeNull(T.string),
@@ -64,21 +68,23 @@ const Attachment = T.model('Attachment', {
   originalAuthorLink: T.maybeNull(T.string),
 })
 
-const PreviewStore = T.model('PreviewStore', {
+const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
+  // only works for mobile view
+  animation: T.optional(Animation, { from: 'bottom' }),
   windowWidth: T.optional(T.number, 1520),
   type: T.maybeNull(
     T.enumeration('previewType', [
-      TYPE.PREVIEW_ROOT_STORE,
+      TYPE.DRAWER.ROOT_STORE,
       // account
-      TYPE.PREVIEW_ACCOUNT_VIEW,
-      TYPE.PREVIEW_USER_VIEW,
-      TYPE.PREVIEW_ACCOUNT_EDIT,
+      TYPE.DRAWER.ACCOUNT_VIEW,
+      TYPE.DRAWER.USER_VIEW,
+      TYPE.DRAWER.ACCOUNT_EDIT,
       // article types
       ...THREAD_CONTENT_CURD_TYPES,
       //
-      TYPE.PREVIEW_C11N_SETTINGS,
-      TYPE.PREVIEW_MOBILE_NAVI_MENU,
+      TYPE.DRAWER.C11N_SETTINGS,
+      TYPE.DRAWER.MOBILE_NAVI_MENU,
     ]),
   ),
   attUser: T.maybeNull(User),
@@ -124,9 +130,9 @@ const PreviewStore = T.model('PreviewStore', {
     },
   }))
   .actions((self) => ({
-    open({ type, data, thread }) {
+    open({ type, data, thread, animation = { from: 'bottom' } }) {
       // NOTE: currently the attachment is only used for article-like content
-      if (type === TYPE.PREVIEW_USER_VIEW) {
+      if (type === TYPE.DRAWER.USER_VIEW) {
         self.attUser = merge(data, EmptyAchievement)
       } else if (data) {
         self.attachment = merge(data, { type })
@@ -137,6 +143,7 @@ const PreviewStore = T.model('PreviewStore', {
 
       self.visible = true
       self.type = type
+      self.animation = animation
       lockPage()
       if (self.media.mobile) {
         toggleGlobalBlur(true)
@@ -151,11 +158,11 @@ const PreviewStore = T.model('PreviewStore', {
       if (self.media.mobile) {
         toggleGlobalBlur(false)
       }
-      // self.type = TYPE.PREVIEW_ROOT_STORE
+      // self.type = TYPE.DRAWER.ROOT_STORE
     },
     mark(sobj) {
       markStates(sobj, self)
     },
   }))
 
-export default PreviewStore
+export default DrawerStore

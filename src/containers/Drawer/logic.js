@@ -9,8 +9,8 @@ const log = buildLog('L:Preview')
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   receive: [
-    EVENT.PREVIEW_OPEN,
-    EVENT.PREVIEW_CLOSE,
+    EVENT.DRAWER_OPEN,
+    EVENT.DRAWER_CLOSE,
     EVENT.UPLOAD_IMG_START,
     EVENT.UPLOAD_IMG_FINISH,
   ],
@@ -19,24 +19,24 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const closePreview = () => {
+export const closeDrawer = () => {
   unlockPage()
   store.close()
   store.mark({ imageUploading: false, type: null })
 
   // force call MDEditor's componentWillUnmount to store the draft
-  // wait until preview move out of the screean
+  // wait until drawer move out of the screean
   setTimeout(() => {
-    send(EVENT.PREVIEW_CLOSED)
+    send(EVENT.DRAWER_CLOSED)
     store.setViewing({ viewingThread: null })
   }, 200)
 }
 
 const DataResolver = [
   {
-    match: asyncRes(EVENT.PREVIEW_OPEN),
+    match: asyncRes(EVENT.DRAWER_OPEN),
     action: (res) => {
-      const payload = res[EVENT.PREVIEW_OPEN]
+      const payload = res[EVENT.DRAWER_OPEN]
       /*
          log('should open payload thread: ', payload.thread)
          log('should open payload id: ', payload.data.id)
@@ -44,13 +44,13 @@ const DataResolver = [
        */
 
       if (
-        payload.type !== TYPE.PREVIEW_C11N_SETTINGS &&
-        payload.type !== TYPE.PREVIEW_MOBILE_NAVI_MENU &&
+        payload.type !== TYPE.DRAWER.C11N_SETTINGS &&
+        payload.type !== TYPE.DRAWER.MOBILE_NAVI_MENU &&
         (store.media.mobile || store.media.tablet)
       ) {
         const { thread, data, type } = payload
         let targetUrl
-        if (type === TYPE.PREVIEW_USER_VIEW) {
+        if (type === TYPE.DRAWER.USER_VIEW) {
           targetUrl = `/user/${data.login}`
         } else {
           const communityRaw =
@@ -67,8 +67,8 @@ const DataResolver = [
     },
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSE),
-    action: () => closePreview(),
+    match: asyncRes(EVENT.DRAWER_CLOSE),
+    action: () => closeDrawer(),
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_START),

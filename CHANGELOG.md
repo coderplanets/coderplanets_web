@@ -48,7 +48,7 @@
 
 - [x] user pannel prototype
 - [x] login prototype
-- [x] basic container like preview, doraemon, sidebar ...
+- [x] basic container like drawer, doraemon, sidebar ...
 - [x] use vscode's svg logo instead of devicon
 - [x] app structure refactor in depth
 - [x] basic "how should this web-app look like" prototype

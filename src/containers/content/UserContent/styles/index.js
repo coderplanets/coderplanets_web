@@ -20,7 +20,7 @@ export const MainWrapper = styled.div`
   padding: 20px;
   padding-top: 6px;
   min-height: 600px;
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   margin-right: 35px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   width: 70%;

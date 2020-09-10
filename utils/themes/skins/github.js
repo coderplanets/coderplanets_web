@@ -119,7 +119,7 @@ const github = {
     searchInputBottomActive: '#3B8250',
     searchInputHolder: '#3B3948',
   },
-  preview: {
+  drawer: {
     title: threadTitle,
     desc: descText,
     font: primaryColor,

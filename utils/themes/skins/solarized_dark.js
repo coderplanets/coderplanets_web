@@ -121,7 +121,7 @@ const solarizedDark = {
     searchInputBottomActive: '#2e78a4',
     searchInputHolder: '#17414E',
   },
-  preview: {
+  drawer: {
     title: primaryColor,
     desc: '#1b6d88',
     font: fontColor,

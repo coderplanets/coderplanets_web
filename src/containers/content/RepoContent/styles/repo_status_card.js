@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   max-width: 300px;
   width: 100%;
   flex-wrap: wrap;
-  background: ${theme('preview.articleBg')};
+  background: ${theme('drawer.articleBg')};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 15px;
   ${cs.media.mobile`

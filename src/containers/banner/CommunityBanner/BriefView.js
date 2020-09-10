@@ -9,7 +9,7 @@ import {
   TabBarWrapper,
 } from './styles/brief_view'
 
-import { tabberChange } from './logic'
+import { tabOnChange } from './logic'
 
 const BriefView = ({ community, activeThread, layout }) => (
   <Wrapper>
@@ -17,7 +17,7 @@ const BriefView = ({ community, activeThread, layout }) => (
       <TabBarWrapper>
         <TabBar
           source={community.threads}
-          onChange={tabberChange}
+          onChange={tabOnChange}
           active={activeThread}
           layout={layout}
           communityRaw={community.raw}

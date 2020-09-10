@@ -13,8 +13,8 @@ const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_REPOS,
-    EVENT.PREVIEW_CLOSED,
-    EVENT.TABBER_CHANGE,
+    EVENT.DRAWER_CLOSED,
+    EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
   ],
 })
@@ -60,8 +60,8 @@ export const onPageChange = (page) => {
 
 export const onPreview = (data) => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  send(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_REPO_VIEW,
+  send(EVENT.DRAWER_OPEN, {
+    type: TYPE.DRAWER.REPO_VIEW,
     thread: THREAD.REPO,
     data,
   })
@@ -78,7 +78,7 @@ export const onPreview = (data) => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
+  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.REPO_CREATE })
 }
 
 export const onTagSelect = (tag) => {
@@ -121,9 +121,9 @@ const DataSolver = [
     action: ({ partialTags: tags }) => store.mark({ tags }),
   },
   {
-    match: asyncRes(EVENT.TABBER_CHANGE),
+    match: asyncRes(EVENT.THREAD_CHANGE),
     action: (res) => {
-      const { data } = res[EVENT.TABBER_CHANGE]
+      const { data } = res[EVENT.THREAD_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.REPO) {
         store.mark({ activeTag: null })
@@ -136,7 +136,7 @@ const DataSolver = [
     action: () => loadRepos(),
   },
   {
-    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.DRAWER_CLOSED),
     action: () => {
       store.setViewing({ repo: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })

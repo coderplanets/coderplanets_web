@@ -10,7 +10,7 @@ import {
   extractAttachments,
   extractMentions,
   updateEditing,
-  closePreviewer,
+  closeDrawer,
   cast,
   nilOrEmpty,
   errRescue,
@@ -90,7 +90,7 @@ export const onPublish = () => {
 export const cancelPublish = () => {
   cancelLoading()
   // store.reset()
-  closePreviewer()
+  closeDrawer()
 }
 
 export const onUploadImageDone = (url) =>
@@ -119,14 +119,14 @@ const openAttachment = (att) => {
   if (!att) return false
   // const { id, title, body, digest } = att
   const { type } = att
-  if (type === TYPE.PREVIEW_JOB_EDIT) loadJob(att.id)
+  if (type === TYPE.DRAWER.JOB_EDIT) loadJob(att.id)
 
   store.updateEditing(att)
   store.mark({ isEdit: true })
 }
 
 const doneCleanUp = () => {
-  closePreviewer()
+  closeDrawer()
   store.reset()
   cancelLoading()
 }
