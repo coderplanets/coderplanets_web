@@ -1,5 +1,25 @@
+import { TYPE } from '@/constant'
+
 export const WIDE_WIDTH = '70%'
 export const NARROW_WIDTH = '40%'
+
+export const WIDE_CASE = [
+  // post
+  TYPE.DRAWER.POST_VIEW,
+  TYPE.DRAWER.POST_CREATE,
+  TYPE.DRAWER.POST_EDIT,
+  // job
+  TYPE.DRAWER.JOB_VIEW,
+  TYPE.DRAWER.JOB_CREATE,
+  TYPE.DRAWER.JOB_EDIT,
+  // repo
+  TYPE.DRAWER.REPO_VIEW,
+  TYPE.DRAWER.REPO_CREATE,
+  // video
+  TYPE.DRAWER.VIDEO_VIEW,
+  // mails
+  TYPE.DRAWER.MAILS_VIEW,
+]
 
 export const getTransform = (visible, mobile, animation) => {
   if (!mobile) {

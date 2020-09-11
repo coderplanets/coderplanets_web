@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTheme } from 'styled-components'
 
 import { useMedia } from '@/hooks'
@@ -24,13 +24,35 @@ const Viewer = ({
 }) => {
   const { mobile } = useMedia()
   const theme = useTheme()
+  const [mobileVisible, setMobileVisible] = useState(false)
+
+  /**
+   * is open drawer in mobile, should delay visible 200 milisec
+   * wait for transition reset when animation switch between bottom/top
+   * otherwise the drawer will slide from last positon
+   * -----
+   * 当在手机上打开滑块时，需要延迟 200 毫秒，以便让 transiton 复位，否则会导致
+   * 在上下切换动画时 Drawer 会从上次结束的地方滑出。
+   */
+  useEffect(() => {
+    if (mobile && visible) {
+      setTimeout(() => {
+        setMobileVisible(true)
+      }, 200)
+    } else {
+      setMobileVisible(false)
+    }
+  }, [mobile, visible])
+
+  const mobileDrawerVisible = visible ? mobileVisible : false
+  const drawerVisible = !mobile ? visible : mobileDrawerVisible
 
   return (
     <div>
       <DrawerOverlay visible={visible} onClick={closeDrawer} />
       <DrawerWrapper
         testId="drawer-sidebar-panel"
-        visible={visible}
+        visible={drawerVisible}
         rightOffset={rightOffset}
         type={type}
         mobile={mobile}
