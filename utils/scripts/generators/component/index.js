@@ -6,7 +6,7 @@
 
 'use strict'
 
-const componentExists = require('../../component_exists.js')
+const componentExists = require('../helper/component_exists')
 
 const TARGET_DIR = '../../../src/components'
 
@@ -25,10 +25,10 @@ module.exports = {
       name: 'name',
       message: 'What should it be called?',
       default: 'Button',
-      validate: value => {
+      validate: (value) => {
         if (/.+/.test(value)) {
           return componentExists(value)
-            ? 'A component or container with this name already exists'
+            ? `${value} is already exists in 'src/components/${value}'`
             : true
         }
 
@@ -48,7 +48,7 @@ module.exports = {
       message: 'Does it have styles?',
     },
   ],
-  actions: data => {
+  actions: (data) => {
     // Generate index.js and index.test.js
     let componentTemplate
 
