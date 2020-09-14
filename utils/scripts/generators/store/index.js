@@ -6,7 +6,7 @@
 
 'use strict'
 
-const componentExists = require('../../component_exists.js')
+const componentExists = require('../helper/component_exists')
 
 module.exports = {
   description: 'Add an store',
@@ -16,7 +16,7 @@ module.exports = {
       name: 'name',
       message: 'What should it be called (end with Store)?',
       default: 'OvenStore',
-      validate: value => {
+      validate: (value) => {
         if (/.+/.test(value)) {
           return componentExists(value)
             ? 'A Store with this name already exists'

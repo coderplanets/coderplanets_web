@@ -6,8 +6,8 @@
 
 'use strict'
 
-const componentExists = require('../../component_exists.js')
-const containerScopes = require('../container_scopes')
+const componentExists = require('../helper/component_exists')
+const containerScopes = require('../helper/container_scopes')
 
 const TARGET_DIR = '../../../src/containers'
 const STORE_TARGET_DIR = '../../../src/stores'
