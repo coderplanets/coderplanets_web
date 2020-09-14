@@ -1,14 +1,14 @@
 /**
  * containerScopes
  *
- * Check whether the given component exist in either the components or pages directory
+ * list current lowercase dir in containers dir
  */
 
 const fs = require('fs')
 const path = require('path')
 
 const containers = fs.readdirSync(
-  path.join(__dirname, '../../../src/containers'),
+  path.join(__dirname, '../../../../src/containers'),
 )
 // const appPages = fs.readdirSync(path.join(__dirname, '../../../src/pages'))
 // const containers = appComponents.concat(appPages)

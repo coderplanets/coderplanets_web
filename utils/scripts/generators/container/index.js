@@ -6,7 +6,7 @@
 
 'use strict'
 
-const componentExists = require('../helper/component_exists')
+const containerExists = require('../helper/container_exists')
 const containerScopes = require('../helper/container_scopes')
 
 const TARGET_DIR = '../../../src/containers'
@@ -28,10 +28,10 @@ module.exports = {
       name: 'name',
       message: '[名称] What should it be called?',
       default: 'Oven',
-      validate: (value) => {
+      validate: (value, data) => {
         if (/.+/.test(value)) {
-          return componentExists(value)
-            ? 'A component or container with this name already exists'
+          return containerExists(value)
+            ? `${value} is already exists in 'src/containers/${data.scope}/${value}'`
             : true
         }
 
