@@ -7,17 +7,26 @@
 'use strict'
 
 const componentExists = require('../../component_exists.js')
+const containerScopes = require('../container_scopes')
 
 const TARGET_DIR = '../../../src/containers'
 const STORE_TARGET_DIR = '../../../src/stores'
 
+const scopes = containerScopes()
+
 module.exports = {
-  description: 'Add an connected container',
+  description: 'Add a container with scope',
   prompts: [
+    {
+      type: 'list',
+      name: 'scope',
+      message: '[命名空间] what scope of this container?',
+      choices: scopes,
+    },
     {
       type: 'input',
       name: 'name',
-      message: 'What should it be called?',
+      message: '[名称] What should it be called?',
       default: 'Oven',
       validate: (value) => {
         if (/.+/.test(value)) {
@@ -33,13 +42,13 @@ module.exports = {
       type: 'confirm',
       name: 'wantSchema',
       default: true,
-      message: 'Do you want network schema?',
+      message: '[是否需要 GraphQL schema] Do you want network GraphQL schema?',
     },
     {
       type: 'confirm',
       name: 'wantI18n',
       default: false,
-      message: 'Do you want i18n messages (i.e. will this container use text)?',
+      message: '[是否需要国际化] Do you want i18n messages?',
     },
   ],
   actions: (data) => {
@@ -47,38 +56,38 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/index.js`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/index.js`,
         // templateFile: './container/class.js.hbs',
         templateFile: './container/hooks.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/logic.js`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/logic.js`,
         templateFile: './container/logic.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/store.js`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/store.js`,
         templateFile: './container/store.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/styles/index.js`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/styles/index.js`,
         templateFile: './container/styles.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/tests/index.test.js`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/tests/index.test.js`,
         templateFile: './container/test.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/tests/store.test.js`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/tests/store.test.js`,
         templateFile: './container/store.test.js.hbs',
         abortOnFail: true,
       },
@@ -86,8 +95,7 @@ module.exports = {
         type: 'append',
         path: `${STORE_TARGET_DIR}/index.js`,
         pattern: /(\/\/ GEN: EXPORT CONTAINERS STORE HERE)/g,
-        template:
-          'export {{preCurly ""}} default as {{ properCase name}}Store {{afterCurly ""}} from "@/containers/{{properCase name}}/store"',
+        template: `export {{preCurly ""}} default as {{ properCase name}}Store {{afterCurly ""}} from '@/containers/${data.scope}/{{properCase name}}/store'`,
       },
       {
         type: 'append',
@@ -107,7 +115,7 @@ module.exports = {
     if (data.wantSchema) {
       actions.push({
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/schema.js`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/schema.js`,
         templateFile: './container/schema.js.hbs',
         abortOnFail: true,
       })
