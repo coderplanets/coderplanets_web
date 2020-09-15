@@ -4,8 +4,9 @@ import Img from '@/Img'
 import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
-  align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
+  /* ${cs.flex('align-center')}; */
+  /* align-items: ${({ descExpand }) =>
+    descExpand ? 'flex-start' : 'center'}; */
 `
 export const Normal = styled.div`
   color: ${theme('banner.desc')};
@@ -22,14 +23,19 @@ export const Normal = styled.div`
     ${cs.truncate('180px')};
   `}; */
 `
+export const IconWrapper = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 15px;
+  margin-left: 6px;
+`
 export const MoreIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   width: 15px;
   height: 15px;
-  display: block;
+  display: inline-block;
   cursor: pointer;
   opacity: 0.6;
-  margin-left: 5px;
 
   &:hover {
     color: ${theme('banner.title')};
@@ -37,18 +43,22 @@ export const MoreIcon = styled(Img)`
   }
   transition: all 0.25s;
 `
-export const UpWrapper = styled.div`
-  ${cs.flex('align-center')};
+export const UpWrapper = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 15px;
   cursor: pointer;
-  margin-top: 12px;
   opacity: 0.8;
-  margin-left: 10px;
+  margin-left: 12px;
 
   &:hover {
     color: ${theme('banner.title')};
     opacity: 1;
   }
   transition: all 0.25s;
+`
+export const IconWithTextWrapper = styled.div`
+  ${cs.flex('align-both')};
 `
 export const UpIcon = styled(Img)`
   fill: #2cb4aa;
