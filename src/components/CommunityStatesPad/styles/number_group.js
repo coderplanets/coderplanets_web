@@ -32,8 +32,8 @@ export const NumberItem = styled.div`
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
   }
 
-  ${cs.media.tablet`font-size: 1.2rem;`};
-  ${cs.media.mobile`font-size: 1.2rem;`};
+  ${cs.media.tablet`font-size: 16px;`};
+  ${cs.media.mobile`font-size: 16px;`};
 `
 export const LargeNumberItem = styled(NumberItem)`
   font-size: 28px;
