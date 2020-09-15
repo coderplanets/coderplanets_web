@@ -35,6 +35,13 @@ export const InnerWrapper = styled.div`
     margin-top: 0px;
     padding-top: 8px;
   `};
+
+  ${cs.media.mobile`
+    margin: 0 3%;
+    margin-left: 2%;
+    margin-top: 0px;
+    padding-top: 8px;
+  `};
 `
 export const TabBarWrapper = styled.div`
   width: 100%;

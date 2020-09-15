@@ -18,12 +18,12 @@ import {
   Brief,
   Title,
   SecondHalf,
-  CommentsDiget,
+  CommentsDigest,
   BodyDigest,
-  PublishLable,
+  PublishLabel,
   Extra,
   TagListWrapper,
-} from './styles'
+} from '../styles'
 
 // import { Wrapper } from './styles'
 
@@ -79,13 +79,13 @@ const DigestView = ({
           <Extra>
             {entry.author.nickname}
             {entry.copyRight === 'original' ? (
-              <PublishLable>&nbsp;发布于:</PublishLable>
+              <PublishLabel>&nbsp;发布于:</PublishLabel>
             ) : (
-              <PublishLable>&nbsp;搬运于:</PublishLable>
+              <PublishLabel>&nbsp;搬运于:</PublishLabel>
             )}
             <TimeAgo datetime={entry.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
             {entry.views}
-            <CommentsDiget>⁝ 评论: {entry.commentsCount}</CommentsDiget>
+            <CommentsDigest>⁝ 评论: {entry.commentsCount}</CommentsDigest>
           </Extra>
           <BodyDigest>{cutFrom(entry.digest, 90)}</BodyDigest>
         </SecondHalf>

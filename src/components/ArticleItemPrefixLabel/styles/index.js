@@ -25,8 +25,9 @@ export const PinIcon = styled(PinSVG)`
   left: -24px;
 
   ${cs.media.mobile`
-    width: 18px;
-    height: 18px;
-    left: -12px;
+    width: 16px;
+    height: 16px;
+    top: 25px;
+    left: -13px;
   `};
 `

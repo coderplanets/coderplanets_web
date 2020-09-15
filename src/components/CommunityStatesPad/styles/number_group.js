@@ -33,7 +33,10 @@ export const NumberItem = styled.div`
   }
 
   ${cs.media.tablet`font-size: 16px;`};
-  ${cs.media.mobile`font-size: 16px;`};
+  ${cs.media.mobile`
+    font-size: 16px;
+    margin-bottom: 2px;
+  `};
 `
 export const LargeNumberItem = styled(NumberItem)`
   font-size: 28px;

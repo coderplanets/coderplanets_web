@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${cs.flex()};
   text-align: center;
   ${cs.media.mobile`
-    margin-top: -2px;
+    margin-top: -4px;
   `};
 `
 export const NumberSection = styled.div`

@@ -32,4 +32,5 @@ export const FilterWrapper = styled.div`
   ${cs.flex('align-center')};
   margin-bottom: 8px;
   margin-left: -4px;
+  ${cs.media.mobile`margin-bottom: 4px;`};
 `
