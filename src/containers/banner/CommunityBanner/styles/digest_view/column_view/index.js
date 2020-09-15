@@ -74,6 +74,10 @@ export const CommunityInfo = styled.div`
 
   margin-top: -6px;
   margin-left: 12px;
+
+  ${cs.media.mobile`
+    margin-left: 6px;
+  `};
 `
 export const TitleWrapper = styled.div`
   ${cs.flex('align-center')};

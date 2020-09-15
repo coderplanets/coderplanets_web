@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
 
   margin-left: ${({ type }) => (type === 'brief' ? '5px' : '10px')};
   font-size: 15px;
+
+  ${cs.media.mobile`
+    margin-left: 2px;
+  `};
 `
 export const DotDivider = styled(DotDividerBase)`
   background-color: ${theme('banner.desc')};

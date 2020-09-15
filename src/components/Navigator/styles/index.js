@@ -25,6 +25,11 @@ export const DotDivider = styled(DotDividerBase)`
   margin-right: 0;
   width: 4px;
   height: 4px;
+
+  ${cs.media.mobile`
+    margin-left: 2px;
+    margin-right: 2px;
+  `};
 `
 // font-family: cursive; // not general
 export const LogoText = styled.a`
