@@ -102,7 +102,7 @@ const DigestView = ({
               {entry.commentsCount}
             </ExtraTexts>
           </Extra>
-          <BodyDigest>{cutFrom(entry.digest, 22)}</BodyDigest>
+          <BodyDigest>{cutFrom(entry.digest, 20)}</BodyDigest>
         </SecondHalf>
       </Main>
     </React.Fragment>

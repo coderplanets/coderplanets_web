@@ -50,7 +50,7 @@ export const Avatar = styled(Img)`
 `
 export const AvatarFallback = styled.div`
   ${cs.flex('align-both')};
-  ${cs.circle('38px')};
+  ${cs.circle('30px')};
   font-size: 20px;
   color: ${theme('thread.articleTitle')};
   background-color: #164858; /*${theme('thread.articleHover')}; */
@@ -144,7 +144,7 @@ export const BodyDigest = styled.li`
   color: ${theme('thread.articleDigest')};
   white-space: normal;
   display: block;
-  font-size: 13px;
+  font-size: 12px;
   max-width: 96%;
 `
 export const CommentWrapper = styled.div`
