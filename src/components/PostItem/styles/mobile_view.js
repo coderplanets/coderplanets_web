@@ -54,6 +54,7 @@ export const AvatarFallback = styled.div`
   font-size: 20px;
   color: ${theme('thread.articleTitle')};
   background-color: #164858; /*${theme('thread.articleHover')}; */
+  margin-top: 12px;
 `
 export const SmallAvatar = styled(Avatar)`
   width: 35px;
@@ -91,7 +92,7 @@ export const Brief = styled.div`
   }
 `
 export const Title = styled.div`
-  font-size: 15.5px;
+  font-size: 16px;
   @media (max-width: 1450px) {
     max-width: 500px;
   }
