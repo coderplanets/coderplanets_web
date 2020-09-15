@@ -30,4 +30,8 @@ export const InnerWrapper = styled(InnerWrapperBase)`
     padding-left: 8vw;
     padding-right: 10vw;
   `};
+  ${cs.media.mobile`
+    padding-left: 9vw;
+    padding-right: 0;
+  `};
 `

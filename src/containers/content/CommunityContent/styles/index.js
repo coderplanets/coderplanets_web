@@ -12,8 +12,8 @@ export const Wrapper = styled.div.attrs((props) => ({
   ${cs.media.tablet`
     width: 100%;
     margin: 0;
-    margin-top: 10px;
     padding: .6em;
+    padding-top: 0;
     padding-right: 0;
   `};
 `
@@ -32,7 +32,15 @@ export const InnerWrapper = styled.div`
 
   ${cs.media.laptopL`
     margin: 0 4.2%;
-    margin-top: 20px;
+    margin-top: 0px;
+    padding-top: 8px;
+  `};
+
+  ${cs.media.mobile`
+    margin: 0 3%;
+    margin-left: 2%;
+    margin-top: 0px;
+    padding-top: 8px;
   `};
 `
 export const TabBarWrapper = styled.div`

@@ -11,7 +11,7 @@ import { C11N } from '@/constant'
 import { buildLog } from '@/utils'
 
 import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
-import DigestView from './DigestView'
+import DigestView from './DigestView/index'
 import ListView from './ListView'
 
 import { Wrapper } from './styles'

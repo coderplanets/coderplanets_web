@@ -1,5 +1,5 @@
 import React from 'react'
-// import { length } from 'stringz'
+
 import { ICON_CMD } from '@/config'
 import { useMedia } from '@/hooks'
 import { cutFrom } from '@/utils'
@@ -7,38 +7,42 @@ import { cutFrom } from '@/utils'
 import {
   Wrapper,
   Normal,
+  IconWrapper,
   MoreIcon,
   UpWrapper,
+  IconWithTextWrapper,
   UpIcon,
   UpText,
 } from './styles/expand_texts'
 import { toggleDescExpand } from './logic'
 
 const text =
-  '全球疫情催生了很多断章取义的新闻，我发现各路媒体现在特别会抓网民的爽点深谙撩拨之道，知道哪里轻轻一碰，就会引发高潮。美国和欧洲在疫情早期判断错误，死硬到底拒不管制，现在被现实打脸纷纷封城，这种剧情反转的打脸情节特别爽，以至于这条“巴西黑帮封城”的新闻，也被媒体写出了爽文的风格'
+  '全球疫情催生了很多断章取义的新闻，我发现各路媒体现在特别会抓网民的爽点深谙撩拨之道，知道哪里轻轻一碰，就会引发高潮。美国和欧洲在疫情早期判断错误，死硬到底拒不管制，现在被现实打脸纷纷封城，这种剧情反转的打脸情节特别爽，以至于这条“巴西黑帮封城”的新闻.'
 
 const ExpandTexts = ({ descExpand }) => {
   const { mobile } = useMedia()
 
-  const cutLength = !mobile ? 26 : 16
+  const cutLength = !mobile ? 26 : 12
 
   return (
     <Wrapper descExpand={descExpand}>
       {descExpand ? (
-        <Normal margin>{text}</Normal>
+        <Normal margin>
+          {text}
+          <UpWrapper onClick={toggleDescExpand}>
+            <IconWithTextWrapper>
+              <UpIcon src={`${ICON_CMD}/community_expand_up.svg`} />
+              <UpText>收起</UpText>
+            </IconWithTextWrapper>
+          </UpWrapper>
+        </Normal>
       ) : (
-        <Normal>{cutFrom(text, cutLength)}</Normal>
-      )}
-
-      {descExpand ? (
-        <UpWrapper onClick={toggleDescExpand}>
-          <UpIcon src={`${ICON_CMD}/community_expand_up.svg`} />
-          <UpText>收起</UpText>
-        </UpWrapper>
-      ) : (
-        <div onClick={toggleDescExpand}>
-          <MoreIcon src={`${ICON_CMD}/community_expand_more2.svg`} />
-        </div>
+        <Normal>
+          {cutFrom(text, cutLength)}
+          <IconWrapper onClick={toggleDescExpand}>
+            <MoreIcon src={`${ICON_CMD}/community_expand_more2.svg`} />
+          </IconWrapper>
+        </Normal>
       )}
     </Wrapper>
   )

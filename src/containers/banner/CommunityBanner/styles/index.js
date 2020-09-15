@@ -30,7 +30,8 @@ export const BaseTabber = styled.div`
   overflow-y: hidden;
 
   ${cs.media.tablet`
-    left: 10px;
-    width: 100%;
+    left: 0;
+    width: calc(100% - 5%);
+    padding-left: calc(3% + 15px);
   `};
 `
