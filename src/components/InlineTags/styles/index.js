@@ -17,6 +17,12 @@ export const Title = styled.div`
   color: ${theme('thread.articleTag')};
   opacity: 0.8;
   font-size: 0.8rem;
+
+  ${cs.media.mobile`
+    color: ${theme('thread.articleDigest')};
+    font-size: 12px;
+    opacity: 1;
+  `};
 `
 export const MoreText = styled.div``
 export const Dot = styled.div`
@@ -26,6 +32,10 @@ export const Dot = styled.div`
   margin-top: -1px;
 
   opacity: ${theme('tags.dotOpacity')};
+
+  ${cs.media.mobile`
+    ${cs.circle('8px')};
+  `};
 `
 export const PopoverInfo = styled.div`
   padding: 10px;
