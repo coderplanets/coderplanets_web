@@ -3,6 +3,7 @@ import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { NON_FILL_COMMUNITY } from '@/constant'
+import { useMedia } from '@/hooks'
 
 import VerifiedSign from '@/components/VerifiedSign'
 import TabBar from '@/components/TabBar'
@@ -46,7 +47,7 @@ const CommunityBrief = ({ content, descExpand }) => {
       <LogoWrapper raw={content.raw}>
         {content.logo ? (
           <CommunityLogo
-            small={contains(content.raw, NON_STANDARD_COMMUNITIES)}
+            isSmall={contains(content.raw, NON_STANDARD_COMMUNITIES)}
             nonFill={contains(content.raw, NON_FILL_COMMUNITY)}
             src={content.logo}
             raw={content.raw}
@@ -72,10 +73,13 @@ const CommunityBrief = ({ content, descExpand }) => {
 }
 
 const ColumnView = ({ community, descExpand, activeThread, layout }) => {
+  const { mobile } = useMedia()
+
   return (
     <Wrapper
       descExpand={descExpand}
-      small={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+      noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+      mobile={mobile}
     >
       <InnerWrapper>
         <BannerContentWrapper descExpand={descExpand}>
