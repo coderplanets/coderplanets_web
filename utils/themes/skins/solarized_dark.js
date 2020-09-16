@@ -109,7 +109,7 @@ const solarizedDark = {
     activeBar: '#2598ca',
     holder: lighten(0.15, sidebarBg),
     logoText: primaryColor,
-    menuHover: lighten(0.1, sidebarBg),
+    menuHover: lighten(0.05, sidebarBg),
     pinActive: '#227B7F',
     menuLink: '#7e98a9',
     borderColor: '#14363E',

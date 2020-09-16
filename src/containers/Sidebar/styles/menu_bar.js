@@ -70,7 +70,7 @@ export const MenuItemIcon = styled(CommunityFaceLogo)`
 export const MenuItemTitle = styled.div`
   /* flex-grow: 1; */
   width: ${({ pin }) => (pin ? '100%' : '1px')};
-  max-width: ${({ pin }) => (pin ? '50%' : '')};
+  max-width: ${({ pin }) => (pin ? '52%' : '')};
   visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
   overflow: hidden;
   color: ${theme('sidebar.menuLink')};
@@ -96,10 +96,14 @@ export const MenuItemTitle = styled.div`
 `
 export const MiniChartWrapper = styled.div`
   display: ${({ pin }) => (pin ? 'flex' : 'none')};
-  width: 28%;
-  justify-content: flex-end;
+  width: 45%;
+  justify-content: center;
   align-items: center;
-  position: relative;
+  margin-right: 10px;
+
+  svg {
+    width: 100%;
+  }
 
   ${SidebarWrapper}:hover & {
     display: flex;
