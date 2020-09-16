@@ -8,6 +8,7 @@ import React from 'react'
 
 import { ROUTE, C11N } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
+import { useMedia } from '@/hooks'
 
 import TabBar from '@/components/TabBar'
 import PostsThread from '@/containers//thread/PostsThread'
@@ -52,6 +53,7 @@ const ComunityContent = ({ curRoute }) => {
 
 const CommunityContentContainer = ({ communityContent: store }) => {
   useInit(store)
+  const { mobile } = useMedia()
 
   const {
     curRoute,
@@ -63,8 +65,8 @@ const CommunityContentContainer = ({ communityContent: store }) => {
 
   return (
     <Wrapper testId="community-content">
-      <InnerWrapper lessMargin={bannerLayout === C11N.DIGEST_ROW}>
-        {bannerLayout === C11N.DIGEST_ROW && (
+      <InnerWrapper lessMargin={!mobile && bannerLayout === C11N.DIGEST_ROW}>
+        {!mobile && bannerLayout === C11N.DIGEST_ROW && (
           <TabBarWrapper>
             <TabBar
               source={community.threads}

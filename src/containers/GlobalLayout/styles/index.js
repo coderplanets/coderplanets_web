@@ -34,8 +34,10 @@ export const InnerWrapper = styled.div`
 `
 export const BodyWrapper = styled.div`
   display: flex;
-  flex-direction: ${({ layout }) =>
-    layout === C11N.DIGEST ? 'column' : 'row'};
+  flex-direction: ${({ layout, mobile }) => {
+    if (mobile) return 'column'
+    return layout === C11N.DIGEST ? 'column' : 'row'
+  }};
 `
 // 180 is the sidebar full width
 export const ContentPinWrapper = styled.div`
