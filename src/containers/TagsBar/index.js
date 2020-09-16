@@ -7,20 +7,20 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { VIEW } from '@/constant'
+
 import DesktopView from './DesktopView'
 import CardView from './CardView'
 
 const TagsBar = (props) => {
   const { view } = props
-  console.log('props -> ', props)
-  console.log('view: ', view)
   switch (view) {
-    case 'mobile': {
+    case VIEW.MOBILE: {
       // TODO:
       return <DesktopView {...props} />
     }
 
-    case 'community_card': {
+    case VIEW.COMMUNITY_CARD: {
       return <CardView {...props} />
     }
 
@@ -31,11 +31,11 @@ const TagsBar = (props) => {
 }
 
 TagsBar.propTypes = {
-  view: T.oneOf(['desktop', 'mobile', 'community_card']),
+  view: T.oneOf([VIEW.DESKTOP, VIEW.MOBILE, VIEW.COMMUNITY_CARD]),
 }
 
 TagsBar.defaultProps = {
-  view: 'desktop',
+  view: VIEW.DESKTOP,
 }
 
 export default TagsBar

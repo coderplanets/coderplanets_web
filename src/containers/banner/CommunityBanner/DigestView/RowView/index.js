@@ -1,7 +1,7 @@
 import React from 'react'
 import { contains } from 'ramda'
 
-import { THREAD, NON_FILL_COMMUNITY } from '@/constant'
+import { THREAD, NON_FILL_COMMUNITY, VIEW } from '@/constant'
 import { ICON_CMD } from '@/config'
 
 import TagsBar from '@/containers/TagsBar'
@@ -97,7 +97,7 @@ const RowView = ({ community, descExpand, isHeaderFixed }) => {
               threads
               <Divider />
               <TagsBar
-                view="community_card"
+                view={VIEW.COMMUNITY_CARD}
                 thread={THREAD.POST}
                 // onSelect={onTagSelect}
                 // active={activeTagData}
