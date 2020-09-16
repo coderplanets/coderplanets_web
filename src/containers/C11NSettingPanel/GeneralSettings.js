@@ -2,6 +2,7 @@ import React from 'react'
 import { contains } from 'ramda'
 
 import { THREAD, C11N } from '@/constant'
+import { useMedia } from '@/hooks'
 
 import { Br } from '@/components/Common'
 import { Radio } from '@/components/Switcher'
@@ -10,6 +11,8 @@ import { Wrapper, Title, Desc, Divider } from './styles/gerneral_settings'
 import { onC11NChange } from './logic'
 
 const GeneralSettings = ({ curThread, customization }) => {
+  const { mobile } = useMedia()
+
   const {
     bannerLayout,
     contentsLayout,
@@ -22,7 +25,7 @@ const GeneralSettings = ({ curThread, customization }) => {
   return (
     <Wrapper>
       <Title>布局模式</Title>
-      <Desc>社区布局的显示模式。</Desc>
+      <Desc>社区布局的显示模式 {mobile && '(手机端左右布局不生效)'}。</Desc>
       <Br top="10px" />
       <Radio
         items={[
@@ -33,6 +36,7 @@ const GeneralSettings = ({ curThread, customization }) => {
           {
             value: '左右布局',
             key: C11N.DIGEST_ROW,
+            dimOnActive: mobile,
           },
           {
             value: '简洁布局',
