@@ -8,9 +8,10 @@ import DiscussLinker from '@/components/DiscussLinker'
 import {
   Wrapper,
   InnerWrapper,
-  SettingIcon,
   OptionWrapper,
   OptionItem,
+  OptionIcon,
+  OptionText,
   OptionDivider,
 } from './styles/footer'
 
@@ -20,17 +21,20 @@ const Footer = ({ pin, sortOptActive }) => {
   return (
     <Wrapper pin={pin}>
       <InnerWrapper pin={pin}>
-        <SettingIcon src={`${ICON_CMD}/setting.svg`} />
         <OptionWrapper pin={pin}>
           <OptionItem active={sortOptActive} onClick={() => sortBtnOnClick()}>
-            排序
+            <OptionIcon src={`${ICON_CMD}/sidebar_drag.svg`} />
+            <OptionText>排序</OptionText>
           </OptionItem>
           <OptionDivider />
           <Tooltip
             placement="top"
             content={<DiscussLinker title="分组" addr={`${ISSUE_ADDR}/597`} />}
           >
-            <OptionItem>分组</OptionItem>
+            <OptionItem>
+              <OptionIcon src={`${ICON_CMD}/sidebar_dir.svg`} />
+              <OptionText>分组</OptionText>
+            </OptionItem>
           </Tooltip>
         </OptionWrapper>
       </InnerWrapper>

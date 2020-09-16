@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
 import Img from '@/Img'
+import { theme, cs } from '@/utils'
 
 import { Wrapper as SidebarWrapper } from './index'
 
@@ -12,16 +12,8 @@ export const Wrapper = styled.div`
   z-index: 1;
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('align-start')};
+  ${cs.flex('align-center')};
   height: 5vh;
-  color: wheat;
-  padding-left: 17px;
-`
-export const SettingIcon = styled(Img)`
-  fill: ${theme('sidebar.menuLink')};
-  width: 16px;
-  height: 16px;
-  display: block;
 `
 export const OptionWrapper = styled.div`
   ${cs.flex('justify-center')};
@@ -42,12 +34,23 @@ export const OptionDivider = styled.div`
   border-right-color: ${theme('sidebar.menuLink')};
   opacity: 0.4;
 `
-
 export const OptionItem = styled.div`
+  ${cs.flex('align-center')};
+  background: ${({ active }) =>
+    active ? theme('sidebar.menuHover') : 'transparent'};
+  padding: 0 5px;
+  border-radius: 6px;
+  cursor: pointer;
+`
+export const OptionIcon = styled(Img)`
+  fill: ${theme('sidebar.menuLink')};
+  width: 12px;
+  height: 12px;
+  display: block;
+`
+export const OptionText = styled.div`
+  font-size: 13px;
+  margin-left: 5px;
   color: ${({ active }) =>
     active ? theme('sidebar.pinActive') : theme('sidebar.menuLink')};
-
-  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
-
-  cursor: pointer;
 `
