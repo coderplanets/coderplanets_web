@@ -10,7 +10,7 @@ import { BaseBanner } from '../../index'
 export const Wrapper = styled(BaseBanner)`
   ${cs.flexColumn('justify-start')};
   position: relative;
-  width: 275px;
+  width: 280px;
   height: ${({ isHeaderFixed }) =>
     isHeaderFixed ? 'calc(100vh - 70px)' : 'calc(100vh - 80px)'};
   margin-top: 20px;
@@ -19,15 +19,13 @@ export const Wrapper = styled(BaseBanner)`
   transition: height 0.25s linear;
 `
 export const ContentWrapper = styled.div`
-  padding: 10px 22px;
-  height: calc(100vh - 140px);
+  padding: 10px 20px;
   padding-bottom: 20px;
 `
 export const InnerWrapper = styled.div`
   ${cs.flexColumn()};
   width: 100%;
   height: 100%;
-  padding: 0 8px;
 `
 export const BaseBannerContent = styled.div`
   ${cs.flexColumn('align-start')};
@@ -45,35 +43,34 @@ export const BannerContentWrapper = styled(BaseBannerContent)`
 export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
 `
-export const CommunityWrapper = styled.div`
-  ${cs.flexColumn('align-center')};
-  transition: all 0.5s;
-  ${cs.media.mobile`
-    margin-left: 5%;
-`};
-`
-export const LogoWrapper = styled.div`
-  ${cs.flex('align-both')};
-  position: relative;
-  width: 95px;
-  height: 95px;
+export const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  /* TODO:  same with the avatar background */
   background: #072d3a;
-  border-radius: 100%;
+  margin-top: 18px;
+  margin-bottom: 18px;
+`
+export const CommunityWrapper = styled.div`
+  ${cs.flex('align-center', 'justify-center')};
+  width: 100%;
+  transition: all 0.5s;
+  margin-top: 16px;
+  margin-bottom: 30px;
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  margin-left: -8px;
   border-radius: 5px;
 `
 export const CommunityInfo = styled.div`
   ${cs.flexColumn('justify-center')};
-  width: 100%;
-  margin-top: 22px;
-  margin-bottom: 20px;
 `
 export const TitleWrapper = styled.div`
   ${cs.flex('align-center')};
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 `
 export const Title = styled.div`
   ${cs.flex('align-baseline')};
@@ -84,8 +81,9 @@ export const TitleText = styled.span`
   margin-right: 10px;
 `
 export const SubTitle = styled.div`
+  color: ${theme('banner.desc')};
   font-size: 14px;
-  color: ${theme('banner.title')};
+  font-weight: bold;
   margin-bottom: 12px;
 `
 export const GroupsIcon = styled(Img)`
@@ -115,11 +113,4 @@ export const LogoHolder = styled(Img)`
   }
   opacity: 0.6;
   margin-top: 3px;
-`
-export const ChartWrapper = styled.div`
-  margin-top: 30px;
-  width: 85%;
-  svg {
-    height: 100%;
-  }
 `
