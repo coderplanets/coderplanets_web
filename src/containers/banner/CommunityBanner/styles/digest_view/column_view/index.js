@@ -7,13 +7,16 @@ import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 import { BaseBanner, BaseTabber } from '../../index'
 
-const getSmallHeightSize = (isSmall) => {
-  return isSmall ? '128px' : '150px'
-}
+const getHeightSize = (noSocial, mobile) => {
+  if (mobile) {
+    return noSocial ? '118px' : '140px'
+  }
 
+  return noSocial ? '128px' : '150px'
+}
 export const Wrapper = styled(BaseBanner)`
-  min-height: ${({ descExpand, small }) =>
-    descExpand ? '300px' : getSmallHeightSize(small)};
+  min-height: ${({ descExpand, noSocial, mobile }) =>
+    descExpand ? '300px' : getHeightSize(noSocial, mobile)};
 `
 export const InnerWrapper = styled.div`
   ${cs.flex('justify-center')};

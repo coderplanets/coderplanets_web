@@ -102,7 +102,9 @@ const GlobalLayoutContainer = ({
                     }
                   >
                     <Header metric={metric} />
-                    <BodyWrapper layout={bannerLayout}>{children}</BodyWrapper>
+                    <BodyWrapper layout={bannerLayout} mobile={media.mobile}>
+                      {children}
+                    </BodyWrapper>
                     <Footer />
                   </ContentWrapper>
                 </ContentPinWrapper>
