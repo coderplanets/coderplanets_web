@@ -1,8 +1,10 @@
 import React from 'react'
 import { contains } from 'ramda'
 
+import { THREAD, NON_FILL_COMMUNITY } from '@/constant'
 import { ICON_CMD } from '@/config'
-import { NON_FILL_COMMUNITY } from '@/constant'
+
+import TagsBar from '@/containers/TagsBar'
 
 // import { SpaceGrow } from '@/components/Common'
 import Sticky from '@/components/Sticky'
@@ -73,6 +75,7 @@ const CommunityBrief = ({ content, descExpand }) => {
 
 const RowView = ({ community, descExpand, isHeaderFixed }) => {
   const offsetTop = isHeaderFixed ? 55 : 30
+  console.log('## hello')
 
   return (
     <Sticky offsetTop={offsetTop}>
@@ -93,7 +96,12 @@ const RowView = ({ community, descExpand, isHeaderFixed }) => {
               <Divider />
               threads
               <Divider />
-              tags
+              <TagsBar
+                view="community_card"
+                thread={THREAD.POST}
+                // onSelect={onTagSelect}
+                // active={activeTagData}
+              />
               <Divider />
               {/* <SpaceGrow /> */}
               <SubTitle>团队：</SubTitle>
