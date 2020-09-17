@@ -32,6 +32,7 @@ export const InnerWrapper = styled.div`
 
   ${cs.media.laptopL`
     margin: 0 4.2%;
+    margin-left: ${({ lessMargin }) => (lessMargin ? '2.5%' : '4.2%')};
     margin-top: 20px;
     padding-top: 8px;
   `};
