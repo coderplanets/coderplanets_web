@@ -1,4 +1,3 @@
-import { forEach } from 'ramda'
 import { TYPE } from '@/constant'
 // side effects, need refactor
 /* eslint-disable no-undef */
@@ -56,7 +55,7 @@ export const lockPage = () => {
   if (safeDocument) {
     const el = safeDocument.getElementById('body')
     el.style.overflowY = 'hidden'
-    /* el.style.position = 'fixed' */
+    el.style.position = 'fixed !important'
   }
 }
 
@@ -69,7 +68,7 @@ export const unlockPage = () => {
   if (safeDocument) {
     const el = safeDocument.getElementById('body')
     el.style.overflowY = 'auto'
-    /* el.style.position = '' */
+    el.style.position = ''
   }
 }
 
@@ -127,13 +126,14 @@ export const toggleGlobalBlur = (visible) => {
   const blurableEls = document.querySelectorAll(`.${TYPE.GLOBAL_BLUR_CLASS}`)
 
   if (blurableEls) {
-    forEach((el) => {
+    for (let index = 0; index < blurableEls.length; index += 1) {
+      const el = blurableEls[index]
+
       visible
         ? el.classList.add('global_blur')
         : el.classList.remove('global_blur')
-    }, blurableEls)
+    }
   }
-  visible ? lockPage() : unlockPage()
 }
 
 /* eslint-enable no-undef */
