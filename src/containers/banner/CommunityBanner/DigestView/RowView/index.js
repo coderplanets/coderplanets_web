@@ -58,8 +58,8 @@ const CommunityBrief = ({ content, descExpand }) => {
           loading={<CommunityHolder text={content.raw} />}
         />
       ) : (
-          <LogoHolder src={CommunityLogoHolder} />
-        )}
+        <LogoHolder src={CommunityLogoHolder} />
+      )}
       <CommunityInfo>
         <TitleWrapper>
           <Title descExpand={descExpand}>
@@ -99,15 +99,15 @@ const RowView = ({ community, descExpand, isHeaderFixed }) => {
               <TagsBar
                 view={VIEW.COMMUNITY_CARD}
                 thread={THREAD.POST}
-              // onSelect={onTagSelect}
-              // active={activeTagData}
+                // onSelect={onTagSelect}
+                // active={activeTagData}
               />
               <Divider />
               {/* <SpaceGrow /> */}
-              <SubTitle title='团队' num={2} />
+              <SubTitle title="团队" num={2} />
               <TeamList />
               <Divider />
-              <SubTitle title='技术栈' num={2} />
+              <SubTitle title="技术栈" num={2} />
             </BannerContentWrapper>
           </InnerWrapper>
         </ContentWrapper>
