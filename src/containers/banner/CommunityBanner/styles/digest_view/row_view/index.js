@@ -80,12 +80,6 @@ export const Title = styled.div`
 export const TitleText = styled.span`
   margin-right: 10px;
 `
-export const SubTitle = styled.div`
-  color: ${theme('banner.desc')};
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 12px;
-`
 export const GroupsIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-left: 8px;

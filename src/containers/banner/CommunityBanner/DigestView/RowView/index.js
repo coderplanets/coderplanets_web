@@ -15,6 +15,7 @@ import { CommunityHolder } from '@/components/LoadingEffects'
 import ExpandTexts from '../../ExpandTexts'
 import SocialList from '../../SocialList'
 
+import SubTitle from './SubTitle'
 import SubscribeInfo from './SubscribeInfo'
 import TeamList from './TeamList'
 
@@ -29,7 +30,6 @@ import {
   TitleWrapper,
   Title,
   TitleText,
-  SubTitle,
   LogoHolder,
   Divider,
 } from '../../styles/digest_view/row_view'
@@ -58,8 +58,8 @@ const CommunityBrief = ({ content, descExpand }) => {
           loading={<CommunityHolder text={content.raw} />}
         />
       ) : (
-        <LogoHolder src={CommunityLogoHolder} />
-      )}
+          <LogoHolder src={CommunityLogoHolder} />
+        )}
       <CommunityInfo>
         <TitleWrapper>
           <Title descExpand={descExpand}>
@@ -99,15 +99,15 @@ const RowView = ({ community, descExpand, isHeaderFixed }) => {
               <TagsBar
                 view={VIEW.COMMUNITY_CARD}
                 thread={THREAD.POST}
-                // onSelect={onTagSelect}
-                // active={activeTagData}
+              // onSelect={onTagSelect}
+              // active={activeTagData}
               />
               <Divider />
               {/* <SpaceGrow /> */}
-              <SubTitle>团队：</SubTitle>
+              <SubTitle title='团队' num={2} />
               <TeamList />
               <Divider />
-              <SubTitle>技术栈：</SubTitle>
+              <SubTitle title='技术栈' num={2} />
             </BannerContentWrapper>
           </InnerWrapper>
         </ContentWrapper>
