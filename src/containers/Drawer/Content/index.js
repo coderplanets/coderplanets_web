@@ -1,6 +1,9 @@
 import React from 'react'
 
 import { TYPE } from '@/constant'
+import { useMedia } from '@/hooks'
+import CustomScroller from '@/components/CustomScroller'
+
 import {
   AccountViewer,
   PostViewer,
@@ -89,8 +92,20 @@ const renderContent = (type, root, attachment, attUser) => {
   }
 }
 
-const Content = ({ type, root, attachment, attUser }) => (
-  <Wrapper>{renderContent(type, root, attachment, attUser)}</Wrapper>
-)
+const Content = ({ type, root, attachment, attUser }) => {
+  const { mobile } = useMedia()
+
+  if (mobile) {
+    return <Wrapper>{renderContent(type, root, attachment, attUser)}</Wrapper>
+  }
+
+  return (
+    <Wrapper>
+      <CustomScroller direction="vertical" height="100vh" shadowSize="small">
+        <div>{renderContent(type, root, attachment, attUser)}</div>
+      </CustomScroller>
+    </Wrapper>
+  )
+}
 
 export default React.memo(Content)
