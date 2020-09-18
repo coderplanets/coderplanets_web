@@ -46,8 +46,7 @@ export const BannerContainer = styled(BaseBanner)`
 export const Divider = styled.div`
   width: 100%;
   height: 1px;
-  /* TODO:  same with the avatar background */
-  background: #072d3a;
+  background: #014758;
   margin-top: 18px;
   margin-bottom: 18px;
 `
