@@ -30,7 +30,6 @@ export const DrawerWrapper = styled.div.attrs((props) => ({
   position: fixed;
   right: ${({ rightOffset }) => rightOffset};
   top: 0px;
-  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 
   color: ${theme('drawer.font')};
   box-sizing: border-box;
@@ -47,6 +46,19 @@ export const DrawerWrapper = styled.div.attrs((props) => ({
   transform: ${({ visible, mobile, animation }) =>
     getTransform(visible, mobile, animation)};
   z-index: ${cs.zIndex.drawer};
+
+  /* 
+   * if the screen width > maxContent, then use display instead of visibility
+   * otherwise the Drawer will show up from screen edge
+   * ----
+   * 当屏幕宽度大于 maxContent 时，使用 display 作为出现的控制属性，否则 Drawer 会从
+   * 屏幕最边缘滑出
+   *
+  */
+  display: ${({ visible }) => (visible ? 'flex' : 'none')};
+  ${cs.media.maxContent`
+    visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+  `};
 
   ${cs.media.mobile`
     right: 0;
