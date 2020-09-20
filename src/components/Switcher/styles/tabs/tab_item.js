@@ -27,9 +27,9 @@ export const Wrapper = styled.div`
   border-left-color: ${({ cardView, active }) =>
     cardView && active ? '#327faf' : ''};
   border-top-right-radius: ${({ cardView, active }) =>
-    cardView && active ? '6px' : ''};
+    cardView && active ? '8px' : ''};
   border-bottom-right-radius: ${({ cardView, active }) =>
-    !cardView && active ? '6px' : ''};
+    cardView && active ? '8px' : ''};
 
   ${cs.media.mobile`
     margin-right: ${() => getMarginRight('', true)};

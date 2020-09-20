@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useCallback, useRef } from 'react'
+import React, { useEffect, useCallback, useRef } from 'react'
 import T from 'prop-types'
 
 import { buildLog, isString, Trans } from '@/utils'
@@ -18,14 +18,21 @@ const log = buildLog('c:Tabs:index')
 const TabItem = ({
   mobileView,
   cardView,
+  activeKey,
   item,
   index,
   size,
   onClick,
-  activeKey,
+  setItemWidth,
 }) => {
   const ref = useRef(null)
   const clickableRef = useRef(null)
+
+  // set each tab item width for calc
+  useEffect(() => {
+    const width = ref.current ? ref.current.offsetWidth : 0
+    setItemWidth(index, width)
+  }, [setItemWidth, index])
 
   const handleWrapperClick = useCallback(() => {
     clickableRef.current.click()
@@ -71,6 +78,7 @@ TabItem.propTypes = {
   cardView: T.bool,
   item: T.any.isRequired,
   index: T.number.isRequired,
+  setItemWidth: T.func.isRequired,
   onClick: T.func.isRequired,
   activeKey: T.string.isRequired,
   size: T.oneOf(['default', 'small']).isRequired,

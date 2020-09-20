@@ -123,7 +123,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
             index={index}
             item={item}
             size={size}
-            setWidth={handleNaviItemWith}
+            setItemWidth={handleNaviItemWith}
             onClick={handleItemClick}
           />
         ))}

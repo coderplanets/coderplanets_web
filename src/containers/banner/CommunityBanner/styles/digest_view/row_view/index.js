@@ -54,7 +54,7 @@ export const CommunityWrapper = styled.div`
   ${cs.flex('align-center', 'justify-center')};
   width: 100%;
   transition: all 0.5s;
-  margin-top: 16px;
+  margin-top: 8px;
   margin-bottom: 30px;
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
