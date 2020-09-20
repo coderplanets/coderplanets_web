@@ -4,6 +4,7 @@ import { contains } from 'ramda'
 import { THREAD, NON_FILL_COMMUNITY, VIEW } from '@/constant'
 import { ICON_CMD } from '@/config'
 
+import CustomScroller from '@/components/CustomScroller'
 import TabBar from '@/components/TabBar'
 import TagsBar from '@/containers/TagsBar'
 
@@ -87,41 +88,48 @@ const RowView = ({ community, descExpand, isHeaderFixed, activeThread }) => {
         small={contains(community.raw, NON_STANDARD_COMMUNITIES)}
         isHeaderFixed={isHeaderFixed}
       >
-        <ContentWrapper>
-          {/* <Header community={community} /> */}
-          <InnerWrapper>
-            <BannerContentWrapper descExpand={descExpand}>
-              <CommunityBrief content={community} descExpand={descExpand} />
-              <ExpandTexts descExpand={descExpand} />
-              <br />
-              {/* <Divider /> */}
-              <SubscribeInfo />
-              <Divider />
-              <TabBarWrapper>
-                <TabBar
+        <CustomScroller
+          direction="vertical"
+          height="100%"
+          showShadow={false}
+          showOnHover
+          // autoHide
+        >
+          <ContentWrapper>
+            <InnerWrapper>
+              <BannerContentWrapper descExpand={descExpand}>
+                <CommunityBrief content={community} descExpand={descExpand} />
+                <ExpandTexts descExpand={descExpand} />
+                <br />
+                {/* <Divider /> */}
+                <SubscribeInfo />
+                <Divider />
+                <TabBarWrapper>
+                  <TabBar
+                    view={VIEW.COMMUNITY_CARD}
+                    source={community.threads}
+                    onChange={tabOnChange}
+                    active={activeThread}
+                    communityRaw={community.raw}
+                  />
+                </TabBarWrapper>
+                <Divider />
+                <TagsBar
                   view={VIEW.COMMUNITY_CARD}
-                  source={community.threads}
-                  onChange={tabOnChange}
-                  active={activeThread}
-                  communityRaw={community.raw}
+                  thread={THREAD.POST}
+                  // onSelect={onTagSelect}
+                  // active={activeTagData}
                 />
-              </TabBarWrapper>
-              <Divider />
-              <TagsBar
-                view={VIEW.COMMUNITY_CARD}
-                thread={THREAD.POST}
-                // onSelect={onTagSelect}
-                // active={activeTagData}
-              />
-              <Divider />
-              {/* <SpaceGrow /> */}
-              <SubTitle title="团队" num={2} />
-              <TeamList />
-              <Divider />
-              <SubTitle title="技术栈" num={2} />
-            </BannerContentWrapper>
-          </InnerWrapper>
-        </ContentWrapper>
+                <Divider />
+                {/* <SpaceGrow /> */}
+                <SubTitle title="团队" num={2} />
+                <TeamList />
+                <Divider />
+                <SubTitle title="技术栈" num={2} />
+              </BannerContentWrapper>
+            </InnerWrapper>
+          </ContentWrapper>
+        </CustomScroller>
       </Wrapper>
     </Sticky>
   )

@@ -7,6 +7,10 @@ import { getShadowBackground, getShadowSize, getScrollbarThin } from './helpers'
 export const Wrapper = styled(WrapperBase)`
   position: relative;
 
+  .os-host:not(:hover) {
+    visibility: ${({ showOnHover }) => (showOnHover ? 'hidden' : 'inherit')};
+  }
+
   .os-theme-dark > .os-scrollbar-vertical,
   .os-theme-light > .os-scrollbar-vertical {
     width: ${({ shadowSize }) =>
