@@ -107,3 +107,7 @@ export const LogoHolder = styled(Img)`
   opacity: 0.6;
   margin-top: 3px;
 `
+export const TabBarWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 10px;
+`

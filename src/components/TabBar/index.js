@@ -5,54 +5,39 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { TYPE, THREAD, C11N } from '@/constant'
-import { buildLog, sortByIndex } from '@/utils'
+import { VIEW } from '@/constant'
+import { buildLog } from '@/utils'
 
-import NormalView from './NormalView'
-import BriefView from './BriefView'
-
-import { mapAlias } from './alias'
+import DesktopView from './DesktopView'
+import CardView from './CardView'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TabBar:index')
 
-const TabBar = ({ source, active, onChange, layout, communityRaw }) => {
-  const aliasSource = mapAlias(source, communityRaw)
-  const sortedSource = sortByIndex(aliasSource)
+const TabBar = (props) => {
+  const { view } = props
+  switch (view) {
+    case VIEW.MOBILE: {
+      // TODO:
+      return <DesktopView {...props} />
+    }
 
-  return (
-    <div id={TYPE.APP_TABBER_ID}>
-      {layout === C11N.BRIEF ? (
-        <BriefView source={sortedSource} active={active} onChange={onChange} />
-      ) : (
-        <NormalView source={sortedSource} active={active} onChange={onChange} />
-      )}
-    </div>
-  )
+    case VIEW.COMMUNITY_CARD: {
+      return <CardView {...props} />
+    }
+
+    default: {
+      return <DesktopView {...props} />
+    }
+  }
 }
 
 TabBar.propTypes = {
-  onChange: T.func,
-  source: T.arrayOf(
-    T.shape({
-      title: T.string,
-      raw: T.string,
-      alias: T.string,
-      icon: T.oneOfType([T.string, T.node]),
-      localIcon: T.string,
-    }),
-  ).isRequired,
-  active: T.string,
-  layout: T.oneOf([C11N.DIGEST, C11N.DIGEST_ROW, C11N.BRIEF]),
-  // for alias usage
-  communityRaw: T.string,
+  view: T.oneOf([VIEW.DESKTOP, VIEW.MOBILE, VIEW.COMMUNITY_CARD]),
 }
 
 TabBar.defaultProps = {
-  active: THREAD.POST,
-  onChange: log,
-  layout: C11N.DIGEST,
-  communityRaw: 'home',
+  view: VIEW.DESKTOP,
 }
 
 export default React.memo(TabBar)

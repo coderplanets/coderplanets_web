@@ -4,6 +4,7 @@ import { contains } from 'ramda'
 import { THREAD, NON_FILL_COMMUNITY, VIEW } from '@/constant'
 import { ICON_CMD } from '@/config'
 
+import TabBar from '@/components/TabBar'
 import TagsBar from '@/containers/TagsBar'
 
 // import { SpaceGrow } from '@/components/Common'
@@ -32,7 +33,10 @@ import {
   TitleText,
   LogoHolder,
   Divider,
+  TabBarWrapper,
 } from '../../styles/digest_view/row_view'
+
+import { tabOnChange } from '../../logic'
 
 // import {
 //   onSubscribe,
@@ -73,9 +77,8 @@ const CommunityBrief = ({ content, descExpand }) => {
   )
 }
 
-const RowView = ({ community, descExpand, isHeaderFixed }) => {
+const RowView = ({ community, descExpand, isHeaderFixed, activeThread }) => {
   const offsetTop = isHeaderFixed ? 55 : 30
-  console.log('## hello')
 
   return (
     <Sticky offsetTop={offsetTop}>
@@ -94,7 +97,15 @@ const RowView = ({ community, descExpand, isHeaderFixed }) => {
               {/* <Divider /> */}
               <SubscribeInfo />
               <Divider />
-              threads
+              <TabBarWrapper>
+                <TabBar
+                  view={VIEW.COMMUNITY_CARD}
+                  source={community.threads}
+                  onChange={tabOnChange}
+                  active={activeThread}
+                  communityRaw={community.raw}
+                />
+              </TabBarWrapper>
               <Divider />
               <TagsBar
                 view={VIEW.COMMUNITY_CARD}

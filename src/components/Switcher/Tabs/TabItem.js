@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect, useCallback, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import T from 'prop-types'
 
 import { buildLog, isString, Trans } from '@/utils'
@@ -16,9 +16,9 @@ import { Wrapper, Label } from '../styles/tabs/tab_item'
 const log = buildLog('c:Tabs:index')
 
 const TabItem = ({
-  mobile,
+  mobileView,
+  cardView,
   item,
-  setWidth,
   index,
   size,
   onClick,
@@ -26,12 +26,6 @@ const TabItem = ({
 }) => {
   const ref = useRef(null)
   const clickableRef = useRef(null)
-
-  useEffect(() => {
-    const width = ref.current ? ref.current.offsetWidth : 0
-    setWidth(index, width)
-    // return () => setWidth(index, 0)
-  }, [setWidth, index])
 
   const handleWrapperClick = useCallback(() => {
     clickableRef.current.click()
@@ -46,7 +40,14 @@ const TabItem = ({
   )
 
   return (
-    <Wrapper ref={ref} mobile={mobile} size={size} onClick={handleWrapperClick}>
+    <Wrapper
+      ref={ref}
+      mobileView={mobileView}
+      cardView={cardView}
+      size={size}
+      onClick={handleWrapperClick}
+      active={item.raw === activeKey}
+    >
       <Label
         ref={clickableRef}
         onClick={handleLabelClick}
@@ -66,17 +67,18 @@ const TabItem = ({
 }
 
 TabItem.propTypes = {
-  mobile: T.bool,
+  mobileView: T.bool,
+  cardView: T.bool,
   item: T.any.isRequired,
   index: T.number.isRequired,
-  setWidth: T.func.isRequired,
   onClick: T.func.isRequired,
   activeKey: T.string.isRequired,
   size: T.oneOf(['default', 'small']).isRequired,
 }
 
 TabItem.defaultProps = {
-  mobile: false,
+  mobileView: false,
+  cardView: false,
 }
 
 export default React.memo(TabItem)
