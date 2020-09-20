@@ -1,19 +1,23 @@
 import React from 'react'
 import { contains } from 'ramda'
 
+import { THREAD, NON_FILL_COMMUNITY, VIEW } from '@/constant'
 import { ICON_CMD } from '@/config'
-import { NON_FILL_COMMUNITY } from '@/constant'
 
-import { SpaceGrow } from '@/components/Common'
+import CustomScroller from '@/components/CustomScroller'
+import TabBar from '@/components/TabBar'
+import TagsBar from '@/containers/TagsBar'
+
+// import { SpaceGrow } from '@/components/Common'
 import Sticky from '@/components/Sticky'
 import VerifiedSign from '@/components/VerifiedSign'
 import { CommunityHolder } from '@/components/LoadingEffects'
-import TrendLine from '@/components/TrendLine'
+// import CommunityStatesPad from '@/components/CommunityStatesPad'
 
 import ExpandTexts from '../../ExpandTexts'
 import SocialList from '../../SocialList'
 
-import Header from './Header'
+import SubTitle from './SubTitle'
 import SubscribeInfo from './SubscribeInfo'
 import TeamList from './TeamList'
 
@@ -24,22 +28,23 @@ import {
   BannerContentWrapper,
   CommunityWrapper,
   CommunityLogo,
-  LogoWrapper,
   CommunityInfo,
   TitleWrapper,
   Title,
   TitleText,
-  SubTitle,
   LogoHolder,
-  ChartWrapper,
+  Divider,
+  TabBarWrapper,
 } from '../../styles/digest_view/row_view'
+
+import { tabOnChange } from '../../logic'
 
 // import {
 //   onSubscribe,
 //   onUndoSubscribe,
 //   onShowEditorList,
 //   onShowSubscriberList,
-// } from '../logic'
+// } from '../../logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
@@ -49,19 +54,17 @@ const NON_STANDARD_COMMUNITIES = ['home', 'feedback']
 const CommunityBrief = ({ content, descExpand }) => {
   return (
     <CommunityWrapper descExpand={descExpand}>
-      <LogoWrapper raw={content.raw}>
-        {content.logo ? (
-          <CommunityLogo
-            small={contains(content.raw, NON_STANDARD_COMMUNITIES)}
-            nonFill={contains(content.raw, NON_FILL_COMMUNITY)}
-            src={content.logo}
-            raw={content.raw}
-            loading={<CommunityHolder text={content.raw} />}
-          />
-        ) : (
-          <LogoHolder src={CommunityLogoHolder} />
-        )}
-      </LogoWrapper>
+      {content.logo ? (
+        <CommunityLogo
+          small={contains(content.raw, NON_STANDARD_COMMUNITIES)}
+          nonFill={contains(content.raw, NON_FILL_COMMUNITY)}
+          src={content.logo}
+          raw={content.raw}
+          loading={<CommunityHolder text={content.raw} />}
+        />
+      ) : (
+        <LogoHolder src={CommunityLogoHolder} />
+      )}
       <CommunityInfo>
         <TitleWrapper>
           <Title descExpand={descExpand}>
@@ -69,14 +72,13 @@ const CommunityBrief = ({ content, descExpand }) => {
             <VerifiedSign />
           </Title>
         </TitleWrapper>
-        {/* <Desc>{content.desc}</Desc> */}
-        <ExpandTexts descExpand={descExpand} />
+        <SocialList size="small" />
       </CommunityInfo>
     </CommunityWrapper>
   )
 }
 
-const RowView = ({ community, descExpand, isHeaderFixed }) => {
+const RowView = ({ community, descExpand, isHeaderFixed, activeThread }) => {
   const offsetTop = isHeaderFixed ? 55 : 30
 
   return (
@@ -86,30 +88,46 @@ const RowView = ({ community, descExpand, isHeaderFixed }) => {
         small={contains(community.raw, NON_STANDARD_COMMUNITIES)}
         isHeaderFixed={isHeaderFixed}
       >
-        <ContentWrapper>
-          <Header />
-          <InnerWrapper>
-            <BannerContentWrapper descExpand={descExpand}>
-              <CommunityBrief content={community} descExpand={descExpand} />
-              <SubscribeInfo />
-
-              <ChartWrapper>
-                <TrendLine
-                  data={community.contributesDigest}
-                  duration={300}
-                  radius={15}
-                  width={2}
+        <CustomScroller
+          direction="vertical"
+          height="100%"
+          showShadow={false}
+          showOnHover
+        >
+          <ContentWrapper>
+            <InnerWrapper>
+              <BannerContentWrapper descExpand={descExpand}>
+                <CommunityBrief content={community} descExpand={descExpand} />
+                <ExpandTexts descExpand={descExpand} />
+                <Divider />
+                <SubscribeInfo />
+                <Divider />
+                <TabBarWrapper>
+                  <TabBar
+                    view={VIEW.COMMUNITY_CARD}
+                    source={community.threads}
+                    onChange={tabOnChange}
+                    active={activeThread}
+                    communityRaw={community.raw}
+                  />
+                </TabBarWrapper>
+                <Divider />
+                <TagsBar
+                  view={VIEW.COMMUNITY_CARD}
+                  thread={THREAD.POST}
+                  onSelect={console.log}
+                  // active={activeTagData}
                 />
-              </ChartWrapper>
-
-              <SpaceGrow />
-              <SubTitle>团队：</SubTitle>
-              <TeamList />
-              <SubTitle>联系我们：</SubTitle>
-              <SocialList direction="2-column" size="medium" />
-            </BannerContentWrapper>
-          </InnerWrapper>
-        </ContentWrapper>
+                <Divider />
+                {/* <SpaceGrow /> */}
+                <SubTitle title="团队" num={2} />
+                <TeamList />
+                <Divider />
+                <SubTitle title="技术栈" num={2} />
+              </BannerContentWrapper>
+            </InnerWrapper>
+          </ContentWrapper>
+        </CustomScroller>
       </Wrapper>
     </Sticky>
   )

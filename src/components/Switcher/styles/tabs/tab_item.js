@@ -10,11 +10,26 @@ export const Wrapper = styled.div`
   position: relative;
   height: 100%;
   z-index: 1;
-  margin-right: ${({ size, mobile }) => getMarginRight(size, mobile)};
-  padding: ${({ size }) => getPadding(size)};
+  margin-right: ${({ size, mobileView, cardView }) =>
+    getMarginRight(size, mobileView, cardView)};
+  padding: ${({ size, cardView }) => getPadding(size, cardView)};
   text-align: center;
-  /* flex: 1; */
+  min-width: ${({ cardView }) => (!cardView ? '0' : '33%')};
   cursor: pointer;
+
+  /* for card view */
+  margin-bottom: ${({ cardView }) => (cardView ? '8px' : '')};
+  background: ${({ cardView, active }) =>
+    cardView && active ? '#114758' : ''};
+  border-left: ${({ cardView, active }) =>
+    cardView && active ? '1px solid' : ''};
+  /* same with slipbar */
+  border-left-color: ${({ cardView, active }) =>
+    cardView && active ? '#327faf' : ''};
+  border-top-right-radius: ${({ cardView, active }) =>
+    cardView && active ? '8px' : ''};
+  border-bottom-right-radius: ${({ cardView, active }) =>
+    cardView && active ? '8px' : ''};
 
   ${cs.media.mobile`
     margin-right: ${() => getMarginRight('', true)};

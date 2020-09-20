@@ -26,19 +26,23 @@ export const Icon = styled(Img)`
   transition: all 0.2s;
 `
 export const LeftIcon = styled(Icon)`
-  margin-right: 6px;
+  margin-right: ${({ arrowStyle }) =>
+    arrowStyle === 'default' ? '6px' : '4px'};
 
   ${Wrapper}:hover & {
-    margin-right: 10px;
+    margin-right: ${({ arrowStyle }) =>
+      arrowStyle === 'default' ? '10px' : '6px'};
     fill: #327ca1;
   }
 `
 export const RightIcon = styled(Icon)`
   transform: rotate(180deg);
-  margin-left: 6px;
+  margin-left: ${({ arrowStyle }) =>
+    arrowStyle === 'default' ? '6px' : '4px'};
 
   ${Wrapper}:hover & {
-    margin-left: 10px;
+    margin-left: ${({ arrowStyle }) =>
+      arrowStyle === 'default' ? '10px' : '6px'};
     fill: #327ca1;
   }
 `

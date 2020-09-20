@@ -4,11 +4,14 @@ import { cs, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  margin-top: 10px;
+  width: 100%;
 `
 export const Item = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-center', 'justify-between')};
   margin-bottom: 5px;
+`
+export const StateItem = styled.div`
+  ${cs.flex('align-center')};
 `
 export const Icon = styled(Img)`
   fill: ${theme('banner.desc')};

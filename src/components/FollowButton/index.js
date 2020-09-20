@@ -20,6 +20,7 @@ const FollowButton = ({
   loading,
   userId,
   fakeLoading,
+  noBorderWhenFollowed,
   onFollow,
   onUndoFollow,
 }) => {
@@ -49,6 +50,7 @@ const FollowButton = ({
           size={size}
           loading={isLoading}
           onClick={handleUndoFollow}
+          noBorderWhenFollowed={noBorderWhenFollowed}
         />
       ) : (
         <FollowBtn size={size} loading={isLoading} onClick={handleFollow} />
@@ -60,11 +62,12 @@ const FollowButton = ({
 FollowButton.propTypes = {
   hasFollowed: T.bool,
   userId: T.string.isRequired,
-  size: T.oneOf(['small', 'default', 'large']),
+  size: T.oneOf(['tiny', 'small', 'default', 'large']),
   onFollow: T.func,
   onUndoFollow: T.func,
   fakeLoading: T.bool,
   loading: T.bool,
+  noBorderWhenFollowed: T.bool,
 }
 
 FollowButton.defaultProps = {
@@ -74,6 +77,7 @@ FollowButton.defaultProps = {
   fakeLoading: false,
   loading: false,
   hasFollowed: false,
+  noBorderWhenFollowed: false,
 }
 
 export default React.memo(FollowButton)

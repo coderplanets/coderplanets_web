@@ -1,9 +1,12 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
+import FollowButton from '@/components/FollowButton'
+
 import {
   Wrapper,
   Item,
+  StateItem,
   Icon,
   OnlineDot,
   Desc,
@@ -13,12 +16,24 @@ const SubscribeInfo = () => {
   return (
     <Wrapper>
       <Item>
-        <Icon src={`${ICON_CMD}/account.svg`} />
-        <Desc>2237 人关注</Desc>
+        <StateItem>
+          <Icon src={`${ICON_CMD}/account.svg`} />
+          <Desc>2237 人关注</Desc>
+        </StateItem>
+        <FollowButton
+          hasFollowed
+          userId="todo"
+          onFollow={console.log}
+          onUndoFollow={console.log}
+          size="tiny"
+          noBorderWhenFollowed
+        />
       </Item>
       <Item>
-        <OnlineDot />
-        <Desc>22 在线</Desc>
+        <StateItem>
+          <OnlineDot />
+          <Desc>22 在线</Desc>
+        </StateItem>
       </Item>
     </Wrapper>
   )

@@ -30,6 +30,7 @@ const VerticalScroller = ({
   shadowSize,
   children,
   autoHide,
+  showOnHover,
   withBorder,
 }) => {
   const [showTopShadow, setShowTopShadow] = useState(false)
@@ -53,7 +54,12 @@ const VerticalScroller = ({
   })
 
   return (
-    <Wrapper height={height} width={width} shadowSize={shadowSize}>
+    <Wrapper
+      height={height}
+      width={width}
+      shadowSize={shadowSize}
+      showOnHover={showOnHover}
+    >
       {showShadow && (
         <TopShadowBar
           show={showTopShadow}
@@ -92,6 +98,7 @@ VerticalScroller.propTypes = {
   shadowSize: T.oneOf(['small', 'medium', 'large']),
   // hack for custom scrollbar
   autoHide: T.bool,
+  showOnHover: T.bool,
   withBorder: T.bool,
 }
 
@@ -101,6 +108,7 @@ VerticalScroller.defaultProps = {
   showShadow: true,
   shadowSize: 'small',
   autoHide: true,
+  showOnHover: false,
   withBorder: false,
 }
 

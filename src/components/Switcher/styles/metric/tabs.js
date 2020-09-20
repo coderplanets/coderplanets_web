@@ -1,5 +1,5 @@
-export const getSlipMargin = (size, mobile) => {
-  if (mobile) return 10
+export const getSlipMargin = (size, mobileView) => {
+  if (mobileView) return 10
 
   switch (size) {
     case 'small': {
@@ -11,8 +11,9 @@ export const getSlipMargin = (size, mobile) => {
   }
 }
 
-export const getMarginRight = (size, mobile) => {
-  if (mobile) return '10px'
+export const getMarginRight = (size, mobileView, cardView) => {
+  if (mobileView) return '10px'
+  if (cardView) return '0'
 
   switch (size) {
     case 'small': {
@@ -24,7 +25,9 @@ export const getMarginRight = (size, mobile) => {
   }
 }
 
-export const getPadding = (size) => {
+export const getPadding = (size, cardView) => {
+  if (cardView) return '2px'
+
   switch (size) {
     case 'small': {
       return '5px 10px'

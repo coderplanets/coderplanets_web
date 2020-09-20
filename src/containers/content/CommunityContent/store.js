@@ -5,7 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunityContent')
@@ -17,9 +17,6 @@ const CommunityContent = T.model('CommunityContent', {})
     },
     get curRoute() {
       return self.root.curRoute
-    },
-    get viewing() {
-      return stripMobx(self.root.viewing)
     },
     get accountInfo() {
       return self.root.accountInfo

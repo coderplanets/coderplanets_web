@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
-import { ERR, EVENT } from '@/constant'
-import { asyncSuit, buildLog, errRescue, thread2Subpath, send } from '@/utils'
+import { ERR } from '@/constant'
+import { asyncSuit, buildLog, errRescue } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunityContent')
@@ -12,17 +12,6 @@ const sr71$ = new SR71()
 
 let sub$ = null
 let store = null
-
-export const tabOnChange = (activeThread) => {
-  const subPath = thread2Subpath(activeThread)
-  // log('EVENT.activeThread -----> ', activeThread)
-  // log('EVENT.subPath -----> ', subPath)
-
-  store.markRoute({ subPath })
-  store.setViewing({ activeThread })
-
-  send(EVENT.THREAD_CHANGE, { data: { activeThread, topic: subPath } })
-}
 
 // ###############################
 // Data & Error handlers
@@ -64,3 +53,5 @@ export const useInit = (_store) => {
     }
   }, [_store])
 }
+
+export const holder = 1

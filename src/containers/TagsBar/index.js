@@ -7,87 +7,35 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
-import { THREAD, TOPIC } from '@/constant'
-import { buildLog, connectStore, sortByColor, Trans } from '@/utils'
+import { VIEW } from '@/constant'
 
-import TagOptions from './TagOptions'
+import DesktopView from './DesktopView'
+import CardView from './CardView'
 
-import {
-  Wrapper,
-  TagItem,
-  TagDot,
-  TagTitle,
-  AllTagIcon,
-  TagOptionsWrapper,
-} from './styles'
+const TagsBar = (props) => {
+  const { view } = props
+  switch (view) {
+    case VIEW.MOBILE: {
+      // TODO:
+      return <DesktopView {...props} />
+    }
 
-import { useInit, onTagSelect } from './logic'
+    case VIEW.COMMUNITY_CARD: {
+      return <CardView {...props} />
+    }
 
-/* eslint-disable-next-line */
-const log = buildLog('C:TagsBar')
-
-const TagsBarContainer = ({
-  tagsBar: store,
-  thread,
-  topic,
-  active,
-  onSelect,
-}) => {
-  useInit(store, thread, topic, active)
-
-  const { tagsData, activeTagData } = store
-
-  const sortedTags = sortByColor(tagsData)
-  const emptytag = { id: '', title: '', color: '' }
-
-  return (
-    <Wrapper>
-      {activeTagData.title && (
-        <TagItem onClick={onTagSelect(emptytag, onSelect)}>
-          <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
-          <TagTitle>全部</TagTitle>
-        </TagItem>
-      )}
-
-      {sortedTags.map(({ id, color, title }) => (
-        <TagItem key={id}>
-          <TagDot color={color} active={activeTagData.title} title={title} />
-          <TagTitle
-            active={activeTagData.title}
-            title={title}
-            color={color}
-            onClick={onTagSelect({ id, title, color }, onSelect)}
-          >
-            {Trans(title)}
-          </TagTitle>
-          <TagOptionsWrapper>
-            <TagOptions
-              onInclude={onTagSelect({ id, title, color }, onSelect)}
-            />
-          </TagOptionsWrapper>
-        </TagItem>
-      ))}
-    </Wrapper>
-  )
+    default: {
+      return <DesktopView {...props} />
+    }
+  }
 }
 
-TagsBarContainer.propTypes = {
-  tagsBar: T.object.isRequired,
-  thread: T.string,
-  topic: T.string,
-  onSelect: T.func.isRequired,
-  active: T.shape({
-    id: T.string,
-    title: T.string,
-    color: T.string,
-  }),
+TagsBar.propTypes = {
+  view: T.oneOf([VIEW.DESKTOP, VIEW.MOBILE, VIEW.COMMUNITY_CARD]),
 }
 
-TagsBarContainer.defaultProps = {
-  thread: THREAD.POST,
-  topic: TOPIC.POST,
-  active: {},
+TagsBar.defaultProps = {
+  view: VIEW.DESKTOP,
 }
 
-export default connectStore(TagsBarContainer)
+export default TagsBar

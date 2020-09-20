@@ -46,6 +46,7 @@
   },
   "//--- endpoint configs ---//": "",
   "ASSETS_ENDPOINT": "https://cps-oss.oss-cn-shanghai.aliyuncs.com",
+  "ICON": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/static",
   "ICON_BASE": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons",
   "ICON_CMD": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd",
   "DEFAULT_ICON": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd/cheatsheet.svg",

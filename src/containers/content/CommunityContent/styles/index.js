@@ -18,11 +18,12 @@ export const Wrapper = styled.div.attrs((props) => ({
   `};
 `
 export const InnerWrapper = styled.div`
-  margin: ${({ lessMargin }) => (lessMargin ? '0 2.5%' : '0 5.5%')};
+  margin: ${({ cardView }) => (cardView ? '0 2.5%' : '0 5.5%')};
   margin-top: 20px;
   width: 100%;
 
   padding: 0 3vw;
+  padding-top: ${({ cardView }) => (cardView ? '12px' : '')};
   color: ${theme('font')};
   background: ${theme('content.bg')};
 
@@ -32,6 +33,7 @@ export const InnerWrapper = styled.div`
 
   ${cs.media.laptopL`
     margin: 0 4.2%;
+    margin-left: ${({ cardView }) => (cardView ? '2.5%' : '4.2%')};
     margin-top: 20px;
     padding-top: 8px;
   `};
@@ -42,11 +44,4 @@ export const InnerWrapper = styled.div`
     margin-top: 0px;
     padding-top: 8px;
   `};
-`
-export const TabBarWrapper = styled.div`
-  width: 100%;
-  border-bottom: 1px solid;
-  border-bottom-color: #0c3d4e;
-  margin-bottom: 10px;
-  margin-left: -5px;
 `

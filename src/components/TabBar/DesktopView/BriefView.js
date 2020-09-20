@@ -3,7 +3,7 @@ import React from 'react'
 import { sortByIndex } from '@/utils'
 
 import { Tabs } from '@/components/Switcher'
-import { Wrapper } from './styles/brief_view'
+import { Wrapper } from '../styles/desktop_view/brief_view'
 // import TabIcon from './TabIcon'
 
 const BriefView = ({ source, active, onChange }) => {

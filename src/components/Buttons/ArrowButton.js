@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
 import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
@@ -34,14 +34,25 @@ const SIZE_MAP = {
   },
 }
 
-const ArrowButton = ({ children, onClick, size, direction, dimWhenIdle }) => {
+const ArrowButton = ({
+  children,
+  onClick,
+  size,
+  direction,
+  dimWhenIdle,
+  arrowStyle,
+}) => {
+  const iconSrc =
+    arrowStyle === 'default' ? `${ICON}/arrow.svg` : `${ICON}/arrow-simple.svg`
+
   return (
     <Wrapper onClick={onClick} dimWhenIdle={dimWhenIdle}>
       {direction === 'left' ? (
         <>
           <LeftIcon
+            arrowStyle={arrowStyle}
             size={SIZE_MAP[size].icon}
-            src={`${ICON_CMD}/navi/navi_back.svg`}
+            src={iconSrc}
           />
           <Text size={SIZE_MAP[size].text}>{children}</Text>
         </>
@@ -49,8 +60,9 @@ const ArrowButton = ({ children, onClick, size, direction, dimWhenIdle }) => {
         <>
           <Text size={SIZE_MAP[size].text}>{children}</Text>
           <RightIcon
+            arrowStyle={arrowStyle}
             size={SIZE_MAP[size].icon}
-            src={`${ICON_CMD}/navi/navi_back.svg`}
+            src={iconSrc}
           />
         </>
       )}
@@ -60,6 +72,7 @@ const ArrowButton = ({ children, onClick, size, direction, dimWhenIdle }) => {
 
 ArrowButton.propTypes = {
   children: T.oneOfType([T.string, T.node]),
+  arrowStyle: T.oneOf(['default', 'simple']),
   size: T.oneOf(['tiny', 'small', 'medium', 'large']),
   direction: T.oneOf(['left', 'right']),
   dimWhenIdle: T.bool,
@@ -68,6 +81,7 @@ ArrowButton.propTypes = {
 
 ArrowButton.defaultProps = {
   children: '下一步',
+  arrowStyle: 'default',
   size: 'small',
   direction: 'right',
   dimWhenIdle: false,

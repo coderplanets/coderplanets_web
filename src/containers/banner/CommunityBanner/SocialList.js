@@ -3,17 +3,17 @@ import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
 
-import { Wrapper, SocialWrapper, Icon, Title } from './styles/social_list'
+import { Wrapper, SocialWrapper, Icon } from './styles/social_list'
 
 const defaultItems = [
   {
     iconSrc: `${ICON_CMD}/navi/readme.svg`,
     title: '项目介绍',
   },
-  {
-    iconSrc: `${ICON_CMD}/navi/location.svg`,
-    title: '成都',
-  },
+  // {
+  //   iconSrc: `${ICON_CMD}/navi/location.svg`,
+  //   title: '成都',
+  // },
   {
     iconSrc: `${ICON_CMD}/navi/space_in.svg`,
     title: '官网',
@@ -32,15 +32,15 @@ const defaultItems = [
   },
 ]
 
-const SocialList = ({ direction, size, items }) => {
+const SocialList = ({ size, items }) => {
   return (
-    <Wrapper direction={direction}>
+    <Wrapper>
       {items.map((item) => (
-        <SocialWrapper key={item.title} size={size} direction={direction}>
+        <SocialWrapper key={item.title} size={size}>
           <Icon size={size} src={item.iconSrc} />
-          <Title size={size} direction={direction}>
+          {/* <Title size={size}>
             {item.title}
-          </Title>
+          </Title> */}
         </SocialWrapper>
       ))}
     </Wrapper>
@@ -49,13 +49,11 @@ const SocialList = ({ direction, size, items }) => {
 
 SocialList.propTypes = {
   size: T.oneOf(['small', 'medium']),
-  direction: T.oneOf(['row', 'column', '2-column']),
   items: T.arrayOf(T.object),
 }
 
 SocialList.defaultProps = {
   size: 'small',
-  direction: 'row',
   items: defaultItems,
 }
 

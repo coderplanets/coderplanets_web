@@ -7,8 +7,6 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: ${({ direction }) => direction}; */
-  margin-top: 6px;
 `
 export const SocialWrapper = styled.div`
   ${cs.flex('align-center')};
@@ -17,11 +15,9 @@ export const SocialWrapper = styled.div`
   /* border: 1px solid; */
   /* border-color: ${theme('banner.desc')}; */
   border-radius: 5px;
-  margin-right: 12px;
-  margin-bottom: ${({ direction }) => (direction === 'row' ? '0' : '10px')};
-  width: ${({ direction }) =>
-    direction === '2-column' ? 'calc(50% - 24px)' : 'auto'};
-
+  margin-right: 8px;
+  margin-bottom: 0;
+  width: auto;
   text-decoration: underline;
 
   &:hover {

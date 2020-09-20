@@ -10,7 +10,6 @@ import { ROUTE, C11N } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 import { useMedia } from '@/hooks'
 
-import TabBar from '@/components/TabBar'
 import PostsThread from '@/containers//thread/PostsThread'
 import VideosThread from '@/containers/thread/VideosThread'
 import ReposThread from '@/containers/thread/ReposThread'
@@ -19,8 +18,8 @@ import JobsThread from '@/containers/thread/JobsThread'
 import UsersThread from '@/containers/thread/UsersThread'
 import CheatsheetThread from '@/containers/thread/CheatsheetThread'
 
-import { Wrapper, InnerWrapper, TabBarWrapper } from './styles'
-import { useInit, tabOnChange } from './logic'
+import { Wrapper, InnerWrapper } from './styles'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityContent')
@@ -57,27 +56,16 @@ const CommunityContentContainer = ({ communityContent: store }) => {
 
   const {
     curRoute,
-    viewing: { community, activeThread },
     accountInfo: {
       customization: { bannerLayout },
     },
   } = store
 
+  const isCardView = !mobile && bannerLayout === C11N.DIGEST_ROW
+
   return (
     <Wrapper testId="community-content">
-      <InnerWrapper lessMargin={!mobile && bannerLayout === C11N.DIGEST_ROW}>
-        {!mobile && bannerLayout === C11N.DIGEST_ROW && (
-          <TabBarWrapper>
-            <TabBar
-              source={community.threads}
-              onChange={tabOnChange}
-              active={activeThread}
-              // layout={layout}
-              communityRaw={community.raw}
-            />
-          </TabBarWrapper>
-        )}
-
+      <InnerWrapper cardView={isCardView}>
         <ComunityContent curRoute={curRoute} />
       </InnerWrapper>
     </Wrapper>
