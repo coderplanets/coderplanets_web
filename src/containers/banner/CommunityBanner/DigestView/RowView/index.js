@@ -93,15 +93,13 @@ const RowView = ({ community, descExpand, isHeaderFixed, activeThread }) => {
           height="100%"
           showShadow={false}
           showOnHover
-          // autoHide
         >
           <ContentWrapper>
             <InnerWrapper>
               <BannerContentWrapper descExpand={descExpand}>
                 <CommunityBrief content={community} descExpand={descExpand} />
                 <ExpandTexts descExpand={descExpand} />
-                <br />
-                {/* <Divider /> */}
+                <Divider />
                 <SubscribeInfo />
                 <Divider />
                 <TabBarWrapper>
@@ -117,7 +115,7 @@ const RowView = ({ community, descExpand, isHeaderFixed, activeThread }) => {
                 <TagsBar
                   view={VIEW.COMMUNITY_CARD}
                   thread={THREAD.POST}
-                  // onSelect={onTagSelect}
+                  onSelect={console.log}
                   // active={activeTagData}
                 />
                 <Divider />

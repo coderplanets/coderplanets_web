@@ -75,7 +75,7 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
             index={index}
             item={item}
             size={size}
-            setWidth={handleNaviItemWith}
+            setItemWidth={handleNaviItemWith}
             onClick={handleItemClick}
             cardView
           />

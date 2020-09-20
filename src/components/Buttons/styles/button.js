@@ -3,6 +3,8 @@ import { lighten } from 'polished'
 
 import { cs, theme } from '@/utils'
 
+import { getHeight, getPadding, getFontSize } from './metircs/button'
+
 export const Wrapper = styled.button`
   ${cs.flex('align-both')};
   -webkit-appearance: button;
@@ -16,22 +18,23 @@ export const Wrapper = styled.button`
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: ${({ size }) => (size === 'default' ? '4px 15px' : '0 7px')};
+  padding: ${({ size }) => getPadding(size)};
   font-size: 14px;
   border-radius: 4px;
-  height: ${({ size }) => (size === 'default' ? '32px' : '24px')};
+  height: ${({ size }) => getHeight(size)};
   user-select: none;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: relative;
-  color: rgba(0, 0, 0, 0.65);
-  border-color: #d9d9d9;
 
   color: ${({ ghost }) =>
     !ghost ? theme('button.fg') : theme('button.primary')};
 
   background-color: ${({ ghost }) =>
     !ghost ? theme('button.primary') : 'transparent'};
-  border-color: ${theme('button.primary')};
+  border-color: ${({ noBorder }) =>
+    noBorder ? 'transparent' : theme('button.primary')};
+
+  opacity: ${({ noBorder }) => (noBorder ? '0.7' : 1)};
 
   &:hover {
     /* color: ${theme('button.fg')}; */
@@ -41,6 +44,7 @@ export const Wrapper = styled.button`
     border-color: ${theme('button.hoverBg')};
     background-color: ${({ ghost }) =>
       !ghost ? theme('button.hoverBg') : 'transparent'};
+    opacity: 1;
   }
 
   &:focus {
@@ -49,6 +53,7 @@ export const Wrapper = styled.button`
     border-color: ${theme('button.hoverBg')};
     background-color: ${({ ghost }) =>
       !ghost ? theme('button.hoverBg') : 'transparent'};
+    opacity: 1;
   }
 
   &:active {
@@ -56,10 +61,12 @@ export const Wrapper = styled.button`
       !ghost ? theme('button.fg') : theme('button.primary')};
     background-color: ${({ ghost }) =>
       !ghost ? theme('button.hoverBg') : 'transparent'};
+    opacity: 1;
   }
 `
 export const ChildrenWrapper = styled.div`
   ${cs.flex('align-both')};
+  font-size: ${({ size }) => getFontSize(size)};
   position: relative;
   z-index: 2;
 `

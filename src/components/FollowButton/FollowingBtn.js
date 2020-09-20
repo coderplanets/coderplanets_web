@@ -6,7 +6,7 @@ import Tooltip from '@/components/Tooltip'
 
 import { BtnWrapper, WatchedIcon, Popinfo, LoadingIcon } from './styles'
 
-const FollowingBtn = ({ size, loading, onClick }) => {
+const FollowingBtn = ({ size, loading, noBorderWhenFollowed, onClick }) => {
   return (
     <>
       {loading ? (
@@ -22,7 +22,13 @@ const FollowingBtn = ({ size, loading, onClick }) => {
           delay={800}
           content={<Popinfo>点击取消关注</Popinfo>}
         >
-          <Button size={size} type="primary" ghost onClick={onClick}>
+          <Button
+            size={size}
+            type="primary"
+            ghost
+            onClick={onClick}
+            noBorder={noBorderWhenFollowed}
+          >
             <BtnWrapper>
               <WatchedIcon src={`${ICON_CMD}/check2.svg`} />
               <div>已关注</div>
