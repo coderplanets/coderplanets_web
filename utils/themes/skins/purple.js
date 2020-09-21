@@ -16,6 +16,9 @@ const descText = '#514a67'
 const primaryMate = '#a7674d'
 
 const purple = {
+  _meta: {
+    category: 'dark',
+  },
   name: 'purple',
   logoText: primaryColor,
   cover: primaryColor,

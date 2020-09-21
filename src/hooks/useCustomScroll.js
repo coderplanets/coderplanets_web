@@ -12,6 +12,10 @@ const useCustomScroll = (ref, option = {}) => {
 
   useEffect(() => {
     if (OverlayScrollbars && ref.current) {
+      option.className =
+        option.themeCategory === 'dark' ? 'os-theme-light' : 'os-theme-dark'
+      delete option.themeCategory
+
       const defaultOption = {
         scrollbars: { autoHide: 'scroll' },
         className: 'os-theme-light',

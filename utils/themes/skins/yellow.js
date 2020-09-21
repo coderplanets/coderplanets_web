@@ -16,6 +16,9 @@ const descText = '#c5b297'
 const primaryMate = '#B84E20'
 
 const yellow = {
+  _meta: {
+    category: 'light',
+  },
   name: 'yellow',
   logoText: '#d2bca1',
   cover: '#ece1c3',

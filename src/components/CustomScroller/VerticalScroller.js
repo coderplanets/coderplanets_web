@@ -5,6 +5,7 @@
  */
 
 import React, { useState, useRef, useCallback } from 'react'
+import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
 import T from 'prop-types'
 
@@ -48,9 +49,14 @@ const VerticalScroller = ({
     [],
   )
 
+  const {
+    _meta: { category: themeCategory },
+  } = useTheme()
+
   const ref = useRef(null)
   useCustomScroll(ref, {
     scrollbars: { autoHide: autoHide ? 'scroll' : 'never' },
+    themeCategory,
   })
 
   return (

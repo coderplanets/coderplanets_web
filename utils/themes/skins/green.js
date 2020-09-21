@@ -17,6 +17,9 @@ const bannerTitle = '#708e7a'
 const primaryMate = '#b57a5b'
 
 const green = {
+  _meta: {
+    category: 'light',
+  },
   name: 'green',
   logoText: bannerTitle,
   cover: '#B4C9B2',
