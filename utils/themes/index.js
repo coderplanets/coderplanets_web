@@ -22,7 +22,7 @@ export const themeCoverMap = map(path(['cover']), themeSkins)
 export const themeCoverIndexMap = map(path(['coverIndex']), themeSkins)
 
 // curried shorthand for style-components
-export const theme = themepath =>
-  path(['theme', ...split('.', themepath)]) || 'wheat'
+export const theme = (themePath) =>
+  path(['theme', ...split('.', themePath)]) || 'wheat'
 
 export { default as themeMeta } from './theme_meta'

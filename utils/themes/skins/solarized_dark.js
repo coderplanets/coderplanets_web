@@ -17,6 +17,9 @@ const descText = '#126682'
 const primaryMate = '#2CB4AA'
 
 const solarizedDark = {
+  _meta: {
+    category: 'dark',
+  },
   name: 'solarizedDark',
   logoText: primaryColor,
   cover: lighten(0.08, bannerBg),
