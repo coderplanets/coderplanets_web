@@ -6,6 +6,7 @@
 
 import React from 'react'
 import dynamic from 'next/dynamic'
+import { useTheme } from 'styled-components'
 
 import { connectStore, buildLog } from '@/utils'
 import { useScript } from '@/hooks'
@@ -32,6 +33,7 @@ const UsersThreadContainer = ({ usersThread }) => {
   )
 
   useInit(usersThread)
+  const theme = useTheme()
 
   const {
     geoInfosData,
@@ -53,7 +55,7 @@ const UsersThreadContainer = ({ usersThread }) => {
         />
       )}
       {ready ? (
-        <GeoMapSSR markers={geoInfosData} curTheme={curTheme} />
+        <GeoMapSSR markers={geoInfosData} curTheme={curTheme} theme={theme} />
       ) : (
         <MapLoading />
       )}

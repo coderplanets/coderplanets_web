@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactResizeDetector from 'react-resize-detector'
-import { withTheme } from 'styled-components'
 
 import { buildLog, uid } from '@/utils'
 
@@ -82,6 +81,7 @@ class LocationMap extends React.Component {
 
   initG2() {
     const { theme } = this.props
+
     const {
       geoMap: {
         oceanColor,
@@ -168,7 +168,7 @@ class LocationMap extends React.Component {
           refreshRate={500}
           skipOnMount={false}
           querySelector={`#${this.chartId}`}
-          onResize={() => this.onResize()}
+          onResize={(width) => this.onResize(width)}
         />
         <div id={this.chartId} />
         <Br bottom="10px" />
@@ -177,7 +177,7 @@ class LocationMap extends React.Component {
   }
 }
 
-export default withTheme(LocationMap)
+export default LocationMap
 
 /*
    fetch('http://antvis.github.io/static/data/china-pm.json')
