@@ -17,6 +17,9 @@ const descText = '#a3bbbd'
 const primaryMate = 'orange'
 
 const cyan = {
+  _meta: {
+    category: 'light',
+  },
   name: 'cyan',
   logoText: descText,
   cover: primaryColor,

@@ -17,6 +17,9 @@ const markdownFont = '#B4C7C6'
 const descText = '#7EA7AC'
 
 const iconGreen = {
+  _meta: {
+    category: 'light',
+  },
   name: 'ironGreen',
   logoText: descText,
   cover: bannerBg,
