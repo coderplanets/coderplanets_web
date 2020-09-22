@@ -1,10 +1,17 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { isCypressRunning } from '@/utils'
 import HorizontalScroller from './HorizontalScroller'
 import VerticalScroller from './VerticalScroller'
 
 const CustomScroller = ({ direction, ...restProps }) => {
+  const isE2ETesting = isCypressRunning()
+
+  if (isE2ETesting) {
+    return <div>{restProps.children}</div>
+  }
+
   return direction === 'vertical' ? (
     <VerticalScroller {...restProps} />
   ) : (
@@ -18,6 +25,7 @@ CustomScroller.propTypes = {
   height: T.string,
   width: T.string,
   shadowSize: T.oneOf(['small', 'medium', 'large']),
+  barSize: T.oneOf(['small', 'medium', 'large']),
   showShadow: T.bool,
   // hack for custom scrollbar
   innerHeight: T.string,
@@ -27,11 +35,11 @@ CustomScroller.propTypes = {
 
 CustomScroller.defaultProps = {
   direction: 'vertical',
-
   height: '100%',
   width: '100%',
   showShadow: true,
   shadowSize: 'small',
+  barSize: 'small',
   innerHeight: '100%',
   autoHide: false,
   withBorder: false,

@@ -11,6 +11,8 @@ import { ICON_CMD } from '@/config'
 import { TYPE, ROUTE } from '@/constant'
 import { connectStore } from '@/utils'
 
+import CustomScroller from '@/components/CustomScroller'
+
 import {
   useNetwork,
   useShortcut,
@@ -82,11 +84,12 @@ const GlobalLayoutContainer = ({
           {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
-            <div>
+            <React.Fragment>
               <SubCommunitiesExpander onClick={queryDoraemon('/')}>
                 <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
               </SubCommunitiesExpander>
               <SEO page={page} config={seoConfig} />
+
               <InnerWrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
                 {!noSidebar && <Sidebar />}
                 <Drawer />
@@ -101,15 +104,28 @@ const GlobalLayoutContainer = ({
                       !!(page === ROUTE.COMMUNITY || page === ROUTE.DISCOVERY)
                     }
                   >
-                    <Header metric={metric} />
-                    <BodyWrapper layout={bannerLayout} mobile={media.mobile}>
-                      {children}
-                    </BodyWrapper>
-                    <Footer />
+                    <CustomScroller
+                      direction="vertical"
+                      height="100vh"
+                      barSize="medium"
+                      showShadow={false}
+                      autoHide
+                    >
+                      <div>
+                        <Header metric={metric} />
+                        <BodyWrapper
+                          layout={bannerLayout}
+                          mobile={media.mobile}
+                        >
+                          {children}
+                        </BodyWrapper>
+                        <Footer />
+                      </div>
+                    </CustomScroller>
                   </ContentWrapper>
                 </ContentPinWrapper>
               </InnerWrapper>
-            </div>
+            </React.Fragment>
           )}
         </Wrapper>
       </ThemeWrapper>

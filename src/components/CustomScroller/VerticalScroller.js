@@ -29,6 +29,7 @@ const VerticalScroller = ({
   width,
   showShadow,
   shadowSize,
+  barSize,
   children,
   autoHide,
   showOnHover,
@@ -64,6 +65,7 @@ const VerticalScroller = ({
       height={height}
       width={width}
       shadowSize={shadowSize}
+      barSize={barSize}
       showOnHover={showOnHover}
     >
       {showShadow && (
@@ -102,6 +104,7 @@ VerticalScroller.propTypes = {
   width: T.string,
   showShadow: T.bool,
   shadowSize: T.oneOf(['small', 'medium', 'large']),
+  barSize: T.oneOf(['small', 'medium', 'large']),
   // hack for custom scrollbar
   autoHide: T.bool,
   showOnHover: T.bool,
@@ -113,6 +116,7 @@ VerticalScroller.defaultProps = {
   width: '100%',
   showShadow: true,
   shadowSize: 'small',
+  barSize: 'small',
   autoHide: true,
   showOnHover: false,
   withBorder: false,

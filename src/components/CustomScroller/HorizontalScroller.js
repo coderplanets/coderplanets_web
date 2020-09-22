@@ -30,6 +30,7 @@ const HorizontalScroller = ({
   innerHeight,
   showShadow,
   shadowSize,
+  barSize,
   children,
   autoHide,
   withBorder,
@@ -49,7 +50,12 @@ const HorizontalScroller = ({
   })
 
   return (
-    <Wrapper height={height} width={width} shadowSize={shadowSize}>
+    <Wrapper
+      height={height}
+      width={width}
+      shadowSize={shadowSize}
+      barSize={barSize}
+    >
       {showShadow && (
         <LeftShadowBar
           show={showLeftShadow}
@@ -92,6 +98,7 @@ HorizontalScroller.propTypes = {
   width: T.string,
   showShadow: T.bool,
   shadowSize: T.oneOf(['small', 'medium', 'large']),
+  barSize: T.oneOf(['small', 'medium', 'large']),
   // hack for custom scrollbar
   innerHeight: T.string,
   autoHide: T.bool,
@@ -103,6 +110,7 @@ HorizontalScroller.defaultProps = {
   width: '100%',
   showShadow: true,
   shadowSize: 'small',
+  barSize: 'small',
   innerHeight: '100%',
   autoHide: false,
   withBorder: false,
