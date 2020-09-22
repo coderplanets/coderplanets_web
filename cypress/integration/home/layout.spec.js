@@ -14,7 +14,7 @@ describe('home page: ', () => {
     cy.id('community-banner').should('be.visible')
     cy.id('community-content').should('be.visible')
 
-    cy.id('footer').should('be.visible')
+    // // cy.id('footer').should('be.visible')
   })
 
   it('home link should not be highlight', () => {
