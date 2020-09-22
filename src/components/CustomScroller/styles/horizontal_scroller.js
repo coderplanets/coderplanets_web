@@ -2,15 +2,14 @@ import styled from 'styled-components'
 
 import { cs } from '@/utils'
 
+import { getShadowBackground, getShadowSize, getScrollbarThin } from './metrics'
 import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'
-
-import { getShadowBackground, getShadowSize, getScrollbarThin } from './helpers'
 
 export const Wrapper = styled(WrapperBase)`
   .os-theme-dark > .os-scrollbar-horizontal,
   .os-theme-light > .os-scrollbar-horizontal {
-    height: ${({ shadowSize }) =>
-      `${getScrollbarThin(shadowSize, 'horizontal')} !important`};
+    height: ${({ barSize }) =>
+      `${getScrollbarThin(barSize, 'horizontal')} !important`};
   }
 `
 export const ScrollWrapper = styled(ScrollWrapperBase)``

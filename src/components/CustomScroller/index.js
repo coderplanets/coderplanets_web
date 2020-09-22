@@ -18,6 +18,7 @@ CustomScroller.propTypes = {
   height: T.string,
   width: T.string,
   shadowSize: T.oneOf(['small', 'medium', 'large']),
+  barSize: T.oneOf(['small', 'medium', 'large']),
   showShadow: T.bool,
   // hack for custom scrollbar
   innerHeight: T.string,
@@ -27,11 +28,11 @@ CustomScroller.propTypes = {
 
 CustomScroller.defaultProps = {
   direction: 'vertical',
-
   height: '100%',
   width: '100%',
   showShadow: true,
   shadowSize: 'small',
+  barSize: 'small',
   innerHeight: '100%',
   autoHide: false,
   withBorder: false,

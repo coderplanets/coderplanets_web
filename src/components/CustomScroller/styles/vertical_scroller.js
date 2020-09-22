@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 // import { cs } from '@/utils'
 import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'
-import { getShadowBackground, getShadowSize, getScrollbarThin } from './helpers'
+import { getShadowBackground, getShadowSize, getScrollbarThin } from './metrics'
 
 export const Wrapper = styled(WrapperBase)`
   position: relative;
@@ -13,8 +13,8 @@ export const Wrapper = styled(WrapperBase)`
 
   .os-theme-dark > .os-scrollbar-vertical,
   .os-theme-light > .os-scrollbar-vertical {
-    width: ${({ shadowSize }) =>
-      `${getScrollbarThin(shadowSize, 'vertical')} !important`};
+    width: ${({ barSize }) =>
+      `${getScrollbarThin(barSize, 'vertical')} !important`};
   }
 `
 export const ScrollWrapper = styled(ScrollWrapperBase)``
