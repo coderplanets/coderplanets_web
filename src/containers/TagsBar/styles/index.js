@@ -25,8 +25,7 @@ const getDotBgColor = (active, title, color) => {
 }
 
 export const TagDot = styled.div`
-  ${cs.circle('14px')};
-
+  ${cs.circle('12px')};
   margin-right: 12px;
   background-color: ${({ active, title, color }) =>
     getDotBgColor(active, title, color)};
@@ -37,7 +36,7 @@ export const TagDot = styled.div`
 export const TagTitle = styled.div`
   flex-grow: 1;
   color: ${theme('tags.text')};
-  font-size: 15px;
+  font-size: 14.5px;
   opacity: 0.9;
   letter-spacing: 0.1rem;
 
