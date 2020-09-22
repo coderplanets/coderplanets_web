@@ -12,6 +12,6 @@ describe('cool-guide page: ', () => {
     cy.id('cool-guide-content').should('be.visible')
     cy.id('filter-bar').should('be.visible')
 
-    // cy.id('footer').should('be.visible')
+    cy.id('footer').should('be.visible')
   })
 })

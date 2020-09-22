@@ -28,6 +28,7 @@ export {
   debounce,
   extractMentions,
   extractAttachments,
+  isCypressRunning,
 } from './functions'
 
 export { errorForHuman, ssrAmbulance } from './errors'

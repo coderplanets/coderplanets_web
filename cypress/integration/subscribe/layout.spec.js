@@ -11,7 +11,7 @@ describe('subscribe page: ', () => {
 
     cy.id('subscribe-content').should('be.visible')
 
-    // cy.id('footer').should('be.visible')
+    cy.id('footer').should('be.visible')
   })
 
   it('actions', () => {

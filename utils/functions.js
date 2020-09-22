@@ -184,3 +184,10 @@ export const extractAttachments = (str) => {
   /* eslint-enable */
   return urls
 }
+
+// checkout if the site is running on cypress container
+export const isCypressRunning = () => {
+  if (typeof window !== 'undefined') return !!window.Cypress
+
+  return false
+}
