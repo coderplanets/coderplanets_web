@@ -6,6 +6,8 @@ import { cs, theme } from '@/utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
   margin-right: 25px;
+  /*  width of filter bar */
+  min-width: 145px;
 `
 export const MeetupIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};

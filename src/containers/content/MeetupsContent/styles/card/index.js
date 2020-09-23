@@ -8,11 +8,14 @@ export const Wrapper = styled.div`
   width: 33%;
   height: 210px;
   padding: 20px 5px;
+  border-top: 1px solid;
+  border-top-color: transparent;
   border-bottom: 1px solid #054353;
   color: ${theme('thread.articleDigest')};
   &:hover {
     background: #04303c;
-    border-radius: 6px;
+    border-top: 1px solid;
+    border-top-color: #327faf;
   }
   transition: all 0.25s;
 `
