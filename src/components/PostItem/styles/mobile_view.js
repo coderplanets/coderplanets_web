@@ -44,13 +44,13 @@ export const Avatar = styled(Img)`
   margin-top: 2px;
 
   ${cs.media.mobile`
-    ${cs.circle('30px')};
+    ${cs.circle('28px')};
     margin-top: 12px;
   `};
 `
 export const AvatarFallback = styled.div`
   ${cs.flex('align-both')};
-  ${cs.circle('30px')};
+  ${cs.circle('28px')};
   font-size: 20px;
   color: ${theme('thread.articleTitle')};
   background-color: #164858; /*${theme('thread.articleHover')}; */
@@ -64,7 +64,7 @@ export const HeaderInfo = styled.div`
   ${cs.flex('align-end', 'justify-between')};
   color: ${theme('thread.articleDigest')};
   margin-left: 10px;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 `
 export const AuthorInfo = styled.div`
   ${cs.flex('align-center')};
@@ -92,7 +92,7 @@ export const Brief = styled.div`
   }
 `
 export const Title = styled.div`
-  font-size: 16px;
+  font-size: 15.5px;
   @media (max-width: 1450px) {
     max-width: 500px;
   }
