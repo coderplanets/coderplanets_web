@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, cs } from '@/utils'
 
+import { Wrapper as CommentBlock } from './desktop_view'
+
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
   margin-bottom: 10px;
@@ -14,10 +16,20 @@ export const Wrapper = styled.div`
 `
 export const FloorNum = styled.div`
   color: ${theme('comment.floor')};
-  font-size: 15px;
-  align-self: center;
+  font-size: 14px;
   flex-grow: 1;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+  opacity: 0.6;
+
+  ${CommentBlock}:hover & {
+    opacity: 1;
+  }
+
+  ${cs.media.mobile`
+    opacity: 1;
+  `};
+  transition: opacity 0.25s;
 `
 export const CommentHeaderFirst = styled.div`
   ${cs.flex()};
