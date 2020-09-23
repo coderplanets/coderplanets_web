@@ -9,7 +9,7 @@ import { BaseBanner, BaseTabber } from '../../index'
 
 const getHeightSize = (noSocial, mobile) => {
   if (mobile) {
-    return noSocial ? '118px' : '140px'
+    return noSocial ? '112px' : '140px'
   }
 
   return noSocial ? '128px' : '150px'
@@ -71,6 +71,11 @@ export const CommunityLogo = styled(CommunityFaceLogo)`
   width: ${({ small }) => (small ? '45px' : '55px')};
   height: ${({ small }) => (small ? '45px' : '55px')};
   border-radius: 5px;
+
+  ${cs.media.mobile`
+    width: 42px;
+    height: 42px;
+  `};
 `
 export const CommunityInfo = styled.div`
   ${cs.flexColumn('justify-center')};
@@ -79,7 +84,7 @@ export const CommunityInfo = styled.div`
   margin-left: 12px;
 
   ${cs.media.mobile`
-    margin-left: 6px;
+    margin-left: ${({ descExpand }) => (descExpand ? '12px' : '3px')};
   `};
 `
 export const TitleWrapper = styled.div`

@@ -14,6 +14,9 @@ export const Normal = styled.div`
   max-width: 490px;
   margin: ${({ margin }) => (margin ? '10px 0' : 0)};
 
+  ${cs.media.mobile`
+    font-size: 13px;
+  `};
 
   /* ${cs.media.tablet`
     ${cs.truncate('220px')};

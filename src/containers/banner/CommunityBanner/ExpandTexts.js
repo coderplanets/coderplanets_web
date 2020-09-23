@@ -22,7 +22,7 @@ const text =
 const ExpandTexts = ({ descExpand }) => {
   const { mobile } = useMedia()
 
-  const cutLength = !mobile ? 26 : 12
+  const cutLength = !mobile ? 26 : 10
 
   return (
     <Wrapper descExpand={descExpand}>
