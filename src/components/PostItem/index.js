@@ -15,7 +15,6 @@ import DigestView from './DigestView/index'
 import ListView from './ListView'
 
 import { Wrapper } from './styles'
-import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PostItem:index')
@@ -36,7 +35,9 @@ const PostItem = ({
 
   return (
     <Wrapper
-      opacity={getOpacity(entry, active, accountInfo)}
+      entry={entry}
+      active={active}
+      accountInfo={accountInfo}
       hover={contentHover}
       divider={contentDivider}
     >
