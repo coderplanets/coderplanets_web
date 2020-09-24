@@ -19,11 +19,10 @@ import {
   CommentWrapper,
   CommentIcon,
   CommentNum,
-} from './styles'
-// import { Wrapper } from './styles'
+} from './styles/list_view'
 
 const ListView = ({ entry, onPreview }) => (
-  <>
+  <React.Fragment>
     <SmallAvatar src={entry.author.avatar} />
     <Main>
       <TopHalf>
@@ -54,7 +53,7 @@ const ListView = ({ entry, onPreview }) => (
         </Extra>
       </SecondHalf>
     </Main>
-  </>
+  </React.Fragment>
 )
 
 export default React.memo(ListView)

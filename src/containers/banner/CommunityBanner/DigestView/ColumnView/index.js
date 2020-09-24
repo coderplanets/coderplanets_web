@@ -57,7 +57,7 @@ const CommunityBrief = ({ content, descExpand }) => {
           <LogoHolder src={CommunityLogoHolder} />
         )}
       </LogoWrapper>
-      <CommunityInfo>
+      <CommunityInfo descExpand={descExpand}>
         <TitleWrapper>
           <Title descExpand={descExpand}>
             <TitleText>{content.title}</TitleText>

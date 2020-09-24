@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `
 export const Divider = styled.div`
   height: 2px;
-  width: 80%;
+  width: 60%;
   background: #054252;
   margin-top: ${({ size }) => (size === 'default' ? '5px' : '2px')};
   margin-bottom: ${({ size }) => (size === 'default' ? '5px' : '1px')};

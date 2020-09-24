@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { useMedia } from '@/hooks'
-import DesktopView from './DesktopView'
-import MobileView from './MobileView'
+import DesktopView from './DesktopView/index'
+import MobileView from './MobileView/index'
 
 const DigestView = (props) => {
   const { mobile } = useMedia()

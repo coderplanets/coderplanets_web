@@ -10,14 +10,18 @@ export const Wrapper = styled.div`
   padding: 20px 5px;
   border-top: 1px solid;
   border-top-color: transparent;
-  border-bottom: 1px solid #054353;
+  border-bottom: 1px solid;
+  border-bottom-color: #054353;
   color: ${theme('thread.articleDigest')};
+
   &:hover {
     background: #04303c;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 24px;
+    border-bottom-color: transparent;
     border-top: 1px solid;
     border-top-color: #327faf;
   }
-  transition: all 0.25s;
+  transition: border-top 0.25s ease-out, box-shadow 0.2s ease-in;
 `
 export const ContentsWrapper = styled.div`
   ${cs.flexColumn()};
