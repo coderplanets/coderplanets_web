@@ -15,16 +15,15 @@ export const AvatarWrapper = styled.div`
   }
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('18px')};
+  ${cs.circle('16px')};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
   display: block;
-  margin-top: 2px;
-  margin-right: 6px;
+  margin-right: 8px;
 `
 export const AvatarFallback = styled.div`
   ${cs.flex('align-both')};
-  ${cs.circle('18px')};
+  ${cs.circle('16px')};
   font-size: 14px;
   color: ${theme('thread.articleTitle')};
   background-color: #164858; /*${theme('thread.articleHover')}; */
