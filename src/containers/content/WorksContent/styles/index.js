@@ -8,10 +8,16 @@ export const Wrapper = styled.div.attrs((props) => ({
   ${cs.flexColumn()};
   min-height: 100vh;
   margin-bottom: 100px;
+  margin-top: 30px;
+  padding: 0 7vw;
+`
+export const LeftSidebarWrapper = styled.div.attrs((props) => ({
+  'data-test-id': props.testId,
+}))`
+  width: 220px;
 `
 export const ContentWrapper = styled.div`
   ${cs.flex()};
-  padding: 0 7vw;
 `
 export const InnerContent = styled.div`
   flex-grow: 1;
