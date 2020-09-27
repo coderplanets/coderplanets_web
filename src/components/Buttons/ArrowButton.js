@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
@@ -14,25 +14,6 @@ import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Buttons:index')
-
-const SIZE_MAP = {
-  tiny: {
-    text: '12px',
-    icon: '12px',
-  },
-  small: {
-    text: '14px',
-    icon: '14px',
-  },
-  medium: {
-    text: '16px',
-    icon: '16px',
-  },
-  large: {
-    text: '18px',
-    icon: '18px',
-  },
-}
 
 const ArrowButton = ({
   children,
@@ -45,25 +26,46 @@ const ArrowButton = ({
   const iconSrc =
     arrowStyle === 'default' ? `${ICON}/arrow.svg` : `${ICON}/arrow-simple.svg`
 
+  const leftTextRef = useRef(null)
+  const rightTextRef = useRef(null)
+
+  const [leftChildWidth, setLeftTextWidth] = useState(50)
+  const [rightChildWidth, setRightTextWidth] = useState(50)
+
+  useEffect(() => {
+    if (leftTextRef) {
+      setLeftTextWidth(leftTextRef.current?.clientWidth)
+    }
+  }, [leftTextRef])
+
+  useEffect(() => {
+    if (rightTextRef) {
+      setRightTextWidth(rightTextRef.current?.clientWidth)
+    }
+  }, [rightTextRef])
+
+  const textWidth = direction === 'left' ? leftChildWidth : rightChildWidth
+
   return (
-    <Wrapper onClick={onClick} dimWhenIdle={dimWhenIdle}>
+    <Wrapper
+      onClick={onClick}
+      dimWhenIdle={dimWhenIdle}
+      size={size}
+      width={textWidth}
+    >
       {direction === 'left' ? (
         <>
-          <LeftIcon
-            arrowStyle={arrowStyle}
-            size={SIZE_MAP[size].icon}
-            src={iconSrc}
-          />
-          <Text size={SIZE_MAP[size].text}>{children}</Text>
+          <LeftIcon arrowStyle={arrowStyle} size={size} src={iconSrc} />
+          <Text ref={leftTextRef} size={size}>
+            {children}
+          </Text>
         </>
       ) : (
         <>
-          <Text size={SIZE_MAP[size].text}>{children}</Text>
-          <RightIcon
-            arrowStyle={arrowStyle}
-            size={SIZE_MAP[size].icon}
-            src={iconSrc}
-          />
+          <Text ref={rightTextRef} size={size}>
+            {children}
+          </Text>
+          <RightIcon arrowStyle={arrowStyle} size={size} src={iconSrc} />
         </>
       )}
     </Wrapper>
