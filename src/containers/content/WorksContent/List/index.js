@@ -1,12 +1,14 @@
 import React from 'react'
 
+import Trending from './Trending'
 import Card from './Card'
-import { Wrapper } from '../styles/list'
+import { Wrapper, Divider } from '../styles/list'
 
 const List = () => {
   return (
     <Wrapper>
-      <Card />
+      <Trending />
+      <Divider />
       <Card />
       <Card />
       <Card />

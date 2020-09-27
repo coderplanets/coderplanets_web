@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { cs } from '@/utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
   width: 100%;
-  color: ${theme('thread.articleTitle')};
-  border-radius: 4px;
+`
+export const Header = styled.div`
+  ${cs.flex('align-center', 'justify-between')};
+  margin-bottom: 12px;
 `
 export const Divider = styled.div`
   height: 1px;

@@ -26,9 +26,9 @@ import {
   GithubIcon,
 } from '../styles/list/card'
 
-const Card = () => {
+const Card = ({ noBorder }) => {
   return (
-    <Wrapper>
+    <Wrapper noBorder={noBorder}>
       <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
       <IntroBlock>
         <Title>coderplanets</Title>
@@ -52,13 +52,7 @@ const Card = () => {
           </BuildWithWrapper>
           {/* <PublishAt>mydearxym / 3小时前</PublishAt> */}
           <Divider />
-          <IconText
-            iconSrc={`${ICON_CMD}/works/comment.svg`}
-            size="tiny"
-            margin="5px"
-          >
-            44 <CommentSlash>/</CommentSlash> 178
-          </IconText>
+          <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
           <Divider />
           <PublishAt>发布于 3小时前</PublishAt>
           <SpaceGrow />
@@ -69,7 +63,13 @@ const Card = () => {
           <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
           <UpNumber>93</UpNumber>
         </UpInfo>
-        <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
+        <IconText
+          iconSrc={`${ICON_CMD}/works/comment.svg`}
+          size="tiny"
+          margin="5px"
+        >
+          44 <CommentSlash>/</CommentSlash> 178
+        </IconText>
       </ExtraInfo>
     </Wrapper>
   )

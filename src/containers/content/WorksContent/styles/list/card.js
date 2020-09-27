@@ -4,6 +4,7 @@ import Img from '@/Img'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
+  background: #0b2f3a;
   position: relative;
   ${cs.flex('align-center')};
   height: 125px;
@@ -11,7 +12,8 @@ export const Wrapper = styled.div`
   padding: 12px 30px;
   padding-right: 38px;
   padding-top: 0;
-  border-bottom: 1px solid #0b4152;
+  border-bottom: ${({ noBorder }) => (!noBorder ? '1px solid' : 'none')};
+  border-bottom-color: #0b4152;
   border-radius: 5px;
   &:hover {
     background: #08333e;
