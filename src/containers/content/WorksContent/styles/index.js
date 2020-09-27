@@ -14,7 +14,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const LeftSidebarWrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  width: 220px;
+  width: 190px;
 `
 export const ContentWrapper = styled.div`
   ${cs.flex()};

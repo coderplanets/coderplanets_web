@@ -4,7 +4,7 @@ import { Tabs } from '@/components/Switcher'
 import { ArrowButton } from '@/components/Buttons'
 import Card from './Card'
 
-import { Wrapper, Header } from '../styles/list/trending'
+import { Wrapper, Header, More } from '../styles/list/trending'
 
 const items = [
   {
@@ -33,9 +33,11 @@ const Trending = () => {
           onChange={console.log}
           size="small"
         />
-        <ArrowButton size="tiny" dimWhenIdle>
-          查看全部
-        </ArrowButton>
+        <More>
+          <ArrowButton size="tiny" dimWhenIdle>
+            查看全部
+          </ArrowButton>
+        </More>
       </Header>
       <Card noBorder />
     </Wrapper>

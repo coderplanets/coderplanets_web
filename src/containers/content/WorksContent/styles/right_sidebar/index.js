@@ -6,8 +6,9 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${cs.flexColumn()};
-  width: 280px;
-  padding-left: 30px;
+  width: 300px;
+  padding-left: 40px;
+  margin-left: 5px;
   color: ${theme('thread.articleDigest')};
 `
 export const Title = styled.div`

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 export const Header = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${cs.flex('align-end', 'justify-between')};
   margin-bottom: 12px;
 `
 export const Divider = styled.div`
@@ -17,4 +17,11 @@ export const Divider = styled.div`
   margin-top: 26px;
   margin-bottom: 26px;
   opacity: 0.6;
+`
+export const More = styled.div`
+  opacity: 0;
+  ${Header}:hover & {
+    opacity: 1;
+  }
+  transition: opacity 0.25s;
 `

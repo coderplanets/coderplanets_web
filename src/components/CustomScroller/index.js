@@ -25,7 +25,7 @@ CustomScroller.propTypes = {
   height: T.string,
   width: T.string,
   shadowSize: T.oneOf(['small', 'medium', 'large']),
-  barSize: T.oneOf(['small', 'medium', 'large']),
+  barSize: T.oneOf(['tiny', 'small', 'medium', 'large']),
   showShadow: T.bool,
   // hack for custom scrollbar
   innerHeight: T.string,
