@@ -9,43 +9,44 @@ import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 
+import EmailHintIcon from './EmailHintIcon'
+
 import {
   Wrapper,
-  SubscribeInput,
-  SubscribeBtnWrapper,
-  SubscribeBtn,
-  SubscribeText,
-  SubscribeCancel,
+  InnerWrapper,
+  HintHolder,
+  // SubscribeInput,
+  // SubscribeBtnWrapper,
+  // SubscribeBtn,
 } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:EmailSubscriber:index')
 
-const EmailSubscriber = ({ testId, withHoverHint }) => {
+const EmailSubscriber = ({ testId }) => {
   return (
     <Wrapper testId={testId}>
-      <SubscribeInput />
-      <SubscribeBtnWrapper>
-        <SubscribeBtn>订阅</SubscribeBtn>
-      </SubscribeBtnWrapper>
-      {withHoverHint && (
-        <SubscribeText>
-          订阅后会不定期推送社区开发及运营动态，欢迎订阅（可随时
-          <SubscribeCancel>取消</SubscribeCancel>）。
-        </SubscribeText>
-      )}
+      {/* <EmailIcon src={`${ICON}/email_envelope.svg`} /> */}
+      <EmailHintIcon />
+      <InnerWrapper>
+        <HintHolder>邮件订阅</HintHolder>
+        {/* <SubscribeInput placeholder="邮件订阅" /> */}
+      </InnerWrapper>
+      {/* <SubscribeBtnWrapper>
+        <SubscribeBtn size="small">邮件订阅</SubscribeBtn>
+      </SubscribeBtnWrapper> */}
     </Wrapper>
   )
 }
 
 EmailSubscriber.propTypes = {
   testId: T.string,
-  withHoverHint: T.bool,
+  // withHoverHint: T.bool,
 }
 
 EmailSubscriber.defaultProps = {
   testId: 'emailSubscriber',
-  withHoverHint: false,
+  // withHoverHint: false,
 }
 
 export default React.memo(EmailSubscriber)

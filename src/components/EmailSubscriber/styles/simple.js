@@ -8,76 +8,22 @@ import { theme, cs } from '@/utils'
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn('justify-center')};
+  ${cs.flex('align-center')};
   position: relative;
-  width: 100%;
-  height: 50px;
-  background: #07303e;
-  border-radius: 5px;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 3px;
-    display: block;
-    background-image: repeating-linear-gradient(
-      135deg,
-      #8a5953 0px,
-      #8a5953 15px,
-      transparent 15px,
-      transparent 25px,
-      #4c7ba0 25px,
-      #4c7ba0 40px,
-      transparent 40px,
-      transparent 50px
-    );
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    display: block;
-    background-image: repeating-linear-gradient(
-      135deg,
-      #8a5953 0px,
-      #8a5953 15px,
-      transparent 15px,
-      transparent 25px,
-      #4c7ba0 25px,
-      #4c7ba0 40px,
-      transparent 40px,
-      transparent 50px
-    );
-  }
-`
-export const InnerWrapper = styled.div`
-  padding: 0 5px;
-`
-export const HintHolder = styled.div`
-  font-size: 14px;
-  color: ${theme('thread.articleDigest')};
-  padding-left: 5px;
-
-  &:hover {
-    color: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
+  width: 95%;
 `
 export const SubscribeInput = styled(Input)`
   background: #07303e;
-  border: none;
-  width: calc(100% - 45px);
-  height: 32px;
-  border-radius: 3px;
+  border: 1px solid;
+  border-color: #1d4761;
+  /* background: #0e3f4e; */
+  height: 36px;
+  padding-right: 92px;
+  border-radius: 6px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 
   &:hover {
-    border: 1px solid;
-    border-color: #1d4761;
     background: #07303e;
   }
 `
