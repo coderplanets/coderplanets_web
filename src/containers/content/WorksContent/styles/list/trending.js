@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
   ${cs.flex('align-end', 'justify-between')};
   margin-bottom: 12px;
+  margin-top: -4px;
 `
 export const Divider = styled.div`
   height: 1px;

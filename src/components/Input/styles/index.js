@@ -7,6 +7,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   position: relative;
+  width: 100%;
 `
 const AddOn = styled.div`
   position: absolute;
@@ -72,11 +73,11 @@ export const InputWrapper = styled.input`
   }
   &:focus {
     border-color: ${theme('editor.borderActive')};
-    box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2);
+    /* box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2); */
   }
   &:active {
     border-color: ${theme('editor.borderActive')};
-    box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2);
+    /* box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2); */
   }
 `
 export const TextAreaWrapper = styled.textarea.attrs((props) => ({

@@ -8,15 +8,15 @@ import { Wrapper, Header, More } from '../styles/list/trending'
 
 const items = [
   {
-    title: '本月',
+    title: '月最佳',
     raw: 'month',
   },
   {
-    title: '本周',
+    title: '周最佳',
     raw: 'week',
   },
   {
-    title: '今天',
+    title: '日最佳',
     raw: 'today',
   },
 ]
@@ -35,7 +35,7 @@ const Trending = () => {
         />
         <More>
           <ArrowButton size="tiny" dimWhenIdle>
-            查看全部
+            全部榜单
           </ArrowButton>
         </More>
       </Header>

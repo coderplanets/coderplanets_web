@@ -13,7 +13,8 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const Header = styled.div`
   margin-bottom: 12px;
-  margin-top: 12px;
+  margin-top: 8px;
+  margin-left: 5px;
 `
 export const AuthorWrapper = styled.div`
   ${cs.flex('align-center')};
