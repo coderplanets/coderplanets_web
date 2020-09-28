@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
   ${cs.flex('align-center')};
   height: 125px;
   width: 100%;
-  padding: 12px 30px;
-  padding-right: 38px;
+  padding: 12px 20px;
+  padding-right: 25px;
   padding-top: 0;
   border-bottom: ${({ noBorder }) => (!noBorder ? '1px solid' : 'none')};
   border-bottom-color: #0b4152;
@@ -31,10 +31,14 @@ export const IntroImg = styled(Img)`
   border-radius: 5px;
   margin-top: 2px;
 `
-export const IntroBlock = styled.div`
+export const IntroWrapper = styled.div`
   ${cs.flexColumnGrow('align-start', 'justify-between')};
   margin-left: 25px;
   /* border: 1px solid green; */
+`
+export const Header = styled.div`
+  ${cs.flex('justify-between', 'align-start')};
+  width: 100%;
 `
 export const Title = styled.div`
   font-size: 16px;
@@ -47,17 +51,14 @@ export const TypeTags = styled.div`
   color: ${theme('thread.articleDigest')};
   height: 32px;
 `
-export const ExtraInfo = styled.div`
-  ${cs.flexColumn('align-end', 'justify-around')};
-  height: 100%;
-`
 export const UpInfo = styled.div`
   ${cs.flex('align-center')};
+  margin-top: 4px;
 `
 export const UpIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   display: block;
   margin-right: 8px;
 `
@@ -68,7 +69,7 @@ export const UpNumber = styled.div`
 export const BodyText = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  ${cs.truncate('550px')};
+  ${cs.truncate('380px')};
   margin-top: 5px;
   margin-bottom: 15px;
 `
@@ -80,21 +81,13 @@ export const FooterWrapper = styled.div`
   margin-left: -3px;
 `
 export const Divider = styled.div`
-  margin-right: 22px;
+  margin-right: 18px;
 `
 export const BuildWithWrapper = styled.div`
   ${cs.flex('align-center')};
   padding: 2px 5px;
   background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0);
   margin-top: -4px;
-`
-export const CommentSlash = styled.div`
-  font-size: 10px;
-  margin-left: 7px;
-  margin-right: 5px;
-`
-export const PublishAt = styled.div`
-  font-size: 12px;
 `
 const BaseBuildIcon = styled(Img)`
   width: 14px;
