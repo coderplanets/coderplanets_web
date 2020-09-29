@@ -4,37 +4,35 @@
  *
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 
-import EmailHintIcon from './EmailHintIcon'
+import DefaultView from './DefaultView'
+import ActiveView from './ActiveView'
 
-import {
-  Wrapper,
-  InnerWrapper,
-  HintHolder,
-  // SubscribeInput,
-  // SubscribeBtnWrapper,
-  // SubscribeBtn,
-} from './styles'
+import { Wrapper, InnerWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:EmailSubscriber:index')
 
 const EmailSubscriber = ({ testId }) => {
+  const [active, setActive] = useState(false)
+
   return (
-    <Wrapper testId={testId}>
-      {/* <EmailIcon src={`${ICON}/email_envelope.svg`} /> */}
-      <EmailHintIcon />
+    <Wrapper testId={testId} active={active}>
       <InnerWrapper>
-        <HintHolder>邮件订阅</HintHolder>
-        {/* <SubscribeInput placeholder="邮件订阅" /> */}
+        {!active ? (
+          <DefaultView onOpen={() => setActive(true)} />
+        ) : (
+          <ActiveView
+            onCancel={() => {
+              setActive(false)
+            }}
+          />
+        )}
       </InnerWrapper>
-      {/* <SubscribeBtnWrapper>
-        <SubscribeBtn size="small">邮件订阅</SubscribeBtn>
-      </SubscribeBtnWrapper> */}
     </Wrapper>
   )
 }

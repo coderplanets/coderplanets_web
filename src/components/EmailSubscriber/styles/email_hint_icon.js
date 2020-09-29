@@ -9,19 +9,14 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${cs.flex('align-center')};
-  position: absolute;
-  top: 15px;
-  right: 14px;
 `
 export const MailIcon = styled(Img)`
-  position: absolute;
-  top: 4px;
-  left: -55px;
   fill: ${theme('thread.articleDigest')};
   width: 14px;
   height: 14px;
   display: block;
   transform: rotate(10deg);
+  margin-right: 12px;
 
   ${ParentWrapper}:hover & {
     animation: ${animate.shake} 10s linear;
@@ -31,11 +26,9 @@ export const CurveLineIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   width: 24px;
   height: 24px;
+  margin-right: 10px;
   display: block;
   transform: rotateZ(386deg);
-  position: absolute;
-  top: -3px;
-  left: -30px;
 `
 export const MailBoxIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
