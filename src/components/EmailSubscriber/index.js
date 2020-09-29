@@ -4,48 +4,47 @@
  *
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 
-import {
-  Wrapper,
-  SubscribeInput,
-  SubscribeBtnWrapper,
-  SubscribeBtn,
-  SubscribeText,
-  SubscribeCancel,
-} from './styles'
+import DefaultView from './DefaultView'
+import ActiveView from './ActiveView'
+
+import { Wrapper, InnerWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:EmailSubscriber:index')
 
-const EmailSubscriber = ({ testId, withHoverHint }) => {
+const EmailSubscriber = ({ testId }) => {
+  const [active, setActive] = useState(false)
+
   return (
-    <Wrapper testId={testId}>
-      <SubscribeInput />
-      <SubscribeBtnWrapper>
-        <SubscribeBtn>订阅</SubscribeBtn>
-      </SubscribeBtnWrapper>
-      {withHoverHint && (
-        <SubscribeText>
-          订阅后会不定期推送社区开发及运营动态，欢迎订阅（可随时
-          <SubscribeCancel>取消</SubscribeCancel>）。
-        </SubscribeText>
-      )}
+    <Wrapper testId={testId} active={active}>
+      <InnerWrapper>
+        {!active ? (
+          <DefaultView onOpen={() => setActive(true)} />
+        ) : (
+          <ActiveView
+            onCancel={() => {
+              setActive(false)
+            }}
+          />
+        )}
+      </InnerWrapper>
     </Wrapper>
   )
 }
 
 EmailSubscriber.propTypes = {
   testId: T.string,
-  withHoverHint: T.bool,
+  // withHoverHint: T.bool,
 }
 
 EmailSubscriber.defaultProps = {
   testId: 'emailSubscriber',
-  withHoverHint: false,
+  // withHoverHint: false,
 }
 
 export default React.memo(EmailSubscriber)

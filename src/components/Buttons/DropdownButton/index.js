@@ -10,6 +10,7 @@ import {
   Wrapper,
   ButtonWrapper,
   DropdownButtonWrapper,
+  Divider,
   MoreIcon,
 } from '../styles/dropdown_button'
 
@@ -29,6 +30,7 @@ const DropdownButton = ({ children, options, onClick }) => {
           <MoreIcon src={`${ICON_CMD}/works/vote_up.svg`} onClick={onClick} />
         </DropdownButtonWrapper>
       </Tooltip>
+      <Divider />
     </Wrapper>
   )
 }

@@ -82,6 +82,9 @@ export const getShadowHeight = (type) => {
 
 const horizontalScrollbarHeight = (type) => {
   switch (type) {
+    case 'tiny': {
+      return '3px'
+    }
     case 'small': {
       return '5px'
     }
@@ -97,6 +100,9 @@ const horizontalScrollbarHeight = (type) => {
 
 const verticalScrollbarWidth = (type) => {
   switch (type) {
+    case 'tiny': {
+      return '6px'
+    }
     case 'small': {
       return '7px'
     }

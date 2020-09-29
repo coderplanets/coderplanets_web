@@ -1,57 +1,58 @@
 import styled from 'styled-components'
 
-import { Button } from '@/components/Buttons'
-import Input from '@/components/Input'
-
-import { theme, cs } from '@/utils'
+import { cs } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-center')};
-`
-export const SubscribeInput = styled(Input)`
-  background: #0e3f4e;
+  ${cs.flexColumn('justify-center')};
+  position: relative;
+  width: 100%;
+  height: ${({ active }) => (active ? '180px' : '50px')};
 
-  &:hover {
-    background: #104556;
-  }
-`
-export const SubscribeBtnWrapper = styled.div`
-  width: 88px;
-`
-export const SubscribeBtn = styled(Button)`
-  margin-left: 15px;
-  margin-right: 18px;
-  filter: saturate(0.8);
+  background: #07303e;
+  border-radius: 5px;
 
-  padding: 4px 10px;
-  padding-top: 3px;
-  height: 28px;
-
-  ${Wrapper}:hover & {
-    filter: saturate(1);
-    /* padding: 4px 15px;
-    height: 32px; */
-  }
-  transition: all 0.25s;
-`
-export const SubscribeText = styled.div`
-  font-size: 12px;
-  color: ${theme('thread.articleDigest')};
-  width: 200px;
-  line-height: 1.7;
-  opacity: 0;
-
-  ${Wrapper}:hover & {
-    opacity: 1;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    display: block;
+    background-image: repeating-linear-gradient(
+      135deg,
+      #8a5953 0px,
+      #8a5953 15px,
+      transparent 15px,
+      transparent 25px,
+      #4c7ba0 25px,
+      #4c7ba0 40px,
+      transparent 40px,
+      transparent 50px
+    );
   }
 
-  transition: opacity 0.25s;
-  transition-delay: 0.5s;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    display: block;
+    background-image: repeating-linear-gradient(
+      135deg,
+      #8a5953 0px,
+      #8a5953 15px,
+      transparent 15px,
+      transparent 25px,
+      #4c7ba0 25px,
+      #4c7ba0 40px,
+      transparent 40px,
+      transparent 50px
+    );
+  }
 `
-export const SubscribeCancel = styled.span`
-  color: ${theme('footer.hover')};
-  padding: 0 2px;
-  cursor: pointer;
+export const InnerWrapper = styled.div`
+  padding: 0 5px;
 `

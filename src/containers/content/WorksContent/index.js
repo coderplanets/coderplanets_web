@@ -11,13 +11,16 @@ import { connectStore, buildLog } from '@/utils'
 import Pagi from '@/components/Pagi'
 import AvatarsRow from '@/components/AvatarsRow'
 
-import Banner from './Banner'
+// import Banner from './Banner'
+import Brand from './Brand'
 import FilterBar from './FilterBar'
 import List from './List'
 import MileStone from './MileStone'
+import RightSidebar from './RightSidebar/index'
 
 import {
   Wrapper,
+  LeftSidebarWrapper,
   ContentWrapper,
   InnerContent,
   PagiInfo,
@@ -68,9 +71,12 @@ const WorksContentContainer = ({ worksContent: store }) => {
 
   return (
     <Wrapper testId="worksContent">
-      <Banner />
+      {/* <Banner /> */}
       <ContentWrapper>
-        <FilterBar activeView={activeView} />
+        <LeftSidebarWrapper>
+          <Brand />
+          <FilterBar activeView={activeView} />
+        </LeftSidebarWrapper>
         <InnerContent>
           {activeView === 'works' ? <List /> : <MileStone />}
           <Pagi margin={{ top: '60px', bottom: '80px' }}>
@@ -85,6 +91,7 @@ const WorksContentContainer = ({ worksContent: store }) => {
             </PagiInfo>
           </Pagi>
         </InnerContent>
+        <RightSidebar />
       </ContentWrapper>
     </Wrapper>
   )

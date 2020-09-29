@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@/config'
+import { ICON, ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@/config'
 
 import { SpaceGrow } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
@@ -9,31 +9,37 @@ import IconText from '@/components/IconText'
 import {
   Wrapper,
   IntroImg,
-  IntroBlock,
+  IntroWrapper,
+  Header,
   Title,
-  ExtraInfo,
   UpInfo,
   UpIcon,
   UpNumber,
-  // TypeTags,
   BodyText,
   FooterWrapper,
   BuildWithWrapper,
-  CommentSlash,
-  PublishAt,
   TechIcon,
   Divider,
   GithubIcon,
 } from '../styles/list/card'
 
-const Card = () => {
+const Card = ({ noBorder }) => {
   return (
-    <Wrapper>
+    <Wrapper noBorder={noBorder}>
       <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
-      <IntroBlock>
-        <Title>coderplanets</Title>
-        <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
-
+      <IntroWrapper>
+        <Header>
+          <div>
+            <Title>coderplanets</Title>
+            <BodyText>
+              可能是最性感的开发者社区，来为你心爱的作品建立...
+            </BodyText>
+          </div>
+          <UpInfo>
+            <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
+            <UpNumber>93</UpNumber>
+          </UpInfo>
+        </Header>
         <FooterWrapper>
           <IconText
             iconSrc={`${ICON_CMD}/works/topic.svg`}
@@ -50,27 +56,22 @@ const Card = () => {
             <TechIcon src={`${ICON_BASE}/pl/elixir.svg`} />
             <TechIcon src={`${ICON_BASE}/pl/ruby.svg`} />
           </BuildWithWrapper>
-          {/* <PublishAt>mydearxym / 3小时前</PublishAt> */}
           <Divider />
           <IconText
-            iconSrc={`${ICON_CMD}/works/comment.svg`}
+            iconSrc={`${ICON}/publish_rocket.svg`}
             size="tiny"
             margin="5px"
           >
-            44 <CommentSlash>/</CommentSlash> 178
+            3小时前
           </IconText>
           <Divider />
-          <PublishAt>发布于 3小时前</PublishAt>
+          <IconText iconSrc={`${ICON}/comment.svg`} size="tiny" margin="5px">
+            44
+          </IconText>
           <SpaceGrow />
+          <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
         </FooterWrapper>
-      </IntroBlock>
-      <ExtraInfo>
-        <UpInfo>
-          <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
-          <UpNumber>93</UpNumber>
-        </UpInfo>
-        <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
-      </ExtraInfo>
+      </IntroWrapper>
     </Wrapper>
   )
 }

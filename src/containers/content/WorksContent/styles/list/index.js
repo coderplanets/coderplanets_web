@@ -6,7 +6,13 @@ export const Wrapper = styled.div`
   ${cs.flexColumn()};
   width: 100%;
   color: ${theme('thread.articleTitle')};
-  background: #08333e;
   border-radius: 4px;
 `
-export const Holder = styled.div``
+export const Divider = styled.div`
+  height: 1px;
+  width: 100%;
+  background: #004353;
+  margin-top: 26px;
+  margin-bottom: 26px;
+  opacity: 0.6;
+`

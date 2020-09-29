@@ -33,7 +33,7 @@ export const getPadding = (size) => {
 export const getFontSize = (size) => {
   switch (size) {
     case 'tiny': {
-      return '12px'
+      return '11px'
     }
 
     case 'small': {
