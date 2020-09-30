@@ -10,19 +10,18 @@ import {
   SubscribeBtnWrapper,
   SubscribeBtn,
   Cancel,
-} from './styles/active_view'
+} from '../styles/default_layout/active_view'
 
-const ActiveView = ({ onCancel }) => {
+const ActiveView = ({ title, desc, onCancel }) => {
   return (
     <Wrapper>
       <SignIcon src={`${ICON}/email_envelope.svg`} />
-      <Title>作品集市动态</Title>
-      <Desc>定期推送优秀产品介绍、榜单等，可随时取消，欢迎订阅。</Desc>
+      <Title>{title}</Title>
+      <Desc>{desc}</Desc>
       <SubscribeInput placeholder="邮件地址" />
       <SubscribeBtnWrapper>
         <Cancel
           onClick={() => {
-            console.log('hhhh')
             onCancel()
           }}
         >

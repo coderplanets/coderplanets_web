@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 export const SignIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   position: absolute;
-  top: -3px;
+  top: -6px;
   right: 5px;
   width: 35px;
   height: 35px;
@@ -36,34 +36,41 @@ export const Desc = styled.div`
 `
 export const SubscribeInput = styled(Input)`
   background: #07303e;
+  border: none;
   border-bottom: 1px solid;
   border-bottom-color: #1d4761;
-  width: 90%;
+  width: 100%;
   height: 32px;
   border-radius: 0;
   padding-left: 1px;
+  margin-top: 5px;
 
   &:hover {
     border: none;
     border-bottom: 1px solid;
-    border-color: #1d4761;
+    border-color: ${theme('button.primary')};
     background: #07303e;
+  }
+  &:active {
+    border: none;
+    border-bottom: 1px solid;
+    border-color: ${theme('button.primary')};
   }
   &:focus {
     border: none;
     border-bottom: 1px solid;
-    border-color: #1d4761;
+    border-color: ${theme('button.primary')};
     background: #07303e;
   }
 `
 export const SubscribeBtnWrapper = styled.div`
   ${cs.flex('justify-center', 'align-center')};
-  margin-top: 20px;
-  margin-left: -10px;
+  margin-top: 16px;
+  margin-left: -15px;
 `
 export const SubscribeBtn = styled(Button)`
   transition: all 0.25s;
-  margin-left: 10px;
+  margin-left: 14px;
 `
 export const Cancel = styled.div`
   color: ${theme('button.primary')};
