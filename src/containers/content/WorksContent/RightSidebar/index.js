@@ -54,7 +54,11 @@ const RightSidebar = () => {
       <Title>开发者访谈</Title>
       <div>...</div>
       <Divider />
-      <EmailSubscriber />
+      <EmailSubscriber
+        activeByDefault
+        title="作品集市动态"
+        desc="定期推送优秀产品介绍、榜单等，可随时取消，欢迎订阅。"
+      />
       <Divider />
       <div>关于，订阅，xx</div>
     </Wrapper>
