@@ -4,46 +4,56 @@
  *
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@/utils'
+import DefaultLayout from './DefaultLayout/index'
+import SimpleLayout from './SimpleLayout'
 
-import DefaultView from './DefaultView'
-import ActiveView from './ActiveView'
+import { Wrapper } from './styles'
 
-import { Wrapper, InnerWrapper } from './styles'
-
-/* eslint-disable-next-line */
-const log = buildLog('c:EmailSubscriber:index')
-
-const EmailSubscriber = ({ testId }) => {
-  const [active, setActive] = useState(false)
-
+const EmailSubscriber = ({
+  testId,
+  title,
+  desc,
+  type,
+  placeholder,
+  activeByDefault,
+}) => {
   return (
-    <Wrapper testId={testId} active={active}>
-      <InnerWrapper>
-        {!active ? (
-          <DefaultView onOpen={() => setActive(true)} />
-        ) : (
-          <ActiveView
-            onCancel={() => {
-              setActive(false)
-            }}
-          />
-        )}
-      </InnerWrapper>
+    <Wrapper testId={testId}>
+      {type === 'default' ? (
+        <DefaultLayout
+          activeByDefault={activeByDefault}
+          title={title}
+          desc={desc}
+        />
+      ) : (
+        <SimpleLayout placeholder={placeholder} />
+      )}
     </Wrapper>
   )
 }
 
 EmailSubscriber.propTypes = {
   testId: T.string,
+  title: T.string,
+  desc: T.string,
+  placeholder: T.string,
+  type: T.oneOf(['default', 'simple']),
+  // only works when type is default
+  // means expand the subscription by default
+  activeByDefault: T.bool,
   // withHoverHint: T.bool,
 }
 
 EmailSubscriber.defaultProps = {
   testId: 'emailSubscriber',
+  title: '邮件订阅',
+  desc: '可随时取消',
+  placeholder: '邮件订阅',
+  type: 'default',
+  activeByDefault: false,
   // withHoverHint: false,
 }
 

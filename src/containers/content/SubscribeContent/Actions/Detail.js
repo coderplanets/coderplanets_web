@@ -20,7 +20,11 @@ const Detail = () => {
         <Dot /> Email 订阅
       </Title>
       <Desc>
-        <EmailSubscriber />
+        <EmailSubscriber
+          activeByDefault
+          title="社区订阅"
+          desc="社区订阅注意事项。"
+        />
       </Desc>
       <Br top="50px" />
       <Title>
