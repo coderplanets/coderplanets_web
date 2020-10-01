@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Sticky from '@/components/Sticky'
+import { Br } from '@/components/Common'
 import { OrButton } from '@/components/Buttons'
 import FiltersMenu from '@/components/FiltersMenu'
 import NaviMenu from '@/components/NaviMenu'
@@ -30,20 +30,17 @@ const FilterBar = ({ activeView }) => {
         ]}
         onClick={changeView}
       />
-      <br />
+      <Br bottom="30px" />
       <Title>综合筛选</Title>
       <FilterWrapper>
         <FiltersMenu items={fakeFilterItems} withDivider revert />
       </FilterWrapper>
-      <br />
-      <br />
-      <Sticky offsetTop={30}>
-        <Title>类别筛选</Title>
-        <FilterWrapper>
-          <NaviMenu joinMode={false} withDivider={false} />
-        </FilterWrapper>
-        <SideFooter />
-      </Sticky>
+      <Br bottom="30px" />
+      <Title>类别筛选</Title>
+      <FilterWrapper>
+        <NaviMenu joinMode={false} withDivider={false} />
+      </FilterWrapper>
+      <SideFooter />
     </Wrapper>
   )
 }
