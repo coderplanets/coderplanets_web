@@ -13,4 +13,11 @@ export const Title = styled.div`
   flex-grow: 1;
   font-size: 14px;
 `
-export const OptionWrapper = styled.div``
+export const OptionWrapper = styled.div`
+  opacity: 0.6;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
+  transition: opacity 0.25s;
+`
