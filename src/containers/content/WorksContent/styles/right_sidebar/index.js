@@ -12,10 +12,6 @@ export const Wrapper = styled.div.attrs((props) => ({
   margin-left: 5px;
   color: ${theme('thread.articleDigest')};
 `
-export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
-  font-size: 14px;
-`
 export const Divider = styled.div`
   height: 1px;
   width: 100%;

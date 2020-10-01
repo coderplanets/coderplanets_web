@@ -4,6 +4,7 @@ import { ICON, ICON_CMD } from '@/config'
 
 import { Br } from '@/components/Common'
 import { DropdownButton } from '@/components/Buttons'
+import SubTitle from '@/components/SubTitle'
 import EmailSubscriber from '@/components/EmailSubscriber'
 
 import InterviewsList from './InterviewsList'
@@ -11,7 +12,6 @@ import Linkers from './Linkers'
 
 import {
   Wrapper,
-  Title,
   Divider,
   PublishIcon,
   PublishBtnWrapper,
@@ -50,7 +50,7 @@ const RightSidebar = () => {
         </DropdownButton>
       </PublishBtnWrapper>
       <Br top="25px" bottom="20px" />
-      <Title>开发者访谈</Title>
+      <SubTitle withMore>开发者访谈</SubTitle>
       <InterviewsList />
       <Br top="25px" bottom="20px" />
       <EmailSubscriber
