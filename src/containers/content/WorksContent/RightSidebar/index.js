@@ -1,14 +1,19 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON, ICON_CMD } from '@/config'
+
+import { Br } from '@/components/Common'
 import { DropdownButton } from '@/components/Buttons'
+import SubTitle from '@/components/SubTitle'
 import EmailSubscriber from '@/components/EmailSubscriber'
 
-import MakersInfo from './MakersInfo'
+import InterviewsList from './InterviewsList'
+import Linkers from './Linkers'
+
 import {
   Wrapper,
-  Title,
   Divider,
+  PublishIcon,
   PublishBtnWrapper,
 } from '../styles/right_sidebar/index'
 
@@ -30,11 +35,8 @@ const options = [
 const RightSidebar = () => {
   return (
     <Wrapper>
-      <MakersInfo />
-      <br />
-      <br />
-      {/* <Divider /> */}
-      {/* <Title></Title> */}
+      <Linkers />
+      <Divider top="18px" bottom="30px" />
       <PublishBtnWrapper>
         <DropdownButton
           type="primary"
@@ -43,24 +45,21 @@ const RightSidebar = () => {
             console.log('key: ', key)
           }}
         >
+          <PublishIcon src={`${ICON}/publish_rocket.svg`} />
           发布作品
         </DropdownButton>
       </PublishBtnWrapper>
-      <Divider />
-      {/* <Divider />
-      <Title>活跃用户</Title> */}
-      {/* <div>...</div> */}
-      {/* <Divider /> */}
-      <Title>开发者访谈</Title>
-      <div>...</div>
-      <Divider />
+      <Br top="25px" bottom="20px" />
+      <SubTitle withMore>开发者访谈</SubTitle>
+      <InterviewsList />
+      <Br top="25px" bottom="20px" />
       <EmailSubscriber
         activeByDefault
         title="作品集市动态"
         desc="定期推送优秀产品介绍、榜单等，可随时取消，欢迎订阅。"
       />
       <Divider />
-      <div>关于，订阅，xx</div>
+      <div>关于，举报，建议</div>
     </Wrapper>
   )
 }

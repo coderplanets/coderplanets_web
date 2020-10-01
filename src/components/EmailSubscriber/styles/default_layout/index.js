@@ -10,7 +10,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   width: 100%;
   height: ${({ active }) => (active ? '180px' : '50px')};
 
-  background: #07303e;
+  background: #0b2f3a;
   border-radius: 5px;
 
   &:before {

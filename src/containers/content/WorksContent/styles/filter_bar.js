@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `
 export const FilterWrapper = styled.div`
   /* border: 1px solid #0a4253; */
-  border-radius: 5px;
+  /* border-radius: 5px; */
 `
 export const Title = styled.div`
   font-size: 14px;
