@@ -8,7 +8,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   position: relative;
-  background: #07303e;
+  background: #0b2f3a;
   border-radius: 10px;
 
   &:after {
@@ -45,7 +45,7 @@ export const InnerWrapper = styled.div`
   border-top-right-radius: 12px;
 `
 export const SubscribeInput = styled(Input)`
-  background: #07303e;
+  background: #0b2f3a;
   border: none;
   width: 90%;
   height: 30px;
@@ -58,14 +58,14 @@ export const SubscribeInput = styled(Input)`
     /* border: none;
     border-bottom: 1px solid; */
     border-color: #1d4761;
-    background: #07303e;
+    background: #0b2f3a;
   }
   &:focus {
     border: none;
     /* border: none;
     border-bottom: 1px solid; */
     border-color: #1d4761;
-    background: #07303e;
+    background: #0b2f3a;
   }
 `
 export const MailBoxIcon = styled(Img)`

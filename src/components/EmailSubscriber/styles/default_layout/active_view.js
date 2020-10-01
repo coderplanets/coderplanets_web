@@ -35,7 +35,7 @@ export const Desc = styled.div`
   margin-bottom: 5px;
 `
 export const SubscribeInput = styled(Input)`
-  background: #07303e;
+  background: #0b2f3a;
   border: none;
   border-bottom: 1px solid;
   border-bottom-color: #1d4761;
@@ -49,7 +49,7 @@ export const SubscribeInput = styled(Input)`
     border: none;
     border-bottom: 1px solid;
     border-color: ${theme('button.primary')};
-    background: #07303e;
+    background: #0b2f3a;
   }
   &:active {
     border: none;
@@ -60,7 +60,7 @@ export const SubscribeInput = styled(Input)`
     border: none;
     border-bottom: 1px solid;
     border-color: ${theme('button.primary')};
-    background: #07303e;
+    background: #0b2f3a;
   }
 `
 export const SubscribeBtnWrapper = styled.div`
