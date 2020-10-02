@@ -27,7 +27,9 @@ const ActiveView = ({ title, desc, onCancel }) => {
         >
           以后再说
         </Cancel>
-        <SubscribeBtn size="tiny">订&nbsp;阅</SubscribeBtn>
+        <SubscribeBtn size="tiny" disabled>
+          订&nbsp;阅
+        </SubscribeBtn>
       </SubscribeBtnWrapper>
     </Wrapper>
   )
