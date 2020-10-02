@@ -3,7 +3,14 @@ import { lighten } from 'polished'
 
 import { cs, theme } from '@/utils'
 
-import { getHeight, getPadding, getFontSize } from './metircs/button'
+import {
+  getColor,
+  getBackgroundColor,
+  getBorderColor,
+  getHeight,
+  getPadding,
+  getFontSize,
+} from './metircs/button'
 
 export const Wrapper = styled.button`
   ${cs.flex('align-both')};
@@ -14,7 +21,6 @@ export const Wrapper = styled.button`
   font-weight: 400;
   text-align: center;
   touch-action: manipulation;
-  cursor: pointer;
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
@@ -26,41 +32,37 @@ export const Wrapper = styled.button`
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: relative;
 
-  color: ${({ ghost }) =>
-    !ghost ? theme('button.fg') : theme('button.primary')};
-
-  background-color: ${({ ghost }) =>
-    !ghost ? theme('button.primary') : 'transparent'};
-  border-color: ${({ noBorder }) =>
-    noBorder ? 'transparent' : theme('button.primary')};
+  color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
+  background-color: ${({ ghost, disabled }) =>
+    getBackgroundColor(ghost, disabled)};
+  border-color: ${({ noBorder, disabled }) =>
+    getBorderColor(noBorder, disabled)};
 
   opacity: ${({ noBorder }) => (noBorder ? '0.7' : 1)};
 
   &:hover {
-    /* color: ${theme('button.fg')}; */
-    color: ${({ ghost }) =>
-      !ghost ? theme('button.fg') : theme('button.primary')};
-
-    border-color: ${theme('button.hoverBg')};
-    background-color: ${({ ghost }) =>
-      !ghost ? theme('button.hoverBg') : 'transparent'};
+    color: ${({ ghost, disabled }) => getColor(ghost, disabled, true)};
+    border-color: ${({ noBorder, disabled }) =>
+      getBorderColor(noBorder, disabled, true)};
+    background-color: ${({ ghost, disabled }) =>
+      getBackgroundColor(ghost, disabled, true)};
     opacity: 1;
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   }
 
   &:focus {
-    color: ${({ ghost }) =>
-      !ghost ? theme('button.fg') : theme('button.primary')};
-    border-color: ${theme('button.hoverBg')};
-    background-color: ${({ ghost }) =>
-      !ghost ? theme('button.hoverBg') : 'transparent'};
+    color: ${({ ghost, disabled }) => getColor(ghost, disabled, true)};
+    border-color: ${({ noBorder, disabled }) =>
+      getBorderColor(noBorder, disabled, true)};
+    background-color: ${({ ghost, disabled }) =>
+      getBackgroundColor(ghost, disabled, true)};
     opacity: 1;
   }
 
   &:active {
-    color: ${({ ghost }) =>
-      !ghost ? theme('button.fg') : theme('button.primary')};
-    background-color: ${({ ghost }) =>
-      !ghost ? theme('button.hoverBg') : 'transparent'};
+    color: ${({ ghost, disabled }) => getColor(ghost, disabled, true)};
+    background-color: ${({ ghost, disabled }) =>
+      getBackgroundColor(ghost, disabled, true)};
     opacity: 1;
   }
 `

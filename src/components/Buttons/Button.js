@@ -24,6 +24,7 @@ const Button = ({
   loading,
   loadingText,
   noBorder,
+  disabled,
 }) => {
   const [loadingWidth, setLoadingWidth] = useState(0) // 0 || 20 || 65 || 90 || 100
 
@@ -65,6 +66,7 @@ const Button = ({
           size={size}
           className={className}
           noBorder={noBorder}
+          disabled={disabled}
         >
           {children}
         </RedWrapper>
@@ -74,10 +76,13 @@ const Button = ({
       return (
         <Wrapper
           ghost={ghost}
-          onClick={onClick}
+          onClick={() => {
+            if (!disabled) onClick()
+          }}
           size={size}
           className={className}
           noBorder={noBorder}
+          disabled={disabled}
         >
           <LoadingMask width={`${loadingWidth}%`} />
           <ChildrenWrapper size={size}>
@@ -100,6 +105,7 @@ Button.propTypes = {
   loading: T.oneOfType([T.bool, T.instanceOf(null)]),
   loadingText: T.string,
   noBorder: T.bool,
+  disabled: T.bool,
 }
 
 Button.defaultProps = {
@@ -113,6 +119,7 @@ Button.defaultProps = {
   loading: null,
   loadingText: '发布中..',
   noBorder: false,
+  disabled: false,
 }
 
 export default React.memo(Button)
