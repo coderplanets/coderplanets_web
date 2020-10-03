@@ -8,11 +8,11 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
-import { ICON, ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { useMedia } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
-import TabItem from './TabItem'
+import TabItem from '../TabItem'
 import {
   Wrapper,
   Nav,
@@ -20,36 +20,11 @@ import {
   RealBar,
   MoreWrapper,
   ArrowIcon,
-} from '../styles/tabs/mobile'
-import { getSlipMargin } from '../styles/metric/tabs'
+} from '../../styles/tabs/mobile_view/normal_view'
+import { getSlipMargin } from '../../styles/metric/tabs'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
-
-// const defaultItems2 = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
-const temItems = [
-  {
-    title: '帖子',
-    // icon: `${ICON_CMD}/navi/fire.svg`,
-    localIcon: 'settings',
-  },
-  {
-    title: '开源项目',
-    icon: `${ICON_CMD}/navi/hammer.svg`,
-  },
-  {
-    title: 'Cheatsheet',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-  },
-  {
-    title: '工作机会',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-  },
-  {
-    title: '职场',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-  },
-]
 
 /**
  * get default active key in tabs array
@@ -70,7 +45,14 @@ const getDefaultActiveTabIndex = (items, activeKey) => {
   return index >= 0 ? index : 0
 }
 
-const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
+const MobileView = ({
+  size,
+  onChange,
+  items,
+  activeKey,
+  slipHeight,
+  toggleExpand,
+}) => {
   const { mobile } = useMedia()
 
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
@@ -133,7 +115,7 @@ const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
   return (
     <Wrapper testId="tabs">
       {showMore && (
-        <MoreWrapper>
+        <MoreWrapper onClick={toggleExpand}>
           <ArrowIcon src={`${ICON}/arrow-simple.svg`} />
         </MoreWrapper>
       )}
@@ -181,10 +163,11 @@ MobileView.propTypes = {
   activeKey: T.string,
   size: T.oneOf(['default', 'small']),
   slipHeight: T.oneOf(['1px', '2px']),
+  toggleExpand: T.func.isRequired,
 }
 
 MobileView.defaultProps = {
-  items: temItems,
+  items: [],
   onChange: log,
   activeKey: '',
   size: 'default',

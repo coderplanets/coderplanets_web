@@ -7,7 +7,7 @@ import {
   Nav as NavBase,
   RealBar as RealBarBase,
   SlipBar as SlipBarBase,
-} from './index'
+} from '../index'
 
 export const Wrapper = styled.nav.attrs((props) => ({
   'data-test-id': props.testId,

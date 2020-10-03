@@ -10,7 +10,12 @@ import T from 'prop-types'
 import { buildLog, isString, Trans } from '@/utils'
 
 import TabIcon from './TabIcon'
-import { Wrapper, Label } from '../styles/tabs/tab_item'
+import {
+  Wrapper,
+  Label,
+  ActiveLineWrapper,
+  ActiveLine,
+} from '../styles/tabs/tab_item'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
@@ -18,6 +23,7 @@ const log = buildLog('c:Tabs:index')
 const TabItem = ({
   mobileView,
   cardView,
+  wrapMode,
   activeKey,
   item,
   index,
@@ -51,6 +57,7 @@ const TabItem = ({
       ref={ref}
       mobileView={mobileView}
       cardView={cardView}
+      wrapMode={wrapMode}
       size={size}
       onClick={handleWrapperClick}
       active={item.raw === activeKey}
@@ -69,6 +76,12 @@ const TabItem = ({
         )}
         {isString(item) ? item : item.alias || Trans(item.title)}
       </Label>
+
+      {wrapMode && item.raw === activeKey && (
+        <ActiveLineWrapper>
+          <ActiveLine />
+        </ActiveLineWrapper>
+      )}
     </Wrapper>
   )
 }
@@ -76,6 +89,7 @@ const TabItem = ({
 TabItem.propTypes = {
   mobileView: T.bool,
   cardView: T.bool,
+  wrapMode: T.bool,
   item: T.any.isRequired,
   index: T.number.isRequired,
   setItemWidth: T.func.isRequired,
@@ -87,6 +101,7 @@ TabItem.propTypes = {
 TabItem.defaultProps = {
   mobileView: false,
   cardView: false,
+  wrapMode: false,
 }
 
 export default React.memo(TabItem)

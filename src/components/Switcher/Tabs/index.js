@@ -12,7 +12,7 @@ import { buildLog } from '@/utils'
 import { useMedia } from '@/hooks'
 
 import DesktopView from './DesktopView'
-import MobileView from './MobileView'
+import MobileView from './MobileView/index'
 import CardView from './CardView'
 
 /* eslint-disable-next-line */
