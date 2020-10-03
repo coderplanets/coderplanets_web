@@ -79,14 +79,25 @@ const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
   const [slipWidth, setSlipWidth] = useState(0)
   const [tabWidthList, setTabWidthList] = useState([])
 
-  const ref = useRef(null)
+  const [showMore, setShowMore] = useState(false)
 
+  const navRef = useRef(null)
+
+  useEffect(() => {
+    const tabWidthSum = tabWidthList.reduce((a, b) => a + b, 0)
+    const navWidth = navRef?.current?.clientWidth
+    if (navWidth && navWidth < tabWidthSum) {
+      setShowMore(true)
+    } else {
+      setShowMore(false)
+    }
+  }, [tabWidthList])
   // set initial slipbar with of active item
   // 给 slipbar 设置一个初始宽度
   useEffect(() => {
-    if (ref.current) {
+    if (navRef.current) {
       const activeSlipWidth =
-        ref.current.childNodes[defaultActiveTabIndex].firstElementChild
+        navRef.current.childNodes[defaultActiveTabIndex].firstElementChild
           .offsetWidth
       setSlipWidth(activeSlipWidth)
     }
@@ -121,10 +132,12 @@ const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
 
   return (
     <Wrapper testId="tabs">
-      <MoreWrapper>
-        <ArrowIcon src={`${ICON}/arrow-simple.svg`} />
-      </MoreWrapper>
-      <Nav ref={ref}>
+      {showMore && (
+        <MoreWrapper>
+          <ArrowIcon src={`${ICON}/arrow-simple.svg`} />
+        </MoreWrapper>
+      )}
+      <Nav ref={navRef}>
         {items.map((item, index) => (
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
