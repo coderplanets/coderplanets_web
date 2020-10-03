@@ -27,7 +27,10 @@ export const InnerWrapper = styled.div`
   align-items: center;
   transition: all 0.2s;
 
-  ${cs.media.mobile`padding-right: 0`};
+  ${cs.media.mobile`
+    padding-right: 0;
+    padding-left: 7vw;
+  `};
 `
 export const RouterWrapper = styled.div`
   ${cs.flexGrow('align-center')};
