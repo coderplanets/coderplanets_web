@@ -7,37 +7,38 @@ import T from 'prop-types'
 
 import { VIEW } from '@/constant'
 import { buildLog } from '@/utils'
+import { useMedia } from '@/hooks'
 
 import DesktopView from './DesktopView'
-import CardView from './CardView'
+import NormalView from './NormalView'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TabBar:index')
 
 const TabBar = (props) => {
   const { view } = props
-  switch (view) {
-    case VIEW.MOBILE: {
-      // TODO:
-      return <DesktopView {...props} />
-    }
+  const { mobile } = useMedia()
 
-    case VIEW.COMMUNITY_CARD: {
-      return <CardView {...props} />
+  const curMedia = mobile ? VIEW.MOBILE : VIEW.DESKTOP
+  const curView = view === 'auto' ? curMedia : view
+
+  switch (curView) {
+    case VIEW.DESKTOP: {
+      return <DesktopView {...props} />
     }
 
     default: {
-      return <DesktopView {...props} />
+      return <NormalView {...props} />
     }
   }
 }
 
 TabBar.propTypes = {
-  view: T.oneOf([VIEW.DESKTOP, VIEW.MOBILE, VIEW.COMMUNITY_CARD]),
+  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD]),
 }
 
 TabBar.defaultProps = {
-  view: VIEW.DESKTOP,
+  view: 'auto',
 }
 
 export default React.memo(TabBar)

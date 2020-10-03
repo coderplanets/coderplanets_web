@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     getMarginRight(size, mobileView, cardView)};
   padding: ${({ size, cardView }) => getPadding(size, cardView)};
   text-align: center;
-  min-width: ${({ cardView }) => (!cardView ? '0' : '33%')};
+  min-width: ${({ cardView }) => (!cardView ? 'auto' : '33%')};
   cursor: pointer;
 
   /* for card view */
