@@ -7,7 +7,6 @@
 import React, { useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
@@ -23,28 +22,12 @@ const temItems = [
     // icon: `${ICON_CMD}/navi/fire.svg`,
     localIcon: 'settings',
   },
-  {
-    title: '开源项目',
-    icon: `${ICON_CMD}/navi/hammer.svg`,
-  },
-  {
-    title: 'Cheatsheet',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-  },
-  {
-    title: '工作机会',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-  },
-  {
-    title: '职场',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-  },
 ]
 
 const Tabs = ({ size, onChange, items, activeKey }) => {
   const [tabWidthList, setTabWidthList] = useState([])
 
-  const ref = useRef(null)
+  const navRef = useRef(null)
 
   // set slipbar with for current nav item
   // 为下面的滑动条设置当前 TabItem 的宽度
@@ -67,7 +50,7 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
 
   return (
     <Wrapper testId="tabs">
-      <Nav ref={ref}>
+      <Nav ref={navRef}>
         {items.map((item, index) => (
           <TabItem
             key={isString(item) ? item : item.raw || item.title}

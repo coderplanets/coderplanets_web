@@ -8,7 +8,6 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
-import { ICON_CMD } from '@/config'
 import { useMedia } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
@@ -25,22 +24,6 @@ const temItems = [
     title: '帖子',
     // icon: `${ICON_CMD}/navi/fire.svg`,
     localIcon: 'settings',
-  },
-  {
-    title: '开源项目',
-    icon: `${ICON_CMD}/navi/hammer.svg`,
-  },
-  {
-    title: 'Cheatsheet',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-  },
-  {
-    title: '工作机会',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-  },
-  {
-    title: '职场',
-    icon: `${ICON_CMD}/navi/fire.svg`,
   },
 ]
 
@@ -72,14 +55,14 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
   const [slipWidth, setSlipWidth] = useState(0)
   const [tabWidthList, setTabWidthList] = useState([])
 
-  const ref = useRef(null)
+  const navRef = useRef(null)
 
   // set initial slipbar with of active item
   // 给 slipbar 设置一个初始宽度
   useEffect(() => {
-    if (ref.current) {
+    if (navRef.current) {
       const activeSlipWidth =
-        ref.current.childNodes[defaultActiveTabIndex].firstElementChild
+        navRef.current.childNodes[defaultActiveTabIndex].firstElementChild
           .offsetWidth
       setSlipWidth(activeSlipWidth)
     }
@@ -114,7 +97,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
 
   return (
     <Wrapper testId="tabs">
-      <Nav ref={ref}>
+      <Nav ref={navRef}>
         {items.map((item, index) => (
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
