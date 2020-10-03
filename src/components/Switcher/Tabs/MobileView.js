@@ -144,7 +144,7 @@ const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
           slipHeight={slipHeight}
         >
           {/* mobile tab slipbar looks shorter than the desktop one */}
-          <RealBar width={`${slipWidth - 24}px`} />
+          <RealBar width={`${slipWidth - 11}px`} />
         </SlipBar>
       </Nav>
     </Wrapper>

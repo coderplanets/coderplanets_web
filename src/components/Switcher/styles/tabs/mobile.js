@@ -47,6 +47,5 @@ export const ArrowIcon = styled(Img)`
 `
 export const SlipBar = styled(SlipBarBase)``
 export const RealBar = styled(RealBarBase)`
-  height: 4px;
   border-radius: 5px;
 `
