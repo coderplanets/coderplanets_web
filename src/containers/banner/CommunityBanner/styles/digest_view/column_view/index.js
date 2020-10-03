@@ -5,9 +5,9 @@ import { theme, cs } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
-import { BaseBanner, BaseTabber } from '../../index'
+import { BaseBanner } from '../../index'
 
-const getHeightSize = (noSocial, mobile) => {
+const getMinHeight = (noSocial, mobile) => {
   if (mobile) {
     return noSocial ? '112px' : '140px'
   }
@@ -16,19 +16,21 @@ const getHeightSize = (noSocial, mobile) => {
 }
 export const Wrapper = styled(BaseBanner)`
   min-height: ${({ descExpand, noSocial, mobile }) =>
-    descExpand ? '300px' : getHeightSize(noSocial, mobile)};
+    descExpand ? '300px' : getMinHeight(noSocial, mobile)};
 `
 export const InnerWrapper = styled.div`
   ${cs.flex('justify-center')};
+  padding-top: 20px;
+  min-height: ${({ descExpand, noSocial, mobile }) =>
+    descExpand ? '300px' : getMinHeight(noSocial, mobile)};
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
 `
 export const BaseBannerContent = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flexColumn('align-center')};
   width: 100%;
   padding: 0 8.5vw;
-
-  margin-top: -35px;
+  /* height: 100%; */
 
   ${cs.media.laptopL`
     padding: 0 7.5vw;
@@ -37,18 +39,33 @@ export const BaseBannerContent = styled.div`
   ${cs.media.mobile`
     margin-left: 0;
     margin-right: 3%;
-    padding-left: 3%;
+    padding-left: 2.5%;
     padding-right: 3%;
   `};
 `
 export const BannerContentWrapper = styled(BaseBannerContent)`
+  ${cs.flexColumn('justify-between')};
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
 `
 export const BannerContainer = styled(BaseBanner)`
-  min-height: 125px;
+  /* min-height: 125px; */
 `
-export const TabBarWrapper = styled(BaseTabber)``
+export const TabBarWrapper = styled.div`
+  ${cs.flex()};
+  width: 100%;
 
+  ${cs.media.tablet`
+    padding-left: calc(2%);
+  `};
+
+  ${cs.media.mobile`
+    padding-left: calc(5%);
+  `};
+`
+export const CommunityBaseInfo = styled.div`
+  ${cs.flex('justify-between')};
+  width: 100%;
+`
 export const CommunityWrapper = styled.div`
   ${cs.flexGrow('align-center')};
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};

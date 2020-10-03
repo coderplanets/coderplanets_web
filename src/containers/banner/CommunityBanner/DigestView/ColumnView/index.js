@@ -17,6 +17,7 @@ import {
   Wrapper,
   InnerWrapper,
   BannerContentWrapper,
+  CommunityBaseInfo,
   TabBarWrapper,
   CommunityWrapper,
   CommunityLogo,
@@ -81,16 +82,22 @@ const ColumnView = ({ community, descExpand, activeThread, layout }) => {
       noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
       mobile={mobile}
     >
-      <InnerWrapper>
+      <InnerWrapper
+        descExpand={descExpand}
+        noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+        mobile={mobile}
+      >
         <BannerContentWrapper descExpand={descExpand}>
-          <CommunityBrief content={community} descExpand={descExpand} />
-          <CommunityStatesPad
-            community={community}
-            onSubscribe={onSubscribe}
-            onUndoSubscribe={onUndoSubscribe}
-            onShowEditorList={onShowEditorList}
-            onShowSubscriberList={onShowSubscriberList}
-          />
+          <CommunityBaseInfo>
+            <CommunityBrief content={community} descExpand={descExpand} />
+            <CommunityStatesPad
+              community={community}
+              onSubscribe={onSubscribe}
+              onUndoSubscribe={onUndoSubscribe}
+              onShowEditorList={onShowEditorList}
+              onShowSubscriberList={onShowSubscriberList}
+            />
+          </CommunityBaseInfo>
           <TabBarWrapper>
             <TabBar
               source={community.threads}
