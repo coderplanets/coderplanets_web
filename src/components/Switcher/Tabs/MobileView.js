@@ -8,12 +8,19 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
-import { ICON_CMD } from '@/config'
+import { ICON, ICON_CMD } from '@/config'
 import { useMedia } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
-import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs/mobile'
+import {
+  Wrapper,
+  Nav,
+  SlipBar,
+  RealBar,
+  MoreWrapper,
+  ArrowIcon,
+} from '../styles/tabs/mobile'
 import { getSlipMargin } from '../styles/metric/tabs'
 
 /* eslint-disable-next-line */
@@ -114,6 +121,9 @@ const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
 
   return (
     <Wrapper testId="tabs">
+      <MoreWrapper>
+        <ArrowIcon src={`${ICON}/arrow-simple.svg`} />
+      </MoreWrapper>
       <Nav ref={ref}>
         {items.map((item, index) => (
           <TabItem
