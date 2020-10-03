@@ -12,7 +12,8 @@ export const Wrapper = styled.div`
   z-index: 1;
   margin-right: ${({ size, mobileView, cardView }) =>
     getMarginRight(size, mobileView, cardView)};
-  padding: ${({ size, cardView }) => getPadding(size, cardView)};
+  padding: ${({ size, cardView, mobileView }) =>
+    getPadding(size, cardView, mobileView)};
   text-align: center;
   min-width: ${({ cardView }) => (!cardView ? 'auto' : '33%')};
   cursor: pointer;

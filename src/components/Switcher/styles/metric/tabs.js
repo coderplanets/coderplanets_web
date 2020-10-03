@@ -25,8 +25,9 @@ export const getMarginRight = (size, mobileView, cardView) => {
   }
 }
 
-export const getPadding = (size, cardView) => {
+export const getPadding = (size, cardView, mobileView) => {
   if (cardView) return '2px'
+  if (mobileView) return '10px'
 
   switch (size) {
     case 'small': {

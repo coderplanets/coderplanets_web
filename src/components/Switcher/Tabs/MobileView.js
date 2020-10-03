@@ -90,7 +90,6 @@ const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
   // 为下面的滑动条设置当前 TabItem 的宽度
   const handleNaviItemWith = useCallback(
     (index, width) => {
-      console.log('handleNaviItemWith width: ', width)
       tabWidthList[index] = width
       setTabWidthList(tabWidthList)
     },
@@ -113,7 +112,6 @@ const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
     getSlipMargin(size, mobile) * active
   }px`
 
-  console.log('===> mobile version')
   return (
     <Wrapper testId="tabs">
       <Nav ref={ref}>
@@ -135,7 +133,8 @@ const MobileView = ({ size, onChange, items, activeKey, slipHeight }) => {
           width={`${tabWidthList[active]}px`}
           slipHeight={slipHeight}
         >
-          <RealBar width={`${slipWidth}px`} />
+          {/* mobile tab slipbar looks shorter than the desktop one */}
+          <RealBar width={`${slipWidth - 24}px`} />
         </SlipBar>
       </Nav>
     </Wrapper>

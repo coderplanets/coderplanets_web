@@ -13,4 +13,9 @@ export const Icon = styled(Img)`
   height: 15px;
   margin-right: 5px;
   display: block;
+
+  ${cs.media.mobile`
+    width: 13px;
+    height: 13px;
+  `}
 `
