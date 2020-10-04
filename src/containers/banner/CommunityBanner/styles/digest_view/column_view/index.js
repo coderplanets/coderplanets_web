@@ -25,22 +25,20 @@ export const InnerWrapper = styled.div`
     descExpand ? '300px' : getMinHeight(noSocial, mobile)};
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
+  transition: min-height 0.25s;
 `
 export const BaseBannerContent = styled.div`
   ${cs.flexColumn('align-center')};
   width: 100%;
   padding: 0 8.5vw;
-  /* height: 100%; */
 
   ${cs.media.laptopL`
     padding: 0 7.5vw;
   `};
 
   ${cs.media.mobile`
-    margin-left: 0;
-    margin-right: 3%;
-    padding-left: 2.5%;
-    padding-right: 3%;
+    padding-left: 6%;
+    padding-right: 5.5%;
   `};
 `
 export const BannerContentWrapper = styled(BaseBannerContent)`
@@ -59,7 +57,8 @@ export const TabBarWrapper = styled.div`
   `};
 
   ${cs.media.mobile`
-    padding-left: calc(5%);
+    padding-left: 0;
+    margin-left: -10px;
   `};
 `
 export const CommunityBaseInfo = styled.div`
@@ -70,9 +69,6 @@ export const CommunityWrapper = styled.div`
   ${cs.flexGrow('align-center')};
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
   transition: all 0.5s;
-  ${cs.media.mobile`
-    margin-left: 5%;
-`};
 `
 export const LogoWrapper = styled.div`
   position: relative;

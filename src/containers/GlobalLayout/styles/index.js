@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { C11N } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
-import Img from '@/Img'
 import { theme, cs } from '@/utils'
 
 // background: #3b5456;
@@ -51,29 +50,4 @@ export const ContentWrapper = styled.div`
   ${cs.media.mobile`
     margin-left: 0;
   `};
-`
-export const SubCommunitiesExpander = styled.div`
-  display: none;
-  ${cs.media.tablet`
-    ${cs.flex('align-both')};
-    width: 30px;
-    position: fixed;
-    top: 10%;
-    left: 0;
-    z-index: 100;
-    border: 1px solid;
-    border-color: ${theme('content.cardBg')};
-    border-radius: 0 10px 10px 0;
-    height: 40px;
-    background-color: ${theme('banner.numberHoverBg')};
-    box-shadow: ${theme('drawer.shadow')};
-  `};
-`
-
-// expander_more
-export const ExpanderIcon = styled(Img)`
-  fill ${theme('banner.desc')};
-  width: 18px;
-  height: 20px;
-  display: block;
 `

@@ -36,6 +36,8 @@ export const Wrapper = styled.div`
   ${cs.media.mobile`
     margin-right: ${() => getMarginRight('', true)};
   `};
+
+  transition: all 0.25s;
 `
 export const ActiveLineWrapper = styled.div`
   position: absolute;

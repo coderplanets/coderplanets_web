@@ -7,7 +7,6 @@
 import React, { useEffect } from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
 import { TYPE, ROUTE } from '@/constant'
 import { connectStore } from '@/utils'
 
@@ -38,11 +37,9 @@ import {
   BodyWrapper,
   ContentWrapper,
   ContentPinWrapper,
-  SubCommunitiesExpander,
-  ExpanderIcon,
 } from './styles'
 
-import { useInit, openDoraemon, queryDoraemon, logBuddha } from './logic'
+import { useInit, openDoraemon, logBuddha } from './logic'
 
 const GlobalLayoutContainer = ({
   globalLayout: store,
@@ -85,9 +82,6 @@ const GlobalLayoutContainer = ({
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
             <React.Fragment>
-              <SubCommunitiesExpander onClick={queryDoraemon('/')}>
-                <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
-              </SubCommunitiesExpander>
               <SEO page={page} config={seoConfig} />
 
               <InnerWrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
