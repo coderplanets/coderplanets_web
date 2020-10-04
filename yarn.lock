@@ -1490,9 +1490,10 @@
     codex-notifier "^1.1.2"
     codex-tooltip "^1.0.0"
 
-"@editorjs/header@^2.3.0":
-  version "2.4.1"
-  resolved "https://registry.npm.taobao.org/@editorjs/header/download/@editorjs/header-2.4.1.tgz#253ea37d8b63f5ac7b1462da152d9d469addcb09"
+"@editorjs/header@^2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/header/-/header-2.6.0.tgz#64d1c6af7eefd7ad272d12dbf7ccef8b56771240"
+  integrity sha512-1psNX/irDjJ8Bp1l7DjkYWz7IBtjVIRANk7kPkNoY2CfAeeCFYbJmMlXdqTF2WeAjYv2WMy5ey/aR5fTccgFaw==
 
 "@editorjs/inline-code@^1.3.0":
   version "1.3.1"
