@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
-import { curry } from 'ramda'
 
-import { EVENT } from '@/constant'
-import { buildLog, send } from '@/utils'
+import { buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:GlobalLayout')
@@ -10,10 +8,6 @@ const log = buildLog('L:GlobalLayout')
 let store = null
 
 export const openDoraemon = () => store.openDoraemon()
-/* eslint-disable no-unused-vars */
-export const queryDoraemon = curry((data, e) =>
-  send(EVENT.QUERY_DORAMON, { data }),
-)
 
 /**
  * log ascii Buddha just for fun

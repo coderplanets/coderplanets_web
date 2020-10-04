@@ -9,19 +9,25 @@ import T from 'prop-types'
 
 import { VIEW } from '@/constant'
 import { buildLog } from '@/utils'
+import { useMedia } from '@/hooks'
 
 import DesktopView from './DesktopView'
+import MobileView from './MobileView/index'
 import CardView from './CardView'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
 const Tabs = (props) => {
+  const { mobile } = useMedia()
   const { view } = props
-  switch (view) {
+
+  const curMedia = mobile ? VIEW.MOBILE : VIEW.DESKTOP
+  const curView = view === 'auto' ? curMedia : view
+
+  switch (curView) {
     case VIEW.MOBILE: {
-      // TODO:
-      return <DesktopView {...props} />
+      return <MobileView {...props} />
     }
 
     case VIEW.COMMUNITY_CARD: {
@@ -35,11 +41,11 @@ const Tabs = (props) => {
 }
 
 Tabs.propTypes = {
-  view: T.oneOf([VIEW.DESKTOP, VIEW.MOBILE, VIEW.COMMUNITY_CARD]),
+  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD]),
 }
 
 Tabs.defaultProps = {
-  view: VIEW.DESKTOP,
+  view: 'auto',
 }
 
 export default React.memo(Tabs)

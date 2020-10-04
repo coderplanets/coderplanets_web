@@ -4,30 +4,40 @@
  *
  */
 
-import React, { useRef, useState, useCallback } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 
+import { ICON } from '@/config'
+import { useMedia } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
-import TabItem from './TabItem'
-import { Wrapper, Nav } from '../styles/tabs'
+import TabItem from '../TabItem'
+import {
+  Wrapper,
+  Nav,
+  MoreWrapper,
+  ArrowIcon,
+} from '../../styles/tabs/mobile_view/expand_view'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
-// const defaultItems2 = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
-const temItems = [
-  {
-    title: '帖子',
-    // icon: `${ICON_CMD}/navi/fire.svg`,
-    localIcon: 'settings',
-  },
-]
+const MobileView = ({ size, onChange, items, activeKey, toggleExpand }) => {
+  const { mobile } = useMedia()
 
-const Tabs = ({ size, onChange, items, activeKey }) => {
   const [tabWidthList, setTabWidthList] = useState([])
-
+  const [showMore, setShowMore] = useState(false)
   const navRef = useRef(null)
+
+  useEffect(() => {
+    const tabWidthSum = tabWidthList.reduce((a, b) => a + b, 0)
+    const navWidth = navRef?.current?.clientWidth
+    if (navWidth && navWidth < tabWidthSum) {
+      setShowMore(true)
+    } else {
+      setShowMore(false)
+    }
+  }, [tabWidthList])
 
   // set slipbar with for current nav item
   // 为下面的滑动条设置当前 TabItem 的宽度
@@ -50,17 +60,23 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
 
   return (
     <Wrapper testId="tabs">
+      {showMore && (
+        <MoreWrapper onClick={toggleExpand}>
+          <ArrowIcon src={`${ICON}/arrow-simple.svg`} />
+        </MoreWrapper>
+      )}
       <Nav ref={navRef}>
         {items.map((item, index) => (
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
+            mobileView={mobile}
             activeKey={activeKey}
             index={index}
             item={item}
             size={size}
             setItemWidth={handleNaviItemWith}
             onClick={handleItemClick}
-            cardView
+            wrapMode
           />
         ))}
       </Nav>
@@ -68,7 +84,7 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
   )
 }
 
-Tabs.propTypes = {
+MobileView.propTypes = {
   items: T.oneOfType([
     T.arrayOf(T.string),
     T.arrayOf(
@@ -84,13 +100,14 @@ Tabs.propTypes = {
   onChange: T.func,
   activeKey: T.string,
   size: T.oneOf(['default', 'small']),
+  toggleExpand: T.func.isRequired,
 }
 
-Tabs.defaultProps = {
-  items: temItems,
+MobileView.defaultProps = {
+  items: [],
   onChange: log,
   activeKey: '',
   size: 'default',
 }
 
-export default React.memo(Tabs)
+export default React.memo(MobileView)

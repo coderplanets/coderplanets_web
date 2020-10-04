@@ -8,24 +8,23 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
+import { ICON } from '@/config'
 import { useMedia } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
-import TabItem from './TabItem'
-import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'
-import { getSlipMargin } from '../styles/metric/tabs'
+import TabItem from '../TabItem'
+import {
+  Wrapper,
+  Nav,
+  SlipBar,
+  RealBar,
+  MoreWrapper,
+  ArrowIcon,
+} from '../../styles/tabs/mobile_view/normal_view'
+import { getSlipMargin } from '../../styles/metric/tabs'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
-
-// const defaultItems2 = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
-const temItems = [
-  {
-    title: '帖子',
-    // icon: `${ICON_CMD}/navi/fire.svg`,
-    localIcon: 'settings',
-  },
-]
 
 /**
  * get default active key in tabs array
@@ -46,7 +45,14 @@ const getDefaultActiveTabIndex = (items, activeKey) => {
   return index >= 0 ? index : 0
 }
 
-const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
+const MobileView = ({
+  size,
+  onChange,
+  items,
+  activeKey,
+  slipHeight,
+  toggleExpand,
+}) => {
   const { mobile } = useMedia()
 
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
@@ -55,8 +61,19 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
   const [slipWidth, setSlipWidth] = useState(0)
   const [tabWidthList, setTabWidthList] = useState([])
 
+  const [showMore, setShowMore] = useState(false)
+
   const navRef = useRef(null)
 
+  useEffect(() => {
+    const tabWidthSum = tabWidthList.reduce((a, b) => a + b, 0)
+    const navWidth = navRef?.current?.clientWidth
+    if (navWidth && navWidth < tabWidthSum) {
+      setShowMore(true)
+    } else {
+      setShowMore(false)
+    }
+  }, [tabWidthList])
   // set initial slipbar with of active item
   // 给 slipbar 设置一个初始宽度
   useEffect(() => {
@@ -97,6 +114,11 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
 
   return (
     <Wrapper testId="tabs">
+      {showMore && (
+        <MoreWrapper onClick={toggleExpand}>
+          <ArrowIcon src={`${ICON}/arrow-simple.svg`} />
+        </MoreWrapper>
+      )}
       <Nav ref={navRef}>
         {items.map((item, index) => (
           <TabItem
@@ -116,14 +138,15 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
           width={`${tabWidthList[active]}px`}
           slipHeight={slipHeight}
         >
-          <RealBar width={`${slipWidth}px`} />
+          {/* mobile tab slipbar looks shorter than the desktop one */}
+          <RealBar width={`${slipWidth - 11}px`} />
         </SlipBar>
       </Nav>
     </Wrapper>
   )
 }
 
-Tabs.propTypes = {
+MobileView.propTypes = {
   items: T.oneOfType([
     T.arrayOf(T.string),
     T.arrayOf(
@@ -140,14 +163,15 @@ Tabs.propTypes = {
   activeKey: T.string,
   size: T.oneOf(['default', 'small']),
   slipHeight: T.oneOf(['1px', '2px']),
+  toggleExpand: T.func.isRequired,
 }
 
-Tabs.defaultProps = {
-  items: temItems,
+MobileView.defaultProps = {
+  items: [],
   onChange: log,
   activeKey: '',
   size: 'default',
   slipHeight: '2px',
 }
 
-export default React.memo(Tabs)
+export default React.memo(MobileView)

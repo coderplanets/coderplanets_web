@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { cs, theme } from '@/utils'
 
-import { getMarginRight, getPadding } from '../metric/tabs'
+import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 
 export const Wrapper = styled.div`
   ${cs.flex('justify-center')};
@@ -12,13 +12,15 @@ export const Wrapper = styled.div`
   z-index: 1;
   margin-right: ${({ size, mobileView, cardView }) =>
     getMarginRight(size, mobileView, cardView)};
-  padding: ${({ size, cardView }) => getPadding(size, cardView)};
+  padding: ${({ size, cardView, mobileView, wrapMode }) =>
+    getPadding(size, cardView, mobileView, wrapMode)};
   text-align: center;
-  min-width: ${({ cardView }) => (!cardView ? '0' : '33%')};
+  min-width: ${({ cardView }) => (!cardView ? 'auto' : '33%')};
   cursor: pointer;
 
-  /* for card view */
-  margin-bottom: ${({ cardView }) => (cardView ? '8px' : '')};
+  margin-bottom: ${({ cardView, wrapMode }) =>
+    getMarginBottom(cardView, wrapMode)};
+
   background: ${({ cardView, active }) =>
     cardView && active ? '#114758' : ''};
   border-left: ${({ cardView, active }) =>
@@ -34,6 +36,21 @@ export const Wrapper = styled.div`
   ${cs.media.mobile`
     margin-right: ${() => getMarginRight('', true)};
   `};
+
+  transition: all 0.25s;
+`
+export const ActiveLineWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  ${cs.flex('align-center')};
+  width: 100%;
+`
+export const ActiveLine = styled.div`
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  border-bottom: 3px solid;
+  border-bottom-color: ${theme('tabs.headerActive')};
+  border-radius: 3px;
 `
 export const Nav = styled.nav`
   position: relative;

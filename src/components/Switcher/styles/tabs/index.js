@@ -16,10 +16,6 @@ export const Nav = styled.nav`
   flex-flow: row wrap;
   margin: 0 auto;
   padding: 0;
-
-  ${cs.media.mobile`
-    flex-flow: nowrap;
-  `};
 `
 export const SlipBar = styled.span`
   position: absolute;
