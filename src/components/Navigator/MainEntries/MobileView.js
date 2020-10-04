@@ -1,7 +1,7 @@
 import React from 'react'
 // import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { TYPE, EVENT } from '@/constant'
 import { send } from '@/utils'
 // import Tooltip from '@/components/Tooltip'
@@ -19,7 +19,7 @@ const MainEntries = () => {
   return (
     <Wrapper onClick={openMobileNaviMenu}>
       <SiteLink as="span">
-        <MobileIcon src={`${ICON_CMD}/header_mobile_more.svg`} />
+        <MobileIcon src={`${ICON}/header-more-mobile.svg`} />
       </SiteLink>
     </Wrapper>
   )
