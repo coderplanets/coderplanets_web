@@ -2493,12 +2493,6 @@ ally.js@1.4.1:
     css.escape "^1.5.0"
     platform "1.3.3"
 
-amator@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/amator/download/amator-1.0.1.tgz#0fd3663fef5f3334d088cf68a70ba74398aa0e26"
-  dependencies:
-    bezier-easing "^2.0.3"
-
 anser@1.4.9:
   version "1.4.9"
   resolved "https://registry.npm.taobao.org/anser/download/anser-1.4.9.tgz#1f85423a5dcf8da4631a341665ff675b96845760"
@@ -3164,10 +3158,6 @@ bcrypt-pbkdf@^1.0.0:
   resolved "https://registry.npm.taobao.org/bcrypt-pbkdf/download/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
   dependencies:
     tweetnacl "^0.14.3"
-
-bezier-easing@^2.0.3:
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/bezier-easing/download/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
 
 bfj@^6.1.1:
   version "6.1.2"
@@ -4035,6 +4025,11 @@ compress-brotli@~1.2.1:
   resolved "https://registry.npm.taobao.org/compress-brotli/download/compress-brotli-1.2.2.tgz#69770c223440f32e839ab774e5a87252d24c1a6c"
   dependencies:
     json-buffer "~3.0.1"
+
+compute-scroll-into-view@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-1.0.16.tgz#5b7bf4f7127ea2c19b750353d7ce6776a90ee088"
+  integrity sha512-a85LHKY81oQnikatZYA90pufpZ6sQx++BoCxOEMsjpZx+ZnaKGQnCyCehTRr/1p9GBIAHTjcU9k71kSYWloLiQ==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -11126,11 +11121,12 @@ screenfull@^5.0.0:
   version "5.0.2"
   resolved "https://registry.npm.taobao.org/screenfull/download/screenfull-5.0.2.tgz#b9acdcf1ec676a948674df5cd0ff66b902b0bed7"
 
-scroll-into-view-if-needed@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.npm.taobao.org/scroll-into-view-if-needed/download/scroll-into-view-if-needed-1.5.0.tgz#39e8ce15cb74348a897ee96110e848fed50aaf95"
+scroll-into-view-if-needed@2.2.26:
+  version "2.2.26"
+  resolved "https://registry.yarnpkg.com/scroll-into-view-if-needed/-/scroll-into-view-if-needed-2.2.26.tgz#e4917da0c820135ff65ad6f7e4b7d7af568c4f13"
+  integrity sha512-SQ6AOKfABaSchokAmmaxVnL9IArxEnLEX9j4wAZw+x4iUTb40q7irtHG3z4GtAWz5veVZcCnubXDBRyLVQaohw==
   dependencies:
-    amator "1.0.1"
+    compute-scroll-into-view "^1.0.16"
 
 select@^1.1.2:
   version "1.1.2"
