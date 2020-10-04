@@ -50,8 +50,7 @@ export const Icon = styled(Img)`
   display: block;
 `
 export const MobileIcon = styled(Icon)`
-  margin-top: 1px;
-  margin-left: 2px;
-  width: 17px;
-  height: 17px;
+  margin-left: 5px;
+  width: 14px;
+  height: 14px;
 `
