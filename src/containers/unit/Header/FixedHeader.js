@@ -5,7 +5,7 @@ import { cs } from '@/utils'
 import MailBox from '@/containers/MailBox'
 import UserLister from '@/containers/user/UserLister'
 import Cashier from '@/containers/Cashier'
-import UpgradePackages from '@/containers/UpgradePackages'
+// import UpgradePackages from '@/containers/tool/UpgradePackages'
 
 import ThreadsNav from './ThreadsNav'
 import UserAccount from './UserAccount'
@@ -64,7 +64,6 @@ const Header = ({
 
           {isLogin && <MailBox />}
 
-          <UpgradePackages />
           <UserLister />
           <Cashier />
           <UserAccount isLogin={isLogin} accountInfo={accountInfo} />

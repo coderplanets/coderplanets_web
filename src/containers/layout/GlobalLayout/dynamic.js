@@ -7,7 +7,7 @@ export const Doraemon = dynamic(() => import('@/containers/Doraemon'), {
   ssr: false,
 })
 
-export const ErrorBox = dynamic(() => import('@/containers/ErrorBox'), {
+export const ErrorBox = dynamic(() => import('@/containers/tool/ErrorBox'), {
   /* eslint-disable react/display-name */
   loading: () => <div />,
   ssr: false,
