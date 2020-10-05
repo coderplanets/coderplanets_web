@@ -23,7 +23,7 @@ import {
   parseTheme,
 } from '@/utils'
 
-import GlobalLayout from '@/containers/GlobalLayout'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
 import CommunityDigest from '@/containers/digest/CommunityDigest'
 import CommunityContent from '@/containers/content/CommunityContent'
 

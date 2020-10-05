@@ -14,7 +14,7 @@ import {
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
-import GlobalLayout from '@/containers/GlobalLayout'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleDigest from '@/containers/digest/ArticleDigest'
 import JobContent from '@/containers/content/JobContent'
 

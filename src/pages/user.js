@@ -20,7 +20,7 @@ import {
 
 import { useStore } from '@/stores/init'
 
-import GlobalLayout from '@/containers/GlobalLayout'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
 import UserDigest from '@/containers/digest/UserDigest'
 import UserContent from '@/containers/content/UserContent'
 

@@ -20,7 +20,7 @@ import {
   parseTheme,
 } from '@/utils'
 
-import GlobalLayout from '@/containers/GlobalLayout'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
 import CreateCommunityContent from '@/containers/content/CreateCommunityContent'
 
 import { P } from '@/schemas'

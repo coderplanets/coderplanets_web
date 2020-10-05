@@ -6,7 +6,7 @@ export { default as ViewingStore } from './ViewingStore'
 export { ThemeStore, ThemeDefaults } from './ThemeStore'
 
 // utils store
-export { default as GlobalLayoutStore } from '@/containers/GlobalLayout/store'
+export { default as GlobalLayoutStore } from '@/containers/layout/GlobalLayout/store'
 export { default as RichEditorStore } from '@/containers/editor/RichEditor/store'
 export { default as ErrorBoxStore } from '@/containers/ErrorBox/store'
 export { default as SidebarStore } from '@/containers/Sidebar/store'

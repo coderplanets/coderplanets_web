@@ -9,7 +9,7 @@ import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 
 import { useStore } from '@/stores/init'
 
-import GlobalLayout from '@/containers/GlobalLayout'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
 import InterviewContent from '@/containers/content/InterviewContent'
 
 import { P } from '@/schemas'

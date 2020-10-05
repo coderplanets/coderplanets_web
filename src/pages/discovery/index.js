@@ -20,7 +20,7 @@ import {
 
 import { useStore } from '@/stores/init'
 
-import GlobalLayout from '@/containers/GlobalLayout'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
 import DiscoveryContent from '@/containers/content/DiscoveryContent'
 
 import { P } from '@/schemas'
