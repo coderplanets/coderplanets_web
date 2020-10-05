@@ -25,25 +25,23 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
 
   return (
     <ThemeProvider theme={themeData}>
-      <>
-        <Head>
-          <meta name="theme-color" content={themeData.mobileTab} />
-        </Head>
-        <NextNprogress
-          color={themeData.logoText}
-          startPosition={0.3}
-          stopDelayMs={200}
-          option={{
-            minimum: 0.1,
-            parent: `#${TYPE.APP_HEADER_ID}`,
-          }}
-        />
-        <div>{children}</div>
-        <CodeSyxHighlight />
-        <CustomOverWrite />
-        <RichEditorStyle />
-        <GlobalStyle showCustomScrollbar={showCustomScrollbar} />
-      </>
+      <Head>
+        <meta name="theme-color" content={themeData.mobileTab} />
+      </Head>
+      <NextNprogress
+        color={themeData.logoText}
+        startPosition={0.3}
+        stopDelayMs={200}
+        option={{
+          minimum: 0.1,
+          parent: `#${TYPE.APP_HEADER_ID}`,
+        }}
+      />
+      <div>{children}</div>
+      <CodeSyxHighlight />
+      <CustomOverWrite />
+      <RichEditorStyle />
+      <GlobalStyle showCustomScrollbar={showCustomScrollbar} />
     </ThemeProvider>
   )
 }

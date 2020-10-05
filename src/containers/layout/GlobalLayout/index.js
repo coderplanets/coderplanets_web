@@ -21,7 +21,7 @@ import {
 } from '@/hooks'
 
 import AnalysisService from '@/services/Analysis'
-import ThemeWrapper from '@/containers/ThemeWrapper'
+import ThemePalette from '@/containers/layout/ThemePalette'
 
 import Header from '@/containers/unit/Header'
 import Sidebar from '@/containers/unit/Sidebar'
@@ -76,7 +76,7 @@ const GlobalLayoutContainer = ({
 
   return (
     <AnalysisService>
-      <ThemeWrapper>
+      <ThemePalette>
         <Wrapper>
           {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
@@ -122,7 +122,7 @@ const GlobalLayoutContainer = ({
             </React.Fragment>
           )}
         </Wrapper>
-      </ThemeWrapper>
+      </ThemePalette>
     </AnalysisService>
   )
 }

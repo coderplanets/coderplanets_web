@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { Provider } from 'mobx-react'
 
 import { useStore } from '@/stores/init'
-import ThemeWrapper from '@/containers/ThemeWrapper'
+import ThemePalette from '@/containers/layout/ThemePalette'
 // import EditorJS from '@editorjs/editorjs'
 
 const html =
@@ -20,7 +20,7 @@ export const EditorPage = (props) => {
 
   return (
     <Provider store={store}>
-      <ThemeWrapper>
+      <ThemePalette>
         <div
           style={{
             border: '1px solid lightgrey',
@@ -39,7 +39,7 @@ export const EditorPage = (props) => {
           <br />
           <RichEditor />
         </div>
-      </ThemeWrapper>
+      </ThemePalette>
     </Provider>
   )
 }
