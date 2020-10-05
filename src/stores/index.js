@@ -56,7 +56,7 @@ export { default as UsersThreadStore } from '@/containers/thread/UsersThread/sto
 export { default as CheatsheetThreadStore } from '@/containers/thread/CheatsheetThread/store'
 export { default as RoadmapThreadStore } from '@/containers/thread/RoadmapThread/store'
 
-export { default as TagsBarStore } from '@/containers/TagsBar/store'
+export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
 
 // toolbox
 export { default as DocUploaderStore } from '@/containers/DocUploader/store'

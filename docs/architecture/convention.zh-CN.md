@@ -70,7 +70,7 @@ import Waypoint from 'react-waypoint'
 import { connectStore, buildLog, ROUTE, THREAD } from '@/utils'
 
 // 3. import global containers
-import TagsBar from '@/containers/TagsBar'
+import TagsBar from '@/containers/unit/TagsBar'
 // 4. import global components
 import Maybe from '@/components/Maybe'
 import PagedContents from '@/components/PagedContents'

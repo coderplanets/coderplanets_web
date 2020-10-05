@@ -6,7 +6,7 @@ import { ICON_CMD } from '@/config'
 
 import CustomScroller from '@/components/CustomScroller'
 import TabBar from '@/components/TabBar'
-import TagsBar from '@/containers/TagsBar'
+import TagsBar from '@/containers/unit/TagsBar'
 
 // import { SpaceGrow } from '@/components/Common'
 import Sticky from '@/components/Sticky'

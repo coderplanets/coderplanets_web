@@ -11,7 +11,7 @@ import { contains } from 'ramda'
 import { C11N, THREAD, ROUTE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import TagsBar from '@/containers/TagsBar'
+import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
