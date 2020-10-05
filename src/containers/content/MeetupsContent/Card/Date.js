@@ -1,24 +1,23 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { GALLERY } from '@/constant'
 import { Wrapper, Divider, WeekName, DateNum } from '../styles/card/date'
 
-const Date = ({ size }) => {
+const Date = ({ type }) => {
   return (
-    <Wrapper size={size}>
+    <Wrapper type={type}>
       <WeekName>周五</WeekName>
-      <Divider size={size} />
-      <DateNum>18</DateNum>
+      <Divider type={type} />
+      <DateNum>18&nbsp;/&nbsp;04</DateNum>
     </Wrapper>
   )
 }
 
 Date.propTypes = {
-  size: T.oneOf(['default', 'small']),
+  type: T.oneOf([GALLERY.TEXT_ONLY, GALLERY.TEXT_WITH_IMAGE]).isRequired,
 }
 
-Date.defaultProps = {
-  size: 'default', // 'text',
-}
+Date.defaultProps = {}
 
 export default React.memo(Date)

@@ -15,6 +15,7 @@ const Card = ({ item, type }) => {
 }
 
 Card.propTypes = {
+  item: T.any.isRequired, // TODO:
   type: T.oneOf([GALLERY.TEXT_ONLY, GALLERY.TEXT_WITH_IMAGE]),
 }
 
