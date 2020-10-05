@@ -22,7 +22,7 @@ export { default as InformerStore } from '@/containers/tool/Informer/store'
 export { default as GirlVerifierStore } from '@/containers/tool/GirlVerifier/store'
 export { default as CashierStore } from '@/containers/tool/Cashier/store'
 
-export { default as ArticleAuthorCardStore } from '@/containers/ArticleAuthorCard/store'
+export { default as ArticleAuthorCardStore } from '@/containers/unit/ArticleAuthorCard/store'
 //
 export { default as FavoritesCatsStore } from '@/containers/tool/FavoritesCats/store'
 
@@ -76,8 +76,8 @@ export { default as VideoViewerStore } from '@/containers/viewer/VideoViewer/sto
 export { default as RepoViewerStore } from '@/containers/viewer/RepoViewer/store'
 export { default as MailsViewerStore } from '@/containers/viewer/MailsViewer/store'
 
-export { default as ArticleViewerHeader } from '@/containers/ArticleViewerHeader/store'
-export { default as ArticleBodyHeaderStore } from '@/containers/ArticleBodyHeader/store'
+export { default as ArticleViewerHeader } from '@/containers/unit/ArticleViewerHeader/store'
+export { default as ArticleBodyHeaderStore } from '@/containers/unit/ArticleBodyHeader/store'
 
 export { default as AccountViewerStore } from '@/containers/viewer/AccountViewer/store'
 

@@ -9,7 +9,7 @@ import React from 'react'
 import { connectStore, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
-import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
+import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 
 import Sticky from '@/components/Sticky'
 import ContentSourceCard from '@/components/ContentSourceCard'

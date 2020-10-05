@@ -13,8 +13,8 @@ import { connectStore, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
 import Labeler from '@/containers/Labeler'
-import ArticleViewerHeader from '@/containers/ArticleViewerHeader'
-import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
+import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
+import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
 
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
