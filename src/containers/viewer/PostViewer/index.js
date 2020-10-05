@@ -12,7 +12,7 @@ import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
-import Labeler from '@/containers/Labeler'
+import Labeler from '@/containers/unit/Labeler'
 import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
 

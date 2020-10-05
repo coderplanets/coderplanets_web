@@ -5,7 +5,7 @@ import { ICON_CMD } from '@/config'
 import { uid } from '@/utils'
 
 import DocUploader from '@/containers/tool/DocUploader'
-import Labeler from '@/containers/Labeler'
+import Labeler from '@/containers/unit/Labeler'
 import Maybe from '@/components/Maybe'
 
 import CompanyInfoEditor from './CompanyInfoEditor'

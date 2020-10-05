@@ -12,7 +12,7 @@ import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import Labeler from '@/containers/Labeler'
+import Labeler from '@/containers/unit/Labeler'
 import CommunitySetter from '@/containers/tool/CommunitySetter'
 import Tooltip from '@/components/Tooltip'
 import ArticleActionsPanel from '@/components/ArticleActionsPanel'

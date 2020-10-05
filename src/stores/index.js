@@ -66,7 +66,7 @@ export { default as VideoEditorStore } from '@/containers/editor/VideoEditor/sto
 export { default as RepoEditorStore } from '@/containers/editor/RepoEditor/store'
 export { default as CommentsStore } from '@/containers/unit/Comments/store'
 export { default as AccountEditorStore } from '@/containers/editor/AccountEditor/store'
-export { default as LabelerStore } from '@/containers/Labeler/store'
+export { default as LabelerStore } from '@/containers/unit/Labeler/store'
 export { default as CommunitySetterStore } from '@/containers/tool/CommunitySetter/store'
 
 // viewers store
