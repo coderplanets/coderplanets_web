@@ -10,7 +10,7 @@ export { default as GlobalLayoutStore } from '@/containers/layout/GlobalLayout/s
 export { default as RichEditorStore } from '@/containers/editor/RichEditor/store'
 export { default as ErrorBoxStore } from '@/containers/tool/ErrorBox/store'
 export { default as SidebarStore } from '@/containers/unit/Sidebar/store'
-export { default as DrawerStore } from '@/containers/Drawer/store'
+export { default as DrawerStore } from '@/containers/tool/Drawer/store'
 export { default as DoraemonStore } from '@/containers/Doraemon/store'
 export { default as HeaderStore } from '@/containers/unit/Header/store'
 export { default as UpgradePackagesStore } from '@/containers/tool/UpgradePackages/store'

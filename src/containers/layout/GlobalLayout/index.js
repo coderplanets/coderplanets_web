@@ -25,7 +25,7 @@ import ThemeWrapper from '@/containers/ThemeWrapper'
 
 import Header from '@/containers/unit/Header'
 import Sidebar from '@/containers/unit/Sidebar'
-import Drawer from '@/containers/Drawer'
+import Drawer from '@/containers/tool/Drawer'
 
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
