@@ -23,8 +23,8 @@ import {
 import AnalysisService from '@/services/Analysis'
 import ThemeWrapper from '@/containers/ThemeWrapper'
 
-import Header from '@/containers/Header'
-import Sidebar from '@/containers/Sidebar'
+import Header from '@/containers/unit/Header'
+import Sidebar from '@/containers/unit/Sidebar'
 import Drawer from '@/containers/Drawer'
 
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'

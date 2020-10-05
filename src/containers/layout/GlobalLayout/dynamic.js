@@ -13,7 +13,7 @@ export const ErrorBox = dynamic(() => import('@/containers/ErrorBox'), {
   ssr: false,
 })
 
-export const Footer = dynamic(() => import('@/containers/Footer'), {
+export const Footer = dynamic(() => import('@/containers/unit/Footer'), {
   /* eslint-disable react/display-name */
   loading: () => <div />,
   ssr: false,
