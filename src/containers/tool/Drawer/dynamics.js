@@ -90,7 +90,7 @@ export const StateTree = dynamic(
 )
 
 export const C11NSettingPanel = dynamic(
-  () => import('@/containers/C11NSettingPanel'),
+  () => import('@/containers/tool/C11NSettingPanel'),
   commonConfig,
 )
 

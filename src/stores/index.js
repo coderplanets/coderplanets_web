@@ -105,4 +105,4 @@ export { default as SponsorContentStore } from '@/containers/content/SponsorCont
 export { default as JoinModalStore } from '@/containers/tool/JoinModal/store'
 export { default as TrendingContentStore } from '@/containers/content/TrendingContent/store'
 export { default as WorksContentStore } from '@/containers/content/WorksContent/store'
-export { default as C11NSettingPanelStore } from '@/containers/C11NSettingPanel/store'
+export { default as C11NSettingPanelStore } from '@/containers/tool/C11NSettingPanel/store'
