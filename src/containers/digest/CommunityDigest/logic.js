@@ -13,7 +13,7 @@ import {
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:CommunityBanner')
+const log = buildLog('L:CommunityDigest')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({ receive: [EVENT.COMMUNITY_CHANGE] })
@@ -140,7 +140,7 @@ const ErrSolver = [
     match: asyncErr(ERR.NETWORK),
     action: () => {
       markLoading(false)
-      errRescue({ type: ERR.NETWORK, path: 'CommunityBanner' })
+      errRescue({ type: ERR.NETWORK, path: 'CommunityDigest' })
     },
   },
 ]

@@ -1,6 +1,6 @@
 /*
  *
- * CommunityBanner
+ * CommunityDigest
  *
  */
 import React from 'react'
@@ -15,9 +15,9 @@ import { Wrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:CommunityBanner')
+const log = buildLog('C:CommunityDigest')
 
-const CommunityBannerContainer = ({ communityBanner: store }) => {
+const CommunityDigestContainer = ({ communityDigest: store }) => {
   useInit(store)
 
   const {
@@ -50,4 +50,4 @@ const CommunityBannerContainer = ({ communityBanner: store }) => {
   )
 }
 
-export default connectStore(CommunityBannerContainer)
+export default connectStore(CommunityDigestContainer)

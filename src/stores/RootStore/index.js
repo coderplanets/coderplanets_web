@@ -38,7 +38,7 @@ import {
   CheatsheetThreadStore,
   // banners
   ArticleBannerStore,
-  CommunityBannerStore,
+  CommunityDigestStore,
   UserBannerStore,
   // content
   CommunityContentStore,
@@ -150,7 +150,7 @@ const rootStore = T.model({
 
   // banners
   articleBanner: T.optional(ArticleBannerStore, {}),
-  communityBanner: T.optional(CommunityBannerStore, {}),
+  communityDigest: T.optional(CommunityDigestStore, {}),
   userBanner: T.optional(UserBannerStore, {}),
 
   // content

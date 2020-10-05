@@ -27,7 +27,7 @@ export { default as ArticleAuthorCardStore } from '@/containers/ArticleAuthorCar
 export { default as FavoritesCatsStore } from '@/containers/FavoritesCats/store'
 
 // pages banners store
-export { default as CommunityBannerStore } from '@/containers/banner/CommunityBanner/store'
+export { default as CommunityDigestStore } from '@/containers/digest/CommunityDigest/store'
 export { default as UserBannerStore } from '@/containers/banner/UserBanner/store'
 
 export { default as ArticleBannerStore } from '@/containers/banner/ArticleBanner/store'

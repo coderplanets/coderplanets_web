@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import CommunityBanner from '../index'
+// import CommunityDigest from '../index'
 
-describe('TODO <CommunityBanner />', () => {
+describe('TODO <CommunityDigest />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

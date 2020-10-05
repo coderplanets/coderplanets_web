@@ -1,5 +1,5 @@
 /*
- * CommunityBanner store
+ * CommunityDigest store
  *
  */
 
@@ -8,9 +8,9 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:CommunityBanner')
+const log = buildLog('S:CommunityDigest')
 
-const CommunityBanner = T.model('CommunityBanner', {
+const CommunityDigest = T.model('CommunityDigest', {
   loading: T.optional(T.boolean, false),
   descExpand: T.optional(T.boolean, false),
   subscribeLoading: T.optional(T.boolean, false),
@@ -59,4 +59,4 @@ const CommunityBanner = T.model('CommunityBanner', {
     },
   }))
 
-export default CommunityBanner
+export default CommunityDigest
