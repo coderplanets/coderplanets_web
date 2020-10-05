@@ -11,7 +11,7 @@ import { connectStore, buildLog } from '@/utils'
 
 import ArticleViewerHeader from '@/containers/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
-import Comments from '@/containers/Comments'
+import Comments from '@/containers/unit/Comments'
 import Maybe from '@/components/Maybe'
 import VideoPoster from '@/components/VideoPoster'
 import VideoInfoCard from '@/components/VideoInfoCard'

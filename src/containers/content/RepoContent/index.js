@@ -8,7 +8,7 @@ import React from 'react'
 
 import { connectStore, buildLog } from '@/utils'
 
-import Comments from '@/containers/Comments'
+import Comments from '@/containers/unit/Comments'
 import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
 
 import Sticky from '@/components/Sticky'

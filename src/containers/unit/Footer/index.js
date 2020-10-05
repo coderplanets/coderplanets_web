@@ -12,7 +12,7 @@ import { contains } from 'ramda'
 import { ROUTE } from '@/constant'
 import { connectStore, buildLog, getRoutePathList } from '@/utils'
 
-import JoinModal from '@/containers/JoinModal'
+import JoinModal from '@/containers/tool/JoinModal'
 import Modal from '@/components/Modal'
 
 import BriefView from './BriefView'

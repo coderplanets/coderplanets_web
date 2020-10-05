@@ -11,8 +11,8 @@ import { connectStore, buildLog } from '@/utils'
 
 import ArticleViewerHeader from '@/containers/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
-import FavoritesCats from '@/containers/FavoritesCats'
-import Comments from '@/containers/Comments'
+import FavoritesCats from '@/containers/tool/FavoritesCats'
+import Comments from '@/containers/unit/Comments'
 import GithubRepoPage from '@/components/GithubRepoPage'
 
 import { CommentsWrapper } from './styles'

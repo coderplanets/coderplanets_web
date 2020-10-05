@@ -11,7 +11,7 @@ import { pluck } from 'ramda'
 import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import Comments from '@/containers/Comments'
+import Comments from '@/containers/unit/Comments'
 import Labeler from '@/containers/Labeler'
 import ArticleViewerHeader from '@/containers/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/ArticleBodyHeader'

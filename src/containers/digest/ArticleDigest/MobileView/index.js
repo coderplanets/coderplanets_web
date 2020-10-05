@@ -13,7 +13,7 @@ import { Waypoint } from 'react-waypoint'
 import { useScroll } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
-import FavoritesCats from '@/containers/FavoritesCats'
+import FavoritesCats from '@/containers/tool/FavoritesCats'
 import DotDivider from '@/components/DotDivider'
 import Maybe from '@/components/Maybe'
 import { Space } from '@/components/Common'

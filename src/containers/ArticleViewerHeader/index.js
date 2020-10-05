@@ -10,7 +10,7 @@ import { values } from 'ramda'
 import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import FavoritesCats from '@/containers/FavoritesCats'
+import FavoritesCats from '@/containers/tool/FavoritesCats'
 import Maybe from '@/components/Maybe'
 
 import UserInfo from './UserInfo'

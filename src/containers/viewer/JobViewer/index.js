@@ -9,7 +9,7 @@ import React from 'react'
 import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import Comments from '@/containers/Comments'
+import Comments from '@/containers/unit/Comments'
 import ArticleViewerHeader from '@/containers/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
 import Maybe from '@/components/Maybe'

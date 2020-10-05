@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Informer from '@/containers/Informer'
+import Informer from '@/containers/tool/Informer'
 import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
 import ContentSourceCard from '@/components/ContentSourceCard'
 
