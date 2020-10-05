@@ -12,7 +12,9 @@ import TipsForDeveloperPlan from './TipsForDeveloperPlan'
 
 import { PlanDivider } from './styles/upgrade_menu'
 
-export const GirlVerifier = dynamic(() => import('@/containers/GirlVerifier'))
+export const GirlVerifier = dynamic(() =>
+  import('@/containers/tool/GirlVerifier'),
+)
 
 const labelText = (isSeniorMember) => {
   if (isSeniorMember) {

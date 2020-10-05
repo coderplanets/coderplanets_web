@@ -9,13 +9,13 @@ import React from 'react'
 import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
-import Comments from '@/containers/Comments'
+import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
+import Comments from '@/containers/unit/Comments'
 
 import Sticky from '@/components/Sticky'
 import MarkDownRender from '@/components/MarkDownRender'
 import Maybe from '@/components/Maybe'
-import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
+import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 import ContentSourceCard from '@/components/ContentSourceCard'
 
 import CompanyCard from './CommunityCard'

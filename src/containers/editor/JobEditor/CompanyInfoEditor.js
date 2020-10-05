@@ -1,7 +1,7 @@
 import React from 'react'
 import { isEmpty } from 'ramda'
 
-import DocUploader from '@/containers/DocUploader'
+import DocUploader from '@/containers/tool/DocUploader'
 
 import {
   Wrapper,

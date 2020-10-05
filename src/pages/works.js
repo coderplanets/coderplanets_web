@@ -10,7 +10,7 @@ import { ROUTE } from '@/constant'
 import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 import { P } from '@/schemas'
 
-import GlobalLayout from '@/containers/GlobalLayout'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
 import WorksContent from '@/containers/content/WorksContent'
 
 import { useStore } from '@/stores/init'

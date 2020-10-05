@@ -4,12 +4,12 @@ import { Provider } from 'mobx-react'
 import * as Sentry from '@sentry/node'
 
 import AnalysisService from '@/services/Analysis'
-import ThemeWrapper from '@/containers/ThemeWrapper'
+import ThemePalette from '@/containers/layout/ThemePalette'
 import ErrorPage from '@/components/ErrorPage'
 
 import { useStore } from '@/stores/init'
 
-import { Wrapper } from '@/containers/GlobalLayout/styles'
+import { Wrapper } from '@/containers/layout/GlobalLayout/styles'
 
 const Error = (props) => {
   const store = useStore(props)
@@ -26,11 +26,11 @@ const Error = (props) => {
   return (
     <Provider store={store}>
       <AnalysisService>
-        <ThemeWrapper>
+        <ThemePalette>
           <Wrapper>
             <ErrorPage errorCode={statusCode} />
           </Wrapper>
-        </ThemeWrapper>
+        </ThemePalette>
       </AnalysisService>
     </Provider>
   )

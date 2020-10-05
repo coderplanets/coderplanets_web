@@ -10,9 +10,9 @@ import { THREAD } from '@/constant'
 import { useMedia } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
-import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
-import Comments from '@/containers/Comments'
-// import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
+import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
+import Comments from '@/containers/unit/Comments'
+// import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 
 import Sticky from '@/components/Sticky'
 import Maybe from '@/components/Maybe'

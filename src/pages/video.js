@@ -14,8 +14,8 @@ import {
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
-import GlobalLayout from '@/containers/GlobalLayout'
-import ArticleBanner from '@/containers/banner/ArticleBanner'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
+import ArticleDigest from '@/containers/digest/ArticleDigest'
 import VideoContent from '@/containers/content/VideoContent'
 
 import { P } from '@/schemas'
@@ -115,7 +115,7 @@ const VideoPage = (props) => {
         errorPath={`/${mainPath}/video/${video.id}`}
         noSidebar
       >
-        <ArticleBanner showStar={false} />
+        <ArticleDigest showStar={false} />
         <VideoContent />
       </GlobalLayout>
     </Provider>

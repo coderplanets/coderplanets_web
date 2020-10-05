@@ -7,7 +7,7 @@ import { ROUTE } from '@/constant'
 import { P } from '@/schemas'
 
 import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
-import GlobalLayout from '@/containers/GlobalLayout'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
 import TrendingContent from '@/containers/content/TrendingContent'
 
 import { useStore } from '@/stores/init'

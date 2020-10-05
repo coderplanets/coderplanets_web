@@ -12,7 +12,7 @@ import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { buildLog } from '@/utils'
 
-import Informer from '@/containers/Informer'
+import Informer from '@/containers/tool/Informer'
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'
 import EditOption from './EditOption'

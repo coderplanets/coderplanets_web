@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Informer from '@/containers/Informer'
-import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
+import Informer from '@/containers/tool/Informer'
+import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 import ContentSourceCard from '@/components/ContentSourceCard'
 
 import { Wrapper, Divider, ReportWrapper } from './styles/side_cards'

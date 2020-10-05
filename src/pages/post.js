@@ -14,8 +14,8 @@ import {
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
-import GlobalLayout from '@/containers/GlobalLayout'
-import ArticleBanner from '@/containers/banner/ArticleBanner'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
+import ArticleDigest from '@/containers/digest/ArticleDigest'
 import PostContent from '@/containers/content/PostContent'
 
 import { P } from '@/schemas'
@@ -121,7 +121,7 @@ const PostPage = (props) => {
         errorPath={`/${mainPath}/post/${post.id}`}
         noSidebar
       >
-        <ArticleBanner />
+        <ArticleDigest />
         <PostContent />
       </GlobalLayout>
     </Provider>

@@ -3,7 +3,7 @@ import { pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
-import Labeler from '@/containers/Labeler'
+import Labeler from '@/containers/unit/Labeler'
 
 import { Wrapper, Divider } from './styles/digest_bar'
 

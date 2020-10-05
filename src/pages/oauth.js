@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import ThemeWrapper from '@/containers/ThemeWrapper'
+import ThemePalette from '@/containers/layout/ThemePalette'
 
 import AnalysisService from '@/services/Analysis'
 import OauthHinter from '@/components/OauthHinter'
@@ -14,9 +14,9 @@ const OAuthPage = (props) => {
   return (
     <Provider store={store}>
       <AnalysisService>
-        <ThemeWrapper>
+        <ThemePalette>
           <OauthHinter />
-        </ThemeWrapper>
+        </ThemePalette>
       </AnalysisService>
     </Provider>
   )

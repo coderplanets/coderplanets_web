@@ -71,7 +71,7 @@ Import R from 'ramda'
 Import { connectStore, buildLog, ROUTE, THREAD } from '@/utils'
 
 // 3. import global containers
-Import TagsBar from '@/containers/TagsBar'
+Import TagsBar from '@/containers/unit/TagsBar'
 // 4. import global components
 Import Maybe from '@/components/Maybe'
 Import PagedContents from '@/components/PagedContents'

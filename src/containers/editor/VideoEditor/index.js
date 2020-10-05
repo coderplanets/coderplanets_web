@@ -8,7 +8,7 @@ import React from 'react'
 
 import { connectStore, buildLog } from '@/utils'
 
-import Labeler from '@/containers/Labeler'
+import Labeler from '@/containers/unit/Labeler'
 import FormItem from '@/components/FormItem'
 import ArticleEditFooter from '@/components/ArticleEditFooter'
 

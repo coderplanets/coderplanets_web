@@ -8,7 +8,7 @@ import React from 'react'
 
 import { connectStore, buildLog } from '@/utils'
 
-import FavoritesCats from '@/containers/FavoritesCats'
+import FavoritesCats from '@/containers/tool/FavoritesCats'
 import PagedContents from '@/components/PagedContents'
 import Breadcrumbs from './Breadcrumbs'
 
