@@ -21,7 +21,7 @@ import {
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
-import UserBanner from '@/containers/banner/UserBanner'
+import UserDigest from '@/containers/digest/UserDigest'
 import UserContent from '@/containers/content/UserContent'
 
 import { P } from '@/schemas'
@@ -105,7 +105,7 @@ const UserPage = (props) => {
         errorCode={errorCode}
         noSidebar={`/user/${user.login}`}
       >
-        <UserBanner />
+        <UserDigest />
         <UserContent />
       </GlobalLayout>
     </Provider>

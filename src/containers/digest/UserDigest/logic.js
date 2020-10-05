@@ -4,7 +4,7 @@ import { asyncSuit, buildLog } from '@/utils'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:UserBanner')
+const log = buildLog('L:UserDigest')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71()

@@ -1,5 +1,5 @@
 /*
- * UserBanner store
+ * UserDigest store
  *
  */
 
@@ -8,9 +8,9 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:UserBanner')
+const log = buildLog('S:UserDigest')
 
-const UserBanner = T.model('UserBanner', {})
+const UserDigest = T.model('UserDigest', {})
   .views((self) => ({
     get root() {
       return getParent(self)
@@ -31,4 +31,4 @@ const UserBanner = T.model('UserBanner', {})
     },
   }))
 
-export default UserBanner
+export default UserDigest

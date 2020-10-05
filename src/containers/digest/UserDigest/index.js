@@ -1,6 +1,6 @@
 /*
  *
- * UserBanner
+ * UserDigest
  *
  */
 
@@ -21,9 +21,9 @@ import {
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:UserBanner')
+const log = buildLog('C:UserDigest')
 
-const UserBannerContainer = ({ userBanner: store }) => {
+const UserDigestContainer = ({ userDigest: store }) => {
   useInit(store)
 
   const { viewingUser } = store
@@ -42,4 +42,4 @@ const UserBannerContainer = ({ userBanner: store }) => {
   )
 }
 
-export default connectStore(UserBannerContainer)
+export default connectStore(UserDigestContainer)

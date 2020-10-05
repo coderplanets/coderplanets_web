@@ -39,7 +39,7 @@ import {
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
-  UserBannerStore,
+  UserDigestStore,
   // content
   CommunityContentStore,
   PostContentStore,
@@ -151,7 +151,7 @@ const rootStore = T.model({
   // banners
   articleDigest: T.optional(ArticleDigestStore, {}),
   communityDigest: T.optional(CommunityDigestStore, {}),
-  userBanner: T.optional(UserBannerStore, {}),
+  userDigest: T.optional(UserDigestStore, {}),
 
   // content
   communityContent: T.optional(CommunityContentStore, {}),
