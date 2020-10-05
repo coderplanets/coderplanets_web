@@ -16,8 +16,8 @@ export {
 } from './index'
 
 export const Wrapper = styled(WrapperBase)`
-  padding-right: 38px;
-  padding-left: 10px;
+  padding-right: 25px;
+  padding-left: 20px;
 `
 export const Header = styled.div`
   ${cs.flex('align-start')};
@@ -29,9 +29,10 @@ export const Body = styled.div`
   ${cs.flex()};
 `
 export const PreviewImg = styled(Img)`
-  width: 80px;
+  width: 70px;
   height: 50px;
-  border-radius: 4px;
+  border-radius: 2px;
   display: block;
+  margin-top: 3px;
   margin-left: 13px;
 `

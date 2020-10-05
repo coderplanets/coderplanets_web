@@ -12,5 +12,6 @@ export {
 } from './index'
 
 export const Wrapper = styled(WrapperBase)`
-  padding-right: 18px;
+  padding-right: 12px;
+  padding-right: 10px;
 `

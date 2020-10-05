@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { GALLERY } from '@/constant'
 import { ICON_CMD, ASSETS_ENDPOINT } from '@/config'
 import DotDivider from '@/components/DotDivider'
 
@@ -29,7 +30,7 @@ const Card = ({ item }) => {
             <Label>前端?</Label>
             <Title>Groupher 从构想到实现</Title>
           </TitleWrapper>
-          <Date size="small" />
+          <Date type={GALLERY.TEXT_WITH_IMAGE} />
         </Header>
         <Body>
           <Desc>

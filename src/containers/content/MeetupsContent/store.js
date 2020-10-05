@@ -13,7 +13,7 @@ const log = buildLog('S:MeetupsContent')
 const MeetupsContent = T.model('MeetupsContent', {
   activeGalleryType: T.optional(
     T.enumeration([GALLERY.TEXT_ONLY, GALLERY.TEXT_WITH_IMAGE]),
-    GALLERY.TEXT_ONLY,
+    GALLERY.TEXT_WITH_IMAGE,
   ),
 })
   .views((self) => ({
