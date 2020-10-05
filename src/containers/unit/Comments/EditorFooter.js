@@ -4,7 +4,7 @@ import { ICON_CMD } from '@/config'
 
 import { Button } from '@/components/Buttons'
 import { Space } from '@/components/Common'
-import DocUploader from '@/containers/DocUploader'
+import DocUploader from '@/containers/tool/DocUploader'
 
 import {
   InputFooter,

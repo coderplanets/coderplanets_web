@@ -4,7 +4,7 @@ import { pluck } from 'ramda'
 import { ICON_CMD } from '@/config'
 import { uid } from '@/utils'
 
-import DocUploader from '@/containers/DocUploader'
+import DocUploader from '@/containers/tool/DocUploader'
 import Labeler from '@/containers/Labeler'
 import Maybe from '@/components/Maybe'
 

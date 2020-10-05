@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '@/config'
 import { nilOrEmpty } from '@/utils'
 
-import DocUploader from '@/containers/DocUploader'
+import DocUploader from '@/containers/tool/DocUploader'
 import Maybe from '@/components/Maybe'
 
 import {

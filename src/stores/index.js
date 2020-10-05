@@ -59,7 +59,7 @@ export { default as RoadmapThreadStore } from '@/containers/thread/RoadmapThread
 export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
 
 // toolbox
-export { default as DocUploaderStore } from '@/containers/DocUploader/store'
+export { default as DocUploaderStore } from '@/containers/tool/DocUploader/store'
 export { default as JobEditorStore } from '@/containers/editor/JobEditor/store'
 export { default as PostEditorStore } from '@/containers/editor/PostEditor/store'
 export { default as VideoEditorStore } from '@/containers/editor/VideoEditor/store'
