@@ -1,6 +1,6 @@
 /*
  *
- * ArticleBanner
+ * ArticleDigest
  *
  */
 
@@ -12,7 +12,7 @@ import { useMedia } from '@/hooks'
 import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
 
-const ArticleBannerContainer = (props) => {
+const ArticleDigestContainer = (props) => {
   const { mobile } = useMedia()
 
   return (
@@ -22,17 +22,17 @@ const ArticleBannerContainer = (props) => {
   )
 }
 
-ArticleBannerContainer.propTypes = {
-  articleBanner: T.object.isRequired,
+ArticleDigestContainer.propTypes = {
+  articleDigest: T.object.isRequired,
   showStar: T.bool,
   showWordCount: T.bool,
   showLastSync: T.bool,
 }
 
-ArticleBannerContainer.defaultProps = {
+ArticleDigestContainer.defaultProps = {
   showStar: true,
   showWordCount: true,
   showLastSync: false,
 }
 
-export default ArticleBannerContainer
+export default ArticleDigestContainer

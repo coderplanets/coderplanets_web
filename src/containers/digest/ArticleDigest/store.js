@@ -1,5 +1,5 @@
 /*
- * ArticleBanner store
+ * ArticleDigest store
  *
  */
 
@@ -9,9 +9,9 @@ import { TYPE } from '@/constant'
 import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:ArticleBanner')
+const log = buildLog('S:ArticleDigest')
 
-const ArticleBanner = T.model('ArticleBanner', {
+const ArticleDigest = T.model('ArticleDigest', {
   loading: T.optional(T.boolean, false),
   action: T.optional(
     T.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
@@ -69,4 +69,4 @@ const ArticleBanner = T.model('ArticleBanner', {
     },
   }))
 
-export default ArticleBanner
+export default ArticleDigest

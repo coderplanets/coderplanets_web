@@ -15,7 +15,7 @@ import {
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
-import ArticleBanner from '@/containers/banner/ArticleBanner'
+import ArticleDigest from '@/containers/digest/ArticleDigest'
 import RepoContent from '@/containers/content/RepoContent'
 
 import { P } from '@/schemas'
@@ -118,7 +118,7 @@ const RepoPage = (props) => {
         errorPath={`/${mainPath}/job/${repo.id}`}
         noSidebar
       >
-        <ArticleBanner showStar={false} showWordCount={false} showLastSync />
+        <ArticleDigest showStar={false} showWordCount={false} showLastSync />
         <RepoContent />
       </GlobalLayout>
     </Provider>

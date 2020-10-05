@@ -15,7 +15,7 @@ import {
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/GlobalLayout'
-import ArticleBanner from '@/containers/banner/ArticleBanner'
+import ArticleDigest from '@/containers/digest/ArticleDigest'
 import JobContent from '@/containers/content/JobContent'
 
 import { P } from '@/schemas'
@@ -119,7 +119,7 @@ const JobPage = (props) => {
         errorPath={`/${mainPath}/job/${job.id}`}
         noSidebar
       >
-        <ArticleBanner showStar={false} />
+        <ArticleDigest showStar={false} />
         <JobContent />
       </GlobalLayout>
     </Provider>

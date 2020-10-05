@@ -7,7 +7,7 @@ import { asyncSuit, buildLog, send, errRescue } from '@/utils'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:ArticleBanner')
+const log = buildLog('L:ArticleDigest')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
@@ -138,7 +138,7 @@ const ErrSolver = [
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: () => errRescue({ type: ERR.NETWORK, path: 'ArticleBanner' }),
+    action: () => errRescue({ type: ERR.NETWORK, path: 'ArticleDigest' }),
   },
 ]
 

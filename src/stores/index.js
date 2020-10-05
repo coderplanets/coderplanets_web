@@ -30,7 +30,7 @@ export { default as FavoritesCatsStore } from '@/containers/FavoritesCats/store'
 export { default as CommunityDigestStore } from '@/containers/digest/CommunityDigest/store'
 export { default as UserBannerStore } from '@/containers/banner/UserBanner/store'
 
-export { default as ArticleBannerStore } from '@/containers/banner/ArticleBanner/store'
+export { default as ArticleDigestStore } from '@/containers/digest/ArticleDigest/store'
 
 // contents store
 export { default as CommunityContentStore } from '@/containers/content/CommunityContent/store'
