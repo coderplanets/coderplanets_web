@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-export const Doraemon = dynamic(() => import('@/containers/Doraemon'), {
+export const Doraemon = dynamic(() => import('@/containers/tool/Doraemon'), {
   /* eslint-disable react/display-name */
   loading: () => <div />,
   ssr: false,

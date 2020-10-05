@@ -11,7 +11,7 @@ export { default as RichEditorStore } from '@/containers/editor/RichEditor/store
 export { default as ErrorBoxStore } from '@/containers/tool/ErrorBox/store'
 export { default as SidebarStore } from '@/containers/unit/Sidebar/store'
 export { default as DrawerStore } from '@/containers/tool/Drawer/store'
-export { default as DoraemonStore } from '@/containers/Doraemon/store'
+export { default as DoraemonStore } from '@/containers/tool/Doraemon/store'
 export { default as HeaderStore } from '@/containers/unit/Header/store'
 export { default as UpgradePackagesStore } from '@/containers/tool/UpgradePackages/store'
 export { default as MailBoxStore } from '@/containers/MailBox/store'
