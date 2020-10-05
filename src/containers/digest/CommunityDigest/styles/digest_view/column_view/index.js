@@ -51,6 +51,7 @@ export const BannerContainer = styled(BaseBanner)`
 export const TabBarWrapper = styled.div`
   ${cs.flex()};
   width: 100%;
+  margin-left: -15px;
 
   ${cs.media.tablet`
     padding-left: calc(2%);
@@ -81,8 +82,8 @@ export const LogoWrapper = styled.div`
   }
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
-  width: ${({ small }) => (small ? '45px' : '55px')};
-  height: ${({ small }) => (small ? '45px' : '55px')};
+  width: ${({ small }) => (small ? '35px' : '45px')};
+  height: ${({ small }) => (small ? '35px' : '45px')};
   border-radius: 5px;
 
   ${cs.media.mobile`
