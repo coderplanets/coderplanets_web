@@ -2,7 +2,7 @@ import React from 'react'
 
 import { cs } from '@/utils'
 
-import MailBox from '@/containers/MailBox'
+import MailBox from '@/containers/tool/MailBox'
 import UserLister from '@/containers/user/UserLister'
 // import Cashier from '@/containers/tool/Cashier'
 // import UpgradePackages from '@/containers/tool/UpgradePackages'

@@ -14,7 +14,7 @@ export { default as DrawerStore } from '@/containers/tool/Drawer/store'
 export { default as DoraemonStore } from '@/containers/tool/Doraemon/store'
 export { default as HeaderStore } from '@/containers/unit/Header/store'
 export { default as UpgradePackagesStore } from '@/containers/tool/UpgradePackages/store'
-export { default as MailBoxStore } from '@/containers/MailBox/store'
+export { default as MailBoxStore } from '@/containers/tool/MailBox/store'
 export { default as AvatarAdderStore } from '@/containers/tool/AvatarAdder/store'
 
 export { default as UserListerStore } from '@/containers/user/UserLister/store'
