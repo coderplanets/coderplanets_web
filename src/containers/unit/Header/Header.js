@@ -2,7 +2,7 @@ import React from 'react'
 
 import MailBox from '@/containers/MailBox'
 import UserLister from '@/containers/user/UserLister'
-import Cashier from '@/containers/Cashier'
+// import Cashier from '@/containers/tool/Cashier'
 // import UpgradePackages from '@/containers/tool/UpgradePackages'
 import Navigator from '@/components/Navigator'
 
@@ -64,7 +64,7 @@ const Header = ({
 
           {/* <UpgradePackages /> */}
           <UserLister />
-          <Cashier />
+          {/* <Cashier /> */}
           <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
         </Operations>
       </InnerWrapper>
