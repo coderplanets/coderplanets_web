@@ -13,7 +13,7 @@ import { THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import Labeler from '@/containers/Labeler'
-import CommunitySetter from '@/containers/CommunitySetter'
+import CommunitySetter from '@/containers/tool/CommunitySetter'
 import Tooltip from '@/components/Tooltip'
 import ArticleActionsPanel from '@/components/ArticleActionsPanel'
 
