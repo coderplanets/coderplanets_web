@@ -21,10 +21,11 @@ import {
 } from '@/hooks'
 
 import AnalysisService from '@/services/Analysis'
-import ThemePalette from '@/containers/layout/ThemePalette'
 
+import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
 import Sidebar from '@/containers/unit/Sidebar'
+import ModeLine from '@/containers/unit/ModeLine'
 import Drawer from '@/containers/tool/Drawer'
 
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
@@ -121,6 +122,7 @@ const GlobalLayoutContainer = ({
               </InnerWrapper>
             </React.Fragment>
           )}
+          <ModeLine />
         </Wrapper>
       </ThemePalette>
     </AnalysisService>

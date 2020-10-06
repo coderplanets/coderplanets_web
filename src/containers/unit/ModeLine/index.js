@@ -9,7 +9,11 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { useMedia } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
+
+import DesktopView from './DesktopView'
+import MobileView from './MobileView'
 
 import { Wrapper } from './styles'
 import { useInit } from './logic'
@@ -19,11 +23,11 @@ const log = buildLog('C:ModeLine')
 
 const ModeLineContainer = ({ modeLine: store, testId }) => {
   useInit(store)
+  const { mobile } = useMedia()
 
   return (
     <Wrapper testId={testId}>
-      <h2>ModeLine hooks container!</h2>
-      <div>impress me!</div>
+      {mobile ? <MobileView /> : <DesktopView />}
     </Wrapper>
   )
 }
