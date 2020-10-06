@@ -6,7 +6,7 @@ import {
   CommunityLogo,
   ItemsWrapper,
   Item,
-} from '../styles/mobile_view'
+} from '../styles/footer'
 
 const options = [
   {
@@ -31,7 +31,7 @@ const options = [
   },
 ]
 
-const MobileView = () => {
+const Footer = () => {
   return (
     <Wrapper>
       <Info>
@@ -46,4 +46,4 @@ const MobileView = () => {
   )
 }
 
-export default MobileView
+export default Footer
