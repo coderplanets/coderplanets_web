@@ -27,17 +27,31 @@ export const CommunityLogo = styled(Img)`
   display: block;
 `
 export const Info = styled.div`
-  width: 25%;
+  /* width: 25%; */
+  width: 45%;
+  height: 100%;
+  ${cs.flex('align-center')};
 `
 export const ItemsWrapper = styled.div`
   ${cs.flex('justify-between', 'align-center')};
   width: 100%;
   height: 100%;
-  /* border: 1px solid tomato; */
+  /* for icons */
+  padding-top: 4px;
 `
 export const Item = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 14px;
+  /* margin-right: 15px; */
+
+  :last-child {
+    margin-right: 0;
+  }
+`
+export const ItemIcon = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
+  width: 17px;
+  height: 17px;
   /* margin-right: 15px; */
 
   :last-child {

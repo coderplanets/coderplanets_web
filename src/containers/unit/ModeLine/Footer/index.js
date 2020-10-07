@@ -1,33 +1,40 @@
 import React from 'react'
-import { ICON_BASE } from '@/config'
+
+import { ICON, ICON_BASE } from '@/config'
 import {
   Wrapper,
   Info,
   CommunityLogo,
   ItemsWrapper,
-  Item,
+  // Item,
+  ItemIcon,
 } from '../styles/footer'
 
 const options = [
   {
     title: '过滤',
     raw: 'filter',
+    icon: `${ICON}/filter.svg`,
   },
   {
     title: '发现',
     raw: 'discover',
+    icon: `${ICON}/discover.svg`,
   },
   {
     title: '设置',
     raw: 'setting',
+    icon: `${ICON}/magic.svg`,
   },
   {
     title: '发布',
     raw: 'publish',
+    icon: `${ICON}/publish-plus.svg`,
   },
   {
     title: '账户',
     raw: 'account',
+    icon: `${ICON}/account-solid.svg`,
   },
 ]
 
@@ -39,7 +46,8 @@ const Footer = () => {
       </Info>
       <ItemsWrapper>
         {options.map((item) => (
-          <Item key={item.raw}>{item.title}</Item>
+          // <Item key={item.raw}>{item.title}</Item>
+          <ItemIcon key={item.raw} src={item.icon} />
         ))}
       </ItemsWrapper>
     </Wrapper>
