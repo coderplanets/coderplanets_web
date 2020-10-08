@@ -53,8 +53,8 @@ export const ArrowShape = styled.div`
   right: -10px;
   width: 0;
   height: 0;
-  border-top: 16px solid transparent;
-  border-bottom: 16px solid transparent;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
   border-left: 10px solid;
   border-left-color: ${({ bgColor }) => bgColor};
   z-index: 1;
@@ -78,7 +78,7 @@ export const ArrowShapeLeft = styled(ArrowShape)`
 export const ItemsWrapper = styled.div`
   ${cs.flex('justify-between', 'align-center')};
   height: 100%;
-  padding-top: 4px;
+  padding-top: 2px;
   width: auto;
   flex-grow: 1;
   height: 100%;
