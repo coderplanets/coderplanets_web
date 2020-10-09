@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
   ${cs.media.mobile`
     height: auto;
-    margin-bottom: 10%;
+    margin-bottom: 0;
   `};
 `
 

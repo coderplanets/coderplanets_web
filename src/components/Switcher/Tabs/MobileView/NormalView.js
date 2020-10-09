@@ -116,7 +116,7 @@ const MobileView = ({
     <Wrapper testId="tabs">
       {showMore && (
         <MoreWrapper onClick={toggleExpand}>
-          <ArrowIcon src={`${ICON}/arrow-simple.svg`} />
+          <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
         </MoreWrapper>
       )}
       <Nav ref={navRef}>

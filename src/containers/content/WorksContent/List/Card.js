@@ -58,7 +58,7 @@ const Card = ({ noBorder }) => {
           </BuildWithWrapper>
           <Divider />
           <IconText
-            iconSrc={`${ICON}/publish_rocket.svg`}
+            iconSrc={`${ICON}/edit/publish-rocket.svg`}
             size="tiny"
             margin="5px"
           >

@@ -11,9 +11,9 @@ import {
 const EmailHintIcon = () => {
   return (
     <Wrapper>
-      <MailIcon src={`${ICON}/email_solid.svg`} />
-      <CurveLineIcon src={`${ICON}/curve_line.svg`} />
-      <MailBoxIcon src={`${ICON}/email_box.svg`} />
+      <MailIcon src={`${ICON}/subscribe/email-solid.svg`} />
+      <CurveLineIcon src={`${ICON}/shape/curly-arrow.svg`} />
+      <MailBoxIcon src={`${ICON}/subscribe/email-box.svg`} />
     </Wrapper>
   )
 }

@@ -27,7 +27,7 @@ const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: sto
   {{/if}}
 
   return (
-    <Wrapper testId="{{ dashCase name }}">
+    <Wrapper testId={testId}>
       <h2>{{ properCase name }} hooks container!</h2>
       <div>impress me!</div>
     </Wrapper>
@@ -40,7 +40,7 @@ const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: sto
 }
 
 {{ properCase name }}Container.defaultProps = {
-  testId: '{{ camelCase name}}',
+  testId: '{{ dashCase name}}',
 }
 
 export default connectStore({{ properCase name }}Container)

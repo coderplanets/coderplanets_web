@@ -11,7 +11,7 @@ import { Wrapper, SiteLink, MobileIcon } from '../styles/main_entries'
 export const openMobileNaviMenu = () => {
   send(EVENT.DRAWER_OPEN, {
     type: TYPE.DRAWER.MOBILE_NAVI_MENU,
-    animation: { from: 'top' },
+    options: { direction: 'top' },
   })
 }
 
@@ -19,7 +19,7 @@ const MainEntries = () => {
   return (
     <Wrapper onClick={openMobileNaviMenu}>
       <SiteLink as="span">
-        <MobileIcon src={`${ICON}/header-more-mobile.svg`} />
+        <MobileIcon src={`${ICON}/shape/more-3.svg`} />
       </SiteLink>
     </Wrapper>
   )

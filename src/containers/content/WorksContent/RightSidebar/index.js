@@ -45,7 +45,7 @@ const RightSidebar = () => {
             console.log('key: ', key)
           }}
         >
-          <PublishIcon src={`${ICON}/publish_rocket.svg`} />
+          <PublishIcon src={`${ICON}/edit/publish-rocket.svg`} />
           发布作品
         </DropdownButton>
       </PublishBtnWrapper>

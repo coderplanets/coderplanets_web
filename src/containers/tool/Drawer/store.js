@@ -39,8 +39,13 @@ const THREAD_CONTENT_CURD_TYPES = [
   TYPE.DRAWER.MAILS_VIEW,
 ]
 
-const Animation = T.model('Animation', {
-  from: T.optional(T.enumeration('from', ['top', 'bottom']), 'bottom'),
+const Options = T.model('Options', {
+  direction: T.optional(
+    T.enumeration('direction', ['top', 'bottom']),
+    'bottom',
+  ),
+  // like vi-mode
+  position: T.optional(T.enumeration('position', ['H', 'M', 'L']), 'M'),
 })
 
 const Attachment = T.model('Attachment', {
@@ -68,10 +73,11 @@ const Attachment = T.model('Attachment', {
   originalAuthorLink: T.maybeNull(T.string),
 })
 
+const defaultOptions = { direction: 'bottom', position: 'M' }
 const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
   // only works for mobile view
-  animation: T.optional(Animation, { from: 'bottom' }),
+  options: T.optional(Options, defaultOptions),
   windowWidth: T.optional(T.number, 1520),
   type: T.maybeNull(
     T.enumeration('previewType', [
@@ -130,7 +136,7 @@ const DrawerStore = T.model('DrawerStore', {
     },
   }))
   .actions((self) => ({
-    open({ type, data, thread, animation = { from: 'bottom' } }) {
+    open({ type, data, thread, options = {} }) {
       // NOTE: currently the attachment is only used for article-like content
       if (type === TYPE.DRAWER.USER_VIEW) {
         self.attUser = merge(data, EmptyAchievement)
@@ -143,7 +149,7 @@ const DrawerStore = T.model('DrawerStore', {
 
       self.visible = true
       self.type = type
-      self.animation = animation
+      self.options = merge(defaultOptions, options)
       lockPage()
       if (self.media.mobile) {
         toggleGlobalBlur(true)
