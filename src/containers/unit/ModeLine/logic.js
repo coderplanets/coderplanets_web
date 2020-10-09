@@ -15,7 +15,7 @@ export const openMobileNaviMenu = () => {
     type: TYPE.DRAWER.MOBILE_NAVI_MENU,
     options: {
       direction: 'bottom',
-      position: 'H',
+      position: 'M',
     },
   })
 }

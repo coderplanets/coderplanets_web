@@ -67,7 +67,6 @@ export const DrawerWrapper = styled.div.attrs((props) => ({
     min-width: 100%;
     overflow: scroll;
     height: auto;
-    max-height: 80%;
   `};
 `
 
