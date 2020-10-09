@@ -13,7 +13,10 @@ const log = buildLog('L:ModeLine')
 export const openMobileNaviMenu = () => {
   send(EVENT.DRAWER_OPEN, {
     type: TYPE.DRAWER.MOBILE_NAVI_MENU,
-    options: { direction: 'bottom' },
+    options: {
+      direction: 'bottom',
+      position: 'H',
+    },
   })
 }
 

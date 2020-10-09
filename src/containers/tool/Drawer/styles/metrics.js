@@ -21,6 +21,41 @@ export const WIDE_CASE = [
   TYPE.DRAWER.MAILS_VIEW,
 ]
 
+// only for mobile
+// for mobile bottom
+const getPosition = (location) => {
+  switch (location) {
+    case 'L': {
+      return '400%'
+    }
+
+    case 'M': {
+      return '100%'
+    }
+
+    default: {
+      return '35%'
+    }
+  }
+}
+// for mobile bottom
+export const getMobileContentHeight = (options) => {
+  /* M -> 50vh, H -> 75vh, L -> 20vh */
+  switch (options.position) {
+    case 'H': {
+      return '75vh'
+    }
+
+    case 'L': {
+      return '20vh'
+    }
+
+    default: {
+      return '50vh'
+    }
+  }
+}
+
 export const getTransform = (visible, mobile, options) => {
   if (!mobile) {
     return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'
@@ -32,7 +67,9 @@ export const getTransform = (visible, mobile, options) => {
     }
 
     case 'bottom': {
-      return visible ? 'translate(0px, 55%)' : 'translate(0, 100%)'
+      return visible
+        ? `translate(0px, ${getPosition(options.position)})`
+        : 'translate(0, 100%)'
     }
 
     default: {

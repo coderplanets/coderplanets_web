@@ -9,6 +9,7 @@ import {
   WIDE_WIDTH,
   NARROW_WIDTH,
   getTransform,
+  getMobileContentHeight,
   getContentLinearGradient,
 } from './metrics'
 
@@ -78,7 +79,7 @@ export const DrawerContent = styled.div`
 `
 export const DrawerMobileContent = styled.div`
   width: 100%;
-  height: auto;
+  height: ${({ options }) => getMobileContentHeight(options)};
   box-shadow: ${theme('drawer.shadow')};
   background: ${({ options, bgColor }) =>
     getContentLinearGradient(options, bgColor)};
@@ -86,10 +87,7 @@ export const DrawerMobileContent = styled.div`
 // bottom
 export const MobileInnerContent = styled.div`
   width: 100%;
-  max-height: ${({ options }) =>
-    options.direction === 'bottom'
-      ? 'calc(100% - 100px)'
-      : 'calc(100% - 30px)'};
+  max-height: calc(100% - 30px);
   margin-top: ${({ options }) =>
     options.direction === 'bottom' ? '15px' : '0'};
   overflow-y: scroll;
