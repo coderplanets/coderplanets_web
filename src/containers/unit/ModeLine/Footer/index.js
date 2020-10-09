@@ -1,23 +1,9 @@
 import React from 'react'
 
-import { ICON, ICON_BASE } from '@/config'
-import {
-  Wrapper,
-  Info,
-  HomeBlock,
-  CommunityBlock,
-  MoreLogo,
-  ArrowShape,
-  AccountBlock,
-  ArrowShapeLeft,
-  ItemsWrapper,
-  // Item,
-  ItemIcon,
-  //
-  CommunityInfoWrapper,
-  CommunityLogo,
-  CommunityTitle,
-} from '../styles/footer'
+import { ICON } from '@/config'
+
+import { MenuBlock, CommunityBlock, AccountBlock } from './ArrowBlock'
+import { Wrapper, ItemsWrapper, ItemIcon } from '../styles/footer'
 
 const options = [
   {
@@ -40,46 +26,19 @@ const options = [
     raw: 'more',
     icon: `${ICON}/more.svg`,
   },
-  // {
-  //   title: '设置',
-  //   raw: 'setting',
-  //   icon: `${ICON}/magic-stick.svg`,
-  // },
 ]
-
-const CommunityInfo = () => {
-  return (
-    <CommunityInfoWrapper>
-      <CommunityLogo src={`${ICON_BASE}/pl/javascript.png`} />
-      <CommunityTitle>javascript</CommunityTitle>
-    </CommunityInfoWrapper>
-  )
-}
 
 const Footer = () => {
   return (
     <Wrapper>
-      <Info>
-        <HomeBlock bgColor="#071f27">
-          <MoreLogo src={`${ICON}/shape/more-3.svg`} />
-          {/* <CommunityLogo src={`${ICON_BASE}/site_logo.svg`} /> */}
-          <ArrowShape bgColor="#071f27" />
-        </HomeBlock>
-        <CommunityBlock bgColor="#194d5f">
-          <CommunityInfo />
-          <ArrowShape bgColor="#194d5f" />
-        </CommunityBlock>
-      </Info>
+      <MenuBlock />
+      <CommunityBlock />
       <ItemsWrapper>
         {options.map((item) => (
-          // <Item key={item.raw}>{item.title}</Item>
           <ItemIcon key={item.raw} src={item.icon} />
         ))}
       </ItemsWrapper>
-      <AccountBlock bgColor="#071f27">
-        <ArrowShapeLeft bgColor="#071f27" />
-        <MoreLogo src={`${ICON}/user/account-solid.svg`} />
-      </AccountBlock>
+      <AccountBlock />
     </Wrapper>
   )
 }
