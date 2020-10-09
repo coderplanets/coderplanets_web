@@ -12,12 +12,13 @@ import {
   ArrowShape,
   ArrowShapeLeft,
 } from '../styles/footer/arrow_block'
+import { openMobileNaviMenu } from '../logic'
 
 export const MenuBlock = () => {
   const bgColor = '#071f27'
 
   return (
-    <MenuWrapper bgColor={bgColor}>
+    <MenuWrapper bgColor={bgColor} onClick={openMobileNaviMenu}>
       <MenuLogo src={`${ICON}/shape/more-3.svg`} />
       <ArrowShape bgColor={bgColor} />
     </MenuWrapper>

@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { buildLog } from '@/utils'
+import { TYPE, EVENT } from '@/constant'
+import { send, buildLog } from '@/utils'
 // import S from './service'
 
 let store = null
@@ -9,7 +10,12 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ModeLine')
 
-export const someMethod = () => {}
+export const openMobileNaviMenu = () => {
+  send(EVENT.DRAWER_OPEN, {
+    type: TYPE.DRAWER.MOBILE_NAVI_MENU,
+    options: { direction: 'bottom' },
+  })
+}
 
 // ###############################
 // init & uninit handlers
