@@ -15,8 +15,8 @@ import {
 import { closeDrawer } from './logic'
 
 const Viewer = ({
+  options,
   visible,
-  animation,
   rightOffset,
   type,
   imageUploading,
@@ -56,19 +56,19 @@ const Viewer = ({
         rightOffset={rightOffset}
         type={type}
         mobile={mobile}
-        animation={animation}
+        options={options}
       >
         <AddOn type={type} imageUploading={imageUploading} />
         {!mobile ? (
           <DrawerContent>{children}</DrawerContent>
         ) : (
-          <DrawerMobileContent animation={animation} bgColor={theme.drawer.bg}>
-            <MobileInnerContent animation={animation}>
+          <DrawerMobileContent options={options} bgColor={theme.drawer.bg}>
+            <MobileInnerContent options={options}>
               {children}
             </MobileInnerContent>
           </DrawerMobileContent>
         )}
-        {mobile && <MobileCloser animation={animation} />}
+        {mobile && <MobileCloser options={options} />}
       </DrawerWrapper>
     </div>
   )

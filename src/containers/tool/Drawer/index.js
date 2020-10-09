@@ -31,12 +31,12 @@ const DrawerContainer = ({ drawer: store }) => {
     attUserData,
     imageUploading,
     rightOffset,
-    animation,
+    options,
   } = store
 
   return (
     <Viewer
-      animation={animation}
+      options={options}
       visible={slideVisible}
       rightOffset={rightOffset}
       type={type}

@@ -10,14 +10,14 @@ import {
 
 import { closeDrawer } from './logic'
 
-const MobileCloser = ({ animation }) => {
+const MobileCloser = ({ options }) => {
   const content = (
     <CloseBtn onClick={closeDrawer}>
       <UpIcon src={`${ICON_CMD}/up_o.svg`} />
     </CloseBtn>
   )
 
-  if (animation.from === 'bottom') {
+  if (options.direction === 'bottom') {
     return <BottomWrapper>{content}</BottomWrapper>
   }
   return <TopWrapper>{content}</TopWrapper>

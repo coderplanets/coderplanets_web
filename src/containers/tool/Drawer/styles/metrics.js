@@ -21,12 +21,12 @@ export const WIDE_CASE = [
   TYPE.DRAWER.MAILS_VIEW,
 ]
 
-export const getTransform = (visible, mobile, animation) => {
+export const getTransform = (visible, mobile, options) => {
   if (!mobile) {
     return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'
   }
 
-  switch (animation.from) {
+  switch (options.direction) {
     case 'top': {
       return visible ? 'translate(0, 0)' : 'translate(0, -80%)'
     }
@@ -42,8 +42,8 @@ export const getTransform = (visible, mobile, animation) => {
 }
 
 // only for mobile
-export const getContentLinearGradient = (animation, bgColor) => {
-  if (animation.from === 'bottom') {
+export const getContentLinearGradient = (options, bgColor) => {
+  if (options.direction === 'bottom') {
     return `linear-gradient(0deg,${bgColor} calc(100% - 30px),transparent 30px)`
   }
 
