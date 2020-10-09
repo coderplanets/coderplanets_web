@@ -31,19 +31,19 @@ const options = [
     icon: `${ICON}/discover.svg`,
   },
   {
-    title: '设置',
-    raw: 'setting',
-    icon: `${ICON}/magic.svg`,
-  },
-  {
     title: '发布',
     raw: 'publish',
-    icon: `${ICON}/publish-plus.svg`,
+    icon: `${ICON}/edit/publish-pen.svg`,
+  },
+  {
+    title: '更多',
+    raw: 'more',
+    icon: `${ICON}/more.svg`,
   },
   // {
-  //   title: '账户',
-  //   raw: 'account',
-  //   icon: `${ICON}/account-solid.svg`,
+  //   title: '设置',
+  //   raw: 'setting',
+  //   icon: `${ICON}/magic-stick.svg`,
   // },
 ]
 
@@ -61,7 +61,7 @@ const Footer = () => {
     <Wrapper>
       <Info>
         <HomeBlock bgColor="#071f27">
-          <MoreLogo src={`${ICON}/header-more-mobile.svg`} />
+          <MoreLogo src={`${ICON}/shape/more-3.svg`} />
           {/* <CommunityLogo src={`${ICON_BASE}/site_logo.svg`} /> */}
           <ArrowShape bgColor="#071f27" />
         </HomeBlock>
@@ -78,7 +78,7 @@ const Footer = () => {
       </ItemsWrapper>
       <AccountBlock bgColor="#071f27">
         <ArrowShapeLeft bgColor="#071f27" />
-        <MoreLogo src={`${ICON}/account-solid.svg`} />
+        <MoreLogo src={`${ICON}/user/account-solid.svg`} />
       </AccountBlock>
     </Wrapper>
   )

@@ -24,7 +24,7 @@ const Addr = ({ title, desc, icon }) => {
         <Title>{title}</Title>
         <Desc>{desc}</Desc>
       </Digest>
-      <ArrowIcon src={`${ICON}/arrow-simple.svg`} />
+      <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
     </LinkCardWrapper>
   )
 }

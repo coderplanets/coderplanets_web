@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import FollowButton from '@/components/FollowButton'
 
 import {
@@ -17,7 +17,7 @@ const SubscribeInfo = () => {
     <Wrapper>
       <Item>
         <StateItem>
-          <Icon src={`${ICON_CMD}/account.svg`} />
+          <Icon src={`${ICON}/user/account-solid.svg`} />
           <Desc>2237 人关注</Desc>
         </StateItem>
         <FollowButton

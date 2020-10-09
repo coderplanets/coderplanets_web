@@ -16,7 +16,7 @@ const SimpleLayout = ({ onOpen, placeholder }) => {
       <InnerWrapper>
         <SubscribeInput placeholder={placeholder} />
         {/* <Button size="tiny">订&nbsp;阅</Button> */}
-        <MailBoxIcon src={`${ICON}/email_solid.svg`} />
+        <MailBoxIcon src={`${ICON}/subscribe/email-solid.svg`} />
       </InnerWrapper>
     </Wrapper>
   )

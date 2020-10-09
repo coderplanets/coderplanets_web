@@ -24,7 +24,9 @@ const ArrowButton = ({
   arrowStyle,
 }) => {
   const iconSrc =
-    arrowStyle === 'default' ? `${ICON}/arrow.svg` : `${ICON}/arrow-simple.svg`
+    arrowStyle === 'default'
+      ? `${ICON}/shape/arrow.svg`
+      : `${ICON}/shape/arrow-simple.svg`
 
   const leftTextRef = useRef(null)
   const rightTextRef = useRef(null)

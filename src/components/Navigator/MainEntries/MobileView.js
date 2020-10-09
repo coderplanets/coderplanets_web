@@ -19,7 +19,7 @@ const MainEntries = () => {
   return (
     <Wrapper onClick={openMobileNaviMenu}>
       <SiteLink as="span">
-        <MobileIcon src={`${ICON}/header-more-mobile.svg`} />
+        <MobileIcon src={`${ICON}/shape/more-3.svg`} />
       </SiteLink>
     </Wrapper>
   )

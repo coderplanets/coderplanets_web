@@ -15,7 +15,7 @@ import {
 const ActiveView = ({ title, desc, onCancel }) => {
   return (
     <Wrapper>
-      <SignIcon src={`${ICON}/email_envelope.svg`} />
+      <SignIcon src={`${ICON}/subscribe/email-envelope.svg`} />
       <Title>{title}</Title>
       <Desc>{desc}</Desc>
       <SubscribeInput placeholder="邮件地址" />
