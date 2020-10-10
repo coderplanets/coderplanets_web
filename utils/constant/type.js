@@ -59,6 +59,9 @@ const TYPE = {
     C11N_SETTINGS: 'C11N_SETTINGS',
     // header navi menu in mobile mode
     MOBILE_NAVI_MENU: 'MOBILE_NAVI_MENU',
+
+    // modeline
+    MODELINE_MENU: 'MODELINE_MENU',
   },
 
   // PAGE STATE

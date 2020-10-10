@@ -20,6 +20,16 @@ export const openMobileNaviMenu = () => {
   })
 }
 
+export const openMobileModeLineMenu = () => {
+  send(EVENT.DRAWER_OPEN, {
+    type: TYPE.DRAWER.MODELINE_MENU,
+    options: {
+      direction: 'bottom',
+      position: 'L',
+    },
+  })
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################

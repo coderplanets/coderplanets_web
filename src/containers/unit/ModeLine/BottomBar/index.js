@@ -5,6 +5,8 @@ import { ICON } from '@/config'
 import { MenuBlock, CommunityBlock, AccountBlock } from './ArrowBlock'
 import { Wrapper, ItemsWrapper, ItemIcon } from '../styles/bottom_bar'
 
+import { openMobileModeLineMenu } from '../logic'
+
 const options = [
   {
     title: '过滤',
@@ -35,7 +37,9 @@ const Footer = () => {
       <CommunityBlock />
       <ItemsWrapper>
         {options.map((item) => (
-          <ItemIcon key={item.raw} src={item.icon} />
+          <div key={item.raw} onClick={openMobileModeLineMenu}>
+            <ItemIcon src={item.icon} />
+          </div>
         ))}
       </ItemsWrapper>
       <AccountBlock />

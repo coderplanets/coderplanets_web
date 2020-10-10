@@ -93,6 +93,7 @@ const DrawerStore = T.model('DrawerStore', {
       //
       TYPE.DRAWER.C11N_SETTINGS,
       TYPE.DRAWER.MOBILE_NAVI_MENU,
+      TYPE.DRAWER.MODELINE_MENU,
     ]),
   ),
   attUser: T.maybeNull(User),

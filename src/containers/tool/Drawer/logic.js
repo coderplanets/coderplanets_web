@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { contains } from 'ramda'
 
 import { TYPE, EVENT } from '@/constant'
 import { asyncSuit, buildLog, unlockPage, send, Global } from '@/utils'
@@ -18,6 +19,13 @@ const sr71$ = new SR71({
 
 let store = null
 let sub$ = null
+
+// those types will not treat as page link
+const FUNCTION_TYPES = [
+  TYPE.DRAWER.C11N_SETTINGS,
+  TYPE.DRAWER.MOBILE_NAVI_MENU,
+  TYPE.DRAWER.MODELINE_MENU,
+]
 
 export const closeDrawer = () => {
   unlockPage()
@@ -42,10 +50,8 @@ const DataResolver = [
          log('should open payload id: ', payload.data.id)
          log('payload curCommunity: ', store.curCommunity.raw)
        */
-
       if (
-        payload.type !== TYPE.DRAWER.C11N_SETTINGS &&
-        payload.type !== TYPE.DRAWER.MOBILE_NAVI_MENU &&
+        !contains(payload.type, FUNCTION_TYPES) &&
         (store.media.mobile || store.media.tablet)
       ) {
         const { thread, data, type } = payload

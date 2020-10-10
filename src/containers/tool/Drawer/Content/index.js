@@ -2,6 +2,8 @@ import React from 'react'
 
 import { TYPE } from '@/constant'
 import { useMedia } from '@/hooks'
+
+import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 import CustomScroller from '@/components/CustomScroller'
 
 import {
@@ -87,6 +89,9 @@ const renderContent = (type, root, attachment, attUser) => {
 
     case TYPE.DRAWER.MOBILE_NAVI_MENU:
       return <MobileHeaderNavi />
+
+    case TYPE.DRAWER.MODELINE_MENU:
+      return <ModeLineMenu />
 
     default:
       return <PlaceHolder />
