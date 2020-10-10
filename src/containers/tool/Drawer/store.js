@@ -76,6 +76,10 @@ const Attachment = T.model('Attachment', {
 const defaultOptions = { direction: 'bottom', position: 'M' }
 const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
+
+  swipeDownThreshold: T.frozen(120),
+  swipeUpThreshold: T.frozen(120),
+
   // only works for mobile view
   options: T.optional(Options, defaultOptions),
   windowWidth: T.optional(T.number, 1520),
@@ -106,6 +110,9 @@ const DrawerStore = T.model('DrawerStore', {
     },
     get media() {
       return self.root.media
+    },
+    get optionsData() {
+      return stripMobx(self.options)
     },
     // 预览面板从最右侧滑出的偏移量
     get rightOffset() {

@@ -20,6 +20,7 @@ const Viewer = ({
   rightOffset,
   type,
   imageUploading,
+  swipeDownThreshold,
   children,
 }) => {
   const { mobile } = useMedia()
@@ -47,6 +48,10 @@ const Viewer = ({
   const mobileDrawerVisible = visible ? mobileVisible : false
   const drawerVisible = !mobile ? visible : mobileDrawerVisible
 
+  // TODO: move to top
+  const [swipeDownY, setSwipeDonwY] = useState(null)
+  const [swipeUpY, setSwipeUpY] = useState(null)
+
   return (
     <div>
       <DrawerOverlay visible={visible} onClick={closeDrawer} />
@@ -56,6 +61,8 @@ const Viewer = ({
         rightOffset={rightOffset}
         type={type}
         mobile={mobile}
+        swipeUpY={swipeUpY}
+        swipeDownY={swipeDownY}
         options={options}
       >
         <AddOn type={type} imageUploading={imageUploading} />
@@ -68,7 +75,14 @@ const Viewer = ({
             </MobileInnerContent>
           </DrawerMobileContent>
         )}
-        {mobile && <MobileCloser options={options} />}
+        {mobile && (
+          <MobileCloser
+            options={options}
+            setSwipeDonwY={setSwipeDonwY}
+            setSwipeUpY={setSwipeUpY}
+            swipeDownThreshold={swipeDownThreshold}
+          />
+        )}
       </DrawerWrapper>
     </div>
   )

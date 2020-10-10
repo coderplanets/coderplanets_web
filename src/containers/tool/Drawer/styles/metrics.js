@@ -21,22 +21,6 @@ export const WIDE_CASE = [
   TYPE.DRAWER.MAILS_VIEW,
 ]
 
-// only for mobile, for both top/bottom
-const getPosition = (options) => {
-  switch (options.position) {
-    case 'L': {
-      return '400%'
-    }
-
-    case 'M': {
-      return '100%'
-    }
-
-    default: {
-      return '35%'
-    }
-  }
-}
 // for mobile
 export const getMobileContentHeight = (options) => {
   /* M -> 50vh, H -> 75vh, L -> 20vh */
@@ -55,19 +39,72 @@ export const getMobileContentHeight = (options) => {
   }
 }
 
-export const getTransform = (visible, mobile, options) => {
+const getTopPosition = (swipeUpY, options) => {
+  switch (options.position) {
+    case 'L': {
+      // return '400%'
+      if (swipeUpY === null) return '0%'
+      return `calc(0% - ${swipeUpY}px)`
+    }
+
+    case 'M': {
+      // return '100%'
+      if (swipeUpY === null) return '0%'
+      return `calc(0% - ${swipeUpY}px)`
+    }
+
+    default: {
+      // return '35%'
+      if (swipeUpY === null) return '0%'
+      return `calc(0% - ${swipeUpY}px)`
+    }
+  }
+}
+
+const getBottomPosition = (swipeDownY, options) => {
+  switch (options.position) {
+    case 'L': {
+      // return '400%'
+      if (swipeDownY === null) return '400%'
+      return `calc(400% + ${swipeDownY}px)`
+    }
+
+    case 'M': {
+      // return '100%'
+      if (swipeDownY === null) return '100%'
+      return `calc(100% + ${swipeDownY}px)`
+    }
+
+    default: {
+      // return '35%'
+      if (swipeDownY === null) return '35%'
+      return `calc(35% + ${swipeDownY}px)`
+    }
+  }
+}
+
+export const getTransform = (
+  visible,
+  mobile,
+  swipeUpY,
+  swipeDownY,
+  options,
+) => {
   if (!mobile) {
     return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'
   }
 
   switch (options.direction) {
     case 'top': {
-      return visible ? 'translate(0, 0)' : 'translate(0, -80%)'
+      // return visible ? 'translate(0, 0)' : 'translate(0, -80%)'
+      return visible
+        ? `translate(0px, ${getTopPosition(swipeUpY, options)})`
+        : 'translate(0, -80%)'
     }
 
     case 'bottom': {
       return visible
-        ? `translate(0px, ${getPosition(options)})`
+        ? `translate(0px, ${getBottomPosition(swipeDownY, options)})`
         : 'translate(0, 100%)'
     }
 
