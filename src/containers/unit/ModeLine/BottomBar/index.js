@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON } from '@/config'
 
 import { MenuBlock, CommunityBlock, AccountBlock } from './ArrowBlock'
-import { Wrapper, ItemsWrapper, ItemIcon } from '../styles/footer'
+import { Wrapper, ItemsWrapper, ItemIcon } from '../styles/bottom_bar'
 
 const options = [
   {

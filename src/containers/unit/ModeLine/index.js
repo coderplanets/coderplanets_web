@@ -11,8 +11,8 @@ import T from 'prop-types'
 
 import { connectStore, buildLog } from '@/utils'
 
-import Header from './Header'
-import Footer from './Footer'
+import TopBar from './TopBar'
+import BottomBar from './BottomBar'
 
 import { Wrapper } from './styles'
 import { useInit } from './logic'
@@ -25,8 +25,8 @@ const ModeLineContainer = ({ modeLine: store, testId }) => {
 
   return (
     <Wrapper testId={testId}>
-      <Header />
-      <Footer />
+      <TopBar />
+      <BottomBar />
     </Wrapper>
   )
 }

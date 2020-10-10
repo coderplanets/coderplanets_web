@@ -11,7 +11,7 @@ import {
   MenuLogo,
   ArrowShape,
   ArrowShapeLeft,
-} from '../styles/footer/arrow_block'
+} from '../styles/bottom_bar/arrow_block'
 import { openMobileNaviMenu } from '../logic'
 
 export const MenuBlock = () => {
