@@ -18,6 +18,8 @@ import {
 } from '@/utils'
 import { User, EmptyAchievement } from '@/model'
 
+import { SWIPE_THRESHOLD } from './styles/metrics'
+
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 const THREAD_CONTENT_CURD_TYPES = [
   // post
@@ -106,6 +108,13 @@ const DrawerStore = T.model('DrawerStore', {
     },
     get media() {
       return self.root.media
+    },
+    get optionsData() {
+      return stripMobx(self.options)
+    },
+    get swipeThreshold() {
+      const { direction, position } = self.options
+      return SWIPE_THRESHOLD[direction][position]
     },
     // 预览面板从最右侧滑出的偏移量
     get rightOffset() {

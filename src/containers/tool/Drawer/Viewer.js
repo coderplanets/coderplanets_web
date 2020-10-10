@@ -20,11 +20,17 @@ const Viewer = ({
   rightOffset,
   type,
   imageUploading,
+  swipeThreshold,
   children,
 }) => {
   const { mobile } = useMedia()
   const theme = useTheme()
+
   const [mobileVisible, setMobileVisible] = useState(false)
+  // swipe action state for top && bottom
+  // null means restore and close
+  const [swipeDownY, setSwipeDownY] = useState(null)
+  const [swipeUpY, setSwipeUpY] = useState(null)
 
   /**
    * is open drawer in mobile, should delay visible 200 milisec
@@ -56,6 +62,8 @@ const Viewer = ({
         rightOffset={rightOffset}
         type={type}
         mobile={mobile}
+        swipeUpY={swipeUpY}
+        swipeDownY={swipeDownY}
         options={options}
       >
         <AddOn type={type} imageUploading={imageUploading} />
@@ -68,7 +76,14 @@ const Viewer = ({
             </MobileInnerContent>
           </DrawerMobileContent>
         )}
-        {mobile && <MobileCloser options={options} />}
+        {mobile && (
+          <MobileCloser
+            options={options}
+            setSwipeDownY={setSwipeDownY}
+            setSwipeUpY={setSwipeUpY}
+            swipeThreshold={swipeThreshold}
+          />
+        )}
       </DrawerWrapper>
     </div>
   )

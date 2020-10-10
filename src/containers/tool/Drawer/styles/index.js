@@ -44,8 +44,8 @@ export const DrawerWrapper = styled.div.attrs((props) => ({
 
   min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
   max-width: 1000px;
-  transform: ${({ visible, mobile, options }) =>
-    getTransform(visible, mobile, options)};
+  transform: ${({ visible, mobile, swipeUpY, swipeDownY, options }) =>
+    getTransform(visible, mobile, swipeUpY, swipeDownY, options)};
   z-index: ${cs.zIndex.drawer};
 
   /* 

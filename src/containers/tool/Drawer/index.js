@@ -31,16 +31,18 @@ const DrawerContainer = ({ drawer: store }) => {
     attUserData,
     imageUploading,
     rightOffset,
-    options,
+    optionsData,
+    swipeThreshold,
   } = store
 
   return (
     <Viewer
-      options={options}
+      options={optionsData}
       visible={slideVisible}
       rightOffset={rightOffset}
       type={type}
       imageUploading={imageUploading}
+      swipeThreshold={swipeThreshold}
     >
       <Content
         type={type}
