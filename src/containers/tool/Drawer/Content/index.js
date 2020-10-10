@@ -22,7 +22,8 @@ import {
   C11NSettingPanel,
   MobileHeaderNavi,
 } from '../dynamics'
-import DefaultContent from './DefaultContent'
+
+import PlaceHolder from './PlaceHolder'
 
 import { Wrapper } from '../styles/content'
 import { closeDrawer } from '../logic'
@@ -88,7 +89,7 @@ const renderContent = (type, root, attachment, attUser) => {
       return <MobileHeaderNavi />
 
     default:
-      return <DefaultContent />
+      return <PlaceHolder />
   }
 }
 
