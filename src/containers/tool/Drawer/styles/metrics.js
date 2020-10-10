@@ -21,7 +21,13 @@ export const WIDE_CASE = [
   TYPE.DRAWER.MAILS_VIEW,
 ]
 
-// for mobile
+/**
+ * for drawer on mobile
+ * defines drawer contnt height, H,L,M is inspired by vim shortcut
+ *
+ * @param {object} options
+ * @returns
+ */
 export const getMobileContentHeight = (options) => {
   /* M -> 50vh, H -> 75vh, L -> 20vh */
   switch (options.position) {
@@ -38,51 +44,16 @@ export const getMobileContentHeight = (options) => {
     }
   }
 }
-
-const getTopPosition = (swipeUpY, options) => {
-  switch (options.position) {
-    case 'L': {
-      // return '400%'
-      if (swipeUpY === null) return '0%'
-      return `calc(0% - ${swipeUpY}px)`
-    }
-
-    case 'M': {
-      // return '100%'
-      if (swipeUpY === null) return '0%'
-      return `calc(0% - ${swipeUpY}px)`
-    }
-
-    default: {
-      // return '35%'
-      if (swipeUpY === null) return '0%'
-      return `calc(0% - ${swipeUpY}px)`
-    }
-  }
-}
-
-const getBottomPosition = (swipeDownY, options) => {
-  switch (options.position) {
-    case 'L': {
-      // return '400%'
-      if (swipeDownY === null) return '400%'
-      return `calc(400% + ${swipeDownY}px)`
-    }
-
-    case 'M': {
-      // return '100%'
-      if (swipeDownY === null) return '100%'
-      return `calc(100% + ${swipeDownY}px)`
-    }
-
-    default: {
-      // return '35%'
-      if (swipeDownY === null) return '35%'
-      return `calc(35% + ${swipeDownY}px)`
-    }
-  }
-}
-
+/**
+ * calculate transform value base on media && options
+ *
+ * @param {boolean} visible
+ * @param {boolean} mobile
+ * @param {number} swipeUpY
+ * @param {number} swipeDownY
+ * @param {object} options
+ * @returns
+ */
 export const getTransform = (
   visible,
   mobile,
@@ -121,4 +92,64 @@ export const getContentLinearGradient = (options, bgColor) => {
   }
 
   return `linear-gradient(180deg, ${bgColor} calc(100% - 30px),transparent 30px)`
+}
+
+/**
+ * calculate transform height when swipe up
+ *
+ * @param {number} swipeUpY - swipe up offset
+ * @param {object} options
+ * @returns string
+ * @private
+ */
+const getTopPosition = (swipeUpY, options) => {
+  switch (options.position) {
+    case 'L': {
+      // return '400%'
+      if (swipeUpY === null) return '0%'
+      return `calc(0% - ${swipeUpY}px)`
+    }
+
+    case 'M': {
+      // return '100%'
+      if (swipeUpY === null) return '0%'
+      return `calc(0% - ${swipeUpY}px)`
+    }
+
+    default: {
+      // return '35%'
+      if (swipeUpY === null) return '0%'
+      return `calc(0% - ${swipeUpY}px)`
+    }
+  }
+}
+
+/**
+ * calculate transform height when swipe down
+ *
+ * @param {number} swipeDownY - swipe down offset
+ * @param {object} options
+ * @returns string
+ * @private
+ */
+const getBottomPosition = (swipeDownY, options) => {
+  switch (options.position) {
+    case 'L': {
+      // return '400%'
+      if (swipeDownY === null) return '400%'
+      return `calc(400% + ${swipeDownY}px)`
+    }
+
+    case 'M': {
+      // return '100%'
+      if (swipeDownY === null) return '100%'
+      return `calc(100% + ${swipeDownY}px)`
+    }
+
+    default: {
+      // return '35%'
+      if (swipeDownY === null) return '35%'
+      return `calc(35% + ${swipeDownY}px)`
+    }
+  }
 }

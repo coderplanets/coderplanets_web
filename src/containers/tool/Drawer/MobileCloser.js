@@ -18,7 +18,7 @@ const MobileCloser = ({
   setSwipeDonwY,
   swipeDownThreshold,
 }) => {
-  const handlers = useSwipeable(
+  const swipeHandlers = useSwipeable(
     {
       // 判断最终是回到原来的位置还是隐藏 panel
       onSwiped: (eventData) => {
@@ -31,6 +31,7 @@ const MobileCloser = ({
             setSwipeDonwY(null)
           }
         } else {
+          // handle top direction situation
           const swipeUpY = parseInt(Math.abs(eventData.deltaY), 10)
           if (swipeUpY < swipeDownThreshold) {
             setSwipeUpY(0)
@@ -60,9 +61,9 @@ const MobileCloser = ({
   )
 
   if (options.direction === 'bottom') {
-    return <BottomWrapper {...handlers}>{content}</BottomWrapper>
+    return <BottomWrapper {...swipeHandlers}>{content}</BottomWrapper>
   }
-  return <TopWrapper {...handlers}>{content}</TopWrapper>
+  return <TopWrapper {...swipeHandlers}>{content}</TopWrapper>
 }
 
 export default MobileCloser

@@ -25,7 +25,12 @@ const Viewer = ({
 }) => {
   const { mobile } = useMedia()
   const theme = useTheme()
+
   const [mobileVisible, setMobileVisible] = useState(false)
+  // swipe action state for top && bottom
+  // null means restore and close
+  const [swipeDownY, setSwipeDonwY] = useState(null)
+  const [swipeUpY, setSwipeUpY] = useState(null)
 
   /**
    * is open drawer in mobile, should delay visible 200 milisec
@@ -47,10 +52,6 @@ const Viewer = ({
 
   const mobileDrawerVisible = visible ? mobileVisible : false
   const drawerVisible = !mobile ? visible : mobileDrawerVisible
-
-  // TODO: move to top
-  const [swipeDownY, setSwipeDonwY] = useState(null)
-  const [swipeUpY, setSwipeUpY] = useState(null)
 
   return (
     <div>
