@@ -15,7 +15,7 @@ import { closeDrawer } from './logic'
 const MobileCloser = ({
   options,
   setSwipeUpY,
-  setSwipeDonwY,
+  setSwipeDownY,
   swipeDownThreshold,
 }) => {
   const swipeHandlers = useSwipeable(
@@ -25,10 +25,10 @@ const MobileCloser = ({
         if (options.direction === 'bottom') {
           const swipeDonwY = parseInt(Math.abs(eventData.deltaY), 10)
           if (swipeDonwY < swipeDownThreshold) {
-            setSwipeDonwY(0)
+            setSwipeDownY(0)
           } else {
             closeDrawer()
-            setSwipeDonwY(null)
+            setSwipeDownY(null)
           }
         } else {
           // handle top direction situation
@@ -47,7 +47,7 @@ const MobileCloser = ({
         }
 
         if (eventData.dir === 'Down') {
-          setSwipeDonwY(parseInt(Math.abs(eventData.deltaY), 10))
+          setSwipeDownY(parseInt(Math.abs(eventData.deltaY), 10))
         }
       },
     },

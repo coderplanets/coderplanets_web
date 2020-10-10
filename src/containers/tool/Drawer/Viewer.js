@@ -29,7 +29,7 @@ const Viewer = ({
   const [mobileVisible, setMobileVisible] = useState(false)
   // swipe action state for top && bottom
   // null means restore and close
-  const [swipeDownY, setSwipeDonwY] = useState(null)
+  const [swipeDownY, setSwipeDownY] = useState(null)
   const [swipeUpY, setSwipeUpY] = useState(null)
 
   /**
@@ -79,7 +79,7 @@ const Viewer = ({
         {mobile && (
           <MobileCloser
             options={options}
-            setSwipeDonwY={setSwipeDonwY}
+            setSwipeDownY={setSwipeDownY}
             setSwipeUpY={setSwipeUpY}
             swipeDownThreshold={swipeDownThreshold}
           />
