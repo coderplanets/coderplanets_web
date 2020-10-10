@@ -16,7 +16,7 @@ const MobileCloser = ({
   options,
   setSwipeUpY,
   setSwipeDownY,
-  swipeDownThreshold,
+  swipeThreshold,
 }) => {
   const swipeHandlers = useSwipeable(
     {
@@ -24,7 +24,7 @@ const MobileCloser = ({
       onSwiped: (eventData) => {
         if (options.direction === 'bottom') {
           const swipeDonwY = parseInt(Math.abs(eventData.deltaY), 10)
-          if (swipeDonwY < swipeDownThreshold) {
+          if (swipeDonwY < swipeThreshold) {
             setSwipeDownY(0)
           } else {
             closeDrawer()
@@ -33,7 +33,8 @@ const MobileCloser = ({
         } else {
           // handle top direction situation
           const swipeUpY = parseInt(Math.abs(eventData.deltaY), 10)
-          if (swipeUpY < swipeDownThreshold) {
+
+          if (swipeUpY < swipeThreshold) {
             setSwipeUpY(0)
           } else {
             closeDrawer()

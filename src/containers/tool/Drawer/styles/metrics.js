@@ -3,6 +3,19 @@ import { TYPE } from '@/constant'
 export const WIDE_WIDTH = '70%'
 export const NARROW_WIDTH = '40%'
 
+export const SWIPE_THRESHOLD = {
+  top: {
+    L: 100,
+    M: 80,
+    H: 30,
+  },
+  bottom: {
+    L: 50,
+    M: 80,
+    H: 100,
+  },
+}
+
 export const WIDE_CASE = [
   // post
   TYPE.DRAWER.POST_VIEW,

@@ -18,6 +18,8 @@ import {
 } from '@/utils'
 import { User, EmptyAchievement } from '@/model'
 
+import { SWIPE_THRESHOLD } from './styles/metrics'
+
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 const THREAD_CONTENT_CURD_TYPES = [
   // post
@@ -76,10 +78,6 @@ const Attachment = T.model('Attachment', {
 const defaultOptions = { direction: 'bottom', position: 'M' }
 const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
-
-  swipeDownThreshold: T.frozen(120),
-  swipeUpThreshold: T.frozen(120),
-
   // only works for mobile view
   options: T.optional(Options, defaultOptions),
   windowWidth: T.optional(T.number, 1520),
@@ -113,6 +111,10 @@ const DrawerStore = T.model('DrawerStore', {
     },
     get optionsData() {
       return stripMobx(self.options)
+    },
+    get swipeThreshold() {
+      const { direction, position } = self.options
+      return SWIPE_THRESHOLD[direction][position]
     },
     // 预览面板从最右侧滑出的偏移量
     get rightOffset() {

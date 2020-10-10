@@ -20,7 +20,7 @@ const Viewer = ({
   rightOffset,
   type,
   imageUploading,
-  swipeDownThreshold,
+  swipeThreshold,
   children,
 }) => {
   const { mobile } = useMedia()
@@ -81,7 +81,7 @@ const Viewer = ({
             options={options}
             setSwipeDownY={setSwipeDownY}
             setSwipeUpY={setSwipeUpY}
-            swipeDownThreshold={swipeDownThreshold}
+            swipeThreshold={swipeThreshold}
           />
         )}
       </DrawerWrapper>

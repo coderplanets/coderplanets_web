@@ -32,7 +32,7 @@ const DrawerContainer = ({ drawer: store }) => {
     imageUploading,
     rightOffset,
     optionsData,
-    swipeDownThreshold,
+    swipeThreshold,
   } = store
 
   return (
@@ -42,7 +42,7 @@ const DrawerContainer = ({ drawer: store }) => {
       rightOffset={rightOffset}
       type={type}
       imageUploading={imageUploading}
-      swipeDownThreshold={swipeDownThreshold}
+      swipeThreshold={swipeThreshold}
     >
       <Content
         type={type}
