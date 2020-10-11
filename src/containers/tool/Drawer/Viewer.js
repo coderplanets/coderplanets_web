@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTheme } from 'styled-components'
+import { Waypoint } from 'react-waypoint'
+import { useSwipeable } from 'react-swipeable'
 
 import { useMedia } from '@/hooks'
 import AddOn from './AddOn'
@@ -12,6 +14,7 @@ import {
   DrawerMobileContent,
   MobileInnerContent,
 } from './styles'
+
 import { closeDrawer } from './logic'
 
 const Viewer = ({
@@ -27,10 +30,53 @@ const Viewer = ({
   const theme = useTheme()
 
   const [mobileVisible, setMobileVisible] = useState(false)
+
+  // when top/bottom has no content, the whole panel can be swipeable
+  // like tiktok style
+  const [swipeDownAviliable, setSwipeDownAviliable] = useState(true)
+  const [swipeUpAviliable, setSwipeUpAviliable] = useState(true)
+
   // swipe action state for top && bottom
   // null means restore and close
   const [swipeDownY, setSwipeDownY] = useState(null)
   const [swipeUpY, setSwipeUpY] = useState(null)
+
+  const swipeHandlers = useSwipeable(
+    {
+      // 判断最终是回到原来的位置还是隐藏 panel
+      onSwiped: (eventData) => {
+        if (options.direction === 'bottom') {
+          const swipeDonwY = parseInt(Math.abs(eventData.deltaY), 10)
+          if (swipeDonwY < swipeThreshold) {
+            setSwipeDownY(0)
+          } else {
+            closeDrawer()
+            setSwipeDownY(null)
+          }
+        } else {
+          // handle top direction situation
+          const swipeUpY = parseInt(Math.abs(eventData.deltaY), 10)
+
+          if (swipeUpY < swipeThreshold) {
+            setSwipeUpY(0)
+          } else {
+            closeDrawer()
+            setSwipeUpY(null)
+          }
+        }
+      },
+      onSwiping: (eventData) => {
+        if (swipeUpAviliable && eventData.dir === 'Up') {
+          setSwipeUpY(parseInt(Math.abs(eventData.deltaY), 10))
+        }
+
+        if (swipeDownAviliable && eventData.dir === 'Down') {
+          setSwipeDownY(parseInt(Math.abs(eventData.deltaY), 10))
+        }
+      },
+    },
+    {},
+  )
 
   /**
    * is open drawer in mobile, should delay visible 200 milisec
@@ -71,8 +117,24 @@ const Viewer = ({
           <DrawerContent>{children}</DrawerContent>
         ) : (
           <DrawerMobileContent options={options} bgColor={theme.drawer.bg}>
-            <MobileInnerContent options={options}>
+            <MobileInnerContent options={options} {...swipeHandlers}>
+              <Waypoint
+                onEnter={() => {
+                  setSwipeDownAviliable(true)
+                }}
+                onLeave={() => {
+                  setSwipeDownAviliable(false)
+                }}
+              />
               {children}
+              <Waypoint
+                onEnter={() => {
+                  setSwipeUpAviliable(true)
+                }}
+                onLeave={() => {
+                  setSwipeUpAviliable(false)
+                }}
+              />
             </MobileInnerContent>
           </DrawerMobileContent>
         )}
