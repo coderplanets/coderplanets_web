@@ -41,12 +41,10 @@ const Viewer = ({
   const [swipeUpY, setSwipeUpY] = useState(null)
 
   const swipeHandlers = useSwipe({
-    onSwiped: (eventData) =>
-      onSwipedYHandler(eventData, setSwipeUpY, setSwipeDownY),
-
-    onSwiping: (eventData) =>
+    onSwiped: (ev) => onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY),
+    onSwiping: (ev) =>
       onSwipingYHandler(
-        eventData,
+        ev,
         setSwipeUpY,
         setSwipeDownY,
         swipeUpAviliable,

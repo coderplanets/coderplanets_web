@@ -14,11 +14,8 @@ import { closeDrawer, onSwipedYHandler, onSwipingYHandler } from './logic'
 
 const MobileCloser = ({ options, setSwipeUpY, setSwipeDownY }) => {
   const swipeHandlers = useSwipe({
-    onSwiped: (eventData) =>
-      onSwipedYHandler(eventData, setSwipeUpY, setSwipeDownY),
-
-    onSwiping: (eventData) =>
-      onSwipingYHandler(eventData, setSwipeUpY, setSwipeDownY),
+    onSwiped: (ev) => onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY),
+    onSwiping: (ev) => onSwipingYHandler(ev, setSwipeUpY, setSwipeDownY),
   })
 
   const content = (

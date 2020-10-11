@@ -45,12 +45,12 @@ export const closeDrawer = () => {
 
 // handler swiped event for up/down swipe
 // 判断最终是回到原来的位置还是隐藏 panel
-export const onSwipedYHandler = (eventData, setSwipeUpY, setSwipeDownY) => {
+export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
   const options = store.optionsData
   const { swipeThreshold } = store
 
   if (options.direction === 'bottom') {
-    const swipeDonwY = parseInt(Math.abs(eventData.deltaY), 10)
+    const swipeDonwY = parseInt(Math.abs(ev.deltaY), 10)
     if (swipeDonwY < swipeThreshold) {
       setSwipeDownY(0)
     } else {
@@ -59,7 +59,7 @@ export const onSwipedYHandler = (eventData, setSwipeUpY, setSwipeDownY) => {
     }
   } else {
     // handle top direction situation
-    const swipeUpY = parseInt(Math.abs(eventData.deltaY), 10)
+    const swipeUpY = parseInt(Math.abs(ev.deltaY), 10)
 
     if (swipeUpY < swipeThreshold) {
       setSwipeUpY(0)
@@ -72,18 +72,18 @@ export const onSwipedYHandler = (eventData, setSwipeUpY, setSwipeDownY) => {
 
 // handler swiping event for up/down swipe
 export const onSwipingYHandler = (
-  eventData,
+  ev,
   setSwipeUpY,
   setSwipeDownY,
   swipeUpAviliable = true,
   swipeDownAviliable = true,
 ) => {
-  if (swipeUpAviliable && eventData.dir === 'Up') {
-    setSwipeUpY(parseInt(Math.abs(eventData.deltaY), 10))
+  if (swipeUpAviliable && ev.dir === 'Up') {
+    setSwipeUpY(parseInt(Math.abs(ev.deltaY), 10))
   }
 
-  if (swipeDownAviliable && eventData.dir === 'Down') {
-    setSwipeDownY(parseInt(Math.abs(eventData.deltaY), 10))
+  if (swipeDownAviliable && ev.dir === 'Down') {
+    setSwipeDownY(parseInt(Math.abs(ev.deltaY), 10))
   }
 }
 
