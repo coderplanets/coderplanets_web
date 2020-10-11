@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
-import { useSwipeable } from 'react-swipeable'
 
-import { useMedia } from '@/hooks'
+import { useMedia, useSwipe } from '@/hooks'
+
 import AddOn from './AddOn'
 import MobileCloser from './MobileCloser'
 
@@ -41,7 +41,7 @@ const Viewer = ({
   const [swipeDownY, setSwipeDownY] = useState(null)
   const [swipeUpY, setSwipeUpY] = useState(null)
 
-  const swipeHandlers = useSwipeable(
+  const swipeHandlers = useSwipe(
     {
       // 判断最终是回到原来的位置还是隐藏 panel
       onSwiped: (eventData) => {

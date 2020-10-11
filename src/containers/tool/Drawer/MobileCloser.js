@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useSwipeable } from 'react-swipeable'
 import { ICON_CMD } from '@/config'
+import { useSwipe } from '@/hooks'
 
 import {
   TopWrapper,
@@ -18,7 +18,7 @@ const MobileCloser = ({
   setSwipeDownY,
   swipeThreshold,
 }) => {
-  const swipeHandlers = useSwipeable(
+  const swipeHandlers = useSwipe(
     {
       // 判断最终是回到原来的位置还是隐藏 panel
       onSwiped: (eventData) => {
