@@ -15,7 +15,7 @@ import {
   MobileInnerContent,
 } from './styles'
 
-import { closeDrawer } from './logic'
+import { closeDrawer, onSwipedYHandler, onSwipingYHandler } from './logic'
 
 const Viewer = ({
   options,
@@ -23,7 +23,6 @@ const Viewer = ({
   rightOffset,
   type,
   imageUploading,
-  swipeThreshold,
   children,
 }) => {
   const { mobile } = useMedia()
@@ -41,42 +40,19 @@ const Viewer = ({
   const [swipeDownY, setSwipeDownY] = useState(null)
   const [swipeUpY, setSwipeUpY] = useState(null)
 
-  const swipeHandlers = useSwipe(
-    {
-      // 判断最终是回到原来的位置还是隐藏 panel
-      onSwiped: (eventData) => {
-        if (options.direction === 'bottom') {
-          const swipeDonwY = parseInt(Math.abs(eventData.deltaY), 10)
-          if (swipeDonwY < swipeThreshold) {
-            setSwipeDownY(0)
-          } else {
-            closeDrawer()
-            setSwipeDownY(null)
-          }
-        } else {
-          // handle top direction situation
-          const swipeUpY = parseInt(Math.abs(eventData.deltaY), 10)
+  const swipeHandlers = useSwipe({
+    onSwiped: (eventData) =>
+      onSwipedYHandler(eventData, setSwipeUpY, setSwipeDownY),
 
-          if (swipeUpY < swipeThreshold) {
-            setSwipeUpY(0)
-          } else {
-            closeDrawer()
-            setSwipeUpY(null)
-          }
-        }
-      },
-      onSwiping: (eventData) => {
-        if (swipeUpAviliable && eventData.dir === 'Up') {
-          setSwipeUpY(parseInt(Math.abs(eventData.deltaY), 10))
-        }
-
-        if (swipeDownAviliable && eventData.dir === 'Down') {
-          setSwipeDownY(parseInt(Math.abs(eventData.deltaY), 10))
-        }
-      },
-    },
-    {},
-  )
+    onSwiping: (eventData) =>
+      onSwipingYHandler(
+        eventData,
+        setSwipeUpY,
+        setSwipeDownY,
+        swipeUpAviliable,
+        swipeDownAviliable,
+      ),
+  })
 
   /**
    * is open drawer in mobile, should delay visible 200 milisec
@@ -119,21 +95,13 @@ const Viewer = ({
           <DrawerMobileContent options={options} bgColor={theme.drawer.bg}>
             <MobileInnerContent options={options} {...swipeHandlers}>
               <Waypoint
-                onEnter={() => {
-                  setSwipeDownAviliable(true)
-                }}
-                onLeave={() => {
-                  setSwipeDownAviliable(false)
-                }}
+                onEnter={() => setSwipeDownAviliable(true)}
+                onLeave={() => setSwipeDownAviliable(false)}
               />
               {children}
               <Waypoint
-                onEnter={() => {
-                  setSwipeUpAviliable(true)
-                }}
-                onLeave={() => {
-                  setSwipeUpAviliable(false)
-                }}
+                onEnter={() => setSwipeUpAviliable(true)}
+                onLeave={() => setSwipeUpAviliable(false)}
               />
             </MobileInnerContent>
           </DrawerMobileContent>
@@ -143,7 +111,6 @@ const Viewer = ({
             options={options}
             setSwipeDownY={setSwipeDownY}
             setSwipeUpY={setSwipeUpY}
-            swipeThreshold={swipeThreshold}
           />
         )}
       </DrawerWrapper>

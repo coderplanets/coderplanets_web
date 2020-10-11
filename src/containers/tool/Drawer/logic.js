@@ -27,6 +27,9 @@ const FUNCTION_TYPES = [
   TYPE.DRAWER.MODELINE_MENU,
 ]
 
+/**
+ * close current drawer
+ */
 export const closeDrawer = () => {
   unlockPage()
   store.close()
@@ -38,6 +41,50 @@ export const closeDrawer = () => {
     send(EVENT.DRAWER_CLOSED)
     store.setViewing({ viewingThread: null })
   }, 200)
+}
+
+// handler swiped event for up/down swipe
+// 判断最终是回到原来的位置还是隐藏 panel
+export const onSwipedYHandler = (eventData, setSwipeUpY, setSwipeDownY) => {
+  const options = store.optionsData
+  const { swipeThreshold } = store
+
+  if (options.direction === 'bottom') {
+    const swipeDonwY = parseInt(Math.abs(eventData.deltaY), 10)
+    if (swipeDonwY < swipeThreshold) {
+      setSwipeDownY(0)
+    } else {
+      closeDrawer()
+      setSwipeDownY(null)
+    }
+  } else {
+    // handle top direction situation
+    const swipeUpY = parseInt(Math.abs(eventData.deltaY), 10)
+
+    if (swipeUpY < swipeThreshold) {
+      setSwipeUpY(0)
+    } else {
+      closeDrawer()
+      setSwipeUpY(null)
+    }
+  }
+}
+
+// handler swiping event for up/down swipe
+export const onSwipingYHandler = (
+  eventData,
+  setSwipeUpY,
+  setSwipeDownY,
+  swipeUpAviliable = true,
+  swipeDownAviliable = true,
+) => {
+  if (swipeUpAviliable && eventData.dir === 'Up') {
+    setSwipeUpY(parseInt(Math.abs(eventData.deltaY), 10))
+  }
+
+  if (swipeDownAviliable && eventData.dir === 'Down') {
+    setSwipeDownY(parseInt(Math.abs(eventData.deltaY), 10))
+  }
 }
 
 const DataResolver = [
