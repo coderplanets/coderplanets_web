@@ -4,18 +4,17 @@ import { Waypoint } from 'react-waypoint'
 
 import { useMedia, useSwipe } from '@/hooks'
 
-import AddOn from './AddOn'
-import MobileCloser from './MobileCloser'
+import AddOn from '../AddOn'
+import MobileCloser from '../MobileCloser'
 
 import {
   DrawerOverlay,
   DrawerWrapper,
-  DrawerContent,
   DrawerMobileContent,
   MobileInnerContent,
-} from './styles'
+} from '../styles'
 
-import { closeDrawer, onSwipedYHandler, onSwipingYHandler } from './logic'
+import { closeDrawer, onSwipedYHandler, onSwipingYHandler } from '../logic'
 
 const Viewer = ({
   options,
@@ -87,30 +86,24 @@ const Viewer = ({
         options={options}
       >
         <AddOn type={type} imageUploading={imageUploading} />
-        {!mobile ? (
-          <DrawerContent>{children}</DrawerContent>
-        ) : (
-          <DrawerMobileContent options={options} bgColor={theme.drawer.bg}>
-            <MobileInnerContent options={options} {...swipeHandlers}>
-              <Waypoint
-                onEnter={() => setSwipeDownAviliable(true)}
-                onLeave={() => setSwipeDownAviliable(false)}
-              />
-              {children}
-              <Waypoint
-                onEnter={() => setSwipeUpAviliable(true)}
-                onLeave={() => setSwipeUpAviliable(false)}
-              />
-            </MobileInnerContent>
-          </DrawerMobileContent>
-        )}
-        {mobile && (
-          <MobileCloser
-            options={options}
-            setSwipeDownY={setSwipeDownY}
-            setSwipeUpY={setSwipeUpY}
-          />
-        )}
+        <DrawerMobileContent options={options} bgColor={theme.drawer.bg}>
+          <MobileInnerContent options={options} {...swipeHandlers}>
+            <Waypoint
+              onEnter={() => setSwipeDownAviliable(true)}
+              onLeave={() => setSwipeDownAviliable(false)}
+            />
+            {children}
+            <Waypoint
+              onEnter={() => setSwipeUpAviliable(true)}
+              onLeave={() => setSwipeUpAviliable(false)}
+            />
+          </MobileInnerContent>
+        </DrawerMobileContent>
+        <MobileCloser
+          options={options}
+          setSwipeDownY={setSwipeDownY}
+          setSwipeUpY={setSwipeUpY}
+        />
       </DrawerWrapper>
     </div>
   )

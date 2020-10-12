@@ -36,7 +36,7 @@ const ModeLineContainer = ({ modeLine: store, testId }) => {
   return (
     <Wrapper testId={testId}>
       <TopBar />
-      {BottomBar && <BottomBar />}
+      {BottomBar && mobile && <BottomBar />}
     </Wrapper>
   )
 }
