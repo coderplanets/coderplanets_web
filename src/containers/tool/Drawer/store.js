@@ -92,11 +92,24 @@ const DrawerStore = T.model('DrawerStore', {
       ...THREAD_CONTENT_CURD_TYPES,
       //
       TYPE.DRAWER.C11N_SETTINGS,
-      TYPE.DRAWER.MOBILE_NAVI_MENU,
+      TYPE.DRAWER.MODELINE_MENU,
     ]),
   ),
   attUser: T.maybeNull(User),
   attachment: T.maybeNull(Attachment),
+
+  // shortcut for modelineMenuType
+  mmType: T.optional(
+    T.enumeration([
+      TYPE.MM_TYPE.GLOBAL_MENU,
+      TYPE.MM_TYPE.COMMUNITY,
+      TYPE.MM_TYPE.FILTER,
+      TYPE.MM_TYPE.DISCOVER,
+      TYPE.MM_TYPE.PUBLISH,
+      TYPE.MM_TYPE.MORE,
+    ]),
+    TYPE.MM_TYPE.MORE,
+  ),
 
   imageUploading: T.optional(T.boolean, false),
   // header:
@@ -146,8 +159,9 @@ const DrawerStore = T.model('DrawerStore', {
   }))
   .actions((self) => ({
     open({ type, data, thread, options = {} }) {
-      // NOTE: currently the attachment is only used for article-like content
-      if (type === TYPE.DRAWER.USER_VIEW) {
+      if (type === TYPE.DRAWER.MODELINE_MENU) {
+        self.mmType = data
+      } else if (type === TYPE.DRAWER.USER_VIEW) {
         self.attUser = merge(data, EmptyAchievement)
       } else if (data) {
         self.attachment = merge(data, { type })

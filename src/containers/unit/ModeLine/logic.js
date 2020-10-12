@@ -10,12 +10,30 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ModeLine')
 
-export const openMobileNaviMenu = () => {
+/**
+ * open global navi menu on mobile
+ */
+export const openGlobalMenu = () => {
   send(EVENT.DRAWER_OPEN, {
-    type: TYPE.DRAWER.MOBILE_NAVI_MENU,
+    type: TYPE.DRAWER.MODELINE_MENU,
+    data: TYPE.MM_TYPE.GLOBAL_MENU,
     options: {
       direction: 'bottom',
       position: 'M',
+    },
+  })
+}
+
+/**
+ * open more menu on mobile
+ */
+export const openMoreMenu = () => {
+  send(EVENT.DRAWER_OPEN, {
+    type: TYPE.DRAWER.MODELINE_MENU,
+    data: TYPE.MM_TYPE.MORE,
+    options: {
+      direction: 'bottom',
+      position: 'L',
     },
   })
 }

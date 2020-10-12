@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useSwipeable } from 'react-swipeable'
 import { ICON_CMD } from '@/config'
+import { useSwipe } from '@/hooks'
 
 import {
   TopWrapper,
@@ -10,50 +10,13 @@ import {
   UpIcon,
 } from './styles/mobile_closer'
 
-import { closeDrawer } from './logic'
+import { closeDrawer, onSwipedYHandler, onSwipingYHandler } from './logic'
 
-const MobileCloser = ({
-  options,
-  setSwipeUpY,
-  setSwipeDownY,
-  swipeThreshold,
-}) => {
-  const swipeHandlers = useSwipeable(
-    {
-      // 判断最终是回到原来的位置还是隐藏 panel
-      onSwiped: (eventData) => {
-        if (options.direction === 'bottom') {
-          const swipeDonwY = parseInt(Math.abs(eventData.deltaY), 10)
-          if (swipeDonwY < swipeThreshold) {
-            setSwipeDownY(0)
-          } else {
-            closeDrawer()
-            setSwipeDownY(null)
-          }
-        } else {
-          // handle top direction situation
-          const swipeUpY = parseInt(Math.abs(eventData.deltaY), 10)
-
-          if (swipeUpY < swipeThreshold) {
-            setSwipeUpY(0)
-          } else {
-            closeDrawer()
-            setSwipeUpY(null)
-          }
-        }
-      },
-      onSwiping: (eventData) => {
-        if (eventData.dir === 'Up') {
-          setSwipeUpY(parseInt(Math.abs(eventData.deltaY), 10))
-        }
-
-        if (eventData.dir === 'Down') {
-          setSwipeDownY(parseInt(Math.abs(eventData.deltaY), 10))
-        }
-      },
-    },
-    {},
-  )
+const MobileCloser = ({ options, setSwipeUpY, setSwipeDownY }) => {
+  const swipeHandlers = useSwipe({
+    onSwiped: (ev) => onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY),
+    onSwiping: (ev) => onSwipingYHandler(ev, setSwipeUpY, setSwipeDownY),
+  })
 
   const content = (
     <CloseBtn onClick={closeDrawer}>

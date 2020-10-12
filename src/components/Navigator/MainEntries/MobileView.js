@@ -10,7 +10,8 @@ import { Wrapper, SiteLink, MobileIcon } from '../styles/main_entries'
 
 export const openMobileNaviMenu = () => {
   send(EVENT.DRAWER_OPEN, {
-    type: TYPE.DRAWER.MOBILE_NAVI_MENU,
+    type: TYPE.DRAWER.MODELINE_MENU,
+    data: TYPE.MM_TYPE.GLOBAL_MENU,
     options: { direction: 'top' },
   })
 }

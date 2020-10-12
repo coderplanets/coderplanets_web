@@ -40,6 +40,11 @@ export const AccountWrapper = styled(Block)`
   padding-left: 8px;
   padding-right: 12px;
 `
+export const MenuArrowShape = styled(ArrowShape)`
+  right: -6px;
+  border-left: 6px solid;
+  border-left-color: ${({ bgColor }) => bgColor};
+`
 export const ArrowShapeLeft = styled(ArrowShape)`
   left: -10px;
   transform: rotate(180deg);

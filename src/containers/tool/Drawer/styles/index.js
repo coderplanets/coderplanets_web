@@ -24,9 +24,19 @@ export const DrawerOverlay = styled.div`
   top: 0;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
-export const DrawerWrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
-}))`
+// see https://stackoverflow.com/questions/60079950/when-do-i-use-attrs-vs-passing-props-directly-with-styled-components
+
+// TL;DR:
+// - Use styled components for static styles and dynamic styles that don't change very often;
+// - Use inline styles (through .attrs) for styles that change frequently, like for animations.
+export const DrawerWrapper = styled.div.attrs(
+  ({ testId, visible, mobile, swipeUpY, swipeDownY, options }) => ({
+    'data-test-id': testId,
+    style: {
+      transform: getTransform(visible, mobile, swipeUpY, swipeDownY, options),
+    },
+  }),
+)`
   ${cs.flex()};
   position: fixed;
   right: ${({ rightOffset }) => rightOffset};
@@ -44,10 +54,9 @@ export const DrawerWrapper = styled.div.attrs((props) => ({
 
   min-width: ${({ type }) => (contains(type, WIDE_CASE) ? '700px' : '450px')};
   max-width: 1000px;
-  transform: ${({ visible, mobile, swipeUpY, swipeDownY, options }) =>
-    getTransform(visible, mobile, swipeUpY, swipeDownY, options)};
+  /* transform: ${({ visible, mobile, swipeUpY, swipeDownY, options }) =>
+    getTransform(visible, mobile, swipeUpY, swipeDownY, options)}; */
   z-index: ${cs.zIndex.drawer};
-
   /* 
    * if the screen width > maxContent, then use display instead of visibility
    * otherwise the Drawer will show up from screen edge

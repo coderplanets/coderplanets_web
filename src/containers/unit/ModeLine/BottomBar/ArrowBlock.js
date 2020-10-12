@@ -10,17 +10,18 @@ import {
   AccountWrapper,
   MenuLogo,
   ArrowShape,
+  MenuArrowShape,
   ArrowShapeLeft,
-} from '../styles/footer/arrow_block'
-import { openMobileNaviMenu } from '../logic'
+} from '../styles/bottom_bar/arrow_block'
+import { openGlobalMenu } from '../logic'
 
 export const MenuBlock = () => {
   const bgColor = '#071f27'
 
   return (
-    <MenuWrapper bgColor={bgColor} onClick={openMobileNaviMenu}>
+    <MenuWrapper bgColor={bgColor} onClick={openGlobalMenu}>
       <MenuLogo src={`${ICON}/shape/more-3.svg`} />
-      <ArrowShape bgColor={bgColor} />
+      <MenuArrowShape bgColor={bgColor} />
     </MenuWrapper>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_BASE } from '@/config'
 
-import { Wrapper, Logo, Title } from '../styles/footer/community_info'
+import { Wrapper, Logo, Title } from '../styles/bottom_bar/community_info'
 
 const CommunityInfo = () => {
   return (

@@ -3,7 +3,9 @@ import React from 'react'
 import { ICON } from '@/config'
 
 import { MenuBlock, CommunityBlock, AccountBlock } from './ArrowBlock'
-import { Wrapper, ItemsWrapper, ItemIcon } from '../styles/footer'
+import { Wrapper, ItemsWrapper, ItemIcon } from '../styles/bottom_bar'
+
+import { openMoreMenu } from '../logic'
 
 const options = [
   {
@@ -35,7 +37,9 @@ const Footer = () => {
       <CommunityBlock />
       <ItemsWrapper>
         {options.map((item) => (
-          <ItemIcon key={item.raw} src={item.icon} />
+          <div key={item.raw} onClick={openMoreMenu}>
+            <ItemIcon src={item.icon} />
+          </div>
         ))}
       </ItemsWrapper>
       <AccountBlock />

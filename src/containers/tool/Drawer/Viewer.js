@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useTheme } from 'styled-components'
+import { Waypoint } from 'react-waypoint'
 
-import { useMedia } from '@/hooks'
+import { useMedia, useSwipe } from '@/hooks'
+
 import AddOn from './AddOn'
 import MobileCloser from './MobileCloser'
 
@@ -12,7 +14,8 @@ import {
   DrawerMobileContent,
   MobileInnerContent,
 } from './styles'
-import { closeDrawer } from './logic'
+
+import { closeDrawer, onSwipedYHandler, onSwipingYHandler } from './logic'
 
 const Viewer = ({
   options,
@@ -20,17 +23,34 @@ const Viewer = ({
   rightOffset,
   type,
   imageUploading,
-  swipeThreshold,
   children,
 }) => {
   const { mobile } = useMedia()
   const theme = useTheme()
 
   const [mobileVisible, setMobileVisible] = useState(false)
+
+  // when top/bottom has no content, the whole panel can be swipeable
+  // like tiktok style
+  const [swipeDownAviliable, setSwipeDownAviliable] = useState(true)
+  const [swipeUpAviliable, setSwipeUpAviliable] = useState(true)
+
   // swipe action state for top && bottom
   // null means restore and close
   const [swipeDownY, setSwipeDownY] = useState(null)
   const [swipeUpY, setSwipeUpY] = useState(null)
+
+  const swipeHandlers = useSwipe({
+    onSwiped: (ev) => onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY),
+    onSwiping: (ev) =>
+      onSwipingYHandler(
+        ev,
+        setSwipeUpY,
+        setSwipeDownY,
+        swipeUpAviliable,
+        swipeDownAviliable,
+      ),
+  })
 
   /**
    * is open drawer in mobile, should delay visible 200 milisec
@@ -71,8 +91,16 @@ const Viewer = ({
           <DrawerContent>{children}</DrawerContent>
         ) : (
           <DrawerMobileContent options={options} bgColor={theme.drawer.bg}>
-            <MobileInnerContent options={options}>
+            <MobileInnerContent options={options} {...swipeHandlers}>
+              <Waypoint
+                onEnter={() => setSwipeDownAviliable(true)}
+                onLeave={() => setSwipeDownAviliable(false)}
+              />
               {children}
+              <Waypoint
+                onEnter={() => setSwipeUpAviliable(true)}
+                onLeave={() => setSwipeUpAviliable(false)}
+              />
             </MobileInnerContent>
           </DrawerMobileContent>
         )}
@@ -81,7 +109,6 @@ const Viewer = ({
             options={options}
             setSwipeDownY={setSwipeDownY}
             setSwipeUpY={setSwipeUpY}
-            swipeThreshold={swipeThreshold}
           />
         )}
       </DrawerWrapper>

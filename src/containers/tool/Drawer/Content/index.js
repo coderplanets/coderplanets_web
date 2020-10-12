@@ -2,6 +2,8 @@ import React from 'react'
 
 import { TYPE } from '@/constant'
 import { useMedia } from '@/hooks'
+
+import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 import CustomScroller from '@/components/CustomScroller'
 
 import {
@@ -20,14 +22,14 @@ import {
   // utils
   StateTree,
   C11NSettingPanel,
-  MobileHeaderNavi,
 } from '../dynamics'
-import DefaultContent from './DefaultContent'
+
+import PlaceHolder from './PlaceHolder'
 
 import { Wrapper } from '../styles/content'
 import { closeDrawer } from '../logic'
 
-const renderContent = (type, root, attachment, attUser) => {
+const renderContent = (type, root, attachment, attUser, mmType) => {
   switch (type) {
     case TYPE.DRAWER.ACCOUNT_VIEW:
       return <AccountViewer />
@@ -84,19 +86,23 @@ const renderContent = (type, root, attachment, attUser) => {
     case TYPE.DRAWER.C11N_SETTINGS:
       return <C11NSettingPanel />
 
-    case TYPE.DRAWER.MOBILE_NAVI_MENU:
-      return <MobileHeaderNavi />
+    case TYPE.DRAWER.MODELINE_MENU:
+      return <ModeLineMenu type={mmType} />
 
     default:
-      return <DefaultContent />
+      return <PlaceHolder />
   }
 }
 
-const Content = ({ type, root, attachment, attUser }) => {
+const Content = ({ type, root, attachment, attUser, mmType }) => {
   const { mobile } = useMedia()
 
   if (mobile) {
-    return <Wrapper>{renderContent(type, root, attachment, attUser)}</Wrapper>
+    return (
+      <Wrapper>
+        {renderContent(type, root, attachment, attUser, mmType)}
+      </Wrapper>
+    )
   }
 
   return (

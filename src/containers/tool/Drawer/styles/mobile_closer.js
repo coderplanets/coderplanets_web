@@ -29,11 +29,11 @@ export const TopWrapper = styled(BaseWrapper)`
 export const CloseBtn = styled.div`
   ${cs.flex('align-both')};
   width: 50px;
-  height: 20px;
+  height: 16px;
   border-radius: 8px;
   background: #506063;
   position: absolute;
-  top: 18px;
+  top: 20px;
   left: calc(50% - 25px);
 `
 export const UpIcon = styled(Img)`

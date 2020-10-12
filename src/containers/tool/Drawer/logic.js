@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { contains } from 'ramda'
 
 import { TYPE, EVENT } from '@/constant'
 import { asyncSuit, buildLog, unlockPage, send, Global } from '@/utils'
@@ -19,6 +20,12 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
+// those types will not treat as page link
+const FUNCTION_TYPES = [TYPE.DRAWER.C11N_SETTINGS, TYPE.DRAWER.MODELINE_MENU]
+
+/**
+ * close current drawer
+ */
 export const closeDrawer = () => {
   unlockPage()
   store.close()
@@ -32,6 +39,50 @@ export const closeDrawer = () => {
   }, 200)
 }
 
+// handler swiped event for up/down swipe
+// 判断最终是回到原来的位置还是隐藏 panel
+export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
+  const options = store.optionsData
+  const { swipeThreshold } = store
+
+  if (options.direction === 'bottom') {
+    const swipeDonwY = parseInt(Math.abs(ev.deltaY), 10)
+    if (swipeDonwY < swipeThreshold) {
+      setSwipeDownY(0)
+    } else {
+      closeDrawer()
+      setSwipeDownY(null)
+    }
+  } else {
+    // handle top direction situation
+    const swipeUpY = parseInt(Math.abs(ev.deltaY), 10)
+
+    if (swipeUpY < swipeThreshold) {
+      setSwipeUpY(0)
+    } else {
+      closeDrawer()
+      setSwipeUpY(null)
+    }
+  }
+}
+
+// handler swiping event for up/down swipe
+export const onSwipingYHandler = (
+  ev,
+  setSwipeUpY,
+  setSwipeDownY,
+  swipeUpAviliable = true,
+  swipeDownAviliable = true,
+) => {
+  if (swipeUpAviliable && ev.dir === 'Up') {
+    setSwipeUpY(parseInt(Math.abs(ev.deltaY), 10))
+  }
+
+  if (swipeDownAviliable && ev.dir === 'Down') {
+    setSwipeDownY(parseInt(Math.abs(ev.deltaY), 10))
+  }
+}
+
 const DataResolver = [
   {
     match: asyncRes(EVENT.DRAWER_OPEN),
@@ -42,10 +93,8 @@ const DataResolver = [
          log('should open payload id: ', payload.data.id)
          log('payload curCommunity: ', store.curCommunity.raw)
        */
-
       if (
-        payload.type !== TYPE.DRAWER.C11N_SETTINGS &&
-        payload.type !== TYPE.DRAWER.MOBILE_NAVI_MENU &&
+        !contains(payload.type, FUNCTION_TYPES) &&
         (store.media.mobile || store.media.tablet)
       ) {
         const { thread, data, type } = payload

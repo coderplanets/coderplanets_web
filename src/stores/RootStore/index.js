@@ -97,6 +97,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  ModeLineMenuStore,
   ModeLineStore,
   FriendsContentStore,
   SubscribeContentStore,
@@ -210,6 +211,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  modeLineMenu: T.optional(ModeLineMenuStore, {}),
   modeLine: T.optional(ModeLineStore, {}),
   friendsContent: T.optional(FriendsContentStore, {}),
   subscribeContent: T.optional(SubscribeContentStore, {}),
