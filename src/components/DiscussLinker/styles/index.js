@@ -59,7 +59,7 @@ export const GithubIcon = styled(Img)`
 
 export const IssueLink = styled.a`
   color: ${theme('banner.title')};
-  ${cs.truncate('230px')};
+  ${cs.cutFrom('230px')};
 
   transition: color 0.2s;
   &:hover {

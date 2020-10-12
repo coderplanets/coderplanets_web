@@ -65,7 +65,7 @@ export const UpNumber = styled.div`
 `
 export const BodyText = styled.div`
   font-size: 14px;
-  ${cs.truncate('350px')};
+  ${cs.cutFrom('350px')};
   color: ${theme('thread.articleDigest')};
 `
 export const FooterWrapper = styled.div`
@@ -135,7 +135,7 @@ export const TechIcon = styled(BaseBuildIcon)`
 // `
 // export const BodyText = styled.div`
 //   font-size: 14px;
-//   ${cs.truncate('350px')};
+//   ${cs.cutFrom('350px')};
 //   color: ${theme('thread.articleDigest')};
 // `
 // export const FooterWrapper = styled.div`

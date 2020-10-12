@@ -29,7 +29,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 1rem;
   ${cs.media.mobile`
-    ${cs.truncate('150px')};
+    ${cs.cutFrom('150px')};
 `};
 `
 export const CommunitiesWrapper = styled.div`

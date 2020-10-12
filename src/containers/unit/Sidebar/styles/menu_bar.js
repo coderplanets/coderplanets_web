@@ -78,7 +78,7 @@ export const MenuItemTitle = styled.div`
   letter-spacing: ${({ forceRerender }) => (forceRerender ? '1.3px' : '1.2px')};
   margin-right: 10px;
 
-  /* ${cs.truncate('110px')}; */
+  /* ${cs.cutFrom('110px')}; */
 
   ${MenuRow}:hover & {
     width: 100%;

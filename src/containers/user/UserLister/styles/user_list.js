@@ -51,13 +51,13 @@ export const Location = styled.div`
   margin-left: 10px;
 
   ${cs.media.tablet`
-    ${cs.truncate('80px')};
+    ${cs.cutFrom('80px')};
     margin-left: 0;
     margin-bottom: 3px;
   `};
 
   ${cs.media.mobile`
-    ${cs.truncate('60px')};
+    ${cs.cutFrom('60px')};
     margin-left: 0;
     margin-bottom: 3px;
   `};

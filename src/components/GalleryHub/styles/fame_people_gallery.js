@@ -69,7 +69,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   cursor: pointer;
-  ${cs.truncate('200px')};
+  ${cs.cutFrom('200px')};
 `
 export const Birthday = styled.div`
   font-size: 13px;

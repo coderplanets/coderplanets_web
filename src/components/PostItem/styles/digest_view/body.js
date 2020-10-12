@@ -32,7 +32,7 @@ export const BodyDigest = styled.li`
   max-width: 85%;
 
   ${cs.media.mobile`
-    ${cs.truncate('250px')};
+    ${cs.cutFrom('250px')};
 `};
 `
 export const CommentWrapper = styled.div`

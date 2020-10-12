@@ -19,11 +19,11 @@ export const Normal = styled.div`
   `};
 
   /* ${cs.media.tablet`
-    ${cs.truncate('220px')};
+    ${cs.cutFrom('220px')};
   `};
 
   ${cs.media.mobile`
-    ${cs.truncate('180px')};
+    ${cs.cutFrom('180px')};
   `}; */
 `
 export const IconWrapper = styled.span`

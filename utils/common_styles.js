@@ -14,7 +14,7 @@ const smokey = (opt = 0.6) => `
   }
   transition: opacity 0.3s;
 `
-const truncate = (width = '100px') => `
+const cutFrom = (width = '100px') => `
   width: ${width};
   white-space: nowrap;
   overflow: hidden;
@@ -146,7 +146,7 @@ media.laptopLPaddingColumnLayout = '0 3vw 0 calc(3vw + 10px);'
 // export const media = generateMedia({ ...mediaBreakPoints })
 
 const cs = {
-  truncate,
+  cutFrom,
   circle,
   smokey,
   flex,

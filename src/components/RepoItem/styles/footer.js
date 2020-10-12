@@ -15,7 +15,7 @@ export const Contributors = styled.div`
 
   ${cs.media.mobile`
     max-width: 60%;
-    ${cs.truncate('160px')};
+    ${cs.cutFrom('160px')};
   `};
 `
 export const Builder = styled.div``

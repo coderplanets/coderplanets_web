@@ -69,7 +69,7 @@ export const UpNumber = styled.div`
 export const BodyText = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  ${cs.truncate('380px')};
+  ${cs.cutFrom('380px')};
   margin-top: 5px;
   margin-bottom: 15px;
 `

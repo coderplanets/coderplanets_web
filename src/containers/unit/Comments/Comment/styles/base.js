@@ -19,10 +19,10 @@ export const ReplyToBodyBase = styled.span`
   flex-grow: 1;
   font-style: italic;
 
-  ${cs.truncate('350px')};
+  ${cs.cutFrom('350px')};
 
   ${cs.media.mobile`
-    ${cs.truncate('120px')};
+    ${cs.cutFrom('120px')};
   `};
 `
 export const ReplyToFloorBase = styled.div`
