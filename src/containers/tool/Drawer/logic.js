@@ -21,11 +21,7 @@ let store = null
 let sub$ = null
 
 // those types will not treat as page link
-const FUNCTION_TYPES = [
-  TYPE.DRAWER.C11N_SETTINGS,
-  TYPE.DRAWER.MOBILE_NAVI_MENU,
-  TYPE.DRAWER.MODELINE_MENU,
-]
+const FUNCTION_TYPES = [TYPE.DRAWER.C11N_SETTINGS, TYPE.DRAWER.MODELINE_MENU]
 
 /**
  * close current drawer

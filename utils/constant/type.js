@@ -57,13 +57,20 @@ const TYPE = {
 
     // c11n settings
     C11N_SETTINGS: 'C11N_SETTINGS',
-    // header navi menu in mobile mode
-    MOBILE_NAVI_MENU: 'MOBILE_NAVI_MENU',
 
     // modeline
     MODELINE_MENU: 'MODELINE_MENU',
   },
 
+  // modeline menu type
+  MM_TYPE: {
+    GLOBAL_MENU: 'global_menu',
+    COMMUNITY: 'community',
+    FILTER: 'filter',
+    DISCOVER: 'discover',
+    PUBLISH: 'publish',
+    MORE: 'more',
+  },
   // PAGE STATE
   LOADING: 'LOADING',
   NOT_FOUND: 'NOT_FOUND',

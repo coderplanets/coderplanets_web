@@ -29,10 +29,13 @@ const DrawerContainer = ({ drawer: store }) => {
     root,
     attachmentData,
     attUserData,
+    mmType,
     imageUploading,
     rightOffset,
     optionsData,
   } = store
+
+  console.log('drawer mmType: ', mmType)
 
   return (
     <Viewer
@@ -47,6 +50,7 @@ const DrawerContainer = ({ drawer: store }) => {
         root={root}
         attachment={attachmentData}
         attUser={attUserData}
+        mmType={mmType}
       />
     </Viewer>
   )
