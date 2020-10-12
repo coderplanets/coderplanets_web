@@ -46,6 +46,8 @@ export const MenuArrowShape = styled(ArrowShape)`
   border-left-color: ${({ bgColor }) => bgColor};
 `
 export const ArrowShapeLeft = styled(ArrowShape)`
-  left: -10px;
+  left: -6px;
+  border-left: 6px solid;
+  border-left-color: ${({ bgColor }) => bgColor};
   transform: rotate(180deg);
 `
