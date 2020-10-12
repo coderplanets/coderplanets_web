@@ -35,8 +35,6 @@ const DrawerContainer = ({ drawer: store }) => {
     optionsData,
   } = store
 
-  console.log('drawer mmType: ', mmType)
-
   return (
     <Viewer
       options={optionsData}
