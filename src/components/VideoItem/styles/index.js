@@ -112,7 +112,7 @@ export const BodyDigest = styled.li`
   }
 
   ${cs.media.mobile`
-    ${cs.truncate('200px')};
+    ${cs.cutFrom('200px')};
   `};
 `
 export const OriginalAuthorLink = styled.a`

@@ -79,7 +79,7 @@ export const TypeLabel = styled.div`
 `
 export const SourceTitle = styled.div`
   color: ${theme('thread.articleTitle')};
-  ${cs.truncate('350px')};
+  ${cs.cutFrom('350px')};
   font-size: 0.9rem;
   &:hover {
     cursor: pointer;
@@ -98,7 +98,7 @@ export const SourcePreview = styled.div`
 export const PreviewBody = styled.div`
   flex-grow: 1;
   font-style: italic;
-  ${cs.truncate('400px')};
+  ${cs.cutFrom('400px')};
 `
 export const AtLabel = styled.span`
   margin-left: 3px;

@@ -33,7 +33,7 @@ export const Owner = styled.div`
   }
 
   ${cs.media.mobile`
-    ${cs.truncate('60px')};
+    ${cs.cutFrom('60px')};
 `};
 `
 export const RepoName = styled.div`
@@ -42,7 +42,7 @@ export const RepoName = styled.div`
     color: ${theme('banner.title')};
   }
   ${cs.media.mobile`
-    ${cs.truncate('80px')};
+    ${cs.cutFrom('80px')};
 `};
 `
 export const TagsWrapper = styled.div`

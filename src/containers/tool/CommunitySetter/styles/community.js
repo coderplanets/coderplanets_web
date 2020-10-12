@@ -20,7 +20,7 @@ export const Logo = styled(Img)`
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
-  ${cs.truncate('100px')};
+  ${cs.cutFrom('100px')};
 
   ${Wrapper}:hover & {
     color: ${theme('thread.articleTitle')};

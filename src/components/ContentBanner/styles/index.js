@@ -36,7 +36,7 @@ export const Title = styled.div`
   font-size: 1.5em;
   color: ${theme('thread.articleTitle')};
 
-  ${cs.truncate('100%')};
+  ${cs.cutFrom('100%')};
 `
 export const Desc = styled.div`
   ${cs.flex('align-center')};

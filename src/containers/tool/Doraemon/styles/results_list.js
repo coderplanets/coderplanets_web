@@ -105,16 +105,16 @@ export const Title = styled.div`
     color: ${theme('shell.link')};
   }
 
-  ${cs.truncate('400px')};
+  ${cs.cutFrom('400px')};
   ${cs.media.mobile`
-${cs.truncate('200px')};
+${cs.cutFrom('200px')};
   `};
 `
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
   font-size: 0.9rem;
 
-  ${cs.truncate('400px')};
+  ${cs.cutFrom('400px')};
 `
 export const Hint = styled.div`
   color: ${theme('shell.desc')};

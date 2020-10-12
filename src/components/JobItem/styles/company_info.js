@@ -37,14 +37,14 @@ export const Footer = styled.div`
   font-size: 0.8rem;
   color: ${theme('thread.articleDigest')};
   ${cs.media.mobile`
-    ${cs.truncate('100px')};
+    ${cs.cutFrom('100px')};
   `};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 0.9rem;
   ${cs.media.mobile`
-    ${cs.truncate('90px')};
+    ${cs.cutFrom('90px')};
   `};
 `
 export const StatesWrapper = styled.div`
