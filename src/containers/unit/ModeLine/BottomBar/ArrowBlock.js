@@ -28,11 +28,13 @@ export const MenuBlock = () => {
 
 export const CommunityBlock = () => {
   const bgColor = '#194d5f'
+  const activeBgColor = '#196f70'
+  const isSubscribed = true
 
   return (
-    <CommunityWrapper bgColor={bgColor}>
-      <CommunityInfo />
-      <ArrowShape bgColor={bgColor} />
+    <CommunityWrapper bgColor={isSubscribed ? activeBgColor : bgColor}>
+      <CommunityInfo isSubscribed={isSubscribed} />
+      <ArrowShape bgColor={isSubscribed ? activeBgColor : bgColor} />
     </CommunityWrapper>
   )
 }

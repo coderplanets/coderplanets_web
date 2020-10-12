@@ -33,7 +33,7 @@ export const MenuWrapper = styled(Block)`
   padding-right: 6px;
 `
 export const CommunityWrapper = styled(Block)`
-  padding-left: 20px;
+  padding-left: 18px;
   padding-right: 6px;
 `
 export const AccountWrapper = styled(Block)`
@@ -46,6 +46,8 @@ export const MenuArrowShape = styled(ArrowShape)`
   border-left-color: ${({ bgColor }) => bgColor};
 `
 export const ArrowShapeLeft = styled(ArrowShape)`
-  left: -10px;
+  left: -6px;
+  border-left: 6px solid;
+  border-left-color: ${({ bgColor }) => bgColor};
   transform: rotate(180deg);
 `
