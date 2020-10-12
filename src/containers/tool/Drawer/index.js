@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { connectStore, buildLog } from '@/utils'
 import { useShortcut, useResize } from '@/hooks'
 
-import Viewer from './Viewer'
+import Viewer from './Viewer/index'
 import Content from './Content'
 
 import { useInit, closeDrawer } from './logic'
