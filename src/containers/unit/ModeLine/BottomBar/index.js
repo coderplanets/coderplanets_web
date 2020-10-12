@@ -5,7 +5,7 @@ import { ICON } from '@/config'
 import { MenuBlock, CommunityBlock, AccountBlock } from './ArrowBlock'
 import { Wrapper, ItemsWrapper, ItemIcon } from '../styles/bottom_bar'
 
-import { openMobileModeLineMenu } from '../logic'
+import { openMoreMenu } from '../logic'
 
 const options = [
   {
@@ -37,7 +37,7 @@ const Footer = () => {
       <CommunityBlock />
       <ItemsWrapper>
         {options.map((item) => (
-          <div key={item.raw} onClick={openMobileModeLineMenu}>
+          <div key={item.raw} onClick={openMoreMenu}>
             <ItemIcon src={item.icon} />
           </div>
         ))}
