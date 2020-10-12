@@ -33,7 +33,7 @@ export const MenuWrapper = styled(Block)`
   padding-right: 6px;
 `
 export const CommunityWrapper = styled(Block)`
-  padding-left: 20px;
+  padding-left: 18px;
   padding-right: 6px;
 `
 export const AccountWrapper = styled(Block)`
