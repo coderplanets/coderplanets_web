@@ -84,11 +84,6 @@ export const RepoEditor = dynamic(
 )
 
 // utils
-export const StateTree = dynamic(
-  () => import('@/components/StateTree'),
-  commonConfig,
-)
-
 export const C11NSettingPanel = dynamic(
   () => import('@/containers/tool/C11NSettingPanel'),
   commonConfig,

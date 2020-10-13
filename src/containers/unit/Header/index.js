@@ -80,7 +80,7 @@ const HeaderContainer = ({ header: store, metric }) => {
 
             {!isOnline && <OfflineAlert />}
           </RouterWrapper>
-          <AddOns mstStateTestId="mst-state" />
+          <AddOns />
           <Operations>
             <Search onClick={openDoraemon} testId="header-search">
               <HeaderSearchIcon testId="header-search-icon" />
