@@ -4,7 +4,7 @@ import Img from '@/components/Img'
 import { cs, theme } from '@/utils'
 
 export const MenuLogo = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
+  fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
   width: 12px;
   height: 12px;
   display: block;

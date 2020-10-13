@@ -28,8 +28,8 @@ export const ItemsWrapper = styled.div`
   margin-left: 30px;
   margin-right: 30px;
 `
-export const ItemIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
+export const MenuIcon = styled(Img)`
+  fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
   width: 15px;
   height: 15px;
 
