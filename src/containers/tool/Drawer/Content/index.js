@@ -27,9 +27,10 @@ import {
 import PlaceHolder from './PlaceHolder'
 
 import { Wrapper } from '../styles/content'
+import { getMobileContentHeight } from '../styles/metrics'
 import { closeDrawer } from '../logic'
 
-const renderContent = (type, root, attachment, attUser, mmType) => {
+const renderContent = (type, appStates, attachment, attUser, mmType) => {
   switch (type) {
     case TYPE.DRAWER.ACCOUNT_VIEW:
       return <AccountViewer />
@@ -81,7 +82,7 @@ const renderContent = (type, root, attachment, attUser, mmType) => {
       return <MailsViewer />
 
     case TYPE.DRAWER.ROOT_STORE:
-      return <StateTree json={root.toJSON()} />
+      return <StateTree json={appStates} />
 
     case TYPE.DRAWER.C11N_SETTINGS:
       return <C11NSettingPanel />
@@ -94,21 +95,28 @@ const renderContent = (type, root, attachment, attUser, mmType) => {
   }
 }
 
-const Content = ({ type, root, attachment, attUser, mmType }) => {
+const Content = ({ options, type, appStates, attachment, attUser, mmType }) => {
   const { mobile } = useMedia()
 
   if (mobile) {
     return (
-      <Wrapper>
-        {renderContent(type, root, attachment, attUser, mmType)}
-      </Wrapper>
+      <CustomScroller
+        direction="vertical"
+        height={`calc(${getMobileContentHeight(options)} - 30px)`}
+        showShadow={false}
+        autoHide
+      >
+        <Wrapper>
+          {renderContent(type, appStates, attachment, attUser, mmType)}
+        </Wrapper>
+      </CustomScroller>
     )
   }
 
   return (
     <Wrapper>
       <CustomScroller direction="vertical" height="100vh" shadowSize="small">
-        <div>{renderContent(type, root, attachment, attUser)}</div>
+        <div>{renderContent(type, appStates, attachment, attUser)}</div>
       </CustomScroller>
     </Wrapper>
   )

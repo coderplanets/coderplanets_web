@@ -6,7 +6,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  margin-top: 20px;
+  margin-top: 10px;
   height: 100%;
   padding: 0 6vw;
 `

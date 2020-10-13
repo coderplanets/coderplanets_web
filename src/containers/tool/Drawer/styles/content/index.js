@@ -8,9 +8,9 @@ export const Wrapper = styled.div`
   height: 100%;
   overflow-y: scroll;
 
+  /* 30px is the modeLine height */
   ${cs.media.mobile`
     height: auto;
-    margin-bottom: 0;
   `};
 `
 

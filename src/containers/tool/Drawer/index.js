@@ -26,7 +26,7 @@ const DrawerContainer = ({ drawer: store }) => {
   const {
     slideVisible,
     type,
-    root,
+    appStates,
     attachmentData,
     attUserData,
     mmType,
@@ -45,7 +45,8 @@ const DrawerContainer = ({ drawer: store }) => {
     >
       <Content
         type={type}
-        root={root}
+        appStates={appStates}
+        options={optionsData}
         attachment={attachmentData}
         attUser={attUserData}
         mmType={mmType}

@@ -13,8 +13,8 @@ const BaseWrapper = styled.div`
   background: #002a35;
   border-bottom: 1px solid;
   border-bottom-color: #506063;
-  border-bottom-left-radius: 22px;
-  border-bottom-right-radius: 22px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 `
 
 export const BottomWrapper = styled(BaseWrapper)`

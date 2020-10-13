@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};
   width: ${({ mobile }) => (!mobile ? '455px' : '100%')};
   min-height: 300px;
-  margin-top: ${({ mobile }) => (!mobile ? 0 : '6%')};
+  margin-top: 0;
 `
 export const BodyWrapper = styled.div`
   ${cs.flex('align-center')};

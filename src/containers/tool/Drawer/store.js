@@ -119,6 +119,9 @@ const DrawerStore = T.model('DrawerStore', {
     get root() {
       return getParent(self)
     },
+    get appStates() {
+      return stripMobx(self.root)
+    },
     get media() {
       return self.root.media
     },

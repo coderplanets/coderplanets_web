@@ -16,14 +16,7 @@ import {
 
 import { closeDrawer, onSwipedYHandler, onSwipingYHandler } from '../logic'
 
-const Viewer = ({
-  options,
-  visible,
-  rightOffset,
-  type,
-  imageUploading,
-  children,
-}) => {
+const Viewer = ({ options, visible, type, imageUploading, children }) => {
   const { mobile } = useMedia()
   const theme = useTheme()
 
@@ -78,7 +71,6 @@ const Viewer = ({
       <DrawerWrapper
         testId="drawer-sidebar-panel"
         visible={drawerVisible}
-        rightOffset={rightOffset}
         type={type}
         mobile={mobile}
         swipeUpY={swipeUpY}
