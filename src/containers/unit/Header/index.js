@@ -13,7 +13,7 @@ import { TYPE, ROUTE } from '@/constant'
 import { connectStore, buildLog, getRoutePathList } from '@/utils'
 
 import Header from './Header'
-import FixedHeader from './FixedHeader'
+// import FixedHeader from './FixedHeader'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -68,7 +68,7 @@ const HeaderContainer = ({ header: store, metric }) => {
 
   return (
     <div id={TYPE.APP_HEADER_ID} style={{ position: 'relative' }}>
-      <FixedHeader {...props} />
+      {/* <FixedHeader {...props} /> */}
       <Header {...props} />
     </div>
   )

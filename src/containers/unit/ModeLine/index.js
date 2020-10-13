@@ -15,7 +15,6 @@ import { connectStore, buildLog } from '@/utils'
 
 import TopBar from './TopBar'
 
-import { Wrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -25,6 +24,8 @@ let BottomBar = null
 
 const ModeLineContainer = ({ modeLine: store, testId }) => {
   useInit(store)
+  const { viewing } = store
+  // viewing: { community, activeThread },
 
   const { mobile } = useMedia()
 
@@ -34,10 +35,10 @@ const ModeLineContainer = ({ modeLine: store, testId }) => {
   }, [mobile])
 
   return (
-    <Wrapper testId={testId}>
-      <TopBar />
+    <React.Fragment testId={testId}>
+      <TopBar viewing={viewing} />
       {BottomBar && mobile && <BottomBar />}
-    </Wrapper>
+    </React.Fragment>
   )
 }
 

@@ -5,6 +5,12 @@ import { useMedia } from '@/hooks'
 
 let CurrentView = null
 
+/**
+ *
+ *
+ * @param {*} props
+ * @returns
+ */
 const Viewer = (props) => {
   const { mobile } = useMedia()
 
