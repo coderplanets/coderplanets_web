@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { TYPE, EVENT } from '@/constant'
-import { send, buildLog } from '@/utils'
+import { send, buildLog, thread2Subpath } from '@/utils'
 // import S from './service'
 
 let store = null
@@ -36,6 +36,17 @@ export const openMoreMenu = () => {
       position: 'L',
     },
   })
+}
+
+export const tabOnChange = (activeThread) => {
+  const subPath = thread2Subpath(activeThread)
+  // log('EVENT.activeThread -----> ', activeThread)
+  // log('EVENT.subPath -----> ', subPath)
+
+  store.markRoute({ subPath })
+  store.setViewing({ activeThread })
+
+  send(EVENT.THREAD_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
 // ###############################

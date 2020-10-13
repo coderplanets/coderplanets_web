@@ -46,6 +46,12 @@ const ModeLine = T.model('ModeLine', {
     showTopBar(bool) {
       self.showTop = bool
     },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
+    },
+    markRoute(query) {
+      self.root.markRoute(query)
+    },
     mark(sobj) {
       markStates(sobj, self)
     },

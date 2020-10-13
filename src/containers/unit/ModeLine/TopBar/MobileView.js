@@ -11,6 +11,7 @@ import {
   TabsWrapper,
   TagWrapper,
 } from '../styles/top_bar/mobile_view'
+import { tabOnChange } from '../logic'
 
 const MobileView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
   const { community, activeThread } = viewing
@@ -26,7 +27,7 @@ const MobileView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
         <TabsWrapper>
           <TabBar
             source={community.threads}
-            onChange={console.log}
+            onChange={tabOnChange}
             active={activeThread}
             view={VIEW.MODELINE}
             // layout={layout}
