@@ -36,16 +36,13 @@ export const Wrapper = styled.div`
   opacity: ${({ visiable }) => (visiable ? 1 : '0')};
   /* border: 1px solid tomato; */
   height: 32px;
-  padding-left: 5vw;
-  /* box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42); */
+  box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
 
   transition: top 0.3s;
   transition-delay: 1s;
 `
 export const InnerWrapper = styled(InnerWrapperBase)`
   ${cs.flex('align-center', 'space-between')};
-  padding-left: 0;
-  padding-right: 0vw;
 `
 export const TabsWrapper = styled.div`
   flex-grow: 1;

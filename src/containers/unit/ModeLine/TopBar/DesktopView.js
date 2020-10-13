@@ -3,14 +3,11 @@ import React from 'react'
 import { VIEW } from '@/constant'
 import TabBar from '@/components/TabBar'
 
-import TagBlock from './TagBlock'
-
 import {
   Wrapper,
   InnerWrapper,
   TabsWrapper,
-  TagWrapper,
-} from '../styles/top_bar'
+} from '../styles/top_bar/desktop_view'
 
 // different view has different size
 // const METRIC_MAP = {
@@ -28,8 +25,6 @@ import {
 const DesktopView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
   const { community, activeThread } = viewing
 
-  // console.log('DesktopView topbar hello: ', visiable)
-
   return (
     <Wrapper
       leftOffset={leftOffset}
@@ -43,14 +38,12 @@ const DesktopView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
             source={community.threads}
             onChange={console.log}
             active={activeThread}
-            view={VIEW.MODELINE}
+            view={VIEW.DESKTOP}
             // layout={layout}
             communityRaw={community.raw}
+            size="small"
           />
         </TabsWrapper>
-        <TagWrapper>
-          <TagBlock />
-        </TagWrapper>
       </InnerWrapper>
     </Wrapper>
   )

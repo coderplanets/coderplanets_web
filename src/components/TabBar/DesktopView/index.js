@@ -16,16 +16,26 @@ import { mapAlias } from '../alias'
 /* eslint-disable-next-line */
 const log = buildLog('c:TabBar:index')
 
-const TabBar = ({ source, active, onChange, layout, communityRaw }) => {
+const TabBar = ({ source, active, onChange, layout, communityRaw, size }) => {
   const aliasSource = mapAlias(source, communityRaw)
   const sortedSource = sortByIndex(aliasSource)
 
   return (
     <div id={TYPE.APP_TABBER_ID}>
       {layout === C11N.BRIEF ? (
-        <BriefView source={sortedSource} active={active} onChange={onChange} />
+        <BriefView
+          source={sortedSource}
+          active={active}
+          onChange={onChange}
+          size={size}
+        />
       ) : (
-        <NormalView source={sortedSource} active={active} onChange={onChange} />
+        <NormalView
+          source={sortedSource}
+          active={active}
+          onChange={onChange}
+          size={size}
+        />
       )}
     </div>
   )
@@ -46,6 +56,7 @@ TabBar.propTypes = {
   layout: T.oneOf([C11N.DIGEST, C11N.DIGEST_ROW, C11N.BRIEF]),
   // for alias usage
   communityRaw: T.string,
+  size: T.oneOf(['default', 'small']),
 }
 
 TabBar.defaultProps = {
@@ -53,6 +64,7 @@ TabBar.defaultProps = {
   onChange: log,
   layout: C11N.DIGEST,
   communityRaw: 'home',
+  size: 'default',
 }
 
 export default React.memo(TabBar)
