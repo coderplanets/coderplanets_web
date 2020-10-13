@@ -1,4 +1,5 @@
 import React from 'react'
+import T from 'prop-types'
 
 import { ICON } from '@/config'
 
@@ -30,9 +31,9 @@ const options = [
   },
 ]
 
-const Footer = () => {
+const BottomBar = ({ testId }) => {
   return (
-    <Wrapper>
+    <Wrapper testId={testId}>
       <MenuBlock />
       <CommunityBlock />
       <ItemsWrapper>
@@ -47,4 +48,12 @@ const Footer = () => {
   )
 }
 
-export default Footer
+BottomBar.propTypes = {
+  testId: T.string,
+}
+
+BottomBar.defaultProps = {
+  testId: 'modeline-bottom-bar',
+}
+
+export default BottomBar

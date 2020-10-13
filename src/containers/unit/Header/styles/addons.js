@@ -4,7 +4,7 @@ import Img from '@/Img'
 import HeaderStatesSVG from '@/SvgIcons/HeaderStatesSVG'
 import { theme, cs } from '@/utils'
 
-import { Wrapper as HeaderWrapper } from './header'
+import { Wrapper as HeaderWrapper } from './index'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};

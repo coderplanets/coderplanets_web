@@ -40,11 +40,11 @@ let store = null
 let sub$ = null
 
 export const inAnchor = () => {
-  if (store) store.setHeaderFix(false)
+  if (store) store.showTopModeline(false)
 }
 
 export const outAnchor = () => {
-  if (store) store.setHeaderFix(true)
+  if (store) store.showTopModeline(true)
 }
 
 export const loadPosts = (page = 1) => {

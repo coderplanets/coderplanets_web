@@ -29,19 +29,18 @@ export const Wrapper = styled.div`
   ${cs.flex('justify-start')};
   position: fixed;
   z-index: ${cs.zIndex.header};
-  /* top: ${({ fixed }) => (fixed ? '0' : '-33px')}; */
-  top: 0;
+  top: ${({ visiable }) => (visiable ? '0' : '-33px')};
   width: 100%;
+  /* TODO: move namespace to modeline */
   background: ${theme('header.fixed')};
-  /* opacity: ${({ fixed }) => (fixed ? '0.9' : '0')}; */
-  opacity: 1;
+  opacity: ${({ visiable }) => (visiable ? 1 : '0')};
   /* border: 1px solid tomato; */
   height: 32px;
   padding-left: 5vw;
   /* box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42); */
 
-  /* transition: top 0.3s;
-  transition-delay: 1s; */
+  transition: top 0.3s;
+  transition-delay: 1s;
 `
 export const InnerWrapper = styled(InnerWrapperBase)`
   ${cs.flex('align-center', 'space-between')};

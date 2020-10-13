@@ -1,56 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import dynamic from 'next/dynamic'
 
-import { VIEW } from '@/constant'
-import TabBar from '@/components/TabBar'
+import { useMedia } from '@/hooks'
 
-import TagBlock from './TagBlock'
+let CurTopBar = null
 
-import {
-  Wrapper,
-  InnerWrapper,
-  TabsWrapper,
-  TagWrapper,
-} from '../styles/top_bar'
+const Topbar = (props) => {
+  const { mobile } = useMedia()
 
-// different view has different size
-// const METRIC_MAP = {
-//   default: {
-//     maxWidth: cs.MAX_CONTENT_WIDTH,
-//     padding: '0 6vw',
-//   },
-
-//   article: {
-//     maxWidth: cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH,
-//     padding: '0 5vw',
-//   },
-// }
-
-const Topbar = ({ viewing, fixed, leftOffset, hasNoBottomBorder }) => {
-  const { community, activeThread } = viewing
+  useEffect(() => {
+    if (mobile) {
+      CurTopBar = dynamic(() => import('./MobileView'), { ssr: false })
+    } else {
+      CurTopBar = dynamic(() => import('./DesktopView'), { ssr: false })
+    }
+  }, [mobile])
 
   return (
-    <Wrapper
-      leftOffset={leftOffset}
-      noBorder={hasNoBottomBorder}
-      testId="header"
-      fixed={fixed}
-    >
-      <InnerWrapper>
-        <TabsWrapper>
-          <TabBar
-            source={community.threads}
-            onChange={console.log}
-            active={activeThread}
-            view={VIEW.MODELINE}
-            // layout={layout}
-            communityRaw={community.raw}
-          />
-        </TabsWrapper>
-        <TagWrapper>
-          <TagBlock />
-        </TagWrapper>
-      </InnerWrapper>
-    </Wrapper>
+    <React.Fragment>{CurTopBar && <CurTopBar {...props} />}</React.Fragment>
   )
 }
 

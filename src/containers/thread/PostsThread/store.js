@@ -107,8 +107,8 @@ const PostsThreadStore = T.model('PostsThreadStore', {
 
       self.activeTag = cur
     },
-    setHeaderFix(fix) {
-      self.root.setHeaderFix(fix)
+    showTopModeline(fix) {
+      self.root.showTopModeline(fix)
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)

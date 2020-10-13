@@ -61,7 +61,7 @@ const ArticleDigest = T.model('ArticleDigest', {
     syncViewingItem(item) {
       self.root.viewing.syncViewingItem(item)
     },
-    setHeaderFix(fix) {
+    showTopModeline(fix) {
       self.headerFixed = fix
     },
     mark(sobj) {

@@ -11,19 +11,13 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:HeaderStore')
 
-const HeaderStore = T.model('HeaderStore', {
-  fixed: T.optional(T.boolean, false),
-  preSidebarPin: T.optional(T.boolean, false),
-})
+const HeaderStore = T.model('HeaderStore', {})
   .views((self) => ({
     get root() {
       return getParent(self)
     },
     get isOnline() {
       return self.root.isOnline
-    },
-    get activeInfo() {
-      return stripMobx(self.root.viewing)
     },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
@@ -65,10 +59,6 @@ const HeaderStore = T.model('HeaderStore', {
     },
     toastInfo(options) {
       self.root.toast('info', merge({ position: 'topCenter' }, options))
-    },
-    setFix(fixed = false) {
-      self.preSidebarPin = self.root.sidebar.pin
-      self.fixed = fixed
     },
     markRoute(query) {
       self.root.markRoute(query)
