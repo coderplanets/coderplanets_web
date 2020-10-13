@@ -116,7 +116,9 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
           width={`${tabWidthList[active]}px`}
           slipHeight={slipHeight}
         >
-          <RealBar width={`${slipWidth}px`} />
+          <RealBar
+            width={`${size === 'default' ? slipWidth : slipWidth - 6}px`}
+          />
         </SlipBar>
       </Nav>
     </Wrapper>
