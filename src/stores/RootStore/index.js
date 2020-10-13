@@ -249,8 +249,8 @@ const rootStore = T.model({
     markRoute(query, opt) {
       self.route.markRoute(query, opt)
     },
-    setHeaderFix(fix) {
-      self.header.setFix(fix)
+    showTopModeline(bool) {
+      self.modeLine.showTopBar(bool)
     },
     openDoraemon() {
       self.doraemon.open()

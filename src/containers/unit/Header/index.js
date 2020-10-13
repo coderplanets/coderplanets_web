@@ -12,9 +12,23 @@ import { contains } from 'ramda'
 import { TYPE, ROUTE } from '@/constant'
 import { connectStore, buildLog, getRoutePathList } from '@/utils'
 
-import Header from './Header'
-import FixedHeader from './FixedHeader'
-import { useInit } from './logic'
+import MailBox from '@/containers/tool/MailBox'
+import UserLister from '@/containers/user/UserLister'
+
+import Navigator from '@/components/Navigator'
+import UserAccount from './UserAccount'
+import AddOns from './AddOns'
+import OfflineAlert from './OfflineAlert'
+
+import {
+  Wrapper,
+  InnerWrapper,
+  RouterWrapper,
+  Search,
+  HeaderSearchIcon,
+  Operations,
+} from './styles'
+import { useInit, openDoraemon } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
@@ -26,12 +40,9 @@ const HeaderContainer = ({ header: store, metric }) => {
 
   const {
     isOnline,
-    fixed,
-    curRoute,
     leftOffset,
     accountInfo,
     isLogin,
-    activeInfo,
     curCommunity,
     accountInfo: {
       customization: { bannerLayout },
@@ -52,24 +63,37 @@ const HeaderContainer = ({ header: store, metric }) => {
     )
   }, [mainPath])
 
-  const props = {
-    layout: bannerLayout,
-    metric,
-    isOnline,
-    fixed,
-    curRoute,
-    leftOffset,
-    accountInfo,
-    isLogin,
-    activeInfo,
-    curCommunity,
-    hasNoBottomBorder,
-  }
-
   return (
     <div id={TYPE.APP_HEADER_ID} style={{ position: 'relative' }}>
-      <FixedHeader {...props} />
-      <Header {...props} />
+      <Wrapper
+        id="whereCallShowDoraemon"
+        testId="header"
+        leftOffset={leftOffset}
+        noBorder={hasNoBottomBorder}
+      >
+        <InnerWrapper type={metric} layout={bannerLayout}>
+          <RouterWrapper>
+            <Navigator
+              curCommunity={curCommunity}
+              layout={accountInfo.customization.bannerLayout}
+            />
+
+            {!isOnline && <OfflineAlert />}
+          </RouterWrapper>
+          <AddOns mstStateTestId="mst-state" />
+          <Operations>
+            <Search onClick={openDoraemon} testId="header-search">
+              <HeaderSearchIcon testId="header-search-icon" />
+            </Search>
+
+            {isLogin && <MailBox />}
+            {/* <UpgradePackages /> */}
+            <UserLister />
+            {/* <Cashier /> */}
+            <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
+          </Operations>
+        </InnerWrapper>
+      </Wrapper>
     </div>
   )
 }

@@ -13,6 +13,7 @@ import { useMedia } from '@/hooks'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
+import ModelineView from './ModelineView'
 import CardView from './CardView'
 
 /* eslint-disable-next-line */
@@ -30,6 +31,10 @@ const Tabs = (props) => {
       return <MobileView {...props} />
     }
 
+    case VIEW.MODELINE: {
+      return <ModelineView {...props} />
+    }
+
     case VIEW.COMMUNITY_CARD: {
       return <CardView {...props} />
     }
@@ -41,7 +46,7 @@ const Tabs = (props) => {
 }
 
 Tabs.propTypes = {
-  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD]),
+  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD, VIEW.MODELINE]),
 }
 
 Tabs.defaultProps = {

@@ -15,7 +15,6 @@ import { connectStore, buildLog } from '@/utils'
 
 import TopBar from './TopBar'
 
-import { Wrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -23,8 +22,10 @@ const log = buildLog('C:ModeLine')
 
 let BottomBar = null
 
-const ModeLineContainer = ({ modeLine: store, testId }) => {
+const ModeLineContainer = ({ modeLine: store }) => {
   useInit(store)
+  const { showTop, viewing } = store
+  // viewing: { community, activeThread },
 
   const { mobile } = useMedia()
 
@@ -34,20 +35,17 @@ const ModeLineContainer = ({ modeLine: store, testId }) => {
   }, [mobile])
 
   return (
-    <Wrapper testId={testId}>
-      <TopBar />
+    <React.Fragment>
+      <TopBar visiable={showTop} viewing={viewing} />
       {BottomBar && mobile && <BottomBar />}
-    </Wrapper>
+    </React.Fragment>
   )
 }
 
 ModeLineContainer.propTypes = {
   modeLine: T.any.isRequired,
-  testId: T.string,
 }
 
-ModeLineContainer.defaultProps = {
-  testId: 'mode-line',
-}
+ModeLineContainer.defaultProps = {}
 
 export default connectStore(ModeLineContainer)

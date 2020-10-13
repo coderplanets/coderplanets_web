@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import dynamic from 'next/dynamic'
 
 import { useMedia } from '@/hooks'
 
-const Header = () => {
+let CurTopBar = null
+
+const Topbar = (props) => {
   const { mobile } = useMedia()
 
-  if (mobile) return null
+  useEffect(() => {
+    if (mobile) {
+      CurTopBar = dynamic(() => import('./MobileView'), { ssr: false })
+    } else {
+      CurTopBar = dynamic(() => import('./DesktopView'), { ssr: false })
+    }
+  }, [mobile])
 
-  // TODO:
-  return <div>header view</div>
+  return (
+    <React.Fragment>{CurTopBar && <CurTopBar {...props} />}</React.Fragment>
+  )
 }
 
-export default Header
+export default React.memo(Topbar)

@@ -10,7 +10,7 @@ const getLocalIcon = (item) => {
   return item.localIcon ? item.localIcon : item.raw
 }
 
-const NormalView = ({ source, active, onChange, view }) => {
+const MobileView = ({ source, active, onChange, view }) => {
   const items = source.map((item) => ({
     ...item,
     localIcon: getLocalIcon(item),
@@ -26,4 +26,4 @@ const NormalView = ({ source, active, onChange, view }) => {
   )
 }
 
-export default React.memo(NormalView)
+export default React.memo(MobileView)

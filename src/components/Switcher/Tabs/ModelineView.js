@@ -12,20 +12,16 @@ import { useMedia } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
-import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'
+import {
+  Wrapper,
+  Nav,
+  SlipBar,
+  RealBar,
+} from '../styles/tabs/mobile_view/normal_view'
 import { getSlipMargin } from '../styles/metric/tabs'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
-
-// const defaultItems2 = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
-const temItems = [
-  {
-    title: '帖子',
-    // icon: `${ICON_CMD}/navi/fire.svg`,
-    localIcon: 'settings',
-  },
-]
 
 /**
  * get default active key in tabs array
@@ -46,7 +42,7 @@ const getDefaultActiveTabIndex = (items, activeKey) => {
   return index >= 0 ? index : 0
 }
 
-const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
+const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
   const { mobile } = useMedia()
 
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
@@ -108,6 +104,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
             size={size}
             setItemWidth={handleNaviItemWith}
             onClick={handleItemClick}
+            modelineView
           />
         ))}
 
@@ -116,16 +113,15 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
           width={`${tabWidthList[active]}px`}
           slipHeight={slipHeight}
         >
-          <RealBar
-            width={`${size === 'default' ? slipWidth : slipWidth - 6}px`}
-          />
+          {/* mobile tab slipbar looks shorter than the desktop one */}
+          <RealBar width={`${slipWidth - 11}px`} />
         </SlipBar>
       </Nav>
     </Wrapper>
   )
 }
 
-Tabs.propTypes = {
+ModelineView.propTypes = {
   items: T.oneOfType([
     T.arrayOf(T.string),
     T.arrayOf(
@@ -144,12 +140,12 @@ Tabs.propTypes = {
   slipHeight: T.oneOf(['1px', '2px']),
 }
 
-Tabs.defaultProps = {
-  items: temItems,
+ModelineView.defaultProps = {
+  items: [],
   onChange: log,
   activeKey: '',
   size: 'default',
   slipHeight: '2px',
 }
 
-export default React.memo(Tabs)
+export default React.memo(ModelineView)
