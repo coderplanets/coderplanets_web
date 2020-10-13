@@ -14,7 +14,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   width: 100%;
   height: 28px;
   background: #0e3b4a;
-  z-index: 1;
+  z-index: ${cs.zIndex.modeLine};
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
 `
 export const ItemsWrapper = styled.div`
