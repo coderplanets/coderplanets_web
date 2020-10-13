@@ -50,10 +50,13 @@ export const InnerWrapper = styled(InnerWrapperBase)`
 `
 export const TabsWrapper = styled.div`
   flex-grow: 1;
-  max-width: calc(100% - 50px);
+  max-width: calc(100% - 30px);
 `
 export const TagWrapper = styled.div`
-  /* min-width: 50px; */
-  width: 100%;
+  position: absolute;
+  max-width: 60px;
+  min-width: 50px;
+  right: 0;
+  z-index: 1;
   height: 100%;
 `

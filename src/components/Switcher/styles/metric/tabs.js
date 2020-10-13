@@ -25,8 +25,19 @@ export const getMarginRight = (size, mobileView, cardView) => {
   }
 }
 
-export const getPadding = (size, cardView, mobileView, wrapMode) => {
+export const getPadding = (
+  size,
+  cardView,
+  mobileView,
+  wrapMode,
+  modelineView,
+) => {
   if (cardView) return '2px'
+
+  if (modelineView) {
+    return '6px 10px'
+  }
+
   if (mobileView) {
     if (wrapMode) {
       return '5px'

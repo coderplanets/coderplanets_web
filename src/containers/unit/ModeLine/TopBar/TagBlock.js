@@ -9,7 +9,7 @@ import {
 } from '../styles/top_bar/tag_block'
 
 const TagBlock = () => {
-  const bgColor = '#071f27'
+  const bgColor = '#072d3b'
 
   return (
     <TagWrapper bgColor={bgColor}>

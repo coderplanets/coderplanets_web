@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { VIEW } from '@/constant'
 import TabBar from '@/components/TabBar'
 
 import TagBlock from './TagBlock'
@@ -40,6 +41,7 @@ const Topbar = ({ viewing, fixed, leftOffset, hasNoBottomBorder }) => {
             source={community.threads}
             onChange={console.log}
             active={activeThread}
+            view={VIEW.MODELINE}
             // layout={layout}
             communityRaw={community.raw}
           />

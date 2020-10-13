@@ -22,6 +22,7 @@ const log = buildLog('c:Tabs:index')
 
 const TabItem = ({
   mobileView,
+  modelineView,
   cardView,
   wrapMode,
   activeKey,
@@ -54,7 +55,7 @@ const TabItem = ({
   )
 
   useEffect(() => {
-    if (item.raw === activeKey && mobileView && !wrapMode) {
+    if (item.raw === activeKey && (mobileView || modelineView) && !wrapMode) {
       const curEl = activeRef?.current
       // 这里的 width 是一个 hack, 每一个 TabItem 会触发设置宽度的
       // 父元素钩子，导致两次渲染，但是第一次没有调用之前每个 Item 的宽度是 auto
@@ -67,12 +68,13 @@ const TabItem = ({
         })
       }
     }
-  }, [item, activeKey, mobileView, wrapMode])
+  }, [item, activeKey, mobileView, modelineView, wrapMode])
 
   return (
     <Wrapper
       ref={ref}
       mobileView={mobileView}
+      modelineView={modelineView}
       cardView={cardView}
       wrapMode={wrapMode}
       size={size}
@@ -107,6 +109,7 @@ const TabItem = ({
 
 TabItem.propTypes = {
   mobileView: T.bool,
+  modelineView: T.bool,
   cardView: T.bool,
   wrapMode: T.bool,
   item: T.any.isRequired,
@@ -119,6 +122,7 @@ TabItem.propTypes = {
 
 TabItem.defaultProps = {
   mobileView: false,
+  modelineView: false,
   cardView: false,
   wrapMode: false,
 }

@@ -10,7 +10,7 @@ import { buildLog } from '@/utils'
 import { useMedia } from '@/hooks'
 
 import DesktopView from './DesktopView'
-import NormalView from './NormalView'
+import MobileView from './MobileView'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TabBar:index')
@@ -28,13 +28,14 @@ const TabBar = (props) => {
     }
 
     default: {
-      return <NormalView {...props} />
+      // for those mobile, modeline etc ..
+      return <MobileView {...props} />
     }
   }
 }
 
 TabBar.propTypes = {
-  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD]),
+  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD, VIEW.MODELINE]),
 }
 
 TabBar.defaultProps = {
