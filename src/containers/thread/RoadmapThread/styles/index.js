@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-// import Img from '@/components/Img'
 import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
