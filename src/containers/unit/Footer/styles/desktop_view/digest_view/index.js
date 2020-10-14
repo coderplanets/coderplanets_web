@@ -4,7 +4,7 @@ import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { ArrowLink } from '@/components/Buttons'
 import { theme, cs } from '@/utils'
 
-import { getPadding } from '../metrics'
+import { getPadding } from '../../metrics'
 
 export const Wrapper = styled.footer`
   ${cs.flexColumn('align-center')};

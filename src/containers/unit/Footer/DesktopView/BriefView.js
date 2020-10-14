@@ -3,7 +3,6 @@ import React from 'react'
 import { ISSUE_ADDR, ICON_CMD, API_SERVER_ADDR } from '@/config'
 
 import BottomInfo from './BottomInfo'
-import MobilBottomInfo from './MobilBottomInfo'
 
 import {
   Wrapper,
@@ -17,9 +16,9 @@ import {
   SiteLogo,
   LogoDivider,
   GithubLogo,
-} from './styles/brief_view'
+} from '../styles/desktop_view/brief_view'
 
-import { toggleSponsorHelper, toggleBusBanner } from './logic'
+import { toggleSponsorHelper, toggleBusBanner } from '../logic'
 
 const BriefView = ({ curView }) => {
   return (
@@ -75,7 +74,6 @@ const BriefView = ({ curView }) => {
         </MainInfos>
       </InnerWrapper>
       <BottomInfo />
-      <MobilBottomInfo />
     </Wrapper>
   )
 }

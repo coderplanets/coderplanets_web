@@ -9,7 +9,7 @@ import {
   Links,
   Site,
   MoreText,
-} from './styles/bottom_info'
+} from '../styles/desktop_view/bottom_info'
 
 const FRIENDS = [
   {

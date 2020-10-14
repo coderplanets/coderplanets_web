@@ -5,7 +5,6 @@ import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 
 import BottomInfo from '../BottomInfo'
-import MobilBottomInfo from '../MobilBottomInfo'
 
 import ContactBar from './ContactBar'
 
@@ -23,13 +22,13 @@ import {
   Body,
   Item,
   LinkItem,
-} from '../styles/digest_view'
+} from '../../styles/desktop_view/digest_view'
 
 import {
   toggleSponsorHelper,
   toggleBusBanner,
   toggleSeniorHelper,
-} from '../logic'
+} from '../../logic'
 
 const DigestView = ({ layout }) => {
   const theme = useTheme()
@@ -141,7 +140,6 @@ const DigestView = ({ layout }) => {
       </InnerWrapper>
       <ContactBar layout={layout} />
       <BottomInfo layout={layout} />
-      <MobilBottomInfo />
     </Wrapper>
   )
 }
