@@ -29,6 +29,7 @@ export {
   extractMentions,
   extractAttachments,
   isCypressRunning,
+  multiClick,
 } from './functions'
 
 export { errorForHuman, ssrAmbulance } from './errors'

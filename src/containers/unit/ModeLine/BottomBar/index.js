@@ -3,6 +3,7 @@ import T from 'prop-types'
 
 import { TYPE } from '@/constant'
 import { ICON } from '@/config'
+import { multiClick } from '@/utils'
 
 import { MenuBlock, CommunityBlock, AccountBlock } from './ArrowBlock'
 import { Wrapper, ItemsWrapper, MenuIcon } from '../styles/bottom_bar'
@@ -37,12 +38,12 @@ const BottomBar = ({ testId, activeMenu }) => {
     <Wrapper testId={testId} isMenuActive={activeMenu !== ''}>
       <MenuBlock
         active={activeMenu === TYPE.MM_TYPE.GLOBAL_MENU}
-        onClick={() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU)}
+        onClick={multiClick(() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
       />
       <CommunityBlock />
       <ItemsWrapper>
         {menus.map((item) => (
-          <div key={item.raw} onClick={() => openMenu(item.raw)}>
+          <div key={item.raw} onClick={multiClick(() => openMenu(item.raw))}>
             <MenuIcon src={item.icon} active={activeMenu === item.raw} />
           </div>
         ))}
