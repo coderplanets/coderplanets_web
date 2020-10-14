@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-// import Img from '@/components/Img'
 import { cs } from '@/utils'
 import { L_MENU_HEIGHT } from './metrics'
 
