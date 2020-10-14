@@ -9,24 +9,16 @@ import T from 'prop-types'
 
 import { TYPE, ROUTE } from '@/constant'
 import { connectStore } from '@/utils'
-
-import CustomScroller from '@/components/CustomScroller'
-
-import {
-  useNetwork,
-  useShortcut,
-  useMedia,
-  usePlatform,
-  // useResize,
-} from '@/hooks'
-
 import AnalysisService from '@/services/Analysis'
+
+import { useNetwork, useShortcut, useMedia, usePlatform } from '@/hooks'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
 import Sidebar from '@/containers/unit/Sidebar'
 import ModeLine from '@/containers/unit/ModeLine'
 import Drawer from '@/containers/tool/Drawer'
+import CustomScroller from '@/components/CustomScroller'
 
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
@@ -52,11 +44,12 @@ const GlobalLayoutContainer = ({
   noSidebar,
   metric,
 }) => {
-  useEffect(() => logBuddha(), [])
-
   const { online } = useNetwork()
   const media = useMedia()
   const platform = usePlatform()
+
+  // load debug graph
+  useEffect(() => logBuddha(), [])
 
   useInit(store, { online, media, platform })
   useShortcut('Control+P', openDoraemon)
