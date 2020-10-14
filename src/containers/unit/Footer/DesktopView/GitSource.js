@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import { ICON_CMD } from '@/config'
-import { Wrapper, Title, Tag } from './styles/git_source_tag'
+import { Wrapper, Title, Tag } from '../styles/desktop_view/git_source_tag'
 
 const GitSourceTag = ({ title, addr }) => (
   <Wrapper>

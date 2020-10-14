@@ -9,18 +9,16 @@ import {
   LinkInfoWrapper,
   Item,
   ItemBtn,
-} from './styles/mobile_bottom_info'
+} from '../styles/mobile_view'
 
-import { queryDoraemon } from './logic'
-
-const MobileBottomInfo = () => (
+const MobileView = () => (
   <>
     <LinkInfoWrapper>
       <ItemBtn as="a" href={`/${ROUTE.DISCOVERY}`} rel="noopener noreferrer">
-        所有社区
+        所有社区-
       </ItemBtn>
       <DotDivider radius="4px" />
-      <ItemBtn onClick={() => queryDoraemon('/theme/')}>切换主题</ItemBtn>
+      <ItemBtn>切换主题</ItemBtn>
     </LinkInfoWrapper>
 
     <SiteInfoWrapper>
@@ -43,4 +41,4 @@ const MobileBottomInfo = () => (
   </>
 )
 
-export default React.memo(MobileBottomInfo)
+export default React.memo(MobileView)
