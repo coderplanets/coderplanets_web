@@ -34,6 +34,14 @@ export const WIDE_CASE = [
   TYPE.DRAWER.MAILS_VIEW,
 ]
 
+// export for modeline usage
+export const L_HEIGHT = '25vh'
+const L_TRANSLATE = '300%'
+export const H_HEIGHT = '75vh'
+const H_TRANSLATE = '35%'
+export const M_HEIGHT = '50vh'
+const M_TRANSLATE = '100%'
+
 /**
  * for drawer on mobile
  * defines drawer contnt height, H,L,M is inspired by vim shortcut
@@ -42,18 +50,18 @@ export const WIDE_CASE = [
  * @returns
  */
 export const getMobileContentHeight = (options) => {
-  /* M -> 50vh, H -> 75vh, L -> 20vh */
+  /* M -> 50vh, H -> 75vh, L -> 25vh */
   switch (options.position) {
     case 'H': {
-      return options.direction === 'bottom' ? '75vh' : '20vh'
+      return options.direction === 'bottom' ? H_HEIGHT : L_HEIGHT
     }
 
     case 'L': {
-      return options.direction === 'bottom' ? '20vh' : '75vh'
+      return options.direction === 'bottom' ? L_HEIGHT : H_HEIGHT
     }
 
     default: {
-      return '50vh'
+      return M_HEIGHT
     }
   }
 }
@@ -118,7 +126,6 @@ export const getContentLinearGradient = (options, bgColor) => {
 const getTopPosition = (swipeUpY, options) => {
   switch (options.position) {
     case 'L': {
-      // return '400%'
       if (swipeUpY === null) return '0%'
       return `calc(0% - ${swipeUpY}px)`
     }
@@ -148,21 +155,18 @@ const getTopPosition = (swipeUpY, options) => {
 const getBottomPosition = (swipeDownY, options) => {
   switch (options.position) {
     case 'L': {
-      // return '400%'
-      if (swipeDownY === null) return '400%'
-      return `calc(400% + ${swipeDownY}px)`
+      if (swipeDownY === null) return L_TRANSLATE
+      return `calc(${L_TRANSLATE} + ${swipeDownY}px)`
     }
 
     case 'M': {
-      // return '100%'
-      if (swipeDownY === null) return '100%'
-      return `calc(100% + ${swipeDownY}px)`
+      if (swipeDownY === null) return M_TRANSLATE
+      return `calc(${M_TRANSLATE} + ${swipeDownY}px)`
     }
 
     default: {
-      // return '35%'
-      if (swipeDownY === null) return '35%'
-      return `calc(35% + ${swipeDownY}px)`
+      if (swipeDownY === null) return H_TRANSLATE
+      return `calc(${H_TRANSLATE} + ${swipeDownY}px)`
     }
   }
 }
