@@ -35,14 +35,14 @@ based on [babel-resolver][https://github.com/tleunen/babel-plugin-module-resolve
 
 ```js
 "alias": {
-  "containers":"./containers",
-  "components":"./components",
-  "config":"./config",
-  "stores":"./stores",
-  "schemas":"./containers/schemas",
-  "utils":"./utils",
-  "Img": "./components/Img",
-  "SvgIcons": "./components/SvgIcons"
+  "@/containers":"./src/containers",
+  "@/components":"./src/components",
+  "@/config":"./src/config",
+  "@/stores":"./src/stores",
+  "@/schemas":"./src/containers/schemas",
+  "@/utils":"./src/utils",
+  "@/Img": "./src/components/Img",
+  "@/SvgIcons": "./src/components/SvgIcons"
 }
 ```
 
