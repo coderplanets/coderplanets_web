@@ -34,7 +34,7 @@ const menus = [
 
 const BottomBar = ({ testId, activeMenu }) => {
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testId={testId} isMenuActive={activeMenu !== ''}>
       <MenuBlock
         active={activeMenu === TYPE.MM_TYPE.GLOBAL_MENU}
         onClick={() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU)}

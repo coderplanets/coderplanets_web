@@ -55,6 +55,9 @@ const ModeLine = T.model('ModeLine', {
       // isPin && !self.preSidebarPin && self.fixed
       return '180px'
     },
+    get isMenuActive() {
+      return self.activeMenu !== ''
+    },
   }))
   .actions((self) => ({
     showTopBar(bool) {

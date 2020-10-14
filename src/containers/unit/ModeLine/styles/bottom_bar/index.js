@@ -15,7 +15,8 @@ export const Wrapper = styled.div.attrs((props) => ({
   height: 28px;
   background: #0e3b4a;
   z-index: ${cs.zIndex.modeLine};
-  box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
+  box-shadow: ${({ isMenuActive }) =>
+    !isMenuActive ? '' : '-5px 6px 37px -8px rgba(0, 0, 0, 0.42)'};
 `
 export const ItemsWrapper = styled.div`
   ${cs.flex('justify-between', 'align-center')};
