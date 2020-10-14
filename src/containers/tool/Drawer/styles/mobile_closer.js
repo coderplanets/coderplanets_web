@@ -11,7 +11,7 @@ const BaseWrapper = styled.div`
   height: 30px;
   background: #002a35;
   border-bottom: 1px solid;
-  border-bottom-color: #506063;
+  border-bottom-color: #194d5f;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 `
@@ -30,7 +30,7 @@ export const CloseBtn = styled.div`
   width: 50px;
   height: 8px;
   border-radius: 8px;
-  background: #506063;
+  background: #194d5f;
   position: absolute;
   top: 26px;
   left: calc(50% - 25px);
