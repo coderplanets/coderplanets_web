@@ -11,6 +11,7 @@ import {
   getTransform,
   getMobileContentHeight,
   getContentLinearGradient,
+  getDim,
 } from './metrics'
 
 export const DrawerOverlay = styled.div`
@@ -92,19 +93,20 @@ export const DrawerMobileContent = styled.div`
   background: ${({ options, bgColor }) =>
     getContentLinearGradient(options, bgColor)};
 `
-// bottom
-export const MobileInnerContent = styled.div`
+
+export const MobileInnerContent = styled.div.attrs(
+  ({ swipeUpY, swipeDownY, options }) => ({
+    style: {
+      filter: getDim(swipeUpY, swipeDownY, options),
+    },
+  }),
+)`
   width: 100%;
   max-height: calc(100% - 30px);
   margin-top: ${({ options }) =>
     options.direction === 'bottom' ? '15px' : '0'};
   overflow-y: scroll;
 `
-// export const MobileContentInnerWrapper = styled.div`
-//   width: 100%;
-//   max-height: calc(100% - 30px);
-//   overflow-y: scroll;
-// `
 export const PreviewHeader = styled.div`
   ${cs.flex()};
   border-bottom: 1px solid grey;

@@ -54,7 +54,12 @@ const Viewer = ({ options, visible, type, imageUploading, children }) => {
       >
         <AddOn type={type} imageUploading={imageUploading} />
         <DrawerMobileContent options={options} bgColor={theme.drawer.bg}>
-          <MobileInnerContent options={options} {...swipeHandlers}>
+          <MobileInnerContent
+            options={options}
+            swipeUpY={swipeUpY}
+            swipeDownY={swipeDownY}
+            {...swipeHandlers}
+          >
             <Waypoint
               onEnter={() => setSwipeDownAviliable(true)}
               onLeave={() => setSwipeDownAviliable(false)}
