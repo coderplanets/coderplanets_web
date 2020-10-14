@@ -1,28 +1,43 @@
 import styled from 'styled-components'
 
+import Img from '@/Img'
 import { theme, cs } from '@/utils'
 
-const InfoSection = styled.div`
+import DotDivider from '@/components/DotDivider'
+
+export const Wrapper = styled.div`
+  height: 150px;
+  width: 100%;
+`
+export const SiteWrapper = styled.div`
   ${cs.flex('align-both')};
-  height: 45px;
-  display: none;
-  ${cs.media.tablet`display: flex;`};
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
 `
-export const LinkInfoWrapper = styled(InfoSection)``
-export const SiteInfoWrapper = styled(InfoSection)`
-  /* background-color: ${theme('footer.bottomBg')}; */
+export const SiteLogo = styled(Img)`
+  fill: #196f71;
+  width: 18px;
+  height: 18px;
+  display: block;
 `
-export const Item = styled.a`
+export const SiteTitle = styled.div`
+  font-size: 14px;
+  color: #196f71;
+  margin-left: 10px;
+  margin-top: 1px;
+`
+export const SiteInfoWrapper = styled.div`
+  ${cs.flex('align-both')};
+`
+export const Item = styled.div`
   color: ${theme('footer.text')};
-  font-size: 0.9rem;
-  text-decoration: underline;
+  font-size: 12px;
 `
-export const ItemBtn = styled.div`
-  color: ${theme('footer.text')};
-  font-size: 0.9rem;
-  border: 1px solid;
-  text-decoration: none;
-  border-color: ${theme('footer.text')};
-  border-radius: 5px;
-  padding: 0 4px;
+export const Divider = styled(DotDivider)`
+  background: ${theme('footer.text')};
+`
+export const VersionWrapper = styled.div`
+  ${cs.flex('align-both')};
+  margin-top: 10px;
 `

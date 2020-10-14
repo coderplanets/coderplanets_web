@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { theme, cs } from '@/utils'
-import { getPadding } from './metrics'
+import { getPadding } from '../metrics'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center', 'justify-between')};

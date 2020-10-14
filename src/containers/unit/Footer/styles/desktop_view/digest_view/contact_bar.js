@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { cs } from '@/utils'
 
-import { getPadding } from '../metrics'
+import { getPadding } from '../../metrics'
 
 export const Wrapper = styled.footer`
   ${cs.flexColumn('align-center')};

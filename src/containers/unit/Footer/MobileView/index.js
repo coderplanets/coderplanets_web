@@ -1,44 +1,36 @@
 import React from 'react'
 
-import { GITHUB_WEB_ADDR, ISSUE_ADDR } from '@/config'
-import { ROUTE } from '@/constant'
-import DotDivider from '@/components/DotDivider'
+import { ICON_BASE } from '@/config'
 
 import {
+  Wrapper,
+  SiteWrapper,
+  SiteLogo,
+  SiteTitle,
   SiteInfoWrapper,
-  LinkInfoWrapper,
   Item,
-  ItemBtn,
+  Divider,
+  VersionWrapper,
 } from '../styles/mobile_view'
 
 const MobileView = () => (
-  <>
-    <LinkInfoWrapper>
-      <ItemBtn as="a" href={`/${ROUTE.DISCOVERY}`} rel="noopener noreferrer">
-        所有社区-
-      </ItemBtn>
-      <DotDivider radius="4px" />
-      <ItemBtn>切换主题</ItemBtn>
-    </LinkInfoWrapper>
+  <Wrapper>
+    <SiteWrapper>
+      <SiteLogo src={`${ICON_BASE}/site_logo.svg`} />
+      <SiteTitle>coderplanets</SiteTitle>
+    </SiteWrapper>
 
     <SiteInfoWrapper>
-      <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
-        关于本站
-      </Item>
-      <DotDivider space="10px" radius="4px" />
-      <Item
-        href={`${GITHUB_WEB_ADDR}`}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        源代码
-      </Item>
-      <DotDivider space="10px" radius="4px" />
-      <Item href={`${ISSUE_ADDR}`} rel="noopener noreferrer" target="_blank">
-        反馈与建议
-      </Item>
+      <Item>关于本站</Item>
+      <Divider space="8px" radius="3px" />
+      <Item>用户反馈</Item>
+      <Divider space="8px" radius="3px" />
+      <Item>打赏赞助</Item>
     </SiteInfoWrapper>
-  </>
+    <VersionWrapper>
+      <Item>v1.0.3</Item>
+    </VersionWrapper>
+  </Wrapper>
 )
 
 export default React.memo(MobileView)
