@@ -24,7 +24,7 @@ let BottomBar = null
 
 const ModeLineContainer = ({ modeLine: store }) => {
   useInit(store)
-  const { showTop, viewing } = store
+  const { showTop, viewing, activeMenu } = store
   // viewing: { community, activeThread },
 
   const { mobile } = useMedia()
@@ -37,7 +37,7 @@ const ModeLineContainer = ({ modeLine: store }) => {
   return (
     <React.Fragment>
       <TopBar visiable={showTop} viewing={viewing} />
-      {BottomBar && mobile && <BottomBar />}
+      {BottomBar && mobile && <BottomBar activeMenu={activeMenu} />}
     </React.Fragment>
   )
 }

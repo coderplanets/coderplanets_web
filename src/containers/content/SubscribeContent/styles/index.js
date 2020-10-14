@@ -18,7 +18,6 @@ export const InnerWrapper = styled.div`
   ${cs.flex('align-start')}
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: ${() => cs.media.laptopLPadding};
-  margin-top: 6%;
   width: 100%;
   color: ${theme('thread.articleDigest')};
 `

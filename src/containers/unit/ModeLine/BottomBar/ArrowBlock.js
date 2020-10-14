@@ -13,14 +13,13 @@ import {
   MenuArrowShape,
   ArrowShapeLeft,
 } from '../styles/bottom_bar/arrow_block'
-import { openGlobalMenu } from '../logic'
 
-export const MenuBlock = () => {
+export const MenuBlock = ({ active, onClick }) => {
   const bgColor = '#071f27'
 
   return (
-    <MenuWrapper bgColor={bgColor} onClick={openGlobalMenu}>
-      <MenuLogo src={`${ICON}/shape/more-3.svg`} />
+    <MenuWrapper bgColor={bgColor} onClick={onClick}>
+      <MenuLogo src={`${ICON}/shape/more-3.svg`} active={active} />
       <MenuArrowShape bgColor={bgColor} />
     </MenuWrapper>
   )
@@ -29,7 +28,7 @@ export const MenuBlock = () => {
 export const CommunityBlock = () => {
   const bgColor = '#194d5f'
   const activeBgColor = '#196f70'
-  const isSubscribed = true
+  const isSubscribed = false
 
   return (
     <CommunityWrapper bgColor={isSubscribed ? activeBgColor : bgColor}>

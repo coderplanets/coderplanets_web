@@ -20,16 +20,16 @@ import {
   VideoEditor,
   RepoEditor,
   // utils
-  StateTree,
   C11NSettingPanel,
 } from '../dynamics'
 
 import PlaceHolder from './PlaceHolder'
 
 import { Wrapper } from '../styles/content'
+import { getMobileContentHeight } from '../styles/metrics'
 import { closeDrawer } from '../logic'
 
-const renderContent = (type, root, attachment, attUser, mmType) => {
+const renderContent = (type, attachment, attUser, mmType) => {
   switch (type) {
     case TYPE.DRAWER.ACCOUNT_VIEW:
       return <AccountViewer />
@@ -80,9 +80,6 @@ const renderContent = (type, root, attachment, attUser, mmType) => {
     case TYPE.DRAWER.MAILS_VIEW:
       return <MailsViewer />
 
-    case TYPE.DRAWER.ROOT_STORE:
-      return <StateTree json={root.toJSON()} />
-
     case TYPE.DRAWER.C11N_SETTINGS:
       return <C11NSettingPanel />
 
@@ -94,21 +91,26 @@ const renderContent = (type, root, attachment, attUser, mmType) => {
   }
 }
 
-const Content = ({ type, root, attachment, attUser, mmType }) => {
+const Content = ({ options, type, attachment, attUser, mmType }) => {
   const { mobile } = useMedia()
 
   if (mobile) {
     return (
-      <Wrapper>
-        {renderContent(type, root, attachment, attUser, mmType)}
-      </Wrapper>
+      <CustomScroller
+        direction="vertical"
+        height={`calc(${getMobileContentHeight(options)} - 30px)`}
+        showShadow={false}
+        autoHide
+      >
+        <Wrapper>{renderContent(type, attachment, attUser, mmType)}</Wrapper>
+      </CustomScroller>
     )
   }
 
   return (
     <Wrapper>
       <CustomScroller direction="vertical" height="100vh" shadowSize="small">
-        <div>{renderContent(type, root, attachment, attUser)}</div>
+        <div>{renderContent(type, attachment, attUser)}</div>
       </CustomScroller>
     </Wrapper>
   )

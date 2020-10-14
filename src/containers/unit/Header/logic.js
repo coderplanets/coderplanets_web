@@ -27,9 +27,6 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const previewState = () =>
-  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.ROOT_STORE })
-
 export const previewAccount = () =>
   send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.ACCOUNT_VIEW })
 

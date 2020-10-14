@@ -14,8 +14,9 @@ export const Wrapper = styled.div.attrs((props) => ({
   width: 100%;
   height: 28px;
   background: #0e3b4a;
-  z-index: 1;
-  box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
+  z-index: ${cs.zIndex.modeLine};
+  box-shadow: ${({ isMenuActive }) =>
+    !isMenuActive ? '' : '-5px 6px 37px -8px rgba(0, 0, 0, 0.42)'};
 `
 export const ItemsWrapper = styled.div`
   ${cs.flex('justify-between', 'align-center')};
@@ -28,8 +29,8 @@ export const ItemsWrapper = styled.div`
   margin-left: 30px;
   margin-right: 30px;
 `
-export const ItemIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
+export const MenuIcon = styled(Img)`
+  fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
   width: 15px;
   height: 15px;
 

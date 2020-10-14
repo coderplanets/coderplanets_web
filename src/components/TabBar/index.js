@@ -22,7 +22,6 @@ const TabBar = (props) => {
   const curMedia = mobile ? VIEW.MOBILE : VIEW.DESKTOP
   const curView = view === 'auto' ? curMedia : view
 
-  console.log('props: ', props)
   switch (curView) {
     case VIEW.DESKTOP: {
       return <DesktopView {...props} />

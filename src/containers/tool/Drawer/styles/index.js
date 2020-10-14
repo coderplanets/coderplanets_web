@@ -20,7 +20,7 @@ export const DrawerOverlay = styled.div`
   position: fixed;
   height: 100%;
   right: 0;
-  z-index: ${cs.zIndex.previewOverlay};
+  z-index: ${cs.zIndex.drawerOverlay};
   top: 0;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `

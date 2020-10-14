@@ -83,7 +83,6 @@ const DrawerStore = T.model('DrawerStore', {
   windowWidth: T.optional(T.number, 1520),
   type: T.maybeNull(
     T.enumeration('previewType', [
-      TYPE.DRAWER.ROOT_STORE,
       // account
       TYPE.DRAWER.ACCOUNT_VIEW,
       TYPE.DRAWER.USER_VIEW,
@@ -187,7 +186,6 @@ const DrawerStore = T.model('DrawerStore', {
       if (self.media.mobile) {
         toggleGlobalBlur(false)
       }
-      // self.type = TYPE.DRAWER.ROOT_STORE
     },
     mark(sobj) {
       markStates(sobj, self)

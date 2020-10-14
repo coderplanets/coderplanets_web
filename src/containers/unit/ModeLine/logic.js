@@ -2,18 +2,49 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { TYPE, EVENT } from '@/constant'
-import { send, buildLog, thread2Subpath } from '@/utils'
+import { send, buildLog, thread2Subpath, asyncSuit } from '@/utils'
 // import S from './service'
 
+const { SR71, $solver, asyncRes } = asyncSuit
+
+const sr71$ = new SR71({
+  receive: [EVENT.DRAWER_CLOSED],
+})
+
+let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ModeLine')
 
+export const tabOnChange = (activeThread) => {
+  const subPath = thread2Subpath(activeThread)
+  // log('EVENT.activeThread -----> ', activeThread)
+  // log('EVENT.subPath -----> ', subPath)
+
+  store.markRoute({ subPath })
+  store.setViewing({ activeThread })
+
+  send(EVENT.THREAD_CHANGE, { data: { activeThread, topic: subPath } })
+}
+
+export const openMenu = (activeMenu) => {
+  store.mark({ activeMenu })
+  switch (activeMenu) {
+    case TYPE.MM_TYPE.GLOBAL_MENU: {
+      return openGlobalMenu()
+    }
+
+    default: {
+      return openMoreMenu()
+    }
+  }
+}
+
 /**
  * open global navi menu on mobile
  */
-export const openGlobalMenu = () => {
+const openGlobalMenu = () => {
   send(EVENT.DRAWER_OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.GLOBAL_MENU,
@@ -27,7 +58,7 @@ export const openGlobalMenu = () => {
 /**
  * open more menu on mobile
  */
-export const openMoreMenu = () => {
+const openMoreMenu = () => {
   send(EVENT.DRAWER_OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.MORE,
@@ -37,26 +68,27 @@ export const openMoreMenu = () => {
     },
   })
 }
-
-export const tabOnChange = (activeThread) => {
-  const subPath = thread2Subpath(activeThread)
-  // log('EVENT.activeThread -----> ', activeThread)
-  // log('EVENT.subPath -----> ', subPath)
-
-  store.markRoute({ subPath })
-  store.setViewing({ activeThread })
-
-  send(EVENT.THREAD_CHANGE, { data: { activeThread, topic: subPath } })
-}
-
 // ###############################
 // init & uninit handlers
 // ###############################
+
+const DataSolver = [
+  {
+    match: asyncRes(EVENT.DRAWER_CLOSED),
+    action: () => store.mark({ activeMenu: '' }),
+  },
+]
 
 export const useInit = (_store) => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)
-    // return () => store.reset()
+    sub$ = sr71$.data().subscribe($solver(DataSolver, []))
+
+    return () => {
+      store.mark({ activeMenu: '' })
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
   }, [_store])
 }
