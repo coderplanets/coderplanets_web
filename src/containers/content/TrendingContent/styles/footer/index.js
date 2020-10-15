@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 100%;
   min-height: 160px;
   color: ${theme('thread.articleTitle')};
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 `
 
 const Block = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   padding: 16px;
   padding-right: 10px;
   background: ${theme('haveADrinkPage.bg')};
@@ -32,7 +32,7 @@ export const ContributorBlock = styled(Block)`
   width: calc(100% - 500px);
 `
 export const ContributorsWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-top: -35px;
 `
 export const Avatar = styled(Img)`

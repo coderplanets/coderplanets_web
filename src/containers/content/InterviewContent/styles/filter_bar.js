@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   margin-top: 12px;
@@ -25,7 +25,7 @@ export const CatTitle = styled.div`
   margin-bottom: 10px;
 `
 export const Option = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   font-size: 14px;
   padding: 6px;
   background: ${({ active }) => (active ? '#08323e' : 'transparent')};

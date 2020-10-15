@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 100%;
 `
 export const BannerWrapper = styled.div`
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   height: 130px;
   padding: 0 30px;
   border-radius: 6px;
@@ -26,7 +26,7 @@ export const IconBlock = styled.div`
   display: block;
 `
 export const Intro = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
   margin-top: -20px;
 `
 export const Title = styled.div`
@@ -40,7 +40,7 @@ export const Desc = styled.div`
 `
 export const ThreadWrapper = styled.div`
   position: absolute;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   height: 20px;
   bottom: 5px;
 `
@@ -48,7 +48,7 @@ export const ThreadItem = styled.div`
   margin-right: 32px;
 `
 export const FeedWrapper = styled.div`
-  ${cs.flexColumn('align-start')}
+  ${css.flexColumn('align-start')}
   margin-top: 10px;
   padding: 20px 30px;
 `

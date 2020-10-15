@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
   flex-warp: wrap;
 `
 export const Builder = styled.div``
@@ -21,7 +21,7 @@ export const Avatar = styled(Img)`
   }
 `
 export const PopoverInfo = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   padding: 10px;
   padding-bottom: 5px;
 `

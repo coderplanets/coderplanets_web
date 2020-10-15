@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 16px;
   padding: 15px;
   padding-left: 20px;
@@ -15,11 +15,11 @@ export const Wrapper = styled.div`
 `
 // filter: blur(3px);
 export const CommentWrapper = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
 export const CommentBodyInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 100%;
   margin-top: 3px;
 `
@@ -42,7 +42,7 @@ export const ReplyIcon = styled(Img)`
 `
 
 export const ReplyAction = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('comment.action')};
   margin-right: 12px;
   cursor: pointer;

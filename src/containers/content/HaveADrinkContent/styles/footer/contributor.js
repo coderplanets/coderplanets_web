@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow('align-both')}
+  ${css.flexGrow('align-both')}
   color: ${theme('thread.articleDigest')};
   opacity: 0;
   width: 40%;

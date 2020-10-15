@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 import { getMaxWidth, getPadding } from '../metrics/top_bar'
 
@@ -9,7 +9,7 @@ export const WrapperBase = styled.header.attrs((props) => ({
 }))`
   z-index: 2;
   width: 100%;
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   background: ${theme('header.bg')};
   opacity: 1;
   border-bottom: ${({ noBorder }) => (noBorder ? 'none' : '1px solid')};
@@ -18,7 +18,7 @@ export const WrapperBase = styled.header.attrs((props) => ({
   box-shadow: ${({ noBorder }) => (noBorder ? 'none' : theme('drawer.shadow'))};
 `
 export const InnerWrapperBase = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   /* max-width: ${({ type }) => getMaxWidth(type)}; */
   padding: ${({ type, layout }) => getPadding(type, layout)};
   width: 100%;
@@ -26,9 +26,9 @@ export const InnerWrapperBase = styled.div`
   transition: all 0.2s;
 `
 export const Wrapper = styled.div`
-  ${cs.flex('justify-start')};
+  ${css.flex('justify-start')};
   position: fixed;
-  z-index: ${cs.zIndex.header};
+  z-index: ${css.zIndex.header};
   top: ${({ visiable }) => (visiable ? '0' : '-33px')};
   width: 100%;
   /* TODO: move namespace to modeline */
@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
   transition-delay: 1s;
 `
 export const InnerWrapper = styled(InnerWrapperBase)`
-  ${cs.flex('align-center', 'space-between')};
+  ${css.flex('align-center', 'space-between')};
 `
 export const TabsWrapper = styled.div`
   flex-grow: 1;

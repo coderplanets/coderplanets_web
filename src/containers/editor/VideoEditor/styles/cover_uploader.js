@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, animate, cs } from '@/utils'
+import { theme, animate, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
 
   height: 200px;
   width: 100%;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   padding: 0 10px;
 `
 export const Thumbnil = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   align-self: center;
 
   position: relative;
@@ -26,7 +26,7 @@ export const Thumbnil = styled.div`
   }
 `
 export const Poster = styled.div`
-  ${cs.flexColumnGrow('align-both')};
+  ${css.flexColumnGrow('align-both')};
   height: 200px;
   position: relative;
   margin-left: 10px;
@@ -35,7 +35,7 @@ export const Poster = styled.div`
   border-color: ${theme('form.label')};
 `
 export const UploaderLabel = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   &:hover {
     cursor: pointer;
   }

@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 100%;
   color: ${theme('thread.articleTitle')};
 `
 export const Block = styled.div`
-  ${cs.flex('align-start')};
+  ${css.flex('align-start')};
   color: ${theme('thread.articleDigest')};
   height: auto;
   padding-bottom: 0;

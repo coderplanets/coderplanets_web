@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   min-height: 70vh;
   width: 100%;
 
-  ${cs.media.tablet`
+  ${css.media.tablet`
     width: 100%;
     margin: 0;
     padding: .6em;
@@ -31,14 +31,14 @@ export const InnerWrapper = styled.div`
   border-color: ${theme('content.border')};
   border-radius: 6px;
 
-  ${cs.media.laptopL`
+  ${css.media.laptopL`
     margin: 0 4.2%;
     margin-left: ${({ cardView }) => (cardView ? '2.5%' : '4.2%')};
     margin-top: 20px;
     padding-top: 8px;
   `};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin: 0 3%;
     margin-left: 2%;
     margin-top: 0px;

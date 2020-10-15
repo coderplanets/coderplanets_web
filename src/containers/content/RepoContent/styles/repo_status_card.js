@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   min-height: 100px;
@@ -12,12 +12,12 @@ export const Wrapper = styled.div`
   background: ${theme('drawer.articleBg')};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 15px;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 100%;
   `};
 `
 export const ReleaseWrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
 `
 export const ReleaseTag = styled.div`
   color: ${theme('banner.title')};

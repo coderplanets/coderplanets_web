@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Input from '@/components/Input'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')}
+  ${css.flex('align-center')}
   position: relative;
   width: 85%;
   margin-bottom: 18px;

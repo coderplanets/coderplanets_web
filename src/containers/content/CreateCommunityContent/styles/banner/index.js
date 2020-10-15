@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
 
   position: relative;
   min-height: 170px;

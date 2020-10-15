@@ -3,26 +3,26 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import DotDivider from '@/components/DotDivider'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.footer`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 15px;
 `
 export const InnerWrapper = styled.div`
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: ${css.MAX_CONTENT_WIDTH};
   width: 100%;
-  padding: ${() => cs.media.laptopLPadding};
+  padding: ${() => css.media.laptopLPadding};
 `
 export const MainInfos = styled.footer`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   align-items: ${({ center }) => (center ? 'center' : 'flex-start')};
   margin-bottom: 20px;
-  ${cs.media.tablet`display: none;`};
+  ${css.media.tablet`display: none;`};
 `
 export const CenterLogosWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   margin-left: 70px;
   margin-right: 70px;
 `
@@ -61,7 +61,7 @@ export const Support = styled.div`
   }
 `
 export const BaseInfo = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const Divider = styled.div`
   margin-left: 12px;

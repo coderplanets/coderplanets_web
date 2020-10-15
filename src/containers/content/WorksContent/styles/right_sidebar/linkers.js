@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
   width: 100%;
   color: ${theme('thread.articleDigest')};
   min-height: 172px;
@@ -17,7 +17,7 @@ export const Header = styled.div`
   margin-left: 5px;
 `
 export const LinkCardWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 10px;
   padding: 8px 5px;
   background: #0b2f3a;
@@ -31,11 +31,11 @@ export const LinkCardWrapper = styled.div`
   transition: all 0.25s;
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('24px')};
+  ${css.circle('24px')};
   display: block;
 `
 export const Digest = styled.div`
-  ${cs.flexColumnGrow('align-start')};
+  ${css.flexColumnGrow('align-start')};
   margin-left: 10px;
 `
 export const Title = styled.div`

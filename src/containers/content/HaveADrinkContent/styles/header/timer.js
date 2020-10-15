@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow('align-both')}
+  ${css.flexGrow('align-both')}
   width: 20%;
   padding-left: 6px;
 `
@@ -12,7 +12,7 @@ export const SettingPanelWrapper = styled.div`
   width: 120px;
 `
 export const SettingItem = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
   margin-bottom: 4px;
 

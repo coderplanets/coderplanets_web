@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
   position: relative;
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
   color: ${theme('thread.articleDigest')};
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 `
 export const IntroTitle = styled.div`
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   margin-bottom: 20px;
@@ -50,7 +50,7 @@ export const StepHint = styled.div`
 `
 export const NextBtn = styled.div`
   position: absolute;
-  ${cs.flex('align-center', 'justify-around')};
+  ${css.flex('align-center', 'justify-around')};
   width: 200px;
   bottom: 5px;
   margin-left: -2px;

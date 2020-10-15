@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, animate, cs } from '@/utils'
+import { theme, animate, css } from '@/utils'
 
 export const DeleteHintText = styled.div`
   color: ${theme('baseColor.error')};
@@ -8,7 +8,7 @@ export const DeleteHintText = styled.div`
   margin-bottom: 10px;
 `
 export const DeleteOverlay = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
 
   position: absolute;
   margin-top: -15px;
@@ -21,5 +21,5 @@ export const DeleteOverlay = styled.div`
   animation: ${animate.pulse} 0.4s linear;
 `
 export const DeleteBtnGroup = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `

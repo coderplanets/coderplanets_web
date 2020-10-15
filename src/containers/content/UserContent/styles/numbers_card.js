@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-around')};
+  ${css.flex('justify-around')};
   color: ${theme('thread.articleDigest')};
 `
 export const Divider = styled.div`
@@ -11,7 +11,7 @@ export const Divider = styled.div`
   opacity: 0.4;
 `
 export const NumWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   text-align: center;
 `
 export const RepTitle = styled.div`

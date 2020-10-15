@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 import { Block } from './index'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-grow: 1;
   min-height: 200px;
   padding: 0 25px;
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   transition: all 0.25s;
 `
 export const Main = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   flex-grow: 1;
 `
 export const VersionTag = styled.div`
@@ -28,7 +28,7 @@ export const VersionTag = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const PublishInfo = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 8px;
 `
 export const DateText = styled.div`

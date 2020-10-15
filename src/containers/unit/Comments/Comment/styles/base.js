@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const ReplyBarBase = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('comment.reply')};
   background: ${theme('comment.replyBg')};
   border-radius: 3px;
@@ -19,10 +19,10 @@ export const ReplyToBodyBase = styled.span`
   flex-grow: 1;
   font-style: italic;
 
-  ${cs.cutFrom('350px')};
+  ${css.cutFrom('350px')};
 
-  ${cs.media.mobile`
-    ${cs.cutFrom('120px')};
+  ${css.media.mobile`
+    ${css.cutFrom('120px')};
   `};
 `
 export const ReplyToFloorBase = styled.div`

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center', 'justify-end')};
+  ${css.flex('align-center', 'justify-end')};
   width: 40%;
   color: ${theme('thread.articleDigest')};
 `

@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const OptionWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 10px;
 `
 export const OptionItem = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 4px;
   font-size: 0.9rem;
   color: ${theme('banner.desc')};

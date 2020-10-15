@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -9,18 +9,18 @@ export const Wrapper = styled.div`
   overflow: hidden;
 `
 export const IntroWrapper = styled.div`
-  ${cs.flex('justify-around', 'align-center')};
+  ${css.flex('justify-around', 'align-center')};
   background: #01262f;
   position: absolute;
   width: 100%;
   height: 100%;
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: ${css.MAX_CONTENT_WIDTH};
   padding: 0 8vw;
   padding-left: 7vw;
   z-index: 1;
 `
 export const BrandWrapper = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
   /* width: 45%; */
   margin-top: -30px;
   z-index: 2;

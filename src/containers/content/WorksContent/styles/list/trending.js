@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 100%;
 `
 export const Header = styled.div`
-  ${cs.flex('align-end', 'justify-between')};
+  ${css.flex('align-end', 'justify-between')};
   margin-bottom: 12px;
   margin-top: -4px;
 `
