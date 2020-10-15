@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleLink')};
   margin-left: 10px;
   opacity: 0.8;
@@ -27,5 +27,5 @@ export const LogoIcon = styled(Img)`
 `
 
 export const Text = styled.div`
-  ${cs.media.mobile`display: none`};
+  ${css.media.mobile`display: none`};
 `

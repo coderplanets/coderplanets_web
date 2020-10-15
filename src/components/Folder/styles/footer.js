@@ -1,21 +1,21 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   cursor: pointer;
 `
 export const Title = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleTitle')};
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 3px;
 `
 export const Intro = styled.div`
-  ${cs.flex('justify-between', 'align-center')};
+  ${css.flex('justify-between', 'align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
 `

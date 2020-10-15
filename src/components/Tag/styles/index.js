@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   font-size: 14px;
   font-variant: tabular-nums;
   line-height: 1.5;

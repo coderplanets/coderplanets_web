@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   color: #196780;
   height: 60px;
   width: 100%;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   margin-right: ${({ margin: { right } }) => right};
 `
 export const EmptyWrapper = styled(Wrapper)`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
 `
 export const BottomMsg = styled.div`
   font-size: 1.1rem;

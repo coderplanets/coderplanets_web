@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center', 'justify-start')};
+  ${css.flex('align-center', 'justify-start')};
   height: 30px;
   border-radius: 5px;
   padding: 0 2px;
