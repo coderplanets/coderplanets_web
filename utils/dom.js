@@ -1,4 +1,4 @@
-import { TYPE } from '@/constant'
+import { TYPE, ANCHOR } from '@/constant'
 // side effects, need refactor
 /* eslint-disable no-undef */
 const hasDocument = typeof document === 'object' && document !== null
@@ -123,7 +123,7 @@ export const hideDoraemonBarRecover = () => {
  * @param {boolean} visible
  */
 export const toggleGlobalBlur = (visible) => {
-  const blurableEls = document.querySelectorAll(`.${TYPE.GLOBAL_BLUR_CLASS}`)
+  const blurableEls = document.querySelectorAll(`.${ANCHOR.GLOBAL_BLUR_CLASS}`)
 
   if (blurableEls) {
     for (let index = 0; index < blurableEls.length; index += 1) {
@@ -136,7 +136,7 @@ export const toggleGlobalBlur = (visible) => {
 
 // make global blur more clear, not still blur
 export const clearGlobalBlur = () => {
-  const blurableEls = document.querySelectorAll(`.${TYPE.GLOBAL_BLUR_CLASS}`)
+  const blurableEls = document.querySelectorAll(`.${ANCHOR.GLOBAL_BLUR_CLASS}`)
 
   if (blurableEls) {
     for (let index = 0; index < blurableEls.length; index += 1) {
