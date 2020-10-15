@@ -12,6 +12,7 @@ export { default as GUIDE } from './guide'
 export { default as RECIPE } from './recipe'
 export { default as GALLERY } from './gallery'
 export { default as VIEW } from './view'
+export { default as ANCHOR } from './anchor'
 
 export { PAYMENT_USAGE, PAYMENT_METHOD } from './payment'
 
