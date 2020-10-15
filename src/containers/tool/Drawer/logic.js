@@ -91,10 +91,7 @@ export const toggleSwipeAviliable = (type, bool) => {
   }
 }
 
-export const resetSwipeAviliable = () => {
-  store.mark({ swipeDownAviliable: true })
-  store.mark({ swipeUpAviliable: true })
-}
+export const resetSwipeAviliable = () => store.resetSwipeAviliable()
 
 const DataResolver = [
   {
