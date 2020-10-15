@@ -34,21 +34,32 @@ const VerticalScroller = ({
   autoHide,
   showOnHover,
   withBorder,
+  onTopEnter,
+  onTopLeave,
+  onBottomEnter,
+  onBottomLeave,
 }) => {
   const [showTopShadow, setShowTopShadow] = useState(false)
   const [showBottomShadow, setShowBottomShadow] = useState(true)
 
-  const handleShowTopShadow = useCallback(() => setShowTopShadow(true), [])
-  const handleHideTopShadow = useCallback(() => setShowTopShadow(false), [])
+  const handleShowTopShadow = useCallback(() => {
+    setShowTopShadow(true)
+    onTopLeave?.()
+  }, [onTopLeave])
+  const handleHideTopShadow = useCallback(() => {
+    setShowTopShadow(false)
+    onTopEnter?.()
+  }, [onTopEnter])
 
-  const handleShowBottomShadow = useCallback(
-    () => setShowBottomShadow(true),
-    [],
-  )
-  const handleHideBottomShadow = useCallback(
-    () => setShowBottomShadow(false),
-    [],
-  )
+  const handleShowBottomShadow = useCallback(() => {
+    setShowBottomShadow(true)
+    onBottomLeave?.()
+  }, [onBottomLeave])
+
+  const handleHideBottomShadow = useCallback(() => {
+    setShowBottomShadow(false)
+    onBottomEnter?.()
+  }, [onBottomEnter])
 
   const {
     _meta: { category: themeCategory },
@@ -109,6 +120,10 @@ VerticalScroller.propTypes = {
   autoHide: T.bool,
   showOnHover: T.bool,
   withBorder: T.bool,
+  onTopEnter: T.oneOfType([T.func, T.instanceOf(null)]),
+  onTopLeave: T.oneOfType([T.func, T.instanceOf(null)]),
+  onBottomEnter: T.oneOfType([T.func, T.instanceOf(null)]),
+  onBottomLeave: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
 VerticalScroller.defaultProps = {
@@ -120,6 +135,10 @@ VerticalScroller.defaultProps = {
   autoHide: true,
   showOnHover: false,
   withBorder: false,
+  onTopEnter: null,
+  onTopLeave: null,
+  onBottomEnter: null,
+  onBottomLeave: null,
 }
 
 export default React.memo(VerticalScroller)
