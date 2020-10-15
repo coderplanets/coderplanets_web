@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 import { CommonNavi, CommonHint, CommonCenterArrowIcon } from '../index'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: #196780;
 
   opacity: ${({ disabled }) => (disabled ? '0.6' : '1')};
@@ -20,7 +20,7 @@ export const Icon = styled(CommonCenterArrowIcon)`
   }
 `
 export const NaviInfo = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   margin-right: 10px;
 
   ${Wrapper}:hover & {
