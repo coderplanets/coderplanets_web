@@ -1,4 +1,4 @@
-import { TYPE, ANCHOR } from '@/constant'
+import { ANCHOR } from '@/constant'
 // side effects, need refactor
 /* eslint-disable no-undef */
 const hasDocument = typeof document === 'object' && document !== null
@@ -43,8 +43,8 @@ export const scrollIntoEle = (eleID) => {
   }
 }
 
-export const scrollToHeader = () => scrollIntoEle(TYPE.APP_HEADER_ID)
-export const scrollToTabber = () => scrollIntoEle(TYPE.APP_TABBER_ID)
+export const scrollToHeader = () => scrollIntoEle(ANCHOR.GLOBAL_HEADER_ID)
+export const scrollToTabber = () => scrollIntoEle(ANCHOR.GLOBAL_TABBER_ID)
 
 /**
  * froze page's body element
