@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center', 'justify-start')};
+  ${css.flexColumn('align-center', 'justify-start')};
   color: #7d8f90;
   padding: 20px 10px;
   padding-left: 25px;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 `
 
 export const Block = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
   width: 80px;
   height: 80px;
   margin-bottom: 10px;

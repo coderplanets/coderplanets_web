@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const AvatarWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-right: 12px;
 `
 export const Avatar = styled(Img)`
@@ -21,11 +21,11 @@ export const Avatar = styled(Img)`
   cursor: ${({ hover }) => (hover ? 'pointer' : 'default')};
 `
 export const BriefTextWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-left: 10px;
 `
 export const UserTitle = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   font-size: 1.2rem;
   color: ${theme('banner.title')};
   margin-bottom: 5px;
@@ -61,13 +61,13 @@ export const DescIconLabel = styled(Img)`
   display: block;
 `
 export const BackgroundDivider = styled.div`
-  ${cs.circle('5px')};
+  ${css.circle('5px')};
   background: ${theme('banner.desc')};
   margin-left: 4px;
   margin-right: 4px;
 `
 export const BackgroundItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const BackgroundDetailItem = styled(BackgroundItem)`
   margin-bottom: 8px;

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs, animate } from '@/utils'
+import { theme, css, animate } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-left: 5px;
 `
 export const ErrorIcon = styled(Img)`
@@ -16,7 +16,7 @@ export const ErrorIcon = styled(Img)`
   animation: ${animate.breath} 1.5s linear infinite;
 `
 export const Info = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 // color: ${theme('thread.articleTitle')};
 export const Title = styled.div`

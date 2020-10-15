@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import { BaseBar } from './index'
 
 export const Wrapper = styled(BaseBar)`
-  ${cs.flex()};
+  ${css.flex()};
   position: relative;
   padding: 10px;
 `
@@ -20,7 +20,7 @@ export const WarningIcon = styled(Img)`
 `
 
 export const Info = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 
 export const Title = styled.div`

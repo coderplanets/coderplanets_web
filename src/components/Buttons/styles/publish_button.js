@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 // see example: https://codepen.io/mydearxym2/pen/qBEvvpo
 
@@ -18,7 +18,7 @@ const commonHoverAffix = `
 
 export const Wrapper = styled.div`
   position: relative;
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   width: 180px;
   height: 32px;
   background-color: #3680ad; /* 消失的时候背景色 */
@@ -66,7 +66,7 @@ export const Wrapper = styled.div`
   }
 `
 export const Label = styled.span`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   padding-left: 16px;
   padding-right: 16px;
   position: absolute;
@@ -90,7 +90,7 @@ export const LabelIcon = styled(Img)`
 `
 export const ActionLink = styled.a`
   position: relative;
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   /* width: 25%; */
   width: 45px;
   /* height: 100%; */

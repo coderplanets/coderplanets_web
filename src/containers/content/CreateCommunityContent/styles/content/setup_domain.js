@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   width: 80%;
   height: 400px;
   border-radius: 6px;

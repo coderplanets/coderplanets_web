@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -14,12 +14,12 @@ export const Wrapper = styled.div`
   padding-top: 2x;
 `
 export const Header = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('thread.articleDigest')};
 `
 // padding: 10px 2px;
 export const Block = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
 
   &:hover {
     cursor: pointer;
@@ -27,10 +27,10 @@ export const Block = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${cs.circle('34px')};
+  ${css.circle('34px')};
 `
 export const Title = styled.div`
-  ${cs.cutFrom('60px')};
+  ${css.cutFrom('60px')};
   text-align: center;
   padding-left: 5px;
   color: ${theme('thread.articleDigest')};

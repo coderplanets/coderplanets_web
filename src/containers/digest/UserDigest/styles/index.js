@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const BannerContainer = styled.nav`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
 
   position: relative;
   min-height: 200px;
@@ -19,17 +19,17 @@ export const BannerContainer = styled.nav`
 `
 
 export const BannerContentWrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   margin-left: 8%;
   margin-right: 8%;
 `
 export const UserBriefWrapper = styled.div`
   width: 60%;
-  ${cs.media.tablet`width: 100%`};
+  ${css.media.tablet`width: 100%`};
 `
 export const UserContributesWrapper = styled.div`
   width: 36%;
   max-width: 450px;
   margin-top: 10px;
-  ${cs.media.tablet`display: none`};
+  ${css.media.tablet`display: none`};
 `

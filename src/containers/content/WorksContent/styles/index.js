@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   min-height: 100vh;
   margin-bottom: 100px;
   margin-top: 30px;
@@ -17,14 +17,14 @@ export const LeftSidebarWrapper = styled.div.attrs((props) => ({
   width: 190px;
 `
 export const ContentWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const InnerContent = styled.div`
   flex-grow: 1;
   margin-bottom: 20px;
 `
 export const PagiInfo = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
 `
 export const PagiInfoTitle = styled.div`
   font-size: 12px;

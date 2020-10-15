@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 const getIconSize = (size) => {
   switch (size) {
@@ -59,7 +59,7 @@ export const Icon = styled(Img)`
   border-radius: ${({ round }) => (round ? '100%' : '0')};
 `
 export const Text = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: ${({ size }) => getTextSize(size)};
 `

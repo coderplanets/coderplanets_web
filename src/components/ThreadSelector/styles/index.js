@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
 `
 export const Label = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   cursor: pointer;
 `
 export const BoxedLabel = styled(Label)`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   cursor: pointer;
   border: 1px solid;
   padding: 0 10px;

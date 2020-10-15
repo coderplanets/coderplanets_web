@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 // import Img from '@/Img'
 import DotDivider from '@/components/DotDivider'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
   min-height: 80px;
   background: ${theme('baseColor.errorBg')};
   border-radius: 5px;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   margin-bottom: 50px;
 `
 export const TitleWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Dot = styled(DotDivider)`
   background-color: ${theme('baseColor.error')};

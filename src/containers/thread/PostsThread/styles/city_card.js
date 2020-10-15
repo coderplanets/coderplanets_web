@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
 
   position: relative;
   padding-top: 12px;
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
     border-color: ${theme('content.cardBorderHover')};
     cursor: pointer;
   }
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 140px;
     height: 200px;
     margin-right: 8px;
@@ -65,7 +65,7 @@ export const ActivitySpark = styled.div`
 `
 
 export const CardFooter = styled.div`
-  ${cs.flex('justify-around')};
+  ${css.flex('justify-around')};
 
   width: 100%;
   position: absolute;

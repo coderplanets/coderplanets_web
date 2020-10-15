@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 20px;
   padding-top: 30px;
 `
@@ -13,13 +13,13 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const IconsWrapper = styled.div`
-  ${cs.flex('justify-around')};
+  ${css.flex('justify-around')};
   margin-top: 20px;
   background: ${theme('bodyBg')};
   padding: 20px 12px;
 `
 export const Site = styled.div`
-  ${cs.flex('')};
+  ${css.flex('')};
 `
 export const SiteIcon = styled(Img)`
   display: block;
@@ -29,7 +29,7 @@ export const SiteIcon = styled(Img)`
 `
 
 export const SiteInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const SiteTitle = styled.div`
   color: ${theme('thread.articleTitle')};

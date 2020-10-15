@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  ${css.flex()};
+  max-width: ${css.MAX_CONTENT_WIDTH};
   width: 100%;
 `
 export const LeftPart = styled.div`
@@ -14,7 +14,7 @@ export const RightPart = styled.div`
   min-width: 200px;
   margin-left: 30px;
   padding-top: 5px;
-  ${cs.media.tablet`display: none;`};
+  ${css.media.tablet`display: none;`};
 `
 
 export const PublisherWrapper = styled.div`
@@ -24,7 +24,7 @@ export const PublisherWrapper = styled.div`
   margin-left: 8%;
 `
 export const FilterWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 8px;
   margin-left: 8px;
 `

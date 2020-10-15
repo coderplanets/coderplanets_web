@@ -14,12 +14,12 @@ import { tabOnChange } from '../logic'
 // different view has different size
 // const METRIC_MAP = {
 //   default: {
-//     maxWidth: cs.MAX_CONTENT_WIDTH,
+//     maxWidth: css.MAX_CONTENT_WIDTH,
 //     padding: '0 6vw',
 //   },
 
 //   article: {
-//     maxWidth: cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH,
+//     maxWidth: css.ARTICLE_PAGE_MAX_CONTENT_WIDTH,
 //     padding: '0 5vw',
 //   },
 // }

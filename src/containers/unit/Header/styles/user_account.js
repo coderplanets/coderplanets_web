@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.media.mobile`
+  ${css.media.mobile`
     padding: 0;
     padding-right: 10px;
   `};
 `
 export const PopMenu = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const MenuItem = styled.div`
   padding: 4px 13px;

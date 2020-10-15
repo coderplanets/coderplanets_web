@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   height: 60px;
   margin-right: 20px;
 `
 export const UserAvatar = styled.img`
-  ${cs.circle('36px')};
+  ${css.circle('36px')};
   fill: ${theme('thread.articleTitle')};
   margin-left: 4%;
   opacity: ${theme('avatarOpacity')};
@@ -27,7 +27,7 @@ export const LeaveResponseUsername = styled.div`
 `
 
 export const RefUsersWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const AtSignIcon = styled(Img)`
   fill: ${theme('comment.username')};

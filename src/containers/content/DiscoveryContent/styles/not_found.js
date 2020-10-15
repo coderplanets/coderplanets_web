@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   flex-wrap: wrap;
 `
 export const SearchValueFocus = styled.span`
@@ -17,7 +17,7 @@ export const SearchValueFocus = styled.span`
   }
 `
 export const EmptyCard = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   position: relative;
   padding-top: 2%;
   width: 500px;

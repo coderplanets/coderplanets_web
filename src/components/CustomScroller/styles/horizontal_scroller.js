@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 import { getShadowBackground, getShadowSize, getScrollbarThin } from './metrics'
 import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'
@@ -15,7 +15,7 @@ export const Wrapper = styled(WrapperBase)`
 export const ScrollWrapper = styled(ScrollWrapperBase)``
 
 export const InnerWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 100%;
   height: ${({ innerHeight }) => innerHeight};
   box-sizing: content-box;

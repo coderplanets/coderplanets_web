@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('20px')};
+  ${css.circle('20px')};
   display: block;
   margin-right: 5px;
   margin-bottom: 6px;

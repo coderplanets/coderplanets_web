@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   align-items: center;
   width: 100%;
 `
@@ -15,7 +15,7 @@ export const LinkSource = styled.div`
   }
 `
 export const MoreWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   cursor: pointer;
 `
 export const MoreIcon = styled(Img)`
@@ -27,7 +27,7 @@ export const MoreIcon = styled(Img)`
   }
 `
 export const LinkFrom = styled.a`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('article.link')};
   margin-left: 5%;
   font-size: 0.9rem;

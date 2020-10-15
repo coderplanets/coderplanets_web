@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   flex-wrap: wrap;
   margin-right: -30px;
 `

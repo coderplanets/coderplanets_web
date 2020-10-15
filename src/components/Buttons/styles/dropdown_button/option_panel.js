@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 100%;
   max-height: 200px;
   overflow: hidden;
 `
 export const Block = styled.div`
-  ${cs.flex('align-start')};
+  ${css.flex('align-start')};
   padding: 8px 15px;
   padding-left: 10px;
   padding-bottom: 8px;
@@ -29,7 +29,7 @@ export const Block = styled.div`
   transition: all 0.25s;
 `
 export const IconWrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   width: 24px;
 `
 export const Icon = styled(Img)`
@@ -44,7 +44,7 @@ export const Icon = styled(Img)`
   transition: opacity 0.25s;
 `
 export const Intro = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-left: 7px;
 `
 export const Title = styled.div`

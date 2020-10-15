@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   width: 20px;
   height: 20px;
   background: ${({ showBg }) => (showBg ? '#114759' : 'transparent')};

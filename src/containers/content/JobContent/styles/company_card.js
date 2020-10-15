@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   min-height: 140px;
   padding: 20px;
   max-width: 300px;
@@ -12,12 +12,12 @@ export const Wrapper = styled.div`
   background: ${theme('drawer.articleBg')};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 15px;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 100%;
   `};
 `
 export const CompanyBrand = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const CompanyLogo = styled(Img)`
   width: 40px;
@@ -26,13 +26,13 @@ export const CompanyLogo = styled(Img)`
   margin-right: 12px;
 `
 export const CompanyLabel = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const HomePage = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
 `
 export const LinkIcon = styled(Img)`
@@ -53,10 +53,10 @@ export const Link = styled.a`
   }
 `
 export const CompanyStates = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const StateLabel = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 10px;
   margin-left: 5px;
 `

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   padding: 20px;
   height: 320px;
 `
@@ -15,7 +15,7 @@ export const QRCodePic = styled(Img)`
   border-radius: 5px;
 `
 export const DescWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-top: 5%;
   color: ${theme('thread.articleDigest')};
   margin-left: 18px;

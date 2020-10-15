@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 100%;
 `
 export const LeftPart = styled.div`
@@ -14,7 +14,7 @@ export const RightPart = styled.div`
   min-width: 200px;
   margin-left: 30px;
   padding-top: 5px;
-  ${cs.media.tablet`display: none`};
+  ${css.media.tablet`display: none`};
 `
 export const PublisherWrapper = styled.div`
   margin-top: 8px;

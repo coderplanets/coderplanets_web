@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 import { Nav as NavBase } from '../index'
 
@@ -23,7 +23,7 @@ export const Nav = styled(NavBase)`
   margin: 0;
 `
 export const MoreWrapper = styled.div`
-  ${cs.flex('align-start', 'justify-end')};
+  ${css.flex('align-start', 'justify-end')};
   position: absolute;
   top: 1px;
   right: 0;

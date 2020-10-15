@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
 `
 export const SocialWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('banner.desc')};
   font-size: 12px;
   /* border: 1px solid; */

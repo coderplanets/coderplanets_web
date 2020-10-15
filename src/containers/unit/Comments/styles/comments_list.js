@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 // min-height: 300px;
 export const ListsContainer = styled.div`
-  ${cs.flexColumn('')};
+  ${css.flexColumn('')};
   border-radius: 4px;
 `
 export const TotalHeader = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 25px;
   margin-bottom: 10px;
 `
@@ -20,7 +20,7 @@ export const ListTitle = styled.div`
   font-size: 14px;
   margin-left: 2px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-left: 18px;
   `};
 `
@@ -31,7 +31,7 @@ export const TotalNum = styled.span`
   margin-right: 2px;
 `
 export const CommentBlock = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 16px;
   padding: 15px;
   padding-left: 20px;

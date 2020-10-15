@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -37,7 +37,7 @@ export const Title = styled.div`
   font-weight: bold;
 `
 export const ListWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
   margin-top: 15px;
 `

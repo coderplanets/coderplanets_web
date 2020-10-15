@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 import { L_MENU_HEIGHT } from './metrics'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   height: ${L_MENU_HEIGHT};
   margin-top: -20px;
 `

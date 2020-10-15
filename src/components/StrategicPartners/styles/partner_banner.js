@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const ItemWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   padding: 8px 0;
 
   &:hover {
@@ -35,7 +35,7 @@ export const Logo = styled(Img)`
   }
 `
 export const PartnerInfo = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
   margin-left: 10px;
 `
 export const Title = styled.div`

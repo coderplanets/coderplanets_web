@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   width: 100%;
   min-height: 120px;
   padding: 0 25px;
@@ -16,7 +16,7 @@ export const Title = styled.div`
   font-size: 14px;
 `
 export const Desc = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-top: 10px;
   margin-bottom: 10px;
 

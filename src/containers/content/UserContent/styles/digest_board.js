@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const CardWrapper = styled.div`
   background: ${theme('drawer.articleBg')};
@@ -12,7 +12,7 @@ export const CardWrapper = styled.div`
   margin-bottom: 15px;
 `
 export const AttachWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   font-size: 0.8rem;
   color: ${theme('banner.desc')};
   margin-left: 10px;

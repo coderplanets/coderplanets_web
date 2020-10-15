@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 const BaseCard = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
 
   position: relative;
   padding-top: 12px;
@@ -70,7 +70,7 @@ export const ActivitySpark = styled.div`
   height: 100%;
 `
 export const Footer = styled.div`
-  ${cs.flex('justify-around')};
+  ${css.flex('justify-around')};
 
   width: 90%;
   position: absolute;

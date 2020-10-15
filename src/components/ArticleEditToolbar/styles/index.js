@@ -3,21 +3,21 @@ import styled from 'styled-components'
 import Input from '@/components/Input'
 
 // import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
 `
 
 export const CopyRightWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const PreviewBtn = styled.div`
   margin-top: -3px;
 `
 
 export const SourceLink = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   width: 60%;
 `
 export const LinkInput = styled(Input)`

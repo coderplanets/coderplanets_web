@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex()};
+  ${css.flex()};
   background: ${theme('thread.bg')};
   width: 100%;
   height: 80vh;

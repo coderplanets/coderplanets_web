@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const TableWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
 `
 // background: ${theme('drawer.articleBg')};
 
 export const UserWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 48%;
   margin-bottom: 10px;
   margin-right: 5px;
@@ -25,39 +25,39 @@ export const UserAvatar = styled(Img)`
   border-radius: 4px;
   display: block;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 30px;
     height: 30px;
 `};
 `
 export const UserBrief = styled.div`
-  ${cs.flexColumnGrow('justify-between')};
+  ${css.flexColumnGrow('justify-between')};
   margin-left: 18px;
 `
 export const Title = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
 
-  ${cs.media.tablet`
-    ${cs.flexColumn('align-start')};
+  ${css.media.tablet`
+    ${css.flexColumn('align-start')};
   `};
 `
 export const Nickname = styled.div`
   font-size: 1rem;
 `
 export const Location = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   margin-left: 10px;
 
-  ${cs.media.tablet`
-    ${cs.cutFrom('80px')};
+  ${css.media.tablet`
+    ${css.cutFrom('80px')};
     margin-left: 0;
     margin-bottom: 3px;
   `};
 
-  ${cs.media.mobile`
-    ${cs.cutFrom('60px')};
+  ${css.media.mobile`
+    ${css.cutFrom('60px')};
     margin-left: 0;
     margin-bottom: 3px;
   `};

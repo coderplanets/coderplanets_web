@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 const activeColor = '#009C9E'
 
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   transition: ${({ active }) => (active ? 'max-height 1s ease' : 'none')};
 `
 export const Item = styled.div`
-  ${cs.flex('justify-end')};
+  ${css.flex('justify-end')};
   fill: ${theme('thread.articleDigest')};
   align-items: center;
   color: ${({ active }) =>

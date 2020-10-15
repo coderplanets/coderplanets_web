@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   margin-bottom: 13px;
 `
 export const CountItem = styled.a`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   color: ${theme('thread.articleTitle')};
   transition: color 0.2s;

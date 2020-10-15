@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 import { Wip } from './index'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
   width: 100%;
   min-height: 90px;
   background: #023a48;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   padding-bottom: 20px;
 `
 export const Entry = styled.a`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   width: 100%;
   margin-bottom: 10px;
   text-decoration: none;
@@ -30,7 +30,7 @@ export const Logo = styled(Img)`
   }
 `
 export const Intro = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-left: 12px;
 `
 export const Title = styled.div`

@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   text-align: center;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-top: -4px;
   `};
 `
 export const NumberSection = styled.div`
-  ${cs.flexColumn('align-end')};
+  ${css.flexColumn('align-end')};
   background-color: ${({ active }) =>
     active ? theme('banner.numberHoverBg') : ''};
 
@@ -24,14 +24,14 @@ export const NumberSection = styled.div`
   }
 `
 export const ContentSection = styled(NumberSection)`
-  ${cs.media.mobile`display: none`};
+  ${css.media.mobile`display: none`};
 `
 export const EditorSection = styled(NumberSection)`
-  ${cs.media.mobile`display: none`};
+  ${css.media.mobile`display: none`};
 `
 export const ChargeSection = styled(NumberSection)`
-  ${cs.flexColumn('align-center', 'justify-between')};
-  ${cs.media.mobile`display: none`};
+  ${css.flexColumn('align-center', 'justify-between')};
+  ${css.media.mobile`display: none`};
 `
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberTitle = styled.div`
@@ -52,9 +52,9 @@ export const NumberDivider = styled.div`
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 3px;
-  ${cs.media.tablet`
+  ${css.media.tablet`
     margin-left: 5px;
     margin-right: 5px;
   `};
-  ${cs.media.mobile`display: none`};
+  ${css.media.mobile`display: none`};
 `

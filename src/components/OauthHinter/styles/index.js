@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, animate, cs } from '@/utils'
+import { theme, animate, css } from '@/utils'
 import Img from '@/Img'
 
 export const Container = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   align-items: center;
 
   height: 100vh;
@@ -23,11 +23,11 @@ export const CPSMdLogo = styled(Img)`
   width: 200px;
 `
 export const IconsWrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
 `
 
 export const TextWrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   margin-top: 15px;
 `
 export const HintTitle = styled.div`
@@ -60,7 +60,7 @@ export const GithubLogoIcon = styled(Img)`
   height: 50px;
 `
 export const HintWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-top: -15%;
   color: ${theme('banner.title')};
 `

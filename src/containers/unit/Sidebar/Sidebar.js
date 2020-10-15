@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 const SideBar = styled.div`
   border-right: 1px solid;
@@ -10,7 +10,7 @@ const SideBar = styled.div`
   width: ${({ open }) => (open ? '256px' : '56px')};
   background: ${theme('sidebar.bg')};
   border-color: ${theme('sidebar.border_color')};
-  z-index: ${cs.zIndex.sidebar};
+  z-index: ${css.zIndex.sidebar};
   overflow-y: scroll;
   overflow-x: hidden;
 

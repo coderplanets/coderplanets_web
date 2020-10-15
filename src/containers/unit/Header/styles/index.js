@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import { getMaxWidth, getPadding } from './metric'
 
@@ -10,7 +10,7 @@ export const Wrapper = styled.header.attrs((props) => ({
 }))`
   z-index: 2;
   width: 100%;
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   background: ${theme('header.bg')};
   opacity: 1;
   border-bottom: ${({ noBorder }) => (noBorder ? 'none' : '1px solid')};
@@ -19,7 +19,7 @@ export const Wrapper = styled.header.attrs((props) => ({
   box-shadow: ${({ noBorder }) => (noBorder ? 'none' : theme('drawer.shadow'))};
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   max-width: ${({ type }) => getMaxWidth(type)};
   padding: ${({ type, layout }) => getPadding(type, layout)};
   width: 100%;
@@ -27,13 +27,13 @@ export const InnerWrapper = styled.div`
   align-items: center;
   transition: all 0.2s;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     padding-right: 0;
     padding-left: 7vw;
   `};
 `
 export const RouterWrapper = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
   height: 100%;
 `
 export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs((props) => ({
@@ -47,7 +47,7 @@ export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs((props) => ({
   margin-right: 12px;
 `
 export const Operations = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Search = styled.div.attrs((props) => ({
   'data-test-id': props.testId,

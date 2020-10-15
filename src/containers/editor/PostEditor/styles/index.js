@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Input from '@/components/Input'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const ViewerWrapper = styled.div`
   display: ${({ active }) => (active ? 'block' : 'none')};
@@ -10,7 +10,7 @@ export const ViewerWrapper = styled.div`
 export const Wrapper = styled.div``
 
 export const Header = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-left: 35px;
   margin-right: 35px;
   padding-top: 15px;
@@ -18,7 +18,7 @@ export const Header = styled.div`
 `
 
 export const SourceLink = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   width: 60%;
 `
 export const LinkInput = styled(Input)`

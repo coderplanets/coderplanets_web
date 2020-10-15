@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   position: absolute;
   bottom: -40px;
   left: 0;
-  ${cs.flex('justify-between', 'align-center')};
+  ${css.flex('justify-between', 'align-center')};
   background: ${theme('drawer.articleBg')};
   padding-left: 16px;
   padding-right: 15px;
@@ -20,11 +20,11 @@ export const Wrapper = styled.div`
   box-shadow: ${theme('drawer.shadow')};
 `
 export const AuthorInfo = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: -6px;
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('26px')};
+  ${css.circle('26px')};
   display: block;
 `
 export const Name = styled.div`

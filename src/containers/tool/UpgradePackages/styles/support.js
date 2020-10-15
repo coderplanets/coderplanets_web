@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const PkgItem = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 5px;
 `
 export const PkgItemTitle = styled.div`

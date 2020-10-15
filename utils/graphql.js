@@ -5,11 +5,11 @@ import { GRAPHQL_ENDPOINT, PAGE_SIZE } from '@/config'
 import { nilOrEmpty, isString } from './validator'
 
 export const asyncRes = curry((key, obj) => and(obj[key], has(key, obj)))
-export const asyncErr = key => pathEq(['error'], key)
+export const asyncErr = (key) => pathEq(['error'], key)
 
 // NOTE the client with jwt info is used for getInitialProps for SSR
 // to load user related data
-export const makeGQClient = token => {
+export const makeGQClient = (token) => {
   if (!nilOrEmpty(token)) {
     const client = new GraphQLClient(GRAPHQL_ENDPOINT, {
       headers: {
@@ -39,10 +39,10 @@ export const pagedFilter = (page, options = {}) =>
  * map value(string) to UPPER case for server absinthe-atom format
  * e.p: is server required :post, front-end should pass "POST"
  */
-export const atomizeValues = _obj => {
+export const atomizeValues = (_obj) => {
   const obj = clone(_obj)
 
-  Object.keys(obj).forEach(k => {
+  Object.keys(obj).forEach((k) => {
     if (isString(obj[k])) {
       obj[k] = toUpper(obj[k])
     }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { contains } from 'ramda'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import {
   WIDE_CASE,
@@ -21,7 +21,7 @@ export const DrawerOverlay = styled.div`
   position: fixed;
   height: 100%;
   right: 0;
-  z-index: ${cs.zIndex.drawerOverlay};
+  z-index: ${css.zIndex.drawerOverlay};
   top: 0;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
@@ -38,7 +38,7 @@ export const DrawerWrapper = styled.div.attrs(
     },
   }),
 )`
-  ${cs.flex()};
+  ${css.flex()};
   position: fixed;
   right: ${({ rightOffset }) => rightOffset};
   top: 0px;
@@ -57,7 +57,7 @@ export const DrawerWrapper = styled.div.attrs(
   max-width: 1000px;
   /* transform: ${({ visible, mobile, swipeUpY, swipeDownY, options }) =>
     getTransform(visible, mobile, swipeUpY, swipeDownY, options)}; */
-  z-index: ${cs.zIndex.drawer};
+  z-index: ${css.zIndex.drawer};
   /* 
    * if the screen width > maxContent, then use display instead of visibility
    * otherwise the Drawer will show up from screen edge
@@ -67,11 +67,11 @@ export const DrawerWrapper = styled.div.attrs(
    *
   */
   display: ${({ visible }) => (visible ? 'flex' : 'none')};
-  ${cs.media.maxContent`
+  ${css.media.maxContent`
     visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   `};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     right: 0;
     width: 100%;
     min-width: 100%;
@@ -109,7 +109,7 @@ export const MobileInnerContent = styled.div.attrs(
   transition: filter 0.3s;
 `
 export const PreviewHeader = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   border-bottom: 1px solid grey;
   line-height: 30px;
 `

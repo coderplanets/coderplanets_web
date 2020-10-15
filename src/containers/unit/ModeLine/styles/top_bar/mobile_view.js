@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-start')};
+  ${css.flex('justify-start')};
   position: fixed;
-  z-index: ${cs.zIndex.header};
+  z-index: ${css.zIndex.header};
   top: ${({ visiable }) => (visiable ? '0' : '-33px')};
   width: 100%;
   /* TODO: move namespace to modeline */
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   width: 100%;
   height: 33px;
-  ${cs.flex('align-center', 'space-between')};
+  ${css.flex('align-center', 'space-between')};
   padding-left: 0;
   padding-right: 0vw;
   transition: all 0.2s;

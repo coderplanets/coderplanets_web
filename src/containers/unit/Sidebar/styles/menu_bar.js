@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
@@ -9,7 +9,7 @@ import { Wrapper as SidebarWrapper } from './index'
 export const Wrapper = styled.div`
   display: block;
   position: relative;
-  z-index: ${cs.zIndex.sidebar + 1};
+  z-index: ${css.zIndex.sidebar + 1};
   &:hover {
     background: ${theme('sidebar.menuHover')};
   }
@@ -38,7 +38,7 @@ export const DragIcon = styled(Img)`
 // box-shadow: 0px 6px 4px 0px rgba(0,0,0,0.2);
 // border-bottom: 1px dashed #316d7b;
 export const MenuItemBar = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   cursor: pointer;
   opacity: 1;
   transition: color 0.2s;
@@ -51,7 +51,7 @@ export const MenuItemBar = styled.div`
   color: ${theme('sidebar.menuLink')};
 `
 export const MenuRow = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   font-size: 1rem;
   margin-left: ${({ sortOptActive }) => (sortOptActive ? '10px' : '0')};
 `
@@ -78,7 +78,7 @@ export const MenuItemTitle = styled.div`
   letter-spacing: ${({ forceRerender }) => (forceRerender ? '1.3px' : '1.2px')};
   margin-right: 10px;
 
-  /* ${cs.cutFrom('110px')}; */
+  /* ${css.cutFrom('110px')}; */
 
   ${MenuRow}:hover & {
     width: 100%;

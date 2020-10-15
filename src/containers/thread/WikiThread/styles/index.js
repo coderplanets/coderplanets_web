@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 100%;
 `
 export const LeftPart = styled.div`
@@ -14,11 +14,11 @@ export const WikiWrapper = styled.div`
   width: 90%;
 `
 export const RightPart = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
   width: 280px;
   margin-left: 50px;
   padding-top: 5px;
-  ${cs.media.tablet`display: none;`};
+  ${css.media.tablet`display: none;`};
 `
 export const PublisherWrapper = styled.div`
   width: 100%;
@@ -28,5 +28,5 @@ export const PublisherWrapper = styled.div`
 
 export const MobileBottom = styled.div`
   display: none;
-  ${cs.media.tablet`display: block;`};
+  ${css.media.tablet`display: block;`};
 `

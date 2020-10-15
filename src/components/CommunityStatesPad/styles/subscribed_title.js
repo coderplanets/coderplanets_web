@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-center')}
+  ${css.flex('justify-center')}
 `
 export const PopoverInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 10px;
   padding-bottom: 5px;
   width: 200px;

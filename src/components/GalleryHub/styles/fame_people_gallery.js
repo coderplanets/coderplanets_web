@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
 export const Block = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   width: 33%;
   height: 280px;
   border: 1px solid;
@@ -31,15 +31,15 @@ export const Block = styled.div`
   transition: all 0.25s;
 `
 export const Header = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const LinkHead = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   font-size: 12px;
   margin-bottom: 15px;
 `
 export const NationsWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   opacity: 0.8;
   ${Block}:hover & {
     opacity: 1;
@@ -53,23 +53,23 @@ export const NationFlag = styled(Img)`
   margin-right: ${({ marginRight }) => (marginRight ? '5px' : '0')};
 `
 export const IntroHead = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   &:hover {
     cursor: pointer;
   }
 `
 export const Icon = styled(Img)`
-  ${cs.circle('54px')};
+  ${css.circle('54px')};
 `
 export const BasicInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-left: 12px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   cursor: pointer;
-  ${cs.cutFrom('200px')};
+  ${css.cutFrom('200px')};
 `
 export const Birthday = styled.div`
   font-size: 13px;
@@ -89,11 +89,11 @@ export const Desc = styled.div`
   transition: all 0.25s;
 `
 export const ExpWrapper = styled.div`
-  ${cs.flex('align-center')}
+  ${css.flex('align-center')}
   margin-top: -10px;
 `
 export const EduWrapper = styled.div`
-  ${cs.flex('align-center')}
+  ${css.flex('align-center')}
 `
 export const ExpIcon = styled(Img)`
   width: 16px;
@@ -107,13 +107,13 @@ export const ExpIcon = styled(Img)`
   }
 `
 export const Footer = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   &:hover {
     cursor: pointer;
   }
 `
 export const VoteInfo = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const ViewInfo = styled(VoteInfo)`
   opacity: 0.8;

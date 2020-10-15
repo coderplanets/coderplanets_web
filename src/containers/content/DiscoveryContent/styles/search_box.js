@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `
 export const InputWrapper = styled.div`
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   border-radius: 20px;
   padding: 10px 18px;
   background-color: ${theme('content.cardBg')};
@@ -24,14 +24,14 @@ export const InputWrapper = styled.div`
 
   transition: all 0.25s ease-in;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 70%;
     margin-left: 15%;
     padding: 8px;
   `};
 `
 export const InputMask = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   position: absolute;
   display: ${({ show }) => (show ? 'flex' : 'none')};
   top: 0;

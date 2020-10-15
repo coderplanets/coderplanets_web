@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
   justify-content: ${({ joinMode }) => (joinMode ? 'space-between' : 'center')};
 
   width: 140px;
@@ -25,7 +25,7 @@ export const Title = styled.div`
   margin-left: ${({ joinMode }) => (joinMode ? '10px' : '6px')};
 `
 export const Footer = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const FilterOption = styled.div`
   border-bottom: 2px solid;

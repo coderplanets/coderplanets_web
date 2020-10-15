@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import { TitleInput } from './editor'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   margin-bottom: 20px;
 `
 export const Content = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 
   padding: 10px;
   border: 1px solid;
@@ -21,7 +21,7 @@ export const Content = styled.div`
   border-color: ${theme('editor.title')};
 `
 export const LogoUploadBox = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
 
   width: 100px;
   height: 100px;
@@ -46,7 +46,7 @@ export const UploadHint = styled.div`
   }
 `
 export const CompanyInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 const Inputer = styled(TitleInput)`
   height: 32px;

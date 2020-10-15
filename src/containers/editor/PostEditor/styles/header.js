@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-left: 35px;
   margin-right: 35px;
   padding-top: 15px;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 `
 
 export const UsageText = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
   color: ${theme('editor.content')};
   font-size: 1.3em;
 `
@@ -27,7 +27,7 @@ export const AtSignIcon = styled(Img)`
 `
 
 export const RefUsersWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const RefUserList = styled.div`
   margin-top: -10px;
@@ -44,7 +44,7 @@ export const MarkdownIcon = styled(Img)`
   }
 `
 export const MarkDownHint = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('editor.placeholder')};
   &:hover {
     color: ${theme('editor.content')};
@@ -53,7 +53,7 @@ export const MarkDownHint = styled.div`
   transition: color 0.3s;
 `
 export const BackToEditHint = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('editor.title')};
   cursor: pointer;
 `

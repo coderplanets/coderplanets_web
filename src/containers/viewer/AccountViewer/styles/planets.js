@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div``
 
 export const HeaderWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 5px;
 `
 export const Title = styled.div`
@@ -24,7 +24,7 @@ export const HelpText = styled.div`
   transition: color 0.2s;
 `
 export const IconList = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
 `
 export const PlanetsIcon = styled(Img)`

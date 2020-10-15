@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { animate, theme, cs } from '@/utils'
+import { animate, theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
 
   padding-top: 20px;
   padding-bottom: 50px;
@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   animation: ${animate.fadeInRight} 0.2s linear;
 `
 export const AvatarPic = styled(Img)`
-  ${cs.circle('70px')};
+  ${css.circle('70px')};
   margin-bottom: 30px;
   display: block;
 `
@@ -39,7 +39,7 @@ export const BackIcon = styled(Img)`
   transition: opacity 0.2s;
 `
 export const FormsWrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
 `
 export const Divider = styled.div`
   border-top: 1px solid;

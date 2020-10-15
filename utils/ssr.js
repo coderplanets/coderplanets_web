@@ -21,13 +21,13 @@ export const isClientSide = !isServerSide
 
 // get jwt from cookie or localStorage
 // props has to be getInitialProps's arg
-export const getJwtToken = props => {
+export const getJwtToken = (props) => {
   if (isServerSide) return BStore.cookie.from_req(props.req, 'jwtToken')
 
   return BStore.get('token')
 }
 
-export const ssrPagedSchema = thread => {
+export const ssrPagedSchema = (thread) => {
   switch (toLower(thread)) {
     case THREAD.JOB:
       return P.pagedJobs
@@ -51,8 +51,9 @@ export const ssrPagedSchema = thread => {
 
 export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
   thread = toLower(thread)
-  if (thread === THREAD.CHEATSHEET || thread === THREAD.WIKI)
+  if (thread === THREAD.CHEATSHEET || thread === THREAD.WIKI) {
     return { community }
+  }
 
   if (community === 'home' && thread === THREAD.JOB) {
     filter = omit(['community'], filter)
@@ -62,7 +63,7 @@ export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
   return { filter, userHasLogin }
 }
 
-const getCurView = source =>
+const getCurView = (source) =>
   source.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
 const getActiveTag = (tagTitle, tagList) => {
@@ -168,5 +169,5 @@ export const validCommunityFilters = [
   'source',
 ]
 
-export const parseTheme = sessionState =>
+export const parseTheme = (sessionState) =>
   sessionState.user ? sessionState.user.customization.theme : DEFAULT_THEME

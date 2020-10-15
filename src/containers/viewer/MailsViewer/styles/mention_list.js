@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   overflow: hidden;
   margin-left: 20px;
   margin-right: 30px;
@@ -23,14 +23,14 @@ export const ListsWrapper = styled.div`
   overflow-x: hidden;
 `
 export const UserLabel = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-right: 8px;
   &:hover {
     cursor: pointer;
   }
 `
 export const UserAvatar = styled(Img)`
-  ${cs.circle('24px')};
+  ${css.circle('24px')};
   display: block;
   margin-right: 8px;
 `
@@ -51,7 +51,7 @@ export const MessageLinker = styled.a`
 `
 
 export const Message = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 10px 15px;
   position: relative;
   &:hover {
@@ -65,11 +65,11 @@ export const MessageDivider = styled.div`
   opacity: 0.3;
 `
 export const MessageHeader = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const MessageBody = styled.div``
 export const TitleHeader = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const TypeLabel = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -79,14 +79,14 @@ export const TypeLabel = styled.div`
 `
 export const SourceTitle = styled.div`
   color: ${theme('thread.articleTitle')};
-  ${cs.cutFrom('350px')};
+  ${css.cutFrom('350px')};
   font-size: 0.9rem;
   &:hover {
     cursor: pointer;
   }
 `
 export const SourcePreview = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
   margin-top: 3px;
@@ -98,7 +98,7 @@ export const SourcePreview = styled.div`
 export const PreviewBody = styled.div`
   flex-grow: 1;
   font-style: italic;
-  ${cs.cutFrom('400px')};
+  ${css.cutFrom('400px')};
 `
 export const AtLabel = styled.span`
   margin-left: 3px;

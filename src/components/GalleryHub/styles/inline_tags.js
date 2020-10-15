@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
   min-height: 64px;
 `

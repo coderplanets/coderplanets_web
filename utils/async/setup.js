@@ -10,7 +10,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { GRAPHQL_ENDPOINT } from '@/config'
 import { ERR } from '@/constant'
 
-import { errRescue } from '../functions'
+import { errRescue } from '../helper'
 import { buildLog } from '../logger'
 import BStore from '../bstore'
 

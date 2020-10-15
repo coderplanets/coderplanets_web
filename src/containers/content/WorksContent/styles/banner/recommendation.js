@@ -2,16 +2,16 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-start', 'justify-center')};
+  ${css.flexColumn('align-start', 'justify-center')};
   width: 42%;
   height: 100%;
 `
 export const Card = styled.div`
   z-index: 2;
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   height: 160px;
   width: 100%;
   padding: 14px 16px;
@@ -25,7 +25,7 @@ export const Card = styled.div`
   }
 `
 export const IntroWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const IntroImg = styled(Img)`
   width: 65px;
@@ -34,7 +34,7 @@ export const IntroImg = styled(Img)`
   border-radius: 5px;
 `
 export const IntroBlock = styled.div`
-  ${cs.flexColumnGrow('align-start')};
+  ${css.flexColumnGrow('align-start')};
   margin-left: 20px;
 `
 export const Title = styled.div`
@@ -43,13 +43,13 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const Desc = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
   height: 32px;
 `
 export const UpInfo = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
   align-self: flex-start;
   margin-top: 5px;
 `
@@ -65,15 +65,15 @@ export const UpNumber = styled.div`
 `
 export const BodyText = styled.div`
   font-size: 14px;
-  ${cs.cutFrom('350px')};
+  ${css.cutFrom('350px')};
   color: ${theme('thread.articleDigest')};
 `
 export const FooterWrapper = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
 `
 export const BuildWithWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 const BaseBuildIcon = styled(Img)`
   width: 14px;
@@ -90,7 +90,7 @@ export const TechIcon = styled(BaseBuildIcon)`
 `
 
 // export const Card = styled.div`
-//   ${cs.flexColumn('justify-between')};
+//   ${css.flexColumn('justify-between')};
 //   width: 100%;
 //   max-width: 500px;
 //   height: 155px;
@@ -99,7 +99,7 @@ export const TechIcon = styled(BaseBuildIcon)`
 //   margin-top: -25px;
 // `
 // export const IntroWrapper = styled.div`
-//   ${cs.flex('align-center')};
+//   ${css.flex('align-center')};
 // `
 // export const IntroImg = styled(Img)`
 //   width: 65px;
@@ -108,7 +108,7 @@ export const TechIcon = styled(BaseBuildIcon)`
 //   border-radius: 5px;
 // `
 // export const IntroBlock = styled.div`
-//   ${cs.flexColumnGrow('align-start')};
+//   ${css.flexColumnGrow('align-start')};
 //   margin-left: 20px;
 // `
 // export const Title = styled.div`
@@ -117,12 +117,12 @@ export const TechIcon = styled(BaseBuildIcon)`
 //   color: ${theme('thread.articleTitle')};
 // `
 // export const Desc = styled.div`
-//   ${cs.flex('align-center')};
+//   ${css.flex('align-center')};
 //   font-size: 14px;
 //   color: ${theme('thread.articleDigest')};
 // `
 // export const UpInfo = styled.div`
-//   ${cs.flexColumn('justify-center')};
+//   ${css.flexColumn('justify-center')};
 // `
 // export const UpIcon = styled(Img)`
 //   fill: ${theme('thread.articleTitle')};
@@ -135,10 +135,10 @@ export const TechIcon = styled(BaseBuildIcon)`
 // `
 // export const BodyText = styled.div`
 //   font-size: 14px;
-//   ${cs.cutFrom('350px')};
+//   ${css.cutFrom('350px')};
 //   color: ${theme('thread.articleDigest')};
 // `
 // export const FooterWrapper = styled.div`
-//   ${cs.flex('align-center', 'justify-between')};
+//   ${css.flex('align-center', 'justify-between')};
 //   color: ${theme('thread.articleDigest')};
 // `

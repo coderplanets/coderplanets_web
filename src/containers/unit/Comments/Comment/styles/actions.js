@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 // import { CommentBodyInfo } from './index'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 
 export const ReplyAction = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('comment.action')};
   margin-right: 12px;
   cursor: pointer;

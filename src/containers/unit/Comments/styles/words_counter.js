@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import { WORD_LIMIT } from '@/config'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: #c2d9da;
 `
 export const CounterSplit = styled.div`

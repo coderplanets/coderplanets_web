@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn('align-start', 'justify-start')};
+  ${css.flexColumn('align-start', 'justify-start')};
   width: auto;
   height: 100%;
   padding: 10px;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   margin-left: 60px;
   margin-bottom: 120px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-left: 6%;
   `};
 `

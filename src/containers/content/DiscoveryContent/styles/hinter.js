@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
 `
 export const Title = styled.div`
   color: ${theme('tooltip.text')};

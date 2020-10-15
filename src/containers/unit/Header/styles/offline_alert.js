@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs, animate } from '@/utils'
+import { theme, css, animate } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   background: ${theme('baseColor.error')};
   color: ${theme('header.bg')};
   margin-left: 30px;
@@ -11,6 +11,6 @@ export const Wrapper = styled.div`
   border-radius: 4px;
   animation: ${animate.breath} 1.5s linear infinite;
 
-  ${cs.media.tablet`display: none;`};
+  ${css.media.tablet`display: none;`};
 `
 export const Holder = 1

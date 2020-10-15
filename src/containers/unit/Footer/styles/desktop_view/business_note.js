@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   margin-top: 10%;
-  ${cs.media.mobile`margin-top: 20%;`};
+  ${css.media.mobile`margin-top: 20%;`};
 `
 export const MailIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};

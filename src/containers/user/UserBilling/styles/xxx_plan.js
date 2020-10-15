@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 import { Button } from '@/components/Buttons'
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-start')};
+  ${css.flex('align-start')};
   padding: 5px 10px;
   margin-top: 10px;
 `
@@ -17,7 +17,7 @@ export const PlanTitle = styled.div`
   margin-top: 2px;
 `
 export const GirlTitle = styled(PlanTitle)`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   color: ${theme('baseColor.pink')};
 `
 export const TitleDesc = styled.div`
@@ -25,7 +25,7 @@ export const TitleDesc = styled.div`
     pink ? theme('baseColor.pinkLite') : theme('thread.articleDigest')};
 `
 export const PlanDesc = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
   color: ${theme('thread.articleDigest')};
 `
 export const PurchaseButton = styled.div`

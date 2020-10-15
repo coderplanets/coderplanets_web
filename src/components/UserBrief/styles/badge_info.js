@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
   align-items: center;
 `
 
 export const BadgeWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 4px;
 `
 

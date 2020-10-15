@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs, theme, themeSkins } from '@/utils'
+import { css, theme, themeSkins } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn('align-center', 'justify-between')};
+  ${css.flexColumn('align-center', 'justify-between')};
   height: 100vh;
   width: 100%;
   color: #6B7F83;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   /* background: ${theme('thread.bg')}; */
 `
 export const Header = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 // do not use common @/Img, because the theme in Img may not work
 export const HintIcon = styled.img`

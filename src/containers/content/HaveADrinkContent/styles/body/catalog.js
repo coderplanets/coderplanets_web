@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-both')}
+  ${css.flex('align-both')}
   flex-wrap: wrap;
   width: 100%;
 `
 export const Block = styled.div`
-  ${cs.flexColumn('align-center', 'justify-between')}
+  ${css.flexColumn('align-center', 'justify-between')}
   color: #708b96;
   width: 240px;
   height: 120px;
@@ -31,14 +31,14 @@ export const Block = styled.div`
 `
 
 export const Header = styled.div`
-  ${cs.flex('align-center', 'justify-between')}
+  ${css.flex('align-center', 'justify-between')}
   padding: 0 10px;
   height: 40px;
   width: 100%;
   background-color: #043b49;
 `
 export const Intro = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
@@ -50,7 +50,7 @@ export const Icon = styled(Img)`
 export const Timestamp = styled.div``
 
 export const Body = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
   width: 100%;
   height: 100%;
   padding: 0 14px;

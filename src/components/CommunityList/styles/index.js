@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
 `
 export const Linker = styled.a`
@@ -23,7 +23,7 @@ export const Logo = styled(Img)`
   display: block;
 `
 export const PopoverInfo = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   padding: 5px 10px;
   max-width: 240px;
 `
@@ -36,7 +36,7 @@ export const PopCommunityLogo = styled(Img)`
 `
 
 export const PopCommunityInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 
 export const PopCommunityTitle = styled.div`

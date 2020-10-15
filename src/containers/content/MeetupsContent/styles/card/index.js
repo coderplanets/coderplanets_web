@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()}
+  ${css.flex()}
   width: 33%;
   height: 210px;
   padding: 20px 5px;
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   transition: border-top 0.25s ease-out, box-shadow 0.2s ease-in;
 `
 export const ContentsWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   flex-grow: 1;
   width: 100%;
 `
@@ -53,7 +53,7 @@ export const PreviewImg = styled(Img)`
   margin-left: 10px;
 `
 export const FooterWrapper = styled.div`
-  ${cs.flex('align-center')}
+  ${css.flex('align-center')}
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
 `

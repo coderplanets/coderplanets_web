@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   background: #0b2f3a;
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   height: 125px;
   width: 100%;
   padding: 12px 20px;
@@ -32,12 +32,12 @@ export const IntroImg = styled(Img)`
   margin-top: 2px;
 `
 export const IntroWrapper = styled.div`
-  ${cs.flexColumnGrow('align-start', 'justify-between')};
+  ${css.flexColumnGrow('align-start', 'justify-between')};
   margin-left: 25px;
   /* border: 1px solid green; */
 `
 export const Header = styled.div`
-  ${cs.flex('justify-between', 'align-start')};
+  ${css.flex('justify-between', 'align-start')};
   width: 100%;
 `
 export const Title = styled.div`
@@ -46,13 +46,13 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const TypeTags = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
   height: 32px;
 `
 export const UpInfo = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 4px;
 `
 export const UpIcon = styled(Img)`
@@ -69,12 +69,12 @@ export const UpNumber = styled.div`
 export const BodyText = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  ${cs.cutFrom('380px')};
+  ${css.cutFrom('380px')};
   margin-top: 5px;
   margin-bottom: 15px;
 `
 export const FooterWrapper = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
   width: 100%;
   font-size: 12px;
@@ -84,7 +84,7 @@ export const Divider = styled.div`
   margin-right: 18px;
 `
 export const BuildWithWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   padding: 2px 5px;
   background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0);
   margin-top: -4px;

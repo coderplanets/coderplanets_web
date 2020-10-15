@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   padding-top: 8px;
   width: 100%;
 `
@@ -17,10 +17,10 @@ export const RightPart = styled.div`
   padding-top: 38px;
   padding-left: 25px;
 
-  ${cs.media.laptopL`
+  ${css.media.laptopL`
     margin-left: 60px;
   `};
-  ${cs.media.tablet`display: none;`};
+  ${css.media.tablet`display: none;`};
 `
 export const PublisherWrapper = styled.div`
   width: 100%;
@@ -28,8 +28,8 @@ export const PublisherWrapper = styled.div`
   margin-left: 8%;
 `
 export const FilterWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 8px;
   margin-left: -4px;
-  ${cs.media.mobile`margin-bottom: 4px;`};
+  ${css.media.mobile`margin-bottom: 4px;`};
 `

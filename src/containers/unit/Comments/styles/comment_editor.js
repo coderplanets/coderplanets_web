@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Container = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   background: ${theme('drawer.articleBg')};
   min-height: ${({ show }) => (show ? '100px' : '60px')};
   height: auto;
@@ -14,7 +14,7 @@ export const Container = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   border-radius: 3px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     background: #08303c;  /* TODO: same as comment background */
   `};
 `

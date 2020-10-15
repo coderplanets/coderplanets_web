@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const BodyWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 
   padding: 20px;
   background: ${theme('drawer.articleBg')};
@@ -42,5 +42,5 @@ export const ArticleBody = styled.article`
   flex-grow: 1;
 `
 export const Footer = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
 `

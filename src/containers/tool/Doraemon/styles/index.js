@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const PageOverlay = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -11,7 +11,7 @@ export const PageOverlay = styled.div.attrs((props) => ({
   position: fixed;
   right: 0;
   top: 0;
-  z-index: ${cs.zIndex.doraemonOverlay};
+  z-index: ${css.zIndex.doraemonOverlay};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
@@ -25,21 +25,21 @@ export const PanelContainer = styled.div.attrs((props) => ({
   max-width: 550px;
   position: fixed;
   top: 12vh;
-  z-index: ${cs.zIndex.doraemon};
+  z-index: ${css.zIndex.doraemon};
   margin: auto;
   left: 0;
   right: 0;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 80vw;
   `};
 
-  ${cs.media.tablet`
+  ${css.media.tablet`
     width: 80vw;
   `};
 `
 // #001b21;
 export const BaseBar = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   border: 1px solid ${theme('shell.border')};
   width: 100%;
   height: 65px;

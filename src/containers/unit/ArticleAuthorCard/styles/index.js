@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   min-height: 50px;
@@ -11,11 +11,11 @@ export const Wrapper = styled.div`
   width: 100%;
   flex-wrap: wrap;
 
-  ${cs.media.tablet`
+  ${css.media.tablet`
     width: 50%;
   `};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 50%;
     padding: 10px;
   `};

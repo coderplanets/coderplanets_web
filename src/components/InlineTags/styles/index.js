@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 /* import { Img } from '../..' */
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   align-items: flex-end;
   margin-left: ${({ marginLeft }) => (marginLeft ? '8px' : 0)};
 `
 export const Tag = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-right: 4px;
   min-width: 40px;
 `
@@ -18,7 +18,7 @@ export const Title = styled.div`
   opacity: 0.8;
   font-size: 0.8rem;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     color: ${theme('thread.articleDigest')};
     font-size: 12px;
     opacity: 1;
@@ -26,15 +26,15 @@ export const Title = styled.div`
 `
 export const MoreText = styled.div``
 export const Dot = styled.div`
-  ${cs.circle('10px')};
+  ${css.circle('10px')};
   margin-right: 4px;
   background-color: ${({ color }) => color};
   margin-top: -1px;
 
   opacity: ${theme('tags.dotOpacity')};
 
-  ${cs.media.mobile`
-    ${cs.circle('8px')};
+  ${css.media.mobile`
+    ${css.circle('8px')};
   `};
 `
 export const PopoverInfo = styled.div`

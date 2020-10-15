@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center', 'justify-start')};
+  ${css.flexColumn('align-center', 'justify-start')};
   color: ${theme('thread.articleTitle')};
   width: 32px;
 `
@@ -15,5 +15,5 @@ export const Icon = styled(Img)`
   width: 18px;
   height: 18px;
 
-  ${cs.smokey};
+  ${css.smokey};
 `

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import PromptIcon from '@/components/PromptIcon'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 5%;
   margin-bottom: 30px;
@@ -15,7 +15,7 @@ export const Icon404 = styled(PromptIcon)`
   width: 320px;
   height: 320px;
 
-  ${cs.media.tablet`
+  ${css.media.tablet`
     width: 200px;
     height: 200px;
 `};
@@ -33,13 +33,13 @@ export const Title = styled.div`
   margin-bottom: 10px;
   margin-top: 10px;
   font-size: 1.3rem;
-  ${cs.media.tablet`
+  ${css.media.tablet`
     font-size: 1.1rem;
   `};
 `
 
 export const DetailText = styled.span`
-  ${cs.media.mobile`
+  ${css.media.mobile`
     display: none;
   `};
 `
@@ -49,7 +49,7 @@ export const DescWrapper = styled.div`
   margin-top: 0.6rem;
   font-size: 0.9rem;
 
-  ${cs.media.tablet`
+  ${css.media.tablet`
     font-size: 0.8rem;
   `};
 `

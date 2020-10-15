@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const OrSignBase = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   position: absolute;
   top: 5px;
   left: calc(50% - 8.5px);

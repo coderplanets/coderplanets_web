@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 import { Wrapper as NormalButton } from '../button'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   width: 100%;
   position: relative;
 `

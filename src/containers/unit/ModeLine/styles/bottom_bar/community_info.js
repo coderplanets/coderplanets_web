@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Logo = styled(Img)`
   width: 12px;
@@ -13,7 +13,7 @@ export const Logo = styled(Img)`
   display: block;
 `
 export const Title = styled.div`
-  ${cs.cutFrom('60px')};
+  ${css.cutFrom('60px')};
   color: ${({ isSubscribed }) => (isSubscribed ? '#b4e1e2' : '#a0bebf')};
   font-size: 12px;
   margin-left: 8px;

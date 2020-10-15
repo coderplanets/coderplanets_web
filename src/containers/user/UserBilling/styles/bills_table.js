@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const TableWrapper = styled.div`
   width: 100%;
@@ -14,18 +14,18 @@ export const TableWrapper = styled.div`
   border-right-color: ${theme('table.border')};
 `
 export const TableHeader = styled.div`
-  ${cs.flex('align-center', 'justify-between')}
+  ${css.flex('align-center', 'justify-between')}
   background: ${theme('table.headerBg')};
   color: ${theme('table.text')};
 `
 export const HeaderItem = styled.div`
-  ${cs.flex('align-center')}
+  ${css.flex('align-center')}
   width: 16%;
   height: 36px;
   padding: 0 10px;
 `
 export const RowWrapper = styled.div`
-  ${cs.flex('align-center', 'justify-between')}
+  ${css.flex('align-center', 'justify-between')}
   color: ${theme('table.text')};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('table.border')};
@@ -34,7 +34,7 @@ export const RowWrapper = styled.div`
   }
 `
 export const CellItem = styled.div`
-  ${cs.flex('align-center')}
+  ${css.flex('align-center')}
   width: 16%;
   height: 35px;
   padding: 0 10px;

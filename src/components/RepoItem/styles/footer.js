@@ -1,21 +1,21 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   margin-left: 10px;
   margin-top: 12px;
 `
 
 export const Contributors = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     max-width: 60%;
-    ${cs.cutFrom('160px')};
+    ${css.cutFrom('160px')};
   `};
 `
 export const Builder = styled.div``
@@ -32,7 +32,7 @@ export const Avatar = styled(Img)`
   }
 `
 export const PopoverInfo = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   padding: 10px;
   padding-bottom: 5px;
 `
@@ -50,7 +50,7 @@ export const PopLink = styled.a`
   }
 `
 export const PublishInfo = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   color: ${theme('thread.articleDigest')};
   align-self: flex-end;

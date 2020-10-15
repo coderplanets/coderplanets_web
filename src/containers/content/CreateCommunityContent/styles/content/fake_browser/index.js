@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 const headerBg = '#053542'
@@ -8,7 +8,7 @@ const taberBg = '#022A35'
 const contentBg = '#03303c'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   width: 100%;
   height: 70vh; /* TODO  */
   border-radius: 6px;
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   border-color: ${contentBg};
 `
 export const Header = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 100%;
   display: flex;
   padding: 8px 20px 0 12px;
@@ -28,7 +28,7 @@ export const Header = styled.div`
   background: ${headerBg};
 `
 export const Tab = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-basis: 218px;
   background: ${taberBg};
   border-bottom: 1px solid;
@@ -92,7 +92,7 @@ export const TabContent = styled.div`
 `
 export const AddressBar = styled.div`
   width: 100%;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   background: ${taberBg};
   border-bottom: 1px solid;
   border-bottom-color: ${taberBg};
@@ -120,7 +120,7 @@ export const LockIcon = styled(ToolIcon)`
   margin-top: 2px;
 `
 export const Form = styled.form`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-grow: 1;
   background: ${headerBg};
   height: 28px;

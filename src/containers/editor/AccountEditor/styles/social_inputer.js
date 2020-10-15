@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div``
 export const InputWrapper = styled.div`
@@ -9,7 +9,7 @@ export const InputWrapper = styled.div`
 `
 
 export const FormItemWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 20px;
 `
 export const FormLabel = styled.div`
@@ -26,7 +26,7 @@ export const FormInput = styled.div`
   width: 250px;
 `
 export const SocialIconsWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
   width: 250px;
 `
@@ -54,7 +54,7 @@ export const TogglerDivider = styled.div`
   margin-top: 8px;
 `
 export const TogglerTextWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   &:hover {
     cursor: pointer;
     font-weight: bold;

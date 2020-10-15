@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 15px;
   padding-bottom: 18px;
   border-bottom: 1px solid;
@@ -19,7 +19,7 @@ export const Logo = styled(Img)`
   display: block;
 `
 export const Digest = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
   margin-left: 12px;
 `
 export const Title = styled.div`

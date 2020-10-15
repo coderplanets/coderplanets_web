@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import { C11N } from '@/constant'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.footer.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   margin-top: ${({ layout }) => (layout === C11N.DIGEST_ROW ? '50px' : '0')};
 `
 export const Holder = 1

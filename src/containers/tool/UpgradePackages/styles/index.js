@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 20px 20px;
   padding-bottom: 40px;
 `
@@ -13,11 +13,11 @@ export const LabelWrapper = styled.div`
 `
 
 export const ContentWrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
 `
 
 export const Dashboard = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
 
   width: 220px;
   min-height: 380px;

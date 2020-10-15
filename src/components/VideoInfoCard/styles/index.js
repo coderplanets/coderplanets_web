@@ -1,21 +1,21 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   padding: 20px 40px;
   background: ${theme('drawer.articleBg')};
   min-height: 120px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  ${cs.media.mobile`
+  ${css.media.mobile`
     padding: 10px 0;
     box-shadow: none;
   `};
 `
 export const BaseInfo = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -27,13 +27,13 @@ export const Desc = styled.div`
   font-size: 0.9rem;
 `
 export const Footer = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   margin-top: 20px;
 `
 export const OriginAuthor = styled.div`
   font-size: 1rem;
-  ${cs.media.mobile`
+  ${css.media.mobile`
 font-size: 0.9rem;
 `};
 `
@@ -51,15 +51,15 @@ export const OriginAuthorLink = styled.a`
 `
 export const PublishTime = styled.div`
   font-size: 1rem;
-  ${cs.media.mobile`
+  ${css.media.mobile`
 font-size: 0.9rem;
 `};
 `
 export const OtherInfo = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
 `
 export const Duration = styled.div`
-  ${cs.flex('align-center', 'justify-end')};
+  ${css.flex('align-center', 'justify-end')};
   color: ${theme('thread.articleDigest')};
   min-width: 120px;
 `
@@ -75,7 +75,7 @@ export const DurationIcon = styled(Img)`
   margin-right: 5px;
 `
 export const Source = styled.div`
-  ${cs.flex('align-center', 'justify-end')};
+  ${css.flex('align-center', 'justify-end')};
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
   min-width: 120px;

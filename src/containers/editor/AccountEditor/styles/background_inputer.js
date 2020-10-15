@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const FormItemWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 20px;
 `
 export const FormLabel = styled.div`
@@ -20,7 +20,7 @@ export const FormLabel = styled.div`
   margin-left: -12px;
 `
 export const FormInput = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   width: 280px;
 `
 export const Adder = styled(Img)`
@@ -36,13 +36,13 @@ export const Adder = styled(Img)`
   transition: fill 0.3s;
 `
 export const BackgroundsWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-top: -10px;
   margin-bottom: 20px;
   margin-left: 22%;
 `
 export const BackgroundItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const BgTitle = styled.div`
   color: ${theme('banner.desc')};

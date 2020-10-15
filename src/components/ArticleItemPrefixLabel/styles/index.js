@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import PinSVG from '@/SvgIcons/PinSVG'
 
 export const ReadedLabel = styled.div`
@@ -11,7 +11,7 @@ export const ReadedLabel = styled.div`
   font-size: 12px;
   opacity: 0.9;
   font-style: italic;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     left: -12px;
     font-size: 0.8rem;
   `};
@@ -24,7 +24,7 @@ export const PinIcon = styled(PinSVG)`
   top: ${({ top }) => top};
   left: -24px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 16px;
     height: 16px;
     top: 35px;

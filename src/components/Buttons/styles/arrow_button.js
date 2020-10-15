@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import {
   getWidth,
@@ -12,7 +12,7 @@ import {
 } from './metircs/arrow_button'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   opacity: ${({ dimWhenIdle }) => (dimWhenIdle ? '0.65' : 1)};
   min-width: ${({ size, width }) => getWidth(size, width)};
 

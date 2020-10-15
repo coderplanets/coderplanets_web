@@ -1,20 +1,20 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   width: 100%;
 `
 // GalleryWrapper base
 export const WrapperBase = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
 export const BlockBase = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   width: 50%;
   height: auto;
   border: 1px solid;
@@ -53,12 +53,12 @@ export const ImageBase = styled(Img)`
   transition: all 0.25s;
 `
 export const IntroBase = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 10px;
   padding-left: 2px;
 `
 export const IntroHeadBase = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   &:hover {
     cursor: pointer;
   }
@@ -68,7 +68,7 @@ export const TitleBase = styled.div`
   cursor: pointer;
 `
 export const FooterBase = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   margin-top: 5px;
   &:hover {
     cursor: pointer;

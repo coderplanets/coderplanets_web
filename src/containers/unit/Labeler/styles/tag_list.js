@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, animate, cs } from '@/utils'
+import { theme, animate, css } from '@/utils'
 
 export const Wrapper = styled.div`
   padding: 10px;
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 
 export const LabelItem = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('editor.footer')};
   &:hover {
     color: #51abb2;
@@ -17,7 +17,7 @@ export const LabelItem = styled.div`
 `
 
 export const TagItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 8px;
   &:hover {
     cursor: pointer;
@@ -25,7 +25,7 @@ export const TagItem = styled.div`
   }
 `
 export const TagDot = styled.div`
-  ${cs.circle('12px')};
+  ${css.circle('12px')};
   margin-right: 8px;
   margin-left: 3px;
   background-color: ${({ color }) => color};

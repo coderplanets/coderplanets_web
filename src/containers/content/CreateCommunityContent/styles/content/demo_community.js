@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-wrap: wrap;
 `
 /* header bg */
 export const Community = styled.div`
   position: relative;
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   height: 26px;
   background: #043b49;
   border: 1px solid;

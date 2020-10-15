@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   margin-top: -5px;
 `
 export const Title = styled.div`
@@ -26,7 +26,7 @@ export const Title = styled.div`
   transform: opacity 0.25s;
 `
 export const ListWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Community = styled.div`
   margin-right: 10px;

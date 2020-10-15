@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 const Block = styled.div`
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   height: 100%;
   background: ${({ bgColor }) => bgColor};
@@ -33,10 +33,10 @@ export const ArrowShapeLeft = styled(ArrowShape)`
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Dot = styled.div`
-  ${cs.circle('5px')};
+  ${css.circle('5px')};
   background: tomato;
   display: block;
   margin: 0 5px;

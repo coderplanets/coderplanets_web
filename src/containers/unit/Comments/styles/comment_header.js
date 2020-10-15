@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 5px;
   margin-top: -1px;
 `
@@ -19,7 +19,7 @@ export const FloorNum = styled.div`
 
 export const MobileAvatar = styled.div`
   display: none;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     display: block;
     margin-top: 3px;
     margin-right: 10px;
@@ -27,21 +27,21 @@ export const MobileAvatar = styled.div`
 `
 
 export const CommentHeaderFirst = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 
 export const CommentAvatar = styled(Img)`
-  ${cs.circle('38px')};
+  ${css.circle('38px')};
   opacity: ${theme('avatarOpacity')};
 `
 
 export const HeaderBaseInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 100%;
 `
 
 export const CommentUserName = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
 
   color: ${theme('comment.username')};
   font-size: 1rem;
@@ -53,7 +53,7 @@ export const TimeStamps = styled.div`
 `
 
 export const ReplyUsers = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-top: -4px;
 `
 export const ReplyTitle = styled.div`

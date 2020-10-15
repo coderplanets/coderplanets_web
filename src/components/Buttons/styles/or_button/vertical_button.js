@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 // import { lighten } from 'polished'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 import { Wrapper as BaseBtnWrapper } from '../button'
 import { OrSignBase } from './index'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   position: relative;
 `
 const BaseButton = styled(BaseBtnWrapper)`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
   width: 32px;
   min-height: 70px;
   white-space: pre-line;

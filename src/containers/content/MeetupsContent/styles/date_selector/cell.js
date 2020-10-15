@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   border: 1px solid;
   border-color: #004354;
   width: ${({ isLeapMonth }) => (isLeapMonth ? '50px' : '55px')};
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   }
 `
 export const WeekName = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   width: 14px;
   height: 14px;
   font-size: 13px;
@@ -29,7 +29,7 @@ export const WeekName = styled.div`
   color: white;
 `
 export const Head = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   padding-right: 3px;
 `
 export const DateText = styled.div`
@@ -50,6 +50,6 @@ export const WeekendHint = styled.div`
   margin-right: 2px;
 `
 export const Foot = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 5px;
 `

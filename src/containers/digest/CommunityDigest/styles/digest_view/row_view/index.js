@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
@@ -8,7 +8,7 @@ import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { BaseBanner } from '../../index'
 
 export const Wrapper = styled(BaseBanner)`
-  ${cs.flexColumn('justify-start')};
+  ${css.flexColumn('justify-start')};
   position: relative;
   width: 280px;
   height: ${({ isHeaderFixed }) =>
@@ -23,16 +23,16 @@ export const ContentWrapper = styled.div`
   padding-bottom: 20px;
 `
 export const InnerWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 100%;
   height: 100%;
 `
 export const BaseBannerContent = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
   width: 100%;
   height: 100%;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     display: none;
   `};
 `
@@ -51,7 +51,7 @@ export const Divider = styled.div`
   margin-bottom: 18px;
 `
 export const CommunityWrapper = styled.div`
-  ${cs.flex('align-center', 'justify-center')};
+  ${css.flex('align-center', 'justify-center')};
   width: 100%;
   transition: all 0.5s;
   margin-top: 10px;
@@ -65,14 +65,14 @@ export const CommunityLogo = styled(CommunityFaceLogo)`
   border-radius: 5px;
 `
 export const CommunityInfo = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
 `
 export const TitleWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 8px;
 `
 export const Title = styled.div`
-  ${cs.flex('align-baseline')};
+  ${css.flex('align-baseline')};
   font-size: ${({ descExpand }) => (descExpand ? '21px' : '18px')};
   color: ${theme('banner.title')};
 `

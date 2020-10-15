@@ -1,5 +1,5 @@
 import _debug from 'debug'
-import { isBrowser } from './dom_operator'
+import { isBrowser } from './dom'
 
 if (
   isBrowser &&
@@ -10,7 +10,8 @@ if (
   // https://github.com/visionmedia/debug/pull/331
   //
   // debug now clears storage on load, grab the debug settings before require('debug').
-  // We try/catch here as Safari throws on localStorage access in private mode or with cookies disabled.
+  // We try/catch here as Safari throws on localStorage access in private
+  // mode or with cookies disabled.
   let DEBUG
   try {
     if (typeof window !== 'undefined') {
@@ -39,7 +40,7 @@ if (
  * debug('Some message')
  * @returns {Function}
  */
-export const buildLog = namespace => _debug(`${namespace}`)
+export const buildLog = (namespace) => _debug(`${namespace}`)
 
 /**
  * Default debugger, simple log.

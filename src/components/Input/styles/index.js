@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -12,7 +12,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 const AddOn = styled.div`
   position: absolute;
   top: 0;
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   display: ${({ show }) => (show ? 'flex' : 'none')};
   width: 30px;
   height: 32px;

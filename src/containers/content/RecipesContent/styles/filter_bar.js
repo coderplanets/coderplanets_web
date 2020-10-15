@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-top: 12px;
 `
 export const Divider = styled.div`
@@ -21,7 +21,7 @@ export const TopFilter = styled.div`
   width: calc(100% - 25px);
 `
 export const Option = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   font-size: 14px;
   padding: 6px;
   background: ${({ active }) => (active ? '#08323e' : 'transparent')};

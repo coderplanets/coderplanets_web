@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const Brief = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
   margin-bottom: 10px;
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   font-size: ${({ size }) => size};
   background: ${theme('dropdown.bg')};
   padding: 0 3px;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 // export const Title = styled.div``
 
 export const IconWrapper = styled.span`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   max-width: 0;
   ${Wrapper}:hover & {
     margin-left: 3px;

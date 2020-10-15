@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   overflow-y: scroll;
 
   /* 30px is the modeLine height */
-  ${cs.media.mobile`
+  ${css.media.mobile`
     height: auto;
   `};
 `

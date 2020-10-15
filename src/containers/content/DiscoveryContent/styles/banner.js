@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 
 export const BannerContainer = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
 
   position: relative;
   min-height: 170px;
@@ -19,7 +19,7 @@ export const BannerContainer = styled.div.attrs((props) => ({
   }
 `
 export const IntroWrapper = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
   color: ${theme('thread.articleDigest')};
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
@@ -27,14 +27,14 @@ export const IntroWrapper = styled.div`
   height: 250px;
 `
 export const IntroTitle = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   margin-bottom: 20px;
   margin-left: -10px;
 `
 export const IntroDesc = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: 15px;
   margin-left: -10px;

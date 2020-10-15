@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 import { Wrapper as BaseWrapper, AvatarsMore } from './index'
 import { getAvatarSize, getMoreTextWidth } from './metric'
@@ -20,7 +20,7 @@ const BaseAvatarItem = styled.li`
   transition: all 0.3s;
 `
 export const Wrapper = styled(BaseAvatarItem)`
-  ${cs.media.mobile`display: none`};
+  ${css.media.mobile`display: none`};
 `
 export const NumbersMore = styled(AvatarsMore)`
   height: ${({ size }) => getAvatarSize(size)};

@@ -13,8 +13,8 @@ import {
   toLower,
   merge,
 } from 'ramda'
-import { Global } from './functions'
-import { isServerSide } from './ssr_helper'
+import { Global } from './helper'
+import { isServerSide } from './ssr'
 
 // example: /getme/xxx?aa=bb&cc=dd
 const parseMainPath = compose(
@@ -42,7 +42,6 @@ const getMainPath = (args) => {
   if (args.asPath === '/') return INDEX
 
   // console.log('--2 args req: ', args)
-  console.log('--2 args req: ', args.asPath)
   return parseMainPath(args)
 }
 

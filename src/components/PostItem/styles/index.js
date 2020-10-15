@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import { getOpacity } from './metrics'
 
 export const Wrapper = styled.article`
-  ${cs.flex()};
+  ${css.flex()};
   position: relative;
   padding-left: 3px;
   padding-right: 0;
@@ -24,6 +24,6 @@ export const Wrapper = styled.article`
   transition: all 0.25s;
 `
 export const Main = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
 `
 export const holder = 1

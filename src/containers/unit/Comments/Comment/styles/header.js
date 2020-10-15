@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import { Wrapper as CommentBlock } from './desktop_view'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 10px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-bottom: 0;
     margin-left: 5px;
   `};
@@ -26,33 +26,33 @@ export const FloorNum = styled.div`
     opacity: 1;
   }
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     opacity: 1;
   `};
   transition: opacity 0.25s;
 `
 export const CommentHeaderFirst = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('22px')};
+  ${css.circle('22px')};
   opacity: ${theme('avatarOpacity')};
   display: block;
   margin-right: 10px;
 `
 
 export const HeaderBaseInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 100%;
 `
 export const CommentUserName = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
 
   color: ${theme('comment.username')};
   font-size: 1rem;
 `
 export const ReplyUsers = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-top: -4px;
 `
 export const ReplyTitle = styled.div`

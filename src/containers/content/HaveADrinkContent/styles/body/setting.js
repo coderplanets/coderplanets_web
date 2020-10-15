@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-both')}
+  ${css.flex('align-both')}
   color: ${theme('thread.articleDigest')};
   width: 100%;
   margin-top: -10%;
 `
 export const Block = styled.div`
-  ${cs.flexColumn('align-both')}
+  ${css.flexColumn('align-both')}
   width: 200px;
   height: 200px;
 `
@@ -23,7 +23,7 @@ export const Title = styled.div`
 export const ItemsWrapper = styled.div``
 export const Item = styled.div`
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   margin-bottom: 10px;
   font-size: 15px;

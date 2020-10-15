@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   width: 100%;
 `
 export const LogoutBtn = styled.div`
   margin-right: 10px;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const LogoutIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};

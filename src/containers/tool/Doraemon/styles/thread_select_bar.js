@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import { BaseBar } from './index'
 
 export const Wrapper = styled(BaseBar)`
-  ${cs.flex()};
+  ${css.flex()};
   position: relative;
   padding: 10px;
   height: 45px;
@@ -28,14 +28,14 @@ export const Selector = styled.div`
 `
 
 export const VideoSelector = styled(Selector)`
-  ${cs.media.mobile`display: none;`};
+  ${css.media.mobile`display: none;`};
 `
 export const RepoSelector = styled(Selector)`
-  ${cs.media.mobile`display: none;`};
+  ${css.media.mobile`display: none;`};
 `
 
 export const Info = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
 `
 export const Title = styled.div`
   flex-grow: 1;

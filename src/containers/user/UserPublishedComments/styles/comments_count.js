@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
   color: ${theme('thread.articleDigest')};
 `
 export const FloorNum = styled.div`

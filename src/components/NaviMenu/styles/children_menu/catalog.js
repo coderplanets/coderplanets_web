@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   background: #05303e;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 const activeColor = '#009C9E'
 export const Item = styled.div`
-  ${cs.flex('justify-end')};
+  ${css.flex('justify-end')};
   fill: ${theme('thread.articleDigest')};
   align-items: center;
   color: ${({ active }) =>

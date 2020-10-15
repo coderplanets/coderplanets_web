@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Input from '@/components/Input'
 import Img from '@/Img'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import { Wrapper as SidebarWrapper } from './index'
 
 export const Wrapper = styled.div`
@@ -14,10 +14,10 @@ export const Wrapper = styled.div`
   }
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const HeaderFuncs = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
   margin-top: -5px;
 `
 export const PinIconWrapper = styled.div`
@@ -112,7 +112,7 @@ export const SearchInput = styled(Input)`
   }
 `
 export const SearchContent = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const SearchIcon = styled(Img)`
   fill: ${theme('button.primary')};

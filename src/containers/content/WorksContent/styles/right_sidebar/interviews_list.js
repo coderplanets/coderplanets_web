@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  /* ${cs.flex('align-start')}; */
+  /* ${css.flex('align-start')}; */
   background: #0b2f3a;
   width: 100%;
   min-height: 200px;
@@ -14,16 +14,16 @@ export const Wrapper = styled.div.attrs((props) => ({
   margin-top: 10px;
 `
 export const InterviewWrapper = styled.div`
-  ${cs.flex('align-start')};
+  ${css.flex('align-start')};
   margin-bottom: 12px;
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('26px')};
+  ${css.circle('26px')};
   display: block;
   margin-top: 2px;
 `
 export const Intro = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-left: 8px;
 `
 export const Title = styled.div`

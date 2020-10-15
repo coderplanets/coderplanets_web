@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs, animate } from '@/utils'
+import { theme, css, animate } from '@/utils'
 
 import { Wrapper as ParentWrapper } from './index'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const MailIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};

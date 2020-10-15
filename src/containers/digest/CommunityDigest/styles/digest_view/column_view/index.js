@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
@@ -19,55 +19,55 @@ export const Wrapper = styled(BaseBanner)`
     descExpand ? '300px' : getMinHeight(noSocial, mobile)};
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   padding-top: 20px;
   min-height: ${({ descExpand, noSocial, mobile }) =>
     descExpand ? '300px' : getMinHeight(noSocial, mobile)};
   width: 100%;
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: ${css.MAX_CONTENT_WIDTH};
   transition: min-height 0.25s;
 `
 export const BaseBannerContent = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   width: 100%;
   padding: 0 8.5vw;
 
-  ${cs.media.laptopL`
+  ${css.media.laptopL`
     padding: 0 7.5vw;
   `};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     padding-left: 6%;
     padding-right: 5.5%;
   `};
 `
 export const BannerContentWrapper = styled(BaseBannerContent)`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
 `
 export const BannerContainer = styled(BaseBanner)`
   /* min-height: 125px; */
 `
 export const TabBarWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 100%;
   margin-left: -15px;
 
-  ${cs.media.tablet`
+  ${css.media.tablet`
     padding-left: calc(2%);
   `};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     padding-left: 0;
     margin-left: -10px;
   `};
 `
 export const CommunityBaseInfo = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   width: 100%;
 `
 export const CommunityWrapper = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
   transition: all 0.5s;
 `
@@ -86,26 +86,26 @@ export const CommunityLogo = styled(CommunityFaceLogo)`
   height: ${({ small }) => (small ? '35px' : '45px')};
   border-radius: 5px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 42px;
     height: 42px;
   `};
 `
 export const CommunityInfo = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
 
   margin-top: -6px;
   margin-left: 12px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-left: ${({ descExpand }) => (descExpand ? '12px' : '3px')};
   `};
 `
 export const TitleWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Title = styled.div`
-  ${cs.flex('align-baseline')};
+  ${css.flex('align-baseline')};
   font-size: ${({ descExpand }) => (descExpand ? '21px' : '18px')};
   color: ${theme('banner.title')};
 `

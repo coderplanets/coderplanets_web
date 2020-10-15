@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
   margin-left: 10px;
 `
 export const Title = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
 
   margin-bottom: 10px;
   font-size: 1.2rem;
@@ -17,7 +17,7 @@ export const Title = styled.div`
   }
 `
 export const LangDot = styled.div`
-  ${cs.circle('12px')};
+  ${css.circle('12px')};
   background-color: ${({ color }) => color};
   margin-right: 6px;
 `
@@ -32,8 +32,8 @@ export const Owner = styled.div`
     color: ${theme('banner.title')};
   }
 
-  ${cs.media.mobile`
-    ${cs.cutFrom('60px')};
+  ${css.media.mobile`
+    ${css.cutFrom('60px')};
 `};
 `
 export const RepoName = styled.div`
@@ -41,24 +41,24 @@ export const RepoName = styled.div`
   ${Title}:hover & {
     color: ${theme('banner.title')};
   }
-  ${cs.media.mobile`
-    ${cs.cutFrom('80px')};
+  ${css.media.mobile`
+    ${css.cutFrom('80px')};
 `};
 `
 export const TagsWrapper = styled.div`
   margin-top: 4px;
 `
 export const StatusInfo = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-top: 3px;
 `
 
 export const StatusSection = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-right: 6px;
 `
 export const ForkSection = styled(StatusSection)`
-  ${cs.media.mobile`
+  ${css.media.mobile`
     display: none;
   `};
 `

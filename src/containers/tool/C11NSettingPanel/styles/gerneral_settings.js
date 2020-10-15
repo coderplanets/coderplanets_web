@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flexColumn('align-start', 'justify-start')};
+  ${css.flexColumn('align-start', 'justify-start')};
   width: auto;
   height: 100%;
   margin-top: 10px;

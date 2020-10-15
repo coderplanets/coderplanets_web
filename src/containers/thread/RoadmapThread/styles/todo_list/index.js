@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -30,6 +30,6 @@ export const Label = styled.div`
   transition: all 0.25s;
 `
 export const Item = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 18px;
 `

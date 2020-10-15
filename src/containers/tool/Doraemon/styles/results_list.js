@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, animate, cs } from '@/utils'
+import { theme, animate, css } from '@/utils'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -29,7 +29,7 @@ export const PageOverlay = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: ${cs.zIndex.doraemonOverlay};
+  z-index: ${css.zIndex.doraemonOverlay};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
@@ -39,14 +39,14 @@ export const PanelContainer = styled.div`
   max-width: 550px;
   position: fixed;
   top: 12vh;
-  z-index: ${cs.zIndex.doraemon};
+  z-index: ${css.zIndex.doraemon};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   left: 50%;
   margin-left: -19vw;
 `
 // #001b21;
 export const BaseBar = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   border: 1px solid ${theme('shell.border')};
   width: 100%;
   height: 65px;
@@ -105,16 +105,16 @@ export const Title = styled.div`
     color: ${theme('shell.link')};
   }
 
-  ${cs.cutFrom('400px')};
-  ${cs.media.mobile`
-${cs.cutFrom('200px')};
+  ${css.cutFrom('400px')};
+  ${css.media.mobile`
+${css.cutFrom('200px')};
   `};
 `
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
   font-size: 0.9rem;
 
-  ${cs.cutFrom('400px')};
+  ${css.cutFrom('400px')};
 `
 export const Hint = styled.div`
   color: ${theme('shell.desc')};
@@ -134,7 +134,7 @@ export const HintEnter = styled(Img)`
 `
 
 export const SubInfoWraper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
 `
 
 export const RepoLang = styled.div`
@@ -155,7 +155,7 @@ export const NodeSVGIcon = styled(Img)`
 `
 
 export const ThemeDot = styled.div`
-  ${cs.circle('35px')};
+  ${css.circle('35px')};
   background: ${({ bg }) => bg};
 `
 // TODO: rename -> PrefixIcon

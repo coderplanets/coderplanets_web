@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
 
   border: 1px dashed;
   margin-left: 2px;

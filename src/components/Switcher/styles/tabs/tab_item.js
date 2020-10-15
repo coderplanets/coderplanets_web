@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   color: ${theme('thread.articleTitle')};
   position: relative;
   height: 100%;
@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
   border-bottom-right-radius: ${({ cardView, active }) =>
     cardView && active ? '8px' : ''};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-right: ${() => getMarginRight('', true)};
   `};
 
@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
 export const ActiveLineWrapper = styled.div`
   position: absolute;
   bottom: 0;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   width: 100%;
 `
 export const ActiveLine = styled.div`
@@ -54,13 +54,13 @@ export const ActiveLine = styled.div`
 `
 export const Nav = styled.nav`
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-flow: row wrap;
   margin: 0 auto;
   padding: 0;
 `
 export const Label = styled.span`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   white-space: nowrap;
 
   color: ${({ active }) =>

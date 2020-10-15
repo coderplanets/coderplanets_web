@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   width: 10%;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 20%;
   `};
 `
@@ -19,12 +19,12 @@ export const Icon = styled(CommunityFaceLogo)`
   border-radius: ${({ round }) => (round ? '100%' : '4px')};
   margin-left: 4px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-right: 10px;
   `};
 `
 export const ThemeDot = styled.div`
-  ${cs.circle('35px')};
+  ${css.circle('35px')};
   background: ${({ bg }) => bg};
 `
 export const DoraemonIcon = styled(Img)`

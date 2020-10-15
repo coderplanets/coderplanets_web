@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const FilterWraper = styled.div`
   margin-right: 8px;
   margin-top: 8px;
   display: ${({ show }) => (show ? 'block' : 'none')};
-  ${cs.smokey};
+  ${css.smokey};
 `
 export const Header = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('comment.title')};
 `
 
@@ -23,7 +23,7 @@ export const FilterIcon = styled(Img)`
 `
 export const RecentlyIcon = styled(FilterIcon)``
 export const MenuWrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   width: 80px;
   margin-top: 10px;
 `

@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 5px;
   padding-left: 10px;
   padding-bottom: 0;
 `
 export const Option = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('banner.desc')};
   margin-bottom: 8px;
 

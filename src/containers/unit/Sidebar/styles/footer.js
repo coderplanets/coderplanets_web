@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import { Wrapper as SidebarWrapper } from './index'
 
@@ -12,11 +12,11 @@ export const Wrapper = styled.div`
   z-index: 1;
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   height: 5vh;
 `
 export const OptionWrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   opacity: ${({ pin }) => (pin ? '1' : '0')};
   justify-content: ${({ pin }) => (pin ? 'center' : '')};
   width: ${({ pin }) => (pin ? '100%' : 0)};
@@ -35,7 +35,7 @@ export const OptionDivider = styled.div`
   opacity: 0.4;
 `
 export const OptionItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   background: ${({ active }) =>
     active ? theme('sidebar.menuHover') : 'transparent'};
   padding: 0 5px;

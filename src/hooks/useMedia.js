@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { merge } from 'ramda'
 
-import { Global, cs, debounce } from '@/utils'
+import { Global, css, debounce } from '@/utils'
 
 const defaultMedia = {
   mobile: false,
@@ -15,19 +15,19 @@ const useMedia = (/* { breakpoint } */) => {
 
   useEffect(() => {
     const handleResize = () => {
-      // console.log('mediaBreakPoints: ', cs.mediaBreakPoints)
+      // console.log('mediaBreakPoints: ', css.mediaBreakPoints)
       const { innerWidth } = Global
 
-      if (innerWidth <= cs.mediaBreakPoints.mobile) {
+      if (innerWidth <= css.mediaBreakPoints.mobile) {
         setMedia(merge(defaultMedia, { mobile: true }))
       } else if (
-        innerWidth > cs.mediaBreakPoints.mobile &&
-        innerWidth <= cs.mediaBreakPoints.tablet
+        innerWidth > css.mediaBreakPoints.mobile &&
+        innerWidth <= css.mediaBreakPoints.tablet
       ) {
         setMedia(merge(defaultMedia, { tablet: true }))
       } else if (
-        innerWidth > cs.mediaBreakPoints.tablet &&
-        innerWidth <= cs.mediaBreakPoints.laptop
+        innerWidth > css.mediaBreakPoints.tablet &&
+        innerWidth <= css.mediaBreakPoints.laptop
       ) {
         setMedia(merge(defaultMedia, { laptop: true }))
       } else {

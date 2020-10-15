@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 12px;
   margin-left: 2px;
 `
 export const TagDot = styled.div`
-  ${cs.circle('10px')};
+  ${css.circle('10px')};
   background: ${theme('baseColor.error')};
   margin-right: 5px;
 `

@@ -1,22 +1,22 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('25px')};
+  ${css.circle('25px')};
   display: block;
   margin-right: 10px;
 
-  ${cs.media.mobile`
-    ${cs.circle('25px')};
+  ${css.media.mobile`
+    ${css.circle('25px')};
   `};
 `
 export const Brief = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const Nickname = styled.div`
   color: ${theme('thread.articleTitle')};

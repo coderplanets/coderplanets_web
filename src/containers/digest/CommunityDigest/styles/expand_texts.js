@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  /* ${cs.flex('align-center')}; */
+  /* ${css.flex('align-center')}; */
   /* align-items: ${({ descExpand }) =>
     descExpand ? 'flex-start' : 'center'}; */
 `
@@ -14,16 +14,16 @@ export const Normal = styled.div`
   max-width: 490px;
   margin: ${({ margin }) => (margin ? '10px 0' : 0)};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     font-size: 13px;
   `};
 
-  /* ${cs.media.tablet`
-    ${cs.cutFrom('220px')};
+  /* ${css.media.tablet`
+    ${css.cutFrom('220px')};
   `};
 
-  ${cs.media.mobile`
-    ${cs.cutFrom('180px')};
+  ${css.media.mobile`
+    ${css.cutFrom('180px')};
   `}; */
 `
 export const IconWrapper = styled.span`
@@ -61,7 +61,7 @@ export const UpWrapper = styled.span`
   transition: all 0.25s;
 `
 export const IconWithTextWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
 `
 export const UpIcon = styled(Img)`
   fill: #2cb4aa;

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   width: 700px;
   margin-top: 60px;
   min-height: 300px;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 const Block = styled.div`
   padding: 15px;
   width: 45%;
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
 `
 export const LeftBlock = styled(Block)`
   padding-left: 0;
@@ -22,7 +22,7 @@ export const RightBlock = styled(Block)`
   padding-left: 40px;
 `
 export const Header = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 18px;
 `
 const Icon = styled(Img)`
@@ -50,7 +50,7 @@ export const Desc = styled.div`
 `
 
 export const CommunityDemoWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-wrap: wrap;
   margin-left: 5px;
   margin-bottom: 5px;

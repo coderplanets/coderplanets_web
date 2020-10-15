@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   max-width: 300px;
 `
 export const PopAvatarWrapper = styled.div`
@@ -16,7 +16,7 @@ export const PopAvatar = styled(Img)`
   height: 80px;
 `
 export const UserPopInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const Username = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -29,7 +29,7 @@ export const UserBio = styled.div`
   margin-bottom: 10px;
 `
 export const UserLocation = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const LabelIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
@@ -42,5 +42,5 @@ export const LabelText = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const UserCompany = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `

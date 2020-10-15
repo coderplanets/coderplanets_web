@@ -13,7 +13,7 @@ import {
   lockPage,
   unlockPage,
   Global,
-  cs,
+  css,
   toggleGlobalBlur,
 } from '@/utils'
 import { User, EmptyAchievement } from '@/model'
@@ -134,7 +134,7 @@ const DrawerStore = T.model('DrawerStore', {
     // 预览面板从最右侧滑出的偏移量
     get rightOffset() {
       const { windowWidth } = self
-      const { GLOBAL_MAX_WIDTH } = cs
+      const { GLOBAL_MAX_WIDTH } = css
       const MAX_WIDTH = Number(GLOBAL_MAX_WIDTH.slice(0, -2))
 
       return `${windowWidth <= MAX_WIDTH ? 0 : (windowWidth - MAX_WIDTH) / 2}px`
@@ -152,11 +152,11 @@ const DrawerStore = T.model('DrawerStore', {
       return stripMobx(self.attUser)
     },
     get modalVisible() {
-      return self.visible && Global.innerWidth > cs.mediaBreakPoints.desktopL
+      return self.visible && Global.innerWidth > css.mediaBreakPoints.desktopL
     },
 
     get slideVisible() {
-      return self.visible && Global.innerWidth <= cs.mediaBreakPoints.desktopL
+      return self.visible && Global.innerWidth <= css.mediaBreakPoints.desktopL
     },
   }))
   .actions((self) => ({

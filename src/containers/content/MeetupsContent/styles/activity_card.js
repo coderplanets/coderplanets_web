@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')}
+  ${css.flex('align-center')}
   position: relative;
   width: calc(50% - 10px);
   height: 85px;
@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
   transition: all 0.25s;
 `
 export const DatetimeWrapper = styled.div`
-  ${cs.flexColumn('align-both')}
+  ${css.flexColumn('align-both')}
   width: 60px;
   height: 60px;
   border: 1px solid;
@@ -49,12 +49,12 @@ export const Week = styled.div`
   color: #327faf;
 `
 export const IntroWrapper = styled.div`
-  ${cs.flexColumn('align-start')}
+  ${css.flexColumn('align-start')}
   width: calc(100% - 20px);
   position: relative;
 `
 export const Title = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   margin-bottom: 5px;
 `
@@ -78,7 +78,7 @@ export const Tag = styled.div`
   left: -3px;
 `
 export const BodyWrapper = styled.div`
-  ${cs.flex('align-center')}
+  ${css.flex('align-center')}
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
 `

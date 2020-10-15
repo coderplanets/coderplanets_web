@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import { GALLERY } from '@/constant'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   align-items: ${({ type }) =>
     type === GALLERY.TEXT_WITH_IMAGE ? 'flex-end' : 'center'};
   width: ${({ type }) => (type === GALLERY.TEXT_WITH_IMAGE ? '50px' : '70px')};

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs, animate } from '@/utils'
+import { theme, css, animate } from '@/utils'
 import { Button } from '@/components/Buttons'
 
 export const Wrapper = styled.div`
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     updating ? `${animate.breath} 1.2s linear infinite` : ''};
 `
 export const BodyWrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   padding: 20px 30px;
   height: auto;
   min-height: 600px;

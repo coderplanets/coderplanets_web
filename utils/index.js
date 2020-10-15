@@ -2,7 +2,7 @@
  * utils functiosn
  */
 
-export { default as asyncSuit } from './async_suit'
+export { default as asyncSuit } from './async'
 
 export { buildLog } from './logger'
 
@@ -30,7 +30,7 @@ export {
   extractAttachments,
   isCypressRunning,
   multiClick,
-} from './functions'
+} from './helper'
 
 export { errorForHuman, ssrAmbulance } from './errors'
 
@@ -53,7 +53,7 @@ export {
   later,
   pagedFilter,
   atomizeValues,
-} from './graphql_helper'
+} from './graphql'
 
 // export { default as githubAPI } from './github_api'
 
@@ -72,7 +72,7 @@ export {
   thread2Subpath,
   getRoutePathList,
   getRouteMainPath,
-} from './route_helper'
+} from './route'
 
 export {
   connectStore,
@@ -84,7 +84,7 @@ export {
   $solver,
   observerHoc,
   updateEditing,
-} from './mobx_helper'
+} from './mobx'
 
 export {
   isServerSide,
@@ -96,7 +96,7 @@ export {
   addTopicIfNeed,
   validCommunityFilters,
   parseTheme,
-} from './ssr_helper'
+} from './ssr'
 
 export {
   scrollIntoEle,
@@ -110,7 +110,7 @@ export {
   hideDoraemonBarRecover,
   isBrowser,
   toggleGlobalBlur,
-} from './dom_operator'
+} from './dom'
 /*
  * theme related
  */
@@ -122,12 +122,12 @@ export {
   themeCoverIndexMap,
 } from './themes'
 
-export { default as SOCIAL_LISTS } from './social_lists'
+export { default as SOCIAL_LISTS } from './social'
 
 // helpers
 export { toast, toastBarColor } from './toast'
 export { default as animate } from './animations'
-export { default as cs } from './common_styles'
+export { default as css } from './css'
 export { default as BStore } from './bstore'
 export { Trans } from './i18n'
 export { default as GA } from './analytics'

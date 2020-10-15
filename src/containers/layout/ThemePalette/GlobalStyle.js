@@ -1,10 +1,10 @@
-import { createGlobalStyle, css } from 'styled-components'
-import { theme, cs } from '@/utils'
+import { createGlobalStyle, css as styledCss } from 'styled-components'
+import { theme, css } from '@/utils'
 import normalize from './normalize'
 
 /*
 body {
-  ${cs.media.mobile`
+  ${css.media.mobile`
       position: fixed;
   `};
 }
@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${theme('htmlBg')};
   }
   body {
-    ${cs.media.mobile`
+    ${css.media.mobile`
       position: relative;
    `};
     background-color: ${theme('htmlBg')};
@@ -116,7 +116,7 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     margin-left: 8px;
 
-    ${cs.cutFrom('200px')};
+    ${css.cutFrom('200px')};
     max-width: 368px;
     font-size: 1rem;
     margin-bottom: 0.2em;
@@ -151,7 +151,7 @@ const GlobalStyle = createGlobalStyle`
 
   ${({ showCustomScrollbar }) =>
     showCustomScrollbar ||
-    css`
+    styledCss`
       ::-webkit-scrollbar {
         background: transparent;
         width: 4px;

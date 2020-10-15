@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const CommentBlock = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 10px;
   padding-bottom: 0;
   &:hover {
@@ -20,16 +20,16 @@ export const CommentDivider = styled.div`
 `
 export const CommentBox = styled.div``
 export const CommentHeader = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 3px;
   margin-bottom: 3px;
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('30px')};
+  ${css.circle('30px')};
   margin-right: 8px;
 `
 export const AvatarInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const Nickname = styled.div`
   font-size: 0.9rem;

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const CardWrapper = styled.div`
   position: absolute;
@@ -19,7 +19,7 @@ export const CardWrapper = styled.div`
   top: 6.5px;
 `
 export const CommunityWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   width: 100%;
   height: 100%;
 `
@@ -29,7 +29,7 @@ export const CommunityLogo = styled(CommunityFaceLogo)`
   margin-right: 10px;
 `
 export const CommunityInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-top: -2px;
 `
 export const LogoText = styled.a`
@@ -50,10 +50,10 @@ export const CommunityTitle = styled.div`
   font-weight: bold;
   margin-top: -2px;
 
-  ${cs.cutFrom('90px')};
+  ${css.cutFrom('90px')};
 `
 export const Breadcrumbs = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   max-width: 650px;
   margin-left: 160px;
   height: 100%;

@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
 export const Block = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   width: 33%;
   height: 230px;
   border: 1px solid;
@@ -31,10 +31,10 @@ export const Block = styled.div`
   transition: all 0.25s;
 `
 export const Header = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const LinkHead = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   font-size: 12px;
   margin-bottom: 5px;
 `
@@ -48,13 +48,13 @@ export const LinkerWrapper = styled.div`
   transition: opacity 0.3s;
 `
 export const IntroHead = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   &:hover {
     cursor: pointer;
   }
 `
 export const Icon = styled(Img)`
-  ${cs.circle('20px')};
+  ${css.circle('20px')};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -77,7 +77,7 @@ export const Desc = styled.div`
   transition: all 0.25s;
 `
 export const Footer = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   &:hover {
     cursor: pointer;
   }

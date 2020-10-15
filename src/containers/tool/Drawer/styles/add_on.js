@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import { TYPE } from '@/constant'
-import { theme, animate, cs } from '@/utils'
+import { theme, animate, css } from '@/utils'
 
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
   width: 10%;
-  ${cs.flexColumn('align-end')};
+  ${css.flexColumn('align-end')};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 0;
   `};
 `
@@ -41,7 +41,7 @@ export const CloseTab = styled.div`
     color: ${theme('drawer.font')};
     font-weight: lighter;
   }
-  ${cs.media.mobile`display: none`};
+  ${css.media.mobile`display: none`};
 `
 
 export const CloserInner = styled.div`
@@ -71,7 +71,7 @@ export const MobileCloser = styled.div`
   }
 `
 export const UploadingTab = styled.div`
-  ${cs.flexColumn('justify-evenly')};
+  ${css.flexColumn('justify-evenly')};
   align-items: center;
   opacity: ${({ show }) => (show ? 1 : 0)};
 

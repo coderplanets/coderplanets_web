@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
@@ -17,7 +17,7 @@ export const Extra = styled.li`
 export const CommentsDigest = styled.span`
   display: none;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
    display: inline;
     margin-left: 3px;
   `};
@@ -31,12 +31,12 @@ export const BodyDigest = styled.li`
   font-size: 13px;
   max-width: 85%;
 
-  ${cs.media.mobile`
-    ${cs.cutFrom('250px')};
+  ${css.media.mobile`
+    ${css.cutFrom('250px')};
 `};
 `
 export const CommentWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   align-self: flex-start;
 `
 export const CommentIcon = styled(Img)`
@@ -52,7 +52,7 @@ export const CommentNum = styled.div`
 `
 export const PublishLabel = styled.span`
   display: inline;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     display: none;
     margin-left: 3px;
   `};

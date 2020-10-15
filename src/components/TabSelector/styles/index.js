@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const OptionsWrapper = styled.div`
-  ${cs.flex('justify-evenly')};
+  ${css.flex('justify-evenly')};
   padding-top: 3px;
 `
 export const HeaderDivider = styled.div`
@@ -21,7 +21,7 @@ export const HeaderDivider = styled.div`
 `
 
 export const Option = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   color: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};

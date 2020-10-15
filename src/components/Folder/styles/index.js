@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 import { getWidth, getHeight } from './metric'
 
@@ -9,7 +9,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   position: relative;
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   background-color: #004351;
   width: ${({ size }) => getWidth(size)};
   height: ${({ size }) => getHeight(size)};
@@ -44,7 +44,7 @@ export const EditIconWrapper = styled.div`
   position: absolute;
   right: 10px;
   top: 10px;
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   z-index: 1;
   width: 30px;
   height: 30px;
