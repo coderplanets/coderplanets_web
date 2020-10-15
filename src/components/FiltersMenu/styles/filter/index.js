@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 const activeColor = '#009C9E'
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   align-items: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
@@ -13,12 +13,12 @@ export const Wrapper = styled.div`
   padding-top: 0;
 `
 export const RadioWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   align-items: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   margin-top: 5px;
 `
 export const RadioItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 8px;
   margin-right: -1px;
   letter-spacing: 3px;
@@ -52,7 +52,7 @@ export const RadioTitle = styled.div`
   transition: all 0.25s;
 `
 export const Item = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   justify-content: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   width: 100%;
 `

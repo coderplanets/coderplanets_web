@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 import {
   WrapperBase,
@@ -19,7 +19,7 @@ export const Block = styled(BlockBase)`
   width: 100%;
 `
 export const ImageWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   height: auto;
 `
 export const MainImage = styled(ImageBase)`
@@ -28,7 +28,7 @@ export const MainImage = styled(ImageBase)`
   border-radius: 2px;
 `
 export const SubImageWrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   flex-wrap: wrap;
 `
 export const SubImage = styled(ImageBase)`

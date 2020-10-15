@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
 
   padding: 5px 12px;
   padding-top: 12px;
 `
 export const Item = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   color: ${theme('thread.articleTitle')};
   margin-bottom: 8px;

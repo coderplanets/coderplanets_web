@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Input from '@/components/Input'
 
 // import Img from '@/Img'
@@ -28,7 +28,7 @@ export const TextAreaInput = styled(Input)`
 `
 
 export const FormItemWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: ${({ bottom }) => bottom};
   width: 100%;
 `

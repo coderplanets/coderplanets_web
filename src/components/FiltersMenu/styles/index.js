@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   width: 100%;
   min-width: 110px;
 `
 export const ItemWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   border-bottom: ${({ withDivider }) => (withDivider ? '1px solid' : 'none')};
   border-bottom-color: ${({ withDivider }) =>
     withDivider ? '#094354' : 'none'};
@@ -18,7 +18,7 @@ export const ItemWrapper = styled.div`
   }
 `
 export const Item = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   justify-content: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   fill: ${theme('thread.articleDigest')};
   align-items: center;

@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
   width: 100%;
 `
 export const Item = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   margin-bottom: 5px;
 `
 export const StateItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Icon = styled(Img)`
   fill: ${theme('banner.desc')};

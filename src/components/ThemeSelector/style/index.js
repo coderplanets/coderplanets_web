@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, themeCoverMap, themeCoverIndexMap, cs } from '@/utils'
+import { theme, themeCoverMap, themeCoverIndexMap, css } from '@/utils'
 
 export const Dot = styled.div`
-  ${cs.circle('25px')};
+  ${css.circle('25px')};
 
   margin-right: 10px;
   background: ${({ name }) => themeCoverMap[name]};

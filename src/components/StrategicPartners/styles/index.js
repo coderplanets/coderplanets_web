@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   margin-left: 32px;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   padding-bottom: 30px;
 `
 export const Header = styled.div`
-  ${cs.flex('justify-between', 'align-end')};
+  ${css.flex('justify-between', 'align-end')};
   align-items: center;
   margin-bottom: 12px;
 `

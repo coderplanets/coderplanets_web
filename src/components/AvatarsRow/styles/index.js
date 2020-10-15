@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import { getLiSize, getAvatarSize, getUlMarginRight } from './metric'
 
 export const Wrapper = styled.ul`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-direction: row-reverse;
   list-style-type: none;
   margin: auto;
@@ -39,7 +39,7 @@ export const AvatarsItem = styled(BaseAvatarItem)`
   }
 
   transition: all 0.3s;
-  ${cs.media.mobile`display: none`};
+  ${css.media.mobile`display: none`};
 `
 export const TotalOneOffset = styled.span`
   margin-right: 10px;
@@ -60,7 +60,7 @@ export const AvatarsImg = styled(Img)`
   text-align: center;
 `
 export const AvatarsMore = styled.span`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   font-size: 14px;
   border-color: ${theme('thread.articleHover')};
   color: ${theme('thread.articleTitle')};

@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import DotDivider from '@/components/DotDivider'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const Title = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
   font-size: 16px;

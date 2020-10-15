@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   min-width: 50%;
   margin-bottom: 8px;
   padding-right: 25px;
@@ -22,7 +22,7 @@ export const Dot = styled.div`
   margin-right: 5px;
 `
 export const Title = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('banner.desc')};
 
   ${Wrapper}:hover & {
@@ -32,7 +32,7 @@ export const Title = styled.div`
   transition: all 0.25s;
 `
 export const Reaction = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   opacity: 0.8;
 
   ${Wrapper}:hover & {

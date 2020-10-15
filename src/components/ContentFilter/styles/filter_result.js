@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const ResultText = styled.div`
   color: ${theme('thread.filterResultHint')};
@@ -16,7 +16,7 @@ export const ResultDivider = styled.div`
   background-color: ${theme('thread.filterResultHint')};
 `
 export const MoreOptionWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const FaqText = styled.div`
   background-color: ${({ active }) =>

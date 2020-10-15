@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
@@ -16,7 +16,7 @@ export const CommunityInfo = styled.div`
   margin-left: -4px;
 `
 export const Extra = styled.li`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 5px;
   margin-bottom: 4px;
   transition: opacity 0.2s;
@@ -32,7 +32,7 @@ export const ExtraIcon = styled(Img)`
   opacity: 0.8;
 `
 export const ExtraTexts = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   opacity: 0.7;
 `
 export const BodyDigest = styled.li`
@@ -44,7 +44,7 @@ export const BodyDigest = styled.li`
   max-width: 96%;
 `
 export const CommentWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   align-self: flex-start;
 `
 export const CommentIcon = styled(Img)`
@@ -60,7 +60,7 @@ export const CommentNum = styled.div`
 `
 export const PublishLabel = styled.span`
   display: inline;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     display: none;
     margin-left: 3px;
   `};

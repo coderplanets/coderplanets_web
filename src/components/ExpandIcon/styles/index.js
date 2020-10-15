@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import {
   getNormalColor,
   getActiveColor,
@@ -13,7 +13,7 @@ import {
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   /* margin-left: 12px; */
   cursor: pointer;
   background: ${({ hideTextOnInit, active }) =>

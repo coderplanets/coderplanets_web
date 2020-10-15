@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import { Dot } from './index'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   margin-bottom: 10%;
 `
 export const ThemeDot = styled(Dot)``
 
 export const IntroBox = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   background: ${({ active }) => (active ? theme('banner.bg') : 'transparent')};
   border: 1px solid;
   border: ${({ active }) => (active ? '2px solid' : '1px dashed')};
@@ -28,14 +28,14 @@ export const IntroBox = styled.div`
   }
   transition: border 0.3s;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 100%; 
     margin-left: 20px;
     margin-right: 20px;
   `};
 `
 export const IntroDesc = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 68%;
   position: relative;
 `

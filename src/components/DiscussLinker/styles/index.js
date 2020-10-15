@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   max-width: 300px;
   width: 100%;
   padding: 10px;
 `
 export const Header = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const DiscussIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
@@ -20,7 +20,7 @@ export const DiscussIcon = styled(Img)`
   display: block;
 `
 export const Info = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const Title = styled.div`
   font-size: 1rem;
@@ -42,7 +42,7 @@ export const Divider = styled.div`
   margin-bottom: 6px;
 `
 export const Footer = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const GithubIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
@@ -59,7 +59,7 @@ export const GithubIcon = styled(Img)`
 
 export const IssueLink = styled.a`
   color: ${theme('banner.title')};
-  ${cs.cutFrom('230px')};
+  ${css.cutFrom('230px')};
 
   transition: color 0.2s;
   &:hover {

@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   width: 100%;
   margin-top: 15px;
   margin-bottom: 10px;
 `
 export const BoxWrapper = styled.div`
-  ${cs.flexColumn('justify-evenly')};
+  ${css.flexColumn('justify-evenly')};
   align-items: center;
   flex-grow: ${({ grow }) => (grow ? 1 : 0)};
 
@@ -42,7 +42,7 @@ export const Number = styled.div`
 `
 
 export const BuilderWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const Avatar = styled(Img)`
   width: 20px;
@@ -67,7 +67,7 @@ export const Linker = styled.a`
   }
 `
 export const PopInfo = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
 
   padding: 10px;
   padding-bottom: 0px;

@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const BannerWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 12px;
 `
 export const Logo = styled(Img)`
@@ -22,7 +22,7 @@ export const Logo = styled(Img)`
   transition-delay: 0.2s;
 `
 export const PartnerInfo = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
   align-items: center;
   margin-right: 40px;
 `

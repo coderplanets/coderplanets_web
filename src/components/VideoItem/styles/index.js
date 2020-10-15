@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.article`
-  ${cs.flex()};
+  ${css.flex()};
 
   position: relative;
   padding-left: 8px;
@@ -24,7 +24,7 @@ export const PosterWrapper = styled.div`
   height: 138px;
   width: 246px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     height: 118px;
     width: 136px;
   `};
@@ -35,7 +35,7 @@ export const Poster = styled.img`
   min-width: 246px;
   opacity: ${theme('avatarOpacity')};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     min-width: 146px;
 `};
 `
@@ -66,11 +66,11 @@ export const Title = styled.div`
   }
 `
 export const Main = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
   margin-left: 10px;
 `
 export const TopHalf = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const SecondHalf = styled.ul`
   margin-left: 10px;
@@ -78,13 +78,13 @@ export const SecondHalf = styled.ul`
   flex-grow: 1;
 `
 export const Brief = styled.div`
-  ${cs.flexGrow('align-center')};
+  ${css.flexGrow('align-center')};
   margin-left: 10px;
   margin-bottom: 10px;
   color: ${theme('thread.articleTitle')};
 `
 export const ViewInfo = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const ViewIcon = styled(Img)`
   fill: ${theme('thread.articleLink')};
@@ -93,7 +93,7 @@ export const ViewIcon = styled(Img)`
   display: block;
 `
 export const Extra = styled.li`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   opacity: 0.8;
   transition: opacity 0.2s;
@@ -111,8 +111,8 @@ export const BodyDigest = styled.li`
     cursor: pointer;
   }
 
-  ${cs.media.mobile`
-    ${cs.cutFrom('200px')};
+  ${css.media.mobile`
+    ${css.cutFrom('200px')};
   `};
 `
 export const OriginalAuthorLink = styled.a`
@@ -126,12 +126,12 @@ export const OriginalAuthorLink = styled.a`
   }
 `
 export const BottomAuthorWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-left: 10px;
   margin-bottom: 2px;
 `
 export const ButtonAvatar = styled(Img)`
-  ${cs.circle('20px')};
+  ${css.circle('20px')};
   opacity: 0.8;
   display: block;
 `
@@ -140,7 +140,7 @@ export const ButtonNickname = styled.div`
   margin-left: 5px;
 `
 export const InsertTime = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   font-size: 0.8rem;
   color: ${theme('thread.articleDigest')};
   margin-top: 1px;

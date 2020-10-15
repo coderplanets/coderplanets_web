@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import { Dot } from './index'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
 `
 
@@ -14,7 +14,7 @@ export const ThemeDot = styled(Dot)``
 
 /* background: ${({ active }) => (active ? theme('banner.bg') : '')}; */
 export const IntroBox = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 
   border: 1px solid;
   border: ${({ active }) => (active ? '2px solid' : '1px dashed')};
@@ -32,11 +32,11 @@ export const IntroBox = styled.div`
   }
   transition: border 0.3s;
 
-  ${cs.media.mobile`width: 160px; margin-right: 10px;`};
+  ${css.media.mobile`width: 160px; margin-right: 10px;`};
 `
 
 export const IntroDesc = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 80%;
   position: relative;
 `
@@ -57,7 +57,7 @@ export const ThemeDesc = styled.div`
 `
 
 export const AuthorInfo = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 
   font-size: 0.8rem;
   color: ${theme('banner.desc')};

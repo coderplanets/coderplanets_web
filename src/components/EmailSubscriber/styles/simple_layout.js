@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 import Input from '@/components/Input'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -32,7 +32,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   }
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   width: 100%;
   min-width: 260px;
   height: 35px;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const ListItemWrapper = styled.div`
   width: 100%;
@@ -14,17 +14,17 @@ export const ListItemWrapper = styled.div`
   }
 `
 export const Header = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 4px;
   color: ${theme('thread.articleDigest')};
 `
 export const Icon = styled(Img)`
   display: block;
-  ${cs.circle('13px')};
+  ${css.circle('13px')};
   margin-right: 6px;
 `
 export const InfoIcon = styled(Img)`
-  ${cs.circle('13px')};
+  ${css.circle('13px')};
   display: block;
   fill: ${theme('thread.articleDigest')};
   margin-left: 5px;
@@ -38,7 +38,7 @@ export const InfoIcon = styled(Img)`
   transition: all 0.2s;
 `
 export const Timestamp = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
 `

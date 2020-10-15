@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 
 export const TabItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   width: 70px;
   padding: 0 5px;
   padding-bottom: 2px;
@@ -26,7 +26,7 @@ export const TabItem = styled.div`
   }
   transition: 0.2s color;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 80px;
     margin-right: 0;
     padding: 0;

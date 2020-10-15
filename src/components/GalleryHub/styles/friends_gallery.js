@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   justify-content: ${({ center }) => (center ? 'center' : 'flex-start')};
   flex-wrap: wrap;
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
 export const Block = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   width: ${({ column }) => (column === 3 ? '33%' : '25%')};
   height: 80px;
   border: none;
@@ -34,17 +34,17 @@ export const Block = styled.div`
   transition-delay: 0.2s;
 `
 export const Header = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const IntroHead = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   width: 100%;
   &:hover {
     cursor: pointer;
   }
 `
 export const Icon = styled(Img)`
-  ${cs.circle('20px')};
+  ${css.circle('20px')};
   margin-right: 10px;
 `
 export const Title = styled.div`

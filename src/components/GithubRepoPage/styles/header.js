@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   width: 100%;
 `
 export const TitlesWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   font-size: 1.3rem;
 `
 export const LanguageDot = styled.div`
-  ${cs.circle('15px')};
+  ${css.circle('15px')};
   margin-right: 8px;
   background-color: ${({ color }) => color};
 `
@@ -37,10 +37,10 @@ export const Slash = styled.div`
   margin-right: 4px;
 `
 export const CountsWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const CountItem = styled.a`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   color: ${theme('banner.title')};
   transition: color 0.2s;

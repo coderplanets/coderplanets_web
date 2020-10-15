@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, animate, cs } from '@/utils'
+import { theme, animate, css } from '@/utils'
 import Img from '@/Img'
 
 export const BtnWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 const BtnIcon = styled(Img)`
   height: 12px;

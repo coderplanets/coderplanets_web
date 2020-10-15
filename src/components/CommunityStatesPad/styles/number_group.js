@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-end')};
+  ${css.flexColumn('align-end')};
 `
 export const SubNumberWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('banner.number')};
   font-size: 13px;
   margin-right: 0.5px;
@@ -32,8 +32,8 @@ export const NumberItem = styled.div`
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
   }
 
-  ${cs.media.tablet`font-size: 16px;`};
-  ${cs.media.mobile`
+  ${css.media.tablet`font-size: 16px;`};
+  ${css.media.mobile`
     font-size: 16px;
     margin-bottom: 2px;
   `};

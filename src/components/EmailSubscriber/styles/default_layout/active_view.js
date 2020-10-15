@@ -4,10 +4,10 @@ import Img from '@/Img'
 import { Button } from '@/components/Buttons'
 import Input from '@/components/Input'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   position: relative;
   padding: 0 10px;
   padding-top: 5px;
@@ -64,7 +64,7 @@ export const SubscribeInput = styled(Input)`
   }
 `
 export const SubscribeBtnWrapper = styled.div`
-  ${cs.flex('justify-center', 'align-center')};
+  ${css.flex('justify-center', 'align-center')};
   margin-top: 16px;
   margin-left: -15px;
 `

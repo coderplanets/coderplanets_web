@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 
 export const Linker = styled.a`

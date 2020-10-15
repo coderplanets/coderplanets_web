@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
 export const Block = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   width: 25%;
   height: 230px;
   padding: 15px;
@@ -33,17 +33,17 @@ export const Block = styled.div`
   transition: all 0.25s;
 `
 export const Header = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const IntroHead = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   &:hover {
     cursor: ${({ clickable }) => (clickable ? 'pointer' : 'normal')};
   }
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  ${cs.circle('22px')};
+  ${css.circle('22px')};
   display: block;
 `
 export const Title = styled.div`
@@ -52,7 +52,7 @@ export const Title = styled.div`
   margin-left: 12px;
 `
 export const Footer = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   &:hover {
     cursor: ${({ clickable }) => (clickable ? 'pointer' : 'normal')};
   }

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Main = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
 `
 export const AvatarWrapper = styled.div`
   &:hover {
@@ -12,17 +12,17 @@ export const AvatarWrapper = styled.div`
   }
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('36px')};
+  ${css.circle('36px')};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
   display: block;
   margin-top: 2px;
 
-  ${cs.media.mobile`${cs.circle('34px')}`};
+  ${css.media.mobile`${css.circle('34px')}`};
 `
 export const AvatarFallback = styled.div`
-  ${cs.flex('align-both')};
-  ${cs.circle('38px')};
+  ${css.flex('align-both')};
+  ${css.circle('38px')};
   font-size: 20px;
   color: ${theme('thread.articleTitle')};
   background-color: #164858; /*${theme('thread.articleHover')}; */
@@ -34,14 +34,14 @@ export const SmallAvatar = styled(Avatar)`
 
 // import styled from 'styled-components'
 
-// import { theme, cs } from '@/utils'
+// import { theme, css } from '@/utils'
 
 // export const Wrapper = styled.div`
-//   ${cs.flexColumn()};
+//   ${css.flexColumn()};
 //   width: 100%;
 // `
 // export const ContentWrapper = styled.div`
-//   ${cs.flex()};
+//   ${css.flex()};
 // `
 // export const Divider = styled.div`
 //   border-bottom: 1px solid;
