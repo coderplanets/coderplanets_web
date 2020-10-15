@@ -47,9 +47,10 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 
   if (options.direction === 'bottom') {
     const swipeDonwY = parseInt(Math.abs(ev.deltaY), 10)
+
     if (swipeDonwY < swipeThreshold) {
       setSwipeDownY(0)
-    } else {
+    } else if (ev.dir === 'Down') {
       closeDrawer()
       setSwipeDownY(null)
     }
@@ -59,7 +60,7 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 
     if (swipeUpY < swipeThreshold) {
       setSwipeUpY(0)
-    } else {
+    } else if (ev.dir === 'Up') {
       closeDrawer()
       setSwipeUpY(null)
     }
