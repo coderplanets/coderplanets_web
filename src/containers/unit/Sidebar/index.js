@@ -7,7 +7,7 @@
 import React from 'react'
 import { filter, propEq } from 'ramda'
 
-import { TYPE } from '@/constant'
+import { ANCHOR } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import Header from './Header'
@@ -39,7 +39,7 @@ const SidebarContainer = ({ sidebar: store }) => {
   const homeCommunity = filter(propEq('raw', 'home'), communitiesData)[0]
 
   return (
-    <Wrapper pin={pin} testId="sidebar" className={TYPE.GLOBAL_BLUR_CLASS}>
+    <Wrapper pin={pin} testId="sidebar" className={ANCHOR.GLOBAL_BLUR_CLASS}>
       <Header pin={pin} searchCommunityValue={searchCommunityValue} />
       {/* move home community out of menulist to avoid rerender */}
       <MenuBar pin={pin} item={homeCommunity} activeRaw={activeRaw} />

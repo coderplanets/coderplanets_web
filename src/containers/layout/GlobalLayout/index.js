@@ -7,7 +7,7 @@
 import React, { useEffect } from 'react'
 import T from 'prop-types'
 
-import { TYPE, ROUTE } from '@/constant'
+import { ANCHOR, ROUTE } from '@/constant'
 import { connectStore } from '@/utils'
 import AnalysisService from '@/services/Analysis'
 
@@ -85,7 +85,7 @@ const GlobalLayoutContainer = ({
                 <ErrorBox />
                 <ContentPinWrapper
                   offsetLeft={sidebarPin}
-                  className={TYPE.GLOBAL_BLUR_CLASS}
+                  className={ANCHOR.GLOBAL_BLUR_CLASS}
                 >
                   <ContentWrapper
                     offsetLeft={

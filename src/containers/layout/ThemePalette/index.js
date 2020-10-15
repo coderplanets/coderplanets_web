@@ -9,7 +9,7 @@ import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 import NextNprogress from 'nextjs-progressbar'
 
-import { TYPE } from '@/constant'
+import { ANCHOR } from '@/constant'
 import { connectStore } from '@/utils'
 import { usePlatform } from '@/hooks'
 
@@ -34,7 +34,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
         stopDelayMs={200}
         option={{
           minimum: 0.1,
-          parent: `#${TYPE.APP_HEADER_ID}`,
+          parent: `#${ANCHOR.GLOBAL_HEADER_ID}`,
         }}
       />
       <div>{children}</div>

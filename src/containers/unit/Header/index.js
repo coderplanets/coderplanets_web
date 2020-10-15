@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 import T from 'prop-types'
 import { contains } from 'ramda'
 
-import { TYPE, ROUTE } from '@/constant'
+import { ANCHOR, ROUTE } from '@/constant'
 import { connectStore, buildLog, getRoutePathList } from '@/utils'
 
 import MailBox from '@/containers/tool/MailBox'
@@ -64,7 +64,7 @@ const HeaderContainer = ({ header: store, metric }) => {
   }, [mainPath])
 
   return (
-    <div id={TYPE.APP_HEADER_ID} style={{ position: 'relative' }}>
+    <div id={ANCHOR.GLOBAL_HEADER_ID} style={{ position: 'relative' }}>
       <Wrapper
         id="whereCallShowDoraemon"
         testId="header"

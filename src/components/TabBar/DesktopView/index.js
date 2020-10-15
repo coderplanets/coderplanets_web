@@ -5,7 +5,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { TYPE, THREAD, C11N } from '@/constant'
+import { ANCHOR, THREAD, C11N } from '@/constant'
 import { buildLog, sortByIndex } from '@/utils'
 
 import NormalView from './NormalView'
@@ -21,7 +21,7 @@ const TabBar = ({ source, active, onChange, layout, communityRaw, size }) => {
   const sortedSource = sortByIndex(aliasSource)
 
   return (
-    <div id={TYPE.APP_TABBER_ID}>
+    <div id={ANCHOR.GLOBAL_TABBER_ID}>
       {layout === C11N.BRIEF ? (
         <BriefView
           source={sortedSource}
