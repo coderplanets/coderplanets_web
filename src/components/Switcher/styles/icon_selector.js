@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 const width = '28px'
 const height = '25px'
@@ -9,7 +9,7 @@ const height = '25px'
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   position: relative;
 `
 export const AccessZone = styled.div`
@@ -20,7 +20,7 @@ export const AccessZone = styled.div`
   left: 0;
 `
 export const Tabs = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   position: relative;
   padding: 3px 5px;
   border-radius: 6px;
@@ -38,7 +38,7 @@ export const Tabs = styled.div`
   transition: all 0.25s;
 `
 export const Label = styled.label`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   width: ${width};
   height: ${height};
   font-size: 15px;
@@ -75,7 +75,7 @@ export const Icon = styled(Img)`
   transition: all 0.25s;
 `
 export const Slider = styled.span`
-  ${cs.flex()};
+  ${css.flex()};
   position: absolute;
   width: ${width};
   height: ${height};

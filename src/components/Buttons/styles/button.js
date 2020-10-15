@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { lighten } from 'polished'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 import {
   getColor,
@@ -13,7 +13,7 @@ import {
 } from './metircs/button'
 
 export const Wrapper = styled.button`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   -webkit-appearance: button;
   outline: none;
 
@@ -67,13 +67,13 @@ export const Wrapper = styled.button`
   }
 `
 export const ChildrenWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   font-size: ${({ size }) => getFontSize(size)};
   position: relative;
   z-index: 2;
 `
 export const RealChildren = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   opacity: ${({ loading }) => (loading ? 0 : 1)};
 `
 export const LoadingText = styled.div`

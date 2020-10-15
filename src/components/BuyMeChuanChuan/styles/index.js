@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 // background: #f9fcfc;
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 
   height: 100%;
   min-height: 400px;
@@ -21,7 +21,7 @@ export const Header = styled.div`
 `
 
 export const BuyChuanChuan = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const ChuanChuanDesc = styled.div`
   width: 50%;
@@ -36,17 +36,17 @@ export const FoodPic = styled.img`
   border-radius: 5px;
 `
 export const ChuanChuanSelect = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 50%;
 `
 export const SelectTitle = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-left: 5px;
   color: ${theme('banner.desc')};
   font-size: 1.2rem;
 `
 export const TeamName = styled.a`
-  ${cs.flex()};
+  ${css.flex()};
   transition: color 0.3s;
   color: ${theme('banner.title')};
   margin-left: 6px;

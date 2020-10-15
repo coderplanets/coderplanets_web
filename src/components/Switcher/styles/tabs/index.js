@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.nav.attrs((props) => ({
   'data-test-id': props.testId,
@@ -12,14 +12,14 @@ export const Wrapper = styled.nav.attrs((props) => ({
 `
 export const Nav = styled.nav`
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-flow: row wrap;
   margin: 0 auto;
   padding: 0;
 `
 export const SlipBar = styled.span`
   position: absolute;
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   width: ${({ width }) => width};
   bottom: 1px;
   left: 0;

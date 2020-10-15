@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 
 export const Selector = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   &:hover {
     cursor: pointer;
     color: ${theme('editor.title')};
@@ -31,7 +31,7 @@ export const CopyRightText = styled.div`
 `
 
 export const ReprintWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('editor.content')};
   cursor: pointer;
 `

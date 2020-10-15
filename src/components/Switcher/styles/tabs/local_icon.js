@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import TabPostSVG from '@/SvgIcons/TabPostSVG'
 import TabTechSVG from '@/SvgIcons/TabTechSVG'
 import TabRadarSVG from '@/SvgIcons/TabRadarSVG'
@@ -24,7 +24,7 @@ import TabSettingsSVG from '@/SvgIcons/TabSettingsSVG'
 import TabFavoritesSVG from '@/SvgIcons/TabFavoritesSVG'
 
 export const LableWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 
 const commonIcon = (comp) =>

@@ -1,27 +1,27 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   width: ${({ mobile }) => (!mobile ? '455px' : '100%')};
   min-height: 300px;
   margin-top: 0;
 `
 export const BodyWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-wrap: wrap;
   margin-top: 25px;
 `
 export const Entry = styled.a`
-  ${cs.flex('align-start')};
+  ${css.flex('align-start')};
   width: ${({ mobile }) => (!mobile ? '225px' : '48%')};
   height: 75px;
   padding-left: 15px;
   text-decoration: none;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     height: 88px;
   `};
 `
@@ -38,11 +38,11 @@ export const Logo = styled(Img)`
   }
 `
 export const Intro = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
   margin-left: 10px;
 `
 export const Title = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
 

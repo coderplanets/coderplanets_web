@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 import DotDividerBase from '@/components/DotDivider'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   margin-left: ${({ type }) => (type === 'brief' ? '5px' : '10px')};
   font-size: 14.5px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-left: 2px;
   `};
 `
@@ -22,7 +22,7 @@ export const DotDivider = styled(DotDividerBase)`
 export const SiteLink = styled.a.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
   background: ${({ active }) =>

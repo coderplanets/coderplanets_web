@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 
   padding: 10px;
   width: 320px;
 `
 export const Body = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
   width: 80px;
@@ -18,7 +18,7 @@ export const CommunityLogo = styled(CommunityFaceLogo)`
   margin-right: 15px;
 `
 export const CommunityInfo = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const Title = styled.div`
   font-size: 1.2rem;
@@ -40,5 +40,5 @@ export const Divider = styled.div`
 `
 
 export const Footer = styled.div`
-  ${cs.flex('justify-start')};
+  ${css.flex('justify-start')};
 `

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { animate, theme, cs } from '@/utils'
+import { animate, theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const SelectBox = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   margin-top: 10px;
   border: 1px solid;
@@ -27,10 +27,10 @@ export const ChuanChuanIcon = styled(Img)`
 `
 
 export const Selectors = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const By = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
 
   width: 40px;
   height: 40px;
@@ -40,8 +40,8 @@ export const By = styled.div`
 `
 
 export const Circle = styled.div`
-  ${cs.flex('align-both')};
-  ${cs.circle('38px')};
+  ${css.flex('align-both')};
+  ${css.circle('38px')};
   border: 1px solid;
   border-color: ${theme('font')};
   margin-right: 10px;

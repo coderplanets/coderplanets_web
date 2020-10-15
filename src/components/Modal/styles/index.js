@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, animate, cs } from '@/utils'
+import { theme, animate, css } from '@/utils'
 import Img from '@/Img'
 
 // display: ${props => (props.show ? 'block' : 'none')};
@@ -11,7 +11,7 @@ export const Mask = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: ${cs.zIndex.modalOverlay};
+  z-index: ${css.zIndex.modalOverlay};
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
@@ -33,8 +33,8 @@ export const Wrapper = styled.div`
     mode === 'default' ? theme('modal.border') : theme('baseColor.error')};
   animation: ${animate.zoomIn} 0.2s linear;
 
-  ${cs.media.tablet`width: 460px`};
-  ${cs.media.mobile`width: 320px`};
+  ${css.media.tablet`width: 460px`};
+  ${css.media.mobile`width: 320px`};
 `
 export const ChildrenWrapper = styled.div`
   min-height: 320px;
@@ -51,7 +51,7 @@ export const CloseBtn = styled(Img)`
   width: 30px;
   height: 30px;
   display: ${({ show }) => (show ? 'block' : 'none')};
-  z-index: ${cs.zIndex.modalCloseBtn};
+  z-index: ${css.zIndex.modalCloseBtn};
 
   &:hover {
     animation: ${animate.rotate360Close} 2s cubic-bezier(0, 0.56, 0.24, 0.72);

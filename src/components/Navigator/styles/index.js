@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 import DotDividerBase from '@/components/DotDivider'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   max-width: 650px;
   height: 100%;
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-right: 0;
   `};
 `
@@ -27,7 +27,7 @@ export const DotDivider = styled(DotDividerBase)`
   width: 4px;
   height: 4px;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-left: 2px;
     margin-right: 2px;
   `};

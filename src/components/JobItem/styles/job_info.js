@@ -1,21 +1,21 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   flex-grow: 1;
   width: 48%;
   max-width: 60%;
 `
 export const Header = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   &:hover {
     cursor: pointer;
   }
 `
 export const Middle = styled.div`
-  ${cs.flex('align-end')};
+  ${css.flex('align-end')};
   padding: 5px 0;
   margin-bottom: 2px;
   &:hover {
@@ -28,8 +28,8 @@ export const Footer = styled.div`
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 1rem;
-  ${cs.media.mobile`
-    ${cs.cutFrom('150px')};
+  ${css.media.mobile`
+    ${css.cutFrom('150px')};
 `};
 `
 export const CommunitiesWrapper = styled.div`
@@ -43,26 +43,26 @@ export const SalaryWrapper = styled.div`
   margin-top: -1px;
 `
 export const BackgroundWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const TagsWrapper = styled.div`
   margin-top: -1px;
 `
 
 export const Background = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: 0.85rem;
-  ${cs.media.mobile`display: none`};
+  ${css.media.mobile`display: none`};
 `
 export const Degree = styled.div``
 export const Exp = styled.div``
 export const ExpLabel = styled.span`
-  ${cs.media.tablet`display: none`};
+  ${css.media.tablet`display: none`};
 `
 
 export const Extra = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   opacity: 0.7;
   transition: opacity 0.2s;
   font-size: 0.8rem;
@@ -73,8 +73,8 @@ export const ExpDivider = styled.div`
 `
 
 export const PublishInfo = styled.div`
-  ${cs.flex('align-center')};
-  ${cs.media.tablet`
+  ${css.flex('align-center')};
+  ${css.media.tablet`
 display: none;
 `};
 

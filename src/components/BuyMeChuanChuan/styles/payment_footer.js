@@ -1,27 +1,27 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   align-items: center;
   margin-right: 5px;
 `
 
 export const PayDesc = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   font-size: 0.8rem;
   color: ${theme('banner.desc')};
 `
 export const AliPay = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-left: 5px;
   margin-right: 5px;
   color: #42abe1;
 `
 export const Weixin = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: #3eb64b;
   margin-left: 5px;
 `

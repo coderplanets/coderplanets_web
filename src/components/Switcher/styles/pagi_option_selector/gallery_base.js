@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const SwitchWrapper = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   width: 20px;
   height: 16px;
   cursor: pointer;

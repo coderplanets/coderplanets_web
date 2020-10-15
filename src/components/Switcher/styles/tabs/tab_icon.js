@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     display: none;
   `}
 `
@@ -18,7 +18,7 @@ export const Icon = styled(Img)`
   margin-right: 5px;
   display: block;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 13px;
     height: 13px;
   `}

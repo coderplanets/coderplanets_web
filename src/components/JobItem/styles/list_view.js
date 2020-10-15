@@ -1,20 +1,20 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 
   margin-bottom: 5px;
   width: 100%;
 `
 export const Main = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   flex-grow: 1;
 `
 export const TopHalf = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   line-height: 1;
 `
 export const SecondHalf = styled.div`
@@ -32,7 +32,7 @@ export const CompanyLogo = styled(Img)`
   display: block;
 `
 export const Brief = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   flex-grow: 1;
   margin-left: 10px;
   margin-bottom: 10px;
@@ -69,7 +69,7 @@ export const LinkIcon = styled(Img)`
   height: 12px;
 `
 export const Extra = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   opacity: 0.8;
   transition: opacity 0.2s;
   font-size: 0.9rem;
@@ -83,7 +83,7 @@ export const Salary = styled.div`
   font-size: 0.9rem;
 `
 export const CommentWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   align-self: flex-start;
 `
 export const CommentIcon = styled(Img)`

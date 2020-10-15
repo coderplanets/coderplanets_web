@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-right: 25px;
   /*  width of filter bar */
   min-width: 145px;
@@ -20,7 +20,7 @@ export const LogoDesc = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const NaviFooter = styled.div`
-  ${cs.flexColumn('align-start')};
+  ${css.flexColumn('align-start')};
   border-top: 1px solid;
   border-top-color: #0d4353;
   padding-top: 20px;
@@ -29,7 +29,7 @@ export const NaviFooter = styled.div`
   margin-top: 20px;
 `
 export const Terms = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 12px;
 `
 export const TermItem = styled.div`

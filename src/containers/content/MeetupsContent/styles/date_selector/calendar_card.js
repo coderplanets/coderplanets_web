@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('justify-start')};
+  ${css.flex('justify-start')};
   width: 100px;
   height: 90px;
   color: ${theme('thread.articleDigest')};
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 `
 export const SelectorRow = styled.div`
   position: relative;
-  ${cs.flexColumn('align-end')};
+  ${css.flexColumn('align-end')};
   width: 100%;
   padding-top: 10px;
   padding-right: 10px;
@@ -44,7 +44,7 @@ export const SelectorRow = styled.div`
   }
 `
 export const YearWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   align-items: baseline;
 `
 export const YearVal = styled.div`
@@ -61,7 +61,7 @@ export const YearUnit = styled.div`
   font-size: 14px;
 `
 export const MonthWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   align-items: baseline;
   margin-top: 5px;
 `
@@ -79,12 +79,12 @@ export const MonthUnit = styled.div`
   font-size: 14px;
 `
 export const DatesWrapper = styled.div`
-  ${cs.flex()}
+  ${css.flex()}
   flex-wrap: wrap;
   width: 100%;
 `
 export const WeekName = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   width: 14px;
   height: 14px;
   font-size: 13px;
@@ -93,7 +93,7 @@ export const WeekName = styled.div`
   color: white;
 `
 export const DateItem = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${css.flexColumn('justify-between')};
   border: 1px solid;
   border-color: #043a48;
   width: 55px;
@@ -102,7 +102,7 @@ export const DateItem = styled.div`
   background: ${({ active }) => (active ? '#05323e' : '')};
 `
 export const Head = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   align-items: center;
   padding-right: 3px;
 `
@@ -120,6 +120,6 @@ export const WeekendHint = styled.div`
   margin-right: 2px;
 `
 export const Foot = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 5px;
 `
