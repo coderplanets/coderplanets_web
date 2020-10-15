@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs, animate } from '@/utils'
+import { theme, css, animate } from '@/utils'
 
 export const NumbersWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: -10px;
 `
 export const NumbersInfo = styled(NumbersWrapper)``
 // background: ${theme('banner.numberHoverBg')};
 export const NumberSection = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
 
   padding: 0 5px;
   border-radius: 4px;
@@ -31,8 +31,8 @@ export const NumberTitle = styled.div`
     text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
     animation: ${animate.pulse} 0.4s linear;
   }
-  ${cs.media.tablet`font-size: 0.9rem`};
-  ${cs.media.mobile`font-size: 0.9rem`};
+  ${css.media.tablet`font-size: 0.9rem`};
+  ${css.media.mobile`font-size: 0.9rem`};
 `
 export const NumberItem = styled.div`
   font-size: 1.5rem;
@@ -45,8 +45,8 @@ export const NumberItem = styled.div`
     animation: ${animate.pulse} 0.4s linear;
   }
 
-  ${cs.media.tablet`font-size: 1rem`};
-  ${cs.media.mobile`font-size: 1rem`};
+  ${css.media.tablet`font-size: 1rem`};
+  ${css.media.mobile`font-size: 1rem`};
 `
 export const NumberLoading = styled(Img)`
   fill: ${theme('banner.number')};
@@ -62,7 +62,7 @@ export const NumberDivider = styled.div`
   align-self: center;
   margin-left: 10px;
   margin-right: 10px;
-  ${cs.media.tablet`
+  ${css.media.tablet`
       margin-left: 2px;
       margin-right: 2px;
       height: 50%;

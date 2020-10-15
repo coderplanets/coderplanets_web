@@ -2,10 +2,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
   margin-top: 10px;
   padding-left: 15px;
 `

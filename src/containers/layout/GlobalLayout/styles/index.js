@@ -2,18 +2,18 @@ import styled from 'styled-components'
 
 import { C11N } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 // background: #3b5456;
 export const Wrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   background-color: ${theme('spaceBg')};
   background-image: url(${ASSETS_ENDPOINT}/space-background.svg);
   background-attachment: fixed;
 `
 export const InnerWrapper = styled.div`
-  ${cs.flexColumn()};
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  ${css.flexColumn()};
+  max-width: ${css.MAX_CONTENT_WIDTH};
   width: 100vw;
   /* min-width: ${({ minWidth }) => minWidth}; */
 /*
@@ -26,7 +26,7 @@ export const InnerWrapper = styled.div`
   background: ${theme('bodyBg')};
   transition: all 0.2s;
   overflow-x: ${({ sidebarPin }) => (sidebarPin ? 'hidden' : '')};
-  ${cs.media.tablet`
+  ${css.media.tablet`
     position: relative;
     padding-left: 0;
   `};
@@ -47,7 +47,7 @@ export const ContentPinWrapper = styled.div`
 export const ContentWrapper = styled.div`
   margin-left: ${({ offsetLeft }) => (offsetLeft ? '56px' : '0')};
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     margin-left: 0;
   `};
 `

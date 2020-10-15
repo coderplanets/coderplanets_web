@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs, animate } from '@/utils'
+import { theme, css, animate } from '@/utils'
 
 export const Divider = styled.div`
   border-right: 1px solid;
@@ -12,10 +12,10 @@ export const Divider = styled.div`
   margin-right: 6px;
 `
 export const Reaction = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const PlainAction = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   border-radius: 5px;
 `
 export const ReactionAction = styled(PlainAction)`

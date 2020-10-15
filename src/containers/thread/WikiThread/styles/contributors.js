@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const NoteWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-top: 20px;
 `
 export const NoteTitle = styled.div`
@@ -31,7 +31,7 @@ export const FootNote = styled.div`
   margin-top: 15px;
 `
 export const SycNote = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;

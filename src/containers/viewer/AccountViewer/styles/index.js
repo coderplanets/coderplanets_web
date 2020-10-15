@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const AccountWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   height: auto;
   min-height: 100vh;
   background: ${theme('drawer.accountBg')};

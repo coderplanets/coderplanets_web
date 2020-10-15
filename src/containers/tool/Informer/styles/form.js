@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('justify.center')};
+  ${css.flexColumn('justify.center')};
 
   width: 100%;
   padding: 20px;
 `
 export const Footer = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   margin-top: 30px;
 `
 export const Submit = styled.div`

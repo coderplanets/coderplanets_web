@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 25px;
 `
 const SexIcon = styled(Img)`
@@ -35,6 +35,6 @@ export const SexLable = styled.div`
 `
 
 export const SexInput = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 250px;
 `

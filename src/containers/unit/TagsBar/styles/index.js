@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   margin-top: 30px;
   margin-left: 32px;
 `
 export const TagItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 14px;
 `
 export const AllTagIcon = styled(Img)`
@@ -25,7 +25,7 @@ const getDotBgColor = (active, title, color) => {
 }
 
 export const TagDot = styled.div`
-  ${cs.circle('12px')};
+  ${css.circle('12px')};
   margin-right: 12px;
   background-color: ${({ active, title, color }) =>
     getDotBgColor(active, title, color)};

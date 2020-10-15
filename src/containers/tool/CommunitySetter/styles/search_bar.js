@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import Input from '@/components/Input'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 18px;
 `
 export const SearchInput = styled(Input)`

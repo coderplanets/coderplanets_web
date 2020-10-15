@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 // width: 550px;
 export const CardWrapper = styled.div`
@@ -14,12 +14,12 @@ export const CardWrapper = styled.div`
   margin-right: 20px;
   overflow-y: scroll;
 
-  ${cs.media.mobile`
+  ${css.media.mobile`
     width: 95%;
   `};
 `
 export const ErrorWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 20px 40px;
   border: 1px solid;
   border-radius: 5px;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   padding: 20px;
@@ -11,7 +11,7 @@ export const FormWrapper = styled.div`
   padding: 0 20px;
 `
 export const Footer = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   margin-top: 30px;
 `
 export const Submit = styled.div`

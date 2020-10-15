@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   width: 150px;
   border-right: 1px solid;
   border-right-color: ${theme('banner.desc')};
@@ -12,10 +12,10 @@ export const Wrapper = styled.div`
   padding-bottom: 0;
 `
 export const TransWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const AccountIcon = styled(Img)`
-  ${cs.circle('30px')};
+  ${css.circle('30px')};
   display: block;
 `
 export const TransIcon = styled(Img)`
@@ -49,7 +49,7 @@ export const TitleDivider = styled.div`
   opacity: 0.5;
 `
 const OptionWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-bottom: 8px;
   &:hover {
     cursor: pointer;
@@ -67,7 +67,7 @@ export const Holder = styled.div`
   margin-top: ${({ margin }) => margin || '80px'};
 `
 export const QuestionWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   &:hover {
     color: ${theme('thread.articeTitle')};

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   padding-left: 35px;
   padding-right: 30px;
@@ -12,6 +12,6 @@ export const Wrapper = styled.div`
   padding-bottom: 6px;
 `
 export const ReactionWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-right: 5px;
 `

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.nav`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
   position: relative;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
@@ -12,27 +12,27 @@ export const Wrapper = styled.nav`
   padding-bottom: 10px;
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   width: 100%;
 `
 export const BannerContent = styled.div`
-  ${cs.flex()};
-  max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
+  ${css.flex()};
+  max-width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
   width: 100%;
   padding: 0 5vw;
 `
 export const Brief = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
   width: 60%;
 `
 export const Desc = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 5px;
   margin-bottom: 8px;
   font-size: 0.9rem;
   color: ${theme('thread.articleDigest')};
 `
 export const Avatar = styled.img`
-  ${cs.circle('25px')};
+  ${css.circle('25px')};
   margin-right: 5px;
 `

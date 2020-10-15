@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 // BodyWrapper, BodyHeader, BackToEditBtn, PreviewHeader
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export { Wrapper } from './editor'
 
 export const Header = styled.div`
-  ${cs.flex('justify-end')};
+  ${css.flex('justify-end')};
   margin-bottom: 10px;
 `
 export const PreviewHeader = styled.div`

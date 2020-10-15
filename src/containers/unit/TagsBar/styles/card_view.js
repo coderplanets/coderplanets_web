@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   flex-wrap: wrap;
 `
 export const TagItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   min-width: 33%;
   margin-bottom: 10px;
 `
@@ -25,7 +25,7 @@ const getDotBgColor = (active, title, color) => {
 }
 
 export const TagDot = styled.div`
-  ${cs.circle('9px')};
+  ${css.circle('9px')};
 
   margin-right: 8px;
   background-color: ${({ active, title, color }) =>

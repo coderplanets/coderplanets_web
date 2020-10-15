@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   position: relative;
   margin-bottom: 10px;
   margin-right: 20px;
@@ -20,7 +20,7 @@ export const Logo = styled(Img)`
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
-  ${cs.cutFrom('100px')};
+  ${css.cutFrom('100px')};
 
   ${Wrapper}:hover & {
     color: ${theme('thread.articleTitle')};

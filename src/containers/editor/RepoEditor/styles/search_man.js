@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 // import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
 
   padding-top: 20px;
   padding-bottom: 30px;
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   position: relative;
 `
 export const FormWrapper = styled.div`
-  ${cs.flexColumnGrow('align-both')};
+  ${css.flexColumnGrow('align-both')};
 
   width: 100%;
   margin-top: -10%;
@@ -42,7 +42,7 @@ export const TokeInputWrapper = styled.div`
   margin-bottom: -10px;
 `
 export const Footer = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('banner.desc')};
   font-size: 0.9rem;
 `

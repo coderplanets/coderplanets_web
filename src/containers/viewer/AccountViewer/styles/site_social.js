@@ -1,22 +1,22 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const LeftPart = styled.div`
   margin-left: 10px;
   margin-right: 10px;
 `
 export const RightPart = styled.div`
-  ${cs.flexGrow('align-both')};
+  ${css.flexGrow('align-both')};
 
   border-left: 2px solid;
   border-color: ${theme('drawer.divider')};
 `
 export const RightWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   height: 100%;
 `
 export const NumberDivider = styled.div`

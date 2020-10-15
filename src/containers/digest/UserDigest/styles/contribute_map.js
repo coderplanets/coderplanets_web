@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div``
 
 export const TitleWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-bottom: 5px;
 `
 export const HelpText = styled.div`
@@ -35,7 +35,7 @@ export const Title = styled.div`
 `
 
 export const DotWrapper = styled.div`
-  ${cs.flex('justify-end')};
+  ${css.flex('justify-end')};
   margin-top: 4px;
 `
 export const DotText = styled.div`
@@ -49,7 +49,7 @@ export const DotText = styled.div`
   }
 `
 export const DotList = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   margin-left: 5px;
   margin-right: 3px;
 `

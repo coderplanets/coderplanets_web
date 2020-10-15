@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   display: ${({ show }) => (show ? 'flex' : 'none')};
@@ -9,27 +9,27 @@ export const Wrapper = styled.div`
 `
 export const ListWrapper = styled.div``
 export const Footer = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   margin-top: 20px;
   margin-bottom: 10px;
 `
 export const CatWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 10px 5px;
   &:hover {
     background: ${theme('thread.articleHover')};
   }
 `
 export const CatContent = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const CatMain = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
 `
 export const SetBtn = styled.div``
 
 export const CatHeader = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const CatTitle = styled.div`
   color: ${theme('banner.desc')};

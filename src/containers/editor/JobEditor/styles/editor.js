@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import Input from '@/components/Input'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 
   padding: 20px;
   background-color: ${theme('editor.contentBg')};
@@ -39,6 +39,6 @@ export const TitleInput = styled(Input)`
   }
 `
 export const FooterWrapper = styled.div`
-  ${cs.flex('justify-center')};
+  ${css.flex('justify-center')};
   margin-top: 25px;
 `

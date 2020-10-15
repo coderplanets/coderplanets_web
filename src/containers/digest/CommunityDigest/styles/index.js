@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))``
 
 export const BaseBanner = styled.nav`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
   position: relative;
 
   align-items: center;
@@ -20,7 +20,7 @@ export const BaseBanner = styled.nav`
   }
 `
 export const BaseTabber = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 
   position: absolute;
   bottom: 0;
@@ -29,7 +29,7 @@ export const BaseTabber = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
 
-  ${cs.media.tablet`
+  ${css.media.tablet`
     left: 0;
     width: calc(100% - 5%);
     padding-left: calc(3% + 15px);

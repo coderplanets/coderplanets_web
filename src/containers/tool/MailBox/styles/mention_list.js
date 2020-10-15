@@ -1,24 +1,24 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   overflow: hidden;
 `
 export const ListsWrapper = styled.div`
   width: 340px;
 `
 export const UserLabel = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 
   &:hover {
     cursor: pointer;
   }
 `
 export const UserAvatar = styled(Img)`
-  ${cs.circle('16px')};
+  ${css.circle('16px')};
   display: block;
   margin-right: 3px;
 `
@@ -40,7 +40,7 @@ export const MessageLinker = styled.a`
 `
 
 export const Message = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   padding: 6px 5px;
   &:hover {
     background: ${theme('thread.articleHover')};
@@ -53,11 +53,11 @@ export const MessageDivider = styled.div`
   opacity: 0.3;
 `
 export const MessageHeader = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
 `
 export const MessageBody = styled.div``
 export const TitleHeader = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const TypeLabel = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -67,14 +67,14 @@ export const TypeLabel = styled.div`
 `
 export const SourceTitle = styled.div`
   color: ${theme('thread.articleTitle')};
-  ${cs.cutFrom('180px')};
+  ${css.cutFrom('180px')};
   font-size: 0.9rem;
   &:hover {
     cursor: pointer;
   }
 `
 export const SourcePreview = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
   margin-top: 3px;
@@ -84,7 +84,7 @@ export const SourcePreview = styled.div`
 `
 export const PreviewBody = styled.div`
   font-style: italic;
-  ${cs.cutFrom('250px')};
+  ${css.cutFrom('250px')};
 `
 export const AtLabel = styled.span`
   font-style: normal;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import TabCitySVG from '@/SvgIcons/TabCitySVG'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -13,10 +13,10 @@ export const ListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
-  ${cs.media.tablet`width: 100%`};
+  ${css.media.tablet`width: 100%`};
 `
 export const LoadingWrapper = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${css.flexColumn('align-both')};
   margin-top: 15%;
   height: 100%;
   width: 100%;
@@ -33,5 +33,5 @@ export const LoadingText = styled.div`
 `
 export const Sidebar = styled.div`
   width: 15%;
-  ${cs.media.tablet`display: none`};
+  ${css.media.tablet`display: none`};
 `

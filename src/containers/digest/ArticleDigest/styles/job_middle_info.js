@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   margin-top: 2px;
   margin-bottom: 2px;
 `
@@ -17,5 +17,5 @@ export const Text = styled.div`
 `
 
 export const ExpLabel = styled.span`
-  ${cs.media.tablet`display: none`};
+  ${css.media.tablet`display: none`};
 `
