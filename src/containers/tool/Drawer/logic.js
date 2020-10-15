@@ -91,6 +91,11 @@ export const toggleSwipeAviliable = (type, bool) => {
   }
 }
 
+export const resetSwipeAviliable = () => {
+  store.mark({ swipeDownAviliable: true })
+  store.mark({ swipeUpAviliable: true })
+}
+
 const DataResolver = [
   {
     match: asyncRes(EVENT.DRAWER_OPEN),

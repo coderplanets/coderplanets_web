@@ -81,7 +81,7 @@ const DrawerStore = T.model('DrawerStore', {
   // only works for mobile view
   options: T.optional(Options, defaultOptions),
   swipeDownAviliable: T.optional(T.boolean, true),
-  swipeUpAviliable: T.optional(T.boolean, false),
+  swipeUpAviliable: T.optional(T.boolean, true),
 
   windowWidth: T.optional(T.number, 1520),
   type: T.maybeNull(

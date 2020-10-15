@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
 
 import { useSwipe } from '@/hooks'
@@ -13,15 +13,28 @@ import {
   MobileInnerContent,
 } from '../styles'
 
-import { closeDrawer, onSwipedYHandler, onSwipingYHandler } from '../logic'
+import {
+  closeDrawer,
+  onSwipedYHandler,
+  onSwipingYHandler,
+  resetSwipeAviliable,
+} from '../logic'
 
 const Viewer = ({ options, visible, type, imageUploading, children }) => {
   const theme = useTheme()
-
   // swipe action state for top && bottom
   // null means restore and close
   const [swipeDownY, setSwipeDownY] = useState(null)
   const [swipeUpY, setSwipeUpY] = useState(null)
+
+  // NOTE: important: reset swipe position when drawer closed
+  useEffect(() => {
+    if (!visible) {
+      setSwipeDownY(null)
+      setSwipeUpY(null)
+      resetSwipeAviliable()
+    }
+  }, [visible])
 
   const swipeHandlers = useSwipe({
     onSwiped: (ev) => onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY),

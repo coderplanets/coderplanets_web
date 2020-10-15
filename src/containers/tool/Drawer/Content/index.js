@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { useMedia } from '@/hooks'
 
@@ -10,8 +10,19 @@ import { Wrapper } from '../styles/content'
 import { getMobileContentHeight } from '../styles/metrics'
 import { toggleSwipeAviliable } from '../logic'
 
-const Content = ({ options, type, attachment, attUser, mmType }) => {
+const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
   const { mobile } = useMedia()
+  const ref = useRef(null)
+
+  /*
+   * reset when content visiable
+   * scroll to top always
+   */
+  useEffect(() => {
+    if (visible && ref?.current) {
+      ref.current.scrollIntoView()
+    }
+  }, [visible, ref])
 
   if (mobile) {
     return (
@@ -25,7 +36,9 @@ const Content = ({ options, type, attachment, attUser, mmType }) => {
         onBottomLeave={() => toggleSwipeAviliable('Up', false)}
         autoHide
       >
-        <Wrapper>{renderContent(type, attachment, attUser, mmType)}</Wrapper>
+        <Wrapper ref={ref}>
+          {renderContent(type, attachment, attUser, mmType)}
+        </Wrapper>
       </CustomScroller>
     )
   }
