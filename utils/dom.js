@@ -129,9 +129,20 @@ export const toggleGlobalBlur = (visible) => {
     for (let index = 0; index < blurableEls.length; index += 1) {
       const el = blurableEls[index]
 
-      visible
-        ? el.classList.add('global_blur')
-        : el.classList.remove('global_blur')
+      !visible ? (el.style.filter = '') : (el.style.filter = 'blur(2px)')
+    }
+  }
+}
+
+// make global blur more clear, not still blur
+export const clearGlobalBlur = () => {
+  const blurableEls = document.querySelectorAll(`.${TYPE.GLOBAL_BLUR_CLASS}`)
+
+  if (blurableEls) {
+    for (let index = 0; index < blurableEls.length; index += 1) {
+      const el = blurableEls[index]
+
+      el.style.filter = 'blur(1px)'
     }
   }
 }

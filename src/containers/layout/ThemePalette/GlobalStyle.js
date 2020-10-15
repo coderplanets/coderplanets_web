@@ -36,10 +36,6 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme('a.active')};
   }
 
-  .global_blur {
-    filter: blur(2px);
-  }
-
   .iziToast {
     border: 1px solid !important;
     border-color: ${theme('toast.border')} !important;
