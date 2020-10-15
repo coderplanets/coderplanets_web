@@ -1,6 +1,6 @@
 import SR71 from './async/sr71'
-import { asyncErr, asyncRes } from './graphql_helper'
-import { $solver } from './mobx_helper'
+import { asyncErr, asyncRes } from './graphql'
+import { $solver } from './mobx'
 
 export default {
   SR71,

@@ -5,7 +5,7 @@ import { limit, length } from 'stringz'
 import { TAG_COLOR_ORDER } from '@/config'
 import { EVENT } from '@/constant'
 
-import { scrollToHeader } from './dom_operator'
+import { scrollToHeader } from './dom'
 import { isString } from './validator'
 
 /* eslint-disable */

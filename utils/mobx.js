@@ -80,7 +80,7 @@ const matchResolver = (resolveArray, data) => {
 export const $solver = curry((dataResolver, errResolver, data) =>
   data.error
     ? matchResolver(errResolver, data)
-    : matchResolver(dataResolver, data)
+    : matchResolver(dataResolver, data),
 )
 
 /*
@@ -146,7 +146,7 @@ export const meteorState = (store, state, secs, statusMsg = '') => {
   return false
 }
 
-export const stripMobx = obj => {
+export const stripMobx = (obj) => {
   if (!obj) return obj
   return toJS(obj)
 }
@@ -159,9 +159,10 @@ export const stripMobx = obj => {
  */
 export const updateEditing = (store, part, e) => {
   if (!store) return false
-  if (!store.updateEditing)
+  if (!store.updateEditing) {
     // eslint-disable-next-line no-console
     return console.warn('Error: updateEditing not found in store: ', store)
+  }
 
   let value = e
   if (isObject(e) && has('target', e)) {
