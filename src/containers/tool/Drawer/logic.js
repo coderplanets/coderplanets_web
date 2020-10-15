@@ -2,7 +2,17 @@ import { useEffect } from 'react'
 import { contains } from 'ramda'
 
 import { TYPE, EVENT } from '@/constant'
-import { asyncSuit, buildLog, unlockPage, send, Global } from '@/utils'
+
+import {
+  asyncSuit,
+  buildLog,
+  unlockPage,
+  send,
+  Global,
+  debounce,
+  toggleGlobalBlur,
+  clearGlobalBlur,
+} from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Preview')
@@ -67,18 +77,32 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
   }
 }
 
+const handleClearGlobalBlur = debounce(() => clearGlobalBlur(true), 200)
+const handleRestoreGlobalBlur = debounce(() => toggleGlobalBlur(true), 200)
+
 // handler swiping event for up/down swipe
 export const onSwipingYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
+  const { swipeThreshold } = store
   // when top/bottom has no content, the whole panel can be swipeable
   // like tiktok style
   const { swipeUpAviliable, swipeDownAviliable } = store
 
   if (swipeUpAviliable && ev.dir === 'Up') {
-    setSwipeUpY(parseInt(Math.abs(ev.deltaY), 10))
+    const swipeUpY = parseInt(Math.abs(ev.deltaY), 10)
+    setSwipeUpY(swipeUpY)
+
+    swipeUpY >= swipeThreshold
+      ? handleClearGlobalBlur()
+      : handleRestoreGlobalBlur()
   }
 
   if (swipeDownAviliable && ev.dir === 'Down') {
-    setSwipeDownY(parseInt(Math.abs(ev.deltaY), 10))
+    const swipeDonwY = parseInt(Math.abs(ev.deltaY), 10)
+    setSwipeDownY(swipeDonwY)
+
+    swipeDonwY >= swipeThreshold
+      ? handleClearGlobalBlur()
+      : handleRestoreGlobalBlur()
   }
 }
 

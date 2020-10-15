@@ -110,6 +110,7 @@ export {
   hideDoraemonBarRecover,
   isBrowser,
   toggleGlobalBlur,
+  clearGlobalBlur,
 } from './dom'
 /*
  * theme related
