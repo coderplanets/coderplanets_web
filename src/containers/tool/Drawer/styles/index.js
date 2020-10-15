@@ -106,6 +106,7 @@ export const MobileInnerContent = styled.div.attrs(
   margin-top: ${({ options }) =>
     options.direction === 'bottom' ? '15px' : '0'};
   overflow-y: scroll;
+  transition: filter 0.3s;
 `
 export const PreviewHeader = styled.div`
   ${cs.flex()};
