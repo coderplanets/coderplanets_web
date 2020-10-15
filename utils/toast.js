@@ -4,7 +4,7 @@
 
 import { merge, reject } from 'ramda'
 
-import { Global } from './functions'
+import { Global } from './helper'
 import { nilOrEmpty } from './validator'
 
 const checkValid = () => Global.iziToast || false
