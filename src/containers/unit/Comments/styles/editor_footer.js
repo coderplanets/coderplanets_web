@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const InputFooter = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   padding: 0 10px;
   margin-bottom: 10px;
   margin-left: 20px;
@@ -12,11 +12,11 @@ export const InputFooter = styled.div`
 `
 
 export const InputHelper = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
 `
 
 export const FoldBtn = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const FoldArrow = styled(Img)`
   fill: ${theme('thread.articleDigest')};
@@ -51,5 +51,5 @@ export const HelperIcon = styled(Img)`
 `
 
 export const InputSubmit = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `

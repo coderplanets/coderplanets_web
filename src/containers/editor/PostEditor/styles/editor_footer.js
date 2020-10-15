@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { animate, theme, cs } from '@/utils'
+import { animate, theme, css } from '@/utils'
 //
 export const Wrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   flex-wrap: wrap;
 `
 export const Item = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   color: ${theme('editor.footer')};
   &:hover {
     color: #51abb2;

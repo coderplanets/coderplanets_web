@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumnGrow()};
+  ${css.flexColumnGrow()};
   width: calc(100% - 40px);
   margin-left: 5px;
 `
@@ -18,7 +18,7 @@ export const TagsWrapper = styled.div`
   display: inline-block;
 `
 export const ExtraInfo = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.extraInfo')};
   font-size: 13px;
   margin-top: 4px;

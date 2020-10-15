@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div``
 
@@ -14,7 +14,7 @@ export const CommentsWrapper = styled.div`
 `
 
 export const BodyHeaderWrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   align-items: center;
   background-color: ${theme('drawer.articleBg')};
   width: 100%;

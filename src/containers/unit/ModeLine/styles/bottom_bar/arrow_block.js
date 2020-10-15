@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const MenuLogo = styled(Img)`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
@@ -11,7 +11,7 @@ export const MenuLogo = styled(Img)`
 `
 const Block = styled.div`
   position: relative;
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   height: 100%;
   background: ${({ bgColor }) => bgColor};

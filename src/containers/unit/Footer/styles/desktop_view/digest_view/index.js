@@ -2,23 +2,23 @@ import styled from 'styled-components'
 
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { ArrowLink } from '@/components/Buttons'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import { getPadding } from '../../metrics'
 
 export const Wrapper = styled.footer`
-  ${cs.flexColumn('align-center')};
+  ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 30px;
 `
 export const InnerWrapper = styled.div`
   width: 100%;
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: ${css.MAX_CONTENT_WIDTH};
   padding: ${({ layout }) => getPadding(layout)};
   padding-bottom: 0;
 `
 export const MainInfos = styled.div`
-  ${cs.flex('justify-start')};
+  ${css.flex('justify-start')};
   margin-bottom: 20px;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -29,10 +29,10 @@ export const MainInfos = styled.div`
   }
   transition: opacity 0.25s;
 
-  ${cs.media.tablet`display: none;`};
+  ${css.media.tablet`display: none;`};
 `
 export const Column = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   min-width: 100px;
   margin-right: ${({ margin }) => margin || '50px'};
 `
@@ -41,7 +41,7 @@ export const MainColumn = styled(Column)`
   flex-grow: 1;
 `
 export const SiteInfo = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   align-items: end;
   margin-bottom: 10px;
   margin-top: 3px;
@@ -81,7 +81,7 @@ export const Title = styled.div`
   font-size: 14px;
 `
 export const Body = styled.div`
-  ${cs.flexColumn('justify-start')};
+  ${css.flexColumn('justify-start')};
   color: ${theme('footer.text')};
 `
 export const Item = styled.a`
@@ -103,5 +103,5 @@ export const LinkItem = styled(ArrowLink)`
   margin-bottom: 10px;
 `
 export const ItemGitSource = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `

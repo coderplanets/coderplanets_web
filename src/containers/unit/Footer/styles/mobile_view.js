@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 import DotDivider from '@/components/DotDivider'
 
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 export const SiteWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   width: 100%;
   height: 40px;
   margin-top: 20px;
@@ -28,7 +28,7 @@ export const SiteTitle = styled.div`
   margin-top: 1px;
 `
 export const SiteInfoWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
 `
 export const Item = styled.div`
   color: ${theme('footer.text')};
@@ -38,6 +38,6 @@ export const Divider = styled(DotDivider)`
   background: ${theme('footer.text')};
 `
 export const VersionWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   margin-top: 10px;
 `

@@ -3,7 +3,7 @@
  * common styles used in styled-component
  *
  */
-import { css } from 'styled-components'
+import { css as styledCss } from 'styled-components'
 
 const smokey = (opt = 0.6) => `
   opacity: ${opt};
@@ -132,9 +132,9 @@ export const mediaBreakPoints = {
 }
 
 const media = Object.keys(mediaBreakPoints).reduce((acc, label) => {
-  acc[label] = (...args) => css`
+  acc[label] = (...args) => styledCss`
     @media (max-width: ${mediaBreakPoints[label]}px) {
-      ${css(...args)};
+      ${styledCss(...args)};
     }
   `
   return acc
@@ -146,7 +146,7 @@ media.laptopLPaddingColumnLayout = '0 3vw 0 calc(3vw + 10px);'
 
 // export const media = generateMedia({ ...mediaBreakPoints })
 
-const cs = {
+const css = {
   cutFrom,
   circle,
   smokey,
@@ -162,4 +162,4 @@ const cs = {
   ARTICLE_PAGE_MAX_CONTENT_WIDTH,
 }
 
-export default cs
+export default css

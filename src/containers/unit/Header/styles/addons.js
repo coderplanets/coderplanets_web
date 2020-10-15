@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const SettingIcon = styled(Img)`
   fill: ${theme('header.fg')};

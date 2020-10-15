@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 const BaseWrapper = styled.div`
   z-index: 1;
@@ -26,7 +26,7 @@ export const TopWrapper = styled(BaseWrapper)`
 `
 
 export const CloseBtn = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   width: 50px;
   height: 8px;
   border-radius: 8px;

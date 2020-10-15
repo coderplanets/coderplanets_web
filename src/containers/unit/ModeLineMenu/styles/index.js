@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { cs } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   height: 100%;
   padding: 0 6vw;
 `

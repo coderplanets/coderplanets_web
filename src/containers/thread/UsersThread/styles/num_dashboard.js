@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
   position: absolute;
   z-index: 1;
   top: 20px;
@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 `
 
 export const SumWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   color: ${theme('thread.articleDigest')};
 `
 
@@ -39,7 +39,7 @@ export const DashboardListWrapper = styled.div`
   overflow-y: scroll;
 `
 export const DashItem = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Title = styled.div`
   color: ${({ active }) =>
@@ -65,7 +65,7 @@ export const Num = styled.div`
   text-align: left;
 `
 export const Chart = styled.div`
-  ${cs.flexGrow()};
+  ${css.flexGrow()};
 `
 export const ChartBar = styled.div`
   height: ${({ active }) => (active ? '4px' : '3px')};

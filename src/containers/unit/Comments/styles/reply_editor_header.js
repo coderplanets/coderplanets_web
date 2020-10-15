@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
   height: 50px;
   margin-right: 20px;
 `
 export const UserAvatar = styled.img`
-  ${cs.circle('25px')};
+  ${css.circle('25px')};
   margin-left: 3%;
   opacity: ${theme('avatarOpacity')};
 `

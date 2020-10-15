@@ -127,7 +127,7 @@ export { default as SOCIAL_LISTS } from './social'
 // helpers
 export { toast, toastBarColor } from './toast'
 export { default as animate } from './animations'
-export { default as cs } from './css'
+export { default as css } from './css'
 export { default as BStore } from './bstore'
 export { Trans } from './i18n'
 export { default as GA } from './analytics'

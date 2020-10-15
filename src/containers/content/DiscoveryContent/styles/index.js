@@ -1,25 +1,25 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn()};
+  ${css.flexColumn()};
 `
 export const ContentWrapper = styled.div`
-  ${cs.flex('align-both')};
+  ${css.flex('align-both')};
   margin-top: 45px;
   margin-left: ${({ center }) => (center ? '5%' : 'none')};
   transition: all 0.25s;
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex()};
+  ${css.flex()};
   width: 100%;
   height: 100%;
-  max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
+  max-width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
 `
 export const ContentsWrapper = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center')};
   width: ${({ center }) => (center ? '100%' : 'calc(100% - 140px)')};
   transition: all 0.25s;
 `
@@ -29,7 +29,7 @@ export const SubscribedBox = styled.div`
 `
 
 export const BtnWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 
 export const PrefixIcon = styled(Img)`

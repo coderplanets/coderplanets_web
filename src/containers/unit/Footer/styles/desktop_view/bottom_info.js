@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@/utils'
+import { theme, css } from '@/utils'
 import { getPadding } from '../metrics'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
+  ${css.flex('align-center', 'justify-between')};
   /*  TODO:  remove footer.bottomBg key */
   /* background: ${theme('footer.bottomBg')}; */
   border-top: 1px solid;
@@ -12,19 +12,19 @@ export const Wrapper = styled.div`
   height: 60px;
   width: 100%;
 
-  ${cs.media.tablet`display: none;`};
+  ${css.media.tablet`display: none;`};
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex('justify-between')};
+  ${css.flex('justify-between')};
   color: ${theme('thread.articleDigest')};
   align-items: center;
   width: 100%;
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: ${css.MAX_CONTENT_WIDTH};
   padding: ${({ layout }) => getPadding(layout)};
   padding-right: 80px;
 `
 export const Links = styled.div`
-  ${cs.flex('align-center')};
+  ${css.flex('align-center')};
 `
 export const Site = styled.a`
   color: ${theme('thread.articleDigest')};
