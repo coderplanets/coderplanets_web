@@ -80,6 +80,9 @@ const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
   // only works for mobile view
   options: T.optional(Options, defaultOptions),
+  swipeDownAviliable: T.optional(T.boolean, true),
+  swipeUpAviliable: T.optional(T.boolean, false),
+
   windowWidth: T.optional(T.number, 1520),
   type: T.maybeNull(
     T.enumeration('previewType', [
@@ -186,6 +189,10 @@ const DrawerStore = T.model('DrawerStore', {
       if (self.media.mobile) {
         toggleGlobalBlur(false)
       }
+    },
+    resetSwipeAviliable() {
+      self.swipeDownAviliable = true
+      self.swipeUpAviliable = false
     },
     mark(sobj) {
       markStates(sobj, self)

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { cs } from '@/utils'
-import Img from '@/Img'
 
 const BaseWrapper = styled.div`
   z-index: 1;
@@ -12,7 +11,7 @@ const BaseWrapper = styled.div`
   height: 30px;
   background: #002a35;
   border-bottom: 1px solid;
-  border-bottom-color: #506063;
+  border-bottom-color: #194d5f;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 `
@@ -29,16 +28,10 @@ export const TopWrapper = styled(BaseWrapper)`
 export const CloseBtn = styled.div`
   ${cs.flex('align-both')};
   width: 50px;
-  height: 16px;
+  height: 8px;
   border-radius: 8px;
-  background: #506063;
+  background: #194d5f;
   position: absolute;
-  top: 20px;
+  top: 26px;
   left: calc(50% - 25px);
-`
-export const UpIcon = styled(Img)`
-  fill: #002a35;
-  width: 18px;
-  height: 18px;
-  display: block;
 `

@@ -47,9 +47,10 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 
   if (options.direction === 'bottom') {
     const swipeDonwY = parseInt(Math.abs(ev.deltaY), 10)
+
     if (swipeDonwY < swipeThreshold) {
       setSwipeDownY(0)
-    } else {
+    } else if (ev.dir === 'Down') {
       closeDrawer()
       setSwipeDownY(null)
     }
@@ -59,7 +60,7 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 
     if (swipeUpY < swipeThreshold) {
       setSwipeUpY(0)
-    } else {
+    } else if (ev.dir === 'Up') {
       closeDrawer()
       setSwipeUpY(null)
     }
@@ -67,13 +68,11 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 }
 
 // handler swiping event for up/down swipe
-export const onSwipingYHandler = (
-  ev,
-  setSwipeUpY,
-  setSwipeDownY,
-  swipeUpAviliable = true,
-  swipeDownAviliable = true,
-) => {
+export const onSwipingYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
+  // when top/bottom has no content, the whole panel can be swipeable
+  // like tiktok style
+  const { swipeUpAviliable, swipeDownAviliable } = store
+
   if (swipeUpAviliable && ev.dir === 'Up') {
     setSwipeUpY(parseInt(Math.abs(ev.deltaY), 10))
   }
@@ -82,6 +81,17 @@ export const onSwipingYHandler = (
     setSwipeDownY(parseInt(Math.abs(ev.deltaY), 10))
   }
 }
+
+//
+export const toggleSwipeAviliable = (type, bool) => {
+  if (type === 'Down') {
+    store.mark({ swipeDownAviliable: bool })
+  } else {
+    store.mark({ swipeUpAviliable: bool })
+  }
+}
+
+export const resetSwipeAviliable = () => store.resetSwipeAviliable()
 
 const DataResolver = [
   {

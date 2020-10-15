@@ -43,6 +43,25 @@ export const M_HEIGHT = '50vh'
 const M_TRANSLATE = '100%'
 
 /**
+ * dim the drawer panel when scroll offset pass the threshold
+ *
+ * @param {number} swipeUpY
+ * @param {number} swipeDownY
+ * @param {object} options
+ * @returns
+ */
+export const getDim = (swipeUpY, swipeDownY, options) => {
+  const threshold = SWIPE_THRESHOLD[options.direction][options.position]
+
+  if (options.direction === 'bottom') {
+    return swipeDownY >= threshold ? 'opacity(0.5)' : ''
+  }
+  if (options.direction === 'top') {
+    return swipeUpY >= threshold ? 'opacity(0.5)' : ''
+  }
+}
+
+/**
  * for drawer on mobile
  * defines drawer contnt height, H,L,M is inspired by vim shortcut
  *
