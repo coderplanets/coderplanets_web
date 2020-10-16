@@ -1,9 +1,15 @@
 import React from 'react'
 
 import { ICON, ICON_BASE } from '@/config'
-import { Wrapper, Logo, Block, Title, ArrowIcon } from './styles/intro_frame'
+import {
+  Wrapper,
+  Logo,
+  Block,
+  Title,
+  ArrowIcon,
+} from '../styles/global_menu/home_navi'
 
-const IntroFrame = () => {
+const HomeNavi = () => {
   return (
     <Wrapper>
       <Logo src={`${ICON_BASE}/site_logo.svg`} />
@@ -15,4 +21,4 @@ const IntroFrame = () => {
   )
 }
 
-export default React.memo(IntroFrame)
+export default React.memo(HomeNavi)

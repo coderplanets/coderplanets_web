@@ -14,6 +14,7 @@ export const Logo = styled(Img)`
   width: 18px;
   height: 18px;
   display: block;
+  margin-top: -2px;
 `
 export const Block = styled.div`
   ${css.flex('align-center')};
@@ -25,7 +26,7 @@ export const Title = styled.div`
   font-weight: bold;
 `
 export const ArrowIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleDigest')};
   width: 16px;
   height: 16px;
   display: block;
