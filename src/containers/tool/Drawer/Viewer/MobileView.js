@@ -36,6 +36,12 @@ const Viewer = ({ options, visible, type, imageUploading, children }) => {
     }
   }, [visible])
 
+  /**
+   * 注意这里有一个坑，在进入 Drawer 滑动到最底部快速往上滑动时
+   * CustomScroller 不会阻止 swipe 状态，导致 swipe 状态依然在
+   * 记录中，这是松手会导致 Drawer 以外关闭，需要在下层 Content 中
+   * 做时间差处理
+   */
   const swipeHandlers = useSwipe({
     onSwiped: (ev) => onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY),
     onSwiping: (ev) => onSwipingYHandler(ev, setSwipeUpY, setSwipeDownY),
