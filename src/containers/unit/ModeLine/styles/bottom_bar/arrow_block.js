@@ -14,6 +14,12 @@ export const SiteLogo = styled(MenuLogo)`
   height: 15px;
   margin-top: -1px;
 `
+export const ExploreLogo = styled(Img)`
+  fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
+  width: 14px;
+  height: 14px;
+  display: block;
+`
 const Block = styled.div`
   position: relative;
   ${css.flex('align-center')};
@@ -39,11 +45,15 @@ export const MenuWrapper = styled(Block)`
 `
 export const CommunityWrapper = styled(Block)`
   padding-left: 18px;
-  padding-right: 6px;
+  padding-right: 0;
+`
+export const ExploreWrapper = styled(Block)`
+  padding-left: 8px;
+  padding-right: 15px;
 `
 export const AccountWrapper = styled(Block)`
-  padding-left: 8px;
-  padding-right: 12px;
+  padding-left: 6px;
+  padding-right: 10px;
 `
 export const MenuArrowShape = styled(ArrowShape)`
   right: -6px;

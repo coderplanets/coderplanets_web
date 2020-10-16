@@ -26,8 +26,8 @@ export const ItemsWrapper = styled.div`
   flex-grow: 1;
   height: 100%;
   padding-top: 4px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 25px;
+  margin-right: 18px;
 `
 export const MenuIcon = styled(Img)`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};

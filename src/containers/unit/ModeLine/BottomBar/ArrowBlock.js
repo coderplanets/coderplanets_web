@@ -7,9 +7,11 @@ import CommunityInfo from './CommunityInfo'
 import {
   MenuWrapper,
   CommunityWrapper,
+  ExploreWrapper,
   AccountWrapper,
   SiteLogo,
   MenuLogo,
+  ExploreLogo,
   ArrowShape,
   MenuArrowShape,
   ArrowShapeLeft,
@@ -39,8 +41,19 @@ export const CommunityBlock = () => {
   )
 }
 
-export const AccountBlock = () => {
+export const ExploreBlock = () => {
   const bgColor = '#071f27'
+
+  return (
+    <ExploreWrapper bgColor={bgColor}>
+      <ArrowShapeLeft bgColor={bgColor} />
+      <ExploreLogo src={`${ICON}/discover.svg`} />
+    </ExploreWrapper>
+  )
+}
+
+export const AccountBlock = () => {
+  const bgColor = '#013B49'
 
   return (
     <AccountWrapper bgColor={bgColor}>

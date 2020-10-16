@@ -5,7 +5,12 @@ import { TYPE } from '@/constant'
 import { ICON } from '@/config'
 import { multiClick } from '@/utils'
 
-import { MenuBlock, CommunityBlock, AccountBlock } from './ArrowBlock'
+import {
+  MenuBlock,
+  CommunityBlock,
+  ExploreBlock,
+  AccountBlock,
+} from './ArrowBlock'
 import { Wrapper, ItemsWrapper, MenuIcon } from '../styles/bottom_bar'
 
 import { openMenu } from '../logic'
@@ -48,6 +53,7 @@ const BottomBar = ({ testId, activeMenu }) => {
           </div>
         ))}
       </ItemsWrapper>
+      <ExploreBlock />
       <AccountBlock />
     </Wrapper>
   )
