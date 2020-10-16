@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON } from '@/config'
+import { ICON, ICON_BASE } from '@/config'
 
 import CommunityInfo from './CommunityInfo'
 
@@ -8,6 +8,7 @@ import {
   MenuWrapper,
   CommunityWrapper,
   AccountWrapper,
+  SiteLogo,
   MenuLogo,
   ArrowShape,
   MenuArrowShape,
@@ -19,7 +20,7 @@ export const MenuBlock = ({ active, onClick }) => {
 
   return (
     <MenuWrapper bgColor={bgColor} onClick={onClick}>
-      <MenuLogo src={`${ICON}/shape/more-3.svg`} active={active} />
+      <SiteLogo src={`${ICON_BASE}/site_logo.svg`} active={active} />
       <MenuArrowShape bgColor={bgColor} />
     </MenuWrapper>
   )

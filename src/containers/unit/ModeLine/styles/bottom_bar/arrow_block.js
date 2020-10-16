@@ -9,6 +9,11 @@ export const MenuLogo = styled(Img)`
   height: 12px;
   display: block;
 `
+export const SiteLogo = styled(MenuLogo)`
+  width: 15px;
+  height: 15px;
+  margin-top: -1px;
+`
 const Block = styled.div`
   position: relative;
   ${css.flex('align-center')};
