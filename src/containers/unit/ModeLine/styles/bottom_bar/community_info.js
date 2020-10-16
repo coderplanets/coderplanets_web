@@ -13,7 +13,7 @@ export const Logo = styled(Img)`
   display: block;
 `
 export const Title = styled.div`
-  ${css.cutFrom('60px')};
+  ${css.cutFrom('50px')};
   color: ${({ isSubscribed }) => (isSubscribed ? '#b4e1e2' : '#a0bebf')};
   font-size: 12px;
   margin-left: 8px;

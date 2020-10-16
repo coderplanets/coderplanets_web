@@ -5,7 +5,12 @@ import { TYPE } from '@/constant'
 import { ICON } from '@/config'
 import { multiClick } from '@/utils'
 
-import { MenuBlock, CommunityBlock, AccountBlock } from './ArrowBlock'
+import {
+  MenuBlock,
+  CommunityBlock,
+  ExploreBlock,
+  AccountBlock,
+} from './ArrowBlock'
 import { Wrapper, ItemsWrapper, MenuIcon } from '../styles/bottom_bar'
 
 import { openMenu } from '../logic'
@@ -17,9 +22,9 @@ const menus = [
     icon: `${ICON}/filter.svg`,
   },
   {
-    title: '发现',
+    title: '搜索',
     raw: TYPE.MM_TYPE.DISCOVER,
-    icon: `${ICON}/discover.svg`,
+    icon: `${ICON}/search.svg`,
   },
   {
     title: '发布',
@@ -48,6 +53,7 @@ const BottomBar = ({ testId, activeMenu }) => {
           </div>
         ))}
       </ItemsWrapper>
+      <ExploreBlock />
       <AccountBlock />
     </Wrapper>
   )
