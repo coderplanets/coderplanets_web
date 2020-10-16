@@ -1,0 +1,60 @@
+import styled from 'styled-components'
+
+import { theme, css } from '@/utils'
+import Img from '@/Img'
+
+import {
+  Wrapper as WrapperBase,
+  Entry as EntryBase,
+  Wip as WipBase,
+} from './index'
+
+export const Wrapper = styled(WrapperBase)`
+  width: 100%;
+`
+export const BodyWrapper = styled.div`
+  ${css.flex('align-center')};
+  flex-wrap: wrap;
+`
+export const Entry = styled(EntryBase)`
+  ${css.flex('align-center')};
+  width: 48%;
+  height: auto;
+  margin-bottom: 10px;
+  margin-right: ${({ index }) => (index % 2 !== 0 ? '0' : '10px')};
+  background: #0d3442;
+  border-radius: 8px;
+  padding: 10px 8px;
+`
+export const Logo = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
+  height: 20px;
+  width: 20px;
+  display: block;
+
+  ${Entry}:hover & {
+    fill: #2d7eb1; /* primaryColor */
+    cursor: pointer;
+  }
+`
+export const Intro = styled.div`
+  ${css.flexColumn('align-start')};
+  margin-left: 10px;
+`
+export const Title = styled.div`
+  ${css.flex('align-center')};
+  color: ${theme('thread.articleTitle')};
+  font-size: 12px;
+
+  ${Entry}:hover & {
+    color: #2d7eb1; /* primaryColor */
+    cursor: pointer;
+  }
+`
+export const Desc = styled.div`
+  color: ${theme('thread.articleDigest')};
+  ${css.cutFrom('100px')};
+  font-size: 11px;
+  margin-top: 2px;
+`
+export const Wip = styled(WipBase)``

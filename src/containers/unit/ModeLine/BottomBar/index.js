@@ -17,9 +17,9 @@ const menus = [
     icon: `${ICON}/filter.svg`,
   },
   {
-    title: '发现',
+    title: '搜索',
     raw: TYPE.MM_TYPE.DISCOVER,
-    icon: `${ICON}/discover.svg`,
+    icon: `${ICON}/search.svg`,
   },
   {
     title: '发布',

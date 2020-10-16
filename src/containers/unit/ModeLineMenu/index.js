@@ -12,7 +12,7 @@ import T from 'prop-types'
 import { TYPE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import GlobalMenu from './GlobalMenu'
+import GlobalMenu from './GlobalMenu/index'
 import MoreMenu from './MoreMenu'
 
 import { Wrapper } from './styles'
