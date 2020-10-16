@@ -7,7 +7,7 @@ import HomeNavi from './HomeNavi'
 import {
   Wrapper,
   HomeBlock,
-  DiscoverLink,
+  JoinLink,
   ArrowIcon,
 } from '../styles/global_menu/main_menu'
 
@@ -16,10 +16,10 @@ const GlobalMenu = () => {
     <Wrapper>
       <HomeBlock>
         <HomeNavi />
-        <DiscoverLink>
-          所有子社区
+        <JoinLink>
+          参与建设
           <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
-        </DiscoverLink>
+        </JoinLink>
       </HomeBlock>
       <MorePanel />
     </Wrapper>
