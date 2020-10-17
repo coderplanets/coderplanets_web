@@ -80,6 +80,11 @@ export const LogoWrapper = styled.div`
   @media (max-height: 800px) {
     margin-top: ${({ raw }) => (raw === 'home' ? '-8px' : 0)};
   }
+
+  ${css.media.mobile`
+    width: 45px;
+    margin-top: -2px;
+  `};
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
   width: ${({ small }) => (small ? '35px' : '45px')};
@@ -87,8 +92,8 @@ export const CommunityLogo = styled(CommunityFaceLogo)`
   border-radius: 5px;
 
   ${css.media.mobile`
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
   `};
 `
 export const CommunityInfo = styled.div`
