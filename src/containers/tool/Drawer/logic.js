@@ -65,6 +65,7 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 
     if (swipeDonwY < swipeThreshold) {
       setSwipeDownY(0)
+      store.mark({ canBeClose: false })
     } else if (ev.dir === 'Down' && swipeDownAviliable) {
       closeDrawer()
       setSwipeDownY(null)
@@ -75,6 +76,7 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 
     if (swipeUpY < swipeThreshold) {
       setSwipeUpY(0)
+      store.mark({ canBeClose: false })
     } else if (ev.dir === 'Up' && swipeUpAviliable) {
       closeDrawer()
       setSwipeUpY(null)
@@ -107,14 +109,18 @@ export const onSwipingYHandler = (
     const swipeUpY = parseInt(ev.absY, 10)
     setSwipeUpY(swipeUpY)
 
-    swipeUpY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
+    if (swipeUpAviliable) {
+      swipeUpY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
+    }
   }
 
   if ((ignoreSwipeAviliable || swipeDownAviliable) && ev.dir === 'Down') {
     const swipeDonwY = parseInt(ev.absY, 10)
     setSwipeDownY(swipeDonwY)
 
-    swipeDonwY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
+    if (swipeDownAviliable) {
+      swipeDonwY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
+    }
   }
 }
 
@@ -122,9 +128,6 @@ export const onSwipingYHandler = (
 export const toggleSwipeAviliable = (type, bool) => {
   if (type === 'Down') {
     store.mark({ swipeDownAviliable: bool })
-    if (bool) {
-      store.mark({ canBeClose: false })
-    }
   } else {
     store.mark({ swipeUpAviliable: bool })
   }

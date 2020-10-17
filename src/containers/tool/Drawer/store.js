@@ -83,7 +83,7 @@ const DrawerStore = T.model('DrawerStore', {
   swipeDownAviliable: T.optional(T.boolean, true),
   swipeUpAviliable: T.optional(T.boolean, false),
   canBeClose: T.optional(T.boolean, false),
-  headerText: T.optional(T.string, 'demo text'),
+  headerText: T.optional(T.string, ''),
   showHeaderText: T.optional(T.boolean, false),
   // end of only works for mobile view
 
@@ -182,6 +182,7 @@ const DrawerStore = T.model('DrawerStore', {
       lockPage()
       if (self.media.mobile) {
         toggleGlobalBlur(true)
+        self.canBeClose = false
       }
     },
     setViewing(sobj) {
