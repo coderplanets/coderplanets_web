@@ -47,6 +47,11 @@ export const closeDrawer = () => {
     send(EVENT.DRAWER_CLOSED)
     store.setViewing({ viewingThread: null })
   }, 200)
+
+  setTimeout(() => {
+    // make sure global blur is closed
+    toggleGlobalBlur(false)
+  }, 500)
 }
 
 // handler swiped event for up/down swipe
@@ -60,6 +65,7 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 
     if (swipeDonwY < swipeThreshold) {
       setSwipeDownY(0)
+      store.mark({ canBeClose: false })
     } else if (ev.dir === 'Down' && swipeDownAviliable) {
       closeDrawer()
       setSwipeDownY(null)
@@ -70,6 +76,7 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
 
     if (swipeUpY < swipeThreshold) {
       setSwipeUpY(0)
+      store.mark({ canBeClose: false })
     } else if (ev.dir === 'Up' && swipeUpAviliable) {
       closeDrawer()
       setSwipeUpY(null)
@@ -77,32 +84,43 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
   }
 }
 
-const handleClearGlobalBlur = debounce(() => clearGlobalBlur(true), 200)
-const handleRestoreGlobalBlur = debounce(() => toggleGlobalBlur(true), 200)
+const handleClearEffect = debounce(() => {
+  clearGlobalBlur(true)
+  store.mark({ canBeClose: true })
+}, 200)
+const handleRestoreEffect = debounce(() => {
+  toggleGlobalBlur(true)
+  store.mark({ canBeClose: false })
+}, 200)
 
 // handler swiping event for up/down swipe
-export const onSwipingYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
+export const onSwipingYHandler = (
+  ev,
+  setSwipeUpY,
+  setSwipeDownY,
+  ignoreSwipeAviliable = false,
+) => {
   const { swipeThreshold } = store
   // when top/bottom has no content, the whole panel can be swipeable
   // like tiktok style
   const { swipeUpAviliable, swipeDownAviliable } = store
 
-  if (swipeUpAviliable && ev.dir === 'Up') {
+  if ((ignoreSwipeAviliable || swipeUpAviliable) && ev.dir === 'Up') {
     const swipeUpY = parseInt(ev.absY, 10)
     setSwipeUpY(swipeUpY)
 
-    swipeUpY >= swipeThreshold
-      ? handleClearGlobalBlur()
-      : handleRestoreGlobalBlur()
+    if (swipeUpAviliable) {
+      swipeUpY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
+    }
   }
 
-  if (swipeDownAviliable && ev.dir === 'Down') {
+  if ((ignoreSwipeAviliable || swipeDownAviliable) && ev.dir === 'Down') {
     const swipeDonwY = parseInt(ev.absY, 10)
     setSwipeDownY(swipeDonwY)
 
-    swipeDonwY >= swipeThreshold
-      ? handleClearGlobalBlur()
-      : handleRestoreGlobalBlur()
+    if (swipeDownAviliable) {
+      swipeDonwY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
+    }
   }
 }
 
@@ -113,6 +131,10 @@ export const toggleSwipeAviliable = (type, bool) => {
   } else {
     store.mark({ swipeUpAviliable: bool })
   }
+}
+
+export const toggleHeaderTextVisiable = (bool) => {
+  store.mark({ showHeaderText: bool })
 }
 
 export const resetSwipeAviliable = () => store.resetSwipeAviliable()

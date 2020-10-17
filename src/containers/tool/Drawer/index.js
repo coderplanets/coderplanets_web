@@ -32,15 +32,21 @@ const DrawerContainer = ({ drawer: store }) => {
     imageUploading,
     rightOffset,
     optionsData,
+    canBeClose,
+    headerText,
+    showHeaderText,
   } = store
 
   return (
     <Viewer
+      headerText={headerText}
       options={optionsData}
       visible={slideVisible}
       rightOffset={rightOffset}
       type={type}
       imageUploading={imageUploading}
+      canBeClose={canBeClose}
+      showHeaderText={showHeaderText}
     >
       <Content
         type={type}

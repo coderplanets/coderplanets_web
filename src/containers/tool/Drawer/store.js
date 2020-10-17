@@ -82,6 +82,10 @@ const DrawerStore = T.model('DrawerStore', {
   options: T.optional(Options, defaultOptions),
   swipeDownAviliable: T.optional(T.boolean, true),
   swipeUpAviliable: T.optional(T.boolean, false),
+  canBeClose: T.optional(T.boolean, false),
+  headerText: T.optional(T.string, ''),
+  showHeaderText: T.optional(T.boolean, false),
+  // end of only works for mobile view
 
   windowWidth: T.optional(T.number, 1520),
   type: T.maybeNull(
@@ -178,6 +182,7 @@ const DrawerStore = T.model('DrawerStore', {
       lockPage()
       if (self.media.mobile) {
         toggleGlobalBlur(true)
+        self.canBeClose = false
       }
     },
     setViewing(sobj) {
@@ -185,6 +190,7 @@ const DrawerStore = T.model('DrawerStore', {
     },
     close() {
       self.visible = false
+      self.canBeClose = false
       unlockPage()
       if (self.media.mobile) {
         toggleGlobalBlur(false)

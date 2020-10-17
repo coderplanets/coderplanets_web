@@ -24,7 +24,7 @@ export const HomeBlock = styled(Block)`
   padding-left: 8px;
   margin-bottom: 18px;
 `
-export const DiscoverLink = styled.div`
+export const JoinLink = styled.div`
   ${css.flex('align-center', 'justify-end')};
   color: ${theme('thread.articleDigest')};
   font-size: 11px;

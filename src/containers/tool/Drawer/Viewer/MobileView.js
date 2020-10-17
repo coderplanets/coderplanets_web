@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { useSwipe } from '@/hooks'
 
 import AddOn from '../AddOn'
-import MobileCloser from '../MobileCloser'
+import Header from '../Header'
 
 import {
   DrawerOverlay,
@@ -20,7 +20,16 @@ import {
   resetSwipeAviliable,
 } from '../logic'
 
-const Viewer = ({ options, visible, type, imageUploading, children }) => {
+const Viewer = ({
+  headerText,
+  options,
+  visible,
+  type,
+  imageUploading,
+  canBeClose,
+  showHeaderText,
+  children,
+}) => {
   const theme = useTheme()
   // swipe action state for top && bottom
   // null means restore and close
@@ -70,10 +79,13 @@ const Viewer = ({ options, visible, type, imageUploading, children }) => {
             {children}
           </MobileInnerContent>
         </DrawerMobileContent>
-        <MobileCloser
+        <Header
+          headerText={headerText}
           options={options}
           setSwipeDownY={setSwipeDownY}
           setSwipeUpY={setSwipeUpY}
+          canBeClose={canBeClose}
+          showHeaderText={showHeaderText}
         />
       </DrawerWrapper>
     </div>

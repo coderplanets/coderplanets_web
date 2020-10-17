@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+// see example: https://codepen.io/mattbraun/pen/EywBJR
+import { css, theme } from '@/utils'
 
 const BaseWrapper = styled.div`
   z-index: 1;
@@ -11,27 +12,22 @@ const BaseWrapper = styled.div`
   height: 30px;
   background: #002a35;
   border-bottom: 1px solid;
-  border-bottom-color: #194d5f;
+  border-bottom-color: #144150;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 `
-
 export const BottomWrapper = styled(BaseWrapper)`
   top: 10px;
   transform: rotate(180deg);
 `
-
 export const TopWrapper = styled(BaseWrapper)`
   bottom: 10px;
 `
-
-export const CloseBtn = styled.div`
+export const TextWrapper = styled.div`
   ${css.flex('align-both')};
-  width: 50px;
-  height: 8px;
-  border-radius: 8px;
-  background: #194d5f;
-  position: absolute;
-  top: 26px;
-  left: calc(50% - 25px);
+  height: 100%;
+  transform: rotate(180deg);
+  font-size: 12px;
+  color: ${theme('thread.articleTitle')};
+  font-weight: bold;
 `
