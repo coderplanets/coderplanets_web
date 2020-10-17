@@ -77,8 +77,14 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
   }
 }
 
-const handleClearGlobalBlur = debounce(() => clearGlobalBlur(true), 200)
-const handleRestoreGlobalBlur = debounce(() => toggleGlobalBlur(true), 200)
+const handleClearEffect = debounce(() => {
+  clearGlobalBlur(true)
+  store.mark({ canBeClose: true })
+}, 200)
+const handleRestoreEffect = debounce(() => {
+  toggleGlobalBlur(true)
+  store.mark({ canBeClose: false })
+}, 200)
 
 // handler swiping event for up/down swipe
 export const onSwipingYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
@@ -91,18 +97,14 @@ export const onSwipingYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
     const swipeUpY = parseInt(ev.absY, 10)
     setSwipeUpY(swipeUpY)
 
-    swipeUpY >= swipeThreshold
-      ? handleClearGlobalBlur()
-      : handleRestoreGlobalBlur()
+    swipeUpY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
   }
 
   if (swipeDownAviliable && ev.dir === 'Down') {
     const swipeDonwY = parseInt(ev.absY, 10)
     setSwipeDownY(swipeDonwY)
 
-    swipeDonwY >= swipeThreshold
-      ? handleClearGlobalBlur()
-      : handleRestoreGlobalBlur()
+    swipeDonwY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
   }
 }
 

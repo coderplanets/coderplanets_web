@@ -20,7 +20,14 @@ import {
   resetSwipeAviliable,
 } from '../logic'
 
-const Viewer = ({ options, visible, type, imageUploading, children }) => {
+const Viewer = ({
+  options,
+  visible,
+  type,
+  imageUploading,
+  canBeClose,
+  children,
+}) => {
   const theme = useTheme()
   // swipe action state for top && bottom
   // null means restore and close
@@ -74,6 +81,7 @@ const Viewer = ({ options, visible, type, imageUploading, children }) => {
           options={options}
           setSwipeDownY={setSwipeDownY}
           setSwipeUpY={setSwipeUpY}
+          canBeClose={canBeClose}
         />
       </DrawerWrapper>
     </div>

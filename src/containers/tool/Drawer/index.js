@@ -32,6 +32,7 @@ const DrawerContainer = ({ drawer: store }) => {
     imageUploading,
     rightOffset,
     optionsData,
+    canBeClose,
   } = store
 
   return (
@@ -41,6 +42,7 @@ const DrawerContainer = ({ drawer: store }) => {
       rightOffset={rightOffset}
       type={type}
       imageUploading={imageUploading}
+      canBeClose={canBeClose}
     >
       <Content
         type={type}
