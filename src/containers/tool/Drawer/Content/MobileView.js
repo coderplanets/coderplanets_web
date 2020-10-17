@@ -12,6 +12,7 @@ const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
   const ref = useRef(null)
 
   const [topEnterTimer, setTopEnterTimer] = useState(null)
+  const [topHeaderTextTimer, setTopHeaderTextTimer] = useState(null)
 
   /*
    * reset when content visiable
@@ -29,7 +30,16 @@ const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
       height={`calc(${getMobileContentHeight(options)} - 30px)`}
       showShadow={false}
       onTopEnter={() => {
+        /*
+         * 当马上下滑又回到顶部时，清楚下滑 setTimeout 定时
+         */
+        if (topHeaderTextTimer) {
+          clearTimeout(topHeaderTextTimer)
+          setTopHeaderTextTimer(null)
+        }
+        // 回到顶部时马上影藏 Title 文字
         toggleHeaderTextVisiable(false)
+
         /*
          * 这里的 0.8s 是防止从底部快速上滑到顶部时造成意外关闭
          * 有了这 0.8s, 就可以等滑动结束再判断
@@ -47,9 +57,10 @@ const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
         setTopEnterTimer(topEnterTimer)
       }}
       onTopLeave={() => {
-        setTimeout(() => {
+        const topHeaderTextTimer = setTimeout(() => {
           toggleHeaderTextVisiable(true)
         }, 1000)
+        setTopHeaderTextTimer(topHeaderTextTimer)
 
         if (topEnterTimer) {
           clearTimeout(topEnterTimer)
