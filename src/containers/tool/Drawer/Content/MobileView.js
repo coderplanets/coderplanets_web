@@ -47,7 +47,10 @@ const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
         setTopEnterTimer(topEnterTimer)
       }}
       onTopLeave={() => {
-        toggleHeaderTextVisiable(true)
+        setTimeout(() => {
+          toggleHeaderTextVisiable(true)
+        }, 1000)
+
         if (topEnterTimer) {
           clearTimeout(topEnterTimer)
           setTopEnterTimer(null)
