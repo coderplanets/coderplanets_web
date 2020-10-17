@@ -9,9 +9,12 @@ import { onSwipedYHandler, onSwipingYHandler } from '../logic'
 /* <TextWrapper>评论共 167 条</TextWrapper> */
 
 const Header = ({ options, setSwipeUpY, setSwipeDownY, canBeClose }) => {
+  const ignoreSwipeAviliable = true
   const swipeHandlers = useSwipe({
-    onSwiped: (ev) => onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY),
-    onSwiping: (ev) => onSwipingYHandler(ev, setSwipeUpY, setSwipeDownY),
+    onSwiped: (ev) =>
+      onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY, ignoreSwipeAviliable),
+    onSwiping: (ev) =>
+      onSwipingYHandler(ev, setSwipeUpY, setSwipeDownY, ignoreSwipeAviliable),
   })
 
   const content = <CloseLine curve={!canBeClose} />

@@ -87,20 +87,25 @@ const handleRestoreEffect = debounce(() => {
 }, 200)
 
 // handler swiping event for up/down swipe
-export const onSwipingYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
+export const onSwipingYHandler = (
+  ev,
+  setSwipeUpY,
+  setSwipeDownY,
+  ignoreSwipeAviliable = false,
+) => {
   const { swipeThreshold } = store
   // when top/bottom has no content, the whole panel can be swipeable
   // like tiktok style
   const { swipeUpAviliable, swipeDownAviliable } = store
 
-  if (swipeUpAviliable && ev.dir === 'Up') {
+  if ((ignoreSwipeAviliable || swipeUpAviliable) && ev.dir === 'Up') {
     const swipeUpY = parseInt(ev.absY, 10)
     setSwipeUpY(swipeUpY)
 
     swipeUpY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
   }
 
-  if (swipeDownAviliable && ev.dir === 'Down') {
+  if ((ignoreSwipeAviliable || swipeDownAviliable) && ev.dir === 'Down') {
     const swipeDonwY = parseInt(ev.absY, 10)
     setSwipeDownY(swipeDonwY)
 
