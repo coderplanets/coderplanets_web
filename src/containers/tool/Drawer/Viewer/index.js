@@ -6,9 +6,7 @@ import { useMedia } from '@/hooks'
 let CurrentView = null
 
 /**
- *
- *
- * @param {*} props
+ * @param {object} props
  * @returns
  */
 const Viewer = (props) => {
