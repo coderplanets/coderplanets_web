@@ -34,7 +34,7 @@ const DrawerContainer = ({ drawer: store }) => {
     optionsData,
     canBeClose,
     headerText,
-    swipeAviliable,
+    showHeaderText,
   } = store
 
   return (
@@ -46,7 +46,7 @@ const DrawerContainer = ({ drawer: store }) => {
       type={type}
       imageUploading={imageUploading}
       canBeClose={canBeClose}
-      swipeAviliable={swipeAviliable}
+      showHeaderText={showHeaderText}
     >
       <Content
         type={type}

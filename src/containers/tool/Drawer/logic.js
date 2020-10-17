@@ -47,6 +47,11 @@ export const closeDrawer = () => {
     send(EVENT.DRAWER_CLOSED)
     store.setViewing({ viewingThread: null })
   }, 200)
+
+  setTimeout(() => {
+    // make sure global blur is closed
+    toggleGlobalBlur(false)
+  }, 500)
 }
 
 // handler swiped event for up/down swipe
@@ -117,9 +122,16 @@ export const onSwipingYHandler = (
 export const toggleSwipeAviliable = (type, bool) => {
   if (type === 'Down') {
     store.mark({ swipeDownAviliable: bool })
+    if (bool) {
+      store.mark({ canBeClose: false })
+    }
   } else {
     store.mark({ swipeUpAviliable: bool })
   }
+}
+
+export const toggleHeaderTextVisiable = (bool) => {
+  store.mark({ showHeaderText: bool })
 }
 
 export const resetSwipeAviliable = () => store.resetSwipeAviliable()

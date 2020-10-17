@@ -15,7 +15,7 @@ const Header = ({
   setSwipeUpY,
   setSwipeDownY,
   canBeClose,
-  swipeAviliable,
+  showHeaderText,
 }) => {
   const ignoreSwipeAviliable = true
   const swipeHandlers = useSwipe({
@@ -26,7 +26,7 @@ const Header = ({
   })
 
   const content =
-    !swipeAviliable && !nilOrEmpty(headerText) ? (
+    showHeaderText && !nilOrEmpty(headerText) ? (
       <TextWrapper>{headerText}</TextWrapper>
     ) : (
       <CloseLine curve={!canBeClose} />

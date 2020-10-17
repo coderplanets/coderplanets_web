@@ -27,7 +27,7 @@ const Viewer = ({
   type,
   imageUploading,
   canBeClose,
-  swipeAviliable,
+  showHeaderText,
   children,
 }) => {
   const theme = useTheme()
@@ -85,7 +85,7 @@ const Viewer = ({
           setSwipeDownY={setSwipeDownY}
           setSwipeUpY={setSwipeUpY}
           canBeClose={canBeClose}
-          swipeAviliable={swipeAviliable}
+          showHeaderText={showHeaderText}
         />
       </DrawerWrapper>
     </div>
