@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { useSwipe } from '@/hooks'
 
 import AddOn from '../AddOn'
-import MobileCloser from '../MobileCloser'
+import Header from '../Header'
 
 import {
   DrawerOverlay,
@@ -77,7 +77,7 @@ const Viewer = ({
             {children}
           </MobileInnerContent>
         </DrawerMobileContent>
-        <MobileCloser
+        <Header
           options={options}
           setSwipeDownY={setSwipeDownY}
           setSwipeUpY={setSwipeUpY}
