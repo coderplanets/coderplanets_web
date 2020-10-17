@@ -21,11 +21,13 @@ import {
 } from '../logic'
 
 const Viewer = ({
+  headerText,
   options,
   visible,
   type,
   imageUploading,
   canBeClose,
+  swipeAviliable,
   children,
 }) => {
   const theme = useTheme()
@@ -78,10 +80,12 @@ const Viewer = ({
           </MobileInnerContent>
         </DrawerMobileContent>
         <Header
+          headerText={headerText}
           options={options}
           setSwipeDownY={setSwipeDownY}
           setSwipeUpY={setSwipeUpY}
           canBeClose={canBeClose}
+          swipeAviliable={swipeAviliable}
         />
       </DrawerWrapper>
     </div>

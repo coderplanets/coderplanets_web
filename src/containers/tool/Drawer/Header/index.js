@@ -1,14 +1,22 @@
 import React from 'react'
 
 import { useSwipe } from '@/hooks'
+import { nilOrEmpty } from '@/utils'
 
 import CloseLine from './CloseLine'
-import { TopWrapper, BottomWrapper } from '../styles/header'
+import { TopWrapper, BottomWrapper, TextWrapper } from '../styles/header'
 import { onSwipedYHandler, onSwipingYHandler } from '../logic'
 
 /* <TextWrapper>评论共 167 条</TextWrapper> */
 
-const Header = ({ options, setSwipeUpY, setSwipeDownY, canBeClose }) => {
+const Header = ({
+  headerText,
+  options,
+  setSwipeUpY,
+  setSwipeDownY,
+  canBeClose,
+  swipeAviliable,
+}) => {
   const ignoreSwipeAviliable = true
   const swipeHandlers = useSwipe({
     onSwiped: (ev) =>
@@ -17,7 +25,12 @@ const Header = ({ options, setSwipeUpY, setSwipeDownY, canBeClose }) => {
       onSwipingYHandler(ev, setSwipeUpY, setSwipeDownY, ignoreSwipeAviliable),
   })
 
-  const content = <CloseLine curve={!canBeClose} />
+  const content =
+    !swipeAviliable && !nilOrEmpty(headerText) ? (
+      <TextWrapper>{headerText}</TextWrapper>
+    ) : (
+      <CloseLine curve={!canBeClose} />
+    )
 
   if (options.direction === 'bottom') {
     return <BottomWrapper {...swipeHandlers}>{content}</BottomWrapper>

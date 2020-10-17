@@ -83,6 +83,8 @@ const DrawerStore = T.model('DrawerStore', {
   swipeDownAviliable: T.optional(T.boolean, true),
   swipeUpAviliable: T.optional(T.boolean, false),
   canBeClose: T.optional(T.boolean, false),
+  headerText: T.optional(T.string, 'demo text'),
+  // end of only works for mobile view
 
   windowWidth: T.optional(T.number, 1520),
   type: T.maybeNull(
@@ -131,6 +133,9 @@ const DrawerStore = T.model('DrawerStore', {
     get swipeThreshold() {
       const { direction, position } = self.options
       return SWIPE_THRESHOLD[direction][position]
+    },
+    get swipeAviliable() {
+      return self.swipeDownAviliable //  || self.swipeUpAviliable
     },
     // 预览面板从最右侧滑出的偏移量
     get rightOffset() {
