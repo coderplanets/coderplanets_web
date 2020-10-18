@@ -56,7 +56,12 @@ export const closeDrawer = () => {
 
 // handler swiped event for up/down swipe
 // 判断最终是回到原来的位置还是隐藏 panel
-export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
+export const onSwipedYHandler = (
+  ev,
+  setSwipeUpY,
+  setSwipeDownY,
+  ignoreSwipeAviliable = false,
+) => {
   const {
     optionsData: options,
     swipeThreshold,
@@ -70,7 +75,10 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
     if (swipeDonwY < swipeThreshold) {
       setSwipeDownY(0)
       store.mark({ canBeClose: false })
-    } else if (ev.dir === 'Down' && swipeDownAviliable) {
+    } else if (
+      ev.dir === 'Down' &&
+      (swipeDownAviliable || ignoreSwipeAviliable)
+    ) {
       closeDrawer()
       setSwipeDownY(null)
     }
@@ -81,7 +89,7 @@ export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
     if (swipeUpY < swipeThreshold) {
       setSwipeUpY(0)
       store.mark({ canBeClose: false })
-    } else if (ev.dir === 'Up' && swipeUpAviliable) {
+    } else if (ev.dir === 'Up' && (swipeUpAviliable || ignoreSwipeAviliable)) {
       closeDrawer()
       setSwipeUpY(null)
     }
@@ -117,7 +125,10 @@ export const onSwipingYHandler = (
     const swipeUpY = parseInt(ev.absY, 10)
     setSwipeUpY(swipeUpY)
 
-    if (swipeUpAviliable && options.direction !== 'bottom') {
+    if (
+      ignoreSwipeAviliable ||
+      (swipeUpAviliable && options.direction !== 'bottom')
+    ) {
       swipeUpY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
     }
   }
@@ -126,7 +137,10 @@ export const onSwipingYHandler = (
     const swipeDonwY = parseInt(ev.absY, 10)
     setSwipeDownY(swipeDonwY)
 
-    if (swipeDownAviliable && options.direction !== 'top') {
+    if (
+      ignoreSwipeAviliable ||
+      (swipeDownAviliable && options.direction !== 'top')
+    ) {
       swipeDonwY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
     }
   }
