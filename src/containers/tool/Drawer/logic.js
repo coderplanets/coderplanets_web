@@ -57,8 +57,12 @@ export const closeDrawer = () => {
 // handler swiped event for up/down swipe
 // 判断最终是回到原来的位置还是隐藏 panel
 export const onSwipedYHandler = (ev, setSwipeUpY, setSwipeDownY) => {
-  const options = store.optionsData
-  const { swipeThreshold, swipeUpAviliable, swipeDownAviliable } = store
+  const {
+    optionsData: options,
+    swipeThreshold,
+    swipeUpAviliable,
+    swipeDownAviliable,
+  } = store
 
   if (options.direction === 'bottom') {
     const swipeDonwY = parseInt(ev.absY, 10)
@@ -100,16 +104,20 @@ export const onSwipingYHandler = (
   setSwipeDownY,
   ignoreSwipeAviliable = false,
 ) => {
-  const { swipeThreshold } = store
   // when top/bottom has no content, the whole panel can be swipeable
   // like tiktok style
-  const { swipeUpAviliable, swipeDownAviliable } = store
+  const {
+    swipeThreshold,
+    optionsData: options,
+    swipeUpAviliable,
+    swipeDownAviliable,
+  } = store
 
   if ((ignoreSwipeAviliable || swipeUpAviliable) && ev.dir === 'Up') {
     const swipeUpY = parseInt(ev.absY, 10)
     setSwipeUpY(swipeUpY)
 
-    if (swipeUpAviliable) {
+    if (swipeUpAviliable && options.direction !== 'bottom') {
       swipeUpY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
     }
   }
@@ -118,7 +126,7 @@ export const onSwipingYHandler = (
     const swipeDonwY = parseInt(ev.absY, 10)
     setSwipeDownY(swipeDonwY)
 
-    if (swipeDownAviliable) {
+    if (swipeDownAviliable && options.direction !== 'top') {
       swipeDonwY >= swipeThreshold ? handleClearEffect() : handleRestoreEffect()
     }
   }
@@ -126,11 +134,9 @@ export const onSwipingYHandler = (
 
 //
 export const toggleSwipeAviliable = (type, bool) => {
-  if (type === 'Down') {
-    store.mark({ swipeDownAviliable: bool })
-  } else {
-    store.mark({ swipeUpAviliable: bool })
-  }
+  type === 'Down'
+    ? store.mark({ swipeDownAviliable: bool })
+    : store.mark({ swipeUpAviliable: bool })
 }
 
 export const toggleHeaderTextVisiable = (bool) => {
