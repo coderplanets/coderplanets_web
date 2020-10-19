@@ -42,7 +42,7 @@ const Banner = ({
     }
   }
 
-  return <Wrapper testId="create-community-banner">{stepComp}</Wrapper>
+  return <Wrapper testId="create-community-digest">{stepComp}</Wrapper>
 }
 
 export default React.memo(Banner)

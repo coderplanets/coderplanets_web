@@ -11,7 +11,7 @@ describe('home page: ', () => {
 
     // cy.id('sidebar').should('be.visible')
 
-    cy.id('community-banner').should('be.visible')
+    cy.id('community-digest').should('be.visible')
     cy.id('community-content').should('be.visible')
 
     cy.id('footer').should('be.visible')
