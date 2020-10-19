@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 
 import { ICON_CMD } from '@/config'
 
@@ -11,7 +12,11 @@ import {
   FilterIcon,
 } from './styles/filter_button'
 
-import FilterPanel from './FilterPanel'
+const FilterPanel = dynamic(() => import('./FilterPanel/index'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div />,
+  ssr: false,
+})
 
 const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => {
   return (
@@ -21,12 +26,14 @@ const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => {
         trigger="click"
         hideOnClick={false}
         content={
-          <FilterPanel
-            thread={thread}
-            onSelect={onSelect}
-            isLogin={isLogin}
-            activeFilter={activeFilter}
-          />
+          FilterPanel && (
+            <FilterPanel
+              thread={thread}
+              onSelect={onSelect}
+              isLogin={isLogin}
+              activeFilter={activeFilter}
+            />
+          )
         }
       >
         <ButtonWrapper size="small" type="primary" ghost>

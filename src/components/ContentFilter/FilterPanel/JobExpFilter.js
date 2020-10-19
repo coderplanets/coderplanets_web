@@ -10,7 +10,7 @@ import {
   SelectTitle,
   LeftAlignWrapper,
   SelectItem,
-} from './styles'
+} from '../styles'
 
 // import { uid } from '@/utils'
 

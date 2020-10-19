@@ -9,7 +9,7 @@ import {
   SelectIcon,
   SelectTitle,
   SelectItem,
-} from './styles'
+} from '../styles'
 
 // import { uid } from '@/utils'
 

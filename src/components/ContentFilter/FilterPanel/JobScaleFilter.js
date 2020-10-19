@@ -10,24 +10,24 @@ import {
   SelectTitle,
   LeftAlignWrapper,
   SelectItem,
-} from './styles'
+} from '../styles'
 
 // import { uid } from '@/utils'
 
-const JobFinanceFilter = ({ activeFilter, onSelect }) => (
+const JobScaleFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLabel>
-      <SelectIcon src={LABEL_POOL.finance.iconSrc} />
-      <SelectTitle>融资</SelectTitle>
+      <SelectIcon src={LABEL_POOL.scale.iconSrc} />
+      <SelectTitle>规模</SelectTitle>
     </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.finance.data.map((item) => (
+      {LABEL_POOL.scale.data.map((item) => (
         <SelectItem
           key={item}
-          active={activeFilter.finance === item}
-          onClick={() => onSelect({ finance: item })}
+          active={activeFilter.scale === item}
+          onClick={() => onSelect({ scale: item })}
         >
           {item}
         </SelectItem>
@@ -36,4 +36,4 @@ const JobFinanceFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default React.memo(JobFinanceFilter)
+export default React.memo(JobScaleFilter)

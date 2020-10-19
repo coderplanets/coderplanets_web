@@ -11,7 +11,7 @@ import {
   SelectIcon,
   SelectTitle,
   SelectItem,
-} from './styles'
+} from '../styles'
 
 const RepoSortFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>

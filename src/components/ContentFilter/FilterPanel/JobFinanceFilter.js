@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD, LABEL_POOL } from '@/config'
+import { LABEL_POOL } from '@/config'
 
 import {
   ColumnWrapper,
@@ -10,24 +10,24 @@ import {
   SelectTitle,
   LeftAlignWrapper,
   SelectItem,
-} from './styles'
+} from '../styles'
 
 // import { uid } from '@/utils'
 
-const JobSalaryFilter = ({ activeFilter, onSelect }) => (
+const JobFinanceFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLabel>
-      <SelectIcon src={`${ICON_CMD}/money_frame.svg`} />
-      <SelectTitle>月薪</SelectTitle>
+      <SelectIcon src={LABEL_POOL.finance.iconSrc} />
+      <SelectTitle>融资</SelectTitle>
     </SelectLabel>
     <LabelDivider />
 
     <LeftAlignWrapper>
-      {LABEL_POOL.salary.data.map((item) => (
+      {LABEL_POOL.finance.data.map((item) => (
         <SelectItem
           key={item}
-          active={activeFilter.salary === item}
-          onClick={() => onSelect({ salary: item })}
+          active={activeFilter.finance === item}
+          onClick={() => onSelect({ finance: item })}
         >
           {item}
         </SelectItem>
@@ -36,4 +36,4 @@ const JobSalaryFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default React.memo(JobSalaryFilter)
+export default React.memo(JobFinanceFilter)
