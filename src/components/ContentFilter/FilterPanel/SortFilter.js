@@ -10,7 +10,7 @@ import {
   SelectIcon,
   SelectTitle,
   SelectItem,
-} from './styles'
+} from '../styles'
 
 const SortFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>

@@ -17,7 +17,7 @@ import JobScaleFilter from './JobScaleFilter'
 // video
 import VideoSourceFilter from './VideoSourceFilter'
 
-import { FilterPanelWrapper } from './styles'
+import { FilterPanelWrapper } from '../styles'
 
 const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
   switch (thread) {
