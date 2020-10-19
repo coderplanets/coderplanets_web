@@ -5,6 +5,7 @@
  */
 
 import React, { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import T from 'prop-types'
 import { contains } from 'ramda'
@@ -12,10 +13,9 @@ import { contains } from 'ramda'
 import { ROUTE } from '@/constant'
 import { connectStore, buildLog, getRoutePathList } from '@/utils'
 
-import MailBox from '@/containers/tool/MailBox'
 import UserLister from '@/containers/user/UserLister'
-
 import Navigator from '@/components/Navigator'
+
 import UserAccount from './UserAccount'
 import AddOns from './AddOns'
 import OfflineAlert from './OfflineAlert'
@@ -33,10 +33,10 @@ import { useInit, openDoraemon } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
 
+let MailBox
+
 const HeaderContainer = ({ header: store, metric }) => {
   useInit(store)
-
-  const [hasNoBottomBorder, setHasNoBottomBorder] = useState(false)
 
   const {
     isOnline,
@@ -49,6 +49,18 @@ const HeaderContainer = ({ header: store, metric }) => {
     },
   } = store
 
+  useEffect(() => {
+    if (isLogin) {
+      MailBox = dynamic(() => import('@/containers/tool/MailBox'), {
+        /* eslint-disable react/display-name */
+        loading: () => <div />,
+        ssr: false,
+      })
+    }
+  }, [isLogin])
+
+  // TODO:  move router logic to store
+  const [hasNoBottomBorder, setHasNoBottomBorder] = useState(false)
   const router = useRouter()
   const [mainPath] = getRoutePathList(router.asPath)
 
@@ -85,7 +97,7 @@ const HeaderContainer = ({ header: store, metric }) => {
             <HeaderSearchIcon testId="header-search-icon" />
           </Search>
 
-          {isLogin && <MailBox />}
+          {MailBox && <MailBox />}
           {/* <UpgradePackages /> */}
           <UserLister />
           {/* <Cashier /> */}
