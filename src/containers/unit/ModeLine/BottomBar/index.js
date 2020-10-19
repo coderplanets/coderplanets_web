@@ -23,7 +23,7 @@ const menus = [
   },
   {
     title: '搜索',
-    raw: TYPE.MM_TYPE.DISCOVER,
+    raw: TYPE.MM_TYPE.SEARCH,
     icon: `${ICON}/search.svg`,
   },
   {

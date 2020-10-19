@@ -35,6 +35,10 @@ export const openMenu = (activeMenu) => {
       return openGlobalMenu()
     }
 
+    case TYPE.MM_TYPE.SEARCH: {
+      return openSearchMenu()
+    }
+
     default: {
       return openMoreMenu()
     }
@@ -56,6 +60,20 @@ const openGlobalMenu = () => {
 }
 
 /**
+ * open global navi menu on mobile
+ */
+const openSearchMenu = () => {
+  send(EVENT.DRAWER_OPEN, {
+    type: TYPE.DRAWER.MODELINE_MENU,
+    data: TYPE.MM_TYPE.SEARCH,
+    options: {
+      direction: 'bottom',
+      position: 'M',
+    },
+  })
+}
+
+/**
  * open more menu on mobile
  */
 const openMoreMenu = () => {
@@ -68,6 +86,7 @@ const openMoreMenu = () => {
     },
   })
 }
+
 // ###############################
 // init & uninit handlers
 // ###############################

@@ -42,6 +42,6 @@ export const InnerWrapper = styled.div`
     margin: 0 3%;
     margin-left: 2%;
     margin-top: 0px;
-    padding-top: 8px;
+    padding-top: 0;
   `};
 `

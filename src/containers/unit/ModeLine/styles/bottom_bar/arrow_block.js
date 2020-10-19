@@ -40,7 +40,7 @@ export const ArrowShape = styled.div`
   z-index: 1;
 `
 export const MenuWrapper = styled(Block)`
-  padding-left: 12px;
+  padding-left: 10px;
   padding-right: 6px;
 `
 export const CommunityWrapper = styled(Block)`

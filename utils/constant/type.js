@@ -65,6 +65,7 @@ const TYPE = {
     FILTER: 'filter',
     DISCOVER: 'discover',
     PUBLISH: 'publish',
+    SEARCH: 'search',
     MORE: 'more',
   },
   // PAGE STATE

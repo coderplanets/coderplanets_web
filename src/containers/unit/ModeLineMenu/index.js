@@ -13,6 +13,7 @@ import { TYPE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import GlobalMenu from './GlobalMenu/index'
+import SearchMenu from './SearchMenu'
 import MoreMenu from './MoreMenu'
 
 import { Wrapper } from './styles'
@@ -23,8 +24,12 @@ const log = buildLog('C:ModeLineMenu')
 
 const renderMenus = (type) => {
   switch (type) {
-    case 'more': {
+    case TYPE.MM_TYPE.MORE: {
       return <MoreMenu />
+    }
+
+    case TYPE.MM_TYPE.SEARCH: {
+      return <SearchMenu />
     }
 
     default: {
@@ -47,6 +52,7 @@ ModeLineMenuContainer.propTypes = {
     TYPE.MM_TYPE.FILTER,
     TYPE.MM_TYPE.DISCOVER,
     TYPE.MM_TYPE.PUBLISH,
+    TYPE.MM_TYPE.SEARCH,
     TYPE.MM_TYPE.MORE,
   ]).isRequired,
   testId: T.string,
