@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import { merge, contains } from 'ramda'
+import { merge, contains, values } from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
 import {
@@ -106,17 +106,9 @@ const DrawerStore = T.model('DrawerStore', {
 
   // shortcut for modelineMenuType
   mmType: T.optional(
-    T.enumeration([
-      TYPE.MM_TYPE.GLOBAL_MENU,
-      TYPE.MM_TYPE.COMMUNITY,
-      TYPE.MM_TYPE.FILTER,
-      TYPE.MM_TYPE.DISCOVER,
-      TYPE.MM_TYPE.PUBLISH,
-      TYPE.MM_TYPE.MORE,
-    ]),
+    T.enumeration([...values(TYPE.MM_TYPE)]),
     TYPE.MM_TYPE.MORE,
   ),
-
   imageUploading: T.optional(T.boolean, false),
   // header:
   // body:

@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-// import {} from 'ramda'
+import { values } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -14,18 +14,7 @@ const log = buildLog('S:ModeLine')
 
 const ModeLine = T.model('ModeLine', {
   showTop: T.optional(T.boolean, false),
-  activeMenu: T.optional(
-    T.enumeration([
-      TYPE.MM_TYPE.GLOBAL_MENU,
-      TYPE.MM_TYPE.COMMUNITY,
-      TYPE.MM_TYPE.FILTER,
-      TYPE.MM_TYPE.DISCOVER,
-      TYPE.MM_TYPE.PUBLISH,
-      TYPE.MM_TYPE.MORE,
-      '',
-    ]),
-    '',
-  ),
+  activeMenu: T.optional(T.enumeration([...values(TYPE.MM_TYPE), '']), ''),
 })
   .views((self) => ({
     get root() {
