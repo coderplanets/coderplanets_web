@@ -8,6 +8,7 @@
 
 import React from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
@@ -15,6 +16,7 @@ import { connectStore, buildLog } from '@/utils'
 import GlobalMenu from './GlobalMenu/index'
 import SearchMenu from './SearchMenu'
 import MoreMenu from './MoreMenu'
+import FilterMenu from './FilterMenu'
 
 import { Wrapper } from './styles'
 import { useInit } from './logic'
@@ -32,6 +34,10 @@ const renderMenus = (type) => {
       return <SearchMenu />
     }
 
+    case TYPE.MM_TYPE.FILTER: {
+      return <FilterMenu />
+    }
+
     default: {
       return <GlobalMenu />
     }
@@ -46,15 +52,7 @@ const ModeLineMenuContainer = ({ modeLineMenu: store, testId, type }) => {
 
 ModeLineMenuContainer.propTypes = {
   modeLineMenu: T.any.isRequired,
-  type: T.oneOf([
-    TYPE.MM_TYPE.GLOBAL_MENU,
-    TYPE.MM_TYPE.COMMUNITY,
-    TYPE.MM_TYPE.FILTER,
-    TYPE.MM_TYPE.DISCOVER,
-    TYPE.MM_TYPE.PUBLISH,
-    TYPE.MM_TYPE.SEARCH,
-    TYPE.MM_TYPE.MORE,
-  ]).isRequired,
+  type: T.oneOf([values(TYPE.MM_TYPE)]).isRequired,
   testId: T.string,
 }
 
