@@ -24,7 +24,7 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ModeLineMenu')
 
-const renderMenus = (type) => {
+const renderMenus = (type, curActive) => {
   switch (type) {
     case TYPE.MM_TYPE.MORE: {
       return <MoreMenu />
@@ -35,7 +35,7 @@ const renderMenus = (type) => {
     }
 
     case TYPE.MM_TYPE.FILTER: {
-      return <FilterMenu />
+      return <FilterMenu curActive={curActive} />
     }
 
     default: {
@@ -46,8 +46,9 @@ const renderMenus = (type) => {
 
 const ModeLineMenuContainer = ({ modeLineMenu: store, testId, type }) => {
   useInit(store)
+  const { curActive } = store
 
-  return <Wrapper testId={testId}>{renderMenus(type)}</Wrapper>
+  return <Wrapper testId={testId}>{renderMenus(type, curActive)}</Wrapper>
 }
 
 ModeLineMenuContainer.propTypes = {

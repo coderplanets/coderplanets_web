@@ -8,11 +8,11 @@ import Content from './Content'
 
 import { Wrapper } from '../styles/filter_menu'
 
-const FilterMenu = () => {
+const FilterMenu = ({ curActive }) => {
   return (
     <Wrapper>
       <Header />
-      <Content />
+      <Content curActive={curActive} />
     </Wrapper>
   )
 }

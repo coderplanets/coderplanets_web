@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '@/Img'
+import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
@@ -42,7 +42,12 @@ export const ItemBar = styled.div`
   background: ${({ active }) => (active ? '#123946' : 'transparent')};
   border-radius: 3px;
 `
-
+export const ArrowIcon = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
+  width: 10px;
+  height: 10px;
+  display: block;
+`
 export const TagDot = styled.div`
   ${css.circle('6px')};
   background: ${theme('baseColor.red')};

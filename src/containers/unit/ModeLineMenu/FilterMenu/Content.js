@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { ICON } from '@/config'
+import { Trans } from '@/utils'
+
 import {
   Wrapper,
   SortWrapper,
@@ -7,19 +10,23 @@ import {
   TagWrapper,
   ItemBar,
   TagDot,
+  ArrowIcon,
 } from '../styles/filter_menu/content'
 
-const Content = () => {
+const Content = ({ curActive }) => {
+  const { community, thread } = curActive
+
   return (
     <Wrapper>
       <ThreadWrapper>
-        <ItemBar>全部版块</ItemBar>
-        <ItemBar>帖子</ItemBar>
-        <ItemBar active>技术</ItemBar>
-        <ItemBar>雷达</ItemBar>
-        <ItemBar>工作</ItemBar>
-        <ItemBar>同城</ItemBar>
-        <ItemBar>C友</ItemBar>
+        {community.threads.map((item) => (
+          <ItemBar key={item.raw} active={item.raw === thread}>
+            {Trans(item.title)}
+            {item.raw === thread && (
+              <ArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />
+            )}
+          </ItemBar>
+        ))}
       </ThreadWrapper>
       <TagWrapper>
         <ItemBar>全部标签</ItemBar>
