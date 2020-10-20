@@ -36,7 +36,7 @@ export const Item = styled.div`
   font-size: 12px;
 `
 export const ItemIcon = styled(Img)`
-  fill: ${theme('baseColor.error')};
+  fill: ${theme('baseColor.red')};
   width: 10px;
   height: 10px;
   display: block;

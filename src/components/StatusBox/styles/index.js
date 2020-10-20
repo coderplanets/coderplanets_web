@@ -22,14 +22,14 @@ export const WarningMsgBox = styled.div`
 `
 
 export const ErrorMsgBox = styled.div`
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   animation: ${animate.shake} 0.3s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
 export const ErrorArrayWrapper = styled.div`
   ${css.flexColumn()};
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   animation: ${animate.shake} 0.3s linear;
 `
 

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `
 export const TagDot = styled.div`
   ${css.circle('10px')};
-  background: ${theme('baseColor.error')};
+  background: ${theme('baseColor.red')};
   margin-right: 5px;
 `
 export const TagTitle = styled.div`

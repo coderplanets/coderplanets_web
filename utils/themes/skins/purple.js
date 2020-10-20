@@ -46,8 +46,7 @@ const purple = {
   selectionBg: '#839496',
   avatarOpacity: 0.8,
   baseColor: {
-    error: '#a24e3f !important',
-    errorBg: '#2d231f',
+    red: '#a24e3f !important',
     green: '#699411 !important',
     pink: '#966475 !important',
     pinkLite: '#82606b',

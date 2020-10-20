@@ -39,7 +39,7 @@ export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const HeartIcon = styled(Img)`
-  fill: ${theme('baseColor.error')};
+  fill: ${theme('baseColor.red')};
   width: 14px;
   height: 14px;
   display: block;

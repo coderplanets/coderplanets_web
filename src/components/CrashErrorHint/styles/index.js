@@ -29,7 +29,7 @@ export const Title = styled.div`
   padding-bottom: 12px;
 `
 export const Desc = styled.p`
-  color: ${({ t }) => themeSkins[t].baseColor.error};
+  color: ${({ t }) => themeSkins[t].baseColor.red};
 `
 export const UL = styled.ul`
   margin-left: -22px;

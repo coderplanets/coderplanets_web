@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, animate, css } from '@/utils'
 
 export const DeleteHintText = styled.div`
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   font-size: 1.3em;
   margin-bottom: 10px;
 `

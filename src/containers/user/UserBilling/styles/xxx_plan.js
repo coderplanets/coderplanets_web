@@ -71,7 +71,7 @@ export const MoreLink = styled.a`
 `
 export const BadPrice = styled.span`
   text-decoration: line-through;
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
 `
 export const GoodPrice = styled.span`
   color: ${theme('baseColor.green')};

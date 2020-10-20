@@ -11,7 +11,7 @@ export const Wrapper = styled(BaseBar)`
 `
 
 export const WarningIcon = styled(Img)`
-  fill: ${theme('baseColor.error')};
+  fill: ${theme('baseColor.red')};
   width: 30px;
   height: 30px;
   display: block;

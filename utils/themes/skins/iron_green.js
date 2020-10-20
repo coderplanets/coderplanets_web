@@ -45,8 +45,7 @@ const iconGreen = {
   selectionBg: 'tomato',
   avatarOpacity: 0.8,
   baseColor: {
-    error: '#ff9d8b !important',
-    errorBg: '#4c7479',
+    red: '#ff9d8b !important',
     green: 'yellowgreen !important',
     pink: '#f59dba !important',
     pinkLite: '#ffafc9',

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   margin-left: 5px;
 `
 export const ErrorIcon = styled(Img)`
-  fill: ${theme('baseColor.error')};
+  fill: ${theme('baseColor.red')};
   width: 40px;
   height: 40px;
   display: block;
@@ -20,10 +20,10 @@ export const Info = styled.div`
 `
 // color: ${theme('thread.articleTitle')};
 export const Title = styled.div`
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
 `
 // color: ${theme('thread.articleDigest')};
 export const Desc = styled.div`
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   opacity: 0.6;
 `

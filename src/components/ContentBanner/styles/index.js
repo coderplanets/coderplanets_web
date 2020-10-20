@@ -54,7 +54,7 @@ export const MarkTag = styled.div`
   padding: 1px 8px;
   border-radius: 3px;
   border: 1px solid;
-  border-color: ${theme('baseColor.error')};
-  color: ${theme('baseColor.error')};
+  border-color: ${theme('baseColor.red')};
+  color: ${theme('baseColor.red')};
   margin-right: 8px;
 `

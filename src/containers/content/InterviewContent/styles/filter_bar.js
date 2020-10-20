@@ -52,7 +52,7 @@ const OptionIconBase = styled(Img)`
   transition: all 0.25s;
 `
 export const FavoriteIcon = styled(OptionIconBase)`
-  fill: ${theme('baseColor.error')};
+  fill: ${theme('baseColor.red')};
 `
 export const ClockIcon = styled(OptionIconBase)`
   fill: ${theme('thread.articleTitle')};

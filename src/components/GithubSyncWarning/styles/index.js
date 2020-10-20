@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   padding: 30px;
 `
 export const Logo = styled(Img)`
-  fill: ${theme('baseColor.error')};
+  fill: ${theme('baseColor.red')};
   width: 60px;
   height: 60px;
   display: block;

@@ -45,8 +45,7 @@ const cyan = {
   selectionBg: '#f8f7dc',
   avatarOpacity: 1,
   baseColor: {
-    error: '#fd7f68 !important',
-    errorBg: '#FFF0F0',
+    red: '#fd7f68 !important',
     green: 'yellowgreen !important',
     pink: '#f59dba !important',
     pinkLite: '#ffafc9',
