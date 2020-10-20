@@ -50,7 +50,7 @@ export const LogoutItem = styled.div`
   padding-bottom: 6px;
   color: ${theme('thread.articleTitle')};
   &:hover {
-    color: ${theme('baseColor.error')};
+    color: ${theme('baseColor.red')};
     background: ${theme('thread.articleHover')};
     cursor: pointer;
   }

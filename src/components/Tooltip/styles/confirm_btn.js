@@ -59,10 +59,10 @@ export const Wrapper = styled.button`
   }
 `
 export const RedWrapper = styled(Wrapper)`
-  color: ${({ ghost }) => (ghost ? theme('baseColor.error') : 'white')};
+  color: ${({ ghost }) => (ghost ? theme('baseColor.red') : 'white')};
   background-color: ${({ ghost }) =>
-    !ghost ? theme('baseColor.error') : 'transparent'};
-  border-color: ${theme('baseColor.error')};
+    !ghost ? theme('baseColor.red') : 'transparent'};
+  border-color: ${theme('baseColor.red')};
 
   &:hover {
     border: 2px solid;

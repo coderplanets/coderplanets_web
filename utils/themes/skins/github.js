@@ -45,8 +45,7 @@ const github = {
   selectionBg: 'tomato',
   avatarOpacity: 1,
   baseColor: {
-    error: 'tomato !important',
-    errorBg: '#FFF0F0',
+    red: 'tomato !important',
     green: 'yellowgreen !important',
     pink: '#f59dba !important',
     pinkLite: '#ffafc9',

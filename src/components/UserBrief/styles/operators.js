@@ -18,13 +18,13 @@ export const LogoutIcon = styled(Img)`
   display: block;
   margin-top: -2px;
   ${LogoutBtn}:hover & {
-    fill: ${theme('baseColor.error')};
+    fill: ${theme('baseColor.red')};
     cursor: pointer;
   }
   transition: all 0.3s;
 `
 export const LogoutText = styled.div`
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   font-size: 0.8rem;
   display: none;
   margin-left: 5px;

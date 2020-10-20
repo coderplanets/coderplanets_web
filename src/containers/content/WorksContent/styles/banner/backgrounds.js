@@ -22,7 +22,7 @@ const getSize = (size) => {
 const getColor = (color) => {
   switch (color) {
     case 'red':
-      return theme('baseColor.error')
+      return theme('baseColor.red')
 
     case 'green':
       return theme('baseColor.green')

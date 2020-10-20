@@ -47,8 +47,7 @@ const green = {
   selectionBg: '#839496',
   avatarOpacity: 0.8,
   baseColor: {
-    error: 'tomato !important',
-    errorBg: '#fff2eb',
+    red: 'tomato !important',
     green: 'yellowgreen !important',
     pink: '#f59dba !important',
     pinkLite: '#ffafc9',

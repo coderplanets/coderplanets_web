@@ -100,7 +100,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
   }
   .markdown-editor-mentionSuggestionsEntry:active {
-    background-color: ${theme('baseColor.error')};
+    background-color: ${theme('baseColor.red')};
   }
   .markdown-editor-mentionSuggestionsEntryFocused {
     background-color: ${theme('comment.mentionActiveBg')};

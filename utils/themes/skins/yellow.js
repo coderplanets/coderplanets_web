@@ -46,8 +46,7 @@ const yellow = {
   selectionBg: '#839496',
   avatarOpacity: 0.8,
   baseColor: {
-    error: 'tomato !important',
-    errorBg: '#ffe8e8',
+    red: 'tomato !important',
     green: 'yellowgreen !important',
     pink: '#f59dba !important',
     pinkLite: '#ffafc9',

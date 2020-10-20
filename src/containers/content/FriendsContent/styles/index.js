@@ -35,7 +35,7 @@ export const FriendsWrapper = styled.div`
   padding-left: 10vw;
 `
 export const HeartIcon = styled(Img)`
-  fill: ${theme('baseColor.error')};
+  fill: ${theme('baseColor.red')};
   width: 14px;
   height: 14px;
   display: block;

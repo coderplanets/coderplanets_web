@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_BASE } from '@/config'
+import { ICON, ICON_BASE } from '@/config'
 
 import {
   Wrapper,
@@ -9,6 +9,7 @@ import {
   SiteTitle,
   SiteInfoWrapper,
   Item,
+  ItemIcon,
   Divider,
   VersionWrapper,
 } from '../styles/mobile_view'
@@ -25,7 +26,9 @@ const MobileView = () => (
       <Divider space="8px" radius="3px" />
       <Item>用户反馈</Item>
       <Divider space="8px" radius="3px" />
-      <Item>打赏赞助</Item>
+      <Item>
+        特别感谢 <ItemIcon src={`${ICON}/shape/heart.svg`} />
+      </Item>
     </SiteInfoWrapper>
     <VersionWrapper>
       <Item>v1.0.3</Item>

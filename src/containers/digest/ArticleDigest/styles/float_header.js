@@ -47,7 +47,7 @@ export const ReactionNum = styled.div`
 //   fill: ${theme('thread.articleTitle')};
 export const ReactionIcon = styled(Img)`
   fill: ${({ active }) =>
-    active ? theme('baseColor.error') : theme('thread.articleTitle')};
+    active ? theme('baseColor.red') : theme('thread.articleTitle')};
   width: 18px;
   height: 18px;
   display: block;

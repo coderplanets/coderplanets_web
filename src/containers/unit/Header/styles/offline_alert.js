@@ -4,7 +4,7 @@ import { theme, css, animate } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
-  background: ${theme('baseColor.error')};
+  background: ${theme('baseColor.red')};
   color: ${theme('header.bg')};
   margin-left: 30px;
   padding: 0 16px;

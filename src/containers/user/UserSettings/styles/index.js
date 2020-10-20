@@ -36,5 +36,5 @@ export const Desc = styled.div`
   margin-bottom: 10px;
 `
 export const ErrText = styled.div`
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
 `

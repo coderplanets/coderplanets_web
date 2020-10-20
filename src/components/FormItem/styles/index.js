@@ -11,9 +11,9 @@ export const Inputer = styled(Input)`
   border-right: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-left-color: ${({ error }) =>
-    error === 'true' ? theme('baseColor.error') : ''};
+    error === 'true' ? theme('baseColor.red') : ''};
   border-right-color: ${({ error }) =>
-    error === 'true' ? theme('baseColor.error') : ''};
+    error === 'true' ? theme('baseColor.red') : ''};
 `
 // TODO:  ANTD-CHECK
 export const TextAreaInput = styled(Input)`
@@ -22,9 +22,9 @@ export const TextAreaInput = styled(Input)`
   border-right: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-left-color: ${({ error }) =>
-    error === 'true' ? theme('baseColor.error') : ''};
+    error === 'true' ? theme('baseColor.red') : ''};
   border-right-color: ${({ error }) =>
-    error === 'true' ? theme('baseColor.error') : ''};
+    error === 'true' ? theme('baseColor.red') : ''};
 `
 
 export const FormItemWrapper = styled.div`
@@ -35,7 +35,7 @@ export const FormItemWrapper = styled.div`
 export const FormLabel = styled.div`
   font-size: 0.9rem;
   color: ${({ error }) =>
-    error ? theme('baseColor.error') : theme('form.label')};
+    error ? theme('baseColor.red') : theme('form.label')};
   margin-right: 10px;
   margin-top: 5px;
   width: auto;

@@ -24,24 +24,24 @@ export const ErrorWrapper = styled.div`
   border: 1px solid;
   border-radius: 5px;
   border-top: 3px solid;
-  border-color: ${theme('baseColor.error')};
+  border-color: ${theme('baseColor.red')};
   min-height: 100px;
   margin-bottom: 30px;
-  background: ${theme('baseColor.errorBg')};
+  background: ${theme('baseColor.redBg')};
 `
 export const ErrorTitle = styled.div`
   font-size: 1.2rem;
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   margin-bottom: 20px;
 `
 export const ErrorLink = styled.a`
   transition: color 0.3s;
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   font-size: 1rem;
 
   &:hover {
     cursor: pointer;
-    color: ${theme('baseColor.error')};
+    color: ${theme('baseColor.red')};
     text-decoration: underline;
   }
 `

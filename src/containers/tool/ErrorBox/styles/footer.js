@@ -14,7 +14,7 @@ export const Issue = styled.div`
   margin-right: 4px;
 `
 export const GithubIcon = styled(Img)`
-  fill: ${theme('baseColor.error')};
+  fill: ${theme('baseColor.red')};
   width: 15px;
   height: 15px;
   display: block;
@@ -25,19 +25,19 @@ export const GithubIcon = styled(Img)`
   }
 `
 export const IssueLinker = styled.a`
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   opacity: 0.5;
   &:hover {
     cursor: pointer;
     opacity: 1;
     text-decoration: underline;
-    color: ${theme('baseColor.error')};
+    color: ${theme('baseColor.red')};
   }
 `
 
 export const Divider = styled.div`
   opacity: 0.5;
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
   margin-right: 4px;
   margin-left: 4px;
 `

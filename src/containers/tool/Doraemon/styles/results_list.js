@@ -63,7 +63,7 @@ export const AlertBar = styled(BaseBar)`
   &:before {
     content: '⚠ ';
     margin-right: 10px;
-    color: ${theme('baseColor.error')};
+    color: ${theme('baseColor.red')};
   }
 `
 export const InfoBar = styled(BaseBar)`

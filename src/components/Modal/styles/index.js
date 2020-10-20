@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
   border-left: 2px solid;
   border-right: 2px solid;
   border-color: ${({ mode }) =>
-    mode === 'default' ? theme('modal.border') : theme('baseColor.error')};
+    mode === 'default' ? theme('modal.border') : theme('baseColor.red')};
   animation: ${animate.zoomIn} 0.2s linear;
 
   ${css.media.tablet`width: 460px`};
@@ -44,7 +44,7 @@ export const ChildrenWrapper = styled.div`
 `
 export const CloseBtn = styled(Img)`
   fill: ${({ mode }) =>
-    mode === 'default' ? theme('font') : theme('baseColor.error')};
+    mode === 'default' ? theme('font') : theme('baseColor.red')};
   position: absolute;
   top: 0;
   right: -45px;

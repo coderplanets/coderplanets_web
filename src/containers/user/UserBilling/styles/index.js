@@ -7,5 +7,5 @@ export const Wrapper = styled.div`
 `
 
 export const ErrText = styled.div`
-  color: ${theme('baseColor.error')};
+  color: ${theme('baseColor.red')};
 `
