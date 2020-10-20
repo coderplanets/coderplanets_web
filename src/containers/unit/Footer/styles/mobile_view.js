@@ -31,8 +31,16 @@ export const SiteInfoWrapper = styled.div`
   ${css.flex('align-both')};
 `
 export const Item = styled.div`
+  ${css.flex('align-center')};
   color: ${theme('footer.text')};
   font-size: 12px;
+`
+export const ItemIcon = styled(Img)`
+  fill: ${theme('baseColor.error')};
+  width: 10px;
+  height: 10px;
+  display: block;
+  margin-left: 5px;
 `
 export const Divider = styled(DotDivider)`
   background: ${theme('footer.text')};
