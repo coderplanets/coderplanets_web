@@ -39,12 +39,11 @@ export const CommonCenterArrowIcon = styled(Img)`
 `
 export const CommonBottomArrowIcon = styled(Img)`
   fill: #196780;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 `
-
 export const CommonNavi = styled.div`
   font-size: 18px;
   color: #327faf;
@@ -52,6 +51,10 @@ export const CommonNavi = styled.div`
   &:hover {
     font-weight: bold;
   }
+
+  ${css.media.mobile`
+    font-size: 14px;
+  `};
 `
 export const CommonHint = styled.div`
   font-size: 12px;

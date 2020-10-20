@@ -27,6 +27,10 @@ export const NaviInfo = styled.div`
     margin-right: ${({ disabled }) => (disabled ? '10px' : '8px')};
   }
   transition: all 0.25s;
+
+  ${css.media.mobile`
+    margin-right: 5px;
+  `}
 `
 export const Navi = styled(CommonNavi)``
 export const Hint = styled(CommonHint)``

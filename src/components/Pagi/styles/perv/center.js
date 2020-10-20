@@ -27,6 +27,10 @@ export const NaviInfo = styled.div`
   ${Wrapper}:hover & {
     margin-left: ${({ disabled }) => (disabled ? '10px' : '8px')};
   }
+
+  ${css.media.mobile`
+    margin-left: 5px;
+  `}
 `
 export const Navi = styled(CommonNavi)``
 export const Hint = styled(CommonHint)``
