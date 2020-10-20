@@ -6,6 +6,10 @@ import { css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};
   margin-top: -5px;
+
+  ${css.media.mobile`
+    margin-top: 2px;
+  `}
 `
 export const Title = styled.div`
   font-size: 13px;
@@ -24,6 +28,12 @@ export const Title = styled.div`
   }
 
   transform: opacity 0.25s;
+
+  ${css.media.mobile`
+    font-size: 11px;
+    opacity: 1;
+    margin-bottom: 7px;
+  `}
 `
 export const ListWrapper = styled.div`
   ${css.flex('align-center')};
@@ -41,8 +51,17 @@ export const Community = styled.div`
     margin-right: 0;
   }
   transition: all 0.25s;
+
+  ${css.media.mobile`
+    margin-right: 12px;
+  `}
 `
 export const Logo = styled(Img)`
   width: 18px;
   height: 18px;
+
+  ${css.media.mobile`
+    width: 16px;
+    height: 16px;
+  `}
 `

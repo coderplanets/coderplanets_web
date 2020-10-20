@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
+import { useMedia } from '@/hooks'
+
 import {
   Wrapper,
   ArrowWrapper,
@@ -11,12 +13,17 @@ import {
 } from '../styles/perv/center'
 
 const Center = ({ disabled, pageNumber, onChange }) => {
+  const { mobile } = useMedia()
+  const iconSrc = !mobile
+    ? `${ICON}/shape/arrow.svg`
+    : `${ICON}/shape/arrow-simple.svg`
+
   return (
     <>
       {disabled ? (
         <Wrapper disabled>
           <ArrowWrapper>
-            <Icon src={`${ICON_CMD}/footer-navi-arrow.svg`} />
+            <Icon src={iconSrc} />
           </ArrowWrapper>
           <NaviInfo disabled>
             <Hint>第 1 页</Hint>
@@ -26,7 +33,7 @@ const Center = ({ disabled, pageNumber, onChange }) => {
       ) : (
         <Wrapper onClick={() => onChange(pageNumber - 1)}>
           <ArrowWrapper>
-            <Icon src={`${ICON_CMD}/footer-navi-arrow.svg`} />
+            <Icon src={iconSrc} />
           </ArrowWrapper>
           <NaviInfo>
             <Hint>第 {pageNumber - 1} 页</Hint>
