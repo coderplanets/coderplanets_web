@@ -11,24 +11,25 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   display: block;
   margin-top: -2px;
 `
 export const Block = styled.div`
   ${css.flex('align-center')};
-  margin-left: 10px;
+  margin-left: 8px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 13px;
+  margin-top: -2px;
   font-weight: bold;
 `
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   display: block;
   transform: rotate(180deg);
   margin-left: 5px;

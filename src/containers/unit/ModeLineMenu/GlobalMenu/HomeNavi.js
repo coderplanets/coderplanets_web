@@ -14,7 +14,7 @@ const HomeNavi = () => {
     <Wrapper>
       <Logo src={`${ICON_BASE}/site_logo.svg`} />
       <Block>
-        <Title>首页</Title>
+        <Title>coderplanets</Title>
         <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
       </Block>
     </Wrapper>
