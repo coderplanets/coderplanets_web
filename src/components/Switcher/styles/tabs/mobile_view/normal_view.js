@@ -23,20 +23,20 @@ export const Nav = styled(NavBase)`
   overflow-x: scroll;
   overflow-y: hidden;
   flex-flow: nowrap;
-  width: calc(100% - 35px);
+  width: calc(100% - 28px);
   margin: 0;
 `
 export const MoreWrapper = styled.div`
   ${css.flex('align-center', 'justify-end')};
   position: absolute;
-  top: 5px;
-  right: 0;
-  width: 35px;
-  height: 30px;
+  top: 10px;
+  right: -4px;
+  width: 30px;
+  height: 20px;
   border-left: 1px solid;
   border-left-color: ${theme('tabs.header')};
   border-radius: 1px;
-  box-shadow: -2px 0px 0px 0px rgb(12, 51, 64);
+  box-shadow: -2px 0px 0px 0px rgb(28 53 62);
 `
 export const ArrowIcon = styled(Img)`
   fill: ${theme('tabs.header')};
