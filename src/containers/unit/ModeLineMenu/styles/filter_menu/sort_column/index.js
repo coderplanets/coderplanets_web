@@ -7,7 +7,8 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${css.flexColumn('align-start')};
-  width: 35%;
+  width: 32vw;
+  max-width: 32vw;
   height: 100%;
 `
 export const ItemBar = styled.div`

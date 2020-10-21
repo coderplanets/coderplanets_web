@@ -8,6 +8,7 @@ import SortColumn from './SortColumn/index'
 
 import {
   Wrapper,
+  RightPartWrapper,
   SortWrapper,
   ThreadWrapper,
   TagWrapper,
@@ -22,49 +23,57 @@ const Content = ({ curActive }) => {
   return (
     <Wrapper>
       <SortColumn />
-      <CustomScroller width="65%" withBorder autoHide={false}>
-        <ThreadWrapper>
-          {community.threads.map((item) => (
-            <ItemBar key={item.raw} active={item.raw === thread}>
-              {Trans(item.title)}
-              {item.raw === thread && (
-                <ArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />
-              )}
-            </ItemBar>
-          ))}
-        </ThreadWrapper>
-        <CustomScroller
-          direction="vertical"
-          height="100px"
-          withBorder
-          autoHide={false}
-        >
-          <TagWrapper>
-            <ItemBar>全部标签</ItemBar>
-            <ItemBar>精华</ItemBar>
-            <ItemBar>设计</ItemBar>
-            <ItemBar active>
-              问答 <TagDot />
-            </ItemBar>
-            <ItemBar>职场</ItemBar>
-            <ItemBar>闲聊</ItemBar>
-            <ItemBar>数码</ItemBar>
-            <ItemBar>其他</ItemBar>
-          </TagWrapper>
-        </CustomScroller>
+      <CustomScroller
+        width="calc(68vw - 40px)"
+        autoHide={false}
+        barSize="medium"
+      >
+        <RightPartWrapper>
+          <CustomScroller direction="vertical" height="calc(50vh - 100px)">
+            <ThreadWrapper>
+              {community.threads.map((item) => (
+                <ItemBar key={item.raw} active={item.raw === thread}>
+                  {Trans(item.title)}
+                  {item.raw === thread && (
+                    <ArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />
+                  )}
+                </ItemBar>
+              ))}
+            </ThreadWrapper>
+          </CustomScroller>
+          <CustomScroller direction="vertical" height="calc(50vh - 100px)">
+            <TagWrapper>
+              <ItemBar>全部</ItemBar>
+              <ItemBar>精华</ItemBar>
+              <ItemBar>设计</ItemBar>
+              <ItemBar active>
+                问答 <TagDot />
+              </ItemBar>
+              <ItemBar>职场</ItemBar>
+              <ItemBar>闲聊</ItemBar>
+              <ItemBar>数码</ItemBar>
+              <ItemBar>其他</ItemBar>
+              <br />
+            </TagWrapper>
+          </CustomScroller>
 
-        <SortWrapper>
-          <ItemBar>默认排序</ItemBar>
-          <ItemBar>长度</ItemBar>
-          <ItemBar active>时间</ItemBar>
-          <ItemBar>热度</ItemBar>
-        </SortWrapper>
-        <SortWrapper>
-          <ItemBar>今天</ItemBar>
-          <ItemBar>本周</ItemBar>
-          <ItemBar>本月</ItemBar>
-          <ItemBar>今年</ItemBar>
-        </SortWrapper>
+          <CustomScroller direction="vertical" height="calc(50vh - 100px)">
+            <SortWrapper>
+              <ItemBar>默认排序</ItemBar>
+              <ItemBar>长度</ItemBar>
+              <ItemBar active>时间</ItemBar>
+              <ItemBar>热度</ItemBar>
+            </SortWrapper>
+          </CustomScroller>
+          <CustomScroller direction="vertical" height="calc(50vh - 100px)">
+            <SortWrapper>
+              <ItemBar>今天</ItemBar>
+              <ItemBar>本周</ItemBar>
+              <ItemBar>本月</ItemBar>
+              <ItemBar>今年</ItemBar>
+            </SortWrapper>
+          </CustomScroller>
+        </RightPartWrapper>
       </CustomScroller>
     </Wrapper>
   )

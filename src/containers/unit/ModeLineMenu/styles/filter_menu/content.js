@@ -10,23 +10,25 @@ export const Wrapper = styled.div.attrs((props) => ({
   width: 100%;
   padding: 0;
 `
+export const RightPartWrapper = styled.div`
+  ${css.flex()};
+  width: 65%;
+`
 export const SortWrapper = styled.div`
-  width: 33%;
-  min-width: 120px;
+  width: 100px;
   height: 100%;
   min-height: 200px;
 `
 export const ThreadWrapper = styled.div`
-  width: 33%;
+  width: 100px;
   height: 100%;
   min-height: 200px;
-  min-width: 120px;
   border-left: 1px solid;
   border-left-color: #183d54;
 `
 export const TagWrapper = styled.div`
-  min-width: 120px;
-  flex-grow: 1;
+  width: 100px;
+  /* flex-grow: 1; */
   height: 100%;
   /* min-height: 200px; */
   border-left: 1px solid;
