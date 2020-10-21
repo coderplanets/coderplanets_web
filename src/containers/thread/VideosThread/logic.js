@@ -67,14 +67,14 @@ export const onPreview = (data) => {
   const type = TYPE.DRAWER.VIDEO_VIEW
   const thread = THREAD.VIDEO
 
-  send(EVENT.DRAWER_OPEN, { type, thread, data })
+  send(EVENT.DRAWER.OPEN, { type, thread, data })
   store.markRoute(data.id)
 }
 
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.VIDEO_CREATE })
+  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.VIDEO_CREATE })
 }
 
 export const onTagSelect = (tag) => {

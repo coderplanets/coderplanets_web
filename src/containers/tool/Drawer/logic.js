@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { contains } from 'ramda'
+import { contains, values } from 'ramda'
 
 import { TYPE, EVENT } from '@/constant'
 
@@ -20,8 +20,7 @@ const log = buildLog('L:Preview')
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   receive: [
-    EVENT.DRAWER_OPEN,
-    EVENT.DRAWER_CLOSE,
+    ...values(EVENT.DRAWER),
     EVENT.UPLOAD_IMG_START,
     EVENT.UPLOAD_IMG_FINISH,
   ],
@@ -161,9 +160,9 @@ export const resetSwipeAviliable = () => store.resetSwipeAviliable()
 
 const DataResolver = [
   {
-    match: asyncRes(EVENT.DRAWER_OPEN),
+    match: asyncRes(EVENT.DRAWER.OPEN),
     action: (res) => {
-      const payload = res[EVENT.DRAWER_OPEN]
+      const payload = res[EVENT.DRAWER.OPEN]
       /*
          log('should open payload thread: ', payload.thread)
          log('should open payload id: ', payload.data.id)
@@ -192,8 +191,15 @@ const DataResolver = [
     },
   },
   {
-    match: asyncRes(EVENT.DRAWER_CLOSE),
+    match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => closeDrawer(),
+  },
+  {
+    match: asyncRes(EVENT.DRAWER.CONTENT_DRAGABLE),
+    action: (res) => {
+      const payload = res[EVENT.DRAWER.CONTENT_DRAGABLE]
+      store.mark({ disableContentDrag: payload.data })
+    },
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_START),

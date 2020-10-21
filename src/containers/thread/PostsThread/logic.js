@@ -96,7 +96,7 @@ export const onTagSelect = (tag) => {
 }
 
 export const onUserSelect = (user) =>
-  send(EVENT.DRAWER_OPEN, {
+  send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.USER_VIEW,
     data: user,
   })
@@ -111,14 +111,14 @@ export const onPreview = (data) => {
   const type = TYPE.DRAWER.POST_VIEW
   const thread = THREAD.POST
 
-  send(EVENT.DRAWER_OPEN, { type, thread, data })
+  send(EVENT.DRAWER.OPEN, { type, thread, data })
   store.markRoute(data.id)
 }
 
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.POST_CREATE })
+  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.POST_CREATE })
 }
 
 export const onAdsClose = () => {

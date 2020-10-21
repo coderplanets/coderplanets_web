@@ -44,7 +44,7 @@ The container component can listen for asynchronous events that need to be respo
 ```js
 Const sr71$ = new SR71({
   receive: [
-    EVENT.DRAWER_OPEN,
+    EVENT.DRAWER.OPEN,
     EVENT.DRAWER_CLOSE,
     EVENT.UPLOAD_IMG_START,
     EVENT.UPLOAD_IMG_FINISH,
@@ -52,22 +52,22 @@ Const sr71$ = new SR71({
 })
 ```
 
-Retrieve 4 messages on behalf of the container component, EVENT.DRAWER_OPEN, EVENT.DRAWER_CLOSE, EVENT.UPLOAD_IMG_START, EVENT.UPLOAD_IMG_FINISH
+Retrieve 4 messages on behalf of the container component, EVENT.DRAWER.OPEN, EVENT.DRAWER.CLOSE, EVENT.UPLOAD_IMG_START, EVENT.UPLOAD_IMG_FINISH
 
 Corresponding DataSolver:
 
 ```js
 {
-    Match: asyncRes(EVENT.DRAWER_OPEN),
+    Match: asyncRes(EVENT.DRAWER.OPEN),
     Action: res => {
-      Const payload = res[EVENT.DRAWER_OPEN]
+      Const payload = res[EVENT.DRAWER.OPEN]
       lockPage()
 
       Store.open(payload)
     },
   },
   {
-    Match: asyncRes(EVENT.DRAWER_CLOSE),
+    Match: asyncRes(EVENT.DRAWER.CLOSE),
     Action: () => closeDrawer(),
   },
   {
