@@ -8,6 +8,7 @@
 
 import React from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
@@ -15,6 +16,7 @@ import { connectStore, buildLog } from '@/utils'
 import GlobalMenu from './GlobalMenu/index'
 import SearchMenu from './SearchMenu'
 import MoreMenu from './MoreMenu'
+import FilterMenu from './FilterMenu'
 
 import { Wrapper } from './styles'
 import { useInit } from './logic'
@@ -22,7 +24,7 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ModeLineMenu')
 
-const renderMenus = (type) => {
+const renderMenus = (type, curActive) => {
   switch (type) {
     case TYPE.MM_TYPE.MORE: {
       return <MoreMenu />
@@ -30,6 +32,10 @@ const renderMenus = (type) => {
 
     case TYPE.MM_TYPE.SEARCH: {
       return <SearchMenu />
+    }
+
+    case TYPE.MM_TYPE.FILTER: {
+      return <FilterMenu curActive={curActive} />
     }
 
     default: {
@@ -40,21 +46,14 @@ const renderMenus = (type) => {
 
 const ModeLineMenuContainer = ({ modeLineMenu: store, testId, type }) => {
   useInit(store)
+  const { curActive } = store
 
-  return <Wrapper testId={testId}>{renderMenus(type)}</Wrapper>
+  return <Wrapper testId={testId}>{renderMenus(type, curActive)}</Wrapper>
 }
 
 ModeLineMenuContainer.propTypes = {
   modeLineMenu: T.any.isRequired,
-  type: T.oneOf([
-    TYPE.MM_TYPE.GLOBAL_MENU,
-    TYPE.MM_TYPE.COMMUNITY,
-    TYPE.MM_TYPE.FILTER,
-    TYPE.MM_TYPE.DISCOVER,
-    TYPE.MM_TYPE.PUBLISH,
-    TYPE.MM_TYPE.SEARCH,
-    TYPE.MM_TYPE.MORE,
-  ]).isRequired,
+  type: T.oneOf([values(TYPE.MM_TYPE)]).isRequired,
   testId: T.string,
 }
 

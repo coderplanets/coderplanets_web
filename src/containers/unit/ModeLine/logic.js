@@ -39,6 +39,10 @@ export const openMenu = (activeMenu) => {
       return openSearchMenu()
     }
 
+    case TYPE.MM_TYPE.FILTER: {
+      return openFilterMenu()
+    }
+
     default: {
       return openMoreMenu()
     }
@@ -60,12 +64,26 @@ const openGlobalMenu = () => {
 }
 
 /**
- * open global navi menu on mobile
+ * open filter menu for current community on mobile
  */
 const openSearchMenu = () => {
   send(EVENT.DRAWER_OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.SEARCH,
+    options: {
+      direction: 'bottom',
+      position: 'M',
+    },
+  })
+}
+
+/**
+ * open filter menu for current community on mobile
+ */
+const openFilterMenu = () => {
+  send(EVENT.DRAWER_OPEN, {
+    type: TYPE.DRAWER.MODELINE_MENU,
+    data: TYPE.MM_TYPE.FILTER,
     options: {
       direction: 'bottom',
       position: 'M',
