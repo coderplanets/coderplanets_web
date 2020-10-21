@@ -11,6 +11,5 @@ export const Wrapper = styled.div.attrs((props) => ({
   width: 100%;
   min-height: 200px;
   padding: 0;
-  margin-bottom: 30px;
 `
 export const holder = styled.div``

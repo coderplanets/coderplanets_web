@@ -8,13 +8,11 @@ export const Wrapper = styled.div.attrs((props) => ({
 }))`
   ${css.flex('justify-between')};
   width: 100%;
-  min-height: 200px;
   padding: 0;
-  border-bottom: 1px solid;
-  border-bottom-color: #183d54;
 `
 export const SortWrapper = styled.div`
   width: 33%;
+  min-width: 120px;
   height: 100%;
   min-height: 200px;
 `
@@ -22,8 +20,12 @@ export const ThreadWrapper = styled.div`
   width: 33%;
   height: 100%;
   min-height: 200px;
+  min-width: 120px;
+  border-left: 1px solid;
+  border-left-color: #183d54;
 `
 export const TagWrapper = styled.div`
+  min-width: 120px;
   flex-grow: 1;
   height: 100%;
   /* min-height: 200px; */

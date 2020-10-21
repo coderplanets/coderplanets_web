@@ -8,8 +8,8 @@ export const Wrapper = styled.div.attrs((props) => ({
 }))`
   ${css.flex('justify-between')};
   width: 100%;
-  border-bottom: 1px solid;
-  border-bottom-color: #183d54;
+  /* border-bottom: 1px solid;
+  border-bottom-color: #183d54; */
   padding-bottom: 10px;
   margin-bottom: 0;
 `
