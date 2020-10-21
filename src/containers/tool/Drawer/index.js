@@ -35,6 +35,7 @@ const DrawerContainer = ({ drawer: store }) => {
     canBeClose,
     headerText,
     showHeaderText,
+    disableContentDrag,
   } = store
 
   return (
@@ -47,6 +48,7 @@ const DrawerContainer = ({ drawer: store }) => {
       imageUploading={imageUploading}
       canBeClose={canBeClose}
       showHeaderText={showHeaderText}
+      disableContentDrag={disableContentDrag}
     >
       <Content
         type={type}

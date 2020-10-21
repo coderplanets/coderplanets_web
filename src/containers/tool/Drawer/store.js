@@ -85,6 +85,7 @@ const DrawerStore = T.model('DrawerStore', {
   canBeClose: T.optional(T.boolean, false),
   headerText: T.optional(T.string, ''),
   showHeaderText: T.optional(T.boolean, false),
+  disableContentDrag: T.optional(T.boolean, false),
   // end of only works for mobile view
 
   windowWidth: T.optional(T.number, 1520),

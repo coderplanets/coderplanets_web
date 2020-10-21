@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import { ICON } from '@/config'
 import { Trans } from '@/utils'
@@ -16,9 +16,21 @@ import {
   TagDot,
   ArrowIcon,
 } from '../styles/filter_menu/content'
+import { disableDrawerContentDrag, restoreDrawerContentDrag } from '../logic'
+
+const SCROLL_BUTTOM_OFFSET = '100px'
 
 const Content = ({ curActive }) => {
   const { community, thread } = curActive
+
+  const handleDisableDrawerContentDrag = useCallback(
+    disableDrawerContentDrag,
+    [],
+  )
+  const handleRestoreDrawerContentDrag = useCallback(
+    restoreDrawerContentDrag,
+    [],
+  )
 
   return (
     <Wrapper>
@@ -29,7 +41,12 @@ const Content = ({ curActive }) => {
         barSize="medium"
       >
         <RightPartWrapper>
-          <CustomScroller direction="vertical" height="calc(50vh - 100px)">
+          <CustomScroller
+            direction="vertical"
+            height={`calc(50vh - ${SCROLL_BUTTOM_OFFSET})`}
+            onTopEnter={handleRestoreDrawerContentDrag}
+            onTopLeave={handleDisableDrawerContentDrag}
+          >
             <ThreadWrapper>
               {community.threads.map((item) => (
                 <ItemBar key={item.raw} active={item.raw === thread}>
@@ -41,7 +58,12 @@ const Content = ({ curActive }) => {
               ))}
             </ThreadWrapper>
           </CustomScroller>
-          <CustomScroller direction="vertical" height="calc(50vh - 100px)">
+          <CustomScroller
+            direction="vertical"
+            height={`calc(50vh - ${SCROLL_BUTTOM_OFFSET})`}
+            onTopEnter={handleRestoreDrawerContentDrag}
+            onTopLeave={handleDisableDrawerContentDrag}
+          >
             <TagWrapper>
               <ItemBar>全部</ItemBar>
               <ItemBar>精华</ItemBar>
@@ -57,7 +79,12 @@ const Content = ({ curActive }) => {
             </TagWrapper>
           </CustomScroller>
 
-          <CustomScroller direction="vertical" height="calc(50vh - 100px)">
+          <CustomScroller
+            direction="vertical"
+            height={`calc(50vh - ${SCROLL_BUTTOM_OFFSET})`}
+            onTopEnter={handleRestoreDrawerContentDrag}
+            onTopLeave={handleDisableDrawerContentDrag}
+          >
             <SortWrapper>
               <ItemBar>默认排序</ItemBar>
               <ItemBar>长度</ItemBar>
@@ -65,7 +92,12 @@ const Content = ({ curActive }) => {
               <ItemBar>热度</ItemBar>
             </SortWrapper>
           </CustomScroller>
-          <CustomScroller direction="vertical" height="calc(50vh - 100px)">
+          <CustomScroller
+            direction="vertical"
+            height={`calc(50vh - ${SCROLL_BUTTOM_OFFSET})`}
+            onTopEnter={handleRestoreDrawerContentDrag}
+            onTopLeave={handleDisableDrawerContentDrag}
+          >
             <SortWrapper>
               <ItemBar>今天</ItemBar>
               <ItemBar>本周</ItemBar>

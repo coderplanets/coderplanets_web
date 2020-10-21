@@ -20,8 +20,10 @@ const log = buildLog('L:Preview')
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   receive: [
+    // TODO: move to drawer scope
     EVENT.DRAWER_OPEN,
     EVENT.DRAWER_CLOSE,
+    EVENT.DRAWER_CONTENT_DRAG,
     EVENT.UPLOAD_IMG_START,
     EVENT.UPLOAD_IMG_FINISH,
   ],
@@ -194,6 +196,13 @@ const DataResolver = [
   {
     match: asyncRes(EVENT.DRAWER_CLOSE),
     action: () => closeDrawer(),
+  },
+  {
+    match: asyncRes(EVENT.DRAWER_CONTENT_DRAG),
+    action: (res) => {
+      const payload = res[EVENT.DRAWER_CONTENT_DRAG]
+      store.mark({ disableContentDrag: payload.data })
+    },
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_START),

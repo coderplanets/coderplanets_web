@@ -28,6 +28,7 @@ const Viewer = ({
   imageUploading,
   canBeClose,
   showHeaderText,
+  disableContentDrag,
   children,
 }) => {
   const theme = useTheme()
@@ -52,8 +53,14 @@ const Viewer = ({
    * 做时间差处理
    */
   const swipeHandlers = useSwipe({
-    onSwiped: (ev) => onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY),
-    onSwiping: (ev) => onSwipingYHandler(ev, setSwipeUpY, setSwipeDownY),
+    onSwiped: (ev) => {
+      if (disableContentDrag) return false
+      onSwipedYHandler(ev, setSwipeUpY, setSwipeDownY)
+    },
+    onSwiping: (ev) => {
+      if (disableContentDrag) return false
+      onSwipingYHandler(ev, setSwipeUpY, setSwipeDownY)
+    },
   })
 
   return (
