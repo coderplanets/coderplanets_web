@@ -16,13 +16,14 @@ import {
   TagDot,
   ArrowIcon,
 } from '../styles/filter_menu/content'
-import { disableDrawerContentDrag, restoreDrawerContentDrag } from '../logic'
+import { getFilterMenuScrollHeight } from '../styles/metrics/filter_menu'
 
-const SCROLL_BUTTOM_OFFSET = '100px'
+import { disableDrawerContentDrag, restoreDrawerContentDrag } from '../logic'
 
 const Content = ({ curActive }) => {
   const { community, thread } = curActive
 
+  const scrollableHeight = getFilterMenuScrollHeight()
   const handleDisableDrawerContentDrag = useCallback(
     disableDrawerContentDrag,
     [],
@@ -43,7 +44,7 @@ const Content = ({ curActive }) => {
         <RightPartWrapper>
           <CustomScroller
             direction="vertical"
-            height={`calc(50vh - ${SCROLL_BUTTOM_OFFSET})`}
+            height={scrollableHeight}
             onTopEnter={handleRestoreDrawerContentDrag}
             onTopLeave={handleDisableDrawerContentDrag}
           >
@@ -60,7 +61,7 @@ const Content = ({ curActive }) => {
           </CustomScroller>
           <CustomScroller
             direction="vertical"
-            height={`calc(50vh - ${SCROLL_BUTTOM_OFFSET})`}
+            height={scrollableHeight}
             onTopEnter={handleRestoreDrawerContentDrag}
             onTopLeave={handleDisableDrawerContentDrag}
           >
@@ -81,7 +82,7 @@ const Content = ({ curActive }) => {
 
           <CustomScroller
             direction="vertical"
-            height={`calc(50vh - ${SCROLL_BUTTOM_OFFSET})`}
+            height={scrollableHeight}
             onTopEnter={handleRestoreDrawerContentDrag}
             onTopLeave={handleDisableDrawerContentDrag}
           >
@@ -94,7 +95,7 @@ const Content = ({ curActive }) => {
           </CustomScroller>
           <CustomScroller
             direction="vertical"
-            height={`calc(50vh - ${SCROLL_BUTTOM_OFFSET})`}
+            height={scrollableHeight}
             onTopEnter={handleRestoreDrawerContentDrag}
             onTopLeave={handleDisableDrawerContentDrag}
           >

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { css } from '@/utils'
-import { L_MENU_HEIGHT } from './metrics'
+import { L_MENU_HEIGHT } from './metrics/index'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
