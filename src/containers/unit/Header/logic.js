@@ -28,7 +28,7 @@ let store = null
 let sub$ = null
 
 export const previewAccount = () =>
-  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.ACCOUNT_VIEW })
+  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.ACCOUNT_VIEW })
 
 // to avoid page-cache in server
 export const checkSessionState = () => sr71$.query(S.sessionState, {})
@@ -59,7 +59,7 @@ export const openDoraemon = () => store.openDoraemon()
 export const upgradeHelper = () => store.upgradeHelper()
 
 export const openC11NPanel = () => {
-  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.C11N_SETTINGS })
+  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.C11N_SETTINGS })
 }
 
 const DataSolver = [

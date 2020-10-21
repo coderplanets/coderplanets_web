@@ -79,7 +79,7 @@ export const onPreview = (data) => {
   const type = TYPE.DRAWER.JOB_VIEW
   const thread = THREAD.JOB
 
-  send(EVENT.DRAWER_OPEN, { type, thread, data })
+  send(EVENT.DRAWER.OPEN, { type, thread, data })
   store.markRoute(data.id)
 }
 
@@ -90,7 +90,7 @@ export const onContentCreate = () => {
     return store.mark({ showPublishNote: true })
   }
 
-  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.JOB_CREATE })
+  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.JOB_CREATE })
 }
 
 export const onNoteClose = () => store.mark({ showPublishNote: false })
@@ -108,7 +108,7 @@ export const onFilterSelect = (option) => {
 }
 
 export const onUserSelect = (user) =>
-  send(EVENT.DRAWER_OPEN, {
+  send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.USER_VIEW,
     data: user,
   })

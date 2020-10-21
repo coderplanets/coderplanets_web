@@ -16,7 +16,7 @@ const log = buildLog('L:ModeLineMenu')
 // 如果当前 Menu 里面有自己的 CustomScroller, 就需要暂时先禁用 Drawer 自身的
 // 否则下滑时会触发下拉关闭
 export const disableDrawerContentDrag = () => {
-  send(EVENT.DRAWER_CONTENT_DRAG, {
+  send(EVENT.DRAWER.CONTENT_DRAGABLE, {
     data: true,
   })
 }
@@ -24,7 +24,7 @@ export const disableDrawerContentDrag = () => {
 // 延迟是防止快速滑动
 export const restoreDrawerContentDrag = () => {
   setTimeout(() => {
-    send(EVENT.DRAWER_CONTENT_DRAG, {
+    send(EVENT.DRAWER.CONTENT_DRAGABLE, {
       data: false,
     })
   }, 500)

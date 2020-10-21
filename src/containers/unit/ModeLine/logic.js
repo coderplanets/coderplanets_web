@@ -53,7 +53,7 @@ export const openMenu = (activeMenu) => {
  * open global navi menu on mobile
  */
 const openGlobalMenu = () => {
-  send(EVENT.DRAWER_OPEN, {
+  send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.GLOBAL_MENU,
     options: {
@@ -67,7 +67,7 @@ const openGlobalMenu = () => {
  * open filter menu for current community on mobile
  */
 const openSearchMenu = () => {
-  send(EVENT.DRAWER_OPEN, {
+  send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.SEARCH,
     options: {
@@ -81,7 +81,7 @@ const openSearchMenu = () => {
  * open filter menu for current community on mobile
  */
 const openFilterMenu = () => {
-  send(EVENT.DRAWER_OPEN, {
+  send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.FILTER,
     options: {
@@ -95,7 +95,7 @@ const openFilterMenu = () => {
  * open more menu on mobile
  */
 const openMoreMenu = () => {
-  send(EVENT.DRAWER_OPEN, {
+  send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.MORE,
     options: {

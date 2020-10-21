@@ -82,7 +82,7 @@ export const onPageChange = (page = 1) => {
 export const onPreview = (data) => {
   const thread = store.curThread
 
-  send(EVENT.DRAWER_OPEN, {
+  send(EVENT.DRAWER.OPEN, {
     type: TYPE[`DRAWER_${toUpper(thread)}_VIEW`],
     data: data[thread],
     thread,

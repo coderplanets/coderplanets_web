@@ -138,7 +138,7 @@ const doNavigate = () => {
     const data = { login }
     const type = TYPE.DRAWER.USER_VIEW
 
-    send(EVENT.DRAWER_OPEN, { type, data })
+    send(EVENT.DRAWER.OPEN, { type, data })
     return hidePanel()
   }
 

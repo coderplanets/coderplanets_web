@@ -60,7 +60,7 @@ export const onPageChange = (page) => {
 
 export const onPreview = (data) => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  send(EVENT.DRAWER_OPEN, {
+  send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.REPO_VIEW,
     thread: THREAD.REPO,
     data,
@@ -78,7 +78,7 @@ export const onPreview = (data) => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  send(EVENT.DRAWER_OPEN, { type: TYPE.DRAWER.REPO_CREATE })
+  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.REPO_CREATE })
 }
 
 export const onTagSelect = (tag) => {
