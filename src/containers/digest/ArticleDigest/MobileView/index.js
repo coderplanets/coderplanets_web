@@ -18,17 +18,13 @@ import DotDivider from '@/components/DotDivider'
 import Maybe from '@/components/Maybe'
 import { Space } from '@/components/Common'
 
-import FloatHeader from '../FloatHeader'
-import Title from '../Title'
-// import ReactionNumbers from '../ReactionNumbers'
-import MiddleInfo from '../MiddleInfo'
-
 import InfoBar from './InfoBar'
 
 import {
   Wrapper,
   InnerWrapper,
   BannerContent,
+  Title,
   Brief,
   Desc,
 } from '../styles/mobile_view/index'
@@ -54,18 +50,11 @@ const ArticleDigestContainer = ({
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection)
 
-  const {
-    activeThread,
-    viewingData,
-    starLoading,
-    favoriteLoading,
-    isHeaderFixed,
-  } = store
+  const { activeThread, viewingData, starLoading, favoriteLoading } = store
 
   return (
     <Wrapper>
       <FavoritesCats />
-      <FloatHeader show={isHeaderFixed} data={viewingData} />
       {!isNil(viewingData.id) && (
         <InnerWrapper>
           <BannerContent>
@@ -87,7 +76,6 @@ const ArticleDigestContainer = ({
                 </Maybe>
               </Desc>
               <Title thread={activeThread} data={viewingData} />
-              <MiddleInfo thread={activeThread} data={viewingData} />
             </Brief>
           </BannerContent>
           <InfoBar

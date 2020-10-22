@@ -6,11 +6,9 @@
 
 import React from 'react'
 
-import { THREAD } from '@/constant'
 import { useMedia } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
-import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
 import Comments from '@/containers/unit/Comments'
 // import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 
@@ -19,7 +17,8 @@ import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
 import ContentSourceCard from '@/components/ContentSourceCard'
 
-import SideCards from './SideCards'
+import ArticleSticker from './ArticleSticker'
+// import SideCards from './SideCards'
 
 import {
   Wrapper,
@@ -27,7 +26,6 @@ import {
   MainWrapper,
   SidebarWrapper,
   ArticleWrapper,
-  BodyHeaderWrapper,
   CommentsWrapper,
 } from './styles'
 
@@ -40,8 +38,7 @@ const PostContentContainer = ({ postContent: store }) => {
   useInit(store)
   const { mobile } = useMedia()
 
-  const { curRoute, viewingData } = store
-  const { mainPath: communityRaw } = curRoute
+  const { viewingData } = store
 
   return (
     <Wrapper>
@@ -49,15 +46,6 @@ const PostContentContainer = ({ postContent: store }) => {
         <InnerWrapper>
           <MainWrapper>
             <ArticleWrapper>
-              {!mobile && (
-                <BodyHeaderWrapper>
-                  <ArticleBodyHeader
-                    communityRaw={communityRaw}
-                    thread={THREAD.POST}
-                    data={viewingData}
-                  />
-                </BodyHeaderWrapper>
-              )}
               <MarkDownRender body={viewingData.body} />
             </ArticleWrapper>
 
@@ -68,8 +56,9 @@ const PostContentContainer = ({ postContent: store }) => {
             </CommentsWrapper>
           </MainWrapper>
           <SidebarWrapper>
-            <Sticky offsetTop={30}>
-              <SideCards data={viewingData} />
+            <Sticky offsetTop={100}>
+              <ArticleSticker />
+              {/* <SideCards data={viewingData} /> */}
             </Sticky>
           </SidebarWrapper>
         </InnerWrapper>

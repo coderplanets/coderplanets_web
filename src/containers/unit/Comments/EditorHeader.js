@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD, DEFAULT_USER_AVATAR } from '@/config'
+import { ICON, ICON_CMD } from '@/config'
 
 import AvatarsRow from '@/components/AvatarsRow'
 import { SpaceGrow } from '@/components/Common'
@@ -61,10 +61,8 @@ const EditorHeader = ({
   }
   return (
     <Wrapper>
-      <UserAvatar src={accountInfo.avatar || DEFAULT_USER_AVATAR} />
-      <LeaveResponseText onClick={openInputBox}>
-        来都来了, 说点什么吧 ...
-      </LeaveResponseText>
+      <UserAvatar src={accountInfo.avatar || `${ICON}/edit/publish-pen.svg`} />
+      <LeaveResponseText onClick={openInputBox}>发表看法</LeaveResponseText>
     </Wrapper>
   )
 }

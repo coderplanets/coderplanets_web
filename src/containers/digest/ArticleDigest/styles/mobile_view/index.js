@@ -14,6 +14,10 @@ export const InnerWrapper = styled.div`
   ${css.flex('justify-center')};
   width: 100%;
 `
+export const Title = styled.div`
+  font-size: 24px;
+  color: ${theme('thread.articleTitle')};
+`
 export const BannerContent = styled.div`
   ${css.flex()};
   max-width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};

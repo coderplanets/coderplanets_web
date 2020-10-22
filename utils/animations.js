@@ -39,7 +39,7 @@ const pulse = keyframes`
   }
 
   50% {
-    transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.15, 1.15, 1.15);
   }
 
   to {

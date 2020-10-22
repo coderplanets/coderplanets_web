@@ -15,7 +15,8 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
   max-width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
-  padding: 0 6vw;
+  padding-left: 10vw;
+  padding-right: 6vw;
   ${css.media.desktop`
     padding: 0 4vw;
   `};
@@ -31,19 +32,19 @@ export const MainWrapper = styled.div`
   `};
 `
 export const SidebarWrapper = styled.div`
-  min-width: 250px;
+  min-width: 160px;
   ${css.media.mobile`
     display: none;
   `};
 `
 /* background: ${theme('drawer.articleBg')}; */
 export const ArticleWrapper = styled.div`
-  font-size: 1.1rem;
+  font-size: 15px;
   margin-right: 1.6vw;
-  background: ${theme('drawer.articleBg')};
-  border-radius: 5px;
-  padding: 35px 40px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  /* background: ${theme('drawer.articleBg')}; */
+  /* border-radius: 5px; */
+  background: transparent;
+  padding: 10px;
   min-height: 200px;
   ${css.media.mobile`
     background: #08303c;  /* TODO: same as comment background */

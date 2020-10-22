@@ -5,13 +5,17 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex()};
-  margin-bottom: 16px;
-  padding: 15px;
-  padding-left: 20px;
+  /* margin-bottom: 16px; */
+  margin-bottom: 14px;
+  padding: 15px 5px;
+  /* padding-left: 20px; */
   position: relative;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  border-radius: 3px;
-  background: ${theme('comment.bg')};
+  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); */
+  /* border-radius: 3px; */
+  /* background: ${theme('comment.bg')}; */
+  background: transparent;
+  border-bottom: 1px solid;
+  border-bottom-color: #0b4252;
 `
 // filter: blur(3px);
 export const CommentWrapper = styled.div`

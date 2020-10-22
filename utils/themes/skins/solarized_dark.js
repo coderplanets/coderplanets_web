@@ -156,7 +156,7 @@ const solarizedDark = {
     number: '#00A59B',
     floor: '#5c8186',
     reply: '#638688',
-    replyBg: '#023c4a',
+    replyBg: '#013340',
     placeholder: '#62868a',
     filter: '#62868a',
     filterActive: primaryColor,
