@@ -4,14 +4,16 @@ import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.nav`
-  ${css.flex('justify-center')};
+  ${css.flexColumn('align-both')};
+  margin-bottom: 22px;
 `
 export const Avatar = styled(Img)`
-  ${css.circle('20px')};
+  ${css.circle('36px')};
   display: block;
 `
-export const Title = styled.div`
+export const Name = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 15px;
-  margin-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 8px;
 `

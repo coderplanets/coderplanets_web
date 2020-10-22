@@ -24,9 +24,11 @@ import {
   Wrapper,
   InnerWrapper,
   BannerContent,
-  Brief,
-  PublishInfo,
+  Main,
+  PublishTime,
+  PublishDesc,
   BottomInfo,
+  AuthorWrapper,
 } from '../styles/desktop_view/index'
 import { useInit, inAnchor, outAnchor } from '../logic'
 
@@ -46,20 +48,23 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
       <FavoritesCats />
       <InnerWrapper>
         <BannerContent>
-          <Brief>
-            <PublishInfo>
+          <Main>
+            <PublishTime>
               {/* {viewingData.insertedAt} */}
-              10月04日13时，2020年
+              10&nbsp;月&nbsp;04&nbsp;日上午&nbsp;12&nbsp;时，2020年
               {/* <Space left="3px" right="3px" />
                 <TimeAgo datetime={viewingData.insertedAt} locale="zh_CN" />
                 <DotDivider /> */}
-            </PublishInfo>
+            </PublishTime>
             <Title thread={activeThread} data={viewingData} />
             <BottomInfo>
-              <Author user={viewingData.author} />
+              <PublishDesc>发布于 Elixir 社区</PublishDesc>
               <StateInfo />
             </BottomInfo>
-          </Brief>
+          </Main>
+          <AuthorWrapper>
+            <Author user={viewingData.author} />
+          </AuthorWrapper>
         </BannerContent>
       </InnerWrapper>
 

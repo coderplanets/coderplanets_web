@@ -33,6 +33,7 @@ export const MainWrapper = styled.div`
 `
 export const SidebarWrapper = styled.div`
   min-width: 160px;
+  margin-top: 15px;
   ${css.media.mobile`
     display: none;
   `};
