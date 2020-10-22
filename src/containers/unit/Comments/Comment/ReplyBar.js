@@ -1,7 +1,12 @@
 import React from 'react'
 
 import { cutFrom } from '@/utils'
-import { Wrapper, Label, ReplyToBody, ReplyToFloor } from './styles/reply_bar'
+import {
+  Wrapper,
+  Label,
+  ReplyToBody,
+  ReplyToFloor,
+} from '../styles/comment/reply_bar'
 
 const CommentReplyBar = ({ data }) => {
   return (
