@@ -112,8 +112,11 @@ export const GLOBAL_MAX_WIDTH = '1520px'
 // home page, discovery page
 export const MAX_CONTENT_WIDTH = '1520px'
 
-// single post/job page
-export const ARTICLE_PAGE_MAX_CONTENT_WIDTH = '1160px'
+// article(post/job..) page
+export const ARTICLE_PAGE_MAX_WIDTH = '1024px'
+// same width as medium.com
+export const ARTICLE_CONTENT_WIDTH = '680px'
+export const ARTICLE_STICKER_WIDTH = '220px'
 
 export const mediaBreakPoints = {
   // mobileS: '320px',
@@ -159,7 +162,9 @@ const css = {
   media,
   MAX_CONTENT_WIDTH,
   GLOBAL_MAX_WIDTH,
-  ARTICLE_PAGE_MAX_CONTENT_WIDTH,
+  ARTICLE_PAGE_MAX_WIDTH,
+  ARTICLE_CONTENT_WIDTH,
+  ARTICLE_STICKER_WIDTH,
 }
 
 export default css

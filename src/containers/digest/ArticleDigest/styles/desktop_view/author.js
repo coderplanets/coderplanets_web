@@ -5,10 +5,16 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.nav`
   ${css.flexColumn('align-both')};
-  margin-bottom: 22px;
 `
 export const Avatar = styled(Img)`
   ${css.circle('36px')};
+  display: block;
+`
+export const AvatarFallback = styled(Img)`
+  ${css.flex('align-both')};
+  ${css.circle('36px')};
+  background: #022a34;
+  color: ${theme('thread.articleDigest')};
   display: block;
 `
 export const Name = styled.div`
