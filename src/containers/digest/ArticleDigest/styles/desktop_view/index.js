@@ -16,18 +16,17 @@ export const InnerWrapper = styled.div`
 `
 export const BannerContent = styled.div`
   ${css.flex()};
-  max-width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
+  max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
   width: 100%;
-  padding-left: 10vw;
-  padding-right: 6vw;
-  /* border: 1px solid tomato; */
+  margin-left: ${css.ARTICLE_STICKER_WIDTH};
 `
 export const Main = styled.div`
-  padding-left: 10px;
+  width: ${css.ARTICLE_CONTENT_WIDTH};
 `
 export const AuthorWrapper = styled.div`
-  ${css.flex('align-end', 'justify-end')};
-  width: 188px;
+  ${css.flex('align-start', 'justify-center')};
+  width: ${css.ARTICLE_STICKER_WIDTH};
+  margin-top: 34px;
 `
 export const PublishTime = styled.div`
   ${css.flex('align-center')};
@@ -41,8 +40,7 @@ export const BottomInfo = styled.div`
   padding-bottom: 45px;
   border-bottom: 1px solid;
   border-bottom-color: #004251;
-  /* TODO:  tmp */
-  width: 680px;
+  width: 100%;
   color: ${theme('thread.articleDigest')};
 `
 export const PublishDesc = styled.div`

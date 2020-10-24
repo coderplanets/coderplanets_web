@@ -4,7 +4,7 @@ import { css } from '@/utils'
 export const getMaxWidth = (type) => {
   switch (type) {
     case 'article': {
-      return css.ARTICLE_PAGE_MAX_CONTENT_WIDTH
+      return css.ARTICLE_PAGE_MAX_WIDTH
     }
 
     default: {

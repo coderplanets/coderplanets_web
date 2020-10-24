@@ -16,7 +16,7 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
   height: 100%;
-  max-width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
+  max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
 `
 export const ContentsWrapper = styled.div`
   ${css.flexColumn('justify-center')};

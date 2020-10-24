@@ -20,7 +20,7 @@ export const Title = styled.div`
 `
 export const BannerContent = styled.div`
   ${css.flex()};
-  max-width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
+  max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
   width: 100%;
 `
 export const Brief = styled.div`

@@ -19,7 +19,7 @@ import { tabOnChange } from '../logic'
 //   },
 
 //   article: {
-//     maxWidth: css.ARTICLE_PAGE_MAX_CONTENT_WIDTH,
+//     maxWidth: css.ARTICLE_PAGE_MAX_WIDTH,
 //     padding: '0 5vw',
 //   },
 // }
