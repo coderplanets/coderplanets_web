@@ -14,6 +14,8 @@ export const InnerWrapper = styled.div`
   max-width: ${css.MAX_CONTENT_WIDTH};
   width: 100%;
   padding: ${() => css.media.laptopLPadding};
+  margin-left: ${({ metric }) => (metric === 'article' ? '-160px' : 0)};
+  margin-bottom: ${({ metric }) => (metric === 'article' ? '30px' : 0)};
 `
 export const MainInfos = styled.footer`
   ${css.flexColumn('align-center')};

@@ -107,7 +107,7 @@ const GlobalLayoutContainer = ({
                         >
                           {children}
                         </BodyWrapper>
-                        <Footer />
+                        <Footer metric={metric} />
                       </div>
                     </CustomScroller>
                   </ContentWrapper>
