@@ -40,7 +40,7 @@ export const BuyMeChuanChuan = dynamic(
   },
 )
 
-const FooterContainer = ({ footer: store }) => {
+const FooterContainer = ({ footer: store, metric }) => {
   useInit(store)
   const {
     showSponsor,
@@ -86,7 +86,7 @@ const FooterContainer = ({ footer: store }) => {
       {curView === 'DIGEST' ? (
         <DigestView layout={bannerLayout} />
       ) : (
-        <BriefView curView={curView} />
+        <BriefView curView={curView} metric={metric} />
       )}
     </Wrapper>
   )

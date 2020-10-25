@@ -9,7 +9,7 @@ import {
   LanguagePopover,
   TitleLink,
   Slash,
-} from './styles/repo_title'
+} from '../styles/desktop_view/repo_title'
 
 const RepoTitle = ({ repo }) => (
   <Wrapper>

@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
 import { theme, css } from '@/utils'
 
-import { getMaxWidth, getPadding } from './metric'
+import { getPadding } from '../metric'
 
 export const Wrapper = styled.header.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  z-index: 2;
   width: 100%;
   ${css.flex('justify-center')};
   background: ${theme('header.bg')};
@@ -19,18 +18,11 @@ export const Wrapper = styled.header.attrs((props) => ({
   box-shadow: ${({ noBorder }) => (noBorder ? 'none' : theme('drawer.shadow'))};
 `
 export const InnerWrapper = styled.div`
-  ${css.flex()};
-  max-width: ${({ type }) => getMaxWidth(type)};
-  padding: ${({ type, layout }) => getPadding(type, layout)};
+  ${css.flex('align-center')};
+  max-width: ${css.MAX_CONTENT_WIDTH};
+  padding: ${({ layout }) => getPadding(layout)};
   width: 100%;
   height: 33px;
-  align-items: center;
-  transition: all 0.2s;
-
-  ${css.media.mobile`
-    padding-right: 0;
-    padding-left: 7vw;
-  `};
 `
 export const RouterWrapper = styled.div`
   ${css.flexGrow('align-center')};

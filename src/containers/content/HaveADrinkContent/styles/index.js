@@ -15,16 +15,16 @@ export const InnerWrapper = styled.div`
   width: 100%;
   min-height: 88vh;
   /* max-width: ; */
-  max-width: ${`calc(${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH} + 100px)`};
+  max-width: ${`calc(${css.ARTICLE_PAGE_MAX_WIDTH} + 100px)`};
   border-radius: 8px;
   background: ${theme('haveADrinkPage.bg')};
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 
   @media (max-width: 1400px) {
-    max-width: ${`calc(${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH})`};
+    max-width: ${`calc(${css.ARTICLE_PAGE_MAX_WIDTH})`};
   }
   @media (max-width: 1250px) {
-    max-width: ${`calc(${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH} - 100px)`};
+    max-width: ${`calc(${css.ARTICLE_PAGE_MAX_WIDTH} - 100px)`};
   }
 `
 

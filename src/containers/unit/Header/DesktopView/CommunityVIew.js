@@ -16,9 +16,9 @@ import { connectStore, buildLog, getRoutePathList } from '@/utils'
 import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
 
-import UserAccount from './UserAccount'
-import AddOns from './AddOns'
-import OfflineAlert from './OfflineAlert'
+import UserAccount from '../UserAccount'
+import AddOns from '../AddOns'
+import OfflineAlert from '../OfflineAlert'
 
 import {
   Wrapper,
@@ -27,8 +27,8 @@ import {
   Search,
   HeaderSearchIcon,
   Operations,
-} from './styles/desktop_view'
-import { useInit, openDoraemon } from './logic'
+} from '../styles/desktop_view/community_view'
+import { useInit, openDoraemon } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
@@ -71,6 +71,7 @@ const HeaderContainer = ({ header: store, metric }) => {
         ROUTE.SPONSOR,
         ROUTE.FRIENDS,
         ROUTE.SUBSCRIBE,
+        ROUTE.POST,
       ]),
     )
   }, [mainPath])

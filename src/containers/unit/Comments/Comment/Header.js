@@ -14,7 +14,7 @@ import {
   CommentHeaderFirst,
   ReplyUsers,
   ReplyTitle,
-} from './styles/header'
+} from '../styles/comment/header'
 
 import { previewReply } from '../logic'
 

@@ -6,7 +6,7 @@ import {
   DeleteOverlay,
   DeleteHintText,
   DeleteBtnGroup,
-} from './styles/delete_mask'
+} from '../styles/comment/delete_mask'
 
 import { cancelDelete, deleteComment } from '../logic'
 

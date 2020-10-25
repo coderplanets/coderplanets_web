@@ -6,7 +6,7 @@ import DotDivider from '@/components/DotDivider'
 
 import Actions from './Actions'
 
-import { Wrapper, PublishDateWrapper } from './styles/footer'
+import { Wrapper, PublishDateWrapper } from '../styles/comment/footer'
 
 const Footer = ({ data, accountInfo }) => (
   <Wrapper>

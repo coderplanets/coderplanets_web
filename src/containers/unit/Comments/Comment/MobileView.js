@@ -18,7 +18,7 @@ import {
   HeaderWrapper,
   CommentContent,
   CommentBodyInfo,
-} from './styles/mobile_view'
+} from '../styles/comment/mobile_view'
 
 const getSelection = () => {
   const selectText = Global.getSelection().toString()

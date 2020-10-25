@@ -7,7 +7,7 @@ import PromptIcon from '@/components/PromptIcon'
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center', 'justify-between')};
   height: 100vh;
-  width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
+  width: ${css.ARTICLE_PAGE_MAX_WIDTH};
   background: ${theme('banner.bg')};
   background-image: url('https://www.transparenttextures.com/patterns/transparent-square-tiles.png');
   border-top: 4px solid;

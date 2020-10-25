@@ -3,7 +3,7 @@ import React from 'react'
 import { THREAD } from '@/constant'
 
 import RepoTitle from './RepoTitle'
-import { Wrapper } from './styles/title'
+import { Wrapper } from '../styles/desktop_view/title'
 
 const Title = ({ thread, data }) => {
   switch (thread) {

@@ -20,10 +20,10 @@ import {
 
 import { toggleSponsorHelper, toggleBusBanner } from '../logic'
 
-const BriefView = ({ curView }) => {
+const BriefView = ({ curView, metric }) => {
   return (
     <Wrapper>
-      <InnerWrapper>
+      <InnerWrapper metric={metric}>
         <MainInfos center={curView === 'BRIEF' || false}>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
@@ -73,7 +73,7 @@ const BriefView = ({ curView }) => {
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo />
+      {metric !== 'article' && <BottomInfo />}
     </Wrapper>
   )
 }

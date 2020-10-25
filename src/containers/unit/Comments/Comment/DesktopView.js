@@ -16,7 +16,7 @@ import {
   CommentWrapper,
   CommentContent,
   CommentBodyInfo,
-} from './styles/desktop_view'
+} from '../styles/comment/desktop_view'
 
 const getSelection = () => {
   const selectText = Global.getSelection().toString()

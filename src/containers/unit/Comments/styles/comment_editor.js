@@ -5,8 +5,9 @@ import { theme, css } from '@/utils'
 
 export const Container = styled.div`
   ${css.flexColumn()};
-  background: ${theme('drawer.articleBg')};
-  min-height: ${({ show }) => (show ? '100px' : '60px')};
+  /* background: ${theme('drawer.articleBg')}; */
+  background: #013340;
+  min-height: ${({ show }) => (show ? '100px' : '50px')};
   height: auto;
   border-color: ${theme('drawer.articleBg')};
   transition: all 0.3s;

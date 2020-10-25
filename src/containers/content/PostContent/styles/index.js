@@ -14,36 +14,35 @@ export const Wrapper = styled.article`
 export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  max-width: ${css.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
-  padding: 0 6vw;
-  ${css.media.desktop`
-    padding: 0 4vw;
-  `};
+  max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
+  margin-left: ${css.ARTICLE_STICKER_WIDTH};
+  padding-left: 0;
+  padding-right: 0;
   ${css.media.mobile`
     padding: 0 3vw;
   `};
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;
+  max-width: ${css.ARTICLE_CONTENT_WIDTH};
 
   ${css.media.tablet`
     width: 100%;
   `};
 `
 export const SidebarWrapper = styled.div`
-  min-width: 250px;
+  margin-top: 4px;
   ${css.media.mobile`
     display: none;
   `};
 `
 /* background: ${theme('drawer.articleBg')}; */
 export const ArticleWrapper = styled.div`
-  font-size: 1.1rem;
-  margin-right: 1.6vw;
-  background: ${theme('drawer.articleBg')};
-  border-radius: 5px;
-  padding: 35px 40px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  font-size: 15px;
+  /* background: ${theme('drawer.articleBg')}; */
+  /* border-radius: 5px; */
+  background: transparent;
+  
   min-height: 200px;
   ${css.media.mobile`
     background: #08303c;  /* TODO: same as comment background */

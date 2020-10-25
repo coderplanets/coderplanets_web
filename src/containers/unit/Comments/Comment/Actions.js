@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Wrapper, ReplyAction } from './styles/actions'
+import { Wrapper, ReplyAction } from '../styles/comment/actions'
 import { openUpdateEditor, openReplyEditor, onDelete } from '../logic'
 
 const Actions = ({ data, accountInfo }) => {

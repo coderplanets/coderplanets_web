@@ -2,8 +2,8 @@ import React from 'react'
 
 import { THREAD } from '@/constant'
 
-import JobMiddleInfo from './JobMiddleInfo'
-import RepoMiddleInfo from './RepoMiddleInfo'
+import JobMiddleInfo from '../JobMiddleInfo'
+import RepoMiddleInfo from '../RepoMiddleInfo'
 
 const MiddleInfo = ({ thread, data }) => {
   switch (thread) {
