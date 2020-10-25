@@ -1,28 +1,17 @@
 import React from 'react'
 
-// import { ICON_CMD } from '@/config'
-// import Tooltip from '@/components/Tooltip'
-
-import {
-  Breadcrumbs,
-  Logo,
-  LogoLink,
-  DotDivider,
-  // LogoText,
-  // BetaLogo,
-  // ShortAddr,
-  // ShortDesc,
-} from './styles'
+import { Breadcrumbs, Logo, LogoLink, LineDivider, LogoText } from './styles'
 
 import MainEntries from './MainEntries/index'
 
-const DigestView = () => {
+const DigestView = ({ showLogoText }) => {
   return (
     <Breadcrumbs>
       <LogoLink href="/home/posts">
         <Logo />
+        {showLogoText && <LogoText>coderplanes</LogoText>}
       </LogoLink>
-      <DotDivider />
+      <LineDivider />
       <MainEntries />
     </Breadcrumbs>
   )

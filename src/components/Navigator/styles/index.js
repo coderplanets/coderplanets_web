@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
-import Img from '@/Img'
-import DotDividerBase from '@/components/DotDivider'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
@@ -19,40 +17,32 @@ export const Logo = styled(CommunityFaceLogo)`
   margin-top: -1px;
 `
 export const LogoLink = styled.a`
+  ${css.flex('align-center')};
   margin-right: 10px;
+  text-decoration: none;
+  cursor: pointer;
 `
-export const DotDivider = styled(DotDividerBase)`
+export const LineDivider = styled.div`
   background-color: ${theme('banner.desc')};
-  margin-right: 0;
-  width: 4px;
-  height: 4px;
-
-  ${css.media.mobile`
-    margin-left: 2px;
-    margin-right: 2px;
-  `};
+  margin-left: 5px;
+  margin-right: 3px;
+  width: 1px;
+  height: 12px;
+  margin-top: 3px;
+  opacity: 0.6;
 `
 // font-family: cursive; // not general
 export const LogoText = styled.a`
-  color: ${theme('logoText')};
-  font-family: Cursive, Helvetica;
-  font-weight: bolder;
-  letter-spacing: 1.5px;
-  font-size: 0.9rem;
+  color: ${theme('banner.desc')};
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 14px;
   margin-left: 6px;
-  text-decoration: none;
+  margin-top: 2px;
 
   &:hover {
-    text-decoration: none;
-    color: ${theme('logoText')};
+    color: ${theme('banner.desc')};
   }
-`
-export const BetaLogo = styled(Img)`
-  fill: #ef8145;
-  height: 40px;
-  width: 40px;
-  margin-top: 5px;
-  margin-left: 3px;
 `
 export const UL = styled.ul`
   &:before {
@@ -88,18 +78,4 @@ export const A = styled.a`
   text-align: center;
   color: #aaa;
   cursor: pointer;
-`
-
-export const ShortAddr = styled.div`
-  padding: 5px 10px;
-  color: ${theme('banner.title')};
-  font-weight: bolder;
-  &:hover {
-    cursor: pointer;
-  }
-`
-export const ShortDesc = styled.span`
-  color: ${theme('banner.desc')};
-  margin-right: 1px;
-  font-weight: normal;
 `
