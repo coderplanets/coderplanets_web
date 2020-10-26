@@ -5,6 +5,7 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.nav`
   ${css.flexColumn('align-both')};
+  margin-left: -30px;
 `
 export const Avatar = styled(Img)`
   ${css.circle('36px')};

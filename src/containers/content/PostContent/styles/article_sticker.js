@@ -9,6 +9,9 @@ export const Wrapper = styled.article`
   /* bottom has a go-to-top button */
   height: 80vh;
 `
+export const InnerWrapper = styled.div`
+  margin-left: -30px;
+`
 export const ItemWrapper = styled.div`
   ${css.flexColumn('align-both')};
 `
