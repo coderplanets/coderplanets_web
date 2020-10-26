@@ -28,12 +28,6 @@ export const AuthorWrapper = styled.div`
   width: ${css.ARTICLE_STICKER_WIDTH};
   margin-top: 34px;
 `
-export const PublishTime = styled.div`
-  ${css.flex('align-center')};
-  color: ${theme('thread.articleDigest')};
-  margin-bottom: 8px;
-  font-size: 14px;
-`
 export const BottomInfo = styled.div`
   ${css.flex('align-center', 'justify-between')};
   margin-top: 15px;
