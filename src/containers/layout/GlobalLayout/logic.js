@@ -9,6 +9,9 @@ let store = null
 
 export const openDoraemon = () => store.openDoraemon()
 
+// custromScroll's scroll direction change
+export const bodyScrollDirectionOnChange = (bodyScrollDirection) =>
+  store.mark({ bodyScrollDirection })
 /**
  * log ascii Buddha just for fun
  * 控制台打印佛祖保佑

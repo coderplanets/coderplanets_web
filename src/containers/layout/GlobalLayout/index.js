@@ -32,7 +32,12 @@ import {
   ContentPinWrapper,
 } from './styles'
 
-import { useInit, openDoraemon, logBuddha } from './logic'
+import {
+  useInit,
+  openDoraemon,
+  logBuddha,
+  bodyScrollDirectionOnChange,
+} from './logic'
 
 const GlobalLayoutContainer = ({
   globalLayout: store,
@@ -97,6 +102,9 @@ const GlobalLayoutContainer = ({
                       height="100vh"
                       barSize="medium"
                       showShadow={false}
+                      onScrollDirectionChange={(direction) =>
+                        bodyScrollDirectionOnChange(direction)
+                      }
                       autoHide
                     >
                       <div>

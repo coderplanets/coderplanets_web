@@ -29,6 +29,8 @@ const GlobalLayoutStore = T.model('GlobalLayoutStore', {
   online: T.optional(T.boolean, true),
   media: T.optional(Media, {}),
   platform: T.optional(Platform, {}),
+  // follow the mac convention
+  bodyScrollDirection: T.optional(T.enumeration(['up', 'down']), 'up'),
 })
   .views((self) => ({
     get root() {
