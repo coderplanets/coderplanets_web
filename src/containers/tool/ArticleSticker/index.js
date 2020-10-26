@@ -39,12 +39,11 @@ const log = buildLog('C:ArticleSticker')
 const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
   useInit(store)
 
-  const { showLeftSticker } = store
+  const { showLeftSticker, showCommunity, viewingData } = store
 
-  const showCommunity = false
   return (
     <React.Fragment>
-      <LeftSticker show={showLeftSticker} />
+      <LeftSticker show={showLeftSticker} title={viewingData.title} />
 
       <Sticky offsetTop={100}>
         <Wrapper testId={testId}>
@@ -67,7 +66,7 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
             <ItemWrapper>
               <LikeIcon src={`${ICON}/shape/heart.svg`} />
               <Number>
-                45&nbsp;<Text>喜欢</Text>
+                {viewingData.starredCount}&nbsp;<Text>喜欢</Text>
               </Number>
             </ItemWrapper>
             <Br top="15px" />

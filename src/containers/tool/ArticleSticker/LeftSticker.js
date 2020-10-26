@@ -10,9 +10,7 @@ import {
   BackText,
 } from './styles/left_sticker'
 
-const LeftSticker = ({ show }) => {
-  const title = '[从0到1] 基于Elixir-GraphQL-React 的新一代社区系统设计雏形'
-
+const LeftSticker = ({ show, title }) => {
   return (
     <Wrapper show={show}>
       <ArticleTitle>{cutFrom(title, 30)}</ArticleTitle>

@@ -15,6 +15,9 @@ const ArticleSticker = T.model('ArticleSticker', {})
     get root() {
       return getParent(self)
     },
+    get viewingData() {
+      return self.root.viewingData
+    },
     get bodyScrollDirection() {
       return self.root.globalLayout.bodyScrollDirection
     },
@@ -25,6 +28,9 @@ const ArticleSticker = T.model('ArticleSticker', {})
       if (self.isArticleDigestInViewport) return false
 
       return self.bodyScrollDirection === 'down'
+    },
+    get showCommunity() {
+      return !self.isArticleDigestInViewport
     },
   }))
   .actions((self) => ({
