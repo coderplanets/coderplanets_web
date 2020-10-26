@@ -83,6 +83,10 @@ const breath = keyframes`
   60%   {opacity:   1;}
   100%  {opacity: 0.6;}
 `
+const blink = keyframes`
+  50%    {opacity: 0}
+  100%  {opacity: 1;}
+`
 const animate = {
   fadeInRight,
   pulse,
@@ -91,6 +95,7 @@ const animate = {
   zoomIn,
   rotate360,
   breath,
+  blink,
 }
 
 export default animate

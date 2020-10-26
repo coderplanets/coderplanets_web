@@ -8,24 +8,24 @@ import React, { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import T from 'prop-types'
 
+import { ICON } from '@/config'
 import { connectStore, buildLog } from '@/utils'
 
 import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
 
-import UserAccount from '../UserAccount'
-import AddOns from '../AddOns'
+// import UserAccount from '../UserAccount'
 import OfflineAlert from '../OfflineAlert'
 
 import {
   Wrapper,
   InnerWrapper,
   RouterWrapper,
-  Search,
-  HeaderSearchIcon,
   Operations,
+  UserInfoWrapper,
+  MoreIcon,
 } from '../styles/desktop_view/article_view'
-import { useInit, openDoraemon } from '../logic'
+import { useInit } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
@@ -68,22 +68,20 @@ const HeaderContainer = ({ header: store }) => {
           <Navigator
             curCommunity={curCommunity}
             layout={accountInfo.customization.bannerLayout}
-            showLogoText
+            // showLogoText
           />
 
           {!isOnline && <OfflineAlert />}
         </RouterWrapper>
         <Operations>
-          <AddOns />
-          <Search onClick={openDoraemon} testId="header-search">
-            <HeaderSearchIcon testId="header-search-icon" />
-          </Search>
-
           {MailBox && <MailBox />}
           {/* <UpgradePackages /> */}
           <UserLister />
           {/* <Cashier /> */}
-          <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
+          <UserInfoWrapper>
+            <MoreIcon src={`${ICON}/shape/more-box.svg`} />
+            {/* <UserAccount isLogin={isLogin} accountInfo={accountInfo} /> */}
+          </UserInfoWrapper>
         </Operations>
       </InnerWrapper>
     </Wrapper>

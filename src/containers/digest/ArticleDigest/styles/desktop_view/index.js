@@ -9,6 +9,10 @@ export const Wrapper = styled.nav`
   border-bottom: ${theme('banner.spliter')};
   min-height: 251px;
   margin-bottom: 15px;
+
+  ${css.media.laptopL`
+    min-height: 230px;
+  `}
 `
 export const InnerWrapper = styled.div`
   ${css.flex('justify-center')};
@@ -26,7 +30,7 @@ export const Main = styled.div`
 export const AuthorWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};
   width: ${css.ARTICLE_STICKER_WIDTH};
-  margin-top: 34px;
+  margin-top: 32px;
 `
 export const BottomInfo = styled.div`
   ${css.flex('align-center', 'justify-between')};

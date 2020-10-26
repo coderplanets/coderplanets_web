@@ -12,7 +12,11 @@ export const Wrapper = styled.div.attrs((props) => ({
   height: 80vh;
 `
 export const InnerWrapper = styled.div`
-  margin-left: -30px;
+  margin-left: 10px;
+
+  ${css.media.laptopL`
+    margin-left: -30px;
+  `}
 `
 export const ItemWrapper = styled.div`
   ${css.flexColumn('align-both')};

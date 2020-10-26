@@ -13,11 +13,11 @@ import {
 const LeftSticker = ({ show, title }) => {
   return (
     <Wrapper show={show}>
-      <ArticleTitle>{cutFrom(title, 30)}</ArticleTitle>
       <BackWrapper>
         <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
         <BackText>Elixir 社区</BackText>
       </BackWrapper>
+      <ArticleTitle>{cutFrom(title, 30)}</ArticleTitle>
     </Wrapper>
   )
 }
