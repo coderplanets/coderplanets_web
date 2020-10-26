@@ -4,6 +4,7 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.article`
   ${css.flexGrow('justify-center')};
+  position: relative;
   padding-top: 20px;
   min-height: 300px;
 
@@ -15,7 +16,7 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
   max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
-  margin-left: ${css.ARTICLE_STICKER_WIDTH};
+  margin-left: ${css.ARTICLE_CONTENT_OFFSET};
   padding-left: 0;
   padding-right: 0;
   ${css.media.mobile`

@@ -11,7 +11,7 @@ export const Wrapper = styled(CommunityWrapper)`
 export const InnerWrapper = styled.div`
   ${css.flex('justify-between')};
   width: ${css.ARTICLE_PAGE_MAX_WIDTH};
-  margin-left: ${css.ARTICLE_STICKER_WIDTH};
+  margin-left: ${css.ARTICLE_CONTENT_OFFSET};
   height: 33px;
   align-items: center;
 `
@@ -24,5 +24,5 @@ export const RouterWrapper = styled.div`
 `
 export const Operations = styled.div`
   ${css.flex('align-both')};
-  padding-right: 128px;
+  padding-right: 138px;
 `

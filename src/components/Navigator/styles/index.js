@@ -29,7 +29,7 @@ export const LineDivider = styled.div`
   width: 1px;
   height: 12px;
   margin-top: 3px;
-  opacity: 0.6;
+  opacity: 0;
 `
 // font-family: cursive; // not general
 export const LogoText = styled.a`
