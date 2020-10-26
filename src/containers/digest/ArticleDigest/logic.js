@@ -18,11 +18,11 @@ let sub$ = null
 let store = null
 
 export const inAnchor = () => {
-  if (store) store.showTopModeline(false)
+  if (store) store.mark({ inViewport: true })
 }
 
 export const outAnchor = () => {
-  if (store) store.showTopModeline(true)
+  if (store) store.mark({ inViewport: false })
 }
 
 export const onReaction = (action, userDid, { id }) => {

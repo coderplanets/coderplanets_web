@@ -18,7 +18,12 @@ const ArticleSticker = T.model('ArticleSticker', {})
     get bodyScrollDirection() {
       return self.root.globalLayout.bodyScrollDirection
     },
+    get isArticleDigestInViewport() {
+      return self.root.articleDigest.inViewport
+    },
     get showLeftSticker() {
+      if (self.isArticleDigestInViewport) return false
+
       return self.bodyScrollDirection === 'down'
     },
   }))

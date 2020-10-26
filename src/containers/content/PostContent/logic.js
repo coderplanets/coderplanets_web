@@ -16,6 +16,14 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:PostContent')
 
+export const articleInAnchor = () => {
+  if (store) store.mark({ articleInViewport: true })
+}
+
+export const articleOutAnchor = () => {
+  if (store) store.mark({ articleInViewport: false })
+}
+
 const loadPost = () => {
   const { id } = store.viewingData
   sr71$.query(S.post, { id, userHasLogin: store.isLogin })

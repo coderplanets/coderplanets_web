@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import { Waypoint } from 'react-waypoint'
 
 import { useMedia } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
@@ -29,7 +30,7 @@ import {
   CommentsWrapper,
 } from './styles'
 
-import { useInit } from './logic'
+import { useInit, articleInAnchor, articleOutAnchor } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')
@@ -48,6 +49,7 @@ const PostContentContainer = ({ postContent: store }) => {
             <ArticleWrapper>
               <MarkDownRender body={viewingData.body} />
             </ArticleWrapper>
+            <Waypoint onEnter={articleInAnchor} onLeave={articleOutAnchor} />
 
             {mobile && <ContentSourceCard data={viewingData} />}
 

@@ -67,7 +67,6 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
           </AuthorWrapper>
         </BannerContent>
       </InnerWrapper>
-
       <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
     </Wrapper>
   )
