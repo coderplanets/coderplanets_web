@@ -12,12 +12,12 @@ import { connectStore, buildLog } from '@/utils'
 import Comments from '@/containers/unit/Comments'
 // import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 
-import Sticky from '@/components/Sticky'
+import ArticleSticker from '@/containers/tool/ArticleSticker'
+
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
 import ContentSourceCard from '@/components/ContentSourceCard'
 
-import ArticleSticker from './ArticleSticker'
 // import SideCards from './SideCards'
 
 import {
@@ -56,10 +56,8 @@ const PostContentContainer = ({ postContent: store }) => {
             </CommentsWrapper>
           </MainWrapper>
           <SidebarWrapper>
-            <Sticky offsetTop={100}>
-              <ArticleSticker />
-              {/* <SideCards data={viewingData} /> */}
-            </Sticky>
+            <ArticleSticker />
+            {/* <SideCards data={viewingData} /> */}
           </SidebarWrapper>
         </InnerWrapper>
       </Maybe>

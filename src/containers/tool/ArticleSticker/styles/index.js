@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css, animate } from '@/utils'
 
-export const Wrapper = styled.article`
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-test-id': props.testId,
+}))`
   ${css.flexColumn('align-center', 'justify-start')};
   min-width: ${css.ARTICLE_STICKER_WIDTH};
   /* bottom has a go-to-top button */
