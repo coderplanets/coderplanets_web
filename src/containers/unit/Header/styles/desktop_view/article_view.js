@@ -24,5 +24,5 @@ export const RouterWrapper = styled.div`
 `
 export const Operations = styled.div`
   ${css.flex('align-both')};
-  padding-right: 20px;
+  padding-right: 128px;
 `

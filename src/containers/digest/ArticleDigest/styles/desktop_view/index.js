@@ -7,7 +7,7 @@ export const Wrapper = styled.nav`
   position: relative;
   background: transparent;
   border-bottom: ${theme('banner.spliter')};
-  min-height: 220px;
+  min-height: 251px;
   margin-bottom: 15px;
 `
 export const InnerWrapper = styled.div`
