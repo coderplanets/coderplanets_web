@@ -7,21 +7,22 @@ import {
   Item,
   Text,
   ViewdIcon,
+  ViewsText,
   LikeIcon,
   ReportIcon,
   Divider,
 } from '../styles/desktop_view/state_info'
 
-const StateInfo = () => {
+const StateInfo = ({ article }) => {
   return (
     <Wrapper>
       <Item>
         <ViewdIcon src={`${ICON}/viewed.svg`} />
-        <Text>1148</Text>
+        <ViewsText>{article.views}</ViewsText>
       </Item>
       <Item>
         <LikeIcon src={`${ICON}/comment.svg`} />
-        <Text>24</Text>
+        <Text>{article.commentsCount}</Text>
       </Item>
       <Divider />
       <Item>

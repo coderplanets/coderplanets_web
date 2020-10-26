@@ -12,6 +12,7 @@ const post = gql`
   query($id: ID!) {
     post(id: $id) {
       id
+      commentsCount
       favoritedCount
       starredCount
       viewerHasFavorited

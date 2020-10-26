@@ -40,6 +40,7 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
   useInit(store, scrollDirection)
 
   const { activeThread, viewingData } = store
+  log('viewingData: commentsCount: ', viewingData)
 
   if (isNil(viewingData.id)) return null
 
@@ -59,7 +60,7 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
             <Title thread={activeThread} data={viewingData} />
             <BottomInfo>
               <PublishDesc>发布于 Elixir 社区</PublishDesc>
-              <StateInfo />
+              <StateInfo article={viewingData} />
             </BottomInfo>
           </Main>
           <AuthorWrapper>
