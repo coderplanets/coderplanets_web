@@ -12,12 +12,15 @@ export const Wrapper = styled.div.attrs((props) => ({
   height: 80vh;
 `
 export const InnerWrapper = styled.div`
+  ${css.flexColumn('justify-between')}
+  height: 100%;
   margin-left: 10px;
 
   ${css.media.laptopL`
     margin-left: -30px;
   `}
 `
+export const MainWrapper = styled.div``
 export const ItemWrapper = styled.div`
   ${css.flexColumn('align-both')};
 `
@@ -74,4 +77,13 @@ export const Number = styled.div`
 export const Text = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 11px;
+`
+export const AirBalloonIcon = styled(Icon)`
+  fill: #0c5473;
+  width: 16px;
+  height: 16px;
+
+  &:hover {
+    fill: ${theme('thread.articleTitle')};
+  }
 `

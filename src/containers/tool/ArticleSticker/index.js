@@ -9,7 +9,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { connectStore, buildLog, scrollToHeader } from '@/utils'
 import { ICON, ICON_BASE } from '@/config'
 
 import Sticky from '@/components/Sticky'
@@ -21,11 +21,13 @@ import LeftSticker from './LeftSticker/index'
 import {
   Wrapper,
   InnerWrapper,
+  MainWrapper,
   ItemWrapper,
   CommunityIcon,
   LikeIcon,
   CollectIcon,
   ShareIcon,
+  AirBalloonIcon,
   CommunityTitle,
   Number,
   Text,
@@ -60,34 +62,39 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
       <Sticky offsetTop={100}>
         <Wrapper testId={testId}>
           <InnerWrapper>
-            {showCommunity && (
-              <React.Fragment>
-                <ItemWrapper>
-                  <CommunityIcon src={`${ICON_BASE}/pl/javascript.svg`} />
-                  <Number>
-                    <CommunityTitle>Elixir</CommunityTitle>
-                  </Number>
-                  <Button size="tiny" ghost>
-                    &nbsp;加&nbsp;&nbsp;入&nbsp;
-                  </Button>
-                </ItemWrapper>
-                <Divider />
-              </React.Fragment>
-            )}
+            <MainWrapper>
+              {showCommunity && (
+                <React.Fragment>
+                  <ItemWrapper>
+                    <CommunityIcon src={`${ICON_BASE}/pl/javascript.svg`} />
+                    <Number>
+                      <CommunityTitle>Elixir</CommunityTitle>
+                    </Number>
+                    <Button size="tiny" ghost>
+                      &nbsp;加&nbsp;&nbsp;入&nbsp;
+                    </Button>
+                  </ItemWrapper>
+                  <Divider />
+                </React.Fragment>
+              )}
 
-            <ItemWrapper>
-              <LikeIcon src={`${ICON}/shape/heart.svg`} />
-              <Number>
-                {viewingData.starredCount}&nbsp;<Text>喜欢</Text>
-              </Number>
-            </ItemWrapper>
-            <Br top="15px" />
-            <ItemWrapper>
-              <CollectIcon src={`${ICON}/collect-solid.svg`} />
-            </ItemWrapper>
-            <Br top="16px" />
-            <ItemWrapper>
-              <ShareIcon src={`${ICON}/share.svg`} />
+              <ItemWrapper>
+                <LikeIcon src={`${ICON}/shape/heart.svg`} />
+                <Number>
+                  {viewingData.starredCount}&nbsp;<Text>喜欢</Text>
+                </Number>
+              </ItemWrapper>
+              <Br top="15px" />
+              <ItemWrapper>
+                <CollectIcon src={`${ICON}/collect-solid.svg`} />
+              </ItemWrapper>
+              <Br top="16px" />
+              <ItemWrapper>
+                <ShareIcon src={`${ICON}/share.svg`} />
+              </ItemWrapper>
+            </MainWrapper>
+            <ItemWrapper onClick={scrollToHeader}>
+              <AirBalloonIcon src={`${ICON}/shape/air-balloon.svg`} />
             </ItemWrapper>
           </InnerWrapper>
         </Wrapper>
