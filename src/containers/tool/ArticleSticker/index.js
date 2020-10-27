@@ -23,6 +23,7 @@ import {
   InnerWrapper,
   MainWrapper,
   ItemWrapper,
+  ItemHint,
   CommunityIcon,
   LikeIcon,
   CollectIcon,
@@ -87,14 +88,19 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
               <Br top="15px" />
               <ItemWrapper>
                 <CollectIcon src={`${ICON}/collect-solid.svg`} />
+                <ItemHint>收藏</ItemHint>
               </ItemWrapper>
               <Br top="16px" />
               <ItemWrapper>
                 <ShareIcon src={`${ICON}/share.svg`} />
+                <ItemHint bottom="-2px">分享</ItemHint>
               </ItemWrapper>
             </MainWrapper>
             <ItemWrapper onClick={scrollToHeader}>
               <AirBalloonIcon src={`${ICON}/shape/air-balloon.svg`} />
+              <ItemHint right="-28px" bottom="-2px">
+                回到顶部
+              </ItemHint>
             </ItemWrapper>
           </InnerWrapper>
         </Wrapper>

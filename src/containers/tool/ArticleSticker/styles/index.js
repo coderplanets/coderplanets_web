@@ -20,9 +20,28 @@ export const InnerWrapper = styled.div`
     margin-left: -30px;
   `}
 `
-export const MainWrapper = styled.div``
+export const MainWrapper = styled.div`
+  ${css.flexColumn('align-center')};
+`
 export const ItemWrapper = styled.div`
   ${css.flexColumn('align-both')};
+  position: relative;
+  width: 80px;
+`
+export const ItemHint = styled.div`
+  color: ${theme('thread.articleDigest')};
+  position: absolute;
+  right: ${({ right }) => right || '-12px'};
+  bottom: ${({ bottom }) => bottom || '0'};
+  font-size: 12px;
+  opacity: 0;
+
+  ${ItemWrapper}:hover & {
+    opacity: 1;
+  }
+
+  transition: all 0.25s;
+  transition-delay: 0.5s;
 `
 const Icon = styled(Img)`
   width: 22px;
@@ -82,6 +101,7 @@ export const AirBalloonIcon = styled(Icon)`
   fill: #0c5473;
   width: 16px;
   height: 16px;
+  margin-left: 5px;
 
   &:hover {
     fill: ${theme('thread.articleTitle')};
