@@ -10,7 +10,11 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleSticker')
 
-const ArticleSticker = T.model('ArticleSticker', {})
+const ArticleSticker = T.model('ArticleSticker', {
+  isTocMenuOpened: T.optional(T.boolean, false),
+  // is TOC is opend, then lock the lefsidebar
+  isLeftStickerLocked: T.optional(T.boolean, false),
+})
   .views((self) => ({
     get root() {
       return getParent(self)
@@ -25,9 +29,16 @@ const ArticleSticker = T.model('ArticleSticker', {})
       return self.root.articleDigest.inViewport
     },
     get showLeftSticker() {
-      if (self.isArticleDigestInViewport) return false
+      const {
+        isArticleDigestInViewport,
+        isLeftStickerLocked,
+        bodyScrollDirection,
+      } = self
 
-      return self.bodyScrollDirection === 'down'
+      if (isArticleDigestInViewport) return false
+      if (isLeftStickerLocked) return true
+
+      return bodyScrollDirection === 'down'
     },
     get showCommunity() {
       return !self.isArticleDigestInViewport

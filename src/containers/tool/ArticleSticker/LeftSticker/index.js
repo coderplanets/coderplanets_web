@@ -2,15 +2,18 @@ import React from 'react'
 
 import { ICON } from '@/config'
 import { cutFrom } from '@/utils'
+
+import Toc from './Toc'
+
 import {
   Wrapper,
   ArticleTitle,
   BackWrapper,
   ArrowIcon,
   BackText,
-} from './styles/left_sticker'
+} from '../styles/left_sticker'
 
-const LeftSticker = ({ show, title }) => {
+const LeftSticker = ({ show, title, isTocMenuOpened }) => {
   return (
     <Wrapper show={show}>
       <BackWrapper>
@@ -18,6 +21,7 @@ const LeftSticker = ({ show, title }) => {
         <BackText>Elixir 社区</BackText>
       </BackWrapper>
       <ArticleTitle>{cutFrom(title, 30)}</ArticleTitle>
+      <Toc show={isTocMenuOpened} />
     </Wrapper>
   )
 }

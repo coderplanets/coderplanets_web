@@ -42,9 +42,6 @@ export const BackText = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 12px;
   margin-left: 5px;
-
-  &:hover {
-    font-weight: bold;
-    cursor: pointer;
-  }
+  cursor: pointer;
+  margin-top: 1px;
 `

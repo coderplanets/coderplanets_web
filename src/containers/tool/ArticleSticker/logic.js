@@ -9,7 +9,12 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleSticker')
 
-export const someMethod = () => {}
+export const toggleTocMenu = () => {
+  const isTocMenuOpened = !store.isTocMenuOpened
+  const isLeftStickerLocked = isTocMenuOpened
+
+  store.mark({ isTocMenuOpened, isLeftStickerLocked })
+}
 
 // ###############################
 // init & uninit handlers

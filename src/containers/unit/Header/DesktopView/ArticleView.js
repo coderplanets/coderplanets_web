@@ -15,8 +15,6 @@ import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
 
 // import UserAccount from '../UserAccount'
-import OfflineAlert from '../OfflineAlert'
-
 import {
   Wrapper,
   InnerWrapper,
@@ -36,7 +34,6 @@ const HeaderContainer = ({ header: store }) => {
   useInit(store)
 
   const {
-    isOnline,
     leftOffset,
     accountInfo,
     isLogin,
@@ -70,8 +67,6 @@ const HeaderContainer = ({ header: store }) => {
             layout={accountInfo.customization.bannerLayout}
             // showLogoText
           />
-
-          {!isOnline && <OfflineAlert />}
         </RouterWrapper>
         <Operations>
           {MailBox && <MailBox />}

@@ -16,7 +16,7 @@ import Sticky from '@/components/Sticky'
 import { Button } from '@/components/Buttons'
 import { Br } from '@/components/Common'
 
-import LeftSticker from './LeftSticker'
+import LeftSticker from './LeftSticker/index'
 
 import {
   Wrapper,
@@ -39,11 +39,23 @@ const log = buildLog('C:ArticleSticker')
 const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
   useInit(store)
 
-  const { showLeftSticker, showCommunity, viewingData } = store
+  const {
+    showLeftSticker,
+    showCommunity,
+    viewingData,
+    isTocMenuOpened,
+    isLeftStickerLocked,
+  } = store
+
+  log('isLeftStickerLocked: ', isLeftStickerLocked)
 
   return (
     <React.Fragment>
-      <LeftSticker show={showLeftSticker} title={viewingData.title} />
+      <LeftSticker
+        show={showLeftSticker}
+        title={viewingData.title}
+        isTocMenuOpened={isTocMenuOpened}
+      />
 
       <Sticky offsetTop={100}>
         <Wrapper testId={testId}>
