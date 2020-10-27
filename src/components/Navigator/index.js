@@ -18,7 +18,7 @@ import BriefView from './BriefView'
 /* eslint-disable-next-line */
 const log = buildLog('c:Navigator:index')
 
-const Navigator = ({ curCommunity, layout, showLogoText }) => {
+const Navigator = ({ curCommunity, layout, showLogoText, isOnline }) => {
   const router = useRouter()
   const [mainPath, subPath] = getRoutePathList(router.asPath)
 
@@ -26,7 +26,7 @@ const Navigator = ({ curCommunity, layout, showLogoText }) => {
     contains(mainPath, [ROUTE.USER, ROUTE.DISCOVERY]) ||
     contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
-    return <DigestView showLogoText={showLogoText} />
+    return <DigestView showLogoText={showLogoText} isOnline={isOnline} />
   }
 
   return (
@@ -34,7 +34,7 @@ const Navigator = ({ curCommunity, layout, showLogoText }) => {
       {layout === C11N.BRIEF ? (
         <BriefView community={curCommunity} />
       ) : (
-        <DigestView showLogoText={showLogoText} />
+        <DigestView showLogoText={showLogoText} isOnline={isOnline} />
       )}
     </React.Fragment>
   )
@@ -44,12 +44,14 @@ Navigator.propTypes = {
   curCommunity: T.object,
   layout: T.oneOf([C11N.DIGEST, C11N.DIGEST_ROW, C11N.BRIEF]),
   showLogoText: T.bool,
+  isOnline: T.bool,
 }
 
 Navigator.defaultProps = {
   curCommunity: {},
   layout: C11N.DIGEST,
   showLogoText: false,
+  isOnline: true,
 }
 
 export default React.memo(Navigator)

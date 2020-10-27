@@ -81,3 +81,13 @@ export const A = styled.a`
   color: #aaa;
   cursor: pointer;
 `
+
+export const OfflineWrapper = styled.div`
+  ${css.flexColumn()};
+  background: ${theme('baseColor.red')};
+  color: ${theme('header.bg')};
+  margin-left: 20px;
+  padding: 0 10px;
+  border-radius: 4px;
+  animation: ${animate.breath} 5s linear infinite;
+`

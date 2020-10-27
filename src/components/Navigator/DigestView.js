@@ -1,10 +1,17 @@
 import React from 'react'
 
-import { Breadcrumbs, Logo, LogoLink, LineDivider, LogoText } from './styles'
+import {
+  Breadcrumbs,
+  Logo,
+  LogoLink,
+  LineDivider,
+  LogoText,
+  OfflineWrapper,
+} from './styles'
 
 import MainEntries from './MainEntries/index'
 
-const DigestView = ({ showLogoText }) => {
+const DigestView = ({ showLogoText, isOnline }) => {
   return (
     <Breadcrumbs>
       <LogoLink href="/home/posts">
@@ -12,7 +19,11 @@ const DigestView = ({ showLogoText }) => {
         {showLogoText && <LogoText>coderplanes</LogoText>}
       </LogoLink>
       <LineDivider />
-      <MainEntries />
+      {isOnline ? (
+        <MainEntries />
+      ) : (
+        <OfflineWrapper>您已离线，请检查网络设置</OfflineWrapper>
+      )}
     </Breadcrumbs>
   )
 }

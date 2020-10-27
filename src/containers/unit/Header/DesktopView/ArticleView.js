@@ -34,6 +34,7 @@ const HeaderContainer = ({ header: store }) => {
   useInit(store)
 
   const {
+    isOnline,
     leftOffset,
     accountInfo,
     isLogin,
@@ -65,6 +66,7 @@ const HeaderContainer = ({ header: store }) => {
           <Navigator
             curCommunity={curCommunity}
             layout={accountInfo.customization.bannerLayout}
+            isOnline={isOnline}
             // showLogoText
           />
         </RouterWrapper>
