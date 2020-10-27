@@ -9,7 +9,7 @@ import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
 import T from 'prop-types'
 
-import { buildLog } from '@/utils'
+import { buildLog, debounce } from '@/utils'
 import { useCustomScroll } from '@/hooks'
 
 import {
@@ -76,15 +76,22 @@ const VerticalScroller = ({
     scrollbars: { autoHide: autoHide ? 'scroll' : 'never' },
     themeCategory,
     callbacks: {
+      onScroll: debounce(() => {
+        const position = scrollInstance?.scroll().position
+        if (position) {
+          const currentY = position.y
+
+          currentY > lastYPosition
+            ? onScrollDirectionChange?.('up')
+            : onScrollDirectionChange?.('down')
+        }
+      }, 80),
       onScrollStop: () => {
         const position = scrollInstance?.scroll().position
         if (position) {
           const currentY = position.y
-          currentY > lastYPosition
-            ? onScrollDirectionChange?.('up')
-            : onScrollDirectionChange?.('down')
 
-          setLastYPosition(position.y)
+          setLastYPosition(currentY)
         }
       },
     },
