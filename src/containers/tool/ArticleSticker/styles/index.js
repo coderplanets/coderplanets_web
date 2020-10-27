@@ -98,13 +98,3 @@ export const Text = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 11px;
 `
-export const AirBalloonIcon = styled(Icon)`
-  fill: #0c5473;
-  width: 16px;
-  height: 16px;
-  margin-left: 5px;
-
-  &:hover {
-    fill: ${theme('thread.articleTitle')};
-  }
-`
