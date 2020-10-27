@@ -8633,23 +8633,23 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/mkdirp/download/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
 
-mobx-react-lite@2.2.1, mobx-react-lite@>=2.2.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-2.2.1.tgz#9c05dd799005d29ec1671ae86ca30b3ab5411055"
+mobx-react-lite@3.0.1, mobx-react-lite@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.npm.taobao.org/mobx-react-lite/download/mobx-react-lite-3.0.1.tgz#417f54a819d1e3e00c073077f29373399c95b005"
 
-mobx-react@6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-6.3.0.tgz#7d11799f988bbdadc49e725081993b18baa20329"
+mobx-react@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npm.taobao.org/mobx-react/download/mobx-react-7.0.0.tgz#c2eb0c3f79ade93ffb07b1ffa07cbaeb5f04e9b6"
   dependencies:
-    mobx-react-lite ">=2.2.0"
+    mobx-react-lite "^3.0.0"
 
-mobx-state-tree@3.17.2:
-  version "3.17.2"
-  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-3.17.2.tgz#130ab4d450fc4dd6e2571b7385af1350c82def37"
+mobx-state-tree@4.0.1-rc.1:
+  version "4.0.1-rc.1"
+  resolved "https://registry.npm.taobao.org/mobx-state-tree/download/mobx-state-tree-4.0.1-rc.1.tgz#c369ae6cac4809fcb74bb5086add5c519bb853b3"
 
-mobx@5.15.6:
-  version "5.15.6"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.15.6.tgz#24750af56f87bcf9c3cf82ece4c79eb91bb71968"
+mobx@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.npm.taobao.org/mobx/download/mobx-6.0.1.tgz#ec23520848527bf7834d7b4c0b54b2a8eb6e7c14"
 
 modify-values@^1.0.0:
   version "1.0.1"
