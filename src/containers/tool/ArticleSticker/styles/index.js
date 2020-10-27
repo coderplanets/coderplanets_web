@@ -67,7 +67,6 @@ export const LikeIcon = styled(Icon)`
   fill: #0c5473;
   width: 20px;
   height: 20px;
-  margin-left: 2px;
 
   &:hover {
     fill: ${theme('baseColor.red')};
@@ -76,6 +75,7 @@ export const LikeIcon = styled(Icon)`
 `
 export const CollectIcon = styled(Icon)`
   fill: #0c5473;
+  margin-left: 2px;
 
   &:hover {
     fill: #107eae;

@@ -32,7 +32,7 @@ export const Digest = styled.li`
   max-width: 85%;
 
   &:hover {
-    color: ${theme('thread.articleTitle')};
+    color: #687e82;
     cursor: pointer;
   }
 
