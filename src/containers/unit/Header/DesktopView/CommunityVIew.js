@@ -18,7 +18,6 @@ import Navigator from '@/components/Navigator'
 
 import UserAccount from '../UserAccount'
 import AddOns from '../AddOns'
-import OfflineAlert from '../OfflineAlert'
 
 import {
   Wrapper,
@@ -88,9 +87,8 @@ const HeaderContainer = ({ header: store, metric }) => {
           <Navigator
             curCommunity={curCommunity}
             layout={accountInfo.customization.bannerLayout}
+            isOnline={isOnline}
           />
-
-          {!isOnline && <OfflineAlert />}
         </RouterWrapper>
         <AddOns />
         <Operations>
