@@ -17,7 +17,7 @@ export const CatWrapper = styled.div`
   ${css.flexColumn()};
   padding: 10px 5px;
   &:hover {
-    background: ${theme('thread.articleHover')};
+    background: #113744;
   }
 `
 export const CatContent = styled.div`

@@ -11,7 +11,7 @@ export const CommentBlock = styled.div`
   padding: 10px;
   padding-bottom: 0;
   &:hover {
-    background-color: ${theme('thread.articleHover')};
+    background-color: #113744;
   }
 `
 export const CommentDivider = styled.div`

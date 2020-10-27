@@ -78,7 +78,6 @@ const iconGreen = {
     bg: contentBoxBg,
     filterResultHint: descText,
     articleTitle: '#e4e4e4',
-    articleHover: '#528187',
     articleStrip: contentBoxBg,
     articleDigest: '#B6C7C8',
     articleTag: '#B4C7C8',

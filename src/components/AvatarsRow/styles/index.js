@@ -62,9 +62,9 @@ export const AvatarsImg = styled(Img)`
 export const AvatarsMore = styled.span`
   ${css.flex('align-both')};
   font-size: 14px;
-  border-color: ${theme('thread.articleHover')};
+  border-color: #113744;
   color: ${theme('thread.articleTitle')};
-  background-color: ${theme('thread.articleHover')};
+  background-color: #113744;
   border-radius: 100px 100px 100px 100px;
   font-family: sans-serif;
   font-weight: ${({ total }) => (total >= 1000 ? 600 : 200)};

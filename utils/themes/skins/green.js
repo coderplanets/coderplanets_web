@@ -80,7 +80,6 @@ const green = {
     bg: contentBoxBg,
     filterResultHint: descText,
     articleTitle: '#62867A',
-    articleHover: lighten(0.03, contentBoxBg),
     articleStrip: contentBoxBg,
     articleDigest: descText,
     articleTag: '#74a0ab',
