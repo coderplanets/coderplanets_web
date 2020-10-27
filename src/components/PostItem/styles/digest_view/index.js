@@ -7,9 +7,7 @@ export const Main = styled.div`
   ${css.flexColumnGrow()};
 `
 export const AvatarWrapper = styled.div`
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `
 export const Avatar = styled(Img)`
   ${css.circle('36px')};

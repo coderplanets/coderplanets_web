@@ -18,9 +18,6 @@ export const Wrapper = styled.article`
   border-bottom: ${({ divider }) => (divider ? '1px solid' : '0')};
   border-bottom-color: ${theme('thread.articleDivider')};
 
-  &:hover {
-    background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
-  }
   transition: all 0.25s;
 `
 export const Main = styled.div`

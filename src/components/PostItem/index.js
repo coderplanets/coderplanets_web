@@ -30,7 +30,7 @@ const PostItem = ({
 }) => {
   // log('customization --> ', customization)
   const {
-    customization: { contentsLayout, contentDivider, contentHover },
+    customization: { contentsLayout, contentDivider },
   } = accountInfo
 
   return (
@@ -38,7 +38,6 @@ const PostItem = ({
       entry={entry}
       active={active}
       accountInfo={accountInfo}
-      hover={contentHover}
       divider={contentDivider}
     >
       <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
@@ -82,7 +81,6 @@ PostItem.propTypes = {
       contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: T.bool,
       contentDivider: T.bool,
-      contentHover: T.bool,
       displayDensity: T.oneOf(['20', '25', '30']),
     }),
   }),
@@ -102,7 +100,6 @@ PostItem.defaultProps = {
     customization: T.shape({
       contentsLayout: C11N.DIGEST,
       contentDivider: false,
-      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),

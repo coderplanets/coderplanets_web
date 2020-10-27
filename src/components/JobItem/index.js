@@ -29,13 +29,12 @@ const JobItem = ({
   community,
 }) => {
   const {
-    customization: { contentsLayout, contentDivider, contentHover },
+    customization: { contentsLayout, contentDivider },
   } = accountInfo
 
   return (
     <Wrapper
       opacity={getOpacity(entry, active, accountInfo)}
-      hover={contentHover}
       divider={contentDivider}
     >
       <ArticleItemPrefixLabel
@@ -89,7 +88,6 @@ JobItem.propTypes = {
       contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: T.bool,
       contentDivider: T.bool,
-      contentHover: T.bool,
       displayDensity: T.oneOf(['20', '25', '30']),
     }),
   }),
@@ -107,7 +105,6 @@ JobItem.defaultProps = {
     customization: T.shape({
       contentsLayout: C11N.DIGEST,
       contentDivider: false,
-      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),

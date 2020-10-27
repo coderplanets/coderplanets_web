@@ -71,7 +71,6 @@ const Customization = T.model('Customization', {
     C11N.DIGEST,
   ),
   contentDivider: T.optional(T.boolean, false),
-  contentHover: T.optional(T.boolean, true),
   markViewed: T.optional(T.boolean, true),
   displayDensity: T.optional(
     T.enumeration('displayDensity', ['20', '25', '30']),
