@@ -19,6 +19,7 @@ export const post = `
         followersCount
         followingsCount
       }
+      commentsCount
       favoritedCount
       viewerHasFavorited @include(if: $userHasLogin)
       starredCount

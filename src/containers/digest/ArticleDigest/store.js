@@ -17,18 +17,15 @@ const ArticleDigest = T.model('ArticleDigest', {
     T.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
     TYPE.FAVORITE,
   ),
-  headerFixed: T.optional(T.boolean, false),
   scrollDirection: T.optional(
     T.enumeration('scrollDirection', ['up', 'down']),
     'down',
   ),
+  inViewport: T.optional(T.boolean, true),
 })
   .views((self) => ({
     get root() {
       return getParent(self)
-    },
-    get isHeaderFixed() {
-      return self.headerFixed && self.scrollDirection === 'up'
     },
     get isLogin() {
       return self.root.account.isLogin
@@ -60,9 +57,6 @@ const ArticleDigest = T.model('ArticleDigest', {
     },
     syncViewingItem(item) {
       self.root.viewing.syncViewingItem(item)
-    },
-    showTopModeline(fix) {
-      self.headerFixed = fix
     },
     mark(sobj) {
       markStates(sobj, self)

@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import { Waypoint } from 'react-waypoint'
 
 import { useMedia } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
@@ -12,12 +13,12 @@ import { connectStore, buildLog } from '@/utils'
 import Comments from '@/containers/unit/Comments'
 // import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 
-import Sticky from '@/components/Sticky'
+import ArticleSticker from '@/containers/tool/ArticleSticker'
+
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
 import ContentSourceCard from '@/components/ContentSourceCard'
 
-import ArticleSticker from './ArticleSticker'
 // import SideCards from './SideCards'
 
 import {
@@ -29,7 +30,7 @@ import {
   CommentsWrapper,
 } from './styles'
 
-import { useInit } from './logic'
+import { useInit, articleInAnchor, articleOutAnchor } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')
@@ -48,6 +49,7 @@ const PostContentContainer = ({ postContent: store }) => {
             <ArticleWrapper>
               <MarkDownRender body={viewingData.body} />
             </ArticleWrapper>
+            <Waypoint onEnter={articleInAnchor} onLeave={articleOutAnchor} />
 
             {mobile && <ContentSourceCard data={viewingData} />}
 
@@ -56,10 +58,8 @@ const PostContentContainer = ({ postContent: store }) => {
             </CommentsWrapper>
           </MainWrapper>
           <SidebarWrapper>
-            <Sticky offsetTop={100}>
-              <ArticleSticker />
-              {/* <SideCards data={viewingData} /> */}
-            </Sticky>
+            <ArticleSticker />
+            {/* <SideCards data={viewingData} /> */}
           </SidebarWrapper>
         </InnerWrapper>
       </Maybe>

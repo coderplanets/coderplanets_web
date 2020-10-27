@@ -10,7 +10,9 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:PostContentStore')
 
-const PostContentStore = T.model('PostContentStore', {})
+const PostContentStore = T.model('PostContentStore', {
+  articleInViewport: T.optional(T.boolean, true),
+})
   .views((self) => ({
     get root() {
       return getParent(self)

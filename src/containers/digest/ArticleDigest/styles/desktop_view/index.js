@@ -7,8 +7,12 @@ export const Wrapper = styled.nav`
   position: relative;
   background: transparent;
   border-bottom: ${theme('banner.spliter')};
-  min-height: 220px;
+  min-height: 251px;
   margin-bottom: 15px;
+
+  ${css.media.laptopL`
+    min-height: 230px;
+  `}
 `
 export const InnerWrapper = styled.div`
   ${css.flex('justify-center')};
@@ -18,7 +22,7 @@ export const BannerContent = styled.div`
   ${css.flex()};
   max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
   width: 100%;
-  margin-left: ${css.ARTICLE_STICKER_WIDTH};
+  margin-left: ${css.ARTICLE_CONTENT_OFFSET};
 `
 export const Main = styled.div`
   width: ${css.ARTICLE_CONTENT_WIDTH};
@@ -26,13 +30,7 @@ export const Main = styled.div`
 export const AuthorWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};
   width: ${css.ARTICLE_STICKER_WIDTH};
-  margin-top: 34px;
-`
-export const PublishTime = styled.div`
-  ${css.flex('align-center')};
-  color: ${theme('thread.articleDigest')};
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-top: 32px;
 `
 export const BottomInfo = styled.div`
   ${css.flex('align-center', 'justify-between')};

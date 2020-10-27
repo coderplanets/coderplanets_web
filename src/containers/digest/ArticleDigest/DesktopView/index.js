@@ -15,6 +15,7 @@ import { connectStore, buildLog } from '@/utils'
 import FavoritesCats from '@/containers/tool/FavoritesCats'
 import Author from './Author'
 import StateInfo from './StateInfo'
+import PublishDate from './PublishDate'
 // import DotDivider from '@/components/DotDivider'
 // import { Space } from '@/components/Common'
 
@@ -25,7 +26,6 @@ import {
   InnerWrapper,
   BannerContent,
   Main,
-  PublishTime,
   PublishDesc,
   BottomInfo,
   AuthorWrapper,
@@ -49,17 +49,11 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
       <InnerWrapper>
         <BannerContent>
           <Main>
-            <PublishTime>
-              {/* {viewingData.insertedAt} */}
-              10&nbsp;月&nbsp;04&nbsp;日上午&nbsp;12&nbsp;时，2020年
-              {/* <Space left="3px" right="3px" />
-                <TimeAgo datetime={viewingData.insertedAt} locale="zh_CN" />
-                <DotDivider /> */}
-            </PublishTime>
+            <PublishDate insertedAt={viewingData.insertedAt} />
             <Title thread={activeThread} data={viewingData} />
             <BottomInfo>
               <PublishDesc>发布于 Elixir 社区</PublishDesc>
-              <StateInfo />
+              <StateInfo article={viewingData} />
             </BottomInfo>
           </Main>
           <AuthorWrapper>
@@ -67,7 +61,6 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
           </AuthorWrapper>
         </BannerContent>
       </InnerWrapper>
-
       <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
     </Wrapper>
   )

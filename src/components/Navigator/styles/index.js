@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { animate, theme, css } from '@/utils'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
@@ -23,13 +23,15 @@ export const LogoLink = styled.a`
   cursor: pointer;
 `
 export const LineDivider = styled.div`
-  background-color: ${theme('banner.desc')};
+  /* background-color: ${theme('banner.desc')}; */
+  background-color: #139C9E;
   margin-left: 5px;
-  margin-right: 3px;
+  margin-right: 2px;
   width: 1px;
-  height: 12px;
+  height: 14px;
   margin-top: 3px;
-  opacity: 0.6;
+  opacity: 1;
+  animation: ${animate.blink} 1.2s linear infinite alternate;
 `
 // font-family: cursive; // not general
 export const LogoText = styled.a`

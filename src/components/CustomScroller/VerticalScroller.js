@@ -9,7 +9,7 @@ import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
 import T from 'prop-types'
 
-import { buildLog } from '@/utils'
+import { buildLog, debounce } from '@/utils'
 import { useCustomScroll } from '@/hooks'
 
 import {
@@ -38,9 +38,15 @@ const VerticalScroller = ({
   onTopLeave,
   onBottomEnter,
   onBottomLeave,
+  onScrollDirectionChange,
 }) => {
   const [showTopShadow, setShowTopShadow] = useState(false)
   const [showBottomShadow, setShowBottomShadow] = useState(true)
+
+  // record last y position after scroll
+  // to judge is scroll up or down
+  // 记录上一次距离顶部的 y 轴位置，用于计算当前滑动是向上还是向下
+  const [lastYPosition, setLastYPosition] = useState(0)
 
   const handleShowTopShadow = useCallback(() => {
     setShowTopShadow(true)
@@ -66,9 +72,29 @@ const VerticalScroller = ({
   } = useTheme()
 
   const ref = useRef(null)
-  useCustomScroll(ref, {
+  const scrollInstance = useCustomScroll(ref, {
     scrollbars: { autoHide: autoHide ? 'scroll' : 'never' },
     themeCategory,
+    callbacks: {
+      onScroll: debounce(() => {
+        const position = scrollInstance?.scroll().position
+        if (position) {
+          const currentY = position.y
+
+          currentY > lastYPosition
+            ? onScrollDirectionChange?.('up')
+            : onScrollDirectionChange?.('down')
+        }
+      }, 80),
+      onScrollStop: () => {
+        const position = scrollInstance?.scroll().position
+        if (position) {
+          const currentY = position.y
+
+          setLastYPosition(currentY)
+        }
+      },
+    },
   })
 
   return (
@@ -124,6 +150,9 @@ VerticalScroller.propTypes = {
   onTopLeave: T.oneOfType([T.func, T.instanceOf(null)]),
   onBottomEnter: T.oneOfType([T.func, T.instanceOf(null)]),
   onBottomLeave: T.oneOfType([T.func, T.instanceOf(null)]),
+
+  // scroll direction
+  onScrollDirectionChange: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
 VerticalScroller.defaultProps = {
@@ -139,6 +168,7 @@ VerticalScroller.defaultProps = {
   onTopLeave: null,
   onBottomEnter: null,
   onBottomLeave: null,
+  onScrollDirectionChange: null,
 }
 
 export default React.memo(VerticalScroller)
