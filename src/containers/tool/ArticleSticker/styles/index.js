@@ -67,6 +67,7 @@ export const LikeIcon = styled(Icon)`
   fill: #0c5473;
   width: 20px;
   height: 20px;
+  margin-left: 2px;
 
   &:hover {
     fill: ${theme('baseColor.red')};
