@@ -1,6 +1,6 @@
 /*
  *
- * StrategicPartners
+ * PromotionList
  *
  */
 
@@ -15,9 +15,9 @@ import PartnerBanner from './PartnerBanner'
 import { Wrapper, Header, Title, AboutIcon } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:StrategicPartners:index')
+const log = buildLog('c:PromotionList:index')
 
-const StrategicPartners = ({ show, onAbout }) => {
+const PromotionList = ({ show, onAbout }) => {
   return (
     <Wrapper>
       {show && (
@@ -35,14 +35,14 @@ const StrategicPartners = ({ show, onAbout }) => {
   )
 }
 
-StrategicPartners.propTypes = {
+PromotionList.propTypes = {
   show: T.bool,
   onAbout: T.func,
 }
 
-StrategicPartners.defaultProps = {
+PromotionList.defaultProps = {
   show: true,
   onAbout: log,
 }
 
-export default React.memo(StrategicPartners)
+export default React.memo(PromotionList)

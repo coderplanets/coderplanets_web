@@ -12,9 +12,8 @@ export const ItemWrapper = styled.div`
 
   &:hover {
     cursor: pointer;
-    padding: 10px 5px;
+    padding: 8px 5px;
     border-radius: 4px;
-    background: #093846;
   }
   transition: all 0.25s;
   transition-delay: 0.2s;
