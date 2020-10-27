@@ -6,7 +6,7 @@ import { cutFrom } from '@/utils'
 import {
   Wrapper,
   CommentsDigest,
-  BodyDigest,
+  Digest,
   PublishLabel,
   Extra,
 } from '../../styles/digest_view/body'
@@ -25,7 +25,7 @@ const Body = ({ item }) => {
         {item.views}
         <CommentsDigest>⁝ 评论: {item.commentsCount}</CommentsDigest>
       </Extra>
-      <BodyDigest>{cutFrom(item.digest, 90)}</BodyDigest>
+      <Digest>{cutFrom(item.digest, 90)}</Digest>
     </Wrapper>
   )
 }
