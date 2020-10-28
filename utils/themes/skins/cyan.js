@@ -78,7 +78,6 @@ const cyan = {
     bg: contentBoxBg,
     filterResultHint: descText,
     articleTitle: '#75979c',
-    articleHover: '#f3f6f9',
     articleStrip: contentBoxBg,
     articleDigest: '#91b4b9',
     articleTag: '#71979a',

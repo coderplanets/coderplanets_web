@@ -55,7 +55,7 @@ export const Message = styled.div`
   padding: 10px 15px;
   position: relative;
   &:hover {
-    background: ${theme('thread.articleHover')};
+    background: #113744;
   }
 `
 export const MessageDivider = styled.div`

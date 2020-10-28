@@ -9,12 +9,13 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog, scrollToHeader } from '@/utils'
+import { connectStore, buildLog } from '@/utils'
 import { ICON, ICON_BASE } from '@/config'
 
 import Sticky from '@/components/Sticky'
 import { Button } from '@/components/Buttons'
 import { Br } from '@/components/Common'
+import GotoTop from '@/components/GotoTop'
 
 import LeftSticker from './LeftSticker/index'
 
@@ -28,7 +29,6 @@ import {
   LikeIcon,
   CollectIcon,
   ShareIcon,
-  AirBalloonIcon,
   CommunityTitle,
   Number,
   Text,
@@ -96,11 +96,8 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
                 <ItemHint bottom="-2px">分享</ItemHint>
               </ItemWrapper>
             </MainWrapper>
-            <ItemWrapper onClick={scrollToHeader}>
-              <AirBalloonIcon src={`${ICON}/shape/air-balloon.svg`} />
-              <ItemHint right="-28px" bottom="-2px">
-                回到顶部
-              </ItemHint>
+            <ItemWrapper>
+              <GotoTop />
             </ItemWrapper>
           </InnerWrapper>
         </Wrapper>

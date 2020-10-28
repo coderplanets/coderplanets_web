@@ -22,6 +22,7 @@ const log = buildLog('c:PostItem:index')
 const PostItem = ({
   entry,
   cover,
+  community,
   active,
   onPreview,
   onUserSelect,
@@ -30,7 +31,7 @@ const PostItem = ({
 }) => {
   // log('customization --> ', customization)
   const {
-    customization: { contentsLayout, contentDivider, contentHover },
+    customization: { contentsLayout, contentDivider },
   } = accountInfo
 
   return (
@@ -38,7 +39,6 @@ const PostItem = ({
       entry={entry}
       active={active}
       accountInfo={accountInfo}
-      hover={contentHover}
       divider={contentDivider}
     >
       <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
@@ -46,6 +46,7 @@ const PostItem = ({
         <DigestView
           entry={entry}
           cover={cover}
+          community={community}
           onPreview={onPreview}
           onUserSelect={onUserSelect}
           onAuthorSelect={onAuthorSelect}
@@ -53,6 +54,7 @@ const PostItem = ({
       ) : (
         <ListView
           entry={entry}
+          community={community}
           cover={cover}
           onPreview={onPreview}
           onAuthorSelect={onAuthorSelect}
@@ -75,6 +77,7 @@ PostItem.propTypes = {
     }),
   }).isRequired,
   cover: T.oneOf(['avatar', 'source']),
+  community: T.string,
 
   accountInfo: T.shape({
     isLogin: T.bool,
@@ -82,7 +85,6 @@ PostItem.propTypes = {
       contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: T.bool,
       contentDivider: T.bool,
-      contentHover: T.bool,
       displayDensity: T.oneOf(['20', '25', '30']),
     }),
   }),
@@ -97,12 +99,12 @@ PostItem.defaultProps = {
   onAuthorSelect: log,
   active: {},
   cover: 'avatar',
+  community: 'home',
   accountInfo: {
     isLogin: false,
     customization: T.shape({
       contentsLayout: C11N.DIGEST,
       contentDivider: false,
-      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),

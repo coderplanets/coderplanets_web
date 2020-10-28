@@ -19,7 +19,7 @@ export const MenuItem = styled.div`
   color: ${theme('thread.articleTitle')};
   opacity: 0.9;
   &:hover {
-    background: ${theme('thread.articleHover')};
+    background: #113744;
     opacity: 1;
     cursor: pointer;
   }
@@ -29,7 +29,7 @@ export const MenuLink = styled.a`
   color: ${theme('thread.articleTitle')};
   opacity: 0.9;
   &:hover {
-    background: ${theme('thread.articleHover')};
+    background: #113744;
     opacity: 1;
     cursor: pointer;
     text-decoration: underline;
@@ -51,7 +51,7 @@ export const LogoutItem = styled.div`
   color: ${theme('thread.articleTitle')};
   &:hover {
     color: ${theme('baseColor.red')};
-    background: ${theme('thread.articleHover')};
+    background: #113744;
     cursor: pointer;
   }
 `

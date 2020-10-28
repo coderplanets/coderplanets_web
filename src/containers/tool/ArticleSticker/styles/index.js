@@ -67,7 +67,6 @@ export const LikeIcon = styled(Icon)`
   fill: #0c5473;
   width: 20px;
   height: 20px;
-  margin-left: 2px;
 
   &:hover {
     fill: ${theme('baseColor.red')};
@@ -76,6 +75,7 @@ export const LikeIcon = styled(Icon)`
 `
 export const CollectIcon = styled(Icon)`
   fill: #0c5473;
+  margin-left: 2px;
 
   &:hover {
     fill: #107eae;
@@ -97,14 +97,4 @@ export const Number = styled.div`
 export const Text = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 11px;
-`
-export const AirBalloonIcon = styled(Icon)`
-  fill: #0c5473;
-  width: 16px;
-  height: 16px;
-  margin-left: 5px;
-
-  &:hover {
-    fill: ${theme('thread.articleTitle')};
-  }
 `

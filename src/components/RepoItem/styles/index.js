@@ -14,9 +14,6 @@ export const Wrapper = styled.article`
   border-bottom-color: ${theme('thread.articleSpliter')};
   opacity: ${({ opacity }) => opacity};
 
-  &:hover {
-    background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
-  }
   transition: all 0.25s;
 `
 export const BodyDigest = styled.li`
@@ -28,9 +25,4 @@ export const BodyDigest = styled.li`
   display: block;
   font-size: 0.85rem;
   max-width: 85%;
-
-  &:hover {
-    cursor: pointer;
-    background: ${theme('thread.articleHover')};
-  }
 `

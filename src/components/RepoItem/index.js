@@ -21,10 +21,7 @@ import { getOpacity } from './helper'
 const log = buildLog('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
-  <Wrapper
-    opacity={getOpacity(entry, active, accountInfo)}
-    hover={accountInfo.customization.contentHover}
-  >
+  <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
     <ArticleItemPrefixLabel
       entry={entry}
       accountInfo={accountInfo}
@@ -61,7 +58,6 @@ RepoItem.propTypes = {
     customization: T.shape({
       contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: T.bool,
-      contentHover: T.bool,
       displayDensity: T.oneOf(['20', '25', '30']),
     }),
   }),
@@ -75,7 +71,6 @@ RepoItem.defaultProps = {
     isLogin: false,
     customization: T.shape({
       contentsLayout: C11N.DIGEST,
-      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),

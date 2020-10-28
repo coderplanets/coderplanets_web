@@ -8,7 +8,6 @@ const setCustomization = gql`
       customization {
         bannerLayout
         contentDivider
-        contentHover
         markViewed
         displayDensity
       }

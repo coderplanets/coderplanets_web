@@ -79,7 +79,6 @@ const purple = {
     bg: contentBoxBg,
     filterResultHint: descText,
     articleTitle: '#737990',
-    articleHover: lighten(0.03, contentBoxBg),
     articleStrip: contentBoxBg,
     articleDigest: '#505667',
     articleTag: '#526482',

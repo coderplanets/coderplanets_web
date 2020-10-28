@@ -11,12 +11,11 @@ export const Brief = styled.div`
   margin-bottom: 10px;
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
-  &:hover {
-    cursor: pointer;
-  }
 `
-export const Title = styled.div`
+export const Title = styled.a`
   font-size: 15.5px;
+  color: ${theme('thread.articleTitle')};
+  text-decoration: none;
   @media (max-width: 1450px) {
     max-width: 500px;
   }
@@ -26,6 +25,15 @@ export const Title = styled.div`
   @media (max-width: 1100px) {
     max-width: 350px;
   }
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: ${theme('thread.articleDigest')};
+  }
+
+  transition: color 0.2s;
 `
 export const TitleLink = styled.div`
   position: relative;

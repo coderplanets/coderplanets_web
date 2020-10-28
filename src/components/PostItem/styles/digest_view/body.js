@@ -22,7 +22,7 @@ export const CommentsDigest = styled.span`
     margin-left: 3px;
   `};
 `
-export const BodyDigest = styled.li`
+export const Digest = styled.li`
   margin-top: 5px;
   color: ${theme('thread.articleDigest')};
   margin-right: 20px;
@@ -31,9 +31,16 @@ export const BodyDigest = styled.li`
   font-size: 13px;
   max-width: 85%;
 
+  &:hover {
+    color: #687e82;
+    cursor: pointer;
+  }
+
   ${css.media.mobile`
     ${css.cutFrom('250px')};
-`};
+  `};
+
+  transition: color 0.2s;
 `
 export const CommentWrapper = styled.div`
   ${css.flex('align-center')};

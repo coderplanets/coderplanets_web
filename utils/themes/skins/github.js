@@ -78,7 +78,6 @@ const github = {
     bg: contentBoxBg,
     filterResultHint: descText,
     articleTitle: threadTitle,
-    articleHover: '#f9f9f9',
     articleStrip: contentBoxBg,
     articleDigest: descText,
     articleTag: '#71979a',

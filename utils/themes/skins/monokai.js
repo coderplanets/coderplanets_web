@@ -80,7 +80,6 @@ const monokai = {
     bg: contentBoxBg,
     filterResultHint: descText,
     articleTitle: '#989087',
-    articleHover: '#363337',
     articleStrip: contentBoxBg,
     articleDigest: '#847473',
     articleTag: '#526482',

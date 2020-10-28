@@ -79,7 +79,6 @@ const yellow = {
     bg: contentBoxBg,
     filterResultHint: descText,
     articleTitle: '#b3a98c',
-    articleHover: '#F5F4EF',
     articleStrip: contentBoxBg,
     articleDigest: '#bdb6ab',
     articleTag: '#B84A20',

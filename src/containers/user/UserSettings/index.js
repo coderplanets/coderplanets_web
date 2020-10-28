@@ -15,7 +15,7 @@ import { Radio } from '@/components/Switcher'
 import ThemeSelector from '@/components/ThemeSelector'
 import SectionLabel from '@/components/SectionLabel'
 
-import { Wrapper, RadiosWrapper, Desc, ErrText } from './styles'
+import { Wrapper, RadiosWrapper, ErrText } from './styles'
 import { useInit, changeTheme, c11nOnChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -81,25 +81,6 @@ const UserSettingsContainer = ({ userSettings: store }) => {
               ]}
               activeKey={customization.contentsLayout}
               onChange={(item) => c11nOnChange('contentsLayout', item.key)}
-            />
-          </RadiosWrapper>
-
-          <RadiosWrapper>
-            <Desc>鼠标停留在帖子/文章时显示辅助背景。</Desc>
-            <Radio
-              items={[
-                {
-                  value: '悬停背景',
-                  key: true,
-                },
-                {
-                  value: '不显示',
-                  key: false,
-                  dimOnActive: true,
-                },
-              ]}
-              activeKey={customization.contentHover}
-              onChange={(item) => c11nOnChange('contentHover', item.key)}
             />
           </RadiosWrapper>
 

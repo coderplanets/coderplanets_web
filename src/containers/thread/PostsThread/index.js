@@ -20,7 +20,7 @@ import FaqPeekList from '@/components/FaqPeekList'
 import PagedContents from '@/components/PagedContents'
 import ContentFilter from '@/components/ContentFilter'
 import ConstructingThread from '@/components/ConstructingThread'
-import StrategicPartners from '@/components/StrategicPartners'
+import PromotionList from '@/components/PromotionList'
 
 import CityList from './CityList'
 
@@ -30,6 +30,7 @@ import {
   RightPart,
   FilterWrapper,
   PublisherWrapper,
+  StickyHolder,
 } from './styles'
 
 import {
@@ -145,24 +146,23 @@ const PostsThreadContainer = ({ postsThread: store }) => {
 
           {bannerLayout === C11N.DIGEST && (
             <RightPart>
-              <>
-                <PublisherWrapper>
-                  <PublishButton
-                    label={LabelText[subPath] || '发布帖子'}
-                    onPublish={onContentCreate}
-                  />
-                </PublisherWrapper>
+              <PublisherWrapper>
+                <PublishButton
+                  label={LabelText[subPath] || '发布帖子'}
+                  onPublish={onContentCreate}
+                />
+              </PublisherWrapper>
 
-                <Sticky offsetTop={120}>
-                  <TagsBar
-                    thread={THREAD.POST}
-                    topic={topic}
-                    onSelect={onTagSelect}
-                    active={activeTagData}
-                  />
-                  <StrategicPartners onClose={onAdsClose} />
-                </Sticky>
-              </>
+              <Sticky offsetTop={100}>
+                <TagsBar
+                  thread={THREAD.POST}
+                  topic={topic}
+                  onSelect={onTagSelect}
+                  active={activeTagData}
+                />
+                <PromotionList onClose={onAdsClose} />
+                <StickyHolder />
+              </Sticky>
             </RightPart>
           )}
         </>

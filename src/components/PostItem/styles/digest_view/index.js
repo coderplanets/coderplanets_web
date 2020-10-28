@@ -7,9 +7,7 @@ export const Main = styled.div`
   ${css.flexColumnGrow()};
 `
 export const AvatarWrapper = styled.div`
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `
 export const Avatar = styled(Img)`
   ${css.circle('36px')};
@@ -25,7 +23,7 @@ export const AvatarFallback = styled.div`
   ${css.circle('38px')};
   font-size: 20px;
   color: ${theme('thread.articleTitle')};
-  background-color: #164858; /*${theme('thread.articleHover')}; */
+  background-color: #164858;
 `
 export const SmallAvatar = styled(Avatar)`
   width: 35px;

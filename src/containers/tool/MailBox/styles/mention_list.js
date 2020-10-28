@@ -43,7 +43,7 @@ export const Message = styled.div`
   ${css.flexColumn()};
   padding: 6px 5px;
   &:hover {
-    background: ${theme('thread.articleHover')};
+    background: #113744;
   }
 `
 export const MessageDivider = styled.div`

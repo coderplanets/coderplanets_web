@@ -17,7 +17,6 @@ const GeneralSettings = ({ curThread, customization }) => {
     bannerLayout,
     contentsLayout,
     contentDivider,
-    contentHover,
     markViewed,
     displayDensity,
   } = customization
@@ -103,28 +102,6 @@ const GeneralSettings = ({ curThread, customization }) => {
         onChange={(item) =>
           onC11NChange({
             markViewed: item.key,
-          })
-        }
-      />
-
-      <Br top="25px" />
-      <Desc>鼠标停留在帖子/文章时显示辅助背景。</Desc>
-      <Radio
-        items={[
-          {
-            value: '悬停背景',
-            key: true,
-          },
-          {
-            value: '不显示',
-            key: false,
-            dimOnActive: true,
-          },
-        ]}
-        activeKey={contentHover}
-        onChange={(item) =>
-          onC11NChange({
-            contentHover: item.key,
           })
         }
       />

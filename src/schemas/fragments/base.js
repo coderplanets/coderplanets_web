@@ -120,7 +120,6 @@ export const c11n = `
   bannerLayout
   contentsLayout
   contentDivider
-  contentHover
   markViewed
   displayDensity
   theme
