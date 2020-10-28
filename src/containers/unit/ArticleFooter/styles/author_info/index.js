@@ -8,7 +8,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 }))`
   ${css.flex('justify-between')};
   border-top: 1px solid;
-  border-bottom: 1px solid;
+  border-bottom: 3px solid;
   border-color: #004250;
   padding: 26px 5px;
   padding-bottom: 32px;

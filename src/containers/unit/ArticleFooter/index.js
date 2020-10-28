@@ -12,9 +12,10 @@ import T from 'prop-types'
 import { connectStore, buildLog } from '@/utils'
 
 import TagList from './TagList'
+import Actions from './Actions'
 import AuthorInfo from './AuthorInfo'
 
-import { Wrapper } from './styles'
+import { Wrapper, BaseInfo } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -27,7 +28,10 @@ const ArticleFooterContainer = ({ articleFooter: store, testId }) => {
 
   return (
     <Wrapper testId={testId}>
-      <TagList items={tags} />
+      <BaseInfo>
+        <TagList items={tags} />
+        <Actions />
+      </BaseInfo>
       <AuthorInfo author={author} />
     </Wrapper>
   )

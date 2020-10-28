@@ -5,8 +5,6 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.article`
   ${css.flex('justify-start', 'align-center')};
   position: relative;
-  margin-top: 45px;
-  margin-bottom: 30px;
 `
 export const Tag = styled.div`
   ${css.flex('align-center')};
