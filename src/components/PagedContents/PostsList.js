@@ -34,6 +34,7 @@ const PostsList = ({ props }) => {
               entry={entry}
               cover={cover}
               active={active}
+              community={community}
               accountInfo={accountInfo}
               onUserSelect={onUserSelect}
               onAuthorSelect={onAuthorSelect}

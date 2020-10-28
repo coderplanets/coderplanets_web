@@ -1,5 +1,7 @@
 import React from 'react'
+import Link from 'next/link'
 
+import { ROUTE } from '@/constant'
 import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils'
 
@@ -15,11 +17,13 @@ import {
   TagListWrapper,
 } from '../../styles/digest_view/header'
 
-const Header = ({ item, onPreview, onUserSelect }) => {
+const Header = ({ item, community, onUserSelect }) => {
   return (
     <Wrapper>
-      <Brief onClick={() => onPreview(item)}>
-        <Title>{item.title}</Title>
+      <Brief>
+        <Link href={`/${community}/${ROUTE.POST}/${item.id}`} passHref>
+          <Title>{item.title}</Title>
+        </Link>
         {item.linkAddr && (
           <TitleLink>
             <LinkIcon src={`${ICON_CMD}/link.svg`} />

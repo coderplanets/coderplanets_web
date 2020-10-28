@@ -11,7 +11,7 @@ import {
   Extra,
 } from '../../styles/digest_view/body'
 
-const Body = ({ item }) => {
+const Body = ({ item, onPreview }) => {
   return (
     <Wrapper>
       <Extra>
@@ -25,7 +25,9 @@ const Body = ({ item }) => {
         {item.views}
         <CommentsDigest>⁝ 评论: {item.commentsCount}</CommentsDigest>
       </Extra>
-      <Digest>{cutFrom(item.digest, 90)}</Digest>
+      <Digest onClick={() => onPreview(item)}>
+        {cutFrom(item.digest, 90)}
+      </Digest>
     </Wrapper>
   )
 }

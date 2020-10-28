@@ -12,8 +12,10 @@ export const Brief = styled.div`
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
 `
-export const Title = styled.div`
+export const Title = styled.a`
   font-size: 15.5px;
+  color: ${theme('thread.articleTitle')};
+  text-decoration: none;
   @media (max-width: 1450px) {
     max-width: 500px;
   }
@@ -25,6 +27,7 @@ export const Title = styled.div`
   }
 
   &:hover {
+    color: ${theme('thread.articleTitle')};
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: ${theme('thread.articleDigest')};

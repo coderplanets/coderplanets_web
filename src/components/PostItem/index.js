@@ -22,6 +22,7 @@ const log = buildLog('c:PostItem:index')
 const PostItem = ({
   entry,
   cover,
+  community,
   active,
   onPreview,
   onUserSelect,
@@ -45,6 +46,7 @@ const PostItem = ({
         <DigestView
           entry={entry}
           cover={cover}
+          community={community}
           onPreview={onPreview}
           onUserSelect={onUserSelect}
           onAuthorSelect={onAuthorSelect}
@@ -52,6 +54,7 @@ const PostItem = ({
       ) : (
         <ListView
           entry={entry}
+          community={community}
           cover={cover}
           onPreview={onPreview}
           onAuthorSelect={onAuthorSelect}
@@ -74,6 +77,7 @@ PostItem.propTypes = {
     }),
   }).isRequired,
   cover: T.oneOf(['avatar', 'source']),
+  community: T.string,
 
   accountInfo: T.shape({
     isLogin: T.bool,
@@ -95,6 +99,7 @@ PostItem.defaultProps = {
   onAuthorSelect: log,
   active: {},
   cover: 'avatar',
+  community: 'home',
   accountInfo: {
     isLogin: false,
     customization: T.shape({

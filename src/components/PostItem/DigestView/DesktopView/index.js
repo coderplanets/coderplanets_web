@@ -15,6 +15,7 @@ import {
 const DigestView = ({
   entry,
   cover,
+  community,
   onPreview,
   onUserSelect,
   onAuthorSelect,
@@ -38,10 +39,10 @@ const DigestView = ({
       <Main>
         <Header
           item={entry}
+          community={community}
           onUserSelect={onUserSelect}
-          onPreview={onPreview}
         />
-        <Body item={entry} />
+        <Body item={entry} onPreview={onPreview} />
       </Main>
     </React.Fragment>
   )
