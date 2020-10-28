@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { Wrapper, CursorDivider, Icon } from './styles/social_list'
+import { Wrapper, CursorDivider, Icon } from '../styles/author_info/social_list'
 
 const SocialList = ({ items }) => {
   return (

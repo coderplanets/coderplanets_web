@@ -97,6 +97,7 @@ export { default as UserSettingsStore } from '@/containers/user/UserSettings/sto
 export { default as UserFavoritedStore } from '@/containers/user/UserFavorited/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as ArticleFooterStore } from '@/containers/unit/ArticleFooter/store'
 export { default as ArticleStickerStore } from '@/containers/tool/ArticleSticker/store'
 export { default as ModeLineMenuStore } from '@/containers/unit/ModeLineMenu/store'
 export { default as ModeLineStore } from '@/containers/unit/ModeLine/store'

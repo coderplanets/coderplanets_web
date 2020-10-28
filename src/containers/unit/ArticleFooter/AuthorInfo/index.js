@@ -1,6 +1,6 @@
 /*
  *
- * ArticleAuthorFooter
+ * AuthorInfo
  *
  */
 
@@ -22,12 +22,12 @@ import {
   //
   AvatarIntro,
   Avatar,
-} from './styles'
+} from '../styles/author_info'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArticleAuthorFooter:index')
+const log = buildLog('c:AuthorInfo:index')
 
-const ArticleAuthorFooter = ({ testId, author }) => {
+const AuthorInfo = ({ testId, author }) => {
   const socialItems = pickBy((v) => !!v, author.social)
 
   return (
@@ -50,7 +50,7 @@ const ArticleAuthorFooter = ({ testId, author }) => {
   )
 }
 
-ArticleAuthorFooter.propTypes = {
+AuthorInfo.propTypes = {
   testId: T.string,
   author: T.shape({
     avatar: T.string,
@@ -75,8 +75,8 @@ ArticleAuthorFooter.propTypes = {
   }).isRequired,
 }
 
-ArticleAuthorFooter.defaultProps = {
-  testId: 'article-author-footer',
+AuthorInfo.defaultProps = {
+  testId: 'author-info',
 }
 
-export default React.memo(ArticleAuthorFooter)
+export default React.memo(AuthorInfo)
