@@ -1,0 +1,82 @@
+/*
+ *
+ * ArticleAuthorFooter
+ *
+ */
+
+import React from 'react'
+import T, { arrayOf } from 'prop-types'
+import { isEmpty, pickBy } from 'ramda'
+
+import { buildLog } from '@/utils'
+
+import { Button } from '@/components/Buttons'
+import SocialList from './SocialList'
+
+import {
+  Wrapper,
+  TextIntro,
+  IntroTitle,
+  Name,
+  Bio,
+  //
+  AvatarIntro,
+  Avatar,
+} from './styles'
+
+/* eslint-disable-next-line */
+const log = buildLog('c:ArticleAuthorFooter:index')
+
+const ArticleAuthorFooter = ({ testId, author }) => {
+  const socialItems = pickBy((v) => !!v, author.social)
+
+  return (
+    <Wrapper testId={testId}>
+      <TextIntro>
+        <IntroTitle>关于作者</IntroTitle>
+        <Name>
+          {author.nickname}
+          {!isEmpty(socialItems) && <SocialList items={socialItems} />}
+        </Name>
+        <Bio>{author.bio}</Bio>
+      </TextIntro>
+      <AvatarIntro>
+        <Avatar src={author.avatar} />
+        <Button type="primary" size="tiny" ghost>
+          &nbsp;关&nbsp;&nbsp;注&nbsp;
+        </Button>
+      </AvatarIntro>
+    </Wrapper>
+  )
+}
+
+ArticleAuthorFooter.propTypes = {
+  testId: T.string,
+  author: T.shape({
+    avatar: T.string,
+    nickname: T.string,
+    bio: T.string,
+    social: arrayOf(
+      T.shape({
+        douban: T.string,
+        dribble: T.string,
+        facebook: T.string,
+        github: T.string,
+        huaban: T.string,
+        instagram: T.string,
+        pinterest: T.string,
+        qq: T.string,
+        twitter: T.string,
+        weibo: T.string,
+        weichat: T.string,
+        zhihu: T.string,
+      }),
+    ),
+  }).isRequired,
+}
+
+ArticleAuthorFooter.defaultProps = {
+  testId: 'article-author-footer',
+}
+
+export default React.memo(ArticleAuthorFooter)

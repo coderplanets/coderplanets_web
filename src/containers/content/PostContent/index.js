@@ -12,12 +12,12 @@ import { connectStore, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
 // import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
-
 import ArticleSticker from '@/containers/tool/ArticleSticker'
 
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
 import ContentSourceCard from '@/components/ContentSourceCard'
+import ArticleAuthorFooter from '@/components/ArticleAuthorFooter'
 
 // import SideCards from './SideCards'
 
@@ -49,6 +49,7 @@ const PostContentContainer = ({ postContent: store }) => {
             <ArticleWrapper>
               <MarkDownRender body={viewingData.body} />
             </ArticleWrapper>
+            <ArticleAuthorFooter author={viewingData.author} />
             <Waypoint onEnter={articleInAnchor} onLeave={articleOutAnchor} />
 
             {mobile && <ContentSourceCard data={viewingData} />}
