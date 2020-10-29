@@ -38,7 +38,6 @@ export const InnerWrapper = styled.div`
 export const Dot = styled.div`
   ${css.circle('5px')};
   background: tomato;
-  display: block;
   margin: 0 5px;
 `
 export const Title = styled.div`

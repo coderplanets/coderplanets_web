@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ICON } from '@/config'
 import { Space } from '@/components/Common'
+
 import {
   Wrapper,
   Item,
@@ -9,21 +10,22 @@ import {
   RecordIcon,
   ReferNum,
   Text,
-} from './styles/actions'
+} from '../styles/actions'
+import { toggleActionPanel } from '../logic'
 
-const Actions = () => {
+const Actions = ({ showReferenceList, showOperationList }) => {
   return (
     <Wrapper>
-      <Item>
+      <Item onClick={() => toggleActionPanel('reference-list')}>
         <ReferIcon src={`${ICON}/article/reference.svg`} />
-        <Text>
+        <Text active={showReferenceList}>
           <ReferNum>6</ReferNum>次引用
         </Text>
       </Item>
       <Space left="14px" />
-      <Item>
+      <Item onClick={() => toggleActionPanel('operation-list')}>
         <RecordIcon src={`${ICON}/article/action-record.svg`} />
-        <Text>操作记录</Text>
+        <Text active={showOperationList}>操作记录</Text>
       </Item>
     </Wrapper>
   )

@@ -22,7 +22,6 @@ export const Avatar = styled(Img)`
   ${css.circle('36px')};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
-  display: block;
   margin-top: 2px;
 
   ${css.media.mobile`${css.circle('34px')}`};

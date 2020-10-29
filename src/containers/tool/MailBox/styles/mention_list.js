@@ -19,7 +19,6 @@ export const UserLabel = styled.div`
 `
 export const UserAvatar = styled(Img)`
   ${css.circle('16px')};
-  display: block;
   margin-right: 3px;
 `
 export const UserNickname = styled.div`

@@ -16,7 +16,6 @@ export const TransWrapper = styled.div`
 `
 export const AccountIcon = styled(Img)`
   ${css.circle('30px')};
-  display: block;
 `
 export const TransIcon = styled(Img)`
   fill: ${theme('banner.desc')};

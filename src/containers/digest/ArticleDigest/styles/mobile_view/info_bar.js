@@ -25,7 +25,6 @@ export const AuthorInfo = styled.div`
 `
 export const Avatar = styled(Img)`
   ${css.circle('26px')};
-  display: block;
 `
 export const Name = styled.div`
   margin-left: 10px;

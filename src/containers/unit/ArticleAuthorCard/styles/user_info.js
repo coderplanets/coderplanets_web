@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
 `
 export const Avatar = styled(Img)`
   ${css.circle('25px')};
-  display: block;
   margin-right: 10px;
 
   ${css.media.mobile`

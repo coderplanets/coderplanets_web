@@ -21,7 +21,6 @@ export const Wrapper = styled.div`
 export const AvatarPic = styled(Img)`
   ${css.circle('70px')};
   margin-bottom: 30px;
-  display: block;
 `
 export const BackIcon = styled(Img)`
   fill: ${theme('font')};

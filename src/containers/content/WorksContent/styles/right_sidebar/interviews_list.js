@@ -19,7 +19,6 @@ export const InterviewWrapper = styled.div`
 `
 export const Avatar = styled(Img)`
   ${css.circle('26px')};
-  display: block;
   margin-top: 2px;
 `
 export const Intro = styled.div`

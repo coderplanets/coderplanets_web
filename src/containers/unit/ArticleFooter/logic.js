@@ -9,7 +9,14 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleFooter')
 
-export const someMethod = () => {}
+export const toggleActionPanel = (curActionPanelType) => {
+  const { showActionPanel, actionPanelType } = store
+  if (curActionPanelType === actionPanelType) {
+    store.mark({ showActionPanel: !showActionPanel, actionPanelType })
+  } else {
+    store.mark({ showActionPanel: true, actionPanelType: curActionPanelType })
+  }
+}
 
 // ###############################
 // init & uninit handlers
