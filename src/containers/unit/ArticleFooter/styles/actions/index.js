@@ -54,7 +54,7 @@ export const PanelInnerWrapper = styled.div`
   border-left: 1px solid;
   border-left-color: #00424f;
   padding: 25px 0;
-  padding-right: 5px;
+  padding-right: 25px;
   margin-left: 18px;
   min-height: 120px;
 `
