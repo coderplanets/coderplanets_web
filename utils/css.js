@@ -24,6 +24,7 @@ const circle = (width = '30px') => `
   width: ${width};
   height: ${width};
   border-radius: 100%;
+  display: block;
 `
 
 const flexExpand = (rule) => {

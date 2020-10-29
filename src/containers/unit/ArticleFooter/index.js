@@ -12,7 +12,10 @@ import T from 'prop-types'
 import { connectStore, buildLog } from '@/utils'
 
 import TagList from './TagList'
-import Actions from './Actions'
+import Actions from './Actions/index'
+import RefersPanel from './Actions/RefersPanel'
+import OperationPanel from './Actions/OperationPanel'
+
 import AuthorInfo from './AuthorInfo'
 
 import { Wrapper, BaseInfo } from './styles'
@@ -23,15 +26,21 @@ const log = buildLog('C:ArticleFooter')
 
 const ArticleFooterContainer = ({ articleFooter: store, testId }) => {
   useInit(store)
-  const { viewingData } = store
+  const { viewingData, showReferenceList, showOperationList } = store
   const { tags, author } = viewingData
 
   return (
     <Wrapper testId={testId}>
       <BaseInfo>
         <TagList items={tags} />
-        <Actions />
+        <Actions
+          showReferenceList={showReferenceList}
+          showOperationList={showOperationList}
+        />
       </BaseInfo>
+
+      {showReferenceList && <RefersPanel />}
+      {showOperationList && <OperationPanel />}
       <AuthorInfo author={author} />
     </Wrapper>
   )
