@@ -130,7 +130,6 @@ export const BottomAuthorWrapper = styled.div`
 export const ButtonAvatar = styled(Img)`
   ${css.circle('20px')};
   opacity: 0.8;
-  display: block;
 `
 export const ButtonNickname = styled.div`
   color: ${theme('thread.articleDigest')};

@@ -37,7 +37,6 @@ export const CommentHeaderFirst = styled.div`
 export const Avatar = styled(Img)`
   ${css.circle('22px')};
   opacity: ${theme('avatarOpacity')};
-  display: block;
   margin-right: 10px;
 `
 

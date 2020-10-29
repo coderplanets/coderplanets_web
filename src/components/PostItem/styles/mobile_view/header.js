@@ -18,7 +18,6 @@ export const Avatar = styled(Img)`
   ${css.circle('16px')};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
-  display: block;
   margin-right: 8px;
 `
 export const AvatarFallback = styled.div`

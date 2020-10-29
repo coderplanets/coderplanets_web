@@ -32,7 +32,6 @@ export const LinkCardWrapper = styled.div`
 `
 export const Avatar = styled(Img)`
   ${css.circle('24px')};
-  display: block;
 `
 export const Digest = styled.div`
   ${css.flexColumnGrow('align-start')};
