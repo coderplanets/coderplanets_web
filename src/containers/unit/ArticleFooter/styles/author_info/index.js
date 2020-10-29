@@ -40,9 +40,6 @@ export const AvatarIntro = styled.div`
   margin-top: 2px;
 `
 export const Avatar = styled(Img)`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: block;
-  margin-bottom: 12px;
+  ${css.circle('38px')};
+  margin-bottom: 16px;
 `

@@ -11,6 +11,8 @@ import { isEmpty, pickBy } from 'ramda'
 import { buildLog } from '@/utils'
 
 import { Button } from '@/components/Buttons'
+import AvatarFallback from '@/components/AvatarFallback'
+
 import SocialList from './SocialList'
 
 import {
@@ -41,7 +43,10 @@ const AuthorInfo = ({ testId, author }) => {
         <Bio>{author.bio}</Bio>
       </TextIntro>
       <AvatarIntro>
-        <Avatar src={author.avatar} />
+        <Avatar
+          src={author.avatar}
+          fallback={<AvatarFallback width="14px" title={author?.nickname} />}
+        />
         <Button type="primary" size="tiny" ghost>
           &nbsp;关&nbsp;&nbsp;注&nbsp;
         </Button>
