@@ -13,6 +13,7 @@ export { default as RECIPE } from './recipe'
 export { default as GALLERY } from './gallery'
 export { default as VIEW } from './view'
 export { default as ANCHOR } from './anchor'
+export { default as METRIC } from './metric'
 
 export { PAYMENT_USAGE, PAYMENT_METHOD } from './payment'
 

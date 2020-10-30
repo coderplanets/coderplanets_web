@@ -1,7 +1,8 @@
 import React from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
-import { TYPE } from '@/constant'
+import { METRIC, TYPE } from '@/constant'
 import { ICON } from '@/config'
 import { multiClick } from '@/utils'
 
@@ -100,7 +101,7 @@ const BottomBar = ({ testId, metric, activeMenu, isCommunityBlockExpand }) => {
 
 BottomBar.propTypes = {
   testId: T.string,
-  metric: T.oneOf(['default', 'article']),
+  metric: T.oneOf(values(METRIC)).isRequired,
   activeMenu: T.oneOf([
     TYPE.MM_TYPE.GLOBAL_MENU,
     TYPE.MM_TYPE.COMMUNITY,
@@ -115,7 +116,6 @@ BottomBar.propTypes = {
 
 BottomBar.defaultProps = {
   testId: 'modeline-bottom-bar',
-  metric: 'default',
   isCommunityBlockExpand: false,
 }
 

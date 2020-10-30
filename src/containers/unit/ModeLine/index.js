@@ -9,7 +9,9 @@
 import React, { useEffect } from 'react'
 import T from 'prop-types'
 import dynamic from 'next/dynamic'
+import { values } from 'ramda'
 
+import { METRIC } from '@/constant'
 import { useMedia } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
@@ -49,11 +51,11 @@ const ModeLineContainer = ({ modeLine: store, metric }) => {
 
 ModeLineContainer.propTypes = {
   modeLine: T.any.isRequired,
-  metric: T.oneOf(['default', 'article']),
+  metric: T.oneOf(values(METRIC)),
 }
 
 ModeLineContainer.defaultProps = {
-  metric: 'default',
+  metric: METRIC.COMMUNITY,
 }
 
 export default connectStore(ModeLineContainer)

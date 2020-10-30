@@ -6,8 +6,9 @@
 
 import React, { useEffect } from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
-import { ANCHOR, ROUTE } from '@/constant'
+import { ANCHOR, ROUTE, METRIC } from '@/constant'
 import { connectStore } from '@/utils'
 import AnalysisService from '@/services/Analysis'
 
@@ -136,7 +137,7 @@ GlobalLayoutContainer.propTypes = {
   seoConfig: T.object.isRequired, // TODO:
   noSidebar: T.bool,
   page: T.string.isRequired,
-  metric: T.oneOf(['default', 'article']),
+  metric: T.oneOf(values(METRIC)),
   errorCode: T.oneOf([null, 404, 500]),
   errorPath: T.oneOfType([T.string, T.instanceOf(null)]),
 }
@@ -146,7 +147,7 @@ GlobalLayoutContainer.defaultProps = {
   noSidebar: false,
   errorCode: null,
   errorPath: null,
-  metric: 'default',
+  metric: METRIC.COMMUNITY,
 }
 
 export default connectStore(GlobalLayoutContainer)
