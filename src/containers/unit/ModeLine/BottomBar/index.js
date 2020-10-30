@@ -11,11 +11,17 @@ import {
   ExploreBlock,
   AccountBlock,
 } from './ArrowBlock'
-import { Wrapper, ItemsWrapper, MenuIcon } from '../styles/bottom_bar'
+import {
+  Wrapper,
+  ItemsWrapper,
+  MenuItem,
+  MenuDesc,
+  MenuIcon,
+} from '../styles/bottom_bar'
 
 import { openMenu } from '../logic'
 
-const menus = [
+const communityMenus = [
   {
     title: '过滤',
     raw: TYPE.MM_TYPE.FILTER,
@@ -38,7 +44,35 @@ const menus = [
   },
 ]
 
+const artileMenus = [
+  {
+    title: '喜欢',
+    raw: TYPE.MM_TYPE.FILTER,
+    icon: `${ICON}/article/heart.svg`,
+    desc: '喜欢 21',
+  },
+  {
+    title: '搜索',
+    raw: TYPE.MM_TYPE.SEARCH,
+    icon: `${ICON}/article/comment-modeline.svg`,
+    desc: '评论 49',
+  },
+  {
+    title: '发布',
+    raw: TYPE.MM_TYPE.PUBLISH,
+    icon: `${ICON}/article/collect-modeline.svg`,
+  },
+  {
+    title: '更多',
+    raw: TYPE.MM_TYPE.MORE,
+    icon: `${ICON}/more.svg`,
+  },
+]
+
 const BottomBar = ({ testId, activeMenu, isCommunityBlockExpand }) => {
+  const type = 'article'
+  const menus = type === 'article' ? artileMenus : communityMenus
+
   return (
     <Wrapper testId={testId} isMenuActive={activeMenu !== ''}>
       <MenuBlock
@@ -48,9 +82,15 @@ const BottomBar = ({ testId, activeMenu, isCommunityBlockExpand }) => {
       <CommunityBlock isExpand={isCommunityBlockExpand} />
       <ItemsWrapper>
         {menus.map((item) => (
-          <div key={item.raw} onClick={multiClick(() => openMenu(item.raw))}>
+          <MenuItem
+            key={item.raw}
+            onClick={multiClick(() => openMenu(item.raw))}
+          >
             <MenuIcon src={item.icon} active={activeMenu === item.raw} />
-          </div>
+            {!isCommunityBlockExpand && item.desc && (
+              <MenuDesc>{item.desc}</MenuDesc>
+            )}
+          </MenuItem>
         ))}
       </ItemsWrapper>
       <ExploreBlock />

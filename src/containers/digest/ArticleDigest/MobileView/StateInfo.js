@@ -33,7 +33,7 @@ const StateInfo = ({ article, author }) => {
         </Item>
         <Divider />
         <Item>
-          <LikeIcon src={`${ICON}/shape/heart.svg`} />
+          <LikeIcon src={`${ICON}/article/heart.svg`} />
           <Text>{article.starredCount}</Text>
         </Item>
       </Section>

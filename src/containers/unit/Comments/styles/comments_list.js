@@ -16,6 +16,7 @@ export const TotalHeader = styled.div`
     border-bottom: 1px solid;
     border-bottom-color: #0b4252;
     padding-bottom: 10px;
+    margin-bottom: 20px;
   `};
 `
 export const TotalCountWrapper = styled.div`
