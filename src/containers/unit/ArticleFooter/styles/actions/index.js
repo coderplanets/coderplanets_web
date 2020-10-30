@@ -24,7 +24,6 @@ export const RecordIcon = styled(Icon)`
   width: 18px;
   height: 18px;
 `
-
 export const ReferNum = styled.span`
   color: #00a59b;
   margin-right: 3px;

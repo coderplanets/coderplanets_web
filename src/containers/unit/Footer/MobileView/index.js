@@ -27,7 +27,7 @@ const MobileView = () => (
       <Item>用户反馈</Item>
       <Divider space="8px" radius="3px" />
       <Item>
-        特别感谢 <ItemIcon src={`${ICON}/shape/heart.svg`} />
+        特别感谢 <ItemIcon src={`${ICON}/article/heart-solid.svg`} />
       </Item>
     </SiteInfoWrapper>
     <VersionWrapper>

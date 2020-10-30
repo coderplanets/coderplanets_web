@@ -21,20 +21,30 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const ItemsWrapper = styled.div`
   ${css.flex('justify-between', 'align-center')};
   height: 100%;
-  padding-top: 2px;
   width: auto;
   flex-grow: 1;
   height: 100%;
-  padding-top: 4px;
   margin-left: 25px;
   margin-right: 18px;
 `
+export const MenuItem = styled.div`
+  ${css.flex('align-center')};
+`
 export const MenuIcon = styled(Img)`
-  fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
+  fill: ${({ active, colorTheme }) => {
+    if (colorTheme) return theme(colorTheme)
+    return active ? '#2ca1a2' : theme('thread.articleTitle')
+  }};
   width: 15px;
   height: 15px;
+  display: block;
 
   :last-child {
     margin-right: 0;
   }
+`
+export const MenuDesc = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 10px;
+  margin-left: 3px;
 `

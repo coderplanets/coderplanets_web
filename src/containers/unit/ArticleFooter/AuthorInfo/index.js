@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import T, { arrayOf } from 'prop-types'
+import T from 'prop-types'
 import { isEmpty, pickBy } from 'ramda'
 
 import { buildLog } from '@/utils'
@@ -61,22 +61,20 @@ AuthorInfo.propTypes = {
     avatar: T.string,
     nickname: T.string,
     bio: T.string,
-    social: arrayOf(
-      T.shape({
-        douban: T.string,
-        dribble: T.string,
-        facebook: T.string,
-        github: T.string,
-        huaban: T.string,
-        instagram: T.string,
-        pinterest: T.string,
-        qq: T.string,
-        twitter: T.string,
-        weibo: T.string,
-        weichat: T.string,
-        zhihu: T.string,
-      }),
-    ),
+    social: T.shape({
+      douban: T.string,
+      dribble: T.string,
+      facebook: T.string,
+      github: T.string,
+      huaban: T.string,
+      instagram: T.string,
+      pinterest: T.string,
+      qq: T.string,
+      twitter: T.string,
+      weibo: T.string,
+      weichat: T.string,
+      zhihu: T.string,
+    }),
   }).isRequired,
 }
 

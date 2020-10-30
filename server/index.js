@@ -25,7 +25,7 @@ const CONFIG = require('../config/config.json')
 const SERVE_PORT = process.env.SERVE_PORT || 3000
 
 // SSR for mobx
-mobxReact.useStaticRendering(true)
+mobxReact.enableStaticRendering(true)
 // eslint-disable-next-line semi-style
 ;(async () => {
   await app.prepare()

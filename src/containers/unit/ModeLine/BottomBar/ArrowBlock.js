@@ -28,14 +28,14 @@ export const MenuBlock = ({ active, onClick }) => {
   )
 }
 
-export const CommunityBlock = () => {
+export const CommunityBlock = ({ isExpand }) => {
   const bgColor = '#194d5f'
   const activeBgColor = '#196f70'
   const isSubscribed = false
 
   return (
     <CommunityWrapper bgColor={isSubscribed ? activeBgColor : bgColor}>
-      <CommunityInfo isSubscribed={isSubscribed} />
+      <CommunityInfo isSubscribed={isSubscribed} isExpand={isExpand} />
       <ArrowShape bgColor={isSubscribed ? activeBgColor : bgColor} />
     </CommunityWrapper>
   )

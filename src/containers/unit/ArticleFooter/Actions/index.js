@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
+import { useMedia } from '@/hooks'
 import { Space } from '@/components/Common'
 
 import {
@@ -14,18 +15,25 @@ import {
 import { toggleActionPanel } from '../logic'
 
 const Actions = ({ showReferenceList, showOperationList }) => {
+  const { mobile } = useMedia()
+
   return (
     <Wrapper>
       <Item onClick={() => toggleActionPanel('reference-list')}>
         <ReferIcon src={`${ICON}/article/reference.svg`} />
         <Text active={showReferenceList}>
-          <ReferNum>6</ReferNum>次引用
+          <ReferNum>6</ReferNum>
+          {!mobile && <span>次</span>}
+          引用
         </Text>
       </Item>
       <Space left="14px" />
       <Item onClick={() => toggleActionPanel('operation-list')}>
         <RecordIcon src={`${ICON}/article/action-record.svg`} />
-        <Text active={showOperationList}>操作记录</Text>
+        <Text active={showOperationList}>
+          操作
+          {!mobile && <span>记录</span>}
+        </Text>
       </Item>
     </Wrapper>
   )

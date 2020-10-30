@@ -9,7 +9,9 @@
 import React, { useEffect } from 'react'
 import T from 'prop-types'
 import dynamic from 'next/dynamic'
+import { values } from 'ramda'
 
+import { METRIC } from '@/constant'
 import { useMedia } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
@@ -22,11 +24,16 @@ const log = buildLog('C:ModeLine')
 
 let BottomBar = null
 
-const ModeLineContainer = ({ modeLine: store }) => {
+const ModeLineContainer = ({ modeLine: store, metric }) => {
   useInit(store)
-  const { showTop, viewing, activeMenu } = store
+  const {
+    showTop,
+    viewing,
+    viewingArticle,
+    activeMenu,
+    isCommunityBlockExpand,
+  } = store
   // viewing: { community, activeThread },
-
   const { mobile } = useMedia()
 
   useEffect(() => {
@@ -37,15 +44,25 @@ const ModeLineContainer = ({ modeLine: store }) => {
   return (
     <React.Fragment>
       <TopBar visiable={showTop} viewing={viewing} />
-      {BottomBar && mobile && <BottomBar activeMenu={activeMenu} />}
+      {BottomBar && mobile && (
+        <BottomBar
+          metric={metric}
+          article={viewingArticle}
+          activeMenu={activeMenu}
+          isCommunityBlockExpand={isCommunityBlockExpand}
+        />
+      )}
     </React.Fragment>
   )
 }
 
 ModeLineContainer.propTypes = {
   modeLine: T.any.isRequired,
+  metric: T.oneOf(values(METRIC)),
 }
 
-ModeLineContainer.defaultProps = {}
+ModeLineContainer.defaultProps = {
+  metric: METRIC.COMMUNITY,
+}
 
 export default connectStore(ModeLineContainer)

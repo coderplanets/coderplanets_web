@@ -8,9 +8,9 @@ import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import T from 'prop-types'
-import { contains } from 'ramda'
+import { contains, values } from 'ramda'
 
-import { ROUTE } from '@/constant'
+import { ROUTE, METRIC } from '@/constant'
 import { connectStore, buildLog, getRoutePathList } from '@/utils'
 
 import UserLister from '@/containers/user/UserLister'
@@ -108,12 +108,12 @@ const HeaderContainer = ({ header: store, metric }) => {
 }
 
 HeaderContainer.propTypes = {
-  metric: T.oneOf(['default', 'article']),
+  metric: T.oneOf(values(METRIC)),
   header: T.any.isRequired,
 }
 
 HeaderContainer.defaultProps = {
-  metric: 'default',
+  metric: METRIC.ARTICLE,
 }
 
 export default connectStore(HeaderContainer)

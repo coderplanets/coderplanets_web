@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 const MarkDownStyle = styled.div`
   @font-face {
@@ -17,6 +17,10 @@ const MarkDownStyle = styled.div`
     font-size: 16px;
     line-height: 1.7;
     word-wrap: break-word;
+
+    ${css.media.mobile`
+      font-size: 15px;
+    `}
   }
 
   .markdown-body .pl-c {

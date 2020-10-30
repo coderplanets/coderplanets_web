@@ -1,8 +1,8 @@
 import React from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
-import { TYPE } from '@/constant'
-import { ICON } from '@/config'
+import { METRIC, TYPE } from '@/constant'
 import { multiClick } from '@/utils'
 
 import {
@@ -11,46 +11,51 @@ import {
   ExploreBlock,
   AccountBlock,
 } from './ArrowBlock'
-import { Wrapper, ItemsWrapper, MenuIcon } from '../styles/bottom_bar'
+import {
+  Wrapper,
+  ItemsWrapper,
+  MenuItem,
+  MenuDesc,
+  MenuIcon,
+} from '../styles/bottom_bar'
 
 import { openMenu } from '../logic'
+import { communityPageMenus, getArticlePageMenus } from './menus'
 
-const menus = [
-  {
-    title: '过滤',
-    raw: TYPE.MM_TYPE.FILTER,
-    icon: `${ICON}/filter.svg`,
-  },
-  {
-    title: '搜索',
-    raw: TYPE.MM_TYPE.SEARCH,
-    icon: `${ICON}/search.svg`,
-  },
-  {
-    title: '发布',
-    raw: TYPE.MM_TYPE.PUBLISH,
-    icon: `${ICON}/edit/publish-pen.svg`,
-  },
-  {
-    title: '更多',
-    raw: TYPE.MM_TYPE.MORE,
-    icon: `${ICON}/more.svg`,
-  },
-]
+const BottomBar = ({
+  testId,
+  metric,
+  article,
+  activeMenu,
+  isCommunityBlockExpand,
+}) => {
+  const menus =
+    metric === METRIC.ARTICLE
+      ? getArticlePageMenus(article)
+      : communityPageMenus
 
-const BottomBar = ({ testId, activeMenu }) => {
   return (
     <Wrapper testId={testId} isMenuActive={activeMenu !== ''}>
       <MenuBlock
         active={activeMenu === TYPE.MM_TYPE.GLOBAL_MENU}
         onClick={multiClick(() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
       />
-      <CommunityBlock />
+      <CommunityBlock isExpand={isCommunityBlockExpand} />
       <ItemsWrapper>
         {menus.map((item) => (
-          <div key={item.raw} onClick={multiClick(() => openMenu(item.raw))}>
-            <MenuIcon src={item.icon} active={activeMenu === item.raw} />
-          </div>
+          <MenuItem
+            key={item.raw}
+            onClick={multiClick(() => openMenu(item.raw))}
+          >
+            <MenuIcon
+              src={item.icon}
+              colorTheme={item.iconTheme}
+              active={activeMenu === item.raw}
+            />
+            {!isCommunityBlockExpand && item.desc && (
+              <MenuDesc>{item.desc}</MenuDesc>
+            )}
+          </MenuItem>
         ))}
       </ItemsWrapper>
       <ExploreBlock />
@@ -61,6 +66,8 @@ const BottomBar = ({ testId, activeMenu }) => {
 
 BottomBar.propTypes = {
   testId: T.string,
+  metric: T.oneOf(values(METRIC)).isRequired,
+  article: T.any, // TODO
   activeMenu: T.oneOf([
     TYPE.MM_TYPE.GLOBAL_MENU,
     TYPE.MM_TYPE.COMMUNITY,
@@ -70,10 +77,13 @@ BottomBar.propTypes = {
     TYPE.MM_TYPE.MORE,
     '',
   ]).isRequired,
+  isCommunityBlockExpand: T.bool,
 }
 
 BottomBar.defaultProps = {
   testId: 'modeline-bottom-bar',
+  isCommunityBlockExpand: false,
+  article: null,
 }
 
 export default BottomBar

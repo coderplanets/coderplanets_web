@@ -23,6 +23,9 @@ const ModeLine = T.model('ModeLine', {
     get viewing() {
       return stripMobx(self.root.viewing)
     },
+    get viewingArticle() {
+      return stripMobx(self.root.viewingArticle)
+    },
     get leftOffset() {
       const curSidebarPin = self.root.sidebar.pin
       if (
@@ -46,6 +49,16 @@ const ModeLine = T.model('ModeLine', {
     },
     get isMenuActive() {
       return self.activeMenu !== ''
+    },
+    get isArticleDigestInViewport() {
+      return self.root.articleDigest.inViewport
+    },
+    get isCommunityBlockExpand() {
+      const { isArticleDigestInViewport } = self
+
+      if (!isArticleDigestInViewport) return false
+
+      return true
     },
   }))
   .actions((self) => ({
