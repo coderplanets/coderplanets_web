@@ -47,7 +47,11 @@ const BottomBar = ({
             key={item.raw}
             onClick={multiClick(() => openMenu(item.raw))}
           >
-            <MenuIcon src={item.icon} active={activeMenu === item.raw} />
+            <MenuIcon
+              src={item.icon}
+              colorTheme={item.iconTheme}
+              active={activeMenu === item.raw}
+            />
             {!isCommunityBlockExpand && item.desc && (
               <MenuDesc>{item.desc}</MenuDesc>
             )}

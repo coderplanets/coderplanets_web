@@ -19,22 +19,28 @@ import {
 } from '../styles/mobile_view/state_info'
 
 const StateInfo = ({ article, author }) => {
+  const { views, starredCount, commentsCount, viewerHasStarred } = article
+
   return (
     <Wrapper>
       <Section>
         <Item>
           <ViewdIcon src={`${ICON}/viewed.svg`} />
-          <ViewsText>{article.views}</ViewsText>
+          <ViewsText>{views}</ViewsText>
         </Item>
         <Space right="10px" />
         <Item>
           <CommentIcon src={`${ICON}/comment.svg`} />
-          <Text>{article.commentsCount}</Text>
+          <Text>{commentsCount}</Text>
         </Item>
         <Divider />
         <Item>
-          <LikeIcon src={`${ICON}/article/heart.svg`} />
-          <Text>{article.starredCount}</Text>
+          {viewerHasStarred ? (
+            <LikeIcon src={`${ICON}/article/heart-solid.svg`} red />
+          ) : (
+            <LikeIcon src={`${ICON}/article/heart.svg`} />
+          )}
+          <Text>{starredCount}</Text>
         </Item>
       </Section>
       <AuthorWrapper>

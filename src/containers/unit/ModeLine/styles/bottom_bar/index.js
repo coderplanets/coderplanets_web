@@ -31,7 +31,10 @@ export const MenuItem = styled.div`
   ${css.flex('align-center')};
 `
 export const MenuIcon = styled(Img)`
-  fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
+  fill: ${({ active, colorTheme }) => {
+    if (colorTheme) return theme(colorTheme)
+    return active ? '#2ca1a2' : theme('thread.articleTitle')
+  }};
   width: 15px;
   height: 15px;
   display: block;

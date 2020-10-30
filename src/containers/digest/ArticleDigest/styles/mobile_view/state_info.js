@@ -28,9 +28,6 @@ export const ViewsText = styled.div`
 `
 export const Text = styled(ViewsText)`
   cursor: pointer;
-  ${Item}:hover & {
-    color: ${theme('thread.articleTitle')};
-  }
 `
 const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
@@ -41,13 +38,10 @@ const Icon = styled(Img)`
 export const ViewdIcon = styled(Icon)``
 export const CommentIcon = styled(Icon)``
 export const LikeIcon = styled(Icon)`
+  fill: ${({ red }) =>
+    red ? theme('baseColor.red') : theme('thread.articleDigest')};
   width: 12px;
   height: 12px;
-
-  ${Item}:hover & {
-    fill: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
 `
 export const AuthorWrapper = styled.div`
   ${css.flex('align-center')};
