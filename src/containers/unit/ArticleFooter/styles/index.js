@@ -10,4 +10,8 @@ export const BaseInfo = styled.div`
   ${css.flex('justify-between', 'align-end')};
   margin-top: 50px;
   margin-bottom: 30px;
+
+  ${css.media.mobile`
+    margin-top: 20px;
+  `};
 `

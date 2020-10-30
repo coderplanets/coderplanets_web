@@ -11,6 +11,12 @@ export const TotalHeader = styled.div`
   ${css.flex('align-center')};
   margin-top: 25px;
   margin-bottom: 10px;
+
+  ${css.media.mobile`
+    border-bottom: 1px solid;
+    border-bottom-color: #0b4252;
+    padding-bottom: 10px;
+  `};
 `
 export const TotalCountWrapper = styled.div`
   flex-grow: 1;
@@ -21,7 +27,9 @@ export const ListTitle = styled.div`
   margin-left: 2px;
 
   ${css.media.mobile`
-    margin-left: 18px;
+    font-size: 13px;
+    margin-left: 0;
+    padding-left: 5px;
   `};
 `
 export const TotalNum = styled.span`

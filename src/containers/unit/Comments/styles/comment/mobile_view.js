@@ -6,12 +6,16 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flex()};
   margin-bottom: 16px;
-  padding: 15px;
-  padding-left: 20px;
+  padding-left: 8px;
+  padding-bottom: 16px;
+  padding-top: 0;
   position: relative;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  border-radius: 3px;
-  background: ${theme('comment.bg')};
+  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); */
+  /* border-radius: 3px; */
+  /* background: ${theme('comment.bg')}; */
+  background: transparent;
+  border-bottom: 1px solid;
+  border-bottom-color: #0b4252;
 `
 // filter: blur(3px);
 export const CommentWrapper = styled.div`
@@ -25,7 +29,7 @@ export const CommentBodyInfo = styled.div`
   width: 100%;
 `
 export const CommentContent = styled.div`
-  font-size: 15px;
+  font-size: 14px;
 `
 export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};

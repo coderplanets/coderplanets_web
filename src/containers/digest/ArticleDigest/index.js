@@ -17,7 +17,7 @@ const ArticleDigestContainer = (props) => {
 
   return (
     <React.Fragment>
-      {!mobile ? <DesktopView {...props} /> : <MobileView {...props} />}
+      {mobile ? <MobileView {...props} /> : <DesktopView {...props} />}
     </React.Fragment>
   )
 }

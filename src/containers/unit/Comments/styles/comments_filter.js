@@ -8,18 +8,31 @@ export const FilterWraper = styled.div`
   margin-top: 8px;
   display: ${({ show }) => (show ? 'block' : 'none')};
   ${css.smokey};
+
+  ${css.media.mobile`
+    margin-right: 0;
+    margin-top: 2px;
+  `};
 `
 export const Header = styled.div`
-  ${css.flex()};
+  ${css.flex('align-center')};
   color: ${theme('comment.title')};
-`
 
+  ${css.media.mobile`
+    font-size: 13px;
+  `};
+`
 export const FilterIcon = styled(Img)`
   fill: ${theme('comment.title')};
   margin-right: 3px;
   width: 20px;
   height: 20px;
+  display: block;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
+  ${css.media.mobile`
+    width: 15px;
+    height: 15px;
+  `};
 `
 export const RecentlyIcon = styled(FilterIcon)``
 export const MenuWrapper = styled.div`

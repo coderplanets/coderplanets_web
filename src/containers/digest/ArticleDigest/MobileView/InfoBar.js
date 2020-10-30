@@ -11,16 +11,16 @@ import {
 const InfoBar = ({ viewingData, starLoading, favoriteLoading, showStar }) => {
   return (
     <Wrapper>
-      <AuthorInfo>
-        <Avatar src={viewingData.author?.avatar} />
-        <Name>{viewingData.author?.nickname}</Name>
-      </AuthorInfo>
       <ReactionNumbers
         data={viewingData}
         starLoading={starLoading}
         favoriteLoading={favoriteLoading}
         showStar={showStar}
       />
+      <AuthorInfo>
+        <Avatar src={viewingData.author?.avatar} />
+        <Name>{viewingData.author?.nickname}</Name>
+      </AuthorInfo>
     </Wrapper>
   )
 }
