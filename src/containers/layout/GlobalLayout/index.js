@@ -123,7 +123,7 @@ const GlobalLayoutContainer = ({
               </InnerWrapper>
             </React.Fragment>
           )}
-          <ModeLine />
+          <ModeLine metric={metric} />
         </Wrapper>
       </ThemePalette>
     </AnalysisService>

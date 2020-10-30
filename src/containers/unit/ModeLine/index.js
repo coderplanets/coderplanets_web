@@ -22,7 +22,7 @@ const log = buildLog('C:ModeLine')
 
 let BottomBar = null
 
-const ModeLineContainer = ({ modeLine: store }) => {
+const ModeLineContainer = ({ modeLine: store, metric }) => {
   useInit(store)
   const { showTop, viewing, activeMenu, isCommunityBlockExpand } = store
   // viewing: { community, activeThread },
@@ -38,6 +38,7 @@ const ModeLineContainer = ({ modeLine: store }) => {
       <TopBar visiable={showTop} viewing={viewing} />
       {BottomBar && mobile && (
         <BottomBar
+          metric={metric}
           activeMenu={activeMenu}
           isCommunityBlockExpand={isCommunityBlockExpand}
         />
@@ -48,8 +49,11 @@ const ModeLineContainer = ({ modeLine: store }) => {
 
 ModeLineContainer.propTypes = {
   modeLine: T.any.isRequired,
+  metric: T.oneOf(['default', 'article']),
 }
 
-ModeLineContainer.defaultProps = {}
+ModeLineContainer.defaultProps = {
+  metric: 'default',
+}
 
 export default connectStore(ModeLineContainer)

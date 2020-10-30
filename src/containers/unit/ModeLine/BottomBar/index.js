@@ -69,9 +69,8 @@ const artileMenus = [
   },
 ]
 
-const BottomBar = ({ testId, activeMenu, isCommunityBlockExpand }) => {
-  const type = 'article'
-  const menus = type === 'article' ? artileMenus : communityMenus
+const BottomBar = ({ testId, metric, activeMenu, isCommunityBlockExpand }) => {
+  const menus = metric === 'article' ? artileMenus : communityMenus
 
   return (
     <Wrapper testId={testId} isMenuActive={activeMenu !== ''}>
@@ -101,6 +100,7 @@ const BottomBar = ({ testId, activeMenu, isCommunityBlockExpand }) => {
 
 BottomBar.propTypes = {
   testId: T.string,
+  metric: T.oneOf(['default', 'article']),
   activeMenu: T.oneOf([
     TYPE.MM_TYPE.GLOBAL_MENU,
     TYPE.MM_TYPE.COMMUNITY,
@@ -115,6 +115,7 @@ BottomBar.propTypes = {
 
 BottomBar.defaultProps = {
   testId: 'modeline-bottom-bar',
+  metric: 'default',
   isCommunityBlockExpand: false,
 }
 
