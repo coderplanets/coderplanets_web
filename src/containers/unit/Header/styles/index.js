@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils'
-
 export const Wrapper = styled.header.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
@@ -9,6 +7,5 @@ export const Wrapper = styled.header.attrs((props) => ({
 `
 export const MobileWrapper = styled.div`
   width: 100%;
-  height: 6px;
-  background: ${theme('header.bg')};
+  height: 0px;
 `
