@@ -47,6 +47,16 @@ const ModeLine = T.model('ModeLine', {
     get isMenuActive() {
       return self.activeMenu !== ''
     },
+    get isArticleDigestInViewport() {
+      return self.root.articleDigest.inViewport
+    },
+    get isCommunityBlockExpand() {
+      const { isArticleDigestInViewport } = self
+
+      if (!isArticleDigestInViewport) return false
+
+      return true
+    },
   }))
   .actions((self) => ({
     showTopBar(bool) {

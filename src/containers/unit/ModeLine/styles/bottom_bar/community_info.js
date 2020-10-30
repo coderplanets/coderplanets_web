@@ -7,10 +7,12 @@ export const Wrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const Logo = styled(Img)`
-  width: 12px;
-  height: 12px;
+  width: ${({ isExpand }) => (isExpand ? '12px' : '14px')};
+  height: ${({ isExpand }) => (isExpand ? '12px' : '14px')};
   margin-top: -1px;
   display: block;
+  margin-right: ${({ isExpand }) => (isExpand ? '0' : '10px')};
+  transition: all 0.25s;
 `
 export const Title = styled.div`
   ${css.cutFrom('50px')};

@@ -38,14 +38,14 @@ const menus = [
   },
 ]
 
-const BottomBar = ({ testId, activeMenu }) => {
+const BottomBar = ({ testId, activeMenu, isCommunityBlockExpand }) => {
   return (
     <Wrapper testId={testId} isMenuActive={activeMenu !== ''}>
       <MenuBlock
         active={activeMenu === TYPE.MM_TYPE.GLOBAL_MENU}
         onClick={multiClick(() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
       />
-      <CommunityBlock />
+      <CommunityBlock isExpand={isCommunityBlockExpand} />
       <ItemsWrapper>
         {menus.map((item) => (
           <div key={item.raw} onClick={multiClick(() => openMenu(item.raw))}>
@@ -70,10 +70,12 @@ BottomBar.propTypes = {
     TYPE.MM_TYPE.MORE,
     '',
   ]).isRequired,
+  isCommunityBlockExpand: T.bool,
 }
 
 BottomBar.defaultProps = {
   testId: 'modeline-bottom-bar',
+  isCommunityBlockExpand: false,
 }
 
 export default BottomBar

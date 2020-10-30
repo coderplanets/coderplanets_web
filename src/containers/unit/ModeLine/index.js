@@ -24,9 +24,8 @@ let BottomBar = null
 
 const ModeLineContainer = ({ modeLine: store }) => {
   useInit(store)
-  const { showTop, viewing, activeMenu } = store
+  const { showTop, viewing, activeMenu, isCommunityBlockExpand } = store
   // viewing: { community, activeThread },
-
   const { mobile } = useMedia()
 
   useEffect(() => {
@@ -37,7 +36,12 @@ const ModeLineContainer = ({ modeLine: store }) => {
   return (
     <React.Fragment>
       <TopBar visiable={showTop} viewing={viewing} />
-      {BottomBar && mobile && <BottomBar activeMenu={activeMenu} />}
+      {BottomBar && mobile && (
+        <BottomBar
+          activeMenu={activeMenu}
+          isCommunityBlockExpand={isCommunityBlockExpand}
+        />
+      )}
     </React.Fragment>
   )
 }
