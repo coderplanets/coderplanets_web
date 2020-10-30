@@ -242,6 +242,12 @@ const rootStore = T.model({
     get viewingData() {
       return self.viewing.viewingData
     },
+    get viewingArticle() {
+      const { viewing } = self
+      const { activeThread } = viewing
+
+      return viewing[activeThread]
+    },
     get curRoute() {
       return self.route.curRoute
     },

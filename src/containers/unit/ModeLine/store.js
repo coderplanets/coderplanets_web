@@ -23,6 +23,9 @@ const ModeLine = T.model('ModeLine', {
     get viewing() {
       return stripMobx(self.root.viewing)
     },
+    get viewingArticle() {
+      return stripMobx(self.root.viewingArticle)
+    },
     get leftOffset() {
       const curSidebarPin = self.root.sidebar.pin
       if (

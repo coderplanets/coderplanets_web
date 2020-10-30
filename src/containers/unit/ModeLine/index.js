@@ -26,7 +26,13 @@ let BottomBar = null
 
 const ModeLineContainer = ({ modeLine: store, metric }) => {
   useInit(store)
-  const { showTop, viewing, activeMenu, isCommunityBlockExpand } = store
+  const {
+    showTop,
+    viewing,
+    viewingArticle,
+    activeMenu,
+    isCommunityBlockExpand,
+  } = store
   // viewing: { community, activeThread },
   const { mobile } = useMedia()
 
@@ -41,6 +47,7 @@ const ModeLineContainer = ({ modeLine: store, metric }) => {
       {BottomBar && mobile && (
         <BottomBar
           metric={metric}
+          article={viewingArticle}
           activeMenu={activeMenu}
           isCommunityBlockExpand={isCommunityBlockExpand}
         />

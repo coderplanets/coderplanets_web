@@ -24,18 +24,16 @@ export const communityPageMenus = [
   },
 ]
 
-export const articlePageMenus = [
+const articlePageMenus = [
   {
     title: '喜欢',
     raw: TYPE.MM_TYPE.FILTER,
     icon: `${ICON}/article/heart.svg`,
-    desc: '喜欢 21',
   },
   {
     title: '评论',
     raw: TYPE.MM_TYPE.SEARCH,
     icon: `${ICON}/article/comment-modeline.svg`,
-    desc: '评论 49',
   },
   {
     title: '收藏',
@@ -48,3 +46,13 @@ export const articlePageMenus = [
     icon: `${ICON}/more.svg`,
   },
 ]
+
+export const getArticlePageMenus = (article) => {
+  if (!article) return articlePageMenus
+
+  const articlePageMenusData = [...articlePageMenus]
+  articlePageMenusData[0].desc = `${articlePageMenusData[0].title} ${article.starredCount}`
+  articlePageMenusData[1].desc = `${articlePageMenusData[0].title} ${article.commentsCount}`
+
+  return articlePageMenusData
+}

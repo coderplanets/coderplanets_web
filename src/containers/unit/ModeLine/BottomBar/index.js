@@ -20,11 +20,19 @@ import {
 } from '../styles/bottom_bar'
 
 import { openMenu } from '../logic'
-import { communityPageMenus, articlePageMenus } from './menus'
+import { communityPageMenus, getArticlePageMenus } from './menus'
 
-const BottomBar = ({ testId, metric, activeMenu, isCommunityBlockExpand }) => {
+const BottomBar = ({
+  testId,
+  metric,
+  article,
+  activeMenu,
+  isCommunityBlockExpand,
+}) => {
   const menus =
-    metric === METRIC.ARTICLE ? articlePageMenus : communityPageMenus
+    metric === METRIC.ARTICLE
+      ? getArticlePageMenus(article)
+      : communityPageMenus
 
   return (
     <Wrapper testId={testId} isMenuActive={activeMenu !== ''}>
@@ -55,6 +63,7 @@ const BottomBar = ({ testId, metric, activeMenu, isCommunityBlockExpand }) => {
 BottomBar.propTypes = {
   testId: T.string,
   metric: T.oneOf(values(METRIC)).isRequired,
+  article: T.any, // TODO
   activeMenu: T.oneOf([
     TYPE.MM_TYPE.GLOBAL_MENU,
     TYPE.MM_TYPE.COMMUNITY,
@@ -70,6 +79,7 @@ BottomBar.propTypes = {
 BottomBar.defaultProps = {
   testId: 'modeline-bottom-bar',
   isCommunityBlockExpand: false,
+  article: null,
 }
 
 export default BottomBar
