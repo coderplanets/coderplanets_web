@@ -81,6 +81,7 @@
     "graphql-voyager": "^1.0.0-rc.31",
     "js-cookie": "^2.2.0",
     "mastani-codehighlight": "0.0.7",
+    "mobile-device-detect": "^0.4.3",
     "mobx": "6.0.1",
     "mobx-react": "7.0.0",
     "mobx-react-lite": "3.0.1",
