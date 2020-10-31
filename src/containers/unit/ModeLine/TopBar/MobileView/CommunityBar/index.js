@@ -10,10 +10,10 @@ import {
   InnerWrapper,
   TabsWrapper,
   TagWrapper,
-} from '../styles/top_bar/mobile_view'
-import { tabOnChange } from '../logic'
+} from '../../../styles/top_bar/mobile_view/community_bar'
+import { tabOnChange } from '../../../logic'
 
-const MobileView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
+const CommunityBar = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
   const { community, activeThread } = viewing
 
   return (
@@ -42,4 +42,4 @@ const MobileView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
   )
 }
 
-export default React.memo(MobileView)
+export default React.memo(CommunityBar)

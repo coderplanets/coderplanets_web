@@ -13,6 +13,7 @@ import MobileView from './MobileView/index'
 
 const ArticleDigestContainer = (props) => {
   const { mobile } = useMedia()
+  console.log('ArticleDigest mobile: ', mobile)
 
   return (
     <React.Fragment>
