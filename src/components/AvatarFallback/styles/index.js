@@ -10,10 +10,14 @@ export const Wrapper = styled.div.attrs((props) => ({
   color: ${theme('thread.articleTitle')};
   width: ${({ width }) => width};
   height: ${({ width }) => width};
-  /* margin-bottom: 2px;
-  margin-right: 10px; */
   font-size: 10px;
   background: #074857;
+  border-radius: 100%;
+
+  margin-top: ${({ top }) => top};
+  margin-bottom: ${({ bottom }) => bottom};
+  margin-left: ${({ left }) => left};
+  margin-right: ${({ right }) => right};
 `
 export const Name = styled.div`
   font-size: 10px;
