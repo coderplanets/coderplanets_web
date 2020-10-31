@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ICON } from '@/config'
 
+import AvatarFallback from '@/components/AvatarFallback'
 import { Space } from '@/components/Common'
 import {
   Wrapper,
@@ -44,7 +45,10 @@ const StateInfo = ({ article, author }) => {
         </Item>
       </Section>
       <AuthorWrapper>
-        <Avatar src={`${author.avatar}`} />
+        <Avatar
+          src={`${author.avatar}`}
+          fallback={<AvatarFallback width="14px" title={author.nickname} />}
+        />
         <Nickname>{author.nickname}</Nickname>
       </AuthorWrapper>
     </Wrapper>
