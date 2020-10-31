@@ -116,10 +116,11 @@ const DataSolver = [
   },
 ]
 
-export const useInit = (_store) => {
+export const useInit = (_store, metric) => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)
+    store.mark({ metric })
     sub$ = sr71$.data().subscribe($solver(DataSolver, []))
 
     return () => {

@@ -35,11 +35,15 @@ const useMedia = (/* { breakpoint } */) => {
       }
     }
 
-    handleResize()
-    Global.addEventListener('resize', debounce(handleResize, 200))
+    // handleResize()
+    const checkHandler = debounce(handleResize, 200)
+
+    Global.addEventListener('resize', checkHandler)
+    Global.addEventListener('load', checkHandler)
 
     return () => {
-      Global.removeEventListener('resize', handleResize)
+      Global.removeEventListener('resize', checkHandler)
+      Global.removeEventListener('load', checkHandler)
     }
   }, [])
 

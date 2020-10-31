@@ -6,7 +6,7 @@ import {
   InnerWrapper,
   Dot,
   Title,
-} from '../styles/top_bar/tag_block'
+} from '../../../styles/top_bar/mobile_view/community_bar/tag_block'
 
 const TagBlock = () => {
   const bgColor = '#072d3b'

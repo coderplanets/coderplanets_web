@@ -6,15 +6,16 @@
 import { types as T, getParent } from 'mobx-state-tree'
 import { values } from 'ramda'
 
-import { TYPE } from '@/constant'
+import { TYPE, METRIC } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ModeLine')
 
 const ModeLine = T.model('ModeLine', {
-  showTop: T.optional(T.boolean, false),
+  topBarVisiable: T.optional(T.boolean, false),
   activeMenu: T.optional(T.enumeration([...values(TYPE.MM_TYPE), '']), ''),
+  metric: T.optional(T.enumeration(values(METRIC)), METRIC.COMMUNITY),
 })
   .views((self) => ({
     get root() {
@@ -22,6 +23,20 @@ const ModeLine = T.model('ModeLine', {
     },
     get viewing() {
       return stripMobx(self.root.viewing)
+    },
+    get isTopBarVisiable() {
+      const { topBarVisiable, metric, isArticleDigestInViewport } = self
+      const { bodyScrollDirection } = self.root.globalLayout
+
+      if (metric === METRIC.COMMUNITY) return topBarVisiable
+
+      if (isArticleDigestInViewport) return false
+
+      if (bodyScrollDirection === 'up') {
+        return false
+      }
+
+      return true
     },
     get viewingArticle() {
       return stripMobx(self.root.viewingArticle)
@@ -63,7 +78,7 @@ const ModeLine = T.model('ModeLine', {
   }))
   .actions((self) => ({
     showTopBar(bool) {
-      self.showTop = bool
+      self.topBarVisiable = bool
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)

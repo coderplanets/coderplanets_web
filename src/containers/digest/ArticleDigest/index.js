@@ -11,7 +11,7 @@ import { useMedia } from '@/hooks'
 import DesktopView from './DesktopView/index'
 import MobileView from './MobileView/index'
 
-const ArticleDigestContainer = (props) => {
+const ArticleDigest = (props) => {
   const { mobile } = useMedia()
 
   return (
@@ -21,4 +21,4 @@ const ArticleDigestContainer = (props) => {
   )
 }
 
-export default ArticleDigestContainer
+export default React.memo(ArticleDigest)

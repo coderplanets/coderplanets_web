@@ -2,6 +2,8 @@ import React from 'react'
 import { forEach, clone, pluck } from 'ramda'
 
 import { useMedia } from '@/hooks'
+
+import AvatarFallback from '@/components/AvatarFallback'
 import AvatarsRow from '@/components/AvatarsRow'
 import DotDivider from '@/components/DotDivider'
 
@@ -33,7 +35,16 @@ const CommentHeader = ({ data }) => {
 
   return (
     <Wrapper>
-      <Avatar src={data.author.avatar} />
+      <Avatar
+        src={data.author.avatar}
+        fallback={
+          <AvatarFallback
+            width="22px"
+            right="20px"
+            title={data.author?.nickname}
+          />
+        }
+      />
       <HeaderBaseInfo>
         <CommentHeaderFirst>
           <CommentUserName>

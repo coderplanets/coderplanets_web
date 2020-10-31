@@ -25,9 +25,9 @@ const log = buildLog('C:ModeLine')
 let BottomBar = null
 
 const ModeLineContainer = ({ modeLine: store, metric }) => {
-  useInit(store)
+  useInit(store, metric)
   const {
-    showTop,
+    isTopBarVisiable,
     viewing,
     viewingArticle,
     activeMenu,
@@ -43,7 +43,12 @@ const ModeLineContainer = ({ modeLine: store, metric }) => {
 
   return (
     <React.Fragment>
-      <TopBar visiable={showTop} viewing={viewing} />
+      <TopBar
+        metric={metric}
+        visiable={isTopBarVisiable}
+        viewing={viewing}
+        viewingArticle={viewingArticle}
+      />
       {BottomBar && mobile && (
         <BottomBar
           metric={metric}

@@ -11,19 +11,6 @@ import {
 
 import { tabOnChange } from '../logic'
 
-// different view has different size
-// const METRIC_MAP = {
-//   default: {
-//     maxWidth: css.MAX_CONTENT_WIDTH,
-//     padding: '0 6vw',
-//   },
-
-//   article: {
-//     maxWidth: css.ARTICLE_PAGE_MAX_WIDTH,
-//     padding: '0 5vw',
-//   },
-// }
-
 const DesktopView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
   const { community, activeThread } = viewing
 
