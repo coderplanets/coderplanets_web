@@ -7,7 +7,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { buildLog } from '@/utils'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
@@ -16,6 +17,8 @@ import MobileView from './MobileView'
 const log = buildLog('c:ContentSourceCard:index')
 
 const ContentSourceCard = (props) => {
+  const { isMobile } = useDevice()
+
   return (
     <React.Fragment>
       {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}

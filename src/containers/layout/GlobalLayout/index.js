@@ -10,8 +10,8 @@ import { values } from 'ramda'
 
 import { ANCHOR, ROUTE, METRIC } from '@/constant'
 import AnalysisService from '@/services/Analysis'
-import { useNetwork, useShortcut, usePlatform } from '@/hooks'
-import { connectStore, isMobile } from '@/utils'
+import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
+import { connectStore } from '@/utils'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
@@ -51,6 +51,7 @@ const GlobalLayoutContainer = ({
 }) => {
   const { online } = useNetwork()
   const platform = usePlatform()
+  const { isMobile } = useDevice()
 
   // load debug graph
   useEffect(() => logBuddha(), [])

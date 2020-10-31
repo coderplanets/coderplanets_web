@@ -6,12 +6,14 @@
 
 import React from 'react'
 
-import { isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 
 const PostContentContainer = () => {
+  const { isMobile } = useDevice()
+
   return (
     <React.Fragment>
       {!isMobile ? <DesktopView /> : <MobileView />}

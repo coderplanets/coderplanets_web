@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
 import EmailSubscriber from '@/components/EmailSubscriber'
 
 import SocialList from '../../SocialList'
@@ -10,6 +10,8 @@ import {
 } from '../../styles/desktop_view/digest_view/contact_bar'
 
 const ContactBar = ({ layout }) => {
+  const { isMobile } = useDevice()
+
   return (
     <Wrapper>
       <InnerWrapper layout={layout} isMobile={isMobile}>

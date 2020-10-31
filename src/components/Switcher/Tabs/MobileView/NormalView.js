@@ -9,7 +9,8 @@ import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
 import { ICON } from '@/config'
-import { buildLog, isString, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { buildLog, isString } from '@/utils'
 
 import TabItem from '../TabItem'
 import {
@@ -52,6 +53,8 @@ const MobileView = ({
   slipHeight,
   toggleExpand,
 }) => {
+  const { isMobile } = useDevice()
+
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)

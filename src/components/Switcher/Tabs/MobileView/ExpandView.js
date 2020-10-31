@@ -8,7 +8,8 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
-import { buildLog, isString, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { buildLog, isString } from '@/utils'
 
 import TabItem from '../TabItem'
 import {
@@ -22,6 +23,8 @@ import {
 const log = buildLog('c:Tabs:index')
 
 const MobileView = ({ size, onChange, items, activeKey, toggleExpand }) => {
+  const { isMobile } = useDevice()
+
   const [tabWidthList, setTabWidthList] = useState([])
   const [showMore, setShowMore] = useState(false)
   const navRef = useRef(null)

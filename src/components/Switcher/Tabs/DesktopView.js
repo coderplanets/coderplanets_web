@@ -8,7 +8,8 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
-import { buildLog, isString, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
 import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'
@@ -46,6 +47,8 @@ const getDefaultActiveTabIndex = (items, activeKey) => {
 }
 
 const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
+  const { isMobile } = useDevice()
+
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)

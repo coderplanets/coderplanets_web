@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
 
 import { Space } from '@/components/Common'
 
@@ -16,6 +16,8 @@ import {
 import { toggleActionPanel } from '../logic'
 
 const Actions = ({ showReferenceList, showOperationList }) => {
+  const { isMobile } = useDevice()
+
   return (
     <Wrapper>
       <Item onClick={() => toggleActionPanel('reference-list')}>

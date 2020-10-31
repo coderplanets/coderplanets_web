@@ -7,7 +7,8 @@
 import React from 'react'
 
 import { ROUTE, C11N } from '@/constant'
-import { connectStore, buildLog, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { connectStore, buildLog } from '@/utils'
 
 import PostsThread from '@/containers//thread/PostsThread'
 import VideosThread from '@/containers/thread/VideosThread'
@@ -51,6 +52,7 @@ const ComunityContent = ({ curRoute }) => {
 
 const CommunityContentContainer = ({ communityContent: store }) => {
   useInit(store)
+  const { isMobile } = useDevice()
 
   const {
     curRoute,

@@ -7,7 +7,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { buildLog } from '@/utils'
 
 import Charger from '@/components/Charger'
 import SubscribedTitle from './SubscribedTitle'
@@ -43,6 +44,7 @@ const CommunityStatesPad = ({
     jobsCount,
     viewerHasSubscribed,
   } = community
+  const { isMobile } = useDevice()
 
   const contentsCount = postsCount + videosCount + reposCount + jobsCount
 

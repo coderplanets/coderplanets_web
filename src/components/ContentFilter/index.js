@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { buildLog, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { buildLog } from '@/utils'
 
 import DesktopView from './DesktopView'
 
@@ -14,6 +15,8 @@ import DesktopView from './DesktopView'
 const log = buildLog('c:ContentFilter:index')
 
 const ContentFilter = (props) => {
+  const { isMobile } = useDevice()
+
   return (
     <React.Fragment>{!isMobile && <DesktopView {...props} />}</React.Fragment>
   )

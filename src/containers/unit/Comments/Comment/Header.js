@@ -1,7 +1,7 @@
 import React from 'react'
 import { forEach, clone, pluck } from 'ramda'
 
-import { isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
 
 import AvatarFallback from '@/components/AvatarFallback'
 import AvatarsRow from '@/components/AvatarsRow'
@@ -31,6 +31,8 @@ const getAuthors = (comment) => {
 }
 
 const CommentHeader = ({ data }) => {
+  const { isMobile } = useDevice()
+
   return (
     <Wrapper>
       <Avatar

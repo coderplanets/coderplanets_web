@@ -3,7 +3,7 @@ import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { NON_FILL_COMMUNITY } from '@/constant'
-import { isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
 
 import VerifiedSign from '@/components/VerifiedSign'
 import TabBar from '@/components/TabBar'
@@ -74,6 +74,8 @@ const CommunityBrief = ({ content, descExpand }) => {
 }
 
 const ColumnView = ({ community, descExpand, activeThread, layout }) => {
+  const { isMobile } = useDevice()
+
   return (
     <Wrapper
       descExpand={descExpand}

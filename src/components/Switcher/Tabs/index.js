@@ -8,7 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 
 import { VIEW } from '@/constant'
-import { buildLog, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { buildLog } from '@/utils'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
@@ -19,6 +20,8 @@ import CardView from './CardView'
 const log = buildLog('c:Tabs:index')
 
 const Tabs = (props) => {
+  const { isMobile } = useDevice()
+
   const { view } = props
 
   const curMedia = isMobile ? VIEW.MOBILE : VIEW.DESKTOP

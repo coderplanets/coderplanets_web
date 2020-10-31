@@ -1,12 +1,14 @@
 import React from 'react'
 
 import { C11N } from '@/constant'
-import { isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
 
 import ColumnView from './ColumnView'
 import RowView from './RowView'
 
 const DigestView = ({ layout, ...rest }) => {
+  const { isMobile } = useDevice()
+
   if (isMobile) {
     return <ColumnView {...rest} />
   }

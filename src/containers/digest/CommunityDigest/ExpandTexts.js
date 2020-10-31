@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { cutFrom, isMobile } from '@/utils'
+import { useDevice } from '@/hooks'
+import { cutFrom } from '@/utils'
 
 import {
   Wrapper,
@@ -19,6 +20,7 @@ const text =
   '全球疫情催生了很多断章取义的新闻，我发现各路媒体现在特别会抓网民的爽点深谙撩拨之道，知道哪里轻轻一碰，就会引发高潮。美国和欧洲在疫情早期判断错误，死硬到底拒不管制，现在被现实打脸纷纷封城，这种剧情反转的打脸情节特别爽，以至于这条“巴西黑帮封城”的新闻.'
 
 const ExpandTexts = ({ descExpand }) => {
+  const { isMobile } = useDevice()
   const cutLength = !isMobile ? 26 : 10
 
   return (
