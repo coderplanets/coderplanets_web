@@ -12,8 +12,7 @@ import dynamic from 'next/dynamic'
 import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
-import { useMedia } from '@/hooks'
-import { connectStore, buildLog } from '@/utils'
+import { connectStore, buildLog, isMobile } from '@/utils'
 
 import TopBar from './TopBar'
 
@@ -34,12 +33,10 @@ const ModeLineContainer = ({ modeLine: store, metric }) => {
     isCommunityBlockExpand,
   } = store
   // viewing: { community, activeThread },
-  const { mobile } = useMedia()
-
   useEffect(() => {
     // only load BottomBar on mobile view
     BottomBar = dynamic(() => import('./BottomBar'), { ssr: false })
-  }, [mobile])
+  }, [])
 
   return (
     <React.Fragment>
@@ -49,7 +46,7 @@ const ModeLineContainer = ({ modeLine: store, metric }) => {
         viewing={viewing}
         viewingArticle={viewingArticle}
       />
-      {BottomBar && mobile && (
+      {BottomBar && isMobile && (
         <BottomBar
           metric={metric}
           article={viewingArticle}

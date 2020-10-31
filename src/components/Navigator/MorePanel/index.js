@@ -1,16 +1,14 @@
 import React from 'react'
 
-import { useMedia } from '@/hooks'
+import { isMobile } from '@/utils'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 
 const MoreContent = () => {
-  const { mobile } = useMedia()
-
   return (
     <React.Fragment>
-      {!mobile ? <DesktopView /> : <MobileView />}
+      {!isMobile ? <DesktopView /> : <MobileView />}
     </React.Fragment>
   )
 }

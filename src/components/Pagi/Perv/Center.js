@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { useMedia } from '@/hooks'
+import { isMobile } from '@/utils'
 
 import {
   Wrapper,
@@ -13,8 +13,7 @@ import {
 } from '../styles/perv/center'
 
 const Center = ({ disabled, pageNumber, onChange }) => {
-  const { mobile } = useMedia()
-  const iconSrc = !mobile
+  const iconSrc = !isMobile
     ? `${ICON}/shape/arrow.svg`
     : `${ICON}/shape/arrow-simple.svg`
 

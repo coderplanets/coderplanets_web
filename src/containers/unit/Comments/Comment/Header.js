@@ -1,7 +1,7 @@
 import React from 'react'
 import { forEach, clone, pluck } from 'ramda'
 
-import { useMedia } from '@/hooks'
+import { isMobile } from '@/utils'
 
 import AvatarFallback from '@/components/AvatarFallback'
 import AvatarsRow from '@/components/AvatarsRow'
@@ -31,8 +31,6 @@ const getAuthors = (comment) => {
 }
 
 const CommentHeader = ({ data }) => {
-  const { mobile } = useMedia()
-
   return (
     <Wrapper>
       <Avatar
@@ -52,7 +50,7 @@ const CommentHeader = ({ data }) => {
             <DotDivider radius="3px" space="10px" />
             <FloorNum>#{data.floor}</FloorNum>
           </CommentUserName>
-          {!mobile && data.repliesCount !== 0 && (
+          {!isMobile && data.repliesCount !== 0 && (
             <ReplyUsers>
               <ReplyTitle>收到回复:</ReplyTitle>
               <AvatarsRow

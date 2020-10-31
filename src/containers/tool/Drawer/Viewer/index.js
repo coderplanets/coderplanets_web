@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
-import { useMedia } from '@/hooks'
+import { isMobile } from '@/utils'
 
 let CurrentView = null
 
@@ -10,15 +10,13 @@ let CurrentView = null
  * @returns
  */
 const Viewer = (props) => {
-  const { mobile } = useMedia()
-
   useEffect(() => {
-    if (!mobile) {
+    if (!isMobile) {
       CurrentView = dynamic(() => import('./DesktopView'), { ssr: false })
     } else {
       CurrentView = dynamic(() => import('./MobileView'), { ssr: false })
     }
-  }, [mobile])
+  }, [])
 
   return (
     <React.Fragment>{CurrentView && <CurrentView {...props} />}</React.Fragment>

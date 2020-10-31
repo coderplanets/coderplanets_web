@@ -7,8 +7,7 @@
 import React from 'react'
 
 import { ROUTE, C11N } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
-import { useMedia } from '@/hooks'
+import { connectStore, buildLog, isMobile } from '@/utils'
 
 import PostsThread from '@/containers//thread/PostsThread'
 import VideosThread from '@/containers/thread/VideosThread'
@@ -52,7 +51,6 @@ const ComunityContent = ({ curRoute }) => {
 
 const CommunityContentContainer = ({ communityContent: store }) => {
   useInit(store)
-  const { mobile } = useMedia()
 
   const {
     curRoute,
@@ -61,7 +59,7 @@ const CommunityContentContainer = ({ communityContent: store }) => {
     },
   } = store
 
-  const isCardView = !mobile && bannerLayout === C11N.DIGEST_ROW
+  const isCardView = !isMobile && bannerLayout === C11N.DIGEST_ROW
 
   return (
     <Wrapper testId="community-content">

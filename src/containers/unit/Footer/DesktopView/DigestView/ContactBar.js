@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useMedia } from '@/hooks'
+import { isMobile } from '@/utils'
 import EmailSubscriber from '@/components/EmailSubscriber'
 
 import SocialList from '../../SocialList'
@@ -10,13 +10,11 @@ import {
 } from '../../styles/desktop_view/digest_view/contact_bar'
 
 const ContactBar = ({ layout }) => {
-  const { mobile } = useMedia()
-
   return (
     <Wrapper>
-      <InnerWrapper layout={layout} mobile={mobile}>
+      <InnerWrapper layout={layout} mobile={isMobile}>
         <SocialList />
-        {!mobile && (
+        {!isMobile && (
           <EmailSubscriber type="simple" placeholder="订阅社区动态" />
         )}
       </InnerWrapper>

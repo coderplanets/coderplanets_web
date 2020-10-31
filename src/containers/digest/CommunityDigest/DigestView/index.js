@@ -1,15 +1,13 @@
 import React from 'react'
 
 import { C11N } from '@/constant'
-import { useMedia } from '@/hooks'
+import { isMobile } from '@/utils'
 
 import ColumnView from './ColumnView'
 import RowView from './RowView'
 
 const DigestView = ({ layout, ...rest }) => {
-  const { mobile } = useMedia()
-
-  if (mobile) {
+  if (isMobile) {
     return <ColumnView {...rest} />
   }
 

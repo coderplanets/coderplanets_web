@@ -9,10 +9,9 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { ANCHOR, ROUTE, METRIC } from '@/constant'
-import { connectStore } from '@/utils'
 import AnalysisService from '@/services/Analysis'
-
-import { useNetwork, useShortcut, useMedia, usePlatform } from '@/hooks'
+import { useNetwork, useShortcut, usePlatform } from '@/hooks'
+import { connectStore, isMobile } from '@/utils'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
@@ -51,13 +50,12 @@ const GlobalLayoutContainer = ({
   metric,
 }) => {
   const { online } = useNetwork()
-  const media = useMedia()
   const platform = usePlatform()
 
   // load debug graph
   useEffect(() => logBuddha(), [])
 
-  useInit(store, { online, media, platform })
+  useInit(store, { online, platform })
   useShortcut('Control+P', openDoraemon)
 
   const {
@@ -110,10 +108,7 @@ const GlobalLayoutContainer = ({
                     >
                       <div>
                         <Header metric={metric} />
-                        <BodyWrapper
-                          layout={bannerLayout}
-                          mobile={media.mobile}
-                        >
+                        <BodyWrapper layout={bannerLayout} mobile={isMobile}>
                           {children}
                         </BodyWrapper>
                         <Footer metric={metric} />

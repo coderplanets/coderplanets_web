@@ -8,8 +8,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
-import { useMedia } from '@/hooks'
-import { buildLog, isString } from '@/utils'
+import { buildLog, isString, isMobile } from '@/utils'
 
 import TabItem from './TabItem'
 import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'
@@ -47,8 +46,6 @@ const getDefaultActiveTabIndex = (items, activeKey) => {
 }
 
 const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
-  const { mobile } = useMedia()
-
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)
@@ -92,7 +89,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
 
   const translateX = `${
     tabWidthList.slice(0, active).reduce((a, b) => a + b, 0) +
-    getSlipMargin(size, mobile) * active
+    getSlipMargin(size, isMobile) * active
   }px`
 
   return (
@@ -101,7 +98,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
         {items.map((item, index) => (
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
-            mobileView={mobile}
+            mobileView={isMobile}
             activeKey={activeKey}
             index={index}
             item={item}

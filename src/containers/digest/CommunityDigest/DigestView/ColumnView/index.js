@@ -3,7 +3,7 @@ import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { NON_FILL_COMMUNITY } from '@/constant'
-import { useMedia } from '@/hooks'
+import { isMobile } from '@/utils'
 
 import VerifiedSign from '@/components/VerifiedSign'
 import TabBar from '@/components/TabBar'
@@ -74,18 +74,16 @@ const CommunityBrief = ({ content, descExpand }) => {
 }
 
 const ColumnView = ({ community, descExpand, activeThread, layout }) => {
-  const { mobile } = useMedia()
-
   return (
     <Wrapper
       descExpand={descExpand}
       noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
-      mobile={mobile}
+      mobile={isMobile}
     >
       <InnerWrapper
         descExpand={descExpand}
         noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
-        mobile={mobile}
+        mobile={isMobile}
       >
         <BannerContentWrapper descExpand={descExpand}>
           <CommunityBaseInfo>
