@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { useMedia } from '@/hooks'
+import { useDevice } from '@/hooks'
 import { buildLog } from '@/utils'
 
 import Charger from '@/components/Charger'
@@ -35,8 +35,6 @@ const CommunityStatesPad = ({
   onShowSubscriberList,
   withoutFounding,
 }) => {
-  const { mobile } = useMedia()
-
   const {
     editorsCount,
     subscribersCount,
@@ -46,13 +44,14 @@ const CommunityStatesPad = ({
     jobsCount,
     viewerHasSubscribed,
   } = community
+  const { isMobile } = useDevice()
 
   const contentsCount = postsCount + videosCount + reposCount + jobsCount
 
   return (
     <Wrapper>
       <NumberSection active={viewerHasSubscribed}>
-        {!mobile && (
+        {!isMobile && (
           <SubscribedTitle
             community={community}
             onSubscribe={onSubscribe}

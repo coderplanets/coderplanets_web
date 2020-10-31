@@ -6,19 +6,19 @@
 
 import React from 'react'
 
-import { useMedia } from '@/hooks'
+import { useDevice } from '@/hooks'
 
 import DesktopView from './DesktopView/index'
 import MobileView from './MobileView/index'
 
 const ArticleDigest = (props) => {
-  const { mobile } = useMedia()
+  const { isMobile } = useDevice()
 
   return (
-    <React.Fragment>
-      {mobile ? <MobileView {...props} /> : <DesktopView {...props} />}
+    <React.Fragment key={isMobile}>
+      {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
     </React.Fragment>
   )
 }
 
-export default React.memo(ArticleDigest)
+export default ArticleDigest

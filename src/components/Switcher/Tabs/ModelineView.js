@@ -8,7 +8,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
-import { useMedia } from '@/hooks'
+import { useDevice } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
@@ -43,7 +43,7 @@ const getDefaultActiveTabIndex = (items, activeKey) => {
 }
 
 const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
-  const { mobile } = useMedia()
+  const { isMobile } = useDevice()
 
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
@@ -88,7 +88,7 @@ const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
 
   const translateX = `${
     tabWidthList.slice(0, active).reduce((a, b) => a + b, 0) +
-    getSlipMargin(size, mobile) * active
+    getSlipMargin(size, isMobile) * active
   }px`
 
   return (
@@ -97,7 +97,7 @@ const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
         {items.map((item, index) => (
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
-            mobileView={mobile}
+            mobileView={isMobile}
             activeKey={activeKey}
             index={index}
             item={item}

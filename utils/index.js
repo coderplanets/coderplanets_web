@@ -132,3 +132,5 @@ export { default as css } from './css'
 export { default as BStore } from './bstore'
 export { Trans } from './i18n'
 export { default as GA } from './analytics'
+
+export { isMobile } from './device'

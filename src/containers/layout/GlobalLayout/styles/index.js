@@ -33,8 +33,8 @@ export const InnerWrapper = styled.div`
 `
 export const BodyWrapper = styled.div`
   display: flex;
-  flex-direction: ${({ layout, mobile }) => {
-    if (mobile) return 'column'
+  flex-direction: ${({ layout, isMobile }) => {
+    if (isMobile) return 'column'
     return layout === C11N.DIGEST ? 'column' : 'row'
   }};
 `

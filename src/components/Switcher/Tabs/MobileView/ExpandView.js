@@ -8,7 +8,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
-import { useMedia } from '@/hooks'
+import { useDevice } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from '../TabItem'
@@ -23,7 +23,7 @@ import {
 const log = buildLog('c:Tabs:index')
 
 const MobileView = ({ size, onChange, items, activeKey, toggleExpand }) => {
-  const { mobile } = useMedia()
+  const { isMobile } = useDevice()
 
   const [tabWidthList, setTabWidthList] = useState([])
   const [showMore, setShowMore] = useState(false)
@@ -69,7 +69,7 @@ const MobileView = ({ size, onChange, items, activeKey, toggleExpand }) => {
         {items.map((item, index) => (
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
-            mobileView={mobile}
+            mobileView={isMobile}
             activeKey={activeKey}
             index={index}
             item={item}

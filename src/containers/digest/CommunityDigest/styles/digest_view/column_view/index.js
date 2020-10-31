@@ -7,22 +7,22 @@ import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 import { BaseBanner } from '../../index'
 
-const getMinHeight = (noSocial, mobile) => {
-  if (mobile) {
+const getMinHeight = (noSocial, isMobile) => {
+  if (isMobile) {
     return noSocial ? '112px' : '140px'
   }
 
   return noSocial ? '128px' : '150px'
 }
 export const Wrapper = styled(BaseBanner)`
-  min-height: ${({ descExpand, noSocial, mobile }) =>
-    descExpand ? '300px' : getMinHeight(noSocial, mobile)};
+  min-height: ${({ descExpand, noSocial, isMobile }) =>
+    descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
 `
 export const InnerWrapper = styled.div`
   ${css.flex('justify-center')};
   padding-top: 20px;
-  min-height: ${({ descExpand, noSocial, mobile }) =>
-    descExpand ? '300px' : getMinHeight(noSocial, mobile)};
+  min-height: ${({ descExpand, noSocial, isMobile }) =>
+    descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
   width: 100%;
   max-width: ${css.MAX_CONTENT_WIDTH};
   transition: min-height 0.25s;

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { useMedia } from '@/hooks'
+import { useDevice } from '@/hooks'
 
 import {
   Wrapper,
@@ -13,8 +13,9 @@ import {
 } from '../styles/next/bottom'
 
 const Bottom = ({ disabled, pageNumber, onChange }) => {
-  const { mobile } = useMedia()
-  const iconSrc = !mobile
+  const { isMobile } = useDevice()
+
+  const iconSrc = !isMobile
     ? `${ICON}/shape/arrow.svg`
     : `${ICON}/shape/arrow-simple.svg`
 

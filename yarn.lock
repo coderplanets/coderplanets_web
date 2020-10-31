@@ -8633,6 +8633,10 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/mkdirp/download/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
 
+mobile-device-detect@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.npm.taobao.org/mobile-device-detect/download/mobile-device-detect-0.4.3.tgz#05d73b4bde7ccb5beda1c4bd0ea0986ce30b1f3f"
+
 mobx-react-lite@3.0.1, mobx-react-lite@^3.0.0:
   version "3.0.1"
   resolved "https://registry.npm.taobao.org/mobx-react-lite/download/mobx-react-lite-3.0.1.tgz#417f54a819d1e3e00c073077f29373399c95b005"

@@ -8,8 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 
 import { VIEW } from '@/constant'
+import { useDevice } from '@/hooks'
 import { buildLog } from '@/utils'
-import { useMedia } from '@/hooks'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
@@ -20,10 +20,11 @@ import CardView from './CardView'
 const log = buildLog('c:Tabs:index')
 
 const Tabs = (props) => {
-  const { mobile } = useMedia()
+  const { isMobile } = useDevice()
+
   const { view } = props
 
-  const curMedia = mobile ? VIEW.MOBILE : VIEW.DESKTOP
+  const curMedia = isMobile ? VIEW.MOBILE : VIEW.DESKTOP
   const curView = view === 'auto' ? curMedia : view
 
   switch (curView) {

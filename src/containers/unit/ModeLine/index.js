@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic'
 import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
-import { useMedia } from '@/hooks'
+import { useDevice } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
 import TopBar from './TopBar'
@@ -33,13 +33,13 @@ const ModeLineContainer = ({ modeLine: store, metric }) => {
     activeMenu,
     isCommunityBlockExpand,
   } = store
-  // viewing: { community, activeThread },
-  const { mobile } = useMedia()
+  const { isMobile } = useDevice()
 
+  // viewing: { community, activeThread },
   useEffect(() => {
     // only load BottomBar on mobile view
     BottomBar = dynamic(() => import('./BottomBar'), { ssr: false })
-  }, [mobile])
+  }, [isMobile])
 
   return (
     <React.Fragment>
@@ -49,7 +49,7 @@ const ModeLineContainer = ({ modeLine: store, metric }) => {
         viewing={viewing}
         viewingArticle={viewingArticle}
       />
-      {BottomBar && mobile && (
+      {BottomBar && isMobile && (
         <BottomBar
           metric={metric}
           article={viewingArticle}

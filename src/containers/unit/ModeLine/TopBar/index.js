@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
-import { useMedia } from '@/hooks'
+import { useDevice } from '@/hooks'
 
 let CurTopBar = null
 
 const Topbar = (props) => {
-  const { mobile } = useMedia()
+  const { isMobile } = useDevice()
 
   useEffect(() => {
-    if (mobile) {
+    if (isMobile) {
       CurTopBar = dynamic(() => import('./MobileView/index'), { ssr: false })
     } else {
       CurTopBar = dynamic(() => import('./DesktopView'), { ssr: false })
     }
-  }, [mobile])
+  }, [isMobile])
 
   return (
     <React.Fragment>{CurTopBar && <CurTopBar {...props} />}</React.Fragment>

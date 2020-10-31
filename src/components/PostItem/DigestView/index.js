@@ -1,15 +1,16 @@
 import React from 'react'
 
-import { useMedia } from '@/hooks'
+import { useDevice } from '@/hooks'
+
 import DesktopView from './DesktopView/index'
 import MobileView from './MobileView/index'
 
 const DigestView = (props) => {
-  const { mobile } = useMedia()
+  const { isMobile } = useDevice()
 
   return (
     <React.Fragment>
-      {!mobile ? <DesktopView {...props} /> : <MobileView {...props} />}
+      {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
     </React.Fragment>
   )
 }
