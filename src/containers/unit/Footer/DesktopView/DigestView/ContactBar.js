@@ -12,7 +12,7 @@ import {
 const ContactBar = ({ layout }) => {
   return (
     <Wrapper>
-      <InnerWrapper layout={layout} mobile={isMobile}>
+      <InnerWrapper layout={layout} isMobile={isMobile}>
         <SocialList />
         {!isMobile && (
           <EmailSubscriber type="simple" placeholder="订阅社区动态" />

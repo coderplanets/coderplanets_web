@@ -78,12 +78,12 @@ const ColumnView = ({ community, descExpand, activeThread, layout }) => {
     <Wrapper
       descExpand={descExpand}
       noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
-      mobile={isMobile}
+      isMobile={isMobile}
     >
       <InnerWrapper
         descExpand={descExpand}
         noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
-        mobile={isMobile}
+        isMobile={isMobile}
       >
         <BannerContentWrapper descExpand={descExpand}>
           <CommunityBaseInfo>
