@@ -21,6 +21,7 @@ const Platform = T.model('Platform', {
 const GlobalLayoutStore = T.model('GlobalLayoutStore', {
   online: T.optional(T.boolean, true),
   platform: T.optional(Platform, {}),
+  isMobile: T.optional(T.boolean, false),
   // follow the mac convention
   bodyScrollDirection: T.optional(T.enumeration(['up', 'down']), 'up'),
 })

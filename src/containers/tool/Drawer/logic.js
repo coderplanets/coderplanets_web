@@ -168,10 +168,7 @@ const DataResolver = [
          log('should open payload id: ', payload.data.id)
          log('payload curCommunity: ', store.curCommunity.raw)
        */
-      if (
-        !contains(payload.type, FUNCTION_TYPES) &&
-        (store.media.mobile || store.media.tablet)
-      ) {
+      if (!contains(payload.type, FUNCTION_TYPES) && store.isMobile) {
         const { thread, data, type } = payload
         let targetUrl
         if (type === TYPE.DRAWER.USER_VIEW) {

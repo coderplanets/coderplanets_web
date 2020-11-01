@@ -7,6 +7,7 @@
 import React, { useCallback } from 'react'
 import T from 'prop-types'
 import { compose, not, isNil, filter, reverse, slice } from 'ramda'
+import { trackWindowScroll } from 'react-lazy-load-image-component'
 
 import { AVATARS_LIST_LENGTH } from '@/config'
 import { buildLog, o2s, s2o } from '@/utils'
@@ -45,14 +46,15 @@ const getUniqueArray = (arr, comp) => {
 }
 
 const AvatarsRow = ({
-  users,
   total,
+  users,
   size,
   limit,
   onUserSelect,
   onTotalSelect,
   showTotalNumber,
   reverse: isReverse,
+  scrollPosition,
 }) => {
   const handleUserSelect = useCallback(
     (e) => {
@@ -96,6 +98,7 @@ const AvatarsRow = ({
               size={size}
               data-user={o2s(user)}
               onClick={handleUserSelect}
+              scrollPosition={scrollPosition}
               fallback={
                 <AvatarFallback
                   width={getAvatarSize(size, 'number')}
@@ -126,6 +129,7 @@ AvatarsRow.propTypes = {
   onTotalSelect: T.func,
   showTotalNumber: T.bool,
   reverse: T.bool,
+  scrollPosition: T.any,
 }
 
 AvatarsRow.defaultProps = {
@@ -136,6 +140,8 @@ AvatarsRow.defaultProps = {
   onTotalSelect: log,
   showTotalNumber: false,
   reverse: true,
+  // see https://github.com/Aljullu/react-lazy-load-image-component/issues/42
+  scrollPosition: null,
 }
 
-export default React.memo(AvatarsRow)
+export default trackWindowScroll(AvatarsRow)

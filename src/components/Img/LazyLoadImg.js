@@ -3,6 +3,7 @@ import T from 'prop-types'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
+import 'react-lazy-load-image-component/src/effects/opacity.css'
 
 // NOTE: do not use fallback directly, it will block the image display
 // seems the LazyLoadImage's issue
@@ -16,7 +17,14 @@ const PlaceHolder = ({ child }) => {
  * the fallback is for the image offen block in china, like github avatars
  * fallback 常被用于图片间歇性被墙的情况，比如 github 头像等
  */
-const LazyLoadImg = ({ className, src, alt, fallback }) => {
+const LazyLoadImg = ({
+  className,
+  src,
+  alt,
+  fallback,
+  lazyLoadEffect,
+  scrollPosition,
+}) => {
   const [imgError, setImgError] = useState(false)
 
   return (
@@ -29,7 +37,8 @@ const LazyLoadImg = ({ className, src, alt, fallback }) => {
           src={src}
           alt={alt}
           placeholder={<PlaceHolder child={fallback} />}
-          effect="blur"
+          effect={lazyLoadEffect}
+          scrollPosition={scrollPosition}
           beforeLoad={() => {
             const picture = new Image()
             picture.src = src
@@ -51,12 +60,15 @@ LazyLoadImg.propTypes = {
   alt: T.string,
   className: T.string,
   fallback: T.oneOfType([T.node, T.instanceOf(null)]),
+  lazyLoadEffect: T.oneOf(['opacity', 'blur']).isRequired,
+  scrollPosition: T.any,
 }
 
 LazyLoadImg.defaultProps = {
   alt: 'image',
   className: 'img-class',
   fallback: null,
+  scrollPosition: null,
 }
 
 export default React.memo(LazyLoadImg)

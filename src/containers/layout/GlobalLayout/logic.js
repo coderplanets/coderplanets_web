@@ -62,7 +62,7 @@ export const useInit = (_store, extra) => {
     // scrollbars: { autoHide: 'scroll', autoHideDelay: 500 },
     // })
 
-    const { online, platform } = extra
-    store.mark({ online, platform })
+    const { online, platform, isMobile } = extra
+    store.mark({ online, platform, isMobile })
   }, [_store, extra])
 }
