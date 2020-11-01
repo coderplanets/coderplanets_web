@@ -42,11 +42,9 @@ const RouteStore = T.model('RouteStore', {
       return { communityPath, threadPath, mainPath, subPath }
     },
     get isNotDesktop() {
-      const {
-        media: { mobile, tablet },
-      } = self.root
+      const { isMobile } = self.root
 
-      return mobile || tablet
+      return isMobile
     },
   }))
   .actions((self) => ({

@@ -118,8 +118,8 @@ const DrawerStore = T.model('DrawerStore', {
     get root() {
       return getParent(self)
     },
-    get media() {
-      return self.root.media
+    get isMobile() {
+      return self.root.isMobile
     },
     get optionsData() {
       return stripMobx(self.options)
@@ -173,7 +173,7 @@ const DrawerStore = T.model('DrawerStore', {
       self.type = type
       self.options = merge(defaultOptions, options)
       lockPage()
-      if (self.media.mobile) {
+      if (self.isMobile) {
         toggleGlobalBlur(true)
         self.canBeClose = false
       }
@@ -185,7 +185,7 @@ const DrawerStore = T.model('DrawerStore', {
       self.visible = false
       self.canBeClose = false
       unlockPage()
-      if (self.media.mobile) {
+      if (self.isMobile) {
         toggleGlobalBlur(false)
       }
     },

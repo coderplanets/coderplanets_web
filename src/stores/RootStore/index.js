@@ -232,8 +232,8 @@ const rootStore = T.model({
     get isOnline() {
       return self.globalLayout.online
     },
-    get media() {
-      return self.globalLayout.media
+    get isMobile() {
+      return self.globalLayout.isMobile
     },
     get doraemonVisible() {
       // TODO self.doraemon.visible

@@ -56,7 +56,7 @@ const GlobalLayoutContainer = ({
   // load debug graph
   useEffect(() => logBuddha(), [])
 
-  useInit(store, { online, platform })
+  useInit(store, { online, platform, isMobile })
   useShortcut('Control+P', openDoraemon)
 
   const {
