@@ -10256,9 +10256,9 @@ react-is@16.13.1, react-is@^16.12.0, react-is@^16.6.3, react-is@^16.7.0, react-i
   version "16.13.1"
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
 
-react-lazy-load-image-component@^1.4.3:
-  version "1.4.3"
-  resolved "https://registry.npm.taobao.org/react-lazy-load-image-component/download/react-lazy-load-image-component-1.4.3.tgz#841235111c4bbb7d69238ba7e16ded04d1461c06"
+react-lazy-load-image-component@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npm.taobao.org/react-lazy-load-image-component/download/react-lazy-load-image-component-1.5.0.tgz#48939f86cb262b93b345c6fa6322f75ede55160d"
   dependencies:
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
