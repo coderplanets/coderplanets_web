@@ -20,6 +20,7 @@ const Img = ({
   fallback,
   noLazy,
   lazyLoadEffect,
+  scrollPosition,
 }) => {
   if (/\.(svg)$/i.test(src)) {
     return (
@@ -46,6 +47,7 @@ const Img = ({
           alt={alt}
           fallback={fallback}
           lazyLoadEffect={lazyLoadEffect}
+          scrollPosition={scrollPosition}
         />
       )}
     </React.Fragment>
@@ -59,7 +61,8 @@ Img.propTypes = {
   loading: T.any,
   fallback: T.oneOfType([T.node, T.instanceOf(null)]),
   noLazy: T.bool,
-  lazyLoadEffect: T.oneOf(['black-and-white', 'blur']),
+  lazyLoadEffect: T.oneOf(['opacity', 'blur']),
+  scrollPosition: T.any,
 }
 
 Img.defaultProps = {
@@ -69,6 +72,7 @@ Img.defaultProps = {
   fallback: null,
   noLazy: false,
   lazyLoadEffect: 'blur',
+  scrollPosition: null,
 }
 
 export default React.memo(Img)
