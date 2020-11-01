@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
+import AvatarFallbackBase from '@/components/AvatarFallback'
 import { getLiSize, getAvatarSize, getUlMarginRight } from './metric'
 
 export const Wrapper = styled.ul`
@@ -39,7 +40,6 @@ export const AvatarsItem = styled(BaseAvatarItem)`
   }
 
   transition: all 0.3s;
-  ${css.media.mobile`display: none`};
 `
 export const TotalOneOffset = styled.span`
   margin-right: 10px;
@@ -78,8 +78,7 @@ export const AvatarsMore = styled.span`
     cursor: pointer;
   }
 `
-export const AvatarFallback = styled(AvatarsMore)`
-  font-size: 14px;
-  background: #074857;
-  font-weight: bold;
+export const AvatarFallback = styled(AvatarFallbackBase)`
+  border: 1px solid;
+  border-color: #113744;
 `

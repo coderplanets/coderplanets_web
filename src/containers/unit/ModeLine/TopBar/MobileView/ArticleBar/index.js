@@ -19,7 +19,7 @@ const ArticleBar = ({ visiable, viewingArticle }) => {
         <BaseInfo>
           <Avatar
             src={`${author.avatar}`}
-            fallback={<AvatarFallback width="16px" />}
+            fallback={<AvatarFallback width={16} />}
           />
           <Title>{title}</Title>
         </BaseInfo>

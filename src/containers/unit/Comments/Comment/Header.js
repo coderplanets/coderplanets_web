@@ -39,7 +39,7 @@ const CommentHeader = ({ data }) => {
         src={data.author.avatar}
         fallback={
           <AvatarFallback
-            width="22px"
+            width={22}
             right="20px"
             title={data.author?.nickname}
           />
