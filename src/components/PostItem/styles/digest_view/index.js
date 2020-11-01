@@ -5,6 +5,7 @@ import Img from '@/Img'
 
 export const Main = styled.div`
   ${css.flexColumnGrow()};
+  margin-left: 8px;
 `
 export const AvatarWrapper = styled.div`
   cursor: pointer;
