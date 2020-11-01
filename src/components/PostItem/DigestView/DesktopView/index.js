@@ -2,15 +2,12 @@ import React from 'react'
 
 import { ICON_BASE } from '@/config'
 
+import AvatarFallback from '@/components/AvatarFallback'
+
 import Header from './Header'
 import Body from './Body'
 
-import {
-  AvatarWrapper,
-  Avatar,
-  AvatarFallback,
-  Main,
-} from '../../styles/digest_view/index'
+import { AvatarWrapper, Avatar, Main } from '../../styles/digest_view/index'
 
 const DigestView = ({
   entry,
@@ -27,7 +24,11 @@ const DigestView = ({
           <Avatar
             src={entry.author.avatar}
             fallback={
-              <AvatarFallback>{entry.author.nickname[0]}</AvatarFallback>
+              <AvatarFallback
+                width={38}
+                title={entry.author.nickname}
+                top="2px"
+              />
             }
           />
         </AvatarWrapper>

@@ -47,7 +47,7 @@ const StateInfo = ({ article, author }) => {
       <AuthorWrapper>
         <Avatar
           src={`${author.avatar}`}
-          fallback={<AvatarFallback width="14px" title={author.nickname} />}
+          fallback={<AvatarFallback width={14} title={author.nickname} />}
         />
         <Nickname>{author.nickname}</Nickname>
       </AuthorWrapper>

@@ -12,8 +12,11 @@ import { AVATARS_LIST_LENGTH } from '@/config'
 import { buildLog, o2s, s2o } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
+// import AvatarFallback from '@/components/AvatarFallback'
+
 import MoreItem from './MoreItem'
 
+import { getAvatarSize } from './styles/metric'
 import {
   Wrapper,
   AvatarsItem,
@@ -81,19 +84,27 @@ const AvatarsRow = ({
       )}
 
       {slice(0, limit, sortedUsers).map((user) => (
-        <AvatarsItem key={user.id} size={size} noHoverMargin={total === 1}>
-          <Tooltip content={user.nickname} duration={0}>
+        <Tooltip
+          key={user.id}
+          content={user.nickname}
+          duration={0}
+          contentHeight={getAvatarSize(size)}
+        >
+          <AvatarsItem size={size} noHoverMargin={total === 1}>
             <AvatarsImg
               src={user.avatar}
               size={size}
               data-user={o2s(user)}
               onClick={handleUserSelect}
               fallback={
-                <AvatarFallback size={size}>{user.nickname[0]}</AvatarFallback>
+                <AvatarFallback
+                  width={getAvatarSize(size, 'number')}
+                  title={user.nickname}
+                />
               }
             />
-          </Tooltip>
-        </AvatarsItem>
+          </AvatarsItem>
+        </Tooltip>
       ))}
     </Wrapper>
   )

@@ -146,7 +146,7 @@ const media = Object.keys(mediaBreakPoints).reduce((acc, label) => {
 }, {})
 
 // left and right padding in laptopL for header, footer and certen content
-media.laptopLPadding = '0 7vw 0 calc(7vw + 10px);'
+media.laptopLPadding = '0 8vw 0 calc(7vw + 15px);'
 media.laptopLPaddingColumnLayout = '0 3vw 0 calc(3vw + 10px);'
 
 // export const media = generateMedia({ ...mediaBreakPoints })

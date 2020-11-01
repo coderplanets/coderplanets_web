@@ -14,9 +14,19 @@ import { Wrapper, Name } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:AvatarFallback:index')
 
-const AvatarFallback = ({ testId, width, title, left, right, top, bottom }) => {
+const AvatarFallback = ({
+  testId,
+  className,
+  width,
+  title,
+  left,
+  right,
+  top,
+  bottom,
+}) => {
   return (
     <Wrapper
+      className={className}
       testId={testId}
       width={width}
       left={left}
@@ -24,14 +34,15 @@ const AvatarFallback = ({ testId, width, title, left, right, top, bottom }) => {
       top={top}
       bottom={bottom}
     >
-      <Name>{title.slice(0, 1)}</Name>
+      <Name width={width}>{title.slice(0, 1)}</Name>
     </Wrapper>
   )
 }
 
 AvatarFallback.propTypes = {
   testId: T.string,
-  width: T.string,
+  className: T.string,
+  width: T.number,
   title: T.string,
   left: T.string,
   right: T.string,
@@ -41,9 +52,9 @@ AvatarFallback.propTypes = {
 
 AvatarFallback.defaultProps = {
   testId: 'avatar-fallback',
-  width: '15px',
+  className: '',
+  width: 15,
   title: '?',
-
   left: '0',
   right: '0',
   top: '0',

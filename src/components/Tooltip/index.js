@@ -35,13 +35,14 @@ const Tooltip = ({
   showArrow,
   behavior,
   onConfirm,
+  contentHeight,
   ...restProps
 }) => {
   const [instance, setInstance] = useState(null)
   const [active, setActive] = useState(false)
 
   const ContentComp = showArrow ? (
-    <ContentWrapper>
+    <ContentWrapper contentHeight={contentHeight}>
       {active && placement === 'bottom' && <TopArrow />}
       {active && placement === 'top' && <BottomArrow />}
       {active && placement === 'right' && <LeftArrow />}
@@ -49,7 +50,7 @@ const Tooltip = ({
       <div>{children}</div>
     </ContentWrapper>
   ) : (
-    <ContentWrapper>
+    <ContentWrapper contentHeight={contentHeight}>
       <div>{children}</div>
     </ContentWrapper>
   )
@@ -159,6 +160,10 @@ Tooltip.propTypes = {
   showArrow: T.bool,
   behavior: T.oneOf(['default', 'confirm']),
   onConfirm: T.oneOfType([T.func, T.instanceOf(null)]),
+
+  // currently only for AvatarsRow, it will collapse the height
+  // for same reason, figure out later
+  contentHeight: T.string,
 }
 
 Tooltip.defaultProps = {
@@ -177,6 +182,8 @@ Tooltip.defaultProps = {
   showArrow: true,
   behavior: 'default',
   onConfirm: null,
+
+  contentHeight: 'auto',
 }
 
 export default React.memo(Tooltip)

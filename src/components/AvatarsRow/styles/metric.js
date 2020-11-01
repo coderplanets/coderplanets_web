@@ -18,18 +18,18 @@ export const getLiSize = (size) => {
   }
 }
 
-export const getAvatarSize = (size) => {
+export const getAvatarSize = (size, fmt = 'string') => {
   switch (size) {
     case 'small': {
-      return '25px'
+      return fmt === 'string' ? '25px' : 25
     }
 
     case 'medium': {
-      return '30px'
+      return fmt === 'string' ? '30px' : 30
     }
 
     default: {
-      return '30px'
+      return fmt === 'string' ? '30px' : 30
     }
   }
 }

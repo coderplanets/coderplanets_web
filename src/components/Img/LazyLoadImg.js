@@ -1,24 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import T from 'prop-types'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-// import { Image } from './styles'
+import 'react-lazy-load-image-component/src/effects/blur.css'
+
+// NOTE: do not use fallback directly, it will block the image display
+// seems the LazyLoadImage's issue
+const PlaceHolder = ({ child }) => {
+  // <div style={{ height: '20px', width: '20px', background: '#139C9E' }}>
+  return <div>{child}</div>
+}
 
 /**
- * normal image like .jpg .jpeg .png  etc
+ * lazy load images like .jpg .jpeg .png  etc
  * the fallback is for the image offen block in china, like github avatars
  * fallback 常被用于图片间歇性被墙的情况，比如 github 头像等
  */
 const LazyLoadImg = ({ className, src, alt, fallback }) => {
+  const [imgError, setImgError] = useState(false)
+
   return (
-    <>
-      <LazyLoadImage
-        className={className}
-        src={src}
-        alt={alt}
-        placeholder={fallback}
-      />
-    </>
+    <React.Fragment>
+      {imgError && fallback ? (
+        <React.Fragment>{fallback}</React.Fragment>
+      ) : (
+        <LazyLoadImage
+          className={className}
+          src={src}
+          alt={alt}
+          placeholder={<PlaceHolder child={fallback} />}
+          effect="blur"
+          beforeLoad={() => {
+            const picture = new Image()
+            picture.src = src
+            picture.onload = () => {
+              if (picture.naturalWidth + picture.naturalHeight === 0) {
+                setImgError(true)
+              }
+            }
+            picture.onerror = () => setImgError(true)
+          }}
+        />
+      )}
+    </React.Fragment>
   )
 }
 

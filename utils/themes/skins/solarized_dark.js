@@ -56,7 +56,7 @@ const solarizedDark = {
   header: {
     fg: primaryColor,
     bg: bannerBg,
-    spliter: darken(0.04, bannerBg),
+    spliter: '#0a3442',
     fixed: bannerBg,
     tabActive: primaryColor, // articleTitle
     tabOthers: darken(0.1, primaryColor),
