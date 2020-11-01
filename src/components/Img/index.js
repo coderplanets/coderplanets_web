@@ -9,10 +9,18 @@ import React from 'react'
 import T from 'prop-types'
 import ReactSVG from 'react-svg'
 
-// import NormalImg from './NormalImg'
+import NormalImg from './NormalImg'
 import LazyLoadImg from './LazyLoadImg'
 
-const Img = ({ className, src, alt, loading, fallback }) => {
+const Img = ({
+  className,
+  src,
+  alt,
+  loading,
+  fallback,
+  noLazy,
+  lazyLoadEffect,
+}) => {
   if (/\.(svg)$/i.test(src)) {
     return (
       <ReactSVG
@@ -23,13 +31,24 @@ const Img = ({ className, src, alt, loading, fallback }) => {
     )
   }
   return (
-    // <NormalImg className={className} src={src} alt={alt} fallback={fallback} />
-    <LazyLoadImg
-      className={className}
-      src={src}
-      alt={alt}
-      fallback={fallback}
-    />
+    <React.Fragment>
+      {noLazy ? (
+        <NormalImg
+          className={className}
+          src={src}
+          alt={alt}
+          fallback={fallback}
+        />
+      ) : (
+        <LazyLoadImg
+          className={className}
+          src={src}
+          alt={alt}
+          fallback={fallback}
+          lazyLoadEffect={lazyLoadEffect}
+        />
+      )}
+    </React.Fragment>
   )
 }
 
@@ -39,6 +58,8 @@ Img.propTypes = {
   className: T.string,
   loading: T.any,
   fallback: T.oneOfType([T.node, T.instanceOf(null)]),
+  noLazy: T.bool,
+  lazyLoadEffect: T.oneOf(['black-and-white', 'blur']),
 }
 
 Img.defaultProps = {
@@ -46,6 +67,8 @@ Img.defaultProps = {
   className: 'img-class',
   loading: null,
   fallback: null,
+  noLazy: false,
+  lazyLoadEffect: 'blur',
 }
 
 export default React.memo(Img)
