@@ -147,4 +147,14 @@ export const clearGlobalBlur = () => {
   }
 }
 
+// only judge verticle
+// under the CustomScroller, the trandition inViewport method is not work
+// NOTE:  在 CustomScroller 的情况下，传统的判断 inViewport 的方法行不通
+// 只需简单判断当前 el 的高度和已经滑动的距离即可
+export const isElementInViewport = (el) => {
+  if (!el) return false
+  const rect = el.getBoundingClientRect()
+
+  return rect.height + rect.y > 0
+}
 /* eslint-enable no-undef */

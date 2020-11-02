@@ -111,6 +111,7 @@ export {
   isBrowser,
   toggleGlobalBlur,
   clearGlobalBlur,
+  isElementInViewport,
 } from './dom'
 /*
  * theme related
