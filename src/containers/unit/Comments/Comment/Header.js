@@ -40,10 +40,11 @@ const CommentHeader = ({ data }) => {
         fallback={
           <AvatarFallback
             width={22}
-            right="20px"
+            right="10px"
             title={data.author?.nickname}
           />
         }
+        visibleByDefault
       />
       <HeaderBaseInfo>
         <CommentHeaderFirst>

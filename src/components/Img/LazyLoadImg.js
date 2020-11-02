@@ -17,7 +17,14 @@ const PlaceHolder = ({ child }) => {
  * the fallback is for the image offen block in china, like github avatars
  * fallback 常被用于图片间歇性被墙的情况，比如 github 头像等
  */
-const LazyLoadImg = ({ className, src, alt, fallback, scrollPosition }) => {
+const LazyLoadImg = ({
+  className,
+  src,
+  alt,
+  fallback,
+  scrollPosition,
+  visibleByDefault,
+}) => {
   const [imgError, setImgError] = useState(false)
 
   return (
@@ -32,6 +39,7 @@ const LazyLoadImg = ({ className, src, alt, fallback, scrollPosition }) => {
           placeholder={<PlaceHolder child={fallback} />}
           effect="blur"
           scrollPosition={scrollPosition}
+          visibleByDefault={visibleByDefault}
           beforeLoad={() => {
             const picture = new Image()
             picture.src = src
@@ -54,6 +62,7 @@ LazyLoadImg.propTypes = {
   className: T.string,
   fallback: T.oneOfType([T.node, T.instanceOf(null)]),
   scrollPosition: T.any,
+  visibleByDefault: T.bool.isRequired,
 }
 
 LazyLoadImg.defaultProps = {

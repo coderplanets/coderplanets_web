@@ -6,11 +6,17 @@
  */
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 import T from 'prop-types'
 import ReactSVG from 'react-svg'
 
 import NormalImg from './NormalImg'
-import LazyLoadImg from './LazyLoadImg'
+
+const LazyLoadImg = dynamic(() => import('./LazyLoadImg'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div />,
+  ssr: false,
+})
 
 const Img = ({
   className,
@@ -20,6 +26,7 @@ const Img = ({
   fallback,
   noLazy,
   scrollPosition,
+  visibleByDefault,
 }) => {
   if (/\.(svg)$/i.test(src)) {
     return (
@@ -46,6 +53,7 @@ const Img = ({
           alt={alt}
           fallback={fallback}
           scrollPosition={scrollPosition}
+          visibleByDefault={visibleByDefault}
         />
       )}
     </React.Fragment>
@@ -60,6 +68,8 @@ Img.propTypes = {
   fallback: T.oneOfType([T.node, T.instanceOf(null)]),
   noLazy: T.bool,
   scrollPosition: T.any,
+  // see https://www.npmjs.com/package/react-lazy-load-image-component
+  visibleByDefault: T.bool,
 }
 
 Img.defaultProps = {
@@ -69,6 +79,7 @@ Img.defaultProps = {
   fallback: null,
   noLazy: false,
   scrollPosition: null,
+  visibleByDefault: false,
 }
 
 export default React.memo(Img)
