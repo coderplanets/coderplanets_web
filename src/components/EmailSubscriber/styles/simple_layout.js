@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 import Input from '@/components/Input'
-import { css, theme } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   position: relative;
-  background: #0b2f3a;
+  background: #022a34;
   border-radius: 10px;
 
   &:after {
@@ -18,17 +18,7 @@ export const Wrapper = styled.div.attrs((props) => ({
     width: 100%;
     height: 2px;
     display: block;
-    background-image: repeating-linear-gradient(
-      135deg,
-      #8a5953 2px,
-      #8a5953 15px,
-      transparent 15px,
-      transparent 25px,
-      #4c7ba0 25px,
-      #4c7ba0 40px,
-      transparent 40px,
-      transparent 50px
-    );
+    background: #154e60;
   }
 `
 export const InnerWrapper = styled.div`
@@ -41,17 +31,17 @@ export const InnerWrapper = styled.div`
   border: 1px solid;
   border-color: #154e60;
   border-bottom: none;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
 `
 export const SubscribeInput = styled(Input)`
-  background: #0b2f3a;
+  background: #022a34; // footer bg
   border: none;
   width: 90%;
   height: 30px;
   border-radius: 0;
-  padding-left: 4px;
-  margin-top: -3px;
+  padding-left: 8px;
+  margin-top: -1px;
 
   &:hover {
     border: none;
@@ -69,9 +59,9 @@ export const SubscribeInput = styled(Input)`
   }
 `
 export const MailBoxIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
+  fill: #176179;
   width: 15px;
   height: 15px;
   display: block;
-  margin-right: 4px;
+  margin-right: 8px;
 `
