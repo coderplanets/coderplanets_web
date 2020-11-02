@@ -26,12 +26,12 @@ const StateInfo = ({ article, author }) => {
     <Wrapper>
       <Section>
         <Item>
-          <ViewdIcon src={`${ICON}/viewed.svg`} />
+          <ViewdIcon src={`${ICON}/article/viewed.svg`} />
           <ViewsText>{views}</ViewsText>
         </Item>
         <Space right="10px" />
         <Item>
-          <CommentIcon src={`${ICON}/comment.svg`} />
+          <CommentIcon src={`${ICON}/article/comment.svg`} />
           <Text>{commentsCount}</Text>
         </Item>
         <Divider />

@@ -29,7 +29,7 @@ const Body = ({ item, onPreview }) => {
           <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
         </PublishTime>
         <ItemWrapper>
-          <ViewsIcon src={`${ICON}/viewed.svg`} />
+          <ViewsIcon src={`${ICON}/article/viewed.svg`} />
           {item.views}
         </ItemWrapper>
       </Extra>
