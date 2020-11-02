@@ -19,7 +19,6 @@ const Img = ({
   loading,
   fallback,
   noLazy,
-  lazyLoadEffect,
   scrollPosition,
 }) => {
   if (/\.(svg)$/i.test(src)) {
@@ -46,7 +45,6 @@ const Img = ({
           src={src}
           alt={alt}
           fallback={fallback}
-          lazyLoadEffect={lazyLoadEffect}
           scrollPosition={scrollPosition}
         />
       )}
@@ -61,7 +59,6 @@ Img.propTypes = {
   loading: T.any,
   fallback: T.oneOfType([T.node, T.instanceOf(null)]),
   noLazy: T.bool,
-  lazyLoadEffect: T.oneOf(['opacity', 'blur']),
   scrollPosition: T.any,
 }
 
@@ -71,7 +68,6 @@ Img.defaultProps = {
   loading: null,
   fallback: null,
   noLazy: false,
-  lazyLoadEffect: 'blur',
   scrollPosition: null,
 }
 

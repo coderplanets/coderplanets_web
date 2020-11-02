@@ -15,7 +15,7 @@ import { usePlatform } from '@/hooks'
 
 // import MarkDownStyle from './MarkDownStyle'
 import CodeSyxHighlight from './CodeSyxHighlight'
-import CustomOverWrite from './CustomOverWrite'
+import ThirdPartyOverWrite from './ThirdPartyOverWrite'
 import GlobalStyle from './GlobalStyle'
 import RichEditorStyle from './RichEditorStyle'
 
@@ -39,7 +39,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
       />
       <div>{children}</div>
       <CodeSyxHighlight />
-      <CustomOverWrite />
+      <ThirdPartyOverWrite />
       <RichEditorStyle />
       <GlobalStyle showCustomScrollbar={showCustomScrollbar} />
     </ThemeProvider>
