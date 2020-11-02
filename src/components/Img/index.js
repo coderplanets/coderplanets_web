@@ -6,11 +6,17 @@
  */
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 import T from 'prop-types'
 import ReactSVG from 'react-svg'
 
 import NormalImg from './NormalImg'
-import LazyLoadImg from './LazyLoadImg'
+
+const LazyLoadImg = dynamic(() => import('./LazyLoadImg'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div />,
+  ssr: false,
+})
 
 const Img = ({
   className,
