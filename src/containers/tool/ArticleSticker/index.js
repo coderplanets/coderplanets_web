@@ -10,30 +10,16 @@ import React from 'react'
 import T from 'prop-types'
 
 import { connectStore, buildLog } from '@/utils'
-import { ICON, ICON_BASE } from '@/config'
 
 import Sticky from '@/components/Sticky'
-import { Button } from '@/components/Buttons'
-import { Br } from '@/components/Common'
 import GotoTop from '@/components/GotoTop'
 
 import LeftSticker from './LeftSticker/index'
+import CommunitySticker from './CommunitySticker'
+import CommonSticker from './CommonSticker'
+import CommentSticker from './CommentSticker'
 
-import {
-  Wrapper,
-  InnerWrapper,
-  MainWrapper,
-  ItemWrapper,
-  ItemHint,
-  CommunityIcon,
-  LikeIcon,
-  CollectIcon,
-  ShareIcon,
-  CommunityTitle,
-  Number,
-  Text,
-  Divider,
-} from './styles'
+import { Wrapper, InnerWrapper, MainWrapper, GoTopWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -47,10 +33,8 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
     showCommunity,
     viewingData,
     isTocMenuOpened,
-    isLeftStickerLocked,
+    showCommentSticker,
   } = store
-
-  log('isLeftStickerLocked: ', isLeftStickerLocked)
 
   return (
     <React.Fragment>
@@ -60,45 +44,17 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
         isTocMenuOpened={isTocMenuOpened}
       />
 
-      <Sticky offsetTop={100}>
+      <Sticky offsetTop={80}>
         <Wrapper testId={testId}>
           <InnerWrapper>
             <MainWrapper>
-              {showCommunity && (
-                <React.Fragment>
-                  <ItemWrapper>
-                    <CommunityIcon src={`${ICON_BASE}/pl/javascript.svg`} />
-                    <Number>
-                      <CommunityTitle>Elixir</CommunityTitle>
-                    </Number>
-                    <Button size="tiny" ghost>
-                      &nbsp;加&nbsp;&nbsp;入&nbsp;
-                    </Button>
-                  </ItemWrapper>
-                  <Divider />
-                </React.Fragment>
-              )}
-
-              <ItemWrapper>
-                <LikeIcon src={`${ICON}/article/heart-solid.svg`} />
-                <Number>
-                  {viewingData.starredCount}&nbsp;<Text>喜欢</Text>
-                </Number>
-              </ItemWrapper>
-              <Br top="16px" />
-              <ItemWrapper>
-                <CollectIcon src={`${ICON}/article/collect.svg`} />
-                <ItemHint>收藏</ItemHint>
-              </ItemWrapper>
-              <Br top="18px" />
-              <ItemWrapper>
-                <ShareIcon src={`${ICON}/share.svg`} />
-                <ItemHint bottom="-2px">分享</ItemHint>
-              </ItemWrapper>
+              {showCommunity && <CommunitySticker />}
+              <CommonSticker viewing={viewingData} show={!showCommentSticker} />
+              <CommentSticker show={showCommentSticker} data={viewingData} />
             </MainWrapper>
-            <ItemWrapper>
+            <GoTopWrapper>
               <GotoTop />
-            </ItemWrapper>
+            </GoTopWrapper>
           </InnerWrapper>
         </Wrapper>
       </Sticky>

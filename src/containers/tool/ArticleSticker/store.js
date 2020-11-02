@@ -28,6 +28,11 @@ const ArticleSticker = T.model('ArticleSticker', {
     get isArticleDigestInViewport() {
       return self.root.articleDigest.inViewport
     },
+    get isArticleInViewport() {
+      const { articleInViewport } = self.root.postContent
+
+      return articleInViewport
+    },
     get showLeftSticker() {
       const {
         isArticleDigestInViewport,
@@ -41,7 +46,10 @@ const ArticleSticker = T.model('ArticleSticker', {
       return bodyScrollDirection === 'down'
     },
     get showCommunity() {
-      return !self.isArticleDigestInViewport
+      return !self.isArticleDigestInViewport && self.isArticleInViewport
+    },
+    get showCommentSticker() {
+      return !self.isArticleInViewport
     },
   }))
   .actions((self) => ({

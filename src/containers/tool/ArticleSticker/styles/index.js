@@ -9,11 +9,13 @@ export const Wrapper = styled.div.attrs((props) => ({
   ${css.flexColumn('align-center', 'justify-start')};
   min-width: ${css.ARTICLE_STICKER_WIDTH};
   /* bottom has a go-to-top button */
-  height: 80vh;
+  height: 85vh;
+  margin-top: -4px;
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('justify-between')}
   height: 100%;
+  width: 100%;
   margin-left: 10px;
 
   ${css.media.laptopL`
@@ -22,26 +24,6 @@ export const InnerWrapper = styled.div`
 `
 export const MainWrapper = styled.div`
   ${css.flexColumn('align-center')};
-`
-export const ItemWrapper = styled.div`
-  ${css.flexColumn('align-both')};
-  position: relative;
-  width: 80px;
-`
-export const ItemHint = styled.div`
-  color: ${theme('thread.articleDigest')};
-  position: absolute;
-  right: ${({ right }) => right || '-12px'};
-  bottom: ${({ bottom }) => bottom || '0'};
-  font-size: 12px;
-  opacity: 0;
-
-  ${ItemWrapper}:hover & {
-    opacity: 1;
-  }
-
-  transition: all 0.25s;
-  transition-delay: 0.5s;
 `
 const Icon = styled(Img)`
   width: 22px;
@@ -96,4 +78,10 @@ export const Number = styled.div`
 export const Text = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 11px;
+`
+
+export const GoTopWrapper = styled.div`
+  ${css.flex('align-both')};
+  position: relative;
+  width: 100%;
 `
