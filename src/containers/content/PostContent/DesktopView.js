@@ -4,10 +4,10 @@
  *
  */
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { Waypoint } from 'react-waypoint'
 
-import { connectStore, buildLog } from '@/utils'
+import { connectStore, buildLog, isElementInViewport } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
 // import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
@@ -16,8 +16,6 @@ import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
-
-// import SideCards from './SideCards'
 
 import {
   Wrapper,
@@ -33,21 +31,32 @@ import { useInit, articleInAnchor, articleOutAnchor } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')
 
+const checkAnchor = (el) =>
+  isElementInViewport(el) ? articleInAnchor() : articleOutAnchor()
+
 const PostContentContainer = ({ postContent: store }) => {
   useInit(store)
 
   const { viewingData } = store
+  const ref = useRef()
 
   return (
     <Wrapper>
       <Maybe test={viewingData.id}>
         <InnerWrapper>
+          <Waypoint
+            onEnter={() => checkAnchor(ref?.current)}
+            onLeave={() => checkAnchor(ref?.current)}
+          />
           <MainWrapper>
-            <ArticleWrapper>
+            <ArticleWrapper ref={ref}>
               <MarkDownRender body={viewingData.body} />
+              <ArticleFooter />
             </ArticleWrapper>
-            <Waypoint onEnter={articleInAnchor} onLeave={articleOutAnchor} />
-            <ArticleFooter />
+            <Waypoint
+              onEnter={() => checkAnchor(ref?.current)}
+              onLeave={() => checkAnchor(ref?.current)}
+            />
             <CommentsWrapper>
               <Comments ssr />
             </CommentsWrapper>

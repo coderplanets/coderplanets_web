@@ -65,7 +65,11 @@ const Card = ({ noBorder }) => {
             3小时前
           </IconText>
           <Divider />
-          <IconText iconSrc={`${ICON}/comment.svg`} size="tiny" margin="5px">
+          <IconText
+            iconSrc={`${ICON}/article/comment.svg`}
+            size="tiny"
+            margin="5px"
+          >
             44
           </IconText>
           <SpaceGrow />

@@ -21,14 +21,24 @@ const ModeLine = T.model('ModeLine', {
     get root() {
       return getParent(self)
     },
+    get isMobile() {
+      return self.root.isMobile
+    },
     get viewing() {
       return stripMobx(self.root.viewing)
     },
     get isTopBarVisiable() {
-      const { topBarVisiable, metric, isArticleDigestInViewport } = self
+      const {
+        isMobile,
+        topBarVisiable,
+        metric,
+        isArticleDigestInViewport,
+      } = self
       const { bodyScrollDirection } = self.root.globalLayout
 
       if (metric === METRIC.COMMUNITY) return topBarVisiable
+      // do not show article topBar on desktop
+      if (!isMobile && metric === METRIC.ARTICLE) return false
 
       if (isArticleDigestInViewport) return false
 

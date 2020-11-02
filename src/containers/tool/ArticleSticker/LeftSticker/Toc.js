@@ -19,7 +19,7 @@ const Toc = ({ show }) => {
     <Wrapper>
       <HeaderWrapper onClick={toggleTocMenu}>
         <TitleWrapper>
-          <TocIcon src={`${ICON}/outline.svg`} />
+          <TocIcon src={`${ICON}/article/outline.svg`} />
           <TocTitle>大纲</TocTitle>
         </TitleWrapper>
         {!show ? (

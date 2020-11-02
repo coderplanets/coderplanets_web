@@ -21,13 +21,9 @@ export const Desc = styled.div`
   flex-direction: ${({ column }) => (column ? 'column' : 'row')};
   flex-wrap: wrap;
 `
-export const Divider = styled.div`
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid;
-  border-color: ${theme('drawer.sideDivider')};
-`
-export const NoMoreDesc = styled.div`
-  color: ${theme('banner.desc')};
-  font-style: italic;
-`
+// export const Divider = styled.div`
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+//   border-bottom: 1px solid;
+//   border-color: ${theme('drawer.sideDivider')};
+// `
