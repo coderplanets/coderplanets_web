@@ -1,11 +1,19 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
+import AvatarFallback from '@/components/AvatarFallback'
 import { Wrapper, Avatar, UserName, PublishAt } from './styles/user_info'
 
 const UserInfo = ({ author, insertedAt }) => (
   <Wrapper>
-    <Avatar src={author.avatar} alt="user_avatar" />
+    <Avatar
+      src={author.avatar}
+      alt={`@${author.nickname}`}
+      fallback={
+        <AvatarFallback width={35} right="10px" title={author?.nickname} />
+      }
+      visibleByDefault
+    />
     <div>
       <UserName>{author.nickname}</UserName>
       <PublishAt>
