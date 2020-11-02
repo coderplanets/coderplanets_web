@@ -60,13 +60,13 @@ export const NotifyWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const NotifyIcon = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
   width: 16px;
   height: 16px;
   display: block;
-  fill: #23687e;
   margin-right: 5px;
 `
 export const NotifyTitle = styled.div`
+  color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  color: #23687e;
 `

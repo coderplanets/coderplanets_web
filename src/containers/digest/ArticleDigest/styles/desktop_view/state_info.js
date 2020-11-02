@@ -5,6 +5,7 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
+  margin-right: 6px;
 `
 export const Item = styled.div`
   ${css.flex('align-center')};
@@ -45,9 +46,20 @@ export const LikeIcon = styled(Icon)`
     cursor: pointer;
   }
 `
-export const ReportIcon = styled(Icon)`
+export const NotifyIcon = styled(Icon)`
+  width: 15px;
+  height: 15px;
+
   ${Item}:hover & {
     fill: ${theme('thread.articleTitle')};
+    cursor: pointer;
+  }
+`
+export const ReportIcon = styled(Icon)`
+  width: 13px;
+  height: 13px;
+  ${Item}:hover & {
+    fill: ${theme('baseColor.red')};
     cursor: pointer;
   }
 `
