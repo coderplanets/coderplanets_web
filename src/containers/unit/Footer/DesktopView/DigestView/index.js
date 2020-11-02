@@ -47,7 +47,7 @@ const DigestView = ({ layout }) => {
               <SiteLogo />
             </SiteInfo>
             <div>
-              <SiteTitle>coderplaents</SiteTitle>
+              <SiteTitle>coderplanets</SiteTitle>
               <SiteDesc
                 href="https://github.com/groupher"
                 rel="noopener noreferrer"
