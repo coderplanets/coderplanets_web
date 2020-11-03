@@ -85,13 +85,25 @@ const VerticalScroller = ({
             ? onScrollDirectionChange?.('up')
             : onScrollDirectionChange?.('down')
         }
-      }, 80),
+      }, 100),
+      onScrollStart: () => {
+        const position = scrollInstance?.scroll().position
+        if (position) {
+          const currentY = position.y
+          setLastYPosition(currentY)
+
+          currentY > lastYPosition
+            ? onScrollDirectionChange?.('up')
+            : onScrollDirectionChange?.('down')
+        }
+      },
       onScrollStop: () => {
         const position = scrollInstance?.scroll().position
         if (position) {
           const currentY = position.y
-
-          setLastYPosition(currentY)
+          currentY > lastYPosition
+            ? onScrollDirectionChange?.('up')
+            : onScrollDirectionChange?.('down')
         }
       },
     },

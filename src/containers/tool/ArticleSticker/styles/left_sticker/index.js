@@ -13,11 +13,9 @@ export const Wrapper = styled.div.attrs((props) => ({
   left: 16%;
   top: 10%;
   transform: translateX(-50%);
-  /* top: 75px;
-  left: 55px; */
   font-size: 13px;
-  opacity: ${({ show }) => (show ? '1' : '0')};
-  transition: opacity 0.25s;
+  opacity: ${({ show }) => (show ? '1' : '0')}; */
+  transition: opacity 0.2s;
 
   ${css.media.laptopL`
     left: 12%;
