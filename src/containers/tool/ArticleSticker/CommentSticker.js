@@ -51,8 +51,8 @@ const CommentSticker = ({
                 alt={`@${user.nickname}`}
                 fallback={
                   <AvatarFallback
+                    user={user}
                     width={20}
-                    title={`${user.nickname}`}
                     right="10px"
                     bottom="6px"
                   />

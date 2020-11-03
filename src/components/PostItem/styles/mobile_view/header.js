@@ -20,15 +20,6 @@ export const Avatar = styled(Img)`
   opacity: ${theme('avatarOpacity')};
   margin-right: 8px;
 `
-export const AvatarFallback = styled.div`
-  ${css.flex('align-both')};
-  ${css.circle('16px')};
-  font-size: 14px;
-  color: ${theme('thread.articleTitle')};
-  background-color: #164858;
-  margin-top: 0;
-  margin-right: 6px;
-`
 export const AuthorInfo = styled.div`
   ${css.flex('align-center')};
 `

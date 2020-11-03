@@ -102,7 +102,7 @@ const AvatarsRow = ({
               fallback={
                 <AvatarFallback
                   width={getAvatarSize(size, 'number')}
-                  title={user.nickname}
+                  user={user}
                 />
               }
             />

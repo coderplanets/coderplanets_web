@@ -24,11 +24,7 @@ const DigestView = ({
           <Avatar
             src={entry.author.avatar}
             fallback={
-              <AvatarFallback
-                width={38}
-                title={entry.author.nickname}
-                top="2px"
-              />
+              <AvatarFallback user={entry.author} width={38} top="2px" />
             }
           />
         </AvatarWrapper>

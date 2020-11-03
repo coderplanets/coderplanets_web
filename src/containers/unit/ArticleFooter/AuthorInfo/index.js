@@ -45,9 +45,7 @@ const AuthorInfo = ({ testId, author }) => {
       <AvatarIntro>
         <Avatar
           src={author.avatar}
-          fallback={
-            <AvatarFallback width={38} bottom="16px" title={author?.nickname} />
-          }
+          fallback={<AvatarFallback user={author} width={38} bottom="16px" />}
         />
         <Button type="primary" size="tiny" ghost>
           &nbsp;关&nbsp;&nbsp;注&nbsp;
