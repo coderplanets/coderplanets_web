@@ -1,35 +1,34 @@
 import styled from 'styled-components'
+import DotDivider from '@/components/DotDivider'
 
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-import { Wrapper as CommentBlock } from './desktop_view'
-
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  margin-left: 5px;
+`
+export const Dot = styled(DotDivider)`
+  background: ${theme('comment.floor')};
+  opacity: 0.6;
 `
 export const FloorNum = styled.div`
   color: ${theme('comment.floor')};
-  font-size: 14px;
+  font-size: 12px;
   flex-grow: 1;
   letter-spacing: 1.5px;
-  margin-top: 2px;
-  opacity: 0.6;
-
-  ${CommentBlock}:hover & {
-    opacity: 1;
-  }
-
-  transition: opacity 0.25s;
+  height: 15px;
+  opacity: 0.8;
 `
 export const CommentHeaderFirst = styled.div`
   ${css.flex()};
 `
 export const Avatar = styled(Img)`
-  ${css.circle('22px')};
+  ${css.circle('24px')};
   opacity: ${theme('avatarOpacity')};
-  margin-right: 10px;
+  margin-right: 14px;
+  margin-top: 10px;
 `
 export const HeaderBaseInfo = styled.div`
   ${css.flexColumn()};
@@ -39,6 +38,10 @@ export const CommentUserName = styled.div`
   ${css.flexGrow('align-center')};
   color: ${theme('comment.username')};
   font-size: 14px;
+
+  ${css.media.mobile`
+    font-size: 13px;
+  `};
 `
 export const ReplyUsers = styled.div`
   ${css.flex()};

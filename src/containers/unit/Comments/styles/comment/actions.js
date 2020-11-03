@@ -5,8 +5,11 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex()};
-`
 
+  ${css.media.mobile`
+    font-size: 12px;
+  `};
+`
 export const ReplyAction = styled.div`
   ${css.flex()};
   color: ${theme('comment.action')};

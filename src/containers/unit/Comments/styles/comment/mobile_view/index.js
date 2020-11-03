@@ -6,7 +6,7 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flex()};
   margin-bottom: 16px;
-  padding-left: 8px;
+  padding-left: 0;
   padding-bottom: 16px;
   padding-top: 0;
   position: relative;
@@ -20,13 +20,17 @@ export const Wrapper = styled.div`
 // filter: blur(3px);
 export const CommentWrapper = styled.div`
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
+  width: 100%;
 `
 export const HeaderWrapper = styled.div`
-  ${css.flex('align-center')};
+  ${css.flex('align-center', 'justify-between')};
+  width: 100%;
 `
 export const CommentBodyInfo = styled.div`
   ${css.flexColumn()};
-  width: 100%;
+  width: calc(100% - 60px);
+  margin-left: 40px;
+  margin-top: -20px;
 `
 export const CommentContent = styled.div`
   font-size: 14px;
