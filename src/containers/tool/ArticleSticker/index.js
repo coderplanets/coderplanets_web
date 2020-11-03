@@ -16,7 +16,7 @@ import GotoTop from '@/components/GotoTop'
 
 import LeftSticker from './LeftSticker/index'
 import CommunitySticker from './CommunitySticker'
-import CommonSticker from './CommonSticker'
+import ArticleSticker from './ArticleSticker'
 import CommentSticker from './CommentSticker'
 
 import { Wrapper, InnerWrapper, MainWrapper, GoTopWrapper } from './styles'
@@ -49,7 +49,10 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
           <InnerWrapper>
             <MainWrapper>
               {showCommunity && <CommunitySticker />}
-              <CommonSticker viewing={viewingData} show={!showCommentSticker} />
+              <ArticleSticker
+                viewing={viewingData}
+                show={!showCommentSticker}
+              />
               <CommentSticker show={showCommentSticker} data={viewingData} />
             </MainWrapper>
             <GoTopWrapper>

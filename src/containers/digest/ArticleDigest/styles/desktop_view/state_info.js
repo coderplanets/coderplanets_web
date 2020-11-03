@@ -29,12 +29,12 @@ export const Text = styled(ViewsText)`
     color: ${theme('thread.articleTitle')};
   }
 `
-
 const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   width: 14px;
   height: 14px;
   display: block;
+  transition: fill 0.25s;
 `
 export const ViewdIcon = styled(Icon)``
 export const LikeIcon = styled(Icon)`

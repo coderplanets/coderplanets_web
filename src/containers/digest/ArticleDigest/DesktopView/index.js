@@ -52,7 +52,7 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
             <PublishDate insertedAt={viewingData.insertedAt} />
             <Title thread={activeThread} data={viewingData} />
             <BottomInfo>
-              <PublishDesc>发布于 Elixir 社区</PublishDesc>
+              <PublishDesc>Elixir 社区</PublishDesc>
               <StateInfo article={viewingData} />
             </BottomInfo>
           </Main>

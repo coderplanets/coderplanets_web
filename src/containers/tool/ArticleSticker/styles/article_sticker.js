@@ -46,6 +46,7 @@ export const LikeIcon = styled(Icon)`
 `
 export const CollectIcon = styled(Icon)`
   fill: #0c5473;
+  margin-left: 1px;
 
   &:hover {
     fill: #107eae;

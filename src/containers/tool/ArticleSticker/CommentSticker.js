@@ -9,7 +9,10 @@ import T from 'prop-types'
 
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
+
+import { NotifyButton } from '@/components/Buttons'
 import Tooltip from '@/components/Tooltip'
+import AvatarFallback from '@/components/AvatarFallback'
 
 import {
   Wrapper,
@@ -21,9 +24,6 @@ import {
   MoreUserWrapper,
   MoreIcon,
   Divider,
-  NotifyWrapper,
-  NotifyIcon,
-  NotifyTitle,
 } from './styles/comment_sticker'
 
 /* eslint-disable-next-line */
@@ -40,13 +40,24 @@ const CommentSticker = ({
       </Title>
       {users.totalCount !== 0 && (
         <UsersWrapper>
-          {users.entries.slice(0, 11).map((user) => (
+          {users.entries.slice(0, 10).map((user) => (
             <Tooltip
               key={user.id}
               placement="bottom"
               content={<PopInfo>{user.nickname}</PopInfo>}
             >
-              <Avatar src={user.avatar} visibleByDefault />
+              <Avatar
+                src={user.avatar}
+                alt={`@${user.nickname}`}
+                fallback={
+                  <AvatarFallback
+                    width={20}
+                    title={`${user.nickname}`}
+                    right="10px"
+                    bottom="6px"
+                  />
+                }
+              />
             </Tooltip>
           ))}
           <MoreUserWrapper>
@@ -55,11 +66,7 @@ const CommentSticker = ({
         </UsersWrapper>
       )}
       <Divider />
-
-      <NotifyWrapper>
-        <NotifyIcon src={`${ICON}/article/notify-off.svg`} />
-        <NotifyTitle>提醒我</NotifyTitle>
-      </NotifyWrapper>
+      <NotifyButton />
     </Wrapper>
   )
 }

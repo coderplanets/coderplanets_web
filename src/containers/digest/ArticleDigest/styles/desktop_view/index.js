@@ -33,7 +33,7 @@ export const AuthorWrapper = styled.div`
   margin-top: 32px;
 `
 export const BottomInfo = styled.div`
-  ${css.flex('align-center', 'justify-between')};
+  ${css.flex('align-end', 'justify-between')};
   margin-top: 15px;
   padding-bottom: 45px;
   border-bottom: 1px solid;
@@ -44,4 +44,14 @@ export const BottomInfo = styled.div`
 export const PublishDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
+  border-left: 4px solid;
+  border-left-color: #175473;
+  padding-left: 8px;
+  margin-left: 2px;
+
+  &:hover {
+    cursor: pointer;
+    color: ${theme('thread.articleTitle')};
+  }
+  transition: color 0.25s;
 `
