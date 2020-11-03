@@ -11,4 +11,9 @@ export const Wrapper = styled.div`
 export const PublishDateWrapper = styled.div`
   color: ${theme('comment.action')};
   font-size: 14px;
+
+  ${css.media.mobile`
+    font-size: 12px;
+    opacity: 0.8;
+  `};
 `

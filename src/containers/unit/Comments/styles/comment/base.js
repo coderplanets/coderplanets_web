@@ -22,7 +22,7 @@ export const ReplyToBodyBase = styled.span`
   ${css.cutFrom('350px')};
 
   ${css.media.mobile`
-    ${css.cutFrom('120px')};
+    ${css.cutFrom('125px')};
   `};
 `
 export const ReplyToFloorBase = styled.div`

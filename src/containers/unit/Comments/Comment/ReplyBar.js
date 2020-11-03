@@ -1,9 +1,11 @@
 import React from 'react'
 
+import { ICON } from '@/config'
 import { cutFrom } from '@/utils'
+
 import {
   Wrapper,
-  Label,
+  ReplyIcon,
   ReplyToBody,
   ReplyToFloor,
 } from '../styles/comment/reply_bar'
@@ -11,8 +13,8 @@ import {
 const CommentReplyBar = ({ data }) => {
   return (
     <Wrapper>
-      <Label>回复&nbsp;</Label>
-      {cutFrom(data.author.nickname, 10)}:<ReplyToBody>{data.body}</ReplyToBody>
+      <ReplyIcon src={`${ICON}/article/reply.svg`} />
+      {cutFrom(data.author.nickname, 6)}:<ReplyToBody>{data.body}</ReplyToBody>
       <ReplyToFloor>#{data.floor}</ReplyToFloor>
     </Wrapper>
   )

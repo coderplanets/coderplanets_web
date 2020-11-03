@@ -3,7 +3,7 @@ import React from 'react'
 import { useDevice } from '@/hooks'
 
 import DesktopView from './DesktopView'
-import MobileView from './MobileView'
+import MobileView from './MobileView/index'
 
 const Comment = (props) => {
   const { isMobile } = useDevice()
