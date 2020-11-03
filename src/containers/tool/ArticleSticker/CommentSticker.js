@@ -9,6 +9,8 @@ import T from 'prop-types'
 
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
+
+import { NotifyButton } from '@/components/Buttons'
 import Tooltip from '@/components/Tooltip'
 import AvatarFallback from '@/components/AvatarFallback'
 
@@ -22,9 +24,6 @@ import {
   MoreUserWrapper,
   MoreIcon,
   Divider,
-  NotifyWrapper,
-  NotifyIcon,
-  NotifyTitle,
 } from './styles/comment_sticker'
 
 /* eslint-disable-next-line */
@@ -67,11 +66,7 @@ const CommentSticker = ({
         </UsersWrapper>
       )}
       <Divider />
-
-      <NotifyWrapper>
-        <NotifyIcon src={`${ICON}/article/notify-off.svg`} />
-        <NotifyTitle>提醒我</NotifyTitle>
-      </NotifyWrapper>
+      <NotifyButton />
     </Wrapper>
   )
 }

@@ -16,7 +16,6 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
   margin-bottom: 15px;
-  margin-left: 3px;
 `
 export const JoinCount = styled.span`
   color: ${theme('comment.number')};
@@ -55,18 +54,4 @@ export const Divider = styled.div`
   background: #0f4251;
   margin-top: 12px;
   margin-bottom: 12px;
-`
-export const NotifyWrapper = styled.div`
-  ${css.flex('align-center')};
-`
-export const NotifyIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  width: 16px;
-  height: 16px;
-  display: block;
-  margin-right: 5px;
-`
-export const NotifyTitle = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 13px;
 `

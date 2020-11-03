@@ -12,7 +12,7 @@ import {
   ShareIcon,
   Number,
   Text,
-} from './styles/common_sticker'
+} from './styles/article_sticker'
 
 const CommonSticker = ({ show, viewing }) => {
   return (
