@@ -9,9 +9,7 @@ const UserInfo = ({ author, insertedAt }) => (
     <Avatar
       src={author.avatar}
       alt={`@${author.nickname}`}
-      fallback={
-        <AvatarFallback width={35} right="10px" title={author?.nickname} />
-      }
+      fallback={<AvatarFallback user={author} width={35} right="10px" />}
       visibleByDefault
     />
     <div>

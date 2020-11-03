@@ -5,12 +5,12 @@ import { ICON_BASE } from '@/config'
 
 import InlineTags from '@/components/InlineTags'
 import DotDivider from '@/components/DotDivider'
+import AvatarFallback from '@/components/AvatarFallback'
 
 import {
   Wrapper,
   AvatarWrapper,
   Avatar,
-  AvatarFallback,
   AuthorInfo,
   TimeStamp,
   TagListWrapper,
@@ -25,7 +25,7 @@ const Header = ({ cover, item, onAuthorSelect }) => {
             <Avatar
               src={item.author.avatar}
               fallback={
-                <AvatarFallback>{item.author.nickname[0]}</AvatarFallback>
+                <AvatarFallback user={item.author} width={16} right="6px" />
               }
             />
           </AvatarWrapper>

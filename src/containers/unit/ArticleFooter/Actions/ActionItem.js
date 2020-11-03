@@ -23,7 +23,7 @@ const ActionItem = ({ item: { author, article, community, insertedAt } }) => {
         </IconBgWrapper>
         <AvatarIcon
           src={author.avatar}
-          fallback={<AvatarFallback width="14px" title={author?.nickname} />}
+          fallback={<AvatarFallback user={author} width={14} />}
         />
         <UserName>{author.nickname}</UserName> {insertedAt}在:{' '}
         <ArticleTitle>{article.title}</ArticleTitle>

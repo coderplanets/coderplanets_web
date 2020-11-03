@@ -14,12 +14,6 @@ export const Wrapper = styled.nav`
 export const Avatar = styled(Img)`
   ${css.circle('36px')};
 `
-export const AvatarFallback = styled(Img)`
-  ${css.flex('align-both')};
-  ${css.circle('36px')};
-  background: #022a34;
-  color: ${theme('thread.articleDigest')};
-`
 export const Name = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;

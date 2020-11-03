@@ -18,12 +18,13 @@ const AvatarFallback = ({
   testId,
   className,
   width,
-  title,
+  user,
   left,
   right,
   top,
   bottom,
 }) => {
+  const name = user?.nickname
   return (
     <Wrapper
       className={className}
@@ -34,7 +35,7 @@ const AvatarFallback = ({
       top={top}
       bottom={bottom}
     >
-      <Name width={width}>{title.slice(0, 1)}</Name>
+      <Name width={width}>{name.slice(0, 1)}</Name>
     </Wrapper>
   )
 }
@@ -42,8 +43,10 @@ const AvatarFallback = ({
 AvatarFallback.propTypes = {
   testId: T.string,
   className: T.string,
+  user: T.shape({
+    nickname: T.string,
+  }),
   width: T.number,
-  title: T.string,
   left: T.string,
   right: T.string,
   top: T.string,
@@ -54,7 +57,9 @@ AvatarFallback.defaultProps = {
   testId: 'avatar-fallback',
   className: '',
   width: 15,
-  title: '?',
+  user: {
+    nickname: '?',
+  },
   left: '0',
   right: '0',
   top: '0',
