@@ -10,6 +10,7 @@ import T from 'prop-types'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 import Tooltip from '@/components/Tooltip'
+import AvatarFallback from '@/components/AvatarFallback'
 
 import {
   Wrapper,
@@ -40,13 +41,24 @@ const CommentSticker = ({
       </Title>
       {users.totalCount !== 0 && (
         <UsersWrapper>
-          {users.entries.slice(0, 11).map((user) => (
+          {users.entries.slice(0, 10).map((user) => (
             <Tooltip
               key={user.id}
               placement="bottom"
               content={<PopInfo>{user.nickname}</PopInfo>}
             >
-              <Avatar src={user.avatar} visibleByDefault />
+              <Avatar
+                src={user.avatar}
+                alt={`@${user.nickname}`}
+                fallback={
+                  <AvatarFallback
+                    width={20}
+                    title={`${user.nickname}`}
+                    right="10px"
+                    bottom="6px"
+                  />
+                }
+              />
             </Tooltip>
           ))}
           <MoreUserWrapper>
