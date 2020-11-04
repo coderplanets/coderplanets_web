@@ -11,7 +11,7 @@ describe('discovery page: ', () => {
     cy.id('header-search').should('be.visible')
     cy.id('header-search-icon').should('be.visible')
 
-    cy.id('sidebar').should('be.visible')
+    // cy.id('sidebar').should('be.visible')
 
     cy.id('discovery-banner').should('be.visible')
     // cypress can not load dynamic Footer
