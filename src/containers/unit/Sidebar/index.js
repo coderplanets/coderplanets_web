@@ -48,6 +48,7 @@ const SidebarContainer = ({ sidebar: store }) => {
         pin={pin}
         testId="sidebar"
         className={ANCHOR.GLOBAL_BLUR_CLASS}
+        isPulled={isPulled}
       >
         <Header pin={pin} searchCommunityValue={searchCommunityValue} />
         {/* move home community out of menulist to avoid rerender */}

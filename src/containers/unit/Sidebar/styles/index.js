@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
+import { SIDEBAR_WIDTH, SIDEBAR_EXPAND_WIDTH } from './metric'
+
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751
 export const Wrapper = styled.aside.attrs((props) => ({
@@ -9,15 +11,14 @@ export const Wrapper = styled.aside.attrs((props) => ({
 }))`
   position: fixed;
   top: 0;
-  width: auto;
+  min-width: ${SIDEBAR_WIDTH};
+  height: 100vh;
   border-right: 1px solid;
   border-color: ${theme('sidebar.borderColor')};
   z-index: ${css.zIndex.sidebar};
 
   transform: ${({ isPulled }) =>
-    isPulled ? 'translateX(0)' : 'translateX(-56px)'};
-
-  /* transform: translateX(-56px); */
+    isPulled ? 'translateX(0)' : `translateX(-${SIDEBAR_WIDTH})`};
 
   ${css.media.maxContent`
     left: 0;
@@ -26,11 +27,12 @@ export const Wrapper = styled.aside.attrs((props) => ({
 `
 
 export const MainWrapper = styled.div`
-  ${css.flexColumn()};
+  display: ${({ isPulled }) => (isPulled ? 'flex' : 'none')};
+  flex-direction: column;
 
   /* top: 0; */
   /* left: 0; */
-  width: ${({ pin }) => (pin ? '260px' : '56px')};
+  width: ${({ pin }) => (pin ? SIDEBAR_EXPAND_WIDTH : SIDEBAR_WIDTH)};
   height: 100vh;
   box-shadow: ${({ pin }) => (pin ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
   background: ${theme('sidebar.bg')};
