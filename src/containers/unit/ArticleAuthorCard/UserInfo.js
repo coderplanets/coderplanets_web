@@ -2,7 +2,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { cutFrom } from '@/utils'
-import FollowButton from '@/components/FollowButton'
+import { FollowButton } from '@/components/Buttons'
 
 import { Wrapper, Avatar, Brief, Nickname, Bio } from './styles/user_info'
 

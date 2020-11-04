@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import FollowButton from '@/components/FollowButton'
+import { FollowButton } from '@/components/Buttons'
 
 import {
   Wrapper,

@@ -2,10 +2,11 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 import { any, equals, values } from 'ramda'
 
-import DotDivider from '@/components/DotDivider'
-import FollowButton from '@/components/FollowButton'
-import { Space } from '@/components/Common'
 import { ICON_CMD } from '@/config'
+
+import DotDivider from '@/components/DotDivider'
+import { FollowButton } from '@/components/Buttons'
+import { Space } from '@/components/Common'
 
 import AchieveCard from './AchieveCard'
 import NumbersCard from './NumbersCard'
