@@ -9,7 +9,7 @@ import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 import FollowingBtn from './FollowingBtn'
-import FollowBtn from './FollowBtn'
+import FollowedBtn from './FollowedBtn'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:FollowButton:index')
@@ -53,7 +53,7 @@ const FollowButton = ({
           noBorderWhenFollowed={noBorderWhenFollowed}
         />
       ) : (
-        <FollowBtn size={size} loading={isLoading} onClick={handleFollow} />
+        <FollowedBtn size={size} loading={isLoading} onClick={handleFollow} />
       )}
     </>
   )

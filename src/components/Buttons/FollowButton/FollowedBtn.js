@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 
-import { BtnWrapper, WatchIcon, LoadingIcon } from './styles'
+import { BtnWrapper, WatchIcon, LoadingIcon } from '../styles/follow_button'
 
 const FollowBtn = ({ size, loading, onClick }) => {
   return (
