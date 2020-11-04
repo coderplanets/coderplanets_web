@@ -23,14 +23,16 @@ export const Shape = styled(Img)`
   transform: rotate(90deg);
 `
 export const ArrowIcon = styled(Img)`
+  position: absolute;
+  top: 44px;
+  left: 0;
   fill: ${theme('thread.articleDigest')};
   width: 24px;
   height: 24px;
   z-index: 1;
-  position: absolute;
-  top: 44px;
-  left: 0;
   display: block;
+
+  transform: ${({ isPulled }) => (isPulled ? 'rotate(0)' : 'rotate(180deg)')};
 
   ${Wrapper}:hover & {
     fill: ${theme('thread.articleTitle')};

@@ -18,6 +18,8 @@ const SidebarStore = T.model('SidebarStore', {
   // after user click custom sort option in footer
   sortOptActive: T.optional(T.boolean, false),
 
+  isPulled: T.optional(T.boolean, false),
+
   /*
        this is a fix for wired svg icon in sidebar
        when community icon is svg format, the svg loader only do it:s work

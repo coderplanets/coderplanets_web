@@ -14,6 +14,11 @@ export const Wrapper = styled.aside.attrs((props) => ({
   border-color: ${theme('sidebar.borderColor')};
   z-index: ${css.zIndex.sidebar};
 
+  transform: ${({ isPulled }) =>
+    isPulled ? 'translateX(0)' : 'translateX(-56px)'};
+
+  /* transform: translateX(-56px); */
+
   ${css.media.maxContent`
     left: 0;
   `};
@@ -34,7 +39,7 @@ export const MainWrapper = styled.div`
   &:hover {
     width: 260px;
     box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
-    /* transition-delay: 0.4s; */
+    transition-delay: 0.4s;
   }
 
   transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,

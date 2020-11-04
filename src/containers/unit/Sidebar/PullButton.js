@@ -3,10 +3,10 @@ import React from 'react'
 import { ICON } from '@/config'
 import { Wrapper, Shape, ArrowIcon } from './styles/pull_button'
 
-const PullButton = () => {
+const PullButton = ({ onClick, isPulled }) => {
   return (
-    <Wrapper>
-      <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
+    <Wrapper onClick={onClick}>
+      <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} isPulled={isPulled} />
       <Shape src={`${ICON}/shape/t.svg`} />
     </Wrapper>
   )

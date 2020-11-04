@@ -18,7 +18,7 @@ import Footer from './Footer'
 import PullButton from './PullButton'
 
 import { Wrapper, MainWrapper } from './styles'
-import { useInit, onSortMenuEnd } from './logic'
+import { useInit, onSortMenuEnd, togglePulled } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Sidebar:index')
@@ -33,6 +33,7 @@ const SidebarContainer = ({ sidebar: store }) => {
     sortOptActive,
     communitiesData,
     forceRerender,
+    isPulled,
   } = store
 
   // onMouseLeave={logic.leaveSidebar}
@@ -41,8 +42,8 @@ const SidebarContainer = ({ sidebar: store }) => {
   const homeCommunity = filter(propEq('raw', 'home'), communitiesData)[0]
 
   return (
-    <Wrapper>
-      <PullButton />
+    <Wrapper isPulled={isPulled}>
+      <PullButton onClick={togglePulled} isPulled={isPulled} />
       <MainWrapper
         pin={pin}
         testId="sidebar"
