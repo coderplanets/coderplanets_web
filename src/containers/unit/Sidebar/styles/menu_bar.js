@@ -4,7 +4,7 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
-import { Wrapper as SidebarWrapper } from './index'
+import { MainWrapper as SidebarWrapper } from './index'
 
 export const Wrapper = styled.div`
   display: block;

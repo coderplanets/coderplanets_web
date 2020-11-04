@@ -17,7 +17,7 @@ import Footer from './Footer'
 
 import PullButton from './PullButton'
 
-import { Wrapper } from './styles'
+import { Wrapper, MainWrapper } from './styles'
 import { useInit, onSortMenuEnd } from './logic'
 
 /* eslint-disable-next-line */
@@ -41,22 +41,28 @@ const SidebarContainer = ({ sidebar: store }) => {
   const homeCommunity = filter(propEq('raw', 'home'), communitiesData)[0]
 
   return (
-    <Wrapper pin={pin} testId="sidebar" className={ANCHOR.GLOBAL_BLUR_CLASS}>
+    <Wrapper>
       <PullButton />
-      <Header pin={pin} searchCommunityValue={searchCommunityValue} />
-      {/* move home community out of menulist to avoid rerender */}
-      <MenuBar pin={pin} item={homeCommunity} activeRaw={activeRaw} />
-
-      <MenuList
-        items={communitiesData}
+      <MainWrapper
         pin={pin}
-        sortOptActive={sortOptActive}
-        forceRerender={forceRerender}
-        activeRaw={activeRaw}
-        onSortEnd={onSortMenuEnd}
-        distance={5}
-      />
-      <Footer pin={pin} sortOptActive={sortOptActive} />
+        testId="sidebar"
+        className={ANCHOR.GLOBAL_BLUR_CLASS}
+      >
+        <Header pin={pin} searchCommunityValue={searchCommunityValue} />
+        {/* move home community out of menulist to avoid rerender */}
+        <MenuBar pin={pin} item={homeCommunity} activeRaw={activeRaw} />
+
+        <MenuList
+          items={communitiesData}
+          pin={pin}
+          sortOptActive={sortOptActive}
+          forceRerender={forceRerender}
+          activeRaw={activeRaw}
+          onSortEnd={onSortMenuEnd}
+          distance={5}
+        />
+        <Footer pin={pin} sortOptActive={sortOptActive} />
+      </MainWrapper>
     </Wrapper>
   )
 }

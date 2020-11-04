@@ -31,4 +31,11 @@ export const ArrowIcon = styled(Img)`
   top: 44px;
   left: 0;
   display: block;
+
+  ${Wrapper}:hover & {
+    fill: ${theme('thread.articleTitle')};
+    width: 25px;
+    height: 25px;
+  }
+  transition: all 0.25s;
 `

@@ -4,7 +4,7 @@ import Input from '@/components/Input'
 import Img from '@/Img'
 
 import { theme, css } from '@/utils'
-import { Wrapper as SidebarWrapper } from './index'
+import { MainWrapper as SidebarWrapper } from './index'
 
 export const Wrapper = styled.div`
   margin-top: 14px;
