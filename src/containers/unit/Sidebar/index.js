@@ -15,6 +15,8 @@ import MenuList from './MenuList'
 import MenuBar from './MenuBar'
 import Footer from './Footer'
 
+import PullButton from './PullButton'
+
 import { Wrapper } from './styles'
 import { useInit, onSortMenuEnd } from './logic'
 
@@ -40,6 +42,7 @@ const SidebarContainer = ({ sidebar: store }) => {
 
   return (
     <Wrapper pin={pin} testId="sidebar" className={ANCHOR.GLOBAL_BLUR_CLASS}>
+      <PullButton />
       <Header pin={pin} searchCommunityValue={searchCommunityValue} />
       {/* move home community out of menulist to avoid rerender */}
       <MenuBar pin={pin} item={homeCommunity} activeRaw={activeRaw} />
