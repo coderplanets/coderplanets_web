@@ -106,6 +106,9 @@ const verticalScrollbarWidth = (type) => {
     case 'small': {
       return '7px'
     }
+    case 'none': {
+      return '0'
+    }
     // default
     default: {
       return '10px'

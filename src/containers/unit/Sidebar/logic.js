@@ -117,6 +117,8 @@ const refreshSubedCommunitiesIfNeed = () => {
   }
 }
 
+export const togglePulled = () => store.mark({ isPulled: !store.isPulled })
+
 export const toggleForeceRerender = (forceRerender = true) =>
   store.mark({ forceRerender })
 

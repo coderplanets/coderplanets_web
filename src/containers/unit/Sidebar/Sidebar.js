@@ -2,12 +2,14 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
+import { SIDEBAR_WIDTH, SIDEBAR_EXPAND_WIDTH } from './styles/metric'
+
 const SideBar = styled.div`
   border-right: 1px solid;
   position: fixed;
   height: 100vh;
   top: 0;
-  width: ${({ open }) => (open ? '256px' : '56px')};
+  width: ${({ open }) => (open ? SIDEBAR_EXPAND_WIDTH : SIDEBAR_WIDTH)};
   background: ${theme('sidebar.bg')};
   border-color: ${theme('sidebar.border_color')};
   z-index: ${css.zIndex.sidebar};

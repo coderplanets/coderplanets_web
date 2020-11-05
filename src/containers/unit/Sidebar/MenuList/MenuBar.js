@@ -15,9 +15,9 @@ import {
   MenuItemIcon,
   MenuItemTitle,
   MiniChartWrapper,
-} from './styles/menu_bar'
+} from '../styles/menu_list/menu_bar'
 
-import { onCommunitySelect } from './logic'
+import { onCommunitySelect } from '../logic'
 
 const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => {
   const handleSelect = useCallback(() => {

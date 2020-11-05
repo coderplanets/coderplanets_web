@@ -153,7 +153,7 @@ VerticalScroller.propTypes = {
   width: T.string,
   showShadow: T.bool,
   shadowSize: T.oneOf(['small', 'medium', 'large']),
-  barSize: T.oneOf(['small', 'medium', 'large']),
+  barSize: T.oneOf(['small', 'medium', 'large', 'none']),
   // hack for custom scrollbar
   autoHide: T.bool,
   showOnHover: T.bool,

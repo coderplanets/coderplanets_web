@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-import { Wrapper as SidebarWrapper } from './index'
-
 export const Wrapper = styled.div`
   margin-top: -20px;
   background: ${theme('sidebar.bg')};
@@ -20,12 +18,6 @@ export const OptionWrapper = styled.div`
   opacity: ${({ pin }) => (pin ? '1' : '0')};
   justify-content: ${({ pin }) => (pin ? 'center' : '')};
   width: ${({ pin }) => (pin ? '100%' : 0)};
-
-  ${SidebarWrapper}:hover & {
-    opacity: 1;
-    width: 100%;
-    transition-delay: 0.5s;
-  }
 `
 export const OptionDivider = styled.div`
   border-right: 1px solid;

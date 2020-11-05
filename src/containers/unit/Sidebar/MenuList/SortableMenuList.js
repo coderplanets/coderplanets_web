@@ -20,17 +20,21 @@ const SortableMenuList = SortableContainer(
   ({ communities, pin, sortOptActive, activeRaw, forceRerender }) => {
     return (
       <CustomScroller direction="vertical" height="84vh" withBorder autoHide>
-        {communities.map((item, index) => (
-          <SortableMenuBar
-            index={index}
-            key={item.raw}
-            pin={pin}
-            sortOptActive={sortOptActive}
-            item={item}
-            activeRaw={activeRaw}
-            forceRerender={forceRerender}
-          />
-        ))}
+        <div>
+          {communities.map((item, index) => (
+            <SortableMenuBar
+              index={index}
+              key={item.raw}
+              pin={pin}
+              sortOptActive={sortOptActive}
+              item={item}
+              activeRaw={activeRaw}
+              forceRerender={forceRerender}
+            />
+          ))}
+
+          <br />
+        </div>
       </CustomScroller>
     )
   },

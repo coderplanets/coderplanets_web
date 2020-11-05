@@ -1,42 +1,47 @@
 import React from 'react'
 
-import { ICON_CMD, ICON_BASE } from '@/config'
-
-import PinButton from './PinButton'
+import { ICON } from '@/config'
 
 import {
   Wrapper,
   InnerWrapper,
   HeaderFuncs,
-  SiteLogoWrapper,
+  MenuWrapper,
   SearchWrapper,
   SearchContent,
   SearchInput,
   SearchIcon,
-  SiteLogo,
+  MenuLogo,
 } from './styles/header'
-import { searchOnFocus, searchCommunityValueOnChange } from './logic'
+import { searchOnFocus, searchCommunityValueOnChange, setPin } from './logic'
 
 const Header = ({ pin, searchCommunityValue }) => (
   <Wrapper pin={pin}>
     <InnerWrapper>
-      <HeaderFuncs>
-        <SiteLogoWrapper pin={pin}>
-          <SiteLogo src={`${ICON_BASE}/sidebar/everyday.svg`} />
-        </SiteLogoWrapper>
-        <SearchWrapper pin={pin}>
-          <SearchContent>
-            <SearchIcon src={`${ICON_CMD}/search.svg`} />
-            <SearchInput
-              value={searchCommunityValue}
-              onChange={(e) => searchCommunityValueOnChange(e)}
-              placeholder="订阅的社区"
-              onFocus={searchOnFocus}
-            />
-          </SearchContent>
-        </SearchWrapper>
-      </HeaderFuncs>
-      <PinButton pin={pin} />
+      {!pin ? (
+        <HeaderFuncs>
+          <MenuWrapper pin={pin} onClick={setPin}>
+            <MenuLogo src={`${ICON}/sidebar-menu.svg`} pin={pin} />
+          </MenuWrapper>
+        </HeaderFuncs>
+      ) : (
+        <HeaderFuncs>
+          <SearchWrapper pin={pin}>
+            <SearchContent>
+              <SearchIcon src={`${ICON}/search.svg`} />
+              <SearchInput
+                value={searchCommunityValue}
+                onChange={(e) => searchCommunityValueOnChange(e)}
+                placeholder="订阅的社区"
+                onFocus={searchOnFocus}
+              />
+            </SearchContent>
+          </SearchWrapper>
+          <MenuWrapper pin={pin} onClick={setPin}>
+            <MenuLogo src={`${ICON}/sidebar-menu.svg`} pin={pin} />
+          </MenuWrapper>
+        </HeaderFuncs>
+      )}
     </InnerWrapper>
   </Wrapper>
 )
