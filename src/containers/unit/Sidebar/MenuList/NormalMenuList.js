@@ -4,10 +4,11 @@ import CustomScroller from '@/components/CustomScroller'
 import MenuBar from './MenuBar'
 
 const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {
+  const scrollHeight = !pin ? 'calc(100vh - 70px)' : 'calc(100vh - 140px)'
   return (
     <CustomScroller
       direction="vertical"
-      height="calc(100vh - 140px)"
+      height={scrollHeight}
       withBorder
       autoHide
     >
