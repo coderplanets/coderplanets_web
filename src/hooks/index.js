@@ -8,6 +8,7 @@ export { default as useOutsideClick } from './useOutsideClick'
 export { default as useLangPress } from './useLangPress'
 export { default as useTrans } from './useTrans'
 export { default as useDevice } from './useDevice'
+export { default as useHover } from './useHover'
 
 export { default as useNetwork } from 'react-use/lib/useNetwork'
 export { default as useCopyToClipboard } from 'react-use/lib/useCopyToClipboard'

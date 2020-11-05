@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
 import { connectStore, buildLog } from '@/utils'
@@ -23,7 +23,9 @@ const log = buildLog('C:Sidebar:index')
 const SidebarContainer = ({ sidebar: store }) => {
   useInit(store)
   const [loaded, setLoaded] = useState(false)
-  const { isPulled } = store
+  const { isPulled, pin } = store
+
+  const ref = useRef(null)
 
   useEffect(() => {
     const loadSidebar = async () => {
@@ -40,8 +42,8 @@ const SidebarContainer = ({ sidebar: store }) => {
   }, [isPulled])
 
   return (
-    <Wrapper isPulled={isPulled}>
-      <PullButton onClick={togglePulled} isPulled={isPulled} />
+    <Wrapper ref={ref} isPulled={isPulled}>
+      {!pin && <PullButton onClick={togglePulled} isPulled={isPulled} />}
       {loaded && <RealSidebar />}
     </Wrapper>
   )

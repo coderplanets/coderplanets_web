@@ -5,8 +5,8 @@ import { reject, propEq } from 'ramda'
 import NormalMenuList from './NormalMenuList'
 // import SortableMenuList from './SortableMenuList'
 
-import { Wrapper } from './styles/menu_list'
-import { onSortMenuEnd } from './logic'
+import { Wrapper } from '../styles/menu_list/index'
+import { onSortMenuEnd } from '../logic'
 
 export const SortableMenuList = dynamic(() => import('./SortableMenuList'), {
   /* eslint-disable react/display-name */

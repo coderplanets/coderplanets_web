@@ -4,15 +4,12 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
-import { MainWrapper as SidebarWrapper } from './index'
-
 export const Wrapper = styled.div`
   display: block;
   position: relative;
   z-index: ${css.zIndex.sidebar + 1};
-  &:hover {
-    background: ${theme('sidebar.menuHover')};
-  }
+
+  transition: all 0.25s;
 `
 export const ActiveBar = styled.div`
   position: absolute;
@@ -20,10 +17,15 @@ export const ActiveBar = styled.div`
   background: ${theme('sidebar.activeBar')};
   width: 3px;
   height: 12px;
-  /* top: ${({ pin }) => (pin ? '20px' : '4px')}; */
   top: 20px;
   left: 0;
   border-radius: 3px;
+
+  ${Wrapper}:hover & {
+    opacity: ${({ active }) => (active ? 1 : 0.6)};
+  }
+
+  transition: opacity 0.25s;
 `
 export const DragIcon = styled(Img)`
   cursor: pointer;
@@ -55,16 +57,12 @@ export const MenuRow = styled.div`
   font-size: 1rem;
   margin-left: ${({ sortOptActive }) => (sortOptActive ? '10px' : '0')};
 `
+// opacity maybe overwrite by lazy image
 export const MenuItemIcon = styled(CommunityFaceLogo)`
-  opacity: ${({ active }) => (active ? 1 : 0.5)};
+  opacity: ${({ active }) => (active ? '1 !important' : '0.8 !important')};
   width: 22px;
   height: 22px;
   margin-right: 10px;
-
-  ${MenuRow}:hover & {
-    opacity: 1;
-    transition-delay: 0.3s;
-  }
   transition: opacity 0.2s;
 `
 export const MenuItemTitle = styled.div`
@@ -78,21 +76,10 @@ export const MenuItemTitle = styled.div`
   letter-spacing: ${({ forceRerender }) => (forceRerender ? '1.3px' : '1.2px')};
   margin-right: 10px;
 
-  /* ${css.cutFrom('110px')}; */
-
-  ${MenuRow}:hover & {
-    width: 100%;
+  ${Wrapper}:hover & {
     opacity: 1;
-    letter-spacing: 2px;
-    transition-delay: 0.3s;
-    visibility: visible;
   }
-  ${SidebarWrapper}:hover & {
-    width: 100%;
-    max-width: 50%;
-    transition-delay: .5s;
-    visibility: visible;
-  }
+  transition: opacity 0.25s;
 `
 export const MiniChartWrapper = styled.div`
   display: ${({ pin }) => (pin ? 'flex' : 'none')};
@@ -103,9 +90,5 @@ export const MiniChartWrapper = styled.div`
 
   svg {
     width: 100%;
-  }
-
-  ${SidebarWrapper}:hover & {
-    display: flex;
   }
 `

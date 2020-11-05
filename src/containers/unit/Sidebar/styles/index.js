@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
-import { SIDEBAR_WIDTH, SIDEBAR_EXPAND_WIDTH } from './metric'
+import { getMainWidth, getShadow, SIDEBAR_WIDTH } from './metric'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751
@@ -25,25 +25,18 @@ export const Wrapper = styled.aside.attrs((props) => ({
   `};
   ${css.media.tablet`display: none`};
 `
-
-export const MainWrapper = styled.div`
+export const MainWrapper = styled.div.attrs(({ pin }) => ({
+  style: {
+    width: getMainWidth(pin),
+    'box-shadow': getShadow(pin),
+  },
+}))`
   display: ${({ isPulled }) => (isPulled ? 'flex' : 'none')};
   flex-direction: column;
 
-  /* top: 0; */
-  /* left: 0; */
-  width: ${({ pin }) => (pin ? SIDEBAR_EXPAND_WIDTH : SIDEBAR_WIDTH)};
   height: 100vh;
-  box-shadow: ${({ pin }) => (pin ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
   background: ${theme('sidebar.bg')};
   z-index: ${css.zIndex.sidebar};
 
-  &:hover {
-    width: 260px;
-    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
-    transition-delay: 0.4s;
-  }
-
-  transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,
-    background-color 0.3s z-index 0.5s;
+  transition: width 0.1s, box-shadow 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 `

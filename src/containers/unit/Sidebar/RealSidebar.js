@@ -11,8 +11,8 @@ import { ANCHOR } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import Header from './Header'
-import MenuList from './MenuList'
-import MenuBar from './MenuBar'
+import MenuList from './MenuList/index'
+import MenuBar from './MenuList/MenuBar'
 import Footer from './Footer'
 
 import { MainWrapper } from './styles'
@@ -41,8 +41,8 @@ const SidebarContainer = ({ sidebar: store }) => {
 
   return (
     <MainWrapper
-      pin={pin}
       testId="sidebar"
+      pin={pin}
       className={ANCHOR.GLOBAL_BLUR_CLASS}
       isPulled={isPulled}
     >
