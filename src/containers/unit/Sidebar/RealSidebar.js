@@ -59,7 +59,7 @@ const SidebarContainer = ({ sidebar: store }) => {
         onSortEnd={onSortMenuEnd}
         distance={5}
       />
-      <Footer pin={pin} sortOptActive={sortOptActive} />
+      {pin && <Footer pin={pin} sortOptActive={sortOptActive} />}
     </MainWrapper>
   )
 }
