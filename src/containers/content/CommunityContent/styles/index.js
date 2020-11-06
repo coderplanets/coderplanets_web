@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme, css, pixelAdd } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -18,12 +18,16 @@ export const Wrapper = styled.div.attrs((props) => ({
   `};
 `
 export const InnerWrapper = styled.div`
-  margin: ${({ cardView }) => (cardView ? '0 2.5%' : '0 5.5%')};
+  /* margin: ${({ cardView }) => (cardView ? '0 2.5%' : '0 5.5%')}; */
   margin-top: 20px;
   width: 100%;
+  max-width: ${pixelAdd(css.MAX_INNER_CONTENT_WIDTH, 46)};
 
-  padding: 0 3vw;
-  padding-top: ${({ cardView }) => (cardView ? '12px' : '')};
+  padding-left: 25px;
+  padding-right: 10px;
+  margin-left: -15px;
+
+  padding-top: ${({ cardView }) => (cardView ? '12px' : '15px')};
   color: ${theme('font')};
   background: ${theme('content.bg')};
 
@@ -35,7 +39,6 @@ export const InnerWrapper = styled.div`
     margin: 0 4.2%;
     margin-left: ${({ cardView }) => (cardView ? '2.5%' : '4.2%')};
     margin-top: 20px;
-    padding-top: 8px;
   `};
 
   ${css.media.mobile`

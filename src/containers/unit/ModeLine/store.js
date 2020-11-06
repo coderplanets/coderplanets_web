@@ -36,7 +36,9 @@ const ModeLine = T.model('ModeLine', {
       } = self
       const { bodyScrollDirection } = self.root.globalLayout
 
-      if (metric === METRIC.COMMUNITY) return topBarVisiable
+      if (metric === METRIC.COMMUNITY && bodyScrollDirection === 'down') {
+        return topBarVisiable
+      }
       // do not show article topBar on desktop
       if (!isMobile && metric === METRIC.ARTICLE) return false
 

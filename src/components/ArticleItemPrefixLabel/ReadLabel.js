@@ -11,7 +11,7 @@ const ReadLabel = ({ entry, accountInfo, topOffset }) => {
 
   if (!isLogin) return null
   if (markViewed && viewerHasViewed) {
-    return <ReadedLabel topOffset={topOffset}>阅</ReadedLabel>
+    return <ReadedLabel topOffset={topOffset} />
   }
 
   return null

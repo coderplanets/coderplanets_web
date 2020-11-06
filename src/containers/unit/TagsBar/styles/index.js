@@ -6,11 +6,12 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flexColumn()};
   margin-top: 30px;
-  margin-left: 32px;
+  margin-left: 20px;
 `
 export const TagItem = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 14px;
+  max-width: 180px;
 `
 export const AllTagIcon = styled(Img)`
   fill: ${theme('banner.desc')};

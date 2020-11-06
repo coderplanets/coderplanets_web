@@ -4,17 +4,17 @@ import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { ArrowLink } from '@/components/Buttons'
 import { theme, css } from '@/utils'
 
-import { getPadding } from '../../metrics'
+// import { getPadding } from '../../metrics'
 
 export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 30px;
+  max-width: ${css.MAX_INNER_CONTENT_WIDTH};
+  /* border: 1px solid tomato; */
 `
 export const InnerWrapper = styled.div`
   width: 100%;
-  max-width: ${css.MAX_CONTENT_WIDTH};
-  padding: ${({ layout }) => getPadding(layout)};
   padding-bottom: 0;
 `
 export const MainInfos = styled.div`
