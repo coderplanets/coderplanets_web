@@ -112,6 +112,7 @@ export {
   toggleGlobalBlur,
   clearGlobalBlur,
   isElementInViewport,
+  pixelAdd,
 } from './dom'
 /*
  * theme related

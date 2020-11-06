@@ -19,9 +19,8 @@ export const InnerWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   align-items: center;
   width: 100%;
-  max-width: ${css.MAX_CONTENT_WIDTH};
-  padding: ${({ layout }) => getPadding(layout)};
-  padding-right: 80px;
+  max-width: ${css.MAX_INNER_CONTENT_WIDTH};
+  /* padding: ${({ layout }) => getPadding(layout)}; */
 `
 export const Links = styled.div`
   ${css.flex('align-center')};
@@ -29,7 +28,6 @@ export const Links = styled.div`
 export const Site = styled.a`
   color: ${theme('thread.articleDigest')};
   cursor: pointer;
-  margin-right: 12px;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -38,5 +36,4 @@ export const Site = styled.a`
 `
 export const MoreText = styled(Site)`
   text-decoration: underline;
-  margin-right: 22px;
 `

@@ -4,9 +4,10 @@ import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  margin-left: 32px;
+  margin-left: 20px;
   margin-top: 40px;
   min-height: 150px;
+  max-width: 180px;
 `
 export const Header = styled.div`
   ${css.flex('justify-between', 'align-end')};

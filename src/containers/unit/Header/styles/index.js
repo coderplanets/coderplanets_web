@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.header.attrs((props) => ({
+export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  position: 'relative';
+  position: relative;
 `
 export const MobileWrapper = styled.div`
   width: 100%;

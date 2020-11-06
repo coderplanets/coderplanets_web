@@ -30,7 +30,7 @@ export const InnerWrapper = styled.div`
 export const BaseBannerContent = styled.div`
   ${css.flexColumn('align-center')};
   width: 100%;
-  padding: 0 8.5vw;
+  max-width: ${css.MAX_INNER_CONTENT_WIDTH};
 
   ${css.media.laptopL`
     padding: 0 7.5vw;
@@ -51,7 +51,7 @@ export const BannerContainer = styled(BaseBanner)`
 export const TabBarWrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  margin-left: -15px;
+  margin-left: -16px;
 
   ${css.media.tablet`
     padding-left: calc(2%);

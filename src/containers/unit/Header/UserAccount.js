@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
 
 import { onLogin, onLogout, previewAccount } from './logic'
@@ -76,7 +76,7 @@ const UserAccount = ({ isLogin, accountInfo }) => (
       </Tooltip>
     ) : (
       <Wrapper testId="header-unlogin-user" onClick={onLogin}>
-        <DefaultUserIcon src={`${ICON_CMD}/default_user.svg`} />
+        <DefaultUserIcon src={`${ICON}/user/account-solid.svg`} />
       </Wrapper>
     )}
   </React.Fragment>

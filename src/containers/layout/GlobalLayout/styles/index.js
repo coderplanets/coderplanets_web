@@ -39,16 +39,8 @@ export const BodyWrapper = styled.div`
   }};
 `
 // 180 is the sidebar full width
-export const ContentPinWrapper = styled.div`
+export const ContentWrapper = styled.div`
   margin-left: ${({ offsetLeft }) => (offsetLeft ? '180px' : '0')};
   /* for global blur */
   transition: filter 0.25s;
-`
-// 56 is the sidebar width
-export const ContentWrapper = styled.div`
-  margin-left: ${({ offsetLeft }) => (offsetLeft ? '56px' : '0')};
-
-  ${css.media.mobile`
-    margin-left: 0;
-  `};
 `

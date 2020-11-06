@@ -158,3 +158,19 @@ export const isElementInViewport = (el) => {
   return rect.height + rect.y > 0
 }
 /* eslint-enable no-undef */
+
+/**
+ * add pixed by number
+ *
+ * example:
+ * pixelAdd('20px', 10) => 30px
+ *
+ * @param {string} current
+ * @param {number} num
+ * @returns {string}
+ */
+export const pixelAdd = (current, num) => {
+  const pixelNum = Number(current.slice(0, -2))
+
+  return `${pixelNum + num}px`
+}

@@ -4,7 +4,6 @@ import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex()};
-  padding-top: 8px;
   width: 100%;
 `
 export const LeftPart = styled.div`
@@ -15,7 +14,7 @@ export const RightPart = styled.div`
   min-width: 230px;
   margin-left: 80px;
   padding-top: 38px;
-  padding-left: 25px;
+  padding-left: 15px;
 
   ${css.media.laptopL`
     margin-left: 60px;
@@ -29,9 +28,9 @@ export const PublisherWrapper = styled.div`
 `
 export const FilterWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 8px;
-  margin-left: -4px;
+  margin-bottom: 10px;
   ${css.media.mobile`margin-bottom: 4px;`};
+  margin-left: -2px;
 `
 export const StickyHolder = styled.div`
   /* align the footer */

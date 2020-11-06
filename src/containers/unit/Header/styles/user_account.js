@@ -71,9 +71,10 @@ export const AvatarIcon = styled.img`
 `
 export const DefaultUserIcon = styled(Img)`
   fill: ${theme('header.fg')};
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   display: block;
   cursor: pointer;
-  margin-right: 12px;
+  margin-right: 2px;
+  opacity: 0.5;
 `

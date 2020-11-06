@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme, css, pixelAdd } from '@/utils'
 import PinSVG from '@/SvgIcons/PinSVG'
 
 export const ReadedLabel = styled.div`
-  color: ${theme('thread.articleDigest')};
+  background: ${theme('thread.articleDigest')};
+  width: 8px;
+  height: 3px;
+  border-radius: 3px;
   position: absolute;
   top: ${({ topOffset }) => topOffset};
-  left: -24px;
-  font-size: 12px;
-  opacity: 0.9;
-  font-style: italic;
+  left: -30px;
+  opacity: 0.5;
   ${css.media.mobile`
     left: -12px;
     font-size: 0.8rem;
@@ -21,8 +22,10 @@ export const PinIcon = styled(PinSVG)`
   position: absolute;
   width: 18px;
   height: 18px;
-  top: ${({ top }) => top};
-  left: -24px;
+  top: ${({ top }) => pixelAdd(top, -4)};
+  left: -35px;
+  opacity: 0.8;
+  transform: rotate(-30deg);
 
   ${css.media.mobile`
     width: 16px;

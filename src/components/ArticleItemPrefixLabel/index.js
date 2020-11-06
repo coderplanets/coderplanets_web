@@ -37,7 +37,7 @@ ArticleItemPrefixLabel.propTypes = {
 }
 
 ArticleItemPrefixLabel.defaultProps = {
-  topOffset: '17px',
+  topOffset: '22px',
 }
 
 export default React.memo(ArticleItemPrefixLabel)

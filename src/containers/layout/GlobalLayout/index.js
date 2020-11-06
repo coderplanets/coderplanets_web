@@ -8,7 +8,7 @@ import React, { useEffect } from 'react'
 import T from 'prop-types'
 import { values } from 'ramda'
 
-import { ANCHOR, ROUTE, METRIC } from '@/constant'
+import { ANCHOR, METRIC } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { connectStore } from '@/utils'
@@ -24,13 +24,7 @@ import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
 import SEO from './SEO'
 
-import {
-  Wrapper,
-  InnerWrapper,
-  BodyWrapper,
-  ContentWrapper,
-  ContentPinWrapper,
-} from './styles'
+import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
 
 import {
   useInit,
@@ -88,35 +82,29 @@ const GlobalLayoutContainer = ({
                 <Drawer />
                 <Doraemon />
                 <ErrorBox />
-                <ContentPinWrapper
+                <ContentWrapper
                   offsetLeft={sidebarPin}
                   className={ANCHOR.GLOBAL_BLUR_CLASS}
                 >
-                  <ContentWrapper
-                    offsetLeft={
-                      !!(page === ROUTE.COMMUNITY || page === ROUTE.DISCOVERY)
+                  <CustomScroller
+                    direction="vertical"
+                    height="100vh"
+                    barSize="medium"
+                    showShadow={false}
+                    onScrollDirectionChange={(direction) =>
+                      bodyScrollDirectionOnChange(direction)
                     }
+                    autoHide
                   >
-                    <CustomScroller
-                      direction="vertical"
-                      height="100vh"
-                      barSize="medium"
-                      showShadow={false}
-                      onScrollDirectionChange={(direction) =>
-                        bodyScrollDirectionOnChange(direction)
-                      }
-                      autoHide
-                    >
-                      <div>
-                        <Header metric={metric} />
-                        <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
-                          {children}
-                        </BodyWrapper>
-                        <Footer metric={metric} />
-                      </div>
-                    </CustomScroller>
-                  </ContentWrapper>
-                </ContentPinWrapper>
+                    <div>
+                      <Header metric={metric} />
+                      <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
+                        {children}
+                      </BodyWrapper>
+                      <Footer metric={metric} />
+                    </div>
+                  </CustomScroller>
+                </ContentWrapper>
               </InnerWrapper>
             </React.Fragment>
           )}

@@ -108,10 +108,12 @@ const zIndex = {
 }
 
 // global max width
-export const GLOBAL_MAX_WIDTH = '1520px'
+export const GLOBAL_MAX_WIDTH = '1460px'
 
 // home page, discovery page
-export const MAX_CONTENT_WIDTH = '1520px'
+export const MAX_CONTENT_WIDTH = '1460px'
+
+export const MAX_INNER_CONTENT_WIDTH = '1024px'
 
 // article(post/job..) page
 export const ARTICLE_PAGE_MAX_WIDTH = '1024px'
@@ -163,6 +165,7 @@ const css = {
   mediaBreakPoints,
   media,
   MAX_CONTENT_WIDTH,
+  MAX_INNER_CONTENT_WIDTH,
   GLOBAL_MAX_WIDTH,
   ARTICLE_PAGE_MAX_WIDTH,
   ARTICLE_CONTENT_WIDTH,

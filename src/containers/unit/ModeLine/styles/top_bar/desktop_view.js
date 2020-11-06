@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { css, theme } from '@/utils'
 
-import { getMaxWidth, getPadding } from '../metrics/top_bar'
+import { getMaxWidth } from '../metrics/top_bar'
 
 export const WrapperBase = styled.header.attrs((props) => ({
   'data-test-id': props.testId,
@@ -17,20 +17,23 @@ export const WrapperBase = styled.header.attrs((props) => ({
   margin-left: ${({ leftOffset }) => leftOffset};
   box-shadow: ${({ noBorder }) => (noBorder ? 'none' : theme('drawer.shadow'))};
 `
+/* padding: ${({ type, layout }) => getPadding(type, layout)}; */
 export const InnerWrapperBase = styled.div`
   ${css.flex('align-center')};
   /* max-width: ${({ type }) => getMaxWidth(type)}; */
-  padding: ${({ type, layout }) => getPadding(type, layout)};
   width: 100%;
+  max-width: ${css.MAX_INNER_CONTENT_WIDTH};
   height: 33px;
   transition: all 0.2s;
+  margin-left: -24px;
 `
 export const Wrapper = styled.div`
-  ${css.flex('justify-start')};
+  ${css.flex('justify-center')};
   position: fixed;
   z-index: ${css.zIndex.header};
   top: ${({ visiable }) => (visiable ? '0' : '-33px')};
   width: 100%;
+  max-width: ${css.MAX_CONTENT_WIDTH};
   /* TODO: move namespace to modeline */
   background: ${theme('header.fixed')};
   opacity: ${({ visiable }) => (visiable ? 1 : '0')};
