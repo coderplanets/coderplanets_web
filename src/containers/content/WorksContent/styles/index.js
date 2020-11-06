@@ -6,8 +6,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${css.flexColumn()};
-  min-height: 100vh;
-  margin-bottom: 100px;
+  min-height: 80vh;
   margin-top: 30px;
   padding: 0 7vw;
 `

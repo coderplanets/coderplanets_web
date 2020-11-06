@@ -6,57 +6,81 @@ import Img from '@/Img'
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  ${css.flexColumn('justify-center')};
+  ${css.flex('align-end', 'justify-between')};
   width: 100%;
   color: ${theme('thread.articleDigest')};
-  min-height: 172px;
-`
-export const Header = styled.div`
-  margin-bottom: 12px;
-  margin-top: 8px;
-  margin-left: 5px;
+  min-height: 168px;
 `
 export const LinkCardWrapper = styled.div`
-  ${css.flex('align-center')};
+  position: relative;
+  ${css.flexColumn('align-start', 'justify-between')};
   margin-bottom: 10px;
-  padding: 8px 5px;
+  padding: 14px;
+  padding-bottom: 6px;
   background: #0b2f3a;
-  border-radius: 5px;
   border: 1px solid transparent;
+  border-radius: 5px;
+  height: 124px;
+  width: 100px;
+  border-radius: 10px;
 
   &:hover {
     cursor: pointer;
-    border-color: ${theme('thread.articleDigest')};
+    border-color: #135b74;
   }
   transition: all 0.25s;
 `
-export const Avatar = styled(Img)`
-  ${css.circle('24px')};
-`
 export const Digest = styled.div`
   ${css.flexColumnGrow('align-start')};
-  margin-left: 10px;
 `
 export const Title = styled.div`
   font-size: 14px;
   color: ${theme('thread.articleTitle')};
-  font-weight: bold;
+  margin-bottom: 8px;
+
+  ${LinkCardWrapper}:hover & {
+    font-weight: bold;
+  }
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 13px;
-  margin-top: -2px;
+  font-size: 11px;
+  opacity: 0.8;
+  margin-left: -1px;
+
+  ${LinkCardWrapper}:hover & {
+    opacity: 0.9;
+  }
+`
+export const ButtonWrapper = styled.div`
+  ${css.flex('justify-between')};
+  width: 100%;
+`
+export const Totol = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 11px;
+  opacity: 0.8;
+
+  ${LinkCardWrapper}:hover & {
+    color: ${theme('thread.articleTitle')};
+    opacity: 1;
+  }
+
+  transition: opacity 0.25s;
 `
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 22px;
-  height: 22px;
+  width: 12px;
+  height: 12px;
   display: block;
   transform: rotate(180deg);
+  opacity: 0;
+  margin-top: 1px;
 
   ${LinkCardWrapper}:hover & {
-    width: 24px;
-    height: 24px;
     fill: ${theme('thread.articleTitle')};
+    opacity: 1;
   }
+
+  transition: opacity 0.25s;
 `

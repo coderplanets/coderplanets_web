@@ -1,12 +1,14 @@
 import React from 'react'
 
+import { SpaceGrow } from '@/components/Common'
+import UpVote from '../UpVote'
+
 import {
   Wrapper,
   InterviewWrapper,
   Avatar,
   Intro,
   Title,
-  Author,
 } from '../styles/right_sidebar/interviews_list'
 
 const icon = 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/works/market1.jpeg'
@@ -16,9 +18,10 @@ const Interview = () => {
     <InterviewWrapper>
       <Avatar src={icon} />
       <Intro>
-        <Title>聊聊开发一个社区的故事</Title>
-        <Author>mydearxym</Author>
+        <Title>groupher</Title>
       </Intro>
+      <SpaceGrow />
+      <UpVote num={17} size="small" />
     </InterviewWrapper>
   )
 }

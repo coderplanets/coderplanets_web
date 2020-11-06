@@ -6,15 +6,14 @@ import { SpaceGrow } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
 import IconText from '@/components/IconText'
 
+import UpVote from '../UpVote'
+
 import {
   Wrapper,
   IntroImg,
   IntroWrapper,
   Header,
   Title,
-  UpInfo,
-  UpIcon,
-  UpNumber,
   BodyText,
   FooterWrapper,
   BuildWithWrapper,
@@ -35,10 +34,7 @@ const Card = ({ noBorder }) => {
               可能是最性感的开发者社区，来为你心爱的作品建立...
             </BodyText>
           </div>
-          <UpInfo>
-            <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
-            <UpNumber>93</UpNumber>
-          </UpInfo>
+          <UpVote num={34} />
         </Header>
         <FooterWrapper>
           <IconText

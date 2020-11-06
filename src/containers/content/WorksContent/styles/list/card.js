@@ -51,21 +51,6 @@ export const TypeTags = styled.div`
   color: ${theme('thread.articleDigest')};
   height: 32px;
 `
-export const UpInfo = styled.div`
-  ${css.flex('align-center')};
-  margin-top: 4px;
-`
-export const UpIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  width: 14px;
-  height: 14px;
-  display: block;
-  margin-right: 8px;
-`
-export const UpNumber = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 15px;
-`
 export const BodyText = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
