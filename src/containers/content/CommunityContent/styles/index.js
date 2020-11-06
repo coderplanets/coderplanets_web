@@ -21,11 +21,11 @@ export const InnerWrapper = styled.div`
   /* margin: ${({ cardView }) => (cardView ? '0 2.5%' : '0 5.5%')}; */
   margin-top: 20px;
   width: 100%;
-  max-width: ${pixelAdd(css.MAX_INNER_CONTENT_WIDTH, 36)};
+  max-width: ${pixelAdd(css.MAX_INNER_CONTENT_WIDTH, 46)};
 
   padding-left: 25px;
-  padding-right: 0;
-  margin-left: -18px;
+  padding-right: 10px;
+  margin-left: -15px;
 
   padding-top: ${({ cardView }) => (cardView ? '12px' : '15px')};
   color: ${theme('font')};
