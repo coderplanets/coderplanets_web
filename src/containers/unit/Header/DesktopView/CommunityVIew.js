@@ -35,6 +35,7 @@ const log = buildLog('C:Header')
 let MailBox
 
 const HeaderContainer = ({ header: store, metric }) => {
+  log('header metric: ', metric)
   useInit(store)
 
   const {
@@ -82,12 +83,13 @@ const HeaderContainer = ({ header: store, metric }) => {
       leftOffset={leftOffset}
       noBorder={hasNoBottomBorder}
     >
-      <InnerWrapper type={metric} layout={bannerLayout}>
+      <InnerWrapper metric={metric} layout={bannerLayout}>
         <RouterWrapper>
           <Navigator
             curCommunity={curCommunity}
             layout={accountInfo.customization.bannerLayout}
             isOnline={isOnline}
+            metric={metric}
           />
         </RouterWrapper>
         <AddOns />
@@ -113,7 +115,7 @@ HeaderContainer.propTypes = {
 }
 
 HeaderContainer.defaultProps = {
-  metric: METRIC.ARTICLE,
+  metric: METRIC.COMMUNITY,
 }
 
 export default connectStore(HeaderContainer)

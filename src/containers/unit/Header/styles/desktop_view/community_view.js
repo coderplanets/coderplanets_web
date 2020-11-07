@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, css, WIDTH } from '@/utils'
+import { theme, css } from '@/utils'
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
+
+import { getWidth } from '../metric'
 
 export const Wrapper = styled.header.attrs((props) => ({
   'data-test-id': props.testId,
@@ -17,7 +19,7 @@ export const Wrapper = styled.header.attrs((props) => ({
 `
 export const InnerWrapper = styled.div`
   ${css.flex('align-center')};
-  max-width: ${WIDTH.COMMUNITY.CONTENT};
+  max-width: ${({ metric }) => getWidth(metric)};
   padding: 0 4px;
   width: 100%;
   height: 33px;

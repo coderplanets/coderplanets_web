@@ -22,9 +22,11 @@ export const LogoLink = styled.a`
   text-decoration: none;
   cursor: pointer;
 `
+export const LogoMargin = styled.div`
+  margin-right: 32px;
+`
 export const LineDivider = styled.div`
-  /* background-color: ${theme('banner.desc')}; */
-  background-color: #139C9E;
+  background-color: #139c9e;
   margin-left: 5px;
   margin-right: 2px;
   width: 1px;
@@ -33,14 +35,16 @@ export const LineDivider = styled.div`
   opacity: 1;
   animation: ${animate.blink} 1.2s linear infinite alternate;
 `
-// font-family: cursive; // not general
 export const LogoText = styled.a`
   color: ${theme('banner.desc')};
-  font-weight: bold;
+  /* font-weight: bold; */
   letter-spacing: 1px;
   font-size: 14px;
   margin-left: 6px;
-  margin-top: 2px;
+  margin-top: 4px;
+
+  font-family: 'Audiowide', cursive;
+  /* font-family: 'Orbitron', sans-serif; */
 
   &:hover {
     color: ${theme('banner.desc')};
