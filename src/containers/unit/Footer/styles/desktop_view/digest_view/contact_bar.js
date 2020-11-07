@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { css, WIDTH } from '@/utils'
-// import { getPadding } from '../../metrics'
+import { css } from '@/utils'
+import { getMaxWidth } from '../../metrics'
 
 export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
@@ -12,6 +12,6 @@ export const InnerWrapper = styled.div`
   justify-content: ${({ isMobile }) =>
     !isMobile ? 'space-between' : 'center'};
   width: 100%;
-  max-width: ${WIDTH.COMMUNITY.CONTENT};
   height: 68px;
+  max-width: ${({ metric }) => getMaxWidth(metric)};
 `

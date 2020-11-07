@@ -1,5 +1,5 @@
-import { C11N } from '@/constant'
-import { css } from '@/utils'
+import { C11N, METRIC } from '@/constant'
+import { css, WIDTH } from '@/utils'
 
 export const getPadding = (layout) => {
   return layout === C11N.DIGEST_ROW
@@ -7,4 +7,14 @@ export const getPadding = (layout) => {
     : css.media.laptopLPadding
 }
 
-export const holder = 1
+export const getMaxWidth = (metric) => {
+  switch (metric) {
+    case METRIC.WORKS: {
+      return WIDTH.WORKS.CONTENT
+    }
+
+    default: {
+      return WIDTH.COMMUNITY.CONTENT
+    }
+  }
+}

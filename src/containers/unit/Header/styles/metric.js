@@ -7,7 +7,7 @@ export const getPadding = (layout) => {
     : css.media.laptopLPadding
 }
 
-export const getWidth = (metric) => {
+export const getMaxWidth = (metric) => {
   switch (metric) {
     case METRIC.WORKS: {
       return WIDTH.WORKS.CONTENT

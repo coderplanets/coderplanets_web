@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { theme, css, WIDTH } from '@/utils'
-import { getPadding } from '../metrics'
+import { theme, css } from '@/utils'
+import { getPadding, getMaxWidth } from '../metrics'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
@@ -19,7 +19,7 @@ export const InnerWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   align-items: center;
   width: 100%;
-  max-width: ${WIDTH.COMMUNITY.CONTENT};
+  max-width: ${({ metric }) => getMaxWidth(metric)};
   /* padding: ${({ layout }) => getPadding(layout)}; */
 `
 export const Links = styled.div`
