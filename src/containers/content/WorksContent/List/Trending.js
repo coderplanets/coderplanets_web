@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { Tabs } from '@/components/Switcher'
 import { ArrowButton } from '@/components/Buttons'
+
+import BestTab from './BestTab'
 import Card from './Card'
 
 import { Wrapper, Header, More } from '../styles/list/trending'
@@ -15,10 +16,6 @@ const items = [
     title: '周最佳',
     raw: 'week',
   },
-  {
-    title: '日最佳',
-    raw: 'today',
-  },
 ]
 
 const Trending = () => {
@@ -27,12 +24,13 @@ const Trending = () => {
   return (
     <Wrapper>
       <Header>
-        <Tabs
+        <BestTab items={items} activeKey={activeKey} />
+        {/* <Tabs
           items={items}
           activeKey={activeKey}
           onChange={console.log}
           size="small"
-        />
+        /> */}
         <More>
           <ArrowButton size="tiny" dimWhenIdle>
             全部榜单

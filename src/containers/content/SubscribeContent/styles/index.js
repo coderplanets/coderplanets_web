@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '@/Img'
-import { css, theme } from '@/utils'
+import { css, theme, WIDTH } from '@/utils'
 import Sticky from '@/components/Sticky'
 
 export const Wrapper = styled.div.attrs((props) => ({
@@ -16,7 +15,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const InnerWrapper = styled.div`
   ${css.flex('align-start')}
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   padding: ${() => css.media.laptopLPadding};
   width: 100%;
   color: ${theme('thread.articleDigest')};

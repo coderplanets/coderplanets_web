@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, theme } from '@/utils'
+import { css, theme, WIDTH } from '@/utils'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -14,7 +14,7 @@ export const IntroWrapper = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   padding: 0 8vw;
   padding-left: 7vw;
   z-index: 1;

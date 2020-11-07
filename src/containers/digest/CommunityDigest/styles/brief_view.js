@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+import { css, WIDTH } from '@/utils'
 import { BaseBanner } from './index'
 
 export const Wrapper = styled(BaseBanner)`
@@ -13,7 +13,7 @@ export const BannerContainer = styled(BaseBanner)``
 
 export const TabBarWrapper = styled.div`
   ${css.flex()};
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   width: 100%;
   /* 150 is the breif card width */
   padding-left: calc(155px + 6vw);

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { C11N } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
-import { theme, css } from '@/utils'
+import { theme, css, WIDTH } from '@/utils'
 
 // background: #3b5456;
 export const Wrapper = styled.div`
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn()};
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   width: 100vw;
   /* min-width: ${({ minWidth }) => minWidth}; */
 /*

@@ -5,7 +5,6 @@ import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 
 import BottomInfo from '../BottomInfo'
-
 import ContactBar from './ContactBar'
 
 import {
@@ -30,7 +29,7 @@ import {
   toggleSeniorHelper,
 } from '../../logic'
 
-const DigestView = ({ layout }) => {
+const DigestView = ({ layout, metric }) => {
   const theme = useTheme()
 
   const linkColors = {
@@ -39,7 +38,7 @@ const DigestView = ({ layout }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper metric={metric}>
       <InnerWrapper layout={layout}>
         <MainInfos>
           <MainColumn>
@@ -138,8 +137,8 @@ const DigestView = ({ layout }) => {
           </Column>
         </MainInfos>
       </InnerWrapper>
-      <ContactBar layout={layout} />
-      <BottomInfo layout={layout} />
+      <ContactBar layout={layout} metric={metric} />
+      <BottomInfo layout={layout} metric={metric} />
     </Wrapper>
   )
 }

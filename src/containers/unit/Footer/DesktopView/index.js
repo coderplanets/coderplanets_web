@@ -84,7 +84,7 @@ const FooterContainer = ({ footer: store, metric }) => {
       />
 
       {curView === 'DIGEST' ? (
-        <DigestView layout={bannerLayout} />
+        <DigestView layout={bannerLayout} metric={metric} />
       ) : (
         <BriefView curView={curView} metric={metric} />
       )}

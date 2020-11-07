@@ -33,6 +33,7 @@ export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 11px;
   margin-bottom: 5px;
+  opacity: 0.8;
 `
 export const SubscribeInput = styled(Input)`
   background: #0b2f3a;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme, css, WIDTH } from '@/utils'
 
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
@@ -24,13 +24,13 @@ export const InnerWrapper = styled.div`
   min-height: ${({ descExpand, noSocial, isMobile }) =>
     descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
   width: 100%;
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   transition: min-height 0.25s;
 `
 export const BaseBannerContent = styled.div`
   ${css.flexColumn('align-center')};
   width: 100%;
-  max-width: ${css.MAX_INNER_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.CONTENT};
 
   ${css.media.laptopL`
     padding: 0 7.5vw;

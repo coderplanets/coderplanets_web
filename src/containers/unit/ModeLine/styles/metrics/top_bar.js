@@ -1,14 +1,14 @@
 import { C11N } from '@/constant'
-import { css } from '@/utils'
+import { css, WIDTH } from '@/utils'
 
 export const getMaxWidth = (type) => {
   switch (type) {
     case 'article': {
-      return css.ARTICLE_PAGE_MAX_WIDTH
+      return WIDTH.ARTICLE.PAGE
     }
 
     default: {
-      return css.MAX_CONTENT_WIDTH
+      return WIDTH.COMMUNITY.PAGE
     }
   }
 }

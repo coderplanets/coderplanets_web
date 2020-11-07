@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
+import { theme, css } from '@/utils'
+
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { ArrowLink } from '@/components/Buttons'
-import { theme, css } from '@/utils'
+
+import { getMaxWidth } from '../../metrics'
 
 // import { getPadding } from '../../metrics'
 
@@ -10,8 +13,7 @@ export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 30px;
-  max-width: ${css.MAX_INNER_CONTENT_WIDTH};
-  /* border: 1px solid tomato; */
+  max-width: ${({ metric }) => getMaxWidth(metric)};
 `
 export const InnerWrapper = styled.div`
   width: 100%;

@@ -4,27 +4,26 @@ import { ICON } from '@/config'
 
 import {
   Wrapper,
-  Header,
   LinkCardWrapper,
-  Avatar,
   Digest,
   Title,
   Desc,
+  Totol,
+  ButtonWrapper,
   ArrowIcon,
 } from '../styles/right_sidebar/linkers'
 
-const icon =
-  'https://avatars0.githubusercontent.com/u/6184465?s=60&u=b65fd4fc422f7a3aed97f6373ee0a9550e3261ed&v=4'
-
-const Addr = ({ title, desc, icon }) => {
+const Addr = ({ title, desc }) => {
   return (
     <LinkCardWrapper>
-      <Avatar src={icon} />
       <Digest>
         <Title>{title}</Title>
         <Desc>{desc}</Desc>
       </Digest>
-      <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
+      <ButtonWrapper>
+        <Totol>238+</Totol>
+        <ArrowIcon src={`${ICON}/shape/arrow.svg`} />
+      </ButtonWrapper>
     </LinkCardWrapper>
   )
 }
@@ -32,9 +31,8 @@ const Addr = ({ title, desc, icon }) => {
 const MakersInfo = () => {
   return (
     <Wrapper>
-      <Header>传送门</Header>
-      <Addr title="产品猎人" desc="desc" icon={icon} />
-      <Addr title="魔鬼细节" desc="desc" icon={icon} />
+      <Addr title="产品猎人" desc="优秀产品/服务的酷导航.." />
+      <Addr title="魔鬼细节" desc="有趣有爱的产品神细节.." />
     </Wrapper>
   )
 }

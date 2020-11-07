@@ -7,10 +7,18 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${css.flexColumn()};
-  width: 280px;
-  padding-left: 35px;
-  margin-left: 5px;
+  width: 216px;
+  margin-left: 46px;
   color: ${theme('thread.articleDigest')};
+`
+export const SubDesc = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.articleDigest')};
+  margin-top: 12px;
+  margin-bottom: 8px;
+  margin-right: 10px;
+  line-height: 20px;
+  opacity: 0.8;
 `
 export const Divider = styled.div`
   height: 1px;
@@ -18,6 +26,7 @@ export const Divider = styled.div`
   background: #004353;
   margin-top: ${({ top }) => top || '25px'};
   margin-bottom: ${({ bottom }) => bottom || '15px'};
+  opacity: 0.6;
 `
 export const PublishIcon = styled(Img)`
   fill: ${theme('button.fg')};

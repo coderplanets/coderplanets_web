@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import { css, theme, WIDTH } from '@/utils'
 import Img from '@/Img'
-import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -17,7 +17,7 @@ export const InnerWrapper = styled.div`
   padding: 10px 6vw;
   margin-top: 12px;
   width: 100%;
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, theme } from '@/utils'
+import { css, theme, WIDTH } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
@@ -16,7 +16,7 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
   height: 100%;
-  max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
+  max-width: ${WIDTH.ARTICLE.PAGE};
 `
 export const ContentsWrapper = styled.div`
   ${css.flexColumn('justify-center')};

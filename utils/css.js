@@ -107,21 +107,6 @@ const zIndex = {
   sidebar: 1999,
 }
 
-// global max width
-export const GLOBAL_MAX_WIDTH = '1460px'
-
-// home page, discovery page
-export const MAX_CONTENT_WIDTH = '1460px'
-
-export const MAX_INNER_CONTENT_WIDTH = '1024px'
-
-// article(post/job..) page
-export const ARTICLE_PAGE_MAX_WIDTH = '1024px'
-// same width as medium.com
-export const ARTICLE_CONTENT_WIDTH = '630px'
-export const ARTICLE_STICKER_WIDTH = '280px'
-export const ARTICLE_CONTENT_OFFSET = '290px'
-
 export const mediaBreakPoints = {
   // mobileS: '320px',
   // mobileM: '375px',
@@ -130,7 +115,7 @@ export const mediaBreakPoints = {
   laptop: 992,
   laptopM: 1280,
   laptopL: 1440,
-  maxContent: 1520, // MAX_CONTENT_WIDTH
+  maxContent: 1520, // WIDTH.COMMUNITY.PAGE
   desktop: 1600,
   // currently used as forms of drawer content (slideout/modal)
   desktopL: 1920,
@@ -164,13 +149,6 @@ const css = {
   zIndex,
   mediaBreakPoints,
   media,
-  MAX_CONTENT_WIDTH,
-  MAX_INNER_CONTENT_WIDTH,
-  GLOBAL_MAX_WIDTH,
-  ARTICLE_PAGE_MAX_WIDTH,
-  ARTICLE_CONTENT_WIDTH,
-  ARTICLE_STICKER_WIDTH,
-  ARTICLE_CONTENT_OFFSET,
 }
 
 export default css

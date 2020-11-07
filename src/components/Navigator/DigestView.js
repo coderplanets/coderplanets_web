@@ -4,6 +4,7 @@ import {
   Breadcrumbs,
   Logo,
   LogoLink,
+  LogoMargin,
   LineDivider,
   LogoText,
   OfflineWrapper,
@@ -18,7 +19,9 @@ const DigestView = ({ showLogoText, isOnline }) => {
         <Logo />
         {showLogoText && <LogoText>coderplanes</LogoText>}
       </LogoLink>
-      <LineDivider />
+
+      {showLogoText ? <LogoMargin /> : <LineDivider />}
+
       {isOnline ? (
         <MainEntries />
       ) : (

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme, css, WIDTH } from '@/utils'
 
 export const Wrapper = styled.nav`
   ${css.flexColumn('justify-end')};
@@ -20,16 +20,16 @@ export const InnerWrapper = styled.div`
 `
 export const BannerContent = styled.div`
   ${css.flex()};
-  max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
+  max-width: ${WIDTH.ARTICLE.PAGE};
   width: 100%;
-  margin-left: ${css.ARTICLE_CONTENT_OFFSET};
+  margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
 `
 export const Main = styled.div`
-  width: ${css.ARTICLE_CONTENT_WIDTH};
+  width: ${WIDTH.ARTICLE.CONTENT};
 `
 export const AuthorWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};
-  width: ${css.ARTICLE_STICKER_WIDTH};
+  width: ${WIDTH.ARTICLE.STICKER};
   margin-top: 32px;
 `
 export const BottomInfo = styled.div`

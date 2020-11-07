@@ -33,6 +33,11 @@ export default class DocumentPage extends Document {
           <meta name="renderer" content="webkit" />
           <link rel="icon" href="/favicon.ico?v=7" />
 
+          <link
+            href="https://fonts.googleapis.com/css2?family=Audiowide"
+            rel="stylesheet"
+          ></link>
+
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACING_ID}`}

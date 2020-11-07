@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+import { css, WIDTH } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex()};
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   width: 100%;
 `
 export const ViewerWrapper = styled.div`
