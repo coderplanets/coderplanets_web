@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { theme, css, WIDTH } from '@/utils'
+
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import DotDivider from '@/components/DotDivider'
-import { theme, css } from '@/utils'
 
 export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
@@ -11,7 +12,7 @@ export const Wrapper = styled.footer`
   margin-top: 15px;
 `
 export const InnerWrapper = styled.div`
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   width: 100%;
   padding: ${() => css.media.laptopLPadding};
   margin-left: ${({ metric }) => (metric === 'article' ? '-60px' : 0)};

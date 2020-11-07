@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme, css, WIDTH } from '@/utils'
 
 export const Wrapper = styled.article`
   ${css.flexGrow('justify-center')};
@@ -15,14 +15,14 @@ export const Wrapper = styled.article`
 export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  max-width: ${css.ARTICLE_PAGE_MAX_WIDTH};
-  margin-left: ${css.ARTICLE_CONTENT_OFFSET};
+  max-width: ${WIDTH.ARTICLE.PAGE};
+  margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
   padding-left: 0;
   padding-right: 0;
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;
-  max-width: ${css.ARTICLE_CONTENT_WIDTH};
+  max-width: ${WIDTH.ARTICLE.CONTENT};
 
   ${css.media.tablet`
     width: 100%;

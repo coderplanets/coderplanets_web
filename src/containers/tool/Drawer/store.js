@@ -13,6 +13,7 @@ import {
   lockPage,
   unlockPage,
   Global,
+  WIDTH,
   css,
   toggleGlobalBlur,
 } from '@/utils'
@@ -131,8 +132,7 @@ const DrawerStore = T.model('DrawerStore', {
     // 预览面板从最右侧滑出的偏移量
     get rightOffset() {
       const { windowWidth } = self
-      const { GLOBAL_MAX_WIDTH } = css
-      const MAX_WIDTH = Number(GLOBAL_MAX_WIDTH.slice(0, -2))
+      const MAX_WIDTH = Number(WIDTH.COMMUNITY.PAGE.slice(0, -2))
 
       return `${windowWidth <= MAX_WIDTH ? 0 : (windowWidth - MAX_WIDTH) / 2}px`
     },

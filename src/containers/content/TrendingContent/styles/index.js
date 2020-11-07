@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { css } from '@/utils'
+import { css, WIDTH } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-both')}
@@ -13,7 +13,7 @@ export const InnerWrapper = styled.div`
   padding-left: calc(6vw - 45px);
   margin-top: 12px;
   width: 100%;
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `

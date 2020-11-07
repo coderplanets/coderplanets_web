@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
+import { theme, css, WIDTH } from '@/utils'
+
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { ArrowLink } from '@/components/Buttons'
-import { theme, css } from '@/utils'
 
 // import { getPadding } from '../../metrics'
 
@@ -10,7 +11,7 @@ export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 30px;
-  max-width: ${css.MAX_INNER_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.CONTENT};
   /* border: 1px solid tomato; */
 `
 export const InnerWrapper = styled.div`

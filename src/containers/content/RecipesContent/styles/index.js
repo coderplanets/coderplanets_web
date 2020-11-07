@@ -15,7 +15,7 @@ export const InnerWrapper = styled.div`
   margin-top: 12px;
   width: 100%;
   min-height: 100vh;
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${css.WIDTH.COMMUNITY.PAGE};
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `

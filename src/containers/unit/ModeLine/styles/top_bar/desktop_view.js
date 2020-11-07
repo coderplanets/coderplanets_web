@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { css, theme } from '@/utils'
-
+import { css, theme, WIDTH } from '@/utils'
 import { getMaxWidth } from '../metrics/top_bar'
 
 export const WrapperBase = styled.header.attrs((props) => ({
@@ -22,7 +21,7 @@ export const InnerWrapperBase = styled.div`
   ${css.flex('align-center')};
   /* max-width: ${({ type }) => getMaxWidth(type)}; */
   width: 100%;
-  max-width: ${css.MAX_INNER_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.CONTENT};
   height: 33px;
   transition: all 0.2s;
   margin-left: -24px;
@@ -33,7 +32,7 @@ export const Wrapper = styled.div`
   z-index: ${css.zIndex.header};
   top: ${({ visiable }) => (visiable ? '0' : '-33px')};
   width: 100%;
-  max-width: ${css.MAX_CONTENT_WIDTH};
+  max-width: ${WIDTH.COMMUNITY.PAGE};
   /* TODO: move namespace to modeline */
   background: ${theme('header.fixed')};
   opacity: ${({ visiable }) => (visiable ? 1 : '0')};

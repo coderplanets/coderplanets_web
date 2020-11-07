@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, css } from '@/utils'
+import { theme, css, WIDTH } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-both')}
@@ -15,16 +15,16 @@ export const InnerWrapper = styled.div`
   width: 100%;
   min-height: 88vh;
   /* max-width: ; */
-  max-width: ${`calc(${css.ARTICLE_PAGE_MAX_WIDTH} + 100px)`};
+  max-width: ${`calc(${WIDTH.ARTICLE.PAGE} + 100px)`};
   border-radius: 8px;
   background: ${theme('haveADrinkPage.bg')};
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 
   @media (max-width: 1400px) {
-    max-width: ${`calc(${css.ARTICLE_PAGE_MAX_WIDTH})`};
+    max-width: ${`calc(${WIDTH.ARTICLE.PAGE})`};
   }
   @media (max-width: 1250px) {
-    max-width: ${`calc(${css.ARTICLE_PAGE_MAX_WIDTH} - 100px)`};
+    max-width: ${`calc(${WIDTH.ARTICLE.PAGE} - 100px)`};
   }
 `
 

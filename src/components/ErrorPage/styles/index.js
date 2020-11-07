@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme, css, WIDTH } from '@/utils'
 import Img from '@/Img'
 import PromptIcon from '@/components/PromptIcon'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center', 'justify-between')};
   height: 100vh;
-  width: ${css.ARTICLE_PAGE_MAX_WIDTH};
+  width: ${WIDTH.ARTICLE.PAGE};
   background: ${theme('banner.bg')};
   background-image: url('https://www.transparenttextures.com/patterns/transparent-square-tiles.png');
   border-top: 4px solid;

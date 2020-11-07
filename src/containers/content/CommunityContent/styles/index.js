@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, css, pixelAdd } from '@/utils'
+import { theme, css, WIDTH, pixelAdd } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -21,7 +21,7 @@ export const InnerWrapper = styled.div`
   /* margin: ${({ cardView }) => (cardView ? '0 2.5%' : '0 5.5%')}; */
   margin-top: 20px;
   width: 100%;
-  max-width: ${pixelAdd(css.MAX_INNER_CONTENT_WIDTH, 46)};
+  max-width: ${pixelAdd(WIDTH.COMMUNITY.CONTENT, 46)};
 
   padding-left: 25px;
   padding-right: 10px;
