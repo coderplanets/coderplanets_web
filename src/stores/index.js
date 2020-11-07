@@ -103,7 +103,6 @@ export { default as ModeLineMenuStore } from '@/containers/unit/ModeLineMenu/sto
 export { default as ModeLineStore } from '@/containers/unit/ModeLine/store'
 export { default as FriendsContentStore } from '@/containers/content/FriendsContent/store'
 export { default as SubscribeContentStore } from '@/containers/content/SubscribeContent/store'
-export { default as InterviewContentStore } from '@/containers/content/InterviewContent/store'
 export { default as RecipesContentStore } from '@/containers/content/RecipesContent/store'
 export { default as SponsorContentStore } from '@/containers/content/SponsorContent/store'
 export { default as JoinModalStore } from '@/containers/tool/JoinModal/store'

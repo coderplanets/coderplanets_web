@@ -17,10 +17,6 @@
       "maxSize": "280 kB"
     },
     {
-      "path": ".next/server/pages/interview.js",
-      "maxSize": "280 kB"
-    },
-    {
       "path": ".next/server/pages/recipes.js",
       "maxSize": "280 kB"
     },

@@ -52,11 +52,6 @@ router.route('/recipes/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/recipes' })
 })
 
-// 面经
-router.route('/interview/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, path: '/interview' })
-})
-
 // 活动
 router.route('/meetups/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/meetups' })
