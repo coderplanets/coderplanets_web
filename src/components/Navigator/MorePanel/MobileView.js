@@ -86,13 +86,6 @@ const items = [
     href: '',
     raw: 3,
   },
-  {
-    icon: `${ICON_CMD}/header/more_Interview.svg`,
-    title: '面经',
-    desc: '各门类面试题库，经验交流',
-    href: `/${ROUTE.INTERVIEW}`,
-    raw: 5,
-  },
 ]
 
 const MoreContent = () => {

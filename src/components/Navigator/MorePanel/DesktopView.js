@@ -66,15 +66,6 @@ const MoreContent = () => {
             </Intro>
           </Entry>
         </Link>
-        <Link href={`/${ROUTE.INTERVIEW}`} passHref>
-          <Entry>
-            <Logo src={`${ICON_CMD}/header/more_Interview.svg`} />
-            <Intro>
-              <Title>面经</Title>
-              <Desc>各门类面试题库，经验交流</Desc>
-            </Intro>
-          </Entry>
-        </Link>
         <Entry>
           <Logo src={`${ICON_CMD}/header/more_chart.svg`} />
           <Intro>

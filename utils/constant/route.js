@@ -30,7 +30,6 @@ const ROUTE = {
   SPONSOR: 'sponsor',
   FRIENDS: 'friends',
   RECIPES: 'recipes',
-  INTERVIEW: 'interview',
   SUBSCRIBE: 'subscribe',
 }
 
