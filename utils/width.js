@@ -11,6 +11,9 @@ const WIDTH = {
     CONTENT_OFFSET: '290px',
     STICKER: '280px',
   },
+  WORKS: {
+    CONTENT: '1180px',
+  },
 }
 
 export default WIDTH
