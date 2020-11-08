@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { merge, toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
-import { TYPE, ROUTE, THREAD } from '@/constant'
+import { TYPE, ROUTE, THREAD, METRIC } from '@/constant'
 import {
   getJwtToken,
   nilOrEmpty,
@@ -112,7 +112,7 @@ const RepoPage = (props) => {
     <Provider store={store}>
       <GlobalLayout
         page={ROUTE.REPO}
-        metric="article"
+        metric={METRIC.ARTICLE}
         seoConfig={seoConfig}
         errorCode={errorCode}
         errorPath={`/${mainPath}/job/${repo.id}`}

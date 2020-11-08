@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
-import { ROUTE } from '@/constant'
+import { ROUTE, METRIC } from '@/constant'
 
 import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 import { P } from '@/schemas'
@@ -70,7 +70,12 @@ const HaveADrinkPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.HAVE_A_DRINK} seoConfig={seoConfig} noSidebar>
+      <GlobalLayout
+        page={ROUTE.HAVE_A_DRINK}
+        metric={METRIC.HAVE_A_DRINK}
+        seoConfig={seoConfig}
+        noSidebar
+      >
         <HaveADrinkContent />
       </GlobalLayout>
     </Provider>

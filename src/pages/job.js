@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
-import { TYPE, ROUTE, THREAD } from '@/constant'
+import { TYPE, ROUTE, METRIC, THREAD } from '@/constant'
 import {
   getJwtToken,
   makeGQClient,
@@ -113,7 +113,7 @@ const JobPage = (props) => {
     <Provider store={store}>
       <GlobalLayout
         page={ROUTE.JOB}
-        metric="article"
+        metric={METRIC.ARTICLE}
         seoConfig={seoConfig}
         errorCode={errorCode}
         errorPath={`/${mainPath}/job/${job.id}`}

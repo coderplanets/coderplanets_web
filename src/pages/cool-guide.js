@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
-import { ROUTE } from '@/constant'
+import { ROUTE, METRIC } from '@/constant'
 
 import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 import { P } from '@/schemas'
@@ -71,7 +71,12 @@ const CoolGuidePage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.COOL_GUIDE} seoConfig={seoConfig} noSidebar>
+      <GlobalLayout
+        page={ROUTE.COOL_GUIDE}
+        metric={METRIC.COOL_GUIDE}
+        seoConfig={seoConfig}
+        noSidebar
+      >
         <CoolGuideContent />
       </GlobalLayout>
     </Provider>

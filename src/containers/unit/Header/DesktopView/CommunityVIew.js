@@ -4,14 +4,13 @@
  *
  */
 
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
 import T from 'prop-types'
-import { contains, values } from 'ramda'
+import { values } from 'ramda'
 
-import { ROUTE, METRIC } from '@/constant'
-import { connectStore, buildLog, getRoutePathList } from '@/utils'
+import { METRIC } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
 import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
@@ -36,7 +35,7 @@ let MailBox
 
 const HeaderContainer = ({ header: store, metric }) => {
   log('header metric: ', metric)
-  useInit(store)
+  useInit(store, metric)
 
   const {
     isOnline,
@@ -44,6 +43,7 @@ const HeaderContainer = ({ header: store, metric }) => {
     accountInfo,
     isLogin,
     curCommunity,
+    hasNoBottomBorder,
     accountInfo: {
       customization: { bannerLayout },
     },
@@ -58,23 +58,6 @@ const HeaderContainer = ({ header: store, metric }) => {
       })
     }
   }, [isLogin])
-
-  // TODO:  move router logic to store
-  const [hasNoBottomBorder, setHasNoBottomBorder] = useState(false)
-  const router = useRouter()
-  const [mainPath] = getRoutePathList(router.asPath)
-
-  useEffect(() => {
-    setHasNoBottomBorder(
-      contains(mainPath, [
-        ROUTE.DISCOVERY,
-        ROUTE.SPONSOR,
-        ROUTE.FRIENDS,
-        ROUTE.SUBSCRIBE,
-        ROUTE.POST,
-      ]),
-    )
-  }, [mainPath])
 
   return (
     <Wrapper
