@@ -32,10 +32,6 @@ export const BaseBannerContent = styled.div`
   width: 100%;
   max-width: ${WIDTH.COMMUNITY.CONTENT};
 
-  ${css.media.laptopL`
-    padding: 0 7.5vw;
-  `};
-
   ${css.media.mobile`
     padding-left: 6%;
     padding-right: 5.5%;
