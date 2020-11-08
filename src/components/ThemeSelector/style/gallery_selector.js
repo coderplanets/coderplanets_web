@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const ThemeDot = styled(Dot)`
   ${css.circle('20px')};
   margin-top: 7px;
-  margin-right: 2px;
+  margin-right: 0;
 
   &:after {
     content: '';
