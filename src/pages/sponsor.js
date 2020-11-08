@@ -70,12 +70,7 @@ const SponsorPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        page={ROUTE.SPONSOR}
-        metric={METRIC.SPONSOR}
-        seoConfig={seoConfig}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.SPONSOR} seoConfig={seoConfig} noSidebar>
         <SponsorContent />
       </GlobalLayout>
     </Provider>

@@ -93,14 +93,13 @@ const UserPage = (props) => {
 
   const seoConfig = {
     name: `${user.nickname}`,
-    url: `${SITE_URL}/user/${user.login}`,
+    url: `${SITE_URL}/${ROUTE.USER}/${user.login}`,
     sameAs: [],
   }
 
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.USER}
         metric={METRIC.USER}
         seoConfig={seoConfig}
         errorCode={errorCode}

@@ -70,12 +70,7 @@ const FriendsPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        page={ROUTE.FRIENDS}
-        metric={METRIC.FRIENDS}
-        seoConfig={seoConfig}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.FRIENDS} seoConfig={seoConfig} noSidebar>
         <FriendsContent />
       </GlobalLayout>
     </Provider>

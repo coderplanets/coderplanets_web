@@ -71,12 +71,7 @@ const MeetupsPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        page={ROUTE.MEETUPS}
-        metric={METRIC.MEETUPS}
-        seoConfig={seoConfig}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.MEETUPS} seoConfig={seoConfig} noSidebar>
         <MeetupsContent />
       </GlobalLayout>
     </Provider>

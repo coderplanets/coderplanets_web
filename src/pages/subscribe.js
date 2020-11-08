@@ -70,12 +70,7 @@ const SubscribePage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        page={ROUTE.SUBSCRIBE}
-        metric={METRIC.SUBSCRIBE}
-        seoConfig={seoConfig}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.SUBSCRIBE} seoConfig={seoConfig} noSidebar>
         <SubscribeContent />
       </GlobalLayout>
     </Provider>

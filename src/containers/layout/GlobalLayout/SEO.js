@@ -8,11 +8,11 @@ import React from 'react'
 import T from 'prop-types'
 import { NextSeo, BlogJsonLd, SocialProfileJsonLd } from 'next-seo'
 
-const SEO = (page, config) => {
-  switch (page) {
-    case 'post':
-    case 'video':
-    case 'job': {
+import { METRIC } from '@/constant'
+
+const SEO = (metric, config) => {
+  switch (metric) {
+    case METRIC.ARTICLE: {
       return (
         <BlogJsonLd
           url={config.url}
@@ -26,7 +26,7 @@ const SEO = (page, config) => {
       )
     }
 
-    case 'user': {
+    case METRIC.USER: {
       return (
         <SocialProfileJsonLd
           type="Person"
@@ -60,7 +60,7 @@ const SEO = (page, config) => {
 }
 
 SEO.propTypes = {
-  page: T.string.isRequired,
+  metric: T.string.isRequired,
   config: T.object.isRequired, // TODO:
 }
 

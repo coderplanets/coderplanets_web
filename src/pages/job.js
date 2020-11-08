@@ -112,7 +112,6 @@ const JobPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.JOB}
         metric={METRIC.ARTICLE}
         seoConfig={seoConfig}
         errorCode={errorCode}

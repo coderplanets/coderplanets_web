@@ -70,12 +70,7 @@ const TrendingPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        page={ROUTE.TRENDING}
-        metric={METRIC.TRENDING}
-        seoConfig={seoConfig}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.TRENDING} seoConfig={seoConfig} noSidebar>
         <TrendingContent />
       </GlobalLayout>
     </Provider>

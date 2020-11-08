@@ -70,12 +70,7 @@ const RecipesPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        page={ROUTE.RECIPES}
-        metric={METRIC.ARTICLE}
-        seoConfig={seoConfig}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.ARTICLE} seoConfig={seoConfig} noSidebar>
         <RecipesContent />
       </GlobalLayout>
     </Provider>

@@ -108,7 +108,6 @@ const VideoPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.VIDEO}
         metric={METRIC.ARTICLE}
         seoConfig={seoConfig}
         errorCode={errorCode}

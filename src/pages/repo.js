@@ -99,7 +99,7 @@ const RepoPage = (props) => {
   const { mainPath } = route
 
   const seoConfig = {
-    url: `${SITE_URL}/${mainPath}/repo/${repo.id}`,
+    url: `${SITE_URL}/${mainPath}/${ROUTE.REPO}/${repo.id}`,
     title: `${repo.title}`,
     datePublished: `${repo.insertedAt}`,
     dateModified: `${repo.updatedAt}`,
@@ -111,7 +111,6 @@ const RepoPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.REPO}
         metric={METRIC.ARTICLE}
         seoConfig={seoConfig}
         errorCode={errorCode}

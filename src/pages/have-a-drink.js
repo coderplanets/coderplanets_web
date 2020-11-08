@@ -63,7 +63,7 @@ const HaveADrinkPage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/works`,
+    url: `${SITE_URL}/${ROUTE.HAVE_A_DRINK}`,
     title: '来一杯 | coderplanets',
     description: 'IT冷知识，酷细节，毒鸡汤',
   }
@@ -71,7 +71,6 @@ const HaveADrinkPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.HAVE_A_DRINK}
         metric={METRIC.HAVE_A_DRINK}
         seoConfig={seoConfig}
         noSidebar

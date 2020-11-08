@@ -102,7 +102,7 @@ const PostPage = (props) => {
   const { mainPath } = route
 
   const seoConfig = {
-    url: `${SITE_URL}/${mainPath}/post/${post.id}`,
+    url: `${SITE_URL}/${mainPath}/${ROUTE.POST}/${post.id}`,
     title: `${post.title}`,
     datePublished: `${post.insertedAt}`,
     dateModified: `${post.updatedAt}`,
@@ -114,7 +114,6 @@ const PostPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.POST}
         metric={METRIC.ARTICLE}
         seoConfig={seoConfig}
         errorCode={errorCode}
