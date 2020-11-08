@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
-import { ROUTE } from '@/constant'
+import { ROUTE, METRIC } from '@/constant'
 import { P } from '@/schemas'
 
 import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
@@ -70,7 +70,7 @@ const TrendingPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.TRENDING} seoConfig={seoConfig} noSidebar>
+      <GlobalLayout metric={METRIC.TRENDING} seoConfig={seoConfig} noSidebar>
         <TrendingContent />
       </GlobalLayout>
     </Provider>

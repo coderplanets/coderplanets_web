@@ -6,7 +6,7 @@ import { Provider } from 'mobx-react'
 import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
-import { ROUTE } from '@/constant'
+import { ROUTE, METRIC } from '@/constant'
 
 import {
   getJwtToken,
@@ -102,7 +102,7 @@ const DiscoveryPage = (props) => {
   const { errorCode } = store
 
   const seoConfig = {
-    url: `${SITE_URL}/discovery`,
+    url: `${SITE_URL}/${ROUTE.DISCOVERY}`,
     title: '社区索引 | coderplanets',
     description: 'coderplanets 所有社区节点',
   }
@@ -110,7 +110,7 @@ const DiscoveryPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.DISCOVERY}
+        metric={METRIC.DISCOVERY}
         seoConfig={seoConfig}
         errorCode={errorCode}
       >

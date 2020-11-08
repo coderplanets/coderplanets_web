@@ -20,9 +20,8 @@ import ModeLine from '@/containers/unit/ModeLine'
 import Drawer from '@/containers/tool/Drawer'
 import CustomScroller from '@/components/CustomScroller'
 
-import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
-
 import SEO from './SEO'
+import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
 
@@ -35,7 +34,6 @@ import {
 
 const GlobalLayoutContainer = ({
   globalLayout: store,
-  page,
   seoConfig,
   errorCode,
   errorPath,
@@ -60,22 +58,19 @@ const GlobalLayoutContainer = ({
     },
   } = store
 
-  /*
-   * solve page jump when switch beteen threads
-   * 要给 innerWrapper 一个最小宽度，否则在切换不同 Threads
-   * 时，由于 loading 效果的不同会导致页面横向跳动
-   */
-  // useResize(() => setInnerMinWidth('none'))
-
   return (
     <AnalysisService>
       <ThemePalette>
         <Wrapper>
           {errorCode ? (
-            <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
+            <ErrorPage
+              errorCode={errorCode}
+              metric={metric}
+              target={errorPath}
+            />
           ) : (
             <React.Fragment>
-              <SEO page={page} config={seoConfig} />
+              <SEO metric={metric} config={seoConfig} />
 
               <InnerWrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
                 {!noSidebar && <Sidebar />}
@@ -120,7 +115,6 @@ GlobalLayoutContainer.propTypes = {
   globalLayout: T.object.isRequired,
   seoConfig: T.object.isRequired, // TODO:
   noSidebar: T.bool,
-  page: T.string.isRequired,
   metric: T.oneOf(values(METRIC)),
   errorCode: T.oneOf([null, 404, 500]),
   errorPath: T.oneOfType([T.string, T.instanceOf(null)]),

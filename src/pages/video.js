@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
-import { TYPE, ROUTE, THREAD } from '@/constant'
+import { TYPE, ROUTE, METRIC, THREAD } from '@/constant'
 import {
   getJwtToken,
   nilOrEmpty,
@@ -108,8 +108,7 @@ const VideoPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.VIDEO}
-        metric="article"
+        metric={METRIC.ARTICLE}
         seoConfig={seoConfig}
         errorCode={errorCode}
         errorPath={`/${mainPath}/video/${video.id}`}

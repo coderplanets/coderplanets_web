@@ -6,7 +6,7 @@ import { Provider } from 'mobx-react'
 import { merge, toLower } from 'ramda'
 
 import { SITE_URL } from '@/config'
-import { ROUTE, USER_THREAD } from '@/constant'
+import { ROUTE, METRIC, USER_THREAD } from '@/constant'
 import {
   getJwtToken,
   makeGQClient,
@@ -93,14 +93,14 @@ const UserPage = (props) => {
 
   const seoConfig = {
     name: `${user.nickname}`,
-    url: `${SITE_URL}/user/${user.login}`,
+    url: `${SITE_URL}/${ROUTE.USER}/${user.login}`,
     sameAs: [],
   }
 
   return (
     <Provider store={store}>
       <GlobalLayout
-        page={ROUTE.USER}
+        metric={METRIC.USER}
         seoConfig={seoConfig}
         errorCode={errorCode}
         noSidebar={`/user/${user.login}`}

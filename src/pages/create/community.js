@@ -6,7 +6,7 @@ import { Provider } from 'mobx-react'
 import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
-import { ROUTE } from '@/constant'
+import { METRIC } from '@/constant'
 
 import { useStore } from '@/stores/init'
 
@@ -106,8 +106,7 @@ const CreateCommunityPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout page={ROUTE.DISCOVERY} seoConfig={seoConfig}>
-        {/* <h2>22</h2> */}
+      <GlobalLayout metric={METRIC.COMMUNITY} seoConfig={seoConfig}>
         <CreateCommunityContent />
       </GlobalLayout>
     </Provider>

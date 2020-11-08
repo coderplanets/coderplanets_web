@@ -66,19 +66,14 @@ const WorksPage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/works`,
+    url: `${SITE_URL}/${ROUTE.WORKS}`,
     title: '作品集市 | coderplanets',
     description: '有趣有爱的作品分享',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        page={ROUTE.WORKS}
-        metric={METRIC.WORKS}
-        seoConfig={seoConfig}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.WORKS} seoConfig={seoConfig} noSidebar>
         <WorksContent />
       </GlobalLayout>
     </Provider>
