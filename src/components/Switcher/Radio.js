@@ -14,7 +14,7 @@ import { Wrapper, Label } from './styles/radio'
 /* eslint-disable-next-line */
 const log = buildLog('c:Radio:index')
 
-const Radio = ({ items, activeKey, onChange }) => {
+const Radio = ({ items, activeKey, size, onChange }) => {
   return (
     <Wrapper testId="radio">
       {items.map((item) => (
@@ -23,6 +23,7 @@ const Radio = ({ items, activeKey, onChange }) => {
           checked={item.key === activeKey}
           onClick={() => onChange?.(item)}
           dimOnActive={item.dimOnActive}
+          size={size}
         >
           {item.value}
         </Label>
@@ -41,8 +42,11 @@ Radio.propTypes = {
   ).isRequired,
   activeKey: T.oneOfType([T.string, T.bool]).isRequired,
   onChange: T.func.isRequired,
+  size: T.oneOf(['default', 'small']),
 }
 
-Radio.defaultProps = {}
+Radio.defaultProps = {
+  size: 'default',
+}
 
 export default React.memo(Radio)

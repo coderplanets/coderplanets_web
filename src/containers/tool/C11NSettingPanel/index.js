@@ -56,6 +56,7 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
 
   return (
     <Wrapper testId="c11NSettingPanel">
+      <br />
       <Title>个性化设置</Title>
       <TabBarWrapper>
         <Tabs

@@ -27,6 +27,7 @@ const GeneralSettings = ({ curThread, customization }) => {
       <Desc>社区布局的显示模式 {isMobile && '(手机端左右布局不生效)'}。</Desc>
       <Br top="10px" />
       <Radio
+        size="small"
         items={[
           {
             value: '上下布局',
@@ -60,6 +61,7 @@ const GeneralSettings = ({ curThread, customization }) => {
         <>
           <Br top="10px" />
           <Radio
+            size="small"
             items={[
               {
                 value: '列表视图',
@@ -87,6 +89,7 @@ const GeneralSettings = ({ curThread, customization }) => {
       <Br top="10px" />
       <Desc>在帖子/文章头部显示“阅”标记。</Desc>
       <Radio
+        size="small"
         items={[
           {
             value: '已读标记',
@@ -111,6 +114,7 @@ const GeneralSettings = ({ curThread, customization }) => {
           <Br top="25px" />
           <Desc>在帖子/文章下方显示辅助分割线。</Desc>
           <Radio
+            size="small"
             items={[
               {
                 value: '辅助分隔',
@@ -139,6 +143,7 @@ const GeneralSettings = ({ curThread, customization }) => {
       <Desc>每页帖子的默认显示条数。</Desc>
       <Br top="10px" />
       <Radio
+        size="small"
         items={[
           {
             value: '20条',
