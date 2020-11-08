@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -11,19 +11,25 @@ export const Wrapper = styled.div.attrs((props) => ({
   padding: 10px;
   margin: 20px;
   margin-top: 10px;
-  margin-left: 60px;
+  margin-left: 40px;
   margin-bottom: 120px;
 
   ${css.media.mobile`
     margin-left: 6%;
   `};
 `
-export const TabBarWrapper = styled.div`
-  margin-bottom: 20px;
-  margin-left: -8px;
+export const Title = styled.div`
+  ${css.flex('justify-center')};
   width: 100%;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid;
-  border-bottom-color: #0a465a;
+  font-size: 18px;
+  color: ${theme('thread.articleTitle')};
+`
+export const TabBarWrapper = styled.div`
+  ${css.flex('justify-center')};
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+`
+export const ContentWrapper = styled.div`
+  padding: 5px;
 `

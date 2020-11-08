@@ -12,13 +12,13 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 5px;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
   margin-bottom: 10px;
   opacity: 0.5;

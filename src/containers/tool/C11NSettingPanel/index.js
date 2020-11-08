@@ -7,13 +7,15 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
+import { VIEW } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import TabBar from '@/components/TabBar'
+import { Tabs } from '@/components/Switcher'
+
 import GeneralSettings from './GeneralSettings'
 import ThemeSettings from './ThemeSettings'
 
-import { Wrapper, TabBarWrapper } from './styles'
+import { Wrapper, Title, TabBarWrapper, ContentWrapper } from './styles'
 import { useInit, tabOnChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -54,19 +56,23 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
 
   return (
     <Wrapper testId="c11NSettingPanel">
+      <Title>个性化设置</Title>
       <TabBarWrapper>
-        <TabBar
-          source={TAB_OPTIONS}
+        <Tabs
+          items={TAB_OPTIONS}
+          activeKey={activeTab}
           onChange={tabOnChange}
-          active={activeTab}
+          view={VIEW.DRAWER}
         />
       </TabBarWrapper>
-      <Content
-        activeTab={activeTab}
-        curThread={curThread}
-        customization={customization}
-        curTheme={curTheme}
-      />
+      <ContentWrapper>
+        <Content
+          activeTab={activeTab}
+          curThread={curThread}
+          customization={customization}
+          curTheme={curTheme}
+        />
+      </ContentWrapper>
     </Wrapper>
   )
 }
