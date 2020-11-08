@@ -15,6 +15,7 @@ import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
 import ModelineView from './ModelineView'
 import CardView from './CardView'
+import DrawerView from './DrawerView'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
@@ -40,6 +41,10 @@ const Tabs = (props) => {
       return <CardView {...props} />
     }
 
+    case VIEW.DRAWER: {
+      return <DrawerView {...props} />
+    }
+
     default: {
       return <DesktopView {...props} />
     }
@@ -47,7 +52,7 @@ const Tabs = (props) => {
 }
 
 Tabs.propTypes = {
-  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD, VIEW.MODELINE]),
+  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD, VIEW.MODELINE, VIEW.DRAWER]),
 }
 
 Tabs.defaultProps = {

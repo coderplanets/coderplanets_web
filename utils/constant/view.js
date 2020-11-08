@@ -3,6 +3,7 @@ const VIEW = {
   MOBILE: 'mobile',
   COMMUNITY_CARD: 'COMMUNITY_CARD',
   MODELINE: 'MODELINE',
+  DRAWER: 'DRAWER',
 }
 
 export default VIEW
