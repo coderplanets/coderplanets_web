@@ -4,14 +4,17 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-import { merge } from 'ramda'
+import { merge, contains, values } from 'ramda'
 
+import { METRIC } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:HeaderStore')
 
-const HeaderStore = T.model('HeaderStore', {})
+const HeaderStore = T.model('HeaderStore', {
+  metric: T.optional(T.enumeration(values(METRIC)), METRIC.COMMUNITY),
+})
   .views((self) => ({
     get root() {
       return getParent(self)
@@ -27,6 +30,15 @@ const HeaderStore = T.model('HeaderStore', {})
     },
     get isLogin() {
       return self.root.account.isLogin
+    },
+    get hasNoBottomBorder() {
+      return contains(self.metric, [
+        METRIC.DISCOVERY,
+        METRIC.SPONSOR,
+        METRIC.FRIENDS,
+        METRIC.SUBSCRIBE,
+        METRIC.ARTICLE,
+      ])
     },
     get leftOffset() {
       const curSidebarPin = self.root.sidebar.pin
