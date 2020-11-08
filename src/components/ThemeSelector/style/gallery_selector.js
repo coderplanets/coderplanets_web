@@ -7,7 +7,6 @@ import { Dot } from './index'
 export const Wrapper = styled.div`
   ${css.flex('align-both')};
   flex-wrap: wrap;
-  margin-bottom: 10%;
 `
 export const ThemeDot = styled(Dot)`
   ${css.circle('20px')};
@@ -34,7 +33,8 @@ export const IntroBox = styled.div`
 
   &:hover {
     border: 1px solid;
-    border-color: ${theme('banner.desc')};
+    border-color: ${({ active }) =>
+      active ? '#0f4858' : theme('banner.desc')};
   }
   transition: border 0.3s;
 
@@ -46,7 +46,7 @@ export const IntroBox = styled.div`
 `
 export const IntroDesc = styled.div`
   ${css.flexColumn('justify-between')};
-  width: 90%;
+  width: calc(100% - 30px);
   position: relative;
   padding-top: 5px;
   padding-bottom: 20px;
