@@ -25,6 +25,8 @@ const AvatarFallback = ({
   bottom,
 }) => {
   const name = user?.nickname
+  const sliceCount = width > 32 ? 2 : 1
+
   return (
     <Wrapper
       className={className}
@@ -35,7 +37,7 @@ const AvatarFallback = ({
       top={top}
       bottom={bottom}
     >
-      <Name width={width}>{name.slice(0, 1)}</Name>
+      <Name width={width}>{name.slice(0, sliceCount)}</Name>
     </Wrapper>
   )
 }

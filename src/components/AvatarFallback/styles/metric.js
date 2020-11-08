@@ -3,11 +3,11 @@ export const getFontSize = (width) => {
     return '10px'
   }
   if (width > 15 && width <= 32) {
-    return '15px'
+    return '14px'
   }
 
   if (width >= 38 && width < 50) {
-    return '17px'
+    return '14px' // two letters
   }
 
   return '20px'
