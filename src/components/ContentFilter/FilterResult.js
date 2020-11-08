@@ -1,7 +1,5 @@
 import React from 'react'
 
-import Tooltip from '@/components/Tooltip'
-
 import {
   Wrapper,
   ResultText,
@@ -17,17 +15,9 @@ const FilterResult = ({ totalCount, onFaqChange, faqActive }) => {
       <ResultDivider />
 
       <MoreOptionWrapper>
-        {faqActive ? (
-          <FaqText active={faqActive} onClick={onFaqChange}>
-            FAQ
-          </FaqText>
-        ) : (
-          <Tooltip content="常见问题" placement="bottom" delay={300}>
-            <FaqText active={faqActive} onClick={onFaqChange}>
-              FAQ
-            </FaqText>
-          </Tooltip>
-        )}
+        <FaqText active={faqActive} onClick={onFaqChange}>
+          常见问题
+        </FaqText>
       </MoreOptionWrapper>
     </Wrapper>
   )
