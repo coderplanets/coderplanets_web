@@ -15,8 +15,8 @@ import {
 const GallerySelector = ({ curTheme, changeTheme }) => {
   return (
     <Wrapper>
-      {keys(themeMeta).map((name) => (
-        <IntroBox key={name} active={curTheme === name}>
+      {keys(themeMeta).map((name, index) => (
+        <IntroBox key={name} active={curTheme === name} index={index}>
           <IntroDesc>
             <ThemeTitle
               active={curTheme === name}

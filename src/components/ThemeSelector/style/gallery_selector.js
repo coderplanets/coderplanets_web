@@ -5,25 +5,36 @@ import { theme, css } from '@/utils'
 import { Dot } from './index'
 
 export const Wrapper = styled.div`
-  ${css.flexColumn('align-center')};
+  ${css.flex('align-both')};
+  flex-wrap: wrap;
   margin-bottom: 10%;
 `
-export const ThemeDot = styled(Dot)``
+export const ThemeDot = styled(Dot)`
+  ${css.circle('20px')};
+  margin-top: 7px;
+  margin-right: 2px;
 
+  &:after {
+    content: '';
+  }
+`
 export const IntroBox = styled.div`
   ${css.flex('justify-between')};
+  margin-right: ${({ index }) => (index % 2 === 0 ? '5%' : 0)};
   background: ${({ active }) => (active ? theme('banner.bg') : 'transparent')};
   border: 1px solid;
-  border: ${({ active }) => (active ? '2px solid' : '1px dashed')};
   border-color: ${theme('banner.desc')};
-  margin-right: 15px;
+  /* margin-right: 15px; */
   margin-bottom: 20px;
   min-height: 100px;
-  width: ${({ active }) => (active ? '88%' : '78%')};
+  width: 40%;
+  height: 180px;
   padding: 10px;
   border-radius: 5px;
+  padding-top: 5px;
+
   &:hover {
-    border: 2px solid;
+    border: 1px solid;
     border-color: ${theme('banner.desc')};
   }
   transition: border 0.3s;
@@ -35,18 +46,24 @@ export const IntroBox = styled.div`
   `};
 `
 export const IntroDesc = styled.div`
-  ${css.flexColumn()};
-  width: 68%;
+  ${css.flexColumn('justify-between')};
+  width: 90%;
   position: relative;
+  padding-top: 5px;
+  padding-bottom: 20px;
 `
 export const ThemeTitle = styled.div`
   /* color: ${theme('banner.title')}; */
   color: #7B8F90;
-  font-size: ${({ active }) => (active ? '20px' : '18px')};
+  font-size: 17px;
   font-weight: ${({ active }) => (active ? 'bolder' : '')};
   cursor: pointer;
   opacity: ${({ active }) => (active ? 1 : 0.8)};
   margin-bottom: ${({ active }) => (active ? '15px' : '5px')};
+
+  ${IntroBox}:hover & {
+    font-weight: bold;
+  }
 `
 export const ThemeDesc = styled.div`
   font-size: ${({ active }) => (active ? '15px' : '14px')};
