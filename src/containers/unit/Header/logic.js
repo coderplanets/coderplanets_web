@@ -118,9 +118,10 @@ const ErrSolver = [
 // ###############################
 // init & unInit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store, metric) => {
   useEffect(() => {
     store = _store
+    store.mark({ metric })
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     checkSessionState()
@@ -129,5 +130,5 @@ export const useInit = (_store) => {
       sr71$.stop()
       sub$.unsubscribe()
     }
-  }, [_store])
+  }, [_store, metric])
 }

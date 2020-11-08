@@ -20,5 +20,6 @@ export const Wrapper = styled.div.attrs((props) => ({
   margin-right: ${({ right }) => right};
 `
 export const Name = styled.div`
+  font-family: 'Audiowide', cursive;
   font-size: ${({ width }) => getFontSize(width)};
 `
