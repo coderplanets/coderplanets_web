@@ -13,6 +13,7 @@ const METRIC = {
   TRENDING: 'trending',
   COOL_GUIDE: 'cool-guide',
   HAVE_A_DRINK: 'have-a-drink',
+  RECIPES: 'recipes',
 }
 
 export default METRIC
