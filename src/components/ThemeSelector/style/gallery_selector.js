@@ -23,8 +23,7 @@ export const IntroBox = styled.div`
   margin-right: ${({ index }) => (index % 2 === 0 ? '5%' : 0)};
   background: ${({ active }) => (active ? theme('banner.bg') : 'transparent')};
   border: 1px solid;
-  border-color: ${theme('banner.desc')};
-  /* margin-right: 15px; */
+  border-color: #0f4858;
   margin-bottom: 20px;
   min-height: 100px;
   width: 40%;
