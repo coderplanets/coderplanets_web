@@ -1,19 +1,21 @@
+// NOTE:  the value is mapping to @/utils/width's key
+// so do not change to lowercase etc...
 const METRIC = {
-  COMMUNITY: 'community',
-  USER: 'user',
-  ARTICLE: 'article',
-  WORKS: 'works',
+  COMMUNITY: 'COMMUNITY',
+  USER: 'USER',
+  ARTICLE: 'ARTICLE',
+  WORKS: 'WORKS',
 
-  DISCOVERY: 'discovery',
-  SPONSOR: 'sponsor',
-  FRIENDS: 'friends',
-  SUBSCRIBE: 'subscribe',
-  MEETUPS: 'meetups',
+  DISCOVERY: 'DISCOVERY',
+  SPONSOR: 'SPONSOR',
+  FRIENDS: 'FRIENDS',
+  SUBSCRIBE: 'SUBSCRIBE',
+  MEETUPS: 'MEETUPS',
 
-  TRENDING: 'trending',
-  COOL_GUIDE: 'cool-guide',
-  HAVE_A_DRINK: 'have-a-drink',
-  RECIPES: 'recipes',
+  TRENDING: 'TRENDING',
+  COOL_GUIDE: 'COOL_GUIDE',
+  HAVE_A_DRINK: 'HAVE_A_DRINK',
+  RECIPES: 'RECIPES',
 }
 
 export default METRIC

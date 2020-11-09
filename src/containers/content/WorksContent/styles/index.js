@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, WIDTH } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -18,7 +18,6 @@ export const LeftSidebarWrapper = styled.div.attrs((props) => ({
 export const ContentWrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  max-width: ${WIDTH.WORKS.CONTENT};
 `
 export const InnerContent = styled.div`
   flex-grow: 1;

@@ -4,6 +4,7 @@
  *
  */
 import { css as styledCss } from 'styled-components'
+import WIDTH from './width'
 
 const smokey = (opt = 0.6) => `
   opacity: ${opt};
@@ -136,7 +137,18 @@ const media = Object.keys(mediaBreakPoints).reduce((acc, label) => {
 media.laptopLPadding = '0 8vw 0 calc(7vw + 15px);'
 media.laptopLPaddingColumnLayout = '0 3vw 0 calc(3vw + 10px);'
 
-// export const media = generateMedia({ ...mediaBreakPoints })
+// get page content max width
+// ignore option use in community page, which digest width is wider
+// than content width
+const getContentMaxWidth = (metric, opt = {}) => {
+  if (opt.ignore) return '100%'
+  return WIDTH[metric]?.CONTENT || WIDTH.COMMUNITY.CONTENT
+}
+
+// get page max width
+const getPageMaxWidth = (metric) => {
+  return WIDTH[metric]?.PAGE || WIDTH.COMMUNITY.PAGE
+}
 
 const css = {
   cutFrom,
@@ -149,6 +161,8 @@ const css = {
   zIndex,
   mediaBreakPoints,
   media,
+  getContentMaxWidth,
+  getPageMaxWidth,
 }
 
 export default css

@@ -19,6 +19,10 @@ export const InnerWrapper = styled.div`
   margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
   padding-left: 0;
   padding-right: 0;
+
+  ${css.media.laptopL`
+    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_LAPTOPL};
+  `}
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;

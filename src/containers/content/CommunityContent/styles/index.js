@@ -22,10 +22,10 @@ export const InnerWrapper = styled.div`
   margin-top: 20px;
   width: 100%;
   max-width: ${pixelAdd(WIDTH.COMMUNITY.CONTENT, 46)};
+  margin-left: ${WIDTH.COMMUNITY.CONTENT_OFFSET};
 
   padding-left: 25px;
   padding-right: 10px;
-  margin-left: -15px;
 
   padding-top: ${({ cardView }) => (cardView ? '12px' : '15px')};
   color: ${theme('font')};
@@ -34,12 +34,6 @@ export const InnerWrapper = styled.div`
   border: 1px solid;
   border-color: ${theme('content.border')};
   border-radius: 6px;
-
-  ${css.media.laptopL`
-    margin: 0 4.2%;
-    margin-left: ${({ cardView }) => (cardView ? '2.5%' : '4.2%')};
-    margin-top: 20px;
-  `};
 
   ${css.media.mobile`
     margin: 0 3%;

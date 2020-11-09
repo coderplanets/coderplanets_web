@@ -5,6 +5,7 @@ import { theme, css, animate } from '@/utils'
 
 export const Wrapper = styled.div`
   display: ${({ show }) => (show ? 'block' : 'none')};
+  /* margin-left: -38px; */
 `
 export const ItemWrapper = styled.div`
   ${css.flexColumn('align-both')};

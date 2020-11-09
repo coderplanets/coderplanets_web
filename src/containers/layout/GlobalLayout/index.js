@@ -23,7 +23,13 @@ import CustomScroller from '@/components/CustomScroller'
 import SEO from './SEO'
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
-import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
+import {
+  Wrapper,
+  InnerWrapper,
+  BodyWrapper,
+  BodyInnerWrapper,
+  ContentWrapper,
+} from './styles'
 
 import {
   useInit,
@@ -72,7 +78,11 @@ const GlobalLayoutContainer = ({
             <React.Fragment>
               <SEO metric={metric} config={seoConfig} />
 
-              <InnerWrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
+              <InnerWrapper
+                metric={metric}
+                sidebarPin={sidebarPin}
+                noSidebar={noSidebar}
+              >
                 {!noSidebar && <Sidebar />}
                 <Drawer />
                 <Doraemon />
@@ -94,7 +104,16 @@ const GlobalLayoutContainer = ({
                     <div>
                       <Header metric={metric} />
                       <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
-                        {children}
+                        <BodyInnerWrapper
+                          metric={metric}
+                          ignore={
+                            metric === METRIC.COMMUNITY ||
+                            metric === METRIC.DISCOVERY ||
+                            metric === METRIC.ARTICLE
+                          }
+                        >
+                          {children}
+                        </BodyInnerWrapper>
                       </BodyWrapper>
                       <Footer metric={metric} />
                     </div>

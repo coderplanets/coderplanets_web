@@ -7,20 +7,19 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${css.flexColumn('align-center', 'justify-start')};
-  min-width: ${WIDTH.ARTICLE.STICKER};
+  width: ${WIDTH.ARTICLE.STICKER};
   /* bottom has a go-to-top button */
   height: 85vh;
   margin-top: -4px;
+
+  ${css.media.laptopL`
+    width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};
+  `}
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('justify-between')}
   height: 100%;
   width: 100%;
-  margin-left: 10px;
-
-  ${css.media.laptopL`
-    margin-left: -30px;
-  `}
 `
 export const MainWrapper = styled.div`
   ${css.flexColumn('align-center')};

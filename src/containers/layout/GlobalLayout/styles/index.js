@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { C11N } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
-import { theme, css, WIDTH } from '@/utils'
+import { theme, css } from '@/utils'
 
 // background: #3b5456;
 export const Wrapper = styled.div`
@@ -13,8 +13,8 @@ export const Wrapper = styled.div`
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn()};
-  max-width: ${WIDTH.COMMUNITY.PAGE};
-  width: 100vw;
+  max-width: ${({ metric }) => css.getPageMaxWidth(metric)};
+  width: 100%;
   /* min-width: ${({ minWidth }) => minWidth}; */
 /*
   padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};
@@ -37,6 +37,14 @@ export const BodyWrapper = styled.div`
     if (isMobile) return 'column'
     return layout === C11N.DIGEST ? 'column' : 'row'
   }};
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`
+export const BodyInnerWrapper = styled.div`
+  width: 100%;
+  max-width: ${({ metric, ignore }) =>
+    css.getContentMaxWidth(metric, { ignore })};
 `
 // 180 is the sidebar full width
 export const ContentWrapper = styled.div`
