@@ -34,6 +34,11 @@ const WIDTH = {
   TREADING: {
     CONTENT: '1120px',
   },
+
+  SPONSOR: {
+    PAGE: '1460px',
+    CONTENT: '1080px',
+  },
 }
 
 export default WIDTH
