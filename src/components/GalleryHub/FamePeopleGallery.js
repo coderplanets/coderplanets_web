@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD, ASSETS_ENDPOINT } from '@/config'
+import { ICON, ASSETS_ENDPOINT } from '@/config'
 import { buildLog, cutFrom } from '@/utils'
 
 import {
@@ -120,11 +120,11 @@ const FamePeopleList = ({ items }) => {
 
           <Footer>
             <VoteInfo>
-              <UpVoteIcon src={`${ICON_CMD}/arrow-up-o.svg`} />
+              <UpVoteIcon src={`${ICON}/shape/vote-up.svg`} />
               <Number>22</Number>
             </VoteInfo>
             <ViewInfo>
-              <ViewIcon src={`${ICON_CMD}/view-o.svg`} />
+              <ViewIcon src={`${ICON}/shape/vote-up.svg`} />
               <Number>4743</Number>
             </ViewInfo>
           </Footer>

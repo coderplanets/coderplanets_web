@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { prettyNum } from '@/utils'
 
 import { Wrapper, Icon } from '../styles/todo_list/up_vote'
@@ -8,7 +8,7 @@ import { Wrapper, Icon } from '../styles/todo_list/up_vote'
 const UpVote = ({ num }) => (
   <Wrapper>
     <div>
-      <Icon src={`${ICON_CMD}/arrow-up-o.svg`} />
+      <Icon src={`${ICON}/shape/vote-up.svg`} />
     </div>
     <div>{prettyNum(num)}</div>
   </Wrapper>

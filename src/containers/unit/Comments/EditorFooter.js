@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON, ICON_CMD } from '@/config'
 
 import { Button } from '@/components/Buttons'
 import { Space } from '@/components/Common'
@@ -47,7 +47,7 @@ const EditorFooter = ({
     <InputSubmit>
       {showFold && (
         <FoldBtn onClick={onFold}>
-          <FoldArrow src={`${ICON_CMD}/arrow-up-o.svg`} />
+          <FoldArrow src={`${ICON}/shape/vote-up.svg`} />
           <FoldText>收起</FoldText>
         </FoldBtn>
       )}

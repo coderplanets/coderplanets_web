@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { buildLog, cutFrom } from '@/utils'
 
 import { ArrowButton } from '@/components/Buttons'
@@ -148,8 +148,8 @@ const ProductGallery = ({ items }) => {
           )}
 
           <Footer>
-            <IconText iconSrc={`${ICON_CMD}/arrow-up-o.svg`}>22</IconText>
-            <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>22</IconText>
+            <IconText iconSrc={`${ICON}/shape/vote-up.svg`}>22</IconText>
+            <IconText iconSrc={`${ICON}/shape/vote-up.svg`}>22</IconText>
           </Footer>
         </Block>
       ))}
