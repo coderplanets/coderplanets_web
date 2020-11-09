@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { prettyNum } from '@/utils'
 
 import { Wrapper, Icon } from '../styles/comment/up_info'
@@ -10,10 +10,7 @@ import { toggleLikeComment } from '../logic'
 const UpInfo = ({ data }) => (
   <Wrapper>
     <div onClick={() => toggleLikeComment(data)}>
-      <Icon
-        src={`${ICON_CMD}/arrow-up-o.svg`}
-        viewerDid={data.viewerHasLiked}
-      />
+      <Icon src={`${ICON}/shape/vote-up.svg`} viewerDid={data.viewerHasLiked} />
     </div>
     <div>{prettyNum(data.likesCount)}</div>
   </Wrapper>

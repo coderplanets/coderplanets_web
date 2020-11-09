@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
 import { Wrapper, Dot, Title, Reaction, Icon, Count } from './styles/post'
@@ -23,7 +23,7 @@ const Post = ({ item }) => {
         {item.title}
       </Title>
       <Reaction>
-        <Icon src={`${ICON_CMD}/faq_useful.svg`} />
+        <Icon src={`${ICON}/shape/vote-up-solid.svg`} />
         <Count>28</Count>
       </Reaction>
     </Wrapper>

@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
 import IconText from '@/components/IconText'
@@ -123,8 +123,8 @@ const SnippetGallery = ({ items }) => {
           <div>---</div>
 
           <Footer>
-            <IconText iconSrc={`${ICON_CMD}/arrow-up-o.svg`}>22</IconText>
-            <IconText iconSrc={`${ICON_CMD}/works/topic.svg`} size="tiny">
+            <IconText iconSrc={`${ICON}/shape/vote-up.svg`}>22</IconText>
+            <IconText iconSrc={`${ICON}/shape/vote-up.svg`} size="tiny">
               类型转换
             </IconText>
           </Footer>
