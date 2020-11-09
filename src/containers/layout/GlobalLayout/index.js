@@ -6,7 +6,7 @@
 
 import React, { useEffect } from 'react'
 import T from 'prop-types'
-import { values } from 'ramda'
+import { values, contains } from 'ramda'
 
 import { ANCHOR, METRIC } from '@/constant'
 import AnalysisService from '@/services/Analysis'
@@ -64,6 +64,14 @@ const GlobalLayoutContainer = ({
     },
   } = store
 
+  // ignore global metric on content/page width, let its child deside
+  const ignoreMetric = contains(metric, [
+    METRIC.COMMUNITY,
+    METRIC.DISCOVERY,
+    METRIC.ARTICLE,
+    METRIC.SPONSOR,
+  ])
+
   return (
     <AnalysisService>
       <ThemePalette>
@@ -104,15 +112,7 @@ const GlobalLayoutContainer = ({
                     <div>
                       <Header metric={metric} />
                       <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
-                        <BodyInnerWrapper
-                          metric={metric}
-                          ignore={
-                            metric === METRIC.COMMUNITY ||
-                            metric === METRIC.DISCOVERY ||
-                            metric === METRIC.ARTICLE ||
-                            metric === METRIC.SPONSOR
-                          }
-                        >
+                        <BodyInnerWrapper metric={metric} ignore={ignoreMetric}>
                           {children}
                         </BodyInnerWrapper>
                       </BodyWrapper>
