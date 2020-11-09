@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, css, WIDTH } from '@/utils'
+import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
@@ -12,10 +12,8 @@ export const Wrapper = styled.footer`
   margin-top: 15px;
 `
 export const InnerWrapper = styled.div`
-  max-width: ${WIDTH.COMMUNITY.PAGE};
+  max-width: ${({ metric }) => css.getPageMaxWidth(metric)};
   width: 100%;
-  padding: ${() => css.media.laptopLPadding};
-  margin-left: ${({ metric }) => (metric === 'article' ? '-60px' : 0)};
   margin-bottom: ${({ metric }) => (metric === 'article' ? '30px' : 0)};
 `
 export const MainInfos = styled.footer`

@@ -8,13 +8,17 @@ export const getPadding = (layout) => {
 }
 
 export const getMaxWidth = (metric) => {
+  return WIDTH[metric]?.CONTENT || WIDTH.COMMUNITY.CONTENT
+}
+
+export const getMarginLeft = (metric) => {
   switch (metric) {
     case METRIC.WORKS: {
-      return WIDTH.WORKS.CONTENT
+      return 0
     }
 
     default: {
-      return WIDTH.COMMUNITY.CONTENT
+      return WIDTH.COMMUNITY.CONTENT_OFFSET
     }
   }
 }

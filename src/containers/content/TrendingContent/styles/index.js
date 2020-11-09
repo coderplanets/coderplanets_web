@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { css, WIDTH } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-both')}
@@ -9,13 +9,10 @@ export const Wrapper = styled.div`
 `
 export const InnerWrapper = styled.div`
   ${css.flex()};
-  padding: 10px 6vw;
-  padding-left: calc(6vw - 45px);
+  padding: 10px 0;
   margin-top: 12px;
-  width: 100%;
-  max-width: ${WIDTH.COMMUNITY.PAGE};
+  width: calc(100% + 75px);
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
 export const SwitchBtn = styled.div`
   margin-right: 15px;
@@ -23,5 +20,5 @@ export const SwitchBtn = styled.div`
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
-  max-width: calc(100% - 60px);
+  max-width: calc(100% - 85px);
 `

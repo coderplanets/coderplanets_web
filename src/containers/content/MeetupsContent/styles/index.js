@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, WIDTH } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex()}
@@ -8,12 +8,7 @@ export const Wrapper = styled.div`
 `
 export const InnerWrapper = styled.div`
   ${css.flex()};
-  padding: 10px 6vw;
-  margin-top: 12px;
-  width: 100%;
-  max-width: ${WIDTH.COMMUNITY.PAGE};
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
+  margin-top: 25px;
 `
 export const ContentWrapper = styled.div`
   ${css.flex()};

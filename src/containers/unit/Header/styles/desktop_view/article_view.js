@@ -15,6 +15,10 @@ export const InnerWrapper = styled.div`
   /* margin-left: 0; */
   height: 33px;
   align-items: center;
+
+  ${css.media.laptopL`
+    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_LAPTOPL};
+  `}
 `
 export const RouterWrapper = styled.div`
   ${css.flex('align-center')};
@@ -24,14 +28,12 @@ export const RouterWrapper = styled.div`
 export const Operations = styled.div`
   ${css.flex('align-both')};
   width: ${WIDTH.ARTICLE.STICKER};
-`
-export const UserInfoWrapper = styled.div`
-  margin-left: 15px;
 
   ${css.media.laptopL`
-    margin-left: -20px;
+    width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};
   `}
 `
+export const UserInfoWrapper = styled.div``
 export const MoreIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   width: 24px;

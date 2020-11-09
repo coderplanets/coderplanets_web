@@ -23,6 +23,10 @@ export const BannerContent = styled.div`
   max-width: ${WIDTH.ARTICLE.PAGE};
   width: 100%;
   margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
+
+  ${css.media.laptopL`
+    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_LAPTOPL};
+  `}
 `
 export const Main = styled.div`
   width: ${WIDTH.ARTICLE.CONTENT};
@@ -31,6 +35,10 @@ export const AuthorWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};
   width: ${WIDTH.ARTICLE.STICKER};
   margin-top: 32px;
+
+  ${css.media.laptopL`
+    width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};
+  `}
 `
 export const BottomInfo = styled.div`
   ${css.flex('align-end', 'justify-between')};

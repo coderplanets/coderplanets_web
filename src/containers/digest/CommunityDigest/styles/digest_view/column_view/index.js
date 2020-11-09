@@ -24,6 +24,8 @@ export const InnerWrapper = styled.div`
   min-height: ${({ descExpand, noSocial, isMobile }) =>
     descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
   width: 100%;
+  // if use margin-left will cause horizontal scrollbar
+  padding-left: ${WIDTH.COMMUNITY.CONTENT_OFFSET};
   max-width: ${WIDTH.COMMUNITY.PAGE};
   transition: min-height 0.25s;
 `
