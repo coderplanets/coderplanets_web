@@ -109,7 +109,8 @@ const GlobalLayoutContainer = ({
                           ignore={
                             metric === METRIC.COMMUNITY ||
                             metric === METRIC.DISCOVERY ||
-                            metric === METRIC.ARTICLE
+                            metric === METRIC.ARTICLE ||
+                            metric === METRIC.SPONSOR
                           }
                         >
                           {children}

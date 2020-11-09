@@ -14,17 +14,14 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('align-both')}
-  padding: 10px 6vw;
+  padding: 10px 0;
   margin-top: 12px;
   width: 100%;
-  max-width: ${WIDTH.COMMUNITY.PAGE};
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
-
 export const ContentWrapper = styled.div`
-  ${css.flexColumnGrow()};
-  max-width: 100%;
+  ${css.flexColumn('align-center')};
+  max-width: ${WIDTH.SPONSOR.CONTENT};
 `
 export const TabsWrapper = styled.div`
   ${css.flex('justify-center')};
