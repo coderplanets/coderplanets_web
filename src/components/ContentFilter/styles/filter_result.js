@@ -19,17 +19,18 @@ export const MoreOptionWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const FaqText = styled.div`
-  background-color: ${({ active }) =>
-    active ? theme('button.primary') : '#104456'};
+  background-color: #104456;
   border-radius: 3px;
   padding: 0 6px;
   font-size: 12px;
-  color: ${({ active }) => (active ? theme('button.fg') : '#3e8dbf')};
+  color: ${({ active }) => (active ? theme('thread.extraInfo') : '#1b8aaf')};
 
   &:hover {
-    color: ${({ active }) => (active ? theme('button.fg') : '#3e8dbf')};
+    color: ${theme('thread.extraInfo')};
     cursor: pointer;
   }
+
+  transition: color 0.25s;
 `
 export const MoreDivider = styled.div`
   width: 4px;

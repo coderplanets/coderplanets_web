@@ -21,10 +21,11 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const ArrowIcon = styled(Img)`
   fill: #126682;
   position: absolute;
-  top: -20px;
-  right: 44px;
-  height: 20px;
-  width: 20px;
+  top: -14px;
+  right: 22px;
+  height: 18px;
+  width: 18px;
+  transform: rotate(-90deg);
 `
 export const ContentWrapper = styled.div`
   display: ${({ active }) => (active ? 'block' : 'none')};

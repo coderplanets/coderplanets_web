@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
 import Post from './Post'
@@ -48,7 +48,7 @@ const items = [
 const FaqPeekList = ({ active }) => {
   return (
     <Wrapper testId="faqPeekList" active={active}>
-      {active && <ArrowIcon src={`${ICON_CMD}/peek-arrow.svg`} />}
+      {active && <ArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />}
       <ContentWrapper active={active}>
         <Title>常见问题：</Title>
 
