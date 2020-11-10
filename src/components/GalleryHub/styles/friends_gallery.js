@@ -4,21 +4,20 @@ import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${css.flex()};
-  justify-content: ${({ center }) => (center ? 'center' : 'flex-start')};
+  ${css.flex('justify-center')};
   flex-wrap: wrap;
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
 export const Block = styled.div`
   ${css.flexColumn('justify-between')};
-  width: ${({ column }) => (column === 3 ? '33%' : '25%')};
-  height: 80px;
+  width: ${({ column }) => (column === 4 ? '25%' : '20%')};
+  max-width: 200px;
+  height: 60px;
   border: none;
   padding: 18px 25px;
   border-radius: 2px;
   border: 1px solid transparent;
-  margin-bottom: 10px;
 
   :last-child {
     border-right: none;
@@ -28,7 +27,7 @@ export const Block = styled.div`
     border-color: #074c61;
     border: 1px solid #044c5f;
     cursor: pointer;
-    padding-top: 12px;
+    padding-top: 8px;
   }
   transition: all 0.25s;
   transition-delay: 0.2s;
@@ -44,14 +43,15 @@ export const IntroHead = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle('20px')};
+  ${css.circle('16px')};
   margin-right: 10px;
+  display: block;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: ${({ level }) => (level === 'gold' ? '18px' : '16px')};
+  font-size: 16px;
   cursor: pointer;
-  padding-top: 5px;
+  padding-top: 3px;
 
   ${Block}:hover & {
     padding-top: 0;
@@ -62,6 +62,8 @@ export const Title = styled.div`
 `
 export const LinkWrapper = styled.div`
   opacity: 0;
+  padding-left: 26px;
+  width: 100%;
   ${Block}:hover & {
     opacity: 1;
   }

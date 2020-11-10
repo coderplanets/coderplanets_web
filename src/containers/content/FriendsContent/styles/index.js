@@ -1,43 +1,45 @@
 import styled from 'styled-components'
 
 import { css, theme, WIDTH } from '@/utils'
-import Img from '@/Img'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${css.flexColumn('align-both')}
   width: 100%;
-  min-height: 100vh;
+  min-height: 70vh;
   margin-bottom: 50px;
   background-image: ${theme('banner.linearGradient')};
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('align-both')}
-  padding: 10px 6vw;
+  padding: 10px 0;
   margin-top: 12px;
   width: 100%;
-  max-width: ${WIDTH.COMMUNITY.PAGE};
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
+  max-width: ${WIDTH.FRIENDS.CONENT};
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
   max-width: 100%;
 `
-export const Title = styled.h2`
+export const Title = styled.h3`
   color: ${theme('thread.articleTitle')};
 `
-export const Desc = styled.div`
-  color: ${theme('thread.articleDigest')};
-`
+
 export const FriendsWrapper = styled.div`
-  padding-left: 10vw;
+  ${css.flex('justify-center')};
+  margin-left: 60px;
 `
-export const HeartIcon = styled(Img)`
-  fill: ${theme('baseColor.red')};
-  width: 14px;
-  height: 14px;
-  display: block;
-  margin-right: 8px;
+export const Footer = styled.div`
+  margin-top: 120px;
+  color: #0a6488;
+  margin-left: 18px;
+`
+export const Divider = styled.div`
+  width: ${({ width }) => width || '60px'};
+  height: 1px;
+  background-color: ${theme('thread.articleDigest')};
+  margin-top: 10px;
+  margin-bottom: 8px;
+  opacity: 0.6;
 `
