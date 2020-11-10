@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, theme, WIDTH } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -13,10 +13,10 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('align-both')}
+  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
   padding: 10px 0;
   margin-top: 12px;
   width: 100%;
-  max-width: ${WIDTH.FRIENDS.CONENT};
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
@@ -25,7 +25,6 @@ export const ContentWrapper = styled.div`
 export const Title = styled.h3`
   color: ${theme('thread.articleTitle')};
 `
-
 export const FriendsWrapper = styled.div`
   ${css.flex('justify-center')};
   margin-left: 60px;

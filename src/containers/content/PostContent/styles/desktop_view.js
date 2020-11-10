@@ -7,6 +7,7 @@ export const Wrapper = styled.article`
   position: relative;
   padding-top: 20px;
   min-height: 300px;
+  width: 100%;
 
   ${css.media.tablet`
     padding: 8px 0;
@@ -26,7 +27,7 @@ export const InnerWrapper = styled.div`
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;
-  max-width: ${WIDTH.ARTICLE.CONTENT};
+  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 
   ${css.media.tablet`
     width: 100%;

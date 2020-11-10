@@ -26,7 +26,7 @@ export const InnerWrapper = styled.div`
   width: 100%;
   // if use margin-left will cause horizontal scrollbar
   padding-left: ${WIDTH.COMMUNITY.CONTENT_OFFSET};
-  max-width: ${WIDTH.COMMUNITY.PAGE};
+  max-width: ${({ metric }) => css.getPageMaxWidth(metric)};
   transition: min-height 0.25s;
 `
 export const BaseBannerContent = styled.div`

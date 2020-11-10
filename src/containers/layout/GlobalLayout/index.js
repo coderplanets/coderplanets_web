@@ -6,7 +6,7 @@
 
 import React, { useEffect } from 'react'
 import T from 'prop-types'
-import { values, contains } from 'ramda'
+import { values } from 'ramda'
 
 import { ANCHOR, METRIC } from '@/constant'
 import AnalysisService from '@/services/Analysis'
@@ -23,19 +23,14 @@ import CustomScroller from '@/components/CustomScroller'
 import SEO from './SEO'
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
-import {
-  Wrapper,
-  InnerWrapper,
-  BodyWrapper,
-  BodyInnerWrapper,
-  ContentWrapper,
-} from './styles'
+import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
 
 import {
   useInit,
   openDoraemon,
   logBuddha,
   bodyScrollDirectionOnChange,
+  childrenWithProps,
 } from './logic'
 
 const GlobalLayoutContainer = ({
@@ -63,15 +58,6 @@ const GlobalLayoutContainer = ({
       customization: { bannerLayout },
     },
   } = store
-
-  // ignore global metric on content/page width, let its child deside
-  const ignoreMetric = contains(metric, [
-    METRIC.COMMUNITY,
-    METRIC.DISCOVERY,
-    METRIC.ARTICLE,
-    METRIC.SPONSOR,
-    METRIC.FRIENDS,
-  ])
 
   return (
     <AnalysisService>
@@ -113,9 +99,7 @@ const GlobalLayoutContainer = ({
                     <div>
                       <Header metric={metric} />
                       <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
-                        <BodyInnerWrapper metric={metric} ignore={ignoreMetric}>
-                          {children}
-                        </BodyInnerWrapper>
+                        {childrenWithProps(children, { metric })}
                       </BodyWrapper>
                       <Footer metric={metric} />
                     </div>

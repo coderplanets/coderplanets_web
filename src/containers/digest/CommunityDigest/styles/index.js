@@ -4,8 +4,9 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
-}))``
-
+}))`
+  width: 100%;
+`
 export const BaseBanner = styled.nav`
   ${css.flexColumn('justify-center')};
   position: relative;
@@ -15,9 +16,6 @@ export const BaseBanner = styled.nav`
   background: ${theme('banner.bg')};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('banner.spliter')};
-  @media (max-height: 800px) {
-    // min-height: 130px;
-  }
 `
 export const BaseTabber = styled.div`
   ${css.flex()};

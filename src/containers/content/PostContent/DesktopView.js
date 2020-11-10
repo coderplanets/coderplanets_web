@@ -34,7 +34,7 @@ const log = buildLog('C:PostContent')
 const checkAnchor = (el) =>
   isElementInViewport(el) ? articleInAnchor() : articleOutAnchor()
 
-const PostContentContainer = ({ postContent: store }) => {
+const PostContentContainer = ({ postContent: store, metric }) => {
   useInit(store)
 
   const { viewingData } = store
@@ -48,7 +48,7 @@ const PostContentContainer = ({ postContent: store }) => {
             onEnter={() => checkAnchor(ref?.current)}
             onLeave={() => checkAnchor(ref?.current)}
           />
-          <MainWrapper>
+          <MainWrapper metric={metric}>
             <ArticleWrapper ref={ref}>
               <MarkDownRender body={viewingData.body} />
               <ArticleFooter />
