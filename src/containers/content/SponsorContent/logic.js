@@ -8,7 +8,8 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:SponsorContent')
 
-export const someMethod = () => {}
+export const toggleBannerVisiable = (bannerVisiable) =>
+  store.mark({ bannerVisiable })
 
 // ###############################
 // init & uninit handlers

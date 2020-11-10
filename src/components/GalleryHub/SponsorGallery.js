@@ -31,7 +31,7 @@ const tmpItems = [
   {
     id: '0',
     addr: 'xxx.com',
-    title: '坚果云',
+    title: 'javascript',
     desc: '最性感的开发者社区',
     level: 'gold',
     icon:
