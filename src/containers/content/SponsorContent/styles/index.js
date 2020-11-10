@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, theme, WIDTH } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -21,7 +21,7 @@ export const InnerWrapper = styled.div`
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumn('align-center')};
-  max-width: ${WIDTH.SPONSOR.CONTENT};
+  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 `
 export const Footer = styled.div`
   font-size: 13px;

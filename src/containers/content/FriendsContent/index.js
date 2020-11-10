@@ -90,7 +90,7 @@ const items = [
   },
 ]
 
-const FriendsContentContainer = ({ friendsContent: store }) => {
+const FriendsContentContainer = ({ friendsContent: store, metric }) => {
   useInit(store)
 
   const linkColors = {
@@ -100,7 +100,7 @@ const FriendsContentContainer = ({ friendsContent: store }) => {
 
   return (
     <Wrapper testId="friends-content">
-      <InnerWrapper>
+      <InnerWrapper metric={metric}>
         <Br top="40px" />
         <Title>友情链接</Title>
         <Divider />

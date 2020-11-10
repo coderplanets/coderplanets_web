@@ -114,7 +114,7 @@ const items = [
   },
 ]
 
-const SponsorContentContainer = ({ sponsorContent: store }) => {
+const SponsorContentContainer = ({ sponsorContent: store, metric }) => {
   useInit(store)
 
   const { bannerVisiable } = store
@@ -127,7 +127,7 @@ const SponsorContentContainer = ({ sponsorContent: store }) => {
         <SponsorTypeTitle title="金牌赞助" />
         <Br top="20px" />
         <SponsorGallery items={goldItems} column={4} />
-        <ContentWrapper>
+        <ContentWrapper metric={metric}>
           <SponsorTypeTitle title="温情赞助" type="heart" />
           <Br top="50px" />
           <SponsorGallery items={items} column={4} />

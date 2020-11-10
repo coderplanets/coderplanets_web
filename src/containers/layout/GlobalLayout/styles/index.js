@@ -41,11 +41,6 @@ export const BodyWrapper = styled.div`
   align-items: center;
   width: 100%;
 `
-export const BodyInnerWrapper = styled.div`
-  width: 100%;
-  max-width: ${({ metric, ignore }) =>
-    css.getContentMaxWidth(metric, { ignore })};
-`
 // 180 is the sidebar full width
 export const ContentWrapper = styled.div`
   margin-left: ${({ offsetLeft }) => (offsetLeft ? '180px' : '0')};

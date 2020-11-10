@@ -73,7 +73,13 @@ const CommunityBrief = ({ content, descExpand }) => {
   )
 }
 
-const ColumnView = ({ community, descExpand, activeThread, layout }) => {
+const ColumnView = ({
+  community,
+  descExpand,
+  activeThread,
+  layout,
+  metric,
+}) => {
   const { isMobile } = useDevice()
 
   return (
@@ -83,6 +89,7 @@ const ColumnView = ({ community, descExpand, activeThread, layout }) => {
       isMobile={isMobile}
     >
       <InnerWrapper
+        metric={metric}
         descExpand={descExpand}
         noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
         isMobile={isMobile}

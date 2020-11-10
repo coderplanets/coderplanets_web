@@ -27,7 +27,7 @@ import { useInit, pageOnChange, menuOnChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:DiscoveryContent')
 
-const DiscoveryContentContainer = ({ discoveryContent: store }) => {
+const DiscoveryContentContainer = ({ discoveryContent: store, metric }) => {
   useInit(store)
 
   const {
@@ -45,7 +45,7 @@ const DiscoveryContentContainer = ({ discoveryContent: store }) => {
     <Wrapper>
       <Banner searchStatus={searchStatus} />
       <ContentWrapper center={isSearchMode}>
-        <InnerWrapper>
+        <InnerWrapper metric={metric}>
           <Sidebar
             show={showFilterSidebar}
             items={pagedCategoriesData}

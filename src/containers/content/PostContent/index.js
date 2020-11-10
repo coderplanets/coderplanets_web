@@ -11,12 +11,12 @@ import { useDevice } from '@/hooks'
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 
-const PostContentContainer = () => {
+const PostContentContainer = (props) => {
   const { isMobile } = useDevice()
 
   return (
     <React.Fragment>
-      {!isMobile ? <DesktopView /> : <MobileView />}
+      {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
     </React.Fragment>
   )
 }

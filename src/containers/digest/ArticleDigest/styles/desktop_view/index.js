@@ -9,6 +9,7 @@ export const Wrapper = styled.nav`
   border-bottom: ${theme('banner.spliter')};
   min-height: 251px;
   margin-bottom: 15px;
+  width: 100%;
 
   ${css.media.laptopL`
     min-height: 230px;

@@ -17,7 +17,7 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityDigest')
 
-const CommunityDigestContainer = ({ communityDigest: store }) => {
+const CommunityDigestContainer = ({ communityDigest: store, metric }) => {
   useInit(store)
 
   const {
@@ -33,12 +33,14 @@ const CommunityDigestContainer = ({ communityDigest: store }) => {
     <Wrapper testId="community-digest">
       {bannerLayout === C11N.BRIEF ? (
         <BriefView
+          metric={metric}
           community={community}
           activeThread={activeThread}
           layout={bannerLayout}
         />
       ) : (
         <DigestView
+          metric={metric}
           community={community}
           activeThread={activeThread}
           layout={bannerLayout}

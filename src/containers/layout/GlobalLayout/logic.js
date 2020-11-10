@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -46,6 +46,18 @@ export const logBuddha = () => {
     )
     /* eslint-enable */
   }
+}
+
+// cloning children with new props
+// see detail: https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
+export const childrenWithProps = (children, props) => {
+  return React.Children.map(children, (child) => {
+    // checking isValidElement is the safe way and avoids a typescript error too
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, { ...props })
+    }
+    return child
+  })
 }
 
 // ###############################

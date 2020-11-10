@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-import { css, theme, WIDTH } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
+  width: 100%;
 `
 export const ContentWrapper = styled.div`
   ${css.flex('align-both')};
@@ -16,7 +17,7 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
   height: 100%;
-  max-width: ${WIDTH.DISCOVERY.CONTENT};
+  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 `
 export const ContentsWrapper = styled.div`
   ${css.flexColumn('justify-center')};
