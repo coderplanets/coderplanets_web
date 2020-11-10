@@ -70,6 +70,7 @@ const GlobalLayoutContainer = ({
     METRIC.DISCOVERY,
     METRIC.ARTICLE,
     METRIC.SPONSOR,
+    METRIC.FRIENDS,
   ])
 
   return (

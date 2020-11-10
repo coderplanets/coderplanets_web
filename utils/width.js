@@ -39,6 +39,11 @@ const WIDTH = {
     PAGE: '1460px',
     CONTENT: '1080px',
   },
+
+  FRIENDS: {
+    PAGE: '1460px',
+    CONTENT: '1080px',
+  },
 }
 
 export default WIDTH

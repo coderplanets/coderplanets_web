@@ -8,20 +8,19 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
 import { connectStore, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
 import { FriendsGallery } from '@/components/GalleryHub'
-import { Button } from '@/components/Buttons'
+import { ArrowLink } from '@/components/Buttons'
 
 import {
   Wrapper,
   InnerWrapper,
   FriendsWrapper,
   Title,
-  Desc,
-  HeartIcon,
+  Divider,
+  Footer,
 } from './styles'
 import { useInit } from './logic'
 
@@ -94,22 +93,25 @@ const items = [
 const FriendsContentContainer = ({ friendsContent: store }) => {
   useInit(store)
 
+  const linkColors = {
+    color: '#0D729D',
+    hoverColor: '#0D729D',
+  }
+
   return (
     <Wrapper testId="friends-content">
       <InnerWrapper>
-        <Br top="50px" />
+        <Br top="40px" />
         <Title>友情链接</Title>
-        <Desc>感谢以下公司（团队）对本站的信任</Desc>
+        <Divider />
+        {/* <Desc>感谢以下公司（团队）对本站的信任</Desc> */}
         <Br top="50px" />
         <FriendsWrapper>
-          <FriendsGallery items={items} column={4} />
+          <FriendsGallery items={items} column={5} />
         </FriendsWrapper>
-        <Br top="80px" />
-        <Button type="primary" ghost>
-          <HeartIcon src={`${ICON_CMD}/navi/heart.svg`} />
-          交换友情链接
-        </Button>
-        <Br top="120px" />
+        <Footer>
+          <ArrowLink {...linkColors}>交换链接</ArrowLink>
+        </Footer>
       </InnerWrapper>
     </Wrapper>
   )

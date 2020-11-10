@@ -26,14 +26,8 @@ const log = buildLog('c:FriendsGallery:index')
 const FriendsGallery = ({ items, column }) => {
   return (
     <Wrapper center={items.length < column}>
-      {items.map((item, index) => (
-        <Block
-          key={item.id}
-          borderTop={index <= 2}
-          borderRight={(index + 1) % 3 !== 0}
-          level={item.level}
-          column={column}
-        >
+      {items.map((item) => (
+        <Block key={item.id} level={item.level} column={column}>
           <Header>
             <IntroHead>
               <Icon src={item.icon} />
@@ -51,12 +45,12 @@ const FriendsGallery = ({ items, column }) => {
 
 FriendsGallery.propTypes = {
   items: T.arrayOf(T.object),
-  column: T.oneOf([3, 4]),
+  column: T.oneOf([4, 5]),
 }
 
 FriendsGallery.defaultProps = {
   items: [],
-  column: 3,
+  column: 4,
 }
 
 export default React.memo(FriendsGallery)
