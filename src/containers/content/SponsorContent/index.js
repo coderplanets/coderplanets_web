@@ -8,23 +8,15 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
 import { connectStore, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
-import { Tabs } from '@/components/Switcher'
 import { SponsorGallery } from '@/components/GalleryHub'
-import { Button } from '@/components/Buttons'
 
-import {
-  Wrapper,
-  InnerWrapper,
-  ContentWrapper,
-  TabsWrapper,
-  Title,
-  Desc,
-  HeartIcon,
-} from './styles'
+import Banner from './Banner'
+import SponsorTypeTitle from './SponsorTypeTitle'
+
+import { Wrapper, InnerWrapper, ContentWrapper, Footer } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -34,7 +26,7 @@ const goldItems = [
   {
     id: '0',
     addr: 'xxx.com',
-    title: '坚果云',
+    title: 'javascript',
     desc: '最性感的开发者社区',
     level: 'gold',
     icon:
@@ -125,45 +117,22 @@ const items = [
 const SponsorContentContainer = ({ sponsorContent: store }) => {
   useInit(store)
 
+  const { bannerVisiable } = store
+
   return (
     <Wrapper testId="sponsor-content">
-      <InnerWrapper>
-        <TabsWrapper>
-          <Tabs
-            items={[
-              {
-                title: '赞助鸣谢',
-                icon: `${ICON_CMD}/header/more_sponsor.svg`,
-                raw: 'sponsor',
-              },
-              {
-                title: '广告投放',
-                icon: `${ICON_CMD}/header/more_invest.svg`,
-                raw: 'ad',
-              },
-            ]}
-            activeKey="sponsor"
-            // onChange={onChange}
-            slipHeight="1px"
-          />
-        </TabsWrapper>
+      <Banner />
+      <InnerWrapper bannerVisiable={bannerVisiable}>
         <Br top="50px" />
-        <Title>特别赞助</Title>
-        <Desc>感谢以下公司（团队）对本站的特别支持</Desc>
+        <SponsorTypeTitle title="金牌赞助" />
         <Br top="20px" />
         <SponsorGallery items={goldItems} column={4} />
         <ContentWrapper>
-          <Title>赞助商</Title>
-          <Desc>感谢以下公司（团队）对本站的倾情支持</Desc>
+          <SponsorTypeTitle title="温情赞助" type="heart" />
           <Br top="50px" />
           <SponsorGallery items={items} column={4} />
-          <Br top="80px" />
-          <Button type="primary" ghost>
-            <HeartIcon src={`${ICON_CMD}/navi/heart.svg`} />
-            成为本站赞助商
-          </Button>
         </ContentWrapper>
-        <Br top="120px" />
+        <Footer>以上名单按投放时间排序</Footer>
       </InnerWrapper>
     </Wrapper>
   )
