@@ -6,7 +6,7 @@ import { asyncSuit, buildLog } from '@/utils'
 /* import S from './schema' */
 
 /* eslint-disable-next-line */
-const log = buildLog('L:UpgradePackages')
+const log = buildLog('L:UpgradeContent')
 
 const { SR71, $solver } = asyncSuit
 const sr71$ = new SR71()
@@ -22,8 +22,6 @@ export const onUpgrade = () => {
     amount: SENIOR_AMOUNT_THRESHOLD,
   })
 }
-
-export const onClose = () => store.mark({ show: !store.show })
 
 // ###############################
 // Data & Error handlers

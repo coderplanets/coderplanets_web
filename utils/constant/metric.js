@@ -16,6 +16,8 @@ const METRIC = {
   COOL_GUIDE: 'COOL_GUIDE',
   HAVE_A_DRINK: 'HAVE_A_DRINK',
   RECIPES: 'RECIPES',
+
+  UPGRADE: 'UPGRADE',
 }
 
 export default METRIC

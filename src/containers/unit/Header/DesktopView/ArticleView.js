@@ -72,7 +72,6 @@ const HeaderContainer = ({ header: store }) => {
         </RouterWrapper>
         <Operations>
           {MailBox && <MailBox />}
-          {/* <UpgradePackages /> */}
           <UserLister />
           {/* <Cashier /> */}
           <UserInfoWrapper>

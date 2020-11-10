@@ -1,24 +1,22 @@
 /*
- * UpgradePackages store
+ * UpgradeContent store
  *
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
+// import {} from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
-
 /* eslint-disable-next-line */
-const log = buildLog('S:UpgradePackages')
+const log = buildLog('S:UpgradeContent')
 
-const UpgradePackages = T.model('UpgradePackages', {
-  show: T.optional(T.boolean, false),
-})
+const UpgradeContent = T.model('UpgradeContent', {})
   .views((self) => ({
-    get isLogin() {
-      return self.root.account.isLogin
-    },
     get root() {
       return getParent(self)
+    },
+    get isLogin() {
+      return self.root.account.isLogin
     },
   }))
   .actions((self) => ({
@@ -34,9 +32,6 @@ const UpgradePackages = T.model('UpgradePackages', {
     mark(sobj) {
       markStates(sobj, self)
     },
-    close() {
-      self.show = false
-    },
   }))
 
-export default UpgradePackages
+export default UpgradeContent

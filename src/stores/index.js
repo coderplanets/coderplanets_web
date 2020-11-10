@@ -13,7 +13,6 @@ export { default as SidebarStore } from '@/containers/unit/Sidebar/store'
 export { default as DrawerStore } from '@/containers/tool/Drawer/store'
 export { default as DoraemonStore } from '@/containers/tool/Doraemon/store'
 export { default as HeaderStore } from '@/containers/unit/Header/store'
-export { default as UpgradePackagesStore } from '@/containers/tool/UpgradePackages/store'
 export { default as MailBoxStore } from '@/containers/tool/MailBox/store'
 export { default as AvatarAdderStore } from '@/containers/tool/AvatarAdder/store'
 
@@ -97,6 +96,7 @@ export { default as UserSettingsStore } from '@/containers/user/UserSettings/sto
 export { default as UserFavoritedStore } from '@/containers/user/UserFavorited/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as UpgradeContentStore } from '@/containers/content/UpgradeContent/store'
 export { default as ArticleFooterStore } from '@/containers/unit/ArticleFooter/store'
 export { default as ArticleStickerStore } from '@/containers/tool/ArticleSticker/store'
 export { default as ModeLineMenuStore } from '@/containers/unit/ModeLineMenu/store'

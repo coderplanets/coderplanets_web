@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-test-id': props.testId,
+}))`
   ${css.flexColumn()};
   padding: 20px 20px;
   padding-bottom: 40px;
