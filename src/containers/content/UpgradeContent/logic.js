@@ -14,6 +14,14 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
+export const payTypeOnChange = (payType) => {
+  store.mark({ payType })
+}
+
+export const pkgTypeOnChange = (pkgType) => {
+  store.mark({ pkgType })
+}
+
 export const onUpgrade = () => {
   if (!store.isLogin) return store.authWarning()
 

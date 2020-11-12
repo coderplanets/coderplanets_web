@@ -7,111 +7,113 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@/config'
+// import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@/config'
 import { connectStore, buildLog } from '@/utils'
 
-import { Button } from '@/components/Buttons'
-import SectionLabel from '@/components/SectionLabel'
+import { OrButton, Button } from '@/components/Buttons'
+
+import Illustrations from './Illustrations'
+
 import Support from './Support'
+import PriceTag from './PriceTag'
 
 import {
   Wrapper,
-  LabelWrapper,
+  InnerWrapper,
+  BannerWrapper,
+  Title,
+  Desc,
+  // LabelWrapper,
   ContentWrapper,
   Dashboard,
-  PkgTitle,
+  TypeDesc,
   TitleDivider,
   ItemsWrapper,
+  PayBtnWrapper,
+  FreeNote,
+  //
+  Footer,
 } from './styles'
 
-import { useInit, onUpgrade } from './logic'
+// import { useInit, onUpgrade } from './logic'
+import { useInit, pkgTypeOnChange, payTypeOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:UpgradeContent')
 
-const freeUserItems = [
-  { title: '发布各种内容' },
-  { title: '点赞,收藏,关注' },
-  { title: '主题设置' },
-  { title: '创建专栏(wip)' },
-]
-
-const seniorItems = [
-  /* { title: '关闭广告' }, */
-  // { title: '首页发帖' },
-  { title: '私有收藏夹' },
-  { title: '发起投票(wip)' },
-  { title: '匿名发布(wip)' },
-  { title: '创建组织(wip)' },
-  { title: '文章打赏(wip)' },
-  { title: '订阅栏分组(wip)' },
-  /* { title: '运维统计(wip)' }, */
-]
-
-const platinumUserItems = [
-  { title: '页脚/边栏 Logo 推广' },
-  { title: 'Github 特别鸣谢' },
-]
-
-const UpgradeContentContainer = ({ upgradeContent: store, testId }) => {
+const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
   useInit(store)
+
+  const { payType, pkgType, dashboardItems } = store
 
   return (
     <Wrapper testId={testId}>
-      <LabelWrapper>
-        <SectionLabel
-          title="升级助手"
-          iconSrc={`${ICON_CMD}/rocket.svg`}
-          desc="特别说明：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善并可能涨价, 届时已付费的会员无需再次付款。开源项目需要付出巨大的物质和时间成本, 谢谢理解。"
-        />
-      </LabelWrapper>
-      <ContentWrapper>
-        <Dashboard>
-          <PkgTitle>普通用户</PkgTitle>
-          <TitleDivider />
-          <ItemsWrapper>
-            <Support items={freeUserItems} />
-            <Support not items={seniorItems} />
-            <Support not items={platinumUserItems} />
-          </ItemsWrapper>
-          <TitleDivider />
-          <Button type="primary" ghost>
-            免费
-          </Button>
-        </Dashboard>
-        <Dashboard>
-          <PkgTitle>CPS会员</PkgTitle>
-          <TitleDivider />
-          <ItemsWrapper>
-            <Support items={freeUserItems} />
-            <Support items={seniorItems} />
-            <Support not items={platinumUserItems} />
-          </ItemsWrapper>
-          <TitleDivider />
-          <Button type="red" onClick={onUpgrade}>
-            ￥{SENIOR_AMOUNT_THRESHOLD} 元
-          </Button>
-        </Dashboard>
-        <Dashboard>
-          <PkgTitle>赞助商</PkgTitle>
-          <TitleDivider />
-          <ItemsWrapper>
-            <Support items={freeUserItems} />
-            <Support items={seniorItems} />
-            <Support items={platinumUserItems} />
-          </ItemsWrapper>
-          <TitleDivider />
-          <a href={`mailto:${EMAIL_BUSINESS}`}>
-            <Button type="red">邮件咨询</Button>
-          </a>
-        </Dashboard>
-      </ContentWrapper>
+      <InnerWrapper metric={metric}>
+        <BannerWrapper>
+          <Title>Hi, mydearxym</Title>
+          <Desc>欢迎来到 CoderPlanets，选择一个适合你的会员类型吧</Desc>
+          <OrButton
+            size="small"
+            type="primary"
+            activeKey={payType}
+            group={[
+              {
+                key: 'yearly',
+                title: '年付费',
+              },
+              {
+                key: 'monthly',
+                title: '月付费',
+              },
+            ]}
+            onClick={payTypeOnChange}
+          />
+        </BannerWrapper>
+        <ContentWrapper metric={metric}>
+          {dashboardItems.map((item) => (
+            <Dashboard
+              key={item.pkgType}
+              onClick={() => pkgTypeOnChange(item.pkgType)}
+              active={pkgType === item.pkgType}
+            >
+              <Illustrations
+                type={item.illustration}
+                active={pkgType === item.pkgType}
+              />
+              <PriceTag
+                active={pkgType === item.pkgType}
+                price={
+                  payType === 'yearly' ? item.yearlyPrice : item.monthlyPrice
+                }
+                unit={payType}
+              />
+              <TypeDesc>{item.desc}</TypeDesc>
+              <TitleDivider />
+              <ItemsWrapper>
+                <Support items={item.serviceItems} pkgType={item.pkgType} />
+              </ItemsWrapper>
+              <TitleDivider />
+              <PayBtnWrapper active={pkgType === item.pkgType}>
+                {item.pkgType === 'free' ? (
+                  <FreeNote>当前为免费账户无需支付</FreeNote>
+                ) : (
+                  <Button type="primary" ghost>
+                    支付
+                  </Button>
+                )}
+              </PayBtnWrapper>
+            </Dashboard>
+          ))}
+        </ContentWrapper>
+        <Footer>wip 标签表示正在开发中的功能，不会重复收费</Footer>
+      </InnerWrapper>
     </Wrapper>
   )
 }
 
 UpgradeContentContainer.propTypes = {
   upgradeContent: T.any.isRequired,
+  metric: T.string.isRequired,
   testId: T.string,
 }
 

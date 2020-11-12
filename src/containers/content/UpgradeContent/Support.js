@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { ICON_CMD } from '@/config'
+import { ICON, ICON_CMD } from '@/config'
 
 import {
   PkgItem,
   PkgItemTitle,
   PkgItemYesIcon,
   PkgItemNoIcon,
+  ArrowIcon,
 } from './styles/support'
 
 const MarkIcon = ({ not }) => {
@@ -17,15 +18,21 @@ const MarkIcon = ({ not }) => {
   )
 }
 
-const Support = ({ items, not }) => (
-  <>
+const Support = ({ items, not, pkgType }) => (
+  <React.Fragment>
+    {pkgType !== 'free' && (
+      <PkgItem>
+        <ArrowIcon src={`${ICON}/shape/double-arrow.svg`} />
+        <PkgItemTitle not={not}>左侧所有功能</PkgItemTitle>
+      </PkgItem>
+    )}
     {items.map((item) => (
       <PkgItem key={item.title}>
         <MarkIcon not={not} />
         <PkgItemTitle not={not}>{item.title}</PkgItemTitle>
       </PkgItem>
     ))}
-  </>
+  </React.Fragment>
 )
 
 export default React.memo(Support)
