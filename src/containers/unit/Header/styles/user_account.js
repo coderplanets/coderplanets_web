@@ -78,3 +78,6 @@ export const DefaultUserIcon = styled(Img)`
   margin-right: 2px;
   opacity: 0.5;
 `
+export const UpgradeHint = styled.div`
+  margin-left: 12px;
+`

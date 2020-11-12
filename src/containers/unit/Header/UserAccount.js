@@ -1,7 +1,9 @@
 import React from 'react'
 
 import { ICON } from '@/config'
+
 import Tooltip from '@/components/Tooltip'
+import { Button } from '@/components/Buttons'
 
 import { onLogin, onLogout, previewAccount } from './logic'
 
@@ -17,6 +19,7 @@ import {
   LogoutItem,
   AvatarIcon,
   MenuDivider,
+  UpgradeHint,
 } from './styles/user_account'
 
 const UserAccount = ({ isLogin, accountInfo }) => (
@@ -79,6 +82,12 @@ const UserAccount = ({ isLogin, accountInfo }) => (
         <DefaultUserIcon src={`${ICON}/user/account-solid.svg`} />
       </Wrapper>
     )}
+
+    <UpgradeHint>
+      <Button size="tiny" type="primary" ghost>
+        升&nbsp;级
+      </Button>
+    </UpgradeHint>
   </React.Fragment>
 )
 
