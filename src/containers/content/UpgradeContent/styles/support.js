@@ -2,9 +2,19 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
+import { Dashboard } from './index'
+
 export const PkgItem = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 7px;
+
+  opacity: ${({ active }) => (active ? 1 : 0.8)};
+
+  ${Dashboard}:hover & {
+    opacity: 1;
+  }
+
+  transition: opacity 0.2s;
 `
 export const PkgItemTitle = styled.div`
   color: ${({ not }) =>

@@ -90,7 +90,11 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
               <TypeDesc>{item.desc}</TypeDesc>
               <TitleDivider />
               <ItemsWrapper>
-                <Support items={item.serviceItems} pkgType={item.pkgType} />
+                <Support
+                  active={pkgType === item.pkgType}
+                  items={item.serviceItems}
+                  pkgType={item.pkgType}
+                />
               </ItemsWrapper>
               <TitleDivider />
               <PayBtnWrapper active={pkgType === item.pkgType}>
