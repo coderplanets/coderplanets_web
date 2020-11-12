@@ -82,7 +82,6 @@ const HeaderContainer = ({ header: store, metric }) => {
           </Search>
 
           {MailBox && <MailBox />}
-          {/* <UpgradePackages /> */}
           <UserLister />
           {/* <Cashier /> */}
           <UserAccount isLogin={isLogin} accountInfo={accountInfo} />

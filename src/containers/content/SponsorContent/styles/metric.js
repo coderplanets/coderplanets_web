@@ -1,5 +1,6 @@
 import { theme } from '@/utils'
 
+// see details in https://9elements.github.io/fancy-border-radius/
 export const getBorderRadius = (anchors) => {
   const { anchorHEnter, anchorMEnter } = anchors
 

@@ -87,6 +87,19 @@ const blink = keyframes`
   50%    {opacity: 0}
   100%  {opacity: 1;}
 `
+
+const jump = keyframes`
+  0% {
+    transform: translate3d(0px, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0px, -10px, 0);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0);
+  }
+`
+
 const animate = {
   fadeInRight,
   pulse,
@@ -96,6 +109,7 @@ const animate = {
   rotate360,
   breath,
   blink,
+  jump,
 }
 
 export default animate

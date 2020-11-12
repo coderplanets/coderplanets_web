@@ -2,13 +2,24 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
+import { Dashboard } from './index'
+
 export const PkgItem = styled.div`
-  ${css.flex()};
-  margin-bottom: 5px;
+  ${css.flex('align-center')};
+  margin-bottom: 7px;
+
+  opacity: ${({ active }) => (active ? 1 : 0.8)};
+
+  ${Dashboard}:hover & {
+    opacity: 1;
+  }
+
+  transition: opacity 0.2s;
 `
 export const PkgItemTitle = styled.div`
-  color: ${({ not }) => (!not ? theme('banner.title') : theme('banner.desc'))};
-  font-size: 0.9rem;
+  color: ${({ not }) =>
+    !not ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  font-size: 14px;
 `
 const PkgItemIcon = styled(Img)`
   margin-right: 6px;
@@ -18,6 +29,12 @@ export const PkgItemYesIcon = styled(PkgItemIcon)`
   width: 14px;
   height: 12px;
   margin-right: 6px;
+`
+export const ArrowIcon = styled(PkgItemIcon)`
+  width: 16px;
+  height: 16px;
+  display: block;
+  fill: ${theme('baseColor.green')};
 `
 export const PkgItemNoIcon = styled(PkgItemIcon)`
   fill: ${theme('baseColor.red')};

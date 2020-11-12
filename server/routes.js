@@ -42,6 +42,11 @@ router.route('/friends/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/friends' })
 })
 
+// 升级账户
+router.route('/upgrade/:slug?').get((req, res) => {
+  return renderAndCache({ req, res, path: '/upgrade' })
+})
+
 // 社区订阅
 router.route('/subscribe/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/subscribe' })

@@ -71,7 +71,6 @@ import {
   VideoEditorStore,
   RepoEditorStore,
   AccountEditorStore,
-  UpgradePackagesStore,
   MailBoxStore,
   LabelerStore,
   DocUploaderStore,
@@ -97,6 +96,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  UpgradeContentStore,
   ArticleFooterStore,
   ArticleStickerStore,
   ModeLineMenuStore,
@@ -135,7 +135,6 @@ const rootStore = T.model({
   videoEditor: T.optional(VideoEditorStore, {}),
   repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
-  upgradePackages: T.optional(UpgradePackagesStore, {}),
   mailBox: T.optional(MailBoxStore, {}),
   labeler: T.optional(LabelerStore, {}),
   docUploader: T.optional(DocUploaderStore, {}),
@@ -212,6 +211,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  upgradeContent: T.optional(UpgradeContentStore, {}),
   articleFooter: T.optional(ArticleFooterStore, {}),
   articleSticker: T.optional(ArticleStickerStore, {}),
   modeLineMenu: T.optional(ModeLineMenuStore, {}),

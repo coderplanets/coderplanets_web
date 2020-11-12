@@ -40,6 +40,10 @@ const WIDTH = {
     CONTENT: '1080px',
   },
 
+  UPGRADE: {
+    CONTENT: '1080px',
+  },
+
   FRIENDS: {
     PAGE: '1460px',
     CONTENT: '1080px',

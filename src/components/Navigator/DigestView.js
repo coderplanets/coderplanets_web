@@ -17,7 +17,7 @@ const DigestView = ({ showLogoText, isOnline }) => {
     <Breadcrumbs>
       <LogoLink href="/home/posts">
         <Logo />
-        {showLogoText && <LogoText>coderplanes</LogoText>}
+        {showLogoText && <LogoText>coderplanets</LogoText>}
       </LogoLink>
 
       {showLogoText ? <LogoMargin /> : <LineDivider />}

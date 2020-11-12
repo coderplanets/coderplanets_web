@@ -38,6 +38,7 @@ const HeaderStore = T.model('HeaderStore', {
         METRIC.FRIENDS,
         METRIC.SUBSCRIBE,
         METRIC.ARTICLE,
+        METRIC.UPGRADE,
       ])
     },
     get leftOffset() {
