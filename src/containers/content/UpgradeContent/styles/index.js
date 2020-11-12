@@ -32,6 +32,9 @@ export const Desc = styled.div`
   font-size: 15px;
   margin-bottom: 15px;
 `
+export const PayButtonWrapper = styled.div`
+  position: relative;
+`
 export const ContentWrapper = styled.div`
   ${css.flex('justify-between')};
   width: 100%;

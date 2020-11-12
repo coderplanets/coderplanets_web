@@ -16,11 +16,13 @@ import Illustrations from './Illustrations'
 
 import Support from './Support'
 import PriceTag from './PriceTag'
+import MonthlyWarning from './MonthlyWarning'
 
 import {
   Wrapper,
   InnerWrapper,
   BannerWrapper,
+  PayButtonWrapper,
   Title,
   Desc,
   // LabelWrapper,
@@ -52,7 +54,7 @@ const PayButton = ({ pkgType, payType }) => {
 
   return (
     <Button type="primary" ghost>
-      {payType === 'yearly' ? '购买' : '试试看'}
+      {payType === 'yearly' ? '扫码' : '试试看'}
     </Button>
   )
 }
@@ -68,22 +70,27 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
         <BannerWrapper>
           <Title>Hi, mydearxym</Title>
           <Desc>欢迎来到 CoderPlanets，选择一个适合你的会员类型吧</Desc>
-          <OrButton
-            size="small"
-            type="primary"
-            activeKey={payType}
-            group={[
-              {
-                key: 'yearly',
-                title: '年付费',
-              },
-              {
-                key: 'monthly',
-                title: '月付费',
-              },
-            ]}
-            onClick={payTypeOnChange}
-          />
+          <PayButtonWrapper>
+            <OrButton
+              size="small"
+              type="primary"
+              activeKey={payType}
+              group={[
+                {
+                  key: 'yearly',
+                  title: '年付费',
+                },
+                {
+                  key: 'monthly',
+                  title: '月付费',
+                },
+              ]}
+              onClick={payTypeOnChange}
+            />
+            {payType === 'monthly' &&
+              pkgType !== 'girl' &&
+              pkgType !== 'free' && <MonthlyWarning />}
+          </PayButtonWrapper>
         </BannerWrapper>
         <ContentWrapper metric={metric}>
           {dashboardItems.map((item) => (
