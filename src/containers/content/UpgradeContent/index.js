@@ -41,6 +41,22 @@ import { useInit, pkgTypeOnChange, payTypeOnChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:UpgradeContent')
 
+const PayButton = ({ pkgType, payType }) => {
+  if (pkgType === 'girl') {
+    return (
+      <Button type="primary" ghost>
+        验证
+      </Button>
+    )
+  }
+
+  return (
+    <Button type="primary" ghost>
+      {payType === 'yearly' ? '购买' : '试试看'}
+    </Button>
+  )
+}
+
 const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
   useInit(store)
 
@@ -101,9 +117,7 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
                 {item.pkgType === 'free' ? (
                   <FreeNote>当前为免费账户无需支付</FreeNote>
                 ) : (
-                  <Button type="primary" ghost>
-                    支付
-                  </Button>
+                  <PayButton pkgType={item.pkgType} payType={payType} />
                 )}
               </PayBtnWrapper>
             </Dashboard>
