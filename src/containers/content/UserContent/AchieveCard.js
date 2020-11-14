@@ -3,7 +3,7 @@ import React from 'react'
 import FocusLine from '@/components/FocusLine'
 import { ICON_CMD } from '@/config'
 
-import CommunityEditorInfo from './CommunityEditorInfo'
+// import CommunityEditorInfo from './CommunityEditorInfo'
 
 import { Wrapper, Title } from './styles/achieve_card'
 
@@ -23,7 +23,7 @@ const AchieveCard = ({ user }) => (
       after="次"
     />
 
-    <CommunityEditorInfo user={user} />
+    {/* <CommunityEditorInfo user={user} /> */}
   </Wrapper>
 )
 

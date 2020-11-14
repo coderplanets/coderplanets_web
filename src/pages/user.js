@@ -21,7 +21,6 @@ import {
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import UserDigest from '@/containers/digest/UserDigest'
 import UserContent from '@/containers/content/UserContent'
 
 import { P } from '@/schemas'
@@ -76,7 +75,7 @@ export const getServerSideProps = async (props) => {
       userSubscribedCommunities: subscribedCommunities,
     },
     route: { mainPath: ROUTE.USER, subPath: user.id, query },
-    userContent: { activeThread: query.tab || USER_THREAD.PUBLISH },
+    userContent: { activeThread: query.tab || USER_THREAD.PROFILE },
     viewing: { user },
   }
 
@@ -105,7 +104,7 @@ const UserPage = (props) => {
         errorCode={errorCode}
         noSidebar={`/user/${user.login}`}
       >
-        <UserDigest />
+        {/* <UserDigest /> */}
         <UserContent />
       </GlobalLayout>
     </Provider>

@@ -9,6 +9,7 @@ import React from 'react'
 import { USER_THREAD } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
+import UserProfile from '@/containers/user/UserProfile'
 import UserPublished from '@/containers/user/UserPublished'
 import UserPublishedComments from '@/containers/user/UserPublishedComments'
 import UserBilling from '@/containers/user/UserBilling'
@@ -16,17 +17,19 @@ import UserSettings from '@/containers/user/UserSettings'
 import UserStared from '@/containers/user/UserStared'
 import UserFavorited from '@/containers/user/UserFavorited'
 
-import Sticky from '@/components/Sticky'
 import TabBar from '@/components/TabBar'
+
+import Sidebar from './Sidebar'
 
 import DigestBoard from './DigestBoard'
 
 import {
-  Container,
-  MainWrapper,
+  Wrapper,
+  InnerWrapper,
+  BannerWrapper,
+  ContentWrapper,
   TabBarWrapper,
-  SidebarWrapper,
-  MobileBottom,
+  // MobileBottom,
 } from './styles'
 
 import { useInit, tabOnChange } from './logic'
@@ -35,6 +38,10 @@ import { useInit, tabOnChange } from './logic'
 const log = buildLog('C:UserContent')
 
 const BaseTaberThreads = [
+  {
+    title: 'profile',
+    raw: 'profile',
+  },
   {
     title: '发布',
     raw: 'publish',
@@ -67,6 +74,9 @@ const FullTaberThreads = [
 
 const TabberContent = ({ active }) => {
   switch (active) {
+    case USER_THREAD.PROFILE:
+      return <UserProfile />
+
     case USER_THREAD.COMMENTS:
       return <UserPublishedComments />
 
@@ -87,7 +97,7 @@ const TabberContent = ({ active }) => {
   }
 }
 
-const UserContentContainer = ({ userContent: store }) => {
+const UserContentContainer = ({ userContent: store, metric }) => {
   useInit(store)
 
   const {
@@ -101,8 +111,8 @@ const UserContentContainer = ({ userContent: store }) => {
   const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
 
   return (
-    <Container>
-      <MainWrapper>
+    <Wrapper>
+      <BannerWrapper>
         <TabBarWrapper className="tabs-with-bottom">
           <TabBar
             source={taberSource}
@@ -110,16 +120,22 @@ const UserContentContainer = ({ userContent: store }) => {
             active={activeThread}
           />
         </TabBarWrapper>
-        <TabberContent active={activeThread} />
-        <MobileBottom>
+      </BannerWrapper>
+      <InnerWrapper metric={metric}>
+        <Sidebar viewingUser={viewingUser} isSelfViewing={isSelfViewing} />
+        <ContentWrapper>
+          <TabberContent active={activeThread} />
+          <br />
+          <br />
+          <br />
           <DigestBoard
             user={viewingUser}
             accountId={accountInfo.id}
             following={following}
           />
-        </MobileBottom>
-      </MainWrapper>
-      <SidebarWrapper>
+        </ContentWrapper>
+      </InnerWrapper>
+      {/* <SidebarWrapper>
         <Sticky offsetTop={30}>
           <DigestBoard
             user={viewingUser}
@@ -127,8 +143,8 @@ const UserContentContainer = ({ userContent: store }) => {
             following={following}
           />
         </Sticky>
-      </SidebarWrapper>
-    </Container>
+      </SidebarWrapper> */}
+    </Wrapper>
   )
 }
 

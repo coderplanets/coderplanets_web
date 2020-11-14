@@ -6,103 +6,78 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { DEFAULT_USER_AVATAR } from '@/config'
+import { VIEW } from '@/constant'
 
 import { buildLog } from '@/utils'
-import {
-  Wrapper,
-  AvatarWrapper,
-  Avatar,
-  BriefTextWrapper,
-  UserTitle,
-  UserDesc,
-  SocialSplit,
-} from './styles'
+import { Br } from '@/components/Common'
 
 import SocialIcons from './SocialIcons'
-import BadgeInfo from './BadgeInfo'
-import DetailView from './DetailView'
-import DigestView from './DigestView'
+import ExtraInfo from './ExtraInfo'
 import Operators from './Operators'
+import NumbersPad from './NumbersPad'
+import CommunityEditorInfo from './CommunityEditorInfo'
+
+import Avatar from './Avatar'
+
+import {
+  Wrapper,
+  BriefTextWrapper,
+  UserTitle,
+  Bio,
+  UserDesc,
+  Divider,
+} from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:UserBrief')
 
-class UserBrief extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = { showDetail: false }
-  }
-
-  toggleDetail() {
-    this.setState((prevState) => ({
-      showDetail: !prevState.showDetail,
-    }))
-  }
-
-  render() {
-    const { showDetail } = this.state
-    const { user, displayStyle, onEdit, onLogout, viewingType } = this.props
-
-    return (
-      <Wrapper>
-        <AvatarWrapper>
-          <a
-            href={`/user/${user.login}`}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <div>
-              <Avatar
-                src={user.avatar || DEFAULT_USER_AVATAR}
-                displayStyle={displayStyle}
-                hover={displayStyle === 'sidebar'}
-              />
-            </div>
-          </a>
-
-          {displayStyle === 'sidebar' && <BadgeInfo user={user} />}
-        </AvatarWrapper>
-
-        <BriefTextWrapper>
-          <UserTitle>
-            {user.nickname}
-            {viewingType === 'account' && (
-              <Operators
-                passport="owner"
-                ownerId={user.id}
-                onEdit={onEdit}
-                onLogout={onLogout}
-              />
-            )}
-          </UserTitle>
-
-          {showDetail ? (
-            <DetailView user={user} toggleDetail={() => this.toggleDetail()} />
-          ) : (
-            <DigestView user={user} toggleDetail={() => this.toggleDetail()} />
+const UserBrief = ({ user, view, onEdit, onLogout, viewingType }) => {
+  console.log('the fuck user: ', user)
+  return (
+    <Wrapper>
+      <Avatar user={user} view={view} />
+      <BriefTextWrapper view={view}>
+        <UserTitle>
+          {user.nickname}
+          {viewingType === 'account' && (
+            <Operators
+              passport="owner"
+              ownerId={user.id}
+              onEdit={onEdit}
+              onLogout={onLogout}
+            />
           )}
-          <SocialSplit />
-          <UserDesc>
-            <SocialIcons user={user} />
-          </UserDesc>
-        </BriefTextWrapper>
-      </Wrapper>
-    )
-  }
+        </UserTitle>
+        <Bio>{user.bio}</Bio>
+        <Br top="30px" />
+        <NumbersPad
+          user={user}
+          listFollowers={() => console.log('TODO: listFollowers')}
+          listFollowings={() => console.log('TODO: listFollowings')}
+        />
+        <Br top="30px" />
+        <ExtraInfo user={user} />
+        <Divider />
+        <CommunityEditorInfo user={user} />
+        <Divider />
+        <UserDesc>
+          <SocialIcons user={user} />
+        </UserDesc>
+      </BriefTextWrapper>
+    </Wrapper>
+  )
 }
 
 UserBrief.propTypes = {
   user: T.object.isRequired,
-  displayStyle: T.oneOf(['default', 'sidebar']),
+  view: T.oneOf([VIEW.DESKTOP, VIEW.DRAWER]),
   viewingType: T.oneOf(['account', 'user']),
   onEdit: T.func,
   onLogout: T.func,
 }
 
 UserBrief.defaultProps = {
-  displayStyle: 'default',
+  view: VIEW.DESKTOP,
   viewingType: 'user',
   onEdit: log,
   onLogout: log,

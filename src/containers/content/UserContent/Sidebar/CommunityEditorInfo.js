@@ -2,7 +2,11 @@ import React from 'react'
 
 import CommunityList from '@/components/CommunityList'
 
-import { Wrapper, MoreText, Text } from './styles/community_editor_info'
+import {
+  Wrapper,
+  MoreText,
+  Text,
+} from '../styles/sidebar/community_editor_info'
 
 const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
   if (!editableCommunities || editableCommunities.totalCount === 0) return null

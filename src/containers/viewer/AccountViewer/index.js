@@ -7,6 +7,7 @@
 import React from 'react'
 import { isEmpty } from 'ramda'
 
+import { VIEW } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
 import Maybe from '@/components/Maybe'
@@ -37,7 +38,7 @@ const AccountViewerContainer = ({ accountViewer: store, user }) => {
           <AccountContent>
             <UserBrief
               user={userInfoData}
-              displayStyle="sidebar"
+              view={VIEW.DRAWER}
               viewingType={viewingType}
               onEdit={editProfile}
               onLogout={onLogout}

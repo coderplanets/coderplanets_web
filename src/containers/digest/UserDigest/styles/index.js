@@ -11,17 +11,15 @@ export const BannerContainer = styled.nav`
   border-bottom: 1px solid;
   background: ${theme('banner.bg')};
   border-bottom-color: ${theme('banner.spliter')};
-  @media (max-height: 800px) {
-    min-height: 130px;
-  }
+  width: 100%;
 
   transition: max-height 0.2s;
 `
 
 export const BannerContentWrapper = styled.div`
   ${css.flex('justify-between')};
-  margin-left: 8%;
-  margin-right: 8%;
+  width: 100%;
+  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 `
 export const UserBriefWrapper = styled.div`
   width: 60%;

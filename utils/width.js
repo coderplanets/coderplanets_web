@@ -6,6 +6,9 @@ const WIDTH = {
     CONTENT: '1024px',
     CONTENT_OFFSET: '10px',
   },
+  USER: {
+    CONTENT: '1024px',
+  },
   DISCOVERY: {
     CONTENT: '1100px',
   },

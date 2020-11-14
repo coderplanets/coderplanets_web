@@ -19,6 +19,7 @@ const I18nDict = {
   group: '组织',
   company: '公司',
   user: '用户',
+  profile: '轮廓',
   // bill
   done: '完成',
   pending: '处理中',
@@ -74,6 +75,6 @@ const I18nDict = {
   remote: '远程',
 }
 
-export const Trans = key => I18nDict[key] || key
+export const Trans = (key) => I18nDict[key] || key
 
 export const holder = 1
