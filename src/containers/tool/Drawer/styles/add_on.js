@@ -22,11 +22,7 @@ export const CloseTab = styled.div`
   perspective: ${closeWith};
   cursor: pointer;
   display: ${({ type }) =>
-    type === TYPE.DRAWER.ACCOUNT_VIEW ||
-    type === TYPE.DRAWER.USER_VIEW ||
-    type === TYPE.DRAWER.ACCOUNT_EDIT
-      ? 'none'
-      : 'block'};
+    type === TYPE.DRAWER.ACCOUNT_EDIT ? 'none' : 'block'};
 
   &:hover:after {
     animation: ${animate.rotate360Close} 2s cubic-bezier(0, 0.56, 0.24, 0.72);

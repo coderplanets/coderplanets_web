@@ -1,9 +1,6 @@
 import React from 'react'
 
-import { METRIC } from '@/constant'
 import { ISSUE_ADDR, ICON_CMD, API_SERVER_ADDR } from '@/config'
-
-import BottomInfo from './BottomInfo'
 
 import {
   Wrapper,
@@ -74,7 +71,6 @@ const BriefView = ({ curView, metric }) => {
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
-      {metric !== METRIC.ARTICLE && <BottomInfo metric={metric} />}
     </Wrapper>
   )
 }

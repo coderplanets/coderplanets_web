@@ -5,8 +5,8 @@ import Img from '@/Img'
 
 export const Wrapper = styled.div`
   ${css.flex()};
+  padding: 0 2px;
 `
-
 export const Linker = styled.a`
   color: ${theme('thread.articleTitle')};
   &:hover {
@@ -14,17 +14,16 @@ export const Linker = styled.a`
     color: ${theme('thread.articleTitle')};
   }
 `
-
 export const SocialIcon = styled(Img)`
-  fill: ${theme('banner.desc')};
+  fill: ${theme('thread.articleDigest')};
   display: ${({ active }) => (active ? 'block' : 'none')};
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   margin-right: 8px;
   opacity: 1;
 
   &:hover {
-    fill: ${theme('banner.title')};
+    fill: ${theme('thread.articleTitle')};
     cursor: pointer;
   }
 

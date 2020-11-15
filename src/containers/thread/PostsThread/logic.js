@@ -95,11 +95,7 @@ export const onTagSelect = (tag) => {
   store.markRoute({ tag: tag.title })
 }
 
-export const onUserSelect = (user) =>
-  send(EVENT.DRAWER.OPEN, {
-    type: TYPE.DRAWER.USER_VIEW,
-    data: user,
-  })
+export const onUserSelect = () => {}
 
 /**
  * preview the current article

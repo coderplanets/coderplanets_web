@@ -39,7 +39,6 @@ import {
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
-  UserDigestStore,
   // content
   CommunityContentStore,
   PostContentStore,
@@ -56,7 +55,6 @@ import {
   JobViewerStore,
   ArticleViewerHeader,
   ArticleBodyHeaderStore,
-  AccountViewerStore,
   VideoViewerStore,
   RepoViewerStore,
   CommentsStore,
@@ -96,6 +94,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  UserProfileStore,
   UpgradeContentStore,
   ArticleFooterStore,
   ArticleStickerStore,
@@ -153,7 +152,6 @@ const rootStore = T.model({
   // banners
   articleDigest: T.optional(ArticleDigestStore, {}),
   communityDigest: T.optional(CommunityDigestStore, {}),
-  userDigest: T.optional(UserDigestStore, {}),
 
   // content
   communityContent: T.optional(CommunityContentStore, {}),
@@ -194,7 +192,6 @@ const rootStore = T.model({
   videoViewer: T.optional(VideoViewerStore, {}),
   repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),
-  accountViewer: T.optional(AccountViewerStore, {}),
 
   // user page
   userPublished: T.optional(UserPublishedStore, {}),
@@ -211,6 +208,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  userProfile: T.optional(UserProfileStore, {}),
   upgradeContent: T.optional(UpgradeContentStore, {}),
   articleFooter: T.optional(ArticleFooterStore, {}),
   articleSticker: T.optional(ArticleStickerStore, {}),

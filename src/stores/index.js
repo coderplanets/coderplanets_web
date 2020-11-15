@@ -27,7 +27,6 @@ export { default as FavoritesCatsStore } from '@/containers/tool/FavoritesCats/s
 
 // pages banners store
 export { default as CommunityDigestStore } from '@/containers/digest/CommunityDigest/store'
-export { default as UserDigestStore } from '@/containers/digest/UserDigest/store'
 
 export { default as ArticleDigestStore } from '@/containers/digest/ArticleDigest/store'
 
@@ -78,8 +77,6 @@ export { default as MailsViewerStore } from '@/containers/viewer/MailsViewer/sto
 export { default as ArticleViewerHeader } from '@/containers/unit/ArticleViewerHeader/store'
 export { default as ArticleBodyHeaderStore } from '@/containers/unit/ArticleBodyHeader/store'
 
-export { default as AccountViewerStore } from '@/containers/viewer/AccountViewer/store'
-
 // activities page
 export { default as MeetupsContentStore } from '@/containers/content/MeetupsContent/store'
 // have a drink page
@@ -96,6 +93,7 @@ export { default as UserSettingsStore } from '@/containers/user/UserSettings/sto
 export { default as UserFavoritedStore } from '@/containers/user/UserFavorited/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as UserProfileStore } from '@/containers/user/UserProfile/store'
 export { default as UpgradeContentStore } from '@/containers/content/UpgradeContent/store'
 export { default as ArticleFooterStore } from '@/containers/unit/ArticleFooter/store'
 export { default as ArticleStickerStore } from '@/containers/tool/ArticleSticker/store'

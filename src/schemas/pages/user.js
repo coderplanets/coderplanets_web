@@ -44,6 +44,20 @@ export const user = `
         totalCount
       }
 
+      subscribedCommunitiesCount
+      subscribedCommunities {
+        entries {
+          ${F.community}
+        }
+        ${F.pagedCounts}
+      }
+
+      editableCommunities {
+        entries {
+          ${F.community}
+        }
+      }
+
       editableCommunities {
         entries {
           ${F.community}

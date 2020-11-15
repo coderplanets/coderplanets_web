@@ -3,7 +3,7 @@ import Router from 'next/router'
 import { map, last, slice, isEmpty, startsWith } from 'ramda'
 
 import { ISSUE_ADDR } from '@/config'
-import { TYPE, EVENT, ERR, THREAD } from '@/constant'
+import { EVENT, ERR, THREAD } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -134,11 +134,12 @@ const doNavigate = () => {
   // jump to user
   if (startsWith('user-raw', store.activeSuggestion.raw)) {
     const { raw } = store.activeSuggestion
-    const login = raw.split('user-raw-')[1]
-    const data = { login }
-    const type = TYPE.DRAWER.USER_VIEW
+    // const login = raw.split('user-raw-')[1]
+    console.log('TODO: ', raw)
+    // const data = { login }
+    // const type = TYPE.DRAWER.USER_VIEW
 
-    send(EVENT.DRAWER.OPEN, { type, data })
+    // send(EVENT.DRAWER.OPEN, { type, data })
     return hidePanel()
   }
 

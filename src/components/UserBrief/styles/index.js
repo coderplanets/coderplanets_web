@@ -1,39 +1,32 @@
 import styled from 'styled-components'
 
+import { VIEW } from '@/constant'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${css.flex()};
-`
-export const AvatarWrapper = styled.div`
   ${css.flexColumn()};
-  margin-right: 12px;
-`
-export const Avatar = styled(Img)`
-  border-radius: 4px;
-  width: ${({ displayStyle }) =>
-    displayStyle === 'default' ? '120px' : '80px'};
-  height: ${({ displayStyle }) =>
-    displayStyle === 'default' ? '120px' : '80px'};
-  margin-top: 6px;
-  margin-bottom: 8px;
-  cursor: ${({ hover }) => (hover ? 'pointer' : 'default')};
 `
 export const BriefTextWrapper = styled.div`
-  ${css.flexColumn()};
-  margin-left: 10px;
+  /* align-items: ${({ view }) =>
+    view === VIEW.DESKTOP ? 'center' : 'flex-start'}; */
+  margin-top: 20px;
 `
 export const UserTitle = styled.div`
   ${css.flex()};
-  font-size: 1.2rem;
-  color: ${theme('banner.title')};
-  margin-bottom: 5px;
+  color: ${theme('thread.articleTitle')};
+  font-size: 22px;
+  margin-bottom: 12px;
 `
+export const Bio = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
+`
+
 export const UserDesc = styled.div`
   color: ${theme('banner.desc')};
   display: ${({ hide }) => (hide ? 'none' : 'flex')};
-  font-size: 0.9rem;
+  font-size: 15px;
   margin-bottom: 2px;
 
   &:hover {
@@ -78,10 +71,11 @@ export const DetailToggleLabel = styled(DescIconLabel)`
 export const ToggleText = styled.div`
   font-size: 0.9rem;
 `
-export const SocialSplit = styled.div`
+export const Divider = styled.div`
   border-top: 1px solid;
-  border-color: ${theme('banner.desc')};
-  margin-top: 4px;
-  padding-top: 8px;
-  opacity: 0.5;
+  border-color: ${theme('thread.articleDigest')};
+  opacity: 0.3;
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `

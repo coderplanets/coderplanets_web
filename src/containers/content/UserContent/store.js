@@ -15,7 +15,7 @@ const log = buildLog('S:UserContent')
 const UserContent = T.model('UserContent', {
   activeThread: T.optional(
     T.enumeration('activeThread', values(USER_THREAD)),
-    USER_THREAD.PUBLISH,
+    USER_THREAD.PROFILE,
   ),
   following: T.optional(T.boolean, false),
 })

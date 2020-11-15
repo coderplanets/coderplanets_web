@@ -17,7 +17,7 @@ import {
   css,
   toggleGlobalBlur,
 } from '@/utils'
-import { User, EmptyAchievement } from '@/model'
+import { User } from '@/model'
 
 import { SWIPE_THRESHOLD } from './styles/metrics'
 
@@ -93,8 +93,6 @@ const DrawerStore = T.model('DrawerStore', {
   type: T.maybeNull(
     T.enumeration('previewType', [
       // account
-      TYPE.DRAWER.ACCOUNT_VIEW,
-      TYPE.DRAWER.USER_VIEW,
       TYPE.DRAWER.ACCOUNT_EDIT,
       // article types
       ...THREAD_CONTENT_CURD_TYPES,
@@ -160,8 +158,6 @@ const DrawerStore = T.model('DrawerStore', {
     open({ type, data, thread, options = {} }) {
       if (type === TYPE.DRAWER.MODELINE_MENU) {
         self.mmType = data
-      } else if (type === TYPE.DRAWER.USER_VIEW) {
-        self.attUser = merge(data, EmptyAchievement)
       } else if (data) {
         self.attachment = merge(data, { type })
       }

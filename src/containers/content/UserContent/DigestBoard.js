@@ -9,7 +9,6 @@ import { FollowButton } from '@/components/Buttons'
 import { Space } from '@/components/Common'
 
 import AchieveCard from './AchieveCard'
-import NumbersCard from './NumbersCard'
 import SourceContributeInfo from './SourceContributeInfo'
 
 import { CardWrapper, AttachWrapper, AttachIcon } from './styles/digest_board'
@@ -32,13 +31,6 @@ const DigestBoard = ({ user, accountId, following }) => (
           loading={following}
         />
       )}
-    </CardWrapper>
-    <CardWrapper>
-      <NumbersCard
-        user={user}
-        showFollowings={logic.showFollowings}
-        showFollowers={logic.showFollowers}
-      />
     </CardWrapper>
 
     <AttachWrapper>

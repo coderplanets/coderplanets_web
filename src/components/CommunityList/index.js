@@ -8,6 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
+import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 import Tooltip from '@/components/Tooltip'
 
@@ -20,12 +21,22 @@ import {
   PopCommunityInfo,
   PopCommunityTitle,
   PopCommunityDesc,
+  MoreWrapper,
+  MoreIcon,
 } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:CommunityList:index')
 
-const CommunityList = ({ items, size, bottom, emptyHint }) => {
+const CommunityList = ({
+  items,
+  size,
+  bottom,
+  emptyHint,
+  right,
+  totalCount,
+  onMoreClick,
+}) => {
   if (isEmpty(items)) {
     return !isEmpty(emptyHint) && <>{emptyHint}</>
   }
@@ -46,11 +57,22 @@ const CommunityList = ({ items, size, bottom, emptyHint }) => {
             </PopoverInfo>
           }
         >
-          <Linker href={`/${community.raw}/posts`} bottom={bottom}>
+          <Linker
+            href={`/${community.raw}/posts`}
+            bottom={bottom}
+            right={right}
+          >
             <Logo src={community.logo} size={size} />
           </Linker>
         </Tooltip>
       ))}
+
+      {totalCount > items.length && (
+        <MoreWrapper bottom={bottom} right={right} onClick={onMoreClick}>
+          <div>{totalCount}</div>{' '}
+          <MoreIcon src={`${ICON}/shape/arrow-simple.svg`} />
+        </MoreWrapper>
+      )}
     </Wrapper>
   )
 }
@@ -66,7 +88,10 @@ CommunityList.propTypes = {
   ),
   size: T.string,
   bottom: T.string,
+  right: T.string,
   emptyHint: T.oneOfType([T.string, T.node]),
+  totalCount: T.number,
+  onMoreClick: T.func,
 }
 
 CommunityList.defaultProps = {
@@ -74,6 +99,9 @@ CommunityList.defaultProps = {
   emptyHint: '',
   size: '24px',
   bottom: '0',
+  right: '5px',
+  totalCount: -1,
+  onMoreClick: log,
 }
 
 export default React.memo(CommunityList)

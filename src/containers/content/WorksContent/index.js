@@ -64,13 +64,13 @@ const tmpUsers = [
   },
 ]
 
-const WorksContentContainer = ({ worksContent: store }) => {
+const WorksContentContainer = ({ worksContent: store, metric }) => {
   useInit(store)
 
   const { activeView } = store
 
   return (
-    <Wrapper testId="worksContent">
+    <Wrapper testId="worksContent" metric={metric}>
       {/* <Banner /> */}
       <ContentWrapper>
         <LeftSidebarWrapper>

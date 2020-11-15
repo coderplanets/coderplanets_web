@@ -27,11 +27,6 @@ const editorConfig = {
 }
 
 // viewers
-export const AccountViewer = dynamic(
-  () => import('@/containers/viewer/AccountViewer'),
-  commonConfig,
-)
-
 export const PostViewer = dynamic(
   () => import('@/containers/viewer/PostViewer'),
   commonConfig,
