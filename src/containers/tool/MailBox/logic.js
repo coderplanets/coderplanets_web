@@ -16,11 +16,7 @@ let store = null
 
 export const selectChange = ({ raw: activeRaw }) => store.mark({ activeRaw })
 
-export const previewUser = (user) =>
-  send(EVENT.DRAWER.OPEN, {
-    type: TYPE.DRAWER.USER_VIEW,
-    data: user,
-  })
+export const previewUser = () => {}
 
 export const loadMailboxStates = () => {
   if (!store.isLogin) return false

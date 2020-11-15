@@ -20,8 +20,7 @@ import UserFavorited from '@/containers/user/UserFavorited'
 import TabBar from '@/components/TabBar'
 
 import Sidebar from './Sidebar'
-
-import DigestBoard from './DigestBoard'
+// import DigestBoard from './DigestBoard'
 
 import {
   Wrapper,
@@ -103,16 +102,16 @@ const UserContentContainer = ({ userContent: store, metric }) => {
   const {
     activeThread,
     viewingUser,
-    accountInfo,
+    // accountInfo,
     isSelfViewing,
-    following,
+    // following,
   } = store
 
   const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
 
   return (
     <Wrapper>
-      <BannerWrapper>
+      <BannerWrapper metric={metric}>
         <TabBarWrapper className="tabs-with-bottom">
           <TabBar
             source={taberSource}
@@ -125,25 +124,13 @@ const UserContentContainer = ({ userContent: store, metric }) => {
         <Sidebar viewingUser={viewingUser} isSelfViewing={isSelfViewing} />
         <ContentWrapper>
           <TabberContent active={activeThread} />
-          <br />
-          <br />
-          <br />
-          <DigestBoard
+          {/* <DigestBoard
             user={viewingUser}
             accountId={accountInfo.id}
             following={following}
-          />
+          /> */}
         </ContentWrapper>
       </InnerWrapper>
-      {/* <SidebarWrapper>
-        <Sticky offsetTop={30}>
-          <DigestBoard
-            user={viewingUser}
-            accountId={accountInfo.id}
-            following={following}
-          />
-        </Sticky>
-      </SidebarWrapper> */}
     </Wrapper>
   )
 }

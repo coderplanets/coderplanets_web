@@ -9,6 +9,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   width: 100%;
   min-height: 80vh;
   margin-top: 30px;
+  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 `
 export const LeftSidebarWrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,

@@ -27,7 +27,6 @@ export { default as FavoritesCatsStore } from '@/containers/tool/FavoritesCats/s
 
 // pages banners store
 export { default as CommunityDigestStore } from '@/containers/digest/CommunityDigest/store'
-export { default as UserDigestStore } from '@/containers/digest/UserDigest/store'
 
 export { default as ArticleDigestStore } from '@/containers/digest/ArticleDigest/store'
 
@@ -77,8 +76,6 @@ export { default as MailsViewerStore } from '@/containers/viewer/MailsViewer/sto
 
 export { default as ArticleViewerHeader } from '@/containers/unit/ArticleViewerHeader/store'
 export { default as ArticleBodyHeaderStore } from '@/containers/unit/ArticleBodyHeader/store'
-
-export { default as AccountViewerStore } from '@/containers/viewer/AccountViewer/store'
 
 // activities page
 export { default as MeetupsContentStore } from '@/containers/content/MeetupsContent/store'

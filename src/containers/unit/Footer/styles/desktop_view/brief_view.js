@@ -6,7 +6,7 @@ import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import DotDivider from '@/components/DotDivider'
 
-export const Wrapper = styled.footer`
+export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 15px;

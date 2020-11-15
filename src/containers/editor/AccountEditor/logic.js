@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { curry, isEmpty, clone, omit, reject, equals, merge } from 'ramda'
 
-import { TYPE, EVENT, ERR } from '@/constant'
+import { EVENT, ERR } from '@/constant'
 import {
   buildLog,
   asyncSuit,
@@ -24,8 +24,7 @@ const sr71$ = new SR71()
 let store = null
 let sub$ = null
 
-export const goBack = () =>
-  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.ACCOUNT_VIEW })
+export const goBack = () => console.log('TODO: close drawer')
 
 export const inputOnChange = curry((part, e) => updateEditing(store, part, e))
 /* eslint-disable no-unused-vars */

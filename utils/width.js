@@ -1,4 +1,4 @@
-// PAGE: 页面宽度 (不包括背景图)
+// PAGE: 页面宽度 (不包括背景图) for footer, header etc
 // CONTENT: 内容宽度
 const WIDTH = {
   COMMUNITY: {
@@ -7,6 +7,7 @@ const WIDTH = {
     CONTENT_OFFSET: '10px',
   },
   USER: {
+    PAGE: '1200px',
     CONTENT: '1024px',
   },
   DISCOVERY: {

@@ -5,6 +5,7 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};
   width: 100%;
+  overflow-x: hidden;
 `
 export const InnerWrapper = styled.div`
   ${css.flex()};
@@ -15,6 +16,7 @@ export const BannerWrapper = styled.div`
   position: relative;
   background: ${theme('banner.bg')};
   width: 100%;
+  max-width: ${({ metric }) => css.getPageMaxWidth(metric)};
   height: 120px;
   margin-bottom: 20px;
 `

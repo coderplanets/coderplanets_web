@@ -32,7 +32,6 @@ import {
 const log = buildLog('c:UserBrief')
 
 const UserBrief = ({ user, view, onEdit, onLogout, viewingType }) => {
-  console.log('the fuck user: ', user)
   return (
     <Wrapper>
       <Avatar user={user} view={view} />

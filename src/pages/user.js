@@ -104,7 +104,6 @@ const UserPage = (props) => {
         errorCode={errorCode}
         noSidebar={`/user/${user.login}`}
       >
-        {/* <UserDigest /> */}
         <UserContent />
       </GlobalLayout>
     </Provider>

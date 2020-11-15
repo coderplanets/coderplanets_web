@@ -8,7 +8,6 @@ import PlaceHolder from './PlaceHolder'
 import { closeDrawer } from '../logic'
 
 import {
-  AccountViewer,
   PostViewer,
   JobViewer,
   MailsViewer,
@@ -26,12 +25,6 @@ import {
 
 const renderContent = (type, attachment, attUser, mmType) => {
   switch (type) {
-    case TYPE.DRAWER.ACCOUNT_VIEW:
-      return <AccountViewer />
-
-    case TYPE.DRAWER.USER_VIEW:
-      return <AccountViewer user={attUser} />
-
     case TYPE.DRAWER.ACCOUNT_EDIT:
       return <AccountEditor />
 

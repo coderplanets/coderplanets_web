@@ -26,7 +26,7 @@ export const Divider = styled.div`
   margin-bottom: 16px;
 `
 export const Title = styled.div`
-  font-size: 15px;
+  font-size: 14px;
   color: ${theme('thread.articleTitle')};
   flex-grow: 1;
   margin-top: -4px;

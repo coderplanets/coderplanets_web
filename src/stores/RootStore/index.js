@@ -39,7 +39,6 @@ import {
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
-  UserDigestStore,
   // content
   CommunityContentStore,
   PostContentStore,
@@ -56,7 +55,6 @@ import {
   JobViewerStore,
   ArticleViewerHeader,
   ArticleBodyHeaderStore,
-  AccountViewerStore,
   VideoViewerStore,
   RepoViewerStore,
   CommentsStore,
@@ -154,7 +152,6 @@ const rootStore = T.model({
   // banners
   articleDigest: T.optional(ArticleDigestStore, {}),
   communityDigest: T.optional(CommunityDigestStore, {}),
-  userDigest: T.optional(UserDigestStore, {}),
 
   // content
   communityContent: T.optional(CommunityContentStore, {}),
@@ -195,7 +192,6 @@ const rootStore = T.model({
   videoViewer: T.optional(VideoViewerStore, {}),
   repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),
-  accountViewer: T.optional(AccountViewerStore, {}),
 
   // user page
   userPublished: T.optional(UserPublishedStore, {}),

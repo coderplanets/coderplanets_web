@@ -14,6 +14,7 @@ import { connectStore, buildLog } from '@/utils'
 import NumbersPad from './NumbersPad'
 import ContributeMap from './ContributeMap'
 import SubscribedCommunities from './SubscribedCommunities'
+import Activities from './Activities'
 
 import { Wrapper, ContributesWrapper } from './styles'
 import { useInit } from './logic'
@@ -35,6 +36,7 @@ const UserProfileContainer = ({ userProfile: store, testId }) => {
       </ContributesWrapper>
 
       <SubscribedCommunities items={viewingUser.subscribedCommunities} />
+      <Activities />
     </Wrapper>
   )
 }

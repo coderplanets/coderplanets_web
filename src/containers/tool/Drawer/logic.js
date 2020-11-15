@@ -169,16 +169,9 @@ const DataResolver = [
          log('payload curCommunity: ', store.curCommunity.raw)
        */
       if (!contains(payload.type, FUNCTION_TYPES) && store.isMobile) {
-        const { thread, data, type } = payload
-        let targetUrl
-        if (type === TYPE.DRAWER.USER_VIEW) {
-          targetUrl = `/user/${data.login}`
-        } else {
-          const communityRaw =
-            store.curCommunity.raw || data.origialCommunity.raw
-
-          targetUrl = `/${communityRaw}/${thread}/${data.id}`
-        }
+        const { thread, data } = payload
+        const communityRaw = store.curCommunity.raw || data.origialCommunity.raw
+        const targetUrl = `/${communityRaw}/${thread}/${data.id}`
 
         Global.location.href = targetUrl
         return false

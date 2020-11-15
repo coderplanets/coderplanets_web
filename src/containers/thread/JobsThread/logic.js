@@ -107,12 +107,7 @@ export const onFilterSelect = (option) => {
   loadJobs()
 }
 
-export const onUserSelect = (user) =>
-  send(EVENT.DRAWER.OPEN, {
-    type: TYPE.DRAWER.USER_VIEW,
-    data: user,
-  })
-
+export const onUserSelect = () => {}
 // ###############################
 // Data & Error handlers
 // ###############################

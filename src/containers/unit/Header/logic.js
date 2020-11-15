@@ -27,15 +27,12 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const previewAccount = () =>
-  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.ACCOUNT_VIEW })
+export const previewAccount = () => console.log('TODO:  ')
 
 // to avoid page-cache in server
 export const checkSessionState = () => sr71$.query(S.sessionState, {})
 
 export const onThreadChange = (activeThread) => {
-  console.log('onThreadChange: ', activeThread)
-
   // const activeThread = thread.raw
   const subPath = thread2Subpath(activeThread)
 
