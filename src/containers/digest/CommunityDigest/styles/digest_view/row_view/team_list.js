@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   margin-top: 10px;
 `
 export const Avatar = styled(Img)`
-  ${css.circle('26px')};
+  ${css.circle(26)};
   margin-right: 12px;
   margin-bottom: 15px;
 `

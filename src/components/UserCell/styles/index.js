@@ -8,7 +8,7 @@ export const UserCellWrapper = styled.div`
   margin-left: 10px;
 `
 export const Avatar = styled.img`
-  ${css.circle('38px')};
+  ${css.circle(38)};
 `
 export const UserInfo = styled.div`
   ${css.flexColumn('align-start')};

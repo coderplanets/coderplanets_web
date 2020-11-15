@@ -43,7 +43,7 @@ export const IntroHead = styled.div`
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  ${css.circle('22px')};
+  ${css.circle(22)};
   display: block;
 `
 export const Title = styled.div`

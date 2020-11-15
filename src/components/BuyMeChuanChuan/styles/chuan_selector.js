@@ -41,7 +41,7 @@ export const By = styled.div`
 
 export const Circle = styled.div`
   ${css.flex('align-both')};
-  ${css.circle('38px')};
+  ${css.circle(38)};
   border: 1px solid;
   border-color: ${theme('font')};
   margin-right: 10px;

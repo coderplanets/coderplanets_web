@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   margin-left: 2px;
 `
 export const TagDot = styled.div`
-  ${css.circle('10px')};
+  ${css.circle(10)};
   background: ${theme('baseColor.red')};
   margin-right: 5px;
 `

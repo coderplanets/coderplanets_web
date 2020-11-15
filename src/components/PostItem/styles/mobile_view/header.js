@@ -15,7 +15,7 @@ export const AvatarWrapper = styled.div`
   }
 `
 export const Avatar = styled(Img)`
-  ${css.circle('16px')};
+  ${css.circle(16)};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
   margin-right: 8px;

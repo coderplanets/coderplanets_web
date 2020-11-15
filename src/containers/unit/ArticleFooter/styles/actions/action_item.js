@@ -43,7 +43,7 @@ export const ArticleTitle = styled(HighlightLink)`
   margin-right: 4px;
 `
 export const AvatarIcon = styled(Img)`
-  ${css.circle('13px')};
+  ${css.circle(13)};
   margin-bottom: 2px;
   margin-right: 10px;
 `

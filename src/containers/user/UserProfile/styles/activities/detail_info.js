@@ -18,7 +18,7 @@ export const IconWrapper = styled.div`
   position: absolute;
   top: ${({ first }) => (first ? '43px' : '13px')};
   left: -13px;
-  ${css.circle('23px')};
+  ${css.circle(23)};
   ${css.flex('align-both')};
   background: #033d45;
 `

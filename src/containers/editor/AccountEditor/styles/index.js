@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   animation: ${animate.fadeInRight} 0.2s linear;
 `
 export const AvatarPic = styled(Img)`
-  ${css.circle('70px')};
+  ${css.circle(70)};
   margin-bottom: 30px;
 `
 export const BackIcon = styled(Img)`

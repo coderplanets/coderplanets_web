@@ -26,7 +26,7 @@ export const Title = styled.div`
 `
 export const MoreText = styled.div``
 export const Dot = styled.div`
-  ${css.circle('10px')};
+  ${css.circle(10)};
   margin-right: 4px;
   background-color: ${({ color }) => color};
   margin-top: -1px;
@@ -34,7 +34,7 @@ export const Dot = styled.div`
   opacity: ${theme('tags.dotOpacity')};
 
   ${css.media.mobile`
-    ${css.circle('8px')};
+    ${css.circle(8)};
   `};
 `
 export const PopoverInfo = styled.div`

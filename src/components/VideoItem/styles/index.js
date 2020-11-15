@@ -128,7 +128,7 @@ export const BottomAuthorWrapper = styled.div`
   margin-bottom: 2px;
 `
 export const ButtonAvatar = styled(Img)`
-  ${css.circle('20px')};
+  ${css.circle(20)};
   opacity: 0.8;
 `
 export const ButtonNickname = styled.div`

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   margin-right: 20px;
 `
 export const UserAvatar = styled.img`
-  ${css.circle('25px')};
+  ${css.circle(25)};
   margin-left: 3%;
   opacity: ${theme('avatarOpacity')};
 `

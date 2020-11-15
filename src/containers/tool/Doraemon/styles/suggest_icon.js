@@ -24,7 +24,7 @@ export const Icon = styled(CommunityFaceLogo)`
   `};
 `
 export const ThemeDot = styled.div`
-  ${css.circle('35px')};
+  ${css.circle(35)};
   background: ${({ bg }) => bg};
 `
 export const DoraemonIcon = styled(Img)`

@@ -15,7 +15,7 @@ export const TransWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const AccountIcon = styled(Img)`
-  ${css.circle('30px')};
+  ${css.circle(30)};
 `
 export const TransIcon = styled(Img)`
   fill: ${theme('banner.desc')};

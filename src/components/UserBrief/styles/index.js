@@ -54,7 +54,7 @@ export const DescIconLabel = styled(Img)`
   display: block;
 `
 export const BackgroundDivider = styled.div`
-  ${css.circle('5px')};
+  ${css.circle(5)};
   background: ${theme('banner.desc')};
   margin-left: 4px;
   margin-right: 4px;

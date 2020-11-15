@@ -36,7 +36,7 @@ export const InnerWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const Dot = styled.div`
-  ${css.circle('5px')};
+  ${css.circle(5)};
   background: tomato;
   margin: 0 5px;
 `

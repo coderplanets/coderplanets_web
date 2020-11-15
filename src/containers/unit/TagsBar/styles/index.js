@@ -26,7 +26,7 @@ const getDotBgColor = (active, title, color) => {
 }
 
 export const TagDot = styled.div`
-  ${css.circle('12px')};
+  ${css.circle(12)};
   margin-right: 12px;
   background-color: ${({ active, title, color }) =>
     getDotBgColor(active, title, color)};

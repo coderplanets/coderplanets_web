@@ -11,7 +11,7 @@ export const AvatarWrapper = styled.div`
   cursor: pointer;
 `
 export const Avatar = styled(Img)`
-  ${css.circle('36px')};
+  ${css.circle(36)};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
   margin-top: 2px;

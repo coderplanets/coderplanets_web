@@ -17,7 +17,7 @@ export const Title = styled.div`
   }
 `
 export const LangDot = styled.div`
-  ${css.circle('12px')};
+  ${css.circle(12)};
   background-color: ${({ color }) => color};
   margin-right: 6px;
 `

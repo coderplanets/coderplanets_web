@@ -43,7 +43,7 @@ export const IntroHead = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle('16px')};
+  ${css.circle(16)};
   margin-right: 10px;
   display: block;
 `

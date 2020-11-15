@@ -155,7 +155,7 @@ export const NodeSVGIcon = styled(Img)`
 `
 
 export const ThemeDot = styled.div`
-  ${css.circle('35px')};
+  ${css.circle(35)};
   background: ${({ bg }) => bg};
 `
 // TODO: rename -> PrefixIcon

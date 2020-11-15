@@ -59,7 +59,7 @@ export const IntroHead = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle('54px')};
+  ${css.circle(54)};
 `
 export const BasicInfo = styled.div`
   ${css.flexColumn()};

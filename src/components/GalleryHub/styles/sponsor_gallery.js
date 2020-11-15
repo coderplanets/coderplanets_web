@@ -44,7 +44,7 @@ export const IntroHead = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle('20px')};
+  ${css.circle(20)};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

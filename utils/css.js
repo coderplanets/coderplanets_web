@@ -6,6 +6,8 @@
 import { css as styledCss } from 'styled-components'
 import WIDTH from './width'
 
+import { isString } from './validator'
+
 const smokey = (opt = 0.6) => `
   opacity: ${opt};
 
@@ -21,12 +23,26 @@ const cutFrom = (width = '100px') => `
   overflow: hidden;
   text-overflow: ellipsis;
 `
-const circle = (width = '30px') => `
-  width: ${width};
-  height: ${width};
-  border-radius: 100%;
-  display: block;
-`
+const circle = (width = '30px') => {
+  const theWidth = isString(width) ? width : `${width}px`
+
+  return `
+    width: ${theWidth};
+    height: ${theWidth};
+    border-radius: 100%;
+    display: block;
+  `
+}
+
+const size = (width = '30px') => {
+  const theWidth = isString(width) ? width : `${width}px`
+
+  return `
+    width: ${theWidth};
+    height: ${theWidth};
+    display: block;
+  `
+}
 
 const flexExpand = (rule) => {
   switch (rule) {
@@ -153,6 +169,7 @@ const getPageMaxWidth = (metric) => {
 const css = {
   cutFrom,
   circle,
+  size,
   smokey,
   flex,
   flexGrow,

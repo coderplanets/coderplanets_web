@@ -18,7 +18,7 @@ export const UserLabel = styled.div`
   }
 `
 export const UserAvatar = styled(Img)`
-  ${css.circle('16px')};
+  ${css.circle(16)};
   margin-right: 3px;
 `
 export const UserNickname = styled.div`

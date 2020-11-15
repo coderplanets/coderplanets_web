@@ -31,7 +31,7 @@ export const BaseInfo = styled.div`
   height: 100%;
 `
 export const Avatar = styled(Img)`
-  ${css.circle('16px')};
+  ${css.circle(16)};
   margin-top: -1px;
 `
 export const Title = styled.div`

@@ -41,7 +41,7 @@ export const IntroHead = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle('14px')};
+  ${css.circle(14)};
 `
 export const LangPrefix = styled.div`
   font-size: 14px;

@@ -25,7 +25,7 @@ export const CommentHeaderFirst = styled.div`
   ${css.flex()};
 `
 export const Avatar = styled(Img)`
-  ${css.circle('24px')};
+  ${css.circle(24)};
   opacity: ${theme('avatarOpacity')};
   margin-right: 14px;
   margin-top: 10px;

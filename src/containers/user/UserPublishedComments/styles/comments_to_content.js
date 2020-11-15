@@ -25,7 +25,7 @@ export const CommentHeader = styled.div`
   margin-bottom: 3px;
 `
 export const Avatar = styled(Img)`
-  ${css.circle('30px')};
+  ${css.circle(30)};
   margin-right: 8px;
 `
 export const AvatarInfo = styled.div`

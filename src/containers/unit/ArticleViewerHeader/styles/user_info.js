@@ -15,6 +15,6 @@ export const PublishAt = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const Avatar = styled(Img)`
-  ${css.circle('35px')};
+  ${css.circle(35)};
   margin-right: 10px;
 `

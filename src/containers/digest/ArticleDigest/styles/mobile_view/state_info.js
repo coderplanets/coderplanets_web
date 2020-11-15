@@ -47,7 +47,7 @@ export const AuthorWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const Avatar = styled(Img)`
-  ${css.circle('14px')};
+  ${css.circle(14)};
 `
 export const Nickname = styled.div`
   font-size: 12px;
