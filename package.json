@@ -40,6 +40,7 @@
     }
   },
   "dependencies": {
+    "@babel/core": "^7.12.3",
     "@editorjs/checklist": "^1.1.0",
     "@editorjs/delimiter": "^1.1.0",
     "@editorjs/editorjs": "^2.15.0",
@@ -63,6 +64,7 @@
     "apollo-link-http": "1.5.16",
     "apollo-link-retry": "2.2.15",
     "babel-plugin-add-react-displayname": "^0.0.5",
+    "babel-plugin-styled-components": "^1.11.1",
     "cacheable-response": "^2.0.9",
     "chalk": "^2.4.1",
     "compatible-debug": "^1.0.0",
@@ -133,13 +135,11 @@
     "tinykeys": "^1.0.6"
   },
   "devDependencies": {
-    "@babel/core": "7.11.0",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@groupher/eslint-config-web": "2.0.9",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^23.6.0",
-    "babel-plugin-styled-components": "1.10.7",
     "bundlewatch": "^0.2.7",
     "commitizen": "3.1.2",
     "coveralls": "3.0.6",
