@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { css } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
@@ -10,23 +10,30 @@ export const Wrapper = styled.div`
   margin-left: 16px;
 `
 export const ItemWrapper = styled.div`
-  ${css.flex('align-center')};
+  ${css.flex('align-both')};
   cursor: pointer;
+  background-color: ${({ active }) => (active ? '#033844' : 'transparent')};
+  margin-right: 10px;
+  border-radius: 10px;
+  padding: ${({ active }) => (active ? '3px 12px' : '3px 8px')};
 `
 export const Icon = styled(Img)`
-  fill: #1c7fad;
+  fill: ${theme('thread.articleTitle')};
   display: ${({ active }) => (active ? 'block' : 'none')};
   width: 14px;
   height: 14px;
+  margin-right: 5px;
+  margin-bottom: 1px;
 `
 export const Text = styled.div`
   opacity: ${({ active }) => (active ? 1 : 0.6)};
-  color: #1c7fad;
-  font-size: 14px;
-  margin-left: 4px;
-  margin-right: 14px;
+  color: ${({ active }) =>
+    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  font-size: 13px;
 
   ${ItemWrapper}:hover & {
-    font-weight: bold;
+    color: ${theme('thread.articleTitle')};
   }
+
+  transition: all 0.2s;
 `
