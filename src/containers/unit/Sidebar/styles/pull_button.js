@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   cursor: pointer;
@@ -26,9 +26,8 @@ export const ArrowIcon = styled(Img)`
   position: absolute;
   top: 44px;
   left: 0;
+  ${css.size(24)};
   fill: ${theme('thread.articleDigest')};
-  width: 24px;
-  height: 24px;
   z-index: 1;
   display: block;
 

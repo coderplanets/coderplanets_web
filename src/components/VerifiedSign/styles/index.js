@@ -18,8 +18,7 @@ export const PopHeaderIcon = styled(Img)`
   display: block;
   padding: 0;
   margin-right: 4px;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
 `
 export const PopHeaderText = styled.div`
   color: ${theme('baseColor.green')};

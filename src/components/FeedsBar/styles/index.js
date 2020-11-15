@@ -26,8 +26,7 @@ export const Header = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const FunctionIcon = styled(Img)`
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   fill: ${theme('thread.articleDigest')};
   &:hover {
     fill: ${theme('thread.articleTitle')};

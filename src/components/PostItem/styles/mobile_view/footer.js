@@ -49,8 +49,7 @@ export const CommentWrapper = styled.div`
 `
 export const CommentIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-right: 4px;
   display: block;
 `

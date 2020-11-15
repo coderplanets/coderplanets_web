@@ -29,8 +29,7 @@ export const Logo = styled(Img)`
   position: absolute;
   top: 2px;
   left: -5px;
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   border-radius: 50%;
   display: block;
   filter: saturate(0.6);

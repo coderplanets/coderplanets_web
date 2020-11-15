@@ -60,8 +60,7 @@ export const TeamName = styled.a`
 `
 export const NameLinkIcon = styled(Img)`
   fill: ${theme('banner.title')};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   padding-top: 3px;
 `
 

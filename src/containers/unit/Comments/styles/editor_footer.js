@@ -20,8 +20,7 @@ export const FoldBtn = styled.div`
 `
 export const FoldArrow = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
   margin-right: 3px;
   ${FoldBtn}:hover & {
@@ -40,8 +39,7 @@ export const FoldText = styled.div`
 
 export const HelperIcon = styled(Img)`
   fill: ${theme('comment.placeholder')};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   margin-right: 8px;
 
   &:hover {

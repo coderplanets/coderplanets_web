@@ -16,8 +16,7 @@ export const BadgeWrapper = styled.div`
 export const BadgeIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   display: block;
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   margin-right: 3px;
 `
 export const BadgeTitle = styled.div`

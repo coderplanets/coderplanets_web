@@ -27,8 +27,7 @@ export const SuffixWrapper = styled(AddOn)`
 export const Icon = styled(Img)`
   fill: ${({ active }) =>
     active ? theme('button.primary') : theme('thread.articleDigest')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
   opacity: 0.8;
 

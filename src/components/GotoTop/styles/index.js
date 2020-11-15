@@ -7,14 +7,12 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${css.flex('align-both')};
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   position: relative;
 `
 export const Icon = styled(Img)`
   fill: #1e687f;
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   display: block;
   &:hover {
     fill: #25807d;

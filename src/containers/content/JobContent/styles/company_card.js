@@ -20,8 +20,7 @@ export const CompanyBrand = styled.div`
   ${css.flex()};
 `
 export const CompanyLogo = styled(Img)`
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   display: block;
   margin-right: 12px;
 `
@@ -62,8 +61,7 @@ export const StateLabel = styled.div`
 `
 export const StateIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-right: 15px;
   display: block;
 `

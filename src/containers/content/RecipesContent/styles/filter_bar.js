@@ -40,8 +40,7 @@ export const OptionItem = styled.div`
   flex-grow: 1;
 `
 const OptionIconBase = styled(Img)`
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   display: block;
   opacity: ${({ active }) => (active ? '1' : '0')};
 

@@ -25,8 +25,7 @@ export const FormInput = styled.div`
 `
 export const Adder = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 25px;
-  height: 25px;
+  ${css.size(25)};
   margin-left: 5px;
   margin-top: 5px;
   &:hover {
@@ -63,8 +62,7 @@ export const BgDesc = styled.div`
 
 export const DeleteIcon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   margin-left: 8px;
   opacity: 0;
   ${BackgroundItem}:hover & {

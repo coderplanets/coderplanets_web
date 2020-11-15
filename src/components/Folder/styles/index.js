@@ -46,8 +46,7 @@ export const EditIconWrapper = styled.div`
   top: 10px;
   ${css.flex('justify-center')};
   z-index: 1;
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   background: #004351;
   opacity: 0;
 
@@ -60,8 +59,7 @@ export const EditIconWrapper = styled.div`
 `
 export const EditIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   display: block;
   z-index: 2;
 `

@@ -28,8 +28,7 @@ export const MenuWrapper = styled.div`
 export const MenuLogo = styled(Img)`
   fill: ${({ pin }) =>
     pin ? theme('sidebar.pinActive') : theme('banner.title')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   opacity: 0.5;
   display: block;
   cursor: pointer;

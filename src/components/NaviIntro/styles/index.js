@@ -14,8 +14,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   display: block;
 `
 export const Digest = styled.div`

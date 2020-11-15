@@ -24,8 +24,7 @@ export const Update = styled.div``
 
 export const LockIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   margin-top: -1px;
   display: block;
 `

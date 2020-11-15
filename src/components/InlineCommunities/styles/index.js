@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div``
@@ -25,6 +25,5 @@ export const CommunityWrapper = styled.div`
   margin-right: 3px;
 `
 export const CommunityLogo = styled(Img)`
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
 `

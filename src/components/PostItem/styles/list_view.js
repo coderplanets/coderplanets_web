@@ -34,8 +34,7 @@ export const AvatarFallback = styled.div`
   background-color: #164858;
 `
 export const SmallAvatar = styled(Avatar)`
-  width: 35px;
-  height: 35px;
+  ${css.size(35)};
 `
 export const Brief = styled.div`
   ${css.flexGrow('align-center')};
@@ -72,8 +71,7 @@ export const LinkIcon = styled(Img)`
   position: absolute;
   top: 6px;
   left: -5px;
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
 `
 
 export const Extra = styled.li`
@@ -110,8 +108,7 @@ export const CommentWrapper = styled.div`
 `
 export const CommentIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-right: 4px;
   display: block;
 `

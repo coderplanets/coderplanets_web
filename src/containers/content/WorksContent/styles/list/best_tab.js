@@ -20,8 +20,7 @@ export const ItemWrapper = styled.div`
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   display: ${({ active }) => (active ? 'block' : 'none')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-right: 5px;
   margin-bottom: 1px;
 `

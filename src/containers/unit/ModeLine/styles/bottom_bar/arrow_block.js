@@ -5,8 +5,7 @@ import { css, theme } from '@/utils'
 
 export const MenuLogo = styled(Img)`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   display: block;
 `
 export const SiteLogo = styled(MenuLogo)`
@@ -16,8 +15,7 @@ export const SiteLogo = styled(MenuLogo)`
 `
 export const ExploreLogo = styled(Img)`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
 `
 const Block = styled.div`

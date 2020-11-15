@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-// import { theme, css } from '@/utils'
+
+import { css } from '@/utils'
 
 import {
   Star1 as Star1Base,
@@ -29,8 +30,7 @@ export const Star1 = styled(Star1Base)`
   left: 20px;
   top: 30px;
   opacity: 0.8;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
 `
 export const Star2 = styled(Star2Base)`
   width: 12px;

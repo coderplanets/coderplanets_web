@@ -33,8 +33,7 @@ export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   fill: ${theme('header.fg')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   display: block;
   cursor: pointer;
   margin-right: 12px;

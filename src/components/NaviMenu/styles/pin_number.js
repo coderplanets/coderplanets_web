@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import { css, theme } from '@/utils'
 import Img from '@/Img'
-import { theme } from '@/utils'
 
 import { Item } from './index'
 
@@ -24,8 +24,7 @@ export const Num = styled.div`
 export const PinIcon = styled(Img)`
   fill: ${theme('button.primary')};
   display: none;
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
 
   &:hover {
     cursor: pointer;

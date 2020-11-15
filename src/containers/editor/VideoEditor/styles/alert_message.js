@@ -14,8 +14,7 @@ export const WarnMsgItem = styled.div`
 `
 export const WarnMsgIcon = styled(Img)`
   fill: ${theme('alertWarn.text')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-right: 5px;
   margin-top: 2px;
   opacity: 0.8;

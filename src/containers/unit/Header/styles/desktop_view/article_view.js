@@ -36,8 +36,7 @@ export const Operations = styled.div`
 export const UserInfoWrapper = styled.div``
 export const MoreIcon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 24px;
-  height: 24px;
+  ${css.size(24)};
   display: block;
   cursor: pointer;
 `

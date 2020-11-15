@@ -8,8 +8,7 @@ export const Wrapper = styled.div`
   margin-bottom: 25px;
 `
 const SexIcon = styled(Img)`
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   margin-right: 10px;
   margin-left: 5px;
   cursor: pointer;

@@ -34,15 +34,13 @@ export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};
   margin-right: 3px;
   margin-top: 2px;
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
 `
 export const ReplyIcon = styled(Img)`
   fill: ${theme('comment.icon')};
   margin-right: 5px;
   margin-top: 1px;
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
 `
 
 export const ReplyAction = styled.div`

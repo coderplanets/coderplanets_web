@@ -51,6 +51,5 @@ export const Icon = styled(Img)`
 `
 export const MobileIcon = styled(Icon)`
   margin-left: 5px;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
 `

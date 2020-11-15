@@ -18,8 +18,7 @@ export const Header = styled.div`
 `
 // do not use common @/Img, because the theme in Img may not work
 export const HintIcon = styled.img`
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   display: block;
   margin-right: 15px;
 `

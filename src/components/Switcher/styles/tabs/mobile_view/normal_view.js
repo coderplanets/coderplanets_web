@@ -41,8 +41,7 @@ export const MoreWrapper = styled.div`
 export const ArrowIcon = styled(Img)`
   fill: ${theme('tabs.header')};
   display: block;
-  width: 24px;
-  height: 24px;
+  ${css.size(24)};
   transform: rotate(270deg);
 `
 export const SlipBar = styled(SlipBarBase)``

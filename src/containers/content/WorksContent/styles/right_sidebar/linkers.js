@@ -70,8 +70,7 @@ export const Totol = styled.div`
 `
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   display: block;
   transform: rotate(180deg);
   opacity: 0;

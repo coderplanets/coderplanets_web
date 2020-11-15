@@ -29,8 +29,7 @@ export const Title = styled.div`
   transition-delay: 0.2s;
 `
 export const AboutIcon = styled(Img)`
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   fill: ${theme('thread.articleDigest')};
   display: block;
   opacity: 0;

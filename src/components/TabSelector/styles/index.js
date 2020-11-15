@@ -38,8 +38,7 @@ export const Option = styled.div`
 export const Icon = styled(Img)`
   fill: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   margin-right: 3px;
 `
 export const Title = styled.div``

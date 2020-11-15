@@ -12,8 +12,7 @@ export const BannerWrapper = styled.div`
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   opacity: 0;
   ${BannerWrapper}:hover & {
     opacity: 1;

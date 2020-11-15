@@ -28,8 +28,7 @@ export const PopoverInfo = styled.div`
 `
 export const PopCommunityLogo = styled(Img)`
   display: block;
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   margin-right: 8px;
 `
 export const PopCommunityInfo = styled.div`
@@ -59,8 +58,7 @@ export const MoreWrapper = styled.div`
 `
 export const MoreIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
   transform: rotate(180deg);
   margin-left: 2px;

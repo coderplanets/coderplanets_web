@@ -23,8 +23,7 @@ export const SearchBoxWrapper = styled.div`
 export const SearchIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   /* fill: #1f6377; */
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
   margin-left: -12px;
 `
@@ -56,8 +55,7 @@ export const Title = styled.div`
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   /* fill: #1f6377; */
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
   transform: rotate(180deg);
 `

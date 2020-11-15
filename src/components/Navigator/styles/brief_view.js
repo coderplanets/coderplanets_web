@@ -24,8 +24,7 @@ export const CommunityWrapper = styled.div`
   height: 100%;
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
-  width: 32px;
-  height: 32px;
+  ${css.size(32)};
   margin-right: 10px;
 `
 export const CommunityInfo = styled.div`
@@ -61,7 +60,6 @@ export const Breadcrumbs = styled.div`
 
 export const LogoHolder = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   opacity: 0.6;
 `

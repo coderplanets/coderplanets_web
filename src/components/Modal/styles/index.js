@@ -48,8 +48,7 @@ export const CloseBtn = styled(Img)`
   position: absolute;
   top: 0;
   right: -45px;
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   display: ${({ show }) => (show ? 'block' : 'none')};
   z-index: ${css.zIndex.modalCloseBtn};
 

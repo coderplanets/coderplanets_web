@@ -33,8 +33,7 @@ export const SocialIconsWrapper = styled.div`
 export const SocialIcon = styled(Img)`
   fill: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   margin-right: 8px;
   transition: fill 0.3s;
   opacity: ${({ active }) => (active ? 1 : 0.8)};

@@ -13,8 +13,7 @@ export const OrSignBase = styled.div`
   background: #002b35;
   border-radius: 100%;
   z-index: 1;
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
 `
 
 export const holder = 1

@@ -54,16 +54,14 @@ export const ReactionUserNum = styled(PlainUserNum)`
 `
 const ReactionIcon = styled(Img)`
   fill: ${theme('article.reactionTitle')};
-  width: 24px;
-  height: 24px;
+  ${css.size(24)};
   display: block;
   margin-right: 2px;
 `
 
 export const ReactionLoading = styled(Img)`
   fill: ${theme('article.reactionTitle')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   display: block;
   margin-right: 2px;
   margin-left: 4px;
@@ -74,6 +72,5 @@ export const CollectIcon = styled(ReactionIcon)`
 `
 export const LikeIcon = styled(ReactionIcon)`
   margin-top: -5px;
-  width: 22px;
-  height: 22px;
+  ${css.size(22)};
 `

@@ -57,8 +57,7 @@ export const Community = styled.div`
   `}
 `
 export const Logo = styled(Img)`
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
 
   ${css.media.mobile`
     width: 16px;

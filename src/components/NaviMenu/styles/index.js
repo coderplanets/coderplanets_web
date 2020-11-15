@@ -42,8 +42,7 @@ export const MoreItem = styled(Item)`
 `
 export const FixedIcon = styled(Img)`
   display: block;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-right: 5px;
 `
 export const Icon = styled(Img)`

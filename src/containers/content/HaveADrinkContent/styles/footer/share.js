@@ -11,8 +11,7 @@ export const Wrapper = styled.div`
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   display: block;
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   opacity: 0.8;
 
   &:hover {

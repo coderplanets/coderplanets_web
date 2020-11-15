@@ -15,8 +15,7 @@ export const TextWrapper = styled.div`
 export const Text = styled.div``
 export const Icon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-right: 3px;
   display: ${({ show }) => (show ? '' : 'none')};
 `

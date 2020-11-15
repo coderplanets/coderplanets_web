@@ -21,8 +21,7 @@ export const SubscribeBtn = styled(Button)`
 export const SubscribeIcon = styled(Img)`
   fill: ${theme('button.fg')};
   display: block;
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   margin-right: 8px;
 `
 export const Desc = styled.div`

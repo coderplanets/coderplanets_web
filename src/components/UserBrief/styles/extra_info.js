@@ -12,8 +12,7 @@ export const Section = styled.div`
 export const Desc = styled.div``
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-right: 10px;
   display: block;
 `

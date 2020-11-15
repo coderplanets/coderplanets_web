@@ -22,8 +22,7 @@ export const Wrapper = styled.div`
 `
 export const BackIcon = styled(Img)`
   fill: #5c7679;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
   opacity: 0.7;
   margin-right: 6px;

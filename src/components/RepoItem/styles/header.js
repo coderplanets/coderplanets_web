@@ -75,8 +75,7 @@ const StatusIcon = styled(Img)`
 `
 export const StarIcon = styled(StatusIcon)`
   margin-right: 5px;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
 `
 export const ForkIcon = styled(StatusIcon)`
   margin-top: 2px;

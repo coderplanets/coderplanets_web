@@ -34,8 +34,7 @@ export const SponsorText = styled.div`
 `
 export const SponsorLogo = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 24px;
-  height: 24px;
+  ${css.size(24)};
   display: block;
 `
 export const SupportTitle = styled.div`

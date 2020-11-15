@@ -72,8 +72,7 @@ export const SiteDesc = styled.a`
   transition: color 0.2s;
 `
 export const SiteLogo = styled(CommunityFaceLogo)`
-  width: 32px;
-  height: 32px;
+  ${css.size(32)};
   display: block;
   margin-bottom: 18px;
   margin-left: 3px;

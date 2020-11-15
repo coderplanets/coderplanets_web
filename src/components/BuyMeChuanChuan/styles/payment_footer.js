@@ -29,7 +29,6 @@ export const MoneyNum = styled.span`
   color: #ffdad3;
 `
 export const PaymentIcon = styled(Img)`
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
 `

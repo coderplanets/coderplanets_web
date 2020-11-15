@@ -85,8 +85,7 @@ export const DatesWrapper = styled.div`
 `
 export const WeekName = styled.div`
   ${css.flex('align-both')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   font-size: 13px;
   background: #126682;
   border-radius: 100%;

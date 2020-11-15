@@ -56,7 +56,6 @@ export const UserName = styled(HighlightLink)`
   margin-right: 3px;
 `
 export const CommunityIcon = styled(Img)`
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
 `

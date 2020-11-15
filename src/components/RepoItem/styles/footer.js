@@ -21,8 +21,7 @@ export const Contributors = styled.div`
 export const Builder = styled.div``
 
 export const Avatar = styled(Img)`
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   border-radius: 3px;
   margin-right: 6px;
   opacity: 0.8;

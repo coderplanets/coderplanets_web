@@ -32,8 +32,7 @@ export const Divider = styled.div`
 
 export const LabelIcon = styled(Img)`
   fill: ${theme('tabs.headerActive')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   margin-right: 5px;
   margin-left: 5px;
   margin-top: 2px;

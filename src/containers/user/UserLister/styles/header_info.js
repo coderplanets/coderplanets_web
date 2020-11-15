@@ -17,8 +17,7 @@ export const DescLabel = styled.div`
 `
 export const DescIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   margin-right: 5px;
   display: block;
 `

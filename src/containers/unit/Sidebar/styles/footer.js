@@ -36,8 +36,7 @@ export const OptionItem = styled.div`
 `
 export const OptionIcon = styled(Img)`
   fill: ${theme('sidebar.menuLink')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   display: block;
 `
 export const OptionText = styled.div`

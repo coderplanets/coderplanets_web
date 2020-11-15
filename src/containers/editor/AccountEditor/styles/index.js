@@ -24,8 +24,7 @@ export const AvatarPic = styled(Img)`
 `
 export const BackIcon = styled(Img)`
   fill: ${theme('font')};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   position: absolute;
   top: 13px;
   left: 18px;

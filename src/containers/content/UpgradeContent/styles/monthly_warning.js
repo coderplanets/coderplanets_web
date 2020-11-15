@@ -15,8 +15,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const UpIcon = styled(Img)`
   fill: ${theme('baseColor.red')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-left: 5px;
   margin-right: 5px;
   display: block;

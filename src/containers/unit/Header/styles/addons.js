@@ -8,8 +8,7 @@ export const Wrapper = styled.div`
 `
 export const SettingIcon = styled(Img)`
   fill: ${theme('header.fg')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-top: -2px;
   display: block;
 

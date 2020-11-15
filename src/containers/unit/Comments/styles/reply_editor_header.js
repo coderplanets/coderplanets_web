@@ -27,8 +27,7 @@ export const LeaveResponseUsername = styled.div`
 
 export const ReferToIcon = styled(Img)`
   fill: #b7cfd0;
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   margin-right: 5px;
   margin-top: 5px;
 `

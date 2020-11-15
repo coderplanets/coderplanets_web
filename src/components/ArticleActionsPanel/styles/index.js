@@ -22,8 +22,7 @@ export const Option = styled.div`
 `
 export const OptionIcon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   margin-right: 6px;
   display: block;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};

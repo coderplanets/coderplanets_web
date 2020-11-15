@@ -14,15 +14,13 @@ export const Item = styled.div`
 `
 const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-top: -1px;
   display: block;
 `
 export const ReferIcon = styled(Icon)``
 export const RecordIcon = styled(Icon)`
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
 `
 export const ReferNum = styled.span`
   color: #00a59b;
@@ -64,7 +62,6 @@ export const IndexArrowIcon = styled(Img)`
   right: 20px;
   transform: rotate(-90deg);
 
-  width: 24px;
-  height: 24px;
+  ${css.size(24)};
   display: block;
 `

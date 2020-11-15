@@ -65,8 +65,7 @@ export const LinkIcon = styled(Img)`
   position: absolute;
   top: 6px;
   left: -5px;
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
 `
 export const Extra = styled.div`
   ${css.flex('align-center')};
@@ -88,8 +87,7 @@ export const CommentWrapper = styled.div`
 `
 export const CommentIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-right: 4px;
   display: block;
 `

@@ -17,6 +17,5 @@ export const Avatar = styled(Img)`
   margin-top: 2px;
 `
 export const SmallAvatar = styled(Avatar)`
-  width: 35px;
-  height: 35px;
+  ${css.size(35)};
 `

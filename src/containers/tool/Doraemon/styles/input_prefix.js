@@ -1,31 +1,27 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, animate } from '@/utils'
+import { css, theme, animate } from '@/utils'
 
 export const PrefixIcon = styled(Img)`
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   display: block;
 `
 export const PrefixSearchIcon = styled(Img)`
-  width: 25px;
-  height: 25px;
+  ${css.size(25)};
   fill: ${theme('shell.searchIcon')};
   display: block;
 `
 // transform: rotate(-30deg);
 export const PrefixMagicIcon = styled(Img)`
-  width: 42px;
-  height: 42px;
+  ${css.size(42)};
   margin-left: -5px;
   margin-top: 3px;
   display: block;
 `
 export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
-  width: 35px;
-  height: 35px;
+  ${css.size(35)};
   animation: ${animate.rotate360} 1s linear infinite;
   display: block;
 `

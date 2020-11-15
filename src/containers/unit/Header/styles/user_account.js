@@ -62,8 +62,7 @@ export const MenuDivider = styled.div`
   border-bottom-color: ${theme('banner.numberDivider')};
 `
 export const AvatarIcon = styled.img`
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   display: block;
   cursor: pointer;
   border-radius: 3px;
@@ -71,8 +70,7 @@ export const AvatarIcon = styled.img`
 `
 export const DefaultUserIcon = styled(Img)`
   fill: ${theme('header.fg')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
   cursor: pointer;
   margin-right: 2px;
