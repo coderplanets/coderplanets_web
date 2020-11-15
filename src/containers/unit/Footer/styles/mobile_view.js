@@ -17,8 +17,7 @@ export const SiteWrapper = styled.div`
 `
 export const SiteLogo = styled(Img)`
   fill: #196f71;
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   display: block;
 `
 export const SiteTitle = styled.div`

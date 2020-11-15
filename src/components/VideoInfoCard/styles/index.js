@@ -68,8 +68,7 @@ export const DurationText = styled.div`
 `
 export const DurationIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
   margin-top: -1px;
   margin-right: 5px;

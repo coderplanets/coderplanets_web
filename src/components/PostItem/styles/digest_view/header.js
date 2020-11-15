@@ -49,7 +49,6 @@ export const LinkIcon = styled(Img)`
   position: absolute;
   top: 6px;
   left: -5px;
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
 `
 export const TagListWrapper = styled.div``

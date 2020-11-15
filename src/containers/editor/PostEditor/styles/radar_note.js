@@ -23,8 +23,7 @@ export const Site = styled.div`
 `
 export const SiteIcon = styled(Img)`
   display: block;
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   margin-right: 10px;
 `
 

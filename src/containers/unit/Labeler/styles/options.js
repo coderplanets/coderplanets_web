@@ -21,8 +21,7 @@ export const OptionItem = styled.div`
 export const OptionCheckIcon = styled(Img)`
   fill: ${theme('banner.title')};
   opacity: ${({ active }) => (active ? '1' : '0')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   margin-right: 3px;
 `
 export const OptionText = styled.div``

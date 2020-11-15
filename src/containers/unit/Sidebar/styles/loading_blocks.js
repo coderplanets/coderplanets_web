@@ -13,8 +13,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   padding-top: 50px;
 `
 export const Block = styled.div`
-  width: 25px;
-  height: 25px;
+  ${css.size(25)};
   border-radius: 4px;
   background: #002d39;
   margin-bottom: 25px;

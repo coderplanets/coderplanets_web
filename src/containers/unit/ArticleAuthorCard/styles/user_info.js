@@ -7,11 +7,11 @@ export const Wrapper = styled.div`
   ${css.flexColumn()};
 `
 export const Avatar = styled(Img)`
-  ${css.circle('25px')};
+  ${css.circle(25)};
   margin-right: 10px;
 
   ${css.media.mobile`
-    ${css.circle('25px')};
+    ${css.circle(25)};
   `};
 `
 export const Brief = styled.div`

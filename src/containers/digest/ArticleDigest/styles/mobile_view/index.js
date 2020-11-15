@@ -31,6 +31,6 @@ export const Brief = styled.div`
   width: 100%%;
 `
 export const Avatar = styled.img`
-  ${css.circle('25px')};
+  ${css.circle(25)};
   margin-right: 5px;
 `

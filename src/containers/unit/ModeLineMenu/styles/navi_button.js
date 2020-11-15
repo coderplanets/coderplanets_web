@@ -12,7 +12,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  ${css.circle('32px')};
+  ${css.circle(32)};
   padding: 8px;
   background: #023544;
 `

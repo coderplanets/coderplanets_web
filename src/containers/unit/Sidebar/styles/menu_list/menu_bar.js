@@ -60,8 +60,7 @@ export const MenuRow = styled.div`
 // opacity maybe overwrite by lazy image
 export const MenuItemIcon = styled(CommunityFaceLogo)`
   opacity: ${({ active }) => (active ? '1 !important' : '0.8 !important')};
-  width: 22px;
-  height: 22px;
+  ${css.size(22)};
   margin-right: 10px;
   transition: opacity 0.2s;
 `

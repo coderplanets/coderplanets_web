@@ -12,8 +12,7 @@ export const Icon = styled(Img)`
   fill: ${({ viewerDid }) =>
     viewerDid ? theme('comment.didIcon') : theme('comment.icon')};
   display: block;
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
 
   ${css.smokey};
 `

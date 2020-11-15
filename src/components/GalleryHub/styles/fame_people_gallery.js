@@ -59,7 +59,7 @@ export const IntroHead = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle('54px')};
+  ${css.circle(54)};
 `
 export const BasicInfo = styled.div`
   ${css.flexColumn()};
@@ -96,8 +96,7 @@ export const EduWrapper = styled.div`
   ${css.flex('align-center')}
 `
 export const ExpIcon = styled(Img)`
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
   margin-right: 5px;
   filter: saturate(0);
@@ -124,8 +123,7 @@ export const ViewInfo = styled(VoteInfo)`
 `
 const FooterIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
 `
 export const UpVoteIcon = styled(FooterIcon)`

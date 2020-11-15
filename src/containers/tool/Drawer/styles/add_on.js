@@ -53,8 +53,7 @@ export const MobileCloser = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   cursor: pointer;
   display: block;
 

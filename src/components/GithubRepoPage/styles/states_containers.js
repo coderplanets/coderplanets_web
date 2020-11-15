@@ -45,8 +45,7 @@ export const BuilderWrapper = styled.div`
   ${css.flex()};
 `
 export const Avatar = styled(Img)`
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   border-radius: 3px;
   margin-left: 6px;
   opacity: 0.8;

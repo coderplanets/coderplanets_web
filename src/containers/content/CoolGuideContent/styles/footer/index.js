@@ -36,8 +36,7 @@ export const ContributorsWrapper = styled.div`
   margin-top: -35px;
 `
 export const Avatar = styled(Img)`
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   display: block;
   margin-right: 10px;
   border-radius: 100%;

@@ -42,8 +42,7 @@ export const UploaderLabel = styled.div`
 `
 export const UploaderIcon = styled(Img)`
   fill: ${theme('form.label')};
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   margin-right: 10px;
 `
 export const UploaderText = styled.div`

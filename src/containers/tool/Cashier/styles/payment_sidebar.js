@@ -15,19 +15,17 @@ export const TransWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const AccountIcon = styled(Img)`
-  ${css.circle('30px')};
+  ${css.circle(30)};
 `
 export const TransIcon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   display: block;
   margin-left: 10px;
   margin-right: 10px;
 `
 export const SiteLogo = styled(Img)`
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   display: block;
   margin-top: -5px;
 `
@@ -84,8 +82,7 @@ export const FaceValueNum = styled.span`
   font-weight: bold;
 `
 export const PaymentIcon = styled(Img)`
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
 `
 export const QuestionIcon = styled(PaymentIcon)`

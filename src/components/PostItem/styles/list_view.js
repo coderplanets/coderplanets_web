@@ -19,23 +19,22 @@ export const AvatarWrapper = styled.div`
   }
 `
 export const Avatar = styled(Img)`
-  ${css.circle('36px')};
+  ${css.circle(36)};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
   margin-top: 2px;
 
-  ${css.media.mobile`${css.circle('34px')}`};
+  ${css.media.mobile`${css.circle(34)}`};
 `
 export const AvatarFallback = styled.div`
   ${css.flex('align-both')};
-  ${css.circle('38px')};
+  ${css.circle(38)};
   font-size: 20px;
   color: ${theme('thread.articleTitle')};
   background-color: #164858;
 `
 export const SmallAvatar = styled(Avatar)`
-  width: 35px;
-  height: 35px;
+  ${css.size(35)};
 `
 export const Brief = styled.div`
   ${css.flexGrow('align-center')};
@@ -72,8 +71,7 @@ export const LinkIcon = styled(Img)`
   position: absolute;
   top: 6px;
   left: -5px;
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
 `
 
 export const Extra = styled.li`
@@ -110,8 +108,7 @@ export const CommentWrapper = styled.div`
 `
 export const CommentIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-right: 4px;
   display: block;
 `

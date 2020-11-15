@@ -36,8 +36,7 @@ export const BtnWrapper = styled.div`
 export const PrefixIcon = styled(Img)`
   fill: ${({ primary }) =>
     primary ? theme('button.primary') : theme('button.fg')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-right: 3px;
   display: block;
 `

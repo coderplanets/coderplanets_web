@@ -5,20 +5,17 @@ import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex('align-both')};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   background: ${({ showBg }) => (showBg ? '#114759' : 'transparent')};
   border-radius: 50%;
 `
 export const IconWrapper = styled.div`
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   opacity: ${({ checked }) => (checked ? '1' : '0')};
   transition: all 0.25s;
 `
 export const Icon = styled(Img)`
   fill: #327faf;
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   display: block;
 `

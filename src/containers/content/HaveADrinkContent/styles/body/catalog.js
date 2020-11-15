@@ -42,8 +42,7 @@ export const Intro = styled.div`
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
   margin-right: 8px;
 `

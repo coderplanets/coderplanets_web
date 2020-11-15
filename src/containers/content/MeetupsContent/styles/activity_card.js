@@ -84,8 +84,7 @@ export const BodyWrapper = styled.div`
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   display: block;
   margin-right: 3px;
 `
@@ -94,8 +93,7 @@ export const FinishedHole = styled.div`
   background: #002a34;
   border: 1px solid;
   border-color: #00576c;
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   bottom: 10px;
   right: 12px;
   border-radius: 50%;

@@ -17,8 +17,7 @@ export const AllTagIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-right: 10px;
   margin-top: 2px;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
 `
 const getDotBgColor = (active, title, color) => {
   if (!active) return color
@@ -26,7 +25,7 @@ const getDotBgColor = (active, title, color) => {
 }
 
 export const TagDot = styled.div`
-  ${css.circle('12px')};
+  ${css.circle(12)};
   margin-right: 12px;
   background-color: ${({ active, title, color }) =>
     getDotBgColor(active, title, color)};

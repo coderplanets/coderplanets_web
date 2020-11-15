@@ -25,7 +25,7 @@ export const InterviewWrapper = styled.div`
   transition: all 0.25s;
 `
 export const Avatar = styled(Img)`
-  ${css.circle('20px')};
+  ${css.circle(20)};
   margin-top: 1px;
 `
 export const Intro = styled.div`

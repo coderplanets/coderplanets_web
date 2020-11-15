@@ -71,8 +71,7 @@ export const Tab = styled.div`
   }
 `
 export const TabIcon = styled.div`
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   border-radius: 3px;
   background: ${headerBg};
   margin-left: 15px;
@@ -109,14 +108,12 @@ export const ToolbarWrapper = styled.div`
 `
 export const ToolIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 export const LockIcon = styled(ToolIcon)`
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   margin-top: 2px;
 `
 export const Form = styled.form`

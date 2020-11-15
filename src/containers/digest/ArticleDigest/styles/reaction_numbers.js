@@ -50,8 +50,7 @@ export const NumberItem = styled.div`
 `
 export const NumberLoading = styled(Img)`
   fill: ${theme('banner.number')};
-  width: 24px;
-  height: 24px;
+  ${css.size(24)};
   margin-top: 5px;
   animation: ${animate.rotate360} 1s linear infinite;
 `

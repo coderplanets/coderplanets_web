@@ -7,8 +7,7 @@ export const Wrapper = styled.div`
   ${css.flex('align-end')};
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
-  width: 22px;
-  height: 22px;
+  ${css.size(22)};
   margin-right: 22px;
   margin-bottom: 4px;
 `

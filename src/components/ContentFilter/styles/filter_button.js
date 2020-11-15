@@ -21,8 +21,7 @@ export const ButtonWrapper = styled(Button)`
 `
 export const FilterIcon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-left: 5px;
   display: block;
   ${InnerBtnWrapper}:hover & {

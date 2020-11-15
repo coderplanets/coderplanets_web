@@ -32,15 +32,13 @@ export const BottomMsg = styled.div`
 
 export const CommonCenterArrowIcon = styled(Img)`
   fill: #196780;
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   display: block;
   transition: all 0.25s;
 `
 export const CommonBottomArrowIcon = styled(Img)`
   fill: #196780;
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
   margin-bottom: 3px;
 `

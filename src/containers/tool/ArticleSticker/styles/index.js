@@ -25,8 +25,7 @@ export const MainWrapper = styled.div`
   ${css.flexColumn('align-center')};
 `
 const Icon = styled(Img)`
-  width: 22px;
-  height: 22px;
+  ${css.size(22)};
   display: block;
   transition: all 0.25s;
   cursor: pointer;
@@ -46,8 +45,7 @@ export const Divider = styled.div`
 `
 export const LikeIcon = styled(Icon)`
   fill: #0c5473;
-  width: 22px;
-  height: 22px;
+  ${css.size(22)};
 
   &:hover {
     fill: ${theme('baseColor.red')};
@@ -64,8 +62,7 @@ export const CollectIcon = styled(Icon)`
 `
 export const ShareIcon = styled(Icon)`
   fill: #0c5473;
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-left: -1px;
 `
 export const Number = styled.div`

@@ -22,8 +22,7 @@ const color = {
 const Star = styled(Img)`
   position: absolute;
   fill: ${color.beam};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   display: ${({ active }) => (active ? 'block' : 'none')};
 `
 export const Star1 = styled(Star)`
@@ -36,8 +35,7 @@ export const Star1 = styled(Star)`
 export const Star2 = styled(Star)`
   top: 50px;
   left: -80px;
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   opacity: 0.8;
   animation: ${({ active }) =>
     active ? styledCss`${animate.jump} 5.5s linear infinite alternate` : ''};

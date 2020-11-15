@@ -13,8 +13,7 @@ export const LinkIcon = styled(Img)`
   fill: ${theme('thread.articleLink')};
   display: block;
   margin-right: 3px;
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   display: block;
 `
 export const LogoIcon = styled(Img)`

@@ -28,16 +28,14 @@ export const Header = styled.div`
 const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   display: block;
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-right: 10px;
 `
 export const FaqIcon = styled(Icon)`
   margin-top: -1px;
 `
 export const DemoIcon = styled(Icon)`
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   margin-top: -1px;
 `
 export const Title = styled.div`

@@ -7,8 +7,7 @@ export const Wrapper = styled.div`
 
   border: 1px dashed;
   margin-left: 2px;
-  width: 24px;
-  height: 24px;
+  ${css.size(24)};
   border-radius: 3px;
   border-color: ${theme('thread.articleDigest')};
   &:hover {

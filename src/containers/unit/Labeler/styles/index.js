@@ -14,8 +14,7 @@ export const LabelItem = styled.div`
 `
 export const LabelIcon = styled(Img)`
   fill: ${theme('editor.content')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   margin-right: 3px;
   display: block;
 

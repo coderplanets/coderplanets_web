@@ -118,8 +118,7 @@ export const TitleText = styled.span`
 export const GroupsIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-left: 8px;
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   margin-top: 5px;
   opacity: 0;
   &:hover {

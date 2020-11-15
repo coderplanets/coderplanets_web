@@ -25,7 +25,7 @@ export const TagItem = styled.div`
   }
 `
 export const TagDot = styled.div`
-  ${css.circle('12px')};
+  ${css.circle(12)};
   margin-right: 8px;
   margin-left: 3px;
   background-color: ${({ color }) => color};

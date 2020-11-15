@@ -34,7 +34,6 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const CloseIcon = styled(Img)`
   fill: ${theme('tagger.text')};
   display: block;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-left: 2px;
 `

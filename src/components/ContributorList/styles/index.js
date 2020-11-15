@@ -11,8 +11,7 @@ export const Wrapper = styled.div`
 export const AvatarLink = styled.a``
 
 export const Avatar = styled(Img)`
-  width: 25px;
-  height: 25px;
+  ${css.size(25)};
   border-radius: 3px;
   margin-right: 5px;
   margin-bottom: 5px;

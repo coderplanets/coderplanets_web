@@ -43,7 +43,7 @@ export const ArticleTitle = styled(HighlightLink)`
   margin-right: 4px;
 `
 export const AvatarIcon = styled(Img)`
-  ${css.circle('13px')};
+  ${css.circle(13)};
   margin-bottom: 2px;
   margin-right: 10px;
 `
@@ -56,7 +56,6 @@ export const UserName = styled(HighlightLink)`
   margin-right: 3px;
 `
 export const CommunityIcon = styled(Img)`
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
 `

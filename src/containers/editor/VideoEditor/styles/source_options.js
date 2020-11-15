@@ -20,8 +20,7 @@ export const Title = styled.div`
 export const Icon = styled(Img)`
   fill: ${({ active, activeColor }) =>
     active ? activeColor || theme('banner.title') : theme('banner.desc')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
   margin-right: 3px;
 `

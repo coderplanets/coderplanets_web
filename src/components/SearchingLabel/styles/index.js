@@ -8,8 +8,7 @@ export const Wrapper = styled.div`
 `
 export const LoadingIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 26px;
-  height: 26px;
+  ${css.size(26)};
   animation: ${animate.rotate360} 1s linear infinite;
   display: block;
   margin-right: 3px;

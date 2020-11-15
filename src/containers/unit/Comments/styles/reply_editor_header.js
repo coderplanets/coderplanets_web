@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   margin-right: 20px;
 `
 export const UserAvatar = styled.img`
-  ${css.circle('25px')};
+  ${css.circle(25)};
   margin-left: 3%;
   opacity: ${theme('avatarOpacity')};
 `
@@ -27,8 +27,7 @@ export const LeaveResponseUsername = styled.div`
 
 export const ReferToIcon = styled(Img)`
   fill: #b7cfd0;
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   margin-right: 5px;
   margin-top: 5px;
 `

@@ -17,8 +17,7 @@ export const Linker = styled.a`
 export const SocialIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   display: ${({ active }) => (active ? 'block' : 'none')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-right: 8px;
   opacity: 1;
 

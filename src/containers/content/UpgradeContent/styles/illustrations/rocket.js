@@ -61,8 +61,7 @@ export const Body = styled.div`
 `
 export const Window = styled.div`
   position: absolute;
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   border-radius: 100%;
   background-color: ${color.window};
   left: calc(50% - 22px);
@@ -82,8 +81,7 @@ export const GirlMarkWrapper = styled.div`
 `
 export const GirlIcon = styled(Img)`
   fill: ${color.pink};
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   display: block;
   transform: rotate(20deg);
 `

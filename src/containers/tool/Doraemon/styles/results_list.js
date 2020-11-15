@@ -11,8 +11,7 @@ export const Wrapper = styled.div`
 `
 export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   margin-top: 20px;
   animation: ${animate.rotate360} 1s linear infinite;
 `
@@ -127,8 +126,7 @@ export const HintEnter = styled(Img)`
   color: ${theme('shell.desc')};
   margin-top: 10px;
   margin-right: 1.5em;
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   transform: rotateX(180deg);
   fill: ${theme('shell.desc')};
 `
@@ -149,24 +147,21 @@ export const RepoStar = styled.div`
 `
 
 export const NodeSVGIcon = styled(Img)`
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 
 export const ThemeDot = styled.div`
-  ${css.circle('35px')};
+  ${css.circle(35)};
   background: ${({ bg }) => bg};
 `
 // TODO: rename -> PrefixIcon
 export const PrefixSVGIcon = styled(Img)`
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   display: block;
 `
 export const PrefixSearchIcon = styled(Img)`
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   fill: ${theme('shell.searchIcon')};
   margin-top: 5px;
 `

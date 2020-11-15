@@ -55,8 +55,7 @@ export const UpInfo = styled.div`
 `
 export const UpIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 16px;
-  height: 16px;
+  ${css.size(16)};
   display: block;
 `
 export const UpNumber = styled.div`
@@ -76,8 +75,7 @@ export const BuildWithWrapper = styled.div`
   ${css.flex('align-center')};
 `
 const BaseBuildIcon = styled(Img)`
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
 `
 export const TechIcon = styled(BaseBuildIcon)`

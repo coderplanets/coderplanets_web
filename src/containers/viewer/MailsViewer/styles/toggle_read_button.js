@@ -11,8 +11,7 @@ export const Wrapper = styled.div`
 `
 export const ToggleIcon = styled(Img)`
   fill: ${theme('banner.title')};
-  width: 25px;
-  height: 25px;
+  ${css.size(25)};
   margin-right: 5px;
   display: block;
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import HeaderMailSVG from '@/SvgIcons/HeaderMailSVG'
-import { theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -10,8 +10,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const HeaderMailIcon = styled(HeaderMailSVG)`
   fill: ${theme('header.fg')};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   display: block;
   cursor: pointer;
   margin-right: 12px;

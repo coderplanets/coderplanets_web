@@ -25,8 +25,7 @@ export const Block = styled.div`
 `
 export const Icon = styled(Img)`
   fill: #7d8f90;
-  width: 30px;
-  height: 30px;
+  ${css.size(30)};
   display: block;
   margin-bottom: 5px;
 `

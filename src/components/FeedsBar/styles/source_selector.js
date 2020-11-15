@@ -27,7 +27,7 @@ export const Block = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle('34px')};
+  ${css.circle(34)};
 `
 export const Title = styled.div`
   ${css.cutFrom('60px')};

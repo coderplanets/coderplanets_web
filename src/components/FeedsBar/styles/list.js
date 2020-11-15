@@ -20,11 +20,11 @@ export const Header = styled.div`
 `
 export const Icon = styled(Img)`
   display: block;
-  ${css.circle('13px')};
+  ${css.circle(13)};
   margin-right: 6px;
 `
 export const InfoIcon = styled(Img)`
-  ${css.circle('13px')};
+  ${css.circle(13)};
   display: block;
   fill: ${theme('thread.articleDigest')};
   margin-left: 5px;

@@ -19,8 +19,7 @@ export const BoxedLabel = styled(Label)`
   border-color: ${theme('button.primary')};
 `
 export const LabelIcon = styled(Img)`
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   fill: ${theme('banner.title')};
   display: block;
   &:hover {

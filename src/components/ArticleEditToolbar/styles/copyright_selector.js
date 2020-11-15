@@ -16,8 +16,7 @@ export const Selector = styled.div`
 `
 export const CheckIcon = styled(Img)`
   fill: ${theme('editor.content')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   margin-top: 2px;
   margin-left: 3px;
   visibility: ${({ active }) => (active ? 'visiable' : 'hidden')};
@@ -38,15 +37,13 @@ export const ReprintWrapper = styled.div`
 
 export const ReprintIcon = styled(Img)`
   fill: ${theme('editor.content')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-top: 3px;
   margin-right: 5px;
 `
 
 export const MoreIcon = styled(Img)`
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   margin-top: 3px;
   fill: ${theme('editor.placeholder')};
   &:hover {

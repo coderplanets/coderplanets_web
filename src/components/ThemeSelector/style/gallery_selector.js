@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
 `
 export const ThemeDot = styled(Dot)`
-  ${css.circle('20px')};
+  ${css.circle(20)};
   margin-top: 7px;
   margin-right: 0;
 

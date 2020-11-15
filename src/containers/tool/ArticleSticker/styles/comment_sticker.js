@@ -28,7 +28,7 @@ export const UsersWrapper = styled.div`
   flex-wrap: wrap;
 `
 export const Avatar = styled(Img)`
-  ${css.circle('20px')};
+  ${css.circle(20)};
   margin-right: 6px;
   margin-bottom: 10px;
   opacity: 0.8;
@@ -38,14 +38,13 @@ export const PopInfo = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const MoreUserWrapper = styled.div`
-  ${css.circle('20px')};
+  ${css.circle(20)};
   ${css.flex('align-both')};
   background: #0f4251;
 `
 export const MoreIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   display: block;
 `
 export const Divider = styled.div`

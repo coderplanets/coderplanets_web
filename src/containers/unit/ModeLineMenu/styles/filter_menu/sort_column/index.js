@@ -40,8 +40,7 @@ export const OpenedIcon = styled(Img)`
 `
 export const ClosedIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
   margin-top: -1px;
   display: block;
   transform: rotate(90deg);

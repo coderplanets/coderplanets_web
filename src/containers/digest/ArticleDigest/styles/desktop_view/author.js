@@ -12,7 +12,7 @@ export const Wrapper = styled.nav`
   `} */
 `
 export const Avatar = styled(Img)`
-  ${css.circle('36px')};
+  ${css.circle(36)};
 `
 export const Name = styled.div`
   color: ${theme('thread.articleDigest')};

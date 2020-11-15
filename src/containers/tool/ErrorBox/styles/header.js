@@ -9,8 +9,7 @@ export const Wrapper = styled.div`
 `
 export const ErrorIcon = styled(Img)`
   fill: ${theme('baseColor.red')};
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   display: block;
   margin-right: 8px;
   animation: ${animate.breath} 1.5s linear infinite;

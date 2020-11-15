@@ -59,8 +59,7 @@ export const AddBtn = styled.div`
 
 export const LabelIcon = styled(Img)`
   fill: ${theme('form.text')};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   display: block;
   margin-right: 6px;
 `

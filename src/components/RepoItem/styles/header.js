@@ -17,7 +17,7 @@ export const Title = styled.div`
   }
 `
 export const LangDot = styled.div`
-  ${css.circle('12px')};
+  ${css.circle(12)};
   background-color: ${({ color }) => color};
   margin-right: 6px;
 `
@@ -75,8 +75,7 @@ const StatusIcon = styled(Img)`
 `
 export const StarIcon = styled(StatusIcon)`
   margin-right: 5px;
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
 `
 export const ForkIcon = styled(StatusIcon)`
   margin-top: 2px;

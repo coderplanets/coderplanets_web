@@ -25,7 +25,7 @@ export const SelectIcon = styled(Img)`
   height: 11px;
 `
 export const UnSelectDot = styled.div`
-  ${css.circle('11px')};
+  ${css.circle(11)};
   margin-top: -1px;
   background: #04252d;
   border: 1px solid;

@@ -33,8 +33,7 @@ export const SearchInput = styled(Input)`
 `
 export const SearchIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   display: block;
   margin-left: 8px;
   &:hover {

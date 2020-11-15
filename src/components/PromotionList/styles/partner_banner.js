@@ -19,8 +19,7 @@ export const ItemWrapper = styled.div`
   transition-delay: 0.2s;
 `
 export const Logo = styled(Img)`
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   border-radius: 5px;
   display: block;
   /* TODO: for dark themes */

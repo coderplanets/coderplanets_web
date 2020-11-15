@@ -14,8 +14,7 @@ export const ThemeIconWrapper = styled.div`
   margin-right: 16px;
 `
 export const Icon = styled(CommunityFaceLogo)`
-  width: 35px;
-  height: 35px;
+  ${css.size(35)};
   border-radius: ${({ round }) => (round ? '100%' : '4px')};
   margin-left: 4px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
@@ -24,7 +23,7 @@ export const Icon = styled(CommunityFaceLogo)`
   `};
 `
 export const ThemeDot = styled.div`
-  ${css.circle('35px')};
+  ${css.circle(35)};
   background: ${({ bg }) => bg};
 `
 export const DoraemonIcon = styled(Img)`

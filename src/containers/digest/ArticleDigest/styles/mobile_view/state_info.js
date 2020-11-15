@@ -31,8 +31,7 @@ export const Text = styled(ViewsText)`
 `
 const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
 `
 export const ViewdIcon = styled(Icon)``
@@ -40,14 +39,13 @@ export const CommentIcon = styled(Icon)``
 export const LikeIcon = styled(Icon)`
   fill: ${({ red }) =>
     red ? theme('baseColor.red') : theme('thread.articleDigest')};
-  width: 12px;
-  height: 12px;
+  ${css.size(12)};
 `
 export const AuthorWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const Avatar = styled(Img)`
-  ${css.circle('14px')};
+  ${css.circle(14)};
 `
 export const Nickname = styled.div`
   font-size: 12px;

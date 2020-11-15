@@ -32,8 +32,7 @@ export const Selectors = styled.div`
 export const By = styled.div`
   ${css.flex('align-both')};
 
-  width: 40px;
-  height: 40px;
+  ${css.size(40)};
   font-size: 1.6rem;
   color: ${theme('font')};
   margin-left: -10px;
@@ -41,7 +40,7 @@ export const By = styled.div`
 
 export const Circle = styled.div`
   ${css.flex('align-both')};
-  ${css.circle('38px')};
+  ${css.circle(38)};
   border: 1px solid;
   border-color: ${theme('font')};
   margin-right: 10px;

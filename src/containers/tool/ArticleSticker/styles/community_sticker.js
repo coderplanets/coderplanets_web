@@ -9,8 +9,7 @@ export const ItemWrapper = styled.div`
   width: 80px;
 `
 const Icon = styled(Img)`
-  width: 22px;
-  height: 22px;
+  ${css.size(22)};
   display: block;
   transition: all 0.25s;
   cursor: pointer;

@@ -13,8 +13,7 @@ export const LogoutBtn = styled.div`
 `
 export const LogoutIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   display: block;
   margin-top: -2px;
   ${LogoutBtn}:hover & {
@@ -39,8 +38,7 @@ export const EditWrapper = styled.div`
 `
 export const EditIcon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   cursor: pointer;
   margin-left: 5px;
   margin-top: 4px;

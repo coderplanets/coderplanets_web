@@ -12,7 +12,7 @@ export const TitlesWrapper = styled.div`
   font-size: 1.3rem;
 `
 export const LanguageDot = styled.div`
-  ${css.circle('15px')};
+  ${css.circle(15)};
   margin-right: 8px;
   background-color: ${({ color }) => color};
 `

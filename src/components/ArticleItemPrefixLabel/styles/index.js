@@ -20,8 +20,7 @@ export const ReadedLabel = styled.div`
 export const PinIcon = styled(PinSVG)`
   fill: ${theme('thread.articleDigest')};
   position: absolute;
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   top: ${({ top }) => pixelAdd(top, -4)};
   left: -35px;
   opacity: 0.8;

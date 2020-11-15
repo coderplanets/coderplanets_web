@@ -31,8 +31,7 @@ export const Text = styled(ViewsText)`
 `
 const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
   transition: fill 0.25s;
 `

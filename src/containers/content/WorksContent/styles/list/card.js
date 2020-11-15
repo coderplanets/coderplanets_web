@@ -75,8 +75,7 @@ export const BuildWithWrapper = styled.div`
   margin-top: -4px;
 `
 const BaseBuildIcon = styled(Img)`
-  width: 14px;
-  height: 14px;
+  ${css.size(14)};
   display: block;
 `
 export const TechIcon = styled(BaseBuildIcon)`

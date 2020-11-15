@@ -11,12 +11,11 @@ export const AvatarWrapper = styled.div`
   cursor: pointer;
 `
 export const Avatar = styled(Img)`
-  ${css.circle('36px')};
+  ${css.circle(36)};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
   margin-top: 2px;
 `
 export const SmallAvatar = styled(Avatar)`
-  width: 35px;
-  height: 35px;
+  ${css.size(35)};
 `

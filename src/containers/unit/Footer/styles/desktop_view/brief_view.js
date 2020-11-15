@@ -28,8 +28,7 @@ export const CenterLogosWrapper = styled.div`
   margin-right: 70px;
 `
 export const SiteLogo = styled(CommunityFaceLogo)`
-  width: 20px;
-  height: 20px;
+  ${css.size(20)};
   display: block;
   margin-top: -2px;
 `
@@ -38,8 +37,7 @@ export const LogoDivider = styled(DotDivider)`
 `
 export const GithubLogo = styled(Img)`
   fill: ${theme('footer.text')};
-  width: 18px;
-  height: 18px;
+  ${css.size(18)};
   display: block;
 `
 const Link = styled.a`
