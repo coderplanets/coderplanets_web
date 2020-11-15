@@ -56,7 +56,8 @@ const UserBrief = ({ user, view, onEdit, onLogout, viewingType }) => {
         />
         <Br top="30px" />
         <ExtraInfo user={user} />
-        <Divider />
+
+        {user.editableCommunities.length > 0 && <Divider />}
         <CommunityEditorInfo user={user} />
         <Divider />
         <UserDesc>
