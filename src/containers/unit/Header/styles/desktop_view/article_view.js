@@ -16,6 +16,10 @@ export const InnerWrapper = styled.div`
   height: 33px;
   align-items: center;
 
+  ${css.media.desktopL`
+    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_DESKTOPL};
+  `}
+
   ${css.media.laptopL`
     margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_LAPTOPL};
   `}

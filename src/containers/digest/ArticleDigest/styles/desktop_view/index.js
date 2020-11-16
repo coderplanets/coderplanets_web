@@ -25,6 +25,9 @@ export const BannerContent = styled.div`
   width: 100%;
   margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
 
+  ${css.media.desktopL`
+    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_DESKTOPL};
+  `}
   ${css.media.laptopL`
     margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_LAPTOPL};
   `}

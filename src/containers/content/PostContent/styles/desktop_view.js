@@ -21,6 +21,9 @@ export const InnerWrapper = styled.div`
   padding-left: 0;
   padding-right: 0;
 
+  ${css.media.desktopL`
+    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_DESKTOPL};
+  `}
   ${css.media.laptopL`
     margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_LAPTOPL};
   `}
