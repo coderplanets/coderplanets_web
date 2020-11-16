@@ -4,13 +4,15 @@
  *
  */
 
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import T from 'prop-types'
-import { merge } from 'ramda'
+import { merge, equals } from 'ramda'
 
 import { buildLog } from '@/utils'
 
 import { SpaceGrow } from '@/components/Common'
+
+import Header from './Header'
 import Filter from './Filter'
 import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 
@@ -30,6 +32,7 @@ const initActiveMap = (items) => {
 }
 
 const FiltersMenu = ({
+  title,
   items,
   activeId,
   noFilter,
@@ -42,8 +45,17 @@ const FiltersMenu = ({
   const [expandMenuId, setExpandMenuId] = useState(activeId)
   const [activeMap, setActiveMap] = useState(initActiveMap(items))
 
+  const handleReset = useCallback(() => {
+    setActiveMap(initActiveMap(items))
+  }, [items])
+
   return (
     <Wrapper>
+      <Header
+        title={title}
+        showReset={!equals(initActiveMap(items), activeMap)}
+        reset={handleReset}
+      />
       {items.map((item, index) => (
         <ItemWrapper
           key={item.id}
@@ -97,6 +109,7 @@ const FiltersMenu = ({
 }
 
 FiltersMenu.propTypes = {
+  title: T.string,
   items: T.arrayOf(
     T.shape({
       id: T.string,
@@ -119,6 +132,7 @@ FiltersMenu.propTypes = {
 }
 
 FiltersMenu.defaultProps = {
+  title: '',
   activeId: null,
   noFilter: false,
   onItemClick: log,

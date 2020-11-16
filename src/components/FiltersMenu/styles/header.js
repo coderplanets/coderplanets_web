@@ -8,7 +8,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 }))`
   ${css.flex('align-center', 'justify-between')}
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 `
 export const Title = styled.div`
   position: relative;
@@ -33,17 +33,6 @@ export const OperatorsWrapper = styled.div`
 `
 export const Operator = styled.div`
   display: ${({ show }) => (show ? 'block' : 'none')};
-`
-export const BackIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(12)};
-
-  &:hover {
-    fill: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
-
-  transition: all 0.2s;
 `
 export const ResetIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
