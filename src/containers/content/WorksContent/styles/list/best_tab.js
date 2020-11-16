@@ -15,7 +15,7 @@ export const ItemWrapper = styled.div`
   background-color: ${({ active }) => (active ? '#033844' : 'transparent')};
   margin-right: 10px;
   border-radius: 10px;
-  padding: ${({ active }) => (active ? '3px 12px' : '3px 8px')};
+  padding: ${({ active }) => (active ? '2px 12px' : '2px 8px')};
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
@@ -28,7 +28,7 @@ export const Text = styled.div`
   opacity: ${({ active }) => (active ? 1 : 0.6)};
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  font-size: 13px;
+  font-size: 12px;
 
   ${ItemWrapper}:hover & {
     color: ${theme('thread.articleTitle')};

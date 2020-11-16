@@ -38,3 +38,6 @@ export const PublishBtnWrapper = styled.div`
   margin-left: 2px;
   margin-right: 2px;
 `
+export const Footer = styled.div`
+  ${css.flex('justify-center')};
+`

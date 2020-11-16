@@ -30,9 +30,8 @@ const FilterBar = ({ activeView }) => {
         onClick={changeView}
       />
       <Br bottom="30px" />
-      {/* <Title>类别筛选</Title> */}
       <FilterWrapper>
-        <NaviMenu joinMode={false} withDivider={false} />
+        <NaviMenu title="类别筛选" joinMode={false} withDivider={false} />
       </FilterWrapper>
       <Br bottom="40px" />
       <Title>高级搜索</Title>
