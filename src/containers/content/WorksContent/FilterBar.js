@@ -6,7 +6,7 @@ import FiltersMenu from '@/components/FiltersMenu'
 import NaviMenu from '@/components/NaviMenu'
 
 import fakeFilterItems from './fakeFilterItems'
-import { Wrapper, Title, FilterWrapper } from './styles/filter_bar'
+import { Wrapper, FilterWrapper } from './styles/filter_bar'
 
 import { changeView } from './logic'
 
@@ -34,9 +34,13 @@ const FilterBar = ({ activeView }) => {
         <NaviMenu title="类别筛选" joinMode={false} withDivider={false} />
       </FilterWrapper>
       <Br bottom="40px" />
-      <Title>高级搜索</Title>
       <FilterWrapper>
-        <FiltersMenu items={fakeFilterItems} withDivider revert />
+        <FiltersMenu
+          title="高级搜索"
+          items={fakeFilterItems}
+          withDivider
+          revert
+        />
       </FilterWrapper>
     </Wrapper>
   )
