@@ -9,7 +9,6 @@ import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 
-import GoBack from './GoBack'
 import Dashboard from './Dashboard'
 import Catalog from './Catalog'
 import ChildrenFilter from '../ChildrenFilter'
@@ -35,12 +34,11 @@ const Content = ({ view, ...restProps }) => {
   }
 }
 
-const ChildrenMenu = ({ goBack, parentMenuItem, joinMode, ...restProps }) => {
+const ChildrenMenu = ({ parentMenuItem, joinMode, ...restProps }) => {
   const [dashView, setDashView] = useState('catalog')
 
   return (
     <Wrapper>
-      <GoBack goBack={goBack} />
       <Dashboard
         joinMode={joinMode}
         view={dashView}
@@ -57,7 +55,6 @@ ChildrenMenu.propTypes = {
   expandChildId: T.string.isRequired,
   onExpand: T.func.isRequired,
   onSelect: T.func.isRequired,
-  goBack: T.func.isRequired,
   menuItems: T.arrayOf(T.any).isRequired,
   parentMenuItem: T.any.isRequired, // TODO
   joinMode: T.bool.isRequired,

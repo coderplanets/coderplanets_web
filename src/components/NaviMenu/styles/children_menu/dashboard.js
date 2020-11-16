@@ -22,7 +22,8 @@ export const Wrapper = styled.div`
   border-radius: 4px;
 `
 export const Title = styled.div`
-  margin-left: ${({ joinMode }) => (joinMode ? '10px' : '6px')};
+  margin-left: ${({ joinMode }) => (joinMode ? '10px' : '4px')};
+  font-size: 13px;
 `
 export const Footer = styled.div`
   ${css.flex()};

@@ -10,6 +10,7 @@ import { findIndex } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
 
+import Header from './Header'
 import RootMenu from './RootMenu'
 import ChildrenMenu from './ChildrenMenu'
 
@@ -30,6 +31,7 @@ const getMenuInfo = (items, parentMenuId) => {
 }
 
 const NaviMenu = ({
+  title,
   items,
   onSelect,
   joinMode,
@@ -53,6 +55,12 @@ const NaviMenu = ({
 
   // handlers
   const handleGoBack = useCallback(() => setMenuMode('root'), [])
+  const handleReset = useCallback(() => {
+    setMenuMode('root')
+    setChildMenuId('')
+    setActiveParentMenuId('')
+  }, [])
+
   const handleRootSelect = useCallback(
     (item) => {
       setParentMenuId(item.id)
@@ -81,9 +89,18 @@ const NaviMenu = ({
 
   const handleMenuExpand = useCallback((item) => setExpandChildId(item.id), [])
 
+  const showRootMenu = menuMode === 'root' || nilOrEmpty(childMenuItems)
+
   return (
     <Wrapper testId={testId}>
-      {menuMode === 'root' || nilOrEmpty(childMenuItems) ? (
+      <Header
+        title={title}
+        showBack={!showRootMenu}
+        showReset={activeParentMenuId !== ''}
+        goBack={handleGoBack}
+        reset={handleReset}
+      />
+      {showRootMenu ? (
         <RootMenu
           menuItems={items}
           onSelect={handleRootSelect}
@@ -104,7 +121,6 @@ const NaviMenu = ({
           onSelect={handleChildSelect}
           parentMenuItem={items[parentMenuIndex]}
           menuItems={childMenuItems}
-          goBack={handleGoBack}
           joinMode={joinMode}
         />
       )}
@@ -113,6 +129,7 @@ const NaviMenu = ({
 }
 
 NaviMenu.propTypes = {
+  title: T.string,
   onSelect: T.func,
   joinMode: T.bool,
   withDivider: T.bool,
@@ -158,6 +175,7 @@ NaviMenu.defaultProps = {
   onShowMore: null,
   pinNumberHoverType: 'pin',
   testId: 'navi-menu',
+  title: '',
 }
 
 export default React.memo(NaviMenu)
