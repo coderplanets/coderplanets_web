@@ -37,7 +37,7 @@ const Trending = () => {
           </ArrowButton>
         </More>
       </Header>
-      <Card noBorder />
+      <Card withBg />
     </Wrapper>
   )
 }

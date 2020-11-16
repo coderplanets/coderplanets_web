@@ -4,25 +4,27 @@ import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  background: #0b2f3a;
+  background: ${({ withBg }) => (withBg ? '#0d3440' : 'transparent')};
+
   position: relative;
   ${css.flex('align-center')};
-  height: 125px;
+  height: 118px;
   width: 100%;
-  padding: 12px 20px;
+  padding: 6px 20px;
   padding-right: 25px;
-  padding-top: 0;
-  border-bottom: ${({ noBorder }) => (!noBorder ? '1px solid' : 'none')};
-  border-bottom-color: #0b4152;
-  border-radius: 5px;
+  border-radius: 8px;
+
+  border-bottom: 1px solid;
+  border-bottom-color: #0b3b4a;
+
   &:hover {
-    background: #08333e;
+    background: #03343f;
+    border-bottom-color: #03343f;
   }
   :last-child {
     border-bottom: none;
   }
   transition: all 0.25s;
-  /* border: 1px solid tomato; */
 `
 export const IntroImg = styled(Img)`
   width: 70px;

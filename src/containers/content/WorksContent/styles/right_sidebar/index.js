@@ -8,7 +8,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 }))`
   ${css.flexColumn()};
   width: 216px;
-  margin-left: 46px;
+  margin-left: 40px;
   color: ${theme('thread.articleDigest')};
 `
 export const SubDesc = styled.div`
@@ -37,4 +37,7 @@ export const PublishIcon = styled(Img)`
 export const PublishBtnWrapper = styled.div`
   margin-left: 2px;
   margin-right: 2px;
+`
+export const Footer = styled.div`
+  ${css.flex('justify-center')};
 `

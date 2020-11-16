@@ -14,6 +14,7 @@ export const OrSignBase = styled.div`
   border-radius: 100%;
   z-index: 1;
   ${css.size(16)};
+  text-align: center;
 `
 
 export const holder = 1

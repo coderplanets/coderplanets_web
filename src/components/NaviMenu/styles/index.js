@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
+const activeColor = '#009C9E'
+
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   width: 140px;
   margin-right: 25px;
 `
-const activeColor = '#009C9E'
-
 export const Item = styled.div`
   ${css.flex('justify-end')};
   fill: ${theme('thread.articleDigest')};

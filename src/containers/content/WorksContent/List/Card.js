@@ -22,9 +22,9 @@ import {
   GithubIcon,
 } from '../styles/list/card'
 
-const Card = ({ noBorder }) => {
+const Card = ({ withBg }) => {
   return (
-    <Wrapper noBorder={noBorder}>
+    <Wrapper withBg={withBg}>
       <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
       <IntroWrapper>
         <Header>

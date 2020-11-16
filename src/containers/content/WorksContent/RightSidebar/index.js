@@ -16,6 +16,7 @@ import {
   Divider,
   PublishIcon,
   PublishBtnWrapper,
+  Footer,
 } from '../styles/right_sidebar/index'
 
 const options = [
@@ -37,7 +38,7 @@ const RightSidebar = () => {
   return (
     <Wrapper>
       <Linkers />
-      <Divider top="18px" bottom="30px" />
+      <Divider top="18px" bottom="22px" />
       <PublishBtnWrapper>
         <DropdownButton
           type="primary"
@@ -61,7 +62,7 @@ const RightSidebar = () => {
         desc="定期推送优秀产品介绍、榜单等，可随时取消，欢迎订阅。"
       />
       <Divider />
-      <div>关于，举报，建议</div>
+      <Footer>关于，举报，建议</Footer>
     </Wrapper>
   )
 }

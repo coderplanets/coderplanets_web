@@ -22,7 +22,7 @@ import {
   Wrapper,
   LeftSidebarWrapper,
   ContentWrapper,
-  InnerContent,
+  MainContent,
   PagiInfo,
   PagiInfoTitle,
 } from './styles'
@@ -77,7 +77,7 @@ const WorksContentContainer = ({ worksContent: store, metric }) => {
           <Brand />
           <FilterBar activeView={activeView} />
         </LeftSidebarWrapper>
-        <InnerContent>
+        <MainContent>
           {activeView === 'works' ? <List /> : <MileStone />}
           <Pagi margin={{ top: '60px', bottom: '80px' }}>
             <PagiInfo>
@@ -90,7 +90,7 @@ const WorksContentContainer = ({ worksContent: store, metric }) => {
               />
             </PagiInfo>
           </Pagi>
-        </InnerContent>
+        </MainContent>
         <RightSidebar />
       </ContentWrapper>
     </Wrapper>
