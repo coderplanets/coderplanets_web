@@ -17,6 +17,10 @@ export const Wrapper = styled.div.attrs((props) => ({
   opacity: ${({ show }) => (show ? '1' : '0')}; */
   transition: opacity 0.2s;
 
+  ${css.media.desktopL`
+    left: 22%;
+  `}
+
   ${css.media.laptopL`
     left: 12%;
   `}
