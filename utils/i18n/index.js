@@ -19,7 +19,7 @@ const I18nDict = {
   group: '组织',
   company: '公司',
   user: '用户',
-  profile: '轮廓',
+  profile: '主页',
   // bill
   done: '完成',
   pending: '处理中',
