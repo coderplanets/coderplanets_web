@@ -9,7 +9,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   ${css.flex('align-end', 'justify-between')};
   width: 100%;
   color: ${theme('thread.articleDigest')};
-  min-height: 168px;
+  margin-top: 18px;
 `
 export const LinkCardWrapper = styled.div`
   position: relative;

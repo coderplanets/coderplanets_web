@@ -8,11 +8,4 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleTitle')};
   border-radius: 4px;
 `
-export const Divider = styled.div`
-  height: 1px;
-  width: 100%;
-  background: #004353;
-  margin-top: 26px;
-  margin-bottom: 26px;
-  opacity: 0.6;
-`
+export const holder = 1

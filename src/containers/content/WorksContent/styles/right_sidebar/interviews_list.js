@@ -6,7 +6,6 @@ import Img from '@/Img'
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  /* ${css.flex('align-start')}; */
   width: 100%;
   min-height: 200px;
   margin-top: 18px;

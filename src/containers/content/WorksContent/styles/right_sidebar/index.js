@@ -8,7 +8,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 }))`
   ${css.flexColumn()};
   width: 216px;
-  margin-left: 46px;
+  margin-left: 40px;
   color: ${theme('thread.articleDigest')};
 `
 export const SubDesc = styled.div`

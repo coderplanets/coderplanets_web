@@ -38,7 +38,7 @@ const RightSidebar = () => {
   return (
     <Wrapper>
       <Linkers />
-      <Divider top="18px" bottom="30px" />
+      <Divider top="18px" bottom="22px" />
       <PublishBtnWrapper>
         <DropdownButton
           type="primary"
