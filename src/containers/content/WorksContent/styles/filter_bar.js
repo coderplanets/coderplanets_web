@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, theme } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
@@ -11,12 +11,4 @@ export const Wrapper = styled.div`
 export const FilterWrapper = styled.div`
   /* border: 1px solid #0a4253; */
   /* border-radius: 5px; */
-`
-export const Title = styled.div`
-  font-size: 14px;
-  color: ${theme('thread.articleTitle')};
-  font-weight: bolder;
-  margin-bottom: 8px;
-  text-align: left;
-  margin-left: 6px;
 `
