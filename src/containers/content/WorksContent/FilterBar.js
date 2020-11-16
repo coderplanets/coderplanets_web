@@ -4,7 +4,6 @@ import { Br } from '@/components/Common'
 import { OrButton } from '@/components/Buttons'
 import FiltersMenu from '@/components/FiltersMenu'
 import NaviMenu from '@/components/NaviMenu'
-import SideFooter from './SideFooter'
 
 import fakeFilterItems from './fakeFilterItems'
 import { Wrapper, Title, FilterWrapper } from './styles/filter_bar'
@@ -31,16 +30,15 @@ const FilterBar = ({ activeView }) => {
         onClick={changeView}
       />
       <Br bottom="30px" />
-      <Title>综合筛选</Title>
-      <FilterWrapper>
-        <FiltersMenu items={fakeFilterItems} withDivider revert />
-      </FilterWrapper>
-      <Br bottom="30px" />
       <Title>类别筛选</Title>
       <FilterWrapper>
         <NaviMenu joinMode={false} withDivider={false} />
       </FilterWrapper>
-      <SideFooter />
+      <Br bottom="40px" />
+      <Title>高级搜索</Title>
+      <FilterWrapper>
+        <FiltersMenu items={fakeFilterItems} withDivider revert />
+      </FilterWrapper>
     </Wrapper>
   )
 }

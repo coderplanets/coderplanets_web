@@ -3,7 +3,7 @@ import { ICON_CMD } from '@/config'
 const filtersItems = [
   {
     id: '0',
-    title: '流行趋势',
+    title: '技术栈',
     icon: `${ICON_CMD}/navi/location.svg`,
 
     options: [
@@ -49,26 +49,26 @@ const filtersItems = [
       },
     ],
   },
-  {
-    id: '1',
-    title: '排 序',
-    icon: `${ICON_CMD}/navi/topic.svg`,
+  // {
+  //   id: '1',
+  //   title: '排 序',
+  //   icon: `${ICON_CMD}/navi/topic.svg`,
 
-    options: [
-      {
-        id: '0',
-        title: '全部',
-      },
-      {
-        id: '1',
-        title: '最新发布',
-      },
-      {
-        id: '2',
-        title: '浏览最多',
-      },
-    ],
-  },
+  //   options: [
+  //     {
+  //       id: '0',
+  //       title: '全部',
+  //     },
+  //     {
+  //       id: '1',
+  //       title: '最新发布',
+  //     },
+  //     {
+  //       id: '2',
+  //       title: '浏览最多',
+  //     },
+  //   ],
+  // },
 ]
 
 export default filtersItems
