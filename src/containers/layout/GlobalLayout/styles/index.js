@@ -8,8 +8,18 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flex('justify-center')};
   background-color: ${theme('spaceBg')};
-  background-image: url(${ASSETS_ENDPOINT}/space-background.svg);
-  background-attachment: fixed;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url(${ASSETS_ENDPOINT}/space-background.svg);
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+  }
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn()};
