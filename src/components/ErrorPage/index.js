@@ -6,10 +6,17 @@
 
 import React from 'react'
 import T from 'prop-types'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { values } from 'ramda'
 
-import { ICON_CMD } from '@/config'
-
+import { METRIC } from '@/constant'
+import { ICON_BASE } from '@/config'
 import { buildLog } from '@/utils'
+
+import SpinPlanet from './SpinPlanet'
+import CodeSnippets from './CodeSnippets'
+
 import NotFoundMessage from './NotFoundMessage'
 import ErrorDesc from './ErrorDesc'
 
@@ -20,49 +27,58 @@ import {
   TextWrapper,
   HintTitle,
   LogoWrapper,
-  ErrorDivider,
-  ErrorNumber,
-  Error404Icon,
-  CPSMdLogo,
+  SiteLogo,
+  SiteTitle,
   FooterWrapper,
 } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ErrorPage:index')
 
-const ErrorPage = ({ errorCode, page, target }) => (
-  <Wrapper>
-    <LogoWrapper>
-      <CPSMdLogo src={`${ICON_CMD}/cps_logo_md.png`} />
-    </LogoWrapper>
-    <HintWrapper>
-      <IconsWrapper>
-        <Error404Icon />
-        <ErrorDivider />
-        <ErrorNumber>{errorCode}</ErrorNumber>
-      </IconsWrapper>
-      <TextWrapper>
-        {errorCode === 404 ? (
-          <NotFoundMessage page={page} target={target} />
-        ) : (
-          <HintTitle>服务器内部发生错误</HintTitle>
-        )}
-        <ErrorDesc errorCode={errorCode} />
-      </TextWrapper>
-    </HintWrapper>
-    <FooterWrapper />
-  </Wrapper>
-)
+const ErrorPage = ({ testId, errorCode, metric, target }) => {
+  const router = useRouter()
+
+  return (
+    <Wrapper testId={testId}>
+      <Link href="/" passHref>
+        <LogoWrapper testId="site-logo">
+          <SiteLogo src={`${ICON_BASE}/site_logo.svg`} />
+          <SiteTitle>CoderPlanets</SiteTitle>
+        </LogoWrapper>
+      </Link>
+
+      {/* <SpinPlanet /> */}
+      <HintWrapper>
+        <IconsWrapper>
+          <SpinPlanet />
+          <CodeSnippets errorCode={errorCode} path={target || router.asPath} />
+        </IconsWrapper>
+        <TextWrapper>
+          {/** TODO:   */}
+          {errorCode === 404 ? (
+            <NotFoundMessage metric={metric} path={target || router.asPath} />
+          ) : (
+            <HintTitle>服务器发生错误</HintTitle>
+          )}
+          <ErrorDesc errorCode={errorCode} />
+        </TextWrapper>
+      </HintWrapper>
+      <FooterWrapper />
+    </Wrapper>
+  )
+}
 
 ErrorPage.propTypes = {
-  errorCode: T.number,
-  page: T.string,
+  testId: T.string,
+  errorCode: T.oneOf([404, 500]),
+  metric: T.oneOf(values(METRIC)),
   target: T.string,
 }
 
 ErrorPage.defaultProps = {
+  testId: 'error-page',
   errorCode: 404,
-  page: '',
+  metric: METRIC.COMMUNITY,
   target: '',
 }
 

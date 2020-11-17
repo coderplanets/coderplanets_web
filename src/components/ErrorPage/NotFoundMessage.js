@@ -1,37 +1,28 @@
 import React from 'react'
 import { isEmpty } from 'ramda'
 
+import { METRIC, ROUTE } from '@/constant'
 import { ISSUE_ADDR } from '@/config'
 import { HintTitle, IssueLink } from './styles'
 
-const NotFoundMessage = ({ page, target }) => {
-  switch (page) {
-    case 'user':
+const NotFoundMessage = ({ metric, path }) => {
+  switch (metric) {
+    case METRIC.USER:
       return (
-        <HintTitle>
+        <HintTitle testId="user-error-title">
           未找到该用户
-          {!isEmpty(target) && <span>: {target}</span>}
+          {!isEmpty(path) && <span>: {path.split(`/${ROUTE.USER}/`)[1]}</span>}
         </HintTitle>
       )
 
-    case 'post':
-      return <HintTitle>未找到该帖子</HintTitle>
+    case METRIC.ARTICLE:
+      return <HintTitle testId="article-error-title">未找到该帖子</HintTitle>
 
-    case 'job':
-      return <HintTitle>未找到该招聘内容</HintTitle>
-
-    case 'repo':
-      return <HintTitle>未找到该仓库</HintTitle>
-
-    case 'video':
-      return <HintTitle>未找到该视频内容</HintTitle>
-
-    case 'community':
+    case METRIC.COMMUNITY:
       return (
-        <HintTitle>
+        <HintTitle testId="community-error-title">
           未找到社区
-          {!isEmpty(target) && <span>: {target}</span>},
-          如果你觉得该社区很重要，欢迎
+          {!isEmpty(path) && <span>: {path}</span>}, 欢迎
           <IssueLink
             href={`${ISSUE_ADDR}/280`}
             rel="noopener noreferrer"
@@ -39,12 +30,11 @@ const NotFoundMessage = ({ page, target }) => {
           >
             参与创建
           </IssueLink>
-          !
         </HintTitle>
       )
 
     default:
-      return <HintTitle>页面未找到</HintTitle>
+      return <HintTitle testId="not-found-error-title">未找到该页面</HintTitle>
   }
 }
 

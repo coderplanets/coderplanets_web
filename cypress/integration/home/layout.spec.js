@@ -4,7 +4,7 @@ describe('home page: ', () => {
     cy.visit('/home/posts')
   })
 
-  it.only('basic layout should be visible', () => {
+  it('basic layout should be visible', () => {
     cy.id('header').should('be.visible')
     cy.id('header-search').should('be.visible')
     cy.id('header-search-icon').should('be.visible')

@@ -59,7 +59,14 @@ export const getServerSideProps = async (props) => {
     if (ssrAmbulance.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
     } else {
-      return { errorCode: 404 }
+      return {
+        props: {
+          errorCode: 404,
+          viewing: {
+            user: {},
+          },
+        },
+      }
     }
   }
 
@@ -88,6 +95,7 @@ const UserPage = (props) => {
   const store = useStore(props)
 
   const { viewing, errorCode } = props
+
   const { user } = viewing
 
   const seoConfig = {
