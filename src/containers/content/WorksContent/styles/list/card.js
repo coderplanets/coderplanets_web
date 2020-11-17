@@ -17,10 +17,6 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid;
   border-bottom-color: #0b3b4a;
 
-  &:hover {
-    background: #03343f;
-    border-bottom-color: #03343f;
-  }
   :last-child {
     border-bottom: none;
   }
@@ -42,23 +38,20 @@ export const Header = styled.div`
   ${css.flex('justify-between', 'align-start')};
   width: 100%;
 `
-export const Title = styled.div`
+export const Title = styled.a`
+  color: ${theme('thread.articleTitle')};
   font-size: 16px;
   font-weight: bold;
-  color: ${theme('thread.articleTitle')};
+
+  &:hover {
+    ${css.threadTitleHover()};
+  }
 `
 export const TypeTags = styled.div`
   ${css.flex('align-center')};
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
   height: 32px;
-`
-export const BodyText = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 13px;
-  ${css.cutFrom('380px')};
-  margin-top: 5px;
-  margin-bottom: 15px;
 `
 export const FooterWrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};

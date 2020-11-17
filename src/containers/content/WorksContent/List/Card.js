@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ICON, ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@/config'
 
+import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
 import IconText from '@/components/IconText'
@@ -14,7 +15,6 @@ import {
   IntroWrapper,
   Header,
   Title,
-  BodyText,
   FooterWrapper,
   BuildWithWrapper,
   TechIcon,
@@ -30,9 +30,9 @@ const Card = ({ withBg }) => {
         <Header>
           <div>
             <Title>coderplanets</Title>
-            <BodyText>
+            <DigestSentence top="5px" bottom="15px">
               可能是最性感的开发者社区，来为你心爱的作品建立...
-            </BodyText>
+            </DigestSentence>
           </div>
           <UpVote num={34} />
         </Header>

@@ -8,4 +8,4 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleTitle')};
   border-radius: 4px;
 `
-export const holder = 1
+export const TabWrapper = styled.div``
