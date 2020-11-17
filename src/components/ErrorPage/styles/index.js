@@ -5,7 +5,9 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 // import PromptIcon from '@/components/PromptIcon'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-test-id': props.testId,
+}))`
   ${css.flexColumn('align-center', 'justify-between')};
   height: 100vh;
   width: 100%;
@@ -13,7 +15,9 @@ export const Wrapper = styled.div`
   // background: ${theme('banner.bg')};
   background: rgba(0,59,74, 0.5);
 `
-export const LogoWrapper = styled.a`
+export const LogoWrapper = styled.a.attrs((props) => ({
+  'data-test-id': props.testId,
+}))`
   ${css.flex('align-center')};
   margin-top: 20px;
   margin-left: 20px;
@@ -38,7 +42,9 @@ export const TextWrapper = styled.div`
   margin-top: 80px;
   margin-left: 115px;
 `
-export const HintTitle = styled.div`
+export const HintTitle = styled.div.attrs((props) => ({
+  'data-test-id': props.testId,
+}))`
   color: ${theme('thread.articleTitle')};
   text-align: center;
   font-size: 16px;

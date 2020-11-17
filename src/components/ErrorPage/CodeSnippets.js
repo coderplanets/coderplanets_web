@@ -13,10 +13,9 @@ const rcub = '}'
 const colon = ':'
 const arrow = '->'
 
-const CodeSnippets = ({ errorCode, path }) => {
-  console.log('CodeSnippets: ', errorCode)
+const CodeSnippets = ({ path }) => {
   return (
-    <Wrapper>
+    <Wrapper testId="code-snippets">
       <div>
         <KeyToken>case</KeyToken> Page.goto(
         <StringToken>&quot;{path}&quot;</StringToken>)
