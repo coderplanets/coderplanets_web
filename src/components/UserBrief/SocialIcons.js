@@ -8,20 +8,20 @@ import Tooltip from '@/components/Tooltip'
 import { Wrapper, Linker, SocialIcon } from './styles/social_icons'
 
 const DisplayIcon = ({ user, social }) => {
-  if (user[social.key] && !contains(social.key, ['qq', 'weichat'])) {
+  if (nilOrEmpty(user.social[social.key])) return null
+
+  if (!contains(social.key, ['qq', 'weichat'])) {
     return (
       <Linker
-        href={`${user[social.key]}`}
+        href={`${user.social[social.key]}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <SocialIcon
-          src={`${ICON_CMD}/${social.key}.svg`}
-          active={!nilOrEmpty(user.social[social.key])}
-        />
+        <SocialIcon src={`${ICON_CMD}/${social.key}.svg`} />
       </Linker>
     )
   }
+
   return (
     <Tooltip
       key={social.key}
@@ -29,10 +29,7 @@ const DisplayIcon = ({ user, social }) => {
       placement="bottom"
     >
       <div>
-        <SocialIcon
-          src={`${ICON_CMD}/${social.key}.svg`}
-          active={!nilOrEmpty(user.social[social.key])}
-        />
+        <SocialIcon src={`${ICON_CMD}/${social.key}.svg`} />
       </div>
     </Tooltip>
   )
