@@ -40,7 +40,7 @@ export const LogoText = styled.a`
   /* font-weight: bold; */
   letter-spacing: 1px;
   font-size: 14px;
-  margin-left: 6px;
+  margin-left: 10px;
   margin-top: 4px;
 
   font-family: 'Audiowide', cursive;
