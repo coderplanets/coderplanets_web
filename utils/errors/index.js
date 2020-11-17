@@ -8,7 +8,7 @@ const ACCOUNT_BASE = 4300
 // spec error
 const LOGIN_ERROR = ACCOUNT_BASE + 1
 
-const convertToErrorMsg = errCode => {
+const convertToErrorMsg = (errCode) => {
   switch (errCode) {
     case DEFAULT_BASE + 3:
       return '不存在'
@@ -29,14 +29,15 @@ const convertToErrorMsg = errCode => {
   }
 }
 
-export const errorForHuman = details => {
+export const errorForHuman = (details) => {
   const errCode = details[0].code
 
   return convertToErrorMsg(errCode)
 }
 
-const checkLoginError = errors =>
-  !!(find(propEq('code', LOGIN_ERROR))(errors) || false)
+const checkLoginError = (errors) => {
+  return !!(find(propEq('code', LOGIN_ERROR))(errors) || false)
+}
 
 export const ssrAmbulance = {
   hasLoginError: checkLoginError,

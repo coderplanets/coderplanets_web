@@ -1,17 +1,17 @@
 import React from 'react'
 import { isEmpty } from 'ramda'
 
-import { METRIC } from '@/constant'
+import { METRIC, ROUTE } from '@/constant'
 import { ISSUE_ADDR } from '@/config'
 import { HintTitle, IssueLink } from './styles'
 
-const NotFoundMessage = ({ page, path }) => {
-  switch (page) {
+const NotFoundMessage = ({ metric, path }) => {
+  switch (metric) {
     case METRIC.USER:
       return (
         <HintTitle>
           未找到该用户
-          {!isEmpty(path) && <span>: {path}</span>}
+          {!isEmpty(path) && <span>: {path.split(`/${ROUTE.USER}/`)[1]}</span>}
         </HintTitle>
       )
 
