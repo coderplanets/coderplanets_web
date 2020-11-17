@@ -20,6 +20,9 @@ import {
   TechIcon,
   Divider,
   GithubIcon,
+  PreviewWrapper,
+  PreviewText,
+  PreviewIcon,
 } from '../styles/list/card'
 
 const Card = ({ withBg }) => {
@@ -32,6 +35,10 @@ const Card = ({ withBg }) => {
             <Title>coderplanets</Title>
             <BodyText>
               可能是最性感的开发者社区，来为你心爱的作品建立...
+              <PreviewWrapper>
+                <PreviewText>预览</PreviewText>
+                <PreviewIcon src={`${ICON}/shape/arrow-simple.svg`} />
+              </PreviewWrapper>
             </BodyText>
           </div>
           <UpVote num={34} />

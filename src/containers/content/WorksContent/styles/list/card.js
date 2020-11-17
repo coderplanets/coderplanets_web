@@ -59,7 +59,38 @@ export const BodyText = styled.div`
   ${css.cutFrom('380px')};
   margin-top: 5px;
   margin-bottom: 15px;
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+  }
+
+  transition: color 0.2s;
 `
+export const PreviewWrapper = styled.div`
+  display: inline-flex;
+  opacity: 0;
+  margin-left: 8px;
+  align-items: center;
+
+  ${Wrapper}:hover & {
+    opacity: 0.6;
+  }
+  transition: opacity 0.25s;
+`
+export const PreviewIcon = styled(Img)`
+  fill: ${theme('thread.extraInfo')};
+  height: 14px;
+  width: 14px;
+  display: block;
+  transform: rotate(180deg);
+`
+export const PreviewText = styled.span`
+  color: ${theme('thread.extraInfo')};
+  font-size: 12px;
+  margin-right: 5px;
+`
+
 export const FooterWrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
