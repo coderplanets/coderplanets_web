@@ -17,10 +17,6 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid;
   border-bottom-color: #0b3b4a;
 
-  &:hover {
-    background: #03343f;
-    border-bottom-color: #03343f;
-  }
   :last-child {
     border-bottom: none;
   }
@@ -42,10 +38,14 @@ export const Header = styled.div`
   ${css.flex('justify-between', 'align-start')};
   width: 100%;
 `
-export const Title = styled.div`
+export const Title = styled.a`
+  color: ${theme('thread.articleTitle')};
   font-size: 16px;
   font-weight: bold;
-  color: ${theme('thread.articleTitle')};
+
+  &:hover {
+    ${css.threadTitleHover()};
+  }
 `
 export const TypeTags = styled.div`
   ${css.flex('align-center')};

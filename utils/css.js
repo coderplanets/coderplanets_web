@@ -6,6 +6,7 @@
 import { css as styledCss } from 'styled-components'
 import WIDTH from './width'
 
+import { theme } from './themes'
 import { isString } from './validator'
 
 const smokey = (opt = 0.6) => `
@@ -41,6 +42,15 @@ const size = (width = '30px') => {
     width: ${theWidth};
     height: ${theWidth};
     display: block;
+  `
+}
+
+const threadTitleHover = () => {
+  return styledCss`
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+    text-decoration-color: ${theme('thread.articleDigest')};
+    cursor: pointer;
   `
 }
 
@@ -180,6 +190,7 @@ const css = {
   media,
   getContentMaxWidth,
   getPageMaxWidth,
+  threadTitleHover,
 }
 
 export default css
