@@ -13,7 +13,7 @@ export const ItemWrapper = styled.div`
   ${css.flex('align-both')};
   cursor: pointer;
   background-color: ${({ active }) => (active ? '#033844' : 'transparent')};
-  margin-right: 10px;
+  margin-right: 2px;
   border-radius: 10px;
   padding: ${({ active }) => (active ? '2px 12px' : '2px 8px')};
 `
