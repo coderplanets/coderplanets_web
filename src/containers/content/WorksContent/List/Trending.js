@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ArrowButton } from '@/components/Buttons'
 
-import BestTab from './BestTab'
+import OptionTab from './OptionTab'
 import Card from './Card'
 
 import { Wrapper, Header, More } from '../styles/list/trending'
@@ -24,13 +24,7 @@ const Trending = () => {
   return (
     <Wrapper>
       <Header>
-        <BestTab items={items} activeKey={activeKey} />
-        {/* <Tabs
-          items={items}
-          activeKey={activeKey}
-          onChange={console.log}
-          size="small"
-        /> */}
+        <OptionTab items={items} activeKey={activeKey} />
         <More>
           <ArrowButton size="tiny" dimWhenIdle>
             全部榜单

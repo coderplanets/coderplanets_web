@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Wrapper, ItemWrapper, Text } from '../styles/list/best_tab'
+import { Wrapper, ItemWrapper, Text } from '../styles/list/option_tab'
 
 const BestTab = ({ items, activeKey }) => {
   return (
