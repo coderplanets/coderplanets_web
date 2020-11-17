@@ -7,7 +7,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${css.flexColumn()};
-  width: 216px;
+  width: 200px;
   margin-left: 40px;
   color: ${theme('thread.articleDigest')};
 `

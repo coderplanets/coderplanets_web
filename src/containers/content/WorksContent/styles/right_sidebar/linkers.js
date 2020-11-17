@@ -20,7 +20,7 @@ export const LinkCardWrapper = styled.div`
   border: 1px solid transparent;
   border-radius: 5px;
   height: 115px;
-  width: 100px;
+  width: 94px;
   border-radius: 10px;
 
   &:hover {
