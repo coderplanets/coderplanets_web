@@ -7,7 +7,8 @@ export const Wrapper = styled.div.attrs((props) => ({
 }))`
   ${css.flexColumn()};
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
+  margin-top: 8px;
 `
 export const Title = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
