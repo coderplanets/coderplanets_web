@@ -4,19 +4,16 @@ import TimeAgo from 'timeago-react'
 import { ICON } from '@/config'
 import { cutFrom } from '@/utils'
 
+import DigestSentence from '@/components/DigestSentence'
+
 import {
   Wrapper,
-  Digest,
   Dot,
   PublishTime,
   Extra,
   AuthorName,
   ItemWrapper,
   ViewsIcon,
-  //
-  PreviewWrapper,
-  PreviewIcon,
-  PreviewText,
 } from '../../styles/digest_view/body'
 
 const Body = ({ item, onPreview }) => {
@@ -33,13 +30,10 @@ const Body = ({ item, onPreview }) => {
           {item.views}
         </ItemWrapper>
       </Extra>
-      <Digest onClick={() => onPreview(item)}>
+
+      <DigestSentence top="5px" right="60px" onPreview={() => onPreview(item)}>
         {cutFrom(item.digest, 90)}
-        <PreviewWrapper>
-          <PreviewText>预览</PreviewText>
-          <PreviewIcon src={`${ICON}/shape/arrow-simple.svg`} />
-        </PreviewWrapper>
-      </Digest>
+      </DigestSentence>
     </Wrapper>
   )
 }
