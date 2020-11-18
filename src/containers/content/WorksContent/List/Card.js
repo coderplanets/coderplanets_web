@@ -34,7 +34,7 @@ const Card = ({ withBg }) => {
         <Header>
           <div>
             <Title>coderplanets</Title>
-            <DigestSentence top="5px" bottom="15px">
+            <DigestSentence top={5} bottom={15}>
               可能是最性感的开发者社区，来为你心爱的作品建立...
             </DigestSentence>
           </div>

@@ -9,10 +9,10 @@ export const Wrapper = styled.div.attrs((props) => ({
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
 
-  padding-top: ${({ top }) => top};
-  padding-bottom: ${({ bottom }) => bottom};
-  padding-left: ${({ left }) => left};
-  padding-right: ${({ right }) => right};
+  padding-top: ${({ top }) => `${top}px`};
+  padding-bottom: ${({ bottom }) => `${bottom}px`};
+  padding-left: ${({ left }) => `${left}px`};
+  padding-right: ${({ right }) => `${right}px`};
 
   &:hover {
     color: ${theme('thread.articleTitle')};
