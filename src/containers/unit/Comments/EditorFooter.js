@@ -51,24 +51,24 @@ const EditorFooter = ({
           <FoldText>收起</FoldText>
         </FoldBtn>
       )}
-      <Space right="14px" />
+      <Space right={14} />
       {showPreview ? (
         <Button type="primary" ghost size="small" onClick={onBackEdit}>
           返回编辑
         </Button>
       ) : (
         <Button type="primary" ghost size="small" onClick={onPreview}>
-          预<Space right="5px" />览
+          预<Space right={5} />览
         </Button>
       )}
-      <Space right="10px" />
+      <Space right={10} />
       {!loading ? (
         <Button type="primary" size="small" onClick={onCreate}>
-          提<Space right="5px" />交
+          提<Space right={5} />交
         </Button>
       ) : (
         <Button type="primary" size="small">
-          提<Space right="5px" />交 <Space right="5px" /> ...
+          提<Space right={5} />交 <Space right={5} /> ...
         </Button>
       )}
     </InputSubmit>

@@ -20,17 +20,17 @@ const PublishDate = ({ insertedAt }) => {
   return (
     <Wrapper>
       {month}
-      <Space right="3px" />月
-      <Space right="3px" />
+      <Space right={3} />月
+      <Space right={3} />
       {date}
-      <Space right="3px" />日
-      <Space right="2px" />
+      <Space right={3} />日
+      <Space right={2} />
       {range}
-      <Space right="2px" />
+      <Space right={2} />
       {hour}
-      <Space right="3px" />
+      <Space right={3} />
       点，{year}
-      <Space right="1px" />年
+      <Space right={1} />年
     </Wrapper>
   )
 }

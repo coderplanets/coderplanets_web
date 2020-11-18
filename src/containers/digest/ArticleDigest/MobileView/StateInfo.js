@@ -29,7 +29,7 @@ const StateInfo = ({ article, author }) => {
           <ViewdIcon src={`${ICON}/article/viewed.svg`} />
           <ViewsText>{views}</ViewsText>
         </Item>
-        <Space right="10px" />
+        <Space right={10} />
         <Item>
           <CommentIcon src={`${ICON}/article/comment.svg`} />
           <Text>{commentsCount}</Text>

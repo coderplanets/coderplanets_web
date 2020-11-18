@@ -37,7 +37,7 @@ const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
         onChange={mainChange}
         bottom="0"
       />
-      <Space right="8px" />
+      <Space right={8} />
       <FormItem
         size="default"
         value={data.title}

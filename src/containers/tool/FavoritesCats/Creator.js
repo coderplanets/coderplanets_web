@@ -84,7 +84,7 @@ const Creator = ({ data, show, hasLockAuth }) => (
       <Button type="primary" ghost onClick={onModalClose}>
         取消
       </Button>
-      <Space right="10px" />
+      <Space right={10} />
       <Button type="primary" onClick={onCategoryCreate}>
         保存
       </Button>

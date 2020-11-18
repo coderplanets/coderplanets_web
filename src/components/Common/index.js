@@ -5,8 +5,8 @@ export const Br = styled.div`
   margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
 `
 export const Space = styled.span`
-  margin-left: ${({ left }) => left || 0};
-  margin-right: ${({ right }) => right || 0};
+  margin-left: ${({ left }) => `${left}px` || 0};
+  margin-right: ${({ right }) => `${right}px` || 0};
 `
 export const SpaceGrow = styled.div`
   flex-grow: 1;

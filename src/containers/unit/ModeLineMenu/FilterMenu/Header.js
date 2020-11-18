@@ -21,7 +21,7 @@ const Header = () => {
             确&nbsp;定
           </Button>
         </ConfirmBtn>
-        <Space right="12px" />
+        <Space right={12} />
         <ResetBtn>重置</ResetBtn>
       </ButtonsWrapper>
     </Wrapper>

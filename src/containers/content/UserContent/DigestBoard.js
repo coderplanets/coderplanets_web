@@ -36,7 +36,7 @@ const DigestBoard = ({ user, accountId, following }) => (
     <AttachWrapper>
       <AttachIcon src={`${ICON_CMD}/join_at.svg`} />第 {user.id} 位会员{' '}
       <DotDivider /> 加入时间:
-      <Space right="5px" />
+      <Space right={5} />
       <TimeAgo datetime={user.insertedAt} locale="zh_CN" />
     </AttachWrapper>
 

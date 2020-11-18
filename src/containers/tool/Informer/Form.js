@@ -49,7 +49,7 @@ const Form = ({ message, type }) => (
       <Button type="primary" onClick={backToOverview} ghost>
         <Back>重新选择</Back>
       </Button>
-      <Space right="15px;" />
+      <Space right={15} />
 
       <Button type="primary" onClick={onConfirm}>
         <Submit>提 交</Submit>
