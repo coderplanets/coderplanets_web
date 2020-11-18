@@ -5,6 +5,8 @@ import { OrButton } from '@/components/Buttons'
 import FiltersMenu from '@/components/FiltersMenu'
 import NaviMenu from '@/components/NaviMenu'
 
+import { VIEW } from './constant'
+
 import fakeFilterItems from './fakeFilterItems'
 import { Wrapper, FilterWrapper } from './styles/filter_bar'
 
@@ -19,11 +21,11 @@ const FilterBar = ({ activeView }) => {
         activeKey={activeView}
         group={[
           {
-            key: 'works',
+            key: VIEW.WORKS,
             title: '作品',
           },
           {
-            key: 'milestone',
+            key: VIEW.MILESTONE,
             title: '动态',
           },
         ]}
