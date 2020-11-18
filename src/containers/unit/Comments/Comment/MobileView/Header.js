@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AvatarFallback from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 
 import {
   Wrapper,
@@ -18,12 +18,7 @@ const CommentHeader = ({ data }) => {
       <Avatar
         src={data.author.avatar}
         fallback={
-          <AvatarFallback
-            user={data.author}
-            width={24}
-            right="10px"
-            top="10px"
-          />
+          <ImgFallback user={data.author} width={24} right={10} top={10} />
         }
       />
       <HeaderBaseInfo>

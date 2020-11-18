@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import AvatarFallback from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 import { Wrapper, Avatar, UserName, PublishAt } from './styles/user_info'
 
 const UserInfo = ({ author, insertedAt }) => (
@@ -9,7 +9,7 @@ const UserInfo = ({ author, insertedAt }) => (
     <Avatar
       src={author.avatar}
       alt={`@${author.nickname}`}
-      fallback={<AvatarFallback user={author} width={35} right="10px" />}
+      fallback={<ImgFallback user={author} width={35} right={10} />}
       visibleByDefault
     />
     <div>

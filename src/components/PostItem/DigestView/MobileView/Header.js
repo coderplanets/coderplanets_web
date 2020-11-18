@@ -5,7 +5,7 @@ import { ICON_BASE } from '@/config'
 
 import InlineTags from '@/components/InlineTags'
 import DotDivider from '@/components/DotDivider'
-import AvatarFallback from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 
 import {
   Wrapper,
@@ -24,9 +24,7 @@ const Header = ({ cover, item, onAuthorSelect }) => {
           <AvatarWrapper onClick={() => onAuthorSelect(item.author)}>
             <Avatar
               src={item.author.avatar}
-              fallback={
-                <AvatarFallback user={item.author} width={16} right="6px" />
-              }
+              fallback={<ImgFallback user={item.author} size={16} right={6} />}
             />
           </AvatarWrapper>
         ) : (

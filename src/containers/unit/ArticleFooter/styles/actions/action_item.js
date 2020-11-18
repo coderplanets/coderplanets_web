@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-import AvatarFallbackBase from '@/components/AvatarFallback'
-
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
@@ -44,10 +42,6 @@ export const ArticleTitle = styled(HighlightLink)`
 `
 export const AvatarIcon = styled(Img)`
   ${css.circle(13)};
-  margin-bottom: 2px;
-  margin-right: 10px;
-`
-export const AvatarFallback = styled(AvatarFallbackBase)`
   margin-bottom: 2px;
   margin-right: 10px;
 `

@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import AvatarFallback from '../index'
+// import ImgFallback from '../index'
 
-describe('TODO <AvatarFallback />', () => {
+describe('TODO <ImgFallback />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })
