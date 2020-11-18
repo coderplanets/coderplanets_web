@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_BASE } from '@/config'
 
-import AvatarFallback from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 
 import Header from './Header'
 import Body from './Body'
@@ -23,9 +23,7 @@ const DigestView = ({
         <AvatarWrapper onClick={() => onAuthorSelect(entry.author)}>
           <Avatar
             src={entry.author.avatar}
-            fallback={
-              <AvatarFallback user={entry.author} width={38} top="2px" />
-            }
+            fallback={<ImgFallback user={entry.author} size={38} top={2} />}
           />
         </AvatarWrapper>
       ) : (

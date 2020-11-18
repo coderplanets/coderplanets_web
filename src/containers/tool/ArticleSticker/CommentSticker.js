@@ -12,7 +12,7 @@ import { buildLog } from '@/utils'
 
 import { NotifyButton } from '@/components/Buttons'
 import Tooltip from '@/components/Tooltip'
-import AvatarFallback from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 
 import {
   Wrapper,
@@ -50,12 +50,7 @@ const CommentSticker = ({
                 src={user.avatar}
                 alt={`@${user.nickname}`}
                 fallback={
-                  <AvatarFallback
-                    user={user}
-                    width={20}
-                    right="10px"
-                    bottom="6px"
-                  />
+                  <ImgFallback user={user} size={20} right={10} bottom={6} />
                 }
               />
             </Tooltip>

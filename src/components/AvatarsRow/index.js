@@ -13,7 +13,6 @@ import { AVATARS_LIST_LENGTH } from '@/config'
 import { buildLog, o2s, s2o } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
-// import AvatarFallback from '@/components/AvatarFallback'
 
 import MoreItem from './MoreItem'
 
@@ -101,7 +100,7 @@ const AvatarsRow = ({
               scrollPosition={scrollPosition}
               fallback={
                 <AvatarFallback
-                  width={getAvatarSize(size, 'number')}
+                  size={getAvatarSize(size, 'number')}
                   user={user}
                 />
               }

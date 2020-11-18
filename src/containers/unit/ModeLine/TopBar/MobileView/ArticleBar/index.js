@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AvatarFallback from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 
 import {
   Wrapper,
@@ -19,7 +19,7 @@ const ArticleBar = ({ visiable, viewingArticle }) => {
         <BaseInfo>
           <Avatar
             src={`${author.avatar}`}
-            fallback={<AvatarFallback user={author} width={16} />}
+            fallback={<ImgFallback user={author} width={16} />}
           />
           <Title>{title}</Title>
         </BaseInfo>

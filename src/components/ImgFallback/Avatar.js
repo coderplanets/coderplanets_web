@@ -1,6 +1,6 @@
 /*
  *
- * AvatarFallback
+ * ImgFallback for avatar
  *
  */
 
@@ -9,15 +9,15 @@ import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 
-import { Wrapper, Name } from './styles'
+import { Wrapper, Name } from './styles/avatar'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:AvatarFallback:index')
+const log = buildLog('c:ImgFallback:Avatar')
 
-const AvatarFallback = ({
+const Avatar = ({
   testId,
   className,
-  width,
+  size,
   user,
   left,
   right,
@@ -25,47 +25,47 @@ const AvatarFallback = ({
   bottom,
 }) => {
   const name = user?.nickname
-  const sliceCount = width > 32 ? 2 : 1
+  const sliceCount = size > 32 ? 2 : 1
 
   return (
     <Wrapper
       className={className}
       testId={testId}
-      width={width}
+      size={size}
       left={left}
       right={right}
       top={top}
       bottom={bottom}
     >
-      <Name width={width}>{name.slice(0, sliceCount)}</Name>
+      <Name size={size}>{name.slice(0, sliceCount)}</Name>
     </Wrapper>
   )
 }
 
-AvatarFallback.propTypes = {
+Avatar.propTypes = {
   testId: T.string,
   className: T.string,
   user: T.shape({
     nickname: T.string,
   }),
-  width: T.number,
-  left: T.string,
-  right: T.string,
-  top: T.string,
-  bottom: T.string,
+  size: T.number,
+  left: T.number,
+  right: T.number,
+  top: T.number,
+  bottom: T.number,
 }
 
-AvatarFallback.defaultProps = {
+Avatar.defaultProps = {
   testId: 'avatar-fallback',
   className: '',
-  width: 15,
+  size: 15,
   user: {
     nickname: '?',
   },
-  left: '0',
-  right: '0',
-  top: '0',
-  bottom: '0',
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
 }
 
-export default React.memo(AvatarFallback)
+export default React.memo(Avatar)

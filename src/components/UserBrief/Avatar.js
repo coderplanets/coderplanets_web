@@ -3,7 +3,7 @@ import React from 'react'
 import { VIEW } from '@/constant'
 import { DEFAULT_USER_AVATAR } from '@/config'
 
-import AvatarFallback from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 import BadgeInfo from './BadgeInfo'
 
 import { Wrapper, Avatar } from './styles/avatar'
@@ -15,7 +15,7 @@ const AvatarComp = ({ user, view }) => {
         <div>
           <Avatar
             src={user.avatar || DEFAULT_USER_AVATAR}
-            fallback={<AvatarFallback user={user} width={150} />}
+            fallback={<ImgFallback user={user} size={150} />}
           />
         </div>
       </a>

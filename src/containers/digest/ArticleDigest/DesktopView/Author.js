@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Button } from '@/components/Buttons'
-import AvatarFallback from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 
 import { Wrapper, Avatar, Name } from '../styles/desktop_view/author'
 
@@ -10,7 +10,7 @@ const Author = ({ user }) => {
     <Wrapper>
       <Avatar
         src={user.avatar}
-        fallback={<AvatarFallback user={user} width={36} />}
+        fallback={<ImgFallback user={user} size={36} />}
       />
       <Name>{user.nickname}</Name>
       <Button size="tiny" ghost>

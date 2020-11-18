@@ -2,13 +2,14 @@ import React from 'react'
 
 import { ICON, ICON_BASE } from '@/config'
 
+import ImgFallback from '@/components/ImgFallback'
+
 import {
   Wrapper,
   IconBgWrapper,
   ActionIcon,
   MainInfo,
   AvatarIcon,
-  AvatarFallback,
   UserName,
   ArticleTitle,
   CommunityIcon,
@@ -23,7 +24,9 @@ const ActionItem = ({ item: { author, article, community, insertedAt } }) => {
         </IconBgWrapper>
         <AvatarIcon
           src={author.avatar}
-          fallback={<AvatarFallback user={author} width={14} />}
+          fallback={
+            <ImgFallback user={author} size={14} bottom={2} right={10} />
+          }
         />
         <UserName>{author.nickname}</UserName> {insertedAt}在:{' '}
         <ArticleTitle>{article.title}</ArticleTitle>

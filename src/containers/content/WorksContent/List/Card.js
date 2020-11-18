@@ -6,6 +6,7 @@ import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
 import IconText from '@/components/IconText'
+import ImgFallback from '@/components/ImgFallback'
 
 import UpVote from '../UpVote'
 
@@ -25,7 +26,10 @@ import {
 const Card = ({ withBg }) => {
   return (
     <Wrapper withBg={withBg}>
-      <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
+      <IntroImg
+        src={`${ASSETS_ENDPOINT}/works/market1.jpeg`}
+        fallback={<ImgFallback type="work" />}
+      />
       <IntroWrapper>
         <Header>
           <div>

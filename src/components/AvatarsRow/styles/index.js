@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-import AvatarFallbackBase from '@/components/AvatarFallback'
+import ImgFallback from '@/components/ImgFallback'
 import { getLiSize, getAvatarSize, getUlMarginRight } from './metric'
 
 export const Wrapper = styled.ul`
@@ -78,7 +78,7 @@ export const AvatarsMore = styled.span`
     cursor: pointer;
   }
 `
-export const AvatarFallback = styled(AvatarFallbackBase)`
+export const AvatarFallback = styled(ImgFallback)`
   border: 1px solid;
   border-color: #113744;
 `
