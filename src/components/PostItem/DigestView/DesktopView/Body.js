@@ -31,7 +31,7 @@ const Body = ({ item, onPreview }) => {
         </ItemWrapper>
       </Extra>
 
-      <DigestSentence top="5px" right="60px" onPreview={() => onPreview(item)}>
+      <DigestSentence top={5} right={60} onPreview={() => onPreview(item)}>
         {cutFrom(item.digest, 90)}
       </DigestSentence>
     </Wrapper>
