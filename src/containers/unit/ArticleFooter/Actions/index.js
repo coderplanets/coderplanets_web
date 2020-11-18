@@ -28,7 +28,7 @@ const Actions = ({ showReferenceList, showOperationList }) => {
           引用
         </Text>
       </Item>
-      <Space left="14px" />
+      <Space left={14} />
       <Item onClick={() => toggleActionPanel('operation-list')}>
         <RecordIcon src={`${ICON}/article/action-record.svg`} />
         <Text active={showOperationList}>
