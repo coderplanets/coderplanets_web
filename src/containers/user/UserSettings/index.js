@@ -150,7 +150,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
             ]}
             activeKey="2"
           />
-          <Br bottom="40px" />
+          <Br bottom={40} />
           <SectionLabel
             title="邮件订阅(wip)"
             iconSrc={`${ICON_CMD}/mail.svg`}

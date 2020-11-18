@@ -171,7 +171,7 @@ class LocationMap extends React.Component {
           onResize={(width) => this.onResize(width)}
         />
         <div id={this.chartId} />
-        <Br bottom="10px" />
+        <Br bottom={10} />
       </MapWrapper>
     )
   }

@@ -119,7 +119,7 @@ FormItem.propTypes = {
   node: T.node,
   att: T.oneOfType([T.string, T.node]),
   size: T.oneOf(['small', 'default', 'large']),
-  bottom: T.string,
+  bottom: T.number,
   disabled: T.bool,
   autoFocus: T.bool,
 }
@@ -135,7 +135,7 @@ FormItem.defaultProps = {
   node: <div />,
   att: '',
   onChange: log,
-  bottom: '25px',
+  bottom: 25,
   disabled: false,
   autoFocus: false,
 }

@@ -33,7 +33,7 @@ const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
         ratKey={ratKey}
         placeholder="学校"
         onChange={mainChange}
-        bottom="0"
+        bottom={0}
       />
       <Space right={8} />
       <FormItem
@@ -41,7 +41,7 @@ const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
         value={data.major}
         placeholder="专业"
         onChange={subChange}
-        bottom="0"
+        bottom={0}
       />
       <div onClick={addBackground('education')}>
         <Adder src={`${ICON_CMD}/add.svg`} />

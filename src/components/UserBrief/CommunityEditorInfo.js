@@ -27,7 +27,7 @@ const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
   return (
     <Wrapper>
       <Title>参与社区管理: </Title>
-      <CommunityList items={editableCommunities.entries} bottom="10px" />
+      <CommunityList items={editableCommunities.entries} bottom={10} />
     </Wrapper>
   )
 }

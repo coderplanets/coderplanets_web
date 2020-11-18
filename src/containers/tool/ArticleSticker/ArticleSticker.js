@@ -31,7 +31,7 @@ const CommonSticker = ({ show, viewing }) => {
       <Br top={18} />
       <ItemWrapper>
         <ShareIcon src={`${ICON}/share.svg`} />
-        <ItemHint bottom="-2px">分享</ItemHint>
+        <ItemHint bottom={-2}>分享</ItemHint>
       </ItemWrapper>
     </Wrapper>
   )

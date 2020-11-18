@@ -24,8 +24,8 @@ export const Divider = styled.div`
   height: 1px;
   width: 100%;
   background: #004353;
-  margin-top: ${({ top }) => top || '25px'};
-  margin-bottom: ${({ bottom }) => bottom || '15px'};
+  margin-top: ${({ top }) => `${top}px` || '25px'};
+  margin-bottom: ${({ bottom }) => `${bottom}px` || '15px'};
   opacity: 0.6;
 `
 export const PublishIcon = styled(Img)`
