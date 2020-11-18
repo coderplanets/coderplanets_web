@@ -123,13 +123,13 @@ const SponsorContentContainer = ({ sponsorContent: store, metric }) => {
     <Wrapper testId="sponsor-content">
       <Banner />
       <InnerWrapper bannerVisiable={bannerVisiable}>
-        <Br top="50px" />
+        <Br top={50} />
         <SponsorTypeTitle title="金牌赞助" />
-        <Br top="20px" />
+        <Br top={20} />
         <SponsorGallery items={goldItems} column={4} />
         <ContentWrapper metric={metric}>
           <SponsorTypeTitle title="温情赞助" type="heart" />
-          <Br top="50px" />
+          <Br top={50} />
           <SponsorGallery items={items} column={4} />
         </ContentWrapper>
         <Footer>以上名单按投放时间排序</Footer>

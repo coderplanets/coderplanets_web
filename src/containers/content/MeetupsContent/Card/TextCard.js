@@ -36,7 +36,7 @@ const Card = ({ item }) => {
           <DotDivider radius={3} />
           <Icon src={`${ICON_CMD}/navi/money-yuan.svg`} /> 200-300
         </FooterWrapper>
-        <Br top="3px" />
+        <Br top={3} />
         <FooterWrapper>
           <Icon src={`${ICON_CMD}/navi/location.svg`} />
           深圳（南山区）

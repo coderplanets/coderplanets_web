@@ -23,12 +23,12 @@ const CommonSticker = ({ show, viewing }) => {
           {viewing.starredCount}&nbsp;<Text>喜欢</Text>
         </Number>
       </ItemWrapper>
-      <Br top="16px" />
+      <Br top={16} />
       <ItemWrapper>
         <CollectIcon src={`${ICON}/article/collect.svg`} />
         <ItemHint>收藏</ItemHint>
       </ItemWrapper>
-      <Br top="18px" />
+      <Br top={18} />
       <ItemWrapper>
         <ShareIcon src={`${ICON}/share.svg`} />
         <ItemHint bottom="-2px">分享</ItemHint>

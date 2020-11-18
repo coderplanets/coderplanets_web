@@ -48,13 +48,13 @@ const UserBrief = ({ user, view, onEdit, onLogout, viewingType }) => {
           )}
         </UserTitle>
         <Bio>{user.bio}</Bio>
-        <Br top="30px" />
+        <Br top={30} />
         <NumbersPad
           user={user}
           listFollowers={() => console.log('TODO: listFollowers')}
           listFollowings={() => console.log('TODO: listFollowings')}
         />
-        <Br top="30px" />
+        <Br top={30} />
         <ExtraInfo user={user} />
 
         {user.editableCommunities.length > 0 && <Divider />}
