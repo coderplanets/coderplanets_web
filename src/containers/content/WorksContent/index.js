@@ -11,6 +11,8 @@ import { connectStore, buildLog } from '@/utils'
 import Pagi from '@/components/Pagi'
 import AvatarsRow from '@/components/AvatarsRow'
 
+import { VIEW } from './constant'
+
 // import Banner from './Banner'
 import Brand from './Brand'
 import FilterBar from './FilterBar'
@@ -78,7 +80,7 @@ const WorksContentContainer = ({ worksContent: store, metric }) => {
           <FilterBar activeView={activeView} />
         </LeftSidebarWrapper>
         <MainContent>
-          {activeView === 'works' ? <List /> : <MileStone />}
+          {activeView === VIEW.WORKS ? <List /> : <MileStone />}
           <Pagi margin={{ top: '60px', bottom: '80px' }}>
             <PagiInfo>
               <PagiInfoTitle>活跃用户</PagiInfoTitle>

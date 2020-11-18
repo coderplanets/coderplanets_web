@@ -2,6 +2,8 @@ import React from 'react'
 
 import { ArrowButton } from '@/components/Buttons'
 
+import { BEST } from '../constant'
+
 import OptionTab from './OptionTab'
 import Card from './Card'
 
@@ -10,11 +12,11 @@ import { Wrapper, Header, More } from '../styles/list/trending'
 const items = [
   {
     title: '月最佳',
-    raw: 'month',
+    raw: BEST.MONTH,
   },
   {
     title: '周最佳',
-    raw: 'week',
+    raw: BEST.WEEK,
   },
 ]
 
