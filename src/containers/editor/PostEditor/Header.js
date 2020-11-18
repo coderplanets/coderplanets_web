@@ -66,7 +66,6 @@ const Header = ({ isEdit, curView, referUsers }) => {
                   <AvatarsRow
                     users={referUsers}
                     total={referUsers.length}
-                    height="20px"
                     limit={12}
                     reverse={false}
                   />

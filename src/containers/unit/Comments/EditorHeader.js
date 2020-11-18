@@ -39,7 +39,6 @@ const EditorHeader = ({
               <AvatarsRow
                 users={referUsers}
                 total={referUsers.length}
-                height="20px"
                 limit={10}
                 reverse={false}
               />

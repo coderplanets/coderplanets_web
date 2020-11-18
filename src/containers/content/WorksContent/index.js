@@ -84,12 +84,7 @@ const WorksContentContainer = ({ worksContent: store, metric }) => {
           <Pagi margin={{ top: '60px', bottom: '80px' }}>
             <PagiInfo>
               <PagiInfoTitle>活跃用户</PagiInfoTitle>
-              <AvatarsRow
-                users={tmpUsers}
-                height="20px"
-                total={10}
-                showTotalNumber
-              />
+              <AvatarsRow users={tmpUsers} total={10} showTotalNumber />
             </PagiInfo>
           </Pagi>
         </MainContent>
