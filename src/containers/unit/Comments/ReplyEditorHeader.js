@@ -28,11 +28,7 @@ const ReplyEditorHeader = ({
       <div style={{ display: 'flex' }}>
         <ReferToIcon src={`${ICON_CMD}/refer.svg`} />
         <ReplyAvatars>
-          <AvatarsRow
-            users={referUsers}
-            total={referUsers.length}
-            height="20px"
-          />
+          <AvatarsRow users={referUsers} total={referUsers.length} />
         </ReplyAvatars>
       </div>
     ) : (
