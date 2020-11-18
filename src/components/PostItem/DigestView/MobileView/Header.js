@@ -33,7 +33,7 @@ const Header = ({ cover, item, onAuthorSelect }) => {
           />
         )}
         <div>{item.author.nickname}</div>
-        <DotDivider radius="3px" space="6px" />
+        <DotDivider radius={3} space={6} />
         <TimeStamp>
           <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
         </TimeStamp>

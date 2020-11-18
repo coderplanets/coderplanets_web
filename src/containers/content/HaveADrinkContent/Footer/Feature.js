@@ -26,11 +26,11 @@ const Feature = () => {
       <div onClick={() => setView(VIEW.ABOUT)}>
         <Icon src={`${ICON_CMD}/drink_info.svg`} />
       </div>
-      <DotDivider space="10px" radius="3px" />
+      <DotDivider space={10} radius={3} />
       <div onClick={() => setView(VIEW.SETTING)}>
         <Icon src={`${ICON_CMD}/drink_setting.svg`} />
       </div>
-      <DotDivider space="10px" radius="3px" />
+      <DotDivider space={10} radius={3} />
       <Icon src={`${ICON_CMD}/drink_write.svg`} />
     </Wrapper>
   )

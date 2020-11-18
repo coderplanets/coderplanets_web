@@ -31,9 +31,9 @@ const Card = ({ item }) => {
         </Desc>
         <FooterWrapper>
           <Company>{item.company}</Company>
-          <DotDivider radius="3px" space="7px" />
+          <DotDivider radius={3} space={7} />
           <Icon src={`${ICON_CMD}/navi/chair.svg`} /> 200
-          <DotDivider radius="3px" />
+          <DotDivider radius={3} />
           <Icon src={`${ICON_CMD}/navi/money-yuan.svg`} /> 200-300
         </FooterWrapper>
         <Br top="3px" />

@@ -31,9 +31,9 @@ const Cell = ({ item, isLeapMonth }) => {
       </Head>
       {contains(item.id, activitiesDates) && (
         <Foot>
-          <DotDivider radius="2px" space="2px" />
-          <DotDivider radius="2px" space="2px" />
-          <DotDivider radius="2px" space="2px" />
+          <DotDivider radius={2} space={2} />
+          <DotDivider radius={2} space={2} />
+          <DotDivider radius={2} space={2} />
         </Foot>
       )}
     </Wrapper>

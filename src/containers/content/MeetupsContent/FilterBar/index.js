@@ -31,8 +31,8 @@ const FilterBar = ({ filtersItems }) => {
           </Button>
 
           <Terms>
-            <TermItem>关于</TermItem> <DotDivider radius="3px" />{' '}
-            <TermItem>建议</TermItem> <DotDivider radius="3px" />{' '}
+            <TermItem>关于</TermItem> <DotDivider radius={3} />{' '}
+            <TermItem>建议</TermItem> <DotDivider radius={3} />{' '}
             <TermItem>举报</TermItem>
           </Terms>
         </NaviFooter>

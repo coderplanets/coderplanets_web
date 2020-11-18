@@ -39,7 +39,7 @@ const CommentHeader = ({ data }) => {
         <CommentHeaderFirst>
           <CommentUserName>
             {data.author.nickname}
-            <DotDivider radius="3px" space="10px" />
+            <DotDivider radius={3} space={10} />
             <FloorNum>#{data.floor}</FloorNum>
           </CommentUserName>
           {data.repliesCount !== 0 && (
