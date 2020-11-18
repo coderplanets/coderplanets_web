@@ -49,7 +49,7 @@ const GirlVerifierContainer = ({ girlVerifier: store }) => {
             <Button type="primary" onClick={toggleModal} ghost>
               <Back>取消</Back>
             </Button>
-            <Space right="15px;" />
+            <Space right={15} />
 
             <Button type="primary" onClick={onConfirm}>
               <Submit>提 交</Submit>

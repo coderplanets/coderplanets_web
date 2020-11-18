@@ -17,7 +17,7 @@ const Sidebar = ({ show, onItemClick, activeId, items }) => {
           itemBgHighlight={false}
           noFilter
         />
-        <Br bottom="150px" />
+        <Br bottom={150} />
       </Sticky>
       {/* without Holder the Sticky will not work because the
       Sticky  Content's Height is too long */}

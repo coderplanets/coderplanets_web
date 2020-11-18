@@ -20,7 +20,7 @@ const WarnMessage = () => (
         仅限发布公开视频链接，如果您发布的视频内容是需要付费才能观看的，请先获取授权。
       </WarnMsgText>
     </WarnMsgItem>
-    <Br top="7px" />
+    <Br top={7} />
     <WarnMsgItem>
       <WarnMsgIcon src={`${ICON_CMD}/warn.svg`} />
       <WarnMsgText>

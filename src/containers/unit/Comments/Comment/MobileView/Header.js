@@ -25,7 +25,7 @@ const CommentHeader = ({ data }) => {
         <CommentHeaderFirst>
           <CommentUserName>
             {data.author.nickname}
-            <Dot radius="3px" space="8px" />
+            <Dot radius={3} space={8} />
             <FloorNum>#{data.floor}</FloorNum>
           </CommentUserName>
         </CommentHeaderFirst>

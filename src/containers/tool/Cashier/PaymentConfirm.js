@@ -19,7 +19,7 @@ const PaymentConfirm = ({ paymentMethod, transferAccount }) => (
       value={transferAccount}
       placeholder={`${trans[paymentMethod]}账号`}
       onChange={transferAccountChange}
-      bottom="0"
+      bottom={0}
     />
     <Desc>
       感谢资助！最后请正确填写您的

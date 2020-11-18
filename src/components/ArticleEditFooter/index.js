@@ -31,7 +31,7 @@ const ArticleEditFooter = ({ isEdit, publishing, onCancel, onPublish }) => (
           <Button size="default" type="primary" ghost>
             取消
           </Button>
-          <Space right="15px" />
+          <Space right={15} />
           <Button size="default" type="primary">
             正在
             <DoingText isEdit={isEdit} />
@@ -43,7 +43,7 @@ const ArticleEditFooter = ({ isEdit, publishing, onCancel, onPublish }) => (
           <Button size="default" type="primary" ghost onClick={onCancel}>
             取消
           </Button>
-          <Space right="15px" />
+          <Space right={15} />
           <Button size="default" type="primary" onClick={onPublish}>
             <DoingText isEdit={isEdit} />
           </Button>

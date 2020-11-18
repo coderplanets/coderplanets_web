@@ -13,9 +13,9 @@ const SubscribedCommunities = ({ items }) => {
       <Divider />
       <CommunityList
         items={items.entries.slice(0, 18)}
-        size="18px"
-        bottom="2px"
-        right="12px"
+        size={18}
+        bottom={2}
+        right={12}
         totalCount={items.totalCount}
       />
     </Wrapper>

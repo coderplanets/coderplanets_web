@@ -45,7 +45,7 @@ const BriefView = ({ curView, metric }) => {
             </Item>
             <CenterLogosWrapper>
               <SiteLogo />
-              <LogoDivider radius="4px" space="10px" />
+              <LogoDivider radius={4} space={10} />
               <GithubLogo src={`${ICON_CMD}/github.svg`} />
             </CenterLogosWrapper>
             <Item

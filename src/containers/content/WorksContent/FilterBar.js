@@ -29,11 +29,11 @@ const FilterBar = ({ activeView }) => {
         ]}
         onClick={changeView}
       />
-      <Br bottom="30px" />
+      <Br bottom={30} />
       <FilterWrapper>
         <NaviMenu title="类别筛选" joinMode={false} withDivider={false} />
       </FilterWrapper>
-      <Br bottom="40px" />
+      <Br bottom={40} />
       <FilterWrapper>
         <FiltersMenu
           title="高级搜索"

@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
 `
 export const Linker = styled.a`
-  margin-bottom: ${({ bottom }) => bottom};
-  margin-right: ${({ right }) => right};
+  margin-bottom: ${({ bottom }) => `${bottom}px`};
+  margin-right: ${({ right }) => `${right}px`};
   display: block;
   &:hover {
     text-decoration: underline;
@@ -17,8 +17,8 @@ export const Linker = styled.a`
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
+  width: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}px`};
   display: block;
 `
 export const PopoverInfo = styled.div`

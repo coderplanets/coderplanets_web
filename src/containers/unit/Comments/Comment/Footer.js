@@ -13,7 +13,7 @@ const Footer = ({ data, accountInfo }) => (
     <PublishDateWrapper>
       <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
     </PublishDateWrapper>
-    <DotDivider radius="3px" space="6px" />
+    <DotDivider radius={3} space={6} />
     <Actions data={data} accountInfo={accountInfo} />
     <SpaceGrow />
   </Wrapper>

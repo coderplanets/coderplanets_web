@@ -14,7 +14,7 @@ const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
   if (editableCommunities.totalCount > 10) {
     return (
       <Wrapper>
-        <CommunityList items={editableCommunities.entries} bottom="10px" />
+        <CommunityList items={editableCommunities.entries} bottom={10} />
         <MoreText>...等 {editableCommunities.totalCount} 个社区的编辑</MoreText>
       </Wrapper>
     )
@@ -22,7 +22,7 @@ const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
 
   return (
     <Wrapper>
-      <CommunityList items={editableCommunities.entries} bottom="10px" />
+      <CommunityList items={editableCommunities.entries} bottom={10} />
       <Text>社区编辑</Text>
     </Wrapper>
   )

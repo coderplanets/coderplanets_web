@@ -48,7 +48,7 @@ const Card = ({ withBg }) => {
           >
             协作工具
           </IconText>
-          <DotDivider radius="4px" space="10px" /> 网站
+          <DotDivider radius={4} space={10} /> 网站
           <Divider />
           <BuildWithWrapper>
             <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />

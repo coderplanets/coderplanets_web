@@ -49,7 +49,7 @@ const Banner = () => {
                 hideTextOnInit={false}
                 content={<div>https://coderplanets.com</div>}
               />
-              <Space right="8px" />
+              <Space right={8} />
               <ExpandIcon
                 icon={`${ICON_CMD}/works/android.svg`}
                 text="Android"
@@ -57,7 +57,7 @@ const Banner = () => {
                 hideTextOnInit={false}
                 content={<div>https://coderplanets.com</div>}
               />
-              <Space right="8px" />
+              <Space right={8} />
               <ExpandIcon
                 icon={`${ICON_CMD}/works/apple.svg`}
                 text="iOS"

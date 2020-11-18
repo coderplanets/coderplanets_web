@@ -21,7 +21,7 @@ const Body = ({ item, onPreview }) => {
     <Wrapper>
       <Extra>
         <AuthorName>{item.author.nickname}</AuthorName>
-        <Dot radius="4px" space="8px" />
+        <Dot radius={4} space={8} />
         <PublishTime>
           <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
         </PublishTime>

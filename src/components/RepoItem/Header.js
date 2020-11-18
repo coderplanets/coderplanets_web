@@ -44,7 +44,7 @@ const Header = ({ entry, onPreview }) => {
           <StarIcon src={`${ICON_CMD}/repo_star.svg`} />
           <StatusNum>{numberWithCommas(entry.starCount)}</StatusNum>
         </StatusSection>
-        <Space right="3px" />
+        <Space right={3} />
         <ForkSection>
           <ForkIcon src={`${ICON_CMD}/repo_fork.svg`} />
           <StatusNum>{numberWithCommas(entry.forkCount)}</StatusNum>

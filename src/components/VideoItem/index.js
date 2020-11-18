@@ -66,8 +66,8 @@ const VideoItem = ({ entry, active, onPreview, accountInfo }) => (
           </OriginalAuthorLink>{' '}
           <DotDivider />
           <TimeAgo datetime={entry.publishAt} locale="zh_CN" />
-          <Space right="8px" />
-          <ViewIcon src={`${ICON_CMD}/refer.svg`} /> <Space right="2px" />
+          <Space right={8} />
+          <ViewIcon src={`${ICON_CMD}/refer.svg`} /> <Space right={2} />
           {entry.views}
         </Extra>
         <BodyDigest>{cutFrom(entry.desc, 90)}</BodyDigest>

@@ -34,11 +34,11 @@ const ActivityCard = ({ item }) => {
           </TitleText>
         </Title>
         <BodyWrapper>
-          {item.company} <DotDivider radius="3px" />
+          {item.company} <DotDivider radius={3} />
           <Icon src={`${ICON_CMD}/navi/chair.svg`} /> 200
-          <DotDivider radius="3px" />
+          <DotDivider radius={3} />
           <Icon src={`${ICON_CMD}/navi/money-yuan.svg`} /> 200-300
-          <DotDivider radius="3px" />
+          <DotDivider radius={3} />
           <Icon src={`${ICON_CMD}/navi/location.svg`} />
           深圳（南山区）
         </BodyWrapper>

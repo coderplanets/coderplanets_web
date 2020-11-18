@@ -12,7 +12,7 @@ const ConfirmFooter = ({ onConfirm }) => {
         <ConfirmBtn size="small" onClick={onConfirm}>
           确认
         </ConfirmBtn>
-        <Space right="10px" />
+        <Space right={10} />
         <CancelButton>取消</CancelButton>
       </ButtonsWrapper>
     </Wrapper>

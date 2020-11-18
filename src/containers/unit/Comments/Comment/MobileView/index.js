@@ -26,13 +26,13 @@ const MobileView = ({ data, tobeDeleteId, accountInfo }) => {
         <HeaderWrapper>
           <Header data={data} />
         </HeaderWrapper>
-        <Br top="16px" />
+        <Br top={16} />
         <CommentBodyInfo>
           <CommentContent>
             {data.replyTo && (
               <>
                 <ReplyBar data={data.replyTo} />
-                <Br top="14px" />
+                <Br top={14} />
               </>
             )}
             <MarkDownRender body={data.body} />

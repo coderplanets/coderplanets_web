@@ -29,7 +29,7 @@ export const TextAreaInput = styled(Input)`
 
 export const FormItemWrapper = styled.div`
   ${css.flex()};
-  margin-bottom: ${({ bottom }) => bottom};
+  margin-bottom: ${({ bottom }) => `${bottom}px`};
   width: 100%;
 `
 export const FormLabel = styled.div`

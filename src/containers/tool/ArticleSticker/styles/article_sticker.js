@@ -15,8 +15,8 @@ export const ItemWrapper = styled.div`
 export const ItemHint = styled.div`
   color: ${theme('thread.articleDigest')};
   position: absolute;
-  right: ${({ right }) => right || '-12px'};
-  bottom: ${({ bottom }) => bottom || '0'};
+  right: ${({ right }) => `${right}px` || '-12px'};
+  bottom: ${({ bottom }) => `${bottom}px` || 0};
   font-size: 12px;
   opacity: 0;
 

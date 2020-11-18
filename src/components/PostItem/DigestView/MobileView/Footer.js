@@ -19,11 +19,11 @@ const Footer = ({ item }) => {
     <Wrapper>
       <Extra>
         <CommunityInfo>React</CommunityInfo>
-        <DotDivider radius="3px" space="6px" />
+        <DotDivider radius={3} space={6} />
         <ExtraTexts>
           <ExtraIcon src={`${ICON_CMD}/view_solid.svg`} />
           {item.views}
-          <DotDivider radius="3px" space="6px" />
+          <DotDivider radius={3} space={6} />
           <ExtraIcon src={`${ICON_CMD}/comment_solid.svg`} />
           {item.commentsCount}
         </ExtraTexts>

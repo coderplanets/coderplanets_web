@@ -23,7 +23,7 @@ const FilterBar = ({ filtersItems }) => {
       <Sticky offsetTop={30}>
         <MeetupIcon src={`${ICON_CMD}/navi/meetup_logo.svg`} />
         <LogoDesc>来和志同道合的朋友们一起聊聊?</LogoDesc>
-        <Br bottom="34px" />
+        <Br bottom={34} />
         <FiltersMenu items={filtersItems} revert />
         <NaviFooter>
           <Button type="primary" size="small" ghost>
@@ -31,8 +31,8 @@ const FilterBar = ({ filtersItems }) => {
           </Button>
 
           <Terms>
-            <TermItem>关于</TermItem> <DotDivider radius="3px" />{' '}
-            <TermItem>建议</TermItem> <DotDivider radius="3px" />{' '}
+            <TermItem>关于</TermItem> <DotDivider radius={3} />{' '}
+            <TermItem>建议</TermItem> <DotDivider radius={3} />{' '}
             <TermItem>举报</TermItem>
           </Terms>
         </NaviFooter>

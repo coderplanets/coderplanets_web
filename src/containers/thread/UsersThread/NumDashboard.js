@@ -41,7 +41,7 @@ const NumDashboard = ({ total, geoData, expand }) => {
             <div key={item.value + item.city}>
               <DashItem>
                 <Title active={idx <= 2}>{item.city}</Title>
-                <DotDivider radius="3px" space="3px" />
+                <DotDivider radius={3} space={3} />
                 <Num>{item.value}人</Num>
                 <Chart>
                   <ChartBar

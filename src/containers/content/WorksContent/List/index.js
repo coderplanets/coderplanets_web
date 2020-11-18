@@ -27,7 +27,7 @@ const List = () => {
   return (
     <Wrapper>
       <Trending />
-      <Br top="15px" />
+      <Br top={15} />
       <TabWrapper>
         <OptionTab items={items} activeKey="all" />
       </TabWrapper>

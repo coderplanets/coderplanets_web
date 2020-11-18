@@ -15,9 +15,9 @@ const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
         <Title>参与社区管理: </Title>
         <CommunityList
           items={editableCommunities.entries.slice(0, 6)}
-          size="18px"
-          bottom="2px"
-          right="8px"
+          size={18}
+          bottom={2}
+          right={8}
           totalCount={editableCommunities.totalCount}
         />
       </Wrapper>
@@ -27,7 +27,7 @@ const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
   return (
     <Wrapper>
       <Title>参与社区管理: </Title>
-      <CommunityList items={editableCommunities.entries} bottom="10px" />
+      <CommunityList items={editableCommunities.entries} bottom={10} />
     </Wrapper>
   )
 }

@@ -30,7 +30,7 @@ const PostInfo = ({ post }) => {
       </Head>
       <ExtraInfo>
         {post.author.username}
-        <DotDivider radius="4px" />
+        <DotDivider radius={4} />
         <DateText>5 天前</DateText>
       </ExtraInfo>
     </Wrapper>

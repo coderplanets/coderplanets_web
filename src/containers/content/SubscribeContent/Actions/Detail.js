@@ -26,7 +26,7 @@ const Detail = () => {
           desc="社区订阅注意事项。"
         />
       </Desc>
-      <Br top="50px" />
+      <Br top={50} />
       <Title>
         <Dot />
         RSS 订阅

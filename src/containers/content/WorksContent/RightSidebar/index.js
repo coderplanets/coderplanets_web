@@ -38,7 +38,7 @@ const RightSidebar = () => {
   return (
     <Wrapper>
       <Linkers />
-      <Divider top="18px" bottom="22px" />
+      <Divider top={18} bottom={22} />
       <PublishBtnWrapper>
         <DropdownButton
           type="primary"
@@ -51,11 +51,11 @@ const RightSidebar = () => {
           发布作品
         </DropdownButton>
       </PublishBtnWrapper>
-      <Br top="16px" bottom="20px" />
+      <Br top={16} bottom={20} />
       <SubTitle withMore>开发者访谈</SubTitle>
       <SubDesc>积极发掘有趣的开发者们，了解优秀产品背后的故事。</SubDesc>
       <InterviewsList />
-      <Br top="20px" bottom="20px" />
+      <Br top={20} bottom={20} />
       <EmailSubscriber
         activeByDefault
         title="作品集市动态"

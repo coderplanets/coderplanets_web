@@ -12,7 +12,7 @@ import Tooltip from '@/components/Tooltip'
 import MorePanel from '../MorePanel'
 import { Wrapper, DotDivider, SiteLink, Icon } from '../styles/main_entries'
 
-const splitMargin = '7px'
+const splitMargin = 7
 
 const DesktopView = ({ type }) => {
   const router = useRouter()

@@ -101,11 +101,11 @@ const FriendsContentContainer = ({ friendsContent: store, metric }) => {
   return (
     <Wrapper testId="friends-content">
       <InnerWrapper metric={metric}>
-        <Br top="40px" />
+        <Br top={40} />
         <Title>友情链接</Title>
         <Divider />
         {/* <Desc>感谢以下公司（团队）对本站的信任</Desc> */}
-        <Br top="50px" />
+        <Br top={50} />
         <FriendsWrapper>
           <FriendsGallery items={items} column={5} />
         </FriendsWrapper>

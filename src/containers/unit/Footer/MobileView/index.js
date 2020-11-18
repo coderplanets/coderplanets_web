@@ -23,9 +23,9 @@ const MobileView = () => (
 
     <SiteInfoWrapper>
       <Item>关于本站</Item>
-      <Divider space="8px" radius="3px" />
+      <Divider space={8} radius={3} />
       <Item>用户反馈</Item>
-      <Divider space="8px" radius="3px" />
+      <Divider space={8} radius={3} />
       <Item>
         特别感谢 <ItemIcon src={`${ICON}/article/heart-solid.svg`} />
       </Item>

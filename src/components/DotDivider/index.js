@@ -18,16 +18,16 @@ const DotDivider = ({ radius, space, className }) => (
 )
 
 DotDivider.propTypes = {
-  radius: T.string,
-  space: T.string,
   // just for clean styled-component warnings
   className: T.string,
+  radius: T.number,
+  space: T.number,
 }
 
 DotDivider.defaultProps = {
-  radius: '5px',
-  space: '5px',
   className: 'dot-divider-class',
+  radius: 5,
+  space: 5,
 }
 
 export default React.memo(DotDivider)
