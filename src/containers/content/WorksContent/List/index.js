@@ -1,16 +1,18 @@
 import React from 'react'
 
+import { ICON_BASE, ASSETS_ENDPOINT } from '@/config'
+
 import { Br } from '@/components/Common'
+import WorksCard from '@/components/WorksCard'
 
 import { LAUNCH } from '../constant'
 
 import Trending from './Trending'
 import OptionTab from './OptionTab'
-import Card from './Card'
 
 import { Wrapper, TabWrapper } from '../styles/list'
 
-const items = [
+const options = [
   {
     title: '全部',
     raw: LAUNCH.ALL,
@@ -25,21 +27,61 @@ const items = [
   },
 ]
 
+const item = {
+  cover: `${ASSETS_ENDPOINT}/works/market1.jpeg`,
+  title: 'coderplanets',
+  desc: '作品简介',
+  tag: {
+    title: '协作工具',
+  },
+  platform: {
+    title: '网站',
+  },
+  techStack: [
+    {
+      raw: 'javascript',
+      icon: `${ICON_BASE}/pl/javascript.svg`,
+    },
+    {
+      raw: 'java',
+      icon: `${ICON_BASE}/pl/java.svg`,
+    },
+    {
+      raw: 'elixir',
+      icon: `${ICON_BASE}/pl/elxiir.svg`,
+    },
+    {
+      raw: 'ruby',
+      icon: `${ICON_BASE}/pl/ruby.svg`,
+    },
+  ],
+  upvote: 99,
+  commentsCount: 99,
+  insertedAt: '',
+  isOpenSource: true,
+}
+
+const lists = [
+  { ...item, id: 1 },
+  { ...item, id: 2 },
+  { ...item, id: 3 },
+  { ...item, id: 4 },
+  { ...item, id: 5 },
+  { ...item, id: 6 },
+  { ...item, id: 7 },
+]
+
 const List = () => {
   return (
     <Wrapper>
       <Trending />
       <Br top={15} />
       <TabWrapper>
-        <OptionTab items={items} activeKey="all" />
+        <OptionTab items={options} activeKey="all" />
       </TabWrapper>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {lists.map((item) => (
+        <WorksCard key={item.id} item={item} />
+      ))}
     </Wrapper>
   )
 }
