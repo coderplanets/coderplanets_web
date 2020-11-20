@@ -16,8 +16,6 @@ import DotDivider from '@/components/DotDivider'
 import IconText from '@/components/IconText'
 import ImgFallback from '@/components/ImgFallback'
 
-import UpVote from './UpVote'
-
 import {
   Wrapper,
   IntroImg,
@@ -54,21 +52,20 @@ const WorksCard = ({ withBg, testId, mode, item }) => {
               {cutFrom(item.desc, descLimit)}
             </DigestSentence>
           </div>
-          <UpVote num={item.upvote} />
+
+          <IconText iconSrc={`${ICON}/article/heart-solid.svg`} size="large">
+            {item.upvote}
+          </IconText>
         </Header>
         <FooterWrapper>
           {item.tag && (
-            <IconText
-              iconSrc={`${ICON_CMD}/works/topic.svg`}
-              margin="1px"
-              size="tiny"
-            >
+            <IconText iconSrc={`${ICON_CMD}/works/topic.svg`} margin="1px">
               {item.tag.title}
             </IconText>
           )}
           {item.platform && (
             <React.Fragment>
-              <DotDivider radius={4} space={10} /> {item.platform.title}
+              <DotDivider radius={4} space={8} /> {item.platform.title}
             </React.Fragment>
           )}
           {item.techStack && (
@@ -87,7 +84,6 @@ const WorksCard = ({ withBg, testId, mode, item }) => {
             <React.Fragment>
               <IconText
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
-                size="tiny"
                 margin="5px"
               >
                 {item.insertedAt}
@@ -95,11 +91,7 @@ const WorksCard = ({ withBg, testId, mode, item }) => {
               <Divider />
             </React.Fragment>
           )}
-          <IconText
-            iconSrc={`${ICON}/article/comment.svg`}
-            size="tiny"
-            margin="5px"
-          >
+          <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
             {item.commentsCount}
           </IconText>
           <SpaceGrow />
