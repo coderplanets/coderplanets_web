@@ -6,7 +6,7 @@ import { ArrowButton } from '@/components/Buttons'
 import CommonQuestions from './CommonQuestions'
 
 import { Wrapper, InputBar, Label } from '../styles/content/name_part'
-import { updateWorks } from '../logic'
+import { updateWorks, nextStep } from '../logic'
 
 const NamePart = ({ works }) => {
   const valid = !nilOrEmpty(works.title)
@@ -16,10 +16,7 @@ const NamePart = ({ works }) => {
       <Label>你的作品名称是？</Label>
       <InputBar
         value={works.title}
-        onChange={(e) => {
-          console.log('onChange e: ', e.target.value)
-          updateWorks('title', e.target.value)
-        }}
+        onChange={(e) => updateWorks('title', e.target.value)}
       />
       {!valid && (
         <React.Fragment>
@@ -31,7 +28,9 @@ const NamePart = ({ works }) => {
       {valid && (
         <React.Fragment>
           <br />
-          <ArrowButton size="large">下一步</ArrowButton>
+          <ArrowButton size="large" onClick={nextStep}>
+            下一步
+          </ArrowButton>
         </React.Fragment>
       )}
     </Wrapper>

@@ -4,9 +4,8 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-// import {} from 'ramda'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, buildLog, stripMobx, nilOrEmpty } from '@/utils'
 
 import { STEP } from './constant'
 
@@ -31,6 +30,18 @@ const WorksEditor = T.model('WorksEditor', {
     },
     get worksData() {
       return stripMobx(self.works)
+    },
+    get isCurrentStepValid() {
+      const { step, worksData } = self
+      switch (step) {
+        case STEP.ZERO: {
+          return !nilOrEmpty(worksData.title)
+        }
+
+        default: {
+          return false
+        }
+      }
     },
   }))
   .actions((self) => ({
