@@ -1,9 +1,9 @@
 import React from 'react'
 
+import { ICON } from '@/config'
 import { SpaceGrow } from '@/components/Common'
 import ImgFallback from '@/components/ImgFallback'
-
-import UpVote from '../UpVote'
+import IconText from '@/components/IconText'
 
 import {
   Wrapper,
@@ -26,7 +26,10 @@ const Interview = () => {
         <Title>groupher</Title>
       </Intro>
       <SpaceGrow />
-      <UpVote num={17} size="small" />
+      {/* upvote */}
+      <IconText iconSrc={`${ICON}/article/heart-solid.svg`} margin="5px">
+        17
+      </IconText>
     </InterviewWrapper>
   )
 }

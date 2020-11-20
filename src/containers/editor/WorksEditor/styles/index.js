@@ -16,9 +16,3 @@ export const InnerWrapper = styled.div`
   min-height: 80vh;
   max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 `
-
-export const ContentWrapper = styled.div`
-  ${css.flexColumn('align-both')};
-  width: 100%;
-  height: 100%;
-`

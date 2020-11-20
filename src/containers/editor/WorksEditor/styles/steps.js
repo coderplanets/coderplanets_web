@@ -40,7 +40,7 @@ export const Dot = styled.div`
 `
 export const Hint = styled.div`
   font-size: 12px;
-  margin-top: 5px;
+  margin-top: ${({ active }) => (active ? '5px' : '6px')};
 
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};

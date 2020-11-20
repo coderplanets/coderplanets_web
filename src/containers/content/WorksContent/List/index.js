@@ -30,7 +30,7 @@ const options = [
 const item = {
   cover: `${ASSETS_ENDPOINT}/works/market1.jpeg`,
   title: 'coderplanets',
-  desc: '作品简介',
+  desc: '可能是最性感的开发者社区',
   tag: {
     title: '协作工具',
   },
@@ -57,7 +57,7 @@ const item = {
   ],
   upvote: 99,
   commentsCount: 99,
-  insertedAt: '',
+  insertedAt: '3天前',
   isOpenSource: true,
 }
 

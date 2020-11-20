@@ -15,8 +15,9 @@ import { connectStore, buildLog } from '@/utils'
 
 import Preview from './Preview'
 import Steps from './Steps'
+import Content from './Content'
 
-import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
+import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -25,12 +26,14 @@ const log = buildLog('C:WorksEditor')
 const WorksEditorContainer = ({ worksEditor: store, testId, metric }) => {
   useInit(store)
 
+  const { curStep } = store
+
   return (
     <Wrapper testId={testId}>
       <InnerWrapper metric={metric}>
         <Preview />
-        <Steps />
-        <ContentWrapper>content editor</ContentWrapper>
+        <Steps curStep={curStep} />
+        <Content curStep={curStep} />
       </InnerWrapper>
     </Wrapper>
   )
