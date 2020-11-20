@@ -23,13 +23,14 @@ export const Label = styled.label`
   margin-right: ${({ checked }) => (checked ? '16px' : '8px')};
   padding-left: ${({ checked }) => (checked ? '14px' : '24px')};
   padding-right: 14px;
-  line-height: 1.6;
+  padding-top: 1px;
+  padding-bottom: 1px;
   cursor: pointer;
 
   background: ${({ checked, dimOnActive }) =>
     checked ? getActiveBackground(dimOnActive) : 'transparent'};
   color: ${({ checked, dimOnActive }) => getLabelColor(checked, dimOnActive)};
-  border-radius: 5px;
+  border-radius: 15px;
 
   &:before {
     display: ${({ checked }) => (checked ? 'none' : 'block')};

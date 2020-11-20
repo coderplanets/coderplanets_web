@@ -13,9 +13,11 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   margin-right: 6px;
+  opacity: 0.8;
 
   ${Wrapper}:hover & {
     color: ${theme('thread.articleTitle')};
+    opacity: 1;
     cursor: pointer;
   }
 
@@ -23,10 +25,12 @@ export const Title = styled.div`
 `
 export const Icon = styled(Img)`
   ${css.size(14)};
+  opacity: 0.8;
   fill: ${theme('thread.articleDigest')};
 
   ${Wrapper}:hover & {
     fill: ${theme('thread.articleTitle')};
+    opacity: 1;
     cursor: pointer;
   }
 

@@ -2,6 +2,7 @@ import React from 'react'
 
 import { STEP } from '../constant'
 import NamePart from './NamePart'
+import BasicInfoPart from './BasicInfoPart'
 
 import { Wrapper } from '../styles/content'
 
@@ -13,7 +14,7 @@ const Content = ({ step, works }) => {
       break
     }
     case STEP.ONE: {
-      StepComp = <div>OneStep</div>
+      StepComp = <BasicInfoPart works={works} />
       break
     }
     default: {

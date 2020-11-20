@@ -5,7 +5,7 @@ import { ArrowButton } from '@/components/Buttons'
 
 import CommonQuestions from './CommonQuestions'
 
-import { Wrapper, InputBar, Label } from '../styles/content/name_part'
+import { Wrapper, Input, Label } from '../styles/content/name_part'
 import { updateWorks, nextStep } from '../logic'
 
 const NamePart = ({ works }) => {
@@ -14,9 +14,10 @@ const NamePart = ({ works }) => {
   return (
     <Wrapper>
       <Label>你的作品名称是？</Label>
-      <InputBar
+      <Input
         value={works.title}
         onChange={(e) => updateWorks('title', e.target.value)}
+        autoFocus
       />
       {!valid && (
         <React.Fragment>
