@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON, ICON_CMD } from '@/config'
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutFrom, nilOrEmpty } from '@/utils'
 
 import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
@@ -33,8 +33,31 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:WorksCard:index')
 
-const WorksCard = ({ withBg, testId, mode, item }) => {
+const getSafeValue = (mode, value, defaultValue) => {
+  return mode === 'preview' && nilOrEmpty(value) ? defaultValue : value
+}
+
+const WorksCard = ({
+  withBg,
+  testId,
+  mode,
+  item,
+  defaultTitle,
+  defaultDesc,
+  defaultUpvote,
+  defaultCommentsCount,
+}) => {
   const descLimit = mode === 'default' ? 30 : 20
+
+  const title = getSafeValue(mode, item.title, defaultTitle)
+  const desc = getSafeValue(mode, item.desc, defaultDesc)
+
+  const upvote = getSafeValue(mode, item.upvote, defaultUpvote)
+  const commentsCount = getSafeValue(
+    mode,
+    item.commentsCount,
+    defaultCommentsCount,
+  )
 
   return (
     <Wrapper testId={testId} withBg={withBg}>
@@ -47,14 +70,14 @@ const WorksCard = ({ withBg, testId, mode, item }) => {
       <IntroWrapper>
         <Header>
           <div>
-            <Title>{item.title}</Title>
+            <Title>{title}</Title>
             <DigestSentence top={5} bottom={15}>
-              {cutFrom(item.desc, descLimit)}
+              {cutFrom(desc, descLimit)}
             </DigestSentence>
           </div>
 
           <IconText iconSrc={`${ICON}/article/heart-solid.svg`} size="large">
-            {item.upvote}
+            {upvote}
           </IconText>
         </Header>
         <FooterWrapper>
@@ -79,9 +102,11 @@ const WorksCard = ({ withBg, testId, mode, item }) => {
             </React.Fragment>
           )}
 
-          <Divider />
+          {mode === 'preview' && <span>&nbsp;</span>}
+
           {mode === 'default' && (
             <React.Fragment>
+              <Divider />
               <IconText
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
                 margin="5px"
@@ -92,7 +117,7 @@ const WorksCard = ({ withBg, testId, mode, item }) => {
             </React.Fragment>
           )}
           <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
-            {item.commentsCount}
+            {commentsCount}
           </IconText>
           <SpaceGrow />
           {item.isOpenSource && (
@@ -128,12 +153,21 @@ WorksCard.propTypes = {
     commentsCount: T.number,
     isOpenSource: T.bool,
   }).isRequired,
+
+  defaultTitle: T.string,
+  defaultDesc: T.string,
+  defaultUpvote: T.number,
+  defaultCommentsCount: T.number,
 }
 
 WorksCard.defaultProps = {
   testId: 'works-card',
   withBg: false,
   mode: 'default',
+  defaultTitle: '作品名称',
+  defaultDesc: '作品简介',
+  defaultUpvote: 99,
+  defaultCommentsCount: 66,
   // item,
 }
 

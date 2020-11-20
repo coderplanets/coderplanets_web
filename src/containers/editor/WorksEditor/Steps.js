@@ -14,31 +14,33 @@ import {
   PublishIcon,
 } from './styles/steps'
 
-const Steps = ({ curStep }) => {
+const Steps = ({ step }) => {
+  if (step === STEP.ZERO) return <Wrapper />
+
   return (
     <Wrapper>
       <FirstStep>
-        <Dot active={curStep === STEP.ZERO} />
-        <Hint active={curStep === STEP.ZERO}>作品名称</Hint>
+        <Dot active={step === STEP.ZERO} />
+        <Hint active={step === STEP.ZERO}>作品名称</Hint>
       </FirstStep>
       <Step left="25%">
-        <Dot active={curStep === STEP.ONE} />
-        <Hint active={curStep === STEP.ONE}>基本信息</Hint>
+        <Dot active={step === STEP.ONE} />
+        <Hint active={step === STEP.ONE}>基本信息</Hint>
       </Step>
       <Step left="50%">
-        <Dot active={curStep === STEP.TWO} />
-        <Hint active={curStep === STEP.TWO}>技术栈（可选）</Hint>
+        <Dot active={step === STEP.TWO} />
+        <Hint active={step === STEP.TWO}>技术栈（可选）</Hint>
       </Step>
       <Step left="75%">
-        <Dot active={curStep === STEP.THREE} />
-        <Hint active={curStep === STEP.THREE}>详细介绍</Hint>
+        <Dot active={step === STEP.THREE} />
+        <Hint active={step === STEP.THREE}>详细介绍</Hint>
       </Step>
       <Step left="99%">
         <PublishIcon
-          active={curStep === STEP.FOUR}
+          active={step === STEP.FOUR}
           src={`${ICON}/edit/publish-rocket.svg`}
         />
-        <Hint active={curStep === STEP.FOUR}>起飞</Hint>
+        <Hint active={step === STEP.FOUR}>起飞</Hint>
       </Step>
       <Bar />
     </Wrapper>

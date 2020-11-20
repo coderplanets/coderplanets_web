@@ -2,10 +2,13 @@ import React from 'react'
 
 import { Wrapper } from '../styles/content'
 
-const Content = ({ curStep }) => {
+import NamePart from './NamePart'
+
+const Content = ({ step, works }) => {
+  console.log(step)
   return (
     <Wrapper>
-      <div>content {curStep} </div>
+      <NamePart works={works} />
     </Wrapper>
   )
 }

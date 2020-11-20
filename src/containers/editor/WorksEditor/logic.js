@@ -9,7 +9,12 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:WorksEditor')
 
-export const someMethod = () => {}
+export const updateWorks = (part, value) => {
+  const { worksData } = store
+  store.mark({
+    works: { ...worksData, [part]: value },
+  })
+}
 
 // ###############################
 // init & uninit handlers

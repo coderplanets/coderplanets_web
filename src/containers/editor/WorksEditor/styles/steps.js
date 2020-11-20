@@ -3,12 +3,14 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
+import { CONTENT_WIDTH } from './metric'
+
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   position: relative;
   ${css.flex('align-center', 'justify-between')};
-  width: 560px;
+  width: ${`${CONTENT_WIDTH}px`};
   height: 35px;
   margin-top: 25px;
   margin-left: 0;

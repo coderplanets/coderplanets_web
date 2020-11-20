@@ -26,14 +26,14 @@ const log = buildLog('C:WorksEditor')
 const WorksEditorContainer = ({ worksEditor: store, testId, metric }) => {
   useInit(store)
 
-  const { curStep } = store
+  const { step, worksData } = store
 
   return (
     <Wrapper testId={testId}>
       <InnerWrapper metric={metric}>
-        <Preview />
-        <Steps curStep={curStep} />
-        <Content curStep={curStep} />
+        <Preview works={worksData} />
+        <Steps step={step} />
+        <Content step={step} works={worksData} />
       </InnerWrapper>
     </Wrapper>
   )
