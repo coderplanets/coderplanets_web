@@ -20,6 +20,7 @@ export const toggleTemplate = (useTemplate) => {
   store.mark({ useTemplate })
 }
 
+// to next launch step
 export const nextStep = () => {
   const { step, isCurrentStepValid } = store
 
@@ -45,6 +46,10 @@ export const nextStep = () => {
       // eslint-disable-next-line no-useless-return
       return
   }
+}
+
+export const gotoStep = (step) => {
+  store.mark({ step })
 }
 
 // ###############################

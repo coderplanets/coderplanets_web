@@ -14,25 +14,30 @@ import {
   PublishIcon,
 } from './styles/steps'
 
+import { gotoStep } from './logic'
+
 const Steps = ({ step }) => {
   if (step === STEP.ZERO) return <Wrapper />
 
   return (
     <Wrapper>
       <FirstStep>
-        <Dot active={step === STEP.ZERO} />
+        <Dot active={step === STEP.ZERO} onClick={() => gotoStep(STEP.ZERO)} />
         <Hint active={step === STEP.ZERO}>作品名称</Hint>
       </FirstStep>
       <Step left="25%">
-        <Dot active={step === STEP.ONE} />
+        <Dot active={step === STEP.ONE} onClick={() => gotoStep(STEP.ONE)} />
         <Hint active={step === STEP.ONE}>基本信息</Hint>
       </Step>
       <Step left="50%">
-        <Dot active={step === STEP.TWO} />
+        <Dot active={step === STEP.TWO} onClick={() => gotoStep(STEP.TWO)} />
         <Hint active={step === STEP.TWO}>技术栈（可选）</Hint>
       </Step>
       <Step left="75%">
-        <Dot active={step === STEP.THREE} />
+        <Dot
+          active={step === STEP.THREE}
+          onClick={() => gotoStep(STEP.THREE)}
+        />
         <Hint active={step === STEP.THREE}>正文介绍</Hint>
       </Step>
       <Step left="99%">

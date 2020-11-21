@@ -39,6 +39,13 @@ export const Dot = styled.div`
   height: ${({ active }) => (active ? '11px' : '10px')};
   border-radius: 100%;
   z-index: 1;
+
+  &:hover {
+    background-color: ${theme('thread.articleDigest')};
+    cursor: pointer;
+  }
+
+  transition: all 0.2s;
 `
 export const Hint = styled.div`
   font-size: 12px;
