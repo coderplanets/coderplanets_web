@@ -20,11 +20,12 @@ const WorksItem = T.model('WorksItem', {
 })
 
 const WorksEditor = T.model('WorksEditor', {
+  works: T.optional(WorksItem, {}),
   step: T.optional(
     T.enumeration([STEP.ZERO, STEP.ONE, STEP.TWO, STEP.THREE, STEP.FOUR]),
     STEP.ZERO,
   ),
-  works: T.optional(WorksItem, {}),
+  useTemplate: T.optional(T.boolean, true),
 })
   .views((self) => ({
     get root() {
@@ -41,7 +42,7 @@ const WorksEditor = T.model('WorksEditor', {
         }
 
         default: {
-          return false
+          return true
         }
       }
     },

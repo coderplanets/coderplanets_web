@@ -15,7 +15,7 @@ import {
   Footer,
 } from '../../styles/content/basic_info_part'
 
-import { updateWorks } from '../../logic'
+import { updateWorks, nextStep } from '../../logic'
 
 const BasicInfoPart = ({ works }) => {
   const valid = true
@@ -71,7 +71,7 @@ const BasicInfoPart = ({ works }) => {
 
       <Footer>
         {valid && (
-          <ArrowButton size="large" disabled>
+          <ArrowButton size="large" disabled={!valid} onClick={nextStep}>
             下一步
           </ArrowButton>
         )}

@@ -51,7 +51,7 @@ const ArrowButton = ({
 
   return (
     <Wrapper
-      onClick={onClick}
+      onClick={() => !disabled && onClick()}
       dimWhenIdle={dimWhenIdle}
       size={size}
       width={textWidth}

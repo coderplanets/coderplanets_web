@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-// import { } from 'ramda'
-import { buildLog } from '@/utils'
+
+import { buildLog, scrollToTop } from '@/utils'
 import { STEP } from './constant'
 // import S from './service'
 
@@ -16,10 +16,16 @@ export const updateWorks = (part, value) => {
   })
 }
 
+export const toggleTemplate = (useTemplate) => {
+  store.mark({ useTemplate })
+}
+
 export const nextStep = () => {
   const { step, isCurrentStepValid } = store
 
   if (!isCurrentStepValid) return
+
+  setTimeout(scrollToTop, 300)
 
   switch (step) {
     case STEP.ZERO: {

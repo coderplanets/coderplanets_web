@@ -13,17 +13,15 @@ const getDocument = () => (isBrowser() ? document : null)
  * @return {void}
  */
 export const scrollToTop = () => {
-  const safeDocument = getDocument()
-  const c =
-    safeDocument.documentElement.scrollTop || safeDocument.body.scrollTop
-  if (c > 0) {
-    window.requestAnimationFrame(scrollToTop)
-    window.scrollTo(0, c - c / 8)
-  }
+  scrollIntoEle(ANCHOR.GLOBAL_HEADER_ID)
 
-  // if (safeDocument) {
-  //   safeDocument.body.scrollTop = 0 // For Safari
-  //   safeDocument.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Oper
+  // NOTE:  not work with customScroller
+  // const safeDocument = getDocument()
+  // const c =
+  //   safeDocument.documentElement.scrollTop || safeDocument.body.scrollTop
+  // if (c > 0) {
+  //   window.requestAnimationFrame(scrollToTop)
+  //   window.scrollTo(0, c - c / 8)
   // }
 }
 
@@ -38,6 +36,7 @@ export const scrollIntoEle = (eleID) => {
   if (!safeDocument) return false
 
   const e = safeDocument.getElementById(eleID)
+
   if (e?.scrollIntoView) {
     e.scrollIntoView({ behavior: 'smooth' })
   }
