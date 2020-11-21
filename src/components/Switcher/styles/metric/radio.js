@@ -37,11 +37,11 @@ export const getRadioBoxSize = (size) => {
 export const getRadioBoxTop = (size) => {
   switch (size) {
     case 'small': {
-      return '3px'
+      return '4px'
     }
 
     default: {
-      return '5px'
+      return '6px'
     }
   }
 }

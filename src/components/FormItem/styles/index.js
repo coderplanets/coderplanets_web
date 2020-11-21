@@ -33,7 +33,7 @@ export const FormItemWrapper = styled.div`
   width: 100%;
 `
 export const FormLabel = styled.div`
-  font-size: 0.9rem;
+  font-size: 13px;
   color: ${({ error }) =>
     error ? theme('baseColor.red') : theme('form.label')};
   margin-right: 10px;

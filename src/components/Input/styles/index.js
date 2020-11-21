@@ -37,32 +37,33 @@ export const Icon = styled(Img)`
   transition: opacity 0.25s;
 `
 const baseInput = `
-  outline: none;
-  color: #2a867f;
+  outline: none; 
   font-variant: tabular-nums;
   box-sizing: border-box;
+  caret-color: #33b7b3;
   margin: 0;
-  padding: 0;
   list-style: none;
   position: relative;
   display: inline-block;
-  padding: 4px 11px;
   width: 100%;
-  height: 32px;
-  font-size: 14px;
-  line-height: 1.5;
+  
   background-image: none;
   border: 1px solid;
-  border-radius: 4px;
+  border-radius: 5px;
   transition: all 0.25s;
-  -webkit-appearance: none;
-  text-align: left;
+  -webkit-appearance: none; 
 `
 export const InputWrapper = styled.input`
   ${baseInput};
+  padding: 4px 11px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  color: ${theme('thread.articleTitle')};
   padding-left: ${({ hasPrefix }) => (hasPrefix ? '26px' : '8px')};
   padding-right: ${({ hasSuffix }) => (hasSuffix ? '26px' : '8px')};
-  background-color: #0e3444;
+  background-color: #0b2631;
   border-color: ${theme('editor.border')};
   ::placeholder {
     color: ${theme('editor.placeholder')};
@@ -83,7 +84,7 @@ export const TextAreaWrapper = styled.textarea.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${baseInput};
-  background-color: #0e3444;
+  background-color: #0b2631;
   border: 1px solid;
   border-color: ${theme('editor.border')};
   min-height: 60px;

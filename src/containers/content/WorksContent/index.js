@@ -73,7 +73,6 @@ const WorksContentContainer = ({ worksContent: store, metric }) => {
 
   return (
     <Wrapper testId="worksContent" metric={metric}>
-      {/* <Banner /> */}
       <ContentWrapper>
         <LeftSidebarWrapper>
           <Brand />

@@ -101,6 +101,12 @@ router.route('/:community/repo/:id').get((req, res) => {
 router.route('/create/community').get((req, res) => {
   return renderAndCache({ req, res, page: '/create/community' })
 })
+
+// 创建新社区
+router.route('/create/works').get((req, res) => {
+  return renderAndCache({ req, res, page: '/create/works' })
+})
+
 // 所有社区
 router.route('/discovery').get((req, res) => res.redirect('/discovery/pl'))
 

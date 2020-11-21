@@ -22,6 +22,7 @@ const ArrowButton = ({
   direction,
   dimWhenIdle,
   arrowStyle,
+  disabled,
 }) => {
   const iconSrc =
     arrowStyle === 'default'
@@ -50,14 +51,20 @@ const ArrowButton = ({
 
   return (
     <Wrapper
-      onClick={onClick}
+      onClick={() => !disabled && onClick()}
       dimWhenIdle={dimWhenIdle}
       size={size}
       width={textWidth}
+      disabled={disabled}
     >
       {direction === 'left' ? (
         <>
-          <LeftIcon arrowStyle={arrowStyle} size={size} src={iconSrc} />
+          <LeftIcon
+            arrowStyle={arrowStyle}
+            size={size}
+            src={iconSrc}
+            disabled={disabled}
+          />
           <Text ref={leftTextRef} size={size}>
             {children}
           </Text>
@@ -67,7 +74,12 @@ const ArrowButton = ({
           <Text ref={rightTextRef} size={size}>
             {children}
           </Text>
-          <RightIcon arrowStyle={arrowStyle} size={size} src={iconSrc} />
+          <RightIcon
+            arrowStyle={arrowStyle}
+            size={size}
+            src={iconSrc}
+            disabled={disabled}
+          />
         </>
       )}
     </Wrapper>
@@ -81,6 +93,7 @@ ArrowButton.propTypes = {
   direction: T.oneOf(['left', 'right']),
   dimWhenIdle: T.bool,
   onClick: T.func,
+  disabled: T.bool,
 }
 
 ArrowButton.defaultProps = {
@@ -90,6 +103,7 @@ ArrowButton.defaultProps = {
   direction: 'right',
   dimWhenIdle: false,
   onClick: log,
+  disabled: false,
 }
 
 export default React.memo(ArrowButton)

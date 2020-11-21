@@ -93,6 +93,7 @@ export { default as UserSettingsStore } from '@/containers/user/UserSettings/sto
 export { default as UserFavoritedStore } from '@/containers/user/UserFavorited/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 export { default as UserProfileStore } from '@/containers/user/UserProfile/store'
 export { default as UpgradeContentStore } from '@/containers/content/UpgradeContent/store'
 export { default as ArticleFooterStore } from '@/containers/unit/ArticleFooter/store'

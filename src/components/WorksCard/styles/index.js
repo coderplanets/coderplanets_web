@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs((props) => ({
+  'data-test-id': props.testId,
+}))`
   background: ${({ withBg }) => (withBg ? '#0d3440' : 'transparent')};
 
   position: relative;
@@ -28,6 +30,14 @@ export const IntroImg = styled(Img)`
   display: block;
   border-radius: 5px;
   margin-top: 2px;
+`
+export const IntroImgHolder = styled.div`
+  width: 70px;
+  height: 70px;
+  display: block;
+  border-radius: 5px;
+  margin-top: 2px;
+  background-color: #10404e;
 `
 export const IntroWrapper = styled.div`
   ${css.flexColumnGrow('align-start', 'justify-between')};

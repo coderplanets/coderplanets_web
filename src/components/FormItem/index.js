@@ -74,6 +74,7 @@ const FormContent = ({
 }
 
 const FormItem = ({
+  className,
   type,
   label,
   raw,
@@ -88,7 +89,7 @@ const FormItem = ({
   disabled,
   autoFocus,
 }) => (
-  <FormItemWrapper className="normal-form" bottom={bottom}>
+  <FormItemWrapper className={className} bottom={bottom}>
     <Maybe test={!isEmpty(label)}>
       <FormLabel error={hasValue(raw) && raw === ratKey}>{label}</FormLabel>
     </Maybe>
@@ -109,6 +110,7 @@ const FormItem = ({
 )
 
 FormItem.propTypes = {
+  className: T.string,
   value: T.string,
   label: T.string,
   raw: T.string,
@@ -125,6 +127,7 @@ FormItem.propTypes = {
 }
 
 FormItem.defaultProps = {
+  className: 'normal-form',
   value: '',
   label: '',
   raw: '',
