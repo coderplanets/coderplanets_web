@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, css } from '@/utils'
+import { css } from '@/utils'
 
 import {
   getWidth,
@@ -13,13 +13,13 @@ import {
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  opacity: ${({ dimWhenIdle }) => (dimWhenIdle ? '0.65' : 1)};
+  opacity: ${({ dimWhenIdle, disabled }) =>
+    dimWhenIdle || disabled ? '0.65' : 1};
   min-width: ${({ size, width }) => getWidth(size, width)};
 
   &:hover {
-    cursor: pointer;
-    color: ${theme('thread.articleTitle')};
-    opacity: 1;
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    opacity: ${({ disabled }) => (disabled ? 0.65 : 1)};
   }
   transition: all 0.25s;
 `
@@ -39,23 +39,26 @@ export const LeftIcon = styled(Icon)`
     arrowStyle === 'default' ? getMargin(size) : getSimpleMargin(size)};
 
   ${Wrapper}:hover & {
-    margin-right: ${({ size, arrowStyle }) =>
-      arrowStyle === 'default'
-        ? getMargin(size, true)
-        : getSimpleMargin(size, true)};
+    margin-right: ${({ size, arrowStyle, disabled }) => {
+      return arrowStyle === 'default'
+        ? getMargin(size, !disabled)
+        : getSimpleMargin(size, !disabled)
+    }};
     fill: #327ca1;
   }
 `
 export const RightIcon = styled(Icon)`
-  transform: rotate(180deg);
   margin-left: ${({ size, arrowStyle }) =>
     arrowStyle === 'default' ? getMargin(size) : getSimpleMargin(size)};
 
   ${Wrapper}:hover & {
-    margin-left: ${({ size, arrowStyle }) =>
-      arrowStyle === 'default'
-        ? getMargin(size, true)
-        : getSimpleMargin(size, true)};
+    margin-left: ${({ size, arrowStyle, disabled }) => {
+      return arrowStyle === 'default'
+        ? getMargin(size, !disabled)
+        : getSimpleMargin(size, !disabled)
+    }};
     fill: #327ca1;
   }
+
+  transform: rotate(180deg);
 `

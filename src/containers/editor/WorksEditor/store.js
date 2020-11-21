@@ -15,6 +15,8 @@ const log = buildLog('S:WorksEditor')
 const WorksItem = T.model('WorksItem', {
   title: T.maybeNull(T.string),
   desc: T.maybeNull(T.string),
+  isOSS: T.optional(T.boolean, false),
+  ossAddr: T.maybeNull(T.string),
 })
 
 const WorksEditor = T.model('WorksEditor', {

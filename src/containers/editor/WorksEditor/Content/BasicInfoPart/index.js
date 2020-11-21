@@ -1,17 +1,25 @@
 import React from 'react'
 
-import { Radio } from '@/components/Switcher'
+import CheckBox from '@/components/CheckBox'
+import { ArrowButton } from '@/components/Buttons'
+
 import CoverUploader from './CoverUploader'
 
 import {
   Wrapper,
   Section,
   Label,
+  CheckWrapper,
   Hint,
   Input,
+  Footer,
 } from '../../styles/content/basic_info_part'
 
-const BasicInfoPart = () => {
+import { updateWorks } from '../../logic'
+
+const BasicInfoPart = ({ works }) => {
+  const valid = true
+
   return (
     <Wrapper>
       <Section>
@@ -32,41 +40,42 @@ const BasicInfoPart = () => {
       <Section>
         <Label>
           <div>地址</div>
-          <Hint>网址 / 苹果商店 / 安卓商店 ..</Hint>
+          <Hint>访问 / 下载地址</Hint>
         </Label>
         <Input size="large" value="https://" />
       </Section>
       <Section>
         <Label>是否是独立开发 ?</Label>
-
-        <Radio
-          size="default"
-          items={[
-            {
-              value: '有其他参与者',
-              key: '1',
-              dimOnActive: false,
-            },
-          ]}
-          activeKey="0"
-        />
+        <CheckWrapper>
+          <CheckBox
+            checked
+            onChange={(checked) => {
+              console.log('others: ', checked)
+            }}
+          >
+            有其他参与者
+          </CheckBox>
+        </CheckWrapper>
       </Section>
       <Section>
         <Label>是开源的吗 ?</Label>
-        <div>
-          <Radio
-            size="default"
-            items={[
-              {
-                value: '已经开源',
-                key: '1',
-                dimOnActive: false,
-              },
-            ]}
-            activeKey="0"
-          />
-        </div>
+        <CheckWrapper>
+          <CheckBox
+            checked={works.isOSS}
+            onChange={(checked) => updateWorks('isOSS', checked)}
+          >
+            已开源
+          </CheckBox>
+        </CheckWrapper>
       </Section>
+
+      <Footer>
+        {valid && (
+          <ArrowButton size="large" disabled>
+            下一步
+          </ArrowButton>
+        )}
+      </Footer>
     </Wrapper>
   )
 }

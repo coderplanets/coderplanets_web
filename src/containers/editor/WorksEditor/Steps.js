@@ -33,7 +33,7 @@ const Steps = ({ step }) => {
       </Step>
       <Step left="75%">
         <Dot active={step === STEP.THREE} />
-        <Hint active={step === STEP.THREE}>详细介绍</Hint>
+        <Hint active={step === STEP.THREE}>正文介绍</Hint>
       </Step>
       <Step left="99%">
         <PublishIcon

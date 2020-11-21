@@ -37,3 +37,15 @@ export const Input = styled(FormItem)`
   width: 100%;
   font-size: 16px;
 `
+export const CheckWrapper = styled.div`
+  margin-left: 12px;
+  margin-top: 12px;
+`
+export const Footer = styled.div`
+  ${css.flex('align-both')};
+  width: 100%;
+  border-top: 2px solid;
+  border-top-color: #03343f;
+  margin-top: 35px;
+  padding-top: 20px;
+`

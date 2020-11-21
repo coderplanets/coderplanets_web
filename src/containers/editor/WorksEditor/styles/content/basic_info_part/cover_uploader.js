@@ -10,7 +10,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   width: 100%;
   color: ${theme('thread.articleDigest')};
   padding: 0 10px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 `
 export const IntroImgHolder = styled.div`
   ${css.size(70)};

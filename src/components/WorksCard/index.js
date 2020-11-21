@@ -120,9 +120,7 @@ const WorksCard = ({
             {commentsCount}
           </IconText>
           <SpaceGrow />
-          {item.isOpenSource && (
-            <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
-          )}
+          {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />}
         </FooterWrapper>
       </IntroWrapper>
     </Wrapper>
@@ -151,7 +149,8 @@ WorksCard.propTypes = {
     insertedAt: T.string,
     upvote: T.number,
     commentsCount: T.number,
-    isOpenSource: T.bool,
+    isOSS: T.bool,
+    ossAddr: T.bool,
   }).isRequired,
 
   defaultTitle: T.string,
