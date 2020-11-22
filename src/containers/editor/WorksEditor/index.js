@@ -31,7 +31,7 @@ const WorksEditorContainer = ({ worksEditor: store, testId, metric }) => {
   return (
     <Wrapper testId={testId}>
       <InnerWrapper metric={metric}>
-        <Preview works={worksData} />
+        <Preview step={step} works={worksData} />
         <Steps step={step} />
         <Content step={step} works={worksData} useTemplate={useTemplate} />
       </InnerWrapper>
