@@ -1,6 +1,6 @@
 const COMMUNITY_INTRO = {
   STANDER: {
-    title: '标准型社区',
+    title: '什么是标准型社区?',
     desc:
       '编程语言，编程框架，基础设施等通用等领域的社区，包含帖子，周报，导航，小技巧，wiki，地图，酷团队，招聘等频道。社区成员共同管理。',
     demos: [
@@ -24,7 +24,7 @@ const COMMUNITY_INTRO = {
     ],
   },
   CITY: {
-    title: '同城类社区',
+    title: '什么事同城类社区？',
     desc:
       '以城市为单元的社区，包含帖子，周报，导航，小技巧，wiki，地图，酷团队，招聘等频道。社区成员共同管理。',
     demos: [

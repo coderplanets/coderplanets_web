@@ -45,7 +45,9 @@ const SelectType = ({ status: { communityType } }) => {
         </Header>
         <Desc>{intro.desc}</Desc>
         <br />
-        <ArrowButton size="small">了解更多</ArrowButton>
+        <ArrowButton size="small" dimWhenIdle>
+          了解更多
+        </ArrowButton>
       </LeftBlock>
       <RightBlock>
         <Header>
@@ -61,7 +63,9 @@ const SelectType = ({ status: { communityType } }) => {
             />
           ))}
         </CommunityDemoWrapper>
-        <ArrowButton size="small">探索更多</ArrowButton>
+        <ArrowButton size="small" dimWhenIdle>
+          探索更多
+        </ArrowButton>
       </RightBlock>
     </Wrapper>
   )

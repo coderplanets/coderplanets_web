@@ -21,7 +21,7 @@ import {
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import CreateCommunityContent from '@/containers/content/CreateCommunityContent'
+import CommunityEditor from '@/containers/editor/CommunityEditor'
 
 import { P } from '@/schemas'
 
@@ -106,8 +106,8 @@ const CreateCommunityPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.COMMUNITY} seoConfig={seoConfig}>
-        <CreateCommunityContent />
+      <GlobalLayout metric={METRIC.COMMUNITY_EDITOR} seoConfig={seoConfig}>
+        <CommunityEditor />
       </GlobalLayout>
     </Provider>
   )

@@ -59,6 +59,7 @@ const FooterContainer = ({ footer: store, metric }) => {
         METRIC.DISCOVERY,
         METRIC.ARTICLE,
         METRIC.WORKS_EDITOR,
+        METRIC.COMMUNITY_EDITOR,
       ])
     ) {
       setCurView('BRIEF')

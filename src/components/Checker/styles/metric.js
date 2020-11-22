@@ -5,7 +5,7 @@ export const getIconSize = (size) => {
     }
 
     default: {
-      return '16px'
+      return '18px'
     }
   }
 }
@@ -18,6 +18,18 @@ export const getFontSize = (size) => {
 
     default: {
       return '14px'
+    }
+  }
+}
+
+export const getBorderRadius = (size) => {
+  switch (size) {
+    case 'small': {
+      return '4px'
+    }
+
+    default: {
+      return '8px'
     }
   }
 }

@@ -7,14 +7,11 @@ export const Wrapper = styled.div.attrs((props) => ({
 }))`
   ${css.flexColumn('justify-center')};
 
+  width: 100%;
   position: relative;
   min-height: 170px;
   border-bottom: 1px solid;
-  /* background: ${theme('banner.bg')}; */
   border-bottom: ${theme('banner.spliter')};
-  @media (max-height: 800px) {
-    min-height: 160px;
-  }
 `
 export const SloganTextWrapper = styled.div`
   margin-left: 3px;

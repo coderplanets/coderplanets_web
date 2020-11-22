@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CheckBox from '@/components/CheckBox'
+import Checker from '@/components/Checker'
 import { ArrowButton } from '@/components/Buttons'
 
 import CoverUploader from './CoverUploader'
@@ -47,25 +47,27 @@ const BasicInfoPart = ({ works }) => {
       <Section>
         <Label>是否是独立开发 ?</Label>
         <CheckWrapper>
-          <CheckBox
+          <Checker
             checked
             onChange={(checked) => {
               console.log('others: ', checked)
             }}
+            size="small"
           >
             有其他参与者
-          </CheckBox>
+          </Checker>
         </CheckWrapper>
       </Section>
       <Section>
         <Label>是开源的吗 ?</Label>
         <CheckWrapper>
-          <CheckBox
+          <Checker
             checked={works.isOSS}
             onChange={(checked) => updateWorks('isOSS', checked)}
+            size="small"
           >
             已开源
-          </CheckBox>
+          </Checker>
         </CheckWrapper>
       </Section>
 

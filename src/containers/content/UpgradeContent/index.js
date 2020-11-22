@@ -11,6 +11,7 @@ import T from 'prop-types'
 import { connectStore, buildLog } from '@/utils'
 
 import { OrButton, Button } from '@/components/Buttons'
+import Checker from '@/components/Checker'
 
 import Illustrations from './Illustrations'
 
@@ -25,9 +26,9 @@ import {
   PayButtonWrapper,
   Title,
   Desc,
-  // LabelWrapper,
   ContentWrapper,
   Dashboard,
+  CheckerWrapper,
   TypeDesc,
   TitleDivider,
   ItemsWrapper,
@@ -99,6 +100,9 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
               onClick={() => pkgTypeOnChange(item.pkgType)}
               active={pkgType === item.pkgType}
             >
+              <CheckerWrapper>
+                <Checker checked={pkgType === item.pkgType} hiddenMode />
+              </CheckerWrapper>
               <Illustrations
                 type={item.illustration}
                 active={pkgType === item.pkgType}
