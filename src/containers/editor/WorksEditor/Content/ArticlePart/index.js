@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ArrowButton } from '@/components/Buttons'
-import CheckBox from '@/components/CheckBox'
+import Checker from '@/components/Checker'
 
 import {
   Wrapper,
@@ -20,13 +20,13 @@ const ArticlePart = ({ useTemplate }) => {
     <Wrapper>
       <Header>
         <Title>正文介绍</Title>
-        <CheckBox
+        <Checker
           checked={useTemplate}
-          onChange={(checked) => toggleTemplate(checked)}
           size="small"
+          onChange={(checked) => toggleTemplate(checked)}
         >
           使用模板
-        </CheckBox>
+        </Checker>
       </Header>
       <Section>ArticlePart</Section>
       <Footer>

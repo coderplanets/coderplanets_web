@@ -33,8 +33,7 @@ export const Box = styled.div`
 export const HeaderText = styled.div`
   ${css.flex('align-center', 'justify-between')};
   width: 100%;
-  font-size: 13px;
-  margin-bottom: 6px;
+  font-size: 12px;
 `
 export const MainText = styled.div`
   color: ${theme('thread.articleTitle')};

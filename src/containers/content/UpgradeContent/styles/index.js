@@ -41,6 +41,7 @@ export const ContentWrapper = styled.div`
   max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 `
 export const Dashboard = styled.div`
+  position: relative;
   ${css.flexColumn('align-center')};
   width: 260px;
   min-height: 380px;
@@ -55,6 +56,11 @@ export const Dashboard = styled.div`
 
   cursor: pointer;
   transition: all 0.25s;
+`
+export const CheckerWrapper = styled.div`
+  position: absolute;
+  right: 20px;
+  top: 15px;
 `
 export const TypeDesc = styled.div`
   text-align: center;
