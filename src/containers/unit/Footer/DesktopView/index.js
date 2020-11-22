@@ -5,12 +5,11 @@
  */
 
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { contains } from 'ramda'
 
-import { ROUTE } from '@/constant'
-import { connectStore, buildLog, getRoutePathList } from '@/utils'
+import { METRIC } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
 import JoinModal from '@/containers/tool/JoinModal'
 import Modal from '@/components/Modal'
@@ -51,23 +50,24 @@ const FooterContainer = ({ footer: store, metric }) => {
     },
   } = store
 
-  const router = useRouter()
-  const [mainPath, subPath] = getRoutePathList(router.asPath)
-
   const [curView, setCurView] = useState('DIGEST')
 
   useEffect(() => {
     if (
-      contains(mainPath, [ROUTE.USER, ROUTE.DISCOVERY]) ||
-      contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
+      contains(metric, [
+        METRIC.USER,
+        METRIC.DISCOVERY,
+        METRIC.ARTICLE,
+        METRIC.WORKS_EDITOR,
+      ])
     ) {
       setCurView('BRIEF')
-    } else if (contains(mainPath, [ROUTE.SUBSCRIBE])) {
+    } else if (contains(metric, [METRIC.SUBSCRIBE])) {
       setCurView('BRIEF_LEFT')
     } else {
       setCurView('DIGEST')
     }
-  }, [mainPath, subPath])
+  }, [metric])
 
   return (
     <Wrapper testId="footer" layout={bannerLayout} metric={metric}>

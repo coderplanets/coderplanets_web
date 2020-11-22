@@ -106,7 +106,7 @@ const CreateWorksPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.COMMUNITY} seoConfig={seoConfig}>
+      <GlobalLayout metric={METRIC.WORKS_EDITOR} seoConfig={seoConfig}>
         <WorksEditor />
       </GlobalLayout>
     </Provider>
