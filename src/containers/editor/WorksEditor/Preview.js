@@ -2,12 +2,13 @@ import React from 'react'
 
 // import { ICON_BASE } from '@/config'
 import WorksCard from '@/components/WorksCard'
+import { STEP } from './constant'
 
 import { Wrapper } from './styles/preview'
 
-const Preview = ({ works }) => {
+const Preview = ({ step, works }) => {
   return (
-    <Wrapper>
+    <Wrapper narrow={step === STEP.ZERO}>
       <WorksCard item={works} mode="preview" withBg />
     </Wrapper>
   )
