@@ -50,6 +50,5 @@ export const Desc = styled.div`
 export const CommunityDemoWrapper = styled.div`
   ${css.flex('align-center')};
   flex-wrap: wrap;
-  margin-left: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 `

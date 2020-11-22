@@ -11,38 +11,40 @@ import { connectStore, buildLog } from '@/utils'
 import Banner from './Banner'
 import Content from './Content'
 
-import { Wrapper, ContentWrapper } from './styles'
+import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:DiscoveryContent')
 
-const CreateCommunityContentContainer = ({ createCommunityContent: store }) => {
+const CommunityEditorContainer = ({ communityEditor: store, metric }) => {
   useInit(store)
   const { step, selectTypeStatus, setupDomainStatus, setupInfoStatus } = store
 
   return (
-    <Wrapper>
+    <Wrapper metric={metric}>
       <Banner
         step={step}
         selectTypeStatus={selectTypeStatus}
         setupDomainStatus={setupDomainStatus}
         setupInfoStatus={setupInfoStatus}
       />
-      <ContentWrapper>
-        <Content
-          step={step}
-          selectTypeStatus={selectTypeStatus}
-          setupDomainStatus={setupDomainStatus}
-          setupInfoStatus={setupInfoStatus}
-        />
-      </ContentWrapper>
+      <InnerWrapper metric={metric}>
+        <ContentWrapper>
+          <Content
+            step={step}
+            selectTypeStatus={selectTypeStatus}
+            setupDomainStatus={setupDomainStatus}
+            setupInfoStatus={setupInfoStatus}
+          />
+        </ContentWrapper>
+      </InnerWrapper>
     </Wrapper>
   )
 }
 
-CreateCommunityContentContainer.getInitialProps = async () => ({
+CommunityEditorContainer.getInitialProps = async () => ({
   namespacesRequired: ['common'],
 })
 
-export default connectStore(CreateCommunityContentContainer)
+export default connectStore(CommunityEditorContainer)

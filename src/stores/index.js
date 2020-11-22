@@ -34,7 +34,6 @@ export { default as ArticleDigestStore } from '@/containers/digest/ArticleDigest
 export { default as CommunityContentStore } from '@/containers/content/CommunityContent/store'
 
 export { default as DiscoveryContentStore } from '@/containers/content/DiscoveryContent/store'
-export { default as CreateCommunityContentStore } from '@/containers/content/CreateCommunityContent/store'
 export { default as PostContentStore } from '@/containers/content/PostContent/store'
 export { default as JobContentStore } from '@/containers/content/JobContent/store'
 export { default as VideoContentStore } from '@/containers/content/VideoContent/store'
@@ -92,8 +91,11 @@ export { default as UserBillingStore } from '@/containers/user/UserBilling/store
 export { default as UserSettingsStore } from '@/containers/user/UserSettings/store'
 export { default as UserFavoritedStore } from '@/containers/user/UserFavorited/store'
 
-// GEN: EXPORT CONTAINERS STORE HERE
+// editor
+export { default as CommunityEditorStore } from '@/containers/editor/CommunityEditor/store'
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
+
+// GEN: EXPORT CONTAINERS STORE HERE
 export { default as UserProfileStore } from '@/containers/user/UserProfile/store'
 export { default as UpgradeContentStore } from '@/containers/content/UpgradeContent/store'
 export { default as ArticleFooterStore } from '@/containers/unit/ArticleFooter/store'

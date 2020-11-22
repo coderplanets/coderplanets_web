@@ -8,34 +8,24 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
 `
 /* header bg */
-export const Community = styled.div`
-  position: relative;
+export const Community = styled.a`
   ${css.flex('align-center', 'justify-between')};
-  height: 26px;
-  background: #043b49;
-  border: 1px solid;
-  border-color: #043b49;
-  margin-right: 12px;
-  border-radius: 20px;
+  height: 30px;
+  margin-right: 16px;
   margin-bottom: 15px;
+
   &:hover {
     cursor: pointer;
-    border: 1px solid;
-    border-color: #33586e;
+    text-decoration: underline;
+    text-decoration-color: ${theme('thread.articleDigest')};
   }
 `
 export const Logo = styled(Img)`
   fill: #317faf;
-  position: absolute;
-  top: 2px;
-  left: -5px;
-  ${css.size(20)};
-  border-radius: 50%;
-  display: block;
+  ${css.circle(18)};
   filter: saturate(0.6);
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
-  padding-left: 24px;
-  padding-right: 8px;
+  margin-left: 7px;
 `
