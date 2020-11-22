@@ -18,6 +18,8 @@ const METRIC = {
   RECIPES: 'RECIPES',
 
   UPGRADE: 'UPGRADE',
+
+  WORKS_EDITOR: 'WORKS_EDITOR',
 }
 
 export default METRIC
