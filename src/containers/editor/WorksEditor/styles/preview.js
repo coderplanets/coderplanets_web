@@ -10,7 +10,8 @@ export const Wrapper = styled.div.attrs((props) => ({
   width: ${({ narrow }) =>
     narrow ? `${CONTENT_NARROW_WIDTH}px` : `${CONTENT_WIDTH}px`};
 
-  margin-top: 30px;
-  transition: width 0.25s;
+  margin-top: ${({ narrow }) => (narrow ? '100px' : '30px')};
+
+  transition: width 0.2s;
 `
 export const InnerWrapper = styled.div``
