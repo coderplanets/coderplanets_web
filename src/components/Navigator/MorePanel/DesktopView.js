@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { ROUTE } from '@/constant'
 
 import Footer from './Footer'
@@ -22,7 +22,7 @@ const MoreContent = () => {
     <Wrapper>
       <BodyWrapper>
         <Entry>
-          <Logo src={`${ICON_CMD}/header/more_shop.svg`} />
+          <Logo src={`${ICON}/menu/shop.svg`} />
           <Intro>
             <Title>
               小周边<Wip>开发中</Wip>
@@ -32,7 +32,7 @@ const MoreContent = () => {
         </Entry>
         <Link href={`/${ROUTE.TRENDING}`} passHref>
           <Entry>
-            <Logo src={`${ICON_CMD}/header/more_data.svg`} />
+            <Logo src={`${ICON}/menu/trending.svg`} />
             <Intro>
               <Title>Trending</Title>
               <Desc>各社区近期精华内容</Desc>
@@ -40,15 +40,15 @@ const MoreContent = () => {
           </Entry>
         </Link>
         <Entry>
-          <Logo src={`${ICON_CMD}/header/more_indie.svg`} />
+          <Logo src={`${ICON}/menu/makers.svg`} />
           <Intro>
-            <Title>独立开发者</Title>
+            <Title>创作者社区</Title>
             <Desc>经验交流，开发者访谈</Desc>
           </Intro>
         </Entry>
         <Link href={`/${ROUTE.RECIPES}`} passHref>
           <Entry>
-            <Logo src={`${ICON_CMD}/header/more_snippets.svg`} />
+            <Logo src={`${ICON}/menu/snippets.svg`} />
             <Intro>
               <Title>代码片段</Title>
               <Desc>各语言实用 Snippets，小技巧</Desc>
@@ -57,7 +57,7 @@ const MoreContent = () => {
         </Link>
         <Link href={`/${ROUTE.SUBSCRIBE}`} passHref>
           <Entry>
-            <Logo src={`${ICON_CMD}/header/more_subscribe.svg`} />
+            <Logo src={`${ICON}/menu/subscribe.svg`} />
             <Intro>
               <Title>
                 社区订阅 <Wip>开发中</Wip>
@@ -67,7 +67,7 @@ const MoreContent = () => {
           </Entry>
         </Link>
         <Entry>
-          <Logo src={`${ICON_CMD}/header/more_chart.svg`} />
+          <Logo src={`${ICON}/menu/chart.svg`} />
           <Intro>
             <Title>社区统计</Title>
             <Desc>各社区各项统计数据</Desc>
@@ -75,7 +75,7 @@ const MoreContent = () => {
         </Entry>
 
         <Entry>
-          <Logo src={`${ICON_CMD}/header/more_vip.svg`} />
+          <Logo src={`${ICON}/menu/vip.svg`} />
           <Intro>
             <Title>高级会员</Title>
             <Desc>升级高级会员，获得更好体验</Desc>
