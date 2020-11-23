@@ -1908,6 +1908,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@popperjs/core@^2.4.4":
+  version "2.5.4"
+  resolved "https://registry.npm.taobao.org/@popperjs/core/download/@popperjs/core-2.5.4.tgz?cache=0&sync_timestamp=1604053905119&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40popperjs%2Fcore%2Fdownload%2F%40popperjs%2Fcore-2.5.4.tgz#de25b5da9f727985a3757fd59b5d028aba75841a"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.npm.taobao.org/@samverschueren/stream-to-observable/download/@samverschueren/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -2019,12 +2023,11 @@
   dependencies:
     "@babel/runtime" "^7.4.4"
 
-"@tippy.js/react@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npm.taobao.org/@tippy.js/react/download/@tippy.js/react-3.1.1.tgz#027e4595e55f31430741fe8e0d92aaddfbe47efd"
+"@tippyjs/react@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.npm.taobao.org/@tippyjs/react/download/@tippyjs/react-4.2.0.tgz#a1cb369d0051099e8a7e4ceb59f809abd9955283"
   dependencies:
-    prop-types "^15.6.2"
-    tippy.js "^5.1.1"
+    tippy.js "^6.2.0"
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.9"
@@ -9934,7 +9937,7 @@ polished@3.6.3:
   dependencies:
     "@babel/runtime" "^7.9.2"
 
-popper.js@^1.14.1, popper.js@^1.16.0:
+popper.js@^1.14.1:
   version "1.16.1"
   resolved "https://registry.npm.taobao.org/popper.js/download/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
 
@@ -12114,11 +12117,11 @@ tinykeys@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/tinykeys/-/tinykeys-1.0.6.tgz#a4e48e994e6c1539859ec33e192afcf5f44e8722"
 
-tippy.js@^5.1.1:
-  version "5.2.1"
-  resolved "https://registry.npm.taobao.org/tippy.js/download/tippy.js-5.2.1.tgz#e08d7332c103a15e427124d710d881fca82365d6"
+tippy.js@^6.2.0:
+  version "6.2.7"
+  resolved "https://registry.npm.taobao.org/tippy.js/download/tippy.js-6.2.7.tgz?cache=0&sync_timestamp=1602379078127&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftippy.js%2Fdownload%2Ftippy.js-6.2.7.tgz#62fb34eda23f7d78151ddca922b62818c1ab9869"
   dependencies:
-    popper.js "^1.16.0"
+    "@popperjs/core" "^2.4.4"
 
 title-case@^2.1.0:
   version "2.1.1"

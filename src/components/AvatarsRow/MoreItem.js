@@ -3,7 +3,14 @@ import React, { useCallback } from 'react'
 import { prettyNum } from '@/utils'
 import Tooltip from '@/components/Tooltip'
 
-import { Wrapper, NumbersMore, TextMore, DotText } from './styles/more_item'
+import {
+  Wrapper,
+  NumbersMore,
+  TextMore,
+  DotText,
+  TotalCommentStateHint,
+  Focus,
+} from './styles/more_item'
 
 const MoreItem = ({ users, size, total, onTotalSelect, showTotalNumber }) => {
   const handleClick = useCallback(() => {
@@ -13,7 +20,15 @@ const MoreItem = ({ users, size, total, onTotalSelect, showTotalNumber }) => {
   return (
     <Wrapper onClick={handleClick}>
       <Tooltip
-        content={showTotalNumber ? '更多' : `共 ${total} 条评论`}
+        content={
+          showTotalNumber ? (
+            '更多'
+          ) : (
+            <TotalCommentStateHint>
+              共 <Focus>{total}</Focus> 条评论
+            </TotalCommentStateHint>
+          )
+        }
         duration={0}
       >
         {showTotalNumber ? (

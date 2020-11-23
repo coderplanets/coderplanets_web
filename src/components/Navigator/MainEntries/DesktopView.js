@@ -7,7 +7,6 @@ import { ICON_CMD } from '@/config'
 import { ROUTE } from '@/constant'
 import { getRouteMainPath } from '@/utils'
 
-// import Tooltip from '@/components/Tooltip'
 import Tooltip from '@/components/Tooltip'
 import MorePanel from '../MorePanel'
 import { Wrapper, DotDivider, SiteLink, Icon } from '../styles/main_entries'
@@ -73,7 +72,6 @@ const DesktopView = ({ type }) => {
         hideOnClick={false}
         placement="bottom"
         noDefaultPadding
-        trigger="click"
       >
         <SiteLink>
           更多 <Icon src={`${ICON_CMD}/arrow_down.svg`} />

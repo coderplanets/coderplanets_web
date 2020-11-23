@@ -89,6 +89,7 @@ const AvatarsRow = ({
           key={user.id}
           content={user.nickname}
           duration={0}
+          delay={300}
           contentHeight={getAvatarSize(size)}
         >
           <AvatarsItem size={size} noHoverMargin={total === 1}>
