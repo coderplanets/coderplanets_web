@@ -24,16 +24,16 @@ export const InnerWrapper = styled.div`
   max-width: ${pixelAdd(WIDTH.COMMUNITY.CONTENT, 46)};
   margin-left: ${WIDTH.COMMUNITY.CONTENT_OFFSET};
 
-  padding-left: 25px;
-  padding-right: 10px;
+  /* padding-left: 25px; */
+  /* padding-right: 10px; */
 
-  padding-top: ${({ cardView }) => (cardView ? '12px' : '15px')};
+  padding-top: ${({ cardView }) => (cardView ? '12px' : '0')};
   color: ${theme('font')};
-  background: ${theme('content.bg')};
+  /* background: ${theme('content.bg')}; */
 
-  border: 1px solid;
-  border-color: ${theme('content.border')};
-  border-radius: 6px;
+  /* border: 1px solid;
+  border-color: ${theme('content.border')}; */
+  /* border-radius: 6px; */
 
   ${css.media.mobile`
     margin: 0 3%;

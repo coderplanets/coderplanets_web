@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex()};
@@ -9,20 +9,22 @@ export const Wrapper = styled.div`
 export const LeftPart = styled.div`
   flex-grow: 1;
   width: 100%;
+  background: ${theme('content.bg')};
+  border-radius: 6px;
+
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 24px;
 `
 export const RightPart = styled.div`
-  min-width: 230px;
-  margin-left: 80px;
-  padding-top: 38px;
-  padding-left: 15px;
+  min-width: 200px;
+  padding-top: 20px;
+  margin-left: 40px;
 
-  ${css.media.laptopL`
-    margin-left: 60px;
-  `};
   ${css.media.tablet`display: none;`};
 `
 export const PublisherWrapper = styled.div`
-  width: 100%;
+  width: 160px;
   max-width: 180px;
   margin-left: 8%;
 `

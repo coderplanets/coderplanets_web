@@ -19,7 +19,8 @@ const commonHoverAffix = `
 export const Wrapper = styled.div`
   position: relative;
   ${css.flex('align-both')};
-  width: 180px;
+  width: 100%;
+  max-width: 300px;
   height: 32px;
   background-color: #3680ad; /* 消失的时候背景色 */
   border-radius: 3px;
