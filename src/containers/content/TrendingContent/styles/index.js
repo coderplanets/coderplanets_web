@@ -11,8 +11,9 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   padding: 10px 0;
   margin-top: 12px;
-  width: calc(100% + 75px);
-  border-radius: 8px;
+  width: 100%;
+  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
+  margin-left: -80px;
 `
 export const SwitchBtn = styled.div`
   margin-right: 15px;
@@ -20,5 +21,5 @@ export const SwitchBtn = styled.div`
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
-  max-width: calc(100% - 85px);
+  width: 100%;
 `

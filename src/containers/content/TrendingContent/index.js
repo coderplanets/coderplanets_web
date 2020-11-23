@@ -17,12 +17,12 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:TrendingContent')
 
-const TrendingContentContainer = ({ trendingContent: store }) => {
+const TrendingContentContainer = ({ trendingContent: store, metric }) => {
   useInit(store)
 
   return (
     <Wrapper testId="trendingContent">
-      <InnerWrapper>
+      <InnerWrapper metric={metric}>
         <SwitchBtn>
           <OrButton
             direction="column"
