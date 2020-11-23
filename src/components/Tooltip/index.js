@@ -7,7 +7,7 @@
 import React, { useState, useRef } from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@/utils'
+import { css, buildLog } from '@/utils'
 import { useOutsideClick } from '@/hooks'
 
 import ConfirmFooter from './ConfirmFooter'
@@ -94,6 +94,8 @@ const Tooltip = ({
         setActive(true)
         onShow?.()
       }}
+      zIndex={css.zIndex.popover}
+      interactive
       {...restProps}
     >
       {ContentComp}
@@ -104,6 +106,7 @@ const Tooltip = ({
       content={PopoverContent}
       placement={placement}
       hideOnClick={hideOnClick}
+      animation="scale"
       onHide={(instance) => {
         setInstance(instance)
         setActive(false)
@@ -114,6 +117,8 @@ const Tooltip = ({
         setActive(true)
         onShow?.()
       }}
+      zIndex={css.zIndex.popover}
+      interactive
       {...restProps}
     >
       {ContentComp}
@@ -168,7 +173,7 @@ Tooltip.propTypes = {
 
 Tooltip.defaultProps = {
   animation: 'fade',
-  arrow: false,
+  arrow: true,
   delay: 0,
   duration: 0,
   hideOnClick: true,

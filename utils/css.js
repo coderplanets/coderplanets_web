@@ -121,7 +121,7 @@ const flexColumnGrow = (rule1, rule2 = '') => `
 
 const zIndex = {
   header: 3,
-  popover: 3000,
+  popover: 2000,
   modalOverlay: 2500,
   drawerOverlay: 2000,
   drawer: 2001,

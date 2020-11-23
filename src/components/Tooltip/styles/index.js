@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import Tippy from '@tippy.js/react'
+import Tippy from '@tippyjs/react'
 
-import { theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const StyledTippy = styled(Tippy)`
   position: relative;
@@ -12,21 +12,9 @@ export const StyledTippy = styled(Tippy)`
   box-shadow: ${theme('popover.boxShadow')};
   outline: none;
 
-  /* margin-top: ${({ placement }) =>
-    placement === 'bottom' ? '6px' : '0'}; */
-  /* margin-bottom: ${({ placement }) =>
-    placement === 'top' ? '6px' : '0'}; */
-
   border-radius: 5px;
   padding: 10px;
-
-  &[data-placement^='top'] {
-    .tippy-arrow {
-      border-top-color: purple;
-    }
-  }
 `
-
 export const NoPaddingStyledTippy = styled(StyledTippy)`
   padding: 0;
 `
@@ -34,30 +22,22 @@ export const ContentWrapper = styled.div`
   position: relative;
   height: ${({ contentHeight }) => contentHeight};
 `
-export const TopArrow = styled.div`
+const Arrow = styled.div`
   position: absolute;
-  height: 3px;
-  width: 10px;
+  ${css.circle(4)};
+  z-index: ${css.zIndex.popover};
   background: #2d7eb1;
-  top: calc(100% + 8px);
-  left: calc(50% - 5px);
-  z-index: 10000;
+  box-shadow: ${theme('popover.boxShadow')};
 `
-export const BottomArrow = styled.div`
-  position: absolute;
-  height: 3px;
-  width: 10px;
-  background: #2d7eb1;
-  bottom: calc(100% + 8px);
-  left: calc(50% - 3px);
-  z-index: 10000;
+export const TopArrow = styled(Arrow)`
+  top: calc(100% + 4px);
+  left: calc(50% - 2px);
 `
-export const LeftArrow = styled.div`
-  position: absolute;
-  height: 10px;
-  width: 3px;
-  background: #2d7eb1;
-  top: calc(50% - 3px);
-  left: calc(100% + 8px);
-  z-index: 10000;
+export const BottomArrow = styled(Arrow)`
+  bottom: calc(100% + 4px);
+  left: calc(50% - 2px);
+`
+export const LeftArrow = styled(Arrow)`
+  top: calc(50% - 2px);
+  left: calc(100% + 4px);
 `
