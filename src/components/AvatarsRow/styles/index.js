@@ -24,9 +24,9 @@ const BaseAvatarItem = styled.li`
   &:hover {
     margin-left: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '10px')};
     margin-right: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '10px')};
-    transition-delay: 0.2s;
+    transition-delay: 0.1s;
   }
-  transition: all 0.2s;
+  transition: all 0.1s;
 `
 
 export const AvatarsItem = styled(BaseAvatarItem)`
@@ -39,7 +39,7 @@ export const AvatarsItem = styled(BaseAvatarItem)`
     filter: grayscale(0);
   }
 
-  transition: all 0.3s;
+  transition: all 0.1s;
 `
 export const TotalOneOffset = styled.span`
   margin-right: 10px;

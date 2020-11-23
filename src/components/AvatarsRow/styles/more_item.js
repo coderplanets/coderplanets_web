@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+import { css, theme } from '@/utils'
 
 import { Wrapper as BaseWrapper, AvatarsMore } from './index'
 import { getAvatarSize, getMoreTextWidth } from './metric'
@@ -17,7 +17,6 @@ const BaseAvatarItem = styled.li`
   ${BaseWrapper}:hover & {
     margin-left: 0;
   }
-  transition: all 0.3s;
 `
 export const Wrapper = styled(BaseAvatarItem)`
   ${css.media.mobile`display: none`};
@@ -36,4 +35,16 @@ export const TextMore = styled(AvatarsMore)`
 `
 export const DotText = styled.div`
   margin-top: -8px;
+`
+export const TotalCommentStateHint = styled.div`
+  ${css.flex('justify-center')};
+  color: ${theme('thread.articleDigest')};
+  width: 80px;
+  font-size: 12px;
+`
+export const Focus = styled.span`
+  color: ${theme('thread.articleTitle')};
+  font-weight: bold;
+  margin-left: 2px;
+  margin-right: 2px;
 `
