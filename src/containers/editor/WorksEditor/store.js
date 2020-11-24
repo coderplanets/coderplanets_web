@@ -23,7 +23,7 @@ const WorksEditor = T.model('WorksEditor', {
   works: T.optional(WorksItem, {}),
   step: T.optional(
     T.enumeration([STEP.ZERO, STEP.ONE, STEP.TWO, STEP.THREE, STEP.FOUR]),
-    STEP.ZERO,
+    STEP.ONE,
   ),
   useTemplate: T.optional(T.boolean, true),
 })

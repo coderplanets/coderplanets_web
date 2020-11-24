@@ -16,6 +16,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const Section = styled.section`
   width: 100%;
   margin-bottom: 25px;
+  outline: none;
 `
 export const Label = styled.div`
   ${css.flex('justify-between', 'align-end')};

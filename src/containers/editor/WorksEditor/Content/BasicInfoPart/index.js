@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Checker from '@/components/Checker'
+import Select from '@/components/Select'
 import { ArrowButton } from '@/components/Buttons'
 
 import CoverUploader from './CoverUploader'
@@ -30,8 +31,11 @@ const BasicInfoPart = ({ works }) => {
         <Input size="large" value="可能是最性感的开发者社区" bottom={0} />
       </Section>
       <Section>
-        <Label>运行平台</Label>
-        <Input size="large" value="React-Select" bottom={0} />
+        <Label>
+          <div>运行平台</div>
+          <Hint>可多选</Hint>
+        </Label>
+        <Select />
       </Section>
       <Section>
         <Label>标签(两级?)</Label>
