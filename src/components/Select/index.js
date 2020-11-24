@@ -19,7 +19,15 @@ import { Wrapper, getSelectStyles } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:Select:index')
 
-const Select = ({ testId, placeholder, options, onChange }) => {
+const Select = ({
+  testId,
+  placeholder,
+  options,
+  isMulti,
+  isClearable,
+  closeMenuOnSelect,
+  onChange,
+}) => {
   const theme = useTheme()
   const styles = getSelectStyles(theme)
 
@@ -31,9 +39,9 @@ const Select = ({ testId, placeholder, options, onChange }) => {
         styles={styles}
         components={{ IndicatorsContainer, Option, Input }}
         onChange={onChange}
-        closeMenuOnSelect={false}
-        isMulti
-        isClearable
+        closeMenuOnSelect={closeMenuOnSelect}
+        isMulti={isMulti}
+        isClearable={isClearable}
       />
     </Wrapper>
   )
@@ -50,12 +58,18 @@ Select.propTypes = {
     }),
   ).isRequired,
   onChange: T.func,
+  isMulti: T.bool,
+  closeMenuOnSelect: T.bool,
+  isClearable: T.bool,
 }
 
 Select.defaultProps = {
   testId: 'select',
   placeholder: '请选择运行平台',
   onChange: log,
+  isMulti: false,
+  closeMenuOnSelect: true,
+  isClearable: true,
 }
 
 export default React.memo(Select)

@@ -48,7 +48,7 @@ const BasicInfoPart = ({ works }) => {
           <Hint>可多选</Hint>
         </Label>
         <SelectWrapper>
-          <Select options={platformOptions} />
+          <Select options={platformOptions} closeMenuOnSelect={false} isMulti />
         </SelectWrapper>
       </Section>
       <Section>
