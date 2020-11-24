@@ -3,6 +3,8 @@ import styled from 'styled-components'
 // import Img from '@/Img'
 import { animate, css, theme } from '@/utils'
 
+export { getSelectStyles } from './metric'
+
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))``

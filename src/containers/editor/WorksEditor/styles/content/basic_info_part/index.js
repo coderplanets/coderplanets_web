@@ -38,6 +38,9 @@ export const Input = styled(FormItem)`
   width: 100%;
   font-size: 16px;
 `
+export const SelectWrapper = styled.div`
+  padding: 5px 5px;
+`
 export const CheckWrapper = styled.div`
   margin-left: 12px;
   margin-top: 12px;

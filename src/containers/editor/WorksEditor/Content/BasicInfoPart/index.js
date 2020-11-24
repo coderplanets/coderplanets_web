@@ -13,10 +13,22 @@ import {
   CheckWrapper,
   Hint,
   Input,
+  SelectWrapper,
   Footer,
 } from '../../styles/content/basic_info_part'
 
 import { updateWorks, nextStep } from '../../logic'
+
+const platformOptions = [
+  { value: 'web', label: 'Web', desc: '网站，浏览器扩展等' },
+  { value: 'ios', label: 'iOS', desc: 'App, 平板应用等' },
+  { value: 'android', label: 'Android', desc: 'App, 平板应用等' },
+  { value: 'mac', label: 'Mac' },
+  { value: 'windows', label: 'Windows' },
+  { value: 'cmd', label: '命令行', desc: '终端工具，unix / powershell 等' },
+  { value: 'miniprogram', label: '小程序', desc: '微信小程序，头条小程序等' },
+  { value: 'other', label: '其他' },
+]
 
 const BasicInfoPart = ({ works }) => {
   const valid = true
@@ -35,7 +47,9 @@ const BasicInfoPart = ({ works }) => {
           <div>运行平台</div>
           <Hint>可多选</Hint>
         </Label>
-        <Select />
+        <SelectWrapper>
+          <Select options={platformOptions} />
+        </SelectWrapper>
       </Section>
       <Section>
         <Label>标签(两级?)</Label>
