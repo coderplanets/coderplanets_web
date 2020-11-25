@@ -10,7 +10,7 @@ import {
   Wrapper,
   Entry,
   Logo,
-  Intro,
+  Main,
   Title,
   Desc,
   Notice,
@@ -19,30 +19,23 @@ import {
 const MoreContent = () => (
   <Wrapper>
     <Entry>
-      <Logo src={`${ICON}/menu/sponsor.svg`} />
-      <Intro>
-        <Link href={`/${ROUTE.SPONSOR}`} passHref>
+      <Link href={`/${ROUTE.SPONSOR}`} passHref>
+        <Main>
+          <Logo src={`${ICON}/menu/sponsor.svg`} />
           <Title>赞助与广告</Title>
-        </Link>
-        <Desc>赞助社区，广告投放..</Desc>
-      </Intro>
+        </Main>
+      </Link>
+      <Desc>赞助社区，广告投放..</Desc>
       <Notice>诚邀赞助</Notice>
     </Entry>
     <Entry>
-      <Logo src={`${ICON}/menu/feedback.svg`} />
-      <Intro>
-        <Title>建议与反馈</Title>
-        <Desc>使用过程中遇到的任何问题和建议请来这里</Desc>
-      </Intro>
-    </Entry>
-    <Entry>
-      <Logo src={`${ICON}/menu/github.svg`} />
-      <Intro>
-        <Link href={`/${GITHUB}`} passHref>
+      <Link href={`/${GITHUB}`} passHref>
+        <Main>
+          <Logo src={`${ICON}/menu/github.svg`} />
           <Title>Open Source</Title>
-        </Link>
-        <Desc>本站全部代码开源在 Github 上，欢迎参与</Desc>
-      </Intro>
+        </Main>
+      </Link>
+      <Desc>本站全部代码开源在 Github 上，欢迎参与</Desc>
     </Entry>
   </Wrapper>
 )
