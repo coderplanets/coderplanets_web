@@ -18,8 +18,7 @@ export const Entry = styled.div`
   ${css.flexColumn('align-start')};
   width: ${({ mobile }) => (!mobile ? '225px' : '48%')};
   height: 75px;
-  padding-left: 15px;
-  text-decoration: none;
+  padding-left: 20px;
 
   ${css.media.mobile`
     height: 88px;

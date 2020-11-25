@@ -34,7 +34,7 @@ const MoreContent = () => {
         </Entry>
         <Entry>
           <Main offset="11px">
-            <Logo src={`${ICON}/menu/trending.svg`} />
+            <Logo src={`${ICON}/menu/hot.svg`} />
             <Link href={`/${ROUTE.TRENDING}`} passHref>
               <Title>热门</Title>
             </Link>
@@ -76,7 +76,7 @@ const MoreContent = () => {
 
         <Entry>
           <Main>
-            <Logo src={`${ICON}/menu/feedback.svg`} />
+            <Logo src={`${ICON}/menu/ear.svg`} />
             <Link href={`/${ROUTE.UPGRADE}`} passHref>
               <Title>建议与反馈</Title>
             </Link>
