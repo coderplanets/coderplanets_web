@@ -1165,15 +1165,15 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.4.5":
-  version "7.10.2"
-  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+"@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.7":
+  version "7.12.5"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.12.5.tgz?cache=0&sync_timestamp=1604443606981&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.7.2", "@babel/runtime@^7.8.7":
-  version "7.12.5"
-  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.12.5.tgz?cache=0&sync_timestamp=1604443606981&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
+"@babel/runtime@^7.4.5":
+  version "7.10.2"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -2077,11 +2077,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@tanem/svg-injector@^7.0.6":
-  version "7.0.17"
-  resolved "https://registry.npm.taobao.org/@tanem/svg-injector/download/@tanem/svg-injector-7.0.17.tgz#f7433ec5e1cbaa4ad4d2a3c13cfca7149a3a3b2d"
+"@tanem/svg-injector@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.npm.taobao.org/@tanem/svg-injector/download/@tanem/svg-injector-8.1.0.tgz#f04c65903c4cded31d6f3c23d3986458307ad827"
   dependencies:
-    "@babel/runtime" "^7.4.4"
+    "@babel/runtime" "^7.12.1"
 
 "@tippyjs/react@4.2.0":
   version "4.2.0"
@@ -10554,12 +10554,12 @@ react-sortable-hoc@1.7.1:
     invariant "^2.2.4"
     prop-types "^15.5.7"
 
-react-svg@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npm.taobao.org/react-svg/download/react-svg-8.0.0.tgz#a929aed87371fe7bcf61eb9d14c1671c790e4a71"
+react-svg@11.1.2:
+  version "11.1.2"
+  resolved "https://registry.npm.taobao.org/react-svg/download/react-svg-11.1.2.tgz#f3364f7e8421432c48efa1826457268030cd7c9e"
   dependencies:
-    "@babel/runtime" "^7.3.1"
-    "@tanem/svg-injector" "^7.0.6"
+    "@babel/runtime" "^7.12.5"
+    "@tanem/svg-injector" "^8.1.0"
     prop-types "^15.7.2"
 
 react-swipeable@^5.5.1:

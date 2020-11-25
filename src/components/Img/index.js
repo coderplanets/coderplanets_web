@@ -7,10 +7,15 @@
 
 import React from 'react'
 import T from 'prop-types'
-import ReactSVG from 'react-svg'
+import { ReactSVG } from 'react-svg'
+
+import { buildLog } from '@/utils'
 
 import NormalImg from './NormalImg'
 import LazyLoadImg from './LazyLoadImg'
+
+/* eslint-disable-next-line */
+const log = buildLog('c:Img')
 
 const Img = ({
   className,
@@ -21,13 +26,21 @@ const Img = ({
   noLazy,
   scrollPosition,
   visibleByDefault,
+  onClick,
 }) => {
   if (/\.(svg)$/i.test(src)) {
+    // see solution in:
+    // https://github.com/tanem/react-svg/issues/676#issuecomment-589639104
     return (
       <ReactSVG
-        svgClassName={className}
         src={src}
+        beforeInjection={(svg) =>
+          className
+            .split(' ')
+            .map((singleClassName) => svg.classList.add(singleClassName))
+        }
         loading={() => <>{loading}</>}
+        onClick={onClick}
       />
     )
   }
@@ -64,6 +77,7 @@ Img.propTypes = {
   scrollPosition: T.any,
   // see https://www.npmjs.com/package/react-lazy-load-image-component
   visibleByDefault: T.bool,
+  onClick: T.func,
 }
 
 Img.defaultProps = {
@@ -74,6 +88,7 @@ Img.defaultProps = {
   noLazy: false,
   scrollPosition: null,
   visibleByDefault: false,
+  onClick: log,
 }
 
 export default React.memo(Img)
