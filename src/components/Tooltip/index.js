@@ -6,11 +6,13 @@
 
 import React, { useState, useRef } from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
-import { css, buildLog } from '@/utils'
+import { css, buildLog, isDescendant } from '@/utils'
 import { useOutsideClick } from '@/hooks'
 
 import ConfirmFooter from './ConfirmFooter'
+import { FOOTER_BEHAVIOR } from './constant'
 
 import {
   StyledTippy,
@@ -33,7 +35,7 @@ const Tooltip = ({
   content,
   hideOnClick,
   showArrow,
-  behavior,
+  footerBehavior,
   onConfirm,
   contentHeight,
   ...restProps
@@ -55,19 +57,31 @@ const Tooltip = ({
     </ContentWrapper>
   )
 
+  const contentRef = useRef()
+
   const PopoverContent = (
-    <>
+    <div ref={contentRef}>
       {content}
-      {active && behavior === 'confirm' && (
-        <ConfirmFooter onConfirm={onConfirm} />
+      {active && footerBehavior !== FOOTER_BEHAVIOR.DEFAULT && (
+        <ConfirmFooter
+          onConfirm={() => {
+            onConfirm?.()
+            instance?.hide()
+          }}
+          onCancel={() => instance?.hide()}
+          footerBehavior={footerBehavior}
+        />
       )}
-    </>
+    </div>
   )
 
   const ref = useRef()
 
   useOutsideClick(ref, (e) => {
-    if (!hideOnClick && instance) {
+    if (!instance) return false
+    const isClickInsidePopover = isDescendant(contentRef?.current, e.target)
+
+    if (hideOnClick || (!hideOnClick && !isClickInsidePopover)) {
       // if (instance) {
       // NOTE:  this is a hack, svg will swallow events like click
       // and the pointer-events solution not work
@@ -163,7 +177,7 @@ Tooltip.propTypes = {
   onHide: T.oneOfType([T.func, T.instanceOf(null)]),
   noDefaultPadding: T.bool,
   showArrow: T.bool,
-  behavior: T.oneOf(['default', 'confirm']),
+  footerBehavior: T.oneOf(values(FOOTER_BEHAVIOR)),
   onConfirm: T.oneOfType([T.func, T.instanceOf(null)]),
 
   // currently only for AvatarsRow, it will collapse the height
@@ -185,7 +199,7 @@ Tooltip.defaultProps = {
   noDefaultPadding: false,
   maxWidth: 'none',
   showArrow: true,
-  behavior: 'default',
+  footerBehavior: 'default',
   onConfirm: null,
 
   contentHeight: 'auto',

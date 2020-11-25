@@ -113,6 +113,7 @@ export {
   clearGlobalBlur,
   isElementInViewport,
   pixelAdd,
+  isDescendant,
 } from './dom'
 /*
  * theme related

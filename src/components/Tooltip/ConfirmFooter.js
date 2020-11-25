@@ -1,22 +1,57 @@
 import React from 'react'
 
+import { Button } from '@/components/Buttons'
 import { Space } from '@/components/Common'
-import ConfirmBtn from './ConfirmBtn'
-// import { Button } from '@/components/Buttons'
+
+import { FOOTER_BEHAVIOR } from './constant'
+
 import { Wrapper, ButtonsWrapper, CancelButton } from './styles/confirm_footer'
 
-const ConfirmFooter = ({ onConfirm }) => {
-  return (
-    <Wrapper>
-      <ButtonsWrapper>
-        <ConfirmBtn size="small" onClick={onConfirm}>
-          确认
-        </ConfirmBtn>
-        <Space right={10} />
-        <CancelButton>取消</CancelButton>
-      </ButtonsWrapper>
-    </Wrapper>
-  )
+const ConfirmFooter = ({ onConfirm, onCancel, footerBehavior }) => {
+  let content = null
+
+  switch (footerBehavior) {
+    case FOOTER_BEHAVIOR.DELETE_CONFIRM: {
+      content = (
+        <ButtonsWrapper>
+          <Button size="small" type="red" onClick={onConfirm}>
+            确认删除
+          </Button>
+          <Space right={10} />
+          <CancelButton onClick={onCancel}>取消</CancelButton>
+        </ButtonsWrapper>
+      )
+      break
+    }
+
+    case FOOTER_BEHAVIOR.ADD: {
+      content = (
+        <ButtonsWrapper>
+          <Button size="small" type="primary" onClick={onConfirm}>
+            添加
+          </Button>
+          <Space right={10} />
+          <CancelButton onClick={onCancel}>取消</CancelButton>
+        </ButtonsWrapper>
+      )
+      break
+    }
+
+    default: {
+      content = (
+        <ButtonsWrapper>
+          <Button size="small" type="primary" onClick={onConfirm}>
+            确定
+          </Button>
+          <Space right={10} />
+          <CancelButton onClick={onCancel}>取消</CancelButton>
+        </ButtonsWrapper>
+      )
+      break
+    }
+  }
+
+  return <Wrapper>{content}</Wrapper>
 }
 
 export default React.memo(ConfirmFooter)

@@ -18,16 +18,16 @@ import {
 
 const MoreContent = () => (
   <Wrapper>
-    <Link href={`/${ROUTE.SPONSOR}`} passHref>
-      <Entry>
-        <Logo src={`${ICON}/menu/sponsor.svg`} />
-        <Intro>
+    <Entry>
+      <Logo src={`${ICON}/menu/sponsor.svg`} />
+      <Intro>
+        <Link href={`/${ROUTE.SPONSOR}`} passHref>
           <Title>赞助与广告</Title>
-          <Desc>赞助社区，广告投放..</Desc>
-        </Intro>
-        <Notice>诚邀赞助</Notice>
-      </Entry>
-    </Link>
+        </Link>
+        <Desc>赞助社区，广告投放..</Desc>
+      </Intro>
+      <Notice>诚邀赞助</Notice>
+    </Entry>
     <Entry>
       <Logo src={`${ICON}/menu/feedback.svg`} />
       <Intro>
@@ -35,15 +35,15 @@ const MoreContent = () => (
         <Desc>使用过程中遇到的任何问题和建议请来这里</Desc>
       </Intro>
     </Entry>
-    <Link href={`/${GITHUB}`} passHref>
-      <Entry>
-        <Logo src={`${ICON}/menu/github.svg`} />
-        <Intro>
+    <Entry>
+      <Logo src={`${ICON}/menu/github.svg`} />
+      <Intro>
+        <Link href={`/${GITHUB}`} passHref>
           <Title>Open Source</Title>
-          <Desc>本站全部代码开源在 Github 上，欢迎参与</Desc>
-        </Intro>
-      </Entry>
-    </Link>
+        </Link>
+        <Desc>本站全部代码开源在 Github 上，欢迎参与</Desc>
+      </Intro>
+    </Entry>
   </Wrapper>
 )
 
