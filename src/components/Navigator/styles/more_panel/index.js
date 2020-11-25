@@ -14,8 +14,8 @@ export const BodyWrapper = styled.div`
   flex-wrap: wrap;
   margin-top: 25px;
 `
-export const Entry = styled.a`
-  ${css.flex('align-start')};
+export const Entry = styled.div`
+  ${css.flexColumn('align-start')};
   width: ${({ mobile }) => (!mobile ? '225px' : '48%')};
   height: 75px;
   padding-left: 15px;
@@ -25,36 +25,48 @@ export const Entry = styled.a`
     height: 88px;
   `};
 `
-export const Logo = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  height: 18px;
-  width: 18px;
-  display: block;
-  margin-top: 4px;
-
-  ${Entry}:hover & {
-    fill: #2d7eb1; /* primaryColor */
-    cursor: pointer;
-  }
-`
-export const Intro = styled.div`
-  ${css.flexColumn('align-start')};
-  margin-left: 10px;
+export const Main = styled.a`
+  ${css.flex('align-start')};
+  text-decoration: none;
 `
 export const Title = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
+  margin-left: ${({ offset }) => offset || '10px'};
 
-  ${Entry}:hover & {
+  &:hover {
     color: #2d7eb1; /* primaryColor */
+    text-decoration: underline;
+    text-decoration-color: #2d7eb1;
     cursor: pointer;
   }
+`
+export const Logo = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
+  ${css.size(18)};
+  margin-top: 4px;
+
+  ${Main}:hover & {
+    fill: #2d7eb1; /* primaryColor */
+    cursor: pointer;
+  }
+`
+export const SubscribeLogo = styled(Logo)`
+  ${css.size(24)};
+  margin-top: 0;
+  margin-left: -2px;
+`
+export const ChartLogo = styled(Logo)`
+  ${css.size(22)};
+  margin-top: 2px;
+  margin-left: -2px;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
   margin-top: 5px;
+  margin-left: 28px;
 `
 export const Wip = styled.div`
   color: #007372;

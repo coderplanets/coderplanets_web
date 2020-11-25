@@ -11,7 +11,9 @@ import {
   BodyWrapper,
   Entry,
   Logo,
-  Intro,
+  SubscribeLogo,
+  ChartLogo,
+  Main,
   Title,
   Desc,
   Wip,
@@ -22,64 +24,64 @@ const MoreContent = () => {
     <Wrapper>
       <BodyWrapper>
         <Entry>
-          <Logo src={`${ICON}/menu/shop.svg`} />
-          <Intro>
+          <Main>
+            <Logo src={`${ICON}/menu/shop.svg`} />
             <Title>
               小周边<Wip>开发中</Wip>
             </Title>
-            <Desc>贴纸/冰箱贴/各种奇奇怪怪。。</Desc>
-          </Intro>
+          </Main>
+          <Desc>贴纸/冰箱贴/各种奇奇怪怪。。</Desc>
         </Entry>
-        <Link href={`/${ROUTE.TRENDING}`} passHref>
-          <Entry>
-            <Logo src={`${ICON}/menu/trending.svg`} />
-            <Intro>
-              <Title>Trending</Title>
-              <Desc>各社区近期精华内容</Desc>
-            </Intro>
-          </Entry>
-        </Link>
         <Entry>
-          <Logo src={`${ICON}/menu/makers.svg`} />
-          <Intro>
+          <Main offset="11px">
+            <Logo src={`${ICON}/menu/trending.svg`} />
+            <Link href={`/${ROUTE.TRENDING}`} passHref>
+              <Title>热门</Title>
+            </Link>
+          </Main>
+          <Desc>各社区近期热门内容</Desc>
+        </Entry>
+        <Entry>
+          <Main>
+            <Logo src={`${ICON}/menu/makers.svg`} />
             <Title>创作者社区</Title>
-            <Desc>经验交流，开发者访谈</Desc>
-          </Intro>
+          </Main>
+          <Desc>经验交流，开发者访谈</Desc>
         </Entry>
         <Link href={`/${ROUTE.RECIPES}`} passHref>
           <Entry>
-            <Logo src={`${ICON}/menu/snippets.svg`} />
-            <Intro>
+            <Main>
+              <Logo src={`${ICON}/menu/snippets.svg`} />
               <Title>代码片段</Title>
-              <Desc>各语言实用 Snippets，小技巧</Desc>
-            </Intro>
-          </Entry>
-        </Link>
-        <Link href={`/${ROUTE.SUBSCRIBE}`} passHref>
-          <Entry>
-            <Logo src={`${ICON}/menu/subscribe.svg`} />
-            <Intro>
-              <Title>
-                社区订阅 <Wip>开发中</Wip>
-              </Title>
-              <Desc>各社区动态 RSS / Email 订阅</Desc>
-            </Intro>
+            </Main>
+            <Desc>各语言实用 Snippets，小技巧</Desc>
           </Entry>
         </Link>
         <Entry>
-          <Logo src={`${ICON}/menu/chart.svg`} />
-          <Intro>
-            <Title>社区统计</Title>
-            <Desc>各社区各项统计数据</Desc>
-          </Intro>
+          <Main>
+            <SubscribeLogo src={`${ICON}/menu/subscribe.svg`} />
+            <Link href={`/${ROUTE.SUBSCRIBE}`} passHref>
+              <Title offset="6px">社区订阅</Title>
+            </Link>
+          </Main>
+          <Desc>各社区动态 RSS / Email 订阅</Desc>
+        </Entry>
+        <Entry>
+          <Main>
+            <ChartLogo src={`${ICON}/menu/chart.svg`} />
+            <Title offset="8px">社区统计</Title>
+          </Main>
+          <Desc>各社区各项统计数据</Desc>
         </Entry>
 
         <Entry>
-          <Logo src={`${ICON}/menu/vip.svg`} />
-          <Intro>
-            <Title>高级会员</Title>
-            <Desc>升级高级会员，获得更好体验</Desc>
-          </Intro>
+          <Main>
+            <Logo src={`${ICON}/menu/feedback.svg`} />
+            <Link href={`/${ROUTE.UPGRADE}`} passHref>
+              <Title>建议与反馈</Title>
+            </Link>
+          </Main>
+          <Desc>关于社区的任何问题或建议</Desc>
         </Entry>
       </BodyWrapper>
       <Footer />

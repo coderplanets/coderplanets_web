@@ -13,10 +13,13 @@ export const Wrapper = styled.div`
   padding: 26px 20px;
   padding-bottom: 20px;
 `
-export const Entry = styled.a`
+export const Entry = styled.div`
   ${css.flex('align-center')};
   width: 100%;
   margin-bottom: 10px;
+`
+export const Main = styled.a`
+  ${css.flex('align-center')};
   text-decoration: none;
 `
 export const Logo = styled(Img)`
@@ -24,20 +27,20 @@ export const Logo = styled(Img)`
   height: 18px;
   width: 18px;
   display: block;
-  ${Entry}:hover & {
-    fill: #2d7eb1; /* primaryColor */
+  ${Main}:hover & {
+    fill: #2d7eb1;
     cursor: pointer;
   }
-`
-export const Intro = styled.div`
-  ${css.flex('align-center')};
-  margin-left: 12px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
-  ${Entry}:hover & {
-    color: #2d7eb1; /* primaryColor */
+  margin-left: 12px;
+
+  ${Main}:hover & {
+    color: #2d7eb1;
+    text-decoration: underline;
+    text-decoration-color: #2d7eb1;
     cursor: pointer;
   }
 `
