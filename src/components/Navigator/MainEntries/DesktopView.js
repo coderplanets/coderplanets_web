@@ -71,7 +71,6 @@ const DesktopView = ({ type }) => {
         content={<MorePanel />}
         placement="bottom"
         hideOnClick={false}
-        trigger="click"
         noPadding
       >
         <SiteLink>
