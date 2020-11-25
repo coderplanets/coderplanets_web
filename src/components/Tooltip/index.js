@@ -28,7 +28,7 @@ const log = buildLog('c:Tooltip:index')
 
 const Tooltip = ({
   children,
-  noDefaultPadding,
+  noPadding,
   onHide,
   onShow,
   placement,
@@ -92,7 +92,7 @@ const Tooltip = ({
     }
   })
 
-  return !noDefaultPadding ? (
+  return !noPadding ? (
     <StyledTippy
       ref={ref}
       content={PopoverContent}
@@ -175,7 +175,7 @@ Tooltip.propTypes = {
   // more options see: https://atomiks.github.io/tippyjs/all-options/
   onShow: T.oneOfType([T.func, T.instanceOf(null)]),
   onHide: T.oneOfType([T.func, T.instanceOf(null)]),
-  noDefaultPadding: T.bool,
+  noPadding: T.bool,
   showArrow: T.bool,
   footerBehavior: T.oneOf(values(FOOTER_BEHAVIOR)),
   onConfirm: T.oneOfType([T.func, T.instanceOf(null)]),
@@ -196,7 +196,7 @@ Tooltip.defaultProps = {
   trigger: 'mouseenter focus',
   onShow: null,
   onHide: null,
-  noDefaultPadding: false,
+  noPadding: false,
   maxWidth: 'none',
   showArrow: true,
   footerBehavior: 'default',
