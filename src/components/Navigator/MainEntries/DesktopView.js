@@ -67,12 +67,7 @@ const DesktopView = ({ type }) => {
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
-      <Tooltip
-        content={<MorePanel />}
-        hideOnClick={false}
-        placement="bottom"
-        noDefaultPadding
-      >
+      <Tooltip content={<MorePanel />} placement="bottom" noDefaultPadding>
         <SiteLink>
           更多 <Icon src={`${ICON_CMD}/arrow_down.svg`} />
         </SiteLink>

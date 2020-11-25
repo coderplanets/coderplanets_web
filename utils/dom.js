@@ -173,3 +173,22 @@ export const pixelAdd = (current, num) => {
 
   return `${pixelNum + num}px`
 }
+
+/**
+ * check if child is descendant of the parent node
+ * see https://stackoverflow.com/questions/2234979/how-to-check-in-javascript-if-one-element-is-contained-within-another
+ *
+ * @param {HTMLElement} parent
+ * @param {HTMLElement} child
+ * @returns
+ */
+export const isDescendant = (parent, child) => {
+  let node = child.parentNode
+  while (node != null) {
+    if (node === parent) {
+      return true
+    }
+    node = node.parentNode
+  }
+  return false
+}

@@ -5,7 +5,7 @@ import { css, theme } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flex('align-both')};
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   border-top: 1px solid;
   border-top-color: ${theme('popover.borderColor')};
 `
