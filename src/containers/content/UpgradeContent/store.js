@@ -4,18 +4,18 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-// import {} from 'ramda'
+import { values } from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
+
+import { PACKAGE, PAY } from './constant'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:UpgradeContent')
 
 const UpgradeContent = T.model('UpgradeContent', {
-  payType: T.optional(T.enumeration(['yearly', 'monthly']), 'yearly'),
-  pkgType: T.optional(
-    T.enumeration(['free', 'advance', 'girl', 'team']),
-    'advance',
-  ),
+  payType: T.optional(T.enumeration(values(PAY)), PAY.YEARLY),
+  pkgType: T.optional(T.enumeration(values(PACKAGE)), PACKAGE.ADVANCE),
 })
   .views((self) => ({
     get root() {
@@ -27,19 +27,19 @@ const UpgradeContent = T.model('UpgradeContent', {
     get dashboardItems() {
       return [
         {
-          pkgType: 'free',
+          pkgType: PACKAGE.FREE,
           desc: '免费用户，常规社区功能，部分高级选项有数量限制',
           yearlyPrice: '0',
           monthlyPrice: '0',
-          illustration: 'free',
+          illustration: PACKAGE.FREE,
           serviceItems: [{ title: '发布各种内容' }, { title: '创建子社区' }],
         },
         {
-          pkgType: 'advance',
+          pkgType: PACKAGE.ADVANCE,
           desc: '更好更全面的阅读、交互体验。优先参与社区规划共建',
           yearlyPrice: '59',
           monthlyPrice: '5.9',
-          illustration: 'advance',
+          illustration: PACKAGE.ADVANCE,
           serviceItems: [
             { title: '主题设置' },
             { title: '头像特殊标识' },
@@ -50,11 +50,11 @@ const UpgradeContent = T.model('UpgradeContent', {
           ],
         },
         {
-          pkgType: 'girl',
+          pkgType: PACKAGE.GIRL,
           desc: '女生福利，高级会员的所有服务，无理由升级',
           yearlyPrice: '0',
           monthlyPrice: '0',
-          illustration: 'girl',
+          illustration: PACKAGE.GIRL,
           serviceItems: [
             { title: '主题设置' },
             { title: '头像特殊标识' },
@@ -65,11 +65,11 @@ const UpgradeContent = T.model('UpgradeContent', {
           ],
         },
         {
-          pkgType: 'team',
+          pkgType: PACKAGE.TEAM,
           desc: '全部功能。适合独立开发者、小团队等需要独立空间的场景',
           yearlyPrice: '199',
           monthlyPrice: '19.9',
-          illustration: 'ufo',
+          illustration: PACKAGE.TEAM,
           serviceItems: [
             {
               title: '二级域名',
