@@ -72,7 +72,7 @@ const UpgradeContent = T.model('UpgradeContent', {
           illustration: PACKAGE.TEAM,
           serviceItems: [
             {
-              title: '二级域名',
+              title: '自定义二级域名',
             },
             {
               title: '隐藏主站其他入口',

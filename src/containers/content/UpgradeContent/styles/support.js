@@ -26,13 +26,13 @@ const PkgItemIcon = styled(Img)`
 `
 export const PkgItemYesIcon = styled(PkgItemIcon)`
   fill: ${theme('baseColor.green')};
-  width: 14px;
-  height: 12px;
-  margin-right: 6px;
+  ${css.size(12)};
+  margin-right: 8px;
 `
 export const ArrowIcon = styled(PkgItemIcon)`
-  ${css.size(16)};
+  ${css.size(15)};
   fill: ${theme('baseColor.green')};
+  margin-left: -2px;
 `
 export const PkgItemNoIcon = styled(PkgItemIcon)`
   fill: ${theme('baseColor.red')};

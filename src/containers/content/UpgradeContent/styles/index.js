@@ -87,7 +87,6 @@ export const TitleDivider = styled.div`
 `
 export const ItemsWrapper = styled.div`
   text-align: left;
-  margin-left: 10px;
 `
 export const PayBtnWrapper = styled.div`
   display: ${({ active }) => (active ? 'block' : 'none')};
