@@ -1,7 +1,7 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css as styledCss, keyframes } from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils'
+import { theme, css } from '@/utils'
 
 const DURATION = '2.5s'
 const load = keyframes`
@@ -95,13 +95,13 @@ const liquid2 = keyframes`
     opacity: 0;
   }
 `
-const loadRule = css`
+const loadRule = styledCss`
   ${load} ${DURATION} infinite;
 `
-const liquid1Rule = css`
+const liquid1Rule = styledCss`
   ${liquid1} ${DURATION} infinite;
 `
-const liquid2Rule = css`
+const liquid2Rule = styledCss`
   ${liquid2} ${DURATION} infinite;
 `
 
