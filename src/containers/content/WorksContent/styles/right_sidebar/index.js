@@ -16,7 +16,6 @@ export const SubDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-top: 12px;
   margin-bottom: 8px;
-  margin-right: 10px;
   line-height: 20px;
   opacity: 0.8;
 `

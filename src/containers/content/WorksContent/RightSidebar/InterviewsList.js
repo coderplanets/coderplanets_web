@@ -11,6 +11,7 @@ import {
   Avatar,
   Intro,
   Title,
+  UpvoteWrapper,
 } from '../styles/right_sidebar/interviews_list'
 
 const icon = 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/works/market1.jpeg'
@@ -27,9 +28,11 @@ const Interview = () => {
       </Intro>
       <SpaceGrow />
       {/* upvote */}
-      <IconText iconSrc={`${ICON}/article/heart-solid.svg`} margin="5px">
-        17
-      </IconText>
+      <UpvoteWrapper>
+        <IconText iconSrc={`${ICON}/article/heart-solid.svg`} margin="5px">
+          17
+        </IconText>
+      </UpvoteWrapper>
     </InterviewWrapper>
   )
 }

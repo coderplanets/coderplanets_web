@@ -29,9 +29,12 @@ export const Avatar = styled(Img)`
 `
 export const Intro = styled.div`
   ${css.flexColumn()};
-  margin-left: 12px;
+  margin-left: 8px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 13px;
+`
+export const UpvoteWrapper = styled.div`
+  margin-top: 2px;
 `
