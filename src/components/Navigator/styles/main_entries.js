@@ -25,21 +25,23 @@ export const SiteLink = styled.a.attrs((props) => ({
   ${css.flex('align-center')};
   color: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
-  background: ${({ active }) =>
-    active ? theme('banner.numberHoverBg') : 'transparent'};
-  padding: 5px 3px 3px 3px;
-  border-bottom: ${({ active }) => (active ? '2px solid' : 'none')};
-  border-bottom-color: ${({ active }) =>
+  background: ${({ active }) => (active ? '#0d4354' : 'transparent')};
+  padding: ${({ active }) => (active ? '5px 6px' : '6px 3px 3px 3px')};
+  border-top: ${({ active }) => (active ? '2px solid' : 'none')};
+  border-top-color: ${({ active }) =>
     active ? theme('tabs.headerActive') : ''};
 
+  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
+
+  height: 33px;
   text-decoration: none;
   &:hover {
     cursor: pointer;
     text-decoration: none;
     color: ${theme('banner.title')};
-    border-bottom: ${({ active }) => (active ? '2px solid' : 'none')};
-    border-bottom-color: theme('tabs.headerActive');
-    padding: 5px 3px 3px 3px;
+    border-top: ${({ active }) => (active ? '2px solid' : 'none')};
+    border-top-color: theme('tabs.headerActive');
+    padding: ${({ active }) => (active ? '5px 6px' : '6px 3px 3px 3px')};
   }
 `
 export const Icon = styled(Img)`
