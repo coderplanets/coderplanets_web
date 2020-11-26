@@ -60,7 +60,6 @@ export const Logo = styled(Img)`
   ${css.size(18)};
 
   ${css.media.mobile`
-    width: 16px;
-    height: 16px;
+    ${css.size(16)};
   `}
 `

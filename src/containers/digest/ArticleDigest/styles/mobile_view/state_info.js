@@ -32,7 +32,6 @@ export const Text = styled(ViewsText)`
 const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  display: block;
 `
 export const ViewdIcon = styled(Icon)``
 export const CommentIcon = styled(Icon)``

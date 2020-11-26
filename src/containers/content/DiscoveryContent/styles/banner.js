@@ -61,7 +61,6 @@ export const CreateCommunityLink = styled.a`
 export const SearchIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(16)};
-  display: block;
   margin-right: 6px;
 `
 export const Title = styled.div`

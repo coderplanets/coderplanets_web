@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -34,9 +34,7 @@ export const PreviewWrapper = styled.div`
 `
 export const PreviewIcon = styled(Img)`
   fill: ${theme('thread.extraInfo')};
-  height: 14px;
-  width: 14px;
-  display: block;
+  ${css.size(14)};
   transform: rotate(180deg);
 `
 export const PreviewText = styled.span`

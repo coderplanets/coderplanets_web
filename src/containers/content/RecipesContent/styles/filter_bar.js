@@ -41,7 +41,6 @@ export const OptionItem = styled.div`
 `
 const OptionIconBase = styled(Img)`
   ${css.size(12)};
-  display: block;
   opacity: ${({ active }) => (active ? '1' : '0')};
 
   transition: all 0.25s;

@@ -30,7 +30,6 @@ export const LabelText = styled.div`
 export const LabelIcon = styled(Img)`
   fill: ${theme('tabs.headerActive')};
   ${css.size(18)};
-  display: block;
   margin-right: 4px;
 `
 

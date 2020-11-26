@@ -14,9 +14,7 @@ export const Main = styled.div`
 `
 const NotifyIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-right: 5px;
   cursor: pointer;
 `

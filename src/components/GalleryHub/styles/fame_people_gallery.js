@@ -97,7 +97,6 @@ export const EduWrapper = styled.div`
 `
 export const ExpIcon = styled(Img)`
   ${css.size(16)};
-  display: block;
   margin-right: 5px;
   filter: saturate(0);
 
@@ -124,7 +123,6 @@ export const ViewInfo = styled(VoteInfo)`
 const FooterIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
-  display: block;
 `
 export const UpVoteIcon = styled(FooterIcon)`
   margin-top: -1px;

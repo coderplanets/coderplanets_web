@@ -35,7 +35,6 @@ export const SponsorText = styled.div`
 export const SponsorLogo = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(24)};
-  display: block;
 `
 export const SupportTitle = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -45,8 +44,7 @@ export const SupportTitle = styled.div`
 
 const Anchor = styled.div`
   position: absolute;
-  width: 10px;
-  height: 10px;
+  ${css.size(10)};
   z-index: 1;
 `
 // anchors

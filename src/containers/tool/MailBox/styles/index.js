@@ -11,17 +11,14 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const HeaderMailIcon = styled(HeaderMailSVG)`
   fill: ${theme('header.fg')};
   ${css.size(20)};
-  display: block;
   cursor: pointer;
   margin-right: 12px;
 `
 export const NotifyDot = styled.div`
   position: absolute;
   display: ${({ active }) => (active ? 'block' : 'none')};
-  width: 8px;
-  height: 8px;
+  ${css.circle(8, false)};
   background: ${theme('baseColor.red')};
-  border-radius: 100%;
   top: 5px;
   right: 8px;
 `

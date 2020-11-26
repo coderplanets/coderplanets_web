@@ -13,6 +13,8 @@ import { connectStore, buildLog } from '@/utils'
 import { OrButton, Button } from '@/components/Buttons'
 import Checker from '@/components/Checker'
 
+import { PAY, PACKAGE } from './constant'
+
 import Illustrations from './Illustrations'
 import Support from './Support'
 import PriceTag from './PriceTag'
@@ -43,7 +45,7 @@ import { useInit, pkgTypeOnChange, payTypeOnChange } from './logic'
 const log = buildLog('C:UpgradeContent')
 
 const PayButton = ({ pkgType, payType }) => {
-  if (pkgType === 'girl') {
+  if (pkgType === PACKAGE.GIRL) {
     return (
       <Button type="primary" ghost>
         验证
@@ -53,7 +55,7 @@ const PayButton = ({ pkgType, payType }) => {
 
   return (
     <Button type="primary" ghost>
-      {payType === 'yearly' ? '扫码' : '试试看'}
+      {payType === PAY.YEARLY ? '扫码' : '试试看'}
     </Button>
   )
 }
@@ -76,19 +78,19 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
               activeKey={payType}
               group={[
                 {
-                  key: 'yearly',
+                  key: PAY.YEARLY,
                   title: '年付费',
                 },
                 {
-                  key: 'monthly',
+                  key: PAY.MONTHLY,
                   title: '月付费',
                 },
               ]}
               onClick={payTypeOnChange}
             />
-            {payType === 'monthly' &&
-              pkgType !== 'girl' &&
-              pkgType !== 'free' && <MonthlyWarning />}
+            {payType === PAY.MONTHLY &&
+              pkgType !== PACKAGE.GIRL &&
+              pkgType !== PACKAGE.FREE && <MonthlyWarning />}
           </PayButtonWrapper>
         </BannerWrapper>
         <ContentWrapper metric={metric}>
@@ -108,7 +110,7 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
               <PriceTag
                 active={pkgType === item.pkgType}
                 price={
-                  payType === 'yearly' ? item.yearlyPrice : item.monthlyPrice
+                  payType === PAY.YEARLY ? item.yearlyPrice : item.monthlyPrice
                 }
                 unit={payType}
               />
@@ -123,7 +125,7 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
               </ItemsWrapper>
               <TitleDivider />
               <PayBtnWrapper active={pkgType === item.pkgType}>
-                {item.pkgType === 'free' ? (
+                {item.pkgType === PACKAGE.FREE ? (
                   <FreeNote>当前为免费账户无需支付</FreeNote>
                 ) : (
                   <PayButton pkgType={item.pkgType} payType={payType} />

@@ -73,7 +73,6 @@ export const SiteDesc = styled.a`
 `
 export const SiteLogo = styled(CommunityFaceLogo)`
   ${css.size(32)};
-  display: block;
   margin-bottom: 18px;
   margin-left: 3px;
 `

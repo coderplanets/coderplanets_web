@@ -26,7 +26,6 @@ export const MainWrapper = styled.div`
 `
 const Icon = styled(Img)`
   ${css.size(22)};
-  display: block;
   transition: all 0.25s;
   cursor: pointer;
 `

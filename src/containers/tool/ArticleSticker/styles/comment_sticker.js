@@ -45,7 +45,6 @@ export const MoreUserWrapper = styled.div`
 export const MoreIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(12)};
-  display: block;
 `
 export const Divider = styled.div`
   width: 90%;

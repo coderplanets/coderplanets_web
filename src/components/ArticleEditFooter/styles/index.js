@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 `
 export const RespectText = styled.div`
   color: ${theme('editor.placeholder')};
-  display: block;
 `
 export const Divider = styled.div`
   border-top: 1px solid;

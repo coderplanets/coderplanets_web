@@ -16,7 +16,6 @@ const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
   margin-top: -1px;
-  display: block;
 `
 export const ReferIcon = styled(Icon)``
 export const RecordIcon = styled(Icon)`
@@ -63,5 +62,4 @@ export const IndexArrowIcon = styled(Img)`
   transform: rotate(-90deg);
 
   ${css.size(24)};
-  display: block;
 `

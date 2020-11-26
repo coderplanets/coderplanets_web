@@ -41,11 +41,9 @@ export const Reaction = styled.div`
   transition: all 0.25s;
 `
 export const Icon = styled(Img)`
-  display: block;
   fill: ${theme('banner.desc')};
+  ${css.size(11)};
   margin-right: 3px;
-  width: 11px;
-  height: 11px;
   margin-top: -1px;
 `
 export const Count = styled.div`

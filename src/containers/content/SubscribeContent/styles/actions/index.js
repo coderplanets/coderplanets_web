@@ -20,7 +20,6 @@ export const SubscribeBtn = styled(Button)`
 `
 export const SubscribeIcon = styled(Img)`
   fill: ${theme('button.fg')};
-  display: block;
   ${css.size(12)};
   margin-right: 8px;
 `

@@ -29,14 +29,12 @@ export const ArrowIcon = styled(Img)`
   ${css.size(24)};
   fill: ${theme('thread.articleDigest')};
   z-index: 1;
-  display: block;
 
   transform: ${({ isPulled }) => (isPulled ? 'rotate(0)' : 'rotate(180deg)')};
 
   ${Wrapper}:hover & {
     fill: ${theme('thread.articleTitle')};
-    width: 25px;
-    height: 25px;
+    ${css.size(25)};
   }
   transition: all 0.25s;
 `

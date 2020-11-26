@@ -19,7 +19,6 @@ export const SignIcon = styled(Img)`
   top: -6px;
   right: 5px;
   ${css.size(35)};
-  display: block;
   opacity: 0.5;
   transform: rotate(-10deg);
 `

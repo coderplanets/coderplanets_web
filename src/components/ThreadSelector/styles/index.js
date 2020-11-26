@@ -21,7 +21,6 @@ export const BoxedLabel = styled(Label)`
 export const LabelIcon = styled(Img)`
   ${css.size(18)};
   fill: ${theme('banner.title')};
-  display: block;
   &:hover {
     fill: ${theme('tabs.headerActive')};
   }

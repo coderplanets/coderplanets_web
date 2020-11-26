@@ -16,9 +16,7 @@ export const Title = styled.div`
 `
 export const PrefixIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height 15px;
-  display: block;
+  ${css.size(15)};
 
   transform: ${({ reverse }) => (reverse ? 'rotateY(180deg)' : '')};
 `

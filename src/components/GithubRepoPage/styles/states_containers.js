@@ -49,7 +49,6 @@ export const Avatar = styled(Img)`
   border-radius: 3px;
   margin-left: 6px;
   opacity: 0.8;
-  display: block;
   &:hover {
     cursor: pointer;
     opacity: 1;

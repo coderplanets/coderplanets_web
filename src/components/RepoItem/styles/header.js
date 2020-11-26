@@ -68,8 +68,7 @@ export const StatusNum = styled.div`
 `
 const StatusIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   margin-right: 3px;
   margin-top: 2px;
 `

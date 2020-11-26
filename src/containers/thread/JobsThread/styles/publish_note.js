@@ -9,9 +9,7 @@ export const Wrapper = styled.div`
   margin-top: 60px;
 `
 export const NoteIcon = styled(Img)`
-  width: 80px;
-  height: 80px;
-  display: block;
+  ${css.size(80)};
   margin-bottom: 30px;
 `
 export const NoteDesc = styled.div`

@@ -17,9 +17,7 @@ export const HomePage = styled.div`
 `
 export const HomeIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
 `
 export const HomepageLink = styled.a`
   color: ${theme('thread.articleDigest')};

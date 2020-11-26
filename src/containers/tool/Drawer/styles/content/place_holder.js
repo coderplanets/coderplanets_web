@@ -9,9 +9,7 @@ export const Wrapper = styled.div`
 `
 export const SiteLogo = styled(Img)`
   margin-top: -25%;
-  width: 120px;
-  height: 120px;
-  display: block;
+  ${css.size(120)};
   opacity: 0.2;
 `
 export const Desc = styled.div`

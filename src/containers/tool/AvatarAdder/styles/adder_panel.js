@@ -31,10 +31,8 @@ export const Footer = styled.div`
   ${css.flex('justify-center')};
 `
 export const AdderIcon = styled(Img)`
-  width: 17px;
-  height: 17px;
+  ${css.size(17)};
   fill: ${theme('thread.articleDigest')};
-  display: block;
   margin-right: 3px;
   &:hover {
     fill: ${theme('thread.articleTitle')};
@@ -56,11 +54,9 @@ export const AddBtn = styled.div`
     font-weight: bold;
   }
 `
-
 export const LabelIcon = styled(Img)`
   fill: ${theme('form.text')};
   ${css.size(20)};
-  display: block;
   margin-right: 6px;
 `
 export const SearchInput = styled.input`

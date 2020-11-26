@@ -19,7 +19,6 @@ export const DescIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(12)};
   margin-right: 5px;
-  display: block;
 `
 export const DescLink = styled.a`
   color: ${theme('thread.articleTitle')};
@@ -33,8 +32,7 @@ export const DescLink = styled.a`
   transition: color 0.3s;
 `
 export const EditorIcon = styled(DescIcon)`
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   fill: ${theme('thread.articleTitle')};
 `
 

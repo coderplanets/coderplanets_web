@@ -15,7 +15,6 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(30)};
-  display: block;
 `
 export const Digest = styled.div`
   ${css.flexColumn('align-start')};

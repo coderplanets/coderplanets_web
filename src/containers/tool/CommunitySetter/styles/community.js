@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
 `
 export const Logo = styled(Img)`
   ${css.size(20)};
-  display: block;
   margin-right: 5px;
 `
 export const Title = styled.div`
@@ -26,10 +25,8 @@ export const Title = styled.div`
   }
 `
 export const Mark = styled.div`
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  background: ${theme('baseColor.green')};
   position: absolute;
   right: -8px;
+  ${css.circle(10)};
+  background: ${theme('baseColor.green')};
 `

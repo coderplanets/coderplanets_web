@@ -14,10 +14,8 @@ export const Header = styled.div`
 `
 export const DiscussIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 50px;
-  height: 50px;
+  ${css.size(50)};
   margin-right: 15px;
-  display: block;
 `
 export const Info = styled.div`
   ${css.flexColumn()};
@@ -48,9 +46,7 @@ export const GithubIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   margin-left: 5px;
   margin-right: 6px;
-  display: block;
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   ${Footer}:hover & {
     fill: ${theme('thread.articleTitle')};
   }

@@ -16,7 +16,6 @@ export const LabelIcon = styled(Img)`
   fill: ${theme('editor.content')};
   ${css.size(16)};
   margin-right: 3px;
-  display: block;
 
   ${LabelItem}:hover & {
     fill: ${theme('editor.footerHover')};

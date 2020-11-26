@@ -37,6 +37,7 @@ export const Icon = styled(Img)`
   width: ${({ bigger }) => (bigger ? '24px' : '18px')};
   height: ${({ bigger }) => (bigger ? '24px' : '18px')};
   display: block;
+
   opacity: ${({ index }) => (index === 0 ? 1 : 0)};
   ${Block}:hover & {
     opacity: ${({ index }) => (index === 0 ? 1 : 0.8)};

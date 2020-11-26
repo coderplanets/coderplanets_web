@@ -32,7 +32,6 @@ export const SloganTextWrapper = styled.div`
 export const TitleIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(18)};
-  display: block;
   margin-right: 10px;
 `
 export const Title = styled.div`

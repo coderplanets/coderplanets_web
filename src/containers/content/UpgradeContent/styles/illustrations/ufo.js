@@ -27,10 +27,10 @@ export const Wrapper = styled.div.attrs((props) => ({
   position: relative;
 `
 export const Star1 = styled(Star1Base)`
+  ${css.size(14, false)};
   left: 20px;
   top: 30px;
   opacity: 0.8;
-  ${css.size(14)};
 `
 export const Star2 = styled(Star2Base)`
   width: 12px;

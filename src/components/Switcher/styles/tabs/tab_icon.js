@@ -13,13 +13,11 @@ export const Wrapper = styled.div`
 export const Icon = styled(Img)`
   fill: ${({ active }) =>
     active === 1 ? theme('tabs.headerActive') : theme('tabs.header')};
-  width: 15px;
-  height: 15px;
+
+  ${css.size(15)};
   margin-right: 5px;
-  display: block;
 
   ${css.media.mobile`
-    width: 13px;
-    height: 13px;
+    ${css.size(13)};
   `}
 `

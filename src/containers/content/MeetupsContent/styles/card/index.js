@@ -63,6 +63,5 @@ export const Company = styled.div`
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(12)};
-  display: block;
   margin-right: 3px;
 `

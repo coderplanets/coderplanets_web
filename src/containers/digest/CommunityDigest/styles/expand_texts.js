@@ -65,9 +65,7 @@ export const IconWithTextWrapper = styled.div`
 `
 export const UpIcon = styled(Img)`
   fill: #2cb4aa;
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-right: 3px;
 `
 export const UpText = styled.div`

@@ -41,7 +41,6 @@ export const MoreItem = styled(Item)`
   margin-top: 8px;
 `
 export const FixedIcon = styled(Img)`
-  display: block;
   ${css.size(14)};
   margin-right: 5px;
 `
@@ -49,8 +48,7 @@ export const Icon = styled(Img)`
   display: ${({ active }) => (active ? 'block' : 'none')};
   fill: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
+  ${css.size(15, false)};
 
   ${Item}:hover & {
     display: block;

@@ -25,11 +25,9 @@ export const TagsWrapper = styled.div`
   margin-top: 2px;
 `
 export const CompanyLogo = styled(Img)`
-  width: 45px;
-  height: 45px;
+  ${css.size(45)};
   border-radius: 5px;
   opacity: ${theme('avatarOpacity')};
-  display: block;
 `
 export const Brief = styled.div`
   ${css.flex('align-center')};
@@ -89,7 +87,6 @@ export const CommentIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
   margin-right: 4px;
-  display: block;
 `
 export const CommentNum = styled.div`
   color: ${theme('thread.articleTitle')};

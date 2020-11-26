@@ -52,11 +52,9 @@ export const CountItem = styled.a`
 `
 export const CountIcon = styled(Img)`
   fill: ${theme('banner.title')};
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   margin-right: 4px;
   margin-top: -3px;
-  display: block;
 `
 export const StarIcon = styled(CountIcon)`
   margin-top: -4px;

@@ -17,7 +17,6 @@ export const Wrapper = styled.div`
 export const LockIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(20)};
-  display: block;
   margin-right: 10px;
   margin-top: -4px;
 `

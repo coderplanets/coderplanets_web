@@ -37,7 +37,6 @@ export const FilterOption = styled.div`
 export const OptionIcon = styled(Img)`
   fill: #7c8f90;
   ${css.size(16)};
-  display: block;
 
   &:hover {
     cursor: pointer;

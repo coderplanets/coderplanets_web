@@ -21,7 +21,6 @@ export const FoldBtn = styled.div`
 export const FoldArrow = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
-  display: block;
   margin-right: 3px;
   ${FoldBtn}:hover & {
     cursor: pointer;

@@ -14,7 +14,6 @@ export const LogoutBtn = styled.div`
 export const LogoutIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(18)};
-  display: block;
   margin-top: -2px;
   ${LogoutBtn}:hover & {
     fill: ${theme('baseColor.red')};

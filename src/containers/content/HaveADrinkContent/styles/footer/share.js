@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  display: block;
   ${css.size(20)};
   opacity: 0.8;
 

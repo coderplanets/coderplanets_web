@@ -35,8 +35,6 @@ export const Divider = styled.div`
 `
 export const MoreIcon = styled(Img)`
   fill: ${theme('button.fg')};
-  width: 10px;
-  height: 10px;
-  display: block;
+  ${css.size(10)};
   transform: rotate(180deg);
 `

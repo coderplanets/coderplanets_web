@@ -27,7 +27,6 @@ export const LoadingIcon = styled(BtnIcon)`
   fill: ${({ light }) =>
     light ? theme('button.fg') : theme('thread.articleTitle')};
 
-  height: 15px;
-  width: 15px;
+  ${css.size(15)};
   animation: ${animate.rotate360} 1s linear infinite;
 `

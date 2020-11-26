@@ -75,6 +75,5 @@ export const FooterBase = styled.div`
   }
 `
 export const FlagIconBase = styled(Img)`
-  width: 15px;
-  display: block;
+  ${css.size(15)};
 `

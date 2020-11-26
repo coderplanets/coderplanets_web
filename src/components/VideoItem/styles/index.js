@@ -85,9 +85,7 @@ export const ViewInfo = styled.div`
 `
 export const ViewIcon = styled(Img)`
   fill: ${theme('thread.articleLink')};
-  width: 10px;
-  height: 10px;
-  display: block;
+  ${css.size(10)};
 `
 export const Extra = styled.li`
   ${css.flex('align-center')};

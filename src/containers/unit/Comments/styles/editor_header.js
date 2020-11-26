@@ -30,10 +30,8 @@ export const RefUsersWrapper = styled.div`
 `
 export const AtSignIcon = styled(Img)`
   fill: ${theme('comment.username')};
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   margin-right: 5px;
-  display: block;
 `
 export const RefUserList = styled.div`
   margin-top: -10px;

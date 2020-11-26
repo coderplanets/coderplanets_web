@@ -28,9 +28,7 @@ export const IntroWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const IntroImg = styled(Img)`
-  width: 65px;
-  height: 65px;
-  display: block;
+  ${css.size(65)};
   border-radius: 5px;
 `
 export const IntroBlock = styled.div`
@@ -56,7 +54,6 @@ export const UpInfo = styled.div`
 export const UpIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(16)};
-  display: block;
 `
 export const UpNumber = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -76,7 +73,6 @@ export const BuildWithWrapper = styled.div`
 `
 const BaseBuildIcon = styled(Img)`
   ${css.size(14)};
-  display: block;
 `
 export const TechIcon = styled(BaseBuildIcon)`
   margin-right: 5px;

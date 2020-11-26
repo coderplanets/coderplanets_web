@@ -20,8 +20,7 @@ export const MoreWrapper = styled.div`
 `
 export const MoreIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   &:hover {
     fill: ${theme('thread.articleTitle')};
   }

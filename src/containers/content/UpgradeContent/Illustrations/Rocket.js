@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ICON } from '@/config'
 
+import { PACKAGE } from '../constant'
 import {
   Wrapper,
   Star1,
@@ -22,9 +23,9 @@ const Rocket = ({ type, active }) => {
       <Star1 src={`${ICON}/shape/star.svg`} active={active} />
       <Star2 src={`${ICON}/shape/star.svg`} active={active} />
       <Star3 src={`${ICON}/shape/star.svg`} active={active} />
-      <RocketBody pink={type === 'girl'}>
-        <Body pink={type === 'girl'} />
-        {type !== 'girl' ? (
+      <RocketBody pink={type === PACKAGE.GIRL}>
+        <Body pink={type === PACKAGE.GIRL} />
+        {type !== PACKAGE.GIRL ? (
           <Window />
         ) : (
           <GirlMarkWrapper>

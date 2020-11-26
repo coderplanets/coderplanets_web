@@ -34,7 +34,6 @@ export const SearchInput = styled(Input)`
 export const SearchIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(18)};
-  display: block;
   margin-left: 8px;
   &:hover {
     fill: ${theme('thread.articleTitle')};

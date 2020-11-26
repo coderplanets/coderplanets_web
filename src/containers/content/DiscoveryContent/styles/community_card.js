@@ -38,10 +38,8 @@ export const Wrapper = styled(BaseCard)`
 
 // fill only works for non-colored svgs
 export const CommunityIcon = styled(Img)`
-  display: block;
+  ${css.size(54)};
   fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
-  width: 54px;
-  height: 54px;
   margin-bottom: 8px;
   margin-top: -35px;
   ${Wrapper}:hover & {

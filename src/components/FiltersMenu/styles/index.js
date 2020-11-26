@@ -41,9 +41,7 @@ export const Item = styled.div`
 `
 export const Icon = styled(Img)`
   opacity: ${({ active }) => (active ? 1 : 0)};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
 
   ${Item}:hover & {
     opacity: 1;

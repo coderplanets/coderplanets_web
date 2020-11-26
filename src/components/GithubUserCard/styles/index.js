@@ -33,9 +33,7 @@ export const UserLocation = styled.div`
 `
 export const LabelIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-right: 5px;
 `
 export const LabelText = styled.div`

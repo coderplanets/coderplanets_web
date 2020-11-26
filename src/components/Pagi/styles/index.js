@@ -29,17 +29,14 @@ export const BottomMsg = styled.div`
     margin-left: 10px;
   }
 `
-
 export const CommonCenterArrowIcon = styled(Img)`
   fill: #196780;
   ${css.size(30)};
-  display: block;
   transition: all 0.25s;
 `
 export const CommonBottomArrowIcon = styled(Img)`
   fill: #196780;
   ${css.size(16)};
-  display: block;
   margin-bottom: 3px;
 `
 export const CommonNavi = styled.div`

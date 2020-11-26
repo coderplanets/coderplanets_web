@@ -26,5 +26,4 @@ export const Holder = styled.div`
 export const BackIcon = styled(Img)`
   fill: ${theme('banner.title')};
   ${css.size(18)};
-  display: block;
 `

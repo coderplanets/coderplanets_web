@@ -33,16 +33,13 @@ export const Title = styled.div`
 `
 export const OpenedIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 10px;
-  height: 10px;
-  display: block;
+  ${css.size(10)};
   transform: rotate(90deg);
 `
 export const ClosedIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(12)};
   margin-top: -1px;
-  display: block;
   transform: rotate(90deg);
 `
 export const Desc = styled.div`
@@ -51,7 +48,5 @@ export const Desc = styled.div`
 `
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 10px;
-  height: 10px;
-  display: block;
+  ${css.size(10)};
 `

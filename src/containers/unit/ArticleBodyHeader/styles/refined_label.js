@@ -16,10 +16,8 @@ export const Wrapper = styled.div`
 `
 export const RefinedIcon = styled(Img)`
   fill: ${theme('baseColor.red')};
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   margin-right: 5px;
   margin-top: -2px;
-  display: block;
 `
 export const RefinedText = styled.div``

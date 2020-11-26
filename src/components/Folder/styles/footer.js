@@ -26,5 +26,4 @@ export const LockIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(12)};
   margin-top: -1px;
-  display: block;
 `

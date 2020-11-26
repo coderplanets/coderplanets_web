@@ -81,17 +81,13 @@ export const TogglerLabelText = styled.div`
 export const TogglerText = styled.div`
   color: ${theme('banner.title')};
 `
-
 const ToggleIcon = styled(Img)`
   fill: ${theme('banner.title')};
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   margin-left: 3px;
   margin-top: 2px;
 `
-
 export const UpIcon = styled(ToggleIcon)`
   transform: rotateX(180deg);
 `
-
 export const DownIcon = styled(ToggleIcon)``

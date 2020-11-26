@@ -30,5 +30,4 @@ export const MoneyNum = styled.span`
 `
 export const PaymentIcon = styled(Img)`
   ${css.size(16)};
-  display: block;
 `

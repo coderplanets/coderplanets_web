@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const Icon = styled(Img)`
   fill: ${({ viewerDid }) =>
     viewerDid ? theme('comment.didIcon') : theme('comment.icon')};
-  display: block;
+
   ${css.size(18)};
 
   ${css.smokey};

@@ -49,13 +49,13 @@ export const AvatarsImg = styled(Img)`
   border-color: ${theme('thread.commentsUserBorder')};
   border-radius: 100px 100px 100px 100px;
   color: #ffffff;
-  display: block;
   font-family: sans-serif;
   font-size: 12px;
   font-weight: 100;
 
   width: ${({ size }) => getAvatarSize(size)};
   height: ${({ size }) => getAvatarSize(size)};
+  display: block;
 
   text-align: center;
 `

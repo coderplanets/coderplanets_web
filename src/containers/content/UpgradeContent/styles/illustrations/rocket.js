@@ -82,7 +82,6 @@ export const GirlMarkWrapper = styled.div`
 export const GirlIcon = styled(Img)`
   fill: ${color.pink};
   ${css.size(30)};
-  display: block;
   transform: rotate(20deg);
 `
 const Wing = styled.div`

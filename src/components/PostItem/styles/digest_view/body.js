@@ -35,7 +35,6 @@ export const ItemWrapper = styled.div`
 export const ViewsIcon = styled(Img)`
   fill: ${theme('thread.extraInfo')};
   ${css.size(12)};
-  display: block;
   opacity: 0.6;
   margin-right: 3px;
 `

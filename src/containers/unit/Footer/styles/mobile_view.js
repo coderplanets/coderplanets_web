@@ -18,7 +18,6 @@ export const SiteWrapper = styled.div`
 export const SiteLogo = styled(Img)`
   fill: #196f71;
   ${css.size(18)};
-  display: block;
 `
 export const SiteTitle = styled.div`
   font-size: 14px;
@@ -36,9 +35,7 @@ export const Item = styled.div`
 `
 export const ItemIcon = styled(Img)`
   fill: ${theme('baseColor.red')};
-  width: 10px;
-  height: 10px;
-  display: block;
+  ${css.size(10)};
   margin-left: 5px;
 `
 export const Divider = styled(DotDivider)`

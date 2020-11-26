@@ -48,9 +48,7 @@ export const ItemBar = styled.div`
 `
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 10px;
-  height: 10px;
-  display: block;
+  ${css.size(10)};
 `
 export const TagDot = styled.div`
   ${css.circle(6)};

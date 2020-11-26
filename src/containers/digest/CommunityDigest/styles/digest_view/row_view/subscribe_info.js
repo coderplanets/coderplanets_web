@@ -15,13 +15,10 @@ export const StateItem = styled.div`
 `
 export const Icon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
 `
 export const OnlineDot = styled.div`
-  width: 8px;
-  height: 8px;
+  ${css.size(8)};
   margin-right: 3px;
   margin-left: 3px;
   border-radius: 50%;

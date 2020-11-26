@@ -24,24 +24,35 @@ const cutFrom = (width = '100px') => `
   overflow: hidden;
   text-overflow: ellipsis;
 `
-const circle = (width = '30px') => {
+const circle = (width = '30px', displayBlock = true) => {
   const theWidth = isString(width) ? width : `${width}px`
 
-  return `
+  return displayBlock
+    ? `
     width: ${theWidth};
     height: ${theWidth};
     border-radius: 100%;
     display: block;
   `
+    : `
+  width: ${theWidth};
+  height: ${theWidth};
+  border-radius: 100%;
+`
 }
 
-const size = (width = '30px') => {
+const size = (width = '30px', displayBlock = true) => {
   const theWidth = isString(width) ? width : `${width}px`
 
-  return `
+  return displayBlock
+    ? `
     width: ${theWidth};
     height: ${theWidth};
     display: block;
+  `
+    : `
+    width: ${theWidth};
+    height: ${theWidth};
   `
 }
 

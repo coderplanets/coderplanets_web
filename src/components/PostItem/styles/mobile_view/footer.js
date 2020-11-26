@@ -24,10 +24,8 @@ export const Extra = styled.li`
   color: ${theme('thread.extraInfo')};
 `
 export const ExtraIcon = styled(Img)`
+  ${css.size(15)};
   fill: #28a49b;
-  display: block;
-  width: 15px;
-  height: 15px;
   margin-right: 4px;
   opacity: 0.8;
 `
@@ -51,7 +49,6 @@ export const CommentIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
   margin-right: 4px;
-  display: block;
 `
 export const CommentNum = styled.div`
   color: ${theme('thread.articleTitle')};

@@ -18,7 +18,6 @@ export const UpIcon = styled(Img)`
   ${css.size(16)};
   margin-left: 5px;
   margin-right: 5px;
-  display: block;
   transform: rotate(-15deg);
 `
 export const Number = styled.div`

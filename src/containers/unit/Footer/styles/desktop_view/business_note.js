@@ -10,9 +10,7 @@ export const Wrapper = styled.div`
 `
 export const MailIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 100px;
-  height: 100px;
-  display: block;
+  ${css.size(100)};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
