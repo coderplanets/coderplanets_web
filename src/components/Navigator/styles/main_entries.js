@@ -37,7 +37,7 @@ export const SiteLink = styled.a.attrs((props) => ({
     cursor: pointer;
     text-decoration: none;
     color: ${theme('banner.title')};
-    border-bottom: 2px solid;
+    border-bottom: ${({ active }) => (active ? '2px solid' : 'none')};
     border-bottom-color: theme('tabs.headerActive');
     padding: 5px 3px 3px 3px;
   }
