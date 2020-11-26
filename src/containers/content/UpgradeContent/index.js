@@ -14,10 +14,10 @@ import { OrButton, Button } from '@/components/Buttons'
 import Checker from '@/components/Checker'
 
 import Illustrations from './Illustrations'
-
 import Support from './Support'
 import PriceTag from './PriceTag'
 import MonthlyWarning from './MonthlyWarning'
+import QA from './QA'
 
 import {
   Wrapper,
@@ -34,8 +34,6 @@ import {
   ItemsWrapper,
   PayBtnWrapper,
   FreeNote,
-  //
-  Footer,
 } from './styles'
 
 // import { useInit, onUpgrade } from './logic'
@@ -134,7 +132,7 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
             </Dashboard>
           ))}
         </ContentWrapper>
-        <Footer>wip 标签表示正在开发中的功能，不会重复收费</Footer>
+        <QA />
       </InnerWrapper>
     </Wrapper>
   )

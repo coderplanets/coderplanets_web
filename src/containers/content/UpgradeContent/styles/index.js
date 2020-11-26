@@ -97,8 +97,3 @@ export const FreeNote = styled.div`
   width: 110px;
   text-align: center;
 `
-export const Footer = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 12px;
-  margin-top: 100px;
-`
