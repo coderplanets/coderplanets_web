@@ -21,6 +21,6 @@ describe('discovery page: ', () => {
   it('discovery link should be highlight', () => {
     cy.id('header-discovery-link')
       .should('not.have.css', 'background', 'transparent')
-      .and('have.css', 'padding', '5px 3px 3px')
+      .and('have.css', 'padding', '5px 6px')
   })
 })
