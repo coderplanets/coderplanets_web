@@ -18,7 +18,6 @@ export const Title = styled.div`
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
-  display: block;
   margin-right: 3px;
   ${Wrapper}:hover & {
     color: ${theme('thread.articleTitle')};

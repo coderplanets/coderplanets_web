@@ -17,15 +17,11 @@ export const AttachWrapper = styled.div`
   margin-left: 10px;
   margin-bottom: 4px;
 `
-
 export const AttachIcon = styled(Img)`
   fill: ${theme('banner.desc')};
+  ${css.size(15)};
   margin-right: 5px;
-  height: 15px;
-  width: 15px;
-  display: block;
 `
-
 export const AttachLink = styled.a`
   text-decoration: underline;
   font-weight: bolder;

@@ -32,7 +32,6 @@ export const PkgItemYesIcon = styled(PkgItemIcon)`
 `
 export const ArrowIcon = styled(PkgItemIcon)`
   ${css.size(16)};
-  display: block;
   fill: ${theme('baseColor.green')};
 `
 export const PkgItemNoIcon = styled(PkgItemIcon)`

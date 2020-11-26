@@ -32,13 +32,11 @@ export const Text = styled(ViewsText)`
 const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  display: block;
   transition: fill 0.25s;
 `
 export const ViewdIcon = styled(Icon)``
 export const LikeIcon = styled(Icon)`
-  width: 13px;
-  height: 13px;
+  ${css.size(13)};
 
   ${Item}:hover & {
     fill: ${theme('thread.articleTitle')};
@@ -46,8 +44,7 @@ export const LikeIcon = styled(Icon)`
   }
 `
 export const NotifyIcon = styled(Icon)`
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
 
   ${Item}:hover & {
     fill: ${theme('thread.articleTitle')};
@@ -55,8 +52,8 @@ export const NotifyIcon = styled(Icon)`
   }
 `
 export const ReportIcon = styled(Icon)`
-  width: 13px;
-  height: 13px;
+  ${css.size(13)};
+
   ${Item}:hover & {
     fill: ${theme('baseColor.red')};
     cursor: pointer;

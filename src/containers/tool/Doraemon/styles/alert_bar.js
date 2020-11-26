@@ -13,7 +13,6 @@ export const Wrapper = styled(BaseBar)`
 export const WarningIcon = styled(Img)`
   fill: ${theme('baseColor.red')};
   ${css.size(30)};
-  display: block;
   margin-right: 15px;
   margin-left: 5px;
 `

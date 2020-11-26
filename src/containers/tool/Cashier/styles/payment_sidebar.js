@@ -20,16 +20,13 @@ export const AccountIcon = styled(Img)`
 export const TransIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   ${css.size(20)};
-  display: block;
   margin-left: 10px;
   margin-right: 10px;
 `
 export const SiteLogo = styled(Img)`
   ${css.size(30)};
-  display: block;
   margin-top: -5px;
 `
-
 export const SelectorWrapper = styled.div`
   margin-top: 30px;
 `
@@ -83,7 +80,6 @@ export const FaceValueNum = styled.span`
 `
 export const PaymentIcon = styled(Img)`
   ${css.size(16)};
-  display: block;
 `
 export const QuestionIcon = styled(PaymentIcon)`
   fill: ${theme('thread.articleDigest')};

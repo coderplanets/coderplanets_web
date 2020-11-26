@@ -10,7 +10,6 @@ export const LoadingIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(26)};
   animation: ${animate.rotate360} 1s linear infinite;
-  display: block;
   margin-right: 3px;
 `
 export const LoadingText = styled.div`

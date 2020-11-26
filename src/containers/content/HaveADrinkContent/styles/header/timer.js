@@ -31,15 +31,11 @@ export const SettingDivider = styled.div`
 `
 export const SelectIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
 `
 export const SelectDot = styled.div`
   background: ${theme('thread.articleDigest')};
-  width: 5px;
-  height: 5px;
+  ${css.size(5)};
   border-radius: 50%;
   margin-right: 5px;
-  display: block;
 `

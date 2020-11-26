@@ -28,9 +28,7 @@ export const Entry = styled(EntryBase)`
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  height: 20px;
-  width: 20px;
-  display: block;
+  ${css.size(20)};
 
   ${Entry}:hover & {
     fill: #2d7eb1; /* primaryColor */

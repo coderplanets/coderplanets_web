@@ -15,15 +15,13 @@ export const BannerWrapper = styled.div`
   background: ${theme('banner.bg')};
 `
 export const IconBlock = styled.div`
-  width: 52px;
-  height: 52px;
+  ${css.size(52)};
   margin-top: -20px;
   margin-right: 20px;
   background: #083542; /* browser header bg */
   border: 1px solid;
   border-color: #042a35; /* browser tab bg */
   border-radius: 3px;
-  display: block;
 `
 export const Intro = styled.div`
   ${css.flexColumn('align-start')};

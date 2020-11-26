@@ -47,9 +47,7 @@ export const SiteLink = styled.a.attrs((props) => ({
 export const Icon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-left: 5px;
-  width: 10px;
-  height: 10px;
-  display: block;
+  ${css.size(10)};
 `
 export const MobileIcon = styled(Icon)`
   margin-left: 5px;

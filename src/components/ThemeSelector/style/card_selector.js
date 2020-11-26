@@ -65,15 +65,12 @@ export const AuthorInfo = styled.div`
   bottom: -5px;
   left: 0;
 `
-
 export const AuthorIcon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 13px;
-  height: 13px;
+  ${css.size(13)};
   margin-right: 5px;
   margin-top: 3px;
 `
-
 export const AuthorName = styled.a`
   color: ${theme('banner.desc')};
   transition: color 0.3s;

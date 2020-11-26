@@ -27,7 +27,6 @@ export const Header = styled.div`
 `
 const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  display: block;
   ${css.size(16)};
   margin-right: 10px;
 `

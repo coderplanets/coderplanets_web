@@ -25,16 +25,12 @@ export const Wrapper = styled.div.attrs((props) => ({
   transition: all 0.25s;
 `
 export const IntroImg = styled(Img)`
-  width: 70px;
-  height: 70px;
-  display: block;
+  ${css.size(70)};
   border-radius: 5px;
   margin-top: 2px;
 `
 export const IntroImgHolder = styled.div`
-  width: 70px;
-  height: 70px;
-  display: block;
+  ${css.size(70)};
   border-radius: 5px;
   margin-top: 2px;
   background-color: #10404e;
@@ -81,7 +77,6 @@ export const BuildWithWrapper = styled.div`
 `
 const BaseBuildIcon = styled(Img)`
   ${css.size(14)};
-  display: block;
 `
 export const TechIcon = styled(BaseBuildIcon)`
   margin-right: 5px;
@@ -93,8 +88,6 @@ export const TechIcon = styled(BaseBuildIcon)`
 `
 export const GithubIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 13px;
-  height: 13px;
-  display: block;
+  ${css.size(13)};
   margin-right: 3px;
 `

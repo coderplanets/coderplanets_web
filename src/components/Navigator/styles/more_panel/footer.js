@@ -24,9 +24,8 @@ export const Main = styled.a`
 `
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  height: 18px;
-  width: 18px;
-  display: block;
+  ${css.size(18)};
+
   ${Main}:hover & {
     fill: #2d7eb1;
     cursor: pointer;

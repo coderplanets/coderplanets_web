@@ -55,14 +55,12 @@ export const ReactionUserNum = styled(PlainUserNum)`
 const ReactionIcon = styled(Img)`
   fill: ${theme('article.reactionTitle')};
   ${css.size(24)};
-  display: block;
   margin-right: 2px;
 `
 
 export const ReactionLoading = styled(Img)`
   fill: ${theme('article.reactionTitle')};
   ${css.size(18)};
-  display: block;
   margin-right: 2px;
   margin-left: 4px;
   animation: ${animate.rotate360} 1s linear infinite;

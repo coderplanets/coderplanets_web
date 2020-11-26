@@ -9,12 +9,9 @@ export const Wrapper = styled.div`
 `
 export const Logo = styled(Img)`
   fill: ${theme('baseColor.red')};
-  width: 60px;
-  height: 60px;
-  display: block;
+  ${css.size(60)};
   margin-bottom: 15px;
 `
-
 export const Header = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 1.2rem;

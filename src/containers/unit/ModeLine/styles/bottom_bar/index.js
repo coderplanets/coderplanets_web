@@ -35,9 +35,8 @@ export const MenuIcon = styled(Img)`
     if (colorTheme) return theme(colorTheme)
     return active ? '#2ca1a2' : theme('thread.articleTitle')
   }};
-  width: 15px;
-  height: 15px;
-  display: block;
+
+  ${css.size(15)};
 
   :last-child {
     margin-right: 0;

@@ -30,7 +30,6 @@ export const Divider = styled.div`
 export const PublishIcon = styled(Img)`
   fill: ${theme('button.fg')};
   ${css.size(16)};
-  display: block;
   margin-right: 10px;
 `
 export const PublishBtnWrapper = styled.div`

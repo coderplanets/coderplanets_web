@@ -22,7 +22,6 @@ export const Site = styled.div`
   ${css.flex('')};
 `
 export const SiteIcon = styled(Img)`
-  display: block;
   ${css.size(40)};
   margin-right: 10px;
 `

@@ -43,8 +43,7 @@ export const DotList = styled.div`
 `
 /* eslint-disable */
 export const ColorDot = styled.div`
-  width: 8px;
-  height: 8px;
+  ${css.size(8)};
   border-radius: 2px;
   margin-right: 3px;
   background-color: ${(props) => dotColor(props.scale)(props)};

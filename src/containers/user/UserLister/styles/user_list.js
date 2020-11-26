@@ -20,14 +20,11 @@ export const UserWrapper = styled.div`
   border-bottom-color: ${theme('drawer.divider')};
 `
 export const UserAvatar = styled(Img)`
-  width: 55px;
-  height: 55px;
+  ${css.size(55)};
   border-radius: 4px;
-  display: block;
 
   ${css.media.mobile`
-    width: 30px;
-    height: 30px;
+    ${css.size(30)};
 `};
 `
 export const UserBrief = styled.div`
@@ -64,9 +61,7 @@ export const Location = styled.div`
 `
 export const GeoIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 13px;
-  height: 13px;
-  display: block;
+  ${css.size(13)};
   margin-right: 2px;
 `
 export const Action = styled.div`

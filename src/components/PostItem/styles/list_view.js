@@ -103,7 +103,6 @@ export const CommentIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
   margin-right: 4px;
-  display: block;
 `
 export const CommentNum = styled.div`
   color: ${theme('thread.articleTitle')};

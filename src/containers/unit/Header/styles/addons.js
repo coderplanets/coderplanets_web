@@ -10,11 +10,7 @@ export const SettingIcon = styled(Img)`
   fill: ${theme('header.fg')};
   ${css.size(16)};
   margin-top: -2px;
-  display: block;
-
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `
 export const Divider = styled.div`
   border-left: 1px solid;

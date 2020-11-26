@@ -28,14 +28,14 @@ export const ActiveBar = styled.div`
   transition: opacity 0.25s;
 `
 export const DragIcon = styled(Img)`
-  cursor: pointer;
-  display: ${({ show }) => (show ? 'block' : 'none')};
   position: absolute;
   top: 15px;
   left: 0;
   fill: ${theme('sidebar.menuLink')};
-  width: 15px;
-  height: 20px;
+  display: ${({ show }) => (show ? 'block' : 'none')};
+  ${css.size(15, false)};
+
+  cursor: pointer;
 `
 // box-shadow: 0px 6px 4px 0px rgba(0,0,0,0.2);
 // border-bottom: 1px dashed #316d7b;

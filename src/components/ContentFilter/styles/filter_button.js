@@ -23,7 +23,6 @@ export const FilterIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   ${css.size(14)};
   margin-left: 5px;
-  display: block;
   ${InnerBtnWrapper}:hover & {
     fill: ${theme('banner.title')};
   }

@@ -98,7 +98,6 @@ export const ContentWrapper = styled.div`
 `
 export const Title = styled.div`
   color: ${theme('shell.title')};
-  display: block;
   font-size: 1.1rem;
   > a {
     color: ${theme('shell.link')};
@@ -106,7 +105,7 @@ export const Title = styled.div`
 
   ${css.cutFrom('400px')};
   ${css.media.mobile`
-${css.cutFrom('200px')};
+      ${css.cutFrom('200px')};
   `};
 `
 export const Desc = styled.div`
@@ -158,7 +157,6 @@ export const ThemeDot = styled.div`
 // TODO: rename -> PrefixIcon
 export const PrefixSVGIcon = styled(Img)`
   ${css.size(30)};
-  display: block;
 `
 export const PrefixSearchIcon = styled(Img)`
   ${css.size(30)};

@@ -59,9 +59,7 @@ export const SubscribeInput = styled(Input)`
   }
 `
 export const MailBoxIcon = styled(Img)`
+  ${css.size(15)};
   fill: #176179;
-  width: 15px;
-  height: 15px;
-  display: block;
   margin-right: 8px;
 `

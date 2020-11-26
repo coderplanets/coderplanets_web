@@ -190,20 +190,17 @@ export const Liquid = styled.div`
 `
 export const MoneySign = styled(Img)`
   position: absolute;
-  display: block;
   top: 6px;
   left: 3px;
+  ${css.size(10)};
   fill: #327faf;
-  width: 10px;
-  height: 10px;
   transition: opacity 0.25s;
 
   ${Wrapper}:hover & {
     fill: #ecbcb3;
     top: 8px;
     left: 2px;
-    width: 12px;
-    height: 12px;
+    ${css.size(12)};
   }
 
   transition: all 0.25s;

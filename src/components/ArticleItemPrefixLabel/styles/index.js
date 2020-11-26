@@ -27,8 +27,7 @@ export const PinIcon = styled(PinSVG)`
   transform: rotate(-30deg);
 
   ${css.media.mobile`
-    width: 16px;
-    height: 16px;
+    ${css.size(16)};
     top: 35px;
     left: -20px;
   `};

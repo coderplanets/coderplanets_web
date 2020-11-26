@@ -24,7 +24,6 @@ export const OptionIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   ${css.size(18)};
   margin-right: 6px;
-  display: block;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
   ${Option}:hover & {
     fill: ${({ red }) => (red ? 'tomato' : theme('banner.title'))};

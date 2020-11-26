@@ -55,7 +55,6 @@ export const MobileCloser = styled.div`
   right: 0;
   ${css.size(30)};
   cursor: pointer;
-  display: block;
 
   &:after {
     content: '^';
@@ -93,8 +92,6 @@ export const UploadImgIcon = styled(Img)`
 
 export const UploadLoadingIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 22px;
-  height: 20px;
-  display: block;
+  ${css.size(22)};
   animation: ${animate.rotate360} 1s linear infinite;
 `

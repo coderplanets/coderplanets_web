@@ -21,7 +21,6 @@ export const CompanyBrand = styled.div`
 `
 export const CompanyLogo = styled(Img)`
   ${css.size(40)};
-  display: block;
   margin-right: 12px;
 `
 export const CompanyLabel = styled.div`
@@ -36,9 +35,7 @@ export const HomePage = styled.div`
 `
 export const LinkIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-right: 5px;
 `
 export const Link = styled.a`
@@ -63,7 +60,6 @@ export const StateIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
   margin-right: 15px;
-  display: block;
 `
 export const StateText = styled.div`
   color: ${theme('thread.articleDigest')};

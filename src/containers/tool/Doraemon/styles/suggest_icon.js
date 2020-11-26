@@ -27,8 +27,6 @@ export const ThemeDot = styled.div`
   background: ${({ bg }) => bg};
 `
 export const DoraemonIcon = styled(Img)`
-  width: 52px;
-  height: 52px;
-  display: block;
+  ${css.size(52)};
   margin-left: -4px;
 `

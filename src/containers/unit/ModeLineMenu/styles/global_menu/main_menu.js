@@ -36,7 +36,6 @@ export const JoinLink = styled.div`
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  display: block;
   transform: rotate(180deg);
   margin-left: 5px;
   &:active {

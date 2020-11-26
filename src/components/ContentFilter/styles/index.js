@@ -34,10 +34,8 @@ export const LabelDivider = styled.div`
 `
 export const SelectIcon = styled(Img)`
   fill: ${theme('banner.title')};
-  display: block;
+  ${css.size(15)};
   align-items: center;
-  width: 15px;
-  height: 15px;
   margin-right: 3px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `

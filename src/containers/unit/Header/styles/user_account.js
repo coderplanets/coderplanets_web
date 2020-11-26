@@ -63,7 +63,6 @@ export const MenuDivider = styled.div`
 `
 export const AvatarIcon = styled.img`
   ${css.size(20)};
-  display: block;
   cursor: pointer;
   border-radius: 3px;
   opacity: ${theme('avatarOpacity')};
@@ -71,7 +70,6 @@ export const AvatarIcon = styled.img`
 export const DefaultUserIcon = styled(Img)`
   fill: ${theme('header.fg')};
   ${css.size(16)};
-  display: block;
   cursor: pointer;
   margin-right: 2px;
   opacity: 0.5;

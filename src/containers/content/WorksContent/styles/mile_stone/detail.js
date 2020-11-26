@@ -36,9 +36,7 @@ export const DateText = styled.div`
   font-size: 13px;
 `
 export const CoverImage = styled(Img)`
-  width: 65px;
-  height: 65px;
-  display: block;
+  ${css.size(65)};
   border-radius: 3px;
   margin-top: 8px;
 `

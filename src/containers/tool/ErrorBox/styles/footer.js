@@ -15,9 +15,7 @@ export const Issue = styled.div`
 `
 export const GithubIcon = styled(Img)`
   fill: ${theme('baseColor.red')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-right: 5px;
   opacity: 0.5;
   ${Wrapper}:hover & {

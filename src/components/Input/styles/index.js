@@ -28,7 +28,6 @@ export const Icon = styled(Img)`
   fill: ${({ active }) =>
     active ? theme('button.primary') : theme('thread.articleDigest')};
   ${css.size(14)};
-  display: block;
   opacity: 0.8;
 
   ${Wrapper}:hover & {

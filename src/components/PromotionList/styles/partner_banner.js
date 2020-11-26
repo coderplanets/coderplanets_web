@@ -21,7 +21,6 @@ export const ItemWrapper = styled.div`
 export const Logo = styled(Img)`
   ${css.size(20)};
   border-radius: 5px;
-  display: block;
   /* TODO: for dark themes */
   filter: saturate(0.8);
   transition: all 0.25s;

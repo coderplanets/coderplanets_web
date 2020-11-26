@@ -14,5 +14,4 @@ export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
   margin-right: 10px;
-  display: block;
 `

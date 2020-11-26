@@ -26,11 +26,9 @@ export const FilterIcon = styled(Img)`
   fill: ${theme('comment.title')};
   margin-right: 3px;
   ${css.size(20)};
-  display: block;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
   ${css.media.mobile`
-    width: 15px;
-    height: 15px;
+    ${css.size(15)};
   `};
 `
 export const RecentlyIcon = styled(FilterIcon)``

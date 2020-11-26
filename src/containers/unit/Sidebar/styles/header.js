@@ -30,7 +30,6 @@ export const MenuLogo = styled(Img)`
     pin ? theme('sidebar.pinActive') : theme('banner.title')};
   ${css.size(18)};
   opacity: 0.5;
-  display: block;
   cursor: pointer;
 `
 export const PinIcon = styled(Img)`
@@ -89,8 +88,6 @@ export const SearchContent = styled.div`
 `
 export const SearchIcon = styled(Img)`
   fill: ${theme('button.primary')};
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   margin-right: 5px;
-  display: block;
 `

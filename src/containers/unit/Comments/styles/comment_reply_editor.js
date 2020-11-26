@@ -19,7 +19,6 @@ export const InputEditorWrapper = styled.div`
   overflow-y: scroll;
   margin: 0 10px;
   margin-bottom: 10px;
-  display: block;
   font-size: 1rem;
 `
 export const PreviewWrapper = styled.div`

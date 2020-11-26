@@ -13,7 +13,6 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const MailIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  display: block;
   transform: rotate(10deg);
   margin-right: 12px;
 
@@ -25,11 +24,9 @@ export const CurveLineIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(24)};
   margin-right: 10px;
-  display: block;
   transform: rotateZ(386deg);
 `
 export const MailBoxIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(20)};
-  display: block;
 `

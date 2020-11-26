@@ -6,17 +6,14 @@ import { css, theme } from '@/utils'
 export const MenuLogo = styled(Img)`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
   ${css.size(12)};
-  display: block;
 `
 export const SiteLogo = styled(MenuLogo)`
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   margin-top: -1px;
 `
 export const ExploreLogo = styled(Img)`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
   ${css.size(14)};
-  display: block;
 `
 const Block = styled.div`
   position: relative;

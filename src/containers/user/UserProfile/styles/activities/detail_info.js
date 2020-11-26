@@ -25,7 +25,6 @@ export const IconWrapper = styled.div`
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  display: block;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

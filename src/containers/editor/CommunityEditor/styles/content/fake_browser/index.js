@@ -109,7 +109,6 @@ export const ToolbarWrapper = styled.div`
 export const ToolIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(16)};
-  display: block;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 export const LockIcon = styled(ToolIcon)`
@@ -127,7 +126,6 @@ export const Form = styled.form`
   padding-left: 5px;
 `
 export const Input = styled.div`
-  display: block;
   border: none;
   width: 100%;
   padding-left: 4px;

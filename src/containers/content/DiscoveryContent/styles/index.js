@@ -38,6 +38,5 @@ export const PrefixIcon = styled(Img)`
     primary ? theme('button.primary') : theme('button.fg')};
   ${css.size(14)};
   margin-right: 3px;
-  display: block;
 `
 export const Text = styled.div``

@@ -37,7 +37,6 @@ export const BackWrapper = styled.div`
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(16)};
-  display: block;
 `
 export const BackText = styled.div`
   color: ${theme('thread.articleTitle')};

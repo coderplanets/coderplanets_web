@@ -41,6 +41,5 @@ export const UserInfoWrapper = styled.div``
 export const MoreIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   ${css.size(24)};
-  display: block;
   cursor: pointer;
 `

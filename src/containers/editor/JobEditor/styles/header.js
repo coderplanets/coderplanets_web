@@ -19,20 +19,16 @@ export const UsageText = styled.div`
 
 export const AtSignIcon = styled(Img)`
   fill: ${theme('editor.content')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-left: 5px;
   margin-right: 3px;
 `
-
 export const RefUsersWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const RefUserList = styled.div`
   margin-top: -10px;
 `
-
 export const MarkdownIcon = styled(Img)`
   fill: #51abb2;
   width: 20px;

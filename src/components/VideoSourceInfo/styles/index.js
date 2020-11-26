@@ -11,20 +11,15 @@ export const Wrapper = styled.div`
 `
 export const LinkIcon = styled(Img)`
   fill: ${theme('thread.articleLink')};
-  display: block;
-  margin-right: 3px;
   ${css.size(12)};
-  display: block;
+  margin-right: 3px;
 `
 export const LogoIcon = styled(Img)`
   fill: ${({ color }) => color};
-  width: 15px;
-  height: 15px;
+  ${css.size(15)};
   margin-right: 4px;
   margin-left: 2px;
-  display: block;
 `
-
 export const Text = styled.div`
   ${css.media.mobile`display: none`};
 `

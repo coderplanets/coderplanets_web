@@ -19,9 +19,7 @@ export const TitleWrapper = styled.div`
 `
 export const TocIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-top: -1px;
 
   ${HeaderWrapper}:hover & {
@@ -43,9 +41,7 @@ export const TocTitle = styled.div`
 `
 const MenuIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   transform: rotate(90deg);
 
   ${HeaderWrapper}:hover & {
@@ -59,8 +55,7 @@ export const MenuClosedIcon = styled(MenuIcon)`
   opacity: 0.6;
 `
 export const MenuOpenedIcon = styled(MenuIcon)`
-  width: 13px;
-  height: 13px;
+  ${css.size(13)};
   margin-top: -2px;
   opacity: 0.8;
 `

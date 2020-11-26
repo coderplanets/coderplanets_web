@@ -13,7 +13,6 @@ export const GoBackWrapper = styled.div`
 export const BackIcon = styled(Img)`
   fill: #708b96;
   ${css.size(16)};
-  display: block;
   margin-right: 10px;
 
   ${GoBackWrapper}:hover & {

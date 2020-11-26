@@ -1,20 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   display: flex;
   color: ${theme('banner.desc')};
 `
-
 export const MoreIcon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
 `
-
 const TextOption = styled.div`
   font-size: 0.7rem;
   display: none;

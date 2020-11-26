@@ -10,9 +10,7 @@ export const Wrapper = styled.div`
 `
 export const Divider = styled(Img)`
   fill: ${theme('editor.footer')};
-  width: 10px;
-  height: 15px;
+  ${css.size(12)};
   margin-left: 4px;
   margin-right: 4px;
-  display: block;
 `

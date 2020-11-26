@@ -12,7 +12,6 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
-  display: block;
   margin-top: -2px;
 `
 export const Block = styled.div`
@@ -28,7 +27,6 @@ export const Title = styled.div`
 export const ArrowIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  display: block;
   transform: rotate(180deg);
   margin-left: 5px;
   &:active {

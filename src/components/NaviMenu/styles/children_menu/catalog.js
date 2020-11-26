@@ -35,8 +35,8 @@ export const Icon = styled(Img)`
   display: ${({ active }) => (active ? 'block' : 'none')};
   fill: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
+
+  ${css.size(15, false)};
 
   ${Item}:hover & {
     display: block;

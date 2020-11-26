@@ -86,7 +86,6 @@ export const Label = styled.span`
 export const LabelIcon = styled(Img)`
   fill: ${theme('button.fg')};
   ${css.size(14)};
-  display: block;
 `
 export const ActionLink = styled.a`
   position: relative;
@@ -107,7 +106,6 @@ export const ActionLink = styled.a`
 export const Icon = styled(Img)`
   fill: ${theme('button.fg')};
   ${css.size(16)};
-  display: block;
 
   ${ActionLink}:hover & {
     fill: ${theme('button.hoverBg')};

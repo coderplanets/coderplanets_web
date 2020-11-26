@@ -27,9 +27,7 @@ export const Desc = styled.div`
 `
 export const CopyIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
 
   &:hover {
     fill: ${theme('thread.articleTitle')};
@@ -38,8 +36,7 @@ export const CopyIcon = styled(Img)`
 
   &:active {
     fill: ${theme('thread.articleTitle')};
-    width: 16px;
-    height: 16px;
+    ${css.size(16)};
   }
 
   transition: all 0.2s;

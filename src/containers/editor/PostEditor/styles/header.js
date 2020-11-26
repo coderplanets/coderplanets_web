@@ -19,9 +19,7 @@ export const UsageText = styled.div`
 
 export const AtSignIcon = styled(Img)`
   fill: ${theme('editor.content')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-left: 5px;
   margin-right: 3px;
 `

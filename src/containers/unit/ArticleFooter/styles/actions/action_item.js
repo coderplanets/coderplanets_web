@@ -23,9 +23,7 @@ export const IconBgWrapper = styled.div`
 `
 export const ActionIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
 `
 const HighlightLink = styled.a`
   color: ${theme('thread.articleTitle')};
@@ -51,5 +49,4 @@ export const UserName = styled(HighlightLink)`
 `
 export const CommunityIcon = styled(Img)`
   ${css.size(16)};
-  display: block;
 `

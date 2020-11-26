@@ -31,7 +31,6 @@ export const Title = styled.div`
 export const AboutIcon = styled(Img)`
   ${css.size(14)};
   fill: ${theme('thread.articleDigest')};
-  display: block;
   opacity: 0;
   margin-top: 16px;
 

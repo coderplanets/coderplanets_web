@@ -15,9 +15,7 @@ export const Wrapper = styled(ReplyBarBase)`
 `
 export const ReplyIcon = styled(Img)`
   fill: ${theme('comment.username')};
-  width: 15px;
-  height: 15px;
-  display: block;
+  ${css.size(15)};
   margin-right: 3px;
   margin-top: 2px;
 `

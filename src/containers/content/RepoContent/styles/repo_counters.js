@@ -20,11 +20,9 @@ export const CountItem = styled.a`
 `
 export const CountIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 13px;
-  height: 13px;
+  ${css.size(13)};
   margin-right: 4px;
   margin-top: -1px;
-  display: block;
 `
 export const StarIcon = styled(CountIcon)`
   margin-top: -4px;
