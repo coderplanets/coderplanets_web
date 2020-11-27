@@ -13,6 +13,8 @@ import { values } from 'ramda'
 import { METRIC } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
+import Header from './Header'
+
 import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'
 
@@ -25,8 +27,9 @@ const ArticleEditorContainer = ({ articleEditor: store, testId, metric }) => {
   return (
     <Wrapper testId={testId}>
       <InnerWrapper metric={metric}>
-        <h2>ArticleEditor hooks container!</h2>
-        <div>impress me!</div>
+        <Header />
+        <br />
+        <div>正文内容 ... </div>
       </InnerWrapper>
     </Wrapper>
   )

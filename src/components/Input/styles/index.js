@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import TextareaAutosize from 'react-textarea-autosize'
 
 import Img from '@/Img'
 import { css, theme } from '@/utils'
@@ -79,15 +80,17 @@ export const InputWrapper = styled.input`
     /* box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2); */
   }
 `
-export const TextAreaWrapper = styled.textarea.attrs((props) => ({
+export const TextAreaWrapper = styled(TextareaAutosize).attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${baseInput};
   background-color: #0b2631;
   border: 1px solid;
   border-color: ${theme('editor.border')};
-  min-height: 60px;
-  max-height: 30vh;
+  resize: none;
+  overflow: hidden;
+  /* min-height: 60px;
+  max-height: 30vh; */
 
   border-color: ${theme('editor.border')};
   ::placeholder {
@@ -104,4 +107,6 @@ export const TextAreaWrapper = styled.textarea.attrs((props) => ({
     border-color: ${theme('editor.borderActive')};
     box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2);
   }
+
+  transition: none;
 `

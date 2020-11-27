@@ -42,6 +42,7 @@ const Input = ({
       </PrefixWrapper>
       <InputWrapper
         onChange={handleOnChange}
+        spellcheck="false"
         // prefix={false}
         hasPrefix={!nilOrEmpty(prefixIcon)}
         hasSuffix={!nilOrEmpty(suffixIcon)}
@@ -55,6 +56,8 @@ const Input = ({
     <TextAreaWrapper
       testId={testId}
       onChange={handleOnChange}
+      minRows={1}
+      spellcheck="false"
       {...validProps}
     />
   )
