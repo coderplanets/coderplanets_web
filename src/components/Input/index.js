@@ -10,13 +10,13 @@ import { pickBy } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
 
+import Textarea from './Textarea'
 import {
   Wrapper,
   PrefixWrapper,
   SuffixWrapper,
   Icon,
   InputWrapper,
-  TextAreaWrapper,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -53,13 +53,7 @@ const Input = ({
       </SuffixWrapper>
     </Wrapper>
   ) : (
-    <TextAreaWrapper
-      testId={testId}
-      onChange={handleOnChange}
-      minRows={1}
-      spellcheck="false"
-      {...validProps}
-    />
+    <Textarea testId={testId} onChange={onChange} minRows={1} {...restProps} />
   )
 }
 
