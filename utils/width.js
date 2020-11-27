@@ -53,6 +53,11 @@ const WIDTH = {
     PAGE: '1460px',
     CONTENT: '1080px',
   },
+
+  ARTICLE_EDITOR: {
+    PAGE: '1461px',
+    CONTENT: '650px',
+  },
 }
 
 export default WIDTH
