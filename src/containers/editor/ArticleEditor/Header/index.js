@@ -2,10 +2,17 @@ import React from 'react'
 
 import ArticleEditToolbar from '@/components/ArticleEditToolbar'
 import Adder from './Adder'
+import Deleter from './Deleter'
 
-import { Wrapper, TitleInput, Divider } from '../styles/header'
+import {
+  Wrapper,
+  TitleInput,
+  SubTitleWrapper,
+  SubTitleInput,
+  Divider,
+} from '../styles/header'
 
-const Header = () => {
+const Header = ({ showSubTitle }) => {
   const editData = {
     copyRight: 'translate',
     linkAddr: '',
@@ -15,16 +22,27 @@ const Header = () => {
     <Wrapper>
       <ArticleEditToolbar editData={editData} />
       <TitleInput
-        placeholder="标 题."
+        placeholder="标题"
         defaultValue=""
         // value
         onChange={console.log}
         behavior="textarea"
+        size="large"
         autoFocus
       />
-      <Divider>
-        <Adder />
-      </Divider>
+      {showSubTitle && (
+        <SubTitleWrapper>
+          <Deleter />
+          <SubTitleInput
+            placeholder="副标题"
+            defaultValue=""
+            onChange={console.log}
+            behavior="textarea"
+            autoFocus
+          />
+        </SubTitleWrapper>
+      )}
+      <Divider>{!showSubTitle && <Adder />}</Divider>
     </Wrapper>
   )
 }

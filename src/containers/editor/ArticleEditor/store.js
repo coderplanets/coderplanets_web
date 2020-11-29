@@ -10,7 +10,9 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleEditor')
 
-const ArticleEditor = T.model('ArticleEditor', {})
+const ArticleEditor = T.model('ArticleEditor', {
+  showSubTitle: T.optional(T.boolean, true),
+})
   .views((self) => ({
     get root() {
       return getParent(self)

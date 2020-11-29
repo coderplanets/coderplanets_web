@@ -14,8 +14,7 @@ export const Wrapper = styled(TextareaAutosize).attrs((props) => ({
   border-color: ${theme('editor.border')};
   resize: none;
   overflow: hidden;
-  /* min-height: 60px;
-  max-height: 30vh; */
+  text-align: left;
 
   border-color: ${theme('editor.border')};
   ::placeholder {

@@ -24,10 +24,12 @@ const log = buildLog('C:ArticleEditor')
 const ArticleEditorContainer = ({ articleEditor: store, testId, metric }) => {
   useInit(store)
 
+  const { showSubTitle } = store
+
   return (
     <Wrapper testId={testId}>
       <InnerWrapper metric={metric}>
-        <Header />
+        <Header showSubTitle={showSubTitle} />
         <br />
         <div>正文内容 ... </div>
       </InnerWrapper>

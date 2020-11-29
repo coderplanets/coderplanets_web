@@ -3,9 +3,11 @@ import React from 'react'
 import { ICON } from '@/config'
 import { Wrapper, Icon, Title } from '../styles/header/adder'
 
+import { toggleSubTitle } from '../logic'
+
 const Adder = () => {
   return (
-    <Wrapper>
+    <Wrapper onClick={() => toggleSubTitle(true)}>
       <Icon src={`${ICON}/shape/add.svg`} />
       <Title>副标题</Title>
     </Wrapper>

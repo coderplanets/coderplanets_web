@@ -9,7 +9,9 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleEditor')
 
-export const someMethod = () => {}
+export const toggleSubTitle = (showSubTitle) => {
+  store.mark({ showSubTitle })
+}
 
 // ###############################
 // init & uninit handlers

@@ -21,10 +21,11 @@ export const Divider = styled.div`
 export const TitleInput = styled(Input)`
   margin-top: 15px;
   border: none !important;
-  padding-left: 2px;
+  padding-left: 0;
   padding-top: 2px;
+  border-radius: 0;
+  line-height: 1.4;
 
-  text-align: left;
   min-height: 28px;
   font-size: 25px;
   color: ${theme('thread.articleTitle')};
@@ -43,4 +44,13 @@ export const TitleInput = styled(Input)`
     border: none;
     box-shadow: none;
   }
+`
+export const SubTitleWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`
+export const SubTitleInput = styled(TitleInput)`
+  min-height: 18px;
+  font-size: 18px;
+  color: ${theme('thread.articleDigest')};
 `
