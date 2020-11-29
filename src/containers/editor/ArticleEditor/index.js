@@ -13,7 +13,9 @@ import { values } from 'ramda'
 import { METRIC } from '@/constant'
 import { connectStore, buildLog } from '@/utils'
 
-import Header from './Header'
+import { STEP } from './constant'
+import Editor from './Editor'
+import Settings from './Settings'
 
 import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'
@@ -24,14 +26,16 @@ const log = buildLog('C:ArticleEditor')
 const ArticleEditorContainer = ({ articleEditor: store, testId, metric }) => {
   useInit(store)
 
-  const { showSubTitle } = store
+  const { showSubTitle, step } = store
 
   return (
     <Wrapper testId={testId}>
       <InnerWrapper metric={metric}>
-        <Header showSubTitle={showSubTitle} />
-        <br />
-        <div>正文内容 ... </div>
+        {step === STEP.EDIT ? (
+          <Editor showSubTitle={showSubTitle} />
+        ) : (
+          <Settings />
+        )}
       </InnerWrapper>
     </Wrapper>
   )

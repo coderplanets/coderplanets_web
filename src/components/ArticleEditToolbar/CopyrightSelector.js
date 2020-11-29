@@ -74,7 +74,6 @@ const CopyrightSelector = ({ copyRight, thread, onCopyrightChange }) => {
         />
       }
       placement="bottom"
-      trigger="click"
     >
       <ReprintWrapper>
         <ReprintIcon src={`${ICON_CMD}/${copyRight}.svg`} />

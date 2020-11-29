@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { Wrapper, Icon, Title } from '../styles/header/adder'
+import { Wrapper, Icon, Title } from '../../styles/editor/header/adder'
 
-import { toggleSubTitle } from '../logic'
+import { toggleSubTitle } from '../../logic'
 
 const Adder = () => {
   return (

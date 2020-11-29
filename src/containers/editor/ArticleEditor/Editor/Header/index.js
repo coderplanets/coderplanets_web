@@ -10,7 +10,7 @@ import {
   SubTitleWrapper,
   SubTitleInput,
   Divider,
-} from '../styles/header'
+} from '../../styles/editor/header'
 
 const Header = ({ showSubTitle }) => {
   const editData = {

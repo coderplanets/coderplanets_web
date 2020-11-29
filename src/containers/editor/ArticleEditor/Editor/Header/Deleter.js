@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { Wrapper, Icon, Title } from '../styles/header/deleter'
+import { Wrapper, Icon, Title } from '../../styles/editor/header/deleter'
 
-import { toggleSubTitle } from '../logic'
+import { toggleSubTitle } from '../../logic'
 
 const Deleter = () => {
   return (
