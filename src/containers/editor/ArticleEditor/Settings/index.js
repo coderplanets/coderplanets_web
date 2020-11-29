@@ -17,6 +17,7 @@ const Settings = () => {
         <br />
         <h4>是否允许评论</h4>
         <h4>设置打赏</h4>
+        <h4>设置公众号</h4>
       </ContentWrapper>
       <Footer>
         <ArrowButton direction="left" onClick={previousStep} dimWhenIdle>
