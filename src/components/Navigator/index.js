@@ -6,11 +6,10 @@
 
 import React from 'react'
 import T from 'prop-types'
-import { useRouter } from 'next/router'
 import { contains, values } from 'ramda'
 
-import { ROUTE, C11N, METRIC } from '@/constant'
-import { buildLog, getRoutePathList } from '@/utils'
+import { C11N, METRIC } from '@/constant'
+import { buildLog } from '@/utils'
 
 import DigestView from './DigestView'
 import BriefView from './BriefView'
@@ -19,15 +18,27 @@ import BriefView from './BriefView'
 const log = buildLog('c:Navigator:index')
 
 const Navigator = ({ curCommunity, layout, metric, isOnline }) => {
-  const router = useRouter()
-  const [mainPath, subPath] = getRoutePathList(router.asPath)
-  const showLogoText = !contains(metric, [METRIC.COMMUNITY, METRIC.ARTICLE])
+  const showLogoText = !contains(metric, [
+    METRIC.COMMUNITY,
+    METRIC.ARTICLE,
+    METRIC.ARTICLE_EDITOR,
+  ])
 
-  if (
-    contains(mainPath, [ROUTE.USER, ROUTE.DISCOVERY]) ||
-    contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
-  ) {
-    return <DigestView showLogoText={showLogoText} isOnline={isOnline} />
+  const onlyDigestView = contains(metric, [
+    METRIC.ARTICLE,
+    METRIC.ARTICLE_EDITOR,
+    METRIC.USER,
+    METRIC.DISCOVERY,
+  ])
+
+  if (onlyDigestView) {
+    return (
+      <DigestView
+        showLogoText={showLogoText}
+        isOnline={isOnline}
+        metric={metric}
+      />
+    )
   }
 
   return (
@@ -35,7 +46,11 @@ const Navigator = ({ curCommunity, layout, metric, isOnline }) => {
       {layout === C11N.BRIEF ? (
         <BriefView community={curCommunity} />
       ) : (
-        <DigestView showLogoText={showLogoText} isOnline={isOnline} />
+        <DigestView
+          showLogoText={showLogoText}
+          isOnline={isOnline}
+          metric={metric}
+        />
       )}
     </React.Fragment>
   )

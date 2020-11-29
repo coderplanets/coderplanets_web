@@ -6,29 +6,29 @@ import Input from '@/components/Input'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${css.flex('justify-between')};
+  ${css.flex('align-center')};
+  width: 100%;
 `
-
 export const CopyRightWrapper = styled.div`
   ${css.flex()};
 `
-export const PreviewBtn = styled.div`
-  margin-top: -3px;
-`
-
 export const SourceLink = styled.div`
-  ${css.flex('justify-center')};
-  width: 60%;
+  ${css.flex('align-center')};
+  width: 400px;
+  margin-left: 16px;
 `
 export const LinkInput = styled(Input)`
   height: 20px;
   line-height: 20px;
-  width: 50%;
-  font-size: 0.9em;
+  width: 300px;
+  font-size: 12px;
   margin-top: -1px;
-  background: ${theme('editor.headerBg')};
+  background: transparent;
   padding-left: 2px;
+  border-radius: 0;
   color: ${theme('editor.title')};
+  border: none;
+  border-bottom: 1px solid transparent;
 
   ::placeholder {
     color: ${theme('editor.placeholder')};
@@ -51,10 +51,12 @@ export const LinkInput = styled(Input)`
   }
 `
 export const LinkLabel = styled.div`
-  font-size: 0.9em;
+  font-size: 12px;
+  width: 60px;
+  margin-top: 2px;
   color: ${theme('editor.placeholder')};
   ${SourceLink}:hover & {
     color: ${theme('editor.title')};
   }
-  transition: color 0.3s;
+  transition: color 0.2s;
 `

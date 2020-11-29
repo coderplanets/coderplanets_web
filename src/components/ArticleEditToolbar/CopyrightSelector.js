@@ -2,7 +2,7 @@ import React from 'react'
 import { path, reject, find, propEq } from 'ramda'
 // import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
+import { ICON, ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 
 import Tooltip from '@/components/Tooltip'
@@ -73,13 +73,12 @@ const CopyrightSelector = ({ copyRight, thread, onCopyrightChange }) => {
           onCopyrightChange={onCopyrightChange}
         />
       }
-      placement="right"
-      trigger="click"
+      placement="bottom"
     >
       <ReprintWrapper>
         <ReprintIcon src={`${ICON_CMD}/${copyRight}.svg`} />
         <CopyRightText>{getCpTitle(copyRight)}</CopyRightText>
-        <MoreIcon src={`${ICON_CMD}/more.svg`} />
+        <MoreIcon src={`${ICON}/shape/arrow-solid.svg`} />
       </ReprintWrapper>
     </Tooltip>
   )

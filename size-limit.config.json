@@ -47,6 +47,10 @@
     {
       "path": ".next/server/pages/upgrade.js",
       "maxSize": "250 kB"
+    },
+    {
+      "path": ".next/server/pages/create/article.js",
+      "maxSize": "280 kB"
     }
   ],
   "ci": {

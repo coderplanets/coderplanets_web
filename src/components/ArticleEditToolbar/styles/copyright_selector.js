@@ -4,11 +4,11 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  padding: 5px 8px;
+  padding-left: 5px;
 `
-
 export const Selector = styled.div`
-  ${css.flex()};
+  ${css.flex('align-center')};
+  margin-bottom: 5px;
   &:hover {
     cursor: pointer;
     color: ${theme('editor.title')};
@@ -24,29 +24,26 @@ export const CheckIcon = styled(Img)`
 export const CheckText = styled.div`
   color: ${theme('editor.content')};
 `
-
 export const CopyRightText = styled.div`
-  font-size: 1.1em;
+  font-size: 13px;
 `
-
 export const ReprintWrapper = styled.div`
-  ${css.flex()};
+  ${css.flex('align-center')};
   color: ${theme('editor.content')};
   cursor: pointer;
 `
-
 export const ReprintIcon = styled(Img)`
   fill: ${theme('editor.content')};
-  ${css.size(14)};
-  margin-top: 3px;
+  ${css.size(13)};
   margin-right: 5px;
 `
-
 export const MoreIcon = styled(Img)`
-  ${css.size(14)};
-  margin-top: 3px;
+  ${css.size(13)};
+  margin-left: 3px;
   fill: ${theme('editor.placeholder')};
   &:hover {
     cursor: pointer;
   }
+
+  transform: rotate(90deg);
 `

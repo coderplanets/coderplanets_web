@@ -102,6 +102,11 @@ router.route('/create/community').get((req, res) => {
   return renderAndCache({ req, res, page: '/create/community' })
 })
 
+// 创建新内容
+router.route('/create/article').get((req, res) => {
+  return renderAndCache({ req, res, page: '/create/article' })
+})
+
 // 创建新社区
 router.route('/create/works').get((req, res) => {
   return renderAndCache({ req, res, page: '/create/works' })

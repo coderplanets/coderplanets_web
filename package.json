@@ -116,6 +116,7 @@
     "react-sortable-hoc": "1.7.1",
     "react-svg": "11.1.2",
     "react-swipeable": "^5.5.1",
+    "react-textarea-autosize": "^8.3.0",
     "react-tooltip": "^3.4.0",
     "react-trend": "^1.2.4",
     "react-use": "15.1.1",

@@ -35,7 +35,7 @@ export const Icon = styled(Img)`
   }
   transition: opacity 0.25s;
 `
-const baseInput = `
+export const baseInput = `
   outline: none; 
   font-variant: tabular-nums;
   box-sizing: border-box;
@@ -77,31 +77,5 @@ export const InputWrapper = styled.input`
   &:active {
     border-color: ${theme('editor.borderActive')};
     /* box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2); */
-  }
-`
-export const TextAreaWrapper = styled.textarea.attrs((props) => ({
-  'data-test-id': props.testId,
-}))`
-  ${baseInput};
-  background-color: #0b2631;
-  border: 1px solid;
-  border-color: ${theme('editor.border')};
-  min-height: 60px;
-  max-height: 30vh;
-
-  border-color: ${theme('editor.border')};
-  ::placeholder {
-    color: ${theme('editor.placeholder')};
-  }
-  &:hover {
-    border-color: ${theme('editor.borderActive')};
-  }
-  &:focus {
-    border-color: ${theme('editor.borderActive')};
-    box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2);
-  }
-  &:active {
-    border-color: ${theme('editor.borderActive')};
-    box-shadow: -2px 1px 0px 0px rgba(0, 0, 0, 0.2);
   }
 `

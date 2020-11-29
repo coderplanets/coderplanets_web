@@ -40,6 +40,7 @@ const GlobalLayoutContainer = ({
   errorPath,
   children,
   noSidebar,
+  noFooter,
   metric,
 }) => {
   const { online } = useNetwork()
@@ -101,7 +102,7 @@ const GlobalLayoutContainer = ({
                       <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                         {childrenWithProps(children, { metric })}
                       </BodyWrapper>
-                      <Footer metric={metric} />
+                      {!noFooter && <Footer metric={metric} />}
                     </div>
                   </CustomScroller>
                 </ContentWrapper>
@@ -120,6 +121,7 @@ GlobalLayoutContainer.propTypes = {
   globalLayout: T.object.isRequired,
   seoConfig: T.object.isRequired, // TODO:
   noSidebar: T.bool,
+  noFooter: T.bool,
   metric: T.oneOf(values(METRIC)),
   errorCode: T.oneOf([null, 404, 500]),
   errorPath: T.oneOfType([T.string, T.instanceOf(null)]),
@@ -128,6 +130,7 @@ GlobalLayoutContainer.propTypes = {
 GlobalLayoutContainer.defaultProps = {
   children: <div />,
   noSidebar: false,
+  noFooter: false,
   errorCode: null,
   errorPath: null,
   metric: METRIC.COMMUNITY,

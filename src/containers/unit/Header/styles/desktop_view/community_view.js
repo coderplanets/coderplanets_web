@@ -9,6 +9,7 @@ export const Wrapper = styled.header.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   width: 100%;
+  height: 33px;
   ${css.flex('justify-center')};
   background: ${theme('header.bg')};
   opacity: 1;

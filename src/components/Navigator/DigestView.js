@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { METRIC } from '@/constant'
 import {
   Breadcrumbs,
   Logo,
@@ -8,11 +9,24 @@ import {
   LineDivider,
   LogoText,
   OfflineWrapper,
+  ActionText,
 } from './styles'
 
 import MainEntries from './MainEntries/index'
 
-const DigestView = ({ showLogoText, isOnline }) => {
+const renderMainEntries = (metric) => {
+  switch (metric) {
+    case METRIC.ARTICLE_EDITOR: {
+      return <ActionText>发布帖子</ActionText>
+    }
+
+    default: {
+      return <MainEntries />
+    }
+  }
+}
+
+const DigestView = ({ metric, showLogoText, isOnline }) => {
   return (
     <Breadcrumbs>
       <LogoLink href="/home/posts">
@@ -23,7 +37,7 @@ const DigestView = ({ showLogoText, isOnline }) => {
       {showLogoText ? <LogoMargin /> : <LineDivider />}
 
       {isOnline ? (
-        <MainEntries />
+        renderMainEntries(metric)
       ) : (
         <OfflineWrapper>您已离线，请检查网络设置</OfflineWrapper>
       )}

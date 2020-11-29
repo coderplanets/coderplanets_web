@@ -85,7 +85,6 @@ export const A = styled.a`
   color: #aaa;
   cursor: pointer;
 `
-
 export const OfflineWrapper = styled.div`
   ${css.flexColumn()};
   background: ${theme('baseColor.red')};
@@ -94,4 +93,10 @@ export const OfflineWrapper = styled.div`
   padding: 0 10px;
   border-radius: 4px;
   animation: ${animate.breath} 5s linear infinite;
+`
+export const ActionText = styled.div`
+  font-size: 14px;
+  color: ${theme('banner.desc')};
+  margin-left: 10px;
+  margin-top: 2px;
 `
