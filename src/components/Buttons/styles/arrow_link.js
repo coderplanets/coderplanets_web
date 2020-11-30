@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
+import { getTextSize, getIconSize } from './metircs/arrow_link'
+
 export const Wrapper = styled.a`
   ${css.flex('align-center')};
   text-decoration: none;
@@ -12,7 +14,7 @@ export const Wrapper = styled.a`
 `
 export const Text = styled.div`
   color: ${({ color }) => color || theme('thread.articleDigest')};
-  font-size: ${({ size }) => size};
+  font-size: ${({ size }) => getTextSize(size)};
 
   ${Wrapper}:hover & {
     color: ${({ hoverColor }) => hoverColor || theme('thread.articleTitle')};
@@ -21,8 +23,8 @@ export const Text = styled.div`
 `
 const Icon = styled(Img)`
   fill: ${({ color }) => color || theme('thread.articleDigest')};
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
+  width: ${({ size }) => getIconSize(size)};
+  height: ${({ size }) => getIconSize(size)};
   display: block;
   transition: all 0.2s;
   opacity: 0.8;

@@ -1,14 +1,15 @@
+import { SIZE } from '@/constant'
 /**
  * NOTE:  Li size should always smaller than the avatar size
  */
 
 export const getLiSize = (size) => {
   switch (size) {
-    case 'small': {
+    case SIZE.SMALL: {
       return '15px'
     }
 
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return '20px'
     }
 
@@ -20,11 +21,11 @@ export const getLiSize = (size) => {
 
 export const getAvatarSize = (size, fmt = 'string') => {
   switch (size) {
-    case 'small': {
+    case SIZE.SMALL: {
       return fmt === 'string' ? '25px' : 25
     }
 
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return fmt === 'string' ? '30px' : 30
     }
 

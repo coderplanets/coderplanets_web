@@ -39,11 +39,15 @@ export const LeftIcon = styled(Icon)`
     arrowStyle === 'default' ? getMargin(size) : getSimpleMargin(size)};
 
   ${Wrapper}:hover & {
-    margin-left: ${({ size, arrowStyle, disabled }) => {
+    margin-left: ${({ arrowStyle, disabled }) => {
+      if (disabled) return 0
+      return arrowStyle === 'default' ? '-4px' : '-2px'
+    }};
+    /* margin-left: ${({ size, arrowStyle, disabled }) => {
       return arrowStyle === 'default'
         ? `-${getMargin(size, !disabled)}`
-        : `${getSimpleMargin(size, !disabled)}`
-    }};
+        : `-${getSimpleMargin(size, !disabled)}`
+    }}; */
     fill: #327ca1;
   }
 `

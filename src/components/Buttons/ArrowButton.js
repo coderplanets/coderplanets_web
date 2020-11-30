@@ -6,8 +6,10 @@
 
 import React, { useRef, useState, useEffect } from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
 import { ICON } from '@/config'
+import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
 
 import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
@@ -89,7 +91,7 @@ const ArrowButton = ({
 ArrowButton.propTypes = {
   children: T.oneOfType([T.string, T.node]),
   arrowStyle: T.oneOf(['default', 'simple']),
-  size: T.oneOf(['tiny', 'small', 'medium', 'large']),
+  size: T.oneOf(values(SIZE)),
   direction: T.oneOf(['left', 'right']),
   dimWhenIdle: T.bool,
   onClick: T.func,
@@ -99,7 +101,7 @@ ArrowButton.propTypes = {
 ArrowButton.defaultProps = {
   children: '下一步',
   arrowStyle: 'default',
-  size: 'small',
+  size: SIZE.SMALL,
   direction: 'right',
   dimWhenIdle: false,
   onClick: log,

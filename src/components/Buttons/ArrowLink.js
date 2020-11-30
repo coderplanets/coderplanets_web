@@ -6,33 +6,16 @@
 
 import React from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
 import { ICON_CMD } from '@/config'
+import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
 
 import { Wrapper, Text, RightIcon } from './styles/arrow_link'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Buttons:index')
-
-const SIZE_MAP = {
-  tiny: {
-    text: '12px',
-    icon: '12px',
-  },
-  small: {
-    text: '14px',
-    icon: '14px',
-  },
-  medium: {
-    text: '16px',
-    icon: '16px',
-  },
-  large: {
-    text: '18px',
-    icon: '18px',
-  },
-}
 
 const ArrowLink = ({
   className,
@@ -50,11 +33,11 @@ const ArrowLink = ({
       rel="noopener noreferrer"
       target={target}
     >
-      <Text size={SIZE_MAP[size].text} color={color} hoverColor={hoverColor}>
+      <Text size={size} color={color} hoverColor={hoverColor}>
         {children}
       </Text>
       <RightIcon
-        size={SIZE_MAP[size].icon}
+        size={size}
         color={color}
         hoverColor={hoverColor}
         src={`${ICON_CMD}/navi/navi_back.svg`}
@@ -66,7 +49,7 @@ const ArrowLink = ({
 ArrowLink.propTypes = {
   className: T.string,
   children: T.oneOfType([T.string, T.node]),
-  size: T.oneOf(['tiny', 'small', 'medium', 'large']),
+  size: T.oneOf(values(SIZE)),
   href: T.string,
   color: T.string,
   hoverColor: T.string,
@@ -76,7 +59,7 @@ ArrowLink.propTypes = {
 ArrowLink.defaultProps = {
   className: '',
   children: '下一步',
-  size: 'small',
+  size: SIZE.SMALL,
   href: '',
   color: '',
   hoverColor: '',
