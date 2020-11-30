@@ -1,6 +1,8 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { SIZE } from '@/constant'
+
 import {
   Wrapper,
   UpButton,
@@ -31,7 +33,7 @@ const VerticalButton = ({ onClick, size, activeKey, group }) => {
 }
 
 VerticalButton.propTypes = {
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
   onClick: T.func,
   activeKey: T.string,
   group: T.arrayOf(
@@ -43,7 +45,7 @@ VerticalButton.propTypes = {
 }
 
 VerticalButton.defaultProps = {
-  size: 'default',
+  size: SIZE.MEDIUM,
   // eslint-disable-next-line no-console
   onClick: console.log,
   activeKey: 'hello',

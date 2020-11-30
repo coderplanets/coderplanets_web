@@ -2,6 +2,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
+import { SIZE } from '@/constant'
 
 import { Wrapper, SocialWrapper, Icon } from './styles/social_list'
 
@@ -48,12 +49,12 @@ const SocialList = ({ size, items }) => {
 }
 
 SocialList.propTypes = {
-  size: T.oneOf(['small', 'medium']),
+  size: T.oneOf([SIZE.SMALL, SIZE.MEDIUM]),
   items: T.arrayOf(T.object),
 }
 
 SocialList.defaultProps = {
-  size: 'small',
+  size: SIZE.SMALL,
   items: defaultItems,
 }
 

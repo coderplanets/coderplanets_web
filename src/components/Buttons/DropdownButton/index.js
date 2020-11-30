@@ -47,7 +47,6 @@ DropdownButton.propTypes = {
   ),
   // ghost: T.bool,
   // type: T.oneOf(['primary', 'red', 'ghost']),
-  // size: T.oneOf(['default', 'small']),
   // onClick: T.func,
   // className: T.string,
 }

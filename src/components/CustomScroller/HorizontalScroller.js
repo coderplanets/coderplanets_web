@@ -10,6 +10,7 @@ import { Waypoint } from 'react-waypoint'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils'
+import { SIZE } from '@/constant'
 import { useCustomScroll } from '@/hooks'
 
 import {
@@ -103,8 +104,8 @@ HorizontalScroller.propTypes = {
   height: T.string,
   width: T.string,
   showShadow: T.bool,
-  shadowSize: T.oneOf(['small', 'medium', 'large']),
-  barSize: T.oneOf(['small', 'medium', 'large']),
+  shadowSize: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
+  barSize: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   // hack for custom scrollbar
   innerHeight: T.string,
   autoHide: T.bool,
@@ -115,8 +116,8 @@ HorizontalScroller.defaultProps = {
   height: '100%',
   width: '100%',
   showShadow: true,
-  shadowSize: 'small',
-  barSize: 'small',
+  shadowSize: SIZE.SMALL,
+  barSize: SIZE.SMALL,
   innerHeight: '100%',
   autoHide: false,
   withBorder: false,

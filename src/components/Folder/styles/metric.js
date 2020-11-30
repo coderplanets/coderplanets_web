@@ -1,6 +1,8 @@
+import { SIZE } from '@/constant'
+
 export const getWidth = (type) => {
   switch (type) {
-    case 'large':
+    case SIZE.LARGE:
       return '240px'
 
     default:
@@ -10,7 +12,7 @@ export const getWidth = (type) => {
 
 export const getHeight = (type) => {
   switch (type) {
-    case 'large':
+    case SIZE.LARGE:
       return '180px'
 
     default:

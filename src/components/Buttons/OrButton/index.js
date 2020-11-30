@@ -1,6 +1,8 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { SIZE } from '@/constant'
+
 import HorizontalButton from './HorizontalButton'
 import VerticalButton from './VerticalButton'
 
@@ -14,7 +16,7 @@ const OrButton = ({ direction, ...restProps }) => {
 
 OrButton.propTypes = {
   // children: T.oneOfType(T.string, T.node),
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
   onClick: T.func,
   direction: T.oneOf(['row', 'column']),
 
@@ -29,7 +31,7 @@ OrButton.propTypes = {
 
 OrButton.defaultProps = {
   // children: 'Button',
-  size: 'default',
+  size: SIZE.MEDIUM,
   // eslint-disable-next-line no-console
   onClick: console.log,
   direction: 'row',

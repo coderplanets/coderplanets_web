@@ -8,6 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils'
+import { SIZE } from '@/constant'
 
 import { Wrapper, Label } from './styles/radio'
 
@@ -42,11 +43,11 @@ Radio.propTypes = {
   ).isRequired,
   activeKey: T.oneOfType([T.string, T.bool]).isRequired,
   onChange: T.func.isRequired,
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
 }
 
 Radio.defaultProps = {
-  size: 'default',
+  size: SIZE.MEDIUM,
 }
 
 export default React.memo(Radio)

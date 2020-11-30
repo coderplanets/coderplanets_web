@@ -9,6 +9,7 @@ import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
 import { ICON } from '@/config'
+import { SIZE } from '@/constant'
 import { useDevice } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
@@ -161,7 +162,7 @@ MobileView.propTypes = {
   ]),
   onChange: T.func,
   activeKey: T.string,
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
   slipHeight: T.oneOf(['1px', '2px']),
   toggleExpand: T.func.isRequired,
 }
@@ -170,7 +171,7 @@ MobileView.defaultProps = {
   items: [],
   onChange: log,
   activeKey: '',
-  size: 'default',
+  size: SIZE.MEDIUM,
   slipHeight: '2px',
 }
 

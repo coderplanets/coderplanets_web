@@ -9,6 +9,7 @@ import T from 'prop-types'
 
 // import { ICON_CMD } from '@/config'
 import { buildLog, isString } from '@/utils'
+import { SIZE } from '@/constant'
 
 import Tooltip from '@/components/Tooltip'
 
@@ -66,14 +67,14 @@ ExpandIcon.propTypes = {
   icon: T.oneOfType([T.string, T.node]).isRequired,
   hideOnClick: T.oneOf([true, false]),
   type: T.oneOf(['default', 'green']),
-  size: T.oneOf(['small', 'medium']),
+  size: T.oneOf([SIZE.SMALL, SIZE.MEDIUM]),
   hideTextOnInit: T.oneOf([true, false]),
 }
 
 ExpandIcon.defaultProps = {
   hideOnClick: false,
   type: 'default',
-  size: 'medium',
+  size: SIZE.MEDIUM,
   hideTextOnInit: true,
 }
 

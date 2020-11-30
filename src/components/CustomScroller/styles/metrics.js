@@ -1,8 +1,10 @@
+import { SIZE } from '@/constant'
+
 const ShadowBgColor = '#022029'
 
 const horizontalShadowBg = (type) => {
   switch (type) {
-    case 'small': {
+    case SIZE.SMALL: {
       return `-webkit-radial-gradient(
         0% 50%,
         100% 100%,
@@ -26,7 +28,7 @@ const horizontalShadowBg = (type) => {
 }
 const verticalShadowBg = (type) => {
   switch (type) {
-    case 'small': {
+    case SIZE.SMALL: {
       return `
       -webkit-radial-gradient(50% 0%, 50% 18px, ${ShadowBgColor} 0%, transparent 100%);
       `
@@ -51,10 +53,10 @@ export const getShadowBackground = (type, direction = 'horizontal') => {
 // horizontal getShadowWidth
 export const getShadowSize = (type) => {
   switch (type) {
-    case 'small': {
+    case SIZE.SMALL: {
       return '30px'
     }
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return '50px;'
     }
     // large
@@ -67,10 +69,10 @@ export const getShadowSize = (type) => {
 // vertical getShadowWidth
 export const getShadowHeight = (type) => {
   switch (type) {
-    case 'small': {
+    case SIZE.SMALL: {
       return '20px'
     }
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return '40px;'
     }
     // large
@@ -82,13 +84,13 @@ export const getShadowHeight = (type) => {
 
 const horizontalScrollbarHeight = (type) => {
   switch (type) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return '3px'
     }
-    case 'small': {
+    case SIZE.SMALL: {
       return '5px'
     }
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return '8px;'
     }
     // default
@@ -100,10 +102,10 @@ const horizontalScrollbarHeight = (type) => {
 
 const verticalScrollbarWidth = (type) => {
   switch (type) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return '6px'
     }
-    case 'small': {
+    case SIZE.SMALL: {
       return '7px'
     }
     case 'none': {

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Trans } from '@/utils'
+import { SIZE } from '@/constant'
 
 import { Tabs } from '@/components/Switcher'
 import DotDivider from '@/components/DotDivider'
@@ -25,7 +26,7 @@ const ThreadsNav = ({ activeInfo: { community, activeThread } }) => {
       <MiniTab>
         <Tabs
           items={community.threads}
-          size="small"
+          size={SIZE.SMALL}
           onChange={onThreadChange}
           activeKey={activeThread}
         />

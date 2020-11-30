@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { VIEW } from '@/constant'
+import { VIEW, SIZE } from '@/constant'
 import TabBar from '@/components/TabBar'
 
 import {
@@ -30,7 +30,7 @@ const DesktopView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
             view={VIEW.DESKTOP}
             // layout={layout}
             communityRaw={community.raw}
-            size="small"
+            size={SIZE.SMALL}
           />
         </TabsWrapper>
       </InnerWrapper>

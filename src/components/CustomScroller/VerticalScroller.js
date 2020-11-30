@@ -10,6 +10,7 @@ import { Waypoint } from 'react-waypoint'
 import T from 'prop-types'
 
 import { buildLog, debounce } from '@/utils'
+import { SIZE } from '@/constant'
 import { useCustomScroll } from '@/hooks'
 
 import {
@@ -152,8 +153,8 @@ VerticalScroller.propTypes = {
   height: T.string,
   width: T.string,
   showShadow: T.bool,
-  shadowSize: T.oneOf(['small', 'medium', 'large']),
-  barSize: T.oneOf(['small', 'medium', 'large', 'none']),
+  shadowSize: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
+  barSize: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   // hack for custom scrollbar
   autoHide: T.bool,
   showOnHover: T.bool,
@@ -171,8 +172,8 @@ VerticalScroller.defaultProps = {
   height: '100%',
   width: '100%',
   showShadow: true,
-  shadowSize: 'small',
-  barSize: 'small',
+  shadowSize: SIZE.SMALL,
+  barSize: SIZE.SMALL,
   autoHide: true,
   showOnHover: false,
   withBorder: false,

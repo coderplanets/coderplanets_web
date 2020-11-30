@@ -8,6 +8,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
+import { SIZE } from '@/constant'
 import { useDevice } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
@@ -99,7 +100,7 @@ MobileView.propTypes = {
   ]),
   onChange: T.func,
   activeKey: T.string,
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
   toggleExpand: T.func.isRequired,
 }
 
@@ -107,7 +108,7 @@ MobileView.defaultProps = {
   items: [],
   onChange: log,
   activeKey: '',
-  size: 'default',
+  size: SIZE.MEDIUM,
 }
 
 export default React.memo(MobileView)

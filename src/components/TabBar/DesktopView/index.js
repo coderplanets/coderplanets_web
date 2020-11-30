@@ -5,7 +5,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ANCHOR, THREAD, C11N } from '@/constant'
+import { ANCHOR, THREAD, C11N, SIZE } from '@/constant'
 import { buildLog, sortByIndex } from '@/utils'
 
 import NormalView from './NormalView'
@@ -56,7 +56,7 @@ TabBar.propTypes = {
   layout: T.oneOf([C11N.DIGEST, C11N.DIGEST_ROW, C11N.BRIEF]),
   // for alias usage
   communityRaw: T.string,
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
 }
 
 TabBar.defaultProps = {
@@ -64,7 +64,7 @@ TabBar.defaultProps = {
   onChange: log,
   layout: C11N.DIGEST,
   communityRaw: 'home',
-  size: 'default',
+  size: SIZE.MEDIUM,
 }
 
 export default React.memo(TabBar)

@@ -1,18 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
+import { SIZE } from '@/constant'
 import { theme } from '@/utils'
 
 const getSize = (size) => {
   switch (size) {
-    case 'small':
+    case SIZE.SMALL:
       return '28px'
 
-    case 'large':
+    case SIZE.LARGE:
       return '150px'
-
-    case 'huge':
-      return '300px'
 
     default:
       return '38px'

@@ -1,8 +1,10 @@
+import { SIZE } from '@/constant'
+
 export const getSlipMargin = (size, mobileView) => {
   if (mobileView) return 5
 
   switch (size) {
-    case 'small': {
+    case SIZE.SMALL: {
       return 0
     }
 
@@ -16,7 +18,7 @@ export const getMarginRight = (size, mobileView, cardView) => {
   if (cardView) return '0'
 
   switch (size) {
-    case 'small': {
+    case SIZE.SMALL: {
       return '0'
     }
 
@@ -46,7 +48,7 @@ export const getPadding = (
   }
 
   switch (size) {
-    case 'small': {
+    case SIZE.SMALL: {
       return '5px 10px'
     }
 

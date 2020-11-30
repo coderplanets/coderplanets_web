@@ -8,6 +8,7 @@ import React, { useEffect, useCallback, useRef } from 'react'
 import T from 'prop-types'
 
 import { buildLog, isString, Trans } from '@/utils'
+import { SIZE } from '@/constant'
 
 import TabIcon from './TabIcon'
 import {
@@ -117,7 +118,7 @@ TabItem.propTypes = {
   setItemWidth: T.func.isRequired,
   onClick: T.func.isRequired,
   activeKey: T.string.isRequired,
-  size: T.oneOf(['default', 'small']).isRequired,
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]).isRequired,
 }
 
 TabItem.defaultProps = {

@@ -1,6 +1,8 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { SIZE } from '@/constant'
+
 import {
   Wrapper,
   LeftButton,
@@ -32,7 +34,7 @@ const HorizontalButton = ({ onClick, size, activeKey, group }) => {
 }
 
 HorizontalButton.propTypes = {
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
   onClick: T.func,
   activeKey: T.string,
   group: T.arrayOf(
@@ -45,7 +47,7 @@ HorizontalButton.propTypes = {
 
 HorizontalButton.defaultProps = {
   // children: 'Button',
-  size: 'default',
+  size: SIZE.MEDIUM,
   // eslint-disable-next-line no-console
   onClick: console.log,
   activeKey: 'hello',
