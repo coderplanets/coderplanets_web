@@ -1,4 +1,5 @@
 import { theme } from '@/utils'
+import { SIZE } from '@/constant'
 
 export const getNormalColor = (type) => {
   switch (type) {
@@ -22,7 +23,7 @@ export const getActiveColor = (type) => {
 
 export const getNormalIconSize = (size) => {
   switch (size) {
-    case 'small':
+    case SIZE.SMALL:
       return '11px'
 
     default:
@@ -32,7 +33,7 @@ export const getNormalIconSize = (size) => {
 
 export const getActiveIconSize = (size) => {
   switch (size) {
-    case 'small':
+    case SIZE.SMALL:
       return '12px'
 
     default:
@@ -42,7 +43,7 @@ export const getActiveIconSize = (size) => {
 
 export const getNormalTextSize = (size) => {
   switch (size) {
-    case 'small':
+    case SIZE.SMALL:
       return '11px'
 
     default:

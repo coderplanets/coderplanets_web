@@ -1,3 +1,5 @@
+import { SIZE } from '@/constant'
+
 const TINY_SIZE = 12
 const SMALL_SIZE = 14
 const MEDIUM_SIZE = 16
@@ -19,13 +21,13 @@ const LARGE_MARGIN_HOVER = 10
 // otherwise the arrow will jump
 export const getWidth = (size, width = 30) => {
   switch (size) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return `${width + TINY_SIZE + TINY_MARGIN_HOVER}px`
     }
-    case 'small': {
+    case SIZE.SMALL: {
       return `${width + SMALL_SIZE + SMALL_MARGIN_HOVER}px`
     }
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return `${width + MEDIUM_SIZE + MEDIUM_MARGIN_HOVER}px`
     }
     default: {
@@ -36,13 +38,13 @@ export const getWidth = (size, width = 30) => {
 
 export const getIconSize = (size) => {
   switch (size) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return `${TINY_SIZE}px`
     }
-    case 'small': {
+    case SIZE.SMALL: {
       return `${SMALL_SIZE}px`
     }
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return `${MEDIUM_SIZE}px`
     }
     default: {
@@ -53,13 +55,13 @@ export const getIconSize = (size) => {
 
 export const getFontSize = (size) => {
   switch (size) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return `${TINY_SIZE}px`
     }
-    case 'small': {
+    case SIZE.SMALL: {
       return `${SMALL_SIZE}px`
     }
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return `${MEDIUM_SIZE}px`
     }
     default: {
@@ -70,13 +72,13 @@ export const getFontSize = (size) => {
 
 export const getMargin = (size, hover = false) => {
   switch (size) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return !hover ? `${TINY_MARGIN}px` : `${TINY_MARGIN_HOVER}px`
     }
-    case 'small': {
+    case SIZE.SMALL: {
       return !hover ? `${SMALL_MARGIN}px` : `${SMALL_MARGIN_HOVER}px`
     }
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return !hover ? `${MEDIUM_MARGIN}px` : `${MEDIUM_MARGIN_HOVER}px`
     }
     default: {
@@ -87,13 +89,13 @@ export const getMargin = (size, hover = false) => {
 
 export const getSimpleMargin = (size, hover = false) => {
   switch (size) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return !hover ? `${TINY_MARGIN}px` : `${TINY_MARGIN_HOVER}px`
     }
-    case 'small': {
+    case SIZE.SMALL: {
       return !hover ? `${SMALL_MARGIN}px` : `${SMALL_MARGIN_HOVER}px`
     }
-    case 'medium': {
+    case SIZE.MEDIUM: {
       return !hover ? `${MEDIUM_MARGIN}px` : `${MEDIUM_MARGIN_HOVER}px`
     }
     default: {

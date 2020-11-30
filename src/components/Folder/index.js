@@ -9,6 +9,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
+import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
 
 import Content from './Content'
@@ -63,7 +64,7 @@ Folder.propTypes = {
   onEdit: T.func,
   onSelect: T.func,
   contentType: T.oneOf(['text', 'cover']),
-  size: T.oneOf(['small', 'default']),
+  size: T.oneOf([SIZE.SMALL, SIZE.MEDIUM]),
 }
 
 Folder.defaultProps = {
@@ -78,7 +79,7 @@ Folder.defaultProps = {
   onEdit: log,
   onSelect: log,
   contentType: 'text',
-  size: 'default',
+  size: SIZE.MEDIUM,
 }
 
 export default React.memo(Folder)

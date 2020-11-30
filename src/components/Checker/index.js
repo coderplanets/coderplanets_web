@@ -8,6 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
+import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
 
 import { Wrapper, IconWrapper, Icon, ChildWrapper } from './styles'
@@ -33,7 +34,7 @@ const Checker = ({ checked, onChange, hiddenMode, size, children }) => {
 Checker.propTypes = {
   checked: T.bool,
   hiddenMode: T.bool,
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
   children: T.oneOfType([T.string, T.node]),
   onChange: T.func,
 }
@@ -42,7 +43,7 @@ Checker.defaultProps = {
   checked: false,
   hiddenMode: false,
   children: '',
-  size: 'default',
+  size: SIZE.MEDIUM,
   onChange: log,
 }
 

@@ -8,6 +8,7 @@ import React, { useCallback } from 'react'
 import T from 'prop-types'
 
 import { buildLog, isString } from '@/utils'
+import { SIZE } from '@/constant'
 
 import { Wrapper, TabItem } from '../styles/tabs/drawer_view'
 
@@ -61,14 +62,14 @@ Tabs.propTypes = {
   ]),
   onChange: T.func,
   activeKey: T.string,
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
 }
 
 Tabs.defaultProps = {
   items: temItems,
   onChange: log,
   activeKey: '',
-  size: 'default',
+  size: SIZE.MEDIUM,
 }
 
 export default React.memo(Tabs)

@@ -9,6 +9,7 @@ import T from 'prop-types'
 import { isEmpty, findIndex } from 'ramda'
 
 import { useDevice } from '@/hooks'
+import { SIZE } from '@/constant'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
@@ -140,7 +141,7 @@ Tabs.propTypes = {
   ]),
   onChange: T.func,
   activeKey: T.string,
-  size: T.oneOf(['default', 'small']),
+  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
   slipHeight: T.oneOf(['1px', '2px']),
 }
 
@@ -148,7 +149,7 @@ Tabs.defaultProps = {
   items: temItems,
   onChange: log,
   activeKey: '',
-  size: 'default',
+  size: SIZE.MEDIUM,
   slipHeight: '2px',
 }
 

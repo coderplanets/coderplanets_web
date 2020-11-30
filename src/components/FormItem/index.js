@@ -9,6 +9,7 @@ import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
 import { buildLog, hasValue } from '@/utils'
+import { SIZE } from '@/constant'
 import Maybe from '@/components/Maybe'
 
 import {
@@ -120,7 +121,7 @@ FormItem.propTypes = {
   type: T.oneOf(['input', 'textarea', 'node']),
   node: T.node,
   att: T.oneOfType([T.string, T.node]),
-  size: T.oneOf(['small', 'default', 'large']),
+  size: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   bottom: T.number,
   disabled: T.bool,
   autoFocus: T.bool,
@@ -132,7 +133,7 @@ FormItem.defaultProps = {
   label: '',
   raw: '',
   ratKey: '',
-  size: 'default',
+  size: SIZE.MEDIUM,
   placeholder: '',
   type: 'input',
   node: <div />,

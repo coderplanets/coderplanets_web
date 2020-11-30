@@ -6,8 +6,10 @@
 
 import React from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
+import { SIZE } from '@/constant'
 
 import { Wrapper, Icon, Text } from './styles'
 
@@ -27,14 +29,14 @@ IconText.propTypes = {
   iconSrc: T.string,
   round: T.bool,
   children: T.oneOfType([T.node, T.string]).isRequired,
-  size: T.oneOf(['tiny', 'small', 'medium', 'large']),
+  size: T.oneOf(values(SIZE)),
   margin: T.oneOfType([T.string, T.instanceOf(null)]),
 }
 
 IconText.defaultProps = {
   iconSrc: '',
   round: false,
-  size: 'small',
+  size: SIZE.SMALL,
   margin: null,
 }
 

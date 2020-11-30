@@ -1,3 +1,4 @@
+import { SIZE } from '@/constant'
 import { theme } from '@/utils'
 
 export const getColor = (ghost, disabled) => {
@@ -35,11 +36,11 @@ export const getBorderColor = (noBorder, disabled, hover = false) => {
 
 export const getHeight = (size) => {
   switch (size) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return '18px'
     }
 
-    case 'small': {
+    case SIZE.SMALL: {
       return '24px'
     }
 
@@ -51,11 +52,11 @@ export const getHeight = (size) => {
 
 export const getPadding = (size) => {
   switch (size) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return '1px 5px'
     }
 
-    case 'small': {
+    case SIZE.SMALL: {
       return '0 7px'
     }
 
@@ -67,11 +68,11 @@ export const getPadding = (size) => {
 
 export const getFontSize = (size) => {
   switch (size) {
-    case 'tiny': {
+    case SIZE.TINY: {
       return '11px'
     }
 
-    case 'small': {
+    case SIZE.SMALL: {
       return '14px'
     }
 

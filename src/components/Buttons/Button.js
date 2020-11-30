@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import T from 'prop-types'
 
+import { SIZE } from '@/constant'
+
 import {
   Wrapper,
   RedWrapper,
@@ -99,7 +101,7 @@ Button.propTypes = {
   children: T.oneOfType([T.string, T.node]),
   ghost: T.bool,
   type: T.oneOf(['primary', 'red', 'ghost']),
-  size: T.oneOf(['tiny', 'default', 'small']),
+  size: T.oneOf([SIZE.TINY, SIZE.SMALL, SIZE.MEDIUM]),
   onClick: T.func,
   className: T.string,
   loading: T.oneOfType([T.bool, T.instanceOf(null)]),
@@ -112,7 +114,7 @@ Button.defaultProps = {
   children: 'Button',
   ghost: false,
   type: 'primary',
-  size: 'default',
+  size: SIZE.MEDIUM,
   // eslint-disable-next-line no-console
   onClick: console.log,
   className: '',

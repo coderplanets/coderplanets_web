@@ -10,6 +10,7 @@ import { compose, not, isNil, filter, reverse, slice } from 'ramda'
 import { trackWindowScroll } from 'react-lazy-load-image-component'
 
 import { AVATARS_LIST_LENGTH } from '@/config'
+import { SIZE } from '@/constant'
 import { buildLog, o2s, s2o } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
@@ -122,7 +123,7 @@ AvatarsRow.propTypes = {
       extra_id: T.string,
     }),
   ),
-  size: T.oneOf(['small', 'medium']),
+  size: T.oneOf([SIZE.SMALL, SIZE.MEDIUM]),
   total: T.number.isRequired,
   limit: T.number,
   onUserSelect: T.func,
@@ -133,7 +134,7 @@ AvatarsRow.propTypes = {
 }
 
 AvatarsRow.defaultProps = {
-  size: 'small',
+  size: SIZE.SMALL,
   users: [],
   limit: AVATARS_LIST_LENGTH.POSTS,
   onUserSelect: log,

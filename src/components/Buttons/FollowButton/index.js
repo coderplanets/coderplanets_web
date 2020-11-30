@@ -6,8 +6,11 @@
 
 import React, { useState, useCallback } from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
 import { buildLog } from '@/utils'
+import { SIZE } from '@/constant'
+
 import FollowingBtn from './FollowingBtn'
 import FollowedBtn from './FollowedBtn'
 
@@ -62,7 +65,7 @@ const FollowButton = ({
 FollowButton.propTypes = {
   hasFollowed: T.bool,
   userId: T.string.isRequired,
-  size: T.oneOf(['tiny', 'small', 'default', 'large']),
+  size: T.oneOf(values(SIZE)),
   onFollow: T.func,
   onUndoFollow: T.func,
   fakeLoading: T.bool,
@@ -71,7 +74,7 @@ FollowButton.propTypes = {
 }
 
 FollowButton.defaultProps = {
-  size: 'small',
+  size: SIZE.SMALL,
   onFollow: log,
   onUndoFollow: log,
   fakeLoading: false,

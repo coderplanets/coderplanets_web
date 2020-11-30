@@ -1,12 +1,14 @@
+import { SIZE } from '@/constant'
+
 export const getIconSize = (size) => {
   switch (size) {
-    case 'large': {
+    case SIZE.LARGE: {
       return '13px'
     }
-    case 'tiny': {
+    case SIZE.TINY: {
       return '11px'
     }
-    case 'small': {
+    case SIZE.SMALL: {
       return '12px'
     }
     default: {
@@ -17,10 +19,10 @@ export const getIconSize = (size) => {
 
 export const getTextSize = (size) => {
   switch (size) {
-    case 'large': {
+    case SIZE.LARGE: {
       return '15px'
     }
-    case 'tiny': {
+    case SIZE.TINY: {
       return '11px'
     }
     default: {
@@ -31,10 +33,10 @@ export const getTextSize = (size) => {
 
 export const getMargin = (size) => {
   switch (size) {
-    case 'large': {
+    case SIZE.LARGE: {
       return '8px'
     }
-    case 'tiny': {
+    case SIZE.TINY: {
       return '2px'
     }
     default: {
