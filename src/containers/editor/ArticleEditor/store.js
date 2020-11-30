@@ -15,7 +15,7 @@ const log = buildLog('S:ArticleEditor')
 
 const ArticleEditor = T.model('ArticleEditor', {
   step: T.optional(T.enumeration(values(STEP)), STEP.EDIT),
-  showSubTitle: T.optional(T.boolean, true),
+  showSubTitle: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get root() {

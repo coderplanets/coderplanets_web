@@ -8,6 +8,9 @@ export const ContentWrapper = styled.div`
   width: 100%;
   margin: 20px 0;
 `
+export const CheckItem = styled.div`
+  margin-bottom: 10px;
+`
 export const Footer = styled.div`
   ${css.flex('align-center', 'justify-between')};
   width: 100%;
