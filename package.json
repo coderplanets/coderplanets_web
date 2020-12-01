@@ -64,7 +64,7 @@
     "apollo-link-http": "1.5.16",
     "apollo-link-retry": "2.2.15",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "babel-plugin-styled-components": "^1.11.1",
+    "babel-plugin-styled-components": "^1.12.0",
     "cacheable-response": "^2.0.9",
     "chalk": "^2.4.1",
     "compatible-debug": "^1.0.0",
