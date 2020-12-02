@@ -14,6 +14,7 @@ export const InnerWrapper = styled.div`
   margin-top: 12px;
   width: 100%;
   border-radius: 8px;
+  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
