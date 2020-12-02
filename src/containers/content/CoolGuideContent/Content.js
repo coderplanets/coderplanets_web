@@ -14,6 +14,7 @@ import {
   ProductGallery,
   FamePeopleGallery,
   ImageGallery,
+  DeveloperGallery,
 } from '@/components/GalleryHub'
 
 // tmp
@@ -30,6 +31,7 @@ const Content = ({ displayType }) => {
     case GUIDE.PREVIEW: {
       DisplayContent = (
         <NormalListWrapper>
+          <h3>hello</h3>
           <DirectoryGallery items={menuData} />
           <br />
           <Footer />
@@ -49,6 +51,19 @@ const Content = ({ displayType }) => {
           <FamePeopleGallery />
           <Pagi margin={{ top: '40px', bottom: '60px' }} />
           <Footer />
+          <br />
+        </NormalListWrapper>
+      )
+      break
+    }
+
+    case GUIDE.DEVELOPER: {
+      DisplayContent = (
+        <NormalListWrapper>
+          <DeveloperGallery />
+          <br />
+          <Footer />
+          <br />
           <br />
         </NormalListWrapper>
       )

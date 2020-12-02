@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
 `
 export const Block = styled.div`
   ${css.flexColumn('justify-between')};
-  width: 33%;
-  height: 280px;
+  width: 25%;
+  height: 308px;
   border: 1px solid;
   border-left: none;
   border-right: ${({ borderRight }) => (borderRight ? '1px solid' : 'none')};
@@ -40,7 +40,6 @@ export const LinkHead = styled.div`
 `
 export const NationsWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-left: 5px;
   opacity: 0.8;
   ${Block}:hover & {
     opacity: 1;
@@ -54,37 +53,26 @@ export const NationFlag = styled(Img)`
   margin-right: ${({ marginRight }) => (marginRight ? '5px' : '0')};
 `
 export const IntroHead = styled.div`
-  ${css.flex('align-center')};
-  &:hover {
-    cursor: pointer;
-  }
+  ${css.flexColumn('align-both')};
+  cursor: pointer;
 `
 export const Icon = styled(Img)`
-  ${css.circle(60)};
+  ${css.circle(58)};
 `
 export const BasicInfo = styled.div`
-  ${css.flexColumn()};
-  margin-left: 14px;
+  ${css.flexColumn('align-both')};
+  margin-top: 15px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   cursor: pointer;
-  ${css.cutFrom('200px')};
-`
-export const AKA = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 12px;
-  opacity: 0.8;
-  margin-bottom: 4px;
-`
-export const Birthday = styled.div`
-  font-size: 13px;
-  color: ${theme('thread.articleDigest')};
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
+  text-align: center;
   font-size: 14px;
+  margin-top: 10px;
   height: 65px;
   opacity: 0.9;
   cursor: pointer;
@@ -95,16 +83,38 @@ export const Desc = styled.div`
   }
   transition: all 0.25s;
 `
+export const SocialWrapper = styled.div`
+  margin-top: 8px;
+  opacity: 0;
+  border-top: 1px solid #004352;
+
+  ${Block}:hover & {
+    color: ${theme('thread.articleTitle')};
+    opacity: 1;
+  }
+  transition: all 0.25s;
+`
+export const WorksWrapper = styled.div`
+  ${css.flex('align-center')}
+`
+export const WorkIcon = styled(Img)`
+  ${css.circle(16)};
+  margin-right: 5px;
+  filter: saturate(0.8);
+
+  ${Block}:hover & {
+    filter: saturate(1);
+    cursor: pointer;
+  }
+`
 export const Footer = styled.div`
   ${css.flex('align-center', 'justify-between')};
   &:hover {
     cursor: pointer;
   }
 `
-export const VoteInfo = styled.div`
+export const ViewInfo = styled.div`
   ${css.flex('align-center')};
-`
-export const ViewInfo = styled(VoteInfo)`
   opacity: 0.8;
 
   ${Block}:hover & {
@@ -115,10 +125,6 @@ const FooterIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
 `
-export const UpVoteIcon = styled(FooterIcon)`
-  ${css.size(12)};
-  margin-top: -1px;
-`
 export const ViewIcon = styled(FooterIcon)`
   margin-top: -2px;
 `
@@ -126,7 +132,6 @@ export const Number = styled.div`
   font-size: 12px;
   margin-left: 5px;
 `
-
 export const MoreIcon = styled(Img)`
   ${css.size(16)};
   fill: ${theme('thread.articleDigest')};
