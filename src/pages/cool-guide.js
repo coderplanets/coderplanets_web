@@ -64,7 +64,7 @@ const CoolGuidePage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.WORKS}`,
+    url: `${SITE_URL}/${ROUTE.COOL_GUIDE}`,
     title: '酷导游 | coderplanets',
     description: 'IT导航界的特斯拉',
   }
