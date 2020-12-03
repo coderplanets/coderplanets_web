@@ -18,6 +18,7 @@ import {
   ImageWrapper,
   SubImageWrapper,
   Intro,
+  MainImageWrapper,
   MainImage,
   SubImage,
   IntroHead,
@@ -39,7 +40,9 @@ const MainColumnGallery = ({ items }) => {
           borderRight={(index + 1) % 3 !== 0}
         >
           <ImageWrapper>
-            <MainImage src={item.imgSrc} />
+            <MainImageWrapper>
+              <MainImage src={item.imgSrc} />
+            </MainImageWrapper>
             <SubImageWrapper>
               <SubImage src={item.imgSrc2} marginBottom />
               <SubImage src={item.imgSrc3} marginBottom />

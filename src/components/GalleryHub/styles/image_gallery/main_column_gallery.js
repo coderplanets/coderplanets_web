@@ -17,26 +17,33 @@ export const Wrapper = styled(WrapperBase)``
 
 export const Block = styled(BlockBase)`
   width: 100%;
+  height: auto;
+  padding-right: 0;
 `
 export const ImageWrapper = styled.div`
-  ${css.flex()};
-  height: auto;
+  ${css.flexGrow('justify-between')};
+  width: 100%;
+`
+export const MainImageWrapper = styled.div`
+  flex-grow: 1;
+  width: calc(100% - 420px);
 `
 export const MainImage = styled(ImageBase)`
-  width: calc(100% - 450px);
-  height: 420px;
+  height: 424px;
+  width: 100%;
   border-radius: 2px;
 `
 export const SubImageWrapper = styled.div`
-  ${css.flex('justify-between')};
+  ${css.flexGrow()};
   flex-wrap: wrap;
+  width: 412px;
 `
 export const SubImage = styled(ImageBase)`
-  width: 220px;
+  width: 200px;
   height: 208px;
   margin-left: 5px;
   border-radius: 2px;
-  margin-bottom: ${({ marginBottom }) => (marginBottom ? '5px' : 'none')};
+  margin-bottom: ${({ marginBottom }) => (marginBottom ? '4px' : 'none')};
 `
 export const Intro = styled(IntroBase)`
   padding-top: 16px;
