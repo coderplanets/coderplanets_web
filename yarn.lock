@@ -2668,7 +2668,7 @@ apollo-link-error@^1.1.12:
     apollo-link-http-common "^0.2.16"
     tslib "^1.9.3"
 
-apollo-link-http-common@^0.2.15, apollo-link-http-common@^0.2.16:
+apollo-link-http-common@^0.2.16:
   version "0.2.16"
   resolved "https://registry.npm.taobao.org/apollo-link-http-common/download/apollo-link-http-common-0.2.16.tgz?cache=0&sync_timestamp=1586480068449&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fapollo-link-http-common%2Fdownload%2Fapollo-link-http-common-0.2.16.tgz#756749dafc732792c8ca0923f9a40564b7c59ecc"
   dependencies:
@@ -2676,12 +2676,12 @@ apollo-link-http-common@^0.2.15, apollo-link-http-common@^0.2.16:
     ts-invariant "^0.4.0"
     tslib "^1.9.3"
 
-apollo-link-http@1.5.16:
-  version "1.5.16"
-  resolved "https://registry.npm.taobao.org/apollo-link-http/download/apollo-link-http-1.5.16.tgz#44fe760bcc2803b8a7f57fc9269173afb00f3814"
+apollo-link-http@1.5.17:
+  version "1.5.17"
+  resolved "https://registry.yarnpkg.com/apollo-link-http/-/apollo-link-http-1.5.17.tgz#499e9f1711bf694497f02c51af12d82de5d8d8ba"
   dependencies:
-    apollo-link "^1.2.13"
-    apollo-link-http-common "^0.2.15"
+    apollo-link "^1.2.14"
+    apollo-link-http-common "^0.2.16"
     tslib "^1.9.3"
 
 apollo-link-retry@2.2.15:
