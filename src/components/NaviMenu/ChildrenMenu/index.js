@@ -18,10 +18,10 @@ import { Wrapper } from '../styles/children_menu'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const ChildrenMenu = ({ parentMenuItem, joinMode, ...restProps }) => {
+const ChildrenMenu = ({ parentMenuItem, ...restProps }) => {
   return (
     <Wrapper>
-      <Dashboard joinMode={joinMode} parentMenuItem={parentMenuItem} />
+      <Dashboard parentMenuItem={parentMenuItem} />
       <Catalog {...restProps} />
     </Wrapper>
   )
@@ -34,7 +34,6 @@ ChildrenMenu.propTypes = {
   onSelect: T.func.isRequired,
   menuItems: T.arrayOf(T.any).isRequired,
   parentMenuItem: T.any.isRequired, // TODO
-  joinMode: T.bool.isRequired,
 }
 
 ChildrenMenu.defaultProps = {}

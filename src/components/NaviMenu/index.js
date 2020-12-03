@@ -34,7 +34,6 @@ const NaviMenu = ({
   title,
   items,
   onSelect,
-  joinMode,
   withDivider,
   initActiveMenuId,
   showMoreItem,
@@ -121,7 +120,6 @@ const NaviMenu = ({
           onSelect={handleChildSelect}
           parentMenuItem={items[parentMenuIndex]}
           menuItems={childMenuItems}
-          joinMode={joinMode}
         />
       )}
     </Wrapper>
@@ -131,7 +129,6 @@ const NaviMenu = ({
 NaviMenu.propTypes = {
   title: T.string,
   onSelect: T.func,
-  joinMode: T.bool,
   withDivider: T.bool,
   initActiveMenuId: T.string,
   items: T.arrayOf(
@@ -168,7 +165,6 @@ NaviMenu.propTypes = {
 NaviMenu.defaultProps = {
   items: menuItems,
   onSelect: log,
-  joinMode: true,
   withDivider: true,
   initActiveMenuId: '',
   showMoreItem: false,

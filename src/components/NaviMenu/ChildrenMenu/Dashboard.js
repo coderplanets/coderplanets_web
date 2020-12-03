@@ -15,17 +15,16 @@ import { Wrapper, Title } from '../styles/children_menu/dashboard'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const Dashboard = ({ joinMode, parentMenuItem }) => {
+const Dashboard = ({ parentMenuItem }) => {
   return (
-    <Wrapper joinMode={joinMode}>
-      <Title joinMode={joinMode}>{parentMenuItem.title}</Title>
+    <Wrapper>
+      <Title>{parentMenuItem.title}</Title>
     </Wrapper>
   )
 }
 
 Dashboard.propTypes = {
   parentMenuItem: T.any.isRequired, // TODO
-  joinMode: T.bool.isRequired,
 }
 
 Dashboard.defaultProps = {}
