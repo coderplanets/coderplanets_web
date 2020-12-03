@@ -9229,9 +9229,10 @@ next@10.0.0:
   optionalDependencies:
     sharp "0.26.2"
 
-nextjs-progressbar@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.npm.taobao.org/nextjs-progressbar/download/nextjs-progressbar-0.0.5.tgz#0116731b77838d05e9be520c3a894975fe4bf01c"
+nextjs-progressbar@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/nextjs-progressbar/-/nextjs-progressbar-0.0.6.tgz#d1841df42f2342807dc6f7ad1034ddb8ec8541d4"
+  integrity sha512-9sxNpUSHOnmRV8/3yEZ9NV5c/ip2CpQ7jim3EOOZp49qIHrgNxmy/kzoulNjt50AlA7pAu/8rwgC2WpzmSMrdg==
   dependencies:
     nprogress "^0.2.0"
 
