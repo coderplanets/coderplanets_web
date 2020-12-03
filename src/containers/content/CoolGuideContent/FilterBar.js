@@ -10,7 +10,6 @@ import {
   Wrapper,
   Divider,
   TopFilter,
-  CatTitle,
   Option,
   OptionItem,
   FavoriteIcon,
@@ -53,14 +52,14 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
       </TopFilter>
       <Divider />
       <Sticky offsetTop={30}>
-        <>
-          <CatTitle>分类</CatTitle>
+        <React.Fragment>
           <NaviMenu
+            title="分类"
             onSelect={(id, type) => menuOnSelect(id, type)}
             initActiveMenuId={initActiveMenuId}
             withDivider={false}
           />
-        </>
+        </React.Fragment>
       </Sticky>
     </Wrapper>
   )

@@ -6,7 +6,7 @@ import { css, theme } from '@/utils'
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  margin-top: 12px;
+  width: 160px;
 `
 export const Divider = styled.div`
   height: 1px;
@@ -18,13 +18,6 @@ export const Divider = styled.div`
 export const TopFilter = styled.div`
   color: ${theme('thread.articleDigest')};
   width: calc(100% - 25px);
-`
-export const CatTitle = styled.div`
-  color: ${theme('thread.articleTitle')};
-  font-size: 14px;
-  font-weight: bold;
-  padding: 6px;
-  margin-bottom: 10px;
 `
 export const Option = styled.div`
   ${css.flex('align-center')};

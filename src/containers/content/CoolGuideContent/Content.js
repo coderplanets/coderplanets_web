@@ -31,7 +31,6 @@ const Content = ({ displayType }) => {
     case GUIDE.PREVIEW: {
       DisplayContent = (
         <NormalListWrapper>
-          <h3>hello</h3>
           <DirectoryGallery items={menuData} />
           <br />
           <Footer />

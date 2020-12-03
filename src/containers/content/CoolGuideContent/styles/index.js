@@ -11,9 +11,8 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const InnerWrapper = styled.div`
   ${css.flex('justify-center')};
-  margin-top: 12px;
+  margin-top: 30px;
   width: 100%;
-  border-radius: 8px;
   max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
 `
 export const ContentWrapper = styled.div`
