@@ -111,7 +111,7 @@
     "react-highlight-words": "^0.16.0",
     "react-lazy-load-image-component": "1.5.0",
     "react-masonry-component": "^6.0.1",
-    "react-resize-detector": "4.2.3",
+    "react-resize-detector": "5.2.0",
     "react-select": "^3.1.0",
     "react-sortable-hoc": "1.7.1",
     "react-svg": "11.1.2",
