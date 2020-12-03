@@ -8993,9 +8993,9 @@ mobx-state-tree@4.0.1-rc.1:
   version "4.0.1-rc.1"
   resolved "https://registry.npm.taobao.org/mobx-state-tree/download/mobx-state-tree-4.0.1-rc.1.tgz#c369ae6cac4809fcb74bb5086add5c519bb853b3"
 
-mobx@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.npm.taobao.org/mobx/download/mobx-6.0.1.tgz#ec23520848527bf7834d7b4c0b54b2a8eb6e7c14"
+mobx@6.0.4:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.0.4.tgz#8fc3e3629a3346f8afddf5bd954411974744dad1"
 
 modify-values@^1.0.0:
   version "1.0.1"
