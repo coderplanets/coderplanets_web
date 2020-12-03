@@ -4,15 +4,13 @@
  *
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 
 import Dashboard from './Dashboard'
 import Catalog from './Catalog'
-import ChildrenFilter from '../ChildrenFilter'
-import MoreOptions from '../MoreOptions'
 // import ChildrenItems from './ChildrenItems'
 
 import { Wrapper } from '../styles/children_menu'
@@ -20,32 +18,11 @@ import { Wrapper } from '../styles/children_menu'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const Content = ({ view, ...restProps }) => {
-  switch (view) {
-    case 'filter': {
-      return <ChildrenFilter />
-    }
-    case 'more': {
-      return <MoreOptions />
-    }
-    default: {
-      return <Catalog {...restProps} />
-    }
-  }
-}
-
 const ChildrenMenu = ({ parentMenuItem, joinMode, ...restProps }) => {
-  const [dashView, setDashView] = useState('catalog')
-
   return (
     <Wrapper>
-      <Dashboard
-        joinMode={joinMode}
-        view={dashView}
-        setView={setDashView}
-        parentMenuItem={parentMenuItem}
-      />
-      <Content view={dashView} {...restProps} />
+      <Dashboard joinMode={joinMode} parentMenuItem={parentMenuItem} />
+      <Catalog {...restProps} />
     </Wrapper>
   )
 }
