@@ -12,9 +12,8 @@ import Pagi from '@/components/Pagi'
 import {
   DirectoryGallery,
   ProductGallery,
-  FamePeopleGallery,
+  PeopleGallery,
   ImageGallery,
-  DeveloperGallery,
 } from '@/components/GalleryHub'
 
 // tmp
@@ -47,7 +46,7 @@ const Content = ({ displayType }) => {
     case GUIDE.FAME_PEOPLE: {
       DisplayContent = (
         <NormalListWrapper>
-          <FamePeopleGallery />
+          <PeopleGallery />
           <Pagi margin={{ top: '40px', bottom: '60px' }} />
           <Footer />
           <br />
@@ -59,7 +58,7 @@ const Content = ({ displayType }) => {
     case GUIDE.DEVELOPER: {
       DisplayContent = (
         <NormalListWrapper>
-          <DeveloperGallery />
+          <PeopleGallery type="developer" />
           <br />
           <Footer />
           <br />

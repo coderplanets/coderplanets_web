@@ -7,31 +7,24 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON, ASSETS_ENDPOINT } from '@/config'
+import { ICON } from '@/config'
 import { buildLog, cutFrom } from '@/utils'
+
+import IconText from '@/components/IconText'
+import CardHeader from './CardHeader'
 
 import {
   Wrapper,
   Block,
-  Header,
-  LinkHead,
-  NationsWrapper,
-  NationFlag,
-  IntroHead,
-  BasicInfo,
-  Icon,
+  Body,
+  Intro,
+  Avatar,
   Title,
   Birthday,
   AKA,
-  Desc,
+  Digest,
   Footer,
-  VoteInfo,
-  ViewInfo,
-  UpVoteIcon,
-  ViewIcon,
-  Number,
-  MoreIcon,
-} from './styles/fame_people_gallery'
+} from '../styles/people_gallery/fame_people_gallery'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ProductGallery:index')
@@ -82,45 +75,21 @@ const FamePeopleList = ({ items }) => {
           borderTop={index <= 2}
           borderRight={(index + 1) % 3 !== 0}
         >
-          <Header>
-            <LinkHead>
-              <NationsWrapper>
-                <NationFlag
-                  src={`${ASSETS_ENDPOINT}/navi/nation/${item.birthPlace}.png`}
-                  marginRight={item.birthPlace !== item.nationality}
-                />
-                {item.birthPlace !== item.nationality && (
-                  <NationFlag
-                    src={`${ASSETS_ENDPOINT}/navi/nation/${item.nationality}.png`}
-                  />
-                )}
-              </NationsWrapper>
-              <MoreIcon src={`${ICON}/shape/more.svg`} />
-            </LinkHead>
-            <IntroHead>
-              {/* this div is to avoid image collapse in y-axis for no reason .. */}
-              {/* 浏览器上图片有时会伸展不开，像被挤压了一样，加一个 div 包一层可以防止这个情况 .. */}
-              <div>
-                <Icon src={item.icon} />
-              </div>
-              <BasicInfo>
-                <Title>{item.title}</Title>
-                <AKA>({item.addr})</AKA>
-                <Birthday>{item.birthday}</Birthday>
-              </BasicInfo>
-            </IntroHead>
-          </Header>
-          <Desc>{cutFrom(item.desc, 50)}</Desc>
+          <CardHeader item={item} />
+          <Body>
+            <Avatar src={item.icon} />
+            <Intro>
+              <Title>{item.title}</Title>
+              <AKA>({item.addr})</AKA>
+              <Birthday>{item.birthday}</Birthday>
+            </Intro>
+          </Body>
+
+          <Digest>{cutFrom(item.desc, 50)}</Digest>
 
           <Footer>
-            <VoteInfo>
-              <UpVoteIcon src={`${ICON}/article/heart-solid.svg`} />
-              <Number>22</Number>
-            </VoteInfo>
-            <ViewInfo>
-              <ViewIcon src={`${ICON}/article/viewed.svg`} />
-              <Number>4743</Number>
-            </ViewInfo>
+            <IconText iconSrc={`${ICON}/article/heart-solid.svg`}>22</IconText>
+            <IconText iconSrc={`${ICON}/article/viewed.svg`}>3343</IconText>
           </Footer>
         </Block>
       ))}
