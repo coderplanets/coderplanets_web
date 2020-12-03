@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  margin-top: 10px;
   min-height: 90vh;
   width: 100%;
 `

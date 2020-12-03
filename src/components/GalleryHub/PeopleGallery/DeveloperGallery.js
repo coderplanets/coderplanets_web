@@ -10,27 +10,22 @@ import T from 'prop-types'
 import { ICON, ASSETS_ENDPOINT } from '@/config'
 import { buildLog, cutFrom } from '@/utils'
 
+import IconText from '@/components/IconText'
+import CardHeader from './CardHeader'
+
 import {
   Wrapper,
   Block,
-  Header,
-  LinkHead,
-  NationsWrapper,
-  NationFlag,
-  IntroHead,
-  BasicInfo,
+  Body,
+  Intro,
   SocialWrapper,
-  Icon,
+  Avatar,
   Title,
-  Desc,
+  Digest,
   WorksWrapper,
   WorkIcon,
   Footer,
-  ViewInfo,
-  ViewIcon,
-  Number,
-  MoreIcon,
-} from './styles/developer_gallery'
+} from '../styles/people_gallery/developer_gallery'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ProductGallery:index')
@@ -84,44 +79,22 @@ const DeveloperGallery = ({ items }) => {
           borderTop={index <= 3}
           borderRight={(index + 1) % 4 !== 0}
         >
-          <Header>
-            <LinkHead>
-              <NationsWrapper>
-                <NationFlag
-                  src={`${ASSETS_ENDPOINT}/navi/nation/${item.birthPlace}.png`}
-                  marginRight={item.birthPlace !== item.nationality}
-                />
-                {item.birthPlace !== item.nationality && (
-                  <NationFlag
-                    src={`${ASSETS_ENDPOINT}/navi/nation/${item.nationality}.png`}
-                  />
-                )}
-              </NationsWrapper>
-              <MoreIcon src={`${ICON}/shape/more.svg`} />
-            </LinkHead>
-            <IntroHead>
-              {/* this div is to avoid image collapse in y-axis for no reason .. */}
-              {/* 浏览器上图片有时会伸展不开，像被挤压了一样，加一个 div 包一层可以防止这个情况 .. */}
-              <div>
-                <Icon src={item.icon} />
-              </div>
-              <BasicInfo>
-                <Title>{cutFrom(item.title, 18)}</Title>
-                <Desc>{cutFrom(item.desc, 35)}</Desc>
-              </BasicInfo>
-              <SocialWrapper>social list</SocialWrapper>
-            </IntroHead>
-          </Header>
+          <CardHeader item={item} />
+          <Body>
+            <Avatar src={item.icon} />
+            <Intro>
+              <Title>{cutFrom(item.title, 18)}</Title>
+              <Digest>{cutFrom(item.desc, 35)}</Digest>
+            </Intro>
+            <SocialWrapper>social list</SocialWrapper>
+          </Body>
 
           <Footer>
             <WorksWrapper>
               <WorkIcon src={`${ASSETS_ENDPOINT}/navi/edu/harvard.png`} />
               <WorkIcon src={`${ASSETS_ENDPOINT}/navi/company/microsoft.png`} />
             </WorksWrapper>
-            <ViewInfo>
-              <ViewIcon src={`${ICON}/article/viewed.svg`} />
-              <Number>4743</Number>
-            </ViewInfo>
+            <IconText iconSrc={`${ICON}/article/viewed.svg`}>3343</IconText>
           </Footer>
         </Block>
       ))}
