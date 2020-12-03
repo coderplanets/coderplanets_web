@@ -6,7 +6,7 @@ import { css, theme } from '@/utils'
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  width: 160px;
+  width: 185px;
 `
 export const Divider = styled.div`
   height: 1px;

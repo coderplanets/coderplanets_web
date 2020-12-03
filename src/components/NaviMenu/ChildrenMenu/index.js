@@ -4,15 +4,13 @@
  *
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 
 import Dashboard from './Dashboard'
 import Catalog from './Catalog'
-import ChildrenFilter from '../ChildrenFilter'
-import MoreOptions from '../MoreOptions'
 // import ChildrenItems from './ChildrenItems'
 
 import { Wrapper } from '../styles/children_menu'
@@ -20,32 +18,11 @@ import { Wrapper } from '../styles/children_menu'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const Content = ({ view, ...restProps }) => {
-  switch (view) {
-    case 'filter': {
-      return <ChildrenFilter />
-    }
-    case 'more': {
-      return <MoreOptions />
-    }
-    default: {
-      return <Catalog {...restProps} />
-    }
-  }
-}
-
-const ChildrenMenu = ({ parentMenuItem, joinMode, ...restProps }) => {
-  const [dashView, setDashView] = useState('catalog')
-
+const ChildrenMenu = ({ parentMenuItem, ...restProps }) => {
   return (
     <Wrapper>
-      <Dashboard
-        joinMode={joinMode}
-        view={dashView}
-        setView={setDashView}
-        parentMenuItem={parentMenuItem}
-      />
-      <Content view={dashView} {...restProps} />
+      <Dashboard parentMenuItem={parentMenuItem} />
+      <Catalog {...restProps} />
     </Wrapper>
   )
 }
@@ -57,7 +34,6 @@ ChildrenMenu.propTypes = {
   onSelect: T.func.isRequired,
   menuItems: T.arrayOf(T.any).isRequired,
   parentMenuItem: T.any.isRequired, // TODO
-  joinMode: T.bool.isRequired,
 }
 
 ChildrenMenu.defaultProps = {}
