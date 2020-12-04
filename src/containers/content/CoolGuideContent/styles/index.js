@@ -14,7 +14,7 @@ export const InnerWrapper = styled.div`
   margin-top: 30px;
   width: 100%;
 
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};

@@ -21,7 +21,7 @@ export const InnerWrapper = styled.div`
   padding: 0 4px;
   width: 100%;
   height: 33px;
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const RouterWrapper = styled.div`
   ${css.flexGrow('align-center')};

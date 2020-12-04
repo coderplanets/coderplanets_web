@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   ${css.flexColumn('justify-center')};
   width: 100%;
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const ContentWrapper = styled.div`
   color: ${theme('thread.articleDigest')};

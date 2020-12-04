@@ -13,7 +13,7 @@ export const InnerWrapper = styled.div`
   padding: 10px 0;
   margin-top: 12px;
   width: 100%;
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const BannerWrapper = styled.div`
   ${css.flexColumn('align-both')}
@@ -38,7 +38,7 @@ export const PayButtonWrapper = styled.div`
 export const ContentWrapper = styled.div`
   ${css.flex('justify-between')};
   width: 100%;
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const Dashboard = styled.div`
   position: relative;

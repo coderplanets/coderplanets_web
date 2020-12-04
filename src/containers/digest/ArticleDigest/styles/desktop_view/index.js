@@ -25,7 +25,7 @@ export const BannerContent = styled.div`
   width: 100%;
 `
 export const Main = styled.div`
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const AuthorWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};

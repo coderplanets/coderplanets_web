@@ -13,7 +13,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('align-both')}
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
   padding: 10px 0;
   margin-top: 12px;
   width: 100%;

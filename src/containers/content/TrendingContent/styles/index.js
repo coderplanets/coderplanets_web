@@ -12,7 +12,7 @@ export const InnerWrapper = styled.div`
   padding: 10px 0;
   margin-top: 12px;
   width: 100%;
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
   margin-left: -80px;
 `
 export const SwitchBtn = styled.div`

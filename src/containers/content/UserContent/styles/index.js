@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const BannerWrapper = styled.div`
   position: relative;

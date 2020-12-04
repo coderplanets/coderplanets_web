@@ -96,9 +96,8 @@ const getLaptopMPadding = (metric) => {
   return WIDTH[metric]?.LAPTOP_M_PADDING || 0
 }
 
-// adapt the inner with
-export const fitInnerWidth = (metric = METRIC.COMMUNITY) => {
-  // TODO: CONTENT_OFFSET_LAPTOPL
+// adapt the inner content with for each page
+export const fitContentWidth = (metric = METRIC.COMMUNITY) => {
   const laptopMmediaQuery = media.laptopM`
     padding-left: ${getLaptopMPadding(metric)};
     padding-right: ${getLaptopMPadding(metric)};
