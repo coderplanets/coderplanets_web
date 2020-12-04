@@ -13,6 +13,5 @@ export const InnerWrapper = styled.div`
     !isMobile ? 'space-between' : 'center'};
   width: 100%;
   height: 68px;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
   margin-left: ${({ metric }) => getMarginLeft(metric)};
 `

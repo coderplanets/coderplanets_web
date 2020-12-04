@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   margin-top: 15px;
 `
 export const InnerWrapper = styled.div`
-  max-width: ${({ metric }) => css.getPageMaxWidth(metric)};
+  ${({ metric }) => css.fitPageWidth(metric)};
   width: 100%;
   margin-bottom: ${({ metric }) => (metric === 'article' ? '30px' : 0)};
 `

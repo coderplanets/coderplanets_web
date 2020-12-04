@@ -18,7 +18,6 @@ export const InnerWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   align-items: center;
   width: 100%;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
   padding-left: 4px;
 `
 export const Links = styled.div`

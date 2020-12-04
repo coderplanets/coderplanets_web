@@ -13,8 +13,8 @@ export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 30px;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
   margin-left: ${({ metric }) => getMarginLeft(metric)};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 `
 export const InnerWrapper = styled.div`
   width: 100%;

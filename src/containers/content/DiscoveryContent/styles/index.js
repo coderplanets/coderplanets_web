@@ -17,7 +17,7 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
   height: 100%;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 `
 export const ContentsWrapper = styled.div`
   ${css.flexColumn('justify-center')};

@@ -30,7 +30,7 @@ export const InnerWrapper = styled.div`
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 
   ${css.media.tablet`
     width: 100%;

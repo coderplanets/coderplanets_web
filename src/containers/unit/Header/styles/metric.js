@@ -1,11 +1,5 @@
-import { C11N, METRIC } from '@/constant'
-import { css, WIDTH } from '@/utils'
-
-export const getPadding = (layout) => {
-  return layout === C11N.DIGEST_ROW
-    ? css.media.laptopLPaddingColumnLayout
-    : css.media.laptopLPadding
-}
+import { METRIC } from '@/constant'
+import { WIDTH } from '@/utils'
 
 export const getMaxWidth = (metric) => {
   return WIDTH[metric]?.CONTENT || WIDTH.COMMUNITY.CONTENT

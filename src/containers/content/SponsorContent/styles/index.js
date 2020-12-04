@@ -21,7 +21,7 @@ export const InnerWrapper = styled.div`
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumn('align-center')};
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 `
 export const Footer = styled.div`
   font-size: 13px;

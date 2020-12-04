@@ -10,15 +10,15 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 `
 export const BannerWrapper = styled.div`
   position: relative;
   background: ${theme('banner.bg')};
   width: 100%;
-  max-width: ${({ metric }) => css.getPageMaxWidth(metric)};
   height: 120px;
   margin-bottom: 20px;
+  ${({ metric }) => css.fitPageWidth(metric)};
 `
 export const ContentWrapper = styled.div`
   flex-grow: 1;

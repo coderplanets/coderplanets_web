@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn()};
-  max-width: ${({ metric }) => css.getPageMaxWidth(metric)};
+  ${({ metric }) => css.fitPageWidth(metric)};
   width: 100%;
   /* min-width: ${({ minWidth }) => minWidth}; */
 /*
