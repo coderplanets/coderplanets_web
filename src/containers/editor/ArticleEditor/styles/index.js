@@ -13,7 +13,7 @@ export const InnerWrapper = styled.div`
   ${css.flexColumn()};
   width: 100%;
   min-height: 50vh;
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
   color: ${theme('thread.articleDigest')};
   /* border: 1px solid #003B49; */
 `

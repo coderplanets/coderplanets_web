@@ -22,7 +22,7 @@ export const InnerWrapper = styled.div`
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;
-  ${({ metric }) => css.fitInnerWidth(metric)};
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const SidebarWrapper = styled.div`
   margin-top: 4px;

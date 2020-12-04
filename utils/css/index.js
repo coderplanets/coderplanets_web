@@ -8,7 +8,7 @@ import { css as styledCss } from 'styled-components'
 import { theme } from '../themes'
 import { isString } from '../validator'
 
-import { media, mediaBreakPoints, fitInnerWidth, fitPageWidth } from './media'
+import { media, mediaBreakPoints, fitContentWidth, fitPageWidth } from './media'
 import { flex, flexGrow, flexColumn, flexColumnGrow } from './flex'
 
 const smokey = (opt = 0.6) => `
@@ -94,7 +94,7 @@ const css = {
   zIndex,
   mediaBreakPoints,
   media,
-  fitInnerWidth,
+  fitContentWidth,
   fitPageWidth,
   threadTitleHover,
 }
