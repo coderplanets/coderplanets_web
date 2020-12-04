@@ -86,7 +86,11 @@ const getContentMaxWidth = (metric) => {
   return WIDTH[metric]?.CONTENT || WIDTH.COMMUNITY.CONTENT
 }
 
-//
+// content offset for like article page
+const getContentOffset = (metric) => {
+  return WIDTH[metric]?.CONTENT_OFFSET || 0
+}
+
 // get page max width
 const getLaptopMPadding = (metric) => {
   return WIDTH[metric]?.LAPTOP_M_PADDING || 0
@@ -94,6 +98,7 @@ const getLaptopMPadding = (metric) => {
 
 // adapt the inner with
 export const fitInnerWidth = (metric = METRIC.COMMUNITY) => {
+  // TODO: CONTENT_OFFSET_LAPTOPL
   const laptopMmediaQuery = media.laptopM`
     padding-left: ${getLaptopMPadding(metric)};
     padding-right: ${getLaptopMPadding(metric)};
@@ -101,6 +106,7 @@ export const fitInnerWidth = (metric = METRIC.COMMUNITY) => {
 
   return `
     max-width: ${getContentMaxWidth(metric)};
+    margin-left: ${getContentOffset(metric)};
     ${laptopMmediaQuery};
   `
 }
