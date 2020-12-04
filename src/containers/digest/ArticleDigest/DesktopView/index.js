@@ -6,9 +6,10 @@
 
 import React from 'react'
 import T from 'prop-types'
-import { isNil } from 'ramda'
+import { isNil, values } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
+import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { connectStore, buildLog } from '@/utils'
 
@@ -35,7 +36,7 @@ import { useInit, inAnchor, outAnchor } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
 
-const ArticleDigestContainer = ({ articleDigest: store }) => {
+const ArticleDigestContainer = ({ articleDigest: store, metric }) => {
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection)
 
@@ -48,7 +49,7 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
       <FavoritesCats />
       <InnerWrapper>
         <BannerContent>
-          <Main>
+          <Main metric={metric}>
             <PublishDate insertedAt={viewingData.insertedAt} />
             <Title thread={activeThread} data={viewingData} />
             <BottomInfo>
@@ -68,8 +69,11 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
 
 ArticleDigestContainer.propTypes = {
   articleDigest: T.object.isRequired,
+  metric: T.oneOf(values(METRIC)),
 }
 
-ArticleDigestContainer.defaultProps = {}
+ArticleDigestContainer.defaultProps = {
+  metric: METRIC.ARTICLE,
+}
 
 export default connectStore(ArticleDigestContainer)

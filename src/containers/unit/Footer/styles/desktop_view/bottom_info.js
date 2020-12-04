@@ -18,8 +18,7 @@ export const InnerWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   align-items: center;
   width: 100%;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
-  padding-left: 4px;
+  padding-left: 2px;
 `
 export const Links = styled.div`
   ${css.flex('align-center')};

@@ -5,12 +5,12 @@ import { css, theme } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flexColumn('align-both')};
   width: 100%;
-  max-width: ${({ metric }) => css.getPageMaxWidth(metric)};
+  ${({ metric }) => css.fitPageWidth(metric)};
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('justify-center')};
   width: 100%;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 `
 export const ContentWrapper = styled.div`
   color: ${theme('thread.articleDigest')};

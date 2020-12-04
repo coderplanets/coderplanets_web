@@ -5,16 +5,13 @@ import { theme, css } from '@/utils'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { ArrowLink } from '@/components/Buttons'
 
-import { getMarginLeft } from '../../metrics'
-
 // import { getPadding } from '../../metrics'
 
 export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 30px;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
-  margin-left: ${({ metric }) => getMarginLeft(metric)};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 `
 export const InnerWrapper = styled.div`
   width: 100%;

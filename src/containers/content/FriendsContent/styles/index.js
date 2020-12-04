@@ -13,7 +13,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('align-both')}
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
+  ${({ metric }) => css.fitInnerWidth(metric)};
   padding: 10px 0;
   margin-top: 12px;
   width: 100%;

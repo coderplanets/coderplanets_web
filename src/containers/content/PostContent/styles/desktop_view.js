@@ -7,6 +7,7 @@ export const Wrapper = styled.article`
   position: relative;
   padding-top: 20px;
   min-height: 300px;
+  max-width: ${WIDTH.ARTICLE.PAGE};
   width: 100%;
 
   ${css.media.tablet`
@@ -16,25 +17,12 @@ export const Wrapper = styled.article`
 export const InnerWrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  max-width: ${WIDTH.ARTICLE.PAGE};
-  margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
   padding-left: 0;
   padding-right: 0;
-
-  ${css.media.desktopL`
-    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_DESKTOPL};
-  `}
-  ${css.media.laptopL`
-    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_LAPTOPL};
-  `}
 `
 export const MainWrapper = styled.div`
   flex-grow: 1;
-  max-width: ${({ metric }) => css.getContentMaxWidth(metric)};
-
-  ${css.media.tablet`
-    width: 100%;
-  `};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 `
 export const SidebarWrapper = styled.div`
   margin-top: 4px;

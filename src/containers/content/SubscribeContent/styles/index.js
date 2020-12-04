@@ -16,7 +16,6 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const InnerWrapper = styled.div`
   ${css.flex('align-start')}
   max-width: ${WIDTH.COMMUNITY.PAGE};
-  padding: ${() => css.media.laptopLPadding};
   width: 100%;
   color: ${theme('thread.articleDigest')};
 `
