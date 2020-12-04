@@ -10,6 +10,7 @@ export const Wrapper = styled.nav`
   min-height: 251px;
   margin-bottom: 15px;
   width: 100%;
+  max-width: ${WIDTH.ARTICLE.PAGE};
 
   ${css.media.laptopL`
     min-height: 230px;
@@ -21,19 +22,10 @@ export const InnerWrapper = styled.div`
 `
 export const BannerContent = styled.div`
   ${css.flex()};
-  max-width: ${WIDTH.ARTICLE.PAGE};
   width: 100%;
-  margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
-
-  ${css.media.desktopL`
-    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_DESKTOPL};
-  `}
-  ${css.media.laptopL`
-    margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_LAPTOPL};
-  `}
 `
 export const Main = styled.div`
-  width: ${WIDTH.ARTICLE.CONTENT};
+  ${({ metric }) => css.fitInnerWidth(metric)};
 `
 export const AuthorWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};

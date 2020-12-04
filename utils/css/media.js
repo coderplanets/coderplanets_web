@@ -104,16 +104,27 @@ export const fitInnerWidth = (metric = METRIC.COMMUNITY) => {
     padding-right: ${getLaptopMPadding(metric)};
   `.join('')
 
+  const desktopLmediaQuery = media.desktopL`
+    margin-left: ${WIDTH[metric].CONTENT_OFFSET_DESKTOPL};
+  `.join('')
+
+  const laptopLmediaQuery = media.laptopL`
+    margin-left: ${WIDTH[metric].CONTENT_OFFSET_LAPTOPL};
+  `.join('')
+
   return `
     max-width: ${getContentMaxWidth(metric)};
     margin-left: ${getContentOffset(metric)};
+
+    ${desktopLmediaQuery};
+    ${laptopLmediaQuery};
     ${laptopMmediaQuery};
   `
 }
 
 // get page max width
 export const fitPageWidth = (metric) => {
-  return WIDTH[metric]?.PAGE || WIDTH.COMMUNITY.PAGE
+  return `max-width: ${WIDTH[metric]?.PAGE || WIDTH.COMMUNITY.PAGE};`
 }
 
 export const media = Object.keys(mediaBreakPoints).reduce((acc, label) => {
