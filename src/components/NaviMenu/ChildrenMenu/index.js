@@ -18,16 +18,17 @@ import { Wrapper } from '../styles/children_menu'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const ChildrenMenu = ({ parentMenuItem, ...restProps }) => {
+const ChildrenMenu = ({ parentMenuItem, goBack, ...restProps }) => {
   return (
     <Wrapper>
-      <Dashboard parentMenuItem={parentMenuItem} />
+      <Dashboard parentMenuItem={parentMenuItem} goBack={goBack} />
       <Catalog {...restProps} />
     </Wrapper>
   )
 }
 
 ChildrenMenu.propTypes = {
+  goBack: T.func.isRequired,
   childMenuId: T.string.isRequired,
   expandChildId: T.string.isRequired,
   onExpand: T.func.isRequired,

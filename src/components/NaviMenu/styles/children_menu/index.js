@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   margin-top: 12px;
 `
 export const MenuWrapper = styled.div`
-  background: #05303e;
+  /* background: #05303e; */
   padding-top: 10px;
   padding-bottom: 10px;
 `

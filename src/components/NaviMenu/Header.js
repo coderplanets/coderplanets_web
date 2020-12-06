@@ -8,7 +8,8 @@ import {
   Title,
   OperatorsWrapper,
   Operator,
-  BackIcon,
+  HomeIcon,
+  LocateIcon,
   ResetIcon,
   HelpHint,
 } from './styles/header'
@@ -18,25 +19,35 @@ const Header = ({ title, showBack, showReset, goBack, reset }) => {
     <Wrapper>
       <Title active={showReset}>{title}</Title>
       <OperatorsWrapper>
-        <Tooltip
-          content={<HelpHint>返回上级菜单</HelpHint>}
-          placement="bottom"
-          delay={1000}
-        >
-          <Operator show={showBack} onClick={goBack}>
-            <BackIcon src={`${ICON}/shape/navi-back.svg`} />
-          </Operator>
-        </Tooltip>
+        <Operator onClick={goBack} show>
+          <Tooltip
+            content={<HelpHint>返回主目录</HelpHint>}
+            placement="bottom"
+            delay={1000}
+          >
+            <HomeIcon src={`${ICON}/shape/home.svg`} />
+          </Tooltip>
+        </Operator>
 
-        <Tooltip
-          content={<HelpHint>重置筛选条件</HelpHint>}
-          placement="bottom"
-          delay={1000}
-        >
-          <Operator show={showReset} onClick={reset}>
+        <Operator show={showBack} onClick={goBack}>
+          <Tooltip
+            content={<HelpHint>定位当前选中</HelpHint>}
+            placement="bottom"
+            delay={1000}
+          >
+            <LocateIcon src={`${ICON}/shape/locate-solid.svg`} />
+          </Tooltip>
+        </Operator>
+
+        <Operator show={showReset} onClick={reset}>
+          <Tooltip
+            content={<HelpHint>重置筛选条件</HelpHint>}
+            placement="bottom"
+            delay={1000}
+          >
             <ResetIcon src={`${ICON}/shape/reset.svg`} />
-          </Operator>
-        </Tooltip>
+          </Tooltip>
+        </Operator>
       </OperatorsWrapper>
     </Wrapper>
   )

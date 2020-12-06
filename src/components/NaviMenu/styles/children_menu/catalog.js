@@ -4,10 +4,12 @@ import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  background: #05303e;
-  padding-top: 10px;
-  border-bottom: 1px solid;
-  border-color: #00303d;
+  /* background: #05303e; */
+  background: #042833;
+  padding-top: 12px;
+  border: 1px solid;
+  border-color: #09303e;
+  margin-top: -8px;
 `
 const activeColor = '#009C9E'
 export const Item = styled.div`
@@ -17,8 +19,7 @@ export const Item = styled.div`
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
   font-size: 14px;
-  padding: 8px 10px;
-  padding-right: 6px;
+  padding: 8px;
 
   &:hover {
     color: ${({ active }) =>

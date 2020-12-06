@@ -114,6 +114,7 @@ const NaviMenu = ({
         />
       ) : (
         <ChildrenMenu
+          goBack={handleGoBack}
           childMenuId={childMenuId}
           expandChildId={expandChildId}
           onExpand={handleMenuExpand}
