@@ -14,8 +14,9 @@ import { buildLog } from '@/utils'
 import {
   Wrapper,
   Title,
-  Card,
-  CurCard,
+  ParentCatalogCard,
+  CurCatalogCard,
+  CurTitle,
   Operator,
   BackIcon,
 } from '../styles/children_menu/dashboard'
@@ -26,15 +27,15 @@ const log = buildLog('c:NaviMenu:index')
 const Dashboard = ({ parentMenuItem, goBack }) => {
   return (
     <Wrapper>
-      <Card>
+      <ParentCatalogCard>
         <Title>{parentMenuItem.title}</Title>
         <Operator show onClick={goBack}>
           <BackIcon src={`${ICON}/shape/navi-back.svg`} />
         </Operator>
-      </Card>
-      <CurCard>
-        <Title>建筑之美</Title>
-      </CurCard>
+      </ParentCatalogCard>
+      <CurCatalogCard>
+        <CurTitle>建筑之美</CurTitle>
+      </CurCatalogCard>
     </Wrapper>
   )
 }
