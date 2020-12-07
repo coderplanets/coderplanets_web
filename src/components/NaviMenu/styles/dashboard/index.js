@@ -5,7 +5,7 @@ import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-start', 'justify-center')};
-  width: 140px;
+  width: 100%;
 `
 const CatalogCard = styled.div`
   ${css.flex('align-center', 'justify-between')};
@@ -21,9 +21,19 @@ const CatalogCard = styled.div`
   box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 2%);
 `
 export const ParentCatalogCard = styled(CatalogCard)`
-  z-index: 1;
+  z-index: ${({ index }) => 100 - index};
+  height: ${({ isFirst }) => (isFirst ? '36px' : '46px')};
+  margin-top: ${({ isFirst }) => (isFirst ? '0' : '-10px')};
+  padding-top: ${({ isFirst }) => (isFirst ? '6px' : '16px')};
+  box-shadow: ${({ isLast }) =>
+    isLast
+      ? '0px 5px 10px 0px rgb(0 0 0 / 2%)'
+      : '0px 5px 10px 0px rgb(0 0 0 / 15%)'};
+  border-bottom: 1px solid;
+  border-bottom-color: ${({ isFirst }) =>
+    isFirst ? 'transparent' : '#042f3c'};
 `
-export const CurCatalogCard = styled(CatalogCard)`
+export const ReadOnlyCatalogCard = styled(CatalogCard)`
   background: #05303e;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -37,9 +47,15 @@ export const Title = styled.div`
   font-size: 13px;
   font-weight: bold;
 `
-export const CurTitle = styled.div`
+export const ReadOnlyTitle = styled.div`
   margin-left: 10px;
   font-size: 13px;
+`
+export const ReadOnlyIcon = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(12)};
+  margin-right: 6px;
+  opacity: 0.8;
 `
 export const Operator = styled.div`
   /* display: ${({ show }) => (show ? 'block' : 'none')}; */

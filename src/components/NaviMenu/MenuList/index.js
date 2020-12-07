@@ -11,12 +11,20 @@ import { isEmpty, findIndex, propEq } from 'ramda'
 import { buildLog } from '@/utils'
 import { SpaceGrow, Space } from '@/components/Common'
 
+import { ROOT_MENU } from '../constant'
 import PinNumber from './PinNumber'
 
-import { Item, MoreItem, FixedIcon, Icon, ActiveDot } from './styles'
+import {
+  Wrapper,
+  Item,
+  MoreItem,
+  FixedIcon,
+  Icon,
+  ActiveDot,
+} from '../styles/menu_list'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NaviMenu:index')
+const log = buildLog('c:NaviMenu:MenuList')
 
 const renderRightIcon = (item, activeParentMenuId, pinNumberHoverType) => {
   if (item.pinNumber) {
@@ -36,7 +44,8 @@ const renderRightIcon = (item, activeParentMenuId, pinNumberHoverType) => {
   )
 }
 
-const RootMenu = ({
+const MenuList = ({
+  menuMode,
   menuItems,
   onSelect,
   activeParentMenuId,
@@ -60,7 +69,7 @@ const RootMenu = ({
   }, [])
 
   return (
-    <>
+    <Wrapper simple={menuMode === ROOT_MENU}>
       {menuItems.map((item) => (
         <Item
           key={item.id}
@@ -83,11 +92,11 @@ const RootMenu = ({
           ~~
         </MoreItem>
       )}
-    </>
+    </Wrapper>
   )
 }
 
-RootMenu.propTypes = {
+MenuList.propTypes = {
   menuItems: T.arrayOf(T.object).isRequired,
   onSelect: T.func.isRequired,
   activeParentMenuId: T.string.isRequired,
@@ -99,9 +108,9 @@ RootMenu.propTypes = {
   onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
-RootMenu.defaultProps = {
+MenuList.defaultProps = {
   initActiveMenuId: '',
   onShowMore: null,
 }
 
-export default React.memo(RootMenu)
+export default React.memo(MenuList)

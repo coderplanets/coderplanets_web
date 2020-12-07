@@ -3,14 +3,19 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-import { WIDTH } from './metric'
-
 const activeColor = '#009C9E'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  width: ${WIDTH};
+  padding-bottom: 10px;
+
+  /* childMenu style */
+  background: ${({ simple }) => (simple ? 'transparent' : '#042833')};
+  padding-top: ${({ simple }) => (simple ? '0' : '12px')};
+  border: ${({ simple }) => (simple ? 'none' : '1px solid')};
+  border-color: ${({ simple }) => (simple ? 'none' : '#09303e')};
+  margin-top: ${({ simple }) => (simple ? '0' : '-8px')};
 `
 export const Item = styled.div`
   ${css.flex('justify-end')};
@@ -23,7 +28,7 @@ export const Item = styled.div`
   border-bottom-color: ${({ withDivider }) =>
     withDivider ? '#094354' : 'none'};
 
-  padding: ${({ withDivider }) => (withDivider ? '8px 6px' : '6px')};
+  padding: ${({ withDivider }) => (withDivider ? '8px 6px' : '6px 8px')};
 
   &:hover {
     color: ${({ active }) =>

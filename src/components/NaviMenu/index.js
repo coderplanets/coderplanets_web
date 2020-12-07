@@ -4,31 +4,43 @@
  *
  */
 
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import T from 'prop-types'
-import { findIndex } from 'ramda'
+import { find, propEq, last } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
 
-import Header from './Header'
-import RootMenu from './RootMenu'
-import ChildrenMenu from './ChildrenMenu'
+import { ROOT_MENU, CHILD_MENU } from './constant'
 
-import menuItems from './menuData'
-import { Wrapper /* ActiveDot */ } from './styles'
+import Header from './Header'
+import Dashboard from './Dashboard'
+import MenuList from './MenuList'
+
+import menuItemsData from './menuData'
+import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-// get parrentMenuIndex and child menu items
-const getMenuInfo = (items, parentMenuId) => {
-  const parentMenuIndex = findIndex((item) => item.id === parentMenuId, items)
+const getCurrentMenuItem = (path, items) => {
+  if (nilOrEmpty(path) || nilOrEmpty(items)) return
 
-  const childMenuItems =
-    parentMenuIndex >= 0 ? items[parentMenuIndex].childMenu : []
+  // const item = find(propEq('id', path[0].id), items)
+  const item = find(propEq('id', path[0].id), items)
+  if (item.id === last(path).id) return item
 
-  return [parentMenuIndex, childMenuItems]
+  return getCurrentMenuItem([path[1]], item?.childMenu)
 }
+
+// get parrentMenuIndex and child menu items
+// const getMenuInfo = (items, parentMenuId) => {
+//   const parentMenuIndex = findIndex((item) => item.id === parentMenuId, items)
+
+//   const childMenuItems =
+//     parentMenuIndex >= 0 ? items[parentMenuIndex].childMenu : []
+
+//   return [parentMenuIndex, childMenuItems]
+// }
 
 const NaviMenu = ({
   title,
@@ -41,88 +53,94 @@ const NaviMenu = ({
   pinNumberHoverType,
   testId,
 }) => {
-  const [menuMode, setMenuMode] = useState('root')
+  const [menuMode, setMenuMode] = useState(ROOT_MENU)
   // select initial active menu item if need
   const [initDone, setInitDone] = useState(false)
 
-  const [parentMenuId, setParentMenuId] = useState('')
   const [activeParentMenuId, setActiveParentMenuId] = useState('')
-  const [expandChildId, setExpandChildId] = useState('')
-
-  const [childMenuId, setChildMenuId] = useState('')
-  const [parentMenuIndex, childMenuItems] = getMenuInfo(items, parentMenuId)
 
   // handlers
-  const handleGoBack = useCallback(() => setMenuMode('root'), [])
   const handleReset = useCallback(() => {
-    setMenuMode('root')
-    setChildMenuId('')
+    setMenuMode(ROOT_MENU)
     setActiveParentMenuId('')
   }, [])
 
-  const handleRootSelect = useCallback(
+  // new version
+  // path in menu items json tree
+  // 如果直接给一个 id 能否构建出这个 path ?
+  const [childrenPath, setChildrenPath] = useState([])
+  const [menuItems, setMenuItems] = useState(items)
+
+  // 区别是主菜单还是子菜单，如果是 root 菜单则背景色是透明的
+  useEffect(() => {
+    nilOrEmpty(childrenPath) ? setMenuMode(ROOT_MENU) : setMenuMode(CHILD_MENU)
+  }, [childrenPath, menuItems])
+
+  const handleGoBack = useCallback(() => {
+    const newChildrenPath = [...childrenPath]
+    newChildrenPath.pop()
+    setChildrenPath(newChildrenPath)
+
+    const menuItem = getCurrentMenuItem(newChildrenPath, items)
+    setMenuItems(menuItem?.childMenu || items)
+  }, [childrenPath, items])
+
+  const handleMenuItemSelect = useCallback(
     (item) => {
-      setParentMenuId(item.id)
-      setMenuMode('child')
+      log('current path: ', childrenPath)
+      // 如果重复点击，则不理会
+      if (find(propEq('id', item.id), childrenPath)) return
 
       if (nilOrEmpty(item.childMenu)) {
         setActiveParentMenuId(item.id)
         onSelect(item.id, item.displayType)
-        setChildMenuId('')
-        setExpandChildId('')
+        return
       }
+
+      let newChildrenPath
+      if (nilOrEmpty(childrenPath)) {
+        // 点击根菜单的情况
+        newChildrenPath = [item]
+        setChildrenPath(newChildrenPath)
+      } else {
+        // 点击子孙菜单的情况
+        newChildrenPath = [...childrenPath, item]
+        setChildrenPath(newChildrenPath)
+      }
+
+      const menuItem = getCurrentMenuItem(newChildrenPath, items)
+      setMenuItems(menuItem?.childMenu || items)
     },
-    [onSelect],
+    [onSelect, childrenPath, items],
   )
 
-  const handleChildSelect = useCallback(
-    (item) => {
-      setChildMenuId(item.id)
-      onSelect(item.id, item.displayType)
-      setActiveParentMenuId(parentMenuId)
-
-      nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
-    },
-    [onSelect, parentMenuId],
-  )
-
-  const handleMenuExpand = useCallback((item) => setExpandChildId(item.id), [])
-
-  const showRootMenu = menuMode === 'root' || nilOrEmpty(childMenuItems)
+  // log('# MenuMode- -> ', menuMode)
+  // console.log('items --> ', items)
+  // console.log('cur items --> ', menuItems)
 
   return (
     <Wrapper testId={testId}>
       <Header
         title={title}
-        showBack={!showRootMenu}
+        showBack
         showReset={activeParentMenuId !== ''}
         goBack={handleGoBack}
         reset={handleReset}
       />
-      {showRootMenu ? (
-        <RootMenu
-          menuItems={items}
-          onSelect={handleRootSelect}
-          withDivider={withDivider}
-          activeParentMenuId={activeParentMenuId}
-          initActiveMenuId={initActiveMenuId}
-          initDone={initDone}
-          setInitDone={setInitDone}
-          showMoreItem={showMoreItem}
-          onShowMore={onShowMore}
-          pinNumberHoverType={pinNumberHoverType}
-        />
-      ) : (
-        <ChildrenMenu
-          goBack={handleGoBack}
-          childMenuId={childMenuId}
-          expandChildId={expandChildId}
-          onExpand={handleMenuExpand}
-          onSelect={handleChildSelect}
-          parentMenuItem={items[parentMenuIndex]}
-          menuItems={childMenuItems}
-        />
-      )}
+      <Dashboard childrenPath={childrenPath} goBack={handleGoBack} />
+      <MenuList
+        menuMode={menuMode}
+        menuItems={menuItems}
+        onSelect={handleMenuItemSelect}
+        withDivider={withDivider}
+        activeParentMenuId={activeParentMenuId}
+        initActiveMenuId={initActiveMenuId}
+        initDone={initDone}
+        setInitDone={setInitDone}
+        showMoreItem={showMoreItem}
+        onShowMore={onShowMore}
+        pinNumberHoverType={pinNumberHoverType}
+      />
     </Wrapper>
   )
 }
@@ -164,7 +182,7 @@ NaviMenu.propTypes = {
 }
 
 NaviMenu.defaultProps = {
-  items: menuItems,
+  items: menuItemsData,
   onSelect: log,
   withDivider: true,
   initActiveMenuId: '',
@@ -175,4 +193,4 @@ NaviMenu.defaultProps = {
   title: '',
 }
 
-export default React.memo(NaviMenu)
+export default NaviMenu // React.memo(NaviMenu)
