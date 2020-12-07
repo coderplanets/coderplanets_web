@@ -11,7 +11,7 @@ import { isEmpty, findIndex, propEq } from 'ramda'
 import { buildLog } from '@/utils'
 import { SpaceGrow, Space } from '@/components/Common'
 
-import { ROOT_MENU } from '../constant'
+import { ROOT_MENU, CHILD_MENU } from '../constant'
 import PinNumber from './PinNumber'
 
 import {
@@ -69,10 +69,11 @@ const MenuList = ({
   }, [])
 
   return (
-    <Wrapper simple={menuMode === ROOT_MENU}>
+    <Wrapper isRootMenu={menuMode === ROOT_MENU}>
       {menuItems.map((item) => (
         <Item
           key={item.id}
+          isRootMenu={menuMode === ROOT_MENU}
           active={item.id === activeParentMenuId}
           withDivider={withDivider}
           onClick={() => onSelect(item)}
@@ -97,6 +98,7 @@ const MenuList = ({
 }
 
 MenuList.propTypes = {
+  menuMode: T.oneOf([ROOT_MENU, CHILD_MENU]).isRequired,
   menuItems: T.arrayOf(T.object).isRequired,
   onSelect: T.func.isRequired,
   activeParentMenuId: T.string.isRequired,

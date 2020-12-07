@@ -11,11 +11,11 @@ export const Wrapper = styled.div.attrs((props) => ({
   padding-bottom: 10px;
 
   /* childMenu style */
-  background: ${({ simple }) => (simple ? 'transparent' : '#042833')};
-  padding-top: ${({ simple }) => (simple ? '0' : '12px')};
-  border: ${({ simple }) => (simple ? 'none' : '1px solid')};
-  border-color: ${({ simple }) => (simple ? 'none' : '#09303e')};
-  margin-top: ${({ simple }) => (simple ? '0' : '-8px')};
+  background: ${({ isRootMenu }) => (isRootMenu ? 'transparent' : '#042833')};
+  padding-top: ${({ isRootMenu }) => (isRootMenu ? '0' : '12px')};
+  border: ${({ isRootMenu }) => (isRootMenu ? 'none' : '1px solid')};
+  border-color: ${({ isRootMenu }) => (isRootMenu ? 'none' : '#09303e')};
+  margin-top: ${({ isRootMenu }) => (isRootMenu ? '0' : '-8px')};
 `
 export const Item = styled.div`
   ${css.flex('justify-end')};
@@ -29,6 +29,7 @@ export const Item = styled.div`
     withDivider ? '#094354' : 'none'};
 
   padding: ${({ withDivider }) => (withDivider ? '8px 6px' : '6px 8px')};
+  padding-left: ${({ isRootMenu }) => (isRootMenu ? '4px' : '8px')};
 
   &:hover {
     color: ${({ active }) =>
