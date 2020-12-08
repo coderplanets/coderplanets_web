@@ -4,7 +4,7 @@ import { ICON_CMD } from '@/config'
 
 import Sticky from '@/components/Sticky'
 import NaviIntro from '@/components/NaviIntro'
-import NaviMenu from '@/components/NaviMenu'
+import NaviCatalog from '@/components/NaviCatalog'
 
 import {
   Wrapper,
@@ -53,7 +53,7 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
       <Divider />
       <Sticky offsetTop={30}>
         <React.Fragment>
-          <NaviMenu
+          <NaviCatalog
             title="分类"
             onSelect={(id, type) => menuOnSelect(id, type)}
             initActiveMenuId={initActiveMenuId}

@@ -3,7 +3,7 @@ import React from 'react'
 import { Br } from '@/components/Common'
 import { OrButton } from '@/components/Buttons'
 import FiltersMenu from '@/components/FiltersMenu'
-import NaviMenu from '@/components/NaviMenu'
+import NaviCatalog from '@/components/NaviCatalog'
 
 import { VIEW } from './constant'
 
@@ -33,7 +33,7 @@ const FilterBar = ({ activeView }) => {
       />
       <Br bottom={30} />
       <FilterWrapper>
-        <NaviMenu title="类别筛选" withDivider={false} />
+        <NaviCatalog title="类别筛选" withDivider={false} />
       </FilterWrapper>
       <Br bottom={40} />
       <FilterWrapper>

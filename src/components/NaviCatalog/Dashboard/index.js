@@ -1,6 +1,6 @@
 /*
  *
- * NaviMenu
+ * NaviCatalog
  *
  */
 
@@ -24,7 +24,7 @@ import {
 } from '../styles/dashboard'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NaviMenu:Dashboard')
+const log = buildLog('c:NaviCatalog:Dashboard')
 
 /**
  * 解析成层叠结构的数据形式

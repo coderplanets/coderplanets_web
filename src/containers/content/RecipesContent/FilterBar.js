@@ -6,7 +6,7 @@ import { useTrans } from '@/hooks'
 
 import Sticky from '@/components/Sticky'
 import { OrButton } from '@/components/Buttons'
-import NaviMenu from '@/components/NaviMenu'
+import NaviCatalog from '@/components/NaviCatalog'
 import NaviIntro from '@/components/NaviIntro'
 
 import SearchBox from './SearchBox'
@@ -86,7 +86,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
       <Sticky offsetTop={20}>
         <PinedList />
         <Divider />
-        <NaviMenu
+        <NaviCatalog
           items={tmpMenu}
           onSelect={(id, type) => console.log(id, type)}
           initActiveMenuId={initActiveMenuId}

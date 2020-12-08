@@ -1,6 +1,6 @@
 /*
  *
- * NaviMenu
+ * NaviCatalog
  *
  */
 
@@ -14,13 +14,13 @@ import { ROOT_MENU, CHILD_MENU } from './constant'
 
 import Header from './Header'
 import Dashboard from './Dashboard'
-import MenuList from './MenuList'
+import List from './List'
 
 import menuItemsData from './menuData'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NaviMenu:index')
+const log = buildLog('c:NaviCatalog:index')
 
 const getCurrentMenuItem = (path, items) => {
   if (nilOrEmpty(path) || nilOrEmpty(items)) return
@@ -42,7 +42,7 @@ const getCurrentMenuItem = (path, items) => {
 //   return [parentMenuIndex, childMenuItems]
 // }
 
-const NaviMenu = ({
+const NaviCatalog = ({
   title,
   items,
   onSelect,
@@ -88,7 +88,7 @@ const NaviMenu = ({
   const handleMenuItemSelect = useCallback(
     (item) => {
       log('current path: ', childrenPath)
-      // 如果重复点击，则不理会
+      // 如果重复点击，则忽略
       if (find(propEq('id', item.id), childrenPath)) return
 
       if (nilOrEmpty(item.childMenu)) {
@@ -128,7 +128,7 @@ const NaviMenu = ({
         reset={handleReset}
       />
       <Dashboard childrenPath={childrenPath} goBack={handleGoBack} />
-      <MenuList
+      <List
         menuMode={menuMode}
         menuItems={menuItems}
         onSelect={handleMenuItemSelect}
@@ -145,7 +145,7 @@ const NaviMenu = ({
   )
 }
 
-NaviMenu.propTypes = {
+NaviCatalog.propTypes = {
   title: T.string,
   onSelect: T.func,
   withDivider: T.bool,
@@ -181,7 +181,7 @@ NaviMenu.propTypes = {
   testId: T.string,
 }
 
-NaviMenu.defaultProps = {
+NaviCatalog.defaultProps = {
   items: menuItemsData,
   onSelect: log,
   withDivider: true,
@@ -193,4 +193,4 @@ NaviMenu.defaultProps = {
   title: '',
 }
 
-export default NaviMenu // React.memo(NaviMenu)
+export default NaviCatalog // React.memo(NaviCatalog)

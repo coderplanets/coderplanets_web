@@ -1,6 +1,6 @@
 /*
  *
- * NaviMenu
+ * NaviCatalog
  *
  */
 
@@ -24,7 +24,7 @@ import {
 } from '../styles/menu_list'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NaviMenu:MenuList')
+const log = buildLog('c:NaviCatalog:List')
 
 const renderRightIcon = (item, activeParentMenuId, pinNumberHoverType) => {
   if (item.pinNumber) {
@@ -44,7 +44,7 @@ const renderRightIcon = (item, activeParentMenuId, pinNumberHoverType) => {
   )
 }
 
-const MenuList = ({
+const List = ({
   menuMode,
   menuItems,
   onSelect,
@@ -97,7 +97,7 @@ const MenuList = ({
   )
 }
 
-MenuList.propTypes = {
+List.propTypes = {
   menuMode: T.oneOf([ROOT_MENU, CHILD_MENU]).isRequired,
   menuItems: T.arrayOf(T.object).isRequired,
   onSelect: T.func.isRequired,
@@ -110,9 +110,9 @@ MenuList.propTypes = {
   onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
-MenuList.defaultProps = {
+List.defaultProps = {
   initActiveMenuId: '',
   onShowMore: null,
 }
 
-export default React.memo(MenuList)
+export default React.memo(List)
