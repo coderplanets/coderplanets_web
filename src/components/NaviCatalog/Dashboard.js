@@ -49,10 +49,10 @@ const getLevels = (paths) => {
  * 显示成成层叠结构的样式，有子目录的可以回上一层，没有子目录的则作为只读显示，
  * 类似抽屉的样子
  */
-const Dashboard = ({ childPath, goCatalog }) => {
-  const [headLevels, lastLevel] = getLevels(childPath)
+const Dashboard = ({ viewPath, goCatalog }) => {
+  const [headLevels, lastLevel] = getLevels(viewPath)
   /* 判断是不是第二层 */
-  const is2ecLevel = childPath.length === 1
+  const is2ecLevel = viewPath.length === 1
 
   if (!headLevels) return null
 
@@ -62,7 +62,7 @@ const Dashboard = ({ childPath, goCatalog }) => {
         <ParentCatalogCard
           key={item.id}
           isFirst={index === 0}
-          isLast={index === childPath.length - 1}
+          isLast={index === headLevels.length - 1}
           index={index}
         >
           <Title>{item.title}</Title>
@@ -85,7 +85,7 @@ const Dashboard = ({ childPath, goCatalog }) => {
 }
 
 Dashboard.propTypes = {
-  childPath: T.any.isRequired, // TODO
+  viewPath: T.any.isRequired, // TODO
   goCatalog: T.func.isRequired,
 }
 

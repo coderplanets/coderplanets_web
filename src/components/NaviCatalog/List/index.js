@@ -46,20 +46,20 @@ const renderRightIcon = (item, active, pinNumberHoverType) => {
 
 const List = ({
   menuMode,
-  menuItems,
+  catalogItems,
   onSelect,
   activeCatalogId,
-  pathSnapshot,
+  activePath,
   withDivider,
   showMoreItem,
   onShowMore,
   pinNumberHoverType,
 }) => {
-  const activePathIdList = [...map(prop('id'), pathSnapshot), activeCatalogId]
+  const activePathIdList = [...map(prop('id'), activePath), activeCatalogId]
 
   return (
     <Wrapper isRootMenu={menuMode === ROOT_MENU}>
-      {menuItems.map((item) => {
+      {catalogItems.map((item) => {
         const active = includes(item.id, activePathIdList)
 
         return (
@@ -93,8 +93,8 @@ const List = ({
 List.propTypes = {
   menuMode: T.oneOf([ROOT_MENU, CHILD_MENU]).isRequired,
   // TODO:
-  menuItems: T.arrayOf(T.object).isRequired,
-  pathSnapshot: T.arrayOf(T.object).isRequired,
+  catalogItems: T.arrayOf(T.object).isRequired,
+  activePath: T.arrayOf(T.object).isRequired,
   onSelect: T.func.isRequired,
   activeCatalogId: T.string.isRequired,
   withDivider: T.bool.isRequired,

@@ -22,9 +22,9 @@ const Header = ({
   goHome,
   onReset,
   goCatalog,
-  childPath,
+  viewPath,
 }) => {
-  const isRootCatalog = nilOrEmpty(childPath)
+  const isRootCatalog = nilOrEmpty(viewPath)
   const showReset = activeCatalogId !== ''
   const showLocate = activeCatalogId !== ''
 
