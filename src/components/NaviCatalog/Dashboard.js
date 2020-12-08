@@ -21,7 +21,7 @@ import {
   ReadOnlyIcon,
   Operator,
   BackIcon,
-} from '../styles/dashboard'
+} from './styles/dashboard'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviCatalog:Dashboard')
