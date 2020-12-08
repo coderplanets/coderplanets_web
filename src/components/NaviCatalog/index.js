@@ -76,14 +76,15 @@ const NaviCatalog = ({
         // 避免 slice(0, 0) 的情形
         targetPath = viewPath.slice(0, pathIndex + 1)
       } else {
-        targetPath = activePath
+        // 这种情况是在第二级目录，直接返回主目录即可
+        targetPath = []
       }
 
       const menuItem = getCurrentMenuItem(targetPath, items)
       setCatalogItems(menuItem?.childMenu || items)
       setViewPath(targetPath)
     },
-    [viewPath, activePath, items],
+    [viewPath, items],
   )
 
   // 返回主目录
