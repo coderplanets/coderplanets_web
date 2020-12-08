@@ -21,7 +21,7 @@ const Header = ({
   activeCatalogId,
   goHome,
   onReset,
-  goCatalog,
+  onLocate,
   viewPath,
 }) => {
   const isRootCatalog = nilOrEmpty(viewPath)
@@ -42,7 +42,7 @@ const Header = ({
           </Tooltip>
         </Operator>
 
-        <Operator show={showLocate} onClick={() => goCatalog()}>
+        <Operator show={showLocate} onClick={onLocate}>
           <Tooltip
             content={<HelpHint>定位当前选中</HelpHint>}
             placement="bottom"

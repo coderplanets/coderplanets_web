@@ -63,6 +63,12 @@ const NaviCatalog = ({
     nilOrEmpty(viewPath) ? setMenuMode(ROOT_MENU) : setMenuMode(CHILD_MENU)
   }, [viewPath, catalogItems])
 
+  const handleLocate = useCallback(() => {
+    const menuItem = getCurrentMenuItem(activePath, items)
+    setCatalogItems(menuItem?.childMenu || items)
+    setViewPath(activePath)
+  }, [activePath, items])
+
   // 返回特定目录
   // dashboard 中的某一级目录，locate 目录等等
   const handleGoCatalog = useCallback(
@@ -129,7 +135,7 @@ const NaviCatalog = ({
         title={title}
         activeCatalogId={activeCatalogId}
         goHome={handleGoHome}
-        goCatalog={handleGoCatalog}
+        onLocate={handleLocate}
         onReset={handleReset}
         viewPath={viewPath}
       />
