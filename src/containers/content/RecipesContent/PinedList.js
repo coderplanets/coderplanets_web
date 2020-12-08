@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_BASE } from '@/config'
 import { uid } from '@/utils'
 
-import NaviMenu from '@/components/NaviMenu'
+import NaviCatalog from '@/components/NaviCatalog'
 
 import { Wrapper } from './styles/pined_list'
 
@@ -32,7 +32,7 @@ const menu = [
 const PinedList = () => {
   return (
     <Wrapper>
-      <NaviMenu
+      <NaviCatalog
         items={menu}
         // onSelect={(id, type) => menuOnSelect(id, type)}
         // initActiveMenuId={initActiveMenuId}

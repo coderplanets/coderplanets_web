@@ -45,7 +45,7 @@ export const WIDTH = {
   },
   COOL_GUIDE: {
     CONTENT: '1150px',
-    LAPTOP_M_PADDING: '60px',
+    LAPTOP_M_PADDING: '45px',
   },
 
   MEETUPS: {

@@ -18,7 +18,7 @@ import {
 
 // tmp
 // import RoadmapThread from '@/containers/thread/RoadmapThread'
-import menuData from '@/components/NaviMenu/menuData'
+import menuData from '@/components/NaviCatalog/menuData'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'

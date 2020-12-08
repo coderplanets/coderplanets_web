@@ -7,7 +7,6 @@
 import React from 'react'
 
 import { connectStore, buildLog } from '@/utils'
-import { GUIDE } from '@/constant'
 
 import FilterBar from './FilterBar'
 import Content from './Content'
@@ -31,7 +30,7 @@ const CoolGuideContentContainer = ({ coolGuideContent: store, metric }) => {
           menuOnSelect={menuOnSelect}
           initActiveMenuId={initActiveMenuId}
         />
-        <ContentWrapper marginRight={displayType !== GUIDE.PREVIEW}>
+        <ContentWrapper>
           <Content displayType={displayType} />
         </ContentWrapper>
       </InnerWrapper>

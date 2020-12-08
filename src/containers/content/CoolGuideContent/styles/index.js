@@ -18,6 +18,5 @@ export const InnerWrapper = styled.div`
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
-  max-width: ${({ marginRight }) =>
-    marginRight ? 'calc(100% - 200px)' : '100%'};
+  max-width: calc(100% - 200px);
 `

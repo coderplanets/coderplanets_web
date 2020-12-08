@@ -33,10 +33,11 @@ export const OperatorsWrapper = styled.div`
 `
 export const Operator = styled.div`
   display: ${({ show }) => (show ? 'block' : 'none')};
+  margin-left: 6px;
 `
-export const BackIcon = styled(Img)`
+export const OperateIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  ${css.size(12)};
+  ${css.size(13)};
 
   &:hover {
     fill: ${theme('thread.articleTitle')};
@@ -45,10 +46,12 @@ export const BackIcon = styled(Img)`
 
   transition: all 0.2s;
 `
+export const LocateIcon = styled(OperateIcon)``
+export const HomeIcon = styled(OperateIcon)``
+
 export const ResetIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  margin-left: 8px;
 
   &:hover {
     fill: ${theme('thread.articleTitle')};

@@ -284,6 +284,13 @@ const menu = [
           {
             id: uid.gen(),
             title: '乡村',
+            childMenu: [
+              {
+                id: uid.gen(),
+                icon: `${ICON_CMD}/navi/bricks.svg`,
+                title: '小卖部',
+              },
+            ],
           },
           {
             id: uid.gen(),

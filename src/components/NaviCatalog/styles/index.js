@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
+import { WIDTH } from './metric'
+
 const activeColor = '#009C9E'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
-  width: 140px;
-  margin-right: 25px;
+  width: ${WIDTH};
 `
 export const Item = styled.div`
   ${css.flex('justify-end')};
