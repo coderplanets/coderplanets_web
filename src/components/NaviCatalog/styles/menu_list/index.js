@@ -55,14 +55,16 @@ export const Icon = styled(Img)`
   display: ${({ active }) => (active ? 'block' : 'none')};
   fill: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
-  ${css.size(15, false)};
+
+  ${css.size(14, false)};
 
   ${Item}:hover & {
     display: block;
   }
 `
 export const ActiveDot = styled.div`
-  background: ${theme('thread.articleTitle')};
+  display: ${({ active }) => (active ? 'block' : 'none')};
+  background: ${activeColor};
   width: 5px;
   height: 5px;
   border-radius: 50%;

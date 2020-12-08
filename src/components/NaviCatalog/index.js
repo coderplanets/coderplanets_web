@@ -32,16 +32,6 @@ const getCurrentMenuItem = (path, items) => {
   return getCurrentMenuItem([path[1]], item?.childMenu)
 }
 
-// get parrentMenuIndex and child menu items
-// const getMenuInfo = (items, parentMenuId) => {
-//   const parentMenuIndex = findIndex((item) => item.id === parentMenuId, items)
-
-//   const childMenuItems =
-//     parentMenuIndex >= 0 ? items[parentMenuIndex].childMenu : []
-
-//   return [parentMenuIndex, childMenuItems]
-// }
-
 const NaviCatalog = ({
   title,
   items,
@@ -54,28 +44,27 @@ const NaviCatalog = ({
   testId,
 }) => {
   const [menuMode, setMenuMode] = useState(ROOT_MENU)
-  // select initial active menu item if need
-  const [initDone, setInitDone] = useState(false)
+  const [activeCatalogId, setActiveCatalogId] = useState('')
+  // path in menu items json tree
+  const [childrenPath, setChildrenPath] = useState([])
+  const [pathSnapshot, setPathSnapshot] = useState([])
+  const [menuItems, setMenuItems] = useState(items)
 
-  const [activeParentMenuId, setActiveParentMenuId] = useState('')
+  log('## pathSnapshot: ', pathSnapshot)
 
-  // handlers
+  // handle reset
   const handleReset = useCallback(() => {
     setMenuMode(ROOT_MENU)
-    setActiveParentMenuId('')
+    setActiveCatalogId('')
+    setPathSnapshot([])
   }, [])
-
-  // new version
-  // path in menu items json tree
-  // 如果直接给一个 id 能否构建出这个 path ?
-  const [childrenPath, setChildrenPath] = useState([])
-  const [menuItems, setMenuItems] = useState(items)
 
   // 区别是主菜单还是子菜单，如果是 root 菜单则背景色是透明的
   useEffect(() => {
     nilOrEmpty(childrenPath) ? setMenuMode(ROOT_MENU) : setMenuMode(CHILD_MENU)
   }, [childrenPath, menuItems])
 
+  // 返回上一层
   const handleGoBack = useCallback(() => {
     const newChildrenPath = [...childrenPath]
     newChildrenPath.pop()
@@ -85,15 +74,36 @@ const NaviCatalog = ({
     setMenuItems(menuItem?.childMenu || items)
   }, [childrenPath, items])
 
+  // 返回特定目录
+  // dashboard 中的某一级目录，locate 目录等等
+  const handleGoCatalog = useCallback(() => {
+    log('=> pathSnapshot: ', pathSnapshot)
+    log('=> items: ', items)
+
+    setChildrenPath(pathSnapshot)
+    const menuItem = getCurrentMenuItem(pathSnapshot, items)
+
+    log('=> getCurrentMenuItem: ', menuItem)
+    setMenuItems(menuItem?.childMenu || items)
+  }, [pathSnapshot, items])
+
+  // 返回主目录
+  const handleGoHome = useCallback(() => {
+    setChildrenPath([])
+    setMenuItems(items)
+  }, [items])
+
   const handleMenuItemSelect = useCallback(
     (item) => {
       log('current path: ', childrenPath)
       // 如果重复点击，则忽略
       if (find(propEq('id', item.id), childrenPath)) return
 
+      // 如果没有 childMenu 就表示这个条目被选中
       if (nilOrEmpty(item.childMenu)) {
-        setActiveParentMenuId(item.id)
+        setActiveCatalogId(item.id)
         onSelect(item.id, item.displayType)
+        setPathSnapshot(childrenPath)
         return
       }
 
@@ -115,17 +125,16 @@ const NaviCatalog = ({
   )
 
   // log('# MenuMode- -> ', menuMode)
-  // console.log('items --> ', items)
-  // console.log('cur items --> ', menuItems)
 
   return (
     <Wrapper testId={testId}>
       <Header
         title={title}
-        showBack
-        showReset={activeParentMenuId !== ''}
-        goBack={handleGoBack}
-        reset={handleReset}
+        activeCatalogId={activeCatalogId}
+        goHome={handleGoHome}
+        goCatalog={handleGoCatalog}
+        onReset={handleReset}
+        childrenPath={childrenPath}
       />
       <Dashboard childrenPath={childrenPath} goBack={handleGoBack} />
       <List
@@ -133,10 +142,9 @@ const NaviCatalog = ({
         menuItems={menuItems}
         onSelect={handleMenuItemSelect}
         withDivider={withDivider}
-        activeParentMenuId={activeParentMenuId}
+        activeCatalogId={activeCatalogId}
+        pathSnapshot={pathSnapshot}
         initActiveMenuId={initActiveMenuId}
-        initDone={initDone}
-        setInitDone={setInitDone}
         showMoreItem={showMoreItem}
         onShowMore={onShowMore}
         pinNumberHoverType={pinNumberHoverType}
@@ -193,4 +201,4 @@ NaviCatalog.defaultProps = {
   title: '',
 }
 
-export default NaviCatalog // React.memo(NaviCatalog)
+export default React.memo(NaviCatalog)

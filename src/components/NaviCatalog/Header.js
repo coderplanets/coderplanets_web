@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { ICON } from '@/config'
+import { nilOrEmpty } from '@/utils'
+
 import Tooltip from '@/components/Tooltip'
 
 import {
@@ -14,12 +16,23 @@ import {
   HelpHint,
 } from './styles/header'
 
-const Header = ({ title, showBack, showReset, goBack, reset }) => {
+const Header = ({
+  title,
+  activeCatalogId,
+  goHome,
+  onReset,
+  goCatalog,
+  childrenPath,
+}) => {
+  const isRootCatalog = nilOrEmpty(childrenPath)
+  const showReset = activeCatalogId !== ''
+  const showLocate = activeCatalogId !== ''
+
   return (
     <Wrapper>
       <Title active={showReset}>{title}</Title>
       <OperatorsWrapper>
-        <Operator onClick={goBack} show>
+        <Operator onClick={goHome} show={!isRootCatalog}>
           <Tooltip
             content={<HelpHint>返回主目录</HelpHint>}
             placement="bottom"
@@ -29,7 +42,7 @@ const Header = ({ title, showBack, showReset, goBack, reset }) => {
           </Tooltip>
         </Operator>
 
-        <Operator show={showBack} onClick={goBack}>
+        <Operator show={showLocate} onClick={goCatalog}>
           <Tooltip
             content={<HelpHint>定位当前选中</HelpHint>}
             placement="bottom"
@@ -39,7 +52,7 @@ const Header = ({ title, showBack, showReset, goBack, reset }) => {
           </Tooltip>
         </Operator>
 
-        <Operator show={showReset} onClick={reset}>
+        <Operator show={showReset} onClick={onReset}>
           <Tooltip
             content={<HelpHint>重置筛选条件</HelpHint>}
             placement="bottom"
