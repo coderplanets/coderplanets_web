@@ -58,7 +58,6 @@ export const ReadOnlyIcon = styled(Img)`
   opacity: 0.8;
 `
 export const Operator = styled.div`
-  /* display: ${({ show }) => (show ? 'block' : 'none')}; */
   display: none;
 
   ${ParentCatalogCard}:hover & {

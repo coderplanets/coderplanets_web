@@ -40,7 +40,7 @@ const getLevels = (paths) => {
     }
 
     default: {
-      return [paths[(0, -1)], last(paths)]
+      return [paths.slice(0, -1), last(paths)]
     }
   }
 }
@@ -49,8 +49,10 @@ const getLevels = (paths) => {
  * 显示成成层叠结构的样式，有子目录的可以回上一层，没有子目录的则作为只读显示，
  * 类似抽屉的样子
  */
-const Dashboard = ({ goBack, childrenPath }) => {
-  const [headLevels, lastLevel] = getLevels(childrenPath)
+const Dashboard = ({ childPath, goCatalog }) => {
+  const [headLevels, lastLevel] = getLevels(childPath)
+  /* 判断是不是第二层 */
+  const is2ecLevel = childPath.length === 1
 
   if (!headLevels) return null
 
@@ -60,11 +62,13 @@ const Dashboard = ({ goBack, childrenPath }) => {
         <ParentCatalogCard
           key={item.id}
           isFirst={index === 0}
-          isLast={index === childrenPath.length - 1}
+          isLast={index === childPath.length - 1}
           index={index}
         >
           <Title>{item.title}</Title>
-          <Operator show onClick={goBack}>
+          <Operator
+            onClick={() => (is2ecLevel ? goCatalog() : goCatalog(item.id))}
+          >
             <BackIcon src={`${ICON}/shape/navi-back.svg`} />
           </Operator>
         </ParentCatalogCard>
@@ -81,8 +85,8 @@ const Dashboard = ({ goBack, childrenPath }) => {
 }
 
 Dashboard.propTypes = {
-  childrenPath: T.any.isRequired, // TODO
-  goBack: T.func.isRequired,
+  childPath: T.any.isRequired, // TODO
+  goCatalog: T.func.isRequired,
 }
 
 Dashboard.defaultProps = {}

@@ -22,9 +22,9 @@ const Header = ({
   goHome,
   onReset,
   goCatalog,
-  childrenPath,
+  childPath,
 }) => {
-  const isRootCatalog = nilOrEmpty(childrenPath)
+  const isRootCatalog = nilOrEmpty(childPath)
   const showReset = activeCatalogId !== ''
   const showLocate = activeCatalogId !== ''
 
@@ -42,7 +42,7 @@ const Header = ({
           </Tooltip>
         </Operator>
 
-        <Operator show={showLocate} onClick={goCatalog}>
+        <Operator show={showLocate} onClick={() => goCatalog()}>
           <Tooltip
             content={<HelpHint>定位当前选中</HelpHint>}
             placement="bottom"

@@ -6,7 +6,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
 import T from 'prop-types'
-import { find, propEq, last } from 'ramda'
+import { find, findIndex, propEq, last } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
 
@@ -25,11 +25,10 @@ const log = buildLog('c:NaviCatalog:index')
 const getCurrentMenuItem = (path, items) => {
   if (nilOrEmpty(path) || nilOrEmpty(items)) return
 
-  // const item = find(propEq('id', path[0].id), items)
   const item = find(propEq('id', path[0].id), items)
   if (item.id === last(path).id) return item
 
-  return getCurrentMenuItem([path[1]], item?.childMenu)
+  return getCurrentMenuItem(path.slice(1), item?.childMenu)
 }
 
 const NaviCatalog = ({
@@ -45,12 +44,11 @@ const NaviCatalog = ({
 }) => {
   const [menuMode, setMenuMode] = useState(ROOT_MENU)
   const [activeCatalogId, setActiveCatalogId] = useState('')
-  // path in menu items json tree
-  const [childrenPath, setChildrenPath] = useState([])
+  // 当前展示的 path list, 可能是选中的，也可能是仅浏览，未必选中
+  const [childPath, setChildPath] = useState([])
+  // 当前选中状态的 path list 快照
   const [pathSnapshot, setPathSnapshot] = useState([])
   const [menuItems, setMenuItems] = useState(items)
-
-  log('## pathSnapshot: ', pathSnapshot)
 
   // handle reset
   const handleReset = useCallback(() => {
@@ -61,70 +59,67 @@ const NaviCatalog = ({
 
   // 区别是主菜单还是子菜单，如果是 root 菜单则背景色是透明的
   useEffect(() => {
-    nilOrEmpty(childrenPath) ? setMenuMode(ROOT_MENU) : setMenuMode(CHILD_MENU)
-  }, [childrenPath, menuItems])
-
-  // 返回上一层
-  const handleGoBack = useCallback(() => {
-    const newChildrenPath = [...childrenPath]
-    newChildrenPath.pop()
-    setChildrenPath(newChildrenPath)
-
-    const menuItem = getCurrentMenuItem(newChildrenPath, items)
-    setMenuItems(menuItem?.childMenu || items)
-  }, [childrenPath, items])
+    nilOrEmpty(childPath) ? setMenuMode(ROOT_MENU) : setMenuMode(CHILD_MENU)
+  }, [childPath, menuItems])
 
   // 返回特定目录
   // dashboard 中的某一级目录，locate 目录等等
-  const handleGoCatalog = useCallback(() => {
-    log('=> pathSnapshot: ', pathSnapshot)
-    log('=> items: ', items)
+  const handleGoCatalog = useCallback(
+    (catalogId) => {
+      let targetPath
+      // 如果有 catalogId 指返回到这个 catalogId 对应的 level
+      // 没有则相当于 locate 已选中的 level
+      if (catalogId) {
+        // 目前只支持一级目录，需要扩展
+        const pathIndex = findIndex((item) => item.id === catalogId, childPath)
+        // 避免 slice(0, 0) 的情形
+        targetPath = childPath.slice(0, pathIndex + 1)
+      } else {
+        targetPath = pathSnapshot
+      }
 
-    setChildrenPath(pathSnapshot)
-    const menuItem = getCurrentMenuItem(pathSnapshot, items)
-
-    log('=> getCurrentMenuItem: ', menuItem)
-    setMenuItems(menuItem?.childMenu || items)
-  }, [pathSnapshot, items])
+      const menuItem = getCurrentMenuItem(targetPath, items)
+      setMenuItems(menuItem?.childMenu || items)
+      setChildPath(targetPath)
+    },
+    [childPath, pathSnapshot, items],
+  )
 
   // 返回主目录
   const handleGoHome = useCallback(() => {
-    setChildrenPath([])
+    setChildPath([])
     setMenuItems(items)
   }, [items])
 
   const handleMenuItemSelect = useCallback(
     (item) => {
-      log('current path: ', childrenPath)
       // 如果重复点击，则忽略
-      if (find(propEq('id', item.id), childrenPath)) return
+      if (find(propEq('id', item.id), childPath)) return
 
       // 如果没有 childMenu 就表示这个条目被选中
       if (nilOrEmpty(item.childMenu)) {
         setActiveCatalogId(item.id)
         onSelect(item.id, item.displayType)
-        setPathSnapshot(childrenPath)
+        setPathSnapshot(childPath)
         return
       }
 
-      let newChildrenPath
-      if (nilOrEmpty(childrenPath)) {
+      let newChildPath
+      if (nilOrEmpty(childPath)) {
         // 点击根菜单的情况
-        newChildrenPath = [item]
-        setChildrenPath(newChildrenPath)
+        newChildPath = [item]
+        setChildPath(newChildPath)
       } else {
         // 点击子孙菜单的情况
-        newChildrenPath = [...childrenPath, item]
-        setChildrenPath(newChildrenPath)
+        newChildPath = [...childPath, item]
+        setChildPath(newChildPath)
       }
 
-      const menuItem = getCurrentMenuItem(newChildrenPath, items)
+      const menuItem = getCurrentMenuItem(newChildPath, items)
       setMenuItems(menuItem?.childMenu || items)
     },
-    [onSelect, childrenPath, items],
+    [onSelect, childPath, items],
   )
-
-  // log('# MenuMode- -> ', menuMode)
 
   return (
     <Wrapper testId={testId}>
@@ -134,9 +129,9 @@ const NaviCatalog = ({
         goHome={handleGoHome}
         goCatalog={handleGoCatalog}
         onReset={handleReset}
-        childrenPath={childrenPath}
+        childPath={childPath}
       />
-      <Dashboard childrenPath={childrenPath} goBack={handleGoBack} />
+      <Dashboard childPath={childPath} goCatalog={handleGoCatalog} />
       <List
         menuMode={menuMode}
         menuItems={menuItems}
