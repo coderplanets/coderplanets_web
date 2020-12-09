@@ -97,6 +97,7 @@ List.propTypes = {
   activeCatalogId: T.string.isRequired,
   withDivider: T.bool.isRequired,
   showMoreItem: T.bool.isRequired,
+  showItemTotal: T.bool.isRequired,
   onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
