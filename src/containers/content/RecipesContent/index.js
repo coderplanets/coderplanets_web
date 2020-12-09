@@ -21,14 +21,14 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:RecipesContent')
 
-const RecipesContentContainer = ({ recipesContent: store }) => {
+const RecipesContentContainer = ({ recipesContent: store, metric }) => {
   useInit(store)
 
   const { galleryType, mainView } = store
 
   return (
     <Wrapper testId="recipes-content">
-      <InnerWrapper>
+      <InnerWrapper metric={metric}>
         <FilterBar
           mainView={mainView}
           // topFilter={topFilter}

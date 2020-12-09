@@ -24,6 +24,9 @@ const CoolGuideContent = T.model('CoolGuideContent', {
     },
   }))
   .actions((self) => ({
+    markRoute(query) {
+      self.root.markRoute(query)
+    },
     mark(sobj) {
       markStates(sobj, self)
     },

@@ -3,17 +3,17 @@ import { uid } from '@/utils'
 
 const menu = [
   {
-    id: uid.gen(),
+    id: 'aa', // uid.gen(),
     title: '酷工具 / 服务',
     icon: `${ICON_CMD}/navi/tool.svg`,
     childMenu: [
       {
-        id: uid.gen(),
+        id: 'bb', // uid.gen(),
         title: '开发效率',
         icon: `${ICON_CMD}/navi/timer.svg`,
         childMenu: [
           {
-            id: uid.gen(),
+            id: 'cc', // uid.gen(),
             title: 'GTD 工具',
           },
           {
@@ -190,7 +190,7 @@ const menu = [
         icon: `${ICON_CMD}/navi/data.svg`,
       },
       {
-        id: uid.gen(),
+        id: 'fuck', // uid.gen(),
         title: '区块链', // or move to 基础设施 ?
         icon: `${ICON_CMD}/navi/block-chain.svg`,
         childMenu: [],

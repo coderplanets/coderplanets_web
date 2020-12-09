@@ -8,10 +8,9 @@ import React, { useState, useCallback, useEffect } from 'react'
 import T from 'prop-types'
 import { find, findIndex, propEq, last } from 'ramda'
 
-import { buildLog, nilOrEmpty } from '@/utils'
+import { buildLog, nilOrEmpty, getQueryFromUrl } from '@/utils'
 
 import { ROOT_MENU, CHILD_MENU } from './constant'
-
 import Header from './Header'
 import Dashboard from './Dashboard'
 import List from './List'
@@ -19,17 +18,10 @@ import List from './List'
 import menuItemsData from './menuData'
 import { Wrapper } from './styles'
 
+import { getCurrentMenuItem, findPath, findDeep, markRoute } from './helper'
+
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviCatalog:index')
-
-const getCurrentMenuItem = (path, items) => {
-  if (nilOrEmpty(path) || nilOrEmpty(items)) return
-
-  const item = find(propEq('id', path[0].id), items)
-  if (item.id === last(path).id) return item
-
-  return getCurrentMenuItem(path.slice(1), item?.childMenu)
-}
 
 const NaviCatalog = ({
   title,
@@ -38,8 +30,8 @@ const NaviCatalog = ({
   withDivider,
   initActiveMenuId,
   showMoreItem,
+  showItemTotal,
   onShowMore,
-  pinNumberHoverType,
   testId,
 }) => {
   const [menuMode, setMenuMode] = useState(ROOT_MENU)
@@ -51,12 +43,41 @@ const NaviCatalog = ({
   const [activePath, setActivePath] = useState([])
   const [catalogItems, setCatalogItems] = useState(items)
 
+  // sync state from URL query
+  useEffect(() => {
+    const pathQuery = getQueryFromUrl('path')
+    if (pathQuery) {
+      log('pathQuery -> ', pathQuery)
+      const pathFromURL = findPath(items, pathQuery)
+      log('pathFromURL: ', pathFromURL)
+      const activeItem = findDeep(items, 'id', last(pathFromURL).id)
+      const isLastLevel = !activeItem?.childMenu
+      log('isLastLevel: ', isLastLevel)
+
+      if (!nilOrEmpty(pathFromURL)) {
+        const curCatalogPath = [...pathFromURL]
+        if (isLastLevel) {
+          curCatalogPath.pop()
+        }
+
+        setActivePath(curCatalogPath)
+        setViewPath(curCatalogPath)
+        setActiveCatalogId(activeItem.id)
+        const menuItem = getCurrentMenuItem(curCatalogPath, items)
+        setCatalogItems(menuItem?.childMenu || [])
+      }
+    }
+  }, [items])
+
   // reset select states
   const handleReset = useCallback(() => {
     setMenuMode(ROOT_MENU)
     setActiveCatalogId('')
     setActivePath([])
-  }, [])
+    setViewPath([])
+    setCatalogItems(items)
+    markRoute([])
+  }, [items])
 
   // 区别是主菜单还是子菜单，如果是 root 菜单则背景色是透明的
   useEffect(() => {
@@ -109,6 +130,7 @@ const NaviCatalog = ({
         setActiveCatalogId(item.id)
         onSelect(item.id, item.displayType)
         setActivePath(viewPath)
+        markRoute(viewPath)
         return
       }
 
@@ -149,8 +171,8 @@ const NaviCatalog = ({
         activePath={activePath}
         initActiveMenuId={initActiveMenuId}
         showMoreItem={showMoreItem}
+        showItemTotal={showItemTotal}
         onShowMore={onShowMore}
-        pinNumberHoverType={pinNumberHoverType}
       />
     </Wrapper>
   )
@@ -186,8 +208,9 @@ NaviCatalog.propTypes = {
       ),
     }),
   ),
-  pinNumberHoverType: T.oneOf(['pin', 'unpin']),
   showMoreItem: T.bool,
+  // 是否显示每个目录项的条目总数
+  showItemTotal: T.bool,
   onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
   testId: T.string,
 }
@@ -195,11 +218,11 @@ NaviCatalog.propTypes = {
 NaviCatalog.defaultProps = {
   items: menuItemsData,
   onSelect: log,
-  withDivider: true,
+  withDivider: false,
   initActiveMenuId: '',
   showMoreItem: false,
+  showItemTotal: false,
   onShowMore: null,
-  pinNumberHoverType: 'pin',
   testId: 'navi-menu',
   title: '',
 }

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
+const activeColor = '#009C9E'
+
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
@@ -12,21 +14,10 @@ export const Wrapper = styled.div.attrs((props) => ({
 `
 export const Title = styled.div`
   position: relative;
-  color: ${theme('thread.articleTitle')};
+  color: ${({ active }) =>
+    active ? activeColor : theme('thread.articleTitle')};
   font-size: 15px;
   padding-left: 5px;
-
-  &:before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: #00999d;
-    position: absolute;
-    left: -10px;
-    top: 8px;
-    border-radius: 50%;
-    display: ${({ active }) => (active ? 'block' : 'none')};
-  }
 `
 export const OperatorsWrapper = styled.div`
   ${css.flex('align-center')};

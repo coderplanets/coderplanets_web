@@ -79,8 +79,12 @@ const RouteStore = T.model('RouteStore', {
       // const allQueryString = serializeQuery(query)
       const queryString = serializeQuery(omit(['mainPath', 'subPath'], query))
 
-      // const url = `/${allQueryString}`
-      const asPath = `/${self.mainPath}/${self.subPath}${queryString}`
+      let asPath
+      if (self.mainPath && self.subPath) {
+        asPath = `/${self.mainPath}/${self.subPath}${queryString}`
+      } else {
+        asPath = `${queryString}`
+      }
 
       // NOTE: shallow option only works for same page url
       // if page is diffrent, it will cause page reload

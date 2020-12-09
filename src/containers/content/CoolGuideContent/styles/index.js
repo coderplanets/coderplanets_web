@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// import Img from '@/Img'
 import { css } from '@/utils'
+import { SIDEBAR_WIDTH } from './metric'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -18,5 +18,5 @@ export const InnerWrapper = styled.div`
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
-  max-width: calc(100% - 200px);
+  max-width: ${() => `calc(100% - ${SIDEBAR_WIDTH})`};
 `

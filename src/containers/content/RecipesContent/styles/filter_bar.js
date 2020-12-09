@@ -3,22 +3,26 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
+import { SIDEBAR_WIDTH, SIDEBAR_MARGIN } from './metric'
+
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   ${css.flexColumn()};
+  width: ${SIDEBAR_WIDTH};
   margin-top: 12px;
+  margin-right: ${SIDEBAR_MARGIN};
 `
 export const Divider = styled.div`
   height: 1px;
   background: #004352;
-  width: calc(100% - 25px);
+  width: 85%;
   margin-top: 15px;
   margin-bottom: 15px;
 `
 export const TopFilter = styled.div`
   color: ${theme('thread.articleDigest')};
-  width: calc(100% - 25px);
+  width: 85%;
 `
 export const Option = styled.div`
   ${css.flex('align-center')};
