@@ -30,6 +30,7 @@ export {
   extractAttachments,
   isCypressRunning,
   multiClick,
+  findDeepMatch,
 } from './helper'
 
 export { errorForHuman, ssrAmbulance } from './errors'
@@ -64,7 +65,6 @@ export {
   getParameterByName,
   getQueryFromUrl,
   queryStringToJSON,
-  mergeRouteQuery,
   serializeQuery,
   parseDomain,
   extractThreadFromPath,
@@ -72,6 +72,7 @@ export {
   thread2Subpath,
   getRoutePathList,
   getRouteMainPath,
+  markRoute,
 } from './route'
 
 export {

@@ -12,7 +12,6 @@ import { buildLog } from '@/utils'
 import { SpaceGrow, Space } from '@/components/Common'
 
 import { ROOT_MENU, CHILD_MENU } from '../constant'
-import PinNumber from './PinNumber'
 
 import {
   Wrapper,
@@ -21,16 +20,15 @@ import {
   FixedIcon,
   Icon,
   ActiveDot,
-} from '../styles/menu_list'
+  TotalNumber,
+} from '../styles/list'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviCatalog:List')
 
-const renderRightIcon = (item, active, pinNumberHoverType) => {
-  if (item.pinNumber) {
-    return (
-      <PinNumber num={item.pinNumber} pinNumberHoverType={pinNumberHoverType} />
-    )
+const renderRightIcon = (item, active, showItemTotal) => {
+  if (showItemTotal && item.total) {
+    return <TotalNumber active={active}>{item.total}</TotalNumber>
   }
 
   return (
@@ -52,8 +50,8 @@ const List = ({
   activePath,
   withDivider,
   showMoreItem,
+  showItemTotal,
   onShowMore,
-  pinNumberHoverType,
 }) => {
   const activePathIdList = [...map(prop('id'), activePath), activeCatalogId]
 
@@ -73,7 +71,7 @@ const List = ({
             {item.fixedIcon && <FixedIcon src={item.fixedIcon} />}
             {item.title}
             <SpaceGrow />
-            {renderRightIcon(item, active, pinNumberHoverType)}
+            {renderRightIcon(item, active, showItemTotal)}
           </Item>
         )
       })}
@@ -99,6 +97,7 @@ List.propTypes = {
   activeCatalogId: T.string.isRequired,
   withDivider: T.bool.isRequired,
   showMoreItem: T.bool.isRequired,
+  showItemTotal: T.bool.isRequired,
   onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 

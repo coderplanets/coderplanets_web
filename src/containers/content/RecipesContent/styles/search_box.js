@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${css.flex('align-center')}
   position: relative;
   width: 85%;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 `
 export const SearchInput = styled(Input)`
   width: 100%;

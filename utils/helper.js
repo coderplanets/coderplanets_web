@@ -233,3 +233,39 @@ export const getRandomInt = (min, max) => {
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
+
+/**
+ * find key=value in array or object
+ *
+ * see original version:
+ * https://stackoverflow.com/a/15524326
+ * @param {object or Array} data
+ * @param {String} key
+ * @param {String} value
+ * @returns
+ */
+export const findDeepMatch = (data, key, value) => {
+  let result = null
+  if (data instanceof Array) {
+    for (let i = 0; i < data.length; i += 1) {
+      // console.log('> the data[i]', data[i])
+      result = findDeepMatch(data[i], key, value)
+      // end the recursive function
+      if (result) return result
+    }
+    // console.log('-- d --')
+  } else {
+    const theKeys = keys(data)
+    for (let index = 0; index < theKeys.length; index += 1) {
+      const prop = theKeys[index]
+      if (prop === key && data[prop] === value) {
+        return data
+      }
+      if (data[prop] instanceof Object || data[prop] instanceof Array) {
+        result = findDeepMatch(data[prop], key, value)
+      }
+    }
+  }
+
+  return result
+}

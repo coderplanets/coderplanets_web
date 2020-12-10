@@ -10,7 +10,6 @@ import NaviCatalog from '@/components/NaviCatalog'
 import NaviIntro from '@/components/NaviIntro'
 
 import SearchBox from './SearchBox'
-import PinedList from './PinedList'
 import tmpMenu from './tempData'
 
 import {
@@ -84,16 +83,14 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
 
       <SearchBox />
       <Sticky offsetTop={20}>
-        <PinedList />
-        <Divider />
         <NaviCatalog
+          testId="filter-navi-menu"
           items={tmpMenu}
           onSelect={(id, type) => console.log(id, type)}
           initActiveMenuId={initActiveMenuId}
-          withDivider={false}
-          showMoreItem
           onShowMore={() => console.log('show more')}
-          testId="filter-navi-menu"
+          showItemTotal
+          showMoreItem
         />
       </Sticky>
     </Wrapper>

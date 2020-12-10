@@ -48,8 +48,8 @@ export const MoreItem = styled(Item)`
   margin-top: 8px;
 `
 export const FixedIcon = styled(Img)`
-  ${css.size(14)};
-  margin-right: 5px;
+  ${css.size(13)};
+  margin-right: 8px;
 `
 export const Icon = styled(Img)`
   display: ${({ active }) => (active ? 'block' : 'none')};
@@ -68,4 +68,12 @@ export const ActiveDot = styled.div`
   width: 5px;
   height: 5px;
   border-radius: 50%;
+`
+export const TotalNumber = styled.div`
+  font-size: 11px;
+  color: ${({ active }) =>
+    active ? activeColor : theme('thread.articleDigest')};
+
+  opacity: ${({ active }) => (active ? 1 : 0.8)};
+  font-size: ${({ active }) => (active ? '12px' : '11px')};
 `

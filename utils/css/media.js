@@ -47,7 +47,10 @@ export const WIDTH = {
     CONTENT: '1150px',
     LAPTOP_M_PADDING: '45px',
   },
-
+  RECIPES: {
+    CONTENT: '1150px',
+    LAPTOP_M_PADDING: '45px',
+  },
   MEETUPS: {
     CONTENT: '1150px',
   },
@@ -104,11 +107,11 @@ export const fitContentWidth = (metric = METRIC.COMMUNITY) => {
   `.join('')
 
   const desktopLmediaQuery = media.desktopL`
-    margin-left: ${WIDTH[metric].CONTENT_OFFSET_DESKTOPL};
+    margin-left: ${WIDTH[metric]?.CONTENT_OFFSET_DESKTOPL};
   `.join('')
 
   const laptopLmediaQuery = media.laptopL`
-    margin-left: ${WIDTH[metric].CONTENT_OFFSET_LAPTOPL};
+    margin-left: ${WIDTH[metric]?.CONTENT_OFFSET_LAPTOPL};
   `.join('')
 
   return `

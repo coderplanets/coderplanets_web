@@ -30,7 +30,8 @@ const Header = ({
 
   return (
     <Wrapper>
-      <Title active={showReset}>{title}</Title>
+      {title ? <Title active={showReset}>{title}</Title> : <div />}
+
       <OperatorsWrapper>
         <Operator onClick={goHome} show={!isRootCatalog}>
           <Tooltip
