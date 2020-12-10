@@ -1,2 +1,2 @@
-export const WIDTH = '150px'
+export const WIDTH = '160px'
 export const holder = 1
