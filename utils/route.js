@@ -6,6 +6,7 @@ import {
   split,
   reject,
   prop,
+  pickBy,
   endsWith,
   slice,
   clone,
@@ -13,6 +14,8 @@ import {
   toLower,
   merge,
 } from 'ramda'
+
+import { nilOrEmpty } from './validator'
 import { Global } from './helper'
 import { isServerSide } from './ssr'
 
@@ -197,7 +200,7 @@ export const extractThreadFromPath = (props, uppper = true) => {
   return uppper ? toUpper(thread) : toLower(thread)
 }
 
-export const mergeRouteQuery = (query = {}, opt = { pagi: 'string' }) => {
+const mergePagiQuery = (query = {}, opt = { pagi: 'string' }) => {
   const routeQuery = clone(query)
 
   let defaultQuery = { page: '1', size: '20' }
@@ -213,10 +216,13 @@ export const mergeRouteQuery = (query = {}, opt = { pagi: 'string' }) => {
   return merge(defaultQuery, routeQuery)
 }
 
-export const queryStringToJSON = (path, opt = { pagi: 'string' }) => {
+// convert url query string to json, with optional pagi info
+export const queryStringToJSON = (
+  path,
+  opt = { noPagiInfo: false, pagi: 'string' },
+) => {
   const splited = split('?', path)
-  // if (splited.length !== 1) return mergeRouteQuery({}, opt)
-  if (splited.length === 1) return mergeRouteQuery({}, opt)
+  if (splited.length === 1) return mergePagiQuery({}, opt)
 
   const result = {}
   const paris = splited[1].split('&')
@@ -228,7 +234,7 @@ export const queryStringToJSON = (path, opt = { pagi: 'string' }) => {
 
   const json = JSON.parse(JSON.stringify(result))
 
-  return mergeRouteQuery(json, opt)
+  return opt.noPagiInfo ? json : mergePagiQuery(json, opt)
 }
 
 /* eslint-disable */
@@ -335,3 +341,18 @@ const TR_MAP = {
 
 export const subPath2Thread = (path) => TR_MAP[path] || path
 export const thread2Subpath = (thread) => TR_MAP[thread] || thread
+
+// sync json query to the brower url without reload the page
+// empty value obj will be omit
+export const markRoute = (query, opt = { noPagiInfo: true }) => {
+  if (nilOrEmpty(query)) query = {}
+
+  const exsitQuery = queryStringToJSON(Global.location.search, {
+    ...opt,
+  })
+
+  const newQueryObj = pickBy((v) => !nilOrEmpty(v), merge(exsitQuery, query))
+  const newQueryString = serializeQuery(newQueryObj)
+
+  Global.history.pushState({}, null, newQueryString)
+}

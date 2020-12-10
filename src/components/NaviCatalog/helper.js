@@ -1,6 +1,9 @@
-import { map, keys, find, propEq, last } from 'ramda'
-import { Global, nilOrEmpty, serializeQuery } from '@/utils'
+import { map, find, propEq, last } from 'ramda'
 
+import { URL_QUERY } from '@/constant'
+import { nilOrEmpty } from '@/utils'
+
+// 根据 path 路径得到当前目录项
 export const getCurrentMenuItem = (path, items) => {
   if (nilOrEmpty(path) || nilOrEmpty(items)) return
 
@@ -10,35 +13,13 @@ export const getCurrentMenuItem = (path, items) => {
   return getCurrentMenuItem(path.slice(1), item?.childMenu)
 }
 
-// see original version:
-// https://stackoverflow.com/a/15524326
-export const findDeep = (data, key, value) => {
-  let result = null
-  if (data instanceof Array) {
-    for (let i = 0; i < data.length; i += 1) {
-      // console.log('> the data[i]', data[i])
-      result = findDeep(data[i], key, value)
-      // end the recursive function
-      if (result) return result
-    }
-    // console.log('-- d --')
-  } else {
-    const theKeys = keys(data)
-    for (let index = 0; index < theKeys.length; index += 1) {
-      const prop = theKeys[index]
-      if (prop === key && data[prop] === value) {
-        return data
-      }
-      if (data[prop] instanceof Object || data[prop] instanceof Array) {
-        result = findDeep(data[prop], key, value)
-      }
-    }
-  }
-
-  return result
-}
-
-// findPath by given path-string
+/**
+ * findPath by given path-string from url
+ *
+ * @param {array of catalog} items
+ * @param {string} pathString
+ * @returns {array of catalog}
+ */
 export const findPath = (items, pathString = 'aa-bb-cc') => {
   // pathList => parentId-childId-subChildId-xxx
   const idPaths = pathString.split('-')
@@ -61,17 +42,9 @@ export const findPath = (items, pathString = 'aa-bb-cc') => {
   return path
 }
 
-const covertPathToURLQuery = (path) => {
+export const covertPathToURLQuery = (path) => {
   const idPathString = map((catalog) => catalog.id, path).join('-')
-  if (nilOrEmpty(idPathString)) return ''
+  if (nilOrEmpty(idPathString)) return { [URL_QUERY.NAVI_CATALOG_PATH]: '' }
 
-  return serializeQuery({ path: idPathString })
-}
-
-export const markRoute = (path) => {
-  let query = covertPathToURLQuery(path)
-
-  if (nilOrEmpty(query)) query = Global.location.pathname
-
-  Global.history.pushState({}, null, query)
+  return { [URL_QUERY.NAVI_CATALOG_PATH]: idPathString }
 }

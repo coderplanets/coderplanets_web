@@ -8,7 +8,14 @@ import React, { useState, useCallback, useEffect } from 'react'
 import T from 'prop-types'
 import { find, findIndex, propEq, last } from 'ramda'
 
-import { buildLog, nilOrEmpty, getQueryFromUrl } from '@/utils'
+import { URL_QUERY } from '@/constant'
+import {
+  buildLog,
+  nilOrEmpty,
+  getQueryFromUrl,
+  markRoute,
+  findDeepMatch,
+} from '@/utils'
 
 import { ROOT_MENU, CHILD_MENU } from './constant'
 import Header from './Header'
@@ -18,7 +25,7 @@ import List from './List'
 import menuItemsData from './menuData'
 import { Wrapper } from './styles'
 
-import { getCurrentMenuItem, findPath, findDeep, markRoute } from './helper'
+import { getCurrentMenuItem, findPath, covertPathToURLQuery } from './helper'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviCatalog:index')
@@ -41,30 +48,31 @@ const NaviCatalog = ({
   const [viewPath, setViewPath] = useState([])
   // 当前选中状态的 path list 快照
   const [activePath, setActivePath] = useState([])
+  // 设置当前显示的目录项列表
   const [catalogItems, setCatalogItems] = useState(items)
 
   // sync state from URL query
+  // 同步 URL 上的状态, 注意这里的同步是客户端加载后的同步，没有，也没有必要使用 SSR
   useEffect(() => {
-    const pathQuery = getQueryFromUrl('path')
+    const pathQuery = getQueryFromUrl(URL_QUERY.NAVI_CATALOG_PATH)
     if (pathQuery) {
-      log('pathQuery -> ', pathQuery)
       const pathFromURL = findPath(items, pathQuery)
-      log('pathFromURL: ', pathFromURL)
-      const activeItem = findDeep(items, 'id', last(pathFromURL).id)
-      const isLastLevel = !activeItem?.childMenu
-      log('isLastLevel: ', isLastLevel)
+      // log('pathFromURL: ', pathFromURL)
+      const activeItem = findDeepMatch(items, 'id', last(pathFromURL).id)
+      const isLastLevel = nilOrEmpty(activeItem?.childMenu)
+      // log('isLastLevel: ', isLastLevel)
 
       if (!nilOrEmpty(pathFromURL)) {
         const curCatalogPath = [...pathFromURL]
-        if (isLastLevel) {
-          curCatalogPath.pop()
-        }
+        // 如果当前目录没有子项，则显示该层上一层的目录列表
+        if (isLastLevel) curCatalogPath.pop()
 
         setActivePath(curCatalogPath)
         setViewPath(curCatalogPath)
         setActiveCatalogId(activeItem.id)
         const menuItem = getCurrentMenuItem(curCatalogPath, items)
-        setCatalogItems(menuItem?.childMenu || [])
+        // 使用 items 是指 curCatalogPath 就在第一级的情况
+        setCatalogItems(menuItem?.childMenu || items)
       }
     }
   }, [items])
@@ -76,7 +84,7 @@ const NaviCatalog = ({
     setActivePath([])
     setViewPath([])
     setCatalogItems(items)
-    markRoute([])
+    markRoute(covertPathToURLQuery([]))
   }, [items])
 
   // 区别是主菜单还是子菜单，如果是 root 菜单则背景色是透明的
@@ -84,13 +92,14 @@ const NaviCatalog = ({
     nilOrEmpty(viewPath) ? setMenuMode(ROOT_MENU) : setMenuMode(CHILD_MENU)
   }, [viewPath, catalogItems])
 
+  // 定位到当前选中
   const handleLocate = useCallback(() => {
     const menuItem = getCurrentMenuItem(activePath, items)
     setCatalogItems(menuItem?.childMenu || items)
     setViewPath(activePath)
   }, [activePath, items])
 
-  // 返回特定目录
+  // 根据目录 id 返回到特定目录
   // dashboard 中的某一级目录，locate 目录等等
   const handleGoCatalog = useCallback(
     (catalogId) => {
@@ -130,7 +139,7 @@ const NaviCatalog = ({
         setActiveCatalogId(item.id)
         onSelect(item.id, item.displayType)
         setActivePath(viewPath)
-        markRoute(viewPath)
+        markRoute(covertPathToURLQuery([...viewPath, item]))
         return
       }
 

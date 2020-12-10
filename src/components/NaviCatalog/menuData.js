@@ -190,7 +190,7 @@ const menu = [
         icon: `${ICON_CMD}/navi/data.svg`,
       },
       {
-        id: 'fuck', // uid.gen(),
+        id: 'qkl', // uid.gen(),
         title: '区块链', // or move to 基础设施 ?
         icon: `${ICON_CMD}/navi/block-chain.svg`,
         childMenu: [],
@@ -552,7 +552,7 @@ const menu = [
     ],
   },
   {
-    id: uid.gen(),
+    id: 'ktd',
     title: '酷团队',
     icon: `${ICON_CMD}/navi/group.svg`,
     childMenu: [],

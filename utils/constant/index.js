@@ -15,6 +15,7 @@ export { default as VIEW } from './view'
 export { default as ANCHOR } from './anchor'
 export { default as METRIC } from './metric'
 export { default as SIZE } from './size'
+export { default as URL_QUERY } from './url_query'
 
 export { PAYMENT_USAGE, PAYMENT_METHOD } from './payment'
 
