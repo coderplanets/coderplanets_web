@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled, { css as styledCss } from 'styled-components'
 
-import { css } from '@/utils'
+import { animate, css } from '@/utils'
 
 import {
   Star1 as Star1Base,
@@ -14,7 +14,6 @@ const color = {
   roof: '#004758',
   roofLight: '#408298',
   beam: '#00CAF9',
-  light: 'orange',
 }
 
 const height = '140px'
@@ -51,8 +50,8 @@ export const Star4 = styled(Star3Base)`
 
 export const Light = styled.div`
   height: 45%;
-  width: 0.5%;
-  background: ${color.light};
+  width: 2px;
+  background: ${color.body};
   clip-path: circle(50% at 50% 100%);
   position: absolute;
   top: 15%;
@@ -64,13 +63,15 @@ export const Light = styled.div`
     position: absolute;
     content: '';
     top: 65%;
-    height: 10%;
-    width: 400%;
-    border-radius: 50%;
-    /* animation: light 2s infinite ease-in-out; */
-    background: ${color.light};
-    left: 50%;
-    transform: translate(-55%, 0);
+    height: 8%;
+    width: 250%;
+    border-radius: 100%;
+    background: ${color.beam};
+
+    animation: ${({ active }) =>
+      active ? styledCss`${animate.breath} 1s linear infinite` : 'none'};
+
+    transform: translate(-30%, 0);
   }
 `
 export const Roof = styled.div`
