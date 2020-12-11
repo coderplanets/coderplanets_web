@@ -35,9 +35,6 @@ const Footer = T.model('Footer', {
     sponsorHepler() {
       self.showSponsor = true
     },
-    membershipHelper() {
-      self.root.membershipHelper()
-    },
     closeSponsor() {
       self.showSponsor = false
     },

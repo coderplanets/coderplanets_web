@@ -49,9 +49,6 @@ const UserBilling = T.model('UserBilling', {
     },
   }))
   .actions((self) => ({
-    membershipHelper() {
-      self.root.membershipHelper()
-    },
     sponsorHepler() {
       self.root.sponsorHepler()
     },

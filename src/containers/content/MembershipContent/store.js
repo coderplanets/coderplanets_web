@@ -98,9 +98,6 @@ const MembershipContent = T.model('MembershipContent', {
     cashierHelper(opt) {
       self.root.cashierHelper(opt)
     },
-    membershipHelper() {
-      self.show = true
-    },
     mark(sobj) {
       markStates(sobj, self)
     },

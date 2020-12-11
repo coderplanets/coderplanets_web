@@ -32,9 +32,6 @@ const UserSettings = T.model('UserSettings', {})
     updateC11N(option) {
       self.root.updateC11N(option)
     },
-    membershipHelper() {
-      self.root.membershipHelper()
-    },
     sponsorHepler() {
       self.root.sponsorHepler()
     },

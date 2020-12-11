@@ -277,9 +277,6 @@ const rootStore = T.model({
     updateViewingIfNeed(type, sobj) {
       self.viewing.updateViewingIfNeed(type, sobj)
     },
-    membershipHelper() {
-      self.membershipContent.membershipHelper()
-    },
     sponsorHepler() {
       self.footer.sponsorHepler()
     },

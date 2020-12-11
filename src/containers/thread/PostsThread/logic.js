@@ -122,8 +122,6 @@ export const onAdsClose = () => {
   if (store.isMemberOf('seniorMember') || store.isMemberOf('sponsorMember')) {
     return log('do custom ads')
   }
-
-  store.membershipHelper()
 }
 
 const loadCityCommunities = () => {

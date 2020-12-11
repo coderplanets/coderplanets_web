@@ -53,7 +53,6 @@ export const onLogout = () => {
 }
 
 export const openDoraemon = () => store.openDoraemon()
-export const membershipHelper = () => store.membershipHelper()
 
 export const openC11NPanel = () => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.C11N_SETTINGS })

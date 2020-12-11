@@ -87,9 +87,6 @@ const HeaderStore = T.model('HeaderStore', {
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
-    membershipHelper() {
-      self.root.membershipHelper()
-    },
     toast(type, options) {
       self.root.toast(type, options)
     },
