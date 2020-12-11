@@ -1,5 +1,5 @@
 /*
- * UpgradeContent store
+ * MembershipContent store
  *
  */
 
@@ -11,9 +11,9 @@ import { markStates, buildLog } from '@/utils'
 import { PACKAGE, PAY } from './constant'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:UpgradeContent')
+const log = buildLog('S:MembershipContent')
 
-const UpgradeContent = T.model('UpgradeContent', {
+const MembershipContent = T.model('MembershipContent', {
   payType: T.optional(T.enumeration(values(PAY)), PAY.YEARLY),
   pkgType: T.optional(T.enumeration(values(PACKAGE)), PACKAGE.ADVANCE),
 })
@@ -98,7 +98,7 @@ const UpgradeContent = T.model('UpgradeContent', {
     cashierHelper(opt) {
       self.root.cashierHelper(opt)
     },
-    upgradeHelper() {
+    membershipHelper() {
       self.show = true
     },
     mark(sobj) {
@@ -106,4 +106,4 @@ const UpgradeContent = T.model('UpgradeContent', {
     },
   }))
 
-export default UpgradeContent
+export default MembershipContent

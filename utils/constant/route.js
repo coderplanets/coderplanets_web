@@ -31,7 +31,7 @@ const ROUTE = {
   FRIENDS: 'friends',
   RECIPES: 'recipes',
   SUBSCRIBE: 'subscribe',
-  UPGRADE: 'upgrade',
+  MEMBERSHIP: 'membership',
 }
 
 export default ROUTE

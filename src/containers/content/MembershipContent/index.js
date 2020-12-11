@@ -1,6 +1,6 @@
 /*
  *
- * UpgradeContent
+ * MembershipContent
  *
  */
 
@@ -42,7 +42,7 @@ import {
 import { useInit, pkgTypeOnChange, payTypeOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:UpgradeContent')
+const log = buildLog('C:MembershipContent')
 
 const PayButton = ({ pkgType, payType }) => {
   if (pkgType === PACKAGE.GIRL) {
@@ -60,7 +60,11 @@ const PayButton = ({ pkgType, payType }) => {
   )
 }
 
-const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
+const MembershipContentContainer = ({
+  membershipContent: store,
+  testId,
+  metric,
+}) => {
   useInit(store)
 
   const { payType, pkgType, dashboardItems } = store
@@ -140,14 +144,14 @@ const UpgradeContentContainer = ({ upgradeContent: store, testId, metric }) => {
   )
 }
 
-UpgradeContentContainer.propTypes = {
-  upgradeContent: T.any.isRequired,
+MembershipContentContainer.propTypes = {
+  membershipContent: T.any.isRequired,
   metric: T.string.isRequired,
   testId: T.string,
 }
 
-UpgradeContentContainer.defaultProps = {
-  testId: 'upgrade-content',
+MembershipContentContainer.defaultProps = {
+  testId: 'membership-content',
 }
 
-export default connectStore(UpgradeContentContainer)
+export default connectStore(MembershipContentContainer)

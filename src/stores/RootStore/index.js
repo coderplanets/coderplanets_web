@@ -97,7 +97,7 @@ import {
   ArticleEditorStore,
   WorksEditorStore,
   UserProfileStore,
-  UpgradeContentStore,
+  MembershipContentStore,
   ArticleFooterStore,
   ArticleStickerStore,
   ModeLineMenuStore,
@@ -213,7 +213,7 @@ const rootStore = T.model({
   articleEditor: T.optional(ArticleEditorStore, {}),
   worksEditor: T.optional(WorksEditorStore, {}),
   userProfile: T.optional(UserProfileStore, {}),
-  upgradeContent: T.optional(UpgradeContentStore, {}),
+  membershipContent: T.optional(MembershipContentStore, {}),
   articleFooter: T.optional(ArticleFooterStore, {}),
   articleSticker: T.optional(ArticleStickerStore, {}),
   modeLineMenu: T.optional(ModeLineMenuStore, {}),
@@ -277,14 +277,14 @@ const rootStore = T.model({
     updateViewingIfNeed(type, sobj) {
       self.viewing.updateViewingIfNeed(type, sobj)
     },
-    upgradeHelper() {
-      self.upgradePackages.upgradeHelper()
+    membershipHelper() {
+      self.membershipContent.membershipHelper()
     },
     sponsorHepler() {
       self.footer.sponsorHepler()
     },
     cashierHelper(opt) {
-      self.upgradePackages.close()
+      self.membershipContent.close()
       self.footer.closeSponsor()
       self.cashier.callCashier(opt)
     },

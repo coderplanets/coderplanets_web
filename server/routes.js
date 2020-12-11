@@ -43,8 +43,8 @@ router.route('/friends/:slug?').get((req, res) => {
 })
 
 // 升级账户
-router.route('/upgrade/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, path: '/upgrade' })
+router.route('/membership/:slug?').get((req, res) => {
+  return renderAndCache({ req, res, path: '/membership' })
 })
 
 // 社区订阅

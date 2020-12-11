@@ -38,7 +38,7 @@ const HeaderStore = T.model('HeaderStore', {
         METRIC.FRIENDS,
         METRIC.SUBSCRIBE,
         METRIC.ARTICLE,
-        METRIC.UPGRADE,
+        METRIC.MEMBERSHIP,
         METRIC.USER,
         METRIC.COMMUNITY_EDITOR,
       ])
@@ -87,8 +87,8 @@ const HeaderStore = T.model('HeaderStore', {
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
-    upgradeHelper() {
-      self.root.upgradeHelper()
+    membershipHelper() {
+      self.root.membershipHelper()
     },
     toast(type, options) {
       self.root.toast(type, options)

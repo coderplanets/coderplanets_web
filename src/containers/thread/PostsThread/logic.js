@@ -123,7 +123,7 @@ export const onAdsClose = () => {
     return log('do custom ads')
   }
 
-  store.upgradeHelper()
+  store.membershipHelper()
 }
 
 const loadCityCommunities = () => {

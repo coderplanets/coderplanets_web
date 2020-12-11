@@ -45,7 +45,7 @@
       "maxSize": "280 kB"
     },
     {
-      "path": ".next/server/pages/upgrade.js",
+      "path": ".next/server/pages/membership.js",
       "maxSize": "250 kB"
     },
     {

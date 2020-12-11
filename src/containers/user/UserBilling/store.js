@@ -49,8 +49,8 @@ const UserBilling = T.model('UserBilling', {
     },
   }))
   .actions((self) => ({
-    upgradeHelper() {
-      self.root.upgradeHelper()
+    membershipHelper() {
+      self.root.membershipHelper()
     },
     sponsorHepler() {
       self.root.sponsorHepler()

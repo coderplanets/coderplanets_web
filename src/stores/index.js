@@ -98,7 +98,7 @@ export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/sto
 // GEN: EXPORT CONTAINERS STORE HERE
 export { default as ArticleEditorStore } from '@/containers/editor/ArticleEditor/store'
 export { default as UserProfileStore } from '@/containers/user/UserProfile/store'
-export { default as UpgradeContentStore } from '@/containers/content/UpgradeContent/store'
+export { default as MembershipContentStore } from '@/containers/content/MembershipContent/store'
 export { default as ArticleFooterStore } from '@/containers/unit/ArticleFooter/store'
 export { default as ArticleStickerStore } from '@/containers/tool/ArticleSticker/store'
 export { default as ModeLineMenuStore } from '@/containers/unit/ModeLineMenu/store'
