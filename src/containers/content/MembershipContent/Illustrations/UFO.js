@@ -22,7 +22,7 @@ const UFO = ({ active }) => {
       <Star2 src={`${ICON}/shape/star.svg`} active={active} />
       <Star3 src={`${ICON}/shape/star.svg`} active={active} />
       <Star4 src={`${ICON}/shape/star.svg`} active={active} />
-      <Light />
+      <Light active={active} />
       <Roof />
       <Body />
       <Undercarriage />

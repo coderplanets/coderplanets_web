@@ -77,7 +77,7 @@ const MoreContent = () => {
         <Entry>
           <Main>
             <Logo src={`${ICON}/menu/ear.svg`} />
-            <Link href={`/${ROUTE.UPGRADE}`} passHref>
+            <Link href={`/${ROUTE.MEMBERSHIP}`} passHref>
               <Title>建议与反馈</Title>
             </Link>
           </Main>

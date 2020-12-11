@@ -67,7 +67,7 @@ export const WIDTH = {
     CONTENT: '1080px',
   },
 
-  UPGRADE: {
+  MEMBERSHIP: {
     CONTENT: '1080px',
   },
 

@@ -8,7 +8,7 @@ import { ROUTE, METRIC } from '@/constant'
 import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 import { P } from '@/schemas'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import UpgradeContent from '@/containers/content/UpgradeContent'
+import MembershipContent from '@/containers/content/MembershipContent'
 
 import { useStore } from '@/stores/init'
 
@@ -63,15 +63,15 @@ const SponsorPage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.UPGRADE}`,
+    url: `${SITE_URL}/${ROUTE.MEMBERSHIP}`,
     title: '起飞 | coderplanets',
-    description: '账户升级',
+    description: 'coderplanets 会员',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.UPGRADE} seoConfig={seoConfig} noSidebar>
-        <UpgradeContent />
+      <GlobalLayout metric={METRIC.MEMBERSHIP} seoConfig={seoConfig} noSidebar>
+        <MembershipContent />
       </GlobalLayout>
     </Provider>
   )

@@ -23,11 +23,7 @@ import {
   LinkItem,
 } from '../../styles/desktop_view/digest_view'
 
-import {
-  toggleSponsorHelper,
-  toggleBusBanner,
-  toggleSeniorHelper,
-} from '../../logic'
+import { toggleBusBanner } from '../../logic'
 
 const DigestView = ({ layout, metric }) => {
   const theme = useTheme()
@@ -87,12 +83,12 @@ const DigestView = ({ layout, metric }) => {
           <Column>
             <Title>增值服务</Title>
             <Body>
-              <Item as="span" normal onClick={toggleSeniorHelper}>
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
                 成为会员
-              </Item>
-              <Item as="span" normal onClick={toggleSponsorHelper}>
-                打赏支持
-              </Item>
+              </LinkItem>
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+                打赏支持(todo)
+              </LinkItem>
             </Body>
           </Column>
 
