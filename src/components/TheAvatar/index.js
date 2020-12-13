@@ -6,10 +6,13 @@
 
 import React from 'react'
 import T from 'prop-types'
+import { values } from 'ramda'
 
 import { buildLog } from '@/utils'
+import { TYPE } from './constant'
 
 import PostItemAvatar from './PostItemAvatar'
+import ArticleAuthorAvatar from './ArticleAuthorAvatar'
 
 import { Wrapper } from './styles'
 
@@ -18,10 +21,12 @@ const log = buildLog('c:TheAvatar:index')
 
 const TheAvatar = ({ testId, user, metric, onSelect }) => {
   switch (metric) {
-    case 'post-item': {
+    case TYPE.POST_ITEM: {
       return <PostItemAvatar user={user} onSelect={onSelect} />
     }
-
+    case TYPE.ARTICLE_AUTHOR: {
+      return <ArticleAuthorAvatar user={user} onSelect={onSelect} />
+    }
     default: {
       return (
         <Wrapper testId={testId}>
@@ -34,7 +39,7 @@ const TheAvatar = ({ testId, user, metric, onSelect }) => {
 
 TheAvatar.propTypes = {
   testId: T.string,
-  metric: T.oneOf(['post-item', 'article-author']),
+  metric: T.oneOf(values(TYPE)),
   user: T.shape({
     avatar: T.string,
     nickname: T.string,
@@ -45,7 +50,7 @@ TheAvatar.propTypes = {
 
 TheAvatar.defaultProps = {
   testId: 'the-avatar',
-  metric: 'post-item',
+  metric: TYPE.POST_ITEM,
   onSelect: log,
 }
 
