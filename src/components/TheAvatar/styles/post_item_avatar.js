@@ -21,9 +21,9 @@ export const Tail = styled(Img)`
   position: absolute;
   fill: #257f7c; // ${theme('thread.articleDigest')};
   opacity: 0.8;
-  ${css.size(18)};
+  ${css.size(16)};
   top: 24px;
-  left: -3px;
-  transform: rotate(-12deg);
+  left: -2px;
+  transform: rotate(-10deg);
   z-index: 1;
 `
