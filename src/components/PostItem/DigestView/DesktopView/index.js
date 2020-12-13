@@ -2,12 +2,12 @@ import React from 'react'
 
 import { ICON_BASE } from '@/config'
 
-import ImgFallback from '@/components/ImgFallback'
+import TheAvatar from '@/components/TheAvatar'
 
 import Header from './Header'
 import Body from './Body'
 
-import { AvatarWrapper, Avatar, Main } from '../../styles/digest_view/index'
+import { Avatar, Main } from '../../styles/digest_view/index'
 
 const DigestView = ({
   entry,
@@ -20,12 +20,7 @@ const DigestView = ({
   return (
     <React.Fragment>
       {cover === 'avatar' ? (
-        <AvatarWrapper onClick={() => onAuthorSelect(entry.author)}>
-          <Avatar
-            src={entry.author.avatar}
-            fallback={<ImgFallback user={entry.author} size={38} top={2} />}
-          />
-        </AvatarWrapper>
+        <TheAvatar user={entry.author} onSelect={onAuthorSelect} />
       ) : (
         <Avatar
           src={entry.linkIcon || `${ICON_BASE}/radar_source/default_radar.svg`}

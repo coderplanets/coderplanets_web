@@ -22,7 +22,7 @@ export const getLiSize = (size) => {
 export const getAvatarSize = (size, fmt = 'string') => {
   switch (size) {
     case SIZE.SMALL: {
-      return fmt === 'string' ? '25px' : 25
+      return fmt === 'string' ? '24px' : 24
     }
 
     case SIZE.MEDIUM: {
@@ -42,7 +42,7 @@ export const getTotalCountSize = (total) => {
 }
 
 export const getMoreTextWidth = (total) => {
-  if (total < 10) return '24px'
+  if (total < 10) return '23px'
   if (total >= 10 && total <= 99) return '32px'
   if (total >= 100 && total <= 999) return '44px'
 

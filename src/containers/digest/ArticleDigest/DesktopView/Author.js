@@ -1,17 +1,14 @@
 import React from 'react'
 
 import { Button } from '@/components/Buttons'
-import ImgFallback from '@/components/ImgFallback'
+import TheAvatar from '@/components/TheAvatar'
 
-import { Wrapper, Avatar, Name } from '../styles/desktop_view/author'
+import { Wrapper, Name } from '../styles/desktop_view/author'
 
 const Author = ({ user }) => {
   return (
     <Wrapper>
-      <Avatar
-        src={user.avatar}
-        fallback={<ImgFallback user={user} size={36} />}
-      />
+      <TheAvatar user={user} metric="article-author" />
       <Name>{user.nickname}</Name>
       <Button size="tiny" ghost>
         &nbsp;关&nbsp;&nbsp;注&nbsp;
