@@ -14,5 +14,5 @@ export const Icon = styled(Img)`
 
   ${css.size(18)};
 
-  ${css.smokey};
+  ${css.smokey()};
 `

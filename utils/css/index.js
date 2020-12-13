@@ -13,8 +13,8 @@ import { flex, flexGrow, flexColumn, flexColumnGrow } from './flex'
 import { circle, size } from './shape'
 import zIndex from './zindex'
 
-const smokey = (opt = 0.6) => `
-  opacity: ${opt};
+const smokey = (initOpacity = 0.6) => `
+  opacity: ${initOpacity};
 
   &:hover {
     opacity: 1;
