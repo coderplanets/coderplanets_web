@@ -68,6 +68,7 @@ const threadTitleHover = () => {
 }
 
 const zIndex = {
+  img: 2,
   header: 3,
   popover: 2000,
   modalOverlay: 2500,
