@@ -19,7 +19,7 @@ export const Icon = styled(Img)`
     viewerDid ? theme('comment.didIcon') : theme('comment.icon')};
 
   ${css.size(18)};
-  ${css.smokey};
+  ${css.smokey()};
 
   ${css.media.mobile`
     ${css.size(15)};

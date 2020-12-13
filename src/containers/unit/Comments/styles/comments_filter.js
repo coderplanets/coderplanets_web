@@ -7,7 +7,7 @@ export const FilterWraper = styled.div`
   margin-right: 8px;
   margin-top: 8px;
   display: ${({ show }) => (show ? 'block' : 'none')};
-  ${css.smokey};
+  ${css.smokey()};
 
   ${css.media.mobile`
     margin-right: 0;

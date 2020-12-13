@@ -10,5 +10,5 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const Tag = styled.div`
-  ${css.smokey()};
+  ${css.smokey()()};
 `
