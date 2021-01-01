@@ -1465,9 +1465,10 @@
   version "1.3.1"
   resolved "https://registry.npm.taobao.org/@editorjs/inline-code/download/@editorjs/inline-code-1.3.1.tgz#4890e30d00dcaeacafbcb30459309dfd740b0d4b"
 
-"@editorjs/list@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.npm.taobao.org/@editorjs/list/download/@editorjs/list-1.4.0.tgz#e92459a8ac2305bc4385245e329c8b5c8437456a"
+"@editorjs/list@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@editorjs/list/-/list-1.6.1.tgz#1ca397bb687457ecc50c98a473338470a58d8df8"
+  integrity sha512-9f24qApHmvUOq1tvAmwYS2dQIh1LGwsWJFVYNci0R4HIES848kmspfUS8p1ATJv2msogugeFDz1k3KQ5fZSCzw==
 
 "@editorjs/marker@^1.2.1":
   version "1.2.2"
