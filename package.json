@@ -86,7 +86,7 @@
     "mobile-device-detect": "^0.4.3",
     "mobx": "6.0.4",
     "mobx-react": "7.0.0",
-    "mobx-react-lite": "3.0.1",
+    "mobx-react-lite": "3.1.6",
     "mobx-state-tree": "4.0.1-rc.1",
     "module-alias": "^2.0.1",
     "nanoid": "^3.1.12",

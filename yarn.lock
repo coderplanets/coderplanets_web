@@ -8940,9 +8940,10 @@ mobile-device-detect@^0.4.3:
   version "0.4.3"
   resolved "https://registry.npm.taobao.org/mobile-device-detect/download/mobile-device-detect-0.4.3.tgz#05d73b4bde7ccb5beda1c4bd0ea0986ce30b1f3f"
 
-mobx-react-lite@3.0.1, mobx-react-lite@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.npm.taobao.org/mobx-react-lite/download/mobx-react-lite-3.0.1.tgz#417f54a819d1e3e00c073077f29373399c95b005"
+mobx-react-lite@3.1.6, mobx-react-lite@^3.0.0:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-3.1.6.tgz#e7f4809ab66edd1acca5adb00c6b88c600ae1952"
+  integrity sha512-MM3x9BLt5nC7iE/ILA5n2+hfrplEKYbFjqROEuGkzBdZP/KD+Z44+2gseczRrTG0xFuiPWfEzgT68+6/zqOiEw==
 
 mobx-react@7.0.0:
   version "7.0.0"
