@@ -107,7 +107,6 @@ export {
   lockPage,
   unlockPage,
   focusDoraemonBar,
-  blurDoraemonBar,
   hideDoraemonBarRecover,
   isBrowser,
   toggleGlobalBlur,

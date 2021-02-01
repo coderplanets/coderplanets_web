@@ -30,6 +30,13 @@ export const isObject = (value) => {
   return value != null && (type === 'object' || type === 'function')
 }
 
+/**
+ * judge if given thing is string
+ *
+ * @param {*} value
+ * @return {Boolean}
+ * @returns
+ */
 export const isString = (value) => {
   if (typeof value === 'string' || value instanceof String) {
     return true
