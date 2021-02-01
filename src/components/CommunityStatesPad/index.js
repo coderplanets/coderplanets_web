@@ -18,7 +18,7 @@ import {
   Wrapper,
   NumberSection,
   ContentSection,
-  EditorSection,
+  VolunteerSection,
   ChargeSection,
   NumberDivider,
   NumberTitle,
@@ -76,10 +76,10 @@ const CommunityStatesPad = ({
         />
       </ContentSection>
       <NumberDivider />
-      <EditorSection>
-        <NumberTitle readOnly>编辑</NumberTitle>
+      <VolunteerSection alignCenter={editorsCount < 99}>
+        <NumberTitle readOnly>志愿者</NumberTitle>
         <NumberGroup onClick={onShowEditorList} count={editorsCount} />
-      </EditorSection>
+      </VolunteerSection>
       {!withoutFounding && (
         <>
           <NumberDivider />

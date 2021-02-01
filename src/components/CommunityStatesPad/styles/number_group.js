@@ -39,7 +39,6 @@ export const NumberItem = styled.div`
   `};
 `
 export const LargeNumberItem = styled(NumberItem)`
-  font-size: 28px;
+  font-size: 24px;
   margin-top: -4px;
-  margin-right: 3px;
 `
