@@ -5,6 +5,10 @@ const hasDocument = typeof document === 'object' && document !== null
 const hasWindow =
   typeof window === 'object' && window !== null && window.self === window
 
+/**
+ * check is client side or not
+ * @returns {Boolean}
+ */
 export const isBrowser = () => hasDocument && hasWindow
 const getDocument = () => (isBrowser() ? document : null)
 
@@ -47,6 +51,7 @@ export const scrollToTabber = () => scrollIntoEle(ANCHOR.GLOBAL_TABBER_ID)
 
 /**
  * froze page's body element
+ * @returns {void}
  */
 export const lockPage = () => {
   const safeDocument = getDocument()
@@ -60,6 +65,7 @@ export const lockPage = () => {
 
 /**
  * unfroze page's body element
+ * @returns {void}
  */
 export const unlockPage = () => {
   const safeDocument = getDocument()
@@ -71,6 +77,10 @@ export const unlockPage = () => {
   }
 }
 
+/**
+ * focus on the open doraemon bar
+ * @returns {void}
+ */
 export const focusDoraemonBar = () => {
   const safeDocument = getDocument()
 
@@ -85,32 +95,20 @@ export const focusDoraemonBar = () => {
         // eslint-disable-next-line no-console
         console.error(e)
       }
-    }, 0)
+    })
   }
 }
 
-export const blurDoraemonBar = () => {
-  const safeDocument = getDocument()
-
-  if (safeDocument) {
-    setTimeout(() => {
-      try {
-        safeDocument.getElementById('doraemonInputbar').blur()
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error(e)
-      }
-    }, 0)
-  }
-}
-
+/**
+ * onBlur will on focus the whole page, if not use this
+ * openDoraemon will not work until you click the page
+ *
+ * @returns {void}
+ */
 export const hideDoraemonBarRecover = () => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
-    // side effect
-    // onBlur will on focus the whole page, if not use this
-    // openDoraemon will not work until you click the page
     document.getElementById('whereCallShowDoraemon').click()
   }
 }
@@ -118,8 +116,10 @@ export const hideDoraemonBarRecover = () => {
 /**
  * toggle global blurable elements, and lock page
  * 注意不能全局 blur 根元素，会和 position: fixed 冲突
- * see issue: https://stackoverflow.com/questions/52937708/css-filter-on-parent-breaks-child-positioning
- * @param {boolean} visible
+ * @see @link https://stackoverflow.com/questions/52937708/css-filter-on-parent-breaks-child-positioning
+ *
+ * @param {Boolean} visible
+ * @returns {void}
  */
 export const toggleGlobalBlur = (visible) => {
   const blurableEls = document.querySelectorAll(`.${ANCHOR.GLOBAL_BLUR_CLASS}`)
@@ -133,7 +133,10 @@ export const toggleGlobalBlur = (visible) => {
   }
 }
 
-// make global blur more clear, not still blur
+/**
+ * make global blur more clear, not still blur
+ * @returns {void}
+ */
 export const clearGlobalBlur = () => {
   const blurableEls = document.querySelectorAll(`.${ANCHOR.GLOBAL_BLUR_CLASS}`)
 
@@ -146,10 +149,15 @@ export const clearGlobalBlur = () => {
   }
 }
 
-// only judge verticle
-// under the CustomScroller, the trandition inViewport method is not work
-// NOTE:  在 CustomScroller 的情况下，传统的判断 inViewport 的方法行不通
-// 只需简单判断当前 el 的高度和已经滑动的距离即可
+/**
+ * only judge verticle
+ * under the CustomScroller, the trandition inViewport method is not work
+ * NOTE:  在 CustomScroller 的情况下，传统的判断 inViewport 的方法行不通
+ * 只需简单判断当前 el 的高度和已经滑动的距离即可
+ *
+ * @param {HTMLElement} el
+ * @returns
+ */
 export const isElementInViewport = (el) => {
   if (!el) return false
   const rect = el.getBoundingClientRect()
@@ -164,9 +172,9 @@ export const isElementInViewport = (el) => {
  * example:
  * pixelAdd('20px', 10) => 30px
  *
- * @param {string} current
- * @param {number} num
- * @returns {string}
+ * @param {String} current
+ * @param {Number} num
+ * @returns {String}
  */
 export const pixelAdd = (current, num) => {
   const pixelNum = Number(current.slice(0, -2))
@@ -176,11 +184,11 @@ export const pixelAdd = (current, num) => {
 
 /**
  * check if child is descendant of the parent node
- * see https://stackoverflow.com/questions/2234979/how-to-check-in-javascript-if-one-element-is-contained-within-another
+ * @see @link https://stackoverflow.com/questions/2234979/how-to-check-in-javascript-if-one-element-is-contained-within-another
  *
  * @param {HTMLElement} parent
  * @param {HTMLElement} child
- * @returns
+ * @returns {Boolean}
  */
 export const isDescendant = (parent, child) => {
   let node = child.parentNode

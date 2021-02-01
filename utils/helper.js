@@ -35,6 +35,12 @@ export const sortByColor = (source) =>
     source,
   )
 
+/**
+ * sort the array by it's index
+ *
+ * @param {[any]} source - any array contains item with index
+ * @returns {[any]}
+ */
 export const sortByIndex = (source) => sort((a, b) => a.index - b.index, source)
 
 /* eslint-disable */
@@ -98,7 +104,7 @@ export const countWords = (str) => {
 }
 
 /**
- * publish event message
+ * publish event message, 'send' inspired by Elixir
  *
  * @param {string} msg
  * @param {object} [data={}]
@@ -108,8 +114,6 @@ export const send = (msg, data = {}) => {
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
 }
-
-// TODO:  move to eventShortCuts
 
 /**
  * shortcut for close Drawer

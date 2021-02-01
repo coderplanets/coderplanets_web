@@ -26,7 +26,8 @@ export const NumberSection = styled.div`
 export const ContentSection = styled(NumberSection)`
   ${css.media.mobile`display: none`};
 `
-export const EditorSection = styled(NumberSection)`
+export const VolunteerSection = styled(NumberSection)`
+  align-items: ${({ alignCenter }) => (alignCenter ? 'center' : 'flex-end')};
   ${css.media.mobile`display: none`};
 `
 export const ChargeSection = styled(NumberSection)`
@@ -47,11 +48,12 @@ export const NumberTitle = styled.div`
 export const NumberDivider = styled.div`
   border: 1px solid;
   border-color: ${theme('banner.numberDivider')};
-  height: 34px;
+  height: 20px;
   align-self: flex-end;
   margin-left: 10px;
   margin-right: 10px;
-  margin-bottom: 3px;
+  margin-bottom: 15px;
+
   ${css.media.tablet`
     margin-left: 5px;
     margin-right: 5px;
