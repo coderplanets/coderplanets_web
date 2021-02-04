@@ -52,27 +52,32 @@ jobs:
       - name: debug dir
         run: ls; ls backend_server
       - uses: actions/checkout@v2
+        with:
+        fetch-depth: 0
+        repository: 'coderplanets/coderplanets_web'
+        # Relative path under $GITHUB_WORKSPACE to place the repository
+        path: 'frontend_server'
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       # - name: Install Packages
       #   run: yarn
       - name: Setup config tools
+        working-directory: ./frontend_server
         run: chmod +x ./utils/bin/jq-linux; ./utils/bin/jq-linux -s '.[0] * .[1]' config/config.json config/config.ci.json > /tmp/config.json; cp /tmp/config.json ./config/config.json
       # - name: Build Project
       #   run: npm run build.ci
       # - name: Check Bundle Size
       #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
-      - name: debug dir
+      - name: ls frontend_server
+        working-directory: ./frontend_server
         run: ls
-      - name: debug server dir
-        run: ls ./backend_server
+      - name: ls ..
+        working-directory: ./frontend_server
+        run: ls ..; ls backend_server
       - name: Run Backend Server
-        run: cd backend_server; MIX_ENV=ci mix phx.server &
+        working-directory: ./backend_server
+        run: MIX_ENV=ci mix phx.server &
   # setup-front:
   #   name: Setup Web Front
   #   runs-on: ubuntu-latest
