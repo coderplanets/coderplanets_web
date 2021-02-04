@@ -71,5 +71,5 @@ jobs:
         run: npm run build.ci
       - name: Check Bundle Size
         run: npm run size.check
-      - name: Run Tests
-        run: npm run test:ci
+      # - name: Run Tests
+      #   run: npm run test:ci
