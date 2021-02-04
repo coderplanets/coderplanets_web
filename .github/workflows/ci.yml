@@ -58,7 +58,7 @@ jobs:
   setup-front:
     name: Setup Web Front
     runs-on: ubuntu-latest
-    needs: setup-server
+    needs: setup-backend-server
     steps:
       - uses: actions/checkout@v2
         with:
