@@ -41,7 +41,7 @@ jobs:
           key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
       - name: deps.get
-        run: mix deps.get > /dev/null
+        run: cd server; mix deps.get > /dev/null
       - name: set up test server
         run: MIX_ENV=ci mix ecto.setup > /dev/null
       - name: seed test data
