@@ -41,11 +41,14 @@ jobs:
           key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
       - name: deps.get
-        run: cd server; mix deps.get > /dev/null
+        working-directory: ./server
+        run: mix deps.get > /dev/null
       - name: set up test server
-        run: cd server; MIX_ENV=ci mix ecto.setup > /dev/null
+        working-directory: ./server
+        run: MIX_ENV=ci mix ecto.setup > /dev/null
       - name: seed test data
-        run: cd server; MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
+        working-directory: ./server
+        run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
 
   setup-front:
     name: Setup Web Front
@@ -70,6 +73,7 @@ jobs:
       - name: Check Bundle Size
         run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
       - name: Run Backend Server
-        run: cd server; MIX_ENV=ci mix phx.server &
+        working-directory: ./server
+        run: MIX_ENV=ci mix phx.server
       - name: Run Tests
         run: npm run test:ci
