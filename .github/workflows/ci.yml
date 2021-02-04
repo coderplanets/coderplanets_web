@@ -49,8 +49,8 @@ jobs:
       - name: seed test data
         working-directory: ./backend_server
         run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
-      - name: debug dir
-        run: ls; ls ../backend_server
+      - name: ls dir
+        run: ls
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
