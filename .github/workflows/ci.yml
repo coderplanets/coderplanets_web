@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0
           repository: 'coderplanets/coderplanets_server'
           # Relative path under $GITHUB_WORKSPACE to place the repository
-          path: 'server'
+          path: 'backend_server'
       - name: Set up Elixir and OTP
         uses: actions/setup-elixir@v1
         with:
@@ -41,13 +41,13 @@ jobs:
           key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
       - name: deps.get
-        working-directory: ./server
+        working-directory: ./backend_server
         run: mix deps.get > /dev/null
       - name: set up test server
-        working-directory: ./server
+        working-directory: ./backend_server
         run: MIX_ENV=ci mix ecto.setup > /dev/null
       - name: seed test data
-        working-directory: ./server
+        working-directory: ./backend_server
         run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
 
   setup-front:
@@ -64,14 +64,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Install Packages
-        run: yarn
+      # - name: Install Packages
+      #   run: yarn
       - name: Setup config tools
         run: chmod +x ./utils/bin/jq-linux; ./utils/bin/jq-linux -s '.[0] * .[1]' config/config.json config/config.ci.json > /tmp/config.json; cp /tmp/config.json ./config/config.json
-      - name: Build Project
-        run: npm run build.ci
-      - name: Check Bundle Size
-        run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
+      # - name: Build Project
+      #   run: npm run build.ci
+      # - name: Check Bundle Size
+      #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
       - name: Set up Elixir and OTP
         uses: actions/setup-elixir@v1
         with:
@@ -80,8 +80,8 @@ jobs:
       - name: debug dir
         run: ls
       - name: debug server dir
-        run: ls ./server
+        run: ls ./backend_server
       - name: Run Backend Server
-        run: cd server; MIX_ENV=ci mix phx.server &
+        run: cd backend_server; MIX_ENV=ci mix phx.server &
       # - name: Run Tests
       #   run: npm run test:ci
