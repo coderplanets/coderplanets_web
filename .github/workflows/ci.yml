@@ -43,8 +43,8 @@ jobs:
       - name: deps.get
         run: cd server; mix deps.get > /dev/null
       - name: set up test server
-        run: MIX_ENV=ci mix ecto.setup > /dev/null
+        run: cd server; MIX_ENV=ci mix ecto.setup > /dev/null
       - name: seed test data
-        run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
+        run: cd server; MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
       - name: running server
-        run: MIX_ENV=ci mix phx.server &
+        run: cd server; MIX_ENV=ci mix phx.server &
