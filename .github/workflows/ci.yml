@@ -67,11 +67,6 @@ jobs:
       #   run: npm run build.ci
       # - name: Check Bundle Size
       #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
-      - name: Set up Elixir and OTP
-        uses: actions/setup-elixir@v1
-        with:
-          elixir-version: '1.10.3' # Define the elixir version [required]
-          otp-version: '22.3' # Define the OTP version [required]
       - name: debug dir
         run: ls
       - name: debug server dir
