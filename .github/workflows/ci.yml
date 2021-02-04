@@ -49,6 +49,8 @@ jobs:
       - name: seed test data
         working-directory: ./backend_server
         run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
+      - name: debug dir
+        run: ls
 
   setup-front:
     name: Setup Web Front
