@@ -69,12 +69,7 @@ jobs:
         run: npm run build.ci
       - name: Check Bundle Size
         run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
-        # uses: jackyef/bundlewatch-gh-action@master
-        # with:
-        #   build-script:  npm run size.check
-        #   bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
-
-      # - name: Run Backend Server
-      #   run: cd server; MIX_ENV=ci mix phx.server &
-      # - name: Run Tests
-      #   run: npm run test:ci
+      - name: Run Backend Server
+        run: cd server; MIX_ENV=ci mix phx.server &
+      - name: Run Tests
+        run: npm run test:ci
