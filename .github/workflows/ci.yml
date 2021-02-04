@@ -50,14 +50,7 @@ jobs:
         working-directory: ./backend_server
         run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
       - name: debug dir
-        run: ls
-
-  setup-front:
-    name: Setup Web Front
-    runs-on: ubuntu-latest
-    needs: setup-server
-
-    steps:
+        run: ls; ls backend_server
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -85,5 +78,37 @@ jobs:
         run: ls ./backend_server
       - name: Run Backend Server
         run: cd backend_server; MIX_ENV=ci mix phx.server &
-      # - name: Run Tests
-      #   run: npm run test:ci
+  # setup-front:
+  #   name: Setup Web Front
+  #   runs-on: ubuntu-latest
+  #   needs: setup-server
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '12'
+  #     - name: checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     # - name: Install Packages
+  #     #   run: yarn
+  #     - name: Setup config tools
+  #       run: chmod +x ./utils/bin/jq-linux; ./utils/bin/jq-linux -s '.[0] * .[1]' config/config.json config/config.ci.json > /tmp/config.json; cp /tmp/config.json ./config/config.json
+  #     # - name: Build Project
+  #     #   run: npm run build.ci
+  #     # - name: Check Bundle Size
+  #     #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
+  #     - name: Set up Elixir and OTP
+  #       uses: actions/setup-elixir@v1
+  #       with:
+  #         elixir-version: '1.10.3' # Define the elixir version [required]
+  #         otp-version: '22.3' # Define the OTP version [required]
+  #     - name: debug dir
+  #       run: ls
+  #     - name: debug server dir
+  #       run: ls ./backend_server
+  #     - name: Run Backend Server
+  #       run: cd backend_server; MIX_ENV=ci mix phx.server &
+  #     # - name: Run Tests
+  #   run: npm run test:ci
