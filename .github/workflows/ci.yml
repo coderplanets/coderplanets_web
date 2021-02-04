@@ -46,8 +46,6 @@ jobs:
         run: cd server; MIX_ENV=ci mix ecto.setup > /dev/null
       - name: seed test data
         run: cd server; MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
-      - name: running server
-        run: cd server; MIX_ENV=ci mix phx.server &
 
   setup-front:
     name: Setup Web Front
@@ -70,6 +68,12 @@ jobs:
       - name: Build Project
         run: npm run build.ci
       - name: Check Bundle Size
-        run: npm run size.check
+        uses: jackyef/bundlewatch-gh-action@master
+        with:
+          build-script: npm run size.check
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+        # run: npm run size.check
+      # - name: Run Backend Server
+      #   run: cd server; MIX_ENV=ci mix phx.server &
       # - name: Run Tests
       #   run: npm run test:ci
