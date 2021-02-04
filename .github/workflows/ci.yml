@@ -78,7 +78,6 @@ jobs:
           elixir-version: '1.10.3' # Define the elixir version [required]
           otp-version: '22.3' # Define the OTP version [required]
       - name: Run Backend Server
-        working-directory: ./server
-        run: MIX_ENV=ci mix phx.server &
+        run: cd server; MIX_ENV=ci mix phx.server &
       - name: Run Tests
         run: npm run test:ci
