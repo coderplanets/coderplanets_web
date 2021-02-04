@@ -72,11 +72,12 @@ jobs:
         run: npm run build.ci
       - name: Check Bundle Size
         run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
-      - name: Run Backend Server
+      - name: Set up Elixir and OTP
         uses: actions/setup-elixir@v1
         with:
           elixir-version: '1.10.3' # Define the elixir version [required]
           otp-version: '22.3' # Define the OTP version [required]
+      - name: Run Backend Server
         working-directory: ./server
         run: MIX_ENV=ci mix phx.server &
       - name: Run Tests
