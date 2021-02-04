@@ -34,7 +34,6 @@ jobs:
           elixir-version: '1.10.3' # Define the elixir version [required]
           otp-version: '22.3' # Define the OTP version [required]
       - name: (Backend) Restore dependencies cache
-        working-directory: ./backend_server
         uses: actions/cache@v2
         with:
           path: deps
@@ -61,12 +60,10 @@ jobs:
           path: 'frontend_server'
 
       - name: Get yarn cache directory path
-        working-directory: ./frontend_server
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - uses: actions/cache@v2
-        working-directory: ./frontend_server
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
