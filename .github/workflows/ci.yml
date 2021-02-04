@@ -81,6 +81,9 @@ jobs:
       - name: Run Backend Server
         working-directory: ./backend_server
         run: MIX_ENV=ci mix phx.server &
+      - name: Run Tests
+        working-directory: ./frontend_server
+        run: npm run test:ci
   # setup-front:
   #   name: Setup Web Front
   #   runs-on: ubuntu-latest
