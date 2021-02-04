@@ -50,7 +50,7 @@ jobs:
         working-directory: ./backend_server
         run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
       - name: debug dir
-        run: ls; ls backend_server
+        run: ls; ls ../backend_server
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -60,21 +60,24 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
-      # - name: Install Packages
-      #   run: yarn
+      - name: Install Packages
+        working-directory: ./frontend_server
+        run: yarn
       - name: Setup config tools
         working-directory: ./frontend_server
         run: chmod +x ./utils/bin/jq-linux; ./utils/bin/jq-linux -s '.[0] * .[1]' config/config.json config/config.ci.json > /tmp/config.json; cp /tmp/config.json ./config/config.json
-      # - name: Build Project
-      #   run: npm run build.ci
-      # - name: Check Bundle Size
-      #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
+      - name: Build Project
+        working-directory: ./frontend_server
+        run: npm run build.ci
+      - name: Check Bundle Size
+        working-directory: ./frontend_server
+        run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
       - name: ls frontend_server
         working-directory: ./frontend_server
         run: ls
       - name: ls ..
         working-directory: ./frontend_server
-        run: ls ..; ls backend_server
+        run: ls ..; ls ../backend_server
       - name: Run Backend Server
         working-directory: ./backend_server
         run: MIX_ENV=ci mix phx.server &
