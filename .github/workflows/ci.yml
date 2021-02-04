@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          repository: 'coderplanets/coderplantes_server'
+          repository: 'coderplanets/coderplanets_server'
           # Relative path under $GITHUB_WORKSPACE to place the repository
           path: 'server'
       - name: Set up Elixir and OTP
