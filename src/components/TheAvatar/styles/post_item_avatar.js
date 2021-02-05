@@ -19,6 +19,11 @@ export const Avatar = styled(Img)`
   opacity: ${theme('avatarOpacity')};
   margin-top: 2px;
 `
+export const QuoteAvatar = styled(Avatar)`
+  ${css.circle(38)};
+  border: 2px solid;
+  border-color: #217470;
+`
 export const Tail = styled(TailBase)`
   ${Wrapper}:hover & {
     left: -6px;
