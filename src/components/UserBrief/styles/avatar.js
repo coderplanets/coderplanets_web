@@ -10,10 +10,13 @@ export const Wrapper = styled.div`
   margin-right: 12px;
 `
 export const Avatar = styled(Img)`
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
+  border-radius: 67px;
+  border: 5px solid;
+  border-color: #217470;
   display: block;
-  border-radius: 100%;
+  margin-left: -5px;
 `
 // export const Avatar = styled(Img)`
 //   border-radius: 4px;
