@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const BriefTextWrapper = styled.div`
   /* align-items: ${({ view }) =>
     view === VIEW.DESKTOP ? 'center' : 'flex-start'}; */
-  margin-top: 20px;
+  margin-top: 35px;
 `
 export const UserTitle = styled.div`
   ${css.flex()};

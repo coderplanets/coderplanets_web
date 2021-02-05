@@ -16,7 +16,7 @@ export const BannerWrapper = styled.div`
   position: relative;
   background: ${theme('banner.bg')};
   width: 100%;
-  height: 120px;
+  height: 145px;
   margin-bottom: 20px;
   ${({ metric }) => css.fitPageWidth(metric)};
 `
