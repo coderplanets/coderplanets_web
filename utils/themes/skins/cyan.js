@@ -43,7 +43,6 @@ const cyan = {
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#f8f7dc',
-  avatarOpacity: 1,
   baseColor: {
     red: '#fd7f68 !important',
     green: 'yellowgreen !important',
@@ -334,6 +333,13 @@ const cyan = {
   tooltip: {
     text: '#F8FBFC',
     bg: '#54A1AA',
+  },
+  avatar: {
+    opacity: 1,
+    quote: '#217470',
+    fallbackBg: '#074857',
+    shadow: '0px 0px 4px 0px rgb(0 0 0 / 50%) inset',
+    quoteShadow: '0px 0px 3px 0px rgb(0 0 0 / 30%) inset',
   },
 }
 

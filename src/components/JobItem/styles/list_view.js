@@ -27,7 +27,7 @@ export const TagsWrapper = styled.div`
 export const CompanyLogo = styled(Img)`
   ${css.size(45)};
   border-radius: 5px;
-  opacity: ${theme('avatarOpacity')};
+  opacity: ${theme('avatar.opacity')};
 `
 export const Brief = styled.div`
   ${css.flex('align-center')};

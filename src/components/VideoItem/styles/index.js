@@ -30,7 +30,7 @@ export const Poster = styled.img`
   height: 100%;
   width: 100%;
   min-width: 246px;
-  opacity: ${theme('avatarOpacity')};
+  opacity: ${theme('avatar.opacity')};
 
   ${css.media.mobile`
     min-width: 146px;

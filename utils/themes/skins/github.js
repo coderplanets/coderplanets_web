@@ -43,7 +43,6 @@ const github = {
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: 'tomato',
-  avatarOpacity: 1,
   baseColor: {
     red: 'tomato !important',
     green: 'yellowgreen !important',
@@ -335,6 +334,13 @@ const github = {
   tooltip: {
     text: '#F0F6FA',
     bg: '#2B2B2B',
+  },
+  avatar: {
+    opacity: 1,
+    quote: '#217470',
+    fallbackBg: '#074857',
+    shadow: '0px 0px 4px 0px rgb(0 0 0 / 50%) inset',
+    quoteShadow: '0px 0px 3px 0px rgb(0 0 0 / 30%) inset',
   },
 }
 
