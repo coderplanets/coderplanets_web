@@ -6,7 +6,7 @@ export const getFontSize = (size) => {
     return '14px'
   }
 
-  if (size >= 38 && size < 50) {
+  if (size >= 36 && size < 50) {
     return '14px' // two letters
   }
 

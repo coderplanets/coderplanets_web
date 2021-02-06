@@ -9,20 +9,33 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   cursor: pointer;
-  /* border: 1px solid tomato; */
-  ${css.size(36)};
+  ${css.circle(38)};
   position: relative;
+  margin-top: 2px;
+`
+export const InnerShadow = styled.div`
+  position: absolute;
+  ${css.circle(38)};
+  top: -1px;
+  left: -1px;
+  box-shadow: ${theme('avatar.shadow')};
+  z-index: 2;
+`
+export const QuoteShadow = styled(InnerShadow)`
+  ${css.circle(34)};
+  top: 2px;
+  left: 2px;
+  box-shadow: ${theme('avatar.quoteShadow')};
 `
 export const Avatar = styled(Img)`
   ${css.circle(36)};
   fill: ${theme('thread.articleTitle')};
-  opacity: ${theme('avatarOpacity')};
-  margin-top: 2px;
+  opacity: ${theme('avatar.opacity')};
 `
 export const QuoteAvatar = styled(Avatar)`
   ${css.circle(38)};
   border: 2px solid;
-  border-color: #217470;
+  border-color: ${theme('avatar.quote')};
 `
 export const Tail = styled(TailBase)`
   ${Wrapper}:hover & {
