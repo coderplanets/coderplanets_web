@@ -32,7 +32,7 @@ export const CommentHeaderFirst = styled.div`
 
 export const CommentAvatar = styled(Img)`
   ${css.circle(38)};
-  opacity: ${theme('avatarOpacity')};
+  opacity: ${theme('avatar.opacity')};
 `
 
 export const HeaderBaseInfo = styled.div`

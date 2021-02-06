@@ -45,7 +45,6 @@ const monokai = {
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#839496',
-  avatarOpacity: 0.8,
   baseColor: {
     red: '#a24e3f !important',
     green: '#699411 !important',
@@ -329,6 +328,13 @@ const monokai = {
   tooltip: {
     text: '#B0AFB0',
     bg: '#676464',
+  },
+  avatar: {
+    opacity: 0.8,
+    quote: '#217470',
+    fallbackBg: '#074857',
+    shadow: '0px 0px 4px 0px rgb(0 0 0 / 50%) inset',
+    quoteShadow: '0px 0px 3px 0px rgb(0 0 0 / 30%) inset',
   },
 }
 

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const UserAvatar = styled.img`
   ${css.circle(25)};
   margin-left: 3%;
-  opacity: ${theme('avatarOpacity')};
+  opacity: ${theme('avatar.opacity')};
 `
 export const LeaveResponseText = styled.div`
   font-size: 1.3rem;

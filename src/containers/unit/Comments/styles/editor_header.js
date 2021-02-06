@@ -12,7 +12,7 @@ export const UserAvatar = styled(Img)`
   ${css.circle(20)};
   fill: ${theme('thread.articleTitle')};
   margin-left: 4%;
-  opacity: ${theme('avatarOpacity')};
+  opacity: ${theme('avatar.opacity')};
 `
 export const LeaveResponseText = styled.div`
   font-size: 14px;

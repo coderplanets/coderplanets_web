@@ -65,7 +65,7 @@ export const AvatarIcon = styled.img`
   ${css.size(20)};
   cursor: pointer;
   border-radius: 3px;
-  opacity: ${theme('avatarOpacity')};
+  opacity: ${theme('avatar.opacity')};
 `
 export const DefaultUserIcon = styled(Img)`
   fill: ${theme('header.fg')};
