@@ -2,7 +2,7 @@
   "baseUrl": "http://localhost:3000",
   "projectId": "w5dkjg",
   "pageLoadTimeout": 1000000,
-  "blacklistHosts": "www.googletagmanager.com",
+  "blockHosts": "www.googletagmanager.com",
 
   "viewportWidth": 1200,
   "viewportHeight": 2500
