@@ -6,7 +6,7 @@
 import React from 'react'
 
 import { C11N } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import DigestView from './DigestView/index'
 import BriefView from './BriefView'
@@ -52,4 +52,4 @@ const CommunityDigestContainer = ({ communityDigest: store, metric }) => {
   )
 }
 
-export default connectStore(CommunityDigestContainer)
+export default pluggedIn(CommunityDigestContainer)

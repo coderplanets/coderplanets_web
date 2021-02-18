@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 import { useScript } from '@/hooks'
 
 import { useInit } from './logic'
@@ -32,4 +32,4 @@ const RichEditorContainer = ({ richEditor: store }) => {
   )
 }
 
-export default connectStore(RichEditorContainer)
+export default pluggedIn(RichEditorContainer)

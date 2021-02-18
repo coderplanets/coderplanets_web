@@ -10,7 +10,7 @@ import { isNil } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
 import { useScroll } from '@/hooks'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import FavoritesCats from '@/containers/tool/FavoritesCats'
 
@@ -60,4 +60,4 @@ ArticleDigestContainer.propTypes = {
 
 ArticleDigestContainer.defaultProps = {}
 
-export default connectStore(ArticleDigestContainer)
+export default pluggedIn(ArticleDigestContainer)

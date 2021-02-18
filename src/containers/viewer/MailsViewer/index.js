@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import TabSelector from '@/components/TabSelector'
 import MailLists from './MailLists'
@@ -61,4 +61,4 @@ const MailsViewerContainer = ({ mailsViewer: store }) => {
   )
 }
 
-export default connectStore(MailsViewerContainer)
+export default pluggedIn(MailsViewerContainer)

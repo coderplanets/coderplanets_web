@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
 import SectionLabel from '@/components/SectionLabel'
@@ -101,4 +101,4 @@ FavoritesCatsContainer.defaultProps = {
   displayMode: 'hide',
 }
 
-export default connectStore(FavoritesCatsContainer)
+export default pluggedIn(FavoritesCatsContainer)

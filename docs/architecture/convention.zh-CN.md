@@ -50,7 +50,7 @@ Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能,
 
 ```js
 import { ISSUE_WEB } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleEditFooter from '@/components/ArticleEditFooter'
 ...
@@ -67,7 +67,7 @@ import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
 // 2. import utils
-import { connectStore, buildLog, ROUTE, THREAD } from '@/utils'
+import { pluggedIn, buildLog, ROUTE, THREAD } from '@/utils'
 
 // 3. import global containers
 import TagsBar from '@/containers/unit/TagsBar'

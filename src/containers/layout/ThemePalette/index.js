@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components'
 import NextNprogress from 'nextjs-progressbar'
 
 import { ANCHOR } from '@/constant'
-import { connectStore } from '@/utils'
+import { pluggedIn } from '@/utils'
 import { usePlatform } from '@/hooks'
 
 // import MarkDownStyle from './MarkDownStyle'
@@ -46,7 +46,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
   )
 }
 
-export default connectStore(ThemeContainer)
+export default pluggedIn(ThemeContainer)
 
 // about meta theme-color
 // see: https://stackoverflow.com/questions/26960703/how-to-change-the-color-of-header-bar-and-address-bar-in-newest-chrome-version-o

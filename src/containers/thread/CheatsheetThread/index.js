@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { TYPE } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import EmptyThread from '@/components/EmptyThread'
 import { CheatSheetLoading } from '@/components/LoadingEffects'
@@ -80,4 +80,4 @@ const CheatsheetThreadContainer = ({ cheatsheetThread: store }) => {
   )
 }
 
-export default connectStore(CheatsheetThreadContainer)
+export default pluggedIn(CheatsheetThreadContainer)

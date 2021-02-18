@@ -11,7 +11,7 @@ import { Waypoint } from 'react-waypoint'
 
 import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import FavoritesCats from '@/containers/tool/FavoritesCats'
 import Author from './Author'
@@ -76,4 +76,4 @@ ArticleDigestContainer.defaultProps = {
   metric: METRIC.ARTICLE,
 }
 
-export default connectStore(ArticleDigestContainer)
+export default pluggedIn(ArticleDigestContainer)

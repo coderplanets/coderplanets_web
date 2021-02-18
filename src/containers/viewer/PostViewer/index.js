@@ -9,7 +9,7 @@ import T from 'prop-types'
 import { pluck } from 'ramda'
 
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
 import Labeler from '@/containers/unit/Labeler'
@@ -82,4 +82,4 @@ PostViewerContainer.defaultProps = {
   attachment: {},
 }
 
-export default connectStore(PostViewerContainer)
+export default pluggedIn(PostViewerContainer)

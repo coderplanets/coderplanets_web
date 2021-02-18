@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
@@ -57,4 +57,4 @@ const RepoViewerContainer = ({ repoViewer: store, attachment }) => {
   )
 }
 
-export default connectStore(RepoViewerContainer)
+export default pluggedIn(RepoViewerContainer)

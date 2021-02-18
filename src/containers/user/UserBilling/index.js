@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import SectionLabel from '@/components/SectionLabel'
 import UpgradeMenu from './UpgradeMenu'
@@ -45,4 +45,4 @@ const UserBillingContainer = ({ userBilling: store }) => {
   )
 }
 
-export default connectStore(UserBillingContainer)
+export default pluggedIn(UserBillingContainer)

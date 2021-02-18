@@ -9,7 +9,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import NumbersPad from './NumbersPad'
 import ContributeMap from './ContributeMap'
@@ -50,4 +50,4 @@ UserProfileContainer.defaultProps = {
   testId: 'user-profile',
 }
 
-export default connectStore(UserProfileContainer)
+export default pluggedIn(UserProfileContainer)

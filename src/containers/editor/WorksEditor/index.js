@@ -11,7 +11,7 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Preview from './Preview'
 import Steps from './Steps'
@@ -50,4 +50,4 @@ WorksEditorContainer.defaultProps = {
   metric: METRIC.COMMUNITY,
 }
 
-export default connectStore(WorksEditorContainer)
+export default pluggedIn(WorksEditorContainer)

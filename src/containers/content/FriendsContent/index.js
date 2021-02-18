@@ -8,7 +8,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
 import { FriendsGallery } from '@/components/GalleryHub'
@@ -117,4 +117,4 @@ const FriendsContentContainer = ({ friendsContent: store, metric }) => {
   )
 }
 
-export default connectStore(FriendsContentContainer)
+export default pluggedIn(FriendsContentContainer)

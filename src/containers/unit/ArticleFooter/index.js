@@ -9,7 +9,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import TagList from './TagList'
 import Actions from './Actions/index'
@@ -55,4 +55,4 @@ ArticleFooterContainer.defaultProps = {
   testId: 'article-footer',
 }
 
-export default connectStore(ArticleFooterContainer)
+export default pluggedIn(ArticleFooterContainer)

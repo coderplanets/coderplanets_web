@@ -10,7 +10,7 @@ import { pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Labeler from '@/containers/unit/Labeler'
 import CommunitySetter from '@/containers/tool/CommunitySetter'
@@ -122,4 +122,4 @@ ArticleBodyHeaderContainer.defaultProps = {
   middle: 'linker',
 }
 
-export default connectStore(ArticleBodyHeaderContainer)
+export default pluggedIn(ArticleBodyHeaderContainer)

@@ -7,7 +7,7 @@
 import React, { useEffect } from 'react'
 import usePortal from 'react-useportal'
 
-import { connectStore, buildLog, toggleGlobalBlur } from '@/utils'
+import { pluggedIn, buildLog, toggleGlobalBlur } from '@/utils'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'
@@ -80,4 +80,4 @@ const DoraemonContainer = ({ doraemon: store }) => {
   )
 }
 
-export default connectStore(DoraemonContainer)
+export default pluggedIn(DoraemonContainer)

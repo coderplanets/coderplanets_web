@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import PagedContents from '@/components/PagedContents'
 import ThreadSelector from '@/components/ThreadSelector'
@@ -48,4 +48,4 @@ const UserPublishedContainer = ({ userPublished: store }) => {
   )
 }
 
-export default connectStore(UserPublishedContainer)
+export default pluggedIn(UserPublishedContainer)

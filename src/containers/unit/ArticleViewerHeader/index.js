@@ -8,7 +8,7 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import FavoritesCats from '@/containers/tool/FavoritesCats'
 import Maybe from '@/components/Maybe'
@@ -94,4 +94,4 @@ ArticleViewerHeaderContainer.defaultProps = {
   showLastSync: false,
 }
 
-export default connectStore(ArticleViewerHeaderContainer)
+export default pluggedIn(ArticleViewerHeaderContainer)

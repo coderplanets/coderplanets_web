@@ -8,7 +8,7 @@ import React from 'react'
 
 import { ASSETS_ENDPOINT } from '@/config'
 import { GALLERY } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Pagi from '@/components/Pagi'
 import { PagiOptionSwitcher } from '@/components/Switcher'
@@ -72,4 +72,4 @@ const MeetupsContentContainer = ({ meetupsContent: store }) => {
   )
 }
 
-export default connectStore(MeetupsContentContainer)
+export default pluggedIn(MeetupsContentContainer)

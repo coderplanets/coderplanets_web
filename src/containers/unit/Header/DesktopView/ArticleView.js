@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
@@ -90,4 +90,4 @@ HeaderContainer.propTypes = {
 
 HeaderContainer.defaultProps = {}
 
-export default connectStore(HeaderContainer)
+export default pluggedIn(HeaderContainer)

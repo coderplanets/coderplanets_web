@@ -9,7 +9,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 {{#if wantI18n}}
 import { useTrans } from '@/hooks'
 {{/if}}
@@ -43,4 +43,4 @@ const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: sto
   testId: '{{ dashCase name}}',
 }
 
-export default connectStore({{ properCase name }}Container)
+export default pluggedIn({{ properCase name }}Container)

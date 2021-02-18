@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 import { useShortcut, useResize } from '@/hooks'
 
 import Viewer from './Viewer/index'
@@ -68,4 +68,4 @@ DrawerContainer.propTypes = {
 
 DrawerContainer.defaultProps = {}
 
-export default connectStore(DrawerContainer)
+export default pluggedIn(DrawerContainer)

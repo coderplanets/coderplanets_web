@@ -11,7 +11,7 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { TYPE } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import GlobalMenu from './GlobalMenu/index'
 import SearchMenu from './SearchMenu'
@@ -61,4 +61,4 @@ ModeLineMenuContainer.defaultProps = {
   testId: 'mode-line-menu',
 }
 
-export default connectStore(ModeLineMenuContainer)
+export default pluggedIn(ModeLineMenuContainer)

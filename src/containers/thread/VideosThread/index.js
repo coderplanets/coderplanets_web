@@ -8,7 +8,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import TagsBar from '@/containers/unit/TagsBar'
 
@@ -105,4 +105,4 @@ const VideosThreadContainer = ({ videosThread }) => {
   )
 }
 
-export default connectStore(VideosThreadContainer)
+export default pluggedIn(VideosThreadContainer)

@@ -10,7 +10,7 @@ import Input from '@/components/Input'
 import { Button } from '@/components/Buttons'
 
 import { ICON_CMD } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { Space } from '@/components/Common'
 import Modal from '@/components/Modal'
@@ -61,4 +61,4 @@ const GirlVerifierContainer = ({ girlVerifier: store }) => {
   )
 }
 
-export default connectStore(GirlVerifierContainer)
+export default pluggedIn(GirlVerifierContainer)

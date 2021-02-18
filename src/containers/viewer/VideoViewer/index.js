@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
@@ -55,4 +55,4 @@ const VideoViewerContainer = ({ videoViewer: store, attachment }) => {
   )
 }
 
-export default connectStore(VideoViewerContainer)
+export default pluggedIn(VideoViewerContainer)

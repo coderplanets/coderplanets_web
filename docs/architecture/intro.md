@@ -154,7 +154,7 @@ import Editor from './Editor'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 import { useInit, changeView, onPublish, cancelPublish } from './logic'
 
 const PostEditorContainer = ({ postEditor: store, attachment }) =>{
@@ -181,13 +181,13 @@ const PostEditorContainer = ({ postEditor: store, attachment }) =>{
   )
 }
 
-export default connectStore(PostEditorContainer)
+export default pluggedIn(PostEditorContainer)
 ```
 
 Based on my own experience and the actual situation of the project's evolution over the past year, I think the local state is bad. So all the states are handed to the external state management tool [Mobx-State-Tree](https://github.com/mobxjs/mobx-state-tree), and then the container is linked to the entire project state tree by the following function. Corresponding substate trees are linked together
 
 ```js
-export default connectStore(PostEditorContainer)
+export default pluggedIn(PostEditorContainer)
 ```
 
 #### store.js

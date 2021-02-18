@@ -11,7 +11,7 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { STEP } from './constant'
 import Editor from './Editor'
@@ -52,4 +52,4 @@ ArticleEditorContainer.defaultProps = {
   metric: METRIC.ARTICLE_EDITOR,
 }
 
-export default connectStore(ArticleEditorContainer)
+export default pluggedIn(ArticleEditorContainer)

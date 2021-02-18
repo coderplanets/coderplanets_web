@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import FavoritesCats from '@/containers/tool/FavoritesCats'
 import PagedContents from '@/components/PagedContents'
@@ -66,4 +66,4 @@ const UserFavoritedContainer = ({ userFavorited: store }) => {
   )
 }
 
-export default connectStore(UserFavoritedContainer)
+export default pluggedIn(UserFavoritedContainer)

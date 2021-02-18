@@ -9,7 +9,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Content from './Content'
 import Actions from './Actions'
@@ -46,4 +46,4 @@ SubscribeContentContainer.defaultProps = {
   testId: 'subscribe-content',
 }
 
-export default connectStore(SubscribeContentContainer)
+export default pluggedIn(SubscribeContentContainer)

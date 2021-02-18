@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import UserInfo from './UserInfo'
 // import ReactionNumbers from './ReactionNumbers'
@@ -51,4 +51,4 @@ ArticleAuthorCardContainer.propTypes = {
 
 ArticleAuthorCardContainer.defaultProps = {}
 
-export default connectStore(ArticleAuthorCardContainer)
+export default pluggedIn(ArticleAuthorCardContainer)

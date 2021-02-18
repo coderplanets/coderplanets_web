@@ -38,7 +38,7 @@ export const storePlug = curry((selectedStore, props) => ({
 
 /*
  * inject sub-store to container
- * e.g: connectStore(HelloWorldContainer)
+ * e.g: pluggedIn(HelloWorldContainer)
    will make HelloWorldContainer connect to 'helloWorld' sub-store
  *
  * 将传入的 container 链接到相对应的子状态树
@@ -49,7 +49,7 @@ export const storePlug = curry((selectedStore, props) => ({
  * 注意： 容器组件的命名需遵守 XxxContainer 的约定规则 (以 Container 结尾)
  *
  */
-export const connectStore = (container, store) => {
+export const pluggedIn = (container, store) => {
   let subStoreName = ''
   // console.log('container displayName: ', container.displayName)
   if (store) {

@@ -9,7 +9,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
 import FooterWechat from './FooterWechat'
@@ -41,4 +41,4 @@ JoinModalContainer.propTypes = {
 
 JoinModalContainer.defaultProps = {}
 
-export default connectStore(JoinModalContainer)
+export default pluggedIn(JoinModalContainer)

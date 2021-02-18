@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { Button } from '@/components/Buttons'
 import StatusBox from '@/components/StatusBox'
@@ -122,4 +122,4 @@ const AccountEditorContainer = ({ accountEditor: store }) => {
   )
 }
 
-export default connectStore(AccountEditorContainer)
+export default pluggedIn(AccountEditorContainer)

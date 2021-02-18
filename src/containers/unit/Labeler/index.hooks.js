@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 import { findIndex, reject, propEq } from 'ramda'
 
 import { LABEL_POOL } from '@/config'
-import { connectStore, buildLog, storePlug, uid } from '@/utils'
+import { pluggedIn, buildLog, storePlug, uid } from '@/utils'
 
 import { withGuardian } from '@/hoc'
 import Maybe from '@/components/Maybe'
@@ -100,5 +100,5 @@ LabelerContainer.defaultProps = {
   onTagUnselect: log,
 }
 
-export default withGuardian(connectStore(LabelerContainer))
+export default withGuardian(pluggedIn(LabelerContainer))
 */

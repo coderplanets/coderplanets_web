@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
 import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
@@ -71,4 +71,4 @@ const RepoContentContainer = ({ repoContent: store }) => {
   )
 }
 
-export default connectStore(RepoContentContainer)
+export default pluggedIn(RepoContentContainer)

@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
 import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
@@ -72,4 +72,4 @@ const JobViewerContainer = ({ jobViewer: store, attachment }) => {
   )
 }
 
-export default connectStore(JobViewerContainer)
+export default pluggedIn(JobViewerContainer)

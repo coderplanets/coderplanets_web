@@ -7,13 +7,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import {
-  connectStore,
-  buildLog,
-  scrollToTop,
-  lockPage,
-  unlockPage,
-} from '@/utils'
+import { pluggedIn, buildLog, scrollToTop, lockPage, unlockPage } from '@/utils'
 import { useShortcut } from '@/hooks'
 
 import Header from './Header'
@@ -68,4 +62,4 @@ const HaveADrinkContentContainer = ({ haveADrinkContent: store }) => {
   )
 }
 
-export default connectStore(HaveADrinkContentContainer)
+export default pluggedIn(HaveADrinkContentContainer)

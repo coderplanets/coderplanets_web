@@ -8,7 +8,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { VIEW } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { Tabs } from '@/components/Switcher'
 
@@ -78,4 +78,4 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
   )
 }
 
-export default connectStore(C11NSettingPanelContainer)
+export default pluggedIn(C11NSettingPanelContainer)
