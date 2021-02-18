@@ -8,7 +8,7 @@ import React from 'react'
 import { filter, propEq } from 'ramda'
 
 import { ANCHOR } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Header from './Header'
 import MenuList from './MenuList/index'
@@ -64,4 +64,4 @@ const SidebarContainer = ({ sidebar: store }) => {
   )
 }
 
-export default connectStore(SidebarContainer)
+export default pluggedIn(SidebarContainer)

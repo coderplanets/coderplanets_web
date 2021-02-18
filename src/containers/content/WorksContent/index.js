@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Pagi from '@/components/Pagi'
 import AvatarsRow from '@/components/AvatarsRow'
@@ -93,4 +93,4 @@ const WorksContentContainer = ({ worksContent: store, metric }) => {
   )
 }
 
-export default connectStore(WorksContentContainer)
+export default pluggedIn(WorksContentContainer)

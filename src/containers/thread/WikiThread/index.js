@@ -8,7 +8,7 @@ import React from 'react'
 
 import { ICON_CMD, COMMUNITY_WIKI } from '@/config'
 import { TYPE } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import EmptyThread from '@/components/EmptyThread'
 import { PublishButton } from '@/components/Buttons'
@@ -88,4 +88,4 @@ const WikiThreadContainer = ({ wikiThread }) => {
   )
 }
 
-export default connectStore(WikiThreadContainer)
+export default pluggedIn(WikiThreadContainer)

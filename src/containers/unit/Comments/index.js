@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
 import CommentEditor from './CommentEditor'
@@ -85,4 +85,4 @@ CommentsContainer.defaultProps = {
   locked: false,
 }
 
-export default connectStore(CommentsContainer)
+export default pluggedIn(CommentsContainer)

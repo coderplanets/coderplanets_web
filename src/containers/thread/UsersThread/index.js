@@ -8,7 +8,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme } from 'styled-components'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 import { useScript } from '@/hooks'
 
 import NumDashboard from './NumDashboard'
@@ -63,4 +63,4 @@ const UsersThreadContainer = ({ usersThread }) => {
   )
 }
 
-export default connectStore(UsersThreadContainer)
+export default pluggedIn(UsersThreadContainer)

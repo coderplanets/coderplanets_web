@@ -8,7 +8,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { C11N } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
 import { Radio } from '@/components/Switcher'
@@ -178,4 +178,4 @@ const UserSettingsContainer = ({ userSettings: store }) => {
   )
 }
 
-export default connectStore(UserSettingsContainer)
+export default pluggedIn(UserSettingsContainer)

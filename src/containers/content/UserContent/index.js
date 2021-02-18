@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { USER_THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import UserProfile from '@/containers/user/UserProfile'
 import UserPublished from '@/containers/user/UserPublished'
@@ -135,4 +135,4 @@ const UserContentContainer = ({ userContent: store, metric }) => {
   )
 }
 
-export default connectStore(UserContentContainer)
+export default pluggedIn(UserContentContainer)

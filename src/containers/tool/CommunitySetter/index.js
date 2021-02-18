@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
 import { ArticleContentLoading } from '@/components/LoadingEffects'
@@ -49,4 +49,4 @@ const CommunitySetterContainer = ({ communitySetter: store }) => {
   )
 }
 
-export default connectStore(CommunitySetterContainer)
+export default pluggedIn(CommunitySetterContainer)

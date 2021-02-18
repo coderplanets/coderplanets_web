@@ -7,7 +7,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import LoadingBlocks from './LoadingBlocks'
 import PullButton from './PullButton'
@@ -49,4 +49,4 @@ const SidebarContainer = ({ sidebar: store }) => {
   )
 }
 
-export default connectStore(SidebarContainer)
+export default pluggedIn(SidebarContainer)

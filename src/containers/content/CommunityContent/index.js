@@ -8,7 +8,7 @@ import React from 'react'
 
 import { ROUTE, C11N } from '@/constant'
 import { useDevice } from '@/hooks'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import PostsThread from '@/containers//thread/PostsThread'
 import VideosThread from '@/containers/thread/VideosThread'
@@ -72,4 +72,4 @@ const CommunityContentContainer = ({ communityContent: store }) => {
   )
 }
 
-export default connectStore(CommunityContentContainer)
+export default pluggedIn(CommunityContentContainer)

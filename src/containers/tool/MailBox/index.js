@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 import Tooltip from '@/components/Tooltip'
 
 import MailsPanel from './MailsPanel'
@@ -44,4 +44,4 @@ const MailBoxContainer = ({ mailBox: store }) => {
   )
 }
 
-export default connectStore(MailBoxContainer)
+export default pluggedIn(MailBoxContainer)

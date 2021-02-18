@@ -9,7 +9,7 @@ import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import TagsBar from '@/containers/unit/TagsBar'
 
@@ -107,4 +107,4 @@ const ReposThreadContainer = ({ reposThread: store }) => {
   )
 }
 
-export default connectStore(ReposThreadContainer)
+export default pluggedIn(ReposThreadContainer)

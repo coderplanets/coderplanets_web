@@ -8,10 +8,10 @@ root 状态树由分散在各个容器组件内的子状态树(store.js) 以及 
 
 #### 子状态树
 
-子状态树只存在于容器组件, 统一命名为 store.js, 通过 [connectStore](https://github.com/coderplanets/coderplanets_web/blob/dev/utils/mobx_helper.js#L37) 连接到根状态树, 以 PostEditor 容器为例:
+子状态树只存在于容器组件, 统一命名为 store.js, 通过 [pluggedIn](https://github.com/coderplanets/coderplanets_web/blob/dev/utils/mobx_helper.js#L37) 连接到根状态树, 以 PostEditor 容器为例:
 
 ```js
-export default connectStore(PostEditorContainer)
+export default pluggedIn(PostEditorContainer)
 ```
 
 相同目录下的 containers/PostEditor/store.js 只包含 PostEditor 容器所需的状态，且状态只能通过该 store 暴露出的 action 方法，由同目录下 logic.js 中的方法调用改变， 视图层无法直接改变状态。

@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { TYPE } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import EmptyLabel from '@/components/EmptyLabel'
 import Modal from '@/components/Modal'
@@ -78,4 +78,4 @@ const UserListerContainer = ({ userLister: store }) => {
   )
 }
 
-export default connectStore(UserListerContainer)
+export default pluggedIn(UserListerContainer)

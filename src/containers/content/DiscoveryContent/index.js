@@ -7,7 +7,7 @@
 import React from 'react'
 import { isEmpty } from 'ramda'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Pagi from '@/components/Pagi'
 
@@ -77,4 +77,4 @@ const DiscoveryContentContainer = ({ discoveryContent: store, metric }) => {
   )
 }
 
-export default connectStore(DiscoveryContentContainer)
+export default pluggedIn(DiscoveryContentContainer)

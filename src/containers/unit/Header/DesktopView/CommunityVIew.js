@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
@@ -100,4 +100,4 @@ HeaderContainer.defaultProps = {
   metric: METRIC.COMMUNITY,
 }
 
-export default connectStore(HeaderContainer)
+export default pluggedIn(HeaderContainer)

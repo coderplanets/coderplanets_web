@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { THREAD } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
 import Comments from '@/containers/unit/Comments'
@@ -84,4 +84,4 @@ const JobContentContainer = ({ jobContent: store }) => {
   )
 }
 
-export default connectStore(JobContentContainer)
+export default pluggedIn(JobContentContainer)

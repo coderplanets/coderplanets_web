@@ -8,7 +8,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import TodoList from './TodoList'
 
@@ -29,4 +29,4 @@ const RoadmapThreadContainer = ({ roadmapThread: store }) => {
   )
 }
 
-export default connectStore(RoadmapThreadContainer)
+export default pluggedIn(RoadmapThreadContainer)

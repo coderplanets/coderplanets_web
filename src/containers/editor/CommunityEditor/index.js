@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Banner from './Banner'
 import Content from './Content'
@@ -47,4 +47,4 @@ CommunityEditorContainer.getInitialProps = async () => ({
   namespacesRequired: ['common'],
 })
 
-export default connectStore(CommunityEditorContainer)
+export default pluggedIn(CommunityEditorContainer)

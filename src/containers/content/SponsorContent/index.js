@@ -8,7 +8,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
 import { SponsorGallery } from '@/components/GalleryHub'
@@ -138,4 +138,4 @@ const SponsorContentContainer = ({ sponsorContent: store, metric }) => {
   )
 }
 
-export default connectStore(SponsorContentContainer)
+export default pluggedIn(SponsorContentContainer)

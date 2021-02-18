@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import ThreadSelector from '@/components/ThreadSelector'
 import CommentsToContent from './CommentsToContent'
@@ -42,4 +42,4 @@ const UserPublishedCommentsContainer = ({ userPublishedComments: store }) => {
   )
 }
 
-export default connectStore(UserPublishedCommentsContainer)
+export default pluggedIn(UserPublishedCommentsContainer)

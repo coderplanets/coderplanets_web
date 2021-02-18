@@ -7,7 +7,7 @@
 import React from 'react'
 import { Waypoint } from 'react-waypoint'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
 // import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
@@ -53,4 +53,4 @@ const PostContentContainer = ({ postContent: store }) => {
   )
 }
 
-export default connectStore(PostContentContainer)
+export default pluggedIn(PostContentContainer)

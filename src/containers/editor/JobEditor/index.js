@@ -7,7 +7,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleEditFooter from '@/components/ArticleEditFooter'
 import { ArticleContentLoading } from '@/components/LoadingEffects'
@@ -109,4 +109,4 @@ const JobEditorContainer = ({ jobEditor: store, attachment }) => {
 
 // JobEditorContainer.defaultProps = {}
 
-export default connectStore(JobEditorContainer)
+export default pluggedIn(JobEditorContainer)

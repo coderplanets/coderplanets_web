@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import { contains } from 'ramda'
 
 import { METRIC } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import JoinModal from '@/containers/tool/JoinModal'
 import Modal from '@/components/Modal'
@@ -93,4 +93,4 @@ const FooterContainer = ({ footer: store, metric }) => {
   )
 }
 
-export default connectStore(FooterContainer)
+export default pluggedIn(FooterContainer)

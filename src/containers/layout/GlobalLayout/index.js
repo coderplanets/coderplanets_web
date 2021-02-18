@@ -11,7 +11,7 @@ import { values } from 'ramda'
 import { ANCHOR, METRIC } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
-import { connectStore } from '@/utils'
+import { pluggedIn } from '@/utils'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
@@ -136,4 +136,4 @@ GlobalLayoutContainer.defaultProps = {
   metric: METRIC.COMMUNITY,
 }
 
-export default connectStore(GlobalLayoutContainer)
+export default pluggedIn(GlobalLayoutContainer)

@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 // import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { OrButton, Button } from '@/components/Buttons'
 import Checker from '@/components/Checker'
@@ -154,4 +154,4 @@ MembershipContentContainer.defaultProps = {
   testId: 'membership-content',
 }
 
-export default connectStore(MembershipContentContainer)
+export default pluggedIn(MembershipContentContainer)

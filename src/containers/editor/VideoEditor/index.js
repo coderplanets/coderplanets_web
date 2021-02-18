@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Labeler from '@/containers/unit/Labeler'
 import FormItem from '@/components/FormItem'
@@ -131,4 +131,4 @@ const VideoEditorContainer = ({ videoEditor: store, attachment }) => {
   )
 }
 
-export default connectStore(VideoEditorContainer)
+export default pluggedIn(VideoEditorContainer)

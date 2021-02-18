@@ -8,7 +8,7 @@ import T from 'prop-types'
 
 import Tooltip from '@/components/Tooltip'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 import AdderPanel from './AdderPanel'
 
 import { Wrapper, AddText } from './styles'
@@ -53,4 +53,4 @@ AvatarAdderContainer.defaultProps = {
   onConfirm: log,
 }
 
-export default connectStore(AvatarAdderContainer)
+export default pluggedIn(AvatarAdderContainer)

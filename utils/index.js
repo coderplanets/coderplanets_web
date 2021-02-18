@@ -76,7 +76,7 @@ export {
 } from './route'
 
 export {
-  connectStore,
+  pluggedIn,
   storePlug,
   markStates,
   flashState,

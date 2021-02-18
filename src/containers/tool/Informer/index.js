@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
 import Header from './Header'
@@ -64,4 +64,4 @@ InformerContainer.defaultProps = {
   children: null,
 }
 
-export default connectStore(InformerContainer)
+export default pluggedIn(InformerContainer)

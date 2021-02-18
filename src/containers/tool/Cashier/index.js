@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
 import Sidebar from './Sidebar'
@@ -54,4 +54,4 @@ const CashierContainer = ({ cashier: store }) => {
   )
 }
 
-export default connectStore(CashierContainer)
+export default pluggedIn(CashierContainer)

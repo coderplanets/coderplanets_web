@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import { OrButton } from '@/components/Buttons'
 import NewsBoard from './NewsBoard'
@@ -48,4 +48,4 @@ const TrendingContentContainer = ({ trendingContent: store, metric }) => {
   )
 }
 
-export default connectStore(TrendingContentContainer)
+export default pluggedIn(TrendingContentContainer)

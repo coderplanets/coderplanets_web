@@ -10,7 +10,7 @@ import T from 'prop-types'
 
 import { ICON } from '@/config'
 import { METRIC } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Navigator from '@/components/Navigator'
 
@@ -84,4 +84,4 @@ HeaderContainer.propTypes = {
 
 HeaderContainer.defaultProps = {}
 
-export default connectStore(HeaderContainer)
+export default pluggedIn(HeaderContainer)

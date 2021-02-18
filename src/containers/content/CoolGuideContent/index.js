@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import FilterBar from './FilterBar'
 import Content from './Content'
@@ -38,4 +38,4 @@ const CoolGuideContentContainer = ({ coolGuideContent: store, metric }) => {
   )
 }
 
-export default connectStore(CoolGuideContentContainer)
+export default pluggedIn(CoolGuideContentContainer)

@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, uid } from '@/utils'
+import { pluggedIn, buildLog, uid } from '@/utils'
 
 import GithubRepoPage from '@/components/GithubRepoPage'
 import SearchMan from './SearchMan'
@@ -81,4 +81,4 @@ const RepoEditorContainer = ({ repoEditor: store }) => {
   )
 }
 
-export default connectStore(RepoEditorContainer)
+export default pluggedIn(RepoEditorContainer)

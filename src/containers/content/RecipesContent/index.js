@@ -8,7 +8,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 import { RECIPE } from '@/constant'
 
 import Snippets from './Snippets'
@@ -47,4 +47,4 @@ const RecipesContentContainer = ({ recipesContent: store, metric }) => {
   )
 }
 
-export default connectStore(RecipesContentContainer)
+export default pluggedIn(RecipesContentContainer)

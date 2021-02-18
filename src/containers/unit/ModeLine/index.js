@@ -13,7 +13,7 @@ import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
 import { useDevice } from '@/hooks'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import TopBar from './TopBar'
 
@@ -70,4 +70,4 @@ ModeLineContainer.defaultProps = {
   metric: METRIC.COMMUNITY,
 }
 
-export default connectStore(ModeLineContainer)
+export default pluggedIn(ModeLineContainer)

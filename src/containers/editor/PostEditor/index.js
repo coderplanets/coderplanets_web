@@ -8,7 +8,7 @@ import React from 'react'
 /* import T from 'prop-types' */
 import dynamic from 'next/dynamic'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleEditFooter from '@/components/ArticleEditFooter'
 import { ArticleContentLoading } from '@/components/LoadingEffects'
@@ -125,4 +125,4 @@ const PostEditorContainer = ({ postEditor: store, attachment }) => {
   )
 }
 
-export default connectStore(PostEditorContainer)
+export default pluggedIn(PostEditorContainer)

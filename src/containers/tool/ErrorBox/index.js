@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
 import { useShortcut } from '@/hooks'
@@ -67,4 +67,4 @@ const ErrorBoxContainer = ({ errorBox: store }) => {
   )
 }
 
-export default connectStore(ErrorBoxContainer)
+export default pluggedIn(ErrorBoxContainer)

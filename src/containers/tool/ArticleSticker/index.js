@@ -9,7 +9,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import Sticky from '@/components/Sticky'
 import GotoTop from '@/components/GotoTop'
@@ -74,4 +74,4 @@ ArticleStickerContainer.defaultProps = {
   testId: 'article-sticker',
 }
 
-export default connectStore(ArticleStickerContainer)
+export default pluggedIn(ArticleStickerContainer)

@@ -9,7 +9,7 @@ import { Waypoint } from 'react-waypoint'
 import { contains } from 'ramda'
 
 import { C11N, THREAD, ROUTE } from '@/constant'
-import { connectStore, buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
 
 import TagsBar from '@/containers/unit/TagsBar'
 
@@ -171,4 +171,4 @@ const PostsThreadContainer = ({ postsThread: store }) => {
   )
 }
 
-export default connectStore(PostsThreadContainer)
+export default pluggedIn(PostsThreadContainer)
