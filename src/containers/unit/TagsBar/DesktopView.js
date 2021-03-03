@@ -9,17 +9,18 @@ import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
 import { THREAD, TOPIC } from '@/constant'
-import { buildLog, pluggedIn, sortByColor, Trans } from '@/utils'
+import { buildLog, pluggedIn, sortByColor, Trans, getRandomInt } from '@/utils'
 
-import TagOptions from './TagOptions'
+import TagCount from './TagCount'
 
 import {
   Wrapper,
   TagItem,
   TagDot,
+  HashSign,
   TagTitle,
   AllTagIcon,
-  TagOptionsWrapper,
+  CountInfoWrapper,
 } from './styles'
 
 import { useInit, onTagSelect } from './logic'
@@ -52,7 +53,14 @@ const TagsBarContainer = ({
 
       {sortedTags.map(({ id, color, title }) => (
         <TagItem key={id}>
-          <TagDot color={color} active={activeTagData.title} title={title} />
+          <TagDot color={color} active={activeTagData.title} title={title}>
+            <HashSign
+              color={color}
+              active={activeTagData.title}
+              title={title}
+            />
+          </TagDot>
+
           <TagTitle
             active={activeTagData.title}
             title={title}
@@ -61,11 +69,10 @@ const TagsBarContainer = ({
           >
             {Trans(title)}
           </TagTitle>
-          <TagOptionsWrapper>
-            <TagOptions
-              onInclude={onTagSelect({ id, title, color }, onSelect)}
-            />
-          </TagOptionsWrapper>
+
+          <CountInfoWrapper>
+            <TagCount num={getRandomInt(5, 1000)} />
+          </CountInfoWrapper>
         </TagItem>
       ))}
     </Wrapper>

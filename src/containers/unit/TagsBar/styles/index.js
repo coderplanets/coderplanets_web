@@ -1,17 +1,25 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
+import HashTagSVG from '@/SvgIcons/HashTagSVG'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
+  position: relative;
   ${css.flexColumn()};
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 12px;
 `
 export const TagItem = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 14px;
+  margin-bottom: 5px;
   max-width: 180px;
+  padding: 5px;
+  border-radius: 5px;
+
+  &:hover {
+    background: #0e303d;
+  }
 `
 export const AllTagIcon = styled(Img)`
   fill: ${theme('banner.desc')};
@@ -25,11 +33,18 @@ const getDotBgColor = (active, title, color) => {
 }
 
 export const TagDot = styled.div`
-  ${css.circle(12)};
+  position: relative;
+  ${css.size(15)};
+  ${css.flex('align-both')};
+  border-radius: 4px;
   margin-right: 12px;
-  background-color: ${({ active, title, color }) =>
-    getDotBgColor(active, title, color)};
+  /* background: #3d575d; */
   opacity: ${theme('tags.dotOpacity')};
+`
+export const HashSign = styled(HashTagSVG)`
+  fill: ${({ active, title, color }) => getDotBgColor(active, title, color)};
+  ${css.size(14)};
+  transform: rotate(18deg);
 `
 // ${props => (props.active === props.title ? 1 : 0.7)}
 
@@ -47,9 +62,17 @@ export const TagTitle = styled.div`
   }
   transition: all 0.2s;
 `
-export const TagOptionsWrapper = styled.div`
-  display: none;
-  ${TagItem}:hover & {
-    display: block;
+export const CountInfoWrapper = styled.div`
+  opacity: 0;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
   }
+  /* display: none; */
+  /* ${TagItem}:hover & {
+    display: block;
+  } */
+
+  transition: opacity 0.3s;
+  transition-delay: 0.5s;
 `

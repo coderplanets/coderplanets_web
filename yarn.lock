@@ -3643,16 +3643,16 @@ camelize@^1.0.0:
   resolved "https://registry.npm.taobao.org/camelize/download/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
 
 caniuse-lite@^1.0.30001043:
-  version "1.0.30001066"
-  resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001066.tgz#0a8a58a10108f2b9bf38e7b65c237b12fd9c5f04"
+  version "1.0.30001194"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001194.tgz"
 
 caniuse-lite@^1.0.30001093:
   version "1.0.30001109"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001109.tgz#a9f3f26a0c3753b063d7acbb48dfb9c0e46f2b19"
 
 caniuse-lite@^1.0.30001113:
-  version "1.0.30001124"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001124.tgz#5d9998190258e11630d674fc50ea8e579ae0ced2"
+  version "1.0.30001194"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001194.tgz"
 
 capture-exit@^2.0.0:
   version "2.0.0"
