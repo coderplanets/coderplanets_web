@@ -39,7 +39,7 @@ const Body = ({ item, onPreview }) => {
         </LeftPart>
         <SpaceGrow />
 
-        <ActiveItemWrapper>
+        <ActiveItemWrapper hasComments={item.commentsCount > 0}>
           <Tooltip content={<div>最后回复</div>} placement="bottom">
             <ActiveIcon src={`${ICON}/shape/activity.svg`} />
           </Tooltip>
