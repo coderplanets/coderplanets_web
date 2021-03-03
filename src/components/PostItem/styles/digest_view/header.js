@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 export const Brief = styled.div`
   ${css.flexGrow('align-center')};
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
 `
