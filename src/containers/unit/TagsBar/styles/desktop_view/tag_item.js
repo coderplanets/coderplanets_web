@@ -4,6 +4,8 @@ import Img from '@/Img'
 import HashTagSVG from '@/SvgIcons/HashTagSVG'
 import { theme, css } from '@/utils'
 
+import { Wrapper as TagsWrapper } from './index'
+
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 5px;
@@ -23,7 +25,9 @@ export const AllTagIcon = styled(Img)`
   ${css.size(14)};
   transform: rotate(17deg);
 `
-const getActiveColor = (active, color) => {
+const getActiveColor = (active, color, activeId) => {
+  if (activeId !== null) return active ? color : '#497684'
+
   return !active ? color : '#497684'
 }
 
@@ -36,7 +40,8 @@ export const TagDot = styled.div`
   opacity: ${theme('tags.dotOpacity')};
 `
 export const HashSign = styled(HashTagSVG)`
-  fill: ${({ active, color }) => getActiveColor(active, color)};
+  fill: ${({ active, color, activeId }) =>
+    getActiveColor(active, color, activeId)};
   ${css.size(14)};
   transform: rotate(18deg);
 `
@@ -59,7 +64,7 @@ export const TagTitle = styled.div`
 export const CountInfoWrapper = styled.div`
   opacity: 0;
 
-  ${Wrapper}:hover & {
+  ${TagsWrapper}:hover & {
     opacity: 1;
   }
 

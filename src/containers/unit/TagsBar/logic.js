@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { curry, isEmpty, pick, contains, toUpper } from 'ramda'
+import { isEmpty, pick, contains, toUpper } from 'ramda'
 
 import { EVENT, ERR, THREAD, TOPIC } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
@@ -17,11 +17,11 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
-/* eslint-disable no-unused-vars */
-export const onTagSelect = curry((tag, cb, e) => {
+export const onTagSelect = (tag, cb) => {
   store.selectTag(tag)
-  cb(tag)
-})
+
+  if (cb) cb(tag)
+}
 
 const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
 

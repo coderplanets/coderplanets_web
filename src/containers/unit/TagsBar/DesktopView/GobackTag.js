@@ -9,7 +9,7 @@ const GobackTag = ({ onSelect }) => {
   const emptytag = { id: '', title: '', color: '' }
 
   return (
-    <Wrapper onClick={onTagSelect(emptytag, onSelect)}>
+    <Wrapper onClick={() => onTagSelect(emptytag, onSelect)}>
       <TagIcon src={`${ICON}/hash-solid.svg`} />
       <TagTitle>全部标签</TagTitle>
     </Wrapper>

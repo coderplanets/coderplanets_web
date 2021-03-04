@@ -9,26 +9,20 @@ import {
   TagDot,
   HashSign,
   TagTitle,
-  // AllTagIcon,
   CountInfoWrapper,
 } from '../styles/desktop_view/tag_item'
 
 import { onTagSelect } from '../logic'
 
-const TagItem = ({ id, title, color, active, onSelect }) => {
+const TagItem = ({ tag, active, activeId, onSelect }) => {
   return (
     <Wrapper active={active}>
       <TagDot>
-        <HashSign color={color} active={active} />
+        <HashSign color={tag.color} active={active} activeId={activeId} />
       </TagDot>
 
-      <TagTitle
-        active={active}
-        title={title}
-        color={color}
-        onClick={onTagSelect({ id, title, color }, onSelect)}
-      >
-        {Trans(title)}
+      <TagTitle active={active} onClick={() => onTagSelect(tag, onSelect)}>
+        {Trans(tag.title)}
       </TagTitle>
 
       <CountInfoWrapper>

@@ -35,13 +35,13 @@ const TagsBarContainer = ({
     <Wrapper>
       {activeTagData.title && <GobackTag onSelect={onSelect} />}
 
-      {sortedTags.map(({ id, color, title }) => (
+      {sortedTags.map((tag) => (
         <TagItem
-          key={id}
-          id={id}
-          active={activeTagData.title === title}
-          color={color}
-          title={title}
+          key={tag.id}
+          tag={tag}
+          active={activeTagData.title === tag.title}
+          activeId={activeTagData.id}
+          onSelect={onSelect}
         />
       ))}
     </Wrapper>
