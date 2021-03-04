@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-/* import { Img } from '../..' */
+import HashTagSVG from '@/SvgIcons/HashTagSVG'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -16,7 +16,7 @@ export const Tag = styled.div`
 export const Title = styled.div`
   color: ${theme('thread.articleTag')};
   opacity: 0.8;
-  font-size: 0.8rem;
+  font-size: 12px;
 
   ${css.media.mobile`
     color: ${theme('thread.articleDigest')};
@@ -25,18 +25,18 @@ export const Title = styled.div`
   `};
 `
 export const MoreText = styled.div``
-export const Dot = styled.div`
-  ${css.circle(10)};
-  margin-right: 4px;
-  background-color: ${({ color }) => color};
-  margin-top: -1px;
-
+export const HashSign = styled(HashTagSVG)`
+  fill: ${({ color }) => color};
+  ${css.size(12)};
+  transform: rotate(18deg);
   opacity: ${theme('tags.dotOpacity')};
+  margin-right: 2px;
 
   ${css.media.mobile`
-    ${css.circle(8)};
+    ${css.circle(10)};
   `};
 `
+
 export const PopoverInfo = styled.div`
   padding: 10px;
   padding-top: 12px;

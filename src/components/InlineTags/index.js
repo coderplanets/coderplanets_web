@@ -11,21 +11,23 @@ import { buildLog, sortByColor, Trans } from '@/utils'
 import Maybe from '@/components/Maybe'
 import Tooltip from '@/components/Tooltip'
 
-import { Wrapper, Tag, Dot, Title, MoreText, PopoverInfo } from './styles'
+import { Wrapper, Tag, HashSign, Title, MoreText, PopoverInfo } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:InlineTags:index')
 
-const FullList = ({ data, marginLeft }) => (
-  <Wrapper marginLeft={marginLeft}>
-    {sortByColor(data).map((tag) => (
-      <Tag key={tag.title}>
-        <Dot color={tag.color} />
-        <Title>{Trans(tag.title)}</Title>
-      </Tag>
-    ))}
-  </Wrapper>
-)
+const FullList = ({ data, marginLeft }) => {
+  return (
+    <Wrapper marginLeft={marginLeft}>
+      {sortByColor(data).map((tag) => (
+        <Tag key={tag.title}>
+          <HashSign color={tag.color} />
+          <Title>{Trans(tag.title)}</Title>
+        </Tag>
+      ))}
+    </Wrapper>
+  )
+}
 
 const InlineTags = ({ data, max, marginLeft }) => {
   if (data.length > max) {
@@ -43,7 +45,7 @@ const InlineTags = ({ data, max, marginLeft }) => {
             .slice(0, max)
             .map((tag) => (
               <Tag key={tag.title}>
-                <Dot color={tag.color} />
+                <HashSign color={tag.color} />
                 <Title>{Trans(tag.title)}</Title>
               </Tag>
             ))}

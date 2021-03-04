@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   margin-top: -10px;
 `
 export const Extra = styled.li`
+  position: relative;
   ${css.flex('align-end')};
   color: ${theme('thread.extraInfo')};
   opacity: 0.7;
@@ -44,10 +45,13 @@ export const ViewsIcon = styled(Img)`
 `
 
 export const ActiveItemWrapper = styled.div`
+  position: absolute;
+  top: ${({ hasComments }) => (hasComments ? '5px' : '-24px')};
+  right: 0;
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   margin-right: 6px;
-  margin-top: 5px;
+  margin-top: 8px;
   opacity: 0;
 
   ${Main}:hover & {

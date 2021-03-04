@@ -9,7 +9,7 @@ import T from 'prop-types'
 
 import { VIEW } from '@/constant'
 
-import DesktopView from './DesktopView'
+import DesktopView from './DesktopView/index'
 import CardView from './CardView'
 
 const TagsBar = (props) => {
