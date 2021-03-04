@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { THREAD, TOPIC } from '@/constant'
 import { buildLog, pluggedIn, sortByColor, Trans, getRandomInt } from '@/utils'
 
@@ -46,23 +46,19 @@ const TagsBarContainer = ({
     <Wrapper>
       {activeTagData.title && (
         <TagItem onClick={onTagSelect(emptytag, onSelect)}>
-          <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
-          <TagTitle>全部</TagTitle>
+          <AllTagIcon src={`${ICON}/hash-solid.svg`} />
+          <TagTitle>全部标签</TagTitle>
         </TagItem>
       )}
 
       {sortedTags.map(({ id, color, title }) => (
-        <TagItem key={id}>
-          <TagDot color={color} active={activeTagData.title} title={title}>
-            <HashSign
-              color={color}
-              active={activeTagData.title}
-              title={title}
-            />
+        <TagItem key={id} active={activeTagData.title === title}>
+          <TagDot>
+            <HashSign color={color} active={activeTagData.title === title} />
           </TagDot>
 
           <TagTitle
-            active={activeTagData.title}
+            active={activeTagData.title === title}
             title={title}
             color={color}
             onClick={onTagSelect({ id, title, color }, onSelect)}

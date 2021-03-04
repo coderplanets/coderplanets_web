@@ -17,6 +17,8 @@ export const TagItem = styled.div`
   padding: 5px;
   border-radius: 5px;
 
+  background: ${({ active }) => (active ? '#0e303d' : 'transparent')};
+
   &:hover {
     background: #0e303d;
   }
@@ -24,12 +26,11 @@ export const TagItem = styled.div`
 export const AllTagIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-right: 10px;
-  margin-top: 2px;
   ${css.size(14)};
+  transform: rotate(17deg);
 `
-const getDotBgColor = (active, title, color) => {
-  if (!active) return color
-  return active === title ? color : 'lightgrey'
+const getActiveColor = (active, color) => {
+  return active ? color : '#497684'
 }
 
 export const TagDot = styled.div`
@@ -38,22 +39,21 @@ export const TagDot = styled.div`
   ${css.flex('align-both')};
   border-radius: 4px;
   margin-right: 12px;
-  /* background: #3d575d; */
   opacity: ${theme('tags.dotOpacity')};
 `
 export const HashSign = styled(HashTagSVG)`
-  fill: ${({ active, title, color }) => getDotBgColor(active, title, color)};
+  fill: ${({ active, color }) => getActiveColor(active, color)};
   ${css.size(14)};
   transform: rotate(18deg);
 `
-// ${props => (props.active === props.title ? 1 : 0.7)}
-
 export const TagTitle = styled.div`
   flex-grow: 1;
   color: ${theme('tags.text')};
   font-size: 14.5px;
   opacity: 0.9;
-  letter-spacing: 0.1rem;
+  letter-spacing: 2px;
+  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
+  opacity: ${({ active }) => (active ? 1 : 0.9)};
 
   &:hover {
     cursor: pointer;
