@@ -8,4 +8,4 @@ export const Wrapper = styled.div`
   margin-top: 30px;
   margin-left: 12px;
 `
-export const holder = 1
+export const TagsWrapper = styled.div``

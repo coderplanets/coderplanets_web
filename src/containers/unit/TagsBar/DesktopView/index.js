@@ -8,12 +8,13 @@ import React from 'react'
 import T from 'prop-types'
 
 import { THREAD, TOPIC } from '@/constant'
-import { buildLog, pluggedIn, sortByColor } from '@/utils'
+import { buildLog, pluggedIn } from '@/utils'
 
 import GobackTag from './GobackTag'
-import TagItem from './TagItem'
+import Folder from './Folder'
+// import TagItem from './TagItem'
 
-import { Wrapper } from '../styles/desktop_view'
+import { Wrapper /* TagsWrapper */ } from '../styles/desktop_view'
 
 import { useInit } from '../logic'
 
@@ -29,12 +30,35 @@ const TagsBarContainer = ({
 }) => {
   useInit(store, thread, topic, active)
   const { tagsData, activeTagData } = store
-  const sortedTags = sortByColor(tagsData)
+  // const sortedTags = sortByColor(tagsData)
 
   return (
     <Wrapper>
       {activeTagData.title && <GobackTag onSelect={onSelect} />}
 
+      <Folder
+        title="默认分组"
+        groupTags={tagsData}
+        allTags={tagsData}
+        activeTag={activeTagData}
+        onSelect={onSelect}
+      />
+
+      {/* <Folder title="实践 Demo">
+        <TagsWrapper>
+          {sortedTags.slice(0, 5).map((tag) => (
+            <TagItem
+              key={tag.id}
+              tag={tag}
+              active={activeTagData.title === tag.title}
+              activeId={activeTagData.id}
+              onSelect={onSelect}
+            />
+          ))}
+        </TagsWrapper>
+      </Folder> */}
+
+      {/* <TagsWrapper>
       {sortedTags.map((tag) => (
         <TagItem
           key={tag.id}
@@ -43,7 +67,8 @@ const TagsBarContainer = ({
           activeId={activeTagData.id}
           onSelect={onSelect}
         />
-      ))}
+      ))} </TagsWrapper>
+      */}
     </Wrapper>
   )
 }

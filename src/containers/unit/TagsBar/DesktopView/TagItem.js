@@ -1,12 +1,12 @@
 import React from 'react'
 
 import { getRandomInt, Trans } from '@/utils'
+import { SpaceGrow } from '@/components/Common'
 
 import TagCount from './TagCount'
 
 import {
   Wrapper,
-  TagDot,
   HashSign,
   TagTitle,
   CountInfoWrapper,
@@ -14,20 +14,30 @@ import {
 
 import { onTagSelect } from '../logic'
 
-const TagItem = ({ tag, active, activeId, onSelect }) => {
+const TagItem = ({ tag, active, activeId, isInline, onSelect }) => {
   return (
-    <Wrapper active={active}>
-      <TagDot>
-        <HashSign color={tag.color} active={active} activeId={activeId} />
-      </TagDot>
+    <Wrapper active={active} isInline={isInline}>
+      <HashSign
+        color={tag.color}
+        active={active}
+        activeId={activeId}
+        isInline={isInline}
+      />
 
-      <TagTitle active={active} onClick={() => onTagSelect(tag, onSelect)}>
+      <TagTitle
+        active={active}
+        isInline={isInline}
+        onClick={() => onTagSelect(tag, onSelect)}
+      >
         {Trans(tag.title)}
       </TagTitle>
+      <SpaceGrow />
 
-      <CountInfoWrapper>
-        <TagCount num={getRandomInt(5, 1000)} />
-      </CountInfoWrapper>
+      {!isInline && (
+        <CountInfoWrapper>
+          <TagCount num={getRandomInt(5, 1000)} />
+        </CountInfoWrapper>
+      )}
     </Wrapper>
   )
 }

@@ -4,19 +4,20 @@ import Img from '@/Img'
 import HashTagSVG from '@/SvgIcons/HashTagSVG'
 import { theme, css } from '@/utils'
 
-import { Wrapper as TagsWrapper } from './index'
+import { TagsWrapper } from './index'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 5px;
+  margin-bottom: ${({ isInline }) => (!isInline ? '5px' : 0)};
+  padding: ${({ isInline }) => (!isInline ? '5px' : 0)};
   max-width: 180px;
-  padding: 5px;
   border-radius: 5px;
 
-  background: ${({ active }) => (active ? '#0e303d' : 'transparent')};
+  background: ${({ active, isInline }) =>
+    !active || isInline ? 'transparent' : '#0e303d'};
 
   &:hover {
-    background: #0e303d;
+    background: ${({ isInline }) => (!isInline ? '#0e303d' : 'none')};
   }
 `
 export const AllTagIcon = styled(Img)`
@@ -31,34 +32,34 @@ const getActiveColor = (active, color, activeId) => {
   return !active ? color : '#497684'
 }
 
-export const TagDot = styled.div`
-  position: relative;
-  ${css.size(15)};
-  ${css.flex('align-both')};
-  border-radius: 4px;
-  margin-right: 12px;
-  opacity: ${theme('tags.dotOpacity')};
-`
 export const HashSign = styled(HashTagSVG)`
   fill: ${({ active, color, activeId }) =>
     getActiveColor(active, color, activeId)};
   ${css.size(14)};
+  margin-right: ${({ isInline }) => (!isInline ? '12px' : '3px')};
+  opacity: ${theme('tags.dotOpacity')};
+
   transform: rotate(18deg);
 `
 export const TagTitle = styled.div`
-  flex-grow: 1;
   color: ${theme('tags.text')};
-  font-size: 14.5px;
+  font-size: ${({ isInline }) => (!isInline ? '14.5px' : '13px')};
   opacity: 0.9;
   letter-spacing: 2px;
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
   opacity: ${({ active }) => (active ? 1 : 0.9)};
+  ${css.cutFrom('120px')};
 
   &:hover {
     cursor: pointer;
     opacity: 1;
     font-weight: bold;
   }
+
+  ${TagsWrapper}:hover & {
+    ${css.cutFrom('80px')};
+  }
+
   transition: all 0.2s;
 `
 export const CountInfoWrapper = styled.div`
