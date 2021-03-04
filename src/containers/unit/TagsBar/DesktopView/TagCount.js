@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { getRandomInt } from '@/utils'
-import { Wrapper, Count, ChartBar } from './styles/tag_count'
+import { Wrapper, Count, ChartBar } from '../styles/desktop_view/tag_count'
 
 const TagCount = ({ num }) => {
   const percent = getRandomInt(5, 100) / 100

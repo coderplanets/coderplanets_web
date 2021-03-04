@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { css, theme } from '@/utils'
 
 // import { CountAreaMask } from './index'
-import { TagItem } from './index'
+import { Wrapper as TagItem } from './tag_item'
 
 export const Wrapper = styled.div`
   position: relative;

@@ -5,12 +5,6 @@ import HashTagSVG from '@/SvgIcons/HashTagSVG'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  position: relative;
-  ${css.flexColumn()};
-  margin-top: 30px;
-  margin-left: 12px;
-`
-export const TagItem = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 5px;
   max-width: 180px;
@@ -30,7 +24,7 @@ export const AllTagIcon = styled(Img)`
   transform: rotate(17deg);
 `
 const getActiveColor = (active, color) => {
-  return active ? color : '#497684'
+  return !active ? color : '#497684'
 }
 
 export const TagDot = styled.div`
@@ -68,10 +62,6 @@ export const CountInfoWrapper = styled.div`
   ${Wrapper}:hover & {
     opacity: 1;
   }
-  /* display: none; */
-  /* ${TagItem}:hover & {
-    display: block;
-  } */
 
   transition: opacity 0.3s;
   transition-delay: 0.5s;
