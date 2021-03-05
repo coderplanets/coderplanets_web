@@ -6,15 +6,15 @@
 
 import React from 'react'
 import T from 'prop-types'
+import { keys } from 'ramda'
 
 import { THREAD, TOPIC } from '@/constant'
-import { buildLog, pluggedIn } from '@/utils'
+import { buildLog, pluggedIn, groupByKey } from '@/utils'
 
 import GobackTag from './GobackTag'
 import Folder from './Folder'
-// import TagItem from './TagItem'
 
-import { Wrapper /* TagsWrapper */ } from '../styles/desktop_view'
+import { Wrapper } from '../styles/desktop_view'
 
 import { useInit } from '../logic'
 
@@ -30,45 +30,34 @@ const TagsBarContainer = ({
 }) => {
   useInit(store, thread, topic, active)
   const { tagsData, activeTagData } = store
-  // const sortedTags = sortByColor(tagsData)
+  // const tagsByGroup = groupByKey(tagsData, 'group')
+  const tagsByGroup = groupByKey(
+    tagsData.map((tag) => {
+      if (tag.id < 4) {
+        tag.group = '这是第一组'
+      } else {
+        tag.group = '这是第二组' // '__default__'
+      }
+      return tag
+    }),
+    'group',
+  )
+  // console.log('tagsByGroup: ', tagsByGroup)
+  const groupsKeys = keys(tagsByGroup)
 
   return (
     <Wrapper>
       {activeTagData.title && <GobackTag onSelect={onSelect} />}
-
-      <Folder
-        title="默认分组"
-        groupTags={tagsData}
-        allTags={tagsData}
-        activeTag={activeTagData}
-        onSelect={onSelect}
-      />
-
-      {/* <Folder title="实践 Demo">
-        <TagsWrapper>
-          {sortedTags.slice(0, 5).map((tag) => (
-            <TagItem
-              key={tag.id}
-              tag={tag}
-              active={activeTagData.title === tag.title}
-              activeId={activeTagData.id}
-              onSelect={onSelect}
-            />
-          ))}
-        </TagsWrapper>
-      </Folder> */}
-
-      {/* <TagsWrapper>
-      {sortedTags.map((tag) => (
-        <TagItem
-          key={tag.id}
-          tag={tag}
-          active={activeTagData.title === tag.title}
-          activeId={activeTagData.id}
+      {groupsKeys.map((groupKey) => (
+        <Folder
+          key={groupKey}
+          title={groupKey}
+          groupTags={tagsByGroup[groupKey]}
+          allTags={tagsData}
+          activeTag={activeTagData}
           onSelect={onSelect}
         />
-      ))} </TagsWrapper>
-      */}
+      ))}
     </Wrapper>
   )
 }

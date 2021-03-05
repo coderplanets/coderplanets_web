@@ -48,7 +48,7 @@ export const TagTitle = styled.div`
   letter-spacing: 2px;
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
   opacity: ${({ active }) => (active ? 1 : 0.9)};
-  ${css.cutFrom('120px')};
+  ${({ isInline }) => (!isInline ? css.cutFrom('120px') : css.cutFrom('50px'))};
 
   &:hover {
     cursor: pointer;

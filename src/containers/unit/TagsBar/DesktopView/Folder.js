@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import { findIndex } from 'ramda'
 
@@ -20,11 +20,13 @@ import {
 } from '../styles/desktop_view/folder'
 
 const MAX_DISPLAY_COUNT = 5
-const TOGGLE_SUB_TOGGLE_THROLD = 5 // TODO: only for test, should be 15
+const TOGGLE_SUB_TOGGLE_THROLD = 15
 
 const Folder = ({ title, groupTags, allTags, activeTag, onSelect }) => {
-  // 如果标签总数都没有超过 15 个，那么就不用显示 '展示更多'了，直接全部显示完事儿
-  const needSubToggle = allTags?.length > TOGGLE_SUB_TOGGLE_THROLD || false
+  // 决定是否显示 '展示更多' 的时候参考标签总数
+  const needSubToggle =
+    allTags?.length > TOGGLE_SUB_TOGGLE_THROLD &&
+    groupTags.length > MAX_DISPLAY_COUNT
 
   const initDisplayCount = needSubToggle ? MAX_DISPLAY_COUNT : groupTags.length
 
@@ -36,9 +38,27 @@ const Folder = ({ title, groupTags, allTags, activeTag, onSelect }) => {
   const isActiveTagInFolder =
     findIndex((item) => item.id === activeTag.id, groupTags) >= 0
 
+  const subToggleRef = useRef(null)
+  // 当选中的 Tag 被折叠在展示更多里面时，将其展开
+  useEffect(() => {
+    if (subToggleRef && isActiveTagInFolder) {
+      setCurDisplayCount(groupTags.length)
+    }
+  }, [subToggleRef, isActiveTagInFolder, groupTags])
+
   return (
     <Wrapper>
-      <Header onClick={() => toggleFolder(!isFolderOpen)}>
+      <Header
+        onClick={() => {
+          toggleFolder(!isFolderOpen)
+
+          // 当关闭 Folder 的时候，如果当前 Folder 没有被激活的 Tag, 那么就回到折叠状态
+          // 如果有，那么保持原来的状态
+          if (isFolderOpen && !isActiveTagInFolder) {
+            setCurDisplayCount(MAX_DISPLAY_COUNT)
+          }
+        }}
+      >
         <ArrowIcon
           isOpen={isFolderOpen}
           src={`${ICON}/shape/arrow-simple.svg`}
@@ -63,6 +83,7 @@ const Folder = ({ title, groupTags, allTags, activeTag, onSelect }) => {
         </TagsWrapper>
         {needSubToggle && (
           <SubToggle
+            ref={subToggleRef}
             onClick={() => {
               setCurDisplayCount(
                 curDisplayCount === MAX_DISPLAY_COUNT

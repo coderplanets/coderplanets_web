@@ -273,3 +273,20 @@ export const findDeepMatch = (data, key, value) => {
 
   return result
 }
+
+/**
+ * groupByKey
+ * see @link: https://stackoverflow.com/a/47385953/4050784
+ *
+ * @param {Array} - array
+ * @param {String} - key
+ * @returns {Object}
+ */
+export const groupByKey = (array, key) => {
+  return array.reduce((hash, obj) => {
+    if (obj[key] === undefined) return hash
+    return Object.assign(hash, {
+      [obj[key]]: (hash[obj[key]] || []).concat(obj),
+    })
+  }, {})
+}
