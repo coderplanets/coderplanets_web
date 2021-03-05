@@ -8,13 +8,14 @@ import React from 'react'
 import { Waypoint } from 'react-waypoint'
 import { contains } from 'ramda'
 
+import { ICON } from '@/config'
 import { C11N, THREAD, ROUTE } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
-import { PublishButton } from '@/components/Buttons'
+import { DropdownButton } from '@/components/Buttons'
 import Maybe from '@/components/Maybe'
 import FaqPeekList from '@/components/FaqPeekList'
 import PagedContents from '@/components/PagedContents'
@@ -147,10 +148,37 @@ const PostsThreadContainer = ({ postsThread: store }) => {
           {bannerLayout === C11N.DIGEST && (
             <RightPart>
               <PublisherWrapper>
-                <PublishButton
+                <DropdownButton
+                  type="primary"
+                  placement="bottom-end"
+                  options={[
+                    {
+                      key: 'publish',
+                      icon: `${ICON}/edit/publish-write.svg`,
+                      title: '发布帖子',
+                      desc: '发布后会第一次出现在相应版块首页。',
+                    },
+                    {
+                      key: 'link',
+                      link: 'https://newpage',
+                      icon: `${ICON}/article/report.svg`,
+                      title: '发布须知',
+                      desc:
+                        '请确保你发布的内容符合社区的基本价值观和规范，否则会被限流或直接删除。',
+                    },
+                  ]}
+                  panelMinWidth="210px"
+                  onClick={(key) => {
+                    if (key === 'publish') onContentCreate()
+                  }}
+                >
+                  {LabelText[subPath] || '发布帖子'}
+                </DropdownButton>
+
+                {/* <PublishButton
                   label={LabelText[subPath] || '发布帖子'}
                   onPublish={onContentCreate}
-                />
+                /> */}
               </PublisherWrapper>
 
               <Sticky offsetTop={100}>
