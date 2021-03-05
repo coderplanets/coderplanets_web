@@ -15,16 +15,28 @@ import {
 } from '../styles/dropdown_button'
 
 // <UpIcon src={`${ICON_CMD}/works/vote_up.svg`} />
-const DropdownButton = ({ children, options, onClick }) => {
+const DropdownButton = ({
+  children,
+  options,
+  onClick,
+  placement,
+  panelMinWidth,
+}) => {
   return (
     <Wrapper>
       <ButtonWrapper onClick={onClick}>{children}</ButtonWrapper>
       <Tooltip
-        placement="bottom"
+        placement={placement}
         trigger="click"
         hideOnClick={false}
-        content={<OptionPanel options={options} onClick={onClick} />}
-        noDefaultPadding
+        content={
+          <OptionPanel
+            options={options}
+            onClick={onClick}
+            panelMinWidth={panelMinWidth}
+          />
+        }
+        noPadding
       >
         <DropdownButtonWrapper>
           <MoreIcon src={`${ICON_CMD}/works/vote_up.svg`} onClick={onClick} />
@@ -43,8 +55,24 @@ DropdownButton.propTypes = {
       title: T.stirng,
       desc: T.string,
       icon: T.string,
+      link: T.string,
     }),
   ),
+  placement: T.oneOf([
+    'top',
+    'top-start',
+    'top-end',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'left',
+    'left-start',
+    'left-end',
+    'right',
+    'right-start',
+    'right-end',
+  ]),
+  panelMinWidth: T.string,
   // ghost: T.bool,
   // type: T.oneOf(['primary', 'red', 'ghost']),
   // onClick: T.func,
@@ -55,6 +83,8 @@ DropdownButton.defaultProps = {
   children: 'Button',
   onClick: console.log,
   options: [],
+  placement: 'bottom',
+  panelMinWidth: '100%',
   // ghost: false,
   // type: 'primary',
   // size: 'default',

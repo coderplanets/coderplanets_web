@@ -6,14 +6,13 @@ import { css, theme } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 100%;
+  min-width: ${({ panelMinWidth }) => panelMinWidth};
   max-height: 200px;
   overflow: hidden;
 `
 export const Block = styled.div`
   ${css.flex('align-start')};
-  padding: 8px 15px;
-  padding-left: 10px;
-  padding-bottom: 8px;
+  padding: 8px 10px;
   border-bottom: 1px solid;
   border-bottom-color: #0d3e4e;
 
@@ -28,14 +27,19 @@ export const Block = styled.div`
   }
   transition: all 0.25s;
 `
+export const BlockA = styled(Block)`
+  text-decoration: none;
+`
 export const IconWrapper = styled.div`
   ${css.flex('justify-center')};
-  width: 24px;
+  width: 28px;
 `
 export const Icon = styled(Img)`
   fill: ${theme('button.primary')};
-  width: ${({ bigger }) => (bigger ? '24px' : '18px')};
-  height: ${({ bigger }) => (bigger ? '24px' : '18px')};
+  ${css.size(16)};
+  margin-top: 4px;
+  /* width: ${({ bigger }) => (bigger ? '24px' : '18px')};
+  height: ${({ bigger }) => (bigger ? '24px' : '18px')}; */
   display: block;
 
   opacity: ${({ index }) => (index === 0 ? 1 : 0)};
@@ -47,13 +51,28 @@ export const Icon = styled(Img)`
 export const Intro = styled.div`
   ${css.flexColumn()};
   margin-left: 7px;
+  width: 100%;
+`
+export const Header = styled.div`
+  ${css.flex('align-center')};
+  color: ${theme('thread.articleTitle')};
 `
 export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
+  ${css.cutFrom('90%')};
   font-size: 14px;
+`
+export const LinkIcon = styled(Img)`
+  ${css.size(10)};
+  fill: ${theme('thread.articleTitle')};
+  margin-left: 5px;
+  display: none;
+
+  ${Block}:hover & {
+    display: block;
+  }
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 11px;
-  margin-top: 2px;
+  margin-top: 4px;
 `
