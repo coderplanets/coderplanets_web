@@ -31,6 +31,7 @@ export {
   isCypressRunning,
   multiClick,
   findDeepMatch,
+  groupByKey,
 } from './helper'
 
 export { errorForHuman, ssrAmbulance } from './errors'
