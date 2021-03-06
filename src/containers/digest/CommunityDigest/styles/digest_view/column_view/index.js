@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { HCN } from '@/constant'
 import { theme, css, WIDTH } from '@/utils'
 
 import Img from '@/Img'
@@ -73,10 +74,10 @@ export const LogoWrapper = styled.div`
   position: relative;
   width: 55px;
   /*  TODO:  use new logo */
-  margin-top: ${({ raw }) => (raw === 'home' ? '-10px' : 0)};
+  margin-top: ${({ raw }) => (raw === HCN ? '-10px' : 0)};
 
   @media (max-height: 800px) {
-    margin-top: ${({ raw }) => (raw === 'home' ? '-8px' : 0)};
+    margin-top: ${({ raw }) => (raw === HCN ? '-8px' : 0)};
   }
 
   ${css.media.mobile`

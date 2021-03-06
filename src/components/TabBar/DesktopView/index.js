@@ -5,7 +5,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ANCHOR, THREAD, C11N, SIZE } from '@/constant'
+import { HCN, ANCHOR, THREAD, C11N, SIZE } from '@/constant'
 import { buildLog, sortByIndex } from '@/utils'
 
 import NormalView from './NormalView'
@@ -63,7 +63,7 @@ TabBar.defaultProps = {
   active: THREAD.POST,
   onChange: log,
   layout: C11N.DIGEST,
-  communityRaw: 'home',
+  communityRaw: HCN,
   size: SIZE.MEDIUM,
 }
 

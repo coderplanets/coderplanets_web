@@ -7,8 +7,10 @@ import {
   findIndex,
   propEq,
 } from 'ramda'
+
 import { DEFAULT_THEME } from '@/config'
-import { TYPE, THREAD } from '@/constant'
+import { HCN, TYPE, THREAD } from '@/constant'
+
 import { P } from '@/schemas'
 
 import BStore from './bstore'
@@ -55,7 +57,7 @@ export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
     return { community }
   }
 
-  if (community === 'home' && thread === THREAD.JOB) {
+  if (community === HCN && thread === THREAD.JOB) {
     filter = omit(['community'], filter)
     return { filter, userHasLogin }
   }

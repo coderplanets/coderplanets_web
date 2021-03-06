@@ -1,7 +1,7 @@
 import React from 'react'
 import { contains } from 'ramda'
 
-import { THREAD, NON_FILL_COMMUNITY, VIEW } from '@/constant'
+import { HCN, THREAD, NON_FILL_COMMUNITY, VIEW } from '@/constant'
 import { ICON_CMD } from '@/config'
 
 import CustomScroller from '@/components/CustomScroller'
@@ -47,7 +47,7 @@ import { tabOnChange } from '../../logic'
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
 // 没有各种外链接，打赏信息等的官方社区
-const NON_STANDARD_COMMUNITIES = ['home', 'feedback']
+const NON_STANDARD_COMMUNITIES = [HCN, 'feedback']
 
 const CommunityBrief = ({ content, descExpand }) => {
   return (

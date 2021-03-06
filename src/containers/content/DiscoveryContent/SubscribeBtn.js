@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
+import { HCN } from '@/constant'
 
 import { Button } from '@/components/Buttons'
 import Tooltip from '@/components/Tooltip'
@@ -11,7 +12,7 @@ import { subscribe, unSubscribe } from './logic'
 
 const AlreadySubedBtn = ({ community }) => (
   <>
-    {community.raw !== 'home' ? (
+    {community.raw !== HCN ? (
       <Tooltip
         content={
           <Hinter title="退出" desc="之后该社区将不会出现在左侧订阅列表中" />

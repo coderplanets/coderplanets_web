@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { merge, pickBy } from 'ramda'
 
-import { TYPE, EVENT, ERR, THREAD, ROUTE } from '@/constant'
+import { HCN, TYPE, EVENT, ERR, THREAD, ROUTE } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -86,7 +86,7 @@ export const onPreview = (data) => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  if (store.curCommunity.raw === 'home') {
+  if (store.curCommunity.raw === HCN) {
     return store.mark({ showPublishNote: true })
   }
 

@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { C11N } from '@/constant'
+import { HCN, C11N } from '@/constant'
 import { buildLog } from '@/utils'
 
 import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
@@ -99,7 +99,7 @@ PostItem.defaultProps = {
   onAuthorSelect: log,
   active: {},
   cover: 'avatar',
-  community: 'home',
+  community: HCN,
   accountInfo: {
     isLogin: false,
     customization: T.shape({

@@ -7,7 +7,7 @@
 import React from 'react'
 import { filter, propEq } from 'ramda'
 
-import { ANCHOR } from '@/constant'
+import { HCN, ANCHOR } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import Header from './Header'
@@ -37,7 +37,7 @@ const SidebarContainer = ({ sidebar: store }) => {
   // onMouseLeave={logic.leaveSidebar}
   // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
   const activeRaw = curCommunity.raw
-  const homeCommunity = filter(propEq('raw', 'home'), communitiesData)[0]
+  const homeCommunity = filter(propEq('raw', HCN), communitiesData)[0]
 
   return (
     <MainWrapper
