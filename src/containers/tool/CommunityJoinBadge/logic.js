@@ -32,11 +32,10 @@ export const onSubscribe = (community) => {
   sr71$.mutate(S.subscribeCommunity, { communityId: community.id })
 }
 
-export const onUndoSubscribe = (community) => {
+export const onCancleSubscribe = (community) => {
   if (!store.isLogin) return store.authWarning()
   if (store.subscribeLoading) return false
 
-  // log('onUndoSubscribe: ', community)
   store.mark({ subscribeLoading: true })
   sr71$.mutate(S.unsubscribeCommunity, { communityId: community.id })
 }
