@@ -14,26 +14,26 @@ import {
 
 import { onTagSelect } from '../logic'
 
-const TagItem = ({ tag, active, activeId, isInline, onSelect }) => {
+const TagItem = ({ tag, active, activeId, inline, onSelect }) => {
   return (
-    <Wrapper active={active} isInline={isInline}>
+    <Wrapper active={active} inline={inline}>
       <HashSign
         color={tag.color}
         active={active}
         activeId={activeId}
-        isInline={isInline}
+        inline={inline}
       />
 
       <TagTitle
         active={active}
-        isInline={isInline}
+        inline={inline}
         onClick={() => onTagSelect(tag, onSelect)}
       >
         {Trans(tag.title)}
       </TagTitle>
       <SpaceGrow />
 
-      {!isInline && (
+      {!inline && (
         <CountInfoWrapper>
           <TagCount num={getRandomInt(5, 1000)} />
         </CountInfoWrapper>

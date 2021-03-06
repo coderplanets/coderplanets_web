@@ -8,16 +8,16 @@ import { TagsWrapper } from './index'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: ${({ isInline }) => (!isInline ? '5px' : 0)};
-  padding: ${({ isInline }) => (!isInline ? '5px' : 0)};
+  margin-bottom: ${({ inline }) => (!inline ? '5px' : 0)};
+  padding: ${({ inline }) => (!inline ? '5px' : 0)};
   max-width: 180px;
   border-radius: 5px;
 
-  background: ${({ active, isInline }) =>
-    !active || isInline ? 'transparent' : '#0e303d'};
+  background: ${({ active, inline }) =>
+    !active || inline ? 'transparent' : '#0e303d'};
 
   &:hover {
-    background: ${({ isInline }) => (!isInline ? '#0e303d' : 'none')};
+    background: ${({ inline }) => (!inline ? '#0e303d' : 'none')};
   }
 `
 export const AllTagIcon = styled(Img)`
@@ -36,19 +36,19 @@ export const HashSign = styled(HashTagSVG)`
   fill: ${({ active, color, activeId }) =>
     getActiveColor(active, color, activeId)};
   ${css.size(14)};
-  margin-right: ${({ isInline }) => (!isInline ? '12px' : '3px')};
+  margin-right: ${({ inline }) => (!inline ? '12px' : '3px')};
   opacity: ${theme('tags.dotOpacity')};
 
   transform: rotate(18deg);
 `
 export const TagTitle = styled.div`
   color: ${theme('tags.text')};
-  font-size: ${({ isInline }) => (!isInline ? '14.5px' : '13px')};
+  font-size: ${({ inline }) => (!inline ? '14.5px' : '13px')};
   opacity: 0.9;
   letter-spacing: 2px;
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
   opacity: ${({ active }) => (active ? 1 : 0.9)};
-  ${({ isInline }) => (!isInline ? css.cutFrom('120px') : css.cutFrom('50px'))};
+  ${({ inline }) => (!inline ? css.cutFrom('120px') : css.cutFrom('50px'))};
 
   &:hover {
     cursor: pointer;

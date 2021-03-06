@@ -65,7 +65,7 @@ const Folder = ({ title, groupTags, allTags, activeTag, onSelect }) => {
         />
         <Title>{title}</Title>
         {!isFolderOpen && isActiveTagInFolder && (
-          <TagItem tag={activeTag} active isInline />
+          <TagItem tag={activeTag} active inline />
         )}
       </Header>
 

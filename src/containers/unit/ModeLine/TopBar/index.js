@@ -11,9 +11,10 @@ const Topbar = (props) => {
   useEffect(() => {
     if (isMobile) {
       CurTopBar = dynamic(() => import('./MobileView/index'), { ssr: false })
-    } else {
-      CurTopBar = dynamic(() => import('./DesktopView'), { ssr: false })
     }
+    // else {
+    //   CurTopBar = dynamic(() => import('./DesktopView'), { ssr: false })
+    // }
   }, [isMobile])
 
   return (
