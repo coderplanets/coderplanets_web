@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
@@ -15,6 +15,7 @@ import {
   Wrapper,
   ArrowIcon,
   ContentWrapper,
+  GroupWrapper,
   Title,
   ListWrapper,
 } from './styles'
@@ -39,24 +40,37 @@ const items = [
     id: '3',
     title: '后续会有更多的作品吗',
   },
-  {
-    id: '4',
-    title: '太喜欢这个社区了，不知道',
-  },
 ]
 
 const FaqPeekList = ({ active }) => {
+  const [showContent, setShowContent] = useState(false)
+
+  // wait for expand animation to finish
+  useEffect(() => {
+    active ? setTimeout(() => setShowContent(true), 150) : setShowContent(false)
+  }, [active])
+
   return (
     <Wrapper testId="faqPeekList" active={active}>
       {active && <ArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />}
-      <ContentWrapper active={active}>
-        <Title>常见问题：</Title>
+      <ContentWrapper active={showContent}>
+        <GroupWrapper>
+          <Title>安装使用：</Title>
+          <ListWrapper>
+            {items.map((item) => (
+              <Post key={item.id} item={item} />
+            ))}
+          </ListWrapper>
+        </GroupWrapper>
 
-        <ListWrapper>
-          {items.map((item) => (
-            <Post key={item.id} item={item} />
-          ))}
-        </ListWrapper>
+        <GroupWrapper>
+          <Title>高级技巧：</Title>
+          <ListWrapper>
+            {items.map((item) => (
+              <Post key={item.id} item={item} />
+            ))}
+          </ListWrapper>
+        </GroupWrapper>
       </ContentWrapper>
     </Wrapper>
   )

@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
-import { Wrapper, Dot, Title, Reaction, Icon, Count } from './styles/post'
+import { Wrapper, Title, Reaction, Icon, Count } from './styles/post'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Post:index')
@@ -18,10 +18,7 @@ const log = buildLog('c:Post:index')
 const Post = ({ item }) => {
   return (
     <Wrapper>
-      <Title>
-        <Dot />
-        {item.title}
-      </Title>
+      <Title>{item.title}</Title>
       <Reaction>
         <Icon src={`${ICON}/shape/vote-up-solid.svg`} />
         <Count>28</Count>
