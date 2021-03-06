@@ -1,5 +1,6 @@
 import React from 'react'
 import { contains } from 'ramda'
+import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@/config'
 import { NON_FILL_COMMUNITY } from '@/constant'
@@ -31,10 +32,9 @@ import {
 
 import {
   tabOnChange,
-  onSubscribe,
-  onUndoSubscribe,
   onShowEditorList,
   onShowSubscriberList,
+  setViewport,
 } from '../../logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
@@ -99,8 +99,6 @@ const ColumnView = ({
             <CommunityBrief content={community} descExpand={descExpand} />
             <CommunityStatesPad
               community={community}
-              onSubscribe={onSubscribe}
-              onUndoSubscribe={onUndoSubscribe}
               onShowEditorList={onShowEditorList}
               onShowSubscriberList={onShowSubscriberList}
             />
@@ -116,6 +114,10 @@ const ColumnView = ({
           </TabBarWrapper>
         </BannerContentWrapper>
       </InnerWrapper>
+      <Waypoint
+        onEnter={() => setViewport(true)}
+        onLeave={() => setViewport(false)}
+      />
     </Wrapper>
   )
 }

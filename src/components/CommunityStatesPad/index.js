@@ -29,8 +29,6 @@ const log = buildLog('c:CommunityStatesPad:index')
 
 const CommunityStatesPad = ({
   community,
-  onSubscribe,
-  onUndoSubscribe,
   onShowEditorList,
   onShowSubscriberList,
   withoutFounding,
@@ -52,11 +50,7 @@ const CommunityStatesPad = ({
     <Wrapper>
       <NumberSection active={viewerHasSubscribed}>
         {!isMobile && (
-          <SubscribedTitle
-            community={community}
-            onSubscribe={onSubscribe}
-            onUndoSubscribe={onUndoSubscribe}
-          />
+          <SubscribedTitle viewerHasSubscribed={viewerHasSubscribed} />
         )}
         <NumberGroup
           count={subscribersCount}
@@ -103,8 +97,6 @@ CommunityStatesPad.propTypes = {
     jobsCount: T.number,
     viewerHasSubscribed: T.bool,
   }),
-  onSubscribe: T.func,
-  onUndoSubscribe: T.func,
   onShowEditorList: T.func,
   onShowSubscriberList: T.func,
   withoutFounding: T.bool,
@@ -120,8 +112,6 @@ CommunityStatesPad.defaultProps = {
     jobsCount: 0,
     viewerHasSubscribed: false,
   },
-  onSubscribe: log,
-  onUndoSubscribe: log,
   onShowEditorList: log,
   onShowSubscriberList: log,
   withoutFounding: true,

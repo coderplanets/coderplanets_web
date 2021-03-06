@@ -13,7 +13,8 @@ const log = buildLog('S:CommunityDigest')
 const CommunityDigest = T.model('CommunityDigest', {
   loading: T.optional(T.boolean, false),
   descExpand: T.optional(T.boolean, false),
-  subscribeLoading: T.optional(T.boolean, false),
+
+  inViewport: T.optional(T.boolean, true),
 })
   .views((self) => ({
     get root() {
