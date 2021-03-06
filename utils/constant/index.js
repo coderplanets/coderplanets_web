@@ -1,3 +1,6 @@
+// a.k.a for HOME COMMUNITY NAME
+export const HCN = 'home'
+
 export { default as TYPE } from './type'
 export { default as EVENT } from './event'
 export { default as ERR } from './err'

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { arrayMove } from 'react-sortable-hoc'
 import { addIndex, map, reject, propEq, contains } from 'ramda'
 
-import { EVENT, ERR, THREAD, ROUTE } from '@/constant'
+import { HCN, EVENT, ERR, THREAD, ROUTE } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -74,7 +74,7 @@ export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
 const setC11N = (sortedCommunities) => {
   if (!store.isLogin) return store.authWarning()
 
-  sortedCommunities = reject(propEq('raw', 'home'), sortedCommunities)
+  sortedCommunities = reject(propEq('raw', HCN), sortedCommunities)
   const sidebarCommunitiesIndex = mapIndexed(
     (c, index) => ({ community: c.raw, index }),
     sortedCommunities,

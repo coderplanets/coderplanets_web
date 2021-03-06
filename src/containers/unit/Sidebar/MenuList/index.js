@@ -2,6 +2,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { reject, propEq } from 'ramda'
 
+import { HCN } from '@/constant'
 import NormalMenuList from './NormalMenuList'
 // import SortableMenuList from './SortableMenuList'
 
@@ -14,7 +15,7 @@ export const SortableMenuList = dynamic(() => import('./SortableMenuList'), {
 })
 
 const MenuList = ({ items, pin, sortOptActive, activeRaw, forceRerender }) => {
-  const sortableCommunities = reject(propEq('raw', 'home'), items)
+  const sortableCommunities = reject(propEq('raw', HCN), items)
 
   return (
     <Wrapper>

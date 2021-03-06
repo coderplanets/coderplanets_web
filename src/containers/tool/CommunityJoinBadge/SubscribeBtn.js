@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { HCN } from '@/constant'
+
 import Button from '@/components/Buttons/Button'
 
 import { Wrapper, Text } from './styles/subscribe_btn'
@@ -8,7 +10,7 @@ import { onSubscribe, onCancleSubscribe } from './logic'
 const SubscribeButton = ({ community, subscribeLoading }) => {
   const { viewerHasSubscribed } = community
 
-  if (community.raw === 'home') {
+  if (community.raw === HCN) {
     return (
       <Wrapper>
         <Button

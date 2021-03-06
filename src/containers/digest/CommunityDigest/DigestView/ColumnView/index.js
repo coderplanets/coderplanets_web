@@ -3,7 +3,7 @@ import { contains } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@/config'
-import { NON_FILL_COMMUNITY } from '@/constant'
+import { HCN, NON_FILL_COMMUNITY } from '@/constant'
 import { useDevice } from '@/hooks'
 
 import VerifiedSign from '@/components/VerifiedSign'
@@ -40,7 +40,7 @@ import {
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
 // 没有各种外链接，打赏信息等的官方社区
-const NON_STANDARD_COMMUNITIES = ['home', 'feedback']
+const NON_STANDARD_COMMUNITIES = [HCN, 'feedback']
 
 const CommunityBrief = ({ content, descExpand }) => {
   return (
@@ -67,7 +67,7 @@ const CommunityBrief = ({ content, descExpand }) => {
         </TitleWrapper>
         {/* <Desc>{content.desc}</Desc> */}
         <ExpandTexts descExpand={descExpand} />
-        {content.raw !== 'home' && <SocialList />}
+        {content.raw !== HCN && <SocialList />}
       </CommunityInfo>
     </CommunityWrapper>
   )

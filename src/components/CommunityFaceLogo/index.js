@@ -8,6 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
+import { HCN } from '@/constant'
 import { ICON_BASE } from '@/config'
 import { buildLog } from '@/utils'
 
@@ -17,7 +18,7 @@ import { Logo } from './styles'
 const log = buildLog('c:CommunityFaceLogo:index')
 
 const CommunityFaceLogo = ({ noFill, src, raw, loading, className }) => {
-  if (raw === 'home' || isEmpty(src)) {
+  if (raw === HCN || isEmpty(src)) {
     return (
       <Logo
         src={`${ICON_BASE}/site_logo.svg`}
@@ -49,7 +50,7 @@ CommunityFaceLogo.propTypes = {
 
 CommunityFaceLogo.defaultProps = {
   src: '',
-  raw: 'home',
+  raw: HCN,
   noFill: false,
   className: 'community-facelogo-class',
   loading: null,

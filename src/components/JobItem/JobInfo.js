@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-// import { ICON_CMD } from '@/config'
+import { HCN } from '@/constant'
 import { cutFrom } from '@/utils'
 import InlineCommunities from '@/components/InlineCommunities'
 import InlineTags from '@/components/InlineTags'
@@ -46,7 +46,7 @@ const JobInfo = ({
     <Header>
       <Title onClick={onPreview}>{cutFrom(title, 30)}</Title>
       <CommunitiesWrapper>
-        <InlineCommunities data={communities} show={community === 'home'} />
+        <InlineCommunities data={communities} show={community === HCN} />
       </CommunitiesWrapper>
     </Header>
     <Middle onClick={onPreview}>
