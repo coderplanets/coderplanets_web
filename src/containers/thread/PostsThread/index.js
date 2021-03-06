@@ -12,7 +12,7 @@ import { ICON } from '@/config'
 import { C11N, THREAD, ROUTE } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import CommunitySubscribeBadge from '@/components/CommunitySubscribeBadge'
+import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
 import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
@@ -179,9 +179,9 @@ const PostsThreadContainer = ({ postsThread: store }) => {
                 </DropdownButton>
               </PublisherWrapper>
 
-              <Sticky offsetTop={65}>
+              <Sticky offsetTop={55}>
                 <BadgeWrapper show={!isCommunityDigestInViewport}>
-                  <CommunitySubscribeBadge />
+                  <CommunityJoinBadge />
                 </BadgeWrapper>
                 <TagsBar
                   thread={THREAD.POST}

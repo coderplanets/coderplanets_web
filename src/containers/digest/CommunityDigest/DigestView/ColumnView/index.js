@@ -32,8 +32,6 @@ import {
 
 import {
   tabOnChange,
-  onSubscribe,
-  onUndoSubscribe,
   onShowEditorList,
   onShowSubscriberList,
   setViewport,
@@ -101,8 +99,6 @@ const ColumnView = ({
             <CommunityBrief content={community} descExpand={descExpand} />
             <CommunityStatesPad
               community={community}
-              onSubscribe={onSubscribe}
-              onUndoSubscribe={onUndoSubscribe}
               onShowEditorList={onShowEditorList}
               onShowSubscriberList={onShowSubscriberList}
             />

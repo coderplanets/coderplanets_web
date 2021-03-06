@@ -7,7 +7,8 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
 }))`
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
+  padding-left: 3px;
 `
 export const BottomLine = styled.div`
   position: absolute;
@@ -30,4 +31,7 @@ export const Desc = styled.div`
 export const BtnWrapper = styled.div`
   margin-top: 12px;
   margin-bottom: 5px;
+`
+export const BtnText = styled.div`
+  padding: 2px 5px;
 `
