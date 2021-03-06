@@ -12,6 +12,7 @@ import { ICON } from '@/config'
 import { C11N, THREAD, ROUTE } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
+import CommunitySubscribeBadge from '@/components/CommunitySubscribeBadge'
 import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
@@ -30,6 +31,7 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
+  BadgeWrapper,
   PublisherWrapper,
   StickyHolder,
 } from './styles'
@@ -97,6 +99,7 @@ const PostsThreadContainer = ({ postsThread: store }) => {
     accountInfo: {
       customization: { bannerLayout },
     },
+    isCommunityDigestInViewport,
   } = store
 
   const { subPath } = curRoute
@@ -147,7 +150,7 @@ const PostsThreadContainer = ({ postsThread: store }) => {
 
           {bannerLayout === C11N.DIGEST && (
             <RightPart>
-              <PublisherWrapper>
+              <PublisherWrapper show={isCommunityDigestInViewport}>
                 <DropdownButton
                   type="primary"
                   placement="bottom-end"
@@ -174,14 +177,12 @@ const PostsThreadContainer = ({ postsThread: store }) => {
                 >
                   {LabelText[subPath] || '发布帖子'}
                 </DropdownButton>
-
-                {/* <PublishButton
-                  label={LabelText[subPath] || '发布帖子'}
-                  onPublish={onContentCreate}
-                /> */}
               </PublisherWrapper>
 
-              <Sticky offsetTop={100}>
+              <Sticky offsetTop={65}>
+                <BadgeWrapper show={!isCommunityDigestInViewport}>
+                  <CommunitySubscribeBadge />
+                </BadgeWrapper>
                 <TagsBar
                   thread={THREAD.POST}
                   topic={topic}

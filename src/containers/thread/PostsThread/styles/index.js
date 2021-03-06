@@ -18,15 +18,21 @@ export const LeftPart = styled.div`
 `
 export const RightPart = styled.div`
   min-width: 200px;
+  max-width: 200px;
   padding-top: 20px;
   margin-left: 40px;
 
   ${css.media.tablet`display: none;`};
 `
 export const PublisherWrapper = styled.div`
+  display: ${({ show }) => (show ? 'block' : 'none')};
   width: 160px;
   max-width: 180px;
-  margin-left: 8%;
+  margin-left: 16px;
+`
+export const BadgeWrapper = styled.div`
+  display: ${({ show }) => (show ? 'block' : 'none')};
+  margin-left: 18px;
 `
 export const FilterWrapper = styled.div`
   ${css.flex('align-center')};

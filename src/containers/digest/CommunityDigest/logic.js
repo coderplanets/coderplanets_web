@@ -88,6 +88,14 @@ export const toggleDescExpand = () => {
 const markLoading = (maybe = true) =>
   store.mark({ loading: maybe, subscribeLoading: maybe })
 
+/**
+ * set digest visiable in current viewport
+ * @param {Boolean} inView
+ */
+export const setViewport = (inViewport) => {
+  store.mark({ inViewport })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
