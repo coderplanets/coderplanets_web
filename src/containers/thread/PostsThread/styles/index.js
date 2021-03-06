@@ -40,7 +40,3 @@ export const FilterWrapper = styled.div`
   ${css.media.mobile`margin-bottom: 4px;`};
   margin-left: -5px;
 `
-export const StickyHolder = styled.div`
-  /* align the footer */
-  height: 35px;
-`
