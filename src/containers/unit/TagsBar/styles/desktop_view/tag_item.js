@@ -8,7 +8,7 @@ import { TagsWrapper } from './index'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: ${({ inline }) => (!inline ? '5px' : 0)};
+  margin-bottom: ${({ inline }) => (!inline ? '3px' : 0)};
   padding: ${({ inline }) => (!inline ? '5px' : 0)};
   max-width: 180px;
   border-radius: 5px;
