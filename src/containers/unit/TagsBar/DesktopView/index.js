@@ -9,14 +9,14 @@ import T from 'prop-types'
 import { keys } from 'ramda'
 
 import { THREAD, TOPIC } from '@/constant'
-import { buildLog, pluggedIn, groupByKey } from '@/utils'
+import { buildLog, pluggedIn } from '@/utils'
 
 import GobackTag from './GobackTag'
 import Folder from './Folder'
 
 import { Wrapper } from '../styles/desktop_view'
 
-import { useInit } from '../logic'
+import { useInit, onTagSelect } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:TagsBar')
@@ -29,33 +29,30 @@ const TagsBarContainer = ({
   onSelect,
 }) => {
   useInit(store, thread, topic, active)
-  const { tagsData, activeTagData } = store
-  // const tagsByGroup = groupByKey(tagsData, 'group')
-  const tagsByGroup = groupByKey(
-    tagsData.map((tag) => {
-      if (tag.id < 4) {
-        tag.group = '这是第一组'
-      } else {
-        tag.group = '这是第二组' // '__default__'
-      }
-      return tag
-    }),
-    'group',
-  )
-  // console.log('tagsByGroup: ', tagsByGroup)
-  const groupsKeys = keys(tagsByGroup)
+  const { groupedTags, tagsData, activeTagData } = store
+  const groupsKeys = keys(groupedTags)
 
   return (
     <Wrapper>
-      {activeTagData.title && <GobackTag onSelect={onSelect} />}
+      {activeTagData.title && (
+        <GobackTag
+          onSelect={(tag) => {
+            onTagSelect(tag)
+            onSelect(tag)
+          }}
+        />
+      )}
       {groupsKeys.map((groupKey) => (
         <Folder
           key={groupKey}
           title={groupKey}
-          groupTags={tagsByGroup[groupKey]}
+          groupTags={groupedTags[groupKey]}
           allTags={tagsData}
           activeTag={activeTagData}
-          onSelect={onSelect}
+          onSelect={(tag) => {
+            onTagSelect(tag)
+            onSelect(tag)
+          }}
         />
       ))}
     </Wrapper>
