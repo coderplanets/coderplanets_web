@@ -41,6 +41,7 @@ const HeaderStore = T.model('HeaderStore', {
         METRIC.MEMBERSHIP,
         METRIC.USER,
         METRIC.COMMUNITY_EDITOR,
+        METRIC.HELP_CENTER,
       ])
     },
     get leftOffset() {

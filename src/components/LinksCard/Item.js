@@ -1,0 +1,38 @@
+/*
+ *
+ * FAQ Post
+ *
+ */
+
+import React from 'react'
+import T from 'prop-types'
+
+import { ICON } from '@/config'
+import { buildLog } from '@/utils'
+
+import { Wrapper, Title, Reaction, Icon, Count } from './styles/item'
+
+/* eslint-disable-next-line */
+const log = buildLog('c:LinksCard:Item')
+
+const Item = ({ item }) => {
+  return (
+    <Wrapper>
+      <Title>{item.title}</Title>
+      <Reaction>
+        <Icon src={`${ICON}/shape/vote-up-solid.svg`} />
+        <Count>28</Count>
+      </Reaction>
+    </Wrapper>
+  )
+}
+
+Item.propTypes = {
+  item: T.shape({
+    title: T.string,
+  }).isRequired,
+}
+
+Item.defaultProps = {}
+
+export default React.memo(Item)

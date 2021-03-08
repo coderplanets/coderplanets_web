@@ -1,4 +1,4 @@
-// NOTE:  the value is mapping to @/utils/width's key
+// NOTE:  the value is mapping to @/utils/media's key
 // so do not change to lowercase etc...
 const METRIC = {
   COMMUNITY: 'COMMUNITY',
@@ -22,6 +22,8 @@ const METRIC = {
   WORKS_EDITOR: 'WORKS_EDITOR',
   COMMUNITY_EDITOR: 'COMMUNITY_EDITOR',
   ARTICLE_EDITOR: 'ARTICLE_EDITOR',
+
+  HELP_CENTER: 'HELP_CENTER',
 }
 
 export default METRIC
