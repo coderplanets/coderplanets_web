@@ -10,15 +10,9 @@ import T from 'prop-types'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
-import Post from './Post'
-import {
-  Wrapper,
-  ArrowIcon,
-  ContentWrapper,
-  GroupWrapper,
-  Title,
-  ListWrapper,
-} from './styles'
+import LinksCard from '@/components/LinksCard'
+
+import { Wrapper, ArrowIcon, ContentWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:FaqPeekList:index')
@@ -54,23 +48,23 @@ const FaqPeekList = ({ active }) => {
     <Wrapper testId="faqPeekList" active={active}>
       {active && <ArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />}
       <ContentWrapper active={showContent}>
-        <GroupWrapper>
-          <Title>安装使用：</Title>
-          <ListWrapper>
-            {items.map((item) => (
-              <Post key={item.id} item={item} />
-            ))}
-          </ListWrapper>
-        </GroupWrapper>
+        <LinksCard
+          title="安装使用"
+          items={items}
+          onSelect={console.log}
+          mBottom={0}
+          mLeft={5}
+          mRight={24}
+        />
 
-        <GroupWrapper>
-          <Title>高级技巧：</Title>
-          <ListWrapper>
-            {items.map((item) => (
-              <Post key={item.id} item={item} />
-            ))}
-          </ListWrapper>
-        </GroupWrapper>
+        <LinksCard
+          title="常见问题"
+          items={items}
+          onSelect={console.log}
+          mBottom={0}
+          mLeft={5}
+          mRight={24}
+        />
       </ContentWrapper>
     </Wrapper>
   )

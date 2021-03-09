@@ -17,9 +17,17 @@ import { Wrapper, Header, Title, ListWrapper, MoreWrapper } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:LinksCard:index')
 
-const LinksCard = ({ testId, title, items, onSelect }) => {
+const LinksCard = ({
+  testId,
+  title,
+  items,
+  onSelect,
+  mLeft,
+  mRight,
+  mBottom,
+}) => {
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testId={testId} mLeft={mLeft} mRight={mRight} mBottom={mBottom}>
       <Header>
         <Title>{title}</Title>
       </Header>
@@ -53,12 +61,19 @@ LinksCard.propTypes = {
     }),
   ),
   onSelect: T.func.isRequired,
+  mLeft: T.number,
+  mRight: T.number,
+  mBottom: T.number,
 }
 
 LinksCard.defaultProps = {
   testId: 'links-card',
   title: '',
   items: [],
+
+  mLeft: 14,
+  mRight: 12,
+  mBottom: 40,
 }
 
 export default React.memo(LinksCard)

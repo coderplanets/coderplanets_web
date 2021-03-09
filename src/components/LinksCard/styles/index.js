@@ -4,13 +4,12 @@ import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   width: 280px;
-  height: 180px;
-  background: #0e303c;
+  min-height: 180px;
   border-radius: 5px;
   padding: 10px;
-  margin-left: 14px;
-  margin-right: 12px;
-  margin-bottom: 40px;
+  margin-left: ${({ mLeft }) => `${mLeft}px`};
+  margin-right: ${({ mRight }) => `${mRight}px`};
+  margin-bottom: ${({ mBottom }) => `${mBottom}px`};
   /* border-bottom: 1px solid #0f4556; */
 `
 export const Header = styled.div``
