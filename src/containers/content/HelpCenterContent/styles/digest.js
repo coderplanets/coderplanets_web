@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -20,5 +21,26 @@ export const InnerWrapper = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
 `
-
-export const Title = styled.div``
+export const BreadCrumbs = styled.div`
+  ${css.flex('align-center')};
+`
+export const Community = styled.div`
+  ${css.flex('align-center')};
+`
+export const CommunityLogo = styled(Img)`
+  ${css.size(28)};
+  margin-right: 12px;
+`
+export const CommunityTitle = styled.div`
+  font-size: 18px;
+  opacity: 0.7;
+`
+export const Slash = styled.div`
+  margin-left: 8px;
+  margin-right: 8px;
+  opacity: 0.7;
+`
+export const HelpTitle = styled.div`
+  font-weight: bold;
+  font-size: 16px;
+`

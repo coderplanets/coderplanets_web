@@ -48,10 +48,11 @@ const HelpCenterContentContainer = ({
   metric,
 }) => {
   useInit(store)
+  const { curCommunity } = store
 
   return (
     <Wrapper testId={testId}>
-      <Digest metric={metric} />
+      <Digest metric={metric} community={curCommunity} />
       <ContentWrapper metric={metric}>
         <CoverWrapper>
           <LinksCard title="常见问题" items={items} />
