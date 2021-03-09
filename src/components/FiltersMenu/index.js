@@ -34,7 +34,7 @@ const initActiveMap = (items) => {
 const FiltersMenu = ({
   title,
   items,
-  activeId,
+  activeid,
   noFilter,
   onItemClick,
   itemBgHighlight,
@@ -42,7 +42,7 @@ const FiltersMenu = ({
   withDivider,
 }) => {
   // const [expandMenuId, setExpandMenuId] = useState(null)
-  const [expandMenuId, setExpandMenuId] = useState(activeId)
+  const [expandMenuId, setExpandMenuId] = useState(activeid)
   const [activeMap, setActiveMap] = useState(initActiveMap(items))
 
   const handleReset = useCallback(() => {
@@ -123,7 +123,7 @@ FiltersMenu.propTypes = {
       ),
     }),
   ).isRequired,
-  activeId: T.oneOfType([T.string, T.instanceOf(null)]),
+  activeid: T.oneOfType([T.string, T.instanceOf(null)]),
   noFilter: T.bool,
   onItemClick: T.func,
   itemBgHighlight: T.bool,
@@ -133,7 +133,7 @@ FiltersMenu.propTypes = {
 
 FiltersMenu.defaultProps = {
   title: '',
-  activeId: null,
+  activeid: null,
   noFilter: false,
   onItemClick: log,
   itemBgHighlight: true,

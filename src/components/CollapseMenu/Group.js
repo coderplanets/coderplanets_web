@@ -81,7 +81,7 @@ const Group = ({
               key={item.id}
               item={item}
               active={activeItem.id === item.id}
-              activeId={activeItem.id}
+              activeid={activeItem.id}
               onSelect={onSelect}
             />
           ))}

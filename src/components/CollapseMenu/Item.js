@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Wrapper, Title } from './styles/item'
 
-// const Item = ({ item, active, activeId, onSelect }) => {
+// const Item = ({ item, active, activeid, onSelect }) => {
 const Item = ({ item, active, onSelect }) => {
   return (
     <Wrapper active={active}>

@@ -26,15 +26,15 @@ export const AllTagIcon = styled(Img)`
   ${css.size(14)};
   transform: rotate(17deg);
 `
-const getActiveColor = (active, color, activeId) => {
-  if (activeId !== null) return active ? color : '#497684'
+const getActiveColor = (active, color, activeid) => {
+  if (activeid !== null) return active ? color : '#497684'
 
   return !active ? color : '#497684'
 }
 
 export const HashSign = styled(HashTagSVG)`
-  fill: ${({ active, color, activeId }) =>
-    getActiveColor(active, color, activeId)};
+  fill: ${({ active, color, activeid }) =>
+    getActiveColor(active, color, activeid)};
   ${css.size(14)};
   margin-right: ${({ inline }) => (!inline ? '12px' : '3px')};
   opacity: ${theme('tags.dotOpacity')};

@@ -56,7 +56,7 @@ LinksCard.propTypes = {
   title: T.string,
   items: T.arrayOf(
     T.shape({
-      id: T.number,
+      id: T.string,
       title: T.string,
     }),
   ),

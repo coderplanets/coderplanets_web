@@ -76,7 +76,7 @@ const Folder = ({ title, groupTags, allTags, activeTag, onSelect }) => {
               key={tag.id}
               tag={tag}
               active={activeTag.title === tag.title}
-              activeId={activeTag.id}
+              activeid={activeTag.id}
               onSelect={onSelect}
             />
           ))}
