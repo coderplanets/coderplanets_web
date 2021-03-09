@@ -31,16 +31,22 @@ export const CommunityLogo = styled(Img)`
   ${css.size(28)};
   margin-right: 12px;
 `
-export const CommunityTitle = styled.div`
+export const CommunityTitle = styled.a`
+  color: ${theme('banner.desc')};
+  text-decoration: none;
   font-size: 18px;
-  opacity: 0.7;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
 export const Slash = styled.div`
+  color: ${theme('banner.desc')};
   margin-left: 8px;
   margin-right: 8px;
-  opacity: 0.7;
 `
 export const HelpTitle = styled.div`
+  color: ${theme('banner.title')};
   font-weight: bold;
   font-size: 16px;
 `

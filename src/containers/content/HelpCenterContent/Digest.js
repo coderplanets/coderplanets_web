@@ -18,7 +18,9 @@ const Digest = ({ metric, community }) => {
         <BreadCrumbs>
           <Community>
             <CommunityLogo src={community.logo} />
-            <CommunityTitle>{community.title}</CommunityTitle>
+            <CommunityTitle href={`/${community.raw}/posts`}>
+              {community.title}
+            </CommunityTitle>
           </Community>
           <Slash>/</Slash>
           <HelpTitle>帮助中心</HelpTitle>
