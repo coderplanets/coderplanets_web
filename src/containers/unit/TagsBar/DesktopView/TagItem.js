@@ -12,8 +12,6 @@ import {
   CountInfoWrapper,
 } from '../styles/desktop_view/tag_item'
 
-import { onTagSelect } from '../logic'
-
 const TagItem = ({ tag, active, activeId, inline, onSelect }) => {
   return (
     <Wrapper active={active} inline={inline}>
@@ -24,11 +22,7 @@ const TagItem = ({ tag, active, activeId, inline, onSelect }) => {
         inline={inline}
       />
 
-      <TagTitle
-        active={active}
-        inline={inline}
-        onClick={() => onTagSelect(tag, onSelect)}
-      >
+      <TagTitle active={active} inline={inline} onClick={() => onSelect(tag)}>
         {Trans(tag.title)}
       </TagTitle>
       <SpaceGrow />

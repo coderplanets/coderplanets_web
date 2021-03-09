@@ -10,18 +10,15 @@ import T from 'prop-types'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
-import { Wrapper, Dot, Title, Reaction, Icon, Count } from './styles/post'
+import { Wrapper, Title, Reaction, Icon, Count } from './styles/item'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Post:index')
+const log = buildLog('c:LinksCard:Item')
 
-const Post = ({ item }) => {
+const Item = ({ item, onSelect }) => {
   return (
-    <Wrapper>
-      <Title>
-        <Dot />
-        {item.title}
-      </Title>
+    <Wrapper onClick={() => onSelect(item)}>
+      <Title>{item.title}</Title>
       <Reaction>
         <Icon src={`${ICON}/shape/vote-up-solid.svg`} />
         <Count>28</Count>
@@ -30,12 +27,13 @@ const Post = ({ item }) => {
   )
 }
 
-Post.propTypes = {
+Item.propTypes = {
   item: T.shape({
     title: T.string,
   }).isRequired,
+  onSelect: T.func.isRequired,
 }
 
-Post.defaultProps = {}
+Item.defaultProps = {}
 
-export default React.memo(Post)
+export default React.memo(Item)

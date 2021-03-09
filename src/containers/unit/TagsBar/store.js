@@ -7,7 +7,7 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
 
 import { TOPIC } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, buildLog, stripMobx, groupByKey } from '@/utils'
 import { Tag } from '@/model'
 
 /* eslint-disable-next-line */
@@ -39,6 +39,19 @@ const TagsBar = T.model('TagsBar', {
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || { title: '', color: '' }
+    },
+    get groupedTags() {
+      return groupByKey(
+        self.tagsData.map((tag) => {
+          if (tag.id < 4) {
+            tag.group = '这是第一组'
+          } else {
+            tag.group = '这是第二组' // '__default__'
+          }
+          return tag
+        }),
+        'group',
+      )
     },
   }))
   .actions((self) => ({

@@ -80,6 +80,12 @@ export const WIDTH = {
     PAGE: '1461px',
     CONTENT: '650px',
   },
+
+  HELP_CENTER: {
+    PAGE: '1460px',
+    CONTENT: '1024px',
+    CONTENT_OFFSET: '10px',
+  },
 }
 
 // get page content max width

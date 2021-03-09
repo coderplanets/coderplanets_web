@@ -33,7 +33,6 @@ import {
   FilterWrapper,
   BadgeWrapper,
   PublisherWrapper,
-  StickyHolder,
 } from './styles'
 
 import {
@@ -190,7 +189,6 @@ const PostsThreadContainer = ({ postsThread: store }) => {
                   active={activeTagData}
                 />
                 <PromotionList onClose={onAdsClose} />
-                <StickyHolder />
               </Sticky>
             </RightPart>
           )}

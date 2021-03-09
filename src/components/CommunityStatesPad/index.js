@@ -11,7 +11,6 @@ import { useDevice } from '@/hooks'
 import { buildLog } from '@/utils'
 
 import Charger from '@/components/Charger'
-import SubscribedTitle from './SubscribedTitle'
 import NumberGroup from './NumberGroup'
 
 import {
@@ -49,9 +48,7 @@ const CommunityStatesPad = ({
   return (
     <Wrapper>
       <NumberSection active={viewerHasSubscribed}>
-        {!isMobile && (
-          <SubscribedTitle viewerHasSubscribed={viewerHasSubscribed} />
-        )}
+        {!isMobile && <NumberTitle>成员</NumberTitle>}
         <NumberGroup
           count={subscribersCount}
           subCount={12}

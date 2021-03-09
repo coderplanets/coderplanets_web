@@ -16,7 +16,7 @@ const FilterResult = ({ totalCount, onFaqChange, faqActive }) => {
 
       <MoreOptionWrapper>
         <FaqText active={faqActive} onClick={onFaqChange}>
-          常见问题
+          帮助中心
         </FaqText>
       </MoreOptionWrapper>
     </Wrapper>

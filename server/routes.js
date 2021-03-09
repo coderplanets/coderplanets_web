@@ -119,6 +119,11 @@ router.route('/discovery/:category').get((req, res) => {
   return renderAndCache({ req, res, path: '/discovery' })
 })
 
+// 帮助中心
+router.route('/:community/help-center').get((req, res) => {
+  return renderAndCache({ req, res, path: '/help-center' })
+})
+
 // 社区主页
 router.route('/:community/:thread').get((req, res) => {
   if (

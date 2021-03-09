@@ -5,31 +5,17 @@ import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
-  min-width: 50%;
   margin-bottom: 8px;
-  padding-right: 25px;
-
-  &:nth-child(even) {
-    padding-right: 0;
-    padding-left: 15px;
-  }
-`
-export const Dot = styled.div`
-  background: ${theme('banner.desc')};
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  margin-right: 5px;
 `
 export const Title = styled.div`
-  ${css.flex('align-center')};
+  /* ${css.flex('align-center')}; */
+  ${css.cutFrom('200px')};
   color: ${theme('banner.desc')};
 
   ${Wrapper}:hover & {
     color: ${theme('banner.title')};
     cursor: pointer;
   }
-  transition: all 0.25s;
 `
 export const Reaction = styled.div`
   ${css.flex('align-center')};

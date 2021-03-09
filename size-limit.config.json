@@ -51,6 +51,10 @@
     {
       "path": ".next/server/pages/create/article.js",
       "maxSize": "280 kB"
+    },
+    {
+      "path": ".next/server/pages/help-center.js",
+      "maxSize": "280 kB"
     }
   ],
   "ci": {
