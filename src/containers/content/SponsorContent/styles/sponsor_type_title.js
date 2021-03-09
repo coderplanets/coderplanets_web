@@ -4,7 +4,7 @@ import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flex('align-both')}
 `

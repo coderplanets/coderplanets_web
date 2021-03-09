@@ -72,7 +72,7 @@ const WorksContentContainer = ({ worksContent: store, metric }) => {
   const { activeView } = store
 
   return (
-    <Wrapper testId="worksContent" metric={metric}>
+    <Wrapper testid="worksContent" metric={metric}>
       <ContentWrapper>
         <LeftSidebarWrapper>
           <Brand />

@@ -7,7 +7,7 @@ const width = '28px'
 const height = '25px'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flex('align-center')};
   position: relative;

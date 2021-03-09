@@ -4,7 +4,7 @@ import { theme, css } from '@/utils'
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
 
 export const Wrapper = styled.header.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   width: 100%;
   height: 33px;
@@ -28,7 +28,7 @@ export const RouterWrapper = styled.div`
   height: 100%;
 `
 export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   fill: ${theme('header.fg')};
   ${css.size(18)};
@@ -40,7 +40,7 @@ export const Operations = styled.div`
   ${css.flex('align-center')};
 `
 export const Search = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   color: ${theme('header.fg')};
 `

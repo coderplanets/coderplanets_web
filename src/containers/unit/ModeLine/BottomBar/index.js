@@ -23,7 +23,7 @@ import { openMenu } from '../logic'
 import { communityPageMenus, getArticlePageMenus } from './menus'
 
 const BottomBar = ({
-  testId,
+  testid,
   metric,
   article,
   activeMenu,
@@ -35,7 +35,7 @@ const BottomBar = ({
       : communityPageMenus
 
   return (
-    <Wrapper testId={testId} isMenuActive={activeMenu !== ''}>
+    <Wrapper testid={testid} isMenuActive={activeMenu !== ''}>
       <MenuBlock
         active={activeMenu === TYPE.MM_TYPE.GLOBAL_MENU}
         onClick={multiClick(() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
@@ -65,7 +65,7 @@ const BottomBar = ({
 }
 
 BottomBar.propTypes = {
-  testId: T.string,
+  testid: T.string,
   metric: T.oneOf(values(METRIC)).isRequired,
   article: T.any, // TODO
   activeMenu: T.oneOf([
@@ -81,7 +81,7 @@ BottomBar.propTypes = {
 }
 
 BottomBar.defaultProps = {
-  testId: 'modeline-bottom-bar',
+  testid: 'modeline-bottom-bar',
   isCommunityBlockExpand: false,
   article: null,
 }

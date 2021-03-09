@@ -25,7 +25,7 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleSticker')
 
-const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
+const ArticleStickerContainer = ({ articleSticker: store, testid }) => {
   useInit(store)
 
   const {
@@ -45,7 +45,7 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
       />
 
       <Sticky offsetTop={80}>
-        <Wrapper testId={testId}>
+        <Wrapper testid={testid}>
           <InnerWrapper>
             <MainWrapper>
               {showCommunity && <CommunitySticker />}
@@ -67,11 +67,11 @@ const ArticleStickerContainer = ({ articleSticker: store, testId }) => {
 
 ArticleStickerContainer.propTypes = {
   articleSticker: T.any.isRequired,
-  testId: T.string,
+  testid: T.string,
 }
 
 ArticleStickerContainer.defaultProps = {
-  testId: 'article-sticker',
+  testid: 'article-sticker',
 }
 
 export default pluggedIn(ArticleStickerContainer)

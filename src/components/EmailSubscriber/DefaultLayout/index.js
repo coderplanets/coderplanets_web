@@ -10,11 +10,11 @@ import { Wrapper, InnerWrapper } from '../styles/default_layout/index'
 /* eslint-disable-next-line */
 const log = buildLog('c:DefaultLayout:index')
 
-const DefaultLayout = ({ testId, activeByDefault, title, desc }) => {
+const DefaultLayout = ({ testid, activeByDefault, title, desc }) => {
   const [active, setActive] = useState(activeByDefault)
 
   return (
-    <Wrapper testId={testId} active={active}>
+    <Wrapper testid={testid} active={active}>
       <InnerWrapper>
         {!active ? (
           <InActiveView onOpen={() => setActive(true)} />

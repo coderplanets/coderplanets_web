@@ -19,7 +19,7 @@ import { Wrapper } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:TheAvatar:index')
 
-const TheAvatar = ({ testId, user, metric, onSelect }) => {
+const TheAvatar = ({ testid, user, metric, onSelect }) => {
   switch (metric) {
     case TYPE.POST_ITEM: {
       return <PostItemAvatar user={user} onSelect={onSelect} />
@@ -29,7 +29,7 @@ const TheAvatar = ({ testId, user, metric, onSelect }) => {
     }
     default: {
       return (
-        <Wrapper testId={testId}>
+        <Wrapper testid={testid}>
           <div>?</div>
         </Wrapper>
       )
@@ -38,7 +38,7 @@ const TheAvatar = ({ testId, user, metric, onSelect }) => {
 }
 
 TheAvatar.propTypes = {
-  testId: T.string,
+  testid: T.string,
   metric: T.oneOf(values(TYPE)),
   user: T.shape({
     avatar: T.string,
@@ -49,7 +49,7 @@ TheAvatar.propTypes = {
 }
 
 TheAvatar.defaultProps = {
-  testId: 'the-avatar',
+  testid: 'the-avatar',
   metric: TYPE.POST_ITEM,
   onSelect: log,
 }

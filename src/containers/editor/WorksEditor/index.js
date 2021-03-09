@@ -23,13 +23,13 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:WorksEditor')
 
-const WorksEditorContainer = ({ worksEditor: store, testId, metric }) => {
+const WorksEditorContainer = ({ worksEditor: store, testid, metric }) => {
   useInit(store)
 
   const { step, worksData, useTemplate } = store
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         <Preview step={step} works={worksData} />
         <Steps step={step} />
@@ -41,12 +41,12 @@ const WorksEditorContainer = ({ worksEditor: store, testId, metric }) => {
 
 WorksEditorContainer.propTypes = {
   worksEditor: T.any.isRequired,
-  testId: T.string,
+  testid: T.string,
   metric: T.oneOf(values(METRIC)),
 }
 
 WorksEditorContainer.defaultProps = {
-  testId: 'works-editor',
+  testid: 'works-editor',
   metric: METRIC.COMMUNITY,
 }
 

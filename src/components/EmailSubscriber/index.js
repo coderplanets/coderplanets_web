@@ -13,7 +13,7 @@ import SimpleLayout from './SimpleLayout'
 import { Wrapper } from './styles'
 
 const EmailSubscriber = ({
-  testId,
+  testid,
   title,
   desc,
   type,
@@ -21,7 +21,7 @@ const EmailSubscriber = ({
   activeByDefault,
 }) => {
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       {type === 'default' ? (
         <DefaultLayout
           activeByDefault={activeByDefault}
@@ -36,7 +36,7 @@ const EmailSubscriber = ({
 }
 
 EmailSubscriber.propTypes = {
-  testId: T.string,
+  testid: T.string,
   title: T.string,
   desc: T.string,
   placeholder: T.string,
@@ -48,7 +48,7 @@ EmailSubscriber.propTypes = {
 }
 
 EmailSubscriber.defaultProps = {
-  testId: 'emailSubscriber',
+  testid: 'emailSubscriber',
   title: '邮件订阅',
   desc: '可随时取消',
   placeholder: '邮件订阅',

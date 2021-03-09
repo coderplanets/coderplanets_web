@@ -4,7 +4,7 @@ import { css, theme, WIDTH } from '@/utils'
 import { getMaxWidth } from '../metrics/top_bar'
 
 export const WrapperBase = styled.header.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   z-index: 2;
   width: 100%;

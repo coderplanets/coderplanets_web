@@ -17,7 +17,7 @@ import { Wrapper, Icon, Text } from './styles'
 const log = buildLog('c:IconText:index')
 
 const IconText = ({ iconSrc, round, children, size, margin }) => (
-  <Wrapper testId="iconText">
+  <Wrapper testid="iconText">
     {!nilOrEmpty(iconSrc) && (
       <Icon src={iconSrc} size={size} round={round} margin={margin} />
     )}

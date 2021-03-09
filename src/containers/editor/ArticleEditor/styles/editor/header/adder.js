@@ -6,7 +6,7 @@ import Img from '@/Img'
 import { Wrapper as HeaderWrapper } from './index'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   position: absolute;
   top: -8px;

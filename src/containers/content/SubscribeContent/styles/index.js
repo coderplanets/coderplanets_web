@@ -4,7 +4,7 @@ import { css, theme, WIDTH } from '@/utils'
 import Sticky from '@/components/Sticky'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('align-start')};
   width: 100%;

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flex('justify-center')};
   background-image: ${theme('banner.linearGradient')};

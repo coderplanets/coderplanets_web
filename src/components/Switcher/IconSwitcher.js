@@ -41,7 +41,7 @@ const IconSwitcher = ({ items, activeKey, onChange }) => {
   const slideIndex = findIndex(propEq('key', activeKey), items)
 
   return (
-    <Wrapper testId="selectors">
+    <Wrapper testid="selectors">
       <AccessZone />
       <Tabs>
         {items.map((item) => (

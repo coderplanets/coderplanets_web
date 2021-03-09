@@ -4,7 +4,7 @@ import { animate, css, theme } from '@/utils'
 import { SIDEBAR_WIDTH } from './metric'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('align-center')};
   background: ${theme('sidebar.bg')};

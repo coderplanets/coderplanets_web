@@ -5,7 +5,7 @@ import { theme, css } from '@/utils'
 
 // see https://stackoverflow.com/questions/6794000/fixed-position-but-relative-to-container
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('align-start', 'justify-start')};
   position: fixed;

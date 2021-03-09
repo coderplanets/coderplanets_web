@@ -32,7 +32,7 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
   )
 
   return (
-    <Wrapper testId="tabs">
+    <Wrapper testid="tabs">
       {items.map((item) => (
         <TabItem
           key={isString(item) ? item : item.raw || item.title}

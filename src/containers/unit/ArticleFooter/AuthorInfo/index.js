@@ -29,11 +29,11 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:AuthorInfo:index')
 
-const AuthorInfo = ({ testId, author }) => {
+const AuthorInfo = ({ testid, author }) => {
   const socialItems = pickBy((v) => !!v, author.social)
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <TextIntro>
         <IntroTitle>关于作者</IntroTitle>
         <Name>
@@ -56,7 +56,7 @@ const AuthorInfo = ({ testId, author }) => {
 }
 
 AuthorInfo.propTypes = {
-  testId: T.string,
+  testid: T.string,
   author: T.shape({
     avatar: T.string,
     nickname: T.string,
@@ -79,7 +79,7 @@ AuthorInfo.propTypes = {
 }
 
 AuthorInfo.defaultProps = {
-  testId: 'author-info',
+  testid: 'author-info',
 }
 
 export default React.memo(AuthorInfo)

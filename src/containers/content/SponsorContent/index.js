@@ -120,7 +120,7 @@ const SponsorContentContainer = ({ sponsorContent: store, metric }) => {
   const { bannerVisiable } = store
 
   return (
-    <Wrapper testId="sponsor-content">
+    <Wrapper testid="sponsor-content">
       <Banner />
       <InnerWrapper bannerVisiable={bannerVisiable}>
         <Br top={50} />

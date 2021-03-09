@@ -6,7 +6,7 @@ import { css, theme } from '@/utils'
 import { Nav as NavBase } from '../index'
 
 export const Wrapper = styled.nav.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   position: relative;
   width: 100%;

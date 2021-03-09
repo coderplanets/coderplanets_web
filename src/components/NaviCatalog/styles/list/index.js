@@ -6,7 +6,7 @@ import { css, theme } from '@/utils'
 const activeColor = '#009C9E'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   padding-bottom: 10px;
 

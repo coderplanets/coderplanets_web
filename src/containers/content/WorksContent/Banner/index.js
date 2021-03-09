@@ -43,7 +43,7 @@ const options = [
 
 const Banner = () => {
   return (
-    <Wrapper testId="worksContent">
+    <Wrapper testid="worksContent">
       <IntroWrapper>
         <BrandWrapper>
           <Title>作品集市</Title>

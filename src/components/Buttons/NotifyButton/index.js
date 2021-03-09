@@ -25,9 +25,9 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:NotifyButton:index')
 
-const NotifyButton = ({ testId, subscribed }) => {
+const NotifyButton = ({ testid, subscribed }) => {
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       {subscribed ? (
         <Main>
           <NotifyOnIcon src={`${ICON}/article/notify-on.svg`} />
@@ -68,12 +68,12 @@ const NotifyButton = ({ testId, subscribed }) => {
 }
 
 NotifyButton.propTypes = {
-  testId: T.string,
+  testid: T.string,
   subscribed: T.bool,
 }
 
 NotifyButton.defaultProps = {
-  testId: 'notify-button',
+  testid: 'notify-button',
   subscribed: false,
 }
 

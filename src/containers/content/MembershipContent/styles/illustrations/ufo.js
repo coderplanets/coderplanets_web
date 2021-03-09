@@ -19,7 +19,7 @@ const color = {
 const height = '140px'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   width: 200px;
   height: ${height};

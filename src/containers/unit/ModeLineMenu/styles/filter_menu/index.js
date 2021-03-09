@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('align-start')};
   margin-top: 25px;

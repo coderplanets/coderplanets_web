@@ -22,7 +22,7 @@ const RoadmapThreadContainer = ({ roadmapThread: store }) => {
   useInit(store)
 
   return (
-    <Wrapper testId="roadmapThread">
+    <Wrapper testid="roadmapThread">
       <TodoList label="计划中" />
       <TodoList label="开发中" />
     </Wrapper>

@@ -4,7 +4,7 @@ import { css } from '@/utils'
 import { CONTENT_WIDTH, CONTENT_NARROW_WIDTH } from './metric'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('justify-center')};
   width: ${({ narrow }) =>

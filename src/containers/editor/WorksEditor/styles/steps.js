@@ -6,7 +6,7 @@ import { css, theme } from '@/utils'
 import { CONTENT_WIDTH } from './metric'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   position: relative;
   ${css.flex('align-center', 'justify-between')};

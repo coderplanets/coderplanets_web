@@ -4,7 +4,7 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   position: absolute;
   ${css.flex('align-center')};

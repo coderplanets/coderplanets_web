@@ -39,7 +39,7 @@ const getSafeValue = (mode, value, defaultValue) => {
 
 const WorksCard = ({
   withBg,
-  testId,
+  testid,
   mode,
   item,
   defaultTitle,
@@ -60,7 +60,7 @@ const WorksCard = ({
   )
 
   return (
-    <Wrapper testId={testId} withBg={withBg}>
+    <Wrapper testid={testid} withBg={withBg}>
       {item.cover ? (
         <IntroImg src={item.cover} fallback={<ImgFallback type="work" />} />
       ) : (
@@ -128,7 +128,7 @@ const WorksCard = ({
 }
 
 WorksCard.propTypes = {
-  testId: T.string,
+  testid: T.string,
   withBg: T.bool,
   mode: T.oneOf(['default', 'preview']),
   item: T.shape({
@@ -160,7 +160,7 @@ WorksCard.propTypes = {
 }
 
 WorksCard.defaultProps = {
-  testId: 'works-card',
+  testid: 'works-card',
   withBg: false,
   mode: 'default',
   defaultTitle: '作品名称',

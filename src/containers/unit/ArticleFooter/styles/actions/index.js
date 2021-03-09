@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flex('align-center')};
 `
@@ -38,7 +38,7 @@ export const Text = styled.div`
   transition: color 0.25s;
 `
 export const PanelWrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn()};
   position: relative;

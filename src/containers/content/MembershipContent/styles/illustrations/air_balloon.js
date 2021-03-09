@@ -7,7 +7,7 @@ const color = {
 }
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   position: absolute;
   left: -30px;

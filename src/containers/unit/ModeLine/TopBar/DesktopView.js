@@ -18,7 +18,7 @@ const DesktopView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
     <Wrapper
       leftOffset={leftOffset}
       noBorder={hasNoBottomBorder}
-      testId="modeline-topbar"
+      testid="modeline-topbar"
       visiable={visiable}
     >
       <InnerWrapper>

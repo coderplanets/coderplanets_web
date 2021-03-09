@@ -30,7 +30,7 @@ const CommunityDigestContainer = ({ communityDigest: store, metric }) => {
   } = store
 
   return (
-    <Wrapper testId="community-digest">
+    <Wrapper testid="community-digest">
       {bannerLayout === C11N.BRIEF ? (
         <BriefView
           metric={metric}

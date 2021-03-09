@@ -4,7 +4,7 @@ import { css, theme } from '@/utils'
 import { BaseInput } from './index'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('align-center', 'justify-start')};
   width: 100%;

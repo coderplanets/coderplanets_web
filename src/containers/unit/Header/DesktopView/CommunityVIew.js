@@ -62,7 +62,7 @@ const HeaderContainer = ({ header: store, metric }) => {
   return (
     <Wrapper
       id="whereCallShowDoraemon"
-      testId="header"
+      testid="header"
       leftOffset={leftOffset}
       noBorder={hasNoBottomBorder}
     >
@@ -77,8 +77,8 @@ const HeaderContainer = ({ header: store, metric }) => {
         </RouterWrapper>
         <AddOns />
         <Operations>
-          <Search onClick={openDoraemon} testId="header-search">
-            <HeaderSearchIcon testId="header-search-icon" />
+          <Search onClick={openDoraemon} testid="header-search">
+            <HeaderSearchIcon testid="header-search-icon" />
           </Search>
 
           {MailBox && <MailBox />}

@@ -18,7 +18,7 @@ import { Wrapper, Header, Title, ListWrapper, MoreWrapper } from './styles'
 const log = buildLog('c:LinksCard:index')
 
 const LinksCard = ({
-  testId,
+  testid,
   title,
   items,
   onSelect,
@@ -27,7 +27,7 @@ const LinksCard = ({
   mBottom,
 }) => {
   return (
-    <Wrapper testId={testId} mLeft={mLeft} mRight={mRight} mBottom={mBottom}>
+    <Wrapper testid={testid} mLeft={mLeft} mRight={mRight} mBottom={mBottom}>
       <Header>
         <Title>{title}</Title>
       </Header>
@@ -52,7 +52,7 @@ const LinksCard = ({
 }
 
 LinksCard.propTypes = {
-  testId: T.string,
+  testid: T.string,
   title: T.string,
   items: T.arrayOf(
     T.shape({
@@ -67,7 +67,7 @@ LinksCard.propTypes = {
 }
 
 LinksCard.defaultProps = {
-  testId: 'links-card',
+  testid: 'links-card',
   title: '',
   items: [],
 

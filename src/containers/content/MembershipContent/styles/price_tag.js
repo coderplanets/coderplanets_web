@@ -4,7 +4,7 @@ import { theme, css } from '@/utils'
 import { Dashboard } from './index'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};

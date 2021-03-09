@@ -22,7 +22,7 @@ const DesktopView = ({ type }) => {
       <Link href={`/${ROUTE.DISCOVERY}`} passHref>
         <SiteLink
           active={mainPath === ROUTE.DISCOVERY}
-          testId="header-discovery-link"
+          testid="header-discovery-link"
         >
           发现
         </SiteLink>
@@ -44,7 +44,7 @@ const DesktopView = ({ type }) => {
       <Link href={`/${ROUTE.COOL_GUIDE}`} passHref>
         <SiteLink
           active={mainPath === ROUTE.COOL_GUIDE}
-          testId={`header-${ROUTE.COOL_GUIDE}`}
+          testid={`header-${ROUTE.COOL_GUIDE}`}
         >
           酷导游
         </SiteLink>
@@ -61,7 +61,7 @@ const DesktopView = ({ type }) => {
       <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
         <SiteLink
           active={mainPath === ROUTE.HAVE_A_DRINK}
-          testId={`header-${ROUTE.HAVE_A_DRINK}`}
+          testid={`header-${ROUTE.HAVE_A_DRINK}`}
         >
           来一杯
         </SiteLink>

@@ -5,7 +5,7 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const BannerContainer = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('justify-center')};
 

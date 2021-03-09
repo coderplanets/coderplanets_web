@@ -23,13 +23,13 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleEditor')
 
-const ArticleEditorContainer = ({ articleEditor: store, testId, metric }) => {
+const ArticleEditorContainer = ({ articleEditor: store, testid, metric }) => {
   useInit(store)
 
   const { showSubTitle, step } = store
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         {step === STEP.EDIT ? (
           <Editor showSubTitle={showSubTitle} />
@@ -43,12 +43,12 @@ const ArticleEditorContainer = ({ articleEditor: store, testId, metric }) => {
 
 ArticleEditorContainer.propTypes = {
   articleEditor: T.any.isRequired,
-  testId: T.string,
+  testid: T.string,
   metric: T.oneOf(values(METRIC)),
 }
 
 ArticleEditorContainer.defaultProps = {
-  testId: 'article-editor',
+  testid: 'article-editor',
   metric: METRIC.ARTICLE_EDITOR,
 }
 

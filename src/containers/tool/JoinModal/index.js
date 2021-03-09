@@ -28,7 +28,7 @@ const JoinModalContainer = ({ joinModal: store }) => {
 
   return (
     <Modal width="600px" show={show} showCloseBtn onClose={onClose}>
-      <Wrapper testId="joinModal">
+      <Wrapper testid="joinModal">
         <FooterWechat />
       </Wrapper>
     </Modal>

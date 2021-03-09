@@ -15,7 +15,7 @@ const arrow = '->'
 
 const CodeSnippets = ({ path }) => {
   return (
-    <Wrapper testId="code-snippets">
+    <Wrapper testid="code-snippets">
       <div>
         <KeyToken>case</KeyToken> Page.goto(
         <StringToken>&quot;{path}&quot;</StringToken>)

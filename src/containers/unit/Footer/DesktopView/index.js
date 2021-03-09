@@ -71,7 +71,7 @@ const FooterContainer = ({ footer: store, metric }) => {
   }, [metric])
 
   return (
-    <Wrapper testId="footer" layout={bannerLayout} metric={metric}>
+    <Wrapper testid="footer" layout={bannerLayout} metric={metric}>
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
         <BusinessNote />
       </Modal>

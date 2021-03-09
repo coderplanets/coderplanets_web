@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('align-center')};
   width: 100%;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const LeftSidebarWrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   width: 182px;
 `

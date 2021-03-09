@@ -7,7 +7,7 @@ import { getMainWidth, getShadow, SIDEBAR_WIDTH } from './metric'
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751
 export const Wrapper = styled.aside.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   position: fixed;
   top: 0;

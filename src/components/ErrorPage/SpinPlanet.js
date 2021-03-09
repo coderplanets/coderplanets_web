@@ -4,7 +4,7 @@ import { Wrapper, Planet, Hole } from './styles/spin_planet'
 
 const SpinPlanet = () => {
   return (
-    <Wrapper testId="spin-planet">
+    <Wrapper testid="spin-planet">
       <Planet>
         <Hole />
         <Hole />

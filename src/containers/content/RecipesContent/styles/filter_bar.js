@@ -7,7 +7,7 @@ import { WIDTH as NAVI_CATALOG_WIDTH } from '@/components/NaviCatalog/styles/met
 import { SIDEBAR_WIDTH, SIDEBAR_MARGIN } from './metric'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn()};
   width: ${SIDEBAR_WIDTH};

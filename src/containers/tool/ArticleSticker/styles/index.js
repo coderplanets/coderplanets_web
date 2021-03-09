@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { animate, theme, css, WIDTH } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flexColumn('align-center', 'justify-start')};
   width: ${WIDTH.ARTICLE.STICKER};

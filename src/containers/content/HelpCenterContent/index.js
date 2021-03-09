@@ -27,14 +27,14 @@ const log = buildLog('C:HelpCenterContent')
 
 const HelpCenterContentContainer = ({
   helpCenterContent: store,
-  testId,
+  testid,
   metric,
 }) => {
   useInit(store)
   const { view, curCommunity } = store
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <Digest metric={metric} community={curCommunity} />
       <ContentWrapper metric={metric}>
         {view === VIEW.COVER ? <Cover /> : <Detail />}
@@ -45,12 +45,12 @@ const HelpCenterContentContainer = ({
 
 HelpCenterContentContainer.propTypes = {
   helpCenterContent: T.any.isRequired,
-  testId: T.string,
+  testid: T.string,
   metric: T.oneOf(values(METRIC)),
 }
 
 HelpCenterContentContainer.defaultProps = {
-  testId: 'help-center-content',
+  testid: 'help-center-content',
   metric: METRIC.HELP_CENTER,
 }
 

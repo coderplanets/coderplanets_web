@@ -17,7 +17,7 @@ const log = buildLog('c:Radio:index')
 
 const Radio = ({ items, activeKey, size, onChange }) => {
   return (
-    <Wrapper testId="radio">
+    <Wrapper testid="radio">
       {items.map((item) => (
         <Label
           key={item.key}

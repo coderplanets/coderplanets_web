@@ -44,21 +44,21 @@ const renderMenus = (type, curActive) => {
   }
 }
 
-const ModeLineMenuContainer = ({ modeLineMenu: store, testId, type }) => {
+const ModeLineMenuContainer = ({ modeLineMenu: store, testid, type }) => {
   useInit(store)
   const { curActive } = store
 
-  return <Wrapper testId={testId}>{renderMenus(type, curActive)}</Wrapper>
+  return <Wrapper testid={testid}>{renderMenus(type, curActive)}</Wrapper>
 }
 
 ModeLineMenuContainer.propTypes = {
   modeLineMenu: T.any.isRequired,
   type: T.oneOf([values(TYPE.MM_TYPE)]).isRequired,
-  testId: T.string,
+  testid: T.string,
 }
 
 ModeLineMenuContainer.defaultProps = {
-  testId: 'mode-line-menu',
+  testid: 'mode-line-menu',
 }
 
 export default pluggedIn(ModeLineMenuContainer)

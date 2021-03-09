@@ -21,7 +21,7 @@ const color = {
 const height = '140px'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   position: relative;
   margin-bottom: 15px;

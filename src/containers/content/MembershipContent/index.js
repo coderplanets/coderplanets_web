@@ -62,7 +62,7 @@ const PayButton = ({ pkgType, payType }) => {
 
 const MembershipContentContainer = ({
   membershipContent: store,
-  testId,
+  testid,
   metric,
 }) => {
   useInit(store)
@@ -70,7 +70,7 @@ const MembershipContentContainer = ({
   const { payType, pkgType, dashboardItems } = store
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         <BannerWrapper>
           <Title>Hi, mydearxym</Title>
@@ -147,11 +147,11 @@ const MembershipContentContainer = ({
 MembershipContentContainer.propTypes = {
   membershipContent: T.any.isRequired,
   metric: T.string.isRequired,
-  testId: T.string,
+  testid: T.string,
 }
 
 MembershipContentContainer.defaultProps = {
-  testId: 'membership-content',
+  testid: 'membership-content',
 }
 
 export default pluggedIn(MembershipContentContainer)

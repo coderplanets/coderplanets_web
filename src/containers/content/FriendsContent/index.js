@@ -99,7 +99,7 @@ const FriendsContentContainer = ({ friendsContent: store, metric }) => {
   }
 
   return (
-    <Wrapper testId="friends-content">
+    <Wrapper testid="friends-content">
       <InnerWrapper metric={metric}>
         <Br top={40} />
         <Title>友情链接</Title>

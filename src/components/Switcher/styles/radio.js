@@ -12,7 +12,7 @@ import {
 } from './metric/radio'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   /* position: relative; */
   ${css.flex('align-center')};

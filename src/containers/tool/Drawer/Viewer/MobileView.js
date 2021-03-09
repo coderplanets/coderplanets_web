@@ -67,7 +67,7 @@ const Viewer = ({
     <div>
       <DrawerOverlay visible={visible} onClick={closeDrawer} />
       <DrawerWrapper
-        testId="drawer-sidebar-panel"
+        testid="drawer-sidebar-panel"
         visible={visible}
         type={type}
         swipeUpY={swipeUpY}
