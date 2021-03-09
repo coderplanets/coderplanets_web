@@ -4,13 +4,18 @@
  */
 
 import { types as T, getParent } from 'mobx-state-tree'
-// import {} from 'ramda'
+import { values } from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
+
+import { VIEW } from './constant'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:HelpCenterContent')
 
-const HelpCenterContent = T.model('HelpCenterContent', {})
+const HelpCenterContent = T.model('HelpCenterContent', {
+  view: T.optional(T.enumeration(values(VIEW)), VIEW.COVER),
+})
   .views((self) => ({
     get root() {
       return getParent(self)

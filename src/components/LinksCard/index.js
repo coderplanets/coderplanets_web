@@ -17,7 +17,7 @@ import { Wrapper, Header, Title, ListWrapper, MoreWrapper } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:LinksCard:index')
 
-const LinksCard = ({ testId, title, items }) => {
+const LinksCard = ({ testId, title, items, onSelect }) => {
   return (
     <Wrapper testId={testId}>
       <Header>
@@ -25,14 +25,14 @@ const LinksCard = ({ testId, title, items }) => {
       </Header>
       <ListWrapper>
         {items.map((item) => (
-          <Item key={item.id} item={item} />
+          <Item key={item.id} item={item} onSelect={onSelect} />
         ))}
         <MoreWrapper>
           <ArrowButton
             size="small"
             arrowStyle="simple"
             onClick={() => {
-              console.log('more')
+              onSelect()
             }}
           >
             更多
@@ -52,6 +52,7 @@ LinksCard.propTypes = {
       title: T.string,
     }),
   ),
+  onSelect: T.func.isRequired,
 }
 
 LinksCard.defaultProps = {

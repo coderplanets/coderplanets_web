@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, theme } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testId,
@@ -12,7 +12,6 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const ContentWrapper = styled.div`
   ${css.flex('justify-center')};
   ${({ metric }) => css.fitContentWidth(metric)};
-  background: ${theme('thread.bg')};
   width: 100%;
   margin-top: 20px;
 `

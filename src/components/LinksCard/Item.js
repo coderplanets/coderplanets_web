@@ -15,9 +15,9 @@ import { Wrapper, Title, Reaction, Icon, Count } from './styles/item'
 /* eslint-disable-next-line */
 const log = buildLog('c:LinksCard:Item')
 
-const Item = ({ item }) => {
+const Item = ({ item, onSelect }) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={() => onSelect(item)}>
       <Title>{item.title}</Title>
       <Reaction>
         <Icon src={`${ICON}/shape/vote-up-solid.svg`} />
@@ -31,6 +31,7 @@ Item.propTypes = {
   item: T.shape({
     title: T.string,
   }).isRequired,
+  onSelect: T.func.isRequired,
 }
 
 Item.defaultProps = {}

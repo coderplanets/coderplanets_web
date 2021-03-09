@@ -3,13 +3,19 @@ import { useEffect } from 'react'
 
 import { buildLog } from '@/utils'
 // import S from './service'
+import { VIEW } from './constant'
 
 let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:HelpCenterContent')
 
-export const someMethod = () => {}
+/**
+ * goto detail help-center article
+ */
+export const gotoDetail = () => {
+  store.mark({ view: VIEW.DETAIL })
+}
 
 // ###############################
 // init & uninit handlers
