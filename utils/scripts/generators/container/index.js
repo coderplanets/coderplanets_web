@@ -64,8 +64,8 @@ module.exports = {
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/logic.js`,
-        templateFile: './container/logic.js.hbs',
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/logic.ts`,
+        templateFile: './container/logic.ts.hbs',
         abortOnFail: true,
       },
       {
