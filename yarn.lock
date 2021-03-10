@@ -2198,6 +2198,12 @@
   version "15.7.3"
   resolved "https://registry.npm.taobao.org/@types/prop-types/download/@types/prop-types-15.7.3.tgz?cache=0&sync_timestamp=1588201821986&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fprop-types%2Fdownload%2F%40types%2Fprop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
 
+"@types/ramda@^0.27.38":
+  version "0.27.38"
+  resolved "https://registry.npm.taobao.org/@types/ramda/download/@types/ramda-0.27.38.tgz#797d5cdc9e00482e665dfea28142bb6c3c5f11e7"
+  dependencies:
+    ts-toolbelt "^6.15.1"
+
 "@types/react-transition-group@^2.0.8":
   version "2.9.2"
   resolved "https://registry.npm.taobao.org/@types/react-transition-group/download/@types/react-transition-group-2.9.2.tgz?cache=0&sync_timestamp=1590088384339&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-transition-group%2Fdownload%2F%40types%2Freact-transition-group-2.9.2.tgz#c48cf2a11977c8b4ff539a1c91d259eaa627028d"
@@ -12510,6 +12516,10 @@ ts-invariant@^0.4.0:
 ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/ts-pnp/download/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
+
+ts-toolbelt@^6.15.1:
+  version "6.15.5"
+  resolved "https://registry.npm.taobao.org/ts-toolbelt/download/ts-toolbelt-6.15.5.tgz?cache=0&sync_timestamp=1615048666537&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fts-toolbelt%2Fdownload%2Fts-toolbelt-6.15.5.tgz#cb3b43ed725cb63644782c64fbcad7d8f28c0a83"
 
 tslib@^1.10.0, tslib@^1.9.0, tslib@^1.9.3:
   version "1.13.0"

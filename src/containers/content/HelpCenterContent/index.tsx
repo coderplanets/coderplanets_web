@@ -26,13 +26,14 @@ import { useInit } from './logic'
 const log = buildLog('C:HelpCenterContent')
 
 interface IProps {
-  helpCenterContent: IStore
-  testid: 'help-center-content'
-  metric?: METRIC.HELP_CENTER
+  helpCenterContent?: IStore
+  testid: string
+  metric: string // METRIC.HELP_CENTER
 }
 
 const defaultProps: IProps = {
   metric: METRIC.HELP_CENTER,
+  testid: 'help-center-content',
 }
 
 const HelpCenterContentContainer: React.FC<IProps> = ({
@@ -41,7 +42,7 @@ const HelpCenterContentContainer: React.FC<IProps> = ({
   metric,
 }) => {
   useInit(store)
-  const { view, curCommunity, tmp } = store
+  const { view, curCommunity } = store
 
   return (
     <Wrapper testid={testid}>

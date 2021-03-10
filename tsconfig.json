@@ -29,11 +29,11 @@
       "@/model": ["src/stores/SharedModel"],
       "@/utils": ["utils"],
       "@/schemas": ["src/schemas"],
+      "@/types": ["src/types"],
       "@/Img": ["src/components/Img"],
       "@/SvgIcons/*": ["src/components/SvgIcons/*"],
       "@/i18n": ["i18n"]
     }
   },
-  "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

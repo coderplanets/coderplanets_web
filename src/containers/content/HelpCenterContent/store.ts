@@ -14,10 +14,6 @@ import { VIEW } from './constant'
 /* eslint-disable-next-line */
 const log = buildLog('S:HelpCenterContent')
 
-type TBad = {
-  jj: string
-}
-
 export const HelpCenterContent = T.model('HelpCenterContent', {
   view: T.optional(T.enumeration(values(VIEW)), VIEW.COVER),
 })
@@ -26,14 +22,13 @@ export const HelpCenterContent = T.model('HelpCenterContent', {
       return getParent(self)
     },
     get curCommunity(): TCommunity {
+      // @ts-ignore
       return stripMobx(self.root.viewing.community)
-    },
-    get tmp(): TBad {
-      return { id: '1', title: 'bbb', logo: 'bbb' }
+      // return stripMobx(self.getParent().viewing.community)
     },
   }))
   .actions((self) => ({
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))

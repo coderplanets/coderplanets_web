@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { METRIC } from '@/constant'
+// import { METRIC } from '@/constant'
 
 import { TCommunity } from '@/types'
 
@@ -16,8 +16,8 @@ import {
 } from './styles/digest'
 
 interface IProps {
-  commuinty: TCommunity
-  metric?: METRIC.HELP_CENTER
+  community: TCommunity
+  metric?: string // METRIC.HELP_CENTER
 }
 
 const Digest: React.FC<IProps> = ({ metric, community }) => {

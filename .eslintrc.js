@@ -26,7 +26,6 @@ module.exports = {
           '@/constant': 'utils/constant',
           '@/hooks': 'src/hooks',
           '@/hoc': 'src/hoc',
-          '@/config': 'config',
           '@/stores': 'src/stores',
           '@/model': 'src/stores/SharedModel',
           '@/utils': 'utils',
@@ -41,6 +40,7 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/ban-ts-comment': 0,
     'react/jsx-filename-extension': [
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
