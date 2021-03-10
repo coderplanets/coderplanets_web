@@ -30,7 +30,15 @@ export const RefUsersWrapper = styled.div`
 export const RefUserList = styled.div`
   margin-top: -10px;
 `
-
+export const MarkDownHint = styled.div`
+  ${css.flex()};
+  color: ${theme('editor.placeholder')};
+  &:hover {
+    color: ${theme('editor.content')};
+    cursor: pointer;
+  }
+  transition: color 0.3s;
+`
 export const MarkdownIcon = styled(Img)`
   fill: #51abb2;
   width: 20px;
@@ -40,15 +48,6 @@ export const MarkdownIcon = styled(Img)`
   ${MarkDownHint}:hover & {
     fill: #618c92;
   }
-`
-export const MarkDownHint = styled.div`
-  ${css.flex()};
-  color: ${theme('editor.placeholder')};
-  &:hover {
-    color: ${theme('editor.content')};
-    cursor: pointer;
-  }
-  transition: color 0.3s;
 `
 export const BackToEditHint = styled.div`
   ${css.flex()};
