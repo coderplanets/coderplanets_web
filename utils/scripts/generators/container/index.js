@@ -57,9 +57,9 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/index.js`,
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/index.tsx`,
         // templateFile: './container/class.js.hbs',
-        templateFile: './container/hooks.js.hbs',
+        templateFile: './container/hooks.tsx.hbs',
         abortOnFail: true,
       },
       {
@@ -76,8 +76,8 @@ module.exports = {
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/styles/index.js`,
-        templateFile: './container/styles.js.hbs',
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/styles/index.ts`,
+        templateFile: './container/styles.ts.hbs',
         abortOnFail: true,
       },
       {

@@ -7,12 +7,13 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
 import { pluggedIn, buildLog } from '@/utils'
 {{#if wantI18n}}
 import { useTrans } from '@/hooks'
 {{/if}}
+
+import { IStore } from './store'
 
 import { Wrapper } from './styles'
 import { useInit } from './logic'
@@ -20,7 +21,19 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:{{ properCase name }}')
 
-const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: store, testid {{afterCurly ""}}) => {
+interface IProps {
+  {{ camelCase name }}?: IStore
+  testid: string
+}
+
+const defaultProps: IProps = {
+  testid: '{{ dashCase name}}',
+}
+
+const {{ properCase name }}Container: React.FC<IProps> = ({{preCurly ""}} 
+  {{ camelCase name}}: store, 
+  testid,
+{{afterCurly ""}}) => {
   useInit(store)
   {{#if wantI18n}}
   const { t } = useTrans()
@@ -34,13 +47,6 @@ const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}}: sto
   )
 }
 
-{{ properCase name }}Container.propTypes = {
-  {{ camelCase name }}: T.any.isRequired,
-  testid: T.string,
-}
-
-{{ properCase name }}Container.defaultProps = {
-  testid: '{{ dashCase name}}',
-}
+{{ properCase name }}Container.defaultProps = defaultProps
 
 export default pluggedIn({{ properCase name }}Container)
