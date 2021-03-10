@@ -32,7 +32,13 @@
       "@/Img": ["src/components/Img"],
       "@/SvgIcons/*": ["src/components/SvgIcons/*"],
       "@/i18n": ["i18n"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "validate": false
+      }
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

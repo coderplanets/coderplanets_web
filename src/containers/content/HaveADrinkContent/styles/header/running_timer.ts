@@ -23,7 +23,7 @@ const opa = keyframes`
 const getRotaAnimation = (interval) => css`
   ${rota} ${interval} linear infinite;
 `
-const getOpaAnimation = (interval, reverse = false) => {
+const getOpaAnimation = (interval, reverse = false): string => {
   return reverse
     ? css`
         ${opa} ${interval} steps(1, end) infinite reverse;

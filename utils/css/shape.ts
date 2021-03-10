@@ -1,6 +1,6 @@
 import { isString } from '../validator'
 
-export const circle = (width = '30px', displayBlock = true) => {
+export const circle = (width: string | number, displayBlock = true): string => {
   const theWidth = isString(width) ? width : `${width}px`
 
   return displayBlock
@@ -17,7 +17,7 @@ export const circle = (width = '30px', displayBlock = true) => {
 `
 }
 
-export const size = (width = '30px', displayBlock = true) => {
+export const size = (width: string | number, displayBlock = true): string => {
   const theWidth = isString(width) ? width : `${width}px`
 
   return displayBlock

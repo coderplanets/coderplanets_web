@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
     cardView && active ? '8px' : ''};
 
   ${css.media.mobile`
-    margin-right: ${() => getMarginRight('', true)};
+    margin-right: ${() => getMarginRight('', true, false)};
   `};
 
   transition: all 0.25s;

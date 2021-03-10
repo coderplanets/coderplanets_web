@@ -1,4 +1,4 @@
-export const getOpacity = (entry, active, accountInfo) => {
+export const getOpacity = (entry, active, accountInfo): number => {
   const {
     isLogin,
     customization: { markViewed },

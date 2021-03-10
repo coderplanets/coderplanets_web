@@ -33,7 +33,7 @@ export const Divider = styled.div`
 export const LabelIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   /* fill: ${theme('tabs.headerActive')}; */
-  ${css.size(18)};
+  ${css.size(18)}
   margin-right: 5px;
   margin-left: 5px;
   margin-top: 2px;

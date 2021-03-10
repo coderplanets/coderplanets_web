@@ -106,19 +106,19 @@ const getLaptopMPadding = (metric) => {
 }
 
 // adapt the inner content with for each page
-export const fitContentWidth = (metric = METRIC.COMMUNITY) => {
+export const fitContentWidth = (metric = METRIC.COMMUNITY): string => {
   const laptopMmediaQuery = media.laptopM`
     padding-left: ${getLaptopMPadding(metric)};
     padding-right: ${getLaptopMPadding(metric)};
-  `.join('')
+  ` // .join('')
 
   const desktopLmediaQuery = media.desktopL`
     margin-left: ${WIDTH[metric]?.CONTENT_OFFSET_DESKTOPL};
-  `.join('')
+  ` // .join('')
 
   const laptopLmediaQuery = media.laptopL`
     margin-left: ${WIDTH[metric]?.CONTENT_OFFSET_LAPTOPL};
-  `.join('')
+  ` // .join('')
 
   return `
     max-width: ${getContentMaxWidth(metric)};
@@ -131,15 +131,26 @@ export const fitContentWidth = (metric = METRIC.COMMUNITY) => {
 }
 
 // get page max width
-export const fitPageWidth = (metric) => {
+export const fitPageWidth = (metric: string): string => {
   return `max-width: ${WIDTH[metric]?.PAGE || WIDTH.COMMUNITY.PAGE};`
 }
 
+// export const media = Object.keys(mediaBreakPoints).reduce((acc, label) => {
+//   acc[label] = (...args) => styledCss`
+//     @media (max-width: ${mediaBreakPoints[label]}px) {
+//       ${styledCss(...args)};
+//     }
+//   `
+//   return acc
+// }, {})
+
+// see @link https://github.com/styled-components/styled-components/issues/430#issuecomment-439016641
 export const media = Object.keys(mediaBreakPoints).reduce((acc, label) => {
-  acc[label] = (...args) => styledCss`
-    @media (max-width: ${mediaBreakPoints[label]}px) {
-      ${styledCss(...args)};
-    }
-  `
+  acc[label] = (literals: TemplateStringsArray, ...placeholders: any[]) =>
+    styledCss`
+        @media (max-width: ${mediaBreakPoints[label]}px) {
+          ${styledCss(literals, ...placeholders)};
+        }
+      `.join('')
   return acc
-}, {})
+}, {} as Record<keyof typeof mediaBreakPoints, (l: TemplateStringsArray, ...p: any[]) => string>)

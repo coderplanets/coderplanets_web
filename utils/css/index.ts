@@ -13,7 +13,7 @@ import { flex, flexGrow, flexColumn, flexColumnGrow } from './flex'
 import { circle, size } from './shape'
 import zIndex from './zindex'
 
-const smokey = (initOpacity = 0.6) => `
+const smokey = (initOpacity = 0.6): string => `
   opacity: ${initOpacity};
 
   &:hover {
@@ -22,14 +22,14 @@ const smokey = (initOpacity = 0.6) => `
   }
   transition: opacity 0.2s;
 `
-const cutFrom = (width = '100px') => `
+const cutFrom = (width = '100px'): string => `
   width: ${width};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `
 
-const threadTitleHover = () => {
+const threadTitleHover = (): string => {
   return styledCss`
     color: ${theme('thread.articleTitle')};
     text-decoration: underline;

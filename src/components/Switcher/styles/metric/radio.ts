@@ -1,17 +1,20 @@
 import { theme } from '@/utils'
 import { SIZE } from '@/constant'
 
-export const getActiveBackground = (dimOnActive) => {
+export const getActiveBackground = (dimOnActive: boolean): string => {
   return dimOnActive ? '#00414F' : theme('button.primary')
 }
 
-export const getLabelColor = (checked, dimOnActive) => {
+export const getLabelColor = (
+  checked: boolean,
+  dimOnActive: boolean,
+): string => {
   if (dimOnActive) return theme('thread.articleTitle')
 
   return checked ? theme('button.fg') : theme('thread.articleTitle')
 }
 
-export const getLabelFontsize = (size) => {
+export const getLabelFontsize = (size: string): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '12px'
@@ -23,7 +26,7 @@ export const getLabelFontsize = (size) => {
   }
 }
 
-export const getRadioBoxSize = (size) => {
+export const getRadioBoxSize = (size: string): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '12px'
@@ -35,7 +38,7 @@ export const getRadioBoxSize = (size) => {
   }
 }
 
-export const getRadioBoxTop = (size) => {
+export const getRadioBoxTop = (size: string): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '4px'
@@ -47,7 +50,7 @@ export const getRadioBoxTop = (size) => {
   }
 }
 
-export const getRadioBoxLeft = (size) => {
+export const getRadioBoxLeft = (size: string): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '5px'

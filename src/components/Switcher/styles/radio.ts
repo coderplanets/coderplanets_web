@@ -15,7 +15,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   'data-test-id': props.testid,
 }))`
   /* position: relative; */
-  ${css.flex('align-center')};
+  ${css.flex('align-center')}
 `
 export const Label = styled.label`
   position: relative;

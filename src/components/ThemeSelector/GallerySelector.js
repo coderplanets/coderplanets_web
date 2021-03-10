@@ -10,7 +10,7 @@ import {
   IntroDesc,
   ThemeTitle,
   ThemeDesc,
-} from './style/gallery_selector'
+} from './styles/gallery_selector'
 
 const GallerySelector = ({ curTheme, changeTheme }) => {
   return (

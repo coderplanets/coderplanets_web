@@ -37,8 +37,6 @@ export const InnerWrapper = styled.div`
 
   ${css.media.mobile`
     margin: 0 3%;
-    margin-left: 2%;
-    margin-top: 0px;
     padding-top: 0;
   `};
 `
