@@ -13,7 +13,7 @@ const log = buildLog('L:HelpCenterContent')
 /**
  * goto detail help-center article
  */
-export const gotoDetail = () => {
+export const gotoDetail = (): void => {
   store.mark({ view: VIEW.DETAIL })
 }
 

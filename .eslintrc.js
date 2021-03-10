@@ -1,7 +1,15 @@
 // see details:
 // https://github.com/groupher/eslint-config-web/blob/master/index.js
 module.exports = {
-  extends: ['@groupher/eslint-config-web'],
+  root: true,
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    '@groupher/eslint-config-web',
+  ],
+  // extends: ['@groupher/eslint-config-web'],
   settings: {
     'import/resolver': {
       'babel-module': {},
@@ -23,11 +31,21 @@ module.exports = {
           '@/SvgIcons': 'src/components/SvgIcons',
           '@/i18n': 'i18n',
         },
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },
   rules: {
     'import/no-named-as-default': 0,
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
 }
