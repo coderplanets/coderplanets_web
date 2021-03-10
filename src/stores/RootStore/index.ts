@@ -3,7 +3,7 @@
  *
  */
 
-import { types as T } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 import { merge } from 'ramda'
 
 import { EVENT } from '@/constant'
@@ -124,12 +124,14 @@ const rootStore = T.model({
   route: T.optional(RouteStore, {}),
   viewing: T.optional(ViewingStore, {}),
   comments: T.optional(CommentsStore, {}),
+  // @ts-ignore TODO:
   theme: T.optional(ThemeStore, ThemeDefaults),
   locale: T.optional(T.enumeration('locale', ['zh', 'en']), 'zh'),
   errorCode: T.maybeNull(T.number),
   // domain end
 
   // toolbox
+  // @ts-ignore TODO:
   sidebar: T.optional(SidebarStore, { menuItems: [] }),
   drawer: T.optional(DrawerStore, { visible: false }),
   doraemon: T.optional(DoraemonStore, {}),
@@ -260,76 +262,79 @@ const rootStore = T.model({
     },
   }))
   .actions((self) => ({
-    markRoute(query, opt) {
+    markRoute(query, opt): void {
       self.route.markRoute(query, opt)
     },
-    showTopModeline(bool) {
+    showTopModeline(bool): void {
       self.modeLine.showTopBar(bool)
     },
-    openDoraemon() {
+    openDoraemon(): void {
       self.doraemon.open()
     },
-    closeDrawer() {
+    closeDrawer(): void {
       self.drawer.close()
     },
-    changeTheme(name) {
+    changeTheme(name): void {
       self.theme.changeTheme(name)
     },
-    setViewing(sobj) {
+    setViewing(sobj): void {
       self.viewing.setViewing(sobj)
     },
-    updateViewingIfNeed(type, sobj) {
+    updateViewingIfNeed(type, sobj): void {
       self.viewing.updateViewingIfNeed(type, sobj)
     },
-    sponsorHepler() {
+    sponsorHepler(): void {
       self.footer.sponsorHepler()
     },
-    cashierHelper(opt) {
-      self.membershipContent.close()
+    cashierHelper(opt): void {
       self.footer.closeSponsor()
       self.cashier.callCashier(opt)
     },
-    toast(type, options = {}) {
+    toast(type, options = {}): void {
       const themeData = themeSkins[self.theme.curTheme]
       const progressBarColor = toastBarColor(type, themeData)
 
       const toastOpt = merge(options, { progressBarColor })
       toast[type](toastOpt)
     },
-    authWarning(options = {}) {
+    authWarning(options = {}): void {
       const defaultOpt = {
         position: 'topCenter',
         title: '当前账号未登录',
         msg: '暂不支持匿名操作，请登录后再次尝试.',
       }
 
+      // @ts-ignore TODO:
       if (options?.hideToast === true) {
         // pass
       } else {
+        // @ts-ignore TODO:
         self.toast('warn', merge(defaultOpt, options))
       }
 
       send(EVENT.LOGIN_PANEL)
-      return false
     },
-    changesetErr(options) {
+    changesetErr(options): void {
+      // @ts-ignore TODO:
       self.toast('error', options)
     },
-    callInformer() {
+    callInformer(): void {
       self.informer.show()
     },
-    callGirlVerifier() {
+    callGirlVerifier(): void {
       self.girlVerifier.show()
     },
-    updateC11N(options) {
+    updateC11N(options): void {
       self.account.updateC11N(options)
     },
-    isMemberOf(type) {
+    isMemberOf(type): boolean {
       return self.account.isMemberOf(type)
     },
-    mark(sobj) {
+    mark(sobj): void {
       markStates(sobj, self)
     },
   }))
+
+export type IRootStore = Instance<typeof rootStore>
 
 export default rootStore
