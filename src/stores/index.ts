@@ -1,3 +1,6 @@
+// IRootStore is removed after ts compile, so cycle it's fine
+/* eslint-disable import/no-cycle */
+
 // domain store
 /* export { default as RouteStore } from './RouteStore' */
 export { default as RouteStore } from '@/containers/Route/store'

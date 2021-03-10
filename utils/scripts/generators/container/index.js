@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * Container Generator
  */
@@ -69,8 +70,8 @@ module.exports = {
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/store.js`,
-        templateFile: './container/store.js.hbs',
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/store.ts`,
+        templateFile: './container/store.ts.hbs',
         abortOnFail: true,
       },
       {
@@ -93,19 +94,19 @@ module.exports = {
       },
       {
         type: 'append',
-        path: `${STORE_TARGET_DIR}/index.js`,
+        path: `${STORE_TARGET_DIR}/index.ts`,
         pattern: /(\/\/ GEN: EXPORT CONTAINERS STORE HERE)/g,
         template: `export {{preCurly ""}} default as {{ properCase name}}Store {{afterCurly ""}} from '@/containers/${data.scope}/{{properCase name}}/store'`,
       },
       {
         type: 'append',
-        path: `${STORE_TARGET_DIR}/RootStore/index.js`,
+        path: `${STORE_TARGET_DIR}/RootStore/index.ts`,
         pattern: /(\/\/ GEN: IMPORT SUBSTORE)/g,
         template: '  {{properCase name}}Store,',
       },
       {
         type: 'append',
-        path: `${STORE_TARGET_DIR}/RootStore/index.js`,
+        path: `${STORE_TARGET_DIR}/RootStore/index.ts`,
         pattern: /(\/\/ GEN: PLUG SUBSTORE TO ROOTSTORE)/g,
         template:
           '    {{ camelCase name}}: T.optional({{properCase name}}Store, {{preCurly ""}}{{afterCurly ""}}),',

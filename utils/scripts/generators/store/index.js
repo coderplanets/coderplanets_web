@@ -6,6 +6,7 @@
 
 'use strict'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const componentExists = require('../helper/component_exists')
 
 module.exports = {
@@ -32,7 +33,7 @@ module.exports = {
       {
         type: 'add',
         path: '../../../stores/{{properCase name}}/index.js',
-        templateFile: './store/store.js.hbs',
+        templateFile: './store/store.ts.hbs',
         abortOnFail: true,
       },
       {
