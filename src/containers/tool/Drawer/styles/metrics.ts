@@ -1,5 +1,10 @@
 import { TYPE } from '@/constant'
 
+type Options = {
+  position?: 'H' | 'M' | 'L'
+  direction?: 'bottom' | 'top'
+}
+
 export const WIDE_WIDTH = '70%'
 export const NARROW_WIDTH = '40%'
 
@@ -50,7 +55,11 @@ const M_TRANSLATE = '100%'
  * @param {object} options
  * @returns
  */
-export const getDim = (swipeUpY, swipeDownY, options) => {
+export const getDim = (
+  swipeUpY: number,
+  swipeDownY: number,
+  options: Options,
+): string => {
   const threshold = SWIPE_THRESHOLD[options.direction][options.position]
 
   if (options.direction === 'bottom') {
@@ -68,7 +77,7 @@ export const getDim = (swipeUpY, swipeDownY, options) => {
  * @param {object} options
  * @returns
  */
-export const getMobileContentHeight = (options) => {
+export const getMobileContentHeight = (options: Options): string => {
   /* M -> 50vh, H -> 75vh, L -> 25vh */
   switch (options.position) {
     case 'H': {
@@ -95,12 +104,12 @@ export const getMobileContentHeight = (options) => {
  * @returns
  */
 export const getTransform = (
-  visible,
-  mobile,
-  swipeUpY,
-  swipeDownY,
-  options,
-) => {
+  visible: boolean,
+  mobile: boolean,
+  swipeUpY: number,
+  swipeDownY: number,
+  options: Options,
+): string => {
   if (!mobile) {
     return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)' // fromRight
   }
@@ -126,7 +135,10 @@ export const getTransform = (
 }
 
 // only for mobile
-export const getContentLinearGradient = (options, bgColor) => {
+export const getContentLinearGradient = (
+  options: Options,
+  bgColor: string,
+): string => {
   if (options.direction === 'bottom') {
     return `linear-gradient(0deg,${bgColor} calc(100% - 30px),transparent 30px)`
   }
@@ -142,7 +154,7 @@ export const getContentLinearGradient = (options, bgColor) => {
  * @returns string
  * @private
  */
-const getTopPosition = (swipeUpY, options) => {
+const getTopPosition = (swipeUpY: number, options: Options): string => {
   switch (options.position) {
     case 'L': {
       if (swipeUpY === null) return '0%'
@@ -171,7 +183,7 @@ const getTopPosition = (swipeUpY, options) => {
  * @returns string
  * @private
  */
-const getBottomPosition = (swipeDownY, options) => {
+const getBottomPosition = (swipeDownY: number, options: Options): string => {
   switch (options.position) {
     case 'L': {
       if (swipeDownY === null) return L_TRANSLATE
