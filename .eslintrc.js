@@ -5,9 +5,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   extends: [
+    '@groupher/eslint-config-web',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    '@groupher/eslint-config-web',
   ],
   // extends: ['@groupher/eslint-config-web'],
   settings: {
@@ -34,6 +34,7 @@ module.exports = {
           '@/Img': 'src/components/Img',
           '@/SvgIcons': 'src/components/SvgIcons',
           '@/i18n': 'i18n',
+          '@/types': 'src/types',
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },

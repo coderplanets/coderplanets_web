@@ -1,5 +1,9 @@
 import React from 'react'
 
+import { METRIC } from '@/constant'
+
+import { TCommunity } from '@/types'
+
 import {
   Wrapper,
   InnerWrapper,
@@ -11,7 +15,12 @@ import {
   HelpTitle,
 } from './styles/digest'
 
-const Digest = ({ metric, community }) => {
+interface IProps {
+  commuinty: TCommunity
+  metric?: METRIC.HELP_CENTER
+}
+
+const Digest: React.FC<IProps> = ({ metric, community }) => {
   return (
     <Wrapper metric={metric}>
       <InnerWrapper metric={metric}>
