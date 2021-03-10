@@ -11,6 +11,10 @@ module.exports = {
   ],
   // extends: ['@groupher/eslint-config-web'],
   settings: {
+    // see if the import lib exsit or not
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     'import/resolver': {
       'babel-module': {},
       'eslint-import-resolver-custom-alias': {
@@ -36,6 +40,10 @@ module.exports = {
     },
   },
   rules: {
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+    ],
     'import/no-named-as-default': 0,
     'import/extensions': [
       'error',

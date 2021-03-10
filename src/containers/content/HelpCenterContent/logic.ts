@@ -4,8 +4,9 @@ import { useEffect } from 'react'
 import { buildLog } from '@/utils'
 // import S from './service'
 import { VIEW } from './constant'
+import { IStore } from './store'
 
-let store = null
+let store: IStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:HelpCenterContent')
@@ -21,7 +22,7 @@ export const gotoDetail = (): void => {
 // init & uninit handlers
 // ###############################
 
-export const useInit = (_store) => {
+export const useInit = (_store: IStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)
