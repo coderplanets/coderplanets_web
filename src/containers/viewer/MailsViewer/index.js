@@ -12,7 +12,6 @@ import { pluggedIn, buildLog } from '@/utils'
 import TabSelector from '@/components/TabSelector'
 import MailLists from './MailLists'
 
-import { Wrapper } from './styles'
 import { useInit, selectChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -45,7 +44,7 @@ const MailsViewerContainer = ({ mailsViewer: store }) => {
   const { activeRaw, pagedMentionsData, readState } = store
 
   return (
-    <Wrapper>
+    <div>
       <TabSelector
         source={mailTabs}
         activeRaw={activeRaw}
@@ -57,7 +56,7 @@ const MailsViewerContainer = ({ mailsViewer: store }) => {
         pagedMentions={pagedMentionsData}
         readState={readState}
       />
-    </Wrapper>
+    </div>
   )
 }
 
