@@ -1,7 +1,9 @@
 import { theme } from '@/utils'
 import { SIZE } from '@/constant'
 
-export const getNormalColor = (type) => {
+import { TTheme } from '@/types'
+
+export const getNormalColor = (type: string): TTheme => {
   switch (type) {
     case 'green':
       return theme('baseColor.green')
@@ -11,7 +13,7 @@ export const getNormalColor = (type) => {
   }
 }
 
-export const getActiveColor = (type) => {
+export const getActiveColor = (type: string): TTheme => {
   switch (type) {
     case 'green':
       return theme('baseColor.green')
@@ -21,7 +23,7 @@ export const getActiveColor = (type) => {
   }
 }
 
-export const getNormalIconSize = (size) => {
+export const getNormalIconSize = (size: string): TTheme => {
   switch (size) {
     case SIZE.SMALL:
       return '11px'
@@ -31,7 +33,7 @@ export const getNormalIconSize = (size) => {
   }
 }
 
-export const getActiveIconSize = (size) => {
+export const getActiveIconSize = (size: string): TTheme => {
   switch (size) {
     case SIZE.SMALL:
       return '12px'
@@ -41,7 +43,7 @@ export const getActiveIconSize = (size) => {
   }
 }
 
-export const getNormalTextSize = (size) => {
+export const getNormalTextSize = (size: string): TTheme => {
   switch (size) {
     case SIZE.SMALL:
       return '11px'

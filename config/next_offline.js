@@ -1,5 +1,6 @@
 // Cache strategies
-// By default next-offline will precache all the Next.js webpack emitted files and the user-defined static ones (inside /static)
+// By default next-offline will precache all the Next.js webpack emitted
+// files and the user-defined static ones (inside /static)
 // see more: https://github.com/hanford/next-offline
 
 module.exports = {

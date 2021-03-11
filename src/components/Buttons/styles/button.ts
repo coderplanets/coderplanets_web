@@ -41,7 +41,7 @@ export const Wrapper = styled.button`
   opacity: ${({ noBorder }) => (noBorder ? '0.7' : 1)};
 
   &:hover {
-    color: ${({ ghost, disabled }) => getColor(ghost, disabled, true)};
+    color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
     border-color: ${({ noBorder, disabled }) =>
       getBorderColor(noBorder, disabled, true)};
     background-color: ${({ ghost, disabled }) =>
@@ -51,7 +51,7 @@ export const Wrapper = styled.button`
   }
 
   &:focus {
-    color: ${({ ghost, disabled }) => getColor(ghost, disabled, true)};
+    color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
     border-color: ${({ noBorder, disabled }) =>
       getBorderColor(noBorder, disabled, true)};
     background-color: ${({ ghost, disabled }) =>
@@ -60,7 +60,7 @@ export const Wrapper = styled.button`
   }
 
   &:active {
-    color: ${({ ghost, disabled }) => getColor(ghost, disabled, true)};
+    color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
     background-color: ${({ ghost, disabled }) =>
       getBackgroundColor(ghost, disabled, true)};
     opacity: 1;

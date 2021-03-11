@@ -3,7 +3,7 @@ import { SIZE } from '@/constant'
  * NOTE:  Li size should always smaller than the avatar size
  */
 
-export const getLiSize = (size) => {
+export const getLiSize = (size: string): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '15px'
@@ -19,7 +19,10 @@ export const getLiSize = (size) => {
   }
 }
 
-export const getAvatarSize = (size, fmt = 'string') => {
+export const getAvatarSize = (
+  size: string,
+  fmt = 'string',
+): string | number => {
   switch (size) {
     case SIZE.SMALL: {
       return fmt === 'string' ? '24px' : 24
@@ -35,13 +38,13 @@ export const getAvatarSize = (size, fmt = 'string') => {
   }
 }
 
-export const getTotalCountSize = (total) => {
+export const getTotalCountSize = (total: number): string => {
   if (total < 99) return '13px'
   if (total >= 100 && total <= 999) return '12px'
   return '10px'
 }
 
-export const getMoreTextWidth = (total) => {
+export const getMoreTextWidth = (total: number): string => {
   if (total < 10) return '23px'
   if (total >= 10 && total <= 99) return '32px'
   if (total >= 100 && total <= 999) return '44px'
@@ -49,7 +52,7 @@ export const getMoreTextWidth = (total) => {
   return '52px'
 }
 
-export const getUlMarginRight = (total) => {
+export const getUlMarginRight = (total: number): string => {
   if (total < 10) return '-8px'
   if (total >= 10 && total <= 99) return '-2px'
   if (total >= 100 && total <= 999) return '10px'

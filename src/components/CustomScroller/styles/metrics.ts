@@ -2,7 +2,7 @@ import { SIZE } from '@/constant'
 
 const ShadowBgColor = '#022029'
 
-const horizontalShadowBg = (type) => {
+const horizontalShadowBg = (type: string): string => {
   switch (type) {
     case SIZE.SMALL: {
       return `-webkit-radial-gradient(
@@ -26,7 +26,7 @@ const horizontalShadowBg = (type) => {
     }
   }
 }
-const verticalShadowBg = (type) => {
+const verticalShadowBg = (type: string): string => {
   switch (type) {
     case SIZE.SMALL: {
       return `
@@ -44,14 +44,17 @@ const verticalShadowBg = (type) => {
 }
 
 // horizontal getShadowBackground
-export const getShadowBackground = (type, direction = 'horizontal') => {
+export const getShadowBackground = (
+  type: string,
+  direction = 'horizontal',
+): string => {
   return direction === 'horizontal'
     ? horizontalShadowBg(type)
     : verticalShadowBg(type)
 }
 
 // horizontal getShadowWidth
-export const getShadowSize = (type) => {
+export const getShadowSize = (type: string): string => {
   switch (type) {
     case SIZE.SMALL: {
       return '30px'
@@ -67,7 +70,7 @@ export const getShadowSize = (type) => {
 }
 
 // vertical getShadowWidth
-export const getShadowHeight = (type) => {
+export const getShadowHeight = (type: string): string => {
   switch (type) {
     case SIZE.SMALL: {
       return '20px'
@@ -82,7 +85,7 @@ export const getShadowHeight = (type) => {
   }
 }
 
-const horizontalScrollbarHeight = (type) => {
+const horizontalScrollbarHeight = (type: string): string => {
   switch (type) {
     case SIZE.TINY: {
       return '3px'
@@ -100,7 +103,7 @@ const horizontalScrollbarHeight = (type) => {
   }
 }
 
-const verticalScrollbarWidth = (type) => {
+const verticalScrollbarWidth = (type: string): string => {
   switch (type) {
     case SIZE.TINY: {
       return '6px'
@@ -120,7 +123,10 @@ const verticalScrollbarWidth = (type) => {
 
 // horizontal ScrollbarHeight
 // see https://kingsora.github.io/OverlayScrollbars/#!documentation/classnames
-export const getScrollbarThin = (type, direction) => {
+export const getScrollbarThin = (
+  type: string,
+  direction = 'horizontal',
+): string => {
   return direction === 'horizontal'
     ? horizontalScrollbarHeight(type)
     : verticalScrollbarWidth(type)

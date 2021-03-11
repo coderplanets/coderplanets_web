@@ -1,6 +1,6 @@
 import { SIZE } from '@/constant'
 
-export const getWidth = (type) => {
+export const getWidth = (type: string): string => {
   switch (type) {
     case SIZE.LARGE:
       return '240px'
@@ -10,7 +10,7 @@ export const getWidth = (type) => {
   }
 }
 
-export const getHeight = (type) => {
+export const getHeight = (type: string): string => {
   switch (type) {
     case SIZE.LARGE:
       return '180px'

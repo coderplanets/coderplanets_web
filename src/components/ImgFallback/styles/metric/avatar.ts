@@ -1,4 +1,4 @@
-export const getFontSize = (size) => {
+export const getFontSize = (size: number): string => {
   if (size <= 15) {
     return '10px'
   }

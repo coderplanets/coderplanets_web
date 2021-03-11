@@ -1,6 +1,6 @@
 import { SIZE } from '@/constant'
 
-export const getIconSize = (size) => {
+export const getIconSize = (size: string): string => {
   switch (size) {
     case SIZE.LARGE: {
       return '13px'
@@ -17,7 +17,7 @@ export const getIconSize = (size) => {
   }
 }
 
-export const getTextSize = (size) => {
+export const getTextSize = (size: string): string => {
   switch (size) {
     case SIZE.LARGE: {
       return '15px'
@@ -31,7 +31,7 @@ export const getTextSize = (size) => {
   }
 }
 
-export const getMargin = (size) => {
+export const getMargin = (size: string): string => {
   switch (size) {
     case SIZE.LARGE: {
       return '8px'
