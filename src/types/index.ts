@@ -10,3 +10,11 @@ export type TCommunity = {
 }
 
 export type TTheme = ((obj: any) => unknown) | string
+
+// google analytis format
+export type GA_EVENT = {
+  action: string
+  category: string
+  label: string
+  value: string
+}

@@ -1,3 +1,5 @@
+import { GA_EVENT } from '@/types'
+
 import { Global } from './helper'
 
 // https://analytics.google.com/analytics/web/?hl=zh-CN&pli=1#/embed/report-home/a39874160w174341184p173551323
@@ -19,8 +21,9 @@ const pageview = (url: string): void => {
     label: this.state.message
   })
 */
+const event = (e: GA_EVENT): void => {
+  const { action, category, label, value } = e
 
-const event = ({ action, category, label, value }): void => {
   // @ts-ignore
   Global.gtag('event', action, {
     event_category: category,
