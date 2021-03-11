@@ -1,4 +1,18 @@
-const flexExpand = (rule) => {
+type FlexRule =
+  | 'align-both'
+  | 'align-center'
+  | 'align-start'
+  | 'align-end'
+  | 'align-baseline'
+  | 'justify-center'
+  | 'justify-start'
+  | 'justify-end'
+  | 'justify-between'
+  | 'justify-around'
+  | 'justify-evenly'
+  | ''
+
+const flexExpand = (rule: FlexRule): string => {
   switch (rule) {
     case 'align-both':
       return 'align-items: center;justify-content: center;'
@@ -42,23 +56,32 @@ const flexExpand = (rule) => {
  * flex opts sort order:
  * [flex-direction][align-items][flex-grow]
  */
-const flexOpts = (rule1, rule2) => {
+const flexOpts = (rule1: FlexRule, rule2: FlexRule): string => {
   return `${flexExpand(rule1)}${flexExpand(rule2)}`
 }
 
-export const flex = (rule1, rule2 = '') => `
+export const flex = (rule1: FlexRule = '', rule2: FlexRule = ''): string => `
   display: flex;
   ${flexOpts(rule1, rule2)};
 `
-export const flexGrow = (rule1, rule2 = '') => `
+export const flexGrow = (
+  rule1: FlexRule = '',
+  rule2: FlexRule = '',
+): string => `
   ${flex(rule1, rule2)};
   flex-grow: 1;
 `
-export const flexColumn = (rule1, rule2 = '') => `
+export const flexColumn = (
+  rule1: FlexRule = '',
+  rule2: FlexRule = '',
+): string => `
   ${flex(rule1, rule2)};
   flex-direction: column;
 `
-export const flexColumnGrow = (rule1, rule2 = '') => `
+export const flexColumnGrow = (
+  rule1: FlexRule = '',
+  rule2: FlexRule = '',
+): string => `
   ${flexColumn(rule1, rule2)};
   flex-grow: 1;
 `

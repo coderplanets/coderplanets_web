@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -20,20 +21,22 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   width: 100%;
   height: 33px;
-  ${css.flex('align-center', 'space-between')};
+  ${css.flex('align-center', 'justify-between')};
   padding-left: 0;
   padding-right: 0vw;
   transition: all 0.2s;
 `
-export const TabsWrapper = styled.div`
-  flex-grow: 1;
-  max-width: calc(100% - 30px);
-`
-export const TagWrapper = styled.div`
-  position: absolute;
-  max-width: 60px;
-  min-width: 50px;
-  right: 0;
-  z-index: 1;
+export const BaseInfo = styled.div`
+  ${css.flex('align-center')};
   height: 100%;
+`
+export const Avatar = styled(Img)`
+  ${css.circle(16)};
+  margin-top: -1px;
+`
+export const Title = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 13px;
+  margin-left: 12px;
+  ${css.cutFrom('60vw')};
 `

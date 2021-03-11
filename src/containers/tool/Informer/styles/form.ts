@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${css.flexColumn('justify.center')};
+  ${css.flexColumn('justify-center')};
 
   width: 100%;
   padding: 20px;

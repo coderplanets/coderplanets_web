@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
   transition-delay: 1s;
 `
 export const InnerWrapper = styled(InnerWrapperBase)`
-  ${css.flex('align-center', 'space-between')};
+  ${css.flex('align-center', 'justify-between')};
 `
 export const TabsWrapper = styled.div`
   flex-grow: 1;
