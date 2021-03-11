@@ -53,7 +53,7 @@ export const CloseBtn = styled(Img)`
   z-index: ${css.zIndex.modalCloseBtn};
 
   &:hover {
-    animation: ${animate.rotate360Close} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
+    animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
     font-weight: bold;
     cursor: pointer;
   }

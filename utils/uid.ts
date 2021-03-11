@@ -5,7 +5,7 @@ import { customAlphabet } from 'nanoid'
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz1234567890', 6)
 
 const uid = {
-  gen: () => nanoid(),
+  gen: (): string => nanoid(),
 }
 
 export default uid

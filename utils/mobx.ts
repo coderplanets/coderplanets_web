@@ -1,3 +1,5 @@
+import { FunctionComponent } from 'react'
+
 import {
   path,
   has,
@@ -16,6 +18,11 @@ import { observer } from 'mobx-react-lite'
 import { toJS } from 'mobx'
 
 import { isObject } from './validator'
+
+type IStore = {
+  mark: (obj: Record<string, unknown>) => void
+  updateEditing?: (obj: Record<string, unknown>) => void
+}
 
 /*
  * select sub store from root store
@@ -49,7 +56,10 @@ export const storePlug = curry((selectedStore, props) => ({
  * 注意： 容器组件的命名需遵守 XxxContainer 的约定规则 (以 Container 结尾)
  *
  */
-export const pluggedIn = (container, store) => {
+export const pluggedIn = (
+  container: FunctionComponent,
+  store = '',
+): FunctionComponent => {
   let subStoreName = ''
   // console.log('container displayName: ', container.displayName)
   if (store) {
@@ -113,7 +123,12 @@ export const markStates = (sobj, self) => {
   return false
 }
 
-export const flashState = (store, state, value, secs = 5) => {
+export const flashState = (
+  store: IStore,
+  state: string,
+  value: string,
+  secs = 5,
+): void => {
   store.mark({ [state]: value })
   setTimeout(() => {
     store.mark({ [state]: '' })
@@ -124,12 +139,17 @@ export const flashState = (store, state, value, secs = 5) => {
    can't put this in store, because this method is async
    only boolean now
  */
-export const meteorState = (store, state, secs, statusMsg = '') => {
+export const meteorState = (
+  store: IStore,
+  state: string,
+  secs: number,
+  statusMsg = '',
+): void => {
   if (!has(state, store)) {
     /* eslint-disable */
     console.error(`Error: meteorState not found ${state}`)
     /* eslint-enable */
-    return false
+    return
   }
 
   store.mark({
@@ -143,10 +163,9 @@ export const meteorState = (store, state, secs, statusMsg = '') => {
       statusMsg: '',
     })
   }, secs * 1000)
-  return false
 }
 
-export const stripMobx = (obj) => {
+export const stripMobx = (obj: any): any => {
   if (!obj) return obj
   return toJS(obj)
 }
@@ -157,16 +176,22 @@ export const stripMobx = (obj) => {
  * NOTE: this method require store has a updateEditing under the hook to do the real update
  *
  */
-export const updateEditing = (store, part, e) => {
-  if (!store) return false
+export const updateEditing = (
+  store: IStore,
+  part: string,
+  e: HTMLElement,
+): void => {
+  if (!store) return
   if (!store.updateEditing) {
     // eslint-disable-next-line no-console
     return console.warn('Error: updateEditing not found in store: ', store)
   }
 
-  let value = e
+  let value = e as HTMLElement
+  // @ts-ignore
   if (isObject(e) && has('target', e)) {
     /* eslint-disable prefer-destructuring */
+    // @ts-ignore
     value = e.target.value
     /* eslint-enable prefer-destructuring */
   }

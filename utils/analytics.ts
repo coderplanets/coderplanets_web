@@ -3,7 +3,8 @@ import { Global } from './helper'
 // https://analytics.google.com/analytics/web/?hl=zh-CN&pli=1#/embed/report-home/a39874160w174341184p173551323
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-const pageview = (url) => {
+const pageview = (url: string): void => {
+  // @ts-ignore
   Global.gtag('config', process.env.NEXT_PUBLIC_GA_TRACING_ID, {
     page_location: url,
   })
@@ -19,7 +20,8 @@ const pageview = (url) => {
   })
 */
 
-const event = ({ action, category, label, value }) => {
+const event = ({ action, category, label, value }): void => {
+  // @ts-ignore
   Global.gtag('event', action, {
     event_category: category,
     event_label: label,

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
+import { TTheme } from '@/types'
 
-const dotColor = (scale) => {
+const dotColor = (scale: string): TTheme => {
   let key = `heatmap.scale_${scale}`
   if (scale === 'empty') {
     key = 'heatmap.empty'
@@ -41,11 +42,9 @@ export const DotList = styled.div`
   margin-left: 5px;
   margin-right: 3px;
 `
-/* eslint-disable */
 export const ColorDot = styled.div`
   ${css.size(8)};
   border-radius: 2px;
   margin-right: 3px;
-  background-color: ${(props) => dotColor(props.scale)(props)};
+  background-color: ${({ scale }) => dotColor(scale)};
 `
-/* eslint-enable */

@@ -1,14 +1,16 @@
 import { theme } from '@/utils'
 import { SIZE } from '@/constant'
 
-export const getActiveBackground = (dimOnActive: boolean): string => {
+import { TTheme } from '@/types'
+
+export const getActiveBackground = (dimOnActive: boolean): TTheme => {
   return dimOnActive ? '#00414F' : theme('button.primary')
 }
 
 export const getLabelColor = (
   checked: boolean,
   dimOnActive: boolean,
-): string => {
+): TTheme => {
   if (dimOnActive) return theme('thread.articleTitle')
 
   return checked ? theme('button.fg') : theme('thread.articleTitle')

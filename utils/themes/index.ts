@@ -12,6 +12,8 @@
  */
 
 import { map, path, split } from 'ramda'
+
+import { TTheme } from '@/types'
 import skinsData from './skins'
 
 export const themeSkins = { ...skinsData }
@@ -22,7 +24,7 @@ export const themeCoverMap = map(path(['cover']), themeSkins)
 export const themeCoverIndexMap = map(path(['coverIndex']), themeSkins)
 
 // curried shorthand for style-components
-export const theme = (themePath) =>
+export const theme = (themePath: string): TTheme =>
   path(['theme', ...split('.', themePath)]) || 'wheat'
 
 export { default as themeMeta } from './theme_meta'

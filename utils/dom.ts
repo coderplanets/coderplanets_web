@@ -7,16 +7,14 @@ const hasWindow =
 
 /**
  * check is client side or not
- * @returns {Boolean}
  */
-export const isBrowser = () => hasDocument && hasWindow
+export const isBrowser = (): boolean => hasDocument && hasWindow
 const getDocument = () => (isBrowser() ? document : null)
 
 /**
  * scroll to page top
- * @return {void}
  */
-export const scrollToTop = () => {
+export const scrollToTop = (): void => {
   scrollIntoEle(ANCHOR.GLOBAL_HEADER_ID)
 
   // NOTE:  not work with customScroller
@@ -32,12 +30,10 @@ export const scrollToTop = () => {
 /**
  * scroll to page top
  * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
- * @param {string} eleID element id
- * @return
  */
-export const scrollIntoEle = (eleID) => {
+export const scrollIntoEle = (eleID: string): void => {
   const safeDocument = getDocument()
-  if (!safeDocument) return false
+  if (!safeDocument) return
 
   const e = safeDocument.getElementById(eleID)
 
@@ -46,14 +42,14 @@ export const scrollIntoEle = (eleID) => {
   }
 }
 
-export const scrollToHeader = () => scrollIntoEle(ANCHOR.GLOBAL_HEADER_ID)
-export const scrollToTabber = () => scrollIntoEle(ANCHOR.GLOBAL_TABBER_ID)
+export const scrollToHeader = (): void => scrollIntoEle(ANCHOR.GLOBAL_HEADER_ID)
+export const scrollToTabber = (): void => scrollIntoEle(ANCHOR.GLOBAL_TABBER_ID)
 
 /**
  * froze page's body element
  * @returns {void}
  */
-export const lockPage = () => {
+export const lockPage = (): void => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
@@ -67,7 +63,7 @@ export const lockPage = () => {
  * unfroze page's body element
  * @returns {void}
  */
-export const unlockPage = () => {
+export const unlockPage = (): void => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
@@ -79,9 +75,8 @@ export const unlockPage = () => {
 
 /**
  * focus on the open doraemon bar
- * @returns {void}
  */
-export const focusDoraemonBar = () => {
+export const focusDoraemonBar = (): void => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
@@ -102,10 +97,8 @@ export const focusDoraemonBar = () => {
 /**
  * onBlur will on focus the whole page, if not use this
  * openDoraemon will not work until you click the page
- *
- * @returns {void}
  */
-export const hideDoraemonBarRecover = () => {
+export const hideDoraemonBarRecover = (): void => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
@@ -119,14 +112,13 @@ export const hideDoraemonBarRecover = () => {
  * @see @link https://stackoverflow.com/questions/52937708/css-filter-on-parent-breaks-child-positioning
  *
  * @param {Boolean} visible
- * @returns {void}
  */
-export const toggleGlobalBlur = (visible) => {
+export const toggleGlobalBlur = (visible: boolean): void => {
   const blurableEls = document.querySelectorAll(`.${ANCHOR.GLOBAL_BLUR_CLASS}`)
 
   if (blurableEls) {
     for (let index = 0; index < blurableEls.length; index += 1) {
-      const el = blurableEls[index]
+      const el = blurableEls[index] as HTMLElement
 
       !visible ? (el.style.filter = '') : (el.style.filter = 'blur(2px)')
     }
@@ -137,12 +129,12 @@ export const toggleGlobalBlur = (visible) => {
  * make global blur more clear, not still blur
  * @returns {void}
  */
-export const clearGlobalBlur = () => {
+export const clearGlobalBlur = (): void => {
   const blurableEls = document.querySelectorAll(`.${ANCHOR.GLOBAL_BLUR_CLASS}`)
 
   if (blurableEls) {
     for (let index = 0; index < blurableEls.length; index += 1) {
-      const el = blurableEls[index]
+      const el = blurableEls[index] as HTMLElement
 
       el.style.filter = 'blur(1px)'
     }
@@ -154,11 +146,8 @@ export const clearGlobalBlur = () => {
  * under the CustomScroller, the trandition inViewport method is not work
  * NOTE:  在 CustomScroller 的情况下，传统的判断 inViewport 的方法行不通
  * 只需简单判断当前 el 的高度和已经滑动的距离即可
- *
- * @param {HTMLElement} el
- * @returns
  */
-export const isElementInViewport = (el) => {
+export const isElementInViewport = (el: HTMLElement): boolean => {
   if (!el) return false
   const rect = el.getBoundingClientRect()
 
@@ -169,14 +158,10 @@ export const isElementInViewport = (el) => {
 /**
  * add pixed by number
  *
- * example:
+ * e.g:
  * pixelAdd('20px', 10) => 30px
- *
- * @param {String} current
- * @param {Number} num
- * @returns {String}
  */
-export const pixelAdd = (current, num) => {
+export const pixelAdd = (current: string, num: number): string => {
   const pixelNum = Number(current.slice(0, -2))
 
   return `${pixelNum + num}px`
@@ -185,12 +170,11 @@ export const pixelAdd = (current, num) => {
 /**
  * check if child is descendant of the parent node
  * @see @link https://stackoverflow.com/questions/2234979/how-to-check-in-javascript-if-one-element-is-contained-within-another
- *
- * @param {HTMLElement} parent
- * @param {HTMLElement} child
- * @returns {Boolean}
  */
-export const isDescendant = (parent, child) => {
+export const isDescendant = (
+  parent: HTMLElement,
+  child: HTMLElement,
+): boolean => {
   let node = child.parentNode
   while (node != null) {
     if (node === parent) {

@@ -8,6 +8,11 @@ import { EVENT } from '@/constant'
 import { scrollToHeader } from './dom'
 import { isString } from './validator'
 
+type TSORTABLE_ITEMS = {
+  color: string
+  index?: number
+}[]
+
 /* eslint-disable */
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
@@ -29,7 +34,10 @@ export const mapKeys = curry((fn, obj) => {
   )
 })
 
-export const sortByColor = (source) =>
+/**
+ * sort the array by it's color
+ */
+export const sortByColor = (source: TSORTABLE_ITEMS): TSORTABLE_ITEMS =>
   sort(
     (t1, t2) => TAG_COLOR_ORDER[t1.color] - TAG_COLOR_ORDER[t2.color],
     source,
@@ -37,11 +45,9 @@ export const sortByColor = (source) =>
 
 /**
  * sort the array by it's index
- *
- * @param {[any]} source - any array contains item with index
- * @returns {[any]}
  */
-export const sortByIndex = (source) => sort((a, b) => a.index - b.index, source)
+export const sortByIndex = (source: TSORTABLE_ITEMS): TSORTABLE_ITEMS =>
+  sort((a, b) => a.index - b.index, source)
 
 /* eslint-disable */
 const log = (...args) => (data) => {
@@ -59,13 +65,22 @@ export const Rlog = (arg = 'Rlog: ') => tap(log(arg))
  * @param {*string} str 需要进行处理的字符串，可含汉字
  * @param {*number} len 需要显示多少个汉字，两个英文字母相当于一个汉字
  */
-export const cutFrom = (str, len = 20) => {
+export const cutFrom = (str: string, len = 20): string => {
   if (!str || !isString(str)) return '??...'
   return len >= length(str) ? str : `${limit(str, len, '')}...`
 }
 
-// https://stackoverflow.com/questions/9461621/how-to-format-a-number-as-2-5k-if-a-thousand-or-more-otherwise-900-in-javascrip
-export const prettyNum = (num, digits = 1) => {
+/**
+ * prettyNum with human format
+ * @see @link https://stackoverflow.com/questions/9461621/how-to-format-a-number-as-2-5k-if-a-thousand-or-more-otherwise-900-in-javascrip
+ * e.g:
+ * console.log(prettyNum(1200)) // => 1.2k
+ *
+ * @param {number} num
+ * @param {number} [digits=1]
+ * @returns {string}
+ */
+export const prettyNum = (num: number, digits = 1): string => {
   const si = [
     { value: 1, symbol: '' },
     { value: 1e3, symbol: 'k' },
@@ -92,24 +107,31 @@ export const prettyNum = (num, digits = 1) => {
   /* eslint-enable  */
 }
 
-// https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
-export const numberWithCommas = (x) =>
+/**
+ * number with commas foramt
+ * @see @link https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+ *
+ * @param {*} x
+ */
+export const numberWithCommas = (x: number): string =>
   x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
-// from https://stackoverflow.com/questions/20396456/how-to-do-word-counts-for-a-mixture-of-english-and-chinese-in-javascript
-// count both chinese-word and english-words
-export const countWords = (str) => {
+/**
+ * count both chinese-word and english-words
+ * @see @link https://stackoverflow.com/questions/20396456/how-to-do-word-counts-for-a-mixture-of-english-and-chinese-in-javascript
+ *
+ * @param {string} str
+ * @returns {number}
+ */
+export const countWords = (str: string): number => {
   const matches = str.match(/[\u00ff-\uffff]|\S+/g)
   return matches ? matches.length : 0
 }
 
 /**
  * publish event message, 'send' inspired by Elixir
- *
- * @param {string} msg
- * @param {object} [data={}]
  */
-export const send = (msg, data = {}) => {
+export const send = (msg: string, data = {}): void => {
   // TODO: check the msg is valid
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
@@ -118,25 +140,28 @@ export const send = (msg, data = {}) => {
 /**
  * shortcut for close Drawer
  *
- * @param {string} [type='']
  */
-export const closeDrawer = (type = '') => send(EVENT.DRAWER.CLOSE, { type })
+export const closeDrawer = (type = ''): void =>
+  send(EVENT.DRAWER.CLOSE, { type })
 
 /**
  * hepler for call the JoinModal Container to show wechatQRCode or mail scriscribe list etc ..
  *
- * @param {string} type
- * @param {string} data
  */
-export const joinUS = (type, data) => send(EVENT.JOIN_US, { type, data })
+export const joinUS = (type: string, data = {}): void =>
+  send(EVENT.JOIN_US, { type, data })
 
-export const errRescue = ({ type, operation, details, path }) =>
+export const errRescue = ({ type, operation, details, path }): void =>
   send(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })
 
 // errRescue({type: ERR.GRAPHQL, operation: operationName, details: graphQLErrors})
 
 /* eslint-disable */
-export const debounce = (func, wait, immediate) => {
+export const debounce = (
+  func: Function,
+  wait: number,
+  immediate: boolean,
+): (() => void) => {
   let timeout
   return function () {
     const context = this
@@ -153,10 +178,13 @@ export const debounce = (func, wait, immediate) => {
 }
 /* eslint-enable */
 
-export const extractMentions = (text) => {
+/**
+ * extract mention format from markdown str into list
+ */
+export const extractMentions = (str: string): string[] => {
   const mentionsRegex = new RegExp('@([a-zA-Z0-9_.-]+)', 'gim')
 
-  let matches = text.match(mentionsRegex)
+  let matches = str.match(mentionsRegex)
   if (matches?.length) {
     matches = matches.map((match) => {
       return match.slice(1)
@@ -166,8 +194,11 @@ export const extractMentions = (text) => {
   return []
 }
 
-// https://blogs.sap.com/2017/07/15/use-regular-expression-to-parse-the-image-reference-in-the-markdown-sourcre-code/
-export const extractAttachments = (str) => {
+/**
+ * extract markdown attachments from str
+ * @see @link https://blogs.sap.com/2017/07/15/use-regular-expression-to-parse-the-image-reference-in-the-markdown-sourcre-code/
+ */
+export const extractAttachments = (str: string): string[] => {
   let m
   const regex = /!\[(.*?)\]\((.*?)\)/g
 
@@ -184,7 +215,8 @@ export const extractAttachments = (str) => {
 }
 
 // checkout if the site is running on cypress container
-export const isCypressRunning = () => {
+export const isCypressRunning = (): boolean => {
+  // @ts-ignore
   if (typeof window !== 'undefined') return !!window.Cypress
 
   return false
@@ -204,10 +236,10 @@ export const isCypressRunning = () => {
  * after:  onClick={multiClick(openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
  */
 export const multiClick = (
-  onClick,
-  onDoubleClick = scrollToHeader,
+  onClick: (HTMLElementEventMap) => void,
+  onDoubleClick: (e: HTMLElementEventMap) => void = scrollToHeader,
   latency = 250,
-) => {
+): ((event: HTMLElementEventMap) => void) => {
   let timeoutID = null
 
   return (event) => {
@@ -232,7 +264,7 @@ export const multiClick = (
  *
  * see: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
  */
-export const getRandomInt = (min, max) => {
+export const getRandomInt = (min: number, max: number): number => {
   min = Math.ceil(min)
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min + 1)) + min
@@ -282,10 +314,14 @@ export const findDeepMatch = (data, key, value) => {
  * @param {String} - key
  * @returns {Object}
  */
-export const groupByKey = (array, key) => {
+export const groupByKey = (
+  array: Record<string, unknown>[],
+  key: string,
+): Record<string, unknown> => {
   return array.reduce((hash, obj) => {
     if (obj[key] === undefined) return hash
     return Object.assign(hash, {
+      // @ts-ignore
       [obj[key]]: (hash[obj[key]] || []).concat(obj),
     })
   }, {})

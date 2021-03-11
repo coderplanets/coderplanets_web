@@ -23,9 +23,9 @@ export const notEmpty = compose(not, isEmpty)
 export const isEmptyValue = compose(isEmpty, trim)
 export const nilOrEmpty = either(isNil, isEmpty)
 
-export const hasValue = compose(not, nilOrEmpty)
+export const hasValue: (v: any) => boolean = compose(not, nilOrEmpty)
 
-export const isObject = (value) => {
+export const isObject = (value: any): boolean => {
   const type = typeof value
   return value != null && (type === 'object' || type === 'function')
 }
@@ -37,7 +37,7 @@ export const isObject = (value) => {
  * @return {Boolean}
  * @returns
  */
-export const isString = (value) => {
+export const isString = (value: any): boolean => {
   if (typeof value === 'string' || value instanceof String) {
     return true
   }
@@ -58,21 +58,27 @@ const trimIfNeed = (v) => {
 
 const validValues = compose(map(trimIfNeed), pickBy(notNil), reject(isObject))
 
-export const cast = (fields, source) => {
+export const cast = (
+  fields: string[],
+  source: Record<string, unknown>,
+): any => {
   const casted = pick(fields, source)
 
+  // @ts-ignore
   return merge(validValues(casted), validObjects(casted))
 }
 
 const keyOf = compose(head, keys)
 const valueOf = compose(head, values)
 
-export const changeset = (source) => ({
-  exist: (obj, cb, opt = { skip: false }) => {
+export const changeset = (
+  source: Record<string, string>,
+): Record<string, unknown> => ({
+  exist: (obj, cb, opt = { skip: false, msg: '' }) => {
     if (source.__dirty__) return changeset(source)
     if (opt.skip) return changeset(source)
 
-    const field = keyOf(obj)
+    const field: string = keyOf(obj) as string
     const trans = valueOf(obj)
     let isInValid = false
 
@@ -94,7 +100,7 @@ export const changeset = (source) => ({
   min: (obj, num, cb) => {
     if (source.__dirty__) return changeset(source)
 
-    const field = keyOf(obj)
+    const field: string = keyOf(obj) as string
     const trans = valueOf(obj)
 
     if (trim(source[field]).length < num) {
@@ -124,7 +130,7 @@ export const changeset = (source) => ({
   startsWith: (obj, prefix, cb, condition = true) => {
     if (source.__dirty__ || !condition) return changeset(source)
 
-    const field = keyOf(obj)
+    const field = keyOf(obj) as string
     const trans = valueOf(obj)
 
     if (!hasValue(source[field]) || !startsWith(prefix, trim(source[field]))) {
@@ -138,7 +144,7 @@ export const changeset = (source) => ({
   },
   durationFmt: (obj, cb) => {
     if (source.__dirty__) return changeset(source)
-    const field = keyOf(obj)
+    const field = keyOf(obj) as string
     const trans = valueOf(obj)
 
     const shortFmt = /^([01]?[0-9]|[0-5][0-9]):[0-5][0-9]$/
@@ -159,7 +165,7 @@ export const changeset = (source) => ({
     if (source.__dirty__) return changeset(source)
     if (opt.skip) return changeset(source)
 
-    const field = keyOf(obj)
+    const field: string = keyOf(obj) as string
     const trans = valueOf(obj)
 
     const regex = /[0-9]{4}[/][0-9][0-9][/][0-3][0-9]$/

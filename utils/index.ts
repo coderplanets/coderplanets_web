@@ -2,7 +2,7 @@
  * utils functiosn
  */
 
-export { default as asyncSuit } from './async'
+export { default as asyncSuit } from './async/index'
 
 export { buildLog } from './logger'
 

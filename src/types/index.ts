@@ -8,3 +8,5 @@ export type TCommunity = {
   logo: string
   raw: string
 }
+
+export type TTheme = ((obj: any) => unknown) | string
