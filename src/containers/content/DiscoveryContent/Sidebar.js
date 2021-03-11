@@ -6,14 +6,14 @@ import FiltersMenu from '@/components/FiltersMenu'
 
 import { Wrapper, Holder } from './styles/sidebar'
 
-const Sidebar = ({ show, onItemClick, activeId, items }) => {
+const Sidebar = ({ show, onItemClick, activeid, items }) => {
   return (
     <Wrapper show={show}>
       <Sticky offsetTop={60}>
         <FiltersMenu
           items={items}
           onItemClick={onItemClick}
-          activeId={activeId}
+          activeid={activeid}
           itemBgHighlight={false}
           noFilter
         />

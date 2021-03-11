@@ -21,7 +21,7 @@ const TrendingContentContainer = ({ trendingContent: store, metric }) => {
   useInit(store)
 
   return (
-    <Wrapper testId="trendingContent">
+    <Wrapper testid="trendingContent">
       <InnerWrapper metric={metric}>
         <SwitchBtn>
           <OrButton

@@ -16,9 +16,9 @@ import { Wrapper, Title, OptionWrapper } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:SubTitle:index')
 
-const SubTitle = ({ testId, children, withMore, moreLink }) => {
+const SubTitle = ({ testid, children, withMore, moreLink }) => {
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <Title>{children}</Title>
       <OptionWrapper>
         {withMore && (
@@ -38,7 +38,7 @@ const SubTitle = ({ testId, children, withMore, moreLink }) => {
 }
 
 SubTitle.propTypes = {
-  testId: T.string,
+  testid: T.string,
   children: T.oneOfType([T.string, T.node]).isRequired,
   withMore: T.bool,
   moreLink: T.string,
@@ -46,7 +46,7 @@ SubTitle.propTypes = {
 }
 
 SubTitle.defaultProps = {
-  testId: 'subTitle',
+  testid: 'subTitle',
   withMore: false,
   moreLink: '/',
   // className: '',

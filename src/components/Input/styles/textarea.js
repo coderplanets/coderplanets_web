@@ -6,7 +6,7 @@ import { theme } from '@/utils'
 import { baseInput } from './index'
 
 export const Wrapper = styled(TextareaAutosize).attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${baseInput};
   background-color: #0b2631;

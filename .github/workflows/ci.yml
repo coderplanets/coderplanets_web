@@ -29,7 +29,7 @@ jobs:
           repository: 'coderplanets/coderplanets_server'
           path: 'backend_server'
       - name: (Backend) Setup Elixir and OTP
-        uses: actions/setup-elixir@v1
+        uses: erlef/setup-elixir@v1
         with:
           elixir-version: '1.10.3' # Define the elixir version [required]
           otp-version: '22.3' # Define the OTP version [required]

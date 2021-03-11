@@ -114,7 +114,7 @@ const MobileView = ({
   }px`
 
   return (
-    <Wrapper testId="tabs">
+    <Wrapper testid="tabs">
       {showMore && (
         <MoreWrapper onClick={toggleExpand}>
           <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />

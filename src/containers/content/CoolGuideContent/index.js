@@ -23,7 +23,7 @@ const CoolGuideContentContainer = ({ coolGuideContent: store, metric }) => {
   const { initActiveMenuId, topFilter, displayType } = store
 
   return (
-    <Wrapper testId="cool-guide-content">
+    <Wrapper testid="cool-guide-content">
       <InnerWrapper metric={metric}>
         <FilterBar
           topFilter={topFilter}

@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   position: relative;
   max-height: ${({ active }) => (active ? '220px' : '0')};

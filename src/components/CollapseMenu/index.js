@@ -76,7 +76,7 @@ const defaultItems = [
 ]
 
 const CollapseMenu = ({
-  testId,
+  testid,
   items,
   activeItem,
   onSelect,
@@ -87,7 +87,7 @@ const CollapseMenu = ({
   const groupsKeys = keys(groupedItems)
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       {groupsKeys.map((groupKey) => (
         <Group
           key={groupKey}
@@ -105,7 +105,7 @@ const CollapseMenu = ({
 }
 
 CollapseMenu.propTypes = {
-  testId: T.string,
+  testid: T.string,
   items: T.arrayOf(
     T.shape({
       id: T.number,
@@ -124,7 +124,7 @@ CollapseMenu.propTypes = {
 }
 
 CollapseMenu.defaultProps = {
-  testId: 'collapse-menu',
+  testid: 'collapse-menu',
   items: defaultItems,
   activeItem: defaultActiveItem,
   // default display count in each group, the remaining part will be folded

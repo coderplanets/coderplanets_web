@@ -45,7 +45,7 @@ const FaqPeekList = ({ active }) => {
   }, [active])
 
   return (
-    <Wrapper testId="faqPeekList" active={active}>
+    <Wrapper testid="faqPeekList" active={active}>
       {active && <ArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />}
       <ContentWrapper active={showContent}>
         <LinksCard

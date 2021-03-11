@@ -45,7 +45,7 @@ const Banner = ({
   },
 }) => {
   return (
-    <BannerContainer testId="discovery-banner">
+    <BannerContainer testid="discovery-banner">
       <IntroWrapper>
         <IntroTitle>
           <SearchIcon src={`${ICON_CMD}/search.svg`} />

@@ -14,7 +14,7 @@ import {
   AuthorInfo,
   AuthorIcon,
   AuthorName,
-} from './style/card_selector'
+} from './styles/card_selector'
 
 const CardSelector = ({ curTheme, changeTheme }) => (
   <Wrapper>

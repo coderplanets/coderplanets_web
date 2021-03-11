@@ -20,7 +20,7 @@ import { Wrapper, getSelectStyles } from './styles'
 const log = buildLog('c:Select:index')
 
 const Select = ({
-  testId,
+  testid,
   placeholder,
   options,
   isMulti,
@@ -32,7 +32,7 @@ const Select = ({
   const styles = getSelectStyles(theme)
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <ReactSelect
         options={options}
         placeholder={placeholder}
@@ -48,7 +48,7 @@ const Select = ({
 }
 
 Select.propTypes = {
-  testId: T.string,
+  testid: T.string,
   placeholder: T.string,
   options: T.arrayOf(
     T.shape({
@@ -64,7 +64,7 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
-  testId: 'select',
+  testid: 'select',
   placeholder: '请选择运行平台',
   onChange: log,
   isMulti: false,

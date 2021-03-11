@@ -22,14 +22,14 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:UserProfile')
 
-const UserProfileContainer = ({ userProfile: store, testId }) => {
+const UserProfileContainer = ({ userProfile: store, testid }) => {
   useInit(store)
 
   const { viewingUser } = store
   // console.log('# viewingUser: ', viewingUser)
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <NumbersPad user={viewingUser} />
       <ContributesWrapper>
         <ContributeMap data={viewingUser.contributes} />
@@ -43,11 +43,11 @@ const UserProfileContainer = ({ userProfile: store, testId }) => {
 
 UserProfileContainer.propTypes = {
   userProfile: T.any.isRequired,
-  testId: T.string,
+  testid: T.string,
 }
 
 UserProfileContainer.defaultProps = {
-  testId: 'user-profile',
+  testid: 'user-profile',
 }
 
 export default pluggedIn(UserProfileContainer)

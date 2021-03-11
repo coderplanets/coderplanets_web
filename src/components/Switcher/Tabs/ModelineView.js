@@ -93,7 +93,7 @@ const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
   }px`
 
   return (
-    <Wrapper testId="tabs">
+    <Wrapper testid="tabs">
       <Nav ref={navRef}>
         {items.map((item, index) => (
           <TabItem

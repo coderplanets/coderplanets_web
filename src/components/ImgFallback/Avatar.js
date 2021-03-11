@@ -15,7 +15,7 @@ import { Wrapper, Name } from './styles/avatar'
 const log = buildLog('c:ImgFallback:Avatar')
 
 const Avatar = ({
-  testId,
+  testid,
   className,
   size,
   user,
@@ -31,7 +31,7 @@ const Avatar = ({
   return (
     <Wrapper
       className={className}
-      testId={testId}
+      testid={testid}
       size={size}
       left={left}
       right={right}
@@ -45,7 +45,7 @@ const Avatar = ({
 }
 
 Avatar.propTypes = {
-  testId: T.string,
+  testid: T.string,
   className: T.string,
   user: T.shape({
     nickname: T.string,
@@ -59,7 +59,7 @@ Avatar.propTypes = {
 }
 
 Avatar.defaultProps = {
-  testId: 'avatar-fallback',
+  testid: 'avatar-fallback',
   className: '',
   size: 15,
   user: {

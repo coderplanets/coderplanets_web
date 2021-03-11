@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const componentGenerator = require('./component/index.js')
 const containerGenerator = require('./container/index.js')
 const storeGenerator = require('./store/index.js')

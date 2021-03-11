@@ -110,7 +110,7 @@ const UserPage = (props) => {
         metric={METRIC.USER}
         seoConfig={seoConfig}
         errorCode={errorCode}
-        noSidebar={`/user/${user.login}`}
+        noSidebar={!!user.login}
       >
         <UserContent />
       </GlobalLayout>

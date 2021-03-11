@@ -29,13 +29,13 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
   const { t } = useTrans()
 
   return (
-    <Wrapper testId="filter-bar">
+    <Wrapper testid="filter-bar">
       <TopFilter>
         <NaviIntro
           title="代码片段"
           desc="useful recipes"
           iconSrc={`${ICON_CMD}/header/more_snippets.svg`}
-          testId="filter-navi-intro"
+          testid="filter-navi-intro"
         />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>{t('all')}</Option>
@@ -84,7 +84,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
       <SearchBox />
       <Sticky offsetTop={20}>
         <NaviCatalog
-          testId="filter-navi-menu"
+          testid="filter-navi-menu"
           items={tmpMenu}
           onSelect={(id, type) => console.log(id, type)}
           initActiveMenuId={initActiveMenuId}

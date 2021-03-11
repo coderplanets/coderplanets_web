@@ -16,7 +16,7 @@ import { Wrapper, PreviewWrapper, PreviewText, PreviewIcon } from './styles'
 const log = buildLog('c:DigestSentence:index')
 
 const DigestSentence = ({
-  testId,
+  testid,
   children,
   onPreview,
   top,
@@ -26,7 +26,7 @@ const DigestSentence = ({
 }) => {
   return (
     <Wrapper
-      testId={testId}
+      testid={testid}
       onClick={onPreview}
       top={top}
       bottom={bottom}
@@ -43,7 +43,7 @@ const DigestSentence = ({
 }
 
 DigestSentence.propTypes = {
-  testId: T.string,
+  testid: T.string,
   children: T.oneOfType([T.string, T.node]),
   onPreview: T.func,
   top: T.number,
@@ -53,7 +53,7 @@ DigestSentence.propTypes = {
 }
 
 DigestSentence.defaultProps = {
-  testId: 'digest-sentence',
+  testid: 'digest-sentence',
   children: '可能是最性感的开发者社区，来为你心爱的作品建立...',
   onPreview: log,
   top: 0,

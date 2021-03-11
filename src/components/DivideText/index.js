@@ -14,9 +14,9 @@ import { Wrapper, Content, LeftLine, RightLine } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:DivideText:index')
 
-const DivideText = ({ testId, children }) => {
+const DivideText = ({ testid, children }) => {
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <LeftLine />
       <Content>{children}</Content>
       <RightLine />
@@ -25,12 +25,12 @@ const DivideText = ({ testId, children }) => {
 }
 
 DivideText.propTypes = {
-  testId: T.string,
+  testid: T.string,
   children: T.oneOfType([T.string, T.node]).isRequired,
 }
 
 DivideText.defaultProps = {
-  testId: 'divide-text',
+  testid: 'divide-text',
 }
 
 export default React.memo(DivideText)

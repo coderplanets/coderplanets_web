@@ -12,13 +12,13 @@ import {
   CountInfoWrapper,
 } from '../styles/desktop_view/tag_item'
 
-const TagItem = ({ tag, active, activeId, inline, onSelect }) => {
+const TagItem = ({ tag, active, activeid, inline, onSelect }) => {
   return (
     <Wrapper active={active} inline={inline}>
       <HashSign
         color={tag.color}
         active={active}
-        activeId={activeId}
+        activeid={activeid}
         inline={inline}
       />
 

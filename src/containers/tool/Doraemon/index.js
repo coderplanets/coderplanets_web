@@ -48,11 +48,11 @@ const DoraemonContainer = ({ doraemon: store }) => {
       {visible && (
         <Portal>
           <PageOverlay
-            testId="doraemon-overlay"
+            testid="doraemon-overlay"
             visible={visible}
             onClick={hidePanel}
           />
-          <PanelContainer testId="doraemon-panel" visible={visible}>
+          <PanelContainer testid="doraemon-panel" visible={visible}>
             <InputEditor
               value={inputValue}
               searching={searching}

@@ -15,13 +15,13 @@ import { Wrapper } from './styles/textarea'
 /* eslint-disable-next-line */
 const log = buildLog('c:Input:index')
 
-const Textarea = ({ onChange, testId, ...restProps }) => {
+const Textarea = ({ onChange, testid, ...restProps }) => {
   const handleOnChange = useCallback((e) => onChange && onChange(e), [onChange])
   const validProps = pickBy((v) => v !== null, restProps)
 
   return (
     <Wrapper
-      testId={testId}
+      testid={testid}
       onChange={handleOnChange}
       minRows={1}
       spellcheck="false"
@@ -36,7 +36,7 @@ Textarea.propTypes = {
   onChange: T.oneOfType([T.func, T.instanceOf(null)]),
   disabled: T.bool,
   autoFocus: T.bool,
-  testId: T.string,
+  testid: T.string,
 }
 
 Textarea.defaultProps = {
@@ -45,7 +45,7 @@ Textarea.defaultProps = {
   onChange: null,
   disabled: false,
   autoFocus: false,
-  testId: 'input',
+  testid: 'input',
 }
 
 export default React.memo(Textarea)

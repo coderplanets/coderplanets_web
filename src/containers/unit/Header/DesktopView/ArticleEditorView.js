@@ -56,7 +56,7 @@ const HeaderContainer = ({ header: store }) => {
   return (
     <Wrapper
       id="whereCallShowDoraemon"
-      testId="header"
+      testid="header"
       leftOffset={leftOffset}
       noBorder
     >

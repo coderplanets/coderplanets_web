@@ -19,7 +19,7 @@ const Tag = ({ children, onClose }) => {
   const closeable = onClose !== null
 
   return (
-    <Wrapper testId="tag" closeable={closeable}>
+    <Wrapper testid="tag" closeable={closeable}>
       {children}
       {closeable && (
         <div onClick={onClose}>

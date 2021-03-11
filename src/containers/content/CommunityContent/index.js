@@ -64,7 +64,7 @@ const CommunityContentContainer = ({ communityContent: store }) => {
   const isCardView = !isMobile && bannerLayout === C11N.DIGEST_ROW
 
   return (
-    <Wrapper testId="community-content">
+    <Wrapper testid="community-content">
       <InnerWrapper cardView={isCardView}>
         <ComunityContent curRoute={curRoute} />
       </InnerWrapper>

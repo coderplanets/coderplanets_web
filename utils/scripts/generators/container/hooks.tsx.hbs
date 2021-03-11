@@ -1,0 +1,52 @@
+//
+
+/*
+ *
+ * {{ properCase name }}
+ *
+ */
+
+import React from 'react'
+
+import { pluggedIn, buildLog } from '@/utils'
+{{#if wantI18n}}
+import { useTrans } from '@/hooks'
+{{/if}}
+
+import { IStore } from './store'
+
+import { Wrapper } from './styles'
+import { useInit } from './logic'
+
+/* eslint-disable-next-line */
+const log = buildLog('C:{{ properCase name }}')
+
+interface IProps {
+  {{ camelCase name }}?: IStore
+  testid: string
+}
+
+const defaultProps: IProps = {
+  testid: '{{ dashCase name}}',
+}
+
+const {{ properCase name }}Container: React.FC<IProps> = ({{preCurly ""}} 
+  {{ camelCase name}}: store, 
+  testid,
+{{afterCurly ""}}) => {
+  useInit(store)
+  {{#if wantI18n}}
+  const { t } = useTrans()
+  {{/if}}
+
+  return (
+    <Wrapper testid={testid}>
+      <h2>{{ properCase name }} hooks container!</h2>
+      <div>impress me!</div>
+    </Wrapper>
+  )
+}
+
+{{ properCase name }}Container.defaultProps = defaultProps
+
+export default pluggedIn({{ properCase name }}Container)

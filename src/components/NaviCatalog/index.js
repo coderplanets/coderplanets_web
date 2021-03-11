@@ -39,7 +39,7 @@ const NaviCatalog = ({
   showMoreItem,
   showItemTotal,
   onShowMore,
-  testId,
+  testid,
 }) => {
   const [menuMode, setMenuMode] = useState(ROOT_MENU)
   // 当前选中的目录 id, 不包括在其链路上的 id
@@ -161,7 +161,7 @@ const NaviCatalog = ({
   )
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <Header
         title={title}
         activeCatalogId={activeCatalogId}
@@ -221,7 +221,7 @@ NaviCatalog.propTypes = {
   // 是否显示每个目录项的条目总数
   showItemTotal: T.bool,
   onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
-  testId: T.string,
+  testid: T.string,
 }
 
 NaviCatalog.defaultProps = {
@@ -232,7 +232,7 @@ NaviCatalog.defaultProps = {
   showMoreItem: false,
   showItemTotal: false,
   onShowMore: null,
-  testId: 'navi-menu',
+  testid: 'navi-menu',
   title: '',
 }
 

@@ -24,13 +24,13 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleFooter')
 
-const ArticleFooterContainer = ({ articleFooter: store, testId }) => {
+const ArticleFooterContainer = ({ articleFooter: store, testid }) => {
   useInit(store)
   const { viewingData, showReferenceList, showOperationList } = store
   const { tags, author } = viewingData
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <BaseInfo>
         <TagList items={tags} />
         <Actions
@@ -48,11 +48,11 @@ const ArticleFooterContainer = ({ articleFooter: store, testId }) => {
 
 ArticleFooterContainer.propTypes = {
   articleFooter: T.any.isRequired,
-  testId: T.string,
+  testid: T.string,
 }
 
 ArticleFooterContainer.defaultProps = {
-  testId: 'article-footer',
+  testid: 'article-footer',
 }
 
 export default pluggedIn(ArticleFooterContainer)

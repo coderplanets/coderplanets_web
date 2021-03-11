@@ -77,12 +77,12 @@ const UserAccount = ({ isLogin, accountInfo }) => {
             </PopMenu>
           }
         >
-          <Wrapper testId="header-login-user">
+          <Wrapper testid="header-login-user">
             <AvatarIcon src={accountInfo.avatar} />
           </Wrapper>
         </Tooltip>
       ) : (
-        <Wrapper testId="header-unlogin-user" onClick={onLogin}>
+        <Wrapper testid="header-unlogin-user" onClick={onLogin}>
           <DefaultUserIcon src={`${ICON}/user/account-solid.svg`} />
         </Wrapper>
       )}

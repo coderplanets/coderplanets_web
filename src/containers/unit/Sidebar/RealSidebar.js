@@ -41,7 +41,7 @@ const SidebarContainer = ({ sidebar: store }) => {
 
   return (
     <MainWrapper
-      testId="sidebar"
+      testid="sidebar"
       pin={pin}
       className={ANCHOR.GLOBAL_BLUR_CLASS}
       isPulled={isPulled}

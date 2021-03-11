@@ -5,7 +5,7 @@ import { css, theme } from '@/utils'
 import { getFontSize } from './metric/avatar'
 
 export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testId,
+  'data-test-id': props.testid,
 }))`
   ${css.flex('align-both')};
   color: ${theme('thread.articleTitle')};

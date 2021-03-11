@@ -17,7 +17,7 @@ const DesktopView = ({
     <React.Fragment>
       <DrawerOverlay visible={visible} onClick={closeDrawer} />
       <DrawerWrapper
-        testId="drawer-sidebar-panel"
+        testid="drawer-sidebar-panel"
         visible={visible}
         rightOffset={rightOffset}
         type={type}

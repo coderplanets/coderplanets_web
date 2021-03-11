@@ -35,13 +35,13 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:ErrorPage:index')
 
-const ErrorPage = ({ testId, errorCode, metric, target }) => {
+const ErrorPage = ({ testid, errorCode, metric, target }) => {
   const router = useRouter()
 
   return (
-    <Wrapper testId={testId}>
+    <Wrapper testid={testid}>
       <Link href="/" passHref>
-        <LogoWrapper testId="site-logo">
+        <LogoWrapper testid="site-logo">
           <SiteLogo src={`${ICON_BASE}/site_logo.svg`} />
           <SiteTitle>CoderPlanets</SiteTitle>
         </LogoWrapper>
@@ -69,14 +69,14 @@ const ErrorPage = ({ testId, errorCode, metric, target }) => {
 }
 
 ErrorPage.propTypes = {
-  testId: T.string,
+  testid: T.string,
   errorCode: T.oneOf([404, 500]),
   metric: T.oneOf(values(METRIC)),
   target: T.string,
 }
 
 ErrorPage.defaultProps = {
-  testId: 'error-page',
+  testid: 'error-page',
   errorCode: 404,
   metric: METRIC.COMMUNITY,
   target: '',

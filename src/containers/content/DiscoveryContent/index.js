@@ -50,7 +50,7 @@ const DiscoveryContentContainer = ({ discoveryContent: store, metric }) => {
             show={showFilterSidebar}
             items={pagedCategoriesData}
             onItemClick={menuOnChange}
-            activeId={activeMenuId}
+            activeid={activeMenuId}
           />
           <ContentsWrapper center={isSearchMode}>
             {!isEmpty(pagedCommunitiesData.entries) ? (

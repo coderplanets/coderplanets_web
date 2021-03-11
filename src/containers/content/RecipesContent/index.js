@@ -27,7 +27,7 @@ const RecipesContentContainer = ({ recipesContent: store, metric }) => {
   const { galleryType, mainView } = store
 
   return (
-    <Wrapper testId="recipes-content">
+    <Wrapper testid="recipes-content">
       <InnerWrapper metric={metric}>
         <FilterBar
           mainView={mainView}

@@ -35,7 +35,7 @@ const log = buildLog('C:WorksContent')
 
 const Banner = () => {
   return (
-    <Wrapper testId="worksContent">
+    <Wrapper testid="worksContent">
       <Card>
         <IntroWrapper>
           <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
