@@ -140,6 +140,8 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@groupher/eslint-config-web": "2.0.9",
+    "@types/jest": "^26.0.20",
+    "@types/mocha": "^8.2.1",
     "@types/ramda": "^0.27.38",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
