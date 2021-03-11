@@ -1,6 +1,6 @@
 import { SIZE } from '@/constant'
 
-export const getIconSize = (size) => {
+export const getIconSize = (size: string): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '14px'
@@ -12,7 +12,7 @@ export const getIconSize = (size) => {
   }
 }
 
-export const getFontSize = (size) => {
+export const getFontSize = (size: string): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '12px'
@@ -24,7 +24,7 @@ export const getFontSize = (size) => {
   }
 }
 
-export const getBorderRadius = (size) => {
+export const getBorderRadius = (size: string): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '4px'

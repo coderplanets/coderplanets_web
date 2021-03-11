@@ -1,7 +1,9 @@
 import { SIZE } from '@/constant'
 import { theme } from '@/utils'
 
-export const getColor = (ghost, disabled) => {
+import { TTheme } from '@/types'
+
+export const getColor = (ghost: boolean, disabled: boolean): TTheme => {
   if (ghost) {
     return theme('button.primary')
   }
@@ -12,7 +14,11 @@ export const getColor = (ghost, disabled) => {
   return theme('button.fg')
 }
 
-export const getBackgroundColor = (ghost, disabled, hover = false) => {
+export const getBackgroundColor = (
+  ghost: boolean,
+  disabled: boolean,
+  hover = false,
+): TTheme => {
   if (ghost) {
     return 'transparent'
   }
@@ -23,7 +29,11 @@ export const getBackgroundColor = (ghost, disabled, hover = false) => {
   return hover ? theme('button.hoverBg') : theme('button.primary')
 }
 
-export const getBorderColor = (noBorder, disabled, hover = false) => {
+export const getBorderColor = (
+  noBorder: boolean,
+  disabled: boolean,
+  hover = false,
+): TTheme => {
   if (noBorder) {
     return 'transparent'
   }
@@ -34,7 +44,7 @@ export const getBorderColor = (noBorder, disabled, hover = false) => {
   return hover ? theme('button.hoverBg') : theme('button.primary')
 }
 
-export const getHeight = (size) => {
+export const getHeight = (size: string): string => {
   switch (size) {
     case SIZE.TINY: {
       return '18px'
@@ -50,7 +60,7 @@ export const getHeight = (size) => {
   }
 }
 
-export const getPadding = (size) => {
+export const getPadding = (size: string): string => {
   switch (size) {
     case SIZE.TINY: {
       return '1px 5px'
@@ -66,7 +76,7 @@ export const getPadding = (size) => {
   }
 }
 
-export const getFontSize = (size) => {
+export const getFontSize = (size: string): string => {
   switch (size) {
     case SIZE.TINY: {
       return '11px'

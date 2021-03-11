@@ -19,7 +19,7 @@ const LARGE_MARGIN_HOVER = 10
 
 // arrow button should have width
 // otherwise the arrow will jump
-export const getWidth = (size, width = 30) => {
+export const getWidth = (size: string, width = 30): string => {
   switch (size) {
     case SIZE.TINY: {
       return `${width + TINY_SIZE + TINY_MARGIN_HOVER}px`
@@ -36,7 +36,7 @@ export const getWidth = (size, width = 30) => {
   }
 }
 
-export const getIconSize = (size) => {
+export const getIconSize = (size: string): string => {
   switch (size) {
     case SIZE.TINY: {
       return `${TINY_SIZE}px`
@@ -53,7 +53,7 @@ export const getIconSize = (size) => {
   }
 }
 
-export const getFontSize = (size) => {
+export const getFontSize = (size: string): string => {
   switch (size) {
     case SIZE.TINY: {
       return `${TINY_SIZE}px`
@@ -70,7 +70,7 @@ export const getFontSize = (size) => {
   }
 }
 
-export const getMargin = (size, hover = false) => {
+export const getMargin = (size: string, hover = false): string => {
   switch (size) {
     case SIZE.TINY: {
       return !hover ? `${TINY_MARGIN}px` : `${TINY_MARGIN_HOVER}px`
@@ -87,7 +87,7 @@ export const getMargin = (size, hover = false) => {
   }
 }
 
-export const getSimpleMargin = (size, hover = false) => {
+export const getSimpleMargin = (size: string, hover = false): string => {
   switch (size) {
     case SIZE.TINY: {
       return !hover ? `${TINY_MARGIN}px` : `${TINY_MARGIN_HOVER}px`

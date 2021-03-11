@@ -1,6 +1,6 @@
 import { SIZE } from '@/constant'
 
-export const getTextSize = (size) => {
+export const getTextSize = (size: string): string => {
   switch (size) {
     case SIZE.TINY: {
       return '12px'
@@ -20,4 +20,4 @@ export const getTextSize = (size) => {
   }
 }
 
-export const getIconSize = (size) => getTextSize(size)
+export const getIconSize = (size: string): string => getTextSize(size)
