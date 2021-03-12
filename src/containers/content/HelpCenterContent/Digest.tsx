@@ -15,12 +15,12 @@ import {
   HelpTitle,
 } from './styles/digest'
 
-interface IProps {
+type TProps = {
   community: TCommunity
-  metric?: string // METRIC.HELP_CENTER
+  metric: string
 }
 
-const Digest: React.FC<IProps> = ({ metric, community }) => {
+const Digest: React.FC<TProps> = ({ metric, community }) => {
   return (
     <Wrapper metric={metric}>
       <InnerWrapper metric={metric}>

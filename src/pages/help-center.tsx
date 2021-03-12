@@ -1,5 +1,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
+import { GetServerSideProps } from 'next'
+
 import { merge } from 'ramda'
 
 import { SITE_URL } from '@/config'
@@ -21,7 +23,7 @@ import HelpCenterContent from '@/containers/content/HelpCenterContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}): Promise<Record<string, unknown>> => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -42,12 +44,12 @@ const fetchData = async (props, opt) => {
   })
 
   return {
-    ...(await sessionState),
-    ...(await curCommunity),
+    ...((await sessionState) as Record<string, unknown>),
+    ...((await curCommunity) as Record<string, unknown>),
   }
 }
 
-export const getServerSideProps = async (props) => {
+export const getServerSideProps: GetServerSideProps = async (props) => {
   const { communityPath } = ssrParseURL(props.req)
 
   let resp
@@ -57,7 +59,6 @@ export const getServerSideProps = async (props) => {
     const {
       response: { errors },
     } = e
-    console.log('get errors: ', errors)
     if (ssrAmbulance.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
     } else {

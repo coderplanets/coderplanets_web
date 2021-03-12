@@ -7,13 +7,13 @@
  */
 
 import React, { useEffect } from 'react'
-import T from 'prop-types'
 import dynamic from 'next/dynamic'
-import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
 import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
+
+import { TStore } from './store'
 
 import TopBar from './TopBar'
 
@@ -24,7 +24,15 @@ const log = buildLog('C:ModeLine')
 
 let BottomBar = null
 
-const ModeLineContainer = ({ modeLine: store, metric }) => {
+type TProps = {
+  modeLine?: TStore
+  metric?: string
+}
+
+const ModeLineContainer: React.FC<TProps> = ({
+  modeLine: store,
+  metric = METRIC.COMMUNITY,
+}) => {
   useInit(store, metric)
   const {
     isTopBarVisiable,
@@ -61,13 +69,4 @@ const ModeLineContainer = ({ modeLine: store, metric }) => {
   )
 }
 
-ModeLineContainer.propTypes = {
-  modeLine: T.any.isRequired,
-  metric: T.oneOf(values(METRIC)),
-}
-
-ModeLineContainer.defaultProps = {
-  metric: METRIC.COMMUNITY,
-}
-
-export default pluggedIn(ModeLineContainer)
+export default pluggedIn(ModeLineContainer) as React.FC<TProps>

@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import React from 'react'
 
 import {
   path,
@@ -19,7 +19,7 @@ import { toJS } from 'mobx'
 
 import { isObject } from './validator'
 
-type IStore = {
+type TStore = {
   mark: (obj: Record<string, unknown>) => void
   updateEditing?: (obj: Record<string, unknown>) => void
 }
@@ -55,13 +55,25 @@ export const storePlug = curry((selectedStore, props) => ({
  * NOTE: container should be naming as XxxContainer (end with Container)
  * 注意： 容器组件的命名需遵守 XxxContainer 的约定规则 (以 Container 结尾)
  *
+ * NOTE: KNOWN ISSUE:
+ * because the type information of the incoming container cannot be obtained,
+ * only an empty React.FC can be returned here, which will cause a type error in
+ * the place where this container is used, and it needs to be manually exported where it
+ * is used, such as:
+ *
+ * export default pluggedIn(HelpCenterContentContainer) as React.FC<TProps>
+ * ---
+ * 因为无法获取传入的 container 的类型信息，导致这里只能返回一个空的 React.FC,这
+ * 会导致使用这个 container 的地方出现类型报错，需要在使用的地方手动导出，比如:
+ *
+ * export default pluggedIn(HelpCenterContentContainer) as React.FC<TProps>
  */
 export const pluggedIn = (
-  container: FunctionComponent,
+  // container: React.FC<typeof container>,
+  container: React.FC,
   store = '',
-): FunctionComponent => {
+): React.FC => {
   let subStoreName = ''
-  // console.log('container displayName: ', container.displayName)
   if (store) {
     subStoreName = store
   } else {
@@ -124,7 +136,7 @@ export const markStates = (sobj, self) => {
 }
 
 export const flashState = (
-  store: IStore,
+  store: TStore,
   state: string,
   value: string,
   secs = 5,
@@ -140,7 +152,7 @@ export const flashState = (
    only boolean now
  */
 export const meteorState = (
-  store: IStore,
+  store: TStore,
   state: string,
   secs: number,
   statusMsg = '',
@@ -177,7 +189,7 @@ export const stripMobx = (obj: any): any => {
  *
  */
 export const updateEditing = (
-  store: IStore,
+  store: TStore,
   part: string,
   e: HTMLElement,
 ): void => {

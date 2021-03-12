@@ -11,7 +11,7 @@ import React from 'react'
 import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import { IStore } from './store'
+import { TStore } from './store'
 
 import Cover from './Cover'
 import Detail from './Detail'
@@ -25,21 +25,16 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HelpCenterContent')
 
-interface IProps {
-  helpCenterContent?: IStore
-  testid: string
-  metric: string // METRIC.HELP_CENTER
+type TProps = {
+  helpCenterContent?: TStore
+  testid?: string
+  metric?: string
 }
 
-const defaultProps: IProps = {
-  metric: METRIC.HELP_CENTER,
-  testid: 'help-center-content',
-}
-
-const HelpCenterContentContainer: React.FC<IProps> = ({
+const HelpCenterContentContainer: React.FC<TProps> = ({
   helpCenterContent: store,
-  testid,
-  metric,
+  testid = 'help-center-content',
+  metric = METRIC.HELP_CENTER,
 }) => {
   useInit(store)
   const { view, curCommunity } = store
@@ -54,16 +49,4 @@ const HelpCenterContentContainer: React.FC<IProps> = ({
   )
 }
 
-HelpCenterContentContainer.defaultProps = defaultProps
-// HelpCenterContentContainer.propTypes = {
-//   helpCenterContent: T.any.isRequired,
-//   testid: T.string,
-//   metric: T.oneOf(values(METRIC)),
-// }
-
-// HelpCenterContentContainer.defaultProps = {
-//   testid: 'help-center-content',
-//   metric: METRIC.HELP_CENTER,
-// }
-
-export default pluggedIn(HelpCenterContentContainer)
+export default pluggedIn(HelpCenterContentContainer) as React.FC<TProps>

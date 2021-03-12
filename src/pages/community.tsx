@@ -1,5 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
+import { GetServerSideProps } from 'next'
 import { merge, pick, toLower } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
@@ -32,7 +33,7 @@ import { P } from '@/schemas'
 /* eslint-disable-next-line */
 const log = buildLog('page:community')
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -47,6 +48,7 @@ const fetchData = async (props, opt) => {
 
   let filter = addTopicIfNeed(
     {
+      // @ts-ignore TODO:
       ...queryStringToJSON(props.req.url, { pagi: 'number' }),
       community,
     },
@@ -77,15 +79,15 @@ const fetchData = async (props, opt) => {
 
   return {
     filter,
-    ...(await sessionState),
-    ...(await curCommunity),
-    ...(await pagedContents),
-    ...(await partialTags),
-    ...(await subscribedCommunities),
+    ...((await sessionState) as Record<string, unknown>),
+    ...((await curCommunity) as Record<string, unknown>),
+    ...((await pagedContents) as Record<string, unknown>),
+    ...((await partialTags) as Record<string, unknown>),
+    ...((await subscribedCommunities) as Record<string, unknown>),
   }
 }
 
-export const getServerSideProps = async (props) => {
+export const getServerSideProps: GetServerSideProps = async (props) => {
   const { communityPath, thread, threadPath } = ssrParseURL(props.req)
 
   let resp

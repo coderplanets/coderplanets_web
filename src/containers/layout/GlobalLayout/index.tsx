@@ -5,13 +5,12 @@
  */
 
 import React, { useEffect } from 'react'
-import T from 'prop-types'
-import { values } from 'ramda'
 
-import { ANCHOR, METRIC } from '@/constant'
+import { ANCHOR } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { pluggedIn } from '@/utils'
+import { Nullable, TSEO } from '@/types'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
@@ -20,6 +19,7 @@ import ModeLine from '@/containers/unit/ModeLine'
 import Drawer from '@/containers/tool/Drawer'
 import CustomScroller from '@/components/CustomScroller'
 
+import { TStore } from './store'
 import SEO from './SEO'
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
@@ -33,14 +33,26 @@ import {
   childrenWithProps,
 } from './logic'
 
-const GlobalLayoutContainer = ({
+type TProps = {
+  globalLayout?: TStore
+  children: React.ReactNode
+  seoConfig: TSEO
+  errorCode?: number // 400 | 500 | 404
+  errorPath?: Nullable<string>
+  noSidebar?: boolean
+  noFooter?: boolean
+
+  metric: string
+}
+
+const GlobalLayoutContainer: React.FC<TProps> = ({
   globalLayout: store,
   seoConfig,
   errorCode,
   errorPath,
   children,
-  noSidebar,
-  noFooter,
+  noSidebar = false,
+  noFooter = false,
   metric,
 }) => {
   const { online } = useNetwork()
@@ -116,24 +128,4 @@ const GlobalLayoutContainer = ({
   )
 }
 
-GlobalLayoutContainer.propTypes = {
-  children: T.node,
-  globalLayout: T.object.isRequired,
-  seoConfig: T.object.isRequired, // TODO:
-  noSidebar: T.bool,
-  noFooter: T.bool,
-  metric: T.oneOf(values(METRIC)),
-  errorCode: T.oneOf([null, 404, 500]),
-  errorPath: T.oneOfType([T.string, T.instanceOf(null)]),
-}
-
-GlobalLayoutContainer.defaultProps = {
-  children: <div />,
-  noSidebar: false,
-  noFooter: false,
-  errorCode: null,
-  errorPath: null,
-  metric: METRIC.COMMUNITY,
-}
-
-export default pluggedIn(GlobalLayoutContainer)
+export default pluggedIn(GlobalLayoutContainer) as React.FC<TProps>

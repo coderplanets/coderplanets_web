@@ -6,7 +6,9 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
-import { TCommunity, IRootStore } from '@/types'
+import { IRootStore } from '@/stores/RootStore'
+
+import { TCommunity } from '@/types'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 import { VIEW } from './constant'
@@ -31,5 +33,5 @@ export const HelpCenterContent = T.model('HelpCenterContent', {
     },
   }))
 
-export type IStore = Instance<typeof HelpCenterContent>
+export type TStore = Instance<typeof HelpCenterContent>
 export default HelpCenterContent
