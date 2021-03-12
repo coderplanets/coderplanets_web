@@ -335,6 +335,7 @@ const rootStore = T.model({
     },
   }))
 
+// @ts-ignore
 export type IRootStore = Instance<typeof rootStore>
 
 export default rootStore

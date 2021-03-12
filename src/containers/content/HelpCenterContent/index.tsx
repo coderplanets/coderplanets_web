@@ -27,7 +27,7 @@ const log = buildLog('C:HelpCenterContent')
 
 type TProps = {
   helpCenterContent?: TStore
-  testid: string
+  testid?: string
   metric?: string
 }
 
@@ -49,4 +49,4 @@ const HelpCenterContentContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(HelpCenterContentContainer)
+export default pluggedIn(HelpCenterContentContainer) as React.FC<TProps>

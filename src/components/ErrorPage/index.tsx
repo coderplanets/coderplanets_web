@@ -5,10 +5,8 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
 import { ICON_BASE } from '@/config'
@@ -35,7 +33,19 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:ErrorPage:index')
 
-const ErrorPage = ({ testid, errorCode, metric, target }) => {
+export type TProps = {
+  errorCode: 400 | 404 | 500 | null
+  target?: string
+  testid?: string
+  metric?: string
+}
+
+const ErrorPage: React.FC<TProps> = ({
+  testid = 'error-page',
+  errorCode,
+  metric = METRIC.COMMUNITY,
+  target = '',
+}) => {
   const router = useRouter()
 
   return (
@@ -51,7 +61,7 @@ const ErrorPage = ({ testid, errorCode, metric, target }) => {
       <HintWrapper>
         <IconsWrapper>
           <SpinPlanet />
-          <CodeSnippets errorCode={errorCode} path={target || router.asPath} />
+          <CodeSnippets path={target || router.asPath} />
         </IconsWrapper>
         <TextWrapper>
           {/** TODO:   */}
@@ -67,19 +77,4 @@ const ErrorPage = ({ testid, errorCode, metric, target }) => {
     </Wrapper>
   )
 }
-
-ErrorPage.propTypes = {
-  testid: T.string,
-  errorCode: T.oneOf([404, 500]),
-  metric: T.oneOf(values(METRIC)),
-  target: T.string,
-}
-
-ErrorPage.defaultProps = {
-  testid: 'error-page',
-  errorCode: 404,
-  metric: METRIC.COMMUNITY,
-  target: '',
-}
-
 export default React.memo(ErrorPage)

@@ -3,9 +3,10 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
+import { IRootStore } from '@/types'
 import { TYPE, METRIC } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
@@ -17,15 +18,14 @@ const ModeLine = T.model('ModeLine', {
   activeMenu: T.optional(T.enumeration([...values(TYPE.MM_TYPE), '']), ''),
   metric: T.optional(T.enumeration(values(METRIC)), METRIC.COMMUNITY),
 })
-  .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
+  .views((self: any) => ({
     get isMobile() {
-      return self.root.isMobile
+      const root = getParent(self) as IRootStore
+      return root.isMobile
     },
     get viewing() {
-      return stripMobx(self.root.viewing)
+      const root = getParent(self) as IRootStore
+      return stripMobx(root.viewing)
     },
     get isTopBarVisiable() {
       const {
@@ -34,7 +34,8 @@ const ModeLine = T.model('ModeLine', {
         metric,
         isArticleDigestInViewport,
       } = self
-      const { bodyScrollDirection } = self.root.globalLayout
+      const root = getParent(self) as IRootStore
+      const { bodyScrollDirection } = root.globalLayout
 
       if (metric === METRIC.COMMUNITY && bodyScrollDirection === 'down') {
         return topBarVisiable
@@ -51,10 +52,12 @@ const ModeLine = T.model('ModeLine', {
       return true
     },
     get viewingArticle() {
-      return stripMobx(self.root.viewingArticle)
+      const root = getParent(self) as IRootStore
+      return stripMobx(root.viewingArticle)
     },
     get leftOffset() {
-      const curSidebarPin = self.root.sidebar.pin
+      const root = getParent(self) as IRootStore
+      const curSidebarPin = root.sidebar.pin
       if (
         (!curSidebarPin && !self.preSidebarPin && !self.fixed) ||
         (!curSidebarPin && !self.preSidebarPin) ||
@@ -78,7 +81,8 @@ const ModeLine = T.model('ModeLine', {
       return self.activeMenu !== ''
     },
     get isArticleDigestInViewport() {
-      return self.root.articleDigest.inViewport
+      const root = getParent(self) as IRootStore
+      return root.articleDigest.inViewport
     },
     get isCommunityBlockExpand() {
       const { isArticleDigestInViewport } = self
@@ -93,14 +97,18 @@ const ModeLine = T.model('ModeLine', {
       self.topBarVisiable = bool
     },
     setViewing(sobj) {
-      self.root.setViewing(sobj)
+      const root = getParent(self) as IRootStore
+      root.setViewing(sobj)
     },
     markRoute(query) {
-      self.root.markRoute(query)
+      const root = getParent(self) as IRootStore
+      root.markRoute(query)
     },
     mark(sobj) {
       markStates(sobj, self)
     },
   }))
+
+export type TStore = Instance<typeof ModeLine>
 
 export default ModeLine

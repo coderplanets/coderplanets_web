@@ -1,11 +1,12 @@
 /*
- * GlobalLayoutStore store
+ * GlobalLayout store
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import { markStates, buildLog } from '@/utils'
+import { IRootStore } from '@/types'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:GlobalLayoutStore')
@@ -18,7 +19,7 @@ const Platform = T.model('Platform', {
   isEdge: T.optional(T.boolean, false),
 })
 
-const GlobalLayoutStore = T.model('GlobalLayoutStore', {
+const GlobalLayout = T.model('GlobalLayoutStore', {
   online: T.optional(T.boolean, true),
   platform: T.optional(Platform, {}),
   isMobile: T.optional(T.boolean, false),
@@ -30,19 +31,24 @@ const GlobalLayoutStore = T.model('GlobalLayoutStore', {
       return getParent(self)
     },
     get accountInfo() {
-      return self.root.accountInfo
+      const root = getParent(self) as IRootStore
+      return root.accountInfo
     },
     get sidebarPin() {
-      return self.root.sidebar.pin
+      const root = getParent(self) as IRootStore
+      return root.sidebar.pin
     },
   }))
   .actions((self) => ({
     openDoraemon() {
-      self.root.openDoraemon()
+      const root = getParent(self) as IRootStore
+      root.openDoraemon()
     },
     mark(sobj) {
       markStates(sobj, self)
     },
   }))
 
-export default GlobalLayoutStore
+export type TStore = Instance<typeof GlobalLayout>
+
+export default GlobalLayout
