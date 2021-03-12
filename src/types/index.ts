@@ -1,8 +1,5 @@
 import { IRootStore as RootStoreInterface } from '@/stores/RootStore'
 
-// most of the cycle import error is caused by @/types, which is fine
-// since @/types is used only when TS compiler, will not effect production code
-// @ts-ignore
 export type IRootStore = RootStoreInterface
 
 export type TCommunity = {
@@ -10,6 +7,35 @@ export type TCommunity = {
   title: string
   logo: string
   raw: string
+}
+
+export type TAccount = {
+  id: string
+  login: string
+  nickname: string
+  avatar: string
+  customization?: {
+    theme: string
+    bannerLayout: string
+  }
+  // ...
+}
+export type TArticle = {
+  id: string
+  title: string
+  body: string
+  author: {
+    id: string
+    login: string
+    nickname: string
+    avatar: string
+  }
+  // ...
+}
+
+export type TViewing = {
+  community: TCommunity
+  post: TArticle
 }
 
 export type TTheme = ((obj: any) => unknown) | string

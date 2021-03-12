@@ -335,7 +335,18 @@ const rootStore = T.model({
     },
   }))
 
-// @ts-ignore
+/**
+ *   NOTE: if use IRootStore in sub container, e.g:
+ * get viewingArticle(): TArticle {
+ *   const root = getParent(self) as IRootStore
+ *   return stripMobx(root.viewingArticle)
+ * },
+ *
+ * MAKE SURE get helper has a return TYPE, otherwise it
+ * will cause  cyccle import error, which will cause type
+ * completion fails
+ *
+ */
 export type IRootStore = Instance<typeof rootStore>
 
 export default rootStore

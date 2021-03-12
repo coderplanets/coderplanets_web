@@ -32,26 +32,6 @@ import {
   childrenWithProps,
 } from './logic'
 
-// GlobalLayoutContainer.propTypes = {
-//   children: T.node,
-//   globalLayout: T.object.isRequired,
-//   seoConfig: T.object.isRequired, // TODO:
-//   noSidebar: T.bool,
-//   noFooter: T.bool,
-//   metric: T.oneOf(values(METRIC)),
-//   errorCode: T.oneOf([null, 404, 500]),
-//   errorPath: T.oneOfType([T.string, T.instanceOf(null)]),
-// }
-
-// GlobalLayoutContainer.defaultProps = {
-//   children: <div />,
-//   noSidebar: false,
-//   noFooter: false,
-//   errorCode: null,
-//   errorPath: null,
-//   metric: METRIC.COMMUNITY,
-// }
-
 type TProps = {
   globalLayout?: TStore
   children: React.ReactNode

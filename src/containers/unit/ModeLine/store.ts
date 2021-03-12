@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
-import { IRootStore } from '@/types'
+import { IRootStore, TViewing, TArticle } from '@/types'
 import { TYPE, METRIC } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
@@ -19,15 +19,15 @@ const ModeLine = T.model('ModeLine', {
   metric: T.optional(T.enumeration(values(METRIC)), METRIC.COMMUNITY),
 })
   .views((self: any) => ({
-    get isMobile() {
+    get isMobile(): boolean {
       const root = getParent(self) as IRootStore
       return root.isMobile
     },
-    get viewing() {
+    get viewing(): TViewing {
       const root = getParent(self) as IRootStore
       return stripMobx(root.viewing)
     },
-    get isTopBarVisiable() {
+    get isTopBarVisiable(): boolean {
       const {
         isMobile,
         topBarVisiable,
@@ -51,11 +51,11 @@ const ModeLine = T.model('ModeLine', {
 
       return true
     },
-    get viewingArticle() {
+    get viewingArticle(): TArticle {
       const root = getParent(self) as IRootStore
       return stripMobx(root.viewingArticle)
     },
-    get leftOffset() {
+    get leftOffset(): number | string {
       const root = getParent(self) as IRootStore
       const curSidebarPin = root.sidebar.pin
       if (
@@ -77,14 +77,14 @@ const ModeLine = T.model('ModeLine', {
       // isPin && !self.preSidebarPin && self.fixed
       return '180px'
     },
-    get isMenuActive() {
+    get isMenuActive(): boolean {
       return self.activeMenu !== ''
     },
-    get isArticleDigestInViewport() {
+    get isArticleDigestInViewport(): boolean {
       const root = getParent(self) as IRootStore
       return root.articleDigest.inViewport
     },
-    get isCommunityBlockExpand() {
+    get isCommunityBlockExpand(): boolean {
       const { isArticleDigestInViewport } = self
 
       if (!isArticleDigestInViewport) return false
@@ -93,16 +93,16 @@ const ModeLine = T.model('ModeLine', {
     },
   }))
   .actions((self) => ({
-    showTopBar(bool) {
+    showTopBar(bool): void {
       self.topBarVisiable = bool
     },
-    setViewing(sobj) {
+    setViewing(sobj): void {
       const root = getParent(self) as IRootStore
       root.setViewing(sobj)
     },
-    markRoute(query) {
+    markRoute(query): void {
       const root = getParent(self) as IRootStore
-      root.markRoute(query)
+      root.markRoute(query, {})
     },
     mark(sobj) {
       markStates(sobj, self)
