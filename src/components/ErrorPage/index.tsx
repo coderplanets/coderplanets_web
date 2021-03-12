@@ -34,7 +34,7 @@ import {
 const log = buildLog('c:ErrorPage:index')
 
 export type TProps = {
-  errorCode: 400 | 404 | 500 | null
+  errorCode?: number // 400 | 500 | 404
   target?: string
   testid?: string
   metric?: string

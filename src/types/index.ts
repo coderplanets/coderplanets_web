@@ -2,6 +2,9 @@ import { IRootStore as RootStoreInterface } from '@/stores/RootStore'
 
 export type IRootStore = RootStoreInterface
 
+// c# like
+export type Nullable<T> = T | null
+
 export type TCommunity = {
   id: string
   title: string
@@ -46,4 +49,10 @@ export type GA_EVENT = {
   category: string
   label: string
   value: string
+}
+
+export type TSEO = {
+  url: string
+  title: string
+  description: string
 }

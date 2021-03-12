@@ -10,6 +10,7 @@ import { ANCHOR } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { pluggedIn } from '@/utils'
+import { Nullable, TSEO } from '@/types'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
@@ -35,9 +36,9 @@ import {
 type TProps = {
   globalLayout?: TStore
   children: React.ReactNode
-  seoConfig: Record<string, unknown>
-  errorCode?: 400 | 500 | null
-  errorPath?: string | null
+  seoConfig: TSEO
+  errorCode?: number // 400 | 500 | 404
+  errorPath?: Nullable<string>
   noSidebar?: boolean
   noFooter?: boolean
 
