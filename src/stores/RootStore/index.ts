@@ -1,5 +1,8 @@
 /*
  * rootStore store
+
+ * NOTE: this file is generate automatically, DO NOT modify
+ * unless you're sure what you're doing
  *
  */
 
