@@ -19,7 +19,7 @@ import { toJS } from 'mobx'
 
 import { isObject } from './validator'
 
-type IStore = {
+type TStore = {
   mark: (obj: Record<string, unknown>) => void
   updateEditing?: (obj: Record<string, unknown>) => void
 }
@@ -124,7 +124,7 @@ export const markStates = (sobj, self) => {
 }
 
 export const flashState = (
-  store: IStore,
+  store: TStore,
   state: string,
   value: string,
   secs = 5,
@@ -140,7 +140,7 @@ export const flashState = (
    only boolean now
  */
 export const meteorState = (
-  store: IStore,
+  store: TStore,
   state: string,
   secs: number,
   statusMsg = '',
@@ -177,7 +177,7 @@ export const stripMobx = (obj: any): any => {
  *
  */
 export const updateEditing = (
-  store: IStore,
+  store: TStore,
   part: string,
   e: HTMLElement,
 ): void => {

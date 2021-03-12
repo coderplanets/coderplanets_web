@@ -31,5 +31,5 @@ export const HelpCenterContent = T.model('HelpCenterContent', {
     },
   }))
 
-export type IStore = Instance<typeof HelpCenterContent>
+export type TStore = Instance<typeof HelpCenterContent>
 export default HelpCenterContent

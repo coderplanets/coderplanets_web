@@ -11,7 +11,7 @@ import React from 'react'
 import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import { IStore } from './store'
+import { TStore } from './store'
 
 import Cover from './Cover'
 import Detail from './Detail'
@@ -25,18 +25,18 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HelpCenterContent')
 
-interface IProps {
-  helpCenterContent?: IStore
+type TProps = {
+  helpCenterContent?: TStore
   testid: string
   metric: string // METRIC.HELP_CENTER
 }
 
-const defaultProps: IProps = {
+const defaultProps: TProps = {
   metric: METRIC.HELP_CENTER,
   testid: 'help-center-content',
 }
 
-const HelpCenterContentContainer: React.FC<IProps> = ({
+const HelpCenterContentContainer: React.FC<TProps> = ({
   helpCenterContent: store,
   testid,
   metric,

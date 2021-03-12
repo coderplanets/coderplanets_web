@@ -21,16 +21,16 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:{{ properCase name }}')
 
-interface IProps {
+type TProps = {
   {{ camelCase name }}?: IStore
   testid: string
 }
 
-const defaultProps: IProps = {
+const defaultProps: TProps = {
   testid: '{{ dashCase name}}',
 }
 
-const {{ properCase name }}Container: React.FC<IProps> = ({{preCurly ""}} 
+const {{ properCase name }}Container: React.FC<TProps> = ({{preCurly ""}} 
   {{ camelCase name}}: store, 
   testid,
 {{afterCurly ""}}) => {
