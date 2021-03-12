@@ -17,7 +17,7 @@ import {
 
 type TProps = {
   community: TCommunity
-  metric?: string // METRIC.HELP_CENTER
+  metric: string
 }
 
 const Digest: React.FC<TProps> = ({ metric, community }) => {

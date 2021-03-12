@@ -26,10 +26,6 @@ type TProps = {
   testid: string
 }
 
-const defaultProps: TProps = {
-  testid: '{{ dashCase name}}',
-}
-
 const {{ properCase name }}Container: React.FC<TProps> = ({{preCurly ""}} 
   {{ camelCase name}}: store, 
   testid,
@@ -46,7 +42,5 @@ const {{ properCase name }}Container: React.FC<TProps> = ({{preCurly ""}}
     </Wrapper>
   )
 }
-
-{{ properCase name }}Container.defaultProps = defaultProps
 
 export default pluggedIn({{ properCase name }}Container)
