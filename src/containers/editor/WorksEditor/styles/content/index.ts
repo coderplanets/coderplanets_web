@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TTestable } from '@/types'
+import { TTestable } from '@/spec'
 import { css, theme } from '@/utils'
 import { CONTENT_WIDTH } from '../metric'
 

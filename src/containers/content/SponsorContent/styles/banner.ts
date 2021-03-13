@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive } from '@/types'
+import { TActive } from '@/spec'
 import { css, theme } from '@/utils'
 
 import { ArrowLink } from '@/components/Buttons'

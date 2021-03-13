@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { TActive } from '@/types'
+import { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
 export const Container = styled.div<TActive>`

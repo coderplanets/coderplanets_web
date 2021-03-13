@@ -1,6 +1,6 @@
 import styled, { css as styledCss } from 'styled-components'
 
-import { TTestable, TActive } from '@/types'
+import { TTestable, TActive } from '@/spec'
 import { animate, css } from '@/utils'
 
 import {

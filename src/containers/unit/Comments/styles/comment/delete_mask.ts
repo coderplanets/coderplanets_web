@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive } from '@/types'
+import { TActive } from '@/spec'
 import { theme, animate, css } from '@/utils'
 
 export const DeleteHintText = styled.div`

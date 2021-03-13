@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive, TUser } from '@/types'
+import { TActive, TUser } from '@/spec'
 import { theme, css } from '@/utils'
 
 import { getOpacity } from './metrics'

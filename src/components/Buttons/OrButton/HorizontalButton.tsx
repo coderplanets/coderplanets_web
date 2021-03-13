@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { SIZE } from '@/constant'
-import { TButtonSize } from '@/types'
+import { TButtonSize } from '@/spec'
 
 import {
   Wrapper,

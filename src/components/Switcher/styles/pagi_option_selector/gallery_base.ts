@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive } from '@/types'
+import { TActive } from '@/spec'
 import { css } from '@/utils'
 
 export const SwitchWrapper = styled.div`

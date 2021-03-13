@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive } from '@/types'
+import { TActive } from '@/spec'
 // import { getShadowWidth } from './helpers'
 
 type TBox = { width: string; height: string }

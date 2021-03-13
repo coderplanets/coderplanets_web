@@ -8,7 +8,7 @@ import { values } from 'ramda'
 
 import { IRootStore } from '@/stores/RootStore'
 
-import { TCommunity } from '@/types'
+import { TCommunity } from '@/spec'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 import { VIEW } from './constant'

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive, TSpace } from '@/types'
+import { TActive, TSpace } from '@/spec'
 import Img from '@/Img'
 import { theme, css, animate } from '@/utils'
 

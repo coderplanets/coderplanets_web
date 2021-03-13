@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive } from '@/types'
+import { TActive } from '@/spec'
 import { animate, theme, css } from '@/utils'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 

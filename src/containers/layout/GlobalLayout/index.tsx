@@ -10,7 +10,7 @@ import { ANCHOR } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { pluggedIn } from '@/utils'
-import { Nullable, TSEO } from '@/types'
+import { Nullable, TSEO } from '@/spec'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'

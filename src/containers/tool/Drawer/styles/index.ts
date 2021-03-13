@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { contains } from 'ramda'
 
-import { TTestable, TActive } from '@/types'
+import { TTestable, TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
 import {

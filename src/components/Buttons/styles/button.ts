@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 
 import { css, theme } from '@/utils'
-import { TButtonSize, TButton } from '@/types'
+import { TButtonSize, TButton } from '@/spec'
 
 import {
   getColor,

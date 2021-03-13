@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import { markStates, buildLog } from '@/utils'
-import { IRootStore, TAccount } from '@/types'
+import { IRootStore, TAccount } from '@/spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:GlobalLayoutStore')

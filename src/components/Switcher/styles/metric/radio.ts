@@ -1,7 +1,7 @@
 import { theme } from '@/utils'
 import { SIZE } from '@/constant'
 
-import { TTheme } from '@/types'
+import { TTheme } from '@/spec'
 
 export const getActiveBackground = (dimOnActive: boolean): TTheme => {
   return dimOnActive ? '#00414F' : theme('button.primary')

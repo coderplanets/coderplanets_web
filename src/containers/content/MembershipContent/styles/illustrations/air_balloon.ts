@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 // import { theme, css } from '@/utils'
 
-import { TTestable } from '@/types'
+import { TTestable } from '@/spec'
 
 const color = {
   dark: '#1d667d',

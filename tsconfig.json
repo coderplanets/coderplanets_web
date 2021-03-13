@@ -28,7 +28,7 @@
       "@/model": ["src/stores/SharedModel"],
       "@/utils": ["utils"],
       "@/schemas": ["src/schemas"],
-      "@/types": ["src/types"],
+      "@/spec": ["src/spec"],
       "@/Img": ["src/components/Img"],
       "@/SvgIcons/*": ["src/components/SvgIcons/*"],
       "@/i18n": ["i18n"]

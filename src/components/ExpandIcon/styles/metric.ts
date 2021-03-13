@@ -1,7 +1,7 @@
 import { theme } from '@/utils'
 import { SIZE } from '@/constant'
 
-import { TTheme } from '@/types'
+import { TTheme } from '@/spec'
 
 export const getNormalColor = (type: string): TTheme => {
   switch (type) {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive } from '@/types'
+import { TActive } from '@/spec'
 import { theme, css, animate } from '@/utils'
 import { Button } from '@/components/Buttons'
 

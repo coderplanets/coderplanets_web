@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TTestable, TActive } from '@/types'
+import { TTestable, TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
 export const PageOverlay = styled.div.attrs(({ testid }: TTestable) => ({
