@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 // import { lighten } from 'polished'
 
+import { TActive } from '@/spec'
 import { css, theme } from '@/utils'
 
 import { Wrapper as BaseBtnWrapper } from '../button'
@@ -10,7 +11,7 @@ export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};
   position: relative;
 `
-const BaseButton = styled(BaseBtnWrapper)`
+const BaseButton = styled(BaseBtnWrapper)<TActive>`
   ${css.flexColumn('align-both')};
   width: 32px;
   min-height: 70px;

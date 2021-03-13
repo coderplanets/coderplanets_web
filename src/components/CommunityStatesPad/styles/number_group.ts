@@ -24,7 +24,7 @@ export const PlusSign = styled.div`
   margin-right: 2px;
 `
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
-export const NumberItem = styled.div`
+export const NumberItem = styled.div<{ readOnly: boolean }>`
   font-size: 16px;
   color: ${theme('banner.number')};
   &:hover {

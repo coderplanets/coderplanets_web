@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
@@ -14,12 +15,12 @@ export const Selector = styled.div`
     color: ${theme('editor.title')};
   }
 `
-export const CheckIcon = styled(Img)`
+export const CheckIcon = styled(Img)<TActive>`
   fill: ${theme('editor.content')};
   ${css.size(18)};
   margin-top: 2px;
   margin-left: 3px;
-  visibility: ${({ active }) => (active ? 'visiable' : 'hidden')};
+  visibility: ${({ active }) => (active ? 'visible' : 'hidden')};
 `
 export const CheckText = styled.div`
   color: ${theme('editor.content')};

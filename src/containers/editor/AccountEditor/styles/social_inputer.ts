@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div``
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
@@ -30,7 +31,7 @@ export const SocialIconsWrapper = styled.div`
   flex-wrap: wrap;
   width: 250px;
 `
-export const SocialIcon = styled(Img)`
+export const SocialIcon = styled(Img)<TActive>`
   fill: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
   ${css.size(18)};
@@ -38,7 +39,7 @@ export const SocialIcon = styled(Img)`
   transition: fill 0.3s;
   opacity: ${({ active }) => (active ? 1 : 0.8)};
 `
-export const TogglerWrapper = styled.div`
+export const TogglerWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'flex' : 'none')};
 `
 export const TogglerLabelWrapper = styled(TogglerWrapper)`

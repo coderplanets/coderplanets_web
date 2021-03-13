@@ -1,11 +1,14 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+type IMenuIcon = { active: boolean; colorTheme: string }
+
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & { isMenuActive: boolean }>`
   position: fixed;
   left: 0;
   bottom: 0px;
@@ -30,8 +33,9 @@ export const ItemsWrapper = styled.div`
 export const MenuItem = styled.div`
   ${css.flex('align-center')};
 `
-export const MenuIcon = styled(Img)`
-  fill: ${({ active, colorTheme }) => {
+
+export const MenuIcon = styled(Img)<IMenuIcon>`
+  fill: ${({ active, colorTheme }: IMenuIcon) => {
     if (colorTheme) return theme(colorTheme)
     return active ? '#2ca1a2' : theme('thread.articleTitle')
   }};

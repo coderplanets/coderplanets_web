@@ -1,11 +1,12 @@
 import styled from 'styled-components'
-import { theme, css } from '@/utils'
 
+import { TTestable } from '@/spec'
+import { theme, css } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: absolute;
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};

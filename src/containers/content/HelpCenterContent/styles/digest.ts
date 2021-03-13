@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ metric: string }>`
   ${css.flex('justify-center')};
   width: 100%;
   height: 100px;
   background: ${theme('banner.bg')};
   ${({ metric }) => css.fitPageWidth(metric)};
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flex('align-center')};
   width: 100%;
   height: 100%;

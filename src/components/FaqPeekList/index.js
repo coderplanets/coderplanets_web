@@ -52,18 +52,18 @@ const FaqPeekList = ({ active }) => {
           title="安装使用"
           items={items}
           onSelect={console.log}
-          mBottom={0}
-          mLeft={5}
-          mRight={24}
+          bottom={0}
+          left={5}
+          right={24}
         />
 
         <LinksCard
           title="常见问题"
           items={items}
           onSelect={console.log}
-          mBottom={0}
-          mLeft={5}
-          mRight={24}
+          bottom={0}
+          left={5}
+          right={24}
         />
       </ContentWrapper>
     </Wrapper>

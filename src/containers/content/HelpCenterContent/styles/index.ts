@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import { css } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-center')};
   width: 100%;
   min-height: 80vh;
 `
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ metric: string }>`
   ${css.flex('justify-center')};
   ${({ metric }) => css.fitContentWidth(metric)};
   width: 100%;

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable, TSpace } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn()};
   width: 200px;
   margin-left: 40px;
@@ -19,7 +20,7 @@ export const SubDesc = styled.div`
   line-height: 20px;
   opacity: 0.8;
 `
-export const Divider = styled.div`
+export const Divider = styled.div<TSpace>`
   height: 1px;
   width: 100%;
   background: #004353;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ first: boolean }>`
   position: relative;
   ${css.flexColumn()};
   padding: 10px 30px;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 
   padding-top: ${({ first }) => (first ? '40px' : '10px')};
 `
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.div<{ first: boolean }>`
   position: absolute;
   top: ${({ first }) => (first ? '43px' : '13px')};
   left: -13px;

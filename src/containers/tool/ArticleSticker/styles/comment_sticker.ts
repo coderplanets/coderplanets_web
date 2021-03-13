@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TActive>`
   min-height: 100px;
   margin-left: 35%;
   padding-bottom: 0;
   width: 65%;
   max-width: 200px;
   flex-wrap: wrap;
-  visibility: ${({ show }) => (show ? 'visiable' : 'hidden')};
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};

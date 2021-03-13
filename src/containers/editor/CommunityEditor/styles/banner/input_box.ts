@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 // import Img from '@/Img'
 import { theme, css } from '@/utils'
 
@@ -7,7 +8,7 @@ export const Wrapper = styled.div`
   display: flex;
   margin-bottom: 10px;
 `
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.div<{ noRound: boolean }>`
   position: relative;
   ${css.flex('align-center')};
   border-radius: ${({ noRound }) => (noRound ? '6px' : '20px')};
@@ -31,7 +32,7 @@ export const InputWrapper = styled.div`
     padding: 8px;
   `};
 `
-export const InputMask = styled.div`
+export const InputMask = styled.div<TActive>`
   ${css.flex('align-both')};
   position: absolute;
   display: ${({ show }) => (show ? 'flex' : 'none')};

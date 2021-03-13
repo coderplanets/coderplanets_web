@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 import { css } from '@/utils'
 
-export const Block = styled.div`
+type TBlock = { borderRight: boolean; borderTop: boolean }
+export const Block = styled.div<TBlock>`
   ${css.flexColumn('justify-between')};
   /* width: 25%;
   height: 308px; */

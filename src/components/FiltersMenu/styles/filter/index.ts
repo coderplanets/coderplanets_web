@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 // import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 const activeColor = '#009C9E'
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ revert: boolean }>`
   ${css.flexColumn()};
   align-items: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   color: ${theme('thread.articleDigest')};
@@ -12,7 +13,7 @@ export const Wrapper = styled.div`
   padding: 4px 6px;
   padding-top: 0;
 `
-export const RadioWrapper = styled.div`
+export const RadioWrapper = styled.div<{ revert: boolean }>`
   ${css.flexColumn()};
   align-items: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   margin-top: 5px;
@@ -26,7 +27,7 @@ export const RadioItem = styled.div`
     cursor: pointer;
   }
 `
-export const ActiveDot = styled.div`
+export const ActiveDot = styled.div<TActive>`
   background: #27908f;
   width: 6px;
   height: 6px;
@@ -37,7 +38,8 @@ export const ActiveDot = styled.div`
   opacity: ${({ active }) => (active ? 1 : 0)};
   transition: opacity 0.25s;
 `
-export const RadioTitle = styled.div`
+type TRadioTitle = TActive & { revert: boolean }
+export const RadioTitle = styled.div<TRadioTitle>`
   font-size: 13px;
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
@@ -51,7 +53,7 @@ export const RadioTitle = styled.div`
 
   transition: all 0.25s;
 `
-export const Item = styled.div`
+export const Item = styled.div<{ revert: boolean }>`
   ${css.flex('align-center')};
   justify-content: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   width: 100%;

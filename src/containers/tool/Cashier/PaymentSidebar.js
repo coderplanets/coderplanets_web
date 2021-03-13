@@ -46,7 +46,7 @@ const PaymentSidebar = ({
           <TitleDivider />
           <AliWrapper
             active={paymentMethod === PAYMENT_METHOD.ALIPAY}
-            display={paymentMethod === PAYMENT_METHOD.ALIPAY ? 'block' : 'none'}
+            show={paymentMethod === PAYMENT_METHOD.ALIPAY}
           >
             <PaymentIcon src={`${ICON_CMD}/alipay-color.svg`} />
             <OptionTitle>支付宝</OptionTitle>
@@ -54,7 +54,7 @@ const PaymentSidebar = ({
           <Holder margin="20px" />
           <WeixinWrapper
             active={paymentMethod === PAYMENT_METHOD.WECHAT}
-            display={paymentMethod === PAYMENT_METHOD.WECHAT ? 'block' : 'none'}
+            show={paymentMethod === PAYMENT_METHOD.WECHAT}
           >
             <PaymentIcon src={`${ICON_CMD}/weichat-color.svg`} /> 微信支付
             <OptionTitle>微信支付</OptionTitle>

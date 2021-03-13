@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 // import { theme, css } from '@/utils'
 
+import { TTestable } from '@/spec'
+
 const color = {
   dark: '#1d667d',
   light: '#004755',
 }
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: absolute;
   left: -30px;
   top: -108px;

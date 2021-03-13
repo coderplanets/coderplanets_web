@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   width: 100%;
 `
 export const BaseBanner = styled.nav`

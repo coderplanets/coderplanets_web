@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 
-export const BannerContainer = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const BannerContainer = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('justify-center')};
 
   position: relative;
@@ -40,7 +41,7 @@ export const IntroDesc = styled.div`
   margin-left: -10px;
   opacity: 0.9;
 `
-export const SloganTextWrapper = styled.div`
+export const SloganTextWrapper = styled.div<{ highlight: boolean }>`
   margin-left: 3px;
   margin-right: 3px;
 

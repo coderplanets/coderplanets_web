@@ -16,7 +16,7 @@ export const BodyWrapper = styled.div`
   ${css.flex('align-center')};
   flex-wrap: wrap;
 `
-export const Entry = styled(EntryBase)`
+export const Entry = styled(EntryBase)<{ index: number }>`
   ${css.flex('align-center')};
   width: 48%;
   height: auto;

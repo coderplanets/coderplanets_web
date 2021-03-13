@@ -2,28 +2,29 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
+import { TTestable } from '@/spec'
 import Img from '@/Img'
 // import PromptIcon from '@/components/PromptIcon'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-center', 'justify-between')};
   height: 100vh;
   width: 100%;
   z-index: 1;
   // background: ${theme('banner.bg')};
-  background: rgba(0,59,74, 0.5);
+  background: rgba(0, 59, 74, 0.5);
 `
-export const LogoWrapper = styled.a.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const LogoWrapper = styled.a.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('align-center')};
   margin-top: 20px;
   margin-left: 20px;
   text-decoration: none;
 `
-export const SiteLogo = styled(Img)`
+export const SiteLogo = styled(Img)<{ src: string }>`
   ${css.size(20)};
   fill: ${theme('thread.articleTitle')};
   margin-bottom: 5px;
@@ -42,9 +43,9 @@ export const TextWrapper = styled.div`
   margin-top: 80px;
   margin-left: 115px;
 `
-export const HintTitle = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const HintTitle = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   color: ${theme('thread.articleTitle')};
   text-align: center;
   font-size: 16px;

@@ -20,7 +20,7 @@ export const InnerWrapper = styled.div`
   padding-left: 0;
   padding-right: 0;
 `
-export const MainWrapper = styled.div`
+export const MainWrapper = styled.div<{ metric: string }>`
   flex-grow: 1;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
@@ -33,7 +33,7 @@ export const ArticleWrapper = styled.div`
   /* background: ${theme('drawer.articleBg')}; */
   /* border-radius: 5px; */
   background: transparent;
-  
+
   min-height: 200px;
 `
 export const BodyHeaderWrapper = styled.div`

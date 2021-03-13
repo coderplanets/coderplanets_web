@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TSpace } from '@/spec'
 import { theme, css } from '@/utils'
 import Input from '@/components/Input'
 
 // import Img from '@/Img'
 
-export const Inputer = styled(Input)`
+export const Inputer = styled(Input)<{ error: string }>`
   border-left: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-right: ${({ error }) =>
@@ -16,7 +17,7 @@ export const Inputer = styled(Input)`
     error === 'true' ? theme('baseColor.red') : ''};
 `
 // TODO:  ANTD-CHECK
-export const TextAreaInput = styled(Input)`
+export const TextAreaInput = styled(Input)<{ error: string }>`
   border-left: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-right: ${({ error }) =>
@@ -27,12 +28,12 @@ export const TextAreaInput = styled(Input)`
     error === 'true' ? theme('baseColor.red') : ''};
 `
 
-export const FormItemWrapper = styled.div`
+export const FormItemWrapper = styled.div<TSpace>`
   ${css.flex()};
   margin-bottom: ${({ bottom }) => `${bottom}px`};
   width: 100%;
 `
-export const FormLabel = styled.div`
+export const FormLabel = styled.div<{ error: boolean }>`
   font-size: 13px;
   color: ${({ error }) =>
     error ? theme('baseColor.red') : theme('form.label')};

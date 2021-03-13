@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
+import { TTestable } from '@/spec'
 import { css } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-start')};
   margin-top: 25px;
   width: 100%;

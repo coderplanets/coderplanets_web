@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { GALLERY } from '@/constant'
 import { css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ type: string }>`
   ${css.flexColumn()};
   align-items: ${({ type }) =>
     type === GALLERY.TEXT_WITH_IMAGE ? 'flex-end' : 'center'};
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   margin-top: ${({ type }) =>
     type === GALLERY.TEXT_WITH_IMAGE ? '-2px' : '0'};
 `
-export const Divider = styled.div`
+export const Divider = styled.div<{ type: string }>`
   height: 1px;
   width: ${({ type }) => (type === GALLERY.TEXT_WITH_IMAGE ? '26px' : '40%')};
   background: #054252;
@@ -25,6 +25,6 @@ export const Divider = styled.div`
 export const WeekName = styled.div`
   font-size: 13px;
 `
-export const DateNum = styled.div`
+export const DateNum = styled.div<{ size: string }>`
   font-size: ${({ size }) => (size === 'default' ? '13px' : '11px')};
 `

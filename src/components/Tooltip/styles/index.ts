@@ -18,7 +18,7 @@ export const StyledTippy = styled(Tippy)`
 export const NoPaddingStyledTippy = styled(StyledTippy)`
   padding: 0;
 `
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ contentHeight: string }>`
   position: relative;
   height: ${({ contentHeight }) => contentHeight};
 `

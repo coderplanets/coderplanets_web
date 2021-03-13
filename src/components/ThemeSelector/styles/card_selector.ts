@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
@@ -13,7 +14,7 @@ export const Wrapper = styled.div`
 export const ThemeDot = styled(Dot)``
 
 /* background: ${({ active }) => (active ? theme('banner.bg') : '')}; */
-export const IntroBox = styled.div`
+export const IntroBox = styled.div<TActive>`
   ${css.flex()};
 
   border: 1px solid;
@@ -41,7 +42,7 @@ export const IntroDesc = styled.div`
   position: relative;
 `
 
-export const ThemeTitle = styled.div`
+export const ThemeTitle = styled.div<TActive>`
   color: ${theme('banner.title')};
   font-size: 1.1rem;
   font-weight: ${({ active }) => (active ? 'bolder' : '')};

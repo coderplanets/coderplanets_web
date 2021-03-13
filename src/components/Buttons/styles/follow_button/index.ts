@@ -23,7 +23,7 @@ export const Popinfo = styled.div`
   padding: 5px 8px;
 `
 
-export const LoadingIcon = styled(BtnIcon)`
+export const LoadingIcon = styled(BtnIcon)<{ light: boolean }>`
   fill: ${({ light }) =>
     light ? theme('button.fg') : theme('thread.articleTitle')};
 

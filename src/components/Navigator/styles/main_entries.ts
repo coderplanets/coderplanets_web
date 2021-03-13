@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/spec'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 import DotDividerBase from '@/components/DotDivider'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ type: string }>`
   ${css.flex('align-center')};
 
   margin-left: ${({ type }) => (type === 'brief' ? '5px' : '10px')};
@@ -19,9 +20,9 @@ export const DotDivider = styled(DotDividerBase)`
   width: 4px;
   height: 4px;
 `
-export const SiteLink = styled.a.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const SiteLink = styled.a.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & TActive>`
   ${css.flex('align-center')};
   color: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};

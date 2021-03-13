@@ -3,14 +3,15 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ center: boolean }>`
   ${css.flex()};
   justify-content: ${({ center }) => (center ? 'center' : 'flex-start')};
   flex-wrap: wrap;
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
-export const Block = styled.div`
+type TBlock = { level: string; column: number }
+export const Block = styled.div<TBlock>`
   ${css.flexColumn('justify-between')};
   width: ${({ column }) => (column === 3 ? '33%' : '25%')};
   height: ${({ level }) => (level === 'gold' ? '280px' : '130px')};
@@ -46,7 +47,7 @@ export const IntroHead = styled.div`
 export const Icon = styled(Img)`
   ${css.circle(20)};
 `
-export const Title = styled.div`
+export const Title = styled.div<{ level: string }>`
   color: ${theme('thread.articleTitle')};
   border-top: 1px solid;
   border-color: ${theme('thread.articleTitle')};
@@ -68,7 +69,7 @@ export const IntroImg = styled(Img)`
   display: block;
   filter: saturate(0.5);
 `
-export const Desc = styled.div`
+export const Desc = styled.div<{ level: string }>`
   color: ${theme('thread.articleDigest')};
   font-size: ${({ level }) => (level === 'gold' ? '14px' : '13px')};
   cursor: pointer;

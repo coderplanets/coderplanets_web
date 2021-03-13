@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ mobile: boolean }>`
   ${css.flexColumn('align-center')};
   width: ${({ mobile }) => (!mobile ? '455px' : '100%')};
   min-height: 300px;
@@ -14,7 +14,7 @@ export const BodyWrapper = styled.div`
   flex-wrap: wrap;
   margin-top: 25px;
 `
-export const Entry = styled.div`
+export const Entry = styled.div<{ mobile: boolean }>`
   ${css.flexColumn('align-start')};
   width: ${({ mobile }) => (!mobile ? '225px' : '48%')};
   height: 75px;
@@ -28,7 +28,7 @@ export const Main = styled.a`
   ${css.flex('align-start')};
   text-decoration: none;
 `
-export const Title = styled.div`
+export const Title = styled.div<{ offset: string }>`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-weight: bold;

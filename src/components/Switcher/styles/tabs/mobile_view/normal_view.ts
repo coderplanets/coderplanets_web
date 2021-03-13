@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
@@ -9,9 +10,9 @@ import {
   SlipBar as SlipBarBase,
 } from '../index'
 
-export const Wrapper = styled.nav.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
   width: 100%;
   font-size: 13px;

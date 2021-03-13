@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -18,6 +19,6 @@ export const Item = styled.div`
     cursor: pointer;
   }
 `
-export const DotWrapper = styled.div`
+export const DotWrapper = styled.div<TActive>`
   display: ${({ active }) => (active ? 'block' : 'none')};
 `

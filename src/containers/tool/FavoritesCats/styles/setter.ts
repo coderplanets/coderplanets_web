@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'flex' : 'none')};
   flex-direction: column;
   padding: 15px 25px;

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { animate, theme, css } from '@/utils'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
@@ -61,7 +62,7 @@ export const UL = styled.ul`
     clear: both;
   }
 `
-export const LI = styled.li`
+export const LI = styled.li<TActive>`
   float: left;
   padding: 0 5px;
   min-width: 15%;

@@ -13,7 +13,7 @@ export const WrapperBase = styled.div`
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
-export const BlockBase = styled.div`
+export const BlockBase = styled.div<{ borderTop: boolean }>`
   ${css.flexColumn('justify-between')};
   width: 50%;
   height: auto;

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
@@ -20,7 +21,7 @@ export const HeaderDivider = styled.div`
   margin-bottom: 10px;
 `
 
-export const Option = styled.div`
+export const Option = styled.div<TActive>`
   ${css.flex('align-center')};
 
   color: ${({ active }) =>
@@ -35,7 +36,7 @@ export const Option = styled.div`
     font-size: bold;
   }
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TActive>`
   fill: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
   ${css.size(18)};

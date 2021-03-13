@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & { closeable: boolean }>`
   ${css.flex('align-both')};
   font-size: 14px;
   font-variant: tabular-nums;

@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
+
 import {
   getNormalColor,
   getActiveColor,
@@ -10,9 +12,22 @@ import {
   getNormalIconSize,
 } from './metric'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+type TIcon = {
+  active: boolean
+  type: string
+  size: string
+}
+
+type TText = {
+  active: boolean
+  type: string
+  size: string
+  hideTextOnInit: boolean
+}
+
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & TText>`
   ${css.flex('align-center')};
   /* margin-left: 12px; */
   cursor: pointer;
@@ -30,7 +45,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 
   transition: all 0.25s;
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TIcon>`
   fill: ${({ active, type }) =>
     active ? getActiveColor(type) : getNormalColor(type)};
   display: block;
@@ -50,7 +65,8 @@ export const Icon = styled(Img)`
   }
   transition: all 0.25s;
 `
-export const Text = styled.div`
+
+export const Text = styled.div<TText>`
   color: ${({ active, type }) =>
     active ? getActiveColor(type) : getNormalColor(type)};
   font-size: ${({ size }) => getNormalTextSize(size)};

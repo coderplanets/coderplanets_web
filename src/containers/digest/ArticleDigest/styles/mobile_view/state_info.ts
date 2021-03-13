@@ -35,7 +35,7 @@ const Icon = styled(Img)`
 `
 export const ViewdIcon = styled(Icon)``
 export const CommentIcon = styled(Icon)``
-export const LikeIcon = styled(Icon)`
+export const LikeIcon = styled(Icon)<{ red: boolean }>`
   fill: ${({ red }) =>
     red ? theme('baseColor.red') : theme('thread.articleDigest')};
   ${css.size(12)};

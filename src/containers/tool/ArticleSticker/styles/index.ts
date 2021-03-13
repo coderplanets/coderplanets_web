@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import Img from '@/Img'
 import { animate, theme, css, WIDTH } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-center', 'justify-start')};
   width: ${WIDTH.ARTICLE.STICKER};
   /* bottom has a go-to-top button */

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { theme, animate, css } from '@/utils'
 import Img from '@/Img'
 
@@ -15,7 +16,7 @@ export const Title = styled.div`
   font-size: 0.9rem;
   flex-grow: 1;
 `
-export const AddonWrapper = styled.div`
+export const AddonWrapper = styled.div<TActive>`
   margin-right: 5%;
   display: ${({ show }) => (show ? 'flex' : 'none')};
   &:active {

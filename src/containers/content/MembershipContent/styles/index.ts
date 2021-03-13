@@ -1,14 +1,16 @@
 import styled from 'styled-components'
+
+import { TTestable, TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('justify-center')};
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flexColumn('align-both')}
   padding: 10px 0;
   margin-top: 12px;
@@ -35,12 +37,12 @@ export const Desc = styled.div`
 export const PayButtonWrapper = styled.div`
   position: relative;
 `
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ metric: string }>`
   ${css.flex('justify-between')};
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const Dashboard = styled.div`
+export const Dashboard = styled.div<TActive>`
   position: relative;
   ${css.flexColumn('align-center')};
   width: 260px;
@@ -62,7 +64,7 @@ export const CheckerWrapper = styled.div`
   right: 20px;
   top: 15px;
 `
-export const TypeDesc = styled.div`
+export const TypeDesc = styled.div<TActive>`
   text-align: center;
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
@@ -88,7 +90,7 @@ export const TitleDivider = styled.div`
 export const ItemsWrapper = styled.div`
   text-align: left;
 `
-export const PayBtnWrapper = styled.div`
+export const PayBtnWrapper = styled.div<TActive>`
   display: ${({ active }) => (active ? 'block' : 'none')};
 `
 export const FreeNote = styled.div`

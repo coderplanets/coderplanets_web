@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+import { TTestable } from '@/spec'
+
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
 `
 export const MobileWrapper = styled.div`

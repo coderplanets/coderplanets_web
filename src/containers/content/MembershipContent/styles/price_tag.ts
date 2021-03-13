@@ -1,15 +1,17 @@
 import styled from 'styled-components'
+
+import { TTestable, TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
 import { Dashboard } from './index'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
 `
-export const Price = styled.div`
+export const Price = styled.div<TActive>`
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: 23px;

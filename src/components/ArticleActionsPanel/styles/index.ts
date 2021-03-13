@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   padding-left: 10px;
   padding-bottom: 0;
 `
-export const Option = styled.div`
+export const Option = styled.div<{ red: boolean }>`
   ${css.flex('align-center')};
   color: ${theme('banner.desc')};
   margin-bottom: 8px;
@@ -20,7 +20,11 @@ export const Option = styled.div`
     cursor: pointer;
   }
 `
-export const OptionIcon = styled(Img)`
+type TOptionIcon = {
+  red: boolean
+  reverse: boolean
+}
+export const OptionIcon = styled(Img)<TOptionIcon>`
   fill: ${theme('banner.desc')};
   ${css.size(18)};
   margin-right: 6px;

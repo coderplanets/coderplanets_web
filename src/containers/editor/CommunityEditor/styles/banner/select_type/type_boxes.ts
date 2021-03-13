@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { css, theme } from '@/utils'
 // import Img from '@/Img'
 
@@ -9,7 +10,7 @@ export const Wrapper = styled.div`
   height: 105px;
   width: 700px;
 `
-export const Box = styled.div`
+export const Box = styled.div<TActive>`
   ${css.flexColumn('align-start', 'justify-between')};
   padding: 10px 12px;
   width: ${({ active }) => (active ? '160px' : '154px')};

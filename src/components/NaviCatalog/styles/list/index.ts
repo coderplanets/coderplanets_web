@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 const activeColor = '#009C9E'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+type TItem = TActive & { withDivider: boolean; isRootMenu?: boolean }
+
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & TItem>`
   padding-bottom: 10px;
 
   /* childMenu style */
@@ -17,7 +20,7 @@ export const Wrapper = styled.div.attrs((props) => ({
   border-color: ${({ isRootMenu }) => (isRootMenu ? 'none' : '#09303e')};
   margin-top: ${({ isRootMenu }) => (isRootMenu ? '0' : '-8px')};
 `
-export const Item = styled.div`
+export const Item = styled.div<TItem>`
   ${css.flex('justify-end')};
   fill: ${theme('thread.articleDigest')};
   align-items: center;
@@ -51,7 +54,7 @@ export const FixedIcon = styled(Img)`
   ${css.size(13)};
   margin-right: 8px;
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TActive>`
   display: ${({ active }) => (active ? 'block' : 'none')};
   fill: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
@@ -62,14 +65,14 @@ export const Icon = styled(Img)`
     display: block;
   }
 `
-export const ActiveDot = styled.div`
+export const ActiveDot = styled.div<TActive>`
   display: ${({ active }) => (active ? 'block' : 'none')};
   background: ${activeColor};
   width: 5px;
   height: 5px;
   border-radius: 50%;
 `
-export const TotalNumber = styled.div`
+export const TotalNumber = styled.div<TActive>`
   font-size: 11px;
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};

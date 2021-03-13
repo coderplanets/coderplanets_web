@@ -1,4 +1,4 @@
-import { createGlobalStyle, css as styledCss } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import { theme, css } from '@/utils'
 import normalize from './normalize'
 
@@ -145,32 +145,33 @@ const GlobalStyle = createGlobalStyle`
     top: 10px !important;
   }
 
-  ${({ showCustomScrollbar }) =>
-    showCustomScrollbar ||
-    styledCss`
-      ::-webkit-scrollbar {
-        background: transparent;
-        width: 4px;
-      }
-      ::-webkit-scrollbar-button {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-track-piece {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: ${theme('banner.title')};
-      }
-      ::-webkit-scrollbar-corner {
-        background: grey;
-      }
-      ::-webkit-resizer {
-        background: grey;
-      }
-    `};
+  
 `
+// ${({ showCustomScrollbar }) =>
+// showCustomScrollbar ||
+// styledCss`
+//   ::-webkit-scrollbar {
+//     background: transparent;
+//     width: 4px;
+//   }
+//   ::-webkit-scrollbar-button {
+//     background: transparent;
+//   }
+//   ::-webkit-scrollbar-track {
+//     background: transparent;
+//   }
+//   ::-webkit-scrollbar-track-piece {
+//     background: transparent;
+//   }
+//   ::-webkit-scrollbar-thumb {
+//     background: ${theme('banner.title')};
+//   }
+//   ::-webkit-scrollbar-corner {
+//     background: grey;
+//   }
+//   ::-webkit-resizer {
+//     background: grey;
+//   }
+// `};
 
 export default GlobalStyle

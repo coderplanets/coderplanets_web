@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const MenuLogo = styled(Img)`
+export const MenuLogo = styled(Img)<TActive>`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
   ${css.size(12)};
 `
@@ -11,11 +12,11 @@ export const SiteLogo = styled(MenuLogo)`
   ${css.size(15)};
   margin-top: -1px;
 `
-export const ExploreLogo = styled(Img)`
+export const ExploreLogo = styled(Img)<TActive>`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
   ${css.size(14)};
 `
-const Block = styled.div`
+const Block = styled.div<{ bgColor: string }>`
   position: relative;
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
@@ -23,7 +24,7 @@ const Block = styled.div`
   background: ${({ bgColor }) => bgColor};
   padding-left: 10px;
 `
-export const ArrowShape = styled.div`
+export const ArrowShape = styled.div<{ bgColor: string }>`
   position: absolute;
   right: -10px;
   width: 0;
@@ -50,12 +51,12 @@ export const AccountWrapper = styled(Block)`
   padding-left: 6px;
   padding-right: 10px;
 `
-export const MenuArrowShape = styled(ArrowShape)`
+export const MenuArrowShape = styled(ArrowShape)<{ bgColor: string }>`
   right: -6px;
   border-left: 6px solid;
   border-left-color: ${({ bgColor }) => bgColor};
 `
-export const ArrowShapeLeft = styled(ArrowShape)`
+export const ArrowShapeLeft = styled(ArrowShape)<{ bgColor: string }>`
   left: -6px;
   border-left: 6px solid;
   border-left-color: ${({ bgColor }) => bgColor};

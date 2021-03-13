@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive, TSpace } from '@/spec'
 import Img from '@/Img'
 import { theme, css, animate } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   /* margin-left: -38px; */
 `
@@ -12,7 +13,7 @@ export const ItemWrapper = styled.div`
   position: relative;
   width: 100%;
 `
-export const ItemHint = styled.div`
+export const ItemHint = styled.div<TSpace>`
   color: ${theme('thread.articleDigest')};
   position: absolute;
   right: ${({ right }) => `${right}px` || '-12px'};

@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 import { HCN } from '@/constant'
 import { theme, css, WIDTH } from '@/utils'
-
 import Img from '@/Img'
+
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 import { BaseBanner } from '../../index'
@@ -15,11 +15,18 @@ const getMinHeight = (noSocial, isMobile) => {
 
   return noSocial ? '128px' : '150px'
 }
-export const Wrapper = styled(BaseBanner)`
+
+type TWrapper = {
+  descExpand: boolean
+  noSocial: boolean
+  isMobile: boolean
+  metric?: string
+}
+export const Wrapper = styled(BaseBanner)<TWrapper>`
   min-height: ${({ descExpand, noSocial, isMobile }) =>
     descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<TWrapper>`
   ${css.flex('justify-center')};
   padding-top: 20px;
   min-height: ${({ descExpand, noSocial, isMobile }) =>
@@ -40,7 +47,8 @@ export const BaseBannerContent = styled.div`
     padding-right: 5.5%;
   `};
 `
-export const BannerContentWrapper = styled(BaseBannerContent)`
+type TBannerContent = { descExpand: boolean }
+export const BannerContentWrapper = styled(BaseBannerContent)<TBannerContent>`
   ${css.flexColumn('justify-between')};
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
 `
@@ -65,12 +73,12 @@ export const CommunityBaseInfo = styled.div`
   ${css.flex('justify-between')};
   width: 100%;
 `
-export const CommunityWrapper = styled.div`
+export const CommunityWrapper = styled.div<{ descExpand: string }>`
   ${css.flexGrow('align-center')};
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
   transition: all 0.5s;
 `
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled.div<{ raw: string }>`
   position: relative;
   width: 55px;
   /*  TODO:  use new logo */
@@ -85,7 +93,7 @@ export const LogoWrapper = styled.div`
     margin-top: -2px;
   `};
 `
-export const CommunityLogo = styled(CommunityFaceLogo)`
+export const CommunityLogo = styled(CommunityFaceLogo)<{ small: boolean }>`
   width: ${({ small }) => (small ? '35px' : '45px')};
   height: ${({ small }) => (small ? '35px' : '45px')};
   border-radius: 5px;
@@ -108,7 +116,7 @@ export const CommunityInfo = styled.div`
 export const TitleWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const Title = styled.div`
+export const Title = styled.div<{ descExpand: boolean }>`
   ${css.flex('align-baseline')};
   font-size: ${({ descExpand }) => (descExpand ? '21px' : '18px')};
   color: ${theme('banner.title')};

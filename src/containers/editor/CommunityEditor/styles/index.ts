@@ -2,12 +2,12 @@ import styled from 'styled-components'
 
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ metric: string }>`
   ${css.flexColumn('align-both')};
   width: 100%;
   ${({ metric }) => css.fitPageWidth(metric)};
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flexColumn('justify-center')};
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { theme, css, animate } from '@/utils'
 import { Button } from '@/components/Buttons'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ updating: boolean }>`
   animation: ${({ updating }) =>
     updating ? `${animate.breath} 1.2s linear infinite` : ''};
 `
@@ -37,7 +38,7 @@ export const ReadmeWrapper = styled.div`
   margin-top: 20px;
   width: 100%;
 `
-export const Footer = styled.div`
+export const Footer = styled.div<TActive>`
   display: ${({ show }) => (show ? 'flex' : 'none')};
   justify-content: center;
   margin-top: 30px;

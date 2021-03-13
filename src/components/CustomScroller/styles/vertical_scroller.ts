@@ -4,7 +4,13 @@ import styled from 'styled-components'
 import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'
 import { getShadowBackground, getShadowSize, getScrollbarThin } from './metrics'
 
-export const Wrapper = styled(WrapperBase)`
+type TBar = {
+  showOnHover: boolean
+  barSize: string
+  withBorder: boolean
+  shadowSize: string
+}
+export const Wrapper = styled(WrapperBase)<TBar>`
   position: relative;
 
   .os-host:not(:hover) {
@@ -18,7 +24,7 @@ export const Wrapper = styled(WrapperBase)`
   }
 `
 export const ScrollWrapper = styled(ScrollWrapperBase)``
-const ShadowBar = styled(ShadowBarBase)`
+const ShadowBar = styled(ShadowBarBase)<TBar>`
   left: 0px;
   height: ${({ shadowSize }) => getShadowSize(shadowSize)};
   width: 100%;

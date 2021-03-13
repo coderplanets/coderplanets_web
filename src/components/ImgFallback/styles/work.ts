@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable, TSpace } from '@/spec'
 // import Img from '@/Img'
 import { css } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & TSpace>`
   ${css.flexColumn('align-center', 'justify-between')};
   width: 70px;
   height: 70px;

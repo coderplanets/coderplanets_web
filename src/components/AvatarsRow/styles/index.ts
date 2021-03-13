@@ -6,7 +6,7 @@ import { theme, css } from '@/utils'
 import ImgFallback from '@/components/ImgFallback'
 import { getLiSize, getAvatarSize, getUlMarginRight } from './metric'
 
-export const Wrapper = styled.ul`
+export const Wrapper = styled.ul<{ total: number }>`
   ${css.flex('align-center')};
   flex-direction: row-reverse;
   list-style-type: none;
@@ -15,7 +15,8 @@ export const Wrapper = styled.ul`
   margin-right: ${({ total }) => getUlMarginRight(total)};
 `
 // height: 49px;
-const BaseAvatarItem = styled.li`
+type TBaseAvatarItem = { size: string; noHoverMargin: string }
+const BaseAvatarItem = styled.li<TBaseAvatarItem>`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   position: relative;
@@ -44,7 +45,7 @@ export const AvatarsItem = styled(BaseAvatarItem)`
 export const TotalOneOffset = styled.span`
   margin-right: 10px;
 `
-export const AvatarsImg = styled(Img)`
+export const AvatarsImg = styled(Img)<{ size: string }>`
   border: 2px solid;
   border-color: ${theme('thread.commentsUserBorder')};
   border-radius: 100px 100px 100px 100px;
@@ -59,7 +60,8 @@ export const AvatarsImg = styled(Img)`
 
   text-align: center;
 `
-export const AvatarsMore = styled.span`
+type TAvatarsMore = { size: string; total: number }
+export const AvatarsMore = styled.span<TAvatarsMore>`
   ${css.flex('align-both')};
   font-size: 14px;
   border-color: #113744;

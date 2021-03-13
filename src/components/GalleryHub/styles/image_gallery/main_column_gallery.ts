@@ -38,7 +38,7 @@ export const SubImageWrapper = styled.div`
   flex-wrap: wrap;
   width: 412px;
 `
-export const SubImage = styled(ImageBase)`
+export const SubImage = styled(ImageBase)<{ marginBottom: boolean }>`
   width: 200px;
   height: 208px;
   margin-left: 5px;

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { animate, theme, css } from '@/utils'
 import Img from '@/Img'
 
@@ -38,7 +39,7 @@ export const By = styled.div`
   margin-left: -10px;
 `
 
-export const Circle = styled.div`
+export const Circle = styled.div<TActive>`
   ${css.flex('align-both')};
   ${css.circle(38)};
   border: 1px solid;

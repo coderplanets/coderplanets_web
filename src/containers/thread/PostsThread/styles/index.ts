@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -24,13 +25,13 @@ export const RightPart = styled.div`
 
   ${css.media.tablet`display: none;`};
 `
-export const PublisherWrapper = styled.div`
+export const PublisherWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   width: 160px;
   max-width: 180px;
   margin-left: 16px;
 `
-export const BadgeWrapper = styled.div`
+export const BadgeWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   margin-left: 18px;
 `

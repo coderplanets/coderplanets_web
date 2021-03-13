@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${css.flexColumn('align-both')}
   width: 100%;
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flex()};
   padding: 10px 0;
   margin-top: 12px;

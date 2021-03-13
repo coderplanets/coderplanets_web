@@ -25,14 +25,14 @@ export const MenuWrapper = styled.div`
   visibility: visible;
   width: 25px;
 `
-export const MenuLogo = styled(Img)`
+export const MenuLogo = styled(Img)<{ pin: boolean }>`
   fill: ${({ pin }) =>
     pin ? theme('sidebar.pinActive') : theme('banner.title')};
   ${css.size(18)};
   opacity: 0.5;
   cursor: pointer;
 `
-export const PinIcon = styled(Img)`
+export const PinIcon = styled(Img)<{ pin: boolean }>`
   fill: ${({ pin }) => (pin ? theme('sidebar.pinActive') : 'grey')};
   margin-right: 10px;
   width: 23px;
@@ -42,7 +42,7 @@ export const PinIcon = styled(Img)`
   /* transition: visibility 0s, opacity 0.3s linear; */
   cursor: pointer;
 `
-export const SearchWrapper = styled.div`
+export const SearchWrapper = styled.div<{ pin: boolean }>`
   padding-left: 16px;
   visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
   opacity: ${({ pin }) => (pin ? 1 : 0)};

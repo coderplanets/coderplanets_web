@@ -9,7 +9,9 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
-export const Block = styled.div`
+
+type TBlock = { borderRight: boolean; borderTop: boolean; clickable: boolean }
+export const Block = styled.div<TBlock>`
   ${css.flexColumn('justify-between')};
   width: 25%;
   height: 230px;
@@ -35,7 +37,7 @@ export const Block = styled.div`
 export const Header = styled.div`
   ${css.flexColumn()};
 `
-export const IntroHead = styled.div`
+export const IntroHead = styled.div<{ clickable: boolean }>`
   ${css.flex('align-center')};
   &:hover {
     cursor: ${({ clickable }) => (clickable ? 'pointer' : 'normal')};
@@ -50,7 +52,7 @@ export const Title = styled.div`
   font-size: 18px;
   margin-left: 12px;
 `
-export const Footer = styled.div`
+export const Footer = styled.div<{ clickable: boolean }>`
   ${css.flex('align-center', 'justify-between')};
   &:hover {
     cursor: ${({ clickable }) => (clickable ? 'pointer' : 'normal')};

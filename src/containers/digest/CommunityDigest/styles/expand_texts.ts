@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
-  /* ${css.flex('align-center')}; */
-  /* align-items: ${({ descExpand }) =>
+/* ${css.flex('align-center')}; */
+/* align-items: ${({ descExpand }) =>
     descExpand ? 'flex-start' : 'center'}; */
-`
-export const Normal = styled.div`
+export const Wrapper = styled.div``
+export const Normal = styled.div<{ margin: string }>`
   color: ${theme('banner.desc')};
   font-size: 14px;
   max-width: 490px;

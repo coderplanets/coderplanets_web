@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('justify-between')};
   width: 100%;
   padding: 0;
@@ -36,7 +37,7 @@ export const TagWrapper = styled.div`
   border-left-color: #183d54;
   border-right-color: #183d54;
 `
-export const ItemBar = styled.div`
+export const ItemBar = styled.div<TActive>`
   ${css.flex('align-center', 'justify-between')};
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};

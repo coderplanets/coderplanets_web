@@ -1,5 +1,6 @@
 import styled, { css as styledCss, keyframes } from 'styled-components'
 
+import { TTestable } from '@/spec'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
@@ -105,9 +106,9 @@ const liquid2Rule = styledCss`
   ${liquid2} ${DURATION} infinite;
 `
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   text-align: center;
   position: relative;
   height: 28px;

@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-// import Img from '@/Img'
+import { TTestable, TActive } from '@/spec'
 import { animate, css, theme } from '@/utils'
 
 export { getSelectStyles } from './metric'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))``
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>``
 
 export const BlinkCursor = styled.div`
   background-color: #139c9e;
@@ -21,7 +21,7 @@ export const BlinkCursor = styled.div`
 export const OptionRow = styled.div`
   ${css.flex('align-end')};
 `
-export const OptionTitle = styled.div`
+export const OptionTitle = styled.div<TActive>`
   font-size: 14px;
   color: ${theme('thread.articleTitle')};
   background: ${({ active }) => (active ? '#00343D' : 'transparent')};

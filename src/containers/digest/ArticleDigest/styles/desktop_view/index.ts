@@ -24,7 +24,7 @@ export const BannerContent = styled.div`
   ${css.flex()};
   width: 100%;
 `
-export const Main = styled.div`
+export const Main = styled.div<{ metric: string }>`
   ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const AuthorWrapper = styled.div`

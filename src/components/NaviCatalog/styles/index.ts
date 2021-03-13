@@ -1,18 +1,22 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 import { WIDTH } from './metric'
 
+type TItem = TActive & { withDivider: boolean }
+
 const activeColor = '#009C9E'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   width: ${WIDTH};
 `
-export const Item = styled.div`
+
+export const Item = styled.div<TItem>`
   ${css.flex('justify-end')};
   fill: ${theme('thread.articleDigest')};
   align-items: center;
@@ -45,7 +49,7 @@ export const FixedIcon = styled(Img)`
   ${css.size(14)};
   margin-right: 5px;
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TActive>`
   display: ${({ active }) => (active ? 'block' : 'none')};
   fill: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};

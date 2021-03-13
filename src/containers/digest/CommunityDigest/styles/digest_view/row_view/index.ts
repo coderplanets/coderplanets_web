@@ -7,7 +7,7 @@ import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 import { BaseBanner } from '../../index'
 
-export const Wrapper = styled(BaseBanner)`
+export const Wrapper = styled(BaseBanner)<{ isHeaderFixed: boolean }>`
   ${css.flexColumn('justify-start')};
   position: relative;
   width: 280px;
@@ -36,10 +36,9 @@ export const BaseBannerContent = styled.div`
     display: none;
   `};
 `
-export const BannerContentWrapper = styled(BaseBannerContent)`
-  /* align-items: ${({ descExpand }) =>
+/* align-items: ${({ descExpand }) =>
     descExpand ? 'flex-start' : 'center'}; */
-`
+export const BannerContentWrapper = styled(BaseBannerContent)``
 export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
 `
@@ -71,7 +70,7 @@ export const TitleWrapper = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 8px;
 `
-export const Title = styled.div`
+export const Title = styled.div<{ descExpand: boolean }>`
   ${css.flex('align-baseline')};
   font-size: ${({ descExpand }) => (descExpand ? '21px' : '18px')};
   color: ${theme('banner.title')};

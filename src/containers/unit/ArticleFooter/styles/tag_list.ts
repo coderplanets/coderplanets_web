@@ -19,7 +19,7 @@ export const Tag = styled.div`
     font-weight: bold;
   }
 `
-export const Dot = styled.div`
+export const Dot = styled.div<{ bgColor: string }>`
   background: ${({ bgColor }) => bgColor};
   ${css.circle(6)};
   margin-right: 6px;

@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
   `};
 `
 
-export const CommunityIcon = styled(Img)`
+export const CommunityIcon = styled(Img)<{ nonFill: boolean }>`
   ${css.size(54)};
   fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
   margin-bottom: 8px;

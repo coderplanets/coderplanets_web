@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 import TextareaAutosize from 'react-textarea-autosize'
 
+import { TTestable } from '@/spec'
 import { theme } from '@/utils'
 
 import { baseInput } from './index'
 
-export const Wrapper = styled(TextareaAutosize).attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled(TextareaAutosize).attrs(
+  ({ testid }: TTestable) => ({
+    'data-test-id': testid,
+  }),
+)<TTestable>`
   ${baseInput};
   background-color: #0b2631;
   border: 1px solid;

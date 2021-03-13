@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import { css, theme } from '@/utils'
 
 import {
@@ -11,13 +12,19 @@ import {
   getRadioBoxLeft,
 } from './metric/radio'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
-  /* position: relative; */
+type TLabel = {
+  size: string
+  checked: boolean
+  dimOnActive: boolean
+}
+
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('align-center')}
 `
-export const Label = styled.label`
+
+export const Label = styled.label<TLabel>`
   position: relative;
   font-size: ${({ size }) => getLabelFontsize(size)};
   margin-right: ${({ checked }) => (checked ? '16px' : '8px')};

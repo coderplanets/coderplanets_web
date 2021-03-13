@@ -4,6 +4,8 @@ import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { css } from '@/utils'
 
+type TIcon = { reverse: boolean; round: boolean }
+
 export const Wrapper = styled.div`
   width: 10%;
   ${css.media.mobile`
@@ -13,7 +15,7 @@ export const Wrapper = styled.div`
 export const ThemeIconWrapper = styled.div`
   margin-right: 16px;
 `
-export const Icon = styled(CommunityFaceLogo)`
+export const Icon = styled(CommunityFaceLogo)<TIcon>`
   ${css.size(35)};
   border-radius: ${({ round }) => (round ? '100%' : '4px')};
   margin-left: 4px;
@@ -22,7 +24,7 @@ export const Icon = styled(CommunityFaceLogo)`
     margin-right: 10px;
   `};
 `
-export const ThemeDot = styled.div`
+export const ThemeDot = styled.div<{ bg: string }>`
   ${css.circle(35)};
   background: ${({ bg }) => bg};
 `

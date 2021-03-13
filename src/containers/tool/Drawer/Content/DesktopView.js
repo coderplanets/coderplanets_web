@@ -9,7 +9,7 @@ const Content = ({ visible, type, attachment, attUser }) => {
   const ref = useRef(null)
 
   /*
-   * reset when content visiable
+   * reset when content visible
    * scroll to top always
    */
   useEffect(() => {

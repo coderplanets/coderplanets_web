@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import { css, theme } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('align-both')}
 `
 export const Title = styled.div`
@@ -14,7 +15,7 @@ export const Title = styled.div`
   margin-left: 10px;
   margin-right: 10px;
 `
-export const PrefixIcon = styled(Img)`
+export const PrefixIcon = styled(Img)<{ reverse: boolean }>`
   fill: ${theme('thread.articleDigest')};
   ${css.size(15)};
 

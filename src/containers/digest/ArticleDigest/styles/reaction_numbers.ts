@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme, css, animate } from '@/utils'
 
@@ -8,8 +9,9 @@ export const NumbersWrapper = styled.div`
   margin-top: -10px;
 `
 export const NumbersInfo = styled(NumbersWrapper)``
-// background: ${theme('banner.numberHoverBg')};
-export const NumberSection = styled.div`
+
+type TNumberSection = TActive & { readOnly: boolean }
+export const NumberSection = styled.div<TNumberSection>`
   ${css.flexColumn('justify-center')};
 
   padding: 0 5px;
@@ -23,7 +25,7 @@ export const NumberSection = styled.div`
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
   }
 `
-export const NumberTitle = styled.div`
+export const NumberTitle = styled.div<{ readOnly: boolean }>`
   color: ${theme('banner.numberDesc')};
   text-align: center;
   &:hover {
@@ -34,7 +36,7 @@ export const NumberTitle = styled.div`
   ${css.media.tablet`font-size: 0.9rem`};
   ${css.media.mobile`font-size: 0.9rem`};
 `
-export const NumberItem = styled.div`
+export const NumberItem = styled.div<{ readOnly: boolean }>`
   font-size: 1.5rem;
   text-align: center;
 

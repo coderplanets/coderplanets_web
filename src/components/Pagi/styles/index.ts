@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 
+import { TSpace } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+type TMargin = {
+  margin: TSpace
+}
+export const Wrapper = styled.div<TMargin>`
   ${css.flex('align-center', 'justify-between')};
   color: #196780;
   height: 60px;

@@ -10,6 +10,6 @@ export const Wrapper = styled.div`
   margin-top: -1px;
   max-width: 80%;
 `
-export const TagWrapper = styled.div`
+export const TagWrapper = styled.div<{ margin: boolean }>`
   margin-bottom: ${({ margin }) => (margin ? '5px' : 0)};
 `

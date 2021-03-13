@@ -6,7 +6,7 @@ export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ isMobile: boolean }>`
   ${css.flex('align-center')};
   justify-content: ${({ isMobile }) =>
     !isMobile ? 'space-between' : 'center'};

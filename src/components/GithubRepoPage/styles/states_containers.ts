@@ -9,7 +9,8 @@ export const Wrapper = styled.div`
   margin-top: 15px;
   margin-bottom: 10px;
 `
-export const BoxWrapper = styled.div`
+type TBox = { grow: boolean; nomargin: boolean; nohover: boolean }
+export const BoxWrapper = styled.div<TBox>`
   ${css.flexColumn('justify-evenly')};
   align-items: center;
   flex-grow: ${({ grow }) => (grow ? 1 : 0)};
@@ -36,7 +37,7 @@ export const Label = styled.div`
   }
   transition: color 0.2s;
 `
-export const Number = styled.div`
+export const Number = styled.div<{ small: string }>`
   font-size: ${({ small }) => (small ? '0.8rem' : '1.3rem')};
   color: ${theme('banner.title')};
 `

@@ -53,7 +53,7 @@ const ModeLineContainer: React.FC<TProps> = ({
     <React.Fragment>
       <TopBar
         metric={metric}
-        visiable={isTopBarVisiable}
+        visible={isTopBarVisiable}
         viewing={viewing}
         viewingArticle={viewingArticle}
       />

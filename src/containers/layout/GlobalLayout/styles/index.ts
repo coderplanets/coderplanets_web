@@ -21,15 +21,17 @@ export const Wrapper = styled.div`
     opacity: 0.6;
   }
 `
-export const InnerWrapper = styled.div`
-  ${css.flexColumn()};
-  ${({ metric }) => css.fitPageWidth(metric)};
-  width: 100%;
-  /* min-width: ${({ minWidth }) => minWidth}; */
+
+type TInner = { metric: string; sidebarPin: boolean }
+/* min-width: ${({ minWidth }) => minWidth}; */
 /*
   padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};
   margin-left: ${({ sidebarPin }) => (sidebarPin ? '180px' : '0')};
  */
+export const InnerWrapper = styled.div<TInner>`
+  ${css.flexColumn()};
+  ${({ metric }) => css.fitPageWidth(metric)};
+  width: 100%;
   position: relative;
   height: 100%;
   min-height: 100vh;
@@ -41,7 +43,8 @@ export const InnerWrapper = styled.div`
     padding-left: 0;
   `};
 `
-export const BodyWrapper = styled.div`
+type TBody = { layout: string; isMobile: boolean }
+export const BodyWrapper = styled.div<TBody>`
   display: flex;
   flex-direction: ${({ layout, isMobile }) => {
     if (isMobile) return 'column'
@@ -52,7 +55,7 @@ export const BodyWrapper = styled.div`
   width: 100%;
 `
 // 180 is the sidebar full width
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ offsetLeft: boolean }>`
   margin-left: ${({ offsetLeft }) => (offsetLeft ? '180px' : '0')};
   /* for global blur */
   transition: filter 0.25s;

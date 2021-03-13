@@ -3,7 +3,7 @@
  * common styles used in styled-component
  *
  */
-import { css as styledCss } from 'styled-components'
+import { css as styledCss, CSSProp } from 'styled-components'
 
 import { theme } from '../themes'
 
@@ -29,7 +29,7 @@ const cutFrom = (width = '100px'): string => `
   text-overflow: ellipsis;
 `
 
-const threadTitleHover = (): string => {
+const threadTitleHover = (): CSSProp => {
   return styledCss`
     color: ${theme('thread.articleTitle')};
     text-decoration: underline;

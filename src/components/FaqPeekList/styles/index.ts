@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & TActive>`
   position: relative;
   max-height: ${({ active }) => (active ? '220px' : '0')};
   height: 220px;
@@ -35,7 +36,7 @@ export const ArrowIcon = styled(Img)`
   width: 18px;
   transform: rotate(-90deg);
 `
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<TActive>`
   display: ${({ active }) => (active ? 'flex' : 'none')};
   align-items: center;
   justify-content: flex-start;

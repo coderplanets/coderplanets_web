@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
@@ -13,7 +14,7 @@ export const InnerWrapper = styled.div`
   ${css.flex('align-center')};
   height: 5vh;
 `
-export const OptionWrapper = styled.div`
+export const OptionWrapper = styled.div<{ pin: boolean }>`
   ${css.flex('justify-center')};
   opacity: ${({ pin }) => (pin ? '1' : '0')};
   justify-content: ${({ pin }) => (pin ? 'center' : '')};
@@ -26,7 +27,7 @@ export const OptionDivider = styled.div`
   border-right-color: ${theme('sidebar.menuLink')};
   opacity: 0.4;
 `
-export const OptionItem = styled.div`
+export const OptionItem = styled.div<TActive>`
   ${css.flex('align-center')};
   background: ${({ active }) =>
     active ? theme('sidebar.menuHover') : 'transparent'};
@@ -38,7 +39,7 @@ export const OptionIcon = styled(Img)`
   fill: ${theme('sidebar.menuLink')};
   ${css.size(12)};
 `
-export const OptionText = styled.div`
+export const OptionText = styled.div<TActive>`
   font-size: 13px;
   margin-left: 5px;
   color: ${({ active }) =>

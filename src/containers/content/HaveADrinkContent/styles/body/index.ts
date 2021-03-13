@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   margin-top: 4%;
   margin-bottom: 3%;
 `
-export const Sentence = styled.div`
+export const Sentence = styled.div<{ fontSize: string }>`
   color: ${theme('haveADrinkPage.sentence')};
   font-size: 24px;
   font-size: ${({ fontSize }) => fontSize};

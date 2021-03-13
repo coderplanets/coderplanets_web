@@ -5,7 +5,16 @@ import { css } from '@/utils'
 import { getShadowBackground, getShadowSize, getScrollbarThin } from './metrics'
 import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'
 
-export const Wrapper = styled(WrapperBase)`
+type TBar = {
+  showOnHover: boolean
+  barSize: string
+  withBorder: boolean
+  shadowSize: string
+  height: string
+  innerHeight: string
+}
+
+export const Wrapper = styled(WrapperBase)<{ barSize: string }>`
   .os-theme-dark > .os-scrollbar-horizontal,
   .os-theme-light > .os-scrollbar-horizontal {
     height: ${({ barSize }) =>
@@ -14,14 +23,14 @@ export const Wrapper = styled(WrapperBase)`
 `
 export const ScrollWrapper = styled(ScrollWrapperBase)``
 
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ innerHeight: string }>`
   ${css.flex()};
   width: 100%;
   height: ${({ innerHeight }) => innerHeight};
   box-sizing: content-box;
 `
 
-const ShadowBar = styled(ShadowBarBase)`
+const ShadowBar = styled(ShadowBarBase)<TBar>`
   top: 1%;
   height: ${({ height }) => `calc(${height} - 2%)`};
   width: ${({ shadowSize }) => getShadowSize(shadowSize)};

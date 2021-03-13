@@ -7,9 +7,9 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   ${css.flexColumn()};
 `
-export const BriefTextWrapper = styled.div`
-  /* align-items: ${({ view }) =>
+/* align-items: ${({ view }) =>
     view === VIEW.DESKTOP ? 'center' : 'flex-start'}; */
+export const BriefTextWrapper = styled.div`
   margin-top: 35px;
 `
 export const UserTitle = styled.div`
@@ -23,7 +23,8 @@ export const Bio = styled.div`
   font-size: 13px;
 `
 
-export const UserDesc = styled.div`
+type TUserDesc = { clickable: boolean; hide: boolean }
+export const UserDesc = styled.div<TUserDesc>`
   color: ${theme('banner.desc')};
   display: ${({ hide }) => (hide ? 'none' : 'flex')};
   font-size: 15px;
@@ -63,7 +64,7 @@ export const BackgroundItem = styled.div`
 export const BackgroundDetailItem = styled(BackgroundItem)`
   margin-bottom: 8px;
 `
-export const DetailToggleLabel = styled(DescIconLabel)`
+export const DetailToggleLabel = styled(DescIconLabel)<{ reverse: boolean }>`
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 export const ToggleText = styled.div`

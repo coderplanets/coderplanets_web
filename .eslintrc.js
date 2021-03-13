@@ -33,7 +33,7 @@ module.exports = {
           '@/Img': 'src/components/Img',
           '@/SvgIcons': 'src/components/SvgIcons',
           '@/i18n': 'i18n',
-          '@/types': 'src/types',
+          '@/spec': 'src/spec',
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },

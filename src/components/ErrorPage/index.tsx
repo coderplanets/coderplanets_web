@@ -68,7 +68,7 @@ const ErrorPage: React.FC<TProps> = ({
           {errorCode === 404 ? (
             <NotFoundMessage metric={metric} path={target || router.asPath} />
           ) : (
-            <HintTitle>服务器发生错误</HintTitle>
+            <HintTitle testid={testid}>服务器发生错误</HintTitle>
           )}
           <ErrorDesc errorCode={errorCode} />
         </TextWrapper>

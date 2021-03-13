@@ -3,7 +3,8 @@ import styled from 'styled-components'
 // import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.article`
+type TWrapper = { opacity: number; divider: boolean }
+export const Wrapper = styled.article<TWrapper>`
   ${css.flex('align-start')};
 
   position: relative;

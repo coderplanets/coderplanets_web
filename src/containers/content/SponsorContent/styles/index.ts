@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-both')}
   width: 100%;
   /* min-height: 100vh; */
   position: relative;
   background-image: ${theme('banner.linearGradient')};
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ bannerVisiable: boolean }>`
   ${css.flexColumn('align-both')}
   padding: 10px 0;
   margin-top: 12px;
@@ -19,7 +20,7 @@ export const InnerWrapper = styled.div`
   margin-top: ${({ bannerVisiable }) => (bannerVisiable ? '40vh' : '20vh')};
   transition: margin-top 0.25s;
 `
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ metric: string }>`
   ${css.flexColumn('align-center')};
   ${({ metric }) => css.fitContentWidth(metric)};
 `

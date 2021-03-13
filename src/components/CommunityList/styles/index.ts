@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TSpace } from '@/spec'
 import { css, theme } from '@/utils'
 import Img from '@/Img'
 
@@ -7,7 +8,7 @@ export const Wrapper = styled.div`
   ${css.flex('align-center')};
   flex-wrap: wrap;
 `
-export const Linker = styled.a`
+export const Linker = styled.a<TSpace>`
   margin-bottom: ${({ bottom }) => `${bottom}px`};
   margin-right: ${({ right }) => `${right}px`};
   display: block;
@@ -15,7 +16,7 @@ export const Linker = styled.a`
     text-decoration: underline;
   }
 `
-export const Logo = styled(Img)`
+export const Logo = styled(Img)<{ size: string }>`
   fill: ${theme('thread.articleTitle')};
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
@@ -41,7 +42,8 @@ export const PopCommunityDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
 `
-export const MoreWrapper = styled.div`
+type TMoreWrapper = TSpace & { size: string }
+export const MoreWrapper = styled.div<TMoreWrapper>`
   ${css.flex('align-center')}
   color: ${theme('thread.articleDigest')};
   width: ${({ size }) => size};

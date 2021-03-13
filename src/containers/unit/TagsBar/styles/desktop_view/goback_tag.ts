@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TActive>`
   ${css.flex('align-center')};
   margin-bottom: 5px;
   max-width: 180px;

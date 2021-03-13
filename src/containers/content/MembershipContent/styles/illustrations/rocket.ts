@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/spec'
 import { css } from '@/utils'
 import Img from '@/Img'
 
@@ -20,9 +21,9 @@ const color = {
 
 const height = '140px'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
   margin-bottom: 15px;
   transform: scale(0.52);
@@ -31,7 +32,7 @@ export const Wrapper = styled.div.attrs((props) => ({
 export const Star1 = styled(Star1Base)``
 export const Star2 = styled(Star2Base)``
 export const Star3 = styled(Star3Base)``
-export const RocketBody = styled.div`
+export const RocketBody = styled.div<{ pink: boolean }>`
   width: 80px;
 
   &:before {
@@ -46,7 +47,7 @@ export const RocketBody = styled.div`
     border-radius: 30% 70% 48% 52% / 2% 0% 100% 98%;
   }
 `
-export const Body = styled.div`
+export const Body = styled.div<{ pink: boolean }>`
   position: relative;
   background-color: ${color.body};
   height: ${height};

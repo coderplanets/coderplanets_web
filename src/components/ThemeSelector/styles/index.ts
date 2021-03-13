@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive, TThemeName } from '@/spec'
 import { theme, themeCoverMap, themeCoverIndexMap, css } from '@/utils'
 
-export const Dot = styled.div`
+type TDot = TActive & { name: TThemeName }
+export const Dot = styled.div<TDot>`
   ${css.circle(25)};
 
   margin-right: 10px;

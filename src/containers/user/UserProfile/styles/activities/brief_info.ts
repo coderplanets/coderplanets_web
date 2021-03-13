@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ first: boolean }>`
   ${css.flexColumn('align-start')};
   padding: 10px 15px;
   padding-top: ${({ first }) => (first ? '40px' : '10px')};
