@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
@@ -49,15 +50,15 @@ const OptionWrapper = styled.div`
     cursor: pointer;
   }
 `
-export const WeixinWrapper = styled(OptionWrapper)`
+export const WeixinWrapper = styled(OptionWrapper)<TActive>`
   color: ${({ active }) => (active ? '#3eb64b' : theme('thread.articleTitle'))};
-  display: ${({ display }) => display || 'flex'};
+  display: ${({ show }) => (show ? 'block' : 'none')};
 `
-export const AliWrapper = styled(OptionWrapper)`
+export const AliWrapper = styled(OptionWrapper)<TActive>`
   color: ${({ active }) => (active ? '#42abe1' : theme('thread.articleTitle'))};
-  display: ${({ display }) => display || 'flex'};
+  display: ${({ show }) => (show ? 'block' : 'none')};
 `
-export const Holder = styled.div`
+export const Holder = styled.div<{ margin: string }>`
   margin-top: ${({ margin }) => margin || '80px'};
 `
 export const QuestionWrapper = styled.div`

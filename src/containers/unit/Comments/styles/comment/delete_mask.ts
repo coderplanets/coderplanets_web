@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, animate, css } from '@/utils'
 
 export const DeleteHintText = styled.div`
@@ -7,7 +8,7 @@ export const DeleteHintText = styled.div`
   font-size: 1.3em;
   margin-bottom: 10px;
 `
-export const DeleteOverlay = styled.div`
+export const DeleteOverlay = styled.div<TActive>`
   ${css.flexColumn('align-both')};
 
   position: absolute;

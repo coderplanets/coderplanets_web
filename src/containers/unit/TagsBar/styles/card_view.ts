@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
+
+type TTagDot = TActive & { title: string; color: string }
 
 export const Wrapper = styled.div`
   ${css.flex()};
@@ -23,7 +26,7 @@ const getDotBgColor = (active, title, color) => {
   return active === title ? color : 'lightgrey'
 }
 
-export const TagDot = styled.div`
+export const TagDot = styled.div<TTagDot>`
   ${css.circle(9)};
 
   margin-right: 8px;

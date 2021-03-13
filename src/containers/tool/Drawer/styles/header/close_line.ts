@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   top: 16px;
 `
 
-export const LineBase = styled.span`
+export const LineBase = styled.span<{ curve: boolean }>`
   position: absolute;
   float: right;
   top: 0;
@@ -34,7 +34,7 @@ export const LineBase = styled.span`
     transform: ${({ curve }) => (curve ? 'rotate(-15deg)' : '')};
   }
 `
-export const LeftLine = styled(LineBase)`
+export const LeftLine = styled(LineBase)<{ curve: boolean }>`
   left: 0;
   transform: rotate(15deg);
   &:after {
@@ -42,7 +42,7 @@ export const LeftLine = styled(LineBase)`
     transform: ${({ curve }) => (curve ? 'rotate(-15deg)' : '')};
   }
 `
-export const RightLine = styled(LineBase)`
+export const RightLine = styled(LineBase)<{ curve: boolean }>`
   left: ${({ curve }) => (!curve ? '18px' : '19px')};
   transform: rotate(-15deg);
 

@@ -1,15 +1,21 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+type IInput = {
+  hasPrefix: boolean
+  hasSuffix: boolean
+}
+
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
   width: 100%;
 `
-const AddOn = styled.div`
+const AddOn = styled.div<TActive>`
   position: absolute;
   top: 0;
   ${css.flex('align-both')};
@@ -24,7 +30,7 @@ export const PrefixWrapper = styled(AddOn)`
 export const SuffixWrapper = styled(AddOn)`
   right: 0;
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TActive>`
   fill: ${({ active }) =>
     active ? theme('button.primary') : theme('thread.articleDigest')};
   ${css.size(14)};
@@ -52,7 +58,7 @@ export const baseInput = `
   transition: all 0.25s;
   -webkit-appearance: none; 
 `
-export const InputWrapper = styled.input`
+export const InputWrapper = styled.input<IInput>`
   ${baseInput};
   padding: 4px 11px;
   height: 36px;

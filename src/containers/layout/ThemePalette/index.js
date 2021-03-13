@@ -11,7 +11,6 @@ import NextNprogress from 'nextjs-progressbar'
 
 import { ANCHOR } from '@/constant'
 import { pluggedIn } from '@/utils'
-import { usePlatform } from '@/hooks'
 
 // import MarkDownStyle from './MarkDownStyle'
 import CodeSyxHighlight from './CodeSyxHighlight'
@@ -20,9 +19,6 @@ import GlobalStyle from './GlobalStyle'
 import RichEditorStyle from './RichEditorStyle'
 
 const ThemeContainer = ({ children, theme: { themeData } }) => {
-  const { isMacOS, isMobile } = usePlatform()
-  const showCustomScrollbar = !isMacOS || !isMobile
-
   return (
     <ThemeProvider theme={themeData}>
       <Head>
@@ -41,7 +37,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
       <CodeSyxHighlight />
       <ThirdPartyOverWrite />
       <RichEditorStyle />
-      <GlobalStyle showCustomScrollbar={showCustomScrollbar} />
+      <GlobalStyle />
     </ThemeProvider>
   )
 }

@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { css } from '@/utils'
 
 import { SIDEBAR_WIDTH } from './metric'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-both')}
   width: 100%;
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric }>`
   ${css.flex()};
   margin-top: 12px;
   min-height: 100vh;

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { css, theme, WIDTH } from '@/utils'
 import Sticky from '@/components/Sticky'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-start')};
   width: 100%;
   /* 130 means height of (header + footer) */

@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-both')}
   width: 100%;
   min-height: 70vh;
   margin-bottom: 50px;
   background-image: ${theme('banner.linearGradient')};
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flexColumn('align-both')}
   ${({ metric }) => css.fitContentWidth(metric)};
   padding: 10px 0;
@@ -34,7 +35,7 @@ export const Footer = styled.div`
   color: #0a6488;
   margin-left: 18px;
 `
-export const Divider = styled.div`
+export const Divider = styled.div<{ width: string }>`
   width: ${({ width }) => width || '60px'};
   height: 1px;
   background-color: ${theme('thread.articleDigest')};

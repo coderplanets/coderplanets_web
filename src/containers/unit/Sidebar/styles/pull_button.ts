@@ -22,7 +22,7 @@ export const Shape = styled(Img)`
   left: -48px;
   transform: rotate(90deg);
 `
-export const ArrowIcon = styled(Img)`
+export const ArrowIcon = styled(Img)<{ isPulled: boolean }>`
   position: absolute;
   top: 44px;
   left: 0;

@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 import { Dashboard } from './index'
 
-export const PkgItem = styled.div`
+export const PkgItem = styled.div<TActive>`
   ${css.flex('align-center')};
   margin-bottom: 7px;
 
@@ -16,7 +18,7 @@ export const PkgItem = styled.div`
 
   transition: opacity 0.2s;
 `
-export const PkgItemTitle = styled.div`
+export const PkgItemTitle = styled.div<{ not: boolean }>`
   color: ${({ not }) =>
     !not ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: 14px;

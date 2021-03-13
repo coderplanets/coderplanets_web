@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { theme, css, WIDTH, pixelAdd } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('justify-center')};
   min-height: 70vh;
   width: 100%;
@@ -17,8 +18,7 @@ export const Wrapper = styled.div.attrs((props) => ({
     padding-right: 0;
   `};
 `
-export const InnerWrapper = styled.div`
-  /* margin: ${({ cardView }) => (cardView ? '0 2.5%' : '0 5.5%')}; */
+export const InnerWrapper = styled.div<{ cardView: boolean }>`
   margin-top: 20px;
   width: 100%;
   max-width: ${pixelAdd(WIDTH.COMMUNITY.CONTENT, 46)};

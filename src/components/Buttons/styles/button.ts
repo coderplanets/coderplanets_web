@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 
 import { css, theme } from '@/utils'
+import { TButtonSize, TButton } from '@/types'
 
 import {
   getColor,
@@ -12,7 +13,7 @@ import {
   getFontSize,
 } from './metircs/button'
 
-export const Wrapper = styled.button`
+export const Wrapper = styled.button<TButton>`
   ${css.flex('align-both')};
   -webkit-appearance: button;
   outline: none;
@@ -66,21 +67,21 @@ export const Wrapper = styled.button`
     opacity: 1;
   }
 `
-export const ChildrenWrapper = styled.div`
+export const ChildrenWrapper = styled.div<{ size: TButtonSize }>`
   ${css.flex('align-both')};
   font-size: ${({ size }) => getFontSize(size)};
   position: relative;
   z-index: 2;
 `
-export const RealChildren = styled.div`
+export const RealChildren = styled.div<{ loading: boolean }>`
   ${css.flex('align-both')};
   opacity: ${({ loading }) => (loading ? 0 : 1)};
 `
-export const LoadingText = styled.div`
+export const LoadingText = styled.div<{ loading: boolean }>`
   opacity: ${({ loading }) => (!loading ? 0 : 1)};
   position: absolute;
 `
-export const LoadingMask = styled.div`
+export const LoadingMask = styled.div<{ width: string }>`
   position: absolute;
   width: ${({ width }) => width};
   height: 100%;

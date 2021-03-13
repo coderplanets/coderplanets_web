@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ finished: boolean }>`
   ${css.flex('align-center')}
   position: relative;
   width: calc(50% - 10px);
@@ -48,7 +48,7 @@ export const Date = styled.div`
 export const Week = styled.div`
   color: #327faf;
 `
-export const IntroWrapper = styled.div`
+export const IntroWrapper = styled.div<{ finished: boolean }>`
   ${css.flexColumn('align-start')}
   width: calc(100% - 20px);
   position: relative;
@@ -58,7 +58,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   margin-bottom: 5px;
 `
-export const TitleText = styled.div`
+export const TitleText = styled.div<{ finished: boolean }>`
   text-indent: 35px;
   font-size: 16px;
 

@@ -14,7 +14,7 @@ export const NationsWrapper = styled.div`
 
   transition: all 0.25s;
 `
-export const NationFlag = styled(Img)`
+export const NationFlag = styled(Img)<{ marginRight: boolean }>`
   width: 16px;
   display: block;
   border-radius: 3px;

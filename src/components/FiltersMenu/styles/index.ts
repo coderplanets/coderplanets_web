@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
@@ -7,7 +8,7 @@ export const Wrapper = styled.div`
   width: 100%;
   min-width: 110px;
 `
-export const ItemWrapper = styled.div`
+export const ItemWrapper = styled.div<{ withDivider: boolean }>`
   ${css.flexColumn()};
   border-bottom: ${({ withDivider }) => (withDivider ? '1px solid' : 'none')};
   border-bottom-color: ${({ withDivider }) =>
@@ -17,7 +18,13 @@ export const ItemWrapper = styled.div`
     border-bottom: none;
   }
 `
-export const Item = styled.div`
+type TItem = TActive & {
+  revert: boolean
+  noFilter: boolean
+  itemBgHighlight: boolean
+  topMargin: boolean
+}
+export const Item = styled.div<TItem>`
   ${css.flex()};
   justify-content: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   fill: ${theme('thread.articleDigest')};
@@ -39,7 +46,7 @@ export const Item = styled.div`
   }
   transition: margin-top 0.25s;
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TActive>`
   opacity: ${({ active }) => (active ? 1 : 0)};
   ${css.size(15)};
 

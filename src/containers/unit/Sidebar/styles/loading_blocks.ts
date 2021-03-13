@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { animate, css, theme } from '@/utils'
 import { SIDEBAR_WIDTH } from './metric'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-center')};
   background: ${theme('sidebar.bg')};
   width: ${SIDEBAR_WIDTH};

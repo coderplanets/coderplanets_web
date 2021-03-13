@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-
 import { contains } from 'ramda'
 
+import { TTestable, TActive } from '@/types'
 import { theme, css } from '@/utils'
 
 import {
@@ -14,7 +14,21 @@ import {
   getDim,
 } from './metrics'
 
-export const DrawerOverlay = styled.div`
+type TSwipe = {
+  swipeUpY: number
+  swipeDownY: number
+  options: Record<string, unknown>
+}
+
+type TDrawer = TTestable &
+  TActive &
+  TSwipe & {
+    mobile: boolean
+    rightOffset: string
+    type: string
+  }
+
+export const DrawerOverlay = styled.div<TActive>`
   bottom: 0;
   left: 0;
   overflow: auto;
@@ -31,13 +45,13 @@ export const DrawerOverlay = styled.div`
 // - Use styled components for static styles and dynamic styles that don't change very often;
 // - Use inline styles (through .attrs) for styles that change frequently, like for animations.
 export const DrawerWrapper = styled.div.attrs(
-  ({ testid, visible, mobile, swipeUpY, swipeDownY, options }) => ({
+  ({ testid, visible, mobile, swipeUpY, swipeDownY, options }: TDrawer) => ({
     'data-test-id': testid,
     style: {
       transform: getTransform(visible, mobile, swipeUpY, swipeDownY, options),
     },
   }),
-)`
+)<TDrawer>`
   ${css.flex()};
   position: fixed;
   right: ${({ rightOffset }) => rightOffset};
@@ -86,7 +100,8 @@ export const DrawerContent = styled.div`
   height: 100vh;
   box-shadow: ${theme('drawer.shadow')};
 `
-export const DrawerMobileContent = styled.div`
+type TDrawerMobile = { options: Record<string, unknown>; bgColor: string }
+export const DrawerMobileContent = styled.div<TDrawerMobile>`
   width: 100%;
   height: ${({ options }) => getMobileContentHeight(options)};
   box-shadow: ${theme('drawer.shadow')};
@@ -95,12 +110,12 @@ export const DrawerMobileContent = styled.div`
 `
 
 export const MobileInnerContent = styled.div.attrs(
-  ({ swipeUpY, swipeDownY, options }) => ({
+  ({ swipeUpY, swipeDownY, options }: TSwipe) => ({
     style: {
       filter: getDim(swipeUpY, swipeDownY, options),
     },
   }),
-)`
+)<TSwipe>`
   width: 100%;
   max-height: calc(100% - 30px);
   margin-top: ${({ options }) =>

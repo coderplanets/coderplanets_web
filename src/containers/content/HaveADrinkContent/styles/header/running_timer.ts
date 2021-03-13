@@ -1,7 +1,9 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css, keyframes, CSSProp } from 'styled-components'
 
 // import { css, theme } from '@/utils'
 // see example: https://codepen.io/HugoGiraudel/pen/BHEwo
+
+type Tinterval = '3s' | '5s' | '10s'
 
 const rota = keyframes`
   0% {
@@ -20,10 +22,10 @@ const opa = keyframes`
   }
 `
 
-const getRotaAnimation = (interval) => css`
+const getRotaAnimation = (interval: Tinterval) => css`
   ${rota} ${interval} linear infinite;
 `
-const getOpaAnimation = (interval, reverse = false): string => {
+const getOpaAnimation = (interval: Tinterval, reverse = false): CSSProp => {
   return reverse
     ? css`
         ${opa} ${interval} steps(1, end) infinite reverse;
@@ -78,7 +80,8 @@ const Handler = styled.div`
   }
 `
 export const TopHandlerBar = styled(Handler)``
-export const PieSpinner = styled.div`
+
+export const PieSpinner = styled.div<{ interval: Tinterval }>`
   width: 50%;
   height: 100%;
   transform-origin: 100% 50%;
@@ -97,7 +100,7 @@ export const PieSpinner = styled.div`
   animation: ${({ interval }) => getRotaAnimation(interval)};
 `
 
-export const PieFiller = styled.div`
+export const PieFiller = styled.div<{ interval: Tinterval }>`
   position: absolute;
   width: 50%;
   height: 100%;
@@ -117,7 +120,7 @@ export const PieFiller = styled.div`
   animation: ${({ interval }) => getOpaAnimation(interval, true)};
   border-left: none;
 `
-export const Mask = styled.div`
+export const Mask = styled.div<{ interval: Tinterval }>`
   position: absolute;
   width: 50%;
   height: 100%;

@@ -18,12 +18,12 @@ const SexIcon = styled(Img)`
 /* props.active === props.item ? theme('font', props) : 'grey'}; */
 export const Dude = styled.div``
 export const Girl = styled.div``
-export const DudeIcon = styled(SexIcon)`
+export const DudeIcon = styled(SexIcon)<{ value: string }>`
   fill: ${({ value }) =>
     value === 'dude' ? '#869eec' : theme('drawer.divider')};
 `
 
-export const GirlIcon = styled(SexIcon)`
+export const GirlIcon = styled(SexIcon)<{ value: string }>`
   fill: ${({ value }) => (value === 'girl' ? 'pink' : theme('drawer.divider'))};
   margin-top: 1px;
 `

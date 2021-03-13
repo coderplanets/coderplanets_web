@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.nav.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('align-center')};
   position: relative;
   overflow: hidden;
   width: 100%;
 `
 // #093542
-export const TabItem = styled.div`
+export const TabItem = styled.div<TActive>`
   ${css.flex('justify-center')};
   padding-top: 4px;
   padding-bottom: 4px;

@@ -42,7 +42,7 @@ export const DotList = styled.div`
   margin-left: 5px;
   margin-right: 3px;
 `
-export const ColorDot = styled.div`
+export const ColorDot = styled.div<{ scale: string }>`
   ${css.size(8)};
   border-radius: 2px;
   margin-right: 3px;

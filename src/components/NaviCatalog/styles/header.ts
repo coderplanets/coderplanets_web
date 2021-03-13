@@ -1,18 +1,19 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 const activeColor = '#009C9E'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('align-center', 'justify-between')}
   width: 100%;
   margin-bottom: 8px;
 `
-export const Title = styled.div`
+export const Title = styled.div<TActive>`
   position: relative;
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleTitle')};
@@ -22,7 +23,7 @@ export const Title = styled.div`
 export const OperatorsWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const Operator = styled.div`
+export const Operator = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   margin-left: 6px;
 `

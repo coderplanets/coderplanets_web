@@ -89,7 +89,7 @@ const GlobalLayoutContainer: React.FC<TProps> = ({
               <InnerWrapper
                 metric={metric}
                 sidebarPin={sidebarPin}
-                noSidebar={noSidebar}
+                // noSidebar={noSidebar}
               >
                 {!noSidebar && <Sidebar />}
                 <Drawer />

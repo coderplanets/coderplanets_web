@@ -7,7 +7,9 @@ import { ArrowLink } from '@/components/Buttons'
 
 // import { getPadding } from '../../metrics'
 
-export const Wrapper = styled.footer`
+type TItem = { normal: boolean; offsetTop: string }
+
+export const Wrapper = styled.footer<{ metric: string }>`
   ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 30px;
@@ -31,7 +33,7 @@ export const MainInfos = styled.div`
 
   ${css.media.tablet`display: none;`};
 `
-export const Column = styled.div`
+export const Column = styled.div<{ margin: string }>`
   ${css.flexColumn()};
   min-width: 100px;
   margin-right: ${({ margin }) => margin || '50px'};
@@ -82,7 +84,7 @@ export const Body = styled.div`
   ${css.flexColumn('justify-start')};
   color: ${theme('footer.text')};
 `
-export const Item = styled.a`
+export const Item = styled.a<TItem>`
   color: ${theme('footer.text')};
 
   font-size: 14px;

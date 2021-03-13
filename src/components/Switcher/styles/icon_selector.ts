@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 const width = '28px'
 const height = '25px'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('align-center')};
   position: relative;
 `
@@ -66,7 +67,7 @@ export const HoverText = styled.span`
   transition: opacity 0.25s;
   transition-delay: 0.3s;
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<{ checked: boolean }>`
   fill: ${({ checked }) =>
     checked ? '#66b5e8' : theme('thread.articleDigest')};
   width: ${({ checked }) => (checked ? '14px' : '12px')};
@@ -74,7 +75,7 @@ export const Icon = styled(Img)`
   display: block;
   transition: all 0.25s;
 `
-export const Slider = styled.span`
+export const Slider = styled.span<{ index: number }>`
   ${css.flex()};
   position: absolute;
   width: ${width};

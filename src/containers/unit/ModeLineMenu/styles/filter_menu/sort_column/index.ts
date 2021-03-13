@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-start')};
   width: 32vw;
   max-width: 32vw;
   height: 100%;
 `
-export const ItemBar = styled.div`
+export const ItemBar = styled.div<TActive>`
   ${css.flexColumn('align-start')};
   width: 95%;
   margin-bottom: 10px;

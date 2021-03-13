@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 // import { getShadowWidth } from './helpers'
 
-export const WrapperBase = styled.div`
+type TBox = { width: string; height: string }
+export const WrapperBase = styled.div<TBox>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
 `
@@ -10,7 +12,7 @@ export const ScrollWrapperBase = styled.div`
   width: 100%;
   height: 100%;
 `
-export const ShadowBarBase = styled.div`
+export const ShadowBarBase = styled.div<TActive>`
   position: absolute;
   z-index: 1;
   opacity: 0;

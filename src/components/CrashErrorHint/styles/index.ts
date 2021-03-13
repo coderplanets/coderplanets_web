@@ -1,14 +1,19 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { css, theme, themeSkins } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+type TThemeName = {
+  t: string
+}
+
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-center', 'justify-between')};
   height: 100vh;
   width: 100%;
-  color: #6B7F83;
+  color: #6b7f83;
   background: #072d3a;
 
   /* background: ${theme('thread.bg')}; */
@@ -21,22 +26,22 @@ export const HintIcon = styled.img`
   ${css.size(40)};
   margin-right: 15px;
 `
-export const Title = styled.div`
+export const Title = styled.div<TThemeName>`
   font-size: 30px;
   color: ${({ t }) => themeSkins[t].thread.articleTitle};
   padding-bottom: 12px;
 `
-export const Desc = styled.p`
+export const Desc = styled.p<TThemeName>`
   color: ${({ t }) => themeSkins[t].baseColor.red};
 `
-export const UL = styled.ul`
+export const UL = styled.ul<TThemeName>`
   margin-left: -22px;
   color: ${({ t }) => themeSkins[t].thread.articleDigest};
 `
 export const Li = styled.li`
   margin-top: 4px;
 `
-export const Action = styled.span`
+export const Action = styled.span<{ t: string; noUnderline: boolean }>`
   color: ${({ t }) => themeSkins[t].link};
   margin-left: 3px;
   margin-right: 3px;

@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 import { getWidth, getHeight } from './metric'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & { size: string }>`
   position: relative;
   ${css.flexColumn()};
   background-color: #004351;

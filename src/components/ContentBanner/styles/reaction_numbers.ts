@@ -10,7 +10,7 @@ export const NumbersInfo = styled(NumbersWrapper)`
   margin-top: 0;
 `
 // background: ${theme('banner.numberHoverBg')};
-export const NumberSection = styled.div`
+export const NumberSection = styled.div<{ readOnly: boolean }>`
   ${css.flexColumn('justify-center')};
 
   padding: 0 5px;
@@ -22,7 +22,7 @@ export const NumberSection = styled.div`
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
   }
 `
-export const NumberTitle = styled.div`
+export const NumberTitle = styled.div<{ readOnly: boolean }>`
   color: ${theme('banner.numberDesc')};
   text-align: center;
   &:hover {
@@ -31,7 +31,7 @@ export const NumberTitle = styled.div`
     animation: ${animate.pulse} 0.4s linear;
   }
 `
-export const NumberItem = styled.div`
+export const NumberItem = styled.div<{ readOnly: boolean }>`
   font-size: 1.5rem;
   text-align: center;
 

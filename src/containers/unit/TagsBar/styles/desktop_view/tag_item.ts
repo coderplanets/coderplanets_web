@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import HashTagSVG from '@/SvgIcons/HashTagSVG'
 import { theme, css } from '@/utils'
 
 import { TagsWrapper } from './index'
 
-export const Wrapper = styled.div`
+type TTag = TActive & { inline: boolean }
+
+export const Wrapper = styled.div<TTag>`
   ${css.flex('align-center')};
   margin-bottom: ${({ inline }) => (!inline ? '3px' : 0)};
   padding: ${({ inline }) => (!inline ? '5px' : 0)};
@@ -41,7 +44,7 @@ export const HashSign = styled(HashTagSVG)`
 
   transform: rotate(18deg);
 `
-export const TagTitle = styled.div`
+export const TagTitle = styled.div<TTag>`
   color: ${theme('tags.text')};
   font-size: ${({ inline }) => (!inline ? '14.5px' : '13px')};
   opacity: 0.9;

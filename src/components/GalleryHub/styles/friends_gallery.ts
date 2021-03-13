@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
-export const Block = styled.div`
+export const Block = styled.div<{ column: number }>`
   ${css.flexColumn('justify-between')};
   width: ${({ column }) => (column === 4 ? '25%' : '20%')};
   max-width: 200px;

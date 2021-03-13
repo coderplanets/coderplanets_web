@@ -9,7 +9,8 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
-export const Block = styled.div`
+type TBlock = { borderRight: boolean; borderTop: boolean }
+export const Block = styled.div<TBlock>`
   ${css.flexColumn('justify-between')};
   width: 33%;
   height: 230px;

@@ -11,7 +11,13 @@ import {
   getSimpleMargin,
 } from './metircs/arrow_button'
 
-export const Wrapper = styled.div`
+type TWrapper = {
+  disabled: boolean
+  dimWhenIdle: boolean
+  size: string
+  width: number
+}
+export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
   opacity: ${({ dimWhenIdle, disabled }) =>
     dimWhenIdle || disabled ? '0.65' : 1};
@@ -23,18 +29,19 @@ export const Wrapper = styled.div`
   }
   transition: all 0.25s;
 `
-export const Text = styled.div`
+export const Text = styled.div<{ size: string }>`
   font-size: ${({ size }) => getFontSize(size)};
   color: #327ca1;
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<{ size: string }>`
   fill: #327ca1;
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   display: block;
   transition: all 0.2s;
 `
-export const LeftIcon = styled(Icon)`
+type TIcon = { size: string; arrowStyle: string; disabled: boolean }
+export const LeftIcon = styled(Icon)<TIcon>`
   margin-right: ${({ size, arrowStyle }) =>
     arrowStyle === 'default' ? getMargin(size) : getSimpleMargin(size)};
 
@@ -51,7 +58,7 @@ export const LeftIcon = styled(Icon)`
     fill: #327ca1;
   }
 `
-export const RightIcon = styled(Icon)`
+export const RightIcon = styled(Icon)<TIcon>`
   margin-left: ${({ size, arrowStyle }) =>
     arrowStyle === 'default' ? getMargin(size) : getSimpleMargin(size)};
 

@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+type TChartBar = TActive & { width: string }
+
+export const Wrapper = styled.div<{ expand: boolean }>`
   ${css.flexColumn()};
   position: absolute;
   z-index: 1;
@@ -41,14 +44,14 @@ export const DashboardListWrapper = styled.div`
 export const DashItem = styled.div`
   ${css.flex('align-center')};
 `
-export const Title = styled.div`
+export const Title = styled.div<TActive>`
   color: ${({ active }) =>
     active ? theme('banner.title') : theme('thread.articleDigest')};
   width: 60px;
   text-align: center;
 `
 
-export const Divider = styled.div`
+export const Divider = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   border-bottom: 1px dashed;
   border-bottom-color: ${theme('thread.articleDigest')};
@@ -67,7 +70,7 @@ export const Num = styled.div`
 export const Chart = styled.div`
   ${css.flexGrow()};
 `
-export const ChartBar = styled.div`
+export const ChartBar = styled.div<TChartBar>`
   height: ${({ active }) => (active ? '4px' : '3px')};
 
   width: ${({ width }) => width};

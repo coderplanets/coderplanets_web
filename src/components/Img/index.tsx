@@ -6,7 +6,6 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 import { ReactSVG } from 'react-svg'
 
 import { buildLog } from '@/utils'
@@ -17,15 +16,28 @@ import LazyLoadImg from './LazyLoadImg'
 /* eslint-disable-next-line */
 const log = buildLog('c:Img')
 
-const Img = ({
-  className,
+type IProps = {
+  src: string
+  alt?: string
+  className?: string
+  loading?: boolean
+  fallback?: React.ReactNode | null
+  noLazy?: boolean
+  scrollPosition?: any
+  // see https://www.npmjs.com/package/react-lazy-load-image-component
+  visibleByDefault?: boolean
+  onClick?: () => void
+}
+
+const Img: React.FC<IProps> = ({
+  className = 'img-class',
   src,
-  alt,
+  alt = 'img',
   loading,
-  fallback,
-  noLazy,
-  scrollPosition,
-  visibleByDefault,
+  fallback = null,
+  noLazy = false,
+  scrollPosition = null,
+  visibleByDefault = false,
   onClick,
 }) => {
   if (/\.(svg)$/i.test(src)) {
@@ -67,28 +79,28 @@ const Img = ({
   )
 }
 
-Img.propTypes = {
-  src: T.string.isRequired,
-  alt: T.string,
-  className: T.string,
-  loading: T.any,
-  fallback: T.oneOfType([T.node, T.instanceOf(null)]),
-  noLazy: T.bool,
-  scrollPosition: T.any,
-  // see https://www.npmjs.com/package/react-lazy-load-image-component
-  visibleByDefault: T.bool,
-  onClick: T.func,
-}
+// Img.propTypes = {
+//   src: T.string.isRequired,
+//   alt: T.string,
+//   className: T.string,
+//   loading: T.any,
+//   fallback: T.oneOfType([T.node, T.instanceOf(null)]),
+//   noLazy: T.bool,
+//   scrollPosition: T.any,
+//   // see https://www.npmjs.com/package/react-lazy-load-image-component
+//   visibleByDefault: T.bool,
+//   onClick: T.func,
+// }
 
-Img.defaultProps = {
-  alt: 'img',
-  className: 'img-class',
-  loading: null,
-  fallback: null,
-  noLazy: false,
-  scrollPosition: null,
-  visibleByDefault: false,
-  onClick: log,
-}
+// Img.defaultProps = {
+//   alt: 'img',
+//   className: 'img-class',
+//   loading: null,
+//   fallback: null,
+//   noLazy: false,
+//   scrollPosition: null,
+//   visibleByDefault: false,
+//   onClick: log,
+// }
 
 export default React.memo(Img)

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 
-export const Container = styled.div`
+export const Container = styled.div<TActive>`
   ${css.flexColumn()};
   /* background: ${theme('drawer.articleBg')}; */
   background: #013340;
@@ -19,7 +20,7 @@ export const Container = styled.div`
     background: #08303c;  /* TODO: same as comment background */
   `};
 `
-export const InputEditorWrapper = styled.div`
+export const InputEditorWrapper = styled.div<{ showInputEditor: boolean }>`
   height: auto;
   margin: 0 30px;
   margin-bottom: 30px;

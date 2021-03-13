@@ -10,11 +10,11 @@ import {
   Avatar,
 } from '../../../styles/top_bar/mobile_view/article_bar'
 
-const ArticleBar = ({ visiable, viewingArticle }) => {
+const ArticleBar = ({ visible, viewingArticle }) => {
   const { author, title } = viewingArticle
 
   return (
-    <Wrapper visiable={visiable}>
+    <Wrapper visible={visible}>
       <InnerWrapper>
         <BaseInfo>
           <Avatar

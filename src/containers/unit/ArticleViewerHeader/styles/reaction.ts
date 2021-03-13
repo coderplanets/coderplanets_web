@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { theme, css, animate } from '@/utils'
 
@@ -18,7 +19,7 @@ export const PlainAction = styled.div`
   ${css.flex('align-center')};
   border-radius: 5px;
 `
-export const ReactionAction = styled(PlainAction)`
+export const ReactionAction = styled(PlainAction)<TActive>`
   background-color: ${({ active }) =>
     active ? theme('article.reactionHoverBg') : ''};
   padding: ${({ active }) => (active ? '2px 5px' : '2px 3px')};

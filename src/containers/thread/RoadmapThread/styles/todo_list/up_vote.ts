@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleTitle')};
   width: 32px;
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<{ viewerDid: boolean }>`
   fill: ${({ viewerDid }) =>
     viewerDid ? theme('comment.didIcon') : theme('comment.icon')};
 

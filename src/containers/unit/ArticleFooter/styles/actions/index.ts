@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flex('align-center')};
 `
 export const Item = styled.div`
@@ -25,7 +26,7 @@ export const ReferNum = styled.span`
   color: #00a59b;
   margin-right: 3px;
 `
-export const Text = styled.div`
+export const Text = styled.div<TActive>`
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: 12px;
@@ -37,9 +38,9 @@ export const Text = styled.div`
 
   transition: color 0.25s;
 `
-export const PanelWrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const PanelWrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn()};
   position: relative;
   border-top: 1px solid;

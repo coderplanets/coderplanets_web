@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { css, theme } from '@/utils'
 
-const Block = styled.div`
+const Block = styled.div<{ bgColor: string }>`
   position: relative;
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
@@ -10,7 +10,7 @@ const Block = styled.div`
   background: ${({ bgColor }) => bgColor};
   padding-left: 10px;
 `
-const ArrowShape = styled.div`
+const ArrowShape = styled.div<{ bgColor: string }>`
   position: absolute;
   right: -10px;
   width: 0;
@@ -25,7 +25,7 @@ export const TagWrapper = styled(Block)`
   padding-left: 0;
   padding-right: 0;
 `
-export const ArrowShapeLeft = styled(ArrowShape)`
+export const ArrowShapeLeft = styled(ArrowShape)<{ bgColor: string }>`
   left: -10px;
   border-left: 10px solid;
   border-left-color: ${({ bgColor }) => bgColor};

@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 // import { lighten } from 'polished'
 
+import { TButton, TButtonSize } from '@/types'
 import { theme, css } from '@/utils'
 
 import { Wrapper as BaseBtnWrapper } from '../button'
 import { OrSignBase } from './index'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ size: TButtonSize }>`
   ${css.flex('align-center')};
   position: relative;
 `
-const BaseButton = styled(BaseBtnWrapper)`
+const BaseButton = styled(BaseBtnWrapper)<TButton>`
   ${css.flex('align-both')};
   width: 50%;
   color: ${({ active }) => (active ? theme('button.fg') : '#99b9bf')};
@@ -26,14 +27,14 @@ const BaseButton = styled(BaseBtnWrapper)`
       active ? theme('button.hoverBg') : '#065061'};
   }
 `
-export const LeftButton = styled(BaseButton)`
+export const LeftButton = styled(BaseButton)<TButton>`
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   /* border-color: #024250; */
 `
 export const OrSign = styled(OrSignBase)``
 
-export const RightButton = styled(BaseButton)`
+export const RightButton = styled(BaseButton)<TButton>`
   border-color: #024250;
   margin-left: 3px;
   border-top-left-radius: 0;

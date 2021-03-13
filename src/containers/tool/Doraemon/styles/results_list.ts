@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { theme, animate, css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ empty: boolean }>`
   position: relative;
   display: ${({ empty }) => (empty ? 'none' : 'flex')};
   flex-direction: column;
@@ -19,7 +20,7 @@ export const AddOn = styled.div`
   margin-left: 15px;
   width: 25px;
 `
-export const PageOverlay = styled.div`
+export const PageOverlay = styled.div<TActive>`
   //  background-color: rgba(0, 0, 0, 0.4);
   bottom: 0;
   cursor: pointer;
@@ -32,7 +33,7 @@ export const PageOverlay = styled.div`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
-export const PanelContainer = styled.div`
+export const PanelContainer = styled.div<TActive>`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   width: 45vw;
   max-width: 550px;
@@ -65,7 +66,7 @@ export const AlertBar = styled(BaseBar)`
     color: ${theme('baseColor.red')};
   }
 `
-export const InfoBar = styled(BaseBar)`
+export const InfoBar = styled(BaseBar)<TActive>`
   padding: 10px;
   min-height: 65px;
   background: ${({ active }) => (active ? theme('shell.activeBg') : '')};
@@ -145,12 +146,12 @@ export const RepoStar = styled.div`
   margin-right: 10px;
 `
 
-export const NodeSVGIcon = styled(Img)`
+export const NodeSVGIcon = styled(Img)<{ reverse: boolean }>`
   ${css.size(40)};
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 
-export const ThemeDot = styled.div`
+export const ThemeDot = styled.div<{ bg: string }>`
   ${css.circle(35)};
   background: ${({ bg }) => bg};
 `

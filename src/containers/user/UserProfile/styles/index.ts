@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))``
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>``
 export const ContributesWrapper = styled.div`
   width: 100%;
   max-width: 800px;

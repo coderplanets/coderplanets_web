@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-start')};
   color: ${theme('thread.articleTitle')};
   line-height: 24px;
   font-size: 15px;
   opacity: 0.8;
 `
-export const Indent = styled.div`
+export const Indent = styled.div<{ errorBg: string }>`
   position: relative;
   margin-left: ${({ errorBg }) => (errorBg ? '0' : '15px')};
   background: ${({ errorBg }) => (errorBg ? '#653227' : 'transparent')};

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
@@ -13,7 +14,7 @@ export const TextWrapper = styled.div`
   align-items: baseline;
 `
 export const Text = styled.div``
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TActive>`
   fill: ${theme('banner.desc')};
   ${css.size(16)};
   margin-right: 3px;

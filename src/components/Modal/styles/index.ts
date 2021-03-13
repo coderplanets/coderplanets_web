@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, animate, css } from '@/utils'
 import Img from '@/Img'
 
 // display: ${props => (props.show ? 'block' : 'none')};
-export const Mask = styled.div`
+export const Mask = styled.div<TActive>`
   position: fixed;
   overflow: auto;
   top: 0;
@@ -15,7 +16,13 @@ export const Mask = styled.div`
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
-export const Wrapper = styled.div`
+type TWrapper = {
+  background: string
+  width: string
+  mode: string
+  offsetTop: string
+}
+export const Wrapper = styled.div<TWrapper>`
   position: relative;
   background-color: ${({ background }) =>
     background === 'default' ? theme('modal.bg') : theme('drawer.bg')};
@@ -42,7 +49,8 @@ export const ChildrenWrapper = styled.div`
   height: auto;
   overflow-y: scroll;
 `
-export const CloseBtn = styled(Img)`
+type TCloseBtn = TActive & { mode: string }
+export const CloseBtn = styled(Img)<TCloseBtn>`
   fill: ${({ mode }) =>
     mode === 'default' ? theme('font') : theme('baseColor.red')};
   position: absolute;

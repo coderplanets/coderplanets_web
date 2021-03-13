@@ -22,7 +22,7 @@ export const SubBarWrapper = styled.div`
   height: 100%;
   margin-left: 3px;
 `
-export const SubBar = styled(SwitchBarBase)`
+export const SubBar = styled(SwitchBarBase)<{ marginBottom: boolean }>`
   width: 4px;
   height: 6px;
   margin-bottom: ${({ marginBottom }) => (marginBottom ? '2px' : 'none')};

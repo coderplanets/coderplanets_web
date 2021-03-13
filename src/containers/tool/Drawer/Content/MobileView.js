@@ -15,7 +15,7 @@ const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
   const [topHeaderTextTimer, setTopHeaderTextTimer] = useState(null)
 
   /*
-   * reset when content visiable
+   * reset when content visible
    * scroll to top always
    */
   useEffect(() => {

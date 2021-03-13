@@ -44,7 +44,7 @@ export const ViewsIcon = styled(Img)`
   margin-right: 3px;
 `
 
-export const ActiveItemWrapper = styled.div`
+export const ActiveItemWrapper = styled.div<{ hasComments: string }>`
   position: absolute;
   top: ${({ hasComments }) => (hasComments ? '5px' : '-24px')};
   right: 0;

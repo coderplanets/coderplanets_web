@@ -4,7 +4,7 @@ import { css } from '@/utils'
 
 import { CommonNavi, CommonHint, CommonCenterArrowIcon } from '../index'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ disabled: boolean }>`
   ${css.flex('align-center')};
   color: #196780;
 
@@ -19,7 +19,7 @@ export const Icon = styled(CommonCenterArrowIcon)`
     fill: #327faf;
   }
 `
-export const NaviInfo = styled.div`
+export const NaviInfo = styled.div<{ disabled: boolean }>`
   ${css.flexColumn('align-center')};
   margin-right: 10px;
 

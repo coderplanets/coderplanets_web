@@ -1,9 +1,10 @@
 import styled, { css as styledCss } from 'styled-components'
 
+import { TActive } from '@/types'
 import { animate, css } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TActive>`
   ${css.flex('align-both')};
   height: 130px;
   width: 100%;
@@ -19,20 +20,20 @@ const color = {
   beam: '#00CAF9',
 }
 
-const Star = styled(Img)`
+const Star = styled(Img)<TActive>`
   position: absolute;
   ${css.size(20)};
   fill: ${color.beam};
   display: ${({ active }) => (active ? 'block' : 'none')};
 `
-export const Star1 = styled(Star)`
+export const Star1 = styled(Star)<TActive>`
   top: 0;
   left: -30px;
   opacity: 0.6;
   animation: ${({ active }) =>
     active ? styledCss`${animate.jump} 4s linear infinite alternate` : ''};
 `
-export const Star2 = styled(Star)`
+export const Star2 = styled(Star)<TActive>`
   ${css.size(16, false)};
   top: 50px;
   left: -80px;
@@ -40,7 +41,7 @@ export const Star2 = styled(Star)`
   animation: ${({ active }) =>
     active ? styledCss`${animate.jump} 5.5s linear infinite alternate` : ''};
 `
-export const Star3 = styled(Star)`
+export const Star3 = styled(Star)<TActive>`
   top: 80px;
   right: -80px;
   opacity: 0.5;

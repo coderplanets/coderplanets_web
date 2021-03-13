@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
 `
 
-export const TabItem = styled.div`
+export const TabItem = styled.div<TActive>`
   ${css.flex('align-center')};
   width: 70px;
   padding: 0 5px;

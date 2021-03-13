@@ -13,7 +13,7 @@ import {
 } from '../../../styles/top_bar/mobile_view/community_bar'
 import { tabOnChange } from '../../../logic'
 
-const CommunityBar = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
+const CommunityBar = ({ visible, viewing, leftOffset, hasNoBottomBorder }) => {
   const { community, activeThread } = viewing
 
   return (
@@ -21,7 +21,7 @@ const CommunityBar = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
       leftOffset={leftOffset}
       noBorder={hasNoBottomBorder}
       testid="modeline-topbar"
-      visiable={visiable}
+      visible={visible}
     >
       <InnerWrapper>
         <TabsWrapper>

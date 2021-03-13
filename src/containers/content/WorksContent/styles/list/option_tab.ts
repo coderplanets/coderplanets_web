@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
@@ -9,7 +10,7 @@ export const Wrapper = styled.div`
   margin-top: 5px;
   margin-left: 16px;
 `
-export const ItemWrapper = styled.div`
+export const ItemWrapper = styled.div<TActive>`
   ${css.flex('align-both')};
   cursor: pointer;
   background-color: ${({ active }) => (active ? '#033844' : 'transparent')};
@@ -17,14 +18,14 @@ export const ItemWrapper = styled.div`
   border-radius: 10px;
   padding: ${({ active }) => (active ? '2px 12px' : '2px 8px')};
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TActive>`
   fill: ${theme('thread.articleTitle')};
   display: ${({ active }) => (active ? 'block' : 'none')};
   ${css.size(14)};
   margin-right: 5px;
   margin-bottom: 1px;
 `
-export const Text = styled.div`
+export const Text = styled.div<TActive>`
   opacity: ${({ active }) => (active ? 1 : 0.6)};
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};

@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 // see https://stackoverflow.com/questions/6794000/fixed-position-but-relative-to-container
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable & TActive>`
   ${css.flexColumn('align-start', 'justify-start')};
   position: fixed;
   width: 170px;

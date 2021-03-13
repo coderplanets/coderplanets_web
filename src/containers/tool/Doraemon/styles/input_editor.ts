@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { theme } from '@/utils'
 
 import { BaseBar } from './index'
@@ -13,9 +14,9 @@ export const EditorBar = styled(BaseBar)`
   position: relative;
   height: 58px;
 `
-export const InputBar = styled.input.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const InputBar = styled.input.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   caret-color: ${theme('shell.searchInput')};
   flex-grow: 1;
   font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',

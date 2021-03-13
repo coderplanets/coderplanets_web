@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn()};
 `
 export const Main = styled.div`
@@ -26,7 +27,7 @@ export const NotifyOffIcon = styled(NotifyIcon)`
     fill: ${theme('thread.articleTitle')};
   }
 `
-export const Title = styled.div`
+export const Title = styled.div<{ active: boolean }>`
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: 13px;

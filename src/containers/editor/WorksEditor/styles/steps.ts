@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 import { CONTENT_WIDTH } from './metric'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
   ${css.flex('align-center', 'justify-between')};
   width: ${`${CONTENT_WIDTH}px`};
@@ -32,7 +33,7 @@ export const Step = styled.div`
 export const FirstStep = styled(Step)`
   align-content: flex-start;
 `
-export const Dot = styled.div`
+export const Dot = styled.div<TActive>`
   background-color: ${({ active }) =>
     active ? theme('thread.articleDigest') : '#1c4048'};
   width: ${({ active }) => (active ? '11px' : '10px')};
@@ -47,7 +48,7 @@ export const Dot = styled.div`
 
   transition: all 0.2s;
 `
-export const Hint = styled.div`
+export const Hint = styled.div<TActive>`
   font-size: 12px;
   margin-top: ${({ active }) => (active ? '5px' : '6px')};
 

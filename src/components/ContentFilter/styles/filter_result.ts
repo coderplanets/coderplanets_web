@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -18,7 +19,7 @@ export const ResultDivider = styled.div`
 export const MoreOptionWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const FaqText = styled.div`
+export const FaqText = styled.div<TActive>`
   background-color: #104456;
   border-radius: 3px;
   padding: 0 6px;

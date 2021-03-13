@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Input from '@/components/Input'
 import { theme, css } from '@/utils'
 
-export const ViewerWrapper = styled.div`
+export const Wrapper = styled.div``
+export const ViewerWrapper = styled.div<TActive>`
   display: ${({ active }) => (active ? 'block' : 'none')};
 `
-
-export const Wrapper = styled.div``
-
 export const Header = styled.div`
   ${css.flex()};
   margin-left: 35px;

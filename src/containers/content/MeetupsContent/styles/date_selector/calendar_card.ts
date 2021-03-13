@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 // import Img from '@/Img'
 import { css, theme } from '@/utils'
 
@@ -91,7 +92,7 @@ export const WeekName = styled.div`
   border-radius: 100%;
   color: white;
 `
-export const DateItem = styled.div`
+export const DateItem = styled.div<TActive>`
   ${css.flexColumn('justify-between')};
   border: 1px solid;
   border-color: #043a48;

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-export const FilterWraper = styled.div`
+export const FilterWraper = styled.div<TActive>`
   margin-right: 8px;
   margin-top: 8px;
   display: ${({ show }) => (show ? 'block' : 'none')};
@@ -22,7 +23,7 @@ export const Header = styled.div`
     font-size: 13px;
   `};
 `
-export const FilterIcon = styled(Img)`
+export const FilterIcon = styled(Img)<{ reverse: boolean }>`
   fill: ${theme('comment.title')};
   margin-right: 3px;
   ${css.size(20)};
@@ -38,10 +39,10 @@ export const MenuWrapper = styled.div`
   margin-top: 10px;
 `
 
-export const MenuItem = styled.div`
+export const MenuItem = styled.div<TActive>`
   margin-bottom: 10px;
-  color: ${({ active, type }) =>
-    active === type ? theme('comment.filterActive') : theme('comment.filter')};
+  color: ${({ active }) =>
+    active ? theme('comment.filterActive') : theme('comment.filter')};
   &:hover {
     cursor: pointer;
     color: ${theme('comment.filterActive')};

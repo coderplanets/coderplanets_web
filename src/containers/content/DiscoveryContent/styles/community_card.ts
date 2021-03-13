@@ -26,7 +26,7 @@ export const Wrapper = styled(BaseCard)`
     border: 1px solid #327faf;
     box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15); /* same with the popover */
   }
-/*
+  /*
   &:hover {
     border: 1px solid;
     border-color: ${theme('content.cardBorderHover')};
@@ -37,7 +37,7 @@ export const Wrapper = styled(BaseCard)`
 `
 
 // fill only works for non-colored svgs
-export const CommunityIcon = styled(Img)`
+export const CommunityIcon = styled(Img)<{ nonFill: boolean }>`
   ${css.size(54)};
   fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
   margin-bottom: 8px;

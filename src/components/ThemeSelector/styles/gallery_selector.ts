@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 
 import { Dot } from './index'
@@ -17,7 +18,8 @@ export const ThemeDot = styled(Dot)`
     content: '';
   }
 `
-export const IntroBox = styled.div`
+type TIntroBox = TActive & { index: number }
+export const IntroBox = styled.div<TIntroBox>`
   ${css.flex('justify-between')};
   margin-right: ${({ index }) => (index % 2 === 0 ? '5%' : 0)};
   background: ${({ active }) => (active ? theme('banner.bg') : 'transparent')};
@@ -51,9 +53,9 @@ export const IntroDesc = styled.div`
   padding-top: 5px;
   padding-bottom: 20px;
 `
-export const ThemeTitle = styled.div`
+export const ThemeTitle = styled.div<TActive>`
   /* color: ${theme('banner.title')}; */
-  color: #7B8F90;
+  color: #7b8f90;
   font-size: 17px;
   font-weight: ${({ active }) => (active ? 'bolder' : '')};
   cursor: pointer;
@@ -64,10 +66,10 @@ export const ThemeTitle = styled.div`
     font-weight: bold;
   }
 `
-export const ThemeDesc = styled.div`
+export const ThemeDesc = styled.div<TActive>`
   font-size: ${({ active }) => (active ? '15px' : '14px')};
   /* color: ${theme('banner.desc')}; */
-  color: #7B8F90;
+  color: #7b8f90;
   opacity: ${({ active }) => (active ? '1' : '0.6')};
   cursor: pointer;
 `

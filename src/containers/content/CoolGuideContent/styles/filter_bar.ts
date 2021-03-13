@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 import { WIDTH as NAVI_CATALOG_WIDTH } from '@/components/NaviCatalog/styles/metric'
 import { SIDEBAR_WIDTH } from './metric'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   width: ${SIDEBAR_WIDTH};
 `
 export const Divider = styled.div`
@@ -22,7 +23,7 @@ export const TopFilter = styled.div`
   color: ${theme('thread.articleDigest')};
   width: ${NAVI_CATALOG_WIDTH};
 `
-export const Option = styled.div`
+export const Option = styled.div<TActive>`
   ${css.flex('align-center')};
   font-size: 14px;
   padding: 6px;
@@ -41,7 +42,7 @@ export const Option = styled.div`
 export const OptionItem = styled.div`
   flex-grow: 1;
 `
-const OptionIconBase = styled(Img)`
+const OptionIconBase = styled(Img)<TActive>`
   ${css.size(12)};
   opacity: ${({ active }) => (active ? '1' : '0')};
 

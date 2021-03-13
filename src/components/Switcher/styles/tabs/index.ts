@@ -1,10 +1,17 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { css } from '@/utils'
 
-export const Wrapper = styled.nav.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+type TSlipBar = {
+  slipHeight: string
+  width: string
+  translateX: number
+}
+
+export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
   overflow: hidden;
   width: auto;
@@ -17,7 +24,8 @@ export const Nav = styled.nav`
   margin: 0 auto;
   padding: 0;
 `
-export const SlipBar = styled.span`
+
+export const SlipBar = styled.span<TSlipBar>`
   position: absolute;
   ${css.flex('justify-center')};
   width: ${({ width }) => width};
@@ -28,7 +36,7 @@ export const SlipBar = styled.span`
   transform: ${({ translateX }) => `translate3d(${translateX}, 0, 0);`};
   transition: transform 0.25s;
 `
-export const RealBar = styled.span`
+export const RealBar = styled.span<{ width: string }>`
   width: ${({ width }) => width};
   height: 3px;
   background: #327faf;

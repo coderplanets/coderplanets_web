@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
@@ -18,7 +19,7 @@ export const OptionItem = styled.div`
     cursor: pointer;
   }
 `
-export const OptionCheckIcon = styled(Img)`
+export const OptionCheckIcon = styled(Img)<TActive>`
   fill: ${theme('banner.title')};
   opacity: ${({ active }) => (active ? '1' : '0')};
   ${css.size(12)};

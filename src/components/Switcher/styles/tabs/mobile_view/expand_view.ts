@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 import { Nav as NavBase } from '../index'
 
-export const Wrapper = styled.nav.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
   width: 100%;
   font-size: 13px;

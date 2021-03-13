@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
-import HeaderMailSVG from '@/SvgIcons/HeaderMailSVG'
+import { TTestable, TActive } from '@/types'
 import { css, theme } from '@/utils'
+import HeaderMailSVG from '@/SvgIcons/HeaderMailSVG'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
 `
 export const HeaderMailIcon = styled(HeaderMailSVG)`
@@ -14,7 +15,7 @@ export const HeaderMailIcon = styled(HeaderMailSVG)`
   cursor: pointer;
   margin-right: 12px;
 `
-export const NotifyDot = styled.div`
+export const NotifyDot = styled.div<TActive>`
   position: absolute;
   display: ${({ active }) => (active ? 'block' : 'none')};
   ${css.circle(8, false)};

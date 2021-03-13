@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 // import Img from '@/Img'
 import { theme, css } from '@/utils'
 
@@ -21,7 +22,7 @@ export const Title = styled.div`
   margin-bottom: 16px;
 `
 export const ItemsWrapper = styled.div``
-export const Item = styled.div`
+export const Item = styled.div<TActive>`
   position: relative;
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};

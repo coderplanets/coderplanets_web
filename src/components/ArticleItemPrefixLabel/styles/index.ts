@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, css, pixelAdd } from '@/utils'
 import PinSVG from '@/SvgIcons/PinSVG'
 
-export const ReadedLabel = styled.div`
+export const ReadedLabel = styled.div<{ topOffset: string }>`
   background: ${theme('thread.articleDigest')};
   width: 8px;
   height: 3px;

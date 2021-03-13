@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { TYPE } from '@/constant'
 import { theme, animate, css } from '@/utils'
 
@@ -15,7 +16,7 @@ export const Wrapper = styled.div`
 `
 const closeWith = '40px'
 
-export const CloseTab = styled.div`
+export const CloseTab = styled.div<{ type: string }>`
   float: right;
   width: ${closeWith};
   height: ${closeWith};
@@ -64,7 +65,7 @@ export const MobileCloser = styled.div`
     font-weight: lighter;
   }
 `
-export const UploadingTab = styled.div`
+export const UploadingTab = styled.div<TActive>`
   ${css.flexColumn('justify-evenly')};
   align-items: center;
   opacity: ${({ show }) => (show ? 1 : 0)};

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 // import Img from '@/Img'
 import { theme, css } from '@/utils'
 import { BaseBar } from './index'
@@ -13,7 +14,7 @@ export const Wrapper = styled(BaseBar)`
   padding-right: 20px;
 `
 
-export const Selector = styled.div`
+export const Selector = styled.div<TActive>`
   font-size: 0.9rem;
   padding-bottom: 2px;
   color: ${({ active }) =>

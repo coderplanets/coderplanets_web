@@ -23,7 +23,7 @@ const getColor = (num) => {
   return 'yellowgreen'
 }
 
-export const CounterCur = styled.div`
+export const CounterCur = styled.div<{ num: number }>`
   margin-right: 5px;
   font-size: 1em;
   color: ${({ num }) => getColor(num)};

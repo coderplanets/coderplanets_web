@@ -11,12 +11,12 @@ export const Wrapper = styled.div`
   width: 100%;
   margin-top: 15px;
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${({ metric }) => css.fitPageWidth(metric)};
   width: 100%;
   margin-bottom: ${({ metric }) => (metric === 'article' ? '30px' : 0)};
 `
-export const MainInfos = styled.footer`
+export const MainInfos = styled.footer<{ center: boolean }>`
   ${css.flexColumn('align-center')};
   align-items: ${({ center }) => (center ? 'center' : 'flex-start')};
   margin-bottom: 20px;

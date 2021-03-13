@@ -20,7 +20,9 @@ const CatalogCard = styled.div`
   border-bottom-right-radius: 10px;
   box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 2%);
 `
-export const ParentCatalogCard = styled(CatalogCard)`
+type TParentCatalogCard = { index: number; isFirst: boolean; isLast: boolean }
+
+export const ParentCatalogCard = styled(CatalogCard)<TParentCatalogCard>`
   z-index: ${({ index }) => 100 - index};
   height: ${({ isFirst }) => (isFirst ? '36px' : '46px')};
   margin-top: ${({ isFirst }) => (isFirst ? '0' : '-10px')};

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
@@ -8,7 +9,7 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   width: 100%;
 `
-export const Block = styled.div`
+export const Block = styled.div<TActive>`
   ${css.flexColumn('align-center', 'justify-between')}
   color: #708b96;
   width: 240px;

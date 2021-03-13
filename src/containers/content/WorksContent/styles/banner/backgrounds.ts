@@ -36,7 +36,16 @@ export const Wrapper = styled.div`
   height: 240px;
   /* z-index: 1; */
 `
-export const Icon = styled(Img)`
+type IIcon = {
+  top: string
+  left: string
+  color: string
+  size: string
+  rotate: string
+  opacity: number
+}
+
+export const Icon = styled(Img)<IIcon>`
   position: absolute;
   z-index: 1;
   fill: ${({ color }) => getColor(color)};

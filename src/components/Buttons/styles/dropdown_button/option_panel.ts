@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ panelMinWidth: string }>`
   ${css.flexColumn()};
   width: 100%;
   min-width: ${({ panelMinWidth }) => panelMinWidth};
@@ -34,12 +34,12 @@ export const IconWrapper = styled.div`
   ${css.flex('justify-center')};
   width: 28px;
 `
-export const Icon = styled(Img)`
+/* width: ${({ bigger }) => (bigger ? '24px' : '18px')};
+  height: ${({ bigger }) => (bigger ? '24px' : '18px')}; */
+export const Icon = styled(Img)<{ index: number }>`
   fill: ${theme('button.primary')};
   ${css.size(16)};
   margin-top: 4px;
-  /* width: ${({ bigger }) => (bigger ? '24px' : '18px')};
-  height: ${({ bigger }) => (bigger ? '24px' : '18px')}; */
   display: block;
 
   opacity: ${({ index }) => (index === 0 ? 1 : 0)};

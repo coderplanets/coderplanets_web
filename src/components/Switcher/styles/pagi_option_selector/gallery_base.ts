@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { css } from '@/utils'
 
 export const SwitchWrapper = styled.div`
@@ -9,7 +10,7 @@ export const SwitchWrapper = styled.div`
   cursor: pointer;
   transform: scale(0.8);
 `
-export const SwitchBarBase = styled.div`
+export const SwitchBarBase = styled.div<TActive>`
   height: 6px;
   background: ${({ active }) => (active ? '#3680ad' : '#196780')};
   opacity: ${({ active }) => (active ? 1 : 0.8)};

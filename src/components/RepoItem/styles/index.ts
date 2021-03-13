@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.article`
+export const Wrapper = styled.article<{ opacity: number }>`
   ${css.flexColumnGrow()};
 
   position: relative;

@@ -25,7 +25,7 @@ export const SocialWrapper = styled.div`
     cursor: pointer;
   }
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<{ size: string }>`
   fill: ${theme('banner.desc')};
   border-radius: 50%;
   width: ${({ size }) => (size === 'small' ? '14px;' : '17px')};
@@ -38,6 +38,6 @@ export const Icon = styled(Img)`
     fill: ${theme('banner.active')};
   }
 `
-export const Title = styled.div`
+export const Title = styled.div<{ size: string }>`
   font-size: ${({ size }) => (size === 'small' ? '12px;' : '14px')};
 `

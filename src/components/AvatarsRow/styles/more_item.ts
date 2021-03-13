@@ -5,7 +5,7 @@ import { css, theme } from '@/utils'
 import { Wrapper as BaseWrapper, AvatarsMore } from './index'
 import { getAvatarSize, getMoreTextWidth } from './metric'
 
-const BaseAvatarItem = styled.li`
+const BaseAvatarItem = styled.li<{ size: string }>`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   position: relative;
@@ -21,7 +21,8 @@ const BaseAvatarItem = styled.li`
 export const Wrapper = styled(BaseAvatarItem)`
   ${css.media.mobile`display: none`};
 `
-export const NumbersMore = styled(AvatarsMore)`
+type TNumbersMore = { size: string; total: number }
+export const NumbersMore = styled(AvatarsMore)<TNumbersMore>`
   height: ${({ size }) => getAvatarSize(size)};
   width: ${({ total }) => getMoreTextWidth(total)};
   font-weight: 400;

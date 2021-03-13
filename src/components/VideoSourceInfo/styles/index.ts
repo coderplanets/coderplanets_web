@@ -14,7 +14,7 @@ export const LinkIcon = styled(Img)`
   ${css.size(12)};
   margin-right: 3px;
 `
-export const LogoIcon = styled(Img)`
+export const LogoIcon = styled(Img)<{ color: string }>`
   fill: ${({ color }) => color};
   ${css.size(15)};
   margin-right: 4px;

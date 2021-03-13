@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
+
+type TMenuItemTitle = TActive & { pin: boolean; forceRerender: boolean }
 
 export const Wrapper = styled.div`
   display: block;
@@ -11,7 +14,7 @@ export const Wrapper = styled.div`
 
   transition: all 0.25s;
 `
-export const ActiveBar = styled.div`
+export const ActiveBar = styled.div<TActive>`
   position: absolute;
   opacity: ${({ active }) => (active ? 1 : 0)};
   background: ${theme('sidebar.activeBar')};
@@ -27,7 +30,7 @@ export const ActiveBar = styled.div`
 
   transition: opacity 0.25s;
 `
-export const DragIcon = styled(Img)`
+export const DragIcon = styled(Img)<TActive>`
   position: absolute;
   top: 15px;
   left: 0;
@@ -52,19 +55,19 @@ export const MenuItemBar = styled.div`
   box-sizing: border-box;
   color: ${theme('sidebar.menuLink')};
 `
-export const MenuRow = styled.div`
+export const MenuRow = styled.div<{ sortOptActive: boolean }>`
   ${css.flex('align-center')};
   font-size: 1rem;
   margin-left: ${({ sortOptActive }) => (sortOptActive ? '10px' : '0')};
 `
 // opacity maybe overwrite by lazy image
-export const MenuItemIcon = styled(CommunityFaceLogo)`
+export const MenuItemIcon = styled(CommunityFaceLogo)<TActive>`
   opacity: ${({ active }) => (active ? '1 !important' : '0.8 !important')};
   ${css.size(22)};
   margin-right: 10px;
   transition: opacity 0.2s;
 `
-export const MenuItemTitle = styled.div`
+export const MenuItemTitle = styled.div<TMenuItemTitle>`
   /* flex-grow: 1; */
   width: ${({ pin }) => (pin ? '100%' : '1px')};
   max-width: ${({ pin }) => (pin ? '52%' : '')};
@@ -80,7 +83,7 @@ export const MenuItemTitle = styled.div`
   }
   transition: opacity 0.25s;
 `
-export const MiniChartWrapper = styled.div`
+export const MiniChartWrapper = styled.div<{ pin: boolean }>`
   display: ${({ pin }) => (pin ? 'flex' : 'none')};
   width: 45%;
   justify-content: center;

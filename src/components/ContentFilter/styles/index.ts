@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 
@@ -32,7 +33,7 @@ export const LabelDivider = styled.div`
   margin-bottom: 10px;
   opacity: 0.6;
 `
-export const SelectIcon = styled(Img)`
+export const SelectIcon = styled(Img)<{ reverse: boolean }>`
   fill: ${theme('banner.title')};
   ${css.size(15)};
   align-items: center;
@@ -45,11 +46,11 @@ export const SelectTitle = styled.div`
   font-weight: bold;
   width: 80%;
 `
-export const LeftAlignWrapper = styled.div`
+export const LeftAlignWrapper = styled.div<{ offset: string }>`
   text-align: left;
   margin-left: ${({ offset }) => offset || 0};
 `
-export const SelectItem = styled.div`
+export const SelectItem = styled.div<TActive>`
   font-size: 0.9rem;
   margin-bottom: 10px;
   color: ${({ active }) => (active ? theme('font') : theme('banner.desc'))};

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import Input from '@/components/Input'
 
+import { TTestable } from '@/types'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn()};
   width: 100%;
   min-height: 90px;
@@ -33,14 +34,14 @@ export const TitleInput = styled(Input)`
   background: transparent;
   width: 100%;
 
-  &:hover { 
+  &:hover {
     border: none;
-  } 
-  &:focus { 
+  }
+  &:focus {
     border: none;
     box-shadow: none;
   }
-  &:active { 
+  &:active {
     border: none;
     box-shadow: none;
   }

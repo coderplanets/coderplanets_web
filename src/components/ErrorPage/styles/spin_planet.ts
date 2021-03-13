@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
+import { TTestable } from '@/types'
 import { animate } from '@/utils'
 // import Img from '@/Img'
 // import PromptIcon from '@/components/PromptIcon'
 
 // see prototype in https://codepen.io/wwwebneko/pen/EyVbNe?__cf_chl_jschl_tk__=ea42fea4f3c12831123e6fa4871dc371d884b80f-1605582431-0-AaCbC_IecQcmQJpGB6rg-2q9uxuSjlmFbcwTbWrygu5jSC4fR6LX5l9MIHgbof5AmzFauO0FLQ-L1S9PZh6cdIEobYpUeQvMiWSXIuSZCAfF6BNN08alDBF-232m6NnwzRfU1nF3s8xRfJa0e5e0X8PKBdyDtttVkr8HC1XwZejcBIGKqT7-RoK_PWgLxNGbwAbIeCrgi3xU72sZ3ArdGEaq55Pgk6IAstRXuqm-4gY8eQNa1VAsH7GPsuWgoP5ooQRAaBPyDMaEPDcoLZMNqe7PePPNx9E-N4F_gTA7ERZFLLZEHk32dH-QCkPO4Dy-ewLmmRz4tGpSZYxYZW9b87JVGRL10Lk3R8H4QOsx3b3UcllTeXWtLX5ojMwWwqtdmRDCN2g6gB5-m5ic445Gkwg
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   position: relative;
   width: 125px;
   height: 125px;

@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TActive>`
   ${css.flex('justify-start')};
   position: fixed;
   z-index: ${css.zIndex.header};
-  top: ${({ visiable }) => (visiable ? '0' : '-33px')};
+  top: ${({ visible }) => (visible ? '0' : '-33px')};
   width: 100%;
   /* TODO: move namespace to modeline */
   background: ${theme('header.fixed')};
-  opacity: ${({ visiable }) => (visiable ? 1 : '0')};
+  opacity: ${({ visible }) => (visible ? 1 : '0')};
   height: 32px;
   padding-left: 5vw;
 

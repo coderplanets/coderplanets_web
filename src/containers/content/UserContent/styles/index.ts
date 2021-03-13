@@ -7,12 +7,12 @@ export const Wrapper = styled.div`
   width: 100%;
   overflow-x: hidden;
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flex()};
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const BannerWrapper = styled.div`
+export const BannerWrapper = styled.div<{ metric: string }>`
   position: relative;
   background: ${theme('banner.bg')};
   width: 100%;

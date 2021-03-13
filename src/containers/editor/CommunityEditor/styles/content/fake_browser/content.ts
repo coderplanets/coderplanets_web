@@ -50,7 +50,7 @@ export const FeedWrapper = styled.div`
   margin-top: 10px;
   padding: 20px 30px;
 `
-export const Feed = styled.div`
+export const Feed = styled.div<{ width: string }>`
   height: 10px;
   width: ${({ width }) => width};
   border-radius: 4px;

@@ -11,7 +11,7 @@ import {
 
 import { tabOnChange } from '../logic'
 
-const DesktopView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
+const DesktopView = ({ visible, viewing, leftOffset, hasNoBottomBorder }) => {
   const { community, activeThread } = viewing
 
   return (
@@ -19,7 +19,7 @@ const DesktopView = ({ visiable, viewing, leftOffset, hasNoBottomBorder }) => {
       leftOffset={leftOffset}
       noBorder={hasNoBottomBorder}
       testid="modeline-topbar"
-      visiable={visiable}
+      visible={visible}
     >
       <InnerWrapper>
         <TabsWrapper>

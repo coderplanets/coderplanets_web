@@ -1,10 +1,19 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { css, theme } from '@/utils'
 
 import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 
-export const Wrapper = styled.div`
+type TTab = {
+  size: string
+  mobileView: boolean
+  cardView: boolean
+  wrapMode: boolean
+  modelineView: boolean
+} & TActive
+
+export const Wrapper = styled.div<TTab>`
   ${css.flex('justify-center')};
   color: ${theme('thread.articleTitle')};
   position: relative;
@@ -59,7 +68,7 @@ export const Nav = styled.nav`
   margin: 0 auto;
   padding: 0;
 `
-export const Label = styled.span`
+export const Label = styled.span<TActive>`
   ${css.flex('align-center')};
   white-space: nowrap;
 

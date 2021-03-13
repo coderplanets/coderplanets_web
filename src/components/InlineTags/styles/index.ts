@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import HashTagSVG from '@/SvgIcons/HashTagSVG'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ marginLeft: boolean }>`
   ${css.flex()};
   align-items: flex-end;
   margin-left: ${({ marginLeft }) => (marginLeft ? '8px' : 0)};

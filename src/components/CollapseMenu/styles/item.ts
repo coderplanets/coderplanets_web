@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TActive>`
   ${css.flex('align-center')};
   margin-bottom: 3px;
   padding: 5px;
@@ -12,7 +13,7 @@ export const Wrapper = styled.div`
 
   background: ${({ active }) => (!active ? 'transparent' : '#0e303d')};
 `
-export const Title = styled.div`
+export const Title = styled.div<TActive>`
   color: ${theme('tags.text')};
   ${css.cutFrom('200px')};
   font-size: 14px;

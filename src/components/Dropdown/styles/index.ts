@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+type TSize = { size: string }
+export const Wrapper = styled.div<TSize>`
   ${css.flex()};
   font-size: ${({ size }) => size};
   background: ${theme('dropdown.bg')};
@@ -13,7 +14,7 @@ export const Wrapper = styled.div`
 `
 // export const Title = styled.div``
 
-export const IconWrapper = styled.span`
+export const IconWrapper = styled.span<TSize>`
   ${css.flex('align-center')};
   max-width: 0;
   ${Wrapper}:hover & {
@@ -23,7 +24,7 @@ export const IconWrapper = styled.span`
   transition: all 0.3s;
 `
 
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<TSize>`
   fill: ${theme('thread.articleTitle')};
   display: block;
   width: ${({ size }) => size};

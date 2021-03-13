@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 // import Img from '@/Img'
 import { css } from '@/utils'
 
-export const Wrapper = styled.div`
+type TWrapper = TActive & { isLeapMonth: boolean }
+export const Wrapper = styled.div<TWrapper>`
   ${css.flexColumn('justify-between')};
   border: 1px solid;
   border-color: #004354;
@@ -31,7 +33,7 @@ export const Head = styled.div`
   ${css.flex('align-center', 'justify-between')};
   padding-right: 3px;
 `
-export const DateText = styled.div`
+export const DateText = styled.div<TActive>`
   color: ${({ active }) => (active ? '#27908f' : '')};
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
 `

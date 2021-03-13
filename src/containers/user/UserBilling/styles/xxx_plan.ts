@@ -20,7 +20,7 @@ export const GirlTitle = styled(PlanTitle)`
   ${css.flexColumn()};
   color: ${theme('baseColor.pink')};
 `
-export const TitleDesc = styled.div`
+export const TitleDesc = styled.div<{ pink: boolean }>`
   color: ${({ pink }) =>
     pink ? theme('baseColor.pinkLite') : theme('thread.articleDigest')};
 `
@@ -54,7 +54,7 @@ export const PinkButton = styled(Button)`
     ${pinkHover};
   }
 `
-export const DescLine = styled.div`
+export const DescLine = styled.div<{ green: boolean }>`
   color: ${({ green }) => (green ? theme('baseColor.green') : '')};
   font-size: 0.85rem;
   margin-bottom: 4px;

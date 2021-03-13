@@ -1,5 +1,6 @@
 import styled, { css as styledCss } from 'styled-components'
 
+import { TTestable, TActive } from '@/types'
 import { animate, css } from '@/utils'
 
 import {
@@ -18,9 +19,9 @@ const color = {
 
 const height = '140px'
 
-export const Wrapper = styled.div.attrs((props) => ({
-  'data-test-id': props.testid,
-}))`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   width: 200px;
   height: ${height};
   position: relative;
@@ -48,7 +49,7 @@ export const Star4 = styled(Star3Base)`
   top: 20px;
 `
 
-export const Light = styled.div`
+export const Light = styled.div<TActive>`
   height: 45%;
   width: 2px;
   background: ${color.body};

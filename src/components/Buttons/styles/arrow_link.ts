@@ -12,7 +12,8 @@ export const Wrapper = styled.a`
 
   transition: all 0.25s;
 `
-export const Text = styled.div`
+type TText = { hoverColor: string; size: string }
+export const Text = styled.div<TText>`
   color: ${({ color }) => color || theme('thread.articleDigest')};
   font-size: ${({ size }) => getTextSize(size)};
 
@@ -21,7 +22,8 @@ export const Text = styled.div`
     visibility: visible;
   }
 `
-const Icon = styled(Img)`
+type TIcon = { color: string; size: string }
+const Icon = styled(Img)<TIcon>`
   fill: ${({ color }) => color || theme('thread.articleDigest')};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
@@ -29,7 +31,7 @@ const Icon = styled(Img)`
   transition: all 0.2s;
   opacity: 0.8;
 `
-export const RightIcon = styled(Icon)`
+export const RightIcon = styled(Icon)<{ hoverColor: string }>`
   transform: rotate(180deg);
   margin-left: 6px;
   visibility: hidden;

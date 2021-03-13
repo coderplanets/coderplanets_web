@@ -59,7 +59,7 @@ export const setSetting = (key, val) => {
 const resetAnimation = (elementClassName) => {
   const elements = document.querySelectorAll(`.${elementClassName}`)
 
-  // first timer switch the animate part is not visiable
+  // first timer switch the animate part is not visible
   if (elements.length === 0) return
 
   elements.forEach((el) => {

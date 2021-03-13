@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/types'
 // import Img from '@/Img'
 import { theme, css } from '@/utils'
 
@@ -30,7 +31,7 @@ export const InputWrapper = styled.div`
     padding: 8px;
   `};
 `
-export const InputMask = styled.div`
+export const InputMask = styled.div<TActive>`
   ${css.flex('align-both')};
   position: absolute;
   display: ${({ show }) => (show ? 'flex' : 'none')};

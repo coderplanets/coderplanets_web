@@ -14,7 +14,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 1em;
 `
-export const Desc = styled.div`
+export const Desc = styled.div<{ column: boolean }>`
   ${css.flex()};
   margin-top: 15px;
   margin-bottom: 20px;

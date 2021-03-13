@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     margin-top: 6px;
   `};
 `
-export const Icon = styled(Img)`
+export const Icon = styled(Img)<{ viewerDid: boolean }>`
   fill: ${({ viewerDid }) =>
     viewerDid ? theme('comment.didIcon') : theme('comment.icon')};
 

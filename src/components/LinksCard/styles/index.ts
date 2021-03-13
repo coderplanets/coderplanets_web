@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
+import { TSpace } from '@/types'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TSpace>`
   width: 280px;
   min-height: 180px;
   border-radius: 5px;
   padding: 10px;
-  margin-left: ${({ mLeft }) => `${mLeft}px`};
-  margin-right: ${({ mRight }) => `${mRight}px`};
-  margin-bottom: ${({ mBottom }) => `${mBottom}px`};
+  margin-left: ${({ left }) => `${left}px`};
+  margin-right: ${({ right }) => `${right}px`};
+  margin-bottom: ${({ bottom }) => `${bottom}px`};
   /* border-bottom: 1px solid #0f4556; */
 `
 export const Header = styled.div``
