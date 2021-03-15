@@ -1,5 +1,8 @@
 import { IRootStore as RootStoreInterface } from '@/stores/RootStore'
 
+export type { TSIZE, TSIZE_TS, TSIZE_TSM, TSIZE_SML } from './size'
+export type { TButton } from './comp'
+
 export type TThemeName =
   | 'cyan'
   | 'solarizedDark'
@@ -86,15 +89,4 @@ export type TSEO = {
   url: string
   title: string
   description: string
-}
-
-export type TButtonSize = 'tiny' | 'small' | 'medium' | 'large'
-
-// button
-export type TButton = {
-  size: TButtonSize
-  active: boolean
-  ghost?: boolean
-  disabled?: boolean
-  noBorder?: boolean
 }
