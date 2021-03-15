@@ -5,8 +5,8 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
+import type { TRootStore, TAccount } from '@/spec'
 import { markStates, buildLog } from '@/utils'
-import { IRootStore, TAccount } from '@/spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:GlobalLayoutStore')
@@ -28,17 +28,17 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
 })
   .views((self) => ({
     get accountInfo(): TAccount {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       return root.accountInfo
     },
     get sidebarPin(): boolean {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       return root.sidebar.pin
     },
   }))
   .actions((self) => ({
     openDoraemon(): void {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       root.openDoraemon()
     },
     mark(sobj) {

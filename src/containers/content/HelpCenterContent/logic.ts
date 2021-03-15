@@ -2,9 +2,11 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { buildLog } from '@/utils'
-// import S from './service'
+
+import type { TStore } from './store'
 import { VIEW } from './constant'
-import { TStore } from './store'
+
+// import S from './service'
 
 let store: TStore | undefined
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Input from '@/components/Input'
 
-import { TTestable } from '@/spec'
+import type { TTestable } from '@/spec'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({

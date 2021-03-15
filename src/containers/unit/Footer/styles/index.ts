@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TTestable } from '@/spec'
+import type { TTestable } from '@/spec'
 import { C11N } from '@/constant'
 import { css } from '@/utils'
 

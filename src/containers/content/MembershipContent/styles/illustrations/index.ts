@@ -1,6 +1,6 @@
 import styled, { css as styledCss } from 'styled-components'
 
-import { TActive } from '@/spec'
+import type { TActive } from '@/spec'
 import { animate, css } from '@/utils'
 import Img from '@/Img'
 

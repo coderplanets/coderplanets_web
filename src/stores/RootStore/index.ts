@@ -265,10 +265,10 @@ const rootStore = T.model({
     },
   }))
   .actions((self) => ({
-    markRoute(query, opt): void {
+    markRoute(query, opt = {}): void {
       self.route.markRoute(query, opt)
     },
-    showTopModeline(bool): void {
+    showTopModeline(bool: boolean): void {
       self.modeLine.showTopBar(bool)
     },
     openDoraemon(): void {
@@ -339,9 +339,9 @@ const rootStore = T.model({
   }))
 
 /**
- *   NOTE: if use IRootStore in sub container, e.g:
+ *   NOTE: if use TRootStore in sub container, e.g:
  * get viewingArticle(): TArticle {
- *   const root = getParent(self) as IRootStore
+ *   const root = getParent(self) as TRootStore
  *   return stripMobx(root.viewingArticle)
  * },
  *
@@ -350,6 +350,6 @@ const rootStore = T.model({
  * completion fails
  *
  */
-export type IRootStore = Instance<typeof rootStore>
+export type TRootStore = Instance<typeof rootStore>
 
 export default rootStore

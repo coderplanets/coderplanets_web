@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TTestable } from '@/spec'
+import type { TTestable } from '@/spec'
 import { css } from '@/utils'
 import { L_MENU_HEIGHT } from './metrics/index'
 

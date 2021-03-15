@@ -2,7 +2,7 @@ import React from 'react'
 
 // import { METRIC } from '@/constant'
 
-import { TCommunity } from '@/spec'
+import type { TCommunity } from '@/spec'
 
 import {
   Wrapper,

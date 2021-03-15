@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TTestable, TActive } from '@/spec'
+import type { TTestable, TActive } from '@/spec'
 import { css, theme } from '@/utils'
 import HeaderMailSVG from '@/SvgIcons/HeaderMailSVG'
 

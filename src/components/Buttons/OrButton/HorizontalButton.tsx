@@ -1,7 +1,7 @@
 import React from 'react'
 
+import type { TSIZE } from '@/spec'
 import { SIZE } from '@/constant'
-import { TButtonSize } from '@/spec'
 
 import {
   Wrapper,
@@ -12,7 +12,7 @@ import {
 
 type TProps = {
   activeKey: string
-  size?: TButtonSize
+  size?: TSIZE
   onClick: (key: string) => void
   group: {
     key: string
@@ -22,7 +22,7 @@ type TProps = {
 
 const HorizontalButton: React.FC<TProps> = ({
   onClick,
-  size = SIZE.SMALL as TButtonSize,
+  size = SIZE.SMALL as TSIZE,
   activeKey,
   group,
 }) => {

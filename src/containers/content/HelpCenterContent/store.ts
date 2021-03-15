@@ -6,9 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
-import { IRootStore } from '@/stores/RootStore'
-
-import { TCommunity } from '@/spec'
+import type { TRootStore, TCommunity } from '@/spec'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 import { VIEW } from './constant'
@@ -22,7 +20,7 @@ export const HelpCenterContent = T.model('HelpCenterContent', {
   .views((self) => ({
     get curCommunity(): TCommunity {
       // see https://github.com/mobxjs/mobx-state-tree/issues/371#issuecomment-479369372
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
 
       return stripMobx(root.viewing.community)
     },

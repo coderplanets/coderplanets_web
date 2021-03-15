@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive, TThemeName } from '@/spec'
+import type { TActive, TThemeName } from '@/spec'
 import { theme, themeCoverMap, themeCoverIndexMap, css } from '@/utils'
 
 type TDot = TActive & { name: TThemeName }

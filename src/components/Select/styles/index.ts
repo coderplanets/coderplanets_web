@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TTestable, TActive } from '@/spec'
+import type { TTestable, TActive } from '@/spec'
 import { animate, css, theme } from '@/utils'
 
 export { getSelectStyles } from './metric'

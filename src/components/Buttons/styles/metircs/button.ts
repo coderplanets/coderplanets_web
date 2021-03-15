@@ -1,7 +1,7 @@
 import { SIZE } from '@/constant'
 import { theme } from '@/utils'
 
-import { TTheme } from '@/spec'
+import type { TTheme } from '@/spec'
 
 export const getColor = (ghost: boolean, disabled: boolean): TTheme => {
   if (ghost) {

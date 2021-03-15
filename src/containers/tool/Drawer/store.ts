@@ -3,10 +3,12 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, contains, values } from 'ramda'
 
+import type { TRootStore, TCommunity } from '@/spec'
 import { TYPE, THREAD } from '@/constant'
+
 import {
   markStates,
   stripMobx,
@@ -19,7 +21,10 @@ import {
 } from '@/utils'
 import { User } from '@/model'
 
+import { TSwipeOption } from './spec'
 import { SWIPE_THRESHOLD } from './styles/metrics'
+
+const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 const THREAD_CONTENT_CURD_TYPES = [
@@ -76,7 +81,6 @@ const Attachment = T.model('Attachment', {
   originalAuthorLink: T.maybeNull(T.string),
 })
 
-const defaultOptions = { direction: 'bottom', position: 'M' }
 const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
   // only works for mobile view
@@ -117,8 +121,9 @@ const DrawerStore = T.model('DrawerStore', {
     get root() {
       return getParent(self)
     },
-    get isMobile() {
-      return self.root.isMobile
+    get isMobile(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.isMobile
     },
     get optionsData() {
       return stripMobx(self.options)
@@ -134,11 +139,9 @@ const DrawerStore = T.model('DrawerStore', {
 
       return `${windowWidth <= MAX_WIDTH ? 0 : (windowWidth - MAX_WIDTH) / 2}px`
     },
-    get curCommunity() {
-      return stripMobx(self.root.viewing.community)
-    },
-    get curTheme() {
-      return self.root.theme.curTheme
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing.community)
     },
     get attachmentData() {
       return stripMobx(self.attachment)
@@ -154,14 +157,14 @@ const DrawerStore = T.model('DrawerStore', {
       return self.visible && Global.innerWidth <= css.mediaBreakPoints.desktopL
     },
   }))
-  .actions((self) => ({
-    open({ type, data, thread, options = {} }) {
+  .actions((self: TStore) => ({
+    open({ type, data, thread, options = {} }: any): void {
       if (type === TYPE.DRAWER.MODELINE_MENU) {
         self.mmType = data
       } else if (data) {
         self.attachment = merge(data, { type })
       }
-      if ((thread, contains(thread, PREVIEWABLE_THREADS))) {
+      if (contains(thread, PREVIEWABLE_THREADS)) {
         self.setViewing({ [thread]: data, viewingThread: thread })
       }
 
@@ -174,10 +177,11 @@ const DrawerStore = T.model('DrawerStore', {
         self.canBeClose = false
       }
     },
-    setViewing(sobj) {
-      self.root.setViewing(sobj)
+    setViewing(sobj: Record<string, unknown>): void {
+      const root = getParent(self) as TRootStore
+      root.setViewing(sobj)
     },
-    close() {
+    close(): void {
       self.visible = false
       self.canBeClose = false
       unlockPage()
@@ -185,13 +189,16 @@ const DrawerStore = T.model('DrawerStore', {
         toggleGlobalBlur(false)
       }
     },
-    resetSwipeAviliable() {
+    resetSwipeAviliable(): void {
       self.swipeDownAviliable = true
       self.swipeUpAviliable = false
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
+
+// @ts-ignore
+export type TStore = Instance<typeof DrawerStore>
 
 export default DrawerStore

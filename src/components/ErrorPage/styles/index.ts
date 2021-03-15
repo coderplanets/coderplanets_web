@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
-import { TTestable } from '@/spec'
+import type { TTestable } from '@/spec'
 import Img from '@/Img'
 // import PromptIcon from '@/components/PromptIcon'
 
