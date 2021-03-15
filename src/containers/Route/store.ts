@@ -3,10 +3,12 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, pickBy, omit, isEmpty } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
+import { TRootStore, TRoute } from '@/spec'
+
 import {
   Global,
   isClientSide,
@@ -34,15 +36,13 @@ const RouteStore = T.model('RouteStore', {
   query: T.optional(Query, {}),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-    get curRoute() {
+    get curRoute(): TRoute {
       const { communityPath, threadPath, mainPath, subPath } = self
       return { communityPath, threadPath, mainPath, subPath }
     },
-    get isNotDesktop() {
-      const { isMobile } = self.root
+    get isNotDesktop(): boolean {
+      const root = getParent(self) as TRootStore
+      const { isMobile } = root
 
       return isMobile
     },
@@ -95,9 +95,11 @@ const RouteStore = T.model('RouteStore', {
       // NOTE:  Router.push(url, asPath, { shallow: true }) is not working on pruction env
       return Global.history.pushState({}, null, asPath)
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
+
+export type TStore = Instance<typeof RouteStore>
 
 export default RouteStore

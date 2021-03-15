@@ -3,7 +3,7 @@
  * unless you're sure what you're doing
  */
 
-// IRootStore imported by container/xx/store, which is imported by RootStore index
+// TRootStore imported by container/xx/store, which is imported by RootStore index
 // cause the cycle import issue, but type info is removed after ts compile,
 // so cycle issue it's fine, ingore it
 /* eslint-disable import/no-cycle */

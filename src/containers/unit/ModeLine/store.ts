@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
-import { IRootStore, TViewing, TArticle } from '@/spec'
+import { TRootStore, TViewing, TArticle } from '@/spec'
 import { TYPE, METRIC } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
@@ -20,11 +20,11 @@ const ModeLine = T.model('ModeLine', {
 })
   .views((self: any) => ({
     get isMobile(): boolean {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       return root.isMobile
     },
     get viewing(): TViewing {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       return stripMobx(root.viewing)
     },
     get isTopBarVisiable(): boolean {
@@ -34,7 +34,7 @@ const ModeLine = T.model('ModeLine', {
         metric,
         isArticleDigestInViewport,
       } = self
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       const { bodyScrollDirection } = root.globalLayout
 
       if (metric === METRIC.COMMUNITY && bodyScrollDirection === 'down') {
@@ -52,11 +52,11 @@ const ModeLine = T.model('ModeLine', {
       return true
     },
     get viewingArticle(): TArticle {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       return stripMobx(root.viewingArticle)
     },
     get leftOffset(): number | string {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       const curSidebarPin = root.sidebar.pin
       if (
         (!curSidebarPin && !self.preSidebarPin && !self.fixed) ||
@@ -81,7 +81,7 @@ const ModeLine = T.model('ModeLine', {
       return self.activeMenu !== ''
     },
     get isArticleDigestInViewport(): boolean {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       return root.articleDigest.inViewport
     },
     get isCommunityBlockExpand(): boolean {
@@ -97,11 +97,11 @@ const ModeLine = T.model('ModeLine', {
       self.topBarVisiable = bool
     },
     setViewing(sobj): void {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       root.setViewing(sobj)
     },
     markRoute(query): void {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
       root.markRoute(query, {})
     },
     mark(sobj) {

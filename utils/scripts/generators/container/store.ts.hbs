@@ -1,12 +1,11 @@
 /*
- * {{ properCase name }} store
- *
- */
+* {{ properCase name }} store
+*/
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import { TCommunity, IRootStore } from '@/spec'
+import { TCommunity, TRootStore } from '@/spec'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -15,7 +14,7 @@ const log = buildLog('S:{{ properCase name }}')
 const {{ properCase name }} = T.model('{{ properCase name }}', {})
   .views((self) => ({
     get curCommunity(): TCommunity {
-      const root = getParent(self) as IRootStore
+      const root = getParent(self) as TRootStore
 
       return stripMobx(root.viewing.community)
     },

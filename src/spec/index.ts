@@ -1,4 +1,4 @@
-import { IRootStore as RootStoreInterface } from '@/stores/RootStore'
+import { TRootStore as RootStoreType } from '@/stores/RootStore'
 
 export type { TSIZE, TSIZE_TS, TSIZE_TSM, TSIZE_SML } from './size'
 export type { TButton } from './comp'
@@ -12,6 +12,13 @@ export type TThemeName =
   | 'Green'
   | 'ironGreen'
   | 'monokai'
+
+export type TRoute = {
+  communityPath?: string
+  threadPath?: string
+  mainPath?: string
+  subPath?: string
+}
 
 export type TTestable = {
   testid: string
@@ -30,7 +37,7 @@ export type TSpace = {
   right?: number
 }
 
-export type IRootStore = RootStoreInterface
+export type TRootStore = RootStoreType
 
 // c# like
 export type Nullable<T> = T | null
