@@ -47,8 +47,8 @@ const HeaderStore = T.model('HeaderStore', {
       ])
     },
     get leftOffset(): string {
-      const root = getParent(self) as TRootStore
-      const curSidebarPin = root.sidebar.pin
+      // const root = getParent(self) as TRootStore
+      // const curSidebarPin = root.sidebar.pin
 
       // if (
       //   (!curSidebarPin && !self.preSidebarPin && !self.fixed) ||
@@ -63,12 +63,13 @@ const HeaderStore = T.model('HeaderStore', {
 
       // 特殊情况： 当 sidebar 打开时下滑页面， 需要一个 preSidebarPin 的中间状态
       // if (!curSidebarPin && self.preSidebarPin && self.fixed) {
-      if (!curSidebarPin) {
-        return '-180px'
-      }
+      // if (!curSidebarPin) {
+      //   return '-180px'
+      // }
 
       // isPin && !self.preSidebarPin && self.fixed
-      return '180px'
+      // return '180px'
+      return '0'
     },
   }))
   .actions((self) => ({

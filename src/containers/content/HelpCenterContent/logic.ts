@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 
 import { buildLog } from '@/utils'
 
+import type { THelpArticle } from './spec'
 import type { TStore } from './store'
 import { VIEW } from './constant'
 
@@ -16,8 +17,23 @@ const log = buildLog('L:HelpCenterContent')
 /**
  * goto detail help-center article
  */
-export const gotoDetail = (): void => {
+export const gotoDetail = (article: THelpArticle): void => {
+  log('goto: ', article)
   store?.mark({ view: VIEW.DETAIL })
+}
+
+/**
+ * useful button on click
+ */
+export const usefulOnClick = (): void => {
+  store?.mark({ uselessClicked: false })
+}
+
+/**
+ * uesless button on click
+ */
+export const uselessOnClick = (): void => {
+  store?.mark({ uselessClicked: true })
 }
 
 // ###############################

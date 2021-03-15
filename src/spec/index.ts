@@ -97,3 +97,7 @@ export type TSEO = {
   title: string
   description: string
 }
+
+export type TLink = {
+  href: string
+}
