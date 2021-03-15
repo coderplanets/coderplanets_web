@@ -1,6 +1,6 @@
 import styled, { css as styledCss, keyframes } from 'styled-components'
 
-import { TTestable } from '@/spec'
+import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 

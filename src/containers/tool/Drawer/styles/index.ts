@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { contains } from 'ramda'
 
-import { TActive } from '@/spec'
+import type { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
 import type { TDrawer, TSwipe } from '../spec'

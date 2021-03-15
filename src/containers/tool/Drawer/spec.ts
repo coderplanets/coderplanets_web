@@ -1,4 +1,4 @@
-import { TTestable, TActive } from '@/spec'
+import type { TTestable, TActive } from '@/spec'
 
 export type TSwipeOption = {
   direction: 'bottom' | 'top'

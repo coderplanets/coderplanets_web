@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 // import { lighten } from 'polished'
 
-import { TActive } from '@/spec'
+import type { TActive } from '@/spec'
 import { css, theme } from '@/utils'
 
 import { Wrapper as BaseBtnWrapper } from '../button'

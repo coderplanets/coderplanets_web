@@ -1,7 +1,7 @@
 import React from 'react'
 
+import type { TSIZE } from '@/spec'
 import { SIZE } from '@/constant'
-import { TSIZE } from '@/spec'
 
 import {
   Wrapper,

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TActive } from '@/spec'
+import type { TActive } from '@/spec'
 import Input from '@/components/Input'
 import { theme, css } from '@/utils'
 

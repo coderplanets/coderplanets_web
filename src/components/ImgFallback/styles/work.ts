@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TTestable, TSpace } from '@/spec'
+import type { TTestable, TSpace } from '@/spec'
 // import Img from '@/Img'
 import { css } from '@/utils'
 

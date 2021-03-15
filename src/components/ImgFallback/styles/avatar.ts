@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TTestable, TSpace } from '@/spec'
+import type { TTestable, TSpace } from '@/spec'
 import { css, theme } from '@/utils'
 import { getFontSize } from './metric/avatar'
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 // import { lighten } from 'polished'
 
-import { TButton, TSIZE } from '@/spec'
+import type { TButton, TSIZE } from '@/spec'
 import { theme, css } from '@/utils'
 
 import { Wrapper as BaseBtnWrapper } from '../button'
