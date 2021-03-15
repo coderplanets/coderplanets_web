@@ -116,8 +116,8 @@ module.exports = {
     if (data.wantSchema) {
       actions.push({
         type: 'add',
-        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/schema.js`,
-        templateFile: './container/schema.js.hbs',
+        path: `${TARGET_DIR}/${data.scope}/{{properCase name}}/schema.ts`,
+        templateFile: './container/schema.ts.hbs',
         abortOnFail: true,
       })
     }
