@@ -13,7 +13,7 @@
 
 import { map, path, split } from 'ramda'
 
-import { TTheme } from '@/spec'
+import type { TTheme } from '@/spec'
 import skinsData from './skins'
 
 export const themeSkins = { ...skinsData }

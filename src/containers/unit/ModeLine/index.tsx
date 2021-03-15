@@ -13,7 +13,7 @@ import { METRIC } from '@/constant'
 import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-import { TStore } from './store'
+import type { TStore } from './store'
 
 import TopBar from './TopBar'
 

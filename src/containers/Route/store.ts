@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, pickBy, omit, isEmpty } from 'ramda'
 
-import { TRootStore, TRoute } from '@/spec'
+import type { TRootStore, TRoute } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 
 import {

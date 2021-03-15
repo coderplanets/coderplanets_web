@@ -6,11 +6,11 @@
 
 import React, { useEffect } from 'react'
 
+import type { Nullable, TSEO } from '@/spec'
 import { ANCHOR } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { pluggedIn } from '@/utils'
-import { Nullable, TSEO } from '@/spec'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
@@ -19,7 +19,7 @@ import ModeLine from '@/containers/unit/ModeLine'
 import Drawer from '@/containers/tool/Drawer'
 import CustomScroller from '@/components/CustomScroller'
 
-import { TStore } from './store'
+import type { TStore } from './store'
 import SEO from './SEO'
 import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 

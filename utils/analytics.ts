@@ -1,4 +1,4 @@
-import { GA_EVENT } from '@/spec'
+import type { GA_EVENT } from '@/spec'
 
 import { Global } from './helper'
 

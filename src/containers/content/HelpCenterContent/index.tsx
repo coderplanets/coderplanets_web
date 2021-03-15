@@ -11,7 +11,7 @@ import React from 'react'
 import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import { TStore } from './store'
+import type { TStore } from './store'
 
 import Cover from './Cover'
 import Detail from './Detail'

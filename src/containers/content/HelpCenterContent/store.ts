@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
-import { TRootStore, TCommunity } from '@/spec'
+import type { TRootStore, TCommunity } from '@/spec'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 import { VIEW } from './constant'
