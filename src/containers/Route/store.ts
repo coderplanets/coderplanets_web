@@ -59,7 +59,7 @@ const RouteStore = T.model('RouteStore', {
      *
      * @returns {boolean}
      */
-    markRoute(query, opt) {
+    markRoute(query, opt = {}) {
       const defaultOpt = { onlyDesktop: false }
       const option = merge(defaultOpt, opt)
 

@@ -265,10 +265,10 @@ const rootStore = T.model({
     },
   }))
   .actions((self) => ({
-    markRoute(query, opt): void {
+    markRoute(query, opt = {}): void {
       self.route.markRoute(query, opt)
     },
-    showTopModeline(bool): void {
+    showTopModeline(bool: boolean): void {
       self.modeLine.showTopBar(bool)
     },
     openDoraemon(): void {
