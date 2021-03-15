@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import { contains } from 'ramda'
 
-import { TTestable, TActive } from '@/spec'
+import { TActive } from '@/spec'
 import { theme, css } from '@/utils'
 
+import type { TDrawer, TSwipe } from '../spec'
 import {
   WIDE_CASE,
   WIDE_WIDTH,
@@ -13,20 +14,6 @@ import {
   getContentLinearGradient,
   getDim,
 } from './metrics'
-
-type TSwipe = {
-  swipeUpY: number
-  swipeDownY: number
-  options: Record<string, unknown>
-}
-
-type TDrawer = TTestable &
-  TActive &
-  TSwipe & {
-    mobile: boolean
-    rightOffset: string
-    type: string
-  }
 
 export const DrawerOverlay = styled.div<TActive>`
   bottom: 0;
