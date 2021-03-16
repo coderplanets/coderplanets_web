@@ -19,7 +19,7 @@ export const HelpCenterContent = T.model('HelpCenterContent', {
   view: T.optional(T.enumeration(values(VIEW)), VIEW.COVER),
   uselessClicked: T.optional(T.boolean, false),
 })
-  .views((self: TStore) => ({
+  .views((self) => ({
     get curCommunity(): TCommunity {
       // see https://github.com/mobxjs/mobx-state-tree/issues/371#issuecomment-479369372
       const root = getParent(self) as TRootStore
@@ -37,7 +37,7 @@ export const HelpCenterContent = T.model('HelpCenterContent', {
       return self.uselessClicked
     },
     get visibles(): TVisibles {
-      const { showReaction, showHelpInfo, uselessClicked } = self
+      const { showReaction, showHelpInfo, uselessClicked } = self as TStore
 
       return {
         showReaction,
@@ -52,6 +52,5 @@ export const HelpCenterContent = T.model('HelpCenterContent', {
     },
   }))
 
-// @ts-ignore
 export type TStore = Instance<typeof HelpCenterContent>
 export default HelpCenterContent

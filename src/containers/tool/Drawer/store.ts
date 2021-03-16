@@ -157,24 +157,27 @@ const DrawerStore = T.model('DrawerStore', {
       return self.visible && Global.innerWidth <= css.mediaBreakPoints.desktopL
     },
   }))
-  .actions((self: TStore) => ({
-    open({ type, data, thread, options = {} }: any): void {
+  .actions((self) => ({
+    open({ type, data, thread, options = {} }): void {
+      const slf = self as TStore
+
       if (type === TYPE.DRAWER.MODELINE_MENU) {
-        self.mmType = data
+        slf.mmType = data
       } else if (data) {
-        self.attachment = merge(data, { type })
+        // @ts-ignore TODO: fix later
+        slf.attachment = merge(data, { type })
       }
       if (contains(thread, PREVIEWABLE_THREADS)) {
-        self.setViewing({ [thread]: data, viewingThread: thread })
+        slf.setViewing({ [thread]: data, viewingThread: thread })
       }
 
-      self.visible = true
-      self.type = type
-      self.options = merge(defaultOptions, options)
+      slf.visible = true
+      slf.type = type
+      slf.options = merge(defaultOptions, options)
       lockPage()
-      if (self.isMobile) {
+      if (slf.isMobile) {
         toggleGlobalBlur(true)
-        self.canBeClose = false
+        slf.canBeClose = false
       }
     },
     setViewing(sobj: Record<string, unknown>): void {
@@ -198,7 +201,6 @@ const DrawerStore = T.model('DrawerStore', {
     },
   }))
 
-// @ts-ignore
 export type TStore = Instance<typeof DrawerStore>
 
 export default DrawerStore
