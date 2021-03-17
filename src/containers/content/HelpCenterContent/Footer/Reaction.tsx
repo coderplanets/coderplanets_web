@@ -6,6 +6,10 @@ import { ICON } from '@/config'
 
 import {
   Wrapper,
+  RateWrapper,
+  ShareWrapper,
+  ShareList,
+  ShareIcon,
   Title,
   BoxWrapper,
   Button,
@@ -27,19 +31,28 @@ const Reaction: React.FC<TProps> = ({ visibles }) => {
   const { uselessClicked } = visibles
   return (
     <Wrapper>
-      <Title>这些信息是否有用？</Title>
-      <BoxWrapper>
-        <Button onClick={usefulOnClick}>
-          <UsefulIcon src={`${ICON}/useful-color.svg`} />
-          <UsefulText>有用</UsefulText>
-        </Button>
-        <UselessWrapper>
-          <UselessButton active={uselessClicked} onClick={uselessOnClick}>
-            <CryIcon src={`${ICON}/shape/cry.svg`} active={uselessClicked} />
-          </UselessButton>
-          <UselessText>没有帮助</UselessText>
-        </UselessWrapper>
-      </BoxWrapper>
+      <RateWrapper>
+        <Title>这些信息是否有用？</Title>
+        <BoxWrapper>
+          <Button onClick={usefulOnClick}>
+            <UsefulIcon src={`${ICON}/useful-color.svg`} />
+            <UsefulText>有用</UsefulText>
+          </Button>
+          <UselessWrapper>
+            <UselessButton active={uselessClicked} onClick={uselessOnClick}>
+              <CryIcon src={`${ICON}/shape/cry.svg`} active={uselessClicked} />
+            </UselessButton>
+            <UselessText>没有帮助</UselessText>
+          </UselessWrapper>
+        </BoxWrapper>
+      </RateWrapper>
+      <ShareWrapper>
+        <ShareList>
+          <ShareIcon src={`${ICON}/social/weichat.svg`} />
+          <ShareIcon src={`${ICON}/social/twitter.svg`} />
+          <ShareIcon src={`${ICON}/social/zhihu.svg`} />
+        </ShareList>
+      </ShareWrapper>
     </Wrapper>
   )
 }
