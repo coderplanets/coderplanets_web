@@ -5,9 +5,16 @@ import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
+  ${css.flex()};
   margin-bottom: 25px;
+  margin-right: 30px;
 `
+export const RateWrapper = styled.div`
+  flex-grow: 1;
+`
+// reactions
 export const Title = styled.div`
+  font-size: 14px;
   margin-bottom: 14px;
 `
 export const BoxWrapper = styled.div`
@@ -63,4 +70,24 @@ export const UselessText = styled.span`
   }
 
   transition: opacity 0.25s ease-in-out;
+`
+
+export const ShareWrapper = styled.div`
+  ${css.flexColumn('justify-end')};
+`
+export const ShareList = styled.div`
+  ${css.flex('align-center')};
+  margin-bottom: 6px;
+`
+export const ShareIcon = styled(Img)`
+  fill: ${theme('banner.desc')};
+  ${css.size(16)};
+  margin-left: 12px;
+
+  &:hover {
+    fill: ${theme('banner.title')};
+    cursor: pointer;
+  }
+
+  transition: all 0.25s;
 `
