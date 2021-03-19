@@ -5,11 +5,11 @@ import { GRAPHQL_ENDPOINT, PAGE_SIZE } from '@/config'
 import { nilOrEmpty, isString } from './validator'
 
 export const asyncRes = curry((key, obj) => and(obj[key], has(key, obj)))
-export const asyncErr = (key) => pathEq(['error'], key)
+export const asyncErr = (key: string): any => pathEq(['error'], key)
 
 // NOTE the client with jwt info is used for getInitialProps for SSR
 // to load user related data
-export const makeGQClient = (token) => {
+export const makeGQClient = (token: string): any => {
   if (!nilOrEmpty(token)) {
     const client = new GraphQLClient(GRAPHQL_ENDPOINT, {
       headers: {
@@ -23,7 +23,10 @@ export const makeGQClient = (token) => {
   }
 }
 
-export const makeGithubExplore = (GRAPHQL_ENDPOINT, token) => {
+export const makeGithubExplore = (
+  GRAPHQL_ENDPOINT: string,
+  token: string,
+): any => {
   const client = new GraphQLClient(GRAPHQL_ENDPOINT, {
     headers: {
       authorization: `bearer ${token}`,
@@ -32,14 +35,16 @@ export const makeGithubExplore = (GRAPHQL_ENDPOINT, token) => {
   return client
 }
 
-export const pagedFilter = (page, options = {}) =>
+export const pagedFilter = (page, options = {}): Record<string, any> =>
   merge({ page, size: PAGE_SIZE.D }, options)
 
 /*
  * map value(string) to UPPER case for server absinthe-atom format
  * e.p: is server required :post, front-end should pass "POST"
  */
-export const atomizeValues = (_obj) => {
+export const atomizeValues = (
+  _obj: Record<string, any>,
+): Record<string, string> => {
   const obj = clone(_obj)
 
   Object.keys(obj).forEach((k) => {
@@ -55,4 +60,6 @@ export const atomizeValues = (_obj) => {
 // in rxjs, if you want to send parallel request you should use complex method
 // like forkJoin .. which need to refactor whole sr71 part
 // currently the simple later is fine
-export const later = (func, time = 200) => setTimeout(func, time)
+export const later = (func, time = 200): ReturnType<typeof setTimeout> => {
+  return setTimeout(func, time)
+}

@@ -40,7 +40,7 @@ if (
  * debug('Some message')
  * @returns {Function}
  */
-export const buildLog = (namespace) => _debug(`${namespace}`)
+export const buildLog = (namespace: string) => _debug(`${namespace}`)
 
 /**
  * Default debugger, simple log.

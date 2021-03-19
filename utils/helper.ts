@@ -13,10 +13,7 @@ type TSORTABLE_ITEMS = {
   index?: number
 }[]
 
-/* eslint-disable */
-// TODO: document ?
-export const Global = typeof window !== 'undefined' ? window : global
-/* eslint-enable */
+export const Global: any = typeof window !== 'undefined' ? window : {}
 
 // those two function used to encode/decode the value in element dataset
 export const o2s = JSON.stringify

@@ -1,6 +1,6 @@
 import { TRootStore as RootStoreType } from '@/stores/RootStore'
 
-export type { TSIZE, TSIZE_TS, TSIZE_TSM, TSIZE_SML } from './size'
+export type { TSIZE, TSIZE_TS, TSIZE_TSM, TSIZE_SML, TSIZE_SM } from './size'
 export type { TButton } from './comp'
 
 export type TThemeName =
@@ -83,6 +83,15 @@ export type TViewing = {
 // export type TTheme = ((obj: any) => unknown) | string
 export type TTheme = any
 // export type TTheme = string
+
+export type TThemeMap = {
+  toast: {
+    successBar: string
+    errorBar: string
+    warnBar: string
+    infoBar: string
+  }
+}
 
 // google analytis format
 export type GA_EVENT = {

@@ -5,8 +5,8 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
+import type { TSIZE_SM } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
@@ -16,7 +16,21 @@ import { Wrapper, IconWrapper, Icon, ChildWrapper } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:Checker:index')
 
-const Checker = ({ checked, onChange, hiddenMode, size, children }) => {
+type TProps = {
+  children: React.ReactNode
+  checked?: boolean
+  hiddenMode: boolean
+  size?: TSIZE_SM
+  onChange: (checked: boolean) => void
+}
+
+const Checker: React.FC<TProps> = ({
+  checked = false,
+  onChange = log,
+  hiddenMode = false,
+  size = SIZE.MEDIUM,
+  children,
+}) => {
   const show = checked || !hiddenMode
 
   return (
@@ -29,22 +43,6 @@ const Checker = ({ checked, onChange, hiddenMode, size, children }) => {
       </ChildWrapper>
     </Wrapper>
   )
-}
-
-Checker.propTypes = {
-  checked: T.bool,
-  hiddenMode: T.bool,
-  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
-  children: T.oneOfType([T.string, T.node]),
-  onChange: T.func,
-}
-
-Checker.defaultProps = {
-  checked: false,
-  hiddenMode: false,
-  children: '',
-  size: SIZE.MEDIUM,
-  onChange: log,
 }
 
 export default React.memo(Checker)
