@@ -1,6 +1,6 @@
 import { TRootStore as RootStoreType } from '@/stores/RootStore'
 
-export type { TSIZE, TSIZE_TS, TSIZE_TSM, TSIZE_SML } from './size'
+export type { TSIZE, TSIZE_TS, TSIZE_TSM, TSIZE_SML, TSIZE_SM } from './size'
 export type { TButton } from './comp'
 
 export type TThemeName =
