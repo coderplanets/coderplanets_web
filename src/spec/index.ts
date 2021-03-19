@@ -84,6 +84,15 @@ export type TViewing = {
 export type TTheme = any
 // export type TTheme = string
 
+export type TThemeMap = {
+  toast: {
+    successBar: string
+    errorBar: string
+    warnBar: string
+    infoBar: string
+  }
+}
+
 // google analytis format
 export type GA_EVENT = {
   action: string
