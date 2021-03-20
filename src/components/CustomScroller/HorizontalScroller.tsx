@@ -7,11 +7,13 @@
 import React, { useState, useRef, useCallback } from 'react'
 import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
-import T from 'prop-types'
+import type { TSIZE_SML, TThemeMap } from '@/spec'
 
 import { buildLog } from '@/utils'
 import { SIZE } from '@/constant'
 import { useCustomScroll } from '@/hooks'
+
+import type { TProps as TScrollProps } from './index'
 
 import {
   Wrapper,
@@ -25,17 +27,27 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:CustomScroller:index')
 
+type TProps = Omit<
+  TScrollProps,
+  | 'direction'
+  | 'onTopEnter'
+  | 'onTopLeave'
+  | 'onBottomEnter'
+  | 'onBottomLeave'
+  | 'onScrollDirectionChange'
+>
+
 // horizontal version
-const HorizontalScroller = ({
-  height,
-  width,
-  innerHeight,
-  showShadow,
-  shadowSize,
-  barSize,
+const HorizontalScroller: React.FC<TProps> = ({
+  height = '100%',
+  width = '100%',
+  innerHeight = '100%',
+  showShadow = true,
+  shadowSize = SIZE.SMALL,
+  barSize = SIZE.SMALL,
   children,
-  autoHide,
-  withBorder,
+  autoHide = true,
+  withBorder = false,
 }) => {
   const [showLeftShadow, setShowLeftShadow] = useState(false)
   const [showRightShadow, setShowRightShadow] = useState(true)
@@ -46,9 +58,8 @@ const HorizontalScroller = ({
   const handleShowRightShadow = useCallback(() => setShowRightShadow(true), [])
   const handleHideRightShadow = useCallback(() => setShowRightShadow(false), [])
 
-  const {
-    _meta: { category: themeCategory },
-  } = useTheme()
+  const { _meta: themeMeta }: TThemeMap = useTheme()
+  const { category: themeCategory } = themeMeta
 
   const ref = useRef(null)
   useCustomScroll(ref, {
@@ -57,12 +68,7 @@ const HorizontalScroller = ({
   })
 
   return (
-    <Wrapper
-      height={height}
-      width={width}
-      shadowSize={shadowSize}
-      barSize={barSize}
-    >
+    <Wrapper height={height} width={width} barSize={barSize}>
       {showShadow && (
         <LeftShadowBar
           show={showLeftShadow}
@@ -97,30 +103,6 @@ const HorizontalScroller = ({
       )}
     </Wrapper>
   )
-}
-
-HorizontalScroller.propTypes = {
-  children: T.node.isRequired,
-  height: T.string,
-  width: T.string,
-  showShadow: T.bool,
-  shadowSize: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  barSize: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  // hack for custom scrollbar
-  innerHeight: T.string,
-  autoHide: T.bool,
-  withBorder: T.bool,
-}
-
-HorizontalScroller.defaultProps = {
-  height: '100%',
-  width: '100%',
-  showShadow: true,
-  shadowSize: SIZE.SMALL,
-  barSize: SIZE.SMALL,
-  innerHeight: '100%',
-  autoHide: false,
-  withBorder: false,
 }
 
 export default React.memo(HorizontalScroller)

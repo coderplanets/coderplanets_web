@@ -6,12 +6,12 @@ import { getShadowBackground, getShadowSize, getScrollbarThin } from './metrics'
 import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'
 
 type TBar = {
-  showOnHover: boolean
-  barSize: string
-  withBorder: boolean
-  shadowSize: string
-  height: string
-  innerHeight: string
+  showOnHover?: boolean
+  barSize?: string
+  withBorder?: boolean
+  shadowSize?: string
+  height?: string
+  innerHeight?: string
 }
 
 export const Wrapper = styled(WrapperBase)<{ barSize: string }>`

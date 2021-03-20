@@ -1,17 +1,19 @@
 import { TRootStore as RootStoreType } from '@/stores/RootStore'
 
-export type { TSIZE, TSIZE_TS, TSIZE_TSM, TSIZE_SML, TSIZE_SM } from './size'
+export type {
+  TSIZE,
+  TSIZE_T,
+  TSIZE_S,
+  TSIZE_M,
+  TSIZE_L,
+  TSIZE_TS,
+  TSIZE_TSM,
+  TSIZE_SML,
+  TSIZE_SM,
+} from './size'
 export type { TButton } from './comp'
 
-export type TThemeName =
-  | 'cyan'
-  | 'solarizedDark'
-  | 'purple'
-  | 'yellow'
-  | 'github'
-  | 'Green'
-  | 'ironGreen'
-  | 'monokai'
+export type { TTheme, TThemeMap, TThemeName } from './theme'
 
 export type TRoute = {
   communityPath?: string
@@ -78,19 +80,6 @@ export type TArticle = {
 export type TViewing = {
   community: TCommunity
   post: TArticle
-}
-
-// export type TTheme = ((obj: any) => unknown) | string
-export type TTheme = any
-// export type TTheme = string
-
-export type TThemeMap = {
-  toast: {
-    successBar: string
-    errorBar: string
-    warnBar: string
-    infoBar: string
-  }
 }
 
 // google analytis format
