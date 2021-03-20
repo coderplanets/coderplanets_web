@@ -7,11 +7,14 @@
 import React, { useState, useRef, useCallback } from 'react'
 import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
-import T from 'prop-types'
+import type { TSIZE_SML, TThemeMap } from '@/spec'
+import type { TScrollDirection } from './spec'
 
 import { buildLog, debounce } from '@/utils'
 import { SIZE } from '@/constant'
 import { useCustomScroll } from '@/hooks'
+
+import type { TProps as TScrollProps } from './index'
 
 import {
   Wrapper,
@@ -24,17 +27,19 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:CustomScroller:index')
 
-// horizontal version
-const VerticalScroller = ({
-  height,
-  width,
-  showShadow,
-  shadowSize,
-  barSize,
+type TProps = Omit<TScrollProps, 'direction' | 'innerHeight'>
+
+// vertical version
+const VerticalScroller: React.FC<TProps> = ({
+  height = '100%',
+  width = '100%',
+  showShadow = true,
+  shadowSize = SIZE.SMALL,
+  barSize = SIZE.SMALL,
   children,
-  autoHide,
-  showOnHover,
-  withBorder,
+  autoHide = true,
+  showOnHover = false,
+  withBorder = false,
   onTopEnter,
   onTopLeave,
   onBottomEnter,
@@ -68,25 +73,28 @@ const VerticalScroller = ({
     onBottomEnter?.()
   }, [onBottomEnter])
 
-  const {
-    _meta: { category: themeCategory },
-  } = useTheme()
+  const { _meta: themeMeta }: TThemeMap = useTheme()
+  const { category: themeCategory } = themeMeta
 
   const ref = useRef(null)
   const scrollInstance = useCustomScroll(ref, {
     scrollbars: { autoHide: autoHide ? 'scroll' : 'never' },
     themeCategory,
     callbacks: {
-      onScroll: debounce(() => {
-        const position = scrollInstance?.scroll().position
-        if (position) {
-          const currentY = position.y
+      onScroll: debounce(
+        () => {
+          const position = scrollInstance?.scroll().position
+          if (position) {
+            const currentY = position.y
 
-          currentY > lastYPosition
-            ? onScrollDirectionChange?.('up')
-            : onScrollDirectionChange?.('down')
-        }
-      }, 100),
+            currentY > lastYPosition
+              ? onScrollDirectionChange?.('up')
+              : onScrollDirectionChange?.('down')
+          }
+        },
+        100,
+        true,
+      ),
       onScrollStart: () => {
         const position = scrollInstance?.scroll().position
         if (position) {
@@ -146,42 +154,6 @@ const VerticalScroller = ({
       )}
     </Wrapper>
   )
-}
-
-VerticalScroller.propTypes = {
-  children: T.node.isRequired,
-  height: T.string,
-  width: T.string,
-  showShadow: T.bool,
-  shadowSize: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  barSize: T.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  // hack for custom scrollbar
-  autoHide: T.bool,
-  showOnHover: T.bool,
-  withBorder: T.bool,
-  onTopEnter: T.oneOfType([T.func, T.instanceOf(null)]),
-  onTopLeave: T.oneOfType([T.func, T.instanceOf(null)]),
-  onBottomEnter: T.oneOfType([T.func, T.instanceOf(null)]),
-  onBottomLeave: T.oneOfType([T.func, T.instanceOf(null)]),
-
-  // scroll direction
-  onScrollDirectionChange: T.oneOfType([T.func, T.instanceOf(null)]),
-}
-
-VerticalScroller.defaultProps = {
-  height: '100%',
-  width: '100%',
-  showShadow: true,
-  shadowSize: SIZE.SMALL,
-  barSize: SIZE.SMALL,
-  autoHide: true,
-  showOnHover: false,
-  withBorder: false,
-  onTopEnter: null,
-  onTopLeave: null,
-  onBottomEnter: null,
-  onBottomLeave: null,
-  onScrollDirectionChange: null,
 }
 
 export default React.memo(VerticalScroller)

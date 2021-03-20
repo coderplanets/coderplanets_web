@@ -7,7 +7,7 @@
 import React, { useEffect } from 'react'
 
 import type { Nullable, TSEO } from '@/spec'
-import { ANCHOR } from '@/constant'
+import { ANCHOR, SIZE } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { pluggedIn } from '@/utils'
@@ -102,7 +102,7 @@ const GlobalLayoutContainer: React.FC<TProps> = ({
                   <CustomScroller
                     direction="vertical"
                     height="100vh"
-                    barSize="medium"
+                    barSize={SIZE.MEDIUM}
                     showShadow={false}
                     onScrollDirectionChange={(direction) =>
                       bodyScrollDirectionOnChange(direction)
