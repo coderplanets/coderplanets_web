@@ -15,7 +15,15 @@ export type { TButton } from './comp'
 
 export type { TTheme, TThemeMap, TThemeName } from './theme'
 export type { TAccount, TUser, TMembership } from './account'
-export type { TTestable, TActive, TSpace, TGAEvent, TSEO, TLink } from './utils'
+export type {
+  TTestable,
+  TActive,
+  TSpace,
+  TGAEvent,
+  TSEO,
+  TLink,
+  TPlatform,
+} from './utils'
 
 export type TRoute = {
   communityPath?: string

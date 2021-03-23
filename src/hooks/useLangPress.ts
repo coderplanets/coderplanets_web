@@ -21,7 +21,7 @@ import { useState, useEffect, useCallback } from 'react'
  * @param {number} [ms=500] hold m-sec
  * @returns
  */
-const useLongPress = (callback = () => {}, ms = 500) => {
+const useLongPress = (callback: () => void, ms = 500) => {
   const [startLongPress, setStartLongPress] = useState(false)
 
   useEffect(() => {

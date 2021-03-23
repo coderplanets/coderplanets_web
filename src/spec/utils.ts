@@ -32,3 +32,13 @@ export type TSEO = {
 export type TLink = {
   href: string
 }
+
+export type TPlatform = {
+  isChrome: boolean
+  isFirefox: boolean
+  isSafari: boolean
+  isIE: boolean
+  isEdge: boolean
+  isMacOS: boolean
+  isMobile: boolean
+}

@@ -3,6 +3,11 @@ import { merge } from 'ramda'
 
 import { debounce } from '@/utils'
 
+type TScrollState = {
+  direction: string
+  scrollPos: number
+}
+
 const initState = {
   direction: 'up', // 'down'
   scrollPos: 0,
@@ -10,30 +15,34 @@ const initState = {
 
 // detect the scroll direction
 // see https://codepen.io/lehollandaisvolant/pen/ryrrGx?editors=1010
-const useScroll = (cb) => {
+const useScroll = (cb: () => void): TScrollState => {
   const [scroll, setScroll] = useState(initState)
 
   /* eslint-disable */
   useEffect(() => {
     // adding scroll event
     let scrollPos = scroll.scrollPos
-    const handleScroll = debounce(function () {
-      // detects new state and compares it with the new one
-      let direction =
-        document.body.getBoundingClientRect().top > scrollPos ? 'up' : 'down'
+    const handleScroll = debounce(
+      () => {
+        // detects new state and compares it with the new one
+        let direction =
+          document.body.getBoundingClientRect().top > scrollPos ? 'up' : 'down'
 
-      // saves the new position for iteration.
-      scrollPos = document.body.getBoundingClientRect().top
+        // saves the new position for iteration.
+        scrollPos = document.body.getBoundingClientRect().top
 
-      if (cb) cb()
+        cb?.()
 
-      setScroll(
-        merge(initState, {
-          direction,
-          scrollPos,
-        }),
-      )
-    }, 50)
+        setScroll(
+          merge(initState, {
+            direction,
+            scrollPos,
+          }),
+        )
+      },
+      50,
+      true,
+    )
 
     window.addEventListener('scroll', handleScroll)
 

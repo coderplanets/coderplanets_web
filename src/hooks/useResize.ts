@@ -1,12 +1,17 @@
 import { useState, useEffect, useCallback } from 'react'
 
+type TSize = {
+  width?: number
+  height?: number
+}
+
 /**
  * hooks for detect window size
  * see: https://usehooks.com/useWindowSize/ for details
  *
  * @returns
  */
-const useWindowSize = (cb) => {
+const useWindowSize = (cb: (size: TSize) => void): TSize => {
   const isClient = typeof window === 'object'
 
   const getSize = useCallback(() => {
@@ -20,12 +25,12 @@ const useWindowSize = (cb) => {
 
   useEffect(() => {
     if (!isClient) {
-      return false
+      return
     }
 
     const handleResize = () => {
       setWindowSize(getSize())
-      if (cb) cb(getSize())
+      cb?.(getSize())
     }
 
     window.addEventListener('resize', handleResize)

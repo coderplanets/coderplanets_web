@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 
 const cachedScripts = []
 
-const useScript = (src) => {
+type TLoadState = boolean
+
+const useScript = (src: string): TLoadState[] => {
   // Keeping track of script loaded and error state
   const [state, setState] = useState({
     loaded: false,

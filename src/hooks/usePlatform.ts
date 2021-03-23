@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { merge } from 'ramda'
 
+import type { TPlatform } from '@/spec'
 import { Global } from '@/utils'
 
 const initPlatform = {
@@ -14,12 +15,13 @@ const initPlatform = {
 }
 
 // see https://stackoverflow.com/questions/49328382/browser-detection-in-reactjs/49328524
-const usePlatform = (/* { breakpoint } */) => {
+const usePlatform = (/* { breakpoint } */): TPlatform => {
   const [platform, setPlatform] = useState(initPlatform)
 
   /* eslint-disable */
   useEffect(() => {
     // Firefox 1.0+
+    // @ts-ignore
     const isFirefox = typeof InstallTrigger !== 'undefined'
 
     // Safari 3.0+ "[object HTMLElementConstructor]"
@@ -29,10 +31,12 @@ const usePlatform = (/* { breakpoint } */) => {
         return p.toString() === '[object SafariRemoteNotification]'
       })(
         !Global.safari ||
+          // @ts-ignore
           (typeof safari !== 'undefined' && safari.pushNotification),
       )
 
     // Internet Explorer 6-11
+    // @ts-ignore
     const isIE = /*@cc_on!@*/ false || !!document.documentMode
 
     // Edge 20+
@@ -58,8 +62,6 @@ const usePlatform = (/* { breakpoint } */) => {
         isMobile,
       }),
     )
-
-    return () => {}
   }, [])
 
   return platform
