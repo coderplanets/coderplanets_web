@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { isMobile as detectMobile } from '@/utils'
 
-const useDevice = () => {
+type TDevice = {
+  isMobile: boolean
+}
+
+const useDevice = (): TDevice => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {

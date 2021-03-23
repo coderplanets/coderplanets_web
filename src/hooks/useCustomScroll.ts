@@ -1,5 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, RefObject } from 'react'
 import OverlayScrollbars from 'overlayscrollbars'
+
+type TOption = {
+  className?: string
+  themeCategory?: string
+  scrollbars?: {
+    autoHide?: 'scroll' | 'never' // string
+  }
+  callbacks?: {
+    onScroll?: () => void
+    onScrollStart?: () => void
+    onScrollStop?: () => void
+  }
+  // more callbacks see overlayscrollbars docs
+}
 
 /**
  * options detail see:
@@ -7,7 +21,10 @@ import OverlayScrollbars from 'overlayscrollbars'
  *
  * @returns
  */
-const useCustomScroll = (ref, option = {}) => {
+const useCustomScroll = (
+  ref: RefObject<HTMLElement>,
+  option: TOption = {},
+): any => {
   const [scrollInstance, setScrollInstance] = useState(null)
 
   useEffect(() => {
