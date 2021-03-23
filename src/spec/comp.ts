@@ -3,7 +3,7 @@ import { TSIZE } from './size'
 // button
 export type TButton = {
   size: TSIZE
-  active: boolean
+  active?: boolean
   ghost?: boolean
   disabled?: boolean
   noBorder?: boolean

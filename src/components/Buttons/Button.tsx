@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import T from 'prop-types'
 
+import type { TSIZE_TSM } from '@/spec'
 import { SIZE } from '@/constant'
+import { buildLog } from '@/utils'
 
 import {
   Wrapper,
@@ -12,21 +13,37 @@ import {
   LoadingText,
 } from './styles/button'
 
-const clearTimerIfNeed = (timerId) => {
+/* eslint-disable-next-line */
+const log = buildLog('c:Buttons:Button')
+
+const clearTimerIfNeed = (timerId: number): void => {
   if (timerId) clearTimeout(timerId)
 }
 
-const Button = ({
-  children,
-  ghost,
-  type,
-  onClick,
-  size,
-  className,
-  loading,
-  loadingText,
-  noBorder,
-  disabled,
+type TProps = {
+  children?: React.ReactNode
+  className?: string
+  ghost?: boolean
+  type: 'primary' | 'red' | 'ghost'
+  size?: TSIZE_TSM
+  onClick?: () => void
+  loading?: boolean | null
+  loadingText?: string
+  noBorder?: boolean
+  disabled?: boolean
+}
+
+const Button: React.FC<TProps> = ({
+  children = 'button',
+  ghost = false,
+  type = 'primary',
+  onClick = log,
+  size = SIZE.MEDIUM,
+  className = '',
+  loading = null,
+  loadingText = '发布中',
+  noBorder = false,
+  disabled = false,
 }) => {
   const [loadingWidth, setLoadingWidth] = useState(0) // 0 || 20 || 65 || 90 || 100
 
@@ -95,33 +112,6 @@ const Button = ({
       )
     }
   }
-}
-
-Button.propTypes = {
-  children: T.oneOfType([T.string, T.node]),
-  ghost: T.bool,
-  type: T.oneOf(['primary', 'red', 'ghost']),
-  size: T.oneOf([SIZE.TINY, SIZE.SMALL, SIZE.MEDIUM]),
-  onClick: T.func,
-  className: T.string,
-  loading: T.oneOfType([T.bool, T.instanceOf(null)]),
-  loadingText: T.string,
-  noBorder: T.bool,
-  disabled: T.bool,
-}
-
-Button.defaultProps = {
-  children: 'Button',
-  ghost: false,
-  type: 'primary',
-  size: SIZE.MEDIUM,
-  // eslint-disable-next-line no-console
-  onClick: console.log,
-  className: '',
-  loading: null,
-  loadingText: '发布中..',
-  noBorder: false,
-  disabled: false,
 }
 
 export default React.memo(Button)

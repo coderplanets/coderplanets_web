@@ -1,3 +1,6 @@
+// c# like
+export type Nullable<T> = T | null
+
 export type TTestable = {
   testid: string
 }

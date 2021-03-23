@@ -23,6 +23,7 @@ export type {
   TSEO,
   TLink,
   TPlatform,
+  Nullable,
 } from './utils'
 
 export type TRoute = {
@@ -33,9 +34,6 @@ export type TRoute = {
 }
 
 export type TRootStore = RootStoreType
-
-// c# like
-export type Nullable<T> = T | null
 
 export type TCommunity = {
   id: string
