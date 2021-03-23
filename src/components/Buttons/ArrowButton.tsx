@@ -5,9 +5,8 @@
  */
 
 import React, { useRef, useState, useEffect } from 'react'
-import T from 'prop-types'
-import { values } from 'ramda'
 
+import type { TSIZE } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
@@ -15,16 +14,26 @@ import { buildLog } from '@/utils'
 import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Buttons:index')
+const log = buildLog('c:Buttons:ArrowButton')
 
-const ArrowButton = ({
-  children,
-  onClick,
-  size,
-  direction,
-  dimWhenIdle,
-  arrowStyle,
-  disabled,
+type TProps = {
+  children?: React.ReactNode
+  onClick?: () => void
+  size?: TSIZE
+  direction: 'left' | 'right'
+  dimWhenIdle?: boolean
+  disabled?: boolean
+  arrowStyle?: string
+}
+
+const ArrowButton: React.FC<TProps> = ({
+  children = '下一步',
+  onClick = log,
+  size = SIZE.SMALL,
+  direction = 'right',
+  dimWhenIdle = false,
+  arrowStyle = 'default',
+  disabled = false,
 }) => {
   const iconSrc =
     arrowStyle === 'default'
@@ -86,26 +95,6 @@ const ArrowButton = ({
       )}
     </Wrapper>
   )
-}
-
-ArrowButton.propTypes = {
-  children: T.oneOfType([T.string, T.node]),
-  arrowStyle: T.oneOf(['default', 'simple']),
-  size: T.oneOf(values(SIZE)),
-  direction: T.oneOf(['left', 'right']),
-  dimWhenIdle: T.bool,
-  onClick: T.func,
-  disabled: T.bool,
-}
-
-ArrowButton.defaultProps = {
-  children: '下一步',
-  arrowStyle: 'default',
-  size: SIZE.SMALL,
-  direction: 'right',
-  dimWhenIdle: false,
-  onClick: log,
-  disabled: false,
 }
 
 export default React.memo(ArrowButton)

@@ -5,9 +5,8 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
-import { values } from 'ramda'
 
+import type { TSIZE } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
@@ -15,16 +14,26 @@ import { buildLog } from '@/utils'
 import { Wrapper, Text, RightIcon } from './styles/arrow_link'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Buttons:index')
+const log = buildLog('c:Buttons:ArrowLink')
 
-const ArrowLink = ({
-  className,
-  children,
-  size,
-  href,
-  target,
-  color,
-  hoverColor,
+type TProps = {
+  className: string
+  children?: React.ReactNode
+  size?: TSIZE
+  href: string
+  target: '_blank' | ''
+  color?: string
+  hoverColor?: string
+}
+
+const ArrowLink: React.FC<TProps> = ({
+  className = '',
+  children = '下一步',
+  size = SIZE.SMALL,
+  href = '',
+  target = '_blank',
+  color = '',
+  hoverColor = '',
 }) => {
   return (
     <Wrapper
@@ -44,26 +53,6 @@ const ArrowLink = ({
       />
     </Wrapper>
   )
-}
-
-ArrowLink.propTypes = {
-  className: T.string,
-  children: T.oneOfType([T.string, T.node]),
-  size: T.oneOf(values(SIZE)),
-  href: T.string,
-  color: T.string,
-  hoverColor: T.string,
-  target: T.oneOf(['_blank', '']),
-}
-
-ArrowLink.defaultProps = {
-  className: '',
-  children: '下一步',
-  size: SIZE.SMALL,
-  href: '',
-  color: '',
-  hoverColor: '',
-  target: '_blank',
 }
 
 export default React.memo(ArrowLink)
