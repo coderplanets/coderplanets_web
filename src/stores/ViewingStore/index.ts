@@ -3,9 +3,10 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values, merge } from 'ramda'
 
+import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
 import { THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 import { User, Community, Post, Job, Video, Repo } from '@/model'
@@ -32,24 +33,23 @@ const ViewingStore = T.model('ViewingStore', {
   ),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.accountInfo
     },
-    get accountInfo() {
-      return self.root.accountInfo
-    },
-    get isSelfViewing() {
-      const { isLogin } = self.root.accountInfo
+    get isSelfViewing(): boolean {
+      const root = getParent(self) as TRootStore
+      const { isLogin } = root.accountInfo
       if (!isLogin) return false
 
-      const { id: accountId } = self.root.accountInfo
+      const { id: accountId } = root.accountInfo
       const { id: userId } = self.user
       return accountId === userId
     },
-    get currentThread() {
+    get currentThread(): TThread {
       return self.viewingThread || self.activeThread
     },
-    get viewingData() {
+    get viewingData(): TArticle {
       const curThread = self.viewingThread || self.activeThread
       switch (curThread) {
         case THREAD.JOB:
@@ -64,40 +64,52 @@ const ViewingStore = T.model('ViewingStore', {
     },
   }))
   .actions((self) => ({
-    setViewing(sobj) {
-      self.mark(sobj)
+    setViewing(sobj): void {
+      const { mark } = self as TStore
+      mark(sobj)
     },
-    updateViewingIfNeed(type, sobj) {
+    updateViewingIfNeed(type, sobj): void {
+      const { updateViewingUser } = self as TStore
+
       switch (type) {
         case 'user': {
-          if (self.user.id !== self.accountInfo.id) return false
-          return self.updateViewingUser(sobj)
+          if (self.user.id !== self.accountInfo.id) return
+          updateViewingUser(sobj)
+          break
         }
         default:
-          return false
+          break
       }
     },
-    updateViewingUser(sobj) {
+    updateViewingUser(sobj: TUser): void {
       const user = merge(self.user, sobj)
-      return self.mark({ user })
+      const { mark } = self as TStore
+
+      return mark({ user })
     },
-    syncViewingItem(item) {
+    syncViewingItem(item: TArticle): void {
+      const root = getParent(self) as TRootStore
       const curThread = self.viewingThread || self.activeThread
+
       switch (curThread) {
         case THREAD.JOB:
-          return self.root.jobsThread.updateItem(item)
+          root.jobsThread.updateItem(item)
+          return
         case THREAD.REPO:
-          return self.root.reposThread.updateItem(item)
+          root.reposThread.updateItem(item)
+          return
         case THREAD.VIDEO:
-          return self.root.videosThread.updateItem(item)
+          root.videosThread.updateItem(item)
+          return
         default: {
-          return self.root.postsThread.updateItem(item)
+          root.postsThread.updateItem(item)
         }
       }
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof ViewingStore>
 export default ViewingStore

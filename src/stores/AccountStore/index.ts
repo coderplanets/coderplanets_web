@@ -3,9 +3,10 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, clone, remove, insert, findIndex, propEq } from 'ramda'
 
+import type { TRootStore, TCommunity } from '@/spec'
 import { markStates, buildLog, stripMobx, BStore } from '@/utils'
 import { User, EmptyUser, PagedCommunities } from '@/model'
 
@@ -18,9 +19,6 @@ const AccountStore = T.model('AccountStore', {
   userSubscribedCommunities: T.maybeNull(PagedCommunities),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
     get accountInfo() {
       return {
         ...stripMobx(self.user),
@@ -48,29 +46,35 @@ const AccountStore = T.model('AccountStore', {
     },
   }))
   .actions((self) => ({
-    logout() {
-      self.root.drawer.close()
-      self.sessionCleanup()
+    logout(): void {
+      const root = getParent(self) as TRootStore
+      const { sessionCleanup } = self as TStore
+      root.drawer.close()
+      sessionCleanup()
     },
-    isMemberOf(type) {
+    isMemberOf(type): boolean {
       const { achievement } = stripMobx(self.user)
       if (!achievement) return false
       return achievement[type] || false
     },
-    updateAccount(sobj) {
+    updateAccount(sobj): void {
       const user = merge(stripMobx(self.user), { ...sobj })
+      const { mark } = self as TStore
 
-      self.mark({ user })
+      mark({ user })
     },
     updateSession({ isValid, user }) {
       self.isValidSession = isValid
+
+      const { setSession, updateAccount, sessionCleanup } = self as TStore
+
       if (isValid) {
-        self.setSession(user, BStore.get('token'))
-        return self.updateAccount(user || {})
+        setSession(user, BStore.get('token'))
+        return updateAccount(user || {})
       }
-      return self.sessionCleanup()
+      return sessionCleanup()
     },
-    setSession(user, token) {
+    setSession(user: string, token: string): void {
       // log('setSession user: ', user)
       // log('setSession token: ', token)
 
@@ -78,32 +82,34 @@ const AccountStore = T.model('AccountStore', {
       BStore.set('token', token)
       BStore.cookie.set('jwtToken', token)
     },
-    sessionCleanup() {
+    sessionCleanup(): void {
+      // @ts-ignore
       self.user = EmptyUser
       self.isValidSession = false
       BStore.remove('user')
       BStore.remove('token')
       BStore.cookie.remove('jwtToken')
     },
-    loadSubscribedCommunities(data) {
+    loadSubscribedCommunities(data): void {
       // self.user.subscribedCommunities = data
       self.userSubscribedCommunities = data
     },
-    addSubscribedCommunity(community) {
+    addSubscribedCommunity(community: TCommunity): void {
       const {
         userSubscribedCommunities: { entries },
       } = self
-
+      // @ts-ignore
       self.userSubscribedCommunities.entries = insert(0, community, entries)
       self.userSubscribedCommunities.totalCount += 1
     },
 
-    removeSubscribedCommunity(community) {
+    removeSubscribedCommunity(community: TCommunity): void {
       const {
         userSubscribedCommunities: { entries },
       } = self
 
       const index = findIndex(propEq('id', community.id), entries)
+      // @ts-ignore
       self.userSubscribedCommunities.entries = remove(index, 1, entries)
       self.userSubscribedCommunities.totalCount -= 1
     },
@@ -111,9 +117,10 @@ const AccountStore = T.model('AccountStore', {
       const curCustomization = clone(self.accountInfo.customization)
       self.user.customization = merge(curCustomization, options)
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof AccountStore>
 export default AccountStore
