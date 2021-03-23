@@ -1,6 +1,6 @@
 import React from 'react'
 
-import type { TSIZE } from '@/spec'
+import type { TProps as TButtonProps } from './index'
 import { SIZE } from '@/constant'
 
 import {
@@ -10,21 +10,22 @@ import {
   RightButton,
 } from '../styles/or_button/horizontal_button'
 
-type TProps = {
-  activeKey: string
-  size?: TSIZE
-  onClick: (key: string) => void
-  group: {
-    key: string
-    title: string
-  }[]
-}
+type TProps = Omit<TButtonProps, 'direction'>
 
 const HorizontalButton: React.FC<TProps> = ({
   onClick,
-  size = SIZE.SMALL as TSIZE,
+  size = SIZE.SMALL,
   activeKey,
-  group,
+  group = [
+    {
+      key: 'hello',
+      title: 'hello',
+    },
+    {
+      key: 'cps',
+      title: 'cps',
+    },
+  ],
 }) => {
   return (
     <Wrapper size={size}>

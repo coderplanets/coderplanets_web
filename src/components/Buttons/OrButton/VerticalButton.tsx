@@ -1,6 +1,6 @@
 import React from 'react'
-import T from 'prop-types'
 
+import type { TProps as TButtonProps } from './index'
 import { SIZE } from '@/constant'
 
 import {
@@ -10,9 +10,25 @@ import {
   BottomButton,
 } from '../styles/or_button/vertical_button'
 
-const VerticalButton = ({ onClick, size, activeKey, group }) => {
+type TProps = Omit<TButtonProps, 'direction'>
+
+const VerticalButton: React.FC<TProps> = ({
+  onClick,
+  size = SIZE.SMALL,
+  activeKey,
+  group = [
+    {
+      key: 'hello',
+      title: 'hello',
+    },
+    {
+      key: 'cps',
+      title: 'cps',
+    },
+  ],
+}) => {
   return (
-    <Wrapper size={size}>
+    <Wrapper>
       <UpButton
         size={size}
         active={group[0].key === activeKey}
@@ -30,35 +46,6 @@ const VerticalButton = ({ onClick, size, activeKey, group }) => {
       </BottomButton>
     </Wrapper>
   )
-}
-
-VerticalButton.propTypes = {
-  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
-  onClick: T.func,
-  activeKey: T.string,
-  group: T.arrayOf(
-    T.shape({
-      key: T.string,
-      title: T.string,
-    }),
-  ),
-}
-
-VerticalButton.defaultProps = {
-  size: SIZE.MEDIUM,
-  // eslint-disable-next-line no-console
-  onClick: console.log,
-  activeKey: 'hello',
-  group: [
-    {
-      key: 'hello',
-      title: 'hello',
-    },
-    {
-      key: 'cps',
-      title: 'cps',
-    },
-  ],
 }
 
 export default VerticalButton

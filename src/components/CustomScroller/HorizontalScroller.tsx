@@ -7,7 +7,7 @@
 import React, { useState, useRef, useCallback } from 'react'
 import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
-import type { TSIZE_SML, TThemeMap } from '@/spec'
+import type { TThemeMap } from '@/spec'
 
 import { buildLog } from '@/utils'
 import { SIZE } from '@/constant'
