@@ -14,29 +14,14 @@ export type {
 export type { TButton } from './comp'
 
 export type { TTheme, TThemeMap, TThemeName } from './theme'
+export type { TAccount, TUser, TMembership } from './account'
+export type { TTestable, TActive, TSpace, TGAEvent, TSEO, TLink } from './utils'
 
 export type TRoute = {
   communityPath?: string
   threadPath?: string
   mainPath?: string
   subPath?: string
-}
-
-export type TTestable = {
-  testid: string
-}
-
-export type TActive = {
-  active?: boolean
-  show?: boolean
-  visible?: boolean
-}
-
-export type TSpace = {
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
 }
 
 export type TRootStore = RootStoreType
@@ -51,19 +36,6 @@ export type TCommunity = {
   raw: string
 }
 
-export type TUser = {
-  id: string
-  login: string
-  nickname: string
-  avatar: string
-}
-export type TAccount = TUser & {
-  customization?: {
-    theme: string
-    bannerLayout: string
-  }
-  // ...
-}
 export type TArticle = {
   id: string
   title: string
@@ -82,20 +54,4 @@ export type TViewing = {
   post: TArticle
 }
 
-// google analytis format
-export type GA_EVENT = {
-  action: string
-  category: string
-  label: string
-  value: string
-}
-
-export type TSEO = {
-  url: string
-  title: string
-  description: string
-}
-
-export type TLink = {
-  href: string
-}
+export type TThread = string

@@ -30,7 +30,7 @@ const from_req = (req: Record<string, unknown>, key: string): string => {
 const BStore = {
   // NOTE: if store json, JSON.parse is not need
   // is the json is valid, result will be the json, otherwise it will be string
-  get: (value: string, optional: string): string => store.get(value, optional),
+  get: (value: string, optional?: string): string => store.get(value, optional),
   set: (key: string, value: string): string => store.set(key, value),
   remove: (key: string): string => store.remove(key),
   clearAll: (): void => store.clearAll(),

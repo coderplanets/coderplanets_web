@@ -4,7 +4,7 @@ export type TThemeName =
   | 'purple'
   | 'yellow'
   | 'github'
-  | 'Green'
+  | 'green'
   | 'ironGreen'
   | 'monokai'
 

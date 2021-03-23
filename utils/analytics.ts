@@ -1,4 +1,4 @@
-import type { GA_EVENT } from '@/spec'
+import type { TGAEvent } from '@/spec'
 
 import { Global } from './helper'
 
@@ -21,7 +21,7 @@ const pageview = (url: string): void => {
     label: this.state.message
   })
 */
-const event = (e: GA_EVENT): void => {
+const event = (e: TGAEvent): void => {
   const { action, category, label, value } = e
 
   // @ts-ignore

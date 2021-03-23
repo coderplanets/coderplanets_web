@@ -6,11 +6,12 @@
 import { useMemo } from 'react'
 import { applySnapshot } from 'mobx-state-tree'
 
+import type { TRootStore } from '@/spec'
 import RootStore from './RootStore'
 
-let clientSideRootStore
+let clientSideRootStore: TRootStore | undefined
 
-const initRootStore = (snapshot = null) => {
+const initRootStore = (snapshot = null): TRootStore => {
   // if (!snapshot) return clientSideRootStore
   const rootStore = RootStore.create(snapshot, {})
 
@@ -27,7 +28,7 @@ const initRootStore = (snapshot = null) => {
   return rootStore
 }
 
-export const useStore = (initialState) => {
+export const useStore = (initialState): TRootStore => {
   const store = useMemo(() => initRootStore(initialState), [initialState])
   return store
 }

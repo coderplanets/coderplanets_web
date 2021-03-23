@@ -1,13 +1,17 @@
 // export * from './config.json'
 // import * as CONFIG from './config.json'
 
+import type { TThemeName } from '@/spec'
+import { DEFAULT_THEME as DEFAULT_THEME_CONFIG } from './config.json'
+
 export { default as LABEL_POOL } from './label_pool'
 export { default as SEO } from './next_seo'
+
+export const DEFAULT_THEME = DEFAULT_THEME_CONFIG as TThemeName
 
 // explicit export to avoid eslint warning
 export {
   GRAPHQL_ENDPOINT,
-  DEFAULT_THEME,
   SENIOR_AMOUNT_THRESHOLD,
   SPONSOR_AMOUNT_THRESHOLD,
   PAGE_SIZE,

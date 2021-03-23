@@ -3,9 +3,10 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { keys, merge } from 'ramda'
 
+import type { TRootStore, TThemeName, TMembership } from '@/spec'
 import { DEFAULT_THEME } from '@/config'
 import { buildLog, markStates, themeSkins } from '@/utils'
 
@@ -28,14 +29,17 @@ export const ThemeStore = T.model('ThemeStore', {
     },
   }))
   .actions((self) => ({
-    isMemberOf(type) {
-      return self.root.isMemberOf(type)
+    isMemberOf(type: TMembership): boolean {
+      const root = getParent(self) as TRootStore
+      return root.isMemberOf(type)
     },
-    checkSetable() {
+    checkSetable(): boolean {
+      const root = getParent(self) as TRootStore
+      const { isMemberOf } = self as TStore
       if (
-        self.isMemberOf('seniorMember') ||
-        self.isMemberOf('sponsorMember') ||
-        self.isMemberOf('donateMember')
+        isMemberOf('seniorMember') ||
+        isMemberOf('sponsorMember') ||
+        isMemberOf('donateMember')
       ) {
         return false
       }
@@ -44,13 +48,15 @@ export const ThemeStore = T.model('ThemeStore', {
         title: '保存主题设置失败',
         msg: '仅支持高级会员以打赏用户',
       }
-      self.root.toast('warn', merge({ position: 'topCenter' }, options))
+      root.toast('warn', merge({ position: 'topCenter' }, options))
     },
-    changeTheme(name) {
+    changeTheme(name: TThemeName): void {
       self.curTheme = name
       // self.checkSetable()
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
+
+export type TStore = Instance<typeof ThemeStore>
