@@ -61,7 +61,7 @@ export const SiteLogo = styled(CommunityFaceLogo)`
   margin-left: 2px;
 `
 export const SiteTitle = styled.div`
-  color: ${theme('footer.title')};
+  color: #007fa8;
   font-size: 18px;
   font-weight: bold;
   margin-right: 25px;
@@ -87,6 +87,7 @@ export const Title = styled.div`
   color: ${theme('footer.title')};
   margin-bottom: 15px;
   font-size: 14px;
+  font-weight: bold;
 `
 export const Body = styled.div`
   ${css.flexColumn('justify-start')};
