@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import { theme } from '@/utils'
 import Img from '@/Img'
 
-export const Logo = styled(Img)<{ nonFill: boolean }>`
-  fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
+export const Logo = styled(Img)<{ noFill?: boolean }>`
+  fill: ${({ noFill }) => (noFill ? '' : theme('banner.desc'))};
   display: block;
 `
 
-export const holder = 1
+export const HomeLogo = styled(Logo)`
+  transform: rotate(20deg);
+`
