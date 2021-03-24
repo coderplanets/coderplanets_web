@@ -42,26 +42,55 @@ const DigestView = ({ layout, metric }) => {
             <SiteInfo>
               <SiteLogo />
             </SiteInfo>
-            <div>
-              <SiteTitle>coderplanets</SiteTitle>
-              <SiteDesc
+            <SiteTitle>coderplanets</SiteTitle>
+            <SiteDesc>关于</SiteDesc>
+            <SiteDesc>加入我们</SiteDesc>
+            <SiteDesc>OpenSource</SiteDesc>
+            <SiteDesc>友情链接</SiteDesc>
+            <SiteDesc>特别感谢</SiteDesc>
+            {/* <SiteDesc
                 href="https://github.com/groupher"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 Power By Groupher | 2020
-              </SiteDesc>
-              <SiteDesc
+              </SiteDesc> */}
+            {/* <SiteDesc
                 href="http://beian.miit.gov.cn"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 蜀ICP备17043722号-4
-              </SiteDesc>
-            </div>
+              </SiteDesc> */}
           </MainColumn>
         </TopBarInfos>
         <MainInfos>
+          <Column>
+            <Title>网站地图</Title>
+            <Body>
+              <LinkItem href="/home/post/1" {...linkColors}>
+                子社区
+              </LinkItem>
+              <LinkItem href={`${ISSUE_ADDR}`} {...linkColors}>
+                作品集市
+              </LinkItem>
+              <LinkItem href="https://github.com/coderplanets" {...linkColors}>
+                酷导航
+              </LinkItem>
+              <LinkItem href="/cps-support/posts" {...linkColors}>
+                来一杯
+              </LinkItem>
+              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+                活动
+              </LinkItem>
+              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+                工作
+              </LinkItem>
+              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+                更多 ..
+              </LinkItem>
+            </Body>
+          </Column>
           <Column>
             <Title>About</Title>
             <Body>
@@ -98,8 +127,11 @@ const DigestView = ({ layout, metric }) => {
           <Column>
             <Title>开发者</Title>
             <Body>
+              <LinkItem href={`${GITHUB}`} {...linkColors}>
+                技术栈
+              </LinkItem>
               <LinkItem href="/cps-support/post/42" {...linkColors}>
-                开发者指南
+                文档中心
               </LinkItem>
               <LinkItem href={`${API_SERVER_ADDR}`} {...linkColors}>
                 API
@@ -121,11 +153,18 @@ const DigestView = ({ layout, metric }) => {
             </Body>
           </Column>
           <Column margin="30px">
-            <Title>本站状态</Title>
+            <Title>网站状态</Title>
             <Body>
               <Item as="span" normal>
-                构建版本: {BUILD_VERSION}
+                部署版本: {BUILD_VERSION}
               </Item>
+              <Item as="span" normal>
+                开发计划
+              </Item>
+            </Body>
+            <br />
+            <Title>用户</Title>
+            <Body>
               <Item as="span" normal>
                 注册人数: --
               </Item>

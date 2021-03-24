@@ -21,6 +21,10 @@ export const InnerWrapper = styled.div`
 `
 export const TopBarInfos = styled.div`
   ${css.flex('align-center')};
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+  border-bottom-color: #003949;
 `
 export const MainInfos = styled.div`
   ${css.flex('justify-start')};
@@ -41,42 +45,43 @@ export const Column = styled.div<{ margin: string }>`
   min-width: 100px;
   margin-right: ${({ margin }) => margin || '50px'};
 `
-export const MainColumn = styled(Column)`
+export const MainColumn = styled.div`
+  ${css.flex('align-center')};
   min-width: 240px;
   flex-grow: 1;
 `
 export const SiteInfo = styled.div`
-  ${css.flex()};
-  align-items: end;
-  margin-bottom: 10px;
+  ${css.flex('align-center')};
   margin-top: 3px;
 `
+export const SiteLogo = styled(CommunityFaceLogo)`
+  ${css.size(22)};
+  margin-right: 12px;
+  margin-top: -5px;
+  margin-left: 2px;
+`
 export const SiteTitle = styled.div`
-  margin-bottom: 5px;
-  color: ${theme('footer.text')};
-  font-size: 15px;
+  color: ${theme('footer.title')};
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-right: 25px;
 `
 export const SiteDesc = styled.a`
-  margin-bottom: 5px;
-  color: ${theme('footer.text')};
+  color: ${theme('footer.title')};
   display: block;
   text-decoration: none;
+  margin-left: 24px;
+  opacity: 0.8;
 
-  font-size: 13px;
+  font-size: 14px;
 
   &:hover {
     color: ${theme('footer.hover')};
     text-decoration: underline;
     cursor: pointer;
+    opacity: 1;
   }
-  transition: color 0.2s;
-`
-export const SiteLogo = styled(CommunityFaceLogo)`
-  ${css.size(32)};
-  margin-bottom: 18px;
-  margin-left: 3px;
+  transition: all 0.2s;
 `
 export const Title = styled.div`
   color: ${theme('footer.title')};
