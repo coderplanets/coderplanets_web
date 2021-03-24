@@ -10,6 +10,7 @@ import ContactBar from './ContactBar'
 import {
   Wrapper,
   InnerWrapper,
+  TopBarInfos,
   MainInfos,
   MainColumn,
   SiteInfo,
@@ -36,7 +37,7 @@ const DigestView = ({ layout, metric }) => {
   return (
     <Wrapper metric={metric}>
       <InnerWrapper layout={layout}>
-        <MainInfos>
+        <TopBarInfos>
           <MainColumn>
             <SiteInfo>
               <SiteLogo />
@@ -59,6 +60,8 @@ const DigestView = ({ layout, metric }) => {
               </SiteDesc>
             </div>
           </MainColumn>
+        </TopBarInfos>
+        <MainInfos>
           <Column>
             <Title>About</Title>
             <Body>

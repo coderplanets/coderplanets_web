@@ -21,7 +21,8 @@ const CommunityFaceLogo = ({ noFill, src, raw, loading, className }) => {
   if (raw === HCN || isEmpty(src)) {
     return (
       <Logo
-        src={`${ICON_BASE}/site_logo.svg`}
+        // src={`${ICON_BASE}/site_logo.svg`}
+        src="https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/static/new-logo.jpg"
         raw={raw}
         className={className}
       />

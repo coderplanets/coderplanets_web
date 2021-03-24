@@ -19,8 +19,11 @@ export const InnerWrapper = styled.div`
   width: 100%;
   padding-bottom: 0;
 `
+export const TopBarInfos = styled.div`
+  ${css.flex('align-center')};
+`
 export const MainInfos = styled.div`
-  ${css.flex('justify-start')};
+  ${css.flexColumn('justify-start')};
   margin-bottom: 20px;
   margin-top: 20px;
   margin-bottom: 30px;
