@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
-import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { ArrowLink } from '@/components/Buttons'
 
 // import { getPadding } from '../../metrics'

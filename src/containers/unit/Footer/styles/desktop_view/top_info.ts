@@ -6,12 +6,14 @@ import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 // import { getPadding } from '../../metrics'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ noBottomBorder: boolean }>`
   ${css.flex('align-center')};
-  margin-bottom: 30px;
-  padding-bottom: 35px;
-  border-bottom: 1px solid;
-  border-bottom-color: #003949;
+  margin-bottom: ${({ noBottomBorder }) => (noBottomBorder ? '20px' : '30px')};
+  padding-bottom: ${({ noBottomBorder }) => (noBottomBorder ? '0' : '35px')};
+  border-bottom: ${({ noBottomBorder }) =>
+    noBottomBorder ? 'none' : '1px solid'};
+  border-bottom-color: ${({ noBottomBorder }) =>
+    noBottomBorder ? 'transparent' : '#003949'};
 `
 export const MainInfos = styled.div`
   ${css.flex('justify-between')};

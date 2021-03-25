@@ -35,7 +35,7 @@ export const BuyMeChuanChuan = dynamic(
 
 type TProps = {
   footer?: TStore
-  metric?: string
+  metric?: string // TODO
 }
 
 const FooterContainer: React.FC<TProps> = ({ footer: store, metric }) => {
@@ -80,9 +80,9 @@ const FooterContainer: React.FC<TProps> = ({ footer: store, metric }) => {
       />
 
       {curView === 'DIGEST' ? (
-        <DigestView metric={metric} />
-      ) : (
         <BriefView curView={curView} metric={metric} />
+      ) : (
+        <DigestView metric={metric} />
       )}
     </Wrapper>
   )

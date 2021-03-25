@@ -10,11 +10,15 @@ import {
 
 type TProps = {
   title?: string
+  noBottomBorder?: boolean
 }
 
-const DigestView: React.FC<TProps> = ({ title = 'CoderPlanets' }) => {
+const DigestView: React.FC<TProps> = ({
+  title = 'CoderPlanets',
+  noBottomBorder = false,
+}) => {
   return (
-    <Wrapper>
+    <Wrapper noBottomBorder={noBottomBorder}>
       <SiteInfo>
         <SiteLogo />
       </SiteInfo>
