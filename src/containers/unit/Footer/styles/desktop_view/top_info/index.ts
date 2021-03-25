@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
+import Img from '@/Img'
 
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
-// import { getPadding } from '../../metrics'
-
-export const Wrapper = styled.div<{ noBottomBorder: boolean }>`
+type TWrapper = { noBottomBorder?: boolean }
+export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
   margin-bottom: ${({ noBottomBorder }) => (noBottomBorder ? '20px' : '30px')};
   padding-bottom: ${({ noBottomBorder }) => (noBottomBorder ? '0' : '35px')};
@@ -15,30 +15,16 @@ export const Wrapper = styled.div<{ noBottomBorder: boolean }>`
   border-bottom-color: ${({ noBottomBorder }) =>
     noBottomBorder ? 'transparent' : '#003949'};
 `
-export const MainInfos = styled.div`
-  ${css.flex('justify-between')};
-  margin-top: 20px;
-  margin-bottom: 30px;
-  margin-right: 12px;
-  margin-left: 5px;
-  opacity: 0.9;
-
-  &:hover {
-    opacity: 1;
-  }
-  transition: opacity 0.25s;
-
-  ${css.media.tablet`display: none;`};
-`
-export const SiteInfo = styled.div`
+export const InfoBar = styled.div`
   ${css.flex('align-center')};
   margin-top: 3px;
 `
-export const SiteLogo = styled(CommunityFaceLogo)`
+export const Logo = styled(CommunityFaceLogo)`
   ${css.size(22)};
   margin-right: 12px;
   margin-top: -5px;
   margin-left: 2px;
+  cursor: pointer;
 `
 export const SiteTitle = styled.div`
   color: #007fa8;
@@ -46,7 +32,13 @@ export const SiteTitle = styled.div`
   font-weight: bold;
   margin-right: 25px;
 `
-export const SiteDesc = styled.a`
+export const ArrowDividerIcon = styled(Img)`
+  fill: ${theme('footer.text')};
+  ${css.size(20)};
+  transform: rotate(180deg);
+  margin-right: 6px;
+`
+export const Linker = styled.a`
   color: ${theme('footer.title')};
   display: block;
   text-decoration: none;
@@ -62,4 +54,20 @@ export const SiteDesc = styled.a`
     opacity: 1;
   }
   transition: all 0.2s;
+`
+
+export const MainInfos = styled.div`
+  ${css.flex('justify-between')};
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-right: 12px;
+  margin-left: 5px;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+  transition: opacity 0.25s;
+
+  ${css.media.tablet`display: none;`};
 `

@@ -80,9 +80,9 @@ const FooterContainer: React.FC<TProps> = ({ footer: store, metric }) => {
       />
 
       {curView === 'DIGEST' ? (
-        <BriefView curView={curView} metric={metric} />
-      ) : (
         <DigestView metric={metric} />
+      ) : (
+        <BriefView curView={curView} metric={metric} />
       )}
     </Wrapper>
   )
