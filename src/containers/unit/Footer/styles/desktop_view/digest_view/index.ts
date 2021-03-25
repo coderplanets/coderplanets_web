@@ -7,8 +7,6 @@ import { ArrowLink } from '@/components/Buttons'
 
 // import { getPadding } from '../../metrics'
 
-type TItem = { normal: boolean; offsetTop: string }
-
 export const Wrapper = styled.footer<{ metric: string }>`
   ${css.flexColumn('align-center')};
   width: 100%;
@@ -22,15 +20,15 @@ export const InnerWrapper = styled.div`
 export const TopBarInfos = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 35px;
   border-bottom: 1px solid;
   border-bottom-color: #003949;
 `
 export const MainInfos = styled.div`
-  ${css.flex('justify-start')};
-  margin-bottom: 20px;
+  ${css.flex('justify-between')};
   margin-top: 20px;
   margin-bottom: 30px;
+  margin-right: 12px;
   opacity: 0.9;
 
   &:hover {
@@ -40,7 +38,7 @@ export const MainInfos = styled.div`
 
   ${css.media.tablet`display: none;`};
 `
-export const Column = styled.div<{ margin: string }>`
+export const Column = styled.div<{ margin?: string }>`
   ${css.flexColumn()};
   min-width: 100px;
   margin-right: ${({ margin }) => margin || '50px'};
@@ -93,6 +91,7 @@ export const Body = styled.div`
   ${css.flexColumn('justify-start')};
   color: ${theme('footer.text')};
 `
+type TItem = { normal: boolean; offsetTop?: string }
 export const Item = styled.a<TItem>`
   color: ${theme('footer.text')};
 

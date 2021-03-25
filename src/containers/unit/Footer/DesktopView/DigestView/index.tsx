@@ -1,11 +1,12 @@
 import React from 'react'
 import { useTheme } from 'styled-components'
 
+import type { TThemeMap } from '@/spec'
 import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 
 import BottomInfo from '../BottomInfo'
-import ContactBar from './ContactBar'
+import SocialList from '../../SocialList'
 
 import {
   Wrapper,
@@ -26,8 +27,12 @@ import {
 
 import { toggleBusBanner } from '../../logic'
 
-const DigestView = ({ layout, metric }) => {
-  const theme = useTheme()
+type TProps = {
+  metric: string
+}
+
+const DigestView: React.FC<TProps> = ({ metric }) => {
+  const theme = useTheme() as TThemeMap
 
   const linkColors = {
     color: theme.footer.text,
@@ -36,7 +41,7 @@ const DigestView = ({ layout, metric }) => {
 
   return (
     <Wrapper metric={metric}>
-      <InnerWrapper layout={layout}>
+      <InnerWrapper>
         <TopBarInfos>
           <MainColumn>
             <SiteInfo>
@@ -44,24 +49,10 @@ const DigestView = ({ layout, metric }) => {
             </SiteInfo>
             <SiteTitle>coderplanets</SiteTitle>
             <SiteDesc>关于</SiteDesc>
+            <SiteDesc>创建社区</SiteDesc>
             <SiteDesc>加入我们</SiteDesc>
             <SiteDesc>OpenSource</SiteDesc>
-            <SiteDesc>友情链接</SiteDesc>
             <SiteDesc>特别感谢</SiteDesc>
-            {/* <SiteDesc
-                href="https://github.com/groupher"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Power By Groupher | 2020
-              </SiteDesc> */}
-            {/* <SiteDesc
-                href="http://beian.miit.gov.cn"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                蜀ICP备17043722号-4
-              </SiteDesc> */}
           </MainColumn>
         </TopBarInfos>
         <MainInfos>
@@ -91,47 +82,47 @@ const DigestView = ({ layout, metric }) => {
               </LinkItem>
             </Body>
           </Column>
-          <Column>
-            <Title>About</Title>
-            <Body>
-              <LinkItem href="/home/post/1" {...linkColors}>
-                关于本站
-              </LinkItem>
-              <LinkItem href={`${ISSUE_ADDR}`} {...linkColors}>
-                反馈与建议
-              </LinkItem>
-              <LinkItem href="https://github.com/coderplanets" {...linkColors}>
-                加入我们
-              </LinkItem>
-              <LinkItem href="/cps-support/posts" {...linkColors}>
-                使用指南
-              </LinkItem>
-              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
-                友情链接
-              </LinkItem>
-            </Body>
-          </Column>
 
           <Column>
-            <Title>增值服务</Title>
+            <Title>会员</Title>
             <Body>
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+                志愿者
+              </LinkItem>
               <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
                 成为会员
               </LinkItem>
               <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
-                打赏支持(todo)
+                打赏支持
               </LinkItem>
+            </Body>
+
+            <br />
+            <Title>商务</Title>
+            <Body>
+              <Item as="span" normal onClick={toggleBusBanner}>
+                投放广告
+              </Item>
+              <Item as="span" normal onClick={toggleBusBanner}>
+                赞助商
+              </Item>
+              {/* <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+                友情链接
+              </LinkItem> */}
             </Body>
           </Column>
 
           <Column>
             <Title>开发者</Title>
             <Body>
-              <LinkItem href={`${GITHUB}`} {...linkColors}>
-                技术栈
-              </LinkItem>
+              <Item as="span" normal>
+                开发计划
+              </Item>
               <LinkItem href="/cps-support/post/42" {...linkColors}>
                 文档中心
+              </LinkItem>
+              <LinkItem href={`${GITHUB}`} {...linkColors}>
+                技术栈
               </LinkItem>
               <LinkItem href={`${API_SERVER_ADDR}`} {...linkColors}>
                 API
@@ -141,25 +132,12 @@ const DigestView = ({ layout, metric }) => {
               </LinkItem>
             </Body>
           </Column>
-          <Column>
-            <Title>商务合作</Title>
-            <Body>
-              <Item as="span" normal onClick={toggleBusBanner}>
-                赞助社区
-              </Item>
-              <Item as="span" normal onClick={toggleBusBanner}>
-                商务合作
-              </Item>
-            </Body>
-          </Column>
+
           <Column margin="30px">
             <Title>网站状态</Title>
             <Body>
               <Item as="span" normal>
                 部署版本: {BUILD_VERSION}
-              </Item>
-              <Item as="span" normal>
-                开发计划
               </Item>
             </Body>
             <br />
@@ -171,12 +149,37 @@ const DigestView = ({ layout, metric }) => {
               <Item as="span" normal>
                 在线人数: --
               </Item>
+              <Item as="span" normal>
+                小黑屋: --
+              </Item>
+            </Body>
+          </Column>
+
+          <Column>
+            <Title>支持</Title>
+            <Body>
+              <LinkItem href="/home/post/1" {...linkColors}>
+                违规举报
+              </LinkItem>
+              <LinkItem href="/cps-support/posts" {...linkColors}>
+                反馈与建议
+              </LinkItem>
+              <LinkItem href={`${ISSUE_ADDR}`} {...linkColors}>
+                帮助中心
+              </LinkItem>
+              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+                内容订阅
+              </LinkItem>
+            </Body>
+            <br />
+            <Title>联系</Title>
+            <Body>
+              <SocialList />
             </Body>
           </Column>
         </MainInfos>
       </InnerWrapper>
-      <ContactBar layout={layout} metric={metric} />
-      <BottomInfo layout={layout} metric={metric} />
+      <BottomInfo />
     </Wrapper>
   )
 }

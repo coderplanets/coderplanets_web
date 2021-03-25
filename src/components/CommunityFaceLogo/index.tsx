@@ -17,7 +17,7 @@ import { Logo, HomeLogo } from './styles'
 const log = buildLog('c:CommunityFaceLogo:index')
 
 type TProps = {
-  noFill: boolean
+  noFill?: boolean
   src?: string
   raw?: string
   loading?: boolean | null

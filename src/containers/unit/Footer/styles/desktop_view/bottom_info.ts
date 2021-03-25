@@ -18,13 +18,13 @@ export const InnerWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   align-items: center;
   width: 100%;
-  padding-left: 2px;
+  margin-right: 20px;
 `
 export const Links = styled.div`
   ${css.flex('align-center')};
 `
 export const Site = styled.a`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('footer.text')};
   cursor: pointer;
   text-decoration: none;
   &:hover {
@@ -32,6 +32,4 @@ export const Site = styled.a`
     color: ${theme('footer.hover')};
   }
 `
-export const MoreText = styled(Site)`
-  text-decoration: underline;
-`
+export const MoreText = styled(Site)``

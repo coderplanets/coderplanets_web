@@ -17,11 +17,11 @@ import { Wrapper, Text, RightIcon } from './styles/arrow_link'
 const log = buildLog('c:Buttons:ArrowLink')
 
 type TProps = {
-  className: string
+  className?: string
   children?: React.ReactNode
   size?: TSIZE
   href: string
-  target: '_blank' | ''
+  target?: '_blank' | ''
   color?: string
   hoverColor?: string
 }
