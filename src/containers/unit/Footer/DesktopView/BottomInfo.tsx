@@ -6,20 +6,17 @@ import { ROUTE } from '@/constant'
 import {
   Wrapper,
   InnerWrapper,
-  Links,
-  Site,
-  MoreText,
+  BeianLink,
+  CompanyLink,
 } from '../styles/desktop_view/bottom_info'
 
 const BottomInfo: React.FC = () => (
   <Wrapper>
     <InnerWrapper>
-      <Links>
-        <Site href="http://beian.miit.gov.cn">蜀ICP备17043722号-4</Site>
-      </Links>
-      <Link href={`/${ROUTE.SPONSOR}`} passHref>
-        <MoreText href={ROUTE.SPONSOR}>Power By Groupher @ 2021</MoreText>
-      </Link>
+      <CompanyLink href={ROUTE.SPONSOR}>
+        Groupher @ 2021. 保留所有权利。
+      </CompanyLink>
+      <BeianLink href="http://beian.miit.gov.cn">蜀ICP备17043722号-4</BeianLink>
     </InnerWrapper>
   </Wrapper>
 )

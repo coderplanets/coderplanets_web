@@ -16,7 +16,7 @@ import {
   GithubLogo,
 } from '../styles/desktop_view/brief_view'
 
-import { toggleSponsorHelper, toggleBusBanner } from '../logic'
+import { toggleSponsorHelper } from '../logic'
 
 const BriefView = ({ curView, metric }) => {
   return (
@@ -55,9 +55,6 @@ const BriefView = ({ curView, metric }) => {
             >
               API
             </Item>
-            <Divider>|</Divider>
-            <Item onClick={toggleBusBanner}>商务合作</Item>
-
             <Divider>|</Divider>
             <Support onClick={toggleSponsorHelper}>打赏</Support>
             <Divider>|</Divider>

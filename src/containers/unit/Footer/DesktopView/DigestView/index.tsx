@@ -5,27 +5,20 @@ import type { TThemeMap } from '@/spec'
 import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 
+import TopInfo from '../TopInfo'
 import BottomInfo from '../BottomInfo'
 import SocialList from '../../SocialList'
 
 import {
   Wrapper,
   InnerWrapper,
-  TopBarInfos,
   MainInfos,
-  MainColumn,
-  SiteInfo,
-  SiteTitle,
-  SiteDesc,
-  SiteLogo,
   Column,
   Title,
   Body,
   Item,
   LinkItem,
 } from '../../styles/desktop_view/digest_view'
-
-import { toggleBusBanner } from '../../logic'
 
 type TProps = {
   metric: string
@@ -42,19 +35,7 @@ const DigestView: React.FC<TProps> = ({ metric }) => {
   return (
     <Wrapper metric={metric}>
       <InnerWrapper>
-        <TopBarInfos>
-          <MainColumn>
-            <SiteInfo>
-              <SiteLogo />
-            </SiteInfo>
-            <SiteTitle>coderplanets</SiteTitle>
-            <SiteDesc>关于</SiteDesc>
-            <SiteDesc>创建社区</SiteDesc>
-            <SiteDesc>加入我们</SiteDesc>
-            <SiteDesc>OpenSource</SiteDesc>
-            <SiteDesc>特别感谢</SiteDesc>
-          </MainColumn>
-        </TopBarInfos>
+        <TopInfo />
         <MainInfos>
           <Column>
             <Title>网站地图</Title>
@@ -100,10 +81,10 @@ const DigestView: React.FC<TProps> = ({ metric }) => {
             <br />
             <Title>商务</Title>
             <Body>
-              <Item as="span" normal onClick={toggleBusBanner}>
+              <Item as="span" normal>
                 投放广告
               </Item>
-              <Item as="span" normal onClick={toggleBusBanner}>
+              <Item as="span" normal>
                 赞助商
               </Item>
               {/* <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
