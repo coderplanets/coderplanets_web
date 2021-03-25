@@ -10,9 +10,8 @@ export const Wrapper = styled(CommunityWrapper)`
   ${css.flex('align-both')};
 `
 export const InnerWrapper = styled.div`
-  ${css.flex('justify-start')};
+  ${css.flex('justify-start', 'align-center')};
   width: ${WIDTH.ARTICLE_EDITOR.CONTENT};
-  align-items: center;
 `
 
 export const Operations = styled.div``

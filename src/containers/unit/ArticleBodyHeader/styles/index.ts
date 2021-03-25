@@ -4,8 +4,7 @@ import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
-  ${css.flex('justify-between')};
-  align-items: center;
+  ${css.flex('justify-between', 'align-center')};
   width: 100%;
 `
 export const LinkSource = styled.div`

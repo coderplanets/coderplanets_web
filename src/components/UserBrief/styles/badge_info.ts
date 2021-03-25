@@ -4,8 +4,7 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  ${css.flexColumn('justify-center')};
-  align-items: center;
+  ${css.flexColumn('justify-center', 'align-center')};
 `
 
 export const BadgeWrapper = styled.div`

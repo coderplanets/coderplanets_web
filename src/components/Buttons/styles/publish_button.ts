@@ -9,8 +9,7 @@ const commonHoverAffix = `
   content: '';
   position: absolute;
   top: 0;
-  display: flex;
-  align-items: center;
+  ${css.flex('align-center')};
   height: 100%;
   transition: 0.25s linear;
   z-index: 1;

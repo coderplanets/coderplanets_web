@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { css } from '@/utils'
 
 export const UserCellWrapper = styled.div`
-  ${css.flex('justify-start')};
-  align-items: center;
+  ${css.flex('justify-start', 'align-center')};
   margin-left: 10px;
 `
 export const Avatar = styled.img`

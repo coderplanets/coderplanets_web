@@ -45,13 +45,11 @@ export const InnerWrapper = styled.div<TInner>`
 `
 type TBody = { layout: string; isMobile: boolean }
 export const BodyWrapper = styled.div<TBody>`
-  display: flex;
+  ${css.flex('align-both')};
   flex-direction: ${({ layout, isMobile }) => {
     if (isMobile) return 'column'
     return layout === C11N.DIGEST ? 'column' : 'row'
   }};
-  justify-content: center;
-  align-items: center;
   width: 100%;
 `
 // 180 is the sidebar full width

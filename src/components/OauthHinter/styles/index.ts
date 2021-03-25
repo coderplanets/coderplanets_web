@@ -4,8 +4,7 @@ import { theme, animate, css } from '@/utils'
 import Img from '@/Img'
 
 export const Container = styled.div`
-  ${css.flexColumn('justify-between')};
-  align-items: center;
+  ${css.flexColumn('justify-between', 'align-center')};
 
   height: 100vh;
   background: ${theme('banner.bg')};

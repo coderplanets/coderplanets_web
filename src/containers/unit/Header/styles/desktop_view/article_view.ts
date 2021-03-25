@@ -9,12 +9,11 @@ export const Wrapper = styled(CommunityWrapper)`
   box-shadow: none;
 `
 export const InnerWrapper = styled.div`
-  ${css.flex('justify-start')};
+  ${css.flex('justify-start', 'align-center')};
   width: ${WIDTH.ARTICLE.PAGE};
   margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
   /* margin-left: 0; */
   height: 33px;
-  align-items: center;
 
   ${css.media.desktopL`
     margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET_DESKTOPL};

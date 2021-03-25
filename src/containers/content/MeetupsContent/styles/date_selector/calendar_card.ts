@@ -102,8 +102,7 @@ export const DateItem = styled.div<TActive>`
   background: ${({ active }) => (active ? '#05323e' : '')};
 `
 export const Head = styled.div`
-  ${css.flex('justify-between')};
-  align-items: center;
+  ${css.flex('justify-between', 'align-center')};
   padding-right: 3px;
 `
 export const WeekHint = styled.div`
