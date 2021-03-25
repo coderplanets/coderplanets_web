@@ -14,8 +14,7 @@ export const CommentsWrapper = styled.div`
 `
 
 export const BodyHeaderWrapper = styled.div`
-  ${css.flex('justify-between')};
-  align-items: center;
+  ${css.flex('justify-between', 'align-center')};
   background-color: ${theme('drawer.articleBg')};
   width: 100%;
   padding: 8px 32px;

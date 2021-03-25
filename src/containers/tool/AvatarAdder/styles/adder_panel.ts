@@ -39,8 +39,7 @@ export const AdderIcon = styled(Img)`
   }
 `
 export const AddBtn = styled.div`
-  ${css.flex('justify-center')};
-  align-items: center;
+  ${css.flex('align-both')};
   width: 80px;
   color: ${theme('thread.articleTitle')};
   border: 1px solid;

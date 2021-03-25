@@ -11,8 +11,7 @@ export const Wrapper = styled.div`
 `
 type TBox = { grow: boolean; nomargin: boolean; nohover: boolean }
 export const BoxWrapper = styled.div<TBox>`
-  ${css.flexColumn('justify-evenly')};
-  align-items: center;
+  ${css.flexColumn('justify-evenly', 'align-center')};
   flex-grow: ${({ grow }) => (grow ? 1 : 0)};
 
   border-radius: 4px;

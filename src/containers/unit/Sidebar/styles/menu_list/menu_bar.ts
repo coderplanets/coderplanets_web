@@ -84,10 +84,9 @@ export const MenuItemTitle = styled.div<TMenuItemTitle>`
   transition: opacity 0.25s;
 `
 export const MiniChartWrapper = styled.div<{ pin: boolean }>`
+  ${css.flex('align-both')};
   display: ${({ pin }) => (pin ? 'flex' : 'none')};
   width: 45%;
-  justify-content: center;
-  align-items: center;
   margin-right: 10px;
 
   svg {

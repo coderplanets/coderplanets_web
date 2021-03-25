@@ -25,10 +25,9 @@ type TItem = TActive & {
   topMargin: boolean
 }
 export const Item = styled.div<TItem>`
-  ${css.flex()};
+  ${css.flex('align-center')};
   justify-content: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   fill: ${theme('thread.articleDigest')};
-  align-items: center;
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: ${({ active }) => (active ? '15px' : '14px')};

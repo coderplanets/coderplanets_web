@@ -9,10 +9,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   width: 100%;
 `
 export const BaseBanner = styled.nav`
-  ${css.flexColumn('justify-center')};
+  ${css.flexColumn('justify-center', 'align-center')};
   position: relative;
-
-  align-items: center;
   min-height: 140px;
   background: ${theme('banner.bg')};
   border-bottom: 1px solid;

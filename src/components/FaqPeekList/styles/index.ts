@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
 import Img from '@/Img'
-import { theme } from '@/utils'
+import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -37,9 +37,8 @@ export const ArrowIcon = styled(Img)`
   transform: rotate(-90deg);
 `
 export const ContentWrapper = styled.div<TActive>`
+  ${css.flex('align-center', 'justify-start')};
   display: ${({ active }) => (active ? 'flex' : 'none')};
-  align-items: center;
-  justify-content: flex-start;
   height: 100%;
   background: ;
 `

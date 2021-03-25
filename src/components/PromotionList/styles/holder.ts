@@ -21,8 +21,7 @@ export const Logo = styled(Img)`
   transition-delay: 0.2s;
 `
 export const PartnerInfo = styled.div`
-  ${css.flexColumn('justify-center')};
-  align-items: center;
+  ${css.flexColumn('justify-center', 'align-center')};
   margin-right: 40px;
 `
 export const Title = styled.div`

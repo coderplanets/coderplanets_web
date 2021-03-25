@@ -21,9 +21,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-top: ${({ isRootMenu }) => (isRootMenu ? '0' : '-8px')};
 `
 export const Item = styled.div<TItem>`
-  ${css.flex('justify-end')};
+  ${css.flex('justify-end', 'align-center')};
   fill: ${theme('thread.articleDigest')};
-  align-items: center;
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
   font-size: 14px;

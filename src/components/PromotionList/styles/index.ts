@@ -10,8 +10,7 @@ export const Wrapper = styled.div`
   max-width: 180px;
 `
 export const Header = styled.div`
-  ${css.flex('justify-between', 'align-end')};
-  align-items: center;
+  ${css.flex('justify-between', 'align-center')};
   margin-bottom: 12px;
 `
 export const Title = styled.div`

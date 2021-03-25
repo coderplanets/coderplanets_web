@@ -66,8 +66,7 @@ export const MobileCloser = styled.div`
   }
 `
 export const UploadingTab = styled.div<TActive>`
-  ${css.flexColumn('justify-evenly')};
-  align-items: center;
+  ${css.flexColumn('justify-evenly', 'align-center')};
   opacity: ${({ show }) => (show ? 1 : 0)};
 
   color: ${theme('drawer.font')};
