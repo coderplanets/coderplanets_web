@@ -22,4 +22,8 @@ export type TThemeMap = {
     warnBar: string
     infoBar: string
   }
+  footer?: {
+    text: string
+    hover: string
+  }
 }

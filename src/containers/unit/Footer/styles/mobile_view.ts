@@ -15,7 +15,7 @@ export const SiteWrapper = styled.div`
   height: 40px;
   margin-top: 20px;
 `
-export const SiteLogo = styled(Img)`
+export const Logo = styled(Img)`
   fill: #196f71;
   ${css.size(18)};
 `

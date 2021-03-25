@@ -5,7 +5,7 @@ import { ICON, ICON_BASE } from '@/config'
 import {
   Wrapper,
   SiteWrapper,
-  SiteLogo,
+  Logo,
   SiteTitle,
   SiteInfoWrapper,
   Item,
@@ -17,7 +17,7 @@ import {
 const MobileView = () => (
   <Wrapper>
     <SiteWrapper>
-      <SiteLogo src={`${ICON_BASE}/site_logo.svg`} />
+      <Logo src={`${ICON_BASE}/site_logo.svg`} />
       <SiteTitle>coderplanets</SiteTitle>
     </SiteWrapper>
 

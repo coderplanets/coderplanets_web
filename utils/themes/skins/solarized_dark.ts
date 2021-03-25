@@ -101,7 +101,7 @@ const solarizedDark = {
   footer: {
     text: '#065365',
     hover: '#147f7e',
-    title: '#195D61',
+    title: '#1a687d',
     bottomBg: '#061b20',
   },
   sidebar: {

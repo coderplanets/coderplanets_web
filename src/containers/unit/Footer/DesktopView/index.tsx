@@ -12,20 +12,14 @@ import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import JoinModal from '@/containers/tool/JoinModal'
-import Modal from '@/components/Modal'
+
+import type { TStore } from '../store'
 
 import BriefView from './BriefView'
 import DigestView from './DigestView'
-import BusinessNote from './BusinessNote'
 
 import { Wrapper } from '../styles'
-import {
-  useInit,
-  toggleSponsorHelper,
-  toggleBusBanner,
-  onLogin,
-  onPay,
-} from '../logic'
+import { useInit, toggleSponsorHelper, onLogin, onPay } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Footer')
@@ -39,11 +33,15 @@ export const BuyMeChuanChuan = dynamic(
   },
 )
 
-const FooterContainer = ({ footer: store, metric }) => {
+type TProps = {
+  footer?: TStore
+  metric?: string // TODO
+}
+
+const FooterContainer: React.FC<TProps> = ({ footer: store, metric }) => {
   useInit(store)
   const {
     showSponsor,
-    showBusBanner,
     accountInfo,
     accountInfo: {
       customization: { bannerLayout },
@@ -72,9 +70,6 @@ const FooterContainer = ({ footer: store, metric }) => {
 
   return (
     <Wrapper testid="footer" layout={bannerLayout} metric={metric}>
-      <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
-        <BusinessNote />
-      </Modal>
       <JoinModal />
       <BuyMeChuanChuan
         show={showSponsor}
@@ -85,7 +80,7 @@ const FooterContainer = ({ footer: store, metric }) => {
       />
 
       {curView === 'DIGEST' ? (
-        <DigestView layout={bannerLayout} metric={metric} />
+        <DigestView metric={metric} />
       ) : (
         <BriefView curView={curView} metric={metric} />
       )}
@@ -93,4 +88,4 @@ const FooterContainer = ({ footer: store, metric }) => {
   )
 }
 
-export default pluggedIn(FooterContainer)
+export default pluggedIn(FooterContainer) as React.FC<TProps>
