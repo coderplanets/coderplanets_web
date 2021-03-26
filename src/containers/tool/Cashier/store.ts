@@ -3,8 +3,10 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, values } from 'ramda'
+
+import type { TRootStore, TAccount } from '@/spec'
 
 import { PAYMENT_USAGE, PAYMENT_METHOD } from '@/constant'
 import { markStates, buildLog } from '@/utils'
@@ -41,34 +43,38 @@ const Cashier = T.model('Cashier', {
   ),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.accountInfo
     },
-    get accountInfo() {
-      return self.root.accountInfo
-    },
-    get isLogin() {
-      return self.root.account.isLogin
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
   }))
   .actions((self) => ({
-    authWarning(options) {
-      self.root.authWarning(options)
+    authWarning(options): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
     },
-    toastDone(options) {
-      self.root.toast('success', merge({ position: 'topCenter' }, options))
+    toastDone(options): void {
+      const root = getParent(self) as TRootStore
+      root.toast('success', merge({ position: 'topCenter' }, options))
     },
-    toastError(options) {
-      self.root.toast('error', merge({ position: 'topCenter' }, options))
+    toastError(options): void {
+      const root = getParent(self) as TRootStore
+      root.toast('error', merge({ position: 'topCenter' }, options))
     },
-    callCashier({ paymentUsage, amount }) {
+    callCashier({ paymentUsage, amount }): void {
       self.show = true
       self.paymentUsage = paymentUsage
+      // @ts-ignore
       self.amount = String(amount)
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof Cashier>
 export default Cashier

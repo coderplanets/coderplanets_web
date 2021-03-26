@@ -3,7 +3,7 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import {
   map,
   findIndex,
@@ -17,6 +17,7 @@ import {
   merge,
 } from 'ramda'
 
+import type { TRootStore, TCommunity, TAccount, TUser, TThread } from '@/spec'
 import { TYPE } from '@/constant'
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
 import { Comment, PagedComments, emptyPagiData, Mention } from '@/model'
@@ -84,22 +85,23 @@ const CommentsStore = T.model('CommentsStore', {
   loadingFresh: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get curRoute(): any {
+      const root = getParent(self) as TRootStore
+      return root.curRoute
     },
-    get curRoute() {
-      return self.root.curRoute
-    },
-    get isLogin() {
-      return self.root.account.isLogin
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
     get referUsersData() {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
+      // @ts-ignore
       return filter((user) => contains(user.name, extractMentions), referUsers)
     },
-    get participators() {
-      const { commentsParticipators } = self.root.viewing.viewingData
+    get participators(): TUser[] {
+      const root = getParent(self) as TRootStore
+      const { commentsParticipators } = root.viewing.viewingData
       /*
       const commentsParticipators = [
         {
@@ -115,6 +117,7 @@ const CommentsStore = T.model('CommentsStore', {
         },
       ]
       */
+
       return map(mentionMapper, commentsParticipators)
     },
     get mentionListData() {
@@ -123,49 +126,59 @@ const CommentsStore = T.model('CommentsStore', {
     get pagedCommentsData() {
       return stripMobx(self.pagedComments)
     },
-    get accountInfo() {
-      return self.root.account.accountInfo
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.account.accountInfo
     },
-    get curCommunity() {
-      return stripMobx(self.root.viewing.community)
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing.community)
     },
-    get communityRaw() {
+    get communityRaw(): string {
+      const root = getParent(self) as TRootStore
       // const viewingCommunity = stripMobx(self.root.viewing.community)
       // if (viewingCommunity.raw) return viewingCommunity.raw
 
-      return self.root.viewing.viewingData.origialCommunity.raw
+      return root.viewing.viewingData.origialCommunity.raw
     },
-    get activeThread() {
-      const { activeThread, viewingThread } = self.root.viewing
+    get activeThread(): TThread {
+      const root = getParent(self) as TRootStore
+      const { activeThread, viewingThread } = root.viewing
       return toUpper(viewingThread || activeThread)
     },
-    get viewingData() {
-      return self.root.viewingData
+    get viewingData(): any {
+      const root = getParent(self) as TRootStore
+      return root.viewingData
     },
     get editCommentData() {
       return stripMobx(self.editComment)
     },
   }))
   .actions((self) => ({
-    authWarning(options) {
-      self.root.authWarning(options)
+    authWarning(options): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
     },
-    changesetErr(options) {
-      self.root.changesetErr(options)
+    changesetErr(options): void {
+      const root = getParent(self) as TRootStore
+      root.changesetErr(options)
     },
 
-    validator(type) {
+    validator(type): boolean {
+      const { changesetErr } = self as TStore
       switch (type) {
         case 'create': {
           const result = changeset({ editContent: self.editContent })
-            .exist({ editContent: '评论内容' }, self.changesetErr)
+            // @ts-ignore
+            .exist({ editContent: '评论内容' }, changesetErr)
             .done()
 
           return result.passed
         }
         case 'reply': {
           const result = changeset({ replyContent: self.replyContent })
-            .exist({ replyContent: '回复内容' }, self.changesetErr)
+            // @ts-ignore
+            .exist({ replyContent: '回复内容' }, changesetErr)
             .done()
 
           return result.passed
@@ -175,7 +188,7 @@ const CommentsStore = T.model('CommentsStore', {
         }
       }
     },
-    addReferUser(user) {
+    addReferUser(user: TUser): void {
       const index = findIndex((u) => u.id === String(user.id), self.referUsers)
       if (index === -1) {
         self.referUsers.push({
@@ -185,7 +198,7 @@ const CommentsStore = T.model('CommentsStore', {
         })
       }
     },
-    updateMentionList(mentionArray) {
+    updateMentionList(mentionArray): void {
       const curMentionList = clone(self.mentionList)
       const uniqList = concat(curMentionList, mentionArray)
       const mentionList = map(mentionMapper, uniqList)
@@ -193,17 +206,20 @@ const CommentsStore = T.model('CommentsStore', {
       // log('mentionList: ', mentionList)
       // log('uniq: ', R.uniq(R.concat(mentionList, self.participators)))
 
+      // @ts-ignore
       self.mentionList = uniq(concat(mentionList, self.participators))
     },
-    updateOneComment(id, comment = {}) {
+    updateOneComment(id, comment = {}): void {
       const { entries } = self.pagedCommentsData
 
       const index = findIndex(propEq('id', id), entries)
+      // @ts-ignore
       self.pagedComments.entries[index] = merge(entries[index], comment)
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof CommentsStore>
 export default CommentsStore
