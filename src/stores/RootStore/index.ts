@@ -9,6 +9,8 @@
 import { types as T, Instance } from 'mobx-state-tree'
 import { merge } from 'ramda'
 
+import type { TViewing, TAccount, TRoute, TArticle } from '@/spec'
+
 import { EVENT } from '@/constant'
 import {
   buildLog,
@@ -238,29 +240,29 @@ const rootStore = T.model({
   roadmapThread: T.optional(RoadmapThreadStore, {}),
 })
   .views((self) => ({
-    get isOnline() {
+    get isOnline(): boolean {
       return self.globalLayout.online
     },
-    get isMobile() {
+    get isMobile(): boolean {
       return self.globalLayout.isMobile
     },
-    get doraemonVisible() {
+    get doraemonVisible(): boolean {
       // TODO self.doraemon.visible
       return self.doraemon.visible
     },
-    get viewingData() {
+    get viewingData(): TViewing {
       return self.viewing.viewingData
     },
-    get viewingArticle() {
+    get viewingArticle(): TArticle {
       const { viewing } = self
       const { activeThread } = viewing
 
       return viewing[activeThread]
     },
-    get curRoute() {
+    get curRoute(): TRoute {
       return self.route.curRoute
     },
-    get accountInfo() {
+    get accountInfo(): TAccount {
       return self.account.accountInfo
     },
   }))

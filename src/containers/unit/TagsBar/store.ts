@@ -3,8 +3,10 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
+
+import type { TRootStore, TCommunity, TTag, TThread } from '@/spec'
 
 import { TOPIC } from '@/constant'
 import { markStates, buildLog, stripMobx, groupByKey } from '@/utils'
@@ -22,27 +24,25 @@ const TagsBar = T.model('TagsBar', {
   loading: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing.community)
     },
-    get curRoute() {
-      return self.root.curRoute
+    get curThread(): TThread {
+      const root = getParent(self) as TRootStore
+      return root.viewing.activeThread
     },
-    get curCommunity() {
-      return stripMobx(self.root.viewing.community)
-    },
-    get curThread() {
-      return self.root.viewing.activeThread
-    },
-    get tagsData() {
+    get tagsData(): TTag[] {
       return stripMobx(self.tags)
     },
-    get activeTagData() {
+    get activeTagData(): TTag {
       return stripMobx(self.activeTag) || { title: '', color: '' }
     },
-    get groupedTags() {
+    get groupedTags(): any {
+      const { tagsData } = self as TStore
+
       return groupByKey(
-        self.tagsData.map((tag) => {
+        tagsData.map((tag) => {
           if (tag.id < 4) {
             tag.group = '这是第一组'
           } else {
@@ -55,12 +55,12 @@ const TagsBar = T.model('TagsBar', {
     },
   }))
   .actions((self) => ({
-    selectTag(tag) {
+    selectTag(tag): void {
       const cur = tag.title === '' ? null : tag
 
       self.activeTag = cur
     },
-    getTagIdByTitle(title) {
+    getTagIdByTitle(title: string): boolean | number {
       if (!title) return false
 
       const index = findIndex(propEq('title', title), self.tagsData)
@@ -69,9 +69,10 @@ const TagsBar = T.model('TagsBar', {
       }
       return false
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof TagsBar>
 export default TagsBar

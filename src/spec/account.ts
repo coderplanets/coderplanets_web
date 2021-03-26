@@ -1,7 +1,8 @@
 export type TUser = {
   id: string
-  login: string
-  nickname: string
+  login?: string
+  nickname?: string
+  name?: string
   avatar: string
 }
 export type TAccount = TUser & {

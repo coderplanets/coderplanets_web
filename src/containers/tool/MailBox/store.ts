@@ -3,7 +3,9 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
+
+import type { TRootStore } from '@/spec'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
 import { MailStatus, PagedMentionMessages, emptyPagiData } from '@/model'
@@ -26,11 +28,9 @@ const MailBox = T.model('MailBox', {
   loading: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-    get isLogin() {
-      return self.root.account.isLogin
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
     get mailStatusData() {
       return stripMobx(self.mailStatus)
@@ -40,9 +40,10 @@ const MailBox = T.model('MailBox', {
     },
   }))
   .actions((self) => ({
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof MailBox>
 export default MailBox

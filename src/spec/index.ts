@@ -1,4 +1,5 @@
-import { TRootStore as RootStoreType } from '@/stores/RootStore'
+import type { TRootStore as RootStoreType } from '@/stores/RootStore'
+import type { TUser } from './account'
 
 export type {
   TSIZE,
@@ -15,6 +16,7 @@ export type { TButton } from './comp'
 
 export type { TTheme, TThemeMap, TThemeName } from './theme'
 export type { TAccount, TUser, TMembership } from './account'
+
 export type {
   TTestable,
   TActive,
@@ -40,6 +42,19 @@ export type TCommunity = {
   title: string
   logo: string
   raw: string
+  color?: string
+  index?: number
+}
+
+export type TPagedCommunities = {
+  entries: TCommunity[]
+}
+
+export type TTag = {
+  id: number
+  title: string
+  color: string
+  group?: string
 }
 
 export type TArticle = {
@@ -52,12 +67,11 @@ export type TArticle = {
     nickname: string
     avatar: string
   }
+  origialCommunity?: TCommunity
+  commentsParticipators?: TUser
   // ...
 }
 
-export type TViewing = {
-  community: TCommunity
-  post: TArticle
-}
+export type TViewing = TCommunity | TArticle
 
 export type TThread = string
