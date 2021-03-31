@@ -30,6 +30,17 @@ export type {
 
 export type { TGQLError } from './graphql'
 
+export type {
+  TGALLERY_DEFAULT,
+  TGALLERY_LIST,
+  TGALLERY_MASONRY_COLUMN,
+  TGALLERY_MAIN_COLUMN,
+  TGALLERY_TWO_COLUMN,
+  TGALLERY_THREE_COLUMN,
+  TGALLERY_TEXT_ONLY,
+  TGALLERY_TEXT_WITH_IMAGE,
+} from './gallery'
+
 export type TRoute = {
   communityPath?: string
   threadPath?: string
