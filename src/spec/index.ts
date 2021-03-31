@@ -12,7 +12,7 @@ export type {
   TSIZE_SML,
   TSIZE_SM,
 } from './size'
-export type { TButton } from './comp'
+export type { TButton, TFiltersMenuItems } from './comp'
 
 export type { TTheme, TThemeMap, TThemeName } from './theme'
 export type { TAccount, TUser, TMembership } from './account'

@@ -1,6 +1,6 @@
 import { TSIZE } from './size'
 
-// button
+// @/components/button
 export type TButton = {
   size: TSIZE
   active?: boolean
@@ -8,3 +8,14 @@ export type TButton = {
   disabled?: boolean
   noBorder?: boolean
 }
+
+// @/components/FiltersMenu
+export type TFiltersMenuItems = {
+  id: string
+  title: string
+  icon: string
+  options: {
+    id: string
+    title: string
+  }[]
+}[]

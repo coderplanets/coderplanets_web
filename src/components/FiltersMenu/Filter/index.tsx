@@ -60,7 +60,7 @@ const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
             ))}
           </RadioWrapper>
         ) : (
-          <RadioWrapper value="">
+          <RadioWrapper revert={revert}>
             <RadioItem>
               {!revert ? (
                 <>

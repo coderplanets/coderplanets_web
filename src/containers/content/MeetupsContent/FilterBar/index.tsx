@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TFiltersMenuItems } from '@/spec'
 import { ICON_CMD } from '@/config'
 
 import { Br } from '@/components/Common'
@@ -17,7 +18,11 @@ import {
   TermItem,
 } from '../styles/filter_bar'
 
-const FilterBar = ({ filtersItems }) => {
+type TProps = {
+  filtersItems: TFiltersMenuItems
+}
+
+const FilterBar: React.FC<TProps> = ({ filtersItems }) => {
   return (
     <Wrapper>
       <Sticky offsetTop={30}>

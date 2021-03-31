@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 
-import type { TTestable, TActive } from '@/spec'
+import type { TActive } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>`
+export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')}
   width: 100%;
   margin-bottom: 8px;
