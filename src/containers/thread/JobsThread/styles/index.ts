@@ -29,6 +29,6 @@ export const FilterWrapper = styled.div`
 `
 export const TagsWrapper = styled.div`
   margin-top: 20px;
-  margin-left: 12px;
-  margin-right: 10px;
+  margin-left: 22px;
+  margin-right: 12px;
 `
