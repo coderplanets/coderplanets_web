@@ -1,5 +1,5 @@
 import type { TRootStore as RootStoreType } from '@/stores/RootStore'
-import type { TUser } from './account'
+import type { TArticle } from './article'
 
 export type {
   TSIZE,
@@ -30,6 +30,8 @@ export type {
 
 export type { TGQLError } from './graphql'
 
+export type { TArticle, TJob, TPagedJobs } from './article'
+
 export type {
   TGALLERY_DEFAULT,
   TGALLERY_LIST,
@@ -53,7 +55,7 @@ export type TRootStore = RootStoreType
 export type TCommunity = {
   id: string
   title: string
-  logo: string
+  logo?: string
   raw: string
   color?: string
   index?: number
@@ -68,21 +70,6 @@ export type TTag = {
   title: string
   color: string
   group?: string
-}
-
-export type TArticle = {
-  id: string
-  title: string
-  body: string
-  author: {
-    id: string
-    login: string
-    nickname: string
-    avatar: string
-  }
-  origialCommunity?: TCommunity
-  commentsParticipators?: TUser
-  // ...
 }
 
 export type TViewing = TCommunity | TArticle

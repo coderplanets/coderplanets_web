@@ -11,6 +11,8 @@ import {
   errRescue,
 } from '@/utils'
 
+import type { TTag } from '@/spec'
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -18,9 +20,10 @@ const log = buildLog('L:JobsThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [
     EVENT.REFRESH_JOBS,
-    EVENT.DRAWER_CLOSED,
+    EVENT.DRAWER.CLOSE,
     EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
   ],
@@ -29,15 +32,15 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const inAnchor = () => {
+export const inAnchor = (): void => {
   if (store) store.showTopModeline(false)
 }
 
-export const outAnchor = () => {
+export const outAnchor = (): void => {
   if (store) store.showTopModeline(true)
 }
 
-export const loadJobs = (page = 1) => {
+export const loadJobs = (page = 1): void => {
   const { curCommunity } = store
   const userHasLogin = store.isLogin
 
@@ -64,7 +67,7 @@ export const loadJobs = (page = 1) => {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export const onPageChange = (page) => {
+export const onPageChange = (page: number): void => {
   scrollToTabber()
   loadJobs(page)
 }
@@ -74,7 +77,7 @@ export const onPageChange = (page) => {
  *
  * @param {*} data {id: string, title: string}
  */
-export const onPreview = (data) => {
+export const onPreview = (data): void => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   const type = TYPE.DRAWER.JOB_VIEW
   const thread = THREAD.JOB
@@ -83,7 +86,7 @@ export const onPreview = (data) => {
   store.markRoute(data.id)
 }
 
-export const onContentCreate = () => {
+export const onContentCreate = (): void => {
   if (!store.isLogin) return store.authWarning()
 
   if (store.curCommunity.raw === HCN) {
@@ -93,21 +96,23 @@ export const onContentCreate = () => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.JOB_CREATE })
 }
 
-export const onNoteClose = () => store.mark({ showPublishNote: false })
+export const onNoteClose = (): void => store.mark({ showPublishNote: false })
 
-export const onTagSelect = (tag) => {
+export const onTagSelect = (tag: TTag): void => {
   store.selectTag(tag)
   loadJobs()
   store.markRoute({ tag: tag.title })
 }
 
-export const onFilterSelect = (option) => {
+export const onFilterSelect = (option): void => {
   store.selectFilter(option)
   store.markRoute({ ...store.filtersData })
   loadJobs()
 }
 
-export const onUserSelect = () => {}
+export const onUserSelect = (): void => {
+  //
+}
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -151,7 +156,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.DRAWER_CLOSED),
+    match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => {
       store.setViewing({ job: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })
@@ -162,7 +167,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
@@ -178,14 +185,14 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) =>
+export const useInit = (_store: TStore) =>
   useEffect(() => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     return () => {
-      if (store.curView === TYPE.LOADING || !sub$) return false
+      if (store.curView === TYPE.LOADING || !sub$) return
       log('===== do uninit')
       sr71$.stop()
       sub$.unsubscribe()

@@ -11,7 +11,7 @@ const log = buildLog('L:JobViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.DRAWER_CLOSED],
+  receive: [EVENT.DRAWER.CLOSE],
 })
 
 let sub$ = null
@@ -68,7 +68,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.DRAWER_CLOSED),
+    match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => {
       sr71$.stop()
       markLoading(false)

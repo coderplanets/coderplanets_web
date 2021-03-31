@@ -6,7 +6,12 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, clone, remove, insert, findIndex, propEq } from 'ramda'
 
-import type { TRootStore, TCommunity } from '@/spec'
+import type {
+  TRootStore,
+  TAccount,
+  TCommunity,
+  TPagedCommunities,
+} from '@/spec'
 import { markStates, buildLog, stripMobx, BStore } from '@/utils'
 import { User, EmptyUser, PagedCommunities } from '@/model'
 
@@ -19,14 +24,14 @@ const AccountStore = T.model('AccountStore', {
   userSubscribedCommunities: T.maybeNull(PagedCommunities),
 })
   .views((self) => ({
-    get accountInfo() {
+    get accountInfo(): TAccount {
       return {
         ...stripMobx(self.user),
         isLogin: self.isValidSession,
         isValidSession: self.isValidSession,
       }
     },
-    get subscribedCommunities() {
+    get subscribedCommunities(): TPagedCommunities {
       if (!self.userSubscribedCommunities) {
         return { entries: [] }
       }
@@ -38,10 +43,10 @@ const AccountStore = T.model('AccountStore', {
       }
       */
     },
-    get isLogin() {
+    get isLogin(): boolean {
       return self.isValidSession
     },
-    get pageDensity() {
+    get pageDensity(): number {
       return parseInt(self.user.customization.displayDensity, 10)
     },
   }))

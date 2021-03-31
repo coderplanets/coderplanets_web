@@ -13,7 +13,7 @@ const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_REPOS,
-    EVENT.DRAWER_CLOSED,
+    EVENT.DRAWER.CLOSE,
     EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
   ],
@@ -136,7 +136,7 @@ const DataSolver = [
     action: () => loadRepos(),
   },
   {
-    match: asyncRes(EVENT.DRAWER_CLOSED),
+    match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => {
       store.setViewing({ repo: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })

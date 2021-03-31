@@ -8,7 +8,7 @@ import { send, buildLog, thread2Subpath, asyncSuit } from '@/utils'
 const { SR71, $solver, asyncRes } = asyncSuit
 
 const sr71$ = new SR71({
-  receive: [EVENT.DRAWER_CLOSED],
+  receive: [EVENT.DRAWER.CLOSE],
 })
 
 let sub$ = null
@@ -111,7 +111,7 @@ const openMoreMenu = () => {
 
 const DataSolver = [
   {
-    match: asyncRes(EVENT.DRAWER_CLOSED),
+    match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => store.mark({ activeMenu: '' }),
   },
 ]

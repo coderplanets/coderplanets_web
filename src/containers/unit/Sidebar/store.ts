@@ -6,12 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, prop, trim, filter, contains } from 'ramda'
 
-import type {
-  TRootStore,
-  TCommunity,
-  TPagedCommunities,
-  TAccount,
-} from '@/spec'
+import type { TRootStore, TCommunity, TAccount } from '@/spec'
 import { buildLog, markStates, stripMobx, sortByIndex, notEmpty } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -52,8 +47,7 @@ const SidebarStore = T.model('SidebarStore', {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
     },
-    // get communitiesData(): TPagedCommunities {
-    get communitiesData(): any {
+    get communitiesData(): TCommunity[] {
       const root = getParent(self) as TRootStore
       const { subscribedCommunities } = root.account
       const { searchCommunityValue } = self as TStore

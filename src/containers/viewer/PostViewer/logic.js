@@ -11,7 +11,7 @@ const log = buildLog('L:PostViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  receive: [EVENT.DRAWER_CLOSED],
+  receive: [EVENT.DRAWER.CLOSE],
 })
 
 let sub$ = null
@@ -73,7 +73,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.DRAWER_CLOSED),
+    match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => {
       sr71$.stop()
       markLoading(false)
@@ -99,7 +99,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

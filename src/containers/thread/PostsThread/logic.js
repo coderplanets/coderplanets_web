@@ -29,7 +29,7 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_POSTS,
-    EVENT.DRAWER_CLOSED,
+    EVENT.DRAWER.CLOSE,
     EVENT.COMMUNITY_CHANGE,
     EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
@@ -95,7 +95,9 @@ export const onTagSelect = (tag) => {
   store.markRoute({ tag: tag.title })
 }
 
-export const onUserSelect = () => {}
+export const onUserSelect = () => {
+  //
+}
 
 /**
  * preview the current article
@@ -213,7 +215,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.DRAWER_CLOSED),
+    match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => {
       store.setViewing({ post: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })
@@ -224,7 +226,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

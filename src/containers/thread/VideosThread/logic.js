@@ -20,7 +20,7 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_VIDEOS,
-    EVENT.DRAWER_CLOSED,
+    EVENT.DRAWER.CLOSE,
     EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
   ],
@@ -128,7 +128,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.DRAWER_CLOSED),
+    match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => {
       store.setViewing({ video: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })
@@ -143,7 +143,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

@@ -10,8 +10,12 @@ import { scrollToHeader } from './dom'
 import { isString } from './validator'
 
 type TSORTABLE_ITEMS = {
-  color: string
+  color?: string
   index?: number
+  id: string
+  title: string
+  raw: string
+  logo?: string
 }[]
 
 export const Global: any = typeof window !== 'undefined' ? window : {}

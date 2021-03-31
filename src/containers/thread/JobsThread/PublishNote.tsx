@@ -5,12 +5,15 @@ import { ROUTE } from '@/constant'
 
 import Modal from '@/components/Modal'
 
-// import { ICON_CMD } from '@/config'
 import { Wrapper, NoteIcon, NoteDesc, Linker } from './styles/publish_note'
 
 import { onNoteClose } from './logic'
 
-const PublishNote = ({ show }) => (
+type TProps = {
+  show: boolean
+}
+
+const PublishNote: React.FC<TProps> = ({ show }) => (
   <Modal show={show} showCloseBtn onClose={onNoteClose}>
     <Wrapper>
       <NoteIcon src={`${DEFAULT_USER_AVATAR}`} />
