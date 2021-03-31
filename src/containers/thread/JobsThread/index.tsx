@@ -11,6 +11,7 @@ import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
+import MasonryCards from '@/components/MasonryCards'
 import FiltersMenu from '@/components/FiltersMenu'
 // import TagsBar from '@/containers/unit/TagsBar'
 
@@ -85,6 +86,7 @@ const JobsThreadContainer: React.FC<TProps> = ({ jobsThread: store }) => {
             />
           </FilterWrapper>
         </Maybe>
+        <MasonryCards />
 
         <PagedContents
           data={pagedJobsData}

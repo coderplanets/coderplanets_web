@@ -145,33 +145,16 @@ const GlobalStyle = createGlobalStyle`
     top: 10px !important;
   }
 
-  
-`
-// ${({ showCustomScrollbar }) =>
-// showCustomScrollbar ||
-// styledCss`
-//   ::-webkit-scrollbar {
-//     background: transparent;
-//     width: 4px;
-//   }
-//   ::-webkit-scrollbar-button {
-//     background: transparent;
-//   }
-//   ::-webkit-scrollbar-track {
-//     background: transparent;
-//   }
-//   ::-webkit-scrollbar-track-piece {
-//     background: transparent;
-//   }
-//   ::-webkit-scrollbar-thumb {
-//     background: ${theme('banner.title')};
-//   }
-//   ::-webkit-scrollbar-corner {
-//     background: grey;
-//   }
-//   ::-webkit-resizer {
-//     background: grey;
-//   }
-// `};
+  // masonry cards styles
 
+  .masonry-cards-grid {
+    display: flex;
+    margin-left: -20px; /* gutter size offset */
+    width: auto;
+  }
+  .masonry-cards-grid_column {
+    padding-left: 20px; /* gutter size */
+    background-clip: padding-box;
+  }
+`
 export default GlobalStyle
