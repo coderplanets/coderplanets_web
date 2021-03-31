@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * Component Generator
  */
@@ -54,7 +55,7 @@ module.exports = {
 
     switch (data.type) {
       case 'Stateless': {
-        componentTemplate = './component/stateless.js.hbs'
+        componentTemplate = './component/stateless.tsx.hbs'
         break
       }
       default: {
@@ -65,14 +66,14 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/index.js`,
+        path: `${TARGET_DIR}/{{properCase name}}/index.tsx`,
         templateFile: componentTemplate,
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/tests/index.test.js`,
-        templateFile: './component/test.js.hbs',
+        path: `${TARGET_DIR}/{{properCase name}}/tests/index.test.ts`,
+        templateFile: './component/test.ts.hbs',
         abortOnFail: true,
       },
     ]
@@ -80,8 +81,8 @@ module.exports = {
     if (data.wantStyle) {
       actions.push({
         type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/styles/index.js`,
-        templateFile: './component/styles.js.hbs',
+        path: `${TARGET_DIR}/{{properCase name}}/styles/index.ts`,
+        templateFile: './component/styles.ts.hbs',
         abortOnFail: true,
       })
     }
