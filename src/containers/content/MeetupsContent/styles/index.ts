@@ -1,20 +1,24 @@
 import styled from 'styled-components'
 
+import type { TTestable } from '@/spec'
 import { css } from '@/utils'
 
-export const Wrapper = styled.div`
-  ${css.flex()}
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
+  ${css.flex('justify-center')};
   width: 100%;
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flex()};
-  margin-top: 25px;
+  margin-top: 40px;
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const ContentWrapper = styled.div`
   ${css.flex()};
   align-content: start;
   flex-wrap: wrap;
-  max-width: calc(100% - 170px);
+  width: 100%;
 `
 export const CardsWrapper = styled.div`
   ${css.flex('align-center')};

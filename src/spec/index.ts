@@ -28,6 +28,8 @@ export type {
   Nullable,
 } from './utils'
 
+export type { TGQLError } from './graphql'
+
 export type TRoute = {
   communityPath?: string
   threadPath?: string

@@ -48,7 +48,7 @@ export const Date = styled.div`
 export const Week = styled.div`
   color: #327faf;
 `
-export const IntroWrapper = styled.div<{ finished: boolean }>`
+export const IntroWrapper = styled.div`
   ${css.flexColumn('align-start')}
   width: calc(100% - 20px);
   position: relative;

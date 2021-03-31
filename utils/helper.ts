@@ -2,6 +2,7 @@ import { curry, reduce, keys, sort, uniq, tap } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
+import type { TGQLError } from '@/spec'
 import { TAG_COLOR_ORDER } from '@/config'
 import { EVENT } from '@/constant'
 
@@ -148,7 +149,12 @@ export const closeDrawer = (type = ''): void =>
 export const joinUS = (type: string, data = {}): void =>
   send(EVENT.JOIN_US, { type, data })
 
-export const errRescue = ({ type, operation, details, path }): void =>
+export const errRescue = ({
+  type,
+  operation,
+  details,
+  path,
+}: TGQLError): void =>
   send(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })
 
 // errRescue({type: ERR.GRAPHQL, operation: operationName, details: graphQLErrors})
