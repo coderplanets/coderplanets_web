@@ -10732,6 +10732,10 @@ react-masonry-component@^6.0.1:
     masonry-layout "^4.2.0"
     prop-types "^15.5.8"
 
+react-masonry-css@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.npm.taobao.org/react-masonry-css/download/react-masonry-css-1.0.14.tgz#2ac1ca7bb2c7e96826f7da3accc9e95ae12b2f65"
+
 react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.npm.taobao.org/react-refresh/download/react-refresh-0.8.3.tgz?cache=0&sync_timestamp=1590240716203&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-refresh%2Fdownload%2Freact-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
