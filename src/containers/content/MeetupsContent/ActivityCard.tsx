@@ -19,7 +19,19 @@ import {
   FinishedHole,
 } from './styles/activity_card'
 
-const ActivityCard = ({ item }) => {
+type TProps = {
+  item: {
+    id?: number
+    date: string
+    week: string
+    title: string
+    company: string
+    finished?: boolean
+    type?: string
+  }
+}
+
+const ActivityCard: React.FC<TProps> = ({ item }) => {
   return (
     <Wrapper finished={item.finished}>
       <DatetimeWrapper>

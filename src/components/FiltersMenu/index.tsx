@@ -5,9 +5,9 @@
  */
 
 import React, { useState, useCallback } from 'react'
-import T from 'prop-types'
 import { merge, equals } from 'ramda'
 
+import type { TFiltersMenuItems } from '@/spec'
 import { buildLog } from '@/utils'
 
 import { SpaceGrow } from '@/components/Common'
@@ -31,15 +31,26 @@ const initActiveMap = (items) => {
   return menuMap
 }
 
-const FiltersMenu = ({
-  title,
+type TProps = {
+  title?: string
+  items?: TFiltersMenuItems
+  activeid?: string | null
+  noFilter?: boolean
+  onItemClick?: () => void
+  itemBgHighlight?: boolean
+  revert?: boolean
+  withDivider?: boolean
+}
+
+const FiltersMenu: React.FC<TProps> = ({
+  title = '',
   items,
-  activeid,
-  noFilter,
-  onItemClick,
-  itemBgHighlight,
-  revert,
-  withDivider,
+  activeid = null,
+  noFilter = false,
+  onItemClick = log,
+  itemBgHighlight = true,
+  revert = false,
+  withDivider = true,
 }) => {
   // const [expandMenuId, setExpandMenuId] = useState(null)
   const [expandMenuId, setExpandMenuId] = useState(activeid)
@@ -54,7 +65,7 @@ const FiltersMenu = ({
       <Header
         title={title}
         showReset={!equals(initActiveMap(items), activeMap)}
-        reset={handleReset}
+        onReset={handleReset}
       />
       {items.map((item, index) => (
         <ItemWrapper
@@ -106,39 +117,6 @@ const FiltersMenu = ({
       ))}
     </Wrapper>
   )
-}
-
-FiltersMenu.propTypes = {
-  title: T.string,
-  items: T.arrayOf(
-    T.shape({
-      id: T.string,
-      title: T.string,
-      icon: T.string,
-      options: T.arrayOf(
-        T.shape({
-          id: T.string,
-          title: T.string,
-        }),
-      ),
-    }),
-  ).isRequired,
-  activeid: T.oneOfType([T.string, T.instanceOf(null)]),
-  noFilter: T.bool,
-  onItemClick: T.func,
-  itemBgHighlight: T.bool,
-  revert: T.bool,
-  withDivider: T.bool,
-}
-
-FiltersMenu.defaultProps = {
-  title: '',
-  activeid: null,
-  noFilter: false,
-  onItemClick: log,
-  itemBgHighlight: true,
-  revert: false,
-  withDivider: true,
 }
 
 export default React.memo(FiltersMenu)

@@ -3,8 +3,17 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { findIndex, merge, pickBy, isEmpty, propEq } from 'ramda'
+
+import type {
+  TRootStore,
+  TCommunity,
+  TAccount,
+  TTag,
+  TJob,
+  TPagedJobs,
+} from '@/spec'
 
 import { TYPE, THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
@@ -32,42 +41,42 @@ const JobsThreadStore = T.model('JobsThreadStore', {
   // TODO: rename to activeArticle
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+
+      return stripMobx(root.viewing.community)
     },
-    get curRoute() {
-      return self.root.curRoute
-    },
-    get curCommunity() {
-      return stripMobx(self.root.viewing.community)
-    },
-    get pagedJobsData() {
+    get pagedJobsData(): TPagedJobs {
       return stripMobx(self.pagedJobs)
     },
-    get accountInfo() {
-      return self.root.account.accountInfo
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.account.accountInfo
     },
-    get isLogin() {
-      return self.root.account.isLogin
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
-    get filtersData() {
+    get filtersData(): any {
       return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
     },
-    get activeTagData() {
+    get activeTagData(): TTag {
       return stripMobx(self.activeTag) || {}
     },
-    get tagQuery() {
+    get tagQuery(): any {
       const curTag = stripMobx(self.activeTag)
       if (nilOrEmpty(curTag)) return {}
       return { tag: curTag.title }
     },
-    get activeJob() {
-      return stripMobx(self.root.viewing.job)
+    get activeJob(): TJob {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing.job)
     },
-    get pageDensity() {
-      return self.root.account.pageDensity
+    get pageDensity(): number {
+      const root = getParent(self) as TRootStore
+      return root.account.pageDensity
     },
-    get showFilterBar() {
+    get showFilterBar(): boolean {
       const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))
       const pagedJobs = stripMobx(self.pagedJobs)
 
@@ -75,32 +84,35 @@ const JobsThreadStore = T.model('JobsThreadStore', {
     },
   }))
   .actions((self) => ({
-    selectFilter(option) {
+    selectFilter(option): void {
       const curfilter = self.filtersData
       self.filters = merge(curfilter, option)
     },
-    authWarning(options) {
-      self.root.authWarning(options)
+    authWarning(options): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
     },
-    selectTag(tag) {
+    selectTag(tag): void {
       const cur = tag.title === '' ? null : tag
 
       self.activeTag = cur
     },
-    showTopModeline(fix) {
-      self.root.showTopModeline(fix)
+    showTopModeline(fix): void {
+      const root = getParent(self) as TRootStore
+      root.showTopModeline(fix)
     },
-    setViewing(sobj) {
-      self.root.setViewing(sobj)
+    setViewing(sobj): void {
+      const root = getParent(self) as TRootStore
+      root.setViewing(sobj)
     },
-    setViewedFlag(id) {
+    setViewedFlag(id: string): void {
       const { entries } = self.pagedJobsData
       const index = findIndex(propEq('id', id), entries)
       if (index >= 0) {
         self.pagedJobs.entries[index].viewerHasViewed = true
       }
     },
-    updateItem(item) {
+    updateItem(item): void {
       const { entries } = self.pagedJobsData
       const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
@@ -110,10 +122,13 @@ const JobsThreadStore = T.model('JobsThreadStore', {
         )
       }
     },
-    updateC11N(option) {
-      self.root.updateC11N(option)
+    updateC11N(option): void {
+      const root = getParent(self) as TRootStore
+      root.updateC11N(option)
     },
-    markRoute(target) {
+    markRoute(target): void {
+      const root = getParent(self) as TRootStore
+
       const query = isObject(target)
         ? target
         : {
@@ -124,11 +139,12 @@ const JobsThreadStore = T.model('JobsThreadStore', {
             ...self.filtersData,
           }
 
-      self.root.markRoute(query, { onlyDesktop: true })
+      root.markRoute(query, { onlyDesktop: true })
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof JobsThreadStore>
 export default JobsThreadStore

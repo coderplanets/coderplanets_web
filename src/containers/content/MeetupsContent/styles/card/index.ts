@@ -5,21 +5,22 @@ import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex()}
-  width: 33%;
+  width: 31%;
   height: 210px;
-  padding: 20px 5px;
+  margin-right: 20px;
+  padding: 20px 10px;
+  padding-bottom: 25px;
   border-top: 1px solid;
   border-top-color: transparent;
-  border-bottom: 1px solid;
-  border-bottom-color: #054353;
   color: ${theme('thread.articleDigest')};
+  border-top: 2px solid #884b40;
 
   &:hover {
     background: #04303c;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 24px;
-    border-bottom-color: transparent;
-    border-top: 1px solid;
-    border-top-color: #327faf;
+    /* border-bottom-color: transparent; */
+    /* border-top: 1px solid;
+    border-top-color: #327faf; */
   }
   transition: border-top 0.25s ease-out, box-shadow 0.2s ease-in;
 `

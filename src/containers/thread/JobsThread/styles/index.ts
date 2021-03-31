@@ -27,3 +27,8 @@ export const FilterWrapper = styled.div`
   margin-left: 8px;
   display: flex;
 `
+export const TagsWrapper = styled.div`
+  margin-top: 20px;
+  margin-left: 12px;
+  margin-right: 10px;
+`

@@ -23,7 +23,7 @@ const fillItems = () => {
   }
 }
 
-const DateSelector = () => {
+const DateSelector: React.FC = () => {
   fillItems()
   const items = dates
   const isLeapMonth = !!items[30]

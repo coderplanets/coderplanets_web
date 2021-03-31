@@ -30,32 +30,32 @@ class SR71 {
     this.initEventSubscription()
     this.query$ = this.queryInput$.pipe(
       debounce(() => timer(300)),
-      switchMap(q =>
+      switchMap((q) =>
         queryPromise(q).pipe(
           timeoutWith(TIMEOUT_THRESHOLD, TimeoutObservable),
-          takeUntil(this.stop$)
-        )
-      )
+          takeUntil(this.stop$),
+        ),
+      ),
     )
 
     this.mutate$ = this.mutateInput$.pipe(
       debounce(() => timer(300)),
-      switchMap(q =>
+      switchMap((q) =>
         mutatePromise(q).pipe(
           timeoutWith(TIMEOUT_THRESHOLD, TimeoutObservable),
-          takeUntil(this.stop$)
-        )
-      )
+          takeUntil(this.stop$),
+        ),
+      ),
     )
 
     this.restGet$ = this.getInput$.pipe(
       debounce(() => timer(300)),
-      switchMap(q =>
+      switchMap((q) =>
         restGetPromise(q).pipe(
           timeoutWith(TIMEOUT_THRESHOLD, TimeoutObservable),
-          takeUntil(this.stop$)
-        )
-      )
+          takeUntil(this.stop$),
+        ),
+      ),
     )
 
     /* this.event$ = this.eventInput$.debounceTime(100) */
@@ -68,7 +68,7 @@ class SR71 {
   // Private
   initEventSubscription() {
     if (Array.isArray(this.receive)) {
-      forEach(event => {
+      forEach((event) => {
         this.subscriptEvent(event)
       }, this.receive)
     } else {
@@ -82,7 +82,7 @@ class SR71 {
     // PubSub.unsubscribe(event)
     // avoid duplicate subscribe caused by HMR
     PubSub.subscribe(event, (event, data) =>
-      this.eventInput$.next({ [event]: data })
+      this.eventInput$.next({ [event]: data }),
     )
   }
 

@@ -11,7 +11,8 @@ import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import TagsBar from '@/containers/unit/TagsBar'
+import FiltersMenu from '@/components/FiltersMenu'
+// import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
@@ -19,13 +20,17 @@ import Maybe from '@/components/Maybe'
 import PagedContents from '@/components/PagedContents'
 import ContentFilter from '@/components/ContentFilter'
 
+import type { TStore } from './store'
+
 import PublishNote from './PublishNote'
+import filtersItems from './fakeFiltersItems'
 
 import {
   Wrapper,
   LeftPart,
   RightPart,
   FilterWrapper,
+  TagsWrapper,
   PublisherWrapper,
 } from './styles'
 
@@ -37,21 +42,25 @@ import {
   onUserSelect,
   onPreview,
   onContentCreate,
-  onTagSelect,
+  // onTagSelect,
   onPageChange,
 } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:JobsThread')
 
-const JobsThreadContainer = ({ jobsThread: store }) => {
+type TProps = {
+  jobsThread?: TStore
+}
+
+const JobsThreadContainer: React.FC<TProps> = ({ jobsThread: store }) => {
   useInit(store)
 
   const {
     pagedJobsData,
     curView,
     filtersData,
-    activeTagData,
+    // activeTagData,
     activeJob,
     accountInfo,
     curCommunity,
@@ -101,15 +110,18 @@ const JobsThreadContainer = ({ jobsThread: store }) => {
         </PublisherWrapper>
 
         <Sticky offsetTop={50}>
-          <TagsBar
+          <TagsWrapper>
+            <FiltersMenu items={filtersItems} revert />
+          </TagsWrapper>
+          {/* <TagsBar
             thread={THREAD.JOB}
             active={activeTagData}
             onSelect={onTagSelect}
-          />
+          /> */}
         </Sticky>
       </RightPart>
     </Wrapper>
   )
 }
 
-export default pluggedIn(JobsThreadContainer)
+export default pluggedIn(JobsThreadContainer) as React.FC<TProps>

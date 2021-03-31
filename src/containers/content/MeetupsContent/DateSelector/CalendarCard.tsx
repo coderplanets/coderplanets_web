@@ -1,7 +1,5 @@
 /*
- *
  * CoolGuideContent
- *
  */
 
 import React from 'react'
@@ -17,7 +15,7 @@ import {
   MonthUnit,
 } from '../styles/date_selector/calendar_card'
 
-const CalendarCard = () => {
+const CalendarCard: React.FC = () => {
   return (
     <Wrapper>
       <SelectorRow>

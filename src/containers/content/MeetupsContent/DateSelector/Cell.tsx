@@ -15,7 +15,15 @@ import {
 const weekends = [5, 6, 18, 19, 27, 28]
 const activitiesDates = [3, 4, 19, 23, 24]
 
-const Cell = ({ item, isLeapMonth }) => {
+type TProps = {
+  item: {
+    id: number
+    date: string
+  }
+  isLeapMonth: boolean
+}
+
+const Cell: React.FC<TProps> = ({ item, isLeapMonth }) => {
   return (
     <Wrapper
       key={item.id}

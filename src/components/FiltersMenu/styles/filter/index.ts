@@ -13,7 +13,8 @@ export const Wrapper = styled.div<{ revert: boolean }>`
   padding: 4px 6px;
   padding-top: 0;
 `
-export const RadioWrapper = styled.div<{ revert: boolean }>`
+type RadioWrapper = { revert?: boolean }
+export const RadioWrapper = styled.div<RadioWrapper>`
   ${css.flexColumn()};
   align-items: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   margin-top: 5px;
@@ -38,7 +39,7 @@ export const ActiveDot = styled.div<TActive>`
   opacity: ${({ active }) => (active ? 1 : 0)};
   transition: opacity 0.25s;
 `
-type TRadioTitle = TActive & { revert: boolean }
+type TRadioTitle = TActive & { revert?: boolean }
 export const RadioTitle = styled.div<TRadioTitle>`
   font-size: 13px;
   color: ${({ active }) =>

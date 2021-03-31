@@ -15,10 +15,7 @@ export {
   Icon,
 } from './index'
 
-export const Wrapper = styled(WrapperBase)`
-  padding-right: 25px;
-  padding-left: 20px;
-`
+export const Wrapper = styled(WrapperBase)``
 export const Header = styled.div`
   ${css.flex('align-start')};
 `

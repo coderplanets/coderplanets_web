@@ -1,14 +1,23 @@
-// gallery display types
+import type {
+  TGALLERY_DEFAULT,
+  TGALLERY_LIST,
+  TGALLERY_MASONRY_COLUMN,
+  TGALLERY_MAIN_COLUMN,
+  TGALLERY_TWO_COLUMN,
+  TGALLERY_THREE_COLUMN,
+  TGALLERY_TEXT_ONLY,
+  TGALLERY_TEXT_WITH_IMAGE,
+} from '@/spec'
 
 const GALLERY = {
-  DEFAULT: 'default',
-  LIST: 'list',
-  MASONRY_COLUMN: 'masonry_column',
-  MAIN_COLUMN: 'main_column',
-  TWO_COLUMN: 'two_column',
-  THREE_COLUMN: 'three_column',
-  TEXT_ONLY: 'text_only',
-  TEXT_WITH_IMAGE: 'text_with_image',
+  DEFAULT: 'default' as TGALLERY_DEFAULT,
+  LIST: 'list' as TGALLERY_LIST,
+  MASONRY_COLUMN: 'masonry_column' as TGALLERY_MASONRY_COLUMN,
+  MAIN_COLUMN: 'main_column' as TGALLERY_MAIN_COLUMN,
+  TWO_COLUMN: 'two_column' as TGALLERY_TWO_COLUMN,
+  THREE_COLUMN: 'three_column' as TGALLERY_THREE_COLUMN,
+  TEXT_ONLY: 'text_only' as TGALLERY_TEXT_ONLY,
+  TEXT_WITH_IMAGE: 'text_with_image' as TGALLERY_TEXT_WITH_IMAGE,
 }
 
 export default GALLERY

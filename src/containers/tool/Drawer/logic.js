@@ -43,7 +43,7 @@ export const closeDrawer = () => {
   // force call MDEditor's componentWillUnmount to store the draft
   // wait until drawer move out of the screean
   setTimeout(() => {
-    send(EVENT.DRAWER_CLOSED)
+    send(EVENT.DRAWER.CLOSE)
     store.setViewing({ viewingThread: null })
   }, 200)
 

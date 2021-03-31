@@ -13,6 +13,8 @@ import { pluggedIn, buildLog } from '@/utils'
 import Pagi from '@/components/Pagi'
 import { PagiOptionSwitcher } from '@/components/Switcher'
 
+import type { TStore } from './store'
+
 import FilterBar from './FilterBar'
 import DateSelector from './DateSelector'
 // import ActivityCard from './ActivityCard'
@@ -40,14 +42,24 @@ const GALLERY_TYPES = [
   },
 ]
 
-const MeetupsContentContainer = ({ meetupsContent: store }) => {
+type TProps = {
+  meetupsContent?: TStore
+  testid?: string
+  metric?: string
+}
+
+const MeetupsContentContainer: React.FC<TProps> = ({
+  meetupsContent: store,
+  testid = 'meetups-content',
+  metric,
+}) => {
   useInit(store)
 
   const { activeGalleryType } = store
 
   return (
-    <Wrapper>
-      <InnerWrapper>
+    <Wrapper testid={testid}>
+      <InnerWrapper metric={metric}>
         <FilterBar filtersItems={filtersItems} />
         <ContentWrapper>
           <DateSelector />
@@ -72,4 +84,4 @@ const MeetupsContentContainer = ({ meetupsContent: store }) => {
   )
 }
 
-export default pluggedIn(MeetupsContentContainer)
+export default pluggedIn(MeetupsContentContainer) as React.FC<TProps>
