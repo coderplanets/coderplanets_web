@@ -10,6 +10,9 @@ import { buildLog } from '@/utils'
 
 import { Space } from '@/components/Common'
 import IconText from '@/components/IconText'
+import Tooltip from '@/components/Tooltip'
+
+import CommunityCard from './CommunityCard'
 
 import {
   Wrapper,
@@ -46,11 +49,22 @@ type TProps = {
   }
 }
 
-const Card: React.FC<TProps> = ({
-  item: { id, title, body, author, insertedAt, commentsCount },
+const JobCard: React.FC<TProps> = ({
+  item: { title, body, author, insertedAt, commentsCount },
 }) => {
+  const fakeCommunity = {
+    id: '1',
+    title: 'react',
+    raw: 'react',
+    logo:
+      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/static/new-logo.jpg',
+    desc:
+      'maybe the most popular UI framework for web, maybe the most popular UI framework for web',
+    subscribersCount: 100,
+  }
+
   return (
-    <Wrapper key={id}>
+    <Wrapper>
       <Header>
         <Title>{title}</Title>
         <TeamScale>10~15 人</TeamScale>
@@ -78,8 +92,13 @@ const Card: React.FC<TProps> = ({
           </PublisherInfo>
         </Publisher>
         <TechKeywords>
-          {/* TODO: extract a community tooltip */}
-          <Keyword>React</Keyword>
+          {/* @ts-ignore  */}
+          <Tooltip
+            content={<CommunityCard item={fakeCommunity} />}
+            placement="top"
+          >
+            <Keyword>React</Keyword>
+          </Tooltip>
           <Keyword>TS</Keyword>
         </TechKeywords>
       </Footer>
@@ -87,4 +106,4 @@ const Card: React.FC<TProps> = ({
   )
 }
 
-export default React.memo(Card)
+export default React.memo(JobCard)
