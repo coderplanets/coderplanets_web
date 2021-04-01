@@ -57,8 +57,8 @@ export type TCommunity = {
   title: string
   logo?: string
   raw: string
-  color?: string
-  index?: number
+  subscribersCount?: number
+  desc?: string
 }
 
 export type TPagedCommunities = {

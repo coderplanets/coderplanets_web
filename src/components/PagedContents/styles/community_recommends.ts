@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { css } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -13,8 +12,8 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   font-size: 13px;
-  margin-bottom: 4px;
-  opacity: 0;
+  margin-bottom: 6px;
+  opacity: 0.8;
 
   &:before {
     content: '- ';
@@ -40,7 +39,7 @@ export const ListWrapper = styled.div`
 `
 export const Community = styled.div`
   margin-right: 10px;
-  opacity: 0.7;
+  opacity: 0.9;
 
   &:hover {
     cursor: pointer;
@@ -56,10 +55,6 @@ export const Community = styled.div`
     margin-right: 12px;
   `}
 `
-export const Logo = styled(Img)`
-  ${css.size(18)};
-
-  ${css.media.mobile`
-    ${css.size(16)};
-  `}
+export const CommunityTitle = styled.span`
+  font-size: 14px;
 `
