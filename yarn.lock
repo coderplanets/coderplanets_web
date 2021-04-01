@@ -1581,9 +1581,19 @@
   version "2.3.1"
   resolved "https://registry.npm.taobao.org/@groupher/editor-header/download/@groupher/editor-header-2.3.1.tgz#68a6631969c9bcf229c497729d81de199ed0f8c3"
 
-"@groupher/editor-quote@^2.3.0":
-  version "2.3.3"
-  resolved "https://registry.npm.taobao.org/@groupher/editor-quote/download/@groupher/editor-quote-2.3.3.tgz#0f51c8168e3c81a21dd57dbedae89435604e65d9"
+"@groupher/editor-quote@^2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-quote/-/editor-quote-2.3.4.tgz#448ca9c975f93d0a8d465e10e93867a7379435f3"
+  dependencies:
+    "@groupher/editor-utils" "0.2.26"
+
+"@groupher/editor-utils@0.2.26":
+  version "0.2.26"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-utils/-/editor-utils-0.2.26.tgz#64bae6ba465c08550cdae564fa9146ac3cd6e8be"
+  dependencies:
+    debug "^4.1.1"
+    pubsub-js "^1.8.0"
+    stringz "^2.1.0"
 
 "@groupher/eslint-config-web@2.0.9":
   version "2.0.9"
@@ -10512,6 +10522,10 @@ pubsub-js@^1.6.0:
   version "1.8.0"
   resolved "https://registry.npm.taobao.org/pubsub-js/download/pubsub-js-1.8.0.tgz#e2b523a030140a3d6e080735a48850a9622ed20a"
 
+pubsub-js@^1.8.0:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/pubsub-js/-/pubsub-js-1.9.3.tgz#674eea4d568d0402e0527cdb10e2aab7b55621d2"
+
 pump@^2.0.0, pump@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npm.taobao.org/pump/download/pump-2.0.1.tgz#12399add6e4cf7526d973cbc8b5ce2e2908b3909"
@@ -12153,7 +12167,7 @@ stringify-package@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/stringify-package/-/stringify-package-1.0.1.tgz#e5aa3643e7f74d0f28628b72f3dad5cecfc3ba85"
 
-stringz@^2.0.0:
+stringz@^2.0.0, stringz@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/stringz/download/stringz-2.1.0.tgz#5896b4713eac31157556040fb90258fb02c1630c"
   dependencies:
