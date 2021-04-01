@@ -3,6 +3,7 @@
  */
 
 import React from 'react'
+import TimeAgo from 'timeago-react'
 
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
@@ -26,24 +27,32 @@ import {
   PublishExtra,
   TechKeywords,
   Keyword,
-} from './styles/card'
+} from './styles/job_card'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Job:Card')
+const log = buildLog('c:JobCard')
 
 type TProps = {
   item: {
     id: string
     title: string
     body: string
+    commentsCount: number
+    insertedAt: string
+    author: {
+      title: string
+      avatar: string
+    }
   }
 }
 
-const Card: React.FC<TProps> = ({ item }) => {
+const Card: React.FC<TProps> = ({
+  item: { id, title, body, author, insertedAt, commentsCount },
+}) => {
   return (
-    <Wrapper key={item.id}>
+    <Wrapper key={id}>
       <Header>
-        <Title>{item.title}</Title>
+        <Title>{title}</Title>
         <TeamScale>10~15 人</TeamScale>
       </Header>
       <Info>
@@ -51,18 +60,20 @@ const Card: React.FC<TProps> = ({ item }) => {
         <Sallery>前端</Sallery>
         <Sallery>15k-30k</Sallery>
       </Info>
-      <Body>{item.body}</Body>
+      <Body>{body}</Body>
       <Footer>
         <Publisher>
-          <Avatar src="https://avatars.githubusercontent.com/u/809410?s=64&v=4" />
+          <Avatar src={author.avatar} />
           <PublisherInfo>
-            <AuthorName>mydearxym</AuthorName>
+            <AuthorName>{author.title}</AuthorName>
             <PublishExtra>
               <IconText iconSrc={`${ICON}/edit/publish-pen.svg`}>
-                三天前
+                <TimeAgo datetime={insertedAt} locale="zh_CN" />
               </IconText>
               <Space right={10} />
-              <IconText iconSrc={`${ICON}/article/comment.svg`}>22</IconText>
+              <IconText iconSrc={`${ICON}/article/comment.svg`}>
+                {commentsCount}
+              </IconText>
             </PublishExtra>
           </PublisherInfo>
         </Publisher>

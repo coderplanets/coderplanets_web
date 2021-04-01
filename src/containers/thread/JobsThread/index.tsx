@@ -20,12 +20,11 @@ import { PublishButton } from '@/components/Buttons'
 import Maybe from '@/components/Maybe'
 // import PagedContents from '@/components/PagedContents'
 import ContentFilter from '@/components/ContentFilter'
+import JobCard from '@/components/Cards/JobCard'
 
 import type { TStore } from './store'
 
-import Card from './Card'
 import PublishNote from './PublishNote'
-
 import filtersItems from './fakeFiltersItems'
 import fakeJobItems from './fakeJobItems'
 
@@ -91,7 +90,7 @@ const JobsThreadContainer: React.FC<TProps> = ({ jobsThread: store }) => {
         </Maybe>
         <MasonryCards>
           {fakeJobItems.map((item) => (
-            <Card key={item.id} item={item} />
+            <JobCard key={item.id} item={item} />
           ))}
         </MasonryCards>
 
