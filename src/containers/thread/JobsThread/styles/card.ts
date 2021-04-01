@@ -5,12 +5,6 @@ import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>``
-
-export const Title = styled.div``
-
 export const JWrapper = styled.div`
   background: #08303e;
   padding: 15px 20px;
@@ -41,7 +35,7 @@ export const JSallery = styled.div`
   color: #009b9c;
   margin-right: 10px;
 `
-export const JDesc = styled.div`
+export const JBody = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 15px;
 `

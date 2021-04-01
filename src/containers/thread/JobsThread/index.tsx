@@ -18,13 +18,16 @@ import FiltersMenu from '@/components/FiltersMenu'
 import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
 import Maybe from '@/components/Maybe'
-import PagedContents from '@/components/PagedContents'
+// import PagedContents from '@/components/PagedContents'
 import ContentFilter from '@/components/ContentFilter'
 
 import type { TStore } from './store'
 
+import Card from './Card'
 import PublishNote from './PublishNote'
+
 import filtersItems from './fakeFiltersItems'
+import fakeJobItems from './fakeJobItems'
 
 import {
   Wrapper,
@@ -40,11 +43,11 @@ import {
   inAnchor,
   outAnchor,
   onFilterSelect,
-  onUserSelect,
-  onPreview,
+  // onUserSelect,
+  // onPreview,
   onContentCreate,
   // onTagSelect,
-  onPageChange,
+  // onPageChange,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -59,12 +62,12 @@ const JobsThreadContainer: React.FC<TProps> = ({ jobsThread: store }) => {
 
   const {
     pagedJobsData,
-    curView,
+    // curView,
+    // activeJob,
+    // curCommunity,
     filtersData,
     // activeTagData,
-    activeJob,
     accountInfo,
-    curCommunity,
     showPublishNote,
     showFilterBar,
   } = store
@@ -86,9 +89,13 @@ const JobsThreadContainer: React.FC<TProps> = ({ jobsThread: store }) => {
             />
           </FilterWrapper>
         </Maybe>
-        <MasonryCards />
+        <MasonryCards>
+          {fakeJobItems.map((item) => (
+            <Card key={item.id} item={item} />
+          ))}
+        </MasonryCards>
 
-        <PagedContents
+        {/* <PagedContents
           data={pagedJobsData}
           community={curCommunity.raw}
           thread={THREAD.JOB}
@@ -98,7 +105,7 @@ const JobsThreadContainer: React.FC<TProps> = ({ jobsThread: store }) => {
           onPreview={onPreview}
           onAuthorSelect={onUserSelect}
           onPageChange={onPageChange}
-        />
+        /> */}
       </LeftPart>
 
       <RightPart>

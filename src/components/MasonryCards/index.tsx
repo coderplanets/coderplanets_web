@@ -17,7 +17,7 @@ import {
   Wrapper,
   JWrapper,
   JHeader,
-  JCompanyScale,
+  JTeamScale,
   JTitle,
   JInfo,
   JSallery,
@@ -68,52 +68,23 @@ const items = [
 
 type TProps = {
   testid?: string
+  column?: number
+  children: React.ReactNode
 }
 
-const MasonryCards: React.FC<TProps> = ({ testid = 'masonry-cards' }) => {
+const MasonryCards: React.FC<TProps> = ({
+  testid = 'masonry-cards',
+  column = 2,
+  children,
+}) => {
   return (
     <Wrapper testid={testid}>
       <Masonry
-        breakpointCols={2}
+        breakpointCols={column}
         className="masonry-cards-grid"
         columnClassName="masonry-cards-grid_column"
       >
-        {items.map((item) => (
-          <JWrapper key={item.id}>
-            <JHeader>
-              <JTitle>{item.title}</JTitle>
-              <JCompanyScale>10~15 人</JCompanyScale>
-            </JHeader>
-            <JInfo>
-              <JSallery>成都</JSallery>
-              <JSallery>前端</JSallery>
-              <JSallery>15k-30k</JSallery>
-            </JInfo>
-            <JDesc>{item.desc}</JDesc>
-            <JFooter>
-              <Publisher>
-                <Avatar src="https://avatars.githubusercontent.com/u/809410?s=64&v=4" />
-                <PublisherInfo>
-                  <AuthorName>mydearxym</AuthorName>
-                  <PublishExtra>
-                    <IconText iconSrc={`${ICON}/edit/publish-pen.svg`}>
-                      三天前
-                    </IconText>
-                    <Space right={10} />
-                    <IconText iconSrc={`${ICON}/article/comment.svg`}>
-                      22
-                    </IconText>
-                  </PublishExtra>
-                </PublisherInfo>
-              </Publisher>
-              <TechKeywords>
-                {/* TODO: extract a community tooltip */}
-                <Keyword>React</Keyword>
-                <Keyword>TS</Keyword>
-              </TechKeywords>
-            </JFooter>
-          </JWrapper>
-        ))}
+        {children}
       </Masonry>
     </Wrapper>
   )
