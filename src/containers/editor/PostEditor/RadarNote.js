@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ISSUE_ADDR } from '@/config'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import {
   Wrapper,
   Title,
@@ -50,7 +50,7 @@ const RadarNote = () => (
               rel="noopener noreferrer"
               target="_blank"
             >
-              {cutFrom(item.link, 18)}
+              {cutRest(item.link, 18)}
             </SiteLink>
           </SiteInfo>
         </Site>
@@ -63,7 +63,7 @@ const RadarNote = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        {cutFrom(`${ISSUE_ADDR}/339`, 100)}
+        {cutRest(`${ISSUE_ADDR}/339`, 100)}
       </SiteLink>
     </Footer>
   </Wrapper>

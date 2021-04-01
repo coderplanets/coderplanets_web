@@ -10,7 +10,7 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '@/config'
 import { C11N } from '@/constant'
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 
 import DotDivider from '@/components/DotDivider'
 import VideoSourceInfo from '@/components/VideoSourceInfo'
@@ -70,7 +70,7 @@ const VideoItem = ({ entry, active, onPreview, accountInfo }) => (
           <ViewIcon src={`${ICON_CMD}/refer.svg`} /> <Space right={2} />
           {entry.views}
         </Extra>
-        <BodyDigest>{cutFrom(entry.desc, 90)}</BodyDigest>
+        <BodyDigest>{cutRest(entry.desc, 90)}</BodyDigest>
       </SecondHalf>
       <BottomAuthorWrapper>
         <ButtonAvatar src={entry.author.avatar} />

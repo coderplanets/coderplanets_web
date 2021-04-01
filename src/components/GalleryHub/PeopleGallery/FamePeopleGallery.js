@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 
 import IconText from '@/components/IconText'
 import CardHeader from './CardHeader'
@@ -85,7 +85,7 @@ const FamePeopleList = ({ items }) => {
             </Intro>
           </Body>
 
-          <Digest>{cutFrom(item.desc, 50)}</Digest>
+          <Digest>{cutRest(item.desc, 50)}</Digest>
 
           <Footer>
             <IconText iconSrc={`${ICON}/article/heart-solid.svg`}>22</IconText>

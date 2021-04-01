@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { useDevice } from '@/hooks'
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 
 import {
   Wrapper,
@@ -37,7 +37,7 @@ const ExpandTexts = ({ descExpand }) => {
         </Normal>
       ) : (
         <Normal>
-          {cutFrom(text, cutLength)}
+          {cutRest(text, cutLength)}
           <IconWrapper onClick={toggleDescExpand}>
             <MoreIcon src={`${ICON_CMD}/community_expand_more2.svg`} />
           </IconWrapper>

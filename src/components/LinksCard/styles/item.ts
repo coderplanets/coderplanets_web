@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   /* ${css.flex('align-center')}; */
-  ${css.cutFrom('200px')};
+  ${css.cutRest('200px')};
   color: ${theme('banner.desc')};
 
   ${Wrapper}:hover & {

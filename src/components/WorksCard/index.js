@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON, ICON_CMD } from '@/config'
-import { buildLog, cutFrom, nilOrEmpty } from '@/utils'
+import { buildLog, cutRest, nilOrEmpty } from '@/utils'
 
 import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
@@ -72,7 +72,7 @@ const WorksCard = ({
           <div>
             <Title>{title}</Title>
             <DigestSentence top={5} bottom={15}>
-              {cutFrom(desc, descLimit)}
+              {cutRest(desc, descLimit)}
             </DigestSentence>
           </div>
 

@@ -15,7 +15,7 @@ export const Logo = styled(Img)<{ isExpand: boolean }>`
   transition: all 0.25s;
 `
 export const Title = styled.div<{ isSubscribed: boolean }>`
-  ${css.cutFrom('50px')};
+  ${css.cutRest('50px')};
   color: ${({ isSubscribed }) => (isSubscribed ? '#b4e1e2' : '#a0bebf')};
   font-size: 12px;
   margin-left: 8px;

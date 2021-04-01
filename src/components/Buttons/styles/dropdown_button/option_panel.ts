@@ -58,7 +58,7 @@ export const Header = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const Title = styled.div`
-  ${css.cutFrom('90%')};
+  ${css.cutRest('90%')};
   font-size: 14px;
 `
 export const LinkIcon = styled(Img)`

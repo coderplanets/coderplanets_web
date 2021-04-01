@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 
-import { numberWithCommas, cutFrom } from '@/utils'
+import { numberWithCommas, cutRest } from '@/utils'
 import Tooltip from '@/components/Tooltip'
 
 import {
@@ -33,7 +33,7 @@ const TitlesInfo = ({ repo }) => (
     </TitleLink>
     <Slash>/</Slash>
     <TitleLink href={repo.repoUrl} rel="noopener noreferrer" target="_blank">
-      {cutFrom(repo.title, 20)}
+      {cutRest(repo.title, 20)}
     </TitleLink>{' '}
   </TitlesWrapper>
 )

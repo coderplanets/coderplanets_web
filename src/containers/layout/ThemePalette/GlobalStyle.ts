@@ -112,7 +112,7 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     margin-left: 8px;
 
-    ${css.cutFrom('200px')};
+    ${css.cutRest('200px')};
     max-width: 368px;
     font-size: 1rem;
     margin-bottom: 0.2em;

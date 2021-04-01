@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 
 import {
   Wrapper,
@@ -142,7 +142,7 @@ const Catalog = () => {
           </Header>
           <Body>
             <Title>{item.title}</Title>
-            <Desc>{cutFrom(item.lastMsg, 13)}</Desc>
+            <Desc>{cutRest(item.lastMsg, 13)}</Desc>
           </Body>
         </Block>
       ))}

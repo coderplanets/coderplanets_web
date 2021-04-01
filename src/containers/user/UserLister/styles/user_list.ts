@@ -48,13 +48,13 @@ export const Location = styled.div`
   margin-left: 10px;
 
   ${css.media.tablet`
-    ${css.cutFrom('80px')};
+    ${css.cutRest('80px')};
     margin-left: 0;
     margin-bottom: 3px;
   `};
 
   ${css.media.mobile`
-    ${css.cutFrom('60px')};
+    ${css.cutRest('60px')};
     margin-left: 0;
     margin-bottom: 3px;
   `};

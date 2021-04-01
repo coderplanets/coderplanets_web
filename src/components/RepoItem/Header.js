@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 
-import { cutFrom, numberWithCommas } from '@/utils'
+import { cutRest, numberWithCommas } from '@/utils'
 import Tooltip from '@/components/Tooltip'
 import { Space } from '@/components/Common'
 import InlineTags from '@/components/InlineTags'
@@ -34,7 +34,7 @@ const Header = ({ entry, onPreview }) => {
           <LangDot color={entry.primaryLanguage.color} />
         </Tooltip>
         <Owner>{entry.ownerName}</Owner>
-        <RepoName> / {cutFrom(entry.title, 20)}</RepoName>
+        <RepoName> / {cutRest(entry.title, 20)}</RepoName>
         <TagsWrapper>
           <InlineTags data={entry.tags} />
         </TagsWrapper>

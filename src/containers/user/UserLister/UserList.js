@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 
 import Pagi from '@/components/Pagi'
 import { FollowButton } from '@/components/Buttons'
@@ -40,7 +40,7 @@ const UsersTable = ({ entries, accountId }) => (
             <Nickname>{user.nickname}</Nickname>
             <Location>
               <GeoIcon src={`${ICON_CMD}/city_map.svg`} />
-              {cutFrom(user.location || user.geoCity || '--', 16)}
+              {cutRest(user.location || user.geoCity || '--', 16)}
             </Location>
           </Title>
           <Action>

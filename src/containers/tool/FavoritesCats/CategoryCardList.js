@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 
 import Folder from '@/components/Folder'
 import Pagi from '@/components/Pagi'
@@ -18,8 +18,8 @@ const CategoryCardList = ({
       {entries.map((cat) => (
         <Folder
           key={cat.id}
-          title={cutFrom(cat.title, 10)}
-          desc={cutFrom(cat.desc, 20)}
+          title={cutRest(cat.title, 10)}
+          desc={cutRest(cat.desc, 20)}
           total={cat.totalCount}
           updatedAt={cat.updatedAt}
           onEdit={() => switchToUpdater(cat)}

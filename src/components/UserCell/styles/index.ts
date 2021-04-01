@@ -24,5 +24,5 @@ export const Bio = styled.div`
   color: #a0bbbe;
   margin-top: -3px;
 
-  ${css.cutFrom('200px')};
+  ${css.cutRest('200px')};
 `

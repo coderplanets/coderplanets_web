@@ -19,7 +19,7 @@ export {
   send,
   mapKeys,
   getRandomInt,
-  cutFrom,
+  cutRest,
   prettyNum,
   numberWithCommas,
   sortByColor,

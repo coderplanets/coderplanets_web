@@ -51,7 +51,7 @@ export const TagTitle = styled.div<TTag>`
   letter-spacing: 2px;
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
   opacity: ${({ active }) => (active ? 1 : 0.9)};
-  ${({ inline }) => (!inline ? css.cutFrom('120px') : css.cutFrom('50px'))};
+  ${({ inline }) => (!inline ? css.cutRest('120px') : css.cutRest('50px'))};
 
   &:hover {
     cursor: pointer;
@@ -60,7 +60,7 @@ export const TagTitle = styled.div<TTag>`
   }
 
   ${TagsWrapper}:hover & {
-    ${css.cutFrom('80px')};
+    ${css.cutRest('80px')};
   }
 
   transition: all 0.2s;

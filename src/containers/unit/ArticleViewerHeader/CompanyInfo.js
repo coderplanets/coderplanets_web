@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 import DotDivider from '@/components/DotDivider'
 import { ICON_CMD } from '@/config'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import {
   Wrapper,
   Logo,
@@ -20,7 +20,7 @@ const CompanyInfo = ({ company, insertedAt, author }) => (
   <Wrapper>
     <Logo src={company.logo} alt="user_avatar" />
     <div>
-      <Title>{cutFrom(company.title, 14)}</Title>
+      <Title>{cutRest(company.title, 14)}</Title>
       <HomePage>
         <HomeIcon src={`${ICON_CMD}/home.svg`} />
         <HomepageLink

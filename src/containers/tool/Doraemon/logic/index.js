@@ -10,7 +10,7 @@ import {
   Global,
   send,
   prettyNum,
-  cutFrom,
+  cutRest,
   errRescue,
 } from '@/utils'
 
@@ -283,7 +283,7 @@ const DataSolver = [
         (e) => ({
           id: e.id,
           raw: `repo-raw-${e.id}`,
-          title: `${e.ownerName} / ${cutFrom(e.title, 30)}`,
+          title: `${e.ownerName} / ${cutRest(e.title, 30)}`,
           desc: `star:${prettyNum(e.starCount)}  ${e.desc}`,
         }),
         searchRepos.entries,

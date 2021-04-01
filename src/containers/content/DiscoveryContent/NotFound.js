@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 
 import {
   Wrapper,
@@ -18,7 +18,7 @@ const NotFound = ({ searchValue }) => {
       <EmptyCard>
         <EmptyTitle>
           没有找到包含{' '}
-          <SearchValueFocus>{cutFrom(searchValue, 10)}</SearchValueFocus> 的社区
+          <SearchValueFocus>{cutRest(searchValue, 10)}</SearchValueFocus> 的社区
         </EmptyTitle>
         <EmptyDesc>
           若没有你感兴趣的社区, 你可以

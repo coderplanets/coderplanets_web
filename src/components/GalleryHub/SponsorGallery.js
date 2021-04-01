@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ASSETS_ENDPOINT } from '@/config'
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 
 import { ArrowButton } from '@/components/Buttons'
 
@@ -137,7 +137,7 @@ const SponsorGallery = ({ items, column }) => {
             <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
           )}
           {item.desc && (
-            <Desc level={item.level}>{cutFrom(item.desc, 30)}</Desc>
+            <Desc level={item.level}>{cutRest(item.desc, 30)}</Desc>
           )}
           <LinkWrapper>
             <ArrowButton size="tiny">{item.addr}</ArrowButton>

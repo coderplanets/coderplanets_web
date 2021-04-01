@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 
 import {
   Wrapper,
@@ -14,7 +14,7 @@ const CommentReplyBar = ({ data }) => {
   return (
     <Wrapper>
       <ReplyIcon src={`${ICON}/article/reply.svg`} />
-      {cutFrom(data.author.nickname, 6)}:<ReplyToBody>{data.body}</ReplyToBody>
+      {cutRest(data.author.nickname, 6)}:<ReplyToBody>{data.body}</ReplyToBody>
       <ReplyToFloor>#{data.floor}</ReplyToFloor>
     </Wrapper>
   )

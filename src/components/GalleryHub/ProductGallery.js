@@ -9,7 +9,7 @@ import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
 import { ICON } from '@/config'
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 
 import { ArrowButton } from '@/components/Buttons'
 
@@ -142,7 +142,7 @@ const ProductGallery = ({ items }) => {
             </IntroHead>
           </Header>
 
-          {item.desc && <Desc>{cutFrom(item.desc, 50)}</Desc>}
+          {item.desc && <Desc>{cutRest(item.desc, 50)}</Desc>}
           {!item.desc && !isEmpty(item.tags) && (
             <InlineTags items={item.tags} />
           )}

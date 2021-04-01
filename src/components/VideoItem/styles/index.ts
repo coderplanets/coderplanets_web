@@ -107,7 +107,7 @@ export const BodyDigest = styled.li`
   }
 
   ${css.media.mobile`
-    ${css.cutFrom('200px')};
+    ${css.cutRest('200px')};
   `};
 `
 export const OriginalAuthorLink = styled.a`

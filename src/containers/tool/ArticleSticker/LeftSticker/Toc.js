@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-// import { cutFrom } from '@/utils'
+// import { cutRest } from '@/utils'
 import {
   Wrapper,
   HeaderWrapper,

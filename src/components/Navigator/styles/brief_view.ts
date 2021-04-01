@@ -49,7 +49,7 @@ export const CommunityTitle = styled.div`
   font-weight: bold;
   margin-top: -2px;
 
-  ${css.cutFrom('90px')};
+  ${css.cutRest('90px')};
 `
 export const Breadcrumbs = styled.div`
   ${css.flex('align-center')};

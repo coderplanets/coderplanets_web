@@ -39,5 +39,5 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 13px;
   margin-left: 12px;
-  ${css.cutFrom('60vw')};
+  ${css.cutRest('60vw')};
 `

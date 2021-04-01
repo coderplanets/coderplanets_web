@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 import { C11N } from '@/constant'
 
 import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
@@ -28,7 +28,7 @@ const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
       topOffset="22px"
     />
     <Header entry={entry} onPreview={() => onPreview(entry)} />
-    <BodyDigest>{cutFrom(entry.desc, 180)}</BodyDigest>
+    <BodyDigest>{cutRest(entry.desc, 180)}</BodyDigest>
     <Footer
       contributors={entry.contributors}
       author={entry.author}

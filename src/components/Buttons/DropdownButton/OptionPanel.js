@@ -2,7 +2,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 
 import {
   Wrapper,
@@ -56,7 +56,7 @@ const OptionPanel = ({ options, onClick, panelMinWidth }) => {
               <Title>{item.title}</Title>
               {item.link && <LinkIcon src={`${ICON}/shape/link-hint.svg`} />}
             </Header>
-            <Desc>{cutFrom(item.desc, 26)}</Desc>
+            <Desc>{cutRest(item.desc, 26)}</Desc>
           </Intro>
         </OptionBlock>
       ))}
