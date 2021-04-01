@@ -1,7 +1,7 @@
 import React from 'react'
 import { isEmpty } from 'ramda'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import {
   Wrapper,
   TopHalf,
@@ -24,7 +24,7 @@ const CompanyInfo = ({
     <TopHalf>
       <BaseInfo>
         <Header>
-          <Title>{cutFrom(company, 12)}</Title>
+          <Title>{cutRest(company, 12)}</Title>
         </Header>
         <Middle>
           <StatesWrapper>

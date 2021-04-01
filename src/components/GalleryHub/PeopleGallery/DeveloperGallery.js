@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON, ASSETS_ENDPOINT } from '@/config'
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 
 import IconText from '@/components/IconText'
 import CardHeader from './CardHeader'
@@ -83,8 +83,8 @@ const DeveloperGallery = ({ items }) => {
           <Body>
             <Avatar src={item.icon} />
             <Intro>
-              <Title>{cutFrom(item.title, 18)}</Title>
-              <Digest>{cutFrom(item.desc, 35)}</Digest>
+              <Title>{cutRest(item.title, 18)}</Title>
+              <Digest>{cutRest(item.desc, 35)}</Digest>
             </Intro>
             <SocialWrapper>social list</SocialWrapper>
           </Body>

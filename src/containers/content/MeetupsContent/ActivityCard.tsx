@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 
 import DotDivider from '@/components/DotDivider'
 
@@ -42,7 +42,7 @@ const ActivityCard: React.FC<TProps> = ({ item }) => {
         <Title>
           <Tag>{item.type || '前端'}</Tag>
           <TitleText finished={item.finished}>
-            {cutFrom(item.title, 40)}
+            {cutRest(item.title, 40)}
           </TitleText>
         </Title>
         <BodyWrapper>

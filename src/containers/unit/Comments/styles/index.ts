@@ -21,10 +21,10 @@ export const ReplyToBodyBase = styled.div`
   flex-grow: 1;
   font-style: italic;
 
-  ${css.cutFrom('350px')};
+  ${css.cutRest('350px')};
 
   ${css.media.mobile`
-    ${css.cutFrom('120px')};
+    ${css.cutRest('120px')};
   `};
 `
 export const ReplyToFloorBase = styled.div`

@@ -2,7 +2,7 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 import { ICON } from '@/config'
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
 import { SpaceGrow } from '@/components/Common'
@@ -48,7 +48,7 @@ const Body = ({ item, onPreview }) => {
       </Extra>
 
       <DigestSentence top={5} right={140} onPreview={() => onPreview(item)}>
-        {cutFrom(item.digest, 90)}
+        {cutRest(item.digest, 90)}
       </DigestSentence>
     </Wrapper>
   )

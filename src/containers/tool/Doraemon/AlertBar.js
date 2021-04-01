@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { cutFrom, Trans } from '@/utils'
+import { cutRest, Trans } from '@/utils'
 import { Wrapper, WarningIcon, Info, Title, Desc } from './styles/alert_bar'
 
 const AlertBar = ({ value, searchThread }) => (
@@ -11,7 +11,7 @@ const AlertBar = ({ value, searchThread }) => (
       <Title>
         未找到您需要的
         {Trans(searchThread)} &quot;
-        {cutFrom(value, 20)}
+        {cutRest(value, 20)}
         &quot;
       </Title>
       <Desc>请尝试其他关键字或查看帮助文档</Desc>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import Tooltip from '@/components/Tooltip'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import {
   Wrapper,
   LanguageDot,
@@ -24,7 +24,7 @@ const RepoTitle = ({ repo }) => (
     </TitleLink>
     <Slash>/</Slash>
     <TitleLink href={repo.repoUrl} rel="noopener noreferrer" target="_blank">
-      {cutFrom(repo.title, 20)}
+      {cutRest(repo.title, 20)}
     </TitleLink>{' '}
   </Wrapper>
 )

@@ -2,7 +2,7 @@ import React from 'react'
 import { contains } from 'ramda'
 
 import { NON_FILL_COMMUNITY } from '@/constant'
-import { prettyNum, cutFrom } from '@/utils'
+import { prettyNum, cutRest } from '@/utils'
 
 import TrendLine from '@/components/TrendLine'
 import { CommunityHolder } from '@/components/LoadingEffects'
@@ -32,7 +32,7 @@ const CommunityCard = ({ community, restProps }) => (
       />
     </a>
     <Title>{community.title}</Title>
-    <Desc>{cutFrom(community.desc, 20)}</Desc>
+    <Desc>{cutRest(community.desc, 20)}</Desc>
     <ActivitySpark>
       <TrendLine data={community.contributesDigest} />
     </ActivitySpark>

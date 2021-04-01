@@ -2,7 +2,7 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 import { HCN } from '@/constant'
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import InlineCommunities from '@/components/InlineCommunities'
 import InlineTags from '@/components/InlineTags'
 import DotDivider from '@/components/DotDivider'
@@ -44,7 +44,7 @@ const JobInfo = ({
 }) => (
   <Wrapper>
     <Header>
-      <Title onClick={onPreview}>{cutFrom(title, 30)}</Title>
+      <Title onClick={onPreview}>{cutRest(title, 30)}</Title>
       <CommunitiesWrapper>
         <InlineCommunities data={communities} show={community === HCN} />
       </CommunitiesWrapper>

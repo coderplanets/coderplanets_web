@@ -1,7 +1,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import { FollowButton } from '@/components/Buttons'
 
 import { Wrapper, Avatar, Brief, Nickname, Bio } from './styles/user_info'
@@ -22,7 +22,7 @@ const UserInfo = ({ user, isSelfViewing }) => (
         />
       )}
     </Brief>
-    <Bio>{cutFrom(user.bio || '--', 35)}</Bio>
+    <Bio>{cutRest(user.bio || '--', 35)}</Bio>
   </Wrapper>
 )
 

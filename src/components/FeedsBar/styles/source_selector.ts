@@ -30,7 +30,7 @@ export const Icon = styled(Img)`
   ${css.circle(34)};
 `
 export const Title = styled.div`
-  ${css.cutFrom('60px')};
+  ${css.cutRest('60px')};
   text-align: center;
   padding-left: 5px;
   color: ${theme('thread.articleDigest')};

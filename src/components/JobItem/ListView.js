@@ -2,7 +2,7 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '@/config'
-import { cutFrom, parseDomain } from '@/utils'
+import { cutRest, parseDomain } from '@/utils'
 import InlineTags from '@/components/InlineTags'
 import DotDivider from '@/components/DotDivider'
 
@@ -32,7 +32,7 @@ const ListView = ({ entry, onPreview }) => (
       <TopHalf>
         <Brief onClick={() => onPreview(entry)}>
           <Title>
-            【 {entry.company} 】{cutFrom(entry.title, 45)}
+            【 {entry.company} 】{cutRest(entry.title, 45)}
           </Title>
           {entry.linkAddr && (
             <TitleLink>

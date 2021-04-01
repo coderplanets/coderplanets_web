@@ -22,7 +22,7 @@ const smokey = (initOpacity = 0.6): string => `
   }
   transition: opacity 0.2s;
 `
-const cutFrom = (width = '100px'): string => `
+const cutRest = (width = '100px'): string => `
   width: ${width};
   white-space: nowrap;
   overflow: hidden;
@@ -39,7 +39,7 @@ const threadTitleHover = (): CSSProp => {
 }
 
 const css = {
-  cutFrom,
+  cutRest,
   circle,
   size,
   smokey,

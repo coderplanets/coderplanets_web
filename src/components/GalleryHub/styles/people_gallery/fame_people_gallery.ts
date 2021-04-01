@@ -32,7 +32,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   cursor: pointer;
-  ${css.cutFrom('200px')};
+  ${css.cutRest('200px')};
 `
 export const AKA = styled.div`
   color: ${theme('thread.articleDigest')};

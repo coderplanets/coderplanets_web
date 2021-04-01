@@ -3,7 +3,7 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '@/config'
 
-import { cutFrom, parseDomain } from '@/utils'
+import { cutRest, parseDomain } from '@/utils'
 import InlineTags from '@/components/InlineTags'
 
 import {
@@ -27,7 +27,7 @@ const ListView = ({ entry, onPreview }) => (
     <Main>
       <TopHalf>
         <Brief onClick={() => onPreview(entry)}>
-          <Title>{cutFrom(entry.title, 45)}</Title>
+          <Title>{cutRest(entry.title, 45)}</Title>
           {entry.linkAddr && (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />

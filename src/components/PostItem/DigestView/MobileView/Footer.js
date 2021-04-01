@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import { ICON_CMD } from '@/config'
 
 import DotDivider from '@/components/DotDivider'
@@ -28,7 +28,7 @@ const Footer = ({ item }) => {
           {item.commentsCount}
         </ExtraTexts>
       </Extra>
-      <BodyDigest>{cutFrom(item.digest, 20)}</BodyDigest>
+      <BodyDigest>{cutRest(item.digest, 20)}</BodyDigest>
     </Wrapper>
   )
 }

@@ -3,7 +3,7 @@ import { isEmpty } from 'ramda'
 
 import EmptyLabel from '@/components/EmptyLabel'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import {
   Wrapper,
   ListsWrapper,
@@ -80,7 +80,7 @@ const MentionList = ({ data }) => {
                 <UserLabel onClick={() => previewUser(item.fromUser)}>
                   <UserAvatar src={item.fromUser.avatar} />
                   <UserNickname>
-                    {cutFrom(item.fromUser.nickname, 8)}
+                    {cutRest(item.fromUser.nickname, 8)}
                   </UserNickname>
                 </UserLabel>
                 <TitleHeader>

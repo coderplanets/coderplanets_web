@@ -15,7 +15,7 @@ export const Wrapper = styled.div<TActive>`
 `
 export const Title = styled.div<TActive>`
   color: ${theme('tags.text')};
-  ${css.cutFrom('200px')};
+  ${css.cutRest('200px')};
   font-size: 14px;
   opacity: 0.9;
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};

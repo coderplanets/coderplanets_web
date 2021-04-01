@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 // import S from './service'
 
 let store = null
@@ -26,7 +26,7 @@ export const changeView = (view) => {
 export const notifyCopy = ({ error, value }) => {
   const type = !error ? 'info' : 'error'
   const title = !error ? '已复制到剪切板' : '复制到剪切板出错'
-  const msg = !error ? cutFrom(value, 10) : error
+  const msg = !error ? cutRest(value, 10) : error
 
   store.toast(type, { title, msg, position: 'topCenter' })
 }

@@ -104,16 +104,16 @@ export const Title = styled.div`
     color: ${theme('shell.link')};
   }
 
-  ${css.cutFrom('400px')};
+  ${css.cutRest('400px')};
   ${css.media.mobile`
-      ${css.cutFrom('200px')};
+      ${css.cutRest('200px')};
   `};
 `
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
   font-size: 0.9rem;
 
-  ${css.cutFrom('400px')};
+  ${css.cutRest('400px')};
 `
 export const Hint = styled.div`
   color: ${theme('shell.desc')};

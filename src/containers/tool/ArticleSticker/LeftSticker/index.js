@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 
 import Toc from './Toc'
 
@@ -20,7 +20,7 @@ const LeftSticker = ({ show, title, isTocMenuOpened }) => {
         <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
         <BackText>Elixir 社区</BackText>
       </BackWrapper>
-      <ArticleTitle>{cutFrom(title, 30)}</ArticleTitle>
+      <ArticleTitle>{cutRest(title, 30)}</ArticleTitle>
       <Toc show={isTocMenuOpened} />
     </Wrapper>
   )

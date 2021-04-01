@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import {
   Wrapper,
   Divider,
@@ -24,7 +24,7 @@ const CompanyCard = ({ data }) => (
     <CompanyBrand>
       <CompanyLogo src={data.companyLogo} />
       <CompanyLabel>
-        <Title>{cutFrom(data.company, 9)}</Title>
+        <Title>{cutRest(data.company, 9)}</Title>
         <HomePage>
           <LinkIcon src={`${ICON_CMD}/home.svg`} />
           <Link
@@ -32,7 +32,7 @@ const CompanyCard = ({ data }) => (
             rel="noopener noreferrer"
             target="_blank"
           >
-            {cutFrom(data.companyLink, 30)}
+            {cutRest(data.companyLink, 30)}
           </Link>
         </HomePage>
       </CompanyLabel>

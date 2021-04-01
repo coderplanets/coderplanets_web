@@ -29,7 +29,7 @@ export const Title = styled.div`
   margin-left: 4px;
   font-size: 14px;
   margin-right: 8px;
-  ${css.cutFrom('85px')};
+  ${css.cutRest('85px')};
 
   ${Header}:hover & {
     opacity: 0.65;

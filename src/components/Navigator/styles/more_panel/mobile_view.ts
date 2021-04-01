@@ -51,7 +51,7 @@ export const Title = styled.div`
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
-  ${css.cutFrom('100px')};
+  ${css.cutRest('100px')};
   font-size: 11px;
   margin-top: 2px;
 `

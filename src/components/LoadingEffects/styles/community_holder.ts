@@ -30,6 +30,6 @@ export const CommunitiesText = styled.div`
   margin-bottom: 8px;
 `
 export const BannerText = styled.div`
-  ${css.cutFrom('45px')};
+  ${css.cutRest('45px')};
   text-align: center;
 `

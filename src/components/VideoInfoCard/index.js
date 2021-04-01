@@ -10,7 +10,7 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '@/config'
 
-import { buildLog, cutFrom } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 import DotDivider from '@/components/DotDivider'
 import VideoSourceInfo from '@/components/VideoSourceInfo'
 
@@ -47,7 +47,7 @@ const VideoInfoCard = ({ data }) => {
   return (
     <Wrapper>
       <BaseInfo>
-        <Title>{cutFrom(title, 40)}</Title>
+        <Title>{cutRest(title, 40)}</Title>
         <Desc>{desc}</Desc>
         <Footer>
           <OriginAuthor>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { cutFrom } from '@/utils'
+import { cutRest } from '@/utils'
 import { Wrapper } from './styles/header'
 
 const Header = ({ data }) => (
   <Wrapper>
-    <div>【 {cutFrom(data.title, 15)} 】</div>
+    <div>【 {cutRest(data.title, 15)} 】</div>
   </Wrapper>
 )
 

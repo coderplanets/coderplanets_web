@@ -18,11 +18,11 @@ export const Normal = styled.div<{ margin: string }>`
   `};
 
   /* ${css.media.tablet`
-    ${css.cutFrom('220px')};
+    ${css.cutRest('220px')};
   `};
 
   ${css.media.mobile`
-    ${css.cutFrom('180px')};
+    ${css.cutRest('180px')};
   `}; */
 `
 export const IconWrapper = styled.span`
