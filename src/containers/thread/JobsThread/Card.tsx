@@ -11,14 +11,14 @@ import { Space } from '@/components/Common'
 import IconText from '@/components/IconText'
 
 import {
-  JWrapper,
-  JHeader,
-  JTeamScale,
-  JTitle,
-  JInfo,
-  JSallery,
-  JBody,
-  JFooter,
+  Wrapper,
+  Header,
+  TeamScale,
+  Title,
+  Info,
+  Sallery,
+  Body,
+  Footer,
   Publisher,
   Avatar,
   PublisherInfo,
@@ -41,18 +41,18 @@ type TProps = {
 
 const Card: React.FC<TProps> = ({ item }) => {
   return (
-    <JWrapper key={item.id}>
-      <JHeader>
-        <JTitle>{item.title}</JTitle>
-        <JTeamScale>10~15 人</JTeamScale>
-      </JHeader>
-      <JInfo>
-        <JSallery>成都</JSallery>
-        <JSallery>前端</JSallery>
-        <JSallery>15k-30k</JSallery>
-      </JInfo>
-      <JBody>{item.body}</JBody>
-      <JFooter>
+    <Wrapper key={item.id}>
+      <Header>
+        <Title>{item.title}</Title>
+        <TeamScale>10~15 人</TeamScale>
+      </Header>
+      <Info>
+        <Sallery>成都</Sallery>
+        <Sallery>前端</Sallery>
+        <Sallery>15k-30k</Sallery>
+      </Info>
+      <Body>{item.body}</Body>
+      <Footer>
         <Publisher>
           <Avatar src="https://avatars.githubusercontent.com/u/809410?s=64&v=4" />
           <PublisherInfo>
@@ -71,8 +71,8 @@ const Card: React.FC<TProps> = ({ item }) => {
           <Keyword>React</Keyword>
           <Keyword>TS</Keyword>
         </TechKeywords>
-      </JFooter>
-    </JWrapper>
+      </Footer>
+    </Wrapper>
   )
 }
 

@@ -5,7 +5,7 @@ import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const JWrapper = styled.div`
+export const Wrapper = styled.div`
   background: #08303e;
   padding: 15px 20px;
   width: auto;
@@ -14,32 +14,32 @@ export const JWrapper = styled.div`
   margin-bottom: 30px;
   border-radius: 4px;
 `
-export const JHeader = styled.div`
+export const Header = styled.div`
   ${css.flex('align-baseline', 'justify-between')};
 `
-export const JTitle = styled.div`
+export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
 `
-export const JTeamScale = styled.div`
+export const TeamScale = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
 `
-export const JInfo = styled.div`
+export const Info = styled.div`
   ${css.flex('align-center')};
   margin-top: 6px;
   margin-bottom: 10px;
 `
-export const JSallery = styled.div`
+export const Sallery = styled.div`
   font-size: 14px;
   color: #009b9c;
   margin-right: 10px;
 `
-export const JBody = styled.div`
+export const Body = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 15px;
 `
-export const JFooter = styled.div`
+export const Footer = styled.div`
   width: 100%;
   ${css.flex('align-center', 'justify-between')};
   margin-top: 20px;
