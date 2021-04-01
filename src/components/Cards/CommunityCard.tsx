@@ -4,6 +4,7 @@
 
 import React from 'react'
 
+import type { TCommunity } from '@/spec'
 import { cutRest } from '@/utils'
 
 import {
@@ -17,14 +18,7 @@ import {
 } from './styles/community_card'
 
 type TProps = {
-  item: {
-    id: string
-    logo: string
-    title: string
-    raw: string
-    desc: string
-    subscribersCount: number
-  }
+  item: TCommunity
 }
 
 const CommunityCard: React.FC<TProps> = ({
