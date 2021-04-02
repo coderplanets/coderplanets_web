@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { theme } from '@/utils'
 
-type TDot = { radius: string; space: string }
-export const Wrapper = styled.div<TDot>`
+import type { TProps } from '../index'
+
+export const Wrapper = styled.div<TProps>`
   width: ${({ radius }) => `${radius}px`};
   height: ${({ radius }) => `${radius}px`};
   border-radius: 100%;

@@ -1,9 +1,16 @@
 import React from 'react'
 
+import type { TAccount, TComment } from '@/spec'
+
 import { Wrapper, ReplyAction } from '../styles/comment/actions'
 import { openUpdateEditor, openReplyEditor, onDelete } from '../logic'
 
-const Actions = ({ data, accountInfo }) => {
+type TProps = {
+  data: TComment
+  accountInfo: TAccount
+}
+
+const Actions: React.FC<TProps> = ({ data, accountInfo }) => {
   if (String(data.author.id) === accountInfo.id) {
     return (
       <Wrapper>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { isEmpty } from 'ramda'
 
+import type { TAccount, TComment } from '@/spec'
 import { Global } from '@/utils'
 
 import MarkDownRender from '@/components/MarkDownRender'
@@ -25,7 +26,13 @@ const getSelection = () => {
   }
 }
 
-const Comment = ({ data, tobeDeleteId, accountInfo }) => {
+type TProps = {
+  data: TComment
+  accountInfo: TAccount
+  tobeDeleteId: string
+}
+
+const Comment: React.FC<TProps> = ({ data, tobeDeleteId, accountInfo }) => {
   return (
     <Wrapper>
       <DeleteMask show={data.id === tobeDeleteId} />

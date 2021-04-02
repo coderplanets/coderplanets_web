@@ -10,7 +10,11 @@ import {
   CounterTotal,
 } from './styles/words_counter'
 
-const WordsCounter = ({ countCurrent }) => (
+type TProps = {
+  countCurrent: number
+}
+
+const WordsCounter: React.FC<TProps> = ({ countCurrent }) => (
   <Wrapper>
     <CounterCur num={countCurrent}>{countCurrent}</CounterCur>
     <CounterSplit>/</CounterSplit>

@@ -40,9 +40,15 @@ export type TPagedJobs = {
 export type TComment = {
   id: string
   body: string
-  author?: TUser
+  floor?: number
   insertedAt?: string
   updatedAt?: string
+  author?: TUser
+  repliesCount?: number
+  replies?: TComment[]
+  replyTo?: TComment
+  likesCount?: number
+  viewerHasLiked?: boolean
 }
 
 export type TPagedComments = {

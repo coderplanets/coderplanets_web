@@ -23,7 +23,8 @@ export const Header = styled.div`
     font-size: 13px;
   `};
 `
-export const FilterIcon = styled(Img)<{ reverse: boolean }>`
+type TFilterIcon = { reverse?: boolean }
+export const FilterIcon = styled(Img)<TFilterIcon>`
   fill: ${theme('comment.title')};
   margin-right: 3px;
   ${css.size(20)};

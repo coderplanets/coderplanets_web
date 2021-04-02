@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TComment } from '@/spec'
 import { ICON } from '@/config'
 import { cutRest } from '@/utils'
 
@@ -10,7 +11,11 @@ import {
   ReplyToFloor,
 } from '../styles/comment/reply_bar'
 
-const CommentReplyBar = ({ data }) => {
+type TProps = {
+  data: TComment
+}
+
+const CommentReplyBar: React.FC<TProps> = ({ data }) => {
   return (
     <Wrapper>
       <ReplyIcon src={`${ICON}/article/reply.svg`} />

@@ -1,10 +1,14 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import MarkDownRender from '@/components/MarkDownRender'
+import type { TAccount, TUser, TComment } from '@/spec'
 import { debounce } from '@/utils'
+
+import MarkDownRender from '@/components/MarkDownRender'
+
 import ReplyToBar from './ReplyToBar'
 import ReplyEditorHeader from './ReplyEditorHeader'
+import EditorFooter from './EditorFooter'
 
 import {
   Wrapper,
@@ -12,16 +16,37 @@ import {
   PreviewWrapper,
 } from './styles/comment_reply_editor'
 
-import EditorFooter from './EditorFooter'
-
-import * as logic from './logic'
+import {
+  onReplyInputChange,
+  onMention,
+  onMentionSearch,
+  createReplyComment,
+  replyBackToEditor,
+  replyCommentPreview,
+} from './logic'
 
 export const BodyEditor = dynamic(() => import('@/components/MarkdownEditor'), {
   /* eslint-disable react/display-name */
   loading: () => <div>loading</div>,
 })
 
-const CommentReplyEditor = ({
+type TProps = {
+  referUsers: TUser[]
+  show: boolean
+  isEdit: boolean
+  accountInfo: TAccount
+  showReplyPreview: boolean
+  mentionList: TUser[]
+
+  restProps: {
+    countCurrent: number
+    replyContent: string
+    replyToComment: TComment
+    replying: boolean
+  }
+}
+
+const CommentReplyEditor: React.FC<TProps> = ({
   referUsers,
   show,
   isEdit,
@@ -46,9 +71,9 @@ const CommentReplyEditor = ({
           <InputEditorWrapper>
             <BodyEditor
               mentionList={mentionList}
-              onChange={debounce(logic.onReplyInputChange, 450)}
-              onMention={logic.onMention}
-              onMentionSearch={logic.onMentionSearch}
+              onChange={debounce(onReplyInputChange, 450, true)}
+              onMention={onMention}
+              onMentionSearch={onMentionSearch}
               body={replyContent}
             />
           </InputEditorWrapper>
@@ -61,9 +86,9 @@ const CommentReplyEditor = ({
       <EditorFooter
         loading={replying}
         showPreview={showReplyPreview}
-        onCreate={logic.createReplyComment}
-        onBackEdit={logic.replyBackToEditor}
-        onPreview={logic.replyCommentPreview}
+        onCreate={createReplyComment}
+        onBackEdit={replyBackToEditor}
+        onPreview={replyCommentPreview}
       />
     </Wrapper>
   )

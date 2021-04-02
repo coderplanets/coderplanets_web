@@ -5,25 +5,27 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
 import { buildLog } from '@/utils'
 
+import type { TAvatarProps as TProps } from './index'
 import { Wrapper, Name } from './styles/avatar'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ImgFallback:Avatar')
 
-const Avatar = ({
-  testid,
-  className,
-  size,
-  user,
-  left,
-  right,
-  top,
-  bottom,
-  quote,
+const Avatar: React.FC<TProps> = ({
+  testid = 'avatar-fallback',
+  className = '',
+  size = 15,
+  user = {
+    nickname: '?',
+  },
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
+  quote = false,
 }) => {
   const name = user?.nickname
   const sliceCount = size > 32 ? 2 : 1
@@ -42,34 +44,6 @@ const Avatar = ({
       <Name size={size}>{name.slice(0, sliceCount)}</Name>
     </Wrapper>
   )
-}
-
-Avatar.propTypes = {
-  testid: T.string,
-  className: T.string,
-  user: T.shape({
-    nickname: T.string,
-  }),
-  size: T.number,
-  left: T.number,
-  right: T.number,
-  top: T.number,
-  bottom: T.number,
-  quote: T.bool,
-}
-
-Avatar.defaultProps = {
-  testid: 'avatar-fallback',
-  className: '',
-  size: 15,
-  user: {
-    nickname: '?',
-  },
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  quote: false,
 }
 
 export default React.memo(Avatar)

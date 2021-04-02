@@ -24,8 +24,8 @@ type TProps = {
   onCreate: () => void
   onBackEdit: () => void
   onPreview: () => void
-  onFold: () => void
-  showFold: boolean
+  onFold?: () => void
+  showFold?: boolean
 }
 
 const EditorFooter: React.FC<TProps> = ({

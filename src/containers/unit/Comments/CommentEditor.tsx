@@ -1,15 +1,34 @@
 import React from 'react'
-import MarkDownRender from '@/components/MarkDownRender'
-import CommentBodyEditor from './CommentBodyEditor'
 
-import { Container, PreviewerWrapper } from './styles/comment_editor'
+import type { TAccount, TUser } from '@/spec'
+import MarkDownRender from '@/components/MarkDownRender'
 
 import EditorHeader from './EditorHeader'
 import EditorFooter from './EditorFooter'
+import CommentBodyEditor from './CommentBodyEditor'
 
-import * as logic from './logic'
+import { Container, PreviewerWrapper } from './styles/comment_editor'
+import { backToEditor, createCommentPreview } from './logic'
 
-const CommentEditor = (props) => {
+type TProps = {
+  referUsers: TUser[]
+  accountInfo: TAccount
+  mentionList: TUser[]
+
+  /* TODO:  () => void */
+  onCreate?: any
+
+  restProps: {
+    countCurrent: number
+    showInputBox: boolean
+    showInputEditor: boolean
+    showInputPreview: boolean
+    editContent: string
+    creating: boolean
+  }
+}
+
+const CommentEditor: React.FC<TProps> = (props) => {
   const {
     referUsers,
     accountInfo,
@@ -41,7 +60,7 @@ const CommentEditor = (props) => {
           showInputEditor={showInputEditor}
           body={editContent}
           onCreate={onCreate}
-          restProps={{ ...props }}
+          creating={creating}
         />
       )}
       {showInputPreview && (
@@ -53,8 +72,8 @@ const CommentEditor = (props) => {
             loading={creating}
             showPreview={showInputPreview}
             onCreate={onCreate}
-            onBackEdit={logic.backToEditor}
-            onPreview={logic.createCommentPreview}
+            onBackEdit={backToEditor}
+            onPreview={createCommentPreview}
           />
         </div>
       )}

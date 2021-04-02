@@ -1,17 +1,16 @@
 import styled from 'styled-components'
 
-import type { TTestable, TSpace } from '@/spec'
+import type { TTestable } from '@/spec'
 import { css, theme } from '@/utils'
+
+import type { TAvatarProps } from '../index'
 import { getFontSize } from './metric/avatar'
 
-type IWrapper = TSpace & {
-  size: string
-  quote: string
-}
+type TWrapper = TTestable & TAvatarProps
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+export const Wrapper = styled.div.attrs(({ testid }: TWrapper) => ({
   'data-test-id': testid,
-}))<TTestable & IWrapper>`
+}))<TWrapper>`
   ${css.flex('align-both')};
   color: ${theme('thread.articleTitle')};
   width: ${({ size }) => `${size}px`};

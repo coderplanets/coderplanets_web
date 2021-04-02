@@ -1,33 +1,51 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TUser } from '@/spec'
 import { debounce } from '@/utils'
+
 import { InputEditorWrapper } from './styles/comment_editor'
 import EditorFooter from './EditorFooter'
 
-import * as logic from './logic'
+import {
+  onMentionSearch,
+  onMention,
+  onCommentInputChange,
+  backToEditor,
+  createCommentPreview,
+  onCommentInputBlur,
+} from './logic'
 
 export const BodyEditor = dynamic(() => import('@/components/MarkdownEditor'), {
   /* eslint-disable react/display-name */
   loading: () => <div>loading</div>,
 })
 
-const CommentBodyEditor = ({
+type TProps = {
+  showInputEditor: boolean
+  showInputPreview: boolean
+  body: string
+  mentionList: TUser[]
+  onCreate: () => void
+  creating: boolean
+}
+
+const CommentBodyEditor: React.FC<TProps> = ({
   showInputEditor,
   showInputPreview,
   body,
   mentionList,
   onCreate,
-  restProps: { creating },
+  creating,
 }) => {
   return (
     <div className="comment-editor">
       <InputEditorWrapper showInputEditor={showInputEditor}>
         <BodyEditor
           mentionList={mentionList}
-          onChange={debounce(logic.onCommentInputChange, 200)}
-          onMention={logic.onMention}
-          onMentionSearch={logic.onMentionSearch}
+          onChange={debounce(onCommentInputChange, 200, true)}
+          onMention={onMention}
+          onMentionSearch={onMentionSearch}
           body={body}
         />
       </InputEditorWrapper>
@@ -37,9 +55,9 @@ const CommentBodyEditor = ({
         showFold
         showPreview={showInputPreview}
         onCreate={onCreate}
-        onBackEdit={logic.backToEditor}
-        onPreview={logic.createCommentPreview}
-        onFold={logic.onCommentInputBlur}
+        onBackEdit={backToEditor}
+        onPreview={createCommentPreview}
+        onFold={onCommentInputBlur}
       />
     </div>
   )
