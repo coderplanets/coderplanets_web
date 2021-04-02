@@ -93,7 +93,7 @@ const CommentsStore = T.model('CommentsStore', {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
     },
-    get referUsersData() {
+    get referUsersData(): TUser[] {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
       // @ts-ignore

@@ -33,7 +33,13 @@ export type {
 
 export type { TGQLError } from './graphql'
 
-export type { TArticle, TJob, TPagedJobs } from './article'
+export type {
+  TArticle,
+  TJob,
+  TPagedJobs,
+  TComment,
+  TPagedComments,
+} from './article'
 
 export type {
   TGALLERY_DEFAULT,

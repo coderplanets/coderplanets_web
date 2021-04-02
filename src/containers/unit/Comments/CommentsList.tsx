@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TAccount, TComment, TPagedComments, TUser } from '@/spec'
 import Pagi from '@/components/Pagi'
 import { CommentLoading } from '@/components/LoadingEffects'
 import CommentsFilter from './CommentsFilter'
@@ -16,7 +17,17 @@ import {
   CommentBlock,
 } from './styles/comments_list'
 
-const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
+type TListsProps = {
+  entries: TComment[]
+  tobeDeleteId: string
+  accountInfo: TAccount
+}
+
+const Lists: React.FC<TListsProps> = ({
+  entries,
+  tobeDeleteId,
+  accountInfo,
+}) => (
   <>
     {entries.map((c) => (
       <Comment
@@ -29,7 +40,11 @@ const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
   </>
 )
 
-const TotalCountText = ({ count }) => (
+type TTotalCountTextProps = {
+  count: number
+}
+
+const TotalCountText: React.FC<TTotalCountTextProps> = ({ count }) => (
   <TotalCountWrapper>
     {count > 0 && (
       <ListTitle id="lists-info">
@@ -39,7 +54,18 @@ const TotalCountText = ({ count }) => (
   </TotalCountWrapper>
 )
 
-const CommentsList = ({
+type TProps = {
+  accountInfo: TUser
+  pagedComments: TPagedComments
+  restProps: {
+    loading: boolean
+    loadingFresh: boolean
+    tobeDeleteId: string
+    filterType: string
+  }
+}
+
+const CommentsList: React.FC<TProps> = ({
   accountInfo,
   pagedComments: { entries, totalCount, pageSize, pageNumber },
   restProps: { loading, loadingFresh, tobeDeleteId, filterType },
@@ -63,8 +89,6 @@ const CommentsList = ({
         <Lists
           entries={entries}
           accountInfo={accountInfo}
-          pageSize={pageSize}
-          pageNumber={pageNumber}
           tobeDeleteId={tobeDeleteId}
         />
       )}
