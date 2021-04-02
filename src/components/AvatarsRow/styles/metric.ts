@@ -1,9 +1,11 @@
+import type { TSIZE_SM } from '@/spec'
 import { SIZE } from '@/constant'
+
 /**
  * NOTE:  Li size should always smaller than the avatar size
  */
 
-export const getLiSize = (size: string): string => {
+export const getLiSize = (size: TSIZE_SM): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '15px'

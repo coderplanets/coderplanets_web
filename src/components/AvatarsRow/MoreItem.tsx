@@ -1,7 +1,9 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 
 import { prettyNum } from '@/utils'
 import Tooltip from '@/components/Tooltip'
+
+import type { TProps as TAvatarsProps } from './index'
 
 import {
   Wrapper,
@@ -12,13 +14,19 @@ import {
   Focus,
 } from './styles/more_item'
 
-const MoreItem = ({ users, size, total, onTotalSelect, showTotalNumber }) => {
-  const handleClick = useCallback(() => {
-    onTotalSelect({ users, total })
-  }, [onTotalSelect, total, users])
+type TProps = Pick<
+  TAvatarsProps,
+  'size' | 'total' | 'showTotalNumber' | 'onTotalSelect'
+>
 
+const MoreItem: React.FC<TProps> = ({
+  size,
+  total,
+  onTotalSelect,
+  showTotalNumber,
+}) => {
   return (
-    <Wrapper onClick={handleClick}>
+    <Wrapper size={size} onClick={() => onTotalSelect()}>
       <Tooltip
         content={
           showTotalNumber ? (
@@ -29,10 +37,9 @@ const MoreItem = ({ users, size, total, onTotalSelect, showTotalNumber }) => {
             </TotalCommentStateHint>
           )
         }
-        duration={0}
       >
         {showTotalNumber ? (
-          <TextMore>
+          <TextMore size={size} total={total}>
             <DotText>...</DotText>
           </TextMore>
         ) : (

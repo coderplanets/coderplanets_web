@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import type { TSIZE_SM } from '@/spec'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
@@ -15,7 +16,7 @@ export const Wrapper = styled.ul<{ total: number }>`
   margin-right: ${({ total }) => getUlMarginRight(total)};
 `
 // height: 49px;
-type TBaseAvatarItem = { size: string; noHoverMargin: string }
+type TBaseAvatarItem = { size: TSIZE_SM; noHoverMargin: boolean }
 const BaseAvatarItem = styled.li<TBaseAvatarItem>`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
@@ -45,7 +46,8 @@ export const AvatarsItem = styled(BaseAvatarItem)`
 export const TotalOneOffset = styled.span`
   margin-right: 10px;
 `
-export const AvatarsImg = styled(Img)<{ size: string }>`
+type TAvatarsImg = { size: string; onClick: () => void; scrollPosition: any }
+export const AvatarsImg = styled(Img)<TAvatarsImg>`
   border: 2px solid;
   border-color: ${theme('thread.commentsUserBorder')};
   border-radius: 100px 100px 100px 100px;
@@ -60,7 +62,7 @@ export const AvatarsImg = styled(Img)<{ size: string }>`
 
   text-align: center;
 `
-type TAvatarsMore = { size: string; total: number }
+type TAvatarsMore = { size: TSIZE_SM; total: number }
 export const AvatarsMore = styled.span<TAvatarsMore>`
   ${css.flex('align-both')};
   font-size: 14px;

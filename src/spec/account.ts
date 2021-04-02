@@ -4,6 +4,8 @@ export type TUser = {
   nickname?: string
   name?: string
   avatar?: string
+  // TODO: figure it out
+  extraId?: string
 }
 export type TAccount = TUser & {
   customization?: {
