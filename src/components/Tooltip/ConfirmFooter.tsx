@@ -7,14 +7,25 @@ import { FOOTER_BEHAVIOR } from './constant'
 
 import { Wrapper, ButtonsWrapper, CancelButton } from './styles/confirm_footer'
 
-const ConfirmFooter = ({ onConfirm, onCancel, footerBehavior }) => {
+type TProps = {
+  footerBehavior?: 'default' | 'confirm' | 'delete-confirm' | 'add'
+
+  onConfirm?: () => void
+  onCancel?: () => void
+}
+
+const ConfirmFooter: React.FC<TProps> = ({
+  onConfirm,
+  onCancel,
+  footerBehavior,
+}) => {
   let content = null
 
   switch (footerBehavior) {
     case FOOTER_BEHAVIOR.DELETE_CONFIRM: {
       content = (
         <ButtonsWrapper>
-          <Button size="small" type="red" onClick={onConfirm}>
+          <Button size="small" type="red" onClick={() => onConfirm?.()}>
             确认删除
           </Button>
           <Space right={10} />
@@ -27,11 +38,11 @@ const ConfirmFooter = ({ onConfirm, onCancel, footerBehavior }) => {
     case FOOTER_BEHAVIOR.ADD: {
       content = (
         <ButtonsWrapper>
-          <Button size="small" type="primary" onClick={onConfirm}>
+          <Button size="small" type="primary" onClick={() => onConfirm?.()}>
             添加
           </Button>
           <Space right={10} />
-          <CancelButton onClick={onCancel}>取消</CancelButton>
+          <CancelButton onClick={() => onCancel?.()}>取消</CancelButton>
         </ButtonsWrapper>
       )
       break
@@ -44,7 +55,7 @@ const ConfirmFooter = ({ onConfirm, onCancel, footerBehavior }) => {
             确定
           </Button>
           <Space right={10} />
-          <CancelButton onClick={onCancel}>取消</CancelButton>
+          <CancelButton onClick={() => onCancel?.()}>取消</CancelButton>
         </ButtonsWrapper>
       )
       break

@@ -27,6 +27,8 @@ export type {
   TPlatform,
   Nullable,
   TScrollDirection,
+  TTooltipAnimation,
+  TTooltipPlacement,
 } from './utils'
 
 export type { TGQLError } from './graphql'

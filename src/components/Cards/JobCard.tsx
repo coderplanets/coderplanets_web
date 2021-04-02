@@ -92,7 +92,6 @@ const JobCard: React.FC<TProps> = ({
           </PublisherInfo>
         </Publisher>
         <TechKeywords>
-          {/* @ts-ignore  */}
           <Tooltip
             content={<CommunityCard item={fakeCommunity} />}
             placement="top"

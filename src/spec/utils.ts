@@ -47,3 +47,24 @@ export type TPlatform = {
 }
 
 export type TScrollDirection = 'up' | 'down'
+
+export type TTooltipAnimation =
+  | 'shift-away'
+  | 'shift-toward'
+  | 'fade'
+  | 'scale'
+  | 'perspective'
+
+export type TTooltipPlacement =
+  | 'top'
+  | 'top-start'
+  | 'top-end'
+  | 'bottom'
+  | 'bottom-start'
+  | 'bottom-end'
+  | 'left'
+  | 'left-start'
+  | 'left-end'
+  | 'right'
+  | 'right-start'
+  | 'right-end'
