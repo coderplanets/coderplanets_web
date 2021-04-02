@@ -13,6 +13,7 @@ export type TArticle = {
   }
   origialCommunity?: TCommunity
   commentsParticipators?: TUser
+  insertedAt?: string
   // ...
 }
 

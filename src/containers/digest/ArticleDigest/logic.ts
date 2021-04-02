@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 import { merge, toUpper } from 'ramda'
 
+import type { TScrollDirection } from '@/spec'
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, send, errRescue } from '@/utils'
 
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -11,23 +13,24 @@ const log = buildLog('L:ArticleDigest')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  /* @ts-ignore */
   receive: [EVENT.REFRESH_REACTIONS],
 })
 
 let sub$ = null
 let store = null
 
-export const inAnchor = () => {
+export const inAnchor = (): void => {
   if (store) store.mark({ inViewport: true })
 }
 
-export const outAnchor = () => {
+export const outAnchor = (): void => {
   if (store) store.mark({ inViewport: false })
 }
 
-export const onReaction = (action, userDid, { id }) => {
+export const onReaction = (action, userDid, { id }): void => {
   if (!store.isLogin) return store.authWarning()
-  if (store.loading) return false
+  if (store.loading) return
   const thread = store.activeThread
 
   store.mark({ action })
@@ -47,7 +50,7 @@ export const onReaction = (action, userDid, { id }) => {
     : sr71$.mutate(S.reaction, args)
 }
 
-export const onListReactionUsers = (type, data) =>
+export const onListReactionUsers = (type, data): void =>
   send(EVENT.USER_LISTER_OPEN, {
     type,
     data: { ...data, thread: store.activeThread },
@@ -80,7 +83,7 @@ const DataSolver = [
   {
     match: asyncRes('post'),
     action: ({ post }) => {
-      store.setViewing({ post: merge(store.viewingData, post) })
+      store.setViewing({ post: merge(store.viewingArticle, post) })
       store.syncViewingItem(post)
       markLoading(false)
     },
@@ -88,7 +91,7 @@ const DataSolver = [
   {
     match: asyncRes('job'),
     action: ({ job }) => {
-      store.setViewing({ job: merge(store.viewingData, job) })
+      store.setViewing({ job: merge(store.viewingArticle, job) })
       store.syncViewingItem(job)
       markLoading(false)
     },
@@ -97,14 +100,14 @@ const DataSolver = [
     match: asyncRes('video'),
     action: ({ video }) => {
       markLoading(false)
-      store.setViewing({ video: merge(store.viewingData, video) })
+      store.setViewing({ video: merge(store.viewingArticle, video) })
       // store.syncViewingItem(video)
     },
   },
   {
     match: asyncRes('repo'),
     action: ({ repo }) => {
-      store.setViewing({ repo: merge(store.viewingData, repo) })
+      store.setViewing({ repo: merge(store.viewingArticle, repo) })
       store.syncViewingItem(repo)
       markLoading(false)
     },
@@ -129,7 +132,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
@@ -145,7 +150,10 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store, scrollDirection) => {
+export const useInit = (
+  _store: TStore,
+  scrollDirection: TScrollDirection,
+): void => {
   useEffect(() => {
     store = _store
     // log('effect init')

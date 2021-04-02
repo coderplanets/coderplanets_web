@@ -15,7 +15,7 @@ const initState = {
 
 // detect the scroll direction
 // see https://codepen.io/lehollandaisvolant/pen/ryrrGx?editors=1010
-const useScroll = (cb: () => void): TScrollState => {
+const useScroll = (cb?: () => void): TScrollState => {
   const [scroll, setScroll] = useState(initState)
 
   /* eslint-disable */

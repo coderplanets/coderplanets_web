@@ -45,3 +45,5 @@ export type TPlatform = {
   isMacOS: boolean
   isMobile: boolean
 }
+
+export type TScrollDirection = 'up' | 'down'

@@ -33,9 +33,9 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection)
 
-  const { viewingData } = store
+  const { viewingArticle } = store
 
-  if (isNil(viewingData.id)) return null
+  if (isNil(viewingArticle.id)) return null
 
   return (
     <Wrapper>
@@ -43,9 +43,12 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
       <InnerWrapper>
         <BannerContent>
           <Brief>
-            <PublishDate insertedAt={viewingData.insertedAt} />
-            <Title>{viewingData.title}</Title>
-            <StateInfo article={viewingData} author={viewingData.author} />
+            <PublishDate insertedAt={viewingArticle.insertedAt} />
+            <Title>{viewingArticle.title}</Title>
+            <StateInfo
+              article={viewingArticle}
+              author={viewingArticle.author}
+            />
           </Brief>
         </BannerContent>
       </InnerWrapper>

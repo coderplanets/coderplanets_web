@@ -26,6 +26,7 @@ export type {
   TLink,
   TPlatform,
   Nullable,
+  TScrollDirection,
 } from './utils'
 
 export type { TGQLError } from './graphql'
