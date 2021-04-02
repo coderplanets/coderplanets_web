@@ -19,7 +19,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   transition: opacity 0.2s;
 
   ${css.media.desktopL`
-    left: 22%;
+    left: 18%;
   `}
 
   ${css.media.laptopL`
