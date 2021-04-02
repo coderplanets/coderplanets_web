@@ -5,9 +5,10 @@ import type { TPost } from '@/spec'
 import { ICON } from '@/config'
 import { cutRest } from '@/utils'
 
-import Tooltip from '@/components/Tooltip'
 import { SpaceGrow } from '@/components/Common'
 import DigestSentence from '@/components/DigestSentence'
+
+import ActiveBadge from './ActiveBadge'
 
 import {
   Wrapper,
@@ -18,8 +19,6 @@ import {
   AuthorName,
   ItemWrapper,
   ViewsIcon,
-  ActiveItemWrapper,
-  ActiveIcon,
 } from '../../styles/digest_view/body'
 
 type TProps = {
@@ -45,12 +44,7 @@ const Body: React.FC<TProps> = ({ item, onPreview }) => {
         </LeftPart>
         <SpaceGrow />
 
-        <ActiveItemWrapper hasComments={item.commentsCount > 0}>
-          <Tooltip content={<div>最后回复</div>} placement="bottom">
-            <ActiveIcon src={`${ICON}/shape/activity.svg`} />
-            4天前
-          </Tooltip>
-        </ActiveItemWrapper>
+        <ActiveBadge item={item} />
       </Extra>
 
       <DigestSentence top={5} right={140} onPreview={() => onPreview(item)}>
