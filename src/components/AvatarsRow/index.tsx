@@ -4,16 +4,17 @@
  *
  */
 
-import React, { useCallback } from 'react'
-import T from 'prop-types'
-import { compose, not, isNil, filter, reverse, slice } from 'ramda'
+import React from 'react'
+import { compose, not, isNil, filter, reverse as reverseFn, slice } from 'ramda'
 import { trackWindowScroll } from 'react-lazy-load-image-component'
 
+import type { TUser } from '@/spec'
 import { AVATARS_LIST_LENGTH } from '@/config'
 import { SIZE } from '@/constant'
-import { buildLog, o2s, s2o } from '@/utils'
+import { buildLog } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
+import type { TAvatarSize } from './spec'
 
 import MoreItem from './MoreItem'
 
@@ -45,41 +46,46 @@ const getUniqueArray = (arr, comp) => {
   return unique
 }
 
-const AvatarsRow = ({
-  total,
-  users,
-  size,
-  limit,
-  onUserSelect,
-  onTotalSelect,
-  showTotalNumber,
-  reverse: isReverse,
-  scrollPosition,
-}) => {
-  const handleUserSelect = useCallback(
-    (e) => {
-      const user = s2o(e.target.dataset.user)
-      onUserSelect(user)
-    },
-    [onUserSelect],
-  )
+export type TProps = {
+  users?: TUser[]
+  size?: TAvatarSize
+  total: number
+  limit: number
+  showTotalNumber?: boolean
+  reverse?: boolean
+  scrollPosition?: any
 
+  onUserSelect: (user: TUser) => void
+  onTotalSelect: () => void
+}
+
+const AvatarsRow: React.FC<TProps> = ({
+  size = SIZE.SMALL,
+  total,
+  users = [],
+  limit = AVATARS_LIST_LENGTH.POSTS,
+  onUserSelect = log,
+  onTotalSelect = log,
+  showTotalNumber = false,
+  reverse = true,
+  // see https://github.com/Aljullu/react-lazy-load-image-component/issues/42
+  scrollPosition = null,
+}) => {
   if (users.length === 0) {
     return <span />
   }
 
   users = filter(validUser, getUniqueArray(users, 'id'))
-  const sortedUsers = isReverse ? users : reverse(users)
+  const sortedUsers = reverse ? users : reverseFn(users)
 
   return (
-    <Wrapper size={size} total={total}>
+    <Wrapper total={total}>
       {total <= 1 ? (
         <TotalOneOffset />
       ) : (
         <MoreItem
           size={size}
           total={total}
-          users={users}
           showTotalNumber={showTotalNumber}
           onTotalSelect={onTotalSelect}
         />
@@ -91,18 +97,18 @@ const AvatarsRow = ({
           content={user.nickname}
           duration={0}
           delay={300}
-          contentHeight={getAvatarSize(size)}
+          contentHeight={getAvatarSize(size, 'number') as string}
+          noPadding
         >
           <AvatarsItem size={size} noHoverMargin={total === 1}>
             <AvatarsImg
               src={user.avatar}
               size={size}
-              data-user={o2s(user)}
-              onClick={handleUserSelect}
+              onClick={() => onUserSelect(user)}
               scrollPosition={scrollPosition}
               fallback={
                 <AvatarFallback
-                  size={getAvatarSize(size, 'number')}
+                  size={getAvatarSize(size, 'number') as number}
                   user={user}
                 />
               }
@@ -112,37 +118,6 @@ const AvatarsRow = ({
       ))}
     </Wrapper>
   )
-}
-
-AvatarsRow.propTypes = {
-  users: T.arrayOf(
-    T.shape({
-      id: T.string,
-      avatar: T.string,
-      nickname: T.string,
-      extra_id: T.string,
-    }),
-  ),
-  size: T.oneOf([SIZE.SMALL, SIZE.MEDIUM]),
-  total: T.number.isRequired,
-  limit: T.number,
-  onUserSelect: T.func,
-  onTotalSelect: T.func,
-  showTotalNumber: T.bool,
-  reverse: T.bool,
-  scrollPosition: T.any,
-}
-
-AvatarsRow.defaultProps = {
-  size: SIZE.SMALL,
-  users: [],
-  limit: AVATARS_LIST_LENGTH.POSTS,
-  onUserSelect: log,
-  onTotalSelect: log,
-  showTotalNumber: false,
-  reverse: true,
-  // see https://github.com/Aljullu/react-lazy-load-image-component/issues/42
-  scrollPosition: null,
 }
 
 export default trackWindowScroll(AvatarsRow)

@@ -1,9 +1,11 @@
 import { SIZE } from '@/constant'
+import type { TAvatarSize } from '../spec'
+
 /**
  * NOTE:  Li size should always smaller than the avatar size
  */
 
-export const getLiSize = (size: string): string => {
+export const getLiSize = (size: TAvatarSize): string => {
   switch (size) {
     case SIZE.SMALL: {
       return '15px'

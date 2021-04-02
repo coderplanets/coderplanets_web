@@ -1,12 +1,14 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
+import type { TPost } from '@/spec'
 import { ICON } from '@/config'
 import { cutRest } from '@/utils'
 
-import Tooltip from '@/components/Tooltip'
 import { SpaceGrow } from '@/components/Common'
 import DigestSentence from '@/components/DigestSentence'
+
+import ActiveBadge from './ActiveBadge'
 
 import {
   Wrapper,
@@ -17,11 +19,14 @@ import {
   AuthorName,
   ItemWrapper,
   ViewsIcon,
-  ActiveItemWrapper,
-  ActiveIcon,
 } from '../../styles/digest_view/body'
 
-const Body = ({ item, onPreview }) => {
+type TProps = {
+  item: TPost
+  onPreview?: (obj: TPost) => void
+}
+
+const Body: React.FC<TProps> = ({ item, onPreview }) => {
   return (
     <Wrapper>
       <Extra>
@@ -39,12 +44,7 @@ const Body = ({ item, onPreview }) => {
         </LeftPart>
         <SpaceGrow />
 
-        <ActiveItemWrapper hasComments={item.commentsCount > 0}>
-          <Tooltip content={<div>最后回复</div>} placement="bottom">
-            <ActiveIcon src={`${ICON}/shape/activity.svg`} />
-          </Tooltip>
-          4天前
-        </ActiveItemWrapper>
+        <ActiveBadge item={item} />
       </Extra>
 
       <DigestSentence top={5} right={140} onPreview={() => onPreview(item)}>

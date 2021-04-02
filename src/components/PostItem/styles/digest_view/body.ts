@@ -43,25 +43,3 @@ export const ViewsIcon = styled(Img)`
   opacity: 0.6;
   margin-right: 3px;
 `
-
-export const ActiveItemWrapper = styled.div<{ hasComments: string }>`
-  position: absolute;
-  top: ${({ hasComments }) => (hasComments ? '5px' : '-24px')};
-  right: 0;
-  ${css.flex('align-center')};
-  color: ${theme('thread.articleDigest')};
-  margin-right: 6px;
-  margin-top: 8px;
-  opacity: 0;
-
-  ${Main}:hover & {
-    opacity: 1;
-  }
-  transition: opacity 0.2s;
-`
-export const ActiveIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(12)};
-  opacity: 0.6;
-  margin-right: 3px;
-`

@@ -24,7 +24,7 @@ const getAuthors = (comment) => {
   /* eslint-disable no-return-assign */
   const replies = forEach((reply) => {
     /* @ts-ignore */
-    return (reply.author.extra_id = reply.id)
+    return (reply.author.extraId = reply.id)
   }, clone(comment.replies))
   /* eslint-enable */
 

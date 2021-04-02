@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
+import type { TPost, TUser } from '@/spec'
 import { ROUTE } from '@/constant'
 import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils'
@@ -17,7 +18,12 @@ import {
   TagListWrapper,
 } from '../../styles/digest_view/header'
 
-const Header = ({ item, onUserSelect }) => {
+type TProps = {
+  item: TPost
+  onUserSelect?: (obj: TUser) => void
+}
+
+const Header: React.FC<TProps> = ({ item, onUserSelect }) => {
   return (
     <Wrapper>
       <Brief>

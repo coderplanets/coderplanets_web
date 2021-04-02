@@ -1,6 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
+import type { TPost, TAccount } from '@/spec'
 import { ICON_BASE } from '@/config'
 
 import InlineTags from '@/components/InlineTags'
@@ -16,7 +17,13 @@ import {
   TagListWrapper,
 } from '../../styles/mobile_view/header'
 
-const Header = ({ cover, item, onAuthorSelect }) => {
+type TProps = {
+  item: TPost
+  cover: 'avatar' | 'source'
+  onAuthorSelect?: (obj: TAccount) => void
+}
+
+const Header: React.FC<TProps> = ({ cover, item, onAuthorSelect }) => {
   return (
     <Wrapper>
       <AuthorInfo>

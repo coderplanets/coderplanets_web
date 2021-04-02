@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TPost } from '@/spec'
 import { cutRest } from '@/utils'
 import { ICON_CMD } from '@/config'
 
@@ -14,7 +15,11 @@ import {
   BodyDigest,
 } from '../../styles/mobile_view/footer'
 
-const Footer = ({ item }) => {
+type TProps = {
+  item: TPost
+}
+
+const Footer: React.FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Extra>

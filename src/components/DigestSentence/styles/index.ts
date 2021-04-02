@@ -22,6 +22,27 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 
   transition: color 0.2s;
 `
+export const MediaHintWrapper = styled.div`
+  position: relative;
+  margin-left: 5px;
+  display: inline-flex;
+`
+export const HintIcon = styled(Img)`
+  position: absolute;
+  top: 1px;
+  left: 0;
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(14)};
+  margin-right: 3px;
+`
+export const HintText = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 11px;
+  height: 12px;
+  margin-right: 5px;
+  padding-left: 17px;
+`
+
 export const PreviewWrapper = styled.div`
   display: inline-flex;
   opacity: 0;

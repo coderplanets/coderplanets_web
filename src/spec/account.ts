@@ -1,14 +1,20 @@
 export type TUser = {
-  id: string
+  id?: string
   login?: string
   nickname?: string
   name?: string
-  avatar: string
+  avatar?: string
+  // TODO: figure it out
+  extraId?: string
 }
 export type TAccount = TUser & {
   customization?: {
-    theme: string
-    bannerLayout: string
+    theme?: string
+    bannerLayout?: string
+    contentsLayout?: string // oneOf([C11N.DIGEST, C11N.LIST])
+    markViewed?: boolean
+    contentDivider?: boolean
+    displayDensity?: string // oneOf(['20', '25', '30'])
   }
   isLogin?: boolean
   isValidSession?: boolean

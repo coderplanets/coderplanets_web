@@ -35,6 +35,7 @@ export type { TGQLError } from './graphql'
 
 export type {
   TArticle,
+  TPost,
   TJob,
   TPagedJobs,
   TComment,

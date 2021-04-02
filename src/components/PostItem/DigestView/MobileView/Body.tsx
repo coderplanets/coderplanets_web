@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TPost } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils'
 
@@ -10,7 +11,12 @@ import {
   Title,
 } from '../../styles/mobile_view/body'
 
-const Body = ({ item, onPreview }) => {
+type TProps = {
+  item: TPost
+  onPreview?: (obj: TPost) => void
+}
+
+const Body: React.FC<TProps> = ({ item, onPreview }) => {
   return (
     <Wrapper onClick={() => onPreview(item)}>
       <Title>{item.title}</Title>
