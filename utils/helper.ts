@@ -150,7 +150,7 @@ export const closeDrawer = (type = ''): void =>
  * hepler for call the JoinModal Container to show wechatQRCode or mail scriscribe list etc ..
  *
  */
-export const joinUS = (type: string, data = {}): void =>
+export const joinUS = (type?: string, data = {}): void =>
   send(EVENT.JOIN_US, { type, data })
 
 export const errRescue = ({

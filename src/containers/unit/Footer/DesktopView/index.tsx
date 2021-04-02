@@ -43,6 +43,7 @@ const FooterContainer: React.FC<TProps> = ({ footer: store, metric }) => {
   const {
     showSponsor,
     accountInfo,
+    viewingArticle,
     accountInfo: {
       customization: { bannerLayout },
     },
@@ -82,7 +83,11 @@ const FooterContainer: React.FC<TProps> = ({ footer: store, metric }) => {
       {curView === 'DIGEST' ? (
         <DigestView metric={metric} />
       ) : (
-        <BriefView curView={curView} metric={metric} />
+        <BriefView
+          curView={curView}
+          metric={metric}
+          viewingArticle={viewingArticle}
+        />
       )}
     </Wrapper>
   )

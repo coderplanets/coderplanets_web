@@ -11,9 +11,7 @@ export const Wrapper = styled.div<{ metric: string }>`
 export const InnerWrapper = styled.div`
   width: 100%;
 `
-export const MainInfos = styled.footer<{ center: boolean }>`
-  ${css.flexColumn('align-center')};
-  align-items: ${({ center }) => (center ? 'center' : 'flex-start')};
+export const MainInfos = styled.footer`
   margin-bottom: 20px;
   ${css.media.tablet`display: none;`};
 `
