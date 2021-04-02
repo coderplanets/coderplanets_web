@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ metric: string }>`
   ${css.flex('align-center', 'justify-between')};
   /*  TODO:  remove footer.bottomBg key */
   /* background: ${theme('footer.bottomBg')}; */
@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
   width: 100%;
   padding-top: 18px;
   padding-bottom: 30px;
+
+  ${({ metric }) => css.fitContentWidth(metric)};
 
   ${css.media.tablet`display: none;`};
 `

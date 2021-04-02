@@ -68,7 +68,7 @@ const BriefView: React.FC<TProps> = ({ curView, metric, viewingArticle }) => {
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo />
+      <BottomInfo metric={metric} />
     </Wrapper>
   )
 }

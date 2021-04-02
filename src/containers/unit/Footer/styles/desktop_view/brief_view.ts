@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div<{ metric: string }>`
-  ${css.flexColumn('align-center')};
+  ${css.flexColumn('align-end')};
   width: 100%;
   margin-top: 15px;
   ${({ metric }) => css.fitContentWidth(metric)};

@@ -6,14 +6,14 @@ import { ArrowLink } from '@/components/Buttons'
 
 // import { getPadding } from '../../metrics'
 
-export const Wrapper = styled.footer<{ metric: string }>`
+export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
   margin-top: 30px;
-  ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   width: 100%;
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const MainInfos = styled.div`
   ${css.flex('justify-between')};
