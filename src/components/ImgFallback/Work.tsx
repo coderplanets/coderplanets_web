@@ -127,8 +127,12 @@ const rollTheDice = () => {
   }
 }
 
-const Work = () => {
-  return <Wrapper>{rollTheDice()}</Wrapper>
+type TProps = {
+  testid?: string
+}
+
+const Work: React.FC<TProps> = ({ testid = 'image-fallbak-work' }) => {
+  return <Wrapper testid={testid}>{rollTheDice()}</Wrapper>
 }
 
 export default React.memo(Work)

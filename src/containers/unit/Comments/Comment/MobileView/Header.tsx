@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TComment } from '@/spec'
 import ImgFallback from '@/components/ImgFallback'
 
 import {
@@ -12,13 +13,17 @@ import {
   CommentHeaderFirst,
 } from '../../styles/comment/mobile_view/header'
 
-const CommentHeader = ({ data }) => {
+type TProps = {
+  data: TComment
+}
+
+const CommentHeader: React.FC<TProps> = ({ data }) => {
   return (
     <Wrapper>
       <Avatar
         src={data.author.avatar}
         fallback={
-          <ImgFallback user={data.author} width={24} right={10} top={10} />
+          <ImgFallback user={data.author} size={24} right={10} top={10} />
         }
       />
       <HeaderBaseInfo>

@@ -1,6 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
+import type { TAccount, TComment } from '@/spec'
 import { SpaceGrow } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
 
@@ -8,7 +9,12 @@ import Actions from './Actions'
 
 import { Wrapper, PublishDateWrapper } from '../styles/comment/footer'
 
-const Footer = ({ data, accountInfo }) => (
+type TProps = {
+  data: TComment
+  accountInfo: TAccount
+}
+
+const Footer: React.FC<TProps> = ({ data, accountInfo }) => (
   <Wrapper>
     <PublishDateWrapper>
       <TimeAgo datetime={data.insertedAt} locale="zh_CN" />

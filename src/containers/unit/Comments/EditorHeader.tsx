@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TAccount, TUser } from '@/spec'
 import { ICON, ICON_CMD } from '@/config'
 
 import AvatarsRow from '@/components/AvatarsRow'
@@ -20,7 +21,15 @@ import {
 import { openInputBox } from './logic'
 // import { Wrapper } from './styles'
 
-const EditorHeader = ({
+type TProps = {
+  accountInfo: TAccount
+  showInputEditor: boolean
+  showInputPreview: boolean
+  countCurrent: number
+  referUsers: TUser[]
+}
+
+const EditorHeader: React.FC<TProps> = ({
   accountInfo,
   showInputEditor,
   showInputPreview,

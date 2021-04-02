@@ -36,3 +36,25 @@ export type TPagedJobs = {
   pageSize: number
   totalPages: number
 }
+
+export type TComment = {
+  id: string
+  body: string
+  floor?: number
+  insertedAt?: string
+  updatedAt?: string
+  author?: TUser
+  repliesCount?: number
+  replies?: TComment[]
+  replyTo?: TComment
+  likesCount?: number
+  viewerHasLiked?: boolean
+}
+
+export type TPagedComments = {
+  entries: TComment[]
+  totalCount: number
+  pageNumber: number
+  pageSize: number
+  totalPages: number
+}

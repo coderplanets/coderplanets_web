@@ -24,30 +24,20 @@ const filterDict = {
 
 const Menus = ({ active }) => (
   <MenuWrapper>
-    <MenuItem
-      onClick={() => onFilterChange(TYPE.ASC_INSERTED)}
-      type={TYPE.ASC_INSERTED}
-      active={active}
-    >
+    <MenuItem onClick={() => onFilterChange(TYPE.ASC_INSERTED)} active={active}>
       综合排序
     </MenuItem>
     <MenuItem
       onClick={() => onFilterChange(TYPE.DESC_INSERTED)}
-      type={TYPE.DESC_INSERTED}
       active={active}
     >
       最近创建
     </MenuItem>
-    <MenuItem
-      onClick={() => onFilterChange(TYPE.MOST_LIKES)}
-      type={TYPE.MOST_LIKES}
-      active={active}
-    >
+    <MenuItem onClick={() => onFilterChange(TYPE.MOST_LIKES)} active={active}>
       最多顶
     </MenuItem>
     <MenuItem
       onClick={() => onFilterChange(TYPE.MOST_DISLIKES)}
-      type={TYPE.MOST_DISLIKES}
       active={active}
     >
       最多踩
@@ -71,7 +61,12 @@ const renderFilterIcon = (filterType) => {
   }
 }
 
-const CommentsFilter = ({ filterType, show }) => (
+type TProps = {
+  filterType: string
+  show: boolean
+}
+
+const CommentsFilter: React.FC<TProps> = ({ filterType, show }) => (
   <FilterWraper show={show}>
     <Tooltip content={<Menus active={filterType} />}>
       <Header>

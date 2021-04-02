@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TAccount, TUser } from '@/spec'
 import { ICON_CMD } from '@/config'
 
 import { SpaceGrow } from '@/components/Common'
@@ -15,7 +16,14 @@ import {
   ReferToIcon,
 } from './styles/reply_editor_header'
 
-const ReplyEditorHeader = ({
+type TProps = {
+  accountInfo: TAccount
+  countCurrent: number
+  referUsers: TUser[]
+  showPreview: boolean
+}
+
+const ReplyEditorHeader: React.FC<TProps> = ({
   accountInfo,
   countCurrent,
   referUsers,

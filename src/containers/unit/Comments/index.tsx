@@ -5,23 +5,35 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
 import { pluggedIn, buildLog } from '@/utils'
-
 import Modal from '@/components/Modal'
+
 import CommentEditor from './CommentEditor'
 import CommentsList from './CommentsList'
 import CommentReplyEditor from './CommentReplyEditor'
 import LockedMessage from './LockedMessage'
 
+import type { TStore } from './store'
 import { Wrapper } from './styles'
 import { useInit, createComment, onReplyEditorClose } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Comments')
 
-const CommentsContainer = ({ comments: store, ssr, locked, onCreate }) => {
+type TProps = {
+  comments: TStore
+  ssr?: boolean
+  locked?: boolean
+  onCreate?: () => void
+}
+
+const CommentsContainer: React.FC<TProps> = ({
+  comments: store,
+  ssr = false,
+  locked = false,
+  onCreate = log,
+}) => {
   useInit(store, ssr, locked)
 
   const {
@@ -72,17 +84,4 @@ const CommentsContainer = ({ comments: store, ssr, locked, onCreate }) => {
   )
 }
 
-CommentsContainer.propTypes = {
-  onCreate: T.func,
-  ssr: T.bool,
-  comments: T.any.isRequired,
-  locked: T.bool,
-}
-
-CommentsContainer.defaultProps = {
-  onCreate: log,
-  ssr: false,
-  locked: false,
-}
-
-export default pluggedIn(CommentsContainer)
+export default pluggedIn(CommentsContainer) as React.FC<TProps>

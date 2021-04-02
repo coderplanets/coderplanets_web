@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { curry, isEmpty, mergeDeepRight } from 'ramda'
 
+import type { TUser } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 import { TYPE, EVENT, ERR } from '@/constant'
+
 import {
   asyncSuit,
   buildLog,
@@ -14,6 +16,7 @@ import {
   BStore,
 } from '@/utils'
 
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -23,8 +26,8 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71()
 
 let sub$ = null
-let store = null
 let saveDraftTimmer = null
+let store: TStore | undefined
 
 /* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {
@@ -32,9 +35,9 @@ const defaultArgs = {
   filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
 }
 
-export const loadComents = (args = {}) => {
+export const loadComents = (args): void => {
   // log('loadComents passed in: ', args)
-  if (store.loading || store.loadingFresh) return false
+  if (store.loading || store.loadingFresh) return
   args = mergeDeepRight(defaultArgs, args)
   args.id = store.viewingData.id
   args.userHasLogin = store.isLogin
@@ -47,7 +50,7 @@ export const loadComents = (args = {}) => {
   sr71$.query(S.pagedComments, args)
 }
 
-const markLoading = (fresh) => {
+const markLoading = (fresh): void => {
   if (fresh) {
     return store.mark({ loadingFresh: true })
   }
@@ -72,23 +75,23 @@ export const createComment = curry((cb, e) => {
   cb()
 })
 
-export const createCommentPreview = () =>
+export const createCommentPreview = (): void =>
   store.mark({
     showInputEditor: false,
     showInputPreview: true,
   })
 
-export const backToEditor = () =>
+export const backToEditor = (): void =>
   store.mark({
     showInputEditor: true,
     showInputPreview: false,
   })
 
-export const previewReply = (data) => {
+export const previewReply = (data): void => {
   log('previewReply --> : ', data)
 }
 
-export const openInputBox = () => {
+export const openInputBox = (): void => {
   if (!store.isLogin) return store.authWarning({ hideToast: true })
 
   initDraftTimmer()
@@ -98,7 +101,7 @@ export const openInputBox = () => {
   })
 }
 
-export const openCommentEditor = () => {
+export const openCommentEditor = (): void => {
   initDraftTimmer()
 
   store.mark({
@@ -106,15 +109,15 @@ export const openCommentEditor = () => {
   })
 }
 
-export const onCommentInputBlur = () =>
+export const onCommentInputBlur = (): void =>
   store.mark({
     showInputBox: false,
     showInputPreview: false,
     showInputEditor: false,
   })
 
-export const createReplyComment = () => {
-  if (!store.validator('reply')) return false
+export const createReplyComment = (): void => {
+  if (!store.validator('reply')) return
 
   if (store.isEdit) {
     return sr71$.mutate(S.updateComment, {
@@ -124,7 +127,7 @@ export const createReplyComment = () => {
     })
   }
 
-  if (store.replying) return false
+  if (store.replying) return
 
   store.mark({ replying: true })
   return sr71$.mutate(S.replyComment, {
@@ -136,21 +139,21 @@ export const createReplyComment = () => {
   })
 }
 
-export const onCommentInputChange = (editContent) =>
+export const onCommentInputChange = (editContent): void =>
   store.mark({
     countCurrent: countWords(editContent),
     extractMentions: extractMentions(editContent),
     editContent,
   })
 
-export const onReplyInputChange = (replyContent) =>
+export const onReplyInputChange = (replyContent): void =>
   store.mark({
     countCurrent: countWords(replyContent),
     extractMentions: extractMentions(replyContent),
     replyContent,
   })
 
-export const openUpdateEditor = (data) =>
+export const openUpdateEditor = (data): void =>
   store.mark({
     isEdit: true,
     showReplyBox: true,
@@ -160,8 +163,8 @@ export const openUpdateEditor = (data) =>
     replyContent: data.body,
   })
 
-export const openReplyEditor = (data) => {
-  if (!store.isLogin) return store.authWarning()
+export const openReplyEditor = (data): void => {
+  if (!store.isLogin) return store.authWarning({})
 
   initDraftTimmer()
   store.mark({
@@ -174,19 +177,19 @@ export const openReplyEditor = (data) => {
   })
 }
 
-export const replyCommentPreview = () =>
+export const replyCommentPreview = (): void =>
   store.mark({
     showReplyEditor: false,
     showReplyPreview: true,
   })
 
-export const replyBackToEditor = () =>
+export const replyBackToEditor = (): void =>
   store.mark({
     showReplyEditor: true,
     showReplyPreview: false,
   })
 
-export const closeReplyBox = () => {
+export const closeReplyBox = (): void => {
   store.mark({
     showReplyBox: false,
     showReplyEditor: false,
@@ -194,7 +197,7 @@ export const closeReplyBox = () => {
   })
 }
 
-export const onFilterChange = (filterType) => {
+export const onFilterChange = (filterType): void => {
   store.mark({ filterType })
   loadComents({ filter: { page: 1, sort: filterType } })
 }
@@ -206,8 +209,8 @@ export const onFilterChange = (filterType) => {
  * @param {comment.id} string
  * @returns
  */
-export const toggleLikeComment = (comment) => {
-  if (!store.isLogin) return store.authWarning()
+export const toggleLikeComment = (comment): void => {
+  if (!store.isLogin) return store.authWarning({})
   log('likeComment: ', comment)
 
   if (comment.viewerHasLiked) {
@@ -220,21 +223,21 @@ export const toggleLikeComment = (comment) => {
   })
 }
 
-export const onUploadImageDone = (url) =>
+export const onUploadImageDone = (url: string): void =>
   send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
-export const insertQuote = () =>
+export const insertQuote = (): void =>
   send(EVENT.DRAFT_INSERT_SNIPPET, { data: '> ' })
 
-export const insertCode = () => {
+export const insertCode = (): void => {
   const communityRaw = store.curCommunity.raw
   const data = `\`\`\`${communityRaw}\n\n\`\`\``
 
   send(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
-export const onMention = (user) => store.addReferUser(user)
-export const onMentionSearch = (name) => {
+export const onMention = (user: TUser): void => store.addReferUser(user)
+export const onMentionSearch = (name: string): void => {
   if (name?.length >= 1) {
     sr71$.query(S.searchUsers, { name })
   } else {
@@ -242,17 +245,18 @@ export const onMentionSearch = (name) => {
   }
 }
 
-export const deleteComment = () =>
+export const deleteComment = (): void =>
   sr71$.mutate(S.deleteComment, {
     id: store.tobeDeleteId,
     thread: store.activeThread,
   })
 
 // show delete confirm
-export const onDelete = (comment) => store.mark({ tobeDeleteId: comment.id })
-export const cancelDelete = () => store.mark({ tobeDeleteId: null })
+export const onDelete = (comment): void =>
+  store.mark({ tobeDeleteId: comment.id })
+export const cancelDelete = (): void => store.mark({ tobeDeleteId: null })
 
-export const pageChange = (page = 1) => {
+export const pageChange = (page = 1): void => {
   scrollIntoEle('lists-info')
   loadComents({ filter: { page, sort: store.filterType } })
 }
@@ -260,19 +264,19 @@ export const pageChange = (page = 1) => {
 const cancelLoading = () =>
   store.mark({ loading: false, loadingFresh: false, creating: false })
 
-export const onReplyEditorClose = () => {
+export const onReplyEditorClose = (): void => {
   closeReplyBox()
   onCommentInputBlur()
 }
 
-const saveDraftIfNeed = (content) => {
-  if (isEmpty(content)) return false
+const saveDraftIfNeed = (content): void => {
+  if (isEmpty(content)) return
   const curDraftContent = BStore.get('recentDraft')
 
   if (curDraftContent !== content) BStore.set('recentDraft', content)
 }
 
-const clearDraft = () => BStore.set('recentDraft', '')
+const clearDraft = (): void => BStore.remove('recentDraft')
 
 // ###############################
 // Data & Error handlers
@@ -367,7 +371,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
@@ -381,11 +387,11 @@ const ErrSolver = [
   },
 ]
 
-const stopDraftTimmer = () => {
+const stopDraftTimmer = (): void => {
   if (saveDraftTimmer) clearInterval(saveDraftTimmer)
 }
 
-const initDraftTimmer = () => {
+const initDraftTimmer = (): void => {
   stopDraftTimmer()
 
   saveDraftTimmer = setInterval(() => {
@@ -399,7 +405,11 @@ const initDraftTimmer = () => {
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store, ssr) => {
+export const useInit = (
+  _store: TStore,
+  ssr: boolean,
+  locked: boolean,
+): void => {
   useEffect(() => {
     // log('effect init')
     store = _store
@@ -410,12 +420,12 @@ export const useInit = (_store, ssr) => {
 
     return () => {
       // log('effect uninit')
-      if (store.loading || store.loadingFresh || !sub$) return false
+      if (store.loading || store.loadingFresh || !sub$) return
 
       stopDraftTimmer()
       sr71$.stop()
       sub$.unsubscribe()
       sub$ = null
     }
-  }, [_store, ssr])
+  }, [_store, ssr, locked])
 }

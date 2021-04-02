@@ -1,6 +1,8 @@
 import React from 'react'
 import { forEach, clone, pluck } from 'ramda'
 
+import type { TComment } from '@/spec'
+
 import ImgFallback from '@/components/ImgFallback'
 import AvatarsRow from '@/components/AvatarsRow'
 import DotDivider from '@/components/DotDivider'
@@ -21,19 +23,25 @@ import { previewReply } from '../logic'
 const getAuthors = (comment) => {
   /* eslint-disable no-return-assign */
   const replies = forEach((reply) => {
+    /* @ts-ignore */
     return (reply.author.extra_id = reply.id)
   }, clone(comment.replies))
   /* eslint-enable */
 
+  /* @ts-ignore */
   return pluck('author', replies)
 }
 
-const CommentHeader = ({ data }) => {
+type TProps = {
+  data: TComment
+}
+
+const CommentHeader: React.FC<TProps> = ({ data }) => {
   return (
     <Wrapper>
       <Avatar
         src={data.author.avatar}
-        fallback={<ImgFallback user={data.author} width={22} right={10} />}
+        fallback={<ImgFallback user={data.author} size={22} right={10} />}
       />
       <HeaderBaseInfo>
         <CommentHeaderFirst>

@@ -16,9 +16,19 @@ import {
   FoldText,
 } from './styles/editor_footer'
 
-import * as logic from './logic'
+import { insertCode, insertQuote, onUploadImageDone } from './logic'
 
-const EditorFooter = ({
+type TProps = {
+  loading: boolean
+  showPreview: boolean
+  onCreate: () => void
+  onBackEdit: () => void
+  onPreview: () => void
+  onFold?: () => void
+  showFold?: boolean
+}
+
+const EditorFooter: React.FC<TProps> = ({
   loading,
   showPreview,
   onCreate,
@@ -32,13 +42,13 @@ const EditorFooter = ({
       <InputHelper />
     ) : (
       <InputHelper>
-        <div onClick={logic.insertCode}>
+        <div onClick={insertCode}>
           <HelperIcon src={`${ICON_CMD}/extra_code.svg`} />
         </div>
-        <div onClick={logic.insertQuote}>
+        <div onClick={insertQuote}>
           <HelperIcon src={`${ICON_CMD}/extra_quote.svg`} />
         </div>
-        <DocUploader onUploadDone={logic.onUploadImageDone}>
+        <DocUploader onUploadDone={onUploadImageDone}>
           <HelperIcon src={`${ICON_CMD}/extra_image.svg`} />
         </DocUploader>
       </InputHelper>
