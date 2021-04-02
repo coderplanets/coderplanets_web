@@ -1,16 +1,18 @@
 import styled from 'styled-components'
 
-import type { TActive, TUser } from '@/spec'
+import type { TPost, TAccount } from '@/spec'
 import { theme, css } from '@/utils'
 
 import { getOpacity } from './metrics'
 
-type IPostItemUI = TActive & { accountInfo: TUser } & {
-  entry: any
+type TWrapper = {
+  entry: TPost
+  active?: TPost | null
   divider: boolean
+  accountInfo: TAccount
 }
 
-export const Wrapper = styled.article<IPostItemUI>`
+export const Wrapper = styled.article<TWrapper>`
   ${css.flex()};
   position: relative;
   opacity: ${({ entry, active, accountInfo }) =>

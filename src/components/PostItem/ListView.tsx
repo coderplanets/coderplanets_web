@@ -1,9 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
+import type { TPost } from '@/spec'
 import { ICON_CMD } from '@/config'
-
 import { cutRest, parseDomain } from '@/utils'
+
 import InlineTags from '@/components/InlineTags'
 
 import {
@@ -21,7 +22,12 @@ import {
   CommentNum,
 } from './styles/list_view'
 
-const ListView = ({ entry, onPreview }) => (
+type TProps = {
+  entry: TPost
+  onPreview?: (obj: TPost) => void
+}
+
+const ListView: React.FC<TProps> = ({ entry, onPreview }) => (
   <React.Fragment>
     <SmallAvatar src={entry.author.avatar} />
     <Main>

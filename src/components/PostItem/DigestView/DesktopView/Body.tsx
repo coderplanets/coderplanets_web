@@ -1,6 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
+import type { TPost } from '@/spec'
 import { ICON } from '@/config'
 import { cutRest } from '@/utils'
 
@@ -21,7 +22,12 @@ import {
   ActiveIcon,
 } from '../../styles/digest_view/body'
 
-const Body = ({ item, onPreview }) => {
+type TProps = {
+  item: TPost
+  onPreview?: (obj: TPost) => void
+}
+
+const Body: React.FC<TProps> = ({ item, onPreview }) => {
   return (
     <Wrapper>
       <Extra>
@@ -42,8 +48,8 @@ const Body = ({ item, onPreview }) => {
         <ActiveItemWrapper hasComments={item.commentsCount > 0}>
           <Tooltip content={<div>最后回复</div>} placement="bottom">
             <ActiveIcon src={`${ICON}/shape/activity.svg`} />
+            4天前
           </Tooltip>
-          4天前
         </ActiveItemWrapper>
       </Extra>
 

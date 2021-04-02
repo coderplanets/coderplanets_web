@@ -1,11 +1,12 @@
-import type { TCommunity } from './index'
+import type { TCommunity, TTag } from './index'
 import type { TUser } from './account'
 
 export type TArticle = {
-  id: string
-  title: string
-  body: string
-  author: {
+  id?: string
+  title?: string
+  body?: string
+  views?: number
+  author?: {
     id: string
     login: string
     nickname: string
@@ -14,7 +15,15 @@ export type TArticle = {
   origialCommunity?: TCommunity
   commentsParticipators?: TUser
   insertedAt?: string
-  // ...
+  viewerHasViewed?: boolean
+  commentsCount?: number
+  tags?: TTag[]
+}
+
+export type TPost = TArticle & {
+  digest?: string
+  linkAddr?: string
+  linkIcon?: string
 }
 
 export type TJob = {

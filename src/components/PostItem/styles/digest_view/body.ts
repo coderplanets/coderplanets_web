@@ -44,15 +44,16 @@ export const ViewsIcon = styled(Img)`
   margin-right: 3px;
 `
 
-export const ActiveItemWrapper = styled.div<{ hasComments: string }>`
-  position: absolute;
-  top: ${({ hasComments }) => (hasComments ? '5px' : '-24px')};
-  right: 0;
+export const ActiveItemWrapper = styled.div<{ hasComments: boolean }>`
   ${css.flex('align-center')};
+  display: ${({ hasComments }) => (hasComments ? 'flex' : 'none')};
+  position: absolute;
+  top: 3px;
+  right: 0;
   color: ${theme('thread.articleDigest')};
   margin-right: 6px;
   margin-top: 8px;
-  opacity: 0;
+  opacity: 0.8;
 
   ${Main}:hover & {
     opacity: 1;

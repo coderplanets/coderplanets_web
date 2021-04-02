@@ -1,12 +1,28 @@
 import React from 'react'
 
+import type { TPost, TAccount } from '@/spec'
+
 import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
 
 import { Wrapper } from '../../styles/mobile_view/index'
 
-const MobileView = ({ entry, cover, onPreview, onAuthorSelect }) => {
+type TProps = {
+  entry: TPost
+  cover: 'avatar' | 'source'
+  community: string
+
+  onPreview?: (obj: TPost) => void
+  onAuthorSelect?: (obj: TAccount) => void
+}
+
+const MobileView: React.FC<TProps> = ({
+  entry,
+  cover,
+  onPreview,
+  onAuthorSelect,
+}) => {
   return (
     <Wrapper>
       <Header item={entry} cover={cover} onAuthorSelect={onAuthorSelect} />
