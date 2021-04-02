@@ -1,7 +1,7 @@
 import React from 'react'
 
+import type { TArticle } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
-
 import TopInfo from './TopInfo'
 import BottomInfo from './BottomInfo'
 
@@ -15,15 +15,17 @@ import {
 
 type TProps = {
   curView: string // todo
+  viewingArticle: TArticle
   metric: string
 }
 
-const BriefView: React.FC<TProps> = ({ curView, metric }) => {
+const BriefView: React.FC<TProps> = ({ curView, metric, viewingArticle }) => {
   return (
     <Wrapper metric={metric}>
       <InnerWrapper>
-        <TopInfo noBottomBorder />
-        <MainInfos center={curView === 'BRIEF' || false}>
+        <TopInfo type="article" title={viewingArticle.title} noBottomBorder />
+        {/* <MainInfos center={curView === 'BRIEF' || false}> */}
+        <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
               关于
@@ -66,7 +68,7 @@ const BriefView: React.FC<TProps> = ({ curView, metric }) => {
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo />
+      <BottomInfo metric={metric} />
     </Wrapper>
   )
 }

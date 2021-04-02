@@ -16,6 +16,8 @@ import ArticleFooter from '@/containers/unit/ArticleFooter'
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
 
+import type { TStore } from './store'
+
 import {
   Wrapper,
   InnerWrapper,
@@ -29,21 +31,30 @@ import { useInit, articleInAnchor, articleOutAnchor } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')
 
-const PostContentContainer = ({ postContent: store }) => {
+type TProps = {
+  postContent?: TStore
+  testid?: string
+}
+
+const PostContentContainer: React.FC<TProps> = ({
+  postContent: store,
+  testid = 'post-content',
+}) => {
   useInit(store)
-  const { viewingData } = store
+  const { viewingArticle } = store
 
   return (
-    <Wrapper>
-      <Maybe test={viewingData.id}>
+    <Wrapper testid={testid}>
+      <Maybe test={viewingArticle.id}>
         <InnerWrapper>
           <MainWrapper>
             <ArticleWrapper>
-              <MarkDownRender body={viewingData.body} />
+              <MarkDownRender body={viewingArticle.body} />
             </ArticleWrapper>
             <Waypoint onEnter={articleInAnchor} onLeave={articleOutAnchor} />
             <ArticleFooter />
             <CommentsWrapper>
+              {/* @ts-ignore */}
               <Comments ssr />
             </CommentsWrapper>
           </MainWrapper>
@@ -53,4 +64,4 @@ const PostContentContainer = ({ postContent: store }) => {
   )
 }
 
-export default pluggedIn(PostContentContainer)
+export default pluggedIn(PostContentContainer) as React.FC<TProps>

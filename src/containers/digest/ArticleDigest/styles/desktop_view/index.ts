@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
+import type { TTestable } from '@/spec'
 import { theme, css, WIDTH } from '@/utils'
 
-export const Wrapper = styled.nav`
+export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('justify-end')};
   position: relative;
   background: transparent;
@@ -26,6 +29,7 @@ export const BannerContent = styled.div`
 `
 export const Main = styled.div<{ metric: string }>`
   ${({ metric }) => css.fitContentWidth(metric)};
+  width: 100%;
 `
 export const AuthorWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};

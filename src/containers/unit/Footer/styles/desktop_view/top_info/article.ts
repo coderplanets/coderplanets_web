@@ -17,10 +17,14 @@ export const Logo = styled(DefaultLogo)`
   ${css.size(18)};
   margin-right: 8px;
 `
-export const SiteTitle = styled(DefaultSiteTitle)`
-  color: #007fa8;
-  font-size: 18px;
+export const ArticleTitle = styled(DefaultSiteTitle)`
+  color: ${theme('footer.title')};
+  font-size: 15px;
   font-weight: normal;
+  margin-top: -2px;
+`
+export const CommunityTitle = styled(ArticleTitle)`
+  margin-right: 6px;
 `
 export const ArrowDividerIcon = styled(Img)`
   fill: ${theme('footer.text')};
@@ -45,4 +49,5 @@ export const Linker = styled.a`
   }
   transition: all 0.2s;
 `
+
 export const MainInfos = styled(DefaultMainInfos)``

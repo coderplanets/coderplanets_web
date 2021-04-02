@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
+import type { TTestable } from '@/spec'
 import { css, WIDTH } from '@/utils'
 
-export const Wrapper = styled.article`
+export const Wrapper = styled.article.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexGrow('justify-center')};
   position: relative;
   padding-top: 20px;

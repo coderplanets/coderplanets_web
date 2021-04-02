@@ -33,8 +33,8 @@ const DigestView: React.FC<TProps> = ({ metric }) => {
   }
 
   return (
-    <Wrapper metric={metric}>
-      <InnerWrapper>
+    <Wrapper>
+      <InnerWrapper metric={metric}>
         <TopInfo />
         <MainInfos>
           <Column>
@@ -160,7 +160,7 @@ const DigestView: React.FC<TProps> = ({ metric }) => {
           </Column>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo />
+      <BottomInfo metric={metric} />
     </Wrapper>
   )
 }

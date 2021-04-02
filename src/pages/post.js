@@ -28,7 +28,7 @@ const fetchData = async (props, opt) => {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const { thirdPath: id } = ssrParseURL(props.req)
+  const { subPath: id } = ssrParseURL(props.req)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -56,8 +56,6 @@ const fetchData = async (props, opt) => {
 }
 
 export const getServerSideProps = async (props) => {
-  const { mainPath } = ssrParseURL(props.req)
-
   let resp
   try {
     resp = await fetchData(props)
@@ -81,7 +79,7 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    route: { mainPath, subPath: ROUTE.POST },
+    route: { mainPath: community.raw, subPath: ROUTE.POST },
     viewing: {
       post: viewingContent,
       activeThread: THREAD.POST,

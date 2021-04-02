@@ -15,7 +15,7 @@ const ArticleDigest = (props) => {
   const { isMobile } = useDevice()
 
   return (
-    <React.Fragment key={isMobile}>
+    <React.Fragment key={String(isMobile)}>
       {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
     </React.Fragment>
   )

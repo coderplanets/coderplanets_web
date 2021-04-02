@@ -23,7 +23,6 @@ const DataResolver = [
   {
     match: asyncRes(EVENT.JOIN_US),
     action: (data) => {
-      console.log('--> EVENT.JOIN_US: ', data)
       store.mark({ show: true })
     },
   },

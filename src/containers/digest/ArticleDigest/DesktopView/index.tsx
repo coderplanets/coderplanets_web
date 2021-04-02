@@ -5,10 +5,10 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
-import { isNil, values } from 'ramda'
+import { isNil } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
+import type { TScrollDirection } from '@/spec'
 import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
@@ -21,6 +21,8 @@ import PublishDate from './PublishDate'
 // import { Space } from '@/components/Common'
 
 import Title from './Title'
+
+import type { TStore } from '../store'
 
 import {
   Wrapper,
@@ -36,29 +38,39 @@ import { useInit, inAnchor, outAnchor } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
 
-const ArticleDigestContainer = ({ articleDigest: store, metric }) => {
+type TProps = {
+  articleDigest?: TStore
+  testid?: string
+  metric?: string
+}
+
+const ArticleDigestContainer: React.FC<TProps> = ({
+  articleDigest: store,
+  testid = 'article-digest',
+  metric = METRIC.ARTICLE,
+}) => {
   const { direction: scrollDirection } = useScroll()
-  useInit(store, scrollDirection)
+  useInit(store, scrollDirection as TScrollDirection)
 
-  const { activeThread, viewingData } = store
+  const { activeThread, viewingArticle } = store
 
-  if (isNil(viewingData.id)) return null
+  if (isNil(viewingArticle.id)) return null
 
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <FavoritesCats />
       <InnerWrapper>
         <BannerContent>
           <Main metric={metric}>
-            <PublishDate insertedAt={viewingData.insertedAt} />
-            <Title thread={activeThread} data={viewingData} />
+            <PublishDate insertedAt={viewingArticle.insertedAt} />
+            <Title thread={activeThread} data={viewingArticle} />
             <BottomInfo>
               <PublishDesc>Elixir 社区</PublishDesc>
-              <StateInfo article={viewingData} />
+              <StateInfo article={viewingArticle} />
             </BottomInfo>
           </Main>
           <AuthorWrapper>
-            <Author user={viewingData.author} />
+            <Author user={viewingArticle.author} />
           </AuthorWrapper>
         </BannerContent>
       </InnerWrapper>
@@ -67,13 +79,4 @@ const ArticleDigestContainer = ({ articleDigest: store, metric }) => {
   )
 }
 
-ArticleDigestContainer.propTypes = {
-  articleDigest: T.object.isRequired,
-  metric: T.oneOf(values(METRIC)),
-}
-
-ArticleDigestContainer.defaultProps = {
-  metric: METRIC.ARTICLE,
-}
-
-export default pluggedIn(ArticleDigestContainer)
+export default pluggedIn(ArticleDigestContainer) as React.FC<TProps>

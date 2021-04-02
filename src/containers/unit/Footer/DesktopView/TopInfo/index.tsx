@@ -2,6 +2,7 @@ import React from 'react'
 
 import HomeCommunity from './HomeCommunity'
 import Community from './Community'
+import Article from './Article'
 
 export type TProps = {
   type?: string
@@ -16,6 +17,9 @@ const TopInfo: React.FC<TProps> = ({ type, ...restProps }) => {
     }
     case 'community': {
       return <Community {...restProps} />
+    }
+    case 'article': {
+      return <Article {...restProps} />
     }
     default:
       return <HomeCommunity {...restProps} />

@@ -24,7 +24,7 @@ type TProps = {
   children?: React.ReactNode
   className?: string
   ghost?: boolean
-  type: 'primary' | 'red' | 'ghost'
+  type?: 'primary' | 'red' | 'ghost'
   size?: TSIZE_TSM
   onClick?: () => void
   loading?: boolean | null

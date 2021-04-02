@@ -5,7 +5,7 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import type { TRootStore, TAccount } from '@/spec'
+import type { TRootStore, TAccount, TArticle } from '@/spec'
 import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -22,6 +22,11 @@ const FooterStore = T.model('FooterStore', {
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
       return root.accountInfo
+    },
+
+    get viewingArticle(): TArticle {
+      const root = getParent(self) as TRootStore
+      return root.viewingArticle
     },
   }))
   .actions((self) => ({

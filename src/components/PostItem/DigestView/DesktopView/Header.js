@@ -17,11 +17,11 @@ import {
   TagListWrapper,
 } from '../../styles/digest_view/header'
 
-const Header = ({ item, community, onUserSelect }) => {
+const Header = ({ item, onUserSelect }) => {
   return (
     <Wrapper>
       <Brief>
-        <Link href={`/${community}/${ROUTE.POST}/${item.id}`} passHref>
+        <Link href={`/${ROUTE.POST}/${item.id}`} passHref>
           <Title>{item.title}</Title>
         </Link>
         {item.linkAddr && (

@@ -1,12 +1,14 @@
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, errRescue } from '@/utils'
+import { asyncSuit, buildLog, errRescue, isElementInViewport } from '@/utils'
 
+import type { TStore } from './store'
 import S from './schema'
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  /* @ts-ignore */
   receive: [EVENT.REFRESH_POSTS],
 })
 
@@ -16,20 +18,23 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:PostContent')
 
-export const articleInAnchor = () => {
+export const checkAnchor = (el: HTMLElement): void =>
+  isElementInViewport(el) ? articleInAnchor() : articleOutAnchor()
+
+export const articleInAnchor = (): void => {
   if (store) store.mark({ articleInViewport: true })
 }
 
-export const articleOutAnchor = () => {
+export const articleOutAnchor = (): void => {
   if (store) store.mark({ articleInViewport: false })
 }
 
-const loadPost = () => {
+const loadPost = (): void => {
   const { id } = store.viewingData
   sr71$.query(S.post, { id, userHasLogin: store.isLogin })
 }
 
-export const callInformer = () => store.callInformer()
+export const callInformer = (): void => store.callInformer()
 
 // ###############################
 // Data & Error handlers
@@ -48,7 +53,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
@@ -64,16 +71,16 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store, attachment) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')
 
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     return () => {
-      if (!sub$) return false
+      if (!sub$) return
       sr71$.stop()
       sub$.unsubscribe()
     }
-  }, [_store, attachment])
+  }, [_store])
 }

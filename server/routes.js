@@ -1,4 +1,4 @@
-//
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 const router = require('express').Router()
 const R = require('ramda')
@@ -78,7 +78,7 @@ router.route('/user/:userId').get((req, res) => {
 })
 
 // 帖子页
-router.route('/:community/post/:id').get((req, res) => {
+router.route('/post/:id').get((req, res) => {
   return renderAndCache({ req, res, path: '/post' })
 })
 
