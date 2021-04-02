@@ -5,9 +5,8 @@
  */
 
 import React, { useState, useRef } from 'react'
-import T from 'prop-types'
-import { values } from 'ramda'
 
+import type { TTooltipPlacement, TTooltipAnimation } from '@/spec'
 import { css, buildLog, isDescendant } from '@/utils'
 import { useOutsideClick } from '@/hooks'
 
@@ -26,19 +25,44 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:Tooltip:index')
 
-const Tooltip = ({
+type TProps = {
+  children: React.ReactNode
+  content: string | React.ReactNode
+  animation?: TTooltipAnimation
+  placement?: TTooltipPlacement
+  // more options see: https://atomiks.github.io/tippyjs/all-options/
+  delay?: number
+  duration?: number
+  trigger?: 'mouseenter focus' | 'click'
+  hideOnClick?: boolean
+  noPadding?: boolean
+  showArrow?: boolean
+  footerBehavior?: 'default' | 'confirm' | 'delete-confirm' | 'add'
+  // currently only for AvatarsRow, it will collapse the height
+  // for same reason, figure out later
+  contentHeight?: string
+
+  onShow?: () => void
+  onHide?: () => void
+  onConfirm?: () => void
+}
+
+const Tooltip: React.FC<TProps> = ({
   children,
-  noPadding,
+  animation = 'fade',
+  noPadding = false,
   onHide,
   onShow,
-  placement,
+  placement = 'top',
+  delay = 0,
+  duration = 0,
   content,
-  hideOnClick,
-  showArrow,
-  footerBehavior,
+  hideOnClick = true,
+  showArrow = true,
+  footerBehavior = 'default',
+  trigger = 'mouseenter focus',
   onConfirm,
   contentHeight,
-  ...restProps
 }) => {
   const [instance, setInstance] = useState(null)
   const [active, setActive] = useState(false)
@@ -110,7 +134,10 @@ const Tooltip = ({
       }}
       zIndex={css.zIndex.popover}
       interactive
-      {...restProps}
+      delay={delay}
+      duration={duration}
+      animation={animation}
+      trigger={trigger}
     >
       {ContentComp}
     </StyledTippy>
@@ -120,7 +147,7 @@ const Tooltip = ({
       content={PopoverContent}
       placement={placement}
       hideOnClick={hideOnClick}
-      animation="scale"
+      animation={animation}
       onHide={(instance) => {
         setInstance(instance)
         setActive(false)
@@ -133,76 +160,13 @@ const Tooltip = ({
       }}
       zIndex={css.zIndex.popover}
       interactive
-      {...restProps}
+      delay={delay}
+      duration={duration}
+      trigger={trigger}
     >
       {ContentComp}
     </NoPaddingStyledTippy>
   )
-}
-
-Tooltip.propTypes = {
-  children: T.node.isRequired,
-  content: T.oneOfType([T.string, T.node]).isRequired,
-  // options
-  animation: T.oneOf([
-    'shift-away',
-    'shift-toward',
-    'fade',
-    'scale',
-    'perspective',
-  ]),
-  arrow: T.bool,
-  delay: T.number,
-  duration: T.number,
-  placement: T.oneOf([
-    'top',
-    'top-start',
-    'top-end',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'left',
-    'left-start',
-    'left-end',
-    'right',
-    'right-start',
-    'right-end',
-  ]),
-  // hooks
-  trigger: T.oneOf(['mouseenter focus', 'click']),
-  hideOnClick: T.oneOf([true, false]),
-  maxWidth: T.oneOf([350, 'none']),
-  // more options see: https://atomiks.github.io/tippyjs/all-options/
-  onShow: T.oneOfType([T.func, T.instanceOf(null)]),
-  onHide: T.oneOfType([T.func, T.instanceOf(null)]),
-  noPadding: T.bool,
-  showArrow: T.bool,
-  footerBehavior: T.oneOf(values(FOOTER_BEHAVIOR)),
-  onConfirm: T.oneOfType([T.func, T.instanceOf(null)]),
-
-  // currently only for AvatarsRow, it will collapse the height
-  // for same reason, figure out later
-  contentHeight: T.string,
-}
-
-Tooltip.defaultProps = {
-  animation: 'fade',
-  arrow: true,
-  delay: 0,
-  duration: 0,
-  hideOnClick: true,
-  placement: 'top',
-  // hooks
-  trigger: 'mouseenter focus',
-  onShow: null,
-  onHide: null,
-  noPadding: false,
-  maxWidth: 'none',
-  showArrow: true,
-  footerBehavior: 'default',
-  onConfirm: null,
-
-  contentHeight: 'auto',
 }
 
 export default React.memo(Tooltip)

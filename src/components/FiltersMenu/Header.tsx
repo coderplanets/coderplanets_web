@@ -23,7 +23,6 @@ const Header: React.FC<TProps> = ({ title, showReset, onReset }) => {
     <Wrapper>
       <Title active={showReset}>{title}</Title>
       <OperatorsWrapper>
-        {/* @ts-ignore */}
         <Tooltip
           content={<HelpHint>重置筛选条件</HelpHint>}
           placement="bottom"

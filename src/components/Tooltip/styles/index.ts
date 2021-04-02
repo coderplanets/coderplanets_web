@@ -14,6 +14,10 @@ export const StyledTippy = styled(Tippy)`
 
   border-radius: 5px;
   padding: 10px;
+
+  .tippy-arrow {
+    display: none;
+  }
 `
 export const NoPaddingStyledTippy = styled(StyledTippy)`
   padding: 0;

@@ -64,7 +64,6 @@ const CommunityRecommends: React.FC<TProps> = ({ items = tmpItems }) => {
       <ListWrapper>
         {items.map((item) => (
           <Community key={item.id}>
-            {/* @ts-ignore  */}
             <Tooltip content={<CommunityCard item={item} />} placement="top">
               <CommunityTitle>{item.title}</CommunityTitle>
             </Tooltip>
