@@ -8,12 +8,13 @@ import React from 'react'
 import { compose, not, isNil, filter, reverse as reverseFn, slice } from 'ramda'
 import { trackWindowScroll } from 'react-lazy-load-image-component'
 
-import type { TSIZE_SM, TUser } from '@/spec'
+import type { TUser } from '@/spec'
 import { AVATARS_LIST_LENGTH } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
+import type { TAvatarSize } from './spec'
 
 import MoreItem from './MoreItem'
 
@@ -47,7 +48,7 @@ const getUniqueArray = (arr, comp) => {
 
 export type TProps = {
   users?: TUser[]
-  size?: TSIZE_SM
+  size?: TAvatarSize
   total: number
   limit: number
   showTotalNumber?: boolean

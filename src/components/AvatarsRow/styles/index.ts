@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import type { TSIZE_SM } from '@/spec'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 import ImgFallback from '@/components/ImgFallback'
 import { getLiSize, getAvatarSize, getUlMarginRight } from './metric'
+import type { TAvatarSize } from '../spec'
 
 export const Wrapper = styled.ul<{ total: number }>`
   ${css.flex('align-center')};
@@ -16,7 +16,7 @@ export const Wrapper = styled.ul<{ total: number }>`
   margin-right: ${({ total }) => getUlMarginRight(total)};
 `
 // height: 49px;
-type TBaseAvatarItem = { size: TSIZE_SM; noHoverMargin: boolean }
+type TBaseAvatarItem = { size: TAvatarSize; noHoverMargin: boolean }
 const BaseAvatarItem = styled.li<TBaseAvatarItem>`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
@@ -62,7 +62,7 @@ export const AvatarsImg = styled(Img)<TAvatarsImg>`
 
   text-align: center;
 `
-type TAvatarsMore = { size: TSIZE_SM; total: number }
+type TAvatarsMore = { size: TAvatarSize; total: number }
 export const AvatarsMore = styled.span<TAvatarsMore>`
   ${css.flex('align-both')};
   font-size: 14px;
