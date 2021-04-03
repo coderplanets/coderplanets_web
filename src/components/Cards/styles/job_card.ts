@@ -61,7 +61,7 @@ export const PublisherInfo = styled.div`
 `
 export const AuthorName = styled.div`
   font-size: 14px;
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
   margin-bottom: 3px;
 `
 export const PublishExtra = styled.div`

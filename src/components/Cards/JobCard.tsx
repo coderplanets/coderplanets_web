@@ -57,8 +57,6 @@ type TProps = {
 const JobCard: React.FC<TProps> = ({
   item: { title, body, author, insertedAt, commentsCount, images },
 }) => {
-  console.log('images-: ', images)
-
   const fakeCommunity = {
     id: '1',
     title: 'react',
@@ -112,7 +110,7 @@ const JobCard: React.FC<TProps> = ({
               <TimeAgo datetime={insertedAt} locale="zh_CN" />
             </PublishTime>
             <Space right={10} />
-            <IconText iconSrc={`${ICON}/article/comment.svg`}>
+            <IconText iconSrc={`${ICON}/article/comment.svg`} size="medium">
               {commentsCount}
             </IconText>
           </PublishExtra>

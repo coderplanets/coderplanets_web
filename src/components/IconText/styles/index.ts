@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TSIZE } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 import { getIconSize, getTextSize, getMargin } from './metric'
 
 type TIcon = {
-  size: string
+  size: TSIZE
   margin: string
-  round: string
+  round: boolean
 }
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -25,7 +25,7 @@ export const Icon = styled(Img)<TIcon>`
   display: block;
   border-radius: ${({ round }) => (round ? '100%' : '0')};
 `
-export const Text = styled.div<{ size: string }>`
+export const Text = styled.div<{ size: TSIZE }>`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: ${({ size }) => getTextSize(size)};
