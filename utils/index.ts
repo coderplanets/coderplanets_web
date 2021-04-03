@@ -143,3 +143,5 @@ export { Trans } from './i18n'
 export { default as GA } from './analytics'
 
 export { isMobile } from './device'
+
+export { mockImage, mockImages } from './mock'

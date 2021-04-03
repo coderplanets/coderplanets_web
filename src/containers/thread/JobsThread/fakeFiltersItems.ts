@@ -63,7 +63,7 @@ const filtersItems = [
   },
   {
     id: '102',
-    title: '薪资待遇',
+    title: '月薪',
     icon: `${ICON_CMD}/navi/money-yuan.svg`,
 
     options: [
@@ -96,7 +96,7 @@ const filtersItems = [
   {
     // 非 IT，设计类的网站
     id: '103',
-    title: '规模',
+    title: '团队规模',
     icon: `${ICON_CMD}/navi/chair.svg`,
     options: [
       {

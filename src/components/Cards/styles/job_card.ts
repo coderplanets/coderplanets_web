@@ -7,12 +7,12 @@ import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   background: #08303e;
-  padding: 15px 20px;
+  padding: 24px 22px;
   width: auto;
   height: auto;
   min-width: 400px;
   margin-bottom: 30px;
-  border-radius: 4px;
+  border-radius: 10px;
 `
 export const Header = styled.div`
   ${css.flex('align-baseline', 'justify-between')};
@@ -20,6 +20,18 @@ export const Header = styled.div`
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
+`
+export const ShareIcon = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(13)};
+  margin-right: 4px;
+  opacity: 0;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
+
+  transition: opacity 0.3s;
 `
 export const TeamScale = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -41,25 +53,31 @@ export const Body = styled.div`
 `
 export const Footer = styled.div`
   width: 100%;
-  ${css.flex('align-center', 'justify-between')};
+  ${css.flex('align-end', 'justify-between')};
   margin-top: 20px;
 `
-export const Publisher = styled.div`
-  ${css.flex('align-center')};
-`
-export const Avatar = styled(Img)`
-  ${css.circle(22)};
-`
 export const PublisherInfo = styled.div`
-  ${css.flexColumn()};
-  margin-left: 14px;
+  ${css.flexColumn('align-end')};
 `
 export const AuthorName = styled.div`
   font-size: 14px;
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
+  margin-bottom: 3px;
 `
 export const PublishExtra = styled.div`
   ${css.flex('align-center')};
+`
+export const PublishTime = styled.div`
+  font-size: 11px;
+  color: ${theme('thread.articleDigest')};
+`
+export const TechstackWrapper = styled.div`
+  ${css.flexColumn()};
+`
+export const TechTitle = styled.div`
+  font-size: 11px;
+  color: ${theme('thread.articleDigest')};
+  margin-bottom: 2px;
 `
 export const TechKeywords = styled.div`
   ${css.flex('align-center')};
@@ -73,4 +91,17 @@ export const Keyword = styled.a`
     text-decoration: underline;
     cursor: pointer;
   }
+`
+export const ImagesWrapper = styled.div`
+  ${css.flex('align-center')};
+  width: 80%;
+  margin-top: 24px;
+  margin-bottom: 6px;
+`
+export const PreviewImage = styled(Img)`
+  width: auto;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 12px;
 `
