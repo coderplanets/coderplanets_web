@@ -6,9 +6,9 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog, uid } from '@/utils'
 
-import { Space } from '@/components/Common'
+import { Space, SpaceGrow } from '@/components/Common'
 import IconText from '@/components/IconText'
 import Tooltip from '@/components/Tooltip'
 
@@ -19,17 +19,21 @@ import {
   Header,
   TeamScale,
   Title,
+  ShareIcon,
   Info,
   Sallery,
   Body,
   Footer,
-  Publisher,
-  Avatar,
   PublisherInfo,
   AuthorName,
   PublishExtra,
+  PublishTime,
+  TechstackWrapper,
+  TechTitle,
   TechKeywords,
   Keyword,
+  ImagesWrapper,
+  PreviewImage,
 } from './styles/job_card'
 
 /* eslint-disable-next-line */
@@ -46,12 +50,15 @@ type TProps = {
       title: string
       avatar: string
     }
+    images?: string[]
   }
 }
 
 const JobCard: React.FC<TProps> = ({
-  item: { title, body, author, insertedAt, commentsCount },
+  item: { title, body, author, insertedAt, commentsCount, images },
 }) => {
+  console.log('images-: ', images)
+
   const fakeCommunity = {
     id: '1',
     title: 'react',
@@ -67,39 +74,49 @@ const JobCard: React.FC<TProps> = ({
     <Wrapper>
       <Header>
         <Title>{title}</Title>
-        <TeamScale>10~15 人</TeamScale>
+        <ShareIcon src={`${ICON}/article/share.svg`} />
       </Header>
       <Info>
         <Sallery>成都</Sallery>
         <Sallery>前端</Sallery>
         <Sallery>15k-30k</Sallery>
+        <SpaceGrow />
+        <TeamScale>10~15 人</TeamScale>
       </Info>
       <Body>{body}</Body>
+      {images && (
+        <ImagesWrapper>
+          {images.map((imageSrc) => (
+            <PreviewImage key={uid.gen()} src={imageSrc} />
+          ))}
+        </ImagesWrapper>
+      )}
       <Footer>
-        <Publisher>
-          <Avatar src={author.avatar} />
-          <PublisherInfo>
-            <AuthorName>{author.title}</AuthorName>
-            <PublishExtra>
-              <IconText iconSrc={`${ICON}/edit/publish-pen.svg`}>
-                <TimeAgo datetime={insertedAt} locale="zh_CN" />
-              </IconText>
-              <Space right={10} />
-              <IconText iconSrc={`${ICON}/article/comment.svg`}>
-                {commentsCount}
-              </IconText>
-            </PublishExtra>
-          </PublisherInfo>
-        </Publisher>
-        <TechKeywords>
-          <Tooltip
-            content={<CommunityCard item={fakeCommunity} />}
-            placement="top"
-          >
-            <Keyword>React</Keyword>
-          </Tooltip>
-          <Keyword>TS</Keyword>
-        </TechKeywords>
+        <TechstackWrapper>
+          <TechTitle>技术栈</TechTitle>
+          <TechKeywords>
+            <Tooltip
+              content={<CommunityCard item={fakeCommunity} />}
+              placement="top"
+            >
+              <Keyword>React</Keyword>
+            </Tooltip>
+            <Keyword>TS</Keyword>
+          </TechKeywords>
+        </TechstackWrapper>
+
+        <PublisherInfo>
+          <AuthorName>{author.title}</AuthorName>
+          <PublishExtra>
+            <PublishTime>
+              <TimeAgo datetime={insertedAt} locale="zh_CN" />
+            </PublishTime>
+            <Space right={10} />
+            <IconText iconSrc={`${ICON}/article/comment.svg`}>
+              {commentsCount}
+            </IconText>
+          </PublishExtra>
+        </PublisherInfo>
       </Footer>
     </Wrapper>
   )
