@@ -22,7 +22,6 @@ import Header from './Header'
 import Dashboard from './Dashboard'
 import List from './List'
 
-import menuItemsData from './menuData'
 import { Wrapper } from './styles'
 
 import { getCurrentMenuItem, findPath, covertPathToURLQuery } from './helper'
@@ -36,24 +35,24 @@ type TProps = {
   // initActiveMenuId?: string
   showMoreItem?: boolean
   // 是否显示每个目录项的条目总数
-  showItemTotal: boolean
-  testid: string
+  showItemTotal?: boolean
+  testid?: string
   items: TMenuItem[]
 
-  onSelect: (item: TMenuItem) => void
+  onSelect: (id: string, type: string) => void
   onShowMore?: () => void
 }
 
 const NaviCatalog: React.FC<TProps> = ({
+  testid = 'navi-menu',
   title = '',
-  items = menuItemsData,
+  items,
   onSelect = log,
   withDivider = false,
   // initActiveMenuId = '',
   showMoreItem = false,
   showItemTotal = false,
   onShowMore = null,
-  testid = 'navi-menu',
 }) => {
   const [menuMode, setMenuMode] = useState<TMenuMode>(ROOT_MENU)
   // 当前选中的目录 id, 不包括在其链路上的 id

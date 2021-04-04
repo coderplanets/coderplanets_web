@@ -53,7 +53,7 @@ type TProps = {
 
   testid?: string
 
-  onSelect: (item: TMenuItem) => void
+  onSelect: (id: string, type: string) => void
   onShowMore: () => void
 }
 
@@ -82,7 +82,7 @@ const List: React.FC<TProps> = ({
             isRootMenu={menuMode === ROOT_MENU}
             active={active}
             withDivider={withDivider}
-            onClick={() => onSelect(item)}
+            onClick={() => onSelect(item.id, item.displayType)}
           >
             {item.fixedIcon && <FixedIcon src={item.fixedIcon} />}
             {item.title}

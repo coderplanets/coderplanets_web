@@ -144,4 +144,4 @@ export { default as GA } from './analytics'
 
 export { isMobile } from './device'
 
-export { mockImage, mockImages } from './mock'
+export { mockImage, mockImages, mockNaviCatalogMenu } from './mock'

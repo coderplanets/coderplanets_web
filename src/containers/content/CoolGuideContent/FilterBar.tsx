@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
+import { mockNaviCatalogMenu } from '@/utils'
 
 import Sticky from '@/components/Sticky'
 import NaviIntro from '@/components/NaviIntro'
@@ -15,9 +16,15 @@ import {
   FavoriteIcon,
   ClockIcon,
 } from './styles/filter_bar'
+
 import { topFilterOnChange } from './logic'
 
-const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
+type TProps = {
+  topFilter: string
+  menuOnSelect: (id: string, type: string) => void
+}
+
+const FilterBar: React.FC<TProps> = ({ topFilter, menuOnSelect }) => {
   return (
     <Wrapper testid="filter-bar">
       <TopFilter>
@@ -55,9 +62,9 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
         <React.Fragment>
           <NaviCatalog
             title="分类"
-            onSelect={(id, type) => menuOnSelect(id, type)}
-            initActiveMenuId={initActiveMenuId}
+            onSelect={(id: string, type: string) => menuOnSelect(id, type)}
             withDivider={false}
+            items={mockNaviCatalogMenu()}
           />
         </React.Fragment>
       </Sticky>
