@@ -4,11 +4,14 @@
  *
  */
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { findIndex } from 'ramda'
 
-import { ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 import { buildLog } from '@/utils'
+import { useInterval } from '@/hooks'
+
+import useHoverDirty from 'react-use/lib/useHoverDirty'
 
 import type { TItem } from './spec'
 import Spotlight from './Spotlight'
@@ -24,29 +27,46 @@ type TProps = {
   show?: boolean
   onAbout?: () => void
   items: TItem[]
+  intervalSec?: number
 }
 
 const PromotionList: React.FC<TProps> = ({
   show = true,
   onAbout = log,
   items = fakeItems,
+  intervalSec = 5000,
 }) => {
-  const [activeId, setActiveId] = useState(items[0].id)
+  const [activeId, setActiveId] = useState<string>(items[0].id)
   const activeItemIndex = findIndex((item) => item.id === activeId, items)
   const activeItem = items[activeItemIndex]
 
+  const ref = useRef(null)
+
+  const isHovering = useHoverDirty(ref)
+
+  useInterval(() => {
+    if (isHovering) return
+    const nextIndex =
+      activeItemIndex < items.length - 1 ? activeItemIndex + 1 : 0
+    setActiveId(items[nextIndex].id)
+  }, intervalSec)
+
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       {show && (
         <>
           <Header>
             <Title>产品推广</Title>
             <div onClick={onAbout}>
-              <AboutIcon src={`${ICON_CMD}/sidebar_ads_about.svg`} />
+              <AboutIcon src={`${ICON}/shape/question.svg`} />
             </div>
           </Header>
           <Spotlight item={activeItem} />
-          <WaitList items={items} activeId={activeId} />
+          <WaitList
+            items={items}
+            activeId={activeId}
+            setActiveId={setActiveId}
+          />
         </>
       )}
     </Wrapper>

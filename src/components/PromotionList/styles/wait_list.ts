@@ -14,7 +14,14 @@ export const Item = styled.div<TActive>`
   ${css.cutRest('50px')};
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  font-size: ${({ active }) => (active ? '13px' : '12px')};
+  font-size: 12px;
   margin-right: 8px;
   margin-bottom: 2px;
+
+  &:hover {
+    cursor: pointer;
+    color: ${theme('thread.articleTitle')};
+  }
+
+  transition: all 0.3s;
 `

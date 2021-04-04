@@ -23,7 +23,7 @@ export const Title = styled.div`
   padding-top: 15px;
 `
 export const AboutIcon = styled(Img)`
-  ${css.size(14)};
+  ${css.size(15)};
   fill: ${theme('thread.articleDigest')};
   opacity: 0;
   margin-top: 16px;
@@ -36,6 +36,5 @@ export const AboutIcon = styled(Img)`
   ${Wrapper}:hover & {
     opacity: 1;
   }
-  transition: all 0.2s;
-  transition-delay: 0.2s;
+  transition: all 0.25s;
 `
