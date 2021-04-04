@@ -11,7 +11,7 @@ import { buildLog } from '@/utils'
 import { SpaceGrow, Space } from '@/components/Common'
 
 import type { TMenuItem } from '../spec'
-import { ROOT_MENU, CHILD_MENU } from '../constant'
+import { ROOT_MENU } from '../constant'
 
 import {
   Wrapper,
@@ -50,17 +50,16 @@ type TProps = {
   withDivider: boolean
   showMoreItem: boolean
   showItemTotal: boolean
-
   testid?: string
 
-  onSelect: (id: string, type: string) => void
+  onItemSelect: (item: TMenuItem) => void
   onShowMore: () => void
 }
 
 const List: React.FC<TProps> = ({
   menuMode,
   catalogItems,
-  onSelect,
+  onItemSelect,
   activeCatalogId,
   activePath,
   withDivider,
@@ -82,7 +81,7 @@ const List: React.FC<TProps> = ({
             isRootMenu={menuMode === ROOT_MENU}
             active={active}
             withDivider={withDivider}
-            onClick={() => onSelect(item.id, item.displayType)}
+            onClick={() => onItemSelect(item)}
           >
             {item.fixedIcon && <FixedIcon src={item.fixedIcon} />}
             {item.title}
