@@ -8,8 +8,14 @@ const menu = [
     icon: `${ICON_CMD}/navi/tool.svg`,
     childMenu: [
       {
+        id: uid.gen(),
+        title: '命令行',
+        icon: `${ICON_CMD}/navi/shell.svg`,
+        childMenu: [],
+      },
+      {
         id: 'bb', // uid.gen(),
-        title: '开发效率',
+        title: '工作效率',
         icon: `${ICON_CMD}/navi/timer.svg`,
         childMenu: [
           {
@@ -257,6 +263,45 @@ const menu = [
             title: '区块链',
           },
         ],
+      },
+    ],
+  },
+  {
+    id: 'ac', // uid.gen(),
+    title: '领域网站',
+    icon: `${ICON_CMD}/navi/tool.svg`,
+    childMenu: [
+      {
+        id: uid.gen(),
+        title: '设计师',
+        icon: `${ICON_CMD}/navi/sci-fi.svg`,
+        displayType: 'IMAGE',
+        // 归类: https://tympanus.net/codrops/
+        // css tricks ...
+      },
+      {
+        id: uid.gen(),
+        title: '开发者社区',
+        icon: `${ICON_CMD}/navi/sci-fi.svg`,
+        displayType: 'IMAGE',
+      },
+      {
+        id: uid.gen(),
+        title: '算法体操',
+        icon: `${ICON_CMD}/navi/math.svg`,
+        displayType: 'IMAGE',
+      },
+      {
+        id: uid.gen(),
+        title: '产品资讯',
+        icon: `${ICON_CMD}/navi/sci-fi.svg`,
+        displayType: 'IMAGE',
+      },
+      {
+        id: uid.gen(),
+        title: '运营分析',
+        icon: `${ICON_CMD}/navi/sci-fi.svg`,
+        displayType: 'IMAGE',
       },
     ],
   },
@@ -678,12 +723,6 @@ const menu = [
   },
   {
     id: uid.gen(),
-    title: '命令行',
-    icon: `${ICON_CMD}/navi/shell.svg`,
-    childMenu: [],
-  },
-  {
-    id: uid.gen(),
     title: '酷发明',
     icon: `${ICON_CMD}/navi/experiment.svg`,
     childMenu: [],
@@ -799,19 +838,6 @@ const menu = [
     title: '影剧 / Talks',
     icon: `${ICON_CMD}/navi/movie.svg`,
     childMenu: [],
-  },
-  {
-    id: uid.gen(),
-    title: '应用数学',
-    icon: `${ICON_CMD}/navi/math.svg`,
-    childMenu: [
-      {
-        id: uid.gen(),
-        title: '找龙哥咨询',
-        icon: `${ICON_CMD}/navi/movie.svg`,
-        childMenu: [],
-      },
-    ],
   },
   {
     id: uid.gen(),

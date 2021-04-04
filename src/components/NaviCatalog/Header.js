@@ -38,6 +38,7 @@ const Header = ({
             content={<HelpHint>返回主目录</HelpHint>}
             placement="bottom"
             delay={1000}
+            noPadding
           >
             <HomeIcon src={`${ICON}/shape/home.svg`} />
           </Tooltip>
@@ -48,6 +49,7 @@ const Header = ({
             content={<HelpHint>定位当前选中</HelpHint>}
             placement="bottom"
             delay={1000}
+            noPadding
           >
             <LocateIcon src={`${ICON}/shape/locate-solid.svg`} />
           </Tooltip>
@@ -58,6 +60,7 @@ const Header = ({
             content={<HelpHint>重置筛选条件</HelpHint>}
             placement="bottom"
             delay={1000}
+            noPadding
           >
             <ResetIcon src={`${ICON}/shape/reset.svg`} />
           </Tooltip>
