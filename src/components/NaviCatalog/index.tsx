@@ -5,7 +5,6 @@
  */
 
 import React, { useState, useCallback, useEffect } from 'react'
-import T from 'prop-types'
 import { find, findIndex, propEq, last } from 'ramda'
 
 import { URL_QUERY } from '@/constant'
@@ -17,12 +16,12 @@ import {
   findDeepMatch,
 } from '@/utils'
 
+import type { TMenuItem, TMenuMode } from './spec'
 import { ROOT_MENU, CHILD_MENU } from './constant'
 import Header from './Header'
 import Dashboard from './Dashboard'
 import List from './List'
 
-import menuItemsData from './menuData'
 import { Wrapper } from './styles'
 
 import { getCurrentMenuItem, findPath, covertPathToURLQuery } from './helper'
@@ -30,18 +29,32 @@ import { getCurrentMenuItem, findPath, covertPathToURLQuery } from './helper'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviCatalog:index')
 
-const NaviCatalog = ({
-  title,
+type TProps = {
+  title?: string
+  withDivider?: boolean
+  // initActiveMenuId?: string
+  showMoreItem?: boolean
+  // 是否显示每个目录项的条目总数
+  showItemTotal?: boolean
+  testid?: string
+  items: TMenuItem[]
+
+  onSelect: (id: string, type: string) => void
+  onShowMore?: () => void
+}
+
+const NaviCatalog: React.FC<TProps> = ({
+  testid = 'navi-menu',
+  title = '',
   items,
-  onSelect,
-  withDivider,
-  initActiveMenuId,
-  showMoreItem,
-  showItemTotal,
-  onShowMore,
-  testid,
+  onSelect = log,
+  withDivider = false,
+  // initActiveMenuId = '',
+  showMoreItem = false,
+  showItemTotal = false,
+  onShowMore = null,
 }) => {
-  const [menuMode, setMenuMode] = useState(ROOT_MENU)
+  const [menuMode, setMenuMode] = useState<TMenuMode>(ROOT_MENU)
   // 当前选中的目录 id, 不包括在其链路上的 id
   const [activeCatalogId, setActiveCatalogId] = useState('')
   // 当前展示的 path list, 可能是选中的，也可能是仅浏览，未必选中
@@ -178,62 +191,12 @@ const NaviCatalog = ({
         withDivider={withDivider}
         activeCatalogId={activeCatalogId}
         activePath={activePath}
-        initActiveMenuId={initActiveMenuId}
         showMoreItem={showMoreItem}
         showItemTotal={showItemTotal}
         onShowMore={onShowMore}
       />
     </Wrapper>
   )
-}
-
-NaviCatalog.propTypes = {
-  title: T.string,
-  onSelect: T.func,
-  withDivider: T.bool,
-  initActiveMenuId: T.string,
-  items: T.arrayOf(
-    T.shape({
-      id: T.string,
-      title: T.string,
-      icon: T.string,
-      displayType: T.string,
-      fixedIcon: T.oneOfType([T.string, T.node]),
-      pinNumber: T.number,
-      childMenu: T.arrayOf(
-        T.shape({
-          id: T.string,
-          title: T.string,
-          icon: T.string,
-          displayType: T.string,
-          childMenu: T.arrayOf(
-            T.shape({
-              id: T.string,
-              title: T.string,
-              displayType: T.string,
-            }),
-          ),
-        }),
-      ),
-    }),
-  ),
-  showMoreItem: T.bool,
-  // 是否显示每个目录项的条目总数
-  showItemTotal: T.bool,
-  onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
-  testid: T.string,
-}
-
-NaviCatalog.defaultProps = {
-  items: menuItemsData,
-  onSelect: log,
-  withDivider: false,
-  initActiveMenuId: '',
-  showMoreItem: false,
-  showItemTotal: false,
-  onShowMore: null,
-  testid: 'navi-menu',
-  title: '',
 }
 
 export default React.memo(NaviCatalog)

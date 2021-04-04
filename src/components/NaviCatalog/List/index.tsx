@@ -5,12 +5,12 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 import { map, prop, includes } from 'ramda'
 
 import { buildLog } from '@/utils'
 import { SpaceGrow, Space } from '@/components/Common'
 
+import type { TMenuItem } from '../spec'
 import { ROOT_MENU, CHILD_MENU } from '../constant'
 
 import {
@@ -42,7 +42,22 @@ const renderRightIcon = (item, active, showItemTotal) => {
   )
 }
 
-const List = ({
+type TProps = {
+  menuMode: 'root' | 'child'
+  catalogItems: TMenuItem[]
+  activeCatalogId: string
+  activePath: TMenuItem[]
+  withDivider: boolean
+  showMoreItem: boolean
+  showItemTotal: boolean
+
+  testid?: string
+
+  onSelect: (id: string, type: string) => void
+  onShowMore: () => void
+}
+
+const List: React.FC<TProps> = ({
   menuMode,
   catalogItems,
   onSelect,
@@ -52,11 +67,12 @@ const List = ({
   showMoreItem,
   showItemTotal,
   onShowMore,
+  testid = 'navi-catalog-list',
 }) => {
   const activePathIdList = [...map(prop('id'), activePath), activeCatalogId]
 
   return (
-    <Wrapper isRootMenu={menuMode === ROOT_MENU}>
+    <Wrapper isRootMenu={menuMode === ROOT_MENU} testid={testid}>
       {catalogItems.map((item) => {
         const active = includes(item.id, activePathIdList)
 
@@ -66,7 +82,7 @@ const List = ({
             isRootMenu={menuMode === ROOT_MENU}
             active={active}
             withDivider={withDivider}
-            onClick={() => onSelect(item)}
+            onClick={() => onSelect(item.id, item.displayType)}
           >
             {item.fixedIcon && <FixedIcon src={item.fixedIcon} />}
             {item.title}
@@ -86,23 +102,6 @@ const List = ({
       )}
     </Wrapper>
   )
-}
-
-List.propTypes = {
-  menuMode: T.oneOf([ROOT_MENU, CHILD_MENU]).isRequired,
-  // TODO:
-  catalogItems: T.arrayOf(T.object).isRequired,
-  activePath: T.arrayOf(T.object).isRequired,
-  onSelect: T.func.isRequired,
-  activeCatalogId: T.string.isRequired,
-  withDivider: T.bool.isRequired,
-  showMoreItem: T.bool.isRequired,
-  showItemTotal: T.bool.isRequired,
-  onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
-}
-
-List.defaultProps = {
-  onShowMore: null,
 }
 
 export default React.memo(List)

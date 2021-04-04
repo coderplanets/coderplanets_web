@@ -8,7 +8,12 @@ import { Wrapper, Num, PinIcon, TooltipPopContent } from './styles/pin_number'
 
 // TODO:  onPin / undoPin
 
-const PinNumber = ({ num, pinNumberHoverType }) => {
+type TProps = {
+  num: number
+  pinNumberHoverType: 'pin' | 'unpin'
+}
+
+const PinNumber: React.FC<TProps> = ({ num, pinNumberHoverType }) => {
   return (
     <Wrapper>
       <Num>{num}</Num>
@@ -19,7 +24,7 @@ const PinNumber = ({ num, pinNumberHoverType }) => {
             placement="right"
             delay={1000}
             showArrow={false}
-            noDefaultPadding
+            noPadding
           >
             <PinIcon src={`${ICON_CMD}/navi/pin.svg`} />
           </Tooltip>
@@ -29,7 +34,7 @@ const PinNumber = ({ num, pinNumberHoverType }) => {
             placement="right"
             delay={1000}
             showArrow={false}
-            noDefaultPadding
+            noPadding
           >
             <PinIcon src={`${ICON_CMD}/navi/unpin.svg`} />
           </Tooltip>
@@ -38,14 +43,5 @@ const PinNumber = ({ num, pinNumberHoverType }) => {
     </Wrapper>
   )
 }
-
-PinNumber.propTypes = {
-  num: T.number.isRequired,
-  pinNumberHoverType: T.oneOf(['pin', 'unpin']).isRequired,
-  // onPin: T.func.isRequired,
-  // undoPin: T.func.isRequired,
-}
-
-PinNumber.defaultProps = {}
 
 export default React.memo(PinNumber)

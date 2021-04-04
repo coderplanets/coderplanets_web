@@ -7,6 +7,8 @@
 import React from 'react'
 
 import { GUIDE } from '@/constant'
+import { mockNaviCatalogMenu } from '@/utils'
+
 import Pagi from '@/components/Pagi'
 
 import {
@@ -16,21 +18,22 @@ import {
   ImageGallery,
 } from '@/components/GalleryHub'
 
-// tmp
-// import RoadmapThread from '@/containers/thread/RoadmapThread'
-import menuData from '@/components/NaviCatalog/menuData'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
 
-const Content = ({ displayType }) => {
+type TProps = {
+  displayType: string
+}
+
+const Content: React.FC<TProps> = ({ displayType }) => {
   let DisplayContent
 
   switch (displayType) {
     case GUIDE.PREVIEW: {
       DisplayContent = (
         <NormalListWrapper>
-          <DirectoryGallery items={menuData} />
+          <DirectoryGallery items={mockNaviCatalogMenu()} />
           <br />
           <Footer />
           <br />
@@ -46,6 +49,7 @@ const Content = ({ displayType }) => {
     case GUIDE.FAME_PEOPLE: {
       DisplayContent = (
         <NormalListWrapper>
+          {/* @ts-ignore */}
           <PeopleGallery />
           <Pagi margin={{ top: '40px', bottom: '60px' }} />
           <Footer />

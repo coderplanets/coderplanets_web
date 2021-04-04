@@ -6,7 +6,7 @@ import { css, theme } from '@/utils'
 
 const activeColor = '#009C9E'
 
-type TItem = TActive & { withDivider: boolean; isRootMenu?: boolean }
+type TItem = TActive & { withDivider?: boolean; isRootMenu?: boolean }
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
