@@ -11,5 +11,6 @@ export { default as useDevice } from './useDevice'
 
 export { default as useNetwork } from 'react-use/lib/useNetwork'
 export { default as useCopyToClipboard } from 'react-use/lib/useCopyToClipboard'
+export { default as useInterval } from 'react-use/lib/useInterval'
 
 export { useSwipeable as useSwipe } from 'react-swipeable'
