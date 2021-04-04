@@ -11,6 +11,8 @@ import { last } from 'ramda'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
+import type { TMenuItem } from './spec'
+
 // import { SpaceGrow } from '@/components/Common'
 import {
   Wrapper,
@@ -45,11 +47,16 @@ const getLevels = (paths) => {
   }
 }
 
+type TProps = {
+  viewPath: TMenuItem[]
+  goCatalog: (id?: string) => void
+}
+
 /**
  * 显示成成层叠结构的样式，有子目录的可以回上一层，没有子目录的则作为只读显示，
  * 类似抽屉的样子
  */
-const Dashboard = ({ viewPath, goCatalog }) => {
+const Dashboard: React.FC<TProps> = ({ viewPath, goCatalog }) => {
   const [headLevels, lastLevel] = getLevels(viewPath)
   /* 判断是不是第二层 */
   const is2ecLevel = viewPath.length === 1

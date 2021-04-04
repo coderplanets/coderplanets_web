@@ -5,6 +5,8 @@ import { nilOrEmpty } from '@/utils'
 
 import Tooltip from '@/components/Tooltip'
 
+import type { TMenuItem } from './spec'
+
 import {
   Wrapper,
   Title,
@@ -16,7 +18,19 @@ import {
   HelpHint,
 } from './styles/header'
 
-const Header = ({
+type TProps = {
+  title: string
+  activeCatalogId: string
+  viewPath: TMenuItem[]
+  testid?: string
+
+  goHome: () => void
+  onReset: () => void
+  onLocate: () => void
+}
+
+const Header: React.FC<TProps> = ({
+  testid = 'navi-catalog-header',
   title,
   activeCatalogId,
   goHome,
@@ -29,7 +43,7 @@ const Header = ({
   const showLocate = activeCatalogId !== ''
 
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       {title ? <Title active={showReset}>{title}</Title> : <div />}
 
       <OperatorsWrapper>

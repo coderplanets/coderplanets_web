@@ -3,11 +3,16 @@ import { map, find, propEq, last } from 'ramda'
 import { URL_QUERY } from '@/constant'
 import { nilOrEmpty } from '@/utils'
 
+import type { TMenuItem } from './spec'
+
 // 根据 path 路径得到当前目录项
-export const getCurrentMenuItem = (path, items) => {
+export const getCurrentMenuItem = (
+  path: TMenuItem[],
+  items: TMenuItem[],
+): TMenuItem => {
   if (nilOrEmpty(path) || nilOrEmpty(items)) return
 
-  const item = find(propEq('id', path[0].id), items)
+  const item = find(propEq('id', path[0].id), items) as TMenuItem
   if (item.id === last(path).id) return item
 
   return getCurrentMenuItem(path.slice(1), item?.childMenu)
@@ -20,7 +25,10 @@ export const getCurrentMenuItem = (path, items) => {
  * @param {string} pathString
  * @returns {array of catalog}
  */
-export const findPath = (items, pathString = 'aa-bb-cc') => {
+export const findPath = (
+  items: TMenuItem[],
+  pathString = 'aa-bb-cc',
+): TMenuItem[] => {
   // pathList => parentId-childId-subChildId-xxx
   const idPaths = pathString.split('-')
 
@@ -30,7 +38,7 @@ export const findPath = (items, pathString = 'aa-bb-cc') => {
     const pathId = idPaths[index]
 
     const catalog = previousCatalog
-    const item = find(propEq('id', pathId), catalog)
+    const item = find(propEq('id', pathId), catalog) as TMenuItem
     if (!item) return path
 
     if (item.childMenu) {
@@ -42,7 +50,9 @@ export const findPath = (items, pathString = 'aa-bb-cc') => {
   return path
 }
 
-export const covertPathToURLQuery = (path) => {
+export const covertPathToURLQuery = (
+  path: TMenuItem[],
+): Record<string, unknown> => {
   const idPathString = map((catalog) => catalog.id, path).join('-')
   if (nilOrEmpty(idPathString)) return { [URL_QUERY.NAVI_CATALOG_PATH]: '' }
 
