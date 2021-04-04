@@ -187,7 +187,7 @@ const NaviCatalog: React.FC<TProps> = ({
       <List
         menuMode={menuMode}
         catalogItems={catalogItems}
-        onSelect={handleMenuItemSelect}
+        onItemSelect={handleMenuItemSelect}
         withDivider={withDivider}
         activeCatalogId={activeCatalogId}
         activePath={activePath}
