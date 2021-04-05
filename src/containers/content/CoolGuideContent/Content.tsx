@@ -7,19 +7,18 @@
 import React from 'react'
 
 import { GUIDE } from '@/constant'
-import { mockNaviCatalogMenu } from '@/utils'
 
 import Pagi from '@/components/Pagi'
 
 import {
-  DirectoryGallery,
   ProductGallery,
   PeopleGallery,
   ImageGallery,
 } from '@/components/GalleryHub'
 
+import SearchCover from './SearchCover'
 import Footer from './Footer'
-// import NormalList from './NormalList'
+
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
 
 type TProps = {
@@ -33,11 +32,7 @@ const Content: React.FC<TProps> = ({ displayType }) => {
     case GUIDE.PREVIEW: {
       DisplayContent = (
         <NormalListWrapper>
-          <DirectoryGallery items={mockNaviCatalogMenu()} />
-          <br />
-          <Footer />
-          <br />
-          <br />
+          <SearchCover />
         </NormalListWrapper>
       )
       break

@@ -20,7 +20,7 @@ type TProps = {
   children?: React.ReactNode
   onClick?: () => void
   size?: TSIZE
-  direction: 'left' | 'right'
+  direction?: 'left' | 'right'
   dimWhenIdle?: boolean
   disabled?: boolean
   arrowStyle?: string

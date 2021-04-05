@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ center: boolean }>`
   ${css.flex()};
+  justify-content: ${({ center }) => (center ? 'center' : 'flex-start')};
   width: 100%;
   min-height: 160px;
   color: ${theme('thread.articleTitle')};
