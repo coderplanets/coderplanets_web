@@ -9,6 +9,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexColumn('align-both')}
   width: 100%;
+  margin-top: 12px;
 `
 export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flex('justify-center')};

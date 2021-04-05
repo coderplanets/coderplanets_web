@@ -308,6 +308,12 @@ export const mockNaviCatalogMenu = (): TMenuItem[] => {
         },
         {
           id: uid.gen(),
+          title: '在线教育',
+          icon: `${ICON_CMD}/navi/sci-fi.svg`,
+          displayType: 'IMAGE',
+        },
+        {
+          id: uid.gen(),
           title: '算法体操',
           icon: `${ICON_CMD}/navi/math.svg`,
           displayType: 'IMAGE',
@@ -625,7 +631,7 @@ export const mockNaviCatalogMenu = (): TMenuItem[] => {
     },
     {
       id: uid.gen(),
-      title: '教程 / 翻译', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/
+      title: '教程 / 101', // 技术书籍，中文文档, 翻译(放标签里吧), 国外网校, 比如 https://web.stanford.edu/class/cs224n/
       icon: `${ICON_CMD}/navi/glasses.svg`,
       childMenu: [
         {
@@ -656,11 +662,6 @@ export const mockNaviCatalogMenu = (): TMenuItem[] => {
         {
           id: uid.gen(),
           title: '产品',
-          icon: `${ICON_CMD}/navi/translate.svg`,
-        },
-        {
-          id: uid.gen(),
-          title: '中文文档',
           icon: `${ICON_CMD}/navi/translate.svg`,
         },
         {
