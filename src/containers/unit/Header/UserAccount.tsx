@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
+import type { TAccount } from '@/spec'
 import { ICON } from '@/config'
 import { ROUTE } from '@/constant'
 import Tooltip from '@/components/Tooltip'
@@ -23,7 +24,12 @@ import {
   MembershipHint,
 } from './styles/user_account'
 
-const UserAccount = ({ isLogin, accountInfo }) => {
+type TProps = {
+  isLogin: boolean
+  accountInfo: TAccount
+}
+
+const UserAccount: React.FC<TProps> = ({ isLogin, accountInfo }) => {
   const router = useRouter()
 
   return (
@@ -40,9 +46,7 @@ const UserAccount = ({ isLogin, accountInfo }) => {
                 <LoginName>{accountInfo.login}</LoginName>
               </LoginBadge>
               <MenuDivider />
-              <MenuItem onClick={() => previewAccount('account')}>
-                主页面板
-              </MenuItem>
+              <MenuItem onClick={() => previewAccount()}>主页面板</MenuItem>
               <MenuLink
                 href={`/user/${accountInfo.login}`}
                 rel="noopener noreferrer"
@@ -87,7 +91,7 @@ const UserAccount = ({ isLogin, accountInfo }) => {
         </Wrapper>
       )}
 
-      <MembershipHint href={ROUTE.MEMBERSHIP}>
+      <MembershipHint>
         {/* 升&nbsp;级- */}
         <Button
           size="tiny"

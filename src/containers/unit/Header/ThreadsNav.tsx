@@ -1,9 +1,10 @@
 import React from 'react'
 
+import type { TCommunity, TThread } from '@/spec'
 import { Trans } from '@/utils'
-import { SIZE } from '@/constant'
+// import { SIZE } from '@/constant'
 
-import { Tabs } from '@/components/Switcher'
+// import { Tabs } from '@/components/Switcher'
 import DotDivider from '@/components/DotDivider'
 
 import {
@@ -13,9 +14,18 @@ import {
   MiniTab,
 } from './styles/threads_nav'
 
-import { onThreadChange } from './logic'
+// import { onThreadChange } from './logic'
 
-const ThreadsNav = ({ activeInfo: { community, activeThread } }) => {
+type TProps = {
+  activeInfo: {
+    community: TCommunity
+    activeThread: TThread
+  }
+}
+
+const ThreadsNav: React.FC<TProps> = ({
+  activeInfo: { community, activeThread },
+}) => {
   return (
     <Wrapper>
       <CommunityLogo src={community.logo || ''} raw={community.raw} />
@@ -24,12 +34,13 @@ const ThreadsNav = ({ activeInfo: { community, activeThread } }) => {
         {Trans(activeThread)}
       </MobileHint>
       <MiniTab>
-        <Tabs
-          items={community.threads}
+        todo
+        {/* <Tabs
           size={SIZE.SMALL}
+          items={community.threads}
           onChange={onThreadChange}
           activeKey={activeThread}
-        />
+        /> */}
       </MiniTab>
     </Wrapper>
   )
