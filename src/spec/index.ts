@@ -69,6 +69,10 @@ export type TCommunity = {
   raw: string
   subscribersCount?: number
   desc?: string
+  threads?: {
+    title: string
+    raw: string
+  }[]
 }
 
 export type TPagedCommunities = {

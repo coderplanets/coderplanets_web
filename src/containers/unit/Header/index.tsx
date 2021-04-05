@@ -17,7 +17,7 @@ const HeaderContainer = ({ metric }) => {
   const { isMobile } = useDevice()
 
   return (
-    <Wrapper id={ANCHOR.GLOBAL_HEADER_ID}>
+    <Wrapper id={ANCHOR.GLOBAL_HEADER_ID} testid="">
       {!isMobile ? <DesktopView metric={metric} /> : <MobileWrapper />}
     </Wrapper>
   )

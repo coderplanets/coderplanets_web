@@ -6,13 +6,13 @@ import CommunityView from './CommunityVIew'
 import ArticleView from './ArticleView'
 import ArticleEditorView from './ArticleEditorView'
 
-const renderHeader = (metric) => {
+const renderHeader = (metric: string): React.ReactNode => {
   switch (metric) {
     case METRIC.ARTICLE: {
-      return <ArticleView />
+      return <ArticleView metric={metric} />
     }
     case METRIC.ARTICLE_EDITOR: {
-      return <ArticleEditorView />
+      return <ArticleEditorView metric={metric} />
     }
     default: {
       return <CommunityView metric={metric} />
@@ -20,7 +20,11 @@ const renderHeader = (metric) => {
   }
 }
 
-const DesktopView = ({ metric }) => {
+type TProps = {
+  metric: string
+}
+
+const DesktopView: React.FC<TProps> = ({ metric }) => {
   return <React.Fragment>{renderHeader(metric)}</React.Fragment>
 }
 

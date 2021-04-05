@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import type { TThread } from '@/spec'
 // eslint-disable-next-line import/named
 import { TYPE, EVENT, ERR } from '@/constant'
 
@@ -14,6 +15,7 @@ import {
   Global,
 } from '@/utils'
 
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -21,18 +23,19 @@ const log = buildLog('L:Header')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.SET_C11N],
 })
 
 let store = null
 let sub$ = null
 
-export const previewAccount = () => console.log('TODO:  ')
+export const previewAccount = (): void => console.log('TODO:  ')
 
 // to avoid page-cache in server
-export const checkSessionState = () => sr71$.query(S.sessionState, {})
+export const checkSessionState = (): void => sr71$.query(S.sessionState, {})
 
-export const onThreadChange = (activeThread) => {
+export const onThreadChange = (activeThread: TThread): void => {
   // const activeThread = thread.raw
   const subPath = thread2Subpath(activeThread)
 
@@ -43,8 +46,8 @@ export const onThreadChange = (activeThread) => {
   send(EVENT.THREAD_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
-export const onLogin = () => send(EVENT.LOGIN_PANEL)
-export const onLogout = () => {
+export const onLogin = (): void => send(EVENT.LOGIN_PANEL)
+export const onLogout = (): void => {
   store.logout()
 
   setTimeout(() => {
@@ -52,9 +55,9 @@ export const onLogout = () => {
   }, 2000)
 }
 
-export const openDoraemon = () => store.openDoraemon()
+export const openDoraemon = (): void => store.openDoraemon()
 
-export const openC11NPanel = () => {
+export const openC11NPanel = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.C11N_SETTINGS })
 }
 
@@ -87,7 +90,9 @@ const DataSolver = [
   {
     // TODO: notify user if failed
     match: asyncRes('setCustomization'),
-    action: () => {},
+    action: () => {
+      //
+    },
     // log('set setCustomization done: ', setCustomization)
   },
 ]
@@ -95,7 +100,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
@@ -114,7 +121,7 @@ const ErrSolver = [
 // ###############################
 // init & unInit
 // ###############################
-export const useInit = (_store, metric) => {
+export const useInit = (_store: TStore, metric: string): void => {
   useEffect(() => {
     store = _store
     store.mark({ metric })

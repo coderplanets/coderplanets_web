@@ -6,32 +6,44 @@
 
 import React, { useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import T from 'prop-types'
 
-import { ICON } from '@/config'
+import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
 
-// import UserAccount from '../UserAccount'
+import type { TStore } from '../store'
+import UserAccount from '../UserAccount'
+import AddOns from '../AddOns'
+
 import {
   Wrapper,
   InnerWrapper,
   RouterWrapper,
+  Search,
+  HeaderSearchIcon,
   Operations,
-  UserInfoWrapper,
-  MoreIcon,
-} from '../styles/desktop_view/article_view'
-import { useInit } from '../logic'
+} from '../styles/desktop_view/community_view'
+import { useInit, openDoraemon } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
 
 let MailBox
 
-const HeaderContainer = ({ header: store }) => {
-  useInit(store)
+type TProps = {
+  // T.oneOf(values(METRIC)) TODO
+  metric?: string
+  header?: TStore
+}
+
+const CommunityHeaderContainer: React.FC<TProps> = ({
+  header: store,
+  metric = METRIC.COMMUNITY,
+}) => {
+  log('header metric: ', metric)
+  useInit(store, metric)
 
   const {
     isOnline,
@@ -39,6 +51,7 @@ const HeaderContainer = ({ header: store }) => {
     accountInfo,
     isLogin,
     curCommunity,
+    hasNoBottomBorder,
     accountInfo: {
       customization: { bannerLayout },
     },
@@ -59,35 +72,31 @@ const HeaderContainer = ({ header: store }) => {
       id="whereCallShowDoraemon"
       testid="header"
       leftOffset={leftOffset}
-      noBorder
+      noBorder={hasNoBottomBorder}
     >
-      <InnerWrapper layout={bannerLayout}>
+      <InnerWrapper metric={metric}>
         <RouterWrapper>
           <Navigator
             curCommunity={curCommunity}
-            layout={accountInfo.customization.bannerLayout}
+            layout={bannerLayout}
             isOnline={isOnline}
-            // showLogoText
+            metric={metric}
           />
         </RouterWrapper>
+        <AddOns />
         <Operations>
+          <Search onClick={openDoraemon} testid="header-search">
+            <HeaderSearchIcon testid="header-search-icon" />
+          </Search>
+
           {MailBox && <MailBox />}
           <UserLister />
           {/* <Cashier /> */}
-          <UserInfoWrapper>
-            <MoreIcon src={`${ICON}/shape/more-box.svg`} />
-            {/* <UserAccount isLogin={isLogin} accountInfo={accountInfo} /> */}
-          </UserInfoWrapper>
+          <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
         </Operations>
       </InnerWrapper>
     </Wrapper>
   )
 }
 
-HeaderContainer.propTypes = {
-  header: T.any.isRequired,
-}
-
-HeaderContainer.defaultProps = {}
-
-export default pluggedIn(HeaderContainer)
+export default pluggedIn(CommunityHeaderContainer, 'header') as React.FC<TProps>

@@ -6,7 +6,6 @@
 
 import React, { useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import T from 'prop-types'
 
 import { ICON } from '@/config'
 import { METRIC } from '@/constant'
@@ -14,6 +13,7 @@ import { pluggedIn, buildLog } from '@/utils'
 
 import Navigator from '@/components/Navigator'
 
+import type { TStore } from '../store'
 import {
   Wrapper,
   InnerWrapper,
@@ -29,19 +29,15 @@ const log = buildLog('C:Header')
 
 let MailBox
 
-const HeaderContainer = ({ header: store }) => {
-  useInit(store)
+type TProps = {
+  header?: TStore
+  metric?: string
+}
 
-  const {
-    isOnline,
-    leftOffset,
-    accountInfo,
-    isLogin,
-    curCommunity,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
-  } = store
+const ArticleEditorHeader: React.FC<TProps> = ({ header: store, metric }) => {
+  useInit(store, metric)
+
+  const { isOnline, leftOffset, accountInfo, isLogin, curCommunity } = store
 
   useEffect(() => {
     if (isLogin) {
@@ -60,7 +56,7 @@ const HeaderContainer = ({ header: store }) => {
       leftOffset={leftOffset}
       noBorder
     >
-      <InnerWrapper layout={bannerLayout} metric={METRIC.ARTICLE_EDITOR}>
+      <InnerWrapper>
         <RouterWrapper>
           <Navigator
             curCommunity={curCommunity}
@@ -78,10 +74,4 @@ const HeaderContainer = ({ header: store }) => {
   )
 }
 
-HeaderContainer.propTypes = {
-  header: T.any.isRequired,
-}
-
-HeaderContainer.defaultProps = {}
-
-export default pluggedIn(HeaderContainer)
+export default pluggedIn(ArticleEditorHeader, 'header') as React.FC<TProps>
