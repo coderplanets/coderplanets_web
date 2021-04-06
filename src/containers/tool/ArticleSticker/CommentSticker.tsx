@@ -29,7 +29,12 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:CommentSticker:index')
 
-const CommentSticker = ({
+type TProps = {
+  show: boolean
+  data?: any // TODO
+}
+
+const CommentSticker: React.FC<TProps> = ({
   show,
   data: { pagedCommentsParticipators: users },
 }) => {

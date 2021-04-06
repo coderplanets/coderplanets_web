@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TViewing } from '@/spec'
 import { ICON_BASE } from '@/config'
 import { Button } from '@/components/Buttons'
 
@@ -10,7 +11,12 @@ import {
   Divider,
 } from './styles/community_sticker'
 
-const CommunitySticker = () => {
+type TProps = {
+  data?: TViewing
+  show?: boolean
+}
+
+const CommunitySticker: React.FC<TProps> = ({ show, data }) => {
   return (
     <React.Fragment>
       <ItemWrapper>

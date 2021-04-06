@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { TArticle } from '@/spec'
 import { ICON } from '@/config'
 import { Br } from '@/components/Common'
 
@@ -14,7 +15,12 @@ import {
   Text,
 } from './styles/article_sticker'
 
-const CommonSticker = ({ show, viewing }) => {
+type TProps = {
+  show: boolean
+  viewing: TArticle
+}
+
+const ArticleSticker: React.FC<TProps> = ({ show, viewing }) => {
   return (
     <Wrapper show={show}>
       <ItemWrapper>
@@ -37,4 +43,4 @@ const CommonSticker = ({ show, viewing }) => {
   )
 }
 
-export default React.memo(CommonSticker)
+export default React.memo(ArticleSticker)

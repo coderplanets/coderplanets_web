@@ -14,9 +14,14 @@ import {
 } from '../styles/left_sticker/toc'
 import { toggleTocMenu } from '../logic'
 
-const Toc = ({ show }) => {
+type TProps = {
+  show: boolean
+  testid?: string
+}
+
+const Toc: React.FC<TProps> = ({ show, testid = 'article-sticker-toc' }) => {
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <HeaderWrapper onClick={toggleTocMenu}>
         <TitleWrapper>
           <TocIcon src={`${ICON}/article/outline.svg`} />
