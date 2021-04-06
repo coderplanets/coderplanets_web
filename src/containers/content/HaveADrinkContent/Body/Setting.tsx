@@ -1,5 +1,7 @@
 import React from 'react'
 
+import type { TSettingOption } from '../spec'
+
 import {
   Wrapper,
   Divider,
@@ -11,7 +13,13 @@ import {
 
 import { setSetting } from '../logic'
 
-const Setting = ({ settingOptions: { animateType, fontSize } }) => {
+type TProps = {
+  settingOptions: TSettingOption
+}
+
+const Setting: React.FC<TProps> = ({
+  settingOptions: { animateType, fontSize },
+}) => {
   return (
     <Wrapper>
       <Block>

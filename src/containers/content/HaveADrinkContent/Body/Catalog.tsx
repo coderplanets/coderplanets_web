@@ -128,7 +128,7 @@ const items = [
   },
 ]
 
-const Catalog = () => {
+const Catalog: React.FC = () => {
   return (
     <Wrapper>
       {items.map((item) => (

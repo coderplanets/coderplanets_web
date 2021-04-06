@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic'
 import { pluggedIn, buildLog, scrollToTop, lockPage, unlockPage } from '@/utils'
 import { useShortcut } from '@/hooks'
 
+import type { TStore } from './store'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -30,7 +31,15 @@ export const Body = dynamic(() => import('./Body'), {
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const HaveADrinkContentContainer = ({ haveADrinkContent: store }) => {
+type TProps = {
+  haveADrinkContent: TStore
+  metric: string
+}
+
+const HaveADrinkContentContainer: React.FC<TProps> = ({
+  haveADrinkContent: store,
+  metric,
+}) => {
   useInit(store)
 
   useShortcut('Space', () => {
@@ -44,7 +53,7 @@ const HaveADrinkContentContainer = ({ haveADrinkContent: store }) => {
 
   return (
     <Wrapper>
-      <InnerWrapper>
+      <InnerWrapper metric={metric}>
         <Header
           view={view}
           timer={timer}
@@ -62,4 +71,4 @@ const HaveADrinkContentContainer = ({ haveADrinkContent: store }) => {
   )
 }
 
-export default pluggedIn(HaveADrinkContentContainer)
+export default pluggedIn(HaveADrinkContentContainer) as React.FC<TProps>

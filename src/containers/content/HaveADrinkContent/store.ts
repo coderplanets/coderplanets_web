@@ -3,12 +3,13 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 
 import { markStates, buildLog } from '@/utils'
-import { LN } from './logic'
 
-const { VIEW } = LN
+import type { TSettingOption } from './spec'
+import { VIEW } from './constant'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:HaveADrinkContent')
 
@@ -47,20 +48,17 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
   ),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-    get curSentence() {
+    get curSentence(): string {
       const { pool, poolIdx } = self
 
       return pool[poolIdx]
     },
-    get settingOptions() {
+    get settingOptions(): TSettingOption {
       const { fontSize, animateType } = self
 
       return { fontSize, animateType }
     },
-    get timerIntervalVal() {
+    get timerIntervalVal(): number {
       const { timerInterval } = self
       return {
         '3s': 3000,
@@ -70,9 +68,10 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
     },
   }))
   .actions((self) => ({
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof HaveADrinkContent>
 export default HaveADrinkContent

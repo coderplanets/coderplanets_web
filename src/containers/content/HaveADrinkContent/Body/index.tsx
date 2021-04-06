@@ -9,19 +9,24 @@ import { AnimateOnChange } from 'react-animation'
 
 import { buildLog } from '@/utils'
 
+import type { TView, TSettingOption } from '../spec'
 import Catalog from './Catalog'
 import Setting from './Setting'
 import About from './About'
 
 import { Wrapper, Sentence, Hint } from '../styles/body'
-import { LN } from '../logic'
+import { VIEW } from '../constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const View = ({ view, sentence, settingOptions }) => {
-  const { VIEW } = LN
+type TViewProps = {
+  view: TView
+  sentence: string
+  settingOptions: TSettingOption
+}
 
+const View: React.FC<TViewProps> = ({ view, sentence, settingOptions }) => {
   const animate = {
     fade: {
       durationOut: 200,
@@ -59,10 +64,10 @@ const View = ({ view, sentence, settingOptions }) => {
   }
 }
 
-const Body = ({ ...restProps }) => {
+const Body = (props) => {
   return (
     <Wrapper>
-      <View {...restProps} />
+      <View {...props} />
     </Wrapper>
   )
 }

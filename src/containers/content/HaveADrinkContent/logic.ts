@@ -3,37 +3,26 @@ import { useEffect } from 'react'
 import { ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
 
+import { ANIMATE_TIMER_CLASS } from './constant'
+import type { TStore } from './store'
+
 const { SR71, $solver, asyncErr } = asyncSuit
 // import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
-let store = null
+
+let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:HaveADrinkContent')
-
-// local namespace
-export const LN = {
-  // class name of the animate timer components
-  ANIMATE_TIMER_CLASS: 'animate-timer',
-  VIEW: {
-    DEFAULT: 'default',
-    CATALOG: 'catalog',
-    SETTING: 'setting',
-    ABOUT: 'about',
-    EDIT: 'edit',
-    SHARE: 'share',
-    COMMENT: 'comment',
-  },
-}
 
 /**
  * change the main view type, and stop timer
  *
  * @param {string} view, view type
  */
-export const setView = (view) => {
+export const setView = (view: string): void => {
   store.mark({ view })
   stopTimer()
 }
@@ -44,7 +33,7 @@ export const setView = (view) => {
  * @param {key} optionObj, setting key
  * @param {val} string, setting value
  */
-export const setSetting = (key, val) => {
+export const setSetting = (key: string, val: string): void => {
   store.mark({ [key]: val })
   setView('default')
 }
@@ -56,13 +45,13 @@ export const setSetting = (key, val) => {
  * @return void
  * @priate
  */
-const resetAnimation = (elementClassName) => {
+const resetAnimation = (elementClassName: string): void => {
   const elements = document.querySelectorAll(`.${elementClassName}`)
 
   // first timer switch the animate part is not visible
   if (elements.length === 0) return
 
-  elements.forEach((el) => {
+  elements.forEach((el: HTMLElement) => {
     el.style.animation = 'none'
     el.offsetHeight /* trigger reflow */
     el.style.animation = null
@@ -73,12 +62,13 @@ const resetAnimation = (elementClassName) => {
  * start the refresh internal timer
  * @private
  */
-const startTimer = () => {
+const startTimer = (): void => {
   const { timerIntervalVal } = store
   let { timer } = store
 
-  resetAnimation(LN.ANIMATE_TIMER_CLASS)
+  resetAnimation(ANIMATE_TIMER_CLASS)
 
+  // @ts-ignore
   timer = setInterval(() => {
     refreshSentence()
   }, timerIntervalVal)
@@ -90,7 +80,7 @@ const startTimer = () => {
  * stop the refresh internal timer
  * @private
  */
-const stopTimer = () => {
+const stopTimer = (): void => {
   const { timer } = store
 
   clearInterval(timer)
@@ -101,7 +91,7 @@ const stopTimer = () => {
  * toggle the refresh internal timer
  * @private
  */
-export const toggleTimer = () => {
+export const toggleTimer = (): void => {
   const { timer } = store
   timer ? stopTimer() : startTimer()
 }
@@ -111,13 +101,13 @@ export const toggleTimer = () => {
  * @param {string} timerInterval, interval of the timer: 3s | 5s | 10s
  * @private
  */
-export const setTimerInterval = (timerInterval) => {
+export const setTimerInterval = (timerInterval: string): void => {
   stopTimer()
   store.mark({ timerInterval })
   startTimer()
 }
 
-export const refreshSentence = () => {
+export const refreshSentence = (): void => {
   const { pool, poolIdx } = store
 
   let nextPoolIdx
@@ -162,14 +152,14 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('effect init: ', store)
 
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     return () => {
-      if (!sub$) return false
+      if (!sub$) return
       sr71$.stop()
       sub$.unsubscribe()
     }

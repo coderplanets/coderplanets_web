@@ -11,16 +11,15 @@ import { buildLog } from '@/utils'
 
 import DotDivider from '@/components/DotDivider'
 
+import { VIEW } from '../constant'
 import { Wrapper, Icon } from '../styles/footer/feature'
-import { setView, LN } from '../logic'
+import { setView } from '../logic'
 // import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const Feature = () => {
-  const { VIEW } = LN
-
+const Feature: React.FC = () => {
   return (
     <Wrapper>
       <div onClick={() => setView(VIEW.ABOUT)}>
