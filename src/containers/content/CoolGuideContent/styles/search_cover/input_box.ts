@@ -19,8 +19,10 @@ export const InputWrapper = styled.div<{ noRound: boolean }>`
   opacity: 0.8;
   border: 1px solid;
   border-color: ${theme('content.cardBg')};
-  &:hover {
-    background-color: ${theme('content.cardBg')};
+
+  &:hover,
+  &:focus,
+  &:active {
     opacity: 1;
     border: 1px solid #1e6184;
   }
@@ -32,19 +34,6 @@ export const InputWrapper = styled.div<{ noRound: boolean }>`
     margin-left: 15%;
     padding: 8px;
   `};
-`
-export const InputMask = styled.div<TActive>`
-  ${css.flex('align-both')};
-  position: absolute;
-  display: ${({ show }) => (show ? 'flex' : 'none')};
-  top: 0;
-  left: 18px;
-  width: 400px;
-  height: 40px;
-`
-export const MaskNumer = styled.span`
-  color: #327faf;
-  margin-right: 4px;
 `
 export const InputBar = styled.input.attrs(() => ({
   spellCheck: 'false',
@@ -70,4 +59,17 @@ export const InputBar = styled.input.attrs(() => ({
   ::placeholder {
     color: #135868;
   }
+`
+export const InputMask = styled.div<TActive>`
+  ${css.flex('align-both')};
+  position: absolute;
+  display: ${({ show }) => (show ? 'flex' : 'none')};
+  top: 0;
+  left: 18px;
+  width: 400px;
+  height: 40px;
+`
+export const MaskNumer = styled.span`
+  color: #327faf;
+  margin-right: 4px;
 `
