@@ -3,13 +3,14 @@ import { useEffect } from 'react'
 
 import { buildLog } from '@/utils'
 // import S from './service'
+import type { TStore } from './store'
 
-let store = null
+let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleSticker')
 
-export const toggleTocMenu = () => {
+export const toggleTocMenu = (): void => {
   const isTocMenuOpened = !store.isTocMenuOpened
   const isLeftStickerLocked = isTocMenuOpened
 
@@ -20,7 +21,7 @@ export const toggleTocMenu = () => {
 // init & uninit handlers
 // ###############################
 
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

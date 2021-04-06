@@ -12,6 +12,7 @@ export type TArticle = {
     nickname: string
     avatar: string
   }
+  starredCount?: number
   origialCommunity?: TCommunity
   commentsParticipators?: TUser
   insertedAt?: string

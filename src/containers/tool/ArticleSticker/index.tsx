@@ -7,12 +7,13 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
 import { pluggedIn, buildLog } from '@/utils'
 
 import Sticky from '@/components/Sticky'
 import GotoTop from '@/components/GotoTop'
+
+import type { TStore } from './store'
 
 import LeftSticker from './LeftSticker/index'
 import CommunitySticker from './CommunitySticker'
@@ -25,7 +26,15 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleSticker')
 
-const ArticleStickerContainer = ({ articleSticker: store, testid }) => {
+type TProps = {
+  articleSticker?: TStore
+  testid?: string
+}
+
+const ArticleStickerContainer: React.FC<TProps> = ({
+  articleSticker: store,
+  testid = 'article-sticker',
+}) => {
   useInit(store)
 
   const {
@@ -65,13 +74,4 @@ const ArticleStickerContainer = ({ articleSticker: store, testid }) => {
   )
 }
 
-ArticleStickerContainer.propTypes = {
-  articleSticker: T.any.isRequired,
-  testid: T.string,
-}
-
-ArticleStickerContainer.defaultProps = {
-  testid: 'article-sticker',
-}
-
-export default pluggedIn(ArticleStickerContainer)
+export default pluggedIn(ArticleStickerContainer) as React.FC<TProps>

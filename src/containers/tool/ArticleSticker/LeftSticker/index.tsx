@@ -13,9 +13,21 @@ import {
   BackText,
 } from '../styles/left_sticker'
 
-const LeftSticker = ({ show, title, isTocMenuOpened }) => {
+type TProps = {
+  show: boolean
+  title: string
+  isTocMenuOpened: boolean
+  testid?: string
+}
+
+const LeftSticker: React.FC<TProps> = ({
+  show,
+  title,
+  isTocMenuOpened,
+  testid = 'article-sticker-left-sidebar',
+}) => {
   return (
-    <Wrapper show={show}>
+    <Wrapper show={show} testid={testid}>
       <BackWrapper>
         <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
         <BackText>Elixir 社区</BackText>
