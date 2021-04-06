@@ -18,7 +18,7 @@ import { setView, LN } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const Feature = () => {
+const Feature: React.FC = () => {
   const { VIEW } = LN
 
   return (

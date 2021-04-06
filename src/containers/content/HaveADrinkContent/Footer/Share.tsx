@@ -6,18 +6,19 @@
 
 import React from 'react'
 
+import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
 
-import { Wrapper } from '../styles/header/reaction'
+import { Wrapper, Icon } from '../styles/footer/share'
 // import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const Reaction = () => {
+const Reaction: React.FC = () => {
   return (
     <Wrapper>
-      <div>评论 | 喜欢</div>
+      <Icon src={`${ICON_CMD}/drink_share.svg`} />
     </Wrapper>
   )
 }

@@ -26,6 +26,7 @@ const View = ({ view, ...restProps }) => {
       return (
         <>
           <IndexStatus />
+          {/* @ts-ignore */}
           <Timer {...restProps} />
           <Reaction />
         </>
@@ -43,10 +44,10 @@ const View = ({ view, ...restProps }) => {
   }
 }
 
-const Header = ({ ...restProps }) => {
+const Header = (props) => {
   return (
     <Wrapper>
-      <View {...restProps} />
+      <View {...props} />
     </Wrapper>
   )
 }

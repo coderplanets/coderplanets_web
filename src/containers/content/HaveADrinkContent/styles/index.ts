@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   ${css.flexColumn('align-both')}
   width: 100%;
 `
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.div<{ metric: string }>`
   ${css.flexColumn('align-center', 'justify-between')};
   margin-top: 25px;
   margin-bottom: 40px;
@@ -16,6 +16,7 @@ export const InnerWrapper = styled.div`
   border-radius: 8px;
   background: ${theme('haveADrinkPage.bg')};
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
+  ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const LoadingSentence = styled.div`
   font-size: 18px;

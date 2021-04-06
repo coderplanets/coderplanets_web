@@ -9,6 +9,7 @@ import { AnimateOnChange } from 'react-animation'
 
 import { buildLog } from '@/utils'
 
+import type { TView, TSettingOption } from '../spec'
 import Catalog from './Catalog'
 import Setting from './Setting'
 import About from './About'
@@ -19,7 +20,13 @@ import { LN } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const View = ({ view, sentence, settingOptions }) => {
+type TViewProps = {
+  view: TView
+  sentence: string
+  settingOptions: TSettingOption
+}
+
+const View: React.FC<TViewProps> = ({ view, sentence, settingOptions }) => {
   const { VIEW } = LN
 
   const animate = {
@@ -59,10 +66,10 @@ const View = ({ view, sentence, settingOptions }) => {
   }
 }
 
-const Body = ({ ...restProps }) => {
+const Body = (props) => {
   return (
     <Wrapper>
-      <View {...restProps} />
+      <View {...props} />
     </Wrapper>
   )
 }

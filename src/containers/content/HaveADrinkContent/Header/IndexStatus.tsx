@@ -21,7 +21,7 @@ import { setView } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const IndexStatus = () => {
+const IndexStatus: React.FC = () => {
   return (
     <Wrapper>
       <Text>共&nbsp;</Text>

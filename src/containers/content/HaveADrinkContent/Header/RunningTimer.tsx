@@ -5,9 +5,10 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
 import { buildLog } from '@/utils'
+
+import type { TInterval } from '../spec'
 
 import {
   Wrapper,
@@ -21,7 +22,11 @@ import { LN } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const RunningTimer = ({ interval }) => {
+type TProps = {
+  interval?: TInterval
+}
+
+const RunningTimer: React.FC<TProps> = ({ interval = '3s' }) => {
   const { ANIMATE_TIMER_CLASS } = LN
   return (
     <Wrapper>
@@ -31,14 +36,6 @@ const RunningTimer = ({ interval }) => {
       <Mask className={ANIMATE_TIMER_CLASS} interval={interval} />
     </Wrapper>
   )
-}
-
-RunningTimer.propTypes = {
-  interval: T.oneOf(['3s', '5s', '10s']),
-}
-
-RunningTimer.defaultProps = {
-  interval: '3s',
 }
 
 export default React.memo(RunningTimer)

@@ -11,6 +11,8 @@ import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
 
 import ExpandIcon from '@/components/ExpandIcon'
+
+import type { TInterval } from '../spec'
 import RunningTimer from './RunningTimer'
 import {
   Wrapper,
@@ -58,7 +60,12 @@ const SettingPanel = ({ timer, timerInterval }) => {
   )
 }
 
-const Timer = ({ timer, timerInterval }) => {
+type TProps = {
+  timer: number | null
+  timerInterval?: TInterval
+}
+
+const Timer: React.FC<TProps> = ({ timer, timerInterval = '3s' }) => {
   return (
     <Wrapper>
       <ExpandIcon
@@ -74,16 +81,6 @@ const Timer = ({ timer, timerInterval }) => {
       />
     </Wrapper>
   )
-}
-
-Timer.propTypes = {
-  timer: T.oneOfType([T.number, T.instanceOf(null)]),
-  timerInterval: T.oneOf(['3s', '5s', '10s']),
-}
-
-Timer.defaultProps = {
-  timer: null,
-  timerInterval: '3s',
 }
 
 export default React.memo(Timer)

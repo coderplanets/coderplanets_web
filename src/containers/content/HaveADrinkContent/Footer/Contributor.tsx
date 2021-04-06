@@ -20,7 +20,7 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const IndexStatus = () => {
+const IndexStatus: React.FC = () => {
   return (
     <Wrapper>
       <Text>共收录</Text>

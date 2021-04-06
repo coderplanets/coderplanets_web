@@ -8,6 +8,8 @@ import React from 'react'
 
 import { buildLog } from '@/utils'
 
+import type { TView } from '../spec'
+
 import Contributor from './Contributor'
 import Feature from './Feature'
 import Share from './Share'
@@ -37,7 +39,11 @@ const View = ({ view }) => {
   }
 }
 
-const Footer = ({ view }) => {
+type TProps = {
+  view: TView
+}
+
+const Footer: React.FC<TProps> = ({ view }) => {
   return (
     <Wrapper>
       <View view={view} />

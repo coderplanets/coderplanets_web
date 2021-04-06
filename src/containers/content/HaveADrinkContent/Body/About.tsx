@@ -8,7 +8,7 @@ import React from 'react'
 
 import { Wrapper, Title, Body } from '../styles/body/about'
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <Wrapper>
       <Title>关于『来一杯』</Title>
