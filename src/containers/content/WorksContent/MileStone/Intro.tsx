@@ -12,7 +12,7 @@ import {
   LinkBtn,
 } from '../styles/mile_stone/intro'
 
-const Intro = () => {
+const Intro: React.FC = () => {
   return (
     <Wrapper>
       <Main>
@@ -29,4 +29,4 @@ const Intro = () => {
   )
 }
 
-export default Intro
+export default React.memo(Intro)

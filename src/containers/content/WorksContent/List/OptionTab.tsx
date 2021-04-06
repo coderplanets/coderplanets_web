@@ -2,11 +2,19 @@ import React from 'react'
 
 import { Wrapper, ItemWrapper, Text } from '../styles/list/option_tab'
 
-const BestTab = ({ items, activeKey }) => {
+type TProps = {
+  activeKey: string
+  items: {
+    title: string
+    raw: string
+  }[]
+}
+
+const BestTab: React.FC<TProps> = ({ items, activeKey }) => {
   return (
     <Wrapper>
       {items.map((item) => (
-        <ItemWrapper key={item.key} active={item.raw === activeKey}>
+        <ItemWrapper key={item.raw} active={item.raw === activeKey}>
           <Text active={item.raw === activeKey}>{item.title}</Text>
         </ItemWrapper>
       ))}

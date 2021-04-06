@@ -6,7 +6,7 @@ import HorizontalButton from './HorizontalButton'
 import VerticalButton from './VerticalButton'
 
 export type TProps = {
-  direction: 'row' | 'column'
+  direction?: 'row' | 'column'
   size?: TSIZE_SM
   activeKey: string
   onClick: (key: string) => void
@@ -14,10 +14,9 @@ export type TProps = {
     key: string
     title: string
   }[]
-  children: React.ReactNode
 }
 
-const OrButton: React.FC<TProps> = ({ direction, ...restProps }) => {
+const OrButton: React.FC<TProps> = ({ direction = 'row', ...restProps }) => {
   return direction === 'row' ? (
     <HorizontalButton {...restProps} />
   ) : (

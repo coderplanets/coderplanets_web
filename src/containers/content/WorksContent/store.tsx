@@ -3,7 +3,7 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 
 import { values } from 'ramda'
 import { markStates, buildLog } from '@/utils'
@@ -15,16 +15,11 @@ const log = buildLog('S:WorksContent')
 
 const WorksContent = T.model('WorksContent', {
   activeView: T.optional(T.enumeration(values(VIEW)), VIEW.WORKS),
-})
-  .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-  }))
-  .actions((self) => ({
-    mark(sobj) {
-      markStates(sobj, self)
-    },
-  }))
+}).actions((self) => ({
+  mark(sobj: Record<string, unknown>): void {
+    markStates(sobj, self)
+  },
+}))
 
+export type TStore = Instance<typeof WorksContent>
 export default WorksContent

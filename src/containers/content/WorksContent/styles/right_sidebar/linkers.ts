@@ -1,12 +1,9 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
 import { css, theme } from '@/utils'
 import Img from '@/Img'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>`
+export const Wrapper = styled.div`
   ${css.flex('align-end', 'justify-between')};
   width: 100%;
   color: ${theme('thread.articleDigest')};

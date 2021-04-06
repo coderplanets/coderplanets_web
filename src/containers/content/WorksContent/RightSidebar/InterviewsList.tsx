@@ -16,7 +16,7 @@ import {
 
 const icon = 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/works/market1.jpeg'
 
-const Interview = () => {
+const Interview: React.FC = () => {
   return (
     <InterviewWrapper>
       <Avatar
@@ -37,9 +37,15 @@ const Interview = () => {
   )
 }
 
-const InterviewsList = () => {
+type TProps = {
+  testid?: string
+}
+
+const InterviewsList: React.FC<TProps> = ({
+  testid = 'works-content-interviews',
+}) => {
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <Interview />
       <Interview />
       <Interview />

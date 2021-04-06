@@ -56,7 +56,7 @@ const item = {
   isOpenSource: true,
 }
 
-const Trending = () => {
+const Trending: React.FC = () => {
   const activeKey = 'month'
 
   return (
