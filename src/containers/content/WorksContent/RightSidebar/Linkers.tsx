@@ -28,7 +28,7 @@ const Addr = ({ title, desc }) => {
   )
 }
 
-const MakersInfo = () => {
+const MakersInfo: React.FC = () => {
   return (
     <Wrapper>
       <Addr title="产品猎人" desc="优秀产品/服务的酷导航.." />
@@ -37,4 +37,4 @@ const MakersInfo = () => {
   )
 }
 
-export default MakersInfo
+export default React.memo(MakersInfo)

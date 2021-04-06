@@ -12,9 +12,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-top: 30px;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const LeftSidebarWrapper = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>`
+export const LeftSidebarWrapper = styled.div`
   width: 182px;
 `
 export const ContentWrapper = styled.div`

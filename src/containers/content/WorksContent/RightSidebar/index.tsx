@@ -34,14 +34,19 @@ const options = [
   },
 ]
 
-const RightSidebar = () => {
+type TProps = {
+  testid?: string
+}
+
+const RightSidebar: React.FC<TProps> = ({
+  testid = 'works-content-right-sidebar',
+}) => {
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <Linkers />
       <Divider top={18} bottom={22} />
       <PublishBtnWrapper>
         <DropdownButton
-          type="primary"
           options={options}
           onClick={(key) => {
             console.log('key: ', key)
@@ -67,4 +72,4 @@ const RightSidebar = () => {
   )
 }
 
-export default RightSidebar
+export default React.memo(RightSidebar)

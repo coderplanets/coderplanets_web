@@ -11,9 +11,10 @@ import { pluggedIn, buildLog } from '@/utils'
 import Pagi from '@/components/Pagi'
 import AvatarsRow from '@/components/AvatarsRow'
 
+import type { TStore } from './store'
+
 import { VIEW } from './constant'
 
-// import Banner from './Banner'
 import Brand from './Brand'
 import FilterBar from './FilterBar'
 import List from './List'
@@ -66,13 +67,22 @@ const tmpUsers = [
   },
 ]
 
-const WorksContentContainer = ({ worksContent: store, metric }) => {
+type TProps = {
+  worksContent: TStore
+  metric: string
+  testid?: string
+}
+const WorksContentContainer: React.FC<TProps> = ({
+  worksContent: store,
+  metric,
+  testid = 'worksContent',
+}) => {
   useInit(store)
 
   const { activeView } = store
 
   return (
-    <Wrapper testid="worksContent" metric={metric}>
+    <Wrapper testid={testid} metric={metric}>
       <ContentWrapper>
         <LeftSidebarWrapper>
           <Brand />
@@ -93,4 +103,4 @@ const WorksContentContainer = ({ worksContent: store, metric }) => {
   )
 }
 
-export default pluggedIn(WorksContentContainer)
+export default pluggedIn(WorksContentContainer) as React.FC<TProps>

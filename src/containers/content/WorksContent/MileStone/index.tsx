@@ -5,7 +5,7 @@ import Detail from './Detail'
 
 import { Wrapper, Block } from '../styles/mile_stone'
 
-const MileStone = () => {
+const MileStone: React.FC = () => {
   return (
     <Wrapper>
       <Block>
@@ -24,4 +24,4 @@ const MileStone = () => {
   )
 }
 
-export default MileStone
+export default React.memo(MileStone)

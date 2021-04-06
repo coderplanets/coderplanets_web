@@ -39,7 +39,7 @@ type TProps = {
   testid?: string
   items: TMenuItem[]
 
-  onSelect: (id: string, type: string) => void
+  onSelect?: (id: string, type: string) => void
   onShowMore?: () => void
 }
 

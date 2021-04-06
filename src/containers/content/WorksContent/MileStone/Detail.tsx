@@ -12,7 +12,7 @@ import {
   CoverImage,
 } from '../styles/mile_stone/detail'
 
-const Detail = () => {
+const Detail: React.FC = () => {
   return (
     <Wrapper>
       <Main>
@@ -29,4 +29,4 @@ const Detail = () => {
   )
 }
 
-export default Detail
+export default React.memo(Detail)

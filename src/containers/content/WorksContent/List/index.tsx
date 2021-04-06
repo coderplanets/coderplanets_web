@@ -71,7 +71,7 @@ const lists = [
   { ...item, id: 7 },
 ]
 
-const List = () => {
+const List: React.FC = () => {
   return (
     <Wrapper>
       <Trending />
