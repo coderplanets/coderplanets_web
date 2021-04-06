@@ -10,6 +10,7 @@ import { buildLog } from '@/utils'
 
 import type { TInterval } from '../spec'
 
+import { ANIMATE_TIMER_CLASS } from '../constant'
 import {
   Wrapper,
   TopHandlerBar,
@@ -17,7 +18,6 @@ import {
   PieFiller,
   Mask,
 } from '../styles/header/running_timer'
-import { LN } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
@@ -27,7 +27,6 @@ type TProps = {
 }
 
 const RunningTimer: React.FC<TProps> = ({ interval = '3s' }) => {
-  const { ANIMATE_TIMER_CLASS } = LN
   return (
     <Wrapper>
       <TopHandlerBar className={ANIMATE_TIMER_CLASS} />

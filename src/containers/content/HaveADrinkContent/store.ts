@@ -8,9 +8,8 @@ import { types as T, Instance } from 'mobx-state-tree'
 import { markStates, buildLog } from '@/utils'
 
 import type { TSettingOption } from './spec'
-import { LN } from './logic'
+import { VIEW } from './constant'
 
-const { VIEW } = LN
 /* eslint-disable-next-line */
 const log = buildLog('S:HaveADrinkContent')
 

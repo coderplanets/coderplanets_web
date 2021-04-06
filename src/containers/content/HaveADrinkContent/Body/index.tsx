@@ -15,7 +15,7 @@ import Setting from './Setting'
 import About from './About'
 
 import { Wrapper, Sentence, Hint } from '../styles/body'
-import { LN } from '../logic'
+import { VIEW } from '../constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
@@ -27,8 +27,6 @@ type TViewProps = {
 }
 
 const View: React.FC<TViewProps> = ({ view, sentence, settingOptions }) => {
-  const { VIEW } = LN
-
   const animate = {
     fade: {
       durationOut: 200,

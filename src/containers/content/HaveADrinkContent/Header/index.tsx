@@ -13,14 +13,14 @@ import IndexStatus from './IndexStatus'
 import Timer from './Timer'
 import Reaction from './Reaction'
 
+import { VIEW } from '../constant'
 import { Wrapper, GoBackWrapper, BackText, BackIcon } from '../styles/header'
-import { setView, LN } from '../logic'
+import { setView } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
 const View = ({ view, ...restProps }) => {
-  const { VIEW } = LN
   switch (view) {
     case VIEW.DEFAULT: {
       return (

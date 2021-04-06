@@ -14,15 +14,13 @@ import Contributor from './Contributor'
 import Feature from './Feature'
 import Share from './Share'
 
+import { VIEW } from '../constant'
 import { Wrapper } from '../styles/header'
-import { LN } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
 const View = ({ view }) => {
-  const { VIEW } = LN
-
   switch (view) {
     case VIEW.DEFAULT: {
       return (

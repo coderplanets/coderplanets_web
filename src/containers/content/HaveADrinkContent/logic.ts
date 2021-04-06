@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
 
+import { ANIMATE_TIMER_CLASS } from './constant'
 import type { TStore } from './store'
 
 const { SR71, $solver, asyncErr } = asyncSuit
@@ -15,21 +16,6 @@ let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:HaveADrinkContent')
-
-// local namespace
-export const LN = {
-  // class name of the animate timer components
-  ANIMATE_TIMER_CLASS: 'animate-timer',
-  VIEW: {
-    DEFAULT: 'default',
-    CATALOG: 'catalog',
-    SETTING: 'setting',
-    ABOUT: 'about',
-    EDIT: 'edit',
-    SHARE: 'share',
-    COMMENT: 'comment',
-  },
-}
 
 /**
  * change the main view type, and stop timer
@@ -80,7 +66,7 @@ const startTimer = (): void => {
   const { timerIntervalVal } = store
   let { timer } = store
 
-  resetAnimation(LN.ANIMATE_TIMER_CLASS)
+  resetAnimation(ANIMATE_TIMER_CLASS)
 
   // @ts-ignore
   timer = setInterval(() => {
