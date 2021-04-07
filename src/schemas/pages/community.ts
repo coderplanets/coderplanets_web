@@ -27,7 +27,6 @@ export const community = `
       editorsCount
       postsCount
       jobsCount
-      videosCount
       reposCount
     }
   }

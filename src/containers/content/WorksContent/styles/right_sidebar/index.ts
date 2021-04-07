@@ -9,7 +9,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexColumn()};
   width: 200px;
-  margin-left: 40px;
+  margin-left: 42px;
   color: ${theme('thread.articleDigest')};
 `
 export const SubDesc = styled.div`
@@ -36,6 +36,9 @@ export const PublishIcon = styled(Img)`
 export const PublishBtnWrapper = styled.div`
   margin-left: 2px;
   margin-right: 2px;
+`
+export const InterviewsWrapper = styled.div`
+  margin-left: 3px;
 `
 export const Footer = styled.div`
   ${css.flex('justify-center')};

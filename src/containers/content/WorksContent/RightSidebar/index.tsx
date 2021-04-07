@@ -16,6 +16,7 @@ import {
   Divider,
   PublishIcon,
   PublishBtnWrapper,
+  InterviewsWrapper,
   Footer,
 } from '../styles/right_sidebar/index'
 
@@ -57,9 +58,11 @@ const RightSidebar: React.FC<TProps> = ({
         </DropdownButton>
       </PublishBtnWrapper>
       <Br top={16} bottom={20} />
-      <SubTitle withMore>开发者访谈</SubTitle>
-      <SubDesc>积极发掘有趣的开发者们，了解优秀产品背后的故事。</SubDesc>
-      <InterviewsList />
+      <InterviewsWrapper>
+        <SubTitle withMore>开发者访谈</SubTitle>
+        <SubDesc>积极发掘有趣的开发者们，了解优秀产品背后的故事。</SubDesc>
+        <InterviewsList />
+      </InterviewsWrapper>
       <Br top={20} bottom={20} />
       <EmailSubscriber
         activeByDefault

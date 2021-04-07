@@ -5,10 +5,9 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
 import { ICON, ICON_CMD } from '@/config'
-import { buildLog, cutRest, nilOrEmpty } from '@/utils'
+import { buildLog, cutRest } from '@/utils'
 
 import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
@@ -28,36 +27,47 @@ import {
   TechIcon,
   Divider,
   GithubIcon,
-} from './styles'
+} from './styles/works_card'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:WorksCard:index')
 
-const getSafeValue = (mode, value, defaultValue) => {
-  return mode === 'preview' && nilOrEmpty(value) ? defaultValue : value
+type TProps = {
+  testid?: string
+  withBg?: boolean
+  mode?: 'default' | 'preview'
+  item: {
+    cover: string
+    title: string
+    desc: string
+    tag: {
+      title: string
+    }
+    platform: {
+      title: string
+    }
+    techStack: {
+      icon: string
+      raw: string
+    }[]
+    insertedAt: string
+    upvote: number
+    commentsCount: number
+    isOSS: boolean
+    ossAddr?: boolean
+  }
 }
 
-const WorksCard = ({
-  withBg,
-  testid,
-  mode,
+const WorksCard: React.FC<TProps> = ({
+  testid = 'works-card',
   item,
-  defaultTitle,
-  defaultDesc,
-  defaultUpvote,
-  defaultCommentsCount,
+  withBg = false,
+  mode = 'default',
+  // item,
 }) => {
   const descLimit = mode === 'default' ? 30 : 20
 
-  const title = getSafeValue(mode, item.title, defaultTitle)
-  const desc = getSafeValue(mode, item.desc, defaultDesc)
-
-  const upvote = getSafeValue(mode, item.upvote, defaultUpvote)
-  const commentsCount = getSafeValue(
-    mode,
-    item.commentsCount,
-    defaultCommentsCount,
-  )
+  const { title, desc, upvote, commentsCount } = item
 
   return (
     <Wrapper testid={testid} withBg={withBg}>
@@ -71,7 +81,7 @@ const WorksCard = ({
         <Header>
           <div>
             <Title>{title}</Title>
-            <DigestSentence top={5} bottom={15}>
+            <DigestSentence top={5} bottom={15} onPreview={() => log}>
               {cutRest(desc, descLimit)}
             </DigestSentence>
           </div>
@@ -125,49 +135,6 @@ const WorksCard = ({
       </IntroWrapper>
     </Wrapper>
   )
-}
-
-WorksCard.propTypes = {
-  testid: T.string,
-  withBg: T.bool,
-  mode: T.oneOf(['default', 'preview']),
-  item: T.shape({
-    cover: T.string,
-    title: T.string,
-    desc: T.string,
-    tag: T.shape({
-      title: T.string,
-    }),
-    platform: T.shape({
-      title: T.string,
-    }),
-    techStack: T.arrayOf(
-      T.shape({
-        icon: T.string,
-      }),
-    ),
-    insertedAt: T.string,
-    upvote: T.number,
-    commentsCount: T.number,
-    isOSS: T.bool,
-    ossAddr: T.bool,
-  }).isRequired,
-
-  defaultTitle: T.string,
-  defaultDesc: T.string,
-  defaultUpvote: T.number,
-  defaultCommentsCount: T.number,
-}
-
-WorksCard.defaultProps = {
-  testid: 'works-card',
-  withBg: false,
-  mode: 'default',
-  defaultTitle: '作品名称',
-  defaultDesc: '作品简介',
-  defaultUpvote: 99,
-  defaultCommentsCount: 66,
-  // item,
 }
 
 export default React.memo(WorksCard)

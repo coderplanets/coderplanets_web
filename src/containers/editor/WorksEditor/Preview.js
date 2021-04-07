@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import { ICON_BASE } from '@/config'
-import WorksCard from '@/components/WorksCard'
+import WorksCard from '@/components/Cards/WorksCard'
 import { STEP } from './constant'
 
 import { Wrapper } from './styles/preview'

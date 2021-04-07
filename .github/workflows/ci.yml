@@ -42,6 +42,9 @@ jobs:
       - name: (Backend) Install Packages
         working-directory: ./backend_server
         run: mix deps.get > /dev/null
+      - name: (Backend) run migration
+        working-directory: ./backend_server
+        run: MIX_ENV=ci MIX_ENV=ci mix ecto.migrate > /dev/null
       - name: (Backend) set up test DB
         working-directory: ./backend_server
         run: MIX_ENV=ci mix ecto.setup > /dev/null

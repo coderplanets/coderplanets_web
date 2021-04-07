@@ -1,9 +1,10 @@
 import React from 'react'
 
 import { ICON_BASE, ASSETS_ENDPOINT } from '@/config'
+import { mockWorks } from '@/utils'
 
 import { ArrowButton } from '@/components/Buttons'
-import WorksCard from '@/components/WorksCard'
+import WorksCard from '@/components/Cards/WorksCard'
 
 import { BEST } from '../constant'
 
@@ -22,39 +23,7 @@ const options = [
   },
 ]
 
-const item = {
-  cover: `${ASSETS_ENDPOINT}/works/market1.jpeg`,
-  title: 'coderplanets',
-  desc: '作品简介',
-  tag: {
-    title: '协作工具',
-  },
-  platform: {
-    title: '网站',
-  },
-  techStack: [
-    {
-      raw: 'javascript',
-      icon: `${ICON_BASE}/pl/javascript.svg`,
-    },
-    {
-      raw: 'java',
-      icon: `${ICON_BASE}/pl/java.svg`,
-    },
-    {
-      raw: 'elixir',
-      icon: `${ICON_BASE}/pl/elxiir.svg`,
-    },
-    {
-      raw: 'ruby',
-      icon: `${ICON_BASE}/pl/ruby.svg`,
-    },
-  ],
-  upvote: 99,
-  commentsCount: 99,
-  insertedAt: '',
-  isOpenSource: true,
-}
+const item = mockWorks()
 
 const Trending: React.FC = () => {
   const activeKey = 'month'
