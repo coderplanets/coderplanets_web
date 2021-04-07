@@ -15,14 +15,23 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   width: 100%;
   padding: 6px 20px;
   padding-right: 15px;
+  border-radius: 3px;
 
   border-bottom: 1px solid;
   border-bottom-color: #0b3b4a;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
 
   :last-child {
     border-bottom: none;
   }
-  transition: all 0.25s;
+
+  &:hover {
+    background: #0d3440;
+    border-left-color: #0b3b4a;
+    border-right-color: #0b3b4a;
+  }
+  transition: all 0.1s;
 `
 export const IntroImg = styled(Img)`
   ${css.size(70)};

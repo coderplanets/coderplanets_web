@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
   ${css.flex('align-center')};
   width: 200px;
 
-  margin-top: 10px;
-  margin-bottom: 8px;
+  margin-top: 6px;
+  margin-bottom: 12px;
   margin-left: 20px;
 `
 export const ItemWrapper = styled.div<TActive>`

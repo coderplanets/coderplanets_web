@@ -1,12 +1,10 @@
 import React from 'react'
 
-import { ICON_BASE, ASSETS_ENDPOINT } from '@/config'
-
+import { mockWorks } from '@/utils'
 // import { Br } from '@/components/Common'
-import WorksCard from '@/components/WorksCard'
+import WorksCard from '@/components/Cards/WorksCard'
 
 import { LAUNCH } from '../constant'
-
 // import Trending from './Trending'
 import OptionTab from './OptionTab'
 
@@ -27,40 +25,7 @@ const options = [
   },
 ]
 
-const item = {
-  cover: `${ASSETS_ENDPOINT}/works/market1.jpeg`,
-  title: 'coderplanets',
-  desc: '可能是最性感的开发者社区',
-  isOSS: true,
-  tag: {
-    title: '协作工具',
-  },
-  platform: {
-    title: '网站',
-  },
-  techStack: [
-    {
-      raw: 'javascript',
-      icon: `${ICON_BASE}/pl/javascript.svg`,
-    },
-    {
-      raw: 'java',
-      icon: `${ICON_BASE}/pl/java.svg`,
-    },
-    {
-      raw: 'elixir',
-      icon: `${ICON_BASE}/pl/elxiir.svg`,
-    },
-    {
-      raw: 'ruby',
-      icon: `${ICON_BASE}/pl/ruby.svg`,
-    },
-  ],
-  upvote: 99,
-  commentsCount: 99,
-  insertedAt: '3天前',
-  isOpenSource: true,
-}
+const item = mockWorks()
 
 const lists = [
   { ...item, id: 1 },
