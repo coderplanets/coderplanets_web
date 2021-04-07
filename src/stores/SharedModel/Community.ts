@@ -26,7 +26,6 @@ export const Community = T.model('Community', {
   subscribersCount: T.optional(T.number, 0),
   editorsCount: T.optional(T.number, 0),
   postsCount: T.optional(T.number, 0),
-  videosCount: T.optional(T.number, 0),
   jobsCount: T.optional(T.number, 0),
   reposCount: T.optional(T.number, 0),
   viewerHasSubscribed: T.maybeNull(T.boolean),

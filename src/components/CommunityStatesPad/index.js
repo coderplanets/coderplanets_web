@@ -36,14 +36,13 @@ const CommunityStatesPad = ({
     editorsCount,
     subscribersCount,
     postsCount,
-    videosCount,
     reposCount,
     jobsCount,
     viewerHasSubscribed,
   } = community
   const { isMobile } = useDevice()
 
-  const contentsCount = postsCount + videosCount + reposCount + jobsCount
+  const contentsCount = postsCount + reposCount + jobsCount
 
   return (
     <Wrapper>
@@ -89,7 +88,6 @@ CommunityStatesPad.propTypes = {
     subscribersCount: T.number,
     editorsCount: T.number,
     postsCount: T.number,
-    videosCount: T.number,
     reposCount: T.number,
     jobsCount: T.number,
     viewerHasSubscribed: T.bool,
@@ -104,7 +102,6 @@ CommunityStatesPad.defaultProps = {
     subscribersCount: 0,
     editorsCount: 0,
     postsCount: 0,
-    videosCount: 0,
     reposCount: 0,
     jobsCount: 0,
     viewerHasSubscribed: false,
