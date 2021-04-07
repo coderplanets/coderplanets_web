@@ -32,25 +32,25 @@ describe('home page: ', () => {
   })
 
   // TODO: modify keys not working ..
-  it.skip('doramon Comp should close after shortcut pressed', () => {
-    // ctrl + C pressed
-    cy.id('header-search').click()
-    cy.id('doraemon-inputer').should('be.visible')
-    cy.id('doraemon-inputer').type('{ctrl}C', { release: true })
-    cy.id('doraemon-inputer').should('not.be.visible')
+  // it.skip('doramon Comp should close after shortcut pressed', () => {
+  //   // ctrl + C pressed
+  //   cy.id('header-search').click()
+  //   cy.id('doraemon-inputer').should('be.visible')
+  //   cy.id('doraemon-inputer').type('{ctrl}C', { release: true })
+  //   cy.id('doraemon-inputer').should('not.be.visible')
 
-    // ctrl + G pressed
-    cy.id('header-search').click()
-    cy.id('doraemon-inputer').should('be.visible')
-    cy.id('doraemon-inputer').type('{ctrl}G')
-    cy.id('doraemon-inputer').should('not.be.visible')
+  //   // ctrl + G pressed
+  //   cy.id('header-search').click()
+  //   cy.id('doraemon-inputer').should('be.visible')
+  //   cy.id('doraemon-inputer').type('{ctrl}G')
+  //   cy.id('doraemon-inputer').should('not.be.visible')
 
-    // esc pressed
-    cy.id('header-search').click()
-    cy.id('doraemon-inputer').should('be.visible')
-    cy.id('doraemon-inputer').type('{esc}')
-    cy.id('doraemon-inputer').should('not.be.visible')
-  })
+  //   // esc pressed
+  //   cy.id('header-search').click()
+  //   cy.id('doraemon-inputer').should('be.visible')
+  //   cy.id('doraemon-inputer').type('{esc}')
+  //   cy.id('doraemon-inputer').should('not.be.visible')
+  // })
 
   it('user-related area should be seen', () => {
     cy.id('header-unlogin-user').should('be.visible')
