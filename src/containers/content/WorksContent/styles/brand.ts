@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TSpace } from '@/spec'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -19,4 +19,11 @@ export const Title = styled.div`
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
+`
+export const Divider = styled.div<TSpace>`
+  height: 1px;
+  width: 60%;
+  background: #004353;
+  margin-top: 32px;
+  opacity: 0.6;
 `

@@ -2,27 +2,27 @@ import React from 'react'
 
 import { ICON_BASE, ASSETS_ENDPOINT } from '@/config'
 
-import { Br } from '@/components/Common'
+// import { Br } from '@/components/Common'
 import WorksCard from '@/components/WorksCard'
 
 import { LAUNCH } from '../constant'
 
-import Trending from './Trending'
+// import Trending from './Trending'
 import OptionTab from './OptionTab'
 
 import { Wrapper, TabWrapper } from '../styles/list'
 
 const options = [
   {
-    title: '全部',
+    title: '作品',
     raw: LAUNCH.ALL,
   },
   {
-    title: '已发布',
+    title: '讨论',
     raw: LAUNCH.PUBLISHED,
   },
   {
-    title: '预发布',
+    title: '里程碑',
     raw: LAUNCH.PRE_PUBLISH,
   },
 ]
@@ -31,6 +31,7 @@ const item = {
   cover: `${ASSETS_ENDPOINT}/works/market1.jpeg`,
   title: 'coderplanets',
   desc: '可能是最性感的开发者社区',
+  isOSS: true,
   tag: {
     title: '协作工具',
   },
@@ -74,8 +75,8 @@ const lists = [
 const List: React.FC = () => {
   return (
     <Wrapper>
-      <Trending />
-      <Br top={15} />
+      {/* <Trending /> */}
+      {/* <Br top={15} /> */}
       <TabWrapper>
         <OptionTab items={options} activeKey="all" />
       </TabWrapper>
