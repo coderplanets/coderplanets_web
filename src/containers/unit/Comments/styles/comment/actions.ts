@@ -4,7 +4,8 @@ import { theme, css } from '@/utils'
 // import { CommentBodyInfo } from './index'
 
 export const Wrapper = styled.div`
-  ${css.flex()};
+  ${css.flex('align-center')};
+  width: 100%;
 
   ${css.media.mobile`
     font-size: 12px;
@@ -13,7 +14,6 @@ export const Wrapper = styled.div`
 export const ReplyAction = styled.div`
   ${css.flex()};
   color: ${theme('comment.action')};
-  margin-right: 12px;
   cursor: pointer;
   font-weight: bold;
   opacity: 1;
