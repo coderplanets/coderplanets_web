@@ -25,7 +25,6 @@ export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
 export const CommentBodyInfo = styled.div`
   ${css.flexColumn()};
   width: 100%;
-  margin-top: 3px;
 `
 export const CommentContent = styled.div`
   font-size: 0.9rem;

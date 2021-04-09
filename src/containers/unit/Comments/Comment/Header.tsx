@@ -1,36 +1,22 @@
 import React from 'react'
-import { forEach, clone, pluck } from 'ramda'
+import TimeAgo from 'timeago-react'
 
 import type { TComment } from '@/spec'
 
 import ImgFallback from '@/components/ImgFallback'
-import AvatarsRow from '@/components/AvatarsRow'
 import DotDivider from '@/components/DotDivider'
 
 import {
   Wrapper,
   FloorNum,
+  CreateDate,
   Avatar,
   HeaderBaseInfo,
-  CommentUserName,
-  CommentHeaderFirst,
-  ReplyUsers,
-  ReplyTitle,
+  BaseInfo,
+  UserName,
+  AuthorTag,
+  ShortIntro,
 } from '../styles/comment/header'
-
-import { previewReply } from '../logic'
-
-const getAuthors = (comment) => {
-  /* eslint-disable no-return-assign */
-  const replies = forEach((reply) => {
-    /* @ts-ignore */
-    return (reply.author.extraId = reply.id)
-  }, clone(comment.replies))
-  /* eslint-enable */
-
-  /* @ts-ignore */
-  return pluck('author', replies)
-}
 
 type TProps = {
   data: TComment
@@ -44,23 +30,18 @@ const CommentHeader: React.FC<TProps> = ({ data }) => {
         fallback={<ImgFallback user={data.author} size={22} right={10} />}
       />
       <HeaderBaseInfo>
-        <CommentHeaderFirst>
-          <CommentUserName>
-            {data.author.nickname}
-            <DotDivider radius={3} space={10} />
-            <FloorNum>#{data.floor}</FloorNum>
-          </CommentUserName>
-          {data.repliesCount !== 0 && (
-            <ReplyUsers>
-              <ReplyTitle>收到回复:</ReplyTitle>
-              <AvatarsRow
-                users={getAuthors(data)}
-                onUserSelect={previewReply}
-                total={data.repliesCount}
-              />
-            </ReplyUsers>
-          )}
-        </CommentHeaderFirst>
+        <BaseInfo>
+          <UserName>
+            <div>{data.author.nickname}</div>
+            <AuthorTag>作者</AuthorTag>
+          </UserName>
+          <FloorNum>#{data.floor}</FloorNum>
+          <DotDivider radius={3} space={10} />
+          <CreateDate>
+            <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
+          </CreateDate>
+        </BaseInfo>
+        <ShortIntro>1 号员工 / CEO at coderplanets</ShortIntro>
       </HeaderBaseInfo>
     </Wrapper>
   )

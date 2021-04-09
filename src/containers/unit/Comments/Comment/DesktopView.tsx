@@ -6,7 +6,7 @@ import { Global } from '@/utils'
 
 import MarkDownRender from '@/components/MarkDownRender'
 
-import UpInfo from './UpInfo'
+import Upvote from './Upvote'
 import Header from './Header'
 import ReplyBar from './ReplyBar'
 import DeleteMask from './DeleteMask'
@@ -37,7 +37,7 @@ const Comment: React.FC<TProps> = ({ data, tobeDeleteId, accountInfo }) => {
     <Wrapper>
       <DeleteMask show={data.id === tobeDeleteId} />
       <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
-        <UpInfo data={data} />
+        <Upvote data={data} />
 
         <CommentBodyInfo onMouseUp={getSelection}>
           <Header data={data} />

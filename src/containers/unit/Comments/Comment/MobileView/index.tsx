@@ -3,7 +3,7 @@ import React from 'react'
 import { Br } from '@/components/Common'
 import MarkDownRender from '@/components/MarkDownRender'
 
-import UpInfo from '../UpInfo'
+import Upvote from '../Upvote'
 import ReplyBar from '../ReplyBar'
 import DeleteMask from '../DeleteMask'
 import Footer from '../Footer'
@@ -40,7 +40,7 @@ const MobileView = ({ data, tobeDeleteId, accountInfo }) => {
           <Footer data={data} accountInfo={accountInfo} />
         </CommentBodyInfo>
       </CommentWrapper>
-      <UpInfo data={data} />
+      <Upvote data={data} />
     </Wrapper>
   )
 }
