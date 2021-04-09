@@ -6,7 +6,7 @@ import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  width: 200px;
+  width: 100%;
 
   margin-top: 6px;
   margin-bottom: 12px;
@@ -16,7 +16,7 @@ export const ItemWrapper = styled.div<TActive>`
   ${css.flex('align-both')};
   cursor: pointer;
   background-color: ${({ active }) => (active ? '#03404e' : 'transparent')};
-  margin-right: 2px;
+  margin-right: 8px;
   border-radius: 10px;
   padding: ${({ active }) => (active ? '2px 16px' : '2px 8px')};
 `

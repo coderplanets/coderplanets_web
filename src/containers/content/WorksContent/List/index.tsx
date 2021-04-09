@@ -20,6 +20,10 @@ const options = [
     raw: LAUNCH.PUBLISHED,
   },
   {
+    title: '创作者',
+    raw: LAUNCH.PRE_PUBLISH,
+  },
+  {
     title: '里程碑',
     raw: LAUNCH.PRE_PUBLISH,
   },
