@@ -8,7 +8,7 @@ import { send } from '@/utils'
 // import MorePanel from '../MorePanel'
 import { Wrapper, SiteLink, MobileIcon } from '../styles/main_entries'
 
-export const openMobileNaviMenu = () => {
+export const openMobileNaviMenu = (): void => {
   send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.GLOBAL_MENU,
@@ -16,22 +16,14 @@ export const openMobileNaviMenu = () => {
   })
 }
 
-const MainEntries = () => {
+const MainEntries: React.FC = () => {
   return (
-    <Wrapper onClick={openMobileNaviMenu}>
-      <SiteLink as="span">
+    <Wrapper type="todo" onClick={openMobileNaviMenu}>
+      <SiteLink as="span" testid="header-mobile">
         <MobileIcon src={`${ICON}/shape/more-3.svg`} />
       </SiteLink>
     </Wrapper>
   )
-}
-
-MainEntries.propTypes = {
-  // type: T.oneOfType([T.string, T.instanceOf(null)]),
-}
-
-MainEntries.defaultProps = {
-  // type: null,
 }
 
 export default React.memo(MainEntries)

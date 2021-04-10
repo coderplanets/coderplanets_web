@@ -13,7 +13,11 @@ import { Wrapper, DotDivider, SiteLink, Icon } from '../styles/main_entries'
 
 const splitMargin = 7
 
-const DesktopView = ({ type }) => {
+type TProps = {
+  type: string
+}
+
+const DesktopView: React.FC<TProps> = ({ type }) => {
   const router = useRouter()
   const mainPath = getRouteMainPath(router.asPath)
 
@@ -27,18 +31,11 @@ const DesktopView = ({ type }) => {
           发现
         </SiteLink>
       </Link>
-      {/* <DotDivider space={splitMargin} />
-      <SiteLink>专栏</SiteLink> */}
-      {/* <Tooltip
-        placement="bottom"
-        trigger="click"
-        content={<DiscussLinker title="专栏" addr={`${ISSUE_ADDR}/265`} />}
-      >
-        <SiteLink>专栏</SiteLink>
-      </Tooltip> */}
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.WORKS}`} passHref>
-        <SiteLink active={mainPath === ROUTE.WORKS}>作品集市</SiteLink>
+        <SiteLink active={mainPath === ROUTE.WORKS} testid="header-works-link">
+          作品集市
+        </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.COOL_GUIDE}`} passHref>
@@ -50,12 +47,13 @@ const DesktopView = ({ type }) => {
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
-      <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
-        <SiteLink>工作</SiteLink>
-      </Link>
-      <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.MEETUPS}`} passHref>
-        <SiteLink active={mainPath === ROUTE.MEETUPS}>活动</SiteLink>
+        <SiteLink
+          active={mainPath === ROUTE.MEETUPS}
+          testid="header-meetups-link"
+        >
+          活动
+        </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
@@ -73,20 +71,12 @@ const DesktopView = ({ type }) => {
         hideOnClick={false}
         noPadding
       >
-        <SiteLink>
+        <SiteLink testid="header-more-link">
           更多 <Icon src={`${ICON_CMD}/arrow_down.svg`} />
         </SiteLink>
       </Tooltip>
     </Wrapper>
   )
-}
-
-DesktopView.propTypes = {
-  type: T.oneOfType([T.string, T.instanceOf(null)]),
-}
-
-DesktopView.defaultProps = {
-  type: null,
 }
 
 export default React.memo(DesktopView)

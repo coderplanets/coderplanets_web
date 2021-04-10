@@ -11,6 +11,7 @@ export const StyledTippy = styled(Tippy)`
   color: ${theme('thread.articleDigest')};
   box-shadow: ${theme('popover.boxShadow')};
   outline: none;
+  max-width: 480px !important;
 
   border-radius: 5px;
   padding: 10px;
@@ -21,6 +22,9 @@ export const StyledTippy = styled(Tippy)`
 `
 export const NoPaddingStyledTippy = styled(StyledTippy)`
   padding: 0;
+  .tippy-content {
+    padding: 0;
+  }
 `
 export const ContentWrapper = styled.div<{ contentHeight: string }>`
   position: relative;
