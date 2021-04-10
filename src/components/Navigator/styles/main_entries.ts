@@ -20,9 +20,10 @@ export const DotDivider = styled(DotDividerBase)`
   width: 4px;
   height: 4px;
 `
+type TSiteLink = TTestable & TActive
 export const SiteLink = styled.a.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable & TActive>`
+}))<TSiteLink>`
   ${css.flex('align-center')};
   color: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
