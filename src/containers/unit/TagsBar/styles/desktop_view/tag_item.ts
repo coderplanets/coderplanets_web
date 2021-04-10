@@ -35,7 +35,8 @@ const getActiveColor = (active, color, activeid) => {
   return !active ? color : '#497684'
 }
 
-export const HashSign = styled(HashTagSVG)`
+type THashSign = TActive & { color: string; activeid: string; inline: boolean }
+export const HashSign = styled(HashTagSVG)<THashSign>`
   fill: ${({ active, color, activeid }) =>
     getActiveColor(active, color, activeid)};
   ${css.size(14)};

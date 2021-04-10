@@ -25,7 +25,7 @@ export const Title = styled.div`
   `};
 `
 export const MoreText = styled.div``
-export const HashSign = styled(HashTagSVG)`
+export const HashSign = styled(HashTagSVG)<{ color: string }>`
   fill: ${({ color }) => color};
   ${css.size(12)};
   transform: rotate(18deg);
