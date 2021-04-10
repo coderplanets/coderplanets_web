@@ -10,7 +10,7 @@ import { pluggedIn, buildLog } from '@/utils'
 import Modal from '@/components/Modal'
 
 import CommentEditor from './CommentEditor'
-import CommentsList from './CommentsList'
+import List from './List'
 import CommentReplyEditor from './CommentReplyEditor'
 import LockedMessage from './LockedMessage'
 
@@ -75,7 +75,7 @@ const CommentsContainer: React.FC<TProps> = ({
         />
       )}
 
-      <CommentsList
+      <List
         accountInfo={accountInfo}
         pagedComments={pagedCommentsData}
         restProps={{ ...store }}
