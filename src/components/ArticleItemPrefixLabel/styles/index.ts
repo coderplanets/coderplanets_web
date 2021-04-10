@@ -17,7 +17,7 @@ export const ReadedLabel = styled.div<{ topOffset: string }>`
     font-size: 0.8rem;
   `};
 `
-export const PinIcon = styled(PinSVG)`
+export const PinIcon = styled(PinSVG)<{ top: string }>`
   fill: ${theme('thread.articleDigest')};
   position: absolute;
   ${css.size(18)};

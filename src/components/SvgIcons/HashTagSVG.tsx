@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SvgComponent(props) {
+const SvgComponent: React.FC = (props) => {
   return (
     <svg
       className="prefix__icon"
