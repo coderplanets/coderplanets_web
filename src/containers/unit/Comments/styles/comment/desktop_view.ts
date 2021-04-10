@@ -3,20 +3,39 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+import PinSVG from '@/SvgIcons/PinSVG'
+
+export const Wrapper = styled.div<{ pined: boolean }>`
+  position: relative;
   ${css.flex()};
-  /* margin-bottom: 16px; */
   margin-bottom: 14px;
   padding: 15px 5px;
-  /* padding-left: 20px; */
+  padding-top: ${({ pined }) => (pined ? '24px' : '15px')};
   position: relative;
-  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); */
-  /* border-radius: 3px; */
-  /* background: ${theme('comment.bg')}; */
   background: transparent;
   border-bottom: 1px solid;
   border-bottom-color: #0b4252;
 `
+export const PinState = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  ${css.flex('align-center')};
+  margin-left: 5px;
+`
+export const PinIcon = styled(PinSVG)`
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(14)};
+  opacity: 0.8;
+  transform: rotate(-30deg);
+`
+export const PinText = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.articleDigest')};
+  margin-left: 12px;
+  opacity: 0.8;
+`
+
 // filter: blur(3px);
 export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
   ${css.flexGrow()};

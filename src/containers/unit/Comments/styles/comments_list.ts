@@ -49,3 +49,28 @@ export const CommentBlock = styled.div`
   border-radius: 3px;
   background: ${theme('drawer.articleBg')};
 `
+
+export const TopStatesWrapper = styled.div`
+  ${css.flex('align-center')};
+`
+export const PinState = styled.div`
+  font-size: 12px;
+`
+// date divider
+export const DateDivider = styled.div`
+  ${css.flex('align-center')};
+  color: ${theme('thread.articleDigest')};
+  padding-bottom: 10px;
+`
+export const SlashSign = styled.div`
+  font-size: 10px;
+  font-weight: bolder;
+  font-family: cursive;
+  margin-right: 10px;
+  margin-left: 6px;
+  opacity: 0.8;
+`
+export const DateText = styled.div`
+  font-size: 12px;
+  opacity: 0.8;
+`

@@ -15,6 +15,13 @@ import {
   TotalCountWrapper,
   TotalNum,
   CommentBlock,
+  //
+  TopStatesWrapper,
+  PinState,
+  //
+  DateDivider,
+  SlashSign,
+  DateText,
 } from './styles/comments_list'
 
 type TListsProps = {
@@ -28,16 +35,22 @@ const Lists: React.FC<TListsProps> = ({
   tobeDeleteId,
   accountInfo,
 }) => (
-  <>
-    {entries.map((c) => (
-      <Comment
-        key={c.id}
-        data={c}
-        tobeDeleteId={tobeDeleteId}
-        accountInfo={accountInfo}
-      />
+  <React.Fragment>
+    {entries.map((c, index) => (
+      <div key={c.id}>
+        <Comment
+          data={c}
+          tobeDeleteId={tobeDeleteId}
+          accountInfo={accountInfo}
+        />
+        {(index === 1 || index === 3) && (
+          <DateDivider>
+            <SlashSign>&#47;&#47;</SlashSign> <DateText>一个月后</DateText>
+          </DateDivider>
+        )}
+      </div>
     ))}
-  </>
+  </React.Fragment>
 )
 
 type TTotalCountTextProps = {
