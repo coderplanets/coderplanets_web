@@ -2,15 +2,10 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
-// min-height: 300px;
-export const ListsContainer = styled.div`
-  ${css.flexColumn('')};
-  border-radius: 4px;
-`
-export const TotalHeader = styled.div`
+export const Wrapper = styled.div`
   ${css.flex('align-center')};
   margin-top: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 
   ${css.media.mobile`
     border-bottom: 1px solid;
@@ -22,7 +17,7 @@ export const TotalHeader = styled.div`
 export const TotalCountWrapper = styled.div`
   flex-grow: 1;
 `
-export const ListTitle = styled.div`
+export const TotalTitle = styled.div`
   color: ${theme('comment.title')};
   font-size: 14px;
   margin-left: 2px;

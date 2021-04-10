@@ -17,6 +17,9 @@ import {
   CommentWrapper,
   CommentContent,
   CommentBodyInfo,
+  PinState,
+  PinIcon,
+  PinText,
 } from '../styles/comment/desktop_view'
 
 const getSelection = () => {
@@ -33,8 +36,16 @@ type TProps = {
 }
 
 const Comment: React.FC<TProps> = ({ data, tobeDeleteId, accountInfo }) => {
+  const pined = data.id === '360' || data.id === '377'
+
   return (
-    <Wrapper>
+    <Wrapper pined={pined}>
+      {pined && (
+        <PinState>
+          <PinIcon />
+          <PinText>置顶评论</PinText>
+        </PinState>
+      )}
       <DeleteMask show={data.id === tobeDeleteId} />
       <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
         <Upvote data={data} />
@@ -45,7 +56,6 @@ const Comment: React.FC<TProps> = ({ data, tobeDeleteId, accountInfo }) => {
             {data.replyTo && <ReplyBar data={data.replyTo} />}
             <MarkDownRender body={data.body} />
           </CommentContent>
-
           <Footer data={data} accountInfo={accountInfo} />
         </CommentBodyInfo>
       </CommentWrapper>
