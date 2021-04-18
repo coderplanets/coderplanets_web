@@ -7,7 +7,7 @@ import { Wrapper as CommentBlock } from './desktop_view'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 14px;
+  margin-bottom: 15px;
 `
 export const Avatar = styled(Img)`
   ${css.circle(24)};

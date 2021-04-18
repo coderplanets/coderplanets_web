@@ -26,13 +26,13 @@ export const PinState = styled.div`
 export const PinIcon = styled(PinSVG)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  opacity: 0.8;
+  opacity: 0.9;
   transform: rotate(-30deg);
 `
 export const PinText = styled.div`
   font-size: 12px;
   color: ${theme('thread.articleDigest')};
-  margin-left: 12px;
+  margin-left: 14px;
   opacity: 0.8;
 `
 
@@ -41,12 +41,34 @@ export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
   ${css.flexGrow()};
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
+export const SidebarWrapper = styled.div`
+  ${css.flexColumn('align-start')};
+  height: 100%;
+  min-width: 34px;
+`
+export const BadgePopContent = styled.div`
+  padding: 5px 10px;
+  font-size: 12px;
+`
+export const AuthorUpvotedIcon = styled(Img)`
+  ${css.size(14)};
+  fill: ${theme('comment.icon')};
+  opacity: 0.6;
+  margin-top: 3px;
+`
+export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
+  ${css.size(14)};
+  fill: ${theme('baseColor.green')};
+  margin-top: ${({ isAuthorUpvoted }) => (isAuthorUpvoted ? '7px' : '3px')};
+  margin-left: 1px;
+`
 export const CommentBodyInfo = styled.div`
   ${css.flexColumn()};
   width: 100%;
 `
 export const CommentContent = styled.div`
-  font-size: 0.9rem;
+  font-size: 14px;
+  margin-left: 1px;
 `
 export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};

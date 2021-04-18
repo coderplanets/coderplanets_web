@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import type { TSpace } from '@/spec'
 
 export const Br = styled.div<TSpace>`
-  margin-top: ${({ top }) => `${top}px` || 0};
-  margin-bottom: ${({ bottom }) => `${bottom}px` || 0};
+  margin-top: ${({ top }) => `${top || 0}px`};
+  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
 `
 export const Space = styled.span<TSpace>`
   margin-left: ${({ left }) => `${left}px` || 0};
