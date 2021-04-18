@@ -44,7 +44,7 @@ export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
 export const SidebarWrapper = styled.div`
   ${css.flexColumn('align-start')};
   height: 100%;
-  min-width: 34px;
+  min-width: 35px;
 `
 export const BadgePopContent = styled.div`
   padding: 5px 10px;
