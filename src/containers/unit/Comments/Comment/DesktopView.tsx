@@ -26,6 +26,7 @@ import {
   AuthorUpvotedIcon,
   SolutionIcon,
   BadgePopContent,
+  RangeLine,
 } from '../styles/comment/desktop_view'
 
 const getSelection = () => {
@@ -39,9 +40,15 @@ type TProps = {
   data: TComment
   accountInfo: TAccount
   tobeDeleteId: string
+  hasReplies?: boolean
 }
 
-const Comment: React.FC<TProps> = ({ data, tobeDeleteId, accountInfo }) => {
+const Comment: React.FC<TProps> = ({
+  data,
+  tobeDeleteId,
+  accountInfo,
+  hasReplies = false,
+}) => {
   const pined = data.id === '360' || data.id === '377'
   const isAuthorUpvoted =
     data.id === '377' || data.id === '355' || data.id === '359'
@@ -80,6 +87,7 @@ const Comment: React.FC<TProps> = ({ data, tobeDeleteId, accountInfo }) => {
               />
             </Tooltip>
           )}
+          <RangeLine hasReplies={hasReplies} />
         </SidebarWrapper>
 
         <CommentBodyInfo onMouseUp={getSelection}>

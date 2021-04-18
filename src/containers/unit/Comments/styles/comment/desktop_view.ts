@@ -5,16 +5,19 @@ import { theme, css } from '@/utils'
 
 import PinSVG from '@/SvgIcons/PinSVG'
 
-export const Wrapper = styled.div<{ pined: boolean }>`
+type TWrapper = {
+  pined: boolean
+}
+
+export const Wrapper = styled.div<TWrapper>`
   position: relative;
   ${css.flex()};
-  margin-bottom: 14px;
-  padding: 15px 5px;
+  margin-left: 5px;
+
   padding-top: ${({ pined }) => (pined ? '24px' : '15px')};
+  padding-bottom: 0;
   position: relative;
   background: transparent;
-  border-bottom: 1px solid;
-  border-bottom-color: #0b4252;
 `
 export const PinState = styled.div`
   position: absolute;
@@ -61,6 +64,24 @@ export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
   fill: ${theme('baseColor.green')};
   margin-top: ${({ isAuthorUpvoted }) => (isAuthorUpvoted ? '7px' : '3px')};
   margin-left: 1px;
+`
+export const RangeLine = styled.div<{ hasReplies: boolean }>`
+  flex-grow: 1;
+  width: 25px;
+  height: 100%;
+  border-left: 1px solid;
+  border-left-color: #004251;
+  margin-left: 6px;
+  margin-top: 8px;
+  opacity: 0;
+  opacity: ${({ hasReplies }) => (hasReplies ? 1 : 0)};
+
+  ${SidebarWrapper}:hover & {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  transition: all 0.25s;
 `
 export const CommentBodyInfo = styled.div`
   ${css.flexColumn()};
