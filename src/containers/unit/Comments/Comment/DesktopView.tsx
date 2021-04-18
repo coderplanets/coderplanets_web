@@ -41,6 +41,7 @@ type TProps = {
   accountInfo: TAccount
   tobeDeleteId: string
   hasReplies?: boolean
+  withoutBottomDivider?: boolean
 }
 
 const Comment: React.FC<TProps> = ({
@@ -48,6 +49,7 @@ const Comment: React.FC<TProps> = ({
   tobeDeleteId,
   accountInfo,
   hasReplies = false,
+  withoutBottomDivider = false,
 }) => {
   const pined = data.id === '360' || data.id === '377'
   const isAuthorUpvoted =
@@ -96,7 +98,12 @@ const Comment: React.FC<TProps> = ({
             {data.replyTo && <ReplyBar data={data.replyTo} />}
             <MarkDownRender body={data.body} />
           </CommentContent>
-          <Footer data={data} accountInfo={accountInfo} />
+          <Footer
+            data={data}
+            accountInfo={accountInfo}
+            withoutBottomDivider={withoutBottomDivider}
+            hasReplies={hasReplies}
+          />
         </CommentBodyInfo>
       </CommentWrapper>
     </Wrapper>

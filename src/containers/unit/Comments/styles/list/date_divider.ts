@@ -5,6 +5,7 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
+  padding-top: 12px;
   padding-bottom: 10px;
 `
 export const SlashSign = styled.div`

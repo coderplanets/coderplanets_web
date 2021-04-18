@@ -25,8 +25,7 @@ const RepliesList: React.FC<TProps> = ({
           data={c}
           tobeDeleteId={tobeDeleteId}
           accountInfo={accountInfo}
-          dividerPos="top"
-          marginSpace="small"
+          withoutBottomDivider={c.id === '328'}
         />
         {(index === 1 || index === 3) && <DateDivider text="一个月后" />}
       </RepliesCommentsWrapper>

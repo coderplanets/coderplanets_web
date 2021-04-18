@@ -13,9 +13,7 @@ export const Wrapper = styled.div<TWrapper>`
   position: relative;
   ${css.flex()};
   margin-left: 5px;
-
-  padding-top: ${({ pined }) => (pined ? '24px' : '15px')};
-  padding-bottom: 0;
+  padding-top: ${({ pined }) => (pined ? '24px' : '20px')};
   position: relative;
   background: transparent;
 `
@@ -24,7 +22,7 @@ export const PinState = styled.div`
   top: 0;
   left: 0;
   ${css.flex('align-center')};
-  margin-left: 5px;
+  margin-left: 1px;
 `
 export const PinIcon = styled(PinSVG)`
   fill: ${theme('thread.articleDigest')};
@@ -35,7 +33,7 @@ export const PinIcon = styled(PinSVG)`
 export const PinText = styled.div`
   font-size: 12px;
   color: ${theme('thread.articleDigest')};
-  margin-left: 14px;
+  margin-left: 15px;
   opacity: 0.8;
 `
 
