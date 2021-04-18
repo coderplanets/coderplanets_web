@@ -12,27 +12,29 @@ type TProps = {
   accountInfo: TAccount
 }
 
-const List: React.FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => (
-  <React.Fragment>
-    {entries.map((c, index) => (
-      <React.Fragment key={c.id}>
-        <Comment
-          data={c}
-          tobeDeleteId={tobeDeleteId}
-          accountInfo={accountInfo}
-          hasReplies={c.id === '377'}
-        />
-        {(index === 1 || index === 3) && <DateDivider text="一个月后" />}
-        {c.id === '377' && (
-          <RepliesList
-            entries={entries}
-            accountInfo={accountInfo}
+const List: React.FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
+  return (
+    <React.Fragment>
+      {entries.map((c) => (
+        <React.Fragment key={c.id}>
+          <Comment
+            data={c}
             tobeDeleteId={tobeDeleteId}
+            accountInfo={accountInfo}
+            hasReplies={c.id === '377'}
           />
-        )}
-      </React.Fragment>
-    ))}
-  </React.Fragment>
-)
+          {c.id === '354' && <DateDivider text="一个月后" />}
+          {c.id === '377' && (
+            <RepliesList
+              entries={entries}
+              accountInfo={accountInfo}
+              tobeDeleteId={tobeDeleteId}
+            />
+          )}
+        </React.Fragment>
+      ))}
+    </React.Fragment>
+  )
+}
 
 export default React.memo(List)

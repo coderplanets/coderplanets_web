@@ -2,7 +2,7 @@ import React from 'react'
 
 import type { TAccount, TComment } from '@/spec'
 
-import DateDivider from './DateDivider'
+import TogglerButton from './TogglerButton'
 import Comment from '../Comment'
 
 import { RepliesWrapper, RepliesCommentsWrapper } from '../styles/list/list'
@@ -17,20 +17,22 @@ const RepliesList: React.FC<TProps> = ({
   entries,
   tobeDeleteId,
   accountInfo,
-}) => (
-  <RepliesWrapper>
-    {entries.slice(7, 9).map((c, index) => (
-      <RepliesCommentsWrapper key={c.id}>
-        <Comment
-          data={c}
-          tobeDeleteId={tobeDeleteId}
-          accountInfo={accountInfo}
-          withoutBottomDivider={c.id === '328'}
-        />
-        {(index === 1 || index === 3) && <DateDivider text="一个月后" />}
-      </RepliesCommentsWrapper>
-    ))}
-  </RepliesWrapper>
-)
+}) => {
+  return (
+    <RepliesWrapper>
+      {entries.slice(7, 9).map((c) => (
+        <RepliesCommentsWrapper key={c.id}>
+          <Comment
+            data={c}
+            tobeDeleteId={tobeDeleteId}
+            accountInfo={accountInfo}
+            withoutBottomDivider={c.id === '328'}
+          />
+        </RepliesCommentsWrapper>
+      ))}
+      <TogglerButton text="展开 236 条回复" />
+    </RepliesWrapper>
+  )
+}
 
 export default React.memo(RepliesList)
