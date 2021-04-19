@@ -25,7 +25,7 @@ const Footer: React.FC<TProps> = ({
 }) => (
   <Wrapper withoutBottomDivider={withoutBottomDivider} hasReplies={hasReplies}>
     <Emotion />
-    <DotDivider radius={3} space={6} />
+    <DotDivider radius={3} space={10} />
     <Actions data={data} accountInfo={accountInfo} />
     <SpaceGrow />
   </Wrapper>

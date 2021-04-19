@@ -74,11 +74,11 @@ const Header: React.FC<TProps> = ({ totalCount, filterType }) => {
         </ActionTooltip>
         {isAllFolded ? (
           <ActionTooltip desc="展开全部">
-            <FoldIcon src={`${ICON}/shape/fold-all.svg`} active />
+            <FoldIcon src={`${ICON}/shape/expand-all.svg`} active />
           </ActionTooltip>
         ) : (
           <ActionTooltip desc="折叠全部">
-            <ExpandIcon src={`${ICON}/shape/expand-all.svg`} />
+            <ExpandIcon src={`${ICON}/shape/fold-all.svg`} />
           </ActionTooltip>
         )}
         <Space right={4} />
