@@ -29,6 +29,7 @@ export const NoPaddingStyledTippy = styled(StyledTippy)`
 export const ContentWrapper = styled.div<{ contentHeight: string }>`
   position: relative;
   height: ${({ contentHeight }) => contentHeight};
+  z-index: 1;
 `
 const Arrow = styled.div`
   position: absolute;

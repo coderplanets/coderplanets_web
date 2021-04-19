@@ -50,22 +50,10 @@ export const Label = styled.label`
     cursor: pointer;
   }
 `
-export const IconHoverWrapper = styled.div`
-  position: relative;
-`
-export const HoverText = styled.span`
-  position: absolute;
-  width: 80px;
-  left: -20px;
-  top: 30px;
-  font-size: 12px;
-  opacity: 0;
-  overflow: hidden;
-  ${IconHoverWrapper}:hover & {
-    opacity: 1;
-  }
-  transition: opacity 0.25s;
-  transition-delay: 0.3s;
+export const DescText = styled.div`
+  ${css.flex('align-both')};
+  min-width: 90px;
+  padding: 5px 10px;
 `
 export const Icon = styled(Img)<{ checked: boolean }>`
   fill: ${({ checked }) =>
@@ -81,7 +69,7 @@ export const Slider = styled.span<{ index: number }>`
   width: ${width};
   height: ${height};
   background-color: #0b3546;
-  z-index: 1;
+  z-index: 0;
   border-radius: 6px;
 
   ${Wrapper}:hover & {
