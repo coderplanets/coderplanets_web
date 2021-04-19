@@ -21,7 +21,7 @@ import TabPublishSVG from '@/SvgIcons/TabPublishSVG'
 import TabBillingSVG from '@/SvgIcons/TabBillingSVG'
 import TabCommentsSVG from '@/SvgIcons/TabCommentsSVG'
 import TabSettingsSVG from '@/SvgIcons/TabSettingsSVG'
-import TabFavoritesSVG from '@/SvgIcons/TabFavoritesSVG'
+import TabFavoritesSVG from '@/components/SvgIcons/TabFavoritesSVG'
 
 export const LableWrapper = styled.div`
   ${css.flex('align-center')};

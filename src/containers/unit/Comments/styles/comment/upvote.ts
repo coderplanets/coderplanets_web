@@ -6,7 +6,6 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flexColumn('align-start', 'justify-start')};
   color: ${theme('thread.articleTitle')};
-  min-width: 32px;
   margin-top: 5px;
 
   ${css.media.mobile`
