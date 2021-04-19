@@ -1,6 +1,11 @@
 import React from 'react'
 
-import { Wrapper, SlashSign, DateText } from '../styles/list/toggler_button'
+import {
+  Wrapper,
+  SlashSign,
+  DividerLine,
+  Text,
+} from '../styles/list/toggler_button'
 
 type TProps = {
   text: string
@@ -8,7 +13,9 @@ type TProps = {
 
 const TogglerButton: React.FC<TProps> = ({ text }) => (
   <Wrapper>
-    <SlashSign>&#47;&#47;</SlashSign> <DateText>{text}</DateText>
+    <SlashSign>&#47;&#47;</SlashSign>
+    <DividerLine />
+    <Text>{text}</Text>
   </Wrapper>
 )
 

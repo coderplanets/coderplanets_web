@@ -13,11 +13,18 @@ export const SlashSign = styled.div`
   font-size: 10px;
   font-weight: bolder;
   font-family: cursive;
-  margin-right: 10px;
   margin-left: 6px;
   opacity: 0.8;
 `
-export const DateText = styled.div`
+export const DividerLine = styled.div`
+  width: 10px;
+  height: 1px;
+  background: ${theme('thread.articleDigest')};
+  opacity: 0.6;
+  margin-left: 7px;
+  margin-right: 7px;
+`
+export const Text = styled.div`
   font-size: 12px;
   opacity: 0.8;
   color: #00a59b;
