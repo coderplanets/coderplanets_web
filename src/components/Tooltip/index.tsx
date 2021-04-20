@@ -49,7 +49,7 @@ type TProps = {
 
 const Tooltip: React.FC<TProps> = ({
   children,
-  animation = 'fade',
+  animation = 'scale',
   noPadding = false,
   onHide,
   onShow,

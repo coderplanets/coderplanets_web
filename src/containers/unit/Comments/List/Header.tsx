@@ -33,7 +33,7 @@ const ActionTooltip: React.FC<TActionTooltip> = ({ children, desc }) => {
     <Tooltip
       content={<IconDescText>{desc}</IconDescText>}
       placement="bottom"
-      delay={1000}
+      delay={200}
       noPadding
     >
       {children}

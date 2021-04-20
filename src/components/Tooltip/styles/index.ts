@@ -6,8 +6,6 @@ import { css, theme } from '@/utils'
 export const StyledTippy = styled(Tippy)`
   position: relative;
   background: ${theme('popover.bg')};
-  border: 1px solid;
-  border-color: ${theme('popover.borderColor')};
   color: ${theme('thread.articleDigest')};
   box-shadow: ${theme('popover.boxShadow')};
   outline: none;
