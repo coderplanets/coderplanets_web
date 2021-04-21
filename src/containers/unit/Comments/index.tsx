@@ -7,7 +7,9 @@
 import React from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
+
 import Modal from '@/components/Modal'
+import NoticeBar from '@/components/NoticeBar'
 
 import CommentEditor from './CommentEditor'
 import List from './List'
@@ -74,6 +76,15 @@ const CommentsContainer: React.FC<TProps> = ({
           restProps={{ ...store }}
         />
       )}
+
+      <br />
+      <NoticeBar
+        type="lock"
+        content="关闭了评论: 已解决"
+        timestamp={new Date().toLocaleDateString()}
+        user={{ nickname: 'mydearxym' }}
+        isArticleAuthor
+      />
 
       <List
         accountInfo={accountInfo}
