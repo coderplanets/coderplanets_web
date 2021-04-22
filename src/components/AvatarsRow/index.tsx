@@ -13,21 +13,12 @@ import { AVATARS_LIST_LENGTH } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
 
-import Tooltip from '@/components/Tooltip'
 import type { TAvatarSize } from './spec'
 
+import RealAvatar from './RealAvatar'
 import MoreItem from './MoreItem'
 
-import { getAvatarSize } from './styles/metric'
-import {
-  Wrapper,
-  AvatarsWrapper,
-  AvatarsItem,
-  AvatarsImg,
-  AvatarFallback,
-  TotalOneOffset,
-  UserPopContent,
-} from './styles'
+import { Wrapper, AvatarsWrapper, TotalOneOffset } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:AvatarsRow:index')
@@ -59,33 +50,6 @@ export type TProps = {
 
   onUserSelect: (user: TUser) => void
   onTotalSelect: () => void
-}
-
-const RealAvatar = ({ user, size, onUserSelect }) => {
-  return (
-    <Tooltip
-      content={<UserPopContent>{user.nickname}</UserPopContent>}
-      delay={200}
-      contentHeight={getAvatarSize(size, 'number') as string}
-      showArrow={false}
-      noPadding
-    >
-      <AvatarsItem key={user.id} size={size}>
-        <AvatarsImg
-          src={user.avatar}
-          size={size}
-          onClick={() => onUserSelect(user)}
-          scrollPosition={null}
-          fallback={
-            <AvatarFallback
-              size={getAvatarSize(size, 'number') as number}
-              user={user}
-            />
-          }
-        />
-      </AvatarsItem>
-    </Tooltip>
-  )
 }
 
 const AvatarsRow: React.FC<TProps> = ({
