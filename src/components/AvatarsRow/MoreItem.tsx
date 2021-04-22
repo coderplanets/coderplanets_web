@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { prettyNum } from '@/utils'
+import { Br } from '@/components/Common'
 import Tooltip from '@/components/Tooltip'
 
 import type { TProps as TAvatarsProps } from './index'
@@ -10,6 +11,7 @@ import {
   NumbersMore,
   TextMore,
   DotText,
+  StateInfoWrapper,
   TotalCommentStateHint,
   Focus,
 } from './styles/more_item'
@@ -32,11 +34,20 @@ const MoreItem: React.FC<TProps> = ({
           showTotalNumber ? (
             '更多'
           ) : (
-            <TotalCommentStateHint>
-              共 <Focus>{total}</Focus> 条评论
-            </TotalCommentStateHint>
+            <StateInfoWrapper>
+              <TotalCommentStateHint>
+                评论: <Focus>{total}</Focus>
+              </TotalCommentStateHint>
+              <Br top={5} />
+              <TotalCommentStateHint>
+                参与者: <Focus>{total}</Focus>
+              </TotalCommentStateHint>
+            </StateInfoWrapper>
           )
         }
+        delay={500}
+        placement="bottom-end"
+        noPadding
       >
         {showTotalNumber ? (
           <TextMore size={size} total={total}>

@@ -13,19 +13,12 @@ import { AVATARS_LIST_LENGTH } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
 
-import Tooltip from '@/components/Tooltip'
 import type { TAvatarSize } from './spec'
 
+import RealAvatar from './RealAvatar'
 import MoreItem from './MoreItem'
 
-import { getAvatarSize } from './styles/metric'
-import {
-  Wrapper,
-  AvatarsItem,
-  AvatarsImg,
-  AvatarFallback,
-  TotalOneOffset,
-} from './styles'
+import { Wrapper, AvatarsWrapper, TotalOneOffset } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:AvatarsRow:index')
@@ -91,31 +84,24 @@ const AvatarsRow: React.FC<TProps> = ({
         />
       )}
 
-      {slice(0, limit, sortedUsers).map((user) => (
-        <Tooltip
-          key={user.id}
-          content={user.nickname}
-          duration={0}
-          delay={300}
-          contentHeight={getAvatarSize(size, 'number') as string}
-          noPadding
-        >
-          <AvatarsItem size={size} noHoverMargin={total === 1}>
-            <AvatarsImg
-              src={user.avatar}
+      {total === 1 ? (
+        <RealAvatar
+          user={sortedUsers[0]}
+          size={size}
+          onUserSelect={onUserSelect}
+        />
+      ) : (
+        <AvatarsWrapper>
+          {slice(0, limit, sortedUsers).map((user) => (
+            <RealAvatar
+              key={user.id}
+              user={user}
               size={size}
-              onClick={() => onUserSelect(user)}
-              scrollPosition={scrollPosition}
-              fallback={
-                <AvatarFallback
-                  size={getAvatarSize(size, 'number') as number}
-                  user={user}
-                />
-              }
+              onUserSelect={onUserSelect}
             />
-          </AvatarsItem>
-        </Tooltip>
-      ))}
+          ))}
+        </AvatarsWrapper>
+      )}
     </Wrapper>
   )
 }
