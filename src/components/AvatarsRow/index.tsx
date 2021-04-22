@@ -61,6 +61,33 @@ export type TProps = {
   onTotalSelect: () => void
 }
 
+const RealAvatar = ({ user, size, onUserSelect }) => {
+  return (
+    <Tooltip
+      content={<UserPopContent>{user.nickname}</UserPopContent>}
+      delay={200}
+      contentHeight={getAvatarSize(size, 'number') as string}
+      showArrow={false}
+      noPadding
+    >
+      <AvatarsItem key={user.id} size={size}>
+        <AvatarsImg
+          src={user.avatar}
+          size={size}
+          onClick={() => onUserSelect(user)}
+          scrollPosition={null}
+          fallback={
+            <AvatarFallback
+              size={getAvatarSize(size, 'number') as number}
+              user={user}
+            />
+          }
+        />
+      </AvatarsItem>
+    </Tooltip>
+  )
+}
+
 const AvatarsRow: React.FC<TProps> = ({
   size = SIZE.SMALL,
   total,
@@ -93,32 +120,24 @@ const AvatarsRow: React.FC<TProps> = ({
         />
       )}
 
-      <AvatarsWrapper>
-        {slice(0, limit, sortedUsers).map((user) => (
-          <Tooltip
-            key={user.id}
-            content={<UserPopContent>{user.nickname}</UserPopContent>}
-            delay={200}
-            contentHeight={getAvatarSize(size, 'number') as string}
-            noPadding
-          >
-            <AvatarsItem key={user.id} size={size} noMarginEffect={total > 1}>
-              <AvatarsImg
-                src={user.avatar}
-                size={size}
-                onClick={() => onUserSelect(user)}
-                scrollPosition={scrollPosition}
-                fallback={
-                  <AvatarFallback
-                    size={getAvatarSize(size, 'number') as number}
-                    user={user}
-                  />
-                }
-              />
-            </AvatarsItem>
-          </Tooltip>
-        ))}
-      </AvatarsWrapper>
+      {total === 1 ? (
+        <RealAvatar
+          user={sortedUsers[0]}
+          size={size}
+          onUserSelect={onUserSelect}
+        />
+      ) : (
+        <AvatarsWrapper>
+          {slice(0, limit, sortedUsers).map((user) => (
+            <RealAvatar
+              key={user.id}
+              user={user}
+              size={size}
+              onUserSelect={onUserSelect}
+            />
+          ))}
+        </AvatarsWrapper>
+      )}
     </Wrapper>
   )
 }

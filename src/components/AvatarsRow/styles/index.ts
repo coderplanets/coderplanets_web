@@ -20,30 +20,25 @@ export const AvatarsWrapper = styled.div`
   flex-direction: row-reverse;
 `
 // height: 49px;
-type TAvatarsItem = { size: TAvatarSize; noMarginEffect: boolean }
+type TAvatarsItem = { size: TAvatarSize }
 export const AvatarsItem = styled.li<TAvatarsItem>`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   position: relative;
   width: ${({ size }) => getLiSize(size)};
   z-index: 2;
+  filter: grayscale(0.3);
 
   ${AvatarsWrapper}:hover & {
-    /* margin: 0 5px; */
-    margin: ${({ noMarginEffect }) => {
-      console.log('noMarginEffect: ', noMarginEffect)
-      // return showMarginEffect ? '0 5px' : 0
-      return noMarginEffect ? 0 : '0 5px;'
-    }};
+    margin: 0 5px;
     transition-delay: 0.3s;
   }
 
-  filter: grayscale(0.3);
   &:hover {
     filter: grayscale(0);
   }
 
-  transition: all 0.1s;
+  transition: all 0.25s;
 `
 export const TotalOneOffset = styled.span`
   margin-right: 10px;
