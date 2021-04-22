@@ -21,10 +21,12 @@ import MoreItem from './MoreItem'
 import { getAvatarSize } from './styles/metric'
 import {
   Wrapper,
+  AvatarsWrapper,
   AvatarsItem,
   AvatarsImg,
   AvatarFallback,
   TotalOneOffset,
+  UserPopContent,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -91,31 +93,32 @@ const AvatarsRow: React.FC<TProps> = ({
         />
       )}
 
-      {slice(0, limit, sortedUsers).map((user) => (
-        <Tooltip
-          key={user.id}
-          content={user.nickname}
-          duration={0}
-          delay={300}
-          contentHeight={getAvatarSize(size, 'number') as string}
-          noPadding
-        >
-          <AvatarsItem size={size} noHoverMargin={total === 1}>
-            <AvatarsImg
-              src={user.avatar}
-              size={size}
-              onClick={() => onUserSelect(user)}
-              scrollPosition={scrollPosition}
-              fallback={
-                <AvatarFallback
-                  size={getAvatarSize(size, 'number') as number}
-                  user={user}
-                />
-              }
-            />
-          </AvatarsItem>
-        </Tooltip>
-      ))}
+      <AvatarsWrapper>
+        {slice(0, limit, sortedUsers).map((user) => (
+          <Tooltip
+            key={user.id}
+            content={<UserPopContent>{user.nickname}</UserPopContent>}
+            delay={200}
+            contentHeight={getAvatarSize(size, 'number') as string}
+            noPadding
+          >
+            <AvatarsItem key={user.id} size={size} noMarginEffect={total > 1}>
+              <AvatarsImg
+                src={user.avatar}
+                size={size}
+                onClick={() => onUserSelect(user)}
+                scrollPosition={scrollPosition}
+                fallback={
+                  <AvatarFallback
+                    size={getAvatarSize(size, 'number') as number}
+                    user={user}
+                  />
+                }
+              />
+            </AvatarsItem>
+          </Tooltip>
+        ))}
+      </AvatarsWrapper>
     </Wrapper>
   )
 }

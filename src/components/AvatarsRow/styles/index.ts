@@ -15,27 +15,29 @@ export const Wrapper = styled.ul<{ total: number }>`
   padding: 0px 8px 0px 0px;
   margin-right: ${({ total }) => getUlMarginRight(total)};
 `
-// height: 49px;
-type TBaseAvatarItem = { size: TAvatarSize; noHoverMargin: boolean }
-const BaseAvatarItem = styled.li<TBaseAvatarItem>`
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  position: relative;
-  width: ${({ size }) => getLiSize(size)};
-
-  &:hover {
-    margin-left: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '10px')};
-    margin-right: ${({ noHoverMargin }) => (noHoverMargin ? '0' : '10px')};
-    transition-delay: 0.1s;
-  }
-  transition: all 0.1s;
+export const AvatarsWrapper = styled.div`
+  ${css.flex()}
+  flex-direction: row-reverse;
 `
-
-export const AvatarsItem = styled(BaseAvatarItem)`
+// height: 49px;
+type TAvatarsItem = { size: TAvatarSize; noMarginEffect: boolean }
+export const AvatarsItem = styled.li<TAvatarsItem>`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   position: relative;
   width: ${({ size }) => getLiSize(size)};
+  z-index: 2;
+
+  ${AvatarsWrapper}:hover & {
+    /* margin: 0 5px; */
+    margin: ${({ noMarginEffect }) => {
+      console.log('noMarginEffect: ', noMarginEffect)
+      // return showMarginEffect ? '0 5px' : 0
+      return noMarginEffect ? 0 : '0 5px;'
+    }};
+    transition-delay: 0.3s;
+  }
+
   filter: grayscale(0.3);
   &:hover {
     filter: grayscale(0);
@@ -85,4 +87,7 @@ export const AvatarsMore = styled.span<TAvatarsMore>`
 export const AvatarFallback = styled(ImgFallback)`
   border: 1px solid;
   border-color: #113744;
+`
+export const UserPopContent = styled.div`
+  padding: 5px 10px;
 `

@@ -11,6 +11,7 @@ const BaseAvatarItem = styled.li<{ size: string }>`
   position: relative;
   width: ${({ size }) => getAvatarSize(size)};
   opacity: 0.75;
+  z-index: 1;
   &:hover {
     opacity: 1;
   }
@@ -37,15 +38,18 @@ export const TextMore = styled(AvatarsMore)`
 export const DotText = styled.div`
   margin-top: -8px;
 `
+export const StateInfoWrapper = styled.div`
+  width: 95px;
+  padding: 8px 10px;
+`
 export const TotalCommentStateHint = styled.div`
-  ${css.flex('justify-center')};
+  ${css.flex('justify-end')};
   color: ${theme('thread.articleDigest')};
-  width: 80px;
+  width: 100%;
   font-size: 12px;
 `
 export const Focus = styled.span`
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 4px;
 `

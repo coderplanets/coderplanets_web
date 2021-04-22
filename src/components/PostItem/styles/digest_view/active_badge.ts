@@ -17,21 +17,13 @@ export const Wrapper = styled.div<{ hasComments: boolean }>`
   opacity: 0.8;
 
   ${Main}:hover & {
-    opacity: 1;
+    opacity: 0.9;
+    color: ${theme('thread.articleTitle')};
   }
   transition: opacity 0.2s;
 `
 export const ItemInner = styled.div`
   ${css.flex('align-center')};
-`
-export const PopContent = styled.div`
-  ${css.flexColumn('align-end')};
-  width: 100%;
-  min-width: 85px;
-  font-size: 12px;
-`
-export const PopContentDate = styled.div`
-  margin-top: 6px;
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
