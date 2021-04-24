@@ -10,6 +10,7 @@ import {
 const CommonLoading = () => (
   <div>
     <br />
+    {/* @ts-ignore */}
     <ArticleContentLoading />
   </div>
 )
@@ -22,6 +23,7 @@ const commonConfig = {
 
 // editor style loading config
 const editorConfig = {
+  // @ts-ignore
   loading: () => <EditorLoading />,
   ssr: false,
 }

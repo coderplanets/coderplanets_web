@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { contains, values } from 'ramda'
 
+import type { TDirection } from '@/spec'
 import { TYPE, EVENT } from '@/constant'
 
 import {
@@ -14,11 +15,13 @@ import {
   clearGlobalBlur,
 } from '@/utils'
 
+import type { TStore } from './store'
 /* eslint-disable-next-line */
 const log = buildLog('L:Preview')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
+  /* @ts-ignore */
   receive: [
     ...values(EVENT.DRAWER),
     EVENT.UPLOAD_IMG_START,
@@ -26,7 +29,7 @@ const sr71$ = new SR71({
   ],
 })
 
-let store = null
+let store: TStore | undefined
 let sub$ = null
 
 // those types will not treat as page link
@@ -35,7 +38,7 @@ const FUNCTION_TYPES = [TYPE.DRAWER.C11N_SETTINGS, TYPE.DRAWER.MODELINE_MENU]
 /**
  * close current drawer
  */
-export const closeDrawer = () => {
+export const closeDrawer = (): void => {
   unlockPage()
   store.close()
   store.mark({ imageUploading: false, type: null })
@@ -43,7 +46,7 @@ export const closeDrawer = () => {
   // force call MDEditor's componentWillUnmount to store the draft
   // wait until drawer move out of the screean
   setTimeout(() => {
-    send(EVENT.DRAWER.CLOSE)
+    send(EVENT.DRAWER.AFTER_CLOSE)
     store.setViewing({ viewingThread: null })
   }, 200)
 
@@ -57,10 +60,10 @@ export const closeDrawer = () => {
 // 判断最终是回到原来的位置还是隐藏 panel
 export const onSwipedYHandler = (
   ev,
-  setSwipeUpY,
-  setSwipeDownY,
+  setSwipeUpY: (i: number) => void,
+  setSwipeDownY: (i: number) => void,
   ignoreSwipeAviliable = false,
-) => {
+): void => {
   const {
     optionsData: options,
     swipeThreshold,
@@ -95,22 +98,30 @@ export const onSwipedYHandler = (
   }
 }
 
-const handleClearEffect = debounce(() => {
-  clearGlobalBlur(true)
-  store.mark({ canBeClose: true })
-}, 200)
-const handleRestoreEffect = debounce(() => {
-  toggleGlobalBlur(true)
-  store.mark({ canBeClose: false })
-}, 200)
+const handleClearEffect = debounce(
+  () => {
+    clearGlobalBlur()
+    store.mark({ canBeClose: true })
+  },
+  200,
+  true,
+)
+const handleRestoreEffect = debounce(
+  () => {
+    toggleGlobalBlur(true)
+    store.mark({ canBeClose: false })
+  },
+  200,
+  true,
+)
 
 // handler swiping event for up/down swipe
 export const onSwipingYHandler = (
   ev,
-  setSwipeUpY,
-  setSwipeDownY,
+  setSwipeUpY: (i: number) => void,
+  setSwipeDownY: (i: number) => void,
   ignoreSwipeAviliable = false,
-) => {
+): void => {
   // when top/bottom has no content, the whole panel can be swipeable
   // like tiktok style
   const {
@@ -146,17 +157,17 @@ export const onSwipingYHandler = (
 }
 
 //
-export const toggleSwipeAviliable = (type, bool) => {
-  type === 'Down'
+export const toggleSwipeAviliable = (type: TDirection, bool: boolean): void => {
+  type === 'down'
     ? store.mark({ swipeDownAviliable: bool })
     : store.mark({ swipeUpAviliable: bool })
 }
 
-export const toggleHeaderTextVisiable = (bool) => {
+export const toggleHeaderTextVisiable = (bool: boolean): void => {
   store.mark({ showHeaderText: bool })
 }
 
-export const resetSwipeAviliable = () => store.resetSwipeAviliable()
+export const resetSwipeAviliable = (): void => store.resetSwipeAviliable()
 
 const DataResolver = [
   {
@@ -208,8 +219,8 @@ const DataResolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store, windowWidth) => {
-  useEffect(() => {
+export const useInit = (_store: TStore, windowWidth: number): void => {
+  useEffect((): (() => void) => {
     store = _store
     if (!sub$) {
       sub$ = sr71$.data().subscribe($solver(DataResolver, []))

@@ -2,13 +2,29 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import CustomScroller from '@/components/CustomScroller'
 
+import type { TSwipeOption } from '../spec'
 import renderContent from './renderContent'
-
-import { Wrapper } from '../styles/content'
 import { getMobileContentHeight } from '../styles/metrics'
+import { Wrapper } from '../styles/content'
 import { toggleSwipeAviliable, toggleHeaderTextVisiable } from '../logic'
 
-const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
+type TProps = {
+  visible: boolean
+  options: TSwipeOption
+  type: string // TODO
+  attachment: any // TODO
+  attUser: any // TODO
+  mmType: string // TODO
+}
+
+const Content: React.FC<TProps> = ({
+  visible,
+  options,
+  type,
+  attachment,
+  attUser,
+  mmType,
+}) => {
   const ref = useRef(null)
 
   const [topEnterTimer, setTopEnterTimer] = useState(null)
@@ -48,7 +64,7 @@ const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
          * 注意这个值是在桌面浏览器上反复试出的最佳值，过大或过小都不自然
          */
         const topEnterTimer = setTimeout(() => {
-          toggleSwipeAviliable('Down', true)
+          toggleSwipeAviliable('down', true)
         }, 800)
 
         /*
@@ -76,10 +92,10 @@ const Content = ({ visible, options, type, attachment, attUser, mmType }) => {
           setTopEnterTimer(null)
         }
 
-        toggleSwipeAviliable('Down', false)
+        toggleSwipeAviliable('down', false)
       }}
-      onBottomEnter={() => toggleSwipeAviliable('Up', true)}
-      onBottomLeave={() => toggleSwipeAviliable('Up', false)}
+      onBottomEnter={() => toggleSwipeAviliable('up', true)}
+      onBottomLeave={() => toggleSwipeAviliable('up', false)}
       autoHide
     >
       <Wrapper ref={ref}>

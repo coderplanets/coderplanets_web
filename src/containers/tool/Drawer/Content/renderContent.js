@@ -5,8 +5,6 @@ import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 
 import PlaceHolder from './PlaceHolder'
 
-import { closeDrawer } from '../logic'
-
 import {
   PostViewer,
   JobViewer,
@@ -33,20 +31,20 @@ const renderContent = (type, attachment, attUser, mmType) => {
       return <PostViewer attachment={attachment} />
 
     case TYPE.DRAWER.POST_CREATE:
-      return <PostEditor onClose={closeDrawer} />
+      return <PostEditor />
 
     case TYPE.DRAWER.POST_EDIT:
-      return <PostEditor onClose={closeDrawer} attachment={attachment} />
+      return <PostEditor attachment={attachment} />
 
     // job
     case TYPE.DRAWER.JOB_CREATE:
-      return <JobEditor onClose={closeDrawer} />
+      return <JobEditor />
 
     case TYPE.DRAWER.JOB_VIEW:
       return <JobViewer attachment={attachment} />
 
     case TYPE.DRAWER.JOB_EDIT:
-      return <JobEditor onClose={closeDrawer} attachment={attachment} />
+      return <JobEditor attachment={attachment} />
 
     // repo
     case TYPE.DRAWER.REPO_VIEW:

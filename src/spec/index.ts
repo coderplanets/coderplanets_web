@@ -26,6 +26,7 @@ export type {
   TLink,
   TPlatform,
   Nullable,
+  TDirection,
   TScrollDirection,
   TTooltipAnimation,
   TTooltipPlacement,

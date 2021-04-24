@@ -29,7 +29,7 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   receive: [
     EVENT.REFRESH_POSTS,
-    EVENT.DRAWER.CLOSE,
+    EVENT.DRAWER.AFTER_CLOSE,
     EVENT.COMMUNITY_CHANGE,
     EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
@@ -215,7 +215,7 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.DRAWER.CLOSE),
+    match: asyncRes(EVENT.DRAWER.AFTER_CLOSE),
     action: () => {
       store.setViewing({ post: {} })
       store.markRoute({ ...store.filtersData, ...store.tagQuery })

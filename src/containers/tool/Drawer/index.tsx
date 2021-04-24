@@ -10,6 +10,8 @@ import T from 'prop-types'
 import { pluggedIn, buildLog } from '@/utils'
 import { useShortcut, useResize } from '@/hooks'
 
+import type { TStore } from './store'
+
 import Viewer from './Viewer/index'
 import Content from './Content'
 
@@ -18,7 +20,11 @@ import { useInit, closeDrawer } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Preview')
 
-const DrawerContainer = ({ drawer: store }) => {
+type TProps = {
+  drawer: TStore
+}
+
+const DrawerContainer: React.FC<TProps> = ({ drawer: store }) => {
   const { width: windowWidth } = useResize()
   useInit(store, windowWidth)
   useShortcut('Escape', closeDrawer)

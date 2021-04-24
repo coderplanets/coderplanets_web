@@ -13,10 +13,15 @@ import {
 
 import { closeDrawer } from './logic'
 
-const AddOn = ({ type, imageUploading }) => {
+type TProps = {
+  type: string
+  imageUploading?: boolean
+}
+
+const AddOn: React.FC<TProps> = ({ type, imageUploading = false }) => {
   return (
     <Wrapper>
-      <CloseTab type={type} onClick={closeDrawer}>
+      <CloseTab type={type} onClick={() => closeDrawer()}>
         <CloserInner />
       </CloseTab>
       <UploadingTab show={imageUploading}>

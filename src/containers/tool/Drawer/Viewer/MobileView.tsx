@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
 
+import type { TThemeMap } from '@/spec'
 import { useSwipe } from '@/hooks'
 
+import type { TSwipeOption } from '../spec'
 import AddOn from '../AddOn'
 import Header from '../Header'
 
@@ -20,7 +22,21 @@ import {
   resetSwipeAviliable,
 } from '../logic'
 
-const Viewer = ({
+type TProps = {
+  testid?: string
+  headerText: string
+  options: TSwipeOption
+  visible: boolean
+  type: string
+  imageUploading: boolean
+  canBeClose: boolean
+  showHeaderText: boolean
+  disableContentDrag: boolean
+  children: React.ReactNode
+}
+
+const Viewer: React.FC<TProps> = ({
+  testid = 'drawer-sidebar-panel',
   headerText,
   options,
   visible,
@@ -31,7 +47,7 @@ const Viewer = ({
   disableContentDrag,
   children,
 }) => {
-  const theme = useTheme()
+  const theme: TThemeMap = useTheme()
   // swipe action state for top && bottom
   // null means restore and close
   const [swipeDownY, setSwipeDownY] = useState(null)
@@ -65,9 +81,9 @@ const Viewer = ({
 
   return (
     <div>
-      <DrawerOverlay visible={visible} onClick={closeDrawer} />
+      <DrawerOverlay visible={visible} onClick={() => closeDrawer()} />
       <DrawerWrapper
-        testid="drawer-sidebar-panel"
+        testid={testid}
         visible={visible}
         type={type}
         swipeUpY={swipeUpY}

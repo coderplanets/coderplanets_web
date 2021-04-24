@@ -46,6 +46,7 @@ export type TPlatform = {
   isMobile: boolean
 }
 
+export type TDirection = 'down' | 'up'
 export type TScrollDirection = 'up' | 'down'
 
 export type TTooltipAnimation =

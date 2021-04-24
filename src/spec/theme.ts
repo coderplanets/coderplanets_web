@@ -26,4 +26,7 @@ export type TThemeMap = {
     text: string
     hover: string
   }
+  drawer?: {
+    bg: string
+  }
 }
