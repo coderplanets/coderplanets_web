@@ -65,7 +65,7 @@ const Viewer = ({
 
   return (
     <div>
-      <DrawerOverlay visible={visible} onClick={closeDrawer} />
+      <DrawerOverlay visible={visible} onClick={() => closeDrawer()} />
       <DrawerWrapper
         testid="drawer-sidebar-panel"
         visible={visible}

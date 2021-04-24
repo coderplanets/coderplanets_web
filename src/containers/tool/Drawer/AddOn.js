@@ -16,7 +16,7 @@ import { closeDrawer } from './logic'
 const AddOn = ({ type, imageUploading }) => {
   return (
     <Wrapper>
-      <CloseTab type={type} onClick={closeDrawer}>
+      <CloseTab type={type} onClick={() => closeDrawer()}>
         <CloserInner />
       </CloseTab>
       <UploadingTab show={imageUploading}>

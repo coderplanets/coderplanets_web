@@ -6,7 +6,7 @@ import { closeDrawer } from '../logic'
 
 const CloseLine = ({ curve }) => {
   return (
-    <Wrapper onClick={closeDrawer}>
+    <Wrapper onClick={() => closeDrawer()}>
       <LeftLine curve={curve} />
       <RightLine curve={curve} />
     </Wrapper>
