@@ -60,8 +60,8 @@ export const closeDrawer = (): void => {
 // 判断最终是回到原来的位置还是隐藏 panel
 export const onSwipedYHandler = (
   ev,
-  setSwipeUpY,
-  setSwipeDownY,
+  setSwipeUpY: (i: number) => void,
+  setSwipeDownY: (i: number) => void,
   ignoreSwipeAviliable = false,
 ): void => {
   const {
@@ -118,8 +118,8 @@ const handleRestoreEffect = debounce(
 // handler swiping event for up/down swipe
 export const onSwipingYHandler = (
   ev,
-  setSwipeUpY,
-  setSwipeDownY,
+  setSwipeUpY: (i: number) => void,
+  setSwipeDownY: (i: number) => void,
   ignoreSwipeAviliable = false,
 ): void => {
   // when top/bottom has no content, the whole panel can be swipeable
