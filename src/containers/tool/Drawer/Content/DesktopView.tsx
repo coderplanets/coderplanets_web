@@ -5,7 +5,14 @@ import CustomScroller from '@/components/CustomScroller'
 import renderContent from './renderContent'
 import { Wrapper } from '../styles/content'
 
-const Content = ({ visible, type, attachment, attUser }) => {
+type TProps = {
+  visible: boolean
+  type: string // TODO:
+  attachment: any // TODO:
+  attUser: any // TODO:
+}
+
+const Content: React.FC<TProps> = ({ visible, type, attachment, attUser }) => {
   const ref = useRef(null)
 
   /*

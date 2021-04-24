@@ -4,7 +4,7 @@ import { ICON_CMD } from '@/config'
 // import { ICON_CMD } from '../../config'
 import { Wrapper, SiteLogo, Desc } from '../styles/content/place_holder'
 
-const PlaceHolder = () => {
+const PlaceHolder: React.FC = () => {
   return (
     <Wrapper>
       <SiteLogo src={`${ICON_CMD}/barcelona.png`} />

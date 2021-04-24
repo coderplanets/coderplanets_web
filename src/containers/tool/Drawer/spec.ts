@@ -6,8 +6,8 @@ export type TSwipeOption = {
 }
 
 export type TSwipe = {
-  swipeUpY: number
-  swipeDownY: number
+  swipeUpY?: number
+  swipeDownY?: number
   // options: Record<string, unknown>
   options: TSwipeOption
 }
@@ -16,6 +16,6 @@ export type TDrawer = TTestable &
   TActive &
   TSwipe & {
     mobile: boolean
-    rightOffset: string
+    rightOffset?: string
     type: string
   }

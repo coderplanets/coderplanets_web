@@ -3,13 +3,23 @@ import React from 'react'
 import { useSwipe } from '@/hooks'
 import { nilOrEmpty } from '@/utils'
 
+import type { TSwipeOption } from '../spec'
 import CloseLine from './CloseLine'
 import { TopWrapper, BottomWrapper, TextWrapper } from '../styles/header'
 import { onSwipedYHandler, onSwipingYHandler } from '../logic'
 
 /* <TextWrapper>评论共 167 条</TextWrapper> */
 
-const Header = ({
+type TProps = {
+  headerText?: string
+  options: TSwipeOption
+  setSwipeUpY: (i: number) => void
+  setSwipeDownY: (i: number) => void
+  canBeClose: boolean
+  showHeaderText: boolean
+}
+
+const Header: React.FC<TProps> = ({
   headerText,
   options,
   setSwipeUpY,

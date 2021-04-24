@@ -5,8 +5,6 @@ import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 
 import PlaceHolder from './PlaceHolder'
 
-import { closeDrawer } from '../logic'
-
 import {
   PostViewer,
   JobViewer,

@@ -133,11 +133,13 @@ const DrawerStore = T.model('DrawerStore', {
       return SWIPE_THRESHOLD[direction][position]
     },
     // 预览面板从最右侧滑出的偏移量
-    get rightOffset() {
+    get rightOffset(): string {
       const { windowWidth } = self
       const MAX_WIDTH = Number(WIDTH.COMMUNITY.PAGE.slice(0, -2))
 
-      return `${windowWidth <= MAX_WIDTH ? 0 : (windowWidth - MAX_WIDTH) / 2}px`
+      return `${
+        windowWidth <= MAX_WIDTH ? '0' : (windowWidth - MAX_WIDTH) / 2
+      }px`
     },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore

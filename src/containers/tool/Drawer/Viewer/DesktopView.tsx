@@ -1,11 +1,23 @@
 import React from 'react'
 
+import type { TSwipeOption } from '../spec'
 import AddOn from '../AddOn'
 
 import { DrawerOverlay, DrawerWrapper, DrawerContent } from '../styles'
 import { closeDrawer } from '../logic'
 
-const DesktopView = ({
+type TProps = {
+  testid?: string
+  options: TSwipeOption
+  visible: boolean
+  rightOffset: string
+  type: string
+  imageUploading: boolean
+  children: React.ReactNode
+}
+
+const DesktopView: React.FC<TProps> = ({
+  testid = 'drawer-sidebar-panel',
   options,
   visible,
   rightOffset,
@@ -17,7 +29,7 @@ const DesktopView = ({
     <React.Fragment>
       <DrawerOverlay visible={visible} onClick={() => closeDrawer()} />
       <DrawerWrapper
-        testid="drawer-sidebar-panel"
+        testid={testid}
         visible={visible}
         rightOffset={rightOffset}
         type={type}
