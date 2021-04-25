@@ -106,6 +106,7 @@ export { default as CommunityEditorStore } from '@/containers/editor/CommunityEd
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as AbuseReportStore } from '@/containers/tool/AbuseReport/store'
 export { default as HelpCenterContentStore } from '@/containers/content/HelpCenterContent/store'
 export { default as CommunityJoinBadgeStore } from '@/containers/tool/CommunityJoinBadge/store'
 export { default as ArticleEditorStore } from '@/containers/editor/ArticleEditor/store'

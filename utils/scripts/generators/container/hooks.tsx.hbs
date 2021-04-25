@@ -13,7 +13,7 @@ import { pluggedIn, buildLog } from '@/utils'
 import { useTrans } from '@/hooks'
 {{/if}}
 
-import type { IStore } from './store'
+import type { TStore } from './store'
 
 import { Wrapper } from './styles'
 import { useInit } from './logic'
@@ -22,7 +22,7 @@ import { useInit } from './logic'
 const log = buildLog('C:{{ properCase name }}')
 
 type TProps = {
-  {{ camelCase name }}?: IStore
+  {{ camelCase name }}?: TStore
   testid: string
 }
 
