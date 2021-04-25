@@ -15,12 +15,8 @@ export const goBack = (): void => {
   store.mark({ view: 'main' })
 }
 
-export const explainItem = (explainItemRaw: string): void => {
-  store.mark({ explainItemRaw, view: 'detail' })
-}
-
 export const selectItem = (checkedItemRaw: string): void => {
-  store.mark({ checkedItemRaw, view: 'info' })
+  store.mark({ checkedItemRaw, view: 'detail' })
 }
 
 // ###############################

@@ -7,13 +7,8 @@ import Checker from '@/components/Checker'
 
 import type { TREPORT_ITEM } from '../spec'
 
-import {
-  Option,
-  SelectWrapper,
-  Title,
-  QuestionIcon,
-} from '../styles/article_report/main'
-import { selectItem, explainItem } from '../logic'
+import { Option, SelectWrapper, Title } from '../styles/article_report/main'
+import { selectItem } from '../logic'
 
 type TProps = {
   items: TREPORT_ITEM[]
@@ -30,10 +25,6 @@ const Main: React.FC<TProps> = ({ items, activeItem }) => {
             <Title active={item.raw === activeItem.raw}>{item.title}</Title>
           </SelectWrapper>
           <SpaceGrow />
-          <QuestionIcon
-            src={`${ICON}/shape/question.svg`}
-            onClick={() => explainItem(item.raw)}
-          />
         </Option>
       ))}
     </React.Fragment>

@@ -4,27 +4,28 @@ import { Br } from '@/components/Common'
 import { ArrowButton } from '@/components/Buttons'
 
 import type { TREPORT_ITEM } from '../spec'
+import { Wrapper } from '../styles/article_report/info'
 import { goBack } from '../logic'
 
 type TProps = {
-  explainItem: TREPORT_ITEM
+  activeItem: TREPORT_ITEM
 }
 
-const Detail: React.FC<TProps> = ({ explainItem }) => {
+const Info: React.FC<TProps> = ({ activeItem }) => {
   return (
-    <div>
+    <Wrapper>
       <ArrowButton
         size="small"
         direction="left"
         arrowStyle="simple"
         onClick={() => goBack()}
       >
-        {explainItem.title}
+        {activeItem.title}
       </ArrowButton>
       <Br bottom={20} />
-      <div>{explainItem.detail}</div>
-    </div>
+      <div>{activeItem.detail}</div>
+    </Wrapper>
   )
 }
 
-export default Detail
+export default Info

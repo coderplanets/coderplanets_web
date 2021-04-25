@@ -35,8 +35,7 @@ const AbuseReport = T.model('AbuseReport', {
   type: T.optional(T.enumeration(values(REPORT_TYPE)), REPORT_TYPE.ARTICLE),
   items: T.optional(T.array(Item), articleItems),
   checkedItemRaw: T.maybeNull(T.string),
-  explainItemRaw: T.maybeNull(T.string),
-  view: T.optional(T.enumeration(['main', 'detail', 'info']), 'main'),
+  view: T.optional(T.enumeration(['main', 'detail']), 'main'),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
@@ -52,16 +51,6 @@ const AbuseReport = T.model('AbuseReport', {
       const { itemsData, checkedItemRaw } = self as TStore
       const findItem = find(
         propEq('raw', checkedItemRaw),
-        itemsData,
-      ) as TREPORT_ITEM
-
-      return findItem || initItem
-    },
-
-    get explainItem(): TREPORT_ITEM {
-      const { itemsData, explainItemRaw } = self as TStore
-      const findItem = find(
-        propEq('raw', explainItemRaw),
         itemsData,
       ) as TREPORT_ITEM
 

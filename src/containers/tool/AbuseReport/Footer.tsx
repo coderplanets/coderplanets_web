@@ -5,11 +5,11 @@ import { YesOrNoButtons } from '@/components/Buttons'
 import { Wrapper, Note } from './styles/footer'
 
 type TProps = {
-  view: 'main' | 'detail' | 'info'
+  view: 'main' | 'detail'
 }
 
 const Footer: React.FC<TProps> = ({ view }) => {
-  if (view === 'detail') return null
+  if (view !== 'detail') return null
 
   return (
     <Wrapper>

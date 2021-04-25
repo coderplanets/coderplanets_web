@@ -4,29 +4,17 @@ import type { TREPORT_ITEM } from '../spec'
 
 import Main from './Main'
 import Detail from './Detail'
-import Info from './Info'
 
 type TProps = {
-  view: 'main' | 'detail' | 'info'
+  view: 'main' | 'detail'
   items: TREPORT_ITEM[]
   activeItem: TREPORT_ITEM
-  explainItem: TREPORT_ITEM
 }
 
-const ArticleReport: React.FC<TProps> = ({
-  view,
-  items,
-  activeItem,
-  explainItem,
-}) => {
-  console.log('view -> ', view)
+const ArticleReport: React.FC<TProps> = ({ view, items, activeItem }) => {
   switch (view) {
-    case 'info': {
-      return <Info activeItem={activeItem} />
-    }
-
     case 'detail': {
-      return <Detail explainItem={explainItem} />
+      return <Detail activeItem={activeItem} />
     }
 
     default: {

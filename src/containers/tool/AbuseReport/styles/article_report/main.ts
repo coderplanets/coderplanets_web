@@ -13,6 +13,10 @@ export const Option = styled.div`
   padding: 12px 0;
   border-bottom: 1px solid;
   border-bottom-color: #114b5f;
+
+  :last-child {
+    border-bottom: none;
+  }
 `
 export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
@@ -27,19 +31,4 @@ export const Title = styled.div<TActive>`
     cursor: pointer;
     opacity: 1;
   }
-`
-export const QuestionIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  ${css.size(16)};
-  margin-right: 10px;
-  opacity: 0;
-
-  ${Option}:hover & {
-    opacity: 1;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-  transition: all 0.25s;
 `
