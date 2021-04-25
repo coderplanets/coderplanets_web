@@ -1,19 +1,18 @@
 import React from 'react'
 
 import Input from '@/components/Input'
-import FormItem from '@/components/FormItem'
 import { Br } from '@/components/Common'
 import { ArrowButton } from '@/components/Buttons'
 
 import type { TREPORT_ITEM } from '../spec'
-import { Wrapper } from '../styles/article_report/info'
+import { Wrapper, DetailDesc } from '../styles/article_report/detail'
 import { goBack } from '../logic'
 
 type TProps = {
   activeItem: TREPORT_ITEM
 }
 
-const Info: React.FC<TProps> = ({ activeItem }) => {
+const Detail: React.FC<TProps> = ({ activeItem }) => {
   return (
     <Wrapper>
       <ArrowButton
@@ -25,7 +24,7 @@ const Info: React.FC<TProps> = ({ activeItem }) => {
         {activeItem.title}
       </ArrowButton>
       <Br bottom={20} />
-      <div>{activeItem.detail}</div>
+      <DetailDesc>{activeItem.detail}</DetailDesc>
       <Br bottom={15} />
       <Input
         onChange={() => console.log}
@@ -37,4 +36,4 @@ const Info: React.FC<TProps> = ({ activeItem }) => {
   )
 }
 
-export default Info
+export default Detail

@@ -8,3 +8,6 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   ${css.flexColumn()};
 `
+export const DetailDesc = styled.div`
+  padding: 0 5px;
+`
