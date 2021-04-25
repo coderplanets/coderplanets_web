@@ -31,12 +31,17 @@ const ArticleReport: React.FC = () => {
       </Option>
       <Option>
         <Checker />
+        <Title>侵权内容</Title>
+        <QuestionIcon src={`${ICON}/shape/question.svg`} />
+      </Option>
+      <Option>
+        <Checker />
         <Title>坏问题</Title>
         <QuestionIcon src={`${ICON}/shape/question.svg`} />
       </Option>
       <Option>
         <Checker />
-        <Title>违规信息</Title>
+        <Title>违法违规</Title>
         <QuestionIcon src={`${ICON}/shape/question.svg`} />
       </Option>
       <Option>

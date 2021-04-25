@@ -13,6 +13,7 @@ import { pluggedIn, buildLog } from '@/utils'
 import Modal from '@/components/Modal'
 
 import Header from './Header'
+import Footer from './Footer'
 import ArticleReport from './ArticleReport'
 
 import type { TStore } from './store'
@@ -38,6 +39,7 @@ const AbuseReportContainer: React.FC<TProps> = ({
       <Wrapper testid={testid}>
         <Header />
         <ArticleReport />
+        <Footer />
       </Wrapper>
     </Modal>
   )

@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON } from '@/config'
 import { Wrapper, ReportIcon, Text, ContentTitle } from './styles/header'
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <Wrapper>
       <ReportIcon src={`${ICON}/article/report-solid.svg`} />
