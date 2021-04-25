@@ -13,7 +13,6 @@ import {
   SelectWrapper,
   Title,
   QuestionIcon,
-  Note,
 } from '../styles/article_report'
 import { selectItem } from '../logic'
 
@@ -35,10 +34,6 @@ const ArticleReport: React.FC<TProps> = ({ items, activeItem }) => {
           <QuestionIcon src={`${ICON}/shape/question.svg`} />
         </Option>
       ))}
-
-      <Note>
-        举报成功后社区志愿者会在第一时间处理，处理结果会公示在这里。如果你对社区治理有更好的想法或建议，请联系我们。
-      </Note>
     </Wrapper>
   )
 }

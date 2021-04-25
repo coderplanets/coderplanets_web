@@ -38,8 +38,3 @@ export const QuestionIcon = styled(Img)`
   }
   transition: all 0.25s;
 `
-export const Note = styled.div`
-  color: ${theme('thread.articleDigest')};
-  margin-top: 22px;
-  font-size: 14px;
-`
