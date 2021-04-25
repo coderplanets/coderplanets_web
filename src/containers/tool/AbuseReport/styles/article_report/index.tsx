@@ -11,7 +11,10 @@ export const Option = styled.div`
   font-size: 16px;
   padding: 12px 0;
   border-bottom: 1px solid;
-  border-bottom-color: #125065;
+  border-bottom-color: #114b5f;
+`
+export const SelectWrapper = styled.div`
+  ${css.flex('align-center')};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

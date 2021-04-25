@@ -11,8 +11,8 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:AbuseReport')
 
-export const someMethod = (): void => {
-  //
+export const selectItem = (checkedItemRaw: string): void => {
+  store.mark({ checkedItemRaw })
 }
 
 // ###############################

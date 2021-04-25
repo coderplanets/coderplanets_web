@@ -3,7 +3,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values } from 'ramda'
+import { values, find, propEq } from 'ramda'
 
 import { REPORT_TYPE, REPORT } from '@/constant'
 
@@ -14,6 +14,14 @@ import type { TREPORT_ITEM } from './spec'
 import articleItems from './defaults/article'
 /* eslint-disable-next-line */
 const log = buildLog('S:AbuseReport')
+
+const initItem = {
+  title: '',
+  raw: '',
+  checked: false,
+  info: '',
+  detail: '',
+}
 
 const Item = T.model('AbuseReport', {
   title: T.string,
@@ -26,6 +34,8 @@ const Item = T.model('AbuseReport', {
 const AbuseReport = T.model('AbuseReport', {
   type: T.optional(T.enumeration(values(REPORT_TYPE)), REPORT_TYPE.ARTICLE),
   items: T.optional(T.array(Item), articleItems),
+  checkedItemRaw: T.maybeNull(T.string),
+  view: T.optional(T.enumeration(['main', 'detail', 'info']), 'main'),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
@@ -35,6 +45,16 @@ const AbuseReport = T.model('AbuseReport', {
     },
     get itemsData(): TREPORT_ITEM[] {
       return stripMobx(self.items)
+    },
+
+    get activeItem(): TREPORT_ITEM {
+      const { itemsData, checkedItemRaw } = self as TStore
+      const findItem = find(
+        propEq('raw', checkedItemRaw),
+        itemsData,
+      ) as TREPORT_ITEM
+
+      return findItem || initItem
     },
   }))
   .actions((self) => ({

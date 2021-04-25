@@ -4,7 +4,7 @@ const items = [
   {
     title: '重复内容',
     raw: REPORT.ARTICLE.DUPLICATE,
-    checked: true,
+    checked: false,
     // info: "",
     detail: '',
   },
