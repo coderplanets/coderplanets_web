@@ -1,11 +1,29 @@
 import React from 'react'
 
-import { Wrapper } from '../styles/article_report/info'
+import { Br } from '@/components/Common'
+import { ArrowButton } from '@/components/Buttons'
 
-const Info: React.FC = () => {
+import type { TREPORT_ITEM } from '../spec'
+import { Wrapper } from '../styles/article_report/info'
+import { goBack } from '../logic'
+
+type TProps = {
+  activeItem: TREPORT_ITEM
+}
+
+const Info: React.FC<TProps> = ({ activeItem }) => {
   return (
     <Wrapper>
-      <div>Info</div>
+      <ArrowButton
+        size="small"
+        direction="left"
+        arrowStyle="simple"
+        onClick={() => goBack()}
+      >
+        {activeItem.title}
+      </ArrowButton>
+      <Br bottom={20} />
+      <div>这里是 info 信息</div>
     </Wrapper>
   )
 }

@@ -11,8 +11,16 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:AbuseReport')
 
+export const goBack = (): void => {
+  store.mark({ view: 'main' })
+}
+
+export const explainItem = (explainItemRaw: string): void => {
+  store.mark({ explainItemRaw, view: 'detail' })
+}
+
 export const selectItem = (checkedItemRaw: string): void => {
-  store.mark({ checkedItemRaw })
+  store.mark({ checkedItemRaw, view: 'info' })
 }
 
 // ###############################

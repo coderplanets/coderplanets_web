@@ -23,7 +23,7 @@ type TProps = {
   direction?: 'left' | 'right'
   dimWhenIdle?: boolean
   disabled?: boolean
-  arrowStyle?: string
+  arrowStyle?: 'default' | 'simple'
 }
 
 const ArrowButton: React.FC<TProps> = ({

@@ -13,7 +13,7 @@ import {
   Title,
   QuestionIcon,
 } from '../styles/article_report/main'
-import { selectItem } from '../logic'
+import { selectItem, explainItem } from '../logic'
 
 type TProps = {
   items: TREPORT_ITEM[]
@@ -30,7 +30,10 @@ const Main: React.FC<TProps> = ({ items, activeItem }) => {
             <Title active={item.raw === activeItem.raw}>{item.title}</Title>
           </SelectWrapper>
           <SpaceGrow />
-          <QuestionIcon src={`${ICON}/shape/question.svg`} />
+          <QuestionIcon
+            src={`${ICON}/shape/question.svg`}
+            onClick={() => explainItem(item.raw)}
+          />
         </Option>
       ))}
     </React.Fragment>

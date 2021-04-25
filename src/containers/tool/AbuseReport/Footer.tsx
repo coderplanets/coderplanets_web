@@ -4,7 +4,13 @@ import { YesOrNoButtons } from '@/components/Buttons'
 
 import { Wrapper, Note } from './styles/footer'
 
-const Footer: React.FC = () => {
+type TProps = {
+  view: 'main' | 'detail' | 'info'
+}
+
+const Footer: React.FC<TProps> = ({ view }) => {
+  if (view === 'detail') return null
+
   return (
     <Wrapper>
       <Note>

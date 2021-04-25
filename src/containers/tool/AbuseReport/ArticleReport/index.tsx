@@ -10,17 +10,23 @@ type TProps = {
   view: 'main' | 'detail' | 'info'
   items: TREPORT_ITEM[]
   activeItem: TREPORT_ITEM
+  explainItem: TREPORT_ITEM
 }
 
-const ArticleReport: React.FC<TProps> = ({ view, items, activeItem }) => {
-  // const child =
+const ArticleReport: React.FC<TProps> = ({
+  view,
+  items,
+  activeItem,
+  explainItem,
+}) => {
+  console.log('view -> ', view)
   switch (view) {
     case 'info': {
-      return <Info />
+      return <Info activeItem={activeItem} />
     }
 
     case 'detail': {
-      return <Detail />
+      return <Detail explainItem={explainItem} />
     }
 
     default: {
