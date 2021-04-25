@@ -7,6 +7,7 @@ import { css, theme } from '@/utils'
 type IInput = {
   hasPrefix: boolean
   hasSuffix: boolean
+  spellcheck: string
 }
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({

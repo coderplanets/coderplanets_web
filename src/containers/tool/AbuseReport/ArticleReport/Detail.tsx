@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Input from '@/components/Input'
+import FormItem from '@/components/FormItem'
 import { Br } from '@/components/Common'
 import { ArrowButton } from '@/components/Buttons'
 
@@ -24,6 +26,13 @@ const Info: React.FC<TProps> = ({ activeItem }) => {
       </ArrowButton>
       <Br bottom={20} />
       <div>{activeItem.detail}</div>
+      <Br bottom={15} />
+      <Input
+        onChange={() => console.log}
+        placeholder="补充信息 (可选)"
+        behavior="textarea"
+        autoFocus
+      />
     </Wrapper>
   )
 }

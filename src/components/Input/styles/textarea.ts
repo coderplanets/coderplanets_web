@@ -6,13 +6,18 @@ import { theme } from '@/utils'
 
 import { baseInput } from './index'
 
+type TWrapper = TTestable | { spellcheck: string }
+
 export const Wrapper = styled(TextareaAutosize).attrs(
   ({ testid }: TTestable) => ({
     'data-test-id': testid,
   }),
-)<TTestable>`
+)<TWrapper>`
   ${baseInput};
-  background-color: #0b2631;
+  color: ${theme('form.text')};
+  min-height: 56px;
+  padding: 6px 10px;
+  background-color: #06303b;
   border: 1px solid;
   border-color: ${theme('editor.border')};
   resize: none;

@@ -12,8 +12,7 @@ const items = [
     title: '标题党',
     raw: REPORT.ARTICLE.CLICKBAIT,
     checked: false,
-    detail:
-      '包括但不限于有意夸大，制造焦虑，引战等标题。即便你是出于好意，也请停止使用各类雷人标题骗取点击，在这里只会适得其反。',
+    detail: '包括但不限于有意夸大，制造焦虑，引战等内容。',
   },
   {
     title: '硬广，软广',

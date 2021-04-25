@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
