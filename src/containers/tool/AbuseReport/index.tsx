@@ -33,12 +33,13 @@ const AbuseReportContainer: React.FC<TProps> = ({
   testid,
 }) => {
   useInit(store)
+  const { itemsData } = store
 
   return (
     <Modal width="500px" show showCloseBtn onClose={() => console.log('close')}>
       <Wrapper testid={testid}>
         <Header />
-        <ArticleReport />
+        <ArticleReport items={itemsData} />
         <Footer />
       </Wrapper>
     </Modal>

@@ -12,15 +12,13 @@ export const Option = styled.div`
   padding: 12px 0;
   border-bottom: 1px solid;
   border-bottom-color: #125065;
-
-  &:hover {
-    cursor: pointer;
-  }
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   margin-left: 5px;
-  flex-grow: 1;
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const QuestionIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
@@ -30,6 +28,10 @@ export const QuestionIcon = styled(Img)`
 
   ${Option}:hover & {
     opacity: 1;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
   transition: all 0.25s;
 `

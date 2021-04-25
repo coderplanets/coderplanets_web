@@ -1,7 +1,12 @@
 import React from 'react'
 
 import { ICON } from '@/config'
+import { REPORT } from '@/constant'
+
+import { SpaceGrow } from '@/components/Common'
 import Checker from '@/components/Checker'
+
+import type { TREPORT_ITEM } from '../spec'
 
 import {
   Wrapper,
@@ -11,44 +16,21 @@ import {
   Note,
 } from '../styles/article_report'
 
-const ArticleReport: React.FC = () => {
+type TProps = {
+  items: TREPORT_ITEM[]
+}
+
+const ArticleReport: React.FC<TProps> = ({ items }) => {
   return (
     <Wrapper>
-      <Option>
-        <Checker checked />
-        <Title>重复内容</Title>
-        <QuestionIcon src={`${ICON}/shape/question.svg`} />
-      </Option>
-      <Option>
-        <Checker />
-        <Title>标题党</Title>
-        <QuestionIcon src={`${ICON}/shape/question.svg`} />
-      </Option>
-      <Option>
-        <Checker />
-        <Title>硬广，软广</Title>
-        <QuestionIcon src={`${ICON}/shape/question.svg`} />
-      </Option>
-      <Option>
-        <Checker />
-        <Title>侵权内容</Title>
-        <QuestionIcon src={`${ICON}/shape/question.svg`} />
-      </Option>
-      <Option>
-        <Checker />
-        <Title>坏问题</Title>
-        <QuestionIcon src={`${ICON}/shape/question.svg`} />
-      </Option>
-      <Option>
-        <Checker />
-        <Title>违法违规</Title>
-        <QuestionIcon src={`${ICON}/shape/question.svg`} />
-      </Option>
-      <Option>
-        <Checker />
-        <Title>其他</Title>
-        <QuestionIcon src={`${ICON}/shape/question.svg`} />
-      </Option>
+      {items.map((item) => (
+        <Option key={item.raw}>
+          <Checker checked={item.checked} />
+          <Title>{item.title}</Title>
+          <SpaceGrow />
+          <QuestionIcon src={`${ICON}/shape/question.svg`} />
+        </Option>
+      ))}
 
       <Note>
         举报成功后社区志愿者会在第一时间处理，处理结果会公示在这里。如果你对社区治理有更好的想法或建议，请联系我们。
