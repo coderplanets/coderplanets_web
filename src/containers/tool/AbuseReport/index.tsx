@@ -13,6 +13,7 @@ import { pluggedIn, buildLog } from '@/utils'
 import Modal from '@/components/Modal'
 
 import Header from './Header'
+import ArticleReport from './ArticleReport'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -36,6 +37,7 @@ const AbuseReportContainer: React.FC<TProps> = ({
     <Modal width="500px" show showCloseBtn onClose={() => console.log('close')}>
       <Wrapper testid={testid}>
         <Header />
+        <ArticleReport />
       </Wrapper>
     </Modal>
   )

@@ -6,6 +6,7 @@ import { theme, css } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
+  margin-bottom: 20px;
 `
 export const ReportIcon = styled(Img)`
   ${css.size(16)};
@@ -13,10 +14,12 @@ export const ReportIcon = styled(Img)`
 `
 export const Text = styled.div`
   color: ${theme('thread.articleTitle')};
-  margin-left: 5px;
+  margin-left: 8px;
+  margin-right: 6px;
 `
 export const ContentTitle = styled.div`
   color: ${theme('thread.articleDigest')};
+  font-size: 15px;
   margin-left: 3px;
   margin-right: 3px;
   &:before {

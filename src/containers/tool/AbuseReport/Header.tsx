@@ -6,7 +6,7 @@ import { Wrapper, ReportIcon, Text, ContentTitle } from './styles/header'
 const Header = () => {
   return (
     <Wrapper>
-      <ReportIcon src={`${ICON}/article/report.svg`} />
+      <ReportIcon src={`${ICON}/article/report-solid.svg`} />
       <Text>举报内容</Text>
       <ContentTitle>这是一首简单的小情歌</ContentTitle>
     </Wrapper>
