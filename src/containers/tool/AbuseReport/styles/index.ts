@@ -9,4 +9,4 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   padding: 25px 40px;
   color: ${theme('thread.articleDigest')};
 `
-export const Title = styled.div``
+export const ContentWrapper = styled.div``

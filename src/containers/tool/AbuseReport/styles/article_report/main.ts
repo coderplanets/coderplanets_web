@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import type { TActive } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
@@ -16,11 +17,15 @@ export const Option = styled.div`
 export const SelectWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const Title = styled.div`
+export const Title = styled.div<TActive>`
   color: ${theme('thread.articleTitle')};
   margin-left: 5px;
+  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
+  opacity: ${({ active }) => (active ? 1 : 0.9)};
+
   &:hover {
     cursor: pointer;
+    opacity: 1;
   }
 `
 export const QuestionIcon = styled(Img)`
