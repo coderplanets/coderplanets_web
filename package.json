@@ -134,7 +134,7 @@
     "store": "^2.0.12",
     "stringz": "^2.0.0",
     "styled-components": "5.2.0",
-    "timeago-react": "3.0.0",
+    "timeago-react": "3.0.2",
     "tinykeys": "^1.0.6"
   },
   "devDependencies": {
