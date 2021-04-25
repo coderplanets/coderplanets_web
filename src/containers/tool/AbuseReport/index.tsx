@@ -10,8 +10,11 @@ import React from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
-import type { TStore } from './store'
+import Modal from '@/components/Modal'
 
+import Header from './Header'
+
+import type { TStore } from './store'
 import { Wrapper } from './styles'
 import { useInit } from './logic'
 
@@ -30,10 +33,11 @@ const AbuseReportContainer: React.FC<TProps> = ({
   useInit(store)
 
   return (
-    <Wrapper testid={testid}>
-      <h2>AbuseReport hooks container!</h2>
-      <div>impress me!</div>
-    </Wrapper>
+    <Modal width="500px" show showCloseBtn onClose={() => console.log('close')}>
+      <Wrapper testid={testid}>
+        <Header />
+      </Wrapper>
+    </Modal>
   )
 }
 

@@ -1,22 +1,25 @@
 import React, { useEffect } from 'react'
 
+import type { TScrollDirection } from '@/spec'
 import { buildLog } from '@/utils'
+import type { TStore } from './store'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:GlobalLayout')
 
-let store = null
+let store: TStore | undefined
 
-export const openDoraemon = () => store.openDoraemon()
+export const openDoraemon = (): void => store.openDoraemon()
 
 // custromScroll's scroll direction change
-export const bodyScrollDirectionOnChange = (bodyScrollDirection) =>
-  store.mark({ bodyScrollDirection })
+export const bodyScrollDirectionOnChange = (
+  bodyScrollDirection: TScrollDirection,
+): void => store.mark({ bodyScrollDirection })
 /**
  * log ascii Buddha just for fun
  * 控制台打印佛祖保佑
  */
-export const logBuddha = () => {
+export const logBuddha = (): void => {
   if (process.env.NODE_ENV === 'production') {
     /* eslint-disable */
     console.log(
@@ -50,7 +53,10 @@ export const logBuddha = () => {
 
 // cloning children with new props
 // see detail: https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
-export const childrenWithProps = (children, props) => {
+export const childrenWithProps = (
+  children: React.ReactNode,
+  props: Record<string, unknown>,
+): React.ReactNode => {
   return React.Children.map(children, (child) => {
     // checking isValidElement is the safe way and avoids a typescript error too
     if (React.isValidElement(child)) {
@@ -63,7 +69,7 @@ export const childrenWithProps = (children, props) => {
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store, extra) => {
+export const useInit = (_store: TStore, extra): void => {
   useEffect(() => {
     store = _store
 
