@@ -17,11 +17,12 @@ import Header from '@/containers/unit/Header'
 import Sidebar from '@/containers/unit/Sidebar'
 import ModeLine from '@/containers/unit/ModeLine'
 import Drawer from '@/containers/tool/Drawer'
+
 import CustomScroller from '@/components/CustomScroller'
 
 import type { TStore } from './store'
 import SEO from './SEO'
-import { Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
+import { AbuseReport, Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
 
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
 
@@ -92,6 +93,7 @@ const GlobalLayoutContainer: React.FC<TProps> = ({
                 // noSidebar={noSidebar}
               >
                 {!noSidebar && <Sidebar />}
+                <AbuseReport />
                 <Drawer />
                 <Doraemon />
                 <ErrorBox />

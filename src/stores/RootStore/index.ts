@@ -80,7 +80,6 @@ import {
   AvatarAdderStore,
   TagsBarStore,
   UserListerStore,
-  InformerStore,
   GirlVerifierStore,
   CashierStore,
   ArticleAuthorCardStore,
@@ -99,6 +98,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  AbuseReportStore,
   HelpCenterContentStore,
   CommunityJoinBadgeStore,
   ArticleEditorStore,
@@ -189,7 +189,6 @@ const rootStore = T.model({
 
   tagsBar: T.optional(TagsBarStore, {}),
   userLister: T.optional(UserListerStore, {}),
-  informer: T.optional(InformerStore, {}),
   girlVerifier: T.optional(GirlVerifierStore, {}),
   cashier: T.optional(CashierStore, {}),
   articleAuthorCard: T.optional(ArticleAuthorCardStore, {}),
@@ -219,6 +218,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  abuseReport: T.optional(AbuseReportStore, {}),
   helpCenterContent: T.optional(HelpCenterContentStore, {}),
   communityJoinBadge: T.optional(CommunityJoinBadgeStore, {}),
   articleEditor: T.optional(ArticleEditorStore, {}),
@@ -322,9 +322,6 @@ const rootStore = T.model({
     changesetErr(options): void {
       // @ts-ignore TODO:
       self.toast('error', options)
-    },
-    callInformer(): void {
-      self.informer.show()
     },
     callGirlVerifier(): void {
       self.girlVerifier.show()

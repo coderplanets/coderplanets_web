@@ -29,7 +29,6 @@ import {
   onUndoPin,
   onSetRefined,
   onUnsetRefined,
-  onInform,
   onDelete,
   onCommunitySet,
   onTagSelect,
@@ -64,7 +63,6 @@ const ArticleBodyHeaderContainer = ({
               onUndoPin={onUndoPin}
               onSetRefined={onSetRefined}
               onUnsetRefined={onUnsetRefined}
-              onInform={onInform}
               onDelete={onDelete}
               onCommunitySet={onCommunitySet}
             />

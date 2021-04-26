@@ -69,3 +69,11 @@ export type TTooltipPlacement =
   | 'right'
   | 'right-start'
   | 'right-end'
+
+export type TReportType = 'ARTICLE' | 'USER' | 'COMMENT' | 'COMMUNITY'
+
+export type TAttInfo = {
+  id: string
+  title: string
+  // ...
+}

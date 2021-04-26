@@ -228,7 +228,7 @@ export const useInit = (_store: TStore, windowWidth: number): void => {
     store.mark({ windowWidth })
 
     return () => {
-      if (!sub$) return false
+      if (!sub$) return
       sr71$.stop()
       sub$.unsubscribe()
       sub$ = null

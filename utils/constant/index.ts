@@ -21,6 +21,7 @@ export { default as SIZE } from './size'
 export { default as URL_QUERY } from './url_query'
 
 export { PAYMENT_USAGE, PAYMENT_METHOD } from './payment'
+export { REPORT, REPORT_TYPE } from './report'
 
 /* some svg icon are sensitive to fill color */
 /* some community svg need fill color, like city etc.. */

@@ -2,7 +2,7 @@ import { curry, reduce, keys, sort, uniq, tap } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
-import type { TGQLError } from '@/spec'
+import type { TGQLError, TReportType, TAttInfo } from '@/spec'
 import { TAG_COLOR_ORDER } from '@/config'
 import { EVENT } from '@/constant'
 
@@ -145,6 +145,13 @@ export const send = (msg: string, data = {}): void => {
  */
 export const closeDrawer = (type = ''): void =>
   send(EVENT.DRAWER.CLOSE, { type })
+
+/**
+ * report content
+ */
+export const report = (type: TReportType, data?: TAttInfo): void => {
+  send(EVENT.REPORT, { type, data })
+}
 
 /**
  * hepler for call the JoinModal Container to show wechatQRCode or mail scriscribe list etc ..

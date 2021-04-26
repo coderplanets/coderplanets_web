@@ -17,11 +17,11 @@ import { Wrapper, IconWrapper, Icon, ChildWrapper } from './styles'
 const log = buildLog('c:Checker:index')
 
 type TProps = {
-  children: React.ReactNode
+  children?: React.ReactNode | null
   checked?: boolean
-  hiddenMode: boolean
+  hiddenMode?: boolean
   size?: TSIZE_SM
-  onChange: (checked: boolean) => void
+  onChange?: (checked: boolean) => void
 }
 
 const Checker: React.FC<TProps> = ({
@@ -29,7 +29,7 @@ const Checker: React.FC<TProps> = ({
   onChange = log,
   hiddenMode = false,
   size = SIZE.MEDIUM,
-  children,
+  children = null,
 }) => {
   const show = checked || !hiddenMode
 

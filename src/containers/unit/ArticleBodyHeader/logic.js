@@ -143,8 +143,6 @@ export const onTagUnselect = (tagId) => {
   sr71$.mutate(S.unsetTag, { thread, id, tagId, communityId })
 }
 
-export const onInform = () => store.callInformer()
-
 const backToParentThread = () => {
   let REFRESH_EVENT
   if (store.activeThread === THREAD.POST) {
@@ -240,7 +238,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

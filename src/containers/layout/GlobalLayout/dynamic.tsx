@@ -9,6 +9,15 @@ export const Doraemon = dynamic(() => import('@/containers/tool/Doraemon'), {
   ssr: false,
 })
 
+export const AbuseReport = dynamic(
+  () => import('@/containers/tool/AbuseReport'),
+  {
+    /* eslint-disable react/display-name */
+    loading: () => <div />,
+    ssr: false,
+  },
+)
+
 export const ErrorBox = dynamic(() => import('@/containers/tool/ErrorBox'), {
   /* eslint-disable react/display-name */
   loading: () => <div />,

@@ -29,9 +29,6 @@ const JobContent = T.model('JobContent', {})
     },
   }))
   .actions((self) => ({
-    callInformer() {
-      self.root.callInformer()
-    },
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

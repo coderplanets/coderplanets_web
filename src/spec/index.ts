@@ -30,6 +30,8 @@ export type {
   TScrollDirection,
   TTooltipAnimation,
   TTooltipPlacement,
+  TReportType,
+  TAttInfo,
 } from './utils'
 
 export type { TGQLError } from './graphql'

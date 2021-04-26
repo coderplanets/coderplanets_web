@@ -27,7 +27,6 @@ export { default as MailBoxStore } from '@/containers/tool/MailBox/store'
 export { default as AvatarAdderStore } from '@/containers/tool/AvatarAdder/store'
 
 export { default as UserListerStore } from '@/containers/user/UserLister/store'
-export { default as InformerStore } from '@/containers/tool/Informer/store'
 export { default as GirlVerifierStore } from '@/containers/tool/GirlVerifier/store'
 export { default as CashierStore } from '@/containers/tool/Cashier/store'
 
@@ -106,6 +105,7 @@ export { default as CommunityEditorStore } from '@/containers/editor/CommunityEd
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as AbuseReportStore } from '@/containers/tool/AbuseReport/store'
 export { default as HelpCenterContentStore } from '@/containers/content/HelpCenterContent/store'
 export { default as CommunityJoinBadgeStore } from '@/containers/tool/CommunityJoinBadge/store'
 export { default as ArticleEditorStore } from '@/containers/editor/ArticleEditor/store'

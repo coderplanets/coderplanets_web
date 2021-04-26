@@ -8,18 +8,16 @@ import React from 'react'
 import T from 'prop-types'
 import { values } from 'ramda'
 
-import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { buildLog } from '@/utils'
 
-import Informer from '@/containers/tool/Informer'
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'
 import EditOption from './EditOption'
 import CommunitySetterOption from './CommunitySetterOption'
 import DeleteOption from './DeleteOption'
 
-import { Wrapper, Option, OptionIcon, OptionTitle } from './styles'
+import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ArticleActionsPanel:index')
@@ -33,7 +31,6 @@ const ArticleActionsPanel = ({
   onSetRefined,
   onUnsetRefined,
   onEdit,
-  onInform,
   onDelete,
   onCommunitySet,
 }) => {
@@ -66,13 +63,6 @@ const ArticleActionsPanel = ({
         onCommunitySet={onCommunitySet}
       />
 
-      <Informer>
-        <Option onClick={onInform}>
-          <OptionIcon src={`${ICON_CMD}/flag.svg`} />
-          <OptionTitle>举报该内容</OptionTitle>
-        </Option>
-      </Informer>
-
       <DeleteOption
         passport="owner"
         ownerId={data.author?.id}
@@ -100,7 +90,6 @@ ArticleActionsPanel.propTypes = {
   }).isRequired,
   communityRaw: T.string.isRequired,
   thread: T.oneOf(values(THREAD)),
-  onInform: T.func,
   onDelete: T.func,
   onEdit: T.func,
   onPin: T.func,
@@ -112,7 +101,6 @@ ArticleActionsPanel.propTypes = {
 
 ArticleActionsPanel.defaultProps = {
   thread: THREAD.POST,
-  onInform: log,
   onDelete: log,
   onEdit: log,
   onPin: log,

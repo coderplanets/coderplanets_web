@@ -14,13 +14,12 @@ export const Wrapper = styled.div<TActive>`
 `
 export const IconWrapper = styled.div<TItem>`
   position: relative;
-  background: ${({ checked }) => (checked ? '#114759' : '#00262F')};
+  background: ${({ checked }) => (checked ? '#0d3d4e' : '#012f3a')};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   ${css.flex('align-both')};
   border: 1px solid;
-  border-color: ${({ checked }) => (checked ? 'transparent' : '#114759')};
-
+  border-color: ${({ checked }) => (checked ? '#246b8c' : '#1c5975')};
   border-radius: ${({ size }) => getBorderRadius(size)};
 
   transition: all 0.2s;

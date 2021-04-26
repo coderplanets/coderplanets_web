@@ -7,6 +7,4 @@ export const Wrapper = styled.div`
   min-width: 250px;
   ${css.media.tablet`display: none`};
 `
-export const ReportWrapper = styled.div`
-  padding: 0 10px;
-`
+export const holder = 1

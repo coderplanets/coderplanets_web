@@ -34,8 +34,6 @@ const loadPost = (): void => {
   sr71$.query(S.post, { id, userHasLogin: store.isLogin })
 }
 
-export const callInformer = (): void => store.callInformer()
-
 // ###############################
 // Data & Error handlers
 // ###############################

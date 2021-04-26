@@ -29,10 +29,6 @@ const PostContentStore = T.model('PostContentStore', {
     },
   }))
   .actions((self) => ({
-    callInformer(): void {
-      const root = getParent(self) as TRootStore
-      root.callInformer()
-    },
     setViewing(sobj: Record<string, unknown>): void {
       const root = getParent(self) as TRootStore
       root.setViewing(sobj)
