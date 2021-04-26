@@ -23,9 +23,9 @@ const Detail: React.FC<TProps> = ({ activeItem }) => {
       >
         {activeItem.title}
       </ArrowButton>
-      <Br bottom={20} />
+      <Br bottom={10} />
       <DetailDesc>{activeItem.detail}</DetailDesc>
-      <Br bottom={15} />
+      <Br bottom={25} />
       <Input
         onChange={() => console.log}
         placeholder="补充信息 (可选)"

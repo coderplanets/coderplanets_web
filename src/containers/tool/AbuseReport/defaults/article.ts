@@ -12,7 +12,8 @@ const items = [
     title: '标题党',
     raw: REPORT.ARTICLE.CLICKBAIT,
     checked: false,
-    detail: '包括但不限于有意夸大，制造焦虑，引战等内容。',
+    detail:
+      '包括但不限于有意夸大，制造焦虑，引战等内容。一般来说，含有「史上」，「xx万字吐血整理」，「必问/必考」以及包含一个甚至多个感叹号的标题大概率属于此类。',
   },
   {
     title: '硬广，软广',
