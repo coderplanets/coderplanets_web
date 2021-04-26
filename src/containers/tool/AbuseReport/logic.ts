@@ -42,24 +42,23 @@ const DataResolver = [
   {
     match: asyncRes(EVENT.REPORT),
     action: (res) => {
-      const payload = res[EVENT.REPORT]
-      console.log('payload --> ', payload)
-
-      switch (payload.type) {
+      const { type } = res[EVENT.REPORT]
+      switch (type) {
+        // load user info
         case TYPE.REPORT.USER: {
-          return store.mark({ items: userItems, show: true })
+          return store.mark({ type, items: userItems, show: true })
         }
 
         case TYPE.REPORT.COMMUNITY: {
-          return store.mark({ items: communityItems, show: true })
+          return store.mark({ type, items: communityItems, show: true })
         }
 
         case TYPE.REPORT.COMMENT: {
-          return store.mark({ items: commentItems, show: true })
+          return store.mark({ type, items: commentItems, show: true })
         }
 
         default: {
-          return store.mark({ items: articleItems, show: true })
+          return store.mark({ type, items: articleItems, show: true })
         }
       }
     },

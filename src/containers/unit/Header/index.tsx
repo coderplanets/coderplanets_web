@@ -23,7 +23,7 @@ const HeaderContainer = ({ metric }) => {
       testid=""
       onClick={() => {
         console.log('report it!')
-        report('ARTICLE')
+        report('USER')
       }}
     >
       {!isMobile ? <DesktopView metric={metric} /> : <MobileWrapper />}

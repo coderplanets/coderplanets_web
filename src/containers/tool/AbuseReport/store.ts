@@ -3,9 +3,9 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values, find, propEq } from 'ramda'
+import { find, propEq } from 'ramda'
 
-import { REPORT_TYPE, REPORT } from '@/constant'
+import { REPORT_TYPE } from '@/constant'
 
 import type { TCommunity, TRootStore } from '@/spec'
 import { markStates, buildLog, stripMobx } from '@/utils'
