@@ -31,7 +31,6 @@ const ArticleActionsPanel = ({
   onSetRefined,
   onUnsetRefined,
   onEdit,
-  onInform,
   onDelete,
   onCommunitySet,
 }) => {
@@ -91,7 +90,6 @@ ArticleActionsPanel.propTypes = {
   }).isRequired,
   communityRaw: T.string.isRequired,
   thread: T.oneOf(values(THREAD)),
-  onInform: T.func,
   onDelete: T.func,
   onEdit: T.func,
   onPin: T.func,
@@ -103,7 +101,6 @@ ArticleActionsPanel.propTypes = {
 
 ArticleActionsPanel.defaultProps = {
   thread: THREAD.POST,
-  onInform: log,
   onDelete: log,
   onEdit: log,
   onPin: log,
