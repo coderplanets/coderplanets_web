@@ -14,11 +14,11 @@ import Modal from '@/components/Modal'
 
 import Header from './Header'
 import Footer from './Footer'
-import ArticleReport from './ArticleReport'
+import ReportContent from './ReportContent'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
-import { useInit } from './logic'
+import { useInit, close } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:AbuseReport')
@@ -33,13 +33,13 @@ const AbuseReportContainer: React.FC<TProps> = ({
   testid,
 }) => {
   useInit(store)
-  const { view, itemsData, activeItem } = store
+  const { show, type, view, itemsData, activeItem } = store
 
   return (
-    <Modal width="500px" show showCloseBtn onClose={() => console.log('close')}>
+    <Modal width="500px" show={show} showCloseBtn onClose={() => close()}>
       <Wrapper testid={testid}>
-        <Header />
-        <ArticleReport view={view} items={itemsData} activeItem={activeItem} />
+        <Header type={type} />
+        <ReportContent view={view} items={itemsData} activeItem={activeItem} />
         <Footer view={view} />
       </Wrapper>
     </Modal>

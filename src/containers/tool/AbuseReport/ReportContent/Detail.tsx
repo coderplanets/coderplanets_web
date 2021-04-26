@@ -5,7 +5,7 @@ import { Br } from '@/components/Common'
 import { ArrowButton } from '@/components/Buttons'
 
 import type { TREPORT_ITEM } from '../spec'
-import { Wrapper, DetailDesc } from '../styles/article_report/detail'
+import { Wrapper, DetailDesc } from '../styles/report_content/detail'
 import { goBack } from '../logic'
 
 type TProps = {

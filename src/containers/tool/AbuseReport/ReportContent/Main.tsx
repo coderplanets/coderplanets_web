@@ -1,13 +1,11 @@
 import React from 'react'
 
-import { ICON } from '@/config'
-
 import { SpaceGrow } from '@/components/Common'
 import Checker from '@/components/Checker'
 
 import type { TREPORT_ITEM } from '../spec'
 
-import { Option, SelectWrapper, Title } from '../styles/article_report/main'
+import { Option, SelectWrapper, Title } from '../styles/report_content/main'
 import { selectItem } from '../logic'
 
 type TProps = {

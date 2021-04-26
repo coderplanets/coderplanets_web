@@ -58,6 +58,13 @@ const TYPE = {
     MODELINE_MENU: 'MODELINE_MENU',
   },
 
+  REPORT: {
+    ARTICLE: 'ARTICLE',
+    USER: 'USER',
+    COMMENT: 'COMMENT',
+    COMMUNITY: 'COMMUNITY',
+  },
+
   // modeline menu type
   MM_TYPE: {
     GLOBAL_MENU: 'global_menu',

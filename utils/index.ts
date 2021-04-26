@@ -28,6 +28,7 @@ export {
   countWords,
   joinUS,
   closeDrawer,
+  report,
   errRescue,
   debounce,
   extractMentions,

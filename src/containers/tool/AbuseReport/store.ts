@@ -25,14 +25,15 @@ const initItem = {
 
 const Item = T.model('AbuseReport', {
   title: T.string,
-  raw: T.enumeration(values(REPORT.ARTICLE)),
+  raw: T.string,
   checked: T.optional(T.boolean, false),
   info: T.optional(T.string, ''),
   detail: T.optional(T.string, ''),
 })
 
 const AbuseReport = T.model('AbuseReport', {
-  type: T.optional(T.enumeration(values(REPORT_TYPE)), REPORT_TYPE.ARTICLE),
+  show: T.optional(T.boolean, false),
+  type: T.optional(T.string, REPORT_TYPE.ARTICLE),
   items: T.optional(T.array(Item), articleItems),
   checkedItemRaw: T.maybeNull(T.string),
   view: T.optional(T.enumeration(['main', 'detail']), 'main'),

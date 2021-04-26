@@ -11,7 +11,7 @@ type TProps = {
   activeItem: TREPORT_ITEM
 }
 
-const ArticleReport: React.FC<TProps> = ({ view, items, activeItem }) => {
+const ReportContent: React.FC<TProps> = ({ view, items, activeItem }) => {
   switch (view) {
     case 'detail': {
       return <Detail activeItem={activeItem} />
@@ -23,4 +23,4 @@ const ArticleReport: React.FC<TProps> = ({ view, items, activeItem }) => {
   }
 }
 
-export default ArticleReport
+export default ReportContent

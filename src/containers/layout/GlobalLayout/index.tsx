@@ -93,7 +93,6 @@ const GlobalLayoutContainer: React.FC<TProps> = ({
                 sidebarPin={sidebarPin}
                 // noSidebar={noSidebar}
               >
-                <div>rreod</div>
                 <AbuseReport />
 
                 {!noSidebar && <Sidebar />}
