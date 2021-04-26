@@ -26,9 +26,6 @@ const VideoContent = T.model('VideoContent', {})
     },
   }))
   .actions((self) => ({
-    callInformer() {
-      self.root.callInformer()
-    },
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

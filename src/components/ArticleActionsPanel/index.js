@@ -8,18 +8,16 @@ import React from 'react'
 import T from 'prop-types'
 import { values } from 'ramda'
 
-import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { buildLog } from '@/utils'
 
-import Informer from '@/containers/tool/Informer'
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'
 import EditOption from './EditOption'
 import CommunitySetterOption from './CommunitySetterOption'
 import DeleteOption from './DeleteOption'
 
-import { Wrapper, Option, OptionIcon, OptionTitle } from './styles'
+import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ArticleActionsPanel:index')
@@ -65,13 +63,6 @@ const ArticleActionsPanel = ({
         passport={`${thread}.community.set`}
         onCommunitySet={onCommunitySet}
       />
-
-      <Informer>
-        <Option onClick={onInform}>
-          <OptionIcon src={`${ICON_CMD}/flag.svg`} />
-          <OptionTitle>举报该内容</OptionTitle>
-        </Option>
-      </Informer>
 
       <DeleteOption
         passport="owner"

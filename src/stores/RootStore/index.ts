@@ -80,7 +80,6 @@ import {
   AvatarAdderStore,
   TagsBarStore,
   UserListerStore,
-  InformerStore,
   GirlVerifierStore,
   CashierStore,
   ArticleAuthorCardStore,
@@ -190,7 +189,6 @@ const rootStore = T.model({
 
   tagsBar: T.optional(TagsBarStore, {}),
   userLister: T.optional(UserListerStore, {}),
-  informer: T.optional(InformerStore, {}),
   girlVerifier: T.optional(GirlVerifierStore, {}),
   cashier: T.optional(CashierStore, {}),
   articleAuthorCard: T.optional(ArticleAuthorCardStore, {}),
@@ -324,9 +322,6 @@ const rootStore = T.model({
     changesetErr(options): void {
       // @ts-ignore TODO:
       self.toast('error', options)
-    },
-    callInformer(): void {
-      self.informer.show()
     },
     callGirlVerifier(): void {
       self.girlVerifier.show()

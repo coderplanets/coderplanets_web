@@ -36,9 +36,6 @@ const ArticleBodyHeader = T.model('ArticleBodyHeader', {})
     },
   }))
   .actions((self) => ({
-    callInformer() {
-      self.root.callInformer()
-    },
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
