@@ -38,6 +38,14 @@ export const QuoteAvatar = styled(Avatar)`
   border: 2px solid;
   border-color: ${theme('avatar.quote')};
 `
+export const MaskIcon = styled(Img)`
+  position: absolute;
+  bottom: -4px;
+  left: -3px;
+  ${css.size(22)};
+  fill: #bd572b;
+  z-index: 2;
+`
 export const Tail = styled(TailBase)`
   ${Wrapper}:hover & {
     left: -6px;
