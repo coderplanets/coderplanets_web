@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import { Wrapper, Header, Icon, Content, QTitle, ABody } from './styles/qa'
 
-const QA = () => {
+type TProps = {
+  testid?: string
+}
+
+const QA: FC<TProps> = ({ testid = 'membership-qa' }) => {
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <Header>
         <Icon src={`${ICON}/menu/Q-A.svg`} />
         常见问题

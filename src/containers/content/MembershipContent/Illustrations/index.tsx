@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { FC, ReactNode } from 'react'
 
+import type { TPackage } from '../spec'
 import Rocket from './Rocket'
 import UFO from './UFO'
 import AirBalloon from './AirBalloon'
@@ -7,10 +8,10 @@ import AirBalloon from './AirBalloon'
 import { PACKAGE } from '../constant'
 import { Wrapper } from '../styles/illustrations'
 
-const renderIllustration = (type, active) => {
+const renderIllustration = (type: TPackage, active: boolean): ReactNode => {
   switch (type) {
     case PACKAGE.FREE: {
-      return <AirBalloon active={active} />
+      return <AirBalloon />
     }
 
     case PACKAGE.GIRL: {
@@ -27,7 +28,11 @@ const renderIllustration = (type, active) => {
   }
 }
 
-const Illustrations = ({ type, active }) => {
+type TProps = {
+  type: TPackage
+  active: boolean
+}
+const Illustrations: FC<TProps> = ({ type, active }) => {
   return <Wrapper active={active}>{renderIllustration(type, active)}</Wrapper>
 }
 

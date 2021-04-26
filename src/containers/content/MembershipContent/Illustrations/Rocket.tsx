@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 
+import type { TPackage } from '../spec'
 import { PACKAGE } from '../constant'
+
 import {
   Wrapper,
   Star1,
@@ -17,9 +19,15 @@ import {
   GirlIcon,
 } from '../styles/illustrations/rocket'
 
-const Rocket = ({ type, active }) => {
+type TProps = {
+  testid?: string
+  type?: TPackage
+  active: boolean
+}
+
+const Rocket: FC<TProps> = ({ testid = 'membership-rocket', type, active }) => {
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <Star1 src={`${ICON}/shape/star.svg`} active={active} />
       <Star2 src={`${ICON}/shape/star.svg`} active={active} />
       <Star3 src={`${ICON}/shape/star.svg`} active={active} />

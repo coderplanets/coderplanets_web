@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { PAY } from './constant'
 import { Wrapper, Price, Slash, Unit } from './styles/price_tag'
 
-const PriceTag = ({ active, price, unit = '月' }) => {
+type TProps = {
+  testid?: string
+  active: boolean
+  price: string
+  unit?: string
+}
+
+const PriceTag: FC<TProps> = ({
+  testid = 'membership-price-tag',
+  active,
+  price,
+  unit = '月',
+}) => {
   const localeUnit = unit === PAY.YEARLY ? '每年' : '每月'
 
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       ¥ <Price active={active}>{price}</Price>
       <Slash>/</Slash>
       <Unit>{localeUnit}</Unit>

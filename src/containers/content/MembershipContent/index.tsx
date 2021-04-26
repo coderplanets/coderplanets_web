@@ -5,14 +5,13 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
-// import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@/config'
 import { pluggedIn, buildLog } from '@/utils'
 
 import { OrButton, Button } from '@/components/Buttons'
 import Checker from '@/components/Checker'
 
+import type { TStore } from './store'
 import { PAY, PACKAGE } from './constant'
 
 import Illustrations from './Illustrations'
@@ -26,6 +25,7 @@ import {
   InnerWrapper,
   BannerWrapper,
   PayButtonWrapper,
+  InviteCodeWrapper,
   Title,
   Desc,
   ContentWrapper,
@@ -60,9 +60,15 @@ const PayButton = ({ pkgType, payType }) => {
   )
 }
 
-const MembershipContentContainer = ({
+type TProps = {
+  membershipContent: TStore
+  metric: string
+  testid?: string
+}
+
+const MembershipContentContainer: React.FC<TProps> = ({
   membershipContent: store,
-  testid,
+  testid = 'membership-content',
   metric,
 }) => {
   useInit(store)
@@ -78,7 +84,6 @@ const MembershipContentContainer = ({
           <PayButtonWrapper>
             <OrButton
               size="small"
-              type="primary"
               activeKey={payType}
               group={[
                 {
@@ -96,6 +101,7 @@ const MembershipContentContainer = ({
               pkgType !== PACKAGE.GIRL &&
               pkgType !== PACKAGE.FREE && <MonthlyWarning />}
           </PayButtonWrapper>
+          <InviteCodeWrapper>使用邀请码</InviteCodeWrapper>
         </BannerWrapper>
         <ContentWrapper metric={metric}>
           {dashboardItems.map((item) => (
@@ -144,14 +150,4 @@ const MembershipContentContainer = ({
   )
 }
 
-MembershipContentContainer.propTypes = {
-  membershipContent: T.any.isRequired,
-  metric: T.string.isRequired,
-  testid: T.string,
-}
-
-MembershipContentContainer.defaultProps = {
-  testid: 'membership-content',
-}
-
-export default pluggedIn(MembershipContentContainer)
+export default pluggedIn(MembershipContentContainer) as React.FC<TProps>
