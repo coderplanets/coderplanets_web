@@ -12,5 +12,4 @@ cypress//integration/examples
 cypress/videos/
 .vscode/
 .DS_Store
-report.*
 .eslintcache

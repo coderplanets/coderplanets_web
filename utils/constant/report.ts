@@ -1,0 +1,31 @@
+export const REPORT_TYPE = {
+  ARTICLE: 'ARTICLE',
+  USER: 'USER',
+  COMMUNITY: 'COMMUNITY',
+  // WORKS: 'WORKS', // TODO
+  // JOB: 'JOB', // TODO
+  COMMENT: 'COMMENT',
+}
+
+export const REPORT = {
+  FLYER: 'FLYER',
+  LAWS: 'LAWS',
+  OTHERS: 'OTHERS',
+  VIOLATION: 'VIOLATION',
+  ARTICLE: {
+    DUPLICATE: 'DUPLICATE',
+    CLICKBAIT: 'CLICKBAIT',
+    BAD_QUESTION: 'BAD_QUESTION',
+  },
+  COMMENT: {
+    OFF_TOPIC: 'OFF_TOPIC',
+    BAD_INFO: 'BAD_INFO',
+  },
+  USER: {
+    SPAMMER: 'SPAMMER',
+    ABUSE_POWER: 'ABUSE_POWER',
+  },
+  COMMUNITY: {
+    BAD_ETHOS: 'BAD_ETHOS',
+  },
+}
