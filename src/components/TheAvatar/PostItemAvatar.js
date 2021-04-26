@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import { ICON } from '@/config'
+import { ICON } from '@/config'
 import ImgFallback from '@/components/ImgFallback'
 import {
   Wrapper,
@@ -8,6 +8,7 @@ import {
   QuoteShadow,
   Avatar,
   QuoteAvatar,
+  MaskIcon,
 } from './styles/post_item_avatar'
 
 const PostItemAvatar = ({ user, onSelect }) => {
@@ -25,7 +26,9 @@ const PostItemAvatar = ({ user, onSelect }) => {
         />
       )}
       {user.login === 'mydearxym' ? <QuoteShadow /> : <InnerShadow />}
-      {/* <Tail src={`${ICON}/shape/tail.svg`} /> */}
+      {user.login === 'mydearxym' && (
+        <MaskIcon src={`${ICON}/user/mute-mask.svg`} />
+      )}
     </Wrapper>
   )
 }
