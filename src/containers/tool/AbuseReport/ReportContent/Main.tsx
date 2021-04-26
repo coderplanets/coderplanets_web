@@ -16,15 +16,16 @@ type TProps = {
 const Main: React.FC<TProps> = ({ items, activeItem }) => {
   return (
     <React.Fragment>
-      {items.map((item) => (
-        <Option key={item.raw}>
-          <SelectWrapper onClick={() => selectItem(item.raw)}>
-            <Checker checked={item.raw === activeItem.raw} />
-            <Title active={item.raw === activeItem.raw}>{item.title}</Title>
-          </SelectWrapper>
-          <SpaceGrow />
-        </Option>
-      ))}
+      {items &&
+        items.map((item) => (
+          <Option key={item.raw}>
+            <SelectWrapper onClick={() => selectItem(item.raw)}>
+              <Checker checked={item.raw === activeItem.raw} />
+              <Title active={item.raw === activeItem.raw}>{item.title}</Title>
+            </SelectWrapper>
+            <SpaceGrow />
+          </Option>
+        ))}
     </React.Fragment>
   )
 }

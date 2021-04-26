@@ -11,7 +11,6 @@ import type { TCommunity, TRootStore } from '@/spec'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
 import type { TREPORT_ITEM } from './spec'
-import articleItems from './defaults/article'
 /* eslint-disable-next-line */
 const log = buildLog('S:AbuseReport')
 
@@ -34,7 +33,7 @@ const Item = T.model('AbuseReport', {
 const AbuseReport = T.model('AbuseReport', {
   show: T.optional(T.boolean, false),
   type: T.optional(T.string, REPORT_TYPE.ARTICLE),
-  items: T.optional(T.array(Item), articleItems),
+  items: T.maybeNull(T.array(Item)),
   checkedItemRaw: T.maybeNull(T.string),
   view: T.optional(T.enumeration(['main', 'detail']), 'main'),
 })
@@ -45,7 +44,7 @@ const AbuseReport = T.model('AbuseReport', {
       return stripMobx(root.viewing.community)
     },
     get itemsData(): TREPORT_ITEM[] {
-      return stripMobx(self.items)
+      return stripMobx(self.items || [])
     },
 
     get activeItem(): TREPORT_ITEM {
