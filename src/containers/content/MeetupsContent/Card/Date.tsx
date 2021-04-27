@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TProps as TParentProps } from './index'
 import { Wrapper, Divider, WeekName, DateNum } from '../styles/card/date'
 
 type TProps = Omit<TParentProps, 'item'>
 
-const Date: React.FC<TProps> = ({ type }) => {
+const Date: FC<TProps> = ({ type }) => {
   return (
     <Wrapper type={type}>
       <WeekName>周五</WeekName>

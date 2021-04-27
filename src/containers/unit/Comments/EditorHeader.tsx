@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TAccount, TUser } from '@/spec'
 import { ICON, ICON_CMD } from '@/config'
@@ -29,7 +29,7 @@ type TProps = {
   referUsers: TUser[]
 }
 
-const EditorHeader: React.FC<TProps> = ({
+const EditorHeader: FC<TProps> = ({
   accountInfo,
   showInputEditor,
   showInputPreview,

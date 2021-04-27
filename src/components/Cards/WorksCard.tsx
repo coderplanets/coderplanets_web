@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 import { buildLog, cutRest } from '@/utils'
@@ -58,7 +58,7 @@ type TProps = {
   }
 }
 
-const WorksCard: React.FC<TProps> = ({
+const WorksCard: FC<TProps> = ({
   testid = 'works-card',
   item,
   withBg = false,

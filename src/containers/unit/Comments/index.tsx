@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -30,7 +30,7 @@ type TProps = {
   onCreate?: () => void
 }
 
-const CommentsContainer: React.FC<TProps> = ({
+const CommentsContainer: FC<TProps> = ({
   comments: store,
   ssr = false,
   locked = false,
@@ -95,4 +95,4 @@ const CommentsContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CommentsContainer) as React.FC<TProps>
+export default pluggedIn(CommentsContainer) as FC<TProps>

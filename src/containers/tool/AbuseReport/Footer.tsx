@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { YesOrNoButtons } from '@/components/Buttons'
 
@@ -8,7 +8,7 @@ type TProps = {
   view: 'main' | 'detail'
 }
 
-const Footer: React.FC<TProps> = ({ view }) => {
+const Footer: FC<TProps> = ({ view }) => {
   if (view !== 'detail') return null
 
   return (

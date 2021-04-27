@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost, TAccount } from '@/spec'
@@ -23,7 +23,7 @@ type TProps = {
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const Header: React.FC<TProps> = ({ cover, item, onAuthorSelect }) => {
+const Header: FC<TProps> = ({ cover, item, onAuthorSelect }) => {
   return (
     <Wrapper>
       <AuthorInfo>

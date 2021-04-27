@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -41,7 +41,7 @@ type TProps = {
   view: TView
 }
 
-const Footer: React.FC<TProps> = ({ view }) => {
+const Footer: FC<TProps> = ({ view }) => {
   return (
     <Wrapper>
       <View view={view} />

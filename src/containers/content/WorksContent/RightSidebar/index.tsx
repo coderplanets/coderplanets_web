@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 
@@ -39,7 +39,7 @@ type TProps = {
   testid?: string
 }
 
-const RightSidebar: React.FC<TProps> = ({
+const RightSidebar: FC<TProps> = ({
   testid = 'works-content-right-sidebar',
 }) => {
   return (

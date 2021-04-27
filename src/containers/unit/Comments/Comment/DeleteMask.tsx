@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Button } from '@/components/Buttons'
 
@@ -14,7 +14,7 @@ type TProps = {
   show: boolean
 }
 
-const DeleteMask: React.FC<TProps> = ({ show }) => {
+const DeleteMask: FC<TProps> = ({ show }) => {
   return (
     <DeleteOverlay show={show}>
       <DeleteHintText>删除后该该评论将不可恢复</DeleteHintText>

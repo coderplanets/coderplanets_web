@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import { METRIC } from '@/constant'
@@ -38,7 +38,7 @@ type TProps = {
   header?: TStore
 }
 
-const CommunityHeaderContainer: React.FC<TProps> = ({
+const CommunityHeaderContainer: FC<TProps> = ({
   header: store,
   metric = METRIC.COMMUNITY,
 }) => {
@@ -99,4 +99,4 @@ const CommunityHeaderContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CommunityHeaderContainer, 'header') as React.FC<TProps>
+export default pluggedIn(CommunityHeaderContainer, 'header') as FC<TProps>

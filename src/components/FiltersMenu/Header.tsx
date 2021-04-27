@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
@@ -18,7 +18,7 @@ type TProps = {
   onReset: () => void
 }
 
-const Header: React.FC<TProps> = ({ title, showReset, onReset }) => {
+const Header: FC<TProps> = ({ title, showReset, onReset }) => {
   return (
     <Wrapper>
       <Title active={showReset}>{title}</Title>

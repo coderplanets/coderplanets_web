@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TSIZE_SML } from '@/spec'
 import type { TDirection, TScrollDirection } from './spec'
@@ -28,7 +28,7 @@ export type TProps = {
   onScrollDirectionChange?: (dir: TScrollDirection) => void
 }
 
-const CustomScroller: React.FC<TProps> = ({
+const CustomScroller: FC<TProps> = ({
   children,
   direction = 'vertical',
   ...restProps

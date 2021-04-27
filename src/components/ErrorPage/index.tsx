@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
@@ -40,7 +40,7 @@ export type TProps = {
   metric?: string
 }
 
-const ErrorPage: React.FC<TProps> = ({
+const ErrorPage: FC<TProps> = ({
   testid = 'error-page',
   errorCode,
   metric = METRIC.COMMUNITY,

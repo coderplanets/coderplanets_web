@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TREPORT_ITEM } from '../spec'
 
@@ -11,7 +11,7 @@ type TProps = {
   activeItem: TREPORT_ITEM
 }
 
-const ReportContent: React.FC<TProps> = ({ view, items, activeItem }) => {
+const ReportContent: FC<TProps> = ({ view, items, activeItem }) => {
   switch (view) {
     case 'detail': {
       return <Detail activeItem={activeItem} />

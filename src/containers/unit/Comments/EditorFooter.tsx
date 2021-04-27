@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 
@@ -28,7 +28,7 @@ type TProps = {
   showFold?: boolean
 }
 
-const EditorFooter: React.FC<TProps> = ({
+const EditorFooter: FC<TProps> = ({
   loading,
   showPreview,
   onCreate,

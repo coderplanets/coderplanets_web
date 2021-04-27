@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { DEFAULT_USER_AVATAR } from '@/config'
 import { ROUTE } from '@/constant'
@@ -13,7 +13,7 @@ type TProps = {
   show: boolean
 }
 
-const PublishNote: React.FC<TProps> = ({ show }) => (
+const PublishNote: FC<TProps> = ({ show }) => (
   <Modal show={show} showCloseBtn onClose={onNoteClose}>
     <Wrapper>
       <NoteIcon src={`${DEFAULT_USER_AVATAR}`} />

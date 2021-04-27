@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TUser } from '@/spec'
@@ -30,7 +30,7 @@ type TProps = {
   creating: boolean
 }
 
-const CommentBodyEditor: React.FC<TProps> = ({
+const CommentBodyEditor: FC<TProps> = ({
   showInputEditor,
   showInputPreview,
   body,

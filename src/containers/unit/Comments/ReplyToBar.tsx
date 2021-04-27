@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TComment } from '@/spec'
 // import { ICON_CMD } from '@/config'
@@ -10,7 +10,7 @@ type TProps = {
   comment: TComment
 }
 
-const ReplyToBar: React.FC<TProps> = ({ comment }) => {
+const ReplyToBar: FC<TProps> = ({ comment }) => {
   if (!comment) return null
   return (
     <ReplyBar>

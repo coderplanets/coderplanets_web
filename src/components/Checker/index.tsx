@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TSIZE_SM } from '@/spec'
 import { ICON } from '@/config'
@@ -24,7 +24,7 @@ type TProps = {
   onChange?: (checked: boolean) => void
 }
 
-const Checker: React.FC<TProps> = ({
+const Checker: FC<TProps> = ({
   checked = false,
   onChange = log,
   hiddenMode = false,

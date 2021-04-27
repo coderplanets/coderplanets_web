@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import CollapseMenu from '@/components/CollapseMenu'
 
@@ -17,7 +17,7 @@ type TProps = {
   visibles: TVisibles
 }
 
-const Detail: React.FC<TProps> = ({ community, visibles }) => {
+const Detail: FC<TProps> = ({ community, visibles }) => {
   return (
     <Wrapper>
       <ContentWrapper>

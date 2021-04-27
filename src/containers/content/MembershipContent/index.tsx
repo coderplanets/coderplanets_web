@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -72,7 +72,7 @@ type TProps = {
   testid?: string
 }
 
-const MembershipContentContainer: React.FC<TProps> = ({
+const MembershipContentContainer: FC<TProps> = ({
   membershipContent: store,
   testid = 'membership-content',
   metric,
@@ -159,4 +159,4 @@ const MembershipContentContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(MembershipContentContainer) as React.FC<TProps>
+export default pluggedIn(MembershipContentContainer) as FC<TProps>

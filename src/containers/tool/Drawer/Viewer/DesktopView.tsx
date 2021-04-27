@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TSwipeOption } from '../spec'
 import AddOn from '../AddOn'
@@ -16,7 +16,7 @@ type TProps = {
   children: React.ReactNode
 }
 
-const DesktopView: React.FC<TProps> = ({
+const DesktopView: FC<TProps> = ({
   testid = 'drawer-sidebar-panel',
   options,
   visible,

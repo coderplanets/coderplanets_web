@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { WORD_LIMIT } from '@/config'
 
@@ -14,7 +14,7 @@ type TProps = {
   countCurrent: number
 }
 
-const WordsCounter: React.FC<TProps> = ({ countCurrent }) => (
+const WordsCounter: FC<TProps> = ({ countCurrent }) => (
   <Wrapper>
     <CounterCur num={countCurrent}>{countCurrent}</CounterCur>
     <CounterSplit>/</CounterSplit>

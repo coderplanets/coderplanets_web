@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useRef, useCallback } from 'react'
+import React, { FC, useState, useRef, useCallback } from 'react'
 import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
 import type { TThemeMap } from '@/spec'
@@ -38,7 +38,7 @@ type TProps = Omit<
 >
 
 // horizontal version
-const HorizontalScroller: React.FC<TProps> = ({
+const HorizontalScroller: FC<TProps> = ({
   height = '100%',
   width = '100%',
   innerHeight = '100%',

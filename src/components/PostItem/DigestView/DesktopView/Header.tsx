@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Link from 'next/link'
 
 import type { TPost, TUser } from '@/spec'
@@ -23,7 +23,7 @@ type TProps = {
   onUserSelect?: (obj: TUser) => void
 }
 
-const Header: React.FC<TProps> = ({ item, onUserSelect }) => {
+const Header: FC<TProps> = ({ item, onUserSelect }) => {
   return (
     <Wrapper>
       <Brief>

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useRef } from 'react'
+import React, { FC, useState, useRef } from 'react'
 import { findIndex } from 'ramda'
 
 import { ICON } from '@/config'
@@ -30,7 +30,7 @@ type TProps = {
   intervalSec?: number
 }
 
-const PromotionList: React.FC<TProps> = ({
+const PromotionList: FC<TProps> = ({
   show = true,
   onAbout = log,
   items = fakeItems,

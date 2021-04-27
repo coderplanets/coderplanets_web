@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import { cutRest } from '@/utils'
@@ -20,7 +20,7 @@ type TProps = {
   testid?: string
 }
 
-const LeftSticker: React.FC<TProps> = ({
+const LeftSticker: FC<TProps> = ({
   show,
   title,
   isTocMenuOpened,

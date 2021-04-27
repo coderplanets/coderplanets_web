@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { prettyNum } from '@/utils'
 import { Br } from '@/components/Common'
@@ -21,7 +21,7 @@ type TProps = Pick<
   'size' | 'total' | 'showTotalNumber' | 'onTotalSelect'
 >
 
-const MoreItem: React.FC<TProps> = ({
+const MoreItem: FC<TProps> = ({
   size,
   total,
   onTotalSelect,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import HomeCommunity from './HomeCommunity'
 import Community from './Community'
@@ -10,7 +10,7 @@ export type TProps = {
   noBottomBorder?: boolean
 }
 
-const TopInfo: React.FC<TProps> = ({ type, ...restProps }) => {
+const TopInfo: FC<TProps> = ({ type, ...restProps }) => {
   switch (type) {
     case 'home': {
       return <HomeCommunity {...restProps} />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
@@ -27,7 +27,7 @@ type TProps = {
   onPreview?: (obj: TPost) => void
 }
 
-const ListView: React.FC<TProps> = ({ entry, onPreview }) => (
+const ListView: FC<TProps> = ({ entry, onPreview }) => (
   <React.Fragment>
     <SmallAvatar src={entry.author.avatar} />
     <Main>

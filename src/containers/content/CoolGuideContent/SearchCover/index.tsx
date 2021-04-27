@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Br } from '@/components/Common'
 
@@ -11,7 +11,7 @@ type TProps = {
   testid?: string
 }
 
-const SearchCover: React.FC<TProps> = ({ testid = 'search-cover' }) => {
+const SearchCover: FC<TProps> = ({ testid = 'search-cover' }) => {
   return (
     <Wrapper testid={testid}>
       <Header>

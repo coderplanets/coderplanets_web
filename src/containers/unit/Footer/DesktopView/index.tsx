@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useEffect } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { contains } from 'ramda'
 
@@ -38,7 +38,7 @@ type TProps = {
   metric?: string // TODO
 }
 
-const FooterContainer: React.FC<TProps> = ({ footer: store, metric }) => {
+const FooterContainer: FC<TProps> = ({ footer: store, metric }) => {
   useInit(store)
   const {
     showSponsor,
@@ -93,4 +93,4 @@ const FooterContainer: React.FC<TProps> = ({ footer: store, metric }) => {
   )
 }
 
-export default pluggedIn(FooterContainer) as React.FC<TProps>
+export default pluggedIn(FooterContainer) as FC<TProps>

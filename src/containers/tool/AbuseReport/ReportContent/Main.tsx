@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { SpaceGrow } from '@/components/Common'
 import Checker from '@/components/Checker'
@@ -13,7 +13,7 @@ type TProps = {
   activeItem: TREPORT_ITEM
 }
 
-const Main: React.FC<TProps> = ({ items, activeItem }) => {
+const Main: FC<TProps> = ({ items, activeItem }) => {
   return (
     <React.Fragment>
       {items &&

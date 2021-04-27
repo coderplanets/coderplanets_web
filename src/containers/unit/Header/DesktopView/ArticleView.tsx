@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import { ICON } from '@/config'
@@ -35,10 +35,7 @@ type TProps = {
   metric?: string
 }
 
-const ArticleHeaderContainer: React.FC<TProps> = ({
-  header: store,
-  metric,
-}) => {
+const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
   useInit(store, metric)
 
   const {
@@ -90,4 +87,4 @@ const ArticleHeaderContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleHeaderContainer, 'header') as React.FC<TProps>
+export default pluggedIn(ArticleHeaderContainer, 'header') as FC<TProps>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 
 import CustomScroller from '@/components/CustomScroller'
 
@@ -17,7 +17,7 @@ type TProps = {
   mmType: string // TODO
 }
 
-const Content: React.FC<TProps> = ({
+const Content: FC<TProps> = ({
   visible,
   options,
   type,

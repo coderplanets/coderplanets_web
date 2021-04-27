@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import Button from '@/components/Buttons/Button'
 import { Space } from '@/components/Common'
@@ -14,11 +14,7 @@ type TProps = {
   onCancel?: () => void
 }
 
-const ConfirmFooter: React.FC<TProps> = ({
-  onConfirm,
-  onCancel,
-  footerBehavior,
-}) => {
+const ConfirmFooter: FC<TProps> = ({ onConfirm, onCancel, footerBehavior }) => {
   let content = null
 
   switch (footerBehavior) {

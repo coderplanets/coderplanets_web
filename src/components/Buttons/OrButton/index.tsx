@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TSIZE_SM } from '@/spec'
 
@@ -16,7 +16,7 @@ export type TProps = {
   }[]
 }
 
-const OrButton: React.FC<TProps> = ({ direction = 'row', ...restProps }) => {
+const OrButton: FC<TProps> = ({ direction = 'row', ...restProps }) => {
   return direction === 'row' ? (
     <HorizontalButton {...restProps} />
   ) : (

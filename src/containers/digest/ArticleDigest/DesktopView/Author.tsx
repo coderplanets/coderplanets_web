@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TUser } from '@/spec'
 import { Button } from '@/components/Buttons'
@@ -10,7 +10,7 @@ type TProps = {
   user: TUser
 }
 
-const Author: React.FC<TProps> = ({ user }) => {
+const Author: FC<TProps> = ({ user }) => {
   return (
     <Wrapper>
       <TheAvatar user={user} metric="article-author" />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TAccount, TComment } from '@/spec'
 
@@ -17,7 +17,7 @@ type TProps = {
   hasReplies?: boolean
 }
 
-const Footer: React.FC<TProps> = ({
+const Footer: FC<TProps> = ({
   data,
   accountInfo,
   withoutBottomDivider = false,

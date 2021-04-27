@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TPost } from '@/spec'
 import { cutRest } from '@/utils'
@@ -19,7 +19,7 @@ type TProps = {
   item: TPost
 }
 
-const Footer: React.FC<TProps> = ({ item }) => {
+const Footer: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Extra>

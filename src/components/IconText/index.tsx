@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { buildLog, nilOrEmpty } from '@/utils'
@@ -23,7 +23,7 @@ type TProps = {
   margin?: string
 }
 
-const IconText: React.FC<TProps> = ({
+const IconText: FC<TProps> = ({
   iconSrc,
   round = false,
   children,

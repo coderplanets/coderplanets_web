@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useRouter } from 'next/router'
 
 import type { TAccount } from '@/spec'
@@ -29,7 +29,7 @@ type TProps = {
   accountInfo: TAccount
 }
 
-const UserAccount: React.FC<TProps> = ({ isLogin, accountInfo }) => {
+const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
   const router = useRouter()
 
   return (

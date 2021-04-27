@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import type { TProps as TTopInfoProps } from './index'
@@ -13,7 +13,7 @@ import {
 
 type TProps = Pick<TTopInfoProps, 'title' | 'noBottomBorder'>
 
-const Community: React.FC<TProps> = ({
+const Community: FC<TProps> = ({
   title = 'javascript',
   noBottomBorder = false,
 }) => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TCommunity } from '@/spec'
 
@@ -57,7 +57,7 @@ type TProps = {
   items?: TCommunity[]
 }
 
-const CommunityRecommends: React.FC<TProps> = ({ items = tmpItems }) => {
+const CommunityRecommends: FC<TProps> = ({ items = tmpItems }) => {
   return (
     <Wrapper>
       <Title>热门社区</Title>

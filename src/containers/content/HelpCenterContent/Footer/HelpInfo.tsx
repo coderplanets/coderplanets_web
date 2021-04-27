@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TCommunity } from '@/spec'
 
@@ -14,7 +14,7 @@ type TProps = {
   community: TCommunity
 }
 
-const HelpInfo: React.FC<TProps> = ({ community }) => {
+const HelpInfo: FC<TProps> = ({ community }) => {
   return (
     <Wrapper>
       <Title>当前问答都解决不了我的问题?</Title>

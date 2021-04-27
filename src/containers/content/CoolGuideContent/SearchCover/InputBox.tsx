@@ -1,5 +1,4 @@
-import React, { useRef } from 'react'
-import T from 'prop-types'
+import React, { FC, useRef } from 'react'
 
 import {
   Wrapper,
@@ -20,7 +19,7 @@ type TProps = {
   onBlur?: () => void
 }
 
-const InputBox: React.FC<TProps> = ({
+const InputBox: FC<TProps> = ({
   showMask = false,
   value = '',
   placeholder = '',

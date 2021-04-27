@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -72,7 +72,7 @@ type TProps = {
   metric: string
   testid?: string
 }
-const WorksContentContainer: React.FC<TProps> = ({
+const WorksContentContainer: FC<TProps> = ({
   worksContent: store,
   metric,
   testid = 'worksContent',
@@ -103,4 +103,4 @@ const WorksContentContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(WorksContentContainer) as React.FC<TProps>
+export default pluggedIn(WorksContentContainer) as FC<TProps>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TUser } from '@/spec'
 import Tooltip from '@/components/Tooltip'
@@ -20,7 +20,7 @@ type TProps = {
   onUserSelect: (user: TUser) => void
 }
 
-const RealAvatar: React.FC<TProps> = ({ user, size, onUserSelect }) => {
+const RealAvatar: FC<TProps> = ({ user, size, onUserSelect }) => {
   return (
     <Tooltip
       content={<UserPopContent>{user.nickname}</UserPopContent>}

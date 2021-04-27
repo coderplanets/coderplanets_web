@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { GALLERY } from '@/constant'
 import { ICON_CMD } from '@/config'
@@ -22,7 +22,7 @@ import {
 
 type TProps = Omit<TParentProps, 'type'>
 
-const TextCard: React.FC<TProps> = ({ item }) => {
+const TextCard: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Date type={GALLERY.TEXT_ONLY} />

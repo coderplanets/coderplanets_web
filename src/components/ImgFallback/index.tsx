@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TUser } from '@/spec'
 import { buildLog } from '@/utils'
@@ -31,7 +31,7 @@ type TProps = {
   type?: 'avatar' | 'work'
 } & TAvatarProps
 
-const ImgFallback: React.FC<TProps> = ({ type = 'avatar', ...restProps }) => {
+const ImgFallback: FC<TProps> = ({ type = 'avatar', ...restProps }) => {
   switch (type) {
     case 'work': {
       return <Work />

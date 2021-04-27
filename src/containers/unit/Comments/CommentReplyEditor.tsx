@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TAccount, TUser, TComment } from '@/spec'
@@ -46,7 +46,7 @@ type TProps = {
   }
 }
 
-const CommentReplyEditor: React.FC<TProps> = ({
+const CommentReplyEditor: FC<TProps> = ({
   referUsers,
   show,
   isEdit,

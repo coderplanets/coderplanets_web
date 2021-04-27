@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import Input from '@/components/Input'
 import { Br } from '@/components/Common'
@@ -12,7 +12,7 @@ type TProps = {
   activeItem: TREPORT_ITEM
 }
 
-const Detail: React.FC<TProps> = ({ activeItem }) => {
+const Detail: FC<TProps> = ({ activeItem }) => {
   return (
     <Wrapper>
       <ArrowButton

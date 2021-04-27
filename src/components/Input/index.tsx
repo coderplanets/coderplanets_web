@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useCallback } from 'react'
+import React, { FC, useCallback } from 'react'
 import { pickBy } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
@@ -36,7 +36,7 @@ type TProps = {
   onChange?: (e) => void | null
 }
 
-const Input: React.FC<TProps> = ({
+const Input: FC<TProps> = ({
   behavior = 'default',
   onChange = null,
   prefixIcon = null,

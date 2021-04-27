@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TAccount, TUser } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -23,7 +23,7 @@ type TProps = {
   showPreview: boolean
 }
 
-const ReplyEditorHeader: React.FC<TProps> = ({
+const ReplyEditorHeader: FC<TProps> = ({
   accountInfo,
   countCurrent,
   referUsers,

@@ -1,5 +1,4 @@
-import React from 'react'
-import Link from 'next/link'
+import React, { FC } from 'react'
 
 import { ROUTE } from '@/constant'
 
@@ -14,7 +13,7 @@ type TProps = {
   metric: string
 }
 
-const BottomInfo: React.FC<TProps> = ({ metric }) => {
+const BottomInfo: FC<TProps> = ({ metric }) => {
   return (
     <Wrapper metric={metric}>
       <InnerWrapper>

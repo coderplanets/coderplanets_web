@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useCallback } from 'react'
+import React, { FC, useCallback } from 'react'
 import { pickBy } from 'ramda'
 
 import { buildLog } from '@/utils'
@@ -21,7 +21,7 @@ type TProps = {
   onChange?: (e) => void | null
 }
 
-const Textarea: React.FC<TProps> = ({
+const Textarea: FC<TProps> = ({
   onChange = null,
   testid = 'textarea',
   ...restProps

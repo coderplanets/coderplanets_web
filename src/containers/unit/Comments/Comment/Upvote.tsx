@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TComment } from '@/spec'
 import { ICON } from '@/config'
@@ -12,7 +12,7 @@ type TProps = {
   data: TComment
 }
 
-const Upvote: React.FC<TProps> = ({ data }) => (
+const Upvote: FC<TProps> = ({ data }) => (
   <Wrapper>
     <InnerWrapper>
       <div onClick={() => toggleLikeComment(data)}>

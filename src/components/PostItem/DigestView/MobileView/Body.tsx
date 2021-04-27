@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TPost } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -16,7 +16,7 @@ type TProps = {
   onPreview?: (obj: TPost) => void
 }
 
-const Body: React.FC<TProps> = ({ item, onPreview }) => {
+const Body: FC<TProps> = ({ item, onPreview }) => {
   return (
     <Wrapper onClick={() => onPreview(item)}>
       <Title>{item.title}</Title>

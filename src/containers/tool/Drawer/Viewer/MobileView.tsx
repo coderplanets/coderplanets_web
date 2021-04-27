@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
@@ -35,7 +35,7 @@ type TProps = {
   children: React.ReactNode
 }
 
-const Viewer: React.FC<TProps> = ({
+const Viewer: FC<TProps> = ({
   testid = 'drawer-sidebar-panel',
   headerText,
   options,

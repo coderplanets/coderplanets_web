@@ -2,7 +2,7 @@
  * cards for job MasonryCards view
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TCommunity } from '@/spec'
 import { cutRest } from '@/utils'
@@ -21,7 +21,7 @@ type TProps = {
   item: TCommunity
 }
 
-const CommunityCard: React.FC<TProps> = ({
+const CommunityCard: FC<TProps> = ({
   item: { id, logo, title, raw, desc, subscribersCount },
 }) => {
   return (

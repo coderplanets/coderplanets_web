@@ -6,7 +6,7 @@
  *
  */
 
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import { METRIC } from '@/constant'
@@ -29,7 +29,7 @@ type TProps = {
   metric?: string
 }
 
-const ModeLineContainer: React.FC<TProps> = ({
+const ModeLineContainer: FC<TProps> = ({
   modeLine: store,
   metric = METRIC.COMMUNITY,
 }) => {
@@ -69,4 +69,4 @@ const ModeLineContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ModeLineContainer) as React.FC<TProps>
+export default pluggedIn(ModeLineContainer) as FC<TProps>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TArticle } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
@@ -19,7 +19,7 @@ type TProps = {
   metric: string
 }
 
-const BriefView: React.FC<TProps> = ({ curView, metric, viewingArticle }) => {
+const BriefView: FC<TProps> = ({ curView, metric, viewingArticle }) => {
   return (
     <Wrapper metric={metric}>
       <InnerWrapper>

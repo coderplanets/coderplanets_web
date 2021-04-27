@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import { LockIcon, NoticeIcon } from './styles/icon'
@@ -7,7 +7,7 @@ type TProps = {
   type?: 'lock' | 'notice' | 'bot'
 }
 
-const Icon: React.FC<TProps> = ({ type = 'notice' }) => {
+const Icon: FC<TProps> = ({ type = 'notice' }) => {
   switch (type) {
     case 'lock': {
       return <LockIcon src={`${ICON}/shape/lock.svg`} />

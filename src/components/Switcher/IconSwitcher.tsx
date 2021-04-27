@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import { findIndex, propEq } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
@@ -76,7 +76,7 @@ type TProps = {
   onChange: (item: TItem) => void
 }
 
-const IconSwitcher: React.FC<TProps> = ({ items, activeKey, onChange }) => {
+const IconSwitcher: FC<TProps> = ({ items, activeKey, onChange }) => {
   const slideIndex = findIndex(propEq('key', activeKey), items)
 
   return (

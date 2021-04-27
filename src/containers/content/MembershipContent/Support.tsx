@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 
@@ -25,7 +25,7 @@ type TProps = {
   pkgType: string
 }
 
-const Support: React.FC<TProps> = ({ active, items, not, pkgType }) => (
+const Support: FC<TProps> = ({ active, items, not, pkgType }) => (
   <React.Fragment>
     {pkgType !== 'free' && (
       <PkgItem active={active}>

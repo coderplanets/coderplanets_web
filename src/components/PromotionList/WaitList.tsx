@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TItem } from './spec'
 import { Wrapper, Item } from './styles/wait_list'
@@ -9,7 +9,7 @@ type TProps = {
   setActiveId: (id: string) => void
 }
 
-const WaitList: React.FC<TProps> = ({ items, activeId, setActiveId }) => {
+const WaitList: FC<TProps> = ({ items, activeId, setActiveId }) => {
   return (
     <Wrapper>
       {items.map((item) => (

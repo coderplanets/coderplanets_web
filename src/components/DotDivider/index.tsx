@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { buildLog } from '@/utils'
 import { Wrapper } from './styles'
@@ -17,7 +17,7 @@ export type TProps = {
   radius?: number
   space?: number
 }
-const DotDivider: React.FC<TProps> = ({
+const DotDivider: FC<TProps> = ({
   radius = 3,
   space = 3,
   className = 'dot-divider-class',

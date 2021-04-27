@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
@@ -24,7 +24,7 @@ type TProps = {
   metric: string
 }
 
-const DigestView: React.FC<TProps> = ({ metric }) => {
+const DigestView: FC<TProps> = ({ metric }) => {
   const theme = useTheme() as TThemeMap
 
   const linkColors = {

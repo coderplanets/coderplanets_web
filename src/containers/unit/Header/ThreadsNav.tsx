@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TCommunity, TThread } from '@/spec'
 import { Trans } from '@/utils'
@@ -23,7 +23,7 @@ type TProps = {
   }
 }
 
-const ThreadsNav: React.FC<TProps> = ({
+const ThreadsNav: FC<TProps> = ({
   activeInfo: { community, activeThread },
 }) => {
   return (

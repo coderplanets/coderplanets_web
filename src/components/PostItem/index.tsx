@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TPost, TUser, TAccount } from '@/spec'
 import { HCN, C11N } from '@/constant'
@@ -32,7 +32,7 @@ type TProps = {
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const PostItem: React.FC<TProps> = ({
+const PostItem: FC<TProps> = ({
   entry,
   onPreview = log,
   onUserSelect = log,

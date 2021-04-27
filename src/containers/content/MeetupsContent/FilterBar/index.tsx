@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TFiltersMenuItems } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -22,7 +22,7 @@ type TProps = {
   filtersItems: TFiltersMenuItems
 }
 
-const FilterBar: React.FC<TProps> = ({ filtersItems }) => {
+const FilterBar: FC<TProps> = ({ filtersItems }) => {
   return (
     <Wrapper>
       <Sticky offsetTop={30}>

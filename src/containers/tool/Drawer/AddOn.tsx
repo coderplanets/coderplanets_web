@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON_CMD } from '@/config'
 // import { Wrapper } from './styles'
@@ -18,7 +18,7 @@ type TProps = {
   imageUploading?: boolean
 }
 
-const AddOn: React.FC<TProps> = ({ type, imageUploading = false }) => {
+const AddOn: FC<TProps> = ({ type, imageUploading = false }) => {
   return (
     <Wrapper>
       <CloseTab type={type} onClick={() => closeDrawer()}>

@@ -4,10 +4,9 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { GUIDE } from '@/constant'
-
 import Pagi from '@/components/Pagi'
 
 import {
@@ -25,7 +24,7 @@ type TProps = {
   displayType: string
 }
 
-const Content: React.FC<TProps> = ({ displayType }) => {
+const Content: FC<TProps> = ({ displayType }) => {
   let DisplayContent
 
   switch (displayType) {

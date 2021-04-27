@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { buildLog } from '@/utils'
 {{#if wantI18n}}
@@ -22,7 +22,7 @@ type TProps = {
   testid?: string
 }
 
-const {{ properCase name }}: React.FC<TProps> = ({{preCurly ""}} testid = '{{ dashCase name }}' {{afterCurly ""}}) => {
+const {{ properCase name }}: FC<TProps> = ({{preCurly ""}} testid = '{{ dashCase name }}' {{afterCurly ""}}) => {
   {{#if wantI18n}}
   const { t } = useTrans()
   {{/if}}

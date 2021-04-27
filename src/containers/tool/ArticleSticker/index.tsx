@@ -6,7 +6,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -31,7 +31,7 @@ type TProps = {
   testid?: string
 }
 
-const ArticleStickerContainer: React.FC<TProps> = ({
+const ArticleStickerContainer: FC<TProps> = ({
   articleSticker: store,
   testid = 'article-sticker',
 }) => {
@@ -74,4 +74,4 @@ const ArticleStickerContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleStickerContainer) as React.FC<TProps>
+export default pluggedIn(ArticleStickerContainer) as FC<TProps>
