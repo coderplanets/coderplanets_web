@@ -34,6 +34,14 @@ export const onUpgrade = (): void => {
   })
 }
 
+export const openInviteBox = (): void => {
+  store.mark({ showInviteBox: true })
+}
+
+export const closeInviteBox = (): void => {
+  store.mark({ showInviteBox: false })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################

@@ -19,6 +19,7 @@ import Support from './Support'
 import PriceTag from './PriceTag'
 import MonthlyWarning from './MonthlyWarning'
 import QA from './QA'
+import InviteBox from './InviteBox'
 
 import {
   Wrapper,
@@ -39,7 +40,12 @@ import {
 } from './styles'
 
 // import { useInit, onUpgrade } from './logic'
-import { useInit, pkgTypeOnChange, payTypeOnChange } from './logic'
+import {
+  useInit,
+  pkgTypeOnChange,
+  payTypeOnChange,
+  openInviteBox,
+} from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:MembershipContent')
@@ -73,7 +79,7 @@ const MembershipContentContainer: React.FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { payType, pkgType, dashboardItems } = store
+  const { payType, pkgType, dashboardItems, showInviteBox } = store
 
   return (
     <Wrapper testid={testid}>
@@ -101,7 +107,10 @@ const MembershipContentContainer: React.FC<TProps> = ({
               pkgType !== PACKAGE.GIRL &&
               pkgType !== PACKAGE.FREE && <MonthlyWarning />}
           </PayButtonWrapper>
-          <InviteCodeWrapper>使用邀请码</InviteCodeWrapper>
+          <InviteCodeWrapper onClick={() => openInviteBox()}>
+            使用邀请码
+          </InviteCodeWrapper>
+          <InviteBox show={showInviteBox} />
         </BannerWrapper>
         <ContentWrapper metric={metric}>
           {dashboardItems.map((item) => (

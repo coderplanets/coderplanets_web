@@ -15,6 +15,7 @@ import { PACKAGE, PAY } from './constant'
 const log = buildLog('S:MembershipContent')
 
 const MembershipContent = T.model('MembershipContent', {
+  showInviteBox: T.optional(T.boolean, false),
   payType: T.optional(T.enumeration(values(PAY)), PAY.YEARLY),
   pkgType: T.optional(T.enumeration(values(PACKAGE)), PACKAGE.ADVANCE),
 })

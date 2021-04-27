@@ -1095,6 +1095,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@soywod/pin-field@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.nlark.com/@soywod/pin-field/download/@soywod/pin-field-0.1.9.tgz#3ac81a2cfa158df99cd850e5040fe4cd6904eef2"
+
 "@tanem/svg-injector@^8.1.0":
   version "8.1.0"
   resolved "https://registry.npm.taobao.org/@tanem/svg-injector/download/@tanem/svg-injector-8.1.0.tgz#f04c65903c4cded31d6f3c23d3986458307ad827"
@@ -9432,6 +9436,12 @@ react-masonry-component@^6.0.1:
 react-masonry-css@^1.0.14:
   version "1.0.14"
   resolved "https://registry.npm.taobao.org/react-masonry-css/download/react-masonry-css-1.0.14.tgz#2ac1ca7bb2c7e96826f7da3accc9e95ae12b2f65"
+
+react-pin-field@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.nlark.com/react-pin-field/download/react-pin-field-1.0.6.tgz#ef7f4b00c8261f3abd45533f586f88a9204303ec"
+  dependencies:
+    classnames "^2.2.6"
 
 react-refresh@0.8.3:
   version "0.8.3"
