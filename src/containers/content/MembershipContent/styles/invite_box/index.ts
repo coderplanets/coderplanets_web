@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import type { TTestable, TActive } from '@/spec'
+import Img from '@/Img'
+import type { TTestable } from '@/spec'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -11,10 +12,19 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   width: 100%;
   padding: 20px;
 `
+export const Header = styled.div`
+  ${css.flex('align-center')};
+  margin-bottom: 22px;
+`
+export const HandIcon = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
+  ${css.size(20)};
+  margin-left: -10px;
+`
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
-  margin-bottom: 15px;
+  margin-left: 8px;
 `
 export const PinCodeWrapper = styled.div`
   ${css.flex('justify-center')};
@@ -26,7 +36,7 @@ export const PinCodeWrapper = styled.div`
     color: #139c9e;
     border-color: #0d5a7b;
     border-radius: 6px;
-    font-size: 2rem;
+    font-size: 25px;
     margin: 0.25rem;
     height: 3.5rem;
     outline: none;
@@ -47,8 +57,12 @@ export const PinCodeWrapper = styled.div`
     box-shadow: 0 0 0.25rem rgba(220, 53, 69, 0.5);
   }
 
-  swd-pin-field[completed] .pin-field {
+  .a-reactPinField__input .-success {
     border-color: rgb(40, 167, 69);
     background-color: rgba(40, 167, 69, 0.25);
   }
+  /* swd-pin-field[completed] .pin-field {
+    border-color: rgb(40, 167, 69);
+    background-color: rgba(40, 167, 69, 0.25);
+  } */
 `

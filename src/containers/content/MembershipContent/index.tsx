@@ -108,7 +108,7 @@ const MembershipContentContainer: React.FC<TProps> = ({
               pkgType !== PACKAGE.FREE && <MonthlyWarning />}
           </PayButtonWrapper>
           <InviteCodeWrapper onClick={() => openInviteBox()}>
-            使用邀请码
+            使用朋友码
           </InviteCodeWrapper>
           <InviteBox show={showInviteBox} />
         </BannerWrapper>
