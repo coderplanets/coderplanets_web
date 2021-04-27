@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { GALLERY } from '@/constant'
 import { ICON_CMD, ASSETS_ENDPOINT } from '@/config'
@@ -24,7 +24,7 @@ import {
 
 type TProps = Omit<TParentProps, 'type'>
 
-const TextWithImageCard: React.FC<TProps> = ({ item }) => {
+const TextWithImageCard: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <ContentsWrapper>

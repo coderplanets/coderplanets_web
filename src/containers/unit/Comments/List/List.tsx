@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TAccount, TComment } from '@/spec'
 import Comment from '../Comment'
@@ -12,7 +12,7 @@ type TProps = {
   accountInfo: TAccount
 }
 
-const List: React.FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
+const List: FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
   return (
     <React.Fragment>
       {entries.map((c) => (

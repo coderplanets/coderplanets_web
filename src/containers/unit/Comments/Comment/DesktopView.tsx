@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { isEmpty } from 'ramda'
 
 import type { TAccount, TComment } from '@/spec'
@@ -44,7 +44,7 @@ type TProps = {
   withoutBottomDivider?: boolean
 }
 
-const Comment: React.FC<TProps> = ({
+const Comment: FC<TProps> = ({
   data,
   tobeDeleteId,
   accountInfo,

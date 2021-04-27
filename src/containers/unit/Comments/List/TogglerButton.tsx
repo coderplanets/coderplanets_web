@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import {
   Wrapper,
@@ -11,7 +11,7 @@ type TProps = {
   text: string
 }
 
-const TogglerButton: React.FC<TProps> = ({ text }) => (
+const TogglerButton: FC<TProps> = ({ text }) => (
   <Wrapper>
     <SlashSign>&#47;&#47;</SlashSign>
     <DividerLine />

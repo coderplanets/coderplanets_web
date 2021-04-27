@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ASSETS_ENDPOINT } from '@/config'
 import { GALLERY } from '@/constant'
@@ -48,7 +48,7 @@ type TProps = {
   metric?: string
 }
 
-const MeetupsContentContainer: React.FC<TProps> = ({
+const MeetupsContentContainer: FC<TProps> = ({
   meetupsContent: store,
   testid = 'meetups-content',
   metric,
@@ -84,4 +84,4 @@ const MeetupsContentContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(MeetupsContentContainer) as React.FC<TProps>
+export default pluggedIn(MeetupsContentContainer) as FC<TProps>

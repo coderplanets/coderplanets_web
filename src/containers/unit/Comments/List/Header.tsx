@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
@@ -41,7 +41,7 @@ const ActionTooltip: React.FC<TActionTooltip> = ({ children, desc }) => {
   )
 }
 
-const Header: React.FC<TProps> = ({ totalCount, filterType }) => {
+const Header: FC<TProps> = ({ totalCount, filterType }) => {
   const switchItems = [
     {
       key: 'reply',

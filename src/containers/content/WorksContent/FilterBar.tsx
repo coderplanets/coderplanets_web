@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { mockNaviCatalogMenu } from '@/utils'
 
-import { Br } from '@/components/Common'
 // import FiltersMenu from '@/components/FiltersMenu'
 import NaviCatalog from '@/components/NaviCatalog'
 
@@ -17,7 +16,7 @@ type TProps = {
   activeView?: string
 }
 
-const FilterBar: React.FC<TProps> = ({ activeView }) => {
+const FilterBar: FC<TProps> = ({ activeView }) => {
   return (
     <Wrapper>
       <FilterWrapper>

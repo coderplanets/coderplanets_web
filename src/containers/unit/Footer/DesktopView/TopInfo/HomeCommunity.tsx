@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TProps as TTopInfoProps } from './index'
 
@@ -12,7 +12,7 @@ import {
 
 type TProps = Pick<TTopInfoProps, 'title'>
 
-const HomeCommunity: React.FC<TProps> = ({ title = 'CoderPlanets' }) => {
+const HomeCommunity: FC<TProps> = ({ title = 'CoderPlanets' }) => {
   return (
     <Wrapper>
       <InfoBar>

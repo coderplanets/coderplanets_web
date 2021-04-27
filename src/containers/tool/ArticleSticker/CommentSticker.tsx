@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
@@ -34,7 +34,7 @@ type TProps = {
   data?: any // TODO
 }
 
-const CommentSticker: React.FC<TProps> = ({
+const CommentSticker: FC<TProps> = ({
   show,
   data: { pagedCommentsParticipators: users },
 }) => {

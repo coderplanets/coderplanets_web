@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TArticle } from '@/spec'
 import { ICON } from '@/config'
@@ -20,7 +20,7 @@ type TProps = {
   viewing: TArticle
 }
 
-const ArticleSticker: React.FC<TProps> = ({ show, viewing }) => {
+const ArticleSticker: FC<TProps> = ({ show, viewing }) => {
   return (
     <Wrapper show={show}>
       <ItemWrapper>

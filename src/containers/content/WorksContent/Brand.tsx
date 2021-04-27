@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Wrapper, Title, Desc, Divider } from './styles/brand'
 
@@ -6,7 +6,7 @@ type TProps = {
   testid?: string
 }
 
-const Brand: React.FC<TProps> = ({ testid = 'works-content-brand' }) => {
+const Brand: FC<TProps> = ({ testid = 'works-content-brand' }) => {
   return (
     <Wrapper testid={testid}>
       <Title>作品集市</Title>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Wrapper, LeftLine, RightLine } from '../styles/header/close_line'
 
@@ -8,7 +8,7 @@ type TProps = {
   curve: boolean
 }
 
-const CloseLine: React.FC<TProps> = ({ curve }) => {
+const CloseLine: FC<TProps> = ({ curve }) => {
   return (
     <Wrapper onClick={() => closeDrawer()}>
       <LeftLine curve={curve} />

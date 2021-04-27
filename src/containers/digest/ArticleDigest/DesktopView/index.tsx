@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import { isNil } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
@@ -44,7 +44,7 @@ type TProps = {
   metric?: string
 }
 
-const ArticleDigestContainer: React.FC<TProps> = ({
+const ArticleDigestContainer: FC<TProps> = ({
   articleDigest: store,
   testid = 'article-digest',
   metric = METRIC.ARTICLE,
@@ -79,4 +79,4 @@ const ArticleDigestContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleDigestContainer) as React.FC<TProps>
+export default pluggedIn(ArticleDigestContainer) as FC<TProps>

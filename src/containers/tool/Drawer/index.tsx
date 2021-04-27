@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import React, { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 import { useShortcut, useResize } from '@/hooks'
@@ -24,7 +23,7 @@ type TProps = {
   drawer: TStore
 }
 
-const DrawerContainer: React.FC<TProps> = ({ drawer: store }) => {
+const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
   const { width: windowWidth } = useResize()
   useInit(store, windowWidth)
   useShortcut('Escape', closeDrawer)
@@ -67,11 +66,5 @@ const DrawerContainer: React.FC<TProps> = ({ drawer: store }) => {
     </Viewer>
   )
 }
-
-DrawerContainer.propTypes = {
-  drawer: T.any.isRequired,
-}
-
-DrawerContainer.defaultProps = {}
 
 export default pluggedIn(DrawerContainer)

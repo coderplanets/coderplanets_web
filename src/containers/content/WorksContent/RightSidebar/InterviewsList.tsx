@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import { SpaceGrow } from '@/components/Common'
@@ -41,7 +41,7 @@ type TProps = {
   testid?: string
 }
 
-const InterviewsList: React.FC<TProps> = ({
+const InterviewsList: FC<TProps> = ({
   testid = 'works-content-interviews',
 }) => {
   return (

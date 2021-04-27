@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TAccount, TUser } from '@/spec'
 import MarkDownRender from '@/components/MarkDownRender'
@@ -28,7 +28,7 @@ type TProps = {
   }
 }
 
-const CommentEditor: React.FC<TProps> = (props) => {
+const CommentEditor: FC<TProps> = (props) => {
   const {
     referUsers,
     accountInfo,

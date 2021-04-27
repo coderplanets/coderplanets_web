@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Wrapper, ItemWrapper, Text } from '../styles/list/option_tab'
 
@@ -10,7 +10,7 @@ type TProps = {
   }[]
 }
 
-const BestTab: React.FC<TProps> = ({ items, activeKey }) => {
+const BestTab: FC<TProps> = ({ items, activeKey }) => {
   return (
     <Wrapper>
       {items.map((item) => (

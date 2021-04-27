@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { REPORT_TYPE } from '@/constant'
 import { ICON } from '@/config'
@@ -25,7 +25,7 @@ type TProps = {
   type: string
 }
 
-const Header: React.FC<TProps> = ({ type }) => {
+const Header: FC<TProps> = ({ type }) => {
   return (
     <Wrapper>
       <ReportIcon src={`${ICON}/article/report-solid.svg`} />

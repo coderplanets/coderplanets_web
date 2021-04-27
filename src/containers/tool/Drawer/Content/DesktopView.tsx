@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 
 import CustomScroller from '@/components/CustomScroller'
 
@@ -12,7 +12,7 @@ type TProps = {
   attUser: any // TODO:
 }
 
-const Content: React.FC<TProps> = ({ visible, type, attachment, attUser }) => {
+const Content: FC<TProps> = ({ visible, type, attachment, attUser }) => {
   const ref = useRef(null)
 
   /*

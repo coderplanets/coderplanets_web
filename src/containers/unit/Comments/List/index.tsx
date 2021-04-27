@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TPagedComments, TUser } from '@/spec'
 import Pagi from '@/components/Pagi'
@@ -22,7 +22,7 @@ type TProps = {
   }
 }
 
-const CommentsList: React.FC<TProps> = ({
+const CommentsList: FC<TProps> = ({
   accountInfo,
   pagedComments: { entries, totalCount, pageSize, pageNumber },
   restProps: { loading, loadingFresh, tobeDeleteId, filterType },

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import { ICON } from '@/config'
@@ -34,7 +34,7 @@ type TProps = {
   metric?: string
 }
 
-const ArticleEditorHeader: React.FC<TProps> = ({ header: store, metric }) => {
+const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
   useInit(store, metric)
 
   const { isOnline, leftOffset, accountInfo, isLogin, curCommunity } = store
@@ -74,4 +74,4 @@ const ArticleEditorHeader: React.FC<TProps> = ({ header: store, metric }) => {
   )
 }
 
-export default pluggedIn(ArticleEditorHeader, 'header') as React.FC<TProps>
+export default pluggedIn(ArticleEditorHeader, 'header') as FC<TProps>

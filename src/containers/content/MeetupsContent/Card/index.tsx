@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TGALLERY_TEXT_ONLY, TGALLERY_TEXT_WITH_IMAGE } from '@/spec'
 import { GALLERY } from '@/constant'
@@ -19,7 +19,7 @@ export type TProps = {
   }
 }
 
-const Card: React.FC<TProps> = ({ item, type = GALLERY.TEXT_ONLY }) => {
+const Card: FC<TProps> = ({ item, type = GALLERY.TEXT_ONLY }) => {
   return type === GALLERY.TEXT_ONLY ? (
     <TextCard item={item} />
   ) : (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 // import { cutRest } from '@/utils'
@@ -19,7 +19,7 @@ type TProps = {
   testid?: string
 }
 
-const Toc: React.FC<TProps> = ({ show, testid = 'article-sticker-toc' }) => {
+const Toc: FC<TProps> = ({ show, testid = 'article-sticker-toc' }) => {
   return (
     <Wrapper testid={testid}>
       <HeaderWrapper onClick={toggleTocMenu}>

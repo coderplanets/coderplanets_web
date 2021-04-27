@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TAccount, TComment } from '@/spec'
 
@@ -13,11 +13,7 @@ type TProps = {
   accountInfo: TAccount
 }
 
-const RepliesList: React.FC<TProps> = ({
-  entries,
-  tobeDeleteId,
-  accountInfo,
-}) => {
+const RepliesList: FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
   return (
     <RepliesWrapper>
       {entries.slice(7, 9).map((c) => (

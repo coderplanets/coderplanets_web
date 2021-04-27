@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { METRIC } from '@/constant'
 
@@ -24,7 +24,7 @@ type TProps = {
   metric: string
 }
 
-const DesktopView: React.FC<TProps> = ({ metric }) => {
+const DesktopView: FC<TProps> = ({ metric }) => {
   return <React.Fragment>{renderHeader(metric)}</React.Fragment>
 }
 

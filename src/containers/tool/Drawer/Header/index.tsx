@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { useSwipe } from '@/hooks'
 import { nilOrEmpty } from '@/utils'
@@ -19,7 +19,7 @@ type TProps = {
   showHeaderText: boolean
 }
 
-const Header: React.FC<TProps> = ({
+const Header: FC<TProps> = ({
   headerText,
   options,
   setSwipeUpY,

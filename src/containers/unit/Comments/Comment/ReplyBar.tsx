@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TComment } from '@/spec'
 import { ICON } from '@/config'
@@ -15,7 +15,7 @@ type TProps = {
   data: TComment
 }
 
-const CommentReplyBar: React.FC<TProps> = ({ data }) => {
+const CommentReplyBar: FC<TProps> = ({ data }) => {
   return (
     <Wrapper>
       <ReplyIcon src={`${ICON}/article/reply.svg`} />

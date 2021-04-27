@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@/config'
@@ -56,7 +56,7 @@ type TProps = {
   jobsThread?: TStore
 }
 
-const JobsThreadContainer: React.FC<TProps> = ({ jobsThread: store }) => {
+const JobsThreadContainer: FC<TProps> = ({ jobsThread: store }) => {
   useInit(store)
 
   const {
@@ -132,4 +132,4 @@ const JobsThreadContainer: React.FC<TProps> = ({ jobsThread: store }) => {
   )
 }
 
-export default pluggedIn(JobsThreadContainer) as React.FC<TProps>
+export default pluggedIn(JobsThreadContainer) as FC<TProps>

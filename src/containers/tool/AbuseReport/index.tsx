@@ -6,10 +6,9 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
-
 import Modal from '@/components/Modal'
 
 import Header from './Header'
@@ -25,12 +24,12 @@ const log = buildLog('C:AbuseReport')
 
 type TProps = {
   abuseReport?: TStore
-  testid: string
+  testid?: string
 }
 
-const AbuseReportContainer: React.FC<TProps> = ({
+const AbuseReportContainer: FC<TProps> = ({
   abuseReport: store,
-  testid,
+  testid = 'abuse-report',
 }) => {
   useInit(store)
   const { show, type, view, itemsData, activeItem } = store
@@ -46,4 +45,4 @@ const AbuseReportContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(AbuseReportContainer)
+export default pluggedIn(AbuseReportContainer) as FC<TProps>

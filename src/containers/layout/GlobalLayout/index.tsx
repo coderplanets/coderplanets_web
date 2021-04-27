@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 
 import type { Nullable, TSEO } from '@/spec'
 import { ANCHOR, SIZE } from '@/constant'
@@ -46,7 +46,7 @@ type TProps = {
   metric: string
 }
 
-const GlobalLayoutContainer: React.FC<TProps> = ({
+const GlobalLayoutContainer: FC<TProps> = ({
   globalLayout: store,
   seoConfig,
   errorCode,
@@ -130,4 +130,4 @@ const GlobalLayoutContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(GlobalLayoutContainer) as React.FC<TProps>
+export default pluggedIn(GlobalLayoutContainer) as FC<TProps>

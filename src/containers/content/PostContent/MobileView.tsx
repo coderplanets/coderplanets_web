@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
 
 import { pluggedIn, buildLog } from '@/utils'
@@ -36,7 +36,7 @@ type TProps = {
   testid?: string
 }
 
-const PostContentContainer: React.FC<TProps> = ({
+const PostContentContainer: FC<TProps> = ({
   postContent: store,
   testid = 'post-content',
 }) => {
@@ -64,4 +64,4 @@ const PostContentContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(PostContentContainer) as React.FC<TProps>
+export default pluggedIn(PostContentContainer) as FC<TProps>

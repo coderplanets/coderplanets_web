@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import type { TProps as TTopInfoProps } from './index'
@@ -14,10 +14,7 @@ import {
 
 type TProps = Pick<TTopInfoProps, 'title' | 'noBottomBorder'>
 
-const Article: React.FC<TProps> = ({
-  title = 'article',
-  noBottomBorder = false,
-}) => {
+const Article: FC<TProps> = ({ title = 'article', noBottomBorder = false }) => {
   return (
     <Wrapper noBottomBorder={noBottomBorder}>
       <InfoBar>

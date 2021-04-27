@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TAccount, TComment } from '@/spec'
 import { ICON } from '@/config'
@@ -18,7 +18,7 @@ type TProps = {
   accountInfo: TAccount
 }
 
-const Actions: React.FC<TProps> = ({ data, accountInfo }) => {
+const Actions: FC<TProps> = ({ data, accountInfo }) => {
   if (String(data.author.id) === accountInfo.id) {
     return (
       <Wrapper>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TComment } from '@/spec'
 import ImgFallback from '@/components/ImgFallback'
@@ -17,7 +17,7 @@ type TProps = {
   data: TComment
 }
 
-const CommentHeader: React.FC<TProps> = ({ data }) => {
+const CommentHeader: FC<TProps> = ({ data }) => {
   return (
     <Wrapper>
       <Avatar

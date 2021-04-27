@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { contains } from 'ramda'
 
 import DotDivider from '@/components/DotDivider'
@@ -23,7 +23,7 @@ type TProps = {
   isLeapMonth: boolean
 }
 
-const Cell: React.FC<TProps> = ({ item, isLeapMonth }) => {
+const Cell: FC<TProps> = ({ item, isLeapMonth }) => {
   return (
     <Wrapper
       key={item.id}
