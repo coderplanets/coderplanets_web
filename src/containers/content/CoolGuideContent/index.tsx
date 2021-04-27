@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -24,7 +24,7 @@ type TProps = {
   testid?: string
 }
 
-const CoolGuideContentContainer: React.FC<TProps> = ({
+const CoolGuideContentContainer: FC<TProps> = ({
   coolGuideContent: store,
   metric,
   testid = 'cool-guide-content',
@@ -45,4 +45,4 @@ const CoolGuideContentContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CoolGuideContentContainer) as React.FC<TProps>
+export default pluggedIn(CoolGuideContentContainer) as FC<TProps>

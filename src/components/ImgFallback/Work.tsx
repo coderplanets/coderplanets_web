@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { getRandomInt } from '@/utils'
 import { Wrapper, Row, Dice } from './styles/work'
@@ -131,7 +131,7 @@ type TProps = {
   testid?: string
 }
 
-const Work: React.FC<TProps> = ({ testid = 'image-fallbak-work' }) => {
+const Work: FC<TProps> = ({ testid = 'image-fallbak-work' }) => {
   return <Wrapper testid={testid}>{rollTheDice()}</Wrapper>
 }
 

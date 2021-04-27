@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import { nilOrEmpty } from '@/utils'
@@ -29,7 +29,7 @@ type TProps = {
   onLocate: () => void
 }
 
-const Header: React.FC<TProps> = ({
+const Header: FC<TProps> = ({
   testid = 'navi-catalog-header',
   title,
   activeCatalogId,

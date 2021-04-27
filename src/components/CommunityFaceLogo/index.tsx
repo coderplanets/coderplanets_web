@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import { isEmpty } from 'ramda'
 
 import { HCN } from '@/constant'
@@ -24,7 +24,7 @@ type TProps = {
   className?: string
 }
 
-const CommunityFaceLogo: React.FC<TProps> = ({
+const CommunityFaceLogo: FC<TProps> = ({
   noFill = false,
   src = '',
   raw = HCN,

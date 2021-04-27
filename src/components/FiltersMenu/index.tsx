@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useCallback } from 'react'
+import React, { FC, useState, useCallback } from 'react'
 import { merge, equals } from 'ramda'
 
 import type { TFiltersMenuItems } from '@/spec'
@@ -42,7 +42,7 @@ type TProps = {
   withDivider?: boolean
 }
 
-const FiltersMenu: React.FC<TProps> = ({
+const FiltersMenu: FC<TProps> = ({
   title = '',
   items,
   activeid = null,

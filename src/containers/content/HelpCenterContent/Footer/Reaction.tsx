@@ -1,8 +1,7 @@
-import React from 'react'
-
-import type { TVisibles } from '../spec'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
+import type { TVisibles } from '../spec'
 
 import {
   Wrapper,
@@ -27,7 +26,7 @@ type TProps = {
   visibles: TVisibles
 }
 
-const Reaction: React.FC<TProps> = ({ visibles }) => {
+const Reaction: FC<TProps> = ({ visibles }) => {
   const { uselessClicked } = visibles
   return (
     <Wrapper>

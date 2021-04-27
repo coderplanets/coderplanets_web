@@ -4,12 +4,11 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { buildLog } from '@/utils'
 
 import type { TInterval } from '../spec'
-
 import { ANIMATE_TIMER_CLASS } from '../constant'
 import {
   Wrapper,
@@ -26,7 +25,7 @@ type TProps = {
   interval?: TInterval
 }
 
-const RunningTimer: React.FC<TProps> = ({ interval = '3s' }) => {
+const RunningTimer: FC<TProps> = ({ interval = '3s' }) => {
   return (
     <Wrapper>
       <TopHandlerBar className={ANIMATE_TIMER_CLASS} />

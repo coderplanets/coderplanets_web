@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TItem } from './spec'
 import {
@@ -14,7 +14,7 @@ type TProps = {
   item: TItem
 }
 
-const Spotlight: React.FC<TProps> = ({ item }) => (
+const Spotlight: FC<TProps> = ({ item }) => (
   <Wrapper>
     <ItemWrapper>
       <Header>

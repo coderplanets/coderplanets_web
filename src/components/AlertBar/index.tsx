@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -17,7 +17,7 @@ type TProps = {
   children: React.ReactNode
 }
 
-const AlertBar: React.FC<TProps> = ({ children }) => {
+const AlertBar: FC<TProps> = ({ children }) => {
   return <Wrapper testid="alertBar">{children}</Wrapper>
 }
 

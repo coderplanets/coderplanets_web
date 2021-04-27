@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TPost, TUser, TAccount } from '@/spec'
 import { ICON_BASE } from '@/config'
@@ -20,7 +20,7 @@ type TProps = {
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const DigestView: React.FC<TProps> = ({
+const DigestView: FC<TProps> = ({
   entry,
   cover,
   onPreview,

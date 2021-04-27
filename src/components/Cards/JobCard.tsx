@@ -2,7 +2,7 @@
  * cards for job MasonryCards view
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import TimeAgo from 'timeago-react'
 
 import { ICON } from '@/config'
@@ -54,7 +54,7 @@ type TProps = {
   }
 }
 
-const JobCard: React.FC<TProps> = ({
+const JobCard: FC<TProps> = ({
   item: { title, body, author, insertedAt, commentsCount, images },
 }) => {
   const fakeCommunity = {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import type { TSIZE_TSM } from '@/spec'
 import { SIZE } from '@/constant'
@@ -33,7 +33,7 @@ type TProps = {
   disabled?: boolean
 }
 
-const Button: React.FC<TProps> = ({
+const Button: FC<TProps> = ({
   children = 'button',
   ghost = false,
   type = 'primary',

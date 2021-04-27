@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { mockNaviCatalogMenu } from '@/utils'
@@ -24,7 +24,7 @@ type TProps = {
   menuOnSelect: (id: string, type: string) => void
 }
 
-const FilterBar: React.FC<TProps> = ({ topFilter, menuOnSelect }) => {
+const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
   return (
     <Wrapper testid="filter-bar">
       <TopFilter>

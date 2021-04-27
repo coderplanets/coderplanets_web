@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { cutRest } from '@/utils'
@@ -31,7 +31,7 @@ type TProps = {
   }
 }
 
-const ActivityCard: React.FC<TProps> = ({ item }) => {
+const ActivityCard: FC<TProps> = ({ item }) => {
   return (
     <Wrapper finished={item.finished}>
       <DatetimeWrapper>

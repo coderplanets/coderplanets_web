@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import { compose, not, isNil, filter, reverse as reverseFn, slice } from 'ramda'
 import { trackWindowScroll } from 'react-lazy-load-image-component'
 
@@ -52,7 +52,7 @@ export type TProps = {
   onTotalSelect: () => void
 }
 
-const AvatarsRow: React.FC<TProps> = ({
+const AvatarsRow: FC<TProps> = ({
   size = SIZE.SMALL,
   total,
   users = [],

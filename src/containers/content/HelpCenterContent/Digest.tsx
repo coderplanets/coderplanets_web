@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 // import { METRIC } from '@/constant'
 
@@ -20,7 +20,7 @@ type TProps = {
   metric: string
 }
 
-const Digest: React.FC<TProps> = ({ metric, community }) => {
+const Digest: FC<TProps> = ({ metric, community }) => {
   return (
     <Wrapper metric={metric}>
       <InnerWrapper metric={metric}>

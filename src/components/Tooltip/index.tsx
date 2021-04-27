@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useRef } from 'react'
+import React, { FC, useState, useRef } from 'react'
 
 import type { TTooltipPlacement, TTooltipAnimation } from '@/spec'
 import { css, buildLog, isDescendant } from '@/utils'
@@ -47,7 +47,7 @@ type TProps = {
   onConfirm?: () => void
 }
 
-const Tooltip: React.FC<TProps> = ({
+const Tooltip: FC<TProps> = ({
   children,
   animation = 'scale',
   noPadding = false,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TSettingOption } from '../spec'
 
@@ -17,9 +17,7 @@ type TProps = {
   settingOptions: TSettingOption
 }
 
-const Setting: React.FC<TProps> = ({
-  settingOptions: { animateType, fontSize },
-}) => {
+const Setting: FC<TProps> = ({ settingOptions: { animateType, fontSize } }) => {
   return (
     <Wrapper>
       <Block>

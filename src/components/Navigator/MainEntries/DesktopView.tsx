@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import React, { FC } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -17,7 +16,7 @@ type TProps = {
   type: string
 }
 
-const DesktopView: React.FC<TProps> = ({ type }) => {
+const DesktopView: FC<TProps> = ({ type }) => {
   const router = useRouter()
   const mainPath = getRouteMainPath(router.asPath)
 

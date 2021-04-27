@@ -4,11 +4,10 @@
  *
  */
 
-import React, { useState, useRef, useCallback } from 'react'
+import React, { FC, useState, useRef, useCallback } from 'react'
 import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
-import type { TSIZE_SML, TThemeMap } from '@/spec'
-import type { TScrollDirection } from './spec'
+import type { TThemeMap } from '@/spec'
 
 import { buildLog, debounce } from '@/utils'
 import { SIZE } from '@/constant'
@@ -30,7 +29,7 @@ const log = buildLog('c:CustomScroller:index')
 type TProps = Omit<TScrollProps, 'direction' | 'innerHeight'>
 
 // vertical version
-const VerticalScroller: React.FC<TProps> = ({
+const VerticalScroller: FC<TProps> = ({
   height = '100%',
   width = '100%',
   showShadow = true,

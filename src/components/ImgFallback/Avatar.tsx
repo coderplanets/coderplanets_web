@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -14,7 +14,7 @@ import { Wrapper, Name } from './styles/avatar'
 /* eslint-disable-next-line */
 const log = buildLog('c:ImgFallback:Avatar')
 
-const Avatar: React.FC<TProps> = ({
+const Avatar: FC<TProps> = ({
   testid = 'avatar-fallback',
   className = '',
   size = 15,

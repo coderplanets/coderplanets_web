@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import { pluggedIn, buildLog, scrollToTop, lockPage, unlockPage } from '@/utils'
@@ -36,7 +36,7 @@ type TProps = {
   metric: string
 }
 
-const HaveADrinkContentContainer: React.FC<TProps> = ({
+const HaveADrinkContentContainer: FC<TProps> = ({
   haveADrinkContent: store,
   metric,
 }) => {
@@ -71,4 +71,4 @@ const HaveADrinkContentContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(HaveADrinkContentContainer) as React.FC<TProps>
+export default pluggedIn(HaveADrinkContentContainer) as FC<TProps>

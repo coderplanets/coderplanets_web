@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import React, { FC } from 'react'
 
 import { ICON_CMD } from '@/config'
 import Tooltip from '@/components/Tooltip'
@@ -13,7 +12,7 @@ type TProps = {
   pinNumberHoverType: 'pin' | 'unpin'
 }
 
-const PinNumber: React.FC<TProps> = ({ num, pinNumberHoverType }) => {
+const PinNumber: FC<TProps> = ({ num, pinNumberHoverType }) => {
   return (
     <Wrapper>
       <Num>{num}</Num>

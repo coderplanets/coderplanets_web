@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TCommunity } from '@/spec'
 import type { TVisibles } from '../spec'
@@ -13,7 +13,7 @@ type TProps = {
   visibles: TVisibles
 }
 
-const Footer: React.FC<TProps> = ({ community, visibles }) => {
+const Footer: FC<TProps> = ({ community, visibles }) => {
   const { showHelpInfo, showReaction } = visibles
   return (
     <Wrapper>

@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
@@ -34,7 +34,7 @@ type TProps = {
   right?: number
 }
 
-const DigestSentence: React.FC<TProps> = ({
+const DigestSentence: FC<TProps> = ({
   testid = 'digest-sentence',
   children = '可能是最性感的开发者社区，来为你心爱的作品建立...',
   onPreview = log,

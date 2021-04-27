@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Space } from '@/components/Common'
 import Button from './Button'
@@ -13,7 +13,7 @@ type TProps = {
   onConfirm?: () => void
 }
 
-const YesOrNoButton: React.FC<TProps> = ({
+const YesOrNoButton: FC<TProps> = ({
   align = 'center',
   cancelText = '取消',
   confirmText = '确定',

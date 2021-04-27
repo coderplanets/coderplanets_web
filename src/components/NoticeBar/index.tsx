@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import TimeAgo from 'timeago-react'
 
@@ -29,7 +29,7 @@ type TProps = {
   timestamp?: string | null
 }
 
-const NoticeBar: React.FC<TProps> = ({
+const NoticeBar: FC<TProps> = ({
   testid = 'notice-bar',
   type = 'notice',
   user = null,

@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import React, { FC } from 'react'
 import { last } from 'ramda'
 
 import { ICON } from '@/config'
@@ -56,7 +55,7 @@ type TProps = {
  * 显示成成层叠结构的样式，有子目录的可以回上一层，没有子目录的则作为只读显示，
  * 类似抽屉的样子
  */
-const Dashboard: React.FC<TProps> = ({ viewPath, goCatalog }) => {
+const Dashboard: FC<TProps> = ({ viewPath, goCatalog }) => {
   const [headLevels, lastLevel] = getLevels(viewPath)
   /* 判断是不是第二层 */
   const is2ecLevel = viewPath.length === 1
@@ -90,12 +89,5 @@ const Dashboard: React.FC<TProps> = ({ viewPath, goCatalog }) => {
     </Wrapper>
   )
 }
-
-Dashboard.propTypes = {
-  viewPath: T.any.isRequired, // TODO
-  goCatalog: T.func.isRequired,
-}
-
-Dashboard.defaultProps = {}
 
 export default React.memo(Dashboard)

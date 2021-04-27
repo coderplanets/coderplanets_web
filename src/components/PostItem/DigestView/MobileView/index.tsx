@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TPost, TAccount } from '@/spec'
 
@@ -17,7 +17,7 @@ type TProps = {
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const MobileView: React.FC<TProps> = ({
+const MobileView: FC<TProps> = ({
   entry,
   cover,
   onPreview,

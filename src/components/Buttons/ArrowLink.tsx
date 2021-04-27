@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -26,7 +26,7 @@ type TProps = {
   hoverColor?: string
 }
 
-const ArrowLink: React.FC<TProps> = ({
+const ArrowLink: FC<TProps> = ({
   className = '',
   children = '下一步',
   size = SIZE.SMALL,

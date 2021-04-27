@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 import { map, prop, includes } from 'ramda'
 
 import { buildLog } from '@/utils'
@@ -56,7 +56,7 @@ type TProps = {
   onShowMore: () => void
 }
 
-const List: React.FC<TProps> = ({
+const List: FC<TProps> = ({
   menuMode,
   catalogItems,
   onItemSelect,

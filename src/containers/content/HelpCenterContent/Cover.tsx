@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import LinksCard from '@/components/LinksCard'
-
 import type { TCommunity } from '@/spec'
 import type { THelpArticle, TVisibles } from './spec'
 
@@ -16,7 +15,7 @@ type TProps = {
   visibles: TVisibles
 }
 
-const Cover: React.FC<TProps> = ({ items, community, visibles }) => {
+const Cover: FC<TProps> = ({ items, community, visibles }) => {
   return (
     <Wrapper>
       <ContentWrapper>

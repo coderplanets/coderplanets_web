@@ -6,7 +6,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
@@ -50,7 +50,7 @@ type TProps = {
   metric?: string
 }
 
-const HelpCenterContentContainer: React.FC<TProps> = ({
+const HelpCenterContentContainer: FC<TProps> = ({
   helpCenterContent: store,
   testid = 'help-center-content',
   metric = METRIC.HELP_CENTER,
@@ -72,4 +72,4 @@ const HelpCenterContentContainer: React.FC<TProps> = ({
   )
 }
 
-export default pluggedIn(HelpCenterContentContainer) as React.FC<TProps>
+export default pluggedIn(HelpCenterContentContainer) as FC<TProps>

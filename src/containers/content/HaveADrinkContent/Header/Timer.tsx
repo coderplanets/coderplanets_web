@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import React, { FC } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
@@ -65,7 +64,7 @@ type TProps = {
   timerInterval?: TInterval
 }
 
-const Timer: React.FC<TProps> = ({ timer, timerInterval = '3s' }) => {
+const Timer: FC<TProps> = ({ timer, timerInterval = '3s' }) => {
   return (
     <Wrapper>
       <ExpandIcon

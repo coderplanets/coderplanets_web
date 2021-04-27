@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useRef, useState, useEffect } from 'react'
+import React, { FC, useRef, useState, useEffect } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { ICON } from '@/config'
@@ -26,7 +26,7 @@ type TProps = {
   arrowStyle?: 'default' | 'simple'
 }
 
-const ArrowButton: React.FC<TProps> = ({
+const ArrowButton: FC<TProps> = ({
   children = '下一步',
   onClick = log,
   size = SIZE.SMALL,

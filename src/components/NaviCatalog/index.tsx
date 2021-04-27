@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { FC, useState, useCallback, useEffect } from 'react'
 import { find, findIndex, propEq, last } from 'ramda'
 
 import { URL_QUERY } from '@/constant'
@@ -43,7 +43,7 @@ type TProps = {
   onShowMore?: () => void
 }
 
-const NaviCatalog: React.FC<TProps> = ({
+const NaviCatalog: FC<TProps> = ({
   testid = 'navi-menu',
   title = '',
   items,

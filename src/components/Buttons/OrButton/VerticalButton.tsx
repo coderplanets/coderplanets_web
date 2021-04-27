@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TProps as TButtonProps } from './index'
 import { SIZE } from '@/constant'
@@ -12,7 +12,7 @@ import {
 
 type TProps = Omit<TButtonProps, 'direction'>
 
-const VerticalButton: React.FC<TProps> = ({
+const VerticalButton: FC<TProps> = ({
   onClick,
   size = SIZE.SMALL,
   activeKey,

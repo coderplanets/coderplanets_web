@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ArrowButton } from '@/components/Buttons'
 
@@ -24,7 +24,7 @@ type TProps = {
   mode?: string
 }
 
-const Footer: React.FC<TProps> = ({ mode }) => {
+const Footer: FC<TProps> = ({ mode }) => {
   return (
     <Wrapper center={mode === 'cover'}>
       <AboutBlock>

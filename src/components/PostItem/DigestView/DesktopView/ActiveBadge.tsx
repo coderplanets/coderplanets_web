@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import type { TPost } from '@/spec'
 import { ICON } from '@/config'
@@ -9,7 +9,7 @@ type TProps = {
   item: TPost
 }
 
-const ActiveBadge: React.FC<TProps> = ({ item }) => {
+const ActiveBadge: FC<TProps> = ({ item }) => {
   return (
     <Wrapper hasComments={item.commentsCount > 0}>
       <ItemInner title="最后回复: 2020-03-11 14:33">
