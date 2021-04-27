@@ -37,6 +37,18 @@ export const Desc = styled.div`
 export const PayButtonWrapper = styled.div`
   position: relative;
 `
+export const InviteCodeWrapper = styled.div`
+  color: #196781;
+  font-size: 14px;
+  margin-top: 10px;
+
+  &:hover {
+    color: ${theme('button.primary')};
+    cursor: pointer;
+  }
+
+  transition: color 0.25s;
+`
 export const ContentWrapper = styled.div<{ metric: string }>`
   ${css.flex('justify-between')};
   width: 100%;

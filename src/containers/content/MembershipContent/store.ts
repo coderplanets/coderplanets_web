@@ -3,9 +3,10 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
+import type { TRootStore } from '@/spec'
 import { markStates, buildLog } from '@/utils'
 
 import { PACKAGE, PAY } from './constant'
@@ -14,15 +15,14 @@ import { PACKAGE, PAY } from './constant'
 const log = buildLog('S:MembershipContent')
 
 const MembershipContent = T.model('MembershipContent', {
+  showInviteBox: T.optional(T.boolean, false),
   payType: T.optional(T.enumeration(values(PAY)), PAY.YEARLY),
   pkgType: T.optional(T.enumeration(values(PACKAGE)), PACKAGE.ADVANCE),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-    get isLogin() {
-      return self.root.account.isLogin
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
     get dashboardItems() {
       return [
@@ -93,14 +93,17 @@ const MembershipContent = T.model('MembershipContent', {
   }))
   .actions((self) => ({
     authWarning(options) {
-      self.root.authWarning(options)
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
     },
     cashierHelper(opt) {
-      self.root.cashierHelper(opt)
+      const root = getParent(self) as TRootStore
+      root.cashierHelper(opt)
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof MembershipContent>
 export default MembershipContent

@@ -18,7 +18,14 @@ const MarkIcon = ({ not }) => {
   )
 }
 
-const Support = ({ active, items, not, pkgType }) => (
+type TProps = {
+  active: boolean
+  items: any // TODO:
+  not?: boolean
+  pkgType: string
+}
+
+const Support: React.FC<TProps> = ({ active, items, not, pkgType }) => (
   <React.Fragment>
     {pkgType !== 'free' && (
       <PkgItem active={active}>

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Wrapper, Balloon, Basket } from '../styles/illustrations/air_balloon'
 
-const AirBalloon = () => {
+type TProps = {
+  testid?: string
+}
+
+const AirBalloon: FC<TProps> = ({ testid = 'membership-airballoon' }) => {
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <Balloon />
       <Basket />
     </Wrapper>

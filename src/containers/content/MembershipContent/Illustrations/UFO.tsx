@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 
@@ -15,9 +15,14 @@ import {
   Beam,
 } from '../styles/illustrations/ufo'
 
-const UFO = ({ active }) => {
+type TProps = {
+  testid?: string
+  active: boolean
+}
+
+const UFO: FC<TProps> = ({ testid = 'membership-ufo', active }) => {
   return (
-    <Wrapper>
+    <Wrapper testid={testid}>
       <Star1 src={`${ICON}/shape/star.svg`} active={active} />
       <Star2 src={`${ICON}/shape/star.svg`} active={active} />
       <Star3 src={`${ICON}/shape/star.svg`} active={active} />

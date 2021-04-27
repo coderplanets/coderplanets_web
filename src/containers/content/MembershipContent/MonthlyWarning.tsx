@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ICON } from '@/config'
 import { Wrapper, UpIcon, Number } from './styles/monthly_warning'
 
-const MonthlyWarning = () => {
+const MonthlyWarning: FC = () => {
   return (
     <Wrapper>
       ：较年付费用 <UpIcon src={`${ICON}/shape/grow-up.svg`} />
