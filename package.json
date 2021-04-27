@@ -49,7 +49,7 @@
     "@editorjs/list": "^1.4.0",
     "@editorjs/marker": "^1.2.1",
     "@groupher/editor-header": "^2.3.0",
-    "@groupher/editor-quote": "^2.3.0",
+    "@groupher/editor-quote": "^2.3.4",
     "@next/bundle-analyzer": "^9.4.4",
     "@sentry/browser": "5.17.0",
     "@sentry/node": "5.17.0",
