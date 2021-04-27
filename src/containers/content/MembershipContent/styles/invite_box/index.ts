@@ -24,8 +24,8 @@ export const PinCodeWrapper = styled.div`
     background-color: #0b2631;
     border: 1px solid;
     color: #139c9e;
-    border-color: #0e77a4;
-    border-radius: 0.3rem;
+    border-color: #0d5a7b;
+    border-radius: 6px;
     font-size: 2rem;
     margin: 0.25rem;
     height: 3.5rem;
@@ -37,13 +37,13 @@ export const PinCodeWrapper = styled.div`
   }
 
   .a-reactPinField__input:focus {
-    border-color: rgb(0, 123, 255);
+    border-color: #107eae;
     outline: none;
   }
 
   .a-reactPinField__input:invalid {
     animation: shake 3 linear 75ms;
-    border-color: rgb(220, 53, 69);
+    border-color: tomato;
     box-shadow: 0 0 0.25rem rgba(220, 53, 69, 0.5);
   }
 
