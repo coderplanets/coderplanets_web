@@ -32,7 +32,7 @@ const UserStaredContainer = ({ userStared: store }) => {
           onSelect={onThreadChange}
           totalCount={totalCount}
           lookLike="box"
-          options={[THREAD.POST, THREAD.JOB, THREAD.VIDEO]}
+          options={[THREAD.POST, THREAD.JOB]}
         />
       </ThreadWrapper>
 

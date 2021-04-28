@@ -2,12 +2,7 @@ import React from 'react'
 
 import { THREAD } from '@/constant'
 
-import {
-  Wrapper,
-  Selector,
-  VideoSelector,
-  RepoSelector,
-} from './styles/thread_select_bar'
+import { Wrapper, Selector, RepoSelector } from './styles/thread_select_bar'
 
 import { searchThreadOnChange } from './logic'
 
@@ -25,12 +20,6 @@ const ThreadSelectBar = ({ active }) => (
     >
       帖子
     </Selector>
-    <VideoSelector
-      onClick={() => searchThreadOnChange(THREAD.VIDEO)}
-      active={active === THREAD.VIDEO}
-    >
-      视频
-    </VideoSelector>
     <RepoSelector
       onClick={() => searchThreadOnChange(THREAD.REPO)}
       active={active === THREAD.REPO}

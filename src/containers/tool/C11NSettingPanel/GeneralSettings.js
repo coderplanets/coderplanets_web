@@ -57,7 +57,7 @@ const GeneralSettings = ({ curThread, customization }) => {
         浏览内容时列表的显示方式, 部分板块(如视频，开源项目等)不支持列表视图。
       </Desc>
 
-      {!contains(curThread, [THREAD.VIDEO, THREAD.REPO]) ? (
+      {!contains(curThread, [THREAD.REPO]) ? (
         <>
           <Br top={10} />
           <Radio

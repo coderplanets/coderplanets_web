@@ -37,9 +37,6 @@ export const loadPostComments = (page = 1) =>
 export const loadJobComments = (page = 1) =>
   sr71$.query(S.publishedJobComments, getQueryArgs(page))
 
-export const loadVideoComments = (page = 1) =>
-  sr71$.query(S.publishedVideoComments, getQueryArgs(page))
-
 export const loadRepoComments = (page = 1) =>
   sr71$.query(S.publishedRepoComments, getQueryArgs(page))
 
@@ -50,9 +47,6 @@ export const threadOnChange = (curThread) => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobComments()
-
-    case THREAD.VIDEO:
-      return loadVideoComments()
 
     case THREAD.REPO:
       return loadRepoComments()
@@ -67,9 +61,6 @@ export const onPageChange = (page = 1) => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobComments(page)
-
-    case THREAD.VIDEO:
-      return loadVideoComments(page)
 
     case THREAD.REPO:
       return loadRepoComments(page)
@@ -105,11 +96,6 @@ const DataSolver = [
       store.markPagedData(publishedJobComments),
   },
   {
-    match: asyncRes('publishedVideoComments'),
-    action: ({ publishedVideoComments }) =>
-      store.markPagedData(publishedVideoComments),
-  },
-  {
     match: asyncRes('publishedRepoComments'),
     action: ({ publishedRepoComments }) => {
       log('get publishedRepoComments: ', publishedRepoComments)
@@ -121,7 +107,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

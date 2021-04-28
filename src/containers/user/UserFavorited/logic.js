@@ -40,9 +40,6 @@ export const loadPosts = (page = 1) =>
 export const loadJobs = (page = 1) =>
   sr71$.query(S.favoritedJobs, getQueryArgs(page))
 
-export const loadVideos = (page = 1) =>
-  sr71$.query(S.favoritedVideos, getQueryArgs(page))
-
 export const loadRepos = (page = 1) =>
   sr71$.query(S.favoritedRepos, getQueryArgs(page))
 
@@ -50,9 +47,6 @@ export const onReload = (page) => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobs(page)
-
-    case THREAD.VIDEO:
-      return loadVideos(page)
 
     case THREAD.REPO:
       return loadRepos(page)
@@ -90,10 +84,6 @@ const DataSolver = [
   {
     match: asyncRes('favoritedJobs'),
     action: ({ favoritedJobs }) => store.markPagedData(favoritedJobs),
-  },
-  {
-    match: asyncRes('favoritedVideos'),
-    action: ({ favoritedVideos }) => store.markPagedData(favoritedVideos),
   },
   {
     match: asyncRes('favoritedRepos'),

@@ -10,12 +10,10 @@ import {
   JobViewer,
   MailsViewer,
   RepoViewer,
-  VideoViewer,
   // editors
   AccountEditor,
   PostEditor,
   JobEditor,
-  VideoEditor,
   RepoEditor,
   // utils
   C11NSettingPanel,
@@ -52,16 +50,6 @@ const renderContent = (type, attachment, attUser, mmType) => {
 
     case TYPE.DRAWER.REPO_CREATE:
       return <RepoEditor />
-
-    // video
-    case TYPE.DRAWER.VIDEO_EDIT:
-      return <VideoEditor attachment={attachment} />
-
-    case TYPE.DRAWER.VIDEO_VIEW:
-      return <VideoViewer attachment={attachment} />
-
-    case TYPE.DRAWER.VIDEO_CREATE:
-      return <VideoEditor />
 
     case TYPE.DRAWER.MAILS_VIEW:
       return <MailsViewer />

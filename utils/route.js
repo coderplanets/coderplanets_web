@@ -326,13 +326,11 @@ const TR_MAP = {
   posts: 'post',
   users: 'user',
   jobs: 'job',
-  videos: 'video',
   repos: 'repo',
 
   post: 'posts',
   user: 'users',
   job: 'jobs',
-  video: 'videos',
   repo: 'repos',
 
   /* wiki: 'wiki', */

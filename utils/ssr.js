@@ -34,9 +34,6 @@ export const ssrPagedSchema = (thread) => {
     case THREAD.JOB:
       return P.pagedJobs
 
-    case THREAD.VIDEO:
-      return P.pagedVideos
-
     case THREAD.REPO:
       return P.pagedRepos
 
@@ -92,16 +89,6 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
         },
       }
 
-    case THREAD.VIDEO:
-      return {
-        videosThread: {
-          pagedVideos: resp.pagedVideos,
-          curView: getCurView(resp.pagedVideos),
-          activeTag,
-          filters,
-        },
-      }
-
     case THREAD.REPO:
       return {
         reposThread: {
@@ -144,7 +131,7 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
 
 // TODO generl
 export const addTopicIfNeed = (source, thread, topic) => {
-  if (!contains(thread, ['JOB', 'VIDEO', 'REPO', 'USER', 'WIKI'])) {
+  if (!contains(thread, ['JOB', 'REPO', 'USER', 'WIKI'])) {
     return merge(source, { topic })
   }
   return source
@@ -167,7 +154,6 @@ export const validCommunityFilters = [
   'finance',
   'scale',
   'education',
-  // videos
   'source',
 ]
 

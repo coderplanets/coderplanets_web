@@ -14,8 +14,6 @@ import JobEducationFilter from './JobEducationFilter'
 import JobFieldFilter from './JobFieldFilter'
 import JobFinanceFilter from './JobFinanceFilter'
 import JobScaleFilter from './JobScaleFilter'
-// video
-import VideoSourceFilter from './VideoSourceFilter'
 
 import { FilterPanelWrapper } from '../styles'
 
@@ -27,18 +25,6 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
-          {isLogin && (
-            <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
-          )}
-        </FilterPanelWrapper>
-      )
-
-    case THREAD.VIDEO:
-      return (
-        <FilterPanelWrapper>
-          <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <VideoSourceFilter activeFilter={activeFilter} onSelect={onSelect} />
           {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}

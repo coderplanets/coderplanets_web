@@ -35,7 +35,6 @@ import {
 
   // threads
   PostsThreadStore,
-  VideosThreadStore,
   ReposThreadStore,
   WikiThreadStore,
   JobsThreadStore,
@@ -48,7 +47,6 @@ import {
   CommunityContentStore,
   PostContentStore,
   JobContentStore,
-  VideoContentStore,
   RepoContentStore,
   DiscoveryContentStore,
   CommunityEditorStore,
@@ -60,7 +58,6 @@ import {
   JobViewerStore,
   ArticleViewerHeader,
   ArticleBodyHeaderStore,
-  VideoViewerStore,
   RepoViewerStore,
   CommentsStore,
   MailsViewerStore,
@@ -71,7 +68,6 @@ import {
   SidebarStore,
   PostEditorStore,
   JobEditorStore,
-  VideoEditorStore,
   RepoEditorStore,
   AccountEditorStore,
   MailBoxStore,
@@ -142,7 +138,6 @@ const rootStore = T.model({
   doraemon: T.optional(DoraemonStore, {}),
   jobEditor: T.optional(JobEditorStore, {}),
   postEditor: T.optional(PostEditorStore, {}),
-  videoEditor: T.optional(VideoEditorStore, {}),
   repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
   mailBox: T.optional(MailBoxStore, {}),
@@ -171,7 +166,6 @@ const rootStore = T.model({
   communityEditor: T.optional(CommunityEditorStore, {}),
   postContent: T.optional(PostContentStore, {}),
   jobContent: T.optional(JobContentStore, {}),
-  videoContent: T.optional(VideoContentStore, {}),
   repoContent: T.optional(RepoContentStore, {}),
   userContent: T.optional(UserContentStore, {}),
   // content end
@@ -180,7 +174,6 @@ const rootStore = T.model({
   footer: T.optional(FooterStore, {}),
   // threads
   postsThread: T.optional(PostsThreadStore, {}),
-  videosThread: T.optional(VideosThreadStore, {}),
   reposThread: T.optional(ReposThreadStore, {}),
   wikiThread: T.optional(WikiThreadStore, {}),
   jobsThread: T.optional(JobsThreadStore, {}),
@@ -199,7 +192,6 @@ const rootStore = T.model({
   // viewers (for drawer usage)
   postViewer: T.optional(PostViewerStore, {}),
   jobViewer: T.optional(JobViewerStore, {}),
-  videoViewer: T.optional(VideoViewerStore, {}),
   repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),
 

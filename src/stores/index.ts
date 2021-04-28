@@ -45,7 +45,6 @@ export { default as CommunityContentStore } from '@/containers/content/Community
 export { default as DiscoveryContentStore } from '@/containers/content/DiscoveryContent/store'
 export { default as PostContentStore } from '@/containers/content/PostContent/store'
 export { default as JobContentStore } from '@/containers/content/JobContent/store'
-export { default as VideoContentStore } from '@/containers/content/VideoContent/store'
 export { default as RepoContentStore } from '@/containers/content/RepoContent/store'
 export { default as UserContentStore } from '@/containers/content/UserContent/store'
 
@@ -54,7 +53,6 @@ export { default as FooterStore } from '@/containers/unit/Footer/store'
 
 // threads store
 export { default as PostsThreadStore } from '@/containers/thread/PostsThread/store'
-export { default as VideosThreadStore } from '@/containers/thread/VideosThread/store'
 export { default as ReposThreadStore } from '@/containers/thread/ReposThread/store'
 export { default as WikiThreadStore } from '@/containers/thread/WikiThread/store'
 export { default as JobsThreadStore } from '@/containers/thread/JobsThread/store'
@@ -68,7 +66,6 @@ export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
 export { default as DocUploaderStore } from '@/containers/tool/DocUploader/store'
 export { default as JobEditorStore } from '@/containers/editor/JobEditor/store'
 export { default as PostEditorStore } from '@/containers/editor/PostEditor/store'
-export { default as VideoEditorStore } from '@/containers/editor/VideoEditor/store'
 export { default as RepoEditorStore } from '@/containers/editor/RepoEditor/store'
 export { default as CommentsStore } from '@/containers/unit/Comments/store'
 export { default as AccountEditorStore } from '@/containers/editor/AccountEditor/store'
@@ -78,7 +75,6 @@ export { default as CommunitySetterStore } from '@/containers/tool/CommunitySett
 // viewers store
 export { default as PostViewerStore } from '@/containers/viewer/PostViewer/store'
 export { default as JobViewerStore } from '@/containers/viewer/JobViewer/store'
-export { default as VideoViewerStore } from '@/containers/viewer/VideoViewer/store'
 export { default as RepoViewerStore } from '@/containers/viewer/RepoViewer/store'
 export { default as MailsViewerStore } from '@/containers/viewer/MailsViewer/store'
 

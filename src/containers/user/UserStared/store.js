@@ -7,19 +7,14 @@ import { types as T, getParent } from 'mobx-state-tree'
 
 import { TYPE, THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
-import { PagedPosts, PagedJobs, PagedVideos, emptyPagiData } from '@/model'
+import { PagedPosts, PagedJobs, emptyPagiData } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:UserStared')
 
 const UserStared = T.model('UserStared', {
   curThread: T.optional(
-    T.enumeration('curThread', [
-      THREAD.POST,
-      THREAD.JOB,
-      THREAD.VIDEO,
-      THREAD.REPO,
-    ]),
+    T.enumeration('curThread', [THREAD.POST, THREAD.JOB, THREAD.REPO]),
     THREAD.POST,
   ),
   curView: T.optional(
@@ -33,7 +28,6 @@ const UserStared = T.model('UserStared', {
   ),
   pagedPosts: T.optional(PagedPosts, emptyPagiData),
   pagedJobs: T.optional(PagedJobs, emptyPagiData),
-  pagedVideos: T.optional(PagedVideos, emptyPagiData),
 })
   .views((self) => ({
     get root() {
@@ -46,9 +40,6 @@ const UserStared = T.model('UserStared', {
       switch (self.curThread) {
         case THREAD.JOB:
           return stripMobx(self.pagedJobs)
-
-        case THREAD.VIDEO:
-          return stripMobx(self.pagedVideos)
 
         default:
           return stripMobx(self.pagedPosts)
@@ -66,9 +57,6 @@ const UserStared = T.model('UserStared', {
       switch (self.curThread) {
         case THREAD.JOB: {
           return self.mark({ curView, pagedJobs: pagedData })
-        }
-        case THREAD.VIDEO: {
-          return self.mark({ curView, pagedVideos: pagedData })
         }
         default: {
           return self.mark({ curView, pagedPosts: pagedData })

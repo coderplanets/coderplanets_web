@@ -65,7 +65,7 @@ const PagedContents = ({
 }
 
 PagedContents.propTypes = {
-  thread: T.oneOf([THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]),
+  thread: T.oneOf([THREAD.POST, THREAD.JOB, THREAD.REPO]),
   cover: T.oneOf(['avatar', 'source']),
   active: T.object,
   data: T.shape({

@@ -11,7 +11,6 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 import {
   PagedPosts,
   PagedJobs,
-  PagedVideos,
   PagedRepos,
   emptyPagiData,
   FavoriteCategory,
@@ -23,12 +22,7 @@ const log = buildLog('S:UserFavorited')
 const UserFavorited = T.model('UserFavorited', {
   curCategory: T.maybeNull(FavoriteCategory),
   curThread: T.optional(
-    T.enumeration('favoriteThread', [
-      THREAD.POST,
-      THREAD.VIDEO,
-      THREAD.JOB,
-      THREAD.REPO,
-    ]),
+    T.enumeration('favoriteThread', [THREAD.POST, THREAD.JOB, THREAD.REPO]),
     THREAD.POST,
   ),
   parentView: T.optional(
@@ -52,7 +46,6 @@ const UserFavorited = T.model('UserFavorited', {
   ),
   pagedPosts: T.optional(PagedPosts, emptyPagiData),
   pagedJobs: T.optional(PagedJobs, emptyPagiData),
-  pagedVideos: T.optional(PagedVideos, emptyPagiData),
   pagedRepos: T.optional(PagedRepos, emptyPagiData),
 })
   .views((self) => ({
@@ -69,9 +62,6 @@ const UserFavorited = T.model('UserFavorited', {
       switch (self.curThread) {
         case THREAD.JOB:
           return stripMobx(self.pagedJobs)
-
-        case THREAD.VIDEO:
-          return stripMobx(self.pagedVideos)
 
         case THREAD.REPO:
           return stripMobx(self.pagedRepos)
@@ -92,9 +82,6 @@ const UserFavorited = T.model('UserFavorited', {
       switch (self.curThread) {
         case THREAD.JOB:
           return self.mark({ curView, pagedJobs: pagedData })
-
-        case THREAD.VIDEO:
-          return self.mark({ curView, pagedVideos: pagedData })
 
         case THREAD.REPO:
           return self.mark({ curView, pagedRepos: pagedData })

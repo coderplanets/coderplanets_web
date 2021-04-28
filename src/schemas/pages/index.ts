@@ -1,6 +1,5 @@
 import { pagedPosts, post } from './post'
 import { pagedJobs, job } from './job'
-import { pagedVideos, video } from './video'
 import { pagedRepos, repo } from './repo'
 import { user, sessionState } from './user'
 import { community, subscribedCommunities, pagedCommunities } from './community'
@@ -35,9 +34,6 @@ const P = {
   // job
   pagedJobs,
   job,
-  // video
-  pagedVideos,
-  video,
   // repo
   pagedRepos,
   repo,

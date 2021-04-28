@@ -8,7 +8,7 @@ export const jumpToCommunity = (store, communityRaw) => {
 
   if (
     contains(mainPath, [ROUTE.USER, ROUTE.DISCOVERY]) ||
-    contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
+    contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.REPO])
   ) {
     Global.location.href = `/${communityRaw}/posts`
     return false
@@ -44,12 +44,6 @@ export const jumpToContent = (store) => {
   if (startsWith('repo-raw', store.activeSuggestion.raw)) {
     type = TYPE.DRAWER.REPO_VIEW
     thread = THREAD.REPO
-  }
-
-  // jump to video
-  if (startsWith('video-raw', store.activeSuggestion.raw)) {
-    type = TYPE.DRAWER.VIDEO_VIEW
-    thread = THREAD.VIDEO
   }
 
   send(EVENT.DRAWER.OPEN, { type, thread, data })

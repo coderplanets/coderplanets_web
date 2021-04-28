@@ -10,7 +10,6 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 import {
   PagedPostComments,
   PagedJobComments,
-  PagedVideoComments,
   PagedRepoComments,
   emptyPagiData,
 } from '@/model'
@@ -20,12 +19,7 @@ const log = buildLog('S:UserPublishedComments')
 
 const UserPublishedComments = T.model('UserPublishedComments', {
   curThread: T.optional(
-    T.enumeration('curThread', [
-      THREAD.POST,
-      THREAD.JOB,
-      THREAD.VIDEO,
-      THREAD.REPO,
-    ]),
+    T.enumeration('curThread', [THREAD.POST, THREAD.JOB, THREAD.REPO]),
     THREAD.POST,
   ),
 
@@ -41,7 +35,6 @@ const UserPublishedComments = T.model('UserPublishedComments', {
 
   pagedPostComments: T.optional(PagedPostComments, emptyPagiData),
   pagedJobComments: T.optional(PagedJobComments, emptyPagiData),
-  pagedVideoComments: T.optional(PagedVideoComments, emptyPagiData),
   pagedRepoComments: T.optional(PagedRepoComments, emptyPagiData),
 })
   .views((self) => ({
@@ -55,9 +48,6 @@ const UserPublishedComments = T.model('UserPublishedComments', {
       switch (self.curThread) {
         case THREAD.JOB: {
           return stripMobx(self.pagedJobComments)
-        }
-        case THREAD.VIDEO: {
-          return stripMobx(self.pagedVideoComments)
         }
         case THREAD.REPO: {
           return stripMobx(self.pagedRepoComments)
@@ -76,9 +66,6 @@ const UserPublishedComments = T.model('UserPublishedComments', {
       switch (self.curThread) {
         case THREAD.JOB:
           return self.mark({ curView, pagedJobComments: pagedData })
-
-        case THREAD.VIDEO:
-          return self.mark({ curView, pagedVideoComments: pagedData })
 
         case THREAD.REPO:
           return self.mark({ curView, pagedRepoComments: pagedData })

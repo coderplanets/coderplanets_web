@@ -62,9 +62,6 @@ const afterReaction = (id) => {
     case THREAD.JOB:
       return sr71$.query(S.job, { id })
 
-    case THREAD.VIDEO:
-      return sr71$.query(S.video, { id })
-
     case THREAD.REPO:
       return sr71$.query(S.repo, { id })
 
@@ -94,14 +91,6 @@ const DataSolver = [
       store.setViewing({ job: merge(store.viewingArticle, job) })
       store.syncViewingItem(job)
       markLoading(false)
-    },
-  },
-  {
-    match: asyncRes('video'),
-    action: ({ video }) => {
-      markLoading(false)
-      store.setViewing({ video: merge(store.viewingArticle, video) })
-      // store.syncViewingItem(video)
     },
   },
   {

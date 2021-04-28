@@ -34,21 +34,6 @@ export const job = `
   insertedAt
   updatedAt
 `
-export const video = `
-  id
-  title
-  poster
-  thumbnil
-  desc
-  duration
-  source
-  views
-  originalAuthor
-  originalAuthorLink
-  publishAt
-  insertedAt
-  updatedAt
-`
 export const repo = `
   id
   views
@@ -79,10 +64,6 @@ export const tag = `
   title
   color
   thread
-  topic {
-    id
-    raw
-  }
 `
 export const author = `
   id

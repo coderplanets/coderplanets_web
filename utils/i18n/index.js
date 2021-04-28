@@ -10,8 +10,6 @@ const I18nDict = {
   city: '同城',
   share: '分享',
   users: '用户',
-  videos: '视频',
-  video: '视频',
   repos: '开源项目',
   repo: '开源项目',
   jobs: '招聘',

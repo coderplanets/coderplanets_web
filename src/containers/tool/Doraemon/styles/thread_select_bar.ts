@@ -27,10 +27,6 @@ export const Selector = styled.div<TActive>`
     cursor: pointer;
   }
 `
-
-export const VideoSelector = styled(Selector)`
-  ${css.media.mobile`display: none;`};
-`
 export const RepoSelector = styled(Selector)`
   ${css.media.mobile`display: none;`};
 `

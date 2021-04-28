@@ -30,20 +30,6 @@ const publishedJobComments = gql`
   }
 `
 
-const publishedVideoComments = gql`
-  query($userId: ID!, $filter: PagedFilter!) {
-    publishedVideoComments(userId: $userId, filter: $filter) {
-      entries {
-        ${F.comment}
-        video {
-          ${F.commentParent}
-        }
-      }
-      ${F.pagedCounts}
-    }
-  }
-`
-
 const publishedRepoComments = gql`
   query($userId: ID!, $filter: PagedFilter!) {
     publishedRepoComments(userId: $userId, filter: $filter) {
@@ -62,7 +48,6 @@ const publishedRepoComments = gql`
 const schema = {
   publishedPostComments,
   publishedJobComments,
-  publishedVideoComments,
   publishedRepoComments,
 }
 

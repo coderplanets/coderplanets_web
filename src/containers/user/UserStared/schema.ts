@@ -56,38 +56,10 @@ const staredJobs = gql`
     }
   }
 `
-const staredVideos = gql`
-  query($userId: ID!, $filter: PagedFilter!) {
-    staredVideos(userId: $userId, filter: $filter) {
-      entries {
-        id
-        title
-        poster
-        desc
-        duration
-        source
-        views
-        originalAuthor
-        originalAuthorLink
-        author {
-          id
-          avatar
-          nickname
-        }
-        insertedAt
-        publishAt
-      }
-      totalPages
-      totalCount
-      pageSize
-      pageNumber
-    }
-  }
-`
+
 const schema = {
   staredPosts,
   staredJobs,
-  staredVideos,
 }
 
 export default schema

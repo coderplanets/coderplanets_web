@@ -26,7 +26,7 @@ import { SWIPE_THRESHOLD } from './styles/metrics'
 
 const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
 
-const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
+const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO]
 const THREAD_CONTENT_CURD_TYPES = [
   // post
   TYPE.DRAWER.POST_VIEW,
@@ -39,10 +39,6 @@ const THREAD_CONTENT_CURD_TYPES = [
   // repo
   TYPE.DRAWER.REPO_VIEW,
   TYPE.DRAWER.REPO_CREATE,
-  // video
-  TYPE.DRAWER.VIDEO_VIEW,
-  TYPE.DRAWER.VIDEO_CREATE,
-  TYPE.DRAWER.VIDEO_EDIT,
   // mails
   TYPE.DRAWER.MAILS_VIEW,
 ]
@@ -68,17 +64,6 @@ const Attachment = T.model('Attachment', {
   author: T.maybeNull(User),
   copyRight: T.optional(T.string, 'original'),
   linkAddr: T.maybeNull(T.string),
-
-  // video spec
-  poster: T.maybeNull(T.string),
-  thumbnil: T.maybeNull(T.string),
-  desc: T.maybeNull(T.string),
-  duration: T.maybeNull(T.string),
-  publishAt: T.maybeNull(T.string),
-  source: T.maybeNull(T.string),
-  link: T.maybeNull(T.string),
-  originalAuthor: T.maybeNull(T.string),
-  originalAuthorLink: T.maybeNull(T.string),
 })
 
 const DrawerStore = T.model('DrawerStore', {
