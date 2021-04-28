@@ -64,10 +64,6 @@ export const tag = `
   title
   color
   thread
-  topic {
-    id
-    raw
-  }
 `
 export const author = `
   id
