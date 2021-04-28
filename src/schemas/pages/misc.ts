@@ -1,8 +1,8 @@
 import F from '../fragments'
 
 export const partialTags = `
-  query($communityId: ID, $community: String, $thread: CmsThread!, $topic: String) {
-    partialTags(communityId: $communityId, community: $community, thread: $thread, topic: $topic) {
+  query($communityId: ID, $community: String, $thread: CmsThread!) {
+    partialTags(communityId: $communityId, community: $community, thread: $thread) {
       ${F.tag}
     }
   }
