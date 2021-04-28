@@ -3,49 +3,15 @@ import { Remarkable } from 'remarkable'
 import remarkableemoj from 'remarkable-emoji'
 import mentions from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
-import { filter, keys } from 'ramda'
 
 import { MENTION_USER_ADDR } from '@/config'
-import { uid } from '@/utils'
 import MarkDownStyle from '@/containers/layout/ThemePalette/MarkDownStyle'
 
-import fullEmojis from './emojis'
-import { Wrapper, EmojiWrapper, EmojiItem } from './styles/markdown_helper'
+import { Wrapper } from './styles/markdown_helper'
 
 const md = new Remarkable()
 md.use(mentions({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
-
-const notTooLong = (l) => l.length < 20
-
-/* eslint-disable react/no-danger */
-const Emojis = () => {
-  const source = filter(notTooLong, keys(fullEmojis))
-
-  return (
-    <EmojiWrapper>
-      <MarkDownStyle>
-        <div
-          className="markdown-body"
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          {source.map((item) => (
-            <EmojiItem
-              key={uid.gen()}
-              dangerouslySetInnerHTML={{
-                __html: md.render(`${item} \`${item}\``),
-              }}
-            />
-          ))}
-        </div>
-      </MarkDownStyle>
-    </EmojiWrapper>
-  )
-}
 
 const MarkDownInfo = () => {
   const IntroMD = `\`说明\`: 显示效果与下方实现代码一一对应
@@ -130,7 +96,6 @@ class MarkDownHelper extends React.Component {
       <Wrapper>
         <MarkDownStyle>
           <MarkDownInfo />
-          <Emojis />
         </MarkDownStyle>
       </Wrapper>
     )
