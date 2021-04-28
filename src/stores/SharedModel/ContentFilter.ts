@@ -38,7 +38,6 @@ export const ContentFilter = T.model('ContentFilter', {
   field: T.optional(T.string, ''),
   finance: T.optional(T.string, ''),
   scale: T.optional(T.string, ''),
-  // video
   source: T.optional(T.string, ''),
   read: T.optional(T.enumeration('read', ['', FILTER.READ, FILTER.UNREAD]), ''),
 })

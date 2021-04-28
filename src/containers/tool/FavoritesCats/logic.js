@@ -129,7 +129,6 @@ const DataSolver = [
       markLoading(false)
       store.mark({ pagedCategories })
       // store.closeDrawer()
-      // send(EVENT.REFRESH_VIDEOS)
     },
   },
   {

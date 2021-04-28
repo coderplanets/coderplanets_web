@@ -8,7 +8,6 @@ import {
   TabCityIcon,
   TabJobIcon,
   TabWikiIcon,
-  TabVideoIcon,
   TabRepoIcon,
   TabCheatsheetIcon,
   // user
@@ -42,9 +41,6 @@ const TabIcon = ({ raw, active, small }) => {
 
     case 'wiki':
       return <TabWikiIcon active={active ? 1 : 0} small={small} />
-
-    case 'video':
-      return <TabVideoIcon active={active ? 1 : 0} small={small} />
 
     case 'repo':
       return <TabRepoIcon active={active ? 1 : 0} small={small} />

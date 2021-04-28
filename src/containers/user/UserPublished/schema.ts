@@ -15,13 +15,6 @@ const publishedJobs = gql`
     }
   }
 `
-const publishedVideos = gql`
-  query($userId: ID!, $filter: PagedFilter!) {
-    publishedVideos(userId: $userId, filter: $filter) {
-      ${F.pagedVideos}
-    }
-  }
-`
 const publishedRepos = gql`
   query($userId: ID!, $filter: PagedFilter!) {
     publishedRepos(userId: $userId, filter: $filter) {
@@ -33,7 +26,6 @@ const publishedRepos = gql`
 const schema = {
   publishedPosts,
   publishedJobs,
-  publishedVideos,
   publishedRepos,
 }
 

@@ -12,7 +12,6 @@ import {
   community,
   post,
   job,
-  video,
   repo,
   author,
   tag,
@@ -27,19 +26,17 @@ import {
   pagedCounts,
 } from './base'
 
-import { pagedPosts, pagedJobs, pagedVideos, pagedRepos } from './paged'
+import { pagedPosts, pagedJobs, pagedRepos } from './paged'
 
 const F = {
   community,
   post,
   job,
-  video,
   repo,
   author,
   tag,
   pagedPosts,
   pagedJobs,
-  pagedVideos,
   pagedRepos,
 
   user,

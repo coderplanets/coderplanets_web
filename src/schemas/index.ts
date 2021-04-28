@@ -12,7 +12,7 @@
  *
  */
 
-// import { pagedPosts, pagedJobs, pagedVideos, pagedRepos } from './paged'
+// import { pagedPosts, pagedJobs, pagedRepos } from './paged'
 
 export { default as F } from './fragments'
 export { default as P } from './pages'

@@ -29,9 +29,6 @@ export const loadPosts = (page = 1) =>
 export const loadJobs = (page = 1) =>
   sr71$.query(S.publishedJobs, getQueryArgs(page))
 
-export const loadVideos = (page = 1) =>
-  sr71$.query(S.publishedVideos, getQueryArgs(page))
-
 export const loadRepos = (page = 1) =>
   sr71$.query(S.publishedRepos, getQueryArgs(page))
 
@@ -39,9 +36,6 @@ export const onReload = (page) => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobs(page)
-
-    case THREAD.VIDEO:
-      return loadVideos(page)
 
     case THREAD.REPO:
       return loadRepos(page)
@@ -80,10 +74,6 @@ const DataSolver = [
     action: ({ publishedJobs }) => store.markPagedData(publishedJobs),
   },
   {
-    match: asyncRes('publishedVideos'),
-    action: ({ publishedVideos }) => store.markPagedData(publishedVideos),
-  },
-  {
     match: asyncRes('publishedRepos'),
     action: ({ publishedRepos }) => store.markPagedData(publishedRepos),
   },
@@ -91,7 +81,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

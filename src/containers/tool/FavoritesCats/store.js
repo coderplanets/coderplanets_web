@@ -40,10 +40,7 @@ const FavoritesCats = T.model('FavoritesCats', {
   // open creator from setter, so we can go back to setter based on this state
   createfromSetter: T.optional(T.boolean, false),
   thread: T.maybeNull(
-    T.enumeration(
-      [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO],
-      THREAD.POST,
-    ),
+    T.enumeration([THREAD.POST, THREAD.JOB, THREAD.REPO], THREAD.POST),
   ),
   loading: T.optional(T.boolean, false),
   doing: T.optional(T.boolean, false),
@@ -71,9 +68,6 @@ const FavoritesCats = T.model('FavoritesCats', {
 
         case THREAD.REPO:
           return stripMobx(self.root.viewing.repo)
-
-        case THREAD.VIDEO:
-          return stripMobx(self.root.viewing.video)
 
         default:
           return stripMobx(self.root.viewing.post)

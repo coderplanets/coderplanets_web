@@ -30,16 +30,10 @@ export const loadPosts = (page = 1) =>
 export const loadJobs = (page = 1) =>
   sr71$.query(S.staredJobs, getQueryArgs(page))
 
-export const loadVideos = (page = 1) =>
-  sr71$.query(S.staredVideos, getQueryArgs(page))
-
 export const onReload = (page) => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobs(page)
-
-    case THREAD.VIDEO:
-      return loadVideos(page)
 
     default:
       return loadPosts(page)
@@ -75,15 +69,13 @@ const DataSolver = [
     match: asyncRes('staredJobs'),
     action: ({ staredJobs }) => store.markPagedData(staredJobs),
   },
-  {
-    match: asyncRes('staredVideos'),
-    action: ({ staredVideos }) => store.markPagedData(staredVideos),
-  },
 ]
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

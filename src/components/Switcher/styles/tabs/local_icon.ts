@@ -11,7 +11,6 @@ import TabCitySVG from '@/SvgIcons/TabCitySVG'
 import TabJobSVG from '@/SvgIcons/TabJobSVG'
 //
 import TabWikiSVG from '@/SvgIcons/TabWikiSVG'
-import TabVideoSVG from '@/SvgIcons/TabVideoSVG'
 import TabRepoSVG from '@/SvgIcons/TabRepoSVG'
 import TabCheatsheetSVG from '@/SvgIcons/TabCheatsheetSVG'
 
@@ -45,7 +44,6 @@ export const TabUserIcon = commonIcon(TabUserSVG)
 export const TabCityIcon = commonIcon(TabCitySVG)
 export const TabJobIcon = commonIcon(TabJobSVG)
 export const TabWikiIcon = commonIcon(TabWikiSVG)
-export const TabVideoIcon = commonIcon(TabVideoSVG)
 export const TabRepoIcon = commonIcon(TabRepoSVG)
 export const TabCheatsheetIcon = commonIcon(TabCheatsheetSVG)
 

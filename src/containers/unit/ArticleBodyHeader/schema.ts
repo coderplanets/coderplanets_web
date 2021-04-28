@@ -46,30 +46,6 @@ const deleteJob = gql`
     }
   }
 `
-// video
-const pinVideo = gql`
-  mutation($id: ID!, $communityId: ID!) {
-    pinVideo(id: $id, communityId: $communityId) {
-      id
-    }
-  }
-`
-const undoPinVideo = gql`
-  mutation($id: ID!, $communityId: ID!) {
-    undoPinVideo(id: $id, communityId: $communityId) {
-      id
-    }
-  }
-`
-
-const deleteVideo = gql`
-  mutation($id: ID!) {
-    deleteVideo(id: $id) {
-      id
-    }
-  }
-`
-
 // repo
 const pinRepo = gql`
   mutation($id: ID!, $communityId: ID!) {
@@ -137,10 +113,6 @@ const schema = {
   pinJob,
   undoPinJob,
   deleteJob,
-  // video
-  pinVideo,
-  undoPinVideo,
-  deleteVideo,
   // repo
   pinRepo,
   undoPinRepo,

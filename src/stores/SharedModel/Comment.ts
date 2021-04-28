@@ -89,28 +89,6 @@ export const PagedJobComments = T.model('PagedJobComment', {
   totalPages: T.optional(T.number, 0),
 })
 
-// paged videos comemnts
-const VideoBrief = T.model('VideoBrief', {
-  id: T.maybeNull(T.string),
-  title: T.maybeNull(T.string),
-  author: T.maybeNull(User),
-  commentsCount: T.maybeNull(T.number),
-  communities: T.optional(T.array(Community), []),
-  origialCommunity: T.optional(Community, {}),
-})
-
-const VideoComment = T.model('VideoComment', {
-  ...CommentBase,
-  video: T.optional(VideoBrief, {}),
-})
-export const PagedVideoComments = T.model('PagedVideoComment', {
-  entries: T.optional(T.array(VideoComment), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
-})
-
 // paged repos comemnts
 const RepoBrief = T.model('RepoBrief', {
   id: T.maybeNull(T.string),

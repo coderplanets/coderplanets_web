@@ -8,13 +8,6 @@ const favoritedJobs = gql`
     }
   }
 `
-const favoritedVideos = gql`
-  query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {
-    favoritedVideos(userId: $userId, categoryId: $categoryId, filter: $filter) {
-      ${F.pagedVideos}
-    }
-  }
-`
 const favoritedRepos = gql`
   query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {
     favoritedRepos(userId: $userId, categoryId: $categoryId, filter: $filter) {
@@ -35,8 +28,6 @@ const schema = {
   favoritedPosts,
   // job
   favoritedJobs,
-  // video
-  favoritedVideos,
   // repo
   favoritedRepos,
 }

@@ -34,16 +34,6 @@ const Parent = ({ thread, data }) => {
         </Wrapper>
       )
 
-    case THREAD.VIDEO:
-      return (
-        <Wrapper>
-          <Title>{data.video.title}</Title>
-          <DotDivider />
-          <CommentCount floor={data.floor} total={data.video.commentsCount} />
-          <CommunityList items={data.video.communities} />
-        </Wrapper>
-      )
-
     default:
       return (
         <Wrapper>

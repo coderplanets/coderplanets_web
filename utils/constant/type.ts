@@ -12,7 +12,6 @@ const TYPE = {
   POST: 'POST',
   JOB: 'JOB',
   REPO: 'REPO',
-  VIDEO: 'VIDEO',
   // actions
   FAVORITE: 'FAVORITE',
   STAR: 'STAR',
@@ -46,10 +45,6 @@ const TYPE = {
 
     REPO_VIEW: 'REPO_VIEW',
     REPO_CREATE: 'REPO_CREATE',
-
-    VIDEO_VIEW: 'VIDEO_VIEW',
-    VIDEO_CREATE: 'VIDEO_CREATE',
-    VIDEO_EDIT: 'VIDEO_EDIT',
 
     // c11n settings
     C11N_SETTINGS: 'C11N_SETTINGS',

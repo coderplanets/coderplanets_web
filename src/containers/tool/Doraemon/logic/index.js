@@ -260,23 +260,6 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes('searchVideos'),
-    action: ({ searchVideos }) => {
-      const data = map(
-        (e) => ({
-          id: e.id,
-          logo: e.thumbnil,
-          raw: `video-raw-${e.id}`,
-          title: `${e.title} / ${e.source} / ${e.salary}`,
-          desc: `${prettyNum(e.views)} ${e.duration}  ${e.desc}`,
-        }),
-        searchVideos.entries,
-      )
-      const { totalCount } = searchVideos
-      loadSearchSuggestions(data, totalCount)
-    },
-  },
-  {
     match: asyncRes('searchRepos'),
     action: ({ searchRepos }) => {
       const data = map(

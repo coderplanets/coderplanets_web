@@ -24,10 +24,6 @@ export const onEdit = (thread) => {
       type = TYPE.DRAWER.JOB_EDIT
       break
 
-    case THREAD.VIDEO:
-      type = TYPE.DRAWER.VIDEO_EDIT
-      break
-
     case THREAD.REPO:
       return send(EVENT.SYNC_REPO)
 
@@ -51,9 +47,6 @@ export const onPin = (thread) => {
     case THREAD.JOB:
       return sr71$.mutate(S.pinJob, args)
 
-    case THREAD.VIDEO:
-      return sr71$.mutate(S.pinVideo, args)
-
     case THREAD.REPO:
       return sr71$.mutate(S.pinRepo, args)
 
@@ -73,9 +66,6 @@ export const onUndoPin = (thread) => {
   switch (thread) {
     case THREAD.JOB:
       return sr71$.mutate(S.undoPinJob, args)
-
-    case THREAD.VIDEO:
-      return sr71$.mutate(S.undoPinVideo, args)
 
     case THREAD.REPO:
       return sr71$.mutate(S.undoPinRepo, args)
@@ -116,9 +106,6 @@ export const onDelete = () => {
     case THREAD.JOB:
       return sr71$.mutate(S.deleteJob, { id })
 
-    case THREAD.VIDEO:
-      return sr71$.mutate(S.deleteVideo, { id })
-
     case THREAD.REPO:
       return sr71$.mutate(S.deleteRepo, { id })
 
@@ -149,15 +136,13 @@ const backToParentThread = () => {
     REFRESH_EVENT = EVENT.REFRESH_POSTS
   } else if (store.activeThread === THREAD.JOB) {
     REFRESH_EVENT = EVENT.REFRESH_JOBS
-  } else if (store.activeThread === THREAD.VIDEO) {
-    REFRESH_EVENT = EVENT.REFRESH_VIDEOS
   } else if (store.activeThread === THREAD.REPO) {
     REFRESH_EVENT = EVENT.REFRESH_REPOS
   }
 
   send(REFRESH_EVENT)
   closeDrawer()
-  store.setViewing({ post: {}, job: {}, repo: {}, video: {} })
+  store.setViewing({ post: {}, job: {}, repo: {} })
 }
 
 // ###############################
@@ -189,19 +174,6 @@ const DataSolver = [
   },
   {
     match: asyncRes('deleteJob'),
-    action: () => backToParentThread(),
-  },
-  // video
-  {
-    match: asyncRes('pinVideo'),
-    action: () => backToParentThread(),
-  },
-  {
-    match: asyncRes('undoPinVideo'),
-    action: () => backToParentThread(),
-  },
-  {
-    match: asyncRes('deleteVideo'),
     action: () => backToParentThread(),
   },
   // repo

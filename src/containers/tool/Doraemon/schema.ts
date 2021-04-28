@@ -69,22 +69,6 @@ const searchJobs = gql`
     }
   }
 `
-const searchVideos = gql`
-  query($title: String!) {
-    searchVideos(title: $title) {
-      entries {
-        id
-        title
-        desc
-        thumbnil
-        duration
-        source
-        views
-      }
-      totalCount
-    }
-  }
-`
 const searchRepos = gql`
   query($title: String!) {
     searchRepos(title: $title) {
@@ -106,7 +90,6 @@ const schema = {
   searchUsers,
   searchPosts,
   searchJobs,
-  searchVideos,
   searchRepos,
 }
 

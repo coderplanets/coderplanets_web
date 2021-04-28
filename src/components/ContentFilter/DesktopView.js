@@ -62,7 +62,6 @@ ContentFilter.propTypes = {
     field: T.string,
     finance: T.string,
     scale: T.string,
-    // video
     source: T.string,
   }),
   onSelect: T.func.isRequired,
@@ -90,7 +89,6 @@ ContentFilter.defaultProps = {
     field: '',
     finance: '',
     scale: '',
-    // video
     source: '',
   },
   thread: THREAD.POST,

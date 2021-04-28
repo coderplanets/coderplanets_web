@@ -7,11 +7,9 @@ export {
   PagedComments,
   PagedPostComments,
   PagedJobComments,
-  PagedVideoComments,
   PagedRepoComments,
 } from './Comment'
 export { Post, PagedPosts } from './Post'
-export { Video, PagedVideos } from './Video'
 export { Repo, PagedRepos } from './Repo'
 export { Job, PagedJobs } from './Job'
 export { Tag, PagedTags } from './Tag'

@@ -30,18 +30,6 @@ const job = gql`
     }
   }
 `
-const video = gql`
-  query($id: ID!) {
-    video(id: $id) {
-      id
-      favoritedCount
-      starredCount
-      viewerHasFavorited
-      viewerHasStarred
-      favoritedCategoryId
-    }
-  }
-`
 const repo = gql`
   query($id: ID!) {
     repo(id: $id) {
@@ -58,7 +46,6 @@ const schema = {
   undoReaction,
   post,
   job,
-  video,
   repo,
 }
 

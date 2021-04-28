@@ -9,19 +9,18 @@ import { values, merge } from 'ramda'
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
 import { THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
-import { User, Community, Post, Job, Video, Repo } from '@/model'
+import { User, Community, Post, Job, Repo } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ViewingStore')
 
-const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
+const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO]
 
 const ViewingStore = T.model('ViewingStore', {
   user: T.optional(User, {}),
   community: T.optional(Community, {}),
   post: T.optional(Post, {}),
   job: T.optional(Job, {}),
-  video: T.optional(Video, {}),
   repo: T.optional(Repo, {}),
   activeThread: T.optional(
     T.enumeration('activeThread', values(THREAD)),
@@ -56,8 +55,6 @@ const ViewingStore = T.model('ViewingStore', {
           return stripMobx(self.job)
         case THREAD.REPO:
           return stripMobx(self.repo)
-        case THREAD.VIDEO:
-          return stripMobx(self.video)
         default:
           return stripMobx(self.post)
       }
@@ -97,9 +94,6 @@ const ViewingStore = T.model('ViewingStore', {
           return
         case THREAD.REPO:
           root.reposThread.updateItem(item)
-          return
-        case THREAD.VIDEO:
-          root.videosThread.updateItem(item)
           return
         default: {
           root.postsThread.updateItem(item)

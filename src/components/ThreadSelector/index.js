@@ -65,7 +65,7 @@ ThreadSelector.propTypes = {
 }
 
 ThreadSelector.defaultProps = {
-  options: [THREAD.POST, THREAD.VIDEO, THREAD.REPO, THREAD.JOB],
+  options: [THREAD.POST, THREAD.REPO, THREAD.JOB],
   active: THREAD.POST,
   onSelect: log,
   totalCount: 0,

@@ -33,8 +33,6 @@ export const WIDE_CASE = [
   // repo
   TYPE.DRAWER.REPO_VIEW,
   TYPE.DRAWER.REPO_CREATE,
-  // video
-  TYPE.DRAWER.VIDEO_VIEW,
   // mails
   TYPE.DRAWER.MAILS_VIEW,
 ]

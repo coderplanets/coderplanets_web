@@ -13,9 +13,6 @@ export const searchContents = (store, sr71$, title) => {
     case THREAD.USER:
       return sr71$.query(S.searchUsers, { name: title })
 
-    case THREAD.VIDEO:
-      return sr71$.query(S.searchVideos, { title })
-
     case THREAD.REPO:
       return sr71$.query(S.searchRepos, { title })
 

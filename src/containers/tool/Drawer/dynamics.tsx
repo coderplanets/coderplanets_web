@@ -49,11 +49,6 @@ export const RepoViewer = dynamic(
   commonConfig,
 )
 
-export const VideoViewer = dynamic(
-  () => import('@/containers/viewer/VideoViewer'),
-  commonConfig,
-)
-
 // editors
 export const AccountEditor = dynamic(
   () => import('@/containers/editor/AccountEditor'),
@@ -67,11 +62,6 @@ export const PostEditor = dynamic(
 
 export const JobEditor = dynamic(
   () => import('@/containers/editor/JobEditor'),
-  editorConfig,
-)
-
-export const VideoEditor = dynamic(
-  () => import('@/containers/editor/VideoEditor'),
   editorConfig,
 )
 

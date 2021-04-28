@@ -11,7 +11,6 @@ import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
 import PostsThread from '@/containers//thread/PostsThread'
-import VideosThread from '@/containers/thread/VideosThread'
 import ReposThread from '@/containers/thread/ReposThread'
 import WikiThread from '@/containers/thread/WikiThread'
 import JobsThread from '@/containers/thread/JobsThread'
@@ -32,9 +31,6 @@ const ComunityContent = ({ curRoute }) => {
 
     case ROUTE.USERS:
       return <UsersThread />
-
-    case ROUTE.VIDEOS:
-      return <VideosThread />
 
     case ROUTE.JOBS:
       return <JobsThread />
