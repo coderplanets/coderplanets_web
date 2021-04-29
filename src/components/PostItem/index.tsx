@@ -23,7 +23,6 @@ const log = buildLog('c:PostItem:index')
 type TProps = {
   active?: TPost | null
   entry: TPost
-  cover: 'avatar' | 'source'
   community: string
   accountInfo: TAccount
 
@@ -38,7 +37,6 @@ const PostItem: FC<TProps> = ({
   onUserSelect = log,
   onAuthorSelect = log,
   active = null,
-  cover = 'avatar',
   community = HCN,
   accountInfo = {
     isLogin: false,
@@ -66,7 +64,6 @@ const PostItem: FC<TProps> = ({
       {contentsLayout === C11N.DIGEST ? (
         <DigestView
           entry={entry}
-          cover={cover}
           community={community}
           onPreview={onPreview}
           onUserSelect={onUserSelect}

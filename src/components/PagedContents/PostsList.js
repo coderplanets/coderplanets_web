@@ -12,7 +12,6 @@ import EmptyLabel from '@/components/EmptyLabel'
 const PostsList = ({ props }) => {
   const {
     entries,
-    cover,
     active,
     curView,
     community,
@@ -32,7 +31,6 @@ const PostsList = ({ props }) => {
             <PostItem
               key={entry.id}
               entry={entry}
-              cover={cover}
               active={active}
               community={community}
               accountInfo={accountInfo}
