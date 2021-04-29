@@ -19,7 +19,6 @@ const log = buildLog('c:PagedContents:index')
 
 const PagedContents = ({
   thread,
-  cover,
   active,
   data: { entries, pageNumber, pageSize, totalCount },
   curView,
@@ -41,7 +40,6 @@ const PagedContents = ({
     <>
       <ContentList
         thread={thread}
-        cover={cover}
         active={active}
         entries={entries}
         curView={curView}
@@ -66,7 +64,6 @@ const PagedContents = ({
 
 PagedContents.propTypes = {
   thread: T.oneOf([THREAD.POST, THREAD.JOB, THREAD.REPO]),
-  cover: T.oneOf(['avatar', 'source']),
   active: T.object,
   data: T.shape({
     entries: T.array.isRequired,
@@ -99,7 +96,6 @@ PagedContents.propTypes = {
 
 PagedContents.defaultProps = {
   thread: THREAD.POST,
-  cover: 'avatar',
   active: {},
   curView: TYPE.LOADING,
   emptyPrefix: '',

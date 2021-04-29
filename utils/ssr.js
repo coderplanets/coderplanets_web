@@ -129,19 +129,10 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
   }
 }
 
-// TODO generl
-export const addTopicIfNeed = (source, thread, topic) => {
-  if (!contains(thread, ['JOB', 'REPO', 'USER', 'WIKI'])) {
-    return merge(source, { topic })
-  }
-  return source
-}
-
 export const validCommunityFilters = [
   'page',
   'size',
   'community',
-  'topic',
   'tag',
   'length',
   'sort',

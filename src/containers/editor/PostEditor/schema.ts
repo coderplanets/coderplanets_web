@@ -12,7 +12,6 @@ const createPost = gql`
     $communityId: ID!
     $tags: [Ids]
     $mentionUsers: [Ids]
-    $topic: String
   ) {
     createPost(
       title: $title
@@ -24,7 +23,6 @@ const createPost = gql`
       communityId: $communityId
       tags: $tags
       mentionUsers: $mentionUsers
-      topic: $topic
     ) {
       id
       title

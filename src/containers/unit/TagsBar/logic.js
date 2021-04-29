@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { isEmpty, pick, contains, toUpper } from 'ramda'
 
-import { EVENT, ERR, THREAD, TOPIC } from '@/constant'
+import { EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
 
 import S from './schema'
@@ -25,14 +25,14 @@ export const onTagSelect = (tag, cb) => {
 
 const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
 
-export const loadTags = (topic = TOPIC.POST) => {
+export const loadTags = () => {
   const { curThread } = store
   if (contains(curThread, NO_TAG_THREADS)) return false
 
   const community = store.curCommunity.raw
   const thread = toUpper(curThread)
 
-  const args = { community, thread, topic }
+  const args = { community, thread }
 
   /* log('#### loadTags --> ', args) */
   store.mark({ loading: true })
@@ -58,8 +58,7 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.THREAD_CHANGE),
     action: (data) => {
-      const { topic } = data[EVENT.THREAD_CHANGE].data
-      loadTags(topic)
+      loadTags()
       store.mark({ activeTag: null })
     },
   },
@@ -91,19 +90,19 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 
-export const useInit = (_store, thread, topic, active) => {
+export const useInit = (_store, thread, active) => {
   useEffect(() => {
     store = _store
     log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     let activeTag = pick(['id', 'title', 'color'], active)
     if (isEmpty(activeTag.title)) activeTag = null
-    store.mark({ thread, topic, activeTag })
+    store.mark({ thread, activeTag })
 
     return () => {
       log('effect uninit')
       sub$.unsubscribe()
       sr71$.stop()
     }
-  }, [_store, thread, topic, active])
+  }, [_store, thread, active])
 }

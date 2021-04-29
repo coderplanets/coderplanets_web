@@ -8,7 +8,6 @@ import { findIndex, propEq } from 'ramda'
 
 import type { TRootStore, TCommunity, TTag, TThread } from '@/spec'
 
-import { TOPIC } from '@/constant'
 import { markStates, buildLog, stripMobx, groupByKey } from '@/utils'
 import { Tag } from '@/model'
 
@@ -19,7 +18,6 @@ const TagsBar = T.model('TagsBar', {
   tags: T.optional(T.array(Tag), []),
   activeTag: T.maybeNull(Tag),
   thread: T.maybeNull(T.string),
-  topic: T.optional(T.string, TOPIC.POST),
 
   loading: T.optional(T.boolean, false),
 })

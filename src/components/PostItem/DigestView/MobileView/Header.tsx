@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost, TAccount } from '@/spec'
-import { ICON_BASE } from '@/config'
 
 import InlineTags from '@/components/InlineTags'
 import DotDivider from '@/components/DotDivider'
@@ -19,26 +18,19 @@ import {
 
 type TProps = {
   item: TPost
-  cover: 'avatar' | 'source'
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const Header: FC<TProps> = ({ cover, item, onAuthorSelect }) => {
+const Header: FC<TProps> = ({ item, onAuthorSelect }) => {
   return (
     <Wrapper>
       <AuthorInfo>
-        {cover === 'avatar' ? (
-          <AvatarWrapper onClick={() => onAuthorSelect(item.author)}>
-            <Avatar
-              src={item.author.avatar}
-              fallback={<ImgFallback user={item.author} size={16} right={6} />}
-            />
-          </AvatarWrapper>
-        ) : (
+        <AvatarWrapper onClick={() => onAuthorSelect(item.author)}>
           <Avatar
-            src={item.linkIcon || `${ICON_BASE}/radar_source/default_radar.svg`}
+            src={item.author.avatar}
+            fallback={<ImgFallback user={item.author} size={16} right={6} />}
           />
-        )}
+        </AvatarWrapper>
         <div>{item.author.nickname}</div>
         <DotDivider radius={3} space={6} />
         <TimeStamp>
