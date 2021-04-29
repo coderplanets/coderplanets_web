@@ -17,7 +17,6 @@ import {
   ssrPagedSchema,
   ssrPagedFilter,
   ssrContentsThread,
-  addTopicIfNeed,
   ssrAmbulance,
   validCommunityFilters,
   parseTheme,
@@ -42,17 +41,14 @@ const fetchData = async (props, opt) => {
   // const { asPath } = props
   // schema
 
-  const { communityPath, threadPath: topic, thread } = ssrParseURL(props.req)
+  const { communityPath, thread } = ssrParseURL(props.req)
   const community = akaTranslate(communityPath)
 
-  let filter = addTopicIfNeed(
-    {
-      ...queryStringToJSON(props.req.url, { pagi: 'number' }),
-      community,
-    },
+  let filter = {
+    ...queryStringToJSON(props.req.url, { pagi: 'number' }),
+    community,
     thread,
-    topic,
-  )
+  }
 
   filter = pick(validCommunityFilters, filter)
 

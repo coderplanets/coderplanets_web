@@ -51,8 +51,7 @@ export const onPin = (thread) => {
       return sr71$.mutate(S.pinRepo, args)
 
     default: {
-      const { subPath: topic } = store.curRoute
-      return sr71$.mutate(S.pinPost, merge(args, { topic }))
+      return sr71$.mutate(S.pinPost, args)
     }
   }
 }
@@ -71,22 +70,16 @@ export const onUndoPin = (thread) => {
       return sr71$.mutate(S.undoPinRepo, args)
 
     default: {
-      const { subPath: topic } = store.curRoute
-      return sr71$.mutate(S.undoPinPost, merge(args, { topic }))
+      return sr71$.mutate(S.undoPinPost, args)
     }
   }
 }
 
 const getRefinedArgs = (thread) => {
-  let args = {
+  const args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
     thread: toUpper(thread),
-  }
-
-  if (thread === THREAD.POST) {
-    const { subPath: topic } = store.curRoute
-    args = merge(args, { topic })
   }
 
   return args

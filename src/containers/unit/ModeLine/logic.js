@@ -25,7 +25,7 @@ export const tabOnChange = (activeThread) => {
   store.markRoute({ subPath })
   store.setViewing({ activeThread })
 
-  send(EVENT.THREAD_CHANGE, { data: { activeThread, topic: subPath } })
+  send(EVENT.THREAD_CHANGE, { data: { activeThread } })
 }
 
 export const openMenu = (activeMenu) => {

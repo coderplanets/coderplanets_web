@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
-import { THREAD, TOPIC } from '@/constant'
+import { THREAD } from '@/constant'
 import { buildLog, pluggedIn, sortByColor, Trans } from '@/utils'
 
 import {
@@ -24,14 +24,8 @@ import { useInit, onTagSelect } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:TagsBar')
 
-const TagsBarContainer = ({
-  tagsBar: store,
-  thread,
-  topic,
-  active,
-  onSelect,
-}) => {
-  useInit(store, thread, topic, active)
+const TagsBarContainer = ({ tagsBar: store, thread, active, onSelect }) => {
+  useInit(store, thread, active)
 
   const { tagsData, activeTagData } = store
 
@@ -67,7 +61,6 @@ const TagsBarContainer = ({
 TagsBarContainer.propTypes = {
   tagsBar: T.object.isRequired,
   thread: T.string,
-  topic: T.string,
   onSelect: T.func.isRequired,
   active: T.shape({
     id: T.string,
@@ -78,7 +71,6 @@ TagsBarContainer.propTypes = {
 
 TagsBarContainer.defaultProps = {
   thread: THREAD.POST,
-  topic: TOPIC.POST,
   active: {},
 }
 

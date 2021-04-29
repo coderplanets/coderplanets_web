@@ -49,10 +49,6 @@ export const outAnchor = () => {
 
 export const loadPosts = (page = 1) => {
   const { curCommunity } = store
-  const { subPath: topic } = store.curRoute
-
-  // display same-city list instead
-  if (curCommunity.raw === ROUTE.HOME && topic === THREAD.CITY) return false
 
   const userHasLogin = store.isLogin
 
@@ -67,9 +63,6 @@ export const loadPosts = (page = 1) => {
     userHasLogin,
   }
 
-  if (curCommunity.raw === ROUTE.HOME) {
-    args.filter = merge(args.filter, { topic })
-  }
   args.filter = pickBy(notEmpty, args.filter)
 
   store.mark({ curView: TYPE.LOADING })

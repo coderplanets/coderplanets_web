@@ -103,7 +103,6 @@ const PostsThreadContainer = ({ postsThread: store }) => {
 
   const { subPath } = curRoute
   const { totalCount } = pagedPostsData
-  const topic = subPath
 
   return (
     <Wrapper>
@@ -184,7 +183,6 @@ const PostsThreadContainer = ({ postsThread: store }) => {
                 </BadgeWrapper>
                 <TagsBar
                   thread={THREAD.POST}
-                  topic={topic}
                   onSelect={onTagSelect}
                   active={activeTagData}
                 />

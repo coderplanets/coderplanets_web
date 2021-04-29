@@ -100,7 +100,6 @@ export {
   ssrPagedSchema,
   ssrPagedFilter,
   ssrContentsThread,
-  addTopicIfNeed,
   validCommunityFilters,
   parseTheme,
 } from './ssr'

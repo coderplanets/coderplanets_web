@@ -67,7 +67,6 @@ export const onPublish = () => {
   if (!store.validator('general')) return false
   if (!specCheck()) return false
 
-  const { subPath: topic } = store.curRoute
   const { body } = store.editData
   const { isEdit } = store
   publishing()
@@ -80,7 +79,6 @@ export const onPublish = () => {
     communityId: store.viewing.community.id,
     digest,
     length,
-    topic,
     mentionUsers: map((user) => ({ id: user.id }), store.referUsersData),
   }
   if (!isEmpty(store.labelsData.tags)) {

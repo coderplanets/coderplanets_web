@@ -3,15 +3,15 @@ import { P } from '@/schemas'
 
 // post
 const pinPost = gql`
-  mutation($id: ID!, $communityId: ID!, $topic: String) {
-    pinPost(id: $id, communityId: $communityId, topic: $topic) {
+  mutation($id: ID!, $communityId: ID!) {
+    pinPost(id: $id, communityId: $communityId) {
       id
     }
   }
 `
 const undoPinPost = gql`
-  mutation($id: ID!, $communityId: ID!, $topic: String) {
-    undoPinPost(id: $id, communityId: $communityId, topic: $topic) {
+  mutation($id: ID!, $communityId: ID!) {
+    undoPinPost(id: $id, communityId: $communityId) {
       id
     }
   }
@@ -71,26 +71,16 @@ const deleteRepo = gql`
 
 // refined tag
 const setRefinedTag = gql`
-  mutation($communityId: ID!, $thread: CmsThread, $topic: String, $id: ID!) {
-    setRefinedTag(
-      communityId: $communityId
-      thread: $thread
-      topic: $topic
-      id: $id
-    ) {
+  mutation($communityId: ID!, $thread: CmsThread, $id: ID!) {
+    setRefinedTag(communityId: $communityId, thread: $thread, id: $id) {
       id
       title
     }
   }
 `
 const unsetRefinedTag = gql`
-  mutation($communityId: ID!, $thread: CmsThread, $topic: String, $id: ID!) {
-    unsetRefinedTag(
-      communityId: $communityId
-      thread: $thread
-      topic: $topic
-      id: $id
-    ) {
+  mutation($communityId: ID!, $thread: CmsThread, $id: ID!) {
+    unsetRefinedTag(communityId: $communityId, thread: $thread, id: $id) {
       id
       title
     }
