@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost, TAccount } from '@/spec'
-import { ICON_BASE } from '@/config'
 
 import InlineTags from '@/components/InlineTags'
 import DotDivider from '@/components/DotDivider'
