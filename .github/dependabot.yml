@@ -1,0 +1,51 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "21:00"
+  open-pull-requests-limit: 10
+  target-branch: dev
+  ignore:
+  - dependency-name: coveralls
+    versions:
+    - ">= 3.1.a, < 3.2"
+  - dependency-name: "@types/react"
+    versions:
+    - 17.0.3
+  - dependency-name: react-select
+    versions:
+    - 4.1.0
+    - 4.2.1
+  - dependency-name: react-use
+    versions:
+    - 17.1.1
+    - 17.2.0
+  - dependency-name: mobx-react-lite
+    versions:
+    - 3.1.6
+  - dependency-name: "@editorjs/list"
+    versions:
+    - 1.6.1
+  - dependency-name: graphql-request
+    versions:
+    - 3.4.0
+  - dependency-name: cross-env
+    versions:
+    - 7.0.3
+  - dependency-name: nextjs-progressbar
+    versions:
+    - 0.0.7
+  - dependency-name: react-resize-detector
+    versions:
+    - 5.2.0
+  - dependency-name: apollo-link-http
+    versions:
+    - 1.5.17
+  - dependency-name: "@editorjs/delimiter"
+    versions:
+    - 1.2.0
+  - dependency-name: react-content-loader
+    versions:
+    - 5.1.4
