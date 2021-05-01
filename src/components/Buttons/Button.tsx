@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, ReactNode, useEffect, useState } from 'react'
 
 import type { TSIZE_TSM } from '@/spec'
 import { SIZE } from '@/constant'
@@ -21,7 +21,7 @@ const clearTimerIfNeed = (timerId: number): void => {
 }
 
 type TProps = {
-  children?: React.ReactNode
+  children?: ReactNode
   className?: string
   ghost?: boolean
   type?: 'primary' | 'red' | 'ghost'

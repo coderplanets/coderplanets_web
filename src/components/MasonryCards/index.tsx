@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import Masonry from 'react-masonry-css'
 
 import { buildLog } from '@/utils'
@@ -17,7 +17,7 @@ const log = buildLog('c:MasonryCards:index')
 type TProps = {
   testid?: string
   column?: number
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const MasonryCards: FC<TProps> = ({

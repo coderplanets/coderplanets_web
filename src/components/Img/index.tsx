@@ -5,7 +5,7 @@
  * Renders an image, enforcing the usage of the alt="" tag
  */
 
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { ReactSVG } from 'react-svg'
 
 import { buildLog } from '@/utils'
@@ -21,7 +21,7 @@ type IProps = {
   alt?: string
   className?: string
   loading?: boolean
-  fallback?: React.ReactNode | null
+  fallback?: ReactNode | null
   noLazy?: boolean
   scrollPosition?: any
   // see https://www.npmjs.com/package/react-lazy-load-image-component

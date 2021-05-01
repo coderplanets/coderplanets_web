@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useRef, useState, useEffect } from 'react'
+import React, { FC, ReactNode, useRef, useState, useEffect } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { ICON } from '@/config'
@@ -17,7 +17,7 @@ import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
 const log = buildLog('c:Buttons:ArrowButton')
 
 type TProps = {
-  children?: React.ReactNode
+  children?: ReactNode
   onClick?: () => void
   size?: TSIZE
   direction?: 'left' | 'right'

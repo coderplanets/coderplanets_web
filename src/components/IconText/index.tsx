@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { buildLog, nilOrEmpty } from '@/utils'
@@ -18,7 +18,7 @@ const log = buildLog('c:IconText:index')
 type TProps = {
   iconSrc: string
   round?: boolean
-  children: React.ReactNode
+  children: ReactNode
   size?: TSIZE
   margin?: string
 }

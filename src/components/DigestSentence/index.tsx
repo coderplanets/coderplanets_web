@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
@@ -26,12 +26,12 @@ const log = buildLog('c:DigestSentence:index')
 
 type TProps = {
   testid?: string
-  children: React.ReactNode
-  onPreview: () => void
+  children: ReactNode
   top?: number
   bottom?: number
   left?: number
   right?: number
+  onPreview: () => void
 }
 
 const DigestSentence: FC<TProps> = ({
