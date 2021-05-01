@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import type { TActive } from '@/spec'
+
 // import Img from '@/Img'
 import { theme, css } from '@/utils'
 import TabPostSVG from '@/SvgIcons/TabPostSVG'
@@ -26,15 +28,18 @@ export const LableWrapper = styled.div`
   ${css.flex('align-center')};
 `
 
-const commonIcon = (comp) =>
-  styled(comp)`
-    fill: ${({ active }) =>
+type TCommonIcon = { active: boolean; small: boolean }
+
+const commonIcon = (comp) => {
+  return styled(comp)<TCommonIcon>`
+    fill: ${({ active }: { active: number }) =>
       active === 1 ? theme('tabs.headerActive') : theme('tabs.header')};
-    width: ${({ small }) => (small ? '13px' : '15px')};
+    width: ${({ small }: { small: boolean }) => (small ? '13px' : '15px')};
     height: ${({ small }) => (small ? '13px' : '15px')};
     margin-right: 5px;
     display: block;
   `
+}
 
 export const TabPostIcon = commonIcon(TabPostSVG)
 export const TabTechIcon = commonIcon(TabTechSVG)

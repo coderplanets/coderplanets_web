@@ -1,3 +1,5 @@
+import type { TPagedCommunities } from './community'
+
 export type TUser = {
   id?: string
   login?: string
@@ -6,7 +8,9 @@ export type TUser = {
   avatar?: string
   // TODO: figure it out
   extraId?: string
+  editableCommunities?: TPagedCommunities
 }
+
 export type TAccount = TUser & {
   customization?: {
     theme?: string

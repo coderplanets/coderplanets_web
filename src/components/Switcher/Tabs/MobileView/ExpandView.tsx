@@ -4,9 +4,9 @@
  *
  */
 
-import React, { useEffect, useRef, useState, useCallback } from 'react'
-import T from 'prop-types'
+import React, { FC, useEffect, useRef, useState, useCallback } from 'react'
 
+import type { TSIZE_SM, TTabItem } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
 import { useDevice } from '@/hooks'
@@ -23,7 +23,21 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
-const MobileView = ({ size, onChange, items, activeKey, toggleExpand }) => {
+type TProps = {
+  items: TTabItem[]
+  activeKey: string
+  size: TSIZE_SM
+  toggleExpand: () => void
+  onChange: () => void
+}
+
+const MobileView: FC<TProps> = ({
+  size = SIZE.MEDIUM,
+  onChange = log,
+  items,
+  activeKey = '',
+  toggleExpand,
+}) => {
   const { isMobile } = useDevice()
 
   const [tabWidthList, setTabWidthList] = useState([])
@@ -69,7 +83,7 @@ const MobileView = ({ size, onChange, items, activeKey, toggleExpand }) => {
       <Nav ref={navRef}>
         {items.map((item, index) => (
           <TabItem
-            key={isString(item) ? item : item.raw || item.title}
+            key={item.raw || item.title}
             mobileView={isMobile}
             activeKey={activeKey}
             index={index}
@@ -83,32 +97,6 @@ const MobileView = ({ size, onChange, items, activeKey, toggleExpand }) => {
       </Nav>
     </Wrapper>
   )
-}
-
-MobileView.propTypes = {
-  items: T.oneOfType([
-    T.arrayOf(T.string),
-    T.arrayOf(
-      T.shape({
-        title: T.string,
-        raw: T.string,
-        alias: T.string,
-        icon: T.oneOfType([T.string, T.node]),
-        localIcon: T.string,
-      }),
-    ),
-  ]),
-  onChange: T.func,
-  activeKey: T.string,
-  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
-  toggleExpand: T.func.isRequired,
-}
-
-MobileView.defaultProps = {
-  items: [],
-  onChange: log,
-  activeKey: '',
-  size: SIZE.MEDIUM,
 }
 
 export default React.memo(MobileView)

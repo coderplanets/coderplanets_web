@@ -19,6 +19,12 @@ import {
   TabFavoritesIcon,
 } from '../styles/tabs/local_icon'
 
+// type TProps = {
+//   raw: string
+//   active: boolean
+//   small?: boolean
+// }
+
 const TabIcon = ({ raw, active, small }) => {
   switch (raw) {
     case 'tech':

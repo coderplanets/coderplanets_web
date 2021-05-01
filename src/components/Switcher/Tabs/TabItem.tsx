@@ -4,11 +4,10 @@
  *
  */
 
-import React, { useEffect, useCallback, useRef } from 'react'
-import T from 'prop-types'
+import React, { FC, useEffect, useCallback, useRef } from 'react'
 
+import type { TSIZE_SM, TTabItem } from '@/spec'
 import { buildLog, isString, Trans } from '@/utils'
-import { SIZE } from '@/constant'
 
 import TabIcon from './TabIcon'
 import {
@@ -21,11 +20,24 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
-const TabItem = ({
-  mobileView,
-  modelineView,
-  cardView,
-  wrapMode,
+type TProps = {
+  mobileView?: boolean
+  modelineView?: boolean
+  cardView?: boolean
+  wrapMode?: boolean
+  item: TTabItem
+  index: number
+  size: TSIZE_SM
+  activeKey: string
+  setItemWidth?: (index: number, width: number) => void
+  onClick?: (index: number, e) => void
+}
+
+const TabItem: FC<TProps> = ({
+  mobileView = false,
+  modelineView = false,
+  cardView = false,
+  wrapMode = false,
   activeKey,
   item,
   index,
@@ -40,7 +52,7 @@ const TabItem = ({
   // set each tab item width for calc
   useEffect(() => {
     const width = ref.current ? ref.current.offsetWidth : 0
-    setItemWidth(index, width)
+    setItemWidth?.(index, width)
   }, [setItemWidth, index])
 
   const handleWrapperClick = useCallback(() => {
@@ -106,26 +118,6 @@ const TabItem = ({
       )}
     </Wrapper>
   )
-}
-
-TabItem.propTypes = {
-  mobileView: T.bool,
-  modelineView: T.bool,
-  cardView: T.bool,
-  wrapMode: T.bool,
-  item: T.any.isRequired,
-  index: T.number.isRequired,
-  setItemWidth: T.func.isRequired,
-  onClick: T.func.isRequired,
-  activeKey: T.string.isRequired,
-  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]).isRequired,
-}
-
-TabItem.defaultProps = {
-  mobileView: false,
-  modelineView: false,
-  cardView: false,
-  wrapMode: false,
 }
 
 export default React.memo(TabItem)

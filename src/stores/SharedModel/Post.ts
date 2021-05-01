@@ -27,7 +27,7 @@ export const Post = T.model('Post', {
   commentsParticipatorsCount: T.optional(T.number, 0),
   commentsParticipators: T.optional(T.array(User), []),
   views: T.optional(T.number, 0),
-  pin: T.maybeNull(T.boolean),
+  isPinned: T.maybeNull(T.boolean),
   length: T.optional(T.number, 0),
   favoritedCount: T.optional(T.number, 0),
   starredCount: T.optional(T.number, 0),

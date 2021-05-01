@@ -48,7 +48,7 @@ export const pagedPosts = `
     pagedPosts(filter: $filter) {
       entries {
         ${F.post}
-        pin
+        isPinned
         digest
         linkAddr
         linkIcon

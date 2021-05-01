@@ -1,5 +1,7 @@
 import { merge, clone, keys, findIndex, forEach } from 'ramda'
 
+import { TTabItem } from '@/spec'
+
 const alias = {
   home: {
     user: 'C友',
@@ -16,7 +18,10 @@ const alias = {
   python: 'Pythoner',
 }
 
-export const mapAlias = (_source, communityRaw) => {
+export const mapAlias = (
+  _source: TTabItem[],
+  communityRaw: string,
+): TTabItem[] => {
   const communityAlias = alias[communityRaw]
   const source = clone(_source)
 

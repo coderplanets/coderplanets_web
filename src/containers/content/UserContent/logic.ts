@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 
+import type { TID, TThread, TUser } from '@/spec'
 import { TYPE, EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, send, errRescue } from '@/utils'
+
+import type { TStore } from './store'
 
 import S from './schema'
 
@@ -14,7 +17,7 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:UserContent')
 
-export const followUser = (userId) => {
+export const followUser = (userId: TID): void => {
   if (!store.isLogin) return store.authWarning()
 
   log('followUser: ', userId)
@@ -22,7 +25,7 @@ export const followUser = (userId) => {
   sr71$.mutate(S.follow, { userId })
 }
 
-export const undoFollowUser = (userId) => {
+export const undoFollowUser = (userId: TID): void => {
   if (!store.isLogin) return store.authWarning()
 
   log('undoFollowUser: ', userId)
@@ -30,13 +33,13 @@ export const undoFollowUser = (userId) => {
   sr71$.mutate(S.undoFollow, { userId })
 }
 
-const getUserFollowStates = () => {
+const getUserFollowStates = (): void => {
   const { login } = store.viewingUser
 
   sr71$.query(S.user, { login, userHasLogin: store.isLogin })
 }
 
-export const showFollowings = (user) => {
+export const showFollowings = (user: TUser): void => {
   const type = TYPE.USER_LISTER_FOLLOWINGS
   const data = {
     id: user.id,
@@ -46,7 +49,7 @@ export const showFollowings = (user) => {
   send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export const showFollowers = (user) => {
+export const showFollowers = (user: TUser): void => {
   const type = TYPE.USER_LISTER_FOLLOWERS
   const data = {
     id: user.id,
@@ -56,7 +59,7 @@ export const showFollowers = (user) => {
   send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export const tabOnChange = (activeThread) => {
+export const tabOnChange = (activeThread: TThread): void => {
   store.mark({ activeThread })
   store.markRoute({ tab: activeThread })
 }
@@ -109,14 +112,14 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     return () => {
-      if (!sub$) return false
+      if (!sub$) return
       sub$.unsubscribe()
     }
   }, [_store])

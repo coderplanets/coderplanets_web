@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ReadedLabel } from './styles'
 
-const ReadLabel = ({ entry, accountInfo, topOffset }) => {
+import type { TProps } from './index'
+
+const ReadLabel: FC<TProps> = ({ entry, accountInfo, topOffset = '20px' }) => {
   const { viewerHasViewed } = entry
   const {
     isLogin,

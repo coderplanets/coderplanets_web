@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { FC } from 'react'
 
+import type { TUser } from '@/spec'
 import { VIEW } from '@/constant'
 import UserBrief from '@/components/UserBrief'
 import { Wrapper } from '../styles/sidebar'
 
-const Sidebar = ({ viewingUser }) => {
+type TProps = {
+  viewingUser: TUser
+  isSelfViewing?: boolean
+}
+
+const Sidebar: FC<TProps> = ({ viewingUser, isSelfViewing = false }) => {
   return (
     <Wrapper>
       <UserBrief user={viewingUser} view={VIEW.DESKTOP} />

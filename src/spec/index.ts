@@ -1,5 +1,6 @@
 import type { TRootStore as RootStoreType } from '@/stores/RootStore'
 import type { TArticle } from './article'
+import type { TCommunity } from './community'
 
 export type {
   TSIZE,
@@ -13,11 +14,12 @@ export type {
   TSIZE_SM,
 } from './size'
 export type { TButton, TFiltersMenuItems } from './comp'
-
 export type { TTheme, TThemeMap, TThemeName } from './theme'
 export type { TAccount, TUser, TMembership } from './account'
+export type { TCommunity, TPagedCommunities, TTag } from './community'
 
 export type {
+  TID,
   TTestable,
   TActive,
   TSpace,
@@ -32,6 +34,7 @@ export type {
   TTooltipPlacement,
   TReportType,
   TAttInfo,
+  TTabItem,
 } from './utils'
 
 export type { TGQLError } from './graphql'
@@ -64,30 +67,6 @@ export type TRoute = {
 }
 
 export type TRootStore = RootStoreType
-
-export type TCommunity = {
-  id: string
-  title: string
-  logo?: string
-  raw: string
-  subscribersCount?: number
-  desc?: string
-  threads?: {
-    title: string
-    raw: string
-  }[]
-}
-
-export type TPagedCommunities = {
-  entries: TCommunity[]
-}
-
-export type TTag = {
-  id: number
-  title: string
-  color: string
-  group?: string
-}
 
 export type TViewing = TCommunity | TArticle
 

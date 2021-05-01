@@ -4,9 +4,9 @@
  *
  */
 
-import React, { useCallback } from 'react'
-import T from 'prop-types'
+import React, { FC, useCallback } from 'react'
 
+import type { TSIZE_SM, TTabItem } from '@/spec'
 import { buildLog, isString } from '@/utils'
 import { SIZE } from '@/constant'
 
@@ -23,7 +23,20 @@ const temItems = [
   },
 ]
 
-const Tabs = ({ size, onChange, items, activeKey }) => {
+type TProps = {
+  items?: TTabItem[]
+  onChange: () => void
+  activeKey?: string
+  size: TSIZE_SM
+  slipHeight: '1px' | '2px'
+}
+
+const Tabs: FC<TProps> = ({
+  size = SIZE.MEDIUM,
+  onChange = log,
+  items = temItems,
+  activeKey = '',
+}) => {
   const handleItemClick = useCallback(
     (item) => {
       onChange(isString(item) ? item : item.raw || item.title)
@@ -37,7 +50,6 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
         <TabItem
           key={isString(item) ? item : item.raw || item.title}
           active={activeKey === item.raw}
-          size={size}
           onClick={() => handleItemClick(item)}
         >
           {item.title}
@@ -45,31 +57,6 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
       ))}
     </Wrapper>
   )
-}
-
-Tabs.propTypes = {
-  items: T.oneOfType([
-    T.arrayOf(T.string),
-    T.arrayOf(
-      T.shape({
-        title: T.string,
-        raw: T.string,
-        alias: T.string,
-        icon: T.oneOfType([T.string, T.node]),
-        localIcon: T.string,
-      }),
-    ),
-  ]),
-  onChange: T.func,
-  activeKey: T.string,
-  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
-}
-
-Tabs.defaultProps = {
-  items: temItems,
-  onChange: log,
-  activeKey: '',
-  size: SIZE.MEDIUM,
 }
 
 export default React.memo(Tabs)
