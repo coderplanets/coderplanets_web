@@ -6,6 +6,7 @@ export type TArticle = {
   title?: string
   body?: string
   views?: number
+  isPinned?: boolean
   author?: {
     id: string
     login: string

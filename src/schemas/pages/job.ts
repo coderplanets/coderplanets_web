@@ -42,7 +42,7 @@ export const pagedJobs = `
     pagedJobs(filter: $filter) {
       entries {
         ${F.job}
-        pin
+        isPinned
         author {
           ${F.author}
         }
