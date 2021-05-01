@@ -55,7 +55,7 @@ export const CloseBtn = styled(Img)<TCloseBtn>`
     mode === 'default' ? theme('font') : theme('baseColor.red')};
   position: absolute;
   top: 0;
-  right: -45px;
+  right: -48px;
   ${css.size(30)};
   display: ${({ show }) => (show ? 'block' : 'none')};
   z-index: ${css.zIndex.modalCloseBtn};
@@ -65,4 +65,12 @@ export const CloseBtn = styled(Img)<TCloseBtn>`
     font-weight: bold;
     cursor: pointer;
   }
+`
+export const EscHint = styled.div`
+  color: ${theme('font')};
+  opacity: 0.7;
+  position: absolute;
+  top: 38px;
+  right: -46px;
+  font-size: 13px;
 `

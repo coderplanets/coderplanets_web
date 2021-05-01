@@ -4,8 +4,7 @@
  *
  */
 
-import React, { useEffect } from 'react'
-import T from 'prop-types'
+import React, { FC, ReactNode, useEffect } from 'react'
 import usePortal from 'react-useportal'
 
 import { ICON_CMD } from '@/config'
@@ -13,21 +12,33 @@ import { buildLog, toggleGlobalBlur } from '@/utils'
 
 import Belt from './Belt'
 
-import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
+import { Mask, Wrapper, CloseBtn, EscHint, ChildrenWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Modal:index')
 
-const Modal = ({
+type TProps = {
+  children: ReactNode
+  show?: boolean
+  showBelt?: boolean
+  width?: string
+  showCloseBtn?: boolean
+  mode?: 'default' | 'error'
+  background?: 'default' | 'preview'
+  offsetTop?: string
+  onClose?: () => void
+}
+
+const Modal: FC<TProps> = ({
   children,
-  show,
-  showBelt,
-  width,
-  showCloseBtn,
-  onClose,
-  mode,
-  background,
-  offsetTop,
+  show = false,
+  showBelt = false,
+  width = '600px',
+  showCloseBtn = false,
+  onClose = log,
+  mode = 'default',
+  background = 'default',
+  offsetTop = '13%',
 }) => {
   const { Portal } = usePortal()
 
@@ -51,6 +62,7 @@ const Modal = ({
                 show={showCloseBtn}
                 onClick={onClose}
               />
+              <EscHint>ESC</EscHint>
               <ChildrenWrapper onClick={(e) => e.stopPropagation()}>
                 {children}
               </ChildrenWrapper>
@@ -60,30 +72,6 @@ const Modal = ({
       )}
     </>
   )
-}
-
-Modal.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  children: T.node.isRequired,
-  show: T.bool,
-  showBelt: T.bool,
-  onClose: T.func,
-  width: T.string,
-  showCloseBtn: T.bool,
-  mode: T.oneOf(['default', 'error']),
-  background: T.oneOf(['default', 'preview']),
-  offsetTop: T.string,
-}
-
-Modal.defaultProps = {
-  show: false,
-  showBelt: false,
-  onClose: log,
-  width: '600px',
-  showCloseBtn: false,
-  mode: 'default',
-  background: 'default',
-  offsetTop: '13%',
 }
 
 export default React.memo(Modal)
