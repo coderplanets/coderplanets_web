@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { findIndex, propEq } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
@@ -25,14 +25,9 @@ const log = buildLog('c:IconSwitcher:index')
 
 type TItem = {
   iconSrc?: string
-  localIcon?: React.ReactNode
+  localIcon?: ReactNode
   key: string
   desc?: string
-}
-
-type TIconComp = {
-  item: TItem
-  activeKey: string
 }
 
 type TTabLabel = {

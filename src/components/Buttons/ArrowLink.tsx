@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -18,7 +18,7 @@ const log = buildLog('c:Buttons:ArrowLink')
 
 type TProps = {
   className?: string
-  children?: React.ReactNode
+  children?: ReactNode
   size?: TSIZE
   href: string
   target?: '_blank' | ''

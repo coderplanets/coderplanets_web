@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import type { TSIZE_SML } from '@/spec'
 import type { TDirection, TScrollDirection } from './spec'
@@ -8,7 +8,7 @@ import VerticalScroller from './VerticalScroller'
 
 export type TProps = {
   direction: TDirection
-  children: React.ReactNode
+  children: ReactNode
   height?: string
   innerHeight?: string
   width?: string

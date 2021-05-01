@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useState, useRef } from 'react'
+import React, { FC, ReactNode, useState, useRef } from 'react'
 
 import type { TTooltipPlacement, TTooltipAnimation } from '@/spec'
 import { css, buildLog, isDescendant } from '@/utils'
@@ -26,8 +26,8 @@ import {
 const log = buildLog('c:Tooltip:index')
 
 type TProps = {
-  children: React.ReactNode
-  content: string | React.ReactNode
+  children: ReactNode
+  content: string | ReactNode
   animation?: TTooltipAnimation
   placement?: TTooltipPlacement
   // more options see: https://atomiks.github.io/tippyjs/all-options/

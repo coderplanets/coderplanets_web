@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 
 import type { TScrollDirection } from '@/spec'
 import { buildLog } from '@/utils'
@@ -54,9 +54,9 @@ export const logBuddha = (): void => {
 // cloning children with new props
 // see detail: https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
 export const childrenWithProps = (
-  children: React.ReactNode,
+  children: ReactNode,
   props: Record<string, unknown>,
-): React.ReactNode => {
+): ReactNode => {
   return React.Children.map(children, (child) => {
     // checking isValidElement is the safe way and avoids a typescript error too
     if (React.isValidElement(child)) {

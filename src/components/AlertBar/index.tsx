@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -14,7 +14,7 @@ import { Wrapper } from './styles'
 const log = buildLog('c:AlertBar:index')
 
 type TProps = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const AlertBar: FC<TProps> = ({ children }) => {

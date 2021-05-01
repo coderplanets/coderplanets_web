@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import type { TSIZE_SM } from '@/spec'
 import { ICON } from '@/config'
@@ -17,7 +17,7 @@ import { Wrapper, IconWrapper, Icon, ChildWrapper } from './styles'
 const log = buildLog('c:Checker:index')
 
 type TProps = {
-  children?: React.ReactNode | null
+  children?: ReactNode | null
   checked?: boolean
   hiddenMode?: boolean
   size?: TSIZE_SM

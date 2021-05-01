@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useEffect } from 'react'
+import React, { FC, ReactNode, useEffect } from 'react'
 
 import type { Nullable, TSEO } from '@/spec'
 import { ANCHOR, SIZE } from '@/constant'
@@ -36,7 +36,7 @@ import {
 
 type TProps = {
   globalLayout?: TStore
-  children: React.ReactNode
+  children: ReactNode
   seoConfig: TSEO
   errorCode?: number // 400 | 500 | 404
   errorPath?: Nullable<string>

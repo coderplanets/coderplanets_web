@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, ReactNode, useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
@@ -32,7 +32,7 @@ type TProps = {
   canBeClose: boolean
   showHeaderText: boolean
   disableContentDrag: boolean
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const Viewer: FC<TProps> = ({

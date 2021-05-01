@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
@@ -24,7 +24,7 @@ type TProps = {
 }
 
 type TActionTooltip = {
-  children: React.ReactNode
+  children: ReactNode
   desc: string
 }
 

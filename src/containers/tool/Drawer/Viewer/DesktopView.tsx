@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import type { TSwipeOption } from '../spec'
 import AddOn from '../AddOn'
@@ -13,7 +13,7 @@ type TProps = {
   rightOffset: string
   type: string
   imageUploading: boolean
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const DesktopView: FC<TProps> = ({

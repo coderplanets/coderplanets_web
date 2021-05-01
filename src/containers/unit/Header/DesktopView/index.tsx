@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import { METRIC } from '@/constant'
 
@@ -6,7 +6,7 @@ import CommunityView from './CommunityVIew'
 import ArticleView from './ArticleView'
 import ArticleEditorView from './ArticleEditorView'
 
-const renderHeader = (metric: string): React.ReactNode => {
+const renderHeader = (metric: string): ReactNode => {
   switch (metric) {
     case METRIC.ARTICLE: {
       return <ArticleView metric={metric} />
