@@ -4,9 +4,9 @@
  *
  */
 
-import React, { useRef, useState, useCallback } from 'react'
-import T from 'prop-types'
+import React, { FC, useRef, useState, useCallback } from 'react'
 
+import type { TSIZE_SM, TTabItem } from '@/spec'
 import { buildLog, isString } from '@/utils'
 import { SIZE } from '@/constant'
 
@@ -20,12 +20,25 @@ const log = buildLog('c:Tabs:index')
 const temItems = [
   {
     title: '帖子',
-    // icon: `${ICON_CMD}/navi/fire.svg`,
+    raw: 'posts',
     localIcon: 'settings',
   },
 ]
 
-const Tabs = ({ size, onChange, items, activeKey }) => {
+type TProps = {
+  items?: TTabItem[]
+  onChange: () => void
+  activeKey?: string
+  size: TSIZE_SM
+  slipHeight: '1px' | '2px'
+}
+
+const Tabs: FC<TProps> = ({
+  size = SIZE.MEDIUM,
+  onChange = log,
+  items = temItems,
+  activeKey = '',
+}) => {
   const [tabWidthList, setTabWidthList] = useState([])
 
   const navRef = useRef(null)
@@ -67,31 +80,6 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
       </Nav>
     </Wrapper>
   )
-}
-
-Tabs.propTypes = {
-  items: T.oneOfType([
-    T.arrayOf(T.string),
-    T.arrayOf(
-      T.shape({
-        title: T.string,
-        raw: T.string,
-        alias: T.string,
-        icon: T.oneOfType([T.string, T.node]),
-        localIcon: T.string,
-      }),
-    ),
-  ]),
-  onChange: T.func,
-  activeKey: T.string,
-  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
-}
-
-Tabs.defaultProps = {
-  items: temItems,
-  onChange: log,
-  activeKey: '',
-  size: SIZE.MEDIUM,
 }
 
 export default React.memo(Tabs)

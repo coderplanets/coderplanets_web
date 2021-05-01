@@ -3,7 +3,6 @@
  */
 
 import React from 'react'
-import T from 'prop-types'
 
 import { VIEW } from '@/constant'
 import { useDevice } from '@/hooks'
@@ -32,14 +31,6 @@ const TabBar = (props) => {
       return <MobileView {...props} />
     }
   }
-}
-
-TabBar.propTypes = {
-  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD, VIEW.MODELINE]),
-}
-
-TabBar.defaultProps = {
-  view: 'auto',
 }
 
 export default React.memo(TabBar)

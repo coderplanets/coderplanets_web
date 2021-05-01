@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { FC } from 'react'
 
 import { USER_THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
@@ -19,6 +19,7 @@ import UserFavorited from '@/containers/user/UserFavorited'
 
 import TabBar from '@/components/TabBar'
 
+import type { TStore } from './store'
 import Sidebar from './Sidebar'
 // import DigestBoard from './DigestBoard'
 
@@ -96,7 +97,12 @@ const TabberContent = ({ active }) => {
   }
 }
 
-const UserContentContainer = ({ userContent: store, metric }) => {
+type TProps = {
+  userContent: TStore
+  metric: string
+}
+
+const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
   useInit(store)
 
   const {

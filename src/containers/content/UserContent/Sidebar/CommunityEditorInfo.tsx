@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 
+import type { TUser } from '@/spec'
 import CommunityList from '@/components/CommunityList'
 
 import {
@@ -8,7 +9,11 @@ import {
   Text,
 } from '../styles/sidebar/community_editor_info'
 
-const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
+type TProps = {
+  user: TUser
+}
+
+const CommunityEditorInfo: FC<TProps> = ({ user: { editableCommunities } }) => {
   if (!editableCommunities || editableCommunities.totalCount === 0) return null
 
   if (editableCommunities.totalCount > 10) {

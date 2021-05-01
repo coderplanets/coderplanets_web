@@ -1,5 +1,8 @@
+import { ReactNode } from 'react'
 // c# like
 export type Nullable<T> = T | null
+
+export type TID = string
 
 export type TTestable = {
   testid: string
@@ -76,4 +79,13 @@ export type TAttInfo = {
   id: string
   title: string
   // ...
+}
+
+export type TTabItem = {
+  id?: string
+  title: string
+  raw: string
+  alias?: string
+  icon?: string | ReactNode
+  localIcon?: string
 }

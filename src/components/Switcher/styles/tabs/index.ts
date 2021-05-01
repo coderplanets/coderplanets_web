@@ -6,7 +6,7 @@ import { css } from '@/utils'
 type TSlipBar = {
   slipHeight: string
   width: string
-  translateX: number
+  translateX: string
 }
 
 export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({

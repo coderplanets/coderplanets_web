@@ -51,12 +51,4 @@ const Tabs = (props) => {
   }
 }
 
-Tabs.propTypes = {
-  view: T.oneOf(['auto', VIEW.COMMUNITY_CARD, VIEW.MODELINE, VIEW.DRAWER]),
-}
-
-Tabs.defaultProps = {
-  view: 'auto',
-}
-
 export default React.memo(Tabs)

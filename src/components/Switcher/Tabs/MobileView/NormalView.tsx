@@ -4,25 +4,37 @@
  *
  */
 
-import React, { useEffect, useRef, useState, useCallback } from 'react'
-import T from 'prop-types'
+import React, { FC, useEffect, useRef, useState, useCallback } from 'react'
 import { isEmpty, findIndex } from 'ramda'
 
-import { useDevice } from '@/hooks'
+import type { TSIZE_SM, TTabItem } from '@/spec'
+import { ICON } from '@/config'
 import { SIZE } from '@/constant'
+import { useDevice } from '@/hooks'
 import { buildLog, isString } from '@/utils'
 
-import TabItem from './TabItem'
+import TabItem from '../TabItem'
 import {
   Wrapper,
   Nav,
   SlipBar,
   RealBar,
-} from '../styles/tabs/mobile_view/normal_view'
-import { getSlipMargin } from '../styles/metric/tabs'
+  MoreWrapper,
+  ArrowIcon,
+} from '../../styles/tabs/mobile_view/normal_view'
+import { getSlipMargin } from '../../styles/metric/tabs'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
+
+const temItems = [
+  {
+    title: '帖子',
+    raw: 'posts',
+    // icon: `${ICON_CMD}/navi/fire.svg`,
+    localIcon: 'settings',
+  },
+]
 
 /**
  * get default active key in tabs array
@@ -32,18 +44,36 @@ const log = buildLog('c:Tabs:index')
  * @param {string} activeKey
  * @returns number
  */
-const getDefaultActiveTabIndex = (items, activeKey) => {
+const getDefaultActiveTabIndex = (
+  items: TTabItem[],
+  activeKey: string,
+): number => {
   if (isEmpty(activeKey)) return 0
   const index = findIndex((item) => {
-    return isString(item)
-      ? activeKey === item
-      : activeKey === (item.raw || item.title)
+    return activeKey === (item.raw || item.title)
   }, items)
 
   return index >= 0 ? index : 0
 }
 
-const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
+type TProps = {
+  items?: TTabItem[]
+  activeKey?: string
+  size: TSIZE_SM
+  slipHeight: '1px' | '2px'
+
+  toggleExpand: () => void
+  onChange: () => void
+}
+
+const MobileView: FC<TProps> = ({
+  size = SIZE.MEDIUM,
+  onChange = log,
+  items = temItems,
+  activeKey = '',
+  slipHeight = '2px',
+  toggleExpand,
+}) => {
   const { isMobile } = useDevice()
 
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
@@ -52,8 +82,19 @@ const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
   const [slipWidth, setSlipWidth] = useState(0)
   const [tabWidthList, setTabWidthList] = useState([])
 
+  const [showMore, setShowMore] = useState(false)
+
   const navRef = useRef(null)
 
+  useEffect(() => {
+    const tabWidthSum = tabWidthList.reduce((a, b) => a + b, 0)
+    const navWidth = navRef?.current?.clientWidth
+    if (navWidth && navWidth < tabWidthSum) {
+      setShowMore(true)
+    } else {
+      setShowMore(false)
+    }
+  }, [tabWidthList])
   // set initial slipbar with of active item
   // 给 slipbar 设置一个初始宽度
   useEffect(() => {
@@ -94,6 +135,11 @@ const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
 
   return (
     <Wrapper testid="tabs">
+      {showMore && (
+        <MoreWrapper onClick={toggleExpand}>
+          <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
+        </MoreWrapper>
+      )}
       <Nav ref={navRef}>
         {items.map((item, index) => (
           <TabItem
@@ -105,7 +151,6 @@ const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
             size={size}
             setItemWidth={handleNaviItemWith}
             onClick={handleItemClick}
-            modelineView
           />
         ))}
 
@@ -122,31 +167,4 @@ const ModelineView = ({ size, onChange, items, activeKey, slipHeight }) => {
   )
 }
 
-ModelineView.propTypes = {
-  items: T.oneOfType([
-    T.arrayOf(T.string),
-    T.arrayOf(
-      T.shape({
-        title: T.string,
-        raw: T.string,
-        alias: T.string,
-        icon: T.oneOfType([T.string, T.node]),
-        localIcon: T.string,
-      }),
-    ),
-  ]),
-  onChange: T.func,
-  activeKey: T.string,
-  size: T.oneOf([SIZE.MEDIUM, SIZE.SMALL]),
-  slipHeight: T.oneOf(['1px', '2px']),
-}
-
-ModelineView.defaultProps = {
-  items: [],
-  onChange: log,
-  activeKey: '',
-  size: SIZE.MEDIUM,
-  slipHeight: '2px',
-}
-
-export default React.memo(ModelineView)
+export default React.memo(MobileView)
