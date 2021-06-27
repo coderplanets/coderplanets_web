@@ -2,7 +2,7 @@
  * TabBar
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TSIZE_SM } from '@/spec'
 import { HCN, ANCHOR, THREAD, C11N, SIZE } from '@/constant'
@@ -53,4 +53,4 @@ const TabBar: FC<TProps> = ({
   )
 }
 
-export default React.memo(TabBar)
+export default memo(TabBar)

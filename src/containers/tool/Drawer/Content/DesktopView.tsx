@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react'
+import { FC, useEffect, useRef, memo } from 'react'
 
 import CustomScroller from '@/components/CustomScroller'
 
@@ -34,4 +34,4 @@ const Content: FC<TProps> = ({ visible, type, attachment, attUser }) => {
   )
 }
 
-export default React.memo(Content)
+export default memo(Content)

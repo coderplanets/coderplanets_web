@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
@@ -19,7 +19,7 @@ import { setView } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const Feature: React.FC = () => {
+const Feature: FC = () => {
   return (
     <Wrapper>
       <div onClick={() => setView(VIEW.ABOUT)}>
@@ -35,4 +35,4 @@ const Feature: React.FC = () => {
   )
 }
 
-export default React.memo(Feature)
+export default memo(Feature)

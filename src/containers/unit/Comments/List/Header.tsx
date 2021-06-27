@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
@@ -92,4 +92,4 @@ const Header: FC<TProps> = ({ totalCount, filterType }) => {
   )
 }
 
-export default React.memo(Header)
+export default memo(Header)

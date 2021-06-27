@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { compose, not, isNil, filter, reverse as reverseFn, slice } from 'ramda'
 import { trackWindowScroll } from 'react-lazy-load-image-component'
 

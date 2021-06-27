@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { USER_THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'

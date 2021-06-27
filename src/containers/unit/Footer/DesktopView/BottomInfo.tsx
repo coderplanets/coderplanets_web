@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ROUTE } from '@/constant'
 
@@ -28,4 +28,4 @@ const BottomInfo: FC<TProps> = ({ metric }) => {
   )
 }
 
-export default React.memo(BottomInfo)
+export default memo(BottomInfo)

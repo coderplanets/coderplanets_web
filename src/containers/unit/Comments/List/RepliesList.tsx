@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TAccount, TComment } from '@/spec'
 
@@ -31,4 +31,4 @@ const RepliesList: FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
   )
 }
 
-export default React.memo(RepliesList)
+export default memo(RepliesList)

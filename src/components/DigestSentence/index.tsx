@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
@@ -70,4 +70,4 @@ const DigestSentence: FC<TProps> = ({
   )
 }
 
-export default React.memo(DigestSentence)
+export default memo(DigestSentence)

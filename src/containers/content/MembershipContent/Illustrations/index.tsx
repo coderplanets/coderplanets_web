@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import type { TPackage } from '../spec'
 import Rocket from './Rocket'
@@ -36,4 +36,4 @@ const Illustrations: FC<TProps> = ({ type, active }) => {
   return <Wrapper active={active}>{renderIllustration(type, active)}</Wrapper>
 }
 
-export default React.memo(Illustrations)
+export default memo(Illustrations)

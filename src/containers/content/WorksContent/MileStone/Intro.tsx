@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import DotDivider from '@/components/DotDivider'
 // import { ASSETS_ENDPOINT } from '@/config'
@@ -12,7 +12,7 @@ import {
   LinkBtn,
 } from '../styles/mile_stone/intro'
 
-const Intro: React.FC = () => {
+const Intro: FC = () => {
   return (
     <Wrapper>
       <Main>
@@ -29,4 +29,4 @@ const Intro: React.FC = () => {
   )
 }
 
-export default React.memo(Intro)
+export default memo(Intro)

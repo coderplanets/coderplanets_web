@@ -1,6 +1,5 @@
-import React from 'react'
+import { FC } from 'react'
 
-import { ICON_BASE, ASSETS_ENDPOINT } from '@/config'
 import { mockWorks } from '@/utils'
 
 import { ArrowButton } from '@/components/Buttons'
@@ -25,7 +24,7 @@ const options = [
 
 const item = mockWorks()
 
-const Trending: React.FC = () => {
+const Trending: FC = () => {
   const activeKey = 'month'
 
   return (

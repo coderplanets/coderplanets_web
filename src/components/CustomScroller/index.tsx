@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import type { TSIZE_SML } from '@/spec'
 import type { TDirection, TScrollDirection } from './spec'
@@ -40,4 +40,4 @@ const CustomScroller: FC<TProps> = ({
   )
 }
 
-export default React.memo(CustomScroller)
+export default memo(CustomScroller)

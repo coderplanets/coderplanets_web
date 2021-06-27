@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import type { TCommunity } from '@/spec'
 import type { TVisibles } from '../spec'

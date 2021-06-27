@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import LinksCard from '@/components/LinksCard'
 import type { TCommunity } from '@/spec'

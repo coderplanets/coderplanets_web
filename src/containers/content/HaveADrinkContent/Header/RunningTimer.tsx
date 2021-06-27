@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -36,4 +36,4 @@ const RunningTimer: FC<TProps> = ({ interval = '3s' }) => {
   )
 }
 
-export default React.memo(RunningTimer)
+export default memo(RunningTimer)

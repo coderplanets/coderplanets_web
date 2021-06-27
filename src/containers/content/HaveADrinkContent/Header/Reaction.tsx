@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -14,7 +14,7 @@ import { Wrapper } from '../styles/header/reaction'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const Reaction: React.FC = () => {
+const Reaction: FC = () => {
   return (
     <Wrapper>
       <div>评论 | 喜欢</div>
@@ -22,4 +22,4 @@ const Reaction: React.FC = () => {
   )
 }
 
-export default React.memo(Reaction)
+export default memo(Reaction)

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -49,4 +49,4 @@ const Footer: FC<TProps> = ({ view }) => {
   )
 }
 
-export default React.memo(Footer)
+export default memo(Footer)

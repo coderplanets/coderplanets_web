@@ -2,7 +2,7 @@
  * CoolGuideContent
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import {
   Wrapper,
@@ -15,7 +15,7 @@ import {
   MonthUnit,
 } from '../styles/date_selector/calendar_card'
 
-const CalendarCard: React.FC = () => {
+const CalendarCard: FC = () => {
   return (
     <Wrapper>
       <SelectorRow>
@@ -32,4 +32,4 @@ const CalendarCard: React.FC = () => {
   )
 }
 
-export default React.memo(CalendarCard)
+export default memo(CalendarCard)

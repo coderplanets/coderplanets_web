@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import Input from '@/components/Input'
 import { Br } from '@/components/Common'

@@ -2,7 +2,7 @@
  * cards for job MasonryCards view
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
 import { cutRest } from '@/utils'
@@ -38,4 +38,4 @@ const CommunityCard: FC<TProps> = ({
   )
 }
 
-export default React.memo(CommunityCard)
+export default memo(CommunityCard)

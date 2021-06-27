@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode, useRef, useState, useEffect } from 'react'
+import { FC, ReactNode, useRef, useState, useEffect, memo } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { ICON } from '@/config'
@@ -97,4 +97,4 @@ const ArrowButton: FC<TProps> = ({
   )
 }
 
-export default React.memo(ArrowButton)
+export default memo(ArrowButton)

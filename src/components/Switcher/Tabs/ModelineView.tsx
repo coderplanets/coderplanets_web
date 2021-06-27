@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useEffect, useRef, useState, useCallback } from 'react'
+import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
 import { isEmpty, findIndex } from 'ramda'
 
 import type { TSIZE_SM, TTabItem } from '@/spec'
@@ -146,4 +146,4 @@ const ModelineView: FC<TProps> = ({
   )
 }
 
-export default React.memo(ModelineView)
+export default memo(ModelineView)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, Fragment, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
@@ -28,7 +28,7 @@ type TProps = {
 }
 
 const ListView: FC<TProps> = ({ entry, onPreview }) => (
-  <React.Fragment>
+  <Fragment>
     <SmallAvatar src={entry.author.avatar} />
     <Main>
       <TopHalf>
@@ -59,7 +59,7 @@ const ListView: FC<TProps> = ({ entry, onPreview }) => (
         </Extra>
       </SecondHalf>
     </Main>
-  </React.Fragment>
+  </Fragment>
 )
 
-export default React.memo(ListView)
+export default memo(ListView)

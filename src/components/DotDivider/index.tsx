@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
 import { Wrapper } from './styles'
@@ -25,4 +25,4 @@ const DotDivider: FC<TProps> = ({
   return <Wrapper radius={radius} space={space} className={className} />
 }
 
-export default React.memo(DotDivider)
+export default memo(DotDivider)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, Fragment, memo } from 'react'
 
 import type { TPagedComments, TUser } from '@/spec'
 import Pagi from '@/components/Pagi'
@@ -27,7 +27,7 @@ const CommentsList: FC<TProps> = ({
   pagedComments: { entries, totalCount, pageSize, pageNumber },
   restProps: { loading, loadingFresh, tobeDeleteId, filterType },
 }) => (
-  <React.Fragment>
+  <Fragment>
     <Header totalCount={totalCount} filterType={filterType} />
     {loadingFresh && (
       <CommentBlock>
@@ -56,7 +56,7 @@ const CommentsList: FC<TProps> = ({
       noMoreMsg="没有更多的评论了"
       emptyMsg="目前还没有评论"
     />
-  </React.Fragment>
+  </Fragment>
 )
 
-export default React.memo(CommentsList)
+export default memo(CommentsList)

@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog, cutRest } from '@/utils'
@@ -128,7 +128,7 @@ const items = [
   },
 ]
 
-const Catalog: React.FC = () => {
+const Catalog: FC = () => {
   return (
     <Wrapper>
       {items.map((item) => (
@@ -150,4 +150,4 @@ const Catalog: React.FC = () => {
   )
 }
 
-export default React.memo(Catalog)
+export default memo(Catalog)

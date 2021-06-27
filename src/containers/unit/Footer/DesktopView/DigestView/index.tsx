@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
@@ -165,4 +165,4 @@ const DigestView: FC<TProps> = ({ metric }) => {
   )
 }
 
-export default React.memo(DigestView)
+export default memo(DigestView)

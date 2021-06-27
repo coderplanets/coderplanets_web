@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { DEFAULT_USER_AVATAR } from '@/config'
 import { ROUTE } from '@/constant'
@@ -25,4 +25,4 @@ const PublishNote: FC<TProps> = ({ show }) => (
   </Modal>
 )
 
-export default React.memo(PublishNote)
+export default memo(PublishNote)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { Wrapper, Header, Icon, Content, QTitle, ABody } from './styles/qa'
@@ -33,4 +33,4 @@ const QA: FC<TProps> = ({ testid = 'membership-qa' }) => {
   )
 }
 
-export default React.memo(QA)
+export default memo(QA)

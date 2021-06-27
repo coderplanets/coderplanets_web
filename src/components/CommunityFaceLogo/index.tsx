@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import { HCN } from '@/constant'
@@ -46,4 +46,4 @@ const CommunityFaceLogo: FC<TProps> = ({
   )
 }
 
-export default React.memo(CommunityFaceLogo)
+export default memo(CommunityFaceLogo)

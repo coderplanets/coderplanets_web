@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TPost, TAccount } from '@/spec'
 
@@ -26,4 +26,4 @@ const MobileView: FC<TProps> = ({ entry, onPreview, onAuthorSelect }) => {
   )
 }
 
-export default React.memo(MobileView)
+export default memo(MobileView)

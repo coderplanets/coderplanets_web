@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'

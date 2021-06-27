@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
 
 import { pluggedIn, buildLog } from '@/utils'

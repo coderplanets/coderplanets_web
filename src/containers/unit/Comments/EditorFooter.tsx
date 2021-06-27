@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 
@@ -85,4 +85,4 @@ const EditorFooter: FC<TProps> = ({
   </InputFooter>
 )
 
-export default React.memo(EditorFooter)
+export default memo(EditorFooter)

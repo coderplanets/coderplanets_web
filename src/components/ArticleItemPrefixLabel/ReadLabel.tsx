@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ReadedLabel } from './styles'
 
@@ -19,4 +19,4 @@ const ReadLabel: FC<TProps> = ({ entry, accountInfo, topOffset = '20px' }) => {
   return null
 }
 
-export default React.memo(ReadLabel)
+export default memo(ReadLabel)

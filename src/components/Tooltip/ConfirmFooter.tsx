@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import Button from '@/components/Buttons/Button'
 import { Space } from '@/components/Common'
@@ -61,4 +61,4 @@ const ConfirmFooter: FC<TProps> = ({ onConfirm, onCancel, footerBehavior }) => {
   return <Wrapper>{content}</Wrapper>
 }
 
-export default React.memo(ConfirmFooter)
+export default memo(ConfirmFooter)

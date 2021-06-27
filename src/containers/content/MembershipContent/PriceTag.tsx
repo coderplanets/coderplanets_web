@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { PAY } from './constant'
 import { Wrapper, Price, Slash, Unit } from './styles/price_tag'
@@ -27,4 +27,4 @@ const PriceTag: FC<TProps> = ({
   )
 }
 
-export default React.memo(PriceTag)
+export default memo(PriceTag)

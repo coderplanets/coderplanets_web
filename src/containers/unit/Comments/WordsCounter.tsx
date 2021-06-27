@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { WORD_LIMIT } from '@/config'
 
@@ -22,4 +22,4 @@ const WordsCounter: FC<TProps> = ({ countCurrent }) => (
   </Wrapper>
 )
 
-export default React.memo(WordsCounter)
+export default memo(WordsCounter)

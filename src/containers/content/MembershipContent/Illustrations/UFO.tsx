@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
@@ -36,4 +36,4 @@ const UFO: FC<TProps> = ({ testid = 'membership-ufo', active }) => {
   )
 }
 
-export default React.memo(UFO)
+export default memo(UFO)

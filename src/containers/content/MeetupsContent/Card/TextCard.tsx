@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { GALLERY } from '@/constant'
 import { ICON_CMD } from '@/config'
@@ -49,4 +49,4 @@ const TextCard: FC<TProps> = ({ item }) => {
   )
 }
 
-export default React.memo(TextCard)
+export default memo(TextCard)

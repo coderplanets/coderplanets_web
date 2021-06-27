@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { REPORT_TYPE } from '@/constant'
 import { ICON } from '@/config'

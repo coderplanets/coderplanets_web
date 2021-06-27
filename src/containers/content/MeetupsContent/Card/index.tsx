@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TGALLERY_TEXT_ONLY, TGALLERY_TEXT_WITH_IMAGE } from '@/spec'
 import { GALLERY } from '@/constant'
@@ -27,4 +27,4 @@ const Card: FC<TProps> = ({ item, type = GALLERY.TEXT_ONLY }) => {
   )
 }
 
-export default React.memo(Card)
+export default memo(Card)

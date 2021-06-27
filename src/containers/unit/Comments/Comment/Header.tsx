@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TComment } from '@/spec'
@@ -47,4 +47,4 @@ const CommentHeader: FC<TProps> = ({ data }) => {
   )
 }
 
-export default React.memo(CommentHeader)
+export default memo(CommentHeader)

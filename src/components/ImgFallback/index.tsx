@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TUser } from '@/spec'
 import { buildLog } from '@/utils'
@@ -42,4 +42,4 @@ const ImgFallback: FC<TProps> = ({ type = 'avatar', ...restProps }) => {
   }
 }
 
-export default React.memo(ImgFallback)
+export default memo(ImgFallback)

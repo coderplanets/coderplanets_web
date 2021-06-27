@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-const SvgComponent: React.FC = (props) => (
+const SvgComponent: FC = (props) => (
   <svg
     className="prefix__icon"
     viewBox="0 0 1068 1024"

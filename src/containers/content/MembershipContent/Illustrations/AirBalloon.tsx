@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { Wrapper, Balloon, Basket } from '../styles/illustrations/air_balloon'
 
@@ -15,4 +15,4 @@ const AirBalloon: FC<TProps> = ({ testid = 'membership-airballoon' }) => {
   )
 }
 
-export default React.memo(AirBalloon)
+export default memo(AirBalloon)

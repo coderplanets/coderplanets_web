@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import { map, prop, includes } from 'ramda'
 
 import { buildLog } from '@/utils'
@@ -103,4 +103,4 @@ const List: FC<TProps> = ({
   )
 }
 
-export default React.memo(List)
+export default memo(List)

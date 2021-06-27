@@ -4,8 +4,6 @@
  *
  */
 
-import React from 'react'
-
 import { ANCHOR } from '@/constant'
 import { useDevice } from '@/hooks'
 import { report } from '@/utils'

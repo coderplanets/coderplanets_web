@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TComment } from '@/spec'
 import { ICON } from '@/config'
@@ -25,4 +25,4 @@ const CommentReplyBar: FC<TProps> = ({ data }) => {
   )
 }
 
-export default React.memo(CommentReplyBar)
+export default memo(CommentReplyBar)

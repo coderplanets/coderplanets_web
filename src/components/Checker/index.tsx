@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import type { TSIZE_SM } from '@/spec'
 import { ICON } from '@/config'
@@ -45,4 +45,4 @@ const Checker: FC<TProps> = ({
   )
 }
 
-export default React.memo(Checker)
+export default memo(Checker)

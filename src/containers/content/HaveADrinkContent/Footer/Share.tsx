@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
@@ -15,7 +15,7 @@ import { Wrapper, Icon } from '../styles/footer/share'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const Reaction: React.FC = () => {
+const Reaction: FC = () => {
   return (
     <Wrapper>
       <Icon src={`${ICON_CMD}/drink_share.svg`} />
@@ -23,4 +23,4 @@ const Reaction: React.FC = () => {
   )
 }
 
-export default React.memo(Reaction)
+export default memo(Reaction)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TProps as TTopInfoProps } from './index'
 
@@ -28,4 +28,4 @@ const HomeCommunity: FC<TProps> = ({ title = 'CoderPlanets' }) => {
   )
 }
 
-export default React.memo(HomeCommunity)
+export default memo(HomeCommunity)

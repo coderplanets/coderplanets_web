@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
@@ -37,4 +37,4 @@ const Header: FC<TProps> = ({ title, showReset, onReset }) => {
   )
 }
 
-export default React.memo(Header)
+export default memo(Header)

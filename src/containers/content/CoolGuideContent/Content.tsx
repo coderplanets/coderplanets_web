@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { GUIDE } from '@/constant'
 import Pagi from '@/components/Pagi'
@@ -86,4 +86,4 @@ const Content: FC<TProps> = ({ displayType }) => {
   )
 }
 
-export default React.memo(Content)
+export default memo(Content)

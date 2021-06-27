@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import type { TAccount, TComment } from '@/spec'
@@ -110,4 +110,4 @@ const Comment: FC<TProps> = ({
   )
 }
 
-export default React.memo(Comment)
+export default memo(Comment)

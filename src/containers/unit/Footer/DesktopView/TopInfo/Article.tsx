@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import type { TProps as TTopInfoProps } from './index'
@@ -28,4 +28,4 @@ const Article: FC<TProps> = ({ title = 'article', noBottomBorder = false }) => {
   )
 }
 
-export default React.memo(Article)
+export default memo(Article)

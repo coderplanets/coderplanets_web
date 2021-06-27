@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { Fragment, FC, memo } from 'react'
 import { useRouter } from 'next/router'
 
 import type { TAccount } from '@/spec'
@@ -33,7 +33,7 @@ const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
   const router = useRouter()
 
   return (
-    <React.Fragment>
+    <Fragment>
       {isLogin ? (
         <Tooltip
           placement="bottom-start"
@@ -102,8 +102,8 @@ const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
           升&nbsp;级
         </Button>
       </MembershipHint>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-export default React.memo(UserAccount)
+export default memo(UserAccount)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { mockNaviCatalogMenu } from '@/utils'
 
@@ -39,4 +39,4 @@ const FilterBar: FC<TProps> = ({ activeView }) => {
   )
 }
 
-export default React.memo(FilterBar)
+export default memo(FilterBar)

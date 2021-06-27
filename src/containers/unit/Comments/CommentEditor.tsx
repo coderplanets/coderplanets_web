@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TAccount, TUser } from '@/spec'
 import MarkDownRender from '@/components/MarkDownRender'
@@ -81,4 +81,4 @@ const CommentEditor: FC<TProps> = (props) => {
   )
 }
 
-export default React.memo(CommentEditor)
+export default memo(CommentEditor)

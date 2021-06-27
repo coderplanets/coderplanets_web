@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
@@ -52,4 +52,4 @@ const Header = (props) => {
   )
 }
 
-export default React.memo(Header)
+export default memo(Header)

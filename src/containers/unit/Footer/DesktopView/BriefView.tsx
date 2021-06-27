@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TArticle } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
@@ -73,4 +73,4 @@ const BriefView: FC<TProps> = ({ curView, metric, viewingArticle }) => {
   )
 }
 
-export default React.memo(BriefView)
+export default memo(BriefView)

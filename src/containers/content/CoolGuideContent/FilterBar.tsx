@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, Fragment, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { mockNaviCatalogMenu } from '@/utils'
@@ -59,17 +59,17 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
       </TopFilter>
       <Divider />
       <Sticky offsetTop={30}>
-        <React.Fragment>
+        <Fragment>
           <NaviCatalog
             title="分类"
             onSelect={(id: string, type: string) => menuOnSelect(id, type)}
             withDivider={false}
             items={mockNaviCatalogMenu()}
           />
-        </React.Fragment>
+        </Fragment>
       </Sticky>
     </Wrapper>
   )
 }
 
-export default React.memo(FilterBar)
+export default memo(FilterBar)

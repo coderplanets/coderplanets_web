@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TAccount, TComment } from '@/spec'
 
@@ -31,4 +31,4 @@ const Footer: FC<TProps> = ({
   </Wrapper>
 )
 
-export default React.memo(Footer)
+export default memo(Footer)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, Fragment, memo } from 'react'
 
 import type { TPost, TUser, TAccount } from '@/spec'
 
@@ -25,14 +25,14 @@ const DigestView: FC<TProps> = ({
   onAuthorSelect,
 }) => {
   return (
-    <React.Fragment>
+    <Fragment>
       <TheAvatar user={entry.author} onSelect={onAuthorSelect} />
       <Main>
         <Header item={entry} onUserSelect={onUserSelect} />
         <Body item={entry} onPreview={onPreview} />
       </Main>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-export default React.memo(DigestView)
+export default memo(DigestView)

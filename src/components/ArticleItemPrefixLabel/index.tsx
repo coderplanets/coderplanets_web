@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TAccount } from '@/spec'
 import { buildLog } from '@/utils'
@@ -34,4 +34,4 @@ const ArticleItemPrefixLabel: FC<TProps> = ({
   )
 }
 
-export default React.memo(ArticleItemPrefixLabel)
+export default memo(ArticleItemPrefixLabel)

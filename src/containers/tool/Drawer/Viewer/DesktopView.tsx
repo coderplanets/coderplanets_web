@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, memo } from 'react'
 
 import type { TSwipeOption } from '../spec'
 import AddOn from '../AddOn'
@@ -43,4 +43,4 @@ const DesktopView: FC<TProps> = ({
   )
 }
 
-export default React.memo(DesktopView)
+export default memo(DesktopView)

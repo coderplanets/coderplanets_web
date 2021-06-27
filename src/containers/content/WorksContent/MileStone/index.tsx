@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import Intro from './Intro'
 import Detail from './Detail'
 
 import { Wrapper, Block } from '../styles/mile_stone'
 
-const MileStone: React.FC = () => {
+const MileStone: FC = () => {
   return (
     <Wrapper>
       <Block>
@@ -24,4 +24,4 @@ const MileStone: React.FC = () => {
   )
 }
 
-export default React.memo(MileStone)
+export default memo(MileStone)

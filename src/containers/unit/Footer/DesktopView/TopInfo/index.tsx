@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import HomeCommunity from './HomeCommunity'
 import Community from './Community'
@@ -26,4 +26,4 @@ const TopInfo: FC<TProps> = ({ type, ...restProps }) => {
   }
 }
 
-export default React.memo(TopInfo)
+export default memo(TopInfo)

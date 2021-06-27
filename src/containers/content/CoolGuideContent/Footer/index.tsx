@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ArrowButton } from '@/components/Buttons'
 
@@ -54,4 +54,4 @@ const Footer: FC<TProps> = ({ mode }) => {
   )
 }
 
-export default React.memo(Footer)
+export default memo(Footer)

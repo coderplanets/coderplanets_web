@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TTabItem } from '@/spec'
 import { sortByIndex } from '@/utils'
@@ -29,4 +29,4 @@ const BriefView: FC<TProps> = ({ source, active, onChange }) => {
   )
 }
 
-export default React.memo(BriefView)
+export default memo(BriefView)

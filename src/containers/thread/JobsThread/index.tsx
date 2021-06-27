@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@/config'

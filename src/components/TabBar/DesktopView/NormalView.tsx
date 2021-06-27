@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 
 import { sortByIndex } from '@/utils'
 import { Tabs } from '@/components/Switcher'
@@ -26,4 +26,4 @@ const NormalView = ({ source, active, onChange, size }) => {
   )
 }
 
-export default React.memo(NormalView)
+export default memo(NormalView)

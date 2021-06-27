@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 
 import { Wrapper, SettingIcon, Divider } from './styles/addons'
 import { openC11NPanel } from './logic'
 
-const AddOns = () => {
+const AddOns: FC = () => {
   return (
     <Wrapper>
       <div onClick={openC11NPanel}>
@@ -16,4 +16,4 @@ const AddOns = () => {
   )
 }
 
-export default React.memo(AddOns)
+export default memo(AddOns)

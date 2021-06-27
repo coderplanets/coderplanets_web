@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
@@ -108,4 +108,4 @@ CommentSticker.defaultProps = {
   },
 }
 
-export default React.memo(CommentSticker)
+export default memo(CommentSticker)

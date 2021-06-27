@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, Fragment, memo } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 
@@ -26,7 +26,7 @@ type TProps = {
 }
 
 const Support: FC<TProps> = ({ active, items, not, pkgType }) => (
-  <React.Fragment>
+  <Fragment>
     {pkgType !== 'free' && (
       <PkgItem active={active}>
         <ArrowIcon src={`${ICON}/shape/double-arrow.svg`} />
@@ -39,7 +39,7 @@ const Support: FC<TProps> = ({ active, items, not, pkgType }) => (
         <PkgItemTitle not={not}>{item.title}</PkgItemTitle>
       </PkgItem>
     ))}
-  </React.Fragment>
+  </Fragment>
 )
 
-export default React.memo(Support)
+export default memo(Support)

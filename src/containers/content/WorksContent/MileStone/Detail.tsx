@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ASSETS_ENDPOINT } from '@/config'
 import IconText from '@/components/IconText'
@@ -12,7 +12,7 @@ import {
   CoverImage,
 } from '../styles/mile_stone/detail'
 
-const Detail: React.FC = () => {
+const Detail: FC = () => {
   return (
     <Wrapper>
       <Main>
@@ -29,4 +29,4 @@ const Detail: React.FC = () => {
   )
 }
 
-export default React.memo(Detail)
+export default memo(Detail)

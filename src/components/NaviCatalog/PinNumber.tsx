@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import Tooltip from '@/components/Tooltip'
@@ -43,4 +43,4 @@ const PinNumber: FC<TProps> = ({ num, pinNumberHoverType }) => {
   )
 }
 
-export default React.memo(PinNumber)
+export default memo(PinNumber)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TUser } from '@/spec'
 import { VIEW } from '@/constant'
@@ -18,4 +18,4 @@ const Sidebar: FC<TProps> = ({ viewingUser, isSelfViewing = false }) => {
   )
 }
 
-export default React.memo(Sidebar)
+export default memo(Sidebar)

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { Fragment, FC, memo } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 import { buildLog, cutRest } from '@/utils'
@@ -97,25 +97,25 @@ const WorksCard: FC<TProps> = ({
             </IconText>
           )}
           {item.platform && (
-            <React.Fragment>
+            <Fragment>
               <DotDivider radius={4} space={8} /> {item.platform.title}
-            </React.Fragment>
+            </Fragment>
           )}
           {item.techStack && (
-            <React.Fragment>
+            <Fragment>
               <Divider />
               <BuildWithWrapper>
                 {item.techStack.map((tech) => (
                   <TechIcon key={tech.raw} src={tech.icon} />
                 ))}
               </BuildWithWrapper>
-            </React.Fragment>
+            </Fragment>
           )}
 
           {mode === 'preview' && <span>&nbsp;</span>}
 
           {mode === 'default' && (
-            <React.Fragment>
+            <Fragment>
               <Divider />
               <IconText
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
@@ -124,7 +124,7 @@ const WorksCard: FC<TProps> = ({
                 {item.insertedAt}
               </IconText>
               <Divider />
-            </React.Fragment>
+            </Fragment>
           )}
           <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
             {commentsCount}
@@ -137,4 +137,4 @@ const WorksCard: FC<TProps> = ({
   )
 }
 
-export default React.memo(WorksCard)
+export default memo(WorksCard)

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useState, useCallback, useEffect } from 'react'
+import { FC, useState, useCallback, useEffect, memo } from 'react'
 import { find, findIndex, propEq, last } from 'ramda'
 
 import { URL_QUERY } from '@/constant'
@@ -199,4 +199,4 @@ const NaviCatalog: FC<TProps> = ({
   )
 }
 
-export default React.memo(NaviCatalog)
+export default memo(NaviCatalog)

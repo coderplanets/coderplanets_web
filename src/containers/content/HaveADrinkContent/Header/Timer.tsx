@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
@@ -82,4 +82,4 @@ const Timer: FC<TProps> = ({ timer, timerInterval = '3s' }) => {
   )
 }
 
-export default React.memo(Timer)
+export default memo(Timer)

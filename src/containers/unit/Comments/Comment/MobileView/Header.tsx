@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TComment } from '@/spec'
 import ImgFallback from '@/components/ImgFallback'
@@ -39,4 +39,4 @@ const CommentHeader: FC<TProps> = ({ data }) => {
   )
 }
 
-export default React.memo(CommentHeader)
+export default memo(CommentHeader)

@@ -1,4 +1,4 @@
-import React from 'react'
+import { Fragment } from 'react'
 
 import { useDevice } from '@/hooks'
 
@@ -9,9 +9,9 @@ const MainEntries = (props) => {
   const { isMobile } = useDevice()
 
   return (
-    <React.Fragment>
+    <Fragment>
       {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
-    </React.Fragment>
+    </Fragment>
   )
 }
 

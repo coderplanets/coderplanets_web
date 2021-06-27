@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { Space } from '@/components/Common'
 import Button from './Button'

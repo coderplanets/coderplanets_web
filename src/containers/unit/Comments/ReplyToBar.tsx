@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TComment } from '@/spec'
 // import { ICON_CMD } from '@/config'
@@ -22,4 +22,4 @@ const ReplyToBar: FC<TProps> = ({ comment }) => {
   )
 }
 
-export default React.memo(ReplyToBar)
+export default memo(ReplyToBar)

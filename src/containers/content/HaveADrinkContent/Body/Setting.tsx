@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TSettingOption } from '../spec'
 
@@ -59,4 +59,4 @@ const Setting: FC<TProps> = ({ settingOptions: { animateType, fontSize } }) => {
   )
 }
 
-export default React.memo(Setting)
+export default memo(Setting)

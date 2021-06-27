@@ -4,8 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
-
+import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import { buildLog } from '@/utils'
@@ -55,4 +54,4 @@ const NoticeBar: FC<TProps> = ({
   )
 }
 
-export default React.memo(NoticeBar)
+export default memo(NoticeBar)

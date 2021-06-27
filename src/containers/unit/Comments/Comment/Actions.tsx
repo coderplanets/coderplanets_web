@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TAccount, TComment } from '@/spec'
 import { ICON } from '@/config'
@@ -45,4 +45,4 @@ const Actions: FC<TProps> = ({ data, accountInfo }) => {
   )
 }
 
-export default React.memo(Actions)
+export default memo(Actions)

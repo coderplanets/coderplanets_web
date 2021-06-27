@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useCallback } from 'react'
+import { FC, useCallback, memo } from 'react'
 import { pickBy } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
@@ -71,4 +71,4 @@ const Input: FC<TProps> = ({
   )
 }
 
-export default React.memo(Input)
+export default memo(Input)

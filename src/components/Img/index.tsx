@@ -5,7 +5,7 @@
  * Renders an image, enforcing the usage of the alt="" tag
  */
 
-import React, { ReactNode } from 'react'
+import { FC, Fragment, ReactNode, memo } from 'react'
 import { ReactSVG } from 'react-svg'
 
 import { buildLog } from '@/utils'
@@ -29,7 +29,7 @@ type IProps = {
   onClick?: () => void
 }
 
-const Img: React.FC<IProps> = ({
+const Img: FC<IProps> = ({
   className = 'img-class',
   src,
   alt = 'img',
@@ -57,7 +57,7 @@ const Img: React.FC<IProps> = ({
     )
   }
   return (
-    <React.Fragment>
+    <Fragment>
       {noLazy ? (
         <NormalImg
           className={className}
@@ -75,7 +75,7 @@ const Img: React.FC<IProps> = ({
           visibleByDefault={visibleByDefault}
         />
       )}
-    </React.Fragment>
+    </Fragment>
   )
 }
 
@@ -103,4 +103,4 @@ const Img: React.FC<IProps> = ({
 //   onClick: log,
 // }
 
-export default React.memo(Img)
+export default memo(Img)

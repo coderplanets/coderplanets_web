@@ -1,5 +1,6 @@
 !.eslintrc.js
 .gitignore
+next-env.d.ts
 *.json
 *.lock
 *.hbs

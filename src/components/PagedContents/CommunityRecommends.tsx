@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
 
@@ -74,4 +74,4 @@ const CommunityRecommends: FC<TProps> = ({ items = tmpItems }) => {
   )
 }
 
-export default React.memo(CommunityRecommends)
+export default memo(CommunityRecommends)

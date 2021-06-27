@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
@@ -47,4 +47,4 @@ const Rocket: FC<TProps> = ({ testid = 'membership-rocket', type, active }) => {
   )
 }
 
-export default React.memo(Rocket)
+export default memo(Rocket)
