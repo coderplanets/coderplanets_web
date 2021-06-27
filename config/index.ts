@@ -1,16 +1,19 @@
-// export * from './config.json'
-// import * as CONFIG from './config.json'
-
 import type { TThemeName } from '@/spec'
-import { DEFAULT_THEME as DEFAULT_THEME_CONFIG } from './config.json'
+import { clone } from 'ramda'
+
+/**
+ * use clone to avold webpac5 warnings
+ */
+
+import * as CONFIG from './config.json'
 
 export { default as LABEL_POOL } from './label_pool'
 export { default as SEO } from './next_seo'
 
-export const DEFAULT_THEME = DEFAULT_THEME_CONFIG as TThemeName
+export const DEFAULT_THEME = clone(CONFIG).DEFAULT_THEME as TThemeName
 
 // explicit export to avoid eslint warning
-export {
+export const {
   GRAPHQL_ENDPOINT,
   SENIOR_AMOUNT_THRESHOLD,
   SPONSOR_AMOUNT_THRESHOLD,
@@ -41,4 +44,4 @@ export {
   EMAIL_HELLO,
   EMAIL_BUSINESS,
   BUILD_VERSION,
-} from './config.json'
+} = clone(CONFIG)
