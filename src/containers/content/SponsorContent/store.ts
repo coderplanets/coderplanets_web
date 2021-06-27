@@ -3,7 +3,7 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 
 import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
@@ -12,15 +12,12 @@ const log = buildLog('S:SponsorContent')
 const SponsorContent = T.model('SponsorContent', {
   bannerVisiable: T.optional(T.boolean, true),
 })
-  .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-  }))
+  .views(() => ({}))
   .actions((self) => ({
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof SponsorContent>
 export default SponsorContent

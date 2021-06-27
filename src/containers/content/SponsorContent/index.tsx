@@ -6,12 +6,14 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
 import { SponsorGallery } from '@/components/GalleryHub'
+
+import type { TStore } from './store'
 
 import Banner from './Banner'
 import SponsorTypeTitle from './SponsorTypeTitle'
@@ -114,7 +116,16 @@ const items = [
   },
 ]
 
-const SponsorContentContainer = ({ sponsorContent: store, metric }) => {
+type TProps = {
+  sponsorContent?: TStore
+  testid?: string
+  metric?: string
+}
+
+const SponsorContentContainer: FC<TProps> = ({
+  sponsorContent: store,
+  metric,
+}) => {
   useInit(store)
 
   const { bannerVisiable } = store
