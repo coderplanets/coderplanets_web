@@ -3,11 +3,20 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, isEmpty, findIndex, propEq, pickBy } from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
+
+import type {
+  TRootStore,
+  TPost,
+  TAccount,
+  TRoute,
+  TCommunity,
+  TThread,
+} from '@/spec'
 
 import {
   PagedPosts,
@@ -37,26 +46,28 @@ const PostsThreadStore = T.model('PostsThreadStore', {
   faqActive: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get curRoute(): TRoute {
+      const root = getParent(self) as TRootStore
+      return root.curRoute
     },
-    get curRoute() {
-      return self.root.curRoute
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing.community)
     },
-    get curCommunity() {
-      return stripMobx(self.root.viewing.community)
-    },
-    get curThread() {
-      return self.root.viewing.activeThread
+    get curThread(): TThread {
+      const root = getParent(self) as TRootStore
+      return root.viewing.activeThread
     },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },
-    get accountInfo() {
-      return self.root.account.accountInfo
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.account.accountInfo
     },
-    get isLogin() {
-      return self.root.account.isLogin
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
     get filtersData() {
       return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
@@ -69,14 +80,16 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       if (nilOrEmpty(curTag)) return {}
       return { tag: curTag.title }
     },
-    get activePost() {
-      return stripMobx(self.root.viewing.post)
+    get activePost(): TPost {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing.post)
     },
     get pagedCityCommunitiesData() {
       return stripMobx(self.pagedCityCommunities)
     },
-    get pageDensity() {
-      return self.root.account.pageDensity
+    get pageDensity(): number {
+      const root = getParent(self) as TRootStore
+      return root.account.pageDensity
     },
     get showFilterBar() {
       const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))
@@ -84,19 +97,23 @@ const PostsThreadStore = T.model('PostsThreadStore', {
 
       return !isEmpty(curFilter) || !isEmpty(pagedPosts.entries)
     },
-    get isCommunityDigestInViewport() {
-      return self.root.communityDigest.inViewport
+    get isCommunityDigestInViewport(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.communityDigest.inViewport
     },
   }))
   .actions((self) => ({
-    toastInfo(options) {
-      self.root.toast('info', merge({ position: 'topCenter' }, options))
+    toastInfo(options): void {
+      const root = getParent(self) as TRootStore
+      root.toast('info', merge({ position: 'topCenter' }, options))
     },
-    isMemberOf(type) {
-      return self.root.isMemberOf(type)
+    isMemberOf(type): boolean {
+      const root = getParent(self) as TRootStore
+      return root.isMemberOf(type)
     },
-    authWarning(options) {
-      self.root.authWarning(options)
+    authWarning(options = {}): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
     },
     selectFilter(option) {
       const curfilter = self.filtersData
@@ -107,11 +124,13 @@ const PostsThreadStore = T.model('PostsThreadStore', {
 
       self.activeTag = cur
     },
-    showTopModeline(fix) {
-      self.root.showTopModeline(fix)
+    showTopModeline(fix): void {
+      const root = getParent(self) as TRootStore
+      root.showTopModeline(fix)
     },
-    setViewing(sobj) {
-      self.root.setViewing(sobj)
+    setViewing(sobj): void {
+      const root = getParent(self) as TRootStore
+      root.setViewing(sobj)
     },
     setViewedFlag(id) {
       const { entries } = self.pagedPostsData
@@ -120,7 +139,7 @@ const PostsThreadStore = T.model('PostsThreadStore', {
         self.pagedPosts.entries[index].viewerHasViewed = true
       }
     },
-    updateItem(item) {
+    updateItem(item): void {
       const { entries } = self.pagedPostsData
       const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
@@ -130,10 +149,11 @@ const PostsThreadStore = T.model('PostsThreadStore', {
         )
       }
     },
-    updateC11N(option) {
-      self.root.updateC11N(option)
+    updateC11N(option): void {
+      const root = getParent(self) as TRootStore
+      root.updateC11N(option)
     },
-    markRoute(target) {
+    markRoute(target): void {
       const query = isObject(target)
         ? target
         : {
@@ -144,11 +164,13 @@ const PostsThreadStore = T.model('PostsThreadStore', {
             ...self.filtersData,
           }
 
-      self.root.markRoute(query, { onlyDesktop: true })
+      const root = getParent(self) as TRootStore
+      root.markRoute(query, { onlyDesktop: true })
     },
     mark(sobj) {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof PostsThreadStore>
 export default PostsThreadStore

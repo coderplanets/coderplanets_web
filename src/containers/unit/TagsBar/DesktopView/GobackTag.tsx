@@ -1,10 +1,14 @@
-import React from 'react'
+import { FC } from 'react'
 
+import type { TTag } from '@/spec'
 import { ICON } from '@/config'
-
 import { Wrapper, TagIcon, TagTitle } from '../styles/desktop_view/goback_tag'
 
-const GobackTag = ({ onSelect }) => {
+type TProps = {
+  onSelect?: (tag?: TTag) => void
+}
+
+const GobackTag: FC<TProps> = ({ onSelect }) => {
   const emptytag = { id: '', title: '', color: '' }
 
   return (

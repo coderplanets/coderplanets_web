@@ -4,16 +4,26 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC } from 'react'
 
 import { VIEW } from '@/constant'
+import type { TTag, TThread } from '@/spec'
+import type { TStore } from './store'
 
 import DesktopView from './DesktopView/index'
 import CardView from './CardView'
 
-const TagsBar = (props) => {
+export type TProps = {
+  view?: string
+  tagsBar?: TStore
+  thread: TThread
+  onSelect: (tag?: TTag) => void
+  active: TTag
+}
+
+const TagsBar: FC<TProps> = (props) => {
   const { view } = props
+
   switch (view) {
     case VIEW.MOBILE: {
       // TODO:
@@ -28,14 +38,6 @@ const TagsBar = (props) => {
       return <DesktopView {...props} />
     }
   }
-}
-
-TagsBar.propTypes = {
-  view: T.oneOf([VIEW.DESKTOP, VIEW.MOBILE, VIEW.COMMUNITY_CARD]),
-}
-
-TagsBar.defaultProps = {
-  view: VIEW.DESKTOP,
 }
 
 export default TagsBar

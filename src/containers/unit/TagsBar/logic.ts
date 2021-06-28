@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { isEmpty, pick, contains, toUpper } from 'ramda'
 
+import type { TTag, TThread } from '@/spec'
+import type { TStore } from './store'
 import { EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
 
@@ -11,23 +13,20 @@ const log = buildLog('L:TagsBar')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.COMMUNITY_CHANGE, EVENT.THREAD_CHANGE],
 })
 
 let sub$ = null
-let store = null
+let store: TStore | undefined
 
-export const onTagSelect = (tag, cb) => {
-  store.selectTag(tag)
-
-  if (cb) cb(tag)
-}
+export const onTagSelect = (tag: TTag): void => store.selectTag(tag)
 
 const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
 
-export const loadTags = () => {
+export const loadTags = (): void => {
   const { curThread } = store
-  if (contains(curThread, NO_TAG_THREADS)) return false
+  if (contains(curThread, NO_TAG_THREADS)) return
 
   const community = store.curCommunity.raw
   const thread = toUpper(curThread)
@@ -90,7 +89,11 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 
-export const useInit = (_store, thread, active) => {
+export const useInit = (
+  _store: TStore,
+  thread: TThread,
+  active: TTag,
+): void => {
   useEffect(() => {
     store = _store
     log('effect init')

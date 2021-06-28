@@ -1,9 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { FC, useState, useRef, useEffect } from 'react'
 
 import { findIndex } from 'ramda'
 
 import { ICON } from '@/config'
 import { sortByColor } from '@/utils'
+
+import type { TTag } from '@/spec'
 
 import TagItem from './TagItem'
 
@@ -22,7 +24,21 @@ import {
 const MAX_DISPLAY_COUNT = 5
 const TOGGLE_SUB_TOGGLE_THROLD = 15
 
-const Folder = ({ title, groupTags, allTags, activeTag, onSelect }) => {
+type TProps = {
+  title: string
+  allTags: TTag[]
+  activeTag: TTag
+  groupTags: any
+  onSelect: (tag?: TTag) => void
+}
+
+const Folder: FC<TProps> = ({
+  title,
+  groupTags,
+  allTags,
+  activeTag,
+  onSelect,
+}) => {
   // 决定是否显示 '展示更多' 的时候参考标签总数
   const needSubToggle =
     allTags?.length > TOGGLE_SUB_TOGGLE_THROLD &&
@@ -36,6 +52,7 @@ const Folder = ({ title, groupTags, allTags, activeTag, onSelect }) => {
   const sortedTags = sortByColor(groupTags)
 
   const isActiveTagInFolder =
+    // @ts-ignore
     findIndex((item) => item.id === activeTag.id, groupTags) >= 0
 
   const subToggleRef = useRef(null)
@@ -76,7 +93,7 @@ const Folder = ({ title, groupTags, allTags, activeTag, onSelect }) => {
               key={tag.id}
               tag={tag}
               active={activeTag.title === tag.title}
-              activeid={activeTag.id}
+              activeid={String(activeTag.id)}
               onSelect={onSelect}
             />
           ))}

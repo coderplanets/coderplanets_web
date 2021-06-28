@@ -26,8 +26,9 @@ const log = buildLog('c:PromotionList:index')
 type TProps = {
   show?: boolean
   onAbout?: () => void
-  items: TItem[]
+  items?: TItem[]
   intervalSec?: number
+  onClose?: () => void
 }
 
 const PromotionList: FC<TProps> = ({

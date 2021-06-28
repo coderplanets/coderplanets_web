@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
 import { contains } from 'ramda'
 
@@ -25,6 +25,8 @@ import ConstructingThread from '@/components/ConstructingThread'
 import PromotionList from '@/components/PromotionList'
 
 import CityList from './CityList'
+
+import type { TStore } from './store'
 
 import {
   Wrapper,
@@ -78,7 +80,11 @@ const SpecThread = ({ community, thread, cityCommunities }) => {
   return <ConstructingThread thread={thread} />
 }
 
-const PostsThreadContainer = ({ postsThread: store }) => {
+type TProps = {
+  postsThread?: TStore
+}
+
+const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
   useInit(store)
 
   const {
@@ -149,7 +155,6 @@ const PostsThreadContainer = ({ postsThread: store }) => {
             <RightPart>
               <PublisherWrapper show={isCommunityDigestInViewport}>
                 <DropdownButton
-                  type="primary"
                   placement="bottom-end"
                   options={[
                     {
@@ -195,4 +200,4 @@ const PostsThreadContainer = ({ postsThread: store }) => {
   )
 }
 
-export default pluggedIn(PostsThreadContainer)
+export default pluggedIn(PostsThreadContainer) as FC<TProps>

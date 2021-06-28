@@ -1,4 +1,4 @@
-import { values, contains, pickBy, merge } from 'ramda'
+import { values, contains, pickBy } from 'ramda'
 import { useEffect } from 'react'
 
 import {
@@ -10,6 +10,8 @@ import {
   COMMUNITY_SPEC_THREADS,
 } from '@/constant'
 
+import type { TCommunity, TTag } from '@/spec'
+
 import {
   asyncSuit,
   buildLog,
@@ -20,6 +22,8 @@ import {
   scrollToTabber,
 } from '@/utils'
 
+import type { TStore } from './store'
+
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -27,6 +31,7 @@ const log = buildLog('L:PostsThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [
     EVENT.REFRESH_POSTS,
     EVENT.DRAWER.AFTER_CLOSE,
@@ -47,7 +52,7 @@ export const outAnchor = () => {
   if (store) store.showTopModeline(true)
 }
 
-export const loadPosts = (page = 1) => {
+export const loadPosts = (page = 1): void => {
   const { curCommunity } = store
 
   const userHasLogin = store.isLogin
@@ -70,25 +75,25 @@ export const loadPosts = (page = 1) => {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export const onPageChange = (page) => {
+export const onPageChange = (page = 1): void => {
   scrollToTabber()
   loadPosts(page)
 }
 
-export const onFilterSelect = (option) => {
+export const onFilterSelect = (option): void => {
   store.selectFilter(option)
   log('cur filter: ', store.filtersData)
   store.markRoute({ ...store.filtersData })
   loadPosts()
 }
 
-export const onTagSelect = (tag) => {
+export const onTagSelect = (tag: TTag): void => {
   store.selectTag(tag)
   loadPosts()
   store.markRoute({ tag: tag.title })
 }
 
-export const onUserSelect = () => {
+export const onUserSelect = (): void => {
   //
 }
 
@@ -97,7 +102,7 @@ export const onUserSelect = () => {
  *
  * @param {*} data {id: string, title: string}
  */
-export const onPreview = (data) => {
+export const onPreview = (data): void => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   const type = TYPE.DRAWER.POST_VIEW
   const thread = THREAD.POST
@@ -106,13 +111,13 @@ export const onPreview = (data) => {
   store.markRoute(data.id)
 }
 
-export const onContentCreate = () => {
+export const onContentCreate = (): void => {
   if (!store.isLogin) return store.authWarning()
 
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.POST_CREATE })
 }
 
-export const onAdsClose = () => {
+export const onAdsClose = (): void => {
   log('onAdsClose')
   if (store.isMemberOf('seniorMember') || store.isMemberOf('sponsorMember')) {
     return log('do custom ads')
@@ -128,7 +133,7 @@ const loadCityCommunities = () => {
   }
 }
 
-export const onCommunitySelect = (community) => {
+export const onCommunitySelect = (community: TCommunity): void => {
   store.setViewing({ community, activeThread: THREAD.POST, post: {} })
 
   store.markRoute({
@@ -140,7 +145,7 @@ export const onCommunitySelect = (community) => {
 }
 
 // toggle FAQ active state
-export const onFaqChange = () => {
+export const onFaqChange = (): void => {
   const { faqActive } = store
   store.mark({ faqActive: !faqActive })
 }
@@ -240,7 +245,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) =>
+export const useInit = (_store: TStore): void =>
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
@@ -251,7 +256,7 @@ export const useInit = (_store) =>
     loadCityCommunities()
 
     return () => {
-      if (store.curView === TYPE.LOADING || !sub$) return false
+      if (store.curView === TYPE.LOADING || !sub$) return
       // log('===== do uninit')
       sr71$.stop()
       sub$.unsubscribe()

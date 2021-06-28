@@ -13,8 +13,8 @@ type TSORTABLE_ITEMS = {
   color?: string
   index?: number
   id?: string
-  title: string
-  raw: string
+  title?: string
+  raw?: string
   logo?: string
 }[]
 

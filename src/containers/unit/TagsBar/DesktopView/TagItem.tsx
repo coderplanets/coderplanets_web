@@ -1,7 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { getRandomInt, Trans } from '@/utils'
 import { SpaceGrow } from '@/components/Common'
+import type { TTag } from '@/spec'
 
 import TagCount from './TagCount'
 
@@ -12,7 +13,21 @@ import {
   CountInfoWrapper,
 } from '../styles/desktop_view/tag_item'
 
-const TagItem = ({ tag, active, activeid, inline, onSelect }) => {
+type TProps = {
+  tag: TTag
+  active: boolean
+  activeid?: string
+  inline?: boolean
+  onSelect?: (tag?: TTag) => void
+}
+
+const TagItem: FC<TProps> = ({
+  tag,
+  active,
+  activeid,
+  inline = true,
+  onSelect,
+}) => {
   return (
     <Wrapper $active={active} $inline={inline}>
       <HashSign

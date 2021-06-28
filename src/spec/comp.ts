@@ -2,11 +2,12 @@ import { TSIZE } from './size'
 
 // @/components/button
 export type TButton = {
-  size: TSIZE
+  size?: TSIZE
   active?: boolean
   ghost?: boolean
   disabled?: boolean
   noBorder?: boolean
+  onClick?: (key?: string) => void
 }
 
 // @/components/FiltersMenu

@@ -1,8 +1,9 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
 import { cutRest } from '@/utils'
+import type { TOption } from './index'
 
 import {
   Wrapper,
@@ -37,7 +38,13 @@ const LinkBlock = ({ children, link }) => {
   )
 }
 
-const OptionPanel = ({ options, onClick, panelMinWidth }) => {
+type TProps = {
+  options: TOption[]
+  panelMinWidth: string
+  onClick?: (key?: string) => void
+}
+
+const OptionPanel: FC<TProps> = ({ options, onClick, panelMinWidth }) => {
   return (
     <Wrapper panelMinWidth={panelMinWidth}>
       {options.map((item, index) => (
@@ -49,7 +56,7 @@ const OptionPanel = ({ options, onClick, panelMinWidth }) => {
           {/* common_check icon is special, smaller than normal icons,
           and check icon is always the first icon */}
           <IconWrapper>
-            <Icon src={item.icon} index={index} bigger={index === 0} />
+            <Icon src={item.icon} index={index} />
           </IconWrapper>
           <Intro>
             <Header>
@@ -64,22 +71,4 @@ const OptionPanel = ({ options, onClick, panelMinWidth }) => {
   )
 }
 
-OptionPanel.propTypes = {
-  onClick: T.func,
-  options: T.arrayOf(
-    T.shape({
-      title: T.stirng,
-      desc: T.string,
-      icon: T.string,
-      link: T.string,
-    }),
-  ),
-  panelMinWidth: T.string.isRequired,
-}
-
-OptionPanel.defaultProps = {
-  options: [],
-  onClick: console.log,
-}
-
-export default React.memo(OptionPanel)
+export default memo(OptionPanel)

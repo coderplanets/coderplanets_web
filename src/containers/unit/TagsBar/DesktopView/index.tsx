@@ -4,12 +4,13 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC } from 'react'
 import { keys } from 'ramda'
 
 import { THREAD } from '@/constant'
 import { buildLog, pluggedIn } from '@/utils'
+
+import type { TProps as TTagProps } from '../index'
 
 import GobackTag from './GobackTag'
 import Folder from './Folder'
@@ -21,7 +22,14 @@ import { useInit, onTagSelect } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:TagsBar')
 
-const TagsBarContainer = ({ tagsBar: store, thread, active, onSelect }) => {
+type TProps = Omit<TTagProps, 'view'>
+
+const TagsBarContainer: FC<TProps> = ({
+  tagsBar: store,
+  thread = THREAD.POST,
+  active,
+  onSelect,
+}) => {
   useInit(store, thread, active)
   const { groupedTags, tagsData, activeTagData } = store
   const groupsKeys = keys(groupedTags)
@@ -38,8 +46,8 @@ const TagsBarContainer = ({ tagsBar: store, thread, active, onSelect }) => {
       )}
       {groupsKeys.map((groupKey) => (
         <Folder
-          key={groupKey}
-          title={groupKey}
+          key={String(groupKey)}
+          title={String(groupKey)}
           groupTags={groupedTags[groupKey]}
           allTags={tagsData}
           activeTag={activeTagData}
@@ -53,20 +61,4 @@ const TagsBarContainer = ({ tagsBar: store, thread, active, onSelect }) => {
   )
 }
 
-TagsBarContainer.propTypes = {
-  tagsBar: T.object.isRequired,
-  thread: T.string,
-  onSelect: T.func.isRequired,
-  active: T.shape({
-    id: T.string,
-    title: T.string,
-    color: T.string,
-  }),
-}
-
-TagsBarContainer.defaultProps = {
-  thread: THREAD.POST,
-  active: {},
-}
-
-export default pluggedIn(TagsBarContainer)
+export default pluggedIn(TagsBarContainer) as FC<TProps>

@@ -1,8 +1,8 @@
 export type TCommunity = {
   id?: string
-  title: string
+  title?: string
   logo?: string
-  raw: string
+  raw?: string
   subscribersCount?: number
   viewerHasSubscribed?: boolean
   desc?: string
@@ -18,8 +18,8 @@ export type TPagedCommunities = {
 }
 
 export type TTag = {
-  id: number
-  title: string
-  color: string
+  id?: string
+  title?: string
+  color?: string
   group?: string
 }
