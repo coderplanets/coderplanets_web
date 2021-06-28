@@ -14,9 +14,6 @@ import {
   akaTranslate,
   buildLog,
   nilOrEmpty,
-  ssrPagedSchema,
-  ssrPagedFilter,
-  ssrContentsThread,
   ssrAmbulance,
   validCommunityFilters,
   parseTheme,
@@ -31,7 +28,7 @@ import { P } from '@/schemas'
 /* eslint-disable-next-line */
 const log = buildLog('page:community')
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -45,6 +42,7 @@ const fetchData = async (props, opt) => {
   const community = akaTranslate(communityPath)
 
   let filter = {
+    // @ts-ignore TODO:
     ...queryStringToJSON(props.req.url, { pagi: 'number' }),
     community,
     thread,
