@@ -12,11 +12,9 @@ type TProps = {
   active: boolean
 }
 
-const TabIcon: FC<TProps> = ({
-  item: { localIcon, icon },
-  clickableRef,
-  active,
-}) => {
+const TabIcon: FC<TProps> = ({ item, clickableRef, active }) => {
+  const { localIcon, icon } = item
+
   const IconCmp = localIcon ? (
     <LocalIcon raw={localIcon} active={active} small={false} />
   ) : (

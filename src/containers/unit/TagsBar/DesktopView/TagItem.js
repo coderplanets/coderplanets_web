@@ -14,15 +14,15 @@ import {
 
 const TagItem = ({ tag, active, activeid, inline, onSelect }) => {
   return (
-    <Wrapper active={active} inline={inline}>
+    <Wrapper $active={active} $inline={inline}>
       <HashSign
         color={tag.color}
-        active={active}
+        $active={active}
+        $inline={inline}
         activeid={activeid}
-        inline={inline}
       />
 
-      <TagTitle active={active} inline={inline} onClick={() => onSelect(tag)}>
+      <TagTitle $active={active} $inline={inline} onClick={() => onSelect(tag)}>
         {Trans(tag.title)}
       </TagTitle>
       <SpaceGrow />

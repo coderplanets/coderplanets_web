@@ -73,12 +73,12 @@ export const ChildrenWrapper = styled.div<{ size: TSIZE }>`
   position: relative;
   z-index: 2;
 `
-export const RealChildren = styled.div<{ loading: boolean }>`
+export const RealChildren = styled.div<{ $loading: boolean }>`
   ${css.flex('align-both')};
-  opacity: ${({ loading }) => (loading ? 0 : 1)};
+  opacity: ${({ $loading }) => ($loading ? 0 : 1)};
 `
-export const LoadingText = styled.div<{ loading: boolean }>`
-  opacity: ${({ loading }) => (!loading ? 0 : 1)};
+export const LoadingText = styled.div<{ $loading: boolean }>`
+  opacity: ${({ $loading }) => (!$loading ? 0 : 1)};
   position: absolute;
 `
 export const LoadingMask = styled.div<{ width: string }>`

@@ -105,8 +105,8 @@ const Button: FC<TProps> = ({
         >
           <LoadingMask width={`${loadingWidth}%`} />
           <ChildrenWrapper size={size}>
-            <RealChildren loading={loading}>{children}</RealChildren>
-            <LoadingText loading={loading}>{loadingText}</LoadingText>
+            <RealChildren $loading={loading}>{children}</RealChildren>
+            <LoadingText $loading={loading}>{loadingText}</LoadingText>
           </ChildrenWrapper>
         </Wrapper>
       )
