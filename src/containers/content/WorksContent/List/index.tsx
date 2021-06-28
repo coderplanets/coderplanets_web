@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { mockWorks } from '@/utils'
 // import { Br } from '@/components/Common'
@@ -41,7 +41,7 @@ const lists = [
   { ...item, id: 7 },
 ]
 
-const List: React.FC = () => {
+const List: FC = () => {
   return (
     <Wrapper>
       {/* <Trending /> */}

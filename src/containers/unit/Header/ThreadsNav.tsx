@@ -1,8 +1,7 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TCommunity, TThread } from '@/spec'
 import { Trans } from '@/utils'
-// import { SIZE } from '@/constant'
 
 // import { Tabs } from '@/components/Switcher'
 import DotDivider from '@/components/DotDivider'
@@ -46,4 +45,4 @@ const ThreadsNav: FC<TProps> = ({
   )
 }
 
-export default React.memo(ThreadsNav)
+export default memo(ThreadsNav)

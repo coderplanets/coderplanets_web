@@ -1,5 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
+import type { TCommunity } from '@/spec'
 import { HCN } from '@/constant'
 
 import Button from '@/components/Buttons/Button'
@@ -7,7 +8,12 @@ import Button from '@/components/Buttons/Button'
 import { Wrapper, Text } from './styles/subscribe_btn'
 import { onSubscribe, onCancleSubscribe } from './logic'
 
-const SubscribeButton = ({ community, subscribeLoading }) => {
+type TProps = {
+  community: TCommunity
+  subscribeLoading: boolean
+}
+
+const SubscribeButton: FC<TProps> = ({ community, subscribeLoading }) => {
   const { viewerHasSubscribed } = community
 
   if (community.raw === HCN) {

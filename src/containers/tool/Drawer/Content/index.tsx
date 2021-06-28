@@ -1,4 +1,4 @@
-import React from 'react'
+import { Fragment, memo } from 'react'
 
 import { useDevice } from '@/hooks'
 
@@ -9,10 +9,10 @@ const Content = (props) => {
   const { isMobile } = useDevice()
 
   return (
-    <React.Fragment>
+    <Fragment>
       {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-export default React.memo(Content)
+export default memo(Content)

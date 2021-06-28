@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { memo } from 'react'
 import T from 'prop-types'
 
 import {
@@ -106,4 +106,4 @@ Filter.defaultProps = {
   expandMenuId: null,
 }
 
-export default React.memo(Filter)
+export default memo(Filter)

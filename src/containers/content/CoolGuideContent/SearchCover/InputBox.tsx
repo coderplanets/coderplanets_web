@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import { FC, useRef, memo } from 'react'
 
 import {
   Wrapper,
@@ -54,4 +54,4 @@ const InputBox: FC<TProps> = ({
   )
 }
 
-export default React.memo(InputBox)
+export default memo(InputBox)

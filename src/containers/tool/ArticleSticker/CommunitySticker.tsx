@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, Fragment, memo } from 'react'
 
 import type { TViewing } from '@/spec'
 import { ICON_BASE } from '@/config'
@@ -18,7 +18,7 @@ type TProps = {
 
 const CommunitySticker: FC<TProps> = ({ show, data }) => {
   return (
-    <React.Fragment>
+    <Fragment>
       <ItemWrapper>
         <CommunityIcon src={`${ICON_BASE}/pl/javascript.svg`} />
         <CommunityTitle>Elixir</CommunityTitle>
@@ -27,8 +27,8 @@ const CommunitySticker: FC<TProps> = ({ show, data }) => {
         </Button>
       </ItemWrapper>
       <Divider />
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-export default React.memo(CommunitySticker)
+export default memo(CommunitySticker)

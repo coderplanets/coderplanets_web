@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TAccount, TUser, TComment } from '@/spec'
@@ -94,4 +94,4 @@ const CommentReplyEditor: FC<TProps> = ({
   )
 }
 
-export default React.memo(CommentReplyEditor)
+export default memo(CommentReplyEditor)

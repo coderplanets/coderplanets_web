@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TComment } from '@/spec'
 import { ICON } from '@/config'
@@ -26,4 +26,4 @@ const Upvote: FC<TProps> = ({ data }) => (
   </Wrapper>
 )
 
-export default React.memo(Upvote)
+export default memo(Upvote)

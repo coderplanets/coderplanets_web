@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 // import { Wrapper } from './styles'
@@ -32,4 +32,4 @@ const AddOn: FC<TProps> = ({ type, imageUploading = false }) => {
   )
 }
 
-export default React.memo(AddOn)
+export default memo(AddOn)

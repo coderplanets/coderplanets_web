@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TItem } from './spec'
 import { Wrapper, Item } from './styles/wait_list'
@@ -25,4 +25,4 @@ const WaitList: FC<TProps> = ({ items, activeId, setActiveId }) => {
   )
 }
 
-export default React.memo(WaitList)
+export default memo(WaitList)

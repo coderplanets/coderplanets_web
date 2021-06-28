@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TAccount } from '@/spec'
 import { buildLog } from '@/utils'
@@ -19,7 +19,7 @@ export type TProps = {
   topOffset?: string
   entry: {
     viewerHasViewed?: boolean
-    isPinned?: boolean
+    pin?: boolean
   }
 }
 const ArticleItemPrefixLabel: FC<TProps> = ({
@@ -27,11 +27,11 @@ const ArticleItemPrefixLabel: FC<TProps> = ({
   accountInfo,
   topOffset = '22px',
 }) => {
-  if (entry.isPinned) return <PinIcon top={topOffset} />
+  if (entry.pin) return <PinIcon top={topOffset} />
 
   return (
     <ReadLabel entry={entry} accountInfo={accountInfo} topOffset={topOffset} />
   )
 }
 
-export default React.memo(ArticleItemPrefixLabel)
+export default memo(ArticleItemPrefixLabel)

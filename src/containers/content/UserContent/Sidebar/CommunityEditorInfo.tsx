@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import type { TUser } from '@/spec'
 import CommunityList from '@/components/CommunityList'

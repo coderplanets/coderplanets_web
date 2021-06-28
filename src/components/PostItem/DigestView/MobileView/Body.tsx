@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TPost } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -30,4 +30,4 @@ const Body: FC<TProps> = ({ item, onPreview }) => {
   )
 }
 
-export default React.memo(Body)
+export default memo(Body)

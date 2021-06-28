@@ -17,7 +17,14 @@ import {
   merge,
 } from 'ramda'
 
-import type { TRootStore, TCommunity, TAccount, TUser, TThread } from '@/spec'
+import type {
+  TRootStore,
+  TCommunity,
+  TAccount,
+  TUser,
+  TThread,
+  TRoute,
+} from '@/spec'
 import { TYPE } from '@/constant'
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
 import { Comment, PagedComments, emptyPagiData, Mention } from '@/model'
@@ -85,7 +92,7 @@ const CommentsStore = T.model('CommentsStore', {
   loadingFresh: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get curRoute(): any {
+    get curRoute(): TRoute {
       const root = getParent(self) as TRootStore
       return root.curRoute
     },

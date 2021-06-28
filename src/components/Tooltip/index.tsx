@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode, useState, useRef } from 'react'
+import { FC, ReactNode, useState, useRef, memo } from 'react'
 
 import type { TTooltipPlacement, TTooltipAnimation } from '@/spec'
 import { css, buildLog, isDescendant } from '@/utils'
@@ -169,4 +169,4 @@ const Tooltip: FC<TProps> = ({
   )
 }
 
-export default React.memo(Tooltip)
+export default memo(Tooltip)

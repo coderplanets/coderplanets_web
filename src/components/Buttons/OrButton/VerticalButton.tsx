@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import type { TProps as TButtonProps } from './index'
 import { SIZE } from '@/constant'

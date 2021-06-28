@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { Br } from '@/components/Common'
 import { Wrapper, Title, Desc } from '../styles/invite_box/qa'

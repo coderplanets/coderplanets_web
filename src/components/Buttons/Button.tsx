@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react'
+import { FC, ReactNode, useEffect, useState, memo } from 'react'
 
 import type { TSIZE_TSM } from '@/spec'
 import { SIZE } from '@/constant'
@@ -105,8 +105,8 @@ const Button: FC<TProps> = ({
         >
           <LoadingMask width={`${loadingWidth}%`} />
           <ChildrenWrapper size={size}>
-            <RealChildren loading={loading}>{children}</RealChildren>
-            <LoadingText loading={loading}>{loadingText}</LoadingText>
+            <RealChildren $loading={loading}>{children}</RealChildren>
+            <LoadingText $loading={loading}>{loadingText}</LoadingText>
           </ChildrenWrapper>
         </Wrapper>
       )
@@ -114,4 +114,4 @@ const Button: FC<TProps> = ({
   }
 }
 
-export default React.memo(Button)
+export default memo(Button)

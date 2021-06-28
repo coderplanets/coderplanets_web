@@ -6,7 +6,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, Fragment } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -46,7 +46,7 @@ const ArticleStickerContainer: FC<TProps> = ({
   } = store
 
   return (
-    <React.Fragment>
+    <Fragment>
       <LeftSticker
         show={showLeftSticker}
         title={viewingData.title}
@@ -70,7 +70,7 @@ const ArticleStickerContainer: FC<TProps> = ({
           </InnerWrapper>
         </Wrapper>
       </Sticky>
-    </React.Fragment>
+    </Fragment>
   )
 }
 

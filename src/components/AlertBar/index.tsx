@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -21,4 +21,4 @@ const AlertBar: FC<TProps> = ({ children }) => {
   return <Wrapper testid="alertBar">{children}</Wrapper>
 }
 
-export default React.memo(AlertBar)
+export default memo(AlertBar)

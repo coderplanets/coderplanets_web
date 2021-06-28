@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -55,4 +55,4 @@ const ArrowLink: FC<TProps> = ({
   )
 }
 
-export default React.memo(ArrowLink)
+export default memo(ArrowLink)

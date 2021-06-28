@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { memo, FC } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
@@ -22,13 +21,22 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:PublishButton:index')
 
-const PublishButton = ({
-  label,
-  labelIconSrc,
-  onPublish,
-  onVote,
-  onImport,
-  onFAQ,
+type TProps = {
+  label?: string
+  labelIconSrc?: string
+  onPublish?: () => void
+  onVote?: () => void
+  onImport?: () => void
+  onFAQ?: () => void
+}
+
+const PublishButton: FC<TProps> = ({
+  label = '发布帖子 ',
+  labelIconSrc = `${ICON_CMD}/publish_pen.svg`,
+  onPublish = log,
+  onVote = log,
+  onImport = log,
+  onFAQ = log,
 }) => {
   return (
     <Wrapper>
@@ -60,22 +68,4 @@ const PublishButton = ({
   )
 }
 
-PublishButton.propTypes = {
-  label: T.string,
-  labelIconSrc: T.string,
-  onPublish: T.func,
-  onVote: T.func,
-  onImport: T.func,
-  onFAQ: T.func,
-}
-
-PublishButton.defaultProps = {
-  label: '发布帖子 ',
-  labelIconSrc: `${ICON_CMD}/publish_pen.svg`,
-  onPublish: log,
-  onVote: log,
-  onImport: log,
-  onFAQ: log,
-}
-
-export default React.memo(PublishButton)
+export default memo(PublishButton)

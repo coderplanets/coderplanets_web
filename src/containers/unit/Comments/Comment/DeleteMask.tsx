@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { Button } from '@/components/Buttons'
 
@@ -31,4 +31,4 @@ const DeleteMask: FC<TProps> = ({ show }) => {
   )
 }
 
-export default React.memo(DeleteMask)
+export default memo(DeleteMask)

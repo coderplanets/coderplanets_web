@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useState, useRef } from 'react'
+import { FC, useState, useRef, memo } from 'react'
 import { findIndex } from 'ramda'
 
 import { ICON } from '@/config'
@@ -73,4 +73,4 @@ const PromotionList: FC<TProps> = ({
   )
 }
 
-export default React.memo(PromotionList)
+export default memo(PromotionList)

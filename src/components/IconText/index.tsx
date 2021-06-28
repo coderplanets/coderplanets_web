@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { buildLog, nilOrEmpty } from '@/utils'
@@ -38,4 +38,4 @@ const IconText: FC<TProps> = ({
   </Wrapper>
 )
 
-export default React.memo(IconText)
+export default memo(IconText)

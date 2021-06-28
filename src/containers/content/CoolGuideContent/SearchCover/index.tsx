@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { Br } from '@/components/Common'
 
@@ -26,4 +26,4 @@ const SearchCover: FC<TProps> = ({ testid = 'search-cover' }) => {
   )
 }
 
-export default React.memo(SearchCover)
+export default memo(SearchCover)

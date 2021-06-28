@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useRef, useState, useCallback } from 'react'
+import { FC, useRef, useState, useCallback, memo } from 'react'
 
 import type { TSIZE_SM, TTabItem } from '@/spec'
 import { buildLog, isString } from '@/utils'
@@ -82,4 +82,4 @@ const Tabs: FC<TProps> = ({
   )
 }
 
-export default React.memo(Tabs)
+export default memo(Tabs)

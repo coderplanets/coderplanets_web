@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode, useEffect } from 'react'
+import { FC, ReactNode, useEffect, memo } from 'react'
 import usePortal from 'react-useportal'
 
 import { ICON_CMD } from '@/config'
@@ -74,4 +74,4 @@ const Modal: FC<TProps> = ({
   )
 }
 
-export default React.memo(Modal)
+export default memo(Modal)

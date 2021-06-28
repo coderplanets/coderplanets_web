@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { ICON } from '@/config'
 import { SpaceGrow } from '@/components/Common'

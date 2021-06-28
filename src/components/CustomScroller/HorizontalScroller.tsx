@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useState, useRef, useCallback } from 'react'
+import { FC, useState, useRef, useCallback, memo } from 'react'
 import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
 import type { TThemeMap } from '@/spec'
@@ -105,4 +105,4 @@ const HorizontalScroller: FC<TProps> = ({
   )
 }
 
-export default React.memo(HorizontalScroller)
+export default memo(HorizontalScroller)

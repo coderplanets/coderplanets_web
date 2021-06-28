@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
@@ -28,7 +28,7 @@ const Addr = ({ title, desc }) => {
   )
 }
 
-const MakersInfo: React.FC = () => {
+const MakersInfo: FC = () => {
   return (
     <Wrapper>
       <Addr title="产品猎人" desc="优秀产品/服务的酷导航.." />
@@ -37,4 +37,4 @@ const MakersInfo: React.FC = () => {
   )
 }
 
-export default React.memo(MakersInfo)
+export default memo(MakersInfo)

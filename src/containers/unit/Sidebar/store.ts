@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, prop, trim, filter, contains } from 'ramda'
 
-import type { TRootStore, TCommunity, TAccount } from '@/spec'
+import type { TRootStore, TCommunity, TAccount, TRoute } from '@/spec'
 import { buildLog, markStates, stripMobx, sortByIndex, notEmpty } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -31,7 +31,7 @@ const SidebarStore = T.model('SidebarStore', {
   forceRerender: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get curRoute(): any {
+    get curRoute(): TRoute {
       const root = getParent(self) as TRootStore
       return root.curRoute
     },

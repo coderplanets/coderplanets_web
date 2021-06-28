@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import {
   Wrapper,
@@ -19,4 +19,4 @@ const TogglerButton: FC<TProps> = ({ text }) => (
   </Wrapper>
 )
 
-export default React.memo(TogglerButton)
+export default memo(TogglerButton)

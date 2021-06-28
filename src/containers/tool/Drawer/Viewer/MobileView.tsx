@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react'
+import { FC, ReactNode, useEffect, useState, memo } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
@@ -115,4 +115,4 @@ const Viewer: FC<TProps> = ({
   )
 }
 
-export default React.memo(Viewer)
+export default memo(Viewer)

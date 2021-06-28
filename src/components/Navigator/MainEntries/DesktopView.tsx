@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -78,4 +78,4 @@ const DesktopView: FC<TProps> = ({ type }) => {
   )
 }
 
-export default React.memo(DesktopView)
+export default memo(DesktopView)

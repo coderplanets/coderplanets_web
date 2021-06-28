@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { Fragment } from 'react'
 
 import { useDevice } from '@/hooks'
 
@@ -15,9 +15,9 @@ const ArticleDigest = (props) => {
   const { isMobile } = useDevice()
 
   return (
-    <React.Fragment key={String(isMobile)}>
+    <Fragment key={String(isMobile)}>
       {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
-    </React.Fragment>
+    </Fragment>
   )
 }
 

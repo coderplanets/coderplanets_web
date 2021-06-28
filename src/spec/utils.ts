@@ -10,8 +10,10 @@ export type TTestable = {
 
 export type TActive = {
   active?: boolean
+  $active?: boolean
   show?: boolean
   visible?: boolean
+  $visible?: boolean
 }
 
 export type TSpace = {

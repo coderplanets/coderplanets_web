@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { nilOrEmpty } from '@/utils'
@@ -84,4 +84,4 @@ const Header: FC<TProps> = ({
   )
 }
 
-export default React.memo(Header)
+export default memo(Header)

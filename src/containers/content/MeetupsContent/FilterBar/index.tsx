@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import type { TFiltersMenuItems } from '@/spec'
 import { ICON_CMD } from '@/config'

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TAccount, TUser } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -47,4 +47,4 @@ const ReplyEditorHeader: FC<TProps> = ({
   </Wrapper>
 )
 
-export default React.memo(ReplyEditorHeader)
+export default memo(ReplyEditorHeader)

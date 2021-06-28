@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { isNil } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 

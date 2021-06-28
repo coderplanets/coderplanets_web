@@ -3,16 +3,19 @@ import { useEffect } from 'react'
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, subPath2Thread, errRescue } from '@/utils'
 
+import type { TCommunity } from '@/spec'
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunityJoinBadge')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+/* @ts-ignore */
 const sr71$ = new SR71({ receive: [EVENT.COMMUNITY_CHANGE] })
 
 let sub$ = null
-let store = null
+let store: TStore | undefined
 
 const loadCommunity = () => {
   const userHasLogin = store.isLogin
@@ -23,24 +26,24 @@ const loadCommunity = () => {
   sr71$.query(S.community, { raw, userHasLogin })
 }
 
-export const onSubscribe = (community) => {
+export const onSubscribe = (community: TCommunity): void => {
   if (!store.isLogin) return store.authWarning()
-  if (store.subscribeLoading) return false
+  if (store.subscribeLoading) return
 
   // log('onSubscribe: ', community)
   store.mark({ subscribeLoading: true })
   sr71$.mutate(S.subscribeCommunity, { communityId: community.id })
 }
 
-export const onCancleSubscribe = (community) => {
+export const onCancleSubscribe = (community: TCommunity): void => {
   if (!store.isLogin) return store.authWarning()
-  if (store.subscribeLoading) return false
+  if (store.subscribeLoading) return
 
   store.mark({ subscribeLoading: true })
   sr71$.mutate(S.unsubscribeCommunity, { communityId: community.id })
 }
 
-const markLoading = (maybe = true) =>
+const markLoading = (maybe = true): void =>
   store.mark({ loading: maybe, subscribeLoading: maybe })
 
 // ###############################
@@ -103,7 +106,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')

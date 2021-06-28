@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 import { AnimateOnChange } from 'react-animation'
 
 import { buildLog } from '@/utils'
@@ -26,7 +26,7 @@ type TViewProps = {
   settingOptions: TSettingOption
 }
 
-const View: React.FC<TViewProps> = ({ view, sentence, settingOptions }) => {
+const View: FC<TViewProps> = ({ view, sentence, settingOptions }) => {
   const animate = {
     fade: {
       durationOut: 200,
@@ -72,4 +72,4 @@ const Body = (props) => {
   )
 }
 
-export default React.memo(Body)
+export default memo(Body)

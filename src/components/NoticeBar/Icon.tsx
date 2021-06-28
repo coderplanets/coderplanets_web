@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { LockIcon, NoticeIcon } from './styles/icon'
@@ -18,4 +18,4 @@ const Icon: FC<TProps> = ({ type = 'notice' }) => {
   }
 }
 
-export default React.memo(Icon)
+export default memo(Icon)

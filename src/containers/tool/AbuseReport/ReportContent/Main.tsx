@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, Fragment } from 'react'
 
 import { SpaceGrow } from '@/components/Common'
 import Checker from '@/components/Checker'
@@ -15,7 +15,7 @@ type TProps = {
 
 const Main: FC<TProps> = ({ items, activeItem }) => {
   return (
-    <React.Fragment>
+    <Fragment>
       {items &&
         items.map((item) => (
           <Option key={item.raw}>
@@ -26,7 +26,7 @@ const Main: FC<TProps> = ({ items, activeItem }) => {
             <SpaceGrow />
           </Option>
         ))}
-    </React.Fragment>
+    </Fragment>
   )
 }
 

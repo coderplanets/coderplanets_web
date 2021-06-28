@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { prettyNum } from '@/utils'
 import { Br } from '@/components/Common'

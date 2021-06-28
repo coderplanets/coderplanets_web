@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 
 import { Br } from '@/components/Common'
 import MarkDownRender from '@/components/MarkDownRender'
@@ -45,4 +45,4 @@ const MobileView = ({ data, tobeDeleteId, accountInfo }) => {
   )
 }
 
-export default React.memo(MobileView)
+export default memo(MobileView)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { Wrapper, Title, Desc, Divider } from './styles/brand'
 

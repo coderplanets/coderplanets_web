@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD, EMAIL_SUPPORT } from '@/config'
 import { joinUS } from '@/utils'
 
 import { Wrapper, Item, Icon } from './styles/social_list'
 
-const SocialList = () => (
+const SocialList: FC = () => (
   <Wrapper>
     <a href={`mailto:${EMAIL_SUPPORT}`}>
       <Item>
@@ -38,4 +38,4 @@ const SocialList = () => (
   </Wrapper>
 )
 
-export default React.memo(SocialList)
+export default memo(SocialList)

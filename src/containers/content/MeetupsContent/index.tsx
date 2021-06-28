@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { ASSETS_ENDPOINT } from '@/config'
 import { GALLERY } from '@/constant'

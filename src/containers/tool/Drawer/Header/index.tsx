@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { useSwipe } from '@/hooks'
 import { nilOrEmpty } from '@/utils'

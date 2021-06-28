@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { Wrapper, UpIcon, Number } from './styles/monthly_warning'
@@ -12,4 +12,4 @@ const MonthlyWarning: FC = () => {
   )
 }
 
-export default React.memo(MonthlyWarning)
+export default memo(MonthlyWarning)

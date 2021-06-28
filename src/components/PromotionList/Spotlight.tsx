@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TItem } from './spec'
 import {
@@ -26,4 +26,4 @@ const Spotlight: FC<TProps> = ({ item }) => (
   </Wrapper>
 )
 
-export default React.memo(Spotlight)
+export default memo(Spotlight)

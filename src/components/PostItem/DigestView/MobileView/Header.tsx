@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost, TAccount } from '@/spec'
@@ -44,4 +44,4 @@ const Header: FC<TProps> = ({ item, onAuthorSelect }) => {
   )
 }
 
-export default React.memo(Header)
+export default memo(Header)

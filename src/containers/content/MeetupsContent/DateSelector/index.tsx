@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import CalendarCard from './CalendarCard'
 import Cell from './Cell'
@@ -23,7 +23,7 @@ const fillItems = () => {
   }
 }
 
-const DateSelector: React.FC = () => {
+const DateSelector: FC = () => {
   fillItems()
   const items = dates
   const isLeapMonth = !!items[30]
@@ -48,4 +48,4 @@ const DateSelector: React.FC = () => {
   )
 }
 
-export default React.memo(DateSelector)
+export default memo(DateSelector)

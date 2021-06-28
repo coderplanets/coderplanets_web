@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import Link from 'next/link'
 
 import type { TPost, TUser } from '@/spec'

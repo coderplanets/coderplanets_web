@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, memo } from 'react'
 import { findIndex, propEq } from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@/utils'
@@ -92,4 +92,4 @@ const IconSwitcher: FC<TProps> = ({ items, activeKey, onChange }) => {
   )
 }
 
-export default React.memo(IconSwitcher)
+export default memo(IconSwitcher)

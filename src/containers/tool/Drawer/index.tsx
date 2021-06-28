@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 import { useShortcut, useResize } from '@/hooks'

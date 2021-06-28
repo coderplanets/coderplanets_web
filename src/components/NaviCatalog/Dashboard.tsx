@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import { last } from 'ramda'
 
 import { ICON } from '@/config'
@@ -90,4 +90,4 @@ const Dashboard: FC<TProps> = ({ viewPath, goCatalog }) => {
   )
 }
 
-export default React.memo(Dashboard)
+export default memo(Dashboard)

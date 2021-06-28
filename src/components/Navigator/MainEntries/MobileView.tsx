@@ -1,5 +1,4 @@
-import React from 'react'
-// import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { TYPE, EVENT } from '@/constant'
@@ -16,7 +15,7 @@ export const openMobileNaviMenu = (): void => {
   })
 }
 
-const MainEntries: React.FC = () => {
+const MainEntries: FC = () => {
   return (
     <Wrapper type="todo" onClick={openMobileNaviMenu}>
       <SiteLink as="span" testid="header-mobile">
@@ -26,4 +25,4 @@ const MainEntries: React.FC = () => {
   )
 }
 
-export default React.memo(MainEntries)
+export default memo(MainEntries)

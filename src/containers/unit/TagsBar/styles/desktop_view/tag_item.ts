@@ -7,20 +7,20 @@ import { theme, css } from '@/utils'
 
 import { TagsWrapper } from './index'
 
-type TTag = TActive & { inline: boolean }
+type TTag = TActive & { $inline: boolean }
 
 export const Wrapper = styled.div<TTag>`
   ${css.flex('align-center')};
-  margin-bottom: ${({ inline }) => (!inline ? '3px' : 0)};
-  padding: ${({ inline }) => (!inline ? '5px' : 0)};
+  margin-bottom: ${({ $inline }) => (!$inline ? '3px' : 0)};
+  padding: ${({ $inline }) => (!$inline ? '5px' : 0)};
   max-width: 180px;
   border-radius: 5px;
 
-  background: ${({ active, inline }) =>
-    !active || inline ? 'transparent' : '#0e303d'};
+  background: ${({ $active, $inline }) =>
+    !$active || $inline ? 'transparent' : '#0e303d'};
 
   &:hover {
-    background: ${({ inline }) => (!inline ? '#0e303d' : 'none')};
+    background: ${({ $inline }) => (!$inline ? '#0e303d' : 'none')};
   }
 `
 export const AllTagIcon = styled(Img)`
@@ -29,30 +29,30 @@ export const AllTagIcon = styled(Img)`
   ${css.size(14)};
   transform: rotate(17deg);
 `
-const getActiveColor = (active, color, activeid) => {
-  if (activeid !== null) return active ? color : '#497684'
+const getActiveColor = ($active, color, activeid) => {
+  if (activeid !== null) return $active ? color : '#497684'
 
-  return !active ? color : '#497684'
+  return !$active ? color : '#497684'
 }
 
-type THashSign = TActive & { color: string; activeid: string; inline: boolean }
+type THashSign = TActive & { color: string; activeid: string; $inline: boolean }
 export const HashSign = styled(HashTagSVG)<THashSign>`
-  fill: ${({ active, color, activeid }) =>
-    getActiveColor(active, color, activeid)};
+  fill: ${({ $active, color, activeid }) =>
+    getActiveColor($active, color, activeid)};
   ${css.size(14)};
-  margin-right: ${({ inline }) => (!inline ? '12px' : '3px')};
+  margin-right: ${({ $inline }) => (!$inline ? '12px' : '3px')};
   opacity: ${theme('tags.dotOpacity')};
 
   transform: rotate(18deg);
 `
 export const TagTitle = styled.div<TTag>`
   color: ${theme('tags.text')};
-  font-size: ${({ inline }) => (!inline ? '14.5px' : '13px')};
+  font-size: ${({ $inline }) => (!$inline ? '14.5px' : '13px')};
   opacity: 0.9;
   letter-spacing: 2px;
-  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
-  opacity: ${({ active }) => (active ? 1 : 0.9)};
-  ${({ inline }) => (!inline ? css.cutRest('120px') : css.cutRest('50px'))};
+  font-weight: ${({ $active }) => ($active ? 'bold' : 'normal')};
+  opacity: ${({ $active }) => ($active ? 1 : 0.9)};
+  ${({ $inline }) => (!$inline ? css.cutRest('120px') : css.cutRest('50px'))};
 
   &:hover {
     cursor: pointer;

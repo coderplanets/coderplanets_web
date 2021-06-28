@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 import Masonry from 'react-masonry-css'
 
 import { buildLog } from '@/utils'
@@ -38,4 +38,4 @@ const MasonryCards: FC<TProps> = ({
   )
 }
 
-export default React.memo(MasonryCards)
+export default memo(MasonryCards)

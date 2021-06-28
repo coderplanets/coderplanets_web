@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { cutRest } from '@/utils'
@@ -60,4 +60,4 @@ const ActivityCard: FC<TProps> = ({ item }) => {
   )
 }
 
-export default React.memo(ActivityCard)
+export default memo(ActivityCard)

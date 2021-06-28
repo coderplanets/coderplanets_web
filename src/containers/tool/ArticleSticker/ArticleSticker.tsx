@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TArticle } from '@/spec'
 import { ICON } from '@/config'
@@ -43,4 +43,4 @@ const ArticleSticker: FC<TProps> = ({ show, viewing }) => {
   )
 }
 
-export default React.memo(ArticleSticker)
+export default memo(ArticleSticker)

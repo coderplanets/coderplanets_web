@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
@@ -77,4 +77,4 @@ const ErrorPage: FC<TProps> = ({
     </Wrapper>
   )
 }
-export default React.memo(ErrorPage)
+export default memo(ErrorPage)

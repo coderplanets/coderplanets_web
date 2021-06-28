@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TPost, TUser, TAccount } from '@/spec'
 import { HCN, C11N } from '@/constant'
@@ -76,4 +76,4 @@ const PostItem: FC<TProps> = ({
   )
 }
 
-export default React.memo(PostItem)
+export default memo(PostItem)

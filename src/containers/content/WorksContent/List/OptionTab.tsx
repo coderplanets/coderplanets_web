@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { Wrapper, ItemWrapper, Text } from '../styles/list/option_tab'
 
@@ -22,4 +22,4 @@ const BestTab: FC<TProps> = ({ items, activeKey }) => {
   )
 }
 
-export default React.memo(BestTab)
+export default memo(BestTab)

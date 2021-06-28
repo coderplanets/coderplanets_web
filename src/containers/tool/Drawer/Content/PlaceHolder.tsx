@@ -1,10 +1,10 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { ICON_CMD } from '@/config'
 
 // import { ICON_CMD } from '../../config'
 import { Wrapper, SiteLogo, Desc } from '../styles/content/place_holder'
 
-const PlaceHolder: React.FC = () => {
+const PlaceHolder: FC = () => {
   return (
     <Wrapper>
       <SiteLogo src={`${ICON_CMD}/barcelona.png`} />
@@ -13,4 +13,4 @@ const PlaceHolder: React.FC = () => {
   )
 }
 
-export default React.memo(PlaceHolder)
+export default memo(PlaceHolder)

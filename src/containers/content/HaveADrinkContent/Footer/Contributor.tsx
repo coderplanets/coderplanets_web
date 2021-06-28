@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -20,7 +20,7 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const IndexStatus: React.FC = () => {
+const IndexStatus: FC = () => {
   return (
     <Wrapper>
       <Text>共收录</Text>
@@ -31,4 +31,4 @@ const IndexStatus: React.FC = () => {
   )
 }
 
-export default React.memo(IndexStatus)
+export default memo(IndexStatus)

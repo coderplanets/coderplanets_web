@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, Fragment, memo } from 'react'
 
 import { getRandomInt } from '@/utils'
 import { Wrapper, Row, Dice } from './styles/work'
@@ -9,16 +9,16 @@ const rollTheDice = () => {
   switch (num) {
     case 1: {
       return (
-        <React.Fragment>
+        <Fragment>
           <div />
           <Dice />
           <div />
-        </React.Fragment>
+        </Fragment>
       )
     }
     case 2: {
       return (
-        <React.Fragment>
+        <Fragment>
           <Row>
             <Dice />
             <div />
@@ -27,13 +27,13 @@ const rollTheDice = () => {
             <div />
             <Dice />
           </Row>
-        </React.Fragment>
+        </Fragment>
       )
     }
 
     case 3: {
       return (
-        <React.Fragment>
+        <Fragment>
           <Row>
             <Dice />
             <div />
@@ -49,13 +49,13 @@ const rollTheDice = () => {
             <div />
             <Dice />
           </Row>
-        </React.Fragment>
+        </Fragment>
       )
     }
 
     case 4: {
       return (
-        <React.Fragment>
+        <Fragment>
           <Row>
             <Dice />
             <div />
@@ -67,13 +67,13 @@ const rollTheDice = () => {
             <div />
             <Dice />
           </Row>
-        </React.Fragment>
+        </Fragment>
       )
     }
 
     case 5: {
       return (
-        <React.Fragment>
+        <Fragment>
           <Row>
             <Dice />
             <div />
@@ -89,13 +89,13 @@ const rollTheDice = () => {
             <div />
             <Dice />
           </Row>
-        </React.Fragment>
+        </Fragment>
       )
     }
 
     case 6: {
       return (
-        <React.Fragment>
+        <Fragment>
           <Row>
             <Dice />
             <div />
@@ -111,7 +111,7 @@ const rollTheDice = () => {
             <div />
             <Dice />
           </Row>
-        </React.Fragment>
+        </Fragment>
       )
     }
 
@@ -135,4 +135,4 @@ const Work: FC<TProps> = ({ testid = 'image-fallbak-work' }) => {
   return <Wrapper testid={testid}>{rollTheDice()}</Wrapper>
 }
 
-export default React.memo(Work)
+export default memo(Work)

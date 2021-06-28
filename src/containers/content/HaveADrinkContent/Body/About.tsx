@@ -4,11 +4,11 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { Wrapper, Title, Body } from '../styles/body/about'
 
-const About: React.FC = () => {
+const About: FC = () => {
   return (
     <Wrapper>
       <Title>关于『来一杯』</Title>
@@ -22,4 +22,4 @@ const About: React.FC = () => {
   )
 }
 
-export default React.memo(About)
+export default memo(About)

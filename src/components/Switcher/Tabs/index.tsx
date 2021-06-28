@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { memo } from 'react'
 
 import { VIEW } from '@/constant'
 import { useDevice } from '@/hooks'
@@ -51,4 +50,4 @@ const Tabs = (props) => {
   }
 }
 
-export default React.memo(Tabs)
+export default memo(Tabs)

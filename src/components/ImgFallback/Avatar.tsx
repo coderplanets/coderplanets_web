@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -46,4 +46,4 @@ const Avatar: FC<TProps> = ({
   )
 }
 
-export default React.memo(Avatar)
+export default memo(Avatar)

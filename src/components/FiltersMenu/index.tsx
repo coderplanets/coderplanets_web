@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useState, useCallback } from 'react'
+import { FC, useState, useCallback, memo } from 'react'
 import { merge, equals } from 'ramda'
 
 import type { TFiltersMenuItems } from '@/spec'
@@ -119,4 +119,4 @@ const FiltersMenu: FC<TProps> = ({
   )
 }
 
-export default React.memo(FiltersMenu)
+export default memo(FiltersMenu)

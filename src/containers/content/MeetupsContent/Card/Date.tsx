@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TProps as TParentProps } from './index'
 import { Wrapper, Divider, WeekName, DateNum } from '../styles/card/date'
@@ -15,4 +15,4 @@ const Date: FC<TProps> = ({ type }) => {
   )
 }
 
-export default React.memo(Date)
+export default memo(Date)

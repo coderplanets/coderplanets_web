@@ -22,38 +22,38 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - name: (Backend) checkout codebase
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          repository: 'coderplanets/coderplanets_server'
-          path: 'backend_server'
-      - name: (Backend) Setup Elixir and OTP
-        uses: erlef/setup-elixir@v1
-        with:
-          elixir-version: '1.10.3' # Define the elixir version [required]
-          otp-version: '22.3' # Define the OTP version [required]
-      - name: (Backend) Restore dependencies cache
-        uses: actions/cache@v2
-        with:
-          path: deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: ${{ runner.os }}-mix-
-      - name: (Backend) Install Packages
-        working-directory: ./backend_server
-        run: mix deps.get > /dev/null
-      - name: (Backend) run migration
-        working-directory: ./backend_server
-        run: MIX_ENV=ci MIX_ENV=ci mix ecto.migrate > /dev/null
-      - name: (Backend) set up test DB
-        working-directory: ./backend_server
-        run: MIX_ENV=ci mix ecto.setup > /dev/null
-      - name: (Backend) seed data into DB
-        working-directory: ./backend_server
-        run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
-      - name: (Backend) Run Server
-        working-directory: ./backend_server
-        run: MIX_ENV=ci mix phx.server &
+      # - name: (Backend) checkout codebase
+      #   uses: actions/checkout@v2
+      #   with:
+      #     fetch-depth: 0
+      #     repository: 'coderplanets/coderplanets_server'
+      #     path: 'backend_server'
+      # - name: (Backend) Setup Elixir and OTP
+      #   uses: erlef/setup-elixir@v1
+      #   with:
+      #     elixir-version: '1.10.3' # Define the elixir version [required]
+      #     otp-version: '22.3' # Define the OTP version [required]
+      # - name: (Backend) Restore dependencies cache
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: deps
+      #     key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+      #     restore-keys: ${{ runner.os }}-mix-
+      # - name: (Backend) Install Packages
+      #   working-directory: ./backend_server
+      #   run: mix deps.get > /dev/null
+      # - name: (Backend) run migration
+      #   working-directory: ./backend_server
+      #   run: MIX_ENV=ci MIX_ENV=ci mix ecto.migrate > /dev/null
+      # - name: (Backend) set up test DB
+      #   working-directory: ./backend_server
+      #   run: MIX_ENV=ci mix ecto.setup > /dev/null
+      # - name: (Backend) seed data into DB
+      #   working-directory: ./backend_server
+      #   run: MIX_ENV=ci mix run priv/mock/cps_seeds.exs > /dev/null
+      # - name: (Backend) Run Server
+      #   working-directory: ./backend_server
+      #   run: MIX_ENV=ci mix phx.server &
 
       - name: (Frontend) checkout codebase
         uses: actions/checkout@v2

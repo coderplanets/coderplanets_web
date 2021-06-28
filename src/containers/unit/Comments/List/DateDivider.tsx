@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { Wrapper, SlashSign, DateText } from '../styles/list/date_divider'
 
@@ -12,4 +12,4 @@ const DateDivider: FC<TProps> = ({ text }) => (
   </Wrapper>
 )
 
-export default React.memo(DateDivider)
+export default memo(DateDivider)

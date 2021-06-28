@@ -2,7 +2,7 @@
  * TabBar
  */
 
-import React from 'react'
+import { memo } from 'react'
 
 import { VIEW } from '@/constant'
 import { useDevice } from '@/hooks'
@@ -33,4 +33,4 @@ const TabBar = (props) => {
   }
 }
 
-export default React.memo(TabBar)
+export default memo(TabBar)

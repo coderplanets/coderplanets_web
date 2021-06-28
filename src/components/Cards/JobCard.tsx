@@ -2,7 +2,7 @@
  * cards for job MasonryCards view
  */
 
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import { ICON } from '@/config'
@@ -120,4 +120,4 @@ const JobCard: FC<TProps> = ({
   )
 }
 
-export default React.memo(JobCard)
+export default memo(JobCard)

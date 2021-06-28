@@ -1,4 +1,4 @@
-import * as CONFIG from './config.json'
+import CONFIG from './config.json'
 
 const { ICON_CMD } = CONFIG
 

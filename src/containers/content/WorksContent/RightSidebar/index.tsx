@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 
@@ -75,4 +75,4 @@ const RightSidebar: FC<TProps> = ({
   )
 }
 
-export default React.memo(RightSidebar)
+export default memo(RightSidebar)
