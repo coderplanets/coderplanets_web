@@ -9,6 +9,7 @@ export const COMMUNITY_SPEC_THREADS = {
 export const THREAD = {
   ...COMMUNITY_SPEC_THREADS,
   POST: 'post',
+  BLOG: 'blog',
   // home spec
   TECH: 'tech',
   SHARE: 'share',

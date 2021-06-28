@@ -6,6 +6,7 @@ const ROUTE = {
   DISCOVERY: 'discovery',
   CHEATSHEETS: 'cheatsheets',
   POSTS: 'posts',
+  BLOGS: 'blogs',
   JOBS: 'jobs',
   USERS: 'users',
   REPOS: 'repos',
@@ -16,6 +17,7 @@ const ROUTE = {
   CHEATSHEET: 'cheatsheet',
 
   POST: 'post',
+  BLOG: 'blog',
   USER: 'user',
   JOB: 'job',
   REPO: 'repo',

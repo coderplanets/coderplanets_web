@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 
 import { ROUTE, C11N } from '@/constant'
 import { useDevice } from '@/hooks'
@@ -17,6 +17,7 @@ import JobsThread from '@/containers/thread/JobsThread'
 import UsersThread from '@/containers/thread/UsersThread'
 import CheatsheetThread from '@/containers/thread/CheatsheetThread'
 
+import type { TStore } from './store'
 import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'
 
@@ -46,7 +47,11 @@ const ComunityContent = ({ curRoute }) => {
   }
 }
 
-const CommunityContentContainer = ({ communityContent: store }) => {
+type TProps = {
+  communityContent?: TStore
+}
+
+const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   useInit(store)
   const { isMobile } = useDevice()
 
@@ -68,4 +73,4 @@ const CommunityContentContainer = ({ communityContent: store }) => {
   )
 }
 
-export default pluggedIn(CommunityContentContainer)
+export default pluggedIn(CommunityContentContainer) as FC<TProps>

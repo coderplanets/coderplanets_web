@@ -124,6 +124,11 @@ router.route('/:community/help-center').get((req, res) => {
   return renderAndCache({ req, res, path: '/help-center' })
 })
 
+// NOTE:  TMP: 博客
+router.route('/:community/blogs').get((req, res) => {
+  return renderAndCache({ req, res, path: '/home/blogs' })
+})
+
 // 社区主页
 router.route('/:community/:thread').get((req, res) => {
   if (
