@@ -5,9 +5,8 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
-  width: 100%;
-`
+}))<TTestable>``
+
 export const BaseBanner = styled.nav`
   ${css.flexColumn('justify-center', 'align-center')};
   position: relative;

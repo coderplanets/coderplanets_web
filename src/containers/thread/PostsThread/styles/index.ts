@@ -16,6 +16,7 @@ export const LeftPart = styled.div`
   padding-top: 15px;
   padding-left: 25px;
   padding-right: 24px;
+  margin-right: 42px;
 `
 export const RightPart = styled.div`
   min-width: 200px;

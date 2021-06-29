@@ -7,10 +7,6 @@ import { SIZE } from '@/constant'
 import { Wrapper, SocialWrapper, Icon } from './styles/social_list'
 
 const defaultItems = [
-  {
-    iconSrc: `${ICON_CMD}/navi/readme.svg`,
-    title: '项目介绍',
-  },
   // {
   //   iconSrc: `${ICON_CMD}/navi/location.svg`,
   //   title: '成都',

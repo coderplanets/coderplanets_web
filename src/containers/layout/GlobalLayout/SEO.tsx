@@ -4,13 +4,17 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC } from 'react'
 import { NextSeo, BlogJsonLd, SocialProfileJsonLd } from 'next-seo'
 
 import { METRIC } from '@/constant'
 
-const SEO = (metric, config) => {
+type TProps = {
+  metric: string
+  config: any
+}
+
+const SEO: FC<TProps> = ({ metric, config }) => {
   switch (metric) {
     case METRIC.ARTICLE: {
       return (
@@ -57,11 +61,6 @@ const SEO = (metric, config) => {
       )
     }
   }
-}
-
-SEO.propTypes = {
-  metric: T.string.isRequired,
-  config: T.object.isRequired, // TODO:
 }
 
 export default SEO

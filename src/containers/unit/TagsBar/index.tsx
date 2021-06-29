@@ -11,7 +11,6 @@ import type { TTag, TThread } from '@/spec'
 import type { TStore } from './store'
 
 import DesktopView from './DesktopView/index'
-import CardView from './CardView'
 
 export type TProps = {
   view?: string
@@ -30,9 +29,9 @@ const TagsBar: FC<TProps> = (props) => {
       return <DesktopView {...props} />
     }
 
-    case VIEW.COMMUNITY_CARD: {
-      return <CardView {...props} />
-    }
+    // case VIEW.COMMUNITY_CARD: {
+    //   return <DesktopView {...props} />
+    // }
 
     default: {
       return <DesktopView {...props} />

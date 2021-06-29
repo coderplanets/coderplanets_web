@@ -28,10 +28,10 @@ export const SocialWrapper = styled.div`
 export const Icon = styled(Img)<{ size: string }>`
   fill: ${theme('banner.desc')};
   border-radius: 50%;
-  width: ${({ size }) => (size === 'small' ? '14px;' : '17px')};
-  height: ${({ size }) => (size === 'small' ? '14px;' : '17px')};
+  width: ${({ size }) => (size === 'small' ? '13px;' : '17px')};
+  height: ${({ size }) => (size === 'small' ? '13px;' : '17px')};
   padding: 0;
-  margin-right: ${({ size }) => (size === 'small' ? '4px;' : '10px')};
+  margin-right: ${({ size }) => (size === 'small' ? '2px' : '10px')};
   display: block;
 
   ${SocialWrapper}:hover & {

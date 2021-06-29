@@ -9,7 +9,6 @@ import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import DigestView from './DigestView/index'
-import BriefView from './BriefView'
 
 import { Wrapper } from './styles'
 import { useInit } from './logic'
@@ -31,23 +30,14 @@ const CommunityDigestContainer = ({ communityDigest: store, metric }) => {
 
   return (
     <Wrapper testid="community-digest">
-      {bannerLayout === C11N.BRIEF ? (
-        <BriefView
-          metric={metric}
-          community={community}
-          activeThread={activeThread}
-          layout={bannerLayout}
-        />
-      ) : (
-        <DigestView
-          metric={metric}
-          community={community}
-          activeThread={activeThread}
-          layout={bannerLayout}
-          descExpand={descExpand}
-          isHeaderFixed={isHeaderFixed}
-        />
-      )}
+      <DigestView
+        metric={metric}
+        community={community}
+        activeThread={activeThread}
+        layout={bannerLayout}
+        descExpand={descExpand}
+        isHeaderFixed={isHeaderFixed}
+      />
     </Wrapper>
   )
 }

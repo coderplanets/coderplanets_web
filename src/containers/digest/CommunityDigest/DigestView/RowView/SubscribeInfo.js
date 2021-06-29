@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { FollowButton } from '@/components/Buttons'
 
 import {
   Wrapper,
@@ -18,16 +17,8 @@ const SubscribeInfo = () => {
       <Item>
         <StateItem>
           <Icon src={`${ICON}/user/account-solid.svg`} />
-          <Desc>2237 人关注</Desc>
+          <Desc>223 人</Desc>
         </StateItem>
-        <FollowButton
-          hasFollowed
-          userId="todo"
-          onFollow={console.log}
-          onUndoFollow={console.log}
-          size="tiny"
-          noBorderWhenFollowed
-        />
       </Item>
       <Item>
         <StateItem>
