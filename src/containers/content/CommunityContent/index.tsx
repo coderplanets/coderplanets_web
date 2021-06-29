@@ -16,7 +16,6 @@ import ReposThread from '@/containers/thread/ReposThread'
 import WikiThread from '@/containers/thread/WikiThread'
 import JobsThread from '@/containers/thread/JobsThread'
 import UsersThread from '@/containers/thread/UsersThread'
-import CheatsheetThread from '@/containers/thread/CheatsheetThread'
 
 import type { TStore } from './store'
 import { Wrapper, InnerWrapper } from './styles'
@@ -42,9 +41,6 @@ const ComunityContent = ({ curRoute }) => {
 
     case ROUTE.WIKI:
       return <WikiThread />
-
-    case ROUTE.CHEATSHEET:
-      return <CheatsheetThread />
 
     default:
       return <PostsThread />

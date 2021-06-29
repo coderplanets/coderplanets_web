@@ -2,10 +2,9 @@
    those are the default cmd
    theme --
    user --
-   cheatsheet -- TODO
    login --
  */
-import { ICON_CMD, ICON_BASE } from '@/config'
+import { ICON_CMD } from '@/config'
 import { themeMeta } from '@/utils'
 
 const cmds = {
@@ -22,28 +21,6 @@ const cmds = {
     desc: 'user desc..',
     raw: 'user',
     logo: `${ICON_CMD}/users.svg`,
-  },
-  cheatsheet: {
-    title: 'cheatsheet',
-    desc: 'Cheatsheet desc',
-    raw: 'cheatsheet',
-    logo: `${ICON_CMD}/cheatsheet.svg`,
-    threads: {
-      react: {
-        title: 'javascript',
-        desc: 'javascript cheatsheet',
-        raw: 'javascript',
-        logo: `${ICON_BASE}/pl/javascript.svg`,
-        threads: {
-          react2: {
-            title: 'javascript2',
-            desc: 'javascript2 cheatsheet',
-            raw: 'javascript2',
-            logo: `${ICON_BASE}/pl/javascript.svg`,
-          },
-        },
-      },
-    },
   },
   login: {
     title: 'login',

@@ -39,7 +39,6 @@ import {
   WikiThreadStore,
   JobsThreadStore,
   UsersThreadStore,
-  CheatsheetThreadStore,
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
@@ -179,7 +178,6 @@ const rootStore = T.model({
   wikiThread: T.optional(WikiThreadStore, {}),
   jobsThread: T.optional(JobsThreadStore, {}),
   usersThread: T.optional(UsersThreadStore, {}),
-  cheatsheetThread: T.optional(CheatsheetThreadStore, {}),
 
   tagsBar: T.optional(TagsBarStore, {}),
   userLister: T.optional(UserListerStore, {}),

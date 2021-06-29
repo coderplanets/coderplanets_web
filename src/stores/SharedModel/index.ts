@@ -19,7 +19,6 @@ export { FavoriteCategory, PagedFavoriteCategories } from './FavoriteCategory'
 
 export { GithubUser } from './GithubUser'
 export { default as Wiki } from './Wiki'
-export { default as Cheatsheet } from './Cheatsheet'
 
 export {
   EmptyUser,

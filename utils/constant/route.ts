@@ -4,14 +4,12 @@ const ROUTE = {
   // this page is not exist on url, but serves default community page
   COMMUNITY: 'community',
   DISCOVERY: 'discovery',
-  CHEATSHEETS: 'cheatsheets',
   POSTS: 'posts',
   BLOGS: 'blogs',
   JOBS: 'jobs',
   USERS: 'users',
   REPOS: 'repos',
   WIKI: 'wiki',
-  CHEATSHEET: 'cheatsheet',
 
   POST: 'post',
   BLOG: 'blog',

@@ -5,7 +5,6 @@ import { user, sessionState } from './user'
 import { community, subscribedCommunities, pagedCommunities } from './community'
 import { pagedComments } from './comment'
 import { pagedCategories, partialTags } from './misc'
-import cheatsheet from './cheatsheet'
 import wiki from './wiki'
 import { mentions } from './mail'
 
@@ -40,8 +39,6 @@ const P = {
   // user
   user,
   sessionState,
-  // cheatsheet
-  cheatsheet,
   // wiki
   wiki,
   // action

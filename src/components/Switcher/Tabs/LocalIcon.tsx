@@ -5,7 +5,6 @@ import {
   TabUserIcon,
   TabJobIcon,
   TabRepoIcon,
-  TabCheatsheetIcon,
   // user
   TabLikesIcon,
   TabPublishIcon,
@@ -41,11 +40,6 @@ const TabIcon: FC<TProps> = ({ raw, active, small }) => {
     case 'repo': {
       /* @ts-ignore */
       return <TabRepoIcon $active={active} $small={small} />
-    }
-
-    case 'cheatsheet': {
-      /* @ts-ignore */
-      return <TabCheatsheetIcon $active={active} $small={small} />
     }
 
     case 'favorites': {

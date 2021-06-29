@@ -349,20 +349,6 @@ const initSpecCmdResolver = () => {
       },
     },
     {
-      match: SAK.stepOneCmd('cheatsheet'),
-      action: () => {
-        log('SAK.stepOneCmd cheatsheet')
-        Router.push(
-          {
-            pathname: '/',
-            query: { main: 'cheatsheet' },
-          },
-          '/cheatsheet',
-        )
-        hidePanel()
-      },
-    },
-    {
       match: SAK.stepOneCmd('discovery'),
       action: () => {
         log('SAK.stepOneCmd discovery')

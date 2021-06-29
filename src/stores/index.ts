@@ -57,7 +57,6 @@ export { default as ReposThreadStore } from '@/containers/thread/ReposThread/sto
 export { default as WikiThreadStore } from '@/containers/thread/WikiThread/store'
 export { default as JobsThreadStore } from '@/containers/thread/JobsThread/store'
 export { default as UsersThreadStore } from '@/containers/thread/UsersThread/store'
-export { default as CheatsheetThreadStore } from '@/containers/thread/CheatsheetThread/store'
 export { default as RoadmapThreadStore } from '@/containers/thread/RoadmapThread/store'
 
 export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
