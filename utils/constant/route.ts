@@ -9,7 +9,6 @@ const ROUTE = {
   JOBS: 'jobs',
   USERS: 'users',
   REPOS: 'repos',
-  WIKI: 'wiki',
 
   POST: 'post',
   BLOG: 'blog',

@@ -37,9 +37,6 @@ export const ssrPagedSchema = (thread) => {
     case THREAD.REPO:
       return P.pagedRepos
 
-    case THREAD.WIKI:
-      return P.wiki
-
     default:
       return P.pagedPosts
   }
@@ -90,14 +87,6 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           curView: getCurView(resp.pagedRepos),
           activeTag,
           filters,
-        },
-      }
-
-    case THREAD.WIKI:
-      return {
-        wikiThread: {
-          wiki: resp.wiki,
-          curView: isEmpty(resp.wiki.readme) ? TYPE.NOT_FOUND : TYPE.RESULT,
         },
       }
 

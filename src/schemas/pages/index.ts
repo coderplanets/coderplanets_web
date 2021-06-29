@@ -5,7 +5,6 @@ import { user, sessionState } from './user'
 import { community, subscribedCommunities, pagedCommunities } from './community'
 import { pagedComments } from './comment'
 import { pagedCategories, partialTags } from './misc'
-import wiki from './wiki'
 import { mentions } from './mail'
 
 import {
@@ -39,8 +38,6 @@ const P = {
   // user
   user,
   sessionState,
-  // wiki
-  wiki,
   // action
   // mentions
   mentions,

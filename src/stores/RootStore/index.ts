@@ -36,7 +36,6 @@ import {
   // threads
   PostsThreadStore,
   ReposThreadStore,
-  WikiThreadStore,
   JobsThreadStore,
   UsersThreadStore,
   // banners
@@ -175,7 +174,6 @@ const rootStore = T.model({
   // threads
   postsThread: T.optional(PostsThreadStore, {}),
   reposThread: T.optional(ReposThreadStore, {}),
-  wikiThread: T.optional(WikiThreadStore, {}),
   jobsThread: T.optional(JobsThreadStore, {}),
   usersThread: T.optional(UsersThreadStore, {}),
 

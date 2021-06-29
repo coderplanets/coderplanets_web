@@ -13,7 +13,6 @@ import { pluggedIn, buildLog } from '@/utils'
 import PostsThread from '@/containers//thread/PostsThread'
 import BlogsThread from '@/containers//thread/BlogsThread'
 import ReposThread from '@/containers/thread/ReposThread'
-import WikiThread from '@/containers/thread/WikiThread'
 import JobsThread from '@/containers/thread/JobsThread'
 import UsersThread from '@/containers/thread/UsersThread'
 
@@ -38,9 +37,6 @@ const ComunityContent = ({ curRoute }) => {
 
     case ROUTE.JOBS:
       return <JobsThread />
-
-    case ROUTE.WIKI:
-      return <WikiThread />
 
     default:
       return <PostsThread />

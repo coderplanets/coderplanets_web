@@ -4,7 +4,6 @@ import { ERR } from '@/constant'
 
 import { searchRepoPromise, transformRepo } from './repo_search'
 import { searchUserPromise, ransformUser } from './user_search'
-import { searchWikiPromise } from './wiki_search'
 
 const githubAPI = {
   // search repo
@@ -13,9 +12,6 @@ const githubAPI = {
   // search user
   searchUser: (login) => searchUserPromise(login),
   transformUser: (res) => ransformUser(res),
-  // search wiki
-  searchWiki: (raw) => searchWikiPromise(raw),
-
   parseError: (e) => {
     if (e instanceof TimeoutError) return ERR.TIMEOUT
     if (!e || !e.response) return ERR.UNKOWN

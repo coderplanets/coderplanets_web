@@ -28,7 +28,6 @@ const Content = ({ title, desc }) => {
           <ThreadItem>周报</ThreadItem>
           <ThreadItem>导航</ThreadItem>
           <ThreadItem>小技巧</ThreadItem>
-          <ThreadItem>wiki</ThreadItem>
           <ThreadItem>地图</ThreadItem>
           <ThreadItem>酷团队</ThreadItem>
           <ThreadItem>工作</ThreadItem>
