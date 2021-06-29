@@ -29,8 +29,6 @@ const CommunityDigestContainer = ({ communityDigest: store, metric }) => {
     isHeaderFixed,
   } = store
 
-  console.log('community --> ', community)
-
   return (
     <Wrapper testid="community-digest">
       {bannerLayout === C11N.BRIEF ? (

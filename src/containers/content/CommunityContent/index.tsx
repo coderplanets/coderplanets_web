@@ -11,6 +11,7 @@ import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
 import PostsThread from '@/containers//thread/PostsThread'
+import BlogsThread from '@/containers//thread/BlogsThread'
 import ReposThread from '@/containers/thread/ReposThread'
 import WikiThread from '@/containers/thread/WikiThread'
 import JobsThread from '@/containers/thread/JobsThread'
@@ -29,6 +30,9 @@ const ComunityContent = ({ curRoute }) => {
   switch (subPath) {
     case ROUTE.REPOS:
       return <ReposThread />
+
+    case ROUTE.BLOGS:
+      return <BlogsThread />
 
     case ROUTE.USERS:
       return <UsersThread />

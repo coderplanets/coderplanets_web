@@ -28,6 +28,11 @@ export type TPost = TArticle & {
   linkIcon?: string
 }
 
+export type TBlog = TArticle & {
+  digest?: string
+  linkAddr?: string
+}
+
 export type TJob = {
   id: string
   title: string

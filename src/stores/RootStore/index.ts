@@ -94,6 +94,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  BlogsThreadStore,
   AbuseReportStore,
   HelpCenterContentStore,
   CommunityJoinBadgeStore,
@@ -210,6 +211,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  blogsThread: T.optional(BlogsThreadStore, {}),
   abuseReport: T.optional(AbuseReportStore, {}),
   helpCenterContent: T.optional(HelpCenterContentStore, {}),
   communityJoinBadge: T.optional(CommunityJoinBadgeStore, {}),
