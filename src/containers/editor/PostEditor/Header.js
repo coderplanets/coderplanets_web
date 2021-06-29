@@ -21,25 +21,6 @@ const DoingText = ({ isEdit }) => {
   return isEdit ? <>更新</> : <>发布</>
 }
 
-/*
-const ThreadText = ({ thread }) => {
-  switch (thread) {
-    case THREAD.JOB: {
-      return '工作'
-    }
-    case THREAD.SHARE: {
-      return '分享'
-    }
-    case THREAD.RADAR: {
-      return '信息'
-    }
-    default: {
-      return '帖子'
-    }
-  }
-}
-*/
-
 const Header = ({ isEdit, curView, referUsers }) => {
   switch (curView) {
     case 'MARKDOWN_HELP_VIEW':

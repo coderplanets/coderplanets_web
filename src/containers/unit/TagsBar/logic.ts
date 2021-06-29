@@ -22,7 +22,7 @@ let store: TStore | undefined
 
 export const onTagSelect = (tag: TTag): void => store.selectTag(tag)
 
-const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
+const NO_TAG_THREADS = [THREAD.USER]
 
 export const loadTags = (): void => {
   const { curThread } = store

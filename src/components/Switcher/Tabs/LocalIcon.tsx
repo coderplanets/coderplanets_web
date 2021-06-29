@@ -1,13 +1,9 @@
 import { FC, memo } from 'react'
 import {
   TabPostIcon,
-  TabTechIcon,
   TabRadarIcon,
-  TabShareIcon,
   TabUserIcon,
-  TabCityIcon,
   TabJobIcon,
-  TabWikiIcon,
   TabRepoIcon,
   TabCheatsheetIcon,
   // user
@@ -27,19 +23,9 @@ type TProps = {
 
 const TabIcon: FC<TProps> = ({ raw, active, small }) => {
   switch (raw) {
-    case 'tech': {
-      /* @ts-ignore */
-      return <TabTechIcon $active={active} $small={small} />
-    }
-
     case 'radar': {
       /* @ts-ignore */
       return <TabRadarIcon $active={active} $small={small} />
-    }
-
-    case 'share': {
-      /* @ts-ignore */
-      return <TabShareIcon $active={active} $small={small} />
     }
 
     case 'user': {
@@ -50,16 +36,6 @@ const TabIcon: FC<TProps> = ({ raw, active, small }) => {
     case 'job': {
       /* @ts-ignore */
       return <TabJobIcon $active={active} $small={small} />
-    }
-
-    case 'city': {
-      /* @ts-ignore */
-      return <TabCityIcon $active={active} $small={small} />
-    }
-
-    case 'wiki': {
-      /* @ts-ignore */
-      return <TabWikiIcon $active={active} $small={small} />
     }
 
     case 'repo': {

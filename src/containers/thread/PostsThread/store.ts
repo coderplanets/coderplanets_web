@@ -18,13 +18,7 @@ import type {
   TThread,
 } from '@/spec'
 
-import {
-  PagedPosts,
-  Tag,
-  ContentFilter,
-  emptyPagiData,
-  PagedCommunities,
-} from '@/model'
+import { PagedPosts, Tag, ContentFilter, emptyPagiData } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:PostsThreadStore')
@@ -42,7 +36,6 @@ const PostsThreadStore = T.model('PostsThreadStore', {
     ]),
     TYPE.RESULT,
   ),
-  pagedCityCommunities: T.optional(PagedCommunities, emptyPagiData),
   faqActive: T.optional(T.boolean, false),
 })
   .views((self) => ({
@@ -83,9 +76,6 @@ const PostsThreadStore = T.model('PostsThreadStore', {
     get activePost(): TPost {
       const root = getParent(self) as TRootStore
       return stripMobx(root.viewing.post)
-    },
-    get pagedCityCommunitiesData() {
-      return stripMobx(self.pagedCityCommunities)
     },
     get pageDensity(): number {
       const root = getParent(self) as TRootStore

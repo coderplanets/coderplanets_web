@@ -1,23 +1,14 @@
-import { values, contains, pickBy } from 'ramda'
+import { pickBy } from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  TYPE,
-  EVENT,
-  ERR,
-  THREAD,
-  ROUTE,
-  COMMUNITY_SPEC_THREADS,
-} from '@/constant'
-
-import type { TCommunity, TTag } from '@/spec'
+import type { TTag } from '@/spec'
+import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 
 import {
   asyncSuit,
   buildLog,
   send,
   notEmpty,
-  thread2Subpath,
   errRescue,
   scrollToTabber,
 } from '@/utils'
@@ -41,14 +32,14 @@ const sr71$ = new SR71({
   ],
 })
 
-let store = null
+let store: TStore | undefined
 let sub$ = null
 
-export const inAnchor = () => {
+export const inAnchor = (): void => {
   if (store) store.showTopModeline(false)
 }
 
-export const outAnchor = () => {
+export const outAnchor = (): void => {
   if (store) store.showTopModeline(true)
 }
 
@@ -117,31 +108,12 @@ export const onContentCreate = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.POST_CREATE })
 }
 
+// TODO: move to rootStore
 export const onAdsClose = (): void => {
   log('onAdsClose')
   if (store.isMemberOf('seniorMember') || store.isMemberOf('sponsorMember')) {
     return log('do custom ads')
   }
-}
-
-const loadCityCommunities = () => {
-  const { curCommunity, curRoute } = store
-  if (curCommunity.raw === ROUTE.HOME && curRoute.subPath === THREAD.CITY) {
-    const args = { filter: { page: 1, size: 30, category: 'city' } }
-
-    sr71$.query(S.pagedCommunities, args)
-  }
-}
-
-export const onCommunitySelect = (community: TCommunity): void => {
-  store.setViewing({ community, activeThread: THREAD.POST, post: {} })
-
-  store.markRoute({
-    mainPath: community.raw,
-    subPath: thread2Subpath(THREAD.POST),
-  })
-
-  send(EVENT.COMMUNITY_CHANGE)
 }
 
 // toggle FAQ active state
@@ -186,19 +158,8 @@ const DataSolver = [
     action: (res) => {
       const { data } = res[EVENT.THREAD_CHANGE]
 
-      if (contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY])) {
-        return false
-      }
-
-      const { curCommunity, curRoute } = store
-      if (curCommunity.raw === ROUTE.HOME && curRoute.subPath === THREAD.CITY) {
-        return loadCityCommunities()
-      }
-
-      if (!contains(data.activeThread, values(COMMUNITY_SPEC_THREADS))) {
-        store.mark({ activeTag: null })
-        loadPosts()
-      }
+      store.mark({ activeTag: null })
+      loadPosts()
     },
   },
   {
@@ -249,11 +210,6 @@ export const useInit = (_store: TStore): void =>
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    /*
-         NOTE: city communities list is not supported by SSR
-         need load manully
-       */
-    loadCityCommunities()
 
     return () => {
       if (store.curView === TYPE.LOADING || !sub$) return

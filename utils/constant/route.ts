@@ -11,9 +11,6 @@ const ROUTE = {
   USERS: 'users',
   REPOS: 'repos',
   WIKI: 'wiki',
-  SHARE: 'share',
-  CITY: 'city',
-  RADAR: 'radar',
   CHEATSHEET: 'cheatsheet',
 
   POST: 'post',
