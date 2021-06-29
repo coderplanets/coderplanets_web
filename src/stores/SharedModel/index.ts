@@ -10,6 +10,7 @@ export {
   PagedRepoComments,
 } from './Comment'
 export { Post, PagedPosts } from './Post'
+export { Blog, PagedBlogs } from './Blog'
 export { Repo, PagedRepos } from './Repo'
 export { Job, PagedJobs } from './Job'
 export { Tag, PagedTags } from './Tag'
@@ -18,7 +19,6 @@ export { FavoriteCategory, PagedFavoriteCategories } from './FavoriteCategory'
 
 export { GithubUser } from './GithubUser'
 export { default as Wiki } from './Wiki'
-export { default as Cheatsheet } from './Cheatsheet'
 
 export {
   EmptyUser,

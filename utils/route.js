@@ -333,7 +333,6 @@ const TR_MAP = {
   job: 'jobs',
   repo: 'repos',
 
-  /* wiki: 'wiki', */
   /* map: 'map', */
 }
 

@@ -37,12 +37,6 @@ export const ssrPagedSchema = (thread) => {
     case THREAD.REPO:
       return P.pagedRepos
 
-    case THREAD.CHEATSHEET:
-      return P.cheatsheet
-
-    case THREAD.WIKI:
-      return P.wiki
-
     default:
       return P.pagedPosts
   }
@@ -50,9 +44,6 @@ export const ssrPagedSchema = (thread) => {
 
 export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
   thread = toLower(thread)
-  if (thread === THREAD.CHEATSHEET || thread === THREAD.WIKI) {
-    return { community }
-  }
 
   if (community === HCN && thread === THREAD.JOB) {
     filter = omit(['community'], filter)
@@ -96,24 +87,6 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           curView: getCurView(resp.pagedRepos),
           activeTag,
           filters,
-        },
-      }
-
-    case THREAD.CHEATSHEET:
-      return {
-        cheatsheetThread: {
-          cheatsheet: resp.cheatsheet,
-          curView: isEmpty(resp.cheatsheet.readme)
-            ? TYPE.NOT_FOUND
-            : TYPE.RESULT,
-        },
-      }
-
-    case THREAD.WIKI:
-      return {
-        wikiThread: {
-          wiki: resp.wiki,
-          curView: isEmpty(resp.wiki.readme) ? TYPE.NOT_FOUND : TYPE.RESULT,
         },
       }
 

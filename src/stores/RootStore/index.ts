@@ -36,10 +36,8 @@ import {
   // threads
   PostsThreadStore,
   ReposThreadStore,
-  WikiThreadStore,
   JobsThreadStore,
   UsersThreadStore,
-  CheatsheetThreadStore,
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
@@ -94,6 +92,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  BlogsThreadStore,
   AbuseReportStore,
   HelpCenterContentStore,
   CommunityJoinBadgeStore,
@@ -175,10 +174,8 @@ const rootStore = T.model({
   // threads
   postsThread: T.optional(PostsThreadStore, {}),
   reposThread: T.optional(ReposThreadStore, {}),
-  wikiThread: T.optional(WikiThreadStore, {}),
   jobsThread: T.optional(JobsThreadStore, {}),
   usersThread: T.optional(UsersThreadStore, {}),
-  cheatsheetThread: T.optional(CheatsheetThreadStore, {}),
 
   tagsBar: T.optional(TagsBarStore, {}),
   userLister: T.optional(UserListerStore, {}),
@@ -210,6 +207,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  blogsThread: T.optional(BlogsThreadStore, {}),
   abuseReport: T.optional(AbuseReportStore, {}),
   helpCenterContent: T.optional(HelpCenterContentStore, {}),
   communityJoinBadge: T.optional(CommunityJoinBadgeStore, {}),

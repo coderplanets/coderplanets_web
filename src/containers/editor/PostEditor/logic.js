@@ -51,21 +51,9 @@ const getDigest = (body) => {
 }
 
 export const onRadarNoteCLose = () => store.mark({ showRadarNote: false })
-const supportedRadarSource = ['wanqu', 'solidot', 'techcrunch']
-const specCheck = () => {
-  if (store.activeThread === THREAD.RADAR) {
-    const domain = parseDomain(store.editPost.linkAddr)
-    if (!contains(domain, supportedRadarSource)) {
-      store.mark({ showRadarNote: true })
-      return false
-    }
-  }
-  return true
-}
 
 export const onPublish = () => {
   if (!store.validator('general')) return false
-  if (!specCheck()) return false
 
   const { body } = store.editData
   const { isEdit } = store

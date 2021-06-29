@@ -41,7 +41,7 @@ const TagsBar = T.model('TagsBar', {
 
       return groupByKey(
         tagsData.map((tag) => {
-          if (tag.id < 4) {
+          if (parseInt(tag.id, 10) < 4) {
             tag.group = '这是第一组'
           } else {
             tag.group = '这是第二组' // '__default__'
@@ -58,9 +58,10 @@ const TagsBar = T.model('TagsBar', {
 
       self.activeTag = cur
     },
-    getTagIdByTitle(title: string): boolean | number {
+    getTagIdByTitle(title: string): boolean | string {
       if (!title) return false
 
+      // @ts-ignore
       const index = findIndex(propEq('title', title), self.tagsData)
       if (index >= 0) {
         return self.tagsData[index].id

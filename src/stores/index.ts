@@ -54,10 +54,8 @@ export { default as FooterStore } from '@/containers/unit/Footer/store'
 // threads store
 export { default as PostsThreadStore } from '@/containers/thread/PostsThread/store'
 export { default as ReposThreadStore } from '@/containers/thread/ReposThread/store'
-export { default as WikiThreadStore } from '@/containers/thread/WikiThread/store'
 export { default as JobsThreadStore } from '@/containers/thread/JobsThread/store'
 export { default as UsersThreadStore } from '@/containers/thread/UsersThread/store'
-export { default as CheatsheetThreadStore } from '@/containers/thread/CheatsheetThread/store'
 export { default as RoadmapThreadStore } from '@/containers/thread/RoadmapThread/store'
 
 export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
@@ -101,6 +99,7 @@ export { default as CommunityEditorStore } from '@/containers/editor/CommunityEd
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as BlogsThreadStore } from '@/containers/thread/BlogsThread/store'
 export { default as AbuseReportStore } from '@/containers/tool/AbuseReport/store'
 export { default as HelpCenterContentStore } from '@/containers/content/HelpCenterContent/store'
 export { default as CommunityJoinBadgeStore } from '@/containers/tool/CommunityJoinBadge/store'

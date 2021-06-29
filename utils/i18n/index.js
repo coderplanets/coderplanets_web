@@ -5,7 +5,6 @@ const I18nDict = {
   posts: '帖子',
   post: '帖子',
   map: '地图',
-  cheatsheet: 'cheatsheet',
   radar: '雷达',
   city: '同城',
   share: '分享',

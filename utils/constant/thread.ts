@@ -1,20 +1,10 @@
-export const COMMUNITY_SPEC_THREADS = {
+export const THREAD = {
   USER: 'user',
-  JOB: 'job',
   REPO: 'repo',
-  WIKI: 'wiki',
-  CHEATSHEET: 'cheatsheet',
+  POST: 'post',
+  BLOG: 'blog',
+  JOB: 'job',
+  RADAR: 'radar',
 }
 
-export const THREAD = {
-  ...COMMUNITY_SPEC_THREADS,
-  POST: 'post',
-  // home spec
-  TECH: 'tech',
-  SHARE: 'share',
-  RADAR: 'radar',
-  CITY: 'city',
-  // city spec
-  GROUP: 'group',
-  COMPANY: 'company',
-}
+export const holder = 1

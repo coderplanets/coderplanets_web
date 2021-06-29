@@ -18,7 +18,7 @@ import { useInit } from './logic'
 const log = buildLog('C:CommunityJoinBadge')
 
 type TProps = {
-  communityJoinBadge: TStore
+  communityJoinBadge?: TStore
   testid?: string
 }
 

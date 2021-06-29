@@ -3,14 +3,10 @@ import styled from 'styled-components'
 // import Img from '@/Img'
 import { theme, css } from '@/utils'
 import TabPostSVG from '@/SvgIcons/TabPostSVG'
-import TabTechSVG from '@/SvgIcons/TabTechSVG'
 import TabRadarSVG from '@/SvgIcons/TabRadarSVG'
-import TabShareSVG from '@/SvgIcons/TabShareSVG'
 import TabUserSVG from '@/SvgIcons/TabUserSVG'
-import TabCitySVG from '@/SvgIcons/TabCitySVG'
 import TabJobSVG from '@/SvgIcons/TabJobSVG'
 //
-import TabWikiSVG from '@/SvgIcons/TabWikiSVG'
 import TabRepoSVG from '@/SvgIcons/TabRepoSVG'
 import TabCheatsheetSVG from '@/SvgIcons/TabCheatsheetSVG'
 
@@ -40,13 +36,9 @@ const commonIcon = (comp) => {
 }
 
 export const TabPostIcon = commonIcon(TabPostSVG)
-export const TabTechIcon = commonIcon(TabTechSVG)
 export const TabRadarIcon = commonIcon(TabRadarSVG)
-export const TabShareIcon = commonIcon(TabShareSVG)
 export const TabUserIcon = commonIcon(TabUserSVG)
-export const TabCityIcon = commonIcon(TabCitySVG)
 export const TabJobIcon = commonIcon(TabJobSVG)
-export const TabWikiIcon = commonIcon(TabWikiSVG)
 export const TabRepoIcon = commonIcon(TabRepoSVG)
 export const TabCheatsheetIcon = commonIcon(TabCheatsheetSVG)
 

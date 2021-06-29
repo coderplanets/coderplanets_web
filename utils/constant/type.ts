@@ -11,6 +11,7 @@ const TYPE = {
 
   POST: 'POST',
   JOB: 'JOB',
+  BLOG: 'BLOG',
   REPO: 'REPO',
   // actions
   FAVORITE: 'FAVORITE',
@@ -38,6 +39,10 @@ const TYPE = {
     POST_VIEW: 'POST_VIEW',
     POST_CREATE: 'POST_CREATE',
     POST_EDIT: 'POST_EDIT',
+
+    BLOG_VIEW: 'BLOG_VIEW',
+    BLOG_CREATE: 'BLOG_CREATE',
+    BLOG_EDIT: 'BLOG_EDIT',
 
     JOB_VIEW: 'JOB_VIEW',
     JOB_CREATE: 'JOB_CREATE',

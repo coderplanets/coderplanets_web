@@ -9,7 +9,7 @@ import { values, merge } from 'ramda'
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
 import { THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
-import { User, Community, Post, Job, Repo } from '@/model'
+import { User, Community, Post, Blog, Job, Repo } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ViewingStore')
@@ -20,6 +20,7 @@ const ViewingStore = T.model('ViewingStore', {
   user: T.optional(User, {}),
   community: T.optional(Community, {}),
   post: T.optional(Post, {}),
+  blog: T.optional(Blog, {}),
   job: T.optional(Job, {}),
   repo: T.optional(Repo, {}),
   activeThread: T.optional(
@@ -53,6 +54,8 @@ const ViewingStore = T.model('ViewingStore', {
       switch (curThread) {
         case THREAD.JOB:
           return stripMobx(self.job)
+        case THREAD.BLOG:
+          return stripMobx(self.blog)
         case THREAD.REPO:
           return stripMobx(self.repo)
         default:
