@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR } from '@/constant'
+
+import type { TThread } from '@/spec'
+
 import {
   asyncSuit,
   buildLog,
@@ -10,18 +13,20 @@ import {
   errRescue,
 } from '@/utils'
 
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunityDigest')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+// @ts-ignore
 const sr71$ = new SR71({ receive: [EVENT.COMMUNITY_CHANGE] })
 
 let sub$ = null
-let store = null
+let store: TStore | undefined
 
-const loadCommunity = () => {
+const loadCommunity = (): void => {
   const userHasLogin = store.isLogin
   const { raw } = store.curCommunity
 
@@ -30,7 +35,7 @@ const loadCommunity = () => {
   sr71$.query(S.community, { raw, userHasLogin })
 }
 
-export const tabOnChange = (activeThread) => {
+export const tabOnChange = (activeThread: TThread): void => {
   const subPath = thread2Subpath(activeThread)
   // log('EVENT.activeThread -----> ', activeThread)
   // log('EVENT.subPath -----> ', subPath)
@@ -41,27 +46,27 @@ export const tabOnChange = (activeThread) => {
   send(EVENT.THREAD_CHANGE, { data: { activeThread } })
 }
 
-export const onShowEditorList = () => {
+export const onShowEditorList = (): void => {
   const type = TYPE.USER_LISTER_COMMUNITY_EDITORS
   const data = {
-    id: store.viewing.community.id,
-    brief: store.viewing.community.title,
+    id: store.curCommunity.id,
+    brief: store.curCommunity.title,
   }
 
   send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export const onShowSubscriberList = () => {
+export const onShowSubscriberList = (): void => {
   const type = TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS
   const data = {
-    id: store.viewing.community.id,
-    brief: store.viewing.community.title,
+    id: store.curCommunity.id,
+    brief: store.curCommunity.title,
   }
 
   send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export const toggleDescExpand = () => {
+export const toggleDescExpand = (): void => {
   const { descExpand } = store
 
   store.mark({ descExpand: !descExpand })
@@ -73,7 +78,7 @@ const markLoading = (maybe = true) => store.mark({ loading: maybe })
  * set digest visible in current viewport
  * @param {Boolean} inView
  */
-export const setViewport = (inViewport) => {
+export const setViewport = (inViewport: boolean): void => {
   store.mark({ inViewport })
 }
 
@@ -137,7 +142,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')

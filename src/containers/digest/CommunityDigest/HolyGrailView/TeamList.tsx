@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
-import { Wrapper, Avatar } from '../../styles/digest_view/row_view/team_list'
+import { Wrapper, Avatar } from '../styles/holy_grail_view/team_list'
 
 const items = [
   {
@@ -17,7 +17,7 @@ const items = [
   },
 ]
 
-const TeamList = () => {
+const TeamList: FC = () => {
   return (
     <Wrapper>
       {items.map((item, index) => (
@@ -28,4 +28,4 @@ const TeamList = () => {
   )
 }
 
-export default TeamList
+export default memo(TeamList)

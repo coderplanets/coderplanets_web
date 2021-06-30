@@ -1,6 +1,6 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
+import type { TSIZE_SM } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
 
@@ -29,11 +29,22 @@ const defaultItems = [
   },
 ]
 
-const SocialList = ({ size, items }) => {
+type TProps = {
+  size?: TSIZE_SM
+  items?: {
+    iconSrc: string
+    title: string
+  }[]
+}
+
+const SocialList: FC<TProps> = ({
+  size = SIZE.SMALL,
+  items = defaultItems,
+}) => {
   return (
     <Wrapper>
       {items.map((item) => (
-        <SocialWrapper key={item.title} size={size}>
+        <SocialWrapper key={item.title}>
           <Icon size={size} src={item.iconSrc} />
           {/* <Title size={size}>
             {item.title}
@@ -44,14 +55,4 @@ const SocialList = ({ size, items }) => {
   )
 }
 
-SocialList.propTypes = {
-  size: T.oneOf([SIZE.SMALL, SIZE.MEDIUM]),
-  items: T.arrayOf(T.object),
-}
-
-SocialList.defaultProps = {
-  size: SIZE.SMALL,
-  items: defaultItems,
-}
-
-export default React.memo(SocialList)
+export default memo(SocialList)

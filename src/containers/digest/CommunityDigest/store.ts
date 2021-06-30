@@ -1,0 +1,81 @@
+/*
+ * CommunityDigest store
+ *
+ */
+
+import { types as T, getParent, Instance } from 'mobx-state-tree'
+
+import type {
+  TRootStore,
+  TViewing,
+  TRoute,
+  TCommunity,
+  TAccount,
+  TThread,
+} from '@/spec'
+import { markStates, buildLog, stripMobx } from '@/utils'
+
+/* eslint-disable-next-line */
+const log = buildLog('S:CommunityDigest')
+
+const CommunityDigest = T.model('CommunityDigest', {
+  loading: T.optional(T.boolean, false),
+  descExpand: T.optional(T.boolean, false),
+
+  inViewport: T.optional(T.boolean, true),
+})
+  .views((self) => ({
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
+    },
+    get curRoute(): TRoute {
+      const root = getParent(self) as TRootStore
+      return root.curRoute
+    },
+    get viewing(): TViewing {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing)
+    },
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.accountInfo
+    },
+    get curThread(): TThread {
+      const root = getParent(self) as TRootStore
+      return root.viewing.activeThread
+    },
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+
+      return stripMobx(root.viewing.community)
+    },
+  }))
+  .actions((self) => ({
+    authWarning(options): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
+    },
+    markRoute(query): void {
+      const root = getParent(self) as TRootStore
+      root.markRoute(query)
+    },
+    setViewing(sobj): void {
+      const root = getParent(self) as TRootStore
+      root.setViewing(sobj)
+    },
+    addSubscribedCommunity(community: TCommunity): void {
+      const root = getParent(self) as TRootStore
+      root.account.addSubscribedCommunity(community)
+    },
+    removeSubscribedCommunity(community: TCommunity): void {
+      const root = getParent(self) as TRootStore
+      root.account.removeSubscribedCommunity(community)
+    },
+    mark(sobj: Record<string, unknown>): void {
+      markStates(sobj, self)
+    },
+  }))
+
+export type TStore = Instance<typeof CommunityDigest>
+export default CommunityDigest

@@ -7,12 +7,11 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  flex-wrap: wrap;
-  margin-top: 10px;
+  margin-top: 3px;
+  margin-bottom: 10px;
 `
 export const Avatar = styled(Img)`
-  ${css.size(20)};
-  margin-right: 8px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+  ${css.size(16)};
+  margin-right: 6px;
+  border-radius: 3px;
 `

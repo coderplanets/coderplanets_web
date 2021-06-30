@@ -7,7 +7,7 @@ import { theme, css } from '@/utils'
 /* align-items: ${({ descExpand }) =>
     descExpand ? 'flex-start' : 'center'}; */
 export const Wrapper = styled.div``
-export const Normal = styled.div<{ margin: string }>`
+export const Normal = styled.div<{ margin?: boolean }>`
   color: ${theme('banner.desc')};
   font-size: 14px;
   max-width: 490px;

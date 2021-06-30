@@ -1,18 +1,15 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { contains } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
-import { ICON_CMD } from '@/config'
-import { HCN, NON_FILL_COMMUNITY } from '@/constant'
+import type { TC11NLayout, TThread, TCommunity } from '@/spec'
+import { HCN } from '@/constant'
 import { useDevice } from '@/hooks'
 
-import VerifiedSign from '@/components/VerifiedSign'
 import TabBar from '@/components/TabBar'
 import CommunityStatesPad from '@/components/CommunityStatesPad'
-import { CommunityHolder } from '@/components/LoadingEffects'
 
-import ExpandTexts from '../../ExpandTexts'
-import SocialList from '../../SocialList'
+import CommunityBrief from './CommunityBrief'
 
 import {
   Wrapper,
@@ -20,60 +17,27 @@ import {
   BannerContentWrapper,
   CommunityBaseInfo,
   TabBarWrapper,
-  CommunityWrapper,
-  CommunityLogo,
-  LogoWrapper,
-  CommunityInfo,
-  TitleWrapper,
-  Title,
-  TitleText,
-  LogoHolder,
-} from '../../styles/digest_view/column_view'
+} from '../styles/classic_view'
 
 import {
   tabOnChange,
   onShowEditorList,
   onShowSubscriberList,
   setViewport,
-} from '../../logic'
-
-const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
+} from '../logic'
 
 // 没有各种外链接，打赏信息等的官方社区
 const NON_STANDARD_COMMUNITIES = [HCN, 'feedback']
 
-const CommunityBrief = ({ content, descExpand }) => {
-  return (
-    <CommunityWrapper descExpand={descExpand}>
-      <LogoWrapper raw={content.raw}>
-        {content.logo ? (
-          <CommunityLogo
-            isSmall={contains(content.raw, NON_STANDARD_COMMUNITIES)}
-            nonFill={contains(content.raw, NON_FILL_COMMUNITY)}
-            src={content.logo}
-            raw={content.raw}
-            loading={<CommunityHolder text={content.raw} />}
-          />
-        ) : (
-          <LogoHolder src={CommunityLogoHolder} />
-        )}
-      </LogoWrapper>
-      <CommunityInfo descExpand={descExpand}>
-        <TitleWrapper>
-          <Title descExpand={descExpand}>
-            <TitleText>{content.title}</TitleText>
-            <VerifiedSign />
-          </Title>
-        </TitleWrapper>
-        {/* <Desc>{content.desc}</Desc> */}
-        <ExpandTexts descExpand={descExpand} />
-        {content.raw !== HCN && <SocialList />}
-      </CommunityInfo>
-    </CommunityWrapper>
-  )
+type TProps = {
+  community: TCommunity
+  descExpand: boolean
+  activeThread: TThread
+  layout: TC11NLayout
+  metric: string
 }
 
-const ColumnView = ({
+const ClassicView: FC<TProps> = ({
   community,
   descExpand,
   activeThread,
@@ -96,7 +60,7 @@ const ColumnView = ({
       >
         <BannerContentWrapper descExpand={descExpand}>
           <CommunityBaseInfo>
-            <CommunityBrief content={community} descExpand={descExpand} />
+            <CommunityBrief community={community} descExpand={descExpand} />
             <CommunityStatesPad
               community={community}
               onShowEditorList={onShowEditorList}
@@ -122,4 +86,4 @@ const ColumnView = ({
   )
 }
 
-export default React.memo(ColumnView)
+export default memo(ClassicView)

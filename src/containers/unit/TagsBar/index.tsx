@@ -17,7 +17,7 @@ export type TProps = {
   tagsBar?: TStore
   thread: TThread
   onSelect: (tag?: TTag) => void
-  active: TTag
+  active?: TTag
 }
 
 const TagsBar: FC<TProps> = (props) => {

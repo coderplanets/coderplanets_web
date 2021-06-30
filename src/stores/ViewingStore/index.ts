@@ -58,6 +58,8 @@ const ViewingStore = T.model('ViewingStore', {
           return stripMobx(self.blog)
         case THREAD.REPO:
           return stripMobx(self.repo)
+        case THREAD.POST:
+          return stripMobx(self.post)
         default:
           return stripMobx(self.post)
       }
