@@ -20,7 +20,7 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
 export const Nav = styled.nav`
   position: relative;
   ${css.flex('align-center')};
-  flex-flow: row wrap;
+  flex-flow: nowrap;
   margin: 0 auto;
   padding: 0;
 `

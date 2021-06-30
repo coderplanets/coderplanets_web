@@ -1,7 +1,7 @@
 import { pickBy } from 'ramda'
 import { useEffect } from 'react'
 
-import type { TTag } from '@/spec'
+import type { TTag, TThread } from '@/spec'
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 
 import {
@@ -11,6 +11,7 @@ import {
   notEmpty,
   errRescue,
   scrollToTabber,
+  thread2Subpath,
 } from '@/utils'
 
 import type { TStore } from './store'
@@ -41,6 +42,17 @@ export const inAnchor = (): void => {
 
 export const outAnchor = (): void => {
   if (store) store.showTopModeline(true)
+}
+
+export const tabOnChange = (activeThread: TThread): void => {
+  const subPath = thread2Subpath(activeThread)
+  // log('EVENT.activeThread -----> ', activeThread)
+  // log('EVENT.subPath -----> ', subPath)
+
+  store.markRoute({ subPath })
+  store.setViewing({ activeThread })
+
+  send(EVENT.THREAD_CHANGE, { data: { activeThread } })
 }
 
 export const loadPosts = (page = 1): void => {

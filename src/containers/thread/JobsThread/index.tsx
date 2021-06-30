@@ -110,11 +110,7 @@ const JobsThreadContainer: FC<TProps> = ({ jobsThread: store }) => {
       <RightPart>
         <PublishNote show={showPublishNote} />
         <PublisherWrapper>
-          <PublishButton
-            label="招贤纳士"
-            labelIconSrc={`${ICON_CMD}/look_sb.svg`}
-            onPublish={onContentCreate}
-          />
+          <PublishButton onCreate={onContentCreate} />
         </PublisherWrapper>
 
         <Sticky offsetTop={50}>

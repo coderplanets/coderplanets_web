@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   ${css.flexColumn('align-start', 'justify-center')};
   width: 100%;
   transition: all 0.5s;
-  margin-top: 10px;
+  margin-top: 18px;
   margin-bottom: 5px;
 `
 export const Header = styled.div`
@@ -30,6 +30,7 @@ export const TitleWrapper = styled.div`
   margin-bottom: 8px;
 `
 export const TitleText = styled.span`
+  font-size: 18px;
   ${css.cutRest('140px')};
   color: ${theme('banner.title')};
 `

@@ -4,10 +4,22 @@ import type { TActive } from '@/spec'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
+  ${css.flexColumn()};
+  width: 100%;
+`
+export const Body = styled.div`
   ${css.flex()};
   width: 100%;
 `
-export const LeftPart = styled.div`
+export const TabsWrapper = styled.div`
+  width: calc(100% - 42px);
+  background: #103645;
+  padding-left: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-top: 10px;
+`
+export const ArticlesWrapper = styled.div`
   flex-grow: 1;
   width: 100%;
   background: ${theme('content.bg')};
@@ -18,7 +30,7 @@ export const LeftPart = styled.div`
   padding-right: 24px;
   margin-right: 42px;
 `
-export const RightPart = styled.div`
+export const SidebarWrapper = styled.div`
   min-width: 200px;
   max-width: 200px;
   padding-top: 20px;

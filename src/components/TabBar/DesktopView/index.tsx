@@ -30,7 +30,7 @@ const TabBar: FC<TProps> = ({
   source,
   active = THREAD.POST,
   onChange = log,
-  layout = C11N.DIGEST,
+  layout = C11N.CLASSIC,
   communityRaw = HCN,
   size = SIZE.MEDIUM,
 }) => {
