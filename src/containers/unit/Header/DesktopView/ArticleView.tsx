@@ -68,7 +68,7 @@ const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
       <InnerWrapper>
         <RouterWrapper>
           <Navigator
-            curCommunity={curCommunity}
+            community={curCommunity}
             layout={bannerLayout}
             isOnline={isOnline}
             // showLogoText

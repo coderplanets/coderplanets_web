@@ -1,4 +1,5 @@
 import type { TPagedCommunities } from './community'
+import type { TC11NLayout } from './c11n'
 
 export type TUser = {
   id?: string
@@ -14,7 +15,7 @@ export type TUser = {
 export type TAccount = TUser & {
   customization?: {
     theme?: string
-    bannerLayout?: string
+    bannerLayout?: TC11NLayout
     contentsLayout?: string // oneOf([C11N.DIGEST, C11N.LIST])
     markViewed?: boolean
     contentDivider?: boolean

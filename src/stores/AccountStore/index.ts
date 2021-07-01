@@ -25,8 +25,10 @@ const AccountStore = T.model('AccountStore', {
 })
   .views((self) => ({
     get accountInfo(): TAccount {
+      const user = stripMobx(self.user)
+
       return {
-        ...stripMobx(self.user),
+        ...user,
         isLogin: self.isValidSession,
         isValidSession: self.isValidSession,
       }

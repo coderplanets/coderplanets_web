@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import Link from 'next/link'
 
 import { ICON } from '@/config'
@@ -19,7 +19,7 @@ import {
   Wip,
 } from '../styles/more_panel'
 
-const MoreContent = () => {
+const MoreContent: FC = () => {
   return (
     <Wrapper>
       <BodyWrapper>
@@ -33,7 +33,7 @@ const MoreContent = () => {
           <Desc>贴纸/冰箱贴/各种奇奇怪怪。。</Desc>
         </Entry>
         <Entry>
-          <Main offset="11px">
+          <Main>
             <Logo src={`${ICON}/menu/hot.svg`} />
             <Link href={`/${ROUTE.TRENDING}`} passHref>
               <Title>热门</Title>
@@ -89,4 +89,4 @@ const MoreContent = () => {
   )
 }
 
-export default React.memo(MoreContent)
+export default memo(MoreContent)

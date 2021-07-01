@@ -77,7 +77,7 @@ const CommunityHeaderContainer: FC<TProps> = ({
       <InnerWrapper metric={metric}>
         <RouterWrapper>
           <Navigator
-            curCommunity={curCommunity}
+            community={curCommunity}
             layout={bannerLayout}
             isOnline={isOnline}
             metric={metric}

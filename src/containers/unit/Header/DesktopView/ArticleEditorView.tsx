@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import { ICON } from '@/config'
@@ -59,7 +59,7 @@ const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
       <InnerWrapper>
         <RouterWrapper>
           <Navigator
-            curCommunity={curCommunity}
+            community={curCommunity}
             layout={accountInfo.customization.bannerLayout}
             isOnline={isOnline}
             metric={METRIC.ARTICLE_EDITOR}

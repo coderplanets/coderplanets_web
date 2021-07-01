@@ -4,10 +4,10 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo, Fragment } from 'react'
 import { contains, values } from 'ramda'
 
+import type { TCommunity, TC11NLayout } from '@/spec'
 import { C11N, METRIC } from '@/constant'
 import { buildLog } from '@/utils'
 
@@ -17,7 +17,19 @@ import BriefView from './BriefView'
 /* eslint-disable-next-line */
 const log = buildLog('c:Navigator:index')
 
-const Navigator = ({ curCommunity, layout, metric, isOnline }) => {
+type TProps = {
+  community: TCommunity
+  isOnline?: boolean
+  layout: TC11NLayout
+  metric?: string
+}
+
+const Navigator: FC<TProps> = ({
+  community,
+  layout,
+  metric = METRIC.COMMUNITY,
+  isOnline = true,
+}) => {
   const showLogoText = !contains(metric, [
     METRIC.COMMUNITY,
     METRIC.ARTICLE,
@@ -42,9 +54,9 @@ const Navigator = ({ curCommunity, layout, metric, isOnline }) => {
   }
 
   return (
-    <React.Fragment>
+    <Fragment>
       {layout === C11N.BRIEF ? (
-        <BriefView community={curCommunity} />
+        <BriefView community={community} />
       ) : (
         <DigestView
           showLogoText={showLogoText}
@@ -52,22 +64,8 @@ const Navigator = ({ curCommunity, layout, metric, isOnline }) => {
           metric={metric}
         />
       )}
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-Navigator.propTypes = {
-  curCommunity: T.object,
-  layout: T.oneOf([C11N.DIGEST, C11N.DIGEST_ROW, C11N.BRIEF]),
-  isOnline: T.bool,
-  metric: T.oneOf(values(METRIC)),
-}
-
-Navigator.defaultProps = {
-  curCommunity: {},
-  layout: C11N.DIGEST,
-  isOnline: true,
-  metric: METRIC.COMMUNITY,
-}
-
-export default React.memo(Navigator)
+export default memo(Navigator)

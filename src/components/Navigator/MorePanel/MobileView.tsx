@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import Link from 'next/link'
 
 import { ICON, ICON_CMD } from '@/config'
@@ -16,20 +16,6 @@ import {
 } from '../styles/more_panel/mobile_view'
 
 const items = [
-  // {
-  //   icon: `${ICON_CMD}/header/more_shop.svg`,
-  //   title: '小周边',
-  //   desc: '贴纸/冰箱贴/各种奇奇怪怪',
-  //   href: '',
-  //   raw: 0,
-  // },
-  // {
-  //   icon: `${ICON}/discover.svg`,
-  //   title: '发现',
-  //   desc: '发现好玩的子社区',
-  //   href: `/${ROUTE.DISCOVERY}`,
-  //   raw: 1,
-  // },
   {
     icon: `${ICON}/route/light.svg`,
     title: '作品集市',
@@ -83,18 +69,19 @@ const items = [
     icon: `${ICON_CMD}/header/more_snippets.svg`,
     title: '代码片段',
     desc: '各语言实用 Snippets，小技巧',
+    wip: true,
     href: '',
     raw: 3,
   },
 ]
 
-const MoreContent = () => {
+const MoreContent: FC = () => {
   return (
-    <Wrapper>
+    <Wrapper mobile>
       <BodyWrapper>
         {items.map((item, index) => (
           <Link key={item.raw} href={`/${ROUTE.TRENDING}`} passHref>
-            <Entry index={index}>
+            <Entry index={index} mobile>
               <Logo src={item.icon} />
               <Intro>
                 <Title>
@@ -110,4 +97,4 @@ const MoreContent = () => {
   )
 }
 
-export default React.memo(MoreContent)
+export default memo(MoreContent)

@@ -5,7 +5,6 @@
  */
 import { FC } from 'react'
 
-import type { TC11NLayout } from '@/spec'
 import { C11N, METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -46,7 +45,7 @@ const CommunityDigestContainer: FC<TProps> = ({
           metric={metric}
           community={curCommunity}
           activeThread={curThread}
-          layout={bannerLayout as TC11NLayout}
+          layout={bannerLayout}
           descExpand={descExpand}
         />
       ) : (

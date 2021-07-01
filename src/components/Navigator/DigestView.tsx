@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { METRIC } from '@/constant'
 import {
@@ -26,7 +26,13 @@ const renderMainEntries = (metric) => {
   }
 }
 
-const DigestView = ({ metric, showLogoText, isOnline }) => {
+type TProps = {
+  metric: string
+  showLogoText: boolean
+  isOnline: boolean
+}
+
+const DigestView: FC<TProps> = ({ metric, showLogoText, isOnline }) => {
   return (
     <Breadcrumbs>
       <LogoLink href="/home/posts">
@@ -45,4 +51,4 @@ const DigestView = ({ metric, showLogoText, isOnline }) => {
   )
 }
 
-export default React.memo(DigestView)
+export default memo(DigestView)

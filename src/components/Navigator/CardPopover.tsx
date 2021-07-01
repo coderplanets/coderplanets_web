@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
-// import { ICON_CMD } from '@/config'
+import type { TCommunity } from '@/spec'
 import CommunityStatesPad from '@/components/CommunityStatesPad'
 
 import {
@@ -14,7 +14,11 @@ import {
   Footer,
 } from './styles/card_popover'
 
-const CardPopover = ({ community }) => (
+type TProps = {
+  community: TCommunity
+}
+
+const CardPopover: FC<TProps> = ({ community }) => (
   <Wrapper>
     <Body>
       <CommunityLogo src={community.logo} raw={community.raw} />
@@ -30,4 +34,4 @@ const CardPopover = ({ community }) => (
   </Wrapper>
 )
 
-export default React.memo(CardPopover)
+export default memo(CardPopover)

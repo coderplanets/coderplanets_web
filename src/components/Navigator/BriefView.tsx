@@ -1,6 +1,6 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
+import type { TCommunity } from '@/spec'
 import { ICON_CMD } from '@/config'
 import Tooltip from '@/components/Tooltip'
 
@@ -21,7 +21,11 @@ import MainEntries from './MainEntries/index'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const BriefView = ({ community }) => {
+type TProps = {
+  community: TCommunity
+}
+
+const BriefView: FC<TProps> = ({ community }) => {
   return (
     <Wrapper>
       <CardWrapper>
@@ -49,10 +53,4 @@ const BriefView = ({ community }) => {
   )
 }
 
-BriefView.propTypes = {
-  community: T.object.isRequired,
-}
-
-BriefView.defaultProps = {}
-
-export default React.memo(BriefView)
+export default memo(BriefView)
