@@ -10,8 +10,6 @@ import { ROUTE, C11N } from '@/constant'
 import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-import Sticky from '@/components/Sticky'
-
 import CommunityDigest from '@/containers/digest/CommunityDigest'
 import PostsThread from '@/containers//thread/PostsThread'
 import BlogsThread from '@/containers//thread/BlogsThread'
