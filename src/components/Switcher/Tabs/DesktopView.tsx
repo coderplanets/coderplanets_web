@@ -7,9 +7,9 @@
 import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
 import { isEmpty, findIndex } from 'ramda'
 
-import type { TSIZE_SM, TTabItem } from '@/spec'
+import type { TSIZE_SM, TTabItem, TC11NLayout } from '@/spec'
 import { useDevice } from '@/hooks'
-import { SIZE } from '@/constant'
+import { SIZE, C11N } from '@/constant'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
@@ -51,6 +51,7 @@ const getDefaultActiveTabIndex = (
 
 type TProps = {
   items?: TTabItem[]
+  layout?: TC11NLayout
   onChange: () => void
   activeKey?: string
   size: TSIZE_SM
@@ -61,6 +62,7 @@ const Tabs: FC<TProps> = ({
   size = SIZE.MEDIUM,
   onChange = log,
   items = temItems,
+  layout = C11N.CLASSIC,
   activeKey = '',
   slipHeight = '2px',
 }) => {
@@ -119,7 +121,7 @@ const Tabs: FC<TProps> = ({
           <TabItem
             key={isString(item) ? item : item.raw || item.title}
             mobileView={isMobile}
-            holyGrailView
+            holyGrailView={layout === C11N.HOLY_GRAIL}
             activeKey={activeKey}
             index={index}
             item={item}

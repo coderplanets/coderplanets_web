@@ -34,7 +34,6 @@ export const SidebarWrapper = styled.div`
   min-width: 200px;
   max-width: 200px;
   padding-top: 20px;
-  margin-left: 40px;
 
   ${css.media.tablet`display: none;`};
 `
@@ -47,6 +46,10 @@ export const PublisherWrapper = styled.div<TActive>`
 export const BadgeWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   margin-left: 18px;
+`
+export const TagsBarWrapper = styled.div`
+  margin-top: 20px;
+  margin-left: 12px;
 `
 export const FilterWrapper = styled.div`
   ${css.flex('align-center')};

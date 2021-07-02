@@ -23,7 +23,6 @@ export const RightPart = styled.div`
   min-width: 200px;
   max-width: 200px;
   padding-top: 20px;
-  margin-left: 40px;
 
   ${css.media.tablet`display: none;`};
 `

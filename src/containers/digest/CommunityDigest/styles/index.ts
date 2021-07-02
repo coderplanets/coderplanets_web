@@ -8,7 +8,7 @@ export const BaseBanner = styled.nav.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexColumn('justify-center', 'align-center')};
   position: relative;
-  min-height: 140px;
+  min-height: 128px;
   background: ${theme('banner.bg')};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('banner.spliter')};

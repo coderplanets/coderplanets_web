@@ -31,6 +31,7 @@ import {
   TabsWrapper,
   FilterWrapper,
   BadgeWrapper,
+  TagsBarWrapper,
   PublisherWrapper,
 } from './styles'
 
@@ -135,11 +136,13 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
               <BadgeWrapper show={!isCommunityDigestInViewport}>
                 <CommunityJoinBadge />
               </BadgeWrapper>
-              <TagsBar
-                thread={THREAD.POST}
-                onSelect={onTagSelect}
-                active={activeTagData}
-              />
+              <TagsBarWrapper>
+                <TagsBar
+                  thread={THREAD.POST}
+                  onSelect={onTagSelect}
+                  active={activeTagData}
+                />
+              </TagsBarWrapper>
               <PromotionList onClose={onAdsClose} />
             </Sticky>
           </SidebarWrapper>

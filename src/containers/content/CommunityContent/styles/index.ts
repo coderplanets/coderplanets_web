@@ -51,12 +51,12 @@ export const InnerWrapper = styled.div<{ isClassicLayout: boolean }>`
     isClassicLayout ? 'column' : 'row'};
 
   padding-top: 0;
-  color: ${theme('font')};
-  /* background: ${theme('content.bg')}; */
 
-  /* border: 1px solid;
-  border-color: ${theme('content.border')}; */
-  /* border-radius: 6px; */
+  /* 经典布局在统一宽度下再缩减 35px, 否则列表页会太宽 */
+  padding-left: ${({ isClassicLayout }) => (isClassicLayout ? '35px' : 0)};
+  padding-right: ${({ isClassicLayout }) => (isClassicLayout ? '35px' : 0)};
+
+  color: ${theme('font')};
 
   ${css.media.mobile`
     margin: 0 3%;

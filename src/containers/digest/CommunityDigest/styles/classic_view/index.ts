@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, WIDTH } from '@/utils'
+import { css, WIDTH, pixelAdd } from '@/utils'
 
 import { BaseBanner } from '../index'
 
@@ -19,6 +19,7 @@ type TWrapper = {
   metric?: string
 }
 export const Wrapper = styled(BaseBanner)<TWrapper>`
+  width: 100%;
   min-height: ${({ descExpand, noSocial, isMobile }) =>
     descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
 `
@@ -29,7 +30,8 @@ export const InnerWrapper = styled.div<TWrapper>`
     descExpand ? '300px' : getMinHeight(noSocial, isMobile)};
   width: 100%;
   // if use margin-left will cause horizontal scrollbar
-  padding-left: ${WIDTH.COMMUNITY.CONTENT_OFFSET};
+  // 70 是经典布局为缩小帖子列表"视觉宽度"手动缩小的值
+  padding-left: ${pixelAdd(WIDTH.COMMUNITY.CONTENT_OFFSET, 70)};
   ${({ metric }) => css.fitPageWidth(metric)};
   transition: min-height 0.25s;
 `
@@ -68,4 +70,6 @@ export const TabBarWrapper = styled.div`
 export const CommunityBaseInfo = styled.div`
   ${css.flex('justify-between')};
   width: 100%;
+  // 60 是经典布局为缩小帖子列表"视觉宽度"手动缩小的值
+  padding-right: 60px;
 `

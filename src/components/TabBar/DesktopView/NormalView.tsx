@@ -10,14 +10,16 @@ const getLocalIcon = (item) => {
   return item.localIcon ? item.localIcon : item.raw
 }
 
-const NormalView = ({ source, active, onChange, size }) => {
+const NormalView = ({ layout, source, active, onChange, size }) => {
   const items = source.map((item) => ({
     ...item,
     localIcon: getLocalIcon(item),
   }))
 
+  console.log('tam >>> ', layout)
   return (
     <Tabs
+      layout={layout}
       items={sortByIndex(items)}
       activeKey={active}
       onChange={onChange}

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { C11N } from '@/constant'
 import type { TC11NLayout, TTestable } from '@/spec'
-import { theme, css } from '@/utils'
+import { theme, css, pixelAdd, WIDTH } from '@/utils'
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
 
 type TPos = {
@@ -32,9 +32,11 @@ export const InnerWrapper = styled.div<TInnerWrapper>`
   width: 100%;
   height: 33px;
   ${({ metric }) => css.fitContentWidth(metric)};
-  /* TODO: when HolyGrailLayout */
-  margin-left: ${({ layout }) =>
-    layout === C11N.HOLY_GRAIL ? '18px' : 'inherit'};
+  padding-left: ${({ layout }) =>
+    layout === C11N.CLASSIC ? pixelAdd(WIDTH.COMMUNITY.CONTENT_OFFSET, 10) : 0};
+  padding-right: ${({ layout }) =>
+    layout === C11N.CLASSIC ? WIDTH.COMMUNITY.CONTENT_OFFSET : 0};
+  ${({ layout }) => (layout === C11N.HOLY_GRAIL ? 'margin-left: 18px' : '')};
 `
 export const RouterWrapper = styled.div`
   ${css.flexGrow('align-center')};

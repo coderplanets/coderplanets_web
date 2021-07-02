@@ -5,7 +5,6 @@ import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   margin-left: 20px;
-  margin-top: 30px;
   min-height: 150px;
   max-width: 180px;
 `
