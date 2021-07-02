@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 
-import { ROUTE } from '@/constant'
+import type { TC11NLayout } from '@/spec'
+import { ROUTE, C11N } from '@/constant'
 
 import {
   Wrapper,
@@ -11,12 +12,13 @@ import {
 
 type TProps = {
   metric: string
+  layout?: TC11NLayout
 }
 
-const BottomInfo: FC<TProps> = ({ metric }) => {
+const BottomInfo: FC<TProps> = ({ metric, layout }) => {
   return (
     <Wrapper metric={metric}>
-      <InnerWrapper>
+      <InnerWrapper layout={layout}>
         <CompanyLink href={ROUTE.SPONSOR}>
           Groupher @ 2021. 保留所有权利。
         </CompanyLink>

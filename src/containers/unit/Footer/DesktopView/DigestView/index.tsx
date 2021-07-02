@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
-import type { TThemeMap } from '@/spec'
+import type { TThemeMap, TC11NLayout } from '@/spec'
 import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 
@@ -22,9 +22,10 @@ import {
 
 type TProps = {
   metric: string
+  layout: TC11NLayout
 }
 
-const DigestView: FC<TProps> = ({ metric }) => {
+const DigestView: FC<TProps> = ({ metric, layout }) => {
   const theme = useTheme() as TThemeMap
 
   const linkColors = {
@@ -160,7 +161,7 @@ const DigestView: FC<TProps> = ({ metric }) => {
           </Column>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo metric={metric} />
+      <BottomInfo metric={metric} layout={layout} />
     </Wrapper>
   )
 }
