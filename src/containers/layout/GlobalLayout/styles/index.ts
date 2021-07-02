@@ -48,7 +48,10 @@ export const BodyWrapper = styled.div<TBody>`
   ${css.flex('align-both')};
   flex-direction: ${({ layout, isMobile }) => {
     if (isMobile) return 'column'
-    return layout === C11N.DIGEST ? 'column' : 'row'
+    return layout === C11N.CLASSIC ? 'column' : 'row-reverse'
+  }};
+  align-items: ${({ layout }) => {
+    return layout === C11N.CLASSIC ? 'center' : 'flex-start'
   }};
   width: 100%;
 `

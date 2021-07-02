@@ -21,8 +21,9 @@ export const mediaBreakPoints = {
 export const WIDTH = {
   COMMUNITY: {
     PAGE: '1460px',
-    CONTENT: '998px',
+    CONTENT: '1024px',
     CONTENT_OFFSET: '34px',
+    LAPTOP_M_PADDING: '44px',
   },
   USER: {
     PAGE: '1200px',
@@ -110,15 +111,15 @@ export const fitContentWidth = (metric = METRIC.COMMUNITY): string => {
   const laptopMmediaQuery = media.laptopM`
     padding-left: ${getLaptopMPadding(metric)};
     padding-right: ${getLaptopMPadding(metric)};
-  ` // .join('')
+  `
 
   const desktopLmediaQuery = media.desktopL`
     margin-left: ${WIDTH[metric]?.CONTENT_OFFSET_DESKTOPL};
-  ` // .join('')
+  `
 
   const laptopLmediaQuery = media.laptopL`
     margin-left: ${WIDTH[metric]?.CONTENT_OFFSET_LAPTOPL};
-  ` // .join('')
+  `
 
   return `
     max-width: ${getContentMaxWidth(metric)};

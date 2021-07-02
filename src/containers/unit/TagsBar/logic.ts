@@ -98,7 +98,7 @@ export const useInit = (
     store = _store
     log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    let activeTag = pick(['id', 'title', 'color'], active)
+    let activeTag = pick(['id', 'title', 'color'], active || {})
     if (isEmpty(activeTag.title)) activeTag = null
     store.mark({ thread, activeTag })
 

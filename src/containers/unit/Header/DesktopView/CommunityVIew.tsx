@@ -74,10 +74,10 @@ const CommunityHeaderContainer: FC<TProps> = ({
       leftOffset={leftOffset}
       noBorder={hasNoBottomBorder}
     >
-      <InnerWrapper metric={metric}>
+      <InnerWrapper metric={metric} layout={bannerLayout}>
         <RouterWrapper>
           <Navigator
-            curCommunity={curCommunity}
+            community={curCommunity}
             layout={bannerLayout}
             isOnline={isOnline}
             metric={metric}

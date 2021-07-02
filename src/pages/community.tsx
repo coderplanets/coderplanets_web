@@ -168,8 +168,9 @@ const CommunityPage = (props) => {
         errorCode={errorCode}
         errorPath={community.raw}
       >
-        <CommunityDigest />
+        {/* <CommunityDigest /> */}
         <CommunityContent />
+        {/* <CommunityDigest /> */}
       </GlobalLayout>
     </Provider>
   )

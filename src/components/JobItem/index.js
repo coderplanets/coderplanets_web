@@ -12,7 +12,6 @@ import { buildLog } from '@/utils'
 
 import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
 import DigestView from './DigestView'
-import ListView from './ListView'
 
 import { Wrapper } from './styles'
 import { getOpacity } from './helper'
@@ -29,7 +28,7 @@ const JobItem = ({
   community,
 }) => {
   const {
-    customization: { contentsLayout, contentDivider },
+    customization: { contentDivider },
   } = accountInfo
 
   return (
@@ -42,16 +41,12 @@ const JobItem = ({
         accountInfo={accountInfo}
         topOffset="9px"
       />
-      {contentsLayout === C11N.DIGEST ? (
-        <DigestView
-          entry={entry}
-          onPreview={onPreview}
-          onAuthorSelect={onAuthorSelect}
-          community={community}
-        />
-      ) : (
-        <ListView entry={entry} onPreview={onPreview} />
-      )}
+      <DigestView
+        entry={entry}
+        onPreview={onPreview}
+        onAuthorSelect={onAuthorSelect}
+        community={community}
+      />
     </Wrapper>
   )
 }
@@ -85,7 +80,6 @@ JobItem.propTypes = {
   accountInfo: T.shape({
     isLogin: T.bool,
     customization: T.shape({
-      contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: T.bool,
       contentDivider: T.bool,
       displayDensity: T.oneOf(['20', '25', '30']),
@@ -103,7 +97,6 @@ JobItem.defaultProps = {
   accountInfo: {
     isLogin: false,
     customization: T.shape({
-      contentsLayout: C11N.DIGEST,
       contentDivider: false,
       markViewed: true,
       displayDensity: '20',

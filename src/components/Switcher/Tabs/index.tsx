@@ -13,7 +13,6 @@ import { buildLog } from '@/utils'
 import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
 import ModelineView from './ModelineView'
-import CardView from './CardView'
 import DrawerView from './DrawerView'
 
 /* eslint-disable-next-line */
@@ -34,10 +33,6 @@ const Tabs = (props) => {
 
     case VIEW.MODELINE: {
       return <ModelineView {...props} />
-    }
-
-    case VIEW.COMMUNITY_CARD: {
-      return <CardView {...props} />
     }
 
     case VIEW.DRAWER: {

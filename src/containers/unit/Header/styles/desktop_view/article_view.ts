@@ -12,7 +12,6 @@ export const InnerWrapper = styled.div`
   ${css.flex('justify-start', 'align-center')};
   width: ${WIDTH.ARTICLE.PAGE};
   margin-left: ${WIDTH.ARTICLE.CONTENT_OFFSET};
-  /* margin-left: 0; */
   height: 33px;
 
   ${css.media.desktopL`

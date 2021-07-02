@@ -99,7 +99,6 @@ export const user = `
 `
 export const c11n = `
   bannerLayout
-  contentsLayout
   contentDivider
   markViewed
   displayDensity

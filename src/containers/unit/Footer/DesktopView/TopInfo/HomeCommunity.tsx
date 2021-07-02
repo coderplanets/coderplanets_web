@@ -12,7 +12,7 @@ import {
 
 type TProps = Pick<TTopInfoProps, 'title'>
 
-const HomeCommunity: FC<TProps> = ({ title = 'CoderPlanets' }) => {
+const HomeCommunity: FC<TProps> = ({ title = 'oderPlanets' }) => {
   return (
     <Wrapper>
       <InfoBar>

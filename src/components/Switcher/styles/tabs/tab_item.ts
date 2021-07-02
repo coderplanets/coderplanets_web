@@ -8,7 +8,7 @@ import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 type TTab = {
   size: string
   mobileView: boolean
-  cardView: boolean
+  holyGrailView: boolean
   wrapMode: boolean
   modelineView: boolean
 } & TActive
@@ -19,28 +19,18 @@ export const Wrapper = styled.div<TTab>`
   position: relative;
   height: 100%;
   z-index: 1;
-  margin-right: ${({ size, mobileView, cardView }) =>
-    getMarginRight(size, mobileView, cardView)};
-  padding: ${({ size, cardView, mobileView, wrapMode, modelineView }) =>
-    getPadding(size, cardView, mobileView, wrapMode, modelineView)};
+  margin-right: ${({ size, mobileView, holyGrailView }) =>
+    getMarginRight(size, mobileView, holyGrailView)};
+  padding: ${({ size, holyGrailView, mobileView, wrapMode, modelineView }) =>
+    getPadding(size, holyGrailView, mobileView, wrapMode, modelineView)};
   text-align: center;
-  min-width: ${({ cardView }) => (!cardView ? 'auto' : '33%')};
+  min-width: auto;
   cursor: pointer;
 
-  margin-bottom: ${({ cardView, wrapMode }) =>
-    getMarginBottom(cardView, wrapMode)};
+  margin-bottom: ${({ holyGrailView, wrapMode }) =>
+    getMarginBottom(holyGrailView, wrapMode)};
 
-  background: ${({ cardView, active }) =>
-    cardView && active ? '#114758' : ''};
-  border-left: ${({ cardView, active }) =>
-    cardView && active ? '1px solid' : ''};
-  /* same with slipbar */
-  border-left-color: ${({ cardView, active }) =>
-    cardView && active ? '#327faf' : ''};
-  border-top-right-radius: ${({ cardView, active }) =>
-    cardView && active ? '8px' : ''};
-  border-bottom-right-radius: ${({ cardView, active }) =>
-    cardView && active ? '8px' : ''};
+  /* background: ${({ active }) => (active ? '#114758' : '')}; */
 
   ${css.media.mobile`
     margin-right: ${() => getMarginRight('', true, false)};

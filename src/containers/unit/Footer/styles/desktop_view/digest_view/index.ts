@@ -14,6 +14,8 @@ export const Wrapper = styled.footer`
 export const InnerWrapper = styled.div<{ metric: string }>`
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
+  // 20 是经典布局为缩小帖子列表"视觉宽度"手动缩小的值
+  padding: 0 20px;
 `
 export const MainInfos = styled.div`
   ${css.flex('justify-between')};

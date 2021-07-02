@@ -81,7 +81,7 @@ const FooterContainer: FC<TProps> = ({ footer: store, metric }) => {
       />
 
       {curView === 'DIGEST' ? (
-        <DigestView metric={metric} />
+        <DigestView metric={metric} layout={bannerLayout} />
       ) : (
         <BriefView
           curView={curView}
