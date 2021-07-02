@@ -48,6 +48,7 @@ const ClassicView: FC<TProps> = ({
 
   return (
     <Wrapper
+      testid="community-digest"
       descExpand={descExpand}
       noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
       isMobile={isMobile}

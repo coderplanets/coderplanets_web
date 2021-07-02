@@ -1,12 +1,24 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TC11NLayout } from '@/spec'
+import { C11N } from '@/constant'
 import { theme, css, WIDTH, pixelAdd } from '@/utils'
+
+type TWrapper = TTestable & { layout: TC11NLayout }
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   ${css.flex('justify-center')};
+
+  flex-direction: ${({ layout }) => {
+    return layout === C11N.CLASSIC ? 'column' : 'row'
+  }};
+
+  align-items: ${({ layout }) => {
+    return layout === C11N.CLASSIC ? 'center' : 'flex-start'
+  }};
+
   min-height: 70vh;
   width: 100%;
 

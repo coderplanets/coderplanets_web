@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
+import type { TTestable } from '@/spec'
 import { css } from '@/utils'
 
-export const Wrapper = styled.div`
-  background: transparent;
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('justify-start')};
+  background: transparent;
   position: relative;
   width: 150px;
   margin-top: 10px;

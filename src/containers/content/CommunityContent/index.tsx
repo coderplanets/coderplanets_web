@@ -63,15 +63,19 @@ const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   } = store
 
   const isClassicLayout = !isMobile && bannerLayout === C11N.CLASSIC
+  const isHolyGrailLayout = !isMobile && bannerLayout === C11N.HOLY_GRAIL
 
   // console.log('subscribedCommunitiesData ->> ', subscribedCommunitiesData)
 
   return (
-    <Wrapper testid="community-content">
+    <Wrapper testid="community-content" layout={bannerLayout}>
+      {isClassicLayout && <CommunityDigest />}
       <InnerWrapper isClassicLayout={isClassicLayout}>
-        <SubscribedList communities={subscribedCommunitiesData} />
+        {isHolyGrailLayout && (
+          <SubscribedList communities={subscribedCommunitiesData} />
+        )}
         <ComunityContent curRoute={curRoute} />
-        <CommunityDigest />
+        {isHolyGrailLayout && <CommunityDigest />}
       </InnerWrapper>
     </Wrapper>
   )

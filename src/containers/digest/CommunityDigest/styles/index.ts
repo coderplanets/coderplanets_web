@@ -3,11 +3,9 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+export const BaseBanner = styled.nav.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>``
-
-export const BaseBanner = styled.nav`
+}))<TTestable>`
   ${css.flexColumn('justify-center', 'align-center')};
   position: relative;
   min-height: 140px;

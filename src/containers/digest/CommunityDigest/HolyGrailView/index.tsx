@@ -21,19 +21,17 @@ type TProps = {
 
 const HolyGrailView: FC<TProps> = ({ community }) => {
   return (
-    <Fragment>
+    <Wrapper testid="community-digest">
       <CommunityBrief community={community} />
       <Divider />
       <ExtraInfo />
-      <Br top={25} bottom={20} />
+      <Br bottom={20} />
       <PublishButton />
-      <Br top={22} bottom={30} />
+      <Br bottom={25} />
       <Sticky offsetTop={80}>
-        <Wrapper>
-          <TagsBar thread={THREAD.POST} onSelect={console.log} />
-        </Wrapper>
+        <TagsBar thread={THREAD.POST} onSelect={console.log} />
       </Sticky>
-    </Fragment>
+    </Wrapper>
   )
 }
 
