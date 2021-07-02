@@ -15,7 +15,6 @@ const GeneralSettings = ({ curThread, customization }) => {
 
   const {
     bannerLayout,
-    contentsLayout,
     contentDivider,
     markViewed,
     displayDensity,
@@ -30,17 +29,13 @@ const GeneralSettings = ({ curThread, customization }) => {
         size="small"
         items={[
           {
-            value: '上下布局',
-            key: C11N.DIGEST,
+            value: '经典布局',
+            key: C11N.CLASSIC,
           },
           {
-            value: '左右布局',
-            key: C11N.DIGEST_ROW,
+            value: '圣杯布局',
+            key: C11N.HOLY_GRAIL,
             dimOnActive: isMobile,
-          },
-          {
-            value: '简洁布局',
-            key: C11N.BRIEF,
           },
         ]}
         activeKey={bannerLayout}
@@ -51,39 +46,6 @@ const GeneralSettings = ({ curThread, customization }) => {
         }
       />
       <Divider />
-
-      <Title>文章视图</Title>
-      <Desc>
-        浏览内容时列表的显示方式, 部分板块(如视频，开源项目等)不支持列表视图。
-      </Desc>
-
-      {!contains(curThread, [THREAD.REPO]) ? (
-        <>
-          <Br top={10} />
-          <Radio
-            size="small"
-            items={[
-              {
-                value: '列表视图',
-                key: C11N.LIST,
-              },
-              {
-                value: '摘要视图',
-                key: C11N.DIGEST,
-              },
-            ]}
-            activeKey={contentsLayout}
-            onChange={(item) =>
-              onC11NChange({
-                contentsLayout: item.key,
-              })
-            }
-          />
-          <Divider />
-        </>
-      ) : (
-        <Divider />
-      )}
 
       <Title>阅读辅助</Title>
       <Br top={10} />

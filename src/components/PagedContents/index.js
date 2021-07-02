@@ -87,7 +87,6 @@ PagedContents.propTypes = {
   accountInfo: T.shape({
     isLogin: T.bool,
     customization: T.shape({
-      contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: T.bool,
       displayDensity: T.oneOf(['20', '25', '30']),
     }),
@@ -107,7 +106,6 @@ PagedContents.defaultProps = {
   accountInfo: {
     isLogin: false,
     customization: T.shape({
-      contentsLayout: C11N.DIGEST,
       markViewed: true,
       displayDensity: '20',
     }),

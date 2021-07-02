@@ -14,8 +14,16 @@ export const Wrapper = styled.div`
   padding-left: 10px;
 `
 export const HeadTitle = styled.div`
+  ${css.flex('align-center')};
   font-size: 14px;
   font-weight: bold;
+`
+export const HeadNum = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 1px;
+  font-weight: normal;
 `
 export const Divider = styled.div`
   width: 80px;

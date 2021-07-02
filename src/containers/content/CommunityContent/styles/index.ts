@@ -21,14 +21,22 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const InnerWrapper = styled.div<{ isClassicLayout: boolean }>`
   margin-top: 20px;
   width: 100%;
-  max-width: ${pixelAdd(WIDTH.COMMUNITY.CONTENT, 46)};
-  margin-left: ${WIDTH.COMMUNITY.CONTENT_OFFSET};
+
+  /* max-width: ${pixelAdd(WIDTH.COMMUNITY.CONTENT, 46)}; */
+  /* margin-left: ${WIDTH.COMMUNITY.CONTENT_OFFSET}; */
+
+  max-width: ${({ isClassicLayout }) =>
+    isClassicLayout
+      ? pixelAdd(WIDTH.COMMUNITY.CONTENT, 46)
+      : WIDTH.COMMUNITY.CONTENT};
+
+  margin-left: ${({ isClassicLayout }) =>
+    /* TODO: 10px when HolyGrailLayout, make it center in "human feel" */
+    isClassicLayout ? WIDTH.COMMUNITY.CONTENT_OFFSET : '10px'};
 
   ${css.flex()};
-
-  flex-direction: ${({ isClassicLayout }) => {
-    return isClassicLayout ? 'column' : 'row'
-  }};
+  flex-direction: ${({ isClassicLayout }) =>
+    isClassicLayout ? 'column' : 'row'};
 
   padding-top: 0;
   color: ${theme('font')};

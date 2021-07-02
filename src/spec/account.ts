@@ -16,7 +16,6 @@ export type TAccount = TUser & {
   customization?: {
     theme?: string
     bannerLayout?: TC11NLayout
-    contentsLayout?: string // oneOf([C11N.DIGEST, C11N.LIST])
     markViewed?: boolean
     contentDivider?: boolean
     displayDensity?: string // oneOf(['20', '25', '30'])

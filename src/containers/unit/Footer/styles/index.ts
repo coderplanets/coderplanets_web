@@ -9,7 +9,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
   ${css.flex('justify-center')};
-  margin-top: ${({ layout }) => (layout === C11N.DIGEST_ROW ? '50px' : '80px')};
+  margin-top: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? '50px' : '80px')};
   ${({ metric }) => css.fitPageWidth(metric)};
 `
 export const Holder = 1

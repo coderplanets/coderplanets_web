@@ -20,9 +20,8 @@ export const InfoBar = styled.div`
   margin-top: 3px;
 `
 export const Logo = styled(CommunityFaceLogo)`
-  ${css.size(22)};
-  margin-right: 12px;
-  margin-top: -5px;
+  ${css.size(18)};
+  margin-top: -6px;
   margin-left: 2px;
   cursor: pointer;
 `
@@ -30,7 +29,9 @@ export const SiteTitle = styled.div`
   color: #007fa8;
   font-size: 18px;
   font-weight: bold;
-  margin-right: 25px;
+  margin-left: 4px;
+  margin-right: 56px;
+  letter-spacing: 1px;
 `
 export const ArrowDividerIcon = styled(Img)`
   fill: ${theme('footer.text')};

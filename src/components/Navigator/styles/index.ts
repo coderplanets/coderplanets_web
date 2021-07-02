@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
+import type { TActive, TC11NLayout } from '@/spec'
+import { C11N } from '@/constant'
 import { animate, theme, css } from '@/utils'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
@@ -13,18 +14,17 @@ export const Breadcrumbs = styled.div`
   `};
 `
 export const Logo = styled(CommunityFaceLogo)`
-  height: 20px;
-  width: 20px;
-  margin-top: -1px;
+  ${css.size(16)};
 `
-export const LogoLink = styled.a`
+export const LogoLink = styled.a<{ layout: TC11NLayout }>`
   ${css.flex('align-center')};
-  margin-right: 10px;
+  margin-right: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? 0 : '10px')};
   text-decoration: none;
   cursor: pointer;
 `
-export const LogoMargin = styled.div`
-  margin-right: 32px;
+export const LogoMargin = styled.div<{ layout: TC11NLayout }>`
+  margin-right: ${({ layout }) =>
+    layout === C11N.HOLY_GRAIL ? '42px' : '32px'};
 `
 export const LineDivider = styled.div`
   background-color: #139c9e;
@@ -37,19 +37,13 @@ export const LineDivider = styled.div`
   animation: ${animate.blink} 1.2s linear infinite alternate;
 `
 export const LogoText = styled.a`
-  color: ${theme('banner.desc')};
-  /* font-weight: bold; */
+  color: ${theme('header.fg')};
+  font-weight: bold;
+  font-family: sans-serif;
   letter-spacing: 1px;
-  font-size: 14px;
-  margin-left: 10px;
-  margin-top: 4px;
-
-  font-family: 'Audiowide', cursive;
-  /* font-family: 'Orbitron', sans-serif; */
-
-  &:hover {
-    color: ${theme('banner.desc')};
-  }
+  font-size: 16px;
+  margin-left: 3px;
+  margin-top: 2px;
 `
 export const UL = styled.ul`
   &:before {

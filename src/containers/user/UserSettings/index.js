@@ -51,7 +51,7 @@ const UserSettingsContainer = ({ userSettings: store }) => {
               items={[
                 {
                   value: '详细视图',
-                  key: C11N.DIGEST,
+                  key: C11N.CLASSIC,
                 },
                 {
                   value: '简洁视图',
@@ -60,27 +60,6 @@ const UserSettingsContainer = ({ userSettings: store }) => {
               ]}
               activeKey={customization.bannerLayout}
               onChange={(item) => c11nOnChange('bannerLayout', item.key)}
-            />
-          </RadiosWrapper>
-          <SectionLabel
-            title="内容视图"
-            iconSrc={`${ICON_CMD}/setting_list.svg`}
-            desc="浏览内容时列表的显示方式, 部分板块(如视频，开源项目等)不支持列表视图"
-          />
-          <RadiosWrapper>
-            <Radio
-              items={[
-                {
-                  value: '列表视图',
-                  key: C11N.LIST,
-                },
-                {
-                  value: '摘要视图',
-                  key: C11N.DIGEST,
-                },
-              ]}
-              activeKey={customization.contentsLayout}
-              onChange={(item) => c11nOnChange('contentsLayout', item.key)}
             />
           </RadiosWrapper>
 

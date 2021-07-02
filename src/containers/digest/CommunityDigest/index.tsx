@@ -40,7 +40,7 @@ const CommunityDigestContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid="community-digest">
-      {bannerLayout === C11N.DIGEST ? (
+      {bannerLayout === C11N.CLASSIC ? (
         <ClassicView
           metric={metric}
           community={curCommunity}

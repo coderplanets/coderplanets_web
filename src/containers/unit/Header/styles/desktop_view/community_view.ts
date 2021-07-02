@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import { C11N } from '@/constant'
+import type { TC11NLayout, TTestable } from '@/spec'
 import { theme, css } from '@/utils'
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
 
@@ -24,12 +25,16 @@ export const Wrapper = styled.header.attrs(({ testid }: TTestable) => ({
   margin-left: ${({ leftOffset }) => leftOffset};
   box-shadow: ${({ noBorder }) => (noBorder ? 'none' : theme('drawer.shadow'))};
 `
-export const InnerWrapper = styled.div<{ metric: string }>`
+type TInnerWrapper = { metric: string; layout: TC11NLayout }
+export const InnerWrapper = styled.div<TInnerWrapper>`
   ${css.flex('align-center')};
   padding: 0 4px;
   width: 100%;
   height: 33px;
   ${({ metric }) => css.fitContentWidth(metric)};
+  /* TODO: when HolyGrailLayout */
+  margin-left: ${({ layout }) =>
+    layout === C11N.HOLY_GRAIL ? '18px' : 'inherit'};
 `
 export const RouterWrapper = styled.div`
   ${css.flexGrow('align-center')};

@@ -13,6 +13,7 @@ import {
 } from './styles'
 
 import MainEntries from './MainEntries/index'
+import { TC11NLayout } from '@/spec'
 
 const renderMainEntries = (metric) => {
   switch (metric) {
@@ -28,19 +29,20 @@ const renderMainEntries = (metric) => {
 
 type TProps = {
   metric: string
+  layout: TC11NLayout
   showLogoText: boolean
   isOnline: boolean
 }
 
-const DigestView: FC<TProps> = ({ metric, showLogoText, isOnline }) => {
+const DigestView: FC<TProps> = ({ metric, showLogoText, isOnline, layout }) => {
   return (
     <Breadcrumbs>
-      <LogoLink href="/home/posts">
+      <LogoLink href="/home/posts" layout={layout}>
         <Logo />
-        {showLogoText && <LogoText>CoderPlanets</LogoText>}
+        {showLogoText && <LogoText>oderPlanets</LogoText>}
       </LogoLink>
 
-      {showLogoText ? <LogoMargin /> : <LineDivider />}
+      {showLogoText ? <LogoMargin layout={layout} /> : <LineDivider />}
 
       {isOnline ? (
         renderMainEntries(metric)

@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import type { TPost, TUser, TAccount } from '@/spec'
-import { HCN, C11N } from '@/constant'
+import { HCN } from '@/constant'
 import { buildLog } from '@/utils'
 
 import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
@@ -41,7 +41,6 @@ const PostItem: FC<TProps> = ({
   accountInfo = {
     isLogin: false,
     customization: {
-      contentsLayout: C11N.DIGEST,
       contentDivider: false,
       markViewed: true,
       displayDensity: '20',
@@ -50,7 +49,7 @@ const PostItem: FC<TProps> = ({
 }) => {
   // log('customization --> ', customization)
   const {
-    customization: { contentsLayout, contentDivider },
+    customization: { contentDivider },
   } = accountInfo
 
   return (
@@ -61,17 +60,13 @@ const PostItem: FC<TProps> = ({
       divider={contentDivider}
     >
       <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
-      {contentsLayout === C11N.DIGEST ? (
-        <DigestView
-          entry={entry}
-          community={community}
-          onPreview={onPreview}
-          onUserSelect={onUserSelect}
-          onAuthorSelect={onAuthorSelect}
-        />
-      ) : (
-        <ListView entry={entry} onPreview={onPreview} />
-      )}
+      <DigestView
+        entry={entry}
+        community={community}
+        onPreview={onPreview}
+        onUserSelect={onUserSelect}
+        onAuthorSelect={onAuthorSelect}
+      />
     </Wrapper>
   )
 }

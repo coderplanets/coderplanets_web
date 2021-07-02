@@ -62,7 +62,7 @@ const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
     subscribedCommunitiesData,
   } = store
 
-  const isClassicLayout = !isMobile && bannerLayout === C11N.DIGEST
+  const isClassicLayout = !isMobile && bannerLayout === C11N.CLASSIC
 
   // console.log('subscribedCommunitiesData ->> ', subscribedCommunitiesData)
 

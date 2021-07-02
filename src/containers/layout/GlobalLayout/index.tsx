@@ -7,7 +7,7 @@
 import React, { FC, ReactNode, useEffect } from 'react'
 
 import type { Nullable, TSEO } from '@/spec'
-import { ANCHOR, SIZE } from '@/constant'
+import { ANCHOR, SIZE, C11N } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { pluggedIn } from '@/utils'
@@ -92,7 +92,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
                 sidebarPin={sidebarPin}
                 // noSidebar={noSidebar}
               >
-                {!noSidebar && <Sidebar />}
+                {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
                 <AbuseReport />
                 <Drawer />
                 <Doraemon />
