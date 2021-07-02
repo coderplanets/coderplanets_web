@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TC11NLayout } from '@/spec'
-import { ROUTE, C11N } from '@/constant'
+import { ROUTE } from '@/constant'
 
 import {
   Wrapper,

@@ -10,29 +10,20 @@ import { Waypoint } from 'react-waypoint'
 import { C11N, THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
-import TagsBar from '@/containers/unit/TagsBar'
-
-import Sticky from '@/components/Sticky'
 import TabBar from '@/components/TabBar'
-import { PublishButton } from '@/components/Buttons'
 import FaqPeekList from '@/components/FaqPeekList'
 import PagedContents from '@/components/PagedContents'
 import ContentFilter from '@/components/ContentFilter'
-import PromotionList from '@/components/PromotionList'
 
+import ClassicSidebar from './ClassicSidebar'
 import type { TStore } from './store'
 
 import {
   Wrapper,
   Body,
   ArticlesWrapper,
-  SidebarWrapper,
   TabsWrapper,
   FilterWrapper,
-  BadgeWrapper,
-  TagsBarWrapper,
-  PublisherWrapper,
 } from './styles'
 
 import {
@@ -44,9 +35,6 @@ import {
   onPreview,
   onPageChange,
   onFaqChange,
-  onContentCreate,
-  onTagSelect,
-  onAdsClose,
   tabOnChange,
 } from './logic'
 
@@ -127,25 +115,10 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
         </ArticlesWrapper>
 
         {bannerLayout === C11N.CLASSIC && (
-          <SidebarWrapper>
-            <PublisherWrapper show={isCommunityDigestInViewport}>
-              <PublishButton onCreate={() => onContentCreate()} />
-            </PublisherWrapper>
-
-            <Sticky offsetTop={55}>
-              <BadgeWrapper show={!isCommunityDigestInViewport}>
-                <CommunityJoinBadge />
-              </BadgeWrapper>
-              <TagsBarWrapper>
-                <TagsBar
-                  thread={THREAD.POST}
-                  onSelect={onTagSelect}
-                  active={activeTagData}
-                />
-              </TagsBarWrapper>
-              <PromotionList onClose={onAdsClose} />
-            </Sticky>
-          </SidebarWrapper>
+          <ClassicSidebar
+            show={isCommunityDigestInViewport}
+            activeTag={activeTagData}
+          />
         )}
       </Body>
     </Wrapper>
