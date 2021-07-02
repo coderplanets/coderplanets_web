@@ -3,13 +3,12 @@
  * CommunityDigest
  *
  */
-import { FC, Fragment } from 'react'
+import { FC } from 'react'
 
-import { C11N, METRIC } from '@/constant'
+import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ClassicView from './ClassicView'
-import HolyGrailView from './HolyGrailView'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
@@ -38,19 +37,13 @@ const CommunityDigestContainer: FC<TProps> = ({
   } = store
 
   return (
-    <Fragment>
-      {bannerLayout === C11N.CLASSIC ? (
-        <ClassicView
-          metric={metric}
-          community={curCommunity}
-          activeThread={curThread}
-          layout={bannerLayout}
-          descExpand={descExpand}
-        />
-      ) : (
-        <HolyGrailView community={curCommunity} />
-      )}
-    </Fragment>
+    <ClassicView
+      metric={metric}
+      community={curCommunity}
+      activeThread={curThread}
+      layout={bannerLayout}
+      descExpand={descExpand}
+    />
   )
 }
 

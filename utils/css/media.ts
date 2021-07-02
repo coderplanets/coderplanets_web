@@ -21,7 +21,7 @@ export const mediaBreakPoints = {
 export const WIDTH = {
   COMMUNITY: {
     PAGE: '1460px',
-    CONTENT: '1018px',
+    CONTENT: '1024px',
     CONTENT_OFFSET: '34px',
   },
   USER: {

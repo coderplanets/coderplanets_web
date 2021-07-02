@@ -16,7 +16,6 @@ const NormalView = ({ layout, source, active, onChange, size }) => {
     localIcon: getLocalIcon(item),
   }))
 
-  console.log('tam >>> ', layout)
   return (
     <Tabs
       layout={layout}

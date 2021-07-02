@@ -1,4 +1,4 @@
-import { FC, Fragment, memo } from 'react'
+import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
 import { THREAD } from '@/constant'

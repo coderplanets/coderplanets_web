@@ -11,6 +11,7 @@ import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
 import CommunityDigest from '@/containers/digest/CommunityDigest'
+import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import PostsThread from '@/containers//thread/PostsThread'
 import BlogsThread from '@/containers//thread/BlogsThread'
 import ReposThread from '@/containers/thread/ReposThread'
@@ -75,7 +76,7 @@ const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
           <SubscribedList communities={subscribedCommunitiesData} />
         )}
         <ComunityContent curRoute={curRoute} />
-        {isHolyGrailLayout && <CommunityDigest />}
+        {isHolyGrailLayout && <ThreadSidebar activeTag={{}} />}
       </InnerWrapper>
     </Wrapper>
   )

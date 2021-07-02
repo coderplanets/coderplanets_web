@@ -87,10 +87,6 @@ const PostsThreadStore = T.model('PostsThreadStore', {
 
       return !isEmpty(curFilter) || !isEmpty(pagedPosts.entries)
     },
-    get isCommunityDigestInViewport(): boolean {
-      const root = getParent(self) as TRootStore
-      return root.communityDigest.inViewport
-    },
   }))
   .actions((self) => ({
     toastInfo(options): void {

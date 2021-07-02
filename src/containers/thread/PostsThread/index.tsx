@@ -10,12 +10,12 @@ import { Waypoint } from 'react-waypoint'
 import { C11N, THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
+import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import TabBar from '@/components/TabBar'
 import FaqPeekList from '@/components/FaqPeekList'
 import PagedContents from '@/components/PagedContents'
 import ContentFilter from '@/components/ContentFilter'
 
-import ClassicSidebar from './ClassicSidebar'
 import type { TStore } from './store'
 
 import {
@@ -36,6 +36,8 @@ import {
   onPageChange,
   onFaqChange,
   tabOnChange,
+  onContentCreate,
+  onTagSelect,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -63,7 +65,6 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
     accountInfo: {
       customization: { bannerLayout },
     },
-    isCommunityDigestInViewport,
   } = store
 
   const { totalCount } = pagedPostsData
@@ -115,9 +116,10 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
         </ArticlesWrapper>
 
         {bannerLayout === C11N.CLASSIC && (
-          <ClassicSidebar
-            show={isCommunityDigestInViewport}
+          <ThreadSidebar
             activeTag={activeTagData}
+            onCreate={onContentCreate}
+            onTagSelect={onTagSelect}
           />
         )}
       </Body>

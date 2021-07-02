@@ -1,12 +1,13 @@
 /*
  *
- * PostsThread
+ * ClassicSidebar
+ * common sidebar include community badge, publisher, tagsbar ads .. etc,
+ * used for classic layout
  *
  */
 
 import { FC } from 'react'
 
-import type { TTag } from '@/spec'
 import { THREAD } from '@/constant'
 import { buildLog } from '@/utils'
 
@@ -17,32 +18,35 @@ import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
 import PromotionList from '@/components/PromotionList'
 
+import type { TBaseProps } from './index'
+
 import {
   Wrapper,
   BadgeWrapper,
   TagsBarWrapper,
   PublishWrapper,
-} from './styles/classic_sidebar'
-
-import { onContentCreate, onTagSelect, onAdsClose } from './logic'
+} from './styles/classic_view'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:PostsThread')
+const log = buildLog('c:ClassicSidebar')
 
-type TProps = {
-  show: boolean
-  activeTag: TTag
-}
+type TProps = { showCommunityBadge: boolean } & TBaseProps
 
-const ClassicSidebar: FC<TProps> = ({ show, activeTag }) => {
+const ClassicView: FC<TProps> = ({
+  showCommunityBadge,
+  activeTag,
+  onCreate,
+  onTagSelect,
+  onAdsClose,
+}) => {
   return (
-    <Wrapper>
-      <PublishWrapper show={show}>
-        <PublishButton onCreate={() => onContentCreate()} />
+    <Wrapper testid="thread-sidebar">
+      <PublishWrapper show={showCommunityBadge}>
+        <PublishButton onCreate={() => onCreate()} />
       </PublishWrapper>
 
       <Sticky offsetTop={55}>
-        <BadgeWrapper show={!show}>
+        <BadgeWrapper show={!showCommunityBadge}>
           <CommunityJoinBadge />
         </BadgeWrapper>
         <TagsBarWrapper>
@@ -58,4 +62,4 @@ const ClassicSidebar: FC<TProps> = ({ show, activeTag }) => {
   )
 }
 
-export default ClassicSidebar
+export default ClassicView

@@ -2,10 +2,10 @@ import { FC, memo } from 'react'
 import { contains } from 'ramda'
 
 import type { TCommunity } from '@/spec'
-import { HCN, NON_FILL_COMMUNITY } from '@/constant'
+import { NON_FILL_COMMUNITY } from '@/constant'
 
 import { FollowButton } from '@/components/Buttons'
-import SocialList from '../SocialList'
+import SocialList from '@/components/SocialList'
 
 import {
   Wrapper,

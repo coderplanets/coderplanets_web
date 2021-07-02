@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
+import type { TActive, TTestable } from '@/spec'
 import { css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   min-width: 200px;
   max-width: 200px;
   padding-top: 20px;
