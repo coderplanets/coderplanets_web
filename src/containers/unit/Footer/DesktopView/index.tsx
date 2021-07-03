@@ -4,19 +4,20 @@
  *
  */
 
-import React, { FC, useState, useEffect } from 'react'
+import { FC } from 'react'
 import dynamic from 'next/dynamic'
-import { contains } from 'ramda'
 
-import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import JoinModal from '@/containers/tool/JoinModal'
 
 import type { TStore } from '../store'
+import { VIEW } from '../constants'
 
-import BriefView from './BriefView'
-import DigestView from './DigestView'
+import HomeView from './HomeView'
+import ArticleView from './ArticleView'
+import CommunityView from './CommunityView'
+import HostingCommunityView from './HostingCommunityView'
 
 import { Wrapper } from '../styles'
 import { useInit, toggleSponsorHelper, onLogin, onPay } from '../logic'
@@ -36,10 +37,15 @@ export const BuyMeChuanChuan = dynamic(
 type TProps = {
   footer?: TStore
   metric?: string // TODO
+  testid?: string
 }
 
-const FooterContainer: FC<TProps> = ({ footer: store, metric }) => {
-  useInit(store)
+const FooterContainer: FC<TProps> = ({
+  footer: store,
+  metric,
+  testid = 'footer',
+}) => {
+  useInit(store, metric)
   const {
     showSponsor,
     accountInfo,
@@ -47,30 +53,11 @@ const FooterContainer: FC<TProps> = ({ footer: store, metric }) => {
     accountInfo: {
       customization: { bannerLayout },
     },
+    type,
   } = store
 
-  const [curView, setCurView] = useState('DIGEST')
-
-  useEffect(() => {
-    if (
-      contains(metric, [
-        METRIC.USER,
-        METRIC.DISCOVERY,
-        METRIC.ARTICLE,
-        METRIC.WORKS_EDITOR,
-        METRIC.COMMUNITY_EDITOR,
-      ])
-    ) {
-      setCurView('BRIEF')
-    } else if (contains(metric, [METRIC.SUBSCRIBE])) {
-      setCurView('BRIEF_LEFT')
-    } else {
-      setCurView('DIGEST')
-    }
-  }, [metric])
-
   return (
-    <Wrapper testid="footer" layout={bannerLayout} metric={metric}>
+    <Wrapper testid={testid} layout={bannerLayout} metric={metric}>
       <JoinModal />
       <BuyMeChuanChuan
         show={showSponsor}
@@ -80,11 +67,16 @@ const FooterContainer: FC<TProps> = ({ footer: store, metric }) => {
         onPay={onPay}
       />
 
-      {curView === 'DIGEST' ? (
-        <DigestView metric={metric} layout={bannerLayout} />
-      ) : (
-        <BriefView
-          curView={curView}
+      {type === VIEW.HOME && <HomeView metric={metric} layout={bannerLayout} />}
+      {/* {type === VIEW.HOME && (
+        <CommunityView metric={metric} layout={bannerLayout} />
+      )} */}
+      {/* {type === VIEW.HOME && (
+        <HostingCommunityView metric={metric} layout={bannerLayout} />
+      )} */}
+      {type === VIEW.ARTICLE && (
+        <ArticleView
+          layout={bannerLayout}
           metric={metric}
           viewingArticle={viewingArticle}
         />

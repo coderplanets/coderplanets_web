@@ -26,16 +26,6 @@ export const LogoMargin = styled.div<{ layout: TC11NLayout }>`
   margin-right: ${({ layout }) =>
     layout === C11N.HOLY_GRAIL ? '42px' : '32px'};
 `
-export const LineDivider = styled.div`
-  background-color: #139c9e;
-  margin-left: 5px;
-  margin-right: 2px;
-  width: 1px;
-  height: 14px;
-  margin-top: 3px;
-  opacity: 1;
-  animation: ${animate.blink} 1.2s linear infinite alternate;
-`
 export const LogoText = styled.a`
   color: ${theme('header.fg')};
   font-weight: bold;

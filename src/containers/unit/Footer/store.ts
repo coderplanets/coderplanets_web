@@ -4,15 +4,20 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
+import { contains } from 'ramda'
 
-import type { TRootStore, TAccount, TArticle } from '@/spec'
-import { markStates, buildLog } from '@/utils'
+import type { TRootStore, TAccount, TArticle, TCommunity } from '@/spec'
+import { HCN, METRIC } from '@/constant'
+import { markStates, buildLog, stripMobx } from '@/utils'
+
+import { VIEW, TFooterView } from './constants'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:FooterStore')
 
 const FooterStore = T.model('FooterStore', {
   showSponsor: T.optional(T.boolean, false),
+  metric: T.optional(T.string, METRIC.COMMUNITY),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -27,6 +32,31 @@ const FooterStore = T.model('FooterStore', {
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
       return root.viewingArticle
+    },
+
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing.community)
+    },
+
+    get type(): TFooterView {
+      const root = getParent(self) as TRootStore
+      if (root.viewing.community.raw === HCN) return VIEW.HOME
+      // TODO: check if the community is hosting
+      // if (self.curCommunity.isHosting) return VIEW.COMMUNITY
+      if (self.metric === METRIC.COMMUNITY) return VIEW.HOSTING_COMMUNITY
+
+      if (
+        contains(self.metric, [
+          METRIC.USER,
+          METRIC.DISCOVERY,
+          METRIC.ARTICLE,
+          METRIC.WORKS_EDITOR,
+          METRIC.COMMUNITY_EDITOR,
+        ])
+      ) {
+        return VIEW.ARTICLE
+      }
     },
   }))
   .actions((self) => ({

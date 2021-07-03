@@ -1,12 +1,16 @@
 import styled from 'styled-components'
 
+import type { TC11NLayout } from '@/spec'
+import { C11N } from '@/constant'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div<{ metric: string }>`
+type TWrapper = { metric: string; layout: TC11NLayout }
+export const Wrapper = styled.div<TWrapper>`
   ${css.flexColumn('align-end')};
   width: 100%;
-  margin-top: 15px;
   ${({ metric }) => css.fitContentWidth(metric)};
+
+  padding: ${({ layout }) => (layout === C11N.CLASSIC ? '0 14px' : '')};
 `
 export const InnerWrapper = styled.div`
   width: 100%;

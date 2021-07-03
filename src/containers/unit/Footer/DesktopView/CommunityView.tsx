@@ -1,9 +1,11 @@
 import { FC, memo } from 'react'
 
-import type { TArticle } from '@/spec'
+import type { TArticle, TC11NLayout } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
 import TopInfo from './TopInfo'
 import BottomInfo from './BottomInfo'
+
+import { VIEW } from '../constants'
 
 import {
   Wrapper,
@@ -11,20 +13,19 @@ import {
   MainInfos,
   BaseInfo,
   Item,
-} from '../styles/desktop_view/brief_view'
+} from '../styles/desktop_view/community_view'
 
 type TProps = {
-  curView: string // todo
   viewingArticle: TArticle
   metric: string
+  layout: TC11NLayout
 }
 
-const BriefView: FC<TProps> = ({ curView, metric, viewingArticle }) => {
+const CommunityView: FC<TProps> = ({ metric, layout }) => {
   return (
-    <Wrapper metric={metric}>
+    <Wrapper metric={metric} layout={layout}>
       <InnerWrapper>
-        <TopInfo type="article" title={viewingArticle.title} noBottomBorder />
-        {/* <MainInfos center={curView === 'BRIEF' || false}> */}
+        <TopInfo type={VIEW.COMMUNITY} title="javascript" noBottomBorder />
         <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
@@ -65,6 +66,13 @@ const BriefView: FC<TProps> = ({ curView, metric, viewingArticle }) => {
             >
               反馈与建议
             </Item>
+            <Item
+              href={`${ISSUE_ADDR}`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              开放数据
+            </Item>
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
@@ -73,4 +81,4 @@ const BriefView: FC<TProps> = ({ curView, metric, viewingArticle }) => {
   )
 }
 
-export default memo(BriefView)
+export default memo(CommunityView)

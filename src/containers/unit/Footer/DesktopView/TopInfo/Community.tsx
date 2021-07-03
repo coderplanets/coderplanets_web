@@ -1,14 +1,13 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
+import BlinkCursor from '@/components/BlinkCursor'
 import type { TProps as TTopInfoProps } from './index'
 
 import {
   Wrapper,
   InfoBar,
   SiteTitle,
-  ArrowDividerIcon,
-  Logo,
+  ShortName,
 } from '../../styles/desktop_view/top_info/community'
 
 type TProps = Pick<TTopInfoProps, 'title' | 'noBottomBorder'>
@@ -20,9 +19,9 @@ const Community: FC<TProps> = ({
   return (
     <Wrapper noBottomBorder={noBottomBorder}>
       <InfoBar>
-        <Logo />
+        <ShortName>CP</ShortName>
       </InfoBar>
-      <ArrowDividerIcon src={`${ICON}/shape/arrow-simple.svg`} />
+      <BlinkCursor duration={2} />
       <SiteTitle>{title}</SiteTitle>
     </Wrapper>
   )
