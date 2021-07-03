@@ -11,12 +11,12 @@ export const Wrapper = styled.div<TWrapper>`
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
   padding-right: ${({ layout }) =>
-    layout === C11N.CLASSIC ? '250px' : '230px'};
+    layout === C11N.CLASSIC ? '250px' : '100px'};
 `
 export const InnerWrapper = styled.div`
   ${css.flex('justify-center')};
   width: 100%;
-  margin-top: -30px;
+  margin-top: -20px;
   margin-bottom: 50px;
 `
 export const SupportBadge = styled.div`

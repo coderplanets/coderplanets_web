@@ -10,7 +10,7 @@ export const Wrapper = styled.div<TWrapper>`
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
 
-  padding: ${({ layout }) => (layout === C11N.CLASSIC ? '0 14px' : '')};
+  padding: ${({ layout }) => (layout === C11N.CLASSIC ? '0 14px' : '0 140px')};
 `
 export const InnerWrapper = styled.div`
   width: 100%;
