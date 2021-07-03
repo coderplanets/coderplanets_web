@@ -36,14 +36,14 @@ const ErrSolver = []
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store: TStore) => {
+export const useInit = (_store: TStore, metric: string): void => {
   useEffect(() => {
     store = _store
-    // log('effect init')
+    store.mark({ metric })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     return () => {
       sub$.unsubscribe()
     }
-  }, [_store])
+  }, [_store, metric])
 }

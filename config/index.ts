@@ -7,6 +7,9 @@ export { default as SEO } from './next_seo'
 
 export const DEFAULT_THEME = CONFIG.DEFAULT_THEME as TThemeName
 
+export const SITE_LOGO =
+  'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/static/new-logo.jpg'
+
 export const {
   GRAPHQL_ENDPOINT,
   SENIOR_AMOUNT_THRESHOLD,

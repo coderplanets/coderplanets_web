@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
-import Img from '@/Img'
 
 import {
   Wrapper as DefaultWrapper,
@@ -14,19 +13,19 @@ import {
 export const Wrapper = styled(DefaultWrapper)``
 export const InfoBar = styled(DefaultInfoBar)``
 export const Logo = styled(DefaultLogo)`
-  ${css.size(18)};
+  ${css.size(16)};
   margin-right: 8px;
+`
+export const ShortName = styled.div`
+  color: #005364;
+  font-size: 16px;
+  font-weight: bolder;
+  font-style: italic;
 `
 export const SiteTitle = styled(DefaultSiteTitle)`
   color: #007fa8;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
-`
-export const ArrowDividerIcon = styled(Img)`
-  fill: ${theme('footer.text')};
-  ${css.size(20)};
-  transform: rotate(180deg);
-  margin-right: 6px;
 `
 export const Linker = styled.a`
   color: ${theme('footer.title')};

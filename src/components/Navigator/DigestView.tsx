@@ -1,12 +1,14 @@
 import { FC, memo } from 'react'
 
 import { METRIC } from '@/constant'
+
+import BlinkCursor from '@/components/BlinkCursor'
+
 import {
   Breadcrumbs,
   Logo,
   LogoLink,
   LogoMargin,
-  LineDivider,
   LogoText,
   OfflineWrapper,
   ActionText,
@@ -42,7 +44,11 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, isOnline, layout }) => {
         {showLogoText && <LogoText>oderPlanets</LogoText>}
       </LogoLink>
 
-      {showLogoText ? <LogoMargin layout={layout} /> : <LineDivider />}
+      {showLogoText ? (
+        <LogoMargin layout={layout} />
+      ) : (
+        <BlinkCursor duration={1.2} height={14} left={5} right={2} />
+      )}
 
       {isOnline ? (
         renderMainEntries(metric)

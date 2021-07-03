@@ -4,7 +4,7 @@
  *
  */
 
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
 {{#if wantI18n}}
@@ -40,4 +40,4 @@ const {{ properCase name }}: FC<TProps> = ({{preCurly ""}} testid = '{{ dashCase
   )
 }
 
-export default React.memo({{ properCase name }})
+export default memo({{ properCase name }})

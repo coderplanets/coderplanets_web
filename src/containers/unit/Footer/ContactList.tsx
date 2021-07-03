@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { ICON_CMD, EMAIL_SUPPORT } from '@/config'
 import { joinUS } from '@/utils'
 
-import { Wrapper, Item, Icon } from './styles/social_list'
+import { Wrapper, Item, Icon } from './styles/contact_list'
 
 const SocialList: FC = () => (
   <Wrapper>
@@ -24,15 +24,6 @@ const SocialList: FC = () => (
     >
       <Item>
         <Icon src={`${ICON_CMD}/github.svg`} />
-      </Item>
-    </a>
-    <a
-      href="https://zhuanlan.zhihu.com/coderplanets"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <Item>
-        <Icon src={`${ICON_CMD}/zhihu_solid.svg`} />
       </Item>
     </a>
   </Wrapper>

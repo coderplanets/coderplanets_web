@@ -9,7 +9,8 @@ import { ArrowLink } from '@/components/Buttons'
 export const Wrapper = styled.footer`
   ${css.flexColumn('align-center')};
   width: 100%;
-  margin-top: 30px;
+  padding-top: 30px;
+  background: #06262f;
 `
 export const InnerWrapper = styled.div<{ metric: string }>`
   width: 100%;

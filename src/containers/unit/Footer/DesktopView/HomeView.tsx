@@ -5,9 +5,9 @@ import type { TThemeMap, TC11NLayout } from '@/spec'
 import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 
-import TopInfo from '../TopInfo'
-import BottomInfo from '../BottomInfo'
-import SocialList from '../../SocialList'
+import TopInfo from './TopInfo'
+import BottomInfo from './BottomInfo'
+import SocialList from '../ContactList'
 
 import {
   Wrapper,
@@ -18,14 +18,14 @@ import {
   Body,
   Item,
   LinkItem,
-} from '../../styles/desktop_view/digest_view'
+} from '../styles/desktop_view/home_view'
 
 type TProps = {
   metric: string
   layout: TC11NLayout
 }
 
-const DigestView: FC<TProps> = ({ metric, layout }) => {
+const HomeView: FC<TProps> = ({ metric, layout }) => {
   const theme = useTheme() as TThemeMap
 
   const linkColors = {
@@ -166,4 +166,4 @@ const DigestView: FC<TProps> = ({ metric, layout }) => {
   )
 }
 
-export default memo(DigestView)
+export default memo(HomeView)

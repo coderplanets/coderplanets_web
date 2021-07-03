@@ -7,6 +7,7 @@
 import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
+import { SITE_LOGO } from '@/config'
 import { HCN } from '@/constant'
 // import { ICON_BASE } from '@/config'
 import { buildLog } from '@/utils'
@@ -32,13 +33,7 @@ const CommunityFaceLogo: FC<TProps> = ({
   className = 'community-facelogo-class',
 }) => {
   if (raw === HCN || isEmpty(src)) {
-    return (
-      <HomeLogo
-        // src={`${ICON_BASE}/site_logo.svg`}
-        src="https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/static/new-logo.jpg"
-        className={className}
-      />
-    )
+    return <HomeLogo src={SITE_LOGO} className={className} />
   }
 
   return (
