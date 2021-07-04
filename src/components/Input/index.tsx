@@ -33,12 +33,14 @@ type TProps = {
   disabled?: boolean
   autoFocus?: boolean
 
+  onFocus?: (e) => void | null
   onChange?: (e) => void | null
 }
 
 const Input: FC<TProps> = ({
   behavior = 'default',
   onChange = null,
+  onFocus = null,
   prefixIcon = null,
   prefixActive = false,
   suffixIcon = null,
@@ -47,6 +49,7 @@ const Input: FC<TProps> = ({
   ...restProps
 }) => {
   const handleOnChange = useCallback((e) => onChange && onChange(e), [onChange])
+  const handleOnFocus = useCallback((e) => onFocus && onFocus(e), [onFocus])
   const validProps = pickBy((v) => v !== null, restProps)
 
   return behavior === 'default' ? (
@@ -56,6 +59,7 @@ const Input: FC<TProps> = ({
       </PrefixWrapper>
       <InputWrapper
         onChange={handleOnChange}
+        onFocus={handleOnFocus}
         spellcheck="false"
         // prefix={false}
         hasPrefix={!nilOrEmpty(prefixIcon)}

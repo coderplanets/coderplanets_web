@@ -4,9 +4,10 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 import { filter, propEq } from 'ramda'
 
+import type { TCommunity } from '@/spec'
 import { HCN, ANCHOR } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -15,13 +16,18 @@ import MenuList from './MenuList/index'
 import MenuBar from './MenuList/MenuBar'
 import Footer from './Footer'
 
+import type { TStore } from './store'
 import { MainWrapper } from './styles'
-import { useInit, onSortMenuEnd } from './logic'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Sidebar:index')
 
-const SidebarContainer = ({ sidebar: store }) => {
+type TProps = {
+  sidebar: TStore
+}
+
+const SidebarContainer: FC<TProps> = ({ sidebar: store }) => {
   useInit(store)
 
   const {
@@ -30,14 +36,16 @@ const SidebarContainer = ({ sidebar: store }) => {
     searchCommunityValue,
     sortOptActive,
     communitiesData,
-    forceRerender,
     isPulled,
   } = store
 
   // onMouseLeave={logic.leaveSidebar}
   // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
   const activeRaw = curCommunity.raw
-  const homeCommunity = filter(propEq('raw', HCN), communitiesData)[0]
+  const homeCommunity = filter(
+    propEq('raw', HCN),
+    communitiesData,
+  )[0] as TCommunity
 
   return (
     <MainWrapper
@@ -54,14 +62,11 @@ const SidebarContainer = ({ sidebar: store }) => {
         items={communitiesData}
         pin={pin}
         sortOptActive={sortOptActive}
-        forceRerender={forceRerender}
         activeRaw={activeRaw}
-        onSortEnd={onSortMenuEnd}
-        distance={5}
       />
       {pin && <Footer pin={pin} sortOptActive={sortOptActive} />}
     </MainWrapper>
   )
 }
 
-export default pluggedIn(SidebarContainer)
+export default pluggedIn(SidebarContainer) as FC<TProps>

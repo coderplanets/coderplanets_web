@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD, ISSUE_ADDR } from '@/config'
 
@@ -17,10 +17,15 @@ import {
 
 import { sortBtnOnClick } from './logic'
 
-const Footer = ({ pin, sortOptActive }) => {
+type TProps = {
+  pin: boolean
+  sortOptActive: boolean
+}
+
+const Footer: FC<TProps> = ({ pin, sortOptActive }) => {
   return (
-    <Wrapper pin={pin}>
-      <InnerWrapper pin={pin}>
+    <Wrapper>
+      <InnerWrapper>
         <OptionWrapper pin={pin}>
           <OptionItem active={sortOptActive} onClick={() => sortBtnOnClick()}>
             <OptionIcon src={`${ICON_CMD}/sidebar_drag.svg`} />
@@ -42,4 +47,4 @@ const Footer = ({ pin, sortOptActive }) => {
   )
 }
 
-export default React.memo(Footer)
+export default memo(Footer)

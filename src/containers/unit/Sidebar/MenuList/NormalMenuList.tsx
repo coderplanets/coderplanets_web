@@ -1,29 +1,29 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TCommunity } from '@/spec'
 import CustomScroller from '@/components/CustomScroller'
 import MenuBar from './MenuBar'
 
-const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {
+type TProps = {
+  communities: TCommunity[]
+  pin: boolean
+  activeRaw: string
+}
+
+const NormalMenuList: FC<TProps> = ({ communities, pin, activeRaw }) => {
   const scrollHeight = !pin ? 'calc(100vh - 88px)' : 'calc(100vh - 140px)'
-  const barSize = !pin ? 'none' : 'small'
 
   return (
     <CustomScroller
       direction="vertical"
       height={scrollHeight}
-      barSize={barSize}
+      barSize="small"
       withBorder
       autoHide
     >
       <div>
         {communities.map((item) => (
-          <MenuBar
-            key={item.raw}
-            pin={pin}
-            item={item}
-            activeRaw={activeRaw}
-            forceRerender={forceRerender}
-          />
+          <MenuBar key={item.raw} pin={pin} item={item} activeRaw={activeRaw} />
         ))}
         <br />
       </div>
@@ -31,4 +31,4 @@ const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {
   )
 }
 
-export default React.memo(NormalMenuList)
+export default memo(NormalMenuList)

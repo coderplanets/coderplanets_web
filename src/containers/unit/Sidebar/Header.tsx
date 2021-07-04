@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
@@ -15,12 +15,17 @@ import {
 } from './styles/header'
 import { searchOnFocus, searchCommunityValueOnChange, setPin } from './logic'
 
-const Header = ({ pin, searchCommunityValue }) => (
-  <Wrapper pin={pin}>
+type TProps = {
+  pin: boolean
+  searchCommunityValue: string
+}
+
+const Header: FC<TProps> = ({ pin, searchCommunityValue }) => (
+  <Wrapper>
     <InnerWrapper>
       {!pin ? (
         <HeaderFuncs>
-          <MenuWrapper pin={pin} onClick={setPin}>
+          <MenuWrapper onClick={setPin}>
             <MenuLogo src={`${ICON}/sidebar-menu.svg`} pin={pin} />
           </MenuWrapper>
         </HeaderFuncs>
@@ -37,7 +42,7 @@ const Header = ({ pin, searchCommunityValue }) => (
               />
             </SearchContent>
           </SearchWrapper>
-          <MenuWrapper pin={pin} onClick={setPin}>
+          <MenuWrapper onClick={setPin}>
             <MenuLogo src={`${ICON}/sidebar-menu.svg`} pin={pin} />
           </MenuWrapper>
         </HeaderFuncs>
@@ -46,4 +51,4 @@ const Header = ({ pin, searchCommunityValue }) => (
   </Wrapper>
 )
 
-export default React.memo(Header)
+export default memo(Header)

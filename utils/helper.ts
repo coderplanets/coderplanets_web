@@ -14,7 +14,7 @@ type TSORTABLE_ITEMS = {
   index?: number
   id?: string
   title?: string
-  raw?: string
+  raw: string
   logo?: string
 }[]
 
