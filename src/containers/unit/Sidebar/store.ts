@@ -20,15 +20,6 @@ const SidebarStore = T.model('SidebarStore', {
   sortOptActive: T.optional(T.boolean, false),
 
   isPulled: T.optional(T.boolean, false),
-
-  /*
-       this is a fix for wired svg icon in sidebar
-       when community icon is svg format, the svg loader only do it:s work
-       on client-side, which will case MenuBar UI choas
-
-       manulay force mobx rerender will tmp fix this, heck later
-     */
-  forceRerender: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get curRoute(): TRoute {
@@ -66,7 +57,7 @@ const SidebarStore = T.model('SidebarStore', {
     },
   }))
   .actions((self) => ({
-    authWarning(options): void {
+    authWarning(options = {}): void {
       const root = getParent(self) as TRootStore
       root.authWarning(options)
     },

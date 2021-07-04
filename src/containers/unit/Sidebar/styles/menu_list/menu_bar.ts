@@ -5,7 +5,7 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
-type TMenuItemTitle = TActive & { pin: boolean; forceRerender: boolean }
+type TMenuItemTitle = TActive & { pin: boolean }
 
 export const Wrapper = styled.div`
   display: block;
@@ -75,7 +75,7 @@ export const MenuItemTitle = styled.div<TMenuItemTitle>`
   overflow: hidden;
   color: ${theme('sidebar.menuLink')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
-  letter-spacing: ${({ forceRerender }) => (forceRerender ? '1.3px' : '1.2px')};
+  letter-spacing: 1.2px;
   margin-right: 10px;
 
   ${Wrapper}:hover & {

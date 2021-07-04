@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react'
+import { FC, memo, useCallback } from 'react'
 import { toLower } from 'ramda'
 
+import type { TCommunity } from '@/spec'
 import { ICON_CMD } from '@/config'
-// import { uid } from '@/utils'
 
 import TrendLine from '@/components/TrendLine'
 
@@ -19,24 +19,27 @@ import {
 
 import { onCommunitySelect } from '../logic'
 
-const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => {
-  const handleSelect = useCallback(() => {
-    onCommunitySelect(item)
-  }, [item])
+type TProps = {
+  item: TCommunity
+  pin: boolean
+  sortOptActive?: boolean
+  activeRaw: string
+}
+
+const MenuBar: FC<TProps> = ({
+  pin,
+  sortOptActive = false,
+  item,
+  activeRaw,
+}) => {
+  const handleSelect = useCallback(() => onCommunitySelect(item), [item])
 
   return (
     <Wrapper onClick={handleSelect}>
-      <ActiveBar
-        pin={pin}
-        active={!sortOptActive && activeRaw === toLower(item.raw)}
-      />
+      <ActiveBar active={!sortOptActive && activeRaw === toLower(item.raw)} />
       <DragIcon src={`${ICON_CMD}/drag.svg`} show={sortOptActive} />
       <MenuItemBar>
-        <MenuRow
-          pin={pin}
-          sortOptActive={sortOptActive}
-          active={!sortOptActive && activeRaw === toLower(item.raw)}
-        >
+        <MenuRow sortOptActive={sortOptActive}>
           <MenuItemIcon
             key={item.raw}
             active={activeRaw === toLower(item.raw)}
@@ -44,11 +47,7 @@ const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => {
             src={item.logo}
           />
           {/* eslint-disable jsx-a11y/anchor-is-valid */}
-          <MenuItemTitle
-            pin={pin}
-            active={activeRaw === toLower(item.raw)}
-            forceRerender={forceRerender}
-          >
+          <MenuItemTitle pin={pin} active={activeRaw === toLower(item.raw)}>
             {item.title}
           </MenuItemTitle>
 
@@ -56,7 +55,6 @@ const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => {
             <TrendLine
               key={item.raw}
               data={item.contributesDigest}
-              duration={300}
               radius={15}
               width={7}
             />
@@ -67,4 +65,4 @@ const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => {
   )
 }
 
-export default React.memo(MenuBar)
+export default memo(MenuBar)

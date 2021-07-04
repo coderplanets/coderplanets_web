@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { arrayMove } from 'react-sortable-hoc'
 import { addIndex, map, reject, propEq, contains } from 'ramda'
 
+import type { TCommunity } from '@/spec'
 import { HCN, EVENT, ERR, THREAD, ROUTE } from '@/constant'
 import {
   asyncSuit,
@@ -11,6 +12,7 @@ import {
   Global,
   errRescue,
 } from '@/utils'
+import type { TStore } from './store'
 
 import S from './schema'
 
@@ -19,30 +21,31 @@ const log = buildLog('L:Sidebar')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSION_ROUTINE],
 })
 
-let store = null
+let store: TStore | undefined
 let sub$ = null
 
-export const setPin = () => {
+export const setPin = (): void => {
   if (store.pin) {
     store.mark({ sortOptActive: false })
   }
   store.mark({ pin: !store.pin })
 }
 
-export const searchOnFocus = () => store.mark({ pin: true })
+export const searchOnFocus = (): void => store.mark({ pin: true })
 
-export const searchCommunityValueOnChange = (e) =>
+export const searchCommunityValueOnChange = (e): void =>
   store.mark({ searchCommunityValue: e.target.value })
 
-export const onCommunitySelect = (community) => {
+export const onCommunitySelect = (community: TCommunity): void => {
   // NOTE: check page, if current it's from communities then redirect whole page
   const { mainPath } = store.curRoute
   if (contains(mainPath, [ROUTE.DISCOVERY])) {
     Global.location.href = `/${community.raw}/posts`
-    return false
+    return
   }
 
   store.setViewing({ community, activeThread: THREAD.POST, post: {} })
@@ -55,7 +58,7 @@ export const onCommunitySelect = (community) => {
   send(EVENT.COMMUNITY_CHANGE)
 }
 
-export const sortBtnOnClick = () => {
+export const sortBtnOnClick = (): void => {
   if (!store.isLogin) return store.authWarning()
 
   if (!store.sortOptActive) {
@@ -65,18 +68,20 @@ export const sortBtnOnClick = () => {
 }
 
 const mapIndexed = addIndex(map)
-export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
+
+export type TSortDone = { oldIndex: number; newIndex: number }
+export const onSortMenuEnd = ({ oldIndex, newIndex }: TSortDone): void => {
   const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
   setC11N(sortedCommunities)
   store.onSortCommunities(sortedCommunities)
 }
 
-const setC11N = (sortedCommunities) => {
+const setC11N = (sortedCommunities): void => {
   if (!store.isLogin) return store.authWarning()
 
   sortedCommunities = reject(propEq('raw', HCN), sortedCommunities)
   const sidebarCommunitiesIndex = mapIndexed(
-    (c, index) => ({ community: c.raw, index }),
+    (c: TCommunity, index: number) => ({ community: c.raw, index }),
     sortedCommunities,
   )
 
@@ -90,7 +95,7 @@ const setC11N = (sortedCommunities) => {
   sr71$.mutate(S.setCustomization, args)
 }
 
-export const loadCommunities = () => {
+export const loadCommunities = (): void => {
   const args = { filter: { page: 1, size: 30 } }
   sr71$.query(S.subscribedCommunities, args)
 }
@@ -117,10 +122,8 @@ const refreshSubedCommunitiesIfNeed = () => {
   }
 }
 
-export const togglePulled = () => store.mark({ isPulled: !store.isPulled })
-
-export const toggleForeceRerender = (forceRerender = true) =>
-  store.mark({ forceRerender })
+export const togglePulled = (): void =>
+  store.mark({ isPulled: !store.isPulled })
 
 const DataSolver = [
   {
@@ -149,7 +152,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
@@ -165,16 +170,11 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-    setTimeout(() => {
-      /* eslint-disable-next-line */
-      toggleForeceRerender(true)
-    }, 1000)
 
     return () => {
       // log('effect uninit')

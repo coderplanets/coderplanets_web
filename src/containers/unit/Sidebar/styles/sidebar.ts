@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 import { theme, css } from '@/utils'
 
-import { SIDEBAR_WIDTH, SIDEBAR_EXPAND_WIDTH } from './styles/metric'
+import { SIDEBAR_WIDTH, SIDEBAR_EXPAND_WIDTH } from './metric'
 
-const SideBar = styled.div`
+const SideBar = styled.div<{ open: boolean }>`
   border-right: 1px solid;
   position: fixed;
   height: 100vh;

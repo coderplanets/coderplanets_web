@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { range } from 'ramda'
 import { Wrapper, Block } from './styles/loading_blocks'
 
-const LoadingBlocks = () => {
+const LoadingBlocks: FC = () => {
   return (
     <Wrapper>
       {range(0, 14).map((num) => (
@@ -13,4 +13,4 @@ const LoadingBlocks = () => {
   )
 }
 
-export default React.memo(LoadingBlocks)
+export default memo(LoadingBlocks)

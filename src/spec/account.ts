@@ -22,6 +22,7 @@ export type TAccount = TUser & {
   }
   isLogin?: boolean
   isValidSession?: boolean
+  subscribedCommunitiesCount?: number
   // ...
 }
 

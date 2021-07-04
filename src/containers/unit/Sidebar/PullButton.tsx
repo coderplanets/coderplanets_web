@@ -1,9 +1,14 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { Wrapper, Shape, ArrowIcon } from './styles/pull_button'
 
-const PullButton = ({ onClick, isPulled }) => {
+type TProps = {
+  isPulled: boolean
+  onClick: () => void
+}
+
+const PullButton: FC<TProps> = ({ onClick, isPulled }) => {
   return (
     <Wrapper onClick={onClick}>
       <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} isPulled={isPulled} />
@@ -12,4 +17,4 @@ const PullButton = ({ onClick, isPulled }) => {
   )
 }
 
-export default React.memo(PullButton)
+export default memo(PullButton)

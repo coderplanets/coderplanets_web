@@ -1,15 +1,13 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
 import { theme, css } from '@/utils'
 
 import { getMainWidth, getShadow, SIDEBAR_WIDTH } from './metric'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751
-export const Wrapper = styled.aside.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable & { isPulled: boolean }>`
+type TWrapper = { isPulled: boolean }
+export const Wrapper = styled.aside<TWrapper>`
   position: fixed;
   top: 0;
   min-width: ${SIDEBAR_WIDTH};
@@ -26,13 +24,16 @@ export const Wrapper = styled.aside.attrs(({ testid }: TTestable) => ({
   `};
   ${css.media.tablet`display: none`};
 `
-type TMainWrapper = { pin: boolean; isPulled?: boolean }
-export const MainWrapper = styled.div.attrs(({ pin }: TMainWrapper) => ({
-  style: {
-    width: getMainWidth(pin),
-    'box-shadow': getShadow(pin),
-  },
-}))<TMainWrapper>`
+type TMainWrapper = { pin: boolean; isPulled?: boolean; testid: string }
+export const MainWrapper = styled.div.attrs(
+  ({ pin, testid }: TMainWrapper) => ({
+    style: {
+      width: getMainWidth(pin),
+      'box-shadow': getShadow(pin),
+      'data-test-id': testid,
+    },
+  }),
+)<TMainWrapper>`
   display: ${({ isPulled }) => (isPulled ? 'flex' : 'none')};
   flex-direction: column;
 

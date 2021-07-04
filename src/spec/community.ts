@@ -1,10 +1,12 @@
 export type TCommunity = {
   id?: string
+  index?: number
   title?: string
   logo?: string
-  raw?: string
+  raw: string
   subscribersCount?: number
   viewerHasSubscribed?: boolean
+  contributesDigest?: number[]
   desc?: string
   threads?: {
     title: string
