@@ -35,6 +35,7 @@ type TProps = {
   pin: boolean
   activeRaw: string
   sortOptActive: boolean
+  // see: https://github.com/clauderic/react-sortable-hoc/blob/master/types/index.d.ts
 } & SortableContainerProps
 
 const SortableMenuList: ComponentClass<TProps> = SortableContainer(
