@@ -36,6 +36,7 @@ const MenuList: FC<TProps> = ({ items, pin, sortOptActive, activeRaw }) => {
         <SortableMenuList
           communities={sortableCommunities}
           sortOptActive={sortOptActive}
+          distance={5}
           pin={pin}
           activeRaw={activeRaw}
           onSortEnd={onSortMenuEnd}
