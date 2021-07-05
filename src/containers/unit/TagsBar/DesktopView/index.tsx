@@ -32,9 +32,7 @@ const TagsBarContainer: FC<TProps> = ({
 }) => {
   useInit(store, thread, active)
   const { groupedTags, tagsData, activeTagData } = store
-  const groupsKeys = keys(groupedTags)
-
-  console.log('# tagsData -> ', tagsData)
+  const groupsKeys = keys(groupedTags) as string[]
 
   return (
     <Wrapper>
@@ -48,9 +46,9 @@ const TagsBarContainer: FC<TProps> = ({
       )}
       {groupsKeys.map((groupKey) => (
         <Folder
-          key={String(groupKey)}
-          title={String(groupKey)}
-          groupTags={groupedTags[String(groupKey)]}
+          key={groupKey}
+          title={groupKey}
+          groupTags={groupedTags[groupKey]}
           allTags={tagsData}
           activeTag={activeTagData}
           onSelect={(tag) => {
