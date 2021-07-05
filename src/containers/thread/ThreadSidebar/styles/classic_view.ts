@@ -25,4 +25,5 @@ export const BadgeWrapper = styled.div<TActive>`
 export const TagsBarWrapper = styled.div`
   margin-top: 20px;
   margin-left: 12px;
+  max-width: 168px;
 `
