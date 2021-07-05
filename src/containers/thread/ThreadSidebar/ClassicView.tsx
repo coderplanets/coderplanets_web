@@ -16,7 +16,7 @@ import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
-import PromotionList from '@/components/PromotionList'
+// import PromotionList from '@/components/PromotionList'
 
 import type { TBaseProps } from './index'
 
@@ -56,7 +56,7 @@ const ClassicView: FC<TProps> = ({
             active={activeTag}
           />
         </TagsBarWrapper>
-        <PromotionList onClose={onAdsClose} />
+        {/* <PromotionList onClose={onAdsClose} /> */}
       </Sticky>
     </Wrapper>
   )

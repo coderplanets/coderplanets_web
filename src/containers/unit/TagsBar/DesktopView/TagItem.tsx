@@ -1,22 +1,21 @@
 import { FC } from 'react'
 
-import { getRandomInt, Trans } from '@/utils'
-import { SpaceGrow } from '@/components/Common'
+import { Trans } from '@/utils'
 import type { TTag } from '@/spec'
 
-import TagCount from './TagCount'
+// import TagCount from './TagCount'
 
 import {
   Wrapper,
   HashSign,
   TagTitle,
-  CountInfoWrapper,
+  // CountInfoWrapper,
 } from '../styles/desktop_view/tag_item'
 
 type TProps = {
   tag: TTag
   active: boolean
-  activeid?: string
+  activeid?: string | null
   inline?: boolean
   onSelect?: (tag?: TTag) => void
 }
@@ -25,7 +24,7 @@ const TagItem: FC<TProps> = ({
   tag,
   active,
   activeid,
-  inline = true,
+  inline = false,
   onSelect,
 }) => {
   return (
@@ -36,17 +35,16 @@ const TagItem: FC<TProps> = ({
         $inline={inline}
         activeid={activeid}
       />
-
       <TagTitle $active={active} $inline={inline} onClick={() => onSelect(tag)}>
         {Trans(tag.title)}
       </TagTitle>
-      <SpaceGrow />
+      {/* <SpaceGrow />
 
       {!inline && (
         <CountInfoWrapper>
           <TagCount num={getRandomInt(5, 1000)} />
         </CountInfoWrapper>
-      )}
+      )} */}
     </Wrapper>
   )
 }

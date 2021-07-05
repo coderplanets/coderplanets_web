@@ -5,14 +5,17 @@ import Img from '@/Img'
 import HashTagSVG from '@/SvgIcons/HashTagSVG'
 import { theme, css } from '@/utils'
 
+import { getActiveColor } from '../metric'
+
 import { TagsWrapper } from './index'
 
 type TTag = TActive & { $inline: boolean }
 
 export const Wrapper = styled.div<TTag>`
   ${css.flex('align-center')};
-  margin-bottom: ${({ $inline }) => (!$inline ? '3px' : 0)};
-  padding: ${({ $inline }) => (!$inline ? '5px' : 0)};
+  margin-bottom: 0;
+  margin-left: -1px;
+  padding: ${({ $inline }) => (!$inline ? '3px' : 0)};
   max-width: 180px;
   border-radius: 5px;
 
@@ -29,11 +32,6 @@ export const AllTagIcon = styled(Img)`
   ${css.size(14)};
   transform: rotate(17deg);
 `
-const getActiveColor = ($active, color, activeid) => {
-  if (activeid !== null) return $active ? color : '#497684'
-
-  return !$active ? color : '#497684'
-}
 
 type THashSign = TActive & { color: string; activeid: string; $inline: boolean }
 export const HashSign = styled(HashTagSVG)<THashSign>`
@@ -42,8 +40,14 @@ export const HashSign = styled(HashTagSVG)<THashSign>`
   ${css.size(14)};
   margin-right: ${({ $inline }) => (!$inline ? '12px' : '3px')};
   opacity: ${theme('tags.dotOpacity')};
+  filter: saturate(0.5);
+
+  ${Wrapper}:hover & {
+    filter: saturate(1);
+  }
 
   transform: rotate(18deg);
+  transition: filter 0.25s;
 `
 export const TagTitle = styled.div<TTag>`
   color: ${theme('tags.text')};
@@ -58,6 +62,10 @@ export const TagTitle = styled.div<TTag>`
     cursor: pointer;
     opacity: 1;
     font-weight: bold;
+  }
+
+  ${Wrapper}:hover & {
+    opacity: 1;
   }
 
   ${TagsWrapper}:hover & {

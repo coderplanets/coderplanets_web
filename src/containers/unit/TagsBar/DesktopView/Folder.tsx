@@ -93,7 +93,7 @@ const Folder: FC<TProps> = ({
               key={tag.id}
               tag={tag}
               active={activeTag.title === tag.title}
-              activeid={String(activeTag.id)}
+              activeid={activeTag.id}
               onSelect={onSelect}
             />
           ))}
