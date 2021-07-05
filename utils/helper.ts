@@ -323,15 +323,14 @@ export const findDeepMatch = (data, key, value) => {
 /**
  * groupByKey
  * see @link: https://stackoverflow.com/a/47385953/4050784
+ * NOTE: type this is diffcult for me, need help
+ * 有人能做得来这个类型体操吗。。。
  *
  * @param {Array} - array
  * @param {String} - key
  * @returns {Object}
  */
-export const groupByKey = (
-  array: Record<string, unknown>[],
-  key: string,
-): Record<string, unknown> => {
+export const groupByKey = (array, key) => {
   return array.reduce((hash, obj) => {
     if (obj[key] === undefined) return hash
     return Object.assign(hash, {

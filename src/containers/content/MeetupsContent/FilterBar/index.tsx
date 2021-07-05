@@ -32,7 +32,7 @@ const FilterBar: FC<TProps> = ({ filtersItems }) => {
         <FiltersMenu items={filtersItems} revert />
         <NaviFooter>
           <Button type="primary" size="small" ghost>
-            + 发起活动
+            + 发起小聚
           </Button>
 
           <Terms>

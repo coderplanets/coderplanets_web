@@ -17,7 +17,12 @@ export type { TButton, TFiltersMenuItems } from './comp'
 export type { TTheme, TThemeMap, TThemeName } from './theme'
 export type { TAccount, TUser, TMembership } from './account'
 export type { TC11NLayout } from './c11n'
-export type { TCommunity, TPagedCommunities, TTag } from './community'
+export type {
+  TCommunity,
+  TPagedCommunities,
+  TTag,
+  TGroupedTags,
+} from './community'
 
 export type {
   TID,

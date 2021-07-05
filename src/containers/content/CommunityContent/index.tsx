@@ -76,7 +76,7 @@ const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
           <SubscribedList communities={subscribedCommunitiesData} />
         )}
         <ComunityContent curRoute={curRoute} />
-        {isHolyGrailLayout && <ThreadSidebar activeTag={{}} />}
+        {isHolyGrailLayout && <ThreadSidebar />}
       </InnerWrapper>
     </Wrapper>
   )

@@ -8,8 +8,9 @@
 
 import { FC, Fragment } from 'react'
 
-import type { TTag, TC11NLayout } from '@/spec'
+import type { TTag } from '@/spec'
 import { C11N } from '@/constant'
+import { emptyTag } from '@/model'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ClassicView from './ClassicView'
@@ -22,7 +23,7 @@ import { useInit } from './logic'
 const log = buildLog('C:ThreadSidebar')
 
 export type TBaseProps = {
-  activeTag: TTag
+  activeTag?: TTag
 
   onCreate?: () => void
   onTagSelect?: (tag: TTag) => void
@@ -33,7 +34,7 @@ export type TProps = { threadSidebar?: TStore } & TBaseProps
 
 const ThreadSidebarContainer: FC<TProps> = ({
   threadSidebar: store,
-  activeTag,
+  activeTag = emptyTag,
   onCreate,
   onTagSelect,
   onAdsClose,

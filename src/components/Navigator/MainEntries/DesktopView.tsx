@@ -51,7 +51,7 @@ const DesktopView: FC<TProps> = ({ type }) => {
           active={mainPath === ROUTE.MEETUPS}
           testid="header-meetups-link"
         >
-          活动
+          小聚
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />

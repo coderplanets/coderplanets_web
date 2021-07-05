@@ -57,7 +57,7 @@ router.route('/recipes/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/recipes' })
 })
 
-// 活动
+// 小聚
 router.route('/meetups/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/meetups' })
 })

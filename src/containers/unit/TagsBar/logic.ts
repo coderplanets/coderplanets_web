@@ -2,10 +2,12 @@ import { useEffect } from 'react'
 import { isEmpty, pick, contains, toUpper } from 'ramda'
 
 import type { TTag, TThread } from '@/spec'
-import type { TStore } from './store'
+import { emptyTag } from '@/model'
+
 import { EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
 
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -98,7 +100,7 @@ export const useInit = (
     store = _store
     log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    let activeTag = pick(['id', 'title', 'color'], active || {})
+    let activeTag = pick(['id', 'title', 'color'], active || emptyTag) as TTag
     if (isEmpty(activeTag.title)) activeTag = null
     store.mark({ thread, activeTag })
 

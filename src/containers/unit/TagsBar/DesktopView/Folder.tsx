@@ -28,7 +28,7 @@ type TProps = {
   title: string
   allTags: TTag[]
   activeTag: TTag
-  groupTags: any
+  groupTags: TTag[]
   onSelect: (tag?: TTag) => void
 }
 

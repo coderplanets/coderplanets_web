@@ -21,7 +21,13 @@ export type TPagedCommunities = {
 
 export type TTag = {
   id?: string
+  index?: number
+  raw: string
   title?: string
   color?: string
   group?: string
 }
+
+export type TGroupedTags = {
+  [group: string]: TTag[]
+}[]

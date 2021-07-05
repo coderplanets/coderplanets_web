@@ -23,3 +23,5 @@ export const PagedTags = T.model('PagedTags', {
   totalCount: T.optional(T.number, 0),
   totalPages: T.optional(T.number, 0),
 })
+
+export const emptyTag = { id: '', title: '', color: '', raw: '' }

@@ -6,7 +6,13 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
 
-import type { TRootStore, TCommunity, TTag, TThread } from '@/spec'
+import type {
+  TRootStore,
+  TCommunity,
+  TTag,
+  TGroupedTags,
+  TThread,
+} from '@/spec'
 
 import { markStates, buildLog, stripMobx, groupByKey } from '@/utils'
 import { Tag } from '@/model'
@@ -36,7 +42,7 @@ const TagsBar = T.model('TagsBar', {
     get activeTagData(): TTag {
       return stripMobx(self.activeTag) || { title: '', color: '' }
     },
-    get groupedTags(): any {
+    get groupedTags(): TGroupedTags {
       const { tagsData } = self as TStore
 
       return groupByKey(
