@@ -9,7 +9,6 @@ export const Header = styled.div`
   margin-bottom: 8px;
   &:hover {
     cursor: pointer;
-    /* opacity: 0.65; */
   }
 `
 export const ArrowIcon = styled(Img)<{ isOpen: boolean }>`

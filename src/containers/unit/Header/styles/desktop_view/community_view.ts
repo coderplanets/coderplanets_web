@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { C11N } from '@/constant'
-import type { TC11NLayout, TTestable } from '@/spec'
+import type { TTestable } from '@/spec'
 import { theme, css, pixelAdd, WIDTH } from '@/utils'
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
 
@@ -25,19 +24,31 @@ export const Wrapper = styled.header.attrs(({ testid }: TTestable) => ({
   margin-left: ${({ leftOffset }) => leftOffset};
   box-shadow: ${({ noBorder }) => (noBorder ? 'none' : theme('drawer.shadow'))};
 `
-type TInnerWrapper = { metric: string; layout: TC11NLayout }
-export const InnerWrapper = styled.div<TInnerWrapper>`
+
+type TInnerWrapper = { metric: string }
+const InnerWrapper = styled.div<TInnerWrapper>`
   ${css.flex('align-center')};
   padding: 0 4px;
   width: 100%;
   height: 33px;
   ${({ metric }) => css.fitContentWidth(metric)};
-  padding-left: ${({ layout }) =>
-    layout === C11N.CLASSIC ? pixelAdd(WIDTH.COMMUNITY.CONTENT_OFFSET, 10) : 0};
-  padding-right: ${({ layout }) =>
-    layout === C11N.CLASSIC ? WIDTH.COMMUNITY.CONTENT_OFFSET : 0};
-  ${({ layout }) => (layout === C11N.HOLY_GRAIL ? 'margin-left: 18px' : '')};
 `
+export const ClassicInnerWrapper = styled(InnerWrapper)`
+  padding-left: ${pixelAdd(WIDTH.COMMUNITY.CONTENT_OFFSET, 10)};
+  padding-right: ${WIDTH.COMMUNITY.CONTENT_OFFSET};
+`
+export const HolyGrailInnerWrapper = styled(InnerWrapper)`
+  padding-left: 0;
+  padding-right: 0;
+
+  margin-left: 18px;
+
+  ${css.media.laptopM`
+    margin-left: 30px;
+    padding-right: 5px;
+  `}
+`
+
 export const RouterWrapper = styled.div`
   ${css.flexGrow('align-center')};
   height: 100%;

@@ -7,6 +7,7 @@ import type { TTag } from '@/spec'
 
 import {
   Wrapper,
+  HashWrapper,
   HashSign,
   TagTitle,
   // CountInfoWrapper,
@@ -29,12 +30,14 @@ const TagItem: FC<TProps> = ({
 }) => {
   return (
     <Wrapper $active={active} $inline={inline}>
-      <HashSign
-        color={tag.color}
-        $active={active}
-        $inline={inline}
-        activeid={activeid}
-      />
+      <HashWrapper>
+        <HashSign
+          color={tag.color}
+          $active={active}
+          $inline={inline}
+          activeid={activeid}
+        />
+      </HashWrapper>
       <TagTitle $active={active} $inline={inline} onClick={() => onSelect(tag)}>
         {Trans(tag.title)}
       </TagTitle>

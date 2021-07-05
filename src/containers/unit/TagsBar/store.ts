@@ -15,7 +15,7 @@ import type {
 } from '@/spec'
 
 import { markStates, buildLog, stripMobx, groupByKey } from '@/utils'
-import { Tag } from '@/model'
+import { Tag, emptyTag } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:TagsBar')
@@ -40,7 +40,7 @@ const TagsBar = T.model('TagsBar', {
       return stripMobx(self.tags)
     },
     get activeTagData(): TTag {
-      return stripMobx(self.activeTag) || { title: '', color: '' }
+      return stripMobx(self.activeTag) || emptyTag
     },
     get groupedTags(): TGroupedTags {
       const { tagsData } = self as TStore
