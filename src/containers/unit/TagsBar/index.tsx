@@ -7,7 +7,6 @@
 import { FC } from 'react'
 
 import { VIEW } from '@/constant'
-import type { TTag, TThread } from '@/spec'
 import type { TStore } from './store'
 
 import DesktopView from './DesktopView/index'

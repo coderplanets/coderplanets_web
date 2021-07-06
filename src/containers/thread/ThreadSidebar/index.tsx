@@ -10,7 +10,6 @@ import { FC, Fragment } from 'react'
 
 import type { TTag } from '@/spec'
 import { C11N } from '@/constant'
-import { emptyTag } from '@/model'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ClassicView from './ClassicView'

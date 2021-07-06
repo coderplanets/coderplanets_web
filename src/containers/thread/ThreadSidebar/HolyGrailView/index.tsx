@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
-import { THREAD } from '@/constant'
 
 import { Br } from '@/components/Common'
 import Sticky from '@/components/Sticky'

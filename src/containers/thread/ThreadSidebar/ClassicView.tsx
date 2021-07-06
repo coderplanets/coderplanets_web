@@ -8,7 +8,6 @@
 
 import { FC } from 'react'
 
-import { THREAD } from '@/constant'
 import { buildLog } from '@/utils'
 
 import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
