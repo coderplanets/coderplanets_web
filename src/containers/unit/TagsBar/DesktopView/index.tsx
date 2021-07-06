@@ -7,7 +7,6 @@
 import { FC } from 'react'
 import { keys } from 'ramda'
 
-import { THREAD } from '@/constant'
 import { buildLog, pluggedIn } from '@/utils'
 
 import type { TProps as TTagProps } from '../index'
@@ -24,13 +23,8 @@ const log = buildLog('C:TagsBar')
 
 type TProps = Omit<TTagProps, 'view'>
 
-const TagsBarContainer: FC<TProps> = ({
-  tagsBar: store,
-  thread = THREAD.POST,
-  active,
-  onSelect,
-}) => {
-  useInit(store, thread, active)
+const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
+  useInit(store)
   const { groupedTags, tagsData, activeTagData } = store
   const groupsKeys = keys(groupedTags) as string[]
 
@@ -40,7 +34,7 @@ const TagsBarContainer: FC<TProps> = ({
         <GobackTag
           onSelect={(tag) => {
             onTagSelect(tag)
-            onSelect(tag)
+            onSelect()
           }}
         />
       )}
@@ -53,7 +47,7 @@ const TagsBarContainer: FC<TProps> = ({
           activeTag={activeTagData}
           onSelect={(tag) => {
             onTagSelect(tag)
-            onSelect(tag)
+            onSelect()
           }}
         />
       ))}

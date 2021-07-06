@@ -7,7 +7,7 @@
  */
 
 import { types as T, Instance } from 'mobx-state-tree'
-import { merge } from 'ramda'
+import { merge, pickBy } from 'ramda'
 
 import type { TViewing, TAccount, TRoute, TArticle } from '@/spec'
 
@@ -19,6 +19,7 @@ import {
   toastBarColor,
   themeSkins,
   send,
+  notEmpty,
 } from '@/utils'
 
 import {
@@ -324,6 +325,35 @@ const rootStore = T.model({
     isMemberOf(type): boolean {
       return self.account.isMemberOf(type)
     },
+    // get general args when query paged articles from server
+    getPagedArticleArgs(
+      page: number,
+      // 每个 thread 的 ContentFilter 选项
+      articlesfilter = {},
+    ): Record<string, unknown> {
+      const { isLogin: userHasLogin, pageDensity: size } = self.account
+      const tag = self.tagsBar.activeTagData
+      const { community } = self.viewing
+
+      const filter = pickBy(notEmpty, {
+        page,
+        size,
+        tag: tag.title,
+        community: community.raw,
+        ...articlesfilter,
+      })
+
+      return { filter, userHasLogin }
+    },
+
+    onAdsClose(): void {
+      const { isMemberOf } = self.account
+
+      if (isMemberOf('seniorMember') || isMemberOf('sponsorMember')) {
+        return log('do custom ads')
+      }
+    },
+
     mark(sobj): void {
       markStates(sobj, self)
     },

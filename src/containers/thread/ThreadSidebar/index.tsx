@@ -26,7 +26,7 @@ export type TBaseProps = {
   activeTag?: TTag
 
   onCreate?: () => void
-  onTagSelect?: (tag: TTag) => void
+  onTagSelect?: () => void
   onAdsClose?: () => void
 }
 
@@ -34,7 +34,6 @@ export type TProps = { threadSidebar?: TStore } & TBaseProps
 
 const ThreadSidebarContainer: FC<TProps> = ({
   threadSidebar: store,
-  activeTag = emptyTag,
   onCreate,
   onTagSelect,
   onAdsClose,
@@ -54,7 +53,6 @@ const ThreadSidebarContainer: FC<TProps> = ({
       {bannerLayout === C11N.CLASSIC ? (
         <ClassicView
           showCommunityBadge={isCommunityDigestInViewport}
-          activeTag={activeTag}
           onCreate={onCreate}
           onTagSelect={onTagSelect}
           onAdsClose={onAdsClose}

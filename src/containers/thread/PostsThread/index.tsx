@@ -30,14 +30,12 @@ import {
   useInit,
   inAnchor,
   outAnchor,
+  loadPosts,
   onFilterSelect,
-  onUserSelect,
   onPreview,
-  onPageChange,
   onFaqChange,
   tabOnChange,
   onContentCreate,
-  onTagSelect,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -58,7 +56,6 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
     faqActive,
     accountInfo,
     isLogin,
-    activeTagData,
     curCommunity,
     curThread,
     showFilterBar,
@@ -108,19 +105,13 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
             curView={curView}
             active={activePost}
             accountInfo={accountInfo}
-            onUserSelect={onUserSelect}
-            onAuthorSelect={onUserSelect}
             onPreview={onPreview}
-            onPageChange={onPageChange}
+            onPageChange={loadPosts}
           />
         </ArticlesWrapper>
 
         {bannerLayout === C11N.CLASSIC && (
-          <ThreadSidebar
-            activeTag={activeTagData}
-            onCreate={onContentCreate}
-            onTagSelect={onTagSelect}
-          />
+          <ThreadSidebar onCreate={onContentCreate} onTagSelect={loadPosts} />
         )}
       </Body>
     </Wrapper>

@@ -7,7 +7,7 @@
 import React, { FC, ReactNode, useEffect } from 'react'
 
 import type { Nullable, TSEO } from '@/spec'
-import { ANCHOR, SIZE, C11N } from '@/constant'
+import { ANCHOR, SIZE, C11N, BODY_SCROLLER } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { pluggedIn } from '@/utils'
@@ -102,6 +102,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
                   className={ANCHOR.GLOBAL_BLUR_CLASS}
                 >
                   <CustomScroller
+                    instanceKey={BODY_SCROLLER}
                     direction="vertical"
                     height="100vh"
                     barSize={SIZE.MEDIUM}

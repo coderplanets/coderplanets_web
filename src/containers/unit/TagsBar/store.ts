@@ -74,6 +74,10 @@ const TagsBar = T.model('TagsBar', {
       }
       return false
     },
+    markRoute(query): void {
+      const root = getParent(self) as TRootStore
+      root.markRoute(query)
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

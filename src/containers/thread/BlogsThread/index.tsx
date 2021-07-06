@@ -141,11 +141,7 @@ const BlogsThreadContainer: FC<TProps> = ({
           <BadgeWrapper show={!isCommunityDigestInViewport}>
             <CommunityJoinBadge />
           </BadgeWrapper>
-          <TagsBar
-            thread={THREAD.BLOG}
-            onSelect={onTagSelect}
-            active={activeTagData}
-          />
+          <TagsBar onSelect={onTagSelect} />
           <PromotionList onClose={onAdsClose} />
         </Sticky>
       </RightPart>

@@ -38,7 +38,7 @@ const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => {
       >
         <ButtonWrapper size="small" type="primary" ghost>
           <InnerBtnWrapper>
-            综合排序
+            默认排序
             <FilterIcon src={`${ICON_CMD}/dropdown_arrow.svg`} />
           </InnerBtnWrapper>
         </ButtonWrapper>

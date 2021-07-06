@@ -1,4 +1,5 @@
-import { ANCHOR } from '@/constant'
+import { ANCHOR, BODY_SCROLLER } from '@/constant'
+
 // side effects, need refactor
 /* eslint-disable no-undef */
 const hasDocument = typeof document === 'object' && document !== null
@@ -16,22 +17,13 @@ const getDocument = () => (isBrowser() ? document : null)
  */
 export const scrollToTop = (): void => {
   scrollIntoEle(ANCHOR.GLOBAL_HEADER_ID)
-
-  // NOTE:  not work with customScroller
-  // const safeDocument = getDocument()
-  // const c =
-  //   safeDocument.documentElement.scrollTop || safeDocument.body.scrollTop
-  // if (c > 0) {
-  //   window.requestAnimationFrame(scrollToTop)
-  //   window.scrollTo(0, c - c / 8)
-  // }
 }
 
 /**
  * scroll to page top
  * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
  */
-export const scrollIntoEle = (eleID: string): void => {
+export const oldScrollIntoEle = (eleID: string): void => {
   const safeDocument = getDocument()
   if (!safeDocument) return
 
@@ -39,6 +31,17 @@ export const scrollIntoEle = (eleID: string): void => {
 
   if (e?.scrollIntoView) {
     e.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+/**
+ * scroll to an element on page
+ * https://github.com/KingSora/OverlayScrollbars/issues/100
+ */
+export const scrollIntoEle = (eleID: string): void => {
+  if (typeof window === 'object') {
+    const el = document.getElementById(eleID)
+    window[BODY_SCROLLER]?.scroll(el, 500)
   }
 }
 

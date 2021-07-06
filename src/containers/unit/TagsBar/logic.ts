@@ -22,12 +22,16 @@ const sr71$ = new SR71({
 let sub$ = null
 let store: TStore | undefined
 
-export const onTagSelect = (tag: TTag): void => store.selectTag(tag)
+export const onTagSelect = (tag: TTag): void => {
+  store.selectTag(tag)
+  store.markRoute({ tag: tag.title })
+}
 
 const NO_TAG_THREADS = [THREAD.USER]
 
 export const loadTags = (): void => {
   const { curThread } = store
+  // TODO: remove
   if (contains(curThread, NO_TAG_THREADS)) return
 
   const community = store.curCommunity.raw
@@ -91,23 +95,19 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 
-export const useInit = (
-  _store: TStore,
-  thread: TThread,
-  active: TTag,
-): void => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    let activeTag = pick(['id', 'title', 'color'], active || emptyTag) as TTag
-    if (isEmpty(activeTag.title)) activeTag = null
-    store.mark({ thread, activeTag })
+    // let activeTag = pick(['id', 'title', 'color'], active || emptyTag) as TTag
+    // if (isEmpty(activeTag.title)) activeTag = null
+    // store.mark({ thread, activeTag })
 
     return () => {
       log('effect uninit')
       sub$.unsubscribe()
       sr71$.stop()
     }
-  }, [_store, thread, active])
+  }, [_store])
 }

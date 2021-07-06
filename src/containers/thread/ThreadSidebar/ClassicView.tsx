@@ -34,7 +34,6 @@ type TProps = { showCommunityBadge: boolean } & TBaseProps
 
 const ClassicView: FC<TProps> = ({
   showCommunityBadge,
-  activeTag,
   onCreate,
   onTagSelect,
   onAdsClose,
@@ -50,11 +49,7 @@ const ClassicView: FC<TProps> = ({
           <CommunityJoinBadge />
         </BadgeWrapper>
         <TagsBarWrapper>
-          <TagsBar
-            thread={THREAD.POST}
-            onSelect={onTagSelect}
-            active={activeTag}
-          />
+          <TagsBar onSelect={onTagSelect} />
         </TagsBarWrapper>
         {/* <PromotionList onClose={onAdsClose} /> */}
       </Sticky>

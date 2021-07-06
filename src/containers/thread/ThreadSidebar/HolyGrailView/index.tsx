@@ -29,7 +29,7 @@ const HolyGrailView: FC<TProps> = ({ community }) => {
       <PublishButton />
       <Br bottom={25} />
       <Sticky offsetTop={80}>
-        <TagsBar thread={THREAD.POST} onSelect={console.log} />
+        <TagsBar onSelect={console.log} />
       </Sticky>
     </Wrapper>
   )
