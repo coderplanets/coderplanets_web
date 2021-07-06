@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, contains, values } from 'ramda'
 
-import type { TRootStore, TCommunity } from '@/spec'
+import type { TRootStore, TCommunity, TThread, TID } from '@/spec'
 import { TYPE, THREAD } from '@/constant'
 
 import {
@@ -43,6 +43,12 @@ const THREAD_CONTENT_CURD_TYPES = [
   TYPE.DRAWER.MAILS_VIEW,
 ]
 
+const VIEWER_TYPES = [
+  TYPE.DRAWER.POST_VIEW,
+  TYPE.DRAWER.JOB_VIEW,
+  TYPE.DRAWER.REPO_VIEW,
+]
+
 const Options = T.model('Options', {
   direction: T.optional(
     T.enumeration('direction', ['top', 'bottom']),
@@ -68,6 +74,8 @@ const Attachment = T.model('Attachment', {
 
 const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
+
+  previousHref: T.maybeNull(T.string),
   // only works for mobile view
   options: T.optional(Options, defaultOptions),
   swipeDownAviliable: T.optional(T.boolean, true),
@@ -130,6 +138,10 @@ const DrawerStore = T.model('DrawerStore', {
       const root = getParent(self) as TRootStore
       return stripMobx(root.viewing.community)
     },
+    get curThread(): TThread {
+      const root = getParent(self) as TRootStore
+      return root.viewing.activeThread
+    },
     get attachmentData() {
       return stripMobx(self.attachment)
     },
@@ -166,19 +178,47 @@ const DrawerStore = T.model('DrawerStore', {
         toggleGlobalBlur(true)
         slf.canBeClose = false
       }
+
+      slf.markPreviewURLIfNeed(data.id)
     },
     setViewing(sobj: Record<string, unknown>): void {
       const root = getParent(self) as TRootStore
       root.setViewing(sobj)
     },
+
     close(): void {
-      self.visible = false
-      self.canBeClose = false
+      const slf = self as TStore
+
+      slf.restorePreviousURLIfNeed()
+
+      slf.visible = false
+      slf.canBeClose = false
+      slf.imageUploading = false
+      slf.type = null
+
       unlockPage()
-      if (self.isMobile) {
+
+      if (slf.isMobile) {
         toggleGlobalBlur(false)
       }
     },
+
+    // TODO: 重构时用 article.meta.thread 来替代 thread
+    markPreviewURLIfNeed(id: TID): void {
+      if (!contains(self.type, VIEWER_TYPES)) return
+
+      self.previousHref = Global.location.href
+
+      const thread = self.curThread
+      const nextURL = `${Global.location.origin}/${thread}/${id}`
+      Global.history.replaceState(null, 'new-title', nextURL)
+    },
+
+    restorePreviousURLIfNeed(): void {
+      if (!contains(self.type, VIEWER_TYPES)) return
+      Global.history.replaceState(null, 'new-title', self.previousHref)
+    },
+
     resetSwipeAviliable(): void {
       self.swipeDownAviliable = true
       self.swipeUpAviliable = false

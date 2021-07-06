@@ -1,8 +1,9 @@
 import type { TCommunity, TTag } from './index'
 import type { TUser } from './account'
+import type { TID } from './utils'
 
 export type TArticle = {
-  id?: string
+  id?: TID
   title?: string
   body?: string
   views?: number

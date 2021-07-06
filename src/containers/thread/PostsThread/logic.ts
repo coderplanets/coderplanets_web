@@ -80,7 +80,6 @@ export const onPreview = (data: TArticle): void => {
   const thread = THREAD.POST
 
   send(EVENT.DRAWER.OPEN, { type, thread, data })
-  store.markRoute(data.id)
 }
 
 export const onContentCreate = (): void => {
@@ -136,7 +135,6 @@ const DataSolver = [
     match: asyncRes(EVENT.DRAWER.AFTER_CLOSE),
     action: () => {
       store.setViewing({ post: {} })
-      store.markRoute({ ...store.filtersData, ...store.tagQuery })
     },
   },
 ]
