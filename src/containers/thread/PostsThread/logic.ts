@@ -82,12 +82,6 @@ export const onContentCreate = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.POST_CREATE })
 }
 
-// toggle FAQ active state
-export const onFaqChange = (): void => {
-  const { faqActive } = store
-  store.mark({ faqActive: !faqActive })
-}
-
 // ###############################
 // Data & Error handlers
 // ###############################

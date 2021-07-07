@@ -35,7 +35,6 @@ const PostsThreadStore = T.model('PostsThreadStore', {
     ]),
     TYPE.RESULT,
   ),
-  faqActive: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get curRoute(): TRoute {

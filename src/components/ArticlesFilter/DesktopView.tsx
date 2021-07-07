@@ -25,8 +25,6 @@ type TProps = {
   thread: TThread
   accountInfo: TAccount
   totalCount?: number
-  onFaqChange: () => void
-  faqActive?: boolean
 }
 
 const ArticlesFilter: FC<TProps> = ({
@@ -35,8 +33,6 @@ const ArticlesFilter: FC<TProps> = ({
   onSelect,
   accountInfo: { isLogin },
   totalCount = 0,
-  onFaqChange = log,
-  faqActive = false,
 }) => (
   <Wrapper>
     <MainFilterWrapper>
@@ -49,11 +45,7 @@ const ArticlesFilter: FC<TProps> = ({
 
       <SelectedTags onSelect={onSelect} activeFilter={activeFilter} />
     </MainFilterWrapper>
-    <FilterResult
-      totalCount={totalCount}
-      onFaqChange={onFaqChange}
-      faqActive={faqActive}
-    />
+    <FilterResult totalCount={totalCount} />
   </Wrapper>
 )
 

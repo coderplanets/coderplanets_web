@@ -12,7 +12,6 @@ import { pluggedIn, buildLog } from '@/utils'
 
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import TabBar from '@/components/TabBar'
-import FaqPeekList from '@/components/FaqPeekList'
 import PagedContents from '@/components/PagedContents'
 import ArticlesFilter from '@/components/ArticlesFilter'
 
@@ -33,7 +32,6 @@ import {
   loadPosts,
   onFilterSelect,
   onPreview,
-  onFaqChange,
   tabOnChange,
   onContentCreate,
 } from './logic'
@@ -53,7 +51,6 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
     curView,
     filtersData,
     activePost,
-    faqActive,
     accountInfo,
     isLogin,
     curCommunity,
@@ -92,12 +89,9 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
                 isLogin={isLogin}
                 accountInfo={accountInfo}
                 totalCount={totalCount}
-                faqActive={faqActive}
-                onFaqChange={onFaqChange}
               />
             </FilterWrapper>
           )}
-          <FaqPeekList active={faqActive} />
           <PagedContents
             data={pagedPostsData}
             community={curCommunity.raw}
