@@ -55,7 +55,7 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
     isLogin,
     curCommunity,
     curThread,
-    showFilterBar,
+    showFilters,
     accountInfo: {
       customization: { bannerLayout },
     },
@@ -80,7 +80,7 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
       <Body>
         <ArticlesWrapper>
           <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
-          {showFilterBar && (
+          {showFilters && (
             <FilterWrapper>
               <ArticlesFilter
                 thread={THREAD.POST}

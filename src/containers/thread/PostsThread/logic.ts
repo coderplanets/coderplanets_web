@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import type { TArticle, TThread } from '@/spec'
+import type { TArticle, TThread, TArticleFilter } from '@/spec'
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 
 import {
@@ -58,7 +58,7 @@ export const loadPosts = (page = 1): void => {
   scrollToTabber()
 }
 
-export const onFilterSelect = (option): void => {
+export const onFilterSelect = (option: TArticleFilter): void => {
   store.selectFilter(option)
   log('cur filter: ', store.filtersData)
   store.markRoute({ ...store.filtersData })

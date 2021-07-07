@@ -14,6 +14,7 @@ import type {
   TRoute,
   TCommunity,
   TThread,
+  TArticleFilter,
 } from '@/spec'
 
 import { TYPE, THREAD } from '@/constant'
@@ -60,7 +61,7 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
     },
-    get filtersData() {
+    get filtersData(): TArticleFilter {
       return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
     },
     get activeTagData(): TTag {
@@ -82,7 +83,7 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       const root = getParent(self) as TRootStore
       return root.account.pageDensity
     },
-    get showFilterBar() {
+    get showFilters(): boolean {
       const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))
       const pagedPosts = stripMobx(self.pagedPosts)
 
@@ -115,8 +116,9 @@ const PostsThreadStore = T.model('PostsThreadStore', {
       const root = getParent(self) as TRootStore
       root.authWarning(options)
     },
-    selectFilter(option) {
+    selectFilter(option: TArticleFilter): void {
       const curfilter = self.filtersData
+      // @ts-ignore
       self.filters = merge(curfilter, option)
     },
     showTopModeline(fix): void {

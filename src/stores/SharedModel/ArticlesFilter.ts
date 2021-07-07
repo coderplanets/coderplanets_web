@@ -31,14 +31,6 @@ export const ArticlesFilter = T.model('ArticlesFilter', {
     T.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
     '',
   ),
-  // job
-  salary: T.optional(T.string, ''),
-  exp: T.optional(T.string, ''),
-  education: T.optional(T.string, ''),
-  field: T.optional(T.string, ''),
-  finance: T.optional(T.string, ''),
-  scale: T.optional(T.string, ''),
-  source: T.optional(T.string, ''),
   read: T.optional(T.enumeration('read', ['', FILTER.READ, FILTER.UNREAD]), ''),
 })
 
