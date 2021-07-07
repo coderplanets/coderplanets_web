@@ -13,7 +13,7 @@ export { Post, PagedPosts } from './Post'
 export { Blog, PagedBlogs } from './Blog'
 export { Repo, PagedRepos } from './Repo'
 export { Job, PagedJobs } from './Job'
-export { Tag, PagedTags } from './Tag'
+export { Tag, PagedTags, emptyTag } from './Tag'
 export { Category, PagedCategories } from './Category'
 export { FavoriteCategory, PagedFavoriteCategories } from './FavoriteCategory'
 
@@ -30,7 +30,7 @@ export {
   WorkBackground,
 } from './User'
 
-export { ContentFilter } from './ContentFilter'
+export { ArticlesFilter } from './ArticlesFilter'
 
 export { MailStatus, MentionMsg, PagedMentionMessages } from './Mail'
 

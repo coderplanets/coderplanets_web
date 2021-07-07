@@ -7,7 +7,6 @@ import { TYPE, EVENT } from '@/constant'
 import {
   asyncSuit,
   buildLog,
-  unlockPage,
   send,
   Global,
   debounce,
@@ -39,15 +38,13 @@ const FUNCTION_TYPES = [TYPE.DRAWER.C11N_SETTINGS, TYPE.DRAWER.MODELINE_MENU]
  * close current drawer
  */
 export const closeDrawer = (): void => {
-  unlockPage()
   store.close()
-  store.mark({ imageUploading: false, type: null })
 
   // force call MDEditor's componentWillUnmount to store the draft
   // wait until drawer move out of the screean
   setTimeout(() => {
     send(EVENT.DRAWER.AFTER_CLOSE)
-    store.setViewing({ viewingThread: null })
+    store.resetViewing()
   }, 200)
 
   setTimeout(() => {

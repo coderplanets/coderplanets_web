@@ -7,7 +7,7 @@
 import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
-import { METRIC } from '@/constant'
+import { C11N, METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import UserLister from '@/containers/user/UserLister'
@@ -19,7 +19,8 @@ import AddOns from '../AddOns'
 
 import {
   Wrapper,
-  InnerWrapper,
+  ClassicInnerWrapper,
+  HolyGrailInnerWrapper,
   RouterWrapper,
   Search,
   HeaderSearchIcon,
@@ -67,6 +68,9 @@ const CommunityHeaderContainer: FC<TProps> = ({
     }
   }, [isLogin])
 
+  const InnerWrapper =
+    bannerLayout === C11N.CLASSIC ? ClassicInnerWrapper : HolyGrailInnerWrapper
+
   return (
     <Wrapper
       id="whereCallShowDoraemon"
@@ -74,7 +78,7 @@ const CommunityHeaderContainer: FC<TProps> = ({
       leftOffset={leftOffset}
       noBorder={hasNoBottomBorder}
     >
-      <InnerWrapper metric={metric} layout={bannerLayout}>
+      <InnerWrapper metric={metric}>
         <RouterWrapper>
           <Navigator
             community={curCommunity}

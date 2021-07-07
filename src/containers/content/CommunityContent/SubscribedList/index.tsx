@@ -38,12 +38,12 @@ const SubscribedList: FC<TProps> = ({ communities }) => {
 
   return (
     <Wrapper>
-      <Br top={10} />
+      <Br top={6} />
       <HeadTitle>
         <span>我的关注</span> <DotDivider radius={3} space={7} />
         <HeadNum>{communities.length}</HeadNum>
       </HeadTitle>
-      <Br top={20} />
+      <Br top={24} />
       <Item>
         <Logo src={`${ICON}/shape/home.svg`} />
         首页

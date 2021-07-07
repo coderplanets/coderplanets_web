@@ -33,7 +33,7 @@ export const LabelDivider = styled.div`
   margin-bottom: 10px;
   opacity: 0.6;
 `
-export const SelectIcon = styled(Img)<{ reverse: boolean }>`
+export const SelectIcon = styled(Img)<{ reverse?: boolean }>`
   fill: ${theme('banner.title')};
   ${css.size(15)};
   margin-right: 3px;

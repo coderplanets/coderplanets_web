@@ -12,6 +12,10 @@ type TOption = {
     onScrollStart?: () => void
     onScrollStop?: () => void
   }
+  // 如果传入 instanceKey, 那么会赋给 window 一个对应的 OverlayScrollbars 对象用来操作定位到某个元素
+  // 因为全局使用了 OverlayScrollbars, 常规的 scrollerTo 不会起作用
+  // see: https://github.com/KingSora/OverlayScrollbars/issues/100
+  instanceKey?: string
   // more callbacks see overlayscrollbars docs
 }
 
@@ -28,7 +32,7 @@ const useCustomScroll = (
   const [scrollInstance, setScrollInstance] = useState(null)
 
   useEffect(() => {
-    if (OverlayScrollbars && ref.current) {
+    if (OverlayScrollbars && ref.current && !scrollInstance) {
       option.className =
         option.themeCategory === 'dark' ? 'os-theme-light' : 'os-theme-dark'
       delete option.themeCategory
@@ -38,13 +42,19 @@ const useCustomScroll = (
         className: 'os-theme-light',
         callbacks: { ...option.callbacks },
       }
+      const { instanceKey, ...restOptions } = option
       const instance = OverlayScrollbars(
         ref.current,
-        Object.assign(defaultOption, option),
+        Object.assign(defaultOption, restOptions),
       )
+
+      if (instanceKey && typeof window === 'object') {
+        window[instanceKey] = instance
+      }
       setScrollInstance(instance)
     }
-  }, [ref, option]) // Empty array ensures that effect is only run on mount and unmount
+    // Empty array ensures that effect is only run on mount and unmount
+  }, [ref, option, scrollInstance])
 
   return scrollInstance
 }

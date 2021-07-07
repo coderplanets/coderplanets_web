@@ -1,8 +1,9 @@
 import type { TCommunity, TTag } from './index'
 import type { TUser } from './account'
+import type { TID } from './utils'
 
 export type TArticle = {
-  id?: string
+  id?: TID
   title?: string
   body?: string
   views?: number
@@ -73,4 +74,11 @@ export type TPagedComments = {
   pageNumber: number
   pageSize: number
   totalPages: number
+}
+
+export type TArticleFilter = {
+  when?: string
+  sort?: string
+  length?: string
+  read?: string
 }

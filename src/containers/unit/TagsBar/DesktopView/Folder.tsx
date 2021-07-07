@@ -28,7 +28,7 @@ type TProps = {
   title: string
   allTags: TTag[]
   activeTag: TTag
-  groupTags: any
+  groupTags: TTag[]
   onSelect: (tag?: TTag) => void
 }
 
@@ -93,7 +93,7 @@ const Folder: FC<TProps> = ({
               key={tag.id}
               tag={tag}
               active={activeTag.title === tag.title}
-              activeid={String(activeTag.id)}
+              activeid={activeTag.id}
               onSelect={onSelect}
             />
           ))}

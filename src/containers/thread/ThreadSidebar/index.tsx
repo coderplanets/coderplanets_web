@@ -8,7 +8,7 @@
 
 import { FC, Fragment } from 'react'
 
-import type { TTag, TC11NLayout } from '@/spec'
+import type { TTag } from '@/spec'
 import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -22,10 +22,10 @@ import { useInit } from './logic'
 const log = buildLog('C:ThreadSidebar')
 
 export type TBaseProps = {
-  activeTag: TTag
+  activeTag?: TTag
 
   onCreate?: () => void
-  onTagSelect?: (tag: TTag) => void
+  onTagSelect?: () => void
   onAdsClose?: () => void
 }
 
@@ -33,7 +33,6 @@ export type TProps = { threadSidebar?: TStore } & TBaseProps
 
 const ThreadSidebarContainer: FC<TProps> = ({
   threadSidebar: store,
-  activeTag,
   onCreate,
   onTagSelect,
   onAdsClose,
@@ -53,7 +52,6 @@ const ThreadSidebarContainer: FC<TProps> = ({
       {bannerLayout === C11N.CLASSIC ? (
         <ClassicView
           showCommunityBadge={isCommunityDigestInViewport}
-          activeTag={activeTag}
           onCreate={onCreate}
           onTagSelect={onTagSelect}
           onAdsClose={onAdsClose}

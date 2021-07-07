@@ -1,5 +1,6 @@
 // a.k.a for HOME COMMUNITY NAME
 export const HCN = 'home'
+export const BODY_SCROLLER = 'body-scroller'
 
 export { default as TYPE } from './type'
 export { default as EVENT } from './event'

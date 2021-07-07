@@ -8,14 +8,14 @@ import { findIndex, merge, propEq, isEmpty, pickBy } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty } from '@/utils'
-import { PagedRepos, Tag, ContentFilter, emptyPagiData } from '@/model'
+import { PagedRepos, Tag, ArticlesFilter, emptyPagiData } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ReposThread')
 
 const ReposThread = T.model('ReposThread', {
   pagedRepos: T.optional(PagedRepos, emptyPagiData),
-  filters: T.optional(ContentFilter, {}),
+  filters: T.optional(ArticlesFilter, {}),
   activeTag: T.maybeNull(Tag),
   curView: T.optional(
     T.enumeration('curView', [

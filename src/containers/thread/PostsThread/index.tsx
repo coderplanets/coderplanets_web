@@ -12,9 +12,8 @@ import { pluggedIn, buildLog } from '@/utils'
 
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import TabBar from '@/components/TabBar'
-import FaqPeekList from '@/components/FaqPeekList'
 import PagedContents from '@/components/PagedContents'
-import ContentFilter from '@/components/ContentFilter'
+import ArticlesFilter from '@/components/ArticlesFilter'
 
 import type { TStore } from './store'
 
@@ -30,14 +29,11 @@ import {
   useInit,
   inAnchor,
   outAnchor,
+  loadPosts,
   onFilterSelect,
-  onUserSelect,
   onPreview,
-  onPageChange,
-  onFaqChange,
   tabOnChange,
   onContentCreate,
-  onTagSelect,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -55,13 +51,11 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
     curView,
     filtersData,
     activePost,
-    faqActive,
     accountInfo,
     isLogin,
-    activeTagData,
     curCommunity,
     curThread,
-    showFilterBar,
+    showFilters,
     accountInfo: {
       customization: { bannerLayout },
     },
@@ -86,21 +80,18 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
       <Body>
         <ArticlesWrapper>
           <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
-          {showFilterBar && (
+          {showFilters && (
             <FilterWrapper>
-              <ContentFilter
+              <ArticlesFilter
                 thread={THREAD.POST}
                 onSelect={onFilterSelect}
                 activeFilter={filtersData}
                 isLogin={isLogin}
                 accountInfo={accountInfo}
                 totalCount={totalCount}
-                faqActive={faqActive}
-                onFaqChange={onFaqChange}
               />
             </FilterWrapper>
           )}
-          <FaqPeekList active={faqActive} />
           <PagedContents
             data={pagedPostsData}
             community={curCommunity.raw}
@@ -108,19 +99,13 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
             curView={curView}
             active={activePost}
             accountInfo={accountInfo}
-            onUserSelect={onUserSelect}
-            onAuthorSelect={onUserSelect}
             onPreview={onPreview}
-            onPageChange={onPageChange}
+            onPageChange={loadPosts}
           />
         </ArticlesWrapper>
 
         {bannerLayout === C11N.CLASSIC && (
-          <ThreadSidebar
-            activeTag={activeTagData}
-            onCreate={onContentCreate}
-            onTagSelect={onTagSelect}
-          />
+          <ThreadSidebar onCreate={onContentCreate} onTagSelect={loadPosts} />
         )}
       </Body>
     </Wrapper>

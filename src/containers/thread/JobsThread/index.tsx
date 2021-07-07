@@ -19,7 +19,7 @@ import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
 import Maybe from '@/components/Maybe'
 // import PagedContents from '@/components/PagedContents'
-import ContentFilter from '@/components/ContentFilter'
+import ArticlesFilter from '@/components/ArticlesFilter'
 import JobCard from '@/components/Cards/JobCard'
 
 import type { TStore } from './store'
@@ -79,7 +79,7 @@ const JobsThreadContainer: FC<TProps> = ({ jobsThread: store }) => {
         <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
         <Maybe test={showFilterBar}>
           <FilterWrapper>
-            <ContentFilter
+            <ArticlesFilter
               thread={THREAD.JOB}
               onSelect={onFilterSelect}
               activeFilter={filtersData}

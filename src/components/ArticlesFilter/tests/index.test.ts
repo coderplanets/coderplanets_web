@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import ContentFilter from '../index'
+// import ArticlesFilter from '../index'
 
-describe('<ContentFilter />', () => {
+describe('<ArticlesFilter />', () => {
   it('TODO: Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

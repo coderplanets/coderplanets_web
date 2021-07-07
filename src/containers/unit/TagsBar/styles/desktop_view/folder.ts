@@ -7,10 +7,8 @@ export const Wrapper = styled.div``
 export const Header = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 8px;
-  margin-left: 3px;
   &:hover {
     cursor: pointer;
-    /* opacity: 0.65; */
   }
 `
 export const ArrowIcon = styled(Img)<{ isOpen: boolean }>`

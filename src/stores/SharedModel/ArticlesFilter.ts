@@ -2,7 +2,7 @@ import { types as T } from 'mobx-state-tree'
 
 import { FILTER } from '@/constant'
 
-export const ContentFilter = T.model('ContentFilter', {
+export const ArticlesFilter = T.model('ArticlesFilter', {
   when: T.optional(
     T.enumeration('when', [
       '',
@@ -31,14 +31,6 @@ export const ContentFilter = T.model('ContentFilter', {
     T.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
     '',
   ),
-  // job
-  salary: T.optional(T.string, ''),
-  exp: T.optional(T.string, ''),
-  education: T.optional(T.string, ''),
-  field: T.optional(T.string, ''),
-  finance: T.optional(T.string, ''),
-  scale: T.optional(T.string, ''),
-  source: T.optional(T.string, ''),
   read: T.optional(T.enumeration('read', ['', FILTER.READ, FILTER.UNREAD]), ''),
 })
 

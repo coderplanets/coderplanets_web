@@ -1,10 +1,12 @@
 import { FC, memo } from 'react'
 
 import type { TC11NLayout } from '@/spec'
+import { C11N } from '@/constant'
 
 import {
-  Wrapper,
   InnerWrapper,
+  ClassicWrapper,
+  HolyGrailWrapper,
   BeianLink,
 } from '../styles/desktop_view/bottom_info'
 
@@ -14,9 +16,11 @@ type TProps = {
 }
 
 const BottomInfo: FC<TProps> = ({ metric, layout }) => {
+  const Wrapper = layout === C11N.CLASSIC ? ClassicWrapper : HolyGrailWrapper
+
   return (
     <Wrapper metric={metric}>
-      <InnerWrapper layout={layout}>
+      <InnerWrapper>
         <BeianLink href="http://beian.miit.gov.cn">
           蜀ICP备17043722号-4
         </BeianLink>

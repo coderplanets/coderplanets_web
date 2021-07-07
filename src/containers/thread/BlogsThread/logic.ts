@@ -57,10 +57,10 @@ export const onFilterSelect = (option): void => {
   loadBlogs()
 }
 
-export const onTagSelect = (tag: TTag): void => {
-  store.selectTag(tag)
-  loadBlogs()
-  store.markRoute({ tag: tag.title })
+export const onTagSelect = (): void => {
+  // store.selectTag(tag)
+  // loadBlogs()
+  // store.markRoute({ tag: tag.title })
 }
 
 export const onUserSelect = (): void => {

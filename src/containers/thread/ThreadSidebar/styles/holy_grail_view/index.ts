@@ -9,7 +9,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flexColumn('justify-start')};
   background: transparent;
   position: relative;
-  width: 150px;
+  width: 140px;
+  min-width: 140px;
   margin-top: 10px;
 `
 export const Divider = styled.div`

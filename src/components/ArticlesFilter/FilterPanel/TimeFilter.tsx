@@ -1,5 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TArticleFilter } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { FILTER } from '@/constant'
 
@@ -12,7 +13,12 @@ import {
   SelectItem,
 } from '../styles'
 
-const TimeFilter = ({ activeFilter, onSelect }) => (
+type TProps = {
+  activeFilter: TArticleFilter
+  onSelect: (filter: TArticleFilter) => void
+}
+
+const TimeFilter: FC<TProps> = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/duration.svg`} />
@@ -46,4 +52,4 @@ const TimeFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default React.memo(TimeFilter)
+export default memo(TimeFilter)

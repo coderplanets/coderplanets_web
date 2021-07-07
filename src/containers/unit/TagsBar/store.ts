@@ -6,10 +6,16 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
 
-import type { TRootStore, TCommunity, TTag, TThread } from '@/spec'
+import type {
+  TRootStore,
+  TCommunity,
+  TTag,
+  TGroupedTags,
+  TThread,
+} from '@/spec'
 
 import { markStates, buildLog, stripMobx, groupByKey } from '@/utils'
-import { Tag } from '@/model'
+import { Tag, emptyTag } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:TagsBar')
@@ -34,9 +40,9 @@ const TagsBar = T.model('TagsBar', {
       return stripMobx(self.tags)
     },
     get activeTagData(): TTag {
-      return stripMobx(self.activeTag) || { title: '', color: '' }
+      return stripMobx(self.activeTag) || emptyTag
     },
-    get groupedTags(): any {
+    get groupedTags(): TGroupedTags {
       const { tagsData } = self as TStore
 
       return groupByKey(
@@ -67,6 +73,10 @@ const TagsBar = T.model('TagsBar', {
         return self.tagsData[index].id
       }
       return false
+    },
+    markRoute(query): void {
+      const root = getParent(self) as TRootStore
+      root.markRoute(query)
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

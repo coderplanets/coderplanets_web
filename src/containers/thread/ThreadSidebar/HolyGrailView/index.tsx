@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
-import { THREAD } from '@/constant'
 
 import { Br } from '@/components/Common'
 import Sticky from '@/components/Sticky'
@@ -29,7 +28,7 @@ const HolyGrailView: FC<TProps> = ({ community }) => {
       <PublishButton />
       <Br bottom={25} />
       <Sticky offsetTop={80}>
-        <TagsBar thread={THREAD.POST} onSelect={console.log} />
+        <TagsBar onSelect={console.log} />
       </Sticky>
     </Wrapper>
   )

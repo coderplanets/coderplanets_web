@@ -7,7 +7,6 @@
 import { FC } from 'react'
 
 import { VIEW } from '@/constant'
-import type { TTag, TThread } from '@/spec'
 import type { TStore } from './store'
 
 import DesktopView from './DesktopView/index'
@@ -15,9 +14,7 @@ import DesktopView from './DesktopView/index'
 export type TProps = {
   view?: string
   tagsBar?: TStore
-  thread: TThread
-  onSelect: (tag?: TTag) => void
-  active?: TTag
+  onSelect: () => void
 }
 
 const TagsBar: FC<TProps> = (props) => {

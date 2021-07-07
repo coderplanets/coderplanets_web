@@ -24,6 +24,7 @@ export type TProps = {
   onBottomEnter?: () => void
   onBottomLeave?: () => void
 
+  instanceKey?: string | null
   // scroll direction
   onScrollDirectionChange?: (dir: TScrollDirection) => void
 }

@@ -44,6 +44,7 @@ const VerticalScroller: FC<TProps> = ({
   onBottomEnter,
   onBottomLeave,
   onScrollDirectionChange,
+  instanceKey = null,
 }) => {
   const [showTopShadow, setShowTopShadow] = useState(false)
   const [showBottomShadow, setShowBottomShadow] = useState(true)
@@ -77,6 +78,7 @@ const VerticalScroller: FC<TProps> = ({
 
   const ref = useRef(null)
   const scrollInstance = useCustomScroll(ref, {
+    instanceKey,
     scrollbars: { autoHide: autoHide ? 'scroll' : 'never' },
     themeCategory,
     callbacks: {
