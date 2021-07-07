@@ -4,13 +4,13 @@
  *
  */
 
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import type { TThread, TArticleFilter } from '@/spec'
-import { THREAD } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
 
-import type { TStore as TAccountStore } from '@/stores/AccountStore'
+import { THREAD } from '@/constant'
+import { buildLog } from '@/utils'
+import { useMST } from '@/hooks'
 
 import FilterButton from './FilterButton'
 import SelectedTags from './SelectedTags'
@@ -22,7 +22,6 @@ import { Wrapper, MainFilterWrapper } from './styles'
 const log = buildLog('c:ArticlesFilter:index')
 
 type TProps = {
-  account?: TAccountStore
   activeFilter: TArticleFilter
   onSelect: (filter: TArticleFilter) => void
   thread: TThread
@@ -30,12 +29,13 @@ type TProps = {
 }
 
 const ArticlesFilter: FC<TProps> = ({
-  account,
   thread = THREAD.POST,
   activeFilter = {},
   onSelect,
   totalCount = 0,
 }) => {
+  const account = useMST('account')
+
   return (
     <Wrapper>
       <MainFilterWrapper>
@@ -53,4 +53,4 @@ const ArticlesFilter: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticlesFilter, 'account') as FC<TProps>
+export default memo(ArticlesFilter)

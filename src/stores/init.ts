@@ -28,9 +28,19 @@ const initRootStore = (snapshot = null): TRootStore => {
   return rootStore
 }
 
-export const useStore = (initialState): TRootStore => {
+export const useStore = (initialState = {}): TRootStore => {
   const store = useMemo(() => initRootStore(initialState), [initialState])
   return store
 }
 
-export const holder = 1
+/*
+ * used in pure compoennt to access the MST sub-store
+ * e.g:
+ *
+ * const account = useMST('account')
+ * will get the account store in component
+ */
+// return type is the sub store of the TRootStore, how to do it in TS?
+export const useMST = (substore: string) => {
+  return useStore({})[substore]
+}
