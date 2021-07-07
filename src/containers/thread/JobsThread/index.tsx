@@ -1,13 +1,12 @@
 /*
  *
- * PostsThread
+ * JobsThread
  *
  */
 
 import { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
 
-import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 

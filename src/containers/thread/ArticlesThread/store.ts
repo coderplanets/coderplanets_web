@@ -97,6 +97,20 @@ const ArticlesThread = T.model('ArticlesThread', {
     },
 
     updateItem(item): void {
+      // TODO: 区分 thread
+      // const curThread = self.viewingThread || self.activeThread
+
+      // switch (curThread) {
+      //   case THREAD.JOB:
+      //     root.jobsThread.updateItem(item)
+      //     return
+      //   case THREAD.REPO:
+      //     root.reposThread.updateItem(item)
+      //     return
+      //   default: {
+      //     root.articlesThread.updateItem(item)
+      //   }
+      // }
       const { entries } = self.pagedPostsData
       const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {

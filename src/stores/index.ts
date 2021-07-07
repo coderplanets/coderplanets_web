@@ -52,7 +52,6 @@ export { default as UserContentStore } from '@/containers/content/UserContent/st
 export { default as FooterStore } from '@/containers/unit/Footer/store'
 
 // threads store
-export { default as PostsThreadStore } from '@/containers/thread/PostsThread/store'
 export { default as ReposThreadStore } from '@/containers/thread/ReposThread/store'
 export { default as JobsThreadStore } from '@/containers/thread/JobsThread/store'
 export { default as UsersThreadStore } from '@/containers/thread/UsersThread/store'

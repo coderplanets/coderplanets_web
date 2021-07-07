@@ -12,7 +12,6 @@ import { pluggedIn, buildLog } from '@/utils'
 
 import CommunityDigest from '@/containers/digest/CommunityDigest'
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
-// import PostsThread from '@/containers//thread/PostsThread'
 import ArticlesThread from '@/containers//thread/ArticlesThread'
 import BlogsThread from '@/containers//thread/BlogsThread'
 import ReposThread from '@/containers/thread/ReposThread'
@@ -45,7 +44,6 @@ const ComunityContent = ({ curRoute }) => {
 
     default:
       return <ArticlesThread />
-    // return <PostsThread />
   }
 }
 

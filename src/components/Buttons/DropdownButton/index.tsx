@@ -16,7 +16,7 @@ import {
   MoreIcon,
 } from '../styles/dropdown_button'
 
-const log = buildLog('C:PostsThread')
+const log = buildLog('C:DropdownButton')
 
 export type TOption = {
   title: string

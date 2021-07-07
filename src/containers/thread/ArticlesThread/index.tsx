@@ -9,7 +9,7 @@
 import { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
 
-import { C11N, THREAD } from '@/constant'
+import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
@@ -31,7 +31,7 @@ import {
   useInit,
   inAnchor,
   outAnchor,
-  loadPosts,
+  loadArticles,
   onFilterSelect,
   onPreview,
   tabOnChange,
@@ -84,7 +84,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
           {showFilters && (
             <FilterWrapper>
               <ArticlesFilter
-                thread={THREAD.POST}
+                thread={curThread}
                 onSelect={onFilterSelect}
                 activeFilter={filtersData}
                 totalCount={totalCount}
@@ -94,17 +94,20 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
           <PagedContents
             data={pagedPostsData}
             community={curCommunity.raw}
-            thread={THREAD.POST}
+            thread={curThread}
             curView={curView}
             active={activePost}
             accountInfo={accountInfo}
             onPreview={onPreview}
-            onPageChange={loadPosts}
+            onPageChange={loadArticles}
           />
         </ArticlesWrapper>
 
         {bannerLayout === C11N.CLASSIC && (
-          <ThreadSidebar onCreate={onContentCreate} onTagSelect={loadPosts} />
+          <ThreadSidebar
+            onCreate={onContentCreate}
+            onTagSelect={loadArticles}
+          />
         )}
       </Body>
     </Wrapper>

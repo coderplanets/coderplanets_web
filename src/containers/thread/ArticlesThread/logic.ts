@@ -17,7 +17,7 @@ import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:PostsThread')
+const log = buildLog('L:ArticlesThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
@@ -48,21 +48,42 @@ export const tabOnChange = (activeThread: TThread): void => {
   send(EVENT.THREAD_CHANGE, { data: { activeThread } })
 }
 
-export const loadPosts = (page = 1): void => {
-  const args = store.getLoadArgs(page)
+export const loadArticles = (page = 1): void => {
+  const { curThread } = store
 
   store.mark({ curView: TYPE.LOADING })
-  sr71$.query(S.pagedPosts, args)
-  store.markRoute({ page, ...store.filtersData })
+  const args = store.getLoadArgs(page)
 
+  switch (curThread) {
+    case THREAD.JOB: {
+      console.log('TODO: ')
+      break
+    }
+    default: {
+      sr71$.query(S.pagedPosts, args)
+      break
+    }
+  }
+
+  store.markRoute({ page, ...store.filtersData })
   scrollToTabber()
 }
+
+// export const loadPosts = (page = 1): void => {
+//   const args = store.getLoadArgs(page)
+
+//   store.mark({ curView: TYPE.LOADING })
+//   sr71$.query(S.pagedPosts, args)
+//   store.markRoute({ page, ...store.filtersData })
+
+//   scrollToTabber()
+// }
 
 export const onFilterSelect = (option: TArticleFilter): void => {
   store.selectFilter(option)
   log('cur filter: ', store.filtersData)
   store.markRoute({ ...store.filtersData })
-  loadPosts()
+  loadArticles()
 }
 
 /**
@@ -99,24 +120,24 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadPosts(),
+    action: () => loadArticles(),
   },
   // {
   //   match: asyncRes(EVENT.THREAD_CHANGE),
   //   action: (res) => {
   //     const { data } = res[EVENT.THREAD_CHANGE]
-  //     loadPosts()
+  //     loadArticles()
   //   },
   // },
   {
     match: asyncRes(EVENT.REFRESH_POSTS),
-    action: () => loadPosts(),
+    action: () => loadArticles(),
   },
   {
     match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
     action: (res) => {
       const { type } = res[EVENT.C11N_DENSITY_CHANGE]
-      if (type === THREAD.POST) loadPosts(store.pagedPosts.pageNumber)
+      if (type === THREAD.POST) loadArticles(store.pagedPosts.pageNumber)
     },
   },
 ]

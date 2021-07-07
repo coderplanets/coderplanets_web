@@ -35,7 +35,6 @@ import {
   ErrorBoxStore,
 
   // threads
-  PostsThreadStore,
   ReposThreadStore,
   JobsThreadStore,
   UsersThreadStore,
@@ -175,7 +174,6 @@ const rootStore = T.model({
   // footer
   footer: T.optional(FooterStore, {}),
   // threads
-  postsThread: T.optional(PostsThreadStore, {}),
   reposThread: T.optional(ReposThreadStore, {}),
   jobsThread: T.optional(JobsThreadStore, {}),
   usersThread: T.optional(UsersThreadStore, {}),

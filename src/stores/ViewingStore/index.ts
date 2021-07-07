@@ -95,19 +95,7 @@ const ViewingStore = T.model('ViewingStore', {
     },
     syncViewingItem(item: TArticle): void {
       const root = getParent(self) as TRootStore
-      const curThread = self.viewingThread || self.activeThread
-
-      switch (curThread) {
-        case THREAD.JOB:
-          root.jobsThread.updateItem(item)
-          return
-        case THREAD.REPO:
-          root.reposThread.updateItem(item)
-          return
-        default: {
-          root.postsThread.updateItem(item)
-        }
-      }
+      root.articlesThread.updateItem(item)
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
