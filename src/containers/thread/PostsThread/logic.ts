@@ -24,7 +24,6 @@ const sr71$ = new SR71({
   // @ts-ignore
   receive: [
     EVENT.REFRESH_POSTS,
-    EVENT.DRAWER.AFTER_CLOSE,
     EVENT.COMMUNITY_CHANGE,
     EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
@@ -34,13 +33,8 @@ const sr71$ = new SR71({
 let store: TStore | undefined
 let sub$ = null
 
-export const inAnchor = (): void => {
-  if (store) store.showTopModeline(false)
-}
-
-export const outAnchor = (): void => {
-  if (store) store.showTopModeline(true)
-}
+export const inAnchor = (): void => store?.showTopModeline(false)
+export const outAnchor = (): void => store?.showTopModeline(true)
 
 // TODO: 是否有必要存在 ？
 export const tabOnChange = (activeThread: TThread): void => {
@@ -129,12 +123,6 @@ const DataSolver = [
     action: (res) => {
       const { type } = res[EVENT.C11N_DENSITY_CHANGE]
       if (type === THREAD.POST) loadPosts(store.pagedPosts.pageNumber)
-    },
-  },
-  {
-    match: asyncRes(EVENT.DRAWER.AFTER_CLOSE),
-    action: () => {
-      store.setViewing({ post: {} })
     },
   },
 ]

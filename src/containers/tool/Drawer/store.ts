@@ -185,7 +185,6 @@ const DrawerStore = T.model('DrawerStore', {
       const root = getParent(self) as TRootStore
       root.setViewing(sobj)
     },
-
     close(): void {
       const slf = self as TStore
 
@@ -201,6 +200,11 @@ const DrawerStore = T.model('DrawerStore', {
       if (slf.isMobile) {
         toggleGlobalBlur(false)
       }
+    },
+
+    resetViewing(): void {
+      const root = getParent(self) as TRootStore
+      return root.resetViewing()
     },
 
     // TODO: 重构时用 article.meta.thread 来替代 thread

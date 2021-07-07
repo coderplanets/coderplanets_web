@@ -70,6 +70,10 @@ const ViewingStore = T.model('ViewingStore', {
       const { mark } = self as TStore
       mark(sobj)
     },
+    resetViewing(): void {
+      const { mark, viewingThread } = self as TStore
+      mark({ [viewingThread]: {}, viewingThread: null })
+    },
     updateViewingIfNeed(type, sobj): void {
       const { updateViewingUser } = self as TStore
 

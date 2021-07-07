@@ -278,6 +278,9 @@ const rootStore = T.model({
     setViewing(sobj): void {
       self.viewing.setViewing(sobj)
     },
+    resetViewing(): void {
+      self.viewing.resetViewing()
+    },
     updateViewingIfNeed(type, sobj): void {
       self.viewing.updateViewingIfNeed(type, sobj)
     },

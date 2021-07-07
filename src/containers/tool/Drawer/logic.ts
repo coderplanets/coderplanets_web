@@ -44,7 +44,7 @@ export const closeDrawer = (): void => {
   // wait until drawer move out of the screean
   setTimeout(() => {
     send(EVENT.DRAWER.AFTER_CLOSE)
-    store.setViewing({ viewingThread: null })
+    store.resetViewing()
   }, 200)
 
   setTimeout(() => {
