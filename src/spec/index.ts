@@ -67,6 +67,8 @@ export type {
   TGALLERY_TEXT_WITH_IMAGE,
 } from './gallery'
 
+export type { TAccountStore, TViewingStore } from './store'
+
 export type TRoute = {
   communityPath?: string
   threadPath?: string

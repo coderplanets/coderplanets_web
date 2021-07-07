@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TArticleFilter } from '@/spec'
+import type { TArticleFilter, TAccountStore, TViewingStore } from '@/spec'
 
 import { buildLog } from '@/utils'
 import { useMST } from '@/hooks'
@@ -31,8 +31,8 @@ const ArticlesFilter: FC<TProps> = ({
   onSelect,
   totalCount = 0,
 }) => {
-  const account = useMST('account')
-  const viewing = useMST('viewing')
+  const account = useMST('account') as TAccountStore
+  const viewing = useMST('viewing') as TViewingStore
 
   return (
     <Wrapper>
