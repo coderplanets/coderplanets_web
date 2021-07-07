@@ -92,12 +92,18 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
 
     default:
       return {
-        postsThread: {
+        articlesThread: {
           pagedPosts: resp.pagedPosts,
           curView: getCurView(resp.pagedPosts),
           activeTag,
           filters,
         },
+        // postsThread: {
+        //   pagedPosts: resp.pagedPosts,
+        //   curView: getCurView(resp.pagedPosts),
+        //   activeTag,
+        //   filters,
+        // },
       }
   }
 }

@@ -23,7 +23,6 @@ import {
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import CommunityDigest from '@/containers/digest/CommunityDigest'
 import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
@@ -168,9 +167,7 @@ const CommunityPage = (props) => {
         errorCode={errorCode}
         errorPath={community.raw}
       >
-        {/* <CommunityDigest /> */}
         <CommunityContent />
-        {/* <CommunityDigest /> */}
       </GlobalLayout>
     </Provider>
   )
