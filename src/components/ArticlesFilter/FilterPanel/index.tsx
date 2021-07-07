@@ -1,5 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TThread, TArticleFilter } from '@/spec'
 import { THREAD } from '@/constant'
 
 import TimeFilter from './TimeFilter'
@@ -7,17 +8,22 @@ import SortFilter from './SortFilter'
 import RepoSortFilter from './RepoSortFilter'
 import LengthFilter from './LengthFilter'
 import ViewedFilter from './ViewedFilter'
-// job
-import JobSalaryFilter from './JobSalaryFilter'
-import JobExpFilter from './JobExpFilter'
-import JobEducationFilter from './JobEducationFilter'
-import JobFieldFilter from './JobFieldFilter'
-import JobFinanceFilter from './JobFinanceFilter'
-import JobScaleFilter from './JobScaleFilter'
 
 import { FilterPanelWrapper } from '../styles'
 
-const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
+type TProps = {
+  activeFilter: TArticleFilter
+  onSelect: (filter: TArticleFilter) => void
+  thread: TThread
+  isLogin?: boolean
+}
+
+const FilterPanel: FC<TProps> = ({
+  thread,
+  activeFilter,
+  onSelect,
+  isLogin,
+}) => {
   switch (thread) {
     case THREAD.POST:
       return (
@@ -47,12 +53,6 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
         <FilterPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobSalaryFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobExpFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobEducationFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobFieldFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobFinanceFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobScaleFilter activeFilter={activeFilter} onSelect={onSelect} />
           {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}
@@ -70,4 +70,4 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
   }
 }
 
-export default React.memo(FilterPanel)
+export default memo(FilterPanel)

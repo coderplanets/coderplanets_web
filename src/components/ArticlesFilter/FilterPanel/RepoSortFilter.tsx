@@ -1,5 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TArticleFilter } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { FILTER } from '@/constant'
 
@@ -13,7 +14,12 @@ import {
   SelectItem,
 } from '../styles'
 
-const RepoSortFilter = ({ activeFilter, onSelect }) => (
+type TProps = {
+  activeFilter: TArticleFilter
+  onSelect: (filter: TArticleFilter) => void
+}
+
+const RepoSortFilter: FC<TProps> = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/click.svg`} />
@@ -64,4 +70,4 @@ const RepoSortFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default React.memo(RepoSortFilter)
+export default memo(RepoSortFilter)

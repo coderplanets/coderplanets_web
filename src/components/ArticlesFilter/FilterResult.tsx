@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import {
   Wrapper,
@@ -8,7 +8,13 @@ import {
   FaqText,
 } from './styles/filter_result'
 
-const FilterResult = ({ totalCount, onFaqChange, faqActive }) => {
+type TProps = {
+  totalCount: number
+  faqActive: boolean
+  onFaqChange: () => void
+}
+
+const FilterResult: FC<TProps> = ({ totalCount, onFaqChange, faqActive }) => {
   return (
     <Wrapper>
       <ResultText>共 {totalCount} 条</ResultText>
@@ -23,4 +29,4 @@ const FilterResult = ({ totalCount, onFaqChange, faqActive }) => {
   )
 }
 
-export default React.memo(FilterResult)
+export default memo(FilterResult)

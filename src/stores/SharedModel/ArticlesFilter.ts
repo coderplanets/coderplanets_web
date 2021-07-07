@@ -2,7 +2,7 @@ import { types as T } from 'mobx-state-tree'
 
 import { FILTER } from '@/constant'
 
-export const ContentFilter = T.model('ContentFilter', {
+export const ArticlesFilter = T.model('ArticlesFilter', {
   when: T.optional(
     T.enumeration('when', [
       '',

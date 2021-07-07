@@ -16,7 +16,7 @@ import TagsBar from '@/containers/unit/TagsBar'
 import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
 import PagedContents from '@/components/PagedContents'
-import ContentFilter from '@/components/ContentFilter'
+import ArticlesFilter from '@/components/ArticlesFilter'
 import Maybe from '@/components/Maybe'
 
 import {
@@ -64,7 +64,7 @@ const ReposThreadContainer = ({ reposThread: store }) => {
         <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
         <Maybe test={showFilterBar}>
           <FilterWrapper>
-            <ContentFilter
+            <ArticlesFilter
               thread={THREAD.REPO}
               onSelect={onFilterSelect}
               activeFilter={filtersData}

@@ -1,5 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TArticleFilter } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { FILTER } from '@/constant'
 
@@ -12,7 +13,12 @@ import {
   SelectItem,
 } from '../styles'
 
-const SortFilter = ({ activeFilter, onSelect }) => (
+type TProps = {
+  activeFilter: TArticleFilter
+  onSelect: (filter: TArticleFilter) => void
+}
+
+const SortFilter: FC<TProps> = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLabel>
       <SelectIcon src={`${ICON_CMD}/click.svg`} />
@@ -47,4 +53,4 @@ const SortFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default React.memo(SortFilter)
+export default memo(SortFilter)

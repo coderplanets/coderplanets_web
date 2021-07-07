@@ -1,6 +1,7 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
+import type { TArticleFilter } from '@/spec'
 import { isEmptyValue } from '@/utils'
 
 import Tag from '@/components/Tag'
@@ -27,17 +28,30 @@ const filterDict = {
   UNREAD: '只显未读',
 }
 
-const FilterTag = ({ onSelect, active, type }) => {
-  return isEmptyValue(active) ? null : (
-    <TagWrapper>
-      <Tag onClose={() => onSelect({ [type]: '' })}>
-        {filterDict[active] || active}
-      </Tag>
-    </TagWrapper>
+type TFilterTag = {
+  onSelect: (filter: TArticleFilter) => void
+  active: string
+  type: string
+}
+
+const FilterTag: FC<TFilterTag> = ({ onSelect, active, type }) => {
+  return (
+    !isEmptyValue(active) && (
+      <TagWrapper>
+        <Tag onClose={() => onSelect({ [type]: '' })}>
+          {filterDict[active] || active}
+        </Tag>
+      </TagWrapper>
+    )
   )
 }
 
-const SelectedTags = ({ onSelect, activeFilter }) => (
+type TProps = {
+  onSelect: (filter: Record<string, string>) => void
+  activeFilter: TArticleFilter
+}
+
+const SelectedTags: FC<TProps> = ({ activeFilter, onSelect }) => (
   <Wrapper>
     {keys(activeFilter).map((filterKey) => (
       <FilterTag
@@ -50,4 +64,4 @@ const SelectedTags = ({ onSelect, activeFilter }) => (
   </Wrapper>
 )
 
-export default React.memo(SelectedTags)
+export default memo(SelectedTags)

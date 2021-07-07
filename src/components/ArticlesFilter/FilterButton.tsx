@@ -1,6 +1,7 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TThread, TArticleFilter } from '@/spec'
 import { ICON_CMD } from '@/config'
 
 import Tooltip from '@/components/Tooltip'
@@ -18,7 +19,19 @@ const FilterPanel = dynamic(() => import('./FilterPanel/index'), {
   ssr: false,
 })
 
-const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => {
+type TProps = {
+  thread: TThread
+  isLogin: boolean
+  activeFilter: TArticleFilter
+  onSelect: (filter: TArticleFilter) => void
+}
+
+const FilterButton: FC<TProps> = ({
+  thread,
+  onSelect,
+  isLogin,
+  activeFilter,
+}) => {
   return (
     <Wrapper>
       <Tooltip
@@ -47,4 +60,4 @@ const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => {
   )
 }
 
-export default React.memo(FilterButton)
+export default memo(FilterButton)

@@ -15,7 +15,7 @@ import type {
   TBlog,
   TAccount,
 } from '@/spec'
-import { PagedBlogs, Tag, ContentFilter, emptyPagiData } from '@/model'
+import { PagedBlogs, Tag, ArticlesFilter, emptyPagiData } from '@/model'
 import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -23,7 +23,7 @@ const log = buildLog('S:BlogsThread')
 
 const BlogsThread = T.model('BlogsThread', {
   pagedBlogs: T.optional(PagedBlogs, emptyPagiData),
-  filters: T.optional(ContentFilter, {}),
+  filters: T.optional(ArticlesFilter, {}),
   activeTag: T.maybeNull(Tag),
   curView: T.optional(
     T.enumeration('curView', [

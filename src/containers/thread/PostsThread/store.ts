@@ -18,14 +18,14 @@ import type {
 
 import { TYPE, THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
-import { PagedPosts, ContentFilter, emptyPagiData } from '@/model'
+import { PagedPosts, ArticlesFilter, emptyPagiData } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:PostsThreadStore')
 
 const PostsThreadStore = T.model('PostsThreadStore', {
   pagedPosts: T.optional(PagedPosts, emptyPagiData),
-  filters: T.optional(ContentFilter, {}),
+  filters: T.optional(ArticlesFilter, {}),
   curView: T.optional(
     T.enumeration('curView', [
       TYPE.RESULT,

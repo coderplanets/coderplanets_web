@@ -17,14 +17,14 @@ import type {
 
 import { TYPE, THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
-import { PagedJobs, Tag, ContentFilter, emptyPagiData } from '@/model'
+import { PagedJobs, Tag, ArticlesFilter, emptyPagiData } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:JobsThreadStore')
 
 const JobsThreadStore = T.model('JobsThreadStore', {
   pagedJobs: T.optional(PagedJobs, emptyPagiData),
-  filters: T.optional(ContentFilter, {}),
+  filters: T.optional(ArticlesFilter, {}),
   activeTag: T.maybeNull(Tag),
   curView: T.optional(
     T.enumeration('curView', [

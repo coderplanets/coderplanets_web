@@ -1,6 +1,6 @@
 /*
  *
- * ContentFilter
+ * ArticlesFilter
  *
  */
 
@@ -12,9 +12,9 @@ import { buildLog } from '@/utils'
 import DesktopView from './DesktopView'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ContentFilter:index')
+const log = buildLog('c:ArticlesFilter:index')
 
-const ContentFilter = (props) => {
+const ArticlesFilter = (props) => {
   const { isMobile } = useDevice()
 
   return (
@@ -22,4 +22,4 @@ const ContentFilter = (props) => {
   )
 }
 
-export default React.memo(ContentFilter)
+export default React.memo(ArticlesFilter)

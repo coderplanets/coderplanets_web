@@ -331,7 +331,7 @@ const rootStore = T.model({
     // get general args when query paged articles from server
     getPagedArticleArgs(
       page: number,
-      // 每个 thread 的 ContentFilter 选项
+      // 每个 thread 的 ArticlesFilter 选项
       articlesfilter = {},
     ): Record<string, unknown> {
       const { isLogin: userHasLogin, pageDensity: size } = self.account

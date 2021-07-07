@@ -30,7 +30,7 @@ export {
   WorkBackground,
 } from './User'
 
-export { ContentFilter } from './ContentFilter'
+export { ArticlesFilter } from './ArticlesFilter'
 
 export { MailStatus, MentionMsg, PagedMentionMessages } from './Mail'
 

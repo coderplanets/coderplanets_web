@@ -14,7 +14,7 @@ import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import TabBar from '@/components/TabBar'
 import FaqPeekList from '@/components/FaqPeekList'
 import PagedContents from '@/components/PagedContents'
-import ContentFilter from '@/components/ContentFilter'
+import ArticlesFilter from '@/components/ArticlesFilter'
 
 import type { TStore } from './store'
 
@@ -85,7 +85,7 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
           <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
           {showFilterBar && (
             <FilterWrapper>
-              <ContentFilter
+              <ArticlesFilter
                 thread={THREAD.POST}
                 onSelect={onFilterSelect}
                 activeFilter={filtersData}

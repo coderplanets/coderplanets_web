@@ -53,6 +53,7 @@ export type {
   TPagedJobs,
   TComment,
   TPagedComments,
+  TArticleFilter,
 } from './article'
 
 export type {

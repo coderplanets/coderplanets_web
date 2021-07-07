@@ -17,7 +17,7 @@ import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
 import PagedContents from '@/components/PagedContents'
-import ContentFilter from '@/components/ContentFilter'
+import ArticlesFilter from '@/components/ArticlesFilter'
 import { DropdownButton } from '@/components/Buttons'
 import PromotionList from '@/components/PromotionList'
 
@@ -83,7 +83,7 @@ const BlogsThreadContainer: FC<TProps> = ({
       <LeftPart>
         {showFilterBar && (
           <FilterWrapper>
-            <ContentFilter
+            <ArticlesFilter
               thread={THREAD.BLOG}
               onSelect={onFilterSelect}
               activeFilter={filtersData}

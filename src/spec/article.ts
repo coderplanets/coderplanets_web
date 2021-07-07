@@ -75,3 +75,10 @@ export type TPagedComments = {
   pageSize: number
   totalPages: number
 }
+
+export type TArticleFilter = {
+  when?: string
+  sort?: string
+  length?: string
+  read?: string
+}
