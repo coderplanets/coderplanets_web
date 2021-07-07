@@ -1,6 +1,5 @@
 /*
  * the entry of the App root store
- *
  */
 
 import { useMemo } from 'react'
@@ -24,10 +23,10 @@ const initRootStore = (snapshot = null): TRootStore => {
   // Create the store once in the client
   if (!clientSideRootStore) clientSideRootStore = rootStore
 
-  // rootStore.mark({ ...restData })
   return rootStore
 }
 
+// this is from next.js offical MST example
 export const useStore = (initialState = {}): TRootStore => {
   const store = useMemo(() => initRootStore(initialState), [initialState])
   return store
