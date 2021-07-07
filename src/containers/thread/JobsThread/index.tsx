@@ -79,7 +79,6 @@ const JobsThreadContainer: FC<TProps> = ({ jobsThread: store }) => {
         <Maybe test={showFilterBar}>
           <FilterWrapper>
             <ArticlesFilter
-              thread={THREAD.JOB}
               onSelect={onFilterSelect}
               activeFilter={filtersData}
               totalCount={totalCount}

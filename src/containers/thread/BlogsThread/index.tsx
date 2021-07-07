@@ -81,7 +81,6 @@ const BlogsThreadContainer: FC<TProps> = ({
         {showFilterBar && (
           <FilterWrapper>
             <ArticlesFilter
-              thread={THREAD.BLOG}
               onSelect={onFilterSelect}
               activeFilter={filtersData}
               totalCount={totalCount}

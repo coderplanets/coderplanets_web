@@ -6,9 +6,8 @@
 
 import { FC, memo } from 'react'
 
-import type { TThread, TArticleFilter } from '@/spec'
+import type { TArticleFilter } from '@/spec'
 
-import { THREAD } from '@/constant'
 import { buildLog } from '@/utils'
 import { useMST } from '@/hooks'
 
@@ -24,23 +23,22 @@ const log = buildLog('c:ArticlesFilter:index')
 type TProps = {
   activeFilter: TArticleFilter
   onSelect: (filter: TArticleFilter) => void
-  thread: TThread
   totalCount?: number
 }
 
 const ArticlesFilter: FC<TProps> = ({
-  thread = THREAD.POST,
   activeFilter = {},
   onSelect,
   totalCount = 0,
 }) => {
   const account = useMST('account')
+  const viewing = useMST('viewing')
 
   return (
     <Wrapper>
       <MainFilterWrapper>
         <FilterButton
-          thread={thread}
+          thread={viewing.activeThread}
           onSelect={onSelect}
           isLogin={account?.isLogin}
           activeFilter={activeFilter}

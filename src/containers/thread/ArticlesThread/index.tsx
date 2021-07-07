@@ -84,7 +84,6 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
           {showFilters && (
             <FilterWrapper>
               <ArticlesFilter
-                thread={curThread}
                 onSelect={onFilterSelect}
                 activeFilter={filtersData}
                 totalCount={totalCount}

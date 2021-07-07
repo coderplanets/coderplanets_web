@@ -65,7 +65,6 @@ const ReposThreadContainer = ({ reposThread: store }) => {
         <Maybe test={showFilterBar}>
           <FilterWrapper>
             <ArticlesFilter
-              thread={THREAD.REPO}
               onSelect={onFilterSelect}
               activeFilter={filtersData}
               totalCount={totalCount}
