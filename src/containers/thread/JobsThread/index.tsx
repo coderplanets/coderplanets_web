@@ -83,7 +83,6 @@ const JobsThreadContainer: FC<TProps> = ({ jobsThread: store }) => {
               thread={THREAD.JOB}
               onSelect={onFilterSelect}
               activeFilter={filtersData}
-              accountInfo={accountInfo}
               totalCount={totalCount}
             />
           </FilterWrapper>

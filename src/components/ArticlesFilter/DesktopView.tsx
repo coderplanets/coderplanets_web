@@ -4,11 +4,13 @@
  *
  */
 
-import { FC, memo } from 'react'
+import { FC } from 'react'
 
-import type { TThread, TAccount, TArticleFilter } from '@/spec'
+import type { TThread, TArticleFilter } from '@/spec'
 import { THREAD } from '@/constant'
-import { buildLog } from '@/utils'
+import { pluggedIn, buildLog } from '@/utils'
+
+import type { TStore as TAccountStore } from '@/stores/AccountStore'
 
 import FilterButton from './FilterButton'
 import SelectedTags from './SelectedTags'
@@ -20,33 +22,35 @@ import { Wrapper, MainFilterWrapper } from './styles'
 const log = buildLog('c:ArticlesFilter:index')
 
 type TProps = {
+  account?: TAccountStore
   activeFilter: TArticleFilter
   onSelect: (filter: TArticleFilter) => void
   thread: TThread
-  accountInfo: TAccount
   totalCount?: number
 }
 
 const ArticlesFilter: FC<TProps> = ({
+  account,
   thread = THREAD.POST,
   activeFilter = {},
   onSelect,
-  accountInfo: { isLogin },
   totalCount = 0,
-}) => (
-  <Wrapper>
-    <MainFilterWrapper>
-      <FilterButton
-        thread={thread}
-        onSelect={onSelect}
-        isLogin={isLogin}
-        activeFilter={activeFilter}
-      />
+}) => {
+  return (
+    <Wrapper>
+      <MainFilterWrapper>
+        <FilterButton
+          thread={thread}
+          onSelect={onSelect}
+          isLogin={account?.isLogin}
+          activeFilter={activeFilter}
+        />
 
-      <SelectedTags onSelect={onSelect} activeFilter={activeFilter} />
-    </MainFilterWrapper>
-    <FilterResult totalCount={totalCount} />
-  </Wrapper>
-)
+        <SelectedTags onSelect={onSelect} activeFilter={activeFilter} />
+      </MainFilterWrapper>
+      <FilterResult totalCount={totalCount} />
+    </Wrapper>
+  )
+}
 
-export default memo(ArticlesFilter)
+export default pluggedIn(ArticlesFilter, 'account') as FC<TProps>

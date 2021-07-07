@@ -64,10 +64,7 @@ const BlogsThreadContainer: FC<TProps> = ({
     activeBlog,
     curRoute,
     accountInfo,
-    isLogin,
-    activeTagData,
     curCommunity,
-    curThread,
     showFilterBar,
     accountInfo: {
       customization: { bannerLayout },
@@ -87,8 +84,6 @@ const BlogsThreadContainer: FC<TProps> = ({
               thread={THREAD.BLOG}
               onSelect={onFilterSelect}
               activeFilter={filtersData}
-              isLogin={isLogin}
-              accountInfo={accountInfo}
               totalCount={totalCount}
             />
           </FilterWrapper>

@@ -86,8 +86,6 @@ const PostsThreadContainer: FC<TProps> = ({ postsThread: store }) => {
                 thread={THREAD.POST}
                 onSelect={onFilterSelect}
                 activeFilter={filtersData}
-                isLogin={isLogin}
-                accountInfo={accountInfo}
                 totalCount={totalCount}
               />
             </FilterWrapper>
