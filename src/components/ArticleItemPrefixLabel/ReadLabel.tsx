@@ -8,15 +8,10 @@ const ReadLabel: FC<TProps> = ({ entry, topOffset = '20px' }) => {
   const account = useAccount()
 
   const { viewerHasViewed } = entry
-  const {
-    isLogin,
-    user: {
-      customization: { markViewed },
-    },
-  } = account
+  const { isLogin, c11n } = account
 
   if (!isLogin) return null
-  if (markViewed && viewerHasViewed) {
+  if (c11n.markViewed && viewerHasViewed) {
     return <ReadedLabel topOffset={topOffset} />
   }
 
