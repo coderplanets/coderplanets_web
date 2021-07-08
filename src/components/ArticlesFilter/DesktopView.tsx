@@ -12,7 +12,7 @@ import { buildLog } from '@/utils'
 import { useViewing } from '@/hooks'
 
 import FilterButton from './FilterButton'
-import SelectedTags from './SelectedTags'
+import SelectedFilters from './SelectedFilters'
 import FilterResult from './FilterResult'
 
 import { Wrapper, MainFilterWrapper } from './styles'
@@ -31,18 +31,18 @@ const ArticlesFilter: FC<TProps> = ({
   onSelect,
   totalCount = 0,
 }) => {
-  const viewing = useViewing()
+  const { activeThread } = useViewing()
 
   return (
     <Wrapper>
       <MainFilterWrapper>
         <FilterButton
-          thread={viewing.activeThread}
+          thread={activeThread}
           onSelect={onSelect}
           activeFilter={activeFilter}
         />
 
-        <SelectedTags onSelect={onSelect} activeFilter={activeFilter} />
+        <SelectedFilters onSelect={onSelect} activeFilter={activeFilter} />
       </MainFilterWrapper>
       <FilterResult totalCount={totalCount} />
     </Wrapper>

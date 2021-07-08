@@ -5,7 +5,7 @@ import type { TArticleFilter } from '@/spec'
 import { isEmptyValue } from '@/utils'
 
 import Tag from '@/components/Tag'
-import { Wrapper, TagWrapper } from './styles/selected_tags'
+import { Wrapper, TagWrapper } from './styles/selected_filters'
 
 const filterDict = {
   TODAY: '今天',
@@ -51,7 +51,7 @@ type TProps = {
   activeFilter: TArticleFilter
 }
 
-const SelectedTags: FC<TProps> = ({ activeFilter, onSelect }) => (
+const SelectedFilters: FC<TProps> = ({ activeFilter, onSelect }) => (
   <Wrapper>
     {keys(activeFilter).map((filterKey) => (
       <FilterTag
@@ -64,4 +64,4 @@ const SelectedTags: FC<TProps> = ({ activeFilter, onSelect }) => (
   </Wrapper>
 )
 
-export default memo(SelectedTags)
+export default memo(SelectedFilters)
