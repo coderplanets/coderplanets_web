@@ -5,13 +5,13 @@ import { ReadedLabel } from './styles'
 import type { TProps } from './index'
 
 const ReadLabel: FC<TProps> = ({ entry, topOffset = '20px' }) => {
-  const account = useAccount()
+  const { c11n } = useAccount()
+  const { isLogin, markViewed } = c11n
 
   const { viewerHasViewed } = entry
-  const { isLogin, c11n } = account
 
   if (!isLogin) return null
-  if (c11n.markViewed && viewerHasViewed) {
+  if (markViewed && viewerHasViewed) {
     return <ReadedLabel topOffset={topOffset} />
   }
 

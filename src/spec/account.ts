@@ -13,6 +13,7 @@ export type TUser = {
 }
 
 export type TC11N = {
+  isLogin?: boolean
   theme?: string
   bannerLayout?: TC11NLayout
   markViewed?: boolean

@@ -9,7 +9,7 @@ import { FC, memo } from 'react'
 import type { TArticleFilter } from '@/spec'
 
 import { buildLog } from '@/utils'
-import { useViewing, useAccount } from '@/hooks'
+import { useViewing } from '@/hooks'
 
 import FilterButton from './FilterButton'
 import SelectedTags from './SelectedTags'
@@ -31,7 +31,6 @@ const ArticlesFilter: FC<TProps> = ({
   onSelect,
   totalCount = 0,
 }) => {
-  const account = useAccount()
   const viewing = useViewing()
 
   return (
@@ -40,7 +39,6 @@ const ArticlesFilter: FC<TProps> = ({
         <FilterButton
           thread={viewing.activeThread}
           onSelect={onSelect}
-          isLogin={account.isLogin}
           activeFilter={activeFilter}
         />
 

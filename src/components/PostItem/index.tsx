@@ -36,10 +36,10 @@ const PostItem: FC<TProps> = ({
   onAuthorSelect = log,
   active = null,
 }) => {
-  const { isLogin, c11n } = useAccount()
+  const { c11n } = useAccount()
 
   return (
-    <Wrapper entry={entry} active={active} isLogin={isLogin} c11n={c11n}>
+    <Wrapper entry={entry} active={active} c11n={c11n}>
       <ArticleItemPrefixLabel entry={entry} />
       <DigestView
         entry={entry}

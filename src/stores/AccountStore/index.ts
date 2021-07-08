@@ -35,7 +35,10 @@ const AccountStore = T.model('AccountStore', {
       }
     },
     get c11n(): TC11N {
-      return stripMobx(self.user.customization)
+      return {
+        isLogin: self.isValidSession,
+        ...stripMobx(self.user.customization),
+      }
     },
     get subscribedCommunities(): TPagedCommunities {
       if (!self.userSubscribedCommunities) {

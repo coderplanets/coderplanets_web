@@ -8,15 +8,13 @@ import { getOpacity } from './metrics'
 type TWrapper = {
   entry: TPost
   active?: TPost | null
-  isLogin: boolean
   c11n: TC11N
 }
 
 export const Wrapper = styled.article<TWrapper>`
   ${css.flex()};
   position: relative;
-  opacity: ${({ entry, active, isLogin, c11n }) =>
-    getOpacity(entry, active, isLogin, c11n)};
+  opacity: ${({ entry, active, c11n }) => getOpacity(entry, active, c11n)};
 
   padding-top: ${({ c11n }) => (c11n.contentDivider ? '10px' : '6px')};
   padding-bottom: ${({ c11n }) => (c11n.contentDivider ? '10px' : '6px')};
