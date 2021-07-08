@@ -9,7 +9,7 @@ import React from 'react'
 import { THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import PagedContents from '@/components/PagedContents'
+import PagedArticles from '@/components/PagedArticles'
 import ThreadSelector from '@/components/ThreadSelector'
 
 import { ThreadWrapper } from './styles'
@@ -36,7 +36,7 @@ const UserStaredContainer = ({ userStared: store }) => {
         />
       </ThreadWrapper>
 
-      <PagedContents
+      <PagedArticles
         data={pagedData}
         thread={curThread}
         curView={curView}

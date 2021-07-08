@@ -18,9 +18,6 @@ const PostsList = ({ props }) => {
     thread,
     emptyPrefix,
     onPreview,
-    onUserSelect,
-    onAuthorSelect,
-    accountInfo,
   } = props
 
   switch (curView) {
@@ -33,9 +30,6 @@ const PostsList = ({ props }) => {
               entry={entry}
               active={active}
               community={community}
-              accountInfo={accountInfo}
-              onUserSelect={onUserSelect}
-              onAuthorSelect={onAuthorSelect}
               onPreview={() => onPreview(entry)}
             />
           ))}

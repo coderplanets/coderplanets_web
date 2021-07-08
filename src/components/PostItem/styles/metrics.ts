@@ -1,14 +1,16 @@
-import type { TPost, TAccount } from '@/spec'
+import type { TPost, TAccountStore } from '@/spec'
 
 export const getOpacity = (
   entry: TPost,
   active: TPost | null,
-  accountInfo: TAccount,
+  account: TAccountStore,
 ): number => {
   const {
     isLogin,
-    customization: { markViewed },
-  } = accountInfo
+    user: {
+      customization: { markViewed },
+    },
+  } = account
   const { viewerHasViewed } = entry
 
   if (active?.id) {

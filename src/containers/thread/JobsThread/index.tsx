@@ -17,7 +17,7 @@ import FiltersMenu from '@/components/FiltersMenu'
 import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
 import Maybe from '@/components/Maybe'
-// import PagedContents from '@/components/PagedContents'
+// import PagedArticles from '@/components/PagedArticles'
 import ArticlesFilter from '@/components/ArticlesFilter'
 import JobCard from '@/components/Cards/JobCard'
 
@@ -91,7 +91,7 @@ const JobsThreadContainer: FC<TProps> = ({ jobsThread: store }) => {
           ))}
         </MasonryCards>
 
-        {/* <PagedContents
+        {/* <PagedArticles
           data={pagedJobsData}
           community={curCommunity.raw}
           thread={THREAD.JOB}

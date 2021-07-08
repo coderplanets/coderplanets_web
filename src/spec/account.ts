@@ -12,14 +12,16 @@ export type TUser = {
   editableCommunities?: TPagedCommunities
 }
 
+export type TC11N = {
+  theme?: string
+  bannerLayout?: TC11NLayout
+  markViewed?: boolean
+  contentDivider?: boolean
+  displayDensity?: string // oneOf(['20', '25', '30'])
+}
+
 export type TAccount = TUser & {
-  customization?: {
-    theme?: string
-    bannerLayout?: TC11NLayout
-    markViewed?: boolean
-    contentDivider?: boolean
-    displayDensity?: string // oneOf(['20', '25', '30'])
-  }
+  customization?: TC11N
   isLogin?: boolean
   isValidSession?: boolean
   subscribedCommunitiesCount?: number

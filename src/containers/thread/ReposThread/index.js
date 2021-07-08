@@ -15,7 +15,7 @@ import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
 import { PublishButton } from '@/components/Buttons'
-import PagedContents from '@/components/PagedContents'
+import PagedArticles from '@/components/PagedArticles'
 import ArticlesFilter from '@/components/ArticlesFilter'
 import Maybe from '@/components/Maybe'
 
@@ -72,7 +72,7 @@ const ReposThreadContainer = ({ reposThread: store }) => {
           </FilterWrapper>
         </Maybe>
 
-        <PagedContents
+        <PagedArticles
           data={pagedReposData}
           community={mainPath}
           thread={THREAD.REPO}

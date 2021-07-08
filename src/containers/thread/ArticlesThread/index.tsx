@@ -14,7 +14,7 @@ import { pluggedIn, buildLog } from '@/utils'
 
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import TabBar from '@/components/TabBar'
-import PagedContents from '@/components/PagedContents'
+import PagedArticles from '@/components/PagedArticles'
 import ArticlesFilter from '@/components/ArticlesFilter'
 
 import type { TStore } from './store'
@@ -53,7 +53,6 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     curView,
     filtersData,
     activePost,
-    accountInfo,
     curCommunity,
     curThread,
     showFilters,
@@ -64,6 +63,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
 
   const { totalCount } = pagedPostsData
 
+  // TODO: useMST for communityRaw, accountInfo
   return (
     <Wrapper>
       {bannerLayout === C11N.HOLY_GRAIL && (
@@ -90,13 +90,11 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
               />
             </FilterWrapper>
           )}
-          <PagedContents
+          <PagedArticles
             data={pagedPostsData}
-            community={curCommunity.raw}
             thread={curThread}
             curView={curView}
             active={activePost}
-            accountInfo={accountInfo}
             onPreview={onPreview}
             onPageChange={loadArticles}
           />

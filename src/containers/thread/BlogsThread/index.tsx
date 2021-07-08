@@ -16,7 +16,7 @@ import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
 import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
-import PagedContents from '@/components/PagedContents'
+import PagedArticles from '@/components/PagedArticles'
 import ArticlesFilter from '@/components/ArticlesFilter'
 import { DropdownButton } from '@/components/Buttons'
 import PromotionList from '@/components/PromotionList'
@@ -88,15 +88,11 @@ const BlogsThreadContainer: FC<TProps> = ({
           </FilterWrapper>
         )}
 
-        <PagedContents
+        <PagedArticles
           data={pagedBlogsData}
-          community={curCommunity.raw}
           thread={THREAD.POST}
           curView={curView}
           active={activeBlog}
-          accountInfo={accountInfo}
-          onUserSelect={onUserSelect}
-          onAuthorSelect={onUserSelect}
           onPreview={onPreview}
           onPageChange={onPageChange}
         />

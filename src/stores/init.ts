@@ -2,10 +2,10 @@
  * the entry of the App root store
  */
 
-import { useMemo } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { applySnapshot } from 'mobx-state-tree'
 
-import type { TRootStore } from '@/spec'
+import type { TRootStore, TAccountStore, TViewingStore } from '@/spec'
 import RootStore from './RootStore'
 
 let clientSideRootStore: TRootStore | undefined
@@ -27,7 +27,7 @@ const initRootStore = (snapshot = null): TRootStore => {
 }
 
 // this is from next.js offical MST example
-export const useStore = (initialState = {}): TRootStore => {
+export const useStore = (initialState): TRootStore => {
   const store = useMemo(() => initRootStore(initialState), [initialState])
   return store
 }
@@ -39,7 +39,17 @@ export const useStore = (initialState = {}): TRootStore => {
  * const account = useMST('account')
  * will get the account store in component
  */
-// return type is the sub store of the TRootStore, how to do it in TS?
-export const useMST = (substore: string) => {
-  return useStore({})[substore]
+
+export const useAccount = (): TAccountStore => {
+  const [substore, setSubstore] = useState(useStore({}).account)
+  useEffect(() => setSubstore(clientSideRootStore.account), [])
+
+  return substore
+}
+
+export const useViewing = (): TViewingStore => {
+  const [substore, setSubstore] = useState(useStore({}).viewing)
+  useEffect(() => setSubstore(clientSideRootStore.viewing), [])
+
+  return substore
 }

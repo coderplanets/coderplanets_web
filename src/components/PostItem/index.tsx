@@ -7,13 +7,13 @@
 import { FC, memo } from 'react'
 
 import type { TPost, TUser, TAccount } from '@/spec'
-import { HCN } from '@/constant'
 import { buildLog } from '@/utils'
+import { useAccount } from '@/hooks'
 
 import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
 
 import DigestView from './DigestView/index'
-import ListView from './ListView'
+// import ListView from './ListView'
 
 import { Wrapper } from './styles'
 
@@ -23,8 +23,6 @@ const log = buildLog('c:PostItem:index')
 type TProps = {
   active?: TPost | null
   entry: TPost
-  community: string
-  accountInfo: TAccount
 
   onPreview?: (obj: TPost) => void
   onUserSelect?: (obj: TUser) => void
@@ -37,32 +35,20 @@ const PostItem: FC<TProps> = ({
   onUserSelect = log,
   onAuthorSelect = log,
   active = null,
-  community = HCN,
-  accountInfo = {
-    isLogin: false,
-    customization: {
-      contentDivider: false,
-      markViewed: true,
-      displayDensity: '20',
-    },
-  },
 }) => {
-  // log('customization --> ', customization)
-  const {
-    customization: { contentDivider },
-  } = accountInfo
+  const account = useAccount()
+  const { contentDivider } = account.user.customization
 
   return (
     <Wrapper
       entry={entry}
       active={active}
-      accountInfo={accountInfo}
+      account={account}
       divider={contentDivider}
     >
-      <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
+      <ArticleItemPrefixLabel entry={entry} />
       <DigestView
         entry={entry}
-        community={community}
         onPreview={onPreview}
         onUserSelect={onUserSelect}
         onAuthorSelect={onAuthorSelect}

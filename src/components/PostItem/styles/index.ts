@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TPost, TAccount } from '@/spec'
+import type { TPost, TAccountStore } from '@/spec'
 import { theme, css } from '@/utils'
 
 import { getOpacity } from './metrics'
@@ -9,14 +9,14 @@ type TWrapper = {
   entry: TPost
   active?: TPost | null
   divider: boolean
-  accountInfo: TAccount
+  account: TAccountStore
 }
 
 export const Wrapper = styled.article<TWrapper>`
   ${css.flex()};
   position: relative;
-  opacity: ${({ entry, active, accountInfo }) =>
-    getOpacity(entry, active, accountInfo)};
+  opacity: ${({ entry, active, account }) =>
+    getOpacity(entry, active, account)};
 
   padding-top: ${({ divider }) => (divider ? '10px' : '6px')};
   padding-bottom: ${({ divider }) => (divider ? '10px' : '6px')};

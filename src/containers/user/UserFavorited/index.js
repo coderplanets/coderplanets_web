@@ -9,7 +9,7 @@ import React from 'react'
 import { pluggedIn, buildLog } from '@/utils'
 
 import FavoritesCats from '@/containers/tool/FavoritesCats'
-import PagedContents from '@/components/PagedContents'
+import PagedArticles from '@/components/PagedArticles'
 import Breadcrumbs from './Breadcrumbs'
 
 import {
@@ -52,7 +52,7 @@ const UserFavoritedContainer = ({ userFavorited: store }) => {
             changeFavoriteThread={changeFavoriteThread}
           />
 
-          <PagedContents
+          <PagedArticles
             data={pagedData}
             thread={curThread}
             curView={curView}
