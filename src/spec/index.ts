@@ -41,6 +41,7 @@ export type {
   TReportType,
   TAttInfo,
   TTabItem,
+  TResState,
 } from './utils'
 
 export type { TGQLError } from './graphql'
@@ -50,7 +51,7 @@ export type {
   TPost,
   TBlog,
   TJob,
-  TPagedJobs,
+  TPagedArticles,
   TComment,
   TPagedComments,
   TArticleFilter,

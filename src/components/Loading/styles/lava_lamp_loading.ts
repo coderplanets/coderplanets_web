@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
+import type { TSpace } from '@/spec'
 import { css, getRandomInt } from '@/utils'
 
 const grow = keyframes`
@@ -10,11 +11,15 @@ const move = keyframes`
   from {transform: translateX(0px)}
   to {transform: translateX(80px)}
 `
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TSpace>`
   ${css.flex('align-both')};
   overflow: hidden;
   width: 80px;
   height: 18px;
+  margin-left: ${({ left }) => `${left}px` || 0};
+  margin-right: ${({ right }) => `${right}px` || 0};
+  margin-top: ${({ top }) => `${top || 0}px`};
+  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
 `
 export const Container = styled.div`
   ${css.flex()};

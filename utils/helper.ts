@@ -339,3 +339,12 @@ export const groupByKey = (array, key) => {
     })
   }, {})
 }
+
+/**
+ *  titlize a string
+ */
+export const titleCase = (str: string): string => {
+  return str.replace(/\w\S*/g, (t) => {
+    return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase()
+  })
+}

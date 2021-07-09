@@ -37,6 +37,7 @@ export {
   multiClick,
   findDeepMatch,
   groupByKey,
+  titleCase,
 } from './helper'
 
 export { errorForHuman, ssrAmbulance } from './errors'

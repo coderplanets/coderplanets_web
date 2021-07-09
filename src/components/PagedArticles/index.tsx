@@ -6,7 +6,7 @@
 
 import { Fragment, FC, memo } from 'react'
 
-import type { TThread, TArticle } from '@/spec'
+import type { TThread, TArticle, TPagedArticles, TResState } from '@/spec'
 import { buildLog } from '@/utils'
 import { useViewing } from '@/hooks'
 
@@ -19,14 +19,8 @@ const log = buildLog('c:PagedArticles:index')
 
 type TProps = {
   thread: TThread
-  data: {
-    entries: TArticle[]
-    totalPages: number
-    totalCount: number
-    pageSize: number
-    pageNumber: number
-  }
-  curView: string
+  data: TPagedArticles
+  resState: TResState
   onPreview: (article: TArticle) => void
   onPageChange: () => void
   // TODO: remove
@@ -36,7 +30,7 @@ type TProps = {
 const PagedArticles: FC<TProps> = ({
   thread,
   data,
-  curView,
+  resState,
   onPageChange,
   onPreview,
   emptyPrefix,
@@ -50,7 +44,7 @@ const PagedArticles: FC<TProps> = ({
         thread={thread}
         activeArticleId={viewingArticle.id}
         entries={entries}
-        curView={curView}
+        resState={resState}
         emptyPrefix={emptyPrefix}
         onPreview={onPreview}
       />
@@ -65,35 +59,5 @@ const PagedArticles: FC<TProps> = ({
     </Fragment>
   )
 }
-
-// PagedArticles.propTypes = {
-//   curView: T.oneOf([
-//     TYPE.RESULT,
-//     TYPE.LOADING,
-//     TYPE.NOT_FOUND,
-//     TYPE.RESULT_EMPTY,
-//   ]),
-//   emptyPrefix: T.string,
-//   // community: T.string,
-// }
-
-// PagedArticles.defaultProps = {
-//   thread: THREAD.POST,
-//   active: {},
-//   curView: TYPE.LOADING,
-//   emptyPrefix: '',
-//   community: 'javascript',
-//   onPageChange: log,
-//   onPreview: log,
-//   onUserSelect: log,
-//   onAuthorSelect: log,
-//   accountInfo: {
-//     isLogin: false,
-//     customization: T.shape({
-//       markViewed: true,
-//       displayDensity: '20',
-//     }),
-//   },
-// }
 
 export default memo(PagedArticles)

@@ -1,28 +1,35 @@
 /* eslint-disable react/display-name */
 
-import { memo } from 'react'
-import dynamic from 'next/dynamic'
+import { Fragment, memo } from 'react'
+import { isEmpty } from 'ramda'
 
-import { THREAD } from '@/constant'
+import { THREAD, TYPE } from '@/constant'
+import { Trans } from '@/utils'
 
-import {
-  PostItemLoading,
-  JobItemLoading,
-  RepoItemLoading,
-} from '@/components/Loading'
+import EmptyThread from '@/components/EmptyThread'
+import EmptyLabel from '@/components/EmptyLabel'
 
-export const PostsList = dynamic(() => import('./PostsList'), {
-  loading: () => <PostItemLoading num={4} />,
-})
-const JobsList = dynamic(() => import('./JobsList'), {
-  loading: () => <JobItemLoading num={4} />,
-})
-const ReposList = dynamic(() => import('./ReposList'), {
-  loading: () => <RepoItemLoading num={4} />,
-})
+import PostsList from './PostsList'
+import JobsList from './JobsList'
+import ReposList from './ReposList'
 
 const ArticleList = (props) => {
-  const { thread } = props
+  const { thread, resState, community, emptyPrefix } = props
+
+  if (resState === TYPE.RES_STATE.EMPTY) {
+    return (
+      <Fragment>
+        {isEmpty(emptyPrefix) ? (
+          <EmptyThread community={community} thread={thread} />
+        ) : (
+          <EmptyLabel
+            text={`${emptyPrefix}${Trans(thread)}信息`}
+            size="large"
+          />
+        )}
+      </Fragment>
+    )
+  }
 
   switch (thread) {
     case THREAD.JOB:

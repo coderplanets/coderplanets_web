@@ -13,9 +13,7 @@ import { pluggedIn, buildLog } from '@/utils'
 import CommunityDigest from '@/containers/digest/CommunityDigest'
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import ArticlesThread from '@/containers//thread/ArticlesThread'
-import BlogsThread from '@/containers//thread/BlogsThread'
 import ReposThread from '@/containers/thread/ReposThread'
-import JobsThread from '@/containers/thread/JobsThread'
 import UsersThread from '@/containers/thread/UsersThread'
 
 import SubscribedList from './SubscribedList'
@@ -33,14 +31,8 @@ const ComunityContent = ({ curRoute }) => {
     case ROUTE.REPOS:
       return <ReposThread />
 
-    case ROUTE.BLOGS:
-      return <BlogsThread />
-
     case ROUTE.USERS:
       return <UsersThread />
-
-    case ROUTE.JOBS:
-      return <JobsThread />
 
     default:
       return <ArticlesThread />

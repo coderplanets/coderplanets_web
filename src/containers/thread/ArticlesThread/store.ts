@@ -3,13 +3,13 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { merge, isEmpty, findIndex, propEq, pickBy } from 'ramda'
+import { merge, isEmpty, findIndex, propEq, pickBy, values } from 'ramda'
 
 import type {
   TRootStore,
   TTag,
   TAccount,
-  TRoute,
+  TPagedArticles,
   TCommunity,
   TThread,
   TArticleFilter,
@@ -25,21 +25,12 @@ const log = buildLog('S:ArticlesThread')
 const ArticlesThread = T.model('ArticlesThread', {
   pagedPosts: T.optional(PagedPosts, emptyPagiData),
   filters: T.optional(ArticlesFilter, {}),
-  curView: T.optional(
-    T.enumeration('curView', [
-      TYPE.RESULT,
-      TYPE.LOADING,
-      TYPE.NOT_FOUND,
-      TYPE.RESULT_EMPTY,
-    ]),
-    TYPE.RESULT,
+  resState: T.optional(
+    T.enumeration('resState', values(TYPE.RES_STATE)),
+    TYPE.RES_STATE.DONE,
   ),
 })
   .views((self) => ({
-    get curRoute(): TRoute {
-      const root = getParent(self) as TRootStore
-      return root.curRoute
-    },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
       return stripMobx(root.viewing.community)
@@ -51,13 +42,18 @@ const ArticlesThread = T.model('ArticlesThread', {
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },
+    get pagedArticlesData(): TPagedArticles {
+      const slf = self as TStore
+
+      switch (slf.curThread) {
+        default: {
+          return stripMobx(self.pagedPosts)
+        }
+      }
+    },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
       return root.account.accountInfo
-    },
-    get isLogin(): boolean {
-      const root = getParent(self) as TRootStore
-      return root.account.isLogin
     },
     get filtersData(): TArticleFilter {
       return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
@@ -83,8 +79,23 @@ const ArticlesThread = T.model('ArticlesThread', {
   .actions((self) => ({
     // the args pass to server when load articles
     getLoadArgs(page = 1): Record<string, unknown> {
+      self.resState = TYPE.LOADING
+
       const root = getParent(self) as TRootStore
       return root.getPagedArticleArgs(page, self.filtersData)
+    },
+
+    markRes(pagedArticles: Record<string, unknown>): void {
+      const slf = self as TStore
+      const pagedData = values(pagedArticles)[0] as TPagedArticles
+
+      if (pagedData.totalCount === 0) {
+        slf.resState = TYPE.RES_STATE.EMPTY
+      } else {
+        slf.resState = TYPE.RES_STATE.DONE
+      }
+
+      slf.mark(pagedArticles)
     },
 
     updateItem(item): void {
@@ -110,15 +121,6 @@ const ArticlesThread = T.model('ArticlesThread', {
           item,
         )
       }
-    },
-
-    toastInfo(options): void {
-      const root = getParent(self) as TRootStore
-      root.toast('info', merge({ position: 'topCenter' }, options))
-    },
-    authWarning(options = {}): void {
-      const root = getParent(self) as TRootStore
-      root.authWarning(options)
     },
     selectFilter(option: TArticleFilter): void {
       const curfilter = self.filtersData

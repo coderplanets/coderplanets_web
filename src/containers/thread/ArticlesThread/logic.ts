@@ -10,6 +10,7 @@ import {
   errRescue,
   scrollToTabber,
   thread2Subpath,
+  titleCase,
 } from '@/utils'
 
 import type { TStore } from './store'
@@ -49,35 +50,18 @@ export const tabOnChange = (activeThread: TThread): void => {
 }
 
 export const loadArticles = (page = 1): void => {
-  const { curThread } = store
-
-  store.mark({ curView: TYPE.LOADING })
-  const args = store.getLoadArgs(page)
-
-  switch (curThread) {
-    case THREAD.JOB: {
-      console.log('TODO: ')
-      break
-    }
-    default: {
-      sr71$.query(S.pagedPosts, args)
-      break
-    }
-  }
+  scrollToTabber()
+  queryData(page)
 
   store.markRoute({ page, ...store.filtersData })
-  scrollToTabber()
 }
 
-// export const loadPosts = (page = 1): void => {
-//   const args = store.getLoadArgs(page)
-
-//   store.mark({ curView: TYPE.LOADING })
-//   sr71$.query(S.pagedPosts, args)
-//   store.markRoute({ page, ...store.filtersData })
-
-//   scrollToTabber()
-// }
+// do query paged articles
+const queryData = (page: number): void => {
+  const endpoint = S[`paged${titleCase(store.curThread)}s`]
+  const args = store.getLoadArgs(page)
+  sr71$.query(endpoint, args)
+}
 
 export const onFilterSelect = (option: TArticleFilter): void => {
   store.selectFilter(option)
@@ -90,17 +74,13 @@ export const onFilterSelect = (option: TArticleFilter): void => {
  * preview the current article
  */
 export const onPreview = (data: TArticle): void => {
-  setTimeout(() => store.setViewedFlag(data.id), 1500)
-  const type = TYPE.DRAWER.POST_VIEW
-  const thread = THREAD.POST
+  const { curThread, setViewedFlag } = store
+  setTimeout(() => setViewedFlag(data.id), 1500)
+
+  const type = TYPE.DRAWER[`${curThread.toUpperCase()}_VIEW`]
+  const thread = curThread
 
   send(EVENT.DRAWER.OPEN, { type, thread, data })
-}
-
-export const onContentCreate = (): void => {
-  if (!store.isLogin) return store.authWarning()
-
-  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.POST_CREATE })
 }
 
 // ###############################
@@ -109,14 +89,7 @@ export const onContentCreate = (): void => {
 const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
-    action: ({ pagedPosts }) => {
-      log('pagedPosts: ', pagedPosts)
-      let curView = TYPE.RESULT
-      if (pagedPosts.totalCount === 0) {
-        curView = TYPE.RESULT_EMPTY
-      }
-      store.mark({ curView, pagedPosts })
-    },
+    action: ({ pagedPosts }) => store.markRes({ pagedPosts }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -130,8 +103,11 @@ const DataSolver = [
   //   },
   // },
   {
-    match: asyncRes(EVENT.REFRESH_POSTS),
-    action: () => loadArticles(),
+    match: asyncRes(EVENT.REFRESH_ARTICLES),
+    action: (res) => {
+      console.log('res refresh articles: ', res)
+      loadArticles()
+    },
   },
   {
     match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
@@ -172,7 +148,7 @@ export const useInit = (_store: TStore): void =>
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     return () => {
-      if (store.curView === TYPE.LOADING || !sub$) return
+      if (store.resState === TYPE.RES_STATE.LOADING || !sub$) return
       // log('===== do uninit')
       sr71$.stop()
       sub$.unsubscribe()

@@ -9,6 +9,7 @@
 import { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
 
+import type { TResState } from '@/spec'
 import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -35,7 +36,6 @@ import {
   onFilterSelect,
   onPreview,
   tabOnChange,
-  onContentCreate,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -49,8 +49,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   useInit(store)
 
   const {
-    pagedPostsData,
-    curView,
+    pagedArticlesData,
     filtersData,
     curCommunity,
     curThread,
@@ -59,10 +58,9 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
       customization: { bannerLayout },
     },
   } = store
+  const resState = store.resState as TResState
+  const { pageNumber, totalCount } = pagedArticlesData
 
-  const { totalCount } = pagedPostsData
-
-  // TODO: useMST for communityRaw, accountInfo
   return (
     <Wrapper>
       {bannerLayout === C11N.HOLY_GRAIL && (
@@ -83,27 +81,24 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
           {showFilters && (
             <FilterWrapper>
               <ArticlesFilter
+                resState={resState}
                 onSelect={onFilterSelect}
                 activeFilter={filtersData}
+                pageNumber={pageNumber}
                 totalCount={totalCount}
               />
             </FilterWrapper>
           )}
           <PagedArticles
-            data={pagedPostsData}
+            data={pagedArticlesData}
             thread={curThread}
-            curView={curView}
+            resState={resState}
             onPreview={onPreview}
             onPageChange={loadArticles}
           />
         </ArticlesWrapper>
 
-        {bannerLayout === C11N.CLASSIC && (
-          <ThreadSidebar
-            onCreate={onContentCreate}
-            onTagSelect={loadArticles}
-          />
-        )}
+        {bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
       </Body>
     </Wrapper>
   )
