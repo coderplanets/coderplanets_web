@@ -3,14 +3,7 @@ import { Fragment, memo } from 'react'
 import JobItem from '@/components/JobItem'
 
 const JobsList = ({ props }) => {
-  const {
-    entries,
-    active,
-    community,
-    onPreview,
-    onAuthorSelect,
-    accountInfo,
-  } = props
+  const { entries, active, community, onAuthorSelect, accountInfo } = props
 
   return (
     <Fragment>
@@ -21,7 +14,6 @@ const JobsList = ({ props }) => {
           community={community}
           active={active}
           accountInfo={accountInfo}
-          onPreview={() => onPreview(entry)}
           onAuthorSelect={onAuthorSelect}
         />
       ))}

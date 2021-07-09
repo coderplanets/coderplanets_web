@@ -22,7 +22,7 @@ import type { TStore } from './store'
 
 import {
   Wrapper,
-  Body,
+  BodyWrapper,
   ArticlesWrapper,
   TabsWrapper,
   FilterWrapper,
@@ -32,9 +32,7 @@ import {
   useInit,
   inAnchor,
   outAnchor,
-  loadArticles,
   onFilterSelect,
-  onPreview,
   tabOnChange,
 } from './logic'
 
@@ -75,7 +73,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
         </TabsWrapper>
       )}
 
-      <Body>
+      <BodyWrapper>
         <ArticlesWrapper>
           <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
           {showFilters && (
@@ -93,12 +91,11 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
             data={pagedArticlesData}
             thread={curThread}
             resState={resState}
-            onPreview={onPreview}
           />
         </ArticlesWrapper>
 
         {bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
-      </Body>
+      </BodyWrapper>
     </Wrapper>
   )
 }

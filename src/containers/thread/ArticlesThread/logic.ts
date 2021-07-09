@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import type { TArticle, TThread, TArticleFilter } from '@/spec'
-import { TYPE, EVENT, ERR, THREAD } from '@/constant'
+import { TYPE, EVENT, ERR } from '@/constant'
 
 import {
   asyncSuit,
@@ -14,7 +14,6 @@ import {
 } from '@/utils'
 
 import type { TStore } from './store'
-
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -24,6 +23,7 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   // @ts-ignore
   receive: [
+    EVENT.PREVIEW_ARTICLE,
     EVENT.REFRESH_ARTICLES,
     EVENT.COMMUNITY_CHANGE,
     EVENT.THREAD_CHANGE,
@@ -73,16 +73,16 @@ export const onFilterSelect = (option: TArticleFilter): void => {
 /**
  * preview the current article
  */
-export const onPreview = (data: TArticle): void => {
+const onPreview = (article: TArticle): void => {
   const { curThread, setViewedFlag, resState } = store
   if (resState === TYPE.RES_STATE.LOADING) return
 
-  setTimeout(() => setViewedFlag(data.id), 1500)
+  setTimeout(() => setViewedFlag(article.id), 1500)
 
   const type = TYPE.DRAWER[`${curThread.toUpperCase()}_VIEW`]
   const thread = curThread
 
-  send(EVENT.DRAWER.OPEN, { type, thread, data })
+  send(EVENT.DRAWER.OPEN, { type, thread, data: article })
 }
 
 // ###############################
@@ -105,6 +105,13 @@ const DataSolver = [
   //   },
   // },
   {
+    match: asyncRes(EVENT.PREVIEW_ARTICLE),
+    action: (res) => {
+      const { article } = res[EVENT.PREVIEW_ARTICLE]
+      onPreview(article)
+    },
+  },
+  {
     match: asyncRes(EVENT.REFRESH_ARTICLES),
     action: (res) => {
       const { page = 1 } = res[EVENT.REFRESH_ARTICLES]
@@ -113,10 +120,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
-    action: (res) => {
-      const { type } = res[EVENT.C11N_DENSITY_CHANGE]
-      if (type === THREAD.POST) loadArticles(store.pagedPosts.pageNumber)
-    },
+    action: () => loadArticles(store.pagedArticlesData.pageNumber),
   },
 ]
 

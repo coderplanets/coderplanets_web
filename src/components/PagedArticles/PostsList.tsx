@@ -3,7 +3,7 @@ import { Fragment, memo } from 'react'
 import PostItem from '@/components/PostItem'
 
 const PostsList = ({ props }) => {
-  const { entries, activeArticleId, onPreview } = props
+  const { entries, activeArticleId } = props
 
   return (
     <Fragment>
@@ -12,7 +12,6 @@ const PostsList = ({ props }) => {
           key={entry.id}
           entry={entry}
           activeArticleId={activeArticleId}
-          onPreview={() => onPreview(entry)}
         />
       ))}
     </Fragment>

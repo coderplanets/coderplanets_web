@@ -13,23 +13,17 @@ type TProps = {
   active?: TPost | null
   entry: TPost
 
-  onPreview?: (obj: TPost) => void
   onUserSelect?: (obj: TUser) => void
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const DigestView: FC<TProps> = ({
-  entry,
-  onPreview,
-  onUserSelect,
-  onAuthorSelect,
-}) => {
+const DigestView: FC<TProps> = ({ entry, onUserSelect, onAuthorSelect }) => {
   return (
     <Fragment>
       <TheAvatar user={entry.author} onSelect={onAuthorSelect} />
       <Main>
         <Header item={entry} onUserSelect={onUserSelect} />
-        <Body item={entry} onPreview={onPreview} />
+        <Body item={entry} />
       </Main>
     </Fragment>
   )

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 100%;
 `
-export const Body = styled.div`
+export const BodyWrapper = styled.div`
   ${css.flex()};
   width: 100%;
 `

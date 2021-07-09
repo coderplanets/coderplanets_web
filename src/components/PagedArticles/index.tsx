@@ -22,18 +22,11 @@ type TProps = {
   thread: TThread
   data: TPagedArticles
   resState: TResState
-  onPreview: (article: TArticle) => void
   // TODO: remove
   emptyPrefix?: string
 }
 
-const PagedArticles: FC<TProps> = ({
-  thread,
-  data,
-  resState,
-  onPreview,
-  emptyPrefix,
-}) => {
+const PagedArticles: FC<TProps> = ({ thread, data, resState, emptyPrefix }) => {
   const { entries, ...pagi } = data
   const { viewingArticle } = useViewing()
 
@@ -45,7 +38,6 @@ const PagedArticles: FC<TProps> = ({
         entries={entries}
         resState={resState}
         emptyPrefix={emptyPrefix}
-        onPreview={onPreview}
       />
 
       <Pagi

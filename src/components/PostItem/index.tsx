@@ -24,14 +24,12 @@ type TProps = {
   activeArticleId?: TID | null
   entry: TPost
 
-  onPreview?: (obj: TPost) => void
   onUserSelect?: (obj: TUser) => void
   onAuthorSelect?: (obj: TAccount) => void
 }
 
 const PostItem: FC<TProps> = ({
   entry,
-  onPreview = log,
   onUserSelect = log,
   onAuthorSelect = log,
   activeArticleId = null,
@@ -43,7 +41,6 @@ const PostItem: FC<TProps> = ({
       <ArticleItemPrefixLabel entry={entry} />
       <DigestView
         entry={entry}
-        onPreview={onPreview}
         onUserSelect={onUserSelect}
         onAuthorSelect={onAuthorSelect}
       />

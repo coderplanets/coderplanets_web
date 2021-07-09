@@ -3,7 +3,7 @@ import { Fragment, memo } from 'react'
 import RepoItem from '@/components/RepoItem'
 
 const ReposList = ({ props }) => {
-  const { entries, active, onPreview, accountInfo } = props
+  const { entries, active, accountInfo } = props
 
   return (
     <Fragment>
@@ -13,7 +13,6 @@ const ReposList = ({ props }) => {
           entry={entry}
           active={active}
           accountInfo={accountInfo}
-          onPreview={() => onPreview(entry)}
         />
       ))}
     </Fragment>
