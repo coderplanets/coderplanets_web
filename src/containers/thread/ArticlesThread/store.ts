@@ -85,9 +85,9 @@ const ArticlesThread = T.model('ArticlesThread', {
       return root.getPagedArticleArgs(page, self.filtersData)
     },
 
-    markRes(pagedArticles: Record<string, unknown>): void {
+    markRes(res: Record<string, TPagedArticles>): void {
       const slf = self as TStore
-      const pagedData = values(pagedArticles)[0] as TPagedArticles
+      const pagedData = values(res)[0] as TPagedArticles
 
       if (pagedData.totalCount === 0) {
         slf.resState = TYPE.RES_STATE.EMPTY
@@ -95,7 +95,7 @@ const ArticlesThread = T.model('ArticlesThread', {
         slf.resState = TYPE.RES_STATE.DONE
       }
 
-      slf.mark(pagedArticles)
+      slf.mark(res)
     },
 
     updateItem(item): void {

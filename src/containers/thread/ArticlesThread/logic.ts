@@ -74,7 +74,9 @@ export const onFilterSelect = (option: TArticleFilter): void => {
  * preview the current article
  */
 export const onPreview = (data: TArticle): void => {
-  const { curThread, setViewedFlag } = store
+  const { curThread, setViewedFlag, resState } = store
+  if (resState === TYPE.RES_STATE.LOADING) return
+
   setTimeout(() => setViewedFlag(data.id), 1500)
 
   const type = TYPE.DRAWER[`${curThread.toUpperCase()}_VIEW`]
