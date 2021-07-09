@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import { Fragment, FC, memo } from 'react'
 import { range } from 'ramda'
 import styled from 'styled-components'
 import ContentLoader from 'react-content-loader'
@@ -26,20 +25,20 @@ const LoadingItem = () => (
   </ContentLoader>
 )
 
-const TagListLoading = ({ num }) => {
-  return range(0, num).map((item) => (
-    <LoadingWrapper key={item}>
-      <LoadingItem />
-    </LoadingWrapper>
-  ))
+type TProps = {
+  num?: number
 }
 
-TagListLoading.propTypes = {
-  num: T.number,
+const TagListLoading: FC<TProps> = ({ num = 1 }) => {
+  return (
+    <Fragment>
+      {range(0, num).map((item) => (
+        <LoadingWrapper key={item}>
+          <LoadingItem />
+        </LoadingWrapper>
+      ))}
+    </Fragment>
+  )
 }
 
-TagListLoading.defaultProps = {
-  num: 1,
-}
-
-export default React.memo(TagListLoading)
+export default memo(TagListLoading)

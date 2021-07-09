@@ -2,7 +2,7 @@ import { FC, Fragment, memo } from 'react'
 
 import type { TPagedComments, TUser } from '@/spec'
 import Pagi from '@/components/Pagi'
-import { CommentLoading } from '@/components/LoadingEffects'
+import { CommentLoading } from '@/components/Loading'
 
 import Header from './Header'
 import List from './List'

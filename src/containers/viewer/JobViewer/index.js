@@ -14,7 +14,7 @@ import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
-import { ArticleContentLoading } from '@/components/LoadingEffects'
+import { ArticleContentLoading } from '@/components/Loading'
 
 import DigestBar from './DigestBar'
 

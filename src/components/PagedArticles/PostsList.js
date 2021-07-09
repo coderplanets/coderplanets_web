@@ -4,7 +4,7 @@ import { isEmpty } from 'ramda'
 import { TYPE } from '@/constant'
 import { Trans } from '@/utils'
 
-import { PostItemLoading } from '@/components/LoadingEffects'
+import { PostItemLoading } from '@/components/Loading'
 import PostItem from '@/components/PostItem'
 import EmptyThread from '@/components/EmptyThread'
 import EmptyLabel from '@/components/EmptyLabel'

@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import { Fragment, FC, memo } from 'react'
 import { range } from 'ramda'
 import styled, { useTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
@@ -27,22 +26,22 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const ArticleContentLoading = ({ num }) => {
+type TProps = {
+  num?: number
+}
+
+const ArticleContentLoading: FC<TProps> = ({ num = 1 }) => {
   const theme = useTheme()
 
-  return range(0, num).map((item) => (
-    <LoadingWrapper key={item}>
-      <LoadingItem theme={theme} />
-    </LoadingWrapper>
-  ))
+  return (
+    <Fragment>
+      {range(0, num).map((item) => (
+        <LoadingWrapper key={item}>
+          <LoadingItem theme={theme} />
+        </LoadingWrapper>
+      ))}
+    </Fragment>
+  )
 }
 
-ArticleContentLoading.propTypes = {
-  num: T.number,
-}
-
-ArticleContentLoading.defaultProps = {
-  num: 1,
-}
-
-export default ArticleContentLoading
+export default memo(ArticleContentLoading)

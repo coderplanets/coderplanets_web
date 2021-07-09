@@ -1,6 +1,6 @@
 /*
  *
- * LoadingEffects
+ * Loading
  *
  */
 

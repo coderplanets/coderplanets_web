@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleEditFooter from '@/components/ArticleEditFooter'
-import { ArticleContentLoading } from '@/components/LoadingEffects'
+import { ArticleContentLoading } from '@/components/Loading'
 import Modal from '@/components/Modal'
 
 import Editor from './Editor'

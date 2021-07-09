@@ -3,7 +3,7 @@ import { isEmpty } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { Trans } from '@/utils'
-import { JobItemLoading } from '@/components/LoadingEffects'
+import { JobItemLoading } from '@/components/Loading'
 
 import JobItem from '@/components/JobItem'
 import EmptyThread from '@/components/EmptyThread'

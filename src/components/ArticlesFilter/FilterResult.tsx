@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { LavaLampLoading } from '@/components/LoadingEffects'
+import { LavaLampLoading } from '@/components/Loading'
 import { Space } from '@/components/Common'
 
 import { Wrapper, ResultText } from './styles/filter_result'

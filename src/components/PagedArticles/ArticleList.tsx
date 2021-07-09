@@ -9,7 +9,7 @@ import {
   PostItemLoading,
   JobItemLoading,
   RepoItemLoading,
-} from '@/components/LoadingEffects'
+} from '@/components/Loading'
 
 export const PostsList = dynamic(() => import('./PostsList'), {
   loading: () => <PostItemLoading num={4} />,

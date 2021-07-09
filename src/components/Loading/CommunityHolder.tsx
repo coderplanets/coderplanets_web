@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 import { toUpper } from 'ramda'
 
 import {
@@ -9,7 +8,12 @@ import {
   SidebarText,
 } from './styles/community_holder'
 
-const CommunityHolder = ({ place, text }) => {
+type TProps = {
+  text: string
+  place: 'banner' | 'sidebar' | 'discovery'
+}
+
+const CommunityHolder: FC<TProps> = ({ place = 'banner', text }) => {
   switch (place) {
     case 'sidebar':
       return <SidebarText>{toUpper(text.slice(0, 1))}</SidebarText>
@@ -26,13 +30,4 @@ const CommunityHolder = ({ place, text }) => {
   }
 }
 
-CommunityHolder.propTypes = {
-  text: T.string.isRequired,
-  place: T.oneOf(['banner', 'sidebar', 'discovery']),
-}
-
-CommunityHolder.defaultProps = {
-  place: 'banner',
-}
-
-export default React.memo(CommunityHolder)
+export default memo(CommunityHolder)

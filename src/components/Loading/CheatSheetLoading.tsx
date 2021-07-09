@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 import { range } from 'ramda'
 import ContentLoader from 'react-content-loader'
 import { useTheme } from 'styled-components'
@@ -8,7 +7,7 @@ import { buildLog } from '@/utils'
 import { Wrapper, CheatsheetCard } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:LoadingEffects:index')
+const log = buildLog('c:Loading:index')
 
 const LoadingBlock = ({ theme }) => (
   <CheatsheetCard>
@@ -32,7 +31,11 @@ const LoadingBlock = ({ theme }) => (
   </CheatsheetCard>
 )
 
-const CheatSheetLoading = ({ column }) => {
+type TProps = {
+  column: number
+}
+
+const CheatSheetLoading: FC<TProps> = ({ column = 4 }) => {
   const theme = useTheme()
 
   return (
@@ -44,12 +47,4 @@ const CheatSheetLoading = ({ column }) => {
   )
 }
 
-CheatSheetLoading.propTypes = {
-  column: T.number,
-}
-
-CheatSheetLoading.defaultProps = {
-  column: 4,
-}
-
-export default CheatSheetLoading
+export default memo(CheatSheetLoading)
