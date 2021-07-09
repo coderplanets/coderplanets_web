@@ -49,20 +49,6 @@ export const tabOnChange = (activeThread: TThread): void => {
   send(EVENT.THREAD_CHANGE, { data: { activeThread } })
 }
 
-export const loadArticles = (page = 1): void => {
-  scrollToTabber()
-  queryData(page)
-
-  store.markRoute({ page, ...store.filtersData })
-}
-
-// do query paged articles
-const queryData = (page: number): void => {
-  const endpoint = S[`paged${titleCase(store.curThread)}s`]
-  const args = store.getLoadArgs(page)
-  sr71$.query(endpoint, args)
-}
-
 export const onFilterSelect = (option: TArticleFilter): void => {
   store.selectFilter(option)
   log('cur filter: ', store.filtersData)
@@ -71,7 +57,23 @@ export const onFilterSelect = (option: TArticleFilter): void => {
 }
 
 /**
- * preview the current article
+ * load paged articles then save them to store
+ */
+const loadArticles = (page = 1): void => {
+  scrollToTabber()
+  doQuery(page)
+  store.markRoute({ page, ...store.filtersData })
+}
+
+// do query paged articles
+const doQuery = (page: number): void => {
+  const endpoint = S[`paged${titleCase(store.curThread)}s`]
+  const args = store.getLoadArgs(page)
+  sr71$.query(endpoint, args)
+}
+
+/**
+ * prepack then send preview event to drawer
  */
 const onPreview = (article: TArticle): void => {
   const { curThread, setViewedFlag, resState } = store
