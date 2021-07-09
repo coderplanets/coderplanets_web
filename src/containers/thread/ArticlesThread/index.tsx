@@ -94,7 +94,6 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
             thread={curThread}
             resState={resState}
             onPreview={onPreview}
-            onPageChange={loadArticles}
           />
         </ArticlesWrapper>
 

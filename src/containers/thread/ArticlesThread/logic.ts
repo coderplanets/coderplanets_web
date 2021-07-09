@@ -24,7 +24,7 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   // @ts-ignore
   receive: [
-    EVENT.REFRESH_POSTS,
+    EVENT.REFRESH_ARTICLES,
     EVENT.COMMUNITY_CHANGE,
     EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
@@ -107,8 +107,8 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.REFRESH_ARTICLES),
     action: (res) => {
-      console.log('res refresh articles: ', res)
-      loadArticles()
+      const { page = 1 } = res[EVENT.REFRESH_ARTICLES]
+      loadArticles(page)
     },
   },
   {

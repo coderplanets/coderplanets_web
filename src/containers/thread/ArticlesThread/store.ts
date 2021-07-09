@@ -79,7 +79,7 @@ const ArticlesThread = T.model('ArticlesThread', {
   .actions((self) => ({
     // the args pass to server when load articles
     getLoadArgs(page = 1): Record<string, unknown> {
-      self.resState = TYPE.LOADING
+      self.resState = TYPE.RES_STATE.LOADING
 
       const root = getParent(self) as TRootStore
       return root.getPagedArticleArgs(page, self.filtersData)

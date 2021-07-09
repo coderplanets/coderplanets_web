@@ -7,7 +7,8 @@
 import { Fragment, FC, memo } from 'react'
 
 import type { TThread, TArticle, TPagedArticles, TResState } from '@/spec'
-import { buildLog } from '@/utils'
+import { EVENT } from '@/constant'
+import { buildLog, send } from '@/utils'
 import { useViewing } from '@/hooks'
 
 import Pagi from '@/components/Pagi'
@@ -22,7 +23,6 @@ type TProps = {
   data: TPagedArticles
   resState: TResState
   onPreview: (article: TArticle) => void
-  onPageChange: () => void
   // TODO: remove
   emptyPrefix?: string
 }
@@ -31,7 +31,6 @@ const PagedArticles: FC<TProps> = ({
   thread,
   data,
   resState,
-  onPageChange,
   onPreview,
   emptyPrefix,
 }) => {
@@ -51,7 +50,7 @@ const PagedArticles: FC<TProps> = ({
 
       <Pagi
         {...pagi}
-        onChange={onPageChange}
+        onChange={(page) => send(EVENT.REFRESH_ARTICLES, { page })}
         margin={{ bottom: '60px', top: '60px' }}
       >
         <CommunityRecommends />
