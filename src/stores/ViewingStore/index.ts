@@ -64,6 +64,22 @@ const ViewingStore = T.model('ViewingStore', {
           return stripMobx(self.post)
       }
     },
+
+    get viewingArticle(): TArticle {
+      const curThread = self.viewingThread || self.activeThread
+      switch (curThread) {
+        case THREAD.JOB:
+          return stripMobx(self.job)
+        case THREAD.BLOG:
+          return stripMobx(self.blog)
+        case THREAD.REPO:
+          return stripMobx(self.repo)
+        case THREAD.POST:
+          return stripMobx(self.post)
+        default:
+          return stripMobx(self.post)
+      }
+    },
   }))
   .actions((self) => ({
     setViewing(sobj): void {

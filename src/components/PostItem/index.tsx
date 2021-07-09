@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TPost, TUser, TAccount } from '@/spec'
+import type { TPost, TID, TUser, TAccount } from '@/spec'
 import { buildLog } from '@/utils'
 import { useAccount } from '@/hooks'
 
@@ -21,7 +21,7 @@ import { Wrapper } from './styles'
 const log = buildLog('c:PostItem:index')
 
 type TProps = {
-  active?: TPost | null
+  activeArticleId?: TID | null
   entry: TPost
 
   onPreview?: (obj: TPost) => void
@@ -34,12 +34,12 @@ const PostItem: FC<TProps> = ({
   onPreview = log,
   onUserSelect = log,
   onAuthorSelect = log,
-  active = null,
+  activeArticleId = null,
 }) => {
   const { c11n } = useAccount()
 
   return (
-    <Wrapper entry={entry} active={active} c11n={c11n}>
+    <Wrapper entry={entry} activeArticleId={activeArticleId} c11n={c11n}>
       <ArticleItemPrefixLabel entry={entry} />
       <DigestView
         entry={entry}

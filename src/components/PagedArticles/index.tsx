@@ -8,9 +8,10 @@ import { Fragment, FC, memo } from 'react'
 
 import type { TThread, TArticle } from '@/spec'
 import { buildLog } from '@/utils'
+import { useViewing } from '@/hooks'
 
 import Pagi from '@/components/Pagi'
-import ContentList from './ContentList'
+import ArticleList from './ArticleList'
 import CommunityRecommends from './CommunityRecommends'
 
 /* eslint-disable-next-line */
@@ -18,7 +19,6 @@ const log = buildLog('c:PagedArticles:index')
 
 type TProps = {
   thread: TThread
-  active: TArticle
   data: {
     entries: TArticle[]
     totalPages: number
@@ -35,7 +35,6 @@ type TProps = {
 
 const PagedArticles: FC<TProps> = ({
   thread,
-  active,
   data,
   curView,
   onPageChange,
@@ -43,12 +42,13 @@ const PagedArticles: FC<TProps> = ({
   emptyPrefix,
 }) => {
   const { entries, ...pagi } = data
+  const { viewingArticle } = useViewing()
 
   return (
     <Fragment>
-      <ContentList
+      <ArticleList
         thread={thread}
-        active={active}
+        activeArticleId={viewingArticle.id}
         entries={entries}
         curView={curView}
         emptyPrefix={emptyPrefix}

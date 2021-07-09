@@ -1,14 +1,14 @@
-import type { TPost, TC11N } from '@/spec'
+import type { TPost, TC11N, TID } from '@/spec'
 
 export const getOpacity = (
   entry: TPost,
-  active: TPost | null,
+  activeArticleId: TID | null,
   c11n: TC11N,
 ): number => {
   const { viewerHasViewed } = entry
 
-  if (active?.id) {
-    return entry.id !== active?.id ? 0.6 : 1
+  if (activeArticleId) {
+    return entry.id !== activeArticleId ? 0.6 : 1
   }
   if (c11n.isLogin && c11n.markViewed && viewerHasViewed) {
     return 0.85

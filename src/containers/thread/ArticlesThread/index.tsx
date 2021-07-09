@@ -52,7 +52,6 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     pagedPostsData,
     curView,
     filtersData,
-    activePost,
     curCommunity,
     curThread,
     showFilters,
@@ -94,7 +93,6 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
             data={pagedPostsData}
             thread={curThread}
             curView={curView}
-            active={activePost}
             onPreview={onPreview}
             onPageChange={loadArticles}
           />

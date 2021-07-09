@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 
-import React from 'react'
+import { memo } from 'react'
 import dynamic from 'next/dynamic'
 
 import { THREAD } from '@/constant'
@@ -21,7 +21,7 @@ const ReposList = dynamic(() => import('./ReposList'), {
   loading: () => <RepoItemLoading num={4} />,
 })
 
-const ContentList = (props) => {
+const ArticleList = (props) => {
   const { thread } = props
 
   switch (thread) {
@@ -36,4 +36,4 @@ const ContentList = (props) => {
   }
 }
 
-export default React.memo(ContentList)
+export default memo(ArticleList)

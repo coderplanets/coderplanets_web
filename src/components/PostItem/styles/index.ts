@@ -1,20 +1,21 @@
 import styled from 'styled-components'
 
-import type { TPost, TC11N } from '@/spec'
+import type { TPost, TC11N, TID } from '@/spec'
 import { theme, css } from '@/utils'
 
 import { getOpacity } from './metrics'
 
 type TWrapper = {
   entry: TPost
-  active?: TPost | null
+  activeArticleId?: TID | null
   c11n: TC11N
 }
 
 export const Wrapper = styled.article<TWrapper>`
   ${css.flex()};
   position: relative;
-  opacity: ${({ entry, active, c11n }) => getOpacity(entry, active, c11n)};
+  opacity: ${({ entry, activeArticleId, c11n }) =>
+    getOpacity(entry, activeArticleId, c11n)};
 
   padding-top: ${({ c11n }) => (c11n.contentDivider ? '10px' : '6px')};
   padding-bottom: ${({ c11n }) => (c11n.contentDivider ? '10px' : '6px')};

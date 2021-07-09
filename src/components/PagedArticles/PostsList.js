@@ -12,7 +12,7 @@ import EmptyLabel from '@/components/EmptyLabel'
 const PostsList = ({ props }) => {
   const {
     entries,
-    active,
+    activeArticleId,
     curView,
     community,
     thread,
@@ -28,7 +28,7 @@ const PostsList = ({ props }) => {
             <PostItem
               key={entry.id}
               entry={entry}
-              active={active}
+              activeArticleId={activeArticleId}
               community={community}
               onPreview={() => onPreview(entry)}
             />

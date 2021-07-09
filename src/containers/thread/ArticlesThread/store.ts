@@ -7,7 +7,6 @@ import { merge, isEmpty, findIndex, propEq, pickBy } from 'ramda'
 
 import type {
   TRootStore,
-  TPost,
   TTag,
   TAccount,
   TRoute,
@@ -73,14 +72,6 @@ const ArticlesThread = T.model('ArticlesThread', {
       const curTag = stripMobx(root.tagsBar.activeTagData)
       if (nilOrEmpty(curTag.title)) return {}
       return { tag: curTag.title }
-    },
-    get activePost(): TPost {
-      const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.post)
-    },
-    get pageDensity(): number {
-      const root = getParent(self) as TRootStore
-      return root.account.pageDensity
     },
     get showFilters(): boolean {
       const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))

@@ -92,7 +92,6 @@ const BlogsThreadContainer: FC<TProps> = ({
           data={pagedBlogsData}
           thread={THREAD.POST}
           curView={curView}
-          active={activeBlog}
           onPreview={onPreview}
           onPageChange={onPageChange}
         />

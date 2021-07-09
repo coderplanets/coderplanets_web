@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import { Fragment, FC, memo } from 'react'
 import { range } from 'ramda'
 import styled, { useTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
@@ -27,22 +26,22 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const RepoItemLoading = ({ num }) => {
+type TProps = {
+  num?: number
+}
+
+const RepoItemLoading: FC<TProps> = ({ num = 1 }) => {
   const theme = useTheme()
 
-  return range(0, num).map((item) => (
-    <LoadingWrapper key={item}>
-      <LoadingItem theme={theme} />
-    </LoadingWrapper>
-  ))
+  return (
+    <Fragment>
+      {range(0, num).map((item) => (
+        <LoadingWrapper key={item}>
+          <LoadingItem theme={theme} />
+        </LoadingWrapper>
+      ))}
+    </Fragment>
+  )
 }
 
-RepoItemLoading.propTypes = {
-  num: T.number,
-}
-
-RepoItemLoading.defaultProps = {
-  num: 1,
-}
-
-export default RepoItemLoading
+export default memo(RepoItemLoading)

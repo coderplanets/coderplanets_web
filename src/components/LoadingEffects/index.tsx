@@ -4,6 +4,8 @@
  *
  */
 
+export { default as LavaLampLoading } from './LavaLampLoading'
+
 export { default as CheatSheetLoading } from './CheatSheetLoading'
 export { default as CommentLoading } from './CommentLoading'
 export { default as PostItemLoading } from './PostItemLoading'

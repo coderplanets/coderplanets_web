@@ -1,5 +1,8 @@
 import { FC, memo } from 'react'
 
+import { LavaLampLoading } from '@/components/LoadingEffects'
+import { Space } from '@/components/Common'
+
 import { Wrapper, ResultText } from './styles/filter_result'
 
 type TProps = {
@@ -9,6 +12,8 @@ type TProps = {
 const FilterResult: FC<TProps> = ({ totalCount }) => {
   return (
     <Wrapper>
+      <LavaLampLoading />
+      <Space right={20} />
       <ResultText>共 {totalCount} 条</ResultText>
     </Wrapper>
   )
