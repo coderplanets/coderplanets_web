@@ -8,8 +8,8 @@ import { FC, memo } from 'react'
 
 import { TCommunity, TThread } from '@/spec'
 
-import { C11N } from '@/constant'
-import { buildLog } from '@/utils'
+import { C11N, EVENT } from '@/constant'
+import { buildLog, send } from '@/utils'
 
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 
@@ -47,7 +47,7 @@ const HolyGrailView: FC<TProps> = ({
           <TabsWrapper>
             <TabBar
               source={community.threads}
-              onChange={console.log}
+              onChange={(data) => send(EVENT.COMMUNITY_TAB_CHANGE, { data })}
               active={thread}
               layout={C11N.HOLY_GRAIL}
               communityRaw={community.raw}

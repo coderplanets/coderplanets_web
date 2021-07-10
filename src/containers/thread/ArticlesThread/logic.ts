@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import type { TArticle, TThread, TArticleFilter } from '@/spec'
+import type { TArticle, TArticleFilter } from '@/spec'
 import { TYPE, EVENT, ERR } from '@/constant'
 
 import {
@@ -9,7 +9,6 @@ import {
   send,
   errRescue,
   scrollToTabber,
-  thread2Subpath,
   titleCase,
 } from '@/utils'
 
@@ -25,6 +24,7 @@ const sr71$ = new SR71({
   receive: [
     EVENT.PREVIEW_ARTICLE,
     EVENT.REFRESH_ARTICLES,
+    EVENT.ARTICLE_THREAD_CHANGE,
     EVENT.COMMUNITY_CHANGE,
     EVENT.THREAD_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
@@ -36,18 +36,6 @@ let sub$ = null
 
 export const inAnchor = (): void => store?.showTopModeline(false)
 export const outAnchor = (): void => store?.showTopModeline(true)
-
-// TODO: 是否有必要存在 ？
-export const tabOnChange = (activeThread: TThread): void => {
-  const subPath = thread2Subpath(activeThread)
-  // log('EVENT.activeThread -----> ', activeThread)
-  // log('EVENT.subPath -----> ', subPath)
-
-  store.markRoute({ subPath })
-  store.setViewing({ activeThread })
-
-  send(EVENT.THREAD_CHANGE, { data: { activeThread } })
-}
 
 export const onFilterSelect = (option: TArticleFilter): void => {
   store.selectFilter(option)
@@ -99,13 +87,14 @@ const DataSolver = [
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => loadArticles(),
   },
-  // {
-  //   match: asyncRes(EVENT.THREAD_CHANGE),
-  //   action: (res) => {
-  //     const { data } = res[EVENT.THREAD_CHANGE]
-  //     loadArticles()
-  //   },
-  // },
+  {
+    match: asyncRes(EVENT.ARTICLE_THREAD_CHANGE),
+    action: (res) => {
+      console.log('EVENT.ARTICLE_THREAD_CHANGE in articleThread')
+      // const { data } = res[EVENT.THREAD_CHANGE]
+      // loadArticles()
+    },
+  },
   {
     match: asyncRes(EVENT.PREVIEW_ARTICLE),
     action: (res) => {
