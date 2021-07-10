@@ -63,3 +63,16 @@ export const InnerWrapper = styled.div<{ isClassicLayout: boolean }>`
     padding-top: 0;
   `};
 `
+export const ContentWrapper = styled.div`
+  ${css.flexColumn()};
+  width: 100%;
+`
+
+export const TabsWrapper = styled.div`
+  width: calc(100% - 42px);
+  background: #103645;
+  padding-left: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-top: 10px;
+`

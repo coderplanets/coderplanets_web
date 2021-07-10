@@ -14,27 +14,13 @@ import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
-import TabBar from '@/components/TabBar'
 import PagedArticles from '@/components/PagedArticles'
 import ArticlesFilter from '@/components/ArticlesFilter'
 
 import type { TStore } from './store'
 
-import {
-  Wrapper,
-  BodyWrapper,
-  ArticlesWrapper,
-  TabsWrapper,
-  FilterWrapper,
-} from './styles'
-
-import {
-  useInit,
-  inAnchor,
-  outAnchor,
-  onFilterSelect,
-  tabOnChange,
-} from './logic'
+import { Wrapper, MainWrapper, FilterWrapper } from './styles'
+import { useInit, inAnchor, outAnchor, onFilterSelect } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticlesThread')
@@ -49,7 +35,6 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   const {
     pagedArticlesData,
     filtersData,
-    curCommunity,
     curThread,
     showFilters,
     accountInfo: {
@@ -61,41 +46,27 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
 
   return (
     <Wrapper>
-      {bannerLayout === C11N.HOLY_GRAIL && (
-        <TabsWrapper>
-          <TabBar
-            source={curCommunity.threads}
-            onChange={tabOnChange}
-            active={curThread}
-            layout={C11N.HOLY_GRAIL}
-            communityRaw={curCommunity.raw}
-          />
-        </TabsWrapper>
-      )}
+      <MainWrapper>
+        <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
+        {showFilters && (
+          <FilterWrapper>
+            <ArticlesFilter
+              resState={resState}
+              onSelect={onFilterSelect}
+              activeFilter={filtersData}
+              pageNumber={pageNumber}
+              totalCount={totalCount}
+            />
+          </FilterWrapper>
+        )}
+        <PagedArticles
+          data={pagedArticlesData}
+          thread={curThread}
+          resState={resState}
+        />
+      </MainWrapper>
 
-      <BodyWrapper>
-        <ArticlesWrapper>
-          <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
-          {showFilters && (
-            <FilterWrapper>
-              <ArticlesFilter
-                resState={resState}
-                onSelect={onFilterSelect}
-                activeFilter={filtersData}
-                pageNumber={pageNumber}
-                totalCount={totalCount}
-              />
-            </FilterWrapper>
-          )}
-          <PagedArticles
-            data={pagedArticlesData}
-            thread={curThread}
-            resState={resState}
-          />
-        </ArticlesWrapper>
-
-        {bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
-      </BodyWrapper>
+      {bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
     </Wrapper>
   )
 }

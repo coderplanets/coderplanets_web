@@ -5,17 +5,21 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import type { TRootStore, TAccount, TRoute, TCommunity } from '@/spec'
-import { markStates, buildLog, sortByIndex } from '@/utils'
+import type { TRootStore, TAccount, TCommunity, TThread } from '@/spec'
+import { markStates, buildLog, sortByIndex, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunityContent')
 
 const CommunityContent = T.model('CommunityContent', {})
   .views((self) => ({
-    get curRoute(): TRoute {
+    get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return root.curRoute
+      return stripMobx(root.viewing.community)
+    },
+    get curThread(): TThread {
+      const root = getParent(self) as TRootStore
+      return root.viewing.activeThread
     },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
