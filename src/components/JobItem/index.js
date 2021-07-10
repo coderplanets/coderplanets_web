@@ -36,11 +36,7 @@ const JobItem = ({
       opacity={getOpacity(entry, active, accountInfo)}
       divider={contentDivider}
     >
-      <ArticleItemPrefixLabel
-        entry={entry}
-        accountInfo={accountInfo}
-        topOffset="9px"
-      />
+      <ArticleItemPrefixLabel entry={entry} topOffset="9px" />
       <DigestView
         entry={entry}
         onPreview={onPreview}

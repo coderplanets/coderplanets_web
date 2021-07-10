@@ -64,6 +64,22 @@ const ViewingStore = T.model('ViewingStore', {
           return stripMobx(self.post)
       }
     },
+
+    get viewingArticle(): TArticle {
+      const curThread = self.viewingThread || self.activeThread
+      switch (curThread) {
+        case THREAD.JOB:
+          return stripMobx(self.job)
+        case THREAD.BLOG:
+          return stripMobx(self.blog)
+        case THREAD.REPO:
+          return stripMobx(self.repo)
+        case THREAD.POST:
+          return stripMobx(self.post)
+        default:
+          return stripMobx(self.post)
+      }
+    },
   }))
   .actions((self) => ({
     setViewing(sobj): void {
@@ -95,19 +111,7 @@ const ViewingStore = T.model('ViewingStore', {
     },
     syncViewingItem(item: TArticle): void {
       const root = getParent(self) as TRootStore
-      const curThread = self.viewingThread || self.activeThread
-
-      switch (curThread) {
-        case THREAD.JOB:
-          root.jobsThread.updateItem(item)
-          return
-        case THREAD.REPO:
-          root.reposThread.updateItem(item)
-          return
-        default: {
-          root.postsThread.updateItem(item)
-        }
-      }
+      root.articlesThread.updateItem(item)
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

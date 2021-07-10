@@ -3,7 +3,8 @@ import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
 import { ICON } from '@/config'
-import { cutRest } from '@/utils'
+import { EVENT } from '@/constant'
+import { cutRest, send } from '@/utils'
 
 import { SpaceGrow } from '@/components/Common'
 import DigestSentence from '@/components/DigestSentence'
@@ -23,10 +24,9 @@ import {
 
 type TProps = {
   item: TPost
-  onPreview?: (obj: TPost) => void
 }
 
-const Body: FC<TProps> = ({ item, onPreview }) => {
+const Body: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Extra>
@@ -47,7 +47,11 @@ const Body: FC<TProps> = ({ item, onPreview }) => {
         <ActiveBadge item={item} />
       </Extra>
 
-      <DigestSentence top={5} right={140} onPreview={() => onPreview(item)}>
+      <DigestSentence
+        top={5}
+        right={140}
+        onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}
+      >
         {cutRest(item.digest, 90)}
       </DigestSentence>
     </Wrapper>

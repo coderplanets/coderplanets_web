@@ -2,7 +2,7 @@ import type { TCommunity, TTag } from './index'
 import type { TUser } from './account'
 import type { TID } from './utils'
 
-export type TArticle = {
+type TBaseArticle = {
   id?: TID
   title?: string
   body?: string
@@ -23,31 +23,23 @@ export type TArticle = {
   tags?: TTag[]
 }
 
-export type TPost = TArticle & {
+export type TPost = TBaseArticle & {
   digest?: string
   linkAddr?: string
   linkIcon?: string
 }
 
-export type TBlog = TArticle & {
+export type TBlog = TBaseArticle & {
   digest?: string
   linkAddr?: string
 }
 
-export type TJob = {
-  id: string
-  title: string
-  body: string
-  author: {
-    id: string
-    login: string
-    nickname: string
-    avatar: string
-  }
-}
+export type TJob = TBaseArticle
 
-export type TPagedJobs = {
-  entries: TJob[]
+export type TArticle = TPost | TJob | TBlog
+
+export type TPagedArticles = {
+  entries: TPost[] | TJob[] | TBlog[]
   totalCount: number
   pageNumber: number
   pageSize: number

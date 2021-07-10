@@ -9,7 +9,7 @@ import React from 'react'
 import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
-import { ArticleContentLoading } from '@/components/LoadingEffects'
+import { ArticleContentLoading } from '@/components/Loading'
 
 import SearchBar from './SearchBar'
 import Message from './Message'

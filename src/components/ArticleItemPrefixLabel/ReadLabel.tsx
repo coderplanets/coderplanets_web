@@ -1,15 +1,14 @@
 import { FC, memo } from 'react'
+import { useAccount } from '@/hooks'
 
 import { ReadedLabel } from './styles'
-
 import type { TProps } from './index'
 
-const ReadLabel: FC<TProps> = ({ entry, accountInfo, topOffset = '20px' }) => {
+const ReadLabel: FC<TProps> = ({ entry, topOffset = '20px' }) => {
+  const { c11n } = useAccount()
+  const { isLogin, markViewed } = c11n
+
   const { viewerHasViewed } = entry
-  const {
-    isLogin,
-    customization: { markViewed },
-  } = accountInfo
 
   if (!isLogin) return null
   if (markViewed && viewerHasViewed) {

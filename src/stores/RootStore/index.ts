@@ -35,9 +35,7 @@ import {
   ErrorBoxStore,
 
   // threads
-  PostsThreadStore,
   ReposThreadStore,
-  JobsThreadStore,
   UsersThreadStore,
   // banners
   ArticleDigestStore,
@@ -93,8 +91,8 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  ArticlesThreadStore,
   ThreadSidebarStore,
-  BlogsThreadStore,
   AbuseReportStore,
   HelpCenterContentStore,
   CommunityJoinBadgeStore,
@@ -174,9 +172,7 @@ const rootStore = T.model({
   // footer
   footer: T.optional(FooterStore, {}),
   // threads
-  postsThread: T.optional(PostsThreadStore, {}),
   reposThread: T.optional(ReposThreadStore, {}),
-  jobsThread: T.optional(JobsThreadStore, {}),
   usersThread: T.optional(UsersThreadStore, {}),
 
   tagsBar: T.optional(TagsBarStore, {}),
@@ -209,8 +205,8 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  articlesThread: T.optional(ArticlesThreadStore, {}),
   threadSidebar: T.optional(ThreadSidebarStore, {}),
-  blogsThread: T.optional(BlogsThreadStore, {}),
   abuseReport: T.optional(AbuseReportStore, {}),
   helpCenterContent: T.optional(HelpCenterContentStore, {}),
   communityJoinBadge: T.optional(CommunityJoinBadgeStore, {}),

@@ -1,5 +1,4 @@
-export const THREAD = {
-  USER: 'user',
+export const ARTICLE_THREAD = {
   REPO: 'repo',
   POST: 'post',
   BLOG: 'blog',
@@ -7,4 +6,7 @@ export const THREAD = {
   RADAR: 'radar',
 }
 
-export const holder = 1
+export const THREAD = {
+  ...ARTICLE_THREAD,
+  USER: 'user',
+}

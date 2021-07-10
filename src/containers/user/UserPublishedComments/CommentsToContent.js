@@ -7,7 +7,7 @@ import { Trans } from '@/utils'
 import Pagi from '@/components/Pagi'
 import EmptyLabel from '@/components/EmptyLabel'
 import MarkDownRender from '@/components/MarkDownRender'
-import { CommentLoading } from '@/components/LoadingEffects'
+import { CommentLoading } from '@/components/Loading'
 
 import Parent from './Parent'
 

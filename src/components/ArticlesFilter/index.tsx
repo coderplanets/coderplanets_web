@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { Fragment, memo } from 'react'
 
 import { useDevice } from '@/hooks'
 import { buildLog } from '@/utils'
@@ -17,9 +17,7 @@ const log = buildLog('c:ArticlesFilter:index')
 const ArticlesFilter = (props) => {
   const { isMobile } = useDevice()
 
-  return (
-    <React.Fragment>{!isMobile && <DesktopView {...props} />}</React.Fragment>
-  )
+  return <Fragment>{!isMobile && <DesktopView {...props} />}</Fragment>
 }
 
-export default React.memo(ArticlesFilter)
+export default memo(ArticlesFilter)

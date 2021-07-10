@@ -68,6 +68,7 @@ const DesktopView: FC<TProps> = ({ type }) => {
         content={<MorePanel />}
         placement="bottom"
         hideOnClick={false}
+        trigger="click"
         noPadding
       >
         <SiteLink testid="header-more-link">

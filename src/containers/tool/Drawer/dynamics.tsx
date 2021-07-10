@@ -1,10 +1,7 @@
 /* eslint-disable react/display-name */
 import dynamic from 'next/dynamic'
 
-import {
-  ArticleContentLoading,
-  EditorLoading,
-} from '@/components/LoadingEffects'
+import { ArticleContentLoading, EditorLoading } from '@/components/Loading'
 
 const CommonLoading = () => (
   <div>

@@ -5,7 +5,7 @@ import { NON_FILL_COMMUNITY } from '@/constant'
 import { prettyNum, cutRest } from '@/utils'
 
 import TrendLine from '@/components/TrendLine'
-import { CommunityHolder } from '@/components/LoadingEffects'
+import { CommunityHolder } from '@/components/Loading'
 
 import SubscribeBtn from './SubscribeBtn'
 

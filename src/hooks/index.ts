@@ -14,3 +14,4 @@ export { default as useCopyToClipboard } from 'react-use/lib/useCopyToClipboard'
 export { default as useInterval } from 'react-use/lib/useInterval'
 
 export { useSwipeable as useSwipe } from 'react-swipeable'
+export { useViewing, useAccount } from '@/stores/init'

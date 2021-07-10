@@ -3,8 +3,9 @@ import { contains } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
 import type { TC11NLayout, TThread, TCommunity } from '@/spec'
-import { HCN } from '@/constant'
+import { HCN, EVENT } from '@/constant'
 import { useDevice } from '@/hooks'
+import { send } from '@/utils'
 
 import TabBar from '@/components/TabBar'
 import CommunityStatesPad from '@/components/CommunityStatesPad'
@@ -19,12 +20,7 @@ import {
   TabBarWrapper,
 } from '../styles/classic_view'
 
-import {
-  tabOnChange,
-  onShowEditorList,
-  onShowSubscriberList,
-  setViewport,
-} from '../logic'
+import { onShowEditorList, onShowSubscriberList, setViewport } from '../logic'
 
 // 没有各种外链接，打赏信息等的官方社区
 const NON_STANDARD_COMMUNITIES = [HCN, 'feedback']
@@ -71,7 +67,7 @@ const ClassicView: FC<TProps> = ({
           <TabBarWrapper>
             <TabBar
               source={community.threads}
-              onChange={tabOnChange}
+              onChange={(data) => send(EVENT.COMMUNITY_TAB_CHANGE, { data })}
               active={activeThread}
               layout={layout}
               communityRaw={community.raw}

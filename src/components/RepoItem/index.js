@@ -22,11 +22,7 @@ const log = buildLog('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
-    <ArticleItemPrefixLabel
-      entry={entry}
-      accountInfo={accountInfo}
-      topOffset="22px"
-    />
+    <ArticleItemPrefixLabel entry={entry} topOffset="22px" />
     <Header entry={entry} onPreview={() => onPreview(entry)} />
     <BodyDigest>{cutRest(entry.desc, 180)}</BodyDigest>
     <Footer

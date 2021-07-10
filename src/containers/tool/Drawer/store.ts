@@ -179,7 +179,7 @@ const DrawerStore = T.model('DrawerStore', {
         slf.canBeClose = false
       }
 
-      slf.markPreviewURLIfNeed(data.id)
+      slf.markPreviewURLIfNeed(data?.id)
     },
     setViewing(sobj: Record<string, unknown>): void {
       const root = getParent(self) as TRootStore
@@ -209,7 +209,7 @@ const DrawerStore = T.model('DrawerStore', {
 
     // TODO: 重构时用 article.meta.thread 来替代 thread
     markPreviewURLIfNeed(id: TID): void {
-      if (!contains(self.type, VIEWER_TYPES)) return
+      if (!id || !contains(self.type, VIEWER_TYPES)) return
 
       self.previousHref = Global.location.href
 

@@ -29,4 +29,8 @@ export type TThemeMap = {
   drawer?: {
     bg: string
   }
+  loading?: {
+    basic: string
+    animate: string
+  }
 }

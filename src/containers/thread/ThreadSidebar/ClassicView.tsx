@@ -19,6 +19,7 @@ import { PublishButton } from '@/components/Buttons'
 
 import type { TBaseProps } from './index'
 
+import { onCreate } from './logic'
 import {
   Wrapper,
   BadgeWrapper,
@@ -33,14 +34,13 @@ type TProps = { showCommunityBadge: boolean } & TBaseProps
 
 const ClassicView: FC<TProps> = ({
   showCommunityBadge,
-  onCreate,
   onTagSelect,
   onAdsClose,
 }) => {
   return (
     <Wrapper testid="thread-sidebar">
       <PublishWrapper show={showCommunityBadge}>
-        <PublishButton onCreate={() => onCreate()} />
+        <PublishButton onCreate={onCreate} />
       </PublishWrapper>
 
       <Sticky offsetTop={55}>

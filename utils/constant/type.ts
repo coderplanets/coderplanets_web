@@ -75,7 +75,12 @@ const TYPE = {
     SEARCH: 'search',
     MORE: 'more',
   },
-  // PAGE STATE
+  RES_STATE: {
+    LOADING: 'LOADING',
+    DONE: 'DONE',
+    EMPTY: 'EMPTY',
+  },
+  // TODO: remove PAGE STATE
   LOADING: 'LOADING',
   NOT_FOUND: 'NOT_FOUND',
   RESULT: 'RESULT',

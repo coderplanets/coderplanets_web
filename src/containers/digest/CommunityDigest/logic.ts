@@ -1,17 +1,7 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR } from '@/constant'
-
-import type { TThread } from '@/spec'
-
-import {
-  asyncSuit,
-  buildLog,
-  send,
-  subPath2Thread,
-  thread2Subpath,
-  errRescue,
-} from '@/utils'
+import { asyncSuit, buildLog, send, subPath2Thread, errRescue } from '@/utils'
 
 import type { TStore } from './store'
 import S from './schema'
@@ -33,17 +23,6 @@ const loadCommunity = (): void => {
   markLoading(true)
 
   sr71$.query(S.community, { raw, userHasLogin })
-}
-
-export const tabOnChange = (activeThread: TThread): void => {
-  const subPath = thread2Subpath(activeThread)
-  // log('EVENT.activeThread -----> ', activeThread)
-  // log('EVENT.subPath -----> ', subPath)
-
-  store.markRoute({ subPath })
-  store.setViewing({ activeThread })
-
-  send(EVENT.THREAD_CHANGE, { data: { activeThread } })
 }
 
 export const onShowEditorList = (): void => {

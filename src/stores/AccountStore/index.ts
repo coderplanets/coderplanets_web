@@ -11,6 +11,7 @@ import type {
   TAccount,
   TCommunity,
   TPagedCommunities,
+  TC11N,
 } from '@/spec'
 import { markStates, buildLog, stripMobx, BStore } from '@/utils'
 import { User, EmptyUser, PagedCommunities } from '@/model'
@@ -31,6 +32,12 @@ const AccountStore = T.model('AccountStore', {
         ...user,
         isLogin: self.isValidSession,
         isValidSession: self.isValidSession,
+      }
+    },
+    get c11n(): TC11N {
+      return {
+        isLogin: self.isValidSession,
+        ...stripMobx(self.user.customization),
       }
     },
     get subscribedCommunities(): TPagedCommunities {

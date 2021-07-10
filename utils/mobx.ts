@@ -55,6 +55,9 @@ export const storePlug = curry((selectedStore, props) => ({
  * NOTE: container should be naming as XxxContainer (end with Container)
  * 注意： 容器组件的命名需遵守 XxxContainer 的约定规则 (以 Container 结尾)
  *
+ * NOTE:  consider use useAccount or useViewing in @/hooks if you want to access those spec store
+ * 注意: 如果是获取 account 或 viewing 的数据，考虑使用 @/hooks 中的 useAccount 或者 useViewing
+ *
  * NOTE: KNOWN ISSUE:
  * because the type information of the incoming container cannot be obtained,
  * only an empty React.FC can be returned here, which will cause a type error in

@@ -7,5 +7,4 @@ export const Wrapper = styled.div`
 `
 export const ResultText = styled.div`
   color: ${theme('thread.filterResultHint')};
-  margin-right: 3px;
 `

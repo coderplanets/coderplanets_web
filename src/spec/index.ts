@@ -15,7 +15,7 @@ export type {
 } from './size'
 export type { TButton, TFiltersMenuItems } from './comp'
 export type { TTheme, TThemeMap, TThemeName } from './theme'
-export type { TAccount, TUser, TMembership } from './account'
+export type { TAccount, TUser, TMembership, TC11N } from './account'
 export type { TC11NLayout } from './c11n'
 export type {
   TCommunity,
@@ -41,6 +41,7 @@ export type {
   TReportType,
   TAttInfo,
   TTabItem,
+  TResState,
 } from './utils'
 
 export type { TGQLError } from './graphql'
@@ -50,7 +51,7 @@ export type {
   TPost,
   TBlog,
   TJob,
-  TPagedJobs,
+  TPagedArticles,
   TComment,
   TPagedComments,
   TArticleFilter,
@@ -66,6 +67,8 @@ export type {
   TGALLERY_TEXT_ONLY,
   TGALLERY_TEXT_WITH_IMAGE,
 } from './gallery'
+
+export type { TAccountStore, TViewingStore } from './store'
 
 export type TRoute = {
   communityPath?: string

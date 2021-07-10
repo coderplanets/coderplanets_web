@@ -91,3 +91,5 @@ export type TTabItem = {
   icon?: string | ReactNode
   localIcon?: string
 }
+
+export type TResState = 'LOADING' | 'DONE' | 'EMPTY'

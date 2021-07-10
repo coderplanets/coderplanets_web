@@ -19,6 +19,10 @@ const ThreadSidebar = T.model('ThreadSidebar', {
       const root = getParent(self) as TRootStore
       return root.accountInfo
     },
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
+    },
 
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
@@ -37,6 +41,10 @@ const ThreadSidebar = T.model('ThreadSidebar', {
     },
   }))
   .actions((self) => ({
+    authWarning(options = {}): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
