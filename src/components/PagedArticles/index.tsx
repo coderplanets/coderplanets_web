@@ -6,7 +6,7 @@
 
 import { Fragment, FC, memo } from 'react'
 
-import type { TThread, TArticle, TPagedArticles, TResState } from '@/spec'
+import type { TThread, TPagedArticles, TResState } from '@/spec'
 import { EVENT } from '@/constant'
 import { buildLog, send } from '@/utils'
 import { useViewing } from '@/hooks'
@@ -34,7 +34,7 @@ const PagedArticles: FC<TProps> = ({ thread, data, resState, emptyPrefix }) => {
     <Fragment>
       <ArticleList
         thread={thread}
-        activeArticleId={viewingArticle.id}
+        activeId={viewingArticle.id}
         entries={entries}
         resState={resState}
         emptyPrefix={emptyPrefix}

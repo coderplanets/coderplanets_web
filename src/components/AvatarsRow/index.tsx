@@ -48,8 +48,8 @@ export type TProps = {
   reverse?: boolean
   scrollPosition?: any
 
-  onUserSelect: (user: TUser) => void
-  onTotalSelect: () => void
+  onUserSelect?: (user: TUser) => void
+  onTotalSelect?: () => void
 }
 
 const AvatarsRow: FC<TProps> = ({

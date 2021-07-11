@@ -1,23 +1,21 @@
-import { Fragment, memo } from 'react'
+import { FC, memo } from 'react'
 
+import type { TJob, TID } from '@/spec'
 import JobItem from '@/components/JobItem'
+import MasonryCards from '@/components/MasonryCards'
 
-const JobsList = ({ props }) => {
-  const { entries, active, community, onAuthorSelect, accountInfo } = props
+type TProps = {
+  entries: TJob[]
+  activeId: TID | null
+}
 
+const JobsList: FC<TProps> = ({ entries, activeId }) => {
   return (
-    <Fragment>
+    <MasonryCards column={2}>
       {entries.map((entry) => (
-        <JobItem
-          key={entry.id}
-          entry={entry}
-          community={community}
-          active={active}
-          accountInfo={accountInfo}
-          onAuthorSelect={onAuthorSelect}
-        />
+        <JobItem key={entry.id} entry={entry} activeId={activeId} />
       ))}
-    </Fragment>
+    </MasonryCards>
   )
 }
 
