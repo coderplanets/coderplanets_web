@@ -21,7 +21,7 @@ import { Wrapper } from './styles'
 const log = buildLog('c:PostItem:index')
 
 type TProps = {
-  activeArticleId?: TID | null
+  activeId?: TID | null
   entry: TPost
 
   onUserSelect?: (obj: TUser) => void
@@ -32,12 +32,12 @@ const PostItem: FC<TProps> = ({
   entry,
   onUserSelect = log,
   onAuthorSelect = log,
-  activeArticleId = null,
+  activeId = null,
 }) => {
   const { c11n } = useAccount()
 
   return (
-    <Wrapper entry={entry} activeArticleId={activeArticleId} c11n={c11n}>
+    <Wrapper entry={entry} activeId={activeId} c11n={c11n}>
       <ArticleItemPrefixLabel entry={entry} />
       <DigestView
         entry={entry}

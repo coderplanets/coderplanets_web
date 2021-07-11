@@ -17,12 +17,12 @@ type TProps = {
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const DigestView: FC<TProps> = ({ entry, onUserSelect, onAuthorSelect }) => {
+const DigestView: FC<TProps> = ({ entry }) => {
   return (
     <Fragment>
-      <TheAvatar user={entry.author} onSelect={onAuthorSelect} />
+      <TheAvatar user={entry.author} />
       <Main>
-        <Header item={entry} onUserSelect={onUserSelect} />
+        <Header item={entry} />
         <Body item={entry} />
       </Main>
     </Fragment>

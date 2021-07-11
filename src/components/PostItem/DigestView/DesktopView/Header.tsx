@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 
-import type { TPost, TUser } from '@/spec'
+import type { TPost } from '@/spec'
 import { ROUTE } from '@/constant'
 import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils'
@@ -20,10 +20,9 @@ import {
 
 type TProps = {
   item: TPost
-  onUserSelect?: (obj: TUser) => void
 }
 
-const Header: FC<TProps> = ({ item, onUserSelect }) => {
+const Header: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Brief>
@@ -40,13 +39,10 @@ const Header: FC<TProps> = ({ item, onUserSelect }) => {
           <InlineTags data={item.tags} />
         </TagListWrapper>
       </Brief>
-      <div>
-        <AvatarsRow
-          onUserSelect={onUserSelect}
-          users={item.commentsParticipators}
-          total={item.commentsCount}
-        />
-      </div>
+      <AvatarsRow
+        users={item.commentsParticipators}
+        total={item.commentsCount}
+      />
     </Wrapper>
   )
 }
