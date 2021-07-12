@@ -4,7 +4,8 @@ import type { TJob } from '@/spec'
 
 import { cutRest } from '@/utils'
 import DigestSentence from '@/components/DigestSentence'
-import { Br } from '@/components/Common'
+import { Br, SpaceGrow } from '@/components/Common'
+import ArticleImgWindow from '@/components/ArticleImgWindow'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -28,9 +29,10 @@ const DesktopView: FC<TProps> = ({ entry }) => {
           100,
         )}
       </DigestSentence>
-      <Br top={10} />
-      <div>图片列表，可预览</div>
-      <Br top={20} />
+      <Br top={4} />
+      <ArticleImgWindow />
+      <Br top={16} />
+      <SpaceGrow />
       <Footer />
     </Wrapper>
   )
