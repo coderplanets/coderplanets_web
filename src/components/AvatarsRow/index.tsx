@@ -42,8 +42,9 @@ const getUniqueArray = (arr, comp) => {
 export type TProps = {
   users?: TUser[]
   size?: TAvatarSize
-  total: number
+  total?: number | null
   limit: number
+  showMore?: boolean
   showTotalNumber?: boolean
   reverse?: boolean
   scrollPosition?: any
@@ -54,11 +55,12 @@ export type TProps = {
 
 const AvatarsRow: FC<TProps> = ({
   size = SIZE.SMALL,
-  total,
+  total = null,
   users = [],
   limit = AVATARS_LIST_LENGTH.POSTS,
   onUserSelect = log,
   onTotalSelect = log,
+  showMore = true,
   showTotalNumber = false,
   reverse = true,
   // see https://github.com/Aljullu/react-lazy-load-image-component/issues/42
@@ -68,23 +70,25 @@ const AvatarsRow: FC<TProps> = ({
     return <span />
   }
 
+  const totalCount = total || users.length
+
   users = filter(validUser, getUniqueArray(users, 'id'))
   const sortedUsers = reverse ? users : reverseFn(users)
 
   return (
-    <Wrapper total={total}>
-      {total <= 1 ? (
+    <Wrapper total={totalCount}>
+      {totalCount <= 1 || !showMore ? (
         <TotalOneOffset />
       ) : (
         <MoreItem
           size={size}
-          total={total}
+          total={totalCount}
           showTotalNumber={showTotalNumber}
           onTotalSelect={onTotalSelect}
         />
       )}
 
-      {total === 1 ? (
+      {totalCount === 1 ? (
         <RealAvatar
           user={sortedUsers[0]}
           size={size}

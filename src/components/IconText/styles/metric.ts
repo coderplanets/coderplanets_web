@@ -4,10 +4,10 @@ import { SIZE } from '@/constant'
 export const getIconSize = (size: TSIZE): string => {
   switch (size) {
     case SIZE.LARGE: {
-      return '14px'
+      return '16px'
     }
     case SIZE.MEDIUM: {
-      return '13px'
+      return '15px'
     }
     case SIZE.TINY: {
       return '11px'
@@ -25,6 +25,9 @@ export const getTextSize = (size: TSIZE): string => {
   switch (size) {
     case SIZE.LARGE: {
       return '15px'
+    }
+    case SIZE.MEDIUM: {
+      return '14px'
     }
     case SIZE.TINY: {
       return '11px'
