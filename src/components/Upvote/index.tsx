@@ -11,8 +11,8 @@ import { buildLog } from '@/utils'
 
 import AvatarsRow from '@/components/AvatarsRow'
 
+import UpvoteBtn from './UpvoteBtn'
 import Desc from './Desc'
-import AnimatedUpvoteIcon from './AnimatedUpvoteIcon'
 
 import { Wrapper } from './styles'
 
@@ -53,16 +53,16 @@ const Upvote: FC<TProps> = ({
   avatarsRowLimit = 3,
   alias = '觉得很赞',
 }) => {
-  const noBody = count === 0
+  const noOne = count === 0
 
   return (
     <Wrapper testid={testid}>
-      <AnimatedUpvoteIcon viewerHasUpvoted={viewerHasUpvoted} />
+      <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} />
 
-      {!noBody && <AvatarsRow users={tmpUsers} showMore={false} />}
+      {!noOne && <AvatarsRow users={tmpUsers} showMore={false} />}
 
       <Desc
-        noBody={noBody}
+        noOne={noOne}
         count={count}
         avatarsRowLimit={avatarsRowLimit}
         alias={alias}

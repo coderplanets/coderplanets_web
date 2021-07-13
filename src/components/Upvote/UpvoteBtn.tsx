@@ -16,7 +16,7 @@ import {
   IconWrapper,
   IconShadow,
   UpIcon,
-} from './styles/animated_upvote_icon'
+} from './styles/upvote_btn'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
@@ -29,7 +29,7 @@ type TProps = {
   avatarList?: TUser[]
 }
 
-const AnimatedUpvoteIcon: FC<TProps> = ({ viewerHasUpvoted = false }) => {
+const UpvoteBtn: FC<TProps> = ({ viewerHasUpvoted = false }) => {
   const [showAnimation, setShowAnimation] = useState(false)
   const [num, setNum] = useState(0)
 
@@ -56,4 +56,4 @@ const AnimatedUpvoteIcon: FC<TProps> = ({ viewerHasUpvoted = false }) => {
   )
 }
 
-export default memo(AnimatedUpvoteIcon)
+export default memo(UpvoteBtn)

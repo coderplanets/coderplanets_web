@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { AnimateOnChange } from 'react-animation'
-import { Wrapper } from './styles/count'
+import { Wrapper } from '../styles/total_count'
 
 type TProps = {
   count?: number

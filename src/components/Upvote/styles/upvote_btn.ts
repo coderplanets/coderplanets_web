@@ -167,14 +167,14 @@ export const UpIcon = styled(Img)<TActive>`
   ${css.size(15)};
   margin-top: 3px;
   &:hover {
-    fill: ${({ $active }) =>
-      $active ? '#139B9D;' : theme('thread.articleTitle')};
+    fill: #139b9d;
     cursor: pointer;
   }
 
-  /* ${IconWrapper}:hover & {
-    margin-top: 3px;
-  } */
+  ${IconWrapper}:hover & {
+    fill: #139b9d;
+    cursor: pointer;
+  }
 
   transition: all 0.2s;
 `
