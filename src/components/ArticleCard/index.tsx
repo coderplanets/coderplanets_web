@@ -12,6 +12,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 import { Wrapper } from './styles'
+import { SIZE } from '@/constant'
 
 type TProps = {
   data: TJob
@@ -30,6 +31,7 @@ const ArticleCard: FC<TProps> = ({ data }) => {
       <DigestSentence
         top={5}
         bottom={15}
+        size={SIZE.MEDIUM}
         onPreview={() => console.log('send preview')}
       >
         {cutRest(fakeDigest, 150)}

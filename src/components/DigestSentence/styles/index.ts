@@ -1,14 +1,17 @@
 import styled from 'styled-components'
 
-import type { TTestable, TSpace } from '@/spec'
+import type { TTestable, TSpace, TSIZE_SM } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
+import { getFontSize } from './metric'
+
+type TWrapper = TTestable & TSpace & { size: TSIZE_SM }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable & TSpace>`
+}))<TWrapper>`
   color: ${theme('thread.articleDigest')};
-  font-size: 13px;
+  font-size: ${({ size }) => getFontSize(size)};
 
   padding-top: ${({ top }) => `${top}px`};
   padding-bottom: ${({ bottom }) => `${bottom}px`};

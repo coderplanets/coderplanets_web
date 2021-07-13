@@ -6,6 +6,8 @@
 
 import { FC, ReactNode, memo } from 'react'
 
+import type { TSIZE_SM } from '@/spec'
+import { SIZE } from '@/constant'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
@@ -31,6 +33,7 @@ type TProps = {
   bottom?: number
   left?: number
   right?: number
+  size?: TSIZE_SM
   onPreview: () => void
 }
 
@@ -42,6 +45,7 @@ const DigestSentence: FC<TProps> = ({
   bottom = 0,
   left = 0,
   right = 0,
+  size = SIZE.SMALL,
 }) => {
   return (
     <Wrapper
@@ -51,6 +55,7 @@ const DigestSentence: FC<TProps> = ({
       bottom={bottom}
       left={left}
       right={right}
+      size={size}
     >
       {children}
       <Space left={8} />
