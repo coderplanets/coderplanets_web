@@ -39,7 +39,8 @@ const ArticleList = (props) => {
       return <ReposList {...props} />
 
     default:
-      return <PostsList {...props} />
+      // return <PostsList {...props} />
+      return <JobsList {...props} />
   }
 }
 

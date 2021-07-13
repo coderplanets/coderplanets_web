@@ -5,7 +5,7 @@ import Upvote from '@/components/Upvote'
 import DotDivider from '@/components/DotDivider'
 import IconText from '@/components/IconText'
 
-import { Wrapper, PublishWrapper, Bottom } from '../styles/desktop_view/footer'
+import { Wrapper, PublishWrapper, Bottom } from './styles/footer'
 
 const Footer: FC = () => {
   return (

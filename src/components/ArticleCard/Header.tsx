@@ -4,7 +4,7 @@ import type { TTag } from '@/spec'
 import { cutRest } from '@/utils'
 import InlineTags from '@/components/InlineTags'
 
-import { Wrapper, Title } from '../styles/desktop_view/header'
+import { Wrapper, Title } from './styles/header'
 
 type TProps = {
   title: string

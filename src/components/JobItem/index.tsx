@@ -10,8 +10,7 @@ import type { TJob, TID } from '@/spec'
 import { buildLog } from '@/utils'
 import { useAccount } from '@/hooks'
 
-import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
-import DesktopView from './DesktopView'
+import ArticleCard from '@/components/ArticleCard'
 
 import { Wrapper } from './styles'
 
@@ -28,8 +27,7 @@ const JobItem: FC<TProps> = ({ entry, activeId }) => {
 
   return (
     <Wrapper entry={entry} activeId={activeId} c11n={c11n}>
-      <ArticleItemPrefixLabel entry={entry} topOffset="9px" />
-      <DesktopView entry={entry} />
+      <ArticleCard data={entry} />
     </Wrapper>
   )
 }
