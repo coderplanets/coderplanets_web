@@ -1,7 +1,6 @@
 import { FC, memo, createContext, useContext } from 'react'
 import dynamic from 'next/dynamic'
 
-import { Space } from '@/components/Common'
 import { Wrapper } from '../styles/total_count'
 
 // @ts-ignore
