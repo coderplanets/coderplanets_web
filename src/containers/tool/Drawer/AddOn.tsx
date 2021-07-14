@@ -4,8 +4,8 @@ import { ICON_CMD } from '@/config'
 // import { Wrapper } from './styles'
 import {
   Wrapper,
-  CloseTab,
-  CloserInner,
+  CloseBtn,
+  EscHint,
   UploadingTab,
   UploadImgIcon,
   UploadLoadingIcon,
@@ -21,9 +21,12 @@ type TProps = {
 const AddOn: FC<TProps> = ({ type, imageUploading = false }) => {
   return (
     <Wrapper>
-      <CloseTab type={type} onClick={() => closeDrawer()}>
-        <CloserInner />
-      </CloseTab>
+      <CloseBtn
+        src={`${ICON_CMD}/closeBtn.svg`}
+        type={type}
+        onClick={() => closeDrawer()}
+      />
+      <EscHint>Esc</EscHint>
       <UploadingTab show={imageUploading}>
         <UploadImgIcon src={`${ICON_CMD}/preview-tab-image.svg`} />
         <UploadLoadingIcon src={`${ICON_CMD}/preview-tab-loading.svg`} />

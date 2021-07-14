@@ -6,10 +6,9 @@
 
 import { Fragment, FC, memo } from 'react'
 
-import type { TThread, TPagedArticles, TResState } from '@/spec'
+import type { TThread, TPagedArticles, TResState, TArticle } from '@/spec'
 import { EVENT } from '@/constant'
 import { buildLog, send } from '@/utils'
-import { useViewing } from '@/hooks'
 
 import Pagi from '@/components/Pagi'
 import ArticleList from './ArticleList'
@@ -24,11 +23,17 @@ type TProps = {
   resState: TResState
   // TODO: remove
   emptyPrefix?: string
+  viewingArticle: TArticle
 }
 
-const PagedArticles: FC<TProps> = ({ thread, data, resState, emptyPrefix }) => {
+const PagedArticles: FC<TProps> = ({
+  thread,
+  data,
+  resState,
+  viewingArticle,
+  emptyPrefix,
+}) => {
   const { entries, ...pagi } = data
-  const { viewingArticle } = useViewing()
 
   return (
     <Fragment>

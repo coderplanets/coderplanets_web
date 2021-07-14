@@ -4,11 +4,13 @@
  *
  */
 
-import { FC, ReactNode, useEffect, memo } from 'react'
+import { FC, ReactNode, useEffect, useState, useCallback, memo } from 'react'
 import usePortal from 'react-useportal'
+import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@/config'
 import { buildLog, toggleGlobalBlur } from '@/utils'
+import { useShortcut } from '@/hooks'
 
 import Belt from './Belt'
 
@@ -31,7 +33,7 @@ type TProps = {
 
 const Modal: FC<TProps> = ({
   children,
-  show = false,
+  show = true,
   showBelt = false,
   width = '600px',
   showCloseBtn = false,
@@ -41,14 +43,27 @@ const Modal: FC<TProps> = ({
   offsetTop = '13%',
 }) => {
   const { Portal } = usePortal()
+  const [visibleOnPage, setVisibleOnPage] = useState(false)
 
-  useEffect(() => toggleGlobalBlur(show), [show])
+  const handleClose = useCallback(() => {
+    setVisibleOnPage(false)
+    toggleGlobalBlur(false)
+    onClose()
+  }, [])
+
+  useShortcut('Escape', handleClose)
+
+  useEffect(() => {
+    if (visibleOnPage) {
+      toggleGlobalBlur(true)
+    }
+  }, [show, visibleOnPage])
 
   return (
     <>
       {show && (
         <Portal>
-          <Mask show={show} onClick={onClose}>
+          <Mask show={show} onClick={handleClose}>
             {showBelt && <Belt />}
             <Wrapper
               width={width}
@@ -56,11 +71,12 @@ const Modal: FC<TProps> = ({
               background={background}
               offsetTop={offsetTop}
             >
+              <Waypoint onEnter={() => setVisibleOnPage(true)} />
               <CloseBtn
                 mode={mode}
                 src={`${ICON_CMD}/closeBtn.svg`}
                 show={showCloseBtn}
-                onClick={onClose}
+                onClick={handleClose}
               />
               <EscHint>ESC</EscHint>
               <ChildrenWrapper onClick={(e) => e.stopPropagation()}>

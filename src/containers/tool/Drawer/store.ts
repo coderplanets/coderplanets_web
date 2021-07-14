@@ -174,8 +174,9 @@ const DrawerStore = T.model('DrawerStore', {
       slf.type = type
       slf.options = merge(defaultOptions, options)
       lockPage()
+      toggleGlobalBlur(true)
+
       if (slf.isMobile) {
-        toggleGlobalBlur(true)
         slf.canBeClose = false
       }
 
@@ -196,10 +197,7 @@ const DrawerStore = T.model('DrawerStore', {
       slf.type = null
 
       unlockPage()
-
-      if (slf.isMobile) {
-        toggleGlobalBlur(false)
-      }
+      toggleGlobalBlur(false)
     },
 
     resetViewing(): void {

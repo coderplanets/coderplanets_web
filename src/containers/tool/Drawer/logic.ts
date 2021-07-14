@@ -46,11 +46,6 @@ export const closeDrawer = (): void => {
     send(EVENT.DRAWER.AFTER_CLOSE)
     store.resetViewing()
   }, 200)
-
-  setTimeout(() => {
-    // make sure global blur is closed
-    toggleGlobalBlur(false)
-  }, 500)
 }
 
 // handler swiped event for up/down swipe

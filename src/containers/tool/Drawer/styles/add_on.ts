@@ -16,39 +16,35 @@ export const Wrapper = styled.div`
 `
 const closeWith = '40px'
 
-export const CloseTab = styled.div<{ type: string }>`
-  float: right;
-  width: ${closeWith};
-  height: ${closeWith};
-  perspective: ${closeWith};
-  cursor: pointer;
+type TCloseBtn = { type: string }
+export const CloseBtn = styled(Img)<TCloseBtn>`
+  fill: ${theme('font')};
+  position: absolute;
   display: ${({ type }) =>
     type === TYPE.DRAWER.ACCOUNT_EDIT ? 'none' : 'block'};
+  width: ${closeWith};
+  height: ${closeWith};
+  top: 15px;
+  left: 60px;
+  ${css.size(30)};
+  z-index: ${css.zIndex.drawer};
 
-  &:hover:after {
+  &:hover {
     animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
     font-weight: bold;
+    cursor: pointer;
   }
-  &:after {
-    content: '✕';
-    position: absolute;
-    top: 9px;
-    right: 6px;
-    font-size: large;
-    color: ${theme('drawer.font')};
-    font-weight: lighter;
-  }
+
   ${css.media.mobile`display: none`};
 `
-
-export const CloserInner = styled.div`
-  width: ${closeWith};
-  height: 45px;
-  background-color: ${theme('drawer.bg')};
-  border-right: 1px solid ${theme('drawer.bg')};
-  transform-origin: right center 0;
-  transform: rotate3d(0, 1, 0, -30deg);
-  box-shadow: ${theme('drawer.closerShadow')};
+export const EscHint = styled.div`
+  color: ${theme('font')};
+  opacity: 0.9;
+  position: absolute;
+  top: 48px;
+  left: 63px;
+  font-size: 13px;
+  z-index: ${css.zIndex.drawer};
 `
 export const MobileCloser = styled.div`
   position: absolute;

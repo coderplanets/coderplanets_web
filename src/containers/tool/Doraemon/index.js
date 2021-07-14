@@ -41,7 +41,10 @@ const DoraemonContainer = ({ doraemon: store }) => {
     searchedTotalCount,
   } = store
 
-  useEffect(() => toggleGlobalBlur(visible), [visible])
+  useEffect(() => {
+    console.log('from Doreamon')
+    toggleGlobalBlur(visible)
+  }, [visible])
 
   return (
     <React.Fragment>
