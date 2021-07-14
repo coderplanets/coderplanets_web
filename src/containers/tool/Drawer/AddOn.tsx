@@ -1,6 +1,8 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
+import { SpaceGrow } from '@/components/Common'
+import GotoTop from '@/components/GotoTop'
 
 import {
   Wrapper,
@@ -14,6 +16,7 @@ import {
   ArticleWrapper,
   IndexDesc,
   ArticleTitle,
+  GotoTopWrapper,
 } from './styles/add_on'
 
 import { closeDrawer } from './logic'
@@ -51,6 +54,10 @@ const AddOn: FC<TProps> = ({ type }) => {
           </ArticleWrapper>
         </SwitchBlock>
       </SwitchArticleWrapper>
+      <SpaceGrow />
+      <GotoTopWrapper>
+        <GotoTop />
+      </GotoTopWrapper>
     </Wrapper>
   )
 }

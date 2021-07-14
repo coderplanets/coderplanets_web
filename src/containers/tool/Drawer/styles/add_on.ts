@@ -7,7 +7,7 @@ import { theme, css } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  width: 10%;
+  width: 60px;
   ${css.flexColumn('align-end')};
 
   ${css.media.mobile`
@@ -18,12 +18,12 @@ export const CloseWrapper = styled.div<{ type: string }>`
   ${css.size(40)};
   position: absolute;
   top: 15px;
-  left: 45px;
+  left: 20px;
   display: ${({ type }) =>
     type === TYPE.DRAWER.ACCOUNT_EDIT ? 'none' : 'block'};
 `
 export const CloseBtn = styled(Img)`
-  fill: ${theme('font')};
+  fill: ${theme('thread.articleDigest')};
 
   ${css.size(30)};
   z-index: ${css.zIndex.drawer};
@@ -33,13 +33,14 @@ export const CloseBtn = styled(Img)`
     opacity: 1;
     font-weight: bold;
     cursor: pointer;
+    fill: #00a59b;
   }
-  transition: opacity 0.2s;
+  transition: all 0.2s;
 
   ${css.media.mobile`display: none`};
 `
 export const EscHint = styled.div`
-  color: ${theme('font')};
+  color: ${theme('thread.articleDigest')};
   opacity: 0.9;
   position: absolute;
   top: 32px;
@@ -62,7 +63,6 @@ export const MobileCloser = styled.div`
     font-weight: lighter;
   }
 `
-
 export const SwitchArticleWrapper = styled.div<TActive>`
   ${css.flexColumn('justify-evenly', 'align-center')};
   opacity: ${({ show }) => (show ? 1 : 0)};
@@ -72,8 +72,13 @@ export const SwitchArticleWrapper = styled.div<TActive>`
   width: 35px;
   height: 70px;
   margin-right: 6px;
-  box-shadow: ${theme('drawer.closerShadow')};
-  margin-top: 55vh;
+  margin-top: 44vh;
+
+  opacity: 0;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
 
   transition: opacity 0.2s linear;
 `
@@ -86,7 +91,7 @@ export const PreviousIcon = styled(Img)`
 
   &:hover {
     cursor: pointer;
-    fill: #57b5e5;
+    fill: #00a59b;
     opacity: 1;
   }
 
@@ -118,4 +123,16 @@ export const IndexDesc = styled.div`
 export const ArticleTitle = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
+`
+export const GotoTopWrapper = styled.div`
+  margin-bottom: 30px;
+  margin-right: 8px;
+
+  opacity: 0;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
+
+  transition: opacity 0.2s linear;
 `

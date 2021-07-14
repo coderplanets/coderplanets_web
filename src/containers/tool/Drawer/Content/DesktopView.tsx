@@ -27,7 +27,12 @@ const Content: FC<TProps> = ({ visible, type, attachment, attUser }) => {
 
   return (
     <Wrapper>
-      <CustomScroller direction="vertical" height="100vh" shadowSize="small">
+      <CustomScroller
+        direction="vertical"
+        height="100vh"
+        shadowSize="small"
+        showShadow={false}
+      >
         <div>{renderContent(type, attachment, attUser)}</div>
       </CustomScroller>
     </Wrapper>
