@@ -51,10 +51,6 @@ const EVENT = {
   // bills
   NEW_BILLS: 'NEW_BILLS',
 
-  // upload
-  UPLOAD_IMG_START: 'UPLOAD_IMG_START',
-  UPLOAD_IMG_FINISH: 'UPLOAD_IMG_FINISH',
-
   // doramon
   QUERY_DORAMON: 'QUERY_DORAMON',
 

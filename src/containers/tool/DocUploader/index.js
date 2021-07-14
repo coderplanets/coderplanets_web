@@ -13,14 +13,7 @@ import { buildLog, storePlug, uid, Global } from '@/utils'
 
 import { Wrapper, InputFile } from './styles'
 
-import {
-  init,
-  unInit,
-  onUploadError,
-  getOSSDir,
-  getOSSFileName,
-  sendEvent,
-} from './logic'
+import { init, unInit, onUploadError, getOSSDir, getOSSFileName } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:DocUploader')
@@ -166,7 +159,6 @@ class DocUploaderContainer extends React.Component {
 
     this.setState({ initTimestamp: curTimeStamp })
 
-    sendEvent('start')
     onUploadStart()
     const filename = file.name
     const fullpath = `${getOSSDir()}/${getOSSFileName(filename)}`
@@ -175,11 +167,9 @@ class DocUploaderContainer extends React.Component {
       .multipartUpload(fullpath, file)
       .then((result) => {
         const url = `${ASSETS_ENDPOINT}/${result.name}`
-        sendEvent('finish')
         this.onUploadDone(url)
       })
       .catch((err) => {
-        sendEvent('finish')
         onUploadError(err)
       })
   }

@@ -106,7 +106,6 @@ const DrawerStore = T.model('DrawerStore', {
     T.enumeration([...values(TYPE.MM_TYPE)]),
     TYPE.MM_TYPE.MORE,
   ),
-  imageUploading: T.optional(T.boolean, false),
   // header:
   // body:
 })
@@ -193,7 +192,6 @@ const DrawerStore = T.model('DrawerStore', {
 
       slf.visible = false
       slf.canBeClose = false
-      slf.imageUploading = false
       slf.type = null
 
       unlockPage()

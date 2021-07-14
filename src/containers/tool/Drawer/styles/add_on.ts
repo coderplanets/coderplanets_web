@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import { TYPE } from '@/constant'
-import { theme, animate, css } from '@/utils'
+import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 
@@ -14,26 +14,27 @@ export const Wrapper = styled.div`
     width: 0;
   `};
 `
-const closeWith = '40px'
-
-type TCloseBtn = { type: string }
-export const CloseBtn = styled(Img)<TCloseBtn>`
-  fill: ${theme('font')};
+export const CloseWrapper = styled.div<{ type: string }>`
+  ${css.size(40)};
   position: absolute;
+  top: 15px;
+  left: 45px;
   display: ${({ type }) =>
     type === TYPE.DRAWER.ACCOUNT_EDIT ? 'none' : 'block'};
-  width: ${closeWith};
-  height: ${closeWith};
-  top: 15px;
-  left: 60px;
+`
+export const CloseBtn = styled(Img)`
+  fill: ${theme('font')};
+
   ${css.size(30)};
   z-index: ${css.zIndex.drawer};
+  opacity: 0.8;
 
   &:hover {
-    animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
+    opacity: 1;
     font-weight: bold;
     cursor: pointer;
   }
+  transition: opacity 0.2s;
 
   ${css.media.mobile`display: none`};
 `
@@ -41,8 +42,8 @@ export const EscHint = styled.div`
   color: ${theme('font')};
   opacity: 0.9;
   position: absolute;
-  top: 48px;
-  left: 63px;
+  top: 32px;
+  left: 4px;
   font-size: 13px;
   z-index: ${css.zIndex.drawer};
 `
@@ -61,33 +62,60 @@ export const MobileCloser = styled.div`
     font-weight: lighter;
   }
 `
-export const UploadingTab = styled.div<TActive>`
+
+export const SwitchArticleWrapper = styled.div<TActive>`
   ${css.flexColumn('justify-evenly', 'align-center')};
   opacity: ${({ show }) => (show ? 1 : 0)};
+  position: relative;
 
   color: ${theme('drawer.font')};
-  background-color: ${theme('drawer.bg')};
   width: 35px;
   height: 70px;
+  margin-right: 6px;
   box-shadow: ${theme('drawer.closerShadow')};
-  margin-top: 15px;
-  transform: rotate3d(0, 1, 0, -30deg);
-  transform-origin: right center 0;
-  border-top-left-radius: 13px;
-  border-bottom-left-radius: 13px;
+  margin-top: 55vh;
 
-  transition: opacity 0.3s linear;
+  transition: opacity 0.2s linear;
 `
+export const SwitchBlock = styled.div``
+export const PreviousIcon = styled(Img)`
+  ${css.size(23)};
+  fill: ${theme('thread.articleDigest')};
+  opacity: 0.7;
+  margin-left: 2px;
 
-export const UploadImgIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  width: 20px;
-  height: 17px;
-  display: block;
+  &:hover {
+    cursor: pointer;
+    fill: #57b5e5;
+    opacity: 1;
+  }
+
+  transition: opacity 0.2s;
 `
+export const NextIcon = styled(PreviousIcon)`
+  margin-top: 10px;
+  margin-left: 0;
+  margin-right: 6px;
+`
+export const ArticleWrapper = styled.div<{ next?: boolean }>`
+  ${css.flexColumn('align-start')};
+  position: absolute;
+  left: -280px;
+  top: ${({ next }) => (next ? '22px' : '-18px')};
+  width: 280px;
+  margin-right: 10px;
 
-export const UploadLoadingIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  ${css.size(22)};
-  animation: ${animate.rotate360} 1s linear infinite;
+  display: none;
+  ${SwitchBlock}:hover & {
+    display: block;
+  }
+`
+export const IndexDesc = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
+  margin-bottom: 2px;
+`
+export const ArticleTitle = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 16px;
 `

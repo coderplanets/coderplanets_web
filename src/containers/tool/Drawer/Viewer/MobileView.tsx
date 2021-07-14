@@ -28,7 +28,6 @@ type TProps = {
   options: TSwipeOption
   visible: boolean
   type: string
-  imageUploading: boolean
   canBeClose: boolean
   showHeaderText: boolean
   disableContentDrag: boolean
@@ -41,7 +40,6 @@ const Viewer: FC<TProps> = ({
   options,
   visible,
   type,
-  imageUploading,
   canBeClose,
   showHeaderText,
   disableContentDrag,
@@ -91,7 +89,7 @@ const Viewer: FC<TProps> = ({
         options={options}
         mobile
       >
-        <AddOn type={type} imageUploading={imageUploading} />
+        <AddOn type={type} />
         <DrawerMobileContent options={options} bgColor={theme.drawer.bg}>
           <MobileInnerContent
             options={options}

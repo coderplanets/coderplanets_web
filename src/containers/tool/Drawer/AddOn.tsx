@@ -1,36 +1,56 @@
 import { FC, memo } from 'react'
 
-import { ICON_CMD } from '@/config'
-// import { Wrapper } from './styles'
+import { ICON } from '@/config'
+
 import {
   Wrapper,
+  CloseWrapper,
   CloseBtn,
   EscHint,
-  UploadingTab,
-  UploadImgIcon,
-  UploadLoadingIcon,
+  SwitchArticleWrapper,
+  SwitchBlock,
+  PreviousIcon,
+  NextIcon,
+  ArticleWrapper,
+  IndexDesc,
+  ArticleTitle,
 } from './styles/add_on'
 
 import { closeDrawer } from './logic'
 
 type TProps = {
   type: string
-  imageUploading?: boolean
 }
 
-const AddOn: FC<TProps> = ({ type, imageUploading = false }) => {
+const AddOn: FC<TProps> = ({ type }) => {
   return (
     <Wrapper>
-      <CloseBtn
-        src={`${ICON_CMD}/closeBtn.svg`}
-        type={type}
-        onClick={() => closeDrawer()}
-      />
-      <EscHint>Esc</EscHint>
-      <UploadingTab show={imageUploading}>
-        <UploadImgIcon src={`${ICON_CMD}/preview-tab-image.svg`} />
-        <UploadLoadingIcon src={`${ICON_CMD}/preview-tab-loading.svg`} />
-      </UploadingTab>
+      <CloseWrapper type={type}>
+        <CloseBtn
+          src={`${ICON}/close-circle.svg`}
+          onClick={() => closeDrawer()}
+        />
+        <EscHint>Esc</EscHint>
+      </CloseWrapper>
+
+      <SwitchArticleWrapper show>
+        <SwitchBlock>
+          <PreviousIcon src={`${ICON}/shape/previous-article.svg`} />
+          <ArticleWrapper>
+            <IndexDesc>上一篇</IndexDesc>
+            <ArticleTitle>
+              可能是最性感的开发者社区诚邀内侧，来为你心爱的作品建立一个社区吧！
+            </ArticleTitle>
+          </ArticleWrapper>
+        </SwitchBlock>
+        <SwitchBlock>
+          <NextIcon src={`${ICON}/shape/next-article.svg`} />
+          <ArticleWrapper next>
+            <IndexDesc>下一篇</IndexDesc>
+            <ArticleTitle>这是下一篇文章的标题！</ArticleTitle>
+          </ArticleWrapper>
+        </SwitchBlock>
+      </SwitchArticleWrapper>
     </Wrapper>
   )
 }
