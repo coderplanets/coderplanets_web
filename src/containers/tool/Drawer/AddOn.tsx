@@ -1,18 +1,14 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
 import { SpaceGrow } from '@/components/Common'
 import GotoTop from '@/components/GotoTop'
+import { IconButton } from '@/components/Buttons'
 
 import {
   Wrapper,
   CloseWrapper,
-  CloseBtn,
-  EscHint,
   SwitchArticleWrapper,
   SwitchBlock,
-  PreviousIcon,
-  NextIcon,
   ArticleWrapper,
   IndexDesc,
   ArticleTitle,
@@ -29,16 +25,31 @@ const AddOn: FC<TProps> = ({ type }) => {
   return (
     <Wrapper>
       <CloseWrapper type={type}>
-        <CloseBtn
-          src={`${ICON}/close-circle.svg`}
-          onClick={() => closeDrawer()}
+        <IconButton
+          path="shape/close.svg"
+          onClick={closeDrawer}
+          size={26}
+          dimWhenIdle
         />
-        <EscHint>Esc</EscHint>
+        <IconButton
+          path="article/share.svg"
+          size={20}
+          mTop={6}
+          hint="分享本文"
+          hintPlacement="bottom"
+          dimWhenIdle
+        />
       </CloseWrapper>
 
       <SwitchArticleWrapper show>
         <SwitchBlock>
-          <PreviousIcon src={`${ICON}/shape/previous-article.svg`} />
+          <IconButton
+            path="shape/previous-article.svg"
+            size={23}
+            mRight={0}
+            mLeft={2}
+            dimWhenIdle
+          />
           <ArticleWrapper>
             <IndexDesc>上一篇</IndexDesc>
             <ArticleTitle>
@@ -47,7 +58,13 @@ const AddOn: FC<TProps> = ({ type }) => {
           </ArticleWrapper>
         </SwitchBlock>
         <SwitchBlock>
-          <NextIcon src={`${ICON}/shape/next-article.svg`} />
+          <IconButton
+            path="shape/next-article.svg"
+            size={23}
+            mTop={10}
+            mRight={6}
+            dimWhenIdle
+          />
           <ArticleWrapper next>
             <IndexDesc>下一篇</IndexDesc>
             <ArticleTitle>这是下一篇文章的标题！</ArticleTitle>

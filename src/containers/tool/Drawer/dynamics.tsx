@@ -25,6 +25,11 @@ const editorConfig = {
 }
 
 // viewers
+export const ArticleViewer = dynamic(
+  () => import('@/containers/viewer/ArticleViewer'),
+  commonConfig,
+)
+
 export const PostViewer = dynamic(
   () => import('@/containers/viewer/PostViewer'),
   commonConfig,

@@ -6,11 +6,10 @@
 
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
 import { scrollToHeader } from '@/utils'
 
-import Tooltip from '@/components/Tooltip'
-import { Wrapper, Icon, Hint } from './styles'
+import { IconButton } from '@/components/Buttons'
+import { Wrapper } from './styles'
 
 type TProps = {
   testid?: string
@@ -19,14 +18,12 @@ type TProps = {
 const GotoTop: FC<TProps> = ({ testid }) => {
   return (
     <Wrapper testid={testid} onClick={scrollToHeader}>
-      <Tooltip
-        placement="top"
-        content={<Hint>回到顶部</Hint>}
-        noPadding
-        delay={1200}
-      >
-        <Icon src={`${ICON}/shape/air-balloon.svg`} />
-      </Tooltip>
+      <IconButton
+        path="shape/air-balloon.svg"
+        hint="回到顶部"
+        size={20}
+        mLeft={5}
+      />
     </Wrapper>
   )
 }

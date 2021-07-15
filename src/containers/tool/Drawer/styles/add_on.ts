@@ -15,38 +15,18 @@ export const Wrapper = styled.div`
   `};
 `
 export const CloseWrapper = styled.div<{ type: string }>`
-  ${css.size(40)};
+  width: 26px;
+  height: 80px;
   position: absolute;
-  top: 15px;
-  left: 20px;
+  top: 0;
+  left: 34px;
   display: ${({ type }) =>
     type === TYPE.DRAWER.ACCOUNT_EDIT ? 'none' : 'block'};
-`
-export const CloseBtn = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-
-  ${css.size(30)};
-  z-index: ${css.zIndex.drawer};
-  opacity: 0.8;
-
-  &:hover {
-    opacity: 1;
-    font-weight: bold;
-    cursor: pointer;
-    fill: #00a59b;
-  }
-  transition: all 0.2s;
-
-  ${css.media.mobile`display: none`};
-`
-export const EscHint = styled.div`
-  color: ${theme('thread.articleDigest')};
-  opacity: 0.9;
-  position: absolute;
-  top: 32px;
-  left: 4px;
-  font-size: 13px;
-  z-index: ${css.zIndex.drawer};
+  background: #002a34;
+  border-bottom-left-radius: 15px;
+  box-shadow: ${theme('drawer.shadow')};
+  ${css.flexColumn('align-both')}
+  padding-left: 16px;
 `
 export const MobileCloser = styled.div`
   position: absolute;
@@ -83,25 +63,6 @@ export const SwitchArticleWrapper = styled.div<TActive>`
   transition: opacity 0.2s linear;
 `
 export const SwitchBlock = styled.div``
-export const PreviousIcon = styled(Img)`
-  ${css.size(23)};
-  fill: ${theme('thread.articleDigest')};
-  opacity: 0.7;
-  margin-left: 2px;
-
-  &:hover {
-    cursor: pointer;
-    fill: #00a59b;
-    opacity: 1;
-  }
-
-  transition: opacity 0.2s;
-`
-export const NextIcon = styled(PreviousIcon)`
-  margin-top: 10px;
-  margin-left: 0;
-  margin-right: 6px;
-`
 export const ArticleWrapper = styled.div<{ next?: boolean }>`
   ${css.flexColumn('align-start')};
   position: absolute;

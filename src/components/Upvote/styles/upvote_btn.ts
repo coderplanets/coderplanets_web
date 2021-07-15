@@ -139,18 +139,16 @@ export const ContentWrapper = styled.div`
 export const IconWrapper = styled.div`
   ${css.flex('align-center', 'justify-start')};
   width: 20px;
-  margin-right: 3px;
+  margin-right: 5px;
   position: relative;
   z-index: 1;
 `
 export const IconShadow = styled.div`
   position: absolute;
   left: -3px;
-  top: -1px;
-  ${css.size(22)};
-  ${css.flex('align-both')};
+  top: -2px;
+  ${css.circle(23)};
   background: #0f4052;
-  border-radius: 50%;
   z-index: -1;
   opacity: 0;
 
@@ -164,8 +162,8 @@ export const IconShadow = styled.div`
 export const UpIcon = styled(Img)<TActive>`
   fill: ${({ $active }) =>
     $active ? '#139B9D;' : theme('thread.articleDigest')};
-  ${css.size(15)};
-  margin-top: 3px;
+  ${css.size(17)};
+  margin-top: 1px;
   &:hover {
     fill: #139b9d;
     cursor: pointer;

@@ -6,6 +6,7 @@ import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 import PlaceHolder from './PlaceHolder'
 
 import {
+  ArticleViewer,
   PostViewer,
   JobViewer,
   MailsViewer,
@@ -24,9 +25,11 @@ const renderContent = (type, attachment, attUser, mmType) => {
     case TYPE.DRAWER.ACCOUNT_EDIT:
       return <AccountEditor />
 
-    // post
     case TYPE.DRAWER.POST_VIEW:
-      return <PostViewer attachment={attachment} />
+      return <ArticleViewer />
+    // post
+    // case TYPE.DRAWER.POST_VIEW:
+    //   return <PostViewer attachment={attachment} />
 
     case TYPE.DRAWER.POST_CREATE:
       return <PostEditor />

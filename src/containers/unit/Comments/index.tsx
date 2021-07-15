@@ -24,7 +24,7 @@ import { useInit, createComment, onReplyEditorClose } from './logic'
 const log = buildLog('C:Comments')
 
 type TProps = {
-  comments: TStore
+  comments?: TStore
   ssr?: boolean
   locked?: boolean
   onCreate?: () => void

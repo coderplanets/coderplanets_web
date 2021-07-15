@@ -135,7 +135,7 @@ const solarizedDark = {
     helperHover: lighten(0.2, contentBg),
     topLine: '#41c7bd',
     icon: '#41c7bd',
-    divider: '#005255',
+    divider: '#004250',
     /* single article page sidebar divider */
     sideDivider: '#094556',
   },
