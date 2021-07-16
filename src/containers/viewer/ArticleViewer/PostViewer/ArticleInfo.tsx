@@ -14,7 +14,7 @@ import {
   ViewIcon,
   Count,
   UpvoteWrapper,
-} from './styles/article_info'
+} from '../styles/post_viewer/article_info'
 
 type TProps = {
   article: TArticle

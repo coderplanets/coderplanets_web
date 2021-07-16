@@ -4,10 +4,11 @@ import { TYPE } from '@/constant'
 import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 
 import PlaceHolder from './PlaceHolder'
+// import ArticleViewer from '@/containers/viewer/ArticleViewer'
 
 import {
   ArticleViewer,
-  PostViewer,
+  // PostViewer,
   JobViewer,
   MailsViewer,
   RepoViewer,

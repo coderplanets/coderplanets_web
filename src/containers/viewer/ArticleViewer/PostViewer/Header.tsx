@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
-import type { TArticle } from '@/spec'
+import type { TPost } from '@/spec'
 import DotDivider from '@/components/DotDivider'
 
 import {
@@ -14,10 +14,10 @@ import {
   PublishHint,
   PubDate,
   EditedHint,
-} from './styles/header'
+} from '../styles/post_viewer/header'
 
 type TProps = {
-  article: TArticle
+  article: TPost
 }
 
 const Header: FC<TProps> = ({ article }) => {

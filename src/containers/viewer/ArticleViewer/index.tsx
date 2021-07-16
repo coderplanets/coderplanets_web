@@ -4,8 +4,7 @@
  *
  */
 
-import { FC, useCallback } from 'react'
-import { Waypoint } from 'react-waypoint'
+import { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -16,22 +15,11 @@ import Comments from '@/containers/unit/Comments'
 // import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 
 import type { TStore } from './store'
-import FixedHeader from './FixedHeader'
-import Header from './Header'
-import ArticleInfo from './ArticleInfo'
 
-import { ArticleContentLoading } from '@/components/Loading'
+import PostViewer from './PostViewer'
 
-import {
-  Wrapper,
-  ArticleWrapper,
-  BodyWrapper,
-  Title,
-  ArticleBody,
-  Footer,
-  CommentsWrapper,
-} from './styles'
-import { useInit, toggleFixedHeader } from './logic'
+import { Wrapper, CommentsWrapper } from './styles'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
@@ -46,33 +34,11 @@ const ArticleViewerContainer: FC<TProps> = ({
   testid,
 }) => {
   useInit(store)
-  const { viewingData, loading, fixedHeaderVisible } = store
-
-  const hideFixedHeader = useCallback(() => toggleFixedHeader(false), [])
-  const showFixedHeader = useCallback(() => toggleFixedHeader(true), [])
+  const { viewingData, loading } = store
 
   return (
     <Wrapper testid={testid}>
-      <FixedHeader article={viewingData} visible={fixedHeaderVisible} />
-      <ArticleWrapper>
-        <Header article={viewingData} />
-        <Title>{viewingData.title}</Title>
-        <ArticleInfo article={viewingData} />
-        <Waypoint onEnter={hideFixedHeader} onLeave={showFixedHeader} />
-        <BodyWrapper>
-          {loading ? (
-            <ArticleContentLoading num={2} />
-          ) : (
-            <ArticleBody>
-              <div>article body</div>
-            </ArticleBody>
-          )}
-          <Footer>
-            <div>tagger</div>
-          </Footer>
-        </BodyWrapper>
-      </ArticleWrapper>
-
+      <PostViewer article={viewingData} loading={loading} />
       <CommentsWrapper>
         <Comments onCreate={console.log} />
       </CommentsWrapper>
