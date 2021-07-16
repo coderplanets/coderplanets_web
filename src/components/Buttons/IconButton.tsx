@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, ReactNode } from 'react'
 
 import { ICON } from '@/config'
 
@@ -14,7 +14,7 @@ export type TProps = {
   mBottom?: number
   dimWhenIdle?: boolean
   active?: boolean
-  hint?: string | null
+  hint?: ReactNode | null
   hintDelay?: number
   hintPlacement?: 'top' | 'bottom'
   onClick?: () => void
