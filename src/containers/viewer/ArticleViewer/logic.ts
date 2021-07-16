@@ -20,9 +20,8 @@ let sub$ = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleViewer')
 
-export const someMethod = (): void => {
-  //
-}
+export const toggleFixedHeader = (show = true): void =>
+  store.mark({ fixedHeaderVisible: show })
 
 const loadPost = () => {
   const { id } = store.viewingData

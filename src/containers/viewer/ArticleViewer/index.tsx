@@ -4,7 +4,7 @@
  *
  */
 
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
 import { Waypoint } from 'react-waypoint'
 
 import { pluggedIn, buildLog } from '@/utils'
@@ -31,7 +31,7 @@ import {
   Footer,
   CommentsWrapper,
 } from './styles'
-import { useInit } from './logic'
+import { useInit, toggleFixedHeader } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
@@ -48,6 +48,9 @@ const ArticleViewerContainer: FC<TProps> = ({
   useInit(store)
   const { viewingData, loading, fixedHeaderVisible } = store
 
+  const hideFixedHeader = useCallback(() => toggleFixedHeader(false), [])
+  const showFixedHeader = useCallback(() => toggleFixedHeader(true), [])
+
   return (
     <Wrapper testid={testid}>
       <FixedHeader article={viewingData} visible={fixedHeaderVisible} />
@@ -55,11 +58,7 @@ const ArticleViewerContainer: FC<TProps> = ({
         <Header article={viewingData} />
         <Title>{viewingData.title}</Title>
         <ArticleInfo article={viewingData} />
-        <Waypoint
-          onEnter={() => store.mark({ fixedHeaderVisible: false })}
-          onLeave={() => store.mark({ fixedHeaderVisible: true })}
-        />
-
+        <Waypoint onEnter={hideFixedHeader} onLeave={showFixedHeader} />
         <BodyWrapper>
           {loading ? (
             <ArticleContentLoading num={2} />
