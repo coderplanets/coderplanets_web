@@ -1,16 +1,11 @@
 import { FC, memo } from 'react'
 
 import type { TAccount, TComment } from '@/spec'
-import { ICON } from '@/config'
 
+import { IconButton } from '@/components/Buttons'
 import { SpaceGrow } from '@/components/Common'
 
-import {
-  Wrapper,
-  ActionWrapper,
-  ReplyAction,
-  ActionIcon,
-} from '../styles/comment/actions'
+import { Wrapper, ReplyAction } from '../styles/comment/actions'
 import { openUpdateEditor, openReplyEditor, onDelete } from '../logic'
 
 type TProps = {
@@ -32,15 +27,9 @@ const Actions: FC<TProps> = ({ data, accountInfo }) => {
     <Wrapper>
       <ReplyAction onClick={() => openReplyEditor(data)}>回复</ReplyAction>
       <SpaceGrow />
-      <ActionWrapper>
-        <ActionIcon src={`${ICON}/article/share.svg`} />
-      </ActionWrapper>
-      <ActionWrapper>
-        <ActionIcon src={`${ICON}/shape/quote.svg`} />
-      </ActionWrapper>
-      <ActionWrapper>
-        <ActionIcon src={`${ICON}/article/report.svg`} />
-      </ActionWrapper>
+      <IconButton path="article/share.svg" size={13} />
+      <IconButton path="shape/quote.svg" size={13} />
+      <IconButton path="article/report.svg" size={13} />
     </Wrapper>
   )
 }

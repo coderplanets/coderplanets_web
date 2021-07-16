@@ -12,7 +12,8 @@ type TWrapper = {
 export const Wrapper = styled.div<TWrapper>`
   position: relative;
   ${css.flex()};
-  margin-left: 5px;
+  margin-left: 2px;
+  margin-right: 5px;
   padding-top: ${({ pined }) => (pined ? '24px' : '20px')};
   position: relative;
   background: transparent;
