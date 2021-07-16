@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   width: 100%;
   margin-top: 10px;
-  margin-left: -2px;
 `
 export const Item = styled.div<TActive>`
   ${css.cutRest('50px')};

@@ -8,7 +8,7 @@ import { buildLog } from '@/utils'
 import { Space } from '@/components/Common'
 
 import TotalCount from './TotalCount'
-import { Text } from './styles'
+import { Text } from './styles/default_view'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:Desc')

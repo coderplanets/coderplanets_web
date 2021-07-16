@@ -3,16 +3,16 @@ import { ICON_CMD } from '@/config'
 const items = [
   {
     id: '1',
-    title: 'xaudiopro',
+    title: 'Makers',
     link: 'https://xxxx',
-    desc: '音频剪辑，格式转换, 音频剪辑，格式转换 音频剪辑',
+    desc: '独立开发者，作品创作团队',
     cover: `${ICON_CMD}/test_ad.jpg`,
   },
   {
     id: '2',
-    title: 'github',
+    title: 'Web 大前端',
     link: 'https://xxxx',
-    desc: 'github 就不用多介绍了吧',
+    desc: '讨论 web 相关的各种话题',
     cover: `${ICON_CMD}/test_ad.jpg`,
   },
   {

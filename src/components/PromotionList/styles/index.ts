@@ -1,38 +1,31 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   margin-left: 20px;
   min-height: 150px;
   max-width: 180px;
+  margin-top: 10px;
 `
 export const Header = styled.div`
   ${css.flex('justify-between', 'align-center')};
-  padding-top: 20px;
   margin-bottom: 12px;
+  padding-top: 20px;
   border-top: 1px solid;
   border-top-color: ${theme('thread.articleSpliter')};
-  width: 80%;
+  width: 100%;
 `
 export const Title = styled.div`
   font-size: 12px;
   color: ${theme('thread.articleDigest')};
-  padding-top: 15px;
 `
-export const AboutIcon = styled(Img)`
-  ${css.size(15)};
-  fill: ${theme('thread.articleDigest')};
+
+export const MoreHint = styled.div`
+  margin-top: 1px;
   opacity: 0;
-  margin-top: 16px;
 
-  &:hover {
-    fill: ${theme('banner.title')};
-    cursor: pointer;
-  }
-
-  ${Wrapper}:hover & {
+  ${Header}:hover & {
     opacity: 1;
   }
   transition: all 0.25s;
