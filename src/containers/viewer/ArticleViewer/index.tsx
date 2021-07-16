@@ -5,10 +5,9 @@
  */
 
 import { FC } from 'react'
+import { Waypoint } from 'react-waypoint'
 
 import { pluggedIn, buildLog } from '@/utils'
-
-import type { TStore } from './store'
 
 import Comments from '@/containers/unit/Comments'
 // TODO: remove
@@ -16,6 +15,8 @@ import Comments from '@/containers/unit/Comments'
 // TODO: remove
 // import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 
+import type { TStore } from './store'
+import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
 
@@ -45,15 +46,19 @@ const ArticleViewerContainer: FC<TProps> = ({
   testid,
 }) => {
   useInit(store)
-
-  const { viewingData, loading } = store
+  const { viewingData, loading, fixedHeaderVisible } = store
 
   return (
     <Wrapper testid={testid}>
+      <FixedHeader article={viewingData} visible={fixedHeaderVisible} />
       <ArticleWrapper>
         <Header article={viewingData} />
         <Title>{viewingData.title}</Title>
         <ArticleInfo article={viewingData} />
+        <Waypoint
+          onEnter={() => store.mark({ fixedHeaderVisible: false })}
+          onLeave={() => store.mark({ fixedHeaderVisible: true })}
+        />
 
         <BodyWrapper>
           {loading ? (
