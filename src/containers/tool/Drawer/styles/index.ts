@@ -90,7 +90,8 @@ export const DrawerWrapper = styled.div.attrs(
 `
 
 export const DrawerContent = styled.div`
-  width: 90%;
+  /* 60 is the width of addon */
+  width: calc(100% - 60px);
   background-color: ${theme('drawer.bg')};
   height: 100vh;
   box-shadow: ${theme('drawer.shadow')};

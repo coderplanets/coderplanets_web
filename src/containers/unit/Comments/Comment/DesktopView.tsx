@@ -7,8 +7,8 @@ import { ICON } from '@/config'
 
 import MarkDownRender from '@/components/MarkDownRender'
 import Tooltip from '@/components/Tooltip'
+import Upvote from '@/components/Upvote'
 
-import Upvote from './Upvote'
 import Header from './Header'
 import ReplyBar from './ReplyBar'
 import DeleteMask from './DeleteMask'
@@ -67,7 +67,7 @@ const Comment: FC<TProps> = ({
       <DeleteMask show={data.id === tobeDeleteId} />
       <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
         <SidebarWrapper>
-          <Upvote data={data} />
+          <Upvote type="comment" />
           {isAuthorUpvoted && (
             <Tooltip
               content={<BadgePopContent>作者顶过</BadgePopContent>}

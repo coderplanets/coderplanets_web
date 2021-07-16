@@ -9,6 +9,7 @@ import type {
   TRootStore,
   TTag,
   TAccount,
+  TArticle,
   TPagedArticles,
   TCommunity,
   TThread,
@@ -50,6 +51,10 @@ const ArticlesThread = T.model('ArticlesThread', {
           return stripMobx(self.pagedPosts)
         }
       }
+    },
+    get viewingArticle(): TArticle {
+      const root = getParent(self) as TRootStore
+      return root.viewing.viewingArticle
     },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore

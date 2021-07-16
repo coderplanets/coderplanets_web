@@ -106,7 +106,6 @@ const DrawerStore = T.model('DrawerStore', {
     T.enumeration([...values(TYPE.MM_TYPE)]),
     TYPE.MM_TYPE.MORE,
   ),
-  imageUploading: T.optional(T.boolean, false),
   // header:
   // body:
 })
@@ -174,8 +173,9 @@ const DrawerStore = T.model('DrawerStore', {
       slf.type = type
       slf.options = merge(defaultOptions, options)
       lockPage()
+      toggleGlobalBlur(true)
+
       if (slf.isMobile) {
-        toggleGlobalBlur(true)
         slf.canBeClose = false
       }
 
@@ -192,14 +192,10 @@ const DrawerStore = T.model('DrawerStore', {
 
       slf.visible = false
       slf.canBeClose = false
-      slf.imageUploading = false
       slf.type = null
 
       unlockPage()
-
-      if (slf.isMobile) {
-        toggleGlobalBlur(false)
-      }
+      toggleGlobalBlur(false)
     },
 
     resetViewing(): void {

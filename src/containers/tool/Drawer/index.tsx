@@ -34,7 +34,6 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
     attachmentData,
     attUserData,
     mmType,
-    imageUploading,
     rightOffset,
     optionsData,
     canBeClose,
@@ -50,7 +49,6 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
       visible={slideVisible}
       rightOffset={rightOffset}
       type={type}
-      imageUploading={imageUploading}
       canBeClose={canBeClose}
       showHeaderText={showHeaderText}
       disableContentDrag={disableContentDrag}

@@ -2,53 +2,31 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import { TYPE } from '@/constant'
-import { theme, animate, css } from '@/utils'
+import { theme, css } from '@/utils'
 
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  width: 10%;
+  width: 60px;
   ${css.flexColumn('align-end')};
 
   ${css.media.mobile`
     width: 0;
   `};
 `
-const closeWith = '40px'
-
-export const CloseTab = styled.div<{ type: string }>`
-  float: right;
-  width: ${closeWith};
-  height: ${closeWith};
-  perspective: ${closeWith};
-  cursor: pointer;
+export const CloseWrapper = styled.div<{ type: string }>`
+  width: 26px;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 34px;
   display: ${({ type }) =>
     type === TYPE.DRAWER.ACCOUNT_EDIT ? 'none' : 'block'};
-
-  &:hover:after {
-    animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
-    font-weight: bold;
-  }
-  &:after {
-    content: '✕';
-    position: absolute;
-    top: 9px;
-    right: 6px;
-    font-size: large;
-    color: ${theme('drawer.font')};
-    font-weight: lighter;
-  }
-  ${css.media.mobile`display: none`};
-`
-
-export const CloserInner = styled.div`
-  width: ${closeWith};
-  height: 45px;
-  background-color: ${theme('drawer.bg')};
-  border-right: 1px solid ${theme('drawer.bg')};
-  transform-origin: right center 0;
-  transform: rotate3d(0, 1, 0, -30deg);
-  box-shadow: ${theme('drawer.closerShadow')};
+  background: #002a34;
+  border-bottom-left-radius: 15px;
+  box-shadow: ${theme('drawer.shadow')};
+  ${css.flexColumn('align-both')}
+  padding-left: 16px;
 `
 export const MobileCloser = styled.div`
   position: absolute;
@@ -65,33 +43,57 @@ export const MobileCloser = styled.div`
     font-weight: lighter;
   }
 `
-export const UploadingTab = styled.div<TActive>`
+export const SwitchArticleWrapper = styled.div<TActive>`
   ${css.flexColumn('justify-evenly', 'align-center')};
   opacity: ${({ show }) => (show ? 1 : 0)};
+  position: relative;
 
   color: ${theme('drawer.font')};
-  background-color: ${theme('drawer.bg')};
   width: 35px;
   height: 70px;
-  box-shadow: ${theme('drawer.closerShadow')};
-  margin-top: 15px;
-  transform: rotate3d(0, 1, 0, -30deg);
-  transform-origin: right center 0;
-  border-top-left-radius: 13px;
-  border-bottom-left-radius: 13px;
+  margin-right: 6px;
+  margin-top: 44vh;
 
-  transition: opacity 0.3s linear;
+  opacity: 0;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
+
+  transition: opacity 0.2s linear;
 `
+export const SwitchBlock = styled.div``
+export const ArticleWrapper = styled.div<{ next?: boolean }>`
+  ${css.flexColumn('align-start')};
+  position: absolute;
+  left: -280px;
+  top: ${({ next }) => (next ? '22px' : '-18px')};
+  width: 280px;
+  margin-right: 10px;
 
-export const UploadImgIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  width: 20px;
-  height: 17px;
-  display: block;
+  display: none;
+  ${SwitchBlock}:hover & {
+    display: block;
+  }
 `
+export const IndexDesc = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
+  margin-bottom: 2px;
+`
+export const ArticleTitle = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 16px;
+`
+export const GotoTopWrapper = styled.div`
+  margin-bottom: 30px;
+  margin-right: 8px;
 
-export const UploadLoadingIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  ${css.size(22)};
-  animation: ${animate.rotate360} 1s linear infinite;
+  opacity: 0;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
+
+  transition: opacity 0.2s linear;
 `

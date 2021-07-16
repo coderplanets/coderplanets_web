@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 120px;
   border-radius: 5px;
-  margin-left: -12px;
+  margin-left: -5px;
 `
 export const ItemWrapper = styled.div`
   ${css.flexColumn()};

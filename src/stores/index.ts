@@ -97,6 +97,7 @@ export { default as CommunityEditorStore } from '@/containers/editor/CommunityEd
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as ArticleViewerStore } from '@/containers/viewer/ArticleViewer/store'
 export { default as ArticlesThreadStore } from '@/containers/thread/ArticlesThread/store'
 export { default as ThreadSidebarStore } from '@/containers/thread/ThreadSidebar/store'
 export { default as AbuseReportStore } from '@/containers/tool/AbuseReport/store'

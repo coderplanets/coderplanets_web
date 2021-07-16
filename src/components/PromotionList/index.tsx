@@ -4,20 +4,20 @@
  *
  */
 
-import { FC, useState, useRef, memo } from 'react'
+import { FC, useState, useRef, memo, Fragment } from 'react'
 import { findIndex } from 'ramda'
+import useHoverDirty from 'react-use/lib/useHoverDirty'
 
-import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 import { useInterval } from '@/hooks'
 
-import useHoverDirty from 'react-use/lib/useHoverDirty'
+import { ArrowButton } from '@/components/Buttons'
 
 import type { TItem } from './spec'
 import Spotlight from './Spotlight'
 import WaitList from './WaitList'
 
-import { Wrapper, Header, Title, AboutIcon } from './styles'
+import { Wrapper, Header, Title, MoreHint } from './styles'
 import fakeItems from './fakeItems'
 
 /* eslint-disable-next-line */
@@ -55,12 +55,14 @@ const PromotionList: FC<TProps> = ({
   return (
     <Wrapper ref={ref}>
       {show && (
-        <>
+        <Fragment>
           <Header>
-            <Title>产品推广</Title>
-            <div onClick={onAbout}>
-              <AboutIcon src={`${ICON}/shape/question.svg`} />
-            </div>
+            <Title>热门社区</Title>
+            <MoreHint onClick={onAbout}>
+              <ArrowButton size="tiny" arrowStyle="simple">
+                全部
+              </ArrowButton>
+            </MoreHint>
           </Header>
           <Spotlight item={activeItem} />
           <WaitList
@@ -68,7 +70,7 @@ const PromotionList: FC<TProps> = ({
             activeId={activeId}
             setActiveId={setActiveId}
           />
-        </>
+        </Fragment>
       )}
     </Wrapper>
   )

@@ -49,27 +49,3 @@ export const CommentBlock = styled.div`
 export const ActionsWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const ActionIcon = styled(Img)<TActive>`
-  fill: ${({ active }) => (active ? '#66b5e8' : theme('thread.articleDigest'))};
-  ${css.size(16)};
-  margin-left: 4px;
-  margin-right: 4px;
-
-  &:hover {
-    fill: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
-
-  transition: all 0.25s;
-`
-export const ExpandIcon = styled(ActionIcon)`
-  ${css.size(14)};
-`
-export const FoldIcon = styled(ActionIcon)`
-  ${css.size(13)};
-`
-export const IconDescText = styled.div`
-  ${css.flex('align-both')};
-  min-width: 90px;
-  padding: 5px 10px;
-`

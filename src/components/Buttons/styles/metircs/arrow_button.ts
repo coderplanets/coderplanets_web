@@ -5,8 +5,8 @@ const SMALL_SIZE = 14
 const MEDIUM_SIZE = 16
 const LARGE_SIZE = 18
 
-const TINY_MARGIN = 6
-const TINY_MARGIN_HOVER = 10
+const TINY_MARGIN = 4
+const TINY_MARGIN_HOVER = 7
 
 const SMALL_MARGIN = 6
 const SMALL_MARGIN_HOVER = 10

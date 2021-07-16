@@ -21,11 +21,7 @@ const log = buildLog('L:Preview')
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   /* @ts-ignore */
-  receive: [
-    ...values(EVENT.DRAWER),
-    EVENT.UPLOAD_IMG_START,
-    EVENT.UPLOAD_IMG_FINISH,
-  ],
+  receive: [...values(EVENT.DRAWER)],
 })
 
 let store: TStore | undefined
@@ -46,11 +42,6 @@ export const closeDrawer = (): void => {
     send(EVENT.DRAWER.AFTER_CLOSE)
     store.resetViewing()
   }, 200)
-
-  setTimeout(() => {
-    // make sure global blur is closed
-    toggleGlobalBlur(false)
-  }, 500)
 }
 
 // handler swiped event for up/down swipe
@@ -197,18 +188,6 @@ const DataResolver = [
     action: (res) => {
       const payload = res[EVENT.DRAWER.CONTENT_DRAGABLE]
       store.mark({ disableContentDrag: payload.data })
-    },
-  },
-  {
-    match: asyncRes(EVENT.UPLOAD_IMG_START),
-    action: () => store.mark({ imageUploading: true }),
-  },
-  {
-    match: asyncRes(EVENT.UPLOAD_IMG_FINISH),
-    action: () => {
-      setTimeout(() => {
-        store.mark({ imageUploading: false })
-      }, 500)
     },
   },
 ]

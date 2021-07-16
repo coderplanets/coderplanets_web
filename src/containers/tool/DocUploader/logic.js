@@ -41,14 +41,6 @@ export const getOSSFileName = (filename) => {
   return `${community}-${thread}-${id}-${userName}-${userId}-${curTime}-${filename}`
 }
 
-export const sendEvent = (state = 'start') => {
-  if (state === 'start') {
-    return send(EVENT.UPLOAD_IMG_START)
-  }
-
-  return send(EVENT.UPLOAD_IMG_FINISH)
-}
-
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -57,7 +49,9 @@ const DataSolver = []
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

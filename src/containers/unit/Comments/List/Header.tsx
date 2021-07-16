@@ -1,9 +1,8 @@
-import { FC, ReactNode, memo } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import Tooltip from '@/components/Tooltip'
 
-import { Space } from '@/components/Common'
+import { IconButton } from '@/components/Buttons'
 import { IconSwitcher } from '@/components/Switcher'
 
 import {
@@ -12,10 +11,6 @@ import {
   TotalCountWrapper,
   TotalNum,
   ActionsWrapper,
-  ActionIcon,
-  ExpandIcon,
-  FoldIcon,
-  IconDescText,
 } from '../styles/list/header'
 
 type TProps = {
@@ -23,37 +18,25 @@ type TProps = {
   filterType: string
 }
 
-type TActionTooltip = {
-  children: ReactNode
-  desc: string
+const actionIconConfig = {
+  mRight: 8,
+  hintDelay: 200,
 }
 
-const ActionTooltip: React.FC<TActionTooltip> = ({ children, desc }) => {
-  return (
-    <Tooltip
-      content={<IconDescText>{desc}</IconDescText>}
-      placement="bottom"
-      delay={200}
-      noPadding
-    >
-      {children}
-    </Tooltip>
-  )
-}
+const switchItems = [
+  {
+    key: 'reply',
+    iconSrc: `${ICON}/article/comment-reply-mode.svg`,
+    desc: '回复模式',
+  },
+  {
+    key: 'time',
+    iconSrc: `${ICON}/article/comment-timeline-mode.svg`,
+    desc: '时间线模式',
+  },
+]
 
 const Header: FC<TProps> = ({ totalCount, filterType }) => {
-  const switchItems = [
-    {
-      key: 'reply',
-      iconSrc: `${ICON}/article/comment-reply-mode.svg`,
-      desc: '回复模式',
-    },
-    {
-      key: 'time',
-      iconSrc: `${ICON}/article/comment-timeline-mode.svg`,
-      desc: '时间线模式',
-    },
-  ]
   const isAllFolded = false
 
   return (
@@ -61,27 +44,39 @@ const Header: FC<TProps> = ({ totalCount, filterType }) => {
       <TotalCountWrapper>
         {totalCount > 0 && (
           <TotalTitle id="lists-info">
-            共收到 <TotalNum>{totalCount}</TotalNum> 条评论:
+            共 <TotalNum>{totalCount}</TotalNum> 条评论:
           </TotalTitle>
         )}
       </TotalCountWrapper>
       <ActionsWrapper>
-        <ActionTooltip desc="关闭评论">
-          <ActionIcon src={`${ICON}/shape/lock.svg`} />
-        </ActionTooltip>
-        <ActionTooltip desc="订阅讨论">
-          <ActionIcon src={`${ICON}/article/notify-on.svg`} />
-        </ActionTooltip>
+        <IconButton
+          path="shape/lock.svg"
+          hint="关闭评论"
+          mTop={-1}
+          {...actionIconConfig}
+        />
+        <IconButton
+          path="article/notify-on.svg"
+          hint="订阅讨论"
+          {...actionIconConfig}
+        />
+
         {isAllFolded ? (
-          <ActionTooltip desc="展开全部">
-            <FoldIcon src={`${ICON}/shape/expand-all.svg`} active />
-          </ActionTooltip>
+          <IconButton
+            size={14}
+            path="shape/expand-all.svg"
+            hint="展开全部"
+            active
+            {...actionIconConfig}
+          />
         ) : (
-          <ActionTooltip desc="折叠全部">
-            <ExpandIcon src={`${ICON}/shape/fold-all.svg`} />
-          </ActionTooltip>
+          <IconButton
+            size={14}
+            path="shape/fold-all.svg"
+            hint="折叠全部"
+            {...actionIconConfig}
+          />
         )}
-        <Space right={4} />
         <IconSwitcher
           items={switchItems}
           activeKey="reply"

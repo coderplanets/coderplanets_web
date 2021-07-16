@@ -37,6 +37,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     filtersData,
     curThread,
     showFilters,
+    viewingArticle,
     accountInfo: {
       customization: { bannerLayout },
     },
@@ -62,6 +63,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
         <PagedArticles
           data={pagedArticlesData}
           thread={curThread}
+          viewingArticle={viewingArticle}
           resState={resState}
         />
       </MainWrapper>

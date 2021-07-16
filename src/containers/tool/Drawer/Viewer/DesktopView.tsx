@@ -12,7 +12,6 @@ type TProps = {
   visible: boolean
   rightOffset: string
   type: string
-  imageUploading: boolean
   children: ReactNode
 }
 
@@ -22,7 +21,6 @@ const DesktopView: FC<TProps> = ({
   visible,
   rightOffset,
   type,
-  imageUploading,
   children,
 }) => {
   return (
@@ -36,7 +34,7 @@ const DesktopView: FC<TProps> = ({
         mobile={false}
         options={options}
       >
-        <AddOn type={type} imageUploading={imageUploading} />
+        <AddOn type={type} />
         <DrawerContent>{children}</DrawerContent>
       </DrawerWrapper>
     </React.Fragment>

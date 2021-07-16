@@ -1,12 +1,12 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
+import { IconButton } from '@/components/Buttons'
 
-import { Wrapper, SelectorIcon } from '../styles/comment/emotion'
+import { Wrapper } from '../styles/comment/emotion'
 
 const Emotion: FC = () => (
   <Wrapper>
-    <SelectorIcon src={`${ICON}/emotion/alien-fill.svg`} />
+    <IconButton path="emotion/alien-fill.svg" mRight={0} />
   </Wrapper>
 )
 

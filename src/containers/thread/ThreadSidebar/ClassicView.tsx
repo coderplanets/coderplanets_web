@@ -14,8 +14,9 @@ import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
 import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
+import { Br } from '@/components/Common'
 import { PublishButton } from '@/components/Buttons'
-// import PromotionList from '@/components/PromotionList'
+import PromotionList from '@/components/PromotionList'
 
 import type { TBaseProps } from './index'
 
@@ -50,7 +51,7 @@ const ClassicView: FC<TProps> = ({
         <TagsBarWrapper>
           <TagsBar onSelect={onTagSelect} />
         </TagsBarWrapper>
-        {/* <PromotionList onClose={onAdsClose} /> */}
+        <PromotionList onClose={onAdsClose} />
       </Sticky>
     </Wrapper>
   )
