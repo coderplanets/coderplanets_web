@@ -17,6 +17,7 @@ import Comments from '@/containers/unit/Comments'
 import type { TStore } from './store'
 
 import PostViewer from './PostViewer'
+import WorksViewer from './WorksViewer'
 
 import { Wrapper, CommentsWrapper } from './styles'
 import { useInit } from './logic'
@@ -38,7 +39,8 @@ const ArticleViewerContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <PostViewer article={viewingData} loading={loading} />
+      <WorksViewer article={viewingData} loading={loading} />
+      {/* <PostViewer article={viewingData} loading={loading} /> */}
       <CommentsWrapper>
         <Comments onCreate={console.log} />
       </CommentsWrapper>

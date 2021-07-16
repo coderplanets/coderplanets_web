@@ -16,6 +16,7 @@ export const BaseWrapper = styled.div`
 export const ViewIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
+  margin-right: 5px;
 `
 export const Count = styled.div`
   color: ${theme('thread.articleDigest')};
