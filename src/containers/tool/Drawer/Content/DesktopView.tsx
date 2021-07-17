@@ -1,5 +1,6 @@
 import { FC, useEffect, useRef, memo } from 'react'
 
+import { DRAWER_SCROLLER } from '@/constant'
 import CustomScroller from '@/components/CustomScroller'
 
 import renderContent from './renderContent'
@@ -28,6 +29,7 @@ const Content: FC<TProps> = ({ visible, type, attachment, attUser }) => {
   return (
     <Wrapper>
       <CustomScroller
+        instanceKey={DRAWER_SCROLLER}
         direction="vertical"
         height="100vh"
         shadowSize="small"

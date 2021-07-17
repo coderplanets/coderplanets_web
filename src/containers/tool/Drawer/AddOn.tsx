@@ -73,7 +73,7 @@ const AddOn: FC<TProps> = ({ type }) => {
       </SwitchArticleWrapper>
       <SpaceGrow />
       <GotoTopWrapper>
-        <GotoTop />
+        <GotoTop type="drawer" />
       </GotoTopWrapper>
     </Wrapper>
   )

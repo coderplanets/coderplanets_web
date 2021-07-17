@@ -110,6 +110,7 @@ export {
   scrollToHeader,
   scrollToTabber,
   scrollToTop,
+  scrollDrawerToTop,
   lockPage,
   unlockPage,
   focusDoraemonBar,

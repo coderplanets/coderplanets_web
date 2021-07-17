@@ -1,4 +1,4 @@
-import { ANCHOR, BODY_SCROLLER } from '@/constant'
+import { ANCHOR, BODY_SCROLLER, DRAWER_SCROLLER } from '@/constant'
 
 // side effects, need refactor
 /* eslint-disable no-undef */
@@ -47,6 +47,12 @@ export const scrollIntoEle = (eleID: string): void => {
 
 export const scrollToHeader = (): void => scrollIntoEle(ANCHOR.GLOBAL_HEADER_ID)
 export const scrollToTabber = (): void => scrollIntoEle(ANCHOR.GLOBAL_TABBER_ID)
+
+export const scrollDrawerToTop = (): void => {
+  if (typeof window === 'object') {
+    window[DRAWER_SCROLLER]?.scroll({ top: 0 }, 300)
+  }
+}
 
 /**
  * froze page's body element
