@@ -15,6 +15,7 @@ import {
   ContentWrapper,
   IconWrapper,
   IconShadow,
+  ShipWindow,
   UpIcon,
 } from './styles/upvote_btn'
 
@@ -49,7 +50,11 @@ const UpvoteBtn: FC<TProps> = ({ viewerHasUpvoted = false }) => {
       <ContentWrapper>
         <IconWrapper onClick={handleClick}>
           <IconShadow />
-          <UpIcon src={`${ICON}/shape/upvote.svg`} $active={viewerHasUpvoted} />
+          <ShipWindow />
+          <UpIcon
+            src={`${ICON}/shape/upvote-ship.svg`}
+            $active={viewerHasUpvoted}
+          />
         </IconWrapper>
       </ContentWrapper>
     </Wrapper>

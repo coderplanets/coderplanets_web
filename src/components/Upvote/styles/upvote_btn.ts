@@ -159,10 +159,23 @@ export const IconShadow = styled.div`
   transform: opacity 0.2s;
 `
 
+export const ShipWindow = styled.div`
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  width: 5px;
+  height: 4px;
+  border-radius: 100%;
+  display: block;
+  background: ${theme('thread.articleDigest')};
+
+  opacity: 0.6;
+`
 export const UpIcon = styled(Img)<TActive>`
   fill: ${({ $active }) =>
     $active ? '#139B9D;' : theme('thread.articleDigest')};
-  ${css.size(17)};
+  ${css.size(18)};
+  transform: scale(1, 0.8);
   margin-top: 1px;
   &:hover {
     fill: #139b9d;
