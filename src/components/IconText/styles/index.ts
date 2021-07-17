@@ -10,6 +10,7 @@ type TIcon = {
   size: TSIZE
   margin: string
   round: boolean
+  highlight: boolean
 }
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -18,15 +19,22 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('align-center')};
 `
 export const Icon = styled(Img)<TIcon>`
-  fill: ${theme('thread.articleDigest')};
+  fill: ${({ highlight }) =>
+    highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   margin-right: ${({ size, margin }) => margin || getMargin(size)};
   display: block;
   border-radius: ${({ round }) => (round ? '100%' : '0')};
 `
-export const Text = styled.div<{ size: TSIZE }>`
+type TText = {
+  size: TSIZE
+  highlight: boolean
+}
+
+export const Text = styled.div<TText>`
   ${css.flex('align-center')};
-  color: ${theme('thread.articleDigest')};
+  color: ${({ highlight }) =>
+    highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: ${({ size }) => getTextSize(size)};
 `

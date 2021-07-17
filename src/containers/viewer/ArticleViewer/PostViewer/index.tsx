@@ -12,6 +12,7 @@ import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
 
+import Copyright from '@/components/Copyright'
 import { ArticleContentLoading } from '@/components/Loading'
 
 import {
@@ -53,7 +54,7 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
             </ArticleBody>
           )}
           <Footer>
-            <div>tagger</div>
+            <Copyright />
           </Footer>
         </BodyWrapper>
       </Wrapper>
