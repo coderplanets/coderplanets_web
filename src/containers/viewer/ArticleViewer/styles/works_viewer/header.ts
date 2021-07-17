@@ -64,14 +64,14 @@ export const EditedHint = styled.div`
 `
 export const BaseWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: 8px;
+  margin-top: 9px;
 `
 export const ViewIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  ${css.size(16)};
+  ${css.size(15)};
   margin-right: 5px;
 `
 export const Count = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 15px;
+  font-size: 14px;
 `

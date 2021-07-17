@@ -33,8 +33,9 @@ const AddOn: FC<TProps> = ({ type }) => {
         />
         <IconButton
           path="article/share.svg"
-          size={20}
-          mTop={6}
+          size={19}
+          mTop={7}
+          mLeft={-1}
           hint="分享本文"
           hintPlacement="bottom"
           dimWhenIdle

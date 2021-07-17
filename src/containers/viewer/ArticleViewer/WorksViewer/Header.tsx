@@ -62,10 +62,10 @@ const Header: FC<TProps> = ({ article }) => {
           <ViewIcon src={`${ICON}/article/viewed.svg`} />{' '}
           <Count>{article.views}</Count>
           <Space right={14} />
-          <IconButton path="article/comment.svg" mRight={6} />
+          <IconButton path="article/comment.svg" mRight={6} size={15} />
           <Count>{article.commentsCount}</Count>
           {/* <DotDivider space={10} /> */}
-          <IconButton path="shape/more-l.svg" mLeft={8} mRight={-4} size={14} />
+          <IconButton path="shape/more-l.svg" mLeft={6} mRight={-4} size={15} />
           {/* <IconButton path="shape/more.svg" mRight={0} /> */}
         </BaseWrapper>
       </CommonInfo>
