@@ -8,6 +8,8 @@ import { FC } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
+import { IconButton } from '@/components/Buttons'
+import Copyright from '@/components/Copyright'
 import Comments from '@/containers/unit/Comments'
 // TODO: remove
 // import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
@@ -19,7 +21,7 @@ import type { TStore } from './store'
 import PostViewer from './PostViewer'
 // import WorksViewer from './WorksViewer'
 
-import { Wrapper, CommentsWrapper } from './styles'
+import { Wrapper, ArticleFooter, CommentsWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -41,6 +43,11 @@ const ArticleViewerContainer: FC<TProps> = ({
     <Wrapper testid={testid}>
       {/* <WorksViewer article={viewingData} loading={loading} /> */}
       <PostViewer article={viewingData} loading={loading} />
+      <ArticleFooter>
+        <div>#tag</div>
+        <Copyright />
+        <IconButton path="article/report.svg" size={14} />
+      </ArticleFooter>
       <CommentsWrapper>
         <Comments onCreate={console.log} />
       </CommentsWrapper>

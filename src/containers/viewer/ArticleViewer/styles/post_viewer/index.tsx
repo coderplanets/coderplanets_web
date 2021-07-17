@@ -23,6 +23,3 @@ export const ArticleBody = styled.article`
   line-height: 2em;
   flex-grow: 1;
 `
-export const Footer = styled.div`
-  ${css.flex('align-both')};
-`

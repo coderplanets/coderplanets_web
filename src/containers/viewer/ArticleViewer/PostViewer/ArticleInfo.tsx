@@ -10,6 +10,9 @@ import Upvote from '@/components/Upvote'
 
 import {
   Wrapper,
+  CollectWrapper,
+  CollectIcon,
+  CollectText,
   BaseWrapper,
   ViewIcon,
   Count,
@@ -30,8 +33,10 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
         <IconButton path="article/comment.svg" mRight={6} />
         <Count>{article.commentsCount}</Count>
         <DotDivider space={10} />
-        <IconButton path="article/collect-solid.svg" />
-        <IconButton path="article/report.svg" />
+        <CollectWrapper>
+          <CollectIcon src={`${ICON}/article/collect-bookmark.svg`} />
+          <CollectText>收藏</CollectText>
+        </CollectWrapper>
       </BaseWrapper>
       <UpvoteWrapper>
         <Upvote />

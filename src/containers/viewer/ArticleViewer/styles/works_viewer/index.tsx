@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css, theme } from '@/utils'
+import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   padding: 0 8px;
@@ -18,7 +18,4 @@ export const ArticleBody = styled.article`
   font-size: 1.2em;
   line-height: 2em;
   flex-grow: 1;
-`
-export const Footer = styled.div`
-  ${css.flex('align-both')};
 `
