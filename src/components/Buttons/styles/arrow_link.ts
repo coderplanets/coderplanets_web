@@ -14,17 +14,17 @@ export const Wrapper = styled.a`
 `
 type TText = { hoverColor: string; size: string }
 export const Text = styled.div<TText>`
-  color: ${({ color }) => color || theme('thread.articleDigest')};
+  color: ${({ color }) => color || '#327ca1'};
   font-size: ${({ size }) => getTextSize(size)};
 
   ${Wrapper}:hover & {
-    color: ${({ hoverColor }) => hoverColor || theme('thread.articleTitle')};
+    color: ${({ hoverColor }) => hoverColor || '#327ca1'};
     visibility: visible;
   }
 `
 type TIcon = { color: string; size: string }
 const Icon = styled(Img)<TIcon>`
-  fill: ${({ color }) => color || theme('thread.articleDigest')};
+  fill: ${({ color }) => color || '#327ca1'};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   display: block;
@@ -37,7 +37,7 @@ export const RightIcon = styled(Icon)<{ hoverColor: string }>`
   visibility: hidden;
 
   ${Wrapper}:hover & {
-    fill: ${({ hoverColor }) => hoverColor || theme('thread.articleTitle')};
+    fill: ${({ hoverColor }) => hoverColor || '#327ca1'};
     margin-left: 10px;
     visibility: visible;
   }

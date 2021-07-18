@@ -3,9 +3,10 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
+import type { TArticle, TRootStore } from '@/spec'
 import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleFooter')
@@ -18,27 +19,26 @@ const ArticleFooter = T.model('ArticleFooter', {
   ),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get viewingData(): TArticle {
+      const root = getParent(self) as TRootStore
+      return root.viewingData
     },
-    get viewingData() {
-      return self.root.viewingData
-    },
-    get showReferenceList() {
+    get showReferenceList(): boolean {
       const { showActionPanel, actionPanelType } = self
 
       return showActionPanel && actionPanelType === 'reference-list'
     },
-    get showOperationList() {
+    get showOperationList(): boolean {
       const { showActionPanel, actionPanelType } = self
 
       return showActionPanel && actionPanelType === 'operation-list'
     },
   }))
   .actions((self) => ({
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof ArticleFooter>
 export default ArticleFooter

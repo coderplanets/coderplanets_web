@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
-  margin-left: 20px;
+  margin-left: 15px;
   min-height: 150px;
   max-width: 180px;
-  margin-top: 10px;
+  margin-top: 15px;
 `
 export const Header = styled.div`
   ${css.flex('justify-between', 'align-center')};

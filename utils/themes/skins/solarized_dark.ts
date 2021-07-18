@@ -263,8 +263,8 @@ const solarizedDark = {
     hoverBg: lighten(0.05, bannerBg),
   },
   popover: {
-    bg: '#0a3442',
-    borderColor: darken(0.15, primaryColor),
+    bg: '#00333F',
+    borderColor: '#114e61',
     boxShadow: '0px 7px 20px 10px rgba(0, 0, 0, 0.15)',
   },
   tags: {

@@ -8,19 +8,13 @@ import { Waypoint } from 'react-waypoint'
 import type { TPost } from '@/spec'
 import { buildLog } from '@/utils'
 
+import { ArticleContentLoading } from '@/components/Loading'
+
 import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
 
-import { ArticleContentLoading } from '@/components/Loading'
-
-import {
-  Wrapper,
-  BodyWrapper,
-  Title,
-  ArticleBody,
-  Footer,
-} from '../styles/post_viewer'
+import { Wrapper, BodyWrapper, Title, ArticleBody } from '../styles/post_viewer'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
@@ -52,9 +46,6 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
               <div>article body</div>
             </ArticleBody>
           )}
-          <Footer>
-            <div>tagger</div>
-          </Footer>
         </BodyWrapper>
       </Wrapper>
     </Fragment>

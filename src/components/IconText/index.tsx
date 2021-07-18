@@ -7,6 +7,7 @@
 import { FC, ReactNode, memo } from 'react'
 
 import type { TSIZE } from '@/spec'
+import { ICON } from '@/config'
 import { buildLog, nilOrEmpty } from '@/utils'
 import { SIZE } from '@/constant'
 
@@ -16,26 +17,44 @@ import { Wrapper, Icon, Text } from './styles'
 const log = buildLog('c:IconText:index')
 
 type TProps = {
-  iconSrc: string
+  iconSrc?: string | null
+  path?: string | null
   round?: boolean
   children: ReactNode
   size?: TSIZE
   margin?: string
+  highlight?: boolean
+  className?: string
 }
 
 const IconText: FC<TProps> = ({
-  iconSrc,
+  className = '',
+  iconSrc = null,
+  path = null,
   round = false,
   children,
   size = SIZE.SMALL,
   margin,
-}) => (
-  <Wrapper testid="iconText">
-    {!nilOrEmpty(iconSrc) && (
-      <Icon src={iconSrc} size={size} round={round} margin={margin} />
-    )}
-    <Text size={size}>{children}</Text>
-  </Wrapper>
-)
+  highlight = false,
+}) => {
+  const src = iconSrc || `${ICON}/${path}`
+
+  return (
+    <Wrapper testid="iconText" className={className}>
+      {!nilOrEmpty(src) && (
+        <Icon
+          src={src}
+          size={size}
+          round={round}
+          margin={margin}
+          highlight={highlight}
+        />
+      )}
+      <Text size={size} highlight={highlight}>
+        {children}
+      </Text>
+    </Wrapper>
+  )
+}
 
 export default memo(IconText)

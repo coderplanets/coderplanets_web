@@ -3,10 +3,10 @@ import { FC, memo } from 'react'
 import type { TItem } from './spec'
 import {
   Wrapper,
-  ItemWrapper,
   Header,
-  Logo,
   Title,
+  JoinWrapper,
+  JoinNumber,
   Desc,
 } from './styles/spotlight'
 
@@ -16,13 +16,14 @@ type TProps = {
 
 const Spotlight: FC<TProps> = ({ item }) => (
   <Wrapper>
-    <ItemWrapper>
-      <Header>
-        <Title>{item.title}</Title>
-        <Logo src={item.cover} />
-      </Header>
-      <Desc>{item.desc}</Desc>
-    </ItemWrapper>
+    <Header>
+      <Title>{item.title}</Title>
+    </Header>
+    <Desc>{item.desc}</Desc>
+    <JoinWrapper>
+      <JoinNumber>58 </JoinNumber>
+      人已加入
+    </JoinWrapper>
   </Wrapper>
 )
 

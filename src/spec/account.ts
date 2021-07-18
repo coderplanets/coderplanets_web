@@ -1,15 +1,32 @@
 import type { TPagedCommunities } from './community'
 import type { TC11NLayout } from './c11n'
 
+type TSocial = {
+  qq?: string
+  weibo?: string
+  weichat?: string
+  github?: string
+  zhihu?: string
+  douban?: string
+  twitter?: string
+  facebook?: string
+  dribble?: string
+  instagram?: string
+  pinterest?: string
+  huaban?: string
+}
+
 export type TUser = {
   id?: string
   login?: string
   nickname?: string
   name?: string
+  bio?: string
   avatar?: string
   // TODO: figure it out
   extraId?: string
   editableCommunities?: TPagedCommunities
+  social?: TSocial
 }
 
 export type TC11N = {

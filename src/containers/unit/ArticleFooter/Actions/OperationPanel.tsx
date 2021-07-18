@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
@@ -28,7 +28,7 @@ const tmpItems = [
   },
 ]
 
-const OperationPanel = () => {
+const OperationPanel: FC = () => {
   return (
     <Wrapper>
       <IndexArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />
@@ -41,4 +41,4 @@ const OperationPanel = () => {
   )
 }
 
-export default React.memo(OperationPanel)
+export default memo(OperationPanel)

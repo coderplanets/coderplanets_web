@@ -9,16 +9,17 @@ import { FC } from 'react'
 import { pluggedIn, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
+import ArticleFooter from '@/containers/unit/ArticleFooter'
+
 // TODO: remove
 // import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
 // TODO: remove
 // import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 
-import type { TStore } from './store'
-
 import PostViewer from './PostViewer'
-import WorksViewer from './WorksViewer'
+// import WorksViewer from './WorksViewer'
 
+import type { TStore } from './store'
 import { Wrapper, CommentsWrapper } from './styles'
 import { useInit } from './logic'
 
@@ -39,8 +40,9 @@ const ArticleViewerContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <WorksViewer article={viewingData} loading={loading} />
-      {/* <PostViewer article={viewingData} loading={loading} /> */}
+      {/* <WorksViewer article={viewingData} loading={loading} /> */}
+      <PostViewer article={viewingData} loading={loading} />
+      <ArticleFooter />
       <CommentsWrapper>
         <Comments onCreate={console.log} />
       </CommentsWrapper>

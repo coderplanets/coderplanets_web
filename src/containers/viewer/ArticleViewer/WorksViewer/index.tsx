@@ -14,12 +14,7 @@ import ArticleInfo from './ArticleInfo'
 
 import { ArticleContentLoading } from '@/components/Loading'
 
-import {
-  Wrapper,
-  BodyWrapper,
-  ArticleBody,
-  Footer,
-} from '../styles/works_viewer'
+import { Wrapper, BodyWrapper, ArticleBody } from '../styles/works_viewer'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
@@ -50,9 +45,6 @@ const WorksViewer: FC<TProps> = ({ article, loading }) => {
               <div>article body</div>
             </ArticleBody>
           )}
-          <Footer>
-            <div>tagger</div>
-          </Footer>
         </BodyWrapper>
       </Wrapper>
     </Fragment>

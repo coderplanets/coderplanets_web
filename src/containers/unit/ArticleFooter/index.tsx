@@ -6,10 +6,12 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, useState } from 'react'
 
+import type { TCopyright } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
+
+import Copyright from '@/components/Copyright'
 
 import TagList from './TagList'
 import Actions from './Actions/index'
@@ -18,21 +20,37 @@ import OperationPanel from './Actions/OperationPanel'
 
 import AuthorInfo from './AuthorInfo'
 
+import type { TStore } from './store'
 import { Wrapper, BaseInfo } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleFooter')
 
-const ArticleFooterContainer = ({ articleFooter: store, testid }) => {
+type TProps = {
+  articleFooter?: TStore
+  testid?: string
+}
+
+const ArticleFooterContainer: FC<TProps> = ({
+  articleFooter: store,
+  testid = 'article-footer',
+}) => {
   useInit(store)
   const { viewingData, showReferenceList, showOperationList } = store
   const { tags, author } = viewingData
+
+  const [copyright, setCopyright] = useState('cc')
 
   return (
     <Wrapper testid={testid}>
       <BaseInfo>
         <TagList items={tags} />
+        <Copyright
+          type={copyright as TCopyright}
+          mode="editable"
+          onChange={(key) => setCopyright(key)}
+        />
         <Actions
           showReferenceList={showReferenceList}
           showOperationList={showOperationList}
@@ -46,13 +64,4 @@ const ArticleFooterContainer = ({ articleFooter: store, testid }) => {
   )
 }
 
-ArticleFooterContainer.propTypes = {
-  articleFooter: T.any.isRequired,
-  testid: T.string,
-}
-
-ArticleFooterContainer.defaultProps = {
-  testid: 'article-footer',
-}
-
-export default pluggedIn(ArticleFooterContainer)
+export default pluggedIn(ArticleFooterContainer) as FC<TProps>
