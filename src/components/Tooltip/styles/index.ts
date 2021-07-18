@@ -10,6 +10,8 @@ export const StyledTippy = styled(Tippy)`
   box-shadow: ${theme('popover.boxShadow')};
   outline: none;
   max-width: 480px !important;
+  border: 1px solid;
+  border-color: ${theme('popover.borderColor')};
 
   border-radius: 5px;
   padding: 10px;

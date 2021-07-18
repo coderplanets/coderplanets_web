@@ -2,6 +2,8 @@ import type { TCommunity, TTag } from './index'
 import type { TUser, TAccount } from './account'
 import type { TID } from './utils'
 
+export type TCopyright = 'cc' | 'approve' | 'forbid'
+
 type TBaseArticle = {
   id?: TID
   title?: string

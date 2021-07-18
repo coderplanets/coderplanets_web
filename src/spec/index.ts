@@ -55,6 +55,7 @@ export type {
   TComment,
   TPagedComments,
   TArticleFilter,
+  TCopyright,
 } from './article'
 
 export type {

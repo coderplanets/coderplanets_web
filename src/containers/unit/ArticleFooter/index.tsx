@@ -6,8 +6,9 @@
  *
  */
 
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
+import type { TCopyright } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
 
 import Copyright from '@/components/Copyright'
@@ -39,11 +40,17 @@ const ArticleFooterContainer: FC<TProps> = ({
   const { viewingData, showReferenceList, showOperationList } = store
   const { tags, author } = viewingData
 
+  const [copyright, setCopyright] = useState('cc')
+
   return (
     <Wrapper testid={testid}>
       <BaseInfo>
         <TagList items={tags} />
-        <Copyright />
+        <Copyright
+          type={copyright as TCopyright}
+          mode="editable"
+          onChange={(key) => setCopyright(key)}
+        />
         <Actions
           showReferenceList={showReferenceList}
           showOperationList={showOperationList}
