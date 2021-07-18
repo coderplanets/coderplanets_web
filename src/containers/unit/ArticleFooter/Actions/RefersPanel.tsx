@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
@@ -43,7 +43,7 @@ const tmpItems = [
   },
 ]
 
-const RefersPanel = () => {
+const RefersPanel: FC = () => {
   return (
     <Wrapper>
       <IndexArrowIcon src={`${ICON}/shape/arrow-solid.svg`} />
@@ -56,4 +56,4 @@ const RefersPanel = () => {
   )
 }
 
-export default React.memo(RefersPanel)
+export default memo(RefersPanel)

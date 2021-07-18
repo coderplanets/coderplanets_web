@@ -1,9 +1,14 @@
-import React from 'react'
-
+import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
+import type { TTag } from '@/spec'
+
 import { Wrapper, Tag, Dot } from './styles/tag_list'
 
-const TagList = ({ items }) => {
+type TProps = {
+  items: TTag[]
+}
+
+const TagList: FC<TProps> = ({ items }) => {
   if (isEmpty(items)) return null
 
   return (
@@ -18,4 +23,4 @@ const TagList = ({ items }) => {
   )
 }
 
-export default React.memo(TagList)
+export default memo(TagList)

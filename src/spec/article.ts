@@ -1,5 +1,5 @@
 import type { TCommunity, TTag } from './index'
-import type { TUser } from './account'
+import type { TUser, TAccount } from './account'
 import type { TID } from './utils'
 
 type TBaseArticle = {
@@ -8,12 +8,7 @@ type TBaseArticle = {
   body?: string
   views?: number
   pin?: boolean
-  author?: {
-    id: string
-    login: string
-    nickname: string
-    avatar: string
-  }
+  author?: TAccount
   starredCount?: number
   origialCommunity?: TCommunity
   commentsParticipators?: TUser

@@ -1,5 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TAccount, TArticle, TCommunity } from '@/spec'
 import { ICON, ICON_BASE } from '@/config'
 
 import ImgFallback from '@/components/ImgFallback'
@@ -15,7 +16,18 @@ import {
   CommunityIcon,
 } from '../styles/actions/action_item'
 
-const ActionItem = ({ item: { author, article, community, insertedAt } }) => {
+type TProps = {
+  item: {
+    author: TAccount
+    article: TArticle
+    community: TCommunity
+    insertedAt: string
+  }
+}
+
+const ActionItem: FC<TProps> = ({
+  item: { author, article, community, insertedAt },
+}) => {
   return (
     <Wrapper>
       <MainInfo>
@@ -37,4 +49,4 @@ const ActionItem = ({ item: { author, article, community, insertedAt } }) => {
   )
 }
 
-export default React.memo(ActionItem)
+export default memo(ActionItem)

@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 
-import type { TTestable, TActive } from '@/spec'
+import type { TActive } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>`
+export const Wrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const Item = styled.div`
@@ -15,22 +13,23 @@ export const Item = styled.div`
 `
 const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  ${css.size(16)};
+  ${css.size(14)};
   margin-top: -1px;
 `
 export const ReferIcon = styled(Icon)``
 export const RecordIcon = styled(Icon)`
-  ${css.size(18)};
+  ${css.size(15)};
 `
 export const ReferNum = styled.span`
+  font-size: 14px;
+  font-weight: bold;
   color: #00a59b;
-  margin-right: 3px;
+  margin-right: 5px;
 `
 export const Text = styled.div<TActive>`
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  font-size: 12px;
-  margin-left: 7px;
+  font-size: 13px;
 
   ${Item}:hover & {
     color: ${theme('thread.articleTitle')};
@@ -38,9 +37,7 @@ export const Text = styled.div<TActive>`
 
   transition: color 0.25s;
 `
-export const PanelWrapper = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>`
+export const PanelWrapper = styled.div`
   ${css.flexColumn()};
   position: relative;
   border-top: 1px solid;

@@ -6,10 +6,25 @@ export type TUser = {
   login?: string
   nickname?: string
   name?: string
+  bio?: string
   avatar?: string
   // TODO: figure it out
   extraId?: string
   editableCommunities?: TPagedCommunities
+  social?: {
+    qq?: string
+    weibo?: string
+    weichat?: string
+    github?: string
+    zhihu?: string
+    douban?: string
+    twitter?: string
+    facebook?: string
+    dribble?: string
+    instagram?: string
+    pinterest?: string
+    huaban?: string
+  }
 }
 
 export type TC11N = {
