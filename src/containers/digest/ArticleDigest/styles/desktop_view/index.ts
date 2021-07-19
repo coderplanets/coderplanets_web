@@ -31,10 +31,10 @@ export const Main = styled.div<{ metric: string }>`
   ${({ metric }) => css.fitContentWidth(metric)};
   width: 100%;
 `
-export const AuthorWrapper = styled.div`
+export const SubWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};
   width: ${WIDTH.ARTICLE.STICKER};
-  margin-top: 32px;
+  margin-top: 33px;
 
   ${css.media.laptopL`
     width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};

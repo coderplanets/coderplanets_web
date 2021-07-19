@@ -14,7 +14,7 @@ import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
-import Author from './Author'
+import SubCommunity from './SubCommunity'
 import PublishDate from './PublishDate'
 // import DotDivider from '@/components/DotDivider'
 // import { Space } from '@/components/Common'
@@ -30,7 +30,7 @@ import {
   Main,
   AuthorName,
   BottomInfo,
-  AuthorWrapper,
+  SubWrapper,
 } from '../styles/desktop_view/index'
 import { useInit, inAnchor, outAnchor } from '../logic'
 
@@ -67,9 +67,9 @@ const ArticleDigestContainer: FC<TProps> = ({
               <AuthorName>mydearxym</AuthorName>
             </BottomInfo>
           </Main>
-          <AuthorWrapper>
-            <Author user={viewingArticle.author} />
-          </AuthorWrapper>
+          <SubWrapper>
+            <SubCommunity />
+          </SubWrapper>
         </BannerContent>
       </InnerWrapper>
       <Waypoint onEnter={inAnchor} onLeave={outAnchor} />

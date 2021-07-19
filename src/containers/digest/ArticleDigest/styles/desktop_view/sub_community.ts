@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.nav`
@@ -10,9 +11,17 @@ export const Wrapper = styled.nav`
     margin-left: -40px;
   `} */
 `
+export const Icon = styled(Img)`
+  ${css.size(32)};
+`
 export const Name = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.articleTitle')};
   font-size: 14px;
   margin-top: 12px;
+  margin-bottom: 2px;
+`
+export const JoinDesc = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 12px;
   margin-bottom: 10px;
 `
