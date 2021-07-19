@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { Space } from '@/components/Common'
-import { Wrapper } from '../styles/desktop_view/publish_date'
+import { Wrapper } from '../../styles/desktop_view/post_layout/publish_date'
 
 const calcRange = (hours) => {
   if (hours >= 0 && hours <= 6) return '凌晨'

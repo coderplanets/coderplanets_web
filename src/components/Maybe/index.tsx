@@ -1,11 +1,8 @@
 /*
- *
  * Maybe
- *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo, ReactNode } from 'react'
 import { isEmpty } from 'ramda'
 
 import { buildLog } from '@/utils'
@@ -18,7 +15,13 @@ const MaybeLoading = ({ loading }) => {
   return <div>{loading}</div>
 }
 
-const Maybe = ({ children, test, loading }) => {
+type TProps = {
+  children: ReactNode
+  test: boolean
+  loading?: boolean
+}
+
+const Maybe: FC<TProps> = ({ children, test, loading = false }) => {
   if (Array.isArray(test) && isEmpty(test)) {
     return <MaybeLoading loading={loading} />
   }
@@ -29,16 +32,4 @@ const Maybe = ({ children, test, loading }) => {
   return <>{children}</>
 }
 
-Maybe.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  children: T.node.isRequired,
-  test: T.any,
-  loading: T.node,
-}
-
-Maybe.defaultProps = {
-  test: '',
-  loading: null,
-}
-
-export default Maybe
+export default memo(Maybe)

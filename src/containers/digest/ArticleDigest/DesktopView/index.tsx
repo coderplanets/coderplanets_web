@@ -13,25 +13,15 @@ import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-import ArticleBaseStats from '@/components/ArticleBaseStats'
-import SubCommunity from './SubCommunity'
-import PublishDate from './PublishDate'
-// import DotDivider from '@/components/DotDivider'
-// import { Space } from '@/components/Common'
-
-import Title from './Title'
+// import PostLayout from './PostLayout'
+import WorksLayout from './WorksLayout'
 
 import type { TStore } from '../store'
-
 import {
   Wrapper,
   InnerWrapper,
   BannerContent,
-  Main,
-  AuthorName,
-  BottomInfo,
-  SubWrapper,
-} from '../styles/desktop_view/index'
+} from '../styles/desktop_view/post_layout/index'
 import { useInit, inAnchor, outAnchor } from '../logic'
 
 /* eslint-disable-next-line */
@@ -51,7 +41,7 @@ const ArticleDigestContainer: FC<TProps> = ({
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
-  const { activeThread, viewingArticle } = store
+  const { viewingArticle } = store
 
   if (isNil(viewingArticle.id)) return null
 
@@ -59,17 +49,8 @@ const ArticleDigestContainer: FC<TProps> = ({
     <Wrapper testid={testid}>
       <InnerWrapper>
         <BannerContent>
-          <Main metric={metric}>
-            <PublishDate insertedAt={viewingArticle.insertedAt} />
-            <Title thread={activeThread} data={viewingArticle} />
-            <BottomInfo>
-              <ArticleBaseStats article={viewingArticle} />
-              <AuthorName>mydearxym</AuthorName>
-            </BottomInfo>
-          </Main>
-          <SubWrapper>
-            <SubCommunity />
-          </SubWrapper>
+          <WorksLayout article={viewingArticle} />
+          {/* <PostLayout article={viewingArticle} /> */}
         </BannerContent>
       </InnerWrapper>
       <Waypoint onEnter={inAnchor} onLeave={outAnchor} />

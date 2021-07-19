@@ -45,7 +45,7 @@ const PostContentContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <Maybe test={viewingArticle.id}>
+      <Maybe test={!!viewingArticle.id}>
         <InnerWrapper>
           <MainWrapper>
             <ArticleWrapper>

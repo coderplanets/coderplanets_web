@@ -11,7 +11,7 @@ import { buildLog } from '@/utils'
 import TotalCount from './TotalCount'
 import UpvoteBtn from './UpvoteBtn'
 
-import { Wrapper, UpWrapper, CountWrapper } from './styles/sticker_view'
+import { Wrapper, UpWrapper, CountWrapper } from './styles/article_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
@@ -32,7 +32,7 @@ const Upvote: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <UpWrapper>
-        <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} type="sticker" />
+        <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} type="article" />
       </UpWrapper>
       <CountWrapper>
         <TotalCount count={count} />

@@ -11,7 +11,7 @@ import { buildLog } from '@/utils'
 import TotalCount from './TotalCount'
 import UpvoteBtn from './UpvoteBtn'
 
-import { Wrapper, UpWrapper, CountWrapper } from './styles/comment_view'
+import { Wrapper, UpWrapper, CountWrapper } from './styles/comment_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')

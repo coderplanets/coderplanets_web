@@ -14,7 +14,7 @@ import AvatarsRow from '@/components/AvatarsRow'
 import UpvoteBtn from './UpvoteBtn'
 import Desc from './Desc'
 
-import { Wrapper } from './styles/default_view'
+import { Wrapper } from './styles/default_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')

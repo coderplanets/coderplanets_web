@@ -15,7 +15,7 @@ import { pluggedIn, buildLog } from '@/utils'
 import FavoritesCats from '@/containers/tool/FavoritesCats'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
-import PublishDate from '../DesktopView/PublishDate'
+import PublishDate from '../DesktopView/PostLayout/PublishDate'
 
 import type { TStore } from '../store'
 import {

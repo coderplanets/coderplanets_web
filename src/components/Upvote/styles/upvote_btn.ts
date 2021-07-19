@@ -5,7 +5,14 @@ import type { TUpvote, TActive } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-import { getIconSize, getIconShadowSize } from './metric'
+import {
+  getIconSize,
+  getIconShadowSize,
+  getShadowLeftOffset,
+  getShadowTopOffset,
+  getWindowLeftOffset,
+  getWindowTopOffset,
+} from './metric'
 
 const topBubbles = keyframes`
   0% {
@@ -35,6 +42,7 @@ const bottomBubbles = keyframes`
 `
 type TWrapper = {
   showAnimation: boolean
+  type: TUpvote
 }
 
 export const Wrapper = styled.div<TWrapper>`
@@ -42,6 +50,7 @@ export const Wrapper = styled.div<TWrapper>`
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
   padding: 5px 0;
+  margin-top: ${({ type }) => (type === 'default' ? '4px' : 0)};
   appearance: none;
   background-color: transparent;
   border: none;
@@ -140,21 +149,21 @@ export const ContentWrapper = styled.div`
 `
 export const IconWrapper = styled.div<{ type: TUpvote }>`
   ${css.flex('align-center', 'justify-start')};
-  width: ${({ type }) => (type !== 'sticker' ? '20px' : 'auto')};
-  margin-right: ${({ type }) => (type !== 'sticker' ? '5px' : '0')};
+  width: ${({ type }) => (type !== 'article' ? '20px' : 'auto')};
+  margin-right: ${({ type }) => (type !== 'article' ? '3px' : '0')};
   position: relative;
   z-index: 1;
 `
 export const IconShadow = styled.div<{ type: TUpvote }>`
   position: absolute;
-  left: -3px;
-  top: -2px;
+  left: ${({ type }) => getShadowLeftOffset(type)};
+  top: ${({ type }) => getShadowTopOffset(type)};
   width: ${({ type }) => getIconShadowSize(type)};
   height: ${({ type }) => getIconShadowSize(type)};
   border-radius: 100%;
   background: #0f4052;
   z-index: -1;
-  opacity: ${({ type }) => (type !== 'sticker' ? 0 : 0.6)};
+  opacity: ${({ type }) => (type !== 'article' ? 0 : 0.6)};
 
   ${IconWrapper}:hover & {
     opacity: 1;
@@ -163,11 +172,11 @@ export const IconShadow = styled.div<{ type: TUpvote }>`
   transform: opacity 0.2s;
 `
 
-export const ShipWindow = styled.div`
+export const ShipWindow = styled.div<{ type?: TUpvote }>`
   position: absolute;
-  left: 7px;
-  top: 8px;
-  width: 5px;
+  left: ${({ type }) => getWindowLeftOffset(type)};
+  top: ${({ type }) => getWindowTopOffset(type)};
+  width: 6px;
   height: 4px;
   border-radius: 100%;
   display: block;
@@ -176,7 +185,7 @@ export const ShipWindow = styled.div`
   opacity: 0.6;
 `
 
-export const StickerShipWindow = styled(ShipWindow)`
+export const ArticleShipWindow = styled(ShipWindow)`
   position: absolute;
   left: 11px;
   top: 12px;

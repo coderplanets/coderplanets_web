@@ -9,7 +9,7 @@ import {
   Icon,
   Name,
   JoinDesc,
-} from '../styles/desktop_view/sub_community'
+} from '../../styles/desktop_view/post_layout/sub_community'
 
 // type TProps = {
 // }

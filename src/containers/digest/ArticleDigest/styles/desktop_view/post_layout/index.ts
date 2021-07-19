@@ -40,6 +40,11 @@ export const SubWrapper = styled.div`
     width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};
   `}
 `
+export const Title = styled.div`
+  font-size: 26px;
+  color: ${theme('thread.articleTitle')};
+  margin-bottom: 30px;
+`
 export const BottomInfo = styled.div`
   ${css.flex('align-end', 'justify-between')};
   margin-top: 15px;
@@ -51,5 +56,5 @@ export const BottomInfo = styled.div`
 `
 export const AuthorName = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 13px;
+  font-size: 14px;
 `

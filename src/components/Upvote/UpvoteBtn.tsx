@@ -16,7 +16,7 @@ import {
   IconWrapper,
   IconShadow,
   ShipWindow,
-  StickerShipWindow,
+  ArticleShipWindow,
   UpIcon,
 } from './styles/upvote_btn'
 
@@ -51,11 +51,15 @@ const UpvoteBtn: FC<TProps> = ({
   }, [showAnimation, viewerHasUpvoted, num])
 
   return (
-    <Wrapper showAnimation={showAnimation}>
+    <Wrapper showAnimation={showAnimation} type={type}>
       <ContentWrapper>
         <IconWrapper onClick={handleClick} type={type}>
           <IconShadow type={type} />
-          {type === 'sticker' ? <StickerShipWindow /> : <ShipWindow />}
+          {type === 'article' ? (
+            <ArticleShipWindow />
+          ) : (
+            <ShipWindow type={type} />
+          )}
           <UpIcon
             type={type}
             src={`${ICON}/shape/upvote-ship.svg`}

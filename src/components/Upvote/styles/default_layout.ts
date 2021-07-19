@@ -12,6 +12,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TInnerWrapper>`
   ${css.flex('align-center')};
 `
+export const DescWrapper = styled.div`
+  ${css.flex('align-center')};
+`
 export const Text = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;

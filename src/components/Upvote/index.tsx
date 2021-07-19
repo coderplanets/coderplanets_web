@@ -9,9 +9,10 @@ import { FC, memo } from 'react'
 import type { TUser, TUpvote } from '@/spec'
 import { buildLog } from '@/utils'
 
-import DefaultView from './DefaultView'
-import CommentView from './CommentView'
-import StickerView from './StickerView'
+import DefaultLayout from './DefaultLayout'
+import CommentLayout from './CommentLayout'
+import ArticleLayout from './ArticleLayout'
+import WorksArticleLayout from './WorksArticleLayout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
@@ -29,13 +30,16 @@ type TProps = {
 const Upvote: FC<TProps> = ({ type = 'default', ...restProps }) => {
   switch (type) {
     case 'comment': {
-      return <CommentView {...restProps} />
+      return <CommentLayout {...restProps} />
     }
-    case 'sticker': {
-      return <StickerView {...restProps} />
+    case 'works-article': {
+      return <WorksArticleLayout {...restProps} />
+    }
+    case 'article': {
+      return <ArticleLayout {...restProps} />
     }
     default: {
-      return <DefaultView {...restProps} />
+      return <DefaultLayout {...restProps} />
     }
   }
 }

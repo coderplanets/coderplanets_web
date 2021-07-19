@@ -6,15 +6,17 @@ import { FC, Fragment, memo } from 'react'
 
 import { buildLog } from '@/utils'
 import { Space } from '@/components/Common'
+import Maybe from '@/components/Maybe'
 
 import TotalCount from './TotalCount'
-import { Text } from './styles/default_view'
+import { Text, DescWrapper } from './styles/default_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:Desc')
 
 type TProps = {
   count?: number
+  showCount?: boolean
   avatarsRowLimit?: number
   noOne: boolean
   alias?: string // 觉得很赞(default), 觉得很酷(works), 学到了(blog), 感兴趣(meetup), 有意思(Radar)
@@ -23,30 +25,33 @@ type TProps = {
 const Desc: FC<TProps> = ({
   noOne,
   count = 4,
+  showCount = true,
   avatarsRowLimit = 3,
   alias = '觉得很赞',
 }) => {
   const onlyOne = count === 1
 
   return (
-    <Fragment>
+    <DescWrapper>
       {!noOne && !onlyOne && count > avatarsRowLimit && (
-        <Fragment>
+        <DescWrapper>
           <Space left={3} />
           <Text>等</Text>
-          <Space left={3} />
-          <TotalCount count={count} /> <Space left={4} />
-          <Text>人</Text>
-        </Fragment>
+          <Maybe test={showCount}>
+            <Space left={3} />
+            <TotalCount count={count} /> <Space left={4} />
+            <Text>人</Text>
+          </Maybe>
+        </DescWrapper>
       )}
       {noOne ? (
-        <Fragment>
+        <Maybe test={showCount}>
           <TotalCount count={count} /> <Space left={4} />
-        </Fragment>
+        </Maybe>
       ) : (
         <Text>{alias}</Text>
       )}
-    </Fragment>
+    </DescWrapper>
   )
 }
 
