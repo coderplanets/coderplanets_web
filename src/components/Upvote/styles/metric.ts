@@ -1,12 +1,13 @@
-import type { TUpvote } from '@/spec'
+import type { TUpvoteLayout } from '@/spec'
+import { UPVOTE_LAYOUT } from '@/constant'
 
-export const getIconSize = (type: TUpvote): string => {
+export const getIconSize = (type: TUpvoteLayout): string => {
   switch (type) {
-    case 'article': {
+    case UPVOTE_LAYOUT.ARTICLE: {
       return '30px;'
     }
 
-    case 'works-article': {
+    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '22px;'
     }
 
@@ -16,13 +17,13 @@ export const getIconSize = (type: TUpvote): string => {
   }
 }
 
-export const getIconShadowSize = (type: TUpvote): string => {
+export const getIconShadowSize = (type: TUpvoteLayout): string => {
   switch (type) {
     case 'article': {
       return '36px;'
     }
 
-    case 'works-article': {
+    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '30px;'
     }
 
@@ -32,9 +33,9 @@ export const getIconShadowSize = (type: TUpvote): string => {
   }
 }
 
-export const getShadowLeftOffset = (type: TUpvote): string => {
+export const getShadowLeftOffset = (type: TUpvoteLayout): string => {
   switch (type) {
-    case 'works-article': {
+    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '-4px'
     }
 
@@ -44,9 +45,9 @@ export const getShadowLeftOffset = (type: TUpvote): string => {
   }
 }
 
-export const getShadowTopOffset = (type: TUpvote): string => {
+export const getShadowTopOffset = (type: TUpvoteLayout): string => {
   switch (type) {
-    case 'works-article': {
+    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '-3px'
     }
 
@@ -56,9 +57,9 @@ export const getShadowTopOffset = (type: TUpvote): string => {
   }
 }
 
-export const getWindowLeftOffset = (type: TUpvote): string => {
+export const getWindowLeftOffset = (type: TUpvoteLayout): string => {
   switch (type) {
-    case 'works-article': {
+    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '8px'
     }
 
@@ -68,9 +69,9 @@ export const getWindowLeftOffset = (type: TUpvote): string => {
   }
 }
 
-export const getWindowTopOffset = (type: TUpvote): string => {
+export const getWindowTopOffset = (type: TUpvoteLayout): string => {
   switch (type) {
-    case 'works-article': {
+    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '10px'
     }
 

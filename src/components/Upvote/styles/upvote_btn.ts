@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
-import type { TUpvote, TActive } from '@/spec'
+import type { TUpvoteLayout, TActive } from '@/spec'
+import { UPVOTE_LAYOUT } from '@/constant'
 
 import Img from '@/Img'
 import { css, theme } from '@/utils'
@@ -42,7 +43,7 @@ const bottomBubbles = keyframes`
 `
 type TWrapper = {
   showAnimation: boolean
-  type: TUpvote
+  type: TUpvoteLayout
 }
 
 export const Wrapper = styled.div<TWrapper>`
@@ -50,7 +51,7 @@ export const Wrapper = styled.div<TWrapper>`
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
   padding: 5px 0;
-  margin-top: ${({ type }) => (type === 'default' ? '4px' : 0)};
+  margin-top: ${({ type }) => (type === UPVOTE_LAYOUT.DEFAULT ? '4px' : 0)};
   appearance: none;
   background-color: transparent;
   border: none;
@@ -147,14 +148,14 @@ export const Wrapper = styled.div<TWrapper>`
 export const ContentWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const IconWrapper = styled.div<{ type: TUpvote }>`
+export const IconWrapper = styled.div<{ type: TUpvoteLayout }>`
   ${css.flex('align-center', 'justify-start')};
-  width: ${({ type }) => (type !== 'article' ? '20px' : 'auto')};
-  margin-right: ${({ type }) => (type !== 'article' ? '3px' : '0')};
+  width: ${({ type }) => (type !== UPVOTE_LAYOUT.ARTICLE ? '20px' : 'auto')};
+  margin-right: ${({ type }) => (type !== UPVOTE_LAYOUT.ARTICLE ? '3px' : '0')};
   position: relative;
   z-index: 1;
 `
-export const IconShadow = styled.div<{ type: TUpvote }>`
+export const IconShadow = styled.div<{ type: TUpvoteLayout }>`
   position: absolute;
   left: ${({ type }) => getShadowLeftOffset(type)};
   top: ${({ type }) => getShadowTopOffset(type)};
@@ -163,7 +164,7 @@ export const IconShadow = styled.div<{ type: TUpvote }>`
   border-radius: 100%;
   background: #0f4052;
   z-index: -1;
-  opacity: ${({ type }) => (type !== 'article' ? 0 : 0.6)};
+  opacity: ${({ type }) => (type !== UPVOTE_LAYOUT.ARTICLE ? 0 : 0.6)};
 
   ${IconWrapper}:hover & {
     opacity: 1;
@@ -172,7 +173,7 @@ export const IconShadow = styled.div<{ type: TUpvote }>`
   transform: opacity 0.2s;
 `
 
-export const ShipWindow = styled.div<{ type?: TUpvote }>`
+export const ShipWindow = styled.div<{ type?: TUpvoteLayout }>`
   position: absolute;
   left: ${({ type }) => getWindowLeftOffset(type)};
   top: ${({ type }) => getWindowTopOffset(type)};
@@ -194,7 +195,7 @@ export const ArticleShipWindow = styled(ShipWindow)`
   opacity: 0.5;
 `
 
-type TUpIcon = { type: TUpvote } & TActive
+type TUpIcon = { type: TUpvoteLayout } & TActive
 export const UpIcon = styled(Img)<TUpIcon>`
   fill: ${({ $active }) =>
     $active ? '#139B9D;' : theme('thread.articleDigest')};

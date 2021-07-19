@@ -6,7 +6,8 @@
 
 import { FC, memo } from 'react'
 
-import type { TUser, TUpvote } from '@/spec'
+import type { TUser, TUpvoteLayout } from '@/spec'
+import { UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils'
 
 import DefaultLayout from './DefaultLayout'
@@ -19,7 +20,7 @@ const log = buildLog('c:Upvote:index')
 
 type TProps = {
   testid?: string
-  type?: TUpvote
+  type?: TUpvoteLayout
   count?: number
   avatarsRowLimit?: number
   viewerHasUpvoted?: boolean
@@ -27,15 +28,15 @@ type TProps = {
   avatarList?: TUser[]
 }
 
-const Upvote: FC<TProps> = ({ type = 'default', ...restProps }) => {
+const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
   switch (type) {
-    case 'comment': {
+    case UPVOTE_LAYOUT.COMMENT: {
       return <CommentLayout {...restProps} />
     }
-    case 'works-article': {
+    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return <WorksArticleLayout {...restProps} />
     }
-    case 'article': {
+    case UPVOTE_LAYOUT.ARTICLE: {
       return <ArticleLayout {...restProps} />
     }
     default: {

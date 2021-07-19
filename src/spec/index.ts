@@ -56,7 +56,7 @@ export type {
   TPagedComments,
   TArticleFilter,
   TCopyright,
-  TUpvote,
+  TUpvoteLayout,
 } from './article'
 
 export type {

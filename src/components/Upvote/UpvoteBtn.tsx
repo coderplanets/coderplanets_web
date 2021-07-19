@@ -6,7 +6,7 @@
 
 import { FC, memo, useState, useCallback } from 'react'
 
-import type { TUser, TUpvote } from '@/spec'
+import type { TUser, TUpvoteLayout } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
@@ -25,7 +25,7 @@ const log = buildLog('c:Upvote:index')
 
 type TProps = {
   testid?: string
-  type?: TUpvote
+  type?: TUpvoteLayout
   num?: number
   viewerHasUpvoted?: boolean
   alias?: string

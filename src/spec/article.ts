@@ -72,4 +72,4 @@ export type TArticleFilter = {
   read?: string
 }
 
-export type TUpvote = 'default' | 'comment' | 'article' | 'works-article'
+export type TUpvoteLayout = 'default' | 'comment' | 'article' | 'works-article'

@@ -5,7 +5,7 @@
 import { FC, Fragment, memo } from 'react'
 
 import type { TPost } from '@/spec'
-import { METRIC } from '@/constant'
+import { METRIC, UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
@@ -38,7 +38,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
         </BottomInfo>
       </Main>
       <SubWrapper>
-        <Upvote count={17} type="works-article" />
+        <Upvote count={17} type={UPVOTE_LAYOUT.WORKS_ARTICLE} />
       </SubWrapper>
     </Fragment>
   )
