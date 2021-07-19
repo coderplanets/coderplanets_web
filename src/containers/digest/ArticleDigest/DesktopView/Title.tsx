@@ -1,11 +1,17 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TThread, TArticle } from '@/spec'
 import { THREAD } from '@/constant'
 
 import RepoTitle from './RepoTitle'
 import { Wrapper } from '../styles/desktop_view/title'
 
-const Title = ({ thread, data }) => {
+type TProps = {
+  thread: TThread
+  data: TArticle
+}
+
+const Title: FC<TProps> = ({ thread, data }) => {
   switch (thread) {
     case THREAD.REPO:
       return <RepoTitle repo={data} />
@@ -15,4 +21,4 @@ const Title = ({ thread, data }) => {
   }
 }
 
-export default React.memo(Title)
+export default memo(Title)

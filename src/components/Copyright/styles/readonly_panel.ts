@@ -7,7 +7,8 @@ import { css, theme } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 240px;
-  padding-left: 5px;
+  padding: 10px;
+  padding-left: 15px;
 `
 export const Header = styled.div`
   ${css.flex('align-center')};

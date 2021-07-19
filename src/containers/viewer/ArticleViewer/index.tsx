@@ -16,8 +16,8 @@ import ArticleFooter from '@/containers/unit/ArticleFooter'
 // TODO: remove
 // import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 
-import PostViewer from './PostViewer'
-// import WorksViewer from './WorksViewer'
+// import PostViewer from './PostViewer'
+import WorksViewer from './WorksViewer'
 
 import type { TStore } from './store'
 import { Wrapper, CommentsWrapper } from './styles'
@@ -40,8 +40,8 @@ const ArticleViewerContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      {/* <WorksViewer article={viewingData} loading={loading} /> */}
-      <PostViewer article={viewingData} loading={loading} />
+      <WorksViewer article={viewingData} loading={loading} />
+      {/* <PostViewer article={viewingData} loading={loading} /> */}
       <ArticleFooter />
       <CommentsWrapper>
         <Comments onCreate={console.log} />

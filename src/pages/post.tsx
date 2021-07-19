@@ -1,4 +1,5 @@
 import React from 'react'
+// import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
 import { merge, toUpper } from 'ramda'
 
@@ -20,7 +21,7 @@ import PostContent from '@/containers/content/PostContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null

@@ -16,7 +16,7 @@ import GotoTop from '@/components/GotoTop'
 import type { TStore } from './store'
 
 import LeftSticker from './LeftSticker/index'
-import CommunitySticker from './CommunitySticker'
+// import CommunitySticker from './CommunitySticker'
 import ArticleSticker from './ArticleSticker'
 import CommentSticker from './CommentSticker'
 
@@ -39,7 +39,7 @@ const ArticleStickerContainer: FC<TProps> = ({
 
   const {
     showLeftSticker,
-    showCommunity,
+    // showCommunity,
     viewingData,
     isTocMenuOpened,
     showCommentSticker,
@@ -57,7 +57,7 @@ const ArticleStickerContainer: FC<TProps> = ({
         <Wrapper testid={testid}>
           <InnerWrapper>
             <MainWrapper>
-              {showCommunity && <CommunitySticker />}
+              {/* {showCommunity && <CommunitySticker />} */}
               <ArticleSticker
                 viewing={viewingData}
                 show={!showCommentSticker}

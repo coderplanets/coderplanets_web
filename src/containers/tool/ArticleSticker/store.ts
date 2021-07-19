@@ -47,10 +47,10 @@ const ArticleSticker = T.model('ArticleSticker', {
 
       return bodyScrollDirection === 'down'
     },
-    get showCommunity(): boolean {
-      const { isArticleDigestInViewport, isArticleInViewport } = self as TStore
-      return !isArticleDigestInViewport && isArticleInViewport
-    },
+    // get showCommunity(): boolean {
+    //   const { isArticleDigestInViewport, isArticleInViewport } = self as TStore
+    //   return !isArticleDigestInViewport && isArticleInViewport
+    // },
     get showCommentSticker(): boolean {
       const { isArticleInViewport } = self as TStore
       return !isArticleInViewport

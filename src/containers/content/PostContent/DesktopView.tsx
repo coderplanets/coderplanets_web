@@ -68,7 +68,6 @@ const PostContentContainer: FC<TProps> = ({
               onLeave={() => checkAnchor(ref?.current)}
             />
             <CommentsWrapper>
-              {/* @ts-ignore */}
               <Comments ssr />
             </CommentsWrapper>
           </MainWrapper>

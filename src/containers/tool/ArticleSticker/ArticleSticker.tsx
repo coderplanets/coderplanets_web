@@ -1,19 +1,11 @@
 import { FC, memo } from 'react'
 
 import type { TArticle } from '@/spec'
-import { ICON } from '@/config'
-import { Br } from '@/components/Common'
 
-import {
-  Wrapper,
-  ItemWrapper,
-  ItemHint,
-  LikeIcon,
-  CollectIcon,
-  ShareIcon,
-  Number,
-  Text,
-} from './styles/article_sticker'
+import { IconButton } from '@/components/Buttons'
+import Upvote from '@/components/Upvote'
+
+import { Wrapper } from './styles/article_sticker'
 
 type TProps = {
   show: boolean
@@ -23,22 +15,21 @@ type TProps = {
 const ArticleSticker: FC<TProps> = ({ show, viewing }) => {
   return (
     <Wrapper show={show}>
-      <ItemWrapper>
-        <LikeIcon src={`${ICON}/article/heart-solid.svg`} />
-        <Number>
-          {viewing.starredCount}&nbsp;<Text>喜欢</Text>
-        </Number>
-      </ItemWrapper>
-      <Br top={16} />
-      <ItemWrapper>
-        <CollectIcon src={`${ICON}/article/collect.svg`} />
-        <ItemHint>收藏</ItemHint>
-      </ItemWrapper>
-      <Br top={18} />
-      <ItemWrapper>
-        <ShareIcon src={`${ICON}/share.svg`} />
-        <ItemHint bottom={-2}>分享</ItemHint>
-      </ItemWrapper>
+      <Upvote count={viewing.starredCount} type="sticker" />
+      <IconButton
+        path="article/collect-bookmark.svg"
+        size={24}
+        mTop={20}
+        mLeft={2}
+        mRight={0}
+      />
+      <IconButton
+        path="article/share-solid.svg"
+        size={20}
+        mLeft={4}
+        mTop={15}
+        mRight={0}
+      />
     </Wrapper>
   )
 }

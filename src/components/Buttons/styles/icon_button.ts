@@ -9,7 +9,6 @@ import type { TProps as TIconButtonProps } from '../IconButton'
 
 type TWrapper = Omit<TIconButtonProps, 'path'>
 export const Wrapper = styled.div<TWrapper>`
-  position: relative;
   ${css.flex('align-both')};
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
@@ -19,7 +18,6 @@ export const Wrapper = styled.div<TWrapper>`
   margin-top: ${({ mTop }) => `${mTop}px`};
   margin-bottom: ${({ mBottom }) => `${mBottom}px`};
 `
-
 type TIcon = { size: number; dimWhenIdle: boolean } & TSpace & TActive
 export const Icon = styled(Img)<TIcon>`
   fill: ${({ $active }) =>

@@ -1,9 +1,11 @@
 import styled, { keyframes } from 'styled-components'
 
-import type { TActive } from '@/spec'
+import type { TUpvote, TActive } from '@/spec'
 
 import Img from '@/Img'
 import { css, theme } from '@/utils'
+
+import { getIconSize, getIconShadowSize } from './metric'
 
 const topBubbles = keyframes`
   0% {
@@ -136,21 +138,23 @@ export const Wrapper = styled.div<TWrapper>`
 export const ContentWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.div<{ type: TUpvote }>`
   ${css.flex('align-center', 'justify-start')};
-  width: 20px;
-  margin-right: 5px;
+  width: ${({ type }) => (type !== 'sticker' ? '20px' : 'auto')};
+  margin-right: ${({ type }) => (type !== 'sticker' ? '5px' : '0')};
   position: relative;
   z-index: 1;
 `
-export const IconShadow = styled.div`
+export const IconShadow = styled.div<{ type: TUpvote }>`
   position: absolute;
   left: -3px;
   top: -2px;
-  ${css.circle(23)};
+  width: ${({ type }) => getIconShadowSize(type)};
+  height: ${({ type }) => getIconShadowSize(type)};
+  border-radius: 100%;
   background: #0f4052;
   z-index: -1;
-  opacity: 0;
+  opacity: ${({ type }) => (type !== 'sticker' ? 0 : 0.6)};
 
   ${IconWrapper}:hover & {
     opacity: 1;
@@ -171,10 +175,24 @@ export const ShipWindow = styled.div`
 
   opacity: 0.6;
 `
-export const UpIcon = styled(Img)<TActive>`
+
+export const StickerShipWindow = styled(ShipWindow)`
+  position: absolute;
+  left: 11px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.5;
+`
+
+type TUpIcon = { type: TUpvote } & TActive
+export const UpIcon = styled(Img)<TUpIcon>`
   fill: ${({ $active }) =>
     $active ? '#139B9D;' : theme('thread.articleDigest')};
-  ${css.size(18)};
+
+  width: ${({ type }) => getIconSize(type)};
+  height: ${({ type }) => getIconSize(type)};
+
   transform: scale(1, 0.8);
   margin-top: 1px;
   &:hover {

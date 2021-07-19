@@ -58,7 +58,7 @@ const Tooltip: FC<TProps> = ({
   duration = 0,
   content,
   hideOnClick = true,
-  showArrow = true,
+  showArrow = false,
   footerBehavior = 'default',
   trigger = 'mouseenter focus',
   onConfirm,

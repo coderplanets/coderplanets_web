@@ -37,13 +37,4 @@ export const CollectText = styled.div`
 export const BaseWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const ViewIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(16)};
-  margin-right: 5px;
-`
-export const Count = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 15px;
-`
 export const UpvoteWrapper = styled.div``

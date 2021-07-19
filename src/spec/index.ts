@@ -56,6 +56,7 @@ export type {
   TPagedComments,
   TArticleFilter,
   TCopyright,
+  TUpvote,
 } from './article'
 
 export type {
@@ -83,3 +84,5 @@ export type TRootStore = RootStoreType
 export type TViewing = TCommunity | TArticle
 
 export type TThread = string
+
+export type TContainer = 'body' | 'drawer'

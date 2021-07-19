@@ -13,9 +13,8 @@ import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-import FavoritesCats from '@/containers/tool/FavoritesCats'
+import ArticleBaseStats from '@/components/ArticleBaseStats'
 import Author from './Author'
-import StateInfo from './StateInfo'
 import PublishDate from './PublishDate'
 // import DotDivider from '@/components/DotDivider'
 // import { Space } from '@/components/Common'
@@ -29,7 +28,7 @@ import {
   InnerWrapper,
   BannerContent,
   Main,
-  PublishDesc,
+  AuthorName,
   BottomInfo,
   AuthorWrapper,
 } from '../styles/desktop_view/index'
@@ -58,15 +57,14 @@ const ArticleDigestContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <FavoritesCats />
       <InnerWrapper>
         <BannerContent>
           <Main metric={metric}>
             <PublishDate insertedAt={viewingArticle.insertedAt} />
             <Title thread={activeThread} data={viewingArticle} />
             <BottomInfo>
-              <PublishDesc>Elixir 社区</PublishDesc>
-              <StateInfo article={viewingArticle} />
+              <ArticleBaseStats article={viewingArticle} />
+              <AuthorName>mydearxym</AuthorName>
             </BottomInfo>
           </Main>
           <AuthorWrapper>

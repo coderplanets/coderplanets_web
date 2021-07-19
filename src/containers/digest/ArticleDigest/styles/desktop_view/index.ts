@@ -49,17 +49,7 @@ export const BottomInfo = styled.div`
   width: 100%;
   color: ${theme('thread.articleDigest')};
 `
-export const PublishDesc = styled.div`
+export const AuthorName = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  border-left: 4px solid;
-  border-left-color: #175473;
-  padding-left: 8px;
-  margin-left: 2px;
-
-  &:hover {
-    cursor: pointer;
-    color: ${theme('thread.articleTitle')};
-  }
-  transition: color 0.25s;
 `

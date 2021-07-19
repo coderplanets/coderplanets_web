@@ -4,19 +4,20 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC } from 'react'
 import { isNil } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
+import type { TScrollDirection } from '@/spec'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
 import FavoritesCats from '@/containers/tool/FavoritesCats'
 
-import StateInfo from './StateInfo'
+import ArticleBaseStats from '@/components/ArticleBaseStats'
 import PublishDate from '../DesktopView/PublishDate'
 
+import type { TStore } from '../store'
 import {
   Wrapper,
   InnerWrapper,
@@ -29,9 +30,13 @@ import { useInit, inAnchor, outAnchor } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
 
-const ArticleDigestContainer = ({ articleDigest: store }) => {
+type TProps = {
+  articleDigest?: TStore
+}
+
+const ArticleDigestContainer: FC<TProps> = ({ articleDigest: store }) => {
   const { direction: scrollDirection } = useScroll()
-  useInit(store, scrollDirection)
+  useInit(store, scrollDirection as TScrollDirection)
 
   const { viewingArticle } = store
 
@@ -45,10 +50,7 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
           <Brief>
             <PublishDate insertedAt={viewingArticle.insertedAt} />
             <Title>{viewingArticle.title}</Title>
-            <StateInfo
-              article={viewingArticle}
-              author={viewingArticle.author}
-            />
+            <ArticleBaseStats article={viewingArticle} />
           </Brief>
         </BannerContent>
       </InnerWrapper>
@@ -57,10 +59,4 @@ const ArticleDigestContainer = ({ articleDigest: store }) => {
   )
 }
 
-ArticleDigestContainer.propTypes = {
-  articleDigest: T.object.isRequired,
-}
-
-ArticleDigestContainer.defaultProps = {}
-
-export default pluggedIn(ArticleDigestContainer)
+export default pluggedIn(ArticleDigestContainer) as FC<TProps>

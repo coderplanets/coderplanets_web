@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { Space } from '@/components/Common'
 import { Wrapper } from '../styles/desktop_view/publish_date'
@@ -9,7 +9,11 @@ const calcRange = (hours) => {
   return hours >= 12 ? '下午' : '上午'
 }
 
-const PublishDate = ({ insertedAt }) => {
+type TProps = {
+  insertedAt: string
+}
+
+const PublishDate: FC<TProps> = ({ insertedAt }) => {
   const DateObj = new Date(insertedAt)
   const [month, date, year] = DateObj.toLocaleDateString().split('/')
 
@@ -35,4 +39,4 @@ const PublishDate = ({ insertedAt }) => {
   )
 }
 
-export default PublishDate
+export default memo(PublishDate)
