@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
+import type { TMetric } from '@/spec'
 import { theme, css, WIDTH } from '@/utils'
+import Img from '@/Img'
 
-export const Main = styled.div<{ metric: string }>`
+export const Main = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitContentWidth(metric)};
   width: 100%;
 `
@@ -34,7 +35,7 @@ export const Other = styled.div`
 export const Actions = styled.div`
   ${css.flex('align-center')};
 `
-export const SubWrapper = styled.div<{ metric: string }>`
+export const SubWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-start', 'justify-end')};
   margin-top: 2px;
   width: ${({ metric }) => WIDTH[metric].STICKER};

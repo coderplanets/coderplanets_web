@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import type { TMetric } from '@/spec'
 import { EVENT, PAYMENT_USAGE } from '@/constant'
 import { asyncSuit, buildLog, send } from '@/utils'
 // import S from './schema'
@@ -36,9 +37,10 @@ const ErrSolver = []
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store: TStore, metric: string): void => {
+export const useInit = (_store: TStore, metric: TMetric): void => {
   useEffect(() => {
     store = _store
+    console.log('the metric inited >: ', metric)
     store.mark({ metric })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 

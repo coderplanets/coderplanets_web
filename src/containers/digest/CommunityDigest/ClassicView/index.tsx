@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { contains } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
-import type { TC11NLayout, TThread, TCommunity } from '@/spec'
+import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
 import { HCN, EVENT } from '@/constant'
 import { useDevice } from '@/hooks'
 import { send } from '@/utils'
@@ -30,7 +30,7 @@ type TProps = {
   descExpand: boolean
   activeThread: TThread
   layout: TC11NLayout
-  metric: string
+  metric: TMetric
 }
 
 const ClassicView: FC<TProps> = ({

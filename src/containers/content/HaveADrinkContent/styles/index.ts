@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
+import type { TMetric } from '@/spec'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-both')}
   width: 100%;
 `
-export const InnerWrapper = styled.div<{ metric: string }>`
+export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flexColumn('align-center', 'justify-between')};
   margin-top: 25px;
   margin-bottom: 40px;

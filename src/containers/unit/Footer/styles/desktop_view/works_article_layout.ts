@@ -1,16 +1,12 @@
 import styled from 'styled-components'
 
-import type { TC11NLayout, TMetric } from '@/spec'
-import { C11N } from '@/constant'
+import { METRIC } from '@/constant'
 import { theme, css } from '@/utils'
 
-type TWrapper = { metric: TMetric; layout: TC11NLayout }
-export const Wrapper = styled.div<TWrapper>`
+export const Wrapper = styled.div`
   ${css.flexColumn('align-end')};
   width: 100%;
-  ${({ metric }) => css.fitContentWidth(metric)};
-
-  padding: ${({ layout }) => (layout === C11N.CLASSIC ? '0 14px' : '')};
+  ${css.fitContentWidth(METRIC.WORKS_ARTICLE)};
 `
 export const InnerWrapper = styled.div`
   width: 100%;

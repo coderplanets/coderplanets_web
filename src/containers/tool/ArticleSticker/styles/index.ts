@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TMetric } from '@/spec'
 import Img from '@/Img'
 import { animate, theme, css, WIDTH } from '@/utils'
 
-type TWrapper = { metric: string } & TTestable
+type TWrapper = { metric: TMetric } & TTestable
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`

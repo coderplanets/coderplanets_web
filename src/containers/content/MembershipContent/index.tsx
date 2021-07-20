@@ -6,8 +6,8 @@
 
 import { FC } from 'react'
 
+import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
-
 import { OrButton, Button } from '@/components/Buttons'
 import Checker from '@/components/Checker'
 
@@ -68,7 +68,7 @@ const PayButton = ({ pkgType, payType }) => {
 
 type TProps = {
   membershipContent: TStore
-  metric: string
+  metric: TMetric
   testid?: string
 }
 

@@ -1,14 +1,11 @@
-//
-
 /*
- *
  * ModeLine
- *
  */
 
 import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
@@ -26,7 +23,7 @@ let BottomBar = null
 
 type TProps = {
   modeLine?: TStore
-  metric?: string
+  metric?: TMetric
 }
 
 const ModeLineContainer: FC<TProps> = ({

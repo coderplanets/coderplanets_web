@@ -4,7 +4,7 @@
 
 import { FC, Fragment, memo } from 'react'
 
-import type { TPost } from '@/spec'
+import type { TPost, TMetric } from '@/spec'
 import { METRIC, UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils'
 
@@ -30,7 +30,7 @@ const log = buildLog('C:ArticleDigest')
 
 type TProps = {
   article: TPost
-  metric?: string
+  metric?: TMetric
 }
 
 const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {

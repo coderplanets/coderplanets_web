@@ -8,6 +8,7 @@
 
 import { FC } from 'react'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -47,7 +48,7 @@ const items = [
 type TProps = {
   helpCenterContent?: TStore
   testid?: string
-  metric?: string
+  metric?: TMetric
 }
 
 const HelpCenterContentContainer: FC<TProps> = ({

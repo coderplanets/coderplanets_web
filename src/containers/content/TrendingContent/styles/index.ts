@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
+import type { TMetric } from '@/spec'
 import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-both')}
   width: 100%;
 `
-export const InnerWrapper = styled.div<{ metric: string }>`
+export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex()};
   padding: 10px 0;
   margin-top: 12px;

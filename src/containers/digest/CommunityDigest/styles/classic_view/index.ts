@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import type { TMetric } from '@/spec'
 import { css, WIDTH, pixelAdd } from '@/utils'
 
 import { BaseBanner } from '../index'
@@ -16,7 +17,7 @@ type TWrapper = {
   descExpand: boolean
   noSocial: boolean
   isMobile: boolean
-  metric?: string
+  metric?: TMetric
 }
 export const Wrapper = styled(BaseBanner)<TWrapper>`
   width: 100%;

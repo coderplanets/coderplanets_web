@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
+import type { TMetric } from '@/spec'
 import { css, theme } from '@/utils'
+import Img from '@/Img'
 
-export const Wrapper = styled.div<{ metric: string }>`
+export const Wrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('justify-center')};
   width: 100%;
   height: 100px;
   background: ${theme('banner.bg')};
   ${({ metric }) => css.fitPageWidth(metric)};
 `
-export const InnerWrapper = styled.div<{ metric: string }>`
+export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center')};
   width: 100%;
   height: 100%;

@@ -8,7 +8,7 @@ import { FC } from 'react'
 import { isNil } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
-import type { TScrollDirection } from '@/spec'
+import type { TScrollDirection, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
@@ -30,7 +30,7 @@ const log = buildLog('C:ArticleDigest')
 type TProps = {
   articleDigest?: TStore
   testid?: string
-  metric?: string
+  metric?: TMetric
 }
 
 const ArticleDigestContainer: FC<TProps> = ({

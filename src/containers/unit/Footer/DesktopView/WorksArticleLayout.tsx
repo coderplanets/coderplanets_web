@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TArticle, TC11NLayout, TMetric } from '@/spec'
+import type { TArticle } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
 import { METRIC } from '@/constant'
 
@@ -13,19 +13,21 @@ import {
   MainInfos,
   BaseInfo,
   Item,
-} from '../styles/desktop_view/community_view'
+} from '../styles/desktop_view/works_article_layout'
 
 type TProps = {
   viewingArticle: TArticle
-  metric: TMetric
-  layout: TC11NLayout
 }
 
-const CommunityView: FC<TProps> = ({ metric, layout }) => {
+const WorksArticleLayout: FC<TProps> = ({ viewingArticle }) => {
   return (
-    <Wrapper metric={metric} layout={layout}>
+    <Wrapper>
       <InnerWrapper>
-        <TopInfo metric={METRIC.COMMUNITY} title="javascript" noBottomBorder />
+        <TopInfo
+          metric={METRIC.WORKS_ARTICLE}
+          title={viewingArticle.title}
+          noBottomBorder
+        />
         <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
@@ -66,19 +68,12 @@ const CommunityView: FC<TProps> = ({ metric, layout }) => {
             >
               反馈与建议
             </Item>
-            <Item
-              href={`${ISSUE_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              开放数据
-            </Item>
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo metric={metric} />
+      <BottomInfo metric={METRIC.WORKS_ARTICLE} />
     </Wrapper>
   )
 }
 
-export default memo(CommunityView)
+export default memo(WorksArticleLayout)

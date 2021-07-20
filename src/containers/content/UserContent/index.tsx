@@ -6,6 +6,7 @@
 
 import { FC } from 'react'
 
+import type { TMetric } from '@/spec'
 import { USER_THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -99,7 +100,7 @@ const TabberContent = ({ active }) => {
 
 type TProps = {
   userContent: TStore
-  metric: string
+  metric: TMetric
 }
 
 const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {

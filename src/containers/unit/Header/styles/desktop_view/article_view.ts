@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import type { TMetric } from '@/spec'
 import { css, theme, WIDTH } from '@/utils'
-
 import Img from '@/Img'
 import { Wrapper as CommunityWrapper } from './community_view'
 
@@ -14,7 +14,7 @@ export const InnerWrapper = styled.div`
   width: 100%;
   height: 33px;
 `
-export const RouterWrapper = styled.div<{ metric: string }>`
+export const RouterWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center')};
   width: 100%;
   height: 100%;

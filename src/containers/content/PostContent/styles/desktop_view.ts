@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TMetric } from '@/spec'
 import { theme, css, WIDTH } from '@/utils'
 
 export const Wrapper = styled.article.attrs(({ testid }: TTestable) => ({
@@ -23,7 +23,7 @@ export const InnerWrapper = styled.div`
   padding-left: 0;
   padding-right: 0;
 `
-export const MainWrapper = styled.div<{ metric: string }>`
+export const MainWrapper = styled.div<{ metric: TMetric }>`
   flex-grow: 1;
   ${({ metric }) => css.fitContentWidth(metric)};
 `

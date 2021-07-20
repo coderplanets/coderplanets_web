@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TMetric } from '@/spec'
 import { css } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable & { metric: string }>`
+}))<TTestable & { metric: TMetric }>`
   ${css.flexColumn('align-center')};
   width: 100%;
   min-height: 80vh;

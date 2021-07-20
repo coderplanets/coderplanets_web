@@ -8,6 +8,7 @@
 
 import { FC, Fragment } from 'react'
 
+import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
 import { METRIC } from '@/constant'
 
@@ -31,7 +32,7 @@ const log = buildLog('C:ArticleSticker')
 type TProps = {
   articleSticker?: TStore
   testid?: string
-  metric?: string
+  metric?: TMetric
 }
 
 const ArticleStickerContainer: FC<TProps> = ({

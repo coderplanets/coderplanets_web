@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TArticle, TC11NLayout } from '@/spec'
+import type { TArticle, TC11NLayout, TMetric } from '@/spec'
 import { SITE_LOGO } from '@/config'
 
 import BlinkCursor from '@/components/BlinkCursor'
@@ -15,7 +15,7 @@ import {
 
 type TProps = {
   viewingArticle: TArticle
-  metric: string
+  metric: TMetric
   layout: TC11NLayout
 }
 

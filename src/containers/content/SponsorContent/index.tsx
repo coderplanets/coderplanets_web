@@ -9,6 +9,7 @@
 // import { FC } from 'react'
 import { FC } from 'react'
 
+import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
 
 import { Br } from '@/components/Common'
@@ -120,7 +121,7 @@ const items = [
 type TProps = {
   sponsorContent?: TStore
   testid?: string
-  metric?: string
+  metric?: TMetric
 }
 
 const SponsorContentContainer: FC<TProps> = ({

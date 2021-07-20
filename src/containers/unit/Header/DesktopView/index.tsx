@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import CommunityView from './CommunityVIew'
@@ -7,7 +8,7 @@ import ArticleView from './ArticleView'
 import ArticleEditorView from './ArticleEditorView'
 
 type TProps = {
-  metric: string
+  metric: TMetric
 }
 
 const DesktopView: FC<TProps> = ({ metric }) => {

@@ -8,17 +8,18 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import { pluggedIn, buildLog } from '@/utils'
+import type { TMetric } from '@/spec'
+import { METRIC } from '@/constant'
 
 import JoinModal from '@/containers/tool/JoinModal'
 
-import type { TStore } from '../store'
-import { VIEW } from '../constants'
-
-import HomeView from './HomeView'
+import HomeLayout from './HomeView'
 import ArticleView from './ArticleView'
+import WorksArticleLayout from './WorksArticleLayout'
 import CommunityView from './CommunityView'
 import HostingCommunityView from './HostingCommunityView'
 
+import type { TStore } from '../store'
 import { Wrapper } from '../styles'
 import { useInit, toggleSponsorHelper, onLogin, onPay } from '../logic'
 
@@ -36,7 +37,7 @@ export const BuyMeChuanChuan = dynamic(
 
 type TProps = {
   footer?: TStore
-  metric?: string // TODO
+  metric?: TMetric
   testid?: string
 }
 
@@ -46,6 +47,7 @@ const FooterContainer: FC<TProps> = ({
   testid = 'footer',
 }) => {
   useInit(store, metric)
+
   const {
     showSponsor,
     accountInfo,
@@ -53,7 +55,7 @@ const FooterContainer: FC<TProps> = ({
     accountInfo: {
       customization: { bannerLayout },
     },
-    type,
+    // type,
   } = store
 
   return (
@@ -67,14 +69,19 @@ const FooterContainer: FC<TProps> = ({
         onPay={onPay}
       />
 
-      {type === VIEW.HOME && <HomeView metric={metric} layout={bannerLayout} />}
+      {metric === METRIC.COMMUNITY && (
+        <HomeLayout metric={metric} layout={bannerLayout} />
+      )}
+      {metric === METRIC.WORKS_ARTICLE && (
+        <WorksArticleLayout viewingArticle={viewingArticle} />
+      )}
       {/* {type === VIEW.HOME && (
         <CommunityView metric={metric} layout={bannerLayout} />
       )} */}
       {/* {type === VIEW.HOME && (
         <HostingCommunityView metric={metric} layout={bannerLayout} />
       )} */}
-      {type === VIEW.ARTICLE && (
+      {metric === METRIC.ARTICLE && (
         <ArticleView
           layout={bannerLayout}
           metric={metric}

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import type { TMetric } from '@/spec'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -7,12 +8,12 @@ export const Wrapper = styled.div`
   width: 100%;
   overflow-x: hidden;
 `
-export const InnerWrapper = styled.div<{ metric: string }>`
+export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex()};
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const BannerWrapper = styled.div<{ metric: string }>`
+export const BannerWrapper = styled.div<{ metric: TMetric }>`
   position: relative;
   background: ${theme('banner.bg')};
   width: 100%;

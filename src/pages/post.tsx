@@ -80,11 +80,10 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    route: { mainPath: community.raw, subPath: ROUTE.POST },
+    route: { mainPath: ROUTE.POST, subPath: viewingContent.id },
     viewing: {
       post: viewingContent,
       activeThread: THREAD.POST,
-      community,
     },
     // TODO: load comments on Client
     comments: { pagedComments },

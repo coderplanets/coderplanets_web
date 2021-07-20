@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-
 import BlinkCursor from '@/components/BlinkCursor'
 
 import {
@@ -30,7 +30,7 @@ const renderMainEntries = (metric) => {
 }
 
 type TProps = {
-  metric: string
+  metric: TMetric
   layout: TC11NLayout
   showLogoText: boolean
   isOnline: boolean

@@ -7,6 +7,7 @@
 import React, { FC, useRef } from 'react'
 import { Waypoint } from 'react-waypoint'
 
+import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
@@ -36,7 +37,7 @@ const log = buildLog('C:PostContent')
 type TProps = {
   postContent?: TStore
   testid?: string
-  metric?: string
+  metric?: TMetric
 }
 
 const PostContentContainer: FC<TProps> = ({

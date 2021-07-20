@@ -1,7 +1,9 @@
 import { FC, memo } from 'react'
 
-import type { TArticle, TC11NLayout } from '@/spec'
+import type { TArticle, TC11NLayout, TMetric } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
+import { METRIC } from '@/constant'
+
 import TopInfo from './TopInfo'
 import BottomInfo from './BottomInfo'
 
@@ -15,7 +17,7 @@ import {
 
 type TProps = {
   viewingArticle: TArticle
-  metric: string
+  metric: TMetric
   layout: TC11NLayout
 }
 
@@ -23,7 +25,11 @@ const BriefView: FC<TProps> = ({ metric, viewingArticle, layout }) => {
   return (
     <Wrapper metric={metric} layout={layout}>
       <InnerWrapper>
-        <TopInfo type="article" title={viewingArticle.title} noBottomBorder />
+        <TopInfo
+          metric={METRIC.ARTICLE}
+          title={viewingArticle.title}
+          noBottomBorder
+        />
         <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">

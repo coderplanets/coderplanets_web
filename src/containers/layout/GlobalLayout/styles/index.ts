@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import type { TMetric } from '@/spec'
 import { C11N } from '@/constant'
 import { ASSETS_ENDPOINT } from '@/config'
 import { theme, css } from '@/utils'
@@ -24,7 +25,7 @@ export const Wrapper = styled.div`
   }
 `
 
-type TInner = { metric: string; sidebarPin: boolean }
+type TInner = { metric: TMetric; sidebarPin: boolean }
 /* min-width: ${({ minWidth }) => minWidth}; */
 /*
   padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};

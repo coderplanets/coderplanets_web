@@ -1,29 +1,34 @@
 import { FC, memo } from 'react'
 
-import { TFooterView, VIEW } from '../../constants'
+import type { TMetric } from '@/spec'
+import { METRIC } from '@/constant'
 
 import HomeCommunity from './HomeCommunity'
 import Community from './Community'
 import Article from './Article'
+import WorksArticle from './WorksArticle'
 
 export type TProps = {
-  type?: TFooterView
+  metric?: TMetric
   title?: string
   noBottomBorder?: boolean
 }
 
-const TopInfo: FC<TProps> = ({ type, ...restProps }) => {
-  switch (type) {
-    case VIEW.HOME: {
+const TopInfo: FC<TProps> = ({ metric = METRIC.COMMUNITY, ...restProps }) => {
+  switch (metric) {
+    case METRIC.COMMUNITY: {
       return <HomeCommunity {...restProps} />
     }
-    case VIEW.COMMUNITY: {
-      return <Community {...restProps} />
+    // case VIEW.COMMUNITY: {
+    //   return <Community {...restProps} />
+    // }
+    case METRIC.WORKS_ARTICLE: {
+      return <WorksArticle {...restProps} />
     }
     // case VIEW.HOSTING_COMMUNITY: {
     //   return <Community {...restProps} />
     // }
-    case VIEW.ARTICLE: {
+    case METRIC.ARTICLE: {
       return <Article {...restProps} />
     }
     default:

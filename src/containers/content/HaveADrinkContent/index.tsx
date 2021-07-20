@@ -7,6 +7,7 @@
 import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog, scrollToTop, lockPage, unlockPage } from '@/utils'
 import { useShortcut } from '@/hooks'
 
@@ -33,7 +34,7 @@ const log = buildLog('C:HaveADrinkContent')
 
 type TProps = {
   haveADrinkContent: TStore
-  metric: string
+  metric: TMetric
 }
 
 const HaveADrinkContentContainer: FC<TProps> = ({

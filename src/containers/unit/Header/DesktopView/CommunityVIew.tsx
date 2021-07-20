@@ -7,6 +7,7 @@
 import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TMetric } from '@/spec'
 import { C11N, METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -35,7 +36,7 @@ let MailBox
 
 type TProps = {
   // T.oneOf(values(METRIC)) TODO
-  metric?: string
+  metric?: TMetric
   header?: TStore
 }
 

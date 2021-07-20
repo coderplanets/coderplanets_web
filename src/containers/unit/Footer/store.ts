@@ -4,13 +4,12 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { contains } from 'ramda'
 
 import type { TRootStore, TAccount, TArticle, TCommunity } from '@/spec'
 import { HCN, METRIC } from '@/constant'
 import { markStates, buildLog, stripMobx } from '@/utils'
 
-import { VIEW, TFooterView } from './constants'
+// import { VIEW, TFooterView } from './constants'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:FooterStore')
@@ -39,25 +38,26 @@ const FooterStore = T.model('FooterStore', {
       return stripMobx(root.viewing.community)
     },
 
-    get type(): TFooterView {
-      const root = getParent(self) as TRootStore
-      if (root.viewing.community.raw === HCN) return VIEW.HOME
-      // TODO: check if the community is hosting
-      // if (self.curCommunity.isHosting) return VIEW.COMMUNITY
-      if (self.metric === METRIC.COMMUNITY) return VIEW.HOSTING_COMMUNITY
+    // get type(): TFooterView {
+    //   const root = getParent(self) as TRootStore
+    //   if (root.viewing.community.raw === HCN) return VIEW.HOME
+    //   // TODO: check if the community is hosting
+    //   // if (self.curCommunity.isHosting) return VIEW.COMMUNITY
+    //   if (self.metric === METRIC.COMMUNITY) return VIEW.HOSTING_COMMUNITY
+    //   if (self.metric === METRIC.WORKS_ARTICLE) return METRIC.WORKS_ARTICLE
 
-      if (
-        contains(self.metric, [
-          METRIC.USER,
-          METRIC.DISCOVERY,
-          METRIC.ARTICLE,
-          METRIC.WORKS_EDITOR,
-          METRIC.COMMUNITY_EDITOR,
-        ])
-      ) {
-        return VIEW.ARTICLE
-      }
-    },
+    //   if (
+    //     contains(self.metric, [
+    //       METRIC.USER,
+    //       METRIC.DISCOVERY,
+    //       METRIC.ARTICLE,
+    //       METRIC.WORKS_EDITOR,
+    //       METRIC.COMMUNITY_EDITOR,
+    //     ])
+    //   ) {
+    //     return VIEW.ARTICLE
+    //   }
+    // },
   }))
   .actions((self) => ({
     authWarning(options?: Record<string, unknown>): void {

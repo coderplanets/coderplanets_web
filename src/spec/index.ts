@@ -2,6 +2,7 @@ import type { TRootStore as RootStoreType } from '@/stores/RootStore'
 import type { TArticle } from './article'
 import type { TCommunity } from './community'
 
+export type { TMetric } from './metric'
 export type {
   TSIZE,
   TSIZE_T,

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import type { TThread } from '@/spec'
+import type { TThread, TMetric } from '@/spec'
 // eslint-disable-next-line import/named
 import { TYPE, EVENT, ERR } from '@/constant'
 
@@ -121,7 +121,7 @@ const ErrSolver = [
 // ###############################
 // init & unInit
 // ###############################
-export const useInit = (_store: TStore, metric: string): void => {
+export const useInit = (_store: TStore, metric: TMetric): void => {
   useEffect(() => {
     store = _store
     store.mark({ metric })

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable, TActive } from '@/spec'
+import type { TTestable, TActive, TMetric } from '@/spec'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -10,7 +10,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
 `
-export const InnerWrapper = styled.div<{ metric: string }>`
+export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flexColumn('align-both')}
   padding: 10px 0;
   margin-top: 12px;
@@ -49,7 +49,7 @@ export const InviteCodeWrapper = styled.div`
 
   transition: color 0.25s;
 `
-export const ContentWrapper = styled.div<{ metric: string }>`
+export const ContentWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('justify-between')};
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};

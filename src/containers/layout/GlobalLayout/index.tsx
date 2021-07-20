@@ -6,7 +6,7 @@
 
 import React, { FC, ReactNode, useEffect } from 'react'
 
-import type { Nullable, TSEO } from '@/spec'
+import type { TSEO, TMetric } from '@/spec'
 import { ANCHOR, SIZE, C11N, BODY_SCROLLER } from '@/constant'
 import AnalysisService from '@/services/Analysis'
 import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
@@ -39,11 +39,11 @@ type TProps = {
   children: ReactNode
   seoConfig: TSEO
   errorCode?: number // 400 | 500 | 404
-  errorPath?: Nullable<string>
+  errorPath?: string | null
   noSidebar?: boolean
   noFooter?: boolean
 
-  metric: string
+  metric: TMetric
 }
 
 const GlobalLayoutContainer: FC<TProps> = ({

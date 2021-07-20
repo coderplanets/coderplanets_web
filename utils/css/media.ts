@@ -1,5 +1,6 @@
 import { css as styledCss } from 'styled-components'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '../constant'
 
 export const mediaBreakPoints = {
@@ -141,7 +142,7 @@ export const fitContentWidth = (metric = METRIC.COMMUNITY): string => {
 }
 
 // get page max width
-export const fitPageWidth = (metric: string): string => {
+export const fitPageWidth = (metric: TMetric): string => {
   return `max-width: ${WIDTH[metric]?.PAGE || WIDTH.COMMUNITY.PAGE};`
 }
 

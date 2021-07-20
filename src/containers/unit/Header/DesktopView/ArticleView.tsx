@@ -7,6 +7,7 @@
 import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -32,7 +33,7 @@ let MailBox
 
 type TProps = {
   header?: TStore
-  metric?: string
+  metric?: TMetric
 }
 
 const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
