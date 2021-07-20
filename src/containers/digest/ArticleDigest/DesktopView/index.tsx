@@ -21,7 +21,7 @@ import {
   Wrapper,
   InnerWrapper,
   BannerContent,
-} from '../styles/desktop_view/post_layout/index'
+} from '../styles/desktop_view/index'
 import { useInit, inAnchor, outAnchor } from '../logic'
 
 /* eslint-disable-next-line */
