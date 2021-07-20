@@ -27,9 +27,7 @@ export const MainWrapper = styled.div<{ metric: string }>`
   flex-grow: 1;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const SidebarWrapper = styled.div`
-  margin-top: 4px;
-`
+export const SidebarWrapper = styled.div``
 /* background: ${theme('drawer.articleBg')}; */
 export const ArticleWrapper = styled.div`
   font-size: 15px;

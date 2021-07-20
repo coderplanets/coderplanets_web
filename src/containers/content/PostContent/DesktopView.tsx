@@ -72,7 +72,7 @@ const PostContentContainer: FC<TProps> = ({
             </CommentsWrapper>
           </MainWrapper>
           <SidebarWrapper>
-            <ArticleSticker />
+            <ArticleSticker metric={metric} />
           </SidebarWrapper>
         </InnerWrapper>
       </Maybe>

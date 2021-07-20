@@ -26,5 +26,5 @@ export const Avatars = styled.div`
 `
 export const DescWrapper = styled.div`
   ${css.flexColumn('align-center')};
-  min-width: 150px;
+  min-width: 80px;
 `

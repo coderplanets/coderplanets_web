@@ -34,12 +34,12 @@ export const Other = styled.div`
 export const Actions = styled.div`
   ${css.flex('align-center')};
 `
-export const SubWrapper = styled.div`
-  ${css.flex('align-start', 'justify-center')};
-  width: ${WIDTH.ARTICLE.STICKER};
-
+export const SubWrapper = styled.div<{ metric: string }>`
+  ${css.flex('align-start', 'justify-end')};
+  margin-top: 2px;
+  width: ${({ metric }) => WIDTH[metric].STICKER};
   ${css.media.laptopL`
-    width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};
+    width: ${({ metric }) => WIDTH[metric].STICKER_LAPTOPL};
   `}
 `
 export const BottomInfo = styled.div`

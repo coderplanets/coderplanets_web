@@ -4,17 +4,18 @@ import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import { animate, theme, css, WIDTH } from '@/utils'
 
+type TWrapper = { metric: string } & TTestable
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   ${css.flexColumn('align-center', 'justify-start')};
-  width: ${WIDTH.ARTICLE.STICKER};
+  width: ${({ metric }) => WIDTH[metric].STICKER};
   /* bottom has a go-to-top button */
   height: 85vh;
-  margin-top: -4px;
+  /* border: 1px solid tomato; */
 
   ${css.media.laptopL`
-    width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};
+    width: ${({ metric }) => WIDTH[metric].STICKER_LAPTOPL};
   `}
 `
 export const InnerWrapper = styled.div`

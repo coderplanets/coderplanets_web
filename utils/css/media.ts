@@ -41,6 +41,15 @@ export const WIDTH = {
     STICKER: '260px',
     STICKER_LAPTOPL: '240px',
   },
+  WORKS_ARTICLE: {
+    PAGE: '1460px',
+    CONTENT: '615px',
+    CONTENT_OFFSET: '180px',
+    CONTENT_OFFSET_LAPTOPL: '150px',
+    CONTENT_OFFSET_DESKTOPL: '280px',
+    STICKER: '260px',
+    STICKER_LAPTOPL: '260px',
+  },
   WORKS: {
     CONTENT: '1100px',
   },

@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import { theme, css, WIDTH } from '@/utils'
 
+type TWrapper = { metric: string } & TTestable
 export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   ${css.flexColumn('justify-end')};
   position: relative;
   background: transparent;
@@ -16,7 +17,7 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   max-width: ${WIDTH.ARTICLE.PAGE};
 
   ${css.media.laptopL`
-    min-height: 230px;
+    min-height: 200px;
   `}
 `
 export const InnerWrapper = styled.div`

@@ -53,7 +53,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
         </WorksWrapper>
         <BottomInfo />
       </Main>
-      <SubWrapper>
+      <SubWrapper metric={metric}>
         <Upvote count={17} type={UPVOTE_LAYOUT.WORKS_ARTICLE} />
       </SubWrapper>
     </Fragment>

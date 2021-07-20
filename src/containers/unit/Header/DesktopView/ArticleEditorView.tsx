@@ -57,7 +57,7 @@ const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
       noBorder
     >
       <InnerWrapper>
-        <RouterWrapper>
+        <RouterWrapper metric={metric}>
           <Navigator
             community={curCommunity}
             layout={accountInfo.customization.bannerLayout}

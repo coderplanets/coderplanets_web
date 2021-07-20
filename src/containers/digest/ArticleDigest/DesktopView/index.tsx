@@ -41,15 +41,17 @@ const ArticleDigestContainer: FC<TProps> = ({
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
+  console.log('article digest metric: ', metric)
+
   const { viewingArticle } = store
 
   if (isNil(viewingArticle.id)) return null
 
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testid={testid} metric={metric}>
       <InnerWrapper>
         <BannerContent>
-          <WorksLayout article={viewingArticle} />
+          <WorksLayout article={viewingArticle} metric={metric} />
           {/* <PostLayout article={viewingArticle} /> */}
         </BannerContent>
       </InnerWrapper>

@@ -113,7 +113,8 @@ const PostPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        metric={METRIC.ARTICLE}
+        // metric={METRIC.ARTICLE}
+        metric={METRIC.WORKS_ARTICLE}
         seoConfig={seoConfig}
         errorCode={errorCode}
         errorPath={`/${mainPath}/post/${post.id}`}

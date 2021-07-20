@@ -9,6 +9,7 @@
 import { FC, Fragment } from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
+import { METRIC } from '@/constant'
 
 import Sticky from '@/components/Sticky'
 import GotoTop from '@/components/GotoTop'
@@ -17,7 +18,8 @@ import type { TStore } from './store'
 
 import LeftSticker from './LeftSticker/index'
 // import CommunitySticker from './CommunitySticker'
-import ArticleSticker from './ArticleSticker'
+// import ArticleSticker from './ArticleSticker'
+import WorksSticker from './WorksSticker/index'
 import CommentSticker from './CommentSticker'
 
 import { Wrapper, InnerWrapper, MainWrapper, GoTopWrapper } from './styles'
@@ -29,11 +31,13 @@ const log = buildLog('C:ArticleSticker')
 type TProps = {
   articleSticker?: TStore
   testid?: string
+  metric?: string
 }
 
 const ArticleStickerContainer: FC<TProps> = ({
   articleSticker: store,
   testid = 'article-sticker',
+  metric = METRIC.ARTICLE,
 }) => {
   useInit(store)
 
@@ -54,14 +58,15 @@ const ArticleStickerContainer: FC<TProps> = ({
       />
 
       <Sticky offsetTop={80}>
-        <Wrapper testid={testid}>
+        <Wrapper testid={testid} metric={metric}>
           <InnerWrapper>
             <MainWrapper>
               {/* {showCommunity && <CommunitySticker />} */}
-              <ArticleSticker
+              <WorksSticker viewing={viewingData} show={!showCommentSticker} />
+              {/* <ArticleSticker
                 viewing={viewingData}
                 show={!showCommentSticker}
-              />
+              /> */}
               <CommentSticker show={showCommentSticker} data={viewingData} />
             </MainWrapper>
             <GoTopWrapper>
