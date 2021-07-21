@@ -2,21 +2,17 @@ import styled from 'styled-components'
 
 import type { TTestable, TMetric } from '@/spec'
 import Img from '@/Img'
-import { animate, theme, css, WIDTH } from '@/utils'
+import { animate, theme, css } from '@/utils'
 
 type TWrapper = { metric: TMetric } & TTestable
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
   ${css.flexColumn('align-center', 'justify-start')};
-  width: ${({ metric }) => WIDTH[metric].STICKER};
+  ${({ metric }) => css.fitStickerWidth(metric)};
   /* bottom has a go-to-top button */
   height: 85vh;
   /* border: 1px solid tomato; */
-
-  ${css.media.laptopL`
-    width: ${({ metric }) => WIDTH[metric].STICKER_LAPTOPL};
-  `}
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('justify-between')}

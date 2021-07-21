@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Wrapper } from '../styles/works_sticker/others'
+import { Wrapper } from '../../styles/right_sticker/works_sticker/others'
 
 // type TProps = {
 //   show: boolean

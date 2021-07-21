@@ -16,7 +16,7 @@ export const Wrapper = styled.div<TActive>`
   padding: 20px;
   padding-right: 0;
   /* sticker 的宽度是 260, 偏移后使视觉居中 */
-  margin-right: -145px;
+  margin-right: -152px;
   margin-top: -38px;
 `
 export const Row = styled.div`

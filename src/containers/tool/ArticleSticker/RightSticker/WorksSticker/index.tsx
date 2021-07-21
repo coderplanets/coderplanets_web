@@ -10,14 +10,19 @@ import Teams from './Teams'
 import TechStacks from './TechStacks'
 import Others from './Others'
 
-import { Wrapper, Row, Title, CommentSign } from '../styles/works_sticker'
+import {
+  Wrapper,
+  Row,
+  Title,
+  CommentSign,
+} from '../../styles/right_sticker/works_sticker'
 
 type TProps = {
   show: boolean
-  viewing: TArticle
+  article: TArticle
 }
 
-const WorksSticker: FC<TProps> = ({ show, viewing }) => {
+const WorksSticker: FC<TProps> = ({ show, article }) => {
   return (
     <Wrapper show={show}>
       <Row>

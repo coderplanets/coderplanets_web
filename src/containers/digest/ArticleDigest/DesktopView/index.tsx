@@ -12,8 +12,7 @@ import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
 import FixedHeader from './FixedHeader'
-// import PostLayout from './PostLayout'
-import WorksLayout from './WorksLayout'
+import Layout from './Layout'
 
 import type { TStore } from '../store'
 import {
@@ -40,7 +39,7 @@ const ArticleDigestContainer: FC<TProps> = ({
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
-  const { viewingArticle, inViewport } = store
+  const { viewingArticle, inViewport, activeThread } = store
 
   if (isNil(viewingArticle.id)) return null
 
@@ -53,8 +52,11 @@ const ArticleDigestContainer: FC<TProps> = ({
       />
       <InnerWrapper>
         <BannerContent>
-          <WorksLayout article={viewingArticle} metric={metric} />
-          {/* <PostLayout article={viewingArticle} /> */}
+          <Layout
+            article={viewingArticle}
+            thread={activeThread}
+            metric={metric}
+          />
         </BannerContent>
       </InnerWrapper>
       <Waypoint onEnter={inAnchor} onLeave={outAnchor} />

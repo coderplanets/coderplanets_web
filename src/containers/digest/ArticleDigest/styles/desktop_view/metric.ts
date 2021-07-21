@@ -1,6 +1,18 @@
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
+export const getDigestHeight = (metric: TMetric): string => {
+  switch (metric) {
+    case METRIC.WORKS_ARTICLE: {
+      return '220px'
+    }
+
+    default: {
+      return '240px'
+    }
+  }
+}
+
 /**
  * for fixedheader sticker margin-left offset
  */

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import type { TTestable, TMetric } from '@/spec'
 import { theme, css, WIDTH } from '@/utils'
 
+import { getDigestHeight } from './metric'
+
 type TWrapper = { metric: TMetric } & TTestable
 export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -11,14 +13,11 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   position: relative;
   background: transparent;
   border-bottom: ${theme('banner.spliter')};
-  min-height: 220px;
+  min-height: ${({ metric }) => getDigestHeight(metric)};
+
   margin-bottom: 15px;
   width: 100%;
   max-width: ${WIDTH.ARTICLE.PAGE};
-
-  ${css.media.laptopL`
-    min-height: 200px;
-  `}
 `
 export const InnerWrapper = styled.div`
   ${css.flex('justify-center')};

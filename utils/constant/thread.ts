@@ -4,6 +4,7 @@ export const ARTICLE_THREAD = {
   BLOG: 'blog',
   JOB: 'job',
   RADAR: 'radar',
+  WORKS: 'works',
 }
 
 export const THREAD = {

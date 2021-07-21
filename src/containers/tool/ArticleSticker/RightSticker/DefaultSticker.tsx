@@ -5,17 +5,17 @@ import type { TArticle } from '@/spec'
 import { IconButton } from '@/components/Buttons'
 import Upvote from '@/components/Upvote'
 
-import { Wrapper } from './styles/article_sticker'
+import { Wrapper } from '../styles/right_sticker/default_sticker'
 
 type TProps = {
   show: boolean
-  viewing: TArticle
+  article: TArticle
 }
 
-const ArticleSticker: FC<TProps> = ({ show, viewing }) => {
+const ArticleSticker: FC<TProps> = ({ show, article }) => {
   return (
     <Wrapper show={show}>
-      <Upvote count={viewing.starredCount} type="article" />
+      <Upvote count={article.starredCount} type="article" />
       <IconButton
         path="article/collect-bookmark.svg"
         size={24}

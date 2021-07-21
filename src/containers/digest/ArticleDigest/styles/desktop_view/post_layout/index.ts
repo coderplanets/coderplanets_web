@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import { theme, css, WIDTH } from '@/utils'
+import { METRIC } from '@/constant'
+import { theme, css } from '@/utils'
 
 export const Main = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitContentWidth(metric)};
@@ -9,12 +10,8 @@ export const Main = styled.div<{ metric: TMetric }>`
 `
 export const SubWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};
-  width: ${WIDTH.ARTICLE.STICKER};
-  margin-top: 33px;
-
-  ${css.media.laptopL`
-    width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};
-  `}
+  margin-top: 5px;
+  ${css.fitStickerWidth(METRIC.ARTICLE)};
 `
 export const Title = styled.div`
   font-size: 26px;

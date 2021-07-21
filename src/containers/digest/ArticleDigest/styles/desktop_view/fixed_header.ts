@@ -14,14 +14,16 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   top: ${({ show }) => (show ? 0 : '-48px;')};
   opacity: ${({ show }) => (show ? 1 : 0)};
 
-  z-index: ${css.zIndex.articleFixedHeader};
+  z-index: ${({ show }) => (show ? css.zIndex.articleFixedHeader : -1)};
 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
 
-  transition: all 0.2s;
+  transition-property: top, opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center')};

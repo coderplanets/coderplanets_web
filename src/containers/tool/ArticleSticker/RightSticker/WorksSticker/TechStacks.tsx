@@ -1,7 +1,12 @@
 import { FC, memo } from 'react'
 
-import { ICON, ICON_BASE } from '@/config'
-import { Wrapper, Tech, Logo, Name } from '../styles/works_sticker/tech_stacks'
+import { ICON_BASE } from '@/config'
+import {
+  Wrapper,
+  Tech,
+  Logo,
+  Name,
+} from '../../styles/right_sticker/works_sticker/tech_stacks'
 
 // type TProps = {
 //   show: boolean

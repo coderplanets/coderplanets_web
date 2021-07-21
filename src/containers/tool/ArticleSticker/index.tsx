@@ -18,9 +18,7 @@ import GotoTop from '@/components/GotoTop'
 import type { TStore } from './store'
 
 import LeftSticker from './LeftSticker/index'
-// import CommunitySticker from './CommunitySticker'
-// import ArticleSticker from './ArticleSticker'
-import WorksSticker from './WorksSticker/index'
+import RightSticker from './RightSticker'
 import CommentSticker from './CommentSticker'
 
 import { Wrapper, InnerWrapper, MainWrapper, GoTopWrapper } from './styles'
@@ -44,8 +42,8 @@ const ArticleStickerContainer: FC<TProps> = ({
 
   const {
     showLeftSticker,
-    // showCommunity,
     viewingData,
+    activeThread,
     isTocMenuOpened,
     showCommentSticker,
   } = store
@@ -62,12 +60,11 @@ const ArticleStickerContainer: FC<TProps> = ({
         <Wrapper testid={testid} metric={metric}>
           <InnerWrapper>
             <MainWrapper>
-              {/* {showCommunity && <CommunitySticker />} */}
-              <WorksSticker viewing={viewingData} show={!showCommentSticker} />
-              {/* <ArticleSticker
-                viewing={viewingData}
+              <RightSticker
                 show={!showCommentSticker}
-              /> */}
+                article={viewingData}
+                thread={activeThread}
+              />
               <CommentSticker show={showCommentSticker} data={viewingData} />
             </MainWrapper>
             <GoTopWrapper>

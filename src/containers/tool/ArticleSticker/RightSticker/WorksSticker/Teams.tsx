@@ -7,7 +7,7 @@ import {
   Intro,
   Name,
   Bio,
-} from '../styles/works_sticker/teams'
+} from '../../styles/right_sticker/works_sticker/teams'
 
 // type TProps = {
 //   show: boolean

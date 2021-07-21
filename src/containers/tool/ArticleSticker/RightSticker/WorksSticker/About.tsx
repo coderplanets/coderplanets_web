@@ -11,7 +11,7 @@ import {
   SocialItem,
   SocialIcon,
   SocialName,
-} from '../styles/works_sticker/about'
+} from '../../styles/right_sticker/works_sticker/about'
 
 // type TProps = {
 //   show: boolean
