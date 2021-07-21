@@ -38,10 +38,7 @@ export const Actions = styled.div`
 export const SubWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-start', 'justify-end')};
   margin-top: 2px;
-  width: ${({ metric }) => WIDTH[metric].STICKER};
-  ${css.media.laptopL`
-    width: ${({ metric }) => WIDTH[metric].STICKER_LAPTOPL};
-  `}
+  ${({ metric }) => css.fitStickerWidth(metric)};
 `
 export const BottomInfo = styled.div`
   ${css.flex('align-end', 'justify-between')};

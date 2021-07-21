@@ -1,6 +1,7 @@
 const zIndex = {
   img: 2,
   header: 3,
+  articleFixedHeader: 10,
   popover: 2000,
   modalOverlay: 2500,
   drawerOverlay: 2000,
@@ -9,7 +10,6 @@ const zIndex = {
   doraemonOverlay: 2600,
   doraemon: 2601,
   modalCloseBtn: 2000,
-
   //
   sidebar: 1999,
 }

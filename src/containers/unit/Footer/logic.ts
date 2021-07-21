@@ -40,7 +40,6 @@ const ErrSolver = []
 export const useInit = (_store: TStore, metric: TMetric): void => {
   useEffect(() => {
     store = _store
-    console.log('the metric inited >: ', metric)
     store.mark({ metric })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 

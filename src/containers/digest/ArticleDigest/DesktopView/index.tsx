@@ -1,7 +1,5 @@
 /*
- *
  * ArticleDigest
- *
  */
 
 import { FC } from 'react'
@@ -13,6 +11,7 @@ import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
+import FixedHeader from './FixedHeader'
 // import PostLayout from './PostLayout'
 import WorksLayout from './WorksLayout'
 
@@ -41,14 +40,17 @@ const ArticleDigestContainer: FC<TProps> = ({
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
-  console.log('article digest metric: ', metric)
-
-  const { viewingArticle } = store
+  const { viewingArticle, inViewport } = store
 
   if (isNil(viewingArticle.id)) return null
 
   return (
     <Wrapper testid={testid} metric={metric}>
+      <FixedHeader
+        show={!inViewport}
+        article={viewingArticle}
+        metric={metric}
+      />
       <InnerWrapper>
         <BannerContent>
           <WorksLayout article={viewingArticle} metric={metric} />

@@ -7,7 +7,13 @@ import { css as styledCss, CSSProp } from 'styled-components'
 
 import { theme } from '../themes'
 
-import { media, mediaBreakPoints, fitContentWidth, fitPageWidth } from './media'
+import {
+  media,
+  mediaBreakPoints,
+  fitContentWidth,
+  fitStickerWidth,
+  fitPageWidth,
+} from './media'
 import { flex, flexGrow, flexColumn, flexColumnGrow } from './flex'
 
 import { circle, size } from './shape'
@@ -51,6 +57,7 @@ const css = {
   mediaBreakPoints,
   media,
   fitContentWidth,
+  fitStickerWidth,
   fitPageWidth,
   threadTitleHover,
 }

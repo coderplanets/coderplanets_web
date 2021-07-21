@@ -23,7 +23,7 @@ import {
   Actions,
   BottomInfo,
   SubWrapper,
-} from '../../styles/desktop_view/works_layout'
+} from '../styles/desktop_view/works_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')

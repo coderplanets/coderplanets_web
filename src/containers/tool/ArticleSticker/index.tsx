@@ -58,7 +58,7 @@ const ArticleStickerContainer: FC<TProps> = ({
         isTocMenuOpened={isTocMenuOpened}
       />
 
-      <Sticky offsetTop={80}>
+      <Sticky offsetTop={120}>
         <Wrapper testid={testid} metric={metric}>
           <InnerWrapper>
             <MainWrapper>
