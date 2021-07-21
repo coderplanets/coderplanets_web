@@ -42,9 +42,6 @@ import {
   CommunityDigestStore,
   // content
   CommunityContentStore,
-  PostContentStore,
-  JobContentStore,
-  RepoContentStore,
   DiscoveryContentStore,
   CommunityEditorStore,
   UserContentStore,
@@ -91,6 +88,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  ArticleContentStore,
   ArticleViewerStore,
   ArticlesThreadStore,
   ThreadSidebarStore,
@@ -164,9 +162,6 @@ const rootStore = T.model({
 
   discoveryContent: T.optional(DiscoveryContentStore, {}),
   communityEditor: T.optional(CommunityEditorStore, {}),
-  postContent: T.optional(PostContentStore, {}),
-  jobContent: T.optional(JobContentStore, {}),
-  repoContent: T.optional(RepoContentStore, {}),
   userContent: T.optional(UserContentStore, {}),
   // content end
 
@@ -206,6 +201,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  articleContent: T.optional(ArticleContentStore, {}),
   articleViewer: T.optional(ArticleViewerStore, {}),
   articlesThread: T.optional(ArticlesThreadStore, {}),
   threadSidebar: T.optional(ThreadSidebarStore, {}),

@@ -1,10 +1,10 @@
 /*
  *
- * PostContent
+ * general ArticleContent for Post, Job, Blog, Radar ..
  *
  */
 
-import React, { FC, useRef } from 'react'
+import { FC, useRef } from 'react'
 import { Waypoint } from 'react-waypoint'
 
 import type { TMetric } from '@/spec'
@@ -18,7 +18,7 @@ import ArticleFooter from '@/containers/unit/ArticleFooter'
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
 
-import type { TStore } from './store'
+import type { TStore } from '../store'
 
 import {
   Wrapper,
@@ -27,21 +27,21 @@ import {
   SidebarWrapper,
   ArticleWrapper,
   CommentsWrapper,
-} from './styles/desktop_view'
+} from '../styles/desktop_view'
 
-import { useInit, checkAnchor } from './logic'
+import { useInit, checkAnchor } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')
 
 type TProps = {
-  postContent?: TStore
+  articleContent?: TStore
   testid?: string
   metric?: TMetric
 }
 
-const PostContentContainer: FC<TProps> = ({
-  postContent: store,
+const ArticleContentContainer: FC<TProps> = ({
+  articleContent: store,
   metric,
   testid,
 }) => {
@@ -81,4 +81,4 @@ const PostContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(PostContentContainer) as FC<TProps>
+export default pluggedIn(ArticleContentContainer) as FC<TProps>

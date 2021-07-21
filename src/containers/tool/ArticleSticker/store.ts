@@ -31,7 +31,7 @@ const ArticleSticker = T.model('ArticleSticker', {
     },
     get isArticleInViewport(): boolean {
       const root = getParent(self) as TRootStore
-      const { articleInViewport } = root.postContent
+      const { articleInViewport } = root.articleContent
 
       return articleInViewport
     },

@@ -17,7 +17,7 @@ import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleDigest from '@/containers/digest/ArticleDigest'
-import PostContent from '@/containers/content/PostContent'
+import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
 
@@ -120,7 +120,7 @@ const PostPage = (props) => {
         noSidebar
       >
         <ArticleDigest />
-        <PostContent />
+        <ArticleContent />
       </GlobalLayout>
     </Provider>
   )

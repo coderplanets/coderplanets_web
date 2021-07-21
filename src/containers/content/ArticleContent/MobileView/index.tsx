@@ -16,7 +16,7 @@ import ArticleFooter from '@/containers/unit/ArticleFooter'
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
 
-import type { TStore } from './store'
+import type { TStore } from '../store'
 
 import {
   Wrapper,
@@ -24,9 +24,9 @@ import {
   MainWrapper,
   ArticleWrapper,
   CommentsWrapper,
-} from './styles/mobile_view'
+} from '../styles/mobile_view'
 
-import { useInit, articleInAnchor, articleOutAnchor } from './logic'
+import { useInit, articleInAnchor, articleOutAnchor } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')

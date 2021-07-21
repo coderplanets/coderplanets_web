@@ -11,7 +11,7 @@ import { useDevice } from '@/hooks'
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 
-const PostContentContainer = (props) => {
+const ArticleContent = (props) => {
   const { isMobile } = useDevice()
 
   return (
@@ -21,4 +21,4 @@ const PostContentContainer = (props) => {
   )
 }
 
-export default PostContentContainer
+export default ArticleContent

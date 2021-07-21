@@ -1,5 +1,5 @@
 /*
- * PostContentStore store
+ * ArticleContent store
  *
  */
 
@@ -9,9 +9,9 @@ import type { TRootStore, TRoute, TArticle } from '@/spec'
 import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:PostContentStore')
+const log = buildLog('S:ArticleContentStore')
 
-const PostContentStore = T.model('PostContentStore', {
+const ArticleContent = T.model('ArticleContent', {
   articleInViewport: T.optional(T.boolean, true),
 })
   .views((self) => ({
@@ -38,5 +38,5 @@ const PostContentStore = T.model('PostContentStore', {
     },
   }))
 
-export type TStore = Instance<typeof PostContentStore>
-export default PostContentStore
+export type TStore = Instance<typeof ArticleContent>
+export default ArticleContent
