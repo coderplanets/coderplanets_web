@@ -4,20 +4,23 @@
  *
  */
 
-import { FC, Fragment, memo } from 'react'
+import { FC, memo } from 'react'
 
-import type { TUser } from '@/spec'
+import type { TUser, TUpvoteLayout } from '@/spec'
+import { UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils'
 
-import DefaultView from './DefaultView'
-import CommentView from './CommentView'
+import DefaultLayout from './DefaultLayout'
+import CommentLayout from './CommentLayout'
+import ArticleLayout from './ArticleLayout'
+import WorksArticleLayout from './WorksArticleLayout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
 
 type TProps = {
   testid?: string
-  type?: 'default' | 'comment'
+  type?: TUpvoteLayout
   count?: number
   avatarsRowLimit?: number
   viewerHasUpvoted?: boolean
@@ -25,16 +28,21 @@ type TProps = {
   avatarList?: TUser[]
 }
 
-const Upvote: FC<TProps> = ({ type = 'default', ...restProps }) => {
-  return (
-    <Fragment>
-      {type === 'default' ? (
-        <DefaultView {...restProps} />
-      ) : (
-        <CommentView {...restProps} />
-      )}
-    </Fragment>
-  )
+const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
+  switch (type) {
+    case UPVOTE_LAYOUT.COMMENT: {
+      return <CommentLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.WORKS_ARTICLE: {
+      return <WorksArticleLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.ARTICLE: {
+      return <ArticleLayout {...restProps} />
+    }
+    default: {
+      return <DefaultLayout {...restProps} />
+    }
+  }
 }
 
 export default memo(Upvote)

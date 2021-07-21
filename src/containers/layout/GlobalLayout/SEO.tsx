@@ -7,10 +7,11 @@
 import { FC } from 'react'
 import { NextSeo, BlogJsonLd, SocialProfileJsonLd } from 'next-seo'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 type TProps = {
-  metric: string
+  metric: TMetric
   config: any
 }
 

@@ -48,7 +48,7 @@ const ArticleFooterContainer: FC<TProps> = ({
         <TagList items={tags} />
         <Copyright
           type={copyright as TCopyright}
-          mode="editable"
+          mode="readonly"
           onChange={(key) => setCopyright(key)}
         />
         <Actions

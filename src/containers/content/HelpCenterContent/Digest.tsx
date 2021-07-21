@@ -1,8 +1,6 @@
 import { FC } from 'react'
 
-// import { METRIC } from '@/constant'
-
-import type { TCommunity } from '@/spec'
+import type { TCommunity, TMetric } from '@/spec'
 
 import {
   Wrapper,
@@ -17,7 +15,7 @@ import {
 
 type TProps = {
   community: TCommunity
-  metric: string
+  metric: TMetric
 }
 
 const Digest: FC<TProps> = ({ metric, community }) => {

@@ -24,7 +24,7 @@ const RealAvatar: FC<TProps> = ({ user, size, onUserSelect }) => {
   return (
     <Tooltip
       content={<UserPopContent>{user.nickname}</UserPopContent>}
-      delay={200}
+      delay={0}
       contentHeight={getAvatarSize(size, 'number') as string}
       showArrow={false}
       noPadding

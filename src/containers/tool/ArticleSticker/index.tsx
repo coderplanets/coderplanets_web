@@ -8,7 +8,9 @@
 
 import { FC, Fragment } from 'react'
 
+import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
+import { METRIC } from '@/constant'
 
 import Sticky from '@/components/Sticky'
 import GotoTop from '@/components/GotoTop'
@@ -16,8 +18,7 @@ import GotoTop from '@/components/GotoTop'
 import type { TStore } from './store'
 
 import LeftSticker from './LeftSticker/index'
-import CommunitySticker from './CommunitySticker'
-import ArticleSticker from './ArticleSticker'
+import RightSticker from './RightSticker'
 import CommentSticker from './CommentSticker'
 
 import { Wrapper, InnerWrapper, MainWrapper, GoTopWrapper } from './styles'
@@ -29,18 +30,20 @@ const log = buildLog('C:ArticleSticker')
 type TProps = {
   articleSticker?: TStore
   testid?: string
+  metric?: TMetric
 }
 
 const ArticleStickerContainer: FC<TProps> = ({
   articleSticker: store,
   testid = 'article-sticker',
+  metric = METRIC.ARTICLE,
 }) => {
   useInit(store)
 
   const {
     showLeftSticker,
-    showCommunity,
     viewingData,
+    activeThread,
     isTocMenuOpened,
     showCommentSticker,
   } = store
@@ -53,14 +56,14 @@ const ArticleStickerContainer: FC<TProps> = ({
         isTocMenuOpened={isTocMenuOpened}
       />
 
-      <Sticky offsetTop={80}>
-        <Wrapper testid={testid}>
+      <Sticky offsetTop={120}>
+        <Wrapper testid={testid} metric={metric}>
           <InnerWrapper>
             <MainWrapper>
-              {showCommunity && <CommunitySticker />}
-              <ArticleSticker
-                viewing={viewingData}
+              <RightSticker
                 show={!showCommentSticker}
+                article={viewingData}
+                thread={activeThread}
               />
               <CommentSticker show={showCommentSticker} data={viewingData} />
             </MainWrapper>

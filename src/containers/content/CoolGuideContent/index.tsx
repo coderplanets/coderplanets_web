@@ -6,6 +6,7 @@
 
 import { FC } from 'react'
 
+import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
 
 import FilterBar from './FilterBar'
@@ -20,7 +21,7 @@ const log = buildLog('C:CoolGuideContent')
 
 type TProps = {
   coolGuideContent: TStore
-  metric: string
+  metric: TMetric
   testid?: string
 }
 

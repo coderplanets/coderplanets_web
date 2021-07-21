@@ -1,11 +1,11 @@
 import { FC, memo } from 'react'
 
-import type { TArticle, TC11NLayout } from '@/spec'
+import type { TArticle, TC11NLayout, TMetric } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
+import { METRIC } from '@/constant'
+
 import TopInfo from './TopInfo'
 import BottomInfo from './BottomInfo'
-
-import { VIEW } from '../constants'
 
 import {
   Wrapper,
@@ -17,7 +17,7 @@ import {
 
 type TProps = {
   viewingArticle: TArticle
-  metric: string
+  metric: TMetric
   layout: TC11NLayout
 }
 
@@ -25,7 +25,7 @@ const CommunityView: FC<TProps> = ({ metric, layout }) => {
   return (
     <Wrapper metric={metric} layout={layout}>
       <InnerWrapper>
-        <TopInfo type={VIEW.COMMUNITY} title="javascript" noBottomBorder />
+        <TopInfo metric={METRIC.COMMUNITY} title="javascript" noBottomBorder />
         <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">

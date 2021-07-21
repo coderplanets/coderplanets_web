@@ -7,6 +7,7 @@ import Img from '@/Img'
 export const Wrapper = styled.div<TActive>`
   min-height: 100px;
   margin-left: 35%;
+  margin-top: 50px;
   padding-bottom: 0;
   width: 65%;
   max-width: 200px;

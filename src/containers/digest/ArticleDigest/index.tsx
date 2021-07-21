@@ -8,7 +8,7 @@ import { Fragment } from 'react'
 
 import { useDevice } from '@/hooks'
 
-import DesktopView from './DesktopView/index'
+import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
 
 const ArticleDigest = (props) => {

@@ -71,3 +71,5 @@ export type TArticleFilter = {
   length?: string
   read?: string
 }
+
+export type TUpvoteLayout = 'default' | 'comment' | 'article' | 'works-article'

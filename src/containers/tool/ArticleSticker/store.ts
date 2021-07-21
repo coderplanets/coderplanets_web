@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import type { TRootStore, TViewing, TScrollDirection } from '@/spec'
+import type { TRootStore, TViewing, TScrollDirection, TThread } from '@/spec'
 import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleSticker')
@@ -21,6 +21,12 @@ const ArticleSticker = T.model('ArticleSticker', {
       const root = getParent(self) as TRootStore
       return root.viewingData
     },
+    get activeThread(): TThread {
+      const root = getParent(self) as TRootStore
+
+      const { activeThread } = root.viewing
+      return activeThread
+    },
     get bodyScrollDirection(): TScrollDirection {
       const root = getParent(self) as TRootStore
       return root.globalLayout.bodyScrollDirection
@@ -31,7 +37,7 @@ const ArticleSticker = T.model('ArticleSticker', {
     },
     get isArticleInViewport(): boolean {
       const root = getParent(self) as TRootStore
-      const { articleInViewport } = root.postContent
+      const { articleInViewport } = root.articleContent
 
       return articleInViewport
     },
@@ -47,10 +53,10 @@ const ArticleSticker = T.model('ArticleSticker', {
 
       return bodyScrollDirection === 'down'
     },
-    get showCommunity(): boolean {
-      const { isArticleDigestInViewport, isArticleInViewport } = self as TStore
-      return !isArticleDigestInViewport && isArticleInViewport
-    },
+    // get showCommunity(): boolean {
+    //   const { isArticleDigestInViewport, isArticleInViewport } = self as TStore
+    //   return !isArticleDigestInViewport && isArticleInViewport
+    // },
     get showCommentSticker(): boolean {
       const { isArticleInViewport } = self as TStore
       return !isArticleInViewport

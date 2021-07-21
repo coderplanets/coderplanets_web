@@ -7,8 +7,6 @@ import ImgFallback from '@/components/ImgFallback'
 import { getLiSize, getAvatarSize } from './metric'
 import type { TAvatarSize } from '../spec'
 
-import { AvatarsWrapper } from './index'
-
 // height: 49px;
 type TWrapper = { size: TAvatarSize }
 export const Wrapper = styled.li<TWrapper>`
@@ -19,16 +17,13 @@ export const Wrapper = styled.li<TWrapper>`
   z-index: 2;
   filter: grayscale(0.3);
 
-  ${AvatarsWrapper}:hover & {
-    margin: 0 5px;
-    transition-delay: 0.3s;
-  }
-
   &:hover {
     filter: grayscale(0);
+    z-index: 3;
+    transform: scale(1.2);
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 type TAvatarsImg = { size: string; onClick: () => void; scrollPosition: any }
 export const AvatarsImg = styled(Img)<TAvatarsImg>`

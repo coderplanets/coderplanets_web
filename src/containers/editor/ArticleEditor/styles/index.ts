@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TMetric } from '@/spec'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -10,7 +10,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   width: 100%;
   margin-top: 40px;
 `
-export const InnerWrapper = styled.div<{ metric: string }>`
+export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flexColumn()};
   width: 100%;
   min-height: 50vh;

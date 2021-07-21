@@ -2,10 +2,10 @@
  * Navigator
  */
 
-import { FC, memo, Fragment } from 'react'
-import { contains, values } from 'ramda'
+import { FC, memo } from 'react'
+import { contains } from 'ramda'
 
-import type { TCommunity, TC11NLayout } from '@/spec'
+import type { TCommunity, TC11NLayout, TMetric } from '@/spec'
 import { C11N, METRIC, HCN } from '@/constant'
 import { buildLog } from '@/utils'
 
@@ -17,7 +17,7 @@ const log = buildLog('c:Navigator:index')
 
 const shouldShowLogoText = (
   communityRaw: string,
-  metric: string,
+  metric: TMetric,
   layout: TC11NLayout,
 ): boolean => {
   if (contains(metric, [METRIC.ARTICLE, METRIC.ARTICLE_EDITOR])) return false
@@ -30,7 +30,7 @@ type TProps = {
   community: TCommunity
   isOnline?: boolean
   layout: TC11NLayout
-  metric?: string
+  metric?: TMetric
 }
 
 const Navigator: FC<TProps> = ({

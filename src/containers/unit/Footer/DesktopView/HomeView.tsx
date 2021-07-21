@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
-import type { TThemeMap, TC11NLayout } from '@/spec'
+import type { TThemeMap, TC11NLayout, TMetric } from '@/spec'
 import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 
@@ -21,7 +21,7 @@ import {
 } from '../styles/desktop_view/home_view'
 
 type TProps = {
-  metric: string
+  metric: TMetric
   layout: TC11NLayout
 }
 

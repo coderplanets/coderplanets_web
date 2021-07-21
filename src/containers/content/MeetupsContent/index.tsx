@@ -6,6 +6,7 @@
 
 import { FC } from 'react'
 
+import type { TMetric } from '@/spec'
 import { ASSETS_ENDPOINT } from '@/config'
 import { GALLERY } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
@@ -45,7 +46,7 @@ const GALLERY_TYPES = [
 type TProps = {
   meetupsContent?: TStore
   testid?: string
-  metric?: string
+  metric?: TMetric
 }
 
 const MeetupsContentContainer: FC<TProps> = ({

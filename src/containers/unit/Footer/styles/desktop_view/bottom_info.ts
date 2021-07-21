@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
+import type { TMetric } from '@/spec'
 import { theme, css } from '@/utils'
 
-const Wrapper = styled.div<{ metric: string }>`
+const Wrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center', 'justify-between')};
   /*  TODO:  remove footer.bottomBg key */
   /* background: ${theme('footer.bottomBg')}; */
@@ -13,9 +14,9 @@ const Wrapper = styled.div<{ metric: string }>`
   padding-bottom: 30px;
 
   ${({ metric }) => css.fitContentWidth(metric)};
-
   ${css.media.tablet`display: none;`};
 `
+export const RawWrapper = styled(Wrapper)``
 export const ClassicWrapper = styled(Wrapper)`
   padding-left: 24px;
   ${css.media.laptopM`

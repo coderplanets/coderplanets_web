@@ -1,3 +1,4 @@
+import type { TContainer } from '@/spec'
 import { ANCHOR, BODY_SCROLLER, DRAWER_SCROLLER } from '@/constant'
 
 // side effects, need refactor
@@ -54,6 +55,15 @@ export const scrollDrawerToTop = (): void => {
   }
 }
 
+export const scrollToComments = (view: TContainer = 'body'): void => {
+  if (typeof window === 'object') {
+    const scroller =
+      view === 'body' ? window[BODY_SCROLLER] : window[DRAWER_SCROLLER]
+    const el = document.getElementById(ANCHOR.COMMENTS_ID)
+
+    scroller?.scroll(el, 500)
+  }
+}
 /**
  * froze page's body element
  * @returns {void}

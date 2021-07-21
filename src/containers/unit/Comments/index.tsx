@@ -6,6 +6,7 @@
 
 import { FC } from 'react'
 
+import { ANCHOR } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import Modal from '@/components/Modal'
@@ -50,7 +51,7 @@ const CommentsContainer: FC<TProps> = ({
   } = store
 
   return (
-    <Wrapper>
+    <Wrapper id={ANCHOR.COMMENTS_ID}>
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>
         {showReplyBox && (
           <CommentReplyEditor

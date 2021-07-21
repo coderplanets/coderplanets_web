@@ -6,6 +6,7 @@
 
 import { FC } from 'react'
 
+import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
 
 import Pagi from '@/components/Pagi'
@@ -69,7 +70,7 @@ const tmpUsers = [
 
 type TProps = {
   worksContent: TStore
-  metric: string
+  metric: TMetric
   testid?: string
 }
 const WorksContentContainer: FC<TProps> = ({

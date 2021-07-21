@@ -8,6 +8,7 @@ import { FC, memo } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { ICON_BASE } from '@/config'
 import { buildLog } from '@/utils'
@@ -37,7 +38,7 @@ export type TProps = {
   errorCode?: number // 400 | 500 | 404
   target?: string
   testid?: string
-  metric?: string
+  metric?: TMetric
 }
 
 const ErrorPage: FC<TProps> = ({

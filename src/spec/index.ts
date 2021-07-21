@@ -2,6 +2,7 @@ import type { TRootStore as RootStoreType } from '@/stores/RootStore'
 import type { TArticle } from './article'
 import type { TCommunity } from './community'
 
+export type { TMetric } from './metric'
 export type {
   TSIZE,
   TSIZE_T,
@@ -56,6 +57,7 @@ export type {
   TPagedComments,
   TArticleFilter,
   TCopyright,
+  TUpvoteLayout,
 } from './article'
 
 export type {
@@ -83,3 +85,5 @@ export type TRootStore = RootStoreType
 export type TViewing = TCommunity | TArticle
 
 export type TThread = string
+
+export type TContainer = 'body' | 'drawer'

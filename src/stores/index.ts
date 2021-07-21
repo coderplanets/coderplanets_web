@@ -43,9 +43,6 @@ export { default as ArticleDigestStore } from '@/containers/digest/ArticleDigest
 export { default as CommunityContentStore } from '@/containers/content/CommunityContent/store'
 
 export { default as DiscoveryContentStore } from '@/containers/content/DiscoveryContent/store'
-export { default as PostContentStore } from '@/containers/content/PostContent/store'
-export { default as JobContentStore } from '@/containers/content/JobContent/store'
-export { default as RepoContentStore } from '@/containers/content/RepoContent/store'
 export { default as UserContentStore } from '@/containers/content/UserContent/store'
 
 // footer
@@ -97,6 +94,7 @@ export { default as CommunityEditorStore } from '@/containers/editor/CommunityEd
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as ArticleContentStore } from '@/containers/content/ArticleContent/store'
 export { default as ArticleViewerStore } from '@/containers/viewer/ArticleViewer/store'
 export { default as ArticlesThreadStore } from '@/containers/thread/ArticlesThread/store'
 export { default as ThreadSidebarStore } from '@/containers/thread/ThreadSidebar/store'

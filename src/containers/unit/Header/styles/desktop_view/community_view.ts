@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TMetric } from '@/spec'
 import { theme, css, pixelAdd, WIDTH } from '@/utils'
 import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
 
@@ -25,7 +25,7 @@ export const Wrapper = styled.header.attrs(({ testid }: TTestable) => ({
   box-shadow: ${({ noBorder }) => (noBorder ? 'none' : theme('drawer.shadow'))};
 `
 
-type TInnerWrapper = { metric: string }
+type TInnerWrapper = { metric: TMetric }
 const InnerWrapper = styled.div<TInnerWrapper>`
   ${css.flex('align-center')};
   padding: 0 4px;

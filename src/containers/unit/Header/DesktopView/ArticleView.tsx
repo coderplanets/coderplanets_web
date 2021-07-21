@@ -7,6 +7,7 @@
 import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -20,7 +21,6 @@ import {
   InnerWrapper,
   RouterWrapper,
   Operations,
-  UserInfoWrapper,
   MoreIcon,
 } from '../styles/desktop_view/article_view'
 import { useInit } from '../logic'
@@ -32,7 +32,7 @@ let MailBox
 
 type TProps = {
   header?: TStore
-  metric?: string
+  metric?: TMetric
 }
 
 const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
@@ -66,7 +66,7 @@ const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
       noBorder
     >
       <InnerWrapper>
-        <RouterWrapper>
+        <RouterWrapper metric={metric}>
           <Navigator
             community={curCommunity}
             layout={bannerLayout}
@@ -74,13 +74,11 @@ const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
             // showLogoText
           />
         </RouterWrapper>
-        <Operations>
+        <Operations metric={metric}>
           {MailBox && <MailBox />}
           <UserLister />
           {/* <Cashier /> */}
-          <UserInfoWrapper>
-            <MoreIcon src={`${ICON}/shape/more-box.svg`} />
-          </UserInfoWrapper>
+          <MoreIcon src={`${ICON}/shape/more-box.svg`} />
         </Operations>
       </InnerWrapper>
     </Wrapper>

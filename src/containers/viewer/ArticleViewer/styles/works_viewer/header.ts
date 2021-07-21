@@ -66,12 +66,3 @@ export const BaseWrapper = styled.div`
   ${css.flex('align-center')};
   margin-top: 9px;
 `
-export const ViewIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(15)};
-  margin-right: 5px;
-`
-export const Count = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 14px;
-`

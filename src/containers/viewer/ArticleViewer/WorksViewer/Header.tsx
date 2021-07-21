@@ -2,12 +2,10 @@ import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
-import { SIZE } from '@/constant'
-import { ICON } from '@/config'
 
+import ArticleBaseStats from '@/components/ArticleBaseStats'
 import DotDivider from '@/components/DotDivider'
 import { IconButton } from '@/components/Buttons'
-import { Space } from '@/components/Common'
 
 import {
   Wrapper,
@@ -23,8 +21,6 @@ import {
   PubDate,
   EditedHint,
   BaseWrapper,
-  ViewIcon,
-  Count,
 } from '../styles/works_viewer/header'
 
 type TProps = {
@@ -59,12 +55,7 @@ const Header: FC<TProps> = ({ article }) => {
           <EditedHint>修改过</EditedHint>
         </PublishWrapper>
         <BaseWrapper>
-          <ViewIcon src={`${ICON}/article/viewed.svg`} />{' '}
-          <Count>{article.views}</Count>
-          <Space right={14} />
-          <IconButton path="article/comment.svg" mRight={6} size={15} />
-          <Count>{article.commentsCount}</Count>
-          {/* <DotDivider space={10} /> */}
+          <ArticleBaseStats article={article} container="drawer" />
           <IconButton path="shape/more-l.svg" mLeft={6} mRight={-4} size={15} />
           {/* <IconButton path="shape/more.svg" mRight={0} /> */}
         </BaseWrapper>

@@ -16,7 +16,7 @@ import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleDigest from '@/containers/digest/ArticleDigest'
-import RepoContent from '@/containers/content/RepoContent'
+import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
 
@@ -118,7 +118,7 @@ const RepoPage = (props) => {
         noSidebar
       >
         <ArticleDigest showStar={false} showWordCount={false} showLastSync />
-        <RepoContent />
+        <ArticleContent />
       </GlobalLayout>
     </Provider>
   )

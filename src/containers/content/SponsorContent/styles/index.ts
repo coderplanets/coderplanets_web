@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TMetric } from '@/spec'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -20,7 +20,7 @@ export const InnerWrapper = styled.div<{ bannerVisiable: boolean }>`
   margin-top: ${({ bannerVisiable }) => (bannerVisiable ? '40vh' : '20vh')};
   transition: margin-top 0.25s;
 `
-export const ContentWrapper = styled.div<{ metric: string }>`
+export const ContentWrapper = styled.div<{ metric: TMetric }>`
   ${css.flexColumn('align-center')};
   ${({ metric }) => css.fitContentWidth(metric)};
 `

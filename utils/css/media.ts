@@ -1,5 +1,6 @@
 import { css as styledCss } from 'styled-components'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '../constant'
 
 export const mediaBreakPoints = {
@@ -40,6 +41,15 @@ export const WIDTH = {
     CONTENT_OFFSET_DESKTOPL: '400px',
     STICKER: '260px',
     STICKER_LAPTOPL: '240px',
+  },
+  WORKS_ARTICLE: {
+    PAGE: '1460px',
+    CONTENT: '615px',
+    CONTENT_OFFSET: '180px',
+    CONTENT_OFFSET_LAPTOPL: '150px',
+    CONTENT_OFFSET_DESKTOPL: '280px',
+    STICKER: '260px',
+    STICKER_LAPTOPL: '260px',
   },
   WORKS: {
     CONTENT: '1100px',
@@ -131,8 +141,26 @@ export const fitContentWidth = (metric = METRIC.COMMUNITY): string => {
   `
 }
 
+// fit article sticker width
+export const fitStickerWidth = (metric = METRIC.ARTICLE): string => {
+  // const laptopMmediaQuery = media.laptopM`
+  // `
+  // const desktopLmediaQuery = media.desktopL`
+  // `
+  const laptopLmediaQuery = media.laptopL`
+    width: ${WIDTH[metric].STICKER_LAPTOPL};
+  `
+  return `
+    width: ${WIDTH[metric].STICKER};
+    ${laptopLmediaQuery};
+  `
+  // ${desktopLmediaQuery};
+  // ${laptopLmediaQuery};
+  // ${laptopMmediaQuery};
+}
+
 // get page max width
-export const fitPageWidth = (metric: string): string => {
+export const fitPageWidth = (metric: TMetric): string => {
   return `max-width: ${WIDTH[metric]?.PAGE || WIDTH.COMMUNITY.PAGE};`
 }
 

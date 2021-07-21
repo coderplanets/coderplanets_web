@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-
 import BlinkCursor from '@/components/BlinkCursor'
 
 import {
@@ -30,7 +30,7 @@ const renderMainEntries = (metric) => {
 }
 
 type TProps = {
-  metric: string
+  metric: TMetric
   layout: TC11NLayout
   showLogoText: boolean
   isOnline: boolean
@@ -44,11 +44,7 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, isOnline, layout }) => {
         {showLogoText && <LogoText>oderPlanets</LogoText>}
       </LogoLink>
 
-      {showLogoText ? (
-        <LogoMargin layout={layout} />
-      ) : (
-        <BlinkCursor duration={1.2} height={14} left={5} right={2} />
-      )}
+      <BlinkCursor duration={1.6} height={14} left={5} right={2} />
 
       {isOnline ? (
         renderMainEntries(metric)

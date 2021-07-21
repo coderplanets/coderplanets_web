@@ -6,7 +6,6 @@
 
 import { ANCHOR } from '@/constant'
 import { useDevice } from '@/hooks'
-import { report } from '@/utils'
 
 import DesktopView from './DesktopView/index'
 
@@ -16,14 +15,7 @@ const HeaderContainer = ({ metric }) => {
   const { isMobile } = useDevice()
 
   return (
-    <Wrapper
-      id={ANCHOR.GLOBAL_HEADER_ID}
-      testid=""
-      onClick={() => {
-        console.log('report it!')
-        report('USER')
-      }}
-    >
+    <Wrapper id={ANCHOR.GLOBAL_HEADER_ID} testid="">
       {!isMobile ? <DesktopView metric={metric} /> : <MobileWrapper />}
     </Wrapper>
   )

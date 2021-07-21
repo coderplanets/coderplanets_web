@@ -5,6 +5,7 @@
  */
 import { FC } from 'react'
 
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
@@ -18,7 +19,7 @@ const log = buildLog('C:CommunityDigest')
 
 type TProps = {
   communityDigest?: TStore
-  metric?: string
+  metric?: TMetric
 }
 
 const CommunityDigestContainer: FC<TProps> = ({

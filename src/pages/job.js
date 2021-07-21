@@ -16,7 +16,7 @@ import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleDigest from '@/containers/digest/ArticleDigest'
-import JobContent from '@/containers/content/JobContent'
+import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
 
@@ -119,7 +119,7 @@ const JobPage = (props) => {
         noSidebar
       >
         <ArticleDigest showStar={false} />
-        <JobContent />
+        <ArticleContent />
       </GlobalLayout>
     </Provider>
   )

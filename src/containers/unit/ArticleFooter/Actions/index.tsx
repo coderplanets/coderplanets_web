@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 
 import { useDevice } from '@/hooks'
+import { report } from '@/utils'
 
 import DotDivider from '@/components/DotDivider'
 
@@ -29,7 +30,7 @@ const Actions: FC<TProps> = ({ showReferenceList, showOperationList }) => {
         <Text active={showOperationList}>日志</Text>
       </Item>
       <DotDivider space={8} />
-      <Item>
+      <Item onClick={() => report('USER')}>
         <Text>举报</Text>
       </Item>
     </Wrapper>
