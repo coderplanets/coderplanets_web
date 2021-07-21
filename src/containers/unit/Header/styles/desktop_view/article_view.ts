@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import { css, theme, WIDTH } from '@/utils'
+import { css, theme } from '@/utils'
 import Img from '@/Img'
 import { Wrapper as CommunityWrapper } from './community_view'
+
+import { getStickerJustify } from './metric'
 
 export const Wrapper = styled(CommunityWrapper)`
   box-shadow: none;
@@ -20,15 +22,11 @@ export const RouterWrapper = styled.div<{ metric: TMetric }>`
   height: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const Operations = styled.div`
-  ${css.flex('align-center', 'justify-end')};
-  width: ${WIDTH.ARTICLE.STICKER};
-
-  ${css.media.laptopL`
-    width: ${WIDTH.ARTICLE.STICKER_LAPTOPL};
-  `}
+export const Operations = styled.div<{ metric: TMetric }>`
+  ${css.flex('align-center')};
+  justify-content: ${({ metric }) => getStickerJustify(metric)};
+  ${({ metric }) => css.fitStickerWidth(metric)};
 `
-export const UserInfoWrapper = styled.div``
 export const MoreIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   ${css.size(24)};

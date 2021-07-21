@@ -21,7 +21,6 @@ import {
   InnerWrapper,
   RouterWrapper,
   Operations,
-  UserInfoWrapper,
   MoreIcon,
 } from '../styles/desktop_view/article_view'
 import { useInit } from '../logic'
@@ -75,13 +74,11 @@ const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
             // showLogoText
           />
         </RouterWrapper>
-        <Operations>
+        <Operations metric={metric}>
           {MailBox && <MailBox />}
           <UserLister />
           {/* <Cashier /> */}
-          <UserInfoWrapper>
-            <MoreIcon src={`${ICON}/shape/more-box.svg`} />
-          </UserInfoWrapper>
+          <MoreIcon src={`${ICON}/shape/more-box.svg`} />
         </Operations>
       </InnerWrapper>
     </Wrapper>

@@ -44,11 +44,7 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, isOnline, layout }) => {
         {showLogoText && <LogoText>oderPlanets</LogoText>}
       </LogoLink>
 
-      {showLogoText ? (
-        <LogoMargin layout={layout} />
-      ) : (
-        <BlinkCursor duration={1.2} height={14} left={5} right={2} />
-      )}
+      <BlinkCursor duration={1.6} height={14} left={5} right={2} />
 
       {isOnline ? (
         renderMainEntries(metric)
