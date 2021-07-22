@@ -15,6 +15,12 @@ import {
 
 const medias = [
   {
+    id: '0',
+    title: '链接',
+    logo: `${ICON}/shape/link.svg`,
+    small: true,
+  },
+  {
     id: '1',
     title: '嵌入',
     logo: `${ICON}/social/embed-share.svg`,

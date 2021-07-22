@@ -29,8 +29,8 @@ export const LogoWrapper = styled.div<{ bg: string | undefined }>`
 export const Logo = styled(Img)<{ small: boolean }>`
   fill: ${theme('thread.articleTitle')};
   display: block;
-  width: ${({ small }) => (small ? '30px' : '40px')};
-  height: ${({ small }) => (small ? '30px' : '40px')};
+  width: ${({ small }) => (small ? '24px' : '40px')};
+  height: ${({ small }) => (small ? '24px' : '40px')};
   border-radius: 100%;
   filter: saturate(0.6);
   opacity: 0.8;

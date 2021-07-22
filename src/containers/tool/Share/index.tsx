@@ -9,7 +9,7 @@ import { pluggedIn, buildLog } from '@/utils'
 import Modal from '@/components/Modal'
 
 import Platforms from './Platforms'
-import LinkBoard from './LinkBoard'
+import InfoPanel from './InfoPanel'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -32,7 +32,7 @@ const ShareContainer: FC<TProps> = ({ share: store, testid }) => {
       <Modal width="450px" show={show} showCloseBtn onClose={close}>
         <Wrapper testid={testid}>
           <Platforms />
-          <LinkBoard />
+          <InfoPanel />
         </Wrapper>
       </Modal>
     </Fragment>

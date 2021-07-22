@@ -1,9 +1,8 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 
 import { IconButton } from '@/components/Buttons'
 
 import {
-  Wrapper,
   TabWrapper,
   TabName,
   BoxWrapper,
@@ -13,7 +12,7 @@ import {
 
 const LinkBoard: FC = () => {
   return (
-    <Wrapper>
+    <Fragment>
       <TabWrapper>
         <TabName $active>URL</TabName>
         <TabName>MD</TabName>
@@ -30,7 +29,7 @@ const LinkBoard: FC = () => {
           />
         </CopyBtn>
       </BoxWrapper>
-    </Wrapper>
+    </Fragment>
   )
 }
 

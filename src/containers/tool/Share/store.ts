@@ -3,16 +3,22 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-// import {} from 'ramda'
+import { values } from 'ramda'
 
 import type { TCommunity, TRootStore } from '@/spec'
 import { markStates, buildLog, stripMobx } from '@/utils'
+
+import { SITE_SHARE_TYPE } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:Share')
 
 const Share = T.model('Share', {
   show: T.optional(T.boolean, false),
+  siteShareType: T.optional(
+    T.enumeration(values(SITE_SHARE_TYPE)),
+    SITE_SHARE_TYPE.LINKS,
+  ),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {

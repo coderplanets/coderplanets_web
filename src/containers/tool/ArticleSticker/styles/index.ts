@@ -10,7 +10,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TWrapper>`
   ${css.flexColumn('align-center', 'justify-start')};
   ${({ metric }) => css.fitStickerWidth(metric)};
-  min-height: 68vh;
+  min-height: 60vh;
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('justify-between')}
@@ -75,6 +75,6 @@ export const GoTopWrapper = styled.div<TActive>`
   ${css.flex('align-both')};
   opacity: ${({ show }) => (show ? 1 : 0)};
   position: absolute;
-  bottom: -50px;
+  bottom: -100px;
   width: 100%;
 `

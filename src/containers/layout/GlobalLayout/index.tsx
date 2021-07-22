@@ -22,6 +22,7 @@ import CustomScroller from '@/components/CustomScroller'
 
 import type { TStore } from './store'
 import SEO from './SEO'
+import Share from '@/containers/tool/Share'
 
 import {
   AbuseReport,
@@ -29,7 +30,7 @@ import {
   ErrorBox,
   Footer,
   ErrorPage,
-  Share,
+  // Share,
 } from './dynamic'
 
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
