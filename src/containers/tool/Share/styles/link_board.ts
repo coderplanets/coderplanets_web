@@ -5,6 +5,9 @@ import { css, theme } from '@/utils'
 
 import Input from '@/components/Input'
 
+export const Header = styled.div`
+  ${css.flex('justify-between', 'align-center')};
+`
 export const TabWrapper = styled.div`
   ${css.flex('align-end')};
 `
@@ -27,9 +30,3 @@ export const BoxWrapper = styled.div`
   margin-left: -8px;
 `
 export const Inputer = styled(Input)``
-
-export const CopyBtn = styled.div`
-  ${css.flex('align-both')};
-  width: 40px;
-  height: 40px;
-`

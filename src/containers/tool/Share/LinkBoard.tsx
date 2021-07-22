@@ -3,31 +3,26 @@ import { FC, memo, Fragment } from 'react'
 import { IconButton } from '@/components/Buttons'
 
 import {
+  Header,
   TabWrapper,
   TabName,
   BoxWrapper,
   Inputer,
-  CopyBtn,
 } from './styles/link_board'
 
 const LinkBoard: FC = () => {
   return (
     <Fragment>
-      <TabWrapper>
-        <TabName $active>URL</TabName>
-        <TabName>MD</TabName>
-        <TabName>OrgMode</TabName>
-      </TabWrapper>
+      <Header>
+        <TabWrapper>
+          <TabName $active>URL</TabName>
+          <TabName>MD</TabName>
+          <TabName>OrgMode</TabName>
+        </TabWrapper>
+        <IconButton path="article/clipboard.svg" mRight={5} />
+      </Header>
       <BoxWrapper>
-        <Inputer value="https://cper.co/post/1" />
-        <CopyBtn>
-          <IconButton
-            path="article/clipboard.svg"
-            mLeft={10}
-            mRight={0}
-            size={20}
-          />
-        </CopyBtn>
+        <Inputer value="[coderplanets 社区的各种指南都在这里了](https://cper.co/post/45)" />
       </BoxWrapper>
     </Fragment>
   )
