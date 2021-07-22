@@ -45,6 +45,7 @@ const ArticleStickerContainer: FC<TProps> = ({
     viewingData,
     activeThread,
     isTocMenuOpened,
+    isArticleDigestInViewport,
     showCommentSticker,
   } = store
 
@@ -67,7 +68,7 @@ const ArticleStickerContainer: FC<TProps> = ({
               />
               <CommentSticker show={showCommentSticker} data={viewingData} />
             </MainWrapper>
-            <GoTopWrapper>
+            <GoTopWrapper show={!isArticleDigestInViewport}>
               <GotoTop />
             </GoTopWrapper>
           </InnerWrapper>
