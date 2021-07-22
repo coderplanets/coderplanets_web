@@ -4,4 +4,16 @@ export const SITE_SHARE_TYPE = {
   WECHAT: 'wechat',
 }
 
-export const holder = 1
+export const OUTSIDE_SHARE_TYPE = {
+  TWITTER: 'twitter',
+  EMAIL: 'email',
+  WECHAT: 'wechat',
+  QQ: 'qq',
+  WEIBO: 'weibo',
+  FACEBOOK: 'facebook',
+}
+
+export const SHARE_TYPE = {
+  ...SITE_SHARE_TYPE,
+  ...OUTSIDE_SHARE_TYPE,
+}

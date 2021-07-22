@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import { css } from '@/utils'
 
+type TWrapper = { type: string } & TTestable
+
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   ${css.flexColumn('justify-between')};
-  // height: 330px;
-  height: 380px;
+  height: auto;
 `
 export const Title = styled.div``

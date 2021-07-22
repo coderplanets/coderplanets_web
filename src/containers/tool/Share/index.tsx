@@ -25,14 +25,14 @@ type TProps = {
 
 const ShareContainer: FC<TProps> = ({ share: store, testid }) => {
   useInit(store)
-  const { show } = store
+  const { show, siteShareType } = store
 
   return (
     <Fragment>
       <Modal width="450px" show={show} showCloseBtn onClose={close}>
-        <Wrapper testid={testid}>
+        <Wrapper testid={testid} type={siteShareType}>
           <Platforms />
-          <InfoPanel />
+          <InfoPanel type={siteShareType} />
         </Wrapper>
       </Modal>
     </Fragment>

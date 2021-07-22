@@ -1,6 +1,8 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
+
+import { SHARE_TYPE } from './constant'
 import {
   Wrapper,
   InnerWrapper,
@@ -9,6 +11,7 @@ import {
   LogoWrapper,
   Title,
 } from './styles/platform'
+import { toPlatform } from './logic'
 
 // 链接分享(包含 md)，
 // Embed, twitter, 微信，微博，facebook, QQ 群，QQ 空间，邮箱
@@ -19,45 +22,53 @@ const medias = [
     title: '链接',
     logo: `${ICON}/shape/link.svg`,
     small: true,
+    type: SHARE_TYPE.LINKS,
   },
   {
     id: '1',
     title: '嵌入',
     logo: `${ICON}/social/embed-share.svg`,
     small: true,
+    type: SHARE_TYPE.EMBED,
   },
   {
     id: '2',
     title: 'Twitter',
     logo: `${ICON}/social/twitter-share.png`,
+    type: SHARE_TYPE.TWITTER,
   },
   {
     id: '3',
     title: '微信',
     logo: `${ICON}/social/wechat-share.png`,
     bg: 'white',
+    type: SHARE_TYPE.WECHAT,
   },
   {
     id: '4',
     title: '邮箱',
     logo: `${ICON}/social/mail-share.svg`,
     small: true,
+    type: SHARE_TYPE.EMAIL,
   },
   {
     id: '5',
     title: 'QQ',
     logo: `${ICON}/social/QQ-share.png`,
+    type: SHARE_TYPE.QQ,
   },
   {
     id: '6',
     title: '微博',
     logo: `${ICON}/social/weibo-share.png`,
+    type: SHARE_TYPE.WEIBO,
   },
   {
     id: '7',
     title: 'Facebook',
     logo: `${ICON}/social/facebook-share.png`,
     bg: 'white',
+    type: SHARE_TYPE.FACEBOOK,
   },
 ]
 
@@ -66,7 +77,7 @@ const Platforms: FC = () => {
     <Wrapper>
       <InnerWrapper>
         {medias.map((item) => (
-          <Media key={item.id}>
+          <Media key={item.id} onClick={() => toPlatform(item.type)}>
             <LogoWrapper bg={item.bg}>
               <Logo src={item.logo} small={!!item.small} />
             </LogoWrapper>

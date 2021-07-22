@@ -6,9 +6,10 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   padding: 20px 20px;
   width: 100%;
-  height: 220px;
+  min-height: 220px;
   background: ${theme('modal.bg')};
   filter: drop-shadow(3px 3px 6px #002a34);
+  transition: min-height 0.2s;
 `
 export const InnerWrapper = styled.div`
   ${css.flex()};

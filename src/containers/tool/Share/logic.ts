@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 
 import { buildLog, asyncSuit } from '@/utils'
 import { EVENT } from '@/constant'
+import { SHARE_TYPE } from './constant'
 
 // import S from './schma'
 import type { TStore } from './store'
@@ -19,6 +20,24 @@ let sub$ = null
 /* eslint-disable-next-line */
 const log = buildLog('L:Share')
 
+export const toPlatform = (type: string): void => {
+  switch (type) {
+    case SHARE_TYPE.TWITTER: {
+      // do twitter staff
+      return
+    }
+
+    case SHARE_TYPE.EMAIL: {
+      // do wechat staff
+      return
+    }
+
+    default: {
+      return store.mark({ siteShareType: type })
+    }
+  }
+}
+
 export const close = (): void => {
   store.mark({ show: false })
 }
@@ -30,10 +49,7 @@ export const close = (): void => {
 const DataResolver = [
   {
     match: asyncRes(EVENT.SHARE),
-    action: () => {
-      console.log('share 接收到信号')
-      store.mark({ show: true })
-    },
+    action: () => store.mark({ show: true }),
   },
 ]
 
@@ -41,9 +57,7 @@ export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
 
-    console.log('======= init the fuck 0')
     if (!sub$) {
-      console.log('======= init the fuck')
       sub$ = sr71$.data().subscribe($solver(DataResolver, []))
     }
 
