@@ -5,3 +5,4 @@ next-env.d.ts
 *.lock
 *.hbs
 *.svg
+*.png
