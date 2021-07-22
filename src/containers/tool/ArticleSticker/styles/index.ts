@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable, TMetric } from '@/spec'
+import type { TTestable, TMetric, TActive } from '@/spec'
 import Img from '@/Img'
 import { animate, theme, css } from '@/utils'
 
@@ -10,9 +10,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TWrapper>`
   ${css.flexColumn('align-center', 'justify-start')};
   ${({ metric }) => css.fitStickerWidth(metric)};
-  /* bottom has a go-to-top button */
-  height: 85vh;
-  /* border: 1px solid tomato; */
+  min-height: 68vh;
 `
 export const InnerWrapper = styled.div`
   ${css.flexColumn('justify-between')}
@@ -73,8 +71,10 @@ export const Text = styled.div`
   font-size: 11px;
 `
 
-export const GoTopWrapper = styled.div`
+export const GoTopWrapper = styled.div<TActive>`
   ${css.flex('align-both')};
-  position: relative;
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  position: absolute;
+  bottom: -50px;
   width: 100%;
 `
