@@ -50,7 +50,7 @@ export const Wrapper = styled.div<TWrapper>`
   display: inline-block;
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
-  padding: 5px 0;
+  /* padding: 5px 0; */
   margin-top: ${({ type }) => (type === UPVOTE_LAYOUT.DEFAULT ? '4px' : 0)};
   appearance: none;
   background-color: transparent;
@@ -164,7 +164,7 @@ export const IconShadow = styled.div<{ type: TUpvoteLayout }>`
   border-radius: 100%;
   background: #0f4052;
   z-index: -1;
-  opacity: ${({ type }) => (type !== UPVOTE_LAYOUT.ARTICLE ? 0 : 0.6)};
+  opacity: 0;
 
   ${IconWrapper}:hover & {
     opacity: 1;

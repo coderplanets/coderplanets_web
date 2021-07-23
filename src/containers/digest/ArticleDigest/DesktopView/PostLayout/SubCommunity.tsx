@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { ICON_BASE } from '@/config'
 
-import { Button } from '@/components/Buttons'
+import { FollowButton } from '@/components/Buttons'
 
 import {
   Wrapper,
@@ -20,9 +20,7 @@ const SubCommunity: FC = () => {
       <Icon src={`${ICON_BASE}/pl/javascript.svg`} />
       <Name>javascript</Name>
       <JoinDesc>34 关注者</JoinDesc>
-      <Button size="tiny" ghost>
-        &nbsp;关&nbsp;&nbsp;注&nbsp;
-      </Button>
+      <FollowButton size="tiny" fakeLoading />
     </Wrapper>
   )
 }

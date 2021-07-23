@@ -5,6 +5,7 @@ import { theme, css } from '@/utils'
 
 export const Wrapper = styled.nav`
   ${css.flexColumn('align-both')};
+  margin-top: 2px;
   /* margin-left: 8px;
 
   ${css.media.laptopL`

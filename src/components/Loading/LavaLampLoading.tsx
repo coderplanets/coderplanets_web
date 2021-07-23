@@ -1,14 +1,19 @@
 import { FC, memo } from 'react'
-import { range } from 'ramda'
+import { range, merge } from 'ramda'
 
-import type { TSpace } from '@/spec'
+import type { TSpace, TSIZE_TSM } from '@/spec'
+import { SIZE } from '@/constant'
+
 import { Wrapper, Container, Circle } from './styles/lava_lamp_loading'
 
-type TProps = TSpace
+type TProps = TSpace & { size?: TSIZE_TSM }
 
 const LavaLampLoading: FC<TProps> = (props) => {
+  const { size } = props
+  const _props = merge({ size: size || SIZE.MEDIUM }, props)
+
   return (
-    <Wrapper {...props}>
+    <Wrapper {..._props}>
       <Container>
         {range(0, 9).map((num) => (
           <Circle key={num} index={num} />

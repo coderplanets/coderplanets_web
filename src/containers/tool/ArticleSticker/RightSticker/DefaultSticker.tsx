@@ -19,17 +19,17 @@ const ArticleSticker: FC<TProps> = ({ show, article }) => {
       <Upvote count={article.starredCount} type="article" />
       <IconButton
         path="article/collect-bookmark.svg"
-        size={24}
-        mTop={20}
+        size={23}
         mLeft={2}
+        mTop={18}
         mRight={0}
       />
       <IconButton
         path="article/share-solid.svg"
         onClick={() => shareTo()}
         size={20}
-        mLeft={5}
-        mTop={15}
+        mLeft={4}
+        mTop={12}
         mRight={0}
       />
     </Wrapper>
