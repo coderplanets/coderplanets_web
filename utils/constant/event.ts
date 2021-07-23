@@ -15,6 +15,9 @@ const EVENT = {
     CONTENT_DRAGABLE: 'CONTENT_DRAGABLE',
   },
 
+  // share
+  SHARE: 'SHARE',
+
   // report
   REPORT: 'REPORT',
   // new end

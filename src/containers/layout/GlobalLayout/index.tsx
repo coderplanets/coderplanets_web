@@ -22,7 +22,15 @@ import CustomScroller from '@/components/CustomScroller'
 
 import type { TStore } from './store'
 import SEO from './SEO'
-import { AbuseReport, Doraemon, ErrorBox, Footer, ErrorPage } from './dynamic'
+
+import {
+  AbuseReport,
+  Doraemon,
+  ErrorBox,
+  Footer,
+  ErrorPage,
+  Share,
+} from './dynamic'
 
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
 
@@ -95,6 +103,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
                 {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
                 <AbuseReport />
                 <Drawer />
+                <Share />
                 <Doraemon />
                 <ErrorBox />
                 <ContentWrapper

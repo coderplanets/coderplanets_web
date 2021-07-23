@@ -17,7 +17,7 @@ export const Wrapper = styled(TextareaAutosize).attrs(
   color: ${theme('form.text')};
   min-height: 56px;
   padding: 6px 10px;
-  background-color: #06303b;
+  background-color: #0b2631;
   border: 1px solid;
   border-color: ${theme('editor.border')};
   resize: none;

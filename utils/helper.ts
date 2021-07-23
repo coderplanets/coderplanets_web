@@ -147,6 +147,11 @@ export const closeDrawer = (type = ''): void =>
   send(EVENT.DRAWER.CLOSE, { type })
 
 /**
+ * share articles
+ */
+export const shareTo = (): void => send(EVENT.SHARE, {})
+
+/**
  * report content
  */
 export const report = (type: TReportType, data?: TAttInfo): void => {

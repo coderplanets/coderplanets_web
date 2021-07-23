@@ -288,7 +288,7 @@ const solarizedDark = {
   },
   modal: {
     bg: bannerBg,
-    border: primaryColor,
+    border: '#1d5171',
     innerSelectBg: '#03323e',
   },
   form: {

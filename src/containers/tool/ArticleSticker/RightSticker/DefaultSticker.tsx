@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TArticle } from '@/spec'
+import { shareTo } from '@/utils'
 
 import { IconButton } from '@/components/Buttons'
 import Upvote from '@/components/Upvote'
@@ -25,8 +26,9 @@ const ArticleSticker: FC<TProps> = ({ show, article }) => {
       />
       <IconButton
         path="article/share-solid.svg"
+        onClick={() => shareTo()}
         size={20}
-        mLeft={4}
+        mLeft={5}
         mTop={15}
         mRight={0}
       />

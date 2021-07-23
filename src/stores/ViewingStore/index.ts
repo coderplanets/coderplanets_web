@@ -66,8 +66,9 @@ const ViewingStore = T.model('ViewingStore', {
     },
 
     get viewingArticle(): TArticle {
-      if (!self.viewingThread) return {}
-      return stripMobx(self[self.viewingThread])
+      const curThread = self.viewingThread || self.activeThread
+      if (!curThread) return {}
+      return stripMobx(self[curThread])
     },
   }))
   .actions((self) => ({
