@@ -52,6 +52,13 @@ const medias = [
     type: SHARE_TYPE.EMAIL,
   },
   {
+    id: '5',
+    title: 'Telegram',
+    logo: `${ICON}/social/telegram-share.png`,
+    bg: 'white',
+    type: SHARE_TYPE.TELEGRAM,
+  },
+  {
     id: '6',
     title: '微博',
     logo: `${ICON}/social/weibo-share.png`,
