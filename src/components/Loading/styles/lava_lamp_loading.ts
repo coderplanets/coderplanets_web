@@ -1,7 +1,9 @@
 import styled, { keyframes } from 'styled-components'
 
-import type { TSpace } from '@/spec'
+import type { TSpace, TSIZE_TSM } from '@/spec'
 import { css, getRandomInt } from '@/utils'
+
+import { getLavaLampScale } from './metric'
 
 const grow = keyframes`
   from {transform: scale(0,0); opacity: 0;}
@@ -11,7 +13,9 @@ const move = keyframes`
   from {transform: translateX(0px)}
   to {transform: translateX(80px)}
 `
-export const Wrapper = styled.div<TSpace>`
+
+type TWrapper = TSpace & { size: TSIZE_TSM }
+export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-both')};
   overflow: hidden;
   width: 80px;
@@ -20,6 +24,8 @@ export const Wrapper = styled.div<TSpace>`
   margin-right: ${({ right }) => `${right}px` || 0};
   margin-top: ${({ top }) => `${top || 0}px`};
   margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
+
+  transform: ${({ size }) => getLavaLampScale(size)};
 `
 export const Container = styled.div`
   ${css.flex()};

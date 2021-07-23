@@ -35,7 +35,6 @@ const CommunityBrief: FC<TProps> = ({ community }) => {
           onFollow={console.log}
           onUndoFollow={console.log}
           size="tiny"
-          noBorderWhenFollowed
         />
       </Header>
       <CommunityInfo>

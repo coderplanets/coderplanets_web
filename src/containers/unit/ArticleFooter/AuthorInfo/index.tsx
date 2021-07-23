@@ -10,7 +10,7 @@ import { isEmpty, pickBy } from 'ramda'
 import type { TAccount } from '@/spec'
 import { buildLog } from '@/utils'
 
-import { Button } from '@/components/Buttons'
+import { FollowButton } from '@/components/Buttons'
 import ImgFallback from '@/components/ImgFallback'
 
 import SocialList from './SocialList'
@@ -55,9 +55,7 @@ const AuthorInfo: FC<TProps> = ({ testid = 'author-info', author }) => {
           src={author.avatar}
           fallback={<ImgFallback user={author} size={38} bottom={16} />}
         />
-        <Button type="primary" size="tiny" ghost>
-          &nbsp;关&nbsp;&nbsp;注&nbsp;
-        </Button>
+        <FollowButton size="tiny" fakeLoading />
       </AvatarIntro>
     </Wrapper>
   )
