@@ -20,16 +20,51 @@ let sub$ = null
 /* eslint-disable-next-line */
 const log = buildLog('L:Share')
 
+type TShareParam = {
+  url?: string
+  title?: string
+  text?: string
+  subject?: string
+  body?: string
+}
+const openShareWindow = (platformUrl: string, param: TShareParam): void => {
+  const safeParam = []
+
+  /* eslint-disable */
+  for (const i in param) {
+    safeParam.push(`${i}=${encodeURIComponent(param[i] || '')}`)
+  }
+  /* eslint-enable */
+  const targetUrl = `${platformUrl}?${safeParam.join('&')}`
+
+  window.open(targetUrl, '_blank', 'height=500, width=600')
+}
+
 export const toPlatform = (type: string): void => {
+  const { shareData } = store
+  const { url, title, digest } = shareData
+
   switch (type) {
     case SHARE_TYPE.TWITTER: {
-      // do twitter staff
-      return
+      const param = { url, text: title }
+
+      return openShareWindow('https://twitter.com/intent/tweet', param)
+      // return openShareWindow('https://twitter.com/share', param)
     }
 
     case SHARE_TYPE.EMAIL: {
-      // do wechat staff
-      return
+      const param = { subject: title, body: `${url}\n\n${digest}` }
+      return openShareWindow('mailto:', param)
+    }
+
+    case SHARE_TYPE.FACEBOOK: {
+      const param = { url, title }
+      return openShareWindow('https://facebook.com/sharer/sharer.php', param)
+    }
+
+    case SHARE_TYPE.WEIBO: {
+      const param = { url, title }
+      return openShareWindow('https://service.weibo.com/share/share.php', param)
     }
 
     default: {

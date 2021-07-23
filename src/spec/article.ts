@@ -7,6 +7,7 @@ export type TCopyright = 'cc' | 'approve' | 'forbid'
 type TBaseArticle = {
   id?: TID
   title?: string
+  digest?: string
   body?: string
   views?: number
   pin?: boolean

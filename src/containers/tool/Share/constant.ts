@@ -8,7 +8,7 @@ export const OUTSIDE_SHARE_TYPE = {
   TWITTER: 'twitter',
   EMAIL: 'email',
   WECHAT: 'wechat',
-  QQ: 'qq',
+  // QQ: 'qq',
   WEIBO: 'weibo',
   FACEBOOK: 'facebook',
 }

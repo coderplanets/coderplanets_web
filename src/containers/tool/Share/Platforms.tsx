@@ -52,12 +52,6 @@ const medias = [
     type: SHARE_TYPE.EMAIL,
   },
   {
-    id: '5',
-    title: 'QQ',
-    logo: `${ICON}/social/QQ-share.png`,
-    type: SHARE_TYPE.QQ,
-  },
-  {
     id: '6',
     title: '微博',
     logo: `${ICON}/social/weibo-share.png`,

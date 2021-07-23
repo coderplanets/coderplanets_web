@@ -29,6 +29,12 @@ const LinkBoard: FC<TProps> = ({ linksData }) => {
             URL
           </TabName>
           <TabName
+            $active={activeTab === 'html'}
+            onClick={() => setActiveTab('html')}
+          >
+            HTML
+          </TabName>
+          <TabName
             $active={activeTab === 'md'}
             onClick={() => setActiveTab('md')}
           >
