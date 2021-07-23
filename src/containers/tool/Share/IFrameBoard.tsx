@@ -1,8 +1,14 @@
 import { FC, memo } from 'react'
 
-import { IconButton } from '@/components/Buttons'
+import { CopyButton } from '@/components/Buttons'
 
-import { Wrapper, Header, Title, CodeWrapper } from './styles/iframe_board'
+import {
+  Wrapper,
+  Header,
+  Title,
+  CodeWrapper,
+  Inputer,
+} from './styles/iframe_board'
 
 const IFrameBoard: FC = () => {
   const code =
@@ -11,9 +17,11 @@ const IFrameBoard: FC = () => {
     <Wrapper>
       <Header>
         <Title>嵌入网页</Title>
-        <IconButton path="article/clipboard.svg" mRight={0} size={18} />
+        <CopyButton value={code} />
       </Header>
-      <CodeWrapper>{code}</CodeWrapper>
+      <CodeWrapper>
+        <Inputer behavior="textarea" value={code} />
+      </CodeWrapper>
     </Wrapper>
   )
 }

@@ -1,6 +1,7 @@
-import { FC, memo, Fragment } from 'react'
+import { FC, memo, Fragment, useState } from 'react'
 
-import { IconButton } from '@/components/Buttons'
+import { CopyButton } from '@/components/Buttons'
+import type { TLinksData } from './store'
 
 import {
   Header,
@@ -10,19 +11,40 @@ import {
   Inputer,
 } from './styles/link_board'
 
-const LinkBoard: FC = () => {
+type TProps = {
+  linksData: TLinksData
+}
+
+const LinkBoard: FC<TProps> = ({ linksData }) => {
+  const [activeTab, setActiveTab] = useState('link')
+
   return (
     <Fragment>
       <Header>
         <TabWrapper>
-          <TabName $active>URL</TabName>
-          <TabName>MD</TabName>
-          <TabName>OrgMode</TabName>
+          <TabName
+            $active={activeTab === 'link'}
+            onClick={() => setActiveTab('link')}
+          >
+            URL
+          </TabName>
+          <TabName
+            $active={activeTab === 'md'}
+            onClick={() => setActiveTab('md')}
+          >
+            MD
+          </TabName>
+          <TabName
+            $active={activeTab === 'orgMode'}
+            onClick={() => setActiveTab('orgMode')}
+          >
+            OrgMode
+          </TabName>
         </TabWrapper>
-        <IconButton path="article/clipboard.svg" mRight={5} />
+        <CopyButton value={linksData[activeTab]} />
       </Header>
       <BoxWrapper>
-        <Inputer value="[coderplanets 社区的各种指南都在这里了](https://cper.co/post/45)" />
+        <Inputer value={linksData[activeTab]} />
       </BoxWrapper>
     </Fragment>
   )

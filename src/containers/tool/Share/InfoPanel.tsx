@@ -7,12 +7,14 @@ import IFrameBoard from './IFrameBoard'
 import WechatBoard from './WechatBoard'
 
 import { Wrapper } from './styles/info_panel'
+import type { TLinksData } from './store'
 
 type TProps = {
   type: string
+  linksData: TLinksData
 }
 
-const InfoPanel: FC<TProps> = ({ type }) => {
+const InfoPanel: FC<TProps> = ({ type, linksData }) => {
   switch (type) {
     case SITE_SHARE_TYPE.EMBED: {
       return (
@@ -31,7 +33,7 @@ const InfoPanel: FC<TProps> = ({ type }) => {
     default: {
       return (
         <Wrapper type={type}>
-          <LinkBoard />
+          <LinkBoard linksData={linksData} />
         </Wrapper>
       )
     }

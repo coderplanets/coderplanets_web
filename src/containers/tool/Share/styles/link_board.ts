@@ -12,13 +12,15 @@ export const TabWrapper = styled.div`
   ${css.flex('align-end')};
 `
 export const TabName = styled.div<TActive>`
-  font-size: ${({ $active }) => ($active ? '15px' : '14px')};
+  font-size: 14px;
   color: ${({ $active }) =>
     $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   margin-right: 12px;
+  font-weight: ${({ $active }) => ($active ? 'bold' : 'normal')};
 
   &:hover {
     color: ${theme('thread.articleTitle')};
+    font-weight: ${({ $active }) => ($active ? 'bold' : 'normal')};
     cursor: pointer;
   }
 

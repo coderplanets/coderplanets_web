@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import Input from '@/components/Input'
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div`
@@ -16,4 +17,6 @@ export const Title = styled.div`
 export const CodeWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
+  margin-left: -5px;
 `
+export const Inputer = styled(Input)``

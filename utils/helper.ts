@@ -149,10 +149,7 @@ export const closeDrawer = (type = ''): void =>
 /**
  * share articles
  */
-export const shareTo = (): void => {
-  console.log('sending ', EVENT.SHARE)
-  send(EVENT.SHARE, {})
-}
+export const shareTo = (): void => send(EVENT.SHARE, {})
 
 /**
  * report content
