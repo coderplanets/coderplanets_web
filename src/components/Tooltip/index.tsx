@@ -52,7 +52,7 @@ const Tooltip: FC<TProps> = ({
   onHide,
   onShow,
   placement = 'top',
-  delay = 100,
+  delay = 0,
   duration = 0,
   content,
   hideOnClick = true,
