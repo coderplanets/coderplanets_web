@@ -10,7 +10,7 @@ export const mediaBreakPoints = {
   tablet: 768,
   laptop: 992,
   laptopM: 1280,
-  laptopL: 1440,
+  laptopL: 1400,
   maxContent: 1520, // WIDTH.COMMUNITY.PAGE
   desktop: 1600,
   // currently used as forms of drawer content (slideout/modal)

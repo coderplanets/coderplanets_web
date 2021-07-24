@@ -1,10 +1,14 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
+import type { TArticle } from '@/spec'
 
 import { SHARE_TYPE } from './constant'
 import {
   Wrapper,
+  Header,
+  Hint,
+  Article,
   InnerWrapper,
   Media,
   Logo,
@@ -52,6 +56,13 @@ const medias = [
     type: SHARE_TYPE.EMAIL,
   },
   {
+    id: '5',
+    title: 'Telegram',
+    logo: `${ICON}/social/telegram-share.png`,
+    bg: 'white',
+    type: SHARE_TYPE.TELEGRAM,
+  },
+  {
     id: '6',
     title: '微博',
     logo: `${ICON}/social/weibo-share.png`,
@@ -66,9 +77,18 @@ const medias = [
   },
 ]
 
-const Platforms: FC = () => {
+type TProps = {
+  article: TArticle
+}
+
+const Platforms: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
+      <Header>
+        <Hint>分享</Hint>
+        <Article>{article.title}</Article>
+        <Hint>到:</Hint>
+      </Header>
       <InnerWrapper>
         {medias.map((item) => (
           <Media key={item.id} onClick={() => toPlatform(item.type)}>

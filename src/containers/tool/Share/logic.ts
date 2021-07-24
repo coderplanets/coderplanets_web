@@ -52,6 +52,12 @@ export const toPlatform = (type: string): void => {
       // return openShareWindow('https://twitter.com/share', param)
     }
 
+    case SHARE_TYPE.TELEGRAM: {
+      const param = { url, text: title }
+
+      return openShareWindow('https://telegram.me/share/url', param)
+    }
+
     case SHARE_TYPE.EMAIL: {
       const param = { subject: title, body: `${url}\n\n${digest}` }
       return openShareWindow('mailto:', param)

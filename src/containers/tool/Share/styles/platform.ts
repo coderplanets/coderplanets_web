@@ -4,12 +4,29 @@ import { css, theme } from '@/utils'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
-  padding: 20px 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 100%;
   min-height: 220px;
   background: ${theme('modal.bg')};
   filter: drop-shadow(3px 3px 6px #002a34);
   transition: min-height 0.2s;
+`
+export const Header = styled.div`
+  ${css.flex('align-end')};
+  margin-top: 15px;
+  padding-left: 25px;
+  margin-bottom: 20px;
+`
+export const Hint = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
+`
+export const Article = styled.div`
+  color: ${theme('thread.articleTitle')};
+  ${css.cutRest('180px')};
+  font-size: 14px;
+  margin-left: 5px;
 `
 export const InnerWrapper = styled.div`
   ${css.flex()};
