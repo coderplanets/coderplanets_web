@@ -1,12 +1,12 @@
 /*
- *
  * Tooltip
- *
+
+ * use custom animation Globally at GlobalStyle.ts
  */
 
 import { FC, ReactNode, useState, useRef, memo } from 'react'
 
-import type { TTooltipPlacement, TTooltipAnimation } from '@/spec'
+import type { TTooltipPlacement } from '@/spec'
 import { css, buildLog, isDescendant } from '@/utils'
 import { useOutsideClick } from '@/hooks'
 
@@ -28,7 +28,6 @@ const log = buildLog('c:Tooltip:index')
 type TProps = {
   children: ReactNode
   content: string | ReactNode
-  animation?: TTooltipAnimation | 'rotate'
   placement?: TTooltipPlacement
   // more options see: https://atomiks.github.io/tippyjs/all-options/
   delay?: number
@@ -49,7 +48,6 @@ type TProps = {
 
 const Tooltip: FC<TProps> = ({
   children,
-  animation = 'scale',
   noPadding = false,
   onHide,
   onShow,
@@ -116,56 +114,34 @@ const Tooltip: FC<TProps> = ({
     }
   })
 
+  const props = {
+    ref,
+    content: PopoverContent,
+    placement,
+    hideOnClick,
+    zIndex: css.zIndex.popover,
+    interactive: true,
+    delay: [delay, 0] as [number, number],
+    offset: [5, 5] as [number, number],
+    duration,
+    trigger,
+
+    onHide: () => {
+      setInstance(null)
+      setActive(false)
+      onHide?.()
+    },
+    onShow: (instance) => {
+      setInstance(instance)
+      setActive(true)
+      onShow?.()
+    },
+  }
+
   return !noPadding ? (
-    <StyledTippy
-      ref={ref}
-      content={PopoverContent}
-      placement={placement}
-      hideOnClick={hideOnClick}
-      onHide={() => {
-        setInstance(null)
-        setActive(false)
-        onHide?.()
-      }}
-      onShow={(instance) => {
-        setInstance(instance)
-        setActive(true)
-        onShow?.()
-      }}
-      zIndex={css.zIndex.popover}
-      interactive
-      delay={[delay, 0]}
-      duration={duration}
-      animation={animation}
-      trigger={trigger}
-    >
-      {ContentComp}
-    </StyledTippy>
+    <StyledTippy {...props}>{ContentComp}</StyledTippy>
   ) : (
-    <NoPaddingStyledTippy
-      ref={ref}
-      content={PopoverContent}
-      placement={placement}
-      hideOnClick={hideOnClick}
-      animation={animation}
-      onHide={(instance) => {
-        setInstance(instance)
-        setActive(false)
-        onHide?.()
-      }}
-      onShow={(instance) => {
-        setInstance(instance)
-        setActive(true)
-        onShow?.()
-      }}
-      zIndex={css.zIndex.popover}
-      interactive
-      delay={[delay, 0]}
-      duration={duration}
-      trigger={trigger}
-    >
-      {ContentComp}
-    </NoPaddingStyledTippy>
+    <NoPaddingStyledTippy {...props}>{ContentComp}</NoPaddingStyledTippy>
   )
 }
 

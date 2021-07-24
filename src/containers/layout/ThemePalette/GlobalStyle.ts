@@ -157,9 +157,24 @@ const GlobalStyle = createGlobalStyle`
     background-clip: padding-box;
   }
 
-  .tippy-box[data-animation='rotate'][data-state='hidden'] {
-    opacity: 0;
-    transform: rotate(90deg);
+  /** customize tooltip animation globally */
+  .tippy-box[data-state='visible'] {
+    transition: all 0.2s ease-in-out !important;
   }
+  .tippy-box[data-placement^=top][data-state='visible'] {
+    transform: translateY(-5px);
+  }
+  .tippy-box[data-placement^=bottom][data-state='visible'] {
+    transform: translateY(5px);
+  }
+  .tippy-box[data-placement^=left][data-state='visible'] {
+    transform: translateX(-5px);
+  }
+  .tippy-box[data-placement^=right][data-state='visible'] {
+    transform: translateX(5px);
+  }
+  /* .tippy-box[data-state='hidden'] {
+    opacity: 0;
+  } */
 `
 export default GlobalStyle
