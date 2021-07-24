@@ -41,6 +41,17 @@ type TProps = {
   // for same reason, figure out later
   contentHeight?: string
 
+  /**
+   * z-index is a magic number for IconSwitcher's mask situation,
+   * DO NOT USE unless you know what you are doing
+   *  在类似 IconSwitcher 的场景下（有一个基于 positon: absolute 的滑动遮罩）的场景下，需要将外层
+   * 的 ContentWrapper z-index 置为 1, 否则滑动遮罩会在最外面。
+   *
+   * 理论上 zIndex 一直设置为 1，也没问题，但是会导致某些使用了 Tooltip 的地方有严重的粘滞感，比如 “CopyRight” 那里。
+   * 暂时没有精力看 Tippy 的具体实现，小心使用。
+   */
+  forceZIndex?: boolean
+
   onShow?: () => void
   onHide?: () => void
   onConfirm?: () => void
@@ -57,6 +68,7 @@ const Tooltip: FC<TProps> = ({
   content,
   hideOnClick = true,
   showArrow = false,
+  forceZIndex = false,
   footerBehavior = 'default',
   trigger = 'mouseenter focus',
   onConfirm,
@@ -66,7 +78,7 @@ const Tooltip: FC<TProps> = ({
   const [active, setActive] = useState(false)
 
   const ContentComp = showArrow ? (
-    <ContentWrapper contentHeight={contentHeight}>
+    <ContentWrapper contentHeight={contentHeight} forceZIndex={forceZIndex}>
       {active && placement === 'bottom' && <TopArrow />}
       {active && placement === 'top' && <BottomArrow />}
       {active && placement === 'right' && <LeftArrow />}
@@ -74,7 +86,7 @@ const Tooltip: FC<TProps> = ({
       <div>{children}</div>
     </ContentWrapper>
   ) : (
-    <ContentWrapper contentHeight={contentHeight}>
+    <ContentWrapper contentHeight={contentHeight} forceZIndex={forceZIndex}>
       <div>{children}</div>
     </ContentWrapper>
   )

@@ -49,19 +49,12 @@ const TabLabel: React.FC<TTabLabel> = ({ item, activeKey, onChange }) => {
   }
 
   return (
-    <Tooltip
-      content={<DescText>{item.desc}</DescText>}
-      placement="bottom"
-      delay={500}
-      noPadding
-    >
-      <Label onClick={() => onChange(item)}>
-        {!nilOrEmpty(item.localIcon) && <>{item.localIcon}</>}
-        {!nilOrEmpty(item.iconSrc) && (
-          <Icon src={item.iconSrc} checked={activeKey === item.key} />
-        )}
-      </Label>
-    </Tooltip>
+    <Label onClick={() => onChange(item)}>
+      {!nilOrEmpty(item.localIcon) && <>{item.localIcon}</>}
+      {!nilOrEmpty(item.iconSrc) && (
+        <Icon src={item.iconSrc} checked={activeKey === item.key} />
+      )}
+    </Label>
   )
 }
 
@@ -79,12 +72,16 @@ const IconSwitcher: FC<TProps> = ({ items, activeKey, onChange }) => {
       <AccessZone />
       <Tabs>
         {items.map((item) => (
-          <TabLabel
+          <Tooltip
             key={item.key}
-            item={item}
-            activeKey={activeKey}
-            onChange={onChange}
-          />
+            content={<DescText>{item.desc}</DescText>}
+            placement="top"
+            delay={500}
+            forceZIndex
+            noPadding
+          >
+            <TabLabel item={item} activeKey={activeKey} onChange={onChange} />
+          </Tooltip>
         ))}
         <Slider index={slideIndex} />
       </Tabs>

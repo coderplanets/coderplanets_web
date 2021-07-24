@@ -26,10 +26,11 @@ export const NoPaddingStyledTippy = styled(StyledTippy)`
     padding: 0;
   }
 `
-export const ContentWrapper = styled.div<{ contentHeight: string }>`
+type TContentWrapper = { contentHeight: string; forceZIndex: boolean }
+export const ContentWrapper = styled.div<TContentWrapper>`
   position: relative;
   height: ${({ contentHeight }) => contentHeight};
-  /* z-index: 1; */
+  z-index: ${({ forceZIndex }) => (forceZIndex ? 1 : 0)};
 `
 const Arrow = styled.div`
   position: absolute;

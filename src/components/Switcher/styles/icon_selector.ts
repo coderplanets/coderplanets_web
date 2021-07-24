@@ -43,7 +43,6 @@ export const Label = styled.label`
   width: ${width};
   height: ${height};
   font-size: 15px;
-  z-index: 2;
   transition: color 0.15s ease-in;
 
   &:hover {
