@@ -63,7 +63,7 @@ const Header: FC<TProps> = ({ totalCount, filterType }) => {
 
         {isAllFolded ? (
           <IconButton
-            size={14}
+            size={13}
             path="shape/expand-all.svg"
             hint="展开全部"
             active
@@ -71,7 +71,7 @@ const Header: FC<TProps> = ({ totalCount, filterType }) => {
           />
         ) : (
           <IconButton
-            size={14}
+            size={13}
             path="shape/fold-all.svg"
             hint="折叠全部"
             {...actionIconConfig}
