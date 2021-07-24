@@ -10,6 +10,14 @@ export const Wrapper = styled.div<TWrapper>`
     align === 'center' ? 'center' : 'flex-end'};
 `
 export const CancelBtn = styled.div`
+  opacity: 0.8;
   color: ${theme('button.primary')};
   font-size: 14px;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  transition: opacity 0.2s;
 `

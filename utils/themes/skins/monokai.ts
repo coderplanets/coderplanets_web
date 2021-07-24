@@ -284,6 +284,8 @@ const monokai = {
     bg: '#353337',
     border: primaryColor,
     innerSelectBg: '#333040',
+    subPanel: '#00313d',
+    subPanelShadow: 'drop-shadow(3px 3px 6px #002a34)',
   },
   form: {
     inputBg: lighten(0.03, contentBoxBg),

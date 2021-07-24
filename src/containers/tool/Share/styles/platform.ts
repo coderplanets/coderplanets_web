@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 220px;
   background: ${theme('modal.bg')};
-  filter: drop-shadow(3px 3px 6px #002a34);
+  filter: ${theme('modal.subPanelShadow')};
   transition: min-height 0.2s;
 `
 export const Header = styled.div`

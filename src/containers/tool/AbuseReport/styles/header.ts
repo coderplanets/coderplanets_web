@@ -3,10 +3,15 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme, css } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ showShadow: boolean }>`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
-  margin-bottom: 20px;
+  background: ${theme('modal.bg')};
+  padding: 20px 38px;
+  filter: ${({ showShadow }) =>
+    showShadow ? theme('modal.subPanelShadow') : ''};
+  /* filter: ${theme('modal.subPanelShadow')}; */
+  z-index: 1;
 `
 export const ReportIcon = styled(Img)`
   ${css.size(16)};
@@ -14,6 +19,7 @@ export const ReportIcon = styled(Img)`
 `
 export const Text = styled.div`
   color: ${theme('thread.articleTitle')};
+  font-weight: bold;
   margin-left: 8px;
   margin-right: 6px;
 `

@@ -290,6 +290,8 @@ const solarizedDark = {
     bg: bannerBg,
     border: '#1d5171',
     innerSelectBg: '#03323e',
+    subPanel: '#00313d',
+    subPanelShadow: 'drop-shadow(3px 3px 6px #002a34)',
   },
   form: {
     inputBg: '#002D39',

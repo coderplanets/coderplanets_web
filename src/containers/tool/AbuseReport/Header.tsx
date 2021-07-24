@@ -1,7 +1,9 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { REPORT_TYPE } from '@/constant'
 import { ICON } from '@/config'
+
+import type { TREPORT_ITEM } from './spec'
 import { Wrapper, ReportIcon, Text, ContentTitle } from './styles/header'
 
 const getCustomTitle = (type: string): string => {
@@ -23,16 +25,22 @@ const getCustomTitle = (type: string): string => {
 
 type TProps = {
   type: string
+  view: 'main' | 'detail'
+  activeItem: TREPORT_ITEM
 }
 
-const Header: FC<TProps> = ({ type }) => {
+const Header: FC<TProps> = ({ type, view, activeItem }) => {
   return (
-    <Wrapper>
+    <Wrapper showShadow={view === 'detail'}>
       <ReportIcon src={`${ICON}/article/report-solid.svg`} />
-      <Text>举报{getCustomTitle(type)}</Text>
+      {view === 'detail' ? (
+        <Text>{activeItem.title}</Text>
+      ) : (
+        <Text>举报{getCustomTitle(type)}</Text>
+      )}
       <ContentTitle>这是一首简单的小情歌</ContentTitle>
     </Wrapper>
   )
 }
 
-export default Header
+export default memo(Header)
