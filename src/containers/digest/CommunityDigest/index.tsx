@@ -9,7 +9,7 @@ import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import ClassicView from './ClassicView'
+import ClassicLayout from './ClassicLayout'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
@@ -38,7 +38,7 @@ const CommunityDigestContainer: FC<TProps> = ({
   } = store
 
   return (
-    <ClassicView
+    <ClassicLayout
       metric={metric}
       community={curCommunity}
       activeThread={curThread}

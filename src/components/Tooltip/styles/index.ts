@@ -14,7 +14,7 @@ export const StyledTippy = styled(Tippy)`
   border-color: ${theme('popover.borderColor')};
 
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
 
   .tippy-arrow {
     display: none;

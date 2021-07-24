@@ -10,7 +10,7 @@ import { PublishButton } from '@/components/Buttons'
 import CommunityBrief from './CommunityBrief'
 import ExtraInfo from './ExtraInfo'
 
-import { Wrapper, Divider } from '../styles/holy_grail_view'
+import { Wrapper, Divider } from '../styles/holy_grail_layout'
 
 // 没有各种外链接，打赏信息等的官方社区
 
@@ -18,7 +18,7 @@ type TProps = {
   community: TCommunity
 }
 
-const HolyGrailView: FC<TProps> = ({ community }) => {
+const HolyGrailLayout: FC<TProps> = ({ community }) => {
   return (
     <Wrapper testid="community-digest">
       <CommunityBrief community={community} />
@@ -34,4 +34,4 @@ const HolyGrailView: FC<TProps> = ({ community }) => {
   )
 }
 
-export default memo(HolyGrailView)
+export default memo(HolyGrailLayout)

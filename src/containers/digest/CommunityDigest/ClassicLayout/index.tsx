@@ -18,7 +18,7 @@ import {
   BannerContentWrapper,
   CommunityBaseInfo,
   TabBarWrapper,
-} from '../styles/classic_view'
+} from '../styles/classic_layout'
 
 import { onShowEditorList, onShowSubscriberList, setViewport } from '../logic'
 
@@ -33,7 +33,7 @@ type TProps = {
   metric: TMetric
 }
 
-const ClassicView: FC<TProps> = ({
+const ClassicLayout: FC<TProps> = ({
   community,
   descExpand,
   activeThread,
@@ -83,4 +83,4 @@ const ClassicView: FC<TProps> = ({
   )
 }
 
-export default memo(ClassicView)
+export default memo(ClassicLayout)

@@ -10,8 +10,8 @@ import { C11N } from '@/constant'
 import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-import ClassicView from './ClassicView'
-import HolyGrailView from './HolyGrailView'
+import ClassicLayout from './ClassicLayout'
+import HolyGrailLayout from './HolyGrailLayout'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
@@ -43,9 +43,9 @@ const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   return (
     <Fragment>
       {isClassicLayout ? (
-        <ClassicView thread={curThread} />
+        <ClassicLayout thread={curThread} />
       ) : (
-        <HolyGrailView
+        <HolyGrailLayout
           thread={curThread}
           community={curCommunity}
           subscribedCommunities={subscribedCommunitiesData}

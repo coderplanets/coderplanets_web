@@ -1,14 +1,11 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
 import { Tail as TailBase } from './index'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>`
+export const Wrapper = styled.div`
   cursor: pointer;
   ${css.size(36)};
   position: relative;

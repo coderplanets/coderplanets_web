@@ -79,9 +79,9 @@ const solarizedDark = {
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: '#7B8F90',
+    articleTitle: '#889fa0',
     articleStrip: contentBoxBg,
-    articleDigest: '#617477',
+    articleDigest: '#6c8084',
     articleTag: primaryColor,
     articleLink: descText,
     articleDivider: '#0B3B4D',

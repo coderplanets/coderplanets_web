@@ -12,8 +12,8 @@ import type { TTag } from '@/spec'
 import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import ClassicView from './ClassicView'
-import HolyGrailView from './HolyGrailView'
+import ClassicLayout from './ClassicLayout'
+import HolyGrailLayout from './HolyGrailLayout'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
@@ -48,13 +48,13 @@ const ThreadSidebarContainer: FC<TProps> = ({
   return (
     <Fragment>
       {bannerLayout === C11N.CLASSIC ? (
-        <ClassicView
+        <ClassicLayout
           showCommunityBadge={isCommunityDigestInViewport}
           onTagSelect={onTagSelect}
           onAdsClose={onAdsClose}
         />
       ) : (
-        <HolyGrailView community={curCommunity} />
+        <HolyGrailLayout community={curCommunity} />
       )}
     </Fragment>
   )

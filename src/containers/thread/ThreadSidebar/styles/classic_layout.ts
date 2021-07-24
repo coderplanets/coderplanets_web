@@ -8,7 +8,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   min-width: 200px;
   max-width: 200px;
-  padding-top: 20px;
+  padding-top: 15px;
 
   ${css.media.tablet`display: none;`};
 `
@@ -24,6 +24,6 @@ export const BadgeWrapper = styled.div<TActive>`
 `
 export const TagsBarWrapper = styled.div`
   margin-top: 20px;
-  margin-left: 12px;
-  max-width: 168px;
+  margin-left: 15px;
+  max-width: 160px;
 `

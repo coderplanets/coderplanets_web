@@ -11,7 +11,7 @@ import { buildLog } from '@/utils'
 import CommunityDigest from '@/containers/digest/CommunityDigest'
 
 import ThreadContent from './ThreadContent'
-import { Wrapper, InnerWrapper, ContentWrapper } from './styles/classic_view'
+import { Wrapper, InnerWrapper, ContentWrapper } from './styles/classic_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityContent:ClassicView')
@@ -20,7 +20,7 @@ type TProps = {
   thread?: TThread
 }
 
-const ClassicView: FC<TProps> = ({ thread }) => {
+const ClassicLayout: FC<TProps> = ({ thread }) => {
   return (
     <Wrapper testid="community-content">
       <CommunityDigest />
@@ -33,4 +33,4 @@ const ClassicView: FC<TProps> = ({ thread }) => {
   )
 }
 
-export default memo(ClassicView)
+export default memo(ClassicLayout)

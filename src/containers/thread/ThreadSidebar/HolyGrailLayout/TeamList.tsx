@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Wrapper, Avatar } from '../styles/holy_grail_view/team_list'
+import { Wrapper, Avatar } from '../styles/holy_grail_layout/team_list'
 
 const items = [
   {

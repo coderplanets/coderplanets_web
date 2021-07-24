@@ -6,7 +6,7 @@
  *
  */
 
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
 
@@ -14,7 +14,6 @@ import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
 import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
-import { Br } from '@/components/Common'
 import { PublishButton } from '@/components/Buttons'
 import PromotionList from '@/components/PromotionList'
 
@@ -26,25 +25,25 @@ import {
   BadgeWrapper,
   TagsBarWrapper,
   PublishWrapper,
-} from './styles/classic_view'
+} from './styles/classic_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ClassicSidebar')
 
 type TProps = { showCommunityBadge: boolean } & TBaseProps
 
-const ClassicView: FC<TProps> = ({
+const ClassicLayout: FC<TProps> = ({
   showCommunityBadge,
   onTagSelect,
   onAdsClose,
 }) => {
   return (
     <Wrapper testid="thread-sidebar">
-      <PublishWrapper show={showCommunityBadge}>
-        <PublishButton onCreate={onCreate} />
-      </PublishWrapper>
+      <Sticky offsetTop={50}>
+        <PublishWrapper show={showCommunityBadge}>
+          <PublishButton onCreate={onCreate} />
+        </PublishWrapper>
 
-      <Sticky offsetTop={55}>
         <BadgeWrapper show={!showCommunityBadge}>
           <CommunityJoinBadge />
         </BadgeWrapper>
@@ -57,4 +56,4 @@ const ClassicView: FC<TProps> = ({
   )
 }
 
-export default ClassicView
+export default memo(ClassicLayout)

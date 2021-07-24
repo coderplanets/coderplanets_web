@@ -23,7 +23,7 @@ import {
   InnerWrapper,
   ContentWrapper,
   TabsWrapper,
-} from './styles/holy_grail_view'
+} from './styles/holy_grail_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityContent')
@@ -34,7 +34,7 @@ type TProps = {
   subscribedCommunities: TCommunity[]
 }
 
-const HolyGrailView: FC<TProps> = ({
+const HolyGrailLayout: FC<TProps> = ({
   thread,
   community,
   subscribedCommunities,
@@ -61,4 +61,4 @@ const HolyGrailView: FC<TProps> = ({
   )
 }
 
-export default memo(HolyGrailView)
+export default memo(HolyGrailLayout)
