@@ -45,7 +45,7 @@ export const LogoWrapper = styled.div<{ noBg: boolean }>`
   margin-bottom: 5px;
 `
 export const Logo = styled(Img)<{ small: boolean }>`
-  fill: #e7f2f7; // ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleTitle')};
   ${({ small }) => (small ? css.circle('24px') : css.circle('38px'))};
   filter: saturate(0.6);
   opacity: 0.8;

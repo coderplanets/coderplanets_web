@@ -1,6 +1,8 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
 import IconButton from '../IconButton'
 import { Wrapper } from '../styles/copy_button'
 
@@ -19,7 +21,9 @@ type TProps = {
 const CopyButton: FC<TProps> = ({ value }) => {
   return (
     <Wrapper>
-      <AnimatedCopyButton value={value} />
+      <CopyToClipboard text={value}>
+        <AnimatedCopyButton />
+      </CopyToClipboard>
     </Wrapper>
   )
 }
