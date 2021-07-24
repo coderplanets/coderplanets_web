@@ -80,7 +80,7 @@ export const toPlatform = (type: string): void => {
 }
 
 export const close = (): void => {
-  store.mark({ show: false })
+  store.mark({ show: false, siteShareType: SHARE_TYPE.LINKS })
 }
 
 // ###############################

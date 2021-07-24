@@ -55,7 +55,7 @@ const AuthorInfo: FC<TProps> = ({ testid = 'author-info', author }) => {
           src={author.avatar}
           fallback={<ImgFallback user={author} size={38} bottom={16} />}
         />
-        <FollowButton size="tiny" fakeLoading />
+        <FollowButton size="tiny" fakeLoading hasFollowed />
       </AvatarIntro>
     </Wrapper>
   )
