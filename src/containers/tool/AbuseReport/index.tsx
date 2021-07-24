@@ -37,7 +37,7 @@ const AbuseReportContainer: FC<TProps> = ({
   return (
     <Modal width="500px" show={show} showCloseBtn onClose={() => close()}>
       <Wrapper testid={testid}>
-        <Header type={type} />
+        <Header type={type} view={view} activeItem={activeItem} />
         <ReportContent view={view} items={itemsData} activeItem={activeItem} />
         <Footer view={view} />
       </Wrapper>

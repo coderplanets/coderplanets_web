@@ -11,17 +11,16 @@ export const Item = styled.div`
   ${css.flex('align-center')};
   cursor: pointer;
 `
-const Icon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(14)};
-  margin-top: -1px;
-`
-export const ReferIcon = styled(Icon)``
-export const RecordIcon = styled(Icon)`
-  ${css.size(15)};
-`
+// const Icon = styled(Img)`
+//   fill: ${theme('thread.articleDigest')};
+//   ${css.size(13)};
+// `
+// export const ReferIcon = styled(Icon)``
+// export const RecordIcon = styled(Icon)`
+//   ${css.size(15)};
+// `
 export const ReferNum = styled.span`
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   color: #00a59b;
   margin-right: 5px;

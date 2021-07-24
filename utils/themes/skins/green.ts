@@ -288,6 +288,8 @@ const green = {
     bg: '#e1e8d9',
     border: primaryColor,
     innerSelectBg: '#333040',
+    subPanel: '#00313d',
+    subPanelShadow: 'drop-shadow(3px 3px 6px #002a34)',
   },
   form: {
     inputBg: lighten(0.03, contentBoxBg),

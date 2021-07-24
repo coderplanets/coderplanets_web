@@ -2,11 +2,9 @@ import { FC } from 'react'
 
 import Input from '@/components/Input'
 import { Br } from '@/components/Common'
-import { ArrowButton } from '@/components/Buttons'
 
 import type { TREPORT_ITEM } from '../spec'
 import { Wrapper, DetailDesc } from '../styles/report_content/detail'
-import { goBack } from '../logic'
 
 type TProps = {
   activeItem: TREPORT_ITEM
@@ -15,15 +13,6 @@ type TProps = {
 const Detail: FC<TProps> = ({ activeItem }) => {
   return (
     <Wrapper>
-      <ArrowButton
-        size="small"
-        direction="left"
-        arrowStyle="simple"
-        onClick={() => goBack()}
-      >
-        {activeItem.title}
-      </ArrowButton>
-      <Br bottom={10} />
       <DetailDesc>{activeItem.detail}</DetailDesc>
       <Br bottom={25} />
       <Input

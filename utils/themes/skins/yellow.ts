@@ -287,6 +287,8 @@ const yellow = {
     bg: '#FCFBF7',
     border: primaryColor,
     innerSelectBg: '#f7f0e0',
+    subPanel: '#00313d',
+    subPanelShadow: 'drop-shadow(3px 3px 6px #002a34)',
   },
   form: {
     inputBg: lighten(0.03, contentBoxBg),
