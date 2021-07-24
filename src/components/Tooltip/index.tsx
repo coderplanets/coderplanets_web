@@ -28,7 +28,7 @@ const log = buildLog('c:Tooltip:index')
 type TProps = {
   children: ReactNode
   content: string | ReactNode
-  animation?: TTooltipAnimation
+  animation?: TTooltipAnimation | 'rotate'
   placement?: TTooltipPlacement
   // more options see: https://atomiks.github.io/tippyjs/all-options/
   delay?: number
@@ -54,7 +54,7 @@ const Tooltip: FC<TProps> = ({
   onHide,
   onShow,
   placement = 'top',
-  delay = 0,
+  delay = 100,
   duration = 0,
   content,
   hideOnClick = true,
@@ -134,7 +134,7 @@ const Tooltip: FC<TProps> = ({
       }}
       zIndex={css.zIndex.popover}
       interactive
-      delay={delay}
+      delay={[delay, 0]}
       duration={duration}
       animation={animation}
       trigger={trigger}
@@ -160,7 +160,7 @@ const Tooltip: FC<TProps> = ({
       }}
       zIndex={css.zIndex.popover}
       interactive
-      delay={delay}
+      delay={[delay, 0]}
       duration={duration}
       trigger={trigger}
     >

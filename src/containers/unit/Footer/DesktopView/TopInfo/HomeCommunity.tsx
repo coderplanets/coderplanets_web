@@ -22,8 +22,9 @@ const HomeCommunity: FC<TProps> = ({ title = 'oderPlanets' }) => {
       <Linker>关于</Linker>
       <Linker>创建社区</Linker>
       <Linker>加入我们</Linker>
-      <Linker>OpenSource</Linker>
       <Linker>特别感谢</Linker>
+      <Linker>Github</Linker>
+      <Linker>访问统计</Linker>
     </Wrapper>
   )
 }

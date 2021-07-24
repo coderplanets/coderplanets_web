@@ -19,7 +19,7 @@ import {
   Title,
   TitleText,
   LogoHolder,
-} from '../styles/classic_view/community_brief'
+} from '../styles/classic_layout/community_brief'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 

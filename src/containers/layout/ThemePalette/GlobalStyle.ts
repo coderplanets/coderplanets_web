@@ -156,5 +156,10 @@ const GlobalStyle = createGlobalStyle`
     padding-left: 20px; /* gutter size */
     background-clip: padding-box;
   }
+
+  .tippy-box[data-animation='rotate'][data-state='hidden'] {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
 `
 export default GlobalStyle

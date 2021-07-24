@@ -6,10 +6,10 @@ import {
   Wrapper,
   Item,
   Number,
-  OnlineDesc,
-  OnlineDot,
+  // OnlineDesc,
+  // OnlineDot,
   Desc,
-} from '../styles/holy_grail_view/subscribe_info'
+} from '../styles/holy_grail_layout/subscribe_info'
 
 const ExtraInfo: FC = () => {
   return (

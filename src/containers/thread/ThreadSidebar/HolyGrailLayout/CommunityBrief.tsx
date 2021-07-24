@@ -14,7 +14,7 @@ import {
   CommunityInfo,
   TitleWrapper,
   TitleText,
-} from '../styles/holy_grail_view/community_brief'
+} from '../styles/holy_grail_layout/community_brief'
 
 type TProps = {
   community: TCommunity
