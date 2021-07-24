@@ -38,18 +38,15 @@ export const Media = styled.div`
   margin-bottom: 18px;
   cursor: pointer;
 `
-export const LogoWrapper = styled.div<{ bg: string | undefined }>`
+export const LogoWrapper = styled.div<{ noBg: boolean }>`
   ${css.circle(38)};
   ${css.flex('align-both')};
-  background: ${({ bg }) => bg || '#164651'};
+  background: ${({ noBg }) => (noBg ? 'transparent' : '#184b56')};
   margin-bottom: 5px;
 `
 export const Logo = styled(Img)<{ small: boolean }>`
-  fill: ${theme('thread.articleTitle')};
-  display: block;
-  width: ${({ small }) => (small ? '24px' : '40px')};
-  height: ${({ small }) => (small ? '24px' : '40px')};
-  border-radius: 100%;
+  fill: #e7f2f7; // ${theme('thread.articleTitle')};
+  ${({ small }) => (small ? css.circle('24px') : css.circle('38px'))};
   filter: saturate(0.6);
   opacity: 0.8;
 

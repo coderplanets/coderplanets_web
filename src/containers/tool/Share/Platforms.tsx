@@ -45,8 +45,8 @@ const medias = [
     id: '3',
     title: '微信',
     logo: `${ICON}/social/wechat-share.png`,
-    bg: 'white',
     type: SHARE_TYPE.WECHAT,
+    noBg: true,
   },
   {
     id: '4',
@@ -59,7 +59,6 @@ const medias = [
     id: '5',
     title: 'Telegram',
     logo: `${ICON}/social/telegram-share.png`,
-    bg: 'white',
     type: SHARE_TYPE.TELEGRAM,
   },
   {
@@ -67,12 +66,12 @@ const medias = [
     title: '微博',
     logo: `${ICON}/social/weibo-share.png`,
     type: SHARE_TYPE.WEIBO,
+    noBg: true,
   },
   {
     id: '7',
     title: 'Facebook',
     logo: `${ICON}/social/facebook-share.png`,
-    bg: 'white',
     type: SHARE_TYPE.FACEBOOK,
   },
 ]
@@ -92,7 +91,7 @@ const Platforms: FC<TProps> = ({ article }) => {
       <InnerWrapper>
         {medias.map((item) => (
           <Media key={item.id} onClick={() => toPlatform(item.type)}>
-            <LogoWrapper bg={item.bg}>
+            <LogoWrapper noBg={!!item.noBg}>
               <Logo src={item.logo} small={!!item.small} />
             </LogoWrapper>
             <Title>{item.title}</Title>
