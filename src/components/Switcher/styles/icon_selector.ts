@@ -43,7 +43,6 @@ export const Label = styled.label`
   width: ${width};
   height: ${height};
   font-size: 15px;
-  z-index: 2;
   transition: color 0.15s ease-in;
 
   &:hover {
@@ -57,11 +56,15 @@ export const DescText = styled.div`
 `
 export const Icon = styled(Img)<{ checked: boolean }>`
   fill: ${({ checked }) =>
-    checked ? '#66b5e8' : theme('thread.articleDigest')};
+    checked ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   width: ${({ checked }) => (checked ? '14px' : '12px')};
   height: ${({ checked }) => (checked ? '14px' : '12px')};
   display: block;
   transition: all 0.25s;
+
+  &:hover {
+    fill: #66b5e8;
+  }
 `
 export const Slider = styled.span<{ index: number }>`
   ${css.flex()};

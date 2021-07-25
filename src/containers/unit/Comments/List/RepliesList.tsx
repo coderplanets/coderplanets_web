@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TAccount, TComment } from '@/spec'
+import type { TAccount, TComment, TID } from '@/spec'
 
 import TogglerButton from './TogglerButton'
 import Comment from '../Comment'
@@ -11,9 +11,15 @@ type TProps = {
   entries: TComment[]
   tobeDeleteId: string
   accountInfo: TAccount
+  foldedIds: TID[]
 }
 
-const RepliesList: FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
+const RepliesList: FC<TProps> = ({
+  entries,
+  tobeDeleteId,
+  accountInfo,
+  foldedIds,
+}) => {
   return (
     <RepliesWrapper>
       {entries.slice(7, 9).map((c) => (
@@ -22,7 +28,9 @@ const RepliesList: FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
             data={c}
             tobeDeleteId={tobeDeleteId}
             accountInfo={accountInfo}
+            foldedIds={foldedIds}
             withoutBottomDivider={c.id === '328'}
+            isReply
           />
         </RepliesCommentsWrapper>
       ))}

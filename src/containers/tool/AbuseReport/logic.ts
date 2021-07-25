@@ -36,7 +36,7 @@ export const selectItem = (checkedItemRaw: string): void => {
   store.mark({ checkedItemRaw, view: 'detail' })
 }
 
-export const close = (): void => store.mark({ show: false })
+export const close = (): void => store.mark({ show: false, view: 'main' })
 
 const DataResolver = [
   {

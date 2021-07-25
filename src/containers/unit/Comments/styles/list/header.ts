@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
-import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   margin-top: 25px;
-  margin-bottom: 20px;
+  margin-bttom: 5px;
 
   ${css.media.mobile`
     border-bottom: 1px solid;

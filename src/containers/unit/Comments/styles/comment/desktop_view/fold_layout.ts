@@ -5,18 +5,32 @@ import { theme, css } from '@/utils'
 
 import PinSVG from '@/SvgIcons/PinSVG'
 
+import { CreateDate as HeaderCreateDate } from '../header'
+
 type TWrapper = {
   pined: boolean
 }
 
 export const Wrapper = styled.div<TWrapper>`
   position: relative;
-  ${css.flex()};
+  ${css.flex('align-center')};
   margin-left: 2px;
   margin-right: 5px;
   padding-top: ${({ pined }) => (pined ? '24px' : '20px')};
   position: relative;
   background: transparent;
+`
+export const Avatar = styled(Img)`
+  ${css.circle(16)};
+  opacity: ${theme('avatar.opacity')};
+  margin-right: 10px;
+`
+export const CommentBody = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 14px;
+`
+export const CreateDate = styled(HeaderCreateDate)`
+  margin-right: 4px;
 `
 export const PinState = styled.div`
   position: absolute;
@@ -37,17 +51,6 @@ export const PinText = styled.div`
   margin-left: 15px;
   opacity: 0.8;
 `
-
-// filter: blur(3px);
-export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
-  ${css.flexGrow()};
-  filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
-`
-export const SidebarWrapper = styled.div`
-  ${css.flexColumn('align-start')};
-  height: 100%;
-  min-width: 35px;
-`
 export const BadgePopContent = styled.div`
   padding: 5px 10px;
   font-size: 12px;
@@ -63,24 +66,6 @@ export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
   fill: ${theme('baseColor.green')};
   margin-top: ${({ isAuthorUpvoted }) => (isAuthorUpvoted ? '7px' : '3px')};
   margin-left: 1px;
-`
-export const RangeLine = styled.div<{ hasReplies: boolean }>`
-  flex-grow: 1;
-  width: 25px;
-  height: 100%;
-  border-left: 1px solid;
-  border-left-color: #004251;
-  margin-left: 6px;
-  margin-top: 8px;
-  opacity: 0;
-  opacity: ${({ hasReplies }) => (hasReplies ? 1 : 0)};
-
-  ${SidebarWrapper}:hover & {
-    opacity: 1;
-    cursor: pointer;
-  }
-
-  transition: all 0.25s;
 `
 export const CommentBodyInfo = styled.div`
   ${css.flexColumn()};

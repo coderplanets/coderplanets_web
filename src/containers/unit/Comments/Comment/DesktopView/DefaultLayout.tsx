@@ -9,10 +9,10 @@ import MarkDownRender from '@/components/MarkDownRender'
 import Tooltip from '@/components/Tooltip'
 import Upvote from '@/components/Upvote'
 
-import Header from './Header'
-import ReplyBar from './ReplyBar'
-import DeleteMask from './DeleteMask'
-import Footer from './Footer'
+import Header from '../Header'
+import ReplyBar from '../ReplyBar'
+import DeleteMask from '../DeleteMask'
+import Footer from '../Footer'
 
 import {
   Wrapper,
@@ -27,7 +27,8 @@ import {
   SolutionIcon,
   BadgePopContent,
   RangeLine,
-} from '../styles/comment/desktop_view'
+} from '../../styles/comment/desktop_view'
+import { foldComment } from '../../logic'
 
 const getSelection = () => {
   const selectText = Global.getSelection().toString()
@@ -42,14 +43,16 @@ type TProps = {
   tobeDeleteId: string
   hasReplies?: boolean
   withoutBottomDivider?: boolean
+  isReply?: boolean
 }
 
-const Comment: FC<TProps> = ({
+const DefaultLayout: FC<TProps> = ({
   data,
   tobeDeleteId,
   accountInfo,
   hasReplies = false,
   withoutBottomDivider = false,
+  isReply = false,
 }) => {
   const pined = data.id === '360' || data.id === '377'
   const isAuthorUpvoted =
@@ -89,7 +92,7 @@ const Comment: FC<TProps> = ({
               />
             </Tooltip>
           )}
-          <RangeLine hasReplies={hasReplies} />
+          {isReply && <RangeLine onClick={() => foldComment(data.id)} />}
         </SidebarWrapper>
 
         <CommentBodyInfo onMouseUp={getSelection}>
@@ -110,4 +113,4 @@ const Comment: FC<TProps> = ({
   )
 }
 
-export default memo(Comment)
+export default memo(DefaultLayout)

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { curry, isEmpty, mergeDeepRight } from 'ramda'
+import { curry, isEmpty, reject, equals, mergeDeepRight } from 'ramda'
 
-import type { TUser } from '@/spec'
+import type { TUser, TID } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 import { TYPE, EVENT, ERR } from '@/constant'
 
@@ -277,6 +277,25 @@ const saveDraftIfNeed = (content): void => {
 }
 
 const clearDraft = (): void => BStore.remove('recentDraft')
+
+export const foldComment = (id: TID): void => {
+  const { foldedCommentIds } = store
+  store.mark({ foldedCommentIds: [id, ...foldedCommentIds] })
+}
+
+export const foldAllComments = (): void => {
+  // TODO:
+  // store.mark({ foldedCommentIds: [] })
+}
+
+export const expandComment = (id: TID): void => {
+  const { foldedCommentIds } = store
+  store.mark({ foldedCommentIds: reject(equals(id), foldedCommentIds) })
+}
+
+export const expandAllComments = (): void => {
+  store.mark({ foldedCommentIds: [] })
+}
 
 // ###############################
 // Data & Error handlers

@@ -2,16 +2,11 @@ import { FC, memo, useEffect, useState } from 'react'
 
 import { ICON } from '@/config'
 import { IconButton } from '@/components/Buttons'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import { AnimateOnChange } from 'react-animation'
 import { CopyedHintIcon } from '../styles/copy_button'
 
-type TProps = {
-  value: string
-}
-
-const CopyButton: FC<TProps> = ({ value }) => {
+const CopyButton: FC = () => {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
@@ -28,9 +23,13 @@ const CopyButton: FC<TProps> = ({ value }) => {
       durationOut={100}
     >
       {!done && (
-        <CopyToClipboard text={value} onCopy={() => setDone(true)}>
-          <IconButton path="article/clipboard.svg" mRight={5} />
-        </CopyToClipboard>
+        <IconButton
+          path="article/clipboard.svg"
+          mRight={5}
+          onClick={() => {
+            setDone(true)
+          }}
+        />
       )}
       {done && <CopyedHintIcon src={`${ICON}/shape/checked.svg`} />}
     </AnimateOnChange>
