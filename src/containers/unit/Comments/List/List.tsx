@@ -1,6 +1,6 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TAccount, TComment } from '@/spec'
+import type { TAccount, TComment, TID } from '@/spec'
 import Comment from '../Comment'
 
 import RepliesList from './RepliesList'
@@ -10,9 +10,15 @@ type TProps = {
   entries: TComment[]
   tobeDeleteId: string
   accountInfo: TAccount
+  foldedIds: TID[]
 }
 
-const List: FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
+const List: FC<TProps> = ({
+  entries,
+  tobeDeleteId,
+  accountInfo,
+  foldedIds,
+}) => {
   return (
     <Fragment>
       {entries.map((c) => (
@@ -22,6 +28,7 @@ const List: FC<TProps> = ({ entries, tobeDeleteId, accountInfo }) => {
             tobeDeleteId={tobeDeleteId}
             accountInfo={accountInfo}
             hasReplies={c.id === '377'}
+            foldedIds={foldedIds}
           />
           {c.id === '354' && <DateDivider text="一个月后" />}
           {c.id === '377' && (

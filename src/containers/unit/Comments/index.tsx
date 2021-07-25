@@ -48,6 +48,7 @@ const CommentsContainer: FC<TProps> = ({
     showReplyPreview,
     mentionListData,
     isEdit,
+    foldedIds,
   } = store
 
   return (
@@ -89,6 +90,7 @@ const CommentsContainer: FC<TProps> = ({
 
       <List
         accountInfo={accountInfo}
+        foldedIds={foldedIds}
         pagedComments={pagedCommentsData}
         restProps={{ ...store }}
       />

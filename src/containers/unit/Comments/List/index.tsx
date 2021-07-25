@@ -1,6 +1,6 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TPagedComments, TUser } from '@/spec'
+import type { TID, TPagedComments, TUser } from '@/spec'
 import Pagi from '@/components/Pagi'
 import { CommentLoading } from '@/components/Loading'
 
@@ -14,6 +14,7 @@ import { ListsWrapper, CommentBlock } from '../styles/list'
 type TProps = {
   accountInfo: TUser
   pagedComments: TPagedComments
+  foldedIds: TID[]
   restProps: {
     loading: boolean
     loadingFresh: boolean
@@ -25,6 +26,7 @@ type TProps = {
 const CommentsList: FC<TProps> = ({
   accountInfo,
   pagedComments: { entries, totalCount, pageSize, pageNumber },
+  foldedIds,
   restProps: { loading, loadingFresh, tobeDeleteId, filterType },
 }) => (
   <Fragment>
@@ -42,6 +44,7 @@ const CommentsList: FC<TProps> = ({
       ) : (
         <List
           entries={entries}
+          foldedIds={foldedIds}
           accountInfo={accountInfo}
           tobeDeleteId={tobeDeleteId}
         />

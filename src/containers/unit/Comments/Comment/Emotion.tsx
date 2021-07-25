@@ -6,7 +6,7 @@ import { Wrapper } from '../styles/comment/emotion'
 
 const Emotion: FC = () => (
   <Wrapper>
-    <IconButton path="emotion/alien-fill.svg" mRight={0} />
+    <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
   </Wrapper>
 )
 

@@ -24,6 +24,7 @@ import type {
   TUser,
   TThread,
   TRoute,
+  TID,
 } from '@/spec'
 import { TYPE } from '@/constant'
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
@@ -90,11 +91,16 @@ const CommentsStore = T.model('CommentsStore', {
   loading: T.optional(T.boolean, false),
   // toggle loading for first item of commetns list
   loadingFresh: T.optional(T.boolean, false),
+
+  foldedCommentIds: T.optional(T.array(T.string), []),
 })
   .views((self) => ({
     get curRoute(): TRoute {
       const root = getParent(self) as TRootStore
       return root.curRoute
+    },
+    get foldedIds(): TID[] {
+      return stripMobx(self.foldedCommentIds)
     },
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore

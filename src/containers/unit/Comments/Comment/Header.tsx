@@ -4,6 +4,7 @@ import TimeAgo from 'timeago-react'
 import type { TComment } from '@/spec'
 
 import ImgFallback from '@/components/ImgFallback'
+import { Space } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
 
 import {
@@ -13,7 +14,8 @@ import {
   Avatar,
   HeaderBaseInfo,
   BaseInfo,
-  UserName,
+  Nickname,
+  UserBase,
   AuthorTag,
   ShortIntro,
 } from '../styles/comment/header'
@@ -31,15 +33,16 @@ const CommentHeader: FC<TProps> = ({ data }) => {
       />
       <HeaderBaseInfo>
         <BaseInfo>
-          <UserName>
-            <div>{data.author.nickname}</div>
+          <UserBase>
+            <Nickname>{data.author.nickname}</Nickname>
             <AuthorTag>作者</AuthorTag>
-          </UserName>
+            <CreateDate>
+              <DotDivider space={8} />
+              <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
+            </CreateDate>
+          </UserBase>
           <FloorNum>#{data.floor}</FloorNum>
-          <DotDivider radius={3} space={10} />
-          <CreateDate>
-            <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
-          </CreateDate>
+          <Space right={10} />
         </BaseInfo>
         <ShortIntro>1 号员工 / CEO at coderplanets</ShortIntro>
       </HeaderBaseInfo>

@@ -22,15 +22,18 @@ export const BaseInfo = styled.div`
   ${css.flexGrow('align-center')};
   color: ${theme('comment.username')};
 `
-export const UserName = styled.div`
-  ${css.flex('align-center')};
+export const UserBase = styled.div`
+  ${css.flex('align-end')};
   font-size: 15px;
   flex-grow: 1;
 `
+export const Nickname = styled.div`
+  font-size: 15px;
+`
 export const AuthorTag = styled.div`
   font-size: 11px;
+  margin-bottom: 2px;
   padding: 0 8px;
-  padding-top: 1px;
   margin-left: 10px;
   background: #023c4a;
   border-radius: 5px;
@@ -44,8 +47,7 @@ export const ShortIntro = styled.div`
 `
 export const FloorNum = styled.div`
   color: ${theme('comment.floor')};
-  font-size: 12px;
-  letter-spacing: 1.5px;
+  font-size: 13px;
   margin-top: 2px;
   opacity: 0.6;
 
@@ -56,9 +58,9 @@ export const FloorNum = styled.div`
   transition: opacity 0.25s;
 `
 export const CreateDate = styled.div`
+  ${css.flex('align-center')};
   color: ${theme('comment.floor')};
   font-size: 12px;
-  letter-spacing: 1.5px;
-  margin-top: 2px;
+  margin-left: 2px;
   opacity: 0.8;
 `
