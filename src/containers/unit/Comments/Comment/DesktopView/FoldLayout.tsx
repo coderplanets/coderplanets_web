@@ -33,6 +33,8 @@ const FoldLayout: FC<TProps> = ({ data }) => {
       <IconButton
         path="shape/expand-all.svg"
         hint="展开评论"
+        mLeft={-1}
+        mRight={12}
         onClick={() => expandComment(data.id)}
       />
       <Avatar

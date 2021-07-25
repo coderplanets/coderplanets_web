@@ -63,7 +63,7 @@ export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
   margin-top: ${({ isAuthorUpvoted }) => (isAuthorUpvoted ? '7px' : '3px')};
   margin-left: 1px;
 `
-export const RangeLine = styled.div<{ hasReplies: boolean }>`
+export const RangeLine = styled.div`
   flex-grow: 1;
   width: 25px;
   height: 100%;
@@ -71,9 +71,7 @@ export const RangeLine = styled.div<{ hasReplies: boolean }>`
   border-left-color: #004251;
   margin-left: 6px;
   margin-top: 8px;
-  opacity: 0;
-  opacity: ${({ hasReplies }) => (hasReplies ? 1 : 0)};
-
+  opacity: 1;
   ${SidebarWrapper}:hover & {
     opacity: 1;
     cursor: pointer;

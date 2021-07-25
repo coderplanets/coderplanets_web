@@ -18,4 +18,5 @@ export const UpWrapper = styled.div`
 `
 export const CountWrapper = styled.div`
   margin-top: -4px;
+  margin-left: 1px;
 `

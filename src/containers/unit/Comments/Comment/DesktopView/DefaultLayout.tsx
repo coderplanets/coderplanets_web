@@ -43,6 +43,7 @@ type TProps = {
   tobeDeleteId: string
   hasReplies?: boolean
   withoutBottomDivider?: boolean
+  isReply?: boolean
 }
 
 const DefaultLayout: FC<TProps> = ({
@@ -51,6 +52,7 @@ const DefaultLayout: FC<TProps> = ({
   accountInfo,
   hasReplies = false,
   withoutBottomDivider = false,
+  isReply = false,
 }) => {
   const pined = data.id === '360' || data.id === '377'
   const isAuthorUpvoted =
@@ -90,10 +92,7 @@ const DefaultLayout: FC<TProps> = ({
               />
             </Tooltip>
           )}
-          <RangeLine
-            hasReplies={hasReplies}
-            onClick={() => foldComment(data.id)}
-          />
+          {isReply && <RangeLine onClick={() => foldComment(data.id)} />}
         </SidebarWrapper>
 
         <CommentBodyInfo onMouseUp={getSelection}>
