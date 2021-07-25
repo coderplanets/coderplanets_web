@@ -166,6 +166,9 @@ const green = {
     mentionBorder: bannerTitle,
     mentionActiveBg: lighten(0.01, contentBoxBg),
     mentionShadow: '0px 2px 10px 1px rgba(47, 46, 46, 0.3)',
+
+    indentLine: '#035163',
+    indentActive: '#4b6669',
   },
   editor: {
     title: bannerTitle,

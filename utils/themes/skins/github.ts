@@ -165,6 +165,9 @@ const github = {
     mentionBorder: primaryColor,
     mentionActiveBg: darken(0.1, '#F9FCFC'),
     mentionShadow: '0px 2px 10px 1px rgba(235, 235, 235, 1)',
+
+    indentLine: '#035163',
+    indentActive: '#4b6669',
   },
   editor: {
     title: '#7ea9ad',

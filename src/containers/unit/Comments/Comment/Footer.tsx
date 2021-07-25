@@ -13,17 +13,10 @@ import { Wrapper } from '../styles/comment/footer'
 type TProps = {
   data: TComment
   accountInfo: TAccount
-  withoutBottomDivider?: boolean
-  hasReplies?: boolean
 }
 
-const Footer: FC<TProps> = ({
-  data,
-  accountInfo,
-  withoutBottomDivider = false,
-  hasReplies = false,
-}) => (
-  <Wrapper withoutBottomDivider={withoutBottomDivider} hasReplies={hasReplies}>
+const Footer: FC<TProps> = ({ data, accountInfo }) => (
+  <Wrapper>
     <Emotion />
     <DotDivider radius={3} space={10} />
     <Actions data={data} accountInfo={accountInfo} />
