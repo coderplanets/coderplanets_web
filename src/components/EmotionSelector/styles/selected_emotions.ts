@@ -6,6 +6,15 @@ import { css, theme } from '@/utils'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   cursor: pointer;
+  margin-right: 14px;
+  margin-right: 5px;
+  padding: 0 5px;
+  border-radius: 5px;
+  margin-left: -5px;
+
+  &:hover {
+    background: #023c4a;
+  }
 `
 export const EIcon = styled(Img)<{ name: string }>`
   margin-top: ${({ name }) => (name === 'downvote' ? '2px' : 0)};
@@ -17,9 +26,7 @@ export const EIcon = styled(Img)<{ name: string }>`
   opacity: 0.9;
 `
 export const Count = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 14px;
-  margin-right: 14px;
+  opacity: 0.8;
 
   ${Wrapper}:hover & {
     color: #00a59b;

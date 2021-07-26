@@ -1,19 +1,19 @@
 import { FC, memo } from 'react'
 
-import type { TSIZE_SML } from '@/spec'
 import { SIZE } from '@/constant'
 
 import { AnimateOnChange } from 'react-animation'
-import { Wrapper } from '../styles/total_count'
 
-type TProps = {
-  count?: number
-  size?: TSIZE_SML
-}
+import type { TProps } from './index'
+import { Wrapper } from './styles'
 
-const AnimatedCount: FC<TProps> = ({ count = 0, size = SIZE.SMALL }) => {
+const AnimatedCount: FC<TProps> = ({
+  count = 0,
+  size = SIZE.SMALL,
+  active = false,
+}) => {
   return (
-    <Wrapper size={size}>
+    <Wrapper size={size} $active={active}>
       <AnimateOnChange
         animationIn="fadeInUp"
         animationOut="bounceOut"

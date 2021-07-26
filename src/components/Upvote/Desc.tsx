@@ -2,13 +2,14 @@
  * Desc
  */
 
-import { FC, Fragment, memo } from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils'
+
 import { Space } from '@/components/Common'
 import Maybe from '@/components/Maybe'
+import AnimatedCount from '@/components/AnimatedCount'
 
-import TotalCount from './TotalCount'
 import { Text, DescWrapper } from './styles/default_layout'
 
 /* eslint-disable-next-line */
@@ -39,14 +40,14 @@ const Desc: FC<TProps> = ({
           <Text>等</Text>
           <Maybe test={showCount}>
             <Space left={3} />
-            <TotalCount count={count} /> <Space left={4} />
+            <AnimatedCount count={count} /> <Space left={4} />
             <Text>人</Text>
           </Maybe>
         </DescWrapper>
       )}
       {noOne ? (
         <Maybe test={showCount}>
-          <TotalCount count={count} /> <Space left={4} />
+          <AnimatedCount count={count} /> <Space left={4} />
         </Maybe>
       ) : (
         <Text>{alias}</Text>

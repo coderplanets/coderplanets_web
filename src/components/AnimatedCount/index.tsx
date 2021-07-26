@@ -1,0 +1,62 @@
+import { FC, memo, createContext, useContext } from 'react'
+import dynamic from 'next/dynamic'
+
+import type { TSIZE } from '@/spec'
+import { SIZE } from '@/constant'
+import { Wrapper } from './styles'
+
+// @ts-ignore
+const LoadingValueContext = createContext()
+
+// props is not accessable in loading
+// see https://github.com/vercel/next.js/issues/7906#issuecomment-787686440
+const AnimatedCount = dynamic(() => import('./AnimatedCount'), {
+  /* eslint-disable react/display-name */
+  loading: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { count, size, active } = useContext(LoadingValueContext) as {
+      count: number
+      size: TSIZE
+      active: boolean
+    }
+    return (
+      <Wrapper size={size} $active={active}>
+        {count}
+      </Wrapper>
+    )
+  },
+  ssr: false,
+})
+
+export type TProps = {
+  count?: number
+  size?: TSIZE
+  active?: boolean
+}
+
+const Count: FC<TProps> = ({
+  count = 0,
+  size = SIZE.SMALL,
+  active = false,
+}) => {
+  return (
+    <LoadingValueContext.Provider value={{ count, size, active }}>
+      <AnimatedCount count={count} size={size} active={active} />
+    </LoadingValueContext.Provider>
+  )
+}
+
+// debug
+// const Count: FC<TProps> = ({ size = SIZE.SMALL }) => {
+//   const [count, setCount] = useState(0)
+
+//   return (
+//     <LoadingValueContext.Provider value={{ count, size }}>
+//       <div onClick={() => setCount(count + 1)}>
+//         <AnimatedCount count={count} size={size} />
+//       </div>
+//     </LoadingValueContext.Provider>
+//   )
+// }
+
+export default memo(Count)

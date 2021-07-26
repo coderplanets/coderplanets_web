@@ -15,6 +15,7 @@ export const EIcon = styled(Img)<{ name: string }>`
 
   filter: saturate(0.6);
   opacity: 0.9;
+  z-index: 1;
 
   &:hover {
     cursor: pointer;

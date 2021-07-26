@@ -8,6 +8,7 @@ import { keys } from 'ramda'
 
 import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
+import AnimatedCount from '@/components/AnimatedCount'
 
 import {
   Wrapper,
@@ -40,7 +41,9 @@ const Emotion: FC<{ name: string; count: number }> = ({ name, count }) => {
     >
       <Wrapper>
         {emotionIcon}
-        <Count>{count}</Count>
+        <Count>
+          <AnimatedCount count={count} size="tiny" active={false} />
+        </Count>
       </Wrapper>
     </Tooltip>
   )

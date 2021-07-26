@@ -132,7 +132,7 @@ const Tooltip: FC<TProps> = ({
     placement,
     hideOnClick,
     zIndex: css.zIndex.popover,
-    interactive: true,
+    active: true,
     delay: [delay, 0] as [number, number],
     offset: [5, 5] as [number, number],
     duration,
