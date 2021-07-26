@@ -1,5 +1,4 @@
 import { FC, memo } from 'react'
-import T from 'prop-types'
 
 import { ICON } from '@/config'
 import { cutRest } from '@/utils'
