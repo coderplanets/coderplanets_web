@@ -148,10 +148,9 @@ const Tooltip: FC<TProps> = ({
     },
     onShow: (instance) => {
       // see https://github.com/atomiks/tippyjs/issues/260#issuecomment-462031748
-      hideAll()
+      hideAll({ exclude: instance })
       setInstance(instance)
       setActive(true)
-      // tippy.hideAll({ exclude: instance })
       onShow?.()
     },
   }
