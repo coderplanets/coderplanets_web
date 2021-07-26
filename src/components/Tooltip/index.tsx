@@ -5,6 +5,7 @@
  */
 
 import { FC, ReactNode, useState, useRef, memo } from 'react'
+import { hideAll } from 'tippy.js'
 
 import type { TTooltipPlacement } from '@/spec'
 import { css, buildLog, isDescendant } from '@/utils'
@@ -137,6 +138,8 @@ const Tooltip: FC<TProps> = ({
     offset: [5, 5] as [number, number],
     duration,
     trigger,
+    // see https://github.com/atomiks/tippyjs/issues/751#issuecomment-611979594 for detail
+    interactive: true,
 
     onHide: () => {
       setInstance(null)
@@ -144,8 +147,11 @@ const Tooltip: FC<TProps> = ({
       onHide?.()
     },
     onShow: (instance) => {
+      // see https://github.com/atomiks/tippyjs/issues/260#issuecomment-462031748
+      hideAll()
       setInstance(instance)
       setActive(true)
+      // tippy.hideAll({ exclude: instance })
       onShow?.()
     },
   }
