@@ -165,6 +165,9 @@ const purple = {
     mentionBorder: primaryColor,
     mentionActiveBg: lighten(0.1, contentBoxBg),
     mentionShadow: '0px 2px 10px 1px rgba(47, 46, 46, 0.8)',
+
+    indentLine: '#035163',
+    indentActive: '#4b6669',
   },
   editor: {
     title: primaryColor,

@@ -12,7 +12,6 @@ type TProps = {
   accountInfo: TAccount
   tobeDeleteId: string
   hasReplies?: boolean
-  withoutBottomDivider?: boolean
   foldedIds: TID[]
 }
 

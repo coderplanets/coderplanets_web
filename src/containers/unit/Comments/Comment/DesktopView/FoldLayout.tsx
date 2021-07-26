@@ -23,13 +23,12 @@ type TProps = {
 }
 
 const FoldLayout: FC<TProps> = ({ data }) => {
-  const pined = data.id === '360' || data.id === '377'
   const isAuthorUpvoted =
     data.id === '377' || data.id === '355' || data.id === '359'
   const isSolution = data.id === '358' || data.id === '355'
 
   return (
-    <Wrapper pined={pined}>
+    <Wrapper>
       <IconButton
         path="shape/expand-all.svg"
         hint="展开评论"
