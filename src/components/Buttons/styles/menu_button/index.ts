@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
-// import Img from '@/Img'
 import { css } from '@/utils'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: 3px;
-  margin-bottom: 5px;
+  width: 100%;
+  position: relative;
 `
-export const holder = 1
+export const Holder = 1

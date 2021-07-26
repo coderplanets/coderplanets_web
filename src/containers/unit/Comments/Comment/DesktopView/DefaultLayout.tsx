@@ -26,7 +26,7 @@ import {
   AuthorUpvotedIcon,
   SolutionIcon,
   BadgePopContent,
-  RangeLine,
+  IndentLine,
 } from '../../styles/comment/desktop_view'
 import { foldComment } from '../../logic'
 
@@ -41,8 +41,6 @@ type TProps = {
   data: TComment
   accountInfo: TAccount
   tobeDeleteId: string
-  hasReplies?: boolean
-  withoutBottomDivider?: boolean
   isReply?: boolean
 }
 
@@ -50,8 +48,6 @@ const DefaultLayout: FC<TProps> = ({
   data,
   tobeDeleteId,
   accountInfo,
-  hasReplies = false,
-  withoutBottomDivider = false,
   isReply = false,
 }) => {
   const pined = data.id === '360' || data.id === '377'
@@ -92,7 +88,7 @@ const DefaultLayout: FC<TProps> = ({
               />
             </Tooltip>
           )}
-          {isReply && <RangeLine onClick={() => foldComment(data.id)} />}
+          {isReply && <IndentLine onClick={() => foldComment(data.id)} />}
         </SidebarWrapper>
 
         <CommentBodyInfo onMouseUp={getSelection}>
@@ -101,12 +97,7 @@ const DefaultLayout: FC<TProps> = ({
             {data.replyTo && <ReplyBar data={data.replyTo} />}
             <MarkDownRender body={data.body} />
           </CommentContent>
-          <Footer
-            data={data}
-            accountInfo={accountInfo}
-            withoutBottomDivider={withoutBottomDivider}
-            hasReplies={hasReplies}
-          />
+          <Footer data={data} accountInfo={accountInfo} />
         </CommentBodyInfo>
       </CommentWrapper>
     </Wrapper>

@@ -29,7 +29,6 @@ const RepliesList: FC<TProps> = ({
             tobeDeleteId={tobeDeleteId}
             accountInfo={accountInfo}
             foldedIds={foldedIds}
-            withoutBottomDivider={c.id === '328'}
             isReply
           />
         </RepliesCommentsWrapper>

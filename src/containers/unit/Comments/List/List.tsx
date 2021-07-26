@@ -6,7 +6,7 @@ import Comment from '../Comment'
 import RepliesList from './RepliesList'
 import DateDivider from './DateDivider'
 
-import { Wrapper, RangeLine } from '../styles/list/list'
+import { Wrapper, IndentLine } from '../styles/list/list'
 import { foldComment } from '../logic'
 
 type TProps = {
@@ -43,7 +43,7 @@ const List: FC<TProps> = ({
               foldedIds={foldedIds}
             />
           )}
-          <RangeLine
+          <IndentLine
             hasReplies={c.id === '108'}
             onClick={() => foldComment(c.id)}
           />

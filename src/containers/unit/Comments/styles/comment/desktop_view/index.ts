@@ -63,19 +63,25 @@ export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
   margin-top: ${({ isAuthorUpvoted }) => (isAuthorUpvoted ? '7px' : '3px')};
   margin-left: 1px;
 `
-export const RangeLine = styled.div`
+export const IndentLine = styled.div`
   flex-grow: 1;
   width: 25px;
   height: 100%;
-  border-left: 1px solid;
-  border-left-color: #004251;
+  border-left: 1px dashed;
+  border-left-color: ${theme('comment.indentLine')};
   margin-left: 6px;
   margin-top: 8px;
   opacity: 1;
+
   ${SidebarWrapper}:hover & {
     opacity: 1;
     cursor: pointer;
-    border-left-color: ${theme('thread.articleDigest')};
+    border-left: 1px solid;
+    border-left-color: ${theme('comment.indentActive')};
+  }
+
+  ${CommentWrapper}:hover & {
+    opacity: 1;
   }
 
   transition: all 0.25s;
