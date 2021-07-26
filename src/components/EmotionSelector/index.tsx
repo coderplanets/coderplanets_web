@@ -6,10 +6,10 @@ import { FC, memo } from 'react'
 import { buildLog } from '@/utils'
 
 import { IconButton } from '@/components/Buttons'
-// import Tooltip from '@/components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 
 import SelectedEmotions from './SelectedEmotions'
-// import Panel from './Panel'
+import Panel from './Panel'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
@@ -44,8 +44,9 @@ const EmotionSelector: FC<TProps> = ({ testid = 'emotion-selector' }) => {
   return (
     <Wrapper testid={testid}>
       <SelectedEmotions emotions={tmpEmotions} />
-      <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
-      {/* </Tooltip> */}
+      <Tooltip content={<Panel />} trigger="click">
+        <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
+      </Tooltip>
     </Wrapper>
   )
 }
