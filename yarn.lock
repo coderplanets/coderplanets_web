@@ -1000,7 +1000,7 @@
 
 "@popperjs/core@^2.8.3":
   version "2.9.2"
-  resolved "https://registry.nlark.com/@popperjs/core/download/@popperjs/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
+  resolved "https://registry.npm.taobao.org/@popperjs/core/download/@popperjs/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
 
 "@rushstack/eslint-patch@^1.0.6":
   version "1.0.6"
@@ -1132,11 +1132,11 @@
     content-type "^1.0.4"
     tslib "^2.1.0"
 
-"@tippyjs/react@4.2.0":
-  version "4.2.0"
-  resolved "https://registry.nlark.com/@tippyjs/react/download/@tippyjs/react-4.2.0.tgz#a1cb369d0051099e8a7e4ceb59f809abd9955283"
+"@tippyjs/react@4.2.5":
+  version "4.2.5"
+  resolved "https://registry.nlark.com/@tippyjs/react/download/@tippyjs/react-4.2.5.tgz#9b5837db93a1cac953962404df906aef1a18e80d"
   dependencies:
-    tippy.js "^6.2.0"
+    tippy.js "^6.3.1"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -10997,7 +10997,7 @@ tinykeys@^1.0.6:
   version "1.2.0"
   resolved "https://registry.nlark.com/tinykeys/download/tinykeys-1.2.0.tgz#c57ad1b6f088bc2e506ea340755d57634a3d5c6c"
 
-tippy.js@^6.2.0:
+tippy.js@^6.3.1:
   version "6.3.1"
   resolved "https://registry.npm.taobao.org/tippy.js/download/tippy.js-6.3.1.tgz#3788a007be7015eee0fd589a66b98fb3f8f10181"
   dependencies:

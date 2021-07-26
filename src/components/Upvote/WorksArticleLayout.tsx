@@ -10,7 +10,7 @@ import { buildLog } from '@/utils'
 import { SIZE, UPVOTE_LAYOUT } from '@/constant'
 
 import AvatarsRow from '@/components/AvatarsRow'
-import TotalCount from './TotalCount'
+import AnimatedCount from '@/components/AnimatedCount'
 
 import Desc from './Desc'
 import UpvoteBtn from './UpvoteBtn'
@@ -89,7 +89,7 @@ const Upvote: FC<TProps> = ({
           type={UPVOTE_LAYOUT.WORKS_ARTICLE}
         />
         <CountWrapper>
-          <TotalCount count={count} size={SIZE.LARGE} />
+          <AnimatedCount count={count} size={SIZE.LARGE} />
         </CountWrapper>
       </UpWrapper>
 
