@@ -1,0 +1,66 @@
+import { FC, memo } from 'react'
+import { TID } from '@/spec'
+
+import { Button } from '@/components/Buttons'
+import { Space } from '@/components/Common'
+import Folder from '@/components/Folder'
+
+import {
+  Wrapper,
+  Header,
+  Artiment,
+  ListWrapper,
+  FolderWrapper,
+  Footer,
+} from './styles/setter'
+
+import { setContent, unSetContent, onSetterCreateCat } from './logic'
+
+type TProps = {
+  show: boolean
+  selectedId: TID
+}
+
+const Setter: FC<TProps> = ({ show, selectedId }) => (
+  <Wrapper show={show}>
+    <Header>
+      添加<Artiment>某篇文章或评论</Artiment>到收藏夹
+    </Header>
+    <ListWrapper>
+      <FolderWrapper>
+        <Folder lock />
+      </FolderWrapper>
+
+      <FolderWrapper>
+        <Folder lock />
+      </FolderWrapper>
+      <FolderWrapper>
+        <Folder lock />
+      </FolderWrapper>
+      <FolderWrapper>
+        <Folder lock />
+      </FolderWrapper>
+      <FolderWrapper>
+        <Folder lock />
+      </FolderWrapper>
+      <FolderWrapper>
+        <Folder lock />
+      </FolderWrapper>
+      <FolderWrapper>
+        <Folder lock />
+      </FolderWrapper>
+      <FolderWrapper>
+        <Folder lock />
+      </FolderWrapper>
+    </ListWrapper>
+    <Footer>
+      选择要收入的收藏夹，或者
+      <Space right={10} />
+      <Button type="primary" onClick={onSetterCreateCat} size="small" ghost>
+        创建新收藏夹
+      </Button>
+    </Footer>
+  </Wrapper>
+)
+
+export default memo(Setter)

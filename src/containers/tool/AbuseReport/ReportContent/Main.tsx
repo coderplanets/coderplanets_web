@@ -11,7 +11,7 @@ import {
   Option,
   SelectWrapper,
   Title,
-  Panel,
+  FooterPanel,
 } from '../styles/report_content/main'
 import { selectItem } from '../logic'
 
@@ -35,7 +35,7 @@ const Main: FC<TProps> = ({ items, activeItem }) => {
             </Option>
           ))}
       </OptionsWrapper>
-      <Panel>感谢你用实际行动为社区净化作出贡献。</Panel>
+      <FooterPanel>感谢你用实际行动为社区净化作出贡献。</FooterPanel>
     </Wrapper>
   )
 }

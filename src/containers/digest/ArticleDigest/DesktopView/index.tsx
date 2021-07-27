@@ -11,6 +11,8 @@ import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
+import CollectionFolder from '@/containers/tool/CollectionFolder'
+
 import FixedHeader from './FixedHeader'
 import Layout from './Layout'
 
@@ -45,6 +47,7 @@ const ArticleDigestContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid} metric={metric}>
+      <CollectionFolder />
       <FixedHeader
         show={!inViewport}
         article={viewingArticle}

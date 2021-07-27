@@ -10,7 +10,6 @@ import { values } from 'ramda'
 import { THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import FavoritesCats from '@/containers/tool/FavoritesCats'
 import Maybe from '@/components/Maybe'
 
 import UserInfo from './UserInfo'
@@ -42,7 +41,6 @@ const ArticleViewerHeaderContainer = ({
 
   return (
     <Wrapper>
-      <FavoritesCats />
       <Maybe test={author && !company}>
         <UserInfo author={author} insertedAt={data.insertedAt} />
       </Maybe>

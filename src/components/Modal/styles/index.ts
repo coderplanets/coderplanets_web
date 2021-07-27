@@ -29,9 +29,10 @@ export const Wrapper = styled.div<TWrapper>`
   margin: 0 auto;
   top: ${({ offsetTop }) => offsetTop};
   width: ${({ width }) => width};
+  height: auto;
   border-radius: 8px;
   min-height: 320px;
-  max-height: 81vh;
+  max-height: 65vh;
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
   /* border: 1px solid; */
   border-top: 3px solid;
@@ -44,7 +45,7 @@ export const Wrapper = styled.div<TWrapper>`
 `
 export const ChildrenWrapper = styled.div`
   min-height: 320px;
-  max-height: 80vh;
+  /* height: 100%; */
   height: auto;
   overflow-y: scroll;
 `

@@ -1,29 +1,54 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { css, theme } from '@/utils'
+import { Wrapper as FolderWrapper } from './index'
 
 export const Wrapper = styled.div`
-  ${css.flexColumn()};
-  cursor: pointer;
+  position: relative;
+  ${css.flexColumn('align-center')};
+  text-align: center;
+  margin-top: 4px;
 `
 export const Title = styled.div`
-  ${css.flex('align-center', 'justify-between')};
+  ${css.flex('align-center')};
+  text-align: center;
+  margin-top: 5px;
+`
+export const Name = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 3px;
+  ${css.cutRest('68px')};
 `
-export const Intro = styled.div`
-  ${css.flex('justify-between', 'align-center')};
-  color: ${theme('thread.articleDigest')};
-  font-size: 12px;
+export const FolderInfoPopWrapper = styled.div`
+  width: 100px;
+  height: 160px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 `
-export const Total = styled.div``
-export const Update = styled.div``
+export const MenuWrapper = styled.div`
+  position: absolute;
+  right: -10px;
+  top: -8px;
+  opacity: 0;
+  /* visibility: hidden; */
 
-export const LockIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(12)};
-  margin-top: -1px;
+  ${Title}:hover & {
+    opacity: 1;
+  }
+`
+export const HintWrapper = styled.div`
+  ${css.flexColumn('align-center')};
+  height: 14px;
+  width: 100%;
+`
+export const Hint = styled.div`
+  color: ${theme('button.primary')};
+  font-size: 12px;
+  cursor: pointer;
+`
+export const AddHint = styled(Hint)`
+  display: none;
+  ${FolderWrapper}:hover & {
+    display: block;
+  }
 `

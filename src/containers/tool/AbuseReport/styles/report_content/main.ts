@@ -13,13 +13,13 @@ export const OptionsWrapper = styled.div`
   background: ${theme('modal.bg')};
   filter: ${theme('modal.subPanelShadow')};
 `
-export const Panel = styled.div`
+export const FooterPanel = styled.div`
   ${css.flex('align-center')};
   padding-left: 35px;
   width: 100%;
   background: ${theme('modal.subPanel')};
   /* background: ${theme('modal.panelBg')}; */
-  height: 50px;
+  height: 56px;
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
 `

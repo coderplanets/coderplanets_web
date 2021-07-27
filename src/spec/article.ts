@@ -74,3 +74,20 @@ export type TArticleFilter = {
 }
 
 export type TUpvoteLayout = 'default' | 'comment' | 'article' | 'works-article'
+
+export type TCollectionFolder = {
+  id: TID
+  title: string
+  desc?: string
+  totalCount: number
+  private: boolean
+  updatedAt: string
+}
+
+export type TPagedCollectionFolder = {
+  entries: TCollectionFolder[]
+  totalCount: number
+  pageNumber: number
+  pageSize: number
+  totalPages: number
+}

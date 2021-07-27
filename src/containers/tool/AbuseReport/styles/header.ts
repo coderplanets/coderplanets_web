@@ -7,10 +7,10 @@ export const Wrapper = styled.div<{ showShadow: boolean }>`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   background: ${theme('modal.bg')};
-  padding: 20px 38px;
+  /* padding: 20px 38px; */
+  padding: ${({ showShadow }) => (showShadow ? '12px 38px' : '20px 38px')};
   filter: ${({ showShadow }) =>
     showShadow ? theme('modal.subPanelShadow') : ''};
-  /* filter: ${theme('modal.subPanelShadow')}; */
   z-index: 1;
 `
 export const ReportIcon = styled(Img)`

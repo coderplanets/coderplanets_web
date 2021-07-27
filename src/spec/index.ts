@@ -48,6 +48,8 @@ export type {
 export type { TGQLError } from './graphql'
 
 export type {
+  TCollectionFolder,
+  TPagedCollectionFolder,
   TArticle,
   TPost,
   TBlog,
