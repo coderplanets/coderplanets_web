@@ -29,7 +29,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:FavoritesCats:Creator')
+const log = buildLog('C:CollectionFolder:Creator')
 
 type TProps = {
   data: TCollectionFolder

@@ -9,7 +9,7 @@ import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:FavoritesCats')
+const log = buildLog('L:CollectionFolder')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
@@ -203,14 +203,14 @@ const ErrSolver = [
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       markLoading(false)
-      errRescue({ type: ERR.TIMEOUT, details, path: 'FavoritesCats' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'CollectionFolder' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
       markLoading(false)
-      errRescue({ type: ERR.NETWORK, path: 'FavoritesCats' })
+      errRescue({ type: ERR.NETWORK, path: 'CollectionFolder' })
     },
   },
 ]

@@ -32,7 +32,6 @@ export { default as CashierStore } from '@/containers/tool/Cashier/store'
 
 export { default as ArticleAuthorCardStore } from '@/containers/unit/ArticleAuthorCard/store'
 //
-export { default as FavoritesCatsStore } from '@/containers/tool/FavoritesCats/store'
 
 // pages banners store
 export { default as CommunityDigestStore } from '@/containers/digest/CommunityDigest/store'

@@ -81,7 +81,6 @@ import {
   UserBillingStore,
   UserFavoritedStore,
   UserStaredStore,
-  FavoritesCatsStore,
   //
   MeetupsContentStore,
   HaveADrinkContentStore,
@@ -195,7 +194,6 @@ const rootStore = T.model({
   userSettings: T.optional(UserSettingsStore, {}),
   userStared: T.optional(UserStaredStore, {}),
   userFavorited: T.optional(UserFavoritedStore, {}),
-  favoritesCats: T.optional(FavoritesCatsStore, {}),
 
   // have a drink
   meetupsContent: T.optional(MeetupsContentStore, {}),
