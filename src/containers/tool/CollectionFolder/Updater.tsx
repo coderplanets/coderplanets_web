@@ -18,7 +18,6 @@ import {
   FormItemWrapper,
   FormLabel,
   FormInput,
-  RadiosWrapper,
   Footer,
 } from './styles/editor'
 
@@ -69,23 +68,21 @@ const Updater: FC<TProps> = ({ data, show, hasLockAuth }) => (
       {hasLockAuth && (
         <FormItemWrapper>
           <FormLabel>隐私</FormLabel>
-          <RadiosWrapper>
-            <Radio
-              items={[
-                {
-                  value: '公开',
-                  key: false,
-                },
-                {
-                  value: '不公开',
-                  key: true,
-                  dimOnActive: true,
-                },
-              ]}
-              activeKey={data.private}
-              onChange={privateOnChange}
-            />
-          </RadiosWrapper>
+          <Radio
+            items={[
+              {
+                value: '公开',
+                key: false,
+              },
+              {
+                value: '不公开',
+                key: true,
+                dimOnActive: true,
+              },
+            ]}
+            activeKey={data.private}
+            onChange={privateOnChange}
+          />
         </FormItemWrapper>
       )}
     </EditWrapper>

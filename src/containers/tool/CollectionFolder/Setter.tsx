@@ -14,7 +14,7 @@ import {
   Footer,
 } from './styles/setter'
 
-import { setContent, unSetContent, onSetterCreateCat } from './logic'
+import { setContent, unSetContent, switchToCreator } from './logic'
 
 type TProps = {
   show: boolean
@@ -56,7 +56,7 @@ const Setter: FC<TProps> = ({ show, selectedId }) => (
     <Footer>
       选择要收入的收藏夹，或者
       <Space right={10} />
-      <Button type="primary" onClick={onSetterCreateCat} size="small" ghost>
+      <Button type="primary" onClick={switchToCreator} size="small" ghost>
         创建新收藏夹
       </Button>
     </Footer>

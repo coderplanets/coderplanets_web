@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { curry, toUpper } from 'ramda'
 
+import type { TID } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, send, errRescue, updateEditing } from '@/utils'
@@ -18,7 +19,7 @@ const sr71$ = new SR71({
 })
 
 let sub$ = null
-let store = null
+let store: TStore | undefined
 
 // export const categoryOnChange = (part, e) => updateEditing(store, part, e)
 export const categoryOnChange = curry(
@@ -26,7 +27,7 @@ export const categoryOnChange = curry(
   // store.updateEditing({ [part]: e.target.value })
 )
 
-export const privateOnChange = (item) => {
+export const privateOnChange = (item): void => {
   const { editCategoryData } = store
 
   const editCategory = {
@@ -37,23 +38,23 @@ export const privateOnChange = (item) => {
   store.mark({ editCategory })
 }
 
-export const onCategoryCreate = () => {
-  if (!store.validator('publish')) return false
+export const onCategoryCreate = (): void => {
+  if (!store.validator('publish')) return
 
   sr71$.mutate(S.createFavoriteCategory, store.editCategoryData)
 }
 
-export const onCategoryUpdate = () => {
-  if (!store.validator('publish')) return false
+export const onCategoryUpdate = (): void => {
+  if (!store.validator('publish')) return
   sr71$.mutate(S.updateFavoriteCategory, store.editCategoryData)
 }
 
-export const onCategoryDelete = () => {
+export const onCategoryDelete = (): void => {
   const { id } = store.editCategoryData
   sr71$.mutate(S.deleteFavoriteCategory, { id })
 }
 
-export const loadCategories = (page = 1) => {
+export const loadCategories = (page = 1): void => {
   const userId = store.viewingUser.id
 
   markLoading(true)
@@ -63,7 +64,7 @@ export const loadCategories = (page = 1) => {
   })
 }
 
-export const switchToUpdater = (editCategory) => {
+export const switchToUpdater = (editCategory): void => {
   store.mark({ editCategory })
   store.changeViewTo('updater')
 }
@@ -71,12 +72,12 @@ export const switchToUpdater = (editCategory) => {
 /* eslint-disable-next-line */
 export const changeViewTo = curry((view, e) => store.changeViewTo(view))
 
-export const onSetterCreateCat = () => {
+export const switchToCreator = (): void => {
   store.mark({ createfromSetter: true })
   store.changeViewTo('creator')
 }
 
-export const onModalClose = () => {
+export const onModalClose = (): void => {
   if (store.createfromSetter) {
     store.mark({ createfromSetter: false })
     return store.changeViewTo('setter')
@@ -86,8 +87,8 @@ export const onModalClose = () => {
   store.cleanEditData()
 }
 
-export const setContent = (categoryId) => {
-  if (store.doing) return false
+export const setContent = (categoryId: TID): void => {
+  if (store.doing) return
 
   const { id } = store.viewingData
   const { thread } = store
@@ -101,8 +102,8 @@ export const setContent = (categoryId) => {
   sr71$.mutate(S.setFavorites, args)
 }
 
-export const unSetContent = (categoryId) => {
-  if (store.doing) return false
+export const unSetContent = (categoryId: TID): void => {
+  if (store.doing) return
 
   const { id } = store.viewingData
   const { thread } = store

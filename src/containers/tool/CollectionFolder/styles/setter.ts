@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import Img from '@/Img'
 import { theme, css } from '@/utils'
 
 import { MODAL_MIN_HEIGHT } from './metric'
