@@ -45,7 +45,7 @@ const Creator: FC<TProps> = ({ data, show }) => (
     <Header>创建新收藏夹</Header>
     <InnerWrapper>
       <SidebarWrapper>
-        <Folder lock />
+        <Folder inactive lock />
         <Br bottom={30} />
         <IconText iconSrc={`${ICON}/route/light.svg`}>Tips</IconText>
         <TipsText>

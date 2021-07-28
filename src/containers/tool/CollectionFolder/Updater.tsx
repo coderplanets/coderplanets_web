@@ -46,7 +46,7 @@ const Updater: FC<TProps> = ({ data, show }) => (
     <Header>编辑收藏夹</Header>
     <InnerWrapper>
       <SidebarWrapper>
-        <Folder lock />
+        <Folder inactive lock />
         <Br bottom={30} />
         <IconText iconSrc={`${ICON}/route/light.svg`}>说明</IconText>
         <TipsText>编辑仅会影响收藏夹封面，已收藏内容不受影响。</TipsText>

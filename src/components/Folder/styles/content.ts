@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ inactive: boolean }>`
   ${css.flex('align-end', 'justify-end')};
   position: relative;
   width: 100%;
@@ -22,8 +22,8 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleDigest')};
 
   &:hover {
-    border-color: #117eaf;
-    cursor: pointer;
+    border-color: ${({ inactive }) => (inactive ? 'transparent' : '#117eaf')};
+    cursor: ${({ inactive }) => (inactive ? 'normal' : 'pointer')};
   }
 `
 export const Info = styled.div``

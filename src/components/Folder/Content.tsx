@@ -9,11 +9,12 @@ type TProps = {
   total?: number
   updatedAt?: string
   lock?: boolean
+  inactive: boolean
 }
 
-const Content: FC<TProps> = ({ total, updatedAt, lock }) => {
+const Content: FC<TProps> = ({ total, updatedAt, lock, inactive }) => {
   return (
-    <Wrapper>
+    <Wrapper inactive={inactive}>
       {lock && <LockIcon src={`${ICON}/shape/lock.svg`} />}
       <Info>
         <Total>

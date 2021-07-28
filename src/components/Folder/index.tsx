@@ -26,10 +26,11 @@ type TProps = {
   updatedAt?: string
   lock?: boolean
   editable?: boolean
+  size?: TSIZE_SM
+  inactive?: boolean
   onEdit?: () => void
   onSelect?: () => void
   onMenuClick?: (key: string) => void
-  size?: TSIZE_SM
 }
 
 const Folder: FC<TProps> = ({
@@ -38,6 +39,7 @@ const Folder: FC<TProps> = ({
   total = 12,
   updatedAt = '',
   lock = false,
+  inactive = false,
   editable = false,
   onEdit = log,
   onSelect = log,
@@ -45,14 +47,19 @@ const Folder: FC<TProps> = ({
 }) => {
   return (
     <Wrapper testid="folder" size={size}>
-      {/* {editable && (
-        <EditIconWrapper onClick={onEdit}>
-          <EditIcon src={`${ICON_CMD}/edit.svg`} />
-        </EditIconWrapper>
-      )} */}
       <TabShape />
-      <Content total={total} lock={lock} updatedAt={updatedAt} />
-      <Footer title={title} onClick={onSelect} onMenuClick={onMenuClick} />
+      <Content
+        total={total}
+        lock={lock}
+        updatedAt={updatedAt}
+        inactive={inactive}
+      />
+      <Footer
+        title={title}
+        onClick={onSelect}
+        onMenuClick={onMenuClick}
+        inactive={inactive}
+      />
     </Wrapper>
   )
 }

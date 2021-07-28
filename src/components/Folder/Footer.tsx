@@ -31,30 +31,38 @@ const menuOptions = [
 
 type TProps = {
   title: string
+  inactive: boolean
   onClick: () => void
   onMenuClick?: (key: string) => void
 }
 
-const Footer: FC<TProps> = ({ title, onClick, onMenuClick }) => {
+const Footer: FC<TProps> = ({ title, onClick, onMenuClick, inactive }) => {
   return (
     <Wrapper onClick={onClick}>
       <Title>
-        <Tooltip
-          delay={600}
-          content={
-            <FolderInfoPopWrapper>
-              <DetailInfo />
-            </FolderInfoPopWrapper>
-          }
-          noPadding
-        >
+        {!inactive ? (
+          <Tooltip
+            delay={600}
+            content={
+              <FolderInfoPopWrapper>
+                <DetailInfo />
+              </FolderInfoPopWrapper>
+            }
+            noPadding
+          >
+            <Name>{title}</Name>
+          </Tooltip>
+        ) : (
           <Name>{title}</Name>
-        </Tooltip>
-        <MenuButton options={menuOptions} onClick={onMenuClick}>
-          <MenuWrapper>
-            <IconButton path="shape/more-l.svg" mRight={0} />
-          </MenuWrapper>
-        </MenuButton>
+        )}
+
+        {!inactive && (
+          <MenuButton options={menuOptions} onClick={onMenuClick}>
+            <MenuWrapper>
+              <IconButton path="shape/more-l.svg" mRight={0} />
+            </MenuWrapper>
+          </MenuButton>
+        )}
       </Title>
       <HintWrapper>
         {/* <LavaLampLoading size="small" /> */}
