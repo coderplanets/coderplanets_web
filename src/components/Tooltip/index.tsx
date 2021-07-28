@@ -37,7 +37,7 @@ type TProps = {
   hideOnClick?: boolean
   noPadding?: boolean
   showArrow?: boolean
-  footerBehavior?: 'default' | 'confirm' | 'delete-confirm' | 'add'
+  behavior?: 'default' | 'confirm' | 'delete-confirm' | 'add'
   // currently only for AvatarsRow, it will collapse the height
   // for same reason, figure out later
   contentHeight?: string
@@ -70,7 +70,7 @@ const Tooltip: FC<TProps> = ({
   hideOnClick = true,
   showArrow = false,
   forceZIndex = false,
-  footerBehavior = 'default',
+  behavior = 'default',
   trigger = 'mouseenter focus',
   onConfirm,
   contentHeight,
@@ -95,16 +95,21 @@ const Tooltip: FC<TProps> = ({
   const contentRef = useRef()
 
   const PopoverContent = (
-    <div ref={contentRef}>
+    <div
+      ref={contentRef}
+      onClick={() => {
+        if (hideOnClick) instance?.hide()
+      }}
+    >
       {content}
-      {active && footerBehavior !== FOOTER_BEHAVIOR.DEFAULT && (
+      {active && behavior !== FOOTER_BEHAVIOR.DEFAULT && (
         <ConfirmFooter
           onConfirm={() => {
             onConfirm?.()
             instance?.hide()
           }}
           onCancel={() => instance?.hide()}
-          footerBehavior={footerBehavior}
+          behavior={behavior}
         />
       )}
     </div>
@@ -114,8 +119,8 @@ const Tooltip: FC<TProps> = ({
 
   useOutsideClick(ref, (e) => {
     if (!instance) return false
-    const isClickInsidePopover = isDescendant(contentRef?.current, e.target)
 
+    const isClickInsidePopover = isDescendant(contentRef?.current, e.target)
     if (hideOnClick || (!hideOnClick && !isClickInsidePopover)) {
       // if (instance) {
       // NOTE:  this is a hack, svg will swallow events like click
