@@ -5,7 +5,7 @@ import type { TCollectionFolder } from '@/spec'
 import { buildLog } from '@/utils'
 
 import Input from '@/components/Input'
-import { Button } from '@/components/Buttons'
+import { ArrowButton, Button } from '@/components/Buttons'
 import { Br, Space, SpaceGrow } from '@/components/Common'
 import Folder from '@/components/Folder'
 import IconText from '@/components/IconText'
@@ -29,7 +29,7 @@ import {
   categoryOnChange,
   privateOnChange,
   onCategoryCreate,
-  onModalClose,
+  switchToSetter,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -38,10 +38,9 @@ const log = buildLog('C:CollectionFolder:Creator')
 type TProps = {
   data: TCollectionFolder
   show: boolean
-  hasLockAuth: boolean
 }
 
-const Creator: FC<TProps> = ({ data, show, hasLockAuth }) => (
+const Creator: FC<TProps> = ({ data, show }) => (
   <Wrapper show={show} className="normal-form">
     <Header>创建新收藏夹</Header>
     <InnerWrapper>
@@ -91,18 +90,12 @@ const Creator: FC<TProps> = ({ data, show, hasLockAuth }) => (
         </FormItemWrapper>
         <SpaceGrow />
         <Footer>
-          <Button
-            type="primary"
-            onClick={onModalClose}
-            size="small"
-            noBorder
-            ghost
-          >
-            取消
-          </Button>
-          <Space right={10} />
+          <ArrowButton size="tiny" direction="left" onClick={switchToSetter}>
+            上一步
+          </ArrowButton>
+          <Space right={18} />
           <Button type="primary" onClick={onCategoryCreate} size="small">
-            保存
+            创建
           </Button>
           <Space right={50} />
         </Footer>

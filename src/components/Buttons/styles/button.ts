@@ -40,7 +40,7 @@ export const Wrapper = styled.button<TButton>`
   border-color: ${({ noBorder, disabled }) =>
     getBorderColor(noBorder, disabled)};
 
-  opacity: ${({ noBorder }) => (noBorder ? '0.7' : 1)};
+  opacity: ${({ noBorder }) => (noBorder ? '0.8' : 1)};
 
   &:hover {
     color: ${({ ghost, disabled }) => getColor(ghost, disabled)};
@@ -96,7 +96,9 @@ export const RedWrapper = styled(Wrapper)`
   color: ${({ ghost }) => (ghost ? theme('baseColor.red') : 'white')};
   background-color: ${({ ghost }) =>
     !ghost ? theme('baseColor.red') : 'transparent'};
-  border-color: ${theme('baseColor.red')};
+
+  border-color: ${({ noBorder }) =>
+    noBorder ? 'transparent' : theme('baseColor.red')};
 
   &:hover {
     background-color: ${({ ghost }) =>

@@ -28,6 +28,7 @@ type TProps = {
   editable?: boolean
   onEdit?: () => void
   onSelect?: () => void
+  onMenuClick?: (key: string) => void
   size?: TSIZE_SM
 }
 
@@ -40,6 +41,7 @@ const Folder: FC<TProps> = ({
   editable = false,
   onEdit = log,
   onSelect = log,
+  onMenuClick = log,
 }) => {
   return (
     <Wrapper testid="folder" size={size}>
@@ -50,7 +52,7 @@ const Folder: FC<TProps> = ({
       )} */}
       <TabShape />
       <Content total={total} lock={lock} updatedAt={updatedAt} />
-      <Footer title={title} onClick={onSelect} />
+      <Footer title={title} onClick={onSelect} onMenuClick={onMenuClick} />
     </Wrapper>
   )
 }

@@ -1,19 +1,24 @@
 import { FC, memo } from 'react'
 
+import { ICON } from '@/config'
 import type { TCollectionFolder } from '@/spec'
-import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
 
-import { Radio } from '@/components/Switcher'
 import Input from '@/components/Input'
-import { Button } from '@/components/Buttons'
-
+import { ArrowButton, Button } from '@/components/Buttons'
+import { Br, Space, SpaceGrow } from '@/components/Common'
+import Folder from '@/components/Folder'
+import IconText from '@/components/IconText'
+import Checker from '@/components/Checker'
 import Tooltip from '@/components/Tooltip'
-import { Space } from '@/components/Common'
-import SectionLabel from '@/components/SectionLabel'
 
 import {
   Wrapper,
+  Header,
+  InnerWrapper,
+  SidebarWrapper,
+  TipsText,
+  NoteText,
   EditWrapper,
   FormItemWrapper,
   FormLabel,
@@ -24,85 +29,89 @@ import {
 import {
   categoryOnChange,
   privateOnChange,
-  onCategoryUpdate,
-  onCategoryDelete,
+  onCategoryCreate,
+  switchToSetter,
 } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:Favorites:Updater')
+const log = buildLog('C:CollectionFolder:Updater')
 
 type TProps = {
   data: TCollectionFolder
   show: boolean
-  hasLockAuth: boolean
 }
-const Updater: FC<TProps> = ({ data, show, hasLockAuth }) => (
-  <Wrapper show={show} className="normal-form">
-    <SectionLabel
-      title={`编辑收藏夹 - ${data.title}`}
-      iconSrc={`${ICON_CMD}/edit.svg`}
-    />
-    <EditWrapper>
-      <FormItemWrapper>
-        <FormLabel>标题</FormLabel>
-        <FormInput>
-          <Input
-            placeholder="收藏夹标题"
-            value={data.title}
-            onChange={categoryOnChange('title')}
-          />
-        </FormInput>
-      </FormItemWrapper>
-      <FormItemWrapper>
-        <FormLabel>描述</FormLabel>
-        <FormInput>
-          <Input
-            value={data.desc}
-            onChange={categoryOnChange('desc')}
-            placeholder="收藏什么的？"
-            behavior="textarea"
-          />
-        </FormInput>
-      </FormItemWrapper>
 
-      {hasLockAuth && (
+const Updater: FC<TProps> = ({ data, show }) => (
+  <Wrapper show={show} className="normal-form">
+    <Header>编辑收藏夹</Header>
+    <InnerWrapper>
+      <SidebarWrapper>
+        <Folder lock />
+        <Br bottom={30} />
+        <IconText iconSrc={`${ICON}/route/light.svg`}>说明</IconText>
+        <TipsText>编辑仅会影响收藏夹封面，已收藏内容不受影响。</TipsText>
+        <SpaceGrow />
+        <Br bottom={42} />
+
+        <Tooltip
+          trigger="click"
+          content="删除后收藏夹内的内容将全部丢失，确定继续？"
+          behavior="delete-confirm"
+        >
+          <Button type="red" size="small" ghost>
+            删除收藏夹
+          </Button>
+        </Tooltip>
+      </SidebarWrapper>
+      <EditWrapper>
         <FormItemWrapper>
-          <FormLabel>隐私</FormLabel>
-          <Radio
-            items={[
-              {
-                value: '公开',
-                key: false,
-              },
-              {
-                value: '不公开',
-                key: true,
-                dimOnActive: true,
-              },
-            ]}
-            activeKey={data.private}
-            onChange={privateOnChange}
-          />
+          <FormLabel>收藏夹标题</FormLabel>
+          <FormInput>
+            <Input
+              placeholder="//必填项"
+              value={data.title}
+              onChange={categoryOnChange('title')}
+            />
+          </FormInput>
         </FormItemWrapper>
-      )}
-    </EditWrapper>
-    <Footer>
-      <Tooltip
-        content="删除收藏夹及包含的内容，是否继续?"
-        trigger="click"
-        hideOnClick={false}
-        // behavior="confirm"
-        // onConfirm={onCategoryDelete}
-      >
-        <Button type="red" ghost>
-          删除
-        </Button>
-      </Tooltip>
-      <Space right={10} />
-      <Button type="primary" onClick={onCategoryUpdate}>
-        保存
-      </Button>
-    </Footer>
+        <FormItemWrapper>
+          <FormLabel>描述信息</FormLabel>
+          <FormInput>
+            <Input
+              value={data.desc}
+              onChange={categoryOnChange('desc')}
+              placeholder="//可选项"
+              behavior="textarea"
+            />
+          </FormInput>
+        </FormItemWrapper>
+        <FormItemWrapper>
+          <Checker
+            checked={false}
+            // onChange={privateOnChange}
+            // onChange={(checked) => updateWorks('isOSS', checked)}
+            size="small"
+          >
+            上锁
+          </Checker>
+          {/* <NoteText>
+            完全公开，允许互联网上的任何人查看该收藏夹里的内容。
+          </NoteText> */}
+          <NoteText>不公开，收藏夹里的内容仅自己可见。</NoteText>
+        </FormItemWrapper>
+        <SpaceGrow />
+        <Footer>
+          <ArrowButton size="tiny" direction="left" onClick={switchToSetter}>
+            上一步
+          </ArrowButton>
+          <Space right={18} />
+          <Button type="primary" onClick={onCategoryCreate} size="small">
+            更新
+          </Button>
+          <Space right={50} />
+        </Footer>
+      </EditWrapper>
+    </InnerWrapper>
   </Wrapper>
 )
 

@@ -49,7 +49,6 @@ const CollectionFolderContainer: FC<TProps> = ({
     editCategoryData,
     pagedCategoriesData,
     isSelfViewing,
-    hasLockAuth,
   } = store
 
   const { entries } = pagedCategoriesData
@@ -79,18 +78,9 @@ const CollectionFolderContainer: FC<TProps> = ({
             show={isSetterView}
             // selectedId={viewingData.favoritedCategoryId}
             selectedId="1"
-            // hasLockAuth={hasLockAuth}
           />
-          <Creator
-            data={editCategoryData}
-            show={isCreatorView}
-            hasLockAuth={hasLockAuth}
-          />
-          <Updater
-            data={editCategoryData}
-            show={isUpdaterView}
-            hasLockAuth={hasLockAuth}
-          />
+          <Creator data={editCategoryData} show={isCreatorView} />
+          <Updater data={editCategoryData} show={isUpdaterView} />
         </Wrapper>
       </Modal>
     </Fragment>

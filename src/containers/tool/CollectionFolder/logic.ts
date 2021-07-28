@@ -64,8 +64,9 @@ export const loadCategories = (page = 1): void => {
   })
 }
 
-export const switchToUpdater = (editCategory): void => {
-  store.mark({ editCategory })
+// export const switchToUpdater = (editCategory): void => {
+export const switchToUpdater = (): void => {
+  // store.mark({ editCategory })
   store.changeViewTo('updater')
 }
 
@@ -73,14 +74,18 @@ export const switchToUpdater = (editCategory): void => {
 export const changeViewTo = curry((view, e) => store.changeViewTo(view))
 
 export const switchToCreator = (): void => {
-  store.mark({ createfromSetter: true })
+  store.mark({ actionFromSetter: true })
   store.changeViewTo('creator')
 }
 
+export const switchToSetter = (): void => {
+  store.changeViewTo('setter')
+}
+
 export const onModalClose = (): void => {
-  if (store.createfromSetter) {
-    store.mark({ createfromSetter: false })
-    return store.changeViewTo('setter')
+  if (store.actionFromSetter) {
+    store.mark({ actionFromSetter: false })
+    return switchToSetter()
   }
 
   store.mark({ showModal: false })
@@ -137,10 +142,10 @@ const DataSolver = [
   {
     match: asyncRes('createFavoriteCategory'),
     action: () => {
-      // createfromSetter
+      // actionFromSetter
       loadCategories()
-      if (store.createfromSetter) {
-        store.mark({ createfromSetter: false })
+      if (store.actionFromSetter) {
+        store.mark({ actionFromSetter: false })
         return store.changeViewTo('setter')
       }
       return onModalClose()
@@ -187,7 +192,7 @@ const DataSolver = [
     action: (e) => {
       const { thread } = e[EVENT.SET_FAVORITE_CONTENT].data
       store.changeViewTo('setter')
-      store.mark({ thread, createfromSetter: true })
+      store.mark({ thread, actionFromSetter: true })
     },
   },
 ]

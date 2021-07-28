@@ -32,9 +32,10 @@ const menuOptions = [
 type TProps = {
   title: string
   onClick: () => void
+  onMenuClick?: (key: string) => void
 }
 
-const Footer: FC<TProps> = ({ title, onClick }) => {
+const Footer: FC<TProps> = ({ title, onClick, onMenuClick }) => {
   return (
     <Wrapper onClick={onClick}>
       <Title>
@@ -49,7 +50,7 @@ const Footer: FC<TProps> = ({ title, onClick }) => {
         >
           <Name>{title}</Name>
         </Tooltip>
-        <MenuButton options={menuOptions}>
+        <MenuButton options={menuOptions} onClick={onMenuClick}>
           <MenuWrapper>
             <IconButton path="shape/more-l.svg" mRight={0} />
           </MenuWrapper>

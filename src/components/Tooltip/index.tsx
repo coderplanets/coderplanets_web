@@ -8,7 +8,7 @@ import { FC, ReactNode, useState, useRef, memo } from 'react'
 import { hideAll } from 'tippy.js'
 
 import type { TTooltipPlacement } from '@/spec'
-import { css, buildLog, isDescendant } from '@/utils'
+import { css, buildLog, isDescendant, isString } from '@/utils'
 import { useOutsideClick } from '@/hooks'
 
 import ConfirmFooter from './ConfirmFooter'
@@ -17,6 +17,7 @@ import { FOOTER_BEHAVIOR } from './constant'
 import {
   StyledTippy,
   NoPaddingStyledTippy,
+  ChildrenWrapper,
   ContentWrapper,
   TopArrow,
   BottomArrow,
@@ -46,7 +47,7 @@ type TProps = {
    * z-index is a magic number for IconSwitcher's mask situation,
    * DO NOT USE unless you know what you are doing
    *  在类似 IconSwitcher 的场景下（有一个基于 positon: absolute 的滑动遮罩）的场景下，需要将外层
-   * 的 ContentWrapper z-index 置为 1, 否则滑动遮罩会在最外面。
+   * 的 ChildrenWrapper z-index 置为 1, 否则滑动遮罩会在最外面。
    *
    * 理论上 zIndex 一直设置为 1，也没问题，但是会导致某些使用了 Tooltip 的地方有严重的粘滞感，比如 “CopyRight” 那里。
    * 暂时没有精力看 Tippy 的具体实现，小心使用。
@@ -79,24 +80,25 @@ const Tooltip: FC<TProps> = ({
   const [active, setActive] = useState(false)
 
   const ContentComp = showArrow ? (
-    <ContentWrapper contentHeight={contentHeight} forceZIndex={forceZIndex}>
+    <ChildrenWrapper contentHeight={contentHeight} forceZIndex={forceZIndex}>
       {active && placement === 'bottom' && <TopArrow />}
       {active && placement === 'top' && <BottomArrow />}
       {active && placement === 'right' && <LeftArrow />}
 
       <div>{children}</div>
-    </ContentWrapper>
+    </ChildrenWrapper>
   ) : (
-    <ContentWrapper contentHeight={contentHeight} forceZIndex={forceZIndex}>
+    <ChildrenWrapper contentHeight={contentHeight} forceZIndex={forceZIndex}>
       <div>{children}</div>
-    </ContentWrapper>
+    </ChildrenWrapper>
   )
 
   const contentRef = useRef()
 
   const PopoverContent = (
-    <div
+    <ContentWrapper
       ref={contentRef}
+      hasMaxWidth={isString(content)}
       onClick={() => {
         if (hideOnClick) instance?.hide()
       }}
@@ -112,7 +114,7 @@ const Tooltip: FC<TProps> = ({
           behavior={behavior}
         />
       )}
-    </div>
+    </ContentWrapper>
   )
 
   const ref = useRef()

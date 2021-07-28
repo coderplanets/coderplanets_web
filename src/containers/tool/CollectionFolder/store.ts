@@ -38,8 +38,8 @@ const CollectionFolder = T.model('CollectionFolder', {
   showUpdater: T.optional(T.boolean, false),
   showCreator: T.optional(T.boolean, false),
   showSetter: T.optional(T.boolean, false),
-  // open creator from setter, so we can go back to setter based on this state
-  createfromSetter: T.optional(T.boolean, false),
+  // 创建或编辑的操作是否由 Setter 哪里发起，涉及文案，以及上一步、取消等逻辑
+  actionFromSetter: T.optional(T.boolean, false),
   thread: T.optional(
     T.enumeration([THREAD.POST, THREAD.JOB, THREAD.REPO]),
     THREAD.POST,
@@ -95,10 +95,6 @@ const CollectionFolder = T.model('CollectionFolder', {
     get isSetterView(): boolean {
       const { showModal, showUpdater, showCreator, showSetter } = self
       return showModal && showSetter && !showCreator && !showUpdater
-    },
-    get hasLockAuth(): boolean {
-      const slf = self as TStore
-      return slf.isMemberOf('seniorMember') || slf.isMemberOf('sponsorMember')
     },
   }))
   .actions((self) => ({
