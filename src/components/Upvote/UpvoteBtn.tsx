@@ -7,7 +7,6 @@
 import { FC, memo, useState, useCallback } from 'react'
 
 import type { TUser, TUpvoteLayout } from '@/spec'
-import { ICON } from '@/config'
 import { buildLog } from '@/utils'
 
 import {
@@ -60,11 +59,7 @@ const UpvoteBtn: FC<TProps> = ({
           ) : (
             <ShipWindow type={type} />
           )}
-          <UpIcon
-            type={type}
-            src={`${ICON}/shape/upvote-ship.svg`}
-            $active={viewerHasUpvoted}
-          />
+          <UpIcon type={type} $active={viewerHasUpvoted} />
         </IconWrapper>
       </ContentWrapper>
     </Wrapper>

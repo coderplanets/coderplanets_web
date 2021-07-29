@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import type { TUpvoteLayout, TActive } from '@/spec'
 import { UPVOTE_LAYOUT } from '@/constant'
 
-import Img from '@/Img'
+import UpvoteIcon from '@/icons/Upvote'
 import { css, theme } from '@/utils'
 
 import {
@@ -196,7 +196,7 @@ export const ArticleShipWindow = styled(ShipWindow)`
 `
 
 type TUpIcon = { type: TUpvoteLayout } & TActive
-export const UpIcon = styled(Img)<TUpIcon>`
+export const UpIcon = styled(UpvoteIcon)<TUpIcon>`
   fill: ${({ $active }) =>
     $active ? '#139B9D;' : theme('thread.articleDigest')};
 

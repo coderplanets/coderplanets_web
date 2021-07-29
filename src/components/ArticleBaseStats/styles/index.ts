@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 
-import Img from '@/Img'
+import ViewSVGIcon from '@/icons/View'
+import CommentSVGIcon from '@/icons/Comment'
+
 import { css, theme } from '@/utils'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -10,17 +12,19 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flex('align-center')};
 `
-const Icon = styled(Img)`
+export const ViewsIcon = styled(ViewSVGIcon)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
   transition: fill 0.25s;
 `
-export const ViewsIcon = styled(Icon)``
-
 export const CommentWrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const CommentIcon = styled(Icon)`
+export const CommentIcon = styled(CommentSVGIcon)`
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(14)};
+  transition: fill 0.25s;
+
   ${CommentWrapper}:hover & {
     cursor: pointer;
     fill: ${theme('thread.articleTitle')};

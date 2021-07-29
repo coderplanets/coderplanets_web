@@ -7,7 +7,10 @@ import { SVG } from '@/constant'
 import Img from '@/Img'
 import { css, theme } from '@/utils'
 
-import UpvoteIcon from '@/Icons/Upvote'
+import UpvoteIcon from '@/icons/Upvote'
+import LockIcon from '@/icons/Lock'
+import ExpandIcon from '@/icons/Expand'
+import FoldIcon from '@/icons/Fold'
 
 import type { TProps as TIconButtonProps } from '../IconButton'
 
@@ -43,6 +46,18 @@ export const getIcon = (type: string): FC<TIcon> => {
   switch (type) {
     case SVG.UPVOTE: {
       return getStyledIcon(UpvoteIcon)
+    }
+
+    case SVG.LOCK: {
+      return getStyledIcon(LockIcon)
+    }
+
+    case SVG.EXPAND: {
+      return getStyledIcon(ExpandIcon)
+    }
+
+    case SVG.FOLD: {
+      return getStyledIcon(FoldIcon)
     }
 
     default: {
