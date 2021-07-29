@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { buildLog } from '@/utils'
+import { EVENT } from '@/constant'
+import { buildLog, send } from '@/utils'
 // import S from './service'
 import type { TStore } from './store'
 
@@ -15,6 +16,12 @@ export const toggleTocMenu = (): void => {
   const isLeftStickerLocked = isTocMenuOpened
 
   store.mark({ isTocMenuOpened, isLeftStickerLocked })
+}
+
+export const collectArticle = (): void => {
+  send(EVENT.SET_FAVORITE_CONTENT, {
+    data: { thread: store.activeThread },
+  })
 }
 
 // ###############################

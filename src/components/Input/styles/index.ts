@@ -62,7 +62,7 @@ export const baseInput = `
 export const InputWrapper = styled.input<IInput>`
   ${baseInput};
   padding: 4px 11px;
-  height: 36px;
+  height: 34px;
   font-size: 14px;
   line-height: 1.5;
   text-align: left;

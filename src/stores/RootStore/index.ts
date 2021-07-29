@@ -81,13 +81,13 @@ import {
   UserBillingStore,
   UserFavoritedStore,
   UserStaredStore,
-  FavoritesCatsStore,
   //
   MeetupsContentStore,
   HaveADrinkContentStore,
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  CollectionFolderStore,
   ShareStore,
   ArticleContentStore,
   ArticleViewerStore,
@@ -194,7 +194,6 @@ const rootStore = T.model({
   userSettings: T.optional(UserSettingsStore, {}),
   userStared: T.optional(UserStaredStore, {}),
   userFavorited: T.optional(UserFavoritedStore, {}),
-  favoritesCats: T.optional(FavoritesCatsStore, {}),
 
   // have a drink
   meetupsContent: T.optional(MeetupsContentStore, {}),
@@ -202,6 +201,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  collectionFolder: T.optional(CollectionFolderStore, {}),
   share: T.optional(ShareStore, {}),
   articleContent: T.optional(ArticleContentStore, {}),
   articleViewer: T.optional(ArticleViewerStore, {}),

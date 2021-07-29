@@ -11,7 +11,6 @@ import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
-import FavoritesCats from '@/containers/tool/FavoritesCats'
 import Comments from '@/containers/unit/Comments'
 import GithubRepoPage from '@/components/GithubRepoPage'
 
@@ -28,7 +27,6 @@ const RepoViewerContainer = ({ repoViewer: store, attachment }) => {
 
   return (
     <React.Fragment>
-      <FavoritesCats />
       <GithubRepoPage
         repo={viewingData}
         viewerHeader={

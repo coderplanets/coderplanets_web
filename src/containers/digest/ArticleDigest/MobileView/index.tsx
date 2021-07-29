@@ -12,8 +12,6 @@ import type { TScrollDirection } from '@/spec'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-import FavoritesCats from '@/containers/tool/FavoritesCats'
-
 import ArticleBaseStats from '@/components/ArticleBaseStats'
 import PublishDate from '../DesktopView/PostLayout/PublishDate'
 
@@ -44,7 +42,6 @@ const ArticleDigestContainer: FC<TProps> = ({ articleDigest: store }) => {
 
   return (
     <Wrapper>
-      <FavoritesCats />
       <InnerWrapper>
         <BannerContent>
           <Brief>

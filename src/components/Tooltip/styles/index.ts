@@ -27,10 +27,13 @@ export const NoPaddingStyledTippy = styled(StyledTippy)`
   }
 `
 type TContentWrapper = { contentHeight: string; forceZIndex: boolean }
-export const ContentWrapper = styled.div<TContentWrapper>`
+export const ChildrenWrapper = styled.div<TContentWrapper>`
   position: relative;
   height: ${({ contentHeight }) => contentHeight};
   z-index: ${({ forceZIndex }) => (forceZIndex ? 1 : 0)};
+`
+export const ContentWrapper = styled.div<{ hasMaxWidth: boolean }>`
+  max-width: ${({ hasMaxWidth }) => (hasMaxWidth ? '180px' : 'auto')};
 `
 const Arrow = styled.div`
   position: absolute;

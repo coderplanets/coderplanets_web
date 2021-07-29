@@ -35,8 +35,8 @@ export const Icon = styled(Img)<TItem>`
   cursor: pointer;
 `
 export const ChildWrapper = styled.div<TItem>`
-  color: ${theme('thread.articleDigest')};
-  opacity: ${({ checked }) => (checked ? 1 : 0.9)};
+  color: ${({ checked }) =>
+    checked ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: ${({ size }) => getFontSize(size)};
   margin-left: 6px;
   cursor: pointer;

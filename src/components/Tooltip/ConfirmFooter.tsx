@@ -5,27 +5,32 @@ import { Space } from '@/components/Common'
 
 import { FOOTER_BEHAVIOR } from './constant'
 
-import { Wrapper, ButtonsWrapper, CancelButton } from './styles/confirm_footer'
+import {
+  Wrapper,
+  ButtonsWrapper,
+  RedButton,
+  CancelButton,
+} from './styles/confirm_footer'
 
 type TProps = {
-  footerBehavior?: 'default' | 'confirm' | 'delete-confirm' | 'add'
+  behavior?: 'default' | 'confirm' | 'delete-confirm' | 'add'
 
   onConfirm?: () => void
   onCancel?: () => void
 }
 
-const ConfirmFooter: FC<TProps> = ({ onConfirm, onCancel, footerBehavior }) => {
+const ConfirmFooter: FC<TProps> = ({ onConfirm, onCancel, behavior }) => {
   let content = null
 
-  switch (footerBehavior) {
+  switch (behavior) {
     case FOOTER_BEHAVIOR.DELETE_CONFIRM: {
       content = (
         <ButtonsWrapper>
-          <Button size="small" type="red" onClick={() => onConfirm?.()}>
-            确认删除
-          </Button>
-          <Space right={10} />
           <CancelButton onClick={onCancel}>取消</CancelButton>
+          <Space right={10} />
+          <Button size="tiny" type="red" onClick={() => onConfirm?.()}>
+            确定
+          </Button>
         </ButtonsWrapper>
       )
       break

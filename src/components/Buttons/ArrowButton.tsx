@@ -4,7 +4,7 @@
  *
  */
 
-import { FC, ReactNode, useRef, useState, useEffect, memo } from 'react'
+import { FC, ReactNode, memo } from 'react'
 
 import type { TSIZE } from '@/spec'
 import { ICON } from '@/config'
@@ -40,32 +40,12 @@ const ArrowButton: FC<TProps> = ({
       ? `${ICON}/shape/arrow.svg`
       : `${ICON}/shape/arrow-simple.svg`
 
-  const leftTextRef = useRef(null)
-  const rightTextRef = useRef(null)
-
-  const [leftChildWidth, setLeftTextWidth] = useState(50)
-  const [rightChildWidth, setRightTextWidth] = useState(50)
-
-  useEffect(() => {
-    if (leftTextRef) {
-      setLeftTextWidth(leftTextRef.current?.clientWidth)
-    }
-  }, [leftTextRef])
-
-  useEffect(() => {
-    if (rightTextRef) {
-      setRightTextWidth(rightTextRef.current?.clientWidth)
-    }
-  }, [rightTextRef])
-
-  const textWidth = direction === 'left' ? leftChildWidth : rightChildWidth
-
   return (
     <Wrapper
       onClick={() => !disabled && onClick()}
       dimWhenIdle={dimWhenIdle}
+      direction={direction}
       size={size}
-      width={textWidth}
       disabled={disabled}
     >
       {direction === 'left' ? (
@@ -76,15 +56,11 @@ const ArrowButton: FC<TProps> = ({
             src={iconSrc}
             disabled={disabled}
           />
-          <Text ref={leftTextRef} size={size}>
-            {children}
-          </Text>
+          <Text size={size}>{children}</Text>
         </>
       ) : (
         <>
-          <Text ref={rightTextRef} size={size}>
-            {children}
-          </Text>
+          <Text size={size}>{children}</Text>
           <RightIcon
             arrowStyle={arrowStyle}
             size={size}

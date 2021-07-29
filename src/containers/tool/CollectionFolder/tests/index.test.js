@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import FavoritesCats from '../index'
+// import CollectionFolder from '../index'
 
-describe('TODO <FavoritesCats />', () => {
+describe('TODO <CollectionFolder />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

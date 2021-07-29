@@ -6,7 +6,7 @@ export const getWidth = (type: string): string => {
       return '240px'
 
     default:
-      return '190px'
+      return '75px'
   }
 }
 
@@ -16,6 +16,6 @@ export const getHeight = (type: string): string => {
       return '180px'
 
     default:
-      return '140px'
+      return '100px'
   }
 }

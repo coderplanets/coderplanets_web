@@ -63,7 +63,7 @@ export const getHeight = (size: string): string => {
 export const getPadding = (size: string): string => {
   switch (size) {
     case SIZE.TINY: {
-      return '1px 5px'
+      return '0 4px'
     }
 
     case SIZE.SMALL: {

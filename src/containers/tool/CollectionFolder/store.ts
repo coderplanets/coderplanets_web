@@ -1,11 +1,12 @@
 /*
- * FavoritesCats store
+ * CollectionFolder store
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge } from 'ramda'
 
+import type { TUser, TRootStore, TViewing } from '@/spec'
 import { THREAD } from '@/constant'
 import { markStates, buildLog, stripMobx, changeset } from '@/utils'
 
@@ -16,7 +17,7 @@ import {
 } from '@/model'
 
 /* eslint-disable-next-line */
-const log = buildLog('S:FavoritesCats')
+const log = buildLog('S:CollectionFolder')
 
 const emptyCat = {
   id: '',
@@ -25,7 +26,7 @@ const emptyCat = {
   private: false,
 }
 
-const FavoritesCats = T.model('FavoritesCats', {
+const CollectionFolder = T.model('CollectionFolder', {
   displayMode: T.optional(
     T.enumeration('displayMode', ['list', 'hide']),
     'hide',
@@ -37,40 +38,43 @@ const FavoritesCats = T.model('FavoritesCats', {
   showUpdater: T.optional(T.boolean, false),
   showCreator: T.optional(T.boolean, false),
   showSetter: T.optional(T.boolean, false),
-  // open creator from setter, so we can go back to setter based on this state
-  createfromSetter: T.optional(T.boolean, false),
-  thread: T.maybeNull(
-    T.enumeration([THREAD.POST, THREAD.JOB, THREAD.REPO], THREAD.POST),
+  // 创建或编辑的操作是否由 Setter 哪里发起，涉及文案，以及上一步、取消等逻辑
+  actionFromSetter: T.optional(T.boolean, false),
+  thread: T.optional(
+    T.enumeration([THREAD.POST, THREAD.JOB, THREAD.REPO]),
+    THREAD.POST,
   ),
   loading: T.optional(T.boolean, false),
   doing: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+
+      return root.account.isLogin
     },
-    get isLogin() {
-      return self.root.account.isLogin
+    get viewingUser(): TUser {
+      const root = getParent(self) as TRootStore
+      return stripMobx(root.viewing.user)
     },
-    get viewingUser() {
-      return stripMobx(self.root.viewing.user)
-    },
-    get isSelfViewing() {
-      return self.root.viewing.isSelfViewing
+    get isSelfViewing(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.viewing.isSelfViewing
     },
     // NOTE: can't not use root's viewingData because the
     // activeThread is not right on user's page
     // and it's passible set/unset favrites on user's page
-    get viewingData() {
+    get viewingData(): TViewing {
+      const root = getParent(self) as TRootStore
       switch (self.thread) {
         case THREAD.JOB:
-          return stripMobx(self.root.viewing.job)
+          return stripMobx(root.viewing.job)
 
         case THREAD.REPO:
-          return stripMobx(self.root.viewing.repo)
+          return stripMobx(root.viewing.repo)
 
         default:
-          return stripMobx(self.root.viewing.post)
+          return stripMobx(root.viewing.post)
       }
     },
 
@@ -80,42 +84,45 @@ const FavoritesCats = T.model('FavoritesCats', {
     get pagedCategoriesData() {
       return stripMobx(self.pagedCategories)
     },
-    get isCreatorView() {
+    get isCreatorView(): boolean {
       const { showModal, showUpdater, showCreator, showSetter } = self
       return showModal && showCreator && !showUpdater && !showSetter
     },
-    get isUpdaterView() {
+    get isUpdaterView(): boolean {
       const { showModal, showUpdater, showCreator, showSetter } = self
       return showModal && showUpdater && !showCreator && !showSetter
     },
-    get isSetterView() {
+    get isSetterView(): boolean {
       const { showModal, showUpdater, showCreator, showSetter } = self
       return showModal && showSetter && !showCreator && !showUpdater
     },
-    get hasLockAuth() {
-      return self.isMemberOf('seniorMember') || self.isMemberOf('sponsorMember')
-    },
   }))
   .actions((self) => ({
-    authWarning(options) {
-      self.root.authWarning(options)
+    authWarning(options): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
     },
-    isMemberOf(type) {
-      return self.root.isMemberOf(type)
+    isMemberOf(type): boolean {
+      const root = getParent(self) as TRootStore
+      return root.isMemberOf(type)
     },
-    changesetErr(options) {
-      self.root.changesetErr(merge({ position: 'topCenter' }, options))
+    changesetErr(options): void {
+      const root = getParent(self) as TRootStore
+      root.changesetErr(merge({ position: 'topCenter' }, options))
     },
-    updateEditing(sobj) {
-      const editCategory = merge(self.editCategoryData, { ...sobj })
-      self.mark({ editCategory })
+    updateEditing(sobj): void {
+      const slf = self as TStore
+      const editCategory = merge(slf.editCategoryData, { ...sobj })
+      slf.mark({ editCategory })
     },
-    validator(type) {
+    validator(type): boolean {
+      const slf = self as TStore
       switch (type) {
         case 'publish': {
           const opt = { msg: '不能为空 (请填写 #必填# 字段)' }
-          const result = changeset(self.editCategoryData)
-            .exist({ title: '收藏夹名称' }, self.changesetErr, opt)
+          const result = changeset(slf.editCategoryData)
+            /* @ts-ignore */
+            .exist({ title: '收藏夹名称' }, slf.changesetErr, opt)
             .done()
 
           return result.passed
@@ -138,12 +145,13 @@ const FavoritesCats = T.model('FavoritesCats', {
       }
     },
     */
-    changeViewTo(view = 'creator') {
-      if (!self.isLogin) return self.authWarning()
+    changeViewTo(view = 'creator'): void {
+      // if (!self.isLogin) return self.authWarning()
+      const slf = self as TStore
 
       switch (view) {
         case 'setter':
-          return self.mark({
+          return slf.mark({
             showModal: true,
             showSetter: true,
             showUpdater: false,
@@ -151,7 +159,7 @@ const FavoritesCats = T.model('FavoritesCats', {
           })
 
         case 'updater':
-          return self.mark({
+          return slf.mark({
             showModal: true,
             showUpdater: true,
             showCreator: false,
@@ -159,7 +167,7 @@ const FavoritesCats = T.model('FavoritesCats', {
           })
 
         default:
-          return self.mark({
+          return slf.mark({
             showModal: true,
             showCreator: true,
             showUpdater: false,
@@ -167,12 +175,15 @@ const FavoritesCats = T.model('FavoritesCats', {
           })
       }
     },
-    cleanEditData() {
-      self.editCategory = emptyCat
+    cleanEditData(): void {
+      const slf = self as TStore
+      /* @ts-ignore */
+      slf.editCategory = emptyCat
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
-export default FavoritesCats
+export type TStore = Instance<typeof CollectionFolder>
+export default CollectionFolder

@@ -22,10 +22,10 @@ export type TOption = {
 type TProps = {
   children: ReactNode
   options: TOption[]
-  extraOptions: TOption[]
+  extraOptions?: TOption[]
   placement?: TTooltipPlacement
   panelMinWidth?: string
-  onClick: (key?: string) => void
+  onClick?: (key?: string) => void
 }
 
 const MenuButton: FC<TProps> = ({

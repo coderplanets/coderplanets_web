@@ -8,7 +8,6 @@ import React from 'react'
 
 import { pluggedIn, buildLog } from '@/utils'
 
-import FavoritesCats from '@/containers/tool/FavoritesCats'
 import PagedArticles from '@/components/PagedArticles'
 import Breadcrumbs from './Breadcrumbs'
 
@@ -41,7 +40,7 @@ const UserFavoritedContainer = ({ userFavorited: store }) => {
   return (
     <div>
       {parentView === 'CATEGORY_LIST' ? (
-        <FavoritesCats onSelect={onCatSelect} displayMode="list" />
+        <div>TODO</div>
       ) : (
         <>
           <Breadcrumbs

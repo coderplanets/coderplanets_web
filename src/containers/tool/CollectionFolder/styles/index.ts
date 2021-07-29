@@ -2,7 +2,12 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 import { theme, animate, css } from '@/utils'
+import { MODAL_MIN_HEIGHT } from './metric'
 
+export const Wrapper = styled.div`
+  width: 100%;
+  min-height: ${MODAL_MIN_HEIGHT};
+`
 export const AdderWrapper = styled.div`
   ${css.flex('justify-end')};
   width: 80px;

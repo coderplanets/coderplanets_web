@@ -1,22 +1,25 @@
 import { useEffect } from 'react'
 import { curry, toUpper } from 'ramda'
 
+import type { TID } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, send, errRescue, updateEditing } from '@/utils'
 
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:FavoritesCats')
+const log = buildLog('L:CollectionFolder')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  /* @ts-ignore */
   receive: [EVENT.SET_FAVORITE_CONTENT],
 })
 
 let sub$ = null
-let store = null
+let store: TStore | undefined
 
 // export const categoryOnChange = (part, e) => updateEditing(store, part, e)
 export const categoryOnChange = curry(
@@ -24,7 +27,7 @@ export const categoryOnChange = curry(
   // store.updateEditing({ [part]: e.target.value })
 )
 
-export const privateOnChange = (item) => {
+export const privateOnChange = (item): void => {
   const { editCategoryData } = store
 
   const editCategory = {
@@ -35,23 +38,23 @@ export const privateOnChange = (item) => {
   store.mark({ editCategory })
 }
 
-export const onCategoryCreate = () => {
-  if (!store.validator('publish')) return false
+export const onCategoryCreate = (): void => {
+  if (!store.validator('publish')) return
 
   sr71$.mutate(S.createFavoriteCategory, store.editCategoryData)
 }
 
-export const onCategoryUpdate = () => {
-  if (!store.validator('publish')) return false
+export const onCategoryUpdate = (): void => {
+  if (!store.validator('publish')) return
   sr71$.mutate(S.updateFavoriteCategory, store.editCategoryData)
 }
 
-export const onCategoryDelete = () => {
+export const onCategoryDelete = (): void => {
   const { id } = store.editCategoryData
   sr71$.mutate(S.deleteFavoriteCategory, { id })
 }
 
-export const loadCategories = (page = 1) => {
+export const loadCategories = (page = 1): void => {
   const userId = store.viewingUser.id
 
   markLoading(true)
@@ -61,31 +64,36 @@ export const loadCategories = (page = 1) => {
   })
 }
 
-export const switchToUpdater = (editCategory) => {
-  store.mark({ editCategory })
+// export const switchToUpdater = (editCategory): void => {
+export const switchToUpdater = (): void => {
+  // store.mark({ editCategory })
   store.changeViewTo('updater')
 }
 
 /* eslint-disable-next-line */
 export const changeViewTo = curry((view, e) => store.changeViewTo(view))
 
-export const onSetterCreateCat = () => {
-  store.mark({ createfromSetter: true })
+export const switchToCreator = (): void => {
+  store.mark({ actionFromSetter: true })
   store.changeViewTo('creator')
 }
 
-export const onModalClose = () => {
-  if (store.createfromSetter) {
-    store.mark({ createfromSetter: false })
-    return store.changeViewTo('setter')
+export const switchToSetter = (): void => {
+  store.changeViewTo('setter')
+}
+
+export const onModalClose = (): void => {
+  if (store.actionFromSetter) {
+    store.mark({ actionFromSetter: false })
+    return switchToSetter()
   }
 
   store.mark({ showModal: false })
   store.cleanEditData()
 }
 
-export const setContent = (categoryId) => {
-  if (store.doing) return false
+export const setContent = (categoryId: TID): void => {
+  if (store.doing) return
 
   const { id } = store.viewingData
   const { thread } = store
@@ -99,8 +107,8 @@ export const setContent = (categoryId) => {
   sr71$.mutate(S.setFavorites, args)
 }
 
-export const unSetContent = (categoryId) => {
-  if (store.doing) return false
+export const unSetContent = (categoryId: TID): void => {
+  if (store.doing) return
 
   const { id } = store.viewingData
   const { thread } = store
@@ -134,10 +142,10 @@ const DataSolver = [
   {
     match: asyncRes('createFavoriteCategory'),
     action: () => {
-      // createfromSetter
+      // actionFromSetter
       loadCategories()
-      if (store.createfromSetter) {
-        store.mark({ createfromSetter: false })
+      if (store.actionFromSetter) {
+        store.mark({ actionFromSetter: false })
         return store.changeViewTo('setter')
       }
       return onModalClose()
@@ -184,7 +192,7 @@ const DataSolver = [
     action: (e) => {
       const { thread } = e[EVENT.SET_FAVORITE_CONTENT].data
       store.changeViewTo('setter')
-      store.mark({ thread, createfromSetter: true })
+      store.mark({ thread, actionFromSetter: true })
     },
   },
 ]
@@ -201,37 +209,36 @@ const ErrSolver = [
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       markLoading(false)
-      errRescue({ type: ERR.TIMEOUT, details, path: 'FavoritesCats' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'CollectionFolder' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
       markLoading(false)
-      errRescue({ type: ERR.NETWORK, path: 'FavoritesCats' })
+      errRescue({ type: ERR.NETWORK, path: 'CollectionFolder' })
     },
   },
 ]
 
-const initStates = (displayMode) => {
-  store.mark({ displayMode })
+const load = (): void => {
   return loadCategories()
 }
 
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store, displayMode) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    initStates(displayMode)
+    load()
 
     return () => {
       // log('effect uninit')
       sr71$.stop()
       sub$.unsubscribe()
     }
-  }, [_store, displayMode])
+  }, [_store])
 }

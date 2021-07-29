@@ -17,7 +17,7 @@ const Footer: FC<TProps> = ({ view }) => {
       {/* <Note>举报后社区志愿者会在第一时间【处理】。</Note> */}
       <YesOrNoButtons
         cancelText="上一步"
-        confirmText="举报"
+        confirmText="提交"
         onCancel={goBack}
       />
     </Wrapper>

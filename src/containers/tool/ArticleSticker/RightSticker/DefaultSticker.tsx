@@ -7,6 +7,7 @@ import { IconButton } from '@/components/Buttons'
 import Upvote from '@/components/Upvote'
 
 import { Wrapper } from '../styles/right_sticker/default_sticker'
+import { collectArticle } from '../logic'
 
 type TProps = {
   show: boolean
@@ -19,6 +20,7 @@ const ArticleSticker: FC<TProps> = ({ show, article }) => {
       <Upvote count={article.starredCount} type="article" />
       <IconButton
         path="article/collect-bookmark.svg"
+        onClick={collectArticle}
         size={23}
         mLeft={2}
         mTop={18}
@@ -26,7 +28,7 @@ const ArticleSticker: FC<TProps> = ({ show, article }) => {
       />
       <IconButton
         path="article/share-solid.svg"
-        onClick={() => shareTo()}
+        onClick={shareTo}
         size={20}
         mLeft={4}
         mTop={12}
