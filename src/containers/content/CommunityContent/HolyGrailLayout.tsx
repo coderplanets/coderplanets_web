@@ -5,17 +5,17 @@
  */
 
 import { FC, memo } from 'react'
+import dynamic from 'next/dynamic'
 
 import { TCommunity, TThread } from '@/spec'
 
 import { C11N, EVENT } from '@/constant'
 import { buildLog, send } from '@/utils'
 
-import ThreadSidebar from '@/containers/thread/ThreadSidebar'
-
 import TabBar from '@/components/TabBar'
-import ThreadContent from './ThreadContent'
+import { LavaLampLoading } from '@/components/Loading'
 
+import ThreadContent from './ThreadContent'
 import SubscribedList from './SubscribedList'
 
 import {
@@ -27,6 +27,15 @@ import {
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityContent')
+
+const ThreadSidebar = dynamic(
+  () => import('@/containers/thread/ThreadSidebar'),
+  {
+    /* eslint-disable react/display-name */
+    loading: () => <LavaLampLoading size="small" />,
+    ssr: false,
+  },
+)
 
 type TProps = {
   thread: TThread

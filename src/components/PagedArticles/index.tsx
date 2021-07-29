@@ -12,7 +12,7 @@ import { buildLog, send } from '@/utils'
 
 import Pagi from '@/components/Pagi'
 import ArticleList from './ArticleList'
-import CommunityRecommends from './CommunityRecommends'
+// import CommunityRecommends from './CommunityRecommends'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PagedArticles:index')
@@ -50,7 +50,8 @@ const PagedArticles: FC<TProps> = ({
         onChange={(page) => send(EVENT.REFRESH_ARTICLES, { page })}
         margin={{ bottom: '60px', top: '60px' }}
       >
-        <CommunityRecommends />
+        <div>todo</div>
+        {/* <CommunityRecommends /> */}
       </Pagi>
     </Fragment>
   )

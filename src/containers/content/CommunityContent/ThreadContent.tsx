@@ -4,7 +4,7 @@ import type { TThread } from '@/spec'
 import { THREAD } from '@/constant'
 
 import ArticlesThread from '@/containers//thread/ArticlesThread'
-import ReposThread from '@/containers/thread/ReposThread'
+// import ReposThread from '@/containers/thread/ReposThread'
 import UsersThread from '@/containers/thread/UsersThread'
 
 type TProps = {
@@ -13,8 +13,8 @@ type TProps = {
 
 const ThreadContent: FC<TProps> = ({ thread }) => {
   switch (thread) {
-    case THREAD.REPO:
-      return <ReposThread />
+    // case THREAD.REPO:
+    // return <ReposThread />
 
     case THREAD.USER:
       return <UsersThread />

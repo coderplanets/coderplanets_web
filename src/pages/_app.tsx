@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { DefaultSeo } from 'next-seo'
 import * as Sentry from '@sentry/node'
 
 /**
@@ -8,7 +7,6 @@ import * as Sentry from '@sentry/node'
  * that will apply to every page. Full info on how the default works
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
-import { SEO } from '@/config'
 // import { appWithTranslation } from '@/i18n'
 
 import CrashErrorHint from '@/components/CrashErrorHint'
@@ -33,7 +31,6 @@ const App = ({ Component, pageProps, err }) => {
       ) : (
         /* render normal next.js app */
         <>
-          <DefaultSeo {...SEO} />
           <Component {...pageProps} />
         </>
       )}

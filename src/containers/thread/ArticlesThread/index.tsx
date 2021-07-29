@@ -8,19 +8,29 @@
 
 import { FC } from 'react'
 import { Waypoint } from 'react-waypoint'
+import dynamic from 'next/dynamic'
 
 import type { TResState } from '@/spec'
 import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import PagedArticles from '@/components/PagedArticles'
 import ArticlesFilter from '@/components/ArticlesFilter'
+import { LavaLampLoading } from '@/components/Loading'
 
 import type { TStore } from './store'
 
 import { Wrapper, MainWrapper, FilterWrapper } from './styles'
 import { useInit, inAnchor, outAnchor, onFilterSelect } from './logic'
+
+const ThreadSidebar = dynamic(
+  () => import('@/containers/thread/ThreadSidebar'),
+  {
+    /* eslint-disable react/display-name */
+    loading: () => <LavaLampLoading size="small" />,
+    ssr: false,
+  },
+)
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticlesThread')
