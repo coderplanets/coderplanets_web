@@ -32,6 +32,7 @@ module.exports = {
           '@/schemas': 'src/schemas',
           '@/Img': 'src/components/Img',
           '@/SvgIcons': 'src/components/SvgIcons',
+          '@/Icons': 'src/components/Icons',
           '@/i18n': 'i18n',
           '@/spec': 'src/spec',
         },

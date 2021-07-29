@@ -24,6 +24,7 @@ export { default as URL_QUERY } from './url_query'
 
 export { PAYMENT_USAGE, PAYMENT_METHOD } from './payment'
 export { REPORT, REPORT_TYPE } from './report'
+export { default as SVG } from './svg'
 
 /* some svg icon are sensitive to fill color */
 /* some community svg need fill color, like city etc.. */

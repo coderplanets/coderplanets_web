@@ -1,12 +1,14 @@
 import { FC, memo, ReactNode } from 'react'
 
 import { ICON } from '@/config'
+import { SVG } from '@/constant'
 
 import Tooltip from '@/components/Tooltip'
-import { Wrapper, Icon, Hint } from './styles/icon_button'
+import { Wrapper, Icon, Hint, getIcon } from './styles/icon_button'
 
 export type TProps = {
-  path: string
+  path?: string | null
+  icon?: string | null
   size?: number
   mRight?: number
   mLeft?: number
@@ -21,7 +23,8 @@ export type TProps = {
 }
 
 const IconButton: FC<TProps> = ({
-  path,
+  path = null,
+  icon = null,
   size = 16,
   mLeft = 0,
   mRight = 10,
@@ -34,6 +37,26 @@ const IconButton: FC<TProps> = ({
   hintPlacement = 'top',
   onClick = console.log,
 }) => {
+  let realIcon = null
+
+  if (path) {
+    // icon from OSS
+    realIcon = (
+      <Icon
+        src={`${ICON}/${path}`}
+        size={size}
+        $active={active}
+        dimWhenIdle={dimWhenIdle}
+      />
+    )
+  } else {
+    const LocalIcon = getIcon(icon || SVG.UPVOTE)
+
+    realIcon = (
+      <LocalIcon size={size} $active={active} dimWhenIdle={dimWhenIdle} />
+    )
+  }
+
   return (
     <Wrapper
       size={size}
@@ -50,20 +73,10 @@ const IconButton: FC<TProps> = ({
           noPadding
           delay={hintDelay}
         >
-          <Icon
-            src={`${ICON}/${path}`}
-            size={size}
-            $active={active}
-            dimWhenIdle={dimWhenIdle}
-          />
+          {realIcon}
         </Tooltip>
       ) : (
-        <Icon
-          src={`${ICON}/${path}`}
-          size={size}
-          $active={active}
-          dimWhenIdle={dimWhenIdle}
-        />
+        <>{realIcon}</>
       )}
     </Wrapper>
   )
