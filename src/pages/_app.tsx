@@ -9,7 +9,7 @@ import * as Sentry from '@sentry/node'
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
 import { SEO } from '@/config'
-import { appWithTranslation } from '@/i18n'
+// import { appWithTranslation } from '@/i18n'
 
 import CrashErrorHint from '@/components/CrashErrorHint'
 
@@ -41,4 +41,5 @@ const App = ({ Component, pageProps, err }) => {
   )
 }
 
-export default appWithTranslation(App)
+// export default appWithTranslation(App)
+export default App

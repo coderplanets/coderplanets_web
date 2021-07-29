@@ -16,7 +16,7 @@ import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
 import Sidebar from '@/containers/unit/Sidebar'
 import ModeLine from '@/containers/unit/ModeLine'
-import Drawer from '@/containers/tool/Drawer'
+// import Drawer from '@/containers/tool/Drawer'
 
 import CustomScroller from '@/components/CustomScroller'
 
@@ -25,6 +25,7 @@ import SEO from './SEO'
 
 import {
   AbuseReport,
+  Drawer,
   Doraemon,
   ErrorBox,
   Footer,

@@ -2,6 +2,12 @@ import dynamic from 'next/dynamic'
 
 import { TProps as TErrorPage } from '@/components/ErrorPage'
 
+export const Drawer = dynamic(() => import('@/containers/tool/Drawer'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div />,
+  ssr: false,
+})
+
 export const Doraemon = dynamic(() => import('@/containers/tool/Doraemon'), {
   /* eslint-disable react/display-name */
   loading: () => <div />,

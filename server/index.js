@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  *
  * this server is only used for next.js SSR
@@ -13,8 +14,8 @@ const mobxReact = require('mobx-react')
 // inspect graphql model
 const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
 // i18n setup
-const nextI18NextMiddleware = require('next-i18next/middleware').default
-const nextI18next = require('../i18n')
+// const nextI18NextMiddleware = require('next-i18next/middleware').default
+// const nextI18next = require('../i18n')
 
 const app = require('./app')
 const { redirectToNakedUrl } = require('./helper')
@@ -44,8 +45,8 @@ mobxReact.enableStaticRendering(true)
     voyagerMiddleware({ endpointUrl: CONFIG.GRAPHQL_ENDPOINT }),
   )
 
-  await nextI18next.initPromise
-  server.use(nextI18NextMiddleware(nextI18next))
+  // await nextI18next.initPromise
+  // server.use(nextI18NextMiddleware(nextI18next))
 
   // eslint-disable-next-line global-require
   server.use('/', require('./routes'))
