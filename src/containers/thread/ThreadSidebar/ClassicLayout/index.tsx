@@ -7,28 +7,32 @@
  */
 
 import { FC, memo } from 'react'
+import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils'
 
-import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
-import TagsBar from '@/containers/unit/TagsBar'
-
 import Sticky from '@/components/Sticky'
+import { LavaLampLoading } from '@/components/Loading'
 import { PublishButton } from '@/components/Buttons'
-import PromotionList from '@/components/PromotionList'
 
-import type { TBaseProps } from './index'
+import type { TBaseProps } from '../index'
 
-import { onCreate } from './logic'
-import {
-  Wrapper,
-  BadgeWrapper,
-  TagsBarWrapper,
-  PublishWrapper,
-} from './styles/classic_layout'
+import { Wrapper, PublishWrapper } from '../styles/classic_layout'
+import { onCreate } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ClassicSidebar')
+
+export const DynamicPart = dynamic(() => import('./DynamicPart'), {
+  /* eslint-disable react/display-name */
+  loading: () => (
+    <>
+      <br />
+      <LavaLampLoading size="small" />
+    </>
+  ),
+  ssr: false,
+})
 
 type TProps = { showCommunityBadge: boolean } & TBaseProps
 
@@ -43,14 +47,11 @@ const ClassicLayout: FC<TProps> = ({
         <PublishWrapper show={showCommunityBadge}>
           <PublishButton onCreate={onCreate} />
         </PublishWrapper>
-
-        <BadgeWrapper show={!showCommunityBadge}>
-          <CommunityJoinBadge />
-        </BadgeWrapper>
-        <TagsBarWrapper>
-          <TagsBar onSelect={onTagSelect} />
-        </TagsBarWrapper>
-        <PromotionList onClose={onAdsClose} />
+        <DynamicPart
+          onTagSelect={onTagSelect}
+          onAdsClose={onAdsClose}
+          showCommunityBadge={showCommunityBadge}
+        />
       </Sticky>
     </Wrapper>
   )

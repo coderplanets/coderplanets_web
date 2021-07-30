@@ -16,22 +16,13 @@ import { pluggedIn, buildLog } from '@/utils'
 
 import PagedArticles from '@/components/PagedArticles'
 // import ArticlesFilter from '@/components/ArticlesFilter'
-// import ThreadSidebar from '@/containers/thread/ThreadSidebar'
+import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import { LavaLampLoading } from '@/components/Loading'
 
 import type { TStore } from './store'
 
 import { Wrapper, MainWrapper, FilterWrapper } from './styles'
 import { useInit, inAnchor, outAnchor, onFilterSelect } from './logic'
-
-const ThreadSidebar = dynamic(
-  () => import('@/containers/thread/ThreadSidebar'),
-  {
-    /* eslint-disable react/display-name */
-    loading: () => <LavaLampLoading size="small" />,
-    ssr: false,
-  },
-)
 
 const ArticlesFilter = dynamic(() => import('@/components/ArticlesFilter'), {
   ssr: false,

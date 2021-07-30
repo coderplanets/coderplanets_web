@@ -12,14 +12,14 @@ type TProps = {
 const PostsList: FC<TProps> = ({ entries, activeId, c11n }) => {
   return (
     <Fragment>
-      {/* {entries.map((entry) => (
+      {entries.map((entry) => (
         <PostItem
           key={entry.id}
           entry={entry}
           activeId={activeId}
           c11n={c11n}
         />
-      ))} */}
+      ))}
     </Fragment>
   )
 }

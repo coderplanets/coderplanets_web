@@ -4,27 +4,24 @@
  * use custom animation Globally at GlobalStyle.ts
  */
 
-import { FC, ReactNode, memo } from 'react'
+import { FC, Fragment, ReactNode, memo, createContext, useContext } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TTooltipPlacement } from '@/spec'
 import { buildLog } from '@/utils'
 
-import {
-  StyledTippy,
-  NoPaddingStyledTippy,
-  ChildrenWrapper,
-  ContentWrapper,
-  TopArrow,
-  BottomArrow,
-  LeftArrow,
-} from './styles'
+// @ts-ignore
+const TooltipContext = createContext()
 
 const RealTooltip = dynamic(() => import('./RealTooltip'), {
   /* eslint-disable react/display-name */
-  // loading: () => {
-  //   return <div>chidren<</div>
-  // },
+  loading: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { children } = useContext(TooltipContext) as {
+      children: ReactNode
+    }
+    return <Fragment>{children}</Fragment>
+  },
   ssr: false,
 })
 
@@ -64,7 +61,12 @@ type TProps = {
 }
 
 const Tooltip: FC<TProps> = (props) => {
-  return <RealTooltip {...props} />
+  const { children } = props
+  return (
+    <TooltipContext.Provider value={{ children }}>
+      <RealTooltip {...props} />
+    </TooltipContext.Provider>
+  )
 }
 
 export default memo(Tooltip)
