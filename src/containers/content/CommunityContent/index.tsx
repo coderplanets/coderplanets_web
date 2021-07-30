@@ -1,5 +1,5 @@
 /*
- * CommunityContent
+ * CommunityContent.
  */
 
 import { FC, Fragment } from 'react'
