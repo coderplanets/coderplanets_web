@@ -15,7 +15,6 @@ import { pluggedIn } from '@/utils'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
-import Sidebar from '@/containers/unit/Sidebar'
 // import ModeLine from '@/containers/unit/ModeLine'
 
 // import Drawer from '@/containers/tool/Drawer'
@@ -24,7 +23,7 @@ import Sidebar from '@/containers/unit/Sidebar'
 import type { TStore } from './store'
 import SEO from './SEO'
 
-import { CustomScroller, Footer, ErrorPage, ModeLine } from './dynamic'
+import { CustomScroller, Sidebar, Footer, ErrorPage, ModeLine } from './dynamic'
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
 import { useInit, onPageScrollDirhange, childrenWithProps } from './logic'
 

@@ -5,18 +5,20 @@
  */
 
 import { FC, useRef } from 'react'
+import dynamic from 'next/dynamic'
 import { Waypoint } from 'react-waypoint'
 
 import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
 
-import Comments from '@/containers/unit/Comments'
+// import Comments from '@/containers/unit/Comments'
 // import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
 import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
+import { LavaLampLoading } from '@/components/Loading'
 
 import type { TStore } from '../store'
 
@@ -33,6 +35,12 @@ import { useInit, checkAnchor } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:PostContent')
+
+export const Comments = dynamic(() => import('@/containers/unit/Comments'), {
+  /* eslint-disable react/display-name */
+  loading: () => <LavaLampLoading size="small" />,
+  ssr: false,
+})
 
 type TProps = {
   articleContent?: TStore
