@@ -3,6 +3,7 @@
  */
 
 import { FC } from 'react'
+import dynamic from 'next/dynamic'
 import { isNil } from 'ramda'
 import { Waypoint } from 'react-waypoint'
 
@@ -11,9 +12,7 @@ import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-import CollectionFolder from '@/containers/tool/CollectionFolder'
-
-import FixedHeader from './FixedHeader'
+// import FixedHeader from './FixedHeader'
 import Layout from './Layout'
 
 import type { TStore } from '../store'
@@ -26,6 +25,17 @@ import { useInit, inAnchor, outAnchor } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
+
+export const CollectionFolder = dynamic(
+  () => import('@/containers/tool/CollectionFolder'),
+  {
+    ssr: false,
+  },
+)
+
+export const FixedHeader = dynamic(() => import('./FixedHeader'), {
+  ssr: false,
+})
 
 type TProps = {
   articleDigest?: TStore

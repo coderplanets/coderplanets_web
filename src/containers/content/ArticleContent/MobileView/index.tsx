@@ -10,7 +10,6 @@ import { Waypoint } from 'react-waypoint'
 import { pluggedIn, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
-// import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import Maybe from '@/components/Maybe'

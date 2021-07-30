@@ -12,7 +12,6 @@ import type { TMetric } from '@/spec'
 import { pluggedIn, buildLog } from '@/utils'
 
 // import Comments from '@/containers/unit/Comments'
-// import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
 import ArticleFooter from '@/containers/unit/ArticleFooter'
 

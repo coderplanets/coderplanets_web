@@ -72,7 +72,6 @@ import {
   UserListerStore,
   GirlVerifierStore,
   CashierStore,
-  ArticleAuthorCardStore,
   CommunitySetterStore,
   // user page
   UserPublishedStore,
@@ -176,7 +175,6 @@ const rootStore = T.model({
   userLister: T.optional(UserListerStore, {}),
   girlVerifier: T.optional(GirlVerifierStore, {}),
   cashier: T.optional(CashierStore, {}),
-  articleAuthorCard: T.optional(ArticleAuthorCardStore, {}),
   communitySetter: T.optional(CommunitySetterStore, {}),
 
   articleViewerHeader: T.optional(ArticleViewerHeader, {}),

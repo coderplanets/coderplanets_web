@@ -30,7 +30,6 @@ export { default as UserListerStore } from '@/containers/user/UserLister/store'
 export { default as GirlVerifierStore } from '@/containers/tool/GirlVerifier/store'
 export { default as CashierStore } from '@/containers/tool/Cashier/store'
 
-export { default as ArticleAuthorCardStore } from '@/containers/unit/ArticleAuthorCard/store'
 //
 
 // pages banners store
