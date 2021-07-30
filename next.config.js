@@ -7,6 +7,7 @@ const withOffline = require('next-offline')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
+const withPreact = require('next-plugin-preact')
 const offlineConfig = require('./config/next_offline')
 
 // Use the SentryWebpack plugin to upload the source maps during build step
@@ -39,6 +40,11 @@ const nextConfig = {
 }
 
 module.exports = withPlugins(
-  [withBundleAnalyzer, withSourceMaps, [withOffline, offlineConfig]],
+  [
+    withPreact,
+    withBundleAnalyzer,
+    withSourceMaps,
+    [withOffline, offlineConfig],
+  ],
   nextConfig,
 )
