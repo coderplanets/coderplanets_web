@@ -1,6 +1,5 @@
 import { FC, memo } from 'react'
 import { contains } from 'ramda'
-import { Waypoint } from 'react-waypoint'
 import { isMobile } from 'react-device-detect'
 
 import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
@@ -8,6 +7,7 @@ import { HCN, EVENT } from '@/constant'
 import { send } from '@/utils'
 
 import TabBar from '@/components/TabBar'
+import ViewportTracker from '@/components/ViewportTracker'
 import CommunityStatesPad from '@/components/CommunityStatesPad'
 
 import CommunityBrief from './CommunityBrief'
@@ -73,7 +73,7 @@ const ClassicLayout: FC<TProps> = ({
           </TabBarWrapper>
         </BannerContentWrapper>
       </InnerWrapper>
-      <Waypoint
+      <ViewportTracker
         onEnter={() => setViewport(true)}
         onLeave={() => setViewport(false)}
       />

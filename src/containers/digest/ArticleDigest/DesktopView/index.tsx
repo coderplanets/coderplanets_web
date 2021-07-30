@@ -3,16 +3,15 @@
  */
 
 import { FC } from 'react'
-import dynamic from 'next/dynamic'
 import { isNil } from 'ramda'
-import { Waypoint } from 'react-waypoint'
 
 import type { TScrollDirection, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-// import FixedHeader from './FixedHeader'
+import ViewportTracker from '@/components/ViewportTracker'
+import { CollectionFolder, FixedHeader } from './dynamic'
 import Layout from './Layout'
 
 import type { TStore } from '../store'
@@ -25,17 +24,6 @@ import { useInit, inAnchor, outAnchor } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
-
-export const CollectionFolder = dynamic(
-  () => import('@/containers/tool/CollectionFolder'),
-  {
-    ssr: false,
-  },
-)
-
-export const FixedHeader = dynamic(() => import('./FixedHeader'), {
-  ssr: false,
-})
 
 type TProps = {
   articleDigest?: TStore
@@ -72,7 +60,7 @@ const ArticleDigestContainer: FC<TProps> = ({
           />
         </BannerContent>
       </InnerWrapper>
-      <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
+      <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />
     </Wrapper>
   )
 }

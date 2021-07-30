@@ -3,11 +3,11 @@
  */
 
 import { FC, memo, Fragment, useCallback, useState } from 'react'
-import { Waypoint } from 'react-waypoint'
 
 import type { TPost } from '@/spec'
 import { buildLog } from '@/utils'
 
+import ViewportTracker from '@/components/ViewportTracker'
 import { ArticleContentLoading } from '@/components/Loading'
 
 import FixedHeader from './FixedHeader'
@@ -37,7 +37,7 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
         <Header article={article} />
         <Title>{article.title}</Title>
         <ArticleInfo article={article} />
-        <Waypoint onEnter={hideFixedHeader} onLeave={showFixedHeader} />
+        <ViewportTracker onEnter={hideFixedHeader} onLeave={showFixedHeader} />
         <BodyWrapper>
           {loading ? (
             <ArticleContentLoading num={2} />

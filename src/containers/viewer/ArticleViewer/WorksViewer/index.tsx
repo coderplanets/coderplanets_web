@@ -3,16 +3,16 @@
  */
 
 import { FC, memo, Fragment, useCallback, useState } from 'react'
-import { Waypoint } from 'react-waypoint'
 
 import type { TPost } from '@/spec'
 import { buildLog } from '@/utils'
 
+import ViewportTracker from '@/components/ViewportTracker'
+import { ArticleContentLoading } from '@/components/Loading'
+
 import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
-
-import { ArticleContentLoading } from '@/components/Loading'
 
 import { Wrapper, BodyWrapper, ArticleBody } from '../styles/works_viewer'
 
@@ -36,7 +36,7 @@ const WorksViewer: FC<TProps> = ({ article, loading }) => {
       <Wrapper>
         <Header article={article} />
         <ArticleInfo article={article} />
-        <Waypoint onEnter={hideFixedHeader} onLeave={showFixedHeader} />
+        <ViewportTracker onEnter={hideFixedHeader} onLeave={showFixedHeader} />
         <BodyWrapper>
           {loading ? (
             <ArticleContentLoading num={2} />
