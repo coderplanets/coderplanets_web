@@ -4,11 +4,18 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 type TProps = {
+  /**
+   * Function called when waypoint enters viewport
+   */
   onEnter: () => void
   /**
    * Function called when waypoint leaves viewport
    */
-  onLeave: () => void
+  onLeave?: () => void
+  /**
+   * Whether to activate on horizontal scrolling instead of vertical
+   */
+  horizontal?: boolean
 }
 
 const Waypoint = dynamic(

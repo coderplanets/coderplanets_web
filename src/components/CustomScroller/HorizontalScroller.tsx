@@ -6,12 +6,12 @@
 
 import { FC, useState, useRef, useCallback, memo } from 'react'
 import { useTheme } from 'styled-components'
-import { Waypoint } from 'react-waypoint'
 import type { TThemeMap } from '@/spec'
 
 import { buildLog } from '@/utils'
-import { SIZE } from '@/constant'
 import { useCustomScroll } from '@/hooks'
+import ViewportTracker from '@/components/ViewportTracker'
+import { SIZE } from '@/constant'
 
 import type { TProps as TScrollProps } from './index'
 
@@ -80,13 +80,13 @@ const HorizontalScroller: FC<TProps> = ({
 
       <ScrollWrapper ref={ref}>
         <InnerWrapper innerHeight={innerHeight}>
-          <Waypoint
+          <ViewportTracker
             horizontal
             onEnter={handleHideLeftShadow}
             onLeave={handleShowLeftShadow}
           />
           {children}
-          <Waypoint
+          <ViewportTracker
             horizontal
             onEnter={handleHideRightShadow}
             onLeave={handleShowRightShadow}

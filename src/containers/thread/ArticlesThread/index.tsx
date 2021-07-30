@@ -7,7 +7,6 @@
  */
 
 import { FC } from 'react'
-import { Waypoint } from 'react-waypoint'
 import dynamic from 'next/dynamic'
 
 import type { TResState } from '@/spec'
@@ -15,9 +14,9 @@ import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import PagedArticles from '@/components/PagedArticles'
+import ViewportTracker from '@/components/ViewportTracker'
 // import ArticlesFilter from '@/components/ArticlesFilter'
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
-import { LavaLampLoading } from '@/components/Loading'
 
 import type { TStore } from './store'
 
@@ -55,7 +54,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   return (
     <Wrapper>
       <MainWrapper>
-        <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
+        <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />
         {showFilters && (
           <FilterWrapper>
             <ArticlesFilter

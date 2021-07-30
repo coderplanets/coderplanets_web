@@ -7,9 +7,9 @@
  */
 
 import React, { useState } from 'react'
-import { Waypoint } from 'react-waypoint'
 
 import { buildLog } from '@/utils'
+import ViewportTracker from '@/components/ViewportTracker'
 
 import {
   SmileWrapper,
@@ -42,14 +42,14 @@ const Banner = () => {
   return (
     <React.Fragment>
       <AnchorH>
-        <Waypoint
+        <ViewportTracker
           onEnter={() => setAnchorHEnter(true)}
           onLeave={() => setAnchorHEnter(false)}
         />
       </AnchorH>
 
       <AnchorM>
-        <Waypoint
+        <ViewportTracker
           onEnter={() => {
             setAnchorMEnter(true)
             toggleBannerVisiable(true)
@@ -62,7 +62,7 @@ const Banner = () => {
       </AnchorM>
 
       <AnchorL>
-        <Waypoint
+        <ViewportTracker
           onEnter={() => setAnchorLEnter(true)}
           onLeave={() => setAnchorLEnter(false)}
         />
