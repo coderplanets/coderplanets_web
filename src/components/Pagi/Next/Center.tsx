@@ -1,8 +1,9 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { useDevice } from '@/hooks'
+import { isMobile } from 'react-device-detect'
 
+import type { TProps as TIndex } from '../Perv'
 import {
   Wrapper,
   ArrowWrapper,
@@ -10,11 +11,10 @@ import {
   NaviInfo,
   Navi,
   Hint,
-} from '../styles/next/bottom'
+} from '../styles/next/center'
 
-const Bottom = ({ disabled, pageNumber, onChange }) => {
-  const { isMobile } = useDevice()
-
+type TProps = Omit<TIndex, 'type'>
+const Center: FC<TProps> = ({ disabled, pageNumber, onChange }) => {
   const iconSrc = !isMobile
     ? `${ICON}/shape/arrow.svg`
     : `${ICON}/shape/arrow-simple.svg`
@@ -46,4 +46,4 @@ const Bottom = ({ disabled, pageNumber, onChange }) => {
   )
 }
 
-export default React.memo(Bottom)
+export default memo(Center)

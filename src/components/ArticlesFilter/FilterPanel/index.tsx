@@ -2,6 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TThread, TArticleFilter } from '@/spec'
 import { THREAD } from '@/constant'
+import { useAccount } from '@/hooks'
 
 import TimeFilter from './TimeFilter'
 import SortFilter from './SortFilter'
@@ -15,15 +16,11 @@ type TProps = {
   activeFilter: TArticleFilter
   onSelect: (filter: TArticleFilter) => void
   thread: TThread
-  isLogin?: boolean
 }
 
-const FilterPanel: FC<TProps> = ({
-  thread,
-  activeFilter,
-  onSelect,
-  isLogin,
-}) => {
+const FilterPanel: FC<TProps> = ({ thread, activeFilter, onSelect }) => {
+  const { isLogin } = useAccount()
+
   switch (thread) {
     case THREAD.POST:
       return (

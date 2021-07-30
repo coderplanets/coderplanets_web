@@ -8,13 +8,12 @@ import {
   Breadcrumbs,
   Logo,
   LogoLink,
-  LogoMargin,
   LogoText,
   OfflineWrapper,
   ActionText,
 } from './styles'
 
-import MainEntries from './MainEntries/index'
+import MainEntries from './MainEntries'
 import { TC11NLayout } from '@/spec'
 
 const renderMainEntries = (metric) => {

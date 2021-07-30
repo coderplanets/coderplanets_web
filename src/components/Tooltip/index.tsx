@@ -4,15 +4,11 @@
  * use custom animation Globally at GlobalStyle.ts
  */
 
-import { FC, ReactNode, useState, useRef, memo } from 'react'
-import { hideAll } from 'tippy.js'
+import { FC, ReactNode, memo } from 'react'
+import dynamic from 'next/dynamic'
 
 import type { TTooltipPlacement } from '@/spec'
-import { css, buildLog, isDescendant, isString } from '@/utils'
-import { useOutsideClick } from '@/hooks'
-
-import ConfirmFooter from './ConfirmFooter'
-import { FOOTER_BEHAVIOR } from './constant'
+import { buildLog } from '@/utils'
 
 import {
   StyledTippy,
@@ -23,6 +19,14 @@ import {
   BottomArrow,
   LeftArrow,
 } from './styles'
+
+const RealTooltip = dynamic(() => import('./RealTooltip'), {
+  /* eslint-disable react/display-name */
+  // loading: () => {
+  //   return <div>chidren<</div>
+  // },
+  ssr: false,
+})
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tooltip:index')
@@ -59,114 +63,8 @@ type TProps = {
   onConfirm?: () => void
 }
 
-const Tooltip: FC<TProps> = ({
-  children,
-  noPadding = false,
-  onHide,
-  onShow,
-  placement = 'top',
-  delay = 0,
-  duration = 0,
-  content,
-  hideOnClick = true,
-  showArrow = false,
-  forceZIndex = false,
-  behavior = 'default',
-  trigger = 'mouseenter focus',
-  onConfirm,
-  contentHeight,
-}) => {
-  const [instance, setInstance] = useState(null)
-  const [active, setActive] = useState(false)
-
-  const ContentComp = showArrow ? (
-    <ChildrenWrapper contentHeight={contentHeight} forceZIndex={forceZIndex}>
-      {active && placement === 'bottom' && <TopArrow />}
-      {active && placement === 'top' && <BottomArrow />}
-      {active && placement === 'right' && <LeftArrow />}
-
-      <div>{children}</div>
-    </ChildrenWrapper>
-  ) : (
-    <ChildrenWrapper contentHeight={contentHeight} forceZIndex={forceZIndex}>
-      <div>{children}</div>
-    </ChildrenWrapper>
-  )
-
-  const contentRef = useRef()
-
-  const PopoverContent = (
-    <ContentWrapper
-      ref={contentRef}
-      hasMaxWidth={isString(content)}
-      onClick={() => {
-        if (hideOnClick) instance?.hide()
-      }}
-    >
-      {content}
-      {active && behavior !== FOOTER_BEHAVIOR.DEFAULT && (
-        <ConfirmFooter
-          onConfirm={() => {
-            onConfirm?.()
-            instance?.hide()
-          }}
-          onCancel={() => instance?.hide()}
-          behavior={behavior}
-        />
-      )}
-    </ContentWrapper>
-  )
-
-  const ref = useRef()
-
-  useOutsideClick(ref, (e) => {
-    if (!instance) return false
-
-    const isClickInsidePopover = isDescendant(contentRef?.current, e.target)
-    if (hideOnClick || (!hideOnClick && !isClickInsidePopover)) {
-      // if (instance) {
-      // NOTE:  this is a hack, svg will swallow events like click
-      // and the pointer-events solution not work
-      const { nodeName } = e.target
-      if (nodeName === 'svg' || nodeName === 'path') return false
-
-      instance.hide()
-    }
-  })
-
-  const props = {
-    ref,
-    content: PopoverContent,
-    placement,
-    hideOnClick,
-    zIndex: css.zIndex.popover,
-    active: true,
-    delay: [delay, 0] as [number, number],
-    offset: [5, 5] as [number, number],
-    duration,
-    trigger,
-    // see https://github.com/atomiks/tippyjs/issues/751#issuecomment-611979594 for detail
-    interactive: true,
-
-    onHide: () => {
-      setInstance(null)
-      setActive(false)
-      onHide?.()
-    },
-    onShow: (instance) => {
-      // see https://github.com/atomiks/tippyjs/issues/260#issuecomment-462031748
-      hideAll({ exclude: instance })
-      setInstance(instance)
-      setActive(true)
-      onShow?.()
-    },
-  }
-
-  return !noPadding ? (
-    <StyledTippy {...props}>{ContentComp}</StyledTippy>
-  ) : (
-    <NoPaddingStyledTippy {...props}>{ContentComp}</NoPaddingStyledTippy>
-  )
+const Tooltip: FC<TProps> = (props) => {
+  return <RealTooltip {...props} />
 }
 
 export default memo(Tooltip)

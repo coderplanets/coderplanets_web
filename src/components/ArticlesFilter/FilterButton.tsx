@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 
 import type { TThread, TArticleFilter } from '@/spec'
 import { ICON_CMD } from '@/config'
-import { useAccount } from '@/hooks'
 
 import Tooltip from '@/components/Tooltip'
 
@@ -14,7 +13,7 @@ import {
   FilterIcon,
 } from './styles/filter_button'
 
-const FilterPanel = dynamic(() => import('./FilterPanel/index'), {
+const FilterPanel = dynamic(() => import('./FilterPanel'), {
   /* eslint-disable react/display-name */
   loading: () => <div />,
   ssr: false,
@@ -27,8 +26,6 @@ type TProps = {
 }
 
 const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
-  const { isLogin } = useAccount()
-
   return (
     <Wrapper>
       <Tooltip
@@ -40,7 +37,6 @@ const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
             <FilterPanel
               thread={thread}
               onSelect={onSelect}
-              isLogin={isLogin}
               activeFilter={activeFilter}
             />
           )

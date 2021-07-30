@@ -32,6 +32,10 @@ const ThreadSidebar = dynamic(
   },
 )
 
+// const ArticlesFilter = dynamic(() => import('@/components/ArticlesFilter'), {
+//   ssr: false,
+// })
+
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticlesThread')
 
@@ -48,10 +52,11 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     curThread,
     showFilters,
     viewingArticle,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
+    c11n,
   } = store
+
+  const { bannerLayout } = c11n
+
   const resState = store.resState as TResState
   const { pageNumber, totalCount } = pagedArticlesData
 
@@ -75,6 +80,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
           thread={curThread}
           viewingArticle={viewingArticle}
           resState={resState}
+          c11n={c11n}
         />
       </MainWrapper>
 

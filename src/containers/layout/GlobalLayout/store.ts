@@ -5,7 +5,7 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import type { TRootStore, TAccount } from '@/spec'
+import type { TRootStore, TAccount, TC11N } from '@/spec'
 import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
@@ -30,6 +30,10 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
       return root.accountInfo
+    },
+    get c11n(): TC11N {
+      const root = getParent(self) as TRootStore
+      return root.account.c11n
     },
     get sidebarPin(): boolean {
       const root = getParent(self) as TRootStore

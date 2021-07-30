@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
-import { useDevice } from '@/hooks'
+import { isMobile } from 'react-device-detect'
 import { cutRest } from '@/utils'
 
 import {
@@ -24,7 +24,6 @@ type TProps = {
 }
 
 const ExpandTexts: FC<TProps> = ({ descExpand }) => {
-  const { isMobile } = useDevice()
   const cutLength = !isMobile ? 26 : 10
 
   return (

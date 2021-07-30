@@ -1,10 +1,10 @@
 import { FC, memo } from 'react'
 import { contains } from 'ramda'
 import { Waypoint } from 'react-waypoint'
+import { isMobile } from 'react-device-detect'
 
 import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
 import { HCN, EVENT } from '@/constant'
-import { useDevice } from '@/hooks'
 import { send } from '@/utils'
 
 import TabBar from '@/components/TabBar'
@@ -40,8 +40,6 @@ const ClassicLayout: FC<TProps> = ({
   layout,
   metric,
 }) => {
-  const { isMobile } = useDevice()
-
   return (
     <Wrapper
       testid="community-digest"

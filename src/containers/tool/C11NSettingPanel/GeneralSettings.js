@@ -2,7 +2,7 @@ import React from 'react'
 import { contains } from 'ramda'
 
 import { THREAD, C11N } from '@/constant'
-import { useDevice } from '@/hooks'
+import { isMobile } from 'react-device-detect'
 
 import { Br } from '@/components/Common'
 import { Radio } from '@/components/Switcher'
@@ -11,8 +11,6 @@ import { Wrapper, Title, Desc, Divider } from './styles/gerneral_settings'
 import { onC11NChange } from './logic'
 
 const GeneralSettings = ({ curThread, customization }) => {
-  const { isMobile } = useDevice()
-
   const {
     bannerLayout,
     contentDivider,

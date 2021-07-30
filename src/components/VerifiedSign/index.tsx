@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils'
@@ -37,21 +36,23 @@ const PopContent = ({ communityTitle }) => {
         <PopHighlight>{communityTitle}</PopHighlight> 官方开通
       </div>
       <RulesWrapper>
-        <ArrowButton
-          size="tiny"
-          onClick={(e) => {
-            e.stopPropagation()
-            console.log('oo')
-          }}
-        >
-          认证规则
-        </ArrowButton>
+        <ArrowButton size="tiny">认证规则</ArrowButton>
       </RulesWrapper>
     </PopContentWrapper>
   )
 }
 
-const VerifiedSign = ({ text, type, communityTitle }) => {
+type TProps = {
+  type?: 'community' | 'editor'
+  text?: string
+  communityTitle?: string
+}
+
+const VerifiedSign: FC<TProps> = ({
+  text = '官方',
+  type = 'community',
+  communityTitle = 'groupher',
+}) => {
   log('type: ', type)
 
   return (
@@ -65,16 +66,4 @@ const VerifiedSign = ({ text, type, communityTitle }) => {
   )
 }
 
-VerifiedSign.propTypes = {
-  type: T.oneOf(['community', 'editor']),
-  text: T.string,
-  communityTitle: T.string,
-}
-
-VerifiedSign.defaultProps = {
-  type: 'community',
-  text: '官方',
-  communityTitle: 'groupher',
-}
-
-export default React.memo(VerifiedSign)
+export default memo(VerifiedSign)

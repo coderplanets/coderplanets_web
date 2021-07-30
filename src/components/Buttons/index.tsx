@@ -11,3 +11,5 @@ export { default as FollowButton } from './FollowButton'
 export { default as YesOrNoButtons } from './YesOrNoButtons'
 export { default as IconButton } from './IconButton'
 export { default as CopyButton } from './CopyButton'
+
+export { default as DebugSizeButton } from './DebugSizeButton'

@@ -1,11 +1,10 @@
 import { FC, memo } from 'react'
+import dynamic from 'next/dynamic'
 import { contains } from 'ramda'
 
 import type { TCommunity } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { HCN, NON_FILL_COMMUNITY } from '@/constant'
-
-import VerifiedSign from '@/components/VerifiedSign'
 
 import ExpandTexts from '../ExpandTexts'
 import SocialList from '../SocialList'
@@ -20,6 +19,12 @@ import {
   TitleText,
   LogoHolder,
 } from '../styles/classic_layout/community_brief'
+
+export const VerifiedSign = dynamic(() => import('@/components/VerifiedSign'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div />,
+  ssr: false,
+})
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 

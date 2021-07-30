@@ -2,7 +2,20 @@ import dynamic from 'next/dynamic'
 
 import { TProps as TErrorPage } from '@/components/ErrorPage'
 
+export const CustomScroller = dynamic(
+  () => import('@/components/CustomScroller'),
+  {
+    ssr: false,
+  },
+)
+
 export const Drawer = dynamic(() => import('@/containers/tool/Drawer'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div />,
+  ssr: false,
+})
+
+export const ModeLine = dynamic(() => import('@/containers/unit/ModeLine'), {
   /* eslint-disable react/display-name */
   loading: () => <div />,
   ssr: false,

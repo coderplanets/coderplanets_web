@@ -1,9 +1,10 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import { TProps } from '../Perv'
 import Center from './Center'
 import Bottom from './Bottom'
 
-const Next = ({ type, ...restProps }) => {
+const Next: FC<TProps> = ({ type, ...restProps }) => {
   switch (type) {
     case 'center':
       return <Center {...restProps} />
@@ -14,4 +15,4 @@ const Next = ({ type, ...restProps }) => {
   }
 }
 
-export default React.memo(Next)
+export default memo(Next)

@@ -17,10 +17,10 @@ export type TActive = {
 }
 
 export type TSpace = {
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
+  top?: number | string
+  bottom?: number | string
+  left?: number | string
+  right?: number | string
 }
 
 // google analytis format

@@ -9,9 +9,9 @@ import dynamic from 'next/dynamic'
 
 import type { TArticleFilter, TResState } from '@/spec'
 
-import { TYPE } from '@/constant'
+import { TYPE, THREAD } from '@/constant'
 import { buildLog } from '@/utils'
-import { useViewing } from '@/hooks'
+// import { useViewing } from '@/hooks'
 
 import FilterButton from './FilterButton'
 import SelectedFilters from './SelectedFilters'
@@ -46,13 +46,14 @@ const ArticlesFilter: FC<TProps> = ({
   totalCount = 0,
   resState = TYPE.RES_STATE.DONE,
 }) => {
-  const { activeThread } = useViewing()
+  // NOTE: 这里使用 useViewing 会导致 build-size blow
+  // const { activeThread } = useViewing()
 
   return (
     <Wrapper>
       <MainFilterWrapper>
         <FilterButton
-          thread={activeThread}
+          thread={THREAD.POST}
           onSelect={onSelect}
           activeFilter={activeFilter}
         />

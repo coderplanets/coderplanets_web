@@ -4,15 +4,16 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo, ReactNode } from 'react'
 import { merge } from 'ramda'
 
+import type { TSpace } from '@/spec'
 import { buildLog } from '@/utils'
 import Perv from './Perv'
 import Next from './Next'
 
 import { Wrapper, EmptyWrapper, BottomMsg } from './styles'
+
 /* eslint-disable-next-line */
 const log = buildLog('c:Pagi:index')
 
@@ -28,7 +29,7 @@ const defaultMargin = {
  * @param precision The number of decimal places to preserve
  * see: https://stackoverflow.com/questions/5191088/how-to-round-up-a-number-in-javascript
  */
-const roundUp = (num, precision = 0) => {
+const roundUp = (num: number, precision = 0): number => {
   // eslint-disable-next-line no-restricted-properties
   precision = Math.pow(10, precision)
   return Math.ceil(num * precision) / precision
@@ -41,23 +42,37 @@ const BottomFooter = ({ show, msg }) => {
 
 const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
 
-const Pagi = ({
-  children,
-  type,
-  pageNumber,
-  pageSize,
-  totalCount,
-  margin: marginProp,
-  onChange,
-  showBottomMsg,
-  emptyMsg,
-  noMoreMsg,
+type TProps = {
+  children?: ReactNode
+  type?: 'bottom' | 'center'
+  pageNumber?: number
+  pageSize?: number
+  totalCount?: number
+  margin?: TSpace
+  emptyMsg?: string
+  noMoreMsg?: string
+  showBottomMsg?: boolean
+  onChange?: (page: number) => void
+}
+
+const Pagi: FC<TProps> = ({
+  children = <div />,
+  type = 'bottom',
+  pageNumber = 0,
+  pageSize = 0,
+  totalCount = 0,
+  onChange = log,
+
+  margin = {},
+  showBottomMsg = false,
+  emptyMsg = '还没有评论',
+  noMoreMsg = '没有更多评论了',
 }) => {
-  const margin = merge(defaultMargin, marginProp)
+  const theMargin = merge(defaultMargin, margin)
 
   if (totalCount === 0) {
     return (
-      <EmptyWrapper margin={margin}>
+      <EmptyWrapper margin={theMargin}>
         <BottomFooter show={showBottomMsg} msg={emptyMsg} />
       </EmptyWrapper>
     )
@@ -66,7 +81,7 @@ const Pagi = ({
   return (
     <>
       {hasExtraPage(totalCount, pageSize) ? (
-        <Wrapper margin={margin}>
+        <Wrapper margin={theMargin}>
           <Perv
             type={type}
             onChange={onChange}
@@ -82,7 +97,7 @@ const Pagi = ({
           />
         </Wrapper>
       ) : (
-        <EmptyWrapper margin={margin}>
+        <EmptyWrapper margin={theMargin}>
           <BottomFooter show={showBottomMsg} msg={noMoreMsg} />
         </EmptyWrapper>
       )}
@@ -90,40 +105,4 @@ const Pagi = ({
   )
 }
 
-Pagi.propTypes = {
-  children: T.node,
-  type: T.oneOf(['bottom', 'center']),
-  pageNumber: T.number,
-  pageSize: T.number,
-  totalCount: T.number,
-  margin: T.shape({
-    top: T.string,
-    bottom: T.string,
-    left: T.string,
-    right: T.string,
-  }),
-  emptyMsg: T.string,
-  noMoreMsg: T.string,
-  showBottomMsg: T.bool,
-  onChange: T.func,
-}
-
-Pagi.defaultProps = {
-  children: <div />,
-  type: 'bottom',
-  pageNumber: 0,
-  pageSize: 0,
-  totalCount: 0,
-  onChange: log,
-  margin: {
-    top: '0',
-    bottom: '0',
-    left: '0',
-    right: '0',
-  },
-  showBottomMsg: false,
-  emptyMsg: '还没有评论',
-  noMoreMsg: '没有更多评论了',
-}
-
-export default React.memo(Pagi)
+export default memo(Pagi)

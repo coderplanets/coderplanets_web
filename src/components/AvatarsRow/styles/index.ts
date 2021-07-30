@@ -5,6 +5,8 @@ import { theme, css } from '@/utils'
 import { getAvatarSize, getUlMarginRight } from './metric'
 import type { TAvatarSize } from '../spec'
 
+export { AvatarFallback } from './real_avatar'
+
 export const Wrapper = styled.ul<{ total: number }>`
   ${css.flex('align-center')};
   flex-direction: row-reverse;

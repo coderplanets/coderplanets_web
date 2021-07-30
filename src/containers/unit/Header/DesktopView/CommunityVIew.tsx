@@ -11,11 +11,9 @@ import type { TMetric } from '@/spec'
 import { C11N, METRIC } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
 
 import type { TStore } from '../store'
-import UserAccount from '../UserAccount'
 import AddOns from '../AddOns'
 
 import {
@@ -33,6 +31,8 @@ import { useInit, openDoraemon } from '../logic'
 const log = buildLog('C:Header')
 
 let MailBox
+
+const UserAccount = dynamic(() => import('../UserAccount'), { ssr: false })
 
 type TProps = {
   // T.oneOf(values(METRIC)) TODO
@@ -95,8 +95,6 @@ const CommunityHeaderContainer: FC<TProps> = ({
           </Search>
 
           {MailBox && <MailBox />}
-          <UserLister />
-          {/* <Cashier /> */}
           <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
         </Operations>
       </InnerWrapper>

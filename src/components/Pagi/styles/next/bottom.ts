@@ -4,7 +4,7 @@ import { css } from '@/utils'
 
 import { CommonNavi, CommonHint, CommonBottomArrowIcon } from '../index'
 
-export const Wrapper = styled.div<{ disabled: boolean }>`
+export const Wrapper = styled.div<{ disabled?: boolean }>`
   ${css.flex('align-end')};
   color: #196780;
 
@@ -25,7 +25,7 @@ export const Icon = styled(CommonBottomArrowIcon)`
     fill: #327faf;
   }
 `
-export const NaviInfo = styled.div<{ disabled: boolean }>`
+export const NaviInfo = styled.div<{ disabled?: boolean }>`
   ${css.flexColumn('align-end')};
   margin-right: 10px;
 

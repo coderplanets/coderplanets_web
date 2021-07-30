@@ -10,7 +10,7 @@ import { isEmpty, findIndex } from 'ramda'
 import type { TSIZE_SM, TTabItem } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
-import { useDevice } from '@/hooks'
+import { isMobile } from 'react-device-detect'
 import { buildLog, isString } from '@/utils'
 
 import TabItem from '../TabItem'
@@ -74,8 +74,6 @@ const MobileView: FC<TProps> = ({
   slipHeight = '2px',
   toggleExpand,
 }) => {
-  const { isMobile } = useDevice()
-
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)
