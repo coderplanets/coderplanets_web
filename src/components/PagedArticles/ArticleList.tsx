@@ -33,7 +33,7 @@ const ArticleList = (props) => {
 
   switch (thread) {
     case THREAD.JOB:
-      return <div>..</div> // <JobsList {...props} />
+      return <JobsList {...props} />
 
     // case THREAD.REPO:
     //   return <ReposList {...props} />

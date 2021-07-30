@@ -17,7 +17,7 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
     // return <ReposThread />
 
     case THREAD.USER:
-      return <div>ii</div> // <UsersThread />
+      return <UsersThread />
 
     default:
       return <ArticlesThread />

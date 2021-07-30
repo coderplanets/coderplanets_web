@@ -15,7 +15,8 @@ import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
 import PagedArticles from '@/components/PagedArticles'
-import ArticlesFilter from '@/components/ArticlesFilter'
+// import ArticlesFilter from '@/components/ArticlesFilter'
+// import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import { LavaLampLoading } from '@/components/Loading'
 
 import type { TStore } from './store'
@@ -32,9 +33,9 @@ const ThreadSidebar = dynamic(
   },
 )
 
-// const ArticlesFilter = dynamic(() => import('@/components/ArticlesFilter'), {
-//   ssr: false,
-// })
+const ArticlesFilter = dynamic(() => import('@/components/ArticlesFilter'), {
+  ssr: false,
+})
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticlesThread')

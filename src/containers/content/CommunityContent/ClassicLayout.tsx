@@ -24,11 +24,11 @@ const ClassicLayout: FC<TProps> = ({ thread }) => {
   return (
     <Wrapper testid="community-content">
       <CommunityDigest />
-      {/* <InnerWrapper>
+      <InnerWrapper>
         <ContentWrapper>
           <ThreadContent thread={thread} />
         </ContentWrapper>
-      </InnerWrapper> */}
+      </InnerWrapper>
     </Wrapper>
   )
 }

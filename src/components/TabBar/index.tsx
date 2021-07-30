@@ -23,7 +23,7 @@ const TabBar = (props) => {
 
   switch (curView) {
     case VIEW.DESKTOP: {
-      return <div>d</div> // <DesktopView {...props} />
+      return <DesktopView {...props} />
     }
 
     default: {

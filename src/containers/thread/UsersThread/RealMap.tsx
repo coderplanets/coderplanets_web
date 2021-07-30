@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import dynamic from 'next/dynamic'
+import { FC, Fragment } from 'react'
 import { useTheme } from 'styled-components'
 
 import { pluggedIn, buildLog } from '@/utils'
@@ -13,20 +12,19 @@ import { useScript } from '@/hooks'
 
 import NumDashboard from './NumDashboard'
 import MapLoading from './MapLoading'
+import GeoMap from './GeoMap'
 
-import { Wrapper } from './styles'
+import type { TStore } from './store'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:UsersThread')
 
-export const GeoMapSSR = dynamic(() => import('./GeoMap.js'), {
-  /* eslint-disable react/display-name */
-  loading: () => <MapLoading />,
-  ssr: false,
-})
+type TProps = {
+  usersThread?: TStore
+}
 
-const UsersThreadContainer = ({ usersThread }) => {
+const UsersThreadContainer: FC<TProps> = ({ usersThread }) => {
   /* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */
   const [g2ScriptLoaded] = useScript(
     'https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js',
@@ -43,10 +41,10 @@ const UsersThreadContainer = ({ usersThread }) => {
     showNums,
   } = usersThread
 
-  const ready = g2ScriptLoaded && GeoMapSSR !== null && !geoDataLoading
+  const ready = g2ScriptLoaded && !geoDataLoading
 
   return (
-    <Wrapper>
+    <Fragment>
       {ready && (
         <NumDashboard
           expand={showNums}
@@ -55,12 +53,12 @@ const UsersThreadContainer = ({ usersThread }) => {
         />
       )}
       {ready ? (
-        <GeoMapSSR markers={geoInfosData} curTheme={curTheme} theme={theme} />
+        <GeoMap markers={geoInfosData} curTheme={curTheme} theme={theme} />
       ) : (
         <MapLoading />
       )}
-    </Wrapper>
+    </Fragment>
   )
 }
 
-export default pluggedIn(UsersThreadContainer)
+export default pluggedIn(UsersThreadContainer) as FC<TProps>
