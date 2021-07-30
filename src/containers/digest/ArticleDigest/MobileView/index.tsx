@@ -6,13 +6,14 @@
 
 import { FC } from 'react'
 import { isNil } from 'ramda'
-import { Waypoint } from 'react-waypoint'
 
 import type { TScrollDirection } from '@/spec'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
+import ViewportTracker from '@/components/ViewportTracker'
+
 import PublishDate from '../DesktopView/PostLayout/PublishDate'
 
 import type { TStore } from '../store'
@@ -51,7 +52,7 @@ const ArticleDigestContainer: FC<TProps> = ({ articleDigest: store }) => {
           </Brief>
         </BannerContent>
       </InnerWrapper>
-      <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
+      <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />
     </Wrapper>
   )
 }

@@ -2,7 +2,6 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { RECIPE } from '@/constant'
-import { useTrans } from '@/hooks'
 
 import Sticky from '@/components/Sticky'
 import { OrButton } from '@/components/Buttons'
@@ -26,8 +25,6 @@ import {
 import { topFilterOnChange, mainViewOnChange } from './logic'
 
 const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
-  const { t } = useTrans()
-
   return (
     <Wrapper testid="filter-bar">
       <TopFilter>
@@ -38,13 +35,13 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           testid="filter-navi-intro"
         />
         {topFilter !== 'all' && (
-          <Option onClick={() => topFilterOnChange('all')}>{t('all')}</Option>
+          <Option onClick={() => topFilterOnChange('all')}>全部</Option>
         )}
         <Option
           active={topFilter === 'favorite'}
           onClick={() => topFilterOnChange('favorite')}
         >
-          <OptionItem>{t('filter:myFavorite')}</OptionItem>
+          <OptionItem>我的收藏</OptionItem>
           <FavoriteIcon
             src={`${ICON_CMD}/navi/heart.svg`}
             active={topFilter === 'favorite'}
@@ -54,7 +51,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           active={topFilter === 'latest'}
           onClick={() => topFilterOnChange('latest')}
         >
-          <OptionItem>{t('filter:latestUpdate')}</OptionItem>
+          <OptionItem>最新</OptionItem>
           <ClockIcon
             src={`${ICON_CMD}/navi/clock-solid.svg`}
             active={topFilter === 'latest'}

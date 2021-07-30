@@ -7,7 +7,6 @@
 import { FC, memo } from 'react'
 
 import type { TArticle, TContainer } from '@/spec'
-import { ICON } from '@/config'
 import { buildLog, scrollToComments } from '@/utils'
 
 import { Space } from '@/components/Common'
@@ -36,11 +35,11 @@ const ArticleBaseStats: FC<TProps> = ({
 }) => {
   return (
     <Wrapper testid={testid}>
-      <ViewsIcon src={`${ICON}/article/viewed.svg`} />
+      <ViewsIcon />
       <Count>{article.views}</Count>
       <Space left={14} />
       <CommentWrapper onClick={() => scrollToComments(container)}>
-        <CommentIcon src={`${ICON}/article/comment.svg`} />
+        <CommentIcon />
         <CommentCount>{article.commentsCount}</CommentCount>
       </CommentWrapper>
     </Wrapper>

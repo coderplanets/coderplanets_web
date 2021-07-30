@@ -1,14 +1,14 @@
 import { FC, memo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 
-import { ICON_CMD } from '@/config'
 import { ROUTE } from '@/constant'
 import { getRouteMainPath } from '@/utils'
 
-import Tooltip from '@/components/Tooltip'
-import MorePanel from '../MorePanel'
-import { Wrapper, DotDivider, SiteLink, Icon } from '../styles/main_entries'
+import { Wrapper, DotDivider, SiteLink } from '../styles/main_entries'
+
+const MoreLink = dynamic(() => import('./MoreLink'), { ssr: false })
 
 const splitMargin = 7
 
@@ -64,17 +64,7 @@ const DesktopView: FC<TProps> = ({ type }) => {
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
-      <Tooltip
-        content={<MorePanel />}
-        placement="bottom"
-        hideOnClick={false}
-        trigger="click"
-        noPadding
-      >
-        <SiteLink testid="header-more-link">
-          更多 <Icon src={`${ICON_CMD}/arrow_down.svg`} />
-        </SiteLink>
-      </Tooltip>
+      <MoreLink />
     </Wrapper>
   )
 }

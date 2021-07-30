@@ -7,20 +7,25 @@
  */
 
 import { FC } from 'react'
-import { Waypoint } from 'react-waypoint'
+import dynamic from 'next/dynamic'
 
 import type { TResState } from '@/spec'
 import { C11N } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 import PagedArticles from '@/components/PagedArticles'
-import ArticlesFilter from '@/components/ArticlesFilter'
+import ViewportTracker from '@/components/ViewportTracker'
+// import ArticlesFilter from '@/components/ArticlesFilter'
+import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 
 import type { TStore } from './store'
 
 import { Wrapper, MainWrapper, FilterWrapper } from './styles'
 import { useInit, inAnchor, outAnchor, onFilterSelect } from './logic'
+
+const ArticlesFilter = dynamic(() => import('@/components/ArticlesFilter'), {
+  ssr: false,
+})
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticlesThread')
@@ -38,17 +43,18 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     curThread,
     showFilters,
     viewingArticle,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
+    c11n,
   } = store
+
+  const { bannerLayout } = c11n
+
   const resState = store.resState as TResState
   const { pageNumber, totalCount } = pagedArticlesData
 
   return (
     <Wrapper>
       <MainWrapper>
-        <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
+        <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />
         {showFilters && (
           <FilterWrapper>
             <ArticlesFilter
@@ -65,6 +71,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
           thread={curThread}
           viewingArticle={viewingArticle}
           resState={resState}
+          c11n={c11n}
         />
       </MainWrapper>
 

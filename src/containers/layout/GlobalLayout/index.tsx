@@ -4,43 +4,32 @@
  *
  */
 
-import React, { FC, ReactNode, useEffect } from 'react'
+import { FC, Fragment, ReactNode } from 'react'
+import dynamic from 'next/dynamic'
+import { isMobile } from 'react-device-detect'
 
 import type { TSEO, TMetric } from '@/spec'
 import { ANCHOR, SIZE, C11N, BODY_SCROLLER } from '@/constant'
 import AnalysisService from '@/services/Analysis'
-import { useNetwork, useShortcut, usePlatform, useDevice } from '@/hooks'
 import { pluggedIn } from '@/utils'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'
-import Sidebar from '@/containers/unit/Sidebar'
-import ModeLine from '@/containers/unit/ModeLine'
-import Drawer from '@/containers/tool/Drawer'
+// import ModeLine from '@/containers/unit/ModeLine'
 
-import CustomScroller from '@/components/CustomScroller'
+// import Drawer from '@/containers/tool/Drawer'
+// import CustomScroller from '@/components/CustomScroller'
 
 import type { TStore } from './store'
 import SEO from './SEO'
 
-import {
-  AbuseReport,
-  Doraemon,
-  ErrorBox,
-  Footer,
-  ErrorPage,
-  Share,
-} from './dynamic'
-
+import { CustomScroller, Sidebar, Footer, ErrorPage, ModeLine } from './dynamic'
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
+import { useInit, onPageScrollDirhange, childrenWithProps } from './logic'
 
-import {
-  useInit,
-  openDoraemon,
-  logBuddha,
-  bodyScrollDirectionOnChange,
-  childrenWithProps,
-} from './logic'
+const Addon = dynamic(() => import('./Addon'), {
+  ssr: false,
+})
 
 type TProps = {
   globalLayout?: TStore
@@ -64,22 +53,12 @@ const GlobalLayoutContainer: FC<TProps> = ({
   noFooter = false,
   metric,
 }) => {
-  const { online } = useNetwork()
-  const platform = usePlatform()
-  const { isMobile } = useDevice()
-
+  // const { online } = useNetwork() // TODO: move it to Header
   // load debug graph
-  useEffect(() => logBuddha(), [])
+  useInit(store, { isMobile })
 
-  useInit(store, { online, platform, isMobile })
-  useShortcut('Control+P', openDoraemon)
-
-  const {
-    sidebarPin,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
-  } = store
+  const { sidebarPin, c11n } = store
+  const { bannerLayout } = c11n
 
   return (
     <AnalysisService>
@@ -92,20 +71,11 @@ const GlobalLayoutContainer: FC<TProps> = ({
               target={errorPath}
             />
           ) : (
-            <React.Fragment>
+            <Fragment>
               <SEO metric={metric} config={seoConfig} />
-
-              <InnerWrapper
-                metric={metric}
-                sidebarPin={sidebarPin}
-                // noSidebar={noSidebar}
-              >
+              <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
                 {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
-                <AbuseReport />
-                <Drawer />
-                <Share />
-                <Doraemon />
-                <ErrorBox />
+                <Addon />
                 <ContentWrapper
                   offsetLeft={sidebarPin}
                   className={ANCHOR.GLOBAL_BLUR_CLASS}
@@ -117,7 +87,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
                     barSize={SIZE.MEDIUM}
                     showShadow={false}
                     onScrollDirectionChange={(direction) =>
-                      bodyScrollDirectionOnChange(direction)
+                      onPageScrollDirhange(direction)
                     }
                     autoHide
                   >
@@ -131,7 +101,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
                   </CustomScroller>
                 </ContentWrapper>
               </InnerWrapper>
-            </React.Fragment>
+            </Fragment>
           )}
           <ModeLine metric={metric} />
         </Wrapper>

@@ -6,12 +6,12 @@
 
 import { FC, ReactNode, useEffect, useState, useCallback, memo } from 'react'
 import usePortal from 'react-useportal'
-import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@/config'
 import { buildLog, toggleGlobalBlur } from '@/utils'
 import { useShortcut } from '@/hooks'
 
+import ViewportTracker from '@/components/ViewportTracker'
 import Belt from './Belt'
 
 import { Mask, Wrapper, CloseBtn, EscHint, ChildrenWrapper } from './styles'
@@ -71,7 +71,7 @@ const Modal: FC<TProps> = ({
               background={background}
               offsetTop={offsetTop}
             >
-              <Waypoint onEnter={() => setVisibleOnPage(true)} />
+              <ViewportTracker onEnter={() => setVisibleOnPage(true)} />
               <CloseBtn
                 mode={mode}
                 src={`${ICON_CMD}/closeBtn.svg`}

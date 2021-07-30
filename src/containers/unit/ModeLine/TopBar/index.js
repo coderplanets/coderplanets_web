@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
-import { useDevice } from '@/hooks'
+import { isMobile } from 'react-device-detect'
 
 let CurTopBar = null
 
 const Topbar = (props) => {
-  const { isMobile } = useDevice()
-
   useEffect(() => {
     if (isMobile) {
       CurTopBar = dynamic(() => import('./MobileView/index'), { ssr: false })

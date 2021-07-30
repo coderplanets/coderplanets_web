@@ -64,3 +64,7 @@ export const ContentWrapper = styled.div<{ offsetLeft: boolean }>`
   /* for global blur */
   transition: filter 0.25s;
 `
+export const ScrollHolder = styled.div`
+  height: 100vh;
+  width: 100%;
+`

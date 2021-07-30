@@ -48,8 +48,6 @@ import {
   // footer
   FooterStore,
   // viewers
-  PostViewerStore,
-  JobViewerStore,
   ArticleViewerHeader,
   ArticleBodyHeaderStore,
   RepoViewerStore,
@@ -61,18 +59,15 @@ import {
   DrawerStore,
   SidebarStore,
   PostEditorStore,
-  JobEditorStore,
   RepoEditorStore,
   AccountEditorStore,
   MailBoxStore,
-  LabelerStore,
   DocUploaderStore,
   AvatarAdderStore,
   TagsBarStore,
   UserListerStore,
   GirlVerifierStore,
   CashierStore,
-  ArticleAuthorCardStore,
   CommunitySetterStore,
   // user page
   UserPublishedStore,
@@ -135,12 +130,10 @@ const rootStore = T.model({
   sidebar: T.optional(SidebarStore, { menuItems: [] }),
   drawer: T.optional(DrawerStore, { visible: false }),
   doraemon: T.optional(DoraemonStore, {}),
-  jobEditor: T.optional(JobEditorStore, {}),
   postEditor: T.optional(PostEditorStore, {}),
   repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
   mailBox: T.optional(MailBoxStore, {}),
-  labeler: T.optional(LabelerStore, {}),
   docUploader: T.optional(DocUploaderStore, {}),
   avatarAdder: T.optional(AvatarAdderStore, {}),
   // toolbox end
@@ -176,14 +169,11 @@ const rootStore = T.model({
   userLister: T.optional(UserListerStore, {}),
   girlVerifier: T.optional(GirlVerifierStore, {}),
   cashier: T.optional(CashierStore, {}),
-  articleAuthorCard: T.optional(ArticleAuthorCardStore, {}),
   communitySetter: T.optional(CommunitySetterStore, {}),
 
   articleViewerHeader: T.optional(ArticleViewerHeader, {}),
   articleBodyHeader: T.optional(ArticleBodyHeaderStore, {}),
   // viewers (for drawer usage)
-  postViewer: T.optional(PostViewerStore, {}),
-  jobViewer: T.optional(JobViewerStore, {}),
   repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),
 

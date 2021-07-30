@@ -1,6 +1,32 @@
 import dynamic from 'next/dynamic'
 
+import { ScrollHolder } from './styles'
 import { TProps as TErrorPage } from '@/components/ErrorPage'
+
+export const Sidebar = dynamic(() => import('@/containers/unit/Sidebar'), {
+  ssr: false,
+})
+
+export const CustomScroller = dynamic(
+  () => import('@/components/CustomScroller'),
+  {
+    /* eslint-disable react/display-name */
+    loading: () => <ScrollHolder />,
+    ssr: false,
+  },
+)
+
+export const Drawer = dynamic(() => import('@/containers/tool/Drawer'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div />,
+  ssr: false,
+})
+
+export const ModeLine = dynamic(() => import('@/containers/unit/ModeLine'), {
+  /* eslint-disable react/display-name */
+  loading: () => <div />,
+  ssr: false,
+})
 
 export const Doraemon = dynamic(() => import('@/containers/tool/Doraemon'), {
   /* eslint-disable react/display-name */

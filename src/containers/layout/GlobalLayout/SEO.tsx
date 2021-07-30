@@ -5,10 +5,10 @@
  */
 
 import { FC } from 'react'
-import { NextSeo, BlogJsonLd, SocialProfileJsonLd } from 'next-seo'
+import Head from 'next/head'
 
 import type { TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+// import { METRIC } from '@/constant'
 
 type TProps = {
   metric: TMetric
@@ -16,52 +16,28 @@ type TProps = {
 }
 
 const SEO: FC<TProps> = ({ metric, config }) => {
-  switch (metric) {
-    case METRIC.ARTICLE: {
-      return (
-        <BlogJsonLd
-          url={config.url}
-          title={config.title}
-          datePublished={config.datePublished}
-          dateModified={config.dateModified}
-          authorName={config.authorName}
-          description={config.description}
-          images={config.images}
-        />
-      )
-    }
-
-    case METRIC.USER: {
-      return (
-        <SocialProfileJsonLd
-          type="Person"
-          name={config.name}
-          url={config.url}
-          sameAs={[]}
-        />
-      )
-    }
-
-    default: {
-      return (
-        <NextSeo
-          title={config.title}
-          description={config.description}
-          openGraph={{
-            url: config.url,
-            title: config.title,
-            description: config.description,
-          }}
-          additionalMetaTags={[
-            {
-              name: 'keywords',
-              content: 'codeing,community',
-            },
-          ]}
-        />
-      )
-    }
-  }
+  // switch (metric) {
+  //   case METRIC.ARTICLE: {
+  return (
+    <Head>
+      <title>{config.title}</title>
+      <meta name="description" content={config.description} />
+      <meta property="og:title" content={config.title} />
+      <meta property="og:description" content={config.description} />
+      <meta property="og:url" content={config.url} />
+      <meta property="og:type" content="website" />
+      {/* <link rel="icon" href="/favicon.ico" /> */}
+    </Head>
+    // <BlogJsonLd
+    //   url={config.url}
+    //   title={config.title}
+    //   datePublished={config.datePublished}
+    //   dateModified={config.dateModified}
+    //   authorName={config.authorName}
+    //   description={config.description}
+    //   images={config.images}
+    // />
+  )
 }
 
 export default SEO

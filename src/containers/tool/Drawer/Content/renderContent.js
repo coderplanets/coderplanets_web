@@ -8,14 +8,11 @@ import PlaceHolder from './PlaceHolder'
 
 import {
   ArticleViewer,
-  // PostViewer,
-  JobViewer,
   MailsViewer,
   RepoViewer,
   // editors
   AccountEditor,
   PostEditor,
-  JobEditor,
   RepoEditor,
   // utils
   C11NSettingPanel,
@@ -29,8 +26,6 @@ const renderContent = (type, attachment, attUser, mmType) => {
     case TYPE.DRAWER.POST_VIEW:
       return <ArticleViewer />
     // post
-    // case TYPE.DRAWER.POST_VIEW:
-    //   return <PostViewer attachment={attachment} />
 
     case TYPE.DRAWER.POST_CREATE:
       return <PostEditor />
@@ -39,14 +34,6 @@ const renderContent = (type, attachment, attUser, mmType) => {
       return <PostEditor attachment={attachment} />
 
     // job
-    case TYPE.DRAWER.JOB_CREATE:
-      return <JobEditor />
-
-    case TYPE.DRAWER.JOB_VIEW:
-      return <JobViewer attachment={attachment} />
-
-    case TYPE.DRAWER.JOB_EDIT:
-      return <JobEditor attachment={attachment} />
 
     // repo
     case TYPE.DRAWER.REPO_VIEW:

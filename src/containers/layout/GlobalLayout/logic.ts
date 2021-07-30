@@ -12,7 +12,7 @@ let store: TStore | undefined
 export const openDoraemon = (): void => store.openDoraemon()
 
 // custromScroll's scroll direction change
-export const bodyScrollDirectionOnChange = (
+export const onPageScrollDirhange = (
   bodyScrollDirection: TScrollDirection,
 ): void => store.mark({ bodyScrollDirection })
 /**
@@ -80,7 +80,7 @@ export const useInit = (_store: TStore, extra): void => {
     // scrollbars: { autoHide: 'scroll', autoHideDelay: 500 },
     // })
 
-    const { online, platform, isMobile } = extra
-    store.mark({ online, platform, isMobile })
+    const { online, isMobile } = extra
+    store.mark({ online, isMobile })
   }, [_store, extra])
 }

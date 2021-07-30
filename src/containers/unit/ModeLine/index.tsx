@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-import { useDevice } from '@/hooks'
+import { isMobile } from 'react-device-detect'
 import { pluggedIn, buildLog } from '@/utils'
 
 import type { TStore } from './store'
@@ -38,7 +38,6 @@ const ModeLineContainer: FC<TProps> = ({
     activeMenu,
     isCommunityBlockExpand,
   } = store
-  const { isMobile } = useDevice()
 
   // viewing: { community, activeThread },
   useEffect(() => {

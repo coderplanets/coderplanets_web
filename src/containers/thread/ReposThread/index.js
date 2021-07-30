@@ -5,7 +5,6 @@
  */
 
 import React from 'react'
-import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
@@ -18,6 +17,7 @@ import { PublishButton } from '@/components/Buttons'
 import PagedArticles from '@/components/PagedArticles'
 import ArticlesFilter from '@/components/ArticlesFilter'
 import Maybe from '@/components/Maybe'
+import ViewportTracker from '@/components/ViewportTracker'
 
 import {
   Wrapper,
@@ -61,7 +61,7 @@ const ReposThreadContainer = ({ reposThread: store }) => {
   return (
     <Wrapper>
       <LeftPart>
-        <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
+        <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />
         <Maybe test={showFilterBar}>
           <FilterWrapper>
             <ArticlesFilter

@@ -11,7 +11,7 @@ import EmptyLabel from '@/components/EmptyLabel'
 
 import PostsList from './PostsList'
 import JobsList from './JobsList'
-import ReposList from './ReposList'
+// import ReposList from './ReposList'
 
 const ArticleList = (props) => {
   const { thread, resState, community, emptyPrefix } = props
@@ -35,8 +35,8 @@ const ArticleList = (props) => {
     case THREAD.JOB:
       return <JobsList {...props} />
 
-    case THREAD.REPO:
-      return <ReposList {...props} />
+    // case THREAD.REPO:
+    //   return <ReposList {...props} />
 
     default:
       return <PostsList {...props} />

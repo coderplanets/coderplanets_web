@@ -4,16 +4,14 @@
 
 import { FC } from 'react'
 import { isNil } from 'ramda'
-import { Waypoint } from 'react-waypoint'
 
 import type { TScrollDirection, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { useScroll } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
-import CollectionFolder from '@/containers/tool/CollectionFolder'
-
-import FixedHeader from './FixedHeader'
+import ViewportTracker from '@/components/ViewportTracker'
+import { CollectionFolder, FixedHeader } from './dynamic'
 import Layout from './Layout'
 
 import type { TStore } from '../store'
@@ -62,7 +60,7 @@ const ArticleDigestContainer: FC<TProps> = ({
           />
         </BannerContent>
       </InnerWrapper>
-      <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
+      <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />
     </Wrapper>
   )
 }

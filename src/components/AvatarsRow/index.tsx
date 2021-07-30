@@ -4,21 +4,49 @@
  *
  */
 
-import { FC } from 'react'
+import { FC, createContext, useContext } from 'react'
+import dynamic from 'next/dynamic'
 import { compose, not, isNil, filter, reverse as reverseFn, slice } from 'ramda'
 import { trackWindowScroll } from 'react-lazy-load-image-component'
 
-import type { TUser } from '@/spec'
+import type { TUser, TSIZE } from '@/spec'
+import type { TAvatarSize } from './spec'
 import { AVATARS_LIST_LENGTH } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils'
 
-import type { TAvatarSize } from './spec'
-
-import RealAvatar from './RealAvatar'
+// import RealAvatar from './RealAvatar'
 import MoreItem from './MoreItem'
 
-import { Wrapper, AvatarsWrapper, TotalOneOffset } from './styles'
+import { getAvatarSize } from './styles/metric'
+import {
+  Wrapper,
+  AvatarsWrapper,
+  TotalOneOffset,
+  AvatarFallback,
+} from './styles'
+
+// @ts-ignore
+const RealAvatarContext = createContext()
+
+export const RealAvatar = dynamic(() => import('./RealAvatar'), {
+  /* eslint-disable react/display-name */
+  loading: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { size, user } = useContext(RealAvatarContext) as {
+      user: TUser
+      size: TSIZE
+    }
+
+    return (
+      <AvatarFallback
+        size={getAvatarSize(size, 'number') as number}
+        user={user}
+      />
+    )
+  },
+  ssr: false,
+})
 
 /* eslint-disable-next-line */
 const log = buildLog('c:AvatarsRow:index')
@@ -89,20 +117,19 @@ const AvatarsRow: FC<TProps> = ({
       )}
 
       {totalCount === 1 ? (
-        <RealAvatar
-          user={sortedUsers[0]}
-          size={size}
-          onUserSelect={onUserSelect}
-        />
+        <RealAvatarContext.Provider value={{ size, user: sortedUsers[0] }}>
+          <RealAvatar
+            user={sortedUsers[0]}
+            size={size}
+            onUserSelect={onUserSelect}
+          />
+        </RealAvatarContext.Provider>
       ) : (
         <AvatarsWrapper>
           {slice(0, limit, sortedUsers).map((user) => (
-            <RealAvatar
-              key={user.id}
-              user={user}
-              size={size}
-              onUserSelect={onUserSelect}
-            />
+            <RealAvatarContext.Provider key={user.id} value={{ size, user }}>
+              <RealAvatar user={user} size={size} onUserSelect={onUserSelect} />
+            </RealAvatarContext.Provider>
           ))}
         </AvatarsWrapper>
       )}

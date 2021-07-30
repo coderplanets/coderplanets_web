@@ -1,21 +1,25 @@
 import { FC, memo } from 'react'
+import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-import BlinkCursor from '@/components/BlinkCursor'
+// import BlinkCursor from '@/components/BlinkCursor'
 
 import {
   Breadcrumbs,
   Logo,
   LogoLink,
-  LogoMargin,
   LogoText,
   OfflineWrapper,
   ActionText,
 } from './styles'
 
-import MainEntries from './MainEntries/index'
+import MainEntries from './MainEntries'
 import { TC11NLayout } from '@/spec'
+
+export const BlinkCursor = dynamic(() => import('@/components/BlinkCursor'), {
+  ssr: false,
+})
 
 const renderMainEntries = (metric) => {
   switch (metric) {

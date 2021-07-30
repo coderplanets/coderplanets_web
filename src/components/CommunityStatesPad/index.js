@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { useDevice } from '@/hooks'
+import { isMobile } from 'react-device-detect'
 import { buildLog } from '@/utils'
 
 import Charger from '@/components/Charger'
@@ -40,8 +40,6 @@ const CommunityStatesPad = ({
     jobsCount,
     viewerHasSubscribed,
   } = community
-  const { isMobile } = useDevice()
-
   const contentsCount = postsCount + reposCount + jobsCount
 
   return (

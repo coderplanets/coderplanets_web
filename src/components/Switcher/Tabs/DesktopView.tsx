@@ -8,7 +8,7 @@ import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
 import { isEmpty, findIndex } from 'ramda'
 
 import type { TSIZE_SM, TTabItem, TC11NLayout } from '@/spec'
-import { useDevice } from '@/hooks'
+import { isMobile } from 'react-device-detect'
 import { SIZE, C11N } from '@/constant'
 import { buildLog, isString } from '@/utils'
 
@@ -66,8 +66,6 @@ const Tabs: FC<TProps> = ({
   activeKey = '',
   slipHeight = '2px',
 }) => {
-  const { isMobile } = useDevice()
-
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)

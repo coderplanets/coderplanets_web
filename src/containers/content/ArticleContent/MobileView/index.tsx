@@ -5,16 +5,15 @@
  */
 
 import { FC } from 'react'
-import { Waypoint } from 'react-waypoint'
 
 import { pluggedIn, buildLog } from '@/utils'
 
 import Comments from '@/containers/unit/Comments'
-// import ArticleAuthorCard from '@/containers/unit/ArticleAuthorCard'
 import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import Maybe from '@/components/Maybe'
 import MarkDownRender from '@/components/MarkDownRender'
+import ViewportTracker from '@/components/ViewportTracker'
 
 import type { TStore } from '../store'
 
@@ -51,7 +50,10 @@ const PostContentContainer: FC<TProps> = ({
             <ArticleWrapper>
               <MarkDownRender body={viewingArticle.body} />
             </ArticleWrapper>
-            <Waypoint onEnter={articleInAnchor} onLeave={articleOutAnchor} />
+            <ViewportTracker
+              onEnter={articleInAnchor}
+              onLeave={articleOutAnchor}
+            />
             <ArticleFooter />
             <CommentsWrapper>
               {/* @ts-ignore */}

@@ -11,7 +11,6 @@ import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
 import { pluggedIn, buildLog } from '@/utils'
 
-import UserLister from '@/containers/user/UserLister'
 import Navigator from '@/components/Navigator'
 
 import type { TStore } from '../store'
@@ -76,7 +75,6 @@ const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
         </RouterWrapper>
         <Operations metric={metric}>
           {MailBox && <MailBox />}
-          <UserLister />
           {/* <Cashier /> */}
           <MoreIcon src={`${ICON}/shape/more-box.svg`} />
         </Operations>

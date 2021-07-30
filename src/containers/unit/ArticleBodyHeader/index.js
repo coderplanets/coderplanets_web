@@ -12,7 +12,6 @@ import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { pluggedIn, buildLog } from '@/utils'
 
-import Labeler from '@/containers/unit/Labeler'
 import CommunitySetter from '@/containers/tool/CommunitySetter'
 import Tooltip from '@/components/Tooltip'
 import ArticleActionsPanel from '@/components/ArticleActionsPanel'
@@ -78,16 +77,6 @@ const ArticleBodyHeaderContainer = ({
       <CommunitySetter />
 
       {middle === 'linker' && <Linker addr={data.linkAddr} />}
-      {middle === 'labeler' && (
-        <Labeler
-          passport={`owner;${communityRaw}->${thread}.tag.set`}
-          ownerId={data.author && data.author.id}
-          fallbackProps="readOnly"
-          onTagSelect={onTagSelect}
-          onTagUnselect={onTagUnselect}
-          selected={tagTitleList}
-        />
-      )}
       <RefinedLabel tags={data.tags} />
     </Wrapper>
   )

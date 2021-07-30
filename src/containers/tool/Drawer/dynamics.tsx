@@ -30,16 +30,6 @@ export const ArticleViewer = dynamic(
   commonConfig,
 )
 
-export const PostViewer = dynamic(
-  () => import('@/containers/viewer/PostViewer'),
-  commonConfig,
-)
-
-export const JobViewer = dynamic(
-  () => import('@/containers/viewer/JobViewer'),
-  commonConfig,
-)
-
 export const MailsViewer = dynamic(
   () => import('@/containers/viewer/MailsViewer'),
   commonConfig,
@@ -58,11 +48,6 @@ export const AccountEditor = dynamic(
 
 export const PostEditor = dynamic(
   () => import('@/containers/editor/PostEditor'),
-  editorConfig,
-)
-
-export const JobEditor = dynamic(
-  () => import('@/containers/editor/JobEditor'),
   editorConfig,
 )
 

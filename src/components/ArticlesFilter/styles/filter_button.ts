@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import { theme, css } from '@/utils'
 import Img from '@/Img'
 

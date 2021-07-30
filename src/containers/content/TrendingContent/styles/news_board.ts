@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   width: 100%;
   position: relative;
 `
-// Waypoint hack
 export const ShadowBarHolder = styled.div`
   width: 1px;
   height: 100%;

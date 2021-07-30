@@ -1,13 +1,11 @@
 /*
- *
- * CommunityContent
- *
+ * CommunityContent.
  */
 
 import { FC, Fragment } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import { C11N } from '@/constant'
-import { useDevice } from '@/hooks'
 import { pluggedIn, buildLog } from '@/utils'
 
 import ClassicLayout from './ClassicLayout'
@@ -25,7 +23,6 @@ type TProps = {
 
 const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   useInit(store)
-  const { isMobile } = useDevice()
 
   const {
     curThread,

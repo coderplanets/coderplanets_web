@@ -16,6 +16,7 @@
       "@/schemas": ["src/schemas"],
       "@/Img": ["src/components/Img"],
       "@/SvgIcons/*": ["src/components/SvgIcons/*"],
+      "@/icons/*": ["src/components/icons/*"],
       "@/i18n": ["i18n"]
     }
   },
