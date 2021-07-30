@@ -4,7 +4,6 @@ import { pluck } from 'ramda'
 import { ICON_CMD } from '@/config'
 
 import DocUploader from '@/containers/tool/DocUploader'
-import Labeler from '@/containers/unit/Labeler'
 import Maybe from '@/components/Maybe'
 
 import {
@@ -45,8 +44,6 @@ const PicUploader = ({ divider }) => (
 
 const EditorFooter = ({ isEdit, editData }) => (
   <Wrapper>
-    {!isEdit && <Labeler selected={pluck('title', editData.tags)} multi />}
-    <Divider src={`${ICON_CMD}/more.svg`} />
     <CodeInputer divider />
     <Divider src={`${ICON_CMD}/more.svg`} />
     <PicUploader divider />

@@ -55,17 +55,13 @@ export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
 
 // toolbox
 export { default as DocUploaderStore } from '@/containers/tool/DocUploader/store'
-export { default as JobEditorStore } from '@/containers/editor/JobEditor/store'
 export { default as PostEditorStore } from '@/containers/editor/PostEditor/store'
 export { default as RepoEditorStore } from '@/containers/editor/RepoEditor/store'
 export { default as CommentsStore } from '@/containers/unit/Comments/store'
 export { default as AccountEditorStore } from '@/containers/editor/AccountEditor/store'
-export { default as LabelerStore } from '@/containers/unit/Labeler/store'
 export { default as CommunitySetterStore } from '@/containers/tool/CommunitySetter/store'
 
 // viewers store
-export { default as PostViewerStore } from '@/containers/viewer/PostViewer/store'
-export { default as JobViewerStore } from '@/containers/viewer/JobViewer/store'
 export { default as RepoViewerStore } from '@/containers/viewer/RepoViewer/store'
 export { default as MailsViewerStore } from '@/containers/viewer/MailsViewer/store'
 
