@@ -21,11 +21,6 @@ const nextConfig = {
       new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /(en)/),
     )
 
-    // for sentry
-    if (!isServer) {
-      config.resolve.alias['@sentry/node'] = '@sentry/browser'
-    }
-
     return config
   },
 }

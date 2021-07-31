@@ -1,7 +1,6 @@
 import React from 'react'
 import NextErrorComponent from 'next/error'
 import { Provider } from 'mobx-react'
-// import * as Sentry from '@sentry/node'
 
 import AnalysisService from '@/services/Analysis'
 import ThemePalette from '@/containers/layout/ThemePalette'
