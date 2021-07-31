@@ -132,7 +132,7 @@ const rootStore = T.model({
   sidebar: T.optional(SidebarStore, {}),
   drawer: T.optional(DrawerStore, { visible: false }), // gzip + 16kb
   // NOTE: 危险
-  // doraemon: T.optional(DoraemonStore, {}),
+  doraemon: T.optional(DoraemonStore, {}),
   postEditor: T.optional(PostEditorStore, {}),
   repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
@@ -147,7 +147,6 @@ const rootStore = T.model({
   communityDigest: T.optional(CommunityDigestStore, {}),
   communityContent: T.optional(CommunityContentStore, {}),
   discoveryContent: T.optional(DiscoveryContentStore, {}),
-  // NOTE:  危险
   communityEditor: T.optional(CommunityEditorStore, {}),
   userContent: T.optional(UserContentStore, {}),
   footer: T.optional(FooterStore, {}),
@@ -202,8 +201,135 @@ const rootStore = T.model({
   c11NSettingPanel: T.optional(C11NSettingPanelStore, {}),
   roadmapThread: T.optional(RoadmapThreadStore, {}),
 })
-  .views((self) => ({}))
-  .actions((self) => ({}))
+  .views((self) => ({
+    get isOnline(): boolean {
+      return self.globalLayout.online
+    },
+    get isMobile(): boolean {
+      return self.globalLayout.isMobile
+    },
+    get doraemonVisible(): boolean {
+      // TODO self.doraemon.visible
+      return self.doraemon.visible
+    },
+    get viewingData(): TViewing {
+      return self.viewing.viewingData
+    },
+    get viewingArticle(): TArticle {
+      const { viewing } = self
+      const { activeThread } = viewing
+
+      return viewing[activeThread]
+    },
+    get curRoute(): TRoute {
+      return self.route.curRoute
+    },
+    get accountInfo(): TAccount {
+      return self.account.accountInfo
+    },
+  }))
+  .actions((self) => ({
+    markRoute(query, opt = {}): void {
+      self.route.markRoute(query, opt)
+    },
+    showTopModeline(bool: boolean): void {
+      self.modeLine.showTopBar(bool)
+    },
+    openDoraemon(): void {
+      self.doraemon.open()
+    },
+    closeDrawer(): void {
+      self.drawer.close()
+    },
+    changeTheme(name): void {
+      self.theme.changeTheme(name)
+    },
+    setViewing(sobj): void {
+      self.viewing.setViewing(sobj)
+    },
+    resetViewing(): void {
+      self.viewing.resetViewing()
+    },
+    updateViewingIfNeed(type, sobj): void {
+      self.viewing.updateViewingIfNeed(type, sobj)
+    },
+    sponsorHepler(): void {
+      self.footer.sponsorHepler()
+    },
+    cashierHelper(opt): void {
+      self.footer.closeSponsor()
+      self.cashier.callCashier(opt)
+    },
+    toast(type, options = {}): void {
+      const themeData = themeSkins[self.theme.curTheme]
+      const progressBarColor = toastBarColor(type, themeData)
+
+      const toastOpt = merge(options, { progressBarColor })
+      toast[type](toastOpt)
+    },
+    authWarning(options = {}): void {
+      const defaultOpt = {
+        position: 'topCenter',
+        title: '当前账号未登录',
+        msg: '暂不支持匿名操作，请登录后再次尝试.',
+      }
+
+      // @ts-ignore TODO:
+      if (options?.hideToast === true) {
+        // pass
+      } else {
+        // @ts-ignore TODO:
+        self.toast('warn', merge(defaultOpt, options))
+      }
+
+      send(EVENT.LOGIN_PANEL)
+    },
+    changesetErr(options): void {
+      // @ts-ignore TODO:
+      self.toast('error', options)
+    },
+    callGirlVerifier(): void {
+      self.girlVerifier.show()
+    },
+    updateC11N(options): void {
+      self.account.updateC11N(options)
+    },
+    isMemberOf(type): boolean {
+      return self.account.isMemberOf(type)
+    },
+    // get general args when query paged articles from server
+    getPagedArticleArgs(
+      page: number,
+      // 每个 thread 的 ArticlesFilter 选项
+      articlesfilter = {},
+    ): Record<string, unknown> {
+      const { isLogin: userHasLogin, pageDensity: size } = self.account
+      const tag = self.tagsBar.activeTagData
+      const { community } = self.viewing
+
+      const filter = pickBy(notEmpty, {
+        page,
+        size,
+        tag: tag.title,
+        community: community.raw,
+        ...articlesfilter,
+      })
+
+      return { filter, userHasLogin }
+    },
+
+    onAdsClose(): void {
+      const { isMemberOf } = self.account
+
+      if (isMemberOf('seniorMember') || isMemberOf('sponsorMember')) {
+        return console.log('do custom ads')
+      }
+    },
+
+    mark(sobj): void {
+      markStates(sobj, self)
+    },
+  }))
 
 /**
  *   NOTE: if use TRootStore in sub container, e.g:

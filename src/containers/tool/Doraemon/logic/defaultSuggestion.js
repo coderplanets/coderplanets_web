@@ -5,7 +5,7 @@
    login --
  */
 import { ICON_CMD } from '@/config'
-import { themeMeta } from '@/utils'
+import { themeMeta } from '@/utils/themes'
 
 const cmds = {
   theme: {
