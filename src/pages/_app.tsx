@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import * as Sentry from '@sentry/node'
 
 /**
  * import default seo configuration
@@ -9,12 +8,7 @@ import * as Sentry from '@sentry/node'
  */
 // import { appWithTranslation } from '@/i18n'
 
-import CrashErrorHint from '@/components/CrashErrorHint'
-
-Sentry.init({
-  enabled: process.env.NODE_ENV === 'production',
-  dsn: process.env.NEXT_PUBLIC_SENTRY_TOKEN,
-})
+// import CrashErrorHint from '@/components/CrashErrorHint'
 
 const App = ({ Component, pageProps, err }) => {
   return (
@@ -27,8 +21,9 @@ const App = ({ Component, pageProps, err }) => {
         />
       </Head>
       {err ? (
-        <CrashErrorHint />
+        <div>CrashErrorHint</div>
       ) : (
+        // <CrashErrorHint />
         /* render normal next.js app */
         <>
           <Component {...pageProps} />
