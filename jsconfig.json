@@ -13,6 +13,7 @@
       "@/stores/*": ["src/stores/*"],
       "@/model": ["src/stores/SharedModel"],
       "@/utils": ["utils"],
+      "@/utils/*": ["utils/*"],
       "@/schemas": ["src/schemas"],
       "@/Img": ["src/components/Img"],
       "@/SvgIcons/*": ["src/components/SvgIcons/*"],

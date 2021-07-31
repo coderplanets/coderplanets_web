@@ -7,12 +7,9 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
 import type { TRootStore } from '@/spec'
-import { markStates, buildLog } from '@/utils'
+import { markStates } from '@/utils/mobx'
 
 import { PACKAGE, PAY } from './constant'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:MembershipContent')
 
 const MembershipContent = T.model('MembershipContent', {
   showInviteBox: T.optional(T.boolean, false),

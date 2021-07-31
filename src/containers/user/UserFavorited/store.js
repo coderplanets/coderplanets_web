@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { TYPE, THREAD } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 
 import {
   PagedPosts,
@@ -15,9 +15,6 @@ import {
   emptyPagiData,
   FavoriteCategory,
 } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:UserFavorited')
 
 const UserFavorited = T.model('UserFavorited', {
   curCategory: T.maybeNull(FavoriteCategory),

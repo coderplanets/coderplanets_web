@@ -5,9 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:JoinModal')
+import { markStates } from '@/utils/mobx'
 
 const JoinModal = T.model('JoinModal', {
   show: T.optional(T.boolean, false),

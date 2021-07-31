@@ -27,6 +27,7 @@
       "@/stores/*": ["src/stores/*"],
       "@/model": ["src/stores/SharedModel"],
       "@/utils": ["utils"],
+      "@/utils/*": ["utils/*"],
       "@/schemas": ["src/schemas"],
       "@/spec": ["src/spec"],
       "@/Img": ["src/components/Img"],

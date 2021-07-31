@@ -9,16 +9,10 @@ import { merge, pickBy, omit, isEmpty } from 'ramda'
 import type { TRootStore, TRoute } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 
-import {
-  Global,
-  isClientSide,
-  markStates,
-  buildLog,
-  serializeQuery,
-} from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:RouteStore')
+import { Global } from '@/utils/helper'
+import { isClientSide } from '@/utils/ssr'
+import { serializeQuery } from '@/utils/route'
+import { markStates } from '@/utils/mobx'
 
 const Query = T.model('Query', {
   page: T.optional(T.string, '1'),

@@ -6,7 +6,8 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
 import type { TAccount, TCommunity, TThread, TRootStore } from '@/spec'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ThreadSidebar')

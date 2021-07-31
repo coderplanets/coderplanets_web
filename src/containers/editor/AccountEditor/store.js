@@ -6,11 +6,9 @@
 import { types as T, getParent } from 'mobx-state-tree'
 import { merge, clone, concat } from 'ramda'
 
-import { markStates, buildLog, stripMobx, changeset, flashState } from '@/utils'
+import { markStates, stripMobx, flashState } from '@/utils/mobx'
+import { changeset } from '@/utils/validator'
 import { User, EduBackground, WorkBackground } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:AccountEditorStore')
 
 const AccountEditorStore = T.model('AccountEditorStore', {
   // user: T.optional(User, {}),
@@ -94,7 +92,6 @@ const AccountEditorStore = T.model('AccountEditorStore', {
           return result.passed
         }
         default: {
-          log('unknow validator')
           return false
         }
       }

@@ -8,10 +8,7 @@ import { merge, contains, values } from 'ramda'
 
 import type { TRootStore, TCommunity, TAccount } from '@/spec'
 import { METRIC } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:HeaderStore')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const HeaderStore = T.model('HeaderStore', {
   metric: T.optional(T.enumeration(values(METRIC)), METRIC.COMMUNITY),

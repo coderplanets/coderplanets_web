@@ -6,11 +6,8 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 import { GithubUser } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:AvatarAdder')
 
 const AvatarAdder = T.model('AvatarAdder', {
   githubUser: T.maybeNull(GithubUser),

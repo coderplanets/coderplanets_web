@@ -6,7 +6,8 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TRoute, TArticle } from '@/spec'
-import { markStates, buildLog } from '@/utils'
+import { markStates } from '@/utils/mobx'
+import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleContentStore')

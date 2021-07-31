@@ -18,6 +18,16 @@ const nextConfig = {
       new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /(en)/),
     )
 
+    // for sentry
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
+      }),
+    )
+    if (!isServer) {
+      config.resolve.alias['@sentry/node'] = '@sentry/browser'
+    }
+
     return config
   },
 }

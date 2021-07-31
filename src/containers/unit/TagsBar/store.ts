@@ -14,11 +14,9 @@ import type {
   TThread,
 } from '@/spec'
 
-import { markStates, buildLog, stripMobx, groupByKey } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { groupByKey } from '@/utils/helper'
 import { Tag, emptyTag } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:TagsBar')
 
 const TagsBar = T.model('TagsBar', {
   tags: T.optional(T.array(Tag), []),

@@ -9,16 +9,11 @@ import { merge, contains, values } from 'ramda'
 import type { TRootStore, TCommunity, TThread, TID } from '@/spec'
 import { TYPE, THREAD } from '@/constant'
 
-import {
-  markStates,
-  stripMobx,
-  lockPage,
-  unlockPage,
-  Global,
-  WIDTH,
-  css,
-  toggleGlobalBlur,
-} from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
+import { Global } from '@/utils/helper'
+import css from '@/utils/css'
+import { WIDTH } from '@/utils/css/media'
 import { User } from '@/model'
 
 import { TSwipeOption } from './spec'

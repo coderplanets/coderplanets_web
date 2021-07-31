@@ -6,11 +6,8 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { TYPE, THREAD } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 import { PagedPosts, PagedJobs, PagedRepos, emptyPagiData } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:UserPublished')
 
 const UserPublished = T.model('UserPublished', {
   curThread: T.optional(

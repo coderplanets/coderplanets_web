@@ -6,10 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { TYPE } from '@/constant'
-import { markStates, buildLog } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:ArticleViewerHeader')
+import { markStates } from '@/utils/mobx'
 
 const ArticleViewerHeader = T.model('ArticleViewerHeader', {
   loading: T.optional(T.boolean, false),

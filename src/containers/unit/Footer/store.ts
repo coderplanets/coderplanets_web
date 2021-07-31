@@ -6,13 +6,10 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TAccount, TArticle, TCommunity } from '@/spec'
-import { HCN, METRIC } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { METRIC } from '@/constant'
+import { markStates, stripMobx } from '@/utils/mobx'
 
 // import { VIEW, TFooterView } from './constants'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:FooterStore')
 
 const FooterStore = T.model('FooterStore', {
   showSponsor: T.optional(T.boolean, false),

@@ -15,11 +15,9 @@ import {
   contains,
 } from 'ramda'
 
-import { markStates, buildLog, stripMobx, changeset } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { changeset } from '@/utils/validator'
 import { Post, Mention } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:PostEditorf')
 
 const PostEditor = T.model('PostEditor', {
   editPost: T.optional(Post, {}),
@@ -106,7 +104,6 @@ const PostEditor = T.model('PostEditor', {
           return result.passed
         }
         default: {
-          log('unknow validator')
           return false
         }
       }

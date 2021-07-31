@@ -8,10 +8,7 @@ import { values } from 'ramda'
 
 import type { TRootStore, TViewing, TArticle } from '@/spec'
 import { TYPE, METRIC } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:ModeLine')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const ModeLine = T.model('ModeLine', {
   topBarVisiable: T.optional(T.boolean, false),

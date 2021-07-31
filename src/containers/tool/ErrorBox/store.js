@@ -6,10 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:ErrorBox')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const Message = T.model('Message', {
   message: T.string,

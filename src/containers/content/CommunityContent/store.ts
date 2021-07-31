@@ -6,10 +6,8 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TAccount, TCommunity, TThread } from '@/spec'
-import { markStates, buildLog, sortByIndex, stripMobx } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:CommunityContent')
+import { markStates, stripMobx } from '@/utils/mobx'
+import { sortByIndex } from '@/utils/helper'
 
 const CommunityContent = T.model('CommunityContent', {})
   .views((self) => ({

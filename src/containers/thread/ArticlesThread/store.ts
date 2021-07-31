@@ -18,11 +18,9 @@ import type {
 } from '@/spec'
 
 import { TYPE, THREAD } from '@/constant'
-import { markStates, buildLog, stripMobx, nilOrEmpty, isObject } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { nilOrEmpty, isObject } from '@/utils/validator'
 import { PagedPosts, ArticlesFilter, emptyPagiData } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:ArticlesThread')
 
 const ArticlesThread = T.model('ArticlesThread', {
   pagedPosts: T.optional(PagedPosts, emptyPagiData),

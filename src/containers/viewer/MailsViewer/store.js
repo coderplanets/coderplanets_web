@@ -5,11 +5,8 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 import { PagedMentionMessages, emptyPagiData } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:MailsViewer')
 
 const MailsViewer = T.model('MailsViewer', {
   pagedMentions: T.optional(PagedMentionMessages, emptyPagiData),

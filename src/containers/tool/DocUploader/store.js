@@ -5,9 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:DocUploader')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const DocUploader = T.model('DocUploader', {})
   .views((self) => ({

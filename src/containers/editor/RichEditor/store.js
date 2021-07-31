@@ -5,9 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:RichEditor')
+import { markStates } from '@/utils/mobx'
 
 // NOTE: add me to stores/index && stores/RootStore/index
 const RichEditor = T.model('RichEditor', {})

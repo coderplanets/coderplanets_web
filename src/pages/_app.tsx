@@ -23,7 +23,6 @@ const App = ({ Component, pageProps, err }) => {
       {err ? (
         <div>CrashErrorHint</div>
       ) : (
-        // <CrashErrorHint />
         /* render normal next.js app */
         <>
           <Component {...pageProps} />

@@ -6,10 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:RepoViewer')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const RepoViewer = T.model('RepoViewer', {
   loading: T.optional(T.boolean, false),
@@ -36,7 +33,6 @@ const RepoViewer = T.model('RepoViewer', {
       self.root.changesetErr(options)
     },
     handleError(errorType) {
-      log(errorType)
       self.mark({ errorType, loading: false })
       switch (errorType) {
         case ERR.NOT_FOUND:

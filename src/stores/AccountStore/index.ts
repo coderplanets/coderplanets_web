@@ -13,11 +13,9 @@ import type {
   TPagedCommunities,
   TC11N,
 } from '@/spec'
-import { markStates, buildLog, stripMobx, BStore } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import BStore from '@/utils/bstore'
 import { User, EmptyUser, PagedCommunities } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:AccountStore')
 
 const AccountStore = T.model('AccountStore', {
   user: T.optional(User, {}),
@@ -89,9 +87,6 @@ const AccountStore = T.model('AccountStore', {
       return sessionCleanup()
     },
     setSession(user: string, token: string): void {
-      // log('setSession user: ', user)
-      // log('setSession token: ', token)
-
       BStore.set('user', user)
       BStore.set('token', token)
       BStore.cookie.set('jwtToken', token)

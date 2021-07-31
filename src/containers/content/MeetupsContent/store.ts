@@ -6,9 +6,7 @@
 import { types as T, Instance } from 'mobx-state-tree'
 
 import { GALLERY } from '@/constant'
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:MeetupsContent')
+import { markStates } from '@/utils/mobx'
 
 const MeetupsContent = T.model('MeetupsContent', {
   activeGalleryType: T.optional(

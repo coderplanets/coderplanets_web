@@ -6,11 +6,9 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 // stripMobx
-import { markStates, buildLog } from '@/utils'
+import { markStates } from '@/utils/mobx'
 
 import { LN } from './logic'
-/* eslint-disable-next-line */
-const log = buildLog('S:DiscoveryContentStore')
 
 const DiscoveryContentStore = T.model('CommunityEditorStore', {
   step: T.optional(

@@ -6,10 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TAccount, TC11N } from '@/spec'
-import { markStates, buildLog } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:GlobalLayoutStore')
+import { markStates } from '@/utils/mobx'
 
 const Platform = T.model('Platform', {
   isChrome: T.optional(T.boolean, true),

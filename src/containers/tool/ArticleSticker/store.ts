@@ -7,9 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
 import type { TRootStore, TViewing, TScrollDirection, TThread } from '@/spec'
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:ArticleSticker')
+import { markStates } from '@/utils/mobx'
 
 const ArticleSticker = T.model('ArticleSticker', {
   isTocMenuOpened: T.optional(T.boolean, false),

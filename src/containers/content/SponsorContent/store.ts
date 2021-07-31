@@ -5,9 +5,7 @@
 
 import { types as T, Instance } from 'mobx-state-tree'
 
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:SponsorContent')
+import { markStates } from '@/utils/mobx'
 
 const SponsorContent = T.model('SponsorContent', {
   bannerVisiable: T.optional(T.boolean, true),

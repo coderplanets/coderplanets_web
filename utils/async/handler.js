@@ -13,20 +13,20 @@ const log = buildLog('Async')
 
 export const TimeoutObservable = of({
   error: ERR.TIMEOUT,
-  details: `server has no-response in ${Math.round(
-    (TIMEOUT_THRESHOLD / 1000) * 100
-  ) / 100} secs`,
+  details: `server has no-response in ${
+    Math.round((TIMEOUT_THRESHOLD / 1000) * 100) / 100
+  } secs`,
 })
 
 // refator later
-const formatDetail = errors => {
+const formatDetail = (errors) => {
   const details = []
   // NOTE:  eadge case, fix latter
   if (!errors) return {}
 
   errors.map(({ message, path, key, code }) => {
     if (Array.isArray(message)) {
-      return message.map(msg => {
+      return message.map((msg) => {
         return details.push({
           detail: msg.message,
           path: path ? join(' |> ', path) : '',
@@ -45,7 +45,7 @@ const formatDetail = errors => {
   return details
 }
 
-export const formatGraphErrors = error => {
+export const formatGraphErrors = (error) => {
   if (Array.isArray(error)) {
     return { error: ERR.GRAPHQL, details: formatDetail(error) }
   }
@@ -59,7 +59,7 @@ export const formatGraphErrors = error => {
   return { error: ERR.NETWORK, details: 'checkout your server or network' }
 }
 
-export const getThenHandler = res => {
+export const getThenHandler = (res) => {
   switch (true) {
     case res.status >= 200 && res.status < 300:
       return Promise.resolve(res.text())
@@ -77,7 +77,7 @@ export const getThenHandler = res => {
   }
 }
 
-export const getCatchHandler = err => {
+export const getCatchHandler = (err) => {
   /*
   if (!navigator.onLine) {
     return { error: 'NET_OFFLINE', details: 'NET_OFFLINE' }

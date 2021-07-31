@@ -6,11 +6,8 @@
 import { types as T, getParent } from 'mobx-state-tree'
 import { pluck } from 'ramda'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 import { PagedCommunities } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:CommunitySetter')
 
 const CommunitySetter = T.model('CommunitySetter', {
   visible: T.optional(T.boolean, false),

@@ -8,10 +8,7 @@ import { values } from 'ramda'
 
 import type { TRootStore, TAccount, TUser } from '@/spec'
 import { USER_THREAD } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:UserContent')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const UserContent = T.model('UserContent', {
   activeThread: T.optional(

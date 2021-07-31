@@ -6,8 +6,9 @@ import AnalysisService from '@/services/Analysis'
 import ThemePalette from '@/containers/layout/ThemePalette'
 import ErrorPage from '@/components/ErrorPage'
 
-import { Wrapper } from '@/containers/layout/GlobalLayout/styles'
 import { useStore } from '@/stores/init'
+
+import { Wrapper } from '@/containers/layout/GlobalLayout/styles'
 
 const Error = (props) => {
   const store = useStore(props)
@@ -18,7 +19,6 @@ const Error = (props) => {
     // getInitialProps is not called in case of
     // https://github.com/vercel/next.js/issues/8592. As a workaround, we pass
     // err via _app.js so it can be captured
-    // Sentry.captureException(err)
   }
 
   return (
@@ -67,16 +67,12 @@ Error.getInitialProps = async ({ res, err, asPath }) => {
     return { statusCode: 404, ...i18nConfig }
   }
   if (err) {
-    // Sentry.captureException(err)
     return { ...errorInitialProps, ...i18nConfig }
   }
 
   // If this point is reached, getInitialProps was called without any
   // information about what the error might be. This is unexpected and may
   // indicate a bug introduced in Next.js, so record it in Sentry
-  // Sentry.captureException(
-  //   new Error(`_error.js getInitialProps missing data at path: ${asPath}`),
-  // )
 
   return { ...errorInitialProps, ...i18nConfig }
 }

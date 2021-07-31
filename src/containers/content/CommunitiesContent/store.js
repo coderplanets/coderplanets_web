@@ -7,11 +7,9 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { propEq, findIndex } from 'ramda'
 
 import { ICON_CMD } from '@/config'
-import { markStates, buildLog, stripMobx, Trans } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { Trans } from '@/utils/i18n'
 import { PagedCommunities, PagedCategories, emptyPagiData } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:DiscoveryContentStore')
 
 const DiscoveryContentStore = T.model('DiscoveryContentStore', {
   // current active sidbar menu id

@@ -9,10 +9,7 @@ import { merge, values } from 'ramda'
 import type { TRootStore, TAccount } from '@/spec'
 
 import { PAYMENT_USAGE, PAYMENT_METHOD } from '@/constant'
-import { markStates, buildLog } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:Cashier')
+import { markStates } from '@/utils/mobx'
 
 const Cashier = T.model('Cashier', {
   show: T.optional(T.boolean, false),
