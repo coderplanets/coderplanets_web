@@ -1,5 +1,5 @@
 import { C11N } from '@/constant'
-import { WIDTH } from '@/utils'
+import { WIDTH } from '@/utils/css/metric'
 
 export const getMaxWidth = (type) => {
   switch (type) {

@@ -126,14 +126,12 @@ const rootStore = T.model({
   route: T.optional(RouteStore, {}),
   viewing: T.optional(ViewingStore, {}),
   comments: T.optional(CommentsStore, {}),
-  // NOTE: 危险
-  // @ts-ignore TODO:
-  // theme: T.optional(ThemeStore, ThemeDefaults),
+  theme: T.optional(ThemeStore, ThemeDefaults), // gzip + 14kb
   locale: T.optional(T.enumeration('locale', ['zh', 'en']), 'zh'),
   errorCode: T.maybeNull(T.number),
   sidebar: T.optional(SidebarStore, {}),
   // NOTE: 危险
-  // drawer: T.optional(DrawerStore, { visible: false }),
+  drawer: T.optional(DrawerStore, { visible: false }), // gzip + 16kb
   // NOTE: 危险
   // doraemon: T.optional(DoraemonStore, {}),
   postEditor: T.optional(PostEditorStore, {}),
