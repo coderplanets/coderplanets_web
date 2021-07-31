@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import * as Sentry from '@sentry/node'
 
 /**
  * import default seo configuration
@@ -9,6 +10,11 @@ import Head from 'next/head'
 // import { appWithTranslation } from '@/i18n'
 
 import CrashErrorHint from '@/components/CrashErrorHint'
+
+Sentry.init({
+  enabled: process.env.NODE_ENV === 'production',
+  dsn: process.env.NEXT_PUBLIC_SENTRY_TOKEN,
+})
 
 const App = ({ Component, pageProps, err }) => {
   return (
