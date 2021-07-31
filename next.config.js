@@ -9,10 +9,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 const offlineConfig = require('./config/next_offline')
 
-const { NEXT_PUBLIC_SENTRY_DSN: SENTRY_DSN } = process.env
-
-process.env.SENTRY_DSN = SENTRY_DSN
-
 // next-plugins end
 
 const nextConfig = {
