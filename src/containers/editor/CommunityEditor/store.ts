@@ -1,16 +1,16 @@
 /*
- * DiscoveryContentStore store
+ * CommunityEditor store
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 
+import type { TRootStore, TRoute } from '@/spec'
 // stripMobx
 import { markStates } from '@/utils/mobx'
+import { LN } from './constant'
 
-import { LN } from './logic'
-
-const DiscoveryContentStore = T.model('CommunityEditorStore', {
+const CommunityEditor = T.model('CommunityEditorStore', {
   step: T.optional(
     T.enumeration([
       LN.STEP.SELECT_TYPE,
@@ -47,14 +47,13 @@ const DiscoveryContentStore = T.model('CommunityEditorStore', {
   // searchfocused: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
-    get isLogin() {
-      return self.root.account.isLogin
-    },
-    get curRoute() {
-      return self.root.curRoute
+    get curRoute(): TRoute {
+      const root = getParent(self) as TRootStore
+      return root.curRoute
     },
     get selectTypeStatus() {
       const { communityType } = self
@@ -76,18 +75,22 @@ const DiscoveryContentStore = T.model('CommunityEditorStore', {
     },
   }))
   .actions((self) => ({
-    updateEditing(sobj) {
-      self.mark(sobj)
+    updateEditing(sobj): void {
+      const slf = self as TStore
+      slf.mark(sobj)
     },
-    authWarning(options) {
-      self.root.authWarning(options)
+    authWarning(options): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
     },
-    markRoute(query) {
-      self.root.markRoute(query)
+    markRoute(query): void {
+      const root = getParent(self) as TRootStore
+      root.markRoute(query)
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
-export default DiscoveryContentStore
+export type TStore = Instance<typeof CommunityEditor>
+export default CommunityEditor

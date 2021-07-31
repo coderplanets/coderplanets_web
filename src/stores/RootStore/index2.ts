@@ -130,7 +130,6 @@ const rootStore = T.model({
   locale: T.optional(T.enumeration('locale', ['zh', 'en']), 'zh'),
   errorCode: T.maybeNull(T.number),
   sidebar: T.optional(SidebarStore, {}),
-  // NOTE: 危险
   drawer: T.optional(DrawerStore, { visible: false }), // gzip + 16kb
   // NOTE: 危险
   // doraemon: T.optional(DoraemonStore, {}),
@@ -149,7 +148,7 @@ const rootStore = T.model({
   communityContent: T.optional(CommunityContentStore, {}),
   discoveryContent: T.optional(DiscoveryContentStore, {}),
   // NOTE:  危险
-  // communityEditor: T.optional(CommunityEditorStore, {}),
+  communityEditor: T.optional(CommunityEditorStore, {}),
   userContent: T.optional(UserContentStore, {}),
   footer: T.optional(FooterStore, {}),
   reposThread: T.optional(ReposThreadStore, {}),

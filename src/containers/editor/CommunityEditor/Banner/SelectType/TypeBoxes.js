@@ -8,8 +8,8 @@ import {
   MainText,
   FooterText,
 } from '../../styles/banner/select_type/type_boxes'
-
-import { LN, communityTypeOnChange } from '../../logic'
+import { LN } from '../../constant'
+import { communityTypeOnChange } from '../../logic'
 
 const TypeBoxes = ({ communityType }) => {
   const {
