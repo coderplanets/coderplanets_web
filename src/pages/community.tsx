@@ -147,7 +147,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const CommunityPage = (props = {}) => {
+const CommunityPage = (props) => {
   const store = useStore(props)
 
   const { errorCode, viewing } = store
