@@ -1006,77 +1006,6 @@
   version "1.0.6"
   resolved "https://registry.npm.taobao.org/@rushstack/eslint-patch/download/@rushstack/eslint-patch-1.0.6.tgz#023d72a5c4531b4ce204528971700a78a85a0c50"
 
-"@sentry/apm@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.npm.taobao.org/@sentry/apm/download/@sentry/apm-5.17.0.tgz#c3e6d07f4f488f77c8677cdc8d0e2fb58e302d72"
-  dependencies:
-    "@sentry/browser" "5.17.0"
-    "@sentry/hub" "5.17.0"
-    "@sentry/minimal" "5.17.0"
-    "@sentry/types" "5.17.0"
-    "@sentry/utils" "5.17.0"
-    tslib "^1.9.3"
-
-"@sentry/browser@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.nlark.com/@sentry/browser/download/@sentry/browser-5.17.0.tgz#0c3796cb02df3ec8db13341564fae0bc83e148c5"
-  dependencies:
-    "@sentry/core" "5.17.0"
-    "@sentry/types" "5.17.0"
-    "@sentry/utils" "5.17.0"
-    tslib "^1.9.3"
-
-"@sentry/core@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.nlark.com/@sentry/core/download/@sentry/core-5.17.0.tgz?cache=0&sync_timestamp=1626939912905&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fcore%2Fdownload%2F%40sentry%2Fcore-5.17.0.tgz#b2deef95465c766076d5cffd8534a67100f9b821"
-  dependencies:
-    "@sentry/hub" "5.17.0"
-    "@sentry/minimal" "5.17.0"
-    "@sentry/types" "5.17.0"
-    "@sentry/utils" "5.17.0"
-    tslib "^1.9.3"
-
-"@sentry/hub@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.nlark.com/@sentry/hub/download/@sentry/hub-5.17.0.tgz?cache=0&sync_timestamp=1626939912064&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fhub%2Fdownload%2F%40sentry%2Fhub-5.17.0.tgz#b7d255ca3f766385911d9414af97f388e869d996"
-  dependencies:
-    "@sentry/types" "5.17.0"
-    "@sentry/utils" "5.17.0"
-    tslib "^1.9.3"
-
-"@sentry/minimal@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.nlark.com/@sentry/minimal/download/@sentry/minimal-5.17.0.tgz?cache=0&sync_timestamp=1626939913883&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fminimal%2Fdownload%2F%40sentry%2Fminimal-5.17.0.tgz#b40e4b4109b098840277def3b51cc20ae6767164"
-  dependencies:
-    "@sentry/hub" "5.17.0"
-    "@sentry/types" "5.17.0"
-    tslib "^1.9.3"
-
-"@sentry/node@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.nlark.com/@sentry/node/download/@sentry/node-5.17.0.tgz#9e4cd0596702e3d45caddc9bdf12d47acc276f0b"
-  dependencies:
-    "@sentry/apm" "5.17.0"
-    "@sentry/core" "5.17.0"
-    "@sentry/hub" "5.17.0"
-    "@sentry/types" "5.17.0"
-    "@sentry/utils" "5.17.0"
-    cookie "^0.3.1"
-    https-proxy-agent "^4.0.0"
-    lru_map "^0.3.3"
-    tslib "^1.9.3"
-
-"@sentry/types@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.nlark.com/@sentry/types/download/@sentry/types-5.17.0.tgz#b8d245ac7d5caa749c549e9f72aab2d6522afe63"
-
-"@sentry/utils@5.17.0":
-  version "5.17.0"
-  resolved "https://registry.nlark.com/@sentry/utils/download/@sentry/utils-5.17.0.tgz?cache=0&sync_timestamp=1626939914616&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Futils%2Fdownload%2F%40sentry%2Futils-5.17.0.tgz#b809b067665f3ebaea77ba7b5d1d1d14a4ed76cb"
-  dependencies:
-    "@sentry/types" "5.17.0"
-    tslib "^1.9.3"
-
 "@sideway/address@^4.1.0":
   version "4.1.2"
   resolved "https://registry.nlark.com/@sideway/address/download/@sideway/address-4.1.2.tgz#811b84333a335739d3969cfc434736268170cad1"
@@ -1619,10 +1548,6 @@ acorn@^8.2.4:
 add-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/add-stream/download/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
-
-agent-base@5:
-  version "5.1.1"
-  resolved "https://registry.nlark.com/agent-base/download/agent-base-5.1.1.tgz#e8fb3f242959db44d63be665db7a8e739537a32c"
 
 agent-base@6:
   version "6.0.2"
@@ -3432,10 +3357,6 @@ cookie-signature@1.0.6:
 cookie@0.4.0:
   version "0.4.0"
   resolved "https://registry.npm.taobao.org/cookie/download/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
-
-cookie@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.npm.taobao.org/cookie/download/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
 copy-concurrently@^1.0.0:
   version "1.0.5"
@@ -5967,13 +5888,6 @@ https-browserify@1.0.0, https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.nlark.com/https-browserify/download/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-https-proxy-agent@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.nlark.com/https-proxy-agent/download/https-proxy-agent-4.0.0.tgz#702b71fb5520a132a66de1f67541d9e62154d82b"
-  dependencies:
-    agent-base "5"
-    debug "4"
-
 https-proxy-agent@^5.0.0:
   version "5.0.0"
   resolved "https://registry.nlark.com/https-proxy-agent/download/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
@@ -7565,10 +7479,6 @@ lru-queue@^0.1.0:
   resolved "https://registry.nlark.com/lru-queue/download/lru-queue-0.1.0.tgz#2738bd9f0d3cf4f84490c5736c48699ac632cda3"
   dependencies:
     es5-ext "~0.10.2"
-
-lru_map@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.npm.taobao.org/lru_map/download/lru_map-0.3.3.tgz#b5c8351b9464cbd750335a79650a0ec0e56118dd"
 
 make-dir@^1.0.0:
   version "1.3.0"
@@ -10055,10 +9965,6 @@ sentence-case@^2.1.0:
   dependencies:
     no-case "^2.2.0"
     upper-case-first "^1.1.2"
-
-sentry-testkit@^2.1.0:
-  version "2.2.1"
-  resolved "https://registry.nlark.com/sentry-testkit/download/sentry-testkit-2.2.1.tgz#e4fa10c9747c231af498999353d053c0ce8d0a63"
 
 serialize-javascript@^1.4.0:
   version "1.9.1"
