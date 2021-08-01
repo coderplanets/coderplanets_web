@@ -4,7 +4,7 @@ import { Fragment, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import { THREAD, TYPE } from '@/constant'
-import { Trans } from '@/utils'
+import { Trans } from '@/utils/i18n'
 
 import EmptyThread from '@/components/EmptyThread'
 import EmptyLabel from '@/components/EmptyLabel'

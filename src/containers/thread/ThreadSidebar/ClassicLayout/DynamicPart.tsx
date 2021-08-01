@@ -8,7 +8,7 @@
 
 import { Fragment, FC, memo } from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
 import TagsBar from '@/containers/unit/TagsBar'

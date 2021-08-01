@@ -4,16 +4,12 @@ import type { TThread, TMetric } from '@/spec'
 // eslint-disable-next-line import/named
 import { TYPE, EVENT, ERR } from '@/constant'
 
-import {
-  asyncSuit,
-  buildLog,
-  send,
-  thread2Subpath,
-  atomizeValues,
-  scrollToHeader,
-  errRescue,
-  Global,
-} from '@/utils'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
+import { Global, send, errRescue } from '@/utils/helper'
+import { atomizeValues } from '@/utils/graphql'
+import { scrollToHeader } from '@/utils/dom'
+import { thread2Subpath } from '@/utils/route'
 
 import type { TStore } from './store'
 import S from './schema'
@@ -27,7 +23,7 @@ const sr71$ = new SR71({
   receive: [EVENT.SET_C11N],
 })
 
-let store = null
+let store: TStore | undefined
 let sub$ = null
 
 export const previewAccount = (): void => console.log('TODO:  ')

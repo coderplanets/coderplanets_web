@@ -7,7 +7,7 @@
 import { FC, useCallback, memo } from 'react'
 import { pickBy } from 'ramda'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { Wrapper } from './styles/textarea'
 

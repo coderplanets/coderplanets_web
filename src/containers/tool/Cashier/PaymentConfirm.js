@@ -1,7 +1,7 @@
 import React from 'react'
 // import { ICON_CMD } from '@/config'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import FormItem from '@/components/FormItem'
 import { Wrapper, Desc, BtnWrapper } from './styles/payment_confirm'
 

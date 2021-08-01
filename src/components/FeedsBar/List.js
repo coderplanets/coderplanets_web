@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import CustomScroller from '@/components/CustomScroller'
 import { SpaceGrow } from '@/components/Common'

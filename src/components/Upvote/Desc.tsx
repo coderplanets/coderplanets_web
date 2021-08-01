@@ -4,7 +4,7 @@
 
 import { FC, memo } from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { Space } from '@/components/Common'
 import Maybe from '@/components/Maybe'

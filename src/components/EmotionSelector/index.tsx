@@ -3,7 +3,7 @@
  */
 
 import { FC, memo } from 'react'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { IconButton } from '@/components/Buttons'
 import Tooltip from '@/components/Tooltip'

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TActive, TTestable } from '@/spec'
-import { css } from '@/utils'
+import css from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,

@@ -8,7 +8,8 @@ import {
   FooterBase,
   FlagIconBase,
 } from './index'
-// import { css, theme } from '@/utils'
+// import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   margin-left: auto;

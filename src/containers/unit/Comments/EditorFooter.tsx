@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import { Space } from '@/components/Common'
 import DocUploader from '@/containers/tool/DocUploader'
 

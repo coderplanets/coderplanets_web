@@ -7,7 +7,7 @@
 import { FC, ReactNode, memo } from 'react'
 import Masonry from 'react-masonry-css'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { Wrapper } from './styles'
 

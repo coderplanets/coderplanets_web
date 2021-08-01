@@ -7,7 +7,7 @@
 import { Fragment, memo } from 'react'
 
 import { isMobile } from 'react-device-detect'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import DesktopView from './DesktopView'
 

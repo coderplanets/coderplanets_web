@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import Input from '@/components/Input'
 
 import { theme } from '@/utils/themes'

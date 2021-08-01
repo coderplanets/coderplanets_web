@@ -10,7 +10,8 @@ import { pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import CommunitySetter from '@/containers/tool/CommunitySetter'
 import Tooltip from '@/components/Tooltip'

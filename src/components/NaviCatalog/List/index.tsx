@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 import { map, prop, includes } from 'ramda'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import { SpaceGrow, Space } from '@/components/Common'
 
 import type { TMenuItem } from '../spec'

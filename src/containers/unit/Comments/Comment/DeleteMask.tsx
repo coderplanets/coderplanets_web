@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 
 import {
   DeleteOverlay,

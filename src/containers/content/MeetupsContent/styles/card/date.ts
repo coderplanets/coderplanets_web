@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { GALLERY } from '@/constant'
-import { css } from '@/utils'
+import css from '@/utils/css'
 
 export const Wrapper = styled.div<{ type: string }>`
   ${css.flexColumn()};

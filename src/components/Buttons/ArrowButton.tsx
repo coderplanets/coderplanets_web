@@ -9,7 +9,7 @@ import { FC, ReactNode, memo } from 'react'
 import type { TSIZE } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
 

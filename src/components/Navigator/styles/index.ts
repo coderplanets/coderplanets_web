@@ -2,7 +2,10 @@ import styled from 'styled-components'
 
 import type { TActive, TC11NLayout } from '@/spec'
 import { C11N } from '@/constant'
-import { animate, theme, css } from '@/utils'
+
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
+import animate from '@/utils/animations'
 import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`

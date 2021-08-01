@@ -8,7 +8,7 @@ import { FC, Fragment, ReactNode, memo, createContext, useContext } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TTooltipPlacement } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 // @ts-ignore
 const TooltipContext = createContext()

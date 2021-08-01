@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 // import S from './service'
 
 import type { TStore } from './store'

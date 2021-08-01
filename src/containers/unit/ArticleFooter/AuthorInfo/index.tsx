@@ -8,7 +8,7 @@ import { FC, memo } from 'react'
 import { isEmpty, pickBy } from 'ramda'
 
 import type { TAccount } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { FollowButton } from '@/components/Buttons'
 import ImgFallback from '@/components/ImgFallback'

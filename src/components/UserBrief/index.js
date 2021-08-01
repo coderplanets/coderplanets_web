@@ -8,7 +8,7 @@ import T from 'prop-types'
 
 import { VIEW } from '@/constant'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import { Br } from '@/components/Common'
 
 import SocialIcons from './SocialIcons'

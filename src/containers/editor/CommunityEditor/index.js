@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import Banner from './Banner'
 import Content from './Content'

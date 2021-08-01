@@ -11,7 +11,8 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { METRIC } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import Preview from './Preview'
 import Steps from './Steps'

@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import { SIZE, UPVOTE_LAYOUT } from '@/constant'
 
 import AvatarsRow from '@/components/AvatarsRow'

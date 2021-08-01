@@ -7,7 +7,7 @@ import { contains } from 'ramda'
 
 import type { TCommunity, TC11NLayout, TMetric } from '@/spec'
 import { C11N, METRIC, HCN } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import DigestView from './DigestView'
 // import BriefView from './BriefView'

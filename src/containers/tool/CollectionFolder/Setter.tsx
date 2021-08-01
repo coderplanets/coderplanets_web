@@ -1,7 +1,7 @@
 import { FC, memo, useCallback } from 'react'
 import { TID } from '@/spec'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import { Space } from '@/components/Common'
 import Folder from '@/components/Folder'
 

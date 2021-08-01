@@ -8,13 +8,15 @@ import Delimiter from '@editorjs/delimiter'
 import InlineCode from '@editorjs/inline-code'
 
 // import { TYPE, EVENT, ERR } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:RichEditor')
 
-export const someMethod = () => {}
+export const someMethod = () => {
+  /* todo */
+}
 
 // const const cancelLoading = () => {}
 

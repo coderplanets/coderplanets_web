@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD, ASSETS_ENDPOINT } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import IconText from '@/components/IconText'
 

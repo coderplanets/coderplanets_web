@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import Input from '@/components/Input'
-import { css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   height: 100%;

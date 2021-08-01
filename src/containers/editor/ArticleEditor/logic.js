@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { STEP } from './constant'
 // import S from './service'

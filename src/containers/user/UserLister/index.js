@@ -7,7 +7,8 @@
 import React from 'react'
 
 import { TYPE } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import EmptyLabel from '@/components/EmptyLabel'
 import Modal from '@/components/Modal'

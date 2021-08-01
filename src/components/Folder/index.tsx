@@ -10,7 +10,7 @@ import { TSIZE_SM } from '@/spec'
 
 import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import Content from './Content'
 import Footer from './Footer'

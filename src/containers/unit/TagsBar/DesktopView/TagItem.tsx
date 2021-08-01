@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { Trans } from '@/utils'
+import { Trans } from '@/utils/i18n'
 import type { TTag } from '@/spec'
 
 // import TagCount from './TagCount'

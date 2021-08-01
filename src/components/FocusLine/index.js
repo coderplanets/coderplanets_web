@@ -8,7 +8,7 @@ import React from 'react'
 import { isEmpty } from 'ramda'
 import T from 'prop-types'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import { Wrapper, Icon, TextWrapper, Text, Focus } from './styles'
 
 /* eslint-disable-next-line */

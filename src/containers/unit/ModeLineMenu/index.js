@@ -11,7 +11,8 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { TYPE } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import GlobalMenu from './GlobalMenu/index'
 import SearchMenu from './SearchMenu'

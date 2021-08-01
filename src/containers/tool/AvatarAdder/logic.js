@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { curry } from 'ramda'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import { githubAPI } from '@/services'
 
 /* eslint-disable-next-line */

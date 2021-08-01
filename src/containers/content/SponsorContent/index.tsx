@@ -10,7 +10,8 @@
 import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import { Br } from '@/components/Common'
 import { SponsorGallery } from '@/components/GalleryHub'

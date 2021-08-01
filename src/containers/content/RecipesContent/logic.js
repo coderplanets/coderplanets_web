@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 // import S from './service'
 
 let store = null
@@ -8,7 +8,9 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:RecipesContent')
 
-export const topFilterOnChange = () => {}
+export const topFilterOnChange = () => {
+  /* todo */
+}
 /**
  * change main view (recipes or cheatsheet)
  * @param {string} mainView

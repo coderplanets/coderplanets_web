@@ -9,7 +9,7 @@ import { FC, ReactNode, memo } from 'react'
 import type { TSIZE_SM } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { Wrapper, IconWrapper, Icon, ChildWrapper } from './styles'
 

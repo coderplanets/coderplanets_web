@@ -8,7 +8,7 @@
 import { FC, Fragment, ReactNode, memo } from 'react'
 import { ReactSVG } from 'react-svg'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import NormalImg from './NormalImg'
 import LazyLoadImg from './LazyLoadImg'

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable, TC11NLayout, TMetric } from '@/spec'
 import { C11N, METRIC } from '@/constant'
-import { css } from '@/utils'
+import css from '@/utils/css'
 
 type TWrapper = TTestable & { metric: TMetric; layout: TC11NLayout }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({

@@ -8,7 +8,8 @@ import dynamic from 'next/dynamic'
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { isMobile } from 'react-device-detect'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import type { TStore } from './store'
 

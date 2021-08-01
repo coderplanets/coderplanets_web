@@ -10,7 +10,7 @@ import type { TThread } from '@/spec'
 
 import { THREAD } from '@/constant'
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import DropdownButton from './DropdownButton'
 import { Wrapper } from './styles/publish_button'

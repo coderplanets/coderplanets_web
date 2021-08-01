@@ -9,7 +9,8 @@
 import { FC, Fragment } from 'react'
 
 import type { TMetric } from '@/spec'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 import { METRIC } from '@/constant'
 
 import Sticky from '@/components/Sticky'

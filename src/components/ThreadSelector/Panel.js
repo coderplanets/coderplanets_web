@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Trans } from '@/utils'
+import { Trans } from '@/utils/i18n'
 import DotDivider from '@/components/DotDivider'
 import { Wrapper, Item, DotWrapper } from './styles/panel'
 

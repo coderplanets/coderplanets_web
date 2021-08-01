@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { ArrowButton } from '@/components/Buttons'
 import DemoCommunity from './DemoCommunity'

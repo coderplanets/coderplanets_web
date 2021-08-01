@@ -8,7 +8,8 @@
 
 import React from 'react'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import { Br } from '@/components/Common'
 import { FriendsGallery } from '@/components/GalleryHub'

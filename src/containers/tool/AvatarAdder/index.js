@@ -8,7 +8,8 @@ import T from 'prop-types'
 
 import Tooltip from '@/components/Tooltip'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 import AdderPanel from './AdderPanel'
 
 import { Wrapper, AddText } from './styles'

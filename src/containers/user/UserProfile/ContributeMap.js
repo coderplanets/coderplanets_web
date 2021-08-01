@@ -8,7 +8,7 @@ import React from 'react'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import {
   Wrapper,
   Title,

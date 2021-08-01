@@ -7,7 +7,8 @@
 import React from 'react'
 
 import { THREAD } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'

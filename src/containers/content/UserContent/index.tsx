@@ -8,7 +8,8 @@ import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
 import { USER_THREAD } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import UserProfile from '@/containers/user/UserProfile'
 import UserPublished from '@/containers/user/UserPublished'

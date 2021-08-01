@@ -11,7 +11,8 @@ import dynamic from 'next/dynamic'
 
 import type { TResState } from '@/spec'
 import { C11N } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import PagedArticles from '@/components/PagedArticles'
 import ViewportTracker from '@/components/ViewportTracker'

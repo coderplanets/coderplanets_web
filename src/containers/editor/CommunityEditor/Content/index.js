@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import SelectType from './SelectType'
 import SetupDomain from './SetupDomain'

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity, TThread } from '@/spec'
-import { Trans } from '@/utils'
+import { Trans } from '@/utils/i18n'
 
 // import { Tabs } from '@/components/Switcher'
 import DotDivider from '@/components/DotDivider'

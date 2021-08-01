@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import { TAccount, TUser } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import PostItemAvatar from './PostItemAvatar'
 import ArticleAuthorAvatar from './ArticleAuthorAvatar'

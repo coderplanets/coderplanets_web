@@ -8,7 +8,7 @@ import { FC, useState, useCallback, memo } from 'react'
 import { merge, equals } from 'ramda'
 
 import type { TFiltersMenuItems } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { SpaceGrow } from '@/components/Common'
 

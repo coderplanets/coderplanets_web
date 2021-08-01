@@ -9,7 +9,8 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import Navigator from '@/components/Navigator'
 

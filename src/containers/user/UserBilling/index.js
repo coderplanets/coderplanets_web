@@ -7,7 +7,8 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import SectionLabel from '@/components/SectionLabel'
 import UpgradeMenu from './UpgradeMenu'

@@ -9,7 +9,7 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { THREAD } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'

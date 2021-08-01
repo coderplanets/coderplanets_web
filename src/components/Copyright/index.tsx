@@ -8,7 +8,7 @@ import { FC, memo } from 'react'
 
 import type { TCopyright } from '@/spec'
 import Tooltip from '@/components/Tooltip'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import Label from './Label'
 import SettingMenu from '@/components/SettingMenu'

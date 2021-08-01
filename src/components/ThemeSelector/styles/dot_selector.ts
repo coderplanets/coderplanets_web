@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+import css from '@/utils/css'
+
 import { Dot } from './index'
 
 export const Wrapper = styled.div`

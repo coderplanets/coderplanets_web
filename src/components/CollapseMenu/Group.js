@@ -4,7 +4,7 @@ import T from 'prop-types'
 import { findIndex } from 'ramda'
 
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import Item from './Item'
 

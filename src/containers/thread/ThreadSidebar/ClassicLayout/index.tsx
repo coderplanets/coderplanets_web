@@ -9,7 +9,7 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import Sticky from '@/components/Sticky'
 import { LavaLampLoading } from '@/components/Loading'

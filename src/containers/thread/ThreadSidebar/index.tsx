@@ -10,7 +10,8 @@ import { FC, Fragment } from 'react'
 
 import type { TTag } from '@/spec'
 import { C11N } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import ClassicLayout from './ClassicLayout'
 import HolyGrailLayout from './HolyGrailLayout'

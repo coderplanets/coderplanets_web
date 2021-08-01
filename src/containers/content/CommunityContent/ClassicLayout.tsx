@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import { TThread } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import CommunityDigest from '@/containers/digest/CommunityDigest'
 
 import ThreadContent from './ThreadContent'

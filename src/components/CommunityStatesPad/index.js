@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { isMobile } from 'react-device-detect'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import Charger from '@/components/Charger'
 import NumberGroup from './NumberGroup'

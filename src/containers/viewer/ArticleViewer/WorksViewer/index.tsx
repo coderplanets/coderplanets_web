@@ -5,7 +5,7 @@
 import { FC, memo, Fragment, useCallback, useState } from 'react'
 
 import type { TPost } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import ViewportTracker from '@/components/ViewportTracker'
 import { ArticleContentLoading } from '@/components/Loading'

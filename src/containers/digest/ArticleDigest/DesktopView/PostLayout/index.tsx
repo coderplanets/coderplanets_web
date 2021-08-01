@@ -6,7 +6,7 @@ import { FC, Fragment, memo } from 'react'
 
 import type { TPost, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
 import SubCommunity from './SubCommunity'

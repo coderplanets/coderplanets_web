@@ -9,7 +9,8 @@ import { filter, propEq } from 'ramda'
 
 import type { TCommunity } from '@/spec'
 import { HCN, ANCHOR } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import Header from './Header'
 import MenuList from './MenuList/index'

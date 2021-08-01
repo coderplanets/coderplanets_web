@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ISSUE_ADDR } from '@/config'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import FormItem from '@/components/FormItem'
 
 import {

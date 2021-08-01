@@ -8,7 +8,7 @@ import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { Wrapper, Item, Icon, Title } from '../styles/subscribed_list/item_menu'
 

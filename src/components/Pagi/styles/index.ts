@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 import type { TSpace } from '@/spec'
 import Img from '@/Img'
-import { css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 type TMargin = {
   margin: TSpace

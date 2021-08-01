@@ -13,7 +13,7 @@ import type { TUser, TSIZE } from '@/spec'
 import type { TAvatarSize } from './spec'
 import { AVATARS_LIST_LENGTH } from '@/config'
 import { SIZE } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 // import RealAvatar from './RealAvatar'
 import MoreItem from './MoreItem'

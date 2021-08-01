@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import Img from '@/Img'
-import { css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 export const MenuLogo = styled(Img)<TActive>`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};

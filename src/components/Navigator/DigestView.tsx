@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
-import type { TMetric } from '@/spec'
+import type { TMetric, TC11NLayout } from '@/spec'
 import { METRIC } from '@/constant'
 // import BlinkCursor from '@/components/BlinkCursor'
 
@@ -15,7 +15,6 @@ import {
 } from './styles'
 
 import MainEntries from './MainEntries'
-import { TC11NLayout } from '@/spec'
 
 export const BlinkCursor = dynamic(() => import('@/components/BlinkCursor'), {
   ssr: false,

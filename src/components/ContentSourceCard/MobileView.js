@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import CommunityList from '@/components/CommunityList'
 
 import UserList from './UserList'

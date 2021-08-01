@@ -7,7 +7,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import MapLoading from './MapLoading'
 
