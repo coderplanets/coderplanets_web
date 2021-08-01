@@ -1,7 +1,7 @@
 import { from } from 'rxjs'
 
 import { buildLog } from '../logger'
-import { client, context } from './setup'
+import { client } from './setup2'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
@@ -9,12 +9,11 @@ import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 const log = buildLog('Async')
 
 const doQuery = (query, variables) => {
+  console.log('do query: ', query)
+
   return client
-    .query({
-      query,
-      variables,
-      context,
-    })
+    .query(query, variables)
+    .toPromise()
     .then((res) => {
       if (res.errors) return formatGraphErrors(res.errors)
       return res.data
@@ -24,15 +23,12 @@ const doQuery = (query, variables) => {
 
 const doMutate = (mutation, variables) => {
   return client
-    .mutate({
-      mutation,
-      variables,
-      context,
-    })
+    .mutate(mutation, variables)
+    .toPromise()
     .then((res) => {
       // once login user has mutation to server
       // then clear all the cache store in Apollo client.
-      client.clearStore()
+      // client.clearStore()
       return res.data
     })
     .catch(formatGraphErrors)

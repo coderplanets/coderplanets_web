@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import { gql } from '@urql/core'
 
 const follow = gql`
   mutation($userId: ID!) {

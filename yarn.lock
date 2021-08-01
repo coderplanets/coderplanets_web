@@ -618,6 +618,10 @@
   dependencies:
     "@f/map-obj" "^1.2.2"
 
+"@graphql-typed-document-node/core@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.nlark.com/@graphql-typed-document-node/core/download/@graphql-typed-document-node/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
+
 "@groupher/editor-header@^2.3.0":
   version "2.3.1"
   resolved "https://registry.nlark.com/@groupher/editor-header/download/@groupher/editor-header-2.3.1.tgz#68a6631969c9bcf229c497729d81de199ed0f8c3"
@@ -1431,6 +1435,13 @@
   dependencies:
     "@typescript-eslint/types" "4.28.4"
     eslint-visitor-keys "^2.0.0"
+
+"@urql/core@^2.1.4":
+  version "2.1.5"
+  resolved "https://registry.nlark.com/@urql/core/download/@urql/core-2.1.5.tgz#8fbc0846d6020cee89dadbee07ffb0a618ab29d8"
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.0"
+    wonka "^4.0.14"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -11360,6 +11371,13 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+urql@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.nlark.com/urql/download/urql-2.0.4.tgz#8d6d9f98521c45afc56ca1373141a5cc767af49f"
+  dependencies:
+    "@urql/core" "^2.1.4"
+    wonka "^4.0.14"
+
 use-composed-ref@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/use-composed-ref/download/use-composed-ref-1.1.0.tgz#9220e4e94a97b7b02d7d27eaeab0b37034438bbc"
@@ -11708,6 +11726,10 @@ wide-align@^1.1.0:
   resolved "https://registry.nlark.com/wide-align/download/wide-align-1.1.3.tgz#ae074e6bdc0c14a431e804e624549c633b000457"
   dependencies:
     string-width "^1.0.2 || 2"
+
+wonka@^4.0.14:
+  version "4.0.15"
+  resolved "https://registry.nlark.com/wonka/download/wonka-4.0.15.tgz#9aa42046efa424565ab8f8f451fcca955bf80b89"
 
 word-wrap@^1.0.3, word-wrap@~1.2.3:
   version "1.2.3"

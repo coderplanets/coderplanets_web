@@ -138,7 +138,8 @@
     "stringz": "^2.0.0",
     "styled-components": "5.3.0",
     "timeago-react": "3.0.2",
-    "tinykeys": "^1.0.6"
+    "tinykeys": "^1.0.6",
+    "urql": "^2.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
