@@ -155,19 +155,19 @@ const CommunityPage = (props) => {
     description: `${community.desc}`,
   }
 
-  return <Provider store={store}>hello</Provider>
-  // return (
-  //   <Provider store={store}>
-  //     <GlobalLayout
-  //       metric={METRIC.COMMUNITY}
-  //       seoConfig={seoConfig}
-  //       errorCode={errorCode}
-  //       errorPath={community.raw}
-  //     >
-  //       <CommunityContent />
-  //     </GlobalLayout>
-  //   </Provider>
-  // )
+  // return <Provider store={store}>hello</Provider>
+  return (
+    <Provider store={store}>
+      <GlobalLayout
+        metric={METRIC.COMMUNITY}
+        seoConfig={seoConfig}
+        errorCode={errorCode}
+        errorPath={community.raw}
+      >
+        {/* <CommunityContent /> */}
+      </GlobalLayout>
+    </Provider>
+  )
 }
 
 export default CommunityPage

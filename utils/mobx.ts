@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 
 import {
   path,
@@ -75,7 +75,7 @@ export const pluggedIn = (
   // container: React.FC<typeof container>,
   container: React.FC,
   store = '',
-): React.FC => {
+): FC => {
   let subStoreName = ''
   if (store) {
     subStoreName = store
@@ -212,23 +212,4 @@ export const updateEditing = (
   }
 
   store.updateEditing({ [part]: value })
-}
-
-/*
- *  make life easier by using the redux like connent syntax
- *  inject allows function see: https://github.com/mobxjs/mobx-react/blob/master/README.md
- *  inspired by https://gist.github.com/mostr/e8366c9fb64d23b96f5fc05ce23b572c
- */
-
-/*
-   mobx 中的 object 是封装过后的 observable 结构, 如果 obsered-object 被用于 containers 中的子组件,
-   data 不会及时响应,需要处理成 toJSON 的 raw 结构
-   需要在 store 的"端点"去除 mobx 的数据结构
-   注意！ 该函数只应用户 store -> UI 的最后一个环节， store 内部之间的数据关联需要这种 obserable data
- */
-
-export const observerHoc = (selector, Component) => {
-  const injectPlus =
-    typeof selector === 'function' ? inject(selector) : inject(...selector)
-  return injectPlus(observer(Component))
 }

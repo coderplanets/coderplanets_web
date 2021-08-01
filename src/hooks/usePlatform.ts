@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { merge } from 'ramda'
 
 import type { TPlatform } from '@/spec'
-import { Global } from '@/utils'
+import { Global } from '@/utils/helper'
 
 const initPlatform = {
   isChrome: true,

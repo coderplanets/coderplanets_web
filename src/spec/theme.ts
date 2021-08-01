@@ -33,4 +33,6 @@ export type TThemeMap = {
     basic: string
     animate: string
   }
+  mobileTab?: string
+  logoText?: string
 }

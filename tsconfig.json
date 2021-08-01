@@ -22,6 +22,7 @@
       "@/services/*": ["src/services/*"],
       "@/constant": ["utils/constant"],
       "@/hooks": ["src/hooks"],
+      "@/hooks/*": ["src/hooks/*"],
       "@/hoc": ["src/hoc"],
       "@/config": ["config"],
       "@/stores/*": ["src/stores/*"],

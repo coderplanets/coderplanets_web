@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import GA from '@/utils/analytics'
 
 /* eslint-disable */
 export default class DocumentPage extends Document {
@@ -32,15 +33,14 @@ export default class DocumentPage extends Document {
           <meta charSet="utf-8" />
           <meta name="renderer" content="webkit" />
           <link rel="icon" href="/favicon.ico?v=7" />
-
-          <link
-            href="https://fonts.googleapis.com/css2?family=Audiowide"
-            rel="stylesheet"
-          ></link>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+          />
 
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACING_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA.TRACKING_ID}`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -65,6 +65,11 @@ export default class DocumentPage extends Document {
           <Main />
           <NextScript />
         </body>
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Audiowide"
+          rel="stylesheet"
+        />
 
         {/* load OverlayScrollbars styles from CDN */}
         <link

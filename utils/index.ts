@@ -91,7 +91,6 @@ export {
   meteorState,
   stripMobx,
   $solver,
-  observerHoc,
   updateEditing,
 } from './mobx'
 

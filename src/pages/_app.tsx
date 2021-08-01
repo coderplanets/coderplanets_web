@@ -1,4 +1,6 @@
-import Head from 'next/head'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import GA from '@/utils/analytics'
 
 /**
  * import default seo configuration
@@ -11,15 +13,20 @@ import Head from 'next/head'
 // import CrashErrorHint from '@/components/CrashErrorHint'
 
 const App = ({ Component, pageProps, err }) => {
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      GA.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
   return (
     <>
       {/* see: https://github.com/vercel/next.js/blob/master/errors/no-document-viewport-meta.md */}
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
-      </Head>
       {err ? (
         <div>CrashErrorHint</div>
       ) : (
