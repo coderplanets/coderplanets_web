@@ -55,7 +55,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // const { online } = useNetwork() // TODO: move it to Header
   const { isMobile } = usePlatform()
   // load debug graph
-  useInit(store, { isMobile })
+  // useInit(store, { isMobile })
 
   const { sidebarPin, c11n } = store
   const { bannerLayout } = c11n
@@ -87,7 +87,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
                   autoHide
                 >
                   <div>
-                    <Header metric={metric} />
+                    {/* <Header metric={metric} /> */}
                     <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                       {childrenWithProps(children, { metric })}
                     </BodyWrapper>

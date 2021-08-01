@@ -12,7 +12,7 @@ import {
 } from 'rxjs/operators'
 
 import { TimeoutObservable } from './handler'
-import { TIMEOUT_THRESHOLD } from './setup2'
+import { TIMEOUT_THRESHOLD } from './setup'
 
 import { queryPromise, mutatePromise, restGetPromise } from './methods'
 
