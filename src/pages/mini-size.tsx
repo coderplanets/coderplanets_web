@@ -1,5 +1,3 @@
-import { FC } from 'react'
-
 import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
 import { merge, pick, toLower } from 'ramda'
@@ -14,7 +12,6 @@ import {
   queryStringToJSON,
   ssrParseURL,
   akaTranslate,
-  buildLog,
   nilOrEmpty,
   ssrPagedSchema,
   ssrPagedFilter,

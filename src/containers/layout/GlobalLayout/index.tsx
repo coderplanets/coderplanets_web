@@ -11,7 +11,7 @@ import { isMobile } from 'react-device-detect'
 import type { TSEO, TMetric } from '@/spec'
 import { ANCHOR, SIZE, C11N, BODY_SCROLLER } from '@/constant'
 import AnalysisService from '@/services/Analysis'
-import { pluggedIn } from '@/utils'
+import { pluggedIn } from '@/utils/mobx'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/containers/unit/Header'

@@ -19,106 +19,193 @@ import { themeSkins } from '@/utils/themes'
 import { send } from '@/utils/helper'
 import { notEmpty } from '@/utils/validator'
 
-import RouteStore from '@/containers/Route/store'
-import AccountStore from '../AccountStore'
-import ViewingStore from '../ViewingStore'
-import { ThemeStore, ThemeDefaults } from '../ThemeStore'
-import GlobalLayoutStore from '@/containers/layout/GlobalLayout/store'
+import {
+  // domain
+  RouteStore,
+  AccountStore,
+  GlobalLayoutStore,
+  RichEditorStore,
+  HeaderStore,
+  ViewingStore,
+  ThemeStore,
+  ThemeDefaults,
+  ErrorBoxStore,
 
-import RichEditorStore from '@/containers/editor/RichEditor/store'
-import ErrorBoxStore from '@/containers/tool/ErrorBox/store'
-import SidebarStore from '@/containers/unit/Sidebar/store'
-import DrawerStore from '@/containers/tool/Drawer/store'
-import DoraemonStore from '@/containers/tool/Doraemon/store'
-import HeaderStore from '@/containers/unit/Header/store'
-import MailBoxStore from '@/containers/tool/MailBox/store'
-import AvatarAdderStore from '@/containers/tool/AvatarAdder/store'
-import UserListerStore from '@/containers/user/UserLister/store'
-import GirlVerifierStore from '@/containers/tool/GirlVerifier/store'
-import CashierStore from '@/containers/tool/Cashier/store'
+  // threads
+  ReposThreadStore,
+  UsersThreadStore,
+  // banners
+  ArticleDigestStore,
+  CommunityDigestStore,
+  // content
+  CommunityContentStore,
+  DiscoveryContentStore,
+  CommunityEditorStore,
+  UserContentStore,
+  // footer
+  FooterStore,
+  // viewers
+  ArticleViewerHeader,
+  ArticleBodyHeaderStore,
+  RepoViewerStore,
+  CommentsStore,
+  MailsViewerStore,
 
-//
+  // toolbox
+  DoraemonStore,
+  DrawerStore,
+  SidebarStore,
+  PostEditorStore,
+  RepoEditorStore,
+  AccountEditorStore,
+  MailBoxStore,
+  DocUploaderStore,
+  AvatarAdderStore,
+  TagsBarStore,
+  UserListerStore,
+  GirlVerifierStore,
+  CashierStore,
+  CommunitySetterStore,
+  // user page
+  UserPublishedStore,
+  UserPublishedCommentsStore,
+  UserSettingsStore,
+  UserBillingStore,
+  UserFavoritedStore,
+  UserStaredStore,
+  //
+  MeetupsContentStore,
+  HaveADrinkContentStore,
+  CoolGuideContentStore,
 
-// pages banners store
-import CommunityDigestStore from '@/containers/digest/CommunityDigest/store'
+  // GEN: IMPORT SUBSTORE
+  CollectionFolderStore,
+  ShareStore,
+  ArticleContentStore,
+  ArticleViewerStore,
+  ArticlesThreadStore,
+  ThreadSidebarStore,
+  AbuseReportStore,
+  HelpCenterContentStore,
+  CommunityJoinBadgeStore,
+  ArticleEditorStore,
+  WorksEditorStore,
+  UserProfileStore,
+  MembershipContentStore,
+  ArticleFooterStore,
+  ArticleStickerStore,
+  ModeLineMenuStore,
+  ModeLineStore,
+  FriendsContentStore,
+  SubscribeContentStore,
+  RecipesContentStore,
+  SponsorContentStore,
+  JoinModalStore,
+  TrendingContentStore,
+  WorksContentStore,
+  C11NSettingPanelStore,
+  RoadmapThreadStore,
+} from '../index'
+// import RouteStore from '@/containers/Route/store'
+// import AccountStore from '../AccountStore'
+// import ViewingStore from '../ViewingStore'
+// import { ThemeStore, ThemeDefaults } from '../ThemeStore'
+// import GlobalLayoutStore from '@/containers/layout/GlobalLayout/store'
 
-import ArticleDigestStore from '@/containers/digest/ArticleDigest/store'
+// import RichEditorStore from '@/containers/editor/RichEditor/store'
+// import ErrorBoxStore from '@/containers/tool/ErrorBox/store'
+// import SidebarStore from '@/containers/unit/Sidebar/store'
+// import DrawerStore from '@/containers/tool/Drawer/store'
+// import DoraemonStore from '@/containers/tool/Doraemon/store'
+// import HeaderStore from '@/containers/unit/Header/store'
+// import MailBoxStore from '@/containers/tool/MailBox/store'
+// import AvatarAdderStore from '@/containers/tool/AvatarAdder/store'
+// import UserListerStore from '@/containers/user/UserLister/store'
+// import GirlVerifierStore from '@/containers/tool/GirlVerifier/store'
+// import CashierStore from '@/containers/tool/Cashier/store'
 
-// contents store
-import CommunityContentStore from '@/containers/content/CommunityContent/store'
+// //
 
-import DiscoveryContentStore from '@/containers/content/DiscoveryContent/store'
-import UserContentStore from '@/containers/content/UserContent/store'
+// // pages banners store
+// import CommunityDigestStore from '@/containers/digest/CommunityDigest/store'
 
-// footer
-import FooterStore from '@/containers/unit/Footer/store'
+// import ArticleDigestStore from '@/containers/digest/ArticleDigest/store'
 
-// threads store
-import ReposThreadStore from '@/containers/thread/ReposThread/store'
-import UsersThreadStore from '@/containers/thread/UsersThread/store'
-import RoadmapThreadStore from '@/containers/thread/RoadmapThread/store'
+// // contents store
+// import CommunityContentStore from '@/containers/content/CommunityContent/store'
 
-import TagsBarStore from '@/containers/unit/TagsBar/store'
+// import DiscoveryContentStore from '@/containers/content/DiscoveryContent/store'
+// import UserContentStore from '@/containers/content/UserContent/store'
 
-// toolbox
-import DocUploaderStore from '@/containers/tool/DocUploader/store'
-import PostEditorStore from '@/containers/editor/PostEditor/store'
-import RepoEditorStore from '@/containers/editor/RepoEditor/store'
-import CommentsStore from '@/containers/unit/Comments/store'
-import AccountEditorStore from '@/containers/editor/AccountEditor/store'
-import CommunitySetterStore from '@/containers/tool/CommunitySetter/store'
+// // footer
+// import FooterStore from '@/containers/unit/Footer/store'
 
-// viewers store
-import RepoViewerStore from '@/containers/viewer/RepoViewer/store'
-import MailsViewerStore from '@/containers/viewer/MailsViewer/store'
+// // threads store
+// import ReposThreadStore from '@/containers/thread/ReposThread/store'
+// import UsersThreadStore from '@/containers/thread/UsersThread/store'
+// import RoadmapThreadStore from '@/containers/thread/RoadmapThread/store'
 
-import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader/store'
-import ArticleBodyHeaderStore from '@/containers/unit/ArticleBodyHeader/store'
+// import TagsBarStore from '@/containers/unit/TagsBar/store'
 
-// activities page
-import MeetupsContentStore from '@/containers/content/MeetupsContent/store'
-// have a drink page
-import HaveADrinkContentStore from '@/containers/content/HaveADrinkContent/store'
-// cool guide page
-import CoolGuideContentStore from '@/containers/content/CoolGuideContent/store'
+// // toolbox
+// import DocUploaderStore from '@/containers/tool/DocUploader/store'
+// import PostEditorStore from '@/containers/editor/PostEditor/store'
+// import RepoEditorStore from '@/containers/editor/RepoEditor/store'
+// import CommentsStore from '@/containers/unit/Comments/store'
+// import AccountEditorStore from '@/containers/editor/AccountEditor/store'
+// import CommunitySetterStore from '@/containers/tool/CommunitySetter/store'
 
-// user page
-import UserPublishedStore from '@/containers/user/UserPublished/store'
-import UserPublishedCommentsStore from '@/containers/user/UserPublishedComments/store'
-import UserStaredStore from '@/containers/user/UserStared/store'
-import UserBillingStore from '@/containers/user/UserBilling/store'
-import UserSettingsStore from '@/containers/user/UserSettings/store'
-import UserFavoritedStore from '@/containers/user/UserFavorited/store'
+// // viewers store
+// import RepoViewerStore from '@/containers/viewer/RepoViewer/store'
+// import MailsViewerStore from '@/containers/viewer/MailsViewer/store'
 
-// editor
-import CommunityEditorStore from '@/containers/editor/CommunityEditor/store'
-import WorksEditorStore from '@/containers/editor/WorksEditor/store'
+// import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader/store'
+// import ArticleBodyHeaderStore from '@/containers/unit/ArticleBodyHeader/store'
 
-// GEN: EXPORT CONTAINERS STORE HERE
-import CollectionFolderStore from '@/containers/tool/CollectionFolder/store'
-import ShareStore from '@/containers/tool/Share/store'
-import ArticleContentStore from '@/containers/content/ArticleContent/store'
-import ArticleViewerStore from '@/containers/viewer/ArticleViewer/store'
-import ArticlesThreadStore from '@/containers/thread/ArticlesThread/store'
-import ThreadSidebarStore from '@/containers/thread/ThreadSidebar/store'
-import AbuseReportStore from '@/containers/tool/AbuseReport/store'
-import HelpCenterContentStore from '@/containers/content/HelpCenterContent/store'
-import CommunityJoinBadgeStore from '@/containers/tool/CommunityJoinBadge/store'
-import ArticleEditorStore from '@/containers/editor/ArticleEditor/store'
-import UserProfileStore from '@/containers/user/UserProfile/store'
-import MembershipContentStore from '@/containers/content/MembershipContent/store'
-import ArticleFooterStore from '@/containers/unit/ArticleFooter/store'
-import ArticleStickerStore from '@/containers/tool/ArticleSticker/store'
-import ModeLineMenuStore from '@/containers/unit/ModeLineMenu/store'
-import ModeLineStore from '@/containers/unit/ModeLine/store'
-import FriendsContentStore from '@/containers/content/FriendsContent/store'
-import SubscribeContentStore from '@/containers/content/SubscribeContent/store'
-import RecipesContentStore from '@/containers/content/RecipesContent/store'
-import SponsorContentStore from '@/containers/content/SponsorContent/store'
-import JoinModalStore from '@/containers/tool/JoinModal/store'
-import TrendingContentStore from '@/containers/content/TrendingContent/store'
-import WorksContentStore from '@/containers/content/WorksContent/store'
-import C11NSettingPanelStore from '@/containers/tool/C11NSettingPanel/store'
+// // activities page
+// import MeetupsContentStore from '@/containers/content/MeetupsContent/store'
+// // have a drink page
+// import HaveADrinkContentStore from '@/containers/content/HaveADrinkContent/store'
+// // cool guide page
+// import CoolGuideContentStore from '@/containers/content/CoolGuideContent/store'
+
+// // user page
+// import UserPublishedStore from '@/containers/user/UserPublished/store'
+// import UserPublishedCommentsStore from '@/containers/user/UserPublishedComments/store'
+// import UserStaredStore from '@/containers/user/UserStared/store'
+// import UserBillingStore from '@/containers/user/UserBilling/store'
+// import UserSettingsStore from '@/containers/user/UserSettings/store'
+// import UserFavoritedStore from '@/containers/user/UserFavorited/store'
+
+// // editor
+// import CommunityEditorStore from '@/containers/editor/CommunityEditor/store'
+// import WorksEditorStore from '@/containers/editor/WorksEditor/store'
+
+// // GEN: EXPORT CONTAINERS STORE HERE
+// import CollectionFolderStore from '@/containers/tool/CollectionFolder/store'
+// import ShareStore from '@/containers/tool/Share/store'
+// import ArticleContentStore from '@/containers/content/ArticleContent/store'
+// import ArticleViewerStore from '@/containers/viewer/ArticleViewer/store'
+// import ArticlesThreadStore from '@/containers/thread/ArticlesThread/store'
+// import ThreadSidebarStore from '@/containers/thread/ThreadSidebar/store'
+// import AbuseReportStore from '@/containers/tool/AbuseReport/store'
+// import HelpCenterContentStore from '@/containers/content/HelpCenterContent/store'
+// import CommunityJoinBadgeStore from '@/containers/tool/CommunityJoinBadge/store'
+// import ArticleEditorStore from '@/containers/editor/ArticleEditor/store'
+// import UserProfileStore from '@/containers/user/UserProfile/store'
+// import MembershipContentStore from '@/containers/content/MembershipContent/store'
+// import ArticleFooterStore from '@/containers/unit/ArticleFooter/store'
+// import ArticleStickerStore from '@/containers/tool/ArticleSticker/store'
+// import ModeLineMenuStore from '@/containers/unit/ModeLineMenu/store'
+// import ModeLineStore from '@/containers/unit/ModeLine/store'
+// import FriendsContentStore from '@/containers/content/FriendsContent/store'
+// import SubscribeContentStore from '@/containers/content/SubscribeContent/store'
+// import RecipesContentStore from '@/containers/content/RecipesContent/store'
+// import SponsorContentStore from '@/containers/content/SponsorContent/store'
+// import JoinModalStore from '@/containers/tool/JoinModal/store'
+// import TrendingContentStore from '@/containers/content/TrendingContent/store'
+// import WorksContentStore from '@/containers/content/WorksContent/store'
+// import C11NSettingPanelStore from '@/containers/tool/C11NSettingPanel/store'
 
 const rootStore = T.model({
   // domain stores

@@ -12,7 +12,6 @@ import {
   queryStringToJSON,
   ssrParseURL,
   akaTranslate,
-  buildLog,
   nilOrEmpty,
   ssrPagedSchema,
   ssrPagedFilter,
@@ -26,9 +25,6 @@ import GlobalLayout from '@/containers/layout/GlobalLayout'
 import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
-
-/* eslint-disable-next-line */
-const log = buildLog('page:community')
 
 const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
@@ -159,18 +155,19 @@ const CommunityPage = (props) => {
     description: `${community.desc}`,
   }
 
-  return (
-    <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.COMMUNITY}
-        seoConfig={seoConfig}
-        errorCode={errorCode}
-        errorPath={community.raw}
-      >
-        <CommunityContent />
-      </GlobalLayout>
-    </Provider>
-  )
+  return <Provider store={store}>hello</Provider>
+  // return (
+  //   <Provider store={store}>
+  //     <GlobalLayout
+  //       metric={METRIC.COMMUNITY}
+  //       seoConfig={seoConfig}
+  //       errorCode={errorCode}
+  //       errorPath={community.raw}
+  //     >
+  //       <CommunityContent />
+  //     </GlobalLayout>
+  //   </Provider>
+  // )
 }
 
 export default CommunityPage

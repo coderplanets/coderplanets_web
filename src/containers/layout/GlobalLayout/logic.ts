@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from 'react'
 
 import type { TScrollDirection } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import type { TStore } from './store'
 
 /* eslint-disable-next-line */
