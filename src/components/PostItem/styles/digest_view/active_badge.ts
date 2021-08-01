@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 import { Main } from './index'
 
 export const Wrapper = styled.div<{ hasComments: boolean }>`

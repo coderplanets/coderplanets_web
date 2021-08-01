@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import HashTagSVG from '@/SvgIcons/HashTagSVG'
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 export const Wrapper = styled.div<{ marginLeft: boolean }>`
   ${css.flex()};

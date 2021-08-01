@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 // import Img from '@/Img'
 import type { TActive } from '@/spec'
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 export const Container = styled.div<TActive>`
   ${css.flexColumn()};

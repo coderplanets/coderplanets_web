@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-// import { theme, css } from '@/utils'
+// import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 // header see: https://github.com/editor-js/header
 // quote see: https://github.com/editor-js/quote

@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 export const Main = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitContentWidth(metric)};

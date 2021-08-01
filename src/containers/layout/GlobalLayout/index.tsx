@@ -60,49 +60,48 @@ const GlobalLayoutContainer: FC<TProps> = ({
   const { sidebarPin, c11n } = store
   const { bannerLayout } = c11n
 
-  return <ThemePalette>hello</ThemePalette>
-  // return (
-  //   <ThemePalette>
-  //     <Wrapper>
-  //       {errorCode ? (
-  //         <ErrorPage errorCode={errorCode} metric={metric} target={errorPath} />
-  //       ) : (
-  //         <Fragment>
-  //           <SEO metric={metric} config={seoConfig} />
-  //           <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
-  //             {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
-  //             <Addon />
-  //             <ContentWrapper
-  //               offsetLeft={sidebarPin}
-  //               className={ANCHOR.GLOBAL_BLUR_CLASS}
-  //             >
-  //               <CustomScroller
-  //                 instanceKey={BODY_SCROLLER}
-  //                 direction="vertical"
-  //                 height="100vh"
-  //                 barSize={SIZE.MEDIUM}
-  //                 showShadow={false}
-  //                 onScrollDirectionChange={(direction) =>
-  //                   onPageScrollDirhange(direction)
-  //                 }
-  //                 autoHide
-  //               >
-  //                 <div>
-  //                   <Header metric={metric} />
-  //                   <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
-  //                     {childrenWithProps(children, { metric })}
-  //                   </BodyWrapper>
-  //                   {!noFooter && <Footer metric={metric} />}
-  //                 </div>
-  //               </CustomScroller>
-  //             </ContentWrapper>
-  //           </InnerWrapper>
-  //         </Fragment>
-  //       )}
-  //       <ModeLine metric={metric} />
-  //     </Wrapper>
-  //   </ThemePalette>
-  // )
+  return (
+    <ThemePalette>
+      <Wrapper>
+        {errorCode ? (
+          <ErrorPage errorCode={errorCode} metric={metric} target={errorPath} />
+        ) : (
+          <Fragment>
+            <SEO metric={metric} config={seoConfig} />
+            <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
+              {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
+              <Addon />
+              <ContentWrapper
+                offsetLeft={sidebarPin}
+                className={ANCHOR.GLOBAL_BLUR_CLASS}
+              >
+                <CustomScroller
+                  instanceKey={BODY_SCROLLER}
+                  direction="vertical"
+                  height="100vh"
+                  barSize={SIZE.MEDIUM}
+                  showShadow={false}
+                  onScrollDirectionChange={(direction) =>
+                    onPageScrollDirhange(direction)
+                  }
+                  autoHide
+                >
+                  <div>
+                    {/* <Header metric={metric} />
+                    <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
+                      {childrenWithProps(children, { metric })}
+                    </BodyWrapper> */}
+                    {!noFooter && <Footer metric={metric} />}
+                  </div>
+                </CustomScroller>
+              </ContentWrapper>
+            </InnerWrapper>
+          </Fragment>
+        )}
+        <ModeLine metric={metric} />
+      </Wrapper>
+    </ThemePalette>
+  )
 }
 
 export default pluggedIn(GlobalLayoutContainer) as FC<TProps>

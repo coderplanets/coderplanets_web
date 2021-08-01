@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 import PromptIcon from '@/components/PromptIcon'
 
 export const Wrapper = styled.div`
