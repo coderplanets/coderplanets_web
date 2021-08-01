@@ -5,8 +5,6 @@ import css from '@/utils/css'
 import Img from '@/Img'
 import DotDivider from '@/components/DotDivider'
 
-import { Main } from './index'
-
 export const Wrapper = styled.div`
   margin-left: 10px;
   margin-top: -10px;

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import { VIEW } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'

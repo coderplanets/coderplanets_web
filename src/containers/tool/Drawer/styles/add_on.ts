@@ -5,8 +5,6 @@ import { TYPE } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import Img from '@/Img'
-
 export const Wrapper = styled.div`
   width: 60px;
   ${css.flexColumn('align-end')};
