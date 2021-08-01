@@ -80,7 +80,7 @@ export const OfflineWrapper = styled.div`
   margin-left: 20px;
   padding: 0 10px;
   border-radius: 4px;
-  animation: ${animate.breath} 5s linear infinite;
+  /* animation: ${animate.breath} 5s linear infinite; */
 `
 export const ActionText = styled.div`
   font-size: 14px;

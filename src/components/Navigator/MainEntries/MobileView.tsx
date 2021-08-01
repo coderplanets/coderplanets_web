@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { TYPE, EVENT } from '@/constant'
-import { send } from '@/utils'
+import { send } from '@/utils/helper'
 import { Wrapper, SiteLink, MobileIcon } from '../styles/main_entries'
 
 export const openMobileNaviMenu = (): void => {

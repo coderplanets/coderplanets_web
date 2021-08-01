@@ -88,10 +88,9 @@ const GlobalLayoutContainer: FC<TProps> = ({
                 >
                   <div>
                     <Header metric={metric} />
-                    {/*
                     <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                       {childrenWithProps(children, { metric })}
-                    </BodyWrapper> */}
+                    </BodyWrapper>
                     {!noFooter && <Footer metric={metric} />}
                   </div>
                 </CustomScroller>

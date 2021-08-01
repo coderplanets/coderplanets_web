@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric, TC11NLayout } from '@/spec'
 import { METRIC } from '@/constant'
-// import BlinkCursor from '@/components/BlinkCursor'
 
 import {
   Breadcrumbs,
