@@ -8,7 +8,7 @@ import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
 import { isEmpty, findIndex } from 'ramda'
 
 import type { TSIZE_SM, TTabItem } from '@/spec'
-import { isMobile } from 'react-device-detect'
+import usePlatform from '@/hooks/usePlatform'
 import { SIZE } from '@/constant'
 import { isString } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
@@ -69,6 +69,7 @@ const ModelineView: FC<TProps> = ({
   activeKey = '',
   slipHeight = '2px',
 }) => {
+  const { isMobile } = usePlatform()
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)

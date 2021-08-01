@@ -1,7 +1,7 @@
 import { from } from 'rxjs'
 
 import { buildLog } from '../logger'
-import { client } from './setup2'
+import { client } from './setup'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
@@ -9,8 +9,6 @@ import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 const log = buildLog('Async')
 
 const doQuery = (query, variables) => {
-  console.log('do query: ', query)
-
   return client
     .query(query, variables)
     .toPromise()
@@ -18,7 +16,9 @@ const doQuery = (query, variables) => {
       if (res.errors) return formatGraphErrors(res.errors)
       return res.data
     })
-    .catch(formatGraphErrors)
+    .catch((e) => {
+      formatGraphErrors(e)
+    })
 }
 
 const doMutate = (mutation, variables) => {

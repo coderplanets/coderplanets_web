@@ -3,11 +3,11 @@
  */
 
 import { FC, Fragment } from 'react'
-import { isMobile } from 'react-device-detect'
 
 import { C11N } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
+import usePlatform from '@/hooks/usePlatform'
 
 import ClassicLayout from './ClassicLayout'
 import HolyGrailLayout from './HolyGrailLayout'
@@ -24,6 +24,8 @@ type TProps = {
 
 const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   useInit(store)
+
+  const { isMobile } = usePlatform()
 
   const {
     curThread,

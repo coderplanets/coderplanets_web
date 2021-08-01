@@ -9,7 +9,7 @@ import { FC, useEffect, useRef, useState, useCallback, memo } from 'react'
 import type { TSIZE_SM, TTabItem } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
-import { isMobile } from 'react-device-detect'
+import usePlatform from '@/hooks/usePlatform'
 import { isString } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
 
@@ -39,6 +39,7 @@ const MobileView: FC<TProps> = ({
   activeKey = '',
   toggleExpand,
 }) => {
+  const { isMobile } = usePlatform()
   const [tabWidthList, setTabWidthList] = useState([])
   const [showMore, setShowMore] = useState(false)
   const navRef = useRef(null)

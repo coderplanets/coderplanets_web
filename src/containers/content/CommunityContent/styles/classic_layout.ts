@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-import { css, WIDTH, pixelAdd } from '@/utils'
+import css from '@/utils/css'
+import { pixelAdd } from '@/utils/dom'
+import { WIDTH } from '@/utils/css/metric'
 
 import { BaseWrapper, BaseInnerWrapper, BaseContentWrapper } from './index'
 

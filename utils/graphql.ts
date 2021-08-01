@@ -7,16 +7,18 @@ import { nilOrEmpty, isString } from './validator'
 export const asyncRes = curry((key, obj) => and(obj[key], has(key, obj)))
 export const asyncErr = (key: string): any => pathEq(['error'], key)
 
+const client = new GraphQLClient(GRAPHQL_ENDPOINT)
+
 // NOTE the client with jwt info is used for getInitialProps for SSR
 // to load user related data
 export const makeGQClient = (token: string): any => {
   if (!nilOrEmpty(token)) {
-    const client = new GraphQLClient(GRAPHQL_ENDPOINT, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    })
-    return client
+    const requestHeaders = {
+      authorization: `Bearer ${token}`,
+    }
+    return {
+      request: (schema, query) => client.request(schema, query, requestHeaders),
+    }
   }
   return {
     request: (schema, query) => request(GRAPHQL_ENDPOINT, schema, query),
