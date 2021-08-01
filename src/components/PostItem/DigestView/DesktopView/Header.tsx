@@ -4,7 +4,7 @@ import Link from 'next/link'
 import type { TPost } from '@/spec'
 import { ROUTE } from '@/constant'
 import { ICON_CMD } from '@/config'
-import { parseDomain } from '@/utils'
+import { parseDomain } from '@/utils/route'
 
 import AvatarsRow from '@/components/AvatarsRow'
 import InlineTags from '@/components/InlineTags'

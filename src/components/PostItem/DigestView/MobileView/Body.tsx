@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TPost } from '@/spec'
 import { ICON_CMD } from '@/config'
-import { parseDomain } from '@/utils'
+import { parseDomain } from '@/utils/route'
 
 import {
   Wrapper,

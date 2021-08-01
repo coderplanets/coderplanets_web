@@ -7,7 +7,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 import { C11N } from '@/constant'
 
 import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'

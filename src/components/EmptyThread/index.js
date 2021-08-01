@@ -9,7 +9,8 @@ import T from 'prop-types'
 
 import { ISSUE_ADDR } from '@/config'
 
-import { buildLog, Trans } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { Trans } from '@/utils/i18n'
 import {
   Icon404,
   Wrapper,

@@ -7,7 +7,8 @@
 import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
-import { buildLog, cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import {
   Wrapper,

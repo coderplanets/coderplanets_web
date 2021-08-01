@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TLink } from '@/spec'
-import { theme } from '@/utils'
+import { theme } from '@/utils/themes'
 
 export const Wrapper = styled.div`
   margin-bottom: 25px;

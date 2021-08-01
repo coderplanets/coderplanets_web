@@ -8,7 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
-import { buildLog, cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import IconText from '@/components/IconText'
 import CardHeader from './CardHeader'

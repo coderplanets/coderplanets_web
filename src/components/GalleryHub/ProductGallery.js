@@ -9,7 +9,8 @@ import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
 import { ICON } from '@/config'
-import { buildLog, cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import { ArrowButton } from '@/components/Buttons'
 

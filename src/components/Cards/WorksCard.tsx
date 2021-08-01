@@ -7,7 +7,8 @@
 import { Fragment, FC, memo } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
-import { buildLog, cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'

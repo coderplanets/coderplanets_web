@@ -6,7 +6,7 @@ import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import { ICON } from '@/config'
-import { buildLog, uid } from '@/utils'
+import uid from '@/utils/uid'
 
 import { Space, SpaceGrow } from '@/components/Common'
 import IconText from '@/components/IconText'
@@ -35,9 +35,6 @@ import {
   ImagesWrapper,
   PreviewImage,
 } from './styles/job_card'
-
-/* eslint-disable-next-line */
-const log = buildLog('c:JobCard')
 
 type TProps = {
   item: {
