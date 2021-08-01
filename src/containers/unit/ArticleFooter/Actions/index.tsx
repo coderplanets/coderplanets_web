@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { isMobile } from 'react-device-detect'
-import { report } from '@/utils'
+import { report } from '@/utils/helper'
 
 import DotDivider from '@/components/DotDivider'
 

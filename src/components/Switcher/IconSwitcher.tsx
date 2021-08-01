@@ -7,7 +7,8 @@
 import React, { FC, ReactNode, memo } from 'react'
 import { findIndex, propEq } from 'ramda'
 
-import { buildLog, nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 import Tooltip from '@/components/Tooltip'
 
 import {

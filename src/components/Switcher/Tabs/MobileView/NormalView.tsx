@@ -11,7 +11,8 @@ import type { TSIZE_SM, TTabItem } from '@/spec'
 import { ICON } from '@/config'
 import { SIZE } from '@/constant'
 import { isMobile } from 'react-device-detect'
-import { buildLog, isString } from '@/utils'
+import { isString } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 
 import TabItem from '../TabItem'
 import {

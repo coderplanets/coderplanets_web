@@ -10,7 +10,8 @@ import dynamic from 'next/dynamic'
 import { TCommunity, TThread } from '@/spec'
 
 import { C11N, EVENT } from '@/constant'
-import { buildLog, send } from '@/utils'
+import { send } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import TabBar from '@/components/TabBar'
 import { LavaLampLoading } from '@/components/Loading'

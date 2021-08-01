@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import type { TPost } from '@/spec'
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import { ICON_CMD } from '@/config'
 
 import DotDivider from '@/components/DotDivider'

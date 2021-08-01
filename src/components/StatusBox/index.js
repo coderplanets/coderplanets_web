@@ -20,8 +20,6 @@ import {
   ErrorDetail,
 } from './styles'
 
-/* import { buildLog, uid, isObject } from '@/utils' */
-
 /* eslint-disable-next-line */
 const log = buildLog('c:StatusBox:index')
 

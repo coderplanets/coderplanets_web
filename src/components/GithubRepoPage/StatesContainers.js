@@ -1,7 +1,7 @@
 import React from 'react'
 import { toUpper, isEmpty } from 'ramda'
 
-import { nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
 import Maybe from '@/components/Maybe'
 import Tooltip from '@/components/Tooltip'
 

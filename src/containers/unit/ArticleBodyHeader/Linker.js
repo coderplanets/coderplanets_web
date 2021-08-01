@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import { ICON_CMD } from '@/config'
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import { LinkFrom, LinkSource } from './styles'
 
 const Linker = ({ addr }) => (

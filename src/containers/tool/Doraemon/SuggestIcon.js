@@ -8,7 +8,7 @@ import { contains } from 'ramda'
 
 import { DEFAULT_ICON } from '@/config'
 import { NON_FILL_COMMUNITY } from '@/constant'
-import { themeCoverMap } from '@/utils'
+import { themeCoverMap } from '@/utils/themes'
 
 import {
   Wrapper,

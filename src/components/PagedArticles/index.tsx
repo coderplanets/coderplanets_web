@@ -15,7 +15,8 @@ import type {
   TC11N,
 } from '@/spec'
 import { EVENT } from '@/constant'
-import { buildLog, send } from '@/utils'
+import { send } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import ArticleList from './ArticleList'
 // import CommunityRecommends from './CommunityRecommends'

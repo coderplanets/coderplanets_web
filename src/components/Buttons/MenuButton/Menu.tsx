@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import { ICON } from '@/config'
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import type { TOption } from './index'
 
 import {

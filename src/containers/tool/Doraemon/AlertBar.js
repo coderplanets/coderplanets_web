@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { cutRest, Trans } from '@/utils'
+import { Trans } from '@/utils/i18n'
+import { cutRest } from '@/utils/helper'
 import { Wrapper, WarningIcon, Info, Title, Desc } from './styles/alert_bar'
 
 const AlertBar = ({ value, searchThread }) => (

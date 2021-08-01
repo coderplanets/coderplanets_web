@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import type { TAccount, TComment } from '@/spec'
-import { Global } from '@/utils'
+import { Global } from '@/utils/helper'
 import { ICON } from '@/config'
 
 import MarkDownRender from '@/components/MarkDownRender'

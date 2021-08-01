@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TUser } from '@/spec'
-import { debounce } from '@/utils'
+import { debounce } from '@/utils/helper'
 
 import { InputEditorWrapper } from './styles/comment_editor'
 import EditorFooter from './EditorFooter'

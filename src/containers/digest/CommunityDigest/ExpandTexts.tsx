@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { isMobile } from 'react-device-detect'
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 
 import {
   Wrapper,

@@ -10,7 +10,8 @@ import { isEmpty, findIndex } from 'ramda'
 import type { TSIZE_SM, TTabItem } from '@/spec'
 import { isMobile } from 'react-device-detect'
 import { SIZE } from '@/constant'
-import { buildLog, isString } from '@/utils'
+import { isString } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 
 import TabItem from './TabItem'
 import {

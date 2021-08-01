@@ -9,7 +9,8 @@ import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
 
-import { buildLog, nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 import {
   Wrapper,
   PopAvatarWrapper,

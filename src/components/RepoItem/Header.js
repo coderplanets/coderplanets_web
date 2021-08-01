@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 
-import { cutRest, numberWithCommas } from '@/utils'
+import { cutRest, numberWithCommas } from '@/utils/helper'
 import Tooltip from '@/components/Tooltip'
 import { Space } from '@/components/Common'
 import InlineTags from '@/components/InlineTags'

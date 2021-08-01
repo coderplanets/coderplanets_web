@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 import type { TPost } from '@/spec'
 import { ICON } from '@/config'
 import { EVENT } from '@/constant'
-import { cutRest, send } from '@/utils'
+import { cutRest, send } from '@/utils/helper'
 
 import { SpaceGrow } from '@/components/Common'
 import DigestSentence from '@/components/DigestSentence'

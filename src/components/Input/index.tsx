@@ -7,7 +7,8 @@
 import { FC, useCallback, memo } from 'react'
 import { pickBy } from 'ramda'
 
-import { buildLog, nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 
 import Textarea from './Textarea'
 import {

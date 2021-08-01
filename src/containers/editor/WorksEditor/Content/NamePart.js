@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
 import { ArrowButton } from '@/components/Buttons'
 
 import CommonQuestions from './CommonQuestions'

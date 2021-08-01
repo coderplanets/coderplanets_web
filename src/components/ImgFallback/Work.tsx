@@ -1,6 +1,6 @@
 import { FC, Fragment, memo } from 'react'
 
-import { getRandomInt } from '@/utils'
+import { getRandomInt } from '@/utils/helper'
 import { Wrapper, Row, Dice } from './styles/work'
 
 const rollTheDice = () => {

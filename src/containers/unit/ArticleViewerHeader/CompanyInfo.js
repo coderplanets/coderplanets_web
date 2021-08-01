@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 import DotDivider from '@/components/DotDivider'
 import { ICON_CMD } from '@/config'
 
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import {
   Wrapper,
   Logo,

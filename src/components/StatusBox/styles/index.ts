@@ -1,6 +1,8 @@
 import styled from 'styled-components' //
 
-import { animate, css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
+import animate from '@/utils/animations'
 
 export const Wrapper = styled.div`
   min-height: 1rem;
@@ -9,19 +11,19 @@ export const Msg = styled.span`
   margin-left: 5px;
 `
 
-export const SuccessMsgBox = styled.div`
+export const SuccessMsgBox = styled.div<{ show?: boolean }>`
   color: ${theme('baseColor.green')};
-  animation: ${animate.fadeInUp} 0.5s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
+  animation: ${animate.fadeInUp} 0.5s linear;
 `
 
-export const WarningMsgBox = styled.div`
+export const WarningMsgBox = styled.div<{ show?: boolean }>`
   color: #e8c557;
   animation: ${animate.pulse} 0.4s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
-export const ErrorMsgBox = styled.div`
+export const ErrorMsgBox = styled.div<{ show?: boolean }>`
   color: ${theme('baseColor.red')};
   animation: ${animate.shake} 0.3s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};

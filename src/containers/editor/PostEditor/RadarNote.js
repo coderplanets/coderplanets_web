@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ISSUE_ADDR } from '@/config'
 
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import {
   Wrapper,
   Title,

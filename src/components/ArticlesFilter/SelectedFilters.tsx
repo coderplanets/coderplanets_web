@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
 import type { TArticleFilter } from '@/spec'
-import { isEmptyValue } from '@/utils'
+import { isEmptyValue } from '@/utils/validator'
 
 import Tag from '@/components/Tag'
 import { Wrapper, TagWrapper } from './styles/selected_filters'

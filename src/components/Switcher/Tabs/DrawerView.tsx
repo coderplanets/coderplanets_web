@@ -7,7 +7,8 @@
 import { FC, useCallback, memo } from 'react'
 
 import type { TSIZE_SM, TTabItem } from '@/spec'
-import { buildLog, isString } from '@/utils'
+import { isString } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 import { SIZE } from '@/constant'
 
 import { Wrapper, TabItem } from '../styles/tabs/drawer_view'

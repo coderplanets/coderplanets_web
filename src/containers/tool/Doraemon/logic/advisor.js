@@ -29,7 +29,7 @@ import {
 import { from } from 'rxjs'
 
 import { ICON_CMD } from '@/config'
-import { notEmpty } from '@/utils'
+import { notEmpty } from '@/utils/validator'
 
 const cmdSplit = compose(split('/'), slice(1, Infinity))
 const cmdFull = compose(filter(notEmpty), cmdSplit)

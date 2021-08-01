@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { TYPE, EVENT } from '@/constant'
-import { buildLog, send } from '@/utils'
+import { send } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 // import S from './service'
 import type { TStore } from './store'

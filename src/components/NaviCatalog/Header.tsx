@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
 
 import Tooltip from '@/components/Tooltip'
 

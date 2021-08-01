@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import type { TArticle, TContainer } from '@/spec'
-import { buildLog, scrollToComments } from '@/utils'
+import { scrollToComments } from '@/utils/dom'
 
 import { Space } from '@/components/Common'
 import {
@@ -18,9 +18,6 @@ import {
   Count,
   CommentCount,
 } from './styles'
-
-/* eslint-disable-next-line */
-const log = buildLog('c:ArticleBaseStats:index')
 
 type TProps = {
   testid?: string

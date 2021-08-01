@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 
-import { numberWithCommas, cutRest } from '@/utils'
+import { numberWithCommas, cutRest } from '@/utils/helper'
 import Tooltip from '@/components/Tooltip'
 
 import {

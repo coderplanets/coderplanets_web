@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-import { animate, css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
+import animate from '@/utils/animations'
 import { SIDEBAR_WIDTH } from './metric'
 
 export const Wrapper = styled.div`

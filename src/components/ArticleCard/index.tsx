@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TJob } from '@/spec'
 // import { THREAD } from '@/constant'
 
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import DigestSentence from '@/components/DigestSentence'
 import { Br, SpaceGrow } from '@/components/Common'
 import ArticleImgWindow from '@/components/ArticleImgWindow'

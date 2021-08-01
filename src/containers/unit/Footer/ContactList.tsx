@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { ICON_CMD, EMAIL_SUPPORT } from '@/config'
-import { joinUS } from '@/utils'
+import { joinUS } from '@/utils/helper'
 
 import { Wrapper, Item, Icon } from './styles/contact_list'
 

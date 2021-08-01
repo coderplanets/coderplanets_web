@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import { scrollToHeader, scrollDrawerToTop } from '@/utils'
+import { scrollToHeader, scrollDrawerToTop } from '@/utils/dom'
 
 import { IconButton } from '@/components/Buttons'
 import { Wrapper } from './styles'
