@@ -19,11 +19,11 @@ export type TProps = {
   community?: TCommunity
 }
 
-const HeaderContainer: FC<TProps> = ({ metric }) => {
+const HeaderContainer: FC<TProps> = (props) => {
   const { isMobile } = usePlatform()
   return (
     <Wrapper id={ANCHOR.GLOBAL_HEADER_ID} testid="">
-      {!isMobile ? <DesktopView metric={metric} /> : <MobileWrapper />}
+      {!isMobile ? <DesktopView {...props} /> : <MobileWrapper />}
     </Wrapper>
   )
 }
