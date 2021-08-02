@@ -3661,9 +3661,9 @@ cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.nlark.com/cyclist/download/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
 
-cypress@7.7.0:
-  version "7.7.0"
-  resolved "https://registry.nlark.com/cypress/download/cypress-7.7.0.tgz#0839ae28e5520536f9667d6c9ae81496b3836e64"
+cypress@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.nlark.com/cypress/download/cypress-8.0.0.tgz#bd68f4cff9ffb0c1176e9dd87d020cbdd0001ab8"
   dependencies:
     "@cypress/request" "^2.88.5"
     "@cypress/xvfb" "^1.2.4"
