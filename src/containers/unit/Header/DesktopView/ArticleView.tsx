@@ -4,26 +4,25 @@
  *
  */
 
-import { FC, useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
-import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Navigator from '@/components/Navigator'
 
 import type { TStore } from '../store'
+// import UserAccount from '../UserAccount'
 import {
   Wrapper,
   InnerWrapper,
   RouterWrapper,
   Operations,
   MoreIcon,
-} from '../styles/desktop_view/article_editor_view'
-
+} from '../styles/desktop_view/article_view'
 import { useInit } from '../logic'
 
 /* eslint-disable-next-line */
@@ -36,10 +35,10 @@ type TProps = {
   metric?: TMetric
 }
 
-const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
+const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
   useInit(store, metric)
 
-  const { isOnline, leftOffset, accountInfo, isLogin, curCommunity } = store
+  const { leftOffset, isLogin, curCommunity, c11n } = store
 
   useEffect(() => {
     if (isLogin) {
@@ -62,13 +61,13 @@ const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
         <RouterWrapper metric={metric}>
           <Navigator
             community={curCommunity}
-            layout={accountInfo.customization.bannerLayout}
-            isOnline={isOnline}
-            metric={METRIC.ARTICLE_EDITOR}
+            layout={c11n.bannerLayout}
+            metric={metric}
           />
         </RouterWrapper>
-        <Operations>
+        <Operations metric={metric}>
           {MailBox && <MailBox />}
+          {/* <Cashier /> */}
           <MoreIcon src={`${ICON}/shape/more-box.svg`} />
         </Operations>
       </InnerWrapper>
@@ -76,4 +75,4 @@ const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
   )
 }
 
-export default pluggedIn(ArticleEditorHeader, 'header') as FC<TProps>
+export default pluggedIn(ArticleHeaderContainer, 'header') as FC<TProps>

@@ -49,15 +49,12 @@ const CommunityHeaderContainer: FC<TProps> = ({
   useInit(store, metric)
 
   const {
-    isOnline,
     leftOffset,
     accountInfo,
     isLogin,
     curCommunity,
     hasNoBottomBorder,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
+    c11n,
   } = store
 
   useEffect(() => {
@@ -71,7 +68,9 @@ const CommunityHeaderContainer: FC<TProps> = ({
   }, [isLogin])
 
   const InnerWrapper =
-    bannerLayout === C11N.CLASSIC ? ClassicInnerWrapper : HolyGrailInnerWrapper
+    c11n.bannerLayout === C11N.CLASSIC
+      ? ClassicInnerWrapper
+      : HolyGrailInnerWrapper
 
   return (
     <Wrapper
@@ -82,12 +81,11 @@ const CommunityHeaderContainer: FC<TProps> = ({
     >
       <InnerWrapper metric={metric}>
         <RouterWrapper>
-          {/* <Navigator
+          <Navigator
             community={curCommunity}
-            layout={bannerLayout}
-            isOnline={isOnline}
+            layout={c11n.bannerLayout}
             metric={metric}
-          /> */}
+          />
         </RouterWrapper>
         <AddOns />
         <Operations>

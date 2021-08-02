@@ -13,9 +13,9 @@ import { pluggedIn } from '@/utils/mobx'
 import usePlatform from '@/hooks/usePlatform'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-import Header from '@/components/Header'
+// import Header from '@/components/Header'
 
-// import Header from '@/containers/unit/Header'
+import Header from '@/containers/unit/Header'
 // import ModeLine from '@/containers/unit/ModeLine'
 
 // import Drawer from '@/containers/tool/Drawer'
@@ -86,11 +86,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
                   autoHide
                 >
                   <div>
-                    <Header
-                      metric={metric}
-                      c11n={c11n}
-                      community={curCommunity}
-                    />
+                    <Header metric={metric} />
                     <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                       {childrenWithProps(children, { metric })}
                     </BodyWrapper>

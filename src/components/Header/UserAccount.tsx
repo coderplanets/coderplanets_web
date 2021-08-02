@@ -7,7 +7,7 @@ import { ROUTE } from '@/constant'
 import Tooltip from '@/components/Tooltip'
 import Button from '@/components/Buttons/Button'
 
-import { onLogin, onLogout, previewAccount } from './logic'
+// import { onLogin, onLogout, previewAccount } from './logic'
 
 import {
   Wrapper,
@@ -46,7 +46,7 @@ const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
                 <LoginName>{accountInfo.login}</LoginName>
               </LoginBadge>
               <MenuDivider />
-              <MenuItem onClick={() => previewAccount()}>主页面板</MenuItem>
+              <MenuItem>主页面板</MenuItem>
               <MenuLink
                 href={`/user/${accountInfo.login}`}
                 rel="noopener noreferrer"
@@ -77,7 +77,9 @@ const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
                 设置
               </MenuLink>
               <MenuItem>帮助</MenuItem>
-              <LogoutItem onClick={onLogout}>登出</LogoutItem>
+              <LogoutItem onClick={() => console.log('onLogout')}>
+                登出
+              </LogoutItem>
             </PopMenu>
           }
         >
@@ -86,7 +88,10 @@ const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
           </Wrapper>
         </Tooltip>
       ) : (
-        <Wrapper testid="header-unlogin-user" onClick={onLogin}>
+        <Wrapper
+          testid="header-unlogin-user"
+          onClick={() => console.log('todo onLogin')}
+        >
           <DefaultUserIcon src={`${ICON}/user/account-solid.svg`} />
         </Wrapper>
       )}

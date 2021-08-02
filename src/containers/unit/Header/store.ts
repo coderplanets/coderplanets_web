@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, contains, values } from 'ramda'
 
-import type { TRootStore, TCommunity, TAccount } from '@/spec'
+import type { TRootStore, TCommunity, TAccount, TC11N } from '@/spec'
 import { METRIC } from '@/constant'
 import { markStates, stripMobx } from '@/utils/mobx'
 
@@ -21,6 +21,10 @@ const HeaderStore = T.model('HeaderStore', {
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
       return stripMobx(root.viewing.community)
+    },
+    get c11n(): TC11N {
+      const root = getParent(self) as TRootStore
+      return root.account.c11n
     },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
