@@ -90,6 +90,8 @@ jobs:
       - name: (Frontend) Check Bundle Size
         working-directory: ./frontend_server
         run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
+      - name: add hosts to /etc/hosts
+        run: echo "127.0.0.1 localhost" | sudo tee -a /etc/hosts
       - name: (Frontend) Run e2e Tests
         working-directory: ./frontend_server
         run: npm run test:ci
