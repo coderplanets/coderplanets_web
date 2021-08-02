@@ -5,7 +5,7 @@ import { ICON_CMD } from '@/config'
 import Tooltip from '@/components/Tooltip'
 
 import MorePanel from '../MorePanel'
-import { SiteLink, Icon } from '../styles/main_entries'
+import { SiteLink, Icon } from '../styles/more_links'
 
 const DesktopView: FC = () => {
   return (

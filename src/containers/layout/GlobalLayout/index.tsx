@@ -13,7 +13,9 @@ import { pluggedIn } from '@/utils/mobx'
 import usePlatform from '@/hooks/usePlatform'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-import Header from '@/containers/unit/Header'
+import Header from '@/components/Header'
+
+// import Header from '@/containers/unit/Header'
 // import ModeLine from '@/containers/unit/ModeLine'
 
 // import Drawer from '@/containers/tool/Drawer'
@@ -52,12 +54,11 @@ const GlobalLayoutContainer: FC<TProps> = ({
   noFooter = false,
   metric,
 }) => {
-  // const { online } = useNetwork() // TODO: move it to Header
   const { isMobile } = usePlatform()
   // load debug graph
   // useInit(store, { isMobile })
 
-  const { sidebarPin, c11n } = store
+  const { sidebarPin, c11n, curCommunity } = store
   const { bannerLayout } = c11n
 
   return (
@@ -81,13 +82,15 @@ const GlobalLayoutContainer: FC<TProps> = ({
                   height="100vh"
                   barSize={SIZE.MEDIUM}
                   showShadow={false}
-                  onScrollDirectionChange={(direction) =>
-                    onPageScrollDirhange(direction)
-                  }
+                  onScrollDirectionChange={onPageScrollDirhange}
                   autoHide
                 >
                   <div>
-                    <Header metric={metric} />
+                    <Header
+                      metric={metric}
+                      c11n={c11n}
+                      community={curCommunity}
+                    />
                     <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                       {childrenWithProps(children, { metric })}
                     </BodyWrapper>

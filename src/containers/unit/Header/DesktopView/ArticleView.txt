@@ -8,53 +8,41 @@ import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
-import { C11N, METRIC } from '@/constant'
+import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Navigator from '@/components/Navigator'
 
 import type { TStore } from '../store'
-
+// import UserAccount from '../UserAccount'
 import {
   Wrapper,
-  ClassicInnerWrapper,
-  HolyGrailInnerWrapper,
+  InnerWrapper,
   RouterWrapper,
-  Search,
-  HeaderSearchIcon,
   Operations,
-} from '../styles/desktop_view/community_view'
-import { useInit, openDoraemon } from '../logic'
+  MoreIcon,
+} from '../styles/desktop_view/article_view'
+import { useInit } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
 
 let MailBox
 
-const UserAccount = dynamic(() => import('../UserAccount'), { ssr: false })
-const AddOns = dynamic(() => import('../AddOns'), { ssr: false })
-
 type TProps = {
-  // T.oneOf(values(METRIC)) TODO
-  metric?: TMetric
   header?: TStore
+  metric?: TMetric
 }
 
-const CommunityHeaderContainer: FC<TProps> = ({
-  header: store,
-  metric = METRIC.COMMUNITY,
-}) => {
-  // log('header metric: ', metric)
+const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
   useInit(store, metric)
 
   const {
     isOnline,
     leftOffset,
-    accountInfo,
     isLogin,
     curCommunity,
-    hasNoBottomBorder,
     accountInfo: {
       customization: { bannerLayout },
     },
@@ -70,37 +58,30 @@ const CommunityHeaderContainer: FC<TProps> = ({
     }
   }, [isLogin])
 
-  const InnerWrapper =
-    bannerLayout === C11N.CLASSIC ? ClassicInnerWrapper : HolyGrailInnerWrapper
-
   return (
     <Wrapper
       id="whereCallShowDoraemon"
       testid="header"
       leftOffset={leftOffset}
-      noBorder={hasNoBottomBorder}
+      noBorder
     >
-      <InnerWrapper metric={metric}>
-        <RouterWrapper>
-          {/* <Navigator
+      <InnerWrapper>
+        <RouterWrapper metric={metric}>
+          <Navigator
             community={curCommunity}
             layout={bannerLayout}
             isOnline={isOnline}
-            metric={metric}
-          /> */}
+            // showLogoText
+          />
         </RouterWrapper>
-        <AddOns />
-        <Operations>
-          <Search onClick={openDoraemon} testid="header-search">
-            <HeaderSearchIcon testid="header-search-icon" />
-          </Search>
-
+        <Operations metric={metric}>
           {MailBox && <MailBox />}
-          <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
+          {/* <Cashier /> */}
+          <MoreIcon src={`${ICON}/shape/more-box.svg`} />
         </Operations>
       </InnerWrapper>
     </Wrapper>
   )
 }
 
-export default pluggedIn(CommunityHeaderContainer, 'header') as FC<TProps>
+export default pluggedIn(ArticleHeaderContainer, 'header') as FC<TProps>

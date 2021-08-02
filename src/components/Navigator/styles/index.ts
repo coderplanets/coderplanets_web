@@ -6,7 +6,8 @@ import { C11N } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import animate from '@/utils/animations'
-import CommunityFaceLogo from '@/components/CommunityFaceLogo'
+import SiteLogo from '@/icons/Comment' // TODO:
+// import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
   ${css.flex('align-center')};
@@ -16,7 +17,8 @@ export const Breadcrumbs = styled.div`
     margin-right: 0;
   `};
 `
-export const Logo = styled(CommunityFaceLogo)`
+export const Logo = styled(SiteLogo)`
+  fill: #49a5a0;
   ${css.size(16)};
 `
 export const LogoLink = styled.a<{ layout: TC11NLayout }>`

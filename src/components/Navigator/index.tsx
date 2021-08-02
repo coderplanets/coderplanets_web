@@ -24,7 +24,6 @@ const shouldShowLogoText = (
 
 type TProps = {
   community: TCommunity
-  isOnline?: boolean
   layout: TC11NLayout
   metric?: TMetric
 }
@@ -33,17 +32,11 @@ const Navigator: FC<TProps> = ({
   community,
   layout,
   metric = METRIC.COMMUNITY,
-  isOnline = true,
 }) => {
   const showLogoText = shouldShowLogoText(community.raw, metric, layout)
 
   return (
-    <DigestView
-      layout={layout}
-      showLogoText={showLogoText}
-      isOnline={isOnline}
-      metric={metric}
-    />
+    <DigestView layout={layout} showLogoText={showLogoText} metric={metric} />
   )
 }
 

@@ -3,7 +3,8 @@ import { FC, memo } from 'react'
 import { ICON } from '@/config'
 import { TYPE, EVENT } from '@/constant'
 import { send } from '@/utils/helper'
-import { Wrapper, SiteLink, MobileIcon } from '../styles/main_entries'
+import { Wrapper, SiteLink } from '../styles/main_entries'
+import { MobileIcon } from '../styles/more_links'
 
 export const openMobileNaviMenu = (): void => {
   send(EVENT.DRAWER.OPEN, {

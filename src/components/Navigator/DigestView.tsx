@@ -3,13 +3,14 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric, TC11NLayout } from '@/spec'
 import { METRIC } from '@/constant'
+// import useNetwork from 'react-use/lib/useNetwork'
 
 import {
   Breadcrumbs,
   Logo,
   LogoLink,
   LogoText,
-  OfflineWrapper,
+  // OfflineWrapper,
   ActionText,
 } from './styles'
 
@@ -35,10 +36,10 @@ type TProps = {
   metric: TMetric
   layout: TC11NLayout
   showLogoText: boolean
-  isOnline: boolean
 }
 
-const DigestView: FC<TProps> = ({ metric, showLogoText, isOnline, layout }) => {
+const DigestView: FC<TProps> = ({ metric, showLogoText, layout }) => {
+  // const { online } = useNetwork()
   return (
     <Breadcrumbs>
       <LogoLink href="/home/posts" layout={layout}>
@@ -48,11 +49,12 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, isOnline, layout }) => {
 
       <BlinkCursor duration={1.6} height={14} left={5} right={2} />
 
-      {isOnline ? (
+      {renderMainEntries(metric)}
+      {/* {online ? (
         renderMainEntries(metric)
       ) : (
         <OfflineWrapper>您已离线，请检查网络设置</OfflineWrapper>
-      )}
+      )} */}
     </Breadcrumbs>
   )
 }
