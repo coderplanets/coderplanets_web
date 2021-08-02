@@ -86,10 +86,10 @@ jobs:
         run: chmod +x ./utils/bin/jq-linux; ./utils/bin/jq-linux -s '.[0] * .[1]' config/config.json config/config.ci.json > /tmp/config.json; cp /tmp/config.json ./config/config.json
       - name: (Frontend) Build Project
         working-directory: ./frontend_server
-        run: sudo npm run build.ci
+        run: npm run build.ci
       - name: (Frontend) Check Bundle Size
         working-directory: ./frontend_server
         run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
       - name: (Frontend) Run e2e Tests
         working-directory: ./frontend_server
-        run: sudo npm run test:ci
+        run: npm run test:ci

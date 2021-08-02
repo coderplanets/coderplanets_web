@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=dev node server.js",
     "prod": "cross-env NODE_ENV=production run-p server",
     "local": "cross-env NODE_ENV=local node server",
-    "ci": "cross-env NODE_ENV=ci node server",
+    "ci": "cross-env NODE_ENV=ci node server --inspect",
     "server": "npm run clean && node server.js",
     "build": "next build",
     "build:clean": "run-s dist clean",
