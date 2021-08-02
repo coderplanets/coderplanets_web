@@ -19,39 +19,26 @@ type TProps = {
 }
 
 const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
-  return <div>hello</div>
-  // useInit(store)
+  useInit(store)
 
-  // const isMobile = false
-  // const { isMobile } = usePlatform()
+  const { isMobile } = usePlatform()
 
-  // const {
-  //   curThread,
-  //   curCommunity,
-  //   accountInfo: {
-  //     customization: { bannerLayout },
-  //   },
-  //   subscribedCommunitiesData,
-  // } = store
+  const { curThread, curCommunity, c11n, subscribedCommunitiesData } = store
+  const isClassicLayout = !isMobile && c11n.bannerLayout === C11N.CLASSIC
 
-  // const isClassicLayout = !isMobile && bannerLayout === C11N.CLASSIC
-
-  // return (
-  //   <Fragment>
-  //     {isClassicLayout ? (
-  //       <div>i</div>
-  //     ) : (
-  //       // <ClassicLayout thread={curThread} />
-  //       <div>i</div>
-  //       // <HolyGrailLayout
-  //       //   thread={curThread}
-  //       //   community={curCommunity}
-  //       //   subscribedCommunities={subscribedCommunitiesData}
-  //       // />
-  //     )}
-  //   </Fragment>
-  // )
+  return (
+    <Fragment>
+      {isClassicLayout ? (
+        <ClassicLayout thread={curThread} />
+      ) : (
+        <HolyGrailLayout
+          thread={curThread}
+          community={curCommunity}
+          subscribedCommunities={subscribedCommunitiesData}
+        />
+      )}
+    </Fragment>
+  )
 }
 
-// export default pluggedIn(CommunityContentContainer) as FC<TProps>
-export default CommunityContentContainer as FC<TProps>
+export default pluggedIn(CommunityContentContainer) as FC<TProps>

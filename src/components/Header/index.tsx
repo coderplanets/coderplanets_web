@@ -23,8 +23,7 @@ const HeaderContainer: FC<TProps> = ({ metric }) => {
   const { isMobile } = usePlatform()
   return (
     <Wrapper id={ANCHOR.GLOBAL_HEADER_ID} testid="">
-      <DesktopView metric={metric} />
-      {/* {!isMobile ? <DesktopView metric={metric} /> : <MobileWrapper />} */}
+      {!isMobile ? <DesktopView metric={metric} /> : <MobileWrapper />}
     </Wrapper>
   )
 }

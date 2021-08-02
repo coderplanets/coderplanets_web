@@ -4,7 +4,7 @@ import { contains } from 'ramda'
 import type { TCommunity } from '@/spec'
 import { NON_FILL_COMMUNITY } from '@/constant'
 
-import { FollowButton } from '@/components/Buttons'
+import FollowButton from '@/components/Buttons/FollowButton'
 import SocialList from '@/components/SocialList'
 
 import {
