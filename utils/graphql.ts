@@ -1,11 +1,8 @@
-import { curry, and, has, pathEq, merge, toUpper, clone } from 'ramda'
+import { merge, toUpper, clone } from 'ramda'
 import { request, GraphQLClient } from 'graphql-request'
 
 import { GRAPHQL_ENDPOINT, PAGE_SIZE } from '@/config'
 import { nilOrEmpty, isString } from './validator'
-
-export const asyncRes = curry((key, obj) => and(obj[key], has(key, obj)))
-export const asyncErr = (key: string): any => pathEq(['error'], key)
 
 const client = new GraphQLClient(GRAPHQL_ENDPOINT)
 

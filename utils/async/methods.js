@@ -1,7 +1,7 @@
 import { from } from 'rxjs'
 
 import { buildLog } from '../logger'
-import { client } from './setup'
+import gqClient from './gq_client'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
@@ -9,7 +9,7 @@ import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 const log = buildLog('Async')
 
 const doQuery = (query, variables) => {
-  return client
+  return gqClient
     .query(query, variables)
     .toPromise()
     .then((res) => {
@@ -22,7 +22,7 @@ const doQuery = (query, variables) => {
 }
 
 const doMutate = (mutation, variables) => {
-  return client
+  return gqClient
     .mutate(mutation, variables)
     .toPromise()
     .then((res) => {

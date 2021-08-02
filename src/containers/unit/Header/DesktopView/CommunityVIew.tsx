@@ -45,7 +45,7 @@ const CommunityHeaderContainer: FC<TProps> = ({
   header: store,
   metric = METRIC.COMMUNITY,
 }) => {
-  log('header metric: ', metric)
+  // log('header metric: ', metric)
   useInit(store, metric)
 
   const {

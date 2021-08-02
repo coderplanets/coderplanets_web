@@ -57,8 +57,6 @@ export {
 export {
   makeGQClient,
   makeGithubExplore,
-  asyncErr,
-  asyncRes,
   later,
   pagedFilter,
   atomizeValues,
@@ -90,7 +88,6 @@ export {
   flashState,
   meteorState,
   stripMobx,
-  $solver,
   updateEditing,
 } from './mobx'
 

@@ -87,7 +87,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
                   autoHide
                 >
                   <div>
-                    {/* <Header metric={metric} /> */}
+                    <Header metric={metric} />
                     <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                       {childrenWithProps(children, { metric })}
                     </BodyWrapper>

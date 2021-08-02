@@ -39,49 +39,41 @@ type TProps = {
 const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
   useInit(store, metric)
 
-  return <div>ii</div>
+  const { isOnline, leftOffset, accountInfo, isLogin, curCommunity } = store
+
+  useEffect(() => {
+    if (isLogin) {
+      MailBox = dynamic(() => import('@/containers/tool/MailBox'), {
+        /* eslint-disable react/display-name */
+        loading: () => <div />,
+        ssr: false,
+      })
+    }
+  }, [isLogin])
+
+  return (
+    <Wrapper
+      id="whereCallShowDoraemon"
+      testid="header"
+      leftOffset={leftOffset}
+      noBorder
+    >
+      <InnerWrapper>
+        <RouterWrapper metric={metric}>
+          <Navigator
+            community={curCommunity}
+            layout={accountInfo.customization.bannerLayout}
+            isOnline={isOnline}
+            metric={METRIC.ARTICLE_EDITOR}
+          />
+        </RouterWrapper>
+        <Operations>
+          {MailBox && <MailBox />}
+          <MoreIcon src={`${ICON}/shape/more-box.svg`} />
+        </Operations>
+      </InnerWrapper>
+    </Wrapper>
+  )
 }
 
 export default pluggedIn(ArticleEditorHeader, 'header') as FC<TProps>
-
-// const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
-//   useInit(store, metric)
-
-//   const { isOnline, leftOffset, accountInfo, isLogin, curCommunity } = store
-
-//   useEffect(() => {
-//     if (isLogin) {
-//       MailBox = dynamic(() => import('@/containers/tool/MailBox'), {
-//         /* eslint-disable react/display-name */
-//         loading: () => <div />,
-//         ssr: false,
-//       })
-//     }
-//   }, [isLogin])
-
-//   return (
-//     <Wrapper
-//       id="whereCallShowDoraemon"
-//       testid="header"
-//       leftOffset={leftOffset}
-//       noBorder
-//     >
-//       <InnerWrapper>
-//         <RouterWrapper metric={metric}>
-//           <Navigator
-//             community={curCommunity}
-//             layout={accountInfo.customization.bannerLayout}
-//             isOnline={isOnline}
-//             metric={METRIC.ARTICLE_EDITOR}
-//           />
-//         </RouterWrapper>
-//         <Operations>
-//           {MailBox && <MailBox />}
-//           <MoreIcon src={`${ICON}/shape/more-box.svg`} />
-//         </Operations>
-//       </InnerWrapper>
-//     </Wrapper>
-//   )
-// }
-
-// export default pluggedIn(ArticleEditorHeader, 'header') as FC<TProps>

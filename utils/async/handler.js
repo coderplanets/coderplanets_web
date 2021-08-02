@@ -5,7 +5,7 @@ import { of } from 'rxjs'
 
 import { ERR } from '@/constant'
 
-import { TIMEOUT_THRESHOLD } from './setup'
+import { TIMEOUT_THRESHOLD } from './config'
 import { buildLog } from '../logger'
 
 /* eslint-disable-next-line */

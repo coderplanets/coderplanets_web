@@ -121,7 +121,7 @@ export const useInit = (_store: TStore, metric: TMetric): void => {
   useEffect(() => {
     store = _store
     store.mark({ metric })
-    // log('effect init')
+    log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     checkSessionState()
 

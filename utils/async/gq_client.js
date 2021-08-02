@@ -10,27 +10,14 @@ import BStore from '../bstore'
 /* eslint-disable-next-line */
 const log = buildLog('Async')
 
-export const TIMEOUT_THRESHOLD = 10000 // 10 sec
-export const GRAPHQL_TIMEOUT = 10000 // 10 sec
-export const MUTIATION_TIMEOUT = 10000 // 10 sec
-export const QUERY_TIMEOUT = 10000 // 10 sec
-
-const token = BStore.get('token') || ''
-export const context = {
-  headers: {
-    special: 'Special header value',
-    authorization: `Bearer ${token}`,
-  },
-}
-
 // see setup https://formidable.com/open-source/urql/docs/basics/core/
-export const client = createClient({
+const client = createClient({
   url: GRAPHQL_ENDPOINT,
   fetchOptions: () => {
     return {
       headers: {
         special: 'Special header value',
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${BStore.get('token') || ''}`,
       },
     }
   },
@@ -39,3 +26,5 @@ export const client = createClient({
   // the same as:
   // exchanges: [dedupExchange, cacheExchange, fetchExchange],
 })
+
+export default client
