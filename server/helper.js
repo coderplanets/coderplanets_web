@@ -1,5 +1,4 @@
-const dev =
-  process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'ci'
+const dev = process.env.NODE_ENV !== 'production' // && process.env.NODE_ENV !== 'ci'
 
 const cacheableResponse = require('cacheable-response')
 
