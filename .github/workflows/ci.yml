@@ -96,16 +96,16 @@ jobs:
       # - name: (Frontend) Run e2e Tests
       #   working-directory: ./frontend_server
       #   run: npm run test:ci
-  cypress-run:
-    # see: https://github.com/cypress-io/github-action
-    name: run cypress
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cypress run
-        working-directory: ./frontend_server
-        uses: cypress-io/github-action@v2
-        with:
-          browser: chrome
-          # build: npm run build
-          start: npm run ci
-          wait-on: http://localhost:3000
+  # cypress-run:
+  #   # see: https://github.com/cypress-io/github-action
+  #   name: run cypress
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Cypress run
+  #       working-directory: ./frontend_server
+  #       uses: cypress-io/github-action@v2
+  #       with:
+  #         browser: chrome
+  #         # build: npm run build
+  #         start: npm run ci
+  #         wait-on: http://localhost:3000
