@@ -99,6 +99,7 @@ jobs:
       - name: (Frontend) Cypress run
         uses: cypress-io/github-action@v2
         with:
+          path: ./frontend_server
           # build: npm run build
-          start: cd ./frontend_server; npm run ci
+          start: npm run ci
           wait-on: http://localhost:3000
