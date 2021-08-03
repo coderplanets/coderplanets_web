@@ -282,7 +282,7 @@ const DataSolver = [
       // focus = false
       store.open(false)
       /* "doraemonInputbar" */
-      store.mark({ inputValue: data })
+      store.mark({ inputValue: data || '' })
       queryPocket()
     },
   },

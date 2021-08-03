@@ -1,9 +1,10 @@
 import { Fragment, FC, memo } from 'react'
 import { useRouter } from 'next/router'
 
-import type { TAccount } from '@/spec'
 import { ICON } from '@/config'
 import { ROUTE } from '@/constant'
+import { useAccount } from '@/stores/init'
+
 import Tooltip from '@/components/Tooltip'
 import Button from '@/components/Buttons/Button'
 
@@ -24,17 +25,13 @@ import {
   MembershipHint,
 } from './styles/user_account'
 
-type TProps = {
-  isLogin: boolean
-  accountInfo: TAccount
-}
-
-const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
+const UserAccount: FC = () => {
   const router = useRouter()
+  const account = useAccount()
 
   return (
     <Fragment>
-      {isLogin ? (
+      {account.isLogin ? (
         <Tooltip
           placement="bottom-start"
           trigger="click"
@@ -43,26 +40,26 @@ const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
             <PopMenu>
               <LoginBadge>
                 <LoginDesc>使用 Github 登陆:</LoginDesc>
-                <LoginName>{accountInfo.login}</LoginName>
+                <LoginName>{account.user.login}</LoginName>
               </LoginBadge>
               <MenuDivider />
               <MenuItem>主页面板</MenuItem>
               <MenuLink
-                href={`/user/${accountInfo.login}`}
+                href={`/user/${account.user.login}`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 我的主页
               </MenuLink>
               <MenuLink
-                href={`/user/${accountInfo.login}?tab=favorites`}
+                href={`/user/${account.user.login}?tab=favorites`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 我的收藏
               </MenuLink>
               <MenuLink
-                href={`/user/${accountInfo.login}?tab=billing`}
+                href={`/user/${account.user.login}?tab=billing`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -70,7 +67,7 @@ const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
               </MenuLink>
               <MenuDivider />
               <MenuLink
-                href={`/user/${accountInfo.login}?tab=settings`}
+                href={`/user/${account.user.login}?tab=settings`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -84,7 +81,7 @@ const UserAccount: FC<TProps> = ({ isLogin, accountInfo }) => {
           }
         >
           <Wrapper testid="header-login-user">
-            <AvatarIcon src={accountInfo.avatar} />
+            <AvatarIcon src={account.user.avatar} />
           </Wrapper>
         </Tooltip>
       ) : (

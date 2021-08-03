@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import usePortal from 'react-useportal'
 
 import { pluggedIn, buildLog, toggleGlobalBlur } from '@/utils'
@@ -41,13 +41,10 @@ const DoraemonContainer = ({ doraemon: store }) => {
     searchedTotalCount,
   } = store
 
-  useEffect(() => {
-    console.log('from Doreamon')
-    toggleGlobalBlur(visible)
-  }, [visible])
+  useEffect(() => toggleGlobalBlur(visible), [visible])
 
   return (
-    <React.Fragment>
+    <Fragment>
       {visible && (
         <Portal>
           <PageOverlay
@@ -79,7 +76,7 @@ const DoraemonContainer = ({ doraemon: store }) => {
           </PanelContainer>
         </Portal>
       )}
-    </React.Fragment>
+    </Fragment>
   )
 }
 

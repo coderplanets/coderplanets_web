@@ -6,8 +6,6 @@ import css from '@/utils/css'
 import { pixelAdd } from '@/utils/dom'
 import { WIDTH } from '@/utils/css/metric'
 
-import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
-
 type TPos = {
   noBorder: boolean
 }
@@ -54,23 +52,4 @@ export const HolyGrailInnerWrapper = styled(InnerWrapper)`
 export const RouterWrapper = styled.div`
   ${css.flexGrow('align-center')};
   height: 100%;
-`
-export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs(
-  ({ testid }: TTestable) => ({
-    'data-test-id': testid,
-  }),
-)<TTestable>`
-  fill: ${theme('header.fg')};
-  ${css.size(18)};
-  display: block;
-  cursor: pointer;
-  margin-right: 12px;
-`
-export const Operations = styled.div`
-  ${css.flex('align-center')};
-`
-export const Search = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>`
-  color: ${theme('header.fg')};
 `
