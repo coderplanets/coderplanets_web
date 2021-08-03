@@ -2,10 +2,10 @@
  * the entry of the App root store
  */
 
-import { useMemo, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { applySnapshot } from 'mobx-state-tree'
 
-import type { TRootStore, TAccountStore, TViewingStore } from '@/spec'
+import type { TAccountStore, TViewingStore } from '@/spec'
 import RootStore from './RootStore/index2'
 
 let clientSideRootStore: any

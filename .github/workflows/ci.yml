@@ -96,15 +96,10 @@ jobs:
       # - name: (Frontend) Run e2e Tests
       #   working-directory: ./frontend_server
       #   run: npm run test:ci
-  cypress-run:
-    name: run cypress
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cypress run
-        working-directory: ./frontend_server
+      - name: (Frontend) Cypress run
         uses: cypress-io/github-action@v2
         with:
-          browser: chrome
+          working-directory: ./frontend_server
           # build: npm run build
           start: npm run ci
           wait-on: http://localhost:3000
