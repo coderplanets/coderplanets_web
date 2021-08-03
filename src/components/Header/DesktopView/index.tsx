@@ -11,10 +11,10 @@ const DesktopView: FC<TProps> = (props) => {
   const { metric } = props
   switch (metric) {
     case METRIC.ARTICLE: {
-      return <ArticleView metric={metric} />
+      return <ArticleView {...props} />
     }
     case METRIC.WORKS_ARTICLE: {
-      return <ArticleView metric={metric} />
+      return <ArticleView {...props} />
     }
     // case METRIC.ARTICLE_EDITOR: {
     //   return <ArticleEditorView metric={metric} />
