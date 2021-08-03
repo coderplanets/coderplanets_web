@@ -98,7 +98,8 @@ jobs:
       #   run: npm run test:ci
       - name: (Frontend) Cypress run
         working-directory: ./frontend_server
-        run: echo "hello"
+        uses: cypress-io/github-action@v2
+        # run: echo "hello"
         # uses: cypress-io/github-action@v2
         # with:
         # build: npm run build
