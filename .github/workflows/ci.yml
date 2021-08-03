@@ -97,8 +97,10 @@ jobs:
       #   working-directory: ./frontend_server
       #   run: npm run test:ci
       - name: Cypress run
-        uses: cypress-io/github-action@v1
+        uses: cypress-io/github-action@v2
         with:
+          browser: chrome
+          project: ./frontend_server
           # build: npm run build
           start: npm run ci
           wait-on: http://localhost:3000
