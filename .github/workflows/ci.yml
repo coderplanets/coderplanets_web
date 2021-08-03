@@ -90,6 +90,6 @@ jobs:
       # - name: (Frontend) Check Bundle Size
       #   working-directory: ./frontend_server
       #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
-      # - name: (Frontend) Run e2e Tests
-      #   working-directory: ./frontend_server
-      #   run: npm run test:ci
+      - name: (Frontend) Run e2e Tests
+        working-directory: ./frontend_server
+        run: npm run test:ci
