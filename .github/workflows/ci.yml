@@ -87,6 +87,9 @@ jobs:
       - name: (Frontend) Build Project
         working-directory: ./frontend_server
         run: npm run build.ci
+      - name: check /etc/hosts
+        working-directory: ./frontend_server
+        run: echo "#>>>>#"; cat /etc/hosts; echo "#>>>>#"
       # - name: (Frontend) Check Bundle Size
       #   working-directory: ./frontend_server
       #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
