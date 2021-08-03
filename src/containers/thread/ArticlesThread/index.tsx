@@ -67,13 +67,13 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
             />
           </FilterWrapper>
         )}
-        {/* <PagedArticles
+        <PagedArticles
           data={pagedArticlesData}
           thread={curThread}
           viewingArticle={viewingArticle}
           resState={resState}
           c11n={c11n}
-        /> */}
+        />
       </MainWrapper>
 
       {bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
