@@ -100,5 +100,5 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           # build: npm run build
-          start: npm run ci
+          start: cd ./frontend_server; npm run ci
           wait-on: http://localhost:3000
