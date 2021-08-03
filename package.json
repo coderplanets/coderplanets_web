@@ -30,7 +30,7 @@
     "test:cover": "npm run test -- --coverage",
     "test:e2e": "./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run --key 60eb2dd7-724d-4b39-bd12-f434f3465866 --record",
-    "cy:run:free": "./node_modules/.bin/cypress DEBUG=cypress:* run",
+    "cy:run:free": "./node_modules/.bin/cypress run",
     "test:ci": "start-server-and-test ci http://localhost:3000 cy:run:free",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
@@ -149,7 +149,7 @@
     "bundlewatch": "^0.2.7",
     "commitizen": "3.1.2",
     "coveralls": "3.0.14",
-    "cypress": "8.0.0",
+    "cypress": "4.2.0",
     "cz-conventional-changelog": "^3.0.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",
