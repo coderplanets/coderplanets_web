@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=dev node server.js",
     "prod": "cross-env NODE_ENV=production run-p server",
     "local": "cross-env NODE_ENV=local node server",
-    "ci": "cross-env NODE_ENV=ci node server --inspect",
+    "ci": "cross-env NODE_ENV=ci node server",
     "server": "npm run clean && node server.js",
     "build": "next build",
     "build:clean": "run-s dist clean",
@@ -30,7 +30,7 @@
     "test:cover": "npm run test -- --coverage",
     "test:e2e": "./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run --key 60eb2dd7-724d-4b39-bd12-f434f3465866 --record",
-    "cy:run:free": "NO_PROXY=localhost ./node_modules/.bin/cypress run",
+    "cy:run:free": "./node_modules/.bin/cypress run",
     "test:ci": "start-server-and-test ci http://localhost:3000 cy:run:free",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
