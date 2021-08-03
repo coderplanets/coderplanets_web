@@ -2,7 +2,10 @@ import { useEffect } from 'react'
 import { toUpper, merge } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
-import { asyncSuit, buildLog, send, errRescue } from '@/utils'
+
+import asyncSuit from '@/utils/async'
+import { send, errRescue } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import S from './schema'
 

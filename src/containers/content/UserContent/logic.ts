@@ -2,7 +2,10 @@ import { useEffect } from 'react'
 
 import type { TID, TThread, TUser } from '@/spec'
 import { TYPE, EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, send, errRescue } from '@/utils'
+
+import asyncSuit from '@/utils/async'
+import { send, errRescue } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
 

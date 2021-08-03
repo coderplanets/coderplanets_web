@@ -3,7 +3,8 @@ import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
 import { ICON_CMD } from '@/config'
-import { cutRest, parseDomain } from '@/utils'
+import { cutRest } from '@/utils/helper'
+import { parseDomain } from '@/utils/route'
 
 import InlineTags from '@/components/InlineTags'
 

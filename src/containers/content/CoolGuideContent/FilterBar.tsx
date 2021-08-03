@@ -1,7 +1,7 @@
 import { FC, Fragment, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
-import { mockNaviCatalogMenu } from '@/utils'
+import { mockNaviCatalogMenu } from '@/utils/mock'
 
 import Sticky from '@/components/Sticky'
 import NaviIntro from '@/components/NaviIntro'

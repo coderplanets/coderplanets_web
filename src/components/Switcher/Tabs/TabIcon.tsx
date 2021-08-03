@@ -1,7 +1,7 @@
-import React, { FC, useCallback } from 'react'
+import { FC, useCallback } from 'react'
+import dynamic from 'next/dynamic'
 
 import type { TTabItem } from '@/spec'
-import LocalIcon from './LocalIcon'
 import { Wrapper, Icon } from '../styles/tabs/tab_icon'
 
 type TProps = {
@@ -11,6 +11,10 @@ type TProps = {
   }
   active: boolean
 }
+
+export const LocalIcon = dynamic(() => import('./LocalIcon'), {
+  ssr: false,
+})
 
 const TabIcon: FC<TProps> = ({ item, clickableRef, active }) => {
   const { localIcon, icon } = item

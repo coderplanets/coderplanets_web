@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 
-import { useCopyToClipboard } from '@/hooks'
+import useCopyToClipboard from 'react-use/lib/useCopyToClipboard'
 import EmailSubscriber from '@/components/EmailSubscriber'
 import { Br, SpaceGrow } from '@/components/Common'
 // TODO: extract to Email Subscriber

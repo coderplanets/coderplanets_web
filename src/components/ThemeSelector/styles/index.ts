@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import type { TActive, TThemeName } from '@/spec'
-import { theme, themeCoverMap, themeCoverIndexMap, css } from '@/utils'
+import { theme, themeCoverMap, themeCoverIndexMap } from '@/utils/themes'
+import css from '@/utils/css'
 
 type TDot = TActive & { name: TThemeName }
 export const Dot = styled.div<TDot>`

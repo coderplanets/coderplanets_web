@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { prettyNum } from '@/utils'
+import { prettyNum } from '@/utils/helper'
 import { Wrapper, Section, Title, Number } from './styles/numbers_pad'
 
 const NumbersPad = ({ user, listFollowers, listFollowings }) => (

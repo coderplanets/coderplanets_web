@@ -9,7 +9,11 @@ import T from 'prop-types'
 import { startsWith } from 'ramda'
 
 import { ASSETS_ENDPOINT } from '@/config'
-import { buildLog, storePlug, uid, Global } from '@/utils'
+
+import uid from '@/utils/uid'
+import { buildLog } from '@/utils/logger'
+import { storePlug } from '@/utils/mobx'
+import { Global } from '@/utils/helper'
 
 import { Wrapper, InputFile } from './styles'
 

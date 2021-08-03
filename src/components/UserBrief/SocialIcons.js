@@ -2,7 +2,8 @@ import React from 'react'
 import { contains } from 'ramda'
 
 import { ICON_CMD } from '@/config'
-import { nilOrEmpty, SOCIAL_LISTS } from '@/utils'
+import SOCIAL_LISTS from '@/utils/social'
+import { nilOrEmpty } from '@/utils/validator'
 
 import Tooltip from '@/components/Tooltip'
 import { Wrapper, Linker, SocialIcon } from './styles/social_icons'

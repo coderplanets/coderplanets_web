@@ -8,7 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
-import { buildLog, hasValue } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { hasValue } from '@/utils/validator'
 import { SIZE } from '@/constant'
 import Maybe from '@/components/Maybe'
 

@@ -3,7 +3,7 @@ import T from 'prop-types'
 import { values } from 'ramda'
 
 import { METRIC, TYPE } from '@/constant'
-import { multiClick } from '@/utils'
+import { multiClick } from '@/utils/helper'
 
 import {
   MenuBlock,

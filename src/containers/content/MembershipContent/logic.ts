@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 
 import { SENIOR_AMOUNT_THRESHOLD } from '@/config'
 import { PAYMENT_USAGE } from '@/constant'
-import { asyncSuit, buildLog } from '@/utils'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
 import type { TPackage } from './spec'

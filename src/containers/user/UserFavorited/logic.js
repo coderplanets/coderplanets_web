@@ -2,7 +2,11 @@ import { useEffect } from 'react'
 import { toUpper } from 'ramda'
 
 import { TYPE, EVENT, THREAD } from '@/constant'
-import { asyncSuit, buildLog, send, pagedFilter } from '@/utils'
+
+import { pagedFilter } from '@/utils/graphql'
+import { send } from '@/utils/helper'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
 
 import S from './schema'
 

@@ -7,7 +7,9 @@
 import { FC, useEffect, useCallback, useRef, memo } from 'react'
 
 import type { TSIZE_SM, TTabItem } from '@/spec'
-import { buildLog, isString, Trans } from '@/utils'
+import { Trans } from '@/utils/i18n'
+import { isString } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 
 import TabIcon from './TabIcon'
 import {

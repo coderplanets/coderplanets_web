@@ -2,7 +2,10 @@ import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@/config'
 import { ERR } from '@/constant'
-import { asyncSuit, buildLog, errRescue } from '@/utils'
+
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
+import { errRescue } from '@/utils/helper'
 
 import S from './schema'
 

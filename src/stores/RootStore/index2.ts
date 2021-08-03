@@ -45,8 +45,6 @@ import {
   // footer
   FooterStore,
   // viewers
-  ArticleViewerHeader,
-  ArticleBodyHeaderStore,
   RepoViewerStore,
   CommentsStore,
   MailsViewerStore,
@@ -159,9 +157,6 @@ import {
 // import RepoViewerStore from '@/containers/viewer/RepoViewer/store'
 // import MailsViewerStore from '@/containers/viewer/MailsViewer/store'
 
-// import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader/store'
-// import ArticleBodyHeaderStore from '@/containers/unit/ArticleBodyHeader/store'
-
 // // activities page
 // import MeetupsContentStore from '@/containers/content/MeetupsContent/store'
 // // have a drink page
@@ -244,8 +239,6 @@ const rootStore = T.model({
   girlVerifier: T.optional(GirlVerifierStore, {}),
   cashier: T.optional(CashierStore, {}),
   communitySetter: T.optional(CommunitySetterStore, {}),
-  articleViewerHeader: T.optional(ArticleViewerHeader, {}),
-  articleBodyHeader: T.optional(ArticleBodyHeaderStore, {}),
   // viewers (for drawer usage)
   repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),

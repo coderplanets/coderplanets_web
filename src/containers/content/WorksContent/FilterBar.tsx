@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { mockNaviCatalogMenu } from '@/utils'
+import { mockNaviCatalogMenu } from '@/utils/mock'
 
 // import FiltersMenu from '@/components/FiltersMenu'
 import NaviCatalog from '@/components/NaviCatalog'

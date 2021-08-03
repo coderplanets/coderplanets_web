@@ -1,7 +1,8 @@
 import styled, { css as styledCss } from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
-import { animate, css } from '@/utils'
+import css from '@/utils/css'
+import animate from '@/utils/animations'
 
 import {
   Star1 as Star1Base,

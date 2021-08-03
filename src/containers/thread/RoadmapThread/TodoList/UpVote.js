@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import { prettyNum } from '@/utils'
+import { prettyNum } from '@/utils/helper'
 
 import { Wrapper, Icon } from '../styles/todo_list/up_vote'
 

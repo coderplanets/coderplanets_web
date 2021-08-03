@@ -2,7 +2,11 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { TYPE, EVENT } from '@/constant'
-import { send, buildLog, thread2Subpath, asyncSuit } from '@/utils'
+
+import asyncSuit from '@/utils/async'
+import { thread2Subpath } from '@/utils/route'
+import { send } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 // import S from './service'
 
 const { SR71, $solver, asyncRes } = asyncSuit

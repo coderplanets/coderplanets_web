@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { useShortcut } from '@/hooks'
+import useShortcut from '@/hooks/useShortcut'
 import InputPrefix from './InputPrefix'
 
 import { EditorBar, InputBar, PrefixWrapper } from './styles/input_editor'

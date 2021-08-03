@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { mockWorks } from '@/utils'
+import { mockWorks } from '@/utils/mock'
 // import { Br } from '@/components/Common'
 import WorksCard from '@/components/Cards/WorksCard'
 

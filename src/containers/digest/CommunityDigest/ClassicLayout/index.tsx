@@ -4,7 +4,7 @@ import { contains } from 'ramda'
 import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
 import usePlatform from '@/hooks/usePlatform'
 import { HCN, EVENT } from '@/constant'
-import { send } from '@/utils'
+import { send } from '@/utils/helper'
 
 import TabBar from '@/components/TabBar'
 import ViewportTracker from '@/components/ViewportTracker'

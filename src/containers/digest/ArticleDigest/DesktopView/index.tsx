@@ -7,7 +7,7 @@ import { isNil } from 'ramda'
 
 import type { TScrollDirection, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-import { useScroll } from '@/hooks'
+import useScroll from '@/hooks/useScroll'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 

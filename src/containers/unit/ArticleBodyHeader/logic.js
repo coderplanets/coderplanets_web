@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { toUpper, merge } from 'ramda'
+import { toUpper } from 'ramda'
 
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import { asyncSuit, buildLog, send, closeDrawer, errRescue } from '@/utils'

@@ -2,15 +2,12 @@ import { useEffect } from 'react'
 import { isEmpty } from 'ramda'
 
 import { EVENT, ERR } from '@/constant'
-import {
-  asyncSuit,
-  buildLog,
-  Global,
-  lockPage,
-  errorForHuman,
-  send,
-  errRescue,
-} from '@/utils'
+
+import asyncSuit from '@/utils/async'
+import { errorForHuman } from '@/utils/errors'
+import { Global, send, errRescue } from '@/utils/helper'
+import { lockPage } from '@/utils/dom'
+import { buildLog } from '@/utils/logger'
 
 import S from './schema'
 

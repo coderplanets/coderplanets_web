@@ -65,9 +65,6 @@ export { default as CommunitySetterStore } from '@/containers/tool/CommunitySett
 export { default as RepoViewerStore } from '@/containers/viewer/RepoViewer/store'
 export { default as MailsViewerStore } from '@/containers/viewer/MailsViewer/store'
 
-export { default as ArticleViewerHeader } from '@/containers/unit/ArticleViewerHeader/store'
-export { default as ArticleBodyHeaderStore } from '@/containers/unit/ArticleBodyHeader/store'
-
 // activities page
 export { default as MeetupsContentStore } from '@/containers/content/MeetupsContent/store'
 // have a drink page

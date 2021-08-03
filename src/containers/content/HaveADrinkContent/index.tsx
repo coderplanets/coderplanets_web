@@ -8,8 +8,11 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
-import { pluggedIn, buildLog, scrollToTop, lockPage, unlockPage } from '@/utils'
-import { useShortcut } from '@/hooks'
+import { scrollToTop, lockPage, unlockPage } from '@/utils/dom'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
+
+import useShortcut from '@/hooks/useShortcut'
 
 import type { TStore } from './store'
 import Header from './Header'

@@ -155,7 +155,6 @@ const CommunityPage = (props) => {
     description: `${community.desc}`,
   }
 
-  // return <Provider store={store}>hello</Provider>
   return (
     <Provider store={store}>
       <GlobalLayout

@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 
 import { ERR } from '@/constant'
-import { asyncSuit, buildLog, errRescue } from '@/utils'
+import asyncSuit from '@/utils/async'
+import { errRescue } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 import S from './schema'
 
 /* eslint-disable-next-line */
