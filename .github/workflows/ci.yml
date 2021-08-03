@@ -101,10 +101,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cypress run
+        working-directory: ./frontend_server
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          project: ./frontend_server
           # build: npm run build
           start: npm run ci
           wait-on: http://localhost:3000
