@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useScript } from '@/hooks'
+import useScript from '@/hooks/useScript'
 
 import { Wrapper, Holder } from './styles/belt'
 

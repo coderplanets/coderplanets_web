@@ -1,7 +1,9 @@
 import { contains, startsWith } from 'ramda'
 
 import { EVENT, TYPE, ROUTE, THREAD } from '@/constant'
-import { Global, send, thread2Subpath } from '@/utils'
+
+import { thread2Subpath } from '@/utils/route'
+import { Global, send } from '@/utils/helper'
 
 export const jumpToCommunity = (store, communityRaw) => {
   const { mainPath, subPath } = store.curRoute

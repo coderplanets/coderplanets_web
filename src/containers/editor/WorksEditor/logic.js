@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 
-import { buildLog, scrollToTop } from '@/utils'
+import { scrollToTop } from '@/utils/dom'
+import { buildLog } from '@/utils/logger'
 import { STEP } from './constant'
 // import S from './service'
 

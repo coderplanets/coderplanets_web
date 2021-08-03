@@ -2,7 +2,9 @@ import { useEffect } from 'react'
 import { isEmpty, merge } from 'ramda'
 
 import { EVENT, ERR, THREAD } from '@/constant'
-import { asyncSuit, buildLog, errRescue } from '@/utils'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
+import { errRescue } from '@/utils/helper'
 import S from './schema'
 
 /* eslint-disable-next-line */

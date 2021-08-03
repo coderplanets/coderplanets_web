@@ -1,7 +1,11 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, send, subPath2Thread, errRescue } from '@/utils'
+
+import asyncSuit from '@/utils/async'
+import { send, errRescue } from '@/utils/helper'
+import { subPath2Thread } from '@/utils/route'
+import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
 import S from './schema'

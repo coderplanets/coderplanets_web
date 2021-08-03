@@ -8,8 +8,13 @@ import { FC, ReactNode, useState, useRef, memo } from 'react'
 import { hideAll } from 'tippy.js'
 
 import type { TTooltipPlacement } from '@/spec'
-import { css, buildLog, isDescendant, isString } from '@/utils'
-import { useOutsideClick } from '@/hooks'
+
+import css from '@/utils/css'
+import { buildLog } from '@/utils/logger'
+import { isString } from '@/utils/validator'
+import { isDescendant } from '@/utils/dom'
+
+import useOutsideClick from '@/hooks/useOutsideClick'
 
 import ConfirmFooter from './ConfirmFooter'
 import { FOOTER_BEHAVIOR } from './constant'

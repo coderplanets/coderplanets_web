@@ -1,5 +1,5 @@
 import { ICON_BASE } from '@/config'
-import { uid } from '@/utils'
+import uid from '@/utils/uid'
 
 const menu = [
   {

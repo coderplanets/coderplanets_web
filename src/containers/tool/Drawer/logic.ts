@@ -4,17 +4,13 @@ import { contains, values } from 'ramda'
 import type { TDirection } from '@/spec'
 import { TYPE, EVENT } from '@/constant'
 
-import {
-  asyncSuit,
-  buildLog,
-  send,
-  Global,
-  debounce,
-  toggleGlobalBlur,
-  clearGlobalBlur,
-} from '@/utils'
+import { toggleGlobalBlur, clearGlobalBlur } from '@/utils/dom'
+import { Global, send, debounce } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
+import asyncSuit from '@/utils/async'
 
 import type { TStore } from './store'
+
 /* eslint-disable-next-line */
 const log = buildLog('L:Preview')
 

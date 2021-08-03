@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { buildLog, asyncSuit } from '@/utils'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
 import { EVENT } from '@/constant'
 import { SHARE_TYPE } from './constant'
 

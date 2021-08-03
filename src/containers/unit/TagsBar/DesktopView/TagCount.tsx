@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { getRandomInt } from '@/utils'
+import { getRandomInt } from '@/utils/helper'
 import { Wrapper, Count, ChartBar } from '../styles/desktop_view/tag_count'
 
 const TagCount = ({ num }) => {

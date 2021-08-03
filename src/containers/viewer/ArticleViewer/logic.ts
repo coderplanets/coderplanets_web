@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { merge } from 'ramda'
 
-import { asyncSuit, buildLog, errRescue } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { errRescue } from '@/utils/helper'
+import asyncSuit from '@/utils/async'
 
 import { EVENT, ERR } from '@/constant'
 

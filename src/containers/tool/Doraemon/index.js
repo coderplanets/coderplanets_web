@@ -7,7 +7,8 @@
 import { Fragment, useEffect } from 'react'
 import usePortal from 'react-useportal'
 
-import { pluggedIn, buildLog, toggleGlobalBlur } from '@/utils'
+import { toggleGlobalBlur } from '@/utils/dom'
+import { pluggedIn } from '@/utils/mobx'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'
@@ -18,9 +19,6 @@ import UtilsBar from './UtilsBar'
 
 import { PageOverlay, PanelContainer } from './styles'
 import { useInit, hidePanel } from './logic'
-
-/* eslint-disable-next-line */
-const log = buildLog('C:Doraemon')
 
 const DoraemonContainer = ({ doraemon: store }) => {
   useInit(store)

@@ -5,16 +5,11 @@ import type { TUser, TID } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 import { TYPE, EVENT, ERR } from '@/constant'
 
-import {
-  asyncSuit,
-  buildLog,
-  scrollIntoEle,
-  countWords,
-  send,
-  extractMentions,
-  errRescue,
-  BStore,
-} from '@/utils'
+import asyncSuit from '@/utils/async'
+import BStore from '@/utils/bstore'
+import { send, countWords, extractMentions, errRescue } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
+import { scrollIntoEle } from '@/utils/dom'
 
 import type { TStore } from './store'
 import S from './schema'

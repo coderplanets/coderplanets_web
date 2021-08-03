@@ -44,8 +44,6 @@ import {
   // footer
   FooterStore,
   // viewers
-  ArticleViewerHeader,
-  ArticleBodyHeaderStore,
   RepoViewerStore,
   CommentsStore,
   MailsViewerStore,
@@ -164,8 +162,6 @@ const rootStore = T.model({
   cashier: T.optional(CashierStore, {}),
   communitySetter: T.optional(CommunitySetterStore, {}),
 
-  articleViewerHeader: T.optional(ArticleViewerHeader, {}),
-  articleBodyHeader: T.optional(ArticleBodyHeaderStore, {}),
   // viewers (for drawer usage)
   repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),

@@ -3,7 +3,7 @@ import { FC, useState, useRef, useEffect } from 'react'
 import { findIndex } from 'ramda'
 
 import { ICON } from '@/config'
-import { sortByColor } from '@/utils'
+import { sortByColor } from '@/utils/helper'
 
 import type { TTag } from '@/spec'
 

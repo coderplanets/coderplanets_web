@@ -6,12 +6,10 @@
 
 import React from 'react'
 
-import { THREAD } from '@/constant'
+// import { THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
-import ArticleBodyHeader from '@/containers/unit/ArticleBodyHeader'
 import Comments from '@/containers/unit/Comments'
 import GithubRepoPage from '@/components/GithubRepoPage'
 
@@ -30,23 +28,8 @@ const RepoViewerContainer = ({ repoViewer: store, attachment }) => {
     <React.Fragment>
       <GithubRepoPage
         repo={viewingData}
-        viewerHeader={
-          <ArticleViewerHeader
-            data={viewingData}
-            author={viewingData.author}
-            thread={THREAD.REPO}
-            showStar={false}
-            showLastSync
-          />
-        }
-        bodyHeader={
-          <ArticleBodyHeader
-            communityRaw={curCommunity.raw}
-            thread={THREAD.REPO}
-            data={viewingData}
-            middle="labeler"
-          />
-        }
+        viewerHeader={<div>ii</div>}
+        bodyHeader={<div>ii</div>}
         updating={loading}
       />
       <CommentsWrapper>

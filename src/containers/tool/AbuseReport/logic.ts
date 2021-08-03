@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT } from '@/constant'
-import { buildLog, asyncSuit } from '@/utils'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
 
 import articleItems from './defaults/article'
 import userItems from './defaults/user'

@@ -2,7 +2,10 @@ import { useEffect } from 'react'
 
 import type { TMetric } from '@/spec'
 import { EVENT, PAYMENT_USAGE } from '@/constant'
-import { asyncSuit, buildLog, send } from '@/utils'
+
+import asyncSuit from '@/utils/async'
+import { send } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 // import S from './schema'
 
 import type { TStore } from './store'

@@ -7,7 +7,8 @@
 import { FC } from 'react'
 import { keys } from 'ramda'
 
-import { buildLog, pluggedIn } from '@/utils'
+import { pluggedIn } from '@/utils/mobx'
+import { buildLog } from '@/utils/logger'
 
 import type { TProps as TTagProps } from '../index'
 

@@ -10,7 +10,7 @@ import usePortal from 'react-useportal'
 import { ICON_CMD } from '@/config'
 import { toggleGlobalBlur } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
-import { useShortcut } from '@/hooks'
+import useShortcut from '@/hooks/useShortcut'
 
 import ViewportTracker from '@/components/ViewportTracker'
 import Belt from './Belt'

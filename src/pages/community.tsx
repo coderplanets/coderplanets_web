@@ -155,7 +155,6 @@ const CommunityPage = (props) => {
     description: `${community.desc}`,
   }
 
-  // return <Provider store={store}>hello</Provider>
   return (
     <Provider store={store}>
       <GlobalLayout
@@ -164,7 +163,7 @@ const CommunityPage = (props) => {
         errorCode={errorCode}
         errorPath={community.raw}
       >
-        {/* <CommunityContent /> */}
+        <CommunityContent />
       </GlobalLayout>
     </Provider>
   )

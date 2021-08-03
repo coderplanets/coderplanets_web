@@ -1,4 +1,5 @@
-import { Global, getQueryFromUrl } from '@/utils'
+import { Global } from '@/utils/helper'
+import { getQueryFromUrl } from '@/utils/route'
 
 import oauthPopup from './oauth_window'
 import S from '../../schema'

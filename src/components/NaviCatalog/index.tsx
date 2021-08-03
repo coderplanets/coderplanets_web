@@ -8,13 +8,11 @@ import { FC, useState, useCallback, useEffect, memo } from 'react'
 import { find, findIndex, propEq, last } from 'ramda'
 
 import { URL_QUERY } from '@/constant'
-import {
-  buildLog,
-  nilOrEmpty,
-  getQueryFromUrl,
-  markRoute,
-  findDeepMatch,
-} from '@/utils'
+
+import { findDeepMatch } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
+import { nilOrEmpty } from '@/utils/validator'
+import { getQueryFromUrl, markRoute } from '@/utils/route'
 
 import type { TMenuItem, TMenuMode } from './spec'
 import { ROOT_MENU, CHILD_MENU } from './constant'

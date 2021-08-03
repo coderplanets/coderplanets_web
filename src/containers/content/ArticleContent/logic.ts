@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, errRescue, isElementInViewport } from '@/utils'
+import { isElementInViewport } from '@/utils/dom'
+import { errRescue } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
+import asyncSuit from '@/utils/async'
 
 import type { TStore } from './store'
 import S from './schema'

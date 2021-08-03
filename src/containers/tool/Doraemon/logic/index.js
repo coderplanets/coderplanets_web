@@ -4,15 +4,10 @@ import { map, last, slice, isEmpty, startsWith } from 'ramda'
 
 import { ISSUE_ADDR } from '@/config'
 import { EVENT, ERR, THREAD } from '@/constant'
-import {
-  asyncSuit,
-  buildLog,
-  Global,
-  send,
-  prettyNum,
-  cutRest,
-  errRescue,
-} from '@/utils'
+
+import { buildLog } from '@/utils/logger'
+import { Global, send, prettyNum, cutRest, errRescue } from '@/utils/helper'
+import asyncSuit from '@/utils/async'
 
 // import S from '../schema'
 import { jumpToCommunity, jumpToContent, goToHelpPage } from './jumper'

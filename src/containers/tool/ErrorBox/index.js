@@ -10,7 +10,7 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Modal from '@/components/Modal'
-import { useShortcut } from '@/hooks'
+import useShortcut from '@/hooks/useShortcut'
 
 import Header from './Header'
 import Details from './Details'

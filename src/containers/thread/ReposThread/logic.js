@@ -2,7 +2,11 @@ import { useEffect } from 'react'
 import { pickBy } from 'ramda'
 
 import { TYPE, EVENT, THREAD } from '@/constant'
-import { asyncSuit, buildLog, send, scrollToTabber, notEmpty } from '@/utils'
+import asyncSuit from '@/utils/async'
+import { send } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
+import { scrollToTabber } from '@/utils/dom'
+import { notEmpty } from '@/utils/validator'
 
 import S from './schema'
 

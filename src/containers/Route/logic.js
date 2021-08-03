@@ -1,5 +1,8 @@
 import { useEffect } from 'react'
-import { Global, buildLog, parseURL } from '@/utils'
+
+import { parseURL } from '@/utils/route'
+import { Global } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Route')

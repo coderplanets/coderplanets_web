@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 
 import { ERR } from '@/constant'
-import { asyncSuit, buildLog, errRescue } from '@/utils'
+
+import { errRescue } from '@/utils/helper'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
 
 import { ANIMATE_TIMER_CLASS } from './constant'
 import type { TStore } from './store'
