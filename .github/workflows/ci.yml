@@ -97,6 +97,7 @@ jobs:
       #   working-directory: ./frontend_server
       #   run: npm run test:ci
   cypress-run:
+    # see: https://github.com/cypress-io/github-action
     name: run cypress
     runs-on: ubuntu-latest
     steps:
