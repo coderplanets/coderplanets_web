@@ -9,7 +9,8 @@ import { isNil } from 'ramda'
 
 import type { TScrollDirection } from '@/spec'
 import { useScroll } from '@/hooks'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
 import ViewportTracker from '@/components/ViewportTracker'

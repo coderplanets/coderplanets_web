@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 import Img from '@/Img'
 import DotDivider from '@/components/DotDivider'
-
-import { Main } from './index'
 
 export const Wrapper = styled.div`
   margin-left: 10px;

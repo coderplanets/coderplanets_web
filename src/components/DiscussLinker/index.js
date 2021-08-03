@@ -9,7 +9,7 @@ import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import {
   Wrapper,
   Header,

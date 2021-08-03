@@ -12,15 +12,11 @@ import { merge, pickBy } from 'ramda'
 import type { TViewing, TAccount, TRoute, TArticle } from '@/spec'
 
 import { EVENT } from '@/constant'
-import {
-  buildLog,
-  markStates,
-  toast,
-  toastBarColor,
-  themeSkins,
-  send,
-  notEmpty,
-} from '@/utils'
+import { markStates } from '@/utils/mobx'
+import { toast, toastBarColor } from '@/utils/toast'
+import { themeSkins } from '@/utils/themes'
+import { send } from '@/utils/helper'
+import { notEmpty } from '@/utils/validator'
 
 import {
   // domain
@@ -28,7 +24,7 @@ import {
   AccountStore,
   GlobalLayoutStore,
   RichEditorStore,
-  HeaderStore,
+  // HeaderStore,
   ViewingStore,
   ThemeStore,
   ThemeDefaults,
@@ -110,9 +106,6 @@ import {
   RoadmapThreadStore,
 } from '../index'
 
-/* eslint-disable-next-line */
-const log = buildLog('S:rootStore')
-
 const rootStore = T.model({
   // domain stores
   account: T.optional(AccountStore, {}),
@@ -142,7 +135,7 @@ const rootStore = T.model({
   // layouts
   globalLayout: T.optional(GlobalLayoutStore, {}),
   richEditor: T.optional(RichEditorStore, {}),
-  header: T.optional(HeaderStore, {}),
+  // header: T.optional(HeaderStore, {}),
   // layouts end
 
   errorBox: T.optional(ErrorBoxStore, {}),
@@ -339,7 +332,7 @@ const rootStore = T.model({
       const { isMemberOf } = self.account
 
       if (isMemberOf('seniorMember') || isMemberOf('sponsorMember')) {
-        return log('do custom ads')
+        return console.log('do custom ads')
       }
     },
 

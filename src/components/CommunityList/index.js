@@ -9,7 +9,7 @@ import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import Tooltip from '@/components/Tooltip'
 
 import {

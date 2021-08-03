@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
-import { css, theme, WIDTH } from '@/utils'
-// import { getMaxWidth } from '../metrics/top_bar'
+import css from '@/utils/css'
+import { theme } from '@/utils/themes'
+import { WIDTH } from '@/utils/css/metric'
 
 type TWrapper = TTestable & { noBorder: boolean; leftOffset: string }
 export const WrapperBase = styled.div.attrs(({ testid }: TTestable) => ({

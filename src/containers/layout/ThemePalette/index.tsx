@@ -4,21 +4,29 @@
  * otherwhise the render will not be triggled
  */
 
-import React from 'react'
+import { FC, ReactNode } from 'react'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
-import NextNprogress from 'nextjs-progressbar'
+// import NextNprogress from 'nextjs-progressbar'
 
+import type { TThemeMap } from '@/spec'
 import { ANCHOR } from '@/constant'
-import { pluggedIn } from '@/utils'
+import { pluggedIn } from '@/utils/mobx'
 
+// import NextNprogress from 'nextjs-progressbar'
 // import MarkDownStyle from './MarkDownStyle'
-import CodeSyxHighlight from './CodeSyxHighlight'
 import ThirdPartyOverWrite from './ThirdPartyOverWrite'
 import GlobalStyle from './GlobalStyle'
-import RichEditorStyle from './RichEditorStyle'
+import { NextNprogress, RichEditorStyle, CodeSyxHighlight } from './dynamic'
 
-const ThemeContainer = ({ children, theme: { themeData } }) => {
+type TProps = {
+  children: ReactNode
+  theme?: {
+    themeData: TThemeMap
+  }
+}
+
+const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
   return (
     <ThemeProvider theme={themeData}>
       <Head>
@@ -28,10 +36,12 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
         color={themeData.logoText}
         startPosition={0.3}
         stopDelayMs={200}
-        option={{
+        height={3}
+        options={{
           minimum: 0.1,
           parent: `#${ANCHOR.GLOBAL_HEADER_ID}`,
         }}
+        showOnShallow
       />
       <div>{children}</div>
       <CodeSyxHighlight />
@@ -42,7 +52,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
   )
 }
 
-export default pluggedIn(ThemeContainer)
+export default pluggedIn(ThemeContainer) as FC<TProps>
 
 // about meta theme-color
 // see: https://stackoverflow.com/questions/26960703/how-to-change-the-color-of-header-bar-and-address-bar-in-newest-chrome-version-o

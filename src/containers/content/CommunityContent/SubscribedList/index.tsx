@@ -6,7 +6,7 @@ import { FC, memo, Fragment, useState } from 'react'
 
 import type { TCommunity } from '@/spec'
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import DotDivider from '@/components/DotDivider'
 import Tooltip from '@/components/Tooltip'

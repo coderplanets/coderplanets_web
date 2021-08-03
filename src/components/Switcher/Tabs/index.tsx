@@ -7,8 +7,8 @@
 import { memo } from 'react'
 
 import { VIEW } from '@/constant'
-import { isMobile } from 'react-device-detect'
-import { buildLog } from '@/utils'
+import usePlatform from '@/hooks/usePlatform'
+import { buildLog } from '@/utils/logger'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
@@ -19,6 +19,7 @@ import DrawerView from './DrawerView'
 const log = buildLog('c:Tabs:index')
 
 const Tabs = (props) => {
+  const { isMobile } = usePlatform()
   const { view } = props
 
   const curMedia = isMobile ? VIEW.MOBILE : VIEW.DESKTOP

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { merge } from 'ramda'
 
-import { debounce } from '@/utils'
+import { debounce } from '@/utils/helper'
 
 type TScrollState = {
   direction: string

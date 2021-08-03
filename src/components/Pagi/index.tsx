@@ -8,7 +8,7 @@ import { FC, memo, ReactNode } from 'react'
 import { merge } from 'ramda'
 
 import type { TSpace } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import Perv from './Perv'
 import Next from './Next'
 

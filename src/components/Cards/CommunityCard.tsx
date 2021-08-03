@@ -5,7 +5,7 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 
 import {
   Wrapper,

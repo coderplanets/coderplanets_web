@@ -2,7 +2,7 @@ import React from 'react'
 import { contains } from 'ramda'
 
 import { THREAD, C11N } from '@/constant'
-import { isMobile } from 'react-device-detect'
+import usePlatform from '@/hooks/usePlatform'
 
 import { Br } from '@/components/Common'
 import { Radio } from '@/components/Switcher'
@@ -17,6 +17,8 @@ const GeneralSettings = ({ curThread, customization }) => {
     markViewed,
     displayDensity,
   } = customization
+
+  const { isMobile } = usePlatform()
 
   return (
     <Wrapper>

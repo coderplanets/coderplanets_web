@@ -9,7 +9,7 @@ import T from 'prop-types'
 import { pluck } from 'ramda'
 
 import { ICON_CMD } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import IconText from '@/components/IconText'
 import InlineTags from './InlineTags'

@@ -9,16 +9,10 @@ import { merge, contains, values } from 'ramda'
 import type { TRootStore, TCommunity, TThread, TID } from '@/spec'
 import { TYPE, THREAD } from '@/constant'
 
-import {
-  markStates,
-  stripMobx,
-  lockPage,
-  unlockPage,
-  Global,
-  WIDTH,
-  css,
-  toggleGlobalBlur,
-} from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
+import { Global } from '@/utils/helper'
+import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
 import { User } from '@/model'
 
 import { TSwipeOption } from './spec'
@@ -110,9 +104,6 @@ const DrawerStore = T.model('DrawerStore', {
   // body:
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
     get isMobile(): boolean {
       const root = getParent(self) as TRootStore
       return root.isMobile
@@ -148,11 +139,11 @@ const DrawerStore = T.model('DrawerStore', {
       return stripMobx(self.attUser)
     },
     get modalVisible() {
-      return self.visible && Global.innerWidth > css.mediaBreakPoints.desktopL
+      return self.visible && Global.innerWidth > mediaBreakPoints.desktopL
     },
 
     get slideVisible() {
-      return self.visible && Global.innerWidth <= css.mediaBreakPoints.desktopL
+      return self.visible && Global.innerWidth <= mediaBreakPoints.desktopL
     },
   }))
   .actions((self) => ({
@@ -206,9 +197,7 @@ const DrawerStore = T.model('DrawerStore', {
     // TODO: 重构时用 article.meta.thread 来替代 thread
     markPreviewURLIfNeed(id: TID): void {
       if (!id || !contains(self.type, VIEWER_TYPES)) return
-
       self.previousHref = Global.location.href
-
       const thread = self.curThread
       const nextURL = `${Global.location.origin}/${thread}/${id}`
       Global.history.replaceState(null, 'new-title', nextURL)

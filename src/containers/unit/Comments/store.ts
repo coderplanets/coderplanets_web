@@ -27,11 +27,9 @@ import type {
   TID,
 } from '@/spec'
 import { TYPE } from '@/constant'
-import { markStates, buildLog, stripMobx, changeset } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { changeset } from '@/utils/validator'
 import { Comment, PagedComments, emptyPagiData, Mention } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:CommentsStore')
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 

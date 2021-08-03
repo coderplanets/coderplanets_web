@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '@/utils'
+import { theme } from '@/utils/themes'
 import Img from '@/Img'
 
 export const Logo = styled(Img)<{ noFill?: boolean }>`

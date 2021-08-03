@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 // import SearchBox from './SearchBox'
 import SelectType from './SelectType'
@@ -14,7 +14,7 @@ import SetupDomain from './SetupDomain'
 import SetupInfo from './SetupInfo'
 
 import { Wrapper } from '../styles/banner'
-import { LN } from '../logic'
+import { LN } from '../constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CreateCommunityBanner')

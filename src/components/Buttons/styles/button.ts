@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { lighten } from 'polished'
 
-import { css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 import type { TSIZE, TButton } from '@/spec'
 
 import {

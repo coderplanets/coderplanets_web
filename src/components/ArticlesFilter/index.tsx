@@ -6,8 +6,8 @@
 
 import { Fragment, memo } from 'react'
 
-import { isMobile } from 'react-device-detect'
-import { buildLog } from '@/utils'
+import usePlatform from '@/hooks/usePlatform'
+import { buildLog } from '@/utils/logger'
 
 import DesktopView from './DesktopView'
 
@@ -15,6 +15,7 @@ import DesktopView from './DesktopView'
 const log = buildLog('c:ArticlesFilter:index')
 
 const ArticlesFilter = (props) => {
+  const { isMobile } = usePlatform()
   return <Fragment>{!isMobile && <DesktopView {...props} />}</Fragment>
 }
 

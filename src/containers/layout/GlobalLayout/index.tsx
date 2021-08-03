@@ -6,15 +6,16 @@
 
 import { FC, Fragment, ReactNode } from 'react'
 import dynamic from 'next/dynamic'
-import { isMobile } from 'react-device-detect'
 
 import type { TSEO, TMetric } from '@/spec'
 import { ANCHOR, SIZE, C11N, BODY_SCROLLER } from '@/constant'
-import AnalysisService from '@/services/Analysis'
-import { pluggedIn } from '@/utils'
+import { pluggedIn } from '@/utils/mobx'
+import usePlatform from '@/hooks/usePlatform'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-import Header from '@/containers/unit/Header'
+import Header from '@/components/Header'
+
+// import Header from '@/containers/unit/Header'
 // import ModeLine from '@/containers/unit/ModeLine'
 
 // import Drawer from '@/containers/tool/Drawer'
@@ -53,60 +54,56 @@ const GlobalLayoutContainer: FC<TProps> = ({
   noFooter = false,
   metric,
 }) => {
-  // const { online } = useNetwork() // TODO: move it to Header
+  const { isMobile } = usePlatform()
   // load debug graph
-  useInit(store, { isMobile })
+  // useInit(store, { isMobile })
 
-  const { sidebarPin, c11n } = store
+  const { sidebarPin, c11n, curCommunity } = store
   const { bannerLayout } = c11n
 
   return (
-    <AnalysisService>
-      <ThemePalette>
-        <Wrapper>
-          {errorCode ? (
-            <ErrorPage
-              errorCode={errorCode}
-              metric={metric}
-              target={errorPath}
-            />
-          ) : (
-            <Fragment>
-              <SEO metric={metric} config={seoConfig} />
-              <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
-                {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
-                <Addon />
-                <ContentWrapper
-                  offsetLeft={sidebarPin}
-                  className={ANCHOR.GLOBAL_BLUR_CLASS}
+    <ThemePalette>
+      <Wrapper>
+        {errorCode ? (
+          <ErrorPage errorCode={errorCode} metric={metric} target={errorPath} />
+        ) : (
+          <Fragment>
+            <SEO metric={metric} config={seoConfig} />
+            <InnerWrapper metric={metric} sidebarPin={sidebarPin}>
+              {!noSidebar && bannerLayout !== C11N.HOLY_GRAIL && <Sidebar />}
+              <Addon />
+              <ContentWrapper
+                offsetLeft={sidebarPin}
+                className={ANCHOR.GLOBAL_BLUR_CLASS}
+              >
+                <CustomScroller
+                  instanceKey={BODY_SCROLLER}
+                  direction="vertical"
+                  height="100vh"
+                  barSize={SIZE.MEDIUM}
+                  showShadow={false}
+                  onScrollDirectionChange={onPageScrollDirhange}
+                  autoHide
                 >
-                  <CustomScroller
-                    instanceKey={BODY_SCROLLER}
-                    direction="vertical"
-                    height="100vh"
-                    barSize={SIZE.MEDIUM}
-                    showShadow={false}
-                    onScrollDirectionChange={(direction) =>
-                      onPageScrollDirhange(direction)
-                    }
-                    autoHide
-                  >
-                    <div>
-                      <Header metric={metric} />
-                      <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
-                        {childrenWithProps(children, { metric })}
-                      </BodyWrapper>
-                      {!noFooter && <Footer metric={metric} />}
-                    </div>
-                  </CustomScroller>
-                </ContentWrapper>
-              </InnerWrapper>
-            </Fragment>
-          )}
-          <ModeLine metric={metric} />
-        </Wrapper>
-      </ThemePalette>
-    </AnalysisService>
+                  <div>
+                    <Header
+                      metric={metric}
+                      c11n={c11n}
+                      community={curCommunity}
+                    />
+                    <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
+                      {childrenWithProps(children, { metric })}
+                    </BodyWrapper>
+                    {!noFooter && <Footer metric={metric} />}
+                  </div>
+                </CustomScroller>
+              </ContentWrapper>
+            </InnerWrapper>
+          </Fragment>
+        )}
+        <ModeLine metric={metric} />
+      </Wrapper>
+    </ThemePalette>
   )
 }
 

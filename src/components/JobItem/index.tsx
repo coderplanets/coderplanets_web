@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import type { TJob, TID, TC11N } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import ArticleCard from '@/components/ArticleCard'
 

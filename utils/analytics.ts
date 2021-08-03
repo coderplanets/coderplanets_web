@@ -8,7 +8,7 @@ import { Global } from './helper'
 const pageview = (url: string): void => {
   // @ts-ignore
   Global.gtag('config', process.env.NEXT_PUBLIC_GA_TRACING_ID, {
-    page_location: url,
+    page_path: url,
   })
 }
 
@@ -35,6 +35,7 @@ const event = (e: TGAEvent): void => {
 const GA = {
   pageview,
   event,
+  TRACKING_ID: process.env.NEXT_PUBLIC_GA_TRACING_ID,
 }
 
 export default GA

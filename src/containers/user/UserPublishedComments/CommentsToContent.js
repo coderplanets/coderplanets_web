@@ -2,7 +2,7 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 import { TYPE } from '@/constant'
-import { Trans } from '@/utils'
+import { Trans } from '@/utils/i18n'
 
 import Pagi from '@/components/Pagi'
 import EmptyLabel from '@/components/EmptyLabel'

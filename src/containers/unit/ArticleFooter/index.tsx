@@ -9,7 +9,8 @@
 import { FC, useState } from 'react'
 
 import type { TCopyright } from '@/spec'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import Copyright from '@/components/Copyright'
 

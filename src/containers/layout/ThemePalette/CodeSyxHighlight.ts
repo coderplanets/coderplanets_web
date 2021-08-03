@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { theme } from '@/utils'
+import { theme } from '@/utils/themes'
 
 /*
    Solarized Color Schemes originally by Ethan Schoonover

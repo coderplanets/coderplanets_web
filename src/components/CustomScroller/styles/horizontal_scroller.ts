@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+import css from '@/utils/css'
 
 import { getShadowBackground, getShadowSize, getScrollbarThin } from './metrics'
 import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'

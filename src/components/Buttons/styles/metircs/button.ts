@@ -1,5 +1,5 @@
 import { SIZE } from '@/constant'
-import { theme } from '@/utils'
+import { theme } from '@/utils/themes'
 
 import type { TTheme } from '@/spec'
 

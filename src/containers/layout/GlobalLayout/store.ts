@@ -5,11 +5,8 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import type { TRootStore, TAccount, TC11N } from '@/spec'
-import { markStates, buildLog } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:GlobalLayoutStore')
+import type { TRootStore, TAccount, TC11N, TCommunity } from '@/spec'
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const Platform = T.model('Platform', {
   isChrome: T.optional(T.boolean, true),
@@ -35,6 +32,11 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
       const root = getParent(self) as TRootStore
       return root.account.c11n
     },
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+
+      return stripMobx(root.viewing.community)
+    },
     get sidebarPin(): boolean {
       const root = getParent(self) as TRootStore
       return root.sidebar.pin
@@ -45,7 +47,7 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
       const root = getParent(self) as TRootStore
       root.openDoraemon()
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))

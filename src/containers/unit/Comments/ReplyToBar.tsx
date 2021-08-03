@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TComment } from '@/spec'
 // import { ICON_CMD } from '@/config'
 // import { Wrapper } from './styles'
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import { ReplyBar, ReplyToBody, ReplyToFloor } from './styles/reply_to_bar'
 
 type TProps = {

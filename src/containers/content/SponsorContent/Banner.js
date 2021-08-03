@@ -8,7 +8,7 @@
 
 import React, { useState } from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import ViewportTracker from '@/components/ViewportTracker'
 
 import {

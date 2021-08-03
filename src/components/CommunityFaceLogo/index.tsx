@@ -10,7 +10,7 @@ import { isEmpty } from 'ramda'
 import { SITE_LOGO } from '@/config'
 import { HCN } from '@/constant'
 // import { ICON_BASE } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { Logo, HomeLogo } from './styles'
 

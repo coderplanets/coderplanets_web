@@ -10,7 +10,7 @@ import { isEmpty } from 'ramda'
 
 import { ICON_BASE, ISSUE_ADDR } from '@/config'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import {
   Icon404,
   Wrapper,

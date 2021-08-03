@@ -5,12 +5,10 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, buildLog, stripMobx, nilOrEmpty } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { nilOrEmpty } from '@/utils/validator'
 
 import { STEP } from './constant'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:WorksEditor')
 
 const WorksItem = T.model('WorksItem', {
   title: T.maybeNull(T.string),

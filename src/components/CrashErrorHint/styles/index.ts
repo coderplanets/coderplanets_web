@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import { css, theme, themeSkins } from '@/utils'
+import { theme, themeSkins } from '@/utils/themes'
+import css from '@/utils/css'
 
 type TThemeName = {
   t: string

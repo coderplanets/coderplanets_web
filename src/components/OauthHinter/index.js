@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD, ISSUE_ADDR } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import {
   Container,

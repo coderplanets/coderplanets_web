@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { VIEW } from '@/constant'
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`

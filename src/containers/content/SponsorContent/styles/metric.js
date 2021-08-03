@@ -1,4 +1,4 @@
-import { theme } from '@/utils'
+import { theme } from '@/utils/themes'
 
 // see details in https://9elements.github.io/fancy-border-radius/
 export const getBorderRadius = (anchors) => {

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 // import Img from '@/Img'
-import { css } from '@/utils'
+import css from '@/utils/css'
 
 type TWrapper = TActive & { isLeapMonth: boolean }
 export const Wrapper = styled.div<TWrapper>`

@@ -7,9 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
 import type { TRootStore, TCommunity, TRoute } from '@/spec'
-import { markStates, buildLog, stripMobx } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:CommunityJoinBadge')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const CommunityJoinBadge = T.model('CommunityJoinBadge', {
   subscribeLoading: T.optional(T.boolean, false),

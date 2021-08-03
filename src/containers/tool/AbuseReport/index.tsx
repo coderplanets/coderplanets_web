@@ -8,7 +8,8 @@
 
 import { FC } from 'react'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 import Modal from '@/components/Modal'
 
 import Header from './Header'

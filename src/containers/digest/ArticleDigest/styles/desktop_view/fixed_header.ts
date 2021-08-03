@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric, TActive } from '@/spec'
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 import Img from '@/Img'
 
 import { getFixStickerOffset } from './metric'

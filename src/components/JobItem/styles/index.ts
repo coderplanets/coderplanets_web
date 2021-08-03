@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import type { TJob, TID, TC11N } from '@/spec'
-import { css } from '@/utils'
+import css from '@/utils/css'
+
 import { getOpacity } from './metric'
 
 type TWrapper = { entry: TJob; activeId: TID; c11n: TC11N }

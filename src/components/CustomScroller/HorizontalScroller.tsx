@@ -9,8 +9,7 @@ import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
 import type { TThemeMap } from '@/spec'
 
-import { buildLog } from '@/utils'
-import { useCustomScroll } from '@/hooks'
+import useCustomScroll from '@/hooks/useCustomScroll'
 // import ViewportTracker from '@/components/ViewportTracker'
 import { SIZE } from '@/constant'
 
@@ -24,9 +23,6 @@ import {
   LeftShadowBar,
   RightShadowBar,
 } from './styles/horizontal_scroller'
-
-/* eslint-disable-next-line */
-const log = buildLog('c:CustomScroller:index')
 
 type TProps = Omit<
   TScrollProps,

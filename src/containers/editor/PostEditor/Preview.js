@@ -4,7 +4,7 @@
 
 import React from 'react'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import MarkDownRender from '@/components/MarkDownRender'
 import { Wrapper, Header, BackToEditBtn, PreviewHeader } from './styles/preview'
 

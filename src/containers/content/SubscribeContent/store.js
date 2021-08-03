@@ -6,9 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:SubscribeContent')
+import { markStates } from '@/utils/mobx'
 
 const SubscribeContent = T.model('SubscribeContent', {
   subscribeView: T.optional(T.enumeration(['default', 'detail']), 'default'),

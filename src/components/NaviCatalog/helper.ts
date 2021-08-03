@@ -1,7 +1,7 @@
 import { map, find, propEq, last } from 'ramda'
 
 import { URL_QUERY } from '@/constant'
-import { nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
 
 import type { TMenuItem } from './spec'
 

@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 // import Img from '@/Img'
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 import TabPostSVG from '@/SvgIcons/TabPostSVG'
 import TabRadarSVG from '@/SvgIcons/TabRadarSVG'
 import TabUserSVG from '@/SvgIcons/TabUserSVG'

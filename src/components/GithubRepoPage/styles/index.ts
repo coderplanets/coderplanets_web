@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import { theme, css, animate } from '@/utils'
-import { Button } from '@/components/Buttons'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
+import animate from '@/utils/animations'
+import Button from '@/components/Buttons/Button'
 
 export const Wrapper = styled.div<{ updating: boolean }>`
   animation: ${({ updating }) =>

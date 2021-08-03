@@ -13,10 +13,7 @@ import type {
   TAccount,
   TThread,
 } from '@/spec'
-import { markStates, buildLog, stripMobx } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:CommunityDigest')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const CommunityDigest = T.model('CommunityDigest', {
   loading: T.optional(T.boolean, false),

@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 import type { TTestable, TSpace, TSIZE_SM } from '@/spec'
 import Img from '@/Img'
-import { css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 import { getFontSize } from './metric'
 

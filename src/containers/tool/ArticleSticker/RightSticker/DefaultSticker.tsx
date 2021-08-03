@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TArticle } from '@/spec'
-import { shareTo } from '@/utils'
+import { shareTo } from '@/utils/helper'
 
 import { IconButton } from '@/components/Buttons'
 import Upvote from '@/components/Upvote'

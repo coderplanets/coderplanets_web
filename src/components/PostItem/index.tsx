@@ -8,7 +8,7 @@ import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TPost, TID, TUser, TAccount, TC11N } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 // import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
 import DigestView from './DigestView/index'

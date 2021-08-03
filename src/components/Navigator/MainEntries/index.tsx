@@ -1,11 +1,16 @@
 import { Fragment } from 'react'
+import dynamic from 'next/dynamic'
 
-import { isMobile } from 'react-device-detect'
-
+import usePlatform from '@/hooks/usePlatform'
 import DesktopView from './DesktopView'
-import MobileView from './MobileView'
+
+const MobileView = dynamic(() => import('./MobileView'), {
+  ssr: false,
+})
 
 const MainEntries = (props) => {
+  const { isMobile } = usePlatform()
+
   return (
     <Fragment>
       {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}

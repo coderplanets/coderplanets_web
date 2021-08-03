@@ -6,7 +6,7 @@ import { FC, Fragment, memo } from 'react'
 
 import type { TPost, TMetric } from '@/spec'
 import { METRIC, UPVOTE_LAYOUT } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
 import { IconButton } from '@/components/Buttons'

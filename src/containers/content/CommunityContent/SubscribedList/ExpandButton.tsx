@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import {
   Wrapper,

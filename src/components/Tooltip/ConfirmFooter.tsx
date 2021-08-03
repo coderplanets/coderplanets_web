@@ -5,12 +5,7 @@ import { Space } from '@/components/Common'
 
 import { FOOTER_BEHAVIOR } from './constant'
 
-import {
-  Wrapper,
-  ButtonsWrapper,
-  RedButton,
-  CancelButton,
-} from './styles/confirm_footer'
+import { Wrapper, ButtonsWrapper, CancelButton } from './styles/confirm_footer'
 
 type TProps = {
   behavior?: 'default' | 'confirm' | 'delete-confirm' | 'add'

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { prettyNum } from '@/utils'
+import { prettyNum } from '@/utils/helper'
 import { Br } from '@/components/Common'
 import Tooltip from '@/components/Tooltip'
 

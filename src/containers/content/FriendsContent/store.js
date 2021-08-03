@@ -6,9 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:FriendsContent')
+import { markStates } from '@/utils/mobx'
 
 const FriendsContent = T.model('FriendsContent', {})
   .views((self) => ({

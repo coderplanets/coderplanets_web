@@ -8,7 +8,8 @@ import React, { useState } from 'react'
 import T from 'prop-types'
 
 // import { ICON_CMD } from '@/config'
-import { buildLog, isString } from '@/utils'
+import { isString } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 import { SIZE } from '@/constant'
 
 import Tooltip from '@/components/Tooltip'

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-// import { theme, css } from '@/utils'
+// import { theme } from '@/utils/themes'
 
 import type { TTestable } from '@/spec'
 

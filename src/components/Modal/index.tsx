@@ -8,7 +8,8 @@ import { FC, ReactNode, useEffect, useState, useCallback, memo } from 'react'
 import usePortal from 'react-useportal'
 
 import { ICON_CMD } from '@/config'
-import { buildLog, toggleGlobalBlur } from '@/utils'
+import { toggleGlobalBlur } from '@/utils/dom'
+import { buildLog } from '@/utils/logger'
 import { useShortcut } from '@/hooks'
 
 import ViewportTracker from '@/components/ViewportTracker'

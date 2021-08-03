@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { isMobile } from 'react-device-detect'
+import usePlatform from '@/hooks/usePlatform'
 
 import type { TProps as TIndex } from '../Perv'
 import {
@@ -15,6 +15,8 @@ import {
 
 type TProps = Omit<TIndex, 'type'>
 const Bottom: FC<TProps> = ({ disabled, pageNumber, onChange }) => {
+  const { isMobile } = usePlatform()
+
   const iconSrc = !isMobile
     ? `${ICON}/shape/arrow.svg`
     : `${ICON}/shape/arrow-simple.svg`

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TTag } from '@/spec'
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import InlineTags from '@/components/InlineTags'
 
 import { Wrapper, Title } from './styles/header'

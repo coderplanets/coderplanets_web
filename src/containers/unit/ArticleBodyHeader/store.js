@@ -5,10 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:ArticleBodyHeader')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const ArticleBodyHeader = T.model('ArticleBodyHeader', {})
   .views((self) => ({

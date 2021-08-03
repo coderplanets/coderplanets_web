@@ -1,4 +1,4 @@
-import { nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
 
 export const getActiveColor = (
   active: boolean,

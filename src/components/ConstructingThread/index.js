@@ -8,7 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_BASE, ISSUE_ADDR } from '@/config'
-import { buildLog, Trans } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { Trans } from '@/utils/i18n'
 import {
   Wrapper,
   ConstructIcon,

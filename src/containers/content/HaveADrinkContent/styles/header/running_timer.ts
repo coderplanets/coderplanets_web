@@ -1,6 +1,7 @@
 import styled, { css, keyframes, CSSProp } from 'styled-components'
 
-// import { css, theme } from '@/utils'
+// import { theme } from '@/utils/themes'
+// import css from '@/utils/css'
 // see example: https://codepen.io/HugoGiraudel/pen/BHEwo
 
 type Tinterval = '3s' | '5s' | '10s'

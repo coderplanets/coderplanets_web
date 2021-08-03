@@ -5,8 +5,9 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import type { TAccount, TCommunity, TThread, TRootStore } from '@/spec'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import type { TAccount, TC11N, TCommunity, TThread, TRootStore } from '@/spec'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ThreadSidebar')
@@ -23,7 +24,10 @@ const ThreadSidebar = T.model('ThreadSidebar', {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
     },
-
+    get c11n(): TC11N {
+      const root = getParent(self) as TRootStore
+      return root.account.c11n
+    },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 

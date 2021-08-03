@@ -8,7 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
-import { buildLog, cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import Pagi from '@/components/Pagi'
 import { FollowButton } from '@/components/Buttons'

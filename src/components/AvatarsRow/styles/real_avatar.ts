@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 import ImgFallback from '@/components/ImgFallback'
 import { getLiSize, getAvatarSize } from './metric'

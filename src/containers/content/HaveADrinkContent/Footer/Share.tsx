@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { Wrapper, Icon } from '../styles/footer/share'
 // import { useInit } from './logic'

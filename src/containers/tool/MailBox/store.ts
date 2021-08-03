@@ -7,11 +7,8 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore } from '@/spec'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 import { MailStatus, PagedMentionMessages, emptyPagiData } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:MailBox')
 
 const MailBox = T.model('MailBox', {
   panelVisiable: T.optional(T.boolean, false),

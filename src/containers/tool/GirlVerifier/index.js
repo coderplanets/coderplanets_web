@@ -7,10 +7,11 @@
 import React from 'react'
 
 import Input from '@/components/Input'
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 
 import { ICON_CMD } from '@/config'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import { Space } from '@/components/Common'
 import Modal from '@/components/Modal'

@@ -13,7 +13,7 @@ import mentionsPlugin from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
 
 import { MENTION_USER_ADDR } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import MarkDownStyle from '@/containers/layout/ThemePalette/MarkDownStyle'
 import { PreviewerContainer } from './styles'

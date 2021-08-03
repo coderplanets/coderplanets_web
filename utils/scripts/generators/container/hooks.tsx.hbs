@@ -8,7 +8,8 @@
 
 import { FC } from 'react'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 {{#if wantI18n}}
 import { useTrans } from '@/hooks'
 {{/if}}

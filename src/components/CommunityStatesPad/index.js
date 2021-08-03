@@ -7,8 +7,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { isMobile } from 'react-device-detect'
-import { buildLog } from '@/utils'
+import usePlatform from '@/hooks/usePlatform'
+import { buildLog } from '@/utils/logger'
 
 import Charger from '@/components/Charger'
 import NumberGroup from './NumberGroup'
@@ -40,6 +40,7 @@ const CommunityStatesPad = ({
     jobsCount,
     viewerHasSubscribed,
   } = community
+  const { isMobile } = usePlatform()
   const contentsCount = postsCount + reposCount + jobsCount
 
   return (

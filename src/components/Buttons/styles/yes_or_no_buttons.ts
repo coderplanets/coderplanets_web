@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 type TWrapper = { align: 'center' | 'right' }
 export const Wrapper = styled.div<TWrapper>`

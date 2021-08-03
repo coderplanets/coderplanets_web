@@ -8,7 +8,7 @@ import React, { useState, useEffect } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import LinksCard from '@/components/LinksCard'
 

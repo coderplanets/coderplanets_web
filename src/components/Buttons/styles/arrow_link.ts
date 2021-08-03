@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { theme, css } from '@/utils'
+import css from '@/utils/css'
 
 import { getTextSize, getIconSize } from './metircs/arrow_link'
 

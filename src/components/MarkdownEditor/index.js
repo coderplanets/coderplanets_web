@@ -126,7 +126,9 @@ class MarkdownEditor extends React.Component {
     })
   }
 
-  onBlur = () => {}
+  onBlur = () => {
+    /* todo */
+  }
 
   onChange = (editorState) => {
     const { onChange } = this.props

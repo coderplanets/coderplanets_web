@@ -3,6 +3,7 @@ import { curry } from 'ramda'
 
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue, updateEditing } from '@/utils'
+import { LN } from './constant'
 
 import S from './schema'
 
@@ -16,21 +17,6 @@ const sr71$ = new SR71({
 
 let store = null
 let sub$ = null
-
-// local namespace
-export const LN = {
-  COMMUNITY_TYPE: {
-    STANDER: 'STANDER',
-    CITY: 'CITY',
-    WORK: 'WORK',
-    TEAM: 'TEAM',
-  },
-  STEP: {
-    SELECT_TYPE: 'SELECT_TYPE',
-    SETUP_DOMAIN: 'SETUP_DOMAIN',
-    SETUP_INFO: 'SETUP_INFO',
-  },
-}
 
 /**
  * pervious step based on current step

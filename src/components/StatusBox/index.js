@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 import { isEmpty } from 'ramda'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import {
   Wrapper,
@@ -19,8 +19,6 @@ import {
   ErrorArrayWrapper,
   ErrorDetail,
 } from './styles'
-
-/* import { buildLog, uid, isObject } from '@/utils' */
 
 /* eslint-disable-next-line */
 const log = buildLog('c:StatusBox:index')

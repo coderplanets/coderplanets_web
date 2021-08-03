@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 import { Wrapper as BaseWrapper, AvatarsMore } from './index'
 import { getAvatarSize, getMoreTextWidth } from './metric'

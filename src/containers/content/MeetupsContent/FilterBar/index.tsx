@@ -5,7 +5,7 @@ import { ICON_CMD } from '@/config'
 
 import { Br } from '@/components/Common'
 import Sticky from '@/components/Sticky'
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import FiltersMenu from '@/components/FiltersMenu'
 import DotDivider from '@/components/DotDivider'
 

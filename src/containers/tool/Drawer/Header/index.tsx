@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { useSwipe } from '@/hooks'
-import { nilOrEmpty } from '@/utils'
+import { nilOrEmpty } from '@/utils/validator'
 
 import type { TSwipeOption } from '../spec'
 import CloseLine from './CloseLine'

@@ -7,11 +7,8 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
 
 import { TYPE } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 import { PagedUsers, emptyPagiData } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:UserLister')
 
 const UserLister = T.model('UserLister', {
   show: T.optional(T.boolean, false),

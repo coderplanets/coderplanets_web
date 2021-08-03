@@ -3,7 +3,7 @@ import { range } from 'ramda'
 import styled, { useTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
-import { css } from '@/utils'
+import css from '@/utils/css'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`

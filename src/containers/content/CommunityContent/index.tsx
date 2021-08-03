@@ -1,21 +1,18 @@
 /*
- * CommunityContent.
+ * CommunityContent
  */
 
 import { FC, Fragment } from 'react'
-import { isMobile } from 'react-device-detect'
 
 import { C11N } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { pluggedIn } from '@/utils/mobx'
+import usePlatform from '@/hooks/usePlatform'
 
 import ClassicLayout from './ClassicLayout'
 import HolyGrailLayout from './HolyGrailLayout'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
-
-/* eslint-disable-next-line */
-const log = buildLog('C:CommunityContent')
 
 type TProps = {
   communityContent?: TStore
@@ -24,18 +21,10 @@ type TProps = {
 const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   useInit(store)
 
-  const {
-    curThread,
-    curCommunity,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
-    subscribedCommunitiesData,
-  } = store
+  const { isMobile } = usePlatform()
 
-  const isClassicLayout = !isMobile && bannerLayout === C11N.CLASSIC
-
-  // console.log('subscribedCommunitiesData ->> ', subscribedCommunitiesData)
+  const { curThread, curCommunity, c11n, subscribedCommunitiesData } = store
+  const isClassicLayout = !isMobile && c11n.bannerLayout === C11N.CLASSIC
 
   return (
     <Fragment>

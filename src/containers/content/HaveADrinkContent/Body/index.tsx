@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 import { AnimateOnChange } from 'react-animation'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import type { TView, TSettingOption } from '../spec'
 import Catalog from './Catalog'

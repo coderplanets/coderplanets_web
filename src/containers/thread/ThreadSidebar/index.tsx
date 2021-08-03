@@ -10,7 +10,8 @@ import { FC, Fragment } from 'react'
 
 import type { TTag } from '@/spec'
 import { C11N } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import ClassicLayout from './ClassicLayout'
 import HolyGrailLayout from './HolyGrailLayout'
@@ -36,28 +37,28 @@ const ThreadSidebarContainer: FC<TProps> = ({
   onAdsClose,
 }) => {
   useInit(store)
-
-  const {
-    accountInfo: {
-      customization: { bannerLayout },
-    },
-    curCommunity,
-    isCommunityDigestInViewport,
-  } = store
+  const { c11n, curCommunity, isCommunityDigestInViewport } = store
 
   return (
-    <Fragment>
-      {bannerLayout === C11N.CLASSIC ? (
-        <ClassicLayout
-          showCommunityBadge={isCommunityDigestInViewport}
-          onTagSelect={onTagSelect}
-          onAdsClose={onAdsClose}
-        />
-      ) : (
-        <HolyGrailLayout community={curCommunity} />
-      )}
-    </Fragment>
+    <ClassicLayout
+      showCommunityBadge={isCommunityDigestInViewport}
+      onTagSelect={onTagSelect}
+      onAdsClose={onAdsClose}
+    />
   )
+  // return (
+  //   <Fragment>
+  //     {c11n.bannerLayout === C11N.CLASSIC ? (
+  //       <ClassicLayout
+  //         showCommunityBadge={isCommunityDigestInViewport}
+  //         onTagSelect={onTagSelect}
+  //         onAdsClose={onAdsClose}
+  //       />
+  //     ) : (
+  //       <HolyGrailLayout community={curCommunity} />
+  //     )}
+  //   </Fragment>
+  // )
 }
 
 export default pluggedIn(ThreadSidebarContainer) as FC<TProps>

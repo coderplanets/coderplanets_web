@@ -8,7 +8,7 @@ import React, { useState } from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD, GITHUB_CPS_TEAM } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import Modal from '@/components/Modal'
 import UserCell from '@/components/UserCell'

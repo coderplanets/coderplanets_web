@@ -8,7 +8,8 @@
 
 import { FC, Fragment } from 'react'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 import { ICON_CMD } from '@/config'
 
 import type { TStore } from './store'

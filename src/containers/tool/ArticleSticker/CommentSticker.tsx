@@ -8,7 +8,7 @@ import { FC, memo } from 'react'
 import T from 'prop-types'
 
 import { ICON } from '@/config'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import { NotifyButton } from '@/components/Buttons'
 import Tooltip from '@/components/Tooltip'

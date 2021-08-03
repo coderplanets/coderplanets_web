@@ -6,11 +6,9 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
-import { markStates, buildLog, changeset, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { changeset } from '@/utils/validator'
 import { Repo } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:RepoEditor')
 
 const RepoEditor = T.model('RepoEditor', {
   editRepo: T.maybeNull(Repo),
@@ -49,7 +47,6 @@ const RepoEditor = T.model('RepoEditor', {
       self.root.changesetErr(options)
     },
     handleError(errorType) {
-      log(errorType)
       self.mark({ errorType, searching: false })
       switch (errorType) {
         case ERR.NOT_FOUND:

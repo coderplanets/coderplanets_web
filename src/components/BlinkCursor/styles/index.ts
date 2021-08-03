@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 
-// import Img from '@/Img'
-import { animate } from '@/utils'
+import animate from '@/utils/animations'
 
 export type TWrapper = TTestable & {
   height: number

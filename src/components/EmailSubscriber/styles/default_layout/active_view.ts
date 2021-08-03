@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import Input from '@/components/Input'
 
-import { theme, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};

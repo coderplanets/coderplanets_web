@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import type { TAvatarProps as TProps } from './index'
 import { Wrapper, Name } from './styles/avatar'

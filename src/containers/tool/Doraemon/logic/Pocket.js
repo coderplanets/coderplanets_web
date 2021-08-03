@@ -14,7 +14,8 @@ import {
 } from 'rxjs/operators'
 
 import { EVENT } from '@/constant'
-import { buildLog, isEmptyValue } from '@/utils'
+import { isEmptyValue } from '@/utils/validator'
+import { buildLog } from '@/utils/logger'
 import {
   searchablePrefix,
   startWithSpecialPrefix,

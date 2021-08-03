@@ -6,9 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { GALLERY, RECIPE } from '@/constant'
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:RecipesContent')
+import { markStates } from '@/utils/mobx'
 
 const RecipesContent = T.model('RecipesContent', {
   mainView: T.optional(

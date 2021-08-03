@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 
 import { ICON } from '@/config'
-import { Trans } from '@/utils'
+import { Trans } from '@/utils/i18n'
 
 import CustomScroller from '@/components/CustomScroller'
 import SortColumn from './SortColumn/index'

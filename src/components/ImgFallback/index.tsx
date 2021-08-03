@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import type { TUser } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import Work from './Work'
 import Avatar from './Avatar'

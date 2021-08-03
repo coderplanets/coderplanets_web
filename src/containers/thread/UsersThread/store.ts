@@ -5,10 +5,8 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 import { TCommunity, TTheme, TRootStore } from '@/spec'
-/* eslint-disable-next-line */
-const log = buildLog('S:UsersThread')
 
 const Geo = T.model('Thread', {
   city: T.string,

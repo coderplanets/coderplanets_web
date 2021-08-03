@@ -7,7 +7,8 @@
 import { FC, Fragment } from 'react'
 import { useTheme } from 'styled-components'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 import { useScript } from '@/hooks'
 
 import NumDashboard from './NumDashboard'

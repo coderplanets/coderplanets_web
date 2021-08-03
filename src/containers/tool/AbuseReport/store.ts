@@ -8,7 +8,8 @@ import { find, propEq } from 'ramda'
 import { REPORT_TYPE } from '@/constant'
 
 import type { TCommunity, TRootStore } from '@/spec'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { buildLog } from '@/utils/logger'
 
 import type { TREPORT_ITEM } from './spec'
 /* eslint-disable-next-line */

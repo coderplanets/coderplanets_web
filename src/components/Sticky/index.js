@@ -11,7 +11,7 @@ import React from 'react'
 import T from 'prop-types'
 import ResizeObserver from 'resize-observer-polyfill'
 
-import { Global } from '@/utils'
+import { Global } from '@/utils/helper'
 
 const getScrollParent = (node) => {
   let parent = node
@@ -362,7 +362,9 @@ StickyBox.propTypes = {
 }
 
 StickyBox.defaultProps = {
-  onChangeMode: () => {},
+  onChangeMode: () => {
+    /* TODO */
+  },
   offsetTop: 0,
   offsetBottom: 0,
   bottom: false,

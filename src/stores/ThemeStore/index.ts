@@ -8,10 +8,9 @@ import { keys, merge } from 'ramda'
 
 import type { TRootStore, TThemeName, TMembership } from '@/spec'
 import { DEFAULT_THEME } from '@/config'
-import { buildLog, markStates, themeSkins } from '@/utils'
 
-/* eslint-disable-next-line */
-const log = buildLog('S:ThemeStore')
+import { markStates } from '@/utils/mobx'
+import { themeSkins } from '@/utils/themes'
 
 export const ThemeDefaults = {
   curTheme: DEFAULT_THEME,

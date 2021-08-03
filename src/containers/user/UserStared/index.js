@@ -7,7 +7,8 @@
 import React from 'react'
 
 import { THREAD } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import PagedArticles from '@/components/PagedArticles'
 import ThreadSelector from '@/components/ThreadSelector'

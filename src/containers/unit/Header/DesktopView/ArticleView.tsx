@@ -9,7 +9,8 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import Navigator from '@/components/Navigator'
 
@@ -37,15 +38,7 @@ type TProps = {
 const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
   useInit(store, metric)
 
-  const {
-    isOnline,
-    leftOffset,
-    isLogin,
-    curCommunity,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
-  } = store
+  const { leftOffset, isLogin, curCommunity, c11n } = store
 
   useEffect(() => {
     if (isLogin) {
@@ -68,9 +61,8 @@ const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
         <RouterWrapper metric={metric}>
           <Navigator
             community={curCommunity}
-            layout={bannerLayout}
-            isOnline={isOnline}
-            // showLogoText
+            layout={c11n.bannerLayout}
+            metric={metric}
           />
         </RouterWrapper>
         <Operations metric={metric}>

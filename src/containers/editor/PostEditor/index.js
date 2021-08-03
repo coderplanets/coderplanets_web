@@ -8,7 +8,8 @@ import React from 'react'
 /* import T from 'prop-types' */
 import dynamic from 'next/dynamic'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import ArticleEditFooter from '@/components/ArticleEditFooter'
 import { ArticleContentLoading } from '@/components/Loading'

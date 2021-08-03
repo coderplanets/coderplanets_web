@@ -9,19 +9,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 const offlineConfig = require('./config/next_offline')
 
-// Use the SentryWebpack plugin to upload the source maps during build step
-// const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-
-// const {
-//   NEXT_PUBLIC_SENTRY_DSN: SENTRY_DSN,
-//   SENTRY_ORG,
-//   SENTRY_PROJECT,
-//   SENTRY_AUTH_TOKEN,
-//   NODE_ENV,
-// } = process.env
-
-// process.env.SENTRY_DSN = SENTRY_DSN
-
 // next-plugins end
 
 const nextConfig = {

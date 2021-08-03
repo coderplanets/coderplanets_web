@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { css, WIDTH } from '@/utils'
+import css from '@/utils/css'
+import { WIDTH } from '@/utils/css/metric'
 
 export const Wrapper = styled.div`
   ${css.flex()};

@@ -5,7 +5,7 @@
 import { FC, memo, useState, useCallback } from 'react'
 
 import { TID, TSIZE_TSM } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import { SIZE } from '@/constant'
 
 import FollowingBtn from './FollowingBtn'

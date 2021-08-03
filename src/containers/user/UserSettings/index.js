@@ -8,7 +8,8 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { C11N } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import { Br } from '@/components/Common'
 import { Radio } from '@/components/Switcher'

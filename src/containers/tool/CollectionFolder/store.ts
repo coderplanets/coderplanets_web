@@ -8,16 +8,14 @@ import { merge } from 'ramda'
 
 import type { TUser, TRootStore, TViewing } from '@/spec'
 import { THREAD } from '@/constant'
-import { markStates, buildLog, stripMobx, changeset } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { changeset } from '@/utils/validator'
 
 import {
   FavoriteCategory,
   PagedFavoriteCategories,
   emptyPagiData,
 } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:CollectionFolder')
 
 const emptyCat = {
   id: '',

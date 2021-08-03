@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
-import { isMobile } from 'react-device-detect'
-import { report } from '@/utils'
+import usePlatform from '@/hooks/usePlatform'
+import { report } from '@/utils/helper'
 
 import DotDivider from '@/components/DotDivider'
 
@@ -14,6 +14,7 @@ type TProps = {
 }
 
 const Actions: FC<TProps> = ({ showReferenceList, showOperationList }) => {
+  const { isMobile } = usePlatform()
   return (
     <Wrapper>
       <Item onClick={() => toggleActionPanel('reference-list')}>

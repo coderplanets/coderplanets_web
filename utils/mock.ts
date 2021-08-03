@@ -1,5 +1,5 @@
 import { ICON_BASE, ICON_CMD, ASSETS_ENDPOINT } from '@/config'
-import { uid } from '@/utils'
+import uid from '@/utils/uid'
 
 import type { TMenuItem } from '@/components/NaviCatalog/spec'
 import { getRandomInt } from './helper'

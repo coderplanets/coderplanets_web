@@ -7,9 +7,10 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import StatusBox from '@/components/StatusBox'
 import FormItem from '@/components/FormItem'
 import WorkBackgroundInputer from './WorkBackgroundInputer'

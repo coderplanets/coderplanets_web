@@ -7,10 +7,9 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, prop, trim, filter, contains } from 'ramda'
 
 import type { TRootStore, TCommunity, TAccount, TRoute } from '@/spec'
-import { buildLog, markStates, stripMobx, sortByIndex, notEmpty } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:SidebarStore')
+import { markStates, stripMobx } from '@/utils/mobx'
+import { sortByIndex } from '@/utils/helper'
+import { notEmpty } from '@/utils/validator'
 
 const SidebarStore = T.model('SidebarStore', {
   // open: T.optional(T.boolean, false),

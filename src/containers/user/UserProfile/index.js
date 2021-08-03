@@ -9,7 +9,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import NumbersPad from './NumbersPad'
 import ContributeMap from './ContributeMap'

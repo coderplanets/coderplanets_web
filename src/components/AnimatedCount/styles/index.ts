@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TSIZE, TActive } from '@/spec'
-import { theme } from '@/utils'
+import { theme } from '@/utils/themes'
 
 import { getFontSize } from './metric'
 

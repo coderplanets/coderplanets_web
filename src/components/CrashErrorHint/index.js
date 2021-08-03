@@ -12,7 +12,9 @@ import dynamic from 'next/dynamic'
 
 import { DEFAULT_THEME } from '@/config'
 import { TYPE } from '@/constant'
-import { buildLog, BStore, themeSkins } from '@/utils'
+
+import { themeSkins } from '@/utils/themes'
+import BStore from '@/utils/bstore'
 
 import EXECUTES from './executes'
 
@@ -23,9 +25,6 @@ export const Header = dynamic(() => import('./Header'), {
   loading: () => <div />,
   ssr: false,
 })
-
-/* eslint-disable-next-line */
-const log = buildLog('c:CrashErrorHint:index')
 
 /**
  * NOTE:  the default theme system is not valid when this Component rendered

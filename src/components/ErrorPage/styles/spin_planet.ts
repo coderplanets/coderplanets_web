@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import { animate } from '@/utils'
+import animate from '@/utils/animations'
 // import Img from '@/Img'
 // import PromptIcon from '@/components/PromptIcon'
 

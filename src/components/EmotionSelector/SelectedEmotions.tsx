@@ -3,7 +3,7 @@
  */
 
 import { FC, memo, Fragment } from 'react'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import { keys } from 'ramda'
 
 import { ICON } from '@/config'

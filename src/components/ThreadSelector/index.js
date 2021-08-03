@@ -9,7 +9,8 @@ import T from 'prop-types'
 
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
-import { buildLog, Trans } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { Trans } from '@/utils/i18n'
 
 import Tooltip from '@/components/Tooltip'
 import Panel from './Panel'

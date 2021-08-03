@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import { gql } from '@urql/core'
 import { F } from '@/schemas'
 
 const subscribedCommunities = gql`

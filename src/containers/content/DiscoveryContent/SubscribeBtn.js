@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '@/config'
 import { HCN } from '@/constant'
 
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 import Tooltip from '@/components/Tooltip'
 import Hinter from './Hinter'
 

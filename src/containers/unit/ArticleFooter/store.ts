@@ -7,9 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
 import type { TArticle, TRootStore } from '@/spec'
-import { markStates, buildLog } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:ArticleFooter')
+import { markStates } from '@/utils/mobx'
 
 const ArticleFooter = T.model('ArticleFooter', {
   showActionPanel: T.optional(T.boolean, false),

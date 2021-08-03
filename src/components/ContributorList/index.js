@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import { withGuardian } from '@/hoc'
 
 import AvatarAdder from '@/containers/tool/AvatarAdder'

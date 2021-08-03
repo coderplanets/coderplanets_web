@@ -7,7 +7,7 @@
 import { FC, memo, useState, useCallback } from 'react'
 
 import type { TUser, TUpvoteLayout } from '@/spec'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import {
   Wrapper,

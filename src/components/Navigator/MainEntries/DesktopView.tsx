@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 
 import { ROUTE } from '@/constant'
-import { getRouteMainPath } from '@/utils'
+import { getRouteMainPath } from '@/utils/route'
 
 import { Wrapper, DotDivider, SiteLink } from '../styles/main_entries'
 

@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import type { TInterval } from '../spec'
 import { ANIMATE_TIMER_CLASS } from '../constant'

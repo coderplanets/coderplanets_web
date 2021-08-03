@@ -7,7 +7,8 @@
 import { FC, useRef, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import LoadingBlocks from './LoadingBlocks'
 import PullButton from './PullButton'

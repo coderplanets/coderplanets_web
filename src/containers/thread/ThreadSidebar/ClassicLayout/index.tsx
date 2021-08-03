@@ -9,16 +9,13 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
-import Sticky from '@/components/Sticky'
 import { LavaLampLoading } from '@/components/Loading'
-import { PublishButton } from '@/components/Buttons'
 
 import type { TBaseProps } from '../index'
 
-import { Wrapper, PublishWrapper } from '../styles/classic_layout'
-import { onCreate } from '../logic'
+import { Wrapper } from '../styles/classic_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ClassicSidebar')
@@ -43,16 +40,11 @@ const ClassicLayout: FC<TProps> = ({
 }) => {
   return (
     <Wrapper testid="thread-sidebar">
-      <Sticky offsetTop={50}>
-        <PublishWrapper show={showCommunityBadge}>
-          <PublishButton onCreate={onCreate} />
-        </PublishWrapper>
-        <DynamicPart
-          onTagSelect={onTagSelect}
-          onAdsClose={onAdsClose}
-          showCommunityBadge={showCommunityBadge}
-        />
-      </Sticky>
+      <DynamicPart
+        onTagSelect={onTagSelect}
+        onAdsClose={onAdsClose}
+        showCommunityBadge={showCommunityBadge}
+      />
     </Wrapper>
   )
 }

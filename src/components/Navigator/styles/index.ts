@@ -2,8 +2,12 @@ import styled from 'styled-components'
 
 import type { TActive, TC11NLayout } from '@/spec'
 import { C11N } from '@/constant'
-import { animate, theme, css } from '@/utils'
-import CommunityFaceLogo from '@/components/CommunityFaceLogo'
+
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
+import animate from '@/utils/animations'
+import SiteLogo from '@/icons/Comment' // TODO:
+// import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
   ${css.flex('align-center')};
@@ -13,7 +17,8 @@ export const Breadcrumbs = styled.div`
     margin-right: 0;
   `};
 `
-export const Logo = styled(CommunityFaceLogo)`
+export const Logo = styled(SiteLogo)`
+  fill: #49a5a0;
   ${css.size(16)};
 `
 export const LogoLink = styled.a<{ layout: TC11NLayout }>`
@@ -77,7 +82,7 @@ export const OfflineWrapper = styled.div`
   margin-left: 20px;
   padding: 0 10px;
   border-radius: 4px;
-  animation: ${animate.breath} 5s linear infinite;
+  /* animation: ${animate.breath} 5s linear infinite; */
 `
 export const ActionText = styled.div`
   font-size: 14px;

@@ -7,10 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TThread, TArticle } from '@/spec'
 import { TYPE } from '@/constant'
-import { markStates, buildLog } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:ArticleDigest')
+import { markStates } from '@/utils/mobx'
 
 const ArticleDigest = T.model('ArticleDigest', {
   loading: T.optional(T.boolean, false),

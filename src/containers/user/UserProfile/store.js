@@ -6,9 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import { markStates, buildLog, stripMobx } from '@/utils'
-/* eslint-disable-next-line */
-const log = buildLog('S:UserProfile')
+import { markStates, stripMobx } from '@/utils/mobx'
 
 const UserProfile = T.model('UserProfile', {})
   .views((self) => ({

@@ -12,7 +12,8 @@ import type {
   TViewing,
   TThread,
 } from '@/spec'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleViewer')

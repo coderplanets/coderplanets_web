@@ -7,7 +7,8 @@ import { values } from 'ramda'
 
 import { SITE_URL_SHORT } from '@/config'
 import type { TArticle, TCommunity, TRootStore, TThread } from '@/spec'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { buildLog } from '@/utils/logger'
 
 import { SITE_SHARE_TYPE } from './constant'
 

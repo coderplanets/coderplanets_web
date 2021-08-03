@@ -2,7 +2,7 @@ import React from 'react'
 import { keys } from 'ramda'
 
 import { ICON_CMD } from '@/config'
-import { themeMeta } from '@/utils'
+import { themeMeta } from '@/utils/themes'
 
 import {
   Wrapper,

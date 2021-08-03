@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import { css, WIDTH, pixelAdd } from '@/utils'
+import css from '@/utils/css'
+import { pixelAdd } from '@/utils/dom'
+import { WIDTH } from '@/utils/css/metric'
 
 import { BaseBanner } from '../index'
 

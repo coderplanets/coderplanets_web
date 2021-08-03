@@ -7,11 +7,9 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { findIndex, merge, propEq, isEmpty, pickBy } from 'ramda'
 
 import { TYPE } from '@/constant'
-import { markStates, buildLog, stripMobx, nilOrEmpty } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
+import { nilOrEmpty } from '@/utils/validator'
 import { PagedRepos, Tag, ArticlesFilter, emptyPagiData } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:ReposThread')
 
 const ReposThread = T.model('ReposThread', {
   pagedRepos: T.optional(PagedRepos, emptyPagiData),

@@ -20,14 +20,13 @@ import {
 } from 'ramda'
 
 import { THREAD } from '@/constant'
+import { markStates, stripMobx } from '@/utils/mobx'
 import {
-  markStates,
   focusDoraemonBar,
   hideDoraemonBarRecover,
-  stripMobx,
   lockPage,
   unlockPage,
-} from '@/utils'
+} from '@/utils/dom'
 
 import cmds from './logic/defaultSuggestion'
 

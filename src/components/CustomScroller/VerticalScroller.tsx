@@ -11,9 +11,9 @@ import { useTheme } from 'styled-components'
 import { Waypoint } from 'react-waypoint'
 import type { TThemeMap } from '@/spec'
 
-import { buildLog, debounce } from '@/utils'
 import { SIZE } from '@/constant'
-import { useCustomScroll } from '@/hooks'
+import { debounce } from '@/utils/helper'
+import useCustomScroll from '@/hooks/useCustomScroll'
 // import ViewportTracker from '@/components/ViewportTracker'
 
 import type { TProps as TScrollProps } from './index'
@@ -25,9 +25,6 @@ import {
   TopShadowBar,
   BottomShadowBar,
 } from './styles/vertical_scroller'
-
-/* eslint-disable-next-line */
-const log = buildLog('c:CustomScroller:index')
 
 type TProps = Omit<TScrollProps, 'direction' | 'innerHeight'>
 

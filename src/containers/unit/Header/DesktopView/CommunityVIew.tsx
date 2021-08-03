@@ -9,12 +9,12 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { C11N, METRIC } from '@/constant'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 import Navigator from '@/components/Navigator'
 
 import type { TStore } from '../store'
-import AddOns from '../AddOns'
 
 import {
   Wrapper,
@@ -33,6 +33,7 @@ const log = buildLog('C:Header')
 let MailBox
 
 const UserAccount = dynamic(() => import('../UserAccount'), { ssr: false })
+const AddOns = dynamic(() => import('../AddOns'), { ssr: false })
 
 type TProps = {
   // T.oneOf(values(METRIC)) TODO
@@ -44,19 +45,16 @@ const CommunityHeaderContainer: FC<TProps> = ({
   header: store,
   metric = METRIC.COMMUNITY,
 }) => {
-  log('header metric: ', metric)
+  // log('header metric: ', metric)
   useInit(store, metric)
 
   const {
-    isOnline,
     leftOffset,
     accountInfo,
     isLogin,
     curCommunity,
     hasNoBottomBorder,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
+    c11n,
   } = store
 
   useEffect(() => {
@@ -70,7 +68,9 @@ const CommunityHeaderContainer: FC<TProps> = ({
   }, [isLogin])
 
   const InnerWrapper =
-    bannerLayout === C11N.CLASSIC ? ClassicInnerWrapper : HolyGrailInnerWrapper
+    c11n.bannerLayout === C11N.CLASSIC
+      ? ClassicInnerWrapper
+      : HolyGrailInnerWrapper
 
   return (
     <Wrapper
@@ -83,8 +83,7 @@ const CommunityHeaderContainer: FC<TProps> = ({
         <RouterWrapper>
           <Navigator
             community={curCommunity}
-            layout={bannerLayout}
-            isOnline={isOnline}
+            layout={c11n.bannerLayout}
             metric={metric}
           />
         </RouterWrapper>

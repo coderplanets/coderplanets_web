@@ -12,7 +12,6 @@ import {
   queryStringToJSON,
   ssrParseURL,
   akaTranslate,
-  buildLog,
   nilOrEmpty,
   ssrPagedSchema,
   ssrPagedFilter,
@@ -26,9 +25,6 @@ import GlobalLayout from '@/containers/layout/GlobalLayout'
 import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
-
-/* eslint-disable-next-line */
-const log = buildLog('page:community')
 
 const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
@@ -147,7 +143,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const CommunityPage = (props = {}) => {
+const CommunityPage = (props) => {
   const store = useStore(props)
 
   const { errorCode, viewing } = store
@@ -159,6 +155,7 @@ const CommunityPage = (props = {}) => {
     description: `${community.desc}`,
   }
 
+  // return <Provider store={store}>hello</Provider>
   return (
     <Provider store={store}>
       <GlobalLayout

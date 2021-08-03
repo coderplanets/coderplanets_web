@@ -6,7 +6,8 @@
 
 import { FC } from 'react'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 import { useShortcut, useResize } from '@/hooks'
 
 import type { TStore } from './store'

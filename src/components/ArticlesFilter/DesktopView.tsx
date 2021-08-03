@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic'
 import type { TArticleFilter, TResState } from '@/spec'
 
 import { TYPE, THREAD } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 // import { useViewing } from '@/hooks'
 
 import FilterButton from './FilterButton'

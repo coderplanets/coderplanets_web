@@ -7,13 +7,8 @@ import { css as styledCss, CSSProp } from 'styled-components'
 
 import { theme } from '../themes'
 
-import {
-  media,
-  mediaBreakPoints,
-  fitContentWidth,
-  fitStickerWidth,
-  fitPageWidth,
-} from './media'
+import { mediaBreakPoints } from './metric'
+import { media, fitContentWidth, fitStickerWidth, fitPageWidth } from './media'
 import { flex, flexGrow, flexColumn, flexColumnGrow } from './flex'
 
 import { circle, size } from './shape'

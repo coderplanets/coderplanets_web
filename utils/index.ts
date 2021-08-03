@@ -57,8 +57,6 @@ export {
 export {
   makeGQClient,
   makeGithubExplore,
-  asyncErr,
-  asyncRes,
   later,
   pagedFilter,
   atomizeValues,
@@ -90,8 +88,6 @@ export {
   flashState,
   meteorState,
   stripMobx,
-  $solver,
-  observerHoc,
   updateEditing,
 } from './mobx'
 
@@ -141,7 +137,7 @@ export { default as SOCIAL_LISTS } from './social'
 export { toast, toastBarColor } from './toast'
 export { default as animate } from './animations'
 export { default as css } from './css'
-export { WIDTH } from './css/media'
+export { WIDTH } from './css/metric'
 export { default as BStore } from './bstore'
 export { Trans } from './i18n'
 export { default as GA } from './analytics'

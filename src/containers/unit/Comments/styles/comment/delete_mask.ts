@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import { theme, animate, css } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
+import animate from '@/utils/animations'
 
 export const DeleteHintText = styled.div`
   color: ${theme('baseColor.red')};

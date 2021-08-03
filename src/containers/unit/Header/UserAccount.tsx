@@ -5,7 +5,7 @@ import type { TAccount } from '@/spec'
 import { ICON } from '@/config'
 import { ROUTE } from '@/constant'
 import Tooltip from '@/components/Tooltip'
-import { Button } from '@/components/Buttons'
+import Button from '@/components/Buttons/Button'
 
 import { onLogin, onLogout, previewAccount } from './logic'
 

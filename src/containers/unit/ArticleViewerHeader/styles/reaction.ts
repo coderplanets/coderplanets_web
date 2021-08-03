@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import Img from '@/Img'
-import { theme, css, animate } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
+import animate from '@/utils/animations'
 
 export const Divider = styled.div`
   border-right: 1px solid;

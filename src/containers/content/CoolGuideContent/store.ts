@@ -8,10 +8,7 @@ import { values } from 'ramda'
 
 import type { TRootStore } from '@/spec'
 import { GUIDE } from '@/constant'
-import { markStates, buildLog } from '@/utils'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:CoolGuideContent')
+import { markStates } from '@/utils/mobx'
 
 const CoolGuideContent = T.model('CoolGuideContent', {
   activeMenuId: T.maybeNull(T.string),

@@ -8,7 +8,8 @@ import { FC, useRef } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
-import { pluggedIn, buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
 
 // import Comments from '@/containers/unit/Comments'
 import ArticleSticker from '@/containers/tool/ArticleSticker'

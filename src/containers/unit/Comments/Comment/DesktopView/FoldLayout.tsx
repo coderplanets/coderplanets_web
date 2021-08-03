@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TComment } from '@/spec'
-import { cutRest } from '@/utils'
+import { cutRest } from '@/utils/helper'
 import { ICON } from '@/config'
 
 import ImgFallback from '@/components/ImgFallback'

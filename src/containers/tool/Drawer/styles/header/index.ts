@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 // see example: https://codepen.io/mattbraun/pen/EywBJR
-import { css, theme } from '@/utils'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 const BaseWrapper = styled.div`
   z-index: 1;

@@ -2,7 +2,7 @@ import { FC, ReactNode, useEffect, useState, memo } from 'react'
 
 import type { TSIZE_TSM } from '@/spec'
 import { SIZE } from '@/constant'
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 
 import {
   Wrapper,

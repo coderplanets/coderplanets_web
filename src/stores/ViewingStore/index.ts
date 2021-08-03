@@ -8,11 +8,8 @@ import { values, merge } from 'ramda'
 
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
 import { THREAD } from '@/constant'
-import { markStates, buildLog, stripMobx } from '@/utils'
+import { markStates, stripMobx } from '@/utils/mobx'
 import { User, Community, Post, Blog, Job, Repo } from '@/model'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:ViewingStore')
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO]
 

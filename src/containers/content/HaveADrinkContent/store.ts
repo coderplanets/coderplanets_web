@@ -5,13 +5,10 @@
 
 import { types as T, Instance } from 'mobx-state-tree'
 
-import { markStates, buildLog } from '@/utils'
+import { markStates } from '@/utils/mobx'
 
 import type { TSettingOption } from './spec'
 import { VIEW } from './constant'
-
-/* eslint-disable-next-line */
-const log = buildLog('S:HaveADrinkContent')
 
 const HaveADrinkContent = T.model('HaveADrinkContent', {
   // current sub-view of the drink page

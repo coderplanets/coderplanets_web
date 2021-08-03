@@ -9,7 +9,7 @@ import T from 'prop-types'
 import { contains, pluck, isNil, isEmpty } from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import { buildLog } from '@/utils'
+import { buildLog } from '@/utils/logger'
 import DotDivider from '@/components/DotDivider'
 
 import {

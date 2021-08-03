@@ -8,7 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 import { keys } from 'ramda'
 
-import { buildLog, groupByKey } from '@/utils'
+import { groupByKey } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import Group from './Group'
 

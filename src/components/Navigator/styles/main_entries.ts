@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import type { TTestable, TActive } from '@/spec'
-import { theme, css } from '@/utils'
-import Img from '@/Img'
+import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 import DotDividerBase from '@/components/DotDivider'
 
 export const Wrapper = styled.div<{ type: string }>`
@@ -45,13 +45,4 @@ export const SiteLink = styled.a.attrs(({ testid }: TTestable) => ({
     border-top-color: theme('tabs.headerActive');
     padding: ${({ active }) => (active ? '5px 6px' : '6px 3px 3px 3px')};
   }
-`
-export const Icon = styled(Img)`
-  fill: ${theme('banner.desc')};
-  margin-left: 5px;
-  ${css.size(10)};
-`
-export const MobileIcon = styled(Icon)`
-  margin-left: 5px;
-  ${css.size(14)};
 `

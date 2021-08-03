@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { css } from '@/utils'
+import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   width: 100%;
