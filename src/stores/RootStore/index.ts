@@ -24,7 +24,7 @@ import {
   AccountStore,
   GlobalLayoutStore,
   RichEditorStore,
-  HeaderStore,
+  // HeaderStore,
   ViewingStore,
   ThemeStore,
   ThemeDefaults,
@@ -135,7 +135,7 @@ const rootStore = T.model({
   // layouts
   globalLayout: T.optional(GlobalLayoutStore, {}),
   richEditor: T.optional(RichEditorStore, {}),
-  header: T.optional(HeaderStore, {}),
+  // header: T.optional(HeaderStore, {}),
   // layouts end
 
   errorBox: T.optional(ErrorBoxStore, {}),
