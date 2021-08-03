@@ -89,7 +89,7 @@ jobs:
         run: npm run build.ci
       - name: check /etc/hosts
         working-directory: ./frontend_server
-        run: echo "#>>>>#"; cat /etc/hosts; echo "#>>>>#"
+        run: echo "#>>>>#"; cat /etc/hosts; pwd; echo "#>>>>#"
       # - name: (Frontend) Check Bundle Size
       #   working-directory: ./frontend_server
       #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
@@ -100,7 +100,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          project: ./frontend_server
+          # project: ./frontend_server
           # build: npm run build
           start: npm run ci
           wait-on: http://localhost:3000
