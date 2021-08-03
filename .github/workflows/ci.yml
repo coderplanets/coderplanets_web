@@ -84,9 +84,9 @@ jobs:
       - name: (Frontend) Setup Config CMD Tools
         working-directory: ./frontend_server
         run: chmod +x ./utils/bin/jq-linux; ./utils/bin/jq-linux -s '.[0] * .[1]' config/config.json config/config.ci.json > /tmp/config.json; cp /tmp/config.json ./config/config.json
-      - name: (Frontend) Build Project
-        working-directory: ./frontend_server
-        run: npm run build.ci
+      # - name: (Frontend) Build Project
+      #   working-directory: ./frontend_server
+      #   run: npm run build.ci
       - name: check /etc/hosts
         working-directory: ./frontend_server
         run: echo "#>>>>#"; cat /etc/hosts; pwd; echo "#>>>>#"
@@ -96,15 +96,15 @@ jobs:
       # - name: (Frontend) Run e2e Tests
       #   working-directory: ./frontend_server
       #   run: npm run test:ci
-  cypress-run:
-    name: Cypress run
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          browser: chrome
-          project: ./frontend_server
-          # build: npm run build
-          start: npm run ci
-          wait-on: http://localhost:3000
+  # cypress-run:
+  #   name: Cypress run
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Cypress run
+  #       uses: cypress-io/github-action@v2
+  #       with:
+  #         browser: chrome
+  #         project: ./frontend_server
+  #         # build: npm run build
+  #         start: npm run ci
+  #         wait-on: http://localhost:3000
