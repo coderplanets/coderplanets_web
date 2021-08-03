@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [dev]
+    branches: [dev, test-cy-action]
   pull_request:
     branches: [master, dev]
 
