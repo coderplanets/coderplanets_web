@@ -93,16 +93,16 @@ jobs:
       # - name: (Frontend) Check Bundle Size
       #   working-directory: ./frontend_server
       #   run: BUNDLEWATCH_GITHUB_TOKEN=${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }} npm run size.check
-      # - name: (Frontend) Run e2e Tests
-      #   working-directory: ./frontend_server
-      #   run: npm run test:ci
-      - name: Cypress run
+      - name: (Frontend) Run e2e Tests
         working-directory: ./frontend_server
-        uses: cypress-io/github-action@v2
-        with:
-          # build: npm run build
-          start: npm run ci
-          wait-on: http://localhost:3000
+        run: npm run test:ci
+      # - name: Cypress run
+      #   working-directory: ./frontend_server
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     # build: npm run build
+      #     start: npm run ci
+      #     wait-on: http://localhost:3000
   # cypress-run:
   #   # see: https://github.com/cypress-io/github-action
   #   name: run cypress
