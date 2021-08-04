@@ -5,7 +5,7 @@ import type { TPost } from '@/spec'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
 import DotDivider from '@/components/DotDivider'
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 
 import {
   Wrapper,

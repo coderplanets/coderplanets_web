@@ -8,7 +8,7 @@ import { FC } from 'react'
 import { isNil } from 'ramda'
 
 import type { TScrollDirection } from '@/spec'
-import { useScroll } from '@/hooks'
+import useScroll from '@/hooks/useScroll'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 

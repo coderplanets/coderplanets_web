@@ -5,7 +5,7 @@
 import { FC, memo } from 'react'
 import { buildLog } from '@/utils/logger'
 
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 import Tooltip from '@/components/Tooltip'
 
 import SelectedEmotions from './SelectedEmotions'

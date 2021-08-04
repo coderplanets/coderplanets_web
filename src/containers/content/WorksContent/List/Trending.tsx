@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { mockWorks } from '@/utils/mock'
 
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 import WorksCard from '@/components/Cards/WorksCard'
 
 import { BEST } from '../constant'

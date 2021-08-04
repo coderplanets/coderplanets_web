@@ -12,7 +12,7 @@ import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import Pagi from '@/components/Pagi'
-import { FollowButton } from '@/components/Buttons'
+import FollowButton from '@/components/Buttons/FollowButton'
 
 import {
   TableWrapper,

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { ArrowLink } from '@/components/Buttons'
+import ArrowLink from '@/components/Buttons/ArrowLink'
 
 import {
   Wrapper,

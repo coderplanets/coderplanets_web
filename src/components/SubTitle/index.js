@@ -9,7 +9,7 @@ import T from 'prop-types'
 import Router from 'next/router'
 
 import { buildLog } from '@/utils/logger'
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import { Wrapper, Title, OptionWrapper } from './styles'
 

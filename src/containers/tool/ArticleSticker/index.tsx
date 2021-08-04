@@ -7,6 +7,7 @@
  */
 
 import { FC, Fragment } from 'react'
+import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
@@ -18,12 +19,19 @@ import GotoTop from '@/components/GotoTop'
 
 import type { TStore } from './store'
 
-import LeftSticker from './LeftSticker/index'
+// import LeftSticker from './LeftSticker/index'
 import RightSticker from './RightSticker'
-import CommentSticker from './CommentSticker'
 
 import { Wrapper, InnerWrapper, MainWrapper, GoTopWrapper } from './styles'
 import { useInit } from './logic'
+
+const LeftSticker = dynamic(() => import('./LeftSticker'), {
+  ssr: false,
+})
+
+const CommentSticker = dynamic(() => import('./CommentSticker'), {
+  ssr: false,
+})
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleSticker')

@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import {
   Wrapper,

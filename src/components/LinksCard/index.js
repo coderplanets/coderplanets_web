@@ -9,7 +9,7 @@ import T from 'prop-types'
 
 import { buildLog } from '@/utils/logger'
 
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import Item from './Item'
 import { Wrapper, Header, Title, ListWrapper, MoreWrapper } from './styles'

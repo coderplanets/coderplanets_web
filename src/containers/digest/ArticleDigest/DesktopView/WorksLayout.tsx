@@ -9,7 +9,7 @@ import { METRIC, UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 import Upvote from '@/components/Upvote'
 
 import {

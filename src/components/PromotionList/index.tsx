@@ -11,7 +11,7 @@ import useHoverDirty from 'react-use/lib/useHoverDirty'
 import { buildLog } from '@/utils/logger'
 import { useInterval } from '@/hooks'
 
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import type { TItem } from './spec'
 import Spotlight from './Spotlight'

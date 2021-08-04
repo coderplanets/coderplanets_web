@@ -14,7 +14,7 @@ import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import TabBar from '@/components/TabBar'
-import { LavaLampLoading } from '@/components/Loading'
+import LavaLampLoading from '@/components/Loading/LavaLampLoading'
 
 import ThreadContent from './ThreadContent'
 import SubscribedList from './SubscribedList'

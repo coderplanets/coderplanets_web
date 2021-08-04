@@ -2,7 +2,8 @@ import React from 'react'
 
 import { ICON } from '@/config'
 
-import { ArrowButton, Button } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
+import Button from '@/components/Buttons/Button'
 import SectionLabel from '@/components/SectionLabel'
 import Checker from '@/components/Checker'
 import Select from '@/components/Select'
