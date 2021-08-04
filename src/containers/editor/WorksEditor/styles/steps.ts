@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
-import type { TTestable, TActive } from '@/spec'
+import type { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 import { CONTENT_WIDTH } from './metric'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+type TWrapper = { testid?: string }
+export const Wrapper = styled.div.attrs(({ testid }: TWrapper) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   position: relative;
   ${css.flex('align-center', 'justify-between')};
   width: ${`${CONTENT_WIDTH}px`};

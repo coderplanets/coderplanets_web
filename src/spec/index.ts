@@ -54,6 +54,7 @@ export type {
   TPost,
   TBlog,
   TJob,
+  TWorks,
   TPagedArticles,
   TComment,
   TPagedComments,

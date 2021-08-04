@@ -6,9 +6,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
-import { values } from 'ramda'
+import { FC } from 'react'
 
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
@@ -18,15 +16,25 @@ import Preview from './Preview'
 import Steps from './Steps'
 import Content from './Content'
 
+import type { TStore } from './store'
 import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'
+import { TMetric } from '@/spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:WorksEditor')
+type TProps = {
+  worksEditor?: TStore
+  testid?: string
+  metric: TMetric
+}
 
-const WorksEditorContainer = ({ worksEditor: store, testid, metric }) => {
+const WorksEditorContainer: FC<TProps> = ({
+  worksEditor: store,
+  testid = 'works-editor',
+  metric = METRIC.COMMUNITY,
+}) => {
   useInit(store)
-
   const { step, worksData, useTemplate } = store
 
   return (
@@ -40,15 +48,4 @@ const WorksEditorContainer = ({ worksEditor: store, testid, metric }) => {
   )
 }
 
-WorksEditorContainer.propTypes = {
-  worksEditor: T.any.isRequired,
-  testid: T.string,
-  metric: T.oneOf(values(METRIC)),
-}
-
-WorksEditorContainer.defaultProps = {
-  testid: 'works-editor',
-  metric: METRIC.COMMUNITY,
-}
-
-export default pluggedIn(WorksEditorContainer)
+export default pluggedIn(WorksEditorContainer) as FC<TProps>

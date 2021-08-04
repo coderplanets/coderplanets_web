@@ -3,26 +3,28 @@ import { useEffect } from 'react'
 import { scrollToTop } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
 import { STEP } from './constant'
+import type { TStore } from './store'
+import type { TStep } from './spec'
 // import S from './service'
 
-let store = null
+let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:WorksEditor')
 
-export const updateWorks = (part, value) => {
+export const updateWorks = (part, value): void => {
   const { worksData } = store
   store.mark({
     works: { ...worksData, [part]: value },
   })
 }
 
-export const toggleTemplate = (useTemplate) => {
+export const toggleTemplate = (useTemplate: boolean): void => {
   store.mark({ useTemplate })
 }
 
 // to next launch step
-export const nextStep = () => {
+export const nextStep = (): void => {
   const { step, isCurrentStepValid } = store
 
   if (!isCurrentStepValid) return
@@ -49,15 +51,13 @@ export const nextStep = () => {
   }
 }
 
-export const gotoStep = (step) => {
-  store.mark({ step })
-}
+export const gotoStep = (step: TStep): void => store.mark({ step })
 
 // ###############################
 // init & uninit handlers
 // ###############################
 
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

@@ -18,6 +18,7 @@ type TBaseArticle = {
   insertedAt?: string
   viewerHasViewed?: boolean
   commentsCount?: number
+  upvoteCount?: number
   tags?: TTag[]
 }
 
@@ -25,6 +26,17 @@ export type TPost = TBaseArticle & {
   digest?: string
   linkAddr?: string
   linkIcon?: string
+}
+
+export type TWorks = TBaseArticle & {
+  cover: string
+  desc: string
+  tag: { title: string }
+  platform: { title: string }
+  techStack: { icon: string; raw: string }[]
+  isOSS: boolean
+  ossAddr?: boolean
+  digest?: string
 }
 
 export type TBlog = TBaseArticle & {

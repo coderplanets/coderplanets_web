@@ -3,8 +3,9 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 
+import type { TWorks } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
 
@@ -26,14 +27,12 @@ const WorksEditor = T.model('WorksEditor', {
   useTemplate: T.optional(T.boolean, true),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-    get worksData() {
+    get worksData(): TWorks {
       return toJS(self.works)
     },
-    get isCurrentStepValid() {
-      const { step, worksData } = self
+    get isCurrentStepValid(): boolean {
+      const slf = self as TStore
+      const { step, worksData } = slf
       switch (step) {
         case STEP.ZERO: {
           return !nilOrEmpty(worksData.title)
@@ -46,9 +45,10 @@ const WorksEditor = T.model('WorksEditor', {
     },
   }))
   .actions((self) => ({
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof WorksEditor>
 export default WorksEditor

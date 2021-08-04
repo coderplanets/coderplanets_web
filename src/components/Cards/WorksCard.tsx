@@ -10,6 +10,8 @@ import { ICON, ICON_CMD } from '@/config'
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
+import type { TWorks } from '@/spec'
+
 import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
@@ -37,26 +39,7 @@ type TProps = {
   testid?: string
   withBg?: boolean
   mode?: 'default' | 'preview'
-  item: {
-    cover: string
-    title: string
-    desc: string
-    tag: {
-      title: string
-    }
-    platform: {
-      title: string
-    }
-    techStack: {
-      icon: string
-      raw: string
-    }[]
-    insertedAt: string
-    upvote: number
-    commentsCount: number
-    isOSS: boolean
-    ossAddr?: boolean
-  }
+  item: TWorks
 }
 
 const WorksCard: FC<TProps> = ({
@@ -68,7 +51,7 @@ const WorksCard: FC<TProps> = ({
 }) => {
   const descLimit = mode === 'default' ? 30 : 20
 
-  const { title, desc, upvote, commentsCount } = item
+  const { title, desc, upvoteCount, commentsCount } = item
 
   return (
     <Wrapper testid={testid} withBg={withBg}>
@@ -88,7 +71,7 @@ const WorksCard: FC<TProps> = ({
           </div>
 
           <IconText iconSrc={`${ICON}/article/heart-solid.svg`} size="large">
-            {upvote}
+            {upvoteCount}
           </IconText>
         </Header>
         <FooterWrapper>
