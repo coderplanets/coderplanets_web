@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import FormItem from '@/components/FormItem'
+import FormInput from '@/components/Input'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -33,7 +33,7 @@ export const Hint = styled.div`
   font-size: 12px;
   opacity: 0.8;
 `
-export const Input = styled(FormItem)`
+export const Input = styled(FormInput)`
   text-align: left;
   padding: 5px 5px;
   height: 36px;

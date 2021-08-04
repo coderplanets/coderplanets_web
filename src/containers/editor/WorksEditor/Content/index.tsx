@@ -1,5 +1,7 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import { TWorks } from '@/spec'
+import { TStep } from '../spec'
 import { STEP } from '../constant'
 
 import NamePart from './NamePart'
@@ -10,7 +12,13 @@ import LaunchPart from './LaunchPart'
 
 import { Wrapper } from '../styles/content'
 
-const Content = ({ step, works, useTemplate }) => {
+type TProps = {
+  step: TStep
+  works: TWorks
+  useTemplate: boolean
+}
+
+const Content: FC<TProps> = ({ step, works, useTemplate }) => {
   let StepComp = null
 
   switch (step) {
@@ -25,17 +33,17 @@ const Content = ({ step, works, useTemplate }) => {
     }
 
     case STEP.TWO: {
-      StepComp = <TechStackPart works={works} />
+      StepComp = <TechStackPart />
       break
     }
 
     case STEP.THREE: {
-      StepComp = <ArticlePart works={works} useTemplate={useTemplate} />
+      StepComp = <ArticlePart useTemplate={useTemplate} />
       break
     }
 
     case STEP.FOUR: {
-      StepComp = <LaunchPart works={works} />
+      StepComp = <LaunchPart />
       break
     }
 
@@ -48,4 +56,4 @@ const Content = ({ step, works, useTemplate }) => {
   return <Wrapper>{StepComp}</Wrapper>
 }
 
-export default React.memo(Content)
+export default memo(Content)

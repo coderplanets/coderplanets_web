@@ -1,5 +1,6 @@
-import React from 'react'
+import { FC, Fragment, memo } from 'react'
 
+import type { TWorks } from '@/spec'
 import { nilOrEmpty } from '@/utils/validator'
 import ArrowButton from '@/components/Buttons/ArrowButton'
 
@@ -8,7 +9,11 @@ import CommonQuestions from './CommonQuestions'
 import { Wrapper, Input, Label } from '../styles/content/name_part'
 import { updateWorks, nextStep } from '../logic'
 
-const NamePart = ({ works }) => {
+type TProps = {
+  works: TWorks
+}
+
+const NamePart: FC<TProps> = ({ works }) => {
   const valid = !nilOrEmpty(works.title)
 
   return (
@@ -20,22 +25,22 @@ const NamePart = ({ works }) => {
         autoFocus
       />
       {!valid && (
-        <React.Fragment>
+        <Fragment>
           <br />
           <CommonQuestions />
-        </React.Fragment>
+        </Fragment>
       )}
 
       {valid && (
-        <React.Fragment>
+        <Fragment>
           <br />
           <ArrowButton size="large" onClick={nextStep}>
             下一步
           </ArrowButton>
-        </React.Fragment>
+        </Fragment>
       )}
     </Wrapper>
   )
 }
 
-export default React.memo(NamePart)
+export default memo(NamePart)

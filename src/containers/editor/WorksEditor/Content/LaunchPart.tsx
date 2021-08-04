@@ -1,21 +1,21 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import ArrowButton from '@/components/Buttons/ArrowButton'
-import { Wrapper, Section, Footer } from '../../styles/content/tech_stack_part'
+import { Wrapper, Section, Footer } from '../styles/content/launch_part'
 
-import { nextStep } from '../../logic'
+import { nextStep } from '../logic'
 
-const TechStackPart = () => {
+const LaunchPart: FC = () => {
   const valid = true
 
   return (
     <Wrapper>
-      <Section>TechStackPart</Section>
+      <Section>LaunchPart</Section>
 
       <Footer>
         {valid && (
           <ArrowButton size="large" disabled={!valid} onClick={nextStep}>
-            下一步
+            发布
           </ArrowButton>
         )}
       </Footer>
@@ -23,4 +23,4 @@ const TechStackPart = () => {
   )
 }
 
-export default React.memo(TechStackPart)
+export default memo(LaunchPart)
