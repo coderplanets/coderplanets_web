@@ -5,7 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const ArticleBodyHeader = T.model('ArticleBodyHeader', {})
   .views((self) => ({
@@ -25,7 +25,7 @@ const ArticleBodyHeader = T.model('ArticleBodyHeader', {})
       return self.root.viewingData
     },
     get curCommunity() {
-      return stripMobx(self.root.viewing.community)
+      return toJS(self.root.viewing.community)
     },
     get activeThread() {
       const { activeThread } = self.root.viewing

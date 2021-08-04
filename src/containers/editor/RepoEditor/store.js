@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 import { Repo } from '@/model'
 
@@ -33,10 +33,10 @@ const RepoEditor = T.model('RepoEditor', {
       return getParent(self)
     },
     get viewing() {
-      return stripMobx(self.root.viewing)
+      return toJS(self.root.viewing)
     },
     get editRepoData() {
-      return stripMobx(self.editRepo)
+      return toJS(self.editRepo)
     },
   }))
   .actions((self) => ({

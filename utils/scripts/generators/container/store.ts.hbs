@@ -7,7 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TCommunity, TRootStore } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:{{ properCase name }}')
@@ -17,7 +17,7 @@ const {{ properCase name }} = T.model('{{ properCase name }}', {})
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
   }))
   .actions((self) => ({

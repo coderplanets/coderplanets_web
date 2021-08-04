@@ -18,7 +18,7 @@ import type {
 } from '@/spec'
 
 import { TYPE, THREAD } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty, isObject } from '@/utils/validator'
 import { PagedPosts, ArticlesFilter, emptyPagiData } from '@/model'
 
@@ -33,21 +33,21 @@ const ArticlesThread = T.model('ArticlesThread', {
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get curThread(): TThread {
       const root = getParent(self) as TRootStore
       return root.viewing.activeThread
     },
     get pagedPostsData() {
-      return stripMobx(self.pagedPosts)
+      return toJS(self.pagedPosts)
     },
     get pagedArticlesData(): TPagedArticles {
       const slf = self as TStore
 
       switch (slf.curThread) {
         default: {
-          return stripMobx(self.pagedPosts)
+          return toJS(self.pagedPosts)
         }
       }
     },
@@ -64,22 +64,22 @@ const ArticlesThread = T.model('ArticlesThread', {
       return root.account.c11n
     },
     get filtersData(): TArticleFilter {
-      return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
+      return toJS(pickBy((v) => !isEmpty(v), self.filters))
     },
     get activeTagData(): TTag {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.tagsBar.activeTagData)
+      return toJS(root.tagsBar.activeTagData)
     },
     get tagQuery(): Record<string, unknown> {
       const root = getParent(self) as TRootStore
 
-      const curTag = stripMobx(root.tagsBar.activeTagData)
+      const curTag = toJS(root.tagsBar.activeTagData)
       if (nilOrEmpty(curTag.title)) return {}
       return { tag: curTag.title }
     },
     get showFilters(): boolean {
-      const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))
-      const pagedPosts = stripMobx(self.pagedPosts)
+      const curFilter = toJS(pickBy((v) => !isEmpty(v), self.filters))
+      const pagedPosts = toJS(self.pagedPosts)
 
       return !isEmpty(curFilter) || !isEmpty(pagedPosts.entries)
     },
@@ -125,7 +125,7 @@ const ArticlesThread = T.model('ArticlesThread', {
       const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
         self.pagedPosts.entries[index] = merge(
-          stripMobx(self.pagedPosts.entries[index]),
+          toJS(self.pagedPosts.entries[index]),
           item,
         )
       }

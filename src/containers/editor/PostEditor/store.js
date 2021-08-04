@@ -15,7 +15,7 @@ import {
   contains,
 } from 'ramda'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 import { Post, Mention } from '@/model'
 
@@ -53,13 +53,13 @@ const PostEditor = T.model('PostEditor', {
       return self.root.curRoute
     },
     get viewing() {
-      return stripMobx(self.root.viewing)
+      return toJS(self.root.viewing)
     },
     get editData() {
-      return stripMobx(self.editPost)
+      return toJS(self.editPost)
     },
     get curCommunity() {
-      return stripMobx(self.root.viewing.community)
+      return toJS(self.root.viewing.community)
     },
     get thread() {
       return self.root.viewing.activeThread
@@ -71,11 +71,11 @@ const PostEditor = T.model('PostEditor', {
       return self.root.labeler.labelsData
     },
     get mentionListData() {
-      return stripMobx(self.mentionList)
+      return toJS(self.mentionList)
     },
     get referUsersData() {
-      const referUsers = stripMobx(self.referUsers)
-      const extractMentions = stripMobx(self.extractMentions)
+      const referUsers = toJS(self.referUsers)
+      const extractMentions = toJS(self.extractMentions)
       return filter((user) => contains(user.name, extractMentions), referUsers)
     },
   }))

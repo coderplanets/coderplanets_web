@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const ModeLineMenu = T.model('ModeLineMenu', {})
   .views((self) => ({
@@ -15,7 +15,7 @@ const ModeLineMenu = T.model('ModeLineMenu', {})
     },
     get curActive() {
       return {
-        community: stripMobx(self.root.viewing.community),
+        community: toJS(self.root.viewing.community),
         thread: self.root.viewing.activeThread,
       }
     },

@@ -6,14 +6,14 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TAccount, TCommunity, TThread, TC11N } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { sortByIndex } from '@/utils/helper'
 
 const CommunityContent = T.model('CommunityContent', {})
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get curThread(): TThread {
       const root = getParent(self) as TRootStore

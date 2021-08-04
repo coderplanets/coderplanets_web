@@ -8,7 +8,7 @@ import { values } from 'ramda'
 
 import type { TRootStore, TCommunity } from '@/spec'
 import type { TVisibles } from './spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 import { VIEW } from './constant'
 
@@ -21,7 +21,7 @@ export const HelpCenterContent = T.model('HelpCenterContent', {
       // see https://github.com/mobxjs/mobx-state-tree/issues/371#issuecomment-479369372
       const root = getParent(self) as TRootStore
 
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get showReaction(): boolean {
       if (self.view === VIEW.COVER) return false

@@ -87,7 +87,7 @@ export {
   markStates,
   flashState,
   meteorState,
-  stripMobx,
+  toJS,
   updateEditing,
 } from './mobx'
 

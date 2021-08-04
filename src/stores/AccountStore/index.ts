@@ -13,7 +13,7 @@ import type {
   TPagedCommunities,
   TC11N,
 } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import BStore from '@/utils/bstore'
 import { User, EmptyUser, PagedCommunities } from '@/model'
 
@@ -24,7 +24,7 @@ const AccountStore = T.model('AccountStore', {
 })
   .views((self) => ({
     get accountInfo(): TAccount {
-      const user = stripMobx(self.user)
+      const user = toJS(self.user)
 
       return {
         ...user,
@@ -35,18 +35,18 @@ const AccountStore = T.model('AccountStore', {
     get c11n(): TC11N {
       return {
         isLogin: self.isValidSession,
-        ...stripMobx(self.user.customization),
+        ...toJS(self.user.customization),
       }
     },
     get subscribedCommunities(): TPagedCommunities {
       if (!self.userSubscribedCommunities) {
         return { entries: [] }
       }
-      return stripMobx(self.userSubscribedCommunities)
+      return toJS(self.userSubscribedCommunities)
       /*
       const { user: { subscribedCommunities } } = self
       return {
-        ...stripMobx(subscribedCommunities),
+        ...toJS(subscribedCommunities),
       }
       */
     },
@@ -65,12 +65,12 @@ const AccountStore = T.model('AccountStore', {
       sessionCleanup()
     },
     isMemberOf(type): boolean {
-      const { achievement } = stripMobx(self.user)
+      const { achievement } = toJS(self.user)
       if (!achievement) return false
       return achievement[type] || false
     },
     updateAccount(sobj): void {
-      const user = merge(stripMobx(self.user), { ...sobj })
+      const user = merge(toJS(self.user), { ...sobj })
       const { mark } = self as TStore
 
       mark({ user })

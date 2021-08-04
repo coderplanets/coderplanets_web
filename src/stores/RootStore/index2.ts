@@ -415,7 +415,7 @@ const rootStore = T.model({
  *   NOTE: if use TRootStore in sub container, e.g:
  * get viewingArticle(): TArticle {
  *   const root = getParent(self) as TRootStore
- *   return stripMobx(root.viewingArticle)
+ *   return toJS(root.viewingArticle)
  * },
  *
  * MAKE SURE get helper has a return TYPE, otherwise it

@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 import { pluck } from 'ramda'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { PagedCommunities } from '@/model'
 
 const CommunitySetter = T.model('CommunitySetter', {
@@ -30,7 +30,7 @@ const CommunitySetter = T.model('CommunitySetter', {
       return self.root.viewing.currentThread
     },
     get pagedCommunitiesData() {
-      return stripMobx(self.pagedCommunities)
+      return toJS(self.pagedCommunities)
     },
   }))
   .actions((self) => ({

@@ -15,7 +15,7 @@ import {
 
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
-import { toJS } from 'mobx'
+import { toJS as toJSON } from 'mobx'
 
 import { isObject } from './validator'
 
@@ -159,9 +159,9 @@ export const meteorState = (
   }, secs * 1000)
 }
 
-export const stripMobx = (obj: any): any => {
+export const toJS = (obj: any): any => {
   if (!obj) return obj
-  return toJS(obj)
+  return toJSON(obj)
 }
 
 /*

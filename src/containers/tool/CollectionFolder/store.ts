@@ -8,7 +8,7 @@ import { merge } from 'ramda'
 
 import type { TUser, TRootStore, TViewing } from '@/spec'
 import { THREAD } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 
 import {
@@ -53,7 +53,7 @@ const CollectionFolder = T.model('CollectionFolder', {
     },
     get viewingUser(): TUser {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.user)
+      return toJS(root.viewing.user)
     },
     get isSelfViewing(): boolean {
       const root = getParent(self) as TRootStore
@@ -66,21 +66,21 @@ const CollectionFolder = T.model('CollectionFolder', {
       const root = getParent(self) as TRootStore
       switch (self.thread) {
         case THREAD.JOB:
-          return stripMobx(root.viewing.job)
+          return toJS(root.viewing.job)
 
         case THREAD.REPO:
-          return stripMobx(root.viewing.repo)
+          return toJS(root.viewing.repo)
 
         default:
-          return stripMobx(root.viewing.post)
+          return toJS(root.viewing.post)
       }
     },
 
     get editCategoryData() {
-      return stripMobx(self.editCategory)
+      return toJS(self.editCategory)
     },
     get pagedCategoriesData() {
-      return stripMobx(self.pagedCategories)
+      return toJS(self.pagedCategories)
     },
     get isCreatorView(): boolean {
       const { showModal, showUpdater, showCreator, showSetter } = self

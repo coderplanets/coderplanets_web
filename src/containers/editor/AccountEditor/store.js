@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 import { merge, clone, concat } from 'ramda'
 
-import { markStates, stripMobx, flashState } from '@/utils/mobx'
+import { markStates, toJS, flashState } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 import { User, EduBackground, WorkBackground } from '@/model'
 
@@ -35,14 +35,14 @@ const AccountEditorStore = T.model('AccountEditorStore', {
     },
     get editUserData() {
       return {
-        ...stripMobx(self.editUser),
+        ...toJS(self.editUser),
       }
     },
     get educationBgData() {
-      return stripMobx(self.educationBg)
+      return toJS(self.educationBg)
     },
     get workBgData() {
-      return stripMobx(self.workBg)
+      return toJS(self.workBg)
     },
     get accountOrigin() {
       return self.root.account.accountInfo

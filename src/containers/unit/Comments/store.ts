@@ -27,7 +27,7 @@ import type {
   TID,
 } from '@/spec'
 import { TYPE } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 import { Comment, PagedComments, emptyPagiData, Mention } from '@/model'
 
@@ -98,15 +98,15 @@ const CommentsStore = T.model('CommentsStore', {
       return root.curRoute
     },
     get foldedIds(): TID[] {
-      return stripMobx(self.foldedCommentIds)
+      return toJS(self.foldedCommentIds)
     },
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
     },
     get referUsersData(): TUser[] {
-      const referUsers = stripMobx(self.referUsers)
-      const extractMentions = stripMobx(self.extractMentions)
+      const referUsers = toJS(self.referUsers)
+      const extractMentions = toJS(self.extractMentions)
       // @ts-ignore
       return filter((user) => contains(user.name, extractMentions), referUsers)
     },
@@ -132,10 +132,10 @@ const CommentsStore = T.model('CommentsStore', {
       return map(mentionMapper, commentsParticipators)
     },
     get mentionListData() {
-      return stripMobx(self.mentionList)
+      return toJS(self.mentionList)
     },
     get pagedCommentsData() {
-      return stripMobx(self.pagedComments)
+      return toJS(self.pagedComments)
     },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
@@ -143,11 +143,11 @@ const CommentsStore = T.model('CommentsStore', {
     },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get communityRaw(): string {
       const root = getParent(self) as TRootStore
-      // const viewingCommunity = stripMobx(self.root.viewing.community)
+      // const viewingCommunity = toJS(self.root.viewing.community)
       // if (viewingCommunity.raw) return viewingCommunity.raw
 
       return root.viewing.viewingData.origialCommunity.raw
@@ -162,7 +162,7 @@ const CommentsStore = T.model('CommentsStore', {
       return root.viewingData
     },
     get editCommentData() {
-      return stripMobx(self.editComment)
+      return toJS(self.editComment)
     },
   }))
   .actions((self) => ({

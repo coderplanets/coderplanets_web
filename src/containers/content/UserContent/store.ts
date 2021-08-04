@@ -8,7 +8,7 @@ import { values } from 'ramda'
 
 import type { TRootStore, TAccount, TUser } from '@/spec'
 import { USER_THREAD } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const UserContent = T.model('UserContent', {
   activeThread: T.optional(
@@ -28,7 +28,7 @@ const UserContent = T.model('UserContent', {
     },
     get viewingUser(): TUser {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.user)
+      return toJS(root.viewing.user)
     },
     get isSelfViewing(): boolean {
       const root = getParent(self) as TRootStore

@@ -7,7 +7,7 @@ import { values } from 'ramda'
 
 import { SITE_URL_SHORT } from '@/config'
 import type { TArticle, TCommunity, TRootStore, TThread } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
 
 import { SITE_SHARE_TYPE } from './constant'
@@ -76,7 +76,7 @@ const Share = T.model('Share', {
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
   }))
   .actions((self) => ({

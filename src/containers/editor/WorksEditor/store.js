@@ -5,7 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
 
 import { STEP } from './constant'
@@ -30,7 +30,7 @@ const WorksEditor = T.model('WorksEditor', {
       return getParent(self)
     },
     get worksData() {
-      return stripMobx(self.works)
+      return toJS(self.works)
     },
     get isCurrentStepValid() {
       const { step, worksData } = self
