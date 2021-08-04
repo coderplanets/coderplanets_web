@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { ICON, ICON_CMD } from '@/config'
 
 import { Br } from '@/components/Common'
-import { DropdownButton } from '@/components/Buttons'
+import DropdownButton from '@/components/Buttons/DropdownButton'
 import SubTitle from '@/components/SubTitle'
 import EmailSubscriber from '@/components/EmailSubscriber'
 

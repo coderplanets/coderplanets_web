@@ -12,7 +12,7 @@ import { ICON } from '@/config'
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import IconText from '@/components/IconText'
 import InlineTags from './InlineTags'

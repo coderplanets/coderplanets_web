@@ -5,7 +5,7 @@
  */
 
 import { Fragment, FC, memo } from 'react'
-import dynamic from 'next/dynamic'
+import Pagi from '@/components/Pagi'
 
 import type {
   TThread,
@@ -23,10 +23,6 @@ import ArticleList from './ArticleList'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PagedArticles:index')
-
-export const Pagi = dynamic(() => import('@/components/Pagi'), {
-  ssr: false,
-})
 
 type TProps = {
   thread: TThread

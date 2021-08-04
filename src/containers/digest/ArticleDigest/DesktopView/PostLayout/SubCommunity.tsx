@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { ICON_BASE } from '@/config'
 
-import { FollowButton } from '@/components/Buttons'
+import FollowButton from '@/components/Buttons/FollowButton'
 
 import {
   Wrapper,

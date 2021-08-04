@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 import { Wrapper, Section, Footer } from '../styles/content/launch_part'
 
 import { nextStep } from '../logic'

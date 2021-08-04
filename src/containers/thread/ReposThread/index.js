@@ -14,7 +14,7 @@ import { pluggedIn } from '@/utils/mobx'
 import TagsBar from '@/containers/unit/TagsBar'
 
 import Sticky from '@/components/Sticky'
-import { PublishButton } from '@/components/Buttons'
+import PublishButton from '@/components/Buttons/PublishButton'
 import PagedArticles from '@/components/PagedArticles'
 import ArticlesFilter from '@/components/ArticlesFilter'
 import Maybe from '@/components/Maybe'

@@ -3,7 +3,8 @@ import { FC, memo, useCallback } from 'react'
 import type { TAccount, TComment } from '@/spec'
 import { ICON } from '@/config'
 
-import { IconButton, MenuButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
+import MenuButton from '@/components/Buttons/MenuButton'
 import { SpaceGrow } from '@/components/Common'
 
 import { Wrapper, ReplyAction } from '../styles/comment/actions'

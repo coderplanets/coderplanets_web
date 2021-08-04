@@ -1,34 +1,13 @@
-/*
- *
- * GotoTop
- *
- */
+import { FC } from 'react'
+import dynamic from 'next/dynamic'
 
-import { FC, memo } from 'react'
-
-import { scrollToHeader, scrollDrawerToTop } from '@/utils/dom'
-
-import { IconButton } from '@/components/Buttons'
-import { Wrapper } from './styles'
-
-type TProps = {
+export type TProps = {
   testid?: string
   type?: 'body' | 'drawer'
 }
 
-const GotoTop: FC<TProps> = ({ testid = 'goto-top', type = 'body' }) => {
-  const handler = type === 'body' ? scrollToHeader : scrollDrawerToTop
+const GotoTop = dynamic(() => import('./RealGotoTop'), {
+  ssr: false,
+})
 
-  return (
-    <Wrapper testid={testid} onClick={handler}>
-      <IconButton
-        path="shape/air-balloon.svg"
-        hint="回到顶部"
-        size={20}
-        mLeft={5}
-      />
-    </Wrapper>
-  )
-}
-
-export default memo(GotoTop)
+export default GotoTop as FC<TProps>

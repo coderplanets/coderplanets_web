@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 
-import { NotifyButton } from '@/components/Buttons'
+import NotifyButton from '@/components/Buttons/NotifyButton'
 import Tooltip from '@/components/Tooltip'
 import ImgFallback from '@/components/ImgFallback'
 

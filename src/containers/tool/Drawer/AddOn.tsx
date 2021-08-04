@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { SpaceGrow } from '@/components/Common'
 import GotoTop from '@/components/GotoTop'
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 
 import {
   Wrapper,

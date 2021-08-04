@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import type { TArticle } from '@/spec'
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 
 import { Wrapper, Hint } from '../../styles/digest_view/active_badge'
 

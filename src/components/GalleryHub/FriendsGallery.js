@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@/utils/logger'
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import {
   Wrapper,

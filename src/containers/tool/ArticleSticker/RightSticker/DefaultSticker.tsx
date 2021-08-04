@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TArticle } from '@/spec'
 import { shareTo } from '@/utils/helper'
 
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 import Upvote from '@/components/Upvote'
 
 import { Wrapper } from '../styles/right_sticker/default_sticker'

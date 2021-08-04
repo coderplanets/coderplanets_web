@@ -3,7 +3,7 @@ import { FC, Fragment, memo } from 'react'
 import { Br } from '@/components/Common'
 import Sticky from '@/components/Sticky'
 import TagsBar from '@/containers/unit/TagsBar'
-import { PublishButton } from '@/components/Buttons'
+import PublishButton from '@/components/Buttons/PublishButton'
 
 import ExtraInfo from './ExtraInfo'
 

@@ -6,7 +6,7 @@ import { cutRest } from '@/utils/helper'
 import { ICON } from '@/config'
 
 import ImgFallback from '@/components/ImgFallback'
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 import { SpaceGrow } from '@/components/Common'
 
 import {

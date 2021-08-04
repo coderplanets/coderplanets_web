@@ -11,7 +11,7 @@ import { ASSETS_ENDPOINT } from '@/config'
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import {
   Wrapper,

@@ -4,7 +4,7 @@ import { ICON_CMD } from '@/config'
 import { RECIPE } from '@/constant'
 
 import Sticky from '@/components/Sticky'
-import { OrButton } from '@/components/Buttons'
+import OrButton from '@/components/Buttons/OrButton'
 import NaviCatalog from '@/components/NaviCatalog'
 import NaviIntro from '@/components/NaviIntro'
 

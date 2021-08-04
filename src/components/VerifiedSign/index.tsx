@@ -10,7 +10,7 @@ import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
 
 import ExpandIcon from '@/components/ExpandIcon'
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import {
   PopContentWrapper,

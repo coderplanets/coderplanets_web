@@ -1,11 +1,12 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { IconButton, MenuButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
+import MenuButton from '@/components/Buttons/MenuButton'
 import Tooltip from '@/components/Tooltip'
 
 import DetailInfo from './DetailInfo'
-// import { LavaLampLoading } from '@/components/Loading'
+// import LavaLampLoading from '@/components/Loading/LavaLampLoading'
 import {
   Wrapper,
   Title,

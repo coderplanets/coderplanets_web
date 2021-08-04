@@ -13,7 +13,7 @@ import { pluggedIn } from '@/utils/mobx'
 
 import { Br } from '@/components/Common'
 import { FriendsGallery } from '@/components/GalleryHub'
-import { ArrowLink } from '@/components/Buttons'
+import ArrowLink from '@/components/Buttons/ArrowLink'
 
 import {
   Wrapper,

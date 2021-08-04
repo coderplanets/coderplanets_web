@@ -1,6 +1,6 @@
 import { FC, memo, Fragment, useState } from 'react'
 
-import { CopyButton } from '@/components/Buttons'
+import CopyButton from '@/components/Buttons/CopyButton'
 import type { TLinksData } from './store'
 
 import {

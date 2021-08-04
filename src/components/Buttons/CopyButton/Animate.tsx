@@ -1,7 +1,7 @@
 import { FC, memo, useEffect, useState } from 'react'
 
 import { ICON } from '@/config'
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 
 import { AnimateOnChange } from 'react-animation'
 import { CopyedHintIcon } from '../styles/copy_button'

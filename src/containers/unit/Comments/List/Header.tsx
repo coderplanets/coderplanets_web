@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { ICON } from '@/config'
 import { SVG } from '@/constant'
 
-import { IconButton } from '@/components/Buttons'
+import IconButton from '@/components/Buttons/IconButton'
 import { IconSwitcher } from '@/components/Switcher'
 
 import {

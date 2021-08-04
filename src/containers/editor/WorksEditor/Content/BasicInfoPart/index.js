@@ -2,7 +2,7 @@ import React from 'react'
 
 import Checker from '@/components/Checker'
 import Select from '@/components/Select'
-import { ArrowButton } from '@/components/Buttons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import CoverUploader from './CoverUploader'
 
