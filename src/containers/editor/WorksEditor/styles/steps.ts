@@ -52,7 +52,7 @@ export const Dot = styled.div<TActive>`
 `
 export const Hint = styled.div<TActive>`
   font-size: 12px;
-  margin-top: ${({ active }) => (active ? '5px' : '6px')};
+  margin-top: 6px;
 
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};

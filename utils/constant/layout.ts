@@ -5,6 +5,7 @@ export const UPVOTE_LAYOUT = {
   COMMENT: 'comment' as TUpvoteLayout,
   ARTICLE: 'article' as TUpvoteLayout,
   WORKS_ARTICLE: 'works-article' as TUpvoteLayout,
+  WORKS_CARD: 'works-card' as TUpvoteLayout,
 }
 
 export const holder = 1

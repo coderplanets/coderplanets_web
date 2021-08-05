@@ -85,7 +85,12 @@ export type TArticleFilter = {
   read?: string
 }
 
-export type TUpvoteLayout = 'default' | 'comment' | 'article' | 'works-article'
+export type TUpvoteLayout =
+  | 'default'
+  | 'comment'
+  | 'article'
+  | 'works-article'
+  | 'works-card'
 
 export type TCollectionFolder = {
   id: TID

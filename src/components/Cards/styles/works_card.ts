@@ -18,8 +18,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   padding-right: 15px;
   border-radius: 3px;
 
-  border-bottom: 1px solid;
-  border-bottom-color: #0b3b4a;
+  border-top: 1px solid;
+  border-top-color: #0b3b4a;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
 
@@ -27,11 +27,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     border-bottom: none;
   }
 
-  &:hover {
-    background: #0d3440;
-    border-left-color: #0b3b4a;
-    border-right-color: #0b3b4a;
-  }
   transition: all 0.1s;
 `
 export const IntroImg = styled(Img)`
@@ -55,13 +50,16 @@ export const Header = styled.div`
   width: 100%;
 `
 export const Title = styled.a`
+  ${css.flex('align-center')};
+`
+export const Name = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
-  font-weight: bold;
-
-  &:hover {
-    ${css.threadTitleHover()};
-  }
+  font-weight: 500;
+`
+export const OSSSign = styled.div`
+  ${css.flex('align-center')};
+  margin-top: 1px;
 `
 export const TypeTags = styled.div`
   ${css.flex('align-center')};
@@ -97,7 +95,6 @@ export const TechIcon = styled(BaseBuildIcon)`
   }
 `
 export const GithubIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  ${css.size(13)};
-  margin-right: 3px;
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(10)};
 `

@@ -17,6 +17,7 @@ import { SpaceGrow } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
 import IconText from '@/components/IconText'
 import ImgFallback from '@/components/ImgFallback'
+import Upvote from '@/components/Upvote'
 
 import {
   Wrapper,
@@ -25,6 +26,8 @@ import {
   IntroWrapper,
   Header,
   Title,
+  Name,
+  OSSSign,
   FooterWrapper,
   BuildWithWrapper,
   TechIcon,
@@ -64,15 +67,22 @@ const WorksCard: FC<TProps> = ({
       <IntroWrapper>
         <Header>
           <div>
-            <Title>{title || '--'}</Title>
+            <Title>
+              <Name>{title || '--'}</Name>
+
+              {item.isOSS && (
+                <OSSSign>
+                  <DotDivider space={8} />
+                  <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
+                </OSSSign>
+              )}
+            </Title>
             <DigestSentence top={5} bottom={15} onPreview={() => log}>
               {cutRest(desc, descLimit)}
             </DigestSentence>
           </div>
 
-          <IconText iconSrc={`${ICON}/article/heart-solid.svg`} size="large">
-            {upvoteCount}
-          </IconText>
+          <Upvote type="works-card" count={upvoteCount} />
         </Header>
         <FooterWrapper>
           {item.tag && (
@@ -114,7 +124,7 @@ const WorksCard: FC<TProps> = ({
             {commentsCount}
           </IconText>
           <SpaceGrow />
-          {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />}
+          {/* {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />} */}
         </FooterWrapper>
       </IntroWrapper>
     </Wrapper>
