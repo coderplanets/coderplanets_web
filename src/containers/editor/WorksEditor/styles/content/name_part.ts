@@ -17,7 +17,7 @@ export const Label = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 16px;
   margin-bottom: 15px;
-  margin-left: 5px;
+  margin-left: 10px;
 `
 export const Input = styled(BaseInput)`
   text-align: center;

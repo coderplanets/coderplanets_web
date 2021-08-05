@@ -59,10 +59,12 @@ export const Hint = styled.div<TActive>`
   opacity: ${({ active }) => (active ? 1 : 0)};
 
   ${Wrapper}:hover & {
+    color: ${theme('thread.articleTitle')};
     opacity: 1;
+    cursor: pointer;
   }
 
-  transition: opacity 0.25s;
+  transition: opacity 0.2s;
 `
 export const PublishIcon = styled(Img)`
   ${css.size(18)};

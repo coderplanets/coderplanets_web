@@ -34,6 +34,12 @@ export const BaseInput = styled.input.attrs(() => ({
   border-radius: 15px;
   transition: all 400ms ease;
 
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: #0a575a;
+  }
+
   ::placeholder {
     color: #135868;
   }

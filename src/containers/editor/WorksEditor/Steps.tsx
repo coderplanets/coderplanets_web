@@ -28,7 +28,9 @@ const Steps: FC<TProps> = ({ step }) => {
     <Wrapper>
       <FirstStep>
         <Dot active={step === STEP.ZERO} onClick={() => gotoStep(STEP.ZERO)} />
-        <Hint active={step === STEP.ZERO}>作品名称</Hint>
+        <Hint active={step === STEP.ZERO} onClick={() => gotoStep(STEP.ZERO)}>
+          作品名称
+        </Hint>
       </FirstStep>
       <Step>
         <Dot active={step === STEP.ONE} onClick={() => gotoStep(STEP.ONE)} />

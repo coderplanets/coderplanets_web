@@ -64,7 +64,7 @@ const WorksCard: FC<TProps> = ({
       <IntroWrapper>
         <Header>
           <div>
-            <Title>{title}</Title>
+            <Title>{title || '--'}</Title>
             <DigestSentence top={5} bottom={15} onPreview={() => log}>
               {cutRest(desc, descLimit)}
             </DigestSentence>
