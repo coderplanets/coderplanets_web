@@ -8,6 +8,7 @@ import SubTitle from '@/components/SubTitle'
 import EmailSubscriber from '@/components/EmailSubscriber'
 
 import InterviewsList from './InterviewsList'
+import Brand from '../Brand'
 import Linkers from './Linkers'
 
 import {
@@ -37,15 +38,18 @@ const options = [
 
 type TProps = {
   testid?: string
+  showSidebar: boolean
 }
 
 const RightSidebar: FC<TProps> = ({
   testid = 'works-content-right-sidebar',
+  showSidebar = false,
 }) => {
   return (
-    <Wrapper testid={testid}>
-      <Linkers />
-      <Divider top={18} bottom={22} />
+    <Wrapper testid={testid} showSidebar={showSidebar}>
+      <Brand />
+      {/* <Linkers /> */}
+      {/* <Divider top={18} bottom={22} /> */}
       <PublishBtnWrapper>
         <DropdownButton
           options={options}

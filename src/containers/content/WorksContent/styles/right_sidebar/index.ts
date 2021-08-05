@@ -5,12 +5,16 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+type TWrapper = {
+  showSidebar: boolean
+} & TTestable
+
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   ${css.flexColumn()};
-  width: 200px;
-  margin-left: 42px;
+  width: ${({ showSidebar }) => (showSidebar ? '200px' : '226px')};
+  margin-left: ${({ showSidebar }) => (showSidebar ? '45px' : '60px')};
   color: ${theme('thread.articleDigest')};
 `
 export const SubDesc = styled.div`

@@ -17,7 +17,6 @@ import type { TStore } from './store'
 
 import { VIEW } from './constant'
 
-import Brand from './Brand'
 import FilterBar from './FilterBar'
 import List from './List'
 import MileStone from './MileStone'
@@ -81,15 +80,16 @@ const WorksContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { activeView } = store
+  const { activeView, showSidebar } = store
 
   return (
     <Wrapper testid={testid} metric={metric}>
-      <ContentWrapper>
-        <LeftSidebarWrapper>
-          <Brand />
-          <FilterBar activeView={activeView} />
-        </LeftSidebarWrapper>
+      <ContentWrapper showSidebar={showSidebar}>
+        {showSidebar && (
+          <LeftSidebarWrapper>
+            <FilterBar activeView={activeView} />
+          </LeftSidebarWrapper>
+        )}
         <MainContent>
           {activeView === VIEW.WORKS ? <List /> : <MileStone />}
           <Pagi margin={{ top: '60px', bottom: '80px' }}>
@@ -99,7 +99,7 @@ const WorksContentContainer: FC<TProps> = ({
             </PagiInfo>
           </Pagi>
         </MainContent>
-        <RightSidebar />
+        <RightSidebar showSidebar={showSidebar} />
       </ContentWrapper>
     </Wrapper>
   )

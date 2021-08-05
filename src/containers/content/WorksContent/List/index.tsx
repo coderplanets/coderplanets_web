@@ -1,14 +1,16 @@
 import { FC } from 'react'
 
+import { ICON } from '@/config'
 import { mockWorks } from '@/utils/mock'
 // import { Br } from '@/components/Common'
 import WorksCard from '@/components/Cards/WorksCard'
+import IconText from '@/components/IconText'
 
 import { LAUNCH } from '../constant'
-// import Trending from './Trending'
 import OptionTab from './OptionTab'
 
-import { Wrapper, TabWrapper } from '../styles/list'
+import { Wrapper, TabWrapper, FilterWrapper } from '../styles/list'
+import { toggleSidebar } from '../logic'
 
 const options = [
   {
@@ -44,10 +46,12 @@ const lists = [
 const List: FC = () => {
   return (
     <Wrapper>
-      {/* <Trending /> */}
-      {/* <Br top={15} /> */}
       <TabWrapper>
         <OptionTab items={options} activeKey="all" />
+
+        <FilterWrapper>
+          <IconText iconSrc={`${ICON}/filter.svg`}>默认排序</IconText>
+        </FilterWrapper>
       </TabWrapper>
       {lists.map((item) => (
         <WorksCard key={item.id} item={item} />
