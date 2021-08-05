@@ -26,3 +26,6 @@ export const Input = styled(BaseInput)`
   width: auto;
   font-size: 18px;
 `
+export const NextButtonWrapper = styled.div`
+  margin-left: -45px;
+`

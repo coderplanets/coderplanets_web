@@ -6,7 +6,12 @@ import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import CommonQuestions from './CommonQuestions'
 
-import { Wrapper, Input, Label } from '../styles/content/name_part'
+import {
+  Wrapper,
+  Input,
+  Label,
+  NextButtonWrapper,
+} from '../styles/content/name_part'
 import { updateWorks, nextStep } from '../logic'
 
 type TProps = {
@@ -18,7 +23,7 @@ const NamePart: FC<TProps> = ({ works }) => {
 
   return (
     <Wrapper>
-      <Label>你的作品名称是？</Label>
+      <Label>你（们）的作品名称是？</Label>
       <Input
         value={works.title}
         onChange={(e) => updateWorks('title', e.target.value)}
@@ -32,12 +37,12 @@ const NamePart: FC<TProps> = ({ works }) => {
       )}
 
       {valid && (
-        <Fragment>
+        <NextButtonWrapper>
           <br />
           <ArrowButton size="large" onClick={nextStep}>
             下一步
           </ArrowButton>
-        </Fragment>
+        </NextButtonWrapper>
       )}
     </Wrapper>
   )

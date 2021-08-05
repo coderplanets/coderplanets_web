@@ -26,7 +26,7 @@ const log = buildLog('C:WorksEditor')
 type TProps = {
   worksEditor?: TStore
   testid?: string
-  metric: TMetric
+  metric?: TMetric
 }
 
 const WorksEditorContainer: FC<TProps> = ({
