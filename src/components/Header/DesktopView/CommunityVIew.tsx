@@ -41,7 +41,7 @@ const hasNoBorder = (metric: TMetric): boolean =>
     METRIC.HELP_CENTER,
   ])
 
-const CommunityHeader: FC<TProps> = ({ metric, c11n, community }) => {
+const CommunityView: FC<TProps> = ({ metric, c11n, community }) => {
   const InnerWrapper =
     c11n.bannerLayout === C11N.CLASSIC
       ? ClassicInnerWrapper
@@ -67,4 +67,4 @@ const CommunityHeader: FC<TProps> = ({ metric, c11n, community }) => {
   )
 }
 
-export default CommunityHeader
+export default CommunityView
