@@ -15,7 +15,7 @@ import { useInit } from './logic'
 // import * as logic from './logic'
 
 import RichEditorStyle from './styles/global_styles'
-import { Wrapper } from './styles'
+import { Wrapper, EditorWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:RichEditor')
@@ -34,7 +34,7 @@ const RichEditorContainer: FC<TProps> = ({ richEditor: store }) => {
   return (
     <Wrapper>
       <RichEditorStyle />
-      <div id="codex-editor" />
+      <EditorWrapper id="codex-editor" />
     </Wrapper>
   )
 }
