@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const UserProfile = T.model('UserProfile', {})
   .views((self) => ({
@@ -17,7 +17,7 @@ const UserProfile = T.model('UserProfile', {})
       return self.root.account.isLogin
     },
     get viewingUser() {
-      return stripMobx(self.root.viewing.user)
+      return toJS(self.root.viewing.user)
     },
   }))
   .actions((self) => ({

@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TRoute } from '@/spec'
-// stripMobx
+// toJS
 import { markStates } from '@/utils/mobx'
 import { LN } from './constant'
 

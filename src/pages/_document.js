@@ -49,7 +49,7 @@ export default class DocumentPage extends Document {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACING_ID}');
+            gtag('config', '${GA.TRACKING_ID}');
               `,
             }}
           />

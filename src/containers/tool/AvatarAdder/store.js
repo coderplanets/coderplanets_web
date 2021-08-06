@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { GithubUser } from '@/model'
 
 const AvatarAdder = T.model('AvatarAdder', {
@@ -23,7 +23,7 @@ const AvatarAdder = T.model('AvatarAdder', {
       return getParent(self)
     },
     get githubUserData() {
-      return stripMobx(self.githubUser)
+      return toJS(self.githubUser)
     },
   }))
   .actions((self) => ({

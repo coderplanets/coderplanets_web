@@ -44,7 +44,7 @@ const solarizedDark = {
   link: '#269A95',
   main: '#7DC0C5',
   bodyBg: contentBg,
-  selectionBg: '#839496',
+  selectionBg: '#0E3B49',
   baseColor: {
     red: '#a24e3f !important',
     green: '#699411 !important',

@@ -1,5 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import RichEditor from '@/containers/editor/RichEditor'
 import ArrowButton from '@/components/Buttons/ArrowButton'
 import Checker from '@/components/Checker'
 
@@ -13,7 +14,11 @@ import {
 
 import { nextStep, toggleTemplate } from '../../logic'
 
-const ArticlePart = ({ useTemplate }) => {
+type TProps = {
+  useTemplate: boolean
+}
+
+const ArticlePart: FC<TProps> = ({ useTemplate }) => {
   const valid = true
 
   return (
@@ -28,7 +33,9 @@ const ArticlePart = ({ useTemplate }) => {
           使用模板
         </Checker>
       </Header>
-      <Section>ArticlePart</Section>
+      <Section>
+        <RichEditor />
+      </Section>
       <Footer>
         {valid && (
           <ArrowButton size="large" disabled={!valid} onClick={nextStep}>
@@ -40,4 +47,4 @@ const ArticlePart = ({ useTemplate }) => {
   )
 }
 
-export default React.memo(ArticlePart)
+export default memo(ArticlePart)

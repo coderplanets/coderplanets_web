@@ -12,7 +12,7 @@ import type {
   TViewing,
   TThread,
 } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
@@ -33,7 +33,7 @@ const ArticleViewer = T.model('ArticleViewer', {
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get activeThread(): TThread {
       const root = getParent(self) as TRootStore

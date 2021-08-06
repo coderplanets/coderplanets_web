@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
-import type { TTestable, TActive } from '@/spec'
+import type { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 import { CONTENT_WIDTH } from './metric'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+type TWrapper = { testid?: string }
+export const Wrapper = styled.div.attrs(({ testid }: TWrapper) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   position: relative;
   ${css.flex('align-center', 'justify-between')};
   width: ${`${CONTENT_WIDTH}px`};
@@ -51,20 +52,22 @@ export const Dot = styled.div<TActive>`
 `
 export const Hint = styled.div<TActive>`
   font-size: 12px;
-  margin-top: ${({ active }) => (active ? '5px' : '6px')};
+  margin-top: 6px;
 
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   opacity: ${({ active }) => (active ? 1 : 0)};
 
   ${Wrapper}:hover & {
+    color: ${theme('thread.articleTitle')};
     opacity: 1;
+    cursor: pointer;
   }
 
-  transition: opacity 0.25s;
+  transition: opacity 0.2s;
 `
 export const PublishIcon = styled(Img)`
-  ${css.size(18)};
+  ${css.size(16)};
   fill: ${theme('thread.articleDigest')};
   margin-left: 3px;
   opacity: 0.6;

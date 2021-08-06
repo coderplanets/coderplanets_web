@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { TYPE, THREAD } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import {
   PagedPostComments,
   PagedJobComments,
@@ -39,18 +39,18 @@ const UserPublishedComments = T.model('UserPublishedComments', {
       return getParent(self)
     },
     get viewingUser() {
-      return stripMobx(self.root.viewing.user)
+      return toJS(self.root.viewing.user)
     },
     get pagedCommentsData() {
       switch (self.curThread) {
         case THREAD.JOB: {
-          return stripMobx(self.pagedJobComments)
+          return toJS(self.pagedJobComments)
         }
         case THREAD.REPO: {
-          return stripMobx(self.pagedRepoComments)
+          return toJS(self.pagedRepoComments)
         }
         default: {
-          return stripMobx(self.pagedPostComments)
+          return toJS(self.pagedPostComments)
         }
       }
     },

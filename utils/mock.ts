@@ -932,6 +932,7 @@ export const mockNaviCatalogMenu = (): TMenuItem[] => {
 
 export const mockWorks = () => {
   return {
+    id: '1',
     cover: `${ASSETS_ENDPOINT}/works/market1.jpeg`,
     title: 'coderplanets',
     desc: '可能是最性感的开发者社区',
@@ -960,7 +961,7 @@ export const mockWorks = () => {
         icon: `${ICON_BASE}/pl/ruby.svg`,
       },
     ],
-    upvote: 99,
+    upvoteCount: 99,
     commentsCount: 99,
     insertedAt: '3天前',
     isOpenSource: true,

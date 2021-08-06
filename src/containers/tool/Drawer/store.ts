@@ -9,7 +9,7 @@ import { merge, contains, values } from 'ramda'
 import type { TRootStore, TCommunity, TThread, TID } from '@/spec'
 import { TYPE, THREAD } from '@/constant'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
 import { Global } from '@/utils/helper'
 import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
@@ -109,7 +109,7 @@ const DrawerStore = T.model('DrawerStore', {
       return root.isMobile
     },
     get optionsData() {
-      return stripMobx(self.options)
+      return toJS(self.options)
     },
     get swipeThreshold() {
       const { direction, position } = self.options
@@ -126,17 +126,17 @@ const DrawerStore = T.model('DrawerStore', {
     },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get curThread(): TThread {
       const root = getParent(self) as TRootStore
       return root.viewing.activeThread
     },
     get attachmentData() {
-      return stripMobx(self.attachment)
+      return toJS(self.attachment)
     },
     get attUserData() {
-      return stripMobx(self.attUser)
+      return toJS(self.attUser)
     },
     get modalVisible() {
       return self.visible && Global.innerWidth > mediaBreakPoints.desktopL

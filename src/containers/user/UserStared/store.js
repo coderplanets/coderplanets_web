@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { TYPE, THREAD } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { PagedPosts, PagedJobs, emptyPagiData } from '@/model'
 
 const UserStared = T.model('UserStared', {
@@ -31,15 +31,15 @@ const UserStared = T.model('UserStared', {
       return getParent(self)
     },
     get viewingUser() {
-      return stripMobx(self.root.viewing.user)
+      return toJS(self.root.viewing.user)
     },
     get pagedData() {
       switch (self.curThread) {
         case THREAD.JOB:
-          return stripMobx(self.pagedJobs)
+          return toJS(self.pagedJobs)
 
         default:
-          return stripMobx(self.pagedPosts)
+          return toJS(self.pagedPosts)
       }
     },
     get accountInfo() {

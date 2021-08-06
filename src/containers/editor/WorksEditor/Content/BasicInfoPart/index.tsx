@@ -1,7 +1,10 @@
-import React from 'react'
+import { FC, memo } from 'react'
+
+import type { TWorks } from '@/spec'
 
 import Checker from '@/components/Checker'
 import Select from '@/components/Select'
+import { Space } from '@/components/Common'
 import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import CoverUploader from './CoverUploader'
@@ -17,7 +20,7 @@ import {
   Footer,
 } from '../../styles/content/basic_info_part'
 
-import { updateWorks, nextStep } from '../../logic'
+import { updateWorks, updateOSS, nextStep } from '../../logic'
 
 const platformOptions = [
   { value: 'web', label: 'Web', desc: '网站，浏览器扩展等' },
@@ -30,7 +33,11 @@ const platformOptions = [
   { value: 'other', label: '其他' },
 ]
 
-const BasicInfoPart = ({ works }) => {
+type TProps = {
+  works: TWorks
+}
+
+const BasicInfoPart: FC<TProps> = ({ works }) => {
   const valid = true
 
   return (
@@ -40,7 +47,11 @@ const BasicInfoPart = ({ works }) => {
       </Section>
       <Section>
         <Label>一句话描述</Label>
-        <Input size="large" value="可能是最性感的开发者社区" bottom={0} />
+        <Input
+          value={works.desc}
+          placeholder="// 一句话描述"
+          onChange={(e) => updateWorks('desc', e.target.value)}
+        />
       </Section>
       <Section>
         <Label>
@@ -53,32 +64,67 @@ const BasicInfoPart = ({ works }) => {
       </Section>
       <Section>
         <Label>标签(两级?)</Label>
-        <Input size="large" value="React-Select" bottom={0} />
+        <Input value="React-Select" />
       </Section>
       <Section>
         <Label>
-          <div>地址</div>
-          <Hint>访问 / 下载地址</Hint>
+          <div>主页地址</div>
+          <Hint>作品主页</Hint>
         </Label>
-        <Input size="large" value="https://" />
+        <Input value="https://" />
       </Section>
       <Section>
-        <Label>是否是独立开发 ?</Label>
+        <Label>盈利模式</Label>
         <CheckWrapper>
           <Checker
             checked
             onChange={(checked) => {
               console.log('others: ', checked)
             }}
-            size="small"
           >
-            有其他参与者
+            广告
           </Checker>
+          <Space right={20} />
+          <Checker
+            checked
+            onChange={(checked) => {
+              console.log('others: ', checked)
+            }}
+          >
+            会员增值
+          </Checker>
+          <Space right={20} />
+          <Checker
+            onChange={(checked) => {
+              console.log('others: ', checked)
+            }}
+          >
+            SaaS
+          </Checker>
+          <Space right={20} />
+          <Checker
+            onChange={(checked) => {
+              // 选择后其他都灭灯
+              console.log('others: ', checked)
+            }}
+          >
+            用爱发电
+          </Checker>
+          <Space right={20} />
+          <Checker>其他</Checker>
         </CheckWrapper>
       </Section>
       <Section>
-        <Label>是开源的吗 ?</Label>
-        <CheckWrapper>
+        <Label>团队成员</Label>
+      </Section>
+      <Section>
+        <Label>Github</Label>
+        <Input
+          value={works.ossAddr}
+          placeholder="// 可选, 格式: https://github.com/your-works"
+          onChange={(e) => updateOSS(e.target.value)}
+        />
+        {/* <CheckWrapper>
           <Checker
             checked={works.isOSS}
             onChange={(checked) => updateWorks('isOSS', checked)}
@@ -86,7 +132,7 @@ const BasicInfoPart = ({ works }) => {
           >
             已开源
           </Checker>
-        </CheckWrapper>
+        </CheckWrapper> */}
       </Section>
 
       <Footer>
@@ -100,4 +146,4 @@ const BasicInfoPart = ({ works }) => {
   )
 }
 
-export default React.memo(BasicInfoPart)
+export default memo(BasicInfoPart)

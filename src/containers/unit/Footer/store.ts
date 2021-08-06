@@ -7,7 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TAccount, TArticle, TCommunity } from '@/spec'
 import { METRIC } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 // import { VIEW, TFooterView } from './constants'
 
@@ -32,7 +32,7 @@ const FooterStore = T.model('FooterStore', {
 
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
 
     // get type(): TFooterView {

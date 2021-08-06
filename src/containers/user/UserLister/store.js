@@ -7,7 +7,7 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
 
 import { TYPE } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { PagedUsers, emptyPagiData } from '@/model'
 
 const UserLister = T.model('UserLister', {
@@ -44,10 +44,10 @@ const UserLister = T.model('UserLister', {
       return self.root.accountInfo
     },
     get pagedUsersData() {
-      return stripMobx(self.pagedUsers)
+      return toJS(self.pagedUsers)
     },
     get curCommunity() {
-      return stripMobx(self.root.viewing.community)
+      return toJS(self.root.viewing.community)
     },
   }))
   .actions((self) => ({

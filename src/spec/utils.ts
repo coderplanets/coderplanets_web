@@ -5,7 +5,7 @@ export type Nullable<T> = T | null
 export type TID = string
 
 export type TTestable = {
-  testid: string
+  testid?: string
 }
 
 export type TActive = {

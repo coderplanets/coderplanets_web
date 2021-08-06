@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const Message = T.model('Message', {
   message: T.string,
@@ -43,13 +43,13 @@ const ErrorBox = T.model('ErrorBox', {
       return getParent(self)
     },
     get changesetErrorData() {
-      return stripMobx(self.changesetError)
+      return toJS(self.changesetError)
     },
     get customErrorData() {
-      return stripMobx(self.customError)
+      return toJS(self.customError)
     },
     get parseErrorData() {
-      return stripMobx(self.parseError)
+      return toJS(self.parseError)
     },
   }))
   .actions((self) => ({

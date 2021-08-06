@@ -9,7 +9,7 @@ import { contains } from 'ramda'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
-import { C11N, METRIC } from '@/constant'
+import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import Navigator from '@/components/Navigator'
@@ -17,10 +17,9 @@ import Navigator from '@/components/Navigator'
 import type { TProps } from '../index'
 import {
   Wrapper,
-  ClassicInnerWrapper,
-  HolyGrailInnerWrapper,
+  InnerWrapper,
   RouterWrapper,
-} from '../styles/desktop_view/community_view'
+} from '../styles/desktop_view/works_view'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
@@ -41,12 +40,7 @@ const hasNoBorder = (metric: TMetric): boolean =>
     METRIC.HELP_CENTER,
   ])
 
-const CommunityHeader: FC<TProps> = ({ metric, c11n, community }) => {
-  const InnerWrapper =
-    c11n.bannerLayout === C11N.CLASSIC
-      ? ClassicInnerWrapper
-      : HolyGrailInnerWrapper
-
+const WorksHeader: FC<TProps> = ({ metric, c11n, community }) => {
   return (
     <Wrapper
       id="whereCallShowDoraemon"
@@ -67,4 +61,4 @@ const CommunityHeader: FC<TProps> = ({ metric, c11n, community }) => {
   )
 }
 
-export default CommunityHeader
+export default WorksHeader

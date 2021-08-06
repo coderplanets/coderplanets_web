@@ -13,7 +13,7 @@ import type {
   TAccount,
   TThread,
 } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const CommunityDigest = T.model('CommunityDigest', {
   loading: T.optional(T.boolean, false),
@@ -32,7 +32,7 @@ const CommunityDigest = T.model('CommunityDigest', {
     },
     get viewing(): TViewing {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing)
+      return toJS(root.viewing)
     },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
@@ -45,7 +45,7 @@ const CommunityDigest = T.model('CommunityDigest', {
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
   }))
   .actions((self) => ({

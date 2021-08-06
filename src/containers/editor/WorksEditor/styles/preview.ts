@@ -5,9 +5,10 @@ import css from '@/utils/css'
 
 import { CONTENT_WIDTH, CONTENT_NARROW_WIDTH } from './metric'
 
+type TWrapper = TTestable & { narrow?: boolean }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable & { narrow: boolean }>`
+}))<TWrapper>`
   ${css.flexColumn('justify-center')};
   width: ${({ narrow }) =>
     narrow ? `${CONTENT_NARROW_WIDTH}px` : `${CONTENT_WIDTH}px`};

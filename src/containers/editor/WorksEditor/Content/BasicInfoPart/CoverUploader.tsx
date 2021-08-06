@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
@@ -11,7 +11,7 @@ import {
   Desc,
 } from '../../styles/content/basic_info_part/cover_uploader'
 
-const CoverUploader = () => {
+const CoverUploader: FC = () => {
   return (
     <Wrapper>
       <IntroImgHolder>
@@ -25,4 +25,4 @@ const CoverUploader = () => {
   )
 }
 
-export default React.memo(CoverUploader)
+export default memo(CoverUploader)

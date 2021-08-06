@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TAccount, TC11N, TCommunity } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const Platform = T.model('Platform', {
   isChrome: T.optional(T.boolean, true),
@@ -35,7 +35,7 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get sidebarPin(): boolean {
       const root = getParent(self) as TRootStore

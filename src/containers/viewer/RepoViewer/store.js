@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const RepoViewer = T.model('RepoViewer', {
   loading: T.optional(T.boolean, false),
@@ -22,7 +22,7 @@ const RepoViewer = T.model('RepoViewer', {
       return self.root.viewingData
     },
     get curCommunity() {
-      return stripMobx(self.root.viewing.community)
+      return toJS(self.root.viewing.community)
     },
   }))
   .actions((self) => ({

@@ -5,7 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const DocUploader = T.model('DocUploader', {})
   .views((self) => ({
@@ -13,7 +13,7 @@ const DocUploader = T.model('DocUploader', {})
       return getParent(self)
     },
     get curCommunity() {
-      return stripMobx(self.root.viewing.community)
+      return toJS(self.root.viewing.community)
     },
     get curThread() {
       return self.root.viewing.activeThread

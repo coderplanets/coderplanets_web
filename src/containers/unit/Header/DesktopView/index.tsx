@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
 
 import type { TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+// import { METRIC } from '@/constant'
 
-import CommunityView from './CommunityVIew'
+import CommunityView from './CommunityView'
 // import ArticleView from './ArticleView'
 // import ArticleEditorView from './ArticleEditorView'
 

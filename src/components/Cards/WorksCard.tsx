@@ -10,11 +10,14 @@ import { ICON, ICON_CMD } from '@/config'
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
+import type { TWorks } from '@/spec'
+
 import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
 import DotDivider from '@/components/DotDivider'
 import IconText from '@/components/IconText'
 import ImgFallback from '@/components/ImgFallback'
+import Upvote from '@/components/Upvote'
 
 import {
   Wrapper,
@@ -23,6 +26,8 @@ import {
   IntroWrapper,
   Header,
   Title,
+  Name,
+  OSSSign,
   FooterWrapper,
   BuildWithWrapper,
   TechIcon,
@@ -35,43 +40,22 @@ const log = buildLog('c:WorksCard:index')
 
 type TProps = {
   testid?: string
-  withBg?: boolean
-  mode?: 'default' | 'preview'
-  item: {
-    cover: string
-    title: string
-    desc: string
-    tag: {
-      title: string
-    }
-    platform: {
-      title: string
-    }
-    techStack: {
-      icon: string
-      raw: string
-    }[]
-    insertedAt: string
-    upvote: number
-    commentsCount: number
-    isOSS: boolean
-    ossAddr?: boolean
-  }
+  preview?: boolean
+  item: TWorks
 }
 
 const WorksCard: FC<TProps> = ({
   testid = 'works-card',
   item,
-  withBg = false,
-  mode = 'default',
+  preview = false,
   // item,
 }) => {
-  const descLimit = mode === 'default' ? 30 : 20
+  const descLimit = preview ? 20 : 30
 
-  const { title, desc, upvote, commentsCount } = item
+  const { title, desc, upvoteCount, commentsCount } = item
 
   return (
-    <Wrapper testid={testid} withBg={withBg}>
+    <Wrapper testid={testid} preview={preview}>
       {item.cover ? (
         <IntroImg src={item.cover} fallback={<ImgFallback type="work" />} />
       ) : (
@@ -81,15 +65,28 @@ const WorksCard: FC<TProps> = ({
       <IntroWrapper>
         <Header>
           <div>
-            <Title>{title}</Title>
+            <Title>
+              <Name>{title || '--'}</Name>
+
+              {item.isOSS && (
+                <OSSSign>
+                  <DotDivider space={8} />
+                  <a href={item.ossAddr} target="_blank" rel="noreferrer">
+                    <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
+                  </a>
+                </OSSSign>
+              )}
+            </Title>
             <DigestSentence top={5} bottom={15} onPreview={() => log}>
               {cutRest(desc, descLimit)}
             </DigestSentence>
           </div>
 
-          <IconText iconSrc={`${ICON}/article/heart-solid.svg`} size="large">
-            {upvote}
-          </IconText>
+          <Upvote
+            type="works-card"
+            count={preview ? 66 : upvoteCount}
+            viewerHasUpvoted={preview}
+          />
         </Header>
         <FooterWrapper>
           {item.tag && (
@@ -113,9 +110,9 @@ const WorksCard: FC<TProps> = ({
             </Fragment>
           )}
 
-          {mode === 'preview' && <span>&nbsp;</span>}
+          {preview && <span>&nbsp;</span>}
 
-          {mode === 'default' && (
+          {!preview && (
             <Fragment>
               <Divider />
               <IconText
@@ -128,10 +125,10 @@ const WorksCard: FC<TProps> = ({
             </Fragment>
           )}
           <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
-            {commentsCount}
+            {preview ? 99 : commentsCount}
           </IconText>
           <SpaceGrow />
-          {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />}
+          {/* {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />} */}
         </FooterWrapper>
       </IntroWrapper>
     </Wrapper>

@@ -17,7 +17,7 @@ export const Label = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 16px;
   margin-bottom: 15px;
-  margin-left: 5px;
+  margin-left: 10px;
 `
 export const Input = styled(BaseInput)`
   text-align: center;
@@ -25,4 +25,10 @@ export const Input = styled(BaseInput)`
   height: 45px;
   width: auto;
   font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+`
+export const NextButtonWrapper = styled.div`
+  margin-left: -30px;
+  margin-top: 14px;
 `

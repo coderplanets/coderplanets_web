@@ -5,7 +5,7 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { TCommunity, TTheme, TRootStore } from '@/spec'
 
 const Geo = T.model('Thread', {
@@ -28,10 +28,10 @@ const UsersThread = T.model('UsersThread', {
     },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get geoInfosData() {
-      return stripMobx(self.geoInfos)
+      return toJS(self.geoInfos)
     },
   }))
   .actions((self) => ({

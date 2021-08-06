@@ -6,7 +6,7 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '@/config'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { emptyPagiData } from '@/model'
 
 const Bill = T.model('Bill', {
@@ -36,7 +36,7 @@ const UserBilling = T.model('UserBilling', {
       return getParent(self)
     },
     get pagedBillRecordsData() {
-      return stripMobx(self.pagedBillRecords)
+      return toJS(self.pagedBillRecords)
     },
     get accountInfo() {
       return self.root.accountInfo

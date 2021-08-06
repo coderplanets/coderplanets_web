@@ -7,7 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
 import type { TRootStore, TCommunity, TRoute } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const CommunityJoinBadge = T.model('CommunityJoinBadge', {
   subscribeLoading: T.optional(T.boolean, false),
@@ -24,7 +24,7 @@ const CommunityJoinBadge = T.model('CommunityJoinBadge', {
     },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
   }))
   .actions((self) => ({

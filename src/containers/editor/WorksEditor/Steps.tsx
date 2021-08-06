@@ -1,7 +1,8 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
+import type { TStep } from './spec'
 import { STEP } from './constant'
 
 import {
@@ -16,35 +17,44 @@ import {
 
 import { gotoStep } from './logic'
 
-const Steps = ({ step }) => {
+type TProps = {
+  step: TStep
+}
+
+const Steps: FC<TProps> = ({ step }) => {
   if (step === STEP.ZERO) return <Wrapper />
 
   return (
     <Wrapper>
       <FirstStep>
         <Dot active={step === STEP.ZERO} onClick={() => gotoStep(STEP.ZERO)} />
-        <Hint active={step === STEP.ZERO}>作品名称</Hint>
+        <Hint active={step === STEP.ZERO} onClick={() => gotoStep(STEP.ZERO)}>
+          作品名称
+        </Hint>
       </FirstStep>
-      <Step left="25%">
+      <Step>
         <Dot active={step === STEP.ONE} onClick={() => gotoStep(STEP.ONE)} />
-        <Hint active={step === STEP.ONE}>基本信息</Hint>
+        <Hint active={step === STEP.ONE} onClick={() => gotoStep(STEP.ONE)}>
+          基本信息
+        </Hint>
       </Step>
-      <Step left="50%">
+      <Step>
         <Dot active={step === STEP.TWO} onClick={() => gotoStep(STEP.TWO)} />
-        <Hint active={step === STEP.TWO}>技术栈（可选）</Hint>
+        <Hint active={step === STEP.TWO} onClick={() => gotoStep(STEP.TWO)}>
+          技术栈（可选）
+        </Hint>
       </Step>
-      <Step left="75%">
+      <Step>
         <Dot
           active={step === STEP.THREE}
           onClick={() => gotoStep(STEP.THREE)}
         />
-        <Hint active={step === STEP.THREE}>正文介绍</Hint>
+        <Hint active={step === STEP.THREE} onClick={() => gotoStep(STEP.THREE)}>
+          正文介绍
+        </Hint>
       </Step>
-      <Step left="99%">
-        <PublishIcon
-          active={step === STEP.FOUR}
-          src={`${ICON}/edit/publish-rocket.svg`}
-        />
+      <Step>
+        <PublishIcon src={`${ICON}/edit/publish-rocket.svg`} />
         <Hint active={step === STEP.FOUR}>起飞</Hint>
       </Step>
       <Bar />
@@ -52,4 +62,4 @@ const Steps = ({ step }) => {
   )
 }
 
-export default React.memo(Steps)
+export default memo(Steps)

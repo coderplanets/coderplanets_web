@@ -8,7 +8,7 @@ import { values, merge } from 'ramda'
 
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
 import { THREAD } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { User, Community, Post, Blog, Job, Repo } from '@/model'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO]
@@ -50,22 +50,22 @@ const ViewingStore = T.model('ViewingStore', {
       const curThread = self.viewingThread || self.activeThread
       switch (curThread) {
         case THREAD.JOB:
-          return stripMobx(self.job)
+          return toJS(self.job)
         case THREAD.BLOG:
-          return stripMobx(self.blog)
+          return toJS(self.blog)
         case THREAD.REPO:
-          return stripMobx(self.repo)
+          return toJS(self.repo)
         case THREAD.POST:
-          return stripMobx(self.post)
+          return toJS(self.post)
         default:
-          return stripMobx(self.post)
+          return toJS(self.post)
       }
     },
 
     get viewingArticle(): TArticle {
       const curThread = self.viewingThread || self.activeThread
       if (!curThread) return {}
-      return stripMobx(self[curThread])
+      return toJS(self[curThread])
     },
   }))
   .actions((self) => ({

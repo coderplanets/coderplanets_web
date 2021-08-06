@@ -17,7 +17,7 @@ import { pluggedIn } from '@/utils/mobx'
 // import MarkDownStyle from './MarkDownStyle'
 import ThirdPartyOverWrite from './ThirdPartyOverWrite'
 import GlobalStyle from './GlobalStyle'
-import { NextNprogress, RichEditorStyle, CodeSyxHighlight } from './dynamic'
+import { NextNprogress, CodeSyxHighlight } from './dynamic'
 
 type TProps = {
   children: ReactNode
@@ -46,7 +46,6 @@ const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
       <div>{children}</div>
       <CodeSyxHighlight />
       <ThirdPartyOverWrite />
-      <RichEditorStyle />
       <GlobalStyle />
     </ThemeProvider>
   )

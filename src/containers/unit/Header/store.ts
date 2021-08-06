@@ -8,7 +8,7 @@ import { merge, contains, values } from 'ramda'
 
 import type { TRootStore, TCommunity, TAccount, TC11N } from '@/spec'
 import { METRIC } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const HeaderStore = T.model('HeaderStore', {
   metric: T.optional(T.enumeration(values(METRIC)), METRIC.COMMUNITY),
@@ -20,7 +20,7 @@ const HeaderStore = T.model('HeaderStore', {
     },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get c11n(): TC11N {
       const root = getParent(self) as TRootStore

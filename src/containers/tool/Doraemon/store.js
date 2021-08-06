@@ -20,7 +20,7 @@ import {
 } from 'ramda'
 
 import { THREAD } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import {
   focusDoraemonBar,
   hideDoraemonBarRecover,
@@ -147,7 +147,7 @@ const DoraemonStore = T.model('DoraemonStore', {
       if (self.activeSuggestionIndex === -1) {
         return undefined
       }
-      return stripMobx(self.suggestions[self.activeSuggestionIndex])
+      return toJS(self.suggestions[self.activeSuggestionIndex])
     },
   }))
   .actions((self) => ({

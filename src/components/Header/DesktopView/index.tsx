@@ -3,8 +3,9 @@ import { FC, memo } from 'react'
 import { METRIC } from '@/constant'
 
 import type { TProps } from '../index'
-import CommunityView from './CommunityVIew'
+import CommunityView from './CommunityView'
 import ArticleView from './ArticleView'
+import WorksView from './WorksView'
 // import ArticleEditorView from './ArticleEditorView'
 
 const DesktopView: FC<TProps> = (props) => {
@@ -15,6 +16,9 @@ const DesktopView: FC<TProps> = (props) => {
     }
     case METRIC.WORKS_ARTICLE: {
       return <ArticleView {...props} />
+    }
+    case METRIC.WORKS: {
+      return <WorksView {...props} />
     }
     // case METRIC.ARTICLE_EDITOR: {
     //   return <ArticleEditorView metric={metric} />

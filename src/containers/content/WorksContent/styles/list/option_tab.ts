@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 
   margin-top: 6px;
   margin-bottom: 12px;
-  margin-left: 20px;
 `
 export const ItemWrapper = styled.div<TActive>`
   ${css.flex('align-both')};

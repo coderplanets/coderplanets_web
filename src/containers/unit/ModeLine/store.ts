@@ -8,7 +8,7 @@ import { values } from 'ramda'
 
 import type { TRootStore, TViewing, TArticle } from '@/spec'
 import { TYPE, METRIC } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const ModeLine = T.model('ModeLine', {
   topBarVisiable: T.optional(T.boolean, false),
@@ -22,7 +22,7 @@ const ModeLine = T.model('ModeLine', {
     },
     get viewing(): TViewing {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewing)
+      return toJS(root.viewing)
     },
     get isTopBarVisiable(): boolean {
       const {
@@ -50,7 +50,7 @@ const ModeLine = T.model('ModeLine', {
     },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return stripMobx(root.viewingArticle)
+      return toJS(root.viewingArticle)
     },
     get leftOffset(): number | string {
       const root = getParent(self) as TRootStore

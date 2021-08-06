@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { Wrapper, Title, Icon } from '../styles/content/common_questions'
 
-const CommonQuestions = () => {
+const CommonQuestions: FC = () => {
   return (
     <Wrapper>
       <Title>常见问题</Title>
@@ -12,4 +12,4 @@ const CommonQuestions = () => {
   )
 }
 
-export default React.memo(CommonQuestions)
+export default memo(CommonQuestions)

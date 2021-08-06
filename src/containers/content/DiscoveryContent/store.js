@@ -7,7 +7,7 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { propEq, findIndex } from 'ramda'
 
 import { ICON_CMD } from '@/config'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { Trans } from '@/utils/i18n'
 import { PagedCommunities, PagedCategories, emptyPagiData } from '@/model'
 
@@ -67,7 +67,7 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
       }
     },
     get pagedCommunitiesData() {
-      return stripMobx(self.pagedCommunities)
+      return toJS(self.pagedCommunities)
     },
     get showFilterSidebar() {
       // if (self.pagedCommunitiesData.entries.length === 0) return false
@@ -84,11 +84,11 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
       }
     },
     get activeMenuId() {
-      const { entries } = stripMobx(self.pagedCategories)
+      const { entries } = toJS(self.pagedCategories)
       return self.activeCatalogId || entries[0].id
     },
     get pagedCategoriesData() {
-      const { entries } = stripMobx(self.pagedCategories)
+      const { entries } = toJS(self.pagedCategories)
       return entries.map((item) => ({
         id: item.id,
         raw: item.raw,

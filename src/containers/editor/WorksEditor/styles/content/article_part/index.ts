@@ -8,7 +8,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn('align-start', 'justify-start')};
-  width: 100%;
+  /* width: 100%; */
+  width: 652px;
   min-height: 300px;
   color: ${theme('thread.articleDigest')};
   padding: 20px 0;

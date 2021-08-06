@@ -68,7 +68,7 @@ export const Rlog = (arg = 'Rlog: ') => tap(log(arg))
  * @param {*number} len 需要显示多少个汉字，两个英文字母相当于一个汉字
  */
 export const cutRest = (str: string, len = 20): string => {
-  if (!str || !isString(str)) return '??...'
+  if (!str || !isString(str)) return '...'
   return len >= length(str) ? str : `${limit(str, len, '')}...`
 }
 

@@ -14,6 +14,7 @@ import DefaultLayout from './DefaultLayout'
 import CommentLayout from './CommentLayout'
 import ArticleLayout from './ArticleLayout'
 import WorksArticleLayout from './WorksArticleLayout'
+import WorksCardLayout from './WorksCardLayout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
@@ -35,6 +36,9 @@ const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
     }
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return <WorksArticleLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.WORKS_CARD: {
+      return <WorksCardLayout {...restProps} />
     }
     case UPVOTE_LAYOUT.ARTICLE: {
       return <ArticleLayout {...restProps} />

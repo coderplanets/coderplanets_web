@@ -6,7 +6,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
 import type { TAccount, TC11N, TCommunity, TThread, TRootStore } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
@@ -31,7 +31,7 @@ const ThreadSidebar = T.model('ThreadSidebar', {
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
 
     get curThread(): TThread {

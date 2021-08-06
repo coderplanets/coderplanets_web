@@ -18,6 +18,12 @@ export const changeView = (activeView: string): void => {
   store.mark({ activeView })
 }
 
+export const toggleSidebar = (): void => {
+  const { showSidebar } = store
+
+  store.mark({ showSidebar: !showSidebar })
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################

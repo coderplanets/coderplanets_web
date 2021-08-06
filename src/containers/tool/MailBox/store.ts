@@ -7,7 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore } from '@/spec'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { MailStatus, PagedMentionMessages, emptyPagiData } from '@/model'
 
 const MailBox = T.model('MailBox', {
@@ -30,10 +30,10 @@ const MailBox = T.model('MailBox', {
       return root.account.isLogin
     },
     get mailStatusData() {
-      return stripMobx(self.mailStatus)
+      return toJS(self.mailStatus)
     },
     get pagedMentionsData() {
-      return stripMobx(self.pagedMentions)
+      return toJS(self.pagedMentions)
     },
   }))
   .actions((self) => ({

@@ -5,7 +5,7 @@
 
 import { types as T, getParent } from 'mobx-state-tree'
 
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { PagedMentionMessages, emptyPagiData } from '@/model'
 
 const MailsViewer = T.model('MailsViewer', {
@@ -26,7 +26,7 @@ const MailsViewer = T.model('MailsViewer', {
       return getParent(self)
     },
     get pagedMentionsData() {
-      return stripMobx(self.pagedMentions)
+      return toJS(self.pagedMentions)
     },
   }))
   .actions((self) => ({

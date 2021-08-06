@@ -8,7 +8,7 @@ import { find, propEq } from 'ramda'
 import { REPORT_TYPE } from '@/constant'
 
 import type { TCommunity, TRootStore } from '@/spec'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
 
 import type { TREPORT_ITEM } from './spec'
@@ -42,10 +42,10 @@ const AbuseReport = T.model('AbuseReport', {
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
 
-      return stripMobx(root.viewing.community)
+      return toJS(root.viewing.community)
     },
     get itemsData(): TREPORT_ITEM[] {
-      return stripMobx(self.items || [])
+      return toJS(self.items || [])
     },
 
     get activeItem(): TREPORT_ITEM {

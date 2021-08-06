@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import FormItem from '@/components/FormItem'
+import FormInput from '@/components/Input'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -23,7 +23,7 @@ export const Section = styled.section`
 export const Label = styled.div`
   ${css.flex('justify-between', 'align-end')};
   color: ${theme('thread.articleDigest')};
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 6px;
   margin-left: 12px;
   margin-right: 10px;
@@ -33,17 +33,19 @@ export const Hint = styled.div`
   font-size: 12px;
   opacity: 0.8;
 `
-export const Input = styled(FormItem)`
+export const Input = styled(FormInput)`
   text-align: left;
   padding: 5px 5px;
+  padding-left: 12px;
   height: 36px;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
 `
 export const SelectWrapper = styled.div`
   padding: 5px 5px;
 `
 export const CheckWrapper = styled.div`
+  ${css.flex('align-center')};
   margin-left: 12px;
   margin-top: 12px;
 `
@@ -54,4 +56,6 @@ export const Footer = styled.div`
   border-top-color: #03343f;
   margin-top: 35px;
   padding-top: 20px;
+  margin-bottom: 60px;
+  margin-left: -20px;
 `

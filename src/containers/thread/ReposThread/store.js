@@ -7,7 +7,7 @@ import { types as T, getParent } from 'mobx-state-tree'
 import { findIndex, merge, propEq, isEmpty, pickBy } from 'ramda'
 
 import { TYPE } from '@/constant'
-import { markStates, stripMobx } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
 import { PagedRepos, Tag, ArticlesFilter, emptyPagiData } from '@/model'
 
@@ -33,10 +33,10 @@ const ReposThread = T.model('ReposThread', {
       return self.root.curRoute
     },
     get curCommunity() {
-      return stripMobx(self.root.viewing.community)
+      return toJS(self.root.viewing.community)
     },
     get pagedReposData() {
-      return stripMobx(self.pagedRepos)
+      return toJS(self.pagedRepos)
     },
     get accountInfo() {
       return self.root.account.accountInfo
@@ -45,25 +45,25 @@ const ReposThread = T.model('ReposThread', {
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(pickBy((v) => !isEmpty(v), self.filters))
+      return toJS(pickBy((v) => !isEmpty(v), self.filters))
     },
     get activeTagData() {
-      return stripMobx(self.activeTag) || {}
+      return toJS(self.activeTag) || {}
     },
     get tagQuery() {
-      const curTag = stripMobx(self.activeTag)
+      const curTag = toJS(self.activeTag)
       if (nilOrEmpty(curTag)) return {}
       return { tag: curTag.title }
     },
     get activeRepo() {
-      return stripMobx(self.root.viewing.repo)
+      return toJS(self.root.viewing.repo)
     },
     get pageDensity() {
       return self.root.account.pageDensity
     },
     get showFilterBar() {
-      const curFilter = stripMobx(pickBy((v) => !isEmpty(v), self.filters))
-      const pagedRepos = stripMobx(self.pagedRepos)
+      const curFilter = toJS(pickBy((v) => !isEmpty(v), self.filters))
+      const pagedRepos = toJS(self.pagedRepos)
 
       return !isEmpty(curFilter) || !isEmpty(pagedRepos.entries)
     },
@@ -99,7 +99,7 @@ const ReposThread = T.model('ReposThread', {
       const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
         self.pagedRepos.entries[index] = merge(
-          stripMobx(self.pagedRepos.entries[index]),
+          toJS(self.pagedRepos.entries[index]),
           item,
         )
       }
