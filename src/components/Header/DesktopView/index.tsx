@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { METRIC } from '@/constant'
 
 import type { TProps } from '../index'
-import CommunityView from './CommunityHeader'
+import CommunityView from './CommunityView'
 import ArticleView from './ArticleView'
 import WorksView from './WorksView'
 // import ArticleEditorView from './ArticleEditorView'
