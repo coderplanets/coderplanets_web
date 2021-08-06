@@ -13,8 +13,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const LeftSidebarWrapper = styled.div`
-  width: 170px;
+  width: 160px;
   margin-top: 20px;
+  margin-right: 10px;
 `
 export const ContentWrapper = styled.div<{ showSidebar: boolean }>`
   ${css.flex()};

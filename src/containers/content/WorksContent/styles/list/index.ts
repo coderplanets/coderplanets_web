@@ -17,11 +17,9 @@ export const TabWrapper = styled.div`
 export const FilterWrapper = styled.div`
   ${css.flex('justify-end')};
   width: 100px;
-  opacity: 0.8;
   margin-top: -4px;
 
   &:hover {
-    opacity: 1;
     cursor: pointer;
   }
 `

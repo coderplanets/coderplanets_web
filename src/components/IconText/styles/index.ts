@@ -14,10 +14,16 @@ type TIcon = {
   highlight: boolean
 }
 
+type TWrapper = { dimWhenIdle: boolean } & TTestable
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
+}))<TWrapper>`
   ${css.flex('align-center')};
+  opacity: ${({ dimWhenIdle }) => (dimWhenIdle ? 0.7 : 1)};
+
+  &:hover {
+    opacity: 1;
+  }
 `
 export const Icon = styled(Img)<TIcon>`
   fill: ${({ highlight }) =>

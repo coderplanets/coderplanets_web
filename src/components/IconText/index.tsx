@@ -26,6 +26,7 @@ type TProps = {
   margin?: string
   highlight?: boolean
   className?: string
+  dimWhenIdle?: boolean
 }
 
 const IconText: FC<TProps> = ({
@@ -35,13 +36,14 @@ const IconText: FC<TProps> = ({
   round = false,
   children,
   size = SIZE.SMALL,
+  dimWhenIdle = false,
   margin,
   highlight = false,
 }) => {
   const src = iconSrc || `${ICON}/${path}`
 
   return (
-    <Wrapper testid="iconText" className={className}>
+    <Wrapper testid="iconText" className={className} dimWhenIdle={dimWhenIdle}>
       {!nilOrEmpty(src) && (
         <Icon
           src={src}

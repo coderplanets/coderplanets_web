@@ -9,7 +9,7 @@ import EmailSubscriber from '@/components/EmailSubscriber'
 
 import InterviewsList from './InterviewsList'
 import Brand from '../Brand'
-import Linkers from './Linkers'
+// import Linkers from './Linkers'
 
 import {
   Wrapper,
