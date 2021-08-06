@@ -38,9 +38,7 @@ export const FirstStep = styled(Step)`
 export const Dot = styled.div<TActive>`
   background-color: ${({ active }) =>
     active ? theme('thread.articleDigest') : '#1c4048'};
-  width: ${({ active }) => (active ? '11px' : '10px')};
-  height: ${({ active }) => (active ? '11px' : '10px')};
-  border-radius: 100%;
+  ${css.circle(10)};
   z-index: 1;
 
   &:hover {

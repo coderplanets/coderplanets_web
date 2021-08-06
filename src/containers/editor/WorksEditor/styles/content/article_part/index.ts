@@ -35,5 +35,6 @@ export const Footer = styled.div`
   border-top: 2px solid;
   border-top-color: #03343f;
   margin-top: 35px;
-  padding-top: 20px;
+  padding-top: 28px;
+  margin-bottom: 50px;
 `

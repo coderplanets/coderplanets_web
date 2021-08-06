@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const EditorWrapper = styled.div`
   border: 1px solid #003442;
   padding: 32px;
-  padding-left: 50px;
+  padding-left: 54px;
   padding-right: 44px;
   background: #052630;
   border-radius: 18px;
