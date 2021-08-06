@@ -45,6 +45,7 @@ export const SelectWrapper = styled.div`
   padding: 5px 5px;
 `
 export const CheckWrapper = styled.div`
+  ${css.flex('align-center')};
   margin-left: 12px;
   margin-top: 12px;
 `

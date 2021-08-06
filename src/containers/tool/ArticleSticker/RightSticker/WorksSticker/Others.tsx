@@ -10,7 +10,6 @@ import { Wrapper } from '../../styles/right_sticker/works_sticker/others'
 const Others: FC = () => {
   return (
     <Wrapper>
-      <div>是否盈利: </div>
       <div>盈利模式: </div>
     </Wrapper>
   )

@@ -4,6 +4,7 @@ import type { TWorks } from '@/spec'
 
 import Checker from '@/components/Checker'
 import Select from '@/components/Select'
+import { Space } from '@/components/Common'
 import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import CoverUploader from './CoverUploader'
@@ -73,18 +74,48 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
         <Input value="https://" />
       </Section>
       <Section>
-        <Label>团队成员</Label>
+        <Label>盈利模式</Label>
         <CheckWrapper>
           <Checker
             checked
             onChange={(checked) => {
               console.log('others: ', checked)
             }}
-            size="small"
           >
-            Adder TODO:
+            广告
           </Checker>
+          <Space right={20} />
+          <Checker
+            checked
+            onChange={(checked) => {
+              console.log('others: ', checked)
+            }}
+          >
+            会员增值
+          </Checker>
+          <Space right={20} />
+          <Checker
+            onChange={(checked) => {
+              console.log('others: ', checked)
+            }}
+          >
+            SaaS
+          </Checker>
+          <Space right={20} />
+          <Checker
+            onChange={(checked) => {
+              // 选择后其他都灭灯
+              console.log('others: ', checked)
+            }}
+          >
+            用爱发电
+          </Checker>
+          <Space right={20} />
+          <Checker>其他</Checker>
         </CheckWrapper>
+      </Section>
+      <Section>
+        <Label>团队成员</Label>
       </Section>
       <Section>
         <Label>Github</Label>
