@@ -67,7 +67,7 @@ export const Hint = styled.div<TActive>`
   transition: opacity 0.2s;
 `
 export const PublishIcon = styled(Img)`
-  ${css.size(18)};
+  ${css.size(16)};
   fill: ${theme('thread.articleDigest')};
   margin-left: 3px;
   opacity: 0.6;
