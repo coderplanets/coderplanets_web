@@ -15,13 +15,14 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const Title = styled.div`
   ${css.flex('align-center')};
   width: 100%;
+  padding-left: 5px;
 `
 export const BrandText = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   font-weight: bold;
   padding: 0 4px;
-  border-radius: 5px;
+  border-radius: 3px;
 
   background: linear-gradient(
     to top,
@@ -30,11 +31,11 @@ export const BrandText = styled.div`
     transparent 80%
   );
 `
-
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   margin-top: 10px;
+  padding-left: 7px;
 `
 export const Divider = styled.div<TSpace>`
   height: 1px;
