@@ -43,7 +43,7 @@ const Content: FC<TProps> = ({ step, works, useTemplate }) => {
     }
 
     case STEP.FOUR: {
-      StepComp = <LaunchPart />
+      StepComp = <LaunchPart works={works} />
       break
     }
 

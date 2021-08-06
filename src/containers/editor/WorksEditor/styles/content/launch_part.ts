@@ -49,11 +49,11 @@ export const Li = styled.li`
   margin-bottom: 5px;
 `
 export const Footer = styled.div`
-  ${css.flex('align-both')};
+  ${css.flex('align-center', 'justify-between')};
   width: 100%;
   border-top: 2px solid;
   border-top-color: #03343f;
   margin-top: 35px;
   padding-top: 20px;
-  margin-left: -35px;
+  padding-right: 20px;
 `
