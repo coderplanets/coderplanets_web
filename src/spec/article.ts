@@ -35,7 +35,7 @@ export type TWorks = TBaseArticle & {
   platform: { title: string }
   techStack: { icon: string; raw: string }[]
   isOSS: boolean
-  ossAddr?: boolean
+  ossAddr?: string
   digest?: string
 }
 

@@ -34,18 +34,24 @@ const Steps: FC<TProps> = ({ step }) => {
       </FirstStep>
       <Step>
         <Dot active={step === STEP.ONE} onClick={() => gotoStep(STEP.ONE)} />
-        <Hint active={step === STEP.ONE}>基本信息</Hint>
+        <Hint active={step === STEP.ONE} onClick={() => gotoStep(STEP.ONE)}>
+          基本信息
+        </Hint>
       </Step>
       <Step>
         <Dot active={step === STEP.TWO} onClick={() => gotoStep(STEP.TWO)} />
-        <Hint active={step === STEP.TWO}>技术栈（可选）</Hint>
+        <Hint active={step === STEP.TWO} onClick={() => gotoStep(STEP.TWO)}>
+          技术栈（可选）
+        </Hint>
       </Step>
       <Step>
         <Dot
           active={step === STEP.THREE}
           onClick={() => gotoStep(STEP.THREE)}
         />
-        <Hint active={step === STEP.THREE}>正文介绍</Hint>
+        <Hint active={step === STEP.THREE} onClick={() => gotoStep(STEP.THREE)}>
+          正文介绍
+        </Hint>
       </Step>
       <Step>
         <PublishIcon src={`${ICON}/edit/publish-rocket.svg`} />

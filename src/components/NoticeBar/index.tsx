@@ -5,6 +5,7 @@
  */
 
 import { FC, memo } from 'react'
+import Link from 'next/link'
 import TimeAgo from 'timeago-react'
 
 import { buildLog } from '@/utils/logger'
@@ -19,13 +20,14 @@ const log = buildLog('c:NoticeBar:index')
 
 type TProps = {
   testid?: string
-  type?: 'lock' | 'notice' | 'bot'
+  type?: 'lock' | 'notice' | 'bot' | 'info'
   user?: {
     nickname: string
   } | null
   isArticleAuthor?: boolean
   content: string
   timestamp?: string | null
+  explainLink?: string | null
 }
 
 const NoticeBar: FC<TProps> = ({
@@ -35,6 +37,7 @@ const NoticeBar: FC<TProps> = ({
   isArticleAuthor = false,
   content,
   timestamp = null,
+  explainLink = null,
 }) => {
   return (
     <Wrapper testid={testid}>
@@ -49,7 +52,11 @@ const NoticeBar: FC<TProps> = ({
           <TimeAgo datetime={timestamp} locale="zh_CN" />
         </Timestamp>
       )}
-      <Why src={`${ICON}/shape/question.svg`} />
+      {explainLink && (
+        <Link href={explainLink}>
+          <Why src={`${ICON}/shape/question.svg`} />
+        </Link>
+      )}
     </Wrapper>
   )
 }

@@ -16,7 +16,7 @@ type TProps = {
 const Preview: FC<TProps> = ({ step, works }) => {
   return (
     <Wrapper narrow={step === STEP.ZERO} testid="works-preview">
-      <WorksCard item={works} mode="preview" withBg />
+      <WorksCard item={works} preview />
     </Wrapper>
   )
 }

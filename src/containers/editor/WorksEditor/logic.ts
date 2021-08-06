@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { startsWith } from 'ramda'
 
 import { scrollToTop } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
@@ -17,6 +18,16 @@ export const updateWorks = (part, value): void => {
   store.mark({
     works: { ...worksData, [part]: value },
   })
+}
+
+export const updateOSS = (value: string): void => {
+  updateWorks('ossAddr', value)
+
+  if (startsWith('https://github.com', value)) {
+    updateWorks('isOSS', true)
+  } else {
+    updateWorks('isOSS', false)
+  }
 }
 
 export const toggleTemplate = (useTemplate: boolean): void => {

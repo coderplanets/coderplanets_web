@@ -1,4 +1,4 @@
-import { FC, Fragment, memo } from 'react'
+import { FC, memo } from 'react'
 
 import type { TWorks } from '@/spec'
 import { nilOrEmpty } from '@/utils/validator'
@@ -29,16 +29,10 @@ const NamePart: FC<TProps> = ({ works }) => {
         onChange={(e) => updateWorks('title', e.target.value)}
         autoFocus
       />
-      {!valid && (
-        <Fragment>
-          <br />
-          <CommonQuestions />
-        </Fragment>
-      )}
+      {!valid && <CommonQuestions />}
 
       {valid && (
         <NextButtonWrapper>
-          <br />
           <ArrowButton size="large" onClick={nextStep}>
             下一步
           </ArrowButton>

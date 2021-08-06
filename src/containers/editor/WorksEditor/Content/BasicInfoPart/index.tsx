@@ -19,7 +19,7 @@ import {
   Footer,
 } from '../../styles/content/basic_info_part'
 
-import { updateWorks, nextStep } from '../../logic'
+import { updateWorks, updateOSS, nextStep } from '../../logic'
 
 const platformOptions = [
   { value: 'web', label: 'Web', desc: '网站，浏览器扩展等' },
@@ -46,7 +46,11 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
       </Section>
       <Section>
         <Label>一句话描述</Label>
-        <Input value="可能是最性感的开发者社区" />
+        <Input
+          value={works.desc}
+          placeholder="// 一句话描述"
+          onChange={(e) => updateWorks('desc', e.target.value)}
+        />
       </Section>
       <Section>
         <Label>
@@ -63,13 +67,13 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
       </Section>
       <Section>
         <Label>
-          <div>地址</div>
-          <Hint>访问 / 下载地址</Hint>
+          <div>主页地址</div>
+          <Hint>作品主页</Hint>
         </Label>
         <Input value="https://" />
       </Section>
       <Section>
-        <Label>是否是独立开发 ?</Label>
+        <Label>团队成员</Label>
         <CheckWrapper>
           <Checker
             checked
@@ -78,13 +82,18 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
             }}
             size="small"
           >
-            有其他参与者
+            Adder TODO:
           </Checker>
         </CheckWrapper>
       </Section>
       <Section>
-        <Label>是开源的吗 ?</Label>
-        <CheckWrapper>
+        <Label>Github</Label>
+        <Input
+          value={works.ossAddr}
+          placeholder="// 可选, 格式: https://github.com/your-works"
+          onChange={(e) => updateOSS(e.target.value)}
+        />
+        {/* <CheckWrapper>
           <Checker
             checked={works.isOSS}
             onChange={(checked) => updateWorks('isOSS', checked)}
@@ -92,7 +101,7 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
           >
             已开源
           </Checker>
-        </CheckWrapper>
+        </CheckWrapper> */}
       </Section>
 
       <Footer>

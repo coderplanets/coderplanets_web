@@ -40,24 +40,22 @@ const log = buildLog('c:WorksCard:index')
 
 type TProps = {
   testid?: string
-  withBg?: boolean
-  mode?: 'default' | 'preview'
+  preview?: boolean
   item: TWorks
 }
 
 const WorksCard: FC<TProps> = ({
   testid = 'works-card',
   item,
-  withBg = false,
-  mode = 'default',
+  preview = false,
   // item,
 }) => {
-  const descLimit = mode === 'default' ? 30 : 20
+  const descLimit = preview ? 20 : 30
 
   const { title, desc, upvoteCount, commentsCount } = item
 
   return (
-    <Wrapper testid={testid} withBg={withBg}>
+    <Wrapper testid={testid} preview={preview}>
       {item.cover ? (
         <IntroImg src={item.cover} fallback={<ImgFallback type="work" />} />
       ) : (
@@ -73,7 +71,9 @@ const WorksCard: FC<TProps> = ({
               {item.isOSS && (
                 <OSSSign>
                   <DotDivider space={8} />
-                  <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
+                  <a href={item.ossAddr} target="_blank" rel="noreferrer">
+                    <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
+                  </a>
                 </OSSSign>
               )}
             </Title>
@@ -82,7 +82,11 @@ const WorksCard: FC<TProps> = ({
             </DigestSentence>
           </div>
 
-          <Upvote type="works-card" count={upvoteCount} />
+          <Upvote
+            type="works-card"
+            count={preview ? 66 : upvoteCount}
+            viewerHasUpvoted={preview}
+          />
         </Header>
         <FooterWrapper>
           {item.tag && (
@@ -106,9 +110,9 @@ const WorksCard: FC<TProps> = ({
             </Fragment>
           )}
 
-          {mode === 'preview' && <span>&nbsp;</span>}
+          {preview && <span>&nbsp;</span>}
 
-          {mode === 'default' && (
+          {!preview && (
             <Fragment>
               <Divider />
               <IconText
@@ -121,7 +125,7 @@ const WorksCard: FC<TProps> = ({
             </Fragment>
           )}
           <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
-            {commentsCount}
+            {preview ? 99 : commentsCount}
           </IconText>
           <SpaceGrow />
           {/* {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />} */}

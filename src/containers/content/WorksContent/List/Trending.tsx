@@ -37,7 +37,7 @@ const Trending: FC = () => {
           </ArrowButton>
         </More>
       </Header>
-      <WorksCard item={item} withBg />
+      <WorksCard item={item} preview />
     </Wrapper>
   )
 }

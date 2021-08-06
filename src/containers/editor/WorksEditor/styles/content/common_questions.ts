@@ -10,6 +10,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flex('align-center')};
   width: auto;
+  margin-top: 14px;
+  margin-left: 8px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};

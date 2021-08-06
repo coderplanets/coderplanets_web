@@ -16,3 +16,6 @@ export const LockIcon = styled(Icon)`
 export const NoticeIcon = styled(Icon)`
   fill: #a57a32; // ${theme('thread.articleTitle')};
 `
+export const InfoIcon = styled(Icon)`
+  fill: ${theme('button.primary')};
+`

@@ -7,8 +7,8 @@ import css from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable & { withBg: boolean }>`
-  background: ${({ withBg }) => (withBg ? '#0d3440' : 'transparent')};
+}))<TTestable & { preview: boolean }>`
+  background: ${({ preview }) => (preview ? '#0d3440' : 'transparent')};
 
   position: relative;
   ${css.flex('align-center')};
