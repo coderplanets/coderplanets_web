@@ -9,12 +9,14 @@ import InlineCode from '@editorjs/inline-code'
 
 // import { TYPE, EVENT, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
+import type { TStore } from './store'
 
-let store = null
+let store: TStore | undefined
+
 /* eslint-disable-next-line */
 const log = buildLog('L:RichEditor')
 
-export const someMethod = () => {
+export const someMethod = (): void => {
   /* todo */
 }
 
@@ -34,6 +36,7 @@ export const useInit = (_store, loaded) => {
     log('effect init: ', store)
 
     if (loaded) {
+      // @ts-ignore
       // eslint-disable-next-line
       new EditorJS({
         /**

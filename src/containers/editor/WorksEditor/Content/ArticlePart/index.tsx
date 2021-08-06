@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 
+import RichEditor from '@/containers/editor/RichEditor'
 import ArrowButton from '@/components/Buttons/ArrowButton'
 import Checker from '@/components/Checker'
 
@@ -32,7 +33,9 @@ const ArticlePart: FC<TProps> = ({ useTemplate }) => {
           使用模板
         </Checker>
       </Header>
-      <Section>ArticlePart</Section>
+      <Section>
+        <RichEditor />
+      </Section>
       <Footer>
         {valid && (
           <ArrowButton size="large" disabled={!valid} onClick={nextStep}>
