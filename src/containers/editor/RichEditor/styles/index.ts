@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
-import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -9,16 +8,6 @@ export const Wrapper = styled.div`
   width: 100%;
   min-width: 650px;
   /* padding: 10px 40px; */
-`
-export const MenusWrapper = styled.div`
-  ${css.flex('align-center', 'justify-between')};
-  width: 100%;
-  /* border: 1px solid tomato; */
-  position: absolute;
-  top: 18px;
-  padding-left: 46px;
-  padding-right: 13px;
-  margin-top: 8px;
 `
 export const EditorWrapper = styled.div`
   border: 1px solid #003442;
