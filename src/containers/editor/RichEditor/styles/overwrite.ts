@@ -10,13 +10,14 @@ const RichEditorStyle = createGlobalStyle`
   .codex-editor {
     font-size: 15px;
   }
-  ..ce-block--selected .ce-block__content {
+  .ce-block--selected .ce-block__content {
     background: transparent;
     border-right: 1px solid;
     border-right-color: ${theme('button.primary')};
   }
 
   .ce-toolbar__actions {
+    top: 8px;
     right: -24px;
   }
 

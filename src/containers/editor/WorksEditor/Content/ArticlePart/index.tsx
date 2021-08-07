@@ -2,13 +2,10 @@ import { FC, memo } from 'react'
 
 import RichEditor from '@/containers/editor/RichEditor'
 import Button from '@/components/Buttons/Button'
-import Checker from '@/components/Checker'
 
 import {
   Wrapper,
-  Header,
-  Title,
-  Section,
+  EditorWrapper,
   Footer,
 } from '../../styles/content/article_part'
 
@@ -23,19 +20,9 @@ const ArticlePart: FC<TProps> = ({ useTemplate }) => {
 
   return (
     <Wrapper>
-      <Header>
-        <Title>正文介绍</Title>
-        <Checker
-          checked={useTemplate}
-          size="small"
-          onChange={(checked) => toggleTemplate(checked)}
-        >
-          使用模板
-        </Checker>
-      </Header>
-      <Section>
+      <EditorWrapper>
         <RichEditor />
-      </Section>
+      </EditorWrapper>
       <Footer>
         {valid && (
           <Button size="medium" disabled={!valid} onClick={nextStep}>

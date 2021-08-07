@@ -47,7 +47,7 @@ export const SelectWrapper = styled.div`
 export const CheckWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 12px;
-  margin-top: 12px;
+  margin-top: 15px;
 `
 export const Footer = styled.div`
   ${css.flex('align-both')};

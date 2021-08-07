@@ -21,6 +21,7 @@ type TProps = {
   checked?: boolean
   hiddenMode?: boolean
   size?: TSIZE_SM
+  dimWhenIdle?: boolean
   onChange?: (checked: boolean) => void
 }
 
@@ -30,11 +31,16 @@ const Checker: FC<TProps> = ({
   hiddenMode = false,
   size = SIZE.MEDIUM,
   children = null,
+  dimWhenIdle = false,
 }) => {
   const show = checked || !hiddenMode
 
   return (
-    <Wrapper show={show} onClick={() => show && onChange(!checked)}>
+    <Wrapper
+      show={show}
+      dimWhenIdle={dimWhenIdle}
+      onClick={() => show && onChange(!checked)}
+    >
       <IconWrapper checked={checked} size={size}>
         <Icon src={`${ICON}/shape/checked.svg`} checked={checked} size={size} />
       </IconWrapper>

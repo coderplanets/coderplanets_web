@@ -10,24 +10,16 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexColumn('align-center', 'justify-start')};
   /* width: 100%; */
-  width: 680px; // 652px;
+  width: 658px;
   min-height: 300px;
   color: ${theme('thread.articleDigest')};
   padding: 20px 0;
   margin-top: 20px;
 `
-export const Header = styled.div`
-  ${css.flex('align-both', 'justify-between')};
-  width: ${`${CONTENT_WIDTH}px`};
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-`
-export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
-`
-export const Section = styled.section`
+export const EditorWrapper = styled.div`
   width: 100%;
   margin-bottom: 25px;
+  margin-top: 10px;
 `
 export const Footer = styled.div`
   ${css.flex('align-both')};
