@@ -9,9 +9,17 @@ import { getIconSize, getFontSize, getBorderRadius } from './metric'
 
 type TItem = { checked: boolean; size: string }
 
-export const Wrapper = styled.div<TActive>`
+type TWrapper = { dimWhenIdle: boolean } & TActive
+export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
+  opacity: ${({ dimWhenIdle }) => (dimWhenIdle ? 0.7 : 1)};
+
+  &:hover {
+    fill: #00a59b;
+    opacity: 1;
+    cursor: pointer;
+  }
 `
 export const IconWrapper = styled.div<TItem>`
   position: relative;

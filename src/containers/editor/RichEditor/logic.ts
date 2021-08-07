@@ -43,6 +43,7 @@ export const useInit = (_store, loaded) => {
          * Id of Element that should contain Editor instance
          */
         holderId: 'codex-editor',
+        placeholder: '// 正文介绍',
         tools: {
           header: Header,
           quote: Quote,
@@ -63,12 +64,12 @@ export const useInit = (_store, loaded) => {
         data: {
           time: 1552744582955,
           blocks: [
-            {
-              type: 'paragraph',
-              data: {
-                text: 'this is @',
-              },
-            },
+            // {
+            //   type: 'paragraph',
+            //   data: {
+            //     text: 'this is @',
+            //   },
+            // },
           ],
           version: '2.11.10',
         },

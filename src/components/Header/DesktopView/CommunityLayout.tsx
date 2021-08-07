@@ -20,7 +20,7 @@ import {
   ClassicInnerWrapper,
   HolyGrailInnerWrapper,
   RouterWrapper,
-} from '../styles/desktop_view/community_view'
+} from '../styles/desktop_view/community_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')

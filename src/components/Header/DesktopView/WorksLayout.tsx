@@ -19,7 +19,7 @@ import {
   Wrapper,
   InnerWrapper,
   RouterWrapper,
-} from '../styles/desktop_view/works_view'
+} from '../styles/desktop_view/works_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')

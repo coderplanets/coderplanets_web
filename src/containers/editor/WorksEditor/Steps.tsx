@@ -55,7 +55,7 @@ const Steps: FC<TProps> = ({ step }) => {
       </Step>
       <Step>
         <PublishIcon src={`${ICON}/edit/publish-rocket.svg`} />
-        <Hint active={step === STEP.FOUR}>起飞</Hint>
+        <Hint active={step === STEP.FOUR}>完成</Hint>
       </Step>
       <Bar />
     </Wrapper>

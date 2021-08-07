@@ -7,8 +7,22 @@ import { theme } from '@/utils/themes'
 // marker see: https://github.com/editor-js/marker
 
 const RichEditorStyle = createGlobalStyle`
+  .codex-editor {
+    font-size: 15px;
+  }
+  .ce-block--selected .ce-block__content {
+    background: transparent;
+    border-right: 1px solid;
+    border-right-color: ${theme('button.primary')};
+  }
+
+  .ce-toolbar__actions {
+    top: 8px;
+    right: -24px;
+  }
+
   .codex-editor--narrow .ce-toolbox {
-    background: ${theme('bodyBg')};
+    background: #052630; // ${theme('bodyBg')};
   }
   .ce-toolbar__settings-btn {
     background: ${theme('bodyBg')};
