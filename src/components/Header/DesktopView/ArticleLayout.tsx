@@ -7,6 +7,8 @@
 import { FC } from 'react'
 
 import { ICON } from '@/config'
+import { buildLog } from '@/utils/logger'
+
 import Navigator from '@/components/Navigator'
 
 import type { TProps } from '../index'
@@ -16,9 +18,12 @@ import {
   RouterWrapper,
   Operations,
   MoreIcon,
-} from '../styles/desktop_view/article_editor_view'
+} from '../styles/desktop_view/article_layout'
 
-const ArticleEditorHeader: FC<TProps> = ({ metric, c11n, community }) => {
+/* eslint-disable-next-line */
+const log = buildLog('C:Header')
+
+const ArticleHeader: FC<TProps> = ({ metric, c11n, community }) => {
   return (
     <Wrapper id="whereCallShowDoraemon" testid="header" noBorder>
       <InnerWrapper>
@@ -29,7 +34,7 @@ const ArticleEditorHeader: FC<TProps> = ({ metric, c11n, community }) => {
             metric={metric}
           />
         </RouterWrapper>
-        <Operations>
+        <Operations metric={metric}>
           <MoreIcon src={`${ICON}/shape/more-box.svg`} />
         </Operations>
       </InnerWrapper>
@@ -37,4 +42,4 @@ const ArticleEditorHeader: FC<TProps> = ({ metric, c11n, community }) => {
   )
 }
 
-export default ArticleEditorHeader
+export default ArticleHeader
