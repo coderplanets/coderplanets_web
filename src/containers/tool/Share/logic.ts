@@ -28,6 +28,8 @@ type TShareParam = {
   subject?: string
   body?: string
   u?: string
+  href?: string
+  name?: string
 }
 const openShareWindow = (platformUrl: string, param: TShareParam): void => {
   const safeParam = []
@@ -68,6 +70,11 @@ export const toPlatform = (type: string): void => {
     case SHARE_TYPE.FACEBOOK: {
       const param = { u: url }
       return openShareWindow('https://facebook.com/share.php', param)
+    }
+
+    case SHARE_TYPE.DOUBAN: {
+      const param = { href: url, name: title }
+      return openShareWindow('https://shuo.douban.com/!service/share', param)
     }
 
     case SHARE_TYPE.WEIBO: {

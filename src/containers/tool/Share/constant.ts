@@ -11,6 +11,7 @@ export const OUTSIDE_SHARE_TYPE = {
   TELEGRAM: 'telegram',
   // QQ: 'qq',
   WEIBO: 'weibo',
+  DOUBAN: 'douban',
   FACEBOOK: 'facebook',
 }
 
