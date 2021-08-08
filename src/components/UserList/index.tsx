@@ -24,7 +24,7 @@ type TProps = {
   withSetter?: boolean
 }
 
-let Setter: FC<TSetter> = () => <div />
+let Setter: FC<TSetter> = () => null
 
 const UserList: FC<TProps> = ({
   testid = 'user-list',
@@ -35,10 +35,9 @@ const UserList: FC<TProps> = ({
 
   useEffect(() => {
     if (withSetter) {
-      // @ts-ignore
       Setter = dynamic(() => import('./Setter'), {
         ssr: false,
-      })
+      }) as FC<TSetter>
     }
   }, [withSetter])
 
