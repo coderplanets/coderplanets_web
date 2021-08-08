@@ -122,7 +122,7 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
       <Section>
         <Label>团队成员</Label>
         <TeamsWrapper>
-          <UserList users={users} withSetter />
+          <UserList users={users} layout="create-works" withSetter />
         </TeamsWrapper>
       </Section>
       <Section>
