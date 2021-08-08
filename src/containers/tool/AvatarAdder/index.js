@@ -6,13 +6,15 @@
 import React from 'react'
 import T from 'prop-types'
 
-import Tooltip from '@/components/Tooltip'
-
+import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
+
+import Tooltip from '@/components/Tooltip'
+
 import AdderPanel from './AdderPanel'
 
-import { Wrapper, AddText } from './styles'
+import { Wrapper, SettingIcon } from './styles'
 import { useInit, adderOnConfirm, onPopoverVisible } from './logic'
 
 /* eslint-disable-next-line */
@@ -26,6 +28,7 @@ const AvatarAdderContainer = ({ avatarAdder: store, onConfirm }) => {
   return (
     <Tooltip
       visible={popoverVisible}
+      hideOnClick={false}
       content={
         <AdderPanel
           user={githubUserData}
@@ -39,7 +42,7 @@ const AvatarAdderContainer = ({ avatarAdder: store, onConfirm }) => {
       onVisibleChange={onPopoverVisible}
     >
       <Wrapper>
-        <AddText>+</AddText>
+        <SettingIcon src={`${ICON}/shape/settings.svg`} />
       </Wrapper>
     </Tooltip>
   )

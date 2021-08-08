@@ -22,3 +22,8 @@ export const SettingIcon = styled(Img)`
     fill: ${theme('thread.articleTitle')};
   }
 `
+
+export const MainPanel = styled.div`
+  background: ${theme('modal.subPanel')};
+  min-height: 35vh;
+`

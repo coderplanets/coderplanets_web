@@ -4,6 +4,8 @@ import type { TWorks } from '@/spec'
 import { nilOrEmpty } from '@/utils/validator'
 import ArrowButton from '@/components/Buttons/ArrowButton'
 
+import UserList from '@/components/UserList'
+
 import CommonQuestions from './CommonQuestions'
 
 import {
@@ -30,7 +32,9 @@ const NamePart: FC<TProps> = ({ works }) => {
         autoFocus
       />
       {!valid && <CommonQuestions />}
+      <br />
 
+      <UserList />
       {valid && (
         <NextButtonWrapper>
           <ArrowButton size="large" onClick={nextStep}>
