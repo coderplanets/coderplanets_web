@@ -5,6 +5,9 @@ import css from '@/utils/css'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
+  ${css.flex('align-center')};
+`
+export const SettingWrapper = styled.div`
   ${css.circle(36)};
   ${css.flex('align-both')};
 
@@ -13,6 +16,10 @@ export const Wrapper = styled.div`
     border-color: #005759;
     cursor: pointer;
   }
+`
+export const Avatar = styled(Img)`
+  ${css.circle(36)};
+  margin-right: 12px;
 `
 export const SettingIcon = styled(Img)`
   ${css.size(18)};

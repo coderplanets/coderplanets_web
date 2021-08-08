@@ -1,8 +1,62 @@
+import type { TUser } from '@/spec'
 import { ICON_BASE, ICON_CMD, ASSETS_ENDPOINT } from '@/config'
 import uid from '@/utils/uid'
 
 import type { TMenuItem } from '@/components/NaviCatalog/spec'
 import { getRandomInt } from './helper'
+
+const users = [
+  {
+    id: '1',
+    avatar:
+      'https://avatars.githubusercontent.com/u/3684889?s=88&u=bb5e8d9294af17219316997ff11d349755ac9740&v=4',
+    nickname: 'neSpecc',
+    login: 'neSpecc',
+    bio: 'the codex core teamf',
+  },
+  {
+    id: '2',
+    avatar: 'https://avatars.githubusercontent.com/u/53274?s=64&v=4',
+    nickname: 'scrogson',
+    login: 'scrogson',
+    bio: 'Software Engineer specializing in Erlang/Elixir/Rust',
+  },
+  {
+    id: '3',
+    avatar: 'https://avatars.githubusercontent.com/u/52195?s=64&v=4',
+    nickname: 'mcollina',
+    login: 'mcollina',
+    bio: 'Technical Director @nearform, TSC member',
+  },
+  {
+    id: '4',
+    avatar: 'https://avatars.githubusercontent.com/u/665846?s=64&v=4',
+    nickname: 'Alex Rodionov',
+    login: 'Alex Rodionov',
+    bio: 'Selenium Committer, Watir Core Team Developer',
+  },
+  {
+    id: '5',
+    avatar: 'https://avatars.githubusercontent.com/u/1361891?s=64&v=4',
+    nickname: 'huan',
+    login: 'huan',
+    bio: 'Angel Investor, Serial Entrepreneur, Machine Learning PhD Student',
+  },
+  {
+    id: '6',
+    avatar: 'https://avatars.githubusercontent.com/u/70602?v=4',
+    nickname: 'Joshua Gross',
+    login: 'JoshuaGross',
+    bio: 'React Native Core team @ Facebook',
+  },
+  {
+    id: '7',
+    avatar: 'https://avatars.githubusercontent.com/u/381213?s=64&v=4',
+    nickname: 'philss',
+    login: 'philss',
+    bio: 'Software developer. Interested in Elixir and functional programming ',
+  },
+]
 
 const images = [
   'https://rmt.dogedoge.com/fetch/~/source/unsplash/photo-1557555187-23d685287bc3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80',
@@ -19,6 +73,10 @@ export const mockImage = (): string => {
 
 export const mockImages = (num: number): string[] => {
   return images.slice(0, Math.min(num, images.length - 1))
+}
+
+export const mockUsers = (num: number): TUser[] => {
+  return users.slice(0, Math.min(num, users.length - 1))
 }
 
 export const mockNaviCatalogMenu = (): TMenuItem[] => {

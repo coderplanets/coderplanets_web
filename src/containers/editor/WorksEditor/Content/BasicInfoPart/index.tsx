@@ -2,10 +2,13 @@ import { FC, memo } from 'react'
 
 import type { TWorks } from '@/spec'
 
+import { mockUsers } from '@/utils/mock'
+
 import Checker from '@/components/Checker'
 import Select from '@/components/Select'
 import { Space } from '@/components/Common'
 import ArrowButton from '@/components/Buttons/ArrowButton'
+import UserList from '@/components/UserList'
 
 import CoverUploader from './CoverUploader'
 
@@ -13,6 +16,7 @@ import {
   Wrapper,
   Section,
   Label,
+  TeamsWrapper,
   CheckWrapper,
   Hint,
   Input,
@@ -39,6 +43,7 @@ type TProps = {
 
 const BasicInfoPart: FC<TProps> = ({ works }) => {
   const valid = true
+  const users = mockUsers(5)
 
   return (
     <Wrapper>
@@ -116,6 +121,9 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
       </Section>
       <Section>
         <Label>团队成员</Label>
+        <TeamsWrapper>
+          <UserList users={users} layout="create-works" withSetter />
+        </TeamsWrapper>
       </Section>
       <Section>
         <Label>Github</Label>
