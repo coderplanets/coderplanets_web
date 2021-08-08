@@ -70,6 +70,12 @@ const medias = [
   },
   {
     id: '7',
+    title: 'Douban',
+    logo: `${ICON}/social/douban-share.png`,
+    type: SHARE_TYPE.DOUBAN,
+  },
+  {
+    id: '8',
     title: 'Facebook',
     logo: `${ICON}/social/facebook-share.png`,
     type: SHARE_TYPE.FACEBOOK,
