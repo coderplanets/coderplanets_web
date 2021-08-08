@@ -14,6 +14,11 @@ export const Wrapper = styled.div`
   padding-left: 20px;
   padding-right: 11px;
 `
+export const BackWrapper = styled.div`
+  ${css.flex('align-center', 'justify-between')};
+  margin-left: -12px;
+  width: calc(100% + 16px);
+`
 export const PlusIcon = styled(Img)`
   ${css.size(12)};
   margin-right: 5px;

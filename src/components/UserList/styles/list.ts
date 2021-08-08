@@ -14,6 +14,10 @@ export const UserWrapper = styled.div`
   position: relative;
   ${css.flex('align-center')};
   margin-bottom: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const Avatar = styled(Img)`
   ${css.circle(32)};
@@ -27,13 +31,23 @@ export const Name = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
+
+  ${UserWrapper}:hover & {
+    color: #139b9d;
+  }
 `
 export const Bio = styled.div`
   color: ${theme('thread.articleDigest')};
   ${css.cutRest('260px')};
-`
 
-export const Action = styled.div``
+  ${UserWrapper}:hover & {
+    color: #139b9d;
+    opacity: 0.8;
+  }
+`
+export const CheckWrapper = styled.div`
+  margin-top: 5px;
+`
 export const RemoveIcon = styled(Img)`
   ${css.size(14)};
   fill: ${theme('baseColor.red')};
