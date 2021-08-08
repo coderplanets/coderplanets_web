@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   filter: ${theme('modal.subPanelShadow')};
   color: ${theme('thread.articleTitle')};
   padding-left: 20px;
-  padding-right: 12px;
+  padding-right: 11px;
 `
 export const PlusIcon = styled(Img)`
   ${css.size(12)};

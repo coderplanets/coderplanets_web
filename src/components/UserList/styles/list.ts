@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   padding: 20px;
 `
 export const UserWrapper = styled.div`
+  width: 100%;
   position: relative;
   ${css.flex('align-center')};
   margin-bottom: 10px;
@@ -19,8 +20,11 @@ export const Avatar = styled(Img)`
   margin-right: 10px;
   fill: ${theme('button.primary')};
 `
-export const Intro = styled.div``
+export const Intro = styled.div`
+  flex-grow: 1;
+`
 export const Name = styled.div`
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
 `
@@ -31,9 +35,13 @@ export const Bio = styled.div`
 
 export const Action = styled.div``
 export const RemoveIcon = styled(Img)`
-  position: absolute;
-  top: 8px;
-  right: 0;
-  ${css.size(16)};
+  ${css.size(14)};
   fill: ${theme('baseColor.red')};
+  margin-top: 5px;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `
