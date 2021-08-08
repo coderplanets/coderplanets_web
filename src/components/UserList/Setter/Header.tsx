@@ -2,12 +2,12 @@ import { FC, Fragment, memo } from 'react'
 
 import { ICON } from '@/config'
 
-import { Wrapper, BackWrapper, PlusIcon } from './styles/header'
+import { Wrapper, BackWrapper, PlusIcon } from '../styles/setter/header'
 import Button from '@/components/Buttons/Button'
 import ArrowButton from '@/components/Buttons/ArrowButton'
 import LavaLampLoading from '@/components/Loading/LavaLampLoading'
 
-import type { TView } from './spec'
+import type { TView } from '../spec'
 
 type TProps = {
   view: TView

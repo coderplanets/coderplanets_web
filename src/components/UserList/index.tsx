@@ -4,45 +4,62 @@
  *
  */
 
-import { FC, Fragment, memo, useState } from 'react'
+import { FC, Fragment, memo, useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 
+import type { TUser } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
-import Modal from '@/components/Modal'
 
-import Header from './Header'
-import SearchBox from './SearchBox'
-import List from './List'
-
-import type { TView } from './spec'
-import { Wrapper, SettingIcon, MainPanel } from './styles'
+import type { TProps as TSetter } from './Setter'
+// import Setter from './Setter'
+import { Wrapper, Avatar, SettingWrapper, SettingIcon } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:UserList:index')
 
 type TProps = {
   testid?: string
+  users: TUser[]
+  withSetter?: boolean
 }
 
-const UserList: FC<TProps> = ({ testid = 'user-list' }) => {
-  const [view, setView] = useState('list') // list or search
+let Setter: FC<TSetter> = () => <div />
+
+const UserList: FC<TProps> = ({
+  testid = 'user-list',
+  users,
+  withSetter = false,
+}) => {
+  const [showSetter, setShowSetter] = useState(false)
+
+  useEffect(() => {
+    if (withSetter) {
+      // @ts-ignore
+      Setter = dynamic(() => import('./Setter'), {
+        ssr: false,
+      })
+    }
+  }, [withSetter])
 
   return (
     <Fragment>
-      <Modal width="400px" show showCloseBtn>
-        <MainPanel>
-          <Header
-            view={view as TView}
-            goBack={() => setView('list')}
-            goSearch={() => setView('search')}
-          />
-          {view === 'search' && <SearchBox />}
-          <List withDelete={view === 'list'} withSelect={view === 'search'} />
-        </MainPanel>
-      </Modal>
-
+      <>
+        <Setter
+          show={showSetter}
+          users={users}
+          onClose={() => setShowSetter(false)}
+        />
+      </>
       <Wrapper>
-        <SettingIcon src={`${ICON}/shape/settings.svg`} />
+        {users.map((user) => (
+          <Avatar key={user.id} src={user.avatar} />
+        ))}
+        {withSetter && (
+          <SettingWrapper onClick={() => setShowSetter(true)}>
+            <SettingIcon src={`${ICON}/shape/settings.svg`} />
+          </SettingWrapper>
+        )}
       </Wrapper>
     </Fragment>
   )

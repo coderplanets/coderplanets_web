@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
-import { mockUsers } from '@/utils/mock'
+import type { TUser } from '@/spec'
 
+import { ICON } from '@/config'
 import { SpaceGrow } from '@/components/Common'
 import Tooltip from '@/components/Tooltip'
 import Checker from '@/components/Checker'
@@ -16,16 +16,19 @@ import {
   Bio,
   CheckWrapper,
   RemoveIcon,
-} from './styles/list'
+} from '../styles/setter/list'
 
 type TProps = {
+  users: TUser[]
   withDelete: boolean
   withSelect: boolean
 }
 
-const List: FC<TProps> = ({ withDelete = false, withSelect = false }) => {
-  const users = mockUsers(5)
-
+const List: FC<TProps> = ({
+  users,
+  withDelete = false,
+  withSelect = false,
+}) => {
   return (
     <Wrapper>
       {users.map((user) => (

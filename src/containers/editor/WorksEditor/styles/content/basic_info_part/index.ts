@@ -49,6 +49,10 @@ export const CheckWrapper = styled.div`
   margin-left: 12px;
   margin-top: 15px;
 `
+export const TeamsWrapper = styled.div`
+  margin-top: 15px;
+  margin-left: 13px;
+`
 export const Footer = styled.div`
   ${css.flex('align-both')};
   width: 100%;

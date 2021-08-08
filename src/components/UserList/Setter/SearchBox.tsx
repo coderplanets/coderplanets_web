@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Wrapper, SearchInput } from './styles/search_box'
+import { Wrapper, SearchInput } from '../styles/setter/search_box'
 
 const SearchBox: FC = () => {
   return (
