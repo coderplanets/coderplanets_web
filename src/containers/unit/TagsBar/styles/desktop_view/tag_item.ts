@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
 import Img from '@/Img'
-import HashTagSVG from '@/SvgIcons/HashTagSVG'
+import HashTagSVG from '@/icons/HashTag'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 

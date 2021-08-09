@@ -1,4 +1,4 @@
-import type { TUser } from '@/spec'
+import type { TUser, TTag } from '@/spec'
 import { ICON_BASE, ICON_CMD, ASSETS_ENDPOINT } from '@/config'
 import uid from '@/utils/uid'
 
@@ -58,6 +58,121 @@ const users = [
   },
 ]
 
+const tags = [
+  {
+    id: '0',
+    index: 0,
+    raw: 'career',
+    title: '职场',
+    color: 'red',
+    group: '生活',
+  },
+  {
+    id: '1',
+    index: 1,
+    raw: 'afterwork',
+    title: '下班后',
+    color: 'orange',
+    group: '生活',
+  },
+  {
+    id: '2',
+    index: 2,
+    raw: 'myth',
+    title: '迷思',
+    color: 'orange',
+    group: '生活',
+  },
+  {
+    id: '3',
+    index: 3,
+    raw: 'ask',
+    title: '求助',
+    color: 'yellow',
+    group: '技术',
+  },
+  {
+    id: '4',
+    index: 4,
+    raw: 'geek',
+    title: 'Geek',
+    color: 'green',
+    group: '技术',
+  },
+  {
+    id: '5',
+    index: 5,
+    raw: 'lang',
+    title: '语言 & 框架',
+    color: 'cyan',
+    group: '技术',
+  },
+  {
+    id: '6',
+    index: 6,
+    raw: 'system-design',
+    title: '系统设计',
+    color: 'cyan',
+    group: '技术',
+  },
+  {
+    id: '7',
+    index: 7,
+    raw: 'ui',
+    title: '人机交互',
+    color: 'green',
+    group: '技术',
+  },
+  {
+    id: '8',
+    index: 8,
+    raw: 'ai',
+    title: '人工智能',
+    color: 'purple',
+    group: '技术',
+  },
+  {
+    id: '9',
+    index: 9,
+    raw: 'privacy',
+    title: '黑暗森林',
+    color: 'red',
+    group: '技术',
+  },
+  {
+    id: '10',
+    index: 10,
+    raw: 'wtf',
+    title: 'WTF?',
+    color: 'orange',
+    group: '其他',
+  },
+  {
+    id: '11',
+    index: 11,
+    raw: 'idea',
+    title: '闪念',
+    color: 'green',
+    group: '其他',
+  },
+  {
+    id: '12',
+    index: 12,
+    raw: 'feedback',
+    title: '站务反馈',
+    color: 'purple',
+    group: '其他',
+  },
+  {
+    id: '13',
+    index: 13,
+    raw: 'others',
+    title: '奇奇怪怪',
+    color: 'purple',
+    group: '其他',
+  },
+]
+
 const images = [
   'https://rmt.dogedoge.com/fetch/~/source/unsplash/photo-1557555187-23d685287bc3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80',
   'https://rmt.dogedoge.com/fetch/~/source/unsplash/photo-1484399172022-72a90b12e3c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80',
@@ -77,6 +192,10 @@ export const mockImages = (num: number): string[] => {
 
 export const mockUsers = (num: number): TUser[] => {
   return users.slice(0, Math.min(num, users.length - 1))
+}
+
+export const mockTags = (num: number): TTag[] => {
+  return tags.slice(0, Math.min(num, tags.length))
 }
 
 export const mockNaviCatalogMenu = (): TMenuItem[] => {

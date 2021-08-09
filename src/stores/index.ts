@@ -85,6 +85,7 @@ export { default as CommunityEditorStore } from '@/containers/editor/CommunityEd
 export { default as WorksEditorStore } from '@/containers/editor/WorksEditor/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as CommunityTagSetterStore } from '@/containers/tool/CommunityTagSetter/store'
 export { default as CollectionFolderStore } from '@/containers/tool/CollectionFolder/store'
 export { default as ShareStore } from '@/containers/tool/Share/store'
 export { default as ArticleContentStore } from '@/containers/content/ArticleContent/store'
