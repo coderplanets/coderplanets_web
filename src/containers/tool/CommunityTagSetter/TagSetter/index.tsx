@@ -30,7 +30,6 @@ const Setter: FC<TProps> = ({ view }) => {
   return (
     <Wrapper>
       <Header view={view} />
-      {/* {view === 'search' && <SearchBox />} */}
       <Body view={view} />
       <Footer />
     </Wrapper>

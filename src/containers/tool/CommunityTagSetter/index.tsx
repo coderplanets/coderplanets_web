@@ -42,12 +42,12 @@ const CommunityTagSetterContainer: FC<TProps> = ({
 
   return (
     <Modal width="500px" show showCloseBtn>
-      <CommunitySetter
+      {/* <CommunitySetter
         view={communityView}
         action={communityAction}
         searchValue={communitySearchValue}
-      />
-      {/* <TagSetter view={tagView} /> */}
+      /> */}
+      <TagSetter view={tagView} />
     </Modal>
   )
 }

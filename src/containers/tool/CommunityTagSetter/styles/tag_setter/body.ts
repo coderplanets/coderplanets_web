@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   padding: 20px;
   padding-right: 0;
   padding-bottom: 0;
-  min-height: 400px;
+  min-height: 300px;
 `
 export const InnerWrapper = styled.div`
   ${css.flex()};

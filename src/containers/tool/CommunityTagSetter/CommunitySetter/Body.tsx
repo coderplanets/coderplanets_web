@@ -35,7 +35,7 @@ const Body: FC<TProps> = ({ view, searchValue }) => {
 
         <CustomScroller
           direction="vertical"
-          height="350px"
+          height="250px"
           showShadow={false}
           autoHide={false}
         >

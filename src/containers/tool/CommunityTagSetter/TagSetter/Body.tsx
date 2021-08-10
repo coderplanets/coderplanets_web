@@ -48,7 +48,7 @@ const Body: FC<TProps> = ({ view }) => {
           <InnerWrapper>
             <CustomScroller
               direction="vertical"
-              height="380px"
+              height="360px"
               showShadow={false}
               autoHide={false}
             >
