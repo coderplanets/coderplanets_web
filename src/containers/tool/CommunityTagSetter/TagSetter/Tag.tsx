@@ -10,6 +10,7 @@ import Checker from '@/components/Checker'
 import IconButton from '@/components/Buttons/IconButton'
 
 import type { TTagView } from '../spec'
+import { TAG_VIEW } from '../constant'
 import {
   Wrapper,
   HashTag,
@@ -17,22 +18,14 @@ import {
   CheckWrapper,
   RemoveIcon,
 } from '../styles/tag_setter/tag'
+import { changeTagView } from '../logic'
 
 type TProps = {
   tag: TTag
   view: TTagView
-  onUpdate?: (tag: TTag) => void | null
-  onSelect?: (tag: TTag) => void | null
-  onDelete?: (tag: TTag) => void | null
 }
 
-const Tag: FC<TProps> = ({
-  tag,
-  view,
-  onSelect = null,
-  onUpdate = null,
-  onDelete = null,
-}) => {
+const Tag: FC<TProps> = ({ tag, view }) => {
   const selectable = view === 'select'
   const deleteable = view === 'delete'
   const updateable = view === 'update'
@@ -56,7 +49,7 @@ const Tag: FC<TProps> = ({
             content="请确认是否继续？"
             placement="top"
             behavior="delete-confirm"
-            onConfirm={() => onDelete?.(tag)}
+            onConfirm={console.log}
           >
             <RemoveIcon src={`${ICON}/shape/delete-solid.svg`} />
           </Tooltip>
@@ -67,7 +60,9 @@ const Tag: FC<TProps> = ({
             path="edit/publish-pen.svg"
             mLeft={8}
             mRight={5}
-            onClick={() => onUpdate?.(tag)}
+            onClick={() => {
+              changeTagView(TAG_VIEW.UPDATE_ITEM)
+            }}
           />
         )}
       </Name>

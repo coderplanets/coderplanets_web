@@ -18,9 +18,6 @@ type TProps = {
   folder: string
   withDelete?: boolean
   withSelect?: boolean
-  onUpdate?: (tag: TTag) => void | null
-  onSelect?: (tag: TTag) => void | null
-  onDelete?: (tag: TTag) => void | null
 }
 
 const GroupTags: FC<TProps> = ({
@@ -29,23 +26,13 @@ const GroupTags: FC<TProps> = ({
   view,
   withDelete = false,
   withSelect = false,
-  onSelect = null,
-  onUpdate = null,
-  onDelete = null,
 }) => {
   return (
     <Wrapper>
       <FolderTitle>{folder}</FolderTitle>
       <InnerWrapper>
         {tags.map((tag) => (
-          <Tag
-            key={tag.id}
-            view={view}
-            tag={tag}
-            onSelect={onSelect}
-            onUpdate={onUpdate}
-            onDelete={onDelete}
-          />
+          <Tag key={tag.id} view={view} tag={tag} />
         ))}
       </InnerWrapper>
     </Wrapper>

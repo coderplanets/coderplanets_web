@@ -1,23 +1,18 @@
 import { FC, memo } from 'react'
 
-import {
-  Wrapper,
-  Title,
-  Actions,
-  // CommunityLabel,
-  // CommunityLogo,
-} from '../styles/tag_setter/header'
-
 import IconButton from '@/components/Buttons/IconButton'
-// import DotDivider from '@/components/DotDivider'
-// import LavaLampLoading from '@/components/Loading/LavaLampLoading'
 
 import type { TTagView } from '../spec'
 import { TAG_VIEW } from '../constant'
 
+import { Wrapper, Title, Actions } from '../styles/tag_setter/header'
+import { changeTagView } from '../logic'
+
+// import DotDivider from '@/components/DotDivider'
+// import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+
 type TProps = {
   view: TTagView
-  setView: (view: TTagView) => void
 }
 
 const getTitle = (view: TTagView): string => {
@@ -40,7 +35,7 @@ const getTitle = (view: TTagView): string => {
   }
 }
 
-const Header: FC<TProps> = ({ view, setView }) => {
+const Header: FC<TProps> = ({ view }) => {
   return (
     <Wrapper>
       <Title>
@@ -61,7 +56,7 @@ const Header: FC<TProps> = ({ view, setView }) => {
           hintDelay={0}
           hint="设置标签"
           active={view === TAG_VIEW.SELECT}
-          onClick={() => setView(TAG_VIEW.SELECT)}
+          onClick={() => changeTagView(TAG_VIEW.SELECT)}
         />
         <IconButton
           path="shape/add.svg"
@@ -70,7 +65,7 @@ const Header: FC<TProps> = ({ view, setView }) => {
           hintDelay={0}
           hint="新增标签"
           active={view === TAG_VIEW.CREATE_ITEM}
-          onClick={() => setView(TAG_VIEW.CREATE_ITEM)}
+          onClick={() => changeTagView(TAG_VIEW.CREATE_ITEM)}
         />
         <IconButton
           path="edit/publish-pen.svg"
@@ -79,7 +74,7 @@ const Header: FC<TProps> = ({ view, setView }) => {
           hintDelay={0}
           hint="编辑标签"
           active={view === TAG_VIEW.UPDATE}
-          onClick={() => setView(TAG_VIEW.UPDATE)}
+          onClick={() => changeTagView(TAG_VIEW.UPDATE)}
         />
         <IconButton
           path="shape/delete.svg"
@@ -88,7 +83,7 @@ const Header: FC<TProps> = ({ view, setView }) => {
           hintDelay={0}
           hint="删除标签"
           active={view === TAG_VIEW.DELETE}
-          onClick={() => setView(TAG_VIEW.DELETE)}
+          onClick={() => changeTagView(TAG_VIEW.DELETE)}
         />
       </Actions>
     </Wrapper>

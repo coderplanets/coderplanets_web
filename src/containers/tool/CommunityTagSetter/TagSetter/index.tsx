@@ -23,14 +23,13 @@ const log = buildLog('c:TagList:index')
 export type TProps = {
   testid?: string
   withSetter?: boolean
+  view: TTagView
 }
 
-const Setter: FC<TProps> = () => {
-  const [view, setView] = useState<TTagView>('select') // select or delete or edit or add
-
+const Setter: FC<TProps> = ({ view }) => {
   return (
     <Wrapper>
-      <Header view={view} setView={setView} />
+      <Header view={view} />
       {/* {view === 'search' && <SearchBox />} */}
       <Body view={view} />
       <Footer />

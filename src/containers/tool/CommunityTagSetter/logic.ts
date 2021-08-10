@@ -5,14 +5,15 @@ import { buildLog } from '@/utils/logger'
 
 // import S from './schma'
 import type { TStore } from './store'
+import type { TTagView } from './spec'
 
 let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunityTagSetter')
 
-export const someMethod = (): void => {
-  //
+export const changeTagView = (tagView: TTagView): void => {
+  store.mark({ tagView })
 }
 
 // ###############################

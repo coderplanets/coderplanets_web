@@ -32,10 +32,11 @@ const CommunityTagSetterContainer: FC<TProps> = ({
   testid = 'community-tag-setter',
 }) => {
   useInit(store)
+  const { tagView } = store
 
   return (
     <Modal width="500px" show showCloseBtn>
-      <TagSetter />
+      <TagSetter view={tagView} />
     </Modal>
   )
 }
