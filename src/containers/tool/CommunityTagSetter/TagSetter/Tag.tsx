@@ -26,9 +26,9 @@ type TProps = {
 }
 
 const Tag: FC<TProps> = ({ tag, view }) => {
-  const selectable = view === 'select'
-  const deleteable = view === 'delete'
-  const updateable = view === 'update'
+  const selectable = view === TAG_VIEW.SELECT
+  const deleteable = view === TAG_VIEW.DELETE
+  const updateable = view === TAG_VIEW.UPDATE
 
   return (
     <Wrapper key={tag.id}>

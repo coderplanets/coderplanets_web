@@ -9,13 +9,21 @@ import type { TCommunity, TRootStore } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 
-import { TAG_VIEW } from './constant'
+import { TAG_VIEW, COMMUNITY_VIEW, COMMUNITY_ACTION } from './constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunityTagSetter')
 
 const CommunityTagSetter = T.model('CommunityTagSetter', {
   tagView: T.optional(T.enumeration(values(TAG_VIEW)), TAG_VIEW.SELECT),
+  communityView: T.optional(
+    T.enumeration(values(COMMUNITY_VIEW)),
+    COMMUNITY_VIEW.DEFAULT,
+  ),
+  communityAction: T.optional(
+    T.enumeration(values(COMMUNITY_ACTION)),
+    COMMUNITY_ACTION.MIRROR,
+  ),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {

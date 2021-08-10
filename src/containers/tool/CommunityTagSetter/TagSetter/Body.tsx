@@ -5,6 +5,8 @@ import { keys } from 'ramda'
 import { groupByKey } from '@/utils/helper'
 import { mockTags } from '@/utils/mock'
 
+import CustomScroller from '@/components/CustomScroller'
+
 import type { TTagView } from '../spec'
 import { TAG_VIEW } from '../constant'
 
@@ -16,7 +18,7 @@ type TProps = {
   view: TTagView
 }
 
-const List: FC<TProps> = ({ view }) => {
+const Body: FC<TProps> = ({ view }) => {
   switch (view) {
     case TAG_VIEW.CREATE_ITEM: {
       return (
@@ -44,14 +46,23 @@ const List: FC<TProps> = ({ view }) => {
       return (
         <Wrapper>
           <InnerWrapper>
-            {tagFolders.map((folder) => (
-              <GroupTags
-                key={folder}
-                view={view}
-                tags={groupedTags[folder]}
-                folder={folder}
-              />
-            ))}
+            <CustomScroller
+              direction="vertical"
+              height="380px"
+              showShadow={false}
+              autoHide={false}
+            >
+              <div>
+                {tagFolders.map((folder) => (
+                  <GroupTags
+                    key={folder}
+                    view={view}
+                    tags={groupedTags[folder]}
+                    folder={folder}
+                  />
+                ))}
+              </div>
+            </CustomScroller>
           </InnerWrapper>
         </Wrapper>
       )
@@ -59,4 +70,4 @@ const List: FC<TProps> = ({ view }) => {
   }
 }
 
-export default memo(List)
+export default memo(Body)

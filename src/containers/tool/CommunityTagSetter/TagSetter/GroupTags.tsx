@@ -9,7 +9,7 @@ import type { TTagView } from '../spec'
 import {
   Wrapper,
   InnerWrapper,
-  FolderTitle,
+  HintTitle,
 } from '../styles/tag_setter/group_tags'
 
 type TProps = {
@@ -29,7 +29,7 @@ const GroupTags: FC<TProps> = ({
 }) => {
   return (
     <Wrapper>
-      <FolderTitle>{folder}</FolderTitle>
+      <HintTitle>{folder}</HintTitle>
       <InnerWrapper>
         {tags.map((tag) => (
           <Tag key={tag.id} view={view} tag={tag} />

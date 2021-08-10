@@ -15,6 +15,7 @@ import Modal from '@/components/Modal'
 
 import type { TStore } from './store'
 import TagSetter from './TagSetter'
+import CommunitySetter from './CommunitySetter'
 
 import { Wrapper } from './styles'
 import { useInit } from './logic'
@@ -32,11 +33,12 @@ const CommunityTagSetterContainer: FC<TProps> = ({
   testid = 'community-tag-setter',
 }) => {
   useInit(store)
-  const { tagView } = store
+  const { tagView, communityView, communityAction } = store
 
   return (
     <Modal width="500px" show showCloseBtn>
-      <TagSetter view={tagView} />
+      <CommunitySetter view={communityView} action={communityAction} />
+      {/* <TagSetter view={tagView} /> */}
     </Modal>
   )
 }
