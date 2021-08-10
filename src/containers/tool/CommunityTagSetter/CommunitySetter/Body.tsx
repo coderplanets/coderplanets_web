@@ -14,20 +14,22 @@ import { Wrapper, InnerWrapper, NoticeWrapper } from '../styles/tag_setter/body'
 
 type TProps = {
   view: TCommunityView
+  searchValue: string
 }
 
-const Body: FC<TProps> = ({ view }) => {
+const Body: FC<TProps> = ({ view, searchValue }) => {
   const allCommunities = mockCommunities(5)
 
   return (
     <Wrapper>
       <InnerWrapper>
-        <SearchBox />
+        <SearchBox searchValue={searchValue} />
 
         <NoticeWrapper>
           <NoticeBar
             type="notice"
-            content="内侧阶段所有人均可发布内容到首页。若仅测试请发布到黑洞社区。恶意发布社区将对你变为只读，谢谢理解。"
+            content="内测阶段所有人均可发布内容到首页。若测试请发布到「黑洞」。发布恶俗/恶意内容到社区，账号本身将进入「黑洞」，谢谢理解。"
+            noBg
           />
         </NoticeWrapper>
 

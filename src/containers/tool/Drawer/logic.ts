@@ -82,22 +82,15 @@ export const onSwipedYHandler = (
   }
 }
 
-const handleClearEffect = debounce(
-  () => {
-    clearGlobalBlur()
-    store.mark({ canBeClose: true })
-  },
-  200,
-  true,
-)
-const handleRestoreEffect = debounce(
-  () => {
-    toggleGlobalBlur(true)
-    store.mark({ canBeClose: false })
-  },
-  200,
-  true,
-)
+const handleClearEffect = debounce(() => {
+  clearGlobalBlur()
+  store.mark({ canBeClose: true })
+}, 200)
+
+const handleRestoreEffect = debounce(() => {
+  toggleGlobalBlur(true)
+  store.mark({ canBeClose: false })
+}, 200)
 
 // handler swiping event for up/down swipe
 export const onSwipingYHandler = (

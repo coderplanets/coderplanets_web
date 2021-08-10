@@ -6,16 +6,21 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+type TWrapper = {
+  noBg: boolean
+} & TTestable
+
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>`
-  ${css.flex('align-center')};
-  color: ${theme('thread.articleTitle')};
-  padding-left: 12px;
+}))<TWrapper>`
+  ${css.flex('align-start')};
+  color: ${({ noBg }) =>
+    noBg ? theme('thread.articleDigest') : theme('thread.articleTitle')};
+  padding-left: ${({ noBg }) => (noBg ? '5px' : '12px')};
   padding-right: 15px;
   width: 100%;
   height: 40px;
-  background: #00333f;
+  background: ${({ noBg }) => (noBg ? 'transparent' : '#00333f')};
   border-radius: 8px;
 `
 export const Main = styled.div`

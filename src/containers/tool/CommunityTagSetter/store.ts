@@ -24,6 +24,7 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
     T.enumeration(values(COMMUNITY_ACTION)),
     COMMUNITY_ACTION.MIRROR,
   ),
+  communitySearchValue: T.optional(T.string, ''),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {

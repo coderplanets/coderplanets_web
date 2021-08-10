@@ -1,11 +1,9 @@
 import { FC, memo } from 'react'
 
 import IconButton from '@/components/Buttons/IconButton'
-// import DotDivider from '@/components/DotDivider'
-import LavaLampLoading from '@/components/Loading/LavaLampLoading'
 
 import type { TCommunityView, TCommunityAction } from '../spec'
-import { COMMUNITY_VIEW, COMMUNITY_ACTION } from '../constant'
+import { COMMUNITY_ACTION } from '../constant'
 
 import { Wrapper, Title, Actions } from '../styles/community_setter/header'
 // import { changeTagView } from '../logic'
@@ -33,9 +31,6 @@ const Header: FC<TProps> = ({ view, action }) => {
     <Wrapper>
       <Title>{getTitle(action)}</Title>
       <Actions>
-        <LavaLampLoading size="small" />
-        {view === COMMUNITY_VIEW.SEARCHING && <LavaLampLoading size="small" />}
-
         <IconButton
           path="article/community-mirror.svg"
           size={18}

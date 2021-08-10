@@ -5,8 +5,9 @@ import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-both')};
-  height: 50px;
+  height: 52px;
   width: 100%;
+  padding-right: 35px;
   border-top: 1px solid;
   border-top-color: #043b49;
   /* padding-left: 20px;

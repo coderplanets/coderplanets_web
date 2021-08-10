@@ -33,11 +33,20 @@ const CommunityTagSetterContainer: FC<TProps> = ({
   testid = 'community-tag-setter',
 }) => {
   useInit(store)
-  const { tagView, communityView, communityAction } = store
+  const {
+    tagView,
+    communityView,
+    communityAction,
+    communitySearchValue,
+  } = store
 
   return (
     <Modal width="500px" show showCloseBtn>
-      <CommunitySetter view={communityView} action={communityAction} />
+      <CommunitySetter
+        view={communityView}
+        action={communityAction}
+        searchValue={communitySearchValue}
+      />
       {/* <TagSetter view={tagView} /> */}
     </Modal>
   )

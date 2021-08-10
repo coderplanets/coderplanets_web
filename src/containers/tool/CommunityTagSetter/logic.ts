@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
+import { debounce } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 // import S from './schma'
@@ -15,6 +16,16 @@ const log = buildLog('L:CommunityTagSetter')
 export const changeTagView = (tagView: TTagView): void => {
   store.mark({ tagView })
 }
+
+export const communityOnSearch = ({ target: { value } }): void => {
+  store.mark({ communitySearchValue: value })
+  doSearch()
+}
+
+const doSearch = debounce(() => {
+  const { communitySearchValue } = store
+  console.log('do search: ', communitySearchValue)
+}, 300)
 
 // ###############################
 // init & uninit handlers

@@ -24,13 +24,14 @@ export type TProps = {
   withSetter?: boolean
   view: TCommunityView
   action: TCommunityAction
+  searchValue: string
 }
 
-const Setter: FC<TProps> = ({ view, action }) => {
+const Setter: FC<TProps> = ({ view, action, searchValue }) => {
   return (
     <Wrapper>
       <Header view={view} action={action} />
-      <Body view={view} />
+      <Body view={view} searchValue={searchValue} />
       <Footer />
     </Wrapper>
   )

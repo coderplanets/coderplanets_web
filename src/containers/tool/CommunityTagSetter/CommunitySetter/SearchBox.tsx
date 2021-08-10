@@ -1,11 +1,20 @@
 import { FC, memo } from 'react'
 
 import { Wrapper, SearchInput } from '../styles/community_setter/search_box'
+import { communityOnSearch } from '../logic'
 
-const SearchBox: FC = () => {
+type TProps = {
+  searchValue: string
+}
+
+const SearchBox: FC<TProps> = ({ searchValue }) => {
   return (
     <Wrapper>
-      <SearchInput placeholder="// 要移动到的社区名称" />
+      <SearchInput
+        value={searchValue}
+        placeholder="// 要移动到的社区名称"
+        onChange={communityOnSearch}
+      />
     </Wrapper>
   )
 }

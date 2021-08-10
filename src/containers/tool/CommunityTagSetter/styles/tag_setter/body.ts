@@ -16,5 +16,5 @@ export const InnerWrapper = styled.div`
 `
 
 export const NoticeWrapper = styled.div`
-  margin-bottom: 15px;
+  margin-bottom: 24px;
 `

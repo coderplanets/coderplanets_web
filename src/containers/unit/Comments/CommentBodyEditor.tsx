@@ -43,7 +43,7 @@ const CommentBodyEditor: FC<TProps> = ({
       <InputEditorWrapper showInputEditor={showInputEditor}>
         <BodyEditor
           mentionList={mentionList}
-          onChange={debounce(onCommentInputChange, 200, true)}
+          onChange={debounce(onCommentInputChange, 200)}
           onMention={onMention}
           onMentionSearch={onMentionSearch}
           body={body}

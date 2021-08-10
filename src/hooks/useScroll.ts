@@ -22,27 +22,23 @@ const useScroll = (cb?: () => void): TScrollState => {
   useEffect(() => {
     // adding scroll event
     let scrollPos = scroll.scrollPos
-    const handleScroll = debounce(
-      () => {
-        // detects new state and compares it with the new one
-        let direction =
-          document.body.getBoundingClientRect().top > scrollPos ? 'up' : 'down'
+    const handleScroll = debounce(() => {
+      // detects new state and compares it with the new one
+      let direction =
+        document.body.getBoundingClientRect().top > scrollPos ? 'up' : 'down'
 
-        // saves the new position for iteration.
-        scrollPos = document.body.getBoundingClientRect().top
+      // saves the new position for iteration.
+      scrollPos = document.body.getBoundingClientRect().top
 
-        cb?.()
+      cb?.()
 
-        setScroll(
-          merge(initState, {
-            direction,
-            scrollPos,
-          }),
-        )
-      },
-      50,
-      true,
-    )
+      setScroll(
+        merge(initState, {
+          direction,
+          scrollPos,
+        }),
+      )
+    }, 50)
 
     window.addEventListener('scroll', handleScroll)
 
