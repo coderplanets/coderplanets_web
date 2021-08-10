@@ -7,6 +7,8 @@ import { mockTags } from '@/utils/mock'
 
 import type { TTagView } from '../spec'
 import { TAG_VIEW } from '../constant'
+
+import Creator from './Creator'
 import GroupTags from './GroupTags'
 import { Wrapper, InnerWrapper } from '../styles/tag_setter/body'
 
@@ -19,7 +21,9 @@ const List: FC<TProps> = ({ view }) => {
     case TAG_VIEW.CREATE_ITEM: {
       return (
         <Wrapper>
-          <InnerWrapper>do create</InnerWrapper>
+          <InnerWrapper>
+            <Creator />
+          </InnerWrapper>
         </Wrapper>
       )
     }
