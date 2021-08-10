@@ -9,6 +9,10 @@ export const Main = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitContentWidth(metric)};
   width: 100%;
 `
+export const Header = styled.div`
+  ${css.flex('align-center')};
+  margin-bottom: 8px;
+`
 export const SubWrapper = styled.div`
   ${css.flex('align-start', 'justify-center')};
   margin-top: 5px;

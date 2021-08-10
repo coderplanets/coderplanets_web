@@ -49,7 +49,7 @@ const ArticleFooterContainer: FC<TProps> = ({
     <Wrapper testid={testid}>
       <BaseInfo>
         <TagListO items={tags} />
-        <CommunityTagSetter />
+        {/* <CommunityTagSetter /> */}
         <Copyright
           type={copyright as TCopyright}
           mode="readonly"

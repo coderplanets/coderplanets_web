@@ -9,11 +9,15 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
+import DotDivider from '@/components/DotDivider'
+import ArchivedSign from '@/components/ArchivedSign'
+
 import SubCommunity from './SubCommunity'
 import PublishDate from './PublishDate'
 
 import {
   Main,
+  Header,
   Title,
   AuthorName,
   BottomInfo,
@@ -32,7 +36,11 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
   return (
     <Fragment>
       <Main metric={metric}>
-        <PublishDate insertedAt={article.insertedAt} />
+        <Header>
+          <PublishDate insertedAt={article.insertedAt} />
+          <DotDivider space={8} />
+          <ArchivedSign />
+        </Header>
         <Title>{article.title}</Title>
         <BottomInfo>
           <ArticleBaseStats article={article} />

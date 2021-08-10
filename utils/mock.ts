@@ -151,7 +151,7 @@ const tags = [
     id: '11',
     index: 11,
     raw: 'idea',
-    title: '闪念',
+    title: '脑洞',
     color: 'green',
     group: '其他',
   },
