@@ -1,24 +1,22 @@
 import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
-import type { TTag } from '@/spec'
+// import type { TTag } from '@/spec'
 import { groupByKey } from '@/utils/helper'
-
 import { mockTags } from '@/utils/mock'
 
-import type { TView } from '../spec'
+import type { TTagView } from '../spec'
+import { TAG_VIEW } from '../constant'
 import GroupTags from './GroupTags'
-import { Wrapper, InnerWrapper } from '../styles/tag_setter/list'
+import { Wrapper, InnerWrapper } from '../styles/tag_setter/body'
 
 type TProps = {
-  view: TView
-  withDelete: boolean
-  withSelect: boolean
+  view: TTagView
 }
 
-const List: FC<TProps> = ({ withDelete = false, withSelect = false, view }) => {
+const List: FC<TProps> = ({ view }) => {
   switch (view) {
-    case 'do-create': {
+    case TAG_VIEW.CREATE_ITEM: {
       return (
         <Wrapper>
           <InnerWrapper>do create</InnerWrapper>
@@ -26,7 +24,7 @@ const List: FC<TProps> = ({ withDelete = false, withSelect = false, view }) => {
       )
     }
 
-    case 'do-update': {
+    case TAG_VIEW.UPDATE_ITEM: {
       return (
         <Wrapper>
           <InnerWrapper>do update</InnerWrapper>

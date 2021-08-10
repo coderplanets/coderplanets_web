@@ -1,39 +1,38 @@
-import { FC, Fragment, memo } from 'react'
-
-import { ICON_BASE } from '@/config'
+import { FC, memo } from 'react'
 
 import {
   Wrapper,
   Title,
   Actions,
-  CommunityLabel,
-  CommunityLogo,
+  // CommunityLabel,
+  // CommunityLogo,
 } from '../styles/tag_setter/header'
 
 import IconButton from '@/components/Buttons/IconButton'
-import DotDivider from '@/components/DotDivider'
+// import DotDivider from '@/components/DotDivider'
 // import LavaLampLoading from '@/components/Loading/LavaLampLoading'
 
-import type { TView } from '../spec'
+import type { TTagView } from '../spec'
+import { TAG_VIEW } from '../constant'
 
 type TProps = {
-  view: TView
-  setView: (view: TView) => void
+  view: TTagView
+  setView: (view: TTagView) => void
 }
 
-const getTitle = (view: TView): string => {
+const getTitle = (view: TTagView): string => {
   switch (view) {
-    case 'do-create': {
+    case TAG_VIEW.CREATE_ITEM: {
       return '新增标签'
     }
-    case 'do-update': {
+    case TAG_VIEW.UPDATE_ITEM: {
       return '编辑标签'
     }
-    case 'update': {
+    case TAG_VIEW.UPDATE: {
       return '编辑标签'
     }
-    case 'delete': {
-      return '删除'
+    case TAG_VIEW.DELETE: {
+      return '删除标签'
     }
     default: {
       return '设置标签'
@@ -61,8 +60,8 @@ const Header: FC<TProps> = ({ view, setView }) => {
           mRight={8}
           hintDelay={0}
           hint="设置标签"
-          active={view === 'select'}
-          onClick={() => setView('select')}
+          active={view === TAG_VIEW.SELECT}
+          onClick={() => setView(TAG_VIEW.SELECT)}
         />
         <IconButton
           path="shape/add.svg"
@@ -70,8 +69,8 @@ const Header: FC<TProps> = ({ view, setView }) => {
           mRight={8}
           hintDelay={0}
           hint="新增标签"
-          active={view === 'do-create'}
-          onClick={() => setView('do-create')}
+          active={view === TAG_VIEW.CREATE_ITEM}
+          onClick={() => setView(TAG_VIEW.CREATE_ITEM)}
         />
         <IconButton
           path="edit/publish-pen.svg"
@@ -79,8 +78,8 @@ const Header: FC<TProps> = ({ view, setView }) => {
           mRight={8}
           hintDelay={0}
           hint="编辑标签"
-          active={view === 'update'}
-          onClick={() => setView('update')}
+          active={view === TAG_VIEW.UPDATE}
+          onClick={() => setView(TAG_VIEW.UPDATE)}
         />
         <IconButton
           path="shape/delete.svg"
@@ -88,8 +87,8 @@ const Header: FC<TProps> = ({ view, setView }) => {
           mRight={0}
           hintDelay={0}
           hint="删除标签"
-          active={view === 'delete'}
-          onClick={() => setView('delete')}
+          active={view === TAG_VIEW.DELETE}
+          onClick={() => setView(TAG_VIEW.DELETE)}
         />
       </Actions>
     </Wrapper>

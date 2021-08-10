@@ -1,9 +1,8 @@
-export type TView =
+export type TTagView =
   | 'select'
   | 'update'
   | 'delete'
-  | 'create'
-  | 'do-update'
-  | 'do-create'
+  | 'create-item'
+  | 'update-item'
 
 export type TLayout = 'create-works' | 'works' | 'guide-contribute'

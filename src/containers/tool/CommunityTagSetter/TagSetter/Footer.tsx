@@ -4,10 +4,10 @@ import { Wrapper, ApplyText } from '../styles/tag_setter/footer'
 
 import Button from '@/components/Buttons/Button'
 
-// import type { TView } from '../spec'
+// import type { TTagView } from '../spec'
 
 type TProps = {
-  // view: TView
+  // view: TTagView
   // goBack: () => void
   // goSearch: () => void
 }

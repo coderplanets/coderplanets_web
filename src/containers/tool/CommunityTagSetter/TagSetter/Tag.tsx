@@ -9,7 +9,7 @@ import { SpaceGrow } from '@/components/Common'
 import Checker from '@/components/Checker'
 import IconButton from '@/components/Buttons/IconButton'
 
-import type { TView } from '../spec'
+import type { TTagView } from '../spec'
 import {
   Wrapper,
   HashTag,
@@ -20,7 +20,7 @@ import {
 
 type TProps = {
   tag: TTag
-  view: TView
+  view: TTagView
   onUpdate?: (tag: TTag) => void | null
   onSelect?: (tag: TTag) => void | null
   onDelete?: (tag: TTag) => void | null

@@ -5,7 +5,7 @@ import type { TTag } from '@/spec'
 // import Tooltip from '@/components/Tooltip'
 import Tag from './Tag'
 
-import type { TView } from '../spec'
+import type { TTagView } from '../spec'
 import {
   Wrapper,
   InnerWrapper,
@@ -14,7 +14,7 @@ import {
 
 type TProps = {
   tags: TTag[]
-  view: TView
+  view: TTagView
   folder: string
   withDelete?: boolean
   withSelect?: boolean

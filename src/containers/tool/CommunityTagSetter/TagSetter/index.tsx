@@ -6,15 +6,15 @@
 
 import { FC, memo, useState } from 'react'
 
-import type { TTag } from '@/spec'
+// import type { TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import Header from './Header'
-import SearchBox from './SearchBox'
-import List from './List'
+// import SearchBox from './SearchBox'
+import Body from './Body'
 import Footer from './Footer'
 
-import type { TView } from '../spec'
+import type { TTagView } from '../spec'
 import { Wrapper } from '../styles/tag_setter'
 
 /* eslint-disable-next-line */
@@ -26,17 +26,13 @@ export type TProps = {
 }
 
 const Setter: FC<TProps> = () => {
-  const [view, setView] = useState('select') // select or delete or edit or add
+  const [view, setView] = useState<TTagView>('select') // select or delete or edit or add
 
   return (
     <Wrapper>
-      <Header view={view as TView} setView={setView} />
-      {view === 'search' && <SearchBox />}
-      <List
-        view={view as TView}
-        withDelete={view === 'list'}
-        withSelect={view === 'search'}
-      />
+      <Header view={view} setView={setView} />
+      {/* {view === 'search' && <SearchBox />} */}
+      <Body view={view} />
       <Footer />
     </Wrapper>
   )
