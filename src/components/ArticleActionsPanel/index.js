@@ -14,7 +14,6 @@ import { buildLog } from '@/utils/logger'
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'
 import EditOption from './EditOption'
-import CommunitySetterOption from './CommunitySetterOption'
 import DeleteOption from './DeleteOption'
 
 import { Wrapper } from './styles'
@@ -32,7 +31,6 @@ const ArticleActionsPanel = ({
   onUnsetRefined,
   onEdit,
   onDelete,
-  onCommunitySet,
 }) => {
   return (
     <Wrapper>
@@ -56,11 +54,6 @@ const ArticleActionsPanel = ({
         ownerId={data.author?.id}
         onEdit={onEdit}
         thread={thread}
-      />
-
-      <CommunitySetterOption
-        passport={`${thread}.community.set`}
-        onCommunitySet={onCommunitySet}
       />
 
       <DeleteOption
@@ -96,7 +89,6 @@ ArticleActionsPanel.propTypes = {
   onUndoPin: T.func,
   onSetRefined: T.func,
   onUnsetRefined: T.func,
-  onCommunitySet: T.func,
 }
 
 ArticleActionsPanel.defaultProps = {
@@ -107,7 +99,6 @@ ArticleActionsPanel.defaultProps = {
   onUndoPin: log,
   onSetRefined: log,
   onUnsetRefined: log,
-  onCommunitySet: T.func,
 }
 
 export default React.memo(ArticleActionsPanel)

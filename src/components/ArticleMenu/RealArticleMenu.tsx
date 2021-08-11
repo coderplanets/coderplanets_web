@@ -7,14 +7,12 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { buildLog } from '@/utils/logger'
+import { EVENT } from '@/constant'
 
+import { moveToCommunity, mirrorToCommunity, setTag } from '@/utils/helper'
 import MenuButton from '@/components/Buttons/MenuButton'
 
 import { Wrapper, MoreIcon } from './styles'
-
-/* eslint-disable-next-line */
-const log = buildLog('c:ArticleMenu:index')
 
 type TProps = {
   testid?: string
@@ -40,24 +38,43 @@ const extraOptions = [
     title: '删除',
   },
   {
-    key: 'community-mirror',
+    key: EVENT.MIRROR_TO_COMMUNITY,
     icon: `${ICON}/article/community-mirror.svg`,
     title: '镜像到社区',
   },
   {
-    key: 'community-move',
+    key: EVENT.MOVE_TO_COMMUNITY,
     icon: `${ICON}/article/community-move.svg`,
     title: '移动到社区',
   },
 ]
+
+const hendleSelect = (key) => {
+  switch (key) {
+    case EVENT.MOVE_TO_COMMUNITY: {
+      return moveToCommunity()
+    }
+    case EVENT.MIRROR_TO_COMMUNITY: {
+      return mirrorToCommunity()
+    }
+    case EVENT.SET_TAG: {
+      return setTag()
+    }
+    default: {
+      // eslint-disable-next-line no-useless-return
+      return
+    }
+  }
+  // moveToCommunity
+}
 
 const ArticleMenu: FC<TProps> = ({ testid = 'archived-sign' }) => {
   return (
     <MenuButton
       options={menuOptions}
       extraOptions={extraOptions}
-      onClick={console.log}
       placement="bottom-end"
+      onClick={hendleSelect}
     >
       <Wrapper testid={testid}>
         <MoreIcon src={`${ICON}/shape/more.svg`} />

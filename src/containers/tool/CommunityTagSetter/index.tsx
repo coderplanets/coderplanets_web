@@ -18,7 +18,7 @@ import TagSetter from './TagSetter'
 import CommunitySetter from './CommunitySetter'
 
 import { SETTER } from './constant'
-import { useInit } from './logic'
+import { useInit, onClose } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityTagSetter')
@@ -43,7 +43,7 @@ const CommunityTagSetterContainer: FC<TProps> = ({
   } = store
 
   return (
-    <Modal width="500px" show={show} showCloseBtn>
+    <Modal width="500px" show={show} showCloseBtn onClose={onClose}>
       {curSetter === SETTER.COMMUNITY && (
         <CommunitySetter
           view={communityView}

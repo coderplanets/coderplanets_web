@@ -63,7 +63,6 @@ import {
   UserListerStore,
   GirlVerifierStore,
   CashierStore,
-  CommunitySetterStore,
   // user page
   UserPublishedStore,
   UserPublishedCommentsStore,
@@ -151,7 +150,6 @@ import {
 // import RepoEditorStore from '@/containers/editor/RepoEditor/store'
 // import CommentsStore from '@/containers/unit/Comments/store'
 // import AccountEditorStore from '@/containers/editor/AccountEditor/store'
-// import CommunitySetterStore from '@/containers/tool/CommunitySetter/store'
 
 // // viewers store
 // import RepoViewerStore from '@/containers/viewer/RepoViewer/store'
@@ -238,7 +236,6 @@ const rootStore = T.model({
   userLister: T.optional(UserListerStore, {}),
   girlVerifier: T.optional(GirlVerifierStore, {}),
   cashier: T.optional(CashierStore, {}),
-  communitySetter: T.optional(CommunitySetterStore, {}),
   // viewers (for drawer usage)
   repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),

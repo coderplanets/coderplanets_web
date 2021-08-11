@@ -35,8 +35,6 @@ export const onEdit = (thread) => {
   send(EVENT.DRAWER.OPEN, { type, data })
 }
 
-export const onCommunitySet = () => send(EVENT.COMMUNITY_MIRROR)
-
 export const onPin = (thread) => {
   const args = {
     id: store.viewingData.id,

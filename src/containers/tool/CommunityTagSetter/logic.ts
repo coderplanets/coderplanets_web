@@ -3,11 +3,12 @@ import { isEmpty } from 'ramda'
 
 import type { TID } from '@/spec'
 import { debounce, errRescue } from '@/utils/helper'
-import { ERR } from '@/constant'
+import { ERR, EVENT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
 import S from './schema'
+import { SETTER } from './constant'
 import type { TStore } from './store'
 import type { TSetter, TTagView } from './spec'
 
@@ -20,7 +21,10 @@ let store: TStore | undefined
 let sub$ = null
 
 // @ts-ignore
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  // @ts-ignore
+  receive: [EVENT.MOVE_TO_COMMUNITY, EVENT.MIRROR_TO_COMMUNITY, EVENT.SET_TAG],
+})
 
 export const changeTagView = (tagView: TTagView): void => {
   store.mark({ tagView })
@@ -37,6 +41,14 @@ export const communityOnSearch = ({ target: { value } }): void => {
 
 export const toggleCommunity = (id: TID, checked: boolean): void => {
   checked ? store.selectCommunity(id) : store.undoSelectCommunity(id)
+}
+
+export const onClose = () => {
+  store.mark({
+    show: false,
+    communitySearchValue: '',
+    communitiesSearching: false,
+  })
 }
 
 /**
@@ -63,6 +75,26 @@ const DataSolver = [
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: { entries } }) => {
       store.mark({ searchedCommunities: entries, communitiesSearching: false })
+    },
+  },
+  {
+    match: asyncRes(EVENT.MIRROR_TO_COMMUNITY),
+    action: () => {
+      console.log('收到 MIRROR_TO_COMMUNITY')
+      store.mark({ show: true, curSetter: SETTER.COMMUNITY })
+    },
+  },
+  {
+    match: asyncRes(EVENT.MOVE_TO_COMMUNITY),
+    action: () => {
+      console.log('收到 MOVE_TO_COMMUNITY')
+      store.mark({ show: true, curSetter: SETTER.COMMUNITY })
+    },
+  },
+  {
+    match: asyncRes(EVENT.SET_TAG),
+    action: () => {
+      console.log('收到 SET_TAG')
     },
   },
 ]

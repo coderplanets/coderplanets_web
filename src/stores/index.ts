@@ -59,7 +59,6 @@ export { default as PostEditorStore } from '@/containers/editor/PostEditor/store
 export { default as RepoEditorStore } from '@/containers/editor/RepoEditor/store'
 export { default as CommentsStore } from '@/containers/unit/Comments/store'
 export { default as AccountEditorStore } from '@/containers/editor/AccountEditor/store'
-export { default as CommunitySetterStore } from '@/containers/tool/CommunitySetter/store'
 
 // viewers store
 export { default as RepoViewerStore } from '@/containers/viewer/RepoViewer/store'

@@ -162,8 +162,21 @@ export const report = (type: TReportType, data?: TAttInfo): void => {
  * hepler for call the JoinModal Container to show wechatQRCode or mail scriscribe list etc ..
  *
  */
-export const joinUS = (type?: string, data = {}): void =>
+export const joinUS = (type?: string, data = {}): void => {
   send(EVENT.JOIN_US, { type, data })
+}
+
+export const moveToCommunity = (): void => {
+  send(EVENT.MOVE_TO_COMMUNITY, {})
+}
+
+export const mirrorToCommunity = (): void => {
+  send(EVENT.MIRROR_TO_COMMUNITY, {})
+}
+
+export const setTag = (): void => {
+  send(EVENT.SET_TAG, {})
+}
 
 export const errRescue = ({
   type,
