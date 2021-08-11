@@ -1,4 +1,9 @@
-import { TTagView, TCommunityView, TCommunityAction } from './spec'
+import { TTagView, TCommunityView, TCommunityAction, TSetter } from './spec'
+
+export const SETTER = {
+  COMMUNITY: 'community' as TSetter,
+  TAG: 'tag' as TSetter,
+}
 
 export const TAG_VIEW = {
   SELECT: 'select' as TTagView,

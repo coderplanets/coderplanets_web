@@ -9,7 +9,7 @@ import asyncSuit from '@/utils/async'
 
 import S from './schema'
 import type { TStore } from './store'
-import type { TTagView } from './spec'
+import type { TSetter, TTagView } from './spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunityTagSetter')
@@ -24,6 +24,10 @@ const sr71$ = new SR71()
 
 export const changeTagView = (tagView: TTagView): void => {
   store.mark({ tagView })
+}
+
+export const changeSetter = (curSetter: TSetter): void => {
+  store.mark({ curSetter })
 }
 
 export const communityOnSearch = ({ target: { value } }): void => {

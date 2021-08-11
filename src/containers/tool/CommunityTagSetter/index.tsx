@@ -17,7 +17,7 @@ import type { TStore } from './store'
 import TagSetter from './TagSetter'
 import CommunitySetter from './CommunitySetter'
 
-import { Wrapper } from './styles'
+import { SETTER } from './constant'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -33,16 +33,25 @@ const CommunityTagSetterContainer: FC<TProps> = ({
   testid = 'community-tag-setter',
 }) => {
   useInit(store)
-  const { tagView, communitiesList, communityView, communityAction } = store
+  const {
+    show,
+    curSetter,
+    tagView,
+    communitiesList,
+    communityView,
+    communityAction,
+  } = store
 
   return (
-    <Modal width="500px" show showCloseBtn>
-      <CommunitySetter
-        view={communityView}
-        action={communityAction}
-        communitiesList={communitiesList}
-      />
-      {/* <TagSetter view={tagView} /> */}
+    <Modal width="500px" show={show} showCloseBtn>
+      {curSetter === SETTER.COMMUNITY && (
+        <CommunitySetter
+          view={communityView}
+          action={communityAction}
+          communitiesList={communitiesList}
+        />
+      )}
+      {curSetter === SETTER.TAG && <TagSetter view={tagView} />}
     </Modal>
   )
 }

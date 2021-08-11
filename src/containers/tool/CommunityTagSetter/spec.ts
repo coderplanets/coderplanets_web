@@ -1,5 +1,7 @@
 import type { TCommunity } from '@/spec'
 
+export type TSetter = 'community' | 'tag'
+
 export type TTagView =
   | 'select'
   | 'update'

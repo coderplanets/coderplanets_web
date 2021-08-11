@@ -1,15 +1,15 @@
 import { FC, memo } from 'react'
 
-import { Wrapper } from '../styles/tag_setter/footer'
-
 import ArrowButton from '@/components/Buttons/ArrowButton'
 
-// import type { TTagView } from '../spec'
+import { SETTER } from '../constant'
+import { Wrapper } from '../styles/tag_setter/footer'
+import { changeSetter } from '../logic'
 
 const Footer: FC = () => {
   return (
     <Wrapper>
-      <ArrowButton>下一步</ArrowButton>
+      <ArrowButton onClick={() => changeSetter(SETTER.TAG)}>下一步</ArrowButton>
     </Wrapper>
   )
 }
