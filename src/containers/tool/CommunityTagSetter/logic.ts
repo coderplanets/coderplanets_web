@@ -1,17 +1,25 @@
 import { useEffect } from 'react'
-// import { } from 'ramda'
+import { isEmpty } from 'ramda'
 
-import { debounce } from '@/utils/helper'
+import { debounce, errRescue } from '@/utils/helper'
+import { ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
+import asyncSuit from '@/utils/async'
 
-// import S from './schma'
+import S from './schema'
 import type { TStore } from './store'
 import type { TTagView } from './spec'
 
-let store: TStore | undefined
-
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunityTagSetter')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+
+let store: TStore | undefined
+let sub$ = null
+
+// @ts-ignore
+const sr71$ = new SR71()
 
 export const changeTagView = (tagView: TTagView): void => {
   store.mark({ tagView })
@@ -19,13 +27,57 @@ export const changeTagView = (tagView: TTagView): void => {
 
 export const communityOnSearch = ({ target: { value } }): void => {
   store.mark({ communitySearchValue: value })
-  doSearch()
+  doSearchCommunities()
 }
 
-const doSearch = debounce(() => {
-  const { communitySearchValue } = store
-  console.log('do search: ', communitySearchValue)
+/**
+ * search communities by current searchValue in store
+ * @private
+ */
+const doSearchCommunities = debounce(() => {
+  const { communitySearchValue: title } = store
+  const args = { title }
+
+  if (!isEmpty(title)) {
+    store.mark({ communitiesSearching: true })
+  } else {
+    store.mark({ communitiesSearching: false })
+  }
+
+  sr71$.query(S.searchCommunities, args)
 }, 300)
+
+const cancelLoading = () => store.mark({ communitiesSearching: false })
+
+const DataSolver = [
+  {
+    match: asyncRes('searchCommunities'),
+    action: ({ searchCommunities: { entries } }) => {
+      store.mark({ searchedCommunities: entries, communitiesSearching: false })
+    },
+  },
+]
+
+const ErrSolver = [
+  {
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => cancelLoading(),
+  },
+  {
+    match: asyncErr(ERR.TIMEOUT),
+    action: ({ details }) => {
+      errRescue({ type: ERR.TIMEOUT, details, path: 'CommunityTagSetter' })
+      cancelLoading()
+    },
+  },
+  {
+    match: asyncErr(ERR.NETWORK),
+    action: () => {
+      cancelLoading()
+      errRescue({ type: ERR.NETWORK, path: 'CommunityTagSetter' })
+    },
+  },
+]
 
 // ###############################
 // init & uninit handlers
@@ -34,7 +86,13 @@ const doSearch = debounce(() => {
 export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
-    log('useInit: ', store)
-    // return () => store.reset()
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+    return () => {
+      // log('effect uninit')
+      if (!sub$) return
+      // log('===== do uninit')
+      sub$.unsubscribe()
+    }
   }, [_store])
 }

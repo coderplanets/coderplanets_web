@@ -1,25 +1,28 @@
 import { FC, memo } from 'react'
-
-// import type { TTag } from '@/spec'
-import { mockCommunities } from '@/utils/mock'
+import { isEmpty } from 'ramda'
 
 import CustomScroller from '@/components/CustomScroller'
 import NoticeBar from '@/components/NoticeBar'
+import LavaLampLoading from '@/components/Loading/LavaLampLoading'
 
-import type { TCommunityView } from '../spec'
+import type { TCommunitiesList } from '../spec'
 import SearchBox from './SearchBox'
-import CommonUsedCommunities from './CommonUsedCommunities'
+import List from './List'
 
 import { Wrapper, InnerWrapper, NoticeWrapper } from '../styles/tag_setter/body'
 
 type TProps = {
-  view: TCommunityView
-  searchValue: string
+  communitiesList: TCommunitiesList
 }
 
-const Body: FC<TProps> = ({ view, searchValue }) => {
-  const allCommunities = mockCommunities(5)
-
+const Body: FC<TProps> = ({ communitiesList }) => {
+  const {
+    searching,
+    searchValue,
+    searchedCommunities,
+    commonUsedCommunities,
+    selectedCommunities,
+  } = communitiesList
   return (
     <Wrapper>
       <InnerWrapper>
@@ -39,7 +42,18 @@ const Body: FC<TProps> = ({ view, searchValue }) => {
           showShadow={false}
           autoHide={false}
         >
-          <CommonUsedCommunities view={view} communities={allCommunities} />
+          <div>
+            {searching && <LavaLampLoading size="small" />}
+
+            {isEmpty(searchValue) && (
+              <List title="常用社区" communities={commonUsedCommunities} />
+            )}
+            {!searching &&
+              !isEmpty(searchValue) &&
+              !isEmpty(searchedCommunities) && (
+                <List title="找到社区" communities={searchedCommunities} />
+              )}
+          </div>
         </CustomScroller>
       </InnerWrapper>
     </Wrapper>

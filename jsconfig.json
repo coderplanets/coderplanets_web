@@ -13,6 +13,7 @@
       "@/config": ["config"],
       "@/stores/*": ["src/stores/*"],
       "@/model": ["src/stores/SharedModel"],
+      "@/model*": ["src/stores/SharedModel/*"],
       "@/utils": ["utils"],
       "@/utils/*": ["utils/*"],
       "@/schemas": ["src/schemas"],

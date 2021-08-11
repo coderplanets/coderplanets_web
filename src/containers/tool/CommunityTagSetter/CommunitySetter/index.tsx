@@ -13,7 +13,11 @@ import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
 
-import type { TCommunityView, TCommunityAction } from '../spec'
+import type {
+  TCommunityView,
+  TCommunityAction,
+  TCommunitiesList,
+} from '../spec'
 import { Wrapper } from '../styles/tag_setter'
 
 /* eslint-disable-next-line */
@@ -24,14 +28,14 @@ export type TProps = {
   withSetter?: boolean
   view: TCommunityView
   action: TCommunityAction
-  searchValue: string
+  communitiesList: TCommunitiesList
 }
 
-const Setter: FC<TProps> = ({ view, action, searchValue }) => {
+const Setter: FC<TProps> = ({ view, action, communitiesList }) => {
   return (
     <Wrapper>
       <Header view={view} action={action} />
-      <Body view={view} searchValue={searchValue} />
+      <Body communitiesList={communitiesList} />
       <Footer />
     </Wrapper>
   )

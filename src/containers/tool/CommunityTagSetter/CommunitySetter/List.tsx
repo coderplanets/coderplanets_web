@@ -2,29 +2,31 @@ import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
 
-import Community from './Community'
+// import Tooltip from '@/components/Tooltip'
+import CommunityCard from './CommunityCard'
 
-import type { TTagView } from '../spec'
-import { Wrapper, InnerWrapper } from '../styles/tag_setter/group_tags'
+import {
+  Wrapper,
+  InnerWrapper,
+  HintTitle,
+} from '../styles/community_setter/list'
 
 type TProps = {
+  title: string
   communities: TCommunity[]
-  view: TTagView
-  folder: string
-  withDelete?: boolean
-  withSelect?: boolean
 }
 
-const List: FC<TProps> = ({ communities, view }) => {
+const CommunitiesList: FC<TProps> = ({ title, communities }) => {
   return (
     <Wrapper>
+      <HintTitle>{title}</HintTitle>
       <InnerWrapper>
         {communities.map((item) => (
-          <Community key={item.id} item={item} />
+          <CommunityCard key={item.id} item={item} />
         ))}
       </InnerWrapper>
     </Wrapper>
   )
 }
 
-export default memo(List)
+export default memo(CommunitiesList)

@@ -1,3 +1,5 @@
+import type { TCommunity } from '@/spec'
+
 export type TTagView =
   | 'select'
   | 'update'
@@ -9,3 +11,11 @@ export type TCommunityView = 'searching' | 'search-error' | 'result' | 'default'
 export type TCommunityAction = 'mirror' | 'move'
 
 export type TLayout = 'create-works' | 'works' | 'guide-contribute'
+
+export type TCommunitiesList = {
+  searching: boolean
+  searchValue: string
+  selectedCommunities: TCommunity[]
+  searchedCommunities: TCommunity[]
+  commonUsedCommunities: TCommunity[]
+}

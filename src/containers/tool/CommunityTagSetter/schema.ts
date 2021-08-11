@@ -1,23 +1,18 @@
 import { gql } from '@urql/core'
+import { F } from '@/schemas'
 
-const simpleMutation = gql`
-  mutation($id: ID!) {
-    post(id: $id) {
-      id
-    }
-  }
-`
-const simpleQuery = gql`
-  query($filter: filter!) {
-    post(id: $id) {
-      id
+const searchCommunities = gql`
+  query($title: String!) {
+    searchCommunities(title: $title) {
+      entries {
+        ${F.community}
+      }
     }
   }
 `
 
 const schema = {
-  simpleMutation,
-  simpleQuery,
+  searchCommunities,
 }
 
 export default schema

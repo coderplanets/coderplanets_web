@@ -17,8 +17,7 @@ import {
   Raw,
   Digest,
   CheckWrapper,
-} from '../styles/community_setter/community'
-// import { changeTagView } from '../logic'
+} from '../styles/community_setter/community_card'
 
 type TProps = {
   item: TCommunity
