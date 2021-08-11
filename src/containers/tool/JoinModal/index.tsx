@@ -1,0 +1,41 @@
+/*
+ * JoinModal
+ */
+
+import { FC } from 'react'
+
+import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
+
+import Modal from '@/components/Modal'
+
+import Header from './Header'
+import Content from './Content'
+
+import type { TStore } from './store'
+import { Wrapper } from './styles'
+import { useInit, onClose } from './logic'
+
+/* eslint-disable-next-line */
+const log = buildLog('C:JoinModal')
+
+type TProps = {
+  joinModal?: TStore
+}
+
+const JoinModalContainer: FC<TProps> = ({ joinModal: store }) => {
+  useInit(store)
+
+  const { show, activeGroup } = store
+
+  return (
+    <Modal width="600px" show={show} showCloseBtn onClose={onClose}>
+      <Wrapper testid="joinModal">
+        <Header activeGroup={activeGroup} />
+        <Content activeGroup={activeGroup} />
+      </Wrapper>
+    </Modal>
+  )
+}
+
+export default pluggedIn(JoinModalContainer) as FC<TProps>
