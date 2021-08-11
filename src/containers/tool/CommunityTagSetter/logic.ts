@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
-import { isEmpty, filter, reject, uniq } from 'ramda'
+import { isEmpty } from 'ramda'
 
-import { TCommunity, TID } from '@/spec'
+import type { TID } from '@/spec'
 import { debounce, errRescue } from '@/utils/helper'
 import { ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
-import { toJS } from '@/utils/mobx'
 
 import S from './schema'
 import type { TStore } from './store'
@@ -33,30 +32,7 @@ export const communityOnSearch = ({ target: { value } }): void => {
 }
 
 export const toggleCommunity = (id: TID, checked: boolean): void => {
-  checked ? selectCommunity(id) : undoSelectCommunity(id)
-}
-
-const selectCommunity = (id: TID): void => {
-  const { selectableCommunities, selectedCommunities } = store
-  const targetCommunities = filter((c) => c.id === id, selectableCommunities)
-
-  store.mark({
-    selectedCommunities: uniq([
-      ...toJS(selectedCommunities),
-      ...targetCommunities,
-    ]),
-  })
-}
-
-const undoSelectCommunity = (id: TID): void => {
-  const { selectedCommunities } = store
-
-  store.mark({
-    selectedCommunities: reject(
-      (c: TCommunity) => c.id === id,
-      toJS(selectedCommunities),
-    ),
-  })
+  checked ? store.selectCommunity(id) : store.undoSelectCommunity(id)
 }
 
 /**

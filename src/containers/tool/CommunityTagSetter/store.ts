@@ -3,9 +3,9 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values, isEmpty, filter, reject, includes, map, uniq } from 'ramda'
+import { values, filter, reject, includes, map, uniq } from 'ramda'
 
-import type { TCommunity, TRootStore } from '@/spec'
+import type { TID, TCommunity, TRootStore } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 import { mockCommunities } from '@/utils/mock'
@@ -85,6 +85,35 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
     },
   }))
   .actions((self) => ({
+    selectCommunity(id: TID): void {
+      const slf = self as TStore
+      const { selectableCommunities, selectedCommunities } = slf
+
+      const targetCommunities = filter(
+        (c) => c.id === id,
+        selectableCommunities,
+      )
+
+      slf.mark({
+        selectedCommunities: uniq([
+          ...toJS(selectedCommunities),
+          ...targetCommunities,
+        ]),
+      })
+    },
+
+    undoSelectCommunity(id: TID): void {
+      const slf = self as TStore
+      const { selectedCommunities } = slf
+
+      slf.mark({
+        selectedCommunities: reject(
+          (c: TCommunity) => c.id === id,
+          toJS(selectedCommunities),
+        ),
+      })
+    },
+
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
