@@ -17,9 +17,6 @@ import {
 } from './styles/platform'
 import { toPlatform } from './logic'
 
-// 链接分享(包含 md)，
-// Embed, twitter, 微信，微博，facebook, QQ 群，QQ 空间，邮箱
-
 const medias = [
   {
     id: '0',

@@ -1,28 +1,36 @@
 import { useEffect } from 'react'
 
 import { EVENT } from '@/constant'
-import { asyncSuit, buildLog } from '@/utils'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
+
+import type { TStore } from './store'
 
 const { SR71, asyncRes, $solver } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.JOIN_US],
 })
 
-let store = null
+let store: TStore | undefined
 let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:JoinModal')
 
+export const switchGroup = (activeGroup: string): void => {
+  store.mark({ activeGroup })
+}
+
 /**
  * close current modal
  */
-export const onClose = () => store.mark({ show: false })
+export const onClose = (): void => store.mark({ show: false })
 
 const DataResolver = [
   {
     match: asyncRes(EVENT.JOIN_US),
-    action: (data) => {
+    action: () => {
       store.mark({ show: true })
     },
   },
@@ -31,7 +39,7 @@ const DataResolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log(store)
@@ -40,7 +48,7 @@ export const useInit = (_store) => {
     }
 
     return () => {
-      if (!sub$) return false
+      if (!sub$) return
       sr71$.stop()
       sub$.unsubscribe()
       sub$ = null

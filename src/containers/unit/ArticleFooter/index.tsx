@@ -9,6 +9,7 @@ import { FC, useState } from 'react'
 import type { TCopyright } from '@/spec'
 
 import { buildLog } from '@/utils/logger'
+import { joinUS } from '@/utils/helper'
 import { pluggedIn } from '@/utils/mobx'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
@@ -46,7 +47,7 @@ const ArticleFooterContainer: FC<TProps> = ({
   const [copyright, setCopyright] = useState('cc')
 
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testid={testid} onClick={() => joinUS()}>
       <BaseInfo>
         <TagListO items={tags} />
         <CommunityTagSetter />
