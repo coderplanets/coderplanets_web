@@ -52,16 +52,14 @@ const Body: FC<TProps> = ({ view }) => {
               showShadow={false}
               autoHide={false}
             >
-              <div>
-                {tagFolders.map((folder) => (
-                  <GroupTags
-                    key={folder}
-                    view={view}
-                    tags={groupedTags[folder]}
-                    folder={folder}
-                  />
-                ))}
-              </div>
+              {tagFolders.map((folder) => (
+                <GroupTags
+                  key={folder}
+                  view={view}
+                  tags={groupedTags[folder]}
+                  folder={folder}
+                />
+              ))}
             </CustomScroller>
           </InnerWrapper>
         </Wrapper>

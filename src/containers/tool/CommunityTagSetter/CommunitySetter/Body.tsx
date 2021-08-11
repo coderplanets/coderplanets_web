@@ -42,18 +42,25 @@ const Body: FC<TProps> = ({ communitiesList }) => {
           showShadow={false}
           autoHide={false}
         >
-          <div>
-            {searching && <LavaLampLoading size="small" />}
+          {!isEmpty(selectedCommunities) && (
+            <List
+              title="目标社区"
+              communities={selectedCommunities}
+              highlightTitle
+              allChecked
+            />
+          )}
 
-            {isEmpty(searchValue) && (
-              <List title="常用社区" communities={commonUsedCommunities} />
+          {searching && <LavaLampLoading size="small" />}
+
+          {isEmpty(searchValue) && (
+            <List title="常用社区" communities={commonUsedCommunities} />
+          )}
+          {!searching &&
+            !isEmpty(searchValue) &&
+            !isEmpty(searchedCommunities) && (
+              <List title="找到社区" communities={searchedCommunities} />
             )}
-            {!searching &&
-              !isEmpty(searchValue) &&
-              !isEmpty(searchedCommunities) && (
-                <List title="找到社区" communities={searchedCommunities} />
-              )}
-          </div>
         </CustomScroller>
       </InnerWrapper>
     </Wrapper>

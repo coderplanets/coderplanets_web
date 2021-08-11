@@ -82,7 +82,7 @@ const HorizontalScroller: FC<TProps> = ({
             onEnter={handleHideLeftShadow}
             onLeave={handleShowLeftShadow}
           />
-          {children}
+          <div>{children}</div>
           <Waypoint
             horizontal
             onEnter={handleHideRightShadow}

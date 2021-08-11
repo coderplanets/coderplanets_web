@@ -10,9 +10,10 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   flex-wrap: wrap;
 `
-export const HintTitle = styled.div`
+export const HintTitle = styled.div<{ highlight: boolean }>`
   font-size: 13px;
-  color: ${theme('thread.articleDigest')};
+  color: ${({ highlight }) =>
+    highlight ? '#12989B' : theme('thread.articleDigest')};
   margin-bottom: 10px;
   margin-left: 2px;
 `

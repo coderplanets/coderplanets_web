@@ -18,12 +18,14 @@ import {
   Digest,
   CheckWrapper,
 } from '../styles/community_setter/community_card'
+import { toggleCommunity } from '../logic'
 
 type TProps = {
   item: TCommunity
+  checked?: boolean
 }
 
-const Community: FC<TProps> = ({ item }) => {
+const Community: FC<TProps> = ({ item, checked = false }) => {
   return (
     <Wrapper key={item.id}>
       <Logo src={item.logo} noLazy />
@@ -35,7 +37,11 @@ const Community: FC<TProps> = ({ item }) => {
           <SpaceGrow />
 
           <CheckWrapper>
-            <Checker size="small" />
+            <Checker
+              checked={checked}
+              size="small"
+              onChange={(checked) => toggleCommunity(item.id, checked)}
+            />
           </CheckWrapper>
         </Title>
         <Digest>

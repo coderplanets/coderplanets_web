@@ -3,7 +3,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values } from 'ramda'
+import { values, isEmpty, filter, reject, includes, map, uniq } from 'ramda'
 
 import type { TCommunity, TRootStore } from '@/spec'
 import { buildLog } from '@/utils/logger'
@@ -53,9 +53,35 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
         searching: self.communitiesSearching,
         searchValue: self.communitySearchValue,
         selectedCommunities: toJS(self.selectedCommunities),
-        searchedCommunities: toJS(self.searchedCommunities),
-        commonUsedCommunities: toJS(self.commonUsedCommunities),
+        // searchedCommunities: toJS(self.searchedCommunities),
+        searchedCommunities: reject(
+          (c) =>
+            includes(
+              c.id,
+              map((s) => s.id, toJS(self.selectedCommunities)),
+            ),
+          toJS(self.searchedCommunities),
+        ),
+
+        // commonUsedCommunities: toJS(self.commonUsedCommunities),
+        commonUsedCommunities: reject(
+          (c) =>
+            includes(
+              c.id,
+              map((s) => s.id, toJS(self.selectedCommunities)),
+            ),
+          toJS(self.commonUsedCommunities),
+        ),
       }
+    },
+
+    get selectableCommunities(): TCommunity[] {
+      const { commonUsedCommunities, searchedCommunities } = self
+
+      return uniq([
+        ...toJS(searchedCommunities),
+        ...toJS(commonUsedCommunities),
+      ])
     },
   }))
   .actions((self) => ({

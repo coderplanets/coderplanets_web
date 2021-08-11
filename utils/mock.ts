@@ -185,7 +185,7 @@ const communities = [
     id: '1',
     title: '黑洞',
     raw: 'blackhole',
-    desc: '吞噬一切不适合在本站出现的内容',
+    desc: '吞噬一切不适合在本站出现的内容和账号',
     logo: `${ICON}/shape/blackhole.jpeg`,
   },
   {

@@ -13,16 +13,23 @@ import {
 
 type TProps = {
   title: string
+  highlightTitle?: boolean
   communities: TCommunity[]
+  allChecked?: boolean
 }
 
-const CommunitiesList: FC<TProps> = ({ title, communities }) => {
+const CommunitiesList: FC<TProps> = ({
+  title,
+  highlightTitle = false,
+  communities,
+  allChecked = false,
+}) => {
   return (
     <Wrapper>
-      <HintTitle>{title}</HintTitle>
+      <HintTitle highlight={highlightTitle}>{title}</HintTitle>
       <InnerWrapper>
         {communities.map((item) => (
-          <CommunityCard key={item.id} item={item} />
+          <CommunityCard key={item.id} item={item} checked={allChecked} />
         ))}
       </InnerWrapper>
     </Wrapper>
