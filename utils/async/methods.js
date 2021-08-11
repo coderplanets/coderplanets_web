@@ -13,7 +13,7 @@ const doQuery = (query, variables) => {
     .query(query, variables)
     .toPromise()
     .then((res) => {
-      if (res.errors) return formatGraphErrors(res.errors)
+      if (res.error) return formatGraphErrors(res.error)
       return res.data
     })
     .catch((e) => {

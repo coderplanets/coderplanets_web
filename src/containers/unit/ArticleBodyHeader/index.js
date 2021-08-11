@@ -13,7 +13,6 @@ import { THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import CommunitySetter from '@/containers/tool/CommunitySetter'
 import Tooltip from '@/components/Tooltip'
 import ArticleActionsPanel from '@/components/ArticleActionsPanel'
 
@@ -30,7 +29,6 @@ import {
   onSetRefined,
   onUnsetRefined,
   onDelete,
-  onCommunitySet,
   onTagSelect,
   onTagUnselect,
 } from './logic'
@@ -64,7 +62,6 @@ const ArticleBodyHeaderContainer = ({
               onSetRefined={onSetRefined}
               onUnsetRefined={onUnsetRefined}
               onDelete={onDelete}
-              onCommunitySet={onCommunitySet}
             />
           }
           placement="bottom-start"
@@ -74,8 +71,6 @@ const ArticleBodyHeaderContainer = ({
           </div>
         </Tooltip>
       </MoreWrapper>
-
-      <CommunitySetter />
 
       {middle === 'linker' && <Linker addr={data.linkAddr} />}
       <RefinedLabel tags={data.tags} />

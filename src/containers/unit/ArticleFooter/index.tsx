@@ -1,5 +1,3 @@
-//
-
 /*
  *
  * ArticleFooter
@@ -9,12 +7,16 @@
 import { FC, useState } from 'react'
 
 import type { TCopyright } from '@/spec'
+
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import Copyright from '@/components/Copyright'
 
-import TagList from './TagList'
+// import TagList from '@/components/TagList'
+
+import TagListO from './TagList'
 import Actions from './Actions/index'
 import RefersPanel from './Actions/RefersPanel'
 import OperationPanel from './Actions/OperationPanel'
@@ -46,7 +48,8 @@ const ArticleFooterContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <BaseInfo>
-        <TagList items={tags} />
+        <TagListO items={tags} />
+        <CommunityTagSetter />
         <Copyright
           type={copyright as TCopyright}
           mode="readonly"

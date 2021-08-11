@@ -8,12 +8,18 @@ import type { TPost, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
+import { SpaceGrow } from '@/components/Common'
 import ArticleBaseStats from '@/components/ArticleBaseStats'
+import DotDivider from '@/components/DotDivider'
+import ArchivedSign from '@/components/ArchivedSign'
+import ArticleMenu from '@/components/ArticleMenu'
+
 import SubCommunity from './SubCommunity'
 import PublishDate from './PublishDate'
 
 import {
   Main,
+  Header,
   Title,
   AuthorName,
   BottomInfo,
@@ -32,7 +38,13 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
   return (
     <Fragment>
       <Main metric={metric}>
-        <PublishDate insertedAt={article.insertedAt} />
+        <Header>
+          <PublishDate insertedAt={article.insertedAt} />
+          <DotDivider space={8} />
+          <ArchivedSign />
+          <SpaceGrow />
+          <ArticleMenu />
+        </Header>
         <Title>{article.title}</Title>
         <BottomInfo>
           <ArticleBaseStats article={article} />

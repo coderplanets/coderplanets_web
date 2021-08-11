@@ -28,6 +28,7 @@ type TProps = {
   content: string
   timestamp?: string | null
   explainLink?: string | null
+  noBg?: boolean
 }
 
 const NoticeBar: FC<TProps> = ({
@@ -38,9 +39,10 @@ const NoticeBar: FC<TProps> = ({
   content,
   timestamp = null,
   explainLink = null,
+  noBg = false,
 }) => {
   return (
-    <Wrapper testid={testid}>
+    <Wrapper testid={testid} noBg={noBg}>
       <Icon type={type} />
       <Main>
         {user && <UserName>{user.nickname}</UserName>}

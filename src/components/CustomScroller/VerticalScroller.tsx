@@ -82,20 +82,16 @@ const VerticalScroller: FC<TProps> = ({
     scrollbars: { autoHide: autoHide ? 'scroll' : 'never' },
     themeCategory,
     callbacks: {
-      onScroll: debounce(
-        () => {
-          const position = scrollInstance?.scroll().position
-          if (position) {
-            const currentY = position.y
+      onScroll: debounce(() => {
+        const position = scrollInstance?.scroll().position
+        if (position) {
+          const currentY = position.y
 
-            currentY > lastYPosition
-              ? onScrollDirectionChange?.('up')
-              : onScrollDirectionChange?.('down')
-          }
-        },
-        100,
-        true,
-      ),
+          currentY > lastYPosition
+            ? onScrollDirectionChange?.('up')
+            : onScrollDirectionChange?.('down')
+        }
+      }, 100),
       onScrollStart: () => {
         const position = scrollInstance?.scroll().position
         if (position) {
@@ -138,7 +134,7 @@ const VerticalScroller: FC<TProps> = ({
 
       <ScrollWrapper ref={ref}>
         <Waypoint onEnter={handleHideTopShadow} onLeave={handleShowTopShadow} />
-        {children}
+        <div>{children}</div>
         <Waypoint
           onEnter={handleHideBottomShadow}
           onLeave={handleShowBottomShadow}

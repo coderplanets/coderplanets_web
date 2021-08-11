@@ -62,7 +62,6 @@ import {
   UserListerStore,
   GirlVerifierStore,
   CashierStore,
-  CommunitySetterStore,
   // user page
   UserPublishedStore,
   UserPublishedCommentsStore,
@@ -76,6 +75,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  CommunityTagSetterStore,
   CollectionFolderStore,
   ShareStore,
   ArticleContentStore,
@@ -160,7 +160,6 @@ const rootStore = T.model({
   userLister: T.optional(UserListerStore, {}),
   girlVerifier: T.optional(GirlVerifierStore, {}),
   cashier: T.optional(CashierStore, {}),
-  communitySetter: T.optional(CommunitySetterStore, {}),
 
   // viewers (for drawer usage)
   repoViewer: T.optional(RepoViewerStore, {}),
@@ -180,6 +179,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  communityTagSetter: T.optional(CommunityTagSetterStore, {}),
   collectionFolder: T.optional(CollectionFolderStore, {}),
   share: T.optional(ShareStore, {}),
   articleContent: T.optional(ArticleContentStore, {}),

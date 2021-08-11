@@ -162,8 +162,21 @@ export const report = (type: TReportType, data?: TAttInfo): void => {
  * hepler for call the JoinModal Container to show wechatQRCode or mail scriscribe list etc ..
  *
  */
-export const joinUS = (type?: string, data = {}): void =>
+export const joinUS = (type?: string, data = {}): void => {
   send(EVENT.JOIN_US, { type, data })
+}
+
+export const moveToCommunity = (): void => {
+  send(EVENT.MOVE_TO_COMMUNITY, {})
+}
+
+export const mirrorToCommunity = (): void => {
+  send(EVENT.MIRROR_TO_COMMUNITY, {})
+}
+
+export const setTag = (): void => {
+  send(EVENT.SET_TAG, {})
+}
 
 export const errRescue = ({
   type,
@@ -175,27 +188,13 @@ export const errRescue = ({
 
 // errRescue({type: ERR.GRAPHQL, operation: operationName, details: graphQLErrors})
 
-/* eslint-disable */
-export const debounce = (
-  func: Function,
-  wait: number,
-  immediate: boolean,
-): (() => void) => {
-  let timeout
-  return function () {
-    const context = this
-    const args = arguments
-    const later = function () {
-      timeout = null
-      if (!immediate) func.apply(context, args)
-    }
-    const callNow = immediate && !timeout
-    clearTimeout(timeout)
-    timeout = setTimeout(later, wait)
-    if (callNow) func.apply(context, args)
+export const debounce = (fn, ms = 0) => {
+  let timeoutId
+  return function (...args) {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => fn.apply(this, args), ms)
   }
 }
-/* eslint-enable */
 
 /**
  * extract mention format from markdown str into list

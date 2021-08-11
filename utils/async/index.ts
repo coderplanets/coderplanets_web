@@ -20,11 +20,11 @@ const matchResolver = (resolveArray, data) => {
   console.warn('unMatched resovle data: ', data)
 }
 
-const $solver = curry((dataResolver, errResolver, data) =>
+const $solver = curry((dataResolver, errResolver, data) => {
   data.error
     ? matchResolver(errResolver, data)
-    : matchResolver(dataResolver, data),
-)
+    : matchResolver(dataResolver, data)
+})
 
 export default {
   SR71,
