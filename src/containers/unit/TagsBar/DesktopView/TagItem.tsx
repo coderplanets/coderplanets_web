@@ -1,46 +1,42 @@
 import { FC } from 'react'
 
-import { Trans } from '@/utils/i18n'
 import type { TTag } from '@/spec'
+import { cutRest } from '@/utils/helper'
+import { Trans } from '@/utils/i18n'
 
+// import DotDivider from '@/components/DotDivider'
 // import TagCount from './TagCount'
 
 import {
   Wrapper,
   HashWrapper,
   HashSign,
-  TagTitle,
-  // CountInfoWrapper,
+  Tag,
+  Title,
+  RawWrapper,
+  Raw,
 } from '../styles/desktop_view/tag_item'
 
 type TProps = {
   tag: TTag
   active: boolean
   activeid?: string | null
-  inline?: boolean
   onSelect?: (tag?: TTag) => void
 }
 
-const TagItem: FC<TProps> = ({
-  tag,
-  active,
-  activeid,
-  inline = false,
-  onSelect,
-}) => {
+const TagItem: FC<TProps> = ({ tag, active, activeid, onSelect }) => {
   return (
-    <Wrapper $active={active} $inline={inline}>
+    <Wrapper $active={active}>
       <HashWrapper>
-        <HashSign
-          color={tag.color}
-          $active={active}
-          $inline={inline}
-          activeid={activeid}
-        />
+        <HashSign color={tag.color} $active={active} activeid={activeid} />
       </HashWrapper>
-      <TagTitle $active={active} $inline={inline} onClick={() => onSelect(tag)}>
-        {Trans(tag.title)}
-      </TagTitle>
+      <Tag $active={active} color={tag.color} onClick={() => onSelect(tag)}>
+        <Title>{cutRest(Trans(tag.title), 10)}</Title>
+        <RawWrapper $active={active}>
+          {/* <DotDivider radius={2} space={6} /> */}
+          <Raw>{tag.raw}</Raw>
+        </RawWrapper>
+      </Tag>
       {/* <SpaceGrow />
 
       {!inline && (

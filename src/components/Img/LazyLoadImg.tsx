@@ -1,7 +1,6 @@
 import { FC, Fragment, ReactNode, memo, useState } from 'react'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
 
 import { Wrapper, FallbackWrapper } from './styles/lazy_load_image'
 
@@ -24,7 +23,7 @@ const LazyLoadImg: FC<TProps> = ({
   src,
   alt = 'image',
   fallback = null,
-  visibleByDefault = false,
+  visibleByDefault = true,
 }) => {
   const [imgLoaded, setImgLoaded] = useState(false)
 

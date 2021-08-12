@@ -27,6 +27,7 @@ type TProps = Omit<TTagProps, 'view'>
 const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
   useInit(store)
   const { groupedTags, tagsData, activeTagData } = store
+  console.log('# groupedTags -> ', groupedTags)
   const groupsKeys = keys(groupedTags) as string[]
 
   return (
@@ -35,7 +36,7 @@ const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
         <GobackTag
           onSelect={(tag) => {
             onTagSelect(tag)
-            onSelect()
+            onSelect?.()
           }}
         />
       )}
@@ -48,7 +49,7 @@ const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
           activeTag={activeTagData}
           onSelect={(tag) => {
             onTagSelect(tag)
-            onSelect()
+            onSelect?.()
           }}
         />
       ))}

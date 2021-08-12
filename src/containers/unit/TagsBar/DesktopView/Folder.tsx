@@ -82,7 +82,7 @@ const Folder: FC<TProps> = ({
         />
         <Title>{title}</Title>
         {!isFolderOpen && isActiveTagInFolder && (
-          <TagItem tag={activeTag} active inline />
+          <TagItem tag={activeTag} active />
         )}
       </Header>
 
@@ -109,7 +109,7 @@ const Folder: FC<TProps> = ({
               )
             }}
           >
-            <SubTogglePrefixIcon src={`${ICON}/shape/more.svg`} />
+            <SubTogglePrefixIcon src={`${ICON}/shape/more-l.svg`} />
             <SubToggleTitle>
               {curDisplayCount === MAX_DISPLAY_COUNT ? '展开更多' : '收起'}
             </SubToggleTitle>

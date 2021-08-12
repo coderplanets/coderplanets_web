@@ -21,6 +21,7 @@ import {
   PreviewWrapper,
   PreviewText,
   PreviewIcon,
+  ThunderIcon,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -69,7 +70,7 @@ const DigestSentence: FC<TProps> = ({
       </MediaHintWrapper>
       <PreviewWrapper>
         <PreviewText>预览</PreviewText>
-        <PreviewIcon src={`${ICON}/shape/arrow-simple.svg`} />
+        <ThunderIcon />
       </PreviewWrapper>
     </Wrapper>
   )

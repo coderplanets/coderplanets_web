@@ -45,11 +45,19 @@ const purple = {
   bodyBg: contentBg,
   selectionBg: '#839496',
   baseColor: {
-    red: '#a24e3f !important',
-    green: '#699411 !important',
-    pink: '#966475 !important',
+    red: '#ca5f4d',
+    orange: '#ad735c',
+    yellow: '#B0BA6C',
+    green: '#699411',
+    cyan: '#24878C',
+    blue: '#456fbd',
+    purple: '#7d519e',
+
+    grey: '#106d8a',
+    pink: '#b36976',
+
     pinkLite: '#82606b',
-    pinkBtnText: '#ded0d0 !important',
+    pinkBtnText: '#ded0d0',
   },
   header: {
     fg: primaryColor,

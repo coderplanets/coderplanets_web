@@ -12,7 +12,7 @@ type TProps = {
 const GobackTag: FC<TProps> = ({ onSelect }) => {
   return (
     <Wrapper onClick={() => onSelect(emptyTag)}>
-      <TagIcon src={`${ICON}/hash-solid.svg`} />
+      <TagIcon src={`${ICON}/shape/reset.svg`} />
       <TagTitle>全部标签</TagTitle>
     </Wrapper>
   )

@@ -16,6 +16,8 @@ import type {
 
 import { markStates, toJS } from '@/utils/mobx'
 import { groupByKey } from '@/utils/helper'
+import { mockTags } from '@/utils/mock'
+
 import { Tag, emptyTag } from '@/model'
 
 const TagsBar = T.model('TagsBar', {
@@ -35,7 +37,8 @@ const TagsBar = T.model('TagsBar', {
       return root.viewing.activeThread
     },
     get tagsData(): TTag[] {
-      return toJS(self.tags)
+      // return toJS(self.tags)
+      return mockTags(15)
     },
     get activeTagData(): TTag {
       return toJS(self.activeTag) || emptyTag
@@ -43,17 +46,7 @@ const TagsBar = T.model('TagsBar', {
     get groupedTags(): TGroupedTags {
       const { tagsData } = self as TStore
 
-      return groupByKey(
-        tagsData.map((tag) => {
-          if (parseInt(tag.id, 10) < 4) {
-            tag.group = '这是第一组'
-          } else {
-            tag.group = '这是第二组' // '__default__'
-          }
-          return tag
-        }),
-        'group',
-      )
+      return groupByKey(tagsData, 'group')
     },
   }))
   .actions((self) => ({
