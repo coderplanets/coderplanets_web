@@ -20,6 +20,16 @@ type TProps = {
 
 const menuOptions = [
   {
+    key: 'pin',
+    icon: `${ICON}/edit/publish-pen.svg`,
+    title: '置顶',
+  },
+  {
+    key: 'sink',
+    icon: `${ICON}/edit/publish-pen.svg`,
+    title: '下沉',
+  },
+  {
     key: 'edit',
     icon: `${ICON}/edit/publish-pen.svg`,
     title: '编辑',
