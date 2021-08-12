@@ -19,7 +19,6 @@ const UsersThread = T.model('UsersThread', {
   geoInfos: T.optional(T.array(Geo), []),
   geoDataLoading: T.optional(T.boolean, false),
   // { city: '成都', value: 1, long: 104.06, lant: 30.67 }
-  showNums: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get curTheme(): TTheme {

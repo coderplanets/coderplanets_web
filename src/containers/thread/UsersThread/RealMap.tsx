@@ -25,30 +25,22 @@ type TProps = {
   usersThread?: TStore
 }
 
-const UsersThreadContainer: FC<TProps> = ({ usersThread }) => {
+const UsersThreadContainer: FC<TProps> = ({ usersThread: store }) => {
   /* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */
   const [g2ScriptLoaded] = useScript(
     'https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js',
   )
 
-  useInit(usersThread)
+  useInit(store)
   const theme = useTheme()
 
-  const {
-    geoInfosData,
-    geoDataLoading,
-    curCommunity,
-    curTheme,
-    showNums,
-  } = usersThread
-
+  const { geoInfosData, geoDataLoading, curCommunity, curTheme } = store
   const ready = g2ScriptLoaded && !geoDataLoading
 
   return (
     <Fragment>
       {ready && (
         <NumDashboard
-          expand={showNums}
           total={curCommunity.subscribersCount}
           geoData={geoInfosData}
         />

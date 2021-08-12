@@ -7,7 +7,7 @@ import { WIDTH } from '@/utils/css/metric'
 import { BaseWrapper, BaseInnerWrapper, BaseContentWrapper } from './index'
 
 export const Wrapper = styled(BaseWrapper)`
-  ${css.flexColumn('align-both')};
+  ${css.flexColumn('justify-start', 'align-center')};
 `
 export const InnerWrapper = styled(BaseInnerWrapper)`
   ${css.flexColumn()};

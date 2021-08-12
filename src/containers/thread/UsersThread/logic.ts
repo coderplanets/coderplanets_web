@@ -4,7 +4,9 @@ import { ERR } from '@/constant'
 import asyncSuit from '@/utils/async'
 import { errRescue } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+
 import S from './schema'
+import type { TStore } from './store'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UsersThread')
@@ -12,17 +14,14 @@ const log = buildLog('L:UsersThread')
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71()
 
+let store: TStore | undefined
 let sub$ = null
-let store = null
 
-export const loadGeoData = () => {
+export const loadGeoData = (): void => {
   markLoading(true)
   const { id } = store.curCommunity
   sr71$.query(S.communityGeoInfo, { id })
 }
-
-export const ToggleNumBashboard = () =>
-  store.mark({ showNums: !store.showNums })
 
 const markLoading = (maybe = true) => store.mark({ geoDataLoading: maybe })
 // ###############################
@@ -62,7 +61,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore) => {
   useEffect(() => {
     store = _store
 
@@ -70,7 +69,7 @@ export const useInit = (_store) => {
     loadGeoData()
 
     return () => {
-      if (store.geoDataLoading) return false
+      if (store.geoDataLoading) return
       log('===== do uninit')
       sr71$.stop()
       sub$.unsubscribe()
