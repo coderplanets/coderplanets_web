@@ -5,9 +5,10 @@ import uid from '@/utils/uid'
 import { buildLog } from '@/utils/logger'
 
 import { Br } from '@/components/Common'
+import NoticeBar from '@/components/NoticeBar'
 import fetchGeoData from './geo_data'
 
-import { MapWrapper } from './styles'
+import { MapWrapper, RealMap, NoticeWrapper } from './styles'
 
 // TODO import it globaly, g2 is too big to load in time (> 400KB)
 // import G2 from 'g2'
@@ -171,8 +172,11 @@ class LocationMap extends React.Component {
           querySelector={`#${this.chartId}`}
           onResize={(width) => this.onResize(width)}
         />
-        <div id={this.chartId} />
-        <Br bottom={10} />
+        <RealMap id={this.chartId} />
+        <NoticeWrapper>
+          上图显示数据为本站已注册用户在中国境内的分布范围，数据由 IP
+          地址根据第三方地图服务商获得，仅供参考。
+        </NoticeWrapper>
       </MapWrapper>
     )
   }

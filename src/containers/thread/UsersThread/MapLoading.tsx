@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { Wrapper, LoadingIcon, Title, Desc } from './styles/map_loading'
 
-const MapLoading = () => (
+const MapLoading: FC = () => (
   <Wrapper>
     <LoadingIcon src={`${ICON_CMD}/geo_map.svg`} />
     <Title>正在加载, 请稍等</Title>
@@ -11,4 +11,4 @@ const MapLoading = () => (
   </Wrapper>
 )
 
-export default React.memo(MapLoading)
+export default memo(MapLoading)

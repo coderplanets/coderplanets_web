@@ -4,7 +4,7 @@ import { TTabItem } from '@/spec'
 
 const alias = {
   home: {
-    user: 'C友',
+    user: 'CPer',
   },
   javascript: {
     user: 'JSer',
