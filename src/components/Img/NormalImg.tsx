@@ -1,14 +1,33 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react'
-import T from 'prop-types'
+import {
+  FC,
+  memo,
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  ReactNode,
+} from 'react'
 
 import { Image } from './styles'
+
+type TProps = {
+  className?: string
+  src: string
+  alt?: string
+  fallback?: ReactNode | null
+}
 
 /**
  * normal image like .jpg .jpeg .png  etc
  * the fallback is for the image offen block in china, like github avatars
  * fallback 常被用于图片间歇性被墙的情况，比如 github 头像等
  */
-const NormalImg = ({ className, src, alt, fallback }) => {
+const NormalImg: FC<TProps> = ({
+  className = 'img-class',
+  src,
+  alt = 'image',
+  fallback = null,
+}) => {
   const ref = useRef(null)
   const [loadCheck, setLoadCheck] = useState(true)
   const [loadCheck2, setLoadCheck2] = useState(true)
@@ -44,17 +63,4 @@ const NormalImg = ({ className, src, alt, fallback }) => {
   )
 }
 
-NormalImg.propTypes = {
-  src: T.string.isRequired,
-  alt: T.string,
-  className: T.string,
-  fallback: T.oneOfType([T.node, T.instanceOf(null)]),
-}
-
-NormalImg.defaultProps = {
-  alt: 'image',
-  className: 'img-class',
-  fallback: null,
-}
-
-export default React.memo(NormalImg)
+export default memo(NormalImg)

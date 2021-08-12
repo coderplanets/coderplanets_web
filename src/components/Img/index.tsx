@@ -10,6 +10,7 @@ import { buildLog } from '@/utils/logger'
 
 import SvgLoader from './SvgLoader'
 import NormalImg from './NormalImg'
+// import NextImg from './NextImg'
 import LazyLoadImg from './LazyLoadImg'
 
 /* eslint-disable-next-line */
@@ -64,6 +65,12 @@ const Img: FC<IProps> = ({
           fallback={fallback}
         />
       ) : (
+        // <NextImg
+        //   className={className}
+        //   src={src}
+        //   alt={alt}
+        //   fallback={fallback}
+        // />
         <LazyLoadImg
           className={className}
           src={src}
@@ -76,29 +83,5 @@ const Img: FC<IProps> = ({
     </Fragment>
   )
 }
-
-// Img.propTypes = {
-//   src: T.string.isRequired,
-//   alt: T.string,
-//   className: T.string,
-//   loading: T.any,
-//   fallback: T.oneOfType([T.node, T.instanceOf(null)]),
-//   noLazy: T.bool,
-//   scrollPosition: T.any,
-//   // see https://www.npmjs.com/package/react-lazy-load-image-component
-//   visibleByDefault: T.bool,
-//   onClick: T.func,
-// }
-
-// Img.defaultProps = {
-//   alt: 'img',
-//   className: 'img-class',
-//   loading: null,
-//   fallback: null,
-//   noLazy: false,
-//   scrollPosition: null,
-//   visibleByDefault: false,
-//   onClick: log,
-// }
 
 export default memo(Img)

@@ -1,28 +1,37 @@
-import React, { useState } from 'react'
-import T from 'prop-types'
+import { FC, Fragment, ReactNode, memo, useState } from 'react'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
+
 import { Wrapper, FallbackWrapper } from './styles/lazy_load_image'
+
+type TProps = {
+  className?: string
+  src: string
+  alt?: string
+  fallback?: ReactNode | null
+  scrollPosition: any
+  visibleByDefault?: boolean
+}
 
 /**
  * lazy load images like .jpg .jpeg .png  etc
  * the fallback is for the image offen block in china, like github avatars
  * fallback 常被用于图片间歇性被墙的情况，比如 github 头像等
  */
-const LazyLoadImg = ({
-  className,
+const LazyLoadImg: FC<TProps> = ({
+  className = 'img-class',
   src,
-  alt,
-  fallback,
-  scrollPosition,
-  visibleByDefault,
+  alt = 'image',
+  fallback = null,
+  visibleByDefault = false,
 }) => {
   const [imgLoaded, setImgLoaded] = useState(false)
 
   return (
     <Wrapper>
       <FallbackWrapper>
-        {!imgLoaded && <React.Fragment>{fallback}</React.Fragment>}
+        {!imgLoaded && <Fragment>{fallback}</Fragment>}
       </FallbackWrapper>
       <LazyLoadImage
         className={className}
@@ -30,7 +39,7 @@ const LazyLoadImg = ({
         alt={alt}
         // placeholder={<PlaceHolder child={fallback} />}
         effect="blur"
-        scrollPosition={scrollPosition}
+        scrollPosition={null}
         visibleByDefault={visibleByDefault}
         afterLoad={() => setImgLoaded(true)}
       />
@@ -38,20 +47,4 @@ const LazyLoadImg = ({
   )
 }
 
-LazyLoadImg.propTypes = {
-  src: T.string.isRequired,
-  alt: T.string,
-  className: T.string,
-  fallback: T.oneOfType([T.node, T.instanceOf(null)]),
-  scrollPosition: T.any,
-  visibleByDefault: T.bool.isRequired,
-}
-
-LazyLoadImg.defaultProps = {
-  alt: 'image',
-  className: 'img-class',
-  fallback: null,
-  scrollPosition: null,
-}
-
-export default React.memo(LazyLoadImg)
+export default memo(LazyLoadImg)
