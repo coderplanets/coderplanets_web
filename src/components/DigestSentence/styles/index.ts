@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 import type { TTestable, TSpace, TSIZE_SM } from '@/spec'
+
 import Img from '@/Img'
+import ThunderSVG from '@/icons/Thunder'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -66,5 +68,9 @@ export const PreviewIcon = styled(Img)`
 export const PreviewText = styled.span`
   color: ${theme('thread.extraInfo')};
   font-size: 12px;
-  margin-right: 5px;
+`
+export const ThunderIcon = styled(ThunderSVG)`
+  fill: ${theme('thread.extraInfo')};
+  ${css.size(18)};
+  transform: rotate(12deg);
 `
