@@ -10,20 +10,20 @@ import { getActiveColor } from '../metric'
 
 import { TagsWrapper } from './index'
 
-type TTag = TActive & { $inline: boolean }
+type TTag = TActive & { color?: string }
 
 export const Wrapper = styled.div<TTag>`
   ${css.flex('align-center')};
-  margin-left: -3px;
-  padding: ${({ $inline }) => (!$inline ? '4px' : 0)};
+  margin-left: -2px;
+  padding: 4px;
   max-width: 180px;
   border-radius: 5px;
 
-  background: ${({ $active, $inline }) =>
-    !$active || $inline ? 'transparent' : '#0e303d'};
+  background: ${({ $active }) => (!$active ? 'transparent' : '#0e303d')};
 
   &:hover {
-    background: ${({ $inline }) => (!$inline ? '#0e303d' : 'none')};
+    background: #06303b;
+    cursor: pointer;
   }
 `
 export const AllTagIcon = styled(Img)`
@@ -36,41 +36,56 @@ export const HashWrapper = styled.div`
   ${css.size(15)};
   margin-right: 6px;
 `
-type THashSign = TActive & { color: string; activeid: string; $inline: boolean }
+type THashSign = TActive & { color: string; activeid: string }
 export const HashSign = styled(HashTagSVG)<THashSign>`
   fill: ${({ $active, color, activeid }) =>
-    getActiveColor($active, color, activeid)};
-  ${css.size(14)};
-  margin-top: 1px;
-  margin-right: ${({ $inline }) => (!$inline ? '12px' : '3px')};
+    getActiveColor($active, theme(`baseColor.${color}`), activeid)};
+  ${css.size(12)};
+  margin-top: 2px;
+  margin-right: 10px;
   opacity: ${theme('tags.dotOpacity')};
-  filter: saturate(0.5);
 
   ${Wrapper}:hover & {
-    filter: saturate(1);
+    opacity: 0.9;
   }
 
   transform: rotate(18deg);
   transition: filter 0.1s;
 `
-export const TagTitle = styled.div<TTag>`
-  color: ${theme('tags.text')};
-  font-size: ${({ $inline }) => (!$inline ? '14.5px' : '13px')};
-  opacity: 0.9;
-  letter-spacing: 3px;
-  font-weight: ${({ $active }) => ($active ? 'bold' : 'normal')};
-  opacity: ${({ $active }) => ($active ? 1 : 0.9)};
-  /* ${({ $inline }) =>
-    !$inline ? css.cutRest('120px') : css.cutRest('50px')}; */
+export const Tag = styled.div<TTag>`
+  ${css.flex('align-end', 'justify-between')};
+  width: 100%;
+  font-size: 14px;
+  padding-left: 4px;
+  color: ${({ color, $active }) =>
+    !$active ? theme('tags.text') : theme(`baseColor.${color}`)};
 
-  ${css.cutRest('120px')};
+  /* color: ${({ color }) => theme(`baseColor.${color}`)}; */
+
+  ${Wrapper}:hover & {
+    cursor: pointer;
+  }
+
+  transition: all 0.1s;
+`
+export const Title = styled.div`
+  letter-spacing: 1px;
+`
+export const RawWrapper = styled.div<TActive>`
+  ${css.flex('align-center')};
+  opacity: ${({ $active }) => ($active ? 1 : 0)};
 
   ${Wrapper}:hover & {
     cursor: pointer;
     opacity: 1;
   }
-
   transition: all 0.1s;
+`
+export const Raw = styled.div`
+  color: ${theme('tags.text')};
+  font-size: 12px;
+  margin-top: 1px;
+  opacity: 0.8;
 `
 export const CountInfoWrapper = styled.div`
   opacity: 0;

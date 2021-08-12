@@ -41,8 +41,9 @@ export const Content = styled.div<{ isOpen: boolean }>`
 `
 export const SubToggle = styled.div`
   ${css.flex('align-center')};
-  margin-left: 5px;
-  opacity: 0.5;
+  margin-top: 5px;
+  margin-left: 2px;
+  opacity: 0.6;
 
   &:hover {
     opacity: 0.8;
@@ -52,12 +53,11 @@ export const SubToggle = styled.div`
 export const SubToggleTitle = styled.div`
   color: ${theme('tags.text')};
   font-size: 12px;
-  margin-left: 5px;
+  margin-left: 6px;
   padding: 2px;
   border-radius: 5px;
 `
 export const SubTogglePrefixIcon = styled(Img)`
   fill: ${theme('tags.text')};
-  ${css.size(14)};
-  transform: rotate(90deg);
+  ${css.size(13)};
 `

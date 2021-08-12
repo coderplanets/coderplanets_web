@@ -44,11 +44,19 @@ const iconGreen = {
   bodyBg: contentBg,
   selectionBg: 'tomato',
   baseColor: {
-    red: '#ff9d8b !important',
-    green: 'yellowgreen !important',
-    pink: '#f59dba !important',
-    pinkLite: '#ffafc9',
-    pinkBtnText: '#fff !important',
+    red: '#ca5f4d',
+    orange: '#ad735c',
+    yellow: '#B0BA6C',
+    green: '#699411',
+    cyan: '#24878C',
+    blue: '#456fbd',
+    purple: '#7d519e',
+
+    grey: '#106d8a',
+    pink: '#b36976',
+
+    pinkLite: '#82606b',
+    pinkBtnText: '#ded0d0',
   },
   header: {
     fg: descText,
