@@ -7,6 +7,9 @@ import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
+  /* NOTE: the width and height here is a MUST, to hold the icon place, otherwise the width-calc will fail  */
+  width: 20px;
+  height: 15px;
 
   ${css.media.mobile`
     display: none;
@@ -17,7 +20,6 @@ export const Icon = styled(Img)<TActive>`
     active ? theme('tabs.headerActive') : theme('tabs.header')};
 
   ${css.size(15)};
-  margin-right: 5px;
 
   ${css.media.mobile`
     ${css.size(13)};

@@ -57,9 +57,9 @@ const TabItem: FC<TProps> = ({
     setItemWidth?.(index, width)
   }, [setItemWidth, index])
 
-  const handleWrapperClick = useCallback(() => {
-    clickableRef.current.click()
-  }, [clickableRef])
+  const handleWrapperClick = useCallback(() => clickableRef.current.click(), [
+    clickableRef,
+  ])
 
   const handleLabelClick = useCallback(
     (e) => {

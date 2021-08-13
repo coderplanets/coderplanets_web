@@ -290,7 +290,7 @@ const solarizedDark = {
   },
   tabs: {
     headerActive: primaryColor,
-    header: darken(0.1, primaryColor),
+    header: darken(0.05, primaryColor),
     contentBg: '#0F4553',
     headerBg: '#0d3a49',
     headerActiveTop: primaryColor,
