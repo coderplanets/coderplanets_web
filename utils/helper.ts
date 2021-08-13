@@ -2,7 +2,7 @@ import { curry, reduce, keys, sort, uniq, tap } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
-import type { TGQLError, TReportType, TAttInfo } from '@/spec'
+import type { TGQLError, TReportType, TAttInfo, TPaymentUsage } from '@/spec'
 import { TAG_COLOR_ORDER } from '@/config'
 import { EVENT } from '@/constant'
 
@@ -146,6 +146,12 @@ export const send = (msg: string, data = {}): void => {
 export const closeDrawer = (type = ''): void =>
   send(EVENT.DRAWER.CLOSE, { type })
 
+/**
+ * shortcut for call cashier
+ *
+ */
+export const checkout = (amount: number, usage: TPaymentUsage): void =>
+  send(EVENT.CALL_CASHIER, { amount, usage })
 /**
  * share articles
  */

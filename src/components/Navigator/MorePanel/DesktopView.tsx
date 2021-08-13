@@ -23,7 +23,7 @@ const MoreContent: FC = () => {
   return (
     <Wrapper>
       <BodyWrapper>
-        <Entry>
+        {/* <Entry>
           <Main>
             <Logo src={`${ICON}/menu/shop.svg`} />
             <Title>
@@ -31,7 +31,7 @@ const MoreContent: FC = () => {
             </Title>
           </Main>
           <Desc>贴纸/冰箱贴/各种奇奇怪怪。。</Desc>
-        </Entry>
+        </Entry> */}
         <Entry>
           <Main>
             <Logo src={`${ICON}/menu/hot.svg`} />

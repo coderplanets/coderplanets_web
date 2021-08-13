@@ -6,36 +6,37 @@ import { EVENT, ERR } from '@/constant'
 import asyncSuit from '@/utils/async'
 import { errorForHuman } from '@/utils/errors'
 import { Global, send, errRescue } from '@/utils/helper'
-import { lockPage } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
 
+import type { TStore } from './store'
 import S from './schema'
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.CALL_CASHIER],
 })
+
+let store: TStore | undefined
 let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Cashier')
 
-let store = null
-
-export const sidebarViewOnChange = (sidebarView) =>
+export const sidebarViewOnChange = (sidebarView): void =>
   store.mark({ sidebarView, contentView: sidebarView })
 
-export const paymentMethodOnChange = (paymentMethod) =>
+export const paymentMethodOnChange = (paymentMethod): void =>
   store.mark({ paymentMethod })
 
-export const subContentViewOnChange = (subContentView) =>
+export const subContentViewOnChange = (subContentView): void =>
   store.mark({ subContentView })
 
 export const transferAccountChange = ({ target: { value } }) =>
   store.mark({ transferAccount: value })
 
-export const onPaymentConfirm = () => {
+export const onPaymentConfirm = (): void => {
   if (!store.isLogin) return store.authWarning({ hideToast: true })
   if (isEmpty(store.transferAccount)) {
     return store.toastError({ title: '提交失败', msg: '请填写转账信息' })
@@ -53,7 +54,7 @@ export const onPaymentConfirm = () => {
   sr71$.mutate(S.createBill, args)
 }
 
-export const onClose = () => {
+export const onClose = (): void => {
   const confirmed = Global.confirm('若已付款，请确保您填写了账户信息')
 
   if (confirmed) return store.mark({ show: false, subContentView: 'pay' })
@@ -66,9 +67,9 @@ export const onClose = () => {
 const DataSolver = [
   {
     match: asyncRes(EVENT.CALL_CASHIER),
-    action: () => {
-      store.mark({ show: true })
-      lockPage()
+    action: (data) => {
+      const { amount, usage } = data[EVENT.CALL_CASHIER]
+      store.mark({ show: true, amount: String(amount), paymentUsage: usage })
     },
   },
   {
@@ -105,7 +106,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')

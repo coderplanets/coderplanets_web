@@ -59,7 +59,7 @@ export const AliWrapper = styled(OptionWrapper)<TActive>`
   color: ${({ active }) => (active ? '#42abe1' : theme('thread.articleTitle'))};
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
-export const Holder = styled.div<{ margin: string }>`
+export const Holder = styled.div<{ margin?: string }>`
   margin-top: ${({ margin }) => margin || '80px'};
 `
 export const QuestionWrapper = styled.div`

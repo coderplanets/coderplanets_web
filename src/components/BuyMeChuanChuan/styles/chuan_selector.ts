@@ -33,25 +33,27 @@ export const Selectors = styled.div`
   ${css.flex()};
 `
 export const By = styled.div`
-  ${css.flex('align-both')};
-
   ${css.size(40)};
-  font-size: 1.6rem;
-  color: ${theme('font')};
-  margin-left: -10px;
-`
-
-export const Circle = styled.div<TActive>`
   ${css.flex('align-both')};
+
+  font-size: 30px;
+  color: ${theme('thread.articleDigest')};
+  margin-left: -20px;
+  padding-bottom: 8px;
+  transform: scaleY(0.8);
+  opacity: 0.9;
+`
+export const Circle = styled.div<TActive>`
   ${css.circle(38)};
+  ${css.flex('align-both')};
   border: 1px solid;
   border-color: ${theme('font')};
   margin-right: 10px;
-  color: ${({ active }) => (active ? 'white' : '#51abb2')};
+  color: ${({ active }) => (active ? 'white' : theme('thread.articleTitle'))};
   background-color: ${({ active }) => (active ? theme('font') : '')};
   &:hover {
     cursor: pointer;
-    animation: ${animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.3s linear;
   }
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.2s ease-out;
 `

@@ -53,13 +53,13 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
               <LinkItem href="/cps-support/posts" {...linkColors}>
                 来一杯
               </LinkItem>
-              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+              <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
                 活动
               </LinkItem>
-              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+              <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
                 工作
               </LinkItem>
-              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+              <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
                 更多 ..
               </LinkItem>
             </Body>
@@ -88,8 +88,8 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
               <Item as="span" normal>
                 赞助商
               </Item>
-              {/* <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
-                友情链接
+              {/* <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
+                支持我们
               </LinkItem> */}
             </Body>
           </Column>
@@ -149,7 +149,7 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
               <LinkItem href={`${ISSUE_ADDR}`} {...linkColors}>
                 帮助中心
               </LinkItem>
-              <LinkItem href={`${ROUTE.FRIENDS}`} {...linkColors}>
+              <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
                 内容订阅
               </LinkItem>
             </Body>

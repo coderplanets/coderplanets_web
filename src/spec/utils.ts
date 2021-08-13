@@ -93,3 +93,6 @@ export type TTabItem = {
 }
 
 export type TResState = 'LOADING' | 'DONE' | 'EMPTY'
+
+export type TPaymentUsage = 'SENIOR' | 'GirlsCodeTooPlan' | 'DONATE' | 'SPONSOR'
+export type TPaymentMethod = 'ALIPAY' | 'WECHAT'

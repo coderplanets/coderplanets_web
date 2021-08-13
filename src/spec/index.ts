@@ -43,6 +43,8 @@ export type {
   TAttInfo,
   TTabItem,
   TResState,
+  TPaymentUsage,
+  TPaymentMethod,
 } from './utils'
 
 export type { TGQLError } from './graphql'

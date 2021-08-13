@@ -77,7 +77,7 @@ export const WIDTH = {
     CONTENT: '1080px',
   },
 
-  FRIENDS: {
+  SUPPORT_US: {
     PAGE: '1460px',
     CONTENT: '1080px',
   },

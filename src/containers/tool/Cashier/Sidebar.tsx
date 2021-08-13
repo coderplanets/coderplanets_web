@@ -1,18 +1,27 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
-// import { ICON_CMD } from '@/config'
+import { useAccount } from '@/stores/init'
+
 import PaymentSidebar from './PaymentSidebar'
 import QuestionSidebar from './QuestionSidebar'
 
+import type { TProps as TContentProps } from './Content'
+import type { TContentView } from './spec'
 import { Wrapper } from './styles/sidebar'
 
-const Sidebar = ({
-  accountInfo,
+type TProps = Pick<
+  TContentProps,
+  'amount' | 'paymentMethod' | 'subContentView'
+> & { sidebarView: TContentView }
+
+const Sidebar: FC<TProps> = ({
   sidebarView,
   amount,
   paymentMethod,
   subContentView,
 }) => {
+  const accountInfo = useAccount()
+
   switch (sidebarView) {
     case 'question':
       return (
@@ -25,7 +34,6 @@ const Sidebar = ({
       return (
         <Wrapper>
           <PaymentSidebar
-            accountInfo={accountInfo}
             paymentMethod={paymentMethod}
             amount={amount}
             subContentView={subContentView}
@@ -35,4 +43,4 @@ const Sidebar = ({
   }
 }
 
-export default React.memo(Sidebar)
+export default memo(Sidebar)
