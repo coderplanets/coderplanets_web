@@ -1,8 +1,10 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { PAYMENT_METHOD } from '@/constant'
+import { useAccount } from '@/stores/init'
 
+import type { TProps as TContentProps } from './Content'
 import {
   Wrapper,
   TransWrapper,
@@ -25,17 +27,21 @@ import {
 
 import { sidebarViewOnChange, paymentMethodOnChange } from './logic'
 
-const PaymentSidebar = ({
-  accountInfo,
+type TProps = Pick<TContentProps, 'amount' | 'paymentMethod' | 'subContentView'>
+
+const PaymentSidebar: FC<TProps> = ({
   paymentMethod,
   amount,
   subContentView,
 }) => {
-  if (!accountInfo.isLogin) return false
+  const accountInfo = useAccount()
+
+  if (!accountInfo.isLogin) return null
+
   return (
     <Wrapper>
       <TransWrapper>
-        <AccountIcon src={accountInfo.avatar} />
+        <AccountIcon src={accountInfo.user.avatar} />
         <TransIcon src={`${ICON_CMD}/payment_transfer.svg`} />
         <SiteLogo src={`${ICON_CMD}/keyboard_logo.png`} />
       </TransWrapper>
@@ -96,4 +102,4 @@ const PaymentSidebar = ({
   )
 }
 
-export default React.memo(PaymentSidebar)
+export default memo(PaymentSidebar)

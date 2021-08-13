@@ -1,10 +1,11 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_BASE } from '@/config'
 
 // import { ICON_CMD } from '@/config'
 import PaymentConfirm from './PaymentConfirm'
 
+import type { TProps as TContentProps } from './Content'
 import {
   Wrapper,
   CountDesc,
@@ -33,7 +34,12 @@ const QR_CODE_ADDR = {
   },
 }
 
-const PaymentContent = ({
+type TProps = Pick<
+  TContentProps,
+  'amount' | 'transferAccount' | 'paymentMethod' | 'subContentView'
+>
+
+const PaymentContent: FC<TProps> = ({
   amount,
   paymentMethod,
   subContentView,
@@ -65,6 +71,5 @@ const PaymentContent = ({
       )
   }
 }
-// <Button type="primary">下一步</Button>
 
-export default React.memo(PaymentContent)
+export default memo(PaymentContent)

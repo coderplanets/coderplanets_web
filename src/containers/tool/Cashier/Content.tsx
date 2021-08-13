@@ -1,12 +1,21 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 // import { ICON_CMD } from '@/config'
 import PaymentContent from './PaymentContent'
 import QuestionContent from './QuestionContent'
 
+import type { TContentView, TAmount, TSubContentView } from './spec'
 import { Wrapper } from './styles/content'
 
-const Componet = ({
+export type TProps = {
+  contentView: TContentView
+  subContentView: TSubContentView
+  amount: TAmount
+  paymentMethod: string // todo
+  transferAccount: string // TODO
+}
+
+const Componet: FC<TProps> = ({
   contentView,
   amount,
   paymentMethod,
@@ -31,4 +40,4 @@ const Componet = ({
   }
 }
 
-export default React.memo(Componet)
+export default memo(Componet)

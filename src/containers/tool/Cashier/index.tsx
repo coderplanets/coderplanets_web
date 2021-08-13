@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
@@ -13,18 +13,22 @@ import Modal from '@/components/Modal'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
+import type { TStore } from './store'
 import { Wrapper } from './styles'
 import { useInit, onClose } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Cashier')
 
-const CashierContainer = ({ cashier: store }) => {
+type TProps = {
+  cashier?: TStore
+}
+
+const CashierContainer: FC<TProps> = ({ cashier: store }) => {
   useInit(store)
 
   const {
     show,
-    accountInfo,
     sidebarView,
     contentView,
     subContentView,
@@ -37,7 +41,6 @@ const CashierContainer = ({ cashier: store }) => {
     <Modal width="520px" show={show} showCloseBtn onClose={onClose}>
       <Wrapper>
         <Sidebar
-          accountInfo={accountInfo}
           sidebarView={sidebarView}
           subContentView={subContentView}
           paymentMethod={paymentMethod}
@@ -55,4 +58,4 @@ const CashierContainer = ({ cashier: store }) => {
   )
 }
 
-export default pluggedIn(CashierContainer)
+export default pluggedIn(CashierContainer) as FC<TProps>
