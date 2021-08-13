@@ -22,7 +22,7 @@ import HostingCommunityView from './HostingCommunityView'
 
 import type { TStore } from '../store'
 import { Wrapper } from '../styles'
-import { useInit, toggleSponsorHelper, onLogin, onPay } from '../logic'
+import { useInit, toggleSponsorHelper, onLogin } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Footer')
@@ -52,14 +52,6 @@ const FooterContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid} layout={bannerLayout} metric={metric}>
       <JoinModal />
-      {/* <BuyMeChuanChuan
-        show={showSponsor}
-        accountInfo={accountInfo}
-        onClose={toggleSponsorHelper}
-        onLogin={onLogin}
-        onPay={onPay}
-      /> */}
-
       {metric === METRIC.COMMUNITY && (
         <HomeLayout metric={metric} layout={bannerLayout} />
       )}

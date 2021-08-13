@@ -8,6 +8,8 @@ import { FC, memo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { ICON } from '@/config'
 
+import { PAYMENT_USAGE } from '@/constant'
+import { checkout } from '@/utils/helper'
 import {
   Wrapper,
   Block,
@@ -18,6 +20,10 @@ import {
   LinkIcon,
 } from './styles/blocks'
 
+const Cashier = dynamic(() => import('@/containers/tool/Cashier'), {
+  ssr: false,
+})
+
 const BuyMeChuanChuan = dynamic(() => import('@/components/BuyMeChuanChuan'), {
   ssr: false,
 })
@@ -27,10 +33,15 @@ const Blocks = () => {
 
   return (
     <Wrapper>
+      <Cashier />
       <BuyMeChuanChuan
         onClose={() => setShowChuan(false)}
         onLogin={() => console.log('onLogin')}
-        onPay={() => console.log('onPay')}
+        onPay={(amount) => {
+          console.log('onPay: ', amount)
+          setShowChuan(false)
+          checkout(amount, PAYMENT_USAGE.DONATE)
+        }}
         show={showChuan}
       />
 

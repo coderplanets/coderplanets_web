@@ -10,9 +10,10 @@ export const Wrapper = styled.div`
 `
 export const CountDesc = styled.div`
   color: ${theme('thread.articleDigest')};
+  margin-bottom: 10px;
 `
 export const DescNumber = styled.span`
-  color: ${theme('banner.title')};
+  color: #139c9e;
   font-weight: bold;
 `
 export const NextDesc = styled.div`

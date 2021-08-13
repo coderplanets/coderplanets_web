@@ -6,7 +6,6 @@ import { EVENT, ERR } from '@/constant'
 import asyncSuit from '@/utils/async'
 import { errorForHuman } from '@/utils/errors'
 import { Global, send, errRescue } from '@/utils/helper'
-import { lockPage } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
@@ -68,9 +67,9 @@ export const onClose = (): void => {
 const DataSolver = [
   {
     match: asyncRes(EVENT.CALL_CASHIER),
-    action: () => {
-      store.mark({ show: true })
-      lockPage()
+    action: (data) => {
+      const { amount, usage } = data[EVENT.CALL_CASHIER]
+      store.mark({ show: true, amount: String(amount), paymentUsage: usage })
     },
   },
   {

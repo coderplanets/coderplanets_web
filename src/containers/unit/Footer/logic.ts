@@ -23,11 +23,6 @@ export const toggleSponsorHelper = (): void =>
   store.mark({ showSponsor: !store.showSponsor })
 
 export const onLogin = (): void => store.authWarning({ hideToast: true })
-export const onPay = (num: number): void => {
-  if (!store.isLogin) return store.authWarning()
-  store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: num })
-}
-
 export const queryDoraemon = (data): void => send(EVENT.QUERY_DORAMON, { data })
 
 // ###############################

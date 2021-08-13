@@ -61,10 +61,6 @@ const FooterStore = T.model('FooterStore', {
       const root = getParent(self) as TRootStore
       root.authWarning(options)
     },
-    cashierHelper(opt): void {
-      const root = getParent(self) as TRootStore
-      root.cashierHelper(opt)
-    },
     sponsorHepler(): void {
       self.showSponsor = true
     },
