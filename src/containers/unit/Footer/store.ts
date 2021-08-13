@@ -5,7 +5,7 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import type { TRootStore, TAccount, TArticle, TCommunity } from '@/spec'
+import type { TRootStore, TAccount, TC11N, TArticle, TCommunity } from '@/spec'
 import { METRIC } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 
@@ -24,7 +24,10 @@ const FooterStore = T.model('FooterStore', {
       const root = getParent(self) as TRootStore
       return root.accountInfo
     },
-
+    get c11n(): TC11N {
+      const root = getParent(self) as TRootStore
+      return root.account.c11n
+    },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
       return root.viewingArticle

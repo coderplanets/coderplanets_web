@@ -40,20 +40,13 @@ const FooterContainer: FC<TProps> = ({
 }) => {
   useInit(store, metric)
 
-  const {
-    showSponsor,
-    viewingArticle,
-    accountInfo: {
-      customization: { bannerLayout },
-    },
-    // type,
-  } = store
+  const { showSponsor, viewingArticle, c11n } = store
 
   return (
-    <Wrapper testid={testid} layout={bannerLayout} metric={metric}>
+    <Wrapper testid={testid} layout={c11n.bannerLayout} metric={metric}>
       <JoinModal />
       {metric === METRIC.COMMUNITY && (
-        <HomeLayout metric={metric} layout={bannerLayout} />
+        <HomeLayout metric={metric} layout={c11n.bannerLayout} />
       )}
       {metric === METRIC.WORKS_ARTICLE && (
         <WorksArticleLayout viewingArticle={viewingArticle} />
@@ -66,7 +59,7 @@ const FooterContainer: FC<TProps> = ({
       )} */}
       {metric === METRIC.ARTICLE && (
         <ArticleView
-          layout={bannerLayout}
+          layout={c11n.bannerLayout}
           metric={metric}
           viewingArticle={viewingArticle}
         />
