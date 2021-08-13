@@ -45,10 +45,9 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
         </Desc>
         <Br top={20} />
         <Desc>
-          最后，如果你喜欢这里，还请高抬贵指将本社区转发给你身边的开发者朋友、氛围良好的交流群中，非常感谢！
+          最后，如果你喜欢这里，还请高抬贵指将本社区转发给你身边的开发者朋友、氛围良好的交流群中，
+          <FocusDesc>Don’t tell me , tell the world ~</FocusDesc>
         </Desc>
-        <Br top={20} />
-        <FocusDesc>Don’t tell me , tell the world ~</FocusDesc>
       </InnerWrapper>
     </Wrapper>
   )

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric } from '@/spec'
+import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -30,8 +31,22 @@ export const Block = styled.div`
   transition: all 0.1s;
 `
 export const Title = styled.div`
+  ${css.flex('justify-between')}
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
+`
+export const LinkIcon = styled(Img)`
+  ${css.size(18)};
+  margin-top: 5px;
+  fill: ${theme('button.primary')};
+  opacity: 0;
+
+  ${Block}:hover & {
+    opacity: 1;
+  }
+`
+export const MailIcon = styled(LinkIcon)`
+  ${css.size(16)};
 `
 export const Divider = styled.div`
   width: 50px;

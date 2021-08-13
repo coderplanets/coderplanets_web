@@ -40,10 +40,11 @@ export const Desc = styled.div<{ align?: boolean }>`
   color: ${theme('thread.articleDigest')};
   text-align: ${({ align }) => (align ? 'center' : 'left')};
   font-size: 16px;
-  width: 68%;
+  width: 67%;
 `
-export const FocusDesc = styled(Desc)`
+export const FocusDesc = styled.span`
   color: ${theme('thread.articleTitle')};
+  font-size: 16px;
 `
 export const BlocksWrapper = styled.div`
   ${css.flex('align-both')};
