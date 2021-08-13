@@ -5,8 +5,6 @@
  */
 
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
-import { useAccount } from '@/stores/init'
 
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
@@ -24,26 +22,13 @@ import {
   FocusDesc,
 } from './styles'
 
-const BuyMeChuanChuan = dynamic(() => import('@/components/BuyMeChuanChuan'), {
-  ssr: false,
-})
-
 type TProps = {
   metric?: TMetric
 }
 
 const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
-  const accountInfo = useAccount()
-
   return (
     <Wrapper testid="support-us-content">
-      <BuyMeChuanChuan
-        accountInfo={accountInfo}
-        onClose={() => console.log('onClose')}
-        onLogin={() => console.log('onLogin')}
-        onPay={() => console.log('onPay')}
-        show
-      />
       <InnerWrapper metric={metric}>
         <Title>支持我们</Title>
         <Divider />

@@ -4,16 +4,16 @@
  *
  */
 
-import React, { useState } from 'react'
-import T from 'prop-types'
+import { FC, useState, memo } from 'react'
 
 import { ICON_CMD, GITHUB_CPS_TEAM } from '@/config'
 import { buildLog } from '@/utils/logger'
+import { useAccount } from '@/stores/init'
 
 import Modal from '@/components/Modal'
 import UserCell from '@/components/UserCell'
 
-import UnLoginNote from './UnloginNote'
+import UnLoginNote from './UnLoginNote'
 import ChuanSelector from './ChuanSelector'
 import PaymentFooter from './PaymentFooter'
 
@@ -34,7 +34,20 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:Footer:index')
 
-const BuyMeChuanChuan = ({ show, accountInfo, onClose, onLogin, onPay }) => {
+type TProps = {
+  show?: boolean
+  onClose?: () => void
+  onLogin?: () => void
+  onPay?: (m: number) => void
+}
+
+const BuyMeChuanChuan: FC<TProps> = ({
+  show = false,
+  onClose = log,
+  onLogin = log,
+  onPay = log,
+}) => {
+  const accountInfo = useAccount()
   const [activeChuan, setActiveChuan] = useState(1)
 
   return (
@@ -80,26 +93,4 @@ const BuyMeChuanChuan = ({ show, accountInfo, onClose, onLogin, onPay }) => {
   )
 }
 
-BuyMeChuanChuan.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  accountInfo: T.shape({
-    id: T.string,
-    avatar: T.string,
-    nickname: T.string,
-    isLogin: T.bool,
-  }),
-  show: T.bool,
-  onClose: T.func,
-  onLogin: T.func,
-  onPay: T.func,
-}
-
-BuyMeChuanChuan.defaultProps = {
-  accountInfo: {},
-  show: false,
-  onClose: log,
-  onLogin: log,
-  onPay: log,
-}
-
-export default React.memo(BuyMeChuanChuan)
+export default memo(BuyMeChuanChuan)

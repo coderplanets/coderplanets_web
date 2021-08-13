@@ -27,15 +27,6 @@ import { useInit, toggleSponsorHelper, onLogin, onPay } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Footer')
 
-export const BuyMeChuanChuan = dynamic(
-  () => import('@/components/BuyMeChuanChuan'),
-  {
-    /* eslint-disable react/display-name */
-    loading: () => <div />,
-    ssr: false,
-  },
-)
-
 type TProps = {
   footer?: TStore
   metric?: TMetric
@@ -51,7 +42,6 @@ const FooterContainer: FC<TProps> = ({
 
   const {
     showSponsor,
-    accountInfo,
     viewingArticle,
     accountInfo: {
       customization: { bannerLayout },
@@ -62,13 +52,13 @@ const FooterContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid} layout={bannerLayout} metric={metric}>
       <JoinModal />
-      <BuyMeChuanChuan
+      {/* <BuyMeChuanChuan
         show={showSponsor}
         accountInfo={accountInfo}
         onClose={toggleSponsorHelper}
         onLogin={onLogin}
         onPay={onPay}
-      />
+      /> */}
 
       {metric === METRIC.COMMUNITY && (
         <HomeLayout metric={metric} layout={bannerLayout} />

@@ -4,14 +4,28 @@
  *
  */
 
-import { FC, memo } from 'react'
+import { FC, memo, useState } from 'react'
+import dynamic from 'next/dynamic'
 
 import { Wrapper, Block, Title, Divider, Desc } from './styles/blocks'
 
+const BuyMeChuanChuan = dynamic(() => import('@/components/BuyMeChuanChuan'), {
+  ssr: false,
+})
+
 const Blocks = () => {
+  const [showChuan, setShowChuan] = useState(false)
+
   return (
     <Wrapper>
-      <Block>
+      <BuyMeChuanChuan
+        onClose={() => setShowChuan(false)}
+        onLogin={() => console.log('onLogin')}
+        onPay={() => console.log('onPay')}
+        show={showChuan}
+      />
+
+      <Block onClick={() => setShowChuan(true)}>
         <Title>远程撸串</Title>
         <Divider />
         <Desc>你的远程投喂将有助于开发团队在饱腹状态下工作， Cheers!</Desc>

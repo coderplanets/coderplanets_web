@@ -59,7 +59,7 @@ export const getServerSideProps = async (props) => {
   }
 }
 
-const FriendsPage = (props) => {
+const SupportUSPage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {
@@ -77,4 +77,4 @@ const FriendsPage = (props) => {
   )
 }
 
-export default FriendsPage
+export default SupportUSPage
