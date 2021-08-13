@@ -20,21 +20,19 @@ export const Header = styled.div`
   margin-left: 20px;
   margin-bottom: 20px;
 `
-
 export const BuyChuanChuan = styled.div`
   ${css.flex()};
 `
 export const ChuanChuanDesc = styled.div`
   width: 50%;
 `
-
 // source: https://unsplash.com/photos/vzX2rgUbQXM
 export const FoodPic = styled.img`
   width: 80%;
   height: auto;
   display: block;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 10px;
 `
 export const ChuanChuanSelect = styled.div`
   ${css.flexColumn()};
@@ -43,13 +41,12 @@ export const ChuanChuanSelect = styled.div`
 export const SelectTitle = styled.div`
   ${css.flex()};
   margin-left: 5px;
-  color: ${theme('banner.desc')};
-  font-size: 1.2rem;
+  color: ${theme('thread.articleTitle')};
+  font-size: 18px;
 `
 export const TeamName = styled.a`
   ${css.flex()};
-  transition: color 0.3s;
-  color: ${theme('banner.title')};
+  color: ${theme('thread.articleTitle')};
   margin-left: 6px;
   margin-right: 6px;
 
@@ -64,15 +61,13 @@ export const NameLinkIcon = styled(Img)`
   ${css.size(20)};
   padding-top: 3px;
 `
-
 export const SelectDesc = styled.div`
-  margin-top: 5px;
+  margin-top: 15px;
+  margin-bottom: 30px;
   margin-left: 5px;
-  font-size: 0.9rem;
-  margin-bottom: 12px;
-  color: ${theme('banner.desc')};
+  font-size: 14px;
+  color: ${theme('thread.articleDigest')};
 `
-
 export const SelectHolder = styled.div`
   flex-grow: 1;
 `

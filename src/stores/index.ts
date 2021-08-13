@@ -101,7 +101,6 @@ export { default as ArticleFooterStore } from '@/containers/unit/ArticleFooter/s
 export { default as ArticleStickerStore } from '@/containers/tool/ArticleSticker/store'
 export { default as ModeLineMenuStore } from '@/containers/unit/ModeLineMenu/store'
 export { default as ModeLineStore } from '@/containers/unit/ModeLine/store'
-export { default as FriendsContentStore } from '@/containers/content/FriendsContent/store'
 export { default as SubscribeContentStore } from '@/containers/content/SubscribeContent/store'
 export { default as RecipesContentStore } from '@/containers/content/RecipesContent/store'
 export { default as SponsorContentStore } from '@/containers/content/SponsorContent/store'

@@ -16,7 +16,7 @@ const METRIC = {
   RECIPES: 'RECIPES' as TMetric,
   DISCOVERY: 'DISCOVERY' as TMetric,
   SPONSOR: 'SPONSOR' as TMetric,
-  FRIENDS: 'FRIENDS' as TMetric,
+  SUPPORT_US: 'SUPPORT_US' as TMetric,
   SUBSCRIBE: 'SUBSCRIBE' as TMetric,
   MEETUPS: 'MEETUPS' as TMetric,
   MEMBERSHIP: 'MEMBERSHIP' as TMetric,

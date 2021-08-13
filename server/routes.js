@@ -37,9 +37,9 @@ router.route('/sponsor/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/sponsor' })
 })
 
-// 友情链接
-router.route('/friends/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, path: '/friends' })
+// 支持我们
+router.route('/support-us/:slug?').get((req, res) => {
+  return renderAndCache({ req, res, path: '/support-us' })
 })
 
 // 升级账户

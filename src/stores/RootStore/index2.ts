@@ -93,7 +93,6 @@ import {
   ArticleStickerStore,
   ModeLineMenuStore,
   ModeLineStore,
-  FriendsContentStore,
   SubscribeContentStore,
   RecipesContentStore,
   SponsorContentStore,
@@ -191,7 +190,6 @@ import {
 // import ArticleStickerStore from '@/containers/tool/ArticleSticker/store'
 // import ModeLineMenuStore from '@/containers/unit/ModeLineMenu/store'
 // import ModeLineStore from '@/containers/unit/ModeLine/store'
-// import FriendsContentStore from '@/containers/content/FriendsContent/store'
 // import SubscribeContentStore from '@/containers/content/SubscribeContent/store'
 // import RecipesContentStore from '@/containers/content/RecipesContent/store'
 // import SponsorContentStore from '@/containers/content/SponsorContent/store'
@@ -268,7 +266,6 @@ const rootStore = T.model({
   articleSticker: T.optional(ArticleStickerStore, {}),
   modeLineMenu: T.optional(ModeLineMenuStore, {}),
   modeLine: T.optional(ModeLineStore, {}),
-  friendsContent: T.optional(FriendsContentStore, {}),
   subscribeContent: T.optional(SubscribeContentStore, {}),
   recipesContent: T.optional(RecipesContentStore, {}),
   sponsorContent: T.optional(SponsorContentStore, {}),

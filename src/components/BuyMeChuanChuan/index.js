@@ -66,8 +66,7 @@ const BuyMeChuanChuan = ({ show, accountInfo, onClose, onLogin, onPay }) => {
             </SelectTitle>
 
             <SelectDesc>
-              你的资助将主要用于 coderplanets
-              网站的开发和维护，使之更加稳定可靠。开源项目的巨大时间和物质成本无法仅靠情怀支撑，望理解。
+              你的远程投喂将有助于开发团队在饱腹状态下工作， Cheers!
             </SelectDesc>
 
             <ChuanSelector active={activeChuan} onSelect={setActiveChuan} />

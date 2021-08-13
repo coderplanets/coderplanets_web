@@ -8,11 +8,11 @@ import { ROUTE, METRIC } from '@/constant'
 import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 import { P } from '@/schemas'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import FriendsContent from '@/containers/content/FriendsContent'
+import SupportUs from '@/components/SupportUs'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -63,15 +63,15 @@ const FriendsPage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.FRIENDS}`,
-    title: '友情链接 | coderplanets',
-    description: '友情链接',
+    url: `${SITE_URL}/${ROUTE.SUPPORT_US}`,
+    title: '支持我们 | coderplanets',
+    description: '支持我们',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.FRIENDS} seoConfig={seoConfig} noSidebar>
-        <FriendsContent />
+      <GlobalLayout metric={METRIC.SUPPORT_US} seoConfig={seoConfig} noSidebar>
+        <SupportUs />
       </GlobalLayout>
     </Provider>
   )

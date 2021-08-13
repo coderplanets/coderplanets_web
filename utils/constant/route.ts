@@ -22,7 +22,7 @@ const ROUTE = {
   WORKS: 'works',
   TRENDING: 'trending',
   SPONSOR: 'sponsor',
-  FRIENDS: 'friends',
+  SUPPORT_US: 'support-us',
   RECIPES: 'recipes',
   SUBSCRIBE: 'subscribe',
   MEMBERSHIP: 'membership',

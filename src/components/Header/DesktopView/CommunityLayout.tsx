@@ -32,7 +32,7 @@ const hasNoBorder = (metric: TMetric): boolean =>
   contains(metric, [
     METRIC.DISCOVERY,
     METRIC.SPONSOR,
-    METRIC.FRIENDS,
+    METRIC.SUPPORT_US,
     METRIC.SUBSCRIBE,
     METRIC.ARTICLE,
     METRIC.MEMBERSHIP,

@@ -14,7 +14,7 @@ const ChuanSelector = ({ active, onSelect }) => (
     <ChuanChuanIcon src={`${ICON_CMD}/chuanchuan.svg`} />
 
     <Selectors>
-      <By>X</By>
+      <By>x</By>
       <Circle active={active === 1} onClick={() => onSelect(1)}>
         1
       </Circle>
