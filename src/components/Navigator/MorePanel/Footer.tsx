@@ -10,6 +10,7 @@ import {
   Wrapper,
   Entry,
   Logo,
+  SupportLogo,
   Main,
   Title,
   Desc,
@@ -20,14 +21,14 @@ const MoreContent: FC = () => {
   return (
     <Wrapper>
       <Entry>
-        <Link href={`/${ROUTE.SPONSOR}`} passHref>
+        <Link href={`/${ROUTE.SUPPORT_US}`} passHref>
           <Main>
-            <Logo src={`${ICON}/menu/sponsor.svg`} />
-            <Title>赞助与广告</Title>
+            <SupportLogo src={`${ICON}/menu/lifebuoy.png`} noLazy />
+            <Title>支持我们</Title>
           </Main>
         </Link>
-        <Desc>赞助社区，广告投放..</Desc>
-        <Notice>诚邀赞助</Notice>
+        <Desc>帮助我们一起将社区维持下去</Desc>
+        <Notice>Help</Notice>
       </Entry>
       <Entry>
         <Link href={`/${GITHUB}`} passHref>

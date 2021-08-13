@@ -41,10 +41,12 @@ export const Desc = styled.div<{ align?: boolean }>`
   text-align: ${({ align }) => (align ? 'center' : 'left')};
   font-size: 16px;
   width: 67%;
+  line-height: 1.875;
 `
 export const FocusDesc = styled.span`
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
+  line-height: 1.88;
 `
 export const BlocksWrapper = styled.div`
   ${css.flex('align-both')};

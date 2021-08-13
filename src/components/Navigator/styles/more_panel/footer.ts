@@ -12,12 +12,12 @@ export const Wrapper = styled.div`
   min-height: 90px;
   background: #023a48;
   padding: 26px 20px;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 `
 export const Entry = styled.div`
   ${css.flex('align-center')};
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 `
 export const Main = styled.a`
   ${css.flex('align-center')};
@@ -32,6 +32,13 @@ export const Logo = styled(Img)`
     cursor: pointer;
   }
 `
+export const SupportLogo = styled(Img)`
+  ${css.size(19)};
+  cursor: pointer;
+  filter: saturate(0.7);
+  transform: rotate(-18deg);
+`
+
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
@@ -53,7 +60,8 @@ export const Desc = styled.div`
 export const Notice = styled(Wip)`
   background-color: #145b73;
   color: #90b5b7;
-  padding: 0 4px;
+  padding: 1px 6px;
+  border-radius: 7px;
   border: none;
   margin-top: 2px;
 `
