@@ -76,6 +76,7 @@ const Tabs: FC<TProps> = ({
 
   const navRef = useRef(null)
 
+  console.log('--> layout: ', layout)
   // set initial slipbar with of active item
   // 给 slipbar 设置一个初始宽度
   useEffect(() => {
