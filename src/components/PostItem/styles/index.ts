@@ -17,8 +17,8 @@ export const Wrapper = styled.article<TWrapper>`
   position: relative;
   opacity: ${({ entry, activeId, c11n }) => getOpacity(entry, activeId, c11n)};
 
-  padding-top: ${({ c11n }) => (c11n.contentDivider ? '10px' : '6px')};
-  padding-bottom: ${({ c11n }) => (c11n.contentDivider ? '10px' : '6px')};
+  padding-top: ${({ c11n }) => (c11n.contentDivider ? '10px' : '8px')};
+  padding-bottom: ${({ c11n }) => (c11n.contentDivider ? '14px' : '8px')};
   border-bottom: ${({ c11n }) => (c11n.contentDivider ? '1px solid' : '0')};
   border-bottom-color: ${theme('thread.articleDivider')};
 

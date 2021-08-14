@@ -22,6 +22,23 @@ export const Extra = styled.li`
 export const LeftPart = styled.div`
   ${css.flex('align-center')};
 `
+
+export const CommunityLabel = styled.div`
+  padding-left: 14px;
+  position: relative;
+  font-weight: bold;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 4px;
+    width: 6px;
+    height: 10px;
+    border-radius: 4px;
+    background-color: #49a5a0;
+  }
+`
 export const AuthorName = styled.div`
   color: ${theme('thread.extraInfo')};
   font-size: 13px;

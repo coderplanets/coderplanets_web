@@ -50,3 +50,7 @@ export const LinkIcon = styled(Img)`
   ${css.size(12)};
 `
 export const TagListWrapper = styled.div``
+
+export const Participants = styled.div`
+  margin-top: 2px;
+`

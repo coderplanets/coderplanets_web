@@ -16,6 +16,7 @@ import {
   Brief,
   Title,
   TagListWrapper,
+  Participants,
 } from '../../styles/digest_view/header'
 
 type TProps = {
@@ -39,10 +40,12 @@ const Header: FC<TProps> = ({ item }) => {
           <InlineTags data={item.tags} />
         </TagListWrapper>
       </Brief>
-      <AvatarsRow
-        users={item.commentsParticipators}
-        total={item.commentsCount}
-      />
+      <Participants>
+        <AvatarsRow
+          users={item.commentsParticipators}
+          total={item.commentsCount}
+        />
+      </Participants>
     </Wrapper>
   )
 }

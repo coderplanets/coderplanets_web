@@ -11,7 +11,7 @@ export const Wrapper = styled.div<{ hasComments: boolean }>`
   top: 6px;
   right: 0;
   color: ${theme('thread.articleTitle')};
-  margin-right: 6px;
+  margin-right: 1px;
   margin-top: 8px;
 
   ${Main}:hover & {
