@@ -15,6 +15,8 @@ import { Space } from '@/components/Common'
 
 import {
   Wrapper,
+  // Text,
+  HintWrapper,
   MediaHintWrapper,
   HintIcon,
   HintText,
@@ -60,18 +62,20 @@ const DigestSentence: FC<TProps> = ({
     >
       {children}
       <Space left={8} />
-      <MediaHintWrapper>
-        <HintIcon src={`${ICON}/shape/image.svg`} />
-        <HintText>3</HintText>
-      </MediaHintWrapper>
-      <MediaHintWrapper>
-        <HintIcon src={`${ICON}/shape/video.svg`} />
-        <HintText>1</HintText>
-      </MediaHintWrapper>
-      <PreviewWrapper>
-        <PreviewText>预览</PreviewText>
-        <ThunderIcon />
-      </PreviewWrapper>
+      <HintWrapper>
+        <MediaHintWrapper>
+          <HintIcon src={`${ICON}/shape/image.svg`} />
+          <HintText>3</HintText>
+        </MediaHintWrapper>
+        <MediaHintWrapper>
+          <HintIcon src={`${ICON}/shape/video.svg`} />
+          <HintText>1</HintText>
+        </MediaHintWrapper>
+        <PreviewWrapper>
+          <PreviewText>预览</PreviewText>
+          <ThunderIcon />
+        </PreviewWrapper>
+      </HintWrapper>
     </Wrapper>
   )
 }

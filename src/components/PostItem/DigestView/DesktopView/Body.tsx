@@ -52,7 +52,7 @@ const Body: FC<TProps> = ({ item }) => {
         right={140}
         onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}
       >
-        {cutRest(item.digest, 90)}
+        {cutRest(`${item.digest}`, 70)}
       </DigestSentence>
     </Wrapper>
   )

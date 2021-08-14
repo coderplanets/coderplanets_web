@@ -28,6 +28,23 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 
   transition: color 0.2s;
 `
+// export const Text = styled.div`
+//   display: -webkit-box;
+//   -webkit-line-clamp: 2;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   -webkit-box-orient: vertical;
+//   border: 1px solid;
+
+//   &:after {
+//     content: '';
+//     margin-right: 20px;
+//   }
+// `
+
+export const HintWrapper = styled.div`
+  display: inline;
+`
 export const MediaHintWrapper = styled.div`
   position: relative;
   margin-left: 5px;
@@ -48,7 +65,6 @@ export const HintText = styled.div`
   margin-right: 5px;
   padding-left: 17px;
 `
-
 export const PreviewWrapper = styled.div`
   display: inline-flex;
   opacity: 0;
@@ -56,9 +72,9 @@ export const PreviewWrapper = styled.div`
   align-items: center;
 
   ${Wrapper}:hover & {
-    opacity: 0.6;
+    opacity: 0.8;
   }
-  transition: opacity 0.25s;
+  transition: opacity 0.2s;
 `
 export const PreviewIcon = styled(Img)`
   fill: ${theme('thread.extraInfo')};

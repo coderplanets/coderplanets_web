@@ -10,7 +10,7 @@ export const Wrapper = styled.div<{ hasComments: boolean }>`
   position: absolute;
   top: 6px;
   right: 0;
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.articleTitle')};
   margin-right: 6px;
   margin-top: 8px;
 

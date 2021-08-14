@@ -22,14 +22,13 @@ type TProps = {
 
 const RealAvatar: FC<TProps> = ({ user, size, onUserSelect }) => {
   return (
-    <Tooltip
-      content={<UserPopContent>{user.nickname}</UserPopContent>}
-      delay={0}
-      contentHeight={getAvatarSize(size, 'number') as string}
-      showArrow={false}
-      noPadding
-    >
-      <Wrapper key={user.id} size={size}>
+    <Wrapper size={size}>
+      <Tooltip
+        content={<UserPopContent>{user.nickname}</UserPopContent>}
+        delay={0}
+        contentHeight={getAvatarSize(size, 'number') as string}
+        noPadding
+      >
         <AvatarsImg
           src={user.avatar}
           size={size}
@@ -42,8 +41,8 @@ const RealAvatar: FC<TProps> = ({ user, size, onUserSelect }) => {
             />
           }
         />
-      </Wrapper>
-    </Tooltip>
+      </Tooltip>
+    </Wrapper>
   )
 }
 

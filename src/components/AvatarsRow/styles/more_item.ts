@@ -11,7 +11,7 @@ const BaseAvatarItem = styled.li<{ size: string }>`
   padding: 0px 0px 0px 0px;
   position: relative;
   width: ${({ size }) => getAvatarSize(size)};
-  opacity: 0.75;
+  opacity: 1;
   z-index: 1;
   &:hover {
     opacity: 1;
