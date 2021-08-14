@@ -18,6 +18,7 @@ import {
   Extra,
   LeftPart,
   CommunityLabel,
+  LabelDivider,
   AuthorName,
   ItemWrapper,
   ViewsIcon,
@@ -33,9 +34,9 @@ const Body: FC<TProps> = ({ item }) => {
       <Extra>
         <LeftPart>
           <CommunityLabel>Elixir</CommunityLabel>
-          <Dot radius={3} space={8} />
+          <LabelDivider />
           <AuthorName>{item.author.nickname}</AuthorName>
-          <Dot radius={3} space={8} />
+          <Dot radius={3} space={10} />
           <PublishTime>
             <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
           </PublishTime>

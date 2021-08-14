@@ -32,12 +32,20 @@ export const CommunityLabel = styled.div`
     content: '';
     position: absolute;
     left: 1px;
-    top: 4px;
+    top: 3px;
     width: 6px;
-    height: 10px;
+    height: 11px;
     border-radius: 4px;
     background-color: #49a5a0;
   }
+`
+export const LabelDivider = styled.div`
+  width: 1px;
+  height: 8px;
+  margin-left: 10px;
+  margin-right: 12px;
+  background-color: #49a5a0;
+  transform: rotate(12deg);
 `
 export const AuthorName = styled.div`
   color: ${theme('thread.extraInfo')};
