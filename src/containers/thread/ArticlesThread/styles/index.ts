@@ -20,7 +20,7 @@ export const MainWrapper = styled.div`
 `
 export const FilterWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   ${css.media.mobile`margin-bottom: 4px;`};
-  margin-left: -5px;
+  margin-left: -3px;
 `

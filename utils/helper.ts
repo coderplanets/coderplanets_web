@@ -358,3 +358,29 @@ export const titleCase = (str: string): string => {
     return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase()
   })
 }
+
+type TShareParam = {
+  url?: string
+  title?: string
+  text?: string
+  subject?: string
+  body?: string
+  u?: string
+  href?: string
+  name?: string
+}
+export const openShareWindow = (
+  platformUrl: string,
+  param: TShareParam,
+): void => {
+  const safeParam = []
+
+  /* eslint-disable */
+  for (const i in param) {
+    safeParam.push(`${i}=${encodeURIComponent(param[i] || '')}`)
+  }
+  /* eslint-enable */
+  const targetUrl = `${platformUrl}?${safeParam.join('&')}`
+
+  Global.open(targetUrl, '_blank', 'height=500, width=600')
+}
