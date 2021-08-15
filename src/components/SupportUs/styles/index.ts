@@ -29,6 +29,7 @@ export const SupportLogo = styled(Img)`
   ${css.size(28)};
   transform: rotate(-12deg);
   margin-right: 15px;
+  filter: saturate(0.7);
 `
 export const Title = styled.h1`
   ${css.flex('align-center')};
@@ -42,6 +43,7 @@ export const Divider = styled.div`
   background-color: ${theme('thread.articleDigest')};
   margin-top: 18px;
   margin-bottom: 30px;
+  margin-left: 5px;
   opacity: 0.6;
 `
 export const Desc = styled.div<{ align?: boolean }>`
@@ -50,6 +52,9 @@ export const Desc = styled.div<{ align?: boolean }>`
   font-size: 16px;
   width: 67%;
   line-height: 1.875;
+`
+export const MainDesc = styled(Desc)`
+  text-indent: 32px;
 `
 export const FocusDesc = styled.div`
   color: ${theme('thread.articleTitle')};
