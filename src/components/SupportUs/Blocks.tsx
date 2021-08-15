@@ -10,9 +10,13 @@ import { ICON } from '@/config'
 
 import { PAYMENT_USAGE } from '@/constant'
 import { checkout } from '@/utils/helper'
+
+import { SpaceGrow } from '@/components/Common'
+
 import {
   Wrapper,
   Block,
+  Icon,
   Title,
   Divider,
   Desc,
@@ -46,13 +50,20 @@ const Blocks = () => {
       />
 
       <Block onClick={() => setShowChuan(true)}>
-        <Title>远程撸串</Title>
+        <Title>
+          <Icon src={`${ICON}/menu/feed.svg`} />
+          远程撸串
+          <SpaceGrow />
+        </Title>
+
         <Divider />
         <Desc>你的远程投喂将有助于开发团队在饱腹状态下工作， Cheers!</Desc>
       </Block>
       <Block>
         <Title>
+          <Icon src={`${ICON}/menu/vip.svg`} />
           成为会员
+          <SpaceGrow />
           <LinkIcon src={`${ICON}/shape/link.svg`} />
         </Title>
         <Divider />
@@ -62,7 +73,9 @@ const Blocks = () => {
       </Block>
       <Block>
         <Title>
+          <Icon src={`${ICON}/menu/sponsor.svg`} />
           团队赞助
+          <SpaceGrow />
           <MailIcon src={`${ICON}/subscribe/email-solid.svg`} />
         </Title>
         <Divider />
@@ -72,7 +85,9 @@ const Blocks = () => {
       </Block>
       <Block>
         <Title>
+          <Icon src={`${ICON}/menu/volunteer.svg`} />
           成为志愿者
+          <SpaceGrow />
           <LinkIcon src={`${ICON}/shape/link.svg`} />
         </Title>
         <Divider />
@@ -82,7 +97,9 @@ const Blocks = () => {
       </Block>
       <Block>
         <Title>
+          <Icon src={`${ICON}/social/github.svg`} />
           参与开发
+          <SpaceGrow />
           <LinkIcon src={`${ICON}/shape/link.svg`} />
         </Title>
         <Divider />

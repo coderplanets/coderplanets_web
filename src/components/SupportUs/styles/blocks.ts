@@ -30,14 +30,18 @@ export const Block = styled.div`
 
   transition: all 0.1s;
 `
+export const Icon = styled(Img)`
+  ${css.size(16)};
+  margin-right: 10px;
+  fill: ${theme('thread.articleDigest')};
+`
 export const Title = styled.div`
-  ${css.flex('justify-between')}
+  ${css.flex('justify-between', 'align-center')}
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
 `
 export const LinkIcon = styled(Img)`
   ${css.size(18)};
-  margin-top: 5px;
   fill: ${theme('button.primary')};
   opacity: 0;
 
@@ -49,9 +53,9 @@ export const MailIcon = styled(LinkIcon)`
   ${css.size(16)};
 `
 export const Divider = styled.div`
-  width: 50px;
+  width: 100%;
   height: 2px;
-  background-color: ${theme('thread.articleDigest')};
+  background-color: #004b5d;
   margin-top: 10px;
   margin-bottom: 15px;
   opacity: 0.6;
