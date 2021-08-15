@@ -25,7 +25,7 @@ const items = [
   },
   {
     icon: `${ICON}/route/cool-guide.svg`,
-    title: '酷导游',
+    title: '酷导航',
     desc: '发现有意思的东西',
     href: `/${ROUTE.DISCOVERY}`,
     raw: 12,

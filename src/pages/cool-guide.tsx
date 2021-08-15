@@ -13,7 +13,7 @@ import CoolGuideContent from '@/containers/content/CoolGuideContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -65,7 +65,7 @@ const CoolGuidePage = (props) => {
 
   const seoConfig = {
     url: `${SITE_URL}/${ROUTE.COOL_GUIDE}`,
-    title: '酷导游 | coderplanets',
+    title: '酷导航 | coderplanets',
     description: 'IT导航界的特斯拉',
   }
 

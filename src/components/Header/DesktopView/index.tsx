@@ -5,7 +5,7 @@ import { METRIC } from '@/constant'
 import type { TProps } from '../index'
 import CommunityLayout from './CommunityLayout'
 import ArticleLayout from './ArticleLayout'
-import WorksLayout from './WorksLayout'
+import NormalLayout from './NormalLayout'
 // import ArticleEditorView from './ArticleEditorView'
 
 const DesktopView: FC<TProps> = (props) => {
@@ -17,14 +17,11 @@ const DesktopView: FC<TProps> = (props) => {
     case METRIC.WORKS_ARTICLE: {
       return <ArticleLayout {...props} />
     }
-    case METRIC.WORKS: {
-      return <WorksLayout {...props} />
-    }
-    // case METRIC.ARTICLE_EDITOR: {
-    //   return <ArticleEditorView metric={metric} />
-    // }
-    default: {
+    case METRIC.COMMUNITY: {
       return <CommunityLayout {...props} />
+    }
+    default: {
+      return <NormalLayout {...props} />
     }
   }
 }

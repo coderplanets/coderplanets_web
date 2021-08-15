@@ -19,7 +19,7 @@ import {
   Wrapper,
   InnerWrapper,
   RouterWrapper,
-} from '../styles/desktop_view/works_layout'
+} from '../styles/desktop_view/normal_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
@@ -40,7 +40,7 @@ const hasNoBorder = (metric: TMetric): boolean =>
     METRIC.HELP_CENTER,
   ])
 
-const WorksHeader: FC<TProps> = ({ metric, c11n, community }) => {
+const NormalHeader: FC<TProps> = ({ metric, c11n, community }) => {
   return (
     <Wrapper
       id="whereCallShowDoraemon"
@@ -61,4 +61,4 @@ const WorksHeader: FC<TProps> = ({ metric, c11n, community }) => {
   )
 }
 
-export default WorksHeader
+export default NormalHeader

@@ -62,7 +62,7 @@ router.route('/meetups/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/meetups' })
 })
 
-// 酷导游
+// 酷导航
 router.route('/cool-guide/:slug?').get((req, res) => {
   return renderAndCache({ req, res, path: '/cool-guide' })
 })
