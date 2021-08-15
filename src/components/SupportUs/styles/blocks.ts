@@ -35,6 +35,9 @@ export const Icon = styled(Img)`
   margin-right: 10px;
   fill: ${theme('thread.articleDigest')};
 `
+export const FeedIcon = styled(Icon)`
+  transform: rotate(-30deg);
+`
 export const Title = styled.div`
   ${css.flex('justify-between', 'align-center')}
   color: ${theme('thread.articleTitle')};
@@ -58,9 +61,10 @@ export const Divider = styled.div`
   background-color: #004b5d;
   margin-top: 10px;
   margin-bottom: 15px;
-  opacity: 0.6;
+  opacity: 0.5;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
+  line-height: 1.85;
 `

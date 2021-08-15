@@ -79,7 +79,7 @@ const BuyMeChuanChuan: FC<TProps> = ({
             </SelectTitle>
 
             <SelectDesc>
-              你的远程投喂将有助于开发团队在饱腹状态下工作， Cheers!
+              你的远程投喂将有助于开发团队在饱腹状态下工作， 冲!
             </SelectDesc>
 
             <ChuanSelector active={activeChuan} onSelect={setActiveChuan} />

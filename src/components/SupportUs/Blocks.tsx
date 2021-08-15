@@ -17,6 +17,7 @@ import {
   Wrapper,
   Block,
   Icon,
+  FeedIcon,
   Title,
   Divider,
   Desc,
@@ -51,13 +52,13 @@ const Blocks = () => {
 
       <Block onClick={() => setShowChuan(true)}>
         <Title>
-          <Icon src={`${ICON}/menu/feed.svg`} />
+          <FeedIcon src={`${ICON}/menu/feed.svg`} />
           远程撸串
           <SpaceGrow />
         </Title>
 
         <Divider />
-        <Desc>你的远程投喂将有助于开发团队在饱腹状态下工作， Cheers!</Desc>
+        <Desc>你的远程投喂将有助于开发团队在饱腹状态下工作， 冲！</Desc>
       </Block>
       <Block>
         <Title>
@@ -68,7 +69,7 @@ const Blocks = () => {
         </Title>
         <Divider />
         <Desc>
-          成为 CP 付费会员，持续支持社区发展，同时解锁最优质的体验和服务。
+          成为 CP 付费会员，解锁本站最高质量的体验和服务，同时支持社区持续发展。
         </Desc>
       </Block>
       <Block>
@@ -80,7 +81,7 @@ const Blocks = () => {
         </Title>
         <Divider />
         <Desc>
-          你的团队推广将出现在本项目的 Github 主页以及本站的特别感谢中。
+          你的团队链接将永久出现在本项目的 Github 主页以及本站的特别感谢中。
         </Desc>
       </Block>
       <Block>

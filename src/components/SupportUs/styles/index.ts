@@ -28,7 +28,7 @@ export const ContentWrapper = styled.div`
 export const SupportLogo = styled(Img)`
   ${css.size(28)};
   transform: rotate(-12deg);
-  margin-right: 15px;
+  margin-right: 12px;
   filter: saturate(0.7);
 `
 export const Title = styled.h1`
@@ -67,7 +67,7 @@ export const SocialWrapper = styled.div`
   ${css.flex('align-center')};
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: -15px;
+  margin-left: -12px;
 `
 export const SocialIcon = styled(Img)`
   ${css.size(24)};
