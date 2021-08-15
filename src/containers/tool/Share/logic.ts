@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import asyncSuit from '@/utils/async'
+import { openShareWindow } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { EVENT } from '@/constant'
 import { SHARE_TYPE } from './constant'
@@ -20,29 +21,6 @@ let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Share')
-
-type TShareParam = {
-  url?: string
-  title?: string
-  text?: string
-  subject?: string
-  body?: string
-  u?: string
-  href?: string
-  name?: string
-}
-const openShareWindow = (platformUrl: string, param: TShareParam): void => {
-  const safeParam = []
-
-  /* eslint-disable */
-  for (const i in param) {
-    safeParam.push(`${i}=${encodeURIComponent(param[i] || '')}`)
-  }
-  /* eslint-enable */
-  const targetUrl = `${platformUrl}?${safeParam.join('&')}`
-
-  window.open(targetUrl, '_blank', 'height=500, width=600')
-}
 
 export const toPlatform = (type: string): void => {
   const { shareData } = store

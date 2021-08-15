@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric } from '@/spec'
+
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import Img from '@/Img'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -23,17 +25,25 @@ export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
   max-width: 100%;
 `
+export const SupportLogo = styled(Img)`
+  ${css.size(28)};
+  transform: rotate(-12deg);
+  margin-right: 12px;
+  filter: saturate(0.7);
+`
 export const Title = styled.h1`
+  ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 24px;
   margin-top: 8%;
 `
 export const Divider = styled.div`
-  width: 80px;
+  width: 120px;
   height: 1px;
   background-color: ${theme('thread.articleDigest')};
   margin-top: 18px;
   margin-bottom: 30px;
+  margin-left: 5px;
   opacity: 0.6;
 `
 export const Desc = styled.div<{ align?: boolean }>`
@@ -43,24 +53,29 @@ export const Desc = styled.div<{ align?: boolean }>`
   width: 67%;
   line-height: 1.875;
 `
-export const FocusDesc = styled.span`
+export const MainDesc = styled(Desc)`
+  text-indent: 32px;
+`
+export const FocusDesc = styled.div`
   color: ${theme('thread.articleTitle')};
+  text-align: center;
+  padding-right: 20px;
   font-size: 16px;
   line-height: 1.88;
 `
-export const BlocksWrapper = styled.div`
-  ${css.flex('align-both')};
-  flex-wrap: wrap;
-  margin-left: 10px;
+export const SocialWrapper = styled.div`
+  ${css.flex('align-center')};
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: -12px;
 `
-export const Block = styled.div`
-  width: 300px;
-  height: 150px;
-  border: 1px solid;
-  border-color: #004b5e;
-  margin-right: 20px;
-  background: #0d3b49;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  padding: 15px;
+export const SocialIcon = styled(Img)`
+  ${css.size(24)};
+  margin-right: 15px;
+  filter: saturate(0.4);
+
+  &:hover {
+    filter: saturate(0.9);
+    cursor: pointer;
+  }
 `

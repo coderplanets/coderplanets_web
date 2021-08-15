@@ -38,7 +38,7 @@ const Img: FC<IProps> = ({
   noLazy = false,
   scrollPosition = null,
   visibleByDefault = false,
-  onClick,
+  onClick = log,
 }) => {
   if (/\.(svg)$/i.test(src)) {
     // see solution in:
@@ -56,7 +56,7 @@ const Img: FC<IProps> = ({
     )
   }
   return (
-    <Fragment>
+    <div onClick={onClick}>
       {noLazy ? (
         <NormalImg
           className={className}
@@ -80,7 +80,7 @@ const Img: FC<IProps> = ({
           visibleByDefault={visibleByDefault}
         />
       )}
-    </Fragment>
+    </div>
   )
 }
 
