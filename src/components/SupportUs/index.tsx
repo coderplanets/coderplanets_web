@@ -10,7 +10,7 @@ import QRCode from 'qrcode-react'
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
 import { METRIC } from '@/constant'
-import { openShareWindow } from '@/utils/helper'
+import { openShareWindow, Global } from '@/utils/helper'
 
 import { Br } from '@/components/Common'
 import Tooltip from '@/components/Tooltip'
@@ -58,6 +58,16 @@ const toPlatform = (type: string): void => {
     case 'douban': {
       const param = { href: url, name: title }
       return openShareWindow('https://shuo.douban.com/!service/share', param)
+    }
+
+    case 'reddit': {
+      const param = { url, title: `${title}: ${digest}` }
+      return openShareWindow('http://www.reddit.com/submit', param)
+    }
+
+    case 'zhihu': {
+      Global.open('https://zhuanlan.zhihu.com/write', '_blank')
+      return
     }
 
     case 'weibo': {
@@ -120,6 +130,14 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
           <SocialIcon
             src={`${ICON}/social/douban-share.png`}
             onClick={() => toPlatform('douban')}
+          />
+          <SocialIcon
+            src={`${ICON}/social/zhihu-share.jpeg`}
+            onClick={() => toPlatform('zhihu')}
+          />
+          <SocialIcon
+            src={`${ICON}/social/reddit-share.png`}
+            onClick={() => toPlatform('reddit')}
           />
           <SocialIcon
             src={`${ICON}/social/facebook-share.png`}

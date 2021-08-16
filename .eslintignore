@@ -6,4 +6,5 @@ next-env.d.ts
 *.hbs
 *.svg
 *.png
+*.jpeg
 *.txt

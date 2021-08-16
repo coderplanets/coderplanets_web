@@ -59,7 +59,7 @@ export const MainDesc = styled(Desc)`
 export const FocusDesc = styled.div`
   color: ${theme('thread.articleTitle')};
   text-align: center;
-  padding-right: 20px;
+  padding-left: 10px;
   font-size: 16px;
   line-height: 1.88;
 `
@@ -67,12 +67,12 @@ export const SocialWrapper = styled.div`
   ${css.flex('align-center')};
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: -12px;
+  margin-left: 15px;
 `
 export const SocialIcon = styled(Img)`
   ${css.size(24)};
   margin-right: 15px;
-  filter: saturate(0.4);
+  filter: saturate(0.6);
 
   &:hover {
     filter: saturate(0.9);
