@@ -29,7 +29,7 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
     <Wrapper testid="filter-bar">
       <TopFilter>
         <NaviIntro
-          title="酷导游"
+          title="酷导航"
           desc="the cool guide"
           iconSrc={`${ICON_CMD}/navi/cool-guide-logo.svg`}
         />

@@ -6,7 +6,9 @@
 
 import { FC } from 'react'
 
+import { METRIC } from '@/constant'
 import type { TMetric } from '@/spec'
+
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -21,14 +23,14 @@ import { useInit, menuOnSelect } from './logic'
 const log = buildLog('C:CoolGuideContent')
 
 type TProps = {
-  coolGuideContent: TStore
-  metric: TMetric
+  coolGuideContent?: TStore
+  metric?: TMetric
   testid?: string
 }
 
 const CoolGuideContentContainer: FC<TProps> = ({
   coolGuideContent: store,
-  metric,
+  metric = METRIC.COOL_GUIDE,
   testid = 'cool-guide-content',
 }) => {
   useInit(store)
