@@ -8,24 +8,29 @@ import { FC, useState, useCallback, useEffect, memo } from 'react'
 import { find, findIndex, propEq, last } from 'ramda'
 
 import { URL_QUERY } from '@/constant'
+import type { TNaviTag } from '@/spec'
 
 import { findDeepMatch } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { nilOrEmpty } from '@/utils/validator'
 import { getQueryFromUrl, markRoute } from '@/utils/route'
 
-import Button from '@/components/Buttons/Button'
-
-import type { TMenuItem, TMenuMode } from './spec'
+import type { TMenuMode } from './spec'
 import { ROOT_MENU, CHILD_MENU } from './constant'
+
+import Button from '@/components/Buttons/Button'
 import Header from './Header'
 import Dashboard from './Dashboard'
 import List from './List'
 
 import { Wrapper } from './styles'
-import { tags2Menu } from './logic'
 
-import { getCurrentMenuItem, findPath, covertPathToURLQuery } from './helper'
+import {
+  getCurrentMenuItem,
+  findPath,
+  covertPathToURLQuery,
+  tags2Menu,
+} from './helper'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviCatalog:index')
@@ -38,7 +43,7 @@ type TProps = {
   // 是否显示每个目录项的条目总数
   showItemTotal?: boolean
   testid?: string
-  items: TMenuItem[]
+  tags: TNaviTag[]
 
   onSelect?: (id: string, type: string) => void
   onShowMore?: () => void
@@ -47,7 +52,7 @@ type TProps = {
 const NaviCatalog: FC<TProps> = ({
   testid = 'navi-menu',
   title = '',
-  items,
+  tags,
   onSelect = log,
   withDivider = false,
   // initActiveMenuId = '',
@@ -55,9 +60,13 @@ const NaviCatalog: FC<TProps> = ({
   showItemTotal = false,
   onShowMore = null,
 }) => {
+  // console.log('the tags: ', tags)
+  const items = tags2Menu(tags)
+  // console.log('the fucking items: ', items)
+
   const [menuMode, setMenuMode] = useState<TMenuMode>(ROOT_MENU)
   // 当前选中的目录 id, 不包括在其链路上的 id
-  const [activeCatalogId, setActiveCatalogId] = useState('')
+  const [activeCatalogId, setActiveCatalogId] = useState<string>('')
   // 当前展示的 path list, 可能是选中的，也可能是仅浏览，未必选中
   const [viewPath, setViewPath] = useState([])
   // 当前选中状态的 path list 快照
@@ -89,7 +98,8 @@ const NaviCatalog: FC<TProps> = ({
         setCatalogItems(menuItem?.childMenu || items)
       }
     }
-  }, [items])
+    // }, [items])
+  }, []) // TODO: use raw instead
 
   // reset select states
   const handleReset = useCallback(() => {
@@ -145,6 +155,8 @@ const NaviCatalog: FC<TProps> = ({
 
   const handleMenuItemSelect = useCallback(
     (item) => {
+      console.log('handleMenuItemSelect item: ', item)
+
       // 如果重复点击，则忽略
       if (find(propEq('id', item.id), viewPath)) return
 
@@ -184,10 +196,17 @@ const NaviCatalog: FC<TProps> = ({
         onReset={handleReset}
         viewPath={viewPath}
       />
-      <Dashboard viewPath={viewPath} goCatalog={handleGoCatalog} />
-      <Button size="tiny" onClick={tags2Menu} ghost>
+      <Button
+        ghost
+        size="small"
+        onClick={() => {
+          const ret = tags2Menu(tags)
+          console.log('ret =>: ', ret)
+        }}
+      >
         test
       </Button>
+      <Dashboard viewPath={viewPath} goCatalog={handleGoCatalog} />
       <List
         menuMode={menuMode}
         catalogItems={catalogItems}

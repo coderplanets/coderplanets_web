@@ -1,11 +1,10 @@
 import { FC, memo } from 'react'
 
+import type { TNaviTag } from '@/spec'
 import { ICON } from '@/config'
 import { nilOrEmpty } from '@/utils/validator'
 
 import Tooltip from '@/components/Tooltip'
-
-import type { TMenuItem } from './spec'
 
 import {
   Wrapper,
@@ -21,7 +20,7 @@ import {
 type TProps = {
   title: string
   activeCatalogId: string
-  viewPath: TMenuItem[]
+  viewPath: TNaviTag[]
   testid?: string
 
   goHome: () => void

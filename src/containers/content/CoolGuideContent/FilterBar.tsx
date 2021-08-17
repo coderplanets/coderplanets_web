@@ -1,7 +1,7 @@
 import { FC, Fragment, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
-import { mockNaviCatalogMenu } from '@/utils/mock'
+import { mockNaviCatalogTags } from '@/utils/mock'
 
 import Sticky from '@/components/Sticky'
 import NaviIntro from '@/components/NaviIntro'
@@ -13,7 +13,7 @@ import {
   TopFilter,
   Option,
   OptionItem,
-  FavoriteIcon,
+  // FavoriteIcon,
   ClockIcon,
 } from './styles/filter_bar'
 
@@ -64,7 +64,7 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
             title="分类"
             onSelect={(id: string, type: string) => menuOnSelect(id, type)}
             withDivider={false}
-            items={mockNaviCatalogMenu()}
+            tags={mockNaviCatalogTags()}
           />
         </Fragment>
       </Sticky>
