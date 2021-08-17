@@ -28,6 +28,9 @@ export type TTag = {
   group?: string
 }
 
+// for cool-guide, awesome sort thing
+export type TNaviTag = TTag & { children?: TNaviTag[]; extra: string[] }
+
 export type TGroupedTags = {
   [group: string]: TTag[]
 }[]

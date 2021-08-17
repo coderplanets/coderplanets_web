@@ -1,6 +1,6 @@
 import { ICON_CMD } from '@/config'
-import type { TTag } from '@/spec'
-import { filter, findIndex, equals, startsWith } from 'ramda'
+import type { TNaviTag } from '@/spec'
+import { filter, findIndex, equals } from 'ramda'
 import uid from '@/utils/uid'
 
 const tags = [
@@ -84,10 +84,7 @@ const tags = [
   },
 ]
 
-type TMenuItem = TTag & { children?: TMenuItem[]; extra: string[] }
-type TMenu = TMenuItem[]
-
-export const findUpdatePath = (menu: TMenu, extra: string[]): string[] => {
+export const findUpdatePath = (menu: TNaviTag[], extra: string[]): string[] => {
   // console.log('findUpdatePath menu: ', menu)
   // console.log('findUpdatePath extra: ', extra)
 
@@ -119,7 +116,7 @@ export const findUpdatePath = (menu: TMenu, extra: string[]): string[] => {
 /**
  * covert tags data to menu format data
  */
-export const tags2Menu = (): TMenu => {
+export const tags2Menu = (): TNaviTag[] => {
   // let menu = []
 
   // const rawMenu = filter((item) => item.extra.length === 1, tags)
