@@ -14,6 +14,8 @@ import { buildLog } from '@/utils/logger'
 import { nilOrEmpty } from '@/utils/validator'
 import { getQueryFromUrl, markRoute } from '@/utils/route'
 
+import Button from '@/components/Buttons/Button'
+
 import type { TMenuItem, TMenuMode } from './spec'
 import { ROOT_MENU, CHILD_MENU } from './constant'
 import Header from './Header'
@@ -21,6 +23,7 @@ import Dashboard from './Dashboard'
 import List from './List'
 
 import { Wrapper } from './styles'
+import { tags2Menu } from './logic'
 
 import { getCurrentMenuItem, findPath, covertPathToURLQuery } from './helper'
 
@@ -182,6 +185,9 @@ const NaviCatalog: FC<TProps> = ({
         viewPath={viewPath}
       />
       <Dashboard viewPath={viewPath} goCatalog={handleGoCatalog} />
+      <Button size="tiny" onClick={tags2Menu} ghost>
+        test
+      </Button>
       <List
         menuMode={menuMode}
         catalogItems={catalogItems}

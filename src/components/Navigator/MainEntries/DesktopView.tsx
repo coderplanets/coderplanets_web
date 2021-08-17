@@ -42,7 +42,7 @@ const DesktopView: FC<TProps> = ({ type }) => {
           active={mainPath === ROUTE.COOL_GUIDE}
           testid={`header-${ROUTE.COOL_GUIDE}`}
         >
-          酷导游
+          酷导航
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />

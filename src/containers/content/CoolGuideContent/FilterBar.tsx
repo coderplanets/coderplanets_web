@@ -29,14 +29,14 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
     <Wrapper testid="filter-bar">
       <TopFilter>
         <NaviIntro
-          title="酷导游"
+          title="酷导航"
           desc="the cool guide"
           iconSrc={`${ICON_CMD}/navi/cool-guide-logo.svg`}
         />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>全部</Option>
         )}
-        <Option
+        {/* <Option
           active={topFilter === 'favorite'}
           onClick={() => topFilterOnChange('favorite')}
         >
@@ -45,7 +45,7 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
             src={`${ICON_CMD}/navi/heart.svg`}
             active={topFilter === 'favorite'}
           />
-        </Option>
+        </Option> */}
         <Option
           active={topFilter === 'latest'}
           onClick={() => topFilterOnChange('latest')}

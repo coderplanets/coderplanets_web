@@ -24,8 +24,12 @@ const ChuanSelector: FC<TProps> = ({ active, onSelect }) => {
       <Selectors>
         <By>x</By>
         {options.map((item) => (
-          <Circle key={item} active={item === 1} onClick={() => onSelect(item)}>
-            1
+          <Circle
+            key={item}
+            active={item === active}
+            onClick={() => onSelect(item)}
+          >
+            {item}
           </Circle>
         ))}
       </Selectors>
