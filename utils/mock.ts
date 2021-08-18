@@ -1,4 +1,4 @@
-import type { TUser, TTag, TCommunity, TNaviTag } from '@/spec'
+import type { TUser, TTag, TCommunity, TFilterTag, TNaviTag } from '@/spec'
 import { SITE_LOGO, ICON, ICON_BASE, ICON_CMD, ASSETS_ENDPOINT } from '@/config'
 import uid from '@/utils/uid'
 
@@ -229,6 +229,139 @@ export const mockTags = (num: number): TTag[] =>
 
 export const mockCommunities = (num: number): TCommunity[] =>
   communities.slice(0, Math.min(num, communities.length))
+
+export const mockFilterMenuTags = (): TFilterTag[] => {
+  return [
+    {
+      id: '1',
+      raw: 'beijing',
+      title: '北京',
+      group: '城市',
+    },
+    {
+      id: '2',
+      raw: 'yangtze-river-delta',
+      title: '长三角',
+      group: '城市',
+    },
+    {
+      id: '3',
+      raw: 'pearl-river-delta',
+      title: '珠三角',
+      group: '城市',
+    },
+    {
+      id: '4',
+      raw: 'wuhan',
+      title: '武汉',
+      group: '城市',
+    },
+    {
+      id: '5',
+      raw: 'chengdu',
+      title: '成都',
+      group: '城市',
+    },
+    {
+      id: '6',
+      raw: 'xiamen',
+      title: '厦门',
+      group: '城市',
+    },
+    {
+      id: '7',
+      raw: 'oversea',
+      title: '海外',
+      group: '城市',
+    },
+    {
+      id: '8',
+      raw: 'remote',
+      title: '远程',
+      group: '城市',
+    },
+    {
+      id: '9',
+      raw: 'others',
+      title: '其他',
+      group: '城市',
+    },
+    //
+    {
+      id: '10',
+      raw: 'web',
+      title: 'web 前端',
+      group: '职位',
+    },
+    {
+      id: '11',
+      raw: 'backend',
+      title: '后端开发',
+      group: '职位',
+    },
+    {
+      id: '12',
+      raw: 'mobile',
+      title: '移动端',
+      group: '职位',
+    },
+    {
+      id: '13',
+      raw: 'ai',
+      title: '人工智能',
+      group: '职位',
+    },
+    {
+      id: '14',
+      raw: 'devops',
+      title: '运维',
+      group: '职位',
+    },
+    {
+      id: '15',
+      raw: 'securty',
+      title: '安全',
+      group: '职位',
+    },
+    {
+      id: '16',
+      raw: 'DBA',
+      title: 'DBA',
+      group: '职位',
+    },
+    // 薪资
+    {
+      id: '17',
+      raw: '0-10k',
+      title: '0-10k',
+      group: '薪资范围',
+    },
+    {
+      id: '18',
+      raw: '10k-20k',
+      title: '10k-20k',
+      group: '薪资范围',
+    },
+    {
+      id: '19',
+      raw: '20k-40k',
+      title: '20k-40k',
+      group: '薪资范围',
+    },
+    {
+      id: '20',
+      raw: '40k-more',
+      title: '40k 以上',
+      group: '薪资范围',
+    },
+    {
+      id: '21',
+      raw: 'negotiable',
+      title: '面谈',
+      group: '薪资范围',
+    },
+  ]
+}
 
 export const mockNaviCatalogTags = (): TNaviTag[] => {
   return [

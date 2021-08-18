@@ -2,10 +2,10 @@ import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
+import { SpaceGrow } from '@/components/Common'
 
 import {
   Wrapper,
-  Title,
   OperatorsWrapper,
   Operator,
   ResetIcon,
@@ -13,15 +13,14 @@ import {
 } from './styles/header'
 
 type TProps = {
-  title: string
   showReset: boolean
   onReset: () => void
 }
 
-const Header: FC<TProps> = ({ title, showReset, onReset }) => {
+const Header: FC<TProps> = ({ showReset, onReset }) => {
   return (
     <Wrapper>
-      <Title active={showReset}>{title}</Title>
+      <SpaceGrow />
       <OperatorsWrapper>
         <Tooltip
           content={<HelpHint>重置筛选条件</HelpHint>}
@@ -29,6 +28,7 @@ const Header: FC<TProps> = ({ title, showReset, onReset }) => {
           delay={1000}
         >
           <Operator show={showReset} onClick={onReset}>
+            重置
             <ResetIcon src={`${ICON}/shape/reset.svg`} />
           </Operator>
         </Tooltip>

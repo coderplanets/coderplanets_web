@@ -28,6 +28,15 @@ export type TTag = {
   group?: string
 }
 
+export type TFilterTag = {
+  id?: string
+  index?: number
+  raw: string
+  title?: string
+  color?: string
+  group?: string
+}
+
 // for cool-guide, awesome sort thing
 export type TNaviTag = {
   id: string

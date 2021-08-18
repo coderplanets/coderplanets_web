@@ -4,106 +4,61 @@
  *
  */
 
-import { memo } from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
-import {
-  Wrapper,
-  Item,
-  RadioWrapper,
-  RadioItem,
-  ActiveDot,
-  RadioTitle,
-} from '../styles/filter'
+import type { TID, TTag } from '@/spec'
 
-const isActive = (activeMap, expandMenuId, itemId) => {
-  if (!expandMenuId) return false
-  return activeMap[expandMenuId].id === itemId
+import ExpandTag from './ExpandTag'
+import SelectedTag from './SelectedTag'
+
+import { Wrapper, Item, TagsWrapper } from '../styles/filter'
+
+export type TProps = {
+  id: TID
+  expandMenuId: TID | null
+  activeMap: Record<string, TTag>
+  options: TTag[]
+  revert: boolean
+  onSelect: (expandMenuId: TID, tag: TTag) => void
 }
 
-const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
+const Filter: FC<TProps> = ({
+  id,
+  expandMenuId = null,
+  activeMap,
+  options,
+  onSelect,
+  revert,
+}) => {
   return (
     <Wrapper revert={revert}>
       <Item revert={revert}>
         {expandMenuId === id && options ? (
-          <RadioWrapper revert={revert}>
+          <TagsWrapper revert={revert}>
             {options.map((item) => (
-              <RadioItem
+              <ExpandTag
                 key={item.id}
-                onClick={() => onSelect(expandMenuId, item)}
-              >
-                {!revert ? (
-                  <>
-                    <ActiveDot
-                      active={isActive(activeMap, expandMenuId, item.id)}
-                    />
-                    <RadioTitle
-                      active={isActive(activeMap, expandMenuId, item.id)}
-                    >
-                      {item.title}
-                    </RadioTitle>
-                  </>
-                ) : (
-                  <>
-                    <RadioTitle
-                      active={isActive(activeMap, expandMenuId, item.id)}
-                      revert
-                    >
-                      {item.title}
-                    </RadioTitle>
-                    <ActiveDot
-                      active={isActive(activeMap, expandMenuId, item.id)}
-                    />
-                  </>
-                )}
-              </RadioItem>
+                tag={item}
+                activeMap={activeMap}
+                expandMenuId={expandMenuId}
+                revert={revert}
+                onSelect={onSelect}
+              />
             ))}
-          </RadioWrapper>
+          </TagsWrapper>
         ) : (
-          <RadioWrapper revert={revert}>
-            <RadioItem>
-              {!revert ? (
-                <>
-                  <ActiveDot active />
-                  <RadioTitle active>
-                    {activeMap[id] ? activeMap[id].title || '全部' : '全部'}
-                  </RadioTitle>
-                </>
-              ) : (
-                <>
-                  <RadioTitle active revert>
-                    {activeMap[id] ? activeMap[id].title || '全部' : '全部'}
-                  </RadioTitle>
-                  <ActiveDot active />
-                </>
-              )}
-            </RadioItem>
-          </RadioWrapper>
+          <TagsWrapper revert={revert}>
+            <SelectedTag
+              tag={activeMap[id]}
+              expandMenuId={expandMenuId}
+              revert={revert}
+              onSelect={onSelect}
+            />
+          </TagsWrapper>
         )}
       </Item>
     </Wrapper>
   )
-}
-
-Filter.propTypes = {
-  id: T.string.isRequired,
-  expandMenuId: T.oneOfType([T.string, T.instanceOf(null)]),
-  activeMap: T.shape({
-    id: T.string,
-    title: T.string,
-  }).isRequired,
-  options: T.arrayOf(
-    T.shape({
-      id: T.string,
-      title: T.string,
-    }),
-  ).isRequired,
-  revert: T.bool.isRequired,
-  onSelect: T.func.isRequired,
-}
-
-Filter.defaultProps = {
-  expandMenuId: null,
 }
 
 export default memo(Filter)

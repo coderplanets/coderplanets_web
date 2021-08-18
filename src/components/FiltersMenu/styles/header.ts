@@ -8,7 +8,6 @@ import css from '@/utils/css'
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')}
   width: 100%;
-  margin-bottom: 8px;
 `
 export const Title = styled.div<TActive>`
   position: relative;
@@ -32,12 +31,15 @@ export const OperatorsWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const Operator = styled.div<TActive>`
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  color: ${theme('thread.articleDigest')};
+  display: ${({ show }) => (show ? 'flex' : 'none')};
+  align-items: center;
+  font-size: 12px;
 `
 export const ResetIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  margin-left: 8px;
+  margin-left: 6px;
 
   &:hover {
     fill: ${theme('thread.articleTitle')};

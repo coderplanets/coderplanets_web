@@ -7,7 +7,7 @@
 import { FC, useState, useCallback, memo } from 'react'
 import { merge, equals } from 'ramda'
 
-import type { TFiltersMenuItems } from '@/spec'
+import type { TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import { SpaceGrow } from '@/components/Common'
@@ -16,24 +16,13 @@ import Header from './Header'
 import Filter from './Filter'
 import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 
+import { tags2Options, initActiveMap } from './helper'
+
 /* eslint-disable-next-line */
 const log = buildLog('c:FiltersMenu:index')
 
-const initActiveMap = (items) => {
-  const menuMap = {}
-  for (let index = 0; index < items.length; index += 1) {
-    const element = items[index]
-
-    const content = element.options ? element.options[0] : element
-    menuMap[element.id] = { ...content }
-  }
-
-  return menuMap
-}
-
 type TProps = {
-  title?: string
-  items?: TFiltersMenuItems
+  tags?: TTag[]
   activeid?: string | null
   noFilter?: boolean
   onItemClick?: () => void
@@ -43,8 +32,7 @@ type TProps = {
 }
 
 const FiltersMenu: FC<TProps> = ({
-  title = '',
-  items,
+  tags,
   activeid = null,
   noFilter = false,
   onItemClick = log,
@@ -52,18 +40,32 @@ const FiltersMenu: FC<TProps> = ({
   revert = false,
   withDivider = true,
 }) => {
+  const items = tags2Options(tags)
+  console.log('=> the items: ', items)
+
   // const [expandMenuId, setExpandMenuId] = useState(null)
   const [expandMenuId, setExpandMenuId] = useState(activeid)
   const [activeMap, setActiveMap] = useState(initActiveMap(items))
+
+  console.log('activeMap --> ', activeMap)
 
   const handleReset = useCallback(() => {
     setActiveMap(initActiveMap(items))
   }, [items])
 
+  const handleSelect = useCallback(
+    (item) => {
+      onItemClick(item)
+      item.id === expandMenuId
+        ? setExpandMenuId(null)
+        : setExpandMenuId(item.id)
+    },
+    [items],
+  )
+
   return (
     <Wrapper>
       <Header
-        title={title}
         showReset={!equals(initActiveMap(items), activeMap)}
         onReset={handleReset}
       />
@@ -71,12 +73,7 @@ const FiltersMenu: FC<TProps> = ({
         <ItemWrapper
           key={item.id}
           withDivider={withDivider}
-          onClick={() => {
-            onItemClick(item)
-            item.id === expandMenuId
-              ? setExpandMenuId(null)
-              : setExpandMenuId(item.id)
-          }}
+          onClick={() => handleSelect(item)}
         >
           <Item
             active={item.id === expandMenuId}

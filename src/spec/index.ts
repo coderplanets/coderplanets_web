@@ -23,6 +23,7 @@ export type {
   TPagedCommunities,
   TTag,
   TNaviTag,
+  TFilterTag,
   TGroupedTags,
 } from './community'
 

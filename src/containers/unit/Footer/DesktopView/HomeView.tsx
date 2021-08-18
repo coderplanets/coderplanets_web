@@ -119,7 +119,7 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
             <Title>网站状态</Title>
             <Body>
               <Item as="span" normal>
-                部署版本: {BUILD_VERSION}
+                建造纪元: {BUILD_VERSION}
               </Item>
             </Body>
             <br />
