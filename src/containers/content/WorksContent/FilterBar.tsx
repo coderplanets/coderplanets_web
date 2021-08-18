@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { mockNaviCatalogMenu } from '@/utils/mock'
+import { mockNaviCatalogTags } from '@/utils/mock'
 
 // import FiltersMenu from '@/components/FiltersMenu'
 import NaviCatalog from '@/components/NaviCatalog'
@@ -23,7 +23,7 @@ const FilterBar: FC<TProps> = ({ activeView }) => {
         <NaviCatalog
           title="类别筛选"
           withDivider={false}
-          items={mockNaviCatalogMenu()}
+          tags={mockNaviCatalogTags()}
         />
       </FilterWrapper>
       {/* <Br bottom={40} /> */}

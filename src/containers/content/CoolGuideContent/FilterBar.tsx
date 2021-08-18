@@ -1,7 +1,7 @@
 import { FC, Fragment, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
-import { mockNaviCatalogMenu } from '@/utils/mock'
+import { mockNaviCatalogTags } from '@/utils/mock'
 
 import Sticky from '@/components/Sticky'
 import NaviIntro from '@/components/NaviIntro'
@@ -13,7 +13,7 @@ import {
   TopFilter,
   Option,
   OptionItem,
-  FavoriteIcon,
+  // FavoriteIcon,
   ClockIcon,
 } from './styles/filter_bar'
 
@@ -29,14 +29,14 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
     <Wrapper testid="filter-bar">
       <TopFilter>
         <NaviIntro
-          title="酷导游"
+          title="酷导航"
           desc="the cool guide"
           iconSrc={`${ICON_CMD}/navi/cool-guide-logo.svg`}
         />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>全部</Option>
         )}
-        <Option
+        {/* <Option
           active={topFilter === 'favorite'}
           onClick={() => topFilterOnChange('favorite')}
         >
@@ -45,7 +45,7 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
             src={`${ICON_CMD}/navi/heart.svg`}
             active={topFilter === 'favorite'}
           />
-        </Option>
+        </Option> */}
         <Option
           active={topFilter === 'latest'}
           onClick={() => topFilterOnChange('latest')}
@@ -64,7 +64,7 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
             title="分类"
             onSelect={(id: string, type: string) => menuOnSelect(id, type)}
             withDivider={false}
-            items={mockNaviCatalogMenu()}
+            tags={mockNaviCatalogTags()}
           />
         </Fragment>
       </Sticky>

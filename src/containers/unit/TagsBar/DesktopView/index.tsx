@@ -27,7 +27,6 @@ type TProps = Omit<TTagProps, 'view'>
 const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
   useInit(store)
   const { groupedTags, tagsData, activeTagData } = store
-  console.log('# groupedTags -> ', groupedTags)
   const groupsKeys = keys(groupedTags) as string[]
 
   return (

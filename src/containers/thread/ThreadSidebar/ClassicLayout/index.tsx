@@ -33,16 +33,11 @@ export const DynamicPart = dynamic(() => import('./DynamicPart'), {
 
 type TProps = { showCommunityBadge: boolean } & TBaseProps
 
-const ClassicLayout: FC<TProps> = ({
-  showCommunityBadge,
-  onTagSelect,
-  onAdsClose,
-}) => {
+const ClassicLayout: FC<TProps> = ({ showCommunityBadge, onTagSelect }) => {
   return (
     <Wrapper testid="thread-sidebar">
       <DynamicPart
         onTagSelect={onTagSelect}
-        onAdsClose={onAdsClose}
         showCommunityBadge={showCommunityBadge}
       />
     </Wrapper>

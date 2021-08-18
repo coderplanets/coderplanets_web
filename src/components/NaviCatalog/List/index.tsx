@@ -7,10 +7,10 @@
 import { FC, memo } from 'react'
 import { map, prop, includes } from 'ramda'
 
+import type { TNaviTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { SpaceGrow, Space } from '@/components/Common'
 
-import type { TMenuItem } from '../spec'
 import { ROOT_MENU } from '../constant'
 
 import {
@@ -44,15 +44,15 @@ const renderRightIcon = (item, active, showItemTotal) => {
 
 type TProps = {
   menuMode: 'root' | 'child'
-  catalogItems: TMenuItem[]
+  catalogItems: TNaviTag[]
   activeCatalogId: string
-  activePath: TMenuItem[]
+  activePath: TNaviTag[]
   withDivider: boolean
   showMoreItem: boolean
   showItemTotal: boolean
   testid?: string
 
-  onItemSelect: (item: TMenuItem) => void
+  onItemSelect: (item: TNaviTag) => void
   onShowMore: () => void
 }
 

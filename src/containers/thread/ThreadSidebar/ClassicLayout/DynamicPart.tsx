@@ -9,8 +9,10 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
+import { mockFilterMenuTags } from '@/utils/mock'
 
 import Sticky from '@/components/Sticky'
+// import FiltersMenu from '@/components/FiltersMenu'
 import PublishButton from '@/components/Buttons/PublishButton'
 import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
 import TagsBar from '@/containers/unit/TagsBar'
@@ -30,11 +32,7 @@ const log = buildLog('c:ClassicSidebar')
 
 type TProps = { showCommunityBadge: boolean } & TBaseProps
 
-const ClassicLayout: FC<TProps> = ({
-  showCommunityBadge,
-  onTagSelect,
-  onAdsClose,
-}) => {
+const ClassicLayout: FC<TProps> = ({ showCommunityBadge, onTagSelect }) => {
   return (
     <Sticky offsetTop={50}>
       <PublishWrapper show={showCommunityBadge}>
@@ -45,8 +43,8 @@ const ClassicLayout: FC<TProps> = ({
       </BadgeWrapper>
       <TagsBarWrapper>
         <TagsBar onSelect={onTagSelect} />
+        {/* <FiltersMenu tags={mockFilterMenuTags()} revert /> */}
       </TagsBarWrapper>
-      {/* <PromotionList onClose={onAdsClose} /> */}
     </Sticky>
   )
 }

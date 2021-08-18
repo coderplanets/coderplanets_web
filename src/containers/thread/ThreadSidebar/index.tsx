@@ -26,7 +26,6 @@ export type TBaseProps = {
   activeTag?: TTag
 
   onTagSelect?: () => void
-  onAdsClose?: () => void
 }
 
 export type TProps = { threadSidebar?: TStore } & TBaseProps
@@ -34,31 +33,22 @@ export type TProps = { threadSidebar?: TStore } & TBaseProps
 const ThreadSidebarContainer: FC<TProps> = ({
   threadSidebar: store,
   onTagSelect,
-  onAdsClose,
 }) => {
   useInit(store)
   const { c11n, curCommunity, isCommunityDigestInViewport } = store
 
   return (
-    <ClassicLayout
-      showCommunityBadge={isCommunityDigestInViewport}
-      onTagSelect={onTagSelect}
-      onAdsClose={onAdsClose}
-    />
+    <Fragment>
+      {c11n.bannerLayout === C11N.CLASSIC ? (
+        <ClassicLayout
+          showCommunityBadge={isCommunityDigestInViewport}
+          onTagSelect={onTagSelect}
+        />
+      ) : (
+        <HolyGrailLayout community={curCommunity} />
+      )}
+    </Fragment>
   )
-  // return (
-  //   <Fragment>
-  //     {c11n.bannerLayout === C11N.CLASSIC ? (
-  //       <ClassicLayout
-  //         showCommunityBadge={isCommunityDigestInViewport}
-  //         onTagSelect={onTagSelect}
-  //         onAdsClose={onAdsClose}
-  //       />
-  //     ) : (
-  //       <HolyGrailLayout community={curCommunity} />
-  //     )}
-  //   </Fragment>
-  // )
 }
 
 export default pluggedIn(ThreadSidebarContainer) as FC<TProps>
