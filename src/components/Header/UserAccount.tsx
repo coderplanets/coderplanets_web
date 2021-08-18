@@ -7,6 +7,7 @@ import { useAccount } from '@/stores/init'
 
 import Tooltip from '@/components/Tooltip'
 import Button from '@/components/Buttons/Button'
+import { Space } from '@/components/Common'
 
 // import { onLogin, onLogout, previewAccount } from './logic'
 
@@ -93,17 +94,15 @@ const UserAccount: FC = () => {
         </Wrapper>
       )}
 
-      <MembershipHint>
-        {/* 升&nbsp;级- */}
-        <Button
-          size="tiny"
-          type="primary"
-          ghost
-          onClick={() => router.push(`/${ROUTE.MEMBERSHIP}`)}
-        >
-          升&nbsp;级
-        </Button>
-      </MembershipHint>
+      <Space left={12} />
+      <Button
+        size="tiny"
+        type="primary"
+        ghost
+        onClick={() => router.push(`/${ROUTE.MEMBERSHIP}`)}
+      >
+        <MembershipHint>升舱</MembershipHint>
+      </Button>
     </Fragment>
   )
 }

@@ -4,6 +4,7 @@ import { useTheme } from 'styled-components'
 import type { TThemeMap, TC11NLayout, TMetric } from '@/spec'
 import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
+import { siteBirthDay } from '@/utils/helper'
 
 import TopInfo from './TopInfo'
 import BottomInfo from './BottomInfo'
@@ -54,43 +55,35 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
                 来一杯
               </LinkItem>
               <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
-                活动
+                小聚
               </LinkItem>
               <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
-                工作
-              </LinkItem>
-              <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
-                更多 ..
+                Makers
               </LinkItem>
             </Body>
           </Column>
 
           <Column>
-            <Title>会员</Title>
+            <Title>使用指南</Title>
             <Body>
               <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
-                志愿者
+                发帖须知
               </LinkItem>
               <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
-                成为会员
+                会员福利
               </LinkItem>
               <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
-                打赏支持
+                隐私说明
               </LinkItem>
-            </Body>
-
-            <br />
-            <Title>商务</Title>
-            <Body>
-              <Item as="span" normal>
-                投放广告
-              </Item>
-              <Item as="span" normal>
-                赞助商
-              </Item>
-              {/* <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
-                支持我们
-              </LinkItem> */}
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+                反馈&nbsp;&amp;&nbsp;建议
+              </LinkItem>
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+                加入我们
+              </LinkItem>
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+                免责声明
+              </LinkItem>
             </Body>
           </Column>
 
@@ -109,7 +102,7 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
               <LinkItem href={`${API_SERVER_ADDR}`} {...linkColors}>
                 API
               </LinkItem>
-              <LinkItem href={`${GITHUB}`} {...linkColors}>
+              <LinkItem href={`${API_SERVER_ADDR}`} {...linkColors}>
                 Github
               </LinkItem>
             </Body>
@@ -119,7 +112,10 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
             <Title>网站状态</Title>
             <Body>
               <Item as="span" normal>
-                建造纪元: {BUILD_VERSION}
+                版本: {BUILD_VERSION}
+              </Item>
+              <Item as="span" normal>
+                年龄: {siteBirthDay('2019/02/01')}
               </Item>
             </Body>
             <br />
@@ -132,25 +128,22 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
                 在线人数: --
               </Item>
               <Item as="span" normal>
-                小黑屋: --
+                黑洞: --
               </Item>
             </Body>
           </Column>
 
           <Column>
-            <Title>支持</Title>
+            <Title>Brand</Title>
             <Body>
-              <LinkItem href="/home/post/1" {...linkColors}>
-                违规举报
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+                价值观
               </LinkItem>
-              <LinkItem href="/cps-support/posts" {...linkColors}>
-                反馈与建议
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+                名词解释
               </LinkItem>
-              <LinkItem href={`${ISSUE_ADDR}`} {...linkColors}>
-                帮助中心
-              </LinkItem>
-              <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
-                内容订阅
+              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+                Logo &amp; 资源
               </LinkItem>
             </Body>
             <br />

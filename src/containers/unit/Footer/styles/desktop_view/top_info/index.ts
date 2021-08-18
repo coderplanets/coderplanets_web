@@ -31,7 +31,7 @@ export const SiteTitle = styled.div`
   font-size: 18px;
   font-weight: bold;
   margin-left: 4px;
-  margin-right: 56px;
+  margin-right: 52px;
   letter-spacing: 1px;
 `
 export const ArrowDividerIcon = styled(Img)`

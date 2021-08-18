@@ -384,3 +384,29 @@ export const openShareWindow = (
 
   Global.open(targetUrl, '_blank', 'height=500, width=600')
 }
+
+// https://stackoverflow.com/a/2627482/4050784
+export const daysBetween = (date1, date2) => {
+  // The number of milliseconds in one day
+  const ONE_DAY = 1000 * 60 * 60 * 24
+
+  // Calculate the difference in milliseconds
+  const differenceMs = Math.abs(date1 - date2)
+
+  // Convert back to days and return
+  return Math.round(differenceMs / ONE_DAY)
+}
+
+// birthday is a Date
+const calculateAge = (birthday) => {
+  const ageDifMs = Date.now() - birthday.getTime()
+  const ageDate = new Date(ageDifMs) // miliseconds from epoch
+  return Math.abs(ageDate.getUTCFullYear() - 1970)
+}
+
+export const siteBirthDay = (birthday: string): string => {
+  const year = calculateAge(new Date(birthday))
+  const days = daysBetween(new Date(birthday), Date.now()) - 365 * year
+
+  return `${year}年${days}天`
+}
