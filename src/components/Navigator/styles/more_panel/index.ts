@@ -6,7 +6,7 @@ import Img from '@/Img'
 
 export const Wrapper = styled.div<{ mobile?: boolean }>`
   ${css.flexColumn('align-center')};
-  width: ${({ mobile }) => (!mobile ? '455px' : '100%')};
+  width: ${({ mobile }) => (!mobile ? '430px' : '100%')};
   min-height: 300px;
   margin-top: 0;
 `
@@ -17,7 +17,7 @@ export const BodyWrapper = styled.div`
 `
 export const Entry = styled.div<{ mobile?: boolean }>`
   ${css.flexColumn('align-start')};
-  width: ${({ mobile }) => (!mobile ? '225px' : '48%')};
+  width: ${({ mobile }) => (!mobile ? '210px' : '48%')};
   height: 75px;
   padding-left: 20px;
 
@@ -69,11 +69,11 @@ export const Desc = styled.div`
   margin-left: 28px;
 `
 export const Wip = styled.div`
-  color: #007372;
+  color: #398a89;
   border: 1px solid;
   border-color: #007372;
   margin-left: 10px;
   font-size: 10px;
-  padding: 0 2px;
+  padding: 0 4px;
   border-radius: 4px;
 `

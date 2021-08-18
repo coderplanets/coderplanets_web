@@ -77,5 +77,6 @@ export const DefaultUserIcon = styled(Img)`
   opacity: 0.5;
 `
 export const MembershipHint = styled.div`
-  margin-left: 12px;
+  letter-spacing: 2px;
+  padding: 0 4px;
 `

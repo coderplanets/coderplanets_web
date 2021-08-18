@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
