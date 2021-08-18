@@ -9,7 +9,7 @@ export const Wrapper = styled.div<{ revert: boolean }>`
   align-items: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  padding: 4px 6px;
+  padding: 4px;
   padding-top: 0;
 `
 type TagsWrapper = { revert?: boolean }

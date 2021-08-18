@@ -1,4 +1,4 @@
-import { keys } from 'ramda'
+import { keys, isEmpty, filter } from 'ramda'
 
 import type { TTag } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -32,4 +32,21 @@ export const initActiveMap = (items: TMenu) => {
   }
 
   return menuMap
+}
+
+export const getSelectedTags = (activeMap: Record<string, TTag>): TTag[] => {
+  const tagList = []
+
+  const selectedIdx = filter(
+    (key) => !isEmpty(activeMap[key].id),
+    keys(activeMap),
+  )
+
+  selectedIdx.forEach((idx) => {
+    if (activeMap[idx]) {
+      tagList.push(activeMap[idx])
+    }
+  })
+
+  return tagList
 }

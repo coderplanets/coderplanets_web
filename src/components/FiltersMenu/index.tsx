@@ -4,8 +4,8 @@
  *
  */
 
-import { FC, useState, useCallback, memo } from 'react'
-import { merge, equals } from 'ramda'
+import { FC, useState, useCallback, memo, useEffect } from 'react'
+import { merge, isEmpty } from 'ramda'
 
 import type { TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
@@ -16,7 +16,7 @@ import Header from './Header'
 import Filter from './Filter'
 import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 
-import { tags2Options, initActiveMap } from './helper'
+import { tags2Options, initActiveMap, getSelectedTags } from './helper'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:FiltersMenu:index')
@@ -25,7 +25,7 @@ type TProps = {
   tags?: TTag[]
   activeid?: string | null
   noFilter?: boolean
-  onItemClick?: () => void
+  onSelect?: (tags: TTag[]) => void
   itemBgHighlight?: boolean
   revert?: boolean
   withDivider?: boolean
@@ -35,45 +35,40 @@ const FiltersMenu: FC<TProps> = ({
   tags,
   activeid = null,
   noFilter = false,
-  onItemClick = log,
+  onSelect = log,
   itemBgHighlight = true,
   revert = false,
   withDivider = true,
 }) => {
   const items = tags2Options(tags)
-  console.log('=> the items: ', items)
 
-  // const [expandMenuId, setExpandMenuId] = useState(null)
   const [expandMenuId, setExpandMenuId] = useState(activeid)
   const [activeMap, setActiveMap] = useState(initActiveMap(items))
+  const [selectedTags, setSelectedTags] = useState<TTag[]>([])
 
-  console.log('activeMap --> ', activeMap)
+  useEffect(() => setSelectedTags(getSelectedTags(activeMap)), [activeMap])
 
   const handleReset = useCallback(() => {
     setActiveMap(initActiveMap(items))
   }, [items])
 
-  const handleSelect = useCallback(
+  const handleExpand = useCallback(
     (item) => {
-      onItemClick(item)
       item.id === expandMenuId
         ? setExpandMenuId(null)
         : setExpandMenuId(item.id)
     },
-    [items],
+    [expandMenuId],
   )
 
   return (
     <Wrapper>
-      <Header
-        showReset={!equals(initActiveMap(items), activeMap)}
-        onReset={handleReset}
-      />
+      <Header showReset={!isEmpty(selectedTags)} onReset={handleReset} />
       {items.map((item, index) => (
         <ItemWrapper
           key={item.id}
           withDivider={withDivider}
-          onClick={() => handleSelect(item)}
+          onClick={() => handleExpand(item)}
         >
           <Item
             active={item.id === expandMenuId}
@@ -105,9 +100,11 @@ const FiltersMenu: FC<TProps> = ({
               activeMap={activeMap}
               options={item.options}
               revert={revert}
-              onSelect={(parentId, item) =>
-                setActiveMap(merge(activeMap, { [parentId]: item }))
-              }
+              onSelect={(parentId, item) => {
+                const newActiveMap = merge(activeMap, { [parentId]: item })
+                onSelect(getSelectedTags(newActiveMap))
+                setActiveMap(newActiveMap)
+              }}
             />
           )}
         </ItemWrapper>

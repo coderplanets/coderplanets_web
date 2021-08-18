@@ -28,8 +28,8 @@ const Header: FC<TProps> = ({ showReset, onReset }) => {
           delay={1000}
         >
           <Operator show={showReset} onClick={onReset}>
-            重置
             <ResetIcon src={`${ICON}/shape/reset.svg`} />
+            重置
           </Operator>
         </Tooltip>
       </OperatorsWrapper>
