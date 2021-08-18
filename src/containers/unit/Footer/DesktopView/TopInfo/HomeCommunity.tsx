@@ -20,10 +20,9 @@ const HomeCommunity: FC<TProps> = ({ title = 'oderPlanets' }) => {
       </InfoBar>
       <SiteTitle>{title}</SiteTitle>
       <Linker>关于</Linker>
-      <Linker>创建社区</Linker>
-      <Linker>加入我们</Linker>
+      <Linker>支持我们</Linker>
       <Linker>特别感谢</Linker>
-      <Linker>Github</Linker>
+      <Linker>反馈 &amp; 建议</Linker>
       <Linker>访问统计</Linker>
     </Wrapper>
   )
