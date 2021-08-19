@@ -19,7 +19,7 @@ import {
   Body,
   Item,
   LinkItem,
-} from '../styles/desktop_view/home_view'
+} from '../styles/desktop_view/home_layout'
 
 type TProps = {
   metric: TMetric
@@ -76,10 +76,7 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
                 隐私说明
               </LinkItem>
               <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
-                反馈&nbsp;&amp;&nbsp;建议
-              </LinkItem>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
-                加入我们
+                存档规则
               </LinkItem>
               <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
                 免责声明

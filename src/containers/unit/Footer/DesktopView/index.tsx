@@ -5,7 +5,7 @@
  */
 
 import { FC } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
@@ -14,11 +14,12 @@ import { METRIC } from '@/constant'
 
 import JoinModal from '@/containers/tool/JoinModal'
 
-import HomeLayout from './HomeView'
-import ArticleView from './ArticleView'
+import HomeLayout from './HomeLayout'
+import ArticleLayout from './ArticleLayout'
 import WorksArticleLayout from './WorksArticleLayout'
-import CommunityView from './CommunityView'
-import HostingCommunityView from './HostingCommunityView'
+import CoolGuideLayout from './CoolGuideLayout'
+// import CommunityView from './CommunityView'
+// import HostingCommunityView from './HostingCommunityView'
 
 import type { TStore } from '../store'
 import { Wrapper } from '../styles'
@@ -51,6 +52,7 @@ const FooterContainer: FC<TProps> = ({
       {metric === METRIC.WORKS_ARTICLE && (
         <WorksArticleLayout viewingArticle={viewingArticle} />
       )}
+      {metric === METRIC.COOL_GUIDE && <CoolGuideLayout />}
       {/* {type === VIEW.HOME && (
         <CommunityView metric={metric} layout={bannerLayout} />
       )} */}
@@ -58,7 +60,7 @@ const FooterContainer: FC<TProps> = ({
         <HostingCommunityView metric={metric} layout={bannerLayout} />
       )} */}
       {metric === METRIC.ARTICLE && (
-        <ArticleView
+        <ArticleLayout
           layout={c11n.bannerLayout}
           metric={metric}
           viewingArticle={viewingArticle}

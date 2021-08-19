@@ -69,8 +69,8 @@ const tmpUsers = [
 ]
 
 type TProps = {
-  worksContent: TStore
-  metric: TMetric
+  worksContent?: TStore
+  metric?: TMetric
   testid?: string
 }
 const WorksContentContainer: FC<TProps> = ({

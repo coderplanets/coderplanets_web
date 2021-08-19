@@ -1,6 +1,5 @@
 import { FC, memo } from 'react'
 
-import type { TArticle, TC11NLayout, TMetric } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
 import { METRIC } from '@/constant'
 
@@ -13,23 +12,13 @@ import {
   MainInfos,
   BaseInfo,
   Item,
-} from '../styles/desktop_view/article_view'
+} from '../styles/desktop_view/cool_guide_layout'
 
-type TProps = {
-  viewingArticle: TArticle
-  metric: TMetric
-  layout: TC11NLayout
-}
-
-const BriefView: FC<TProps> = ({ metric, viewingArticle, layout }) => {
+const CoolGuideLayout: FC = () => {
   return (
-    <Wrapper metric={metric} layout={layout}>
+    <Wrapper>
       <InnerWrapper>
-        <TopInfo
-          metric={METRIC.ARTICLE}
-          title={viewingArticle.title}
-          noBottomBorder
-        />
+        <TopInfo metric={METRIC.COOL_GUIDE} noBottomBorder />
         <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
@@ -73,9 +62,9 @@ const BriefView: FC<TProps> = ({ metric, viewingArticle, layout }) => {
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo metric={metric} />
+      <BottomInfo metric={METRIC.COOL_GUIDE} />
     </Wrapper>
   )
 }
 
-export default memo(BriefView)
+export default memo(CoolGuideLayout)

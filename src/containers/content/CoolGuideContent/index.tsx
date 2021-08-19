@@ -21,8 +21,8 @@ import { useInit, menuOnSelect } from './logic'
 const log = buildLog('C:CoolGuideContent')
 
 type TProps = {
-  coolGuideContent: TStore
-  metric: TMetric
+  coolGuideContent?: TStore
+  metric?: TMetric
   testid?: string
 }
 

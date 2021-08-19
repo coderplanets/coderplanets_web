@@ -1,7 +1,8 @@
 import { FC } from 'react'
 
-import { SpaceGrow } from '@/components/Common'
-import { Wrapper, Title, BrandText, Desc, Divider } from './styles/brand'
+import BrandTitle from '@/components/BrandTitle'
+
+import { Wrapper, Divider } from './styles/brand'
 
 type TProps = {
   testid?: string
@@ -10,14 +11,13 @@ type TProps = {
 const Brand: FC<TProps> = ({ testid = 'works-content-brand' }) => {
   return (
     <Wrapper testid={testid}>
-      <Title>
-        <BrandText>作品集市</BrandText>
-        <SpaceGrow />
-      </Title>
-      <Desc>
-        有趣有爱的作品跳蚤市场。
-        <div>by makers, for makers.</div>
-      </Desc>
+      <BrandTitle
+        title="作品集市"
+        fontSize={18}
+        mBottom={0}
+        desc="有趣有爱的作品跳蚤集市。by makers, for makers"
+      />
+
       <Divider />
     </Wrapper>
   )

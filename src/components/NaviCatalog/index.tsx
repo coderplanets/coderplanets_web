@@ -18,7 +18,6 @@ import { getQueryFromUrl, markRoute } from '@/utils/route'
 import type { TMenuMode } from './spec'
 import { ROOT_MENU, CHILD_MENU } from './constant'
 
-import Button from '@/components/Buttons/Button'
 import Header from './Header'
 import Dashboard from './Dashboard'
 import List from './List'
@@ -196,16 +195,6 @@ const NaviCatalog: FC<TProps> = ({
         onReset={handleReset}
         viewPath={viewPath}
       />
-      <Button
-        ghost
-        size="small"
-        onClick={() => {
-          const ret = tags2Menu(tags)
-          console.log('ret =>: ', ret)
-        }}
-      >
-        test
-      </Button>
       <Dashboard viewPath={viewPath} goCatalog={handleGoCatalog} />
       <List
         menuMode={menuMode}

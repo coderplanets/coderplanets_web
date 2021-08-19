@@ -17,9 +17,6 @@ export const MeetupIcon = styled(Img)`
   display: block;
   margin-top: -17px;
 `
-export const LogoDesc = styled.div`
-  color: ${theme('thread.articleDigest')};
-`
 export const NaviFooter = styled.div`
   ${css.flexColumn('align-start')};
   border-top: 1px solid;

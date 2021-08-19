@@ -15,7 +15,7 @@ import WorksContent from '@/containers/content/WorksContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null

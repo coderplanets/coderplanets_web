@@ -14,7 +14,8 @@ export const Wrapper = styled.div`
   border-top: 1px solid;
   border-top-color: transparent;
   color: ${theme('thread.articleDigest')};
-  border-top: 2px solid #884b40;
+  border-top: 2px solid;
+  border-top-color: #004353;
 
   &:hover {
     background: #04303c;

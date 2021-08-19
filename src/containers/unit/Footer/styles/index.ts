@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { includes } from 'ramda'
 
 import type { TTestable, TC11NLayout, TMetric } from '@/spec'
 import { C11N, METRIC } from '@/constant'
@@ -10,7 +11,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TWrapper>`
   ${css.flex('justify-center')};
   justify-content: ${({ metric }) =>
-    metric === METRIC.WORKS_ARTICLE ? 'start' : 'center'};
+    includes(metric, [METRIC.WORKS_ARTICLE]) ? 'start' : 'center'};
   margin-top: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? '50px' : '80px')};
   ${({ metric }) => css.fitPageWidth(metric)};
 `

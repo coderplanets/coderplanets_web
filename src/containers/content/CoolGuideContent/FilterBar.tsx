@@ -4,7 +4,7 @@ import { ICON_CMD } from '@/config'
 import { mockNaviCatalogTags } from '@/utils/mock'
 
 import Sticky from '@/components/Sticky'
-import NaviIntro from '@/components/NaviIntro'
+import BrandTitle from '@/components/BrandTitle'
 import NaviCatalog from '@/components/NaviCatalog'
 
 import {
@@ -28,11 +28,8 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
   return (
     <Wrapper testid="filter-bar">
       <TopFilter>
-        <NaviIntro
-          title="酷导航"
-          desc="the cool guide"
-          iconSrc={`${ICON_CMD}/navi/cool-guide-logo.svg`}
-        />
+        <BrandTitle title="酷导航" desc="实用指南，启发灵感，找到有趣" />
+        <Divider />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>全部</Option>
         )}

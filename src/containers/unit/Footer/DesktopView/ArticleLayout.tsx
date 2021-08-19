@@ -13,7 +13,7 @@ import {
   MainInfos,
   BaseInfo,
   Item,
-} from '../styles/desktop_view/community_view'
+} from '../styles/desktop_view/article_layout'
 
 type TProps = {
   viewingArticle: TArticle
@@ -21,11 +21,15 @@ type TProps = {
   layout: TC11NLayout
 }
 
-const CommunityView: FC<TProps> = ({ metric, layout }) => {
+const BriefView: FC<TProps> = ({ metric, viewingArticle, layout }) => {
   return (
     <Wrapper metric={metric} layout={layout}>
       <InnerWrapper>
-        <TopInfo metric={METRIC.COMMUNITY} title="javascript" noBottomBorder />
+        <TopInfo
+          metric={METRIC.ARTICLE}
+          title={viewingArticle.title}
+          noBottomBorder
+        />
         <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
@@ -66,13 +70,6 @@ const CommunityView: FC<TProps> = ({ metric, layout }) => {
             >
               反馈与建议
             </Item>
-            <Item
-              href={`${ISSUE_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              开放数据
-            </Item>
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
@@ -81,4 +78,4 @@ const CommunityView: FC<TProps> = ({ metric, layout }) => {
   )
 }
 
-export default memo(CommunityView)
+export default memo(BriefView)

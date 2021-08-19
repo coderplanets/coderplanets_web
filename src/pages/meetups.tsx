@@ -9,11 +9,11 @@ import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 import { P } from '@/schemas'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import CoolGuideContent from '@/containers/content/CoolGuideContent'
+import MeetupsContent from '@/containers/content/MeetupsContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -60,22 +60,22 @@ export const getServerSideProps = async (props) => {
   }
 }
 
-const CoolGuidePage = (props) => {
+const MeetupsPage = (props) => {
   const store = useStore(props)
 
   const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.COOL_GUIDE}`,
-    title: '酷导航 | coderplanets',
-    description: 'IT导航界的特斯拉',
+    url: `${SITE_URL}/${ROUTE.MEETUPS}`,
+    title: '小聚 | CP',
+    description: '来和志同道合的朋友一起聊聊',
   }
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.COOL_GUIDE} seoConfig={seoConfig} noSidebar>
-        <CoolGuideContent />
+      <GlobalLayout metric={METRIC.MEETUPS} seoConfig={seoConfig} noSidebar>
+        <MeetupsContent />
       </GlobalLayout>
     </Provider>
   )
 }
 
-export default CoolGuidePage
+export default MeetupsPage
