@@ -1,17 +1,32 @@
 /*
- * DiscoveryContentStore store
+ * ExploreContentStore store
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { propEq, findIndex } from 'ramda'
 
 import { ICON_CMD } from '@/config'
+import type {
+  TRootStore,
+  TCommunity,
+  TRoute,
+  TID,
+  TPagedCommunities,
+} from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { Trans } from '@/utils/i18n'
 import { PagedCommunities, PagedCategories, emptyPagiData } from '@/model'
 
-const DiscoveryContentStore = T.model('DiscoveryContentStore', {
+import type { TSearchState } from './spec'
+
+type TPagiInfo = {
+  pageNumber: number
+  pageSize: number
+  totalCount: number
+}
+
+const ExploreContentStore = T.model('ExploreContentStore', {
   // current active sidbar menu id
   activeCatalogId: T.maybeNull(T.string),
   pagedCommunities: T.optional(PagedCommunities, emptyPagiData),
@@ -32,16 +47,15 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
   searchfocused: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
-    get isLogin() {
-      return self.root.account.isLogin
+    get curRoute(): TRoute {
+      const root = getParent(self) as TRootStore
+      return root.curRoute
     },
-    get curRoute() {
-      return self.root.curRoute
-    },
-    get searchStatus() {
+    get searchStatus(): TSearchState {
       const { searchValue, searchfocused } = self
       let { showSearchMask, showCreateHint, showSearchHint } = self
 
@@ -66,16 +80,17 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
         searchResultCount,
       }
     },
-    get pagedCommunitiesData() {
+    get pagedCommunitiesData(): TPagedCommunities {
       return toJS(self.pagedCommunities)
     },
-    get showFilterSidebar() {
+    get showFilterSidebar(): boolean {
       // if (self.pagedCommunitiesData.entries.length === 0) return false
       // const isSearchMode = searchValue.length !== 0
       return self.searchValue.length === 0
     },
-    get pagiInfo() {
-      const { pageNumber, pageSize, totalCount } = self.pagedCommunitiesData
+    get pagiInfo(): TPagiInfo {
+      const slf = self as TStore
+      const { pageNumber, pageSize, totalCount } = slf.pagedCommunitiesData
 
       return {
         pageNumber,
@@ -83,7 +98,7 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
         totalCount,
       }
     },
-    get activeMenuId() {
+    get activeMenuId(): TID {
       const { entries } = toJS(self.pagedCategories)
       return self.activeCatalogId || entries[0].id
     },
@@ -98,18 +113,20 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
     },
   }))
   .actions((self) => ({
-    updateEditing(sobj) {
-      self.mark(sobj)
+    updateEditing(sobj): void {
+      const slf = self as TStore
+      slf.mark(sobj)
     },
-    authWarning(options) {
-      self.root.authWarning(options)
+    authWarning(options = {}): void {
+      const root = getParent(self) as TRootStore
+      root.authWarning(options)
     },
-    toggleSubscribe(community) {
+    toggleSubscribe(community: TCommunity): void {
       const index = findIndex(
         propEq('id', community.id),
         self.pagedCommunities.entries,
       )
-      if (index === -1) return false
+      if (index === -1) return
 
       if (self.pagedCommunities.entries[index].viewerHasSubscribed) {
         self.pagedCommunities.entries[index].viewerHasSubscribed = false
@@ -119,20 +136,26 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
         self.pagedCommunities.entries[index].subscribersCount += 1
       }
     },
-    addSubscribedCommunity(community) {
-      self.root.account.addSubscribedCommunity(community)
-      self.root.discoveryContent.toggleSubscribe(community)
+    addSubscribedCommunity(community: TCommunity): void {
+      const root = getParent(self) as TRootStore
+
+      root.account.addSubscribedCommunity(community)
+      root.exploreContent.toggleSubscribe(community)
     },
-    removeSubscribedCommunity(community) {
-      self.root.account.removeSubscribedCommunity(community)
-      self.root.discoveryContent.toggleSubscribe(community)
+    removeSubscribedCommunity(community: TCommunity): void {
+      const root = getParent(self) as TRootStore
+
+      root.account.removeSubscribedCommunity(community)
+      root.exploreContent.toggleSubscribe(community)
     },
-    markRoute(query) {
-      self.root.markRoute(query)
+    markRoute(query): void {
+      const root = getParent(self) as TRootStore
+      root.markRoute(query)
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
-export default DiscoveryContentStore
+export type TStore = Instance<typeof ExploreContentStore>
+export default ExploreContentStore

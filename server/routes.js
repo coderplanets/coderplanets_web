@@ -113,10 +113,10 @@ router.route('/create/works').get((req, res) => {
 })
 
 // 所有社区
-router.route('/discovery').get((req, res) => res.redirect('/discovery/pl'))
+router.route('/explore').get((req, res) => res.redirect('/explore/pl'))
 
-router.route('/discovery/:category').get((req, res) => {
-  return renderAndCache({ req, res, path: '/discovery' })
+router.route('/explore/:category').get((req, res) => {
+  return renderAndCache({ req, res, path: '/explore' })
 })
 
 // 帮助中心

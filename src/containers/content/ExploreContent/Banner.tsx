@@ -4,10 +4,11 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
+import type { TSearchState } from './spec'
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
 
@@ -34,7 +35,11 @@ export const SloganText = dynamic(() => import('./SloganText'), {
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
-const Banner = ({
+type TProps = {
+  searchStatus: TSearchState
+}
+
+const Banner: FC<TProps> = ({
   searchStatus: {
     searchValue,
     showSearchMask,
@@ -45,7 +50,7 @@ const Banner = ({
   },
 }) => {
   return (
-    <BannerContainer testid="discovery-banner">
+    <BannerContainer testid="explore-banner">
       <IntroWrapper>
         <IntroTitle>
           <SearchIcon src={`${ICON_CMD}/search.svg`} />
@@ -55,7 +60,6 @@ const Banner = ({
           showSearchMask={showSearchMask}
           onChange={searchOnChange}
           value={searchValue}
-          searching={false}
         />
 
         {showSearchResultHint && (
@@ -84,4 +88,4 @@ const Banner = ({
   )
 }
 
-export default React.memo(Banner)
+export default memo(Banner)

@@ -1,5 +1,5 @@
 /*
- * DiscoveryContentStore store
+ * ExploreContentStore store
  *
  */
 
@@ -11,7 +11,7 @@ import { markStates, toJS } from '@/utils/mobx'
 import { Trans } from '@/utils/i18n'
 import { PagedCommunities, PagedCategories, emptyPagiData } from '@/model'
 
-const DiscoveryContentStore = T.model('DiscoveryContentStore', {
+const ExploreContentStore = T.model('ExploreContentStore', {
   // current active sidbar menu id
   activeCatalogId: T.maybeNull(T.string),
   pagedCommunities: T.optional(PagedCommunities, emptyPagiData),
@@ -121,11 +121,11 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
     },
     addSubscribedCommunity(community) {
       self.root.account.addSubscribedCommunity(community)
-      self.root.discoveryContent.toggleSubscribe(community)
+      self.root.exploreContent.toggleSubscribe(community)
     },
     removeSubscribedCommunity(community) {
       self.root.account.removeSubscribedCommunity(community)
-      self.root.discoveryContent.toggleSubscribe(community)
+      self.root.exploreContent.toggleSubscribe(community)
     },
     markRoute(query) {
       self.root.markRoute(query)
@@ -135,4 +135,4 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
     },
   }))
 
-export default DiscoveryContentStore
+export default ExploreContentStore

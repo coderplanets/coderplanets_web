@@ -60,7 +60,6 @@ const users = [
 const tags = [
   {
     id: '0',
-    index: 0,
     raw: 'help',
     title: '求助',
     color: 'red',
@@ -68,7 +67,6 @@ const tags = [
   },
   {
     id: '1',
-    index: 1,
     raw: 'tech',
     title: '技术',
     color: 'orange',
@@ -76,7 +74,6 @@ const tags = [
   },
   {
     id: '2',
-    index: 2,
     raw: 'maker',
     title: '创作者',
     color: 'yellow',
@@ -84,7 +81,6 @@ const tags = [
   },
   {
     id: '3',
-    index: 3,
     raw: 'geek',
     title: '极客',
     color: 'green',
@@ -92,7 +88,6 @@ const tags = [
   },
   {
     id: '4',
-    index: 4,
     raw: 'IxD',
     title: '交互设计',
     color: 'cyan',
@@ -100,63 +95,56 @@ const tags = [
   },
   {
     id: '5',
-    index: 5,
     raw: 'DF',
     title: '黑暗森林',
     color: 'blue',
     group: '技术与人文',
   },
   {
-    id: '6',
-    index: 6,
-    raw: 'career',
-    title: '职场',
-    color: 'purple',
-    group: '生活',
-  },
-  {
-    id: '7',
-    index: 7,
-    raw: 'afterwork',
-    title: '下班后',
-    color: 'pink',
-    group: '生活',
-  },
-  {
-    id: '8',
-    index: 8,
-    raw: 'nsfw',
-    title: '摸鱼',
-    color: 'pink',
-    group: '生活',
-  },
-  {
     id: '9',
-    index: 9,
     raw: 'thoughts',
     title: '迷思',
     color: 'grey',
-    group: '生活',
+    group: '技术与人文',
+  },
+  {
+    id: '8',
+    raw: 'city',
+    title: '城市',
+    color: 'green',
+    group: '生活与职场',
+  },
+  {
+    id: '6',
+    raw: 'pantry',
+    title: '茶水间',
+    color: 'purple',
+    group: '生活与职场',
+  },
+  {
+    id: '7',
+    raw: 'afterwork',
+    title: '下班后',
+    color: 'pink',
+    group: '生活与职场',
   },
   {
     id: '10',
     index: 10,
-    raw: 'wtf',
+    raw: 'WTF',
     title: '吐槽',
     color: 'red',
     group: '其他',
   },
   {
     id: '11',
-    index: 11,
-    raw: 'hunt',
-    title: '发现',
+    raw: 'REC',
+    title: '推荐',
     color: 'orange',
     group: '其他',
   },
   {
     id: '12',
-    index: 12,
     raw: 'idea',
     title: '脑洞',
     color: 'yellow',
@@ -164,7 +152,6 @@ const tags = [
   },
   {
     id: '13',
-    index: 13,
     raw: 'feedback',
     title: '站务',
     color: 'green',
@@ -1343,6 +1330,14 @@ export const mockNaviCatalogMenu = (): TNaviTag[] => {
           icon: `${ICON_CMD}/navi/sport.svg`,
         },
       ],
+    },
+
+    {
+      id: uid.gen(),
+      raw: uid.gen(),
+      title: '摸鱼指南',
+      icon: `${ICON_CMD}/navi/sport.svg`,
+      childMenu: [],
     },
   ]
 }

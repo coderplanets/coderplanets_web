@@ -17,6 +17,8 @@ export type TCommunity = {
 export type TPagedCommunities = {
   entries: TCommunity[]
   totalCount?: number
+  pageNumber?: number
+  pageSize?: number
 }
 
 export type TTag = {
@@ -57,3 +59,10 @@ export type TNaviTag = {
 export type TGroupedTags = {
   [group: string]: TTag[]
 }[]
+
+export type TCategory = {
+  title: string
+  raw: string
+  index: number
+  // author: T
+}

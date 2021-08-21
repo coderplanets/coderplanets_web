@@ -29,7 +29,7 @@ import {
 // import { searchOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:NewDiscoveryContent')
+const log = buildLog('C:NewExploreContent')
 
 // import { LN } from '../logic'
 

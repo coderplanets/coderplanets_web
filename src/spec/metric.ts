@@ -7,7 +7,7 @@ export type TMetric =
 
   // 版块
   | 'WORKS'
-  | 'DISCOVERY'
+  | 'EXPLORE'
   | 'SPONSOR'
   | 'SUPPORT_US'
   | 'SUBSCRIBE'

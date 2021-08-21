@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { isEmpty } from 'ramda'
 
+import type { TID } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 
 import { errRescue } from '@/utils/helper'
@@ -9,17 +10,19 @@ import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
 import { updateEditing } from '@/utils/mobx'
 
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:DiscoveryContent')
+const log = buildLog('L:ExploreContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.LOGOUT, EVENT.LOGIN],
 })
 
-let store = null
+let store: TStore | undefined
 let sub$ = null
 
 /**
@@ -27,7 +30,7 @@ let sub$ = null
  * @param {page} number
  * @ppublic
  */
-export const loadCommunities = (page = 1) => {
+export const loadCommunities = (page = 1): void => {
   const { subPath } = store.curRoute
   const category = !isEmpty(subPath) ? subPath : 'pl'
 
@@ -41,14 +44,14 @@ export const loadCommunities = (page = 1) => {
   sr71$.query(S.pagedCommunities, args)
 }
 
-export const loadCategories = () =>
+export const loadCategories = (): void =>
   sr71$.query(S.pagedCategories, { filter: {} })
 
 /**
  * search communities by current searchValue in store
  * @private
  */
-const searchCommunities = () => {
+const searchCommunities = (): void => {
   const { searchValue: title } = store
   const args = { title, userHasLogin: store.isLogin }
 
@@ -59,14 +62,14 @@ const searchCommunities = () => {
  * change search status
  * @ppublic
  */
-export const changeSearchStatus = (status) => store.mark({ ...status })
+export const changeSearchStatus = (status): void => store.mark({ ...status })
 
 /**
  * search for communities
  * @param {e} htmlEvent
  * @return {void}
  */
-export const searchOnChange = (e) => {
+export const searchOnChange = (e): void => {
   updateEditing(store, 'searchValue', e)
   searchCommunities()
 }
@@ -78,7 +81,7 @@ export const searchOnChange = (e) => {
  * @param {item.raw} string
  * @public
  */
-export const menuOnChange = ({ id, raw }) => {
+export const menuOnChange = ({ id, raw }): void => {
   store.markRoute({ subPath: raw })
   loadCommunities()
   store.mark({ activeCatalogId: id })
@@ -89,14 +92,14 @@ export const menuOnChange = ({ id, raw }) => {
  * @param {page} number
  * @public
  */
-export const pageOnChange = (page) => loadCommunities(page)
+export const pageOnChange = (page: number): void => loadCommunities(page)
 
 /**
  * subscrib / join a community
  * @param {id} string
  * @public
  */
-export const subscribe = (id) => {
+export const subscribe = (id: TID): void => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.subscribeCommunity, { communityId: id })
@@ -111,7 +114,7 @@ export const subscribe = (id) => {
  * @param {id} string
  * @public
  */
-export const unSubscribe = (id) => {
+export const unSubscribe = (id: TID): void => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
@@ -174,7 +177,7 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      errRescue({ type: ERR.TIMEOUT, details, path: 'DiscoveryContent' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'ExploreContent' })
       cancelLoading()
     },
   },
@@ -182,7 +185,7 @@ const ErrSolver = [
     match: asyncErr(ERR.NETWORK),
     action: () => {
       cancelLoading()
-      errRescue({ type: ERR.NETWORK, path: 'DiscoveryContent' })
+      errRescue({ type: ERR.NETWORK, path: 'ExploreContent' })
     },
   },
 ]
@@ -202,7 +205,7 @@ const loadIfNeed = () => {
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')
@@ -211,7 +214,7 @@ export const useInit = (_store) => {
 
     return () => {
       // log('effect uninit')
-      if (!sub$) return false
+      if (!sub$) return
       // log('===== do uninit')
       sub$.unsubscribe()
     }

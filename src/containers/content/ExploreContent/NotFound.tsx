@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import Link from 'next/link'
 
 import { cutRest } from '@/utils/helper'
@@ -12,7 +12,11 @@ import {
   SearchValueFocus,
 } from './styles/not_found'
 
-const NotFound = ({ searchValue }) => {
+type TProps = {
+  searchValue: string
+}
+
+const NotFound: FC<TProps> = ({ searchValue }) => {
   return (
     <Wrapper>
       <EmptyCard>
@@ -31,4 +35,4 @@ const NotFound = ({ searchValue }) => {
   )
 }
 
-export default React.memo(NotFound)
+export default memo(NotFound)

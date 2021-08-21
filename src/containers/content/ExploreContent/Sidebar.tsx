@@ -1,21 +1,32 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TCategory, TTag } from '@/spec'
 import Sticky from '@/components/Sticky'
 import { Br } from '@/components/Common'
 import FiltersMenu from '@/components/FiltersMenu'
+import { mockFilterMenuTags } from '@/utils/mock'
 
 import { Wrapper, Holder } from './styles/sidebar'
+import { TID } from '@/spec'
 
-const Sidebar = ({ show, onItemClick, activeid, items }) => {
+type TProps = {
+  show: boolean
+  onItemClick: (tag: TTag) => void
+  activeid: TID
+  items: TCategory[]
+}
+
+const Sidebar: FC<TProps> = ({ show, onItemClick, activeid, items }) => {
   return (
     <Wrapper show={show}>
       <Sticky offsetTop={60}>
         <FiltersMenu
-          items={items}
-          onItemClick={onItemClick}
+          tags={mockFilterMenuTags()}
+          // onSelect={onItemClick}
           activeid={activeid}
           itemBgHighlight={false}
           noFilter
+          revert
         />
         <Br bottom={150} />
       </Sticky>
@@ -26,4 +37,4 @@ const Sidebar = ({ show, onItemClick, activeid, items }) => {
   )
 }
 
-export default Sidebar
+export default memo(Sidebar)

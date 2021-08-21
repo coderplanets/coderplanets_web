@@ -151,7 +151,8 @@ const CommunityPage = (props) => {
 
   const seoConfig = {
     url: `${SITE_URL}/${community.raw}/${activeThread}`,
-    title: `${community.title} | coderplanets`,
+    title:
+      community.raw === 'home' ? 'CoderPlanets' : `${community.title} | CP`,
     description: `${community.desc}`,
   }
 

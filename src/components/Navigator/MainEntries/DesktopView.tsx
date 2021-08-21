@@ -22,10 +22,10 @@ const DesktopView: FC<TProps> = ({ type }) => {
 
   return (
     <Wrapper type={type}>
-      <Link href={`/${ROUTE.DISCOVERY}`} passHref>
+      <Link href={`/${ROUTE.EXPLORE}`} passHref>
         <SiteLink
-          active={mainPath === ROUTE.DISCOVERY}
-          testid="header-discovery-link"
+          active={mainPath === ROUTE.EXPLORE}
+          testid="header-explore-link"
         >
           发现
         </SiteLink>

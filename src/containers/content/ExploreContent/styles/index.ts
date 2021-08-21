@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 import type { TMetric } from '@/spec'
-import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
@@ -25,20 +23,5 @@ export const ContentsWrapper = styled.div<{ center: boolean }>`
   ${css.flexColumn('justify-center')};
   width: ${({ center }) => (center ? '100%' : 'calc(100% - 140px)')};
   transition: all 0.25s;
-`
-export const SubscribedBox = styled.div`
-  color: ${theme('baseColor.green')};
-  font-weight: bold;
-`
-
-export const BtnWrapper = styled.div`
-  ${css.flex('align-center')};
-`
-
-export const PrefixIcon = styled(Img)<{ primary: boolean }>`
-  fill: ${({ primary }) =>
-    primary ? theme('button.primary') : theme('button.fg')};
-  ${css.size(14)};
-  margin-right: 3px;
 `
 export const Text = styled.div``

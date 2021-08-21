@@ -1,6 +1,6 @@
 /*
  *
- * DiscoveryContent
+ * ExploreContent
  *
  */
 
@@ -16,7 +16,7 @@ import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:DiscoveryContent')
+const log = buildLog('C:ExploreContent')
 
 const CommunityEditorContainer = ({ communityEditor: store, metric }) => {
   useInit(store)

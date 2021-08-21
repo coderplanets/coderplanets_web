@@ -1,5 +1,5 @@
 /*
-   this page is for /discovery
+   this page is for /explore
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
@@ -21,11 +21,11 @@ import {
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import DiscoveryContent from '@/containers/content/DiscoveryContent'
+import ExploreContent from '@/containers/content/ExploreContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -34,7 +34,9 @@ const fetchData = async (props, opt) => {
   const { subPath } = ssrParseURL(props.req)
   const category = subPath !== '' ? subPath : 'pl'
 
-  const filter = { ...queryStringToJSON(props.req.url, { pagi: 'number' }) }
+  const filter = {
+    ...queryStringToJSON(props.req.url, { noPagiInfo: false, pagi: 'number' }),
+  }
 
   const sessionState = gqClient.request(P.sessionState)
   const pagedCommunities = gqClient.request(P.pagedCommunities, {
@@ -87,7 +89,7 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    discoveryContent: {
+    exploreContent: {
       pagedCommunities,
       pagedCategories,
     },
@@ -96,13 +98,13 @@ export const getServerSideProps = async (props) => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const DiscoveryPage = (props) => {
+const ExplorePage = (props) => {
   const store = useStore(props)
 
   const { errorCode } = store
 
   const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.DISCOVERY}`,
+    url: `${SITE_URL}/${ROUTE.EXPLORE}`,
     title: '社区索引 | coderplanets',
     description: 'coderplanets 所有社区节点',
   }
@@ -110,14 +112,14 @@ const DiscoveryPage = (props) => {
   return (
     <Provider store={store}>
       <GlobalLayout
-        metric={METRIC.DISCOVERY}
+        metric={METRIC.EXPLORE}
         seoConfig={seoConfig}
         errorCode={errorCode}
       >
-        <DiscoveryContent />
+        <ExploreContent />
       </GlobalLayout>
     </Provider>
   )
 }
 
-export default DiscoveryPage
+export default ExplorePage

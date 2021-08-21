@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { FC, memo, useRef } from 'react'
 
 import {
   Wrapper,
@@ -10,7 +10,13 @@ import {
 
 import { changeSearchStatus } from './logic'
 
-const SearchBox = ({ showSearchMask, value, onChange }) => {
+type TProps = {
+  showSearchMask: boolean
+  value: string
+  onChange: (e) => void
+}
+
+const SearchBox: FC<TProps> = ({ showSearchMask, value, onChange }) => {
   const ref = useRef(null)
 
   return (
@@ -44,4 +50,4 @@ const SearchBox = ({ showSearchMask, value, onChange }) => {
   )
 }
 
-export default React.memo(SearchBox)
+export default memo(SearchBox)
