@@ -36,7 +36,7 @@ const HeaderStore = T.model('HeaderStore', {
     },
     get hasNoBottomBorder(): boolean {
       return contains(self.metric, [
-        METRIC.DISCOVERY,
+        METRIC.EXPLORE,
         METRIC.SPONSOR,
         METRIC.SUPPORT_US,
         METRIC.SUBSCRIBE,

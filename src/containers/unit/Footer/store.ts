@@ -49,7 +49,7 @@ const FooterStore = T.model('FooterStore', {
     //   if (
     //     contains(self.metric, [
     //       METRIC.USER,
-    //       METRIC.DISCOVERY,
+    //       METRIC.EXPLORE,
     //       METRIC.ARTICLE,
     //       METRIC.WORKS_EDITOR,
     //       METRIC.COMMUNITY_EDITOR,

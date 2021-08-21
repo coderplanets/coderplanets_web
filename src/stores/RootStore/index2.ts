@@ -39,7 +39,7 @@ import {
   CommunityDigestStore,
   // content
   CommunityContentStore,
-  DiscoveryContentStore,
+  ExploreContentStore,
   CommunityEditorStore,
   UserContentStore,
   // footer
@@ -130,7 +130,7 @@ import {
 // // contents store
 // import CommunityContentStore from '@/containers/content/CommunityContent/store'
 
-// import DiscoveryContentStore from '@/containers/content/DiscoveryContent/store'
+// import ExploreContentStore from '@/containers/content/ExploreContent/store'
 // import UserContentStore from '@/containers/content/UserContent/store'
 
 // // footer
@@ -224,7 +224,7 @@ const rootStore = T.model({
   articleDigest: T.optional(ArticleDigestStore, {}),
   communityDigest: T.optional(CommunityDigestStore, {}),
   communityContent: T.optional(CommunityContentStore, {}),
-  discoveryContent: T.optional(DiscoveryContentStore, {}),
+  exploreContent: T.optional(ExploreContentStore, {}),
   communityEditor: T.optional(CommunityEditorStore, {}),
   userContent: T.optional(UserContentStore, {}),
   footer: T.optional(FooterStore, {}),

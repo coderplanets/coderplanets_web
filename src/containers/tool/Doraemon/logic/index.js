@@ -352,7 +352,7 @@ const initSpecCmdResolver = () => {
             pathname: '/',
             query: { main: 'discovery', sub: 'all' },
           },
-          '/discovery',
+          '/explore',
         )
         hidePanel()
       },

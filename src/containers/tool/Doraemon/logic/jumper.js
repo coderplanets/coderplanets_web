@@ -9,7 +9,7 @@ export const jumpToCommunity = (store, communityRaw) => {
   const { mainPath, subPath } = store.curRoute
 
   if (
-    contains(mainPath, [ROUTE.USER, ROUTE.DISCOVERY]) ||
+    contains(mainPath, [ROUTE.USER, ROUTE.EXPLORE]) ||
     contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.REPO])
   ) {
     Global.location.href = `/${communityRaw}/posts`

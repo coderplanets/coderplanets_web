@@ -30,7 +30,7 @@ const AddOns = dynamic(() => import('../AddOns'), { ssr: false })
 
 const hasNoBorder = (metric: TMetric): boolean =>
   contains(metric, [
-    METRIC.DISCOVERY,
+    METRIC.EXPLORE,
     METRIC.SPONSOR,
     METRIC.SUPPORT_US,
     METRIC.SUBSCRIBE,

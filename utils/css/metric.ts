@@ -25,7 +25,7 @@ export const WIDTH = {
     PAGE: '1200px',
     CONTENT: '1024px',
   },
-  DISCOVERY: {
+  EXPLORE: {
     CONTENT: '1100px',
   },
   ARTICLE: {

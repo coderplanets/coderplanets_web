@@ -40,7 +40,7 @@ export { default as ArticleDigestStore } from '@/containers/digest/ArticleDigest
 // contents store
 export { default as CommunityContentStore } from '@/containers/content/CommunityContent/store'
 
-export { default as DiscoveryContentStore } from '@/containers/content/DiscoveryContent/store'
+export { default as ExploreContentStore } from '@/containers/content/ExploreContent/store'
 export { default as UserContentStore } from '@/containers/content/UserContent/store'
 
 // footer

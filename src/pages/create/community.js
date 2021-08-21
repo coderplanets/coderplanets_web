@@ -86,7 +86,7 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    discoveryContent: {
+    exploreContent: {
       pagedCommunities,
       pagedCategories,
     },

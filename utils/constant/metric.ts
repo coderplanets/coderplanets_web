@@ -14,7 +14,7 @@ const METRIC = {
   COOL_GUIDE: 'COOL_GUIDE' as TMetric,
   HAVE_A_DRINK: 'HAVE_A_DRINK' as TMetric,
   RECIPES: 'RECIPES' as TMetric,
-  DISCOVERY: 'DISCOVERY' as TMetric,
+  EXPLORE: 'EXPLORE' as TMetric,
   SPONSOR: 'SPONSOR' as TMetric,
   SUPPORT_US: 'SUPPORT_US' as TMetric,
   SUBSCRIBE: 'SUBSCRIBE' as TMetric,

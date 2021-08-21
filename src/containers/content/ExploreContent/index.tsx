@@ -1,6 +1,6 @@
 /*
  *
- * DiscoveryContent
+ * ExploreContent
  *
  */
 
@@ -28,15 +28,15 @@ import {
 import { useInit, pageOnChange, menuOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:DiscoveryContent')
+const log = buildLog('C:ExploreContent')
 
 type TProps = {
-  discoveryContent?: TStore
+  exploreContent?: TStore
   metric?: TMetric
 }
 
-const DiscoveryContentContainer: FC<TProps> = ({
-  discoveryContent: store,
+const ExploreContentContainer: FC<TProps> = ({
+  exploreContent: store,
   metric,
 }) => {
   useInit(store)
@@ -91,4 +91,4 @@ const DiscoveryContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(DiscoveryContentContainer) as FC<TProps>
+export default pluggedIn(ExploreContentContainer) as FC<TProps>

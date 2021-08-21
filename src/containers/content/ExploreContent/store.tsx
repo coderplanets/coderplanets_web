@@ -1,5 +1,5 @@
 /*
- * DiscoveryContentStore store
+ * ExploreContentStore store
  *
  */
 
@@ -26,7 +26,7 @@ type TPagiInfo = {
   totalCount: number
 }
 
-const DiscoveryContentStore = T.model('DiscoveryContentStore', {
+const ExploreContentStore = T.model('ExploreContentStore', {
   // current active sidbar menu id
   activeCatalogId: T.maybeNull(T.string),
   pagedCommunities: T.optional(PagedCommunities, emptyPagiData),
@@ -140,13 +140,13 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
       const root = getParent(self) as TRootStore
 
       root.account.addSubscribedCommunity(community)
-      root.discoveryContent.toggleSubscribe(community)
+      root.exploreContent.toggleSubscribe(community)
     },
     removeSubscribedCommunity(community: TCommunity): void {
       const root = getParent(self) as TRootStore
 
       root.account.removeSubscribedCommunity(community)
-      root.discoveryContent.toggleSubscribe(community)
+      root.exploreContent.toggleSubscribe(community)
     },
     markRoute(query): void {
       const root = getParent(self) as TRootStore
@@ -157,5 +157,5 @@ const DiscoveryContentStore = T.model('DiscoveryContentStore', {
     },
   }))
 
-export type TStore = Instance<typeof DiscoveryContentStore>
-export default DiscoveryContentStore
+export type TStore = Instance<typeof ExploreContentStore>
+export default ExploreContentStore

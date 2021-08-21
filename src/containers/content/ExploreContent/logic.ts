@@ -14,7 +14,7 @@ import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:DiscoveryContent')
+const log = buildLog('L:ExploreContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
@@ -177,7 +177,7 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      errRescue({ type: ERR.TIMEOUT, details, path: 'DiscoveryContent' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'ExploreContent' })
       cancelLoading()
     },
   },
@@ -185,7 +185,7 @@ const ErrSolver = [
     match: asyncErr(ERR.NETWORK),
     action: () => {
       cancelLoading()
-      errRescue({ type: ERR.NETWORK, path: 'DiscoveryContent' })
+      errRescue({ type: ERR.NETWORK, path: 'ExploreContent' })
     },
   },
 ]

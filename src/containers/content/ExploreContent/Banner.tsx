@@ -50,7 +50,7 @@ const Banner: FC<TProps> = ({
   },
 }) => {
   return (
-    <BannerContainer testid="discovery-banner">
+    <BannerContainer testid="explore-banner">
       <IntroWrapper>
         <IntroTitle>
           <SearchIcon src={`${ICON_CMD}/search.svg`} />
