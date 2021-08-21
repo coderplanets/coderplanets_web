@@ -4,9 +4,10 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 import { isEmpty } from 'ramda'
 
+import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -17,6 +18,7 @@ import Sidebar from './Sidebar'
 import CommunityList from './CommunityList'
 import NotFound from './NotFound'
 
+import type { TStore } from './store'
 import {
   Wrapper,
   ContentWrapper,
@@ -28,7 +30,15 @@ import { useInit, pageOnChange, menuOnChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:DiscoveryContent')
 
-const DiscoveryContentContainer = ({ discoveryContent: store, metric }) => {
+type TProps = {
+  discoveryContent?: TStore
+  metric?: TMetric
+}
+
+const DiscoveryContentContainer: FC<TProps> = ({
+  discoveryContent: store,
+  metric,
+}) => {
   useInit(store)
 
   const {
@@ -38,6 +48,8 @@ const DiscoveryContentContainer = ({ discoveryContent: store, metric }) => {
     activeMenuId,
     pagiInfo,
     showFilterSidebar,
+    subscribing,
+    subscribingId,
   } = store
 
   const { isSearchMode, searchValue } = searchStatus
@@ -58,7 +70,8 @@ const DiscoveryContentContainer = ({ discoveryContent: store, metric }) => {
               <>
                 <CommunityList
                   entries={pagedCommunitiesData.entries}
-                  restProps={{ ...store }}
+                  subscribing={subscribing}
+                  subscribingId={subscribingId}
                 />
                 <Pagi
                   {...pagiInfo}
@@ -78,4 +91,4 @@ const DiscoveryContentContainer = ({ discoveryContent: store, metric }) => {
   )
 }
 
-export default pluggedIn(DiscoveryContentContainer)
+export default pluggedIn(DiscoveryContentContainer) as FC<TProps>

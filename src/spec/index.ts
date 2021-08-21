@@ -25,6 +25,7 @@ export type {
   TNaviTag,
   TFilterTag,
   TGroupedTags,
+  TCategory,
 } from './community'
 
 export type {

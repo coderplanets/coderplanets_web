@@ -14,10 +14,10 @@ const BaseCard = styled.div`
   width: 200px;
   height: 250px;
   margin-right: 30px;
-  background: ${theme('content.cardBg')};
+  background: #0c3442; // ${theme('content.cardBg')};
   border: 1px solid;
   border-color: ${theme('content.cardBorder')};
-  border-radius: 3px;
+  border-radius: 12px;
 `
 export const Wrapper = styled(BaseCard)`
   margin-bottom: 60px;
@@ -48,21 +48,17 @@ export const CommunityIcon = styled(Img)<{ nonFill: boolean }>`
   }
 `
 export const Title = styled.div`
-  font-size: 1.2em;
+  font-size: 18px;
   font-weight: bold;
   margin-top: 5px;
   text-align: center;
   color: ${theme('thread.articleTitle')};
-
-  ${Wrapper}:hover & {
-    color: ${theme('banner.title')};
-  }
 `
 export const Desc = styled.div`
-  font-size: 1em;
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
   text-align: center;
   min-height: 50px;
-  color: ${theme('banner.desc')};
 `
 export const ActivitySpark = styled.div`
   width: 100%;

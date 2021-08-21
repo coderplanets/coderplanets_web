@@ -42,7 +42,7 @@ export const IntroDesc = styled.div`
   margin-left: -10px;
   opacity: 0.9;
 `
-export const SloganTextWrapper = styled.div<{ highlight: boolean }>`
+export const SloganTextWrapper = styled.div<{ highlight?: boolean }>`
   margin-left: 3px;
   margin-right: 3px;
 

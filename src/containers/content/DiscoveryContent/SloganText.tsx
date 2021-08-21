@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { FC, memo, useEffect, useState } from 'react'
 import { AnimateOnChange } from 'react-animation'
 
 import { SloganTextWrapper } from './styles/banner'
@@ -13,8 +13,8 @@ const SWITCH_INTERVAL = 3000
 
   当做一些升高 CPU 操作时，AnimateOnChange 的动画会卡主，这是一个 hack
  */
-const fixAnimationStockIfNeed = () => {
-  const el = document.querySelector('.animate-on-change')
+const fixAnimationStockIfNeed = (): void => {
+  const el: HTMLElement = document.querySelector('.animate-on-change')
 
   if (el.style.opacity === '0') {
     el.style.opacity = '1'
@@ -23,7 +23,7 @@ const fixAnimationStockIfNeed = () => {
   }
 }
 
-const SlogenText = () => {
+const SlogenText: FC = () => {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -50,4 +50,4 @@ const SlogenText = () => {
   )
 }
 
-export default React.memo(SlogenText)
+export default memo(SlogenText)

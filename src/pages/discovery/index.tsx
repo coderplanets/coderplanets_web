@@ -25,7 +25,7 @@ import DiscoveryContent from '@/containers/content/DiscoveryContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -34,7 +34,9 @@ const fetchData = async (props, opt) => {
   const { subPath } = ssrParseURL(props.req)
   const category = subPath !== '' ? subPath : 'pl'
 
-  const filter = { ...queryStringToJSON(props.req.url, { pagi: 'number' }) }
+  const filter = {
+    ...queryStringToJSON(props.req.url, { noPagiInfo: false, pagi: 'number' }),
+  }
 
   const sessionState = gqClient.request(P.sessionState)
   const pagedCommunities = gqClient.request(P.pagedCommunities, {
