@@ -106,8 +106,8 @@ export const c11n = `
 `
 export const achievement = `
   reputation
-  contentsStaredCount
-  contentsFavoritedCount
+  articlesUpvotesCount
+  articlesCollectsCount
   donateMember
   seniorMember
   sponsorMember

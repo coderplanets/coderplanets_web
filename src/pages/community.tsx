@@ -87,9 +87,9 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
   let resp
   try {
     resp = await fetchData(props)
-    console.log('#### fetchData from server: ', resp)
+    // console.log('#### fetchData from server: ', resp)
   } catch (e) {
-    console.log('#### error from server: ', e)
+    // console.log('#### error from server: ', e)
     const {
       response: { errors },
     } = e

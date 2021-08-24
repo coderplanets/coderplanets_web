@@ -47,8 +47,8 @@ const SourceContribute = T.model('SourceContribute', {
 
 export const Achievement = T.model('Achievement', {
   reputation: T.optional(T.number, 0),
-  contentsStaredCount: T.optional(T.number, 0),
-  contentsFavoritedCount: T.optional(T.number, 0),
+  articlesUpvotesCount: T.optional(T.number, 0),
+  articlesCollectsCount: T.optional(T.number, 0),
   sourceContribute: T.optional(SourceContribute, {
     web: false,
     server: false,
@@ -143,8 +143,8 @@ export const SimpleUser = T.model('SimpleUser2', {
 export const EmptyAchievement = {
   achievement: {
     reputation: 0,
-    contentsStaredCount: 0,
-    contentsFavoritedCount: 0,
+    articlesUpvotesCount: 0,
+    articlesCollectsCount: 0,
     donateMember: false,
     seniorMember: false,
     sponsorMember: false,

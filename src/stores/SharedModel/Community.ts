@@ -31,7 +31,7 @@ export const Community = T.model('Community', {
   contributesDigest: T.optional(T.array(T.number), []),
   subscribersCount: T.optional(T.number, 0),
   editorsCount: T.optional(T.number, 0),
-  meta: T.optional(Meta, {}),
+  meta: T.maybeNull(Meta),
   viewerHasSubscribed: T.maybeNull(T.boolean),
   threads: T.optional(T.array(Thread), []),
   insertedAt: T.optional(T.string, ''),

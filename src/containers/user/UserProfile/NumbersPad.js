@@ -23,12 +23,12 @@ const Numberspad = ({ user }) => {
       </Section>
       <Divider />
       <Section>
-        <Num>{user.achievement.contentsStaredCount}</Num>
+        <Num>{user.achievement.articlesUpvotesCount}</Num>
         <Title>收获点赞</Title>
       </Section>
       <Divider />
       <Section>
-        <Num>{user.achievement.contentsFavoritedCount}</Num>
+        <Num>{user.achievement.articlesCollectsCount}</Num>
         <Title>被收藏</Title>
       </Section>
       <Divider />
