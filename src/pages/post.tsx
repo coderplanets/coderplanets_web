@@ -70,7 +70,7 @@ export const getServerSideProps = async (props) => {
 
   const { sessionState, post, pagedComments, subscribedCommunities } = resp
 
-  const { origialCommunity: community, ...viewingContent } = post
+  const { originalCommunity: community, ...viewingContent } = post
   const initProps = {
     theme: {
       curTheme: parseTheme(sessionState),

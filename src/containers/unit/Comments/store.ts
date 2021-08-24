@@ -112,9 +112,9 @@ const CommentsStore = T.model('CommentsStore', {
     },
     get participators(): TUser[] {
       const root = getParent(self) as TRootStore
-      const { commentsParticipators } = root.viewing.viewingData
+      const { commentsParticipants } = root.viewing.viewingData
       /*
-      const commentsParticipators = [
+      const commentsParticipants = [
         {
           id: '112',
           nickname: 'mydearxym',
@@ -129,7 +129,7 @@ const CommentsStore = T.model('CommentsStore', {
       ]
       */
 
-      return map(mentionMapper, commentsParticipators)
+      return map(mentionMapper, commentsParticipants)
     },
     get mentionListData() {
       return toJS(self.mentionList)
@@ -150,7 +150,7 @@ const CommentsStore = T.model('CommentsStore', {
       // const viewingCommunity = toJS(self.root.viewing.community)
       // if (viewingCommunity.raw) return viewingCommunity.raw
 
-      return root.viewing.viewingData.origialCommunity.raw
+      return root.viewing.viewingData.originalCommunity.raw
     },
     get activeThread(): TThread {
       const root = getParent(self) as TRootStore

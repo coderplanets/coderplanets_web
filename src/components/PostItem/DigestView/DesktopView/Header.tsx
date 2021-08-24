@@ -42,7 +42,7 @@ const Header: FC<TProps> = ({ item }) => {
       </Brief>
       <Participants>
         <AvatarsRow
-          users={item.commentsParticipators}
+          users={item.commentsParticipants}
           total={item.commentsCount}
         />
       </Participants>

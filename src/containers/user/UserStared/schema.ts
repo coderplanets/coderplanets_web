@@ -14,8 +14,8 @@ const staredPosts = gql`
         author {
           ${F.author}
         }
-        commentsParticipatorsCount
-        commentsParticipators(filter: { first: 5 }) {
+        commentsParticipantsCount
+        commentsParticipants(filter: { first: 5 }) {
           ${F.author}
         }
       }

@@ -22,13 +22,13 @@ export const Job = T.model('Job', {
   copyRight: T.optional(T.string, 'original'),
 
   communities: T.optional(T.array(Community), []),
-  origialCommunity: T.optional(Community, {}),
+  originalCommunity: T.optional(Community, {}),
   tags: T.optional(T.array(Tag), []),
   comments: T.optional(T.array(Comment), []),
 
   commentsCount: T.optional(T.number, 0),
-  commentsParticipatorsCount: T.optional(T.number, 0),
-  commentsParticipators: T.optional(T.array(User), []),
+  commentsParticipantsCount: T.optional(T.number, 0),
+  commentsParticipants: T.optional(T.array(User), []),
   views: T.optional(T.number, 0),
   pin: T.maybeNull(T.boolean),
 

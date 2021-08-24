@@ -31,7 +31,7 @@ export const post = `
         }
         totalCount
       }
-      origialCommunity {
+      originalCommunity {
         ${F.community}
       }
       communities {
@@ -54,7 +54,7 @@ export const pagedPosts = `
         linkIcon
         copyRight
         commentsCount
-        commentsParticipators(filter: { first: 5 }) {
+        commentsParticipants(filter: { first: 5 }) {
           ${F.author}
         }
         tags {

@@ -337,7 +337,7 @@ const post = gql`
       tags {
         ${F.tag}
       }
-      commentsParticipators {
+      commentsParticipants {
         ${F.author}
       }
       commentsCount

@@ -12,10 +12,10 @@ const post = gql`
       tags {
         ${F.tag}
       }
-      origialCommunity {
+      originalCommunity {
         ${F.community}
       }
-      commentsParticipators {
+      commentsParticipants {
         ${F.author}
       }
       commentsCount
@@ -41,7 +41,7 @@ const postComment = gql`
   query post($id: ID!) {
     post(id: $id) {
       id
-      commentsParticipators {
+      commentsParticipants {
         ${F.author}
       }
       commentsCount

@@ -158,7 +158,8 @@ const DataResolver = [
        */
       if (!contains(payload.type, FUNCTION_TYPES) && store.isMobile) {
         const { thread, data } = payload
-        const communityRaw = store.curCommunity.raw || data.origialCommunity.raw
+        const communityRaw =
+          store.curCommunity.raw || data.originalCommunity.raw
         const targetUrl = `/${communityRaw}/${thread}/${data.id}`
 
         Global.location.href = targetUrl
