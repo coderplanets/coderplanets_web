@@ -67,7 +67,7 @@ const getActiveTag = (tagTitle, tagList) => {
 
 export const ssrContentsThread = (resp, thread, filters = {}) => {
   // console.log('filter in resp: ', resp.filter)
-  const activeTag = getActiveTag(resp.filter.tag, resp.partialTags)
+  const activeTag = getActiveTag(resp.filter.tag, resp.pagedArticleTags)
 
   switch (toLower(thread)) {
     case THREAD.JOB:

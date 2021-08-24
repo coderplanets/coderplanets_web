@@ -7,7 +7,6 @@ export const post = `
       body
       length
       linkAddr
-      linkIcon
       copyRight
       author {
         ${F.author}
@@ -37,7 +36,7 @@ export const post = `
       communities {
         ${F.community}
       }
-      tags {
+      articleTags {
         ${F.tag}
       }
     }
@@ -48,16 +47,15 @@ export const pagedPosts = `
     pagedPosts(filter: $filter) {
       entries {
         ${F.post}
-        pin
+        isPinned
         digest
         linkAddr
-        linkIcon
         copyRight
         commentsCount
-        commentsParticipants(filter: { first: 5 }) {
+        commentsParticipants {
           ${F.author}
         }
-        tags {
+        articleTags {
           ${F.tag}
         }
         author {

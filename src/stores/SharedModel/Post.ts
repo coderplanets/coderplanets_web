@@ -15,7 +15,6 @@ export const Post = T.model('Post', {
   author: T.maybeNull(User),
 
   linkAddr: T.maybeNull(T.string),
-  linkIcon: T.maybeNull(T.string),
   copyRight: T.optional(T.string, 'original'),
 
   communities: T.optional(T.array(Community), []),
@@ -27,7 +26,7 @@ export const Post = T.model('Post', {
   commentsParticipantsCount: T.optional(T.number, 0),
   commentsParticipants: T.optional(T.array(User), []),
   views: T.optional(T.number, 0),
-  pin: T.maybeNull(T.boolean),
+  isPinned: T.maybeNull(T.boolean),
   length: T.optional(T.number, 0),
   collectsCount: T.optional(T.number, 0),
   upvotesCount: T.optional(T.number, 0),

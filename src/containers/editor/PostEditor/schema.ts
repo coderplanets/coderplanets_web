@@ -61,7 +61,7 @@ const updatePost = gql`
 const post = gql`
   query($id: ID!) {
     post(id: $id) {
-      tags {
+      articleTags {
         ${F.tag}
       }
     }

@@ -29,7 +29,7 @@ export const repo = `
       communities {
         ${F.community}
       }
-      tags {
+      articleTags {
         ${F.tag}
       }
     }
@@ -41,13 +41,13 @@ export const pagedRepos = `
     pagedRepos(filter: $filter) {
       entries {
         ${F.repo}
-        pin
+        isPinned
         views
         releaseTag
         author {
           ${F.author}
         }
-        tags {
+        articleTags {
           ${F.tag}
         }
         viewerHasViewed @include(if: $userHasLogin)

@@ -57,7 +57,7 @@ const fetchData = async (props, opt = {}) => {
     userHasLogin,
   })
 
-  // const partialTags = gqClient.request(P.partialTags, { thread, community })
+  // const pagedArticleTags = gqClient.request(P.pagedArticleTags, { thread, community })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -70,7 +70,7 @@ const fetchData = async (props, opt = {}) => {
     ...(await sessionState),
     ...(await curCommunity),
     // ...(await pagedContents),
-    // ...(await partialTags),
+    // ...(await pagedArticleTags),
     ...(await subscribedCommunities),
   }
 }
@@ -106,7 +106,7 @@ export const getServerSideProps = async (props) => {
 
   const {
     sessionState,
-    // partialTags,
+    // pagedArticleTags,
     community,
     subscribedCommunities,
   } = resp
@@ -132,7 +132,7 @@ export const getServerSideProps = async (props) => {
         community,
         activeThread: toLower(thread),
       },
-      // tagsBar: { tags: partialTags },
+      // tagsBar: { tags: pagedArticleTags },
     },
     {},
   )

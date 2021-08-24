@@ -5,7 +5,7 @@ const repo = gql`
   query($id: ID!, $userHasLogin: Boolean!) {
     repo(id: $id) {
       ${F.repo}
-      tags {
+      articleTags {
         ${F.tag}
       }
       originalCommunity {

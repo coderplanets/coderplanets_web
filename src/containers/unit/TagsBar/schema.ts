@@ -1,16 +1,16 @@
 import { gql } from '@urql/core'
 import { F } from '@/schemas'
 
-const partialTags = gql`
-  query($communityId: ID, $community: String, $thread: CmsThread!) {
-    partialTags(communityId: $communityId, community: $community, thread: $thread) {
+const pagedArticleTags = gql`
+  query($filter: ArticleTagsFIlter) {
+    pagedArticleTags(filter: $filter) {
       ${F.tag}
     }
   }
 `
 
 const schema = {
-  partialTags,
+  pagedArticleTags,
 }
 
 export default schema

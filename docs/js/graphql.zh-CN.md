@@ -18,8 +18,8 @@ import { P, F } from '@/schemas'
 const pagedPosts = gql`
   ${P.pagedPosts}
 `
-const partialTags = gql`
-  ${P.partialTags}
+const pagedArticleTags = gql`
+  ${P.pagedArticleTags}
 `
 
 const pagedCommunities = gql`
@@ -37,7 +37,7 @@ const pagedCommunities = gql`
 
 const schema = {
   pagedPosts,
-  partialTags,
+  pagedArticleTags,
   pagedCommunities,
 }
 

@@ -10,7 +10,7 @@ type TBaseArticle = {
   digest?: string
   body?: string
   views?: number
-  pin?: boolean
+  isPinned?: boolean
   author?: TAccount
   upvotesCount?: number
   originalCommunity?: TCommunity
@@ -25,7 +25,6 @@ type TBaseArticle = {
 export type TPost = TBaseArticle & {
   digest?: string
   linkAddr?: string
-  linkIcon?: string
 }
 
 export type TWorks = TBaseArticle & {

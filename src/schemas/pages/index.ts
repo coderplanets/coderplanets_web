@@ -4,7 +4,7 @@ import { pagedRepos, repo } from './repo'
 import { user, sessionState } from './user'
 import { community, subscribedCommunities, pagedCommunities } from './community'
 import { pagedComments } from './comment'
-import { pagedCategories, partialTags } from './misc'
+import { pagedCategories, pagedArticleTags } from './misc'
 import { mentions } from './mail'
 
 import {
@@ -25,7 +25,7 @@ const P = {
   pagedComments,
   // misc
   pagedCategories,
-  partialTags,
+  pagedArticleTags,
   // post
   pagedPosts,
   post,

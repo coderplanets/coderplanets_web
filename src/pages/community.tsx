@@ -58,7 +58,12 @@ const fetchData = async (props, opt = {}) => {
     ssrPagedFilter(community, thread, filter, userHasLogin),
   )
 
-  const partialTags = gqClient.request(P.partialTags, { thread, community })
+  // const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
+  //   filter: {
+  //     thread,
+  //     community,
+  //   },
+  // })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -71,7 +76,7 @@ const fetchData = async (props, opt = {}) => {
     ...((await sessionState) as Record<string, unknown>),
     ...((await curCommunity) as Record<string, unknown>),
     ...((await pagedContents) as Record<string, unknown>),
-    ...((await partialTags) as Record<string, unknown>),
+    // ...((await pagedArticleTags) as Record<string, unknown>),
     ...((await subscribedCommunities) as Record<string, unknown>),
   }
 }
@@ -82,7 +87,9 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
   let resp
   try {
     resp = await fetchData(props)
+    console.log('#### fetchData from server: ', resp)
   } catch (e) {
+    console.log('#### error from server: ', e)
     const {
       response: { errors },
     } = e
@@ -108,7 +115,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
   const {
     filter,
     sessionState,
-    partialTags,
+    // pagedArticleTags,
     community,
     subscribedCommunities,
   } = resp
@@ -135,7 +142,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
         community,
         activeThread: toLower(thread),
       },
-      tagsBar: { tags: partialTags },
+      // tagsBar: { tags: pagedArticleTags },
     },
     contentsThread,
   )

@@ -9,7 +9,7 @@ const post = gql`
       author {
         ${F.author}
       }
-      tags {
+      articleTags {
         ${F.tag}
       }
       originalCommunity {

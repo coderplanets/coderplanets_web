@@ -5,8 +5,8 @@ const schema = {
   pagedRepos: gql`
     ${P.pagedRepos}
   `,
-  partialTags: gql`
-    ${P.partialTags}
+  pagedArticleTags: gql`
+    ${P.pagedArticleTags}
   `,
 }
 

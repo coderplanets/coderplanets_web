@@ -121,8 +121,8 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.mark({ tags }),
+    match: asyncRes('pagedArticleTags'),
+    action: ({ pagedArticleTags: tags }) => store.mark({ tags }),
   },
   {
     match: asyncRes(EVENT.THREAD_CHANGE),

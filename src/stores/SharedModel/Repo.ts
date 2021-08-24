@@ -41,7 +41,7 @@ export const Repo = T.model('Reop', {
 
   author: T.maybeNull(User),
   views: T.optional(T.number, 0),
-  pin: T.maybeNull(T.boolean),
+  isPinned: T.maybeNull(T.boolean),
 
   collectsCount: T.optional(T.number, 0),
   viewerHasCollected: T.optional(T.boolean, false),

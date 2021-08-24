@@ -14,6 +14,12 @@ export const SimpleCategory = T.model('Category', {
   title: T.maybeNull(T.string),
 })
 
+const Meta = T.model('CommunityMeta', {
+  postsCount: T.optional(T.number, 0),
+  jobsCount: T.optional(T.number, 0),
+  reposCount: T.optional(T.number, 0),
+})
+
 export const Community = T.model('Community', {
   id: T.maybeNull(T.string),
   title: T.maybeNull(T.string),
@@ -25,9 +31,7 @@ export const Community = T.model('Community', {
   contributesDigest: T.optional(T.array(T.number), []),
   subscribersCount: T.optional(T.number, 0),
   editorsCount: T.optional(T.number, 0),
-  postsCount: T.optional(T.number, 0),
-  jobsCount: T.optional(T.number, 0),
-  reposCount: T.optional(T.number, 0),
+  meta: T.optional(Meta, {}),
   viewerHasSubscribed: T.maybeNull(T.boolean),
   threads: T.optional(T.array(Thread), []),
   insertedAt: T.optional(T.string, ''),

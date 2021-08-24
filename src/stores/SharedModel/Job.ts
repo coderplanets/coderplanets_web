@@ -30,7 +30,7 @@ export const Job = T.model('Job', {
   commentsParticipantsCount: T.optional(T.number, 0),
   commentsParticipants: T.optional(T.array(User), []),
   views: T.optional(T.number, 0),
-  pin: T.maybeNull(T.boolean),
+  isPinned: T.maybeNull(T.boolean),
 
   length: T.optional(T.number, 0),
   collectsCount: T.optional(T.number, 0),

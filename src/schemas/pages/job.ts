@@ -31,7 +31,7 @@ export const job = `
       communities {
         ${F.community}
       }
-      tags {
+      articleTags {
         ${F.tag}
       }
     }
@@ -42,14 +42,14 @@ export const pagedJobs = `
     pagedJobs(filter: $filter) {
       entries {
         ${F.job}
-        pin
+        isPinned
         author {
           ${F.author}
         }
         communities {
           ${F.community}
         }
-        tags {
+        articleTags {
           ${F.tag}
         }
         viewerHasViewed @include(if: $userHasLogin)

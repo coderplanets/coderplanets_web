@@ -43,7 +43,7 @@ export const loadTags = (): void => {
 
   /* log('#### loadTags --> ', args) */
   store.mark({ loading: true })
-  sr71$.query(S.partialTags, args)
+  sr71$.query(S.pagedArticleTags, args)
 }
 
 // ###############################
@@ -52,8 +52,9 @@ export const loadTags = (): void => {
 
 const DataSolver = [
   {
-    match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.mark({ tags, loading: false }),
+    match: asyncRes('pagedArticleTags'),
+    action: ({ pagedArticleTags: tags }) =>
+      store.mark({ tags, loading: false }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),

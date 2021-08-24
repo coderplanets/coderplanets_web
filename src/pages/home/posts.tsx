@@ -31,7 +31,7 @@ import { P } from '@/schemas'
 /* eslint-disable-next-line */
 const log = buildLog('page:community')
 
-const fetchData = async (props, opt) => {
+const fetchData = async (props, opt = {}) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -45,7 +45,7 @@ const fetchData = async (props, opt) => {
   const community = akaTranslate(communityPath)
 
   let filter = {
-    ...queryStringToJSON(props.req.url, { pagi: 'number' }),
+    ...queryStringToJSON(props.req.url, { noPagiInfo: false, pagi: 'number' }),
     community,
     thread,
   }
@@ -63,7 +63,9 @@ const fetchData = async (props, opt) => {
     ssrPagedFilter(community, thread, filter, userHasLogin),
   )
 
-  const partialTags = gqClient.request(P.partialTags, { thread, community })
+  // const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
+  //   filter: { thread, community },
+  // })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -76,7 +78,7 @@ const fetchData = async (props, opt) => {
     ...(await sessionState),
     ...(await curCommunity),
     ...(await pagedContents),
-    ...(await partialTags),
+    // ...(await pagedArticleTags),
     ...(await subscribedCommunities),
   }
 }
@@ -113,7 +115,7 @@ export const getServerSideProps = async (props) => {
   const {
     filter,
     sessionState,
-    partialTags,
+    // pagedArticleTags,
     community,
     subscribedCommunities,
   } = resp
@@ -140,7 +142,7 @@ export const getServerSideProps = async (props) => {
         community,
         activeThread: toLower(thread),
       },
-      tagsBar: { tags: partialTags },
+      // tagsBar: { tags: pagedArticleTags },
     },
     contentsThread,
   )

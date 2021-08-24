@@ -5,10 +5,10 @@ export const pagedPosts = `
     ${post}
     digest
     commentsCount
-    commentsParticipants(filter: { first: 5 }) {
+    commentsParticipants {
       ${author}
     }
-    tags {
+    articleTags {
       ${tag}
     }
     author {
@@ -20,7 +20,7 @@ export const pagedPosts = `
 export const pagedJobs = `
   entries {
     ${job}
-    tags {
+    articleTags {
       ${tag}
     }
     author {

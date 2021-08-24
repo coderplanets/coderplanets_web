@@ -2,8 +2,8 @@ import { gql } from '@urql/core'
 import { F } from '@/schemas'
 
 const subscribedCommunities = gql`
-  query subscribedCommunities($userId: ID, $filter: PagedFilter!) {
-    subscribedCommunities(userId: $userId, filter: $filter) {
+  query subscribedCommunities($login: String, $filter: PagedFilter!) {
+    subscribedCommunities(login: $login, filter: $filter) {
       entries {
         ${F.community}
         contributesDigest
