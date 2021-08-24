@@ -43,8 +43,8 @@ export const Repo = T.model('Reop', {
   views: T.optional(T.number, 0),
   pin: T.maybeNull(T.boolean),
 
-  favoritedCount: T.optional(T.number, 0),
-  viewerHasFavorited: T.optional(T.boolean, false),
+  collectsCount: T.optional(T.number, 0),
+  viewerHasCollected: T.optional(T.boolean, false),
   favoritedCategoryId: T.maybeNull(T.string),
 
   communities: T.optional(T.array(Community), []),

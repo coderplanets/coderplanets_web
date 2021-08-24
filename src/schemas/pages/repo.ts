@@ -16,7 +16,7 @@ export const repo = `
         followingsCount
       }
       lastSync
-      favoritedCount
+      collectsCount
       pagedCommentsParticipators {
         entries {
           ${F.author}

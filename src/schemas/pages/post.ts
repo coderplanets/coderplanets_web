@@ -20,10 +20,10 @@ export const post = `
         followingsCount
       }
       commentsCount
-      favoritedCount
-      viewerHasFavorited @include(if: $userHasLogin)
-      starredCount
-      viewerHasStarred @include(if: $userHasLogin)
+      collectsCount
+      viewerHasCollected @include(if: $userHasLogin)
+      upvotesCount
+      viewerHasUpvoted @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
       pagedCommentsParticipators {
         entries {

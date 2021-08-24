@@ -21,11 +21,11 @@ const post = gql`
       commentsCount
       linkAddr
       insertedAt
-      favoritedCount
-      starredCount
+      collectsCount
+      upvotesCount
       viewerHasViewed @include(if: $userHasLogin)
-      viewerHasFavorited @include(if: $userHasLogin)
-      viewerHasStarred @include(if: $userHasLogin)
+      viewerHasCollected @include(if: $userHasLogin)
+      viewerHasUpvoted @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
     }
   }

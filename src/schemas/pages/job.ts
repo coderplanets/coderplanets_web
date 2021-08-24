@@ -16,8 +16,8 @@ export const job = `
         followersCount
         followingsCount
       }
-      favoritedCount
-      viewerHasFavorited @include(if: $userHasLogin)
+      collectsCount
+      viewerHasCollected @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
       pagedCommentsParticipators {
         entries {

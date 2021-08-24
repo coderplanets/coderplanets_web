@@ -21,12 +21,12 @@ const StarReaction = ({ data, show, loading }) => (
   <Maybe test={show}>
     <Reaction>
       <ReactionAction
-        active={data.viewerHasStarred}
-        onClick={() => onReaction(TYPE.STAR, data.viewerHasStarred, data)}
+        active={data.viewerHasUpvoted}
+        onClick={() => onReaction(TYPE.STAR, data.viewerHasUpvoted, data)}
       >
         <LikeIcon src={`${ICON_CMD}/like.svg`} />
         <ReactionName>
-          {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
+          {data.viewerHasUpvoted ? <span>已赞</span> : <span>赞</span>}
         </ReactionName>
       </ReactionAction>
       {loading ? (
@@ -41,7 +41,7 @@ const StarReaction = ({ data, show, loading }) => (
             })
           }
         >
-          {data.starredCount}
+          {data.upvotesCount}
         </ReactionUserNum>
       )}
 
@@ -54,8 +54,8 @@ StarReaction.propTypes = {
   data: T.shape({
     id: T.string,
     title: T.string,
-    viewerHasStarred: T.bool,
-    starredCount: T.number,
+    viewerHasUpvoted: T.bool,
+    upvotesCount: T.number,
   }).isRequired,
   show: T.bool,
   loading: T.bool,

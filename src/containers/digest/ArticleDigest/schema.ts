@@ -13,10 +13,10 @@ const post = gql`
     post(id: $id) {
       id
       commentsCount
-      favoritedCount
-      starredCount
-      viewerHasFavorited
-      viewerHasStarred
+      collectsCount
+      upvotesCount
+      viewerHasCollected
+      viewerHasUpvoted
       favoritedCategoryId
     }
   }
@@ -25,8 +25,8 @@ const job = gql`
   query($id: ID!) {
     job(id: $id) {
       id
-      favoritedCount
-      viewerHasFavorited
+      collectsCount
+      viewerHasCollected
       favoritedCategoryId
     }
   }
@@ -36,8 +36,8 @@ const repo = gql`
     repo(id: $id) {
       id
       favoritedCategoryId
-      viewerHasFavorited
-      favoritedCount
+      viewerHasCollected
+      collectsCount
     }
   }
 `

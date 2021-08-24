@@ -19,9 +19,9 @@ const repo = gql`
       issuesCount
       releaseTag
       lastSync
-      favoritedCount
+      collectsCount
       favoritedCategoryId @include(if: $userHasLogin)
-      viewerHasFavorited @include(if: $userHasLogin)
+      viewerHasCollected @include(if: $userHasLogin)
       author {
         ${F.author}
       }
@@ -78,7 +78,7 @@ const updateRepo = gql`
       issuesCount
       releaseTag
       lastSync
-      favoritedCount
+      collectsCount
       updatedAt
     }
   }

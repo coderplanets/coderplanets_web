@@ -33,10 +33,10 @@ export const Job = T.model('Job', {
   pin: T.maybeNull(T.boolean),
 
   length: T.optional(T.number, 0),
-  favoritedCount: T.optional(T.number, 0),
-  // starredCount: T.optional(T.number, 0),
-  viewerHasFavorited: T.optional(T.boolean, false),
-  // viewerHasStarred: T.optional(T.boolean, false),
+  collectsCount: T.optional(T.number, 0),
+  // upvotesCount: T.optional(T.number, 0),
+  viewerHasCollected: T.optional(T.boolean, false),
+  // viewerHasUpvoted: T.optional(T.boolean, false),
   favoritedCategoryId: T.maybeNull(T.string),
 
   pagedCommentsParticipators: T.optional(PagedUsers, {}),

@@ -12,7 +12,7 @@ type TBaseArticle = {
   views?: number
   pin?: boolean
   author?: TAccount
-  starredCount?: number
+  upvotesCount?: number
   originalCommunity?: TCommunity
   commentsParticipants?: TUser
   insertedAt?: string

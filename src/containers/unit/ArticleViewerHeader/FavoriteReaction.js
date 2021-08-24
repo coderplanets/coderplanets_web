@@ -22,12 +22,12 @@ const FavoriteReaction = ({ data, thread, show, loading }) => (
   <Maybe test={show}>
     <Reaction>
       <ReactionAction
-        active={data.viewerHasFavorited}
-        onClick={() => onReaction(TYPE.FAVORITE, data.viewerHasFavorited, data)}
+        active={data.viewerHasCollected}
+        onClick={() => onReaction(TYPE.FAVORITE, data.viewerHasCollected, data)}
       >
         <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />
         <ReactionName>
-          {data.viewerHasFavorited ? <span>已收藏</span> : <span>收藏</span>}
+          {data.viewerHasCollected ? <span>已收藏</span> : <span>收藏</span>}
         </ReactionName>
       </ReactionAction>
       {loading ? (
@@ -43,7 +43,7 @@ const FavoriteReaction = ({ data, thread, show, loading }) => (
             })
           }
         >
-          {data.favoritedCount}
+          {data.collectsCount}
         </ReactionUserNum>
       )}
       <Divider />
@@ -56,8 +56,8 @@ FavoriteReaction.propTypes = {
   data: T.shape({
     id: T.string,
     title: T.string,
-    viewerHasFavorited: T.bool,
-    favoritedCount: T.number,
+    viewerHasCollected: T.bool,
+    collectsCount: T.number,
   }).isRequired,
   show: T.bool,
   loading: T.bool,
