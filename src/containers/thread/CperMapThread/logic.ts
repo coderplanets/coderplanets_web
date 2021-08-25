@@ -9,7 +9,7 @@ import S from './schema'
 import type { TStore } from './store'
 
 /* eslint-disable-next-line */
-const log = buildLog('L:UsersThread')
+const log = buildLog('L:CperMapThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71()
@@ -46,14 +46,14 @@ const ErrSolver = [
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       markLoading(false)
-      errRescue({ type: ERR.TIMEOUT, details, path: 'UsersThread' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'CperMapThread' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
       markLoading(false)
-      errRescue({ type: ERR.NETWORK, path: 'UsersThread' })
+      errRescue({ type: ERR.NETWORK, path: 'CperMapThread' })
     },
   },
 ]

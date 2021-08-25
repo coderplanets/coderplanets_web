@@ -1,5 +1,5 @@
 /*
- * UsersThread store
+ * CperMapThread store
  *
  */
 
@@ -15,7 +15,7 @@ const Geo = T.model('Thread', {
   lant: T.number,
 })
 
-const UsersThread = T.model('UsersThread', {
+const CperMapThread = T.model('CperMapThread', {
   geoInfos: T.optional(T.array(Geo), []),
   geoDataLoading: T.optional(T.boolean, false),
   // { city: '成都', value: 1, long: 104.06, lant: 30.67 }
@@ -39,5 +39,5 @@ const UsersThread = T.model('UsersThread', {
     },
   }))
 
-export type TStore = Instance<typeof UsersThread>
-export default UsersThread
+export type TStore = Instance<typeof CperMapThread>
+export default CperMapThread

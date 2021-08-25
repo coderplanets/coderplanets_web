@@ -27,8 +27,10 @@ export const community = `
       editorsCount
       meta {
         postsCount
+        worksCount
+        blogsCount
+        radarsCount
         jobsCount
-        reposCount
       }
     }
   }

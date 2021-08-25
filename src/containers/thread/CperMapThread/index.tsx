@@ -1,20 +1,19 @@
 /*
  *
- * UsersThread
+ * CperMapThread
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
-
 import MapLoading from './MapLoading'
 
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:UsersThread')
+const log = buildLog('C:CperMapThread')
 
 export const RealMap = dynamic(() => import('./RealMap'), {
   /* eslint-disable react/display-name */
@@ -22,7 +21,7 @@ export const RealMap = dynamic(() => import('./RealMap'), {
   ssr: false,
 })
 
-const UsersThread = () => {
+const CperMapThread: FC = () => {
   return (
     <Wrapper>
       <RealMap />
@@ -30,4 +29,4 @@ const UsersThread = () => {
   )
 }
 
-export default UsersThread
+export default memo(CperMapThread)

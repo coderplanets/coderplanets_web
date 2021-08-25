@@ -4,15 +4,16 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
+import type { TCommunity } from '@/spec'
 import usePlatform from '@/hooks/usePlatform'
 import { buildLog } from '@/utils/logger'
 
 import Charger from '@/components/Charger'
-import NumberGroup from './NumberGroup'
 
+import NumberGroup from './NumberGroup'
+import { getContentCount } from './helper'
 import {
   Wrapper,
   NumberSection,
@@ -26,22 +27,22 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:CommunityStatesPad:index')
 
-const CommunityStatesPad = ({
+type TProps = {
+  community: TCommunity
+  withoutFounding?: boolean
+  onShowEditorList?: () => void
+  onShowSubscriberList?: () => void
+}
+
+const CommunityStatesPad: FC<TProps> = ({
   community,
-  onShowEditorList,
-  onShowSubscriberList,
-  withoutFounding,
+  onShowEditorList = log,
+  onShowSubscriberList = log,
+  withoutFounding = true,
 }) => {
-  const {
-    editorsCount,
-    subscribersCount,
-    postsCount,
-    reposCount,
-    jobsCount,
-    viewerHasSubscribed,
-  } = community
+  const { editorsCount, subscribersCount, viewerHasSubscribed } = community
   const { isMobile } = usePlatform()
-  const contentsCount = postsCount + reposCount + jobsCount
+  const contentsCount = getContentCount(community)
 
   return (
     <Wrapper>
@@ -82,32 +83,4 @@ const CommunityStatesPad = ({
   )
 }
 
-CommunityStatesPad.propTypes = {
-  community: T.shape({
-    subscribersCount: T.number,
-    editorsCount: T.number,
-    postsCount: T.number,
-    reposCount: T.number,
-    jobsCount: T.number,
-    viewerHasSubscribed: T.bool,
-  }),
-  onShowEditorList: T.func,
-  onShowSubscriberList: T.func,
-  withoutFounding: T.bool,
-}
-
-CommunityStatesPad.defaultProps = {
-  community: {
-    subscribersCount: 0,
-    editorsCount: 0,
-    postsCount: 0,
-    reposCount: 0,
-    jobsCount: 0,
-    viewerHasSubscribed: false,
-  },
-  onShowEditorList: log,
-  onShowSubscriberList: log,
-  withoutFounding: true,
-}
-
-export default React.memo(CommunityStatesPad)
+export default memo(CommunityStatesPad)

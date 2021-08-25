@@ -7,7 +7,6 @@ const ROUTE = {
   POSTS: 'posts',
   BLOGS: 'blogs',
   JOBS: 'jobs',
-  USERS: 'users',
   REPOS: 'repos',
 
   POST: 'post',

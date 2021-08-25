@@ -10,7 +10,7 @@ export const searchContents = (store, sr71$, title) => {
     case THREAD.JOB:
       return sr71$.query(S.searchJobs, { title })
 
-    case THREAD.USER:
+    case THREAD.CPER:
       return sr71$.query(S.searchUsers, { name: title })
 
     case THREAD.REPO:

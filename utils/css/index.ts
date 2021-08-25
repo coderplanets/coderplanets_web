@@ -24,7 +24,7 @@ const smokey = (initOpacity = 0.6): string => `
   transition: opacity 0.2s;
 `
 const cutRest = (width = '100px'): string => `
-  width: ${width};
+  max-width: ${width};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

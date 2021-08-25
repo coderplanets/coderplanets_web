@@ -32,7 +32,7 @@ import {
 
   // threads
   ReposThreadStore,
-  UsersThreadStore,
+  CperMapThreadStore,
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
@@ -153,7 +153,7 @@ const rootStore = T.model({
   footer: T.optional(FooterStore, {}),
   // threads
   reposThread: T.optional(ReposThreadStore, {}),
-  usersThread: T.optional(UsersThreadStore, {}),
+  cperMapThread: T.optional(CperMapThreadStore, {}),
 
   tagsBar: T.optional(TagsBarStore, {}),
   userLister: T.optional(UserListerStore, {}),

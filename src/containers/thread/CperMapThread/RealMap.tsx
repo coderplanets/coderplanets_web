@@ -1,6 +1,6 @@
 /*
  *
- * UsersThread
+ * CperMapThread
  *
  */
 
@@ -19,13 +19,13 @@ import type { TStore } from './store'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:UsersThread')
+const log = buildLog('C:CperMapThread')
 
 type TProps = {
-  usersThread?: TStore
+  cperMapThread?: TStore
 }
 
-const UsersThreadContainer: FC<TProps> = ({ usersThread: store }) => {
+const CperMapThreadContainer: FC<TProps> = ({ cperMapThread: store }) => {
   /* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */
   const [g2ScriptLoaded] = useScript(
     'https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js',
@@ -54,4 +54,4 @@ const UsersThreadContainer: FC<TProps> = ({ usersThread: store }) => {
   )
 }
 
-export default pluggedIn(UsersThreadContainer) as FC<TProps>
+export default pluggedIn(CperMapThreadContainer) as FC<TProps>

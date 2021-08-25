@@ -29,7 +29,7 @@ export const onTagSelect = (tag: TTag): void => {
   store.markRoute({ tag: tag.title })
 }
 
-const NO_TAG_THREADS = [THREAD.USER]
+const NO_TAG_THREADS = [THREAD.CPER]
 
 export const loadTags = (): void => {
   const { curThread } = store

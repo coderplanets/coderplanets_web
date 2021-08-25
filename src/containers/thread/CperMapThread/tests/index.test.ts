@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import UsersThread from '../index'
+// import CperMapThread from '../index'
 
-describe('TODO <UsersThread />', () => {
+describe('TODO <CperMapThread />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

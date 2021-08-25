@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import { prettyNum } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
@@ -16,7 +15,21 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:CommunityStatesPad:NumberGroup')
 
-const NumberGroup = ({ readOnly, count, subCount, onClick, subPrefix }) => {
+type TProps = {
+  readOnly?: boolean
+  count?: number
+  subCount?: number | null
+  subPrefix?: string | null
+  onClick?: () => void
+}
+
+const NumberGroup: FC<TProps> = ({
+  readOnly = false,
+  count = 0,
+  subCount = null,
+  onClick = null,
+  subPrefix = null,
+}) => {
   return (
     <Wrapper>
       {subCount ? (
@@ -40,20 +53,4 @@ const NumberGroup = ({ readOnly, count, subCount, onClick, subPrefix }) => {
   )
 }
 
-NumberGroup.propTypes = {
-  readOnly: T.bool,
-  onClick: T.func,
-  count: T.number,
-  subCount: T.oneOfType([T.number, T.instanceOf(null)]),
-  subPrefix: T.oneOfType([T.string, T.instanceOf(null)]), // oneof 'online' / 'add'
-}
-
-NumberGroup.defaultProps = {
-  readOnly: false,
-  onClick: log,
-  count: 0,
-  subCount: null,
-  subPrefix: null,
-}
-
-export default React.memo(NumberGroup)
+export default memo(NumberGroup)

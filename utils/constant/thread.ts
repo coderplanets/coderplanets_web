@@ -9,5 +9,5 @@ export const ARTICLE_THREAD = {
 
 export const THREAD = {
   ...ARTICLE_THREAD,
-  USER: 'user',
+  CPER: 'cper',
 }

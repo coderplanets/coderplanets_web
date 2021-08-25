@@ -7,7 +7,15 @@ export type TCommunity = {
   subscribersCount?: number
   viewerHasSubscribed?: boolean
   contributesDigest?: number[]
+  editorsCount?: number
   desc?: string
+  meta?: {
+    postsCount: number
+    jobsCount: number
+    worksCount: number
+    blogsCount: number
+    radarsCount: number
+  }
   threads?: {
     title: string
     raw: string
