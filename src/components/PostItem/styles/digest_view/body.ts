@@ -13,8 +13,7 @@ export const Extra = styled.li`
   position: relative;
   ${css.flex('align-end')};
   color: ${theme('thread.extraInfo')};
-  opacity: 0.7;
-  transition: opacity 0.2s;
+
   font-size: 12px;
   height: 24px;
   /* border: 1px solid tomato; */
@@ -27,6 +26,8 @@ export const CommunityLabel = styled.div`
   padding-left: 14px;
   position: relative;
   font-weight: bold;
+  opacity: 0.8;
+  transition: opacity 0.2s;
 
   &:before {
     content: '';
@@ -50,9 +51,13 @@ export const LabelDivider = styled.div`
 export const AuthorName = styled.div`
   color: ${theme('thread.extraInfo')};
   font-size: 13px;
+  opacity: 0.75;
+  transition: opacity 0.2s;
 `
 export const PublishTime = styled.div`
   font-size: 12px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
 `
 export const Dot = styled(DotDivider)`
   background: ${theme('thread.extraInfo')};
@@ -60,6 +65,8 @@ export const Dot = styled(DotDivider)`
 `
 export const ItemWrapper = styled.div`
   ${css.flex('align-center')};
+  opacity: 0.7;
+  transition: opacity 0.2s;
 `
 export const ViewsIcon = styled(Img)`
   fill: ${theme('thread.extraInfo')};

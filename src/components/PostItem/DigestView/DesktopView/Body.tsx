@@ -8,6 +8,9 @@ import { cutRest, send } from '@/utils/helper'
 
 import { SpaceGrow } from '@/components/Common'
 import DigestSentence from '@/components/DigestSentence'
+import CommunityCard from '@/components/Cards/CommunityCard'
+import UserCard from '@/components/Cards/UserCard'
+import Tooltip from '@/components/Tooltip'
 
 import ActiveBadge from './ActiveBadge'
 
@@ -29,13 +32,30 @@ type TProps = {
 }
 
 const Body: FC<TProps> = ({ item }) => {
+  // console.log('# originalCommunity: ', originalCommunity)
+  const { originalCommunity, author } = item
+  console.log('the author: ', author)
+
   return (
     <Wrapper>
       <Extra>
         <LeftPart>
-          <CommunityLabel>Elixir</CommunityLabel>
+          <Tooltip
+            content={<CommunityCard item={originalCommunity} />}
+            placement="bottom-start"
+            delay={500}
+          >
+            <CommunityLabel>{originalCommunity.title}</CommunityLabel>
+          </Tooltip>
           <LabelDivider />
-          <AuthorName>{item.author.nickname}</AuthorName>
+          <Tooltip
+            content={<UserCard item={author} />}
+            placement="bottom-start"
+            delay={500}
+          >
+            <AuthorName>{author.nickname}</AuthorName>
+          </Tooltip>
+
           <Dot radius={3} space={10} />
           <PublishTime>
             <TimeAgo datetime={item.insertedAt} locale="zh_CN" />

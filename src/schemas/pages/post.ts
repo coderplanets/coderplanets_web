@@ -58,6 +58,10 @@ export const pagedPosts = `
         articleTags {
           ${F.tag}
         }
+        originalCommunity {
+          ${F.community}
+          subscribersCount
+        }
         author {
           ${F.author}
         }

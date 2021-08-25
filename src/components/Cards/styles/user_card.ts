@@ -11,10 +11,10 @@ export const Wrapper = styled.div`
   width: 200px;
   min-height: 100px;
 `
-export const CommunityLogo = styled(Img)`
-  ${css.size(30)};
+export const Avatar = styled(Img)`
+  ${css.circle(40)};
 `
-export const SubsCount = styled.div`
+export const ShortBio = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
   margin-top: 2px;
@@ -28,14 +28,23 @@ export const Header = styled.div`
   margin-bottom: 10px;
 `
 export const Title = styled.a`
+  ${css.flex('align-center')};
   text-decoration: none;
-  color: ${theme('thread.articleTitle')};
   font-size: 16px;
   font-weight: bold;
 
   &:hover {
     text-decoration: underline;
   }
+`
+export const Nickname = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 15px;
+`
+export const Login = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
+  margin-left: 6px;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};

@@ -120,6 +120,10 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
     subscribedCommunities,
   } = resp
   const contentsThread = ssrContentsThread(resp, thread, filter)
+  console.log(
+    '# contentsThread --> ',
+    contentsThread.articlesThread.pagedPosts.entries,
+  )
 
   // // init state on server side
   const initProps = merge(
