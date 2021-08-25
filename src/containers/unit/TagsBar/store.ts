@@ -16,7 +16,7 @@ import type {
 
 import { markStates, toJS } from '@/utils/mobx'
 import { groupByKey } from '@/utils/helper'
-import { mockTags } from '@/utils/mock'
+// import { mockTags } from '@/utils/mock'
 
 import { Tag, emptyTag } from '@/model'
 
@@ -37,8 +37,8 @@ const TagsBar = T.model('TagsBar', {
       return root.viewing.activeThread
     },
     get tagsData(): TTag[] {
-      // return toJS(self.tags)
-      return mockTags(15)
+      return toJS(self.tags)
+      // return mockTags(15)
     },
     get activeTagData(): TTag {
       return toJS(self.activeTag) || emptyTag

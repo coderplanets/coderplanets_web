@@ -17,18 +17,15 @@
     "COMMENTS": 5
   },
   "TAG_COLORS": [
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "cyan",
-    "blue",
-    "purple",
-    "dodgerblue",
-    "yellowgreen",
-    "brown",
-    "cadetblue",
-    "grey"
+    "RED",
+    "ORANGE",
+    "YELLOW",
+    "GREEN",
+    "CYAN",
+    "BLUE",
+    "PURPLE",
+    "PINK",
+    "GREY"
   ],
   "TAG_COLOR_ORDER": {
     "red": 0,

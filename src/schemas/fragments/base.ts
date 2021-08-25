@@ -60,10 +60,10 @@ export const repo = `
   }
 `
 export const tag = `
-  id
   title
   color
   thread
+  group
 `
 export const author = `
   id

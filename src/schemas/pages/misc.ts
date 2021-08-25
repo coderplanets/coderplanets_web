@@ -1,9 +1,11 @@
 import F from '../fragments'
 
 export const pagedArticleTags = `
-  query($filter: ArticleTagsFIlter) {
+  query($filter: ArticleTagsFilter) {
     pagedArticleTags(filter: $filter) {
-      ${F.tag}
+      entries{
+        ${F.tag}
+      }
     }
   }
 `

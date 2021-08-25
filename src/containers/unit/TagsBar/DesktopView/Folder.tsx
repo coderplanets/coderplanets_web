@@ -15,6 +15,8 @@ import {
   Header,
   ArrowIcon,
   Title,
+  FolderTitle,
+  Count,
   Content,
   SubToggle,
   SubToggleTitle,
@@ -80,7 +82,10 @@ const Folder: FC<TProps> = ({
           isOpen={isFolderOpen}
           src={`${ICON}/shape/arrow-simple.svg`}
         />
-        <Title>{title}</Title>
+        <Title>
+          <FolderTitle>{title}</FolderTitle>
+          {!isFolderOpen && <Count>{sortedTags.length}</Count>}
+        </Title>
         {!isFolderOpen && isActiveTagInFolder && (
           <TagItem tag={activeTag} active />
         )}

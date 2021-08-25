@@ -36,13 +36,14 @@ export const loadTags = (): void => {
   // TODO: remove
   if (contains(curThread, NO_TAG_THREADS)) return
 
-  const community = store.curCommunity.raw
+  const communityId = store.curCommunity.id
   const thread = toUpper(curThread)
 
-  const args = { community, thread }
+  const args = { filter: { communityId, thread } }
 
   /* log('#### loadTags --> ', args) */
   store.mark({ loading: true })
+
   sr71$.query(S.pagedArticleTags, args)
 }
 
@@ -53,8 +54,9 @@ export const loadTags = (): void => {
 const DataSolver = [
   {
     match: asyncRes('pagedArticleTags'),
-    action: ({ pagedArticleTags: tags }) =>
-      store.mark({ tags, loading: false }),
+    action: ({ pagedArticleTags: tags }): void => {
+      store.mark({ tags: tags.entries, loading: false })
+    },
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -103,6 +105,7 @@ export const useInit = (_store: TStore): void => {
     store = _store
     log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadTags()
     // let activeTag = pick(['id', 'title', 'color'], active || emptyTag) as TTag
     // if (isEmpty(activeTag.title)) activeTag = null
     // store.mark({ thread, activeTag })

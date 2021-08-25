@@ -23,6 +23,9 @@ export const ArrowIcon = styled(Img)<{ isOpen: boolean }>`
   }
 `
 export const Title = styled.div`
+  ${css.flex('align-center')};
+`
+export const FolderTitle = styled.div`
   color: ${theme('tags.text')};
   opacity: 0.5;
   margin-left: 4px;
@@ -34,6 +37,25 @@ export const Title = styled.div`
     opacity: 0.65;
   }
 `
+export const Count = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 13px;
+  margin-top: 2px;
+
+  &:before {
+    content: '(';
+    margin-right: 2px;
+    font-size: 12px;
+    color: ${theme('thread.articleDigest')};
+  }
+  &:after {
+    content: ')';
+    margin-left: 2px;
+    font-size: 12px;
+    color: ${theme('thread.articleDigest')};
+  }
+`
+
 export const Content = styled.div<{ isOpen: boolean }>`
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   width: 100%;

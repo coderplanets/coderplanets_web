@@ -7,10 +7,16 @@ import { THREAD } from '@/constant'
 import { Community } from './Community'
 
 export const Tag = T.model('Tag', {
-  id: T.maybeNull(T.string),
   title: T.maybeNull(T.string),
   color: T.optional(T.enumeration('color', TAG_COLORS), TAG_COLORS[0]),
-  thread: T.optional(T.enumeration('thread', values(THREAD)), THREAD.POST),
+  thread: T.optional(
+    T.enumeration(
+      'thread',
+      values(THREAD).map((t) => t.toUpperCase()),
+    ),
+    THREAD.POST.toUpperCase(),
+  ),
+  group: T.maybeNull(T.string),
   community: T.maybeNull(Community),
   insertedAt: T.optional(T.string, ''),
   updatedAt: T.optional(T.string, ''),

@@ -34,7 +34,6 @@ type TProps = {
 const Body: FC<TProps> = ({ item }) => {
   // console.log('# originalCommunity: ', originalCommunity)
   const { originalCommunity, author } = item
-  console.log('the author: ', author)
 
   return (
     <Wrapper>

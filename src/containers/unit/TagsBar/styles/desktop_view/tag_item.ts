@@ -39,7 +39,11 @@ export const HashWrapper = styled.div`
 type THashSign = TActive & { color: string; activeid: string }
 export const HashSign = styled(HashTagSVG)<THashSign>`
   fill: ${({ $active, color, activeid }) =>
-    getActiveColor($active, theme(`baseColor.${color}`), activeid)};
+    getActiveColor(
+      $active,
+      theme(`baseColor.${color.toLowerCase()}`),
+      activeid,
+    )};
   ${css.size(12)};
   margin-top: 2px;
   margin-right: 10px;
@@ -58,9 +62,9 @@ export const Tag = styled.div<TTag>`
   font-size: 14px;
   padding-left: 4px;
   color: ${({ color, $active }) =>
-    !$active ? theme('tags.text') : theme(`baseColor.${color}`)};
+    !$active ? theme('tags.text') : theme(`baseColor.${color.toLowerCase()}`)};
 
-  /* color: ${({ color }) => theme(`baseColor.${color}`)}; */
+  /* color: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)}; */
 
   ${Wrapper}:hover & {
     cursor: pointer;
