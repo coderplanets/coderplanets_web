@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 import type { TPost } from '@/spec'
 import { ICON } from '@/config'
 import { EVENT } from '@/constant'
-import { cutRest, send } from '@/utils/helper'
+import { send } from '@/utils/helper'
 
 import { SpaceGrow } from '@/components/Common'
 import DigestSentence from '@/components/DigestSentence'
@@ -75,7 +75,7 @@ const Body: FC<TProps> = ({ item }) => {
         right={140}
         onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article: item })}
       >
-        {cutRest(`${item.digest}`, 70)}
+        {item.digest}
       </DigestSentence>
     </Wrapper>
   )

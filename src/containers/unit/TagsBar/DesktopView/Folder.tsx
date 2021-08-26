@@ -74,7 +74,7 @@ const Folder: FC<TProps> = ({
           // 当关闭 Folder 的时候，如果当前 Folder 没有被激活的 Tag, 那么就回到折叠状态
           // 如果有，那么保持原来的状态
           if (isFolderOpen && !isActiveTagInFolder) {
-            setCurDisplayCount(MAX_DISPLAY_COUNT)
+            setCurDisplayCount(initDisplayCount)
           }
         }}
       >

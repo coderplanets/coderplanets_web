@@ -26,24 +26,31 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     cursor: pointer;
   }
 
-  transition: color 0.2s;
+  transition: color 0.1s;
 `
-// export const Text = styled.div`
-//   display: -webkit-box;
-//   -webkit-line-clamp: 2;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   -webkit-box-orient: vertical;
-//   border: 1px solid;
-
-//   &:after {
-//     content: '';
-//     margin-right: 20px;
-//   }
-// `
+export const Text = styled.div`
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+`
 
 export const HintWrapper = styled.div`
   display: inline;
+`
+export const FixedHintWrapper = styled(HintWrapper)`
+  position: absolute;
+  right: 0;
+  top: 20px;
+  background: #0e303d;
+
+  &:before {
+    content: '...';
+    color: ${theme('thread.articleDigest')};
+    margin-left: 3px;
+  }
 `
 export const MediaHintWrapper = styled.div`
   position: relative;
@@ -68,13 +75,13 @@ export const HintText = styled.div`
 export const PreviewWrapper = styled.div`
   display: inline-flex;
   opacity: 0;
-  margin-left: 8px;
+  margin-left: 4px;
   align-items: center;
 
   ${Wrapper}:hover & {
     opacity: 0.8;
   }
-  transition: opacity 0.2s;
+  transition: opacity 0.1s;
 `
 export const PreviewIcon = styled(Img)`
   fill: ${theme('thread.extraInfo')};

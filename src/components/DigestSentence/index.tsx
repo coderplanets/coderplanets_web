@@ -4,7 +4,7 @@
  *
  */
 
-import { FC, ReactNode, memo } from 'react'
+import { FC, ReactNode, memo, useRef, useEffect, useState } from 'react'
 
 import type { TSIZE_SM } from '@/spec'
 import { SIZE } from '@/constant'
@@ -15,14 +15,14 @@ import { Space } from '@/components/Common'
 
 import {
   Wrapper,
-  // Text,
+  Text,
   HintWrapper,
+  FixedHintWrapper,
   MediaHintWrapper,
   HintIcon,
   HintText,
   PreviewWrapper,
   PreviewText,
-  PreviewIcon,
   ThunderIcon,
 } from './styles'
 
@@ -50,6 +50,21 @@ const DigestSentence: FC<TProps> = ({
   right = 0,
   size = SIZE.SMALL,
 }) => {
+  const textRef = useRef(null)
+  const [fold, setFold] = useState(false)
+
+  useEffect(() => {
+    if (textRef) {
+      const { scrollHeight, clientHeight } = textRef.current
+      // console.log('clientHeight: ', clientHeight)
+      // console.log('scrollHeight: ', scrollHeight)
+      // 确保只有超过两行才是折叠的情况
+      scrollHeight - clientHeight > 22 ? setFold(true) : setFold(false)
+    }
+  }, [textRef])
+
+  const Hint = fold ? FixedHintWrapper : HintWrapper
+
   return (
     <Wrapper
       testid={testid}
@@ -60,22 +75,24 @@ const DigestSentence: FC<TProps> = ({
       right={right}
       size={size}
     >
-      {children}
-      <Space left={8} />
-      <HintWrapper>
-        <MediaHintWrapper>
-          <HintIcon src={`${ICON}/shape/image.svg`} />
-          <HintText>3</HintText>
-        </MediaHintWrapper>
-        <MediaHintWrapper>
-          <HintIcon src={`${ICON}/shape/video.svg`} />
-          <HintText>1</HintText>
-        </MediaHintWrapper>
-        <PreviewWrapper>
-          <PreviewText>预览</PreviewText>
-          <ThunderIcon />
-        </PreviewWrapper>
-      </HintWrapper>
+      <Text ref={textRef}>
+        {children}
+        <Space left={6} />
+        <Hint>
+          <MediaHintWrapper>
+            <HintIcon src={`${ICON}/shape/image.svg`} />
+            <HintText>3</HintText>
+          </MediaHintWrapper>
+          <MediaHintWrapper>
+            <HintIcon src={`${ICON}/shape/video.svg`} />
+            <HintText>1</HintText>
+          </MediaHintWrapper>
+          <PreviewWrapper>
+            <PreviewText>预览</PreviewText>
+            <ThunderIcon />
+          </PreviewWrapper>
+        </Hint>
+      </Text>
     </Wrapper>
   )
 }
