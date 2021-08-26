@@ -61,6 +61,7 @@ export const repo = `
 `
 export const tag = `
   title
+  raw
   color
   thread
   group

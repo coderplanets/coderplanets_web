@@ -4,14 +4,14 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values, merge } from 'ramda'
+import { values, merge, includes } from 'ramda'
 
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
 import { THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { User, Community, Post, Blog, Job, Repo } from '@/model'
+import { User, Community, Post, Blog, Job } from '@/model'
 
-const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO]
+const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.BLOG, THREAD.RADAR]
 
 const ViewingStore = T.model('ViewingStore', {
   user: T.optional(User, {}),
@@ -19,7 +19,7 @@ const ViewingStore = T.model('ViewingStore', {
   post: T.optional(Post, {}),
   blog: T.optional(Blog, {}),
   job: T.optional(Job, {}),
-  repo: T.optional(Repo, {}),
+  // repo: T.optional(Repo, {}),
   activeThread: T.optional(
     T.enumeration('activeThread', values(THREAD)),
     THREAD.POST,
@@ -53,8 +53,8 @@ const ViewingStore = T.model('ViewingStore', {
           return toJS(self.job)
         case THREAD.BLOG:
           return toJS(self.blog)
-        case THREAD.REPO:
-          return toJS(self.repo)
+        // case THREAD.REPO:
+        //   return toJS(self.repo)
         case THREAD.POST:
           return toJS(self.post)
         default:
@@ -64,7 +64,7 @@ const ViewingStore = T.model('ViewingStore', {
 
     get viewingArticle(): TArticle {
       const curThread = self.viewingThread || self.activeThread
-      if (!curThread) return {}
+      if (!curThread || !includes(curThread, PREVIEWABLE_THREADS)) return {}
       return toJS(self[curThread])
     },
   }))

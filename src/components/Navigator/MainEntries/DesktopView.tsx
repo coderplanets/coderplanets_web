@@ -18,6 +18,7 @@ type TProps = {
 
 const DesktopView: FC<TProps> = ({ type }) => {
   const router = useRouter()
+  console.log('router.asPath -> ', router.asPath)
   const mainPath = getRouteMainPath(router.asPath)
 
   return (

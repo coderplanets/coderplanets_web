@@ -95,7 +95,7 @@ const Folder: FC<TProps> = ({
         <TagsWrapper>
           {sortedTags.slice(0, curDisplayCount).map((tag) => (
             <TagItem
-              key={tag.id}
+              key={tag.raw}
               tag={tag}
               active={activeTag.title === tag.title}
               activeid={activeTag.id}

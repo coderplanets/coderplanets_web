@@ -68,8 +68,8 @@ const CollectionFolder = T.model('CollectionFolder', {
         case THREAD.JOB:
           return toJS(root.viewing.job)
 
-        case THREAD.REPO:
-          return toJS(root.viewing.repo)
+        // case THREAD.REPO:
+        //   return toJS(root.viewing.repo)
 
         default:
           return toJS(root.viewing.post)

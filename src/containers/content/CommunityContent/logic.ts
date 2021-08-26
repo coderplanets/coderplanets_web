@@ -28,9 +28,12 @@ let store: TStore | undefined
  * tab 改变时统一同步路由和 viewing, 以便在下层收到广播后 viewing 已经就绪
  */
 const tabOnChange = (activeThread: TThread): void => {
+  const { curCommunity } = store
+
+  const mainPath = curCommunity.raw
   const subPath = thread2Subpath(activeThread)
 
-  store.markRoute({ subPath })
+  store.markRoute({ mainPath, subPath })
   store.setViewing({ activeThread })
 }
 

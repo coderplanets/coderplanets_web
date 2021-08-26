@@ -8,7 +8,7 @@ const { renderAndCache } = require('./helper')
 
 const handle = app.getRequestHandler()
 
-const HOME_PAGE = '/home/posts'
+// const HOME_PAGE = '/home/posts'
 
 router.route('/_next/:page?').get((req, res) => handle(req, res))
 
@@ -20,7 +20,9 @@ router
 router.route('/oauth/').get((req, res) => renderAndCache({ req, res }))
 
 // 将首页重定向到 HOME_PAGE
-router.route('/').get((req, res) => res.redirect(HOME_PAGE))
+router
+  .route('/')
+  .get((req, res) => renderAndCache({ req, res, path: '/community' }))
 
 // 来一杯
 router.route('/have-a-drink/:slug?').get((req, res) => {

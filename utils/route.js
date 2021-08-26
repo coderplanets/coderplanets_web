@@ -15,6 +15,7 @@ import {
   merge,
 } from 'ramda'
 
+import { THREAD, ROUTE } from '@/constant'
 import { nilOrEmpty } from './validator'
 import { Global } from './helper'
 import { isServerSide } from './ssr'
@@ -143,7 +144,7 @@ export const getRoutePathList = compose(
   split('?'),
 )
 
-export const getRouteMainPath = compose(
+const doGetRouteMainPath = compose(
   head,
   split('?'),
   head,
@@ -151,8 +152,28 @@ export const getRouteMainPath = compose(
   split('/'),
 )
 
+export const getRouteMainPath = (asPath) => {
+  if (asPath === '/') return ROUTE.HOME
+
+  return doGetRouteMainPath(asPath)
+}
+
 export const ssrParseURL = (req) => {
   const { url } = req
+  if (url === '/') {
+    const mainPath = 'home'
+    const subPath = THREAD.POST
+
+    return {
+      communityPath: mainPath,
+      threadPath: subPath,
+      mainPath,
+      subPath,
+      thirdPath: '',
+      thread: toUpper(THREAD.POST),
+    }
+  }
+
   // console.log('ssrParseURL url: ', url)
   // console.log('getMainPath: ', getRouteMainPath(url))
   // console.log('ssrParsePathList: ', getRoutePathList(url))

@@ -8,6 +8,7 @@ import { Community } from './Community'
 
 export const Tag = T.model('Tag', {
   title: T.maybeNull(T.string),
+  raw: T.maybeNull(T.string),
   color: T.optional(T.enumeration('color', TAG_COLORS), TAG_COLORS[0]),
   thread: T.optional(
     T.enumeration(
