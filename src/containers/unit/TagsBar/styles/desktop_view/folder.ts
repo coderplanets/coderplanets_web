@@ -64,7 +64,7 @@ export const Content = styled.div<{ isOpen: boolean }>`
 export const SubToggle = styled.div`
   ${css.flex('align-center')};
   margin-top: 5px;
-  margin-left: 2px;
+  margin-left: 1px;
   opacity: 0.6;
 
   &:hover {
@@ -75,7 +75,7 @@ export const SubToggle = styled.div`
 export const SubToggleTitle = styled.div`
   color: ${theme('tags.text')};
   font-size: 12px;
-  margin-left: 6px;
+  margin-left: 10px;
   padding: 2px;
   border-radius: 5px;
 `

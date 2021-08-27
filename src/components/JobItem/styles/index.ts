@@ -10,6 +10,7 @@ export const Wrapper = styled.article<TWrapper>`
   ${css.flex('align-start')};
   width: 100%;
   height: auto;
+  margin-top: 10px;
   margin-bottom: 18px;
   margin-right: 0;
   background: #0d3644;
@@ -17,7 +18,7 @@ export const Wrapper = styled.article<TWrapper>`
 
   position: relative;
   padding: 14px;
-  padding-top: 20px;
+  padding-top: 16px;
   opacity: ${({ entry, activeId, c11n }) => getOpacity(entry, activeId, c11n)};
 
   transition: all 0.25s;

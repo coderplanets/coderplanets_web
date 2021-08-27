@@ -25,18 +25,18 @@ const ArticleCard: FC<TProps> = ({ data }) => {
   return (
     <Wrapper>
       <Header data={data} />
-      <Br top={15} />
+      <Br top={8} />
       <DigestSentence
         top={5}
-        bottom={15}
+        bottom={16}
         size={SIZE.MEDIUM}
         onPreview={() => console.log('send preview')}
       >
         {cutRest(fakeDigest, 150)}
       </DigestSentence>
-      <Br top={4} />
+      <Br top={6} />
       <ArticleImgWindow />
-      <Br top={16} />
+      <Br top={18} />
       <SpaceGrow />
       <Footer data={data} />
     </Wrapper>

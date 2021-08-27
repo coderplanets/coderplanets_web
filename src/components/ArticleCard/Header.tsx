@@ -16,16 +16,16 @@ const Header: FC<TProps> = ({ data }) => {
 
   return (
     <Wrapper>
+      <InlineTags items={articleTags} mLeft={0} size="medium" />
+      <Br top={10} />
       <Title>
-        {cutRest(title, 100)}
         <ExtraInfo>
           <CompanyLink href={companyLink} target="_blank">
             {cutRest(company, 12)}
           </CompanyLink>
         </ExtraInfo>
+        {cutRest(title, 100)}
       </Title>
-      <Br top={10} />
-      <InlineTags items={articleTags} mLeft={0} size="medium" />
     </Wrapper>
   )
 }
