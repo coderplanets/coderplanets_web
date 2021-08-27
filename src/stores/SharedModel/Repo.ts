@@ -49,7 +49,7 @@ export const Repo = T.model('Reop', {
 
   communities: T.optional(T.array(Community), []),
   originalCommunity: T.optional(Community, {}),
-  tags: T.optional(T.array(Tag), []),
+  articleTags: T.optional(T.array(Tag), []),
 
   lastSync: T.maybeNull(T.string),
   pagedCommentsParticipators: T.optional(PagedUsers, {}),

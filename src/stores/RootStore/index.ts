@@ -9,7 +9,7 @@
 import { types as T, Instance } from 'mobx-state-tree'
 import { merge, pickBy } from 'ramda'
 
-import type { TViewing, TAccount, TRoute, TArticle } from '@/spec'
+import type { TViewing, TAccount, TRoute, TThread, TArticle } from '@/spec'
 
 import { EVENT } from '@/constant'
 import { markStates } from '@/utils/mobx'
@@ -250,6 +250,9 @@ const rootStore = T.model({
     },
     setViewing(sobj): void {
       self.viewing.setViewing(sobj)
+    },
+    setCurThread(thread: TThread): void {
+      self.viewing.setCurThread(thread)
     },
     resetViewing(): void {
       self.viewing.resetViewing()

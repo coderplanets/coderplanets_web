@@ -17,7 +17,7 @@ import Copyright from '@/components/Copyright'
 
 // import TagList from '@/components/TagList'
 
-import TagListO from './TagList'
+// import TagListO from './TagList'
 import Actions from './Actions/index'
 import RefersPanel from './Actions/RefersPanel'
 import OperationPanel from './Actions/OperationPanel'
@@ -42,14 +42,14 @@ const ArticleFooterContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { viewingData, showReferenceList, showOperationList } = store
-  const { tags, author } = viewingData
+  const { articleTags, author } = viewingData
 
   const [copyright, setCopyright] = useState('cc')
 
   return (
     <Wrapper testid={testid} onClick={() => joinUS()}>
       <BaseInfo>
-        <TagListO items={tags} />
+        {/* <TagListO items={articleTags} /> */}
         <CommunityTagSetter />
         <Copyright
           type={copyright as TCopyright}

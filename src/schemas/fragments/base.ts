@@ -16,20 +16,11 @@ export const post = `
 export const job = `
   id
   title
-  desc
   company
-  companyLogo
   companyLink
   views
   linkAddr
   copyRight
-
-  salary
-  education
-  exp
-  finance
-  field
-  scale
 
   insertedAt
   updatedAt

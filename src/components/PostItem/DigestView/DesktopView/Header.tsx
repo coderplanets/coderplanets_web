@@ -37,7 +37,7 @@ const Header: FC<TProps> = ({ item }) => {
           </TitleLink>
         )}
         <TagListWrapper>
-          <InlineTags data={item.tags} />
+          <InlineTags items={item.articleTags} />
         </TagListWrapper>
       </Brief>
       <Participants>

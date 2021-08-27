@@ -20,10 +20,11 @@ import type {
 import { TYPE, THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty, isObject } from '@/utils/validator'
-import { PagedPosts, ArticlesFilter, emptyPagiData } from '@/model'
+import { PagedPosts, PagedJobs, ArticlesFilter, emptyPagiData } from '@/model'
 
 const ArticlesThread = T.model('ArticlesThread', {
   pagedPosts: T.optional(PagedPosts, emptyPagiData),
+  pagedJobs: T.optional(PagedJobs, emptyPagiData),
   filters: T.optional(ArticlesFilter, {}),
   resState: T.optional(
     T.enumeration('resState', values(TYPE.RES_STATE)),
@@ -42,10 +43,17 @@ const ArticlesThread = T.model('ArticlesThread', {
     get pagedPostsData() {
       return toJS(self.pagedPosts)
     },
+    get pagedJobsData() {
+      return toJS(self.pagedJobs)
+    },
     get pagedArticlesData(): TPagedArticles {
       const slf = self as TStore
 
       switch (slf.curThread) {
+        case THREAD.JOB: {
+          return toJS(self.pagedJobs)
+        }
+
         default: {
           return toJS(self.pagedPosts)
         }
@@ -92,7 +100,10 @@ const ArticlesThread = T.model('ArticlesThread', {
       const root = getParent(self) as TRootStore
       return root.getPagedArticleArgs(page, self.filtersData)
     },
-
+    setCurThread(thread: TThread): void {
+      const root = getParent(self) as TRootStore
+      root.setCurThread(thread)
+    },
     markRes(res: Record<string, TPagedArticles>): void {
       const slf = self as TStore
       const pagedData = values(res)[0] as TPagedArticles

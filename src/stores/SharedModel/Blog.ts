@@ -18,7 +18,7 @@ export const Blog = T.model('Blog', {
 
   communities: T.optional(T.array(Community), []),
   originalCommunity: T.optional(Community, {}),
-  tags: T.optional(T.array(Tag), []),
+  articleTags: T.optional(T.array(Tag), []),
   comments: T.optional(T.array(Comment), []),
 
   commentsCount: T.optional(T.number, 0),

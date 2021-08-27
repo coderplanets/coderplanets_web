@@ -77,7 +77,17 @@ const onPreview = (article: TArticle): void => {
 const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
-    action: ({ pagedPosts }) => store.markRes({ pagedPosts }),
+    action: ({ pagedPosts }) => {
+      console.log('get paged posts: ', pagedPosts)
+      store.markRes({ pagedPosts })
+    },
+  },
+  {
+    match: asyncRes('pagedJobs'),
+    action: ({ pagedJobs }) => {
+      console.log('get paged jobs: ', pagedJobs)
+      store.markRes({ pagedJobs })
+    },
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -86,9 +96,10 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.ARTICLE_THREAD_CHANGE),
     action: (res) => {
-      console.log('EVENT.ARTICLE_THREAD_CHANGE in articleThread')
-      // const { data } = res[EVENT.THREAD_CHANGE]
-      // loadArticles()
+      const thread = res[EVENT.ARTICLE_THREAD_CHANGE].data
+      console.log('Tab Change: ', thread)
+      store.setCurThread(thread)
+      loadArticles()
     },
   },
   {

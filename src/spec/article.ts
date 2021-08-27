@@ -19,7 +19,7 @@ type TBaseArticle = {
   viewerHasViewed?: boolean
   commentsCount?: number
   upvoteCount?: number
-  tags?: TTag[]
+  articleTags?: TTag[]
 }
 
 export type TPost = TBaseArticle & {
@@ -43,7 +43,10 @@ export type TBlog = TBaseArticle & {
   linkAddr?: string
 }
 
-export type TJob = TBaseArticle
+export type TJob = TBaseArticle & {
+  company?: string
+  companyLink?: string
+}
 
 export type TArticle = TPost | TJob | TBlog
 

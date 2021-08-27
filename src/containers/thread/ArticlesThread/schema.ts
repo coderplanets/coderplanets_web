@@ -4,6 +4,9 @@ import { P, F } from '@/schemas'
 const pagedPosts = gql`
   ${P.pagedPosts}
 `
+const pagedJobs = gql`
+  ${P.pagedJobs}
+`
 const pagedArticleTags = gql`
   ${P.pagedArticleTags}
 `
@@ -23,6 +26,7 @@ const pagedCommunities = gql`
 
 const schema = {
   pagedPosts,
+  pagedJobs,
   pagedArticleTags,
   pagedCommunities,
 }

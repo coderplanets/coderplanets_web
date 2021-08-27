@@ -43,7 +43,7 @@ const ListView: FC<TProps> = ({ entry, onPreview }) => (
               </span>
             </TitleLink>
           )}
-          <InlineTags data={entry.tags} />
+          <InlineTags items={entry.articleTags} />
         </Brief>
         <CommentWrapper>
           <CommentIcon src={`${ICON_CMD}/list_comments.svg`} />

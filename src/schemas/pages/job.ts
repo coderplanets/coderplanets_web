@@ -52,6 +52,10 @@ export const pagedJobs = `
         articleTags {
           ${F.tag}
         }
+        originalCommunity {
+          ${F.community}
+          subscribersCount
+        }
         viewerHasViewed @include(if: $userHasLogin)
       }
       ${F.pagedCounts}

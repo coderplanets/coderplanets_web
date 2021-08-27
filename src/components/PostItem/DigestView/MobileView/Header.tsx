@@ -38,7 +38,7 @@ const Header: FC<TProps> = ({ item, onAuthorSelect }) => {
         </TimeStamp>
       </AuthorInfo>
       <TagListWrapper>
-        <InlineTags data={item.tags} />
+        <InlineTags items={item.articleTags} />
       </TagListWrapper>
     </Wrapper>
   )

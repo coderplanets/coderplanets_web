@@ -10,11 +10,9 @@ import { Tag } from './Tag'
 export const Job = T.model('Job', {
   id: T.maybeNull(T.string),
   title: T.optional(T.string, ''),
-  desc: T.maybeNull(T.string),
   body: T.maybeNull(T.string),
   company: T.optional(T.string, ''),
-  companyLogo: T.optional(T.string, ''),
-  companyLink: T.optional(T.string, ''),
+  companyLink: T.maybeNull(T.string),
   digest: T.maybeNull(T.string),
   author: T.maybeNull(User),
 
@@ -23,7 +21,7 @@ export const Job = T.model('Job', {
 
   communities: T.optional(T.array(Community), []),
   originalCommunity: T.optional(Community, {}),
-  tags: T.optional(T.array(Tag), []),
+  articleTags: T.optional(T.array(Tag), []),
   comments: T.optional(T.array(Comment), []),
 
   commentsCount: T.optional(T.number, 0),
@@ -34,19 +32,12 @@ export const Job = T.model('Job', {
 
   length: T.optional(T.number, 0),
   collectsCount: T.optional(T.number, 0),
-  // upvotesCount: T.optional(T.number, 0),
+  upvotesCount: T.optional(T.number, 0),
   viewerHasCollected: T.optional(T.boolean, false),
   // viewerHasUpvoted: T.optional(T.boolean, false),
   favoritedCategoryId: T.maybeNull(T.string),
 
   pagedCommentsParticipators: T.optional(PagedUsers, {}),
-
-  salary: T.optional(T.string, ''),
-  exp: T.optional(T.string, ''),
-  education: T.optional(T.string, ''),
-  field: T.optional(T.string, ''),
-  scale: T.optional(T.string, ''),
-  finance: T.optional(T.string, ''),
 
   viewerHasViewed: T.optional(T.boolean, false),
   insertedAt: T.optional(T.string, ''),
