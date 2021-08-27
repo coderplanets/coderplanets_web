@@ -18,7 +18,7 @@ const log = buildLog('L:TagsBar')
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   // @ts-ignore
-  receive: [EVENT.COMMUNITY_CHANGE, EVENT.THREAD_CHANGE],
+  receive: [EVENT.COMMUNITY_CHANGE, EVENT.ARTICLE_THREAD_CHANGE],
 })
 
 let sub$ = null
@@ -29,21 +29,16 @@ export const onTagSelect = (tag: TTag): void => {
   store.markRoute({ tag: tag.title })
 }
 
-const NO_TAG_THREADS = [THREAD.CPER]
-
 export const loadTags = (): void => {
   const { curThread } = store
   // TODO: remove
-  if (contains(curThread, NO_TAG_THREADS)) return
 
   const communityId = store.curCommunity.id
   const thread = toUpper(curThread)
 
   const args = { filter: { communityId, thread } }
 
-  /* log('#### loadTags --> ', args) */
   store.mark({ loading: true })
-
   sr71$.query(S.pagedArticleTags, args)
 }
 
@@ -66,8 +61,8 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.THREAD_CHANGE),
-    action: (data) => {
+    match: asyncRes(EVENT.ARTICLE_THREAD_CHANGE),
+    action: () => {
       loadTags()
       store.mark({ activeTag: null })
     },

@@ -39,7 +39,6 @@ export const onThreadChange = (activeThread: TThread): void => {
 
   store.markRoute({ subPath })
   store.setViewing({ activeThread })
-  send(EVENT.THREAD_CHANGE, { data: { activeThread } })
 }
 
 export const onLogin = (): void => send(EVENT.LOGIN_PANEL)
