@@ -21,8 +21,8 @@ const sr71$ = new SR71({
   receive: [EVENT.COMMUNITY_TAB_CHANGE],
 })
 
-let sub$ = null
 let store: TStore | undefined
+let sub$ = null
 
 /**
  * tab 改变时统一同步路由和 viewing, 以便在下层收到广播后 viewing 已经就绪
@@ -34,7 +34,8 @@ const tabOnChange = (activeThread: TThread): void => {
   const subPath = thread2Subpath(activeThread)
 
   store.markRoute({ mainPath, subPath })
-  store.setViewing({ activeThread })
+  // store.setViewing({ activeThread })
+  store.setCurThread(activeThread)
 }
 
 // ###############################
@@ -56,6 +57,7 @@ const DataSolver = [
     },
   },
 ]
+
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),

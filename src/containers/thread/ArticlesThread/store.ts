@@ -100,10 +100,6 @@ const ArticlesThread = T.model('ArticlesThread', {
       const root = getParent(self) as TRootStore
       return root.getPagedArticleArgs(page, self.filtersData)
     },
-    setCurThread(thread: TThread): void {
-      const root = getParent(self) as TRootStore
-      root.setCurThread(thread)
-    },
     markRes(res: Record<string, TPagedArticles>): void {
       const slf = self as TStore
       const pagedData = values(res)[0] as TPagedArticles

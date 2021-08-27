@@ -74,7 +74,7 @@ const ViewingStore = T.model('ViewingStore', {
       mark(sobj)
     },
     setCurThread(thread: TThread): void {
-      self.viewingThread = thread
+      self.activeThread = thread
     },
     resetViewing(): void {
       const { mark, viewingThread } = self as TStore
