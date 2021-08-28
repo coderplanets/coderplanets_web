@@ -4,13 +4,7 @@ import { F } from '@/schemas'
 const repo = gql`
   query($id: ID!, $userHasLogin: Boolean!) {
     repo(id: $id) {
-      ${F.repo}
-      articleTags {
-        ${F.tag}
-      }
-      originalCommunity {
-        ${F.community}
-      }
+      ${F.article}
       watchCount
       ownerUrl
       repoUrl
@@ -69,7 +63,7 @@ const updateRepo = gql`
       releaseTag: $releaseTag
       contributors: $contributors
     ) {
-      ${F.repo}
+      ${F.article}
       watchCount
       ownerUrl
       repoUrl

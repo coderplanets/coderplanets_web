@@ -10,9 +10,7 @@
 
 import {
   community,
-  post,
-  job,
-  repo,
+  article,
   author,
   tag,
   user,
@@ -30,9 +28,7 @@ import { pagedPosts, pagedJobs, pagedRepos } from './paged'
 
 const F = {
   community,
-  post,
-  job,
-  repo,
+  article,
   author,
   tag,
   pagedPosts,

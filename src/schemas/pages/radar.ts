@@ -1,8 +1,8 @@
 import F from '../fragments'
 
-export const post = `
-  query post($id: ID!, $userHasLogin: Boolean!) {
-    post(id: $id) {
+export const radar = `
+  query radar($id: ID!, $userHasLogin: Boolean!) {
+    radar(id: $id) {
       ${F.article}
       body
       length
@@ -20,9 +20,9 @@ export const post = `
     }
   }
 `
-export const pagedPosts = `
-  query($filter: PagedPostsFilter, $userHasLogin: Boolean!) {
-    pagedPosts(filter: $filter) {
+export const pagedRadars = `
+  query($filter: PagedRadarsFilter, $userHasLogin: Boolean!) {
+    pagedRadars(filter: $filter) {
       entries {
         ${F.article}
         digest

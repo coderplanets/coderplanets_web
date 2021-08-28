@@ -4,23 +4,11 @@ import { F, P } from '@/schemas'
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
-      ${F.post}
+      ${F.article}
       body
-      author {
-        ${F.author}
-      }
-      articleTags {
-        ${F.tag}
-      }
-      originalCommunity {
-        ${F.community}
-      }
       commentsParticipants {
         ${F.author}
       }
-      commentsCount
-      linkAddr
-      insertedAt
       collectsCount
       upvotesCount
       viewerHasViewed @include(if: $userHasLogin)

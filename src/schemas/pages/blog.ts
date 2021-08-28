@@ -1,28 +1,21 @@
 import F from '../fragments'
 
-export const post = `
-  query post($id: ID!, $userHasLogin: Boolean!) {
-    post(id: $id) {
+export const blog = `
+  query blog($id: ID!, $userHasLogin: Boolean!) {
+    blog(id: $id) {
       ${F.article}
       body
-      length
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
       upvotesCount
       viewerHasUpvoted @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
-      pagedCommentsParticipators {
-        entries {
-          ${F.author}
-        }
-        totalCount
-      }
     }
   }
 `
-export const pagedPosts = `
-  query($filter: PagedPostsFilter, $userHasLogin: Boolean!) {
-    pagedPosts(filter: $filter) {
+export const pagedBlogs = `
+  query($filter: PagedBlogsFilter, $userHasLogin: Boolean!) {
+    pagedBlogs(filter: $filter) {
       entries {
         ${F.article}
         digest

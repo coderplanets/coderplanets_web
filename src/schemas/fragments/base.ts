@@ -6,6 +6,44 @@ export const community = `
   desc
   logo
 `
+export const tag = `
+  title
+  raw
+  color
+  thread
+  group
+`
+export const author = `
+  id
+  login
+  nickname
+  avatar
+`
+export const article = `
+  id
+  isPinned
+  title
+  linkAddr
+  copyRight
+  insertedAt
+  updatedAt
+  activeAt
+  views
+  commentsCount
+  commentsParticipantsCount
+  author {
+    ${author}
+  }
+  originalCommunity {
+    ${community}
+  }
+  communities {
+    ${community}
+  }
+  articleTags {
+    ${tag}
+  }
+`
 export const post = `
   id
   title
@@ -49,19 +87,6 @@ export const repo = `
     htmlUrl
     nickname
   }
-`
-export const tag = `
-  title
-  raw
-  color
-  thread
-  group
-`
-export const author = `
-  id
-  login
-  nickname
-  avatar
 `
 export const userSocial = `
   qq

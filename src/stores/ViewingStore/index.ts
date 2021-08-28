@@ -9,7 +9,7 @@ import { values, merge, includes } from 'ramda'
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
 import { THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { User, Community, Post, Blog, Job } from '@/model'
+import { User, Community, Post, Blog, Job, Radar } from '@/model'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.BLOG, THREAD.RADAR]
 
@@ -19,6 +19,7 @@ const ViewingStore = T.model('ViewingStore', {
   post: T.optional(Post, {}),
   blog: T.optional(Blog, {}),
   job: T.optional(Job, {}),
+  radar: T.optional(Radar, {}),
   // repo: T.optional(Repo, {}),
   activeThread: T.optional(
     T.enumeration('activeThread', values(THREAD)),
@@ -61,11 +62,12 @@ const ViewingStore = T.model('ViewingStore', {
           return toJS(self.post)
       }
     },
-
     get viewingArticle(): TArticle {
       const curThread = self.viewingThread || self.activeThread
-      if (!curThread || !includes(curThread, PREVIEWABLE_THREADS)) return {}
-      return toJS(self[curThread])
+      if (includes(curThread, PREVIEWABLE_THREADS)) {
+        return toJS(self[curThread])
+      }
+      return {}
     },
   }))
   .actions((self) => ({

@@ -3,7 +3,7 @@ import F from '../fragments'
 export const repo = `
   query($id: ID!) {
     repo(id: $id) {
-      ${F.repo}
+      ${F.article}
       readme
       author {
         ${F.author}
@@ -40,7 +40,7 @@ export const pagedRepos = `
   query($filter: PagedReposFilter, $userHasLogin: Boolean!) {
     pagedRepos(filter: $filter) {
       entries {
-        ${F.repo}
+        ${F.article}
         isPinned
         views
         releaseTag

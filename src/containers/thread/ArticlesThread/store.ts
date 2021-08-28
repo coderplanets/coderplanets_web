@@ -20,11 +20,21 @@ import type {
 import { TYPE, THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty, isObject } from '@/utils/validator'
-import { PagedPosts, PagedJobs, ArticlesFilter, emptyPagiData } from '@/model'
+import { titleCase } from '@/utils/helper'
+import {
+  PagedPosts,
+  PagedJobs,
+  PagedBlogs,
+  PagedRadars,
+  ArticlesFilter,
+  emptyPagiData,
+} from '@/model'
 
 const ArticlesThread = T.model('ArticlesThread', {
   pagedPosts: T.optional(PagedPosts, emptyPagiData),
   pagedJobs: T.optional(PagedJobs, emptyPagiData),
+  pagedBlogs: T.optional(PagedBlogs, emptyPagiData),
+  pagedRadars: T.optional(PagedRadars, emptyPagiData),
   filters: T.optional(ArticlesFilter, {}),
   resState: T.optional(
     T.enumeration('resState', values(TYPE.RES_STATE)),
@@ -40,24 +50,11 @@ const ArticlesThread = T.model('ArticlesThread', {
       const root = getParent(self) as TRootStore
       return root.viewing.activeThread
     },
-    get pagedPostsData() {
-      return toJS(self.pagedPosts)
-    },
-    get pagedJobsData() {
-      return toJS(self.pagedJobs)
-    },
     get pagedArticlesData(): TPagedArticles {
       const slf = self as TStore
+      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
 
-      switch (slf.curThread) {
-        case THREAD.JOB: {
-          return toJS(self.pagedJobs)
-        }
-
-        default: {
-          return toJS(self.pagedPosts)
-        }
-      }
+      return toJS(slf[pagedThreadKey])
     },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
@@ -128,7 +125,7 @@ const ArticlesThread = T.model('ArticlesThread', {
       //     root.articlesThread.updateItem(item)
       //   }
       // }
-      const { entries } = self.pagedPostsData
+      const { entries } = self.pagedArticlesData
       const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
         self.pagedPosts.entries[index] = merge(
@@ -151,7 +148,7 @@ const ArticlesThread = T.model('ArticlesThread', {
       root.setViewing(sobj)
     },
     setViewedFlag(id): void {
-      const { entries } = self.pagedPostsData
+      const { entries } = self.pagedArticlesData
       const index = findIndex(propEq('id', id), entries)
       if (index >= 0) {
         self.pagedPosts.entries[index].viewerHasViewed = true

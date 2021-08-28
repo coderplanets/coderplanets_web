@@ -7,6 +7,12 @@ const pagedPosts = gql`
 const pagedJobs = gql`
   ${P.pagedJobs}
 `
+const pagedBlogs = gql`
+  ${P.pagedBlogs}
+`
+const pagedRadars = gql`
+  ${P.pagedRadars}
+`
 const pagedArticleTags = gql`
   ${P.pagedArticleTags}
 `
@@ -27,6 +33,8 @@ const pagedCommunities = gql`
 const schema = {
   pagedPosts,
   pagedJobs,
+  pagedBlogs,
+  pagedRadars,
   pagedArticleTags,
   pagedCommunities,
 }

@@ -350,10 +350,10 @@ const TR_MAP = {
   repos: 'repo',
 
   post: 'posts',
-  user: 'users',
+  // user: 'users',
   job: 'jobs',
   repo: 'repos',
-
+  blog: 'blogs',
   /* map: 'map', */
 }
 

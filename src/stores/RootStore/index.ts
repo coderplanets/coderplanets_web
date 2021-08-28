@@ -31,7 +31,7 @@ import {
   ErrorBoxStore,
 
   // threads
-  ReposThreadStore,
+  // ReposThreadStore,
   CperMapThreadStore,
   // banners
   ArticleDigestStore,
@@ -152,7 +152,7 @@ const rootStore = T.model({
   // footer
   footer: T.optional(FooterStore, {}),
   // threads
-  reposThread: T.optional(ReposThreadStore, {}),
+  // reposThread: T.optional(ReposThreadStore, {}),
   cperMapThread: T.optional(CperMapThreadStore, {}),
 
   tagsBar: T.optional(TagsBarStore, {}),

@@ -1,15 +1,8 @@
-import {
-  isEmpty,
-  contains,
-  merge,
-  toLower,
-  omit,
-  findIndex,
-  propEq,
-} from 'ramda'
+import { isEmpty, toLower, omit, findIndex, propEq } from 'ramda'
 
 import { DEFAULT_THEME } from '@/config'
 import { HCN, TYPE, THREAD } from '@/constant'
+import { titleCase } from '@/utils/helper'
 
 import { P } from '@/schemas'
 
@@ -29,17 +22,9 @@ export const getJwtToken = (props) => {
   return BStore.get('token')
 }
 
-export const ssrPagedSchema = (thread) => {
-  switch (toLower(thread)) {
-    case THREAD.JOB:
-      return P.pagedJobs
-
-    case THREAD.REPO:
-      return P.pagedRepos
-
-    default:
-      return P.pagedPosts
-  }
+export const ssrPagedArticleSchema = (thread) => {
+  const pagedThreadKey = `paged${titleCase(thread)}s`
+  return P[pagedThreadKey]
 }
 
 export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
@@ -65,46 +50,18 @@ const getActiveTag = (tagTitle, tagList) => {
   return tagList[index]
 }
 
-export const ssrContentsThread = (resp, thread, filters = {}) => {
+export const ssrArticleThread = (resp, thread, filters = {}) => {
   // console.log('filter in resp: ', resp.filter)
   const activeTag = getActiveTag(resp.filter.tag, resp.pagedArticleTags)
+  const pagedThreadKey = `paged${titleCase(thread)}s`
 
-  switch (toLower(thread)) {
-    case THREAD.JOB:
-      return {
-        jobsThread: {
-          pagedJobs: resp.pagedJobs,
-          curView: getCurView(resp.pagedJobs),
-          activeTag,
-          filters,
-        },
-      }
-
-    case THREAD.REPO:
-      return {
-        reposThread: {
-          pagedRepos: resp.pagedRepos,
-          curView: getCurView(resp.pagedRepos),
-          activeTag,
-          filters,
-        },
-      }
-
-    default:
-      return {
-        articlesThread: {
-          pagedPosts: resp.pagedPosts,
-          curView: getCurView(resp.pagedPosts),
-          activeTag,
-          filters,
-        },
-        // postsThread: {
-        //   pagedPosts: resp.pagedPosts,
-        //   curView: getCurView(resp.pagedPosts),
-        //   activeTag,
-        //   filters,
-        // },
-      }
+  return {
+    articlesThread: {
+      [pagedThreadKey]: resp[pagedThreadKey],
+      curView: getCurView(resp[pagedThreadKey]),
+      activeTag,
+      filters,
+    },
   }
 }
 
@@ -117,14 +74,6 @@ export const validCommunityFilters = [
   'sort',
   'when',
   'read',
-  // jobs spec
-  'salary',
-  'exp',
-  'field',
-  'finance',
-  'scale',
-  'education',
-  'source',
 ]
 
 export const parseTheme = (sessionState) =>

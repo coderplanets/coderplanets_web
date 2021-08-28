@@ -83,6 +83,14 @@ const DataSolver = [
     action: ({ pagedJobs }) => store.markRes({ pagedJobs }),
   },
   {
+    match: asyncRes('pagedBlogs'),
+    action: ({ pagedBlogs }) => store.markRes({ pagedBlogs }),
+  },
+  {
+    match: asyncRes('pagedRadars'),
+    action: ({ pagedRadars }) => store.markRes({ pagedRadars }),
+  },
+  {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => loadArticles(),
   },

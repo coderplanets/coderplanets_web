@@ -95,9 +95,9 @@ export {
   isServerSide,
   isClientSide,
   getJwtToken,
-  ssrPagedSchema,
+  ssrPagedArticleSchema,
   ssrPagedFilter,
-  ssrContentsThread,
+  ssrArticleThread,
   validCommunityFilters,
   parseTheme,
 } from './ssr'

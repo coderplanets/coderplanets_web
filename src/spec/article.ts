@@ -43,15 +43,20 @@ export type TBlog = TBaseArticle & {
   linkAddr?: string
 }
 
+export type TRadar = TBaseArticle & {
+  digest?: string
+  linkAddr?: string
+}
+
 export type TJob = TBaseArticle & {
   company?: string
   companyLink?: string
 }
 
-export type TArticle = TPost | TJob | TBlog
+export type TArticle = TPost | TJob | TBlog | TRadar
 
 export type TPagedArticles = {
-  entries: TPost[] | TJob[] | TBlog[]
+  entries: TPost[] | TJob[] | TBlog[] | TRadar[]
   totalCount: number
   pageNumber: number
   pageSize: number
