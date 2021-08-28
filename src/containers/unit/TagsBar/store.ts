@@ -5,6 +5,7 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
+import { THREAD } from '@/constant'
 
 import type {
   TRootStore,
@@ -47,6 +48,21 @@ const TagsBar = T.model('TagsBar', {
       const { tagsData } = self as TStore
 
       return groupByKey(tagsData, 'group')
+    },
+    get maxDisplayCount(): number {
+      const slf = self as TStore
+      switch (slf.curThread) {
+        case THREAD.JOB: {
+          return 3
+        }
+
+        default: {
+          return 5
+        }
+      }
+    },
+    get totalCountThrold(): number {
+      return 15
     },
   }))
   .actions((self) => ({
