@@ -327,7 +327,7 @@ const post = gql`
     post(id: $id) {
       ${F.article}
       body
-      commentsParticipants {
+        commentsParticipants {
         ${F.author}
       }
       commentsCount

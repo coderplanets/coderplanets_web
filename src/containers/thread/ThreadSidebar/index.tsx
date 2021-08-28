@@ -24,7 +24,6 @@ const log = buildLog('C:ThreadSidebar')
 
 export type TBaseProps = {
   activeTag?: TTag
-
   onTagSelect?: () => void
 }
 
@@ -35,13 +34,14 @@ const ThreadSidebarContainer: FC<TProps> = ({
   onTagSelect,
 }) => {
   useInit(store)
-  const { c11n, curCommunity, isCommunityDigestInViewport } = store
+  const { c11n, curCommunity, isCommunityDigestInViewport, curThread } = store
 
   return (
     <Fragment>
       {c11n.bannerLayout === C11N.CLASSIC ? (
         <ClassicLayout
           showCommunityBadge={isCommunityDigestInViewport}
+          thread={curThread}
           onTagSelect={onTagSelect}
         />
       ) : (
