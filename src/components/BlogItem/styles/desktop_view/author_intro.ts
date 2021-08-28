@@ -14,7 +14,7 @@ export const Hint = styled.div`
 `
 export const Name = styled.div`
   font-size: 14px;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 8px;
   color: ${theme('thread.articleTitle')};
 `

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `
 export const Brief = styled.div`
   ${css.flexGrow('align-center')};
-  margin-bottom: 7px;
+  margin-bottom: 10px;
   color: ${theme('thread.articleTitle')};
 `
 export const Title = styled.a`
