@@ -25,7 +25,7 @@ import {
   AuthorName,
   ItemWrapper,
   ViewsIcon,
-} from '../../styles/digest_view/body'
+} from '../styles/desktop_view/body'
 
 type TProps = {
   item: TPost

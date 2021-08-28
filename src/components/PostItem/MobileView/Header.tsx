@@ -14,7 +14,7 @@ import {
   AuthorInfo,
   TimeStamp,
   TagListWrapper,
-} from '../../styles/mobile_view/header'
+} from '../styles/mobile_view/header'
 
 type TProps = {
   item: TPost

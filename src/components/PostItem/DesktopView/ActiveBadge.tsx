@@ -3,7 +3,7 @@ import { FC } from 'react'
 import type { TArticle } from '@/spec'
 import IconButton from '@/components/Buttons/IconButton'
 
-import { Wrapper, Hint } from '../../styles/digest_view/active_badge'
+import { Wrapper, Hint } from '../styles/desktop_view/active_badge'
 
 type TProps = {
   item: TArticle

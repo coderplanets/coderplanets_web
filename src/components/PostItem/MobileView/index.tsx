@@ -6,12 +6,10 @@ import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
 
-import { Wrapper } from '../../styles/mobile_view/index'
+import { Wrapper } from '../styles/mobile_view'
 
 type TProps = {
   entry: TPost
-  community: string
-
   onPreview?: (obj: TPost) => void
   onAuthorSelect?: (obj: TAccount) => void
 }

@@ -51,18 +51,6 @@ export const post = `
   updatedAt
   views
 `
-export const job = `
-  id
-  title
-  company
-  companyLink
-  views
-  linkAddr
-  copyRight
-
-  insertedAt
-  updatedAt
-`
 export const repo = `
   id
   views

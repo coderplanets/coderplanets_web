@@ -4,12 +4,7 @@ import type { TPost } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils/route'
 
-import {
-  Wrapper,
-  TitleLink,
-  LinkIcon,
-  Title,
-} from '../../styles/mobile_view/body'
+import { Wrapper, TitleLink, LinkIcon, Title } from '../styles/mobile_view/body'
 
 type TProps = {
   item: TPost

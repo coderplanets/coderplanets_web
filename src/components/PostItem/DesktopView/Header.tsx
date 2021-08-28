@@ -17,7 +17,7 @@ import {
   Title,
   TagListWrapper,
   Participants,
-} from '../../styles/digest_view/header'
+} from '../styles/desktop_view/header'
 
 type TProps = {
   item: TPost

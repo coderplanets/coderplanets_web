@@ -7,7 +7,7 @@ import TheAvatar from '@/components/TheAvatar'
 import Header from './Header'
 import Body from './Body'
 
-import { Main } from '../../styles/digest_view/index'
+import { Main } from '../styles/desktop_view/index'
 
 type TProps = {
   active?: TPost | null

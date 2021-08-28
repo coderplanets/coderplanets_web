@@ -23,6 +23,8 @@ export const pagedJobs = `
     pagedJobs(filter: $filter) {
       entries {
         ${F.article}
+        company
+        companyLink
         viewerHasViewed @include(if: $userHasLogin)
       }
       ${F.pagedCounts}
