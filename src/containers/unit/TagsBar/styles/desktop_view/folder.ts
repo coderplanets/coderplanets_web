@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div``
-export const Header = styled.div`
+export const Header = styled.div<TActive>`
   ${css.flex('align-center')};
+  display: ${({ show }) => (show ? 'flex' : 'none')};
   margin-bottom: 8px;
   &:hover {
     cursor: pointer;

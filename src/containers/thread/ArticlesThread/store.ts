@@ -83,8 +83,9 @@ const ArticlesThread = T.model('ArticlesThread', {
       return { tag: curTag.title }
     },
     get showFilters(): boolean {
+      const slf = self as TStore
       const curFilter = toJS(pickBy((v) => !isEmpty(v), self.filters))
-      const pagedPosts = toJS(self.pagedPosts)
+      const pagedPosts = toJS(slf.pagedArticlesData)
 
       return !isEmpty(curFilter) || !isEmpty(pagedPosts.entries)
     },

@@ -69,6 +69,7 @@ const Folder: FC<TProps> = ({
   return (
     <Wrapper>
       <Header
+        show={title !== 'null'}
         onClick={() => {
           toggleFolder(!isFolderOpen)
 
@@ -83,6 +84,7 @@ const Folder: FC<TProps> = ({
           isOpen={isFolderOpen}
           src={`${ICON}/shape/arrow-simple.svg`}
         />
+
         <Title>
           <FolderTitle>{title}</FolderTitle>
           {!isFolderOpen && <Count>{sortedTags.length}</Count>}
