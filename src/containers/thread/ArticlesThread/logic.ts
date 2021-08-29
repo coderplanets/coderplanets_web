@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import type { TArticle, TArticleFilter } from '@/spec'
 import { TYPE, EVENT, ERR } from '@/constant'
 
-import { scrollToTabber } from '@/utils/dom'
+import { scrollToHeader } from '@/utils/dom'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
 import { send, errRescue, titleCase } from '@/utils/helper'
@@ -43,9 +43,9 @@ export const onFilterSelect = (option: TArticleFilter): void => {
  * load paged articles then save them to store
  */
 const loadArticles = (page = 1): void => {
-  scrollToTabber()
+  scrollToHeader()
   doQuery(page)
-  console.log('cur filter: ', store.filtersData)
+  console.log('--> cur filter: ', store.filtersData)
   store.markRoute({ page, ...store.filtersData })
 }
 

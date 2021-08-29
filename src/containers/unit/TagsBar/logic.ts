@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
-import { contains, toUpper } from 'ramda'
+import { toUpper } from 'ramda'
 
 import type { TTag } from '@/spec'
 
-import { EVENT, ERR, THREAD } from '@/constant'
+import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import { errRescue } from '@/utils/helper'
