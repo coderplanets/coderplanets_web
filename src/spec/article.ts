@@ -51,6 +51,7 @@ export type TRadar = TBaseArticle & {
 export type TJob = TBaseArticle & {
   company?: string
   companyLink?: string
+  linkAddr?: string
 }
 
 export type TArticle = TPost | TJob | TBlog | TRadar

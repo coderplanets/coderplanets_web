@@ -5,7 +5,7 @@ export const job = `
     job(id: $id) {
       ${F.article}
       body
-      length
+      linkAddr
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
@@ -23,6 +23,7 @@ export const pagedJobs = `
     pagedJobs(filter: $filter) {
       entries {
         ${F.article}
+        linkAddr
         company
         companyLink
         viewerHasViewed @include(if: $userHasLogin)

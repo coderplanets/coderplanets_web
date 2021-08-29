@@ -1,10 +1,32 @@
 import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
+import Img from '@/Img'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div``
 
+export const LinkWraper = styled.div`
+  ${css.flex('align-center')};
+`
+export const LinkIcon = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
+  ${css.size(14)};
+`
+export const LinkSrc = styled.a`
+  ${css.cutRest('240px')};
+  font-size: 13px;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+  margin-left: 6px;
+
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('thread.articleDigest')};
+    opacity: 1;
+    cursor: pointer;
+  }
+`
 export const Title = styled.div`
   display: inline;
   color: ${theme('thread.articleTitle')};

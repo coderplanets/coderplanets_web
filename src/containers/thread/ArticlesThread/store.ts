@@ -112,22 +112,12 @@ const ArticlesThread = T.model('ArticlesThread', {
     },
 
     updateItem(item): void {
-      // TODO: 区分 thread
-      // const curThread = self.viewingThread || self.activeThread
-
-      // switch (curThread) {
-      //   case THREAD.JOB:
-      //     root.jobsThread.updateItem(item)
-      //     return
-      //   case THREAD.REPO:
-      //     root.reposThread.updateItem(item)
-      //     return
-      //   default: {
-      //     root.articlesThread.updateItem(item)
-      //   }
-      // }
-      const { entries } = self.pagedArticlesData
-      const index = findIndex(propEq('id', item.id), entries)
+      const slf = self as TStore
+      const { entries } = slf.pagedArticlesData
+      const index = findIndex(
+        propEq('id', item.id),
+        entries as Record<'id', any>[],
+      )
       if (index >= 0) {
         self.pagedPosts.entries[index] = merge(
           toJS(self.pagedPosts.entries[index]),
@@ -150,7 +140,7 @@ const ArticlesThread = T.model('ArticlesThread', {
     },
     setViewedFlag(id): void {
       const { entries } = self.pagedArticlesData
-      const index = findIndex(propEq('id', id), entries)
+      const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
       if (index >= 0) {
         self.pagedPosts.entries[index].viewerHasViewed = true
       }

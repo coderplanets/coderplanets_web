@@ -4,8 +4,8 @@ export const radar = `
   query radar($id: ID!, $userHasLogin: Boolean!) {
     radar(id: $id) {
       ${F.article}
+      linkAddr
       body
-      length
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
       upvotesCount
@@ -26,6 +26,7 @@ export const pagedRadars = `
       entries {
         ${F.article}
         digest
+        linkAddr
         commentsParticipants {
           ${F.author}
         }

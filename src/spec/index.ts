@@ -58,6 +58,7 @@ export type {
   TArticle,
   TPost,
   TBlog,
+  TRadar,
   TJob,
   TWorks,
   TPagedArticles,

@@ -12,6 +12,7 @@ import EmptyLabel from '@/components/EmptyLabel'
 import PostsList from './PostsList'
 import JobsList from './JobsList'
 import BlogsList from './BlogsList'
+import RadarsList from './RadarsList'
 
 const ArticleList = (props) => {
   const { thread, resState, community, emptyPrefix } = props
@@ -37,6 +38,9 @@ const ArticleList = (props) => {
 
     case THREAD.BLOG:
       return <BlogsList {...props} />
+
+    case THREAD.RADAR:
+      return <RadarsList {...props} />
 
     default:
       return <PostsList {...props} />

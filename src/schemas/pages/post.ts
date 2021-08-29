@@ -5,7 +5,7 @@ export const post = `
     post(id: $id) {
       ${F.article}
       body
-      length
+      linkAddr
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
       upvotesCount
@@ -25,6 +25,7 @@ export const pagedPosts = `
     pagedPosts(filter: $filter) {
       entries {
         ${F.article}
+        linkAddr
         digest
         commentsParticipants {
           ${F.author}

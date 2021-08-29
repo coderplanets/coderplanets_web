@@ -5,6 +5,7 @@ export const blog = `
     blog(id: $id) {
       ${F.article}
       body
+      linkAddr
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
       upvotesCount
@@ -19,6 +20,7 @@ export const pagedBlogs = `
       entries {
         ${F.article}
         digest
+        linkAddr
         commentsParticipants {
           ${F.author}
         }

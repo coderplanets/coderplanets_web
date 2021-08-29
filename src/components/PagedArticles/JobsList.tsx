@@ -11,8 +11,6 @@ type TProps = {
 }
 
 const JobsList: FC<TProps> = ({ entries, activeId, c11n }) => {
-  console.log('entries: ', entries)
-
   return (
     <MasonryCards column={2}>
       {entries.map((entry) => (

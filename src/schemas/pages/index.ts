@@ -37,7 +37,7 @@ const P = {
   // blog
   pagedBlogs,
   blog,
-  // blog
+  // radar
   pagedRadars,
   radar,
   // repo
