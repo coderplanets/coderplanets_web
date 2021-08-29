@@ -26,7 +26,7 @@ let store: TStore | undefined
 
 export const onTagSelect = (tag: TTag): void => {
   store.selectTag(tag)
-  store.markRoute({ tag: tag.title })
+  store.markRoute({ tag: tag.raw })
 }
 
 export const loadTags = (): void => {

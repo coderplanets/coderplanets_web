@@ -317,7 +317,7 @@ const rootStore = T.model({
       const filter = pickBy(notEmpty, {
         page,
         size,
-        tag: tag.title,
+        articleTag: tag.raw,
         community: community.raw,
         ...articlesfilter,
       })

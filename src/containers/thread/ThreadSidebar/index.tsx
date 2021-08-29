@@ -24,15 +24,11 @@ const log = buildLog('C:ThreadSidebar')
 
 export type TBaseProps = {
   activeTag?: TTag
-  onTagSelect?: () => void
 }
 
 export type TProps = { threadSidebar?: TStore } & TBaseProps
 
-const ThreadSidebarContainer: FC<TProps> = ({
-  threadSidebar: store,
-  onTagSelect,
-}) => {
+const ThreadSidebarContainer: FC<TProps> = ({ threadSidebar: store }) => {
   useInit(store)
   const { c11n, curCommunity, isCommunityDigestInViewport, curThread } = store
 
@@ -42,7 +38,6 @@ const ThreadSidebarContainer: FC<TProps> = ({
         <ClassicLayout
           showCommunityBadge={isCommunityDigestInViewport}
           thread={curThread}
-          onTagSelect={onTagSelect}
         />
       ) : (
         <HolyGrailLayout community={curCommunity} />

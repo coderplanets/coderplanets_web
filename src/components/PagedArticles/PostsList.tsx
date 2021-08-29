@@ -10,7 +10,6 @@ type TProps = {
 }
 
 const PostsList: FC<TProps> = ({ entries, activeId, c11n }) => {
-  console.log('got entries: ', entries)
   return (
     <Fragment>
       {entries.map((entry) => (

@@ -9,7 +9,8 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
-// import { mockFilterMenuTags } from '@/utils/mock'
+import { send } from '@/utils/helper'
+import { EVENT } from '@/constant'
 
 import type { TThread } from '@/spec'
 
@@ -34,11 +35,7 @@ const log = buildLog('c:ClassicSidebar')
 
 type TProps = { showCommunityBadge: boolean; thread: TThread } & TBaseProps
 
-const ClassicLayout: FC<TProps> = ({
-  showCommunityBadge,
-  onTagSelect,
-  thread,
-}) => {
+const ClassicLayout: FC<TProps> = ({ showCommunityBadge, thread }) => {
   return (
     <Sticky offsetTop={50}>
       <PublishWrapper show={showCommunityBadge}>
@@ -48,7 +45,7 @@ const ClassicLayout: FC<TProps> = ({
         <CommunityJoinBadge />
       </BadgeWrapper>
       <TagsBarWrapper>
-        <TagsBar onSelect={onTagSelect} />
+        <TagsBar onSelect={() => send(EVENT.REFRESH_ARTICLES)} />
         {/* <FiltersMenu tags={mockFilterMenuTags()} revert /> */}
       </TagsBarWrapper>
     </Sticky>

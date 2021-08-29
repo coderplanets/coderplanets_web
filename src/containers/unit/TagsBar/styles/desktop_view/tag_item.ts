@@ -6,8 +6,6 @@ import HashTagSVG from '@/icons/HashTag'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import { getActiveColor } from '../metric'
-
 import { TagsWrapper } from './index'
 
 type TTag = TActive & { color?: string }
@@ -36,18 +34,13 @@ export const HashWrapper = styled.div`
   ${css.size(15)};
   margin-right: 6px;
 `
-type THashSign = TActive & { color: string; activeid: string }
+type THashSign = TActive & { color: string }
 export const HashSign = styled(HashTagSVG)<THashSign>`
-  fill: ${({ $active, color, activeid }) =>
-    getActiveColor(
-      $active,
-      theme(`baseColor.${color.toLowerCase()}`),
-      activeid,
-    )};
+  fill: ${({ color }) => theme(`baseColor.${color.toLowerCase()}`)};
   ${css.size(12)};
   margin-top: 2px;
   margin-right: 10px;
-  opacity: ${theme('tags.dotOpacity')};
+  opacity: ${({ $active }) => ($active ? 0.9 : theme('tags.dotOpacity'))};
 
   ${Wrapper}:hover & {
     opacity: 0.9;

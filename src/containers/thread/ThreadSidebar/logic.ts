@@ -21,8 +21,6 @@ export const onCreate = (): void => {
   send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER[cmd] })
 }
 
-export const onTagSelect = (): void => send(EVENT.REFRESH_ARTICLES)
-
 // ###############################
 // init & uninit handlers
 // ###############################

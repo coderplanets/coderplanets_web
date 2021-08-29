@@ -34,7 +34,7 @@ export const outAnchor = (): void => store?.showTopModeline(true)
 
 export const onFilterSelect = (option: TArticleFilter): void => {
   store.selectFilter(option)
-  log('cur filter: ', store.filtersData)
+  console.log('cur filter: ', store.filtersData)
   store.markRoute({ ...store.filtersData })
   loadArticles()
 }
@@ -45,6 +45,7 @@ export const onFilterSelect = (option: TArticleFilter): void => {
 const loadArticles = (page = 1): void => {
   scrollToTabber()
   doQuery(page)
+  console.log('cur filter: ', store.filtersData)
   store.markRoute({ page, ...store.filtersData })
 }
 
@@ -52,6 +53,7 @@ const loadArticles = (page = 1): void => {
 const doQuery = (page: number): void => {
   const endpoint = S[`paged${titleCase(store.curThread)}s`]
   const args = store.getLoadArgs(page)
+  console.log('args: ', args)
   sr71$.query(endpoint, args)
 }
 
@@ -108,6 +110,8 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.REFRESH_ARTICLES),
     action: (res) => {
+      console.log('EVENT.REFRESH_ARTICLES: ', res)
+
       const { page = 1 } = res[EVENT.REFRESH_ARTICLES]
       loadArticles(page)
     },

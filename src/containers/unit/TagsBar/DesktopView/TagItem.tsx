@@ -20,15 +20,14 @@ import {
 type TProps = {
   tag: TTag
   active: boolean
-  activeid?: string | null
   onSelect?: (tag?: TTag) => void
 }
 
-const TagItem: FC<TProps> = ({ tag, active, activeid, onSelect }) => {
+const TagItem: FC<TProps> = ({ tag, active, onSelect }) => {
   return (
     <Wrapper $active={active}>
       <HashWrapper>
-        <HashSign color={tag.color} $active={active} activeid={activeid} />
+        <HashSign color={tag.color} $active={active} />
       </HashWrapper>
       <Tag $active={active} color={tag.color} onClick={() => onSelect(tag)}>
         <Title>{cutRest(Trans(tag.title), 10)}</Title>
