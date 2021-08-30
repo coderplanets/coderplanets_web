@@ -1,21 +1,17 @@
 /*
    this page is for /explore
  */
-import React from 'react'
 import { Provider } from 'mobx-react'
-import { merge } from 'ramda'
-
-import { SITE_URL } from '@/config'
-import { ROUTE, METRIC } from '@/constant'
+import { METRIC } from '@/constant'
 
 import {
-  getJwtToken,
-  makeGQClient,
+  ssrFetchPrepare,
   queryStringToJSON,
   ssrParseURL,
-  nilOrEmpty,
   ssrAmbulance,
   parseTheme,
+  exploreSEO,
+  ssrError,
 } from '@/utils'
 
 import { useStore } from '@/stores/init'
@@ -25,17 +21,16 @@ import ExploreContent from '@/containers/content/ExploreContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt = {}) => {
-  const { realname } = merge({ realname: true }, opt)
-
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
-  const userHasLogin = nilOrEmpty(token) === false
-  const { subPath } = ssrParseURL(props.req)
+const fetchData = async (context, opt = {}) => {
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+  const { subPath } = ssrParseURL(context.req)
   const category = subPath !== '' ? subPath : 'pl'
 
   const filter = {
-    ...queryStringToJSON(props.req.url, { noPagiInfo: false, pagi: 'number' }),
+    ...queryStringToJSON(context.req.url, {
+      noPagiInfo: false,
+      pagi: 'number',
+    }),
   }
 
   const sessionState = gqClient.request(P.sessionState)
@@ -61,14 +56,16 @@ const fetchData = async (props, opt = {}) => {
   }
 }
 
-export const getServerSideProps = async (props) => {
+export const getServerSideProps = async (context) => {
   // const { communityPath, thread } = ssrParseURL(props.req)
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await fetchData(context)
   } catch ({ response: { errors } }) {
     if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+      resp = await fetchData(context, { tokenExpired: true })
+    } else {
+      return ssrError(context, 'fetch', 500)
     }
   }
 
@@ -100,12 +97,7 @@ export const getServerSideProps = async (props) => {
 
 const ExplorePage = (props) => {
   const store = useStore(props)
-
-  const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.EXPLORE}`,
-    title: '社区索引 | coderplanets',
-    description: 'coderplanets 所有社区节点',
-  }
+  const seoConfig = exploreSEO()
 
   return (
     <Provider store={store}>

@@ -3,7 +3,7 @@ const ROUTE = {
   HOME: 'home',
   // this page is not exist on url, but serves default community page
   COMMUNITY: 'community',
-  EXPLORE: 'discovery',
+  EXPLORE: 'explore',
   POSTS: 'posts',
   BLOGS: 'blogs',
   JOBS: 'jobs',

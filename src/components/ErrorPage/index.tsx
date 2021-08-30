@@ -69,7 +69,7 @@ const ErrorPage: FC<TProps> = ({
           <Planet2Wrapper>
             <SpinPlanet scale={0.45} />
           </Planet2Wrapper>
-          <OopsLetter>PS~</OopsLetter>
+          <OopsLetter>ps~</OopsLetter>
           {/* <CodeSnippets path={target || router.asPath} /> */}
         </IconsWrapper>
         <TextWrapper>

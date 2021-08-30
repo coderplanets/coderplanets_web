@@ -69,8 +69,8 @@ const PayButton = ({ pkgType, payType }) => {
 }
 
 type TProps = {
-  membershipContent: TStore
-  metric: TMetric
+  membershipContent?: TStore
+  metric?: TMetric
   testid?: string
 }
 

@@ -38,7 +38,7 @@ export const SiteTitle = styled.div`
 export const IconsWrapper = styled.div`
   ${css.flex('align-center')};
   width: 380px;
-  margin-left: 20px;
+  margin-left: 50px;
 `
 export const Planet1Wrapper = styled.div`
   margin-top: -48px;
@@ -50,10 +50,11 @@ export const Planet2Wrapper = styled.div`
 export const OopsLetter = styled.div`
   margin-left: -10px;
   color: #2d9b83;
-  font-size: 53px;
-  letter-spacing: 10px;
+  font-size: 36px;
+  margin-top: 12px;
+  letter-spacing: 5px;
   font-style: italic;
-  font-family: 'Audiowide', cursive;
+  opacity: 0.6;
 `
 export const TextWrapper = styled.div`
   ${css.flexColumn('align-center')};

@@ -1,11 +1,17 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
+import type { TMetric } from '@/spec'
+
 import { METRIC, ROUTE } from '@/constant'
-import { ISSUE_ADDR } from '@/config'
 import { HintTitle, IssueLink } from './styles'
 
-const NotFoundMessage = ({ metric, path }) => {
+type TProps = {
+  metric: TMetric
+  path: string
+}
+
+const NotFoundMessage: FC<TProps> = ({ metric, path }) => {
   switch (metric) {
     case METRIC.USER:
       return (
@@ -23,11 +29,7 @@ const NotFoundMessage = ({ metric, path }) => {
         <HintTitle testid="community-error-title">
           未找到社区
           {!isEmpty(path) && <span>: {path}</span>}, 欢迎
-          <IssueLink
-            href={`${ISSUE_ADDR}/280`}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <IssueLink href="/create/community" rel="noopener noreferrer">
             参与创建
           </IssueLink>
         </HintTitle>
@@ -38,4 +40,4 @@ const NotFoundMessage = ({ metric, path }) => {
   }
 }
 
-export default React.memo(NotFoundMessage)
+export default memo(NotFoundMessage)

@@ -1,13 +1,16 @@
 /*
    this page is for /works
  */
-import React from 'react'
 import { Provider } from 'mobx-react'
-import { merge } from 'ramda'
 
-import { SITE_URL } from '@/config'
-import { ROUTE, METRIC } from '@/constant'
-import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
+import { METRIC } from '@/constant'
+import {
+  ssrFetchPrepare,
+  ssrAmbulance,
+  parseTheme,
+  worksSEO,
+  ssrError,
+} from '@/utils'
 import { P } from '@/schemas'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -15,11 +18,8 @@ import WorksContent from '@/containers/content/WorksContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt = {}) => {
-  const { realname } = merge({ realname: true }, opt)
-
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
+const fetchData = async (context, opt = {}) => {
+  const { gqClient } = ssrFetchPrepare(context, opt)
 
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -35,13 +35,15 @@ const fetchData = async (props, opt = {}) => {
   }
 }
 
-export const getServerSideProps = async (props) => {
+export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await fetchData(context)
   } catch ({ response: { errors } }) {
     if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+      resp = await fetchData(context, { tokenExpired: true })
+    } else {
+      return ssrError(context, 'fetch', 500)
     }
   }
 
@@ -64,12 +66,7 @@ export const getServerSideProps = async (props) => {
 
 const WorksPage = (props) => {
   const store = useStore(props)
-
-  const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.WORKS}`,
-    title: '作品集市 | coderplanets',
-    description: '有趣有爱的作品分享',
-  }
+  const seoConfig = worksSEO()
 
   return (
     <Provider store={store}>
