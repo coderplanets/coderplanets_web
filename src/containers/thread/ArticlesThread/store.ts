@@ -78,9 +78,9 @@ const ArticlesThread = T.model('ArticlesThread', {
     get tagQuery(): Record<string, unknown> {
       const root = getParent(self) as TRootStore
 
-      const curTag = toJS(root.tagsBar.activeTagData)
-      if (nilOrEmpty(curTag.title)) return {}
-      return { tag: curTag.title }
+      const curTag = toJS(root.tagsBar.activeTag)
+      if (nilOrEmpty(curTag)) return {}
+      return { tag: curTag.raw }
     },
     get showFilters(): boolean {
       const slf = self as TStore
@@ -145,16 +145,8 @@ const ArticlesThread = T.model('ArticlesThread', {
         self.pagedPosts.entries[index].viewerHasViewed = true
       }
     },
-    markRoute(target): void {
-      const query = isObject(target)
-        ? target
-        : {
-            id: target,
-            preview: THREAD.POST,
-            community: self.curCommunity.raw,
-            ...self.tagQuery,
-            ...self.filtersData,
-          }
+    markRoute(params): void {
+      const query = { ...self.tagQuery, ...self.filtersData, ...params }
 
       const root = getParent(self) as TRootStore
       root.markRoute(query, { onlyDesktop: true })

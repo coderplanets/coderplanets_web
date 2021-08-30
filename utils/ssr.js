@@ -1,8 +1,11 @@
-import { isEmpty, toLower, omit, findIndex, propEq } from 'ramda'
+import { merge, pick, isEmpty, toLower, findIndex, propEq } from 'ramda'
 
 import { DEFAULT_THEME } from '@/config'
-import { HCN, TYPE, THREAD } from '@/constant'
+import { TYPE } from '@/constant'
 import { titleCase } from '@/utils/helper'
+
+import { makeGQClient } from './graphql'
+import { ssrParseURL, akaTranslate, queryStringToJSON } from './route'
 
 import { P } from '@/schemas'
 
@@ -14,10 +17,23 @@ import BStore from './bstore'
 export const isServerSide = typeof window === 'undefined'
 export const isClientSide = !isServerSide
 
+export const ssrFetchPrepare = (context, opt) => {
+  const token = ssrFetchToken(context, opt)
+  const gqClient = makeGQClient(token)
+  const userHasLogin = !!token
+
+  return { token, gqClient, userHasLogin }
+}
+
+const ssrFetchToken = (context, opt) => {
+  const { tokenExpired } = merge({ tokenExpired: false }, opt)
+  return !tokenExpired ? getJwtToken(context) : null
+}
+
 // get jwt from cookie or localStorage
 // props has to be getInitialProps's arg
-export const getJwtToken = (props) => {
-  if (isServerSide) return BStore.cookie.from_req(props.req, 'jwtToken')
+export const getJwtToken = (context) => {
+  if (isServerSide) return BStore.cookie.from_req(context.req, 'jwtToken')
 
   return BStore.get('token')
 }
@@ -30,12 +46,71 @@ export const ssrPagedArticleSchema = (thread) => {
 export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
   thread = toLower(thread)
 
-  if (community === HCN && thread === THREAD.JOB) {
-    filter = omit(['community'], filter)
-    return { filter, userHasLogin }
+  if (filter.tag) {
+    filter.articleTag = filter.tag
+    delete filter.tag
+  }
+
+  console.log('ssr paged filter: ', filter)
+
+  return { filter, userHasLogin }
+}
+
+export const ssrPagedArticlesFilter = (context, userHasLogin) => {
+  const { communityPath, thread } = ssrParseURL(context.req)
+  const community = akaTranslate(communityPath)
+
+  const filter = pick(validCommunityFilters, {
+    // @ts-ignore TODO:
+    ...queryStringToJSON(context.req.url, { pagi: 'number' }),
+    community,
+    thread,
+  })
+
+  if (filter.tag) {
+    filter.articleTag = filter.tag
+    delete filter.tag
   }
 
   return { filter, userHasLogin }
+}
+
+export const ssrError = (context, errorType, errorCode = 500) => {
+  const { communityPath } = ssrParseURL(context.req)
+
+  switch (errorType) {
+    case 'fetch': {
+      return {
+        props: {
+          errorCode,
+          target: communityPath,
+          viewing: {
+            community: {
+              raw: communityPath,
+              title: communityPath,
+              desc: communityPath,
+            },
+          },
+        },
+      }
+    }
+
+    default: {
+      return {
+        props: {
+          errorCode,
+          target: communityPath,
+          viewing: {
+            community: {
+              raw: communityPath,
+              title: communityPath,
+              desc: communityPath,
+            },
+          },
+        },
+      }
+    }
+  }
 }
 
 const getCurView = (source) =>
@@ -50,7 +125,7 @@ const getActiveTag = (tagTitle, tagList) => {
   return tagList[index]
 }
 
-export const ssrArticleThread = (resp, thread, filters = {}) => {
+export const ssrParseArticleThread = (resp, thread, filters = {}) => {
   // console.log('filter in resp: ', resp.filter)
   const activeTag = getActiveTag(resp.filter.tag, resp.pagedArticleTags)
   const pagedThreadKey = `paged${titleCase(thread)}s`

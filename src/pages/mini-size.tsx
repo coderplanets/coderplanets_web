@@ -15,7 +15,7 @@ import {
   nilOrEmpty,
   ssrPagedArticleSchema,
   ssrPagedFilter,
-  ssrArticleThread,
+  ssrParseArticleThread,
   ssrAmbulance,
   validCommunityFilters,
   parseTheme,
@@ -117,7 +117,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
     community,
     subscribedCommunities,
   } = resp
-  const articleThread = ssrArticleThread(resp, thread, filter)
+  const articleThread = ssrParseArticleThread(resp, thread, filter)
 
   // // init state on server side
   const initProps = merge(

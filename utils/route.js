@@ -18,7 +18,9 @@ import {
 import { THREAD, ROUTE } from '@/constant'
 import { nilOrEmpty } from './validator'
 import { Global } from './helper'
-import { isServerSide } from './ssr'
+// import { isServerSide } from './ssr'
+
+export const isServerSide = typeof window === 'undefined'
 
 // example: /getme/xxx?aa=bb&cc=dd
 const parseMainPath = compose(

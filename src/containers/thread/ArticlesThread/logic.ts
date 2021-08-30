@@ -34,8 +34,7 @@ export const outAnchor = (): void => store?.showTopModeline(true)
 
 export const onFilterSelect = (option: TArticleFilter): void => {
   store.selectFilter(option)
-  console.log('cur filter: ', store.filtersData)
-  store.markRoute({ ...store.filtersData })
+  // console.log('cur filter: ', store.filtersData)
   loadArticles()
 }
 
@@ -45,8 +44,8 @@ export const onFilterSelect = (option: TArticleFilter): void => {
 const loadArticles = (page = 1): void => {
   scrollToHeader()
   doQuery(page)
-  console.log('--> cur filter: ', store.filtersData)
-  store.markRoute({ page, ...store.filtersData })
+  // store.markRoute({ tag: tag.raw })
+  store.markRoute({ page })
 }
 
 // do query paged articles

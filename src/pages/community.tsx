@@ -1,23 +1,19 @@
 import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
-import { merge, pick, toLower } from 'ramda'
+import { merge, toLower } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
 import { METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
-  getJwtToken,
-  makeGQClient,
-  queryStringToJSON,
+  ssrFetchPrepare,
   ssrParseURL,
-  akaTranslate,
-  nilOrEmpty,
+  ssrError,
   ssrPagedArticleSchema,
-  ssrPagedFilter,
-  ssrArticleThread,
+  ssrPagedArticlesFilter,
+  ssrParseArticleThread,
   ssrAmbulance,
-  validCommunityFilters,
   parseTheme,
 } from '@/utils'
 
@@ -26,36 +22,19 @@ import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt = {}) => {
-  const { realname } = merge({ realname: true }, opt)
-
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
-  const userHasLogin = nilOrEmpty(token) === false
-
-  // const { asPath } = props
-  // schema
-
-  const { communityPath, thread } = ssrParseURL(props.req)
-  const community = akaTranslate(communityPath)
-
-  let filter = {
-    // @ts-ignore TODO:
-    ...queryStringToJSON(props.req.url, { pagi: 'number' }),
-    community,
-    thread,
-  }
-  filter = pick(validCommunityFilters, filter)
+const fetchData = async (context, opt = {}) => {
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+  const filter = ssrPagedArticlesFilter(context, userHasLogin)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const curCommunity = gqClient.request(P.community, {
-    raw: community,
+    raw: filter.community,
     userHasLogin,
   })
   const pagedArticles = gqClient.request(
-    ssrPagedArticleSchema(thread),
-    ssrPagedFilter(community, thread, filter, userHasLogin),
+    ssrPagedArticleSchema(filter.thread),
+    filter,
   )
 
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -74,12 +53,12 @@ const fetchData = async (props, opt = {}) => {
   }
 }
 
-export const getServerSideProps: GetServerSideProps = async (props) => {
-  const { communityPath, thread, threadPath } = ssrParseURL(props.req)
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { thread, threadPath } = ssrParseURL(context.req)
 
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await fetchData(context)
     // console.log('#### fetchData from server: ', resp)
   } catch (e) {
     console.log('#### error from server: ', e)
@@ -87,26 +66,15 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
       response: { errors },
     } = e
     if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+      // token 过期了，重新用匿名方式请求一次
+      await fetchData(context, { tokenExpired: true })
     } else {
-      return {
-        props: {
-          errorCode: 404,
-          target: communityPath,
-          viewing: {
-            community: {
-              raw: communityPath,
-              title: communityPath,
-              desc: communityPath,
-            },
-          },
-        },
-      }
+      return ssrError(context, 'fetch', 500)
     }
   }
 
   const { filter, sessionState, community, subscribedCommunities } = resp
-  const articleThread = ssrArticleThread(resp, thread, filter)
+  const articleThread = ssrParseArticleThread(resp, thread, filter)
 
   // // init state on server side
   const initProps = merge(
