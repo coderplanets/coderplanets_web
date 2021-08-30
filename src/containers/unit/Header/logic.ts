@@ -9,7 +9,7 @@ import { buildLog } from '@/utils/logger'
 import { Global, send, errRescue } from '@/utils/helper'
 import { atomizeValues } from '@/utils/graphql'
 import { scrollToHeader } from '@/utils/dom'
-import { thread2Subpath } from '@/utils/route'
+import { thread2URLpath } from '@/utils/route'
 
 import type { TStore } from './store'
 import S from './schema'
@@ -33,7 +33,7 @@ export const checkSessionState = (): void => sr71$.query(S.sessionState, {})
 
 export const onThreadChange = (activeThread: TThread): void => {
   // const activeThread = thread.raw
-  const subPath = thread2Subpath(activeThread)
+  const subPath = thread2URLpath(activeThread)
 
   scrollToHeader()
 

@@ -151,7 +151,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
 const MiniSize = (props) => {
   const store = useStore(props)
 
-  const { errorCode, viewing } = store
+  const { viewing } = store
   const { community, activeThread } = viewing
 
   const seoConfig = {
@@ -162,12 +162,7 @@ const MiniSize = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.COMMUNITY}
-        seoConfig={seoConfig}
-        errorCode={errorCode}
-        errorPath={community.raw}
-      >
+      <GlobalLayout metric={METRIC.COMMUNITY} seoConfig={seoConfig}>
         {/* <CommunityContent /> */}
       </GlobalLayout>
     </Provider>

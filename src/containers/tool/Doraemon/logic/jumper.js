@@ -2,7 +2,7 @@ import { contains, startsWith } from 'ramda'
 
 import { EVENT, TYPE, ROUTE, THREAD } from '@/constant'
 
-import { thread2Subpath } from '@/utils/route'
+import { thread2URLpath } from '@/utils/route'
 import { Global, send } from '@/utils/helper'
 
 export const jumpToCommunity = (store, communityRaw) => {
@@ -24,7 +24,7 @@ export const jumpToCommunity = (store, communityRaw) => {
 
   store.markRoute({
     mainPath: communityRaw,
-    subPath: thread2Subpath(THREAD.POST),
+    subPath: thread2URLpath(THREAD.POST),
   })
 
   send(EVENT.COMMUNITY_CHANGE)

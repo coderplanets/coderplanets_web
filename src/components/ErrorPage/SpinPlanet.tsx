@@ -1,10 +1,14 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { Wrapper, Planet, Hole } from './styles/spin_planet'
 
-const SpinPlanet = () => {
+type TProps = {
+  scale?: number
+}
+
+const SpinPlanet: FC<TProps> = ({ scale = 1 }) => {
   return (
-    <Wrapper testid="spin-planet">
+    <Wrapper scale={scale}>
       <Planet>
         <Hole />
         <Hole />
@@ -16,4 +20,4 @@ const SpinPlanet = () => {
   )
 }
 
-export default React.memo(SpinPlanet)
+export default memo(SpinPlanet)

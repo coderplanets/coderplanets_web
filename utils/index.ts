@@ -74,8 +74,8 @@ export {
   serializeQuery,
   parseDomain,
   extractThreadFromPath,
-  subPath2Thread,
-  thread2Subpath,
+  urlPath2Thread,
+  thread2URLpath,
   getRoutePathList,
   getRouteMainPath,
   markRoute,
@@ -146,3 +146,5 @@ export { Trans } from './i18n'
 export { default as GA } from './analytics'
 
 export { mockImage, mockImages, mockNaviCatalogMenu, mockWorks } from './mock'
+
+export { communitySEO } from './seo'

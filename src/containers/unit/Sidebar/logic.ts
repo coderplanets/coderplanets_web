@@ -8,7 +8,7 @@ import { HCN, EVENT, ERR, THREAD, ROUTE } from '@/constant'
 import { Global, send, errRescue } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
-import { thread2Subpath } from '@/utils/route'
+import { thread2URLpath } from '@/utils/route'
 
 import type { TStore } from './store'
 
@@ -50,7 +50,7 @@ export const onCommunitySelect = (community: TCommunity): void => {
 
   store.markRoute({
     mainPath: community.raw,
-    subPath: thread2Subpath(THREAD.POST),
+    subPath: thread2URLpath(THREAD.POST),
   })
 
   send(EVENT.COMMUNITY_CHANGE)

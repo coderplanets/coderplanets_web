@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { TYPE, EVENT } from '@/constant'
 
 import asyncSuit from '@/utils/async'
-import { thread2Subpath } from '@/utils/route'
+import { thread2URLpath } from '@/utils/route'
 import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 // import S from './service'
@@ -22,7 +22,7 @@ let store = null
 const log = buildLog('L:ModeLine')
 
 export const tabOnChange = (activeThread) => {
-  const subPath = thread2Subpath(activeThread)
+  const subPath = thread2URLpath(activeThread)
   // log('EVENT.activeThread -----> ', activeThread)
   // log('EVENT.subPath -----> ', subPath)
 

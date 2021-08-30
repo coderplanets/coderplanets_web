@@ -101,8 +101,6 @@ export const getServerSideProps = async (props) => {
 const ExplorePage = (props) => {
   const store = useStore(props)
 
-  const { errorCode } = store
-
   const seoConfig = {
     url: `${SITE_URL}/${ROUTE.EXPLORE}`,
     title: '社区索引 | coderplanets',
@@ -111,11 +109,7 @@ const ExplorePage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.EXPLORE}
-        seoConfig={seoConfig}
-        errorCode={errorCode}
-      >
+      <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig}>
         <ExploreContent />
       </GlobalLayout>
     </Provider>

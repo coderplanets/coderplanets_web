@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { toUpper } from 'ramda'
+import { toUpper, findIndex } from 'ramda'
 
 import type { TTag } from '@/spec'
 
@@ -8,6 +8,7 @@ import { EVENT, ERR } from '@/constant'
 import asyncSuit from '@/utils/async'
 import { errRescue } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+import { getParameterByName } from '@/utils/route'
 
 import type { TStore } from './store'
 import S from './schema'
@@ -41,6 +42,16 @@ export const loadTags = (): void => {
   sr71$.query(S.pagedArticleTags, args)
 }
 
+// if url has tag=xxx query, then set the activeTag ifneed
+const setActiveTagFromURL = (tags: TTag[]): void => {
+  const tagOnURL = getParameterByName('tag')
+  if (!tagOnURL) return
+  const idx = findIndex((t) => t.raw === tagOnURL, tags)
+  if (idx >= 0) {
+    onTagSelect(tags[idx])
+  }
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -49,6 +60,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedArticleTags'),
     action: ({ pagedArticleTags: tags }): void => {
+      setActiveTagFromURL(tags.entries)
       store.mark({ tags: tags.entries, loading: false })
     },
   },
@@ -100,6 +112,7 @@ export const useInit = (_store: TStore): void => {
     log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     loadTags()
+
     // let activeTag = pick(['id', 'title', 'color'], active || emptyTag) as TTag
     // if (isEmpty(activeTag.title)) activeTag = null
     // store.mark({ thread, activeTag })

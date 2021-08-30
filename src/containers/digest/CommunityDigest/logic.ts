@@ -4,7 +4,7 @@ import { TYPE, EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import { send, errRescue } from '@/utils/helper'
-import { subPath2Thread } from '@/utils/route'
+import { urlPath2Thread } from '@/utils/route'
 import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
@@ -78,7 +78,7 @@ const DataSolver = [
       log('community: ', community)
       store.setViewing({
         community,
-        activeThread: subPath2Thread(subPath),
+        activeThread: urlPath2Thread(subPath),
       })
     },
   },

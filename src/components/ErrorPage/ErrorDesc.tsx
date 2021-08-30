@@ -1,11 +1,14 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ISSUE_ADDR } from '@/config'
-
 import { HintDesc, IssueLink } from './styles'
 
-const ErrorDesc = ({ errorCode }) => {
-  switch (errorCode) {
+type TProps = {
+  code?: number
+}
+
+const ErrorDesc: FC<TProps> = ({ code }) => {
+  switch (code) {
     case 404:
       return (
         <HintDesc>
@@ -23,18 +26,18 @@ const ErrorDesc = ({ errorCode }) => {
     default:
       return (
         <HintDesc>
-          工程师正在及时修复中, 相关进度可在本站的
+          你可能发现了一个 Bug, 本站有专门的
           <IssueLink
             href={`${ISSUE_ADDR}/new`}
             rel="noopener noreferrer"
             target="_blank"
           >
-            反馈渠道
+            反馈与建议
           </IssueLink>
-          查看，对此刻造成的不便非常抱歉。
+          子社区处理相关问题，恳请反馈、建议。我们会尽快修复.
         </HintDesc>
       )
   }
 }
 
-export default React.memo(ErrorDesc)
+export default memo(ErrorDesc)

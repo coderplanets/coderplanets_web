@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, subPath2Thread, errRescue } from '@/utils'
+import { asyncSuit, buildLog, urlPath2Thread, errRescue } from '@/utils'
 
 import type { TCommunity } from '@/spec'
 import type { TStore } from './store'
@@ -59,7 +59,7 @@ const DataSolver = [
       log('community: ', community)
       store.setViewing({
         community,
-        activeThread: subPath2Thread(subPath),
+        activeThread: urlPath2Thread(subPath),
       })
     },
   },

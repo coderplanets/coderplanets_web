@@ -94,7 +94,7 @@ export const getServerSideProps = async (props) => {
 
 const PostPage = (props) => {
   const store = useStore(props)
-  const { viewing, route, errorCode } = props
+  const { viewing, route } = props
   const { post } = viewing
 
   const { mainPath } = route
@@ -115,8 +115,6 @@ const PostPage = (props) => {
         metric={METRIC.ARTICLE}
         // metric={METRIC.WORKS_ARTICLE}
         seoConfig={seoConfig}
-        errorCode={errorCode}
-        errorPath={`/${mainPath}/post/${post.id}`}
         noSidebar
       >
         <ArticleDigest />

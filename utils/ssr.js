@@ -5,7 +5,12 @@ import { TYPE } from '@/constant'
 import { titleCase } from '@/utils/helper'
 
 import { makeGQClient } from './graphql'
-import { ssrParseURL, akaTranslate, queryStringToJSON } from './route'
+import {
+  ssrParseURL,
+  akaTranslate,
+  queryStringToJSON,
+  urlPath2Thread,
+} from './route'
 
 import { P } from '@/schemas'
 
@@ -38,8 +43,10 @@ export const getJwtToken = (context) => {
   return BStore.get('token')
 }
 
-export const ssrPagedArticleSchema = (thread) => {
-  const pagedThreadKey = `paged${titleCase(thread)}s`
+export const ssrPagedArticleSchema = (threadPath) => {
+  const thread = titleCase(urlPath2Thread(threadPath))
+  const pagedThreadKey = `paged${thread}s`
+
   return P[pagedThreadKey]
 }
 
@@ -51,20 +58,17 @@ export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
     delete filter.tag
   }
 
-  console.log('ssr paged filter: ', filter)
-
   return { filter, userHasLogin }
 }
 
 export const ssrPagedArticlesFilter = (context, userHasLogin) => {
-  const { communityPath, thread } = ssrParseURL(context.req)
+  const { communityPath } = ssrParseURL(context.req)
   const community = akaTranslate(communityPath)
 
   const filter = pick(validCommunityFilters, {
     // @ts-ignore TODO:
     ...queryStringToJSON(context.req.url, { pagi: 'number' }),
     community,
-    thread,
   })
 
   if (filter.tag) {
@@ -76,37 +80,22 @@ export const ssrPagedArticlesFilter = (context, userHasLogin) => {
 }
 
 export const ssrError = (context, errorType, errorCode = 500) => {
-  const { communityPath } = ssrParseURL(context.req)
-
+  // const { communityPath } = ssrParseURL(context.req)
   switch (errorType) {
     case 'fetch': {
       return {
-        props: {
-          errorCode,
-          target: communityPath,
-          viewing: {
-            community: {
-              raw: communityPath,
-              title: communityPath,
-              desc: communityPath,
-            },
-          },
+        redirect: {
+          destination: '/oops',
+          permanent: false,
         },
       }
     }
 
     default: {
       return {
-        props: {
-          errorCode,
-          target: communityPath,
-          viewing: {
-            community: {
-              raw: communityPath,
-              title: communityPath,
-              desc: communityPath,
-            },
-          },
+        redirect: {
+          destination: '/oops',
+          permanent: false,
         },
       }
     }
@@ -116,10 +105,10 @@ export const ssrError = (context, errorType, errorCode = 500) => {
 const getCurView = (source) =>
   source.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
-const getActiveTag = (tagTitle, tagList) => {
-  if (!tagTitle || isEmpty(tagList)) return null
+const getActiveTag = (tagRaw, tagList) => {
+  if (!tagRaw || isEmpty(tagList)) return null
 
-  const index = findIndex(propEq('title', tagTitle), tagList)
+  const index = findIndex(propEq('raw', tagRaw), tagList)
 
   if (index < 0) return null
   return tagList[index]

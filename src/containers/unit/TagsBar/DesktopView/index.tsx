@@ -35,6 +35,8 @@ const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
   } = store
   const groupsKeys = keys(groupedTags) as string[]
 
+  console.log('activeTagData: ', activeTagData)
+
   return (
     <Wrapper>
       {activeTagData.title && (

@@ -167,6 +167,7 @@ export const ssrParseURL = (req) => {
     const subPath = THREAD.POST
 
     return {
+      community: mainPath,
       communityPath: mainPath,
       threadPath: subPath,
       mainPath,
@@ -187,6 +188,7 @@ export const ssrParseURL = (req) => {
   const thread = endsWith('s', subPath) ? slice(0, -1, subPath) : subPath
 
   return {
+    community: mainPath,
     communityPath: mainPath,
     threadPath: subPath,
     mainPath,
@@ -359,8 +361,8 @@ const TR_MAP = {
   /* map: 'map', */
 }
 
-export const subPath2Thread = (path) => TR_MAP[path] || path
-export const thread2Subpath = (thread) => TR_MAP[thread] || thread
+export const urlPath2Thread = (path) => TR_MAP[path] || path
+export const thread2URLpath = (thread) => TR_MAP[thread] || thread
 
 // sync json query to the brower url without reload the page
 // empty value obj will be omit

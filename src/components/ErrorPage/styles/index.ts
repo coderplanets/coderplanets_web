@@ -22,27 +22,46 @@ export const LogoWrapper = styled.a.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flex('align-center')};
   margin-top: 20px;
-  margin-left: 20px;
   text-decoration: none;
 `
 export const SiteLogo = styled(Img)<{ src: string }>`
   ${css.size(20)};
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleDigest')};
   margin-bottom: 5px;
 `
 export const SiteTitle = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
   font-family: 'Audiowide', cursive;
   font-size: 15px;
   margin-left: 10px;
 `
 export const IconsWrapper = styled.div`
-  ${css.flex('align-both')};
+  ${css.flex('align-center')};
+  width: 380px;
+  margin-left: 20px;
+`
+export const Planet1Wrapper = styled.div`
+  margin-top: -48px;
+`
+export const Planet2Wrapper = styled.div`
+  margin-left: -15px;
+  margin-top: -10px;
+`
+export const OopsLetter = styled.div`
+  margin-left: -10px;
+  color: #2d9b83;
+  font-size: 53px;
+  letter-spacing: 10px;
+  font-style: italic;
+  font-family: 'Audiowide', cursive;
 `
 export const TextWrapper = styled.div`
-  ${css.flexColumn('align-start')};
+  ${css.flexColumn('align-center')};
   margin-top: 80px;
-  margin-left: 115px;
+  width: 520px;
+`
+export const HintWrapper = styled.div`
+  ${css.flexColumn('align-center')};
 `
 export const HintTitle = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -55,13 +74,10 @@ export const HintTitle = styled.div.attrs(({ testid }: TTestable) => ({
 `
 export const HintDesc = styled.div`
   color: ${theme('thread.articleDigest')};
+  text-align: center;
   font-size: 15px;
-`
-export const HintWrapper = styled.div`
-  ${css.flexColumn()};
-  margin-top: -2%;
-  margin-left: 1%;
-  width: 650px;
+  margin-top: 10px;
+  line-height: 1.8;
 `
 export const FooterWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
