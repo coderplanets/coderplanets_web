@@ -6,6 +6,9 @@ import { Provider } from 'mobx-react'
 import { METRIC } from '@/constant'
 import {
   ssrFetchPrepare,
+  ssrHomePagedArticlesFilter,
+  ssrPagedArticleSchema,
+  ssrParseArticleThread,
   ssrAmbulance,
   parseTheme,
   worksSEO,
@@ -19,8 +22,10 @@ import WorksContent from '@/containers/content/WorksContent'
 import { useStore } from '@/stores/init'
 
 const fetchData = async (context, opt = {}) => {
-  const { gqClient } = ssrFetchPrepare(context, opt)
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+  const filter = ssrHomePagedArticlesFilter(context, userHasLogin)
 
+  const pagedArticles = gqClient.request(ssrPagedArticleSchema('works'), filter)
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -30,8 +35,10 @@ const fetchData = async (context, opt = {}) => {
   })
 
   return {
+    filter,
     ...(await sessionState),
     ...(await subscribedCommunities),
+    ...(await pagedArticles),
   }
 }
 
@@ -39,7 +46,12 @@ export const getServerSideProps = async (context) => {
   let resp
   try {
     resp = await fetchData(context)
-  } catch ({ response: { errors } }) {
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    const {
+      response: { errors },
+    } = e
+
     if (ssrAmbulance.hasLoginError(errors)) {
       resp = await fetchData(context, { tokenExpired: true })
     } else {
@@ -47,7 +59,11 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  const { sessionState, subscribedCommunities } = resp
+  const { filter, sessionState, subscribedCommunities } = resp
+  const articleThread = ssrParseArticleThread(resp, 'works', filter)
+
+  console.log('the articleThread: ', articleThread)
+
   const initProps = {
     theme: {
       curTheme: parseTheme(sessionState),

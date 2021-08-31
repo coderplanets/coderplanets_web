@@ -347,23 +347,6 @@ export const parseDomain = (url) => {
 }
 /* eslint-enable */
 
-const TR_MAP = {
-  posts: 'post',
-  users: 'user',
-  jobs: 'job',
-  repos: 'repo',
-
-  post: 'posts',
-  // user: 'users',
-  job: 'jobs',
-  repo: 'repos',
-  blog: 'blogs',
-  /* map: 'map', */
-}
-
-export const urlPath2Thread = (path) => TR_MAP[path] || path
-export const thread2URLpath = (thread) => TR_MAP[thread] || thread
-
 // sync json query to the brower url without reload the page
 // empty value obj will be omit
 export const markRoute = (query, opt = { noPagiInfo: true }) => {

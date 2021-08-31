@@ -6,10 +6,9 @@ import { TYPE, EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
-import { Global, send, errRescue } from '@/utils/helper'
+import { Global, send, errRescue, plural } from '@/utils/helper'
 import { atomizeValues } from '@/utils/graphql'
 import { scrollToHeader } from '@/utils/dom'
-import { thread2URLpath } from '@/utils/route'
 
 import type { TStore } from './store'
 import S from './schema'
@@ -33,7 +32,7 @@ export const checkSessionState = (): void => sr71$.query(S.sessionState, {})
 
 export const onThreadChange = (activeThread: TThread): void => {
   // const activeThread = thread.raw
-  const subPath = thread2URLpath(activeThread)
+  const subPath = plural(activeThread)
 
   scrollToHeader()
 

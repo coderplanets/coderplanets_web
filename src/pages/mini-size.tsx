@@ -14,7 +14,6 @@ import {
   akaTranslate,
   nilOrEmpty,
   ssrPagedArticleSchema,
-  ssrPagedFilter,
   ssrParseArticleThread,
   ssrAmbulance,
   validCommunityFilters,
@@ -53,10 +52,6 @@ const fetchData = async (props, opt = {}) => {
     raw: community,
     userHasLogin,
   })
-  const pagedContents = gqClient.request(
-    ssrPagedArticleSchema(thread),
-    ssrPagedFilter(community, thread, filter, userHasLogin),
-  )
 
   const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
     filter: {
@@ -75,7 +70,6 @@ const fetchData = async (props, opt = {}) => {
     filter,
     ...((await sessionState) as Record<string, unknown>),
     ...((await curCommunity) as Record<string, unknown>),
-    ...((await pagedContents) as Record<string, unknown>),
     ...((await pagedArticleTags) as Record<string, unknown>),
     ...((await subscribedCommunities) as Record<string, unknown>),
   }
@@ -117,7 +111,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
     community,
     subscribedCommunities,
   } = resp
-  const articleThread = ssrParseArticleThread(resp, thread, filter)
+  const articleThread = {}
 
   // // init state on server side
   const initProps = merge(

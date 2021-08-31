@@ -3,7 +3,7 @@ import { SITE_URL } from '@/config'
 import type { TCommunity, TThread } from '@/spec'
 import { ROUTE } from '@/constant'
 
-import { thread2URLpath } from './route'
+import { plural } from './helper'
 
 type TSEO = {
   url: string
@@ -15,7 +15,7 @@ export const communitySEO = (community: TCommunity, thread: TThread): TSEO => {
   const { raw, title, desc } = community
 
   return {
-    url: `${SITE_URL}/${raw}/${thread2URLpath(thread)}`,
+    url: `${SITE_URL}/${raw}/${plural(thread)}`,
     title: raw === 'home' ? 'CoderPlanets' : `${title} | CP`,
     description: `${desc}`,
   }

@@ -4,8 +4,7 @@ import { values, includes } from 'ramda'
 import type { TThread } from '@/spec'
 import { ERR, EVENT, ARTICLE_THREAD } from '@/constant'
 
-import { send, errRescue } from '@/utils/helper'
-import { thread2URLpath } from '@/utils/route'
+import { send, errRescue, plural } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
 
@@ -31,7 +30,7 @@ const tabOnChange = (activeThread: TThread): void => {
   const { curCommunity } = store
 
   const mainPath = curCommunity.raw
-  const subPath = thread2URLpath(activeThread)
+  const subPath = plural(activeThread)
 
   store.markRoute({ mainPath, subPath })
   // store.setViewing({ activeThread })

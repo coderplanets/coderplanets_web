@@ -1,16 +1,11 @@
-import { merge, pick, isEmpty, toLower, findIndex, propEq } from 'ramda'
+import { merge, pick, isEmpty, findIndex, propEq } from 'ramda'
 
 import { DEFAULT_THEME } from '@/config'
 import { TYPE } from '@/constant'
-import { titleCase } from '@/utils/helper'
+import { plural } from '@/utils/helper'
 
 import { makeGQClient } from './graphql'
-import {
-  ssrParseURL,
-  akaTranslate,
-  queryStringToJSON,
-  urlPath2Thread,
-} from './route'
+import { ssrParseURL, akaTranslate, queryStringToJSON } from './route'
 
 import { P } from '@/schemas'
 
@@ -44,14 +39,18 @@ export const getJwtToken = (context) => {
 }
 
 export const ssrPagedArticleSchema = (threadPath) => {
-  const thread = titleCase(urlPath2Thread(threadPath))
-  const pagedThreadKey = `paged${thread}s`
+  const pagedThread = `paged${plural(threadPath, 'titleCase')}`
 
-  return P[pagedThreadKey]
+  return P[pagedThread]
 }
 
-export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
-  thread = toLower(thread)
+// for works, drinks, meetups etc
+export const ssrHomePagedArticlesFilter = (context, userHasLogin) => {
+  const filter = pick(validCommunityFilters, {
+    // @ts-ignore TODO:
+    ...queryStringToJSON(context.req.url, { pagi: 'number' }),
+    community: 'home',
+  })
 
   if (filter.tag) {
     filter.articleTag = filter.tag
@@ -117,12 +116,12 @@ const getActiveTag = (tagRaw, tagList) => {
 export const ssrParseArticleThread = (resp, thread, filters = {}) => {
   // console.log('filter in resp: ', resp.filter)
   const activeTag = getActiveTag(resp.filter.tag, resp.pagedArticleTags)
-  const pagedThreadKey = `paged${titleCase(thread)}s`
+  const pagedThread = `paged${plural(thread, 'titleCase')}`
 
   return {
     articlesThread: {
-      [pagedThreadKey]: resp[pagedThreadKey],
-      curView: getCurView(resp[pagedThreadKey]),
+      [pagedThread]: resp[pagedThread],
+      curView: getCurView(resp[pagedThread]),
       activeTag,
       filters,
     },

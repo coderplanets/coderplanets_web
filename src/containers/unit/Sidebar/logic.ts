@@ -5,10 +5,9 @@ import { addIndex, map, reject, propEq, contains } from 'ramda'
 import type { TCommunity } from '@/spec'
 import { HCN, EVENT, ERR, THREAD, ROUTE } from '@/constant'
 
-import { Global, send, errRescue } from '@/utils/helper'
+import { Global, send, errRescue, plural } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
-import { thread2URLpath } from '@/utils/route'
 
 import type { TStore } from './store'
 
@@ -50,7 +49,7 @@ export const onCommunitySelect = (community: TCommunity): void => {
 
   store.markRoute({
     mainPath: community.raw,
-    subPath: thread2URLpath(THREAD.POST),
+    subPath: plural(THREAD.POST),
   })
 
   send(EVENT.COMMUNITY_CHANGE)
