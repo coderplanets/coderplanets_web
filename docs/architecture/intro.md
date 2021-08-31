@@ -31,7 +31,7 @@ after combining the actual needs of the community and referring to various excel
 ├── stores                                   // comon/top-level state stores
 │      ├── AccountStore
 │      ├── RootStore
-│      ├── SharedModel
+│      ├── Model
 │      ├── ThemeStore
 │      ├── ViewingStore
 │      ├── index.js

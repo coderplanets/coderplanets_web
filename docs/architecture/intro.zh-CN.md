@@ -31,7 +31,7 @@
 ├── stores                                   // comon/top-level state stores
 │      ├── AccountStore
 │      ├── RootStore
-│      ├── SharedModel
+│      ├── Model
 │      ├── ThemeStore
 │      ├── ViewingStore
 │      ├── index.js

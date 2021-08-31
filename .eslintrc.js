@@ -27,7 +27,7 @@ module.exports = {
           '@/hooks': 'src/hooks',
           '@/hoc': 'src/hoc',
           '@/stores': 'src/stores',
-          '@/model': 'src/stores/SharedModel',
+          '@/model': 'src/stores/Model',
           '@/utils': 'utils',
           '@/schemas': 'src/schemas',
           '@/Img': 'src/components/Img',
