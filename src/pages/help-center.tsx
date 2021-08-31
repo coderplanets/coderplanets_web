@@ -9,7 +9,7 @@ import { ROUTE, METRIC } from '@/constant'
 import {
   getJwtToken,
   makeGQClient,
-  ssrAmbulance,
+  ssrRescue,
   parseTheme,
   akaTranslate,
   nilOrEmpty,
@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
     const {
       response: { errors },
     } = e
-    if (ssrAmbulance.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
     } else {
       return {

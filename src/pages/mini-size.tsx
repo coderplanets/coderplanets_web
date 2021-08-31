@@ -15,7 +15,7 @@ import {
   nilOrEmpty,
   ssrPagedArticleSchema,
   ssrParseArticleThread,
-  ssrAmbulance,
+  ssrRescue,
   validCommunityFilters,
   parseTheme,
 } from '@/utils'
@@ -85,7 +85,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
     const {
       response: { errors },
     } = e
-    if (ssrAmbulance.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
     } else {
       return {

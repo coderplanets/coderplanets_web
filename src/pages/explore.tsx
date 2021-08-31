@@ -8,7 +8,7 @@ import {
   ssrFetchPrepare,
   queryStringToJSON,
   ssrParseURL,
-  ssrAmbulance,
+  ssrRescue,
   parseTheme,
   exploreSEO,
   ssrError,
@@ -62,7 +62,7 @@ export const getServerSideProps = async (context) => {
   try {
     resp = await fetchData(context)
   } catch ({ response: { errors } }) {
-    if (ssrAmbulance.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(errors)) {
       resp = await fetchData(context, { tokenExpired: true })
     } else {
       return ssrError(context, 'fetch', 500)

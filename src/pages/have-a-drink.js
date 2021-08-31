@@ -5,7 +5,7 @@ import { merge } from 'ramda'
 import { SITE_URL } from '@/config'
 import { ROUTE, METRIC } from '@/constant'
 
-import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
+import { getJwtToken, makeGQClient, ssrRescue, parseTheme } from '@/utils'
 import { P } from '@/schemas'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import HaveADrinkContent from '@/containers/content/HaveADrinkContent'
@@ -37,7 +37,7 @@ export const getServerSideProps = async (props) => {
   try {
     resp = await fetchData(props)
   } catch ({ response: { errors } }) {
-    if (ssrAmbulance.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
     }
   }

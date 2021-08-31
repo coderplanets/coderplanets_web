@@ -13,7 +13,7 @@ import {
   ssrPagedArticleSchema,
   ssrPagedArticlesFilter,
   ssrParseArticleThread,
-  ssrAmbulance,
+  ssrRescue,
   parseTheme,
   communitySEO,
 } from '@/utils'
@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const {
       response: { errors },
     } = e
-    if (ssrAmbulance.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(errors)) {
       // token 过期了，重新用匿名方式请求一次
       await fetchData(context, { tokenExpired: true })
     } else {

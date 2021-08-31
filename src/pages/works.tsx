@@ -9,7 +9,7 @@ import {
   ssrHomePagedArticlesFilter,
   ssrPagedArticleSchema,
   ssrParseArticleThread,
-  ssrAmbulance,
+  ssrRescue,
   parseTheme,
   worksSEO,
   ssrError,
@@ -52,7 +52,7 @@ export const getServerSideProps = async (context) => {
       response: { errors },
     } = e
 
-    if (ssrAmbulance.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(errors)) {
       resp = await fetchData(context, { tokenExpired: true })
     } else {
       return ssrError(context, 'fetch', 500)

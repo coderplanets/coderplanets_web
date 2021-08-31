@@ -10,7 +10,7 @@ import { METRIC } from '@/constant'
 
 import { useStore } from '@/stores/init'
 
-import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
+import { getJwtToken, makeGQClient, ssrRescue, parseTheme } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import WorksEditor from '@/containers/editor/WorksEditor'
@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
   try {
     resp = await fetchData(props)
   } catch ({ response: { errors } }) {
-    if (ssrAmbulance.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
     }
   }

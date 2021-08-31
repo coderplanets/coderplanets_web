@@ -41,7 +41,7 @@ export {
   titleCase,
 } from './helper'
 
-export { errorForHuman, ssrAmbulance } from './errors'
+export { errorForHuman, ssrRescue } from './errors'
 
 export {
   cast,

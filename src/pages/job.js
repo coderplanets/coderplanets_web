@@ -9,7 +9,7 @@ import {
   makeGQClient,
   ssrParseURL,
   nilOrEmpty,
-  ssrAmbulance,
+  ssrRescue,
   parseTheme,
 } from '@/utils'
 import { useStore } from '@/stores/init'
@@ -59,7 +59,7 @@ export const getServerSideProps = async (props) => {
   try {
     resp = await fetchData(props)
   } catch ({ response: { errors } }) {
-    if (ssrAmbulance.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(errors)) {
       resp = await fetchData(props, { realname: false })
     } else {
       return { props: { errorCode: 404 } }
