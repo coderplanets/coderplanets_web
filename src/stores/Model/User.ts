@@ -1,9 +1,9 @@
 import { types as T } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from '@/config'
 import { C11N } from '@/constant'
 
 import { Community /* PagedCommunities */ } from './Community'
+import { pagiFields } from './helper/common'
 
 const PagedCommunities = T.model('pagedCommunities', {
   entries: T.optional(T.array(Community), []),
@@ -168,8 +168,5 @@ export const EmptyUser = {
 
 export const PagedUsers = T.model('PagedUsers', {
   entries: T.optional(T.array(User), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })

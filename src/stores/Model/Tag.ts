@@ -1,9 +1,10 @@
 import { values } from 'ramda'
 import { types as T } from 'mobx-state-tree'
 
-import { TAG_COLORS, PAGE_SIZE } from '@/config'
+import { TAG_COLORS } from '@/config'
 import { THREAD } from '@/constant'
 
+import { pagiFields } from './helper/common'
 import { Community } from './Community'
 
 export const Tag = T.model('Tag', {
@@ -25,10 +26,7 @@ export const Tag = T.model('Tag', {
 
 export const PagedTags = T.model('PagedTags', {
   entries: T.optional(T.array(Tag), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })
 
 export const emptyTag = { id: '', title: '', color: '', raw: '' }

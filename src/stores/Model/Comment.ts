@@ -4,6 +4,8 @@ import { PAGE_SIZE } from '@/config'
 import { User } from './User'
 import { Community } from './Community'
 
+import { pagiFields } from './helper/common'
+
 const CommentBrief = T.model('CommentBrief', {
   id: T.maybeNull(T.string),
   body: T.maybeNull(T.string),
@@ -81,12 +83,10 @@ const JobComment = T.model('JobComment', {
   ...CommentBase,
   job: T.optional(JobBrief, {}),
 })
+
 export const PagedJobComments = T.model('PagedJobComment', {
   entries: T.optional(T.array(JobComment), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })
 
 // paged repos comemnts
@@ -107,8 +107,5 @@ const RepoComment = T.model('RepoComment', {
 })
 export const PagedRepoComments = T.model('PagedRepoComment', {
   entries: T.optional(T.array(RepoComment), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })

@@ -1,17 +1,9 @@
 import { types as T } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from '@/config'
-import { User, PagedUsers } from './User'
-import { Community } from './Community'
-import { Comment } from './Comment'
-import { Tag } from './Tag'
-
-export const timestampFields = () => {
-  return {
-    insertedAt: T.optional(T.string, ''),
-    updatedAt: T.optional(T.string, ''),
-  }
-}
+import { User, PagedUsers } from '../User'
+import { Community } from '../Community'
+import { Comment } from '../Comment'
+import { Tag } from '../Tag'
 
 /**
  * common article fields for post/job/blog/radar/works ...
@@ -49,15 +41,9 @@ export const articleFields = () => {
 
     viewerHasViewed: T.optional(T.boolean, false),
 
-    ...timestampFields(),
+    insertedAt: T.optional(T.string, ''),
+    updatedAt: T.optional(T.string, ''),
   }
 }
 
-export const pagiFields = () => {
-  return {
-    pageNumber: T.optional(T.number, 1),
-    pageSize: T.optional(T.number, PAGE_SIZE.D),
-    totalCount: T.optional(T.number, 0),
-    totalPages: T.optional(T.number, 0),
-  }
-}
+export const holder = 1

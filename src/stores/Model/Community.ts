@@ -1,5 +1,6 @@
 import { types as T } from 'mobx-state-tree'
-import { PAGE_SIZE } from '@/config'
+
+import { pagiFields } from './helper/common'
 
 // NOTE: the SimpleXXX version is to avoid circle import issue which cause MST error
 
@@ -43,8 +44,5 @@ export const Community = T.model('Community', {
 
 export const PagedCommunities = T.model('PagedCommunities', {
   entries: T.optional(T.array(Community), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })

@@ -1,6 +1,6 @@
 import { types as T } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from '@/config'
+import { pagiFields } from './helper/common'
 
 // avoid cicle import
 const SimpleUser = T.model('SimpleUser', {
@@ -35,8 +35,5 @@ export const MentionMsg = T.model('MentionMsg', {
 
 export const PagedMentionMessages = T.model('PagedMentionMessages', {
   entries: T.optional(T.array(MentionMsg), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })

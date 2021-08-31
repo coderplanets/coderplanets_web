@@ -20,7 +20,6 @@ export { Category, PagedCategories } from './Category'
 export { FavoriteCategory, PagedFavoriteCategories } from './FavoriteCategory'
 
 export { GithubUser } from './GithubUser'
-export { default as Wiki } from './Wiki'
 
 export {
   EmptyUser,
