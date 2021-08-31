@@ -44,10 +44,10 @@ const fetchData = async (context, opt = {}) => {
 
   return {
     filter,
-    ...((await sessionState) as Record<string, unknown>),
-    ...((await curCommunity) as Record<string, unknown>),
-    ...((await pagedArticles) as Record<string, unknown>),
-    ...((await subscribedCommunities) as Record<string, unknown>),
+    ...(await sessionState),
+    ...(await curCommunity),
+    ...(await pagedArticles),
+    ...(await subscribedCommunities),
   }
 }
 
