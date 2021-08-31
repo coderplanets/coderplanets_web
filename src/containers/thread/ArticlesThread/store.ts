@@ -17,9 +17,9 @@ import type {
   TC11N,
 } from '@/spec'
 
-import { TYPE, THREAD } from '@/constant'
+import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { nilOrEmpty, isObject } from '@/utils/validator'
+import { nilOrEmpty } from '@/utils/validator'
 import { titleCase } from '@/utils/helper'
 import {
   PagedPosts,

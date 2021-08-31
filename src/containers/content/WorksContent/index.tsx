@@ -79,8 +79,9 @@ const WorksContentContainer: FC<TProps> = ({
   testid = 'worksContent',
 }) => {
   useInit(store)
+  const { activeView, showSidebar, pagedWorksData } = store
 
-  const { activeView, showSidebar } = store
+  console.log('## pagedWorksData -> ', pagedWorksData)
 
   return (
     <Wrapper testid={testid} metric={metric}>

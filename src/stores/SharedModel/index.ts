@@ -12,6 +12,7 @@ export {
 export { Post, PagedPosts } from './Post'
 export { Blog, PagedBlogs } from './Blog'
 export { Radar, PagedRadars } from './Radar'
+export { Works, PagedWorks } from './Works'
 export { Repo, PagedRepos } from './Repo'
 export { Job, PagedJobs } from './Job'
 export { Tag, PagedTags, emptyTag } from './Tag'

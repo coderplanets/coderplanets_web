@@ -60,9 +60,10 @@ export const getServerSideProps = async (context) => {
   }
 
   const { filter, sessionState, subscribedCommunities } = resp
-  const articleThread = ssrParseArticleThread(resp, 'works', filter)
+  const { articlesThread } = ssrParseArticleThread(resp, 'works', filter)
+  const { pagedWorks } = articlesThread
 
-  console.log('the articleThread: ', articleThread)
+  console.log('the articleThread: ', pagedWorks)
 
   const initProps = {
     theme: {
@@ -72,6 +73,9 @@ export const getServerSideProps = async (context) => {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
+    },
+    worksContent: {
+      pagedWorks,
     },
   }
 

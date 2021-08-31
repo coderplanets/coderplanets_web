@@ -64,6 +64,14 @@ export type TPagedArticles = {
   totalPages: number
 }
 
+export type TPagedWorks = {
+  entries: TWorks
+  totalCount: number
+  pageNumber: number
+  pageSize: number
+  totalPages: number
+}
+
 export type TComment = {
   id: string
   body: string

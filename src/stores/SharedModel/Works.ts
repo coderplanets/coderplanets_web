@@ -7,7 +7,7 @@ import { Community } from './Community'
 import { Comment } from './Comment'
 import { Tag } from './Tag'
 
-export const Post = T.model('Post', {
+export const Works = T.model('Works', {
   id: T.maybeNull(T.string),
   title: T.optional(T.string, ''),
   body: T.maybeNull(T.string),
@@ -42,8 +42,8 @@ export const Post = T.model('Post', {
   updatedAt: T.optional(T.string, ''),
 })
 
-export const PagedPosts = T.model('PagedPosts', {
-  entries: T.optional(T.array(Post), []),
+export const PagedWorks = T.model('PagedWorks', {
+  entries: T.optional(T.array(Works), []),
   pageNumber: T.optional(T.number, 1),
   pageSize: T.optional(T.number, PAGE_SIZE.D),
   totalCount: T.optional(T.number, 0),

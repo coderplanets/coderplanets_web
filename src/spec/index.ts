@@ -61,6 +61,7 @@ export type {
   TRadar,
   TJob,
   TWorks,
+  TPagedWorks,
   TPagedArticles,
   TComment,
   TPagedComments,
