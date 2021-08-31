@@ -7,7 +7,7 @@ import { types as T, getParent } from 'mobx-state-tree'
 
 import { TYPE, THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { PagedPosts, PagedJobs, PagedRepos, emptyPagiData } from '@/model'
+import { PagedPosts, PagedJobs, PagedRepos, emptyPagi } from '@/model'
 
 const UserPublished = T.model('UserPublished', {
   curThread: T.optional(
@@ -24,9 +24,9 @@ const UserPublished = T.model('UserPublished', {
     ]),
     TYPE.LOADING,
   ),
-  pagedPosts: T.optional(PagedPosts, emptyPagiData),
-  pagedJobs: T.optional(PagedJobs, emptyPagiData),
-  pagedRepos: T.optional(PagedRepos, emptyPagiData),
+  pagedPosts: T.optional(PagedPosts, emptyPagi),
+  pagedJobs: T.optional(PagedJobs, emptyPagi),
+  pagedRepos: T.optional(PagedRepos, emptyPagi),
 })
   .views((self) => ({
     get root() {

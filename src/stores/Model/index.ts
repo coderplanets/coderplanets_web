@@ -20,6 +20,7 @@ export { Category, PagedCategories } from './Category'
 export { FavoriteCategory, PagedFavoriteCategories } from './FavoriteCategory'
 
 export { GithubUser } from './GithubUser'
+export { emptyPagi } from './helper/common'
 
 export {
   EmptyUser,
@@ -34,14 +35,6 @@ export {
 export { ArticlesFilter } from './ArticlesFilter'
 
 export { MailStatus, MentionMsg, PagedMentionMessages } from './Mail'
-
-export const emptyPagiData = {
-  entries: [],
-  pageNumber: 1,
-  pageSize: 20,
-  totalCount: 0,
-  totalPages: 0,
-}
 
 export const Mention = T.model('Mention', {
   id: T.string,

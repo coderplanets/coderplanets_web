@@ -17,3 +17,11 @@ export const pagiFields = () => {
     totalPages: T.optional(T.number, 0),
   }
 }
+
+export const emptyPagi = {
+  entries: [],
+  pageNumber: 1,
+  pageSize: PAGE_SIZE.D,
+  totalCount: 0,
+  totalPages: 0,
+}

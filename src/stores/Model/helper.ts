@@ -49,6 +49,9 @@ export const articleFields = () => {
 
     viewerHasViewed: T.optional(T.boolean, false),
 
+    // TODO:
+    favoritedCategoryId: T.maybeNull(T.string),
+
     ...timestampFields(),
   }
 }

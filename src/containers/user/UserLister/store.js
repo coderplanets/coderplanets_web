@@ -8,7 +8,7 @@ import { findIndex, propEq } from 'ramda'
 
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { PagedUsers, emptyPagiData } from '@/model'
+import { PagedUsers, emptyPagi } from '@/model'
 
 const UserLister = T.model('UserLister', {
   show: T.optional(T.boolean, false),
@@ -16,7 +16,7 @@ const UserLister = T.model('UserLister', {
     T.enumeration('curView', [TYPE.RESULT, TYPE.LOADING, TYPE.RESULT_EMPTY]),
     TYPE.LOADING,
   ),
-  pagedUsers: T.optional(PagedUsers, emptyPagiData),
+  pagedUsers: T.optional(PagedUsers, emptyPagi),
   type: T.optional(
     T.enumeration('type', [
       TYPE.USER_LISTER_FAVORITES,

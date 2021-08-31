@@ -1,6 +1,5 @@
 import { types as T } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from '@/config'
 import { User } from './User'
 import { Community } from './Community'
 
@@ -35,10 +34,7 @@ export const Comment = T.model('Comment', {
 
 export const PagedComments = T.model('PagedComments', {
   entries: T.optional(T.array(Comment), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })
 
 // paged post comemnts
@@ -60,10 +56,7 @@ const PostComment = T.model('PostComment', {
 })
 export const PagedPostComments = T.model('PagedPostComment', {
   entries: T.optional(T.array(PostComment), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })
 
 // paged jobs comemnts

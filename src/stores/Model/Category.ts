@@ -1,6 +1,6 @@
 import { types as T } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from '@/config'
+import { pagiFields, timestampFields } from './helper/common'
 
 // NOTE: the SimpleXXX version is to avoid circle import issue which cause MST error
 const SimpleCommunity = T.model('SimpleCommunity', {
@@ -25,14 +25,10 @@ export const Category = T.model('Category', {
   index: T.maybeNull(T.number),
   communities: T.optional(T.array(SimpleCommunity), []),
   author: T.optional(SimpleUser, {}),
-  insertedAt: T.optional(T.string, ''),
-  updatedAt: T.optional(T.string, ''),
+  ...timestampFields(),
 })
 
 export const PagedCategories = T.model('PagedCategories', {
   entries: T.optional(T.array(Category), []),
-  pageNumber: T.optional(T.number, 1),
-  pageSize: T.optional(T.number, PAGE_SIZE.D),
-  totalCount: T.optional(T.number, 0),
-  totalPages: T.optional(T.number, 0),
+  ...pagiFields(),
 })

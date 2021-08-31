@@ -11,11 +11,7 @@ import { THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 
-import {
-  FavoriteCategory,
-  PagedFavoriteCategories,
-  emptyPagiData,
-} from '@/model'
+import { FavoriteCategory, PagedFavoriteCategories, emptyPagi } from '@/model'
 
 const emptyCat = {
   id: '',
@@ -29,7 +25,7 @@ const CollectionFolder = T.model('CollectionFolder', {
     T.enumeration('displayMode', ['list', 'hide']),
     'hide',
   ),
-  pagedCategories: T.optional(PagedFavoriteCategories, emptyPagiData),
+  pagedCategories: T.optional(PagedFavoriteCategories, emptyPagi),
   editCategory: T.optional(FavoriteCategory, emptyCat),
   /* curView: T.optional(T.enumeration('curView', ['box', 'list']), 'box'), */
   showModal: T.optional(T.boolean, false),

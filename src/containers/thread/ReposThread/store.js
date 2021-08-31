@@ -9,10 +9,10 @@ import { findIndex, merge, propEq, isEmpty, pickBy } from 'ramda'
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
-import { PagedRepos, Tag, ArticlesFilter, emptyPagiData } from '@/model'
+import { PagedRepos, Tag, ArticlesFilter, emptyPagi } from '@/model'
 
 const ReposThread = T.model('ReposThread', {
-  pagedRepos: T.optional(PagedRepos, emptyPagiData),
+  pagedRepos: T.optional(PagedRepos, emptyPagi),
   filters: T.optional(ArticlesFilter, {}),
   activeTag: T.maybeNull(Tag),
   curView: T.optional(

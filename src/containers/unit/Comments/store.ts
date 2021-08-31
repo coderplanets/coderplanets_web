@@ -29,7 +29,7 @@ import type {
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
-import { Comment, PagedComments, emptyPagiData, Mention } from '@/model'
+import { Comment, PagedComments, emptyPagi, Mention } from '@/model'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
@@ -65,7 +65,7 @@ const CommentsStore = T.model('CommentsStore', {
   // content input of current reply comment editor
   replyContent: T.optional(T.string, ''),
   // comments pagination data of current COMMUNITY / PART
-  pagedComments: T.optional(PagedComments, emptyPagiData),
+  pagedComments: T.optional(PagedComments, emptyPagi),
 
   isEdit: T.optional(T.boolean, false),
   editComment: T.maybeNull(Comment),

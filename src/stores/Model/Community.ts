@@ -1,6 +1,6 @@
 import { types as T } from 'mobx-state-tree'
 
-import { pagiFields } from './helper/common'
+import { pagiFields, timestampFields } from './helper/common'
 
 // NOTE: the SimpleXXX version is to avoid circle import issue which cause MST error
 
@@ -38,8 +38,8 @@ export const Community = T.model('Community', {
   meta: T.maybeNull(Meta),
   viewerHasSubscribed: T.maybeNull(T.boolean),
   threads: T.optional(T.array(Thread), []),
-  insertedAt: T.optional(T.string, ''),
-  updatedAt: T.optional(T.string, ''),
+
+  ...timestampFields(),
 })
 
 export const PagedCommunities = T.model('PagedCommunities', {

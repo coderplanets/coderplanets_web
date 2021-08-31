@@ -9,12 +9,12 @@ import type { TPagedWorks } from '@/spec'
 import { values } from 'ramda'
 import { markStates, toJS } from '@/utils/mobx'
 
-import { PagedWorks, emptyPagiData } from '@/model'
+import { PagedWorks, emptyPagi } from '@/model'
 
 import { VIEW } from './constant'
 
 const WorksContent = T.model('WorksContent', {
-  pagedWorks: T.optional(PagedWorks, emptyPagiData),
+  pagedWorks: T.optional(PagedWorks, emptyPagi),
   showSidebar: T.optional(T.boolean, false),
   activeView: T.optional(T.enumeration(values(VIEW)), VIEW.WORKS),
 }).actions((self) => ({

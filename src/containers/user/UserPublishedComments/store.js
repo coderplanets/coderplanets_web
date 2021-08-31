@@ -11,7 +11,7 @@ import {
   PagedPostComments,
   PagedJobComments,
   PagedRepoComments,
-  emptyPagiData,
+  emptyPagi,
 } from '@/model'
 
 const UserPublishedComments = T.model('UserPublishedComments', {
@@ -30,9 +30,9 @@ const UserPublishedComments = T.model('UserPublishedComments', {
     TYPE.LOADING,
   ),
 
-  pagedPostComments: T.optional(PagedPostComments, emptyPagiData),
-  pagedJobComments: T.optional(PagedJobComments, emptyPagiData),
-  pagedRepoComments: T.optional(PagedRepoComments, emptyPagiData),
+  pagedPostComments: T.optional(PagedPostComments, emptyPagi),
+  pagedJobComments: T.optional(PagedJobComments, emptyPagi),
+  pagedRepoComments: T.optional(PagedRepoComments, emptyPagi),
 })
   .views((self) => ({
     get root() {

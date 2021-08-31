@@ -5,7 +5,6 @@ import { pagiFields } from './helper/common'
 
 export const Post = T.model('Post', {
   ...articleFields(),
-  favoritedCategoryId: T.maybeNull(T.string),
 })
 
 export const PagedPosts = T.model('PagedPosts', {

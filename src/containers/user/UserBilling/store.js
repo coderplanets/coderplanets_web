@@ -7,7 +7,7 @@ import { types as T, getParent } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '@/config'
 import { markStates, toJS } from '@/utils/mobx'
-import { emptyPagiData } from '@/model'
+import { emptyPagi } from '@/model'
 
 const Bill = T.model('Bill', {
   id: T.string,
@@ -29,7 +29,7 @@ const PagedBillRecords = T.model('PagedBillRecords', {
 })
 
 const UserBilling = T.model('UserBilling', {
-  pagedBillRecords: T.optional(PagedBillRecords, emptyPagiData),
+  pagedBillRecords: T.optional(PagedBillRecords, emptyPagi),
 })
   .views((self) => ({
     get root() {

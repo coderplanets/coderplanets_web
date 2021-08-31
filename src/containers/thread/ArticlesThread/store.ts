@@ -27,14 +27,14 @@ import {
   PagedBlogs,
   PagedRadars,
   ArticlesFilter,
-  emptyPagiData,
+  emptyPagi,
 } from '@/model'
 
 const ArticlesThread = T.model('ArticlesThread', {
-  pagedPosts: T.optional(PagedPosts, emptyPagiData),
-  pagedJobs: T.optional(PagedJobs, emptyPagiData),
-  pagedBlogs: T.optional(PagedBlogs, emptyPagiData),
-  pagedRadars: T.optional(PagedRadars, emptyPagiData),
+  pagedPosts: T.optional(PagedPosts, emptyPagi),
+  pagedJobs: T.optional(PagedJobs, emptyPagi),
+  pagedBlogs: T.optional(PagedBlogs, emptyPagi),
+  pagedRadars: T.optional(PagedRadars, emptyPagi),
   filters: T.optional(ArticlesFilter, {}),
   resState: T.optional(
     T.enumeration('resState', values(TYPE.RES_STATE)),
