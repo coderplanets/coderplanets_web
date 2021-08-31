@@ -43,8 +43,8 @@ const fetchData = async (props, opt = {}): Promise<Record<string, unknown>> => {
   })
 
   return {
-    ...((await sessionState) as Record<string, unknown>),
-    ...((await curCommunity) as Record<string, unknown>),
+    ...(await sessionState),
+    ...(await curCommunity),
   }
 }
 
