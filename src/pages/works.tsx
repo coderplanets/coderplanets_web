@@ -3,7 +3,7 @@
  */
 import { Provider } from 'mobx-react'
 
-import { METRIC } from '@/constant'
+import { METRIC, THREAD } from '@/constant'
 import {
   ssrFetchPrepare,
   ssrHomePagedArticlesFilter,
@@ -25,7 +25,10 @@ const fetchData = async (context, opt = {}) => {
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
   const filter = ssrHomePagedArticlesFilter(context, userHasLogin)
 
-  const pagedArticles = gqClient.request(ssrPagedArticleSchema('works'), filter)
+  const pagedArticles = gqClient.request(
+    ssrPagedArticleSchema(THREAD.WORKS),
+    filter,
+  )
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -60,7 +63,7 @@ export const getServerSideProps = async (context) => {
   }
 
   const { filter, sessionState, subscribedCommunities } = resp
-  const { articlesThread } = ssrParseArticleThread(resp, 'works', filter)
+  const { articlesThread } = ssrParseArticleThread(resp, THREAD.WORKS, filter)
   const { pagedWorks } = articlesThread
 
   const initProps = {

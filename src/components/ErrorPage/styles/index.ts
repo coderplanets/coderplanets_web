@@ -51,7 +51,8 @@ export const OopsLetter = styled.div`
   margin-left: -10px;
   color: #2d9b83;
   font-size: 36px;
-  margin-top: 12px;
+  margin-top: -5px;
+  font-weight: bold;
   letter-spacing: 5px;
   font-style: italic;
   opacity: 0.6;

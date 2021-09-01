@@ -9,6 +9,7 @@ import Sticky from '@/components/Sticky'
 import Button from '@/components/Buttons/Button'
 import FiltersMenu from '@/components/FiltersMenu'
 import DotDivider from '@/components/DotDivider'
+import { Br } from '@/components/Common'
 
 import { Wrapper, NaviFooter, Terms, TermItem } from '../styles/filter_bar'
 
@@ -19,11 +20,12 @@ type TProps = {
 const FilterBar: FC<TProps> = ({ filtersItems }) => {
   return (
     <Wrapper>
-      <Sticky offsetTop={30}>
+      <Sticky offsetTop={26}>
+        <Br top={12} />
         <BrandTitle
-          title="Meetup"
+          title="Meetups"
           fontSize={23}
-          mBottom={30}
+          mBottom={45}
           desc="来和志同道合的朋友们一起聊聊?"
         />
         <FiltersMenu tags={mockFilterMenuTags()} revert />

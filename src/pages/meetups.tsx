@@ -1,14 +1,18 @@
 import { Provider } from 'mobx-react'
 
-import { METRIC } from '@/constant'
+import { METRIC, THREAD } from '@/constant'
 
 import {
   ssrFetchPrepare,
+  ssrHomePagedArticlesFilter,
+  ssrPagedArticleSchema,
+  ssrParseArticleThread,
   ssrRescue,
   parseTheme,
   meetupsSEO,
   ssrError,
 } from '@/utils'
+
 import { P } from '@/schemas'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -17,8 +21,13 @@ import MeetupsContent from '@/containers/content/MeetupsContent'
 import { useStore } from '@/stores/init'
 
 const fetchData = async (context, opt = {}) => {
-  const { gqClient } = ssrFetchPrepare(context, opt)
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+  const filter = ssrHomePagedArticlesFilter(context, userHasLogin)
 
+  const pagedArticles = gqClient.request(
+    ssrPagedArticleSchema(THREAD.MEETUP),
+    filter,
+  )
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -28,8 +37,10 @@ const fetchData = async (context, opt = {}) => {
   })
 
   return {
+    filter,
     ...(await sessionState),
     ...(await subscribedCommunities),
+    ...(await pagedArticles),
   }
 }
 
@@ -45,7 +56,10 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  const { sessionState, subscribedCommunities } = resp
+  const { filter, sessionState, subscribedCommunities } = resp
+  const { articlesThread } = ssrParseArticleThread(resp, THREAD.MEETUP, filter)
+  const { pagedMeetups } = articlesThread
+
   const initProps = {
     theme: {
       curTheme: parseTheme(sessionState),
@@ -54,6 +68,9 @@ export const getServerSideProps = async (context) => {
       user: sessionState.user || {},
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
+    },
+    meetupsContent: {
+      pagedMeetups,
     },
   }
 

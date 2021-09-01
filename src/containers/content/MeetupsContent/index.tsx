@@ -13,7 +13,8 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Pagi from '@/components/Pagi'
-import { PagiOptionSwitcher } from '@/components/Switcher'
+// import { PagiOptionSwitcher } from '@/components/Switcher'
+import MasonryCards from '@/components/MasonryCards'
 
 import type { TStore } from './store'
 
@@ -23,26 +24,13 @@ import DateSelector from './DateSelector'
 import Card from './Card'
 
 import filtersItems from './fakeFiltersItems'
-import meetups from './fakeMeetups'
+// import meetups from './fakeMeetups'
 
 import { Wrapper, InnerWrapper, ContentWrapper, CardsWrapper } from './styles'
-import { useInit, changeGalleryType } from './logic'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CoolGuideContent')
-
-const GALLERY_TYPES = [
-  {
-    iconSrc: `${ASSETS_ENDPOINT}/words_only.svg`,
-    key: GALLERY.TEXT_ONLY,
-    desc: '文字模式',
-  },
-  {
-    iconSrc: `${ASSETS_ENDPOINT}/text_with_image.svg`,
-    key: GALLERY.TEXT_WITH_IMAGE,
-    desc: '图文模式',
-  },
-]
 
 type TProps = {
   meetupsContent?: TStore
@@ -57,7 +45,9 @@ const MeetupsContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { activeGalleryType } = store
+  const { pagedMeetupsData } = store
+
+  console.log('## pagedMeetupsData: ', pagedMeetupsData.entries)
 
   return (
     <Wrapper testid={testid}>
@@ -66,20 +56,14 @@ const MeetupsContentContainer: FC<TProps> = ({
         <ContentWrapper>
           <DateSelector />
           <CardsWrapper>
-            {meetups.map((item) => (
-              <Card key={item.id} item={item} type={activeGalleryType} />
-              // <ActivityCard key={item.id} item={item} />
-            ))}
+            <MasonryCards column={3}>
+              {pagedMeetupsData.entries.map((item) => (
+                <Card key={item.id} item={item} />
+              ))}
+            </MasonryCards>
           </CardsWrapper>
 
-          <Pagi margin={{ top: '60px', bottom: '80px' }}>
-            <PagiOptionSwitcher
-              activeKey={activeGalleryType}
-              title="显示模式"
-              items={GALLERY_TYPES}
-              onChange={changeGalleryType}
-            />
-          </Pagi>
+          <Pagi margin={{ top: '60px', bottom: '80px' }} />
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>

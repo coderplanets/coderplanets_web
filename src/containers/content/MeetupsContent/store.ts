@@ -5,15 +5,19 @@
 
 import { types as T, Instance } from 'mobx-state-tree'
 
-import { GALLERY } from '@/constant'
-import { markStates } from '@/utils/mobx'
+import type { TPagedMeetups } from '@/spec'
+import { markStates, toJS } from '@/utils/mobx'
+
+import { PagedMeetups, emptyPagi } from '@/model'
 
 const MeetupsContent = T.model('MeetupsContent', {
-  activeGalleryType: T.optional(
-    T.enumeration([GALLERY.TEXT_ONLY, GALLERY.TEXT_WITH_IMAGE]),
-    GALLERY.TEXT_WITH_IMAGE,
-  ),
+  pagedMeetups: T.optional(PagedMeetups, emptyPagi),
 })
+  .views((self) => ({
+    get pagedMeetupsData(): TPagedMeetups {
+      return toJS(self.pagedMeetups)
+    },
+  }))
   // .views((self) => ({}))
   .actions((self) => ({
     mark(sobj: Record<string, unknown>): void {

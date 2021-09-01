@@ -4,6 +4,7 @@ import { pagedRadars, radar } from './radar'
 import { pagedBlogs, blog } from './blog'
 import { pagedRepos, repo } from './repo'
 import { pagedWorks, works } from './works'
+import { pagedMeetups, meetup } from './meetup'
 
 import { user, sessionState } from './user'
 import { community, subscribedCommunities, pagedCommunities } from './community'
@@ -48,6 +49,9 @@ const P = {
   // works
   pagedWorks,
   works,
+  // meetup
+  pagedMeetups,
+  meetup,
   // user
   user,
   sessionState,

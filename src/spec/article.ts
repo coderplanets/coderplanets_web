@@ -33,11 +33,11 @@ type TBaseArticle = {
   commentsCount?: number
   articleTags?: TTag[]
   meta?: TArticleMeta
+  linkAddr?: string
 }
 
 export type TPost = TBaseArticle & {
   digest?: string
-  linkAddr?: string
 }
 
 export type TWorks = TBaseArticle & {
@@ -53,37 +53,41 @@ export type TWorks = TBaseArticle & {
 
 export type TBlog = TBaseArticle & {
   digest?: string
-  linkAddr?: string
 }
 
 export type TRadar = TBaseArticle & {
   digest?: string
-  linkAddr?: string
+}
+
+export type TMeetup = TBaseArticle & {
+  digest?: string
 }
 
 export type TJob = TBaseArticle & {
   company?: string
   companyLink?: string
-  linkAddr?: string
 }
 
 export type TArticle = TPost | TJob | TBlog | TRadar
 
-export type TPagedArticles = {
-  entries: TPost[] | TJob[] | TBlog[] | TRadar[]
+type TPagi = {
   totalCount: number
   pageNumber: number
   pageSize: number
   totalPages: number
 }
 
+export type TPagedArticles = {
+  entries: TPost[] | TJob[] | TBlog[] | TRadar[]
+} & TPagi
+
 export type TPagedWorks = {
   entries: TWorks[]
-  totalCount: number
-  pageNumber: number
-  pageSize: number
-  totalPages: number
-}
+} & TPagi
+
+export type TPagedMeetups = {
+  entries: TMeetup[]
+} & TPagi
 
 export type TComment = {
   id: string
@@ -101,11 +105,7 @@ export type TComment = {
 
 export type TPagedComments = {
   entries: TComment[]
-  totalCount: number
-  pageNumber: number
-  pageSize: number
-  totalPages: number
-}
+} & TPagi
 
 export type TArticleFilter = {
   when?: string
@@ -132,8 +132,4 @@ export type TCollectionFolder = {
 
 export type TPagedCollectionFolder = {
   entries: TCollectionFolder[]
-  totalCount: number
-  pageNumber: number
-  pageSize: number
-  totalPages: number
-}
+} & TPagi
