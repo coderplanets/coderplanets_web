@@ -63,7 +63,7 @@
     "cacheable-response": "^2.0.9",
     "chalk": "^2.4.1",
     "compatible-debug": "^1.0.0",
-    "cookie-parser": "^1.4.4",
+    "cookie-parser": "^1.4.5",
     "core-js": "3.6.5",
     "cross-env": "^7.0.2",
     "draft-js": "^0.10.5",
