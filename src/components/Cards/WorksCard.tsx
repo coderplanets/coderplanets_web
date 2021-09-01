@@ -5,6 +5,7 @@
  */
 
 import { Fragment, FC, memo } from 'react'
+import TimeAgo from 'timeago-react'
 
 import { ICON, ICON_CMD } from '@/config'
 import { cutRest } from '@/utils/helper'
@@ -119,7 +120,7 @@ const WorksCard: FC<TProps> = ({
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
                 margin="5px"
               >
-                {item.insertedAt}
+                <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
               </IconText>
               <Divider />
             </Fragment>

@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { mockWorks } from '@/utils/mock'
-// import { Br } from '@/components/Common'
+import type { TPagedWorks } from '@/spec'
+
 import WorksCard from '@/components/Cards/WorksCard'
 import IconText from '@/components/IconText'
 import MenuButton from '@/components/Buttons/MenuButton'
@@ -53,19 +53,13 @@ const extraOptions = [
   },
 ]
 
-const item = mockWorks()
+type TProps = {
+  data: TPagedWorks
+}
 
-const lists = [
-  { ...item, id: '1' },
-  { ...item, id: '2' },
-  { ...item, id: '3' },
-  { ...item, id: '4' },
-  { ...item, id: '5' },
-  { ...item, id: '6' },
-  { ...item, id: '7' },
-]
+const WorksList: FC<TProps> = ({ data }) => {
+  const { entries } = data
 
-const List: FC = () => {
   return (
     <Wrapper>
       <TabWrapper>
@@ -83,11 +77,11 @@ const List: FC = () => {
           </MenuButton>
         </FilterWrapper>
       </TabWrapper>
-      {lists.map((item) => (
+      {entries.map((item) => (
         <WorksCard key={item.id} item={item} />
       ))}
     </Wrapper>
   )
 }
 
-export default List
+export default memo(WorksList)

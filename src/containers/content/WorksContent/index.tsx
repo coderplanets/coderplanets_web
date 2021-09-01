@@ -18,7 +18,7 @@ import type { TStore } from './store'
 import { VIEW } from './constant'
 
 import FilterBar from './FilterBar'
-import List from './List'
+import WorksList from './WorksList'
 import MileStone from './MileStone'
 import RightSidebar from './RightSidebar/index'
 
@@ -92,7 +92,11 @@ const WorksContentContainer: FC<TProps> = ({
           </LeftSidebarWrapper>
         )}
         <MainContent>
-          {activeView === VIEW.WORKS ? <List /> : <MileStone />}
+          {activeView === VIEW.WORKS ? (
+            <WorksList data={pagedWorksData} />
+          ) : (
+            <MileStone />
+          )}
           <Pagi margin={{ top: '60px', bottom: '80px' }}>
             <PagiInfo>
               <PagiInfoTitle>活跃用户</PagiInfoTitle>

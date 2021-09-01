@@ -25,6 +25,8 @@ export const pagedWorks = `
     pagedWorks(filter: $filter) {
       entries {
         ${F.article}
+        ${F.pageArticleMeta}
+        upvotesCount
         linkAddr
         digest
         commentsParticipants {

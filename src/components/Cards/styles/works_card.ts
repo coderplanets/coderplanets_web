@@ -53,6 +53,7 @@ export const Title = styled.a`
   ${css.flex('align-center')};
 `
 export const Name = styled.div`
+  ${css.cutRest('280px')};
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
   font-weight: 500;

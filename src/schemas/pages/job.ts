@@ -25,6 +25,7 @@ export const pagedJobs = `
         ${F.article}
         ${F.pageArticleMeta}
         upvotesCount
+        digest
         linkAddr
         company
         companyLink

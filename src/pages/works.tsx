@@ -63,8 +63,6 @@ export const getServerSideProps = async (context) => {
   const { articlesThread } = ssrParseArticleThread(resp, 'works', filter)
   const { pagedWorks } = articlesThread
 
-  console.log('the articleThread: ', pagedWorks)
-
   const initProps = {
     theme: {
       curTheme: parseTheme(sessionState),

@@ -17,14 +17,17 @@ const WorksContent = T.model('WorksContent', {
   pagedWorks: T.optional(PagedWorks, emptyPagi),
   showSidebar: T.optional(T.boolean, false),
   activeView: T.optional(T.enumeration(values(VIEW)), VIEW.WORKS),
-}).actions((self) => ({
-  pagedWorksData(): TPagedWorks {
-    return toJS(self.pagedWorks)
-  },
-  mark(sobj: Record<string, unknown>): void {
-    markStates(sobj, self)
-  },
-}))
+})
+  .views((self) => ({
+    get pagedWorksData(): TPagedWorks {
+      return toJS(self.pagedWorks)
+    },
+  }))
+  .actions((self) => ({
+    mark(sobj: Record<string, unknown>): void {
+      markStates(sobj, self)
+    },
+  }))
 
 export type TStore = Instance<typeof WorksContent>
 export default WorksContent

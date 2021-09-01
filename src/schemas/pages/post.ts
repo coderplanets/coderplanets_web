@@ -25,8 +25,8 @@ export const pagedPosts = `
     pagedPosts(filter: $filter) {
       entries {
         ${F.article}
-        linkAddr
         digest
+        linkAddr
         commentsParticipants {
           ${F.author}
         }

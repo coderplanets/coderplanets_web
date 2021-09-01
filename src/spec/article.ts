@@ -78,7 +78,7 @@ export type TPagedArticles = {
 }
 
 export type TPagedWorks = {
-  entries: TWorks
+  entries: TWorks[]
   totalCount: number
   pageNumber: number
   pageSize: number
