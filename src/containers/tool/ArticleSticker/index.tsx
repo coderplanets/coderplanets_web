@@ -51,7 +51,7 @@ const ArticleStickerContainer: FC<TProps> = ({
 
   const {
     showLeftSticker,
-    viewingData,
+    viewingArticle,
     activeThread,
     isTocMenuOpened,
     isArticleDigestInViewport,
@@ -62,7 +62,7 @@ const ArticleStickerContainer: FC<TProps> = ({
     <Fragment>
       <LeftSticker
         show={showLeftSticker}
-        title={viewingData.title}
+        title={viewingArticle.title}
         isTocMenuOpened={isTocMenuOpened}
       />
 
@@ -72,10 +72,10 @@ const ArticleStickerContainer: FC<TProps> = ({
             <MainWrapper>
               <RightSticker
                 show={!showCommentSticker}
-                article={viewingData}
+                article={viewingArticle}
                 thread={activeThread}
               />
-              <CommentSticker show={showCommentSticker} data={viewingData} />
+              <CommentSticker show={showCommentSticker} data={viewingArticle} />
             </MainWrapper>
             <GoTopWrapper show={!isArticleDigestInViewport}>
               <GotoTop />

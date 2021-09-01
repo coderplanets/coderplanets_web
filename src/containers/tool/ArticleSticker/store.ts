@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import type { TRootStore, TViewing, TScrollDirection, TThread } from '@/spec'
+import type { TRootStore, TArticle, TScrollDirection, TThread } from '@/spec'
 import { markStates } from '@/utils/mobx'
 
 const ArticleSticker = T.model('ArticleSticker', {
@@ -15,9 +15,9 @@ const ArticleSticker = T.model('ArticleSticker', {
   isLeftStickerLocked: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get viewingData(): TViewing {
+    get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return root.viewingData
+      return root.viewingArticle
     },
     get activeThread(): TThread {
       const root = getParent(self) as TRootStore

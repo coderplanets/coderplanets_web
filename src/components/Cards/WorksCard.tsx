@@ -52,7 +52,7 @@ const WorksCard: FC<TProps> = ({
 }) => {
   const descLimit = preview ? 20 : 30
 
-  const { title, desc, upvoteCount, commentsCount } = item
+  const { title, desc, upvotesCount, commentsCount } = item
 
   return (
     <Wrapper testid={testid} preview={preview}>
@@ -84,7 +84,7 @@ const WorksCard: FC<TProps> = ({
 
           <Upvote
             type="works-card"
-            count={preview ? 66 : upvoteCount}
+            count={preview ? 66 : upvotesCount}
             viewerHasUpvoted={preview}
           />
         </Header>

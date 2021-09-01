@@ -100,7 +100,7 @@ const AvatarsRow: FC<TProps> = ({
 
   const totalCount = total || users.length
 
-  users = filter(validUser, getUniqueArray(users, 'id'))
+  users = filter(validUser, getUniqueArray(users, 'login'))
   const sortedUsers = reverse ? users : reverseFn(users)
 
   return (
@@ -127,7 +127,7 @@ const AvatarsRow: FC<TProps> = ({
       ) : (
         <AvatarsWrapper>
           {slice(0, limit, sortedUsers).map((user) => (
-            <RealAvatarContext.Provider key={user.id} value={{ size, user }}>
+            <RealAvatarContext.Provider key={user.login} value={{ size, user }}>
               <RealAvatar user={user} size={size} onUserSelect={onUserSelect} />
             </RealAvatarContext.Provider>
           ))}

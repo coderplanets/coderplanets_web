@@ -73,6 +73,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { filter, sessionState, community, subscribedCommunities } = resp
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
+  // console.log('articleThread: ', articleThread.articlesThread.pagedJobs.entries)
   // // init state on server side
   const initProps = merge(
     {

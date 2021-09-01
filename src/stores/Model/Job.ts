@@ -1,6 +1,7 @@
 import { types as T } from 'mobx-state-tree'
 
-import { articleFields, pagiFields } from './helper'
+import { articleFields } from './helper/article'
+import { pagiFields } from './helper/common'
 
 export const Job = T.model('Job', {
   ...articleFields(),

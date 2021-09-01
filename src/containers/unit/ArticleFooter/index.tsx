@@ -41,8 +41,8 @@ const ArticleFooterContainer: FC<TProps> = ({
   testid = 'article-footer',
 }) => {
   useInit(store)
-  const { viewingData, showReferenceList, showOperationList } = store
-  const { articleTags, author } = viewingData
+  const { viewingArticle, showReferenceList, showOperationList } = store
+  const { author } = viewingArticle
 
   const [copyright, setCopyright] = useState('cc')
 

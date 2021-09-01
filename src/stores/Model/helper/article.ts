@@ -1,9 +1,17 @@
 import { types as T } from 'mobx-state-tree'
 
-import { User, PagedUsers } from '../User'
+import { User, SimpleUser, PagedUsers } from '../User'
 import { Community } from '../Community'
 import { Comment } from '../Comment'
 import { Tag } from '../Tag'
+
+const ArticleMeta = T.model('ArticleMeta', {
+  isEdited: T.optional(T.boolean, false),
+  isCommentLocked: T.optional(T.boolean, false),
+  lastActiveAt: T.optional(T.string, ''),
+  citingCount: T.optional(T.number, 0),
+  latestUpvotedUsers: T.optional(T.array(SimpleUser), []),
+})
 
 /**
  * common article fields for post/job/blog/radar/works ...
@@ -15,6 +23,8 @@ export const articleFields = () => {
     body: T.maybeNull(T.string),
     digest: T.maybeNull(T.string),
     author: T.maybeNull(User),
+
+    meta: T.optional(ArticleMeta, {}),
 
     linkAddr: T.maybeNull(T.string),
     copyRight: T.maybeNull(T.string),

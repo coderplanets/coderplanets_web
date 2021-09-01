@@ -14,7 +14,7 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({ data }) => {
-  const { author, insertedAt, commentsCount } = data
+  const { author, insertedAt, commentsCount, upvotesCount, meta } = data
 
   return (
     <Wrapper>
@@ -23,8 +23,7 @@ const Footer: FC<TProps> = ({ data }) => {
         <TimeAgo datetime={insertedAt} locale="zh_CN" />
       </PublishWrapper>
       <Bottom>
-        {/* 你和 头像 Raw 等 24 人觉得很赞 -- 评论 35，收藏, 分享, 举报(more 里面) */}
-        <Upvote />
+        <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
         <IconText iconSrc={`${ICON}/article/comment.svg`} size="medium">
           {commentsCount}
         </IconText>

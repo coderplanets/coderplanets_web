@@ -4,6 +4,19 @@ import type { TID } from './utils'
 
 export type TCopyright = 'cc' | 'approve' | 'forbid'
 
+type TArticleMeta = {
+  citingCount?: number
+  isCommentLocked?: boolean
+  isEdited?: boolean
+  lastActiveAt?: string
+  latestUpvotedUsers?: {
+    login: string
+    nickname: string
+    avatar?: string
+    bio?: string | null
+  }[]
+}
+
 type TBaseArticle = {
   id?: TID
   title?: string
@@ -18,8 +31,8 @@ type TBaseArticle = {
   insertedAt?: string
   viewerHasViewed?: boolean
   commentsCount?: number
-  upvoteCount?: number
   articleTags?: TTag[]
+  meta?: TArticleMeta
 }
 
 export type TPost = TBaseArticle & {

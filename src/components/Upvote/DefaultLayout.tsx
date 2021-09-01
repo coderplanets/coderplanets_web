@@ -19,24 +19,6 @@ import { Wrapper } from './styles/default_layout'
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
 
-const tmpUsers = [
-  {
-    id: '1',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/221942?s=64&v=4',
-  },
-  {
-    id: '2',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/5580297?s=64&v=4',
-  },
-  {
-    id: '3',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/17426470?s=64&v=4',
-  },
-]
-
 type TProps = {
   testid?: string
   count?: number
@@ -52,6 +34,7 @@ const Upvote: FC<TProps> = ({
   viewerHasUpvoted = false,
   avatarsRowLimit = 3,
   alias = '觉得很赞',
+  avatarList,
 }) => {
   const noOne = count === 0
 
@@ -59,7 +42,7 @@ const Upvote: FC<TProps> = ({
     <Wrapper testid={testid}>
       <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} />
 
-      {!noOne && <AvatarsRow users={tmpUsers} showMore={false} />}
+      {!noOne && <AvatarsRow users={avatarList} showMore={false} />}
 
       <Desc
         noOne={noOne}

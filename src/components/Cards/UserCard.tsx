@@ -34,7 +34,7 @@ const UserCard: FC<TProps> = ({ item }) => {
             <Nickname>{nickname}</Nickname>
             <Login>{login}</Login>
           </Title>
-          <ShortBio>{bio || '--'}</ShortBio>
+          {/* <ShortBio>{bio || '--'}</ShortBio> */}
         </Info>
       </Header>
       <Desc>{cutRest(bio, 50)}</Desc>

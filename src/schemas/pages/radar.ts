@@ -25,11 +25,10 @@ export const pagedRadars = `
     pagedRadars(filter: $filter) {
       entries {
         ${F.article}
+        ${F.pageArticleMeta}
+        upvotesCount
         digest
         linkAddr
-        commentsParticipants {
-          ${F.author}
-        }
         viewerHasViewed @include(if: $userHasLogin)
       }
       ${F.pagedCounts}

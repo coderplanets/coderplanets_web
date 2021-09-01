@@ -1,16 +1,18 @@
 import { FC } from 'react'
 
 import type { TUser } from '@/spec'
+
 import Tooltip from '@/components/Tooltip'
+import UserCard from '@/components/Cards/UserCard'
 
 import { getAvatarSize } from './styles/metric'
 import type { TAvatarSize } from './spec'
 
 import {
   Wrapper,
+  InnerWrapper,
   AvatarsImg,
   AvatarFallback,
-  UserPopContent,
 } from './styles/real_avatar'
 
 type TProps = {
@@ -24,23 +26,25 @@ const RealAvatar: FC<TProps> = ({ user, size, onUserSelect }) => {
   return (
     <Wrapper size={size}>
       <Tooltip
-        content={<UserPopContent>{user.nickname}</UserPopContent>}
+        content={<UserCard item={user} />}
         delay={0}
         contentHeight={getAvatarSize(size, 'number') as string}
-        noPadding
+        trigger="click"
       >
-        <AvatarsImg
-          src={user.avatar}
-          size={size}
-          onClick={() => onUserSelect(user)}
-          scrollPosition={null}
-          fallback={
-            <AvatarFallback
-              size={getAvatarSize(size, 'number') as number}
-              user={user}
-            />
-          }
-        />
+        <InnerWrapper>
+          <AvatarsImg
+            src={user.avatar}
+            size={size}
+            onClick={() => onUserSelect(user)}
+            scrollPosition={null}
+            fallback={
+              <AvatarFallback
+                size={getAvatarSize(size, 'number') as number}
+                user={user}
+              />
+            }
+          />
+        </InnerWrapper>
       </Tooltip>
     </Wrapper>
   )

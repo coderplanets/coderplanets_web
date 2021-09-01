@@ -21,14 +21,13 @@ export const ShortBio = styled.div`
 `
 export const Info = styled.div`
   ${css.flexColumn()};
-  margin-left: 16px;
+  margin-left: 12px;
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 10px;
 `
 export const Title = styled.a`
-  ${css.flex('align-center')};
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
@@ -44,7 +43,6 @@ export const Nickname = styled.div`
 export const Login = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
-  margin-left: 6px;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};

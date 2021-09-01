@@ -19,9 +19,10 @@ export const Wrapper = styled.article<TWrapper>`
   position: relative;
   padding: 14px;
   padding-top: 16px;
+  padding-bottom: 12px;
   opacity: ${({ entry, activeId, c11n }) => getOpacity(entry, activeId, c11n)};
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 
 export const holder = 1

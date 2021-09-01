@@ -132,8 +132,7 @@ export const User = T.model('User', {
   customization: T.optional(Customization, {}),
 })
 
-export const SimpleUser = T.model('SimpleUser2', {
-  id: T.maybeNull(T.string),
+export const SimpleUser = T.model('SimpleUser', {
   login: T.maybeNull(T.string),
   nickname: T.maybeNull(T.string),
   bio: T.maybeNull(T.string),

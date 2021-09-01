@@ -44,6 +44,16 @@ export const article = `
     ${tag}
   }
 `
+
+export const pageArticleMeta = `
+  meta {
+    latestUpvotedUsers {
+      login
+      avatar
+      nickname
+    }
+  }
+`
 export const post = `
   id
   title

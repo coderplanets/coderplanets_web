@@ -52,7 +52,7 @@ export const Wrapper = styled.div<TWrapper>`
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
   /* padding: 5px 0; */
-  margin-top: ${({ type }) => (type === UPVOTE_LAYOUT.DEFAULT ? '4px' : 0)};
+  margin-top: 0;
   appearance: none;
   background-color: transparent;
   border: none;

@@ -17,9 +17,9 @@ const ArticleFooter = T.model('ArticleFooter', {
   ),
 })
   .views((self) => ({
-    get viewingData(): TArticle {
+    get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return root.viewingData
+      return root.viewingArticle
     },
     get showReferenceList(): boolean {
       const { showActionPanel, actionPanelType } = self

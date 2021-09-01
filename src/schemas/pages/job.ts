@@ -23,6 +23,8 @@ export const pagedJobs = `
     pagedJobs(filter: $filter) {
       entries {
         ${F.article}
+        ${F.pageArticleMeta}
+        upvotesCount
         linkAddr
         company
         companyLink
