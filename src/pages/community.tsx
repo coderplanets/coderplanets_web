@@ -7,6 +7,7 @@ import { METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
+  ssrBaseStates,
   ssrFetchPrepare,
   ssrParseURL,
   ssrError,
@@ -14,7 +15,6 @@ import {
   ssrPagedArticlesFilter,
   ssrParseArticleThread,
   ssrRescue,
-  parseTheme,
   communitySEO,
 } from '@/utils'
 
@@ -70,21 +70,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  const { filter, sessionState, community, subscribedCommunities } = resp
+  const { filter, community } = resp
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
   // console.log('articleThread: ', articleThread.articlesThread.pagedJobs.entries)
-  // // init state on server side
   const initProps = merge(
     {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
+      ...ssrBaseStates(resp),
       route: {
         communityPath: community.raw,
         mainPath: community.raw,

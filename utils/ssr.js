@@ -17,6 +17,21 @@ import BStore from './bstore'
 export const isServerSide = typeof window === 'undefined'
 export const isClientSide = !isServerSide
 
+export const ssrBaseStates = (resp) => {
+  const { sessionState } = resp
+
+  return {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: resp.subscribedCommunities || null,
+    },
+  }
+}
+
 export const ssrFetchPrepare = (context, opt) => {
   const token = ssrFetchToken(context, opt)
   const gqClient = makeGQClient(token)

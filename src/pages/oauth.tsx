@@ -1,8 +1,6 @@
-import React from 'react'
 import { Provider } from 'mobx-react'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-
 import OauthHinter from '@/components/OauthHinter'
 
 import { useStore } from '@/stores/init'

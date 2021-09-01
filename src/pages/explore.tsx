@@ -5,11 +5,11 @@ import { Provider } from 'mobx-react'
 import { METRIC } from '@/constant'
 
 import {
+  ssrBaseStates,
   ssrFetchPrepare,
   queryStringToJSON,
   ssrParseURL,
   ssrRescue,
-  parseTheme,
   exploreSEO,
   ssrError,
 } from '@/utils'
@@ -69,23 +69,10 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  const {
-    // category,
-    sessionState,
-    pagedCategories,
-    pagedCommunities,
-    subscribedCommunities,
-  } = resp
+  const { pagedCategories, pagedCommunities } = resp
 
   const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-      userSubscribedCommunities: subscribedCommunities,
-    },
+    ...ssrBaseStates(resp),
     exploreContent: {
       pagedCommunities,
       pagedCategories,

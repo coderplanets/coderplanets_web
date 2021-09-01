@@ -60,3 +60,19 @@ export const sponsorSEO = (): TSEO => {
     description: '赞助商',
   }
 }
+
+export const trendingSEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/${ROUTE.TRENDING}`,
+    title: '热点趋势 | CP',
+    description: '站内外热门讨论',
+  }
+}
+
+export const drinkSEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/${ROUTE.HAVE_A_DRINK}`,
+    title: '来一杯 | CP',
+    description: 'IT冷知识，细节魔鬼，毒鸡汤',
+  }
+}

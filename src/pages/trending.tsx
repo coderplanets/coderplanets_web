@@ -1,22 +1,17 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import { merge } from 'ramda'
 
-import { SITE_URL } from '@/config'
-import { ROUTE, METRIC } from '@/constant'
+import { METRIC } from '@/constant'
 import { P } from '@/schemas'
 
-import { getJwtToken, makeGQClient, ssrRescue, parseTheme } from '@/utils'
+import { ssrBaseStates, ssrFetchPrepare, ssrRescue, trendingSEO } from '@/utils'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import TrendingContent from '@/containers/content/TrendingContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt) => {
-  const { realname } = merge({ realname: true }, opt)
-
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
+const fetchData = async (context, opt = {}) => {
+  const { gqClient } = ssrFetchPrepare(context, opt)
 
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -32,27 +27,17 @@ const fetchData = async (props, opt) => {
   }
 }
 
-export const getServerSideProps = async (props) => {
+export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await fetchData(context)
   } catch ({ response: { errors } }) {
     if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+      resp = await fetchData(context, { tokenExpired: true })
     }
   }
 
-  const { sessionState, subscribedCommunities } = resp
-  const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-      userSubscribedCommunities: subscribedCommunities,
-    },
-  }
+  const initProps = { ...ssrBaseStates(resp) }
 
   return {
     props: { errorCode: null, namespacesRequired: ['general'], ...initProps },
@@ -62,11 +47,7 @@ export const getServerSideProps = async (props) => {
 const TrendingPage = (props) => {
   const store = useStore(props)
 
-  const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.TRENDING}`,
-    title: '热点 | coderplanets',
-    description: '站内外热门讨论',
-  }
+  const seoConfig = trendingSEO()
 
   return (
     <Provider store={store}>

@@ -3,9 +3,9 @@ import { Provider } from 'mobx-react'
 import { METRIC } from '@/constant'
 
 import {
+  ssrBaseStates,
   ssrFetchPrepare,
   ssrRescue,
-  parseTheme,
   membershipSEO,
   ssrError,
 } from '@/utils'
@@ -44,17 +44,7 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  const { sessionState, subscribedCommunities } = resp
-  const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-      userSubscribedCommunities: subscribedCommunities,
-    },
-  }
+  const initProps = { ...ssrBaseStates(resp) }
 
   return {
     props: { errorCode: null, namespacesRequired: ['general'], ...initProps },

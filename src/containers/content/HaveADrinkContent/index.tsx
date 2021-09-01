@@ -36,8 +36,8 @@ export const Body = dynamic(() => import('./Body'), {
 const log = buildLog('C:HaveADrinkContent')
 
 type TProps = {
-  haveADrinkContent: TStore
-  metric: TMetric
+  haveADrinkContent?: TStore
+  metric?: TMetric
 }
 
 const HaveADrinkContentContainer: FC<TProps> = ({

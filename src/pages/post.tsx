@@ -62,7 +62,7 @@ export const getServerSideProps = async (props) => {
     resp = await fetchData(props)
   } catch ({ response: { errors } }) {
     if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+      resp = await fetchData(props, { tokenExpired: true })
     } else {
       return { errorCode: 404 }
     }

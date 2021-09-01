@@ -8,9 +8,9 @@ import {
   ssrFetchPrepare,
   ssrHomePagedArticlesFilter,
   ssrPagedArticleSchema,
+  ssrBaseStates,
   ssrParseArticleThread,
   ssrRescue,
-  parseTheme,
   worksSEO,
   ssrError,
 } from '@/utils'
@@ -62,19 +62,12 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  const { filter, sessionState, subscribedCommunities } = resp
+  const { filter } = resp
   const { articlesThread } = ssrParseArticleThread(resp, THREAD.WORKS, filter)
   const { pagedWorks } = articlesThread
 
   const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-      userSubscribedCommunities: subscribedCommunities,
-    },
+    ...ssrBaseStates(resp),
     worksContent: {
       pagedWorks,
     },

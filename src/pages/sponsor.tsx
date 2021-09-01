@@ -3,9 +3,9 @@ import { Provider } from 'mobx-react'
 import { METRIC } from '@/constant'
 
 import {
+  ssrBaseStates,
   ssrFetchPrepare,
   ssrRescue,
-  parseTheme,
   sponsorSEO,
   ssrError,
 } from '@/utils'
@@ -38,23 +38,13 @@ export const getServerSideProps = async (context) => {
     resp = await fetchData(context)
   } catch ({ response: { errors } }) {
     if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(context, { realname: false })
+      resp = await fetchData(context, { tokenExpired: true })
     } else {
       return ssrError(context, 'fetch', 500)
     }
   }
 
-  const { sessionState, subscribedCommunities } = resp
-  const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-      userSubscribedCommunities: subscribedCommunities,
-    },
-  }
+  const initProps = { ...ssrBaseStates(resp) }
 
   return {
     props: { errorCode: null, namespacesRequired: ['general'], ...initProps },
