@@ -13,6 +13,12 @@ const ArticleMeta = T.model('ArticleMeta', {
   latestUpvotedUsers: T.optional(T.array(SimpleUser), []),
 })
 
+const Document = T.model('ArticleMeta', {
+  bodyHtml: T.optional(T.string, ''),
+  // toc:
+  // body
+})
+
 /**
  * common article fields for post/job/blog/radar/works ...
  */
@@ -20,7 +26,7 @@ export const articleFields = () => {
   return {
     id: T.maybeNull(T.string),
     title: T.optional(T.string, ''),
-    body: T.maybeNull(T.string),
+    document: T.optional(Document, {}),
     digest: T.maybeNull(T.string),
     author: T.maybeNull(User),
 

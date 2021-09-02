@@ -9,7 +9,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 
 export const BaseInfo = styled.div`
   ${css.flex('justify-between', 'align-center')};
-  margin-top: 50px;
   margin-bottom: 30px;
 
   ${css.media.mobile`

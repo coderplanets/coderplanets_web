@@ -17,6 +17,10 @@ type TArticleMeta = {
   }[]
 }
 
+export type TDocument = {
+  bodyHtml?: string
+}
+
 type TBaseArticle = {
   id?: TID
   title?: string
@@ -33,6 +37,7 @@ type TBaseArticle = {
   commentsCount?: number
   articleTags?: TTag[]
   meta?: TArticleMeta
+  document?: TDocument
   linkAddr?: string
 }
 

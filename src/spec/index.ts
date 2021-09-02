@@ -55,6 +55,7 @@ export type { TGQLError } from './graphql'
 export type {
   TCollectionFolder,
   TPagedCollectionFolder,
+  TDocument,
   TArticle,
   TPost,
   TBlog,

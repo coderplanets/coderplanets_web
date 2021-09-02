@@ -4,19 +4,14 @@ export const post = `
   query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
       ${F.article}
-      body
+      document {
+        bodyHtml
+      }
       linkAddr
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
       upvotesCount
       viewerHasUpvoted @include(if: $userHasLogin)
-      favoritedCategoryId @include(if: $userHasLogin)
-      pagedCommentsParticipators {
-        entries {
-          ${F.author}
-        }
-        totalCount
-      }
     }
   }
 `

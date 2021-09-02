@@ -50,6 +50,7 @@ const ArticleFooterContainer: FC<TProps> = ({
     <Wrapper testid={testid} onClick={() => joinUS()}>
       <BaseInfo>
         {/* <TagListO items={articleTags} /> */}
+        tags, todo:
         <CommunityTagSetter />
         <Copyright
           type={copyright as TCopyright}

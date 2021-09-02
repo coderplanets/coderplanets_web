@@ -1,16 +1,13 @@
-import React from 'react'
 // import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
-import { merge, toUpper } from 'ramda'
 
-import { PAGE_SIZE, SITE_URL } from '@/config'
-import { TYPE, ROUTE, THREAD, METRIC } from '@/constant'
+import { SITE_URL } from '@/config'
+import { ROUTE, THREAD, METRIC } from '@/constant'
 import {
-  getJwtToken,
-  nilOrEmpty,
-  makeGQClient,
+  ssrFetchPrepare,
   ssrParseURL,
   ssrRescue,
+  ssrError,
   parseTheme,
 } from '@/utils'
 import { useStore } from '@/stores/init'
@@ -21,25 +18,22 @@ import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt = {}) => {
-  const { realname } = merge({ realname: true }, opt)
-
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
-  const userHasLogin = nilOrEmpty(token) === false
+const fetchData = async (context, opt = {}) => {
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
   // schema
-  const { subPath: id } = ssrParseURL(props.req)
+  const { subPath: id } = ssrParseURL(context.req)
+  console.log('# -> id: ', id)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const post = gqClient.request(P.post, { id, userHasLogin })
-  const pagedComments = gqClient.request(P.pagedComments, {
-    id,
-    userHasLogin,
-    thread: toUpper(THREAD.POST),
-    filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
-  })
+  // const pagedComments = gqClient.request(P.pagedComments, {
+  //   id,
+  //   userHasLogin,
+  //   thread: toUpper(THREAD.POST),
+  //   filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
+  // })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -51,24 +45,28 @@ const fetchData = async (props, opt = {}) => {
   return {
     ...(await sessionState),
     ...(await post),
-    ...(await pagedComments),
+    // ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
 
-export const getServerSideProps = async (props) => {
+export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(props)
-  } catch ({ response: { errors } }) {
+    resp = await fetchData(context)
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    const {
+      response: { errors },
+    } = e
     if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(props, { tokenExpired: true })
+      resp = await fetchData(context, { tokenExpired: true })
     } else {
-      return { errorCode: 404 }
+      return ssrError(context, 'fetch', 500)
     }
   }
 
-  const { sessionState, post, pagedComments, subscribedCommunities } = resp
+  const { sessionState, post, subscribedCommunities } = resp
 
   const { originalCommunity: community, ...viewingContent } = post
   const initProps = {
@@ -86,7 +84,7 @@ export const getServerSideProps = async (props) => {
       activeThread: THREAD.POST,
     },
     // TODO: load comments on Client
-    comments: { pagedComments },
+    // comments: { pagedComments },
   }
 
   return { props: { errorCode: null, ...initProps } }

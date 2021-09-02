@@ -46,14 +46,14 @@ const IconButton: FC<TProps> = ({
         src={`${ICON}/${path}`}
         size={size}
         $active={active}
-        dimWhenIdle={dimWhenIdle}
+        $dimWhenIdle={dimWhenIdle}
       />
     )
   } else {
     const LocalIcon = getIcon(icon || SVG.UPVOTE)
 
     realIcon = (
-      <LocalIcon size={size} $active={active} dimWhenIdle={dimWhenIdle} />
+      <LocalIcon size={size} $active={active} $dimWhenIdle={dimWhenIdle} />
     )
   }
 
