@@ -1,6 +1,6 @@
 import { SITE_URL } from '@/config'
 
-import type { TCommunity, TThread } from '@/spec'
+import type { TCommunity, TThread, TArticle } from '@/spec'
 import { ROUTE } from '@/constant'
 
 import { plural } from './helper'
@@ -9,6 +9,11 @@ type TSEO = {
   url: string
   title: string
   description: string
+  //
+  datePublished?: string
+  dateModified?: string
+  authorName?: string
+  images?: string[]
 }
 
 export const communitySEO = (community: TCommunity, thread: TThread): TSEO => {
@@ -74,5 +79,19 @@ export const drinkSEO = (): TSEO => {
     url: `${SITE_URL}/${ROUTE.HAVE_A_DRINK}`,
     title: '来一杯 | CP',
     description: 'IT冷知识，细节魔鬼，毒鸡汤',
+  }
+}
+
+export const articleSEO = (thread: TThread, article: TArticle): TSEO => {
+  const { id, title, insertedAt, updatedAt, author } = article
+
+  return {
+    url: `${SITE_URL}/${thread}/${id}`,
+    title: `${title}`,
+    datePublished: `${insertedAt}`,
+    dateModified: `${updatedAt}`,
+    authorName: `${author.nickname}`,
+    description: `${title}`, // TODO:
+    images: [],
   }
 }

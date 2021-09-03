@@ -1,7 +1,6 @@
 // import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
 
-import { SITE_URL } from '@/config'
 import { ROUTE, THREAD, METRIC } from '@/constant'
 import {
   ssrBaseStates,
@@ -9,6 +8,7 @@ import {
   ssrParseURL,
   ssrRescue,
   ssrError,
+  articleSEO,
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
@@ -83,15 +83,7 @@ const PostPage = (props) => {
   const { viewing } = props
   const { post } = viewing
 
-  const seoConfig = {
-    url: `${SITE_URL}/${THREAD.POST}/${post.id}`,
-    title: `${post.title}`,
-    datePublished: `${post.insertedAt}`,
-    dateModified: `${post.updatedAt}`,
-    authorName: `${post.author.nickname}`,
-    description: `${post.title}`,
-    images: [],
-  }
+  const seoConfig = articleSEO(THREAD.POST, post)
 
   return (
     <Provider store={store}>

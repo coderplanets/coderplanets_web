@@ -155,4 +155,5 @@ export {
   sponsorSEO,
   trendingSEO,
   drinkSEO,
+  articleSEO,
 } from './seo'

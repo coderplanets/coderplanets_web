@@ -6,8 +6,11 @@
 
 import { Fragment, FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
+import Link from 'next/link'
 
 import { ICON, ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
+
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
@@ -53,7 +56,7 @@ const WorksCard: FC<TProps> = ({
 }) => {
   const descLimit = preview ? 20 : 30
 
-  const { title, desc, upvotesCount, commentsCount } = item
+  const { id, title, desc, upvotesCount, commentsCount } = item
 
   return (
     <Wrapper testid={testid} preview={preview}>
@@ -67,7 +70,9 @@ const WorksCard: FC<TProps> = ({
         <Header>
           <div>
             <Title>
-              <Name>{title || '--'}</Name>
+              <Link href={`/${THREAD.WORKS}/${id}`} passHref>
+                <Name>{title || '--'}</Name>
+              </Link>
 
               {item.isOSS && (
                 <OSSSign>

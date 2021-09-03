@@ -62,6 +62,9 @@ const tabItems = [
 ]
 
 const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
+  const { meta, title, upvotesCount } = article
+  console.log('meta -> ', meta.latestUpvotedUsers.length)
+
   return (
     <Fragment>
       <Main metric={metric}>
@@ -69,7 +72,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
           <Cover src="https://avatars.githubusercontent.com/u/2041385?s=64&v=4" />
           <Intro>
             <Title>
-              <WorkName>CoderPlanets</WorkName>
+              <WorkName>{title}</WorkName>
               <SpaceGrow />
               <ArticleMenu />
             </Title>
@@ -95,7 +98,11 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
         </BottomInfo>
       </Main>
       <SubWrapper metric={metric}>
-        <Upvote count={17} type={UPVOTE_LAYOUT.WORKS_ARTICLE} />
+        <Upvote
+          count={upvotesCount}
+          avatarList={meta.latestUpvotedUsers}
+          type={UPVOTE_LAYOUT.WORKS_ARTICLE}
+        />
       </SubWrapper>
     </Fragment>
   )

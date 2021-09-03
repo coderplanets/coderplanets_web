@@ -1,15 +1,17 @@
 // import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
 
-import { SITE_URL } from '@/config'
 import { ROUTE, THREAD, METRIC } from '@/constant'
+
 import {
   ssrBaseStates,
   ssrFetchPrepare,
   ssrParseURL,
   ssrRescue,
   ssrError,
+  articleSEO,
 } from '@/utils'
+
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -26,7 +28,7 @@ const fetchData = async (context, opt = {}) => {
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id, userHasLogin })
+  const works = gqClient.request(P.works, { id, userHasLogin })
 
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -38,7 +40,7 @@ const fetchData = async (context, opt = {}) => {
   // TODO: comments
   return {
     ...(await sessionState),
-    ...(await post),
+    ...(await works),
     // ...(await pagedComments),
     ...(await subscribedCommunities),
   }
@@ -57,13 +59,13 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  const { post } = resp
+  const { works } = resp
 
   const initProps = {
     ...ssrBaseStates(resp),
-    route: { mainPath: ROUTE.POST, subPath: post.id },
+    route: { mainPath: ROUTE.WORKS, subPath: works.id },
     viewing: {
-      works: post,
+      works,
       activeThread: THREAD.WORKS,
     },
     // TODO: load comments on Client
@@ -78,15 +80,7 @@ const WorksArticlePage = (props) => {
   const { viewing } = props
   const { works } = viewing
 
-  const seoConfig = {
-    url: `${SITE_URL}/${THREAD.WORKS}/${works.id}`,
-    title: `${works.title}`,
-    datePublished: `${works.insertedAt}`,
-    dateModified: `${works.updatedAt}`,
-    authorName: `${works.author.nickname}`,
-    description: `${works.title}`,
-    images: [],
-  }
+  const seoConfig = articleSEO(THREAD.WORKS, works)
 
   return (
     <Provider store={store}>

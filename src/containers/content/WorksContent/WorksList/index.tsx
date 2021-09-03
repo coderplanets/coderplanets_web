@@ -10,7 +10,7 @@ import MenuButton from '@/components/Buttons/MenuButton'
 import { LAUNCH } from '../constant'
 import OptionTab from './OptionTab'
 
-import { Wrapper, TabWrapper, FilterWrapper } from '../styles/list'
+import { Wrapper, TabWrapper, FilterWrapper } from '../styles/works_list'
 import { toggleSidebar } from '../logic'
 
 const options = [

@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Wrapper, ItemWrapper, Text } from '../styles/list/option_tab'
+import { Wrapper, ItemWrapper, Text } from '../styles/works_list/option_tab'
 
 type TProps = {
   activeKey: string

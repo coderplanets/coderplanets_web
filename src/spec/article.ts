@@ -33,6 +33,7 @@ type TBaseArticle = {
   originalCommunity?: TCommunity
   commentsParticipants?: TUser
   insertedAt?: string
+  updatedAt?: string
   viewerHasViewed?: boolean
   commentsCount?: number
   articleTags?: TTag[]

@@ -9,7 +9,7 @@ import { BEST } from '../constant'
 
 import OptionTab from './OptionTab'
 
-import { Wrapper, Header, More } from '../styles/list/trending'
+import { Wrapper, Header, More } from '../styles/works_list/trending'
 
 const options = [
   {
