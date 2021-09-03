@@ -39,6 +39,8 @@ type TBaseArticle = {
   meta?: TArticleMeta
   document?: TDocument
   linkAddr?: string
+  isArchived?: boolean
+  archivedAt?: string
 }
 
 export type TPost = TBaseArticle & {

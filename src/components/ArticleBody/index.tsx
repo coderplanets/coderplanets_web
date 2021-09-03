@@ -35,8 +35,8 @@ const ArticleBody: FC<TProps> = ({
   useEffect(() => {
     if (bodyRef) {
       const { scrollHeight, clientHeight } = bodyRef.current
-      console.log('clientHeight: ', clientHeight)
-      console.log('scrollHeight: ', scrollHeight)
+      // console.log('clientHeight: ', clientHeight)
+      // console.log('scrollHeight: ', scrollHeight)
       // 确保只有超过两行才是折叠的情况
       if (scrollHeight - clientHeight > 22) {
         setNeedFold(true)
@@ -48,16 +48,12 @@ const ArticleBody: FC<TProps> = ({
     }
   }, [bodyRef])
 
-  console.log('needFold? ', needFold)
-  console.log('Fold? ', fold)
-
   return (
     <Wrapper testid={testid}>
       <Body ref={bodyRef} lineClampNum={lineClampNum}>
         <HTML
           dangerouslySetInnerHTML={{
             __html: document.bodyHtml,
-            // __html: 'document.bodyHtml',
           }}
         />
       </Body>

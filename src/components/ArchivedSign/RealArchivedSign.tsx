@@ -18,11 +18,16 @@ const log = buildLog('c:ArchivedSign:index')
 
 type TProps = {
   testid?: string
+  date?: string
 }
 
-const ArchivedSign: FC<TProps> = ({ testid = 'archived-sign' }) => {
+const ArchivedSign: FC<TProps> = ({ testid = 'archived-sign', date }) => {
   return (
-    <Tooltip placement="bottom-start" content={<DetailPanel />} delay={500}>
+    <Tooltip
+      placement="bottom-start"
+      content={<DetailPanel date={date} />}
+      delay={500}
+    >
       <Wrapper testid={testid}>
         <SignIcon src={`${ICON}/article/archived.svg`} />
         <Text>已存档</Text>

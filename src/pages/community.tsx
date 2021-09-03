@@ -59,10 +59,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     resp = await fetchData(context)
   } catch (e) {
     console.log('#### error from server: ', e)
-    const {
-      response: { errors },
-    } = e
-    if (ssrRescue.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(e.response?.errors)) {
       // token 过期了，重新用匿名方式请求一次
       await fetchData(context, { tokenExpired: true })
     } else {

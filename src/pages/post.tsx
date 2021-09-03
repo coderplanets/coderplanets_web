@@ -4,11 +4,11 @@ import { Provider } from 'mobx-react'
 import { SITE_URL } from '@/config'
 import { ROUTE, THREAD, METRIC } from '@/constant'
 import {
+  ssrBaseStates,
   ssrFetchPrepare,
   ssrParseURL,
   ssrRescue,
   ssrError,
-  parseTheme,
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
@@ -55,31 +55,20 @@ export const getServerSideProps = async (context) => {
     resp = await fetchData(context)
   } catch (e) {
     console.log('#### error from server: ', e)
-    const {
-      response: { errors },
-    } = e
-    if (ssrRescue.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(e.response?.errors)) {
       resp = await fetchData(context, { tokenExpired: true })
     } else {
       return ssrError(context, 'fetch', 500)
     }
   }
 
-  const { sessionState, post, subscribedCommunities } = resp
+  const { post } = resp
 
-  const { originalCommunity: community, ...viewingContent } = post
   const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-      userSubscribedCommunities: subscribedCommunities,
-    },
-    route: { mainPath: ROUTE.POST, subPath: viewingContent.id },
+    ...ssrBaseStates(resp),
+    route: { mainPath: ROUTE.POST, subPath: post.id },
     viewing: {
-      post: viewingContent,
+      post,
       activeThread: THREAD.POST,
     },
     // TODO: load comments on Client
@@ -91,10 +80,8 @@ export const getServerSideProps = async (context) => {
 
 const PostPage = (props) => {
   const store = useStore(props)
-  const { viewing, route } = props
+  const { viewing } = props
   const { post } = viewing
-
-  const { mainPath } = route
 
   const seoConfig = {
     url: `${SITE_URL}/${THREAD.POST}/${post.id}`,
@@ -108,12 +95,7 @@ const PostPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.ARTICLE}
-        // metric={METRIC.WORKS_ARTICLE}
-        seoConfig={seoConfig}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.ARTICLE} seoConfig={seoConfig} noSidebar>
         <ArticleDigest />
         <ArticleContent />
       </GlobalLayout>

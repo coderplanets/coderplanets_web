@@ -14,10 +14,11 @@ import { pluggedIn } from '@/utils/mobx'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import Copyright from '@/components/Copyright'
+import { SpaceGrow } from '@/components/Common'
 
 // import TagList from '@/components/TagList'
 
-// import TagListO from './TagList'
+import TagList from './TagList'
 import Actions from './Actions/index'
 import RefersPanel from './Actions/RefersPanel'
 import OperationPanel from './Actions/OperationPanel'
@@ -42,22 +43,23 @@ const ArticleFooterContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { viewingArticle, showReferenceList, showOperationList } = store
-  const { author } = viewingArticle
+  const { author, articleTags, meta } = viewingArticle
 
   const [copyright, setCopyright] = useState('cc')
 
   return (
     <Wrapper testid={testid} onClick={() => joinUS()}>
       <BaseInfo>
-        {/* <TagListO items={articleTags} /> */}
-        tags, todo:
+        <TagList items={articleTags} />
         <CommunityTagSetter />
         <Copyright
           type={copyright as TCopyright}
           mode="readonly"
           onChange={(key) => setCopyright(key)}
         />
+        <SpaceGrow />
         <Actions
+          citingCount={meta.citingCount}
           showReferenceList={showReferenceList}
           showOperationList={showOperationList}
         />

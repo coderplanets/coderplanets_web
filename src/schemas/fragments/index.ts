@@ -11,6 +11,7 @@
 import {
   community,
   article,
+  articleDetail,
   pageArticleMeta,
   author,
   tag,
@@ -30,6 +31,7 @@ import { pagedPosts, pagedJobs, pagedRepos } from './paged'
 const F = {
   community,
   article,
+  articleDetail,
   pageArticleMeta,
   author,
   tag,

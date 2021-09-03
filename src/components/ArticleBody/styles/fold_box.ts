@@ -18,17 +18,18 @@ export const Wrapper = styled.div<{ fold: boolean }>`
     background: #00333e;
   }
 
-  transition: all 0.1s;
+  transition: all 0.2s;
 `
 export const Hint = styled.div`
   ${css.flex('align-center')};
   color: #139c9e;
   font-size: 15px;
-  margin-left: -3%;
   opacity: 0.8;
+
   ${Wrapper}:hover & {
     opacity: 1;
   }
+  transition: all 0.2s;
 `
 export const FoldHint = styled(Hint)`
   opacity: 0;

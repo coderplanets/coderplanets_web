@@ -51,11 +51,7 @@ export const getServerSideProps = async (context) => {
     resp = await fetchData(context)
   } catch (e) {
     console.log('#### error from server: ', e)
-    const {
-      response: { errors },
-    } = e
-
-    if (ssrRescue.hasLoginError(errors)) {
+    if (ssrRescue.hasLoginError(e.response?.errors)) {
       resp = await fetchData(context, { tokenExpired: true })
     } else {
       return ssrError(context, 'fetch', 500)

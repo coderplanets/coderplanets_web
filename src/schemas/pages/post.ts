@@ -4,14 +4,7 @@ export const post = `
   query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
       ${F.article}
-      document {
-        bodyHtml
-      }
-      linkAddr
-      collectsCount
-      viewerHasCollected @include(if: $userHasLogin)
-      upvotesCount
-      viewerHasUpvoted @include(if: $userHasLogin)
+      ${F.articleDetail}
     }
   }
 `

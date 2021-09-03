@@ -5,6 +5,7 @@ export const community = `
   index
   desc
   logo
+  subscribersCount
 `
 export const tag = `
   title
@@ -26,7 +27,6 @@ export const article = `
   linkAddr
   copyRight
   insertedAt
-  updatedAt
   activeAt
   views
   commentsCount
@@ -44,7 +44,22 @@ export const article = `
     ${tag}
   }
 `
+export const articleDetail = `
+  updatedAt
 
+  document {
+    bodyHtml
+  }
+
+  linkAddr
+  collectsCount
+  upvotesCount
+  archivedAt
+  isArchived
+
+  viewerHasCollected @include(if: $userHasLogin)
+  viewerHasUpvoted @include(if: $userHasLogin)
+`
 export const pageArticleMeta = `
   meta {
     latestUpvotedUsers {
