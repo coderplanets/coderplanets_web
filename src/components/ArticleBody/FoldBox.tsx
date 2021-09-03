@@ -11,15 +11,15 @@ type TProps = {
 
 const FoldBox: FC<TProps> = ({ fold, onFold, onExpand }) => {
   return (
-    <Wrapper fold={fold}>
+    <Wrapper fold={fold} onClick={() => (fold ? onExpand() : onFold())}>
       {!fold && (
-        <FoldHint onClick={onFold}>
+        <FoldHint>
           折叠
           <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} reverse />
         </FoldHint>
       )}
       {fold && (
-        <Hint onClick={onExpand}>
+        <Hint>
           展开全部
           <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
         </Hint>

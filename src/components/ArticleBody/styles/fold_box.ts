@@ -10,7 +10,7 @@ export const Wrapper = styled.div<{ fold: boolean }>`
   margin-top: 28px;
   margin-bottom: 28px;
   padding: 5px 0;
-  border-radius: 8px;
+  border-radius: 15px;
   background: ${({ fold }) => (fold ? '#00333e' : 'transparent')};
 
   &:hover {

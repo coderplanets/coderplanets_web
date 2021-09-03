@@ -23,7 +23,6 @@ const fetchData = async (context, opt = {}) => {
 
   // schema
   const { subPath: id } = ssrParseURL(context.req)
-  console.log('# -> id: ', id)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -98,7 +97,7 @@ const PostPage = (props) => {
   const { mainPath } = route
 
   const seoConfig = {
-    url: `${SITE_URL}/${mainPath}/${ROUTE.POST}/${post.id}`,
+    url: `${SITE_URL}/${THREAD.POST}/${post.id}`,
     title: `${post.title}`,
     datePublished: `${post.insertedAt}`,
     dateModified: `${post.updatedAt}`,
