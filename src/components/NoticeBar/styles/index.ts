@@ -13,7 +13,8 @@ type TWrapper = {
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
-  ${css.flex('align-start')};
+  ${css.flex()};
+  align-items: ${({ noBg }) => (noBg ? 'flex-start' : 'center')};
   color: ${({ noBg }) =>
     noBg ? theme('thread.articleDigest') : theme('thread.articleTitle')};
   padding-left: ${({ noBg }) => (noBg ? '5px' : '12px')};

@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
+import type { TSIZE_SM, TActive } from '@/spec'
+import { SIZE } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 
 type TTab = {
-  size: string
+  size: TSIZE_SM
   mobileView: boolean
   holyGrailView: boolean
   wrapMode: boolean
@@ -59,17 +60,29 @@ export const Nav = styled.nav`
   margin: 0 auto;
   padding: 0;
 `
-export const Label = styled.span<TActive>`
+
+const getLabelColor = (active: boolean, articleColor: boolean): string => {
+  if (articleColor) {
+    return active ? theme('thread.articleTitle') : theme('thread.articleDigest')
+  }
+  return active ? theme('tabs.headerActive') : theme('tabs.header')
+}
+
+type TLabel = TActive & { articleColor: boolean; size: TSIZE_SM }
+export const Label = styled.span<TLabel>`
   ${css.flex('align-center')};
   white-space: nowrap;
-
-  color: ${({ active }) =>
-    active ? theme('tabs.headerActive') : theme('tabs.header')};
+  color: ${({ active, articleColor }) => getLabelColor(active, articleColor)};
+  margin-bottom: ${({ size }) => (size === SIZE.SMALL ? '4px' : 0)};
 
   &:hover {
-    color: ${theme('tabs.headerActive')};
+    color: ${({ articleColor }) =>
+      articleColor ? theme('thread.articleTitle') : theme('tabs.headerActive')};
     svg {
-      fill: ${theme('tabs.headerActive')};
+      fill: ${({ articleColor }) =>
+        articleColor
+          ? theme('thread.articleTitle')
+          : theme('tabs.headerActive')};
     }
   }
 `

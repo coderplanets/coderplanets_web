@@ -11,6 +11,9 @@ import { buildLog } from '@/utils/logger'
 import ArticleBaseStats from '@/components/ArticleBaseStats'
 import IconButton from '@/components/Buttons/IconButton'
 import Upvote from '@/components/Upvote'
+import Tabs from '@/components/Switcher/Tabs'
+import ArticleMenu from '@/components/ArticleMenu'
+import { SpaceGrow } from '@/components/Common'
 
 import {
   Main,
@@ -18,10 +21,12 @@ import {
   Cover,
   Intro,
   Title,
+  WorkName,
   Desc,
   Other,
   Actions,
   BottomInfo,
+  TabsWrapper,
   SubWrapper,
 } from '../styles/desktop_view/works_layout'
 
@@ -33,6 +38,29 @@ type TProps = {
   metric?: TMetric
 }
 
+const tabItems = [
+  {
+    title: '简介',
+    raw: 'story',
+  },
+  {
+    title: '技术栈',
+    raw: 'techstack',
+  },
+  {
+    title: '更新',
+    raw: 'update',
+  },
+  {
+    title: '作者访谈',
+    raw: 'interview',
+  },
+  {
+    title: '社区',
+    raw: 'community',
+  },
+]
+
 const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
   return (
     <Fragment>
@@ -40,7 +68,11 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
         <WorksWrapper>
           <Cover src="https://avatars.githubusercontent.com/u/2041385?s=64&v=4" />
           <Intro>
-            <Title>CoderPlanets</Title>
+            <Title>
+              <WorkName>CoderPlanets</WorkName>
+              <SpaceGrow />
+              <ArticleMenu />
+            </Title>
             <Desc>可能是最性感的开发者社区, web first, pure ~</Desc>
             <Other>
               <ArticleBaseStats article={article} />
@@ -51,7 +83,16 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
             </Other>
           </Intro>
         </WorksWrapper>
-        <BottomInfo />
+        <BottomInfo>
+          <TabsWrapper>
+            <Tabs
+              items={tabItems}
+              size="small"
+              activeKey="story"
+              articleColor
+            />
+          </TabsWrapper>
+        </BottomInfo>
       </Main>
       <SubWrapper metric={metric}>
         <Upvote count={17} type={UPVOTE_LAYOUT.WORKS_ARTICLE} />

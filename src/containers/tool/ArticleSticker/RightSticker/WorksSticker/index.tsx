@@ -45,13 +45,6 @@ const WorksSticker: FC<TProps> = ({ show, article }) => {
       </Row>
       <Contact />
       <Br top={25} />
-      {/* <Row>
-        <CommentSign>//</CommentSign>
-        <Title>技术栈</Title>
-      </Row>
-      <Br top={15} />
-      <TechStacks />
-      <Br top={20} /> */}
       <Row>
         <CommentSign>//</CommentSign>
         <Title>其他</Title>

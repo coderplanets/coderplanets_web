@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TMetric } from '@/spec'
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
-import { WIDTH } from '@/utils/css/metric'
+// import { WIDTH } from '@/utils/css/metric'
 import Img from '@/Img'
 
 export const Main = styled.div<{ metric: TMetric }>`
@@ -23,7 +23,13 @@ export const Cover = styled(Img)`
   margin-right: 20px;
 `
 export const Title = styled.div`
-  font-size: 26px;
+  ${css.flex('align-center')};
+  margin-bottom: 3px;
+  margin-right: 8px;
+`
+export const WorkName = styled.div`
+  ${css.cutRest('200px')};
+  font-size: 24px;
   color: ${theme('thread.articleTitle')};
 `
 export const Desc = styled.div`
@@ -39,17 +45,23 @@ export const Actions = styled.div`
 `
 export const SubWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('align-start', 'justify-end')};
-  margin-top: 2px;
+  margin-top: 5px;
   ${({ metric }) => css.fitStickerWidth(metric)};
 `
 export const BottomInfo = styled.div`
+  position: relative;
   ${css.flex('align-end', 'justify-between')};
   color: ${theme('thread.articleDigest')};
-  margin-top: 15px;
+  margin-top: 30px;
   padding-bottom: 36px;
   border-bottom: 1px solid;
   border-bottom-color: #004251;
   width: 100%;
+`
+export const TabsWrapper = styled.div`
+  position: absolute;
+  top: 3px;
+  left: -5px;
 `
 export const AuthorName = styled.div`
   color: ${theme('thread.articleDigest')};
