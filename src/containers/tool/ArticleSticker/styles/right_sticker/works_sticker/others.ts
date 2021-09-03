@@ -8,7 +8,16 @@ export const Wrapper = styled.div<TActive>`
   ${css.flexColumn()};
   color: ${theme('thread.articleDigest')};
 `
-export const Title = styled.div`
+export const Item = styled.div`
+  ${css.flex('align-center')};
+  margin-bottom: 5px;
+`
+export const Label = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 14px;
+  margin-right: 6px;
+`
+export const Value = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 16px;
+  font-size: 14px;
 `

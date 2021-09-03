@@ -4,44 +4,35 @@ import { ICON } from '@/config'
 
 import {
   Wrapper,
-  Row,
-  LinkIcon,
-  LinkAddr,
   SocialWrapper,
   SocialItem,
   SocialIcon,
-  SocialName,
-} from '../../styles/right_sticker/works_sticker/about'
+} from '../../styles/right_sticker/works_sticker/contact'
 
 // type TProps = {
 //   show: boolean
 //   viewing: TArticle
 // }
 
-const About: FC = () => {
+const Contact: FC = () => {
   return (
     <Wrapper>
-      <Row>
-        <LinkIcon src={`${ICON}/social/global.svg`} />
-        <LinkAddr href="coderplanets.com">coderplanets.com</LinkAddr>
-      </Row>
-
       <SocialWrapper>
         <SocialItem>
-          <SocialIcon src={`${ICON}/social/github.svg`} />
-          <SocialName>github</SocialName>
+          <SocialIcon src={`${ICON}/social/github.svg`} size={16} />
         </SocialItem>
         <SocialItem>
           <SocialIcon src={`${ICON}/social/twitter.svg`} />
-          <SocialName>twitter</SocialName>
         </SocialItem>
         <SocialItem>
           <SocialIcon src={`${ICON}/social/wechat.svg`} />
-          <SocialName>微信群</SocialName>
+        </SocialItem>
+        <SocialItem>
+          <SocialIcon src={`${ICON}/social/weibo.svg`} />
         </SocialItem>
       </SocialWrapper>
     </Wrapper>
   )
 }
 
-export default memo(About)
+export default memo(Contact)

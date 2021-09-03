@@ -36,7 +36,7 @@ export const getIconShadowSize = (type: TUpvoteLayout): string => {
 export const getShadowLeftOffset = (type: TUpvoteLayout): string => {
   switch (type) {
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
-      return '-4px'
+      return '-5px'
     }
 
     default: {

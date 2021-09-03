@@ -14,7 +14,7 @@ const TagList: FC<TProps> = ({ items }) => {
   return (
     <Wrapper>
       {items.map((item) => (
-        <Tag key={item.id}>
+        <Tag key={item.raw}>
           <Dot color={item.color} />
           <Title>{item.title}</Title>
         </Tag>

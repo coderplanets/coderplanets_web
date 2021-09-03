@@ -74,7 +74,7 @@ export const getServerSideProps = async (context) => {
   }
 }
 
-const WorksPage = (props) => {
+const WorksListPage = (props) => {
   const store = useStore(props)
   const seoConfig = worksSEO()
 
@@ -87,4 +87,4 @@ const WorksPage = (props) => {
   )
 }
 
-export default WorksPage
+export default WorksListPage

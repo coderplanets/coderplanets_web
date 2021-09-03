@@ -13,11 +13,9 @@ export const Wrapper = styled.div<TActive>`
 export const Row = styled.div`
   ${css.flex('align-center')};
 `
-export const LinkIcon = styled(Img)`
-  ${css.size(13)};
+export const LinkIcon = styled(Img)<{ size?: number }>`
+  ${({ size }) => css.size(size || 20)};
   fill: ${theme('thread.articleDigest')};
-  margin-right: 6px;
-  margin-top: 2px;
 `
 export const LinkAddr = styled.a`
   display: block;
@@ -41,8 +39,8 @@ export const SocialItem = styled.div`
   padding: 1px 5px;
   background: #00333e;
   color: ${theme('thread.articleTitle')};
-  margin-top: 8px;
-  margin-right: 6px;
+  margin-top: 5px;
+  margin-right: 3px;
   border-radius: 5px;
 `
 export const SocialIcon = styled(LinkIcon)`

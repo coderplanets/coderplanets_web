@@ -70,8 +70,12 @@ router.route('/cool-guide/:slug?').get((req, res) => {
 })
 
 // 作品集市
+router.route('/works').get((req, res) => {
+  return renderAndCache({ req, res, path: '/works/all' })
+})
+// 单个作品详情
 router.route('/works/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, path: '/works' })
+  return renderAndCache({ req, res, path: '/works/article' })
 })
 
 // 用户页

@@ -14,8 +14,8 @@ export const Wrapper = styled.div<TActive>`
   justify-content: center;
   border: 1px solid;
   border-color: #004250;
-  padding: 20px;
-  padding-right: 0;
+  padding: 20px 12px;
+  padding-right: 20px 10px;
   /* sticker 的宽度是 260, 偏移后使视觉居中 */
   margin-right: -152px;
   margin-top: -38px;
@@ -26,7 +26,8 @@ export const Row = styled.div`
 `
 export const CommentSign = styled.div`
   margin-top: 1px;
-  margin-right: 6px;
+  margin-right: 8px;
+  margin-left: 3px;
   font-size: 11px;
   font-weight: 500;
   color: #0082c1;
