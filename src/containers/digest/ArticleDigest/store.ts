@@ -7,7 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 
 import type { TRootStore, TThread, TArticle } from '@/spec'
 import { TYPE } from '@/constant'
-import { markStates } from '@/utils/mobx'
+import { markStates, toJS } from '@/utils/mobx'
 
 const ArticleDigest = T.model('ArticleDigest', {
   loading: T.optional(T.boolean, false),
@@ -28,7 +28,7 @@ const ArticleDigest = T.model('ArticleDigest', {
     },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return root.viewingArticle
+      return toJS(root.viewingArticle)
     },
     get activeThread(): TThread {
       const root = getParent(self) as TRootStore

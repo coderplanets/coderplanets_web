@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
+// import Link from 'next/link'
 
 import type { TMetric, TC11NLayout } from '@/spec'
 import { METRIC } from '@/constant'
@@ -42,10 +43,12 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, layout }) => {
   // const { online } = useNetwork()
   return (
     <Breadcrumbs>
-      <LogoLink href="/home/posts" layout={layout}>
+      {/* <Link href="/" passHref> */}
+      <LogoLink href="/" layout={layout}>
         <Logo />
         {showLogoText && <LogoText>oderPlanets</LogoText>}
       </LogoLink>
+      {/* </Link> */}
 
       <BlinkCursor duration={1.6} height={14} left={5} right={2} />
 

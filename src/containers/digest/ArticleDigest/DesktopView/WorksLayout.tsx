@@ -63,7 +63,6 @@ const tabItems = [
 
 const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
   const { meta, title, upvotesCount } = article
-  console.log('meta -> ', meta.latestUpvotedUsers.length)
 
   return (
     <Fragment>

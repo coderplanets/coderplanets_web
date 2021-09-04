@@ -76,6 +76,7 @@ export type TProps = {
   showTotalNumber?: boolean
   reverse?: boolean
   scrollPosition?: any
+  popCardPlacement?: 'top' | 'bottom'
 
   onUserSelect?: (user: TUser) => void
   onTotalSelect?: () => void
@@ -93,6 +94,7 @@ const AvatarsRow: FC<TProps> = ({
   reverse = true,
   // see https://github.com/Aljullu/react-lazy-load-image-component/issues/42
   scrollPosition = null,
+  popCardPlacement = 'bottom',
 }) => {
   if (users.length === 0) {
     return <span />
@@ -122,13 +124,19 @@ const AvatarsRow: FC<TProps> = ({
             user={sortedUsers[0]}
             size={size}
             onUserSelect={onUserSelect}
+            popCardPlacement={popCardPlacement}
           />
         </RealAvatarContext.Provider>
       ) : (
         <AvatarsWrapper>
           {slice(0, limit, sortedUsers).map((user) => (
             <RealAvatarContext.Provider key={user.login} value={{ size, user }}>
-              <RealAvatar user={user} size={size} onUserSelect={onUserSelect} />
+              <RealAvatar
+                user={user}
+                size={size}
+                onUserSelect={onUserSelect}
+                popCardPlacement={popCardPlacement}
+              />
             </RealAvatarContext.Provider>
           ))}
         </AvatarsWrapper>

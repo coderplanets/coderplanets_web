@@ -28,6 +28,7 @@ export const article = `
   copyRight
   insertedAt
   activeAt
+  updatedAt
   views
   commentsCount
   commentsParticipantsCount
@@ -45,13 +46,19 @@ export const article = `
   }
 `
 export const articleDetail = `
-  updatedAt
+  meta {
+    isEdited
+    latestUpvotedUsers {
+      login
+      avatar
+      nickname
+    }
+  }
 
   document {
     bodyHtml
   }
 
-  linkAddr
   collectsCount
   upvotesCount
   archivedAt

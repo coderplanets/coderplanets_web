@@ -19,17 +19,23 @@ type TProps = {
   user?: TUser
   size?: TAvatarSize
   scrollPosition?: any
+  popCardPlacement?: 'top' | 'bottom'
   onUserSelect: (user: TUser) => void
 }
 
-const RealAvatar: FC<TProps> = ({ user, size, onUserSelect }) => {
+const RealAvatar: FC<TProps> = ({
+  user,
+  size,
+  onUserSelect,
+  popCardPlacement,
+}) => {
   return (
     <Wrapper size={size}>
       <Tooltip
         content={<UserCard item={user} />}
         delay={0}
         contentHeight={getAvatarSize(size, 'number') as string}
-        trigger="click"
+        placement={popCardPlacement}
       >
         <InnerWrapper>
           <AvatarsImg
