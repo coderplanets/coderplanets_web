@@ -4,6 +4,7 @@ import type { TArticle } from '@/spec'
 import { ICON } from '@/config'
 
 import { Space, SpaceGrow } from '@/components/Common'
+import Tabs from '@/components/Switcher/Tabs'
 import Upvote from '@/components/Upvote'
 
 import {
@@ -18,19 +19,40 @@ type TProps = {
   article: TArticle
 }
 
+const tabItems = [
+  {
+    title: '简介',
+    raw: 'story',
+  },
+  {
+    title: '技术栈',
+    raw: 'techstack',
+  },
+  {
+    title: '更新',
+    raw: 'update',
+  },
+  {
+    title: '作者访谈',
+    raw: 'interview',
+  },
+  {
+    title: '社区',
+    raw: 'community',
+  },
+]
+
 const ArticleInfo: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <TabWrapper>
-        <Tab $active>概览</Tab>
-        <Space right={20} />
-        <Tab>技术栈</Tab>
-        <Space right={20} />
-        <Tab>团队</Tab>
-        <Space right={20} />
-        <Tab>
-          社区 <TabIcon src={`${ICON}/shape/link-outside.svg`} />
-        </Tab>
+        <Tabs
+          items={tabItems}
+          size="small"
+          activeKey="story"
+          bottomSpace={10}
+          articleColor
+        />
       </TabWrapper>
       <SpaceGrow />
       <UpvoteWrapper>

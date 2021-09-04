@@ -5,6 +5,7 @@ import type { TID } from './utils'
 export type TCopyright = 'cc' | 'approve' | 'forbid'
 
 type TArticleMeta = {
+  thread?: string
   citingCount?: number
   isCommentLocked?: boolean
   isEdited?: boolean

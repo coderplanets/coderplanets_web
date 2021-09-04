@@ -7,8 +7,8 @@ import HashTagSVG from '@/SvgIcons/HashTagSVG'
 export const Wrapper = styled.article`
   ${css.flex('justify-start', 'align-center')};
   position: relative;
-  width: 260px;
-  ${css.cutRest('260px')};
+  width: 43%;
+  ${css.cutRest('43%')};
 `
 export const Tag = styled.div`
   ${css.flex('align-center')};

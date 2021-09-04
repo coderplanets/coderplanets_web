@@ -21,6 +21,8 @@ type TProps = {
 }
 
 const ArticleInfo: FC<TProps> = ({ article }) => {
+  const { upvotesCount, meta } = article
+
   return (
     <Wrapper>
       <BaseWrapper>
@@ -32,7 +34,7 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
         </CollectWrapper>
       </BaseWrapper>
       <UpvoteWrapper>
-        <Upvote />
+        <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
       </UpvoteWrapper>
     </Wrapper>
   )

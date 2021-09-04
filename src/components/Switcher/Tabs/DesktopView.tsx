@@ -58,6 +58,7 @@ type TProps = {
   size: TSIZE_SM
   slipHeight: '1px' | '2px'
   articleColor?: boolean
+  bottomSpace?: number
 }
 
 const Tabs: FC<TProps> = ({
@@ -68,6 +69,7 @@ const Tabs: FC<TProps> = ({
   activeKey = '',
   slipHeight = '2px',
   articleColor = false,
+  bottomSpace = 0,
 }) => {
   const { isMobile } = usePlatform()
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
@@ -129,6 +131,7 @@ const Tabs: FC<TProps> = ({
             item={item}
             size={size}
             articleColor={articleColor}
+            bottomSpace={bottomSpace}
             setItemWidth={handleNaviItemWith}
             onClick={handleItemClick}
           />

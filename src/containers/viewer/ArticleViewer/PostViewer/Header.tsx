@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
@@ -21,7 +21,7 @@ type TProps = {
 }
 
 const Header: FC<TProps> = ({ article }) => {
-  const { author, insertedAt } = article
+  const { author, meta, insertedAt } = article
   return (
     <Wrapper>
       <AuthorWrapper>
@@ -34,8 +34,12 @@ const Header: FC<TProps> = ({ article }) => {
         <PubDate>
           <TimeAgo datetime={insertedAt} locale="zh_CN" />
         </PubDate>
-        <DotDivider space={8} />
-        <EditedHint>修改过</EditedHint>
+        {meta.isEdited && (
+          <Fragment>
+            <DotDivider space={8} />
+            <EditedHint>修改过</EditedHint>
+          </Fragment>
+        )}
       </PublishWrapper>
     </Wrapper>
   )

@@ -68,12 +68,16 @@ const getLabelColor = (active: boolean, articleColor: boolean): string => {
   return active ? theme('tabs.headerActive') : theme('tabs.header')
 }
 
-type TLabel = TActive & { articleColor: boolean; size: TSIZE_SM }
+type TLabel = TActive & {
+  articleColor: boolean
+  size: TSIZE_SM
+  bottomSpace: number
+}
 export const Label = styled.span<TLabel>`
   ${css.flex('align-center')};
   white-space: nowrap;
   color: ${({ active, articleColor }) => getLabelColor(active, articleColor)};
-  margin-bottom: ${({ size }) => (size === SIZE.SMALL ? '4px' : 0)};
+  margin-bottom: ${({ bottomSpace }) => `${bottomSpace}px`};
 
   &:hover {
     color: ${({ articleColor }) =>

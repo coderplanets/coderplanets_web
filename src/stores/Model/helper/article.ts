@@ -1,11 +1,13 @@
 import { types as T } from 'mobx-state-tree'
 
+import { THREAD } from '@/constant'
 import { User, SimpleUser, PagedUsers } from '../User'
 import { Community } from '../Community'
 import { Comment } from '../Comment'
 import { Tag } from '../Tag'
 
 const ArticleMeta = T.model('ArticleMeta', {
+  thread: T.optional(T.string, THREAD.POST),
   isEdited: T.optional(T.boolean, false),
   isCommentLocked: T.optional(T.boolean, false),
   lastActiveAt: T.optional(T.string, ''),

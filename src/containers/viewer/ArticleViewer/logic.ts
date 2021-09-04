@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
 import { merge } from 'ramda'
 
+import { EVENT, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { errRescue } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
-
-import { EVENT, ERR } from '@/constant'
 
 import S from './schema'
 import type { TStore } from './store'
@@ -24,12 +23,14 @@ const log = buildLog('L:ArticleViewer')
 
 export const holder = 1
 
-const loadPost = () => {
-  const { id } = store.viewingData
+const loadArticle = (): void => {
   const userHasLogin = store.isLogin
+  const { id, meta } = store.viewingArticle
+
   const variables = { id, userHasLogin }
+  console.log('articleViewer: ', store.viewingArticle)
   markLoading()
-  sr71$.query(S.post, variables)
+  return sr71$.query(S[meta.thread], variables)
 }
 
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
@@ -42,7 +43,8 @@ const DataSolver = [
   {
     match: asyncRes('post'),
     action: ({ post }) => {
-      store.setViewing({ post: merge(store.viewingData, post) })
+      console.log('got post:', post)
+      store.setViewing({ post: merge(store.viewingArticle, post) })
       store.syncViewingItem(post)
       markLoading(false)
     },
@@ -97,7 +99,7 @@ export const useInit = (_store: TStore): void => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    loadPost()
+    loadArticle()
 
     return () => {
       // log('effect uninit')

@@ -47,6 +47,7 @@ export const article = `
 `
 export const articleDetail = `
   meta {
+    thread
     isEdited
     latestUpvotedUsers {
       login

@@ -9,7 +9,7 @@ import type {
   TCommunity,
   TRootStore,
   TAccount,
-  TViewing,
+  TArticle,
   TThread,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
@@ -40,9 +40,9 @@ const ArticleViewer = T.model('ArticleViewer', {
 
       return root.viewing.activeThread
     },
-    get viewingData(): TViewing {
+    get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return root.viewingData
+      return toJS(root.viewingArticle)
     },
   }))
   .actions((self) => ({
