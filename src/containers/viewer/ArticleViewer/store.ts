@@ -42,7 +42,7 @@ const ArticleViewer = T.model('ArticleViewer', {
     },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return toJS(root.viewingArticle)
+      return toJS(root.viewing.viewingArticle)
     },
   }))
   .actions((self) => ({

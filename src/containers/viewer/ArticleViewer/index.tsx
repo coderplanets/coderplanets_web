@@ -35,13 +35,14 @@ const ArticleViewerContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { viewingArticle, loading } = store
+  console.log('viewingArticle: ', viewingArticle)
 
   return (
     <Wrapper testid={testid}>
       <Viewer article={viewingArticle} loading={loading} />
-      <CommentsWrapper>
+      {/* <CommentsWrapper>
         <Comments onCreate={console.log} />
-      </CommentsWrapper>
+      </CommentsWrapper> */}
     </Wrapper>
   )
 }

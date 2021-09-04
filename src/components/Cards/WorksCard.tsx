@@ -9,9 +9,9 @@ import TimeAgo from 'timeago-react'
 import Link from 'next/link'
 
 import { ICON, ICON_CMD } from '@/config'
-import { THREAD } from '@/constant'
+import { THREAD, TYPE, EVENT } from '@/constant'
 
-import { cutRest } from '@/utils/helper'
+import { cutRest, send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import type { TWorks } from '@/spec'
@@ -83,7 +83,19 @@ const WorksCard: FC<TProps> = ({
                 </OSSSign>
               )}
             </Title>
-            <DigestSentence top={5} bottom={15} onPreview={() => log}>
+            <DigestSentence
+              top={5}
+              bottom={15}
+              onPreview={() => {
+                // setTimeout(() => setViewedFlag(item.id), 1500)
+
+                const type = TYPE.DRAWER[`${THREAD.WORKS.toUpperCase()}_VIEW`]
+                const thread = THREAD.WORKS
+
+                send(EVENT.DRAWER.OPEN, { type, thread, data: item })
+                // send(EVENT.PREVIEW_ARTICLE, { article: item })
+              }}
+            >
               {cutRest(desc, descLimit)}
             </DigestSentence>
           </div>

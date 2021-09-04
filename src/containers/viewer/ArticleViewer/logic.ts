@@ -24,13 +24,16 @@ const log = buildLog('L:ArticleViewer')
 export const holder = 1
 
 const loadArticle = (): void => {
+  console.log('## loadArticle ...')
   const userHasLogin = store.isLogin
   const { id, meta } = store.viewingArticle
 
   const variables = { id, userHasLogin }
-  console.log('articleViewer: ', store.viewingArticle)
+  console.log('# articleViewer: ', store.viewingArticle)
   markLoading()
-  return sr71$.query(S[meta.thread], variables)
+  const schema = S[meta.thread.toLowerCase()]
+  console.log('schame: ', schema)
+  return sr71$.query(schema, variables)
 }
 
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
@@ -46,6 +49,15 @@ const DataSolver = [
       console.log('got post:', post)
       store.setViewing({ post: merge(store.viewingArticle, post) })
       store.syncViewingItem(post)
+      markLoading(false)
+    },
+  },
+  {
+    match: asyncRes('works'),
+    action: ({ works }) => {
+      console.log('got works:', works)
+      store.setViewing({ works: merge(store.viewingArticle, works) })
+      store.syncViewingItem(works)
       markLoading(false)
     },
   },

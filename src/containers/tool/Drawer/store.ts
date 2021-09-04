@@ -20,7 +20,7 @@ import { SWIPE_THRESHOLD } from './styles/metrics'
 
 const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
 
-const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO]
+const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO, THREAD.WORKS]
 const THREAD_CONTENT_CURD_TYPES = [
   // post
   TYPE.DRAWER.POST_VIEW,
@@ -30,6 +30,10 @@ const THREAD_CONTENT_CURD_TYPES = [
   TYPE.DRAWER.JOB_VIEW,
   TYPE.DRAWER.JOB_CREATE,
   TYPE.DRAWER.JOB_EDIT,
+  // works
+  TYPE.DRAWER.WORKS_VIEW,
+  TYPE.DRAWER.WORKS_CREATE,
+  TYPE.DRAWER.WORKS_EDIT,
   // repo
   TYPE.DRAWER.REPO_VIEW,
   TYPE.DRAWER.REPO_CREATE,
@@ -40,6 +44,7 @@ const THREAD_CONTENT_CURD_TYPES = [
 const VIEWER_TYPES = [
   TYPE.DRAWER.POST_VIEW,
   TYPE.DRAWER.JOB_VIEW,
+  TYPE.DRAWER.WORKS_VIEW,
   TYPE.DRAWER.REPO_VIEW,
 ]
 
@@ -62,7 +67,7 @@ const Attachment = T.model('Attachment', {
   body: T.maybeNull(T.string),
   digest: T.maybeNull(T.string),
   author: T.maybeNull(User),
-  copyRight: T.optional(T.string, 'original'),
+  copyRight: T.maybeNull(T.string),
   linkAddr: T.maybeNull(T.string),
 })
 
@@ -148,6 +153,9 @@ const DrawerStore = T.model('DrawerStore', {
   }))
   .actions((self) => ({
     open({ type, data, thread, options = {} }): void {
+      console.log('open data: ', data)
+      console.log('open thread: ', thread)
+
       const slf = self as TStore
 
       if (type === TYPE.DRAWER.MODELINE_MENU) {

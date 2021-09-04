@@ -103,6 +103,7 @@ const DataSolver = [
     match: asyncRes(EVENT.PREVIEW_ARTICLE),
     action: (res) => {
       const { article } = res[EVENT.PREVIEW_ARTICLE]
+      console.log('onPreview: ', article)
       onPreview(article)
     },
   },

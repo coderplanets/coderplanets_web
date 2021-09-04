@@ -1,19 +1,12 @@
 import { memo, FC } from 'react'
 
 import type { TArticle } from '@/spec'
-import { ICON } from '@/config'
 
-import { Space, SpaceGrow } from '@/components/Common'
+import { SpaceGrow } from '@/components/Common'
 import Tabs from '@/components/Switcher/Tabs'
 import Upvote from '@/components/Upvote'
 
-import {
-  Wrapper,
-  TabWrapper,
-  Tab,
-  TabIcon,
-  UpvoteWrapper,
-} from '../styles/works_viewer/article_info'
+import { Wrapper, TabWrapper } from '../styles/works_viewer/article_info'
 
 type TProps = {
   article: TArticle
@@ -43,6 +36,8 @@ const tabItems = [
 ]
 
 const ArticleInfo: FC<TProps> = ({ article }) => {
+  const { upvotesCount, meta } = article
+
   return (
     <Wrapper>
       <TabWrapper>
@@ -55,9 +50,7 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
         />
       </TabWrapper>
       <SpaceGrow />
-      <UpvoteWrapper>
-        <Upvote />
-      </UpvoteWrapper>
+      <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
     </Wrapper>
   )
 }

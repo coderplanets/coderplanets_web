@@ -12,7 +12,7 @@ import { useShortcut, useResize } from '@/hooks'
 
 import type { TStore } from './store'
 
-import Viewer from './Viewer/index'
+import Viewer from './Viewer'
 import Content from './Content'
 
 import { useInit, closeDrawer } from './logic'

@@ -11,7 +11,13 @@ import { THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { User, Community, Post, Blog, Job, Radar, Works } from '@/model'
 
-const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.BLOG, THREAD.RADAR]
+const PREVIEWABLE_THREADS = [
+  THREAD.POST,
+  THREAD.JOB,
+  THREAD.BLOG,
+  THREAD.RADAR,
+  THREAD.WORKS,
+]
 
 const ViewingStore = T.model('ViewingStore', {
   user: T.optional(User, {}),
@@ -65,8 +71,11 @@ const ViewingStore = T.model('ViewingStore', {
     },
     get viewingArticle(): TArticle {
       const curThread = self.viewingThread || self.activeThread
+      console.log('WTC? ', curThread)
       if (includes(curThread, PREVIEWABLE_THREADS)) {
-        return toJS(self[curThread])
+        console.log('WTC3? ', toJS(self[curThread]))
+        // return toJS(self[curThread])
+        return self[curThread]
       }
       return {}
     },

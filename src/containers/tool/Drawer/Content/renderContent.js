@@ -25,6 +25,9 @@ const renderContent = (type, attachment, attUser, mmType) => {
 
     case TYPE.DRAWER.POST_VIEW:
       return <ArticleViewer />
+
+    case TYPE.DRAWER.WORKS_VIEW:
+      return <ArticleViewer />
     // post
 
     case TYPE.DRAWER.POST_CREATE:

@@ -20,7 +20,7 @@ type TProps = {
 const Viewer: FC<TProps> = ({ article, loading }) => {
   const { meta } = article
 
-  switch (meta.thread) {
+  switch (meta.thread.toLowerCase()) {
     case THREAD.WORKS: {
       return <WorksViewer article={article} loading={loading} />
     }

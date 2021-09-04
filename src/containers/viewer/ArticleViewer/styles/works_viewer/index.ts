@@ -7,15 +7,6 @@ export const Wrapper = styled.div`
 `
 export const BodyWrapper = styled.div`
   ${css.flexColumn()};
-  padding: 20px;
   min-height: 400px;
-  margin-top: 5px;
-  margin-left: 4%;
-  margin-right: 4%;
-  border-radius: 3px;
-`
-export const ArticleBody = styled.article`
-  font-size: 1.2em;
-  line-height: 2em;
-  flex-grow: 1;
+  margin-top: 26px;
 `

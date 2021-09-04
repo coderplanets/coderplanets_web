@@ -70,6 +70,7 @@ export const articleDetail = `
 `
 export const pageArticleMeta = `
   meta {
+    thread
     latestUpvotedUsers {
       login
       avatar
