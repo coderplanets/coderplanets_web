@@ -8,7 +8,6 @@ export const radar = `
       body
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
-      upvotesCount
       viewerHasUpvoted @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
       pagedCommentsParticipators {
@@ -26,7 +25,6 @@ export const pagedRadars = `
       entries {
         ${F.article}
         ${F.pageArticleMeta}
-        upvotesCount
         digest
         linkAddr
         viewerHasViewed @include(if: $userHasLogin)

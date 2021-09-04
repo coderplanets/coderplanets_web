@@ -7,7 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge, contains, values } from 'ramda'
 
 import type { TRootStore, TCommunity, TThread, TID } from '@/spec'
-import { TYPE, THREAD } from '@/constant'
+import { TYPE, ARTICLE_THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
 import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
@@ -20,7 +20,6 @@ import { SWIPE_THRESHOLD } from './styles/metrics'
 
 const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
 
-const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO, THREAD.WORKS]
 const THREAD_CONTENT_CURD_TYPES = [
   // post
   TYPE.DRAWER.POST_VIEW,
@@ -164,7 +163,7 @@ const DrawerStore = T.model('DrawerStore', {
         // @ts-ignore TODO: fix later
         slf.attachment = merge(data, { type })
       }
-      if (contains(thread, PREVIEWABLE_THREADS)) {
+      if (contains(thread, values(ARTICLE_THREAD))) {
         slf.setViewing({ [thread]: data, viewingThread: thread })
       }
 

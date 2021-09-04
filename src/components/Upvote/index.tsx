@@ -12,6 +12,7 @@ import { buildLog } from '@/utils/logger'
 
 import DefaultLayout from './DefaultLayout'
 import CommentLayout from './CommentLayout'
+import PostListLayout from './PostListLayout'
 import ArticleLayout from './ArticleLayout'
 import WorksArticleLayout from './WorksArticleLayout'
 import WorksCardLayout from './WorksCardLayout'
@@ -33,6 +34,9 @@ const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
   switch (type) {
     case UPVOTE_LAYOUT.COMMENT: {
       return <CommentLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.POST_LIST: {
+      return <PostListLayout {...restProps} />
     }
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return <WorksArticleLayout {...restProps} />

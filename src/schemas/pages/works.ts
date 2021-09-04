@@ -14,7 +14,6 @@ export const pagedWorks = `
       entries {
         ${F.article}
         ${F.pageArticleMeta}
-        upvotesCount
         linkAddr
         digest
         commentsParticipants {

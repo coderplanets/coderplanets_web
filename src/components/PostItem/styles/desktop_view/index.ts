@@ -6,10 +6,14 @@ import Img from '@/Img'
 
 export const Main = styled.div`
   ${css.flexColumnGrow()};
-  margin-left: 8px;
+  margin-left: 6px;
 `
 export const AvatarWrapper = styled.div`
-  cursor: pointer;
+  ${css.flexColumn('align-both')};
+`
+export const UpvoteWrapper = styled.div`
+  margin-top: 10px;
+  margin-left: 3px;
 `
 export const Avatar = styled(Img)`
   ${css.circle(36)};

@@ -7,17 +7,9 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values, merge, includes } from 'ramda'
 
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
-import { THREAD } from '@/constant'
+import { THREAD, ARTICLE_THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { User, Community, Post, Blog, Job, Radar, Works } from '@/model'
-
-const PREVIEWABLE_THREADS = [
-  THREAD.POST,
-  THREAD.JOB,
-  THREAD.BLOG,
-  THREAD.RADAR,
-  THREAD.WORKS,
-]
 
 const ViewingStore = T.model('ViewingStore', {
   user: T.optional(User, {}),
@@ -34,7 +26,7 @@ const ViewingStore = T.model('ViewingStore', {
   ),
   // for drawer usage
   viewingThread: T.maybeNull(
-    T.enumeration('viewingThread', PREVIEWABLE_THREADS),
+    T.enumeration('viewingThread', values(ARTICLE_THREAD)),
   ),
 })
   .views((self) => ({
@@ -71,10 +63,7 @@ const ViewingStore = T.model('ViewingStore', {
     },
     get viewingArticle(): TArticle {
       const curThread = self.viewingThread || self.activeThread
-      console.log('WTC? ', curThread)
-      if (includes(curThread, PREVIEWABLE_THREADS)) {
-        console.log('WTC3? ', toJS(self[curThread]))
-        // return toJS(self[curThread])
+      if (includes(curThread, values(ARTICLE_THREAD))) {
         return self[curThread]
       }
       return {}

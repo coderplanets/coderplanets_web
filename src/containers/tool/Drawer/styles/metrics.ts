@@ -1,4 +1,4 @@
-import { TYPE } from '@/constant'
+import { TYPE, ARTICLE_THREAD } from '@/constant'
 
 type Options = {
   position?: 'H' | 'M' | 'L'

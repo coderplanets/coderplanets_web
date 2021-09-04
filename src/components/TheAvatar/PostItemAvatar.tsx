@@ -24,12 +24,12 @@ const PostItemAvatar: FC<TProps> = ({ user, onSelect }) => {
       {user.login === 'mydearxym' ? (
         <QuoteAvatar
           src={user.avatar}
-          fallback={<ImgFallback user={user} size={32} top={2} quote />}
+          fallback={<ImgFallback user={user} size={30} top={2} quote />}
         />
       ) : (
         <Avatar
           src={user.avatar}
-          fallback={<ImgFallback user={user} size={32} top={-1} left={-1} />}
+          fallback={<ImgFallback user={user} size={30} top={-1} left={-1} />}
         />
       )}
       {user.login === 'mydearxym' ? <QuoteShadow /> : <InnerShadow />}

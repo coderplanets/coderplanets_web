@@ -8,7 +8,6 @@ export const meetup = `
       linkAddr
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
-      upvotesCount
       viewerHasUpvoted @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
       pagedCommentsParticipators {
@@ -26,7 +25,6 @@ export const pagedMeetups = `
       entries {
         ${F.article}
         ${F.pageArticleMeta}
-        upvotesCount
         linkAddr
         digest
         commentsParticipants {

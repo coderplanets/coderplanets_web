@@ -31,6 +31,7 @@ export const article = `
   updatedAt
   views
   commentsCount
+  upvotesCount
   commentsParticipantsCount
   author {
     ${author}
@@ -61,7 +62,6 @@ export const articleDetail = `
   }
 
   collectsCount
-  upvotesCount
   archivedAt
   isArchived
 

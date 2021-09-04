@@ -1,3 +1,4 @@
+import { ARTICLE_THREAD } from '@/constant'
 // type
 
 const TYPE = {

@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 

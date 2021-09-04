@@ -8,7 +8,6 @@ export const blog = `
       linkAddr
       collectsCount
       viewerHasCollected @include(if: $userHasLogin)
-      upvotesCount
       viewerHasUpvoted @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
     }

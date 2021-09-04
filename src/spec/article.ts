@@ -127,6 +127,7 @@ export type TUpvoteLayout =
   | 'default'
   | 'comment'
   | 'article'
+  | 'post-list'
   | 'works-article'
   | 'works-card'
 

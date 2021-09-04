@@ -1,13 +1,19 @@
 import { FC, Fragment, memo } from 'react'
 
 import type { TPost, TUser, TAccount } from '@/spec'
+import { UPVOTE_LAYOUT } from '@/constant'
 
 import TheAvatar from '@/components/TheAvatar'
+import Upvote from '@/components/Upvote'
 
 import Header from './Header'
 import Body from './Body'
 
-import { Main } from '../styles/desktop_view/index'
+import {
+  AvatarWrapper,
+  UpvoteWrapper,
+  Main,
+} from '../styles/desktop_view/index'
 
 type TProps = {
   active?: TPost | null
@@ -20,7 +26,12 @@ type TProps = {
 const DigestView: FC<TProps> = ({ entry }) => {
   return (
     <Fragment>
-      <TheAvatar user={entry.author} />
+      <AvatarWrapper>
+        <TheAvatar user={entry.author} />
+        <UpvoteWrapper>
+          <Upvote type={UPVOTE_LAYOUT.POST_LIST} count={entry.upvotesCount} />
+        </UpvoteWrapper>
+      </AvatarWrapper>
       <Main>
         <Header item={entry} />
         <Body item={entry} />
