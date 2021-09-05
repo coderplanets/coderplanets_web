@@ -13,14 +13,14 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const LeftSidebarWrapper = styled.div`
-  width: 160px;
+  width: 140px;
   margin-top: 20px;
   margin-right: 10px;
 `
-export const ContentWrapper = styled.div<{ showSidebar: boolean }>`
+export const ContentWrapper = styled.div`
   ${css.flex()};
   width: 100%;
-  padding: ${({ showSidebar }) => (showSidebar ? '0' : '0 60px')};
+  padding: 0;
 `
 export const MainContent = styled.div`
   flex-grow: 1;

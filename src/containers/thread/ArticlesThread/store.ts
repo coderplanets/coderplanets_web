@@ -111,14 +111,14 @@ const ArticlesThread = T.model('ArticlesThread', {
       slf.mark(res)
     },
 
-    updateItem(item): void {
+    updateArticle(item: TArticle): void {
       const slf = self as TStore
       const { entries } = slf.pagedArticlesData
-      const index = findIndex(
-        propEq('id', item.id),
-        entries as Record<'id', any>[],
-      )
+      // @ts-ignore
+      const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
+        // TODO:
+        // @ts-ignore
         self.pagedPosts.entries[index] = merge(
           toJS(self.pagedPosts.entries[index]),
           item,

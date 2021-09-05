@@ -54,9 +54,9 @@ const WorksCard: FC<TProps> = ({
   preview = false,
   // item,
 }) => {
-  const descLimit = preview ? 20 : 30
+  const descLimit = preview ? 20 : 60
 
-  const { id, title, desc, upvotesCount, commentsCount } = item
+  const { id, title, desc, digest, upvotesCount, commentsCount } = item
 
   return (
     <Wrapper testid={testid} preview={preview}>
@@ -96,7 +96,7 @@ const WorksCard: FC<TProps> = ({
                 // send(EVENT.PREVIEW_ARTICLE, { article: item })
               }}
             >
-              {cutRest(desc, descLimit)}
+              {cutRest(digest, descLimit)}
             </DigestSentence>
           </div>
 

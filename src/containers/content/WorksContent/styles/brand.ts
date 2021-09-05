@@ -8,11 +8,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn()};
-  width: 90%;
   margin-bottom: 28px;
   margin-top: 12px;
   padding: 0 5px;
-  padding-right: 40px;
 `
 
 export const Divider = styled.div<TSpace>`

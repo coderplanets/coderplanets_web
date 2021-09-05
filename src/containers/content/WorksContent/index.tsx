@@ -81,11 +81,11 @@ const WorksContentContainer: FC<TProps> = ({
   useInit(store)
   const { activeView, showSidebar, pagedWorksData } = store
 
-  console.log('## pagedWorksData -> ', pagedWorksData)
+  // console.log('## pagedWorksData -> ', pagedWorksData)
 
   return (
     <Wrapper testid={testid} metric={metric}>
-      <ContentWrapper showSidebar={showSidebar}>
+      <ContentWrapper>
         {showSidebar && (
           <LeftSidebarWrapper>
             <FilterBar activeView={activeView} />

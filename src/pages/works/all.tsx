@@ -64,6 +64,9 @@ export const getServerSideProps = async (context) => {
 
   const initProps = {
     ...ssrBaseStates(resp),
+    viewing: {
+      activeThread: THREAD.WORKS,
+    },
     worksContent: {
       pagedWorks,
     },

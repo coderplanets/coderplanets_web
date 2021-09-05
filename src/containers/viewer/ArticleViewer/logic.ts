@@ -24,15 +24,12 @@ const log = buildLog('L:ArticleViewer')
 export const holder = 1
 
 const loadArticle = (): void => {
-  console.log('## loadArticle ...')
   const userHasLogin = store.isLogin
   const { id, meta } = store.viewingArticle
 
   const variables = { id, userHasLogin }
-  console.log('# articleViewer: ', store.viewingArticle)
   markLoading()
   const schema = S[meta.thread.toLowerCase()]
-  console.log('schame: ', schema)
   return sr71$.query(schema, variables)
 }
 
@@ -57,7 +54,7 @@ const DataSolver = [
     action: ({ works }) => {
       console.log('got works:', works)
       store.setViewing({ works: merge(store.viewingArticle, works) })
-      store.syncViewingItem(works)
+      // store.syncViewingItem(works) // do in works content
       markLoading(false)
     },
   },

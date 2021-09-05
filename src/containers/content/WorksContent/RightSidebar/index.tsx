@@ -18,6 +18,7 @@ import {
   PublishIcon,
   PublishBtnWrapper,
   InterviewsWrapper,
+  SubscribeWrapper,
   Footer,
 } from '../styles/right_sidebar/index'
 
@@ -58,7 +59,7 @@ const RightSidebar: FC<TProps> = ({
           }}
         >
           <PublishIcon src={`${ICON}/edit/publish-rocket.svg`} />
-          发布作品
+          {showSidebar ? '发 布' : '发布新作品'}
         </DropdownButton>
       </PublishBtnWrapper>
       <Br top={16} bottom={20} />
@@ -68,11 +69,13 @@ const RightSidebar: FC<TProps> = ({
         <InterviewsList />
       </InterviewsWrapper>
       <Br top={20} bottom={20} />
-      <EmailSubscriber
-        activeByDefault
-        title="作品集市动态"
-        desc="定期推送优秀产品介绍、榜单等，可随时取消，欢迎订阅。"
-      />
+      <SubscribeWrapper showSidebar={showSidebar}>
+        <EmailSubscriber
+          activeByDefault
+          title="作品集市动态"
+          desc="定期推送优秀产品介绍、榜单等，可随时取消，欢迎订阅。"
+        />
+      </SubscribeWrapper>
       <Divider top={30} bottom={12} />
       <Footer>关于，统计，反馈</Footer>
     </Wrapper>
