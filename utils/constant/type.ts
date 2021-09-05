@@ -1,25 +1,30 @@
-import { ARTICLE_THREAD } from '@/constant'
-// type
+import { merge, keys, reduce } from 'ramda'
+import { TArticleThread } from '@/spec'
+import { ARTICLE_THREAD } from './thread'
+
+type TArticleOpt =
+  | `${Uppercase<TArticleThread>}_EDIT`
+  | `${Uppercase<TArticleThread>}_VIEW`
+  | `${Uppercase<TArticleThread>}_CREATE`
+
+const DRAWER_ARTICLE_CRUD = reduce(
+  merge,
+  {},
+  keys(ARTICLE_THREAD).map((T) => {
+    return {
+      [`${T}_VIEW`]: `${T}_VIEW`,
+      [`${T}_CREATE`]: `${T}_CREATE`,
+      [`${T}_EDIT`]: `${T}_EDIT`,
+    }
+  }),
+) as Record<TArticleOpt, string>
 
 const TYPE = {
   CUR_THEME: 'cur_theme',
 
-  CHEATSHEET_ROOT_PAGE: 'CHEATSHEET_ROOT_PAGE',
-  COMMUNITIES_ROOT_PAGE: 'COMMUNITIES_ROOT_PAGE',
-  COMMUNITY_PAGE: 'COMMUNITY_PAGE',
-  POST_PAGE: 'POST_PAGE',
-  MEETUPS_ROOT_PAGE: 'MEETUPS_ROOT_PAGE',
-
-  POST: 'POST',
-  JOB: 'JOB',
-  BLOG: 'BLOG',
-  REPO: 'REPO',
   // actions
   FAVORITE: 'FAVORITE',
   STAR: 'STAR',
-  WATCH: 'WATCH',
-  REACTION: 'reaction',
-  UNDO_REACTION: 'undoReaction',
 
   USER_LISTER_FAVORITES: 'USER_LISTER_FAVORITES',
   USER_LISTER_STARS: 'USER_LISTER_STARS',
@@ -37,24 +42,7 @@ const TYPE = {
 
     MAILS_VIEW: 'MAILS_VIEW',
 
-    POST_VIEW: 'POST_VIEW',
-    POST_CREATE: 'POST_CREATE',
-    POST_EDIT: 'POST_EDIT',
-
-    BLOG_VIEW: 'BLOG_VIEW',
-    BLOG_CREATE: 'BLOG_CREATE',
-    BLOG_EDIT: 'BLOG_EDIT',
-
-    WORKS_VIEW: 'WORKS_VIEW',
-    WORKS_CREATE: 'WORKS_CREATE',
-    WORKS_EDIT: 'WORKS_EDIT',
-
-    JOB_VIEW: 'JOB_VIEW',
-    JOB_CREATE: 'JOB_CREATE',
-    JOB_EDIT: 'JOB_EDIT',
-
-    REPO_VIEW: 'REPO_VIEW',
-    REPO_CREATE: 'REPO_CREATE',
+    ...DRAWER_ARTICLE_CRUD,
 
     // c11n settings
     C11N_SETTINGS: 'C11N_SETTINGS',

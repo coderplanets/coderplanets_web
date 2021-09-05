@@ -41,7 +41,7 @@ const CollectionFolderContainer: FC<TProps> = ({
   useInit(store)
 
   const {
-    viewingData,
+    viewingArticle,
     displayMode,
     isCreatorView,
     isUpdaterView,
@@ -77,7 +77,6 @@ const CollectionFolderContainer: FC<TProps> = ({
           <Setter
             // entries={entries}
             show={isSetterView}
-            // selectedId={viewingData.favoritedCategoryId}
             selectedId="1"
           />
           <Creator data={editCategoryData} show={isCreatorView} />

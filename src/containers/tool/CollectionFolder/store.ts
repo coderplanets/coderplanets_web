@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { merge } from 'ramda'
 
-import type { TUser, TRootStore, TViewing } from '@/spec'
+import type { TUser, TRootStore, TArticle } from '@/spec'
 import { THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
@@ -55,23 +55,10 @@ const CollectionFolder = T.model('CollectionFolder', {
       const root = getParent(self) as TRootStore
       return root.viewing.isSelfViewing
     },
-    // NOTE: can't not use root's viewingData because the
-    // activeThread is not right on user's page
-    // and it's passible set/unset favrites on user's page
-    get viewingData(): TViewing {
+    get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      switch (self.thread) {
-        case THREAD.JOB:
-          return toJS(root.viewing.job)
-
-        // case THREAD.REPO:
-        //   return toJS(root.viewing.repo)
-
-        default:
-          return toJS(root.viewing.post)
-      }
+      return root.viewing.viewingArticle
     },
-
     get editCategoryData() {
       return toJS(self.editCategory)
     },

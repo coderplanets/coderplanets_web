@@ -22,12 +22,12 @@ const log = buildLog('C:RepoViewer')
 const RepoViewerContainer = ({ repoViewer: store, attachment }) => {
   useInit(store, attachment)
 
-  const { curCommunity, viewingData, loading } = store
+  const { viewingArticle, loading } = store
 
   return (
     <React.Fragment>
       <GithubRepoPage
-        repo={viewingData}
+        repo={viewingArticle}
         viewerHeader={<div>ii</div>}
         bodyHeader={<div>ii</div>}
         updating={loading}

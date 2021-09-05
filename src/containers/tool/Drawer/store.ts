@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { merge, contains, values } from 'ramda'
+import { concat, keys, reduce, merge, contains, values } from 'ramda'
 
 import type { TRootStore, TCommunity, TThread, TID } from '@/spec'
 import { TYPE, ARTICLE_THREAD } from '@/constant'
@@ -20,25 +20,18 @@ import { SWIPE_THRESHOLD } from './styles/metrics'
 
 const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
 
-const THREAD_CONTENT_CURD_TYPES = [
-  // post
-  TYPE.DRAWER.POST_VIEW,
-  TYPE.DRAWER.POST_CREATE,
-  TYPE.DRAWER.POST_EDIT,
-  // job
-  TYPE.DRAWER.JOB_VIEW,
-  TYPE.DRAWER.JOB_CREATE,
-  TYPE.DRAWER.JOB_EDIT,
-  // works
-  TYPE.DRAWER.WORKS_VIEW,
-  TYPE.DRAWER.WORKS_CREATE,
-  TYPE.DRAWER.WORKS_EDIT,
-  // repo
-  TYPE.DRAWER.REPO_VIEW,
-  TYPE.DRAWER.REPO_CREATE,
-  // mails
-  TYPE.DRAWER.MAILS_VIEW,
-]
+const ARTICLE_THREAD_CURD_TYPES = reduce(
+  concat,
+  // @ts-ignore
+  [],
+  keys(ARTICLE_THREAD).map((T) => {
+    return [
+      TYPE.DRAWER[`${T}_VIEW`],
+      TYPE.DRAWER[`${T}_CREATE`],
+      TYPE.DRAWER[`${T}_EDIT`],
+    ]
+  }),
+)
 
 const VIEWER_TYPES = [
   TYPE.DRAWER.POST_VIEW,
@@ -59,7 +52,10 @@ const Options = T.model('Options', {
 const Attachment = T.model('Attachment', {
   id: T.string,
   type: T.optional(
-    T.enumeration('type', [...THREAD_CONTENT_CURD_TYPES]),
+    T.enumeration('type', [
+      ...ARTICLE_THREAD_CURD_TYPES,
+      TYPE.DRAWER.MAILS_VIEW,
+    ]),
     TYPE.DRAWER.POST_VIEW,
   ),
   title: T.string,
@@ -90,7 +86,8 @@ const DrawerStore = T.model('DrawerStore', {
       // account
       TYPE.DRAWER.ACCOUNT_EDIT,
       // article types
-      ...THREAD_CONTENT_CURD_TYPES,
+      ...ARTICLE_THREAD_CURD_TYPES,
+      TYPE.DRAWER.MAILS_VIEW,
       //
       TYPE.DRAWER.C11N_SETTINGS,
       TYPE.DRAWER.MODELINE_MENU,
@@ -152,8 +149,8 @@ const DrawerStore = T.model('DrawerStore', {
   }))
   .actions((self) => ({
     open({ type, data, thread, options = {} }): void {
-      console.log('open data: ', data)
-      console.log('open thread: ', thread)
+      // console.log('open data: ', data)
+      // console.log('open thread: ', thread)
 
       const slf = self as TStore
 

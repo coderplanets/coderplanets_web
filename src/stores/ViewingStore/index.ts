@@ -8,7 +8,7 @@ import { values, merge, includes } from 'ramda'
 
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
 import { THREAD, ARTICLE_THREAD } from '@/constant'
-import { markStates, toJS } from '@/utils/mobx'
+import { markStates } from '@/utils/mobx'
 import { User, Community, Post, Blog, Job, Radar, Works } from '@/model'
 
 const ViewingStore = T.model('ViewingStore', {
@@ -45,21 +45,6 @@ const ViewingStore = T.model('ViewingStore', {
     },
     get currentThread(): TThread {
       return self.viewingThread || self.activeThread
-    },
-    get viewingData(): TArticle {
-      const curThread = self.viewingThread || self.activeThread
-      switch (curThread) {
-        case THREAD.JOB:
-          return toJS(self.job)
-        case THREAD.BLOG:
-          return toJS(self.blog)
-        // case THREAD.REPO:
-        //   return toJS(self.repo)
-        case THREAD.POST:
-          return toJS(self.post)
-        default:
-          return toJS(self.post)
-      }
     },
     get viewingArticle(): TArticle {
       const curThread = self.viewingThread || self.activeThread

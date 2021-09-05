@@ -22,6 +22,7 @@ import type {
   TCommunity,
   TAccount,
   TUser,
+  TArticle,
   TThread,
   TRoute,
   TID,
@@ -112,7 +113,7 @@ const CommentsStore = T.model('CommentsStore', {
     },
     get participators(): TUser[] {
       const root = getParent(self) as TRootStore
-      const { commentsParticipants } = root.viewing.viewingData
+      const { commentsParticipants } = root.viewing.viewingArticle
       /*
       const commentsParticipants = [
         {
@@ -150,16 +151,16 @@ const CommentsStore = T.model('CommentsStore', {
       // const viewingCommunity = toJS(self.root.viewing.community)
       // if (viewingCommunity.raw) return viewingCommunity.raw
 
-      return root.viewing.viewingData.originalCommunity.raw
+      return root.viewing.viewingArticle.originalCommunity.raw
     },
-    get activeThread(): TThread {
+    get activeThread(): Uppercase<TThread> {
       const root = getParent(self) as TRootStore
       const { activeThread, viewingThread } = root.viewing
       return toUpper(viewingThread || activeThread)
     },
-    get viewingData(): any {
+    get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return root.viewingData
+      return root.viewing.viewingArticle
     },
     get editCommentData() {
       return toJS(self.editComment)

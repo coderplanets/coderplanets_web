@@ -1,3 +1,5 @@
+import type { TArticleThread, TThread } from '@/spec'
+
 export const ARTICLE_THREAD = {
   REPO: 'repo',
   POST: 'post',
@@ -6,9 +8,9 @@ export const ARTICLE_THREAD = {
   RADAR: 'radar',
   WORKS: 'works',
   MEETUP: 'meetup',
-}
+} as Record<Uppercase<TArticleThread>, TArticleThread>
 
 export const THREAD = {
   ...ARTICLE_THREAD,
   CPER: 'cper',
-}
+} as Record<Uppercase<TThread>, TThread>

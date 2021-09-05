@@ -285,9 +285,7 @@ const rootStore = T.model({
       // TODO self.doraemon.visible
       return self.doraemon.visible
     },
-    get viewingData(): TViewing {
-      return self.viewing.viewingData
-    },
+
     get viewingArticle(): TArticle {
       const { viewing } = self
       const { activeThread } = viewing

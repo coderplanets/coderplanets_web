@@ -71,7 +71,7 @@ const DataSolver = [
   // {
   //   match: asyncRes('setTag'),
   //   action: () => {
-  //     loadPost(store.viewingData)
+  //     loadPost(store.viewingArticle)
   //     closeDrawer()
   //     store.setViewing({ post: {} })
   //   },
@@ -79,7 +79,7 @@ const DataSolver = [
   // {
   //   match: asyncRes('unsetTag'),
   //   action: () => {
-  //     loadPost(store.viewingData)
+  //     loadPost(store.viewingArticle)
   //     closeDrawer()
   //     store.setViewing({ post: {} })
   //   },

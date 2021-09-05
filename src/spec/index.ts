@@ -97,6 +97,16 @@ export type TRootStore = RootStoreType
 
 export type TViewing = TCommunity | TArticle
 
-export type TThread = string
+// export type TThread = string
+export type TArticleThread =
+  | 'post'
+  | 'job'
+  | 'repo'
+  | 'meetup'
+  | 'blog'
+  | 'radar'
+  | 'works'
+
+export type TThread = TArticleThread | 'cper'
 
 export type TContainer = 'body' | 'drawer'
