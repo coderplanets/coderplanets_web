@@ -1,3 +1,4 @@
+import { concat, keys, reduce } from 'ramda'
 import { TYPE, ARTICLE_THREAD } from '@/constant'
 
 type Options = {
@@ -21,25 +22,16 @@ export const SWIPE_THRESHOLD = {
   },
 }
 
-export const WIDE_CASE = [
-  // post
-  TYPE.DRAWER.POST_VIEW,
-  TYPE.DRAWER.POST_CREATE,
-  TYPE.DRAWER.POST_EDIT,
-  // job
-  TYPE.DRAWER.JOB_VIEW,
-  TYPE.DRAWER.JOB_CREATE,
-  TYPE.DRAWER.JOB_EDIT,
-  // works
-  TYPE.DRAWER.WORKS_VIEW,
-  TYPE.DRAWER.WORKS_CREATE,
-  TYPE.DRAWER.WORKS_EDIT,
-  // repo
-  TYPE.DRAWER.REPO_VIEW,
-  TYPE.DRAWER.REPO_CREATE,
-  // mails
-  TYPE.DRAWER.MAILS_VIEW,
-]
+export const WIDE_CASE = reduce(
+  concat,
+  // @ts-ignore
+  [TYPE.DRAWER.MAILS_VIEW],
+  keys(ARTICLE_THREAD).map((T) => [
+    TYPE.DRAWER[`${T}_VIEW`],
+    TYPE.DRAWER[`${T}_CREATE`],
+    TYPE.DRAWER[`${T}_EDIT`],
+  ]),
+)
 
 // export for modeline usage
 export const L_HEIGHT = '25vh'

@@ -20,25 +20,22 @@ import { SWIPE_THRESHOLD } from './styles/metrics'
 
 const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
 
-const ARTICLE_THREAD_CURD_TYPES = reduce(
+const ARTICLE_VIEWER_TYPES = reduce(
   concat,
   // @ts-ignore
   [],
-  keys(ARTICLE_THREAD).map((T) => {
-    return [
-      TYPE.DRAWER[`${T}_VIEW`],
-      TYPE.DRAWER[`${T}_CREATE`],
-      TYPE.DRAWER[`${T}_EDIT`],
-    ]
-  }),
+  keys(ARTICLE_THREAD).map((T) => [TYPE.DRAWER[`${T}_VIEW`]]),
 )
 
-const VIEWER_TYPES = [
-  TYPE.DRAWER.POST_VIEW,
-  TYPE.DRAWER.JOB_VIEW,
-  TYPE.DRAWER.WORKS_VIEW,
-  TYPE.DRAWER.REPO_VIEW,
-]
+const ARTICLE_THREAD_CURD_TYPES = reduce(
+  concat,
+  // @ts-ignore
+  [...ARTICLE_VIEWER_TYPES],
+  keys(ARTICLE_THREAD).map((T) => [
+    TYPE.DRAWER[`${T}_CREATE`],
+    TYPE.DRAWER[`${T}_EDIT`],
+  ]),
+)
 
 const Options = T.model('Options', {
   direction: T.optional(
@@ -85,12 +82,11 @@ const DrawerStore = T.model('DrawerStore', {
     T.enumeration('previewType', [
       // account
       TYPE.DRAWER.ACCOUNT_EDIT,
-      // article types
-      ...ARTICLE_THREAD_CURD_TYPES,
       TYPE.DRAWER.MAILS_VIEW,
       //
       TYPE.DRAWER.C11N_SETTINGS,
       TYPE.DRAWER.MODELINE_MENU,
+      ...ARTICLE_THREAD_CURD_TYPES,
     ]),
   ),
   attUser: T.maybeNull(User),
@@ -200,7 +196,7 @@ const DrawerStore = T.model('DrawerStore', {
 
     // TODO: 重构时用 article.meta.thread 来替代 thread
     markPreviewURLIfNeed(id: TID): void {
-      if (!id || !contains(self.type, VIEWER_TYPES)) return
+      if (!id || !contains(self.type, ARTICLE_VIEWER_TYPES)) return
       self.previousHref = Global.location.href
       const thread = self.curThread
       const nextURL = `${Global.location.origin}/${thread}/${id}`
@@ -208,7 +204,7 @@ const DrawerStore = T.model('DrawerStore', {
     },
 
     restorePreviousURLIfNeed(): void {
-      if (!contains(self.type, VIEWER_TYPES)) return
+      if (!contains(self.type, ARTICLE_VIEWER_TYPES)) return
       Global.history.replaceState(null, 'new-title', self.previousHref)
     },
 
