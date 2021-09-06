@@ -24,8 +24,10 @@ export const AuthorDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
 `
+
 export const PublishWrapper = styled.div`
   ${css.flex('align-center')}
+  margin-right: 5px;
 `
 export const PublishHint = styled.div`
   color: ${theme('thread.articleDigest')};

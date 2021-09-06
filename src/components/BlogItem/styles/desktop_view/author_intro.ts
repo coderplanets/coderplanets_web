@@ -10,17 +10,19 @@ export const Wrapper = styled.div`
 export const Hint = styled.div`
   font-size: 11px;
   color: ${theme('thread.articleDigest')};
+  margin-top: 4px;
   opacity: 0.6;
 `
 export const Name = styled.div`
   font-size: 14px;
-  margin-top: 8px;
+  margin-top: 3px;
   margin-bottom: 8px;
   color: ${theme('thread.articleTitle')};
 `
 export const Intro = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
+  line-height: 1.8;
   text-align: right;
   position: relative;
   display: -webkit-box;

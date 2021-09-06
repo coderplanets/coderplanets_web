@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { merge } from 'ramda'
 
+import type { TArticle } from '@/spec'
+
 import { EVENT, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { errRescue } from '@/utils/helper'
@@ -37,6 +39,15 @@ const loadArticle = (): void => {
 
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
+const handleArticleLoaded = (article: TArticle): void => {
+  console.log('handleArticleLoaded: ', article)
+
+  const thread = article.meta.thread.toLowerCase()
+  store.setViewing({ [thread]: merge(store.viewingArticle, article) })
+  store.syncViewingItem(article)
+  markLoading(false)
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################
@@ -44,21 +55,15 @@ const markLoading = (maybe = true) => store.mark({ loading: maybe })
 const DataSolver = [
   {
     match: asyncRes('post'),
-    action: ({ post }) => {
-      console.log('got post:', post)
-      store.setViewing({ post: merge(store.viewingArticle, post) })
-      store.syncViewingItem(post)
-      markLoading(false)
-    },
+    action: ({ post }) => handleArticleLoaded(post),
   },
   {
     match: asyncRes('job'),
-    action: ({ job }) => {
-      console.log('got job:', job)
-      store.setViewing({ job: merge(store.viewingArticle, job) })
-      store.syncViewingItem(job)
-      markLoading(false)
-    },
+    action: ({ job }) => handleArticleLoaded(job),
+  },
+  {
+    match: asyncRes('blog'),
+    action: ({ blog }) => handleArticleLoaded(blog),
   },
   {
     match: asyncRes('works'),

@@ -26,7 +26,7 @@ import OperationPanel from './Actions/OperationPanel'
 import AuthorInfo from './AuthorInfo'
 
 import type { TStore } from './store'
-import { Wrapper, BaseInfo } from './styles'
+import { Wrapper, BaseInfo, Divider } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -35,11 +35,13 @@ const log = buildLog('C:ArticleFooter')
 type TProps = {
   articleFooter?: TStore
   testid?: string
+  showAuthorInfo?: boolean
 }
 
 const ArticleFooterContainer: FC<TProps> = ({
   articleFooter: store,
   testid = 'article-footer',
+  showAuthorInfo = true,
 }) => {
   useInit(store)
   const { viewingArticle, showReferenceList, showOperationList } = store
@@ -67,7 +69,9 @@ const ArticleFooterContainer: FC<TProps> = ({
 
       {showReferenceList && <RefersPanel />}
       {showOperationList && <OperationPanel />}
-      <AuthorInfo author={author} />
+
+      {!showAuthorInfo && <Divider />}
+      {showAuthorInfo && <AuthorInfo author={author} />}
     </Wrapper>
   )
 }

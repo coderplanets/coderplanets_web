@@ -1,13 +1,15 @@
-import { FC, Fragment, memo } from 'react'
+import { FC, memo } from 'react'
 
+import { UPVOTE_LAYOUT } from '@/constant'
 import type { TBlog, TUser, TAccount } from '@/spec'
 
+import Upvote from '@/components/Upvote'
 import AuthorIntro from './AuthorIntro'
 
 import Header from './Header'
 import Body from './Body'
 
-import { Main } from '../styles/desktop_view'
+import { Wrapper, Main } from '../styles/desktop_view'
 
 type TProps = {
   active?: TBlog | null
@@ -19,13 +21,14 @@ type TProps = {
 
 const DigestView: FC<TProps> = ({ entry }) => {
   return (
-    <Fragment>
+    <Wrapper>
+      <Upvote type={UPVOTE_LAYOUT.BLOG_LIST} count={entry.upvotesCount} />
       <Main>
         <Header item={entry} />
         <Body item={entry} />
       </Main>
       <AuthorIntro author={entry.author} />
-    </Fragment>
+    </Wrapper>
   )
 }
 

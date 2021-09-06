@@ -1,0 +1,58 @@
+/*
+ * ArticleViewer
+ */
+
+import { FC, memo, Fragment, useCallback, useState } from 'react'
+
+import type { TPost } from '@/spec'
+import { buildLog } from '@/utils/logger'
+
+import ViewportTracker from '@/components/ViewportTracker'
+import { ArticleContentLoading } from '@/components/Loading'
+import ArticeBody from '@/components/ArticleBody'
+import ArticleFooter from '@/containers/unit/ArticleFooter'
+
+import FixedHeader from './FixedHeader'
+import Header from './Header'
+import ArticleInfo from './ArticleInfo'
+
+import { Wrapper, BodyWrapper, Title } from '../styles/blog_viewer'
+
+/* eslint-disable-next-line */
+const log = buildLog('C:ArticleViewer')
+
+type TProps = {
+  article: TPost
+  loading: boolean
+}
+
+const PostViewer: FC<TProps> = ({ article, loading }) => {
+  const [fixedHeaderVisible, setFixedHeaderVisible] = useState(false)
+
+  const hideFixedHeader = useCallback(() => setFixedHeaderVisible(false), [])
+  const showFixedHeader = useCallback(() => setFixedHeaderVisible(true), [])
+
+  return (
+    <Fragment>
+      <FixedHeader article={article} visible={fixedHeaderVisible} />
+      <Wrapper>
+        <Header article={article} />
+        <Title>{article.title}</Title>
+        <ArticleInfo article={article} />
+        <ViewportTracker onEnter={hideFixedHeader} onLeave={showFixedHeader} />
+
+        {loading && (
+          <ArticleContentLoading num={1} top={15} bottom={30} left={-50} />
+        )}
+        {!loading && (
+          <BodyWrapper>
+            <ArticeBody document={article.document} />
+          </BodyWrapper>
+        )}
+        <ArticleFooter showAuthorInfo={false} />
+      </Wrapper>
+    </Fragment>
+  )
+}
+
+export default memo(PostViewer)

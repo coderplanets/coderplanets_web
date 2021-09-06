@@ -17,3 +17,9 @@ export const BaseInfo = styled.div`
     margin-top: 20px;
   `};
 `
+
+export const Divider = styled.div`
+  width: 100%;
+  height: 3px;
+  background: #004250;
+`

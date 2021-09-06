@@ -2,7 +2,7 @@ import { TYPE } from '@/constant'
 import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 import type { TUser } from '@/spec'
 
-import PlaceHolder from './PlaceHolder'
+// import PlaceHolder from './PlaceHolder'
 
 import {
   ArticleViewer,
@@ -16,15 +16,11 @@ import {
 } from '../dynamics'
 
 const renderContent = (type: string, attUser: TUser, mmType?) => {
+  if (!type) return <div />
+
   switch (type) {
     case TYPE.DRAWER.ACCOUNT_EDIT:
       return <AccountEditor />
-
-    // TODO: use general function
-    case TYPE.DRAWER.POST_VIEW:
-    case TYPE.DRAWER.JOB_VIEW:
-    case TYPE.DRAWER.WORKS_VIEW:
-      return <ArticleViewer />
 
     case TYPE.DRAWER.POST_CREATE:
       return <PostEditor />
@@ -46,7 +42,8 @@ const renderContent = (type: string, attUser: TUser, mmType?) => {
       return <ModeLineMenu type={mmType} />
 
     default:
-      return <PlaceHolder />
+      // TYPE.DRAWER.[ARTICLE]_VIEW:
+      return <ArticleViewer />
   }
 }
 
