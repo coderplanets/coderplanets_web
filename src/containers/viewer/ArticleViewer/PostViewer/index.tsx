@@ -40,13 +40,15 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
         <Title>{article.title}</Title>
         <ArticleInfo article={article} />
         <ViewportTracker onEnter={hideFixedHeader} onLeave={showFixedHeader} />
-        <BodyWrapper>
-          {loading ? (
-            <ArticleContentLoading num={2} />
-          ) : (
+
+        {loading && (
+          <ArticleContentLoading num={1} top={15} bottom={30} left={-50} />
+        )}
+        {!loading && (
+          <BodyWrapper>
             <ArticeBody document={article.document} />
-          )}
-        </BodyWrapper>
+          </BodyWrapper>
+        )}
         <ArticleFooter />
       </Wrapper>
     </Fragment>

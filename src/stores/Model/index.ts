@@ -42,3 +42,5 @@ export const Mention = T.model('Mention', {
   name: T.string,
   avatar: T.string,
 })
+
+export { articleFields } from './helper/article'

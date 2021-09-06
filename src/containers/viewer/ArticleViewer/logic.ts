@@ -27,6 +27,8 @@ const loadArticle = (): void => {
   const userHasLogin = store.isLogin
   const { id, meta } = store.viewingArticle
 
+  console.log('loadBefore: ', store.viewingArticle)
+
   const variables = { id, userHasLogin }
   markLoading()
   const schema = S[meta.thread.toLowerCase()]

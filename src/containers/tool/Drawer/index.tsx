@@ -32,7 +32,6 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
   const {
     slideVisible,
     type,
-    attachmentData,
     attUserData,
     mmType,
     rightOffset,
@@ -58,7 +57,6 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
         type={type}
         visible={slideVisible}
         options={optionsData}
-        attachment={attachmentData}
         attUser={attUserData}
         mmType={mmType}
       />

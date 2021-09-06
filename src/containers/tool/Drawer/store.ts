@@ -46,23 +46,6 @@ const Options = T.model('Options', {
   position: T.optional(T.enumeration('position', ['H', 'M', 'L']), 'M'),
 })
 
-const Attachment = T.model('Attachment', {
-  id: T.string,
-  type: T.optional(
-    T.enumeration('type', [
-      ...ARTICLE_THREAD_CURD_TYPES,
-      TYPE.DRAWER.MAILS_VIEW,
-    ]),
-    TYPE.DRAWER.POST_VIEW,
-  ),
-  title: T.string,
-  body: T.maybeNull(T.string),
-  digest: T.maybeNull(T.string),
-  author: T.maybeNull(User),
-  copyRight: T.maybeNull(T.string),
-  linkAddr: T.maybeNull(T.string),
-})
-
 const DrawerStore = T.model('DrawerStore', {
   visible: T.optional(T.boolean, false),
 
@@ -90,7 +73,6 @@ const DrawerStore = T.model('DrawerStore', {
     ]),
   ),
   attUser: T.maybeNull(User),
-  attachment: T.maybeNull(Attachment),
 
   // shortcut for modelineMenuType
   mmType: T.optional(
@@ -129,9 +111,6 @@ const DrawerStore = T.model('DrawerStore', {
       const root = getParent(self) as TRootStore
       return root.viewing.activeThread
     },
-    get attachmentData() {
-      return toJS(self.attachment)
-    },
     get attUserData() {
       return toJS(self.attUser)
     },
@@ -150,11 +129,10 @@ const DrawerStore = T.model('DrawerStore', {
 
       if (type === TYPE.DRAWER.MODELINE_MENU) {
         slf.mmType = data
-      } else if (data) {
-        // @ts-ignore TODO: fix later
-        slf.attachment = merge(data, { type })
       }
+
       if (contains(thread, values(ARTICLE_THREAD))) {
+        // article
         slf.setViewing({ [thread]: data, viewingThread: thread })
       }
 

@@ -18,29 +18,26 @@ import {
   C11NSettingPanel,
 } from '../dynamics'
 
-const renderContent = (type, attachment, attUser, mmType) => {
+const renderContent = (type, attUser, mmType) => {
   switch (type) {
     case TYPE.DRAWER.ACCOUNT_EDIT:
       return <AccountEditor />
 
+    // TODO: use general function
     case TYPE.DRAWER.POST_VIEW:
-      return <ArticleViewer />
-
+    case TYPE.DRAWER.JOB_VIEW:
     case TYPE.DRAWER.WORKS_VIEW:
       return <ArticleViewer />
-    // post
 
     case TYPE.DRAWER.POST_CREATE:
       return <PostEditor />
 
     case TYPE.DRAWER.POST_EDIT:
-      return <PostEditor attachment={attachment} />
-
-    // job
+      return <PostEditor attachment={{}} />
 
     // repo
     case TYPE.DRAWER.REPO_VIEW:
-      return <RepoViewer attachment={attachment} />
+      return <RepoViewer attachment={{}} />
 
     case TYPE.DRAWER.REPO_CREATE:
       return <RepoEditor />

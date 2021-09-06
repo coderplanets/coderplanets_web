@@ -6,7 +6,7 @@ import { TYPE, EVENT, ERR } from '@/constant'
 import { scrollToHeader } from '@/utils/dom'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
-import { send, errRescue, titleCase } from '@/utils/helper'
+import { errRescue, titleCase, previewArticle } from '@/utils/helper'
 
 import type { TStore } from './store'
 import S from './schema'
@@ -64,10 +64,7 @@ const onPreview = (article: TArticle): void => {
   if (resState === TYPE.RES_STATE.LOADING) return
   setTimeout(() => setViewedFlag(article.id), 1500)
 
-  // const type = TYPE.DRAWER[`${curThread.toUpperCase()}_VIEW`]
-  const type = TYPE.DRAWER[`${article.meta.thread}_VIEW`]
-
-  send(EVENT.DRAWER.OPEN, { type, data: article })
+  previewArticle(article)
 }
 
 // ###############################
@@ -102,7 +99,6 @@ const DataSolver = [
     match: asyncRes(EVENT.PREVIEW_ARTICLE),
     action: (res) => {
       const { article } = res[EVENT.PREVIEW_ARTICLE]
-      console.log('onPreview: ', article)
       onPreview(article)
     },
   },

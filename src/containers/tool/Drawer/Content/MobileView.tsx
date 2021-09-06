@@ -12,19 +12,11 @@ type TProps = {
   visible: boolean
   options: TSwipeOption
   type: string // TODO
-  attachment: any // TODO
   attUser: any // TODO
   mmType: string // TODO
 }
 
-const Content: FC<TProps> = ({
-  visible,
-  options,
-  type,
-  attachment,
-  attUser,
-  mmType,
-}) => {
+const Content: FC<TProps> = ({ visible, options, type, attUser, mmType }) => {
   const ref = useRef(null)
 
   const [topEnterTimer, setTopEnterTimer] = useState(null)
@@ -98,9 +90,7 @@ const Content: FC<TProps> = ({
       onBottomLeave={() => toggleSwipeAviliable('up', false)}
       autoHide
     >
-      <Wrapper ref={ref}>
-        {renderContent(type, attachment, attUser, mmType)}
-      </Wrapper>
+      <Wrapper ref={ref}>{renderContent(type, attUser, mmType)}</Wrapper>
     </CustomScroller>
   )
 }

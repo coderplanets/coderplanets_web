@@ -97,7 +97,6 @@ export type TRootStore = RootStoreType
 
 export type TViewing = TCommunity | TArticle
 
-// export type TThread = string
 export type TArticleThread =
   | 'post'
   | 'job'

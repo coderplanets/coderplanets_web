@@ -9,11 +9,10 @@ import { Wrapper } from '../styles/content'
 type TProps = {
   visible: boolean
   type: string // TODO:
-  attachment: any // TODO:
   attUser: any // TODO:
 }
 
-const Content: FC<TProps> = ({ visible, type, attachment, attUser }) => {
+const Content: FC<TProps> = ({ visible, type, attUser }) => {
   const ref = useRef(null)
 
   /*
@@ -35,7 +34,7 @@ const Content: FC<TProps> = ({ visible, type, attachment, attUser }) => {
         shadowSize="small"
         showShadow={false}
       >
-        <div>{renderContent(type, attachment, attUser)}</div>
+        <div>{renderContent(type, attUser)}</div>
       </CustomScroller>
     </Wrapper>
   )

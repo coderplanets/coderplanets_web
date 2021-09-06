@@ -1,13 +1,10 @@
-import { Fragment, FC, memo } from 'react'
+import { FC, memo } from 'react'
 import { range } from 'ramda'
-import styled, { useTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
-// Config-page: http://danilowoz.com/create-react-content-loader/
-const LoadingWrapper = styled.div`
-  width: 100%;
-  overflow: hidden;
-`
+import type { TSpace } from '@/spec'
+import { Wrapper, LoadingWrapper } from './styles/article_content_loading'
 
 const LoadingItem = ({ theme }) => (
   <ContentLoader
@@ -26,21 +23,19 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-type TProps = {
-  num?: number
-}
+type TProps = TSpace & { num?: number }
 
-const ArticleContentLoading: FC<TProps> = ({ num = 1 }) => {
+const ArticleContentLoading: FC<TProps> = ({ num = 1, ...restProps }) => {
   const theme = useTheme()
 
   return (
-    <Fragment>
+    <Wrapper {...restProps}>
       {range(0, num).map((item) => (
         <LoadingWrapper key={item}>
           <LoadingItem theme={theme} />
         </LoadingWrapper>
       ))}
-    </Fragment>
+    </Wrapper>
   )
 }
 

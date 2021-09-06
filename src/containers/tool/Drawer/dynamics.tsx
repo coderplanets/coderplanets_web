@@ -1,15 +1,10 @@
 /* eslint-disable react/display-name */
 import dynamic from 'next/dynamic'
 
-import { ArticleContentLoading, EditorLoading } from '@/components/Loading'
+import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+import EditorLoading from '@/components/Loading/EditorLoading'
 
-const CommonLoading = () => (
-  <div>
-    <br />
-    {/* @ts-ignore */}
-    <ArticleContentLoading />
-  </div>
-)
+const CommonLoading = () => <LavaLampLoading top={200} left={420} />
 
 // common style loading config
 const commonConfig = {

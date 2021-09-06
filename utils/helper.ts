@@ -2,9 +2,15 @@ import { curry, reduce, keys, sort, uniq, tap, endsWith } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
-import type { TGQLError, TReportType, TAttInfo, TPaymentUsage } from '@/spec'
+import type {
+  TGQLError,
+  TReportType,
+  TAttInfo,
+  TArticle,
+  TPaymentUsage,
+} from '@/spec'
 import { TAG_COLOR_ORDER } from '@/config'
-import { EVENT, THREAD } from '@/constant'
+import { TYPE, EVENT, THREAD } from '@/constant'
 
 import { scrollToHeader } from './dom'
 import { isString } from './validator'
@@ -182,6 +188,16 @@ export const mirrorToCommunity = (): void => {
 
 export const setTag = (): void => {
   send(EVENT.SET_TAG, {})
+}
+
+/**
+ * send preview article singal to Drawer
+ */
+export const previewArticle = (article: TArticle): void => {
+  const type = TYPE.DRAWER[`${article.meta.thread}_VIEW`]
+  const data = article
+
+  send(EVENT.DRAWER.OPEN, { type, data })
 }
 
 export const errRescue = ({

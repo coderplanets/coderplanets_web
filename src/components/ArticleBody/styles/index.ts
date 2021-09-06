@@ -9,6 +9,8 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>``
 
 export const Body = styled.div<{ lineClampNum: number }>`
+  font-size: 16px;
+  line-height: 1.85;
   position: relative;
   display: -webkit-box;
   -webkit-line-clamp: ${({ lineClampNum }) => lineClampNum};
