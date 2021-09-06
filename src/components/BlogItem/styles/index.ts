@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TBlog, TC11N, TID } from '@/spec'
+import type { TBlog, TC11N } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -8,14 +8,13 @@ import { getOpacity } from './metrics'
 
 type TWrapper = {
   entry: TBlog
-  activeId?: TID | null
   c11n: TC11N
 }
 
 export const Wrapper = styled.article<TWrapper>`
   ${css.flex()};
   position: relative;
-  opacity: ${({ entry, activeId, c11n }) => getOpacity(entry, activeId, c11n)};
+  opacity: ${({ entry, c11n }) => getOpacity(entry, c11n)};
 
   padding-top: ${({ c11n }) => (c11n.contentDivider ? '10px' : '8px')};
   padding-bottom: ${({ c11n }) => (c11n.contentDivider ? '14px' : '8px')};

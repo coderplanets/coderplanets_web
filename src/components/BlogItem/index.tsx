@@ -39,13 +39,12 @@ const BlogItem: FC<TProps> = ({
   entry,
   onUserSelect = log,
   onAuthorSelect = log,
-  activeId = null,
   c11n,
 }) => {
   const { isMobile } = usePlatform()
 
   return (
-    <Wrapper entry={entry} activeId={activeId} c11n={c11n}>
+    <Wrapper entry={entry} c11n={c11n}>
       <ArticleItemPrefixLabel entry={entry} />
 
       {!isMobile ? (

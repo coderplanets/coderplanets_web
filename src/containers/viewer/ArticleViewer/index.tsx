@@ -35,7 +35,6 @@ const ArticleViewerContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { viewingArticle, loading } = store
-  console.log('viewingArticle: ', viewingArticle)
 
   return (
     <Wrapper testid={testid}>

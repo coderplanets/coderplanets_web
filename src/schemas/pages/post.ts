@@ -13,6 +13,9 @@ export const pagedPosts = `
     pagedPosts(filter: $filter) {
       entries {
         ${F.article}
+        meta {
+          thread
+        }
         digest
         linkAddr
         commentsParticipants {

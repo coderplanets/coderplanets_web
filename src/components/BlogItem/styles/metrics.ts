@@ -1,15 +1,8 @@
-import type { TBlog, TC11N, TID } from '@/spec'
+import type { TBlog, TC11N } from '@/spec'
 
-export const getOpacity = (
-  entry: TBlog,
-  activeId: TID | null,
-  c11n: TC11N,
-): number => {
+export const getOpacity = (entry: TBlog, c11n: TC11N): number => {
   const { viewerHasViewed } = entry
 
-  if (activeId) {
-    return entry.id !== activeId ? 0.6 : 1
-  }
   if (c11n.isLogin && c11n.markViewed && viewerHasViewed) {
     return 0.85
   }

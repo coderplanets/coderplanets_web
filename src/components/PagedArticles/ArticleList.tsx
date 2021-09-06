@@ -8,14 +8,15 @@ import { Trans } from '@/utils/i18n'
 
 import EmptyThread from '@/components/EmptyThread'
 import EmptyLabel from '@/components/EmptyLabel'
+import MasonryCards from '@/components/MasonryCards'
 
-import PostsList from './PostsList'
-import JobsList from './JobsList'
-import BlogsList from './BlogsList'
-import RadarsList from './RadarsList'
+import PostItem from '@/components/PostItem'
+import JobItem from '@/components/JobItem'
+import BlogItem from '@/components/BlogItem'
+import RadarItem from '@/components/RadarItem'
 
 const ArticleList = (props) => {
-  const { thread, resState, community, emptyPrefix } = props
+  const { thread, resState, community, emptyPrefix, entries, c11n } = props
 
   if (resState === TYPE.RES_STATE.EMPTY) {
     return (
@@ -34,16 +35,41 @@ const ArticleList = (props) => {
 
   switch (thread) {
     case THREAD.JOB:
-      return <JobsList {...props} />
+      return (
+        <MasonryCards column={2}>
+          {entries.map((entry) => (
+            <JobItem key={entry.id} entry={entry} c11n={c11n} />
+          ))}
+        </MasonryCards>
+      )
 
     case THREAD.BLOG:
-      return <BlogsList {...props} />
+      return (
+        <Fragment>
+          {entries.map((entry) => (
+            <BlogItem key={entry.id} entry={entry} c11n={c11n} />
+          ))}
+        </Fragment>
+      )
 
     case THREAD.RADAR:
-      return <RadarsList {...props} />
+      return (
+        <MasonryCards column={2}>
+          {entries.map((entry) => (
+            <RadarItem key={entry.id} entry={entry} c11n={c11n} />
+          ))}
+        </MasonryCards>
+      )
 
     default:
-      return <PostsList {...props} />
+      // common post
+      return (
+        <Fragment>
+          {entries.map((entry) => (
+            <PostItem key={entry.id} entry={entry} c11n={c11n} />
+          ))}
+        </Fragment>
+      )
   }
 }
 

@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { concat, keys, reduce, merge, contains, values } from 'ramda'
 
-import type { TRootStore, TCommunity, TThread, TID } from '@/spec'
+import type { TRootStore, TCommunity, TThread, TArticle } from '@/spec'
 import { TYPE, ARTICLE_THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
@@ -144,11 +144,9 @@ const DrawerStore = T.model('DrawerStore', {
     },
   }))
   .actions((self) => ({
-    open({ type, data, thread, options = {} }): void {
-      // console.log('open data: ', data)
-      // console.log('open thread: ', thread)
-
+    open({ type, data, options = {} }): void {
       const slf = self as TStore
+      const thread = data.meta?.thread?.toLowerCase()
 
       if (type === TYPE.DRAWER.MODELINE_MENU) {
         slf.mmType = data
@@ -170,7 +168,7 @@ const DrawerStore = T.model('DrawerStore', {
         slf.canBeClose = false
       }
 
-      slf.markPreviewURLIfNeed(data?.id)
+      slf.markPreviewURLIfNeed(data)
     },
     setViewing(sobj: Record<string, unknown>): void {
       const root = getParent(self) as TRootStore
@@ -194,13 +192,15 @@ const DrawerStore = T.model('DrawerStore', {
       return root.resetViewing()
     },
 
-    // TODO: 重构时用 article.meta.thread 来替代 thread
-    markPreviewURLIfNeed(id: TID): void {
+    markPreviewURLIfNeed(article: TArticle): void {
+      const { id, title, meta } = article
+
       if (!id || !contains(self.type, ARTICLE_VIEWER_TYPES)) return
       self.previousHref = Global.location.href
-      const thread = self.curThread
+
+      const thread = meta.thread.toLowerCase()
       const nextURL = `${Global.location.origin}/${thread}/${id}`
-      Global.history.replaceState(null, 'new-title', nextURL)
+      Global.history.replaceState(null, title, nextURL)
     },
 
     restorePreviousURLIfNeed(): void {

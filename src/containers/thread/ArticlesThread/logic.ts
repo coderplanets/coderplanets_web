@@ -60,15 +60,14 @@ const doQuery = (page: number): void => {
  * prepack then send preview event to drawer
  */
 const onPreview = (article: TArticle): void => {
-  const { curThread, setViewedFlag, resState } = store
+  const { setViewedFlag, resState } = store
   if (resState === TYPE.RES_STATE.LOADING) return
-
   setTimeout(() => setViewedFlag(article.id), 1500)
 
-  const type = TYPE.DRAWER[`${curThread.toUpperCase()}_VIEW`]
-  const thread = curThread
+  // const type = TYPE.DRAWER[`${curThread.toUpperCase()}_VIEW`]
+  const type = TYPE.DRAWER[`${article.meta.thread}_VIEW`]
 
-  send(EVENT.DRAWER.OPEN, { type, thread, data: article })
+  send(EVENT.DRAWER.OPEN, { type, data: article })
 }
 
 // ###############################

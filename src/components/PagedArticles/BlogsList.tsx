@@ -1,24 +1,18 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TBlog, TID, TC11N } from '@/spec'
+import type { TBlog, TC11N } from '@/spec'
 import BlogItem from '@/components/BlogItem'
 
 type TProps = {
   entries: TBlog[]
-  activeId: TID
   c11n: TC11N
 }
 
-const BlogsList: FC<TProps> = ({ entries, activeId, c11n }) => {
+const BlogsList: FC<TProps> = ({ entries, c11n }) => {
   return (
     <Fragment>
       {entries.map((entry) => (
-        <BlogItem
-          key={entry.id}
-          entry={entry}
-          activeId={activeId}
-          c11n={c11n}
-        />
+        <BlogItem key={entry.id} entry={entry} c11n={c11n} />
       ))}
     </Fragment>
   )
