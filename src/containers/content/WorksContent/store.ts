@@ -4,9 +4,9 @@
  */
 
 import { types as T, Instance } from 'mobx-state-tree'
+import { findIndex, propEq, values } from 'ramda'
 
 import type { TPagedWorks } from '@/spec'
-import { values } from 'ramda'
 import { markStates, toJS } from '@/utils/mobx'
 
 import { PagedWorks, emptyPagi } from '@/model'
@@ -24,6 +24,13 @@ const WorksContent = T.model('WorksContent', {
     },
   }))
   .actions((self) => ({
+    setViewedFlag(id): void {
+      const { entries } = self.pagedWorksData
+      const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
+      if (index >= 0) {
+        self.pagedWorks.entries[index].viewerHasViewed = true
+      }
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

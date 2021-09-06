@@ -11,7 +11,7 @@ import { LAUNCH } from '../constant'
 import OptionTab from './OptionTab'
 
 import { Wrapper, TabWrapper, FilterWrapper } from '../styles/works_list'
-import { toggleSidebar } from '../logic'
+import { toggleSidebar, onPreview } from '../logic'
 
 const options = [
   {
@@ -26,10 +26,10 @@ const options = [
     title: '创作者',
     raw: LAUNCH.PRE_PUBLISH,
   },
-  {
-    title: '里程碑',
-    raw: LAUNCH.PRE_PUBLISH,
-  },
+  // {
+  //   title: '里程碑',
+  //   raw: LAUNCH.PRE_PUBLISH,
+  // },
 ]
 
 const menuOptions = [
@@ -78,7 +78,7 @@ const WorksList: FC<TProps> = ({ data }) => {
         </FilterWrapper>
       </TabWrapper>
       {entries.map((item) => (
-        <WorksCard key={item.id} item={item} />
+        <WorksCard key={item.id} item={item} onPreview={onPreview} />
       ))}
     </Wrapper>
   )

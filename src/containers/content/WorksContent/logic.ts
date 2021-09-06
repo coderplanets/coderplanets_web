@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 
+import type { TWorks } from '@/spec'
 import { buildLog } from '@/utils/logger'
+import { previewArticle } from '@/utils/helper'
 // import S from './service'
 
 import type { TStore } from './store'
@@ -22,6 +24,15 @@ export const toggleSidebar = (): void => {
   const { showSidebar } = store
 
   store.mark({ showSidebar: !showSidebar })
+}
+
+export const onPreview = (works: TWorks): void => {
+  const { setViewedFlag } = store
+  // const { setViewedFlag, resState } = store
+  // if (resState === TYPE.RES_STATE.LOADING) return
+  setTimeout(() => setViewedFlag(works.id), 1500)
+
+  previewArticle(works)
 }
 
 // ###############################

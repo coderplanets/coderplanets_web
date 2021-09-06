@@ -4,6 +4,7 @@ import type { TTestable } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
+import UpvoteSVG from '@/icons/Upvote'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -38,5 +39,11 @@ export const Title = styled.div`
   font-size: 13px;
 `
 export const UpvoteWrapper = styled.div`
+  ${css.flex('align-center')};
   margin-top: 2px;
+`
+export const UpvoteIcon = styled(UpvoteSVG)`
+  ${css.size(13)};
+  fill: ${theme('thread.articleTitle')};
+  margin-right: 4px;
 `

@@ -8,13 +8,12 @@ import { Fragment, FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 import Link from 'next/link'
 
-import { ICON, ICON_CMD } from '@/config'
-import { THREAD, TYPE, EVENT } from '@/constant'
-
-import { cutRest, send } from '@/utils/helper'
-import { buildLog } from '@/utils/logger'
-
 import type { TWorks } from '@/spec'
+import { ICON, ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
+
+import { cutRest } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
@@ -45,12 +44,14 @@ const log = buildLog('c:WorksCard:index')
 type TProps = {
   testid?: string
   preview?: boolean
+  onPreview?: (works: TWorks) => void
   item: TWorks
 }
 
 const WorksCard: FC<TProps> = ({
   testid = 'works-card',
   item,
+  onPreview = log,
   preview = false,
   // item,
 }) => {
@@ -86,15 +87,7 @@ const WorksCard: FC<TProps> = ({
             <DigestSentence
               top={5}
               bottom={15}
-              onPreview={() => {
-                // setTimeout(() => setViewedFlag(item.id), 1500)
-
-                const type = TYPE.DRAWER[`${THREAD.WORKS.toUpperCase()}_VIEW`]
-                const thread = THREAD.WORKS
-
-                send(EVENT.DRAWER.OPEN, { type, thread, data: item })
-                // send(EVENT.PREVIEW_ARTICLE, { article: item })
-              }}
+              onPreview={() => onPreview(item)}
             >
               {cutRest(digest, descLimit)}
             </DigestSentence>

@@ -49,7 +49,7 @@ export const Header = styled.div`
   ${css.flex('justify-between', 'align-start')};
   width: 100%;
 `
-export const Title = styled.a`
+export const Title = styled.div`
   ${css.flex('align-center')};
 `
 export const Name = styled.a`
