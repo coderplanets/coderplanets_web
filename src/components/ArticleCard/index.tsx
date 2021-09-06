@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
 
 import type { TArticle, TThread } from '@/spec'
-import { SIZE, THREAD } from '@/constant'
+import { SIZE, THREAD, EVENT } from '@/constant'
 
-import { cutRest } from '@/utils/helper'
+import { cutRest, send } from '@/utils/helper'
 import DigestSentence from '@/components/DigestSentence'
 import { Br, SpaceGrow } from '@/components/Common'
 import ArticleImgWindow from '@/components/ArticleImgWindow'
@@ -29,7 +29,7 @@ const ArticleCard: FC<TProps> = ({ data, thread = THREAD.JOB }) => {
         top={5}
         bottom={16}
         size={SIZE.MEDIUM}
-        onPreview={() => console.log('send preview')}
+        onPreview={() => send(EVENT.PREVIEW_ARTICLE, { article: data })}
       >
         {cutRest(fakeDigest, 150)}
       </DigestSentence>

@@ -4,18 +4,7 @@ export const meetup = `
   query meetup($id: ID!, $userHasLogin: Boolean!) {
     meetup(id: $id) {
       ${F.article}
-      body
-      linkAddr
-      collectsCount
-      viewerHasCollected @include(if: $userHasLogin)
-      viewerHasUpvoted @include(if: $userHasLogin)
-      favoritedCategoryId @include(if: $userHasLogin)
-      pagedCommentsParticipators {
-        entries {
-          ${F.author}
-        }
-        totalCount
-      }
+      ${F.articleDetail}
     }
   }
 `

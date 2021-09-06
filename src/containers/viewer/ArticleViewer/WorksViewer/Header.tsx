@@ -2,7 +2,6 @@ import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
-import { ICON } from '@/config'
 
 import ArticleMenu from '@/components/ArticleMenu'
 import ArticleBaseStats from '@/components/ArticleBaseStats'

@@ -4,7 +4,15 @@ import { F, P } from '@/schemas'
 const post = gql`
   ${P.post}
 `
-
+const job = gql`
+  ${P.job}
+`
+const blog = gql`
+  ${P.blog}
+`
+const radar = gql`
+  ${P.radar}
+`
 const works = gql`
   ${P.works}
 `
@@ -30,6 +38,9 @@ const postComment = gql`
 
 const schema = {
   post,
+  job,
+  blog,
+  radar,
   works,
   setTag,
   unsetTag,

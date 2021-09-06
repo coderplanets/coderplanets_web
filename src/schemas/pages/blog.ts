@@ -4,12 +4,7 @@ export const blog = `
   query blog($id: ID!, $userHasLogin: Boolean!) {
     blog(id: $id) {
       ${F.article}
-      body
-      linkAddr
-      collectsCount
-      viewerHasCollected @include(if: $userHasLogin)
-      viewerHasUpvoted @include(if: $userHasLogin)
-      favoritedCategoryId @include(if: $userHasLogin)
+      ${F.articleDetail}
     }
   }
 `

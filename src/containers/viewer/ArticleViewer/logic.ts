@@ -52,6 +52,15 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('job'),
+    action: ({ job }) => {
+      console.log('got job:', job)
+      store.setViewing({ job: merge(store.viewingArticle, job) })
+      store.syncViewingItem(job)
+      markLoading(false)
+    },
+  },
+  {
     match: asyncRes('works'),
     action: ({ works }) => {
       console.log('got works:', works)

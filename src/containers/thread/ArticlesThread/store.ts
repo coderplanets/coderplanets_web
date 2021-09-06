@@ -139,10 +139,13 @@ const ArticlesThread = T.model('ArticlesThread', {
       root.setViewing(sobj)
     },
     setViewedFlag(id): void {
-      const { entries } = self.pagedArticlesData
+      const slf = self as TStore
+      const { entries } = slf.pagedArticlesData
       const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
+
       if (index >= 0) {
-        self.pagedPosts.entries[index].viewerHasViewed = true
+        const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
+        self[pagedThreadKey].entries[index].viewerHasViewed = true
       }
     },
     markRoute(params): void {

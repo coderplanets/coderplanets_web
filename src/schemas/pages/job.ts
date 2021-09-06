@@ -4,17 +4,7 @@ export const job = `
   query job($id: ID!, $userHasLogin: Boolean!) {
     job(id: $id) {
       ${F.article}
-      body
-      linkAddr
-      collectsCount
-      viewerHasCollected @include(if: $userHasLogin)
-      favoritedCategoryId @include(if: $userHasLogin)
-      pagedCommentsParticipators {
-        entries {
-          ${F.author}
-        }
-        totalCount
-      }
+      ${F.articleDetail}
     }
   }
 `
