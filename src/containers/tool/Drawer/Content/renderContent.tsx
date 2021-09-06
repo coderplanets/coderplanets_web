@@ -1,15 +1,12 @@
-import React from 'react'
-
 import { TYPE } from '@/constant'
 import ModeLineMenu from '@/containers/unit/ModeLineMenu'
+import type { TUser } from '@/spec'
 
 import PlaceHolder from './PlaceHolder'
-// import ArticleViewer from '@/containers/viewer/ArticleViewer'
 
 import {
   ArticleViewer,
   MailsViewer,
-  RepoViewer,
   // editors
   AccountEditor,
   PostEditor,
@@ -18,7 +15,7 @@ import {
   C11NSettingPanel,
 } from '../dynamics'
 
-const renderContent = (type, attUser, mmType) => {
+const renderContent = (type: string, attUser: TUser, mmType?) => {
   switch (type) {
     case TYPE.DRAWER.ACCOUNT_EDIT:
       return <AccountEditor />
@@ -33,11 +30,7 @@ const renderContent = (type, attUser, mmType) => {
       return <PostEditor />
 
     case TYPE.DRAWER.POST_EDIT:
-      return <PostEditor attachment={{}} />
-
-    // repo
-    case TYPE.DRAWER.REPO_VIEW:
-      return <RepoViewer attachment={{}} />
+      return <PostEditor />
 
     case TYPE.DRAWER.REPO_CREATE:
       return <RepoEditor />
@@ -49,6 +42,7 @@ const renderContent = (type, attUser, mmType) => {
       return <C11NSettingPanel />
 
     case TYPE.DRAWER.MODELINE_MENU:
+      // @ts-ignore
       return <ModeLineMenu type={mmType} />
 
     default:

@@ -26,12 +26,12 @@ const log = buildLog('C:ArticleViewer')
 
 type TProps = {
   articleViewer?: TStore
-  testid: string
+  testid?: string
 }
 
 const ArticleViewerContainer: FC<TProps> = ({
   articleViewer: store,
-  testid,
+  testid = 'article-viewer',
 }) => {
   useInit(store)
   const { viewingArticle, loading } = store

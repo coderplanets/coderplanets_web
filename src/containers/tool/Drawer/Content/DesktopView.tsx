@@ -34,7 +34,7 @@ const Content: FC<TProps> = ({ visible, type, attUser }) => {
         shadowSize="small"
         showShadow={false}
       >
-        <div>{renderContent(type, attUser)}</div>
+        {renderContent(type, attUser)}
       </CustomScroller>
     </Wrapper>
   )
