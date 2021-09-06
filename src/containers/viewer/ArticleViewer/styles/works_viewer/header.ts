@@ -34,6 +34,7 @@ export const ContactWrapper = styled.div`
   margin-top: 10px;
   ${css.flex('align-center')};
 `
+
 export const CommonInfo = styled.div`
   ${css.flexColumn('align-end')}
   width: 200px;
@@ -66,4 +67,5 @@ export const EditedHint = styled.div`
 export const BaseWrapper = styled.div`
   ${css.flex('align-center')};
   margin-top: 9px;
+  margin-right: -3px;
 `

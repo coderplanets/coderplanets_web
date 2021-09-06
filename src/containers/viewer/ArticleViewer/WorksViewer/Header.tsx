@@ -2,10 +2,14 @@ import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
+import { ICON } from '@/config'
 
+import ArticleMenu from '@/components/ArticleMenu'
 import ArticleBaseStats from '@/components/ArticleBaseStats'
 import DotDivider from '@/components/DotDivider'
 import IconButton from '@/components/Buttons/IconButton'
+import { Space } from '@/components/Common'
+import Linker from '@/components/Linker'
 
 import {
   Wrapper,
@@ -38,6 +42,7 @@ const Header: FC<TProps> = ({ article }) => {
           <Desc>可能是最性感的开发者社区, web first, pure</Desc>
 
           <ContactWrapper>
+            <Linker src="https://coderplanets.com" right={10} />
             <IconButton path="social/global.svg" size={13} />
             <IconButton path="social/github.svg" size={13} />
             <IconButton path="social/zhihu.svg" size={13} />
@@ -56,8 +61,8 @@ const Header: FC<TProps> = ({ article }) => {
         </PublishWrapper>
         <BaseWrapper>
           <ArticleBaseStats article={article} container="drawer" />
-          <IconButton path="shape/more-l.svg" mLeft={6} mRight={-4} size={15} />
-          {/* <IconButton path="shape/more.svg" mRight={0} /> */}
+          <Space right={5} />
+          <ArticleMenu verticalIcon />
         </BaseWrapper>
       </CommonInfo>
     </Wrapper>
