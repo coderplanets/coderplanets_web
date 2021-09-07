@@ -37,13 +37,12 @@ export const SlipBar = styled.span<TSlipBar>`
   transform: ${({ translateX }) => `translate3d(${translateX}, 0, 0);`};
   transition: transform 0.25s;
 `
-type TRealBar = { width: string; articleColor?: boolean }
+type TRealBar = { width: string }
 export const RealBar = styled.span<TRealBar>`
   width: ${({ width }) => width};
   height: 3px;
   border-radius: 3px;
-  background: ${({ articleColor }) =>
-    articleColor ? theme('thread.articleTitle') : '#327faf'};
+  background: #327faf;
 `
 // transform: ${({ active }) =>
 //     active ? 'translate3d(0,0,0);' : 'translate3d(0, 150%, 0);'};

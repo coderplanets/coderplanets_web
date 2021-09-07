@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import type { TSIZE_SM, TActive } from '@/spec'
-import { SIZE } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -61,32 +60,21 @@ export const Nav = styled.nav`
   padding: 0;
 `
 
-const getLabelColor = (active: boolean, articleColor: boolean): string => {
-  if (articleColor) {
-    return active ? theme('thread.articleTitle') : theme('thread.articleDigest')
-  }
-  return active ? theme('tabs.headerActive') : theme('tabs.header')
-}
-
 type TLabel = TActive & {
-  articleColor: boolean
   size: TSIZE_SM
   bottomSpace: number
 }
 export const Label = styled.span<TLabel>`
   ${css.flex('align-center')};
   white-space: nowrap;
-  color: ${({ active, articleColor }) => getLabelColor(active, articleColor)};
+  color: ${({ active }) =>
+    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   margin-bottom: ${({ bottomSpace }) => `${bottomSpace}px`};
 
   &:hover {
-    color: ${({ articleColor }) =>
-      articleColor ? theme('thread.articleTitle') : theme('tabs.headerActive')};
+    color: ${theme('thread.articleTitle')};
     svg {
-      fill: ${({ articleColor }) =>
-        articleColor
-          ? theme('thread.articleTitle')
-          : theme('tabs.headerActive')};
+      fill: ${theme('thread.articleTitle')};
     }
   }
 `

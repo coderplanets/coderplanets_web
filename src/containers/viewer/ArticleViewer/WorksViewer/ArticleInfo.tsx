@@ -46,7 +46,6 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
           size="small"
           activeKey="story"
           bottomSpace={10}
-          articleColor
         />
       </TabWrapper>
       <SpaceGrow />

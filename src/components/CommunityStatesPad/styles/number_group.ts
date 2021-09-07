@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `
 export const SubNumberWrapper = styled.div`
   ${css.flex('align-center')};
-  color: ${theme('banner.number')};
+  color: ${theme('banner.numberDesc')};
   font-size: 13px;
   margin-right: 0.5px;
   margin-top: -1px;

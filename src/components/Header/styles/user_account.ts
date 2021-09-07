@@ -78,5 +78,7 @@ export const DefaultUserIcon = styled(Img)`
 `
 export const MembershipHint = styled.div`
   letter-spacing: 2px;
-  padding: 0 4px;
+  padding-top: 2px;
+  padding-left: 6px;
+  padding-right: 3px;
 `

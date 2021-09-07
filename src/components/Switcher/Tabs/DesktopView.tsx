@@ -57,7 +57,6 @@ type TProps = {
   activeKey?: string
   size: TSIZE_SM
   slipHeight: '1px' | '2px'
-  articleColor?: boolean
   bottomSpace?: number
 }
 
@@ -68,7 +67,6 @@ const Tabs: FC<TProps> = ({
   layout = C11N.CLASSIC,
   activeKey = '',
   slipHeight = '2px',
-  articleColor = false,
   bottomSpace = 0,
 }) => {
   const { isMobile } = usePlatform()
@@ -130,7 +128,6 @@ const Tabs: FC<TProps> = ({
             index={index}
             item={item}
             size={size}
-            articleColor={articleColor}
             bottomSpace={bottomSpace}
             setItemWidth={handleNaviItemWith}
             onClick={handleItemClick}
@@ -144,7 +141,6 @@ const Tabs: FC<TProps> = ({
         >
           <RealBar
             width={`${size === SIZE.MEDIUM ? slipWidth : slipWidth - 6}px`}
-            articleColor={articleColor}
           />
         </SlipBar>
       </Nav>

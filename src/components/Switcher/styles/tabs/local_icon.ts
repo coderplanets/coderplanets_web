@@ -28,7 +28,7 @@ type TCommonIcon = { $active: boolean; $small: boolean }
 const commonIcon = (comp) => {
   return styled(comp)<TCommonIcon>`
     fill: ${({ $active }: { $active: boolean }) =>
-      $active ? theme('tabs.headerActive') : theme('tabs.header')};
+      $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
     width: ${({ $small }: { $small: boolean }) => ($small ? '13px' : '15px')};
     height: ${({ $small }) => ($small ? '13px' : '15px')};
     margin-right: 5px;

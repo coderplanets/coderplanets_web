@@ -92,7 +92,6 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
               size="small"
               activeKey="story"
               bottomSpace={4}
-              articleColor
             />
           </TabsWrapper>
         </BottomInfo>

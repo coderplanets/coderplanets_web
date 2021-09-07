@@ -62,7 +62,6 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
             size="small"
             activeKey="digest"
             bottomSpace={10}
-            articleColor
           />
         </TabsWrapper>
         <UpvoteWrapper>
