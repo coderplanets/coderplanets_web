@@ -1,17 +1,17 @@
 import { FC, memo } from 'react'
+import { THREAD } from '@/constant'
+
 import {
-  TabPostIcon,
-  TabRadarIcon,
-  TabUserIcon,
-  TabJobIcon,
-  TabRepoIcon,
+  PostIcon,
+  RadarIcon,
+  CPerIcon,
+  JobIcon,
+  BlogIcon,
   // user
-  TabLikesIcon,
-  TabPublishIcon,
+  PublishIcon,
   TabBillingIcon,
   TabCommentsIcon,
-  TabSettingsIcon,
-  TabFavoritesIcon,
+  SettingIcon,
 } from '../styles/tabs/local_icon'
 
 type TProps = {
@@ -22,39 +22,25 @@ type TProps = {
 
 const TabIcon: FC<TProps> = ({ raw, active, small }) => {
   switch (raw) {
-    case 'radar': {
+    case THREAD.RADAR: {
       /* @ts-ignore */
-      return <TabRadarIcon $active={active} $small={small} />
+      return <RadarIcon $active={active} $small={small} />
+    }
+    case THREAD.BLOG: {
+      return <BlogIcon $active={active} $small={small} />
+    }
+    case THREAD.CPER: {
+      return <CPerIcon $active={active} $small={small} />
     }
 
-    case 'user': {
+    case THREAD.JOB: {
       /* @ts-ignore */
-      return <TabUserIcon $active={active} $small={small} />
-    }
-
-    case 'job': {
-      /* @ts-ignore */
-      return <TabJobIcon $active={active} $small={small} />
-    }
-
-    case 'repo': {
-      /* @ts-ignore */
-      return <TabRepoIcon $active={active} $small={small} />
-    }
-
-    case 'favorites': {
-      /* @ts-ignore */
-      return <TabFavoritesIcon $active={active} $small={small} />
-    }
-
-    case 'likes': {
-      /* @ts-ignore */
-      return <TabLikesIcon $active={active} $small={small} />
+      return <JobIcon $active={active} $small={small} />
     }
 
     case 'publish': {
       /* @ts-ignore */
-      return <TabPublishIcon $active={active} $small={small} />
+      return <PublishIcon $active={active} $small={small} />
     }
 
     case 'billing': {
@@ -67,14 +53,14 @@ const TabIcon: FC<TProps> = ({ raw, active, small }) => {
       return <TabCommentsIcon $active={active} $small={small} />
     }
 
-    case 'settings': {
+    case THREAD.SETTING: {
       /* @ts-ignore */
-      return <TabSettingsIcon $active={active} $small={small} />
+      return <SettingIcon $active={active} $small={small} />
     }
 
     default: {
       /* @ts-ignore */
-      return <TabPostIcon $active={active} $small={small} />
+      return <PostIcon $active={active} $small={small} />
     }
   }
 }

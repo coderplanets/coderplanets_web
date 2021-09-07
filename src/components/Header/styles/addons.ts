@@ -5,7 +5,7 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
+import HeaderSearchSVG from '@/icons/HeaderSearch'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};

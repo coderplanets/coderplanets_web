@@ -4,7 +4,7 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import PinSVG from '@/SvgIcons/PinSVG'
+import PinSVG from '@/icons/Pin'
 
 import { CreateDate as HeaderCreateDate } from '../header'
 

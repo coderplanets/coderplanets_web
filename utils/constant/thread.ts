@@ -13,4 +13,5 @@ export const ARTICLE_THREAD = {
 export const THREAD = {
   ...ARTICLE_THREAD,
   CPER: 'cper',
+  SETTING: 'setting',
 } as Record<Uppercase<TThread>, TThread>

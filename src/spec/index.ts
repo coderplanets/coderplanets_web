@@ -106,6 +106,6 @@ export type TArticleThread =
   | 'radar'
   | 'works'
 
-export type TThread = TArticleThread | 'cper'
+export type TThread = TArticleThread | 'cper' | 'setting'
 
 export type TContainer = 'body' | 'drawer'

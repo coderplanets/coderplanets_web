@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import PinSVG from '@/SvgIcons/PinSVG'
+import PinSVG from '@/icons/Pin'
 import { pixelAdd } from '@/utils/dom'
 
 export const ReadedLabel = styled.div<{ topOffset: string }>`

@@ -6,7 +6,7 @@ import css from '@/utils/css'
 import { pixelAdd } from '@/utils/dom'
 import { WIDTH } from '@/utils/css/metric'
 
-import HeaderSearchSVG from '@/SvgIcons/HeaderSearchSVG'
+import HeaderSearchSVG from '@/icons/HeaderSearch'
 
 type TPos = {
   noBorder: boolean

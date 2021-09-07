@@ -44,13 +44,13 @@ export const HintWrapper = styled.div`
 export const FixedHintWrapper = styled(HintWrapper)`
   position: absolute;
   right: 0;
-  top: 20px;
+  top: 22px;
   background: #0e303d;
 
   &:before {
     content: '...';
     color: ${theme('thread.articleDigest')};
-    margin-left: 3px;
+    margin-left: 4px;
   }
 `
 export const MediaHintWrapper = styled.div`
@@ -60,11 +60,11 @@ export const MediaHintWrapper = styled.div`
 `
 export const HintIcon = styled(Img)`
   position: absolute;
-  top: 1px;
+  top: 2px;
   left: 0;
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
-  margin-right: 3px;
+  margin-right: 4px;
 `
 export const HintText = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -72,6 +72,7 @@ export const HintText = styled.div`
   height: 12px;
   margin-right: 5px;
   padding-left: 17px;
+  margin-bottom: 1px;
 `
 export const PreviewWrapper = styled.div`
   display: inline-flex;
