@@ -12,17 +12,17 @@ All interfaces of CPS are provided and only the GraphQL interface is available. 
 Take `containers/PostsThread/schema.js` as an example:
 
 ```js
-Import gql from 'graphql-tag'
-Import { P, F } from '@/schemas'
+import gql from 'graphql-tag'
+import { P, F } from '@/schemas'
 
-Const pagedPosts = gql`
-  ${P.pagedPosts}
+const pagedPosts = gql`
+  ${P.pagedPosts}
 `
-Const partialTags = gql`
-  ${P.partialTags}
+const pagedArticleTags = gql`
+  ${P.pagedArticleTags}
 `
 
-Const pagedCommunities = gql`
+const pagedCommunities = gql`
   Query($filter: CommunitiesFilter!) {
     pagedCommunities(filter: $filter) {
       Entries {
@@ -35,13 +35,13 @@ Const pagedCommunities = gql`
   }
 `
 
-Const schema = {
-  pagedPosts,
-  partialTags,
-  pagedCommunities,
+const schema = {
+  pagedPosts,
+  partialTags,
+  pagedCommunities,
 }
 
-Export default schema
+export default schema
 ```
 
 P, F are common schema fragments (note that not strictly Fragment, but very similar). After exporting the Schema, you can use it in the same directory's logic.js:

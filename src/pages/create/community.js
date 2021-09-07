@@ -15,7 +15,7 @@ import {
   makeGQClient,
   queryStringToJSON,
   nilOrEmpty,
-  ssrAmbulance,
+  ssrRescue,
   ssrParseURL,
   parseTheme,
 } from '@/utils'
@@ -64,8 +64,8 @@ export const getServerSideProps = async (props) => {
   try {
     resp = await fetchData(props)
   } catch ({ response: { errors } }) {
-    if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+    if (ssrRescue.hasLoginError(errors)) {
+      resp = await fetchData(props, { tokenExpired: true })
     }
   }
 

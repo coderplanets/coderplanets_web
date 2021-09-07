@@ -18,7 +18,7 @@ import type { TStore } from './store'
 import { VIEW } from './constant'
 
 import FilterBar from './FilterBar'
-import List from './List'
+import WorksList from './WorksList'
 import MileStone from './MileStone'
 import RightSidebar from './RightSidebar/index'
 
@@ -79,19 +79,24 @@ const WorksContentContainer: FC<TProps> = ({
   testid = 'worksContent',
 }) => {
   useInit(store)
+  const { activeView, showSidebar, pagedWorksData } = store
 
-  const { activeView, showSidebar } = store
+  // console.log('## pagedWorksData -> ', pagedWorksData)
 
   return (
     <Wrapper testid={testid} metric={metric}>
-      <ContentWrapper showSidebar={showSidebar}>
+      <ContentWrapper>
         {showSidebar && (
           <LeftSidebarWrapper>
             <FilterBar activeView={activeView} />
           </LeftSidebarWrapper>
         )}
         <MainContent>
-          {activeView === VIEW.WORKS ? <List /> : <MileStone />}
+          {activeView === VIEW.WORKS ? (
+            <WorksList data={pagedWorksData} />
+          ) : (
+            <MileStone />
+          )}
           <Pagi margin={{ top: '60px', bottom: '80px' }}>
             <PagiInfo>
               <PagiInfoTitle>活跃用户</PagiInfoTitle>

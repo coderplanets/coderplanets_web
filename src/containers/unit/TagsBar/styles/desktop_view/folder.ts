@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
+import { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div``
-export const Header = styled.div`
+export const Header = styled.div<TActive>`
   ${css.flex('align-center')};
+  display: ${({ show }) => (show ? 'flex' : 'none')};
   margin-bottom: 8px;
   &:hover {
     cursor: pointer;
@@ -23,6 +25,9 @@ export const ArrowIcon = styled(Img)<{ isOpen: boolean }>`
   }
 `
 export const Title = styled.div`
+  ${css.flex('align-center')};
+`
+export const FolderTitle = styled.div`
   color: ${theme('tags.text')};
   opacity: 0.5;
   margin-left: 4px;
@@ -34,6 +39,25 @@ export const Title = styled.div`
     opacity: 0.65;
   }
 `
+export const Count = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 13px;
+  margin-top: 2px;
+
+  &:before {
+    content: '(';
+    margin-right: 2px;
+    font-size: 12px;
+    color: ${theme('thread.articleDigest')};
+  }
+  &:after {
+    content: ')';
+    margin-left: 2px;
+    font-size: 12px;
+    color: ${theme('thread.articleDigest')};
+  }
+`
+
 export const Content = styled.div<{ isOpen: boolean }>`
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   width: 100%;
@@ -42,7 +66,7 @@ export const Content = styled.div<{ isOpen: boolean }>`
 export const SubToggle = styled.div`
   ${css.flex('align-center')};
   margin-top: 5px;
-  margin-left: 2px;
+  margin-left: 1px;
   opacity: 0.6;
 
   &:hover {
@@ -53,7 +77,7 @@ export const SubToggle = styled.div`
 export const SubToggleTitle = styled.div`
   color: ${theme('tags.text')};
   font-size: 12px;
-  margin-left: 6px;
+  margin-left: 10px;
   padding: 2px;
   border-radius: 5px;
 `

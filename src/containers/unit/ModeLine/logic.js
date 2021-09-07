@@ -4,8 +4,7 @@ import { useEffect } from 'react'
 import { TYPE, EVENT } from '@/constant'
 
 import asyncSuit from '@/utils/async'
-import { thread2Subpath } from '@/utils/route'
-import { send } from '@/utils/helper'
+import { send, plural } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 // import S from './service'
 
@@ -22,14 +21,14 @@ let store = null
 const log = buildLog('L:ModeLine')
 
 export const tabOnChange = (activeThread) => {
-  const subPath = thread2Subpath(activeThread)
+  const subPath = plural(activeThread)
   // log('EVENT.activeThread -----> ', activeThread)
   // log('EVENT.subPath -----> ', subPath)
 
   store.markRoute({ subPath })
   store.setViewing({ activeThread })
 
-  send(EVENT.THREAD_CHANGE, { data: { activeThread } })
+  send(EVENT.ARTICLE_THREAD_CHANGE, { data: { activeThread } })
 }
 
 export const openMenu = (activeMenu) => {

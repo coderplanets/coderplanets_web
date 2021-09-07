@@ -3,20 +3,20 @@ import styled from 'styled-components'
 // import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import TabPostSVG from '@/SvgIcons/TabPostSVG'
-import TabRadarSVG from '@/SvgIcons/TabRadarSVG'
-import TabUserSVG from '@/SvgIcons/TabUserSVG'
-import TabJobSVG from '@/SvgIcons/TabJobSVG'
+import PostSVG from '@/icons/Post'
+import RadarSVG from '@/icons/Radar'
+import CPerSVG from '@/icons/CPer'
+import BlogSVG from '@/icons/Blog'
+import JobSVG from '@/icons/Job'
 //
-import TabRepoSVG from '@/SvgIcons/TabRepoSVG'
-import TabCheatsheetSVG from '@/SvgIcons/TabCheatsheetSVG'
+// import TabRepoSVG from '@/SvgIcons/TabRepoSVG'
+// import TabCheatsheetSVG from '@/SvgIcons/TabCheatsheetSVG'
 
 // user page
-import TabLikesSVG from '@/SvgIcons/TabLikesSVG'
-import TabPublishSVG from '@/SvgIcons/TabPublishSVG'
-import TabBillingSVG from '@/SvgIcons/TabBillingSVG'
+import PublishSVG from '@/icons/Publish'
+import BillingSVG from '@/icons/Billing'
 import TabCommentsSVG from '@/SvgIcons/TabCommentsSVG'
-import TabSettingsSVG from '@/SvgIcons/TabSettingsSVG'
+import SettingSVG from '@/icons/Setting'
 import TabFavoritesSVG from '@/components/SvgIcons/TabFavoritesSVG'
 
 export const LableWrapper = styled.div`
@@ -28,7 +28,7 @@ type TCommonIcon = { $active: boolean; $small: boolean }
 const commonIcon = (comp) => {
   return styled(comp)<TCommonIcon>`
     fill: ${({ $active }: { $active: boolean }) =>
-      $active ? theme('tabs.headerActive') : theme('tabs.header')};
+      $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
     width: ${({ $small }: { $small: boolean }) => ($small ? '13px' : '15px')};
     height: ${({ $small }) => ($small ? '13px' : '15px')};
     margin-right: 5px;
@@ -36,17 +36,17 @@ const commonIcon = (comp) => {
   `
 }
 
-export const TabPostIcon = commonIcon(TabPostSVG)
-export const TabRadarIcon = commonIcon(TabRadarSVG)
-export const TabUserIcon = commonIcon(TabUserSVG)
-export const TabJobIcon = commonIcon(TabJobSVG)
-export const TabRepoIcon = commonIcon(TabRepoSVG)
-export const TabCheatsheetIcon = commonIcon(TabCheatsheetSVG)
+export const PostIcon = commonIcon(PostSVG)
+export const RadarIcon = commonIcon(RadarSVG)
+export const CPerIcon = commonIcon(CPerSVG)
+export const BlogIcon = commonIcon(BlogSVG)
+export const JobIcon = commonIcon(JobSVG)
+// export const TabRepoIcon = commonIcon(TabRepoSVG)
+// export const TabCheatsheetIcon = commonIcon(TabCheatsheetSVG)
 
 // user page
-export const TabLikesIcon = commonIcon(TabLikesSVG)
-export const TabPublishIcon = commonIcon(TabPublishSVG)
-export const TabBillingIcon = commonIcon(TabBillingSVG)
+export const PublishIcon = commonIcon(PublishSVG)
+export const TabBillingIcon = commonIcon(BillingSVG)
 export const TabCommentsIcon = commonIcon(TabCommentsSVG)
-export const TabSettingsIcon = commonIcon(TabSettingsSVG)
+export const SettingIcon = commonIcon(SettingSVG)
 export const TabFavoritesIcon = commonIcon(TabFavoritesSVG)

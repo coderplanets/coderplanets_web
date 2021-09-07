@@ -2,34 +2,21 @@ import { gql } from '@urql/core'
 import { F, P } from '@/schemas'
 
 const post = gql`
-  query post($id: ID!, $userHasLogin: Boolean!) {
-    post(id: $id) {
-      ${F.post}
-      body
-      author {
-        ${F.author}
-      }
-      tags {
-        ${F.tag}
-      }
-      origialCommunity {
-        ${F.community}
-      }
-      commentsParticipators {
-        ${F.author}
-      }
-      commentsCount
-      linkAddr
-      insertedAt
-      favoritedCount
-      starredCount
-      viewerHasViewed @include(if: $userHasLogin)
-      viewerHasFavorited @include(if: $userHasLogin)
-      viewerHasStarred @include(if: $userHasLogin)
-      favoritedCategoryId @include(if: $userHasLogin)
-    }
-  }
+  ${P.post}
 `
+const job = gql`
+  ${P.job}
+`
+const blog = gql`
+  ${P.blog}
+`
+const radar = gql`
+  ${P.radar}
+`
+const works = gql`
+  ${P.works}
+`
+
 const setTag = gql`
   ${P.setTag}
 `
@@ -41,7 +28,7 @@ const postComment = gql`
   query post($id: ID!) {
     post(id: $id) {
       id
-      commentsParticipators {
+      commentsParticipants {
         ${F.author}
       }
       commentsCount
@@ -51,6 +38,10 @@ const postComment = gql`
 
 const schema = {
   post,
+  job,
+  blog,
+  radar,
+  works,
   setTag,
   unsetTag,
   postComment,

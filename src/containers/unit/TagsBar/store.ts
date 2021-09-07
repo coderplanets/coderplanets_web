@@ -5,6 +5,7 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
+import { THREAD } from '@/constant'
 
 import type {
   TRootStore,
@@ -16,7 +17,7 @@ import type {
 
 import { markStates, toJS } from '@/utils/mobx'
 import { groupByKey } from '@/utils/helper'
-import { mockTags } from '@/utils/mock'
+// import { mockTags } from '@/utils/mock'
 
 import { Tag, emptyTag } from '@/model'
 
@@ -37,8 +38,8 @@ const TagsBar = T.model('TagsBar', {
       return root.viewing.activeThread
     },
     get tagsData(): TTag[] {
-      // return toJS(self.tags)
-      return mockTags(15)
+      return toJS(self.tags)
+      // return mockTags(15)
     },
     get activeTagData(): TTag {
       return toJS(self.activeTag) || emptyTag
@@ -48,10 +49,25 @@ const TagsBar = T.model('TagsBar', {
 
       return groupByKey(tagsData, 'group')
     },
+    get maxDisplayCount(): number {
+      const slf = self as TStore
+      switch (slf.curThread) {
+        case THREAD.JOB: {
+          return 3
+        }
+
+        default: {
+          return 5
+        }
+      }
+    },
+    get totalCountThrold(): number {
+      return 15
+    },
   }))
   .actions((self) => ({
     selectTag(tag): void {
-      const cur = tag.title === '' ? null : tag
+      const cur = tag.raw === '' ? null : tag
 
       self.activeTag = cur
     },

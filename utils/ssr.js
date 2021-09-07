@@ -1,15 +1,19 @@
 import {
-  isEmpty,
-  contains,
   merge,
-  toLower,
-  omit,
+  pick,
+  isEmpty,
   findIndex,
   propEq,
+  includes,
+  values,
 } from 'ramda'
 
 import { DEFAULT_THEME } from '@/config'
-import { HCN, TYPE, THREAD } from '@/constant'
+import { TYPE, ARTICLE_THREAD } from '@/constant'
+import { plural } from '@/utils/helper'
+
+import { makeGQClient } from './graphql'
+import { ssrParseURL, akaTranslate, queryStringToJSON } from './route'
 
 import { P } from '@/schemas'
 
@@ -21,90 +25,143 @@ import BStore from './bstore'
 export const isServerSide = typeof window === 'undefined'
 export const isClientSide = !isServerSide
 
+export const ssrBaseStates = (resp) => {
+  const { sessionState } = resp
+
+  return {
+    theme: {
+      curTheme: parseTheme(sessionState),
+    },
+    account: {
+      user: sessionState.user || {},
+      isValidSession: sessionState.isValid,
+      userSubscribedCommunities: resp.subscribedCommunities || null,
+    },
+  }
+}
+
+export const ssrFetchPrepare = (context, opt) => {
+  const token = ssrFetchToken(context, opt)
+  const gqClient = makeGQClient(token)
+  const userHasLogin = !!token
+
+  return { token, gqClient, userHasLogin }
+}
+
+const ssrFetchToken = (context, opt) => {
+  const { tokenExpired } = merge({ tokenExpired: false }, opt)
+  return !tokenExpired ? getJwtToken(context) : null
+}
+
 // get jwt from cookie or localStorage
 // props has to be getInitialProps's arg
-export const getJwtToken = (props) => {
-  if (isServerSide) return BStore.cookie.from_req(props.req, 'jwtToken')
+export const getJwtToken = (context) => {
+  if (isServerSide) return BStore.cookie.from_req(context.req, 'jwtToken')
 
   return BStore.get('token')
 }
 
-export const ssrPagedSchema = (thread) => {
-  switch (toLower(thread)) {
-    case THREAD.JOB:
-      return P.pagedJobs
+export const ssrPagedArticleSchema = (threadPath) => {
+  const pagedThread = `paged${plural(threadPath, 'titleCase')}`
 
-    case THREAD.REPO:
-      return P.pagedRepos
-
-    default:
-      return P.pagedPosts
-  }
+  return P[pagedThread]
 }
 
-export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
-  thread = toLower(thread)
+// for works, drinks, meetups etc
+export const ssrHomePagedArticlesFilter = (context, userHasLogin) => {
+  const filter = pick(validCommunityFilters, {
+    // @ts-ignore TODO:
+    ...queryStringToJSON(context.req.url, { pagi: 'number' }),
+    community: 'home',
+  })
 
-  if (community === HCN && thread === THREAD.JOB) {
-    filter = omit(['community'], filter)
-    return { filter, userHasLogin }
+  if (filter.tag) {
+    filter.articleTag = filter.tag
+    delete filter.tag
   }
 
   return { filter, userHasLogin }
 }
 
+export const ssrPagedArticlesFilter = (context, userHasLogin) => {
+  const { communityPath } = ssrParseURL(context.req)
+  const community = akaTranslate(communityPath)
+
+  const filter = pick(validCommunityFilters, {
+    // @ts-ignore TODO:
+    ...queryStringToJSON(context.req.url, { pagi: 'number' }),
+    community,
+  })
+
+  if (filter.tag) {
+    filter.articleTag = filter.tag
+    delete filter.tag
+  }
+
+  return { filter, userHasLogin }
+}
+
+export const ssrError = (context, errorType, errorCode = 500) => {
+  // const { communityPath } = ssrParseURL(context.req)
+  switch (errorType) {
+    case 'fetch': {
+      return {
+        redirect: {
+          destination: '/oops',
+          permanent: false,
+        },
+      }
+    }
+
+    default: {
+      return {
+        redirect: {
+          destination: '/oops',
+          permanent: false,
+        },
+      }
+    }
+  }
+}
+
 const getCurView = (source) =>
   source.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
-const getActiveTag = (tagTitle, tagList) => {
-  if (!tagTitle || isEmpty(tagList)) return null
+const getActiveTag = (tagRaw, tagList) => {
+  if (!tagRaw || isEmpty(tagList)) return null
 
-  const index = findIndex(propEq('title', tagTitle), tagList)
+  const index = findIndex(propEq('raw', tagRaw), tagList)
 
   if (index < 0) return null
   return tagList[index]
 }
 
-export const ssrContentsThread = (resp, thread, filters = {}) => {
-  // console.log('filter in resp: ', resp.filter)
-  const activeTag = getActiveTag(resp.filter.tag, resp.partialTags)
+/**
+ * 在 SSR 端时判断是否是 ArticleTHread, 以便判断是否需要进一步获取文章列表数据
+ */
+export const isArticleThread = (urlThread) => {
+  if (urlThread) {
+    if (includes(urlThread.toLowerCase(), values(ARTICLE_THREAD))) {
+      return true
+    }
+    return false
+  }
+  return false
+}
 
-  switch (toLower(thread)) {
-    case THREAD.JOB:
-      return {
-        jobsThread: {
-          pagedJobs: resp.pagedJobs,
-          curView: getCurView(resp.pagedJobs),
-          activeTag,
-          filters,
-        },
-      }
+export const ssrParseArticleThread = (resp, thread, filters = {}) => {
+  if (!isArticleThread(thread)) return { articlesThread: {} }
 
-    case THREAD.REPO:
-      return {
-        reposThread: {
-          pagedRepos: resp.pagedRepos,
-          curView: getCurView(resp.pagedRepos),
-          activeTag,
-          filters,
-        },
-      }
+  const activeTag = getActiveTag(resp.filter.tag, resp.pagedArticleTags)
+  const pagedThread = `paged${plural(thread, 'titleCase')}`
 
-    default:
-      return {
-        articlesThread: {
-          pagedPosts: resp.pagedPosts,
-          curView: getCurView(resp.pagedPosts),
-          activeTag,
-          filters,
-        },
-        // postsThread: {
-        //   pagedPosts: resp.pagedPosts,
-        //   curView: getCurView(resp.pagedPosts),
-        //   activeTag,
-        //   filters,
-        // },
-      }
+  return {
+    articlesThread: {
+      [pagedThread]: resp[pagedThread],
+      curView: getCurView(resp[pagedThread]),
+      activeTag,
+      filters,
+    },
   }
 }
 
@@ -117,14 +174,6 @@ export const validCommunityFilters = [
   'sort',
   'when',
   'read',
-  // jobs spec
-  'salary',
-  'exp',
-  'field',
-  'finance',
-  'scale',
-  'education',
-  'source',
 ]
 
 export const parseTheme = (sessionState) =>

@@ -22,6 +22,7 @@ import type {
   TCommunity,
   TAccount,
   TUser,
+  TArticle,
   TThread,
   TRoute,
   TID,
@@ -29,7 +30,7 @@ import type {
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
-import { Comment, PagedComments, emptyPagiData, Mention } from '@/model'
+import { Comment, PagedComments, emptyPagi, Mention } from '@/model'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
@@ -65,7 +66,7 @@ const CommentsStore = T.model('CommentsStore', {
   // content input of current reply comment editor
   replyContent: T.optional(T.string, ''),
   // comments pagination data of current COMMUNITY / PART
-  pagedComments: T.optional(PagedComments, emptyPagiData),
+  pagedComments: T.optional(PagedComments, emptyPagi),
 
   isEdit: T.optional(T.boolean, false),
   editComment: T.maybeNull(Comment),
@@ -112,9 +113,9 @@ const CommentsStore = T.model('CommentsStore', {
     },
     get participators(): TUser[] {
       const root = getParent(self) as TRootStore
-      const { commentsParticipators } = root.viewing.viewingData
+      const { commentsParticipants } = root.viewing.viewingArticle
       /*
-      const commentsParticipators = [
+      const commentsParticipants = [
         {
           id: '112',
           nickname: 'mydearxym',
@@ -129,7 +130,7 @@ const CommentsStore = T.model('CommentsStore', {
       ]
       */
 
-      return map(mentionMapper, commentsParticipators)
+      return map(mentionMapper, commentsParticipants)
     },
     get mentionListData() {
       return toJS(self.mentionList)
@@ -150,16 +151,16 @@ const CommentsStore = T.model('CommentsStore', {
       // const viewingCommunity = toJS(self.root.viewing.community)
       // if (viewingCommunity.raw) return viewingCommunity.raw
 
-      return root.viewing.viewingData.origialCommunity.raw
+      return root.viewing.viewingArticle.originalCommunity.raw
     },
-    get activeThread(): TThread {
+    get activeThread(): Uppercase<TThread> {
       const root = getParent(self) as TRootStore
       const { activeThread, viewingThread } = root.viewing
       return toUpper(viewingThread || activeThread)
     },
-    get viewingData(): any {
+    get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return root.viewingData
+      return root.viewing.viewingArticle
     },
     get editCommentData() {
       return toJS(self.editComment)

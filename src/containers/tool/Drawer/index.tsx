@@ -12,7 +12,7 @@ import { useShortcut, useResize } from '@/hooks'
 
 import type { TStore } from './store'
 
-import Viewer from './Viewer/index'
+import Viewer from './Viewer'
 import Content from './Content'
 
 import { useInit, closeDrawer } from './logic'
@@ -32,7 +32,6 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
   const {
     slideVisible,
     type,
-    attachmentData,
     attUserData,
     mmType,
     rightOffset,
@@ -58,7 +57,6 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
         type={type}
         visible={slideVisible}
         options={optionsData}
-        attachment={attachmentData}
         attUser={attUserData}
         mmType={mmType}
       />

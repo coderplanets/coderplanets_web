@@ -31,6 +31,7 @@ type TProps = {
   index: number
   size: TSIZE_SM
   activeKey: string
+  bottomSpace?: number
   setItemWidth?: (index: number, width: number) => void
   onClick?: (index: number, e) => void
 }
@@ -40,6 +41,7 @@ const TabItem: FC<TProps> = ({
   modelineView = false,
   holyGrailView = false,
   wrapMode = false,
+  bottomSpace = 0,
   activeKey,
   item,
   index,
@@ -100,6 +102,8 @@ const TabItem: FC<TProps> = ({
         ref={clickableRef}
         onClick={handleLabelClick}
         active={item.raw === activeKey}
+        size={size}
+        bottomSpace={bottomSpace}
       >
         {!isString(item) && (item.icon || item.localIcon) && (
           <TabIcon

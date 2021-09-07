@@ -15,9 +15,12 @@ import {
   merge,
 } from 'ramda'
 
+import { THREAD, ROUTE } from '@/constant'
 import { nilOrEmpty } from './validator'
 import { Global } from './helper'
-import { isServerSide } from './ssr'
+// import { isServerSide } from './ssr'
+
+export const isServerSide = typeof window === 'undefined'
 
 // example: /getme/xxx?aa=bb&cc=dd
 const parseMainPath = compose(
@@ -143,7 +146,7 @@ export const getRoutePathList = compose(
   split('?'),
 )
 
-export const getRouteMainPath = compose(
+const doGetRouteMainPath = compose(
   head,
   split('?'),
   head,
@@ -151,8 +154,29 @@ export const getRouteMainPath = compose(
   split('/'),
 )
 
+export const getRouteMainPath = (asPath) => {
+  if (asPath === '/') return ROUTE.HOME
+
+  return doGetRouteMainPath(asPath)
+}
+
 export const ssrParseURL = (req) => {
   const { url } = req
+  if (url === '/') {
+    const mainPath = 'home'
+    const subPath = THREAD.POST
+
+    return {
+      community: mainPath,
+      communityPath: mainPath,
+      threadPath: subPath,
+      mainPath,
+      subPath,
+      thirdPath: '',
+      thread: toUpper(THREAD.POST),
+    }
+  }
+
   // console.log('ssrParseURL url: ', url)
   // console.log('getMainPath: ', getRouteMainPath(url))
   // console.log('ssrParsePathList: ', getRoutePathList(url))
@@ -164,6 +188,7 @@ export const ssrParseURL = (req) => {
   const thread = endsWith('s', subPath) ? slice(0, -1, subPath) : subPath
 
   return {
+    community: mainPath,
     communityPath: mainPath,
     threadPath: subPath,
     mainPath,
@@ -321,23 +346,6 @@ export const parseDomain = (url) => {
   }
 }
 /* eslint-enable */
-
-const TR_MAP = {
-  posts: 'post',
-  users: 'user',
-  jobs: 'job',
-  repos: 'repo',
-
-  post: 'posts',
-  user: 'users',
-  job: 'jobs',
-  repo: 'repos',
-
-  /* map: 'map', */
-}
-
-export const subPath2Thread = (path) => TR_MAP[path] || path
-export const thread2Subpath = (thread) => TR_MAP[thread] || thread
 
 // sync json query to the brower url without reload the page
 // empty value obj will be omit

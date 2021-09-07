@@ -17,7 +17,7 @@ type TProps = {
 const ArticleSticker: FC<TProps> = ({ show, article }) => {
   return (
     <Wrapper show={show}>
-      <Upvote count={article.starredCount} type="article" />
+      <Upvote count={article.upvotesCount} type="article" />
       <IconButton
         path="article/collect-bookmark.svg"
         onClick={collectArticle}

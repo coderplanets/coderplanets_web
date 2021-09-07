@@ -17,10 +17,11 @@ export const CommunityLogo = styled(Img)`
 export const SubsCount = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
+  margin-top: 2px;
 `
 export const Info = styled.div`
   ${css.flexColumn()};
-  margin-left: 12px;
+  margin-left: 16px;
 `
 export const Header = styled.div`
   ${css.flex('align-center')};

@@ -45,22 +45,22 @@ const DataSolver = [
     match: asyncRes('repo'),
     action: ({ repo }) => {
       markLoading(false)
-      store.setViewing({ repo: merge(store.viewingData, repo) })
+      store.setViewing({ repo: merge(store.viewingArticle, repo) })
     },
   },
   {
     match: asyncRes('updateRepo'),
     action: ({ updateRepo }) => {
       markLoading(false)
-      store.setViewing({ repo: merge(store.viewingData, updateRepo) })
+      store.setViewing({ repo: merge(store.viewingArticle, updateRepo) })
     },
   },
   {
     match: asyncRes(EVENT.SYNC_REPO),
     action: () => {
       markLoading(true)
-      log('should sync repo: ', store.viewingData)
-      const { id, ownerName, title } = store.viewingData
+      log('should sync repo: ', store.viewingArticle)
+      const { id, ownerName, title } = store.viewingArticle
 
       githubAPI
         .searchRepo(ownerName, title)

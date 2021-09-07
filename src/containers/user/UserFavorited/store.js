@@ -12,7 +12,7 @@ import {
   PagedPosts,
   PagedJobs,
   PagedRepos,
-  emptyPagiData,
+  emptyPagi,
   FavoriteCategory,
 } from '@/model'
 
@@ -41,9 +41,9 @@ const UserFavorited = T.model('UserFavorited', {
     ]),
     TYPE.LOADING,
   ),
-  pagedPosts: T.optional(PagedPosts, emptyPagiData),
-  pagedJobs: T.optional(PagedJobs, emptyPagiData),
-  pagedRepos: T.optional(PagedRepos, emptyPagiData),
+  pagedPosts: T.optional(PagedPosts, emptyPagi),
+  pagedJobs: T.optional(PagedJobs, emptyPagi),
+  pagedRepos: T.optional(PagedRepos, emptyPagi),
 })
   .views((self) => ({
     get root() {

@@ -1,13 +1,14 @@
 import { useEffect } from 'react'
-import { contains, toUpper } from 'ramda'
+import { toUpper, findIndex } from 'ramda'
 
 import type { TTag } from '@/spec'
 
-import { EVENT, ERR, THREAD } from '@/constant'
+import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import { errRescue } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+import { getParameterByName } from '@/utils/route'
 
 import type { TStore } from './store'
 import S from './schema'
@@ -18,7 +19,7 @@ const log = buildLog('L:TagsBar')
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   // @ts-ignore
-  receive: [EVENT.COMMUNITY_CHANGE, EVENT.THREAD_CHANGE],
+  receive: [EVENT.COMMUNITY_CHANGE, EVENT.ARTICLE_THREAD_CHANGE],
 })
 
 let sub$ = null
@@ -26,24 +27,29 @@ let store: TStore | undefined
 
 export const onTagSelect = (tag: TTag): void => {
   store.selectTag(tag)
-  store.markRoute({ tag: tag.title })
 }
-
-const NO_TAG_THREADS = [THREAD.USER]
 
 export const loadTags = (): void => {
   const { curThread } = store
   // TODO: remove
-  if (contains(curThread, NO_TAG_THREADS)) return
 
-  const community = store.curCommunity.raw
+  const communityId = store.curCommunity.id
   const thread = toUpper(curThread)
 
-  const args = { community, thread }
+  const args = { filter: { communityId, thread } }
 
-  /* log('#### loadTags --> ', args) */
   store.mark({ loading: true })
-  sr71$.query(S.partialTags, args)
+  sr71$.query(S.pagedArticleTags, args)
+}
+
+// if url has tag=xxx query, then set the activeTag ifneed
+const setActiveTagFromURL = (tags: TTag[]): void => {
+  const tagOnURL = getParameterByName('tag')
+  if (!tagOnURL) return
+  const idx = findIndex((t) => t.raw === tagOnURL, tags)
+  if (idx >= 0) {
+    onTagSelect(tags[idx])
+  }
 }
 
 // ###############################
@@ -52,8 +58,11 @@ export const loadTags = (): void => {
 
 const DataSolver = [
   {
-    match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.mark({ tags, loading: false }),
+    match: asyncRes('pagedArticleTags'),
+    action: ({ pagedArticleTags: tags }): void => {
+      setActiveTagFromURL(tags.entries)
+      store.mark({ tags: tags.entries, loading: false })
+    },
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -63,8 +72,8 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.THREAD_CHANGE),
-    action: (data) => {
+    match: asyncRes(EVENT.ARTICLE_THREAD_CHANGE),
+    action: () => {
       loadTags()
       store.mark({ activeTag: null })
     },
@@ -102,6 +111,8 @@ export const useInit = (_store: TStore): void => {
     store = _store
     log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadTags()
+
     // let activeTag = pick(['id', 'title', 'color'], active || emptyTag) as TTag
     // if (isEmpty(activeTag.title)) activeTag = null
     // store.mark({ thread, activeTag })

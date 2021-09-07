@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 export const PublishWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 3px;
-  margin-bottom: 3px;
+  margin-bottom: 8px;
   font-size: 13px;
 `
 export const Bottom = styled.div`

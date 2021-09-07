@@ -26,13 +26,13 @@ export const Wrapper = styled.div<TWrapper>`
   margin-top: ${({ mTop }) => `${mTop}px`};
   margin-bottom: ${({ mBottom }) => `${mBottom}px`};
 `
-type TIcon = { size: number; dimWhenIdle: boolean } & TSpace & TActive
+type TIcon = { size: number; $dimWhenIdle: boolean } & TSpace & TActive
 export const Icon = styled(Img)<TIcon>`
   fill: ${({ $active }) =>
     $active ? '#00a59b' : theme('thread.articleDigest')};
   ${({ size }) => css.size(size)};
 
-  opacity: ${({ dimWhenIdle }) => (dimWhenIdle ? 0.7 : 1)};
+  opacity: ${({ $dimWhenIdle }) => ($dimWhenIdle ? 0.7 : 1)};
 
   &:hover {
     fill: #00a59b;
@@ -73,7 +73,7 @@ export const getStyledIcon = (comp: FC): FC<TIcon> => {
       $active ? '#00a59b' : theme('thread.articleDigest')};
     ${({ size }) => css.size(size)};
 
-    opacity: ${({ dimWhenIdle }) => (dimWhenIdle ? 0.7 : 1)};
+    opacity: ${({ $dimWhenIdle }) => ($dimWhenIdle ? 0.7 : 1)};
 
     &:hover {
       fill: #00a59b;

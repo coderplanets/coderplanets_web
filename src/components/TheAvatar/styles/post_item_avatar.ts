@@ -14,25 +14,28 @@ export const Wrapper = styled.div`
 `
 export const InnerShadow = styled.div`
   position: absolute;
-  ${css.circle(33)};
-  top: -1px;
-  left: -1px;
+  ${css.circle(32)};
+  height: 32.5px;
+  top: -2px;
+  left: 0px;
   box-shadow: ${theme('avatar.shadow')};
   z-index: 2;
 `
 export const QuoteShadow = styled(InnerShadow)`
   ${css.circle(32)};
-  top: 2px;
-  left: 2px;
+  top: 0;
+  left: 0;
   box-shadow: ${theme('avatar.quoteShadow')};
 `
 export const Avatar = styled(Img)`
-  ${css.circle(32)};
+  ${css.circle(30)};
   fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatar.opacity')};
 `
 export const QuoteAvatar = styled(Avatar)`
   ${css.circle(34)};
+  margin-left: -2px;
+  margin-top: -2px;
   border: 2px solid;
   border-color: ${theme('avatar.quote')};
 `

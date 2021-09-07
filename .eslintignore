@@ -8,3 +8,4 @@ next-env.d.ts
 *.png
 *.jpeg
 *.txt
+*.md

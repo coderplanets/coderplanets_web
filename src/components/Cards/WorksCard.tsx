@@ -5,12 +5,15 @@
  */
 
 import { Fragment, FC, memo } from 'react'
-
-import { ICON, ICON_CMD } from '@/config'
-import { cutRest } from '@/utils/helper'
-import { buildLog } from '@/utils/logger'
+import TimeAgo from 'timeago-react'
+import Link from 'next/link'
 
 import type { TWorks } from '@/spec'
+import { ICON, ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
+
+import { cutRest } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
 
 import DigestSentence from '@/components/DigestSentence'
 import { SpaceGrow } from '@/components/Common'
@@ -41,18 +44,20 @@ const log = buildLog('c:WorksCard:index')
 type TProps = {
   testid?: string
   preview?: boolean
+  onPreview?: (works: TWorks) => void
   item: TWorks
 }
 
 const WorksCard: FC<TProps> = ({
   testid = 'works-card',
   item,
+  onPreview = log,
   preview = false,
   // item,
 }) => {
-  const descLimit = preview ? 20 : 30
+  const descLimit = preview ? 20 : 60
 
-  const { title, desc, upvoteCount, commentsCount } = item
+  const { id, title, desc, digest, upvotesCount, commentsCount } = item
 
   return (
     <Wrapper testid={testid} preview={preview}>
@@ -66,7 +71,9 @@ const WorksCard: FC<TProps> = ({
         <Header>
           <div>
             <Title>
-              <Name>{title || '--'}</Name>
+              <Link href={`/${THREAD.WORKS}/${id}`} passHref>
+                <Name>{title || '--'}</Name>
+              </Link>
 
               {item.isOSS && (
                 <OSSSign>
@@ -77,14 +84,18 @@ const WorksCard: FC<TProps> = ({
                 </OSSSign>
               )}
             </Title>
-            <DigestSentence top={5} bottom={15} onPreview={() => log}>
-              {cutRest(desc, descLimit)}
+            <DigestSentence
+              top={5}
+              bottom={15}
+              onPreview={() => onPreview(item)}
+            >
+              {cutRest(digest, descLimit)}
             </DigestSentence>
           </div>
 
           <Upvote
             type="works-card"
-            count={preview ? 66 : upvoteCount}
+            count={preview ? 66 : upvotesCount}
             viewerHasUpvoted={preview}
           />
         </Header>
@@ -119,7 +130,7 @@ const WorksCard: FC<TProps> = ({
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
                 margin="5px"
               >
-                {item.insertedAt}
+                <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
               </IconText>
               <Divider />
             </Fragment>

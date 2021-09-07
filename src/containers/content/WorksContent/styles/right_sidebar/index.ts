@@ -13,7 +13,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
   ${css.flexColumn()};
-  width: ${({ showSidebar }) => (showSidebar ? '200px' : '226px')};
+  width: ${({ showSidebar }) => (showSidebar ? '210px' : '246px')};
   margin-left: ${({ showSidebar }) => (showSidebar ? '45px' : '60px')};
   color: ${theme('thread.articleDigest')};
 `
@@ -44,6 +44,10 @@ export const PublishBtnWrapper = styled.div`
 `
 export const InterviewsWrapper = styled.div`
   margin-left: 3px;
+`
+export const SubscribeWrapper = styled.div<{ showSidebar: boolean }>`
+  padding: 0 5px;
+  padding: ${({ showSidebar }) => (showSidebar ? '0' : '0 5px')};
 `
 export const Footer = styled.div`
   ${css.flex('justify-center')};

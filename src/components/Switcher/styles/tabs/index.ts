@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 import css from '@/utils/css'
+import { theme } from '@/utils/themes'
 
 type TSlipBar = {
   slipHeight: string
@@ -36,9 +37,11 @@ export const SlipBar = styled.span<TSlipBar>`
   transform: ${({ translateX }) => `translate3d(${translateX}, 0, 0);`};
   transition: transform 0.25s;
 `
-export const RealBar = styled.span<{ width: string }>`
+type TRealBar = { width: string }
+export const RealBar = styled.span<TRealBar>`
   width: ${({ width }) => width};
   height: 3px;
+  border-radius: 3px;
   background: #327faf;
 `
 // transform: ${({ active }) =>

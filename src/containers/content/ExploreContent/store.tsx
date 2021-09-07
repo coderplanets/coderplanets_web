@@ -16,7 +16,7 @@ import type {
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { Trans } from '@/utils/i18n'
-import { PagedCommunities, PagedCategories, emptyPagiData } from '@/model'
+import { PagedCommunities, PagedCategories, emptyPagi } from '@/model'
 
 import type { TSearchState } from './spec'
 
@@ -29,7 +29,7 @@ type TPagiInfo = {
 const ExploreContentStore = T.model('ExploreContentStore', {
   // current active sidbar menu id
   activeCatalogId: T.maybeNull(T.string),
-  pagedCommunities: T.optional(PagedCommunities, emptyPagiData),
+  pagedCommunities: T.optional(PagedCommunities, emptyPagi),
   searching: T.optional(T.boolean, false),
   // cur active category
   /* category: T.optional(T.string, ''), */

@@ -55,11 +55,16 @@ export type { TGQLError } from './graphql'
 export type {
   TCollectionFolder,
   TPagedCollectionFolder,
+  TDocument,
   TArticle,
   TPost,
   TBlog,
+  TRadar,
   TJob,
   TWorks,
+  TMeetup,
+  TPagedWorks,
+  TPagedMeetups,
   TPagedArticles,
   TComment,
   TPagedComments,
@@ -92,6 +97,15 @@ export type TRootStore = RootStoreType
 
 export type TViewing = TCommunity | TArticle
 
-export type TThread = string
+export type TArticleThread =
+  | 'post'
+  | 'job'
+  | 'repo'
+  | 'meetup'
+  | 'blog'
+  | 'radar'
+  | 'works'
+
+export type TThread = TArticleThread | 'cper' | 'setting'
 
 export type TContainer = 'body' | 'drawer'

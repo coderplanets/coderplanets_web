@@ -21,18 +21,18 @@ const tmpList = [
     nickname: 'coolMan',
     bio: '这是一个随机头像，from github',
   },
-  {
-    id: '2',
-    avatar: 'https://avatars.githubusercontent.com/u/5580297?s=64&v=4',
-    nickname: 'coolMan',
-    bio: '这是一个随机头像，from github',
-  },
-  {
-    id: '3',
-    avatar: 'https://avatars.githubusercontent.com/u/2041385?s=64&v=4',
-    nickname: 'coolMan',
-    bio: '这是一个随机头像，from github',
-  },
+  // {
+  //   id: '2',
+  //   avatar: 'https://avatars.githubusercontent.com/u/5580297?s=64&v=4',
+  //   nickname: 'coolMan',
+  //   bio: '这是一个随机头像，from github',
+  // },
+  // {
+  //   id: '3',
+  //   avatar: 'https://avatars.githubusercontent.com/u/2041385?s=64&v=4',
+  //   nickname: 'coolMan',
+  //   bio: '这是一个随机头像，from github',
+  // },
 ]
 
 const Teams: FC = () => {

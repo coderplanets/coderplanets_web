@@ -33,7 +33,7 @@ import {
 
   // threads
   ReposThreadStore,
-  UsersThreadStore,
+  CperMapThreadStore,
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
@@ -138,7 +138,6 @@ import {
 
 // // threads store
 // import ReposThreadStore from '@/containers/thread/ReposThread/store'
-// import UsersThreadStore from '@/containers/thread/UsersThread/store'
 // import RoadmapThreadStore from '@/containers/thread/RoadmapThread/store'
 
 // import TagsBarStore from '@/containers/unit/TagsBar/store'
@@ -229,7 +228,7 @@ const rootStore = T.model({
   userContent: T.optional(UserContentStore, {}),
   footer: T.optional(FooterStore, {}),
   reposThread: T.optional(ReposThreadStore, {}),
-  usersThread: T.optional(UsersThreadStore, {}),
+  cperMapThread: T.optional(CperMapThreadStore, {}),
   tagsBar: T.optional(TagsBarStore, {}),
   userLister: T.optional(UserListerStore, {}),
   girlVerifier: T.optional(GirlVerifierStore, {}),
@@ -286,9 +285,7 @@ const rootStore = T.model({
       // TODO self.doraemon.visible
       return self.doraemon.visible
     },
-    get viewingData(): TViewing {
-      return self.viewing.viewingData
-    },
+
     get viewingArticle(): TArticle {
       const { viewing } = self
       const { activeThread } = viewing

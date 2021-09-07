@@ -33,7 +33,7 @@ export const articleOutAnchor = (): void => {
 }
 
 const loadPost = (): void => {
-  const { id } = store.viewingData
+  const { id } = store.viewingArticle
   sr71$.query(S.post, { id, userHasLogin: store.isLogin })
 }
 

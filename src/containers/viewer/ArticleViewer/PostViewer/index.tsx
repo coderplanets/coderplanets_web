@@ -9,12 +9,14 @@ import { buildLog } from '@/utils/logger'
 
 import ViewportTracker from '@/components/ViewportTracker'
 import { ArticleContentLoading } from '@/components/Loading'
+import ArticeBody from '@/components/ArticleBody'
+import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
 
-import { Wrapper, BodyWrapper, Title, ArticleBody } from '../styles/post_viewer'
+import { Wrapper, BodyWrapper, Title } from '../styles/post_viewer'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
@@ -38,15 +40,16 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
         <Title>{article.title}</Title>
         <ArticleInfo article={article} />
         <ViewportTracker onEnter={hideFixedHeader} onLeave={showFixedHeader} />
-        <BodyWrapper>
-          {loading ? (
-            <ArticleContentLoading num={2} />
-          ) : (
-            <ArticleBody>
-              <div>article body</div>
-            </ArticleBody>
-          )}
-        </BodyWrapper>
+
+        {loading && (
+          <ArticleContentLoading num={1} top={15} bottom={30} left={-50} />
+        )}
+        {!loading && (
+          <BodyWrapper>
+            <ArticeBody document={article.document} />
+          </BodyWrapper>
+        )}
+        <ArticleFooter />
       </Wrapper>
     </Fragment>
   )

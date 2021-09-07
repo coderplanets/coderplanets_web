@@ -8,13 +8,14 @@ import type { TPost } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import ViewportTracker from '@/components/ViewportTracker'
+import ArticeBody from '@/components/ArticleBody'
 import { ArticleContentLoading } from '@/components/Loading'
 
 import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
 
-import { Wrapper, BodyWrapper, ArticleBody } from '../styles/works_viewer'
+import { Wrapper, BodyWrapper } from '../styles/works_viewer'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
@@ -41,9 +42,7 @@ const WorksViewer: FC<TProps> = ({ article, loading }) => {
           {loading ? (
             <ArticleContentLoading num={2} />
           ) : (
-            <ArticleBody>
-              <div>article body</div>
-            </ArticleBody>
+            <ArticeBody document={article.document} />
           )}
         </BodyWrapper>
       </Wrapper>

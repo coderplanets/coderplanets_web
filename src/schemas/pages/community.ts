@@ -2,8 +2,8 @@ import F from '../fragments'
 
 // contributesDigest
 export const subscribedCommunities = `
-  query subscribedCommunities($userId: ID, $filter: PagedFilter!) {
-    subscribedCommunities(userId: $userId, filter: $filter) {
+  query subscribedCommunities($login: String, $filter: PagedFilter!) {
+    subscribedCommunities(login: $login, filter: $filter) {
       entries {
         ${F.community}
         contributesDigest
@@ -25,9 +25,13 @@ export const community = `
       contributesDigest
       subscribersCount
       editorsCount
-      postsCount
-      jobsCount
-      reposCount
+      meta {
+        postsCount
+        worksCount
+        blogsCount
+        radarsCount
+        jobsCount
+      }
     }
   }
 `

@@ -75,7 +75,7 @@ const DataSolver = [
   {
     match: asyncRes('post'),
     action: ({ post }) => {
-      store.setViewing({ post: merge(store.viewingData, post) })
+      store.setViewing({ post: merge(store.viewingArticle, post) })
       store.syncViewingItem(post)
       markLoading(false)
     },
@@ -83,7 +83,7 @@ const DataSolver = [
   {
     match: asyncRes('job'),
     action: ({ job }) => {
-      store.setViewing({ job: merge(store.viewingData, job) })
+      store.setViewing({ job: merge(store.viewingArticle, job) })
       store.syncViewingItem(job)
       markLoading(false)
     },
@@ -91,7 +91,7 @@ const DataSolver = [
   {
     match: asyncRes('repo'),
     action: ({ repo }) => {
-      store.setViewing({ repo: merge(store.viewingData, repo) })
+      store.setViewing({ repo: merge(store.viewingArticle, repo) })
       store.syncViewingItem(repo)
       markLoading(false)
     },

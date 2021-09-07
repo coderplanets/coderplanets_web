@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
 import { merge } from 'ramda'
 
+import type { TArticle } from '@/spec'
+
+import { EVENT, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { errRescue } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
-
-import { EVENT, ERR } from '@/constant'
 
 import S from './schema'
 import type { TStore } from './store'
@@ -24,15 +25,28 @@ const log = buildLog('L:ArticleViewer')
 
 export const holder = 1
 
-const loadPost = () => {
-  const { id } = store.viewingData
+const loadArticle = (): void => {
   const userHasLogin = store.isLogin
+  const { id, meta } = store.viewingArticle
+
+  console.log('loadBefore: ', store.viewingArticle)
+
   const variables = { id, userHasLogin }
   markLoading()
-  sr71$.query(S.post, variables)
+  const schema = S[meta.thread.toLowerCase()]
+  return sr71$.query(schema, variables)
 }
 
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
+
+const handleArticleLoaded = (article: TArticle): void => {
+  console.log('handleArticleLoaded: ', article)
+
+  const thread = article.meta.thread.toLowerCase()
+  store.setViewing({ [thread]: merge(store.viewingArticle, article) })
+  store.syncViewingItem(article)
+  markLoading(false)
+}
 
 // ###############################
 // init & uninit handlers
@@ -41,9 +55,22 @@ const markLoading = (maybe = true) => store.mark({ loading: maybe })
 const DataSolver = [
   {
     match: asyncRes('post'),
-    action: ({ post }) => {
-      store.setViewing({ post: merge(store.viewingData, post) })
-      store.syncViewingItem(post)
+    action: ({ post }) => handleArticleLoaded(post),
+  },
+  {
+    match: asyncRes('job'),
+    action: ({ job }) => handleArticleLoaded(job),
+  },
+  {
+    match: asyncRes('blog'),
+    action: ({ blog }) => handleArticleLoaded(blog),
+  },
+  {
+    match: asyncRes('works'),
+    action: ({ works }) => {
+      console.log('got works:', works)
+      store.setViewing({ works: merge(store.viewingArticle, works) })
+      // store.syncViewingItem(works) // do in works content
       markLoading(false)
     },
   },
@@ -57,7 +84,7 @@ const DataSolver = [
   // {
   //   match: asyncRes('setTag'),
   //   action: () => {
-  //     loadPost(store.viewingData)
+  //     loadPost(store.viewingArticle)
   //     closeDrawer()
   //     store.setViewing({ post: {} })
   //   },
@@ -65,7 +92,7 @@ const DataSolver = [
   // {
   //   match: asyncRes('unsetTag'),
   //   action: () => {
-  //     loadPost(store.viewingData)
+  //     loadPost(store.viewingArticle)
   //     closeDrawer()
   //     store.setViewing({ post: {} })
   //   },
@@ -97,7 +124,7 @@ export const useInit = (_store: TStore): void => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    loadPost()
+    loadArticle()
 
     return () => {
       // log('effect uninit')

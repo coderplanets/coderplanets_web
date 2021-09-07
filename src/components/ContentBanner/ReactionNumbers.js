@@ -9,26 +9,26 @@ import {
   NumberItem,
 } from './styles/reaction_numbers'
 
-const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
+const ReactionNumbers = ({ data: { views, collectsCount, upvotesCount } }) => (
   <NumbersInfo>
     <NumberSection readOnly>
       <NumberTitle readOnly>浏览</NumberTitle>
       <NumberItem readOnly>{prettyNum(views)}</NumberItem>
     </NumberSection>
     <NumberDivider />
-    {starredCount >= 0 && (
+    {upvotesCount >= 0 && (
       <>
         <NumberSection>
           <NumberTitle>喜欢</NumberTitle>
-          <NumberItem>{numberWithCommas(starredCount)}</NumberItem>
+          <NumberItem>{numberWithCommas(upvotesCount)}</NumberItem>
         </NumberSection>
         <NumberDivider />
       </>
     )}
-    {favoritedCount >= 0 && (
+    {collectsCount >= 0 && (
       <NumberSection>
         <NumberTitle>收藏</NumberTitle>
-        <NumberItem>{numberWithCommas(favoritedCount)}</NumberItem>
+        <NumberItem>{numberWithCommas(collectsCount)}</NumberItem>
       </NumberSection>
     )}
     {/*

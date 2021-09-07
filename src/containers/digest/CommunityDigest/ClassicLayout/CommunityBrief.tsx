@@ -55,7 +55,7 @@ const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
           </Title>
         </TitleWrapper>
         {/* <Desc>{community.desc}</Desc> */}
-        <ExpandTexts descExpand={descExpand} />
+        <ExpandTexts descExpand={descExpand} desc={community.desc} />
         {community.raw !== HCN && <SocialList />}
       </CommunityInfo>
     </Wrapper>

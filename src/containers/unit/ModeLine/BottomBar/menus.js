@@ -51,23 +51,23 @@ export const getArticlePageMenus = (article) => {
   if (!article) return articlePageMenus
 
   const {
-    starredCount,
+    upvotesCount,
     commentsCount,
-    viewerHasStarred,
-    viewerHasFavorited,
+    viewerHasUpvoted,
+    viewerHasCollected,
   } = article
 
   const articlePageMenusData = [...articlePageMenus]
 
-  articlePageMenusData[0].desc = `${articlePageMenusData[0].title} ${starredCount}`
+  articlePageMenusData[0].desc = `${articlePageMenusData[0].title} ${upvotesCount}`
   articlePageMenusData[1].desc = `${articlePageMenusData[0].title} ${commentsCount}`
 
-  if (viewerHasStarred) {
+  if (viewerHasUpvoted) {
     articlePageMenusData[0].icon = `${ICON}/article/heart-solid.svg`
     articlePageMenusData[0].iconTheme = 'baseColor.red' // theme.key
   }
 
-  if (viewerHasFavorited) {
+  if (viewerHasCollected) {
     articlePageMenusData[2].icon = `${ICON}/article/collect-solid-modeline.svg`
   }
 

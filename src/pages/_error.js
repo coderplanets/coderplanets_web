@@ -1,4 +1,3 @@
-import React from 'react'
 import NextErrorComponent from 'next/error'
 import { Provider } from 'mobx-react'
 
@@ -6,8 +5,6 @@ import ThemePalette from '@/containers/layout/ThemePalette'
 import ErrorPage from '@/components/ErrorPage'
 
 import { useStore } from '@/stores/init'
-
-import { Wrapper } from '@/containers/layout/GlobalLayout/styles'
 
 const Error = (props) => {
   const store = useStore(props)
@@ -23,9 +20,7 @@ const Error = (props) => {
   return (
     <Provider store={store}>
       <ThemePalette>
-        <Wrapper>
-          <ErrorPage errorCode={statusCode} />
-        </Wrapper>
+        <ErrorPage errorCode={statusCode} />
       </ThemePalette>
     </Provider>
   )

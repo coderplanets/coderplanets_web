@@ -60,12 +60,3 @@ export const Footer = dynamic(() => import('@/containers/unit/Footer'), {
   loading: () => <div />,
   ssr: false,
 })
-
-export const ErrorPage = dynamic<TErrorPage>(
-  () => import('@/components/ErrorPage'),
-  {
-    /* eslint-disable react/display-name */
-    loading: () => <div />,
-    ssr: false,
-  },
-)

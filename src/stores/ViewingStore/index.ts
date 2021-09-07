@@ -4,14 +4,12 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values, merge } from 'ramda'
+import { values, merge, includes } from 'ramda'
 
 import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
-import { THREAD } from '@/constant'
-import { markStates, toJS } from '@/utils/mobx'
-import { User, Community, Post, Blog, Job, Repo } from '@/model'
-
-const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO]
+import { THREAD, ARTICLE_THREAD } from '@/constant'
+import { markStates } from '@/utils/mobx'
+import { User, Community, Post, Blog, Job, Radar, Works } from '@/model'
 
 const ViewingStore = T.model('ViewingStore', {
   user: T.optional(User, {}),
@@ -19,14 +17,16 @@ const ViewingStore = T.model('ViewingStore', {
   post: T.optional(Post, {}),
   blog: T.optional(Blog, {}),
   job: T.optional(Job, {}),
-  repo: T.optional(Repo, {}),
+  radar: T.optional(Radar, {}),
+  works: T.optional(Works, {}),
+  // repo: T.optional(Repo, {}),
   activeThread: T.optional(
     T.enumeration('activeThread', values(THREAD)),
     THREAD.POST,
   ),
   // for drawer usage
   viewingThread: T.maybeNull(
-    T.enumeration('viewingThread', PREVIEWABLE_THREADS),
+    T.enumeration('viewingThread', values(ARTICLE_THREAD)),
   ),
 })
   .views((self) => ({
@@ -46,32 +46,21 @@ const ViewingStore = T.model('ViewingStore', {
     get currentThread(): TThread {
       return self.viewingThread || self.activeThread
     },
-    get viewingData(): TArticle {
-      const curThread = self.viewingThread || self.activeThread
-      switch (curThread) {
-        case THREAD.JOB:
-          return toJS(self.job)
-        case THREAD.BLOG:
-          return toJS(self.blog)
-        case THREAD.REPO:
-          return toJS(self.repo)
-        case THREAD.POST:
-          return toJS(self.post)
-        default:
-          return toJS(self.post)
-      }
-    },
-
     get viewingArticle(): TArticle {
       const curThread = self.viewingThread || self.activeThread
-      if (!curThread) return {}
-      return toJS(self[curThread])
+      if (includes(curThread, values(ARTICLE_THREAD))) {
+        return self[curThread]
+      }
+      return {}
     },
   }))
   .actions((self) => ({
     setViewing(sobj): void {
       const { mark } = self as TStore
       mark(sobj)
+    },
+    setCurThread(thread: TThread): void {
+      self.activeThread = thread
     },
     resetViewing(): void {
       const { mark, viewingThread } = self as TStore
@@ -98,7 +87,7 @@ const ViewingStore = T.model('ViewingStore', {
     },
     syncViewingItem(item: TArticle): void {
       const root = getParent(self) as TRootStore
-      root.articlesThread.updateItem(item)
+      root.articlesThread.updateArticle(item)
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

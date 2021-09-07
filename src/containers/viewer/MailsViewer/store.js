@@ -6,10 +6,10 @@
 import { types as T, getParent } from 'mobx-state-tree'
 
 import { markStates, toJS } from '@/utils/mobx'
-import { PagedMentionMessages, emptyPagiData } from '@/model'
+import { PagedMentionMessages, emptyPagi } from '@/model'
 
 const MailsViewer = T.model('MailsViewer', {
-  pagedMentions: T.optional(PagedMentionMessages, emptyPagiData),
+  pagedMentions: T.optional(PagedMentionMessages, emptyPagi),
   readState: T.optional(T.boolean, false),
   activeRaw: T.optional(
     T.enumeration('notifications', [

@@ -1,17 +1,9 @@
-import { post, job, repo, tag, author, pagedCounts } from './base'
+import { article, repo, author, pagedCounts } from './base'
 
 export const pagedPosts = `
   entries {
-    ${post}
-    digest
-    commentsCount
-    commentsParticipators(filter: { first: 5 }) {
-      ${author}
-    }
-    tags {
-      ${tag}
-    }
-    author {
+    ${article}
+    commentsParticipants {
       ${author}
     }
   }
@@ -19,13 +11,9 @@ export const pagedPosts = `
 `
 export const pagedJobs = `
   entries {
-    ${job}
-    tags {
-      ${tag}
-    }
-    author {
-      ${author}
-    }
+    ${article}
+    company
+    companyLink
    }
   ${pagedCounts}
 `

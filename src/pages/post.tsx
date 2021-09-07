@@ -1,17 +1,14 @@
-import React from 'react'
 // import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
-import { merge, toUpper } from 'ramda'
 
-import { PAGE_SIZE, SITE_URL } from '@/config'
-import { TYPE, ROUTE, THREAD, METRIC } from '@/constant'
+import { ROUTE, THREAD, METRIC } from '@/constant'
 import {
-  getJwtToken,
-  nilOrEmpty,
-  makeGQClient,
+  ssrBaseStates,
+  ssrFetchPrepare,
   ssrParseURL,
-  ssrAmbulance,
-  parseTheme,
+  ssrRescue,
+  ssrError,
+  articleSEO,
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
@@ -21,25 +18,21 @@ import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt = {}) => {
-  const { realname } = merge({ realname: true }, opt)
-
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
-  const userHasLogin = nilOrEmpty(token) === false
+const fetchData = async (context, opt = {}) => {
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
   // schema
-  const { subPath: id } = ssrParseURL(props.req)
+  const { subPath: id } = ssrParseURL(context.req)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const post = gqClient.request(P.post, { id, userHasLogin })
-  const pagedComments = gqClient.request(P.pagedComments, {
-    id,
-    userHasLogin,
-    thread: toUpper(THREAD.POST),
-    filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
-  })
+  // const pagedComments = gqClient.request(P.pagedComments, {
+  //   id,
+  //   userHasLogin,
+  //   thread: toUpper(THREAD.POST),
+  //   filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
+  // })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -51,42 +44,35 @@ const fetchData = async (props, opt = {}) => {
   return {
     ...(await sessionState),
     ...(await post),
-    ...(await pagedComments),
+    // ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
 
-export const getServerSideProps = async (props) => {
+export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(props)
-  } catch ({ response: { errors } }) {
-    if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+    resp = await fetchData(context)
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    if (ssrRescue.hasLoginError(e.response?.errors)) {
+      resp = await fetchData(context, { tokenExpired: true })
     } else {
-      return { errorCode: 404 }
+      return ssrError(context, 'fetch', 500)
     }
   }
 
-  const { sessionState, post, pagedComments, subscribedCommunities } = resp
+  const { post } = resp
 
-  const { origialCommunity: community, ...viewingContent } = post
   const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-      userSubscribedCommunities: subscribedCommunities,
-    },
-    route: { mainPath: ROUTE.POST, subPath: viewingContent.id },
+    ...ssrBaseStates(resp),
+    route: { mainPath: ROUTE.POST, subPath: post.id },
     viewing: {
-      post: viewingContent,
+      post,
       activeThread: THREAD.POST,
     },
     // TODO: load comments on Client
-    comments: { pagedComments },
+    // comments: { pagedComments },
   }
 
   return { props: { errorCode: null, ...initProps } }
@@ -94,31 +80,14 @@ export const getServerSideProps = async (props) => {
 
 const PostPage = (props) => {
   const store = useStore(props)
-  const { viewing, route, errorCode } = props
+  const { viewing } = props
   const { post } = viewing
 
-  const { mainPath } = route
-
-  const seoConfig = {
-    url: `${SITE_URL}/${mainPath}/${ROUTE.POST}/${post.id}`,
-    title: `${post.title}`,
-    datePublished: `${post.insertedAt}`,
-    dateModified: `${post.updatedAt}`,
-    authorName: `${post.author.nickname}`,
-    description: `${post.title}`,
-    images: [],
-  }
+  const seoConfig = articleSEO(THREAD.POST, post)
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.ARTICLE}
-        // metric={METRIC.WORKS_ARTICLE}
-        seoConfig={seoConfig}
-        errorCode={errorCode}
-        errorPath={`/${mainPath}/post/${post.id}`}
-        noSidebar
-      >
+      <GlobalLayout metric={METRIC.ARTICLE} seoConfig={seoConfig} noSidebar>
         <ArticleDigest />
         <ArticleContent />
       </GlobalLayout>

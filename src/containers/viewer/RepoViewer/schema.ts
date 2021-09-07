@@ -4,13 +4,7 @@ import { F } from '@/schemas'
 const repo = gql`
   query($id: ID!, $userHasLogin: Boolean!) {
     repo(id: $id) {
-      ${F.repo}
-      tags {
-        ${F.tag}
-      }
-      origialCommunity {
-        ${F.community}
-      }
+      ${F.article}
       watchCount
       ownerUrl
       repoUrl
@@ -19,9 +13,9 @@ const repo = gql`
       issuesCount
       releaseTag
       lastSync
-      favoritedCount
+      collectsCount
       favoritedCategoryId @include(if: $userHasLogin)
-      viewerHasFavorited @include(if: $userHasLogin)
+      viewerHasCollected @include(if: $userHasLogin)
       author {
         ${F.author}
       }
@@ -69,7 +63,7 @@ const updateRepo = gql`
       releaseTag: $releaseTag
       contributors: $contributors
     ) {
-      ${F.repo}
+      ${F.article}
       watchCount
       ownerUrl
       repoUrl
@@ -78,7 +72,7 @@ const updateRepo = gql`
       issuesCount
       releaseTag
       lastSync
-      favoritedCount
+      collectsCount
       updatedAt
     }
   }

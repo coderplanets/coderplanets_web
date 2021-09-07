@@ -5,9 +5,10 @@ import type { TArticle } from '@/spec'
 
 import { Br } from '@/components/Common'
 
-import About from './About'
+import GetMe from './GetMe'
+import Contact from './Contact'
 import Teams from './Teams'
-import TechStacks from './TechStacks'
+// import TechStacks from './TechStacks'
 import Others from './Others'
 
 import {
@@ -29,7 +30,7 @@ const WorksSticker: FC<TProps> = ({ show, article }) => {
         <CommentSign>//</CommentSign>
         <Title>关于</Title>
       </Row>
-      <About />
+      <GetMe />
       <Br top={30} />
       <Row>
         <CommentSign>//</CommentSign>
@@ -40,11 +41,10 @@ const WorksSticker: FC<TProps> = ({ show, article }) => {
       <Br top={20} />
       <Row>
         <CommentSign>//</CommentSign>
-        <Title>技术栈</Title>
+        <Title>关注我们</Title>
       </Row>
-      <Br top={15} />
-      <TechStacks />
-      <Br top={20} />
+      <Contact />
+      <Br top={25} />
       <Row>
         <CommentSign>//</CommentSign>
         <Title>其他</Title>

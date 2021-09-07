@@ -17,18 +17,15 @@
     "COMMENTS": 5
   },
   "TAG_COLORS": [
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "cyan",
-    "blue",
-    "purple",
-    "dodgerblue",
-    "yellowgreen",
-    "brown",
-    "cadetblue",
-    "grey"
+    "RED",
+    "ORANGE",
+    "YELLOW",
+    "GREEN",
+    "CYAN",
+    "BLUE",
+    "PURPLE",
+    "PINK",
+    "GREY"
   ],
   "TAG_COLOR_ORDER": {
     "red": 0,
@@ -51,7 +48,7 @@
   "ICON_CMD": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd",
   "DEFAULT_ICON": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd/cheatsheet.svg",
   "DEFAULT_USER_AVATAR": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd/alien_user3.svg",
-  "GRAPHQL_ENDPOINT": "https://api.coderplanets.com/graphiql",
+  "GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql",
   "SITE_URL": "https://coderplanets.com",
   "SITE_URL_SHORT": "https://cper.co",
   "GITHUB": "https://github.com/coderplanets",
@@ -67,7 +64,7 @@
   "EMAIL_SUPPORT": "support@group.coderplanets.com",
   "EMAIL_HELLO": "hello@group.coderplanets.com",
   "EMAIL_BUSINESS": "business@group.coderplanets.com",
-  "// GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql",
+  "// GRAPHQL_ENDPOINT": "https://api.coderplanets.com/graphiql",
   "BUILD_VERSION": "v0.8.2",
   "// 1000 * 60 * 10 = 10 mins": "",
   "SSR_CACHE_TIME": 60000

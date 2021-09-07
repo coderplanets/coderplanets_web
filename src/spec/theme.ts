@@ -13,6 +13,7 @@ export type TTheme = any
 // export type TTheme = string
 
 export type TThemeMap = {
+  name?: string
   _meta?: {
     category: string // TODO: 'dark' | 'light'
   }

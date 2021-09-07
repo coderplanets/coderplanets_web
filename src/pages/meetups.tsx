@@ -1,11 +1,18 @@
-import React from 'react'
 import { Provider } from 'mobx-react'
-import { merge } from 'ramda'
 
-import { SITE_URL } from '@/config'
-import { ROUTE, METRIC } from '@/constant'
+import { METRIC, THREAD } from '@/constant'
 
-import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
+import {
+  ssrBaseStates,
+  ssrFetchPrepare,
+  ssrHomePagedArticlesFilter,
+  ssrPagedArticleSchema,
+  ssrParseArticleThread,
+  ssrRescue,
+  meetupsSEO,
+  ssrError,
+} from '@/utils'
+
 import { P } from '@/schemas'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -13,12 +20,14 @@ import MeetupsContent from '@/containers/content/MeetupsContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt = {}) => {
-  const { realname } = merge({ realname: true }, opt)
+const fetchData = async (context, opt = {}) => {
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+  const filter = ssrHomePagedArticlesFilter(context, userHasLogin)
 
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
-
+  const pagedArticles = gqClient.request(
+    ssrPagedArticleSchema(THREAD.MEETUP),
+    filter,
+  )
   const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -28,30 +37,33 @@ const fetchData = async (props, opt = {}) => {
   })
 
   return {
+    filter,
     ...(await sessionState),
     ...(await subscribedCommunities),
+    ...(await pagedArticles),
   }
 }
 
-export const getServerSideProps = async (props) => {
+export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await fetchData(context)
   } catch ({ response: { errors } }) {
-    if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+    if (ssrRescue.hasLoginError(errors)) {
+      resp = await fetchData(context, { tokenExpired: true })
+    } else {
+      return ssrError(context, 'fetch', 500)
     }
   }
 
-  const { sessionState, subscribedCommunities } = resp
+  const { filter } = resp
+  const { articlesThread } = ssrParseArticleThread(resp, THREAD.MEETUP, filter)
+  const { pagedMeetups } = articlesThread
+
   const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-      userSubscribedCommunities: subscribedCommunities,
+    ...ssrBaseStates(resp),
+    meetupsContent: {
+      pagedMeetups,
     },
   }
 
@@ -62,12 +74,7 @@ export const getServerSideProps = async (props) => {
 
 const MeetupsPage = (props) => {
   const store = useStore(props)
-
-  const seoConfig = {
-    url: `${SITE_URL}/${ROUTE.MEETUPS}`,
-    title: '小聚 | CP',
-    description: '来和志同道合的朋友一起聊聊',
-  }
+  const seoConfig = meetupsSEO()
 
   return (
     <Provider store={store}>

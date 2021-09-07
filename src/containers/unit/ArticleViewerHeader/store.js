@@ -25,8 +25,8 @@ const ArticleViewerHeader = T.model('ArticleViewerHeader', {
     get accountInfo() {
       return self.root.account.accountInfo
     },
-    get viewingData() {
-      return self.root.viewingData
+    get viewingArticle() {
+      return self.root.viewingArticle
     },
     get activeThread() {
       const { activeThread } = self.root.viewing

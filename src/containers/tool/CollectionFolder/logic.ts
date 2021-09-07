@@ -99,7 +99,7 @@ export const onModalClose = (): void => {
 export const setContent = (categoryId: TID): void => {
   if (store.doing) return
 
-  const { id } = store.viewingData
+  const { id } = store.viewingArticle
   const { thread } = store
 
   const args = {
@@ -114,7 +114,7 @@ export const setContent = (categoryId: TID): void => {
 export const unSetContent = (categoryId: TID): void => {
   if (store.doing) return
 
-  const { id } = store.viewingData
+  const { id } = store.viewingArticle
   const { thread } = store
 
   const args = {
@@ -174,7 +174,7 @@ const DataSolver = [
     action: () => {
       loadCategories()
       /* store.updateCategory(cat) */
-      const { id } = store.viewingData
+      const { id } = store.viewingArticle
       const { thread } = store
       send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
       store.mark({ doing: false })
@@ -185,7 +185,7 @@ const DataSolver = [
     action: () => {
       loadCategories()
       /* store.updateCategory(cat) */
-      const { id } = store.viewingData
+      const { id } = store.viewingArticle
       const { thread } = store
       send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
       store.mark({ doing: false })

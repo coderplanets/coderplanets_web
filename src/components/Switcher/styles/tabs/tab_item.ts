@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
+import type { TSIZE_SM, TActive } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 import { getMarginRight, getPadding, getMarginBottom } from '../metric/tabs'
 
 type TTab = {
-  size: string
+  size: TSIZE_SM
   mobileView: boolean
   holyGrailView: boolean
   wrapMode: boolean
@@ -59,17 +59,22 @@ export const Nav = styled.nav`
   margin: 0 auto;
   padding: 0;
 `
-export const Label = styled.span<TActive>`
+
+type TLabel = TActive & {
+  size: TSIZE_SM
+  bottomSpace: number
+}
+export const Label = styled.span<TLabel>`
   ${css.flex('align-center')};
   white-space: nowrap;
-
   color: ${({ active }) =>
-    active ? theme('tabs.headerActive') : theme('tabs.header')};
+    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  margin-bottom: ${({ bottomSpace }) => `${bottomSpace}px`};
 
   &:hover {
-    color: ${theme('tabs.headerActive')};
+    color: ${theme('thread.articleTitle')};
     svg {
-      fill: ${theme('tabs.headerActive')};
+      fill: ${theme('thread.articleTitle')};
     }
   }
 `

@@ -14,8 +14,8 @@ const staredPosts = gql`
         author {
           ${F.author}
         }
-        commentsParticipatorsCount
-        commentsParticipators(filter: { first: 5 }) {
+        commentsParticipantsCount
+        commentsParticipants {
           ${F.author}
         }
       }
@@ -35,7 +35,7 @@ const staredJobs = gql`
         title
         company
         companyLogo
-        tags {
+        articleTags {
           id
           title
           color

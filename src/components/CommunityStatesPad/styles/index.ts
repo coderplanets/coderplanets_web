@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     margin-top: -4px;
   `};
 `
-type TNumberSection = TActive & { readOnly: boolean }
+type TNumberSection = TActive & { readOnly?: boolean }
 export const NumberSection = styled.div<TNumberSection>`
   ${css.flexColumn('align-end')};
   background-color: ${({ active }) =>
@@ -37,7 +37,7 @@ export const ChargeSection = styled(NumberSection)`
   ${css.flexColumn('align-center', 'justify-between')};
   ${css.media.mobile`display: none`};
 `
-type TNumberTitle = { small: boolean; readOnly: boolean }
+type TNumberTitle = { small?: boolean; readOnly?: boolean }
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberTitle = styled.div<TNumberTitle>`
   color: ${theme('banner.numberDesc')};

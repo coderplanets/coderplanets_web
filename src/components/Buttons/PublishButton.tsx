@@ -20,6 +20,24 @@ const log = buildLog('c:PublishButton:index')
 
 const getOptions = (thread) => {
   switch (thread) {
+    case THREAD.BLOG: {
+      return [
+        {
+          key: 'publish',
+          icon: `${ICON}/edit/publish-write.svg`,
+          title: '提交博客',
+          desc: '发布后会第一次出现在相应版块首页。',
+        },
+        {
+          key: 'link',
+          link: 'https://newpage',
+          icon: `${ICON}/article/report.svg`,
+          title: '发布须知',
+          desc:
+            '请确保你发布的内容符合社区的基本价值观和规范，否则会被限流或直接删除。',
+        },
+      ]
+    }
     case THREAD.JOB: {
       return [
         {
@@ -65,17 +83,19 @@ type TProps = {
 }
 
 const PublishButton: FC<TProps> = ({ thread = THREAD.POST, onCreate }) => {
+  const options = getOptions(thread)
+
   return (
     <Wrapper>
       <DropdownButton
         placement="bottom-end"
-        options={getOptions(thread)}
+        options={options}
         panelMinWidth="210px"
         onClick={(key) => {
           if (key === 'publish') onCreate()
         }}
       >
-        发布帖子
+        {options[0].title}
       </DropdownButton>
     </Wrapper>
   )

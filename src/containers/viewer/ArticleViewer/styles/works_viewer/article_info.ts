@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -19,29 +17,3 @@ export const TabWrapper = styled.div`
   left: 0;
   bottom: -1px;
 `
-export const Tab = styled.div<TActive>`
-  ${css.flex('align-center')};
-  color: ${({ $active }) =>
-    $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  font-size: 15px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid;
-  border-bottom-color: ${({ $active }) =>
-    $active ? theme('thread.articleTitle') : 'transparent'};
-
-  &:hover {
-    fill: ${theme('thread.articleTitle')};
-  }
-`
-
-export const TabIcon = styled(Img)`
-  ${css.size(13)};
-  fill: ${theme('thread.articleDigest')};
-  margin-left: 4px;
-
-  ${Tab}:hover & {
-    fill: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
-`
-export const UpvoteWrapper = styled.div``

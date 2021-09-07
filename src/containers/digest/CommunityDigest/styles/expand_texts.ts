@@ -9,6 +9,7 @@ import css from '@/utils/css'
     descExpand ? 'flex-start' : 'center'}; */
 export const Wrapper = styled.div``
 export const Normal = styled.div<{ margin?: boolean }>`
+  ${css.flex('align-center')};
   color: ${theme('banner.desc')};
   font-size: 14px;
   max-width: 490px;
@@ -26,49 +27,25 @@ export const Normal = styled.div<{ margin?: boolean }>`
     ${css.cutRest('180px')};
   `}; */
 `
-export const IconWrapper = styled.span`
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 15px;
-  margin-left: 6px;
+export const Desc = styled.div`
+  ${css.cutRest('360px')};
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+`
+export const IconWrapper = styled.div`
+  margin-left: 8px;
 `
 export const MoreIcon = styled(Img)`
-  fill: ${theme('banner.desc')};
-  width: 15px;
-  height: 15px;
-  display: inline-block;
-  cursor: pointer;
-  opacity: 0.6;
-
-  &:hover {
-    color: ${theme('banner.title')};
-    opacity: 1;
-  }
-  transition: all 0.25s;
-`
-export const UpWrapper = styled.span`
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 15px;
+  fill: #2c8e8b;
+  ${css.size(16)};
   cursor: pointer;
   opacity: 0.8;
-  margin-left: 12px;
+  margin-bottom: -2px;
 
   &:hover {
-    color: ${theme('banner.title')};
+    fill: #2c8e8b;
     opacity: 1;
   }
   transition: all 0.25s;
-`
-export const IconWithTextWrapper = styled.div`
-  ${css.flex('align-both')};
-`
-export const UpIcon = styled(Img)`
-  fill: #2cb4aa;
-  ${css.size(15)};
-  margin-right: 3px;
-`
-export const UpText = styled.div`
-  color: #2cb4aa;
-  font-size: 13px;
 `

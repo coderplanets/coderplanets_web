@@ -9,7 +9,10 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { mockFilterMenuTags } from '@/utils/mock'
+import { send } from '@/utils/helper'
+import { EVENT } from '@/constant'
+
+import type { TThread } from '@/spec'
 
 import Sticky from '@/components/Sticky'
 // import FiltersMenu from '@/components/FiltersMenu'
@@ -30,19 +33,19 @@ import { onCreate } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('c:ClassicSidebar')
 
-type TProps = { showCommunityBadge: boolean } & TBaseProps
+type TProps = { showCommunityBadge: boolean; thread: TThread } & TBaseProps
 
-const ClassicLayout: FC<TProps> = ({ showCommunityBadge, onTagSelect }) => {
+const ClassicLayout: FC<TProps> = ({ showCommunityBadge, thread }) => {
   return (
     <Sticky offsetTop={50}>
       <PublishWrapper show={showCommunityBadge}>
-        <PublishButton onCreate={onCreate} />
+        <PublishButton thread={thread} onCreate={onCreate} />
       </PublishWrapper>
       <BadgeWrapper show={!showCommunityBadge}>
         <CommunityJoinBadge />
       </BadgeWrapper>
       <TagsBarWrapper>
-        <TagsBar onSelect={onTagSelect} />
+        <TagsBar onSelect={() => send(EVENT.REFRESH_ARTICLES)} />
         {/* <FiltersMenu tags={mockFilterMenuTags()} revert /> */}
       </TagsBarWrapper>
     </Sticky>

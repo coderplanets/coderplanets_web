@@ -34,7 +34,7 @@ export const loadComents = (args): void => {
   // log('loadComents passed in: ', args)
   if (store.loading || store.loadingFresh) return
   args = mergeDeepRight(defaultArgs, args)
-  args.id = store.viewingData.id
+  args.id = store.viewingArticle.id
   args.userHasLogin = store.isLogin
   args.thread = store.activeThread
 
@@ -58,7 +58,7 @@ export const createComment = curry((cb, e) => {
 
   store.mark({ creating: true })
   const args = {
-    id: store.viewingData.id,
+    id: store.viewingArticle.id,
     body: store.editContent,
     thread: store.activeThread,
     community: store.communityRaw,

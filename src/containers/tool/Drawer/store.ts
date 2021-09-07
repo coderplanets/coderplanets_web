@@ -4,10 +4,10 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { merge, contains, values } from 'ramda'
+import { concat, keys, reduce, merge, contains, values } from 'ramda'
 
-import type { TRootStore, TCommunity, TThread, TID } from '@/spec'
-import { TYPE, THREAD } from '@/constant'
+import type { TRootStore, TCommunity, TThread, TArticle } from '@/spec'
+import { TYPE, ARTICLE_THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
 import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
@@ -20,28 +20,22 @@ import { SWIPE_THRESHOLD } from './styles/metrics'
 
 const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
 
-const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.REPO]
-const THREAD_CONTENT_CURD_TYPES = [
-  // post
-  TYPE.DRAWER.POST_VIEW,
-  TYPE.DRAWER.POST_CREATE,
-  TYPE.DRAWER.POST_EDIT,
-  // job
-  TYPE.DRAWER.JOB_VIEW,
-  TYPE.DRAWER.JOB_CREATE,
-  TYPE.DRAWER.JOB_EDIT,
-  // repo
-  TYPE.DRAWER.REPO_VIEW,
-  TYPE.DRAWER.REPO_CREATE,
-  // mails
-  TYPE.DRAWER.MAILS_VIEW,
-]
+const ARTICLE_VIEWER_TYPES = reduce(
+  concat,
+  // @ts-ignore
+  [],
+  keys(ARTICLE_THREAD).map((T) => [TYPE.DRAWER[`${T}_VIEW`]]),
+)
 
-const VIEWER_TYPES = [
-  TYPE.DRAWER.POST_VIEW,
-  TYPE.DRAWER.JOB_VIEW,
-  TYPE.DRAWER.REPO_VIEW,
-]
+const ARTICLE_THREAD_CURD_TYPES = reduce(
+  concat,
+  // @ts-ignore
+  [...ARTICLE_VIEWER_TYPES],
+  keys(ARTICLE_THREAD).map((T) => [
+    TYPE.DRAWER[`${T}_CREATE`],
+    TYPE.DRAWER[`${T}_EDIT`],
+  ]),
+)
 
 const Options = T.model('Options', {
   direction: T.optional(
@@ -50,20 +44,6 @@ const Options = T.model('Options', {
   ),
   // like vi-mode
   position: T.optional(T.enumeration('position', ['H', 'M', 'L']), 'M'),
-})
-
-const Attachment = T.model('Attachment', {
-  id: T.string,
-  type: T.optional(
-    T.enumeration('type', [...THREAD_CONTENT_CURD_TYPES]),
-    TYPE.DRAWER.POST_VIEW,
-  ),
-  title: T.string,
-  body: T.maybeNull(T.string),
-  digest: T.maybeNull(T.string),
-  author: T.maybeNull(User),
-  copyRight: T.optional(T.string, 'original'),
-  linkAddr: T.maybeNull(T.string),
 })
 
 const DrawerStore = T.model('DrawerStore', {
@@ -85,15 +65,14 @@ const DrawerStore = T.model('DrawerStore', {
     T.enumeration('previewType', [
       // account
       TYPE.DRAWER.ACCOUNT_EDIT,
-      // article types
-      ...THREAD_CONTENT_CURD_TYPES,
+      TYPE.DRAWER.MAILS_VIEW,
       //
       TYPE.DRAWER.C11N_SETTINGS,
       TYPE.DRAWER.MODELINE_MENU,
+      ...ARTICLE_THREAD_CURD_TYPES,
     ]),
   ),
   attUser: T.maybeNull(User),
-  attachment: T.maybeNull(Attachment),
 
   // shortcut for modelineMenuType
   mmType: T.optional(
@@ -132,9 +111,6 @@ const DrawerStore = T.model('DrawerStore', {
       const root = getParent(self) as TRootStore
       return root.viewing.activeThread
     },
-    get attachmentData() {
-      return toJS(self.attachment)
-    },
     get attUserData() {
       return toJS(self.attUser)
     },
@@ -147,16 +123,16 @@ const DrawerStore = T.model('DrawerStore', {
     },
   }))
   .actions((self) => ({
-    open({ type, data, thread, options = {} }): void {
+    open({ type, data, options = {} }): void {
       const slf = self as TStore
+      const thread = data.meta?.thread?.toLowerCase()
 
       if (type === TYPE.DRAWER.MODELINE_MENU) {
         slf.mmType = data
-      } else if (data) {
-        // @ts-ignore TODO: fix later
-        slf.attachment = merge(data, { type })
       }
-      if (contains(thread, PREVIEWABLE_THREADS)) {
+
+      if (contains(thread, values(ARTICLE_THREAD))) {
+        // article
         slf.setViewing({ [thread]: data, viewingThread: thread })
       }
 
@@ -170,7 +146,7 @@ const DrawerStore = T.model('DrawerStore', {
         slf.canBeClose = false
       }
 
-      slf.markPreviewURLIfNeed(data?.id)
+      slf.markPreviewURLIfNeed(data)
     },
     setViewing(sobj: Record<string, unknown>): void {
       const root = getParent(self) as TRootStore
@@ -194,17 +170,19 @@ const DrawerStore = T.model('DrawerStore', {
       return root.resetViewing()
     },
 
-    // TODO: 重构时用 article.meta.thread 来替代 thread
-    markPreviewURLIfNeed(id: TID): void {
-      if (!id || !contains(self.type, VIEWER_TYPES)) return
+    markPreviewURLIfNeed(article: TArticle): void {
+      const { id, title, meta } = article
+
+      if (!id || !contains(self.type, ARTICLE_VIEWER_TYPES)) return
       self.previousHref = Global.location.href
-      const thread = self.curThread
+
+      const thread = meta.thread.toLowerCase()
       const nextURL = `${Global.location.origin}/${thread}/${id}`
-      Global.history.replaceState(null, 'new-title', nextURL)
+      Global.history.replaceState(null, title, nextURL)
     },
 
     restorePreviousURLIfNeed(): void {
-      if (!contains(self.type, VIEWER_TYPES)) return
+      if (!contains(self.type, ARTICLE_VIEWER_TYPES)) return
       Global.history.replaceState(null, 'new-title', self.previousHref)
     },
 

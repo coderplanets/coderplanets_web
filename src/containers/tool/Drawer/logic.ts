@@ -157,9 +157,8 @@ const DataResolver = [
          log('payload curCommunity: ', store.curCommunity.raw)
        */
       if (!contains(payload.type, FUNCTION_TYPES) && store.isMobile) {
-        const { thread, data } = payload
-        const communityRaw = store.curCommunity.raw || data.origialCommunity.raw
-        const targetUrl = `/${communityRaw}/${thread}/${data.id}`
+        const { data: article } = payload
+        const targetUrl = `/${article.meta.thread.toLowerCase()}/${article.id}`
 
         Global.location.href = targetUrl
         return false

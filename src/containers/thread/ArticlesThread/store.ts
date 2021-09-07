@@ -17,13 +17,24 @@ import type {
   TC11N,
 } from '@/spec'
 
-import { TYPE, THREAD } from '@/constant'
+import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { nilOrEmpty, isObject } from '@/utils/validator'
-import { PagedPosts, ArticlesFilter, emptyPagiData } from '@/model'
+import { nilOrEmpty } from '@/utils/validator'
+import { titleCase } from '@/utils/helper'
+import {
+  PagedPosts,
+  PagedJobs,
+  PagedBlogs,
+  PagedRadars,
+  ArticlesFilter,
+  emptyPagi,
+} from '@/model'
 
 const ArticlesThread = T.model('ArticlesThread', {
-  pagedPosts: T.optional(PagedPosts, emptyPagiData),
+  pagedPosts: T.optional(PagedPosts, emptyPagi),
+  pagedJobs: T.optional(PagedJobs, emptyPagi),
+  pagedBlogs: T.optional(PagedBlogs, emptyPagi),
+  pagedRadars: T.optional(PagedRadars, emptyPagi),
   filters: T.optional(ArticlesFilter, {}),
   resState: T.optional(
     T.enumeration('resState', values(TYPE.RES_STATE)),
@@ -39,17 +50,11 @@ const ArticlesThread = T.model('ArticlesThread', {
       const root = getParent(self) as TRootStore
       return root.viewing.activeThread
     },
-    get pagedPostsData() {
-      return toJS(self.pagedPosts)
-    },
     get pagedArticlesData(): TPagedArticles {
       const slf = self as TStore
+      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
 
-      switch (slf.curThread) {
-        default: {
-          return toJS(self.pagedPosts)
-        }
-      }
+      return toJS(slf[pagedThreadKey])
     },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
@@ -73,13 +78,14 @@ const ArticlesThread = T.model('ArticlesThread', {
     get tagQuery(): Record<string, unknown> {
       const root = getParent(self) as TRootStore
 
-      const curTag = toJS(root.tagsBar.activeTagData)
-      if (nilOrEmpty(curTag.title)) return {}
-      return { tag: curTag.title }
+      const curTag = toJS(root.tagsBar.activeTag)
+      if (nilOrEmpty(curTag)) return {}
+      return { tag: curTag.raw }
     },
     get showFilters(): boolean {
+      const slf = self as TStore
       const curFilter = toJS(pickBy((v) => !isEmpty(v), self.filters))
-      const pagedPosts = toJS(self.pagedPosts)
+      const pagedPosts = toJS(slf.pagedArticlesData)
 
       return !isEmpty(curFilter) || !isEmpty(pagedPosts.entries)
     },
@@ -92,7 +98,6 @@ const ArticlesThread = T.model('ArticlesThread', {
       const root = getParent(self) as TRootStore
       return root.getPagedArticleArgs(page, self.filtersData)
     },
-
     markRes(res: Record<string, TPagedArticles>): void {
       const slf = self as TStore
       const pagedData = values(res)[0] as TPagedArticles
@@ -106,24 +111,14 @@ const ArticlesThread = T.model('ArticlesThread', {
       slf.mark(res)
     },
 
-    updateItem(item): void {
-      // TODO: 区分 thread
-      // const curThread = self.viewingThread || self.activeThread
-
-      // switch (curThread) {
-      //   case THREAD.JOB:
-      //     root.jobsThread.updateItem(item)
-      //     return
-      //   case THREAD.REPO:
-      //     root.reposThread.updateItem(item)
-      //     return
-      //   default: {
-      //     root.articlesThread.updateItem(item)
-      //   }
-      // }
-      const { entries } = self.pagedPostsData
+    updateArticle(item: TArticle): void {
+      const slf = self as TStore
+      const { entries } = slf.pagedArticlesData
+      // @ts-ignore
       const index = findIndex(propEq('id', item.id), entries)
       if (index >= 0) {
+        // TODO:
+        // @ts-ignore
         self.pagedPosts.entries[index] = merge(
           toJS(self.pagedPosts.entries[index]),
           item,
@@ -144,22 +139,17 @@ const ArticlesThread = T.model('ArticlesThread', {
       root.setViewing(sobj)
     },
     setViewedFlag(id): void {
-      const { entries } = self.pagedPostsData
-      const index = findIndex(propEq('id', id), entries)
+      const slf = self as TStore
+      const { entries } = slf.pagedArticlesData
+      const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
+
       if (index >= 0) {
-        self.pagedPosts.entries[index].viewerHasViewed = true
+        const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
+        self[pagedThreadKey].entries[index].viewerHasViewed = true
       }
     },
-    markRoute(target): void {
-      const query = isObject(target)
-        ? target
-        : {
-            id: target,
-            preview: THREAD.POST,
-            community: self.curCommunity.raw,
-            ...self.tagQuery,
-            ...self.filtersData,
-          }
+    markRoute(params): void {
+      const query = { ...self.tagQuery, ...self.filtersData, ...params }
 
       const root = getParent(self) as TRootStore
       root.markRoute(query, { onlyDesktop: true })

@@ -16,6 +16,7 @@ import { Wrapper, MoreIcon } from './styles'
 
 type TProps = {
   testid?: string
+  verticalIcon: boolean
 }
 
 const menuOptions = [
@@ -78,7 +79,14 @@ const hendleSelect = (key) => {
   // moveToCommunity
 }
 
-const ArticleMenu: FC<TProps> = ({ testid = 'archived-sign' }) => {
+const ArticleMenu: FC<TProps> = ({
+  testid = 'archived-sign',
+  verticalIcon,
+}) => {
+  const icon = verticalIcon
+    ? `${ICON}/shape/more-l.svg`
+    : `${ICON}/shape/more.svg`
+
   return (
     <MenuButton
       options={menuOptions}
@@ -87,7 +95,7 @@ const ArticleMenu: FC<TProps> = ({ testid = 'archived-sign' }) => {
       onClick={hendleSelect}
     >
       <Wrapper testid={testid}>
-        <MoreIcon src={`${ICON}/shape/more.svg`} />
+        <MoreIcon src={icon} />
       </Wrapper>
     </MenuButton>
   )

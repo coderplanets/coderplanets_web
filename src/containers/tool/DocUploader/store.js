@@ -21,8 +21,8 @@ const DocUploader = T.model('DocUploader', {})
     get accountInfo() {
       return self.root.accountInfo
     },
-    get viewingData() {
-      return self.root.viewingData
+    get viewingArticle() {
+      return self.root.viewingArticle
     },
   }))
   .actions((self) => ({

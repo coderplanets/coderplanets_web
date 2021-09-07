@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
-import type { TJob, TID, TC11N } from '@/spec'
+import type { TJob, TC11N } from '@/spec'
 import css from '@/utils/css'
 
 import { getOpacity } from './metric'
 
-type TWrapper = { entry: TJob; activeId: TID; c11n: TC11N }
+type TWrapper = { entry: TJob; c11n: TC11N }
 export const Wrapper = styled.article<TWrapper>`
   ${css.flex('align-start')};
   width: 100%;
   height: auto;
+  margin-top: 10px;
   margin-bottom: 18px;
   margin-right: 0;
   background: #0d3644;
@@ -17,10 +18,11 @@ export const Wrapper = styled.article<TWrapper>`
 
   position: relative;
   padding: 14px;
-  padding-top: 20px;
-  opacity: ${({ entry, activeId, c11n }) => getOpacity(entry, activeId, c11n)};
+  padding-top: 16px;
+  padding-bottom: 12px;
+  opacity: ${({ entry, c11n }) => getOpacity(entry, c11n)};
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 
 export const holder = 1

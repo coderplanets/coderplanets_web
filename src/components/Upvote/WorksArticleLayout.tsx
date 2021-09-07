@@ -6,6 +6,7 @@
 
 import { FC, memo } from 'react'
 
+import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { SIZE, UPVOTE_LAYOUT } from '@/constant'
 
@@ -26,50 +27,13 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:Upvote:index')
 
-const tmpUsers = [
-  {
-    id: '1',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/221942?s=64&v=4',
-  },
-  {
-    id: '2',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/5580297?s=64&v=4',
-  },
-  {
-    id: '3',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/17426470?s=64&v=4',
-  },
-  {
-    id: '4',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/221942?s=64&v=4',
-  },
-  {
-    id: '5',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/5580297?s=64&v=4',
-  },
-  {
-    id: '6',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/17426470?s=64&v=4',
-  },
-  {
-    id: '7',
-    nickname: 'nickname',
-    avatar: 'https://avatars.githubusercontent.com/u/221942?s=64&v=4',
-  },
-]
-
 type TProps = {
   testid?: string
   count?: number
   viewerHasUpvoted?: boolean
   avatarsRowLimit?: number
   alias?: string // 觉得很赞(default), 觉得很酷(works), 学到了(blog), 感兴趣(meetup), 有意思(Radar)
+  avatarList?: TUser[]
 }
 
 const Upvote: FC<TProps> = ({
@@ -78,6 +42,7 @@ const Upvote: FC<TProps> = ({
   viewerHasUpvoted = false,
   avatarsRowLimit = 3,
   alias = '觉得很酷',
+  avatarList,
 }) => {
   const noOne = count === 0
 
@@ -96,7 +61,12 @@ const Upvote: FC<TProps> = ({
       <DescWrapper>
         {!noOne && (
           <Avatars>
-            <AvatarsRow users={tmpUsers} showMore={false} limit={7} />
+            <AvatarsRow
+              users={avatarList}
+              showMore={false}
+              limit={7}
+              popCardPlacement="bottom"
+            />
           </Avatars>
         )}
         <Desc

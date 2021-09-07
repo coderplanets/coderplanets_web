@@ -31,7 +31,7 @@
 ├── stores                                   // comon/top-level state stores
 │      ├── AccountStore
 │      ├── RootStore
-│      ├── SharedModel
+│      ├── Model
 │      ├── ThemeStore
 │      ├── ViewingStore
 │      ├── index.js
@@ -325,21 +325,15 @@ import { F, P } from '@/schemas'
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
-      ${F.post}
+      ${F.article}
       body
-      author {
-        ${F.author}
-      }
-      tags {
-        ${F.tag}
-      }
-      commentsParticipators {
+        commentsParticipants {
         ${F.author}
       }
       commentsCount
       viewerHasViewed @include(if: $userHasLogin)
-      viewerHasFavorited @include(if: $userHasLogin)
-      viewerHasStarred @include(if: $userHasLogin)
+      viewerHasCollected @include(if: $userHasLogin)
+      viewerHasUpvoted @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
     }
   }

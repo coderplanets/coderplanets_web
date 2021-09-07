@@ -9,7 +9,7 @@ import {
   nilOrEmpty,
   makeGQClient,
   ssrParseURL,
-  ssrAmbulance,
+  ssrRescue,
   parseTheme,
 } from '@/utils'
 import { useStore } from '@/stores/init'
@@ -59,8 +59,8 @@ export const getServerSideProps = async (props) => {
   try {
     resp = await fetchData(props)
   } catch ({ response: { errors } }) {
-    if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+    if (ssrRescue.hasLoginError(errors)) {
+      resp = await fetchData(props, { tokenExpired: true })
     } else {
       return { props: { errorCode: 404 } }
     }
@@ -68,7 +68,7 @@ export const getServerSideProps = async (props) => {
 
   const { sessionState, repo, pagedComments, subscribedCommunities } = resp
 
-  const { origialCommunity: community, ...viewingContent } = repo
+  const { originalCommunity: community, ...viewingContent } = repo
   const initProps = {
     theme: {
       curTheme: parseTheme(sessionState),

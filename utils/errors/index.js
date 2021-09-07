@@ -39,6 +39,6 @@ const checkLoginError = (errors) => {
   return !!(find(propEq('code', LOGIN_ERROR))(errors) || false)
 }
 
-export const ssrAmbulance = {
+export const ssrRescue = {
   hasLoginError: checkLoginError,
 }

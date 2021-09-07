@@ -1,24 +1,22 @@
 import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
-import { merge, pick, toLower } from 'ramda'
+import { merge, toLower } from 'ramda'
 
-import { PAGE_SIZE, SITE_URL } from '@/config'
+import { PAGE_SIZE } from '@/config'
 import { METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
-  getJwtToken,
-  makeGQClient,
-  queryStringToJSON,
+  isArticleThread,
+  ssrBaseStates,
+  ssrFetchPrepare,
   ssrParseURL,
-  akaTranslate,
-  nilOrEmpty,
-  ssrPagedSchema,
-  ssrPagedFilter,
-  ssrContentsThread,
-  ssrAmbulance,
-  validCommunityFilters,
-  parseTheme,
+  ssrError,
+  ssrPagedArticleSchema,
+  ssrPagedArticlesFilter,
+  ssrParseArticleThread,
+  ssrRescue,
+  communitySEO,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -26,39 +24,23 @@ import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt = {}) => {
-  const { realname } = merge({ realname: true }, opt)
+const fetchData = async (context, opt = {}) => {
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+  const { community, thread } = ssrParseURL(context.req)
 
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
-  const userHasLogin = nilOrEmpty(token) === false
-
-  // const { asPath } = props
-  // schema
-
-  const { communityPath, thread } = ssrParseURL(props.req)
-  const community = akaTranslate(communityPath)
-
-  let filter = {
-    // @ts-ignore TODO:
-    ...queryStringToJSON(props.req.url, { pagi: 'number' }),
-    community,
-    thread,
-  }
-  filter = pick(validCommunityFilters, filter)
-
+  console.log('## parsed thread: ', thread)
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const curCommunity = gqClient.request(P.community, {
     raw: community,
     userHasLogin,
   })
-  const pagedContents = gqClient.request(
-    ssrPagedSchema(thread),
-    ssrPagedFilter(community, thread, filter, userHasLogin),
-  )
 
-  const partialTags = gqClient.request(P.partialTags, { thread, community })
+  const filter = ssrPagedArticlesFilter(context, userHasLogin)
+  const pagedArticles = isArticleThread(thread)
+    ? gqClient.request(ssrPagedArticleSchema(thread), filter)
+    : {}
+
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -68,63 +50,36 @@ const fetchData = async (props, opt = {}) => {
 
   return {
     filter,
-    ...((await sessionState) as Record<string, unknown>),
-    ...((await curCommunity) as Record<string, unknown>),
-    ...((await pagedContents) as Record<string, unknown>),
-    ...((await partialTags) as Record<string, unknown>),
-    ...((await subscribedCommunities) as Record<string, unknown>),
+    ...(await sessionState),
+    ...(await curCommunity),
+    ...(await pagedArticles),
+    ...(await subscribedCommunities),
   }
 }
 
-export const getServerSideProps: GetServerSideProps = async (props) => {
-  const { communityPath, thread, threadPath } = ssrParseURL(props.req)
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { thread, threadPath } = ssrParseURL(context.req)
 
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await fetchData(context)
   } catch (e) {
-    const {
-      response: { errors },
-    } = e
-    if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+    console.log('#### error from server: ', e)
+    if (ssrRescue.hasLoginError(e.response?.errors)) {
+      // token 过期了，重新用匿名方式请求一次
+      await fetchData(context, { tokenExpired: true })
     } else {
-      return {
-        props: {
-          errorCode: 404,
-          target: communityPath,
-          viewing: {
-            community: {
-              raw: communityPath,
-              title: communityPath,
-              desc: communityPath,
-            },
-          },
-        },
-      }
+      return ssrError(context, 'fetch', 500)
     }
   }
 
-  const {
-    filter,
-    sessionState,
-    partialTags,
-    community,
-    subscribedCommunities,
-  } = resp
-  const contentsThread = ssrContentsThread(resp, thread, filter)
+  const { filter, community } = resp
+  const articleThread = ssrParseArticleThread(resp, thread, filter)
 
-  // // init state on server side
+  // console.log('articleThread: ', articleThread.articlesThread.pagedJobs.entries)
   const initProps = merge(
     {
-      theme: {
-        curTheme: parseTheme(sessionState),
-      },
-      account: {
-        user: sessionState.user || {},
-        isValidSession: sessionState.isValid,
-        userSubscribedCommunities: subscribedCommunities,
-      },
+      ...ssrBaseStates(resp),
       route: {
         communityPath: community.raw,
         mainPath: community.raw,
@@ -135,9 +90,8 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
         community,
         activeThread: toLower(thread),
       },
-      tagsBar: { tags: partialTags },
     },
-    contentsThread,
+    articleThread,
   )
 
   return { props: { errorCode: null, ...initProps } }
@@ -146,23 +100,14 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
 const CommunityPage = (props) => {
   const store = useStore(props)
 
-  const { errorCode, viewing } = store
+  const { viewing } = store
   const { community, activeThread } = viewing
-
-  const seoConfig = {
-    url: `${SITE_URL}/${community.raw}/${activeThread}`,
-    title:
-      community.raw === 'home' ? 'CoderPlanets' : `${community.title} | CP`,
-    description: `${community.desc}`,
-  }
 
   return (
     <Provider store={store}>
       <GlobalLayout
         metric={METRIC.COMMUNITY}
-        seoConfig={seoConfig}
-        errorCode={errorCode}
-        errorPath={community.raw}
+        seoConfig={communitySEO(community, activeThread)}
       >
         <CommunityContent />
       </GlobalLayout>

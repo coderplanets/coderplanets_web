@@ -31,7 +31,7 @@ export const LogoMargin = styled.div<{ layout: TC11NLayout }>`
   margin-right: ${({ layout }) =>
     layout === C11N.HOLY_GRAIL ? '42px' : '32px'};
 `
-export const LogoText = styled.a`
+export const LogoText = styled.div`
   color: ${theme('header.fg')};
   font-weight: bold;
   font-family: sans-serif;

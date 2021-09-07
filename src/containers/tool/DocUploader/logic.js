@@ -37,7 +37,7 @@ export const getOSSFileName = (filename) => {
   const thread = store.curThread
   const userName = store.accountInfo.nickname
   const userId = store.accountInfo.id
-  const id = store.viewingData.id || 'new'
+  const id = store.viewingArticle.id || 'new'
   const curDate = new Date()
   const curTime = curDate.getTime()
 

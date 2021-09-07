@@ -18,9 +18,6 @@ const RepoViewer = T.model('RepoViewer', {
     get isLogin() {
       return self.root.account.isLogin
     },
-    get viewingData() {
-      return self.root.viewingData
-    },
     get curCommunity() {
       return toJS(self.root.viewing.community)
     },

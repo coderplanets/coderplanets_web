@@ -11,13 +11,12 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-// import Comments from '@/containers/unit/Comments'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
+import ArticleBody from '@/components/ArticleBody'
 // import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import ViewportTracker from '@/components/ViewportTracker'
 import Maybe from '@/components/Maybe'
-// import MarkDownRender from '@/components/MarkDownRender'
 import LavaLampLoading from '@/components/Loading/LavaLampLoading'
 
 import type { TStore } from '../store'
@@ -38,13 +37,6 @@ const log = buildLog('C:PostContent')
 
 export const ArticleFooter = dynamic(
   () => import('@/containers/unit/ArticleFooter'),
-  {
-    ssr: false,
-  },
-)
-
-export const MarkDownRender = dynamic(
-  () => import('@/components/MarkDownRender'),
   {
     ssr: false,
   },
@@ -82,7 +74,7 @@ const ArticleContentContainer: FC<TProps> = ({
           />
           <MainWrapper metric={metric}>
             <ArticleWrapper ref={ref}>
-              <MarkDownRender body={viewingArticle.body} />
+              <ArticleBody document={viewingArticle.document} />
               <ArticleFooter />
             </ArticleWrapper>
 

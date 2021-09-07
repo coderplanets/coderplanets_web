@@ -1,16 +1,16 @@
 import { FC, memo } from 'react'
 
-import type { TProps as TParentProps } from './index'
-import { Wrapper, Divider, WeekName, DateNum } from '../styles/card/date'
+import { Wrapper, Divider, WeekName, DateNum, Label } from '../styles/card/date'
 
-type TProps = Omit<TParentProps, 'item'>
+// type TProps = Omit<TParentProps, 'item'>
 
-const Date: FC<TProps> = ({ type }) => {
+const Date: FC = () => {
   return (
-    <Wrapper type={type}>
+    <Wrapper>
       <WeekName>周五</WeekName>
-      <Divider type={type} />
-      <DateNum size="small">18&nbsp;/&nbsp;04</DateNum>
+      <Divider />
+      <DateNum>18&nbsp;/&nbsp;04</DateNum>
+      <Label>前端</Label>
     </Wrapper>
   )
 }

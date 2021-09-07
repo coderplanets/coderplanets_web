@@ -43,12 +43,6 @@ const AccountStore = T.model('AccountStore', {
         return { entries: [] }
       }
       return toJS(self.userSubscribedCommunities)
-      /*
-      const { user: { subscribedCommunities } } = self
-      return {
-        ...toJS(subscribedCommunities),
-      }
-      */
     },
     get isLogin(): boolean {
       return self.isValidSession

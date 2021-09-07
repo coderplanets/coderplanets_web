@@ -1,9 +1,11 @@
 import F from '../fragments'
 
-export const partialTags = `
-  query($communityId: ID, $community: String, $thread: CmsThread!) {
-    partialTags(communityId: $communityId, community: $community, thread: $thread) {
-      ${F.tag}
+export const pagedArticleTags = `
+  query($filter: ArticleTagsFilter) {
+    pagedArticleTags(filter: $filter) {
+      entries{
+        ${F.tag}
+      }
     }
   }
 `

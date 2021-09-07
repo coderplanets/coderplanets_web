@@ -5,6 +5,78 @@ export const community = `
   index
   desc
   logo
+  subscribersCount
+`
+export const tag = `
+  title
+  raw
+  color
+  thread
+  group
+`
+export const author = `
+  id
+  login
+  nickname
+  avatar
+`
+export const article = `
+  id
+  isPinned
+  title
+  linkAddr
+  copyRight
+  insertedAt
+  activeAt
+  updatedAt
+  views
+  commentsCount
+  upvotesCount
+  commentsParticipantsCount
+  author {
+    ${author}
+  }
+  originalCommunity {
+    ${community}
+  }
+  communities {
+    ${community}
+  }
+  articleTags {
+    ${tag}
+  }
+`
+export const articleDetail = `
+  meta {
+    thread
+    isEdited
+    latestUpvotedUsers {
+      login
+      avatar
+      nickname
+    }
+  }
+
+  document {
+    bodyHtml
+  }
+
+  collectsCount
+  archivedAt
+  isArchived
+
+  viewerHasCollected @include(if: $userHasLogin)
+  viewerHasUpvoted @include(if: $userHasLogin)
+`
+export const pageArticleMeta = `
+  meta {
+    thread
+    latestUpvotedUsers {
+      login
+      avatar
+      nickname
+    }
+  }
 `
 export const post = `
   id
@@ -12,27 +84,6 @@ export const post = `
   insertedAt
   updatedAt
   views
-`
-export const job = `
-  id
-  title
-  desc
-  company
-  companyLogo
-  companyLink
-  views
-  linkAddr
-  copyRight
-
-  salary
-  education
-  exp
-  finance
-  field
-  scale
-
-  insertedAt
-  updatedAt
 `
 export const repo = `
   id
@@ -58,18 +109,6 @@ export const repo = `
     htmlUrl
     nickname
   }
-`
-export const tag = `
-  id
-  title
-  color
-  thread
-`
-export const author = `
-  id
-  login
-  nickname
-  avatar
 `
 export const userSocial = `
   qq
@@ -106,8 +145,8 @@ export const c11n = `
 `
 export const achievement = `
   reputation
-  contentsStaredCount
-  contentsFavoritedCount
+  articlesUpvotesCount
+  articlesCollectsCount
   donateMember
   seniorMember
   sponsorMember
@@ -158,7 +197,7 @@ export const commentParent = `
   communities {
     ${community}
   }
-  origialCommunity {
+  originalCommunity {
     ${community}
   }
 `

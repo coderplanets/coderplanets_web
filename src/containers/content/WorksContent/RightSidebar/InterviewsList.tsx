@@ -1,9 +1,7 @@
 import { FC } from 'react'
 
-import { ICON } from '@/config'
 import { SpaceGrow } from '@/components/Common'
 import ImgFallback from '@/components/ImgFallback'
-import IconText from '@/components/IconText'
 
 import {
   Wrapper,
@@ -12,6 +10,7 @@ import {
   Intro,
   Title,
   UpvoteWrapper,
+  UpvoteIcon,
 } from '../styles/right_sidebar/interviews_list'
 
 const icon = 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/works/market1.jpeg'
@@ -29,9 +28,8 @@ const Interview: React.FC = () => {
       <SpaceGrow />
       {/* upvote */}
       <UpvoteWrapper>
-        <IconText iconSrc={`${ICON}/article/heart-solid.svg`} margin="5px">
-          17
-        </IconText>
+        <UpvoteIcon />
+        17
       </UpvoteWrapper>
     </InterviewWrapper>
   )

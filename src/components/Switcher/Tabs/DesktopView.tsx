@@ -57,6 +57,7 @@ type TProps = {
   activeKey?: string
   size: TSIZE_SM
   slipHeight: '1px' | '2px'
+  bottomSpace?: number
 }
 
 const Tabs: FC<TProps> = ({
@@ -66,6 +67,7 @@ const Tabs: FC<TProps> = ({
   layout = C11N.CLASSIC,
   activeKey = '',
   slipHeight = '2px',
+  bottomSpace = 0,
 }) => {
   const { isMobile } = usePlatform()
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
@@ -126,6 +128,7 @@ const Tabs: FC<TProps> = ({
             index={index}
             item={item}
             size={size}
+            bottomSpace={bottomSpace}
             setItemWidth={handleNaviItemWith}
             onClick={handleItemClick}
           />

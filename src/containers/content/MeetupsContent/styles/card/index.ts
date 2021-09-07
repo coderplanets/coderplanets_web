@@ -6,25 +6,26 @@ import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex()}
-  width: 31%;
-  height: 210px;
+  width: 100%;
+  /* min-height: 210px; */
   margin-right: 20px;
-  padding: 20px 10px;
-  padding-bottom: 25px;
-  border-top: 1px solid;
-  border-top-color: transparent;
+  padding: 15px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+  padding-left: 5px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+
   color: ${theme('thread.articleDigest')};
   border-top: 2px solid;
-  border-top-color: #004353;
+  border-top-color: transparent;
+
+  background: #0d3644;
 
   &:hover {
-    background: #04303c;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 24px;
-    /* border-bottom-color: transparent; */
-    /* border-top: 1px solid;
-    border-top-color: #327faf; */
+    border-top-color: #2380aa;
   }
-  transition: border-top 0.25s ease-out, box-shadow 0.2s ease-in;
+  transition: border-top 0.1s;
 `
 export const ContentsWrapper = styled.div`
   ${css.flexColumn()};
@@ -48,23 +49,18 @@ export const Desc = styled.div`
   margin-bottom: 18px;
   cursor: pointer;
 `
-export const PreviewImg = styled(Img)`
-  width: 80px;
-  height: 50px;
-  border-radius: 4px;
-  display: block;
-  margin-left: 10px;
-`
-export const FooterWrapper = styled.div`
-  ${css.flex('align-center')}
-  font-size: 13px;
-  color: ${theme('thread.articleDigest')};
-`
-export const Company = styled.div`
-  color: ${theme('thread.articleTitle')};
-`
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(12)};
   margin-right: 3px;
+`
+
+export const ExtraWrapper = styled.div`
+  ${css.flex('align-center')}
+  font-size: 13px;
+`
+export const FooterWrapper = styled.div`
+  ${css.flex('align-center')}
+  margin-top: 12px;
+  margin-left: -3px;
 `

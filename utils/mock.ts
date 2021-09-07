@@ -1373,7 +1373,7 @@ export const mockWorks = () => {
         icon: `${ICON_BASE}/pl/ruby.svg`,
       },
     ],
-    upvoteCount: 99,
+    upvotesCount: 99,
     commentsCount: 99,
     insertedAt: '3天前',
     isOpenSource: true,

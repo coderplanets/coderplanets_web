@@ -31,37 +31,33 @@ export const Text = styled.div`
 // border-bottom-color: ${theme('thread.articleDigest')}
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   margin-top: 10px;
-  font-size: 1.3rem;
+  font-size: 17px;
   ${css.media.tablet`
-    font-size: 1.1rem;
+    font-size: 15px;
   `};
 `
-
-export const DetailText = styled.span`
-  ${css.media.mobile`
-    display: none;
-  `};
-`
-
 export const DescWrapper = styled.div`
-  color: ${theme('thread.articleDigest')};
-  margin-top: 0.6rem;
-  font-size: 0.9rem;
+  opacity: 0.8;
 
   ${css.media.tablet`
-    font-size: 0.8rem;
+    font-size: 12px;
   `};
+`
+export const Desc = styled.div`
+  font-size: 13px;
+  color: ${theme('thread.articleDigest')};
+  margin-bottom: 4px;
 `
 const Link = styled.a`
   text-decoration: none;
   font-weight: bolder;
-  color: ${theme('header.fg')};
+  color: #47a29d;
   transition: color 0.3s;
   &:hover {
     text-decoration: underline;
-    color: ${theme('baseColor.red')};
+    color: #47a29d;
   }
 `
 export const IssueLink = styled(Link)`

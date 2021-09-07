@@ -9,7 +9,7 @@
 import { types as T, Instance } from 'mobx-state-tree'
 import { merge, pickBy } from 'ramda'
 
-import type { TViewing, TAccount, TRoute, TArticle } from '@/spec'
+import type { TViewing, TAccount, TRoute, TThread, TArticle } from '@/spec'
 
 import { EVENT } from '@/constant'
 import { markStates } from '@/utils/mobx'
@@ -31,8 +31,8 @@ import {
   ErrorBoxStore,
 
   // threads
-  ReposThreadStore,
-  UsersThreadStore,
+  // ReposThreadStore,
+  CperMapThreadStore,
   // banners
   ArticleDigestStore,
   CommunityDigestStore,
@@ -152,8 +152,8 @@ const rootStore = T.model({
   // footer
   footer: T.optional(FooterStore, {}),
   // threads
-  reposThread: T.optional(ReposThreadStore, {}),
-  usersThread: T.optional(UsersThreadStore, {}),
+  // reposThread: T.optional(ReposThreadStore, {}),
+  cperMapThread: T.optional(CperMapThreadStore, {}),
 
   tagsBar: T.optional(TagsBarStore, {}),
   userLister: T.optional(UserListerStore, {}),
@@ -216,14 +216,8 @@ const rootStore = T.model({
       // TODO self.doraemon.visible
       return self.doraemon.visible
     },
-    get viewingData(): TViewing {
-      return self.viewing.viewingData
-    },
     get viewingArticle(): TArticle {
-      const { viewing } = self
-      const { activeThread } = viewing
-
-      return viewing[activeThread]
+      return self.viewing.viewingArticle
     },
     get curRoute(): TRoute {
       return self.route.curRoute
@@ -250,6 +244,9 @@ const rootStore = T.model({
     },
     setViewing(sobj): void {
       self.viewing.setViewing(sobj)
+    },
+    setCurThread(thread: TThread): void {
+      self.viewing.setCurThread(thread)
     },
     resetViewing(): void {
       self.viewing.resetViewing()
@@ -314,7 +311,7 @@ const rootStore = T.model({
       const filter = pickBy(notEmpty, {
         page,
         size,
-        tag: tag.title,
+        articleTag: tag.raw,
         community: community.raw,
         ...articlesfilter,
       })

@@ -484,7 +484,7 @@ export const useInit = (_store) => {
       const nickname = slice(1, Infinity, name)
       store.mark({
         prefix: '@',
-        searchThread: THREAD.USER,
+        searchThread: THREAD.CPER,
         showThreadSelector: true,
         showAlert: false,
       })

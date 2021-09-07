@@ -9,14 +9,18 @@ import dynamic from 'next/dynamic'
 
 type TProps = {
   testid?: string
+  verticalIcon?: boolean
 }
 
 const RealArticleMenu = dynamic(() => import('./RealArticleMenu'), {
   ssr: false,
 })
 
-const ArticleMenu: FC<TProps> = ({ testid = 'artile-menu' }) => {
-  return <RealArticleMenu testid={testid} />
+const ArticleMenu: FC<TProps> = ({
+  testid = 'artile-menu',
+  verticalIcon = false,
+}) => {
+  return <RealArticleMenu testid={testid} verticalIcon={verticalIcon} />
 }
 
 export default memo(ArticleMenu)

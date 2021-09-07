@@ -14,7 +14,7 @@ import { ICON_BASE } from '@/config'
 import { buildLog } from '@/utils/logger'
 
 import SpinPlanet from './SpinPlanet'
-import CodeSnippets from './CodeSnippets'
+// import CodeSnippets from './CodeSnippets'
 
 import NotFoundMessage from './NotFoundMessage'
 import ErrorDesc from './ErrorDesc'
@@ -23,6 +23,9 @@ import {
   Wrapper,
   HintWrapper,
   IconsWrapper,
+  Planet1Wrapper,
+  Planet2Wrapper,
+  OopsLetter,
   TextWrapper,
   HintTitle,
   LogoWrapper,
@@ -43,7 +46,7 @@ export type TProps = {
 
 const ErrorPage: FC<TProps> = ({
   testid = 'error-page',
-  errorCode,
+  errorCode = 500,
   metric = METRIC.COMMUNITY,
   target = '',
 }) => {
@@ -58,20 +61,25 @@ const ErrorPage: FC<TProps> = ({
         </LogoWrapper>
       </Link>
 
-      {/* <SpinPlanet /> */}
       <HintWrapper>
         <IconsWrapper>
-          <SpinPlanet />
-          <CodeSnippets path={target || router.asPath} />
+          <Planet1Wrapper>
+            <SpinPlanet scale={0.8} />
+          </Planet1Wrapper>
+          <Planet2Wrapper>
+            <SpinPlanet scale={0.45} />
+          </Planet2Wrapper>
+          <OopsLetter>ps~</OopsLetter>
+          {/* <CodeSnippets path={target || router.asPath} /> */}
         </IconsWrapper>
         <TextWrapper>
           {/** TODO:   */}
           {errorCode === 404 ? (
             <NotFoundMessage metric={metric} path={target || router.asPath} />
           ) : (
-            <HintTitle testid={testid}>服务器发生错误</HintTitle>
+            <HintTitle testid={testid}>抱歉，服务器发生错误</HintTitle>
           )}
-          <ErrorDesc errorCode={errorCode} />
+          <ErrorDesc code={errorCode} />
         </TextWrapper>
       </HintWrapper>
       <FooterWrapper />

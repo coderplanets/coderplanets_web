@@ -16,16 +16,20 @@ export const Wrapper = styled.li<TWrapper>`
   position: relative;
   width: ${({ size }) => getLiSize(size)};
   z-index: 2;
-  filter: grayscale(0.3);
 
   &:hover {
-    filter: grayscale(0);
     z-index: 3;
+  }
+`
+export const InnerWrapper = styled.div`
+  &:hover {
+    filter: grayscale(0);
     transform: scale(1.2);
   }
 
   transition: all 0.2s;
 `
+
 type TAvatarsImg = { size: string; onClick: () => void; scrollPosition: any }
 export const AvatarsImg = styled(Img)<TAvatarsImg>`
   border: 2px solid;
@@ -65,7 +69,4 @@ export const AvatarsMore = styled.span<TAvatarsMore>`
 export const AvatarFallback = styled(ImgFallback)`
   border: 1px solid;
   border-color: #113744;
-`
-export const UserPopContent = styled.div`
-  padding: 5px 10px;
 `

@@ -14,7 +14,7 @@ import DotDivider from '@/components/DotDivider'
 import ArchivedSign from '@/components/ArchivedSign'
 import ArticleMenu from '@/components/ArticleMenu'
 
-import SubCommunity from './SubCommunity'
+import OriginalCommunity from './OriginalCommunity'
 import PublishDate from './PublishDate'
 
 import {
@@ -23,7 +23,7 @@ import {
   Title,
   AuthorName,
   BottomInfo,
-  SubWrapper,
+  CommunityInfo,
 } from '../../styles/desktop_view/post_layout/index'
 
 /* eslint-disable-next-line */
@@ -40,20 +40,24 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
       <Main metric={metric}>
         <Header>
           <PublishDate insertedAt={article.insertedAt} />
-          <DotDivider space={8} />
-          <ArchivedSign />
+          {article.isArchived && (
+            <Fragment>
+              <DotDivider space={8} />
+              <ArchivedSign date={article.archivedAt} />
+            </Fragment>
+          )}
           <SpaceGrow />
           <ArticleMenu />
         </Header>
         <Title>{article.title}</Title>
         <BottomInfo>
           <ArticleBaseStats article={article} />
-          <AuthorName>by: mydearxym</AuthorName>
+          <AuthorName>by: {article.author.nickname}</AuthorName>
         </BottomInfo>
       </Main>
-      <SubWrapper>
-        <SubCommunity />
-      </SubWrapper>
+      <CommunityInfo>
+        <OriginalCommunity community={article.originalCommunity} />
+      </CommunityInfo>
     </Fragment>
   )
 }

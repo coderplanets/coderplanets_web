@@ -1,10 +1,15 @@
 import { pagedPosts, post } from './post'
 import { pagedJobs, job } from './job'
+import { pagedRadars, radar } from './radar'
+import { pagedBlogs, blog } from './blog'
 import { pagedRepos, repo } from './repo'
+import { pagedWorks, works } from './works'
+import { pagedMeetups, meetup } from './meetup'
+
 import { user, sessionState } from './user'
 import { community, subscribedCommunities, pagedCommunities } from './community'
 import { pagedComments } from './comment'
-import { pagedCategories, partialTags } from './misc'
+import { pagedCategories, pagedArticleTags } from './misc'
 import { mentions } from './mail'
 
 import {
@@ -25,16 +30,28 @@ const P = {
   pagedComments,
   // misc
   pagedCategories,
-  partialTags,
+  pagedArticleTags,
   // post
   pagedPosts,
   post,
   // job
   pagedJobs,
   job,
+  // blog
+  pagedBlogs,
+  blog,
+  // radar
+  pagedRadars,
+  radar,
   // repo
   pagedRepos,
   repo,
+  // works
+  pagedWorks,
+  works,
+  // meetup
+  pagedMeetups,
+  meetup,
   // user
   user,
   sessionState,

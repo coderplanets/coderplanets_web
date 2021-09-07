@@ -3,7 +3,7 @@ import F from '../fragments'
 export const repo = `
   query($id: ID!) {
     repo(id: $id) {
-      ${F.repo}
+      ${F.article}
       readme
       author {
         ${F.author}
@@ -16,20 +16,20 @@ export const repo = `
         followingsCount
       }
       lastSync
-      favoritedCount
+      collectsCount
       pagedCommentsParticipators {
         entries {
           ${F.author}
         }
         totalCount
       }
-      origialCommunity {
+      originalCommunity {
         ${F.community}
       }
       communities {
         ${F.community}
       }
-      tags {
+      articleTags {
         ${F.tag}
       }
     }
@@ -40,14 +40,14 @@ export const pagedRepos = `
   query($filter: PagedReposFilter, $userHasLogin: Boolean!) {
     pagedRepos(filter: $filter) {
       entries {
-        ${F.repo}
-        pin
+        ${F.article}
+        isPinned
         views
         releaseTag
         author {
           ${F.author}
         }
-        tags {
+        articleTags {
           ${F.tag}
         }
         viewerHasViewed @include(if: $userHasLogin)

@@ -49,13 +49,21 @@ export const Header = styled.div`
   ${css.flex('justify-between', 'align-start')};
   width: 100%;
 `
-export const Title = styled.a`
+export const Title = styled.div`
   ${css.flex('align-center')};
 `
-export const Name = styled.div`
+export const Name = styled.a`
+  ${css.cutRest('280px')};
   color: ${theme('thread.articleTitle')};
   font-size: 16px;
   font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `
 export const OSSSign = styled.div`
   ${css.flex('align-center')};

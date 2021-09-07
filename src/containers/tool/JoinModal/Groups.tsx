@@ -38,7 +38,7 @@ export const INGroup: FC<TProps> = ({ qr }) => {
             </LI>
             <LI>
               群内有价值的内容会<Focus>定期同步</Focus>
-              到反馈建议子社区，你不会因为不在群里而错过任何东西。
+              到反馈建议子社区，你不会因为不在群里而错过任何有价值的内容。
             </LI>
           </UL>
         </DescWrapper>
@@ -72,7 +72,7 @@ export const RGroup: FC<TProps> = ({ qr }) => {
             </LI>
             <LI>
               群内有价值的内容会<Focus>定期同步</Focus>
-              到各个社区的雷达版块，你不会因为不在群里而错过任何东西。
+              到各个社区的雷达版块，你不会因为不在群里而错过任何有价值的内容。
             </LI>
           </UL>
         </DescWrapper>

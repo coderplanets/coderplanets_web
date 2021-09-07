@@ -4,42 +4,64 @@ import { Fragment, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import { THREAD, TYPE } from '@/constant'
-import { Trans } from '@/utils/i18n'
 
-import EmptyThread from '@/components/EmptyThread'
-import EmptyLabel from '@/components/EmptyLabel'
+import PostItem from '@/components/PostItem'
+import JobItem from '@/components/JobItem'
+import BlogItem from '@/components/BlogItem'
+import RadarItem from '@/components/RadarItem'
 
-import PostsList from './PostsList'
-import JobsList from './JobsList'
-// import ReposList from './ReposList'
+import MasonryCards from '@/components/MasonryCards'
+import { LavaLampLoading, EmptyThread } from './dynamic'
 
 const ArticleList = (props) => {
-  const { thread, resState, community, emptyPrefix } = props
+  const { thread, resState, entries, c11n } = props
+
+  // switch between threads
+  if (resState === TYPE.RES_STATE.LOADING && entries.length === 0) {
+    return <LavaLampLoading top={20} left={30} />
+  }
 
   if (resState === TYPE.RES_STATE.EMPTY) {
-    return (
-      <Fragment>
-        {isEmpty(emptyPrefix) ? (
-          <EmptyThread community={community} thread={thread} />
-        ) : (
-          <EmptyLabel
-            text={`${emptyPrefix}${Trans(thread)}信息`}
-            size="large"
-          />
-        )}
-      </Fragment>
-    )
+    return <EmptyThread thread={thread} />
   }
 
   switch (thread) {
     case THREAD.JOB:
-      return <JobsList {...props} />
+      return (
+        <MasonryCards column={2}>
+          {entries.map((entry) => (
+            <JobItem key={entry.id} entry={entry} c11n={c11n} />
+          ))}
+        </MasonryCards>
+      )
 
-    // case THREAD.REPO:
-    //   return <ReposList {...props} />
+    case THREAD.BLOG:
+      return (
+        <Fragment>
+          {entries.map((entry) => (
+            <BlogItem key={entry.id} entry={entry} c11n={c11n} />
+          ))}
+        </Fragment>
+      )
+
+    case THREAD.RADAR:
+      return (
+        <MasonryCards column={2}>
+          {entries.map((entry) => (
+            <RadarItem key={entry.id} entry={entry} c11n={c11n} />
+          ))}
+        </MasonryCards>
+      )
 
     default:
-      return <PostsList {...props} />
+      // common post
+      return (
+        <Fragment>
+          {entries.map((entry) => (
+            <PostItem key={entry.id} entry={entry} c11n={c11n} />
+          ))}
+        </Fragment>
+      )
   }
 }
 

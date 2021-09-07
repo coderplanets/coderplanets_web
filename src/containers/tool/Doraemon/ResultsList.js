@@ -43,7 +43,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
           <SuggestIcon
             raw={suggestion.raw}
             suggestion={suggestion}
-            round={contains(searchThread, [THREAD.POST, THREAD.USER])}
+            round={contains(searchThread, [THREAD.POST, THREAD.CPER])}
             searchThread={searchThread}
           />
           <ContentWrapper>

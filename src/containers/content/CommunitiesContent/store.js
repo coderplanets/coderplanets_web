@@ -9,12 +9,12 @@ import { propEq, findIndex } from 'ramda'
 import { ICON_CMD } from '@/config'
 import { markStates, toJS } from '@/utils/mobx'
 import { Trans } from '@/utils/i18n'
-import { PagedCommunities, PagedCategories, emptyPagiData } from '@/model'
+import { PagedCommunities, PagedCategories, emptyPagi } from '@/model'
 
 const ExploreContentStore = T.model('ExploreContentStore', {
   // current active sidbar menu id
   activeCatalogId: T.maybeNull(T.string),
-  pagedCommunities: T.optional(PagedCommunities, emptyPagiData),
+  pagedCommunities: T.optional(PagedCommunities, emptyPagi),
   searching: T.optional(T.boolean, false),
   // cur active category
   /* category: T.optional(T.string, ''), */

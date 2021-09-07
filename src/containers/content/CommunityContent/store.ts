@@ -37,6 +37,10 @@ const CommunityContent = T.model('CommunityContent', {})
     },
   }))
   .actions((self) => ({
+    setCurThread(thread: TThread): void {
+      const root = getParent(self) as TRootStore
+      root.setCurThread(thread)
+    },
     setViewing(sobj): void {
       const root = getParent(self) as TRootStore
       root.setViewing(sobj)

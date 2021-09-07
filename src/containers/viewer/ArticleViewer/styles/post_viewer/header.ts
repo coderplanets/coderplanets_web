@@ -23,9 +23,7 @@ export const AuthorName = styled.div`
 export const AuthorDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  margin-left: 8px;
 `
-
 export const PublishWrapper = styled.div`
   ${css.flex('align-center')}
 `

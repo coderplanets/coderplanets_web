@@ -13,13 +13,13 @@ const AchieveCard = ({ user }) => (
     <FocusLine
       before="共获得"
       iconSrc={`${ICON_CMD}/likev2.svg`}
-      focus={user.achievement.contentsStaredCount}
+      focus={user.achievement.articlesUpvotesCount}
       after="次赞"
     />
     <FocusLine
       before="创作的内容被收藏"
       iconSrc={`${ICON_CMD}/favoritev2.svg`}
-      focus={user.achievement.contentsFavoritedCount}
+      focus={user.achievement.articlesCollectsCount}
       after="次"
     />
 

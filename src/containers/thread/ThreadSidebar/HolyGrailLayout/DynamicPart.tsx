@@ -1,5 +1,8 @@
 import { FC, Fragment, memo } from 'react'
 
+import { send } from '@/utils/helper'
+import { EVENT } from '@/constant'
+
 import { Br } from '@/components/Common'
 import Sticky from '@/components/Sticky'
 import TagsBar from '@/containers/unit/TagsBar'
@@ -17,7 +20,7 @@ const DynamicPart: FC = () => {
       <PublishButton />
       <Br bottom={25} />
       <Sticky offsetTop={80}>
-        <TagsBar onSelect={console.log} />
+        <TagsBar onSelect={() => send(EVENT.REFRESH_ARTICLES)} />
       </Sticky>
     </Fragment>
   )

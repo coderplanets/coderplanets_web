@@ -28,7 +28,7 @@ const Avatar: FC<TProps> = ({
   quote = false,
 }) => {
   const name = user?.nickname
-  const sliceCount = size > 32 ? 2 : 1
+  const sliceCount = size >= 30 ? 2 : 1
 
   return (
     <Wrapper

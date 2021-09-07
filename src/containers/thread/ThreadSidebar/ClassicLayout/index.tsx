@@ -9,9 +9,11 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TThread } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+// import DynamicPart from './DynamicPart'
 
 import type { TBaseProps } from '../index'
 
@@ -31,15 +33,12 @@ export const DynamicPart = dynamic(() => import('./DynamicPart'), {
   ssr: false,
 })
 
-type TProps = { showCommunityBadge: boolean } & TBaseProps
+type TProps = { showCommunityBadge: boolean; thread: TThread } & TBaseProps
 
-const ClassicLayout: FC<TProps> = ({ showCommunityBadge, onTagSelect }) => {
+const ClassicLayout: FC<TProps> = ({ showCommunityBadge, thread }) => {
   return (
     <Wrapper testid="thread-sidebar">
-      <DynamicPart
-        onTagSelect={onTagSelect}
-        showCommunityBadge={showCommunityBadge}
-      />
+      <DynamicPart thread={thread} showCommunityBadge={showCommunityBadge} />
     </Wrapper>
   )
 }

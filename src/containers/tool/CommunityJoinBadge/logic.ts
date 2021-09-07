@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, subPath2Thread, errRescue } from '@/utils'
+import asyncSuit from '@/utils/async'
+import { buildLog } from '@/utils/logger'
+import { singular, errRescue } from '@/utils/helper'
 
 import type { TCommunity } from '@/spec'
 import type { TStore } from './store'
@@ -57,10 +59,8 @@ const DataSolver = [
       markLoading(false)
       const { subPath } = store.curRoute
       log('community: ', community)
-      store.setViewing({
-        community,
-        activeThread: subPath2Thread(subPath),
-      })
+      const activeThread = singular(subPath)
+      store.setViewing({ community, activeThread })
     },
   },
   {

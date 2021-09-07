@@ -8,11 +8,18 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>``
 
 export const BaseInfo = styled.div`
-  ${css.flex('justify-between', 'align-center')};
-  margin-top: 50px;
+  ${css.flex('align-center')};
   margin-bottom: 30px;
+  padding-left: 0;
+  padding-right: 10px;
 
   ${css.media.mobile`
     margin-top: 20px;
   `};
+`
+
+export const Divider = styled.div`
+  width: 100%;
+  height: 3px;
+  background: #004250;
 `

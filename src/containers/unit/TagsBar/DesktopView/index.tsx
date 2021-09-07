@@ -26,7 +26,13 @@ type TProps = Omit<TTagProps, 'view'>
 
 const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
   useInit(store)
-  const { groupedTags, tagsData, activeTagData } = store
+  const {
+    groupedTags,
+    tagsData,
+    activeTagData,
+    maxDisplayCount,
+    totalCountThrold,
+  } = store
   const groupsKeys = keys(groupedTags) as string[]
 
   return (
@@ -46,6 +52,8 @@ const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
           groupTags={groupedTags[groupKey]}
           allTags={tagsData}
           activeTag={activeTagData}
+          maxDisplayCount={maxDisplayCount}
+          totalCountThrold={totalCountThrold}
           onSelect={(tag) => {
             onTagSelect(tag)
             onSelect?.()

@@ -13,7 +13,7 @@ export const Header = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 8px;
 `
-export const SubWrapper = styled.div`
+export const CommunityInfo = styled.div`
   ${css.flex('align-start', 'justify-center')};
   margin-top: 5px;
   ${css.fitStickerWidth(METRIC.ARTICLE)};

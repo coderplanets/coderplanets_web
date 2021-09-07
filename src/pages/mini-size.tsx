@@ -13,10 +13,9 @@ import {
   ssrParseURL,
   akaTranslate,
   nilOrEmpty,
-  ssrPagedSchema,
-  ssrPagedFilter,
-  ssrContentsThread,
-  ssrAmbulance,
+  ssrPagedArticleSchema,
+  ssrParseArticleThread,
+  ssrRescue,
   validCommunityFilters,
   parseTheme,
 } from '@/utils'
@@ -53,12 +52,13 @@ const fetchData = async (props, opt = {}) => {
     raw: community,
     userHasLogin,
   })
-  const pagedContents = gqClient.request(
-    ssrPagedSchema(thread),
-    ssrPagedFilter(community, thread, filter, userHasLogin),
-  )
 
-  const partialTags = gqClient.request(P.partialTags, { thread, community })
+  const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
+    filter: {
+      thread,
+      community,
+    },
+  })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -68,11 +68,10 @@ const fetchData = async (props, opt = {}) => {
 
   return {
     filter,
-    ...((await sessionState) as Record<string, unknown>),
-    ...((await curCommunity) as Record<string, unknown>),
-    ...((await pagedContents) as Record<string, unknown>),
-    ...((await partialTags) as Record<string, unknown>),
-    ...((await subscribedCommunities) as Record<string, unknown>),
+    ...(await sessionState),
+    ...(await curCommunity),
+    ...(await pagedArticleTags),
+    ...(await subscribedCommunities),
   }
 }
 
@@ -86,8 +85,8 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
     const {
       response: { errors },
     } = e
-    if (ssrAmbulance.hasLoginError(errors)) {
-      resp = await fetchData(props, { realname: false })
+    if (ssrRescue.hasLoginError(errors)) {
+      resp = await fetchData(props, { tokenExpired: true })
     } else {
       return {
         props: {
@@ -108,11 +107,11 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
   const {
     filter,
     sessionState,
-    partialTags,
+    pagedArticleTags,
     community,
     subscribedCommunities,
   } = resp
-  const contentsThread = ssrContentsThread(resp, thread, filter)
+  const articleThread = {}
 
   // // init state on server side
   const initProps = merge(
@@ -135,9 +134,9 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
         community,
         activeThread: toLower(thread),
       },
-      tagsBar: { tags: partialTags },
+      tagsBar: { tags: pagedArticleTags },
     },
-    contentsThread,
+    articleThread,
   )
 
   return { props: { errorCode: null, ...initProps } }
@@ -146,7 +145,7 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
 const MiniSize = (props) => {
   const store = useStore(props)
 
-  const { errorCode, viewing } = store
+  const { viewing } = store
   const { community, activeThread } = viewing
 
   const seoConfig = {
@@ -157,12 +156,7 @@ const MiniSize = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.COMMUNITY}
-        seoConfig={seoConfig}
-        errorCode={errorCode}
-        errorPath={community.raw}
-      >
+      <GlobalLayout metric={METRIC.COMMUNITY} seoConfig={seoConfig}>
         {/* <CommunityContent /> */}
       </GlobalLayout>
     </Provider>

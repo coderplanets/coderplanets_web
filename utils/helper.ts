@@ -1,10 +1,16 @@
-import { curry, reduce, keys, sort, uniq, tap } from 'ramda'
+import { curry, reduce, keys, sort, uniq, tap, endsWith } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
-import type { TGQLError, TReportType, TAttInfo, TPaymentUsage } from '@/spec'
+import type {
+  TGQLError,
+  TReportType,
+  TAttInfo,
+  TArticle,
+  TPaymentUsage,
+} from '@/spec'
 import { TAG_COLOR_ORDER } from '@/config'
-import { EVENT } from '@/constant'
+import { TYPE, EVENT, THREAD } from '@/constant'
 
 import { scrollToHeader } from './dom'
 import { isString } from './validator'
@@ -182,6 +188,16 @@ export const mirrorToCommunity = (): void => {
 
 export const setTag = (): void => {
   send(EVENT.SET_TAG, {})
+}
+
+/**
+ * send preview article singal to Drawer
+ */
+export const previewArticle = (article: TArticle): void => {
+  const type = TYPE.DRAWER[`${article.meta.thread}_VIEW`]
+  const data = article
+
+  send(EVENT.DRAWER.OPEN, { type, data })
 }
 
 export const errRescue = ({
@@ -409,4 +425,53 @@ export const siteBirthDay = (birthday: string): string => {
   const days = daysBetween(new Date(birthday), Date.now()) - 365 * year
 
   return `${year}年${days}天`
+}
+
+type TCovert = 'titleCase' | null
+const doCovert = (value: string, opt: TCovert): string => {
+  switch (opt) {
+    case 'titleCase': {
+      return titleCase(value)
+    }
+    default: {
+      return value
+    }
+  }
+}
+
+/**
+ * mainly used for url -> thread convert
+ *
+ * e.g:
+ * posts -> post
+ */
+export const singular = (value: string, opt = null): string => {
+  switch (value) {
+    case THREAD.WORKS: {
+      return doCovert(THREAD.WORKS, opt)
+    }
+
+    default: {
+      const singularValue = endsWith('s', value) ? value.slice(0, -1) : value
+      return doCovert(singularValue, opt)
+    }
+  }
+}
+
+/**
+ * mainly used for thread -> url convert
+ *
+ * e.g:
+ * post -> posts
+ */
+export const plural = (value: string, opt = null): string => {
+  switch (value) {
+    case THREAD.WORKS: {
+      return doCovert(THREAD.WORKS, opt)
+    }
+
+    default: {
+      return doCovert(`${value}s`, opt)
+    }
+  }
 }
