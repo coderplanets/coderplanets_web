@@ -1,7 +1,7 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
+import type { TThemeMap } from '@/spec'
 import { ICON_BASE } from '@/config'
 
 import { getRandomInt } from '@/utils/helper'
@@ -25,8 +25,13 @@ const rotateAngles = [
   'rotate(330deg)',
 ]
 
-const PlanetDriver = ({ className }) => {
-  const theme = useTheme()
+type TProps = {
+  className: string
+}
+
+const PlanetDriver: FC<TProps> = ({ className }) => {
+  const theme = useTheme() as TThemeMap
+
   return (
     <PlanetDriverIcon
       className={className}
@@ -36,10 +41,4 @@ const PlanetDriver = ({ className }) => {
   )
 }
 
-PlanetDriver.propTypes = {
-  className: T.string.isRequired,
-}
-
-PlanetDriver.defaultProps = {}
-
-export default PlanetDriver
+export default memo(PlanetDriver)
