@@ -7,6 +7,7 @@ import { METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
+  isArticleThread,
   ssrBaseStates,
   ssrFetchPrepare,
   ssrParseURL,
@@ -26,15 +27,20 @@ import { P } from '@/schemas'
 const fetchData = async (context, opt = {}) => {
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
   const { community, thread } = ssrParseURL(context.req)
-  const filter = ssrPagedArticlesFilter(context, userHasLogin)
 
+  console.log('## parsed thread: ', thread)
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const curCommunity = gqClient.request(P.community, {
     raw: community,
     userHasLogin,
   })
-  const pagedArticles = gqClient.request(ssrPagedArticleSchema(thread), filter)
+
+  const filter = ssrPagedArticlesFilter(context, userHasLogin)
+  const pagedArticles = isArticleThread(thread)
+    ? gqClient.request(ssrPagedArticleSchema(thread), filter)
+    : {}
+
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,

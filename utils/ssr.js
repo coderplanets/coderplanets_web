@@ -1,7 +1,15 @@
-import { merge, pick, isEmpty, findIndex, propEq } from 'ramda'
+import {
+  merge,
+  pick,
+  isEmpty,
+  findIndex,
+  propEq,
+  includes,
+  values,
+} from 'ramda'
 
 import { DEFAULT_THEME } from '@/config'
-import { TYPE } from '@/constant'
+import { TYPE, ARTICLE_THREAD } from '@/constant'
 import { plural } from '@/utils/helper'
 
 import { makeGQClient } from './graphql'
@@ -128,8 +136,22 @@ const getActiveTag = (tagRaw, tagList) => {
   return tagList[index]
 }
 
+/**
+ * 在 SSR 端时判断是否是 ArticleTHread, 以便判断是否需要进一步获取文章列表数据
+ */
+export const isArticleThread = (urlThread) => {
+  if (urlThread) {
+    if (includes(urlThread.toLowerCase(), values(ARTICLE_THREAD))) {
+      return true
+    }
+    return false
+  }
+  return false
+}
+
 export const ssrParseArticleThread = (resp, thread, filters = {}) => {
-  // console.log('filter in resp: ', resp.filter)
+  if (!isArticleThread(thread)) return { articlesThread: {} }
+
   const activeTag = getActiveTag(resp.filter.tag, resp.pagedArticleTags)
   const pagedThread = `paged${plural(thread, 'titleCase')}`
 

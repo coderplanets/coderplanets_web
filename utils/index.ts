@@ -93,6 +93,7 @@ export {
   isServerSide,
   isClientSide,
   getJwtToken,
+  isArticleThread,
   ssrBaseStates,
   ssrFetchPrepare,
   ssrPagedArticleSchema,
