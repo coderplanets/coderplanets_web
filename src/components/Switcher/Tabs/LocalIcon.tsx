@@ -23,7 +23,6 @@ type TProps = {
 const TabIcon: FC<TProps> = ({ raw, active, small }) => {
   switch (raw) {
     case THREAD.RADAR: {
-      /* @ts-ignore */
       return <RadarIcon $active={active} $small={small} />
     }
     case THREAD.BLOG: {
@@ -34,32 +33,26 @@ const TabIcon: FC<TProps> = ({ raw, active, small }) => {
     }
 
     case THREAD.JOB: {
-      /* @ts-ignore */
       return <JobIcon $active={active} $small={small} />
     }
 
     case 'publish': {
-      /* @ts-ignore */
       return <PublishIcon $active={active} $small={small} />
     }
 
     case 'billing': {
-      /* @ts-ignore */
       return <TabBillingIcon $active={active} $small={small} />
     }
 
     case 'comments': {
-      /* @ts-ignore */
       return <TabCommentsIcon $active={active} $small={small} />
     }
 
     case THREAD.SETTING: {
-      /* @ts-ignore */
       return <SettingIcon $active={active} $small={small} />
     }
 
     default: {
-      /* @ts-ignore */
       return <PostIcon $active={active} $small={small} />
     }
   }
