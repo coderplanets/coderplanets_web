@@ -12,8 +12,6 @@ import CommunityCard from '@/components/Cards/CommunityCard'
 import UserCard from '@/components/Cards/UserCard'
 import Tooltip from '@/components/Tooltip'
 
-import ActiveBadge from './ActiveBadge'
-
 import {
   Wrapper,
   Dot,
@@ -66,8 +64,6 @@ const Body: FC<TProps> = ({ item }) => {
           </ItemWrapper>
         </LeftPart>
         <SpaceGrow />
-
-        <ActiveBadge item={item} />
       </Extra>
 
       <DigestSentence

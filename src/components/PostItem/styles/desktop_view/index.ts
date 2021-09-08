@@ -12,7 +12,7 @@ export const AvatarWrapper = styled.div`
   ${css.flexColumn('align-both')};
 `
 export const UpvoteWrapper = styled.div`
-  margin-top: 10px;
+  margin-top: 12px;
   margin-left: 3px;
 `
 export const Avatar = styled(Img)`

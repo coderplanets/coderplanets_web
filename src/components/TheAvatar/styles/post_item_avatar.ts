@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   cursor: pointer;
   ${css.circle(32)};
   position: relative;
-  margin-top: 6px;
+  margin-top: 3px;
 `
 export const InnerShadow = styled.div`
   position: absolute;

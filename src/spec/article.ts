@@ -43,6 +43,7 @@ type TBaseArticle = {
   linkAddr?: string
   isArchived?: boolean
   archivedAt?: string
+  activeAt?: string
 }
 
 export type TPost = TBaseArticle & {

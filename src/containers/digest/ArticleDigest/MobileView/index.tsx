@@ -14,14 +14,14 @@ import { pluggedIn } from '@/utils/mobx'
 
 import ArticleBaseStats from '@/components/ArticleBaseStats'
 import ViewportTracker from '@/components/ViewportTracker'
-
-import PublishDate from '../DesktopView/PostLayout/PublishDate'
+import ReadableDate from '@/components/ReadableDate'
 
 import type { TStore } from '../store'
 import {
   Wrapper,
   InnerWrapper,
   BannerContent,
+  PublishDateInfo,
   Title,
   Brief,
 } from '../styles/mobile_view/index'
@@ -38,18 +38,20 @@ const ArticleDigestContainer: FC<TProps> = ({ articleDigest: store }) => {
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
-  const { viewingArticle } = store
+  const { viewingArticle: article } = store
 
-  if (isNil(viewingArticle.id)) return null
+  if (isNil(article.id)) return null
 
   return (
     <Wrapper>
       <InnerWrapper>
         <BannerContent>
           <Brief>
-            <PublishDate insertedAt={viewingArticle.insertedAt} />
-            <Title>{viewingArticle.title}</Title>
-            <ArticleBaseStats article={viewingArticle} />
+            <PublishDateInfo>
+              <ReadableDate date={article.insertedAt} fmt="absolute" />
+            </PublishDateInfo>
+            <Title>{article.title}</Title>
+            <ArticleBaseStats article={article} />
           </Brief>
         </BannerContent>
       </InnerWrapper>

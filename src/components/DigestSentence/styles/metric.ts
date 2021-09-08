@@ -8,7 +8,7 @@ export const getFontSize = (size: TSIZE_SM): string => {
     }
 
     default:
-      return '13.5px'
+      return '13px'
   }
 }
 

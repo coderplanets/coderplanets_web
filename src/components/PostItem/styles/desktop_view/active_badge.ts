@@ -10,7 +10,7 @@ export const Wrapper = styled.div<{ hasComments: boolean }>`
   position: absolute;
   top: 6px;
   right: 0;
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
   margin-right: 1px;
   margin-top: 8px;
 
@@ -20,6 +20,12 @@ export const Wrapper = styled.div<{ hasComments: boolean }>`
   transition: opacity 0.2s;
 `
 export const Hint = styled.div`
+  ${css.flexColumn('align-start')};
+  color: ${theme('thread.articleDigest')};
+  width: 180px;
+  padding-left: 5px;
+  font-size: 13px;
+`
+export const TimeStr = styled.div`
   color: ${theme('thread.articleTitle')};
-  width: 200px;
 `

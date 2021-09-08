@@ -13,6 +13,10 @@ export const Header = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 8px;
 `
+export const PublishDateInfo = styled.div`
+  font-size: 14px;
+  color: ${theme('thread.articleDigest')};
+`
 export const CommunityInfo = styled.div`
   ${css.flex('align-start', 'justify-center')};
   margin-top: 5px;
