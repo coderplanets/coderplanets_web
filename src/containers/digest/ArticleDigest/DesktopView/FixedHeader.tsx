@@ -51,7 +51,7 @@ const FixedHeader: FC<TProps> = ({
   testid = 'article-fixed-header',
 }) => {
   const { upvotesCount, meta } = article
-  const { thread } = meta
+  const thread = meta.thread.toLowerCase() as TThread
 
   return (
     <Wrapper show={show} testid={testid}>
@@ -59,10 +59,7 @@ const FixedHeader: FC<TProps> = ({
         <ContentWrapper metric={metric}>
           <TitleContent article={article} metric={metric} />
         </ContentWrapper>
-        <StickerWrapper
-          metric={metric}
-          thread={thread.toLowerCase() as TThread}
-        >
+        <StickerWrapper metric={metric} thread={thread}>
           <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
         </StickerWrapper>
       </InnerWrapper>
