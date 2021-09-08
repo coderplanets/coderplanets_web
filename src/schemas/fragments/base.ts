@@ -1,3 +1,6 @@
+import { flatten } from 'ramda'
+import { titleCase } from '@/utils/helper'
+
 export const community = `
   id
   title
@@ -171,6 +174,23 @@ export const userContributes = `
   totalCount
 `
 
+const emotions = [
+  'downvote',
+  'beer',
+  'heart',
+  'biceps',
+  'orz',
+  'confused',
+  'pill',
+  'popcorn',
+]
+
+const emotionQuery = flatten(
+  emotions.map((emotion) => {
+    return [`${emotion}Count`, `viewerHas${titleCase(emotion)}ed`]
+  }),
+).join(' ')
+
 // comment
 export const comment = `
   id
@@ -181,6 +201,10 @@ export const comment = `
 
   meta {
     isArticleAuthorUpvoted
+  }
+
+  emotions {
+    ${emotionQuery}
   }
 
   isPinned

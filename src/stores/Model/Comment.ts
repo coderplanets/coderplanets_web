@@ -1,15 +1,45 @@
 import { types as T } from 'mobx-state-tree'
+import { reduce, merge } from 'ramda'
+import { titleCase } from '@/utils/helper'
 
 import { User } from './User'
 
 import { pagiFields, timestampFields } from './helper/common'
 
-const CommentBrief = T.model('CommentBrief', {
-  id: T.maybeNull(T.string),
-  body: T.maybeNull(T.string),
-  floor: T.maybeNull(T.number),
-  author: T.optional(User, {}),
-})
+const emotions = [
+  'downvote',
+  'beer',
+  'heart',
+  'biceps',
+  'orz',
+  'confused',
+  'pill',
+  'popcorn',
+]
+
+const commentEmotionFields = () => {
+  return reduce(
+    merge,
+    {},
+    emotions.map((emotion) => {
+      return {
+        [`${emotion}Count`]: T.maybeNull(T.number),
+        // [`latest${emotion.toUpperCase()}Users`]: [],
+        [`viewerHas${titleCase(emotion)}ed`]: T.optional(T.boolean, false),
+      }
+    }),
+  )
+}
+
+const CommentEmotion = T.model('CommentEmotion', commentEmotionFields())
+// console.log('...commentEmotionFields: ', commentEmotionFields())
+
+// const CommentBrief = T.model('CommentBrief', {
+//   id: T.maybeNull(T.string),
+//   body: T.maybeNull(T.string),
+//   floor: T.maybeNull(T.number),
+//   author: T.optional(User, {}),
+// })
 
 // TODO: CommentEmotions
 // CommentMeta
@@ -33,6 +63,8 @@ export const Comment = T.model('Comment', {
   isForQuestion: T.optional(T.boolean, false),
   isArchived: T.optional(T.boolean, false),
   archivedAt: T.optional(T.boolean, false),
+
+  emotions: T.optional(CommentEmotion, {}),
 
   ...timestampFields(),
 })
