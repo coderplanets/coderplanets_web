@@ -10,7 +10,7 @@ import {
 
 import { DEFAULT_THEME } from '@/config'
 import { TYPE, ARTICLE_THREAD } from '@/constant'
-import { plural } from '@/utils/helper'
+import { plural } from './helper'
 
 import { makeGQClient } from './graphql'
 import { ssrParseURL, akaTranslate, queryStringToJSON } from './route'

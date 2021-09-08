@@ -13,7 +13,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const Block = styled.div`
   width: 30%;
   height: 60px;
-  background: #06303b;
+  background: #002a34;
   margin-right: 10px;
   border-radius: 5px;
 `

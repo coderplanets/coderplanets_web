@@ -1,10 +1,8 @@
 /* eslint-disable react/display-name */
 
 import { Fragment, memo } from 'react'
-import { isEmpty } from 'ramda'
 
 import { THREAD, TYPE } from '@/constant'
-
 import PostItem from '@/components/PostItem'
 import JobItem from '@/components/JobItem'
 import BlogItem from '@/components/BlogItem'

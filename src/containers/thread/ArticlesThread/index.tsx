@@ -54,10 +54,10 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
 
   return (
     <Wrapper>
-      <MainWrapper>
+      <MainWrapper thread={curThread}>
         <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />
         {showFilters && (
-          <FilterWrapper>
+          <FilterWrapper thread={curThread}>
             <ArticlesFilter
               resState={resState}
               onSelect={onFilterSelect}

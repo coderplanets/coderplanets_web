@@ -1,5 +1,11 @@
 import type { TArticleThread, TThread } from '@/spec'
 
+export const CARD_THREAD = {
+  JOB: 'job',
+  RADAR: 'radar',
+  MEETUP: 'meetup',
+}
+
 export const ARTICLE_THREAD = {
   REPO: 'repo',
   POST: 'post',
