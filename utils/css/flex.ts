@@ -1,18 +1,6 @@
-type FlexRule =
-  | 'align-both'
-  | 'align-center'
-  | 'align-start'
-  | 'align-end'
-  | 'align-baseline'
-  | 'justify-center'
-  | 'justify-start'
-  | 'justify-end'
-  | 'justify-between'
-  | 'justify-around'
-  | 'justify-evenly'
-  | ''
+import type { TFlexRule } from '@/spec'
 
-const flexExpand = (rule: FlexRule): string => {
+const flexExpand = (rule: TFlexRule): string => {
   switch (rule) {
     case 'align-both':
       return 'align-items: center;justify-content: center;'
@@ -56,31 +44,31 @@ const flexExpand = (rule: FlexRule): string => {
  * flex opts sort order:
  * [flex-direction][align-items][flex-grow]
  */
-const flexOpts = (rule1: FlexRule, rule2: FlexRule): string => {
+const flexOpts = (rule1: TFlexRule, rule2: TFlexRule): string => {
   return `${flexExpand(rule1)}${flexExpand(rule2)}`
 }
 
-export const flex = (rule1: FlexRule = '', rule2: FlexRule = ''): string => `
+export const flex = (rule1: TFlexRule = '', rule2: TFlexRule = ''): string => `
   display: flex;
   ${flexOpts(rule1, rule2)};
 `
 export const flexGrow = (
-  rule1: FlexRule = '',
-  rule2: FlexRule = '',
+  rule1: TFlexRule = '',
+  rule2: TFlexRule = '',
 ): string => `
   ${flex(rule1, rule2)};
   flex-grow: 1;
 `
 export const flexColumn = (
-  rule1: FlexRule = '',
-  rule2: FlexRule = '',
+  rule1: TFlexRule = '',
+  rule2: TFlexRule = '',
 ): string => `
   ${flex(rule1, rule2)};
   flex-direction: column;
 `
 export const flexColumnGrow = (
-  rule1: FlexRule = '',
-  rule2: FlexRule = '',
+  rule1: TFlexRule = '',
+  rule2: TFlexRule = '',
 ): string => `
   ${flexColumn(rule1, rule2)};
   flex-grow: 1;

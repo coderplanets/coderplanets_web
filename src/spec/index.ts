@@ -48,6 +48,7 @@ export type {
   TResState,
   TPaymentUsage,
   TPaymentMethod,
+  TFlexRule,
 } from './utils'
 
 export type { TGQLError } from './graphql'

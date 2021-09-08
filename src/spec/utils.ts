@@ -96,3 +96,17 @@ export type TResState = 'LOADING' | 'DONE' | 'EMPTY'
 
 export type TPaymentUsage = 'SENIOR' | 'GirlsCodeTooPlan' | 'DONATE' | 'SPONSOR'
 export type TPaymentMethod = 'ALIPAY' | 'WECHAT'
+
+export type TFlexRule =
+  | 'align-both'
+  | 'align-center'
+  | 'align-start'
+  | 'align-end'
+  | 'align-baseline'
+  | 'justify-center'
+  | 'justify-start'
+  | 'justify-end'
+  | 'justify-between'
+  | 'justify-around'
+  | 'justify-evenly'
+  | ''
