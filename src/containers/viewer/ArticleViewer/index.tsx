@@ -12,7 +12,6 @@ import { pluggedIn } from '@/utils/mobx'
 import Comments from '@/containers/unit/Comments'
 
 // TODO: remove
-// TODO: remove
 // import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
 
 import Viewer from './Viewer'
@@ -39,9 +38,9 @@ const ArticleViewerContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <Viewer article={viewingArticle} loading={loading} />
-      {/* <CommentsWrapper>
+      <CommentsWrapper>
         <Comments onCreate={console.log} />
-      </CommentsWrapper> */}
+      </CommentsWrapper>
     </Wrapper>
   )
 }

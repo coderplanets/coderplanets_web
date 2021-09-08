@@ -9,7 +9,7 @@ import { buildLog } from '@/utils/logger'
 
 import ViewportTracker from '@/components/ViewportTracker'
 import { ArticleContentLoading } from '@/components/Loading'
-import ArticeBody from '@/components/ArticleBody'
+import ArticeBody from '@/components/ArtimentBody'
 import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import FixedHeader from './FixedHeader'

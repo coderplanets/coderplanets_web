@@ -50,6 +50,8 @@ const FixedHeader: FC<TProps> = ({
   metric = METRIC.ARTICLE,
   testid = 'article-fixed-header',
 }) => {
+  const { upvotesCount, meta } = article
+
   return (
     <Wrapper show={show} testid={testid}>
       <InnerWrapper metric={metric}>
@@ -57,7 +59,7 @@ const FixedHeader: FC<TProps> = ({
           <TitleContent article={article} metric={metric} />
         </ContentWrapper>
         <StickerWrapper metric={metric}>
-          <Upvote />
+          <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
         </StickerWrapper>
       </InnerWrapper>
     </Wrapper>

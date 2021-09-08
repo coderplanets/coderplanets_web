@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import { Main } from './index'
 
 export const Wrapper = styled.div<{ hasComments: boolean }>`
   ${css.flex('align-center')};
@@ -13,11 +12,6 @@ export const Wrapper = styled.div<{ hasComments: boolean }>`
   color: ${theme('thread.articleDigest')};
   margin-right: 1px;
   margin-top: 8px;
-
-  ${Main}:hover & {
-    color: ${theme('thread.articleTitle')};
-  }
-  transition: opacity 0.2s;
 `
 export const Hint = styled.div`
   ${css.flexColumn('align-start')};

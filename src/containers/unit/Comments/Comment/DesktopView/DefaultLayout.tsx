@@ -5,9 +5,9 @@ import type { TAccount, TComment } from '@/spec'
 import { Global } from '@/utils/helper'
 import { ICON } from '@/config'
 
-import MarkDownRender from '@/components/MarkDownRender'
 import Tooltip from '@/components/Tooltip'
 import Upvote from '@/components/Upvote'
+import ArtimentBody from '@/components/ArtimentBody'
 
 import Header from '../Header'
 import ReplyBar from '../ReplyBar'
@@ -66,7 +66,7 @@ const DefaultLayout: FC<TProps> = ({
       <DeleteMask show={data.id === tobeDeleteId} />
       <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
         <SidebarWrapper>
-          <Upvote type="comment" />
+          <Upvote type="comment" count={data.upvotesCount} />
           {isAuthorUpvoted && (
             <Tooltip
               content={<BadgePopContent>作者顶过</BadgePopContent>}
@@ -95,7 +95,10 @@ const DefaultLayout: FC<TProps> = ({
           <Header data={data} />
           <CommentContent>
             {data.replyTo && <ReplyBar data={data.replyTo} />}
-            <MarkDownRender body={data.body} />
+            <ArtimentBody
+              document={{ bodyHtml: data.bodyHtml }}
+              mode="comment"
+            />
           </CommentContent>
           <Footer data={data} accountInfo={accountInfo} />
         </CommentBodyInfo>

@@ -30,6 +30,19 @@ const defaultArgs = {
   filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
 }
 
+// variables = %{id: post.id, thread: "POST", filter: %{page: 1, size: page_size}}
+export const loadComments = (): void => {
+  const { viewingArticle: article } = store
+
+  const args = {
+    id: article.id,
+    thread: article.meta.thread,
+    filter: { page: 1, size: 20 },
+  }
+  console.log('query args: ', args)
+  sr71$.query(S.pagedComments, args)
+}
+
 export const loadComents = (args): void => {
   // log('loadComents passed in: ', args)
   if (store.loading || store.loadingFresh) return
@@ -41,7 +54,7 @@ export const loadComents = (args): void => {
   markLoading(args.fresh)
   store.mark({ filterType: args.filter.sort })
 
-  log('pagedComments args: ', args)
+  console.log('pagedComments args: ', args)
   sr71$.query(S.pagedComments, args)
 }
 
@@ -300,6 +313,7 @@ const DataSolver = [
     match: asyncRes('pagedComments'),
     action: ({ pagedComments }) => {
       cancelLoading()
+      console.log('## pagedComments: ', pagedComments)
       store.mark({ pagedComments })
     },
   },

@@ -40,7 +40,7 @@ const FoldLayout: FC<TProps> = ({ data }) => {
         src={data.author.avatar}
         fallback={<ImgFallback user={data.author} size={16} right={10} />}
       />
-      <CommentBody>{cutRest(data.body, 30)}</CommentBody>
+      <CommentBody>{cutRest(data.bodyHtml, 30)}</CommentBody>
       <SpaceGrow />
       {isSolution && (
         <SolutionIcon

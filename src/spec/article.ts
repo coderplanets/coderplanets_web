@@ -101,16 +101,17 @@ export type TPagedMeetups = {
 
 export type TComment = {
   id: string
-  body: string
   floor?: number
+  bodyHtml?: string
   insertedAt?: string
   updatedAt?: string
   author?: TUser
   repliesCount?: number
   replies?: TComment[]
   replyTo?: TComment
-  likesCount?: number
-  viewerHasLiked?: boolean
+  upvotesCount?: number
+  viewerHasUpvoted?: boolean
+  isArticleAuthor?: boolean
 }
 
 export type TPagedComments = {

@@ -174,16 +174,38 @@ export const userContributes = `
 // comment
 export const comment = `
   id
-  body
-  floor
+  bodyHtml
   author {
-    id
-    nickname
-    avatar
-    login
+    ${author}
   }
-  likesCount
-  dislikesCount
+
+  meta {
+    isArticleAuthorUpvoted
+  }
+
+  isPinned
+  floor
+  upvotesCount
+  isArticleAuthor
+
+  replyTo {
+    id
+    bodyHtml
+    floor
+    isArticleAuthor
+    author {
+      ${author}
+    }
+  }
+  viewerHasUpvoted
+  replies {
+    id
+    bodyHtml
+    author {
+      ${author}
+    }
+  }
+  repliesCount
   insertedAt
   updatedAt
 `

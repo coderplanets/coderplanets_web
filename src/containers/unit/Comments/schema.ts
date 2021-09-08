@@ -1,33 +1,19 @@
 import { gql } from '@urql/core'
 import { F } from '@/schemas'
 
+// viewerHasLiked @include(if: $userHasLogin)
+// viewerHasDisliked @include(if: $userHasLogin)
+
 const pagedComments = gql`
   query pagedComments(
     $id: ID!
+    $thread: Thread,
+    $mode: CommentsMode,
     $filter: CommentsFilter!
-    $thread: CmsThread
-    $userHasLogin: Boolean!
   ) {
-    pagedComments(id: $id, filter: $filter, thread: $thread) {
+    pagedComments(id: $id, thread: $thread, mode: $mode, filter: $filter) {
       entries {
         ${F.comment}
-        viewerHasLiked @include(if: $userHasLogin)
-        viewerHasDisliked @include(if: $userHasLogin)
-        replyTo {
-          id
-          body
-          floor
-          author {
-            ${F.author}
-          }
-        }
-        replies(filter: { first: 5 }) {
-          id
-          author {
-            ${F.author}
-          }
-        }
-        repliesCount
       }
       ${F.pagedCounts}
     }

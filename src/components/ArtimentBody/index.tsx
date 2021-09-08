@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 /*
- * ArticleBody
+ * ArtimentBody
  */
 import { FC, memo, useRef, useState, useEffect } from 'react'
 
@@ -13,19 +13,21 @@ import { Br } from '@/components/Common'
 import { Wrapper, Body, HTML } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ArticleBody:index')
+const log = buildLog('c:ArtimentBody:index')
 
 type TProps = {
   testid?: string
   document: TDocument
   // 超过多行就默认折叠
   initLineClampNum?: number
+  mode?: 'article' | 'comment'
 }
 
-const ArticleBody: FC<TProps> = ({
+const ArtimentBody: FC<TProps> = ({
   testid = 'article-body',
   document,
   initLineClampNum = 5,
+  mode = 'article',
 }) => {
   const bodyRef = useRef(null)
   const [fold, setFold] = useState(false)
@@ -61,6 +63,7 @@ const ArticleBody: FC<TProps> = ({
       {needFold ? (
         <FoldBox
           fold={fold}
+          mode={mode}
           onFold={() => {
             setLineClampNum(initLineClampNum)
             setFold(true)
@@ -71,10 +74,10 @@ const ArticleBody: FC<TProps> = ({
           }}
         />
       ) : (
-        <Br bottom={50} />
+        <Br bottom={mode === 'article' ? 50 : 15} />
       )}
     </Wrapper>
   )
 }
 
-export default memo(ArticleBody)
+export default memo(ArtimentBody)

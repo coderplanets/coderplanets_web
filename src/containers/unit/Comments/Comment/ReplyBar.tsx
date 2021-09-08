@@ -19,7 +19,8 @@ const CommentReplyBar: FC<TProps> = ({ data }) => {
   return (
     <Wrapper>
       <ReplyIcon src={`${ICON}/article/reply.svg`} />
-      {cutRest(data.author.nickname, 6)}:<ReplyToBody>{data.body}</ReplyToBody>
+      {cutRest(data.author.nickname, 6)}:
+      <ReplyToBody>{data.bodyHtml}</ReplyToBody>
       <ReplyToFloor>#{data.floor}</ReplyToFloor>
     </Wrapper>
   )

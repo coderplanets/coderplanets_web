@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import ArticleSticker from '@/containers/tool/ArticleSticker'
-import ArticleBody from '@/components/ArticleBody'
+import ArtimentBody from '@/components/ArtimentBody'
 // import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import ViewportTracker from '@/components/ViewportTracker'
@@ -74,7 +74,7 @@ const ArticleContentContainer: FC<TProps> = ({
           />
           <MainWrapper metric={metric}>
             <ArticleWrapper ref={ref}>
-              <ArticleBody document={viewingArticle.document} />
+              <ArtimentBody document={viewingArticle.document} />
               <ArticleFooter />
             </ArticleWrapper>
 

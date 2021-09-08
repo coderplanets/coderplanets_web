@@ -25,26 +25,36 @@ type TProps = {
 }
 
 const CommentHeader: FC<TProps> = ({ data }) => {
+  const { author } = data
+  const avatarSize = author.bio ? 26 : 24
+
   return (
     <Wrapper>
       <Avatar
         src={data.author.avatar}
-        fallback={<ImgFallback user={data.author} size={22} right={10} />}
+        avatarSize={avatarSize}
+        fallback={
+          <ImgFallback user={data.author} size={avatarSize} right={10} />
+        }
       />
       <HeaderBaseInfo>
         <BaseInfo>
           <UserBase>
-            <Nickname>{data.author.nickname}</Nickname>
-            <AuthorTag>作者</AuthorTag>
+            <Nickname>{author.nickname}</Nickname>
+            {data.isArticleAuthor && <AuthorTag>作者</AuthorTag>}
             <CreateDate>
               <DotDivider space={8} />
               <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
             </CreateDate>
           </UserBase>
-          <FloorNum>#{data.floor}</FloorNum>
+          <FloorNum>
+            #<Space right={2} />
+            {data.floor}
+          </FloorNum>
           <Space right={10} />
         </BaseInfo>
-        <ShortIntro>1 号员工 / CEO at coderplanets</ShortIntro>
+
+        {author.bio && <ShortIntro>{author.bio}</ShortIntro>}
       </HeaderBaseInfo>
     </Wrapper>
   )

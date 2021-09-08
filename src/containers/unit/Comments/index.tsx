@@ -12,6 +12,7 @@ import { pluggedIn } from '@/utils/mobx'
 
 import Modal from '@/components/Modal'
 import NoticeBar from '@/components/NoticeBar'
+import { Button } from '@/components/Buttons'
 
 import CommentEditor from './CommentEditor'
 import List from './List'
@@ -20,7 +21,12 @@ import LockedMessage from './LockedMessage'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
-import { useInit, createComment, onReplyEditorClose } from './logic'
+import {
+  useInit,
+  createComment,
+  onReplyEditorClose,
+  loadComments,
+} from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Comments')
@@ -52,8 +58,11 @@ const CommentsContainer: FC<TProps> = ({
     foldedIds,
   } = store
 
+  console.log('pagedCommentsData -> ', pagedCommentsData)
+
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
+      <Button onClick={() => loadComments()}>test</Button>
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>
         {showReplyBox && (
           <CommentReplyEditor
@@ -68,25 +77,21 @@ const CommentsContainer: FC<TProps> = ({
         )}
       </Modal>
 
-      {locked ? (
-        <LockedMessage />
-      ) : (
-        <CommentEditor
-          onCreate={createComment(onCreate)}
-          accountInfo={accountInfo}
-          referUsers={referUsersData}
-          mentionList={mentionListData}
-          restProps={{ ...store }}
-        />
-      )}
+      <CommentEditor
+        onCreate={createComment(onCreate)}
+        accountInfo={accountInfo}
+        referUsers={referUsersData}
+        mentionList={mentionListData}
+        restProps={{ ...store }}
+      />
 
       <br />
       <NoticeBar
         type="lock"
         content="关闭了评论: 已解决"
         timestamp={new Date().toLocaleDateString()}
-        user={{ nickname: 'mydearxym' }}
-        isArticleAuthor
+        user={{ nickname: 'Bot' }}
+        isArticleAuthor={false}
       />
 
       <List

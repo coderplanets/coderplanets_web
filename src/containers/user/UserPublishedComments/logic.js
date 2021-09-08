@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { toUpper } from 'ramda'
 
-import { TYPE, EVENT, ERR, THREAD } from '@/constant'
+import { TYPE, EVENT, ERR } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -34,40 +34,12 @@ const getQueryArgs = (page) => {
 export const loadPostComments = (page = 1) =>
   sr71$.query(S.publishedPostComments, getQueryArgs(page))
 
-export const loadJobComments = (page = 1) =>
-  sr71$.query(S.publishedJobComments, getQueryArgs(page))
-
-export const loadRepoComments = (page = 1) =>
-  sr71$.query(S.publishedRepoComments, getQueryArgs(page))
-
 export const threadOnChange = (curThread) => {
-  // TODO: markRoute
-  store.mark({ curThread })
-  // reload()
-  switch (store.curThread) {
-    case THREAD.JOB:
-      return loadJobComments()
-
-    case THREAD.REPO:
-      return loadRepoComments()
-
-    default:
-      return loadPostComments()
-  }
+  /** todo */
 }
 
 export const onPageChange = (page = 1) => {
   scrollToHeader()
-  switch (store.curThread) {
-    case THREAD.JOB:
-      return loadJobComments(page)
-
-    case THREAD.REPO:
-      return loadRepoComments(page)
-
-    default:
-      return loadPostComments(page)
-  }
 }
 
 export const onPreview = (data) => {
@@ -84,25 +56,7 @@ export const onPreview = (data) => {
 // Data & Error handlers
 // ###############################
 
-const DataSolver = [
-  {
-    match: asyncRes('publishedPostComments'),
-    action: ({ publishedPostComments }) =>
-      store.markPagedData(publishedPostComments),
-  },
-  {
-    match: asyncRes('publishedJobComments'),
-    action: ({ publishedJobComments }) =>
-      store.markPagedData(publishedJobComments),
-  },
-  {
-    match: asyncRes('publishedRepoComments'),
-    action: ({ publishedRepoComments }) => {
-      log('get publishedRepoComments: ', publishedRepoComments)
-      store.markPagedData(publishedRepoComments)
-    },
-  },
-]
+const DataSolver = [{}]
 
 const ErrSolver = [
   {

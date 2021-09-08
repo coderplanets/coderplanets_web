@@ -15,40 +15,8 @@ const publishedPostComments = gql`
   }
 `
 
-const publishedJobComments = gql`
-  query($userId: ID!, $filter: PagedFilter!) {
-    publishedJobComments(userId: $userId, filter: $filter) {
-      entries {
-        ${F.comment}
-        job {
-          ${F.commentParent}
-          company
-        }
-      }
-      ${F.pagedCounts}
-    }
-  }
-`
-
-const publishedRepoComments = gql`
-  query($userId: ID!, $filter: PagedFilter!) {
-    publishedRepoComments(userId: $userId, filter: $filter) {
-      entries {
-        ${F.comment}
-        repo {
-          ${F.commentParent}
-          ownerName
-        }
-      }
-      ${F.pagedCounts}
-    }
-  }
-`
-
 const schema = {
   publishedPostComments,
-  publishedJobComments,
-  publishedRepoComments,
 }
 
 export default schema

@@ -10,10 +10,12 @@ type TProps = {
 }
 
 const FixedHeader: FC<TProps> = ({ article, visible }) => {
+  const { upvotesCount, meta } = article
+
   return (
     <Wrapper visible={visible}>
       <ArticleTitle>{article.title}</ArticleTitle>
-      <Upvote />
+      <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
     </Wrapper>
   )
 }
