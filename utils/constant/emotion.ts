@@ -5,8 +5,8 @@ const EMOTION = {
   BEER: 'beer',
   HEART: 'heart',
   CONFUSED: 'confused',
-  PILL: 'pill',
   POPCORN: 'popcorn',
+  PILL: 'pill',
 }
 
 export default EMOTION

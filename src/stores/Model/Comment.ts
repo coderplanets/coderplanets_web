@@ -4,7 +4,7 @@ import { values, reduce, merge } from 'ramda'
 import { EMOTION } from '@/constant'
 import { titleCase } from '@/utils/helper'
 
-import { User } from './User'
+import { User, SimpleUser } from './User'
 
 import { pagiFields, timestampFields } from './helper/common'
 
@@ -15,7 +15,10 @@ const commentEmotionFields = () => {
     values(EMOTION).map((emotion) => {
       return {
         [`${emotion}Count`]: T.maybeNull(T.number),
-        // [`latest${emotion.toUpperCase()}Users`]: [],
+        [`latest${titleCase(emotion)}Users`]: T.optional(
+          T.array(SimpleUser),
+          [],
+        ),
         [`viewerHas${titleCase(emotion)}ed`]: T.optional(T.boolean, false),
       }
     }),

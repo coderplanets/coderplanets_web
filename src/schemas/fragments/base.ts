@@ -184,7 +184,11 @@ export const userContributes = `
 
 const emotionQuery = flatten(
   values(EMOTION).map((emotion) => {
-    return [`${emotion}Count`, `viewerHas${titleCase(emotion)}ed`]
+    return [
+      `${emotion}Count`,
+      `viewerHas${titleCase(emotion)}ed`,
+      `latest${titleCase(emotion)}Users { login nickname }`,
+    ]
   }),
 ).join(' ')
 

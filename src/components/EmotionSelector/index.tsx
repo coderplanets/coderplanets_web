@@ -24,7 +24,8 @@ const emotionsCoverter = (selectedEmotions: TEmotion): TEmotion[] => {
   values(EMOTION).forEach((emotion) =>
     converted.push({
       [`${emotion}Count`]: selectedEmotions[`${emotion}Count`],
-      // [`latest${emotion.toUpperCase()}Users`]: [],
+      [`latest${titleCase(emotion)}Users`]:
+        selectedEmotions[`latest${titleCase(emotion)}Users`],
       [`viewerHas${titleCase(emotion)}ed`]:
         selectedEmotions[`viewerHas${titleCase(emotion)}ed`],
     }),
