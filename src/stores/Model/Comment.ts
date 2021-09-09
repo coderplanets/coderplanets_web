@@ -1,27 +1,18 @@
 import { types as T } from 'mobx-state-tree'
-import { reduce, merge } from 'ramda'
+import { values, reduce, merge } from 'ramda'
+
+import { EMOTION } from '@/constant'
 import { titleCase } from '@/utils/helper'
 
 import { User } from './User'
 
 import { pagiFields, timestampFields } from './helper/common'
 
-const emotions = [
-  'downvote',
-  'beer',
-  'heart',
-  'biceps',
-  'orz',
-  'confused',
-  'pill',
-  'popcorn',
-]
-
 const commentEmotionFields = () => {
   return reduce(
     merge,
     {},
-    emotions.map((emotion) => {
+    values(EMOTION).map((emotion) => {
       return {
         [`${emotion}Count`]: T.maybeNull(T.number),
         // [`latest${emotion.toUpperCase()}Users`]: [],

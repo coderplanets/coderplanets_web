@@ -1,6 +1,7 @@
 import type { TCommunity, TTag } from './index'
 import type { TUser, TAccount } from './account'
 import type { TID } from './utils'
+import type { TEmotion } from './emotion'
 
 export type TCopyright = 'cc' | 'approve' | 'forbid'
 
@@ -32,7 +33,8 @@ type TBaseArticle = {
   author?: TAccount
   upvotesCount?: number
   originalCommunity?: TCommunity
-  commentsParticipants?: TUser
+  commentsParticipants?: TUser[]
+  commentsParticipantsCount?: number
   insertedAt?: string
   updatedAt?: string
   viewerHasViewed?: boolean
@@ -112,6 +114,7 @@ export type TComment = {
   upvotesCount?: number
   viewerHasUpvoted?: boolean
   isArticleAuthor?: boolean
+  emotions?: TEmotion
 }
 
 export type TPagedComments = {

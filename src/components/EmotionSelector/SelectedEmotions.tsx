@@ -6,6 +6,7 @@ import { FC, memo, Fragment } from 'react'
 import { buildLog } from '@/utils/logger'
 import { keys } from 'ramda'
 
+import type { TEmotion } from '@/spec'
 import { ICON } from '@/config'
 import Tooltip from '@/components/Tooltip'
 import AnimatedCount from '@/components/AnimatedCount'
@@ -50,7 +51,7 @@ const Emotion: FC<{ name: string; count: number }> = ({ name, count }) => {
 }
 
 type TProps = {
-  emotions: Record<string, number | string[] | boolean>[]
+  emotions: TEmotion[]
 }
 
 const SelectedEmotions: FC<TProps> = ({ emotions }) => {

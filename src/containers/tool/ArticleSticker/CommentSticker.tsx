@@ -5,8 +5,8 @@
  */
 
 import { FC, memo } from 'react'
-import T from 'prop-types'
 
+import type { TArticle } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 
@@ -31,21 +31,22 @@ const log = buildLog('c:CommentSticker:index')
 
 type TProps = {
   show: boolean
-  data?: any // TODO
+  data?: TArticle
 }
 
 const CommentSticker: FC<TProps> = ({
   show,
-  data: { pagedCommentsParticipators: users },
+  data: { commentsParticipantsCount, commentsParticipants: users },
 }) => {
+  // TODO: use pagedParticipants query
   return (
     <Wrapper show={show}>
       <Title>
-        共<JoinCount>{users.totalCount}</JoinCount>人参与
+        共<JoinCount>{commentsParticipantsCount}</JoinCount>人参与讨论
       </Title>
-      {users.totalCount !== 0 && (
+      {users.length !== 0 && (
         <UsersWrapper>
-          {users.entries.slice(0, 10).map((user) => (
+          {users.map((user) => (
             <Tooltip
               key={user.id}
               placement="bottom"
@@ -69,43 +70,6 @@ const CommentSticker: FC<TProps> = ({
       <NotifyButton />
     </Wrapper>
   )
-}
-
-CommentSticker.propTypes = {
-  show: T.bool.isRequired,
-  data: T.shape({
-    communities: T.arrayOf(
-      T.shape({
-        id: T.string,
-        title: T.string,
-        logo: T.string,
-        raw: T.string,
-      }),
-    ),
-    pagedCommentsParticipators: T.shape({
-      entries: T.array,
-      totalCount: T.number,
-    }),
-    tags: T.arrayOf(
-      T.shape({
-        id: T.string,
-        title: T.string,
-        color: T.string,
-        raw: T.string,
-      }),
-    ),
-  }),
-}
-
-CommentSticker.defaultProps = {
-  data: {
-    communities: [],
-    tags: [],
-    pagedCommentsParticipators: {
-      entries: [],
-      totalCount: 0,
-    },
-  },
 }
 
 export default memo(CommentSticker)

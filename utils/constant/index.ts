@@ -21,6 +21,7 @@ export { default as ANCHOR } from './anchor'
 export { default as METRIC } from './metric'
 export { default as SIZE } from './size'
 export { default as URL_QUERY } from './url_query'
+export { default as EMOTION } from './emotion'
 
 export { PAYMENT_USAGE, PAYMENT_METHOD } from './payment'
 export { REPORT, REPORT_TYPE } from './report'

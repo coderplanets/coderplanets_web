@@ -17,7 +17,7 @@ type TProps = {
 
 const Footer: FC<TProps> = ({ data, accountInfo }) => (
   <Wrapper>
-    <EmotionSelector />
+    <EmotionSelector emotions={data.emotions} />
     <DotDivider radius={3} space={10} />
     <Actions data={data} accountInfo={accountInfo} />
     <SpaceGrow />

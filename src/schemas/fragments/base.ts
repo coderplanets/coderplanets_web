@@ -1,4 +1,6 @@
-import { flatten } from 'ramda'
+import { values, flatten } from 'ramda'
+
+import { EMOTION } from '@/constant'
 import { titleCase } from '@/utils/helper'
 
 export const community = `
@@ -22,6 +24,7 @@ export const author = `
   login
   nickname
   avatar
+  bio
 `
 export const article = `
   id
@@ -36,6 +39,7 @@ export const article = `
   commentsCount
   upvotesCount
   commentsParticipantsCount
+ 
   author {
     ${author}
   }
@@ -62,6 +66,10 @@ export const articleDetail = `
 
   document {
     bodyHtml
+  }
+
+  commentsParticipants {
+    ${author}
   }
 
   collectsCount
@@ -174,19 +182,8 @@ export const userContributes = `
   totalCount
 `
 
-const emotions = [
-  'downvote',
-  'beer',
-  'heart',
-  'biceps',
-  'orz',
-  'confused',
-  'pill',
-  'popcorn',
-]
-
 const emotionQuery = flatten(
-  emotions.map((emotion) => {
+  values(EMOTION).map((emotion) => {
     return [`${emotion}Count`, `viewerHas${titleCase(emotion)}ed`]
   }),
 ).join(' ')

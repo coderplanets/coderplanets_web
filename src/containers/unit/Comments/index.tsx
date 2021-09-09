@@ -16,8 +16,8 @@ import { Button } from '@/components/Buttons'
 
 import CommentEditor from './CommentEditor'
 import List from './List'
-import CommentReplyEditor from './CommentReplyEditor'
-import LockedMessage from './LockedMessage'
+// import CommentReplyEditor from './CommentReplyEditor'
+// import LockedMessage from './LockedMessage'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -64,7 +64,7 @@ const CommentsContainer: FC<TProps> = ({
     <Wrapper id={ANCHOR.COMMENTS_ID}>
       <Button onClick={() => loadComments()}>test</Button>
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>
-        {showReplyBox && (
+        {/* {showReplyBox && (
           <CommentReplyEditor
             isEdit={isEdit}
             show={showReplyEditor}
@@ -74,7 +74,7 @@ const CommentsContainer: FC<TProps> = ({
             mentionList={mentionListData}
             showReplyPreview={showReplyPreview}
           />
-        )}
+        )} */}
       </Modal>
 
       <CommentEditor
