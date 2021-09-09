@@ -43,8 +43,6 @@ const EmotionSelector: FC<TProps> = ({
   testid = 'emotion-selector',
   emotions,
 }) => {
-  console.log('got converted: ', emotionsCoverter(emotions))
-
   return (
     <Wrapper testid={testid}>
       <SelectedEmotions emotions={emotionsCoverter(emotions)} />

@@ -32,6 +32,13 @@ export type TUser = TSimpleUser & {
   social?: TSocial
 }
 
+export type TPagedUsers = {
+  entries: TUser[]
+  totalCount?: number
+  pageNumber?: number
+  pageSize?: number
+}
+
 export type TC11N = {
   isLogin?: boolean
   theme?: string

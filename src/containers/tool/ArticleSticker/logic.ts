@@ -4,9 +4,15 @@ import { useEffect } from 'react'
 import { EVENT } from '@/constant'
 import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
-// import S from './service'
+import asyncSuit from '@/utils/async'
+
+import S from './schema'
 import type { TStore } from './store'
 
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store: TStore | undefined
 
 /* eslint-disable-next-line */
@@ -25,6 +31,28 @@ export const collectArticle = (): void => {
   })
 }
 
+export const loadPagedCommentsParticipants = (): void => {
+  const { viewingArticle: article } = store
+
+  const args = {
+    id: article.id,
+    thread: article.meta.thread,
+    filter: { page: 1, size: 20 },
+  }
+  console.log('query args: ', args)
+  sr71$.query(S.pagedCommentsParticipants, args)
+}
+
+const DataSolver = [
+  {
+    match: asyncRes('pagedCommentsParticipants'),
+    action: ({ pagedCommentsParticipants }) => {
+      store.mark({ pagedCommentsParticipants })
+    },
+  },
+]
+const ErrSolver = []
+
 // ###############################
 // init & uninit handlers
 // ###############################
@@ -32,7 +60,13 @@ export const collectArticle = (): void => {
 export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     log('useInit: ', store)
     // return () => store.reset()
+    return () => {
+      sr71$.stop()
+      sub$.unsubscribe()
+      sub$ = null
+    }
   }, [_store])
 }

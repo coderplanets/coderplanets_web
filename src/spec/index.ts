@@ -19,6 +19,7 @@ export type { TTheme, TThemeMap, TThemeName } from './theme'
 export type {
   TAccount,
   TUser,
+  TPagedUsers,
   TSimpleUser,
   TMembership,
   TC11N,

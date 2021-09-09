@@ -443,7 +443,8 @@ export const useInit = (
     store = _store
     if (!sub$) {
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
+      loadComments()
+      // if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
     }
 
     return () => {

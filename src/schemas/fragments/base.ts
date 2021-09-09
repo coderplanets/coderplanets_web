@@ -20,7 +20,6 @@ export const tag = `
   group
 `
 export const author = `
-  id
   login
   nickname
   avatar

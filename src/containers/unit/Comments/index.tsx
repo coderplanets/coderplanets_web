@@ -58,8 +58,6 @@ const CommentsContainer: FC<TProps> = ({
     foldedIds,
   } = store
 
-  console.log('pagedCommentsData -> ', pagedCommentsData)
-
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
       <Button onClick={() => loadComments()}>test</Button>
