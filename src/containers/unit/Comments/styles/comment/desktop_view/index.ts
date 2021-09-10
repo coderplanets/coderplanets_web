@@ -7,7 +7,7 @@ import css from '@/utils/css'
 import PinSVG from '@/icons/Pin'
 
 type TWrapper = {
-  pined: boolean
+  isPinned: boolean
 }
 
 export const Wrapper = styled.div<TWrapper>`
@@ -15,7 +15,7 @@ export const Wrapper = styled.div<TWrapper>`
   ${css.flex()};
   margin-left: 2px;
   margin-right: 5px;
-  padding-top: ${({ pined }) => (pined ? '24px' : '20px')};
+  padding-top: ${({ isPinned }) => (isPinned ? '24px' : '20px')};
   position: relative;
   background: transparent;
 `

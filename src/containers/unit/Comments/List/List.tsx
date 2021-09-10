@@ -1,4 +1,5 @@
 import { FC, Fragment, memo } from 'react'
+import { includes } from 'ramda'
 
 import type { TAccount, TComment, TID } from '@/spec'
 import Comment from '../Comment'
@@ -22,7 +23,8 @@ const List: FC<TProps> = ({
   accountInfo,
   foldedIds,
 }) => {
-  console.log('comment list entries -> ', entries)
+  console.log('foldedIds -> ', foldedIds)
+
   return (
     <Fragment>
       {entries.map((comment) => (
@@ -48,6 +50,7 @@ const List: FC<TProps> = ({
           <IndentLine
             hasReplies={comment.repliesCount > 0}
             onClick={() => foldComment(comment.id)}
+            isFold={includes(comment.id, foldedIds)}
           />
         </Wrapper>
       ))}

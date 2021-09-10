@@ -50,14 +50,13 @@ const DefaultLayout: FC<TProps> = ({
   accountInfo,
   isReply = false,
 }) => {
-  const pined = data.id === '360' || data.id === '377'
-  const isAuthorUpvoted =
-    data.id === '377' || data.id === '355' || data.id === '359'
-  const isSolution = data.id === '358' || data.id === '355'
+  const { isPinned, meta } = data
+  const { isArticleAuthorUpvoted } = meta
+  const isSolution = false
 
   return (
-    <Wrapper pined={pined}>
-      {pined && (
+    <Wrapper isPinned={isPinned}>
+      {isPinned && (
         <PinState>
           <PinIcon />
           <PinText>置顶评论</PinText>
@@ -67,7 +66,7 @@ const DefaultLayout: FC<TProps> = ({
       <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
         <SidebarWrapper>
           <Upvote type="comment" count={data.upvotesCount} />
-          {isAuthorUpvoted && (
+          {isArticleAuthorUpvoted && (
             <Tooltip
               content={<BadgePopContent>作者顶过</BadgePopContent>}
               placement="bottom"
@@ -83,7 +82,7 @@ const DefaultLayout: FC<TProps> = ({
               noPadding
             >
               <SolutionIcon
-                isAuthorUpvoted={isAuthorUpvoted}
+                isAuthorUpvoted={isArticleAuthorUpvoted}
                 src={`${ICON}/shape/solution-check.svg`}
               />
             </Tooltip>
