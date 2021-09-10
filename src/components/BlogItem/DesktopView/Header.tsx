@@ -16,7 +16,6 @@ import {
   Brief,
   Title,
   TagListWrapper,
-  Participants,
 } from '../styles/desktop_view/header'
 
 type TProps = {
@@ -40,12 +39,6 @@ const Header: FC<TProps> = ({ item }) => {
           <InlineTags items={item.articleTags} />
         </TagListWrapper>
       </Brief>
-      <Participants>
-        <AvatarsRow
-          users={item.commentsParticipants}
-          total={item.commentsCount}
-        />
-      </Participants>
     </Wrapper>
   )
 }

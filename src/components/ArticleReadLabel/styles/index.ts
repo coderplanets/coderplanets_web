@@ -5,32 +5,26 @@ import css from '@/utils/css'
 import PinSVG from '@/icons/Pin'
 import { pixelAdd } from '@/utils/dom'
 
-export const ReadedLabel = styled.div<{ topOffset: string }>`
+type TPos = { top: number; left: number }
+
+export const ReadedLabel = styled.div<TPos>`
   background: ${theme('thread.articleDigest')};
-  width: 8px;
-  height: 3px;
-  border-radius: 3px;
+  ${css.circle(8)};
   position: absolute;
-  top: ${({ topOffset }) => topOffset};
-  left: -30px;
+  top: ${({ top }) => `${top}px`};
+  left: ${({ left }) => `${left}px`};
   opacity: 0.5;
   ${css.media.mobile`
     left: -12px;
     font-size: 0.8rem;
   `};
 `
-export const PinIcon = styled(PinSVG)<{ top: string }>`
+export const PinIcon = styled(PinSVG)<TPos>`
   fill: ${theme('thread.articleDigest')};
   position: absolute;
   ${css.size(18)};
-  top: ${({ top }) => pixelAdd(top, -4)};
-  left: -35px;
+  top: ${({ top }) => pixelAdd(`${top}px`, -4)};
+  left: ${({ left }) => `${left}px`};
   opacity: 0.8;
   transform: rotate(-30deg);
-
-  ${css.media.mobile`
-    ${css.size(16)};
-    top: 35px;
-    left: -20px;
-  `};
 `

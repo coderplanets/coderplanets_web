@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
 
 import { ScrollHolder } from './styles'
-import { TProps as TErrorPage } from '@/components/ErrorPage'
 
 export const Sidebar = dynamic(() => import('@/containers/unit/Sidebar'), {
   ssr: false,

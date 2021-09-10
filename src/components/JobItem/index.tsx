@@ -10,6 +10,7 @@ import type { TJob, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import ArticleCard from '@/components/ArticleCard'
+import { ArticleReadLabel, ArticlePinLabel } from '@/components/dynamic'
 
 import { Wrapper } from './styles'
 
@@ -24,6 +25,8 @@ type TProps = {
 const JobItem: FC<TProps> = ({ entry, c11n }) => {
   return (
     <Wrapper entry={entry} c11n={c11n}>
+      <ArticleReadLabel entry={entry} top={-3} left={-3} />
+      <ArticlePinLabel entry={entry} />
       <ArticleCard data={entry} />
     </Wrapper>
   )

@@ -62,6 +62,11 @@ const Body: FC<TProps> = ({ item }) => {
             <ViewsIcon src={`${ICON}/article/viewed.svg`} />
             {item.views}
           </ItemWrapper>
+          <Dot radius={3} space={10} />
+          <ItemWrapper>
+            <ViewsIcon src={`${ICON}/article/comment.svg`} />
+            {item.commentsCount}
+          </ItemWrapper>
         </LeftPart>
         <SpaceGrow />
       </Extra>

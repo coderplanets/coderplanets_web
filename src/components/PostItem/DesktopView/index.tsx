@@ -5,15 +5,12 @@ import { UPVOTE_LAYOUT } from '@/constant'
 
 import TheAvatar from '@/components/TheAvatar'
 import Upvote from '@/components/Upvote'
+import { ArticleReadLabel, ArticlePinLabel } from '@/components/dynamic'
 
 import Header from './Header'
 import Body from './Body'
 
-import {
-  AvatarWrapper,
-  UpvoteWrapper,
-  Main,
-} from '../styles/desktop_view/index'
+import { AvatarWrapper, UpvoteWrapper, Main } from '../styles/desktop_view'
 
 type TProps = {
   active?: TPost | null
@@ -26,6 +23,8 @@ type TProps = {
 const DigestView: FC<TProps> = ({ entry }) => {
   return (
     <Fragment>
+      <ArticleReadLabel entry={entry} />
+      <ArticlePinLabel entry={entry} />
       <AvatarWrapper>
         <TheAvatar user={entry.author} />
         <UpvoteWrapper>

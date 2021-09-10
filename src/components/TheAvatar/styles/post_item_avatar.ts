@@ -10,13 +10,13 @@ export const Wrapper = styled.div`
   cursor: pointer;
   ${css.circle(32)};
   position: relative;
-  margin-top: 3px;
+  margin-top: 4px;
 `
 export const InnerShadow = styled.div`
   position: absolute;
-  ${css.circle(32)};
-  height: 32.5px;
-  top: -2px;
+  ${css.circle(30)};
+  height: 31px;
+  top: 0px;
   left: 0px;
   box-shadow: ${theme('avatar.shadow')};
   z-index: 2;

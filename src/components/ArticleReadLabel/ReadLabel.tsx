@@ -4,7 +4,7 @@ import { useAccount } from '@/hooks'
 import { ReadedLabel } from './styles'
 import type { TProps } from './index'
 
-const ReadLabel: FC<TProps> = ({ entry, topOffset = '20px' }) => {
+const ReadLabel: FC<TProps> = ({ entry, top, left }) => {
   const { c11n } = useAccount()
   const { isLogin, markViewed } = c11n
 
@@ -12,7 +12,7 @@ const ReadLabel: FC<TProps> = ({ entry, topOffset = '20px' }) => {
 
   if (!isLogin) return null
   if (markViewed && viewerHasViewed) {
-    return <ReadedLabel topOffset={topOffset} />
+    return <ReadedLabel top={top} left={left} />
   }
 
   return null
