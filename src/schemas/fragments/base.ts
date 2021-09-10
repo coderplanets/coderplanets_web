@@ -37,7 +37,6 @@ export const article = `
   views
   commentsCount
   upvotesCount
-  commentsParticipantsCount
  
   author {
     ${author}
@@ -192,15 +191,16 @@ const emotionQuery = flatten(
 ).join(' ')
 
 // comment
-export const comment = `
+
+const commentFields = `
   id
   bodyHtml
   author {
     ${author}
   }
-
   meta {
     isArticleAuthorUpvoted
+    isReplyToOthers
   }
 
   emotions {
@@ -211,27 +211,20 @@ export const comment = `
   floor
   upvotesCount
   isArticleAuthor
-
-  replyTo {
-    id
-    bodyHtml
-    floor
-    isArticleAuthor
-    author {
-      ${author}
-    }
-  }
   viewerHasUpvoted
-  replies {
-    id
-    bodyHtml
-    author {
-      ${author}
-    }
-  }
   repliesCount
   insertedAt
   updatedAt
+`
+export const comment = `
+  ${commentFields}
+
+  replyTo {
+    ${commentFields}
+  }
+  replies {
+    ${commentFields}
+  }
 `
 export const commentParent = `
   id

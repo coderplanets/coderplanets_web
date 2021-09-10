@@ -78,7 +78,6 @@ const ArticleStickerContainer: FC<TProps> = ({
               />
               <CommentSticker
                 show={showCommentSticker}
-                article={viewingArticle}
                 participants={pagedCommentsParticipantsData}
               />
             </MainWrapper>

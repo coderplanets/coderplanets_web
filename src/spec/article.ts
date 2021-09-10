@@ -115,6 +115,10 @@ export type TComment = {
   viewerHasUpvoted?: boolean
   isArticleAuthor?: boolean
   emotions?: TEmotion
+  meta?: {
+    isArticleAuthorUpvoted?: boolean
+    isReplyToOthers?: boolean
+  }
 }
 
 export type TPagedComments = {

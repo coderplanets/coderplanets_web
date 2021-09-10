@@ -3,6 +3,7 @@ import { FC, Fragment, memo } from 'react'
 import type { TID, TPagedComments, TUser } from '@/spec'
 import Pagi from '@/components/Pagi'
 import { CommentLoading } from '@/components/Loading'
+import { Br } from '@/components/Common'
 
 import Header from './Header'
 import List from './List'
@@ -50,6 +51,7 @@ const CommentsList: FC<TProps> = ({
         />
       )}
     </ListsWrapper>
+    <Br bottom={50} />
     <Pagi
       pageNumber={pageNumber}
       pageSize={pageSize}

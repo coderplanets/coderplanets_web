@@ -22,30 +22,32 @@ const List: FC<TProps> = ({
   accountInfo,
   foldedIds,
 }) => {
+  console.log('comment list entries -> ', entries)
   return (
     <Fragment>
-      {entries.map((c) => (
-        <Wrapper key={c.id}>
+      {entries.map((comment) => (
+        <Wrapper key={comment.id}>
           <Comment
-            data={c}
+            data={comment}
             tobeDeleteId={tobeDeleteId}
             accountInfo={accountInfo}
-            hasReplies={c.id === '108'}
+            hasReplies={comment.repliesCount > 0}
             foldedIds={foldedIds}
           />
           {/* <DateDivider text={c.id} /> */}
-          {c.id === '354' && <DateDivider text="一个月后" />}
-          {c.id === '108' && (
+          {comment.id === '354' && <DateDivider text="一个月后" />}
+          {comment.replies?.length > 0 && (
             <RepliesList
-              entries={entries}
+              entries={comment.replies}
+              repliesCount={comment.repliesCount}
               accountInfo={accountInfo}
               tobeDeleteId={tobeDeleteId}
               foldedIds={foldedIds}
             />
           )}
           <IndentLine
-            hasReplies={c.id === '108'}
-            onClick={() => foldComment(c.id)}
+            hasReplies={comment.repliesCount > 0}
+            onClick={() => foldComment(comment.id)}
           />
         </Wrapper>
       ))}

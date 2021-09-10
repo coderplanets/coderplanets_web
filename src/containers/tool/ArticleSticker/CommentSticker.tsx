@@ -6,20 +6,20 @@
 
 import { FC, memo, useEffect } from 'react'
 
-import type { TArticle, TUser, TPagedUsers } from '@/spec'
+import type { TArticle, TPagedUsers } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 
 import NotifyButton from '@/components/Buttons/NotifyButton'
 import Tooltip from '@/components/Tooltip'
 import ImgFallback from '@/components/ImgFallback'
+import UserCard from '@/components/Cards/UserCard'
 
 import {
   Wrapper,
   Title,
   JoinCount,
   UsersWrapper,
-  PopInfo,
   Avatar,
   MoreUserWrapper,
   MoreIcon,
@@ -33,28 +33,26 @@ const log = buildLog('c:CommentSticker:index')
 type TProps = {
   show: boolean
   participants: TPagedUsers
-  article?: TArticle
 }
 
-const CommentSticker: FC<TProps> = ({ show, article, participants }) => {
+const CommentSticker: FC<TProps> = ({ show, participants }) => {
   useEffect(() => {
     if (show) loadPagedCommentsParticipants()
   }, [show])
 
-  const { commentsParticipantsCount } = article
-
   return (
     <Wrapper show={show}>
       <Title>
-        共<JoinCount>{commentsParticipantsCount}</JoinCount>人参与讨论
+        共<JoinCount>{participants.totalCount}</JoinCount>
+        人参与讨论
       </Title>
       {participants.totalCount !== 0 && (
         <UsersWrapper>
           {participants.entries.map((user) => (
             <Tooltip
-              key={user.id}
+              key={user.login}
               placement="bottom"
-              content={<PopInfo>{user.nickname}</PopInfo>}
+              content={<UserCard item={user} />}
             >
               <Avatar
                 src={user.avatar}

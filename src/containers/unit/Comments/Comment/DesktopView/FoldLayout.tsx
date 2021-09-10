@@ -23,9 +23,7 @@ type TProps = {
 }
 
 const FoldLayout: FC<TProps> = ({ data }) => {
-  const isAuthorUpvoted =
-    data.id === '377' || data.id === '355' || data.id === '359'
-  const isSolution = data.id === '358' || data.id === '355'
+  const isSolution = false //
 
   return (
     <Wrapper>
@@ -40,11 +38,15 @@ const FoldLayout: FC<TProps> = ({ data }) => {
         src={data.author.avatar}
         fallback={<ImgFallback user={data.author} size={16} right={10} />}
       />
-      <CommentBody>{cutRest(data.bodyHtml, 30)}</CommentBody>
+      <CommentBody
+        dangerouslySetInnerHTML={{
+          __html: data.bodyHtml,
+        }}
+      />
       <SpaceGrow />
       {isSolution && (
         <SolutionIcon
-          isAuthorUpvoted={isAuthorUpvoted}
+          isAuthorUpvoted={data.meta.isArticleAuthorUpvoted}
           src={`${ICON}/shape/solution-check.svg`}
         />
       )}

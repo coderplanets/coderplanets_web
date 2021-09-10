@@ -24,6 +24,7 @@ export const Avatar = styled(Img)`
 `
 export const CommentBody = styled.div`
   color: ${theme('thread.articleDigest')};
+  ${css.cutRest('360px')};
   font-size: 14px;
 `
 export const CreateDate = styled(HeaderCreateDate)`
