@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import dynamic from 'next/dynamic'
 
-import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+import { LavaLampLoading } from '@/components/dynamic'
 import EditorLoading from '@/components/Loading/EditorLoading'
 
 const CommonLoading = () => <LavaLampLoading top={200} left={420} />

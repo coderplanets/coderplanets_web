@@ -1,13 +1,5 @@
 import { useEffect } from 'react'
-import {
-  curry,
-  isEmpty,
-  reject,
-  equals,
-  mergeDeepRight,
-  findIndex,
-  includes,
-} from 'ramda'
+import { curry, isEmpty, reject, equals, mergeDeepRight } from 'ramda'
 
 import type { TUser, TID } from '@/spec'
 import { PAGE_SIZE } from '@/config'
@@ -19,6 +11,7 @@ import { send, countWords, extractMentions, errRescue } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { scrollIntoEle } from '@/utils/dom'
 
+import type { TMode } from './spec'
 import type { TStore } from './store'
 import S from './schema'
 
@@ -40,29 +33,16 @@ const defaultArgs = {
 
 // variables = %{id: post.id, thread: "POST", filter: %{page: 1, size: page_size}}
 export const loadComments = (): void => {
-  const { viewingArticle: article } = store
+  const { viewingArticle: article, mode } = store
 
   const args = {
     id: article.id,
     thread: article.meta.thread,
+    mode,
     filter: { page: 1, size: 20 },
   }
   console.log('query args: ', args)
-  sr71$.query(S.pagedComments, args)
-}
-
-export const loadComents = (args): void => {
-  // log('loadComents passed in: ', args)
-  if (store.loading || store.loadingFresh) return
-  args = mergeDeepRight(defaultArgs, args)
-  args.id = store.viewingArticle.id
-  args.userHasLogin = store.isLogin
-  args.thread = store.activeThread
-
-  markLoading(args.fresh)
-  store.mark({ filterType: args.filter.sort })
-
-  console.log('pagedComments args: ', args)
+  store.mark({ loading: true })
   sr71$.query(S.pagedComments, args)
 }
 
@@ -213,9 +193,9 @@ export const closeReplyBox = (): void => {
   })
 }
 
-export const onFilterChange = (filterType): void => {
-  store.mark({ filterType })
-  loadComents({ filter: { page: 1, sort: filterType } })
+export const onModeChange = (mode: TMode): void => {
+  store.mark({ mode })
+  loadComments()
 }
 
 /**
@@ -274,7 +254,6 @@ export const cancelDelete = (): void => store.mark({ tobeDeleteId: null })
 
 export const pageChange = (page = 1): void => {
   scrollIntoEle('lists-info')
-  loadComents({ filter: { page, sort: store.filterType } })
 }
 
 const cancelLoading = () =>
@@ -322,7 +301,7 @@ const DataSolver = [
     action: ({ pagedComments }) => {
       cancelLoading()
       console.log('## pagedComments: ', pagedComments)
-      store.mark({ pagedComments })
+      store.mark({ pagedComments, loading: false })
     },
   },
   {
@@ -337,10 +316,10 @@ const DataSolver = [
       })
       stopDraftTimmer()
       clearDraft()
-      loadComents({
-        filter: { page: 1, sort: TYPE.DESC_INSERTED },
-        fresh: true,
-      })
+      // loadComents({
+      //   filter: { page: 1, sort: TYPE.DESC_INSERTED },
+      //   fresh: true,
+      // })
     },
   },
   {
@@ -354,7 +333,7 @@ const DataSolver = [
       scrollIntoEle('lists-info')
       stopDraftTimmer()
       clearDraft()
-      loadComents({ filter: { page: 1 }, fresh: true })
+      // loadComents({ filter: { page: 1 }, fresh: true })
     },
   },
   {
@@ -395,7 +374,7 @@ const DataSolver = [
       log('deleteComment', deleteComment)
       store.mark({ tobeDeleteId: null })
       scrollIntoEle('lists-info')
-      loadComents({ filter: { page: 1 }, fresh: true })
+      // loadComents({ filter: { page: 1 }, fresh: true })
     },
   },
   {

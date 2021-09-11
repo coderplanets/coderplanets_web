@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
-import { isEmpty, includes } from 'ramda'
+import { isEmpty } from 'ramda'
 
-import type { TAccount, TComment, TID } from '@/spec'
+import type { TComment } from '@/spec'
 import { Global } from '@/utils/helper'
 import { ICON } from '@/config'
 
@@ -39,17 +39,11 @@ const getSelection = () => {
 
 type TProps = {
   data: TComment
-  accountInfo: TAccount
   tobeDeleteId: string
   isReply?: boolean
 }
 
-const DefaultLayout: FC<TProps> = ({
-  data,
-  tobeDeleteId,
-  accountInfo,
-  isReply = false,
-}) => {
+const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
   const { isPinned, meta } = data
   const { isArticleAuthorUpvoted } = meta
   const isSolution = false
@@ -99,7 +93,7 @@ const DefaultLayout: FC<TProps> = ({
               mode="comment"
             />
           </CommentContent>
-          <Footer data={data} accountInfo={accountInfo} />
+          <Footer data={data} />
         </CommentBodyInfo>
       </CommentWrapper>
     </Wrapper>

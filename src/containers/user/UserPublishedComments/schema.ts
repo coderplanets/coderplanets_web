@@ -6,9 +6,6 @@ const publishedPostComments = gql`
     publishedPostComments(userId: $userId, filter: $filter) {
       entries {
         ${F.comment}
-        post {
-          ${F.commentParent}
-        }
       }
       ${F.pagedCounts}
     }

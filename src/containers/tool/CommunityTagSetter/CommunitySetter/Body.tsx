@@ -3,7 +3,7 @@ import { isEmpty } from 'ramda'
 
 import CustomScroller from '@/components/CustomScroller'
 import NoticeBar from '@/components/NoticeBar'
-import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+import { LavaLampLoading } from '@/components/dynamic'
 
 import type { TCommunitiesList } from '../spec'
 import SearchBox from './SearchBox'

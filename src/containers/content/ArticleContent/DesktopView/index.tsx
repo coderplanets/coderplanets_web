@@ -17,7 +17,7 @@ import ArtimentBody from '@/components/ArtimentBody'
 
 import ViewportTracker from '@/components/ViewportTracker'
 import Maybe from '@/components/Maybe'
-import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+import { LavaLampLoading } from '@/components/dynamic'
 
 import type { TStore } from '../store'
 

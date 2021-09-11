@@ -47,6 +47,8 @@ const CommentsContainer: FC<TProps> = ({
   useInit(store, ssr, locked)
 
   const {
+    mode,
+    viewingArticle,
     pagedCommentsData,
     referUsersData,
     accountInfo,
@@ -94,7 +96,8 @@ const CommentsContainer: FC<TProps> = ({
       />
 
       <List
-        accountInfo={accountInfo}
+        totalCommentsCount={viewingArticle.commentsCount}
+        mode={mode}
         foldedIds={foldedIds}
         isAllFolded={isAllFolded}
         pagedComments={pagedCommentsData}

@@ -3,6 +3,7 @@ import { FC, memo, useCallback } from 'react'
 import type { TAccount, TComment } from '@/spec'
 import { ICON } from '@/config'
 
+import { useAccount } from '@/hooks'
 import IconButton from '@/components/Buttons/IconButton'
 import MenuButton from '@/components/Buttons/MenuButton'
 import { SpaceGrow } from '@/components/Common'
@@ -12,7 +13,6 @@ import { openUpdateEditor, openReplyEditor, onDelete } from '../logic'
 
 type TProps = {
   data: TComment
-  accountInfo: TAccount
 }
 
 const menuOptions = [
@@ -33,10 +33,13 @@ const menuOptions = [
   },
 ]
 
-const Actions: FC<TProps> = ({ data, accountInfo }) => {
+const Actions: FC<TProps> = ({ data }) => {
+  const { user } = useAccount()
+  const accountId = user.id
+
   let extraOptions = []
 
-  if (String(data.author.id) === accountInfo.id) {
+  if (String(data.author.id) === accountId) {
     extraOptions = [
       {
         key: 'edit',

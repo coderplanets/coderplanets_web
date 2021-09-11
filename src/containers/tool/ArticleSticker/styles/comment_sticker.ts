@@ -7,7 +7,7 @@ import Img from '@/Img'
 
 export const Wrapper = styled.div<TActive>`
   min-height: 100px;
-  margin-left: 16px;
+  margin-left: 42px;
   margin-top: 50px;
   padding-bottom: 0;
   width: 65%;
@@ -19,6 +19,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
   margin-bottom: 15px;
+  margin-left: 3px;
 `
 export const JoinCount = styled.span`
   color: ${theme('comment.number')};

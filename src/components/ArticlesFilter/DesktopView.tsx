@@ -5,13 +5,14 @@
  */
 
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
 
 import type { TArticleFilter, TResState } from '@/spec'
 
 import { TYPE, THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 // import { useViewing } from '@/hooks'
+
+import { LavaLampLoading } from '@/components/dynamic'
 
 import FilterButton from './FilterButton'
 import SelectedFilters from './SelectedFilters'
@@ -21,15 +22,6 @@ import { Wrapper, MainFilterWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ArticlesFilter:index')
-
-const LavaLampLoading = dynamic(
-  () => import('@/components/Loading/LavaLampLoading'),
-  {
-    /* eslint-disable react/display-name */
-    loading: () => <div />,
-    ssr: false,
-  },
-)
 
 type TProps = {
   activeFilter: TArticleFilter

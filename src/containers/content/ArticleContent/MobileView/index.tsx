@@ -13,7 +13,7 @@ import { pluggedIn } from '@/utils/mobx'
 // import Comments from '@/containers/unit/Comments'
 // import ArticleFooter from '@/containers/unit/ArticleFooter'
 
-import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+import { LavaLampLoading } from '@/components/dynamic'
 import Maybe from '@/components/Maybe'
 // import MarkDownRender from '@/components/MarkDownRender'
 import ViewportTracker from '@/components/ViewportTracker'

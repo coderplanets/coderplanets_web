@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TAccount, TComment, TID } from '@/spec'
+import type { TComment, TID } from '@/spec'
 
 import TogglerButton from './TogglerButton'
 import Comment from '../Comment'
@@ -11,7 +11,6 @@ type TProps = {
   entries: TComment[]
   repliesCount: number
   tobeDeleteId: string
-  accountInfo: TAccount
   foldedIds: TID[]
 }
 
@@ -19,7 +18,6 @@ const RepliesList: FC<TProps> = ({
   entries,
   repliesCount,
   tobeDeleteId,
-  accountInfo,
   foldedIds,
 }) => {
   return (
@@ -29,7 +27,6 @@ const RepliesList: FC<TProps> = ({
           <Comment
             data={comment}
             tobeDeleteId={tobeDeleteId}
-            accountInfo={accountInfo}
             foldedIds={foldedIds}
             isReply
           />

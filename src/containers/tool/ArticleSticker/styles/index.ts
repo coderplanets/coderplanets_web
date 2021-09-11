@@ -74,10 +74,9 @@ export const Text = styled.div`
 `
 
 export const GoTopWrapper = styled.div<TActive>`
-  /* ${css.flex('align-both')}; */
+  ${css.flex('align-both')};
   opacity: ${({ show }) => (show ? 1 : 0)};
   position: absolute;
-  left: 60px;
   bottom: -120px;
   width: 100%;
 `

@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { TSIZE_TSM } from '@/spec'
 import { ICON } from '@/config'
 
-import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+import { LavaLampLoading } from '@/components/dynamic'
 import Tooltip from '@/components/Tooltip'
 
 import {
