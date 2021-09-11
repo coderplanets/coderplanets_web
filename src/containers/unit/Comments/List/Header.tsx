@@ -14,9 +14,12 @@ import {
   ActionsWrapper,
 } from '../styles/list/header'
 
+import { foldAllComments, expandAllComments } from '../logic'
+
 type TProps = {
   totalCount: number
   filterType: string
+  isAllFolded: boolean
 }
 
 const actionIconConfig = {
@@ -37,9 +40,7 @@ const switchItems = [
   },
 ]
 
-const Header: FC<TProps> = ({ totalCount, filterType }) => {
-  const isAllFolded = false
-
+const Header: FC<TProps> = ({ totalCount, filterType, isAllFolded }) => {
   return (
     <Wrapper>
       <TotalCountWrapper>
@@ -69,6 +70,7 @@ const Header: FC<TProps> = ({ totalCount, filterType }) => {
             hint="展开全部"
             active
             {...actionIconConfig}
+            onClick={expandAllComments}
           />
         ) : (
           <IconButton
@@ -76,6 +78,7 @@ const Header: FC<TProps> = ({ totalCount, filterType }) => {
             size={13}
             hint="折叠全部"
             {...actionIconConfig}
+            onClick={foldAllComments}
           />
         )}
         <IconSwitcher

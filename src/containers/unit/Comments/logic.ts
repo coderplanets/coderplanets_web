@@ -295,43 +295,20 @@ const saveDraftIfNeed = (content): void => {
 const clearDraft = (): void => BStore.remove('recentDraft')
 
 export const foldComment = (id: TID): void => {
-  const { foldedCommentIds, hidedCommentIds, pagedCommentsData } = store
-
-  const index = findIndex((c) => c.id === id, pagedCommentsData.entries)
-  let repliesIds = []
-  if (index >= 0) {
-    const { replies } = pagedCommentsData.entries[index]
-    repliesIds = replies ? replies.map((r) => r.id) : []
-  }
-
-  store.mark({
-    foldedCommentIds: [id, ...foldedCommentIds],
-    hidedCommentIds: [...repliesIds, ...hidedCommentIds],
-  })
-}
-
-export const foldAllComments = (): void => {
-  // TODO:
-  // store.mark({ foldedCommentIds: [] })
+  store.mark({ foldedCommentIds: [id, ...store.foldedCommentIds] })
 }
 
 export const expandComment = (id: TID): void => {
-  const { foldedCommentIds, hidedCommentIds, pagedCommentsData } = store
-
-  const index = findIndex((c) => c.id === id, pagedCommentsData.entries)
-  let repliesIds = []
-
-  if (index >= 0) {
-    const { replies } = pagedCommentsData.entries[index]
-    repliesIds = replies ? replies.map((r) => r.id) : []
-  }
-
-  store.mark({
-    foldedCommentIds: reject(equals(id), foldedCommentIds),
-    hidedCommentIds: reject((id) => includes(id, repliesIds), hidedCommentIds),
-  })
+  store.mark({ foldedCommentIds: reject(equals(id), store.foldedCommentIds) })
 }
 
+// 只在 timeline 模式可用
+export const foldAllComments = (): void => {
+  const { pagedCommentsData } = store
+  store.mark({ foldedCommentIds: pagedCommentsData.entries.map((c) => c.id) })
+}
+
+// 只在 timeline 模式可用
 export const expandAllComments = (): void => {
   store.mark({ foldedCommentIds: [] })
 }

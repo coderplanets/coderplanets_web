@@ -15,7 +15,6 @@ type TProps = {
   tobeDeleteId: string
   accountInfo: TAccount
   foldedIds: TID[]
-  hidedIds: TID[]
 }
 
 const List: FC<TProps> = ({
@@ -23,7 +22,6 @@ const List: FC<TProps> = ({
   tobeDeleteId,
   accountInfo,
   foldedIds,
-  hidedIds,
 }) => {
   return (
     <Fragment>
@@ -35,18 +33,16 @@ const List: FC<TProps> = ({
             accountInfo={accountInfo}
             hasReplies={comment.repliesCount > 0}
             foldedIds={foldedIds}
-            hidedIds={hidedIds}
           />
           {/* <DateDivider text={c.id} /> */}
           {comment.id === '354' && <DateDivider text="一个月后" />}
-          {comment.replies?.length > 0 && (
+          {comment.replies?.length > 0 && !includes(comment.id, foldedIds) && (
             <RepliesList
               entries={comment.replies}
               repliesCount={comment.repliesCount}
               accountInfo={accountInfo}
               tobeDeleteId={tobeDeleteId}
               foldedIds={foldedIds}
-              hidedIds={hidedIds}
             />
           )}
           <IndentLine

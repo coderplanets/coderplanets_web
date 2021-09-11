@@ -93,7 +93,6 @@ const CommentsStore = T.model('CommentsStore', {
   loadingFresh: T.optional(T.boolean, false),
 
   foldedCommentIds: T.optional(T.array(T.string), []),
-  hidedCommentIds: T.optional(T.array(T.string), []),
 })
   .views((self) => ({
     get curRoute(): TRoute {
@@ -102,9 +101,6 @@ const CommentsStore = T.model('CommentsStore', {
     },
     get foldedIds(): TID[] {
       return toJS(self.foldedCommentIds)
-    },
-    get hidedIds(): TID[] {
-      return toJS(self.hidedCommentIds)
     },
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
@@ -169,6 +165,11 @@ const CommentsStore = T.model('CommentsStore', {
     },
     get editCommentData() {
       return toJS(self.editComment)
+    },
+    get isAllFolded(): boolean {
+      const slf = self as TStore
+      const { foldedIds, pagedCommentsData } = slf
+      return foldedIds.length === pagedCommentsData.totalCount
     },
   }))
   .actions((self) => ({

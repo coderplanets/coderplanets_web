@@ -42,21 +42,17 @@ type TProps = {
   accountInfo: TAccount
   tobeDeleteId: string
   isReply?: boolean
-  hidedIds: TID[]
 }
 
 const DefaultLayout: FC<TProps> = ({
   data,
   tobeDeleteId,
   accountInfo,
-  hidedIds = [],
   isReply = false,
 }) => {
   const { isPinned, meta } = data
   const { isArticleAuthorUpvoted } = meta
   const isSolution = false
-
-  if (includes(data.id, hidedIds)) return null
 
   return (
     <Wrapper isPinned={isPinned}>

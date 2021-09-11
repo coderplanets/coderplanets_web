@@ -13,7 +13,6 @@ type TProps = {
   tobeDeleteId: string
   accountInfo: TAccount
   foldedIds: TID[]
-  hidedIds: TID[]
 }
 
 const RepliesList: FC<TProps> = ({
@@ -22,7 +21,6 @@ const RepliesList: FC<TProps> = ({
   tobeDeleteId,
   accountInfo,
   foldedIds,
-  hidedIds,
 }) => {
   return (
     <RepliesWrapper>
@@ -33,7 +31,6 @@ const RepliesList: FC<TProps> = ({
             tobeDeleteId={tobeDeleteId}
             accountInfo={accountInfo}
             foldedIds={foldedIds}
-            hidedIds={hidedIds}
             isReply
           />
         </RepliesCommentsWrapper>

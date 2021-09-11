@@ -13,21 +13,15 @@ type TProps = {
   tobeDeleteId: string
   hasReplies?: boolean
   foldedIds: TID[]
-  hidedIds: TID[]
 }
 
 const Comment: FC<TProps> = (props) => {
-  const { foldedIds, hidedIds, data } = props
+  const { foldedIds, data } = props
   const isFolded = includes(data.id, foldedIds)
-  const isHided = includes(data.id, hidedIds)
 
   return (
     <Fragment>
-      {isFolded && !isHided ? (
-        <FoldLayout {...props} />
-      ) : (
-        <DefaultLayout {...props} />
-      )}
+      {isFolded ? <FoldLayout {...props} /> : <DefaultLayout {...props} />}
     </Fragment>
   )
 }

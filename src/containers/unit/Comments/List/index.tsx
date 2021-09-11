@@ -16,7 +16,7 @@ type TProps = {
   accountInfo: TUser
   pagedComments: TPagedComments
   foldedIds: TID[]
-  hidedIds: TID[]
+  isAllFolded: boolean
   restProps: {
     loading: boolean
     loadingFresh: boolean
@@ -29,11 +29,15 @@ const CommentsList: FC<TProps> = ({
   accountInfo,
   pagedComments: { entries, totalCount, pageSize, pageNumber },
   foldedIds,
-  hidedIds,
+  isAllFolded,
   restProps: { loading, loadingFresh, tobeDeleteId, filterType },
 }) => (
   <Fragment>
-    <Header totalCount={totalCount} filterType={filterType} />
+    <Header
+      totalCount={totalCount}
+      filterType={filterType}
+      isAllFolded={isAllFolded}
+    />
     {loadingFresh && (
       <CommentBlock>
         <CommentLoading />
@@ -48,7 +52,6 @@ const CommentsList: FC<TProps> = ({
         <List
           entries={entries}
           foldedIds={foldedIds}
-          hidedIds={hidedIds}
           accountInfo={accountInfo}
           tobeDeleteId={tobeDeleteId}
         />
