@@ -13,6 +13,7 @@ import {
   Wrapper,
   Avatar,
   CommentBody,
+  RepliesHint,
   SolutionIcon,
   CreateDate,
 } from '../../styles/comment/desktop_view/fold_layout'
@@ -26,13 +27,12 @@ const FoldLayout: FC<TProps> = ({ data }) => {
   const isSolution = false //
 
   return (
-    <Wrapper>
+    <Wrapper onClick={() => expandComment(data.id)}>
       <IconButton
         path="shape/expand-all.svg"
         hint="展开评论"
         mLeft={-1}
         mRight={12}
-        onClick={() => expandComment(data.id)}
       />
       <Avatar
         src={data.author.avatar}
@@ -43,6 +43,10 @@ const FoldLayout: FC<TProps> = ({ data }) => {
           __html: data.bodyHtml,
         }}
       />
+      {data.repliesCount > 0 && (
+        <RepliesHint>[ {data.repliesCount} 条回复 ]</RepliesHint>
+      )}
+
       <SpaceGrow />
       {isSolution && (
         <SolutionIcon

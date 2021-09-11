@@ -222,6 +222,7 @@ export const comment = `
   replyTo {
     ${commentFields}
   }
+
   replies {
     ${commentFields}
   }

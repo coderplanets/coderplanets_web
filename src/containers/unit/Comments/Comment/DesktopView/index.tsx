@@ -1,5 +1,5 @@
 import { FC, memo, Fragment } from 'react'
-import { contains } from 'ramda'
+import { includes } from 'ramda'
 import { TID } from '@/spec'
 
 import type { TAccount, TComment } from '@/spec'
@@ -13,15 +13,21 @@ type TProps = {
   tobeDeleteId: string
   hasReplies?: boolean
   foldedIds: TID[]
+  hidedIds: TID[]
 }
 
 const Comment: FC<TProps> = (props) => {
-  const { foldedIds, data } = props
-  const isFolded = contains(data.id, foldedIds)
+  const { foldedIds, hidedIds, data } = props
+  const isFolded = includes(data.id, foldedIds)
+  const isHided = includes(data.id, hidedIds)
 
   return (
     <Fragment>
-      {isFolded ? <FoldLayout {...props} /> : <DefaultLayout {...props} />}
+      {isFolded && !isHided ? (
+        <FoldLayout {...props} />
+      ) : (
+        <DefaultLayout {...props} />
+      )}
     </Fragment>
   )
 }

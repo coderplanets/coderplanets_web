@@ -26,6 +26,7 @@ import type {
   TThread,
   TRoute,
   TID,
+  TPagedComments,
 } from '@/spec'
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
@@ -92,6 +93,7 @@ const CommentsStore = T.model('CommentsStore', {
   loadingFresh: T.optional(T.boolean, false),
 
   foldedCommentIds: T.optional(T.array(T.string), []),
+  hidedCommentIds: T.optional(T.array(T.string), []),
 })
   .views((self) => ({
     get curRoute(): TRoute {
@@ -100,6 +102,9 @@ const CommentsStore = T.model('CommentsStore', {
     },
     get foldedIds(): TID[] {
       return toJS(self.foldedCommentIds)
+    },
+    get hidedIds(): TID[] {
+      return toJS(self.hidedCommentIds)
     },
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
@@ -135,7 +140,7 @@ const CommentsStore = T.model('CommentsStore', {
     get mentionListData() {
       return toJS(self.mentionList)
     },
-    get pagedCommentsData() {
+    get pagedCommentsData(): TPagedComments {
       return toJS(self.pagedComments)
     },
     get accountInfo(): TAccount {

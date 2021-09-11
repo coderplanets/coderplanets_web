@@ -52,15 +52,18 @@ const commentBaseFields = () => {
   }
 }
 
+export const CommentBase = T.model('CommentBase', {
+  ...commentBaseFields(),
+})
+
 export const CommentReply = T.model('CommentReply', {
   ...commentBaseFields(),
+  replyTo: T.maybeNull(CommentBase),
 })
 
 export const Comment = T.model('Comment', {
   ...commentBaseFields(),
-  replyTo: T.maybeNull(CommentReply),
   replies: T.maybeNull(T.array(CommentReply)),
-
   // field(:article, :common_article)
 
   isDeleted: T.optional(T.boolean, false),

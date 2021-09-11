@@ -1,5 +1,13 @@
 import { useEffect } from 'react'
-import { curry, isEmpty, reject, equals, mergeDeepRight } from 'ramda'
+import {
+  curry,
+  isEmpty,
+  reject,
+  equals,
+  mergeDeepRight,
+  findIndex,
+  includes,
+} from 'ramda'
 
 import type { TUser, TID } from '@/spec'
 import { PAGE_SIZE } from '@/config'
@@ -287,8 +295,19 @@ const saveDraftIfNeed = (content): void => {
 const clearDraft = (): void => BStore.remove('recentDraft')
 
 export const foldComment = (id: TID): void => {
-  const { foldedCommentIds } = store
-  store.mark({ foldedCommentIds: [id, ...foldedCommentIds] })
+  const { foldedCommentIds, hidedCommentIds, pagedCommentsData } = store
+
+  const index = findIndex((c) => c.id === id, pagedCommentsData.entries)
+  let repliesIds = []
+  if (index >= 0) {
+    const { replies } = pagedCommentsData.entries[index]
+    repliesIds = replies ? replies.map((r) => r.id) : []
+  }
+
+  store.mark({
+    foldedCommentIds: [id, ...foldedCommentIds],
+    hidedCommentIds: [...repliesIds, ...hidedCommentIds],
+  })
 }
 
 export const foldAllComments = (): void => {
@@ -297,8 +316,20 @@ export const foldAllComments = (): void => {
 }
 
 export const expandComment = (id: TID): void => {
-  const { foldedCommentIds } = store
-  store.mark({ foldedCommentIds: reject(equals(id), foldedCommentIds) })
+  const { foldedCommentIds, hidedCommentIds, pagedCommentsData } = store
+
+  const index = findIndex((c) => c.id === id, pagedCommentsData.entries)
+  let repliesIds = []
+
+  if (index >= 0) {
+    const { replies } = pagedCommentsData.entries[index]
+    repliesIds = replies ? replies.map((r) => r.id) : []
+  }
+
+  store.mark({
+    foldedCommentIds: reject(equals(id), foldedCommentIds),
+    hidedCommentIds: reject((id) => includes(id, repliesIds), hidedCommentIds),
+  })
 }
 
 export const expandAllComments = (): void => {

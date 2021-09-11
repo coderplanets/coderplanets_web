@@ -16,6 +16,7 @@ type TProps = {
   accountInfo: TUser
   pagedComments: TPagedComments
   foldedIds: TID[]
+  hidedIds: TID[]
   restProps: {
     loading: boolean
     loadingFresh: boolean
@@ -28,6 +29,7 @@ const CommentsList: FC<TProps> = ({
   accountInfo,
   pagedComments: { entries, totalCount, pageSize, pageNumber },
   foldedIds,
+  hidedIds,
   restProps: { loading, loadingFresh, tobeDeleteId, filterType },
 }) => (
   <Fragment>
@@ -46,6 +48,7 @@ const CommentsList: FC<TProps> = ({
         <List
           entries={entries}
           foldedIds={foldedIds}
+          hidedIds={hidedIds}
           accountInfo={accountInfo}
           tobeDeleteId={tobeDeleteId}
         />

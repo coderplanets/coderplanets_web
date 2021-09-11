@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
   padding-top: 20px;
   position: relative;
   background: transparent;
+  cursor: pointer;
 `
 export const Avatar = styled(Img)`
   ${css.circle(16)};
@@ -24,8 +25,14 @@ export const Avatar = styled(Img)`
 `
 export const CommentBody = styled.div`
   color: ${theme('thread.articleDigest')};
-  ${css.cutRest('360px')};
+  ${css.cutRest('320px')};
   font-size: 14px;
+`
+export const RepliesHint = styled.div`
+  color: #139c9e;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 2px;
 `
 export const CreateDate = styled(HeaderCreateDate)`
   margin-right: 4px;
