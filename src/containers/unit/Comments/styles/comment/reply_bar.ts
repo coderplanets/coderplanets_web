@@ -14,6 +14,11 @@ export const Wrapper = styled(ReplyBarBase)`
     padding: 5px 3px;
   `};
 `
+export const Avatar = styled(Img)`
+  ${css.circle(14)};
+  margin-left: 5px;
+  margin-right: 5px;
+`
 export const ReplyIcon = styled(Img)`
   fill: ${theme('comment.username')};
   ${css.size(15)};
