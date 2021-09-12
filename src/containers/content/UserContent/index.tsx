@@ -49,7 +49,7 @@ const BaseTaberThreads = [
     raw: 'publish',
   },
   {
-    title: '评论',
+    title: '讨论',
     raw: 'comments',
   },
   {

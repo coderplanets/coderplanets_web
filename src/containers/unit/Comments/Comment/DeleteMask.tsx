@@ -17,7 +17,7 @@ type TProps = {
 const DeleteMask: FC<TProps> = ({ show }) => {
   return (
     <DeleteOverlay show={show}>
-      <DeleteHintText>删除后该该评论将不可恢复</DeleteHintText>
+      <DeleteHintText>删除后该该讨论将不可恢复</DeleteHintText>
       <DeleteBtnGroup>
         <Button size="small" type="red" ghost onClick={cancelDelete}>
           取消

@@ -11,7 +11,7 @@ const DetailPanel: FC<TProps> = ({ date }) => {
   return (
     <Wrapper>
       <Title>本帖已于 {date} 存档</Title>
-      <Text>存档后无法编辑，删除及评论。</Text>
+      <Text>存档后无法编辑，删除及讨论。</Text>
 
       <LinksWrapper>
         <Button size="tiny" ghost noBorder>

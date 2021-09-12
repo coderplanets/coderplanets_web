@@ -34,7 +34,7 @@ const Setter: FC<TProps> = ({ show, selectedId }) => {
   return (
     <Wrapper show={show}>
       <Header>
-        添加<Artiment>某篇文章或评论</Artiment>到收藏夹
+        添加<Artiment>某篇文章或讨论</Artiment>到收藏夹
       </Header>
       <ListWrapper>
         <FolderWrapper>

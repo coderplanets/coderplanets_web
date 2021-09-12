@@ -17,7 +17,7 @@ const BriefInfo = ({ first }) => {
         <Divider>/</Divider>
         <MonthNum>5月</MonthNum>
       </DateInfo>
-      <Desc>评论了帖子</Desc>
+      <Desc>讨论了帖子</Desc>
     </Wrapper>
   )
 }

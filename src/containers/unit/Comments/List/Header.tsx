@@ -56,7 +56,7 @@ const Header: FC<TProps> = ({ totalCount, mode, isAllFolded, loading }) => {
         {loading && <LavaLampLoading right={15} />}
         <IconButton
           icon={SVG.LOCK}
-          hint="关闭评论"
+          hint="关闭讨论"
           mTop={-1}
           {...actionIconConfig}
         />

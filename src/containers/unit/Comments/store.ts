@@ -181,7 +181,7 @@ const CommentsStore = T.model('CommentsStore', {
         case 'create': {
           const result = changeset({ editContent: self.editContent })
             // @ts-ignore
-            .exist({ editContent: '评论内容' }, changesetErr)
+            .exist({ editContent: '讨论内容' }, changesetErr)
             .done()
 
           return result.passed

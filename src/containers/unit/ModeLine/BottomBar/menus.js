@@ -31,7 +31,7 @@ const articlePageMenus = [
     icon: `${ICON}/article/heart.svg`,
   },
   {
-    title: '评论',
+    title: '讨论',
     raw: TYPE.MM_TYPE.SEARCH,
     icon: `${ICON}/article/comment-modeline.svg`,
   },
@@ -50,12 +50,8 @@ const articlePageMenus = [
 export const getArticlePageMenus = (article) => {
   if (!article) return articlePageMenus
 
-  const {
-    upvotesCount,
-    commentsCount,
-    viewerHasUpvoted,
-    viewerHasCollected,
-  } = article
+  const { upvotesCount, commentsCount, viewerHasUpvoted, viewerHasCollected } =
+    article
 
   const articlePageMenusData = [...articlePageMenus]
 

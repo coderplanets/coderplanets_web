@@ -36,7 +36,7 @@ const MoreItem: FC<TProps> = ({
           ) : (
             <StateInfoWrapper>
               <TotalCommentStateHint>
-                评论: <Focus>{total}</Focus>
+                讨论: <Focus>{total}</Focus>
               </TotalCommentStateHint>
               <Br top={5} />
               <TotalCommentStateHint>

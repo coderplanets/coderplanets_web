@@ -25,7 +25,7 @@ const Options = () => {
         <UnSelectDot />
       </Title>
       <Title>
-        <span>最多评论</span>
+        <span>最多讨论</span>
         <UnSelectDot />
       </Title>
       <Title>

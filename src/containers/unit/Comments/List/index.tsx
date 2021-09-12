@@ -64,8 +64,8 @@ const CommentsList: FC<TProps> = ({
       totalCount={totalCount}
       onChange={pageChange}
       showBottomMsg
-      noMoreMsg="没有更多的评论了"
-      emptyMsg="目前还没有评论"
+      noMoreMsg="没有更多的讨论了"
+      emptyMsg="目前还没有讨论"
     />
   </Fragment>
 )

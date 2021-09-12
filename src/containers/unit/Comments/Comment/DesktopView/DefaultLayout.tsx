@@ -53,7 +53,7 @@ const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
       {isPinned && (
         <PinState>
           <PinIcon />
-          <PinText>置顶评论</PinText>
+          <PinText>置顶讨论</PinText>
         </PinState>
       )}
       <DeleteMask show={data.id === tobeDeleteId} />

@@ -17,7 +17,7 @@ const log = buildLog('C:HaveADrinkContent')
 const Reaction: FC = () => {
   return (
     <Wrapper>
-      <div>评论 | 喜欢</div>
+      <div>讨论 | 喜欢</div>
     </Wrapper>
   )
 }

@@ -15,7 +15,7 @@ const filterDict = {
   MOST_FAVORITES: '最多收藏',
   MOST_STARS: '最多点赞',
   MOST_VIEWS: '最多浏览',
-  MOST_COMMENTS: '最多评论',
+  MOST_COMMENTS: '最多讨论',
   MOST_WORDS: '字数最多',
   LEAST_WORDS: '字数最少',
   // repo

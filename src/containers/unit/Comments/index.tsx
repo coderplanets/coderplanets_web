@@ -87,7 +87,7 @@ const CommentsContainer: FC<TProps> = ({
       <br />
       <NoticeBar
         type="lock"
-        content="关闭了评论: 已解决"
+        content="关闭了讨论: 已解决"
         timestamp={new Date().toLocaleDateString()}
         user={{ nickname: 'Bot' }}
         isArticleAuthor={false}

@@ -43,7 +43,7 @@ const CommentsToContent = ({ data, thread, curView }) => {
                     <AvatarInfo>
                       <Nickname>{comment.author.nickname}</Nickname>
                       <When>
-                        评论于:
+                        讨论于:
                         <TimeAgo datetime={comment.updatedAt} locale="zh_CN" />
                       </When>
                     </AvatarInfo>
@@ -70,7 +70,7 @@ const CommentsToContent = ({ data, thread, curView }) => {
     case TYPE.RESULT_EMPTY:
       return (
         <>
-          <EmptyLabel text={`未找到评论的${Trans(thread)}信息`} size="large" />
+          <EmptyLabel text={`未找到讨论的${Trans(thread)}信息`} size="large" />
         </>
       )
 
