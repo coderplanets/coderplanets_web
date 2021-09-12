@@ -20,12 +20,7 @@ import List from './List'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
-import {
-  useInit,
-  createComment,
-  onReplyEditorClose,
-  loadComments,
-} from './logic'
+import { useInit, createComment, onReplyEditorClose } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Comments')

@@ -8,6 +8,7 @@ import RepliesList from './RepliesList'
 import DateDivider from './DateDivider'
 
 import { MODE } from '../constant'
+import { passedDate } from '../helper'
 import type { TMode } from '../spec'
 import { Wrapper, IndentLine } from '../styles/list/list'
 import { foldComment } from '../logic'
@@ -27,15 +28,16 @@ const List: FC<TProps> = ({ mode, entries, tobeDeleteId, foldedIds }) => {
     <Fragment>
       {entries.map((comment, index) => (
         <Wrapper key={comment.id}>
-          {/* <div style={{ color: 'wheat' }}>{index}</div> */}
           <Comment
             data={comment}
             tobeDeleteId={tobeDeleteId}
             hasReplies={comment.repliesCount > 0}
             foldedIds={foldedIds}
           />
-          {mode === MODE.TIMELINE && index === 0 && (
-            <DateDivider text="一个月后(timeline mode only)" />
+          {mode === MODE.TIMELINE && (
+            <DateDivider
+              text={passedDate(entries[index], entries[index + 1])}
+            />
           )}
           {mode === MODE.REPLIES &&
             comment.replies?.length > 0 &&
