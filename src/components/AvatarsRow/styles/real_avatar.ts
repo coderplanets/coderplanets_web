@@ -34,15 +34,12 @@ type TAvatarsImg = { size: string; onClick: () => void; scrollPosition: any }
 export const AvatarsImg = styled(Img)<TAvatarsImg>`
   border: 2px solid;
   border-color: ${theme('thread.commentsUserBorder')};
-  border-radius: 100px 100px 100px 100px;
   color: #ffffff;
   font-family: sans-serif;
   font-size: 12px;
   font-weight: 100;
 
-  width: ${({ size }) => getAvatarSize(size)};
-  height: ${({ size }) => getAvatarSize(size)};
-  display: block;
+  ${({ size }) => css.circle(getAvatarSize(size))};
 
   text-align: center;
 `
@@ -61,6 +58,7 @@ export const AvatarsMore = styled.span<TAvatarsMore>`
   height: ${({ size }) => getAvatarSize(size)};
 
   padding-left: ${({ total }) => (total >= 1000 ? '5px' : '3px')};
+  padding-top: 1px;
 
   &:hover {
     cursor: pointer;

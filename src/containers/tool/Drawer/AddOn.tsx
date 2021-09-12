@@ -1,9 +1,11 @@
 import { FC, memo } from 'react'
 
+import { previewArticle } from '@/utils/helper'
 import { SpaceGrow } from '@/components/Common'
 import GotoTop from '@/components/GotoTop'
 import IconButton from '@/components/Buttons/IconButton'
 
+import type { TArticleNavi } from './spec'
 import {
   Wrapper,
   CloseWrapper,
@@ -15,13 +17,15 @@ import {
   GotoTopWrapper,
 } from './styles/add_on'
 
-import { closeDrawer } from './logic'
+import { closeDrawer, naviToArticle } from './logic'
 
 type TProps = {
   type: string
+  articleNavi?: TArticleNavi
 }
 
-const AddOn: FC<TProps> = ({ type }) => {
+const AddOn: FC<TProps> = ({ type, articleNavi }) => {
+  // console.log('-- type: ', type)
   return (
     <Wrapper>
       <CloseWrapper type={type}>
@@ -43,34 +47,41 @@ const AddOn: FC<TProps> = ({ type }) => {
       </CloseWrapper>
 
       <SwitchArticleWrapper show>
-        <SwitchBlock>
-          <IconButton
-            path="shape/previous-article.svg"
-            size={23}
-            mRight={0}
-            mLeft={2}
-            dimWhenIdle
-          />
-          <ArticleWrapper>
-            <IndexDesc>上一篇</IndexDesc>
-            <ArticleTitle>
-              可能是最性感的开发者社区诚邀内侧，来为你心爱的作品建立一个社区吧！
-            </ArticleTitle>
-          </ArticleWrapper>
-        </SwitchBlock>
-        <SwitchBlock>
-          <IconButton
-            path="shape/next-article.svg"
-            size={23}
-            mTop={10}
-            mRight={6}
-            dimWhenIdle
-          />
-          <ArticleWrapper next>
-            <IndexDesc>下一篇</IndexDesc>
-            <ArticleTitle>这是下一篇文章的标题！</ArticleTitle>
-          </ArticleWrapper>
-        </SwitchBlock>
+        {articleNavi?.previous && (
+          <SwitchBlock>
+            <IconButton
+              path="shape/previous-article.svg"
+              size={23}
+              mRight={0}
+              mLeft={2}
+              onClick={() => naviToArticle(articleNavi.previous)}
+              dimWhenIdle
+            />
+            <ArticleWrapper onClick={() => naviToArticle(articleNavi.previous)}>
+              <IndexDesc>上一篇</IndexDesc>
+              <ArticleTitle>{articleNavi.previous.title}</ArticleTitle>
+            </ArticleWrapper>
+          </SwitchBlock>
+        )}
+        {articleNavi?.next && (
+          <SwitchBlock>
+            <IconButton
+              path="shape/next-article.svg"
+              size={23}
+              mTop={10}
+              mRight={6}
+              onClick={() => naviToArticle(articleNavi.next)}
+              dimWhenIdle
+            />
+            <ArticleWrapper
+              onClick={() => naviToArticle(articleNavi.next)}
+              next
+            >
+              <IndexDesc>下一篇</IndexDesc>
+              <ArticleTitle>{articleNavi.next.title}</ArticleTitle>
+            </ArticleWrapper>
+          </SwitchBlock>
+        )}
       </SwitchArticleWrapper>
       <SpaceGrow />
       <GotoTopWrapper>

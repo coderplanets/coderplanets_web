@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-import { curry, isEmpty, reject, equals, mergeDeepRight } from 'ramda'
+import { curry, isEmpty, reject, equals } from 'ramda'
 
 import type { TUser, TID } from '@/spec'
-import { PAGE_SIZE } from '@/config'
-import { TYPE, EVENT, ERR } from '@/constant'
+import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import BStore from '@/utils/bstore'
@@ -19,17 +18,14 @@ import S from './schema'
 const log = buildLog('L:Comments')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  // @ts-ignore
+  receive: [EVENT.RELOAD_ARTICLE],
+})
 
 let sub$ = null
 let saveDraftTimmer = null
 let store: TStore | undefined
-
-/* DESC_INSERTED, ASC_INSERTED */
-const defaultArgs = {
-  fresh: false,
-  filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
-}
 
 // variables = %{id: post.id, thread: "POST", filter: %{page: 1, size: page_size}}
 export const loadComments = (): void => {
@@ -44,13 +40,6 @@ export const loadComments = (): void => {
   console.log('query args: ', args)
   store.mark({ loading: true })
   sr71$.query(S.pagedComments, args)
-}
-
-const markLoading = (fresh): void => {
-  if (fresh) {
-    return store.mark({ loadingFresh: true })
-  }
-  return store.mark({ loading: true })
 }
 
 /* eslint-disable-next-line */
@@ -256,8 +245,7 @@ export const pageChange = (page = 1): void => {
   scrollIntoEle('lists-info')
 }
 
-const cancelLoading = () =>
-  store.mark({ loading: false, loadingFresh: false, creating: false })
+const cancelLoading = () => store.mark({ loading: false, creating: false })
 
 export const onReplyEditorClose = (): void => {
   closeReplyBox()
@@ -300,7 +288,6 @@ const DataSolver = [
     match: asyncRes('pagedComments'),
     action: ({ pagedComments }) => {
       cancelLoading()
-      console.log('## pagedComments: ', pagedComments)
       store.mark({ pagedComments, loading: false })
     },
   },
@@ -381,6 +368,13 @@ const DataSolver = [
     match: asyncRes('searchUsers'),
     action: ({ searchUsers: { entries } }) => store.updateMentionList(entries),
   },
+  {
+    match: asyncRes(EVENT.RELOAD_ARTICLE),
+    action: () => {
+      store.mark({ loading: true })
+      loadComments()
+    },
+  },
 ]
 
 const ErrSolver = [
@@ -436,7 +430,7 @@ export const useInit = (
 
     return () => {
       // log('effect uninit')
-      if (store.loading || store.loadingFresh || !sub$) return
+      if (store.loading || !sub$) return
 
       stopDraftTimmer()
       sr71$.stop()

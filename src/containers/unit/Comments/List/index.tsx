@@ -21,7 +21,6 @@ type TProps = {
   mode: TMode
   restProps: {
     loading: boolean
-    loadingFresh: boolean
     tobeDeleteId: string
   }
 }
@@ -32,7 +31,7 @@ const CommentsList: FC<TProps> = ({
   foldedIds,
   isAllFolded,
   mode,
-  restProps: { loading, loadingFresh, tobeDeleteId },
+  restProps: { loading, tobeDeleteId },
 }) => (
   <Fragment>
     <Header
@@ -41,11 +40,11 @@ const CommentsList: FC<TProps> = ({
       mode={mode}
       loading={loading}
     />
-    {loadingFresh && (
+    {/* {loadingFresh && (
       <CommentBlock>
         <CommentLoading />
       </CommentBlock>
-    )}
+    )} */}
     <ListsWrapper>
       <List
         mode={mode}
@@ -58,15 +57,17 @@ const CommentsList: FC<TProps> = ({
         </CommentBlock> */}
     </ListsWrapper>
     <Br bottom={50} />
-    <Pagi
-      pageNumber={pageNumber}
-      pageSize={pageSize}
-      totalCount={totalCount}
-      onChange={pageChange}
-      showBottomMsg
-      noMoreMsg="没有更多的讨论了"
-      emptyMsg="目前还没有讨论"
-    />
+    {!loading && (
+      <Pagi
+        pageNumber={pageNumber}
+        pageSize={pageSize}
+        totalCount={totalCount}
+        onChange={pageChange}
+        showBottomMsg
+        noMoreMsg="没有更多的讨论了"
+        emptyMsg="目前还没有讨论"
+      />
+    )}
   </Fragment>
 )
 
