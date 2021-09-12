@@ -22,6 +22,10 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   margin-bottom: 10px;
 `
+export const PublishDateInfo = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.articleDigest')};
+`
 export const BannerContent = styled.div`
   ${css.flex()};
   height: 100%;

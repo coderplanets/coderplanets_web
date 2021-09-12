@@ -9,9 +9,7 @@ import T from 'prop-types'
 
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
-import { C11N } from '@/constant'
 
-import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -23,7 +21,6 @@ const log = buildLog('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
-    <ArticleItemPrefixLabel entry={entry} topOffset="22px" />
     <Header entry={entry} onPreview={() => onPreview(entry)} />
     <BodyDigest>{cutRest(entry.desc, 180)}</BodyDigest>
     <Footer

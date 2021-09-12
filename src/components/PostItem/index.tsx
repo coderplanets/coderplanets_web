@@ -7,11 +7,10 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
-import type { TPost, TID, TUser, TAccount, TC11N } from '@/spec'
+import type { TPost, TUser, TAccount, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import usePlatform from '@/hooks/usePlatform'
 
-// import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 // import ListView from './ListView'
@@ -20,13 +19,6 @@ import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PostItem:index')
-
-export const ArticleItemPrefixLabel = dynamic(
-  () => import('@/components/ArticleItemPrefixLabel'),
-  {
-    ssr: false,
-  },
-)
 
 type TProps = {
   entry: TPost
@@ -46,7 +38,6 @@ const PostItem: FC<TProps> = ({
 
   return (
     <Wrapper entry={entry} c11n={c11n}>
-      <ArticleItemPrefixLabel entry={entry} />
       {!isMobile ? (
         <DesktopView
           entry={entry}

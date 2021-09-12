@@ -16,7 +16,14 @@ export type {
 } from './size'
 export type { TButton, TFiltersMenuItems } from './comp'
 export type { TTheme, TThemeMap, TThemeName } from './theme'
-export type { TAccount, TUser, TMembership, TC11N } from './account'
+export type {
+  TAccount,
+  TUser,
+  TPagedUsers,
+  TSimpleUser,
+  TMembership,
+  TC11N,
+} from './account'
 export type { TC11NLayout } from './c11n'
 export type {
   TCommunity,
@@ -48,6 +55,7 @@ export type {
   TResState,
   TPaymentUsage,
   TPaymentMethod,
+  TFlexRule,
 } from './utils'
 
 export type { TGQLError } from './graphql'
@@ -85,6 +93,8 @@ export type {
 } from './gallery'
 
 export type { TAccountStore, TViewingStore } from './store'
+
+export type { TEmotion } from './emotion'
 
 export type TRoute = {
   communityPath?: string

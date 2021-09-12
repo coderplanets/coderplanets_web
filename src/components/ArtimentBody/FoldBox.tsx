@@ -5,21 +5,22 @@ import { Wrapper, Hint, FoldHint, ArrowIcon } from './styles/fold_box'
 
 type TProps = {
   fold: boolean
+  mode: 'article' | 'comment'
   onFold: () => void
   onExpand: () => void
 }
 
-const FoldBox: FC<TProps> = ({ fold, onFold, onExpand }) => {
+const FoldBox: FC<TProps> = ({ fold, onFold, onExpand, mode }) => {
   return (
     <Wrapper fold={fold} onClick={() => (fold ? onExpand() : onFold())}>
       {!fold && (
-        <FoldHint>
+        <FoldHint mode={mode}>
           折叠
           <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} reverse />
         </FoldHint>
       )}
       {fold && (
-        <Hint>
+        <Hint mode={mode}>
           展开全部
           <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
         </Hint>

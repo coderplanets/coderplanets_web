@@ -49,7 +49,7 @@ const Settings = () => {
             // onChange={(checked) => updateWorks('isOSS', checked)}
             // size="small"
           >
-            允许评论
+            允许讨论
           </Checker>
         </CheckItem>
         <CheckItem>
@@ -58,7 +58,7 @@ const Settings = () => {
             // onChange={(checked) => updateWorks('isOSS', checked)}
             // size="small"
           >
-            有新评论使用邮件通知我
+            有新讨论使用邮件通知我
           </Checker>
         </CheckItem>
         <CheckItem>

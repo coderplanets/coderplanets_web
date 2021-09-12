@@ -6,11 +6,17 @@ export const Wrapper = styled.div`
   position: relative;
   /* border: 1px solid tomato; */
 `
-export const IndentLine = styled.div<{ hasReplies: boolean }>`
+type TIndentLine = {
+  isFold: boolean
+  hasReplies: boolean
+}
+
+export const IndentLine = styled.div<TIndentLine>`
   position: absolute;
-  top: 78px;
+  top: ${({ isFold }) => (isFold ? '62px' : '78px')};
   left: 2px;
-  height: calc(100% - 78px);
+  height: ${({ isFold }) =>
+    isFold ? 'calc(100% - 62px)' : 'calc(100% - 78px)'};
   width: 25px;
   border-left: 1px dashed;
   border-left-color: ${theme('comment.indentLine')};

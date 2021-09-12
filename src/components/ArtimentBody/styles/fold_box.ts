@@ -20,10 +20,10 @@ export const Wrapper = styled.div<{ fold: boolean }>`
 
   transition: all 0.2s;
 `
-export const Hint = styled.div`
+export const Hint = styled.div<{ mode: 'article' | 'comment' }>`
   ${css.flex('align-center')};
   color: #139c9e;
-  font-size: 15px;
+  font-size: ${({ mode }) => (mode === 'article' ? '15px' : '13px')};
   opacity: 0.8;
 
   ${Wrapper}:hover & {

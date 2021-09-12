@@ -28,7 +28,7 @@ export const NotifyOffIcon = styled(NotifyIcon)`
     fill: ${theme('thread.articleTitle')};
   }
 `
-export const Title = styled.div<{ active: boolean }>`
+export const Title = styled.div<{ active?: boolean }>`
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: 13px;

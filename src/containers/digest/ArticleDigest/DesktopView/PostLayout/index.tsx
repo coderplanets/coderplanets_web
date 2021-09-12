@@ -13,13 +13,14 @@ import ArticleBaseStats from '@/components/ArticleBaseStats'
 import DotDivider from '@/components/DotDivider'
 import ArchivedSign from '@/components/ArchivedSign'
 import ArticleMenu from '@/components/ArticleMenu'
+import ReadableDate from '@/components/ReadableDate'
 
 import OriginalCommunity from './OriginalCommunity'
-import PublishDate from './PublishDate'
 
 import {
   Main,
   Header,
+  PublishDateInfo,
   Title,
   AuthorName,
   BottomInfo,
@@ -39,7 +40,9 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
     <Fragment>
       <Main metric={metric}>
         <Header>
-          <PublishDate insertedAt={article.insertedAt} />
+          <PublishDateInfo>
+            <ReadableDate date={article.insertedAt} fmt="absolute" />
+          </PublishDateInfo>
           {article.isArchived && (
             <Fragment>
               <DotDivider space={8} />

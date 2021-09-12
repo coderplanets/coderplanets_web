@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
@@ -25,7 +24,14 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:NotifyButton:index')
 
-const NotifyButton = ({ testid, subscribed }) => {
+type TProps = {
+  testid?: string
+  subscribed?: boolean
+}
+const NotifyButton: FC<TProps> = ({
+  testid = 'notify-button',
+  subscribed = false,
+}) => {
   return (
     <Wrapper testid={testid}>
       {subscribed ? (
@@ -67,14 +73,4 @@ const NotifyButton = ({ testid, subscribed }) => {
   )
 }
 
-NotifyButton.propTypes = {
-  testid: T.string,
-  subscribed: T.bool,
-}
-
-NotifyButton.defaultProps = {
-  testid: 'notify-button',
-  subscribed: false,
-}
-
-export default React.memo(NotifyButton)
+export default memo(NotifyButton)

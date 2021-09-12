@@ -1,14 +1,14 @@
 import { FC, memo } from 'react'
+import { values } from 'ramda'
 
+import { EMOTION } from '@/constant'
 import { ICON } from '@/config'
 import { Wrapper, EIcon } from './styles/panel'
-
-const emotions = ['downvote', 'heart', 'confused', 'beer', 'popcorn', 'pill']
 
 const EmojiPanel: FC = () => {
   return (
     <Wrapper>
-      {emotions.map((item) => (
+      {values(EMOTION).map((item) => (
         <EIcon
           key={item}
           src={`${ICON}/emotion/${item}.png`}

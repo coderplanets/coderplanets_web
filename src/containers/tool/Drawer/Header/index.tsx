@@ -8,7 +8,7 @@ import CloseLine from './CloseLine'
 import { TopWrapper, BottomWrapper, TextWrapper } from '../styles/header'
 import { onSwipedYHandler, onSwipingYHandler } from '../logic'
 
-/* <TextWrapper>评论共 167 条</TextWrapper> */
+/* <TextWrapper>讨论共 167 条</TextWrapper> */
 
 type TProps = {
   headerText?: string

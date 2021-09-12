@@ -5,7 +5,6 @@
  */
 
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
 
 import type { TBlog, TID, TUser, TAccount, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
@@ -18,13 +17,6 @@ import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:BlogItem:index')
-
-export const ArticleItemPrefixLabel = dynamic(
-  () => import('@/components/ArticleItemPrefixLabel'),
-  {
-    ssr: false,
-  },
-)
 
 type TProps = {
   activeId?: TID | null
@@ -45,8 +37,6 @@ const BlogItem: FC<TProps> = ({
 
   return (
     <Wrapper entry={entry} c11n={c11n}>
-      <ArticleItemPrefixLabel entry={entry} />
-
       {!isMobile ? (
         <DesktopView
           entry={entry}

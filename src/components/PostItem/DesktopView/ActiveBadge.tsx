@@ -1,9 +1,11 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
+import TimeAgo from 'timeago-react'
 
 import type { TArticle } from '@/spec'
 import IconButton from '@/components/Buttons/IconButton'
+import ReadableDate from '@/components/ReadableDate'
 
-import { Wrapper, Hint } from '../styles/desktop_view/active_badge'
+import { Wrapper, Hint, TimeStr } from '../styles/desktop_view/active_badge'
 
 type TProps = {
   item: TArticle
@@ -18,14 +20,21 @@ const ActiveBadge: FC<TProps> = ({ item }) => {
       <IconButton
         path={path}
         size={14}
-        hint={<Hint>最后回复: 2020-03-11 14:33</Hint>}
+        hint={
+          <Hint>
+            <div>最后回复时间: </div>
+            <TimeStr>
+              <ReadableDate date={item.activeAt} fmt="absolute" />
+            </TimeStr>
+          </Hint>
+        }
         mRight={6}
         hintPlacement="bottom"
         hintDelay={0}
       />
-      <div>4天前</div>
+      <TimeAgo datetime={item.activeAt} locale="zh_CN" />
     </Wrapper>
   )
 }
 
-export default ActiveBadge
+export default memo(ActiveBadge)

@@ -6,7 +6,7 @@ import MenuButton from '@/components/Buttons/MenuButton'
 import Tooltip from '@/components/Tooltip'
 
 import DetailInfo from './DetailInfo'
-// import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+// import { LavaLampLoading } from '@/components/dynamic'
 import {
   Wrapper,
   Title,

@@ -71,6 +71,8 @@ export const Label = styled.span<TLabel>`
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   margin-bottom: ${({ bottomSpace }) => `${bottomSpace}px`};
 
+  opacity: ${({ active }) => (active ? 1 : 0.9)};
+
   &:hover {
     color: ${theme('thread.articleTitle')};
     svg {

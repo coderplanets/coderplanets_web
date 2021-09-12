@@ -37,7 +37,7 @@ const MobileView = ({ data, tobeDeleteId, accountInfo }) => {
             )}
             <MarkDownRender body={data.body} />
           </CommentContent>
-          <Footer data={data} accountInfo={accountInfo} />
+          <Footer data={data} />
         </CommentBodyInfo>
       </CommentWrapper>
       <Upvote />

@@ -1,6 +1,6 @@
 import { FC, memo, Fragment } from 'react'
 
-import type { TArticle, TMetric } from '@/spec'
+import type { TArticle, TMetric, TThread } from '@/spec'
 import { METRIC } from '@/constant'
 
 import Upvote from '@/components/Upvote'
@@ -50,14 +50,17 @@ const FixedHeader: FC<TProps> = ({
   metric = METRIC.ARTICLE,
   testid = 'article-fixed-header',
 }) => {
+  const { upvotesCount, meta } = article
+  const thread = meta.thread.toLowerCase() as TThread
+
   return (
     <Wrapper show={show} testid={testid}>
       <InnerWrapper metric={metric}>
         <ContentWrapper metric={metric}>
           <TitleContent article={article} metric={metric} />
         </ContentWrapper>
-        <StickerWrapper metric={metric}>
-          <Upvote />
+        <StickerWrapper metric={metric} thread={thread}>
+          <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
         </StickerWrapper>
       </InnerWrapper>
     </Wrapper>

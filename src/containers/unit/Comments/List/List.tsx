@@ -1,51 +1,58 @@
 import { FC, Fragment, memo } from 'react'
+import { includes } from 'ramda'
 
-import type { TAccount, TComment, TID } from '@/spec'
+import type { TComment, TID } from '@/spec'
 import Comment from '../Comment'
 
 import RepliesList from './RepliesList'
 import DateDivider from './DateDivider'
 
+import { MODE } from '../constant'
+import { passedDate } from '../helper'
+import type { TMode } from '../spec'
 import { Wrapper, IndentLine } from '../styles/list/list'
 import { foldComment } from '../logic'
 
+// const compareDate = () => {
+// }
+
 type TProps = {
+  mode: TMode
   entries: TComment[]
   tobeDeleteId: string
-  accountInfo: TAccount
   foldedIds: TID[]
 }
 
-const List: FC<TProps> = ({
-  entries,
-  tobeDeleteId,
-  accountInfo,
-  foldedIds,
-}) => {
+const List: FC<TProps> = ({ mode, entries, tobeDeleteId, foldedIds }) => {
   return (
     <Fragment>
-      {entries.map((c) => (
-        <Wrapper key={c.id}>
+      {entries.map((comment, index) => (
+        <Wrapper key={comment.id}>
           <Comment
-            data={c}
+            data={comment}
             tobeDeleteId={tobeDeleteId}
-            accountInfo={accountInfo}
-            hasReplies={c.id === '108'}
+            hasReplies={comment.repliesCount > 0}
             foldedIds={foldedIds}
           />
-          {/* <DateDivider text={c.id} /> */}
-          {c.id === '354' && <DateDivider text="一个月后" />}
-          {c.id === '108' && (
-            <RepliesList
-              entries={entries}
-              accountInfo={accountInfo}
-              tobeDeleteId={tobeDeleteId}
-              foldedIds={foldedIds}
+          {mode === MODE.TIMELINE && (
+            <DateDivider
+              text={passedDate(entries[index], entries[index + 1])}
             />
           )}
+          {mode === MODE.REPLIES &&
+            comment.replies?.length > 0 &&
+            !includes(comment.id, foldedIds) && (
+              <RepliesList
+                entries={comment.replies}
+                repliesCount={comment.repliesCount}
+                tobeDeleteId={tobeDeleteId}
+                foldedIds={foldedIds}
+              />
+            )}
           <IndentLine
-            hasReplies={c.id === '108'}
-            onClick={() => foldComment(c.id)}
+            hasReplies={comment.repliesCount > 0}
+            onClick={() => foldComment(comment.id)}
+            isFold={includes(comment.id, foldedIds)}
           />
         </Wrapper>
       ))}

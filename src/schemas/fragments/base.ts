@@ -1,3 +1,8 @@
+import { values, flatten } from 'ramda'
+
+import { EMOTION } from '@/constant'
+import { titleCase } from '@/utils/helper'
+
 export const community = `
   id
   title
@@ -15,10 +20,10 @@ export const tag = `
   group
 `
 export const author = `
-  id
   login
   nickname
   avatar
+  bio
 `
 export const article = `
   id
@@ -32,7 +37,7 @@ export const article = `
   views
   commentsCount
   upvotesCount
-  commentsParticipantsCount
+ 
   author {
     ${author}
   }
@@ -59,6 +64,10 @@ export const articleDetail = `
 
   document {
     bodyHtml
+  }
+
+  commentsParticipants {
+    ${author}
   }
 
   collectsCount
@@ -171,21 +180,52 @@ export const userContributes = `
   totalCount
 `
 
+const emotionQuery = flatten(
+  values(EMOTION).map((emotion) => {
+    return [
+      `${emotion}Count`,
+      `viewerHas${titleCase(emotion)}ed`,
+      `latest${titleCase(emotion)}Users { login nickname }`,
+    ]
+  }),
+).join(' ')
+
 // comment
-export const comment = `
+
+const commentFields = `
   id
-  body
-  floor
+  bodyHtml
   author {
-    id
-    nickname
-    avatar
-    login
+    ${author}
   }
-  likesCount
-  dislikesCount
+  meta {
+    isArticleAuthorUpvoted
+    isReplyToOthers
+  }
+
+  emotions {
+    ${emotionQuery}
+  }
+
+  isPinned
+  floor
+  upvotesCount
+  isArticleAuthor
+  viewerHasUpvoted
+  repliesCount
   insertedAt
   updatedAt
+`
+export const comment = `
+  ${commentFields}
+
+  replyTo {
+    ${commentFields}
+  }
+
+  replies {
+    ${commentFields}
+  }
 `
 export const commentParent = `
   id

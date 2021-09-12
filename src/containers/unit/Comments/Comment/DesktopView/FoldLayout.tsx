@@ -13,6 +13,7 @@ import {
   Wrapper,
   Avatar,
   CommentBody,
+  RepliesHint,
   SolutionIcon,
   CreateDate,
 } from '../../styles/comment/desktop_view/fold_layout'
@@ -23,28 +24,33 @@ type TProps = {
 }
 
 const FoldLayout: FC<TProps> = ({ data }) => {
-  const isAuthorUpvoted =
-    data.id === '377' || data.id === '355' || data.id === '359'
-  const isSolution = data.id === '358' || data.id === '355'
+  const isSolution = false //
 
   return (
-    <Wrapper>
+    <Wrapper onClick={() => expandComment(data.id)}>
       <IconButton
         path="shape/expand-all.svg"
-        hint="展开评论"
+        hint="展开讨论"
         mLeft={-1}
         mRight={12}
-        onClick={() => expandComment(data.id)}
       />
       <Avatar
         src={data.author.avatar}
         fallback={<ImgFallback user={data.author} size={16} right={10} />}
       />
-      <CommentBody>{cutRest(data.body, 30)}</CommentBody>
+      <CommentBody
+        dangerouslySetInnerHTML={{
+          __html: data.bodyHtml,
+        }}
+      />
+      {data.repliesCount > 0 && (
+        <RepliesHint>[ {data.repliesCount} 条回复 ]</RepliesHint>
+      )}
+
       <SpaceGrow />
       {isSolution && (
         <SolutionIcon
-          isAuthorUpvoted={isAuthorUpvoted}
+          isAuthorUpvoted={data.meta.isArticleAuthorUpvoted}
           src={`${ICON}/shape/solution-check.svg`}
         />
       )}

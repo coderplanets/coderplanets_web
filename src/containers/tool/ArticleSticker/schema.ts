@@ -1,0 +1,20 @@
+import { gql } from '@urql/core'
+import { F } from '@/schemas'
+
+const pagedCommentsParticipants = gql`
+query($id: ID!, $thread: Thread, $filter: PagedFilter!) {
+  pagedCommentsParticipants(id: $id, thread: $thread, filter: $filter) {
+    entries {
+      ${F.author}
+    }
+    ${F.pagedCounts}
+    
+  }
+}
+`
+
+const schema = {
+  pagedCommentsParticipants,
+}
+
+export default schema

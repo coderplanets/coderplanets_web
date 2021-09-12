@@ -21,4 +21,5 @@ export const Body = styled.div<{ lineClampNum: number }>`
 `
 export const HTML = styled.div`
   color: ${theme('thread.articleTitle')};
+  opacity: 0.9;
 `

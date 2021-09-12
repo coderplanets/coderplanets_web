@@ -64,6 +64,7 @@ export const articleFields = () => {
 
     insertedAt: T.optional(T.string, ''),
     updatedAt: T.optional(T.string, ''),
+    activeAt: T.optional(T.string, ''),
   }
 }
 

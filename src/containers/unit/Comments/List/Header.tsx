@@ -5,6 +5,7 @@ import { SVG } from '@/constant'
 
 import IconButton from '@/components/Buttons/IconButton'
 import { IconSwitcher } from '@/components/Switcher'
+import { LavaLampLoading } from '@/components/dynamic'
 
 import {
   Wrapper,
@@ -14,9 +15,15 @@ import {
   ActionsWrapper,
 } from '../styles/list/header'
 
+import { MODE } from '../constant'
+import type { TMode } from '../spec'
+import { foldAllComments, expandAllComments, onModeChange } from '../logic'
+
 type TProps = {
   totalCount: number
-  filterType: string
+  mode: TMode
+  isAllFolded: boolean
+  loading: boolean
 }
 
 const actionIconConfig = {
@@ -26,33 +33,30 @@ const actionIconConfig = {
 
 const switchItems = [
   {
-    key: 'reply',
+    key: MODE.REPLIES,
     iconSrc: `${ICON}/article/comment-reply-mode.svg`,
     desc: '回复模式',
   },
   {
-    key: 'time',
+    key: MODE.TIMELINE,
     iconSrc: `${ICON}/article/comment-timeline-mode.svg`,
     desc: '时间线模式',
   },
 ]
 
-const Header: FC<TProps> = ({ totalCount, filterType }) => {
-  const isAllFolded = false
-
+const Header: FC<TProps> = ({ totalCount, mode, isAllFolded, loading }) => {
   return (
     <Wrapper>
       <TotalCountWrapper>
-        {totalCount > 0 && (
-          <TotalTitle id="lists-info">
-            共 <TotalNum>{totalCount}</TotalNum> 条评论:
-          </TotalTitle>
-        )}
+        <TotalTitle id="lists-info">
+          共 <TotalNum>{totalCount}</TotalNum> 条讨论:
+        </TotalTitle>
       </TotalCountWrapper>
       <ActionsWrapper>
+        {loading && <LavaLampLoading right={15} />}
         <IconButton
           icon={SVG.LOCK}
-          hint="关闭评论"
+          hint="关闭讨论"
           mTop={-1}
           {...actionIconConfig}
         />
@@ -69,6 +73,7 @@ const Header: FC<TProps> = ({ totalCount, filterType }) => {
             hint="展开全部"
             active
             {...actionIconConfig}
+            onClick={expandAllComments}
           />
         ) : (
           <IconButton
@@ -76,12 +81,13 @@ const Header: FC<TProps> = ({ totalCount, filterType }) => {
             size={13}
             hint="折叠全部"
             {...actionIconConfig}
+            onClick={foldAllComments}
           />
         )}
         <IconSwitcher
           items={switchItems}
-          activeKey="reply"
-          onChange={console.log}
+          activeKey={mode}
+          onChange={({ key }) => onModeChange(key as TMode)}
         />
       </ActionsWrapper>
     </Wrapper>

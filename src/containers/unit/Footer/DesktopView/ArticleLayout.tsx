@@ -16,20 +16,16 @@ import {
 } from '../styles/desktop_view/article_layout'
 
 type TProps = {
-  viewingArticle: TArticle
+  article: TArticle
   metric: TMetric
   layout: TC11NLayout
 }
 
-const BriefView: FC<TProps> = ({ metric, viewingArticle, layout }) => {
+const BriefView: FC<TProps> = ({ metric, article, layout }) => {
   return (
     <Wrapper metric={metric} layout={layout}>
       <InnerWrapper>
-        <TopInfo
-          metric={METRIC.ARTICLE}
-          title={viewingArticle.title}
-          noBottomBorder
-        />
+        <TopInfo metric={METRIC.ARTICLE} article={article} noBottomBorder />
         <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">

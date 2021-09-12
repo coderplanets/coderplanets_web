@@ -8,7 +8,7 @@ import { COMMUNITY_ACTION } from '../constant'
 import { Wrapper, Title, Actions } from '../styles/community_setter/header'
 // import { changeTagView } from '../logic'
 
-// import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+// import { LavaLampLoading } from '@/components/dynamic'
 
 type TProps = {
   view: TCommunityView

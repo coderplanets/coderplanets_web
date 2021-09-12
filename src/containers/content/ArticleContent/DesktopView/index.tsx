@@ -12,12 +12,12 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import ArticleSticker from '@/containers/tool/ArticleSticker'
-import ArticleBody from '@/components/ArticleBody'
+import ArtimentBody from '@/components/ArtimentBody'
 // import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import ViewportTracker from '@/components/ViewportTracker'
 import Maybe from '@/components/Maybe'
-import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+import { LavaLampLoading } from '@/components/dynamic'
 
 import type { TStore } from '../store'
 
@@ -74,7 +74,7 @@ const ArticleContentContainer: FC<TProps> = ({
           />
           <MainWrapper metric={metric}>
             <ArticleWrapper ref={ref}>
-              <ArticleBody document={viewingArticle.document} />
+              <ArtimentBody document={viewingArticle.document} />
               <ArticleFooter />
             </ArticleWrapper>
 

@@ -18,13 +18,13 @@ export const Title = styled.a`
   color: ${theme('thread.articleTitle')};
   text-decoration: none;
   @media (max-width: 1450px) {
-    max-width: 500px;
+    ${css.cutRest('500px')};
   }
   @media (max-width: 1250px) {
-    max-width: 450px;
+    ${css.cutRest('450px')};
   }
   @media (max-width: 1100px) {
-    max-width: 350px;
+    ${css.cutRest('350px')};
   }
 
   &:hover {

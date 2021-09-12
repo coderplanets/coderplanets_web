@@ -6,8 +6,8 @@ import css from '@/utils/css'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
-  padding-top: 12px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  margin-left: 30px;
 `
 export const SlashSign = styled.div`
   font-size: 10px;

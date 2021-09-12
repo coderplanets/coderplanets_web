@@ -16,7 +16,7 @@ const ReplyToBar: FC<TProps> = ({ comment }) => {
     <ReplyBar>
       回复&nbsp;
       {cutRest(comment.author.nickname, 10)}:
-      <ReplyToBody>{comment.body}</ReplyToBody>
+      <ReplyToBody>{comment.bodyHtml}</ReplyToBody>
       <ReplyToFloor>#{comment.floor}</ReplyToFloor>
     </ReplyBar>
   )

@@ -7,7 +7,7 @@ import Img from '@/Img'
 
 export const Wrapper = styled.div<TActive>`
   min-height: 100px;
-  margin-left: 35%;
+  margin-left: 42px;
   margin-top: 50px;
   padding-bottom: 0;
   width: 65%;
@@ -19,6 +19,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
   margin-bottom: 15px;
+  margin-left: 3px;
 `
 export const JoinCount = styled.span`
   color: ${theme('comment.number')};
@@ -35,10 +36,6 @@ export const Avatar = styled(Img)`
   margin-right: 6px;
   margin-bottom: 10px;
   opacity: 0.8;
-`
-export const PopInfo = styled.div`
-  padding: 5px 10px;
-  color: ${theme('thread.articleTitle')};
 `
 export const MoreUserWrapper = styled.div`
   ${css.circle(20)};

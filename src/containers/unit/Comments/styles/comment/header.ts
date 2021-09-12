@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 15px;
 `
-export const Avatar = styled(Img)`
-  ${css.circle(24)};
+export const Avatar = styled(Img)<{ avatarSize: number }>`
+  ${({ avatarSize }) => css.circle(avatarSize)};
   opacity: ${theme('avatar.opacity')};
   margin-right: 13px;
 `
@@ -42,6 +42,7 @@ export const AuthorTag = styled.div`
 `
 export const ShortIntro = styled.div`
   color: ${theme('comment.floor')};
+  ${css.cutRest('280px')};
   font-size: 13px;
   opacity: 0.8;
   margin-top: 1px;

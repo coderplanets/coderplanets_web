@@ -16,6 +16,8 @@ type TProps = {
 }
 
 const FixedHeader: FC<TProps> = ({ article, visible }) => {
+  const { upvotesCount, meta } = article
+
   return (
     <Wrapper visible={visible}>
       <ArticleWrapper>
@@ -23,7 +25,7 @@ const FixedHeader: FC<TProps> = ({ article, visible }) => {
         <Title>CoderPlanets</Title>
         <Desc>可能是最性感的开发者社区，web first, pure</Desc>
       </ArticleWrapper>
-      <Upvote />
+      <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
     </Wrapper>
   )
 }

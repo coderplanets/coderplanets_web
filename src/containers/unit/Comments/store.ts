@@ -26,15 +26,19 @@ import type {
   TThread,
   TRoute,
   TID,
+  TPagedComments,
 } from '@/spec'
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 import { Comment, PagedComments, emptyPagi, Mention } from '@/model'
 
+import { MODE } from './constant'
+
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
 const CommentsStore = T.model('CommentsStore', {
+  mode: T.optional(T.enumeration([MODE.REPLIES, MODE.TIMELINE]), MODE.REPLIES),
   // toggle main comment box
   showInputBox: T.optional(T.boolean, false),
   // toggle editor inside the comment box
@@ -51,16 +55,6 @@ const CommentsStore = T.model('CommentsStore', {
   tobeDeleteId: T.maybeNull(T.string),
   // words count for current comment (include reply comment)
   countCurrent: T.optional(T.number, 0),
-  // cur filter type of comment list
-  filterType: T.optional(
-    T.enumeration('filterType', [
-      TYPE.DESC_INSERTED,
-      TYPE.ASC_INSERTED,
-      TYPE.MOST_LIKES,
-      TYPE.MOST_DISLIKES,
-    ]),
-    TYPE.ASC_INSERTED,
-  ),
   // content input of current comment editor
   editContent: T.optional(T.string, ''),
   // content input of current reply comment editor
@@ -135,7 +129,7 @@ const CommentsStore = T.model('CommentsStore', {
     get mentionListData() {
       return toJS(self.mentionList)
     },
-    get pagedCommentsData() {
+    get pagedCommentsData(): TPagedComments {
       return toJS(self.pagedComments)
     },
     get accountInfo(): TAccount {
@@ -165,6 +159,11 @@ const CommentsStore = T.model('CommentsStore', {
     get editCommentData() {
       return toJS(self.editComment)
     },
+    get isAllFolded(): boolean {
+      const slf = self as TStore
+      const { foldedIds, pagedCommentsData } = slf
+      return foldedIds.length === pagedCommentsData.totalCount
+    },
   }))
   .actions((self) => ({
     authWarning(options): void {
@@ -182,7 +181,7 @@ const CommentsStore = T.model('CommentsStore', {
         case 'create': {
           const result = changeset({ editContent: self.editContent })
             // @ts-ignore
-            .exist({ editContent: '评论内容' }, changesetErr)
+            .exist({ editContent: '讨论内容' }, changesetErr)
             .done()
 
           return result.passed

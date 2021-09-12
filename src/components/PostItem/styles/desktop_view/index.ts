@@ -13,7 +13,7 @@ export const AvatarWrapper = styled.div`
 `
 export const UpvoteWrapper = styled.div`
   margin-top: 10px;
-  margin-left: 3px;
+  margin-left: 5px;
 `
 export const Avatar = styled(Img)`
   ${css.circle(36)};

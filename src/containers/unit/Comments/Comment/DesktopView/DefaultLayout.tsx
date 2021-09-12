@@ -1,13 +1,13 @@
 import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
-import type { TAccount, TComment } from '@/spec'
+import type { TComment } from '@/spec'
 import { Global } from '@/utils/helper'
 import { ICON } from '@/config'
 
-import MarkDownRender from '@/components/MarkDownRender'
 import Tooltip from '@/components/Tooltip'
 import Upvote from '@/components/Upvote'
+import ArtimentBody from '@/components/ArtimentBody'
 
 import Header from '../Header'
 import ReplyBar from '../ReplyBar'
@@ -39,35 +39,28 @@ const getSelection = () => {
 
 type TProps = {
   data: TComment
-  accountInfo: TAccount
   tobeDeleteId: string
   isReply?: boolean
 }
 
-const DefaultLayout: FC<TProps> = ({
-  data,
-  tobeDeleteId,
-  accountInfo,
-  isReply = false,
-}) => {
-  const pined = data.id === '360' || data.id === '377'
-  const isAuthorUpvoted =
-    data.id === '377' || data.id === '355' || data.id === '359'
-  const isSolution = data.id === '358' || data.id === '355'
+const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
+  const { isPinned, meta } = data
+  const { isArticleAuthorUpvoted } = meta
+  const isSolution = false
 
   return (
-    <Wrapper pined={pined}>
-      {pined && (
+    <Wrapper isPinned={isPinned}>
+      {isPinned && (
         <PinState>
           <PinIcon />
-          <PinText>置顶评论</PinText>
+          <PinText>置顶讨论</PinText>
         </PinState>
       )}
       <DeleteMask show={data.id === tobeDeleteId} />
       <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
         <SidebarWrapper>
-          <Upvote type="comment" />
-          {isAuthorUpvoted && (
+          <Upvote type="comment" count={data.upvotesCount} />
+          {isArticleAuthorUpvoted && (
             <Tooltip
               content={<BadgePopContent>作者顶过</BadgePopContent>}
               placement="bottom"
@@ -83,7 +76,7 @@ const DefaultLayout: FC<TProps> = ({
               noPadding
             >
               <SolutionIcon
-                isAuthorUpvoted={isAuthorUpvoted}
+                isAuthorUpvoted={isArticleAuthorUpvoted}
                 src={`${ICON}/shape/solution-check.svg`}
               />
             </Tooltip>
@@ -95,9 +88,12 @@ const DefaultLayout: FC<TProps> = ({
           <Header data={data} />
           <CommentContent>
             {data.replyTo && <ReplyBar data={data.replyTo} />}
-            <MarkDownRender body={data.body} />
+            <ArtimentBody
+              document={{ bodyHtml: data.bodyHtml }}
+              mode="comment"
+            />
           </CommentContent>
-          <Footer data={data} accountInfo={accountInfo} />
+          <Footer data={data} />
         </CommentBodyInfo>
       </CommentWrapper>
     </Wrapper>

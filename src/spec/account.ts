@@ -16,17 +16,27 @@ type TSocial = {
   huaban?: string
 }
 
-export type TUser = {
-  id?: string
+export type TSimpleUser = {
   login?: string
   nickname?: string
   name?: string
   bio?: string
   avatar?: string
+}
+
+export type TUser = TSimpleUser & {
+  id?: string
   // TODO: figure it out
   extraId?: string
   editableCommunities?: TPagedCommunities
   social?: TSocial
+}
+
+export type TPagedUsers = {
+  entries: TUser[]
+  totalCount?: number
+  pageNumber?: number
+  pageSize?: number
 }
 
 export type TC11N = {

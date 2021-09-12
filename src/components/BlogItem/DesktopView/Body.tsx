@@ -12,8 +12,6 @@ import CommunityCard from '@/components/Cards/CommunityCard'
 import UserCard from '@/components/Cards/UserCard'
 import Tooltip from '@/components/Tooltip'
 
-import ActiveBadge from './ActiveBadge'
-
 import {
   Wrapper,
   Dot,
@@ -64,10 +62,13 @@ const Body: FC<TProps> = ({ item }) => {
             <ViewsIcon src={`${ICON}/article/viewed.svg`} />
             {item.views}
           </ItemWrapper>
+          <Dot radius={3} space={10} />
+          <ItemWrapper>
+            <ViewsIcon src={`${ICON}/article/comment.svg`} />
+            {item.commentsCount}
+          </ItemWrapper>
         </LeftPart>
         <SpaceGrow />
-
-        <ActiveBadge item={item} />
       </Extra>
 
       <DigestSentence

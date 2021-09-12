@@ -64,7 +64,7 @@ const RepoSortFilter: FC<TProps> = ({ activeFilter, onSelect }) => (
         active={activeFilter.sort === FILTER.MOST_COMMENTS}
         onClick={() => onSelect({ sort: FILTER.MOST_COMMENTS })}
       >
-        最多评论
+        最多讨论
       </SelectItem>
     </LeftAlignWrapper>
   </ColumnWrapper>

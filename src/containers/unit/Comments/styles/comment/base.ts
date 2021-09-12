@@ -20,7 +20,7 @@ export const ReplyToBodyBase = styled.span`
   flex-grow: 1;
   font-style: italic;
 
-  ${css.cutRest('350px')};
+  ${css.cutRest('400px')};
 
   ${css.media.mobile`
     ${css.cutRest('125px')};

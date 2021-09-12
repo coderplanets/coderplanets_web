@@ -5,7 +5,7 @@ import { ICON } from '@/config'
 import { Wrapper, BackWrapper, PlusIcon } from '../styles/setter/header'
 import Button from '@/components/Buttons/Button'
 import ArrowButton from '@/components/Buttons/ArrowButton'
-import LavaLampLoading from '@/components/Loading/LavaLampLoading'
+import { LavaLampLoading } from '@/components/dynamic'
 
 import type { TView } from '../spec'
 

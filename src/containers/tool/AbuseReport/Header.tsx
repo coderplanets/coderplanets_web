@@ -12,7 +12,7 @@ const getCustomTitle = (type: string): string => {
       return '用户'
     }
     case REPORT_TYPE.COMMENT: {
-      return '评论'
+      return '讨论'
     }
     case REPORT_TYPE.COMMUNITY: {
       return '社区'

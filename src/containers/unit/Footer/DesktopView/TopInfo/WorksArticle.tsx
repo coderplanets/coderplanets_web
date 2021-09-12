@@ -12,9 +12,9 @@ import {
   Logo,
 } from '../../styles/desktop_view/top_info/article'
 
-type TProps = Pick<TTopInfoProps, 'title' | 'noBottomBorder'>
+type TProps = Pick<TTopInfoProps, 'noBottomBorder'>
 
-const Article: FC<TProps> = ({ title = 'article', noBottomBorder = false }) => {
+const Article: FC<TProps> = ({ noBottomBorder = false }) => {
   return (
     <Wrapper noBottomBorder={noBottomBorder}>
       <InfoBar>

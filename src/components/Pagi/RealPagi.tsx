@@ -52,8 +52,8 @@ const Pagi: FC<TProps> = ({
 
   margin = {},
   showBottomMsg = false,
-  emptyMsg = '还没有评论',
-  noMoreMsg = '没有更多评论了',
+  emptyMsg = '还没有讨论',
+  noMoreMsg = '没有更多讨论了',
 }) => {
   const theMargin = merge(defaultMargin, margin)
 

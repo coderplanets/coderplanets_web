@@ -4,9 +4,11 @@ import type { TComment } from '@/spec'
 import { ICON } from '@/config'
 import { cutRest } from '@/utils/helper'
 
+import { SpaceGrow } from '@/components/Common'
 import {
   Wrapper,
   ReplyIcon,
+  Avatar,
   ReplyToBody,
   ReplyToFloor,
 } from '../styles/comment/reply_bar'
@@ -19,7 +21,14 @@ const CommentReplyBar: FC<TProps> = ({ data }) => {
   return (
     <Wrapper>
       <ReplyIcon src={`${ICON}/article/reply.svg`} />
-      {cutRest(data.author.nickname, 6)}:<ReplyToBody>{data.body}</ReplyToBody>
+      <Avatar src={data.author.avatar} />
+      {cutRest(data.author.nickname, 20)}:
+      <ReplyToBody
+        dangerouslySetInnerHTML={{
+          __html: data.bodyHtml,
+        }}
+      />
+      <SpaceGrow />
       <ReplyToFloor>#{data.floor}</ReplyToFloor>
     </Wrapper>
   )

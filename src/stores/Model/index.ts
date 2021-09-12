@@ -2,13 +2,7 @@ import { types as T } from 'mobx-state-tree'
 
 export { Community, PagedCommunities } from './Community'
 export { default as Article } from './Article'
-export {
-  Comment,
-  PagedComments,
-  PagedPostComments,
-  PagedJobComments,
-  PagedRepoComments,
-} from './Comment'
+export { Comment, PagedComments } from './Comment'
 export { Post, PagedPosts } from './Post'
 export { Blog, PagedBlogs } from './Blog'
 export { Radar, PagedRadars } from './Radar'

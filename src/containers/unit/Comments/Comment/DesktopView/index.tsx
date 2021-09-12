@@ -1,5 +1,5 @@
 import { FC, memo, Fragment } from 'react'
-import { contains } from 'ramda'
+import { includes } from 'ramda'
 import { TID } from '@/spec'
 
 import type { TAccount, TComment } from '@/spec'
@@ -17,7 +17,7 @@ type TProps = {
 
 const Comment: FC<TProps> = (props) => {
   const { foldedIds, data } = props
-  const isFolded = contains(data.id, foldedIds)
+  const isFolded = includes(data.id, foldedIds)
 
   return (
     <Fragment>

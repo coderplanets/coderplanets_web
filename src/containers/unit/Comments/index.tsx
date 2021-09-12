@@ -15,8 +15,8 @@ import NoticeBar from '@/components/NoticeBar'
 
 import CommentEditor from './CommentEditor'
 import List from './List'
-import CommentReplyEditor from './CommentReplyEditor'
-import LockedMessage from './LockedMessage'
+// import CommentReplyEditor from './CommentReplyEditor'
+// import LockedMessage from './LockedMessage'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -41,6 +41,8 @@ const CommentsContainer: FC<TProps> = ({
   useInit(store, ssr, locked)
 
   const {
+    mode,
+    viewingArticle,
     pagedCommentsData,
     referUsersData,
     accountInfo,
@@ -50,12 +52,13 @@ const CommentsContainer: FC<TProps> = ({
     mentionListData,
     isEdit,
     foldedIds,
+    isAllFolded,
   } = store
 
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>
-        {showReplyBox && (
+        {/* {showReplyBox && (
           <CommentReplyEditor
             isEdit={isEdit}
             show={showReplyEditor}
@@ -65,33 +68,31 @@ const CommentsContainer: FC<TProps> = ({
             mentionList={mentionListData}
             showReplyPreview={showReplyPreview}
           />
-        )}
+        )} */}
       </Modal>
 
-      {locked ? (
-        <LockedMessage />
-      ) : (
-        <CommentEditor
-          onCreate={createComment(onCreate)}
-          accountInfo={accountInfo}
-          referUsers={referUsersData}
-          mentionList={mentionListData}
-          restProps={{ ...store }}
-        />
-      )}
+      <CommentEditor
+        onCreate={createComment(onCreate)}
+        accountInfo={accountInfo}
+        referUsers={referUsersData}
+        mentionList={mentionListData}
+        restProps={{ ...store }}
+      />
 
       <br />
       <NoticeBar
         type="lock"
-        content="关闭了评论: 已解决"
+        content="关闭了讨论: 已解决"
         timestamp={new Date().toLocaleDateString()}
-        user={{ nickname: 'mydearxym' }}
-        isArticleAuthor
+        user={{ nickname: 'Bot' }}
+        isArticleAuthor={false}
       />
 
       <List
-        accountInfo={accountInfo}
+        totalCommentsCount={viewingArticle.commentsCount}
+        mode={mode}
         foldedIds={foldedIds}
+        isAllFolded={isAllFolded}
         pagedComments={pagedCommentsData}
         restProps={{ ...store }}
       />

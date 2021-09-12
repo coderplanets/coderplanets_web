@@ -35,7 +35,8 @@ export const Text = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
-  line-height: 1.75;
+  line-height: 1.65;
+  letter-spacing: 0.5px;
 `
 
 export const HintWrapper = styled.div`

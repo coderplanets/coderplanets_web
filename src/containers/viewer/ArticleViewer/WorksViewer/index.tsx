@@ -8,7 +8,7 @@ import type { TPost } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import ViewportTracker from '@/components/ViewportTracker'
-import ArticeBody from '@/components/ArticleBody'
+import ArticeBody from '@/components/ArtimentBody'
 import { ArticleContentLoading } from '@/components/Loading'
 
 import FixedHeader from './FixedHeader'

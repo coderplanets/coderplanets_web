@@ -1,5 +1,5 @@
-import type { TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+import type { TMetric, TThread, TFlexRule } from '@/spec'
+import { METRIC, THREAD } from '@/constant'
 
 export const getDigestHeight = (metric: TMetric): string => {
   switch (metric) {
@@ -29,4 +29,14 @@ export const getFixStickerOffset = (metric: TMetric): string => {
   }
 }
 
-export const holder = 1
+export const getFixStickerAlign = (thread: TThread): TFlexRule => {
+  switch (thread) {
+    case THREAD.WORKS: {
+      return 'justify-end'
+    }
+
+    default: {
+      return 'justify-center'
+    }
+  }
+}

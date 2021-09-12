@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import type { TTestable, TMetric, TActive } from '@/spec'
+import type { TTestable, TMetric, TActive, TThread } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
 
-import { getFixStickerOffset } from './metric'
+import { getFixStickerOffset, getFixStickerAlign } from './metric'
 
 type TWrapper = TTestable & TActive
 export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
@@ -14,7 +14,6 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   ${css.flex('justify-center')};
   top: ${({ show }) => (show ? 0 : '-48px;')};
   opacity: ${({ show }) => (show ? 1 : 0)};
-
   z-index: ${({ show }) => (show ? css.zIndex.articleFixedHeader : -1)};
 
   position: fixed;
@@ -41,9 +40,11 @@ export const ContentWrapper = styled.div<{ metric: TMetric }>`
   height: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const StickerWrapper = styled.div<{ metric: TMetric }>`
+type TStickerWrapper = { metric: TMetric; thread: TThread }
+export const StickerWrapper = styled.div<TStickerWrapper>`
   ${({ metric }) => css.fitStickerWidth(metric)};
-  ${css.flex('justify-end')};
+  ${({ thread }) => css.flex(getFixStickerAlign(thread))};
+
   margin-left: ${({ metric }) => getFixStickerOffset(metric)};
 `
 export const Cover = styled(Img)`

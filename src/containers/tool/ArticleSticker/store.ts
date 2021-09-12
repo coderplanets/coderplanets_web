@@ -6,18 +6,26 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
-import type { TRootStore, TArticle, TScrollDirection, TThread } from '@/spec'
-import { markStates } from '@/utils/mobx'
+import type {
+  TRootStore,
+  TArticle,
+  TScrollDirection,
+  TThread,
+  TPagedUsers,
+} from '@/spec'
+import { markStates, toJS } from '@/utils/mobx'
+import { PagedUsers, emptyPagi } from '@/model'
 
 const ArticleSticker = T.model('ArticleSticker', {
   isTocMenuOpened: T.optional(T.boolean, false),
+  pagedCommentsParticipants: T.optional(PagedUsers, emptyPagi),
   // is TOC is opend, then lock the lefsidebar
   isLeftStickerLocked: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return root.viewingArticle
+      return root.viewing.viewingArticle
     },
     get activeThread(): TThread {
       const root = getParent(self) as TRootStore
@@ -58,6 +66,10 @@ const ArticleSticker = T.model('ArticleSticker', {
     get showCommentSticker(): boolean {
       const { isArticleInViewport } = self as TStore
       return !isArticleInViewport
+    },
+
+    get pagedCommentsParticipantsData(): TPagedUsers {
+      return toJS(self.pagedCommentsParticipants)
     },
   }))
   .actions((self) => ({
