@@ -25,7 +25,7 @@ const WorksArticleLayout: FC<TProps> = ({ viewingArticle }) => {
       <InnerWrapper>
         <TopInfo
           metric={METRIC.WORKS_ARTICLE}
-          title={viewingArticle.title}
+          article={viewingArticle}
           noBottomBorder
         />
         <MainInfos>

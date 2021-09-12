@@ -1,16 +1,17 @@
 import { FC, memo } from 'react'
 
-import type { TMetric } from '@/spec'
+import type { TMetric, TArticle } from '@/spec'
 import { METRIC } from '@/constant'
 
 import HomeCommunity from './HomeCommunity'
-import Community from './Community'
+// import Community from './Community'
 import Article from './Article'
 import WorksArticle from './WorksArticle'
 import CoolGuide from './CoolGuide'
 
 export type TProps = {
   metric?: TMetric
+  article?: TArticle
   title?: string
   noBottomBorder?: boolean
 }

@@ -1,4 +1,5 @@
 import { FC, memo } from 'react'
+import Link from 'next/link'
 
 import { ICON } from '@/config'
 import type { TProps as TTopInfoProps } from './index'
@@ -12,16 +13,20 @@ import {
   Logo,
 } from '../../styles/desktop_view/top_info/article'
 
-type TProps = Pick<TTopInfoProps, 'title' | 'noBottomBorder'>
+type TProps = Pick<TTopInfoProps, 'article' | 'noBottomBorder'>
 
-const Article: FC<TProps> = ({ title = 'article', noBottomBorder = false }) => {
+const Article: FC<TProps> = ({ article, noBottomBorder = false }) => {
+  const { originalCommunity, title } = article
+
   return (
     <Wrapper noBottomBorder={noBottomBorder}>
       <InfoBar>
         <Logo />
       </InfoBar>
       <ArrowDividerIcon src={`${ICON}/shape/arrow-simple.svg`} />
-      <CommunityTitle>javascript</CommunityTitle>
+      <Link href={`/${originalCommunity.raw}`} passHref>
+        <CommunityTitle as="a">{originalCommunity.title}</CommunityTitle>
+      </Link>
       <ArrowDividerIcon src={`${ICON}/shape/arrow-simple.svg`} />
       <ArticleTitle>{title}</ArticleTitle>
     </Wrapper>

@@ -20,12 +20,19 @@ export const Logo = styled(DefaultLogo)`
 `
 export const ArticleTitle = styled(DefaultSiteTitle)`
   color: ${theme('footer.title')};
+  ${css.cutRest('300px')};
   font-size: 15px;
   font-weight: normal;
   margin-top: -2px;
 `
 export const CommunityTitle = styled(ArticleTitle)`
   margin-right: 6px;
+  text-decoration: none;
+  &:hover {
+    color: ${theme('footer.title')};
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `
 export const ArrowDividerIcon = styled(Img)`
   fill: ${theme('footer.text')};

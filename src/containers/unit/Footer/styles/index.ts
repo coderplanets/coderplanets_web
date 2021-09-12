@@ -11,7 +11,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TWrapper>`
   ${css.flex('justify-center')};
   justify-content: ${({ metric }) =>
-    includes(metric, [METRIC.WORKS_ARTICLE]) ? 'start' : 'center'};
+    includes(metric, [METRIC.ARTICLE, METRIC.WORKS_ARTICLE])
+      ? 'start'
+      : 'center'};
   margin-top: ${({ layout }) => (layout === C11N.HOLY_GRAIL ? '50px' : '80px')};
   ${({ metric }) => css.fitPageWidth(metric)};
 `

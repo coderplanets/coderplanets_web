@@ -63,7 +63,7 @@ const FooterContainer: FC<TProps> = ({
         <ArticleLayout
           layout={c11n.bannerLayout}
           metric={metric}
-          viewingArticle={viewingArticle}
+          article={viewingArticle}
         />
       )}
     </Wrapper>
