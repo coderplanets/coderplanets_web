@@ -12,7 +12,6 @@ import { pluggedIn } from '@/utils/mobx'
 
 import Modal from '@/components/Modal'
 import NoticeBar from '@/components/NoticeBar'
-import { Button } from '@/components/Buttons'
 
 import CommentEditor from './CommentEditor'
 import List from './List'
@@ -63,7 +62,6 @@ const CommentsContainer: FC<TProps> = ({
 
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
-      <Button onClick={() => loadComments()}>test</Button>
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>
         {/* {showReplyBox && (
           <CommentReplyEditor

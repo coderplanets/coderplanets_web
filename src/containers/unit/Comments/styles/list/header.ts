@@ -31,7 +31,6 @@ export const TotalTitle = styled.div`
 `
 export const TotalNum = styled.span`
   color: ${theme('comment.number')};
-  font-size: 17px;
   margin-left: 2px;
   margin-right: 2px;
 `

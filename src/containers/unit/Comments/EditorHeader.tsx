@@ -70,7 +70,7 @@ const EditorHeader: FC<TProps> = ({
   return (
     <Wrapper>
       <UserAvatar src={accountInfo.avatar || `${ICON}/edit/publish-pen.svg`} />
-      <LeaveResponseText onClick={openInputBox}>发表看法</LeaveResponseText>
+      <LeaveResponseText onClick={openInputBox}>参与讨论</LeaveResponseText>
     </Wrapper>
   )
 }
