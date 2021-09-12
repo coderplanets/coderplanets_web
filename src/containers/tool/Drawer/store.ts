@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { concat, keys, reduce, merge, contains, values, findIndex } from 'ramda'
 
-import type { TRootStore, TCommunity, TThread, TArticle } from '@/spec'
+import type { TRootStore, TCommunity, TThread, TArticle, TWorks } from '@/spec'
 import { TYPE, ARTICLE_THREAD, THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
@@ -129,27 +129,28 @@ const DrawerStore = T.model('DrawerStore', {
       const root = getParent(self) as TRootStore
       const viewingArticleId = slf.viewingArticle.id
 
+      let pagedArticles
       switch (slf.curThread) {
         case THREAD.WORKS: {
-          return {
-            previous: null, // TODO:
-            next: null, // TODO:
-          }
+          pagedArticles = toJS(root.worksContent.pagedWorks)
+          break
         }
 
         default: {
-          const pagedArticles = toJS(
+          pagedArticles = toJS(
             root.articlesThread[`paged${titleCase(slf.curThread)}s`],
           )
-          const curIndex = findIndex(
-            (a: TArticle) => a.id === viewingArticleId,
-            pagedArticles.entries,
-          )
-          return {
-            previous: pagedArticles.entries[curIndex - 1] || null,
-            next: pagedArticles.entries[curIndex + 1] || null,
-          }
+          break
         }
+      }
+
+      const curIndex = findIndex(
+        (a: TWorks) => a.id === viewingArticleId,
+        pagedArticles.entries,
+      )
+      return {
+        previous: pagedArticles.entries[curIndex - 1] || null,
+        next: pagedArticles.entries[curIndex + 1] || null,
       }
     },
   }))

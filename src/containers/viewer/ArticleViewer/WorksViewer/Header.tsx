@@ -37,7 +37,7 @@ const Header: FC<TProps> = ({ article }) => {
       <WorksWrapper>
         <Cover src={author.avatar} />
         <Intro>
-          <Title>CoderPlanets</Title>
+          <Title>{article.title}</Title>
           <Desc>可能是最性感的开发者社区, web first, pure</Desc>
 
           <ContactWrapper>
