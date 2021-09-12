@@ -61,7 +61,9 @@ export const SwitchArticleWrapper = styled.div<TActive>`
 
   transition: opacity 0.2s linear;
 `
-export const SwitchBlock = styled.div``
+export const SwitchBlock = styled.div`
+  cursor: pointer;
+`
 export const ArticleWrapper = styled.div<{ next?: boolean }>`
   ${css.flexColumn('align-start')};
   position: absolute;
@@ -73,6 +75,7 @@ export const ArticleWrapper = styled.div<{ next?: boolean }>`
   display: none;
   ${SwitchBlock}:hover & {
     display: block;
+    cursor: pointer;
   }
 `
 export const IndexDesc = styled.div`

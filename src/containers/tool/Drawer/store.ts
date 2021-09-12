@@ -4,18 +4,18 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { concat, keys, reduce, merge, contains, values } from 'ramda'
+import { concat, keys, reduce, merge, contains, values, findIndex } from 'ramda'
 
-import type { TRootStore, TCommunity, TThread, TArticle } from '@/spec'
-import { TYPE, ARTICLE_THREAD } from '@/constant'
+import type { TRootStore, TCommunity, TThread, TArticle, TWorks } from '@/spec'
+import { TYPE, ARTICLE_THREAD, THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
 import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
-import { Global } from '@/utils/helper'
+import { Global, titleCase } from '@/utils/helper'
 import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
 import { User } from '@/model'
 
-import { TSwipeOption } from './spec'
+import { TSwipeOption, TArticleNavi } from './spec'
 import { SWIPE_THRESHOLD } from './styles/metrics'
 
 const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
@@ -117,9 +117,41 @@ const DrawerStore = T.model('DrawerStore', {
     get modalVisible() {
       return self.visible && Global.innerWidth > mediaBreakPoints.desktopL
     },
-
     get slideVisible() {
       return self.visible && Global.innerWidth <= mediaBreakPoints.desktopL
+    },
+    get viewingArticle(): TArticle {
+      const root = getParent(self) as TRootStore
+      return root.viewing.viewingArticle
+    },
+    get articleNavi(): TArticleNavi {
+      const slf = self as TStore
+      const root = getParent(self) as TRootStore
+      const viewingArticleId = slf.viewingArticle.id
+
+      let pagedArticles
+      switch (slf.curThread) {
+        case THREAD.WORKS: {
+          pagedArticles = toJS(root.worksContent.pagedWorks)
+          break
+        }
+
+        default: {
+          pagedArticles = toJS(
+            root.articlesThread[`paged${titleCase(slf.curThread)}s`],
+          )
+          break
+        }
+      }
+
+      const curIndex = findIndex(
+        (a: TWorks) => a.id === viewingArticleId,
+        pagedArticles.entries,
+      )
+      return {
+        previous: pagedArticles.entries[curIndex - 1] || null,
+        next: pagedArticles.entries[curIndex + 1] || null,
+      }
     },
   }))
   .actions((self) => ({

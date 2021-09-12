@@ -58,8 +58,9 @@ const DigestSentence: FC<TProps> = ({
       const { scrollHeight, clientHeight } = textRef.current
       // console.log('clientHeight: ', clientHeight)
       // console.log('scrollHeight: ', scrollHeight)
+      // console.log('scrollHeight - clientHeight: ', scrollHeight - clientHeight)
       // 确保只有超过两行才是折叠的情况
-      scrollHeight - clientHeight >= 22 ? setFold(true) : setFold(false)
+      scrollHeight - clientHeight >= 21 ? setFold(true) : setFold(false)
     }
   }, [textRef])
 

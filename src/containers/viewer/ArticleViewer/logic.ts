@@ -14,7 +14,7 @@ import type { TStore } from './store'
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   // @ts-ignore
-  receive: [EVENT.DRAWER.CLOSE],
+  receive: [EVENT.DRAWER.CLOSE, EVENT.RELOAD_ARTICLE],
 })
 
 let store: TStore | undefined
@@ -28,8 +28,6 @@ export const holder = 1
 const loadArticle = (): void => {
   const userHasLogin = store.isLogin
   const { id, meta } = store.viewingArticle
-
-  console.log('loadBefore: ', store.viewingArticle)
 
   const variables = { id, userHasLogin }
   markLoading()
@@ -74,6 +72,14 @@ const DataSolver = [
       markLoading(false)
     },
   },
+  {
+    match: asyncRes(EVENT.RELOAD_ARTICLE),
+    action: () => {
+      markLoading(true)
+      loadArticle()
+    },
+  },
+
   {
     match: asyncRes(EVENT.DRAWER.CLOSE),
     action: () => {

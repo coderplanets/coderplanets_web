@@ -1,4 +1,4 @@
-import type { TTestable, TActive } from '@/spec'
+import type { TTestable, TActive, TArticle } from '@/spec'
 
 export type TSwipeOption = {
   direction: 'bottom' | 'top'
@@ -19,3 +19,8 @@ export type TDrawer = TTestable &
     rightOffset?: string
     type: string
   }
+
+export type TArticleNavi = {
+  previous: TArticle | null
+  next: TArticle | null
+}

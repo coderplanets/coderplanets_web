@@ -40,6 +40,7 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
     headerText,
     showHeaderText,
     disableContentDrag,
+    articleNavi,
   } = store
 
   return (
@@ -52,6 +53,7 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
       canBeClose={canBeClose}
       showHeaderText={showHeaderText}
       disableContentDrag={disableContentDrag}
+      articleNavi={articleNavi}
     >
       <Content
         type={type}

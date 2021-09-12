@@ -82,8 +82,6 @@ const CommentsStore = T.model('CommentsStore', {
   replying: T.optional(T.boolean, false),
   // toggle loading for comments list
   loading: T.optional(T.boolean, false),
-  // toggle loading for first item of commetns list
-  loadingFresh: T.optional(T.boolean, false),
 
   foldedCommentIds: T.optional(T.array(T.string), []),
 })

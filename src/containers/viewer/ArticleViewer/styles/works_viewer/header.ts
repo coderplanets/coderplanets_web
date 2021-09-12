@@ -22,6 +22,7 @@ export const Intro = styled.div`
   ${css.flexColumn()};
 `
 export const Title = styled.div`
+  ${css.cutRest('350px')};
   font-size: 22px;
   color: ${theme('thread.articleTitle')};
 `

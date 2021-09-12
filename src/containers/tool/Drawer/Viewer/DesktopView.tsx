@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, memo } from 'react'
 
-import type { TSwipeOption } from '../spec'
+import type { TSwipeOption, TArticleNavi } from '../spec'
 import AddOn from '../AddOn'
 
 import { DrawerOverlay, DrawerWrapper, DrawerContent } from '../styles'
@@ -12,6 +12,7 @@ type TProps = {
   visible: boolean
   rightOffset: string
   type: string
+  articleNavi?: TArticleNavi
   children: ReactNode
 }
 
@@ -21,6 +22,7 @@ const DesktopView: FC<TProps> = ({
   visible,
   rightOffset,
   type,
+  articleNavi,
   children,
 }) => {
   return (
@@ -34,7 +36,7 @@ const DesktopView: FC<TProps> = ({
         mobile={false}
         options={options}
       >
-        <AddOn type={type} />
+        <AddOn type={type} articleNavi={articleNavi} />
         <DrawerContent>{children}</DrawerContent>
       </DrawerWrapper>
     </React.Fragment>

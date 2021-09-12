@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { contains, values } from 'ramda'
 
-import type { TDirection } from '@/spec'
+import type { TArticle, TDirection } from '@/spec'
 import { TYPE, EVENT } from '@/constant'
 
 import { toggleGlobalBlur, clearGlobalBlur } from '@/utils/dom'
-import { Global, send, debounce } from '@/utils/helper'
+import { Global, send, debounce, previewArticle } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
@@ -38,6 +38,11 @@ export const closeDrawer = (): void => {
     send(EVENT.DRAWER.AFTER_CLOSE)
     store.resetViewing()
   }, 200)
+}
+
+export const naviToArticle = (article: TArticle): void => {
+  previewArticle(article)
+  send(EVENT.RELOAD_ARTICLE)
 }
 
 // handler swiped event for up/down swipe
@@ -146,6 +151,7 @@ export const toggleHeaderTextVisiable = (bool: boolean): void => {
 
 export const resetSwipeAviliable = (): void => store.resetSwipeAviliable()
 
+//
 const DataResolver = [
   {
     match: asyncRes(EVENT.DRAWER.OPEN),
