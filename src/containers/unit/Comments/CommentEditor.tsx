@@ -13,7 +13,6 @@ import { backToEditor, createCommentPreview } from './logic'
 type TProps = {
   referUsers: TUser[]
   accountInfo: TAccount
-  mentionList: TUser[]
 
   /* TODO:  () => void */
   onCreate?: any
@@ -33,7 +32,6 @@ const CommentEditor: FC<TProps> = (props) => {
     referUsers,
     accountInfo,
     onCreate,
-    mentionList,
     restProps: {
       countCurrent,
       showInputBox,
@@ -55,9 +53,6 @@ const CommentEditor: FC<TProps> = (props) => {
       />
       {showInputEditor && (
         <CommentBodyEditor
-          mentionList={mentionList}
-          showInputPreview={showInputPreview}
-          showInputEditor={showInputEditor}
           body={editContent}
           onCreate={onCreate}
           creating={creating}

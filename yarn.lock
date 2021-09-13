@@ -266,6 +266,12 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.3.1":
+  version "7.15.4"
+  resolved "https://registry.nlark.com/@babel/runtime/download/@babel/runtime-7.15.4.tgz?cache=0&sync_timestamp=1630618785994&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.14.5", "@babel/template@^7.3.3":
   version "7.14.5"
   resolved "https://registry.nlark.com/@babel/template/download/@babel/template-7.14.5.tgz?cache=0&sync_timestamp=1623280386138&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40babel%2Ftemplate%2Fdownload%2F%40babel%2Ftemplate-7.14.5.tgz#a9bc9d8b33354ff6e55a9c60d1109200a68974f4"
@@ -491,37 +497,9 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@editorjs/checklist@^1.1.0":
-  version "1.3.0"
-  resolved "https://registry.npm.taobao.org/@editorjs/checklist/download/@editorjs/checklist-1.3.0.tgz#98c08f0c6a8b62a2b1a0f181604c1a8c8edc15b1"
-
-"@editorjs/delimiter@^1.1.0":
-  version "1.2.0"
-  resolved "https://registry.nlark.com/@editorjs/delimiter/download/@editorjs/delimiter-1.2.0.tgz#5075f1a3e68765cfb6aec8694b316d81e2b41607"
-
-"@editorjs/editorjs@^2.15.0":
-  version "2.22.2"
-  resolved "https://registry.nlark.com/@editorjs/editorjs/download/@editorjs/editorjs-2.22.2.tgz#bf1d10c9fa9dd1dc574c18d8f4b77fef43d8e7f6"
-  dependencies:
-    codex-notifier "^1.1.2"
-    codex-tooltip "^1.0.2"
-    nanoid "^3.1.22"
-
-"@editorjs/header@^2.3.0":
-  version "2.6.1"
-  resolved "https://registry.npm.taobao.org/@editorjs/header/download/@editorjs/header-2.6.1.tgz#454a46e4dbb32ae3aa1db4d22b0ddf2cc36c3134"
-
 "@editorjs/inline-code@^1.3.0":
   version "1.3.1"
   resolved "https://registry.nlark.com/@editorjs/inline-code/download/@editorjs/inline-code-1.3.1.tgz#4890e30d00dcaeacafbcb30459309dfd740b0d4b"
-
-"@editorjs/list@^1.4.0":
-  version "1.6.2"
-  resolved "https://registry.npm.taobao.org/@editorjs/list/download/@editorjs/list-1.6.2.tgz#38cb307d78ec8b6c55480c538805cdc2ff250ad1"
-
-"@editorjs/marker@^1.2.1":
-  version "1.2.2"
-  resolved "https://registry.npm.taobao.org/@editorjs/marker/download/@editorjs/marker-1.2.2.tgz#d9261a257436bf70179c0fa1e766ab85c823c96b"
 
 "@emotion/cache@^10.0.27", "@emotion/cache@^10.0.9":
   version "10.0.29"
@@ -645,15 +623,76 @@
   version "3.1.0"
   resolved "https://registry.nlark.com/@graphql-typed-document-node/core/download/@graphql-typed-document-node/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
 
-"@groupher/editor-header@^2.3.0":
+"@groupher/editor-alert@1.0.18":
+  version "1.0.18"
+  resolved "https://registry.nlark.com/@groupher/editor-alert/download/@groupher/editor-alert-1.0.18.tgz#0b891f0be29156f916923c75afd7da9ec9eb1eb3"
+
+"@groupher/editor-code@1.0.21":
+  version "1.0.21"
+  resolved "https://registry.nlark.com/@groupher/editor-code/download/@groupher/editor-code-1.0.21.tgz#8254443cc582b0a90b592104e8e0a2eeb71f0d34"
+  dependencies:
+    copy-to-clipboard "^3.2.0"
+    prismjs "^1.17.1"
+
+"@groupher/editor-delimiter@1.1.6":
+  version "1.1.6"
+  resolved "https://registry.nlark.com/@groupher/editor-delimiter/download/@groupher/editor-delimiter-1.1.6.tgz#0b5895336c04cdf90e38b158c0f9a326d2c644d2"
+  dependencies:
+    svg-inline-loader "^0.8.0"
+
+"@groupher/editor-embed@1.0.12":
+  version "1.0.12"
+  resolved "https://registry.nlark.com/@groupher/editor-embed/download/@groupher/editor-embed-1.0.12.tgz#e778c1483ae167ba23dabca0f2ce40d9e584a19e"
+  dependencies:
+    svg-inline-loader "^0.8.0"
+    tippy.js "^5.0.1"
+
+"@groupher/editor-header@2.3.1":
   version "2.3.1"
   resolved "https://registry.nlark.com/@groupher/editor-header/download/@groupher/editor-header-2.3.1.tgz#68a6631969c9bcf229c497729d81de199ed0f8c3"
 
-"@groupher/editor-quote@^2.3.0":
+"@groupher/editor-image@1.0.14":
+  version "1.0.14"
+  resolved "https://registry.nlark.com/@groupher/editor-image/download/@groupher/editor-image-1.0.14.tgz#08b017d97ebabc3e3639edfdd66cf653861cbaaf"
+
+"@groupher/editor-link@2.1.6":
+  version "2.1.6"
+  resolved "https://registry.nlark.com/@groupher/editor-link/download/@groupher/editor-link-2.1.6.tgz#9b4bbadef9e4f48eb1916c00f1c6712e285e341a"
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+
+"@groupher/editor-list@^1.4.5":
+  version "1.4.5"
+  resolved "https://registry.nlark.com/@groupher/editor-list/download/@groupher/editor-list-1.4.5.tgz#6d07ffff1a09f5f1b8f91590cfad286575b657b8"
+  dependencies:
+    "@groupher/editor-utils" "0.1.83"
+    svg-inline-loader "^0.8.2"
+    tippy.js "^5.2.0"
+
+"@groupher/editor-marker@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.nlark.com/@groupher/editor-marker/download/@groupher/editor-marker-1.0.1.tgz#3a4779229bdfa7d8d6e004a192a886a3138b500c"
+
+"@groupher/editor-paragraph@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.nlark.com/@groupher/editor-paragraph/download/@groupher/editor-paragraph-1.0.11.tgz#50b462176205f5944bcce130a4c6ba602be6061e"
+
+"@groupher/editor-quote@^2.3.3":
   version "2.3.4"
   resolved "https://registry.nlark.com/@groupher/editor-quote/download/@groupher/editor-quote-2.3.4.tgz#448ca9c975f93d0a8d465e10e93867a7379435f3"
   dependencies:
     "@groupher/editor-utils" "0.2.26"
+
+"@groupher/editor-table@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.nlark.com/@groupher/editor-table/download/@groupher/editor-table-1.0.1.tgz#b578f4bf9ad942841edcbd9a759f25c9d0ec73d4"
+
+"@groupher/editor-utils@0.1.83":
+  version "0.1.83"
+  resolved "https://registry.nlark.com/@groupher/editor-utils/download/@groupher/editor-utils-0.1.83.tgz#55ac5498f9ed78a4c5a296e09e02aa68df9788f2"
+  dependencies:
+    debug "^4.1.1"
+    pubsub-js "^1.8.0"
 
 "@groupher/editor-utils@0.2.26":
   version "0.2.26"
@@ -662,6 +701,14 @@
     debug "^4.1.1"
     pubsub-js "^1.8.0"
     stringz "^2.1.0"
+
+"@groupher/editor.js@^2.19.1":
+  version "2.19.1"
+  resolved "https://registry.nlark.com/@groupher/editor.js/download/@groupher/editor.js-2.19.1.tgz#dc9d0f21b392325cee520b5d3cc35bcbe2ca04f2"
+  dependencies:
+    caniuse-lite "^1.0.30001164"
+    codex-notifier "^1.1.2"
+    codex-tooltip "^1.0.1"
 
 "@groupher/eslint-config-web@2.0.9":
   version "2.0.9"
@@ -679,6 +726,27 @@
     eslint-plugin-react "^7.13.0"
     eslint-plugin-react-hooks "^1.6.0"
     prettier "^1.18.2"
+
+"@groupher/react-editor@1.0.75":
+  version "1.0.75"
+  resolved "https://registry.nlark.com/@groupher/react-editor/download/@groupher/react-editor-1.0.75.tgz#78d52d78c2929e16f24cd74ac45d6710e7022c70"
+  dependencies:
+    "@editorjs/inline-code" "^1.3.0"
+    "@groupher/editor-alert" "1.0.18"
+    "@groupher/editor-code" "1.0.21"
+    "@groupher/editor-delimiter" "1.1.6"
+    "@groupher/editor-embed" "1.0.12"
+    "@groupher/editor-header" "2.3.1"
+    "@groupher/editor-image" "1.0.14"
+    "@groupher/editor-link" "2.1.6"
+    "@groupher/editor-list" "^1.4.5"
+    "@groupher/editor-marker" "1.0.1"
+    "@groupher/editor-paragraph" "1.0.11"
+    "@groupher/editor-quote" "^2.3.3"
+    "@groupher/editor-table" "^1.0.1"
+    "@groupher/editor.js" "^2.19.1"
+    react "17.0.2"
+    react-dom "17.0.2"
 
 "@hapi/accept@5.0.2":
   version "5.0.2"
@@ -2741,6 +2809,10 @@ camelize@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/camelize/download/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
 
+caniuse-lite@^1.0.30001164:
+  version "1.0.30001257"
+  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001257.tgz#150aaf649a48bee531104cfeda57f92ce587f6e5"
+
 caniuse-lite@^1.0.30001202, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001228:
   version "1.0.30001247"
   resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001247.tgz?cache=0&sync_timestamp=1627105478295&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcaniuse-lite%2Fdownload%2Fcaniuse-lite-1.0.30001247.tgz#105be7a8fb30cdd303275e769a9dfb87d4b3577a"
@@ -3016,10 +3088,6 @@ clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.nlark.com/clone/download/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
 
-clsx@^1.0.4:
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/clsx/download/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
-
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.nlark.com/co/download/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -3032,7 +3100,7 @@ codex-notifier@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/codex-notifier/download/codex-notifier-1.1.2.tgz#a733079185f4c927fa296f1d71eb8753fe080895"
 
-codex-tooltip@^1.0.2:
+codex-tooltip@^1.0.1:
   version "1.0.2"
   resolved "https://registry.nlark.com/codex-tooltip/download/codex-tooltip-1.0.2.tgz#81a9d3e2937658c6e5312106b47b9f094ff7be63"
 
@@ -3915,10 +3983,6 @@ decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.nlark.com/decode-uri-component/download/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
 
-decorate-component-with-props@^1.0.2:
-  version "1.1.0"
-  resolved "https://registry.npm.taobao.org/decorate-component-with-props/download/decorate-component-with-props-1.1.0.tgz#b496c814c6a2aba0cf2ad26e44cbedb8ead42f15"
-
 dedent@0.7.0:
   version "0.7.0"
   resolved "https://registry.nlark.com/dedent/download/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
@@ -4157,43 +4221,6 @@ dotgitignore@^2.1.0:
   dependencies:
     find-up "^3.0.0"
     minimatch "^3.0.4"
-
-draft-js-linkify-plugin@^2.0.1:
-  version "2.0.2"
-  resolved "https://registry.nlark.com/draft-js-linkify-plugin/download/draft-js-linkify-plugin-2.0.2.tgz#0ef40581f0a97728a49f6b010057c6191aad5d45"
-  dependencies:
-    clsx "^1.0.4"
-    linkify-it "^2.0.3"
-    tlds "^1.189.0"
-
-draft-js-mention-plugin@3.1.3:
-  version "3.1.3"
-  resolved "https://registry.npm.taobao.org/draft-js-mention-plugin/download/draft-js-mention-plugin-3.1.3.tgz#8b098a145b6ca2b7e0ed26ece1b8a0efacdefa51"
-  dependencies:
-    decorate-component-with-props "^1.0.2"
-    find-with-regex "^1.1.3"
-    immutable "~3.7.4"
-    lodash.escaperegexp "^4.1.2"
-    prop-types "^15.5.8"
-    union-class-names "^1.0.0"
-
-draft-js-plugins-editor@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npm.taobao.org/draft-js-plugins-editor/download/draft-js-plugins-editor-2.1.1.tgz#7c9aedd696737c6ddf45d47c978bd764ef33f688"
-  dependencies:
-    decorate-component-with-props "^1.0.2"
-    find-with-regex "^1.1.3"
-    immutable "~3.7.4"
-    prop-types "^15.5.8"
-    union-class-names "^1.0.0"
-
-draft-js@^0.10.5:
-  version "0.10.5"
-  resolved "https://registry.npm.taobao.org/draft-js/download/draft-js-0.10.5.tgz?cache=0&sync_timestamp=1597680829415&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdraft-js%2Fdownload%2Fdraft-js-0.10.5.tgz#bfa9beb018fe0533dbb08d6675c371a6b08fa742"
-  dependencies:
-    fbjs "^0.8.15"
-    immutable "~3.7.4"
-    object-assign "^4.1.0"
 
 duplexer@^0.1.1, duplexer@~0.1.1:
   version "0.1.2"
@@ -5044,7 +5071,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
-fbjs@^0.8.1, fbjs@^0.8.15:
+fbjs@^0.8.1:
   version "0.8.17"
   resolved "https://registry.npm.taobao.org/fbjs/download/fbjs-0.8.17.tgz?cache=0&sync_timestamp=1602048886093&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffbjs%2Fdownload%2Ffbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   dependencies:
@@ -5207,10 +5234,6 @@ find-up@^4.0.0, find-up@^4.1.0:
   dependencies:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
-
-find-with-regex@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.npm.taobao.org/find-with-regex/download/find-with-regex-1.1.3.tgz#d6c6f2debee898d36b6a77e05709b13dd5dc8a26"
 
 findup-sync@^2.0.0:
   version "2.0.0"
@@ -6100,10 +6123,6 @@ imagesloaded@^4.0.0:
   resolved "https://registry.npm.taobao.org/imagesloaded/download/imagesloaded-4.1.4.tgz#1376efcd162bb768c34c3727ac89cc04051f3cc7"
   dependencies:
     ev-emitter "^1.0.0"
-
-immutable@~3.7.4:
-  version "3.7.6"
-  resolved "https://registry.nlark.com/immutable/download/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
 
 import-fresh@^2.0.0:
   version "2.0.0"
@@ -7365,12 +7384,6 @@ lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.nlark.com/lines-and-columns/download/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
 
-linkify-it@^2.0.3:
-  version "2.2.0"
-  resolved "https://registry.nlark.com/linkify-it/download/linkify-it-2.2.0.tgz#e3b54697e78bf915c70a38acd78fd09e0058b1cf"
-  dependencies:
-    uc.micro "^1.0.1"
-
 listr2@^3.8.3:
   version "3.11.0"
   resolved "https://registry.nlark.com/listr2/download/listr2-3.11.0.tgz?cache=0&sync_timestamp=1626978379870&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flistr2%2Fdownload%2Flistr2-3.11.0.tgz#9771b02407875aa78e73d6e0ff6541bbec0aaee9"
@@ -7461,10 +7474,6 @@ lodash.debounce@^4.0.8:
 lodash.escape@^4.0.1:
   version "4.0.1"
   resolved "https://registry.nlark.com/lodash.escape/download/lodash.escape-4.0.1.tgz#c9044690c21e04294beaa517712fded1fa88de98"
-
-lodash.escaperegexp@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.npm.taobao.org/lodash.escaperegexp/download/lodash.escaperegexp-4.1.2.tgz#64762c48618082518ac3df4ccf5d5886dae20347"
 
 lodash.flattendeep@^4.4.0:
   version "4.4.0"
@@ -8087,7 +8096,7 @@ nano-css@^5.2.1:
     stacktrace-js "^2.0.2"
     stylis "^4.0.6"
 
-nanoid@^3.1.12, nanoid@^3.1.22:
+nanoid@^3.1.12:
   version "3.1.23"
   resolved "https://registry.nlark.com/nanoid/download/nanoid-3.1.23.tgz?cache=0&sync_timestamp=1620673983269&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fnanoid%2Fdownload%2Fnanoid-3.1.23.tgz#f744086ce7c2bc47ee0a8472574d5c78e4183a81"
 
@@ -8430,7 +8439,7 @@ oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.npm.taobao.org/oauth-sign/download/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
 
-object-assign@^4.1.0, object-assign@^4.1.1:
+object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.nlark.com/object-assign/download/object-assign-4.1.1.tgz?cache=0&sync_timestamp=1618847240432&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fobject-assign%2Fdownload%2Fobject-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
@@ -9017,7 +9026,7 @@ polished@4.1.3:
   dependencies:
     "@babel/runtime" "^7.14.0"
 
-popper.js@^1.14.1:
+popper.js@^1.14.1, popper.js@^1.16.0:
   version "1.16.1"
   resolved "https://registry.npm.taobao.org/popper.js/download/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
 
@@ -9086,6 +9095,10 @@ pretty-quick@^1.10.0:
     ignore "^3.3.7"
     mri "^1.1.0"
     multimatch "^3.0.0"
+
+prismjs@^1.17.1:
+  version "1.24.1"
+  resolved "https://registry.nlark.com/prismjs/download/prismjs-1.24.1.tgz?cache=0&sync_timestamp=1625313362193&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fprismjs%2Fdownload%2Fprismjs-1.24.1.tgz#c4d7895c4d6500289482fa8936d9cdd192684036"
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
@@ -10228,6 +10241,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.3"
   resolved "https://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.3.tgz?cache=0&sync_timestamp=1592843131591&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsignal-exit%2Fdownload%2Fsignal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
 
+simple-html-tokenizer@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npm.taobao.org/simple-html-tokenizer/download/simple-html-tokenizer-0.1.1.tgz#05c2eec579ffffe145a030ac26cfea61b980fabe"
+
 sisteransi@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npm.taobao.org/sisteransi/download/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
@@ -10817,6 +10834,14 @@ supports-hyperlinks@^2.0.0:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
 
+svg-inline-loader@^0.8.0, svg-inline-loader@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.npm.taobao.org/svg-inline-loader/download/svg-inline-loader-0.8.2.tgz#9872414f9e4141601e04eb80cda748c9a50dae71"
+  dependencies:
+    loader-utils "^1.1.0"
+    object-assign "^4.0.1"
+    simple-html-tokenizer "^0.1.1"
+
 svg-pan-zoom@^3.6.0:
   version "3.6.1"
   resolved "https://registry.npm.taobao.org/svg-pan-zoom/download/svg-pan-zoom-3.6.1.tgz#f880a1bb32d18e9c625d7715350bebc269b450cf"
@@ -10966,6 +10991,12 @@ tinykeys@^1.0.6:
   version "1.2.0"
   resolved "https://registry.nlark.com/tinykeys/download/tinykeys-1.2.0.tgz#c57ad1b6f088bc2e506ea340755d57634a3d5c6c"
 
+tippy.js@^5.0.1, tippy.js@^5.2.0:
+  version "5.2.1"
+  resolved "https://registry.npm.taobao.org/tippy.js/download/tippy.js-5.2.1.tgz#e08d7332c103a15e427124d710d881fca82365d6"
+  dependencies:
+    popper.js "^1.16.0"
+
 tippy.js@^6.3.1:
   version "6.3.1"
   resolved "https://registry.npm.taobao.org/tippy.js/download/tippy.js-6.3.1.tgz#3788a007be7015eee0fd589a66b98fb3f8f10181"
@@ -10978,10 +11009,6 @@ title-case@^2.1.0:
   dependencies:
     no-case "^2.2.0"
     upper-case "^1.0.3"
-
-tlds@^1.189.0:
-  version "1.221.1"
-  resolved "https://registry.nlark.com/tlds/download/tlds-1.221.1.tgz#6cf6bff5eaf30c5618c5801c3f425a6dc61ca0ad"
 
 tmp@^0.0.33:
   version "0.0.33"
@@ -11235,10 +11262,6 @@ ua-parser-js@^0.7.18:
   version "0.7.28"
   resolved "https://registry.nlark.com/ua-parser-js/download/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
 
-uc.micro@^1.0.1:
-  version "1.0.6"
-  resolved "https://registry.npm.taobao.org/uc.micro/download/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
-
 uglify-js@^3.1.4:
   version "3.14.0"
   resolved "https://registry.nlark.com/uglify-js/download/uglify-js-3.14.0.tgz?cache=0&sync_timestamp=1626965709081&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fuglify-js%2Fdownload%2Fuglify-js-3.14.0.tgz#2d723a0afee81e0d08db9354a9c277006e942386"
@@ -11255,10 +11278,6 @@ unbox-primitive@^1.0.1:
 unc-path-regex@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/unc-path-regex/download/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
-
-union-class-names@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/union-class-names/download/union-class-names-1.0.0.tgz#9259608adacc39094a2b0cfe16c78e6200617847"
 
 union-value@^1.0.0:
   version "1.0.1"

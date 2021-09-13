@@ -49,7 +49,6 @@ const CommentsContainer: FC<TProps> = ({
     showReplyBox,
     showReplyEditor,
     showReplyPreview,
-    mentionListData,
     isEdit,
     foldedIds,
     isAllFolded,
@@ -65,7 +64,6 @@ const CommentsContainer: FC<TProps> = ({
             accountInfo={accountInfo}
             referUsers={referUsersData}
             restProps={{ ...store }}
-            mentionList={mentionListData}
             showReplyPreview={showReplyPreview}
           />
         )} */}
@@ -75,7 +73,6 @@ const CommentsContainer: FC<TProps> = ({
         onCreate={createComment(onCreate)}
         accountInfo={accountInfo}
         referUsers={referUsersData}
-        mentionList={mentionListData}
         restProps={{ ...store }}
       />
 
