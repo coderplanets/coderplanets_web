@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { concat, keys, reduce, merge, contains, values, findIndex } from 'ramda'
+import { merge, contains, values, findIndex } from 'ramda'
 
 import type { TRootStore, TCommunity, TThread, TArticle, TWorks } from '@/spec'
 import { TYPE, ARTICLE_THREAD, THREAD } from '@/constant'
@@ -16,26 +16,10 @@ import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
 import { User } from '@/model'
 
 import { TSwipeOption, TArticleNavi } from './spec'
+import { ARTICLE_VIEWER_TYPES, ARTICLE_THREAD_CURD_TYPES } from './constant'
 import { SWIPE_THRESHOLD } from './styles/metrics'
 
 const defaultOptions: TSwipeOption = { direction: 'bottom', position: 'M' }
-
-const ARTICLE_VIEWER_TYPES = reduce(
-  concat,
-  // @ts-ignore
-  [],
-  keys(ARTICLE_THREAD).map((T) => [TYPE.DRAWER[`${T}_VIEW`]]),
-)
-
-const ARTICLE_THREAD_CURD_TYPES = reduce(
-  concat,
-  // @ts-ignore
-  [...ARTICLE_VIEWER_TYPES],
-  keys(ARTICLE_THREAD).map((T) => [
-    TYPE.DRAWER[`${T}_CREATE`],
-    TYPE.DRAWER[`${T}_EDIT`],
-  ]),
-)
 
 const Options = T.model('Options', {
   direction: T.optional(
