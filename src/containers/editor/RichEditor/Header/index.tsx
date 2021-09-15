@@ -7,7 +7,7 @@ type TProps = {
   type?: 'article' | 'works' | 'job' | 'comment' | 'radar'
 }
 
-const Header: FC<TProps> = ({ type }) => {
+const Header: FC<TProps> = ({ type = 'article' }) => {
   switch (type) {
     case 'works': {
       return <WorksLayout />

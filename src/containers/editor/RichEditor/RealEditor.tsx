@@ -15,7 +15,6 @@ import Header from './Header'
 
 import type { TStore } from './store'
 import { useInit } from './logic'
-// import * as logic from './logic'
 
 import OverwriteStyle from './styles/overwrite'
 import { Wrapper, EditorWrapper } from './styles'
@@ -35,10 +34,6 @@ const RichEditorContainer: FC<TProps> = ({
   richEditor: store,
   type = 'article',
 }) => {
-  // const [loaded] = useScript(
-  //   'https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest',
-  // )
-
   useInit(store)
 
   // 使用模板 or 转载或翻译 or 请保持友善
