@@ -180,15 +180,29 @@ const RichEditorStyle = createGlobalStyle`
   }
 
   .cdx-list-drag-icon {
-    top: 8px;
+    top: 8px !important;
+    svg {
+      width: 12px;
+      height: 14px;
+    }
+  }
+
+  .cdx-checklist__item-checkbox {
+    border-color: ${theme('button.primary')} !important;
   }
 
   .cdx-checklist__item-checkbox {
     border-color: ${linkColor};
   }
   .cdx-checklist__item-check-sign-active {
-    background-color: ${linkColor};
+    background: ${theme('button.primary')} !important;
   }
+
+  .cdx-checklist__item-check-sign svg {
+    margin-left: -1px;
+    margin-top: 0;
+  }
+
   .cdx-list__item-unorder-prefix::before {
     background-color: ${linkColor} !important;
   }
@@ -226,6 +240,15 @@ const RichEditorStyle = createGlobalStyle`
     border: 1px solid;
     border-color: ${theme('popover.borderColor')} !important; 
     box-shadow: none;
+  }
+
+  .cdx-list-drag-over {
+    border-bottom-color: ${theme('thread.articleDigest')} !important;
+  }
+
+  .cdx-list-drag-start {
+      opacity: 0.6;
+      border-bottom-color: ${theme('thread.articleDigest')} !important;
   }
   /* plugin-list end */
 

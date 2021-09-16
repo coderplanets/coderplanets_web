@@ -39,8 +39,8 @@ const RichEditorContainer: FC<TProps> = ({
   // 使用模板 or 转载或翻译 or 请保持友善
   return (
     <Wrapper>
-      <OverwriteStyle />
       <Header type={type} />
+      <OverwriteStyle />
       <EditorWrapper>
         <RichEditor />
       </EditorWrapper>
