@@ -40,9 +40,10 @@ const RichEditorContainer: FC<TProps> = ({
   return (
     <Wrapper>
       <Header type={type} />
-      <OverwriteStyle />
+
       <EditorWrapper>
         <RichEditor />
+        <OverwriteStyle />
       </EditorWrapper>
       {/* <EditorWrapper id="codex-editor" /> */}
     </Wrapper>
