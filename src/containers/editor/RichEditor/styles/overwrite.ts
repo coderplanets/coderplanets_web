@@ -2,11 +2,16 @@ import { createGlobalStyle } from 'styled-components'
 import { theme } from '@/utils/themes'
 
 const mateColor = '#30B1AC'
-const linkColor = '#067db5'
+const linkColor = '#2ba8e2'
 
 const RichEditorStyle = createGlobalStyle`
   .codex-editor {
     font-size: 16px;
+    line-height: 1.8 !important;
+  }
+
+  .ce-paragraph {
+    line-height: 1.875 !important;
   }
 
   .codex-editor svg {
@@ -288,12 +293,53 @@ const RichEditorStyle = createGlobalStyle`
     border-right-color: ${theme('button.primary')} !important;
   }
 
+  .cdx-table__td_stripe {
+    background: #002A33 !important;
+  }
 
   .cdx-table__column_action_icon svg {
     fill: ${theme('button.primary')} !important;
   }
   /* plugin-table end */
 
+  /* plugin-collapse */
+  .cdx-collapse-toggle {
+    margin-top: -3px;
+  }
+  .cdx-collapse-toggle-checked {
+    margin-top: 2px;
+  }
+  .cdx-collapse-title {
+    color: ${theme('thread.articleTitle')};
+  }
+  .cdx-collapse-content .content-inner {
+    border-left-color: #4a666b !important;
+    margin-left: 6px !important;
+  }
+
+  .cdx-collapse-content .content-inner[placeholder]:empty:before {
+    color: ${theme('thread.articleDigest')} !important;
+    opacity: .8;
+  }
+
+  /* plugin-collapse end */
+
+  /* plugin-inline-code */
+  .inline-code {
+    background: #013a48 !important;
+    color: #2FB0AB !important;
+    font-size: 15px !important;
+    border-radius: 3px !important;
+  }
+  /* plugin-inline-code end */
+
+
+  .ce-block b {
+    color: #9fbabb !important;
+    margin-left: 1px;
+    margin-right: 1px;
+    /* text-shadow: 0 3px 12px #174e4c; */
+  }
 
   /*
     .cdx-marker {
