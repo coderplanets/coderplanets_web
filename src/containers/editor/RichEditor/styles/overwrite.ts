@@ -268,28 +268,38 @@ const RichEditorStyle = createGlobalStyle`
     background: #082d38 !important;
   }
   // column active
-  .cdx-table tbody tr th, .cdx-table td.cdx-table__active_column {
+  .cdx-table tbody tr, .cdx-table td.cdx-table__active_column {
     border-left-color: ${theme('button.primary')} !important;
     border-right-color: ${theme('button.primary')} !important;
     border-top-color: ${theme('button.primary')} !important;
   }
-  .cdx-table tbody tr th, .cdx-table td.cdx-table__active_top {
+
+  .cdx-table__header {
+    border-bottom: 2px solid !important;
+    border-bottom-color: #082d38 !important;
+  }
+
+  .cdx-table__header .cdx-table__active_column .cdx-table__active_top {
     border-top-color: ${theme('button.primary')} !important;
   }
-  .cdx-table tbody tr th, .cdx-table td.cdx-table__active_bottom {
+
+  .cdx-table tbody tr, .cdx-table td.cdx-table__active_top {
+    border-top-color: ${theme('button.primary')} !important;
+  } 
+  .cdx-table tbody tr , .cdx-table td.cdx-table__active_bottom {
     border-bottom-color: ${theme('button.primary')} !important;
   }
 
   // row active
-  .cdx-table tbody tr th, .cdx-table td.cdx-table__active_row {
+  .cdx-table tbody tr , .cdx-table td.cdx-table__active_row {
     border-top-color: ${theme('button.primary')} !important;
     border-bottom-color: ${theme('button.primary')} !important;
   }
 
-  .cdx-table tbody tr th, .cdx-table td.cdx-table__active_left {
+  .cdx-table tbody tr, .cdx-table td.cdx-table__active_left {
     border-left-color: ${theme('button.primary')} !important;
-  }
-  .cdx-table tbody tr th, .cdx-table td.cdx-table__active_right {
+  } 
+  .cdx-table tbody tr, .cdx-table td.cdx-table__active_right {
     border-right-color: ${theme('button.primary')} !important;
   }
 
@@ -325,11 +335,12 @@ const RichEditorStyle = createGlobalStyle`
   /* plugin-collapse end */
 
   /* plugin-inline-code */
-  .inline-code {
-    background: #013a48 !important;
-    color: #2FB0AB !important;
+  .cdx-inline-code {
+    background: #013340 !important;
+    color: #8cb147 !important;
     font-size: 15px !important;
     border-radius: 3px !important;
+    margin: 0 2px;
   }
   /* plugin-inline-code end */
 
