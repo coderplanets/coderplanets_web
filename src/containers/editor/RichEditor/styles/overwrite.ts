@@ -269,14 +269,23 @@ const RichEditorStyle = createGlobalStyle`
   }
   // column active
   .cdx-table tbody tr, .cdx-table td.cdx-table__active_column {
-    border-left-color: ${theme('button.primary')} !important;
-    border-right-color: ${theme('button.primary')} !important;
+    /* border-left-color: ${theme('button.primary')} !important; */
+    /* border-right-color: ${theme('button.primary')} !important; */
     border-top-color: ${theme('button.primary')} !important;
   }
 
   .cdx-table__header {
+    /* border-top-color: #475152 !important;
+    border-left-color: #475152 !important;
+    border-right-color: #475152 !important; */
     border-bottom: 2px solid !important;
-    border-bottom-color: #082d38 !important;
+    border-bottom-color: #475152 !important;
+  }
+
+  .cdx-table__active_top[style] {
+    border-top-color: ${theme('button.primary')} !important;
+    /* border-left-color: ${theme('button.primary')} !important; */
+    /* border-right-color: ${theme('button.primary')} !important; */
   }
 
   .cdx-table__header .cdx-table__active_column .cdx-table__active_top {
@@ -292,8 +301,8 @@ const RichEditorStyle = createGlobalStyle`
 
   // row active
   .cdx-table tbody tr , .cdx-table td.cdx-table__active_row {
-    border-top-color: ${theme('button.primary')} !important;
-    border-bottom-color: ${theme('button.primary')} !important;
+    /* border-top-color: ${theme('button.primary')} !important;
+    border-bottom-color: ${theme('button.primary')} !important; */
   }
 
   .cdx-table tbody tr, .cdx-table td.cdx-table__active_left {
