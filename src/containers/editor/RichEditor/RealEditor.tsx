@@ -42,7 +42,7 @@ const RichEditorContainer: FC<TProps> = ({
       <Header type={type} />
 
       <EditorWrapper>
-        <RichEditor />
+        <RichEditor onData={(data) => console.log('.')} />
         <OverwriteStyle />
       </EditorWrapper>
       {/* <EditorWrapper id="codex-editor" /> */}
