@@ -290,22 +290,18 @@ const RichEditorStyle = createGlobalStyle`
     background: #092c35 !important;
     color: ${theme('thread.articleTitle')} !important;
   }
-
   .tippy-arrow {
     display: none;
   }
-
   .tippy-tooltip.light-theme {
     background: ${theme('popover.bg')} !important;
     border: 1px solid;
     border-color: ${theme('popover.borderColor')} !important; 
-    box-shadow: none;
+    box-shadow: ${theme('popover.boxShadow')} !important;
   }
-
   .cdx-list-drag-over {
     border-bottom-color: ${theme('thread.articleDigest')} !important;
   }
-
   .cdx-list-drag-start {
       opacity: 0.6;
       border-bottom-color: ${theme('thread.articleDigest')} !important;
@@ -492,6 +488,56 @@ const RichEditorStyle = createGlobalStyle`
     background: #003E4D !important;
   }
   /* plugin-mention end */
+
+  /* plugin-embed */
+  .embed-tool {
+    /* background: ${theme('popover.bg')} !important; */
+    border-color: ${theme('popover.borderColor')} !important; 
+    padding-bottom: 8px;
+  }
+ 
+  .embed-tool__addrwrapper-inputwrapper-input {
+    background: #012e38 !important;
+    color: ${theme('thread.articleTitle')} !important;
+    color: #889fa0 !important;
+    border-radius: 10px !important;
+    padding-left: 10px !important;
+    border: none !important;
+  }
+
+  .embed-tool__addrwrapper-descwrapper-desc, .embed-tool__addrwrapper-descwrapper-type-title, .embed-tool__addrwrapper-descwrapper-toggler {
+    color: ${theme('thread.articleTitle')} !important;
+    opacity: 0.8;
+  }
+  
+  .embed-tool__addrwrapper-descwrapper-toggler:hover {
+    color: ${mateColor} !important;
+  }
+
+  .embed-tool__addrwrapper-descwrapper-iconwrapper-icon {
+    filter: saturate(0.7) !important;
+  }
+
+  .embed-tool__addrwrapper-inputwrapper-btn {
+    background: ${theme('button.primary')} !important;
+  }
+
+  .embed-clip svg {
+    fill: ${theme('thread.articleTitle')} !important;
+    opacity: 0.6 !important;
+  }
+  .embed-top-success {
+    border-top: 3px solid !important;
+    border-top-color: #134b5f !important;
+  }
+
+  .embed-tool--loading::before {
+    border: 3px solid #cdd1e0;
+    border-color: ${theme('thread.articleDigest')} !important;
+    border-top-color: ${theme('button.primary')} !important;
+  }
+
+  /* plugin-embed end */
 
   .ce-block b {
     color: #9fbabb;
