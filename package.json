@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.13.14",
-    "@groupher/react-editor": "^1.1.9",
+    "@groupher/react-editor": "^1.1.12",
     "@next/bundle-analyzer": "^9.4.4",
     "@sentry/browser": "5.17.0",
     "@sentry/node": "5.17.0",

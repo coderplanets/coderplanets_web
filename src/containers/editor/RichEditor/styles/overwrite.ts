@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import { theme } from '@/utils/themes'
 
 const mateColor = '#30B1AC'
-const linkColor = '#2ba8e2'
+const linkColor = '#30B1AC'
 const tableBorder = '#124a5d'
 
 const RichEditorStyle = createGlobalStyle`
@@ -47,7 +47,7 @@ const RichEditorStyle = createGlobalStyle`
     text-decoration: none;
     &:hover {
       text-decoration: underline;
-      color: #067db5;
+      color: ${linkColor};
       cursor: pointer;
     }
   }
@@ -236,11 +236,15 @@ const RichEditorStyle = createGlobalStyle`
   }
 
   .cdx-list-drag-icon {
-    top: 8px !important;
+    top: 2px !important;
     svg {
       width: 12px;
       height: 14px;
     }
+  }
+
+  .cdx-list__item-text, .cdx-checklist__item-text {
+    padding: 5px 0 !important;
   }
 
   .cdx-checklist__item-checkbox {
@@ -256,14 +260,14 @@ const RichEditorStyle = createGlobalStyle`
 
   .cdx-checklist__item-check-sign svg {
     margin-left: -1px;
-    margin-top: 0;
+    margin-top: -2px !important;
   }
 
   .cdx-list__item-unorder-prefix::before {
-    background-color: ${linkColor} !important;
+    background-color: ${theme('thread.articleTitle')} !important;
   }
   .cdx-list__item-order-prefix {
-    color: ${linkColor} !important;
+    color: ${theme('thread.articleTitle')} !important;
   }
 
   .cdx-list-label__default {
@@ -437,7 +441,7 @@ const RichEditorStyle = createGlobalStyle`
   .selectr-input {
     background: #00262F !important;
     border-color: transparent !important;
-    color: ${theme('thread.articleDigest')} !important;
+    color: ${theme('thread.articleTitle')} !important;
   }
   .selectr-option.selected {
     background: #003E4D !important;
@@ -446,7 +450,6 @@ const RichEditorStyle = createGlobalStyle`
   .selectr-option.active {
     background: #003E4D !important;
   }
-
   .cdx-code-tabs ul {
     border-bottom-color: #013b48 !important;
   }
@@ -466,6 +469,30 @@ const RichEditorStyle = createGlobalStyle`
   }
   /* plugin-code end */
 
+  /* plugin-mention */
+  .cdx-mention {
+    color:  #9fbabb !important;
+  }
+  .cdx-mention::before {
+    color:  ${linkColor} !important;
+  }
+  .cdx-mention__input {
+    background: #00262F !important;
+    border-color: transparent !important;
+    color: ${theme('thread.articleTitle')} !important;
+  }
+  .cdx-mention-suggestion__title {
+    color: ${theme('thread.articleTitle')} !important;
+    line-height: 16px;
+  }
+  .cdx-mention-suggestion__desc {
+    color: ${theme('thread.articleDigest')} !important;
+  }
+  .cdx-mention-suggestion:hover {
+    background: #003E4D !important;
+  }
+  /* plugin-mention end */
+
   .ce-block b {
     color: #9fbabb;
     margin-left: 1px;
@@ -477,6 +504,7 @@ const RichEditorStyle = createGlobalStyle`
     color: ${theme('thread.articleDigest')} !important;
     opacity: .8;
   }
+
   /*
     .cdx-marker {
       background-color: #FCF9D8;
