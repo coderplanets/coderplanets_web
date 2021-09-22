@@ -585,6 +585,9 @@ const RichEditorStyle = createGlobalStyle`
     color: ${theme('thread.articleTitle')} !important;
     opacity: 0.6;
   }
+  .image-tool__gallery_block_image {
+    border-radius: 8px !important;
+  }
   /* plugin-image end */
 
   .ce-block b {
