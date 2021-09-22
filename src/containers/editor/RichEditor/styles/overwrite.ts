@@ -293,7 +293,7 @@ const RichEditorStyle = createGlobalStyle`
   .tippy-arrow {
     display: none;
   }
-  .tippy-tooltip.light-theme {
+  .tippy-tooltip.light-theme, .tippy-box[data-theme~=light]{
     background: ${theme('popover.bg')} !important;
     border: 1px solid;
     border-color: ${theme('popover.borderColor')} !important; 
@@ -538,6 +538,54 @@ const RichEditorStyle = createGlobalStyle`
   }
 
   /* plugin-embed end */
+
+  /* plugin-image */
+  .image-tool__image-wrapper-infolabel {
+    background: #072a34 !important;
+  }
+
+  .image-tool__image-wrapper:hover {
+    border-color: ${theme('button.primary')} !important;
+  }
+  .image-tool__image-wrapper:hover .image-tool__image-wrapper-topleft-dragger, .image-tool__image-wrapper-topright-dragger, .image-tool__image-wrapper-bottomright-dragger, .image-tool__image-wrapper-bottomleft-dragger {
+    background: ${theme('button.primary')} !important;
+  }
+
+  .image-tool__caption {
+    color: ${theme('thread.articleTitle')} !important;
+    opacity: 0.7;
+    font-size: 14px;
+  }
+
+  .image-tool__jiugongge_block, .image-tool__gallery_block, .image-tool__gallery_minimap_block {
+    background-color: #013644 !important;
+  }
+  .image-tool__jiugongge_adder, .image-tool__gallery_block_adder {
+    background: transparent !important;
+    border: dashed !important;
+    border-color: #004B5E !important;
+    border-radius: 5px;
+  }
+  .image-tool__gallery_block_adder_upload svg, .image-tool__jiugongge_adder_upload svg {
+    fill: #1d7696 !important;
+  }
+  .image-tool__gallery_block_adder_hint__icon svg, .image-tool__jiugongge_adder_hint__icon svg {
+    fill: #1d7696 !important;
+  }
+  .image-tool__gallery_block_adder_hint__text, .image-tool__jiugongge_adder_hint__text {
+    color: #1d7696 !important;
+  }
+
+  .image-tool__popover_input_wrapper_input {
+    background: #092c35 !important;
+    color: ${theme('thread.articleTitle')} !important;
+    border: none !important;
+  }
+  .image-tool__popover_input_wrapper_input::placeholder {
+    color: ${theme('thread.articleTitle')} !important;
+    opacity: 0.6;
+  }
+  /* plugin-image end */
 
   .ce-block b {
     color: #9fbabb;
