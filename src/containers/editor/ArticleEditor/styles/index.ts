@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TMetric } from '@/spec'
-import { theme } from '@/utils/themes'
+// import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -12,12 +12,11 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-top: 40px;
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
-  ${css.flexColumn()};
+  ${css.flexColumn('align-center')};
   width: 100%;
   min-height: 50vh;
+  margin-top: 30px;
   ${({ metric }) => css.fitContentWidth(metric)};
-  color: ${theme('thread.articleDigest')};
-  /* border: 1px solid #003B49; */
 `
 export const ContentWrapper = styled.div`
   min-height: 50vh;

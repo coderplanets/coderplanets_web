@@ -1,18 +1,19 @@
 import styled from 'styled-components'
 
 import Input from '@/components/Input'
-import { theme } from '@/utils/themes'
+// import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
-  width: 100%;
-  /* border: 1px solid tomato; */
-  position: absolute;
-  top: 18px;
-  padding-left: 46px;
-  padding-right: 13px;
-  margin-top: 8px;
+  width: calc(100% + 10px);
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 35px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+  border-bottom-color: #234d54;
 `
 export const LinkWrapper = styled.div`
   width: 260px;
@@ -20,13 +21,14 @@ export const LinkWrapper = styled.div`
 `
 export const LinkInput = styled(Input)`
   display: block;
-  margin-top: -2px;
-  border-radius: 0;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border: none;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-radius: 5px;
+  border-color: #1b4d53;
+  background: none;
   color: #486368;
-  padding: 2px 5px;
+  padding: 2px 8px;
   height: 20px;
   font-size: 13px;
 

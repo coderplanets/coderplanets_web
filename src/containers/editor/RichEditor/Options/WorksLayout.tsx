@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import Checker from '@/components/Checker'
 import Menu from '../Menu'
 
-import { Wrapper } from '../styles/header'
+import { Wrapper } from '../styles/options'
 
 const Header: FC = () => {
   return (

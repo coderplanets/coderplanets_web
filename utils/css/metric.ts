@@ -83,8 +83,8 @@ export const WIDTH = {
   },
 
   ARTICLE_EDITOR: {
-    PAGE: '1461px',
-    CONTENT: '650px',
+    PAGE: '1460px',
+    CONTENT: '1024px',
   },
 
   HELP_CENTER: {

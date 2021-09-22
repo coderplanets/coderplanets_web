@@ -95,3 +95,11 @@ export const articleSEO = (thread: TThread, article: TArticle): TSEO => {
     images: [],
   }
 }
+
+export const articleEditorSEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/todo`,
+    title: '创建帖子',
+    description: '创建新帖子',
+  }
+}

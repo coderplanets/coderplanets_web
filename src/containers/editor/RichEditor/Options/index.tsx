@@ -7,7 +7,7 @@ type TProps = {
   type?: 'article' | 'works' | 'job' | 'comment' | 'radar'
 }
 
-const Header: FC<TProps> = ({ type = 'article' }) => {
+const Options: FC<TProps> = ({ type = 'article' }) => {
   switch (type) {
     case 'works': {
       return <WorksLayout />
@@ -19,4 +19,4 @@ const Header: FC<TProps> = ({ type = 'article' }) => {
   }
 }
 
-export default memo(Header)
+export default memo(Options)

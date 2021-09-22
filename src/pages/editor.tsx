@@ -1,18 +1,24 @@
 import { Provider } from 'mobx-react'
+import { METRIC } from '@/constant'
+import { articleEditorSEO } from '@/utils'
 
 import { useStore } from '@/stores/init'
-import ThemePalette from '@/containers/layout/ThemePalette'
-import RichEditor from '@/containers/editor/RichEditor'
-// import EditorJS from '@editorjs/editorjs'
+import GlobalLayout from '@/containers/layout/GlobalLayout'
+import ArticleEditor from '@/containers/editor/ArticleEditor'
 
 export const EditorPage = (props) => {
   const store = useStore(props)
+  const seoConfig = articleEditorSEO()
 
   return (
     <Provider store={store}>
-      <ThemePalette>
-        <RichEditor />
-      </ThemePalette>
+      <GlobalLayout
+        metric={METRIC.ARTICLE_EDITOR}
+        seoConfig={seoConfig}
+        noSidebar
+      >
+        <ArticleEditor />
+      </GlobalLayout>
     </Provider>
   )
 }

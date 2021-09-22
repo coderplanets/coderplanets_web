@@ -4,7 +4,7 @@ import { SpaceGrow } from '@/components/Common'
 import Checker from '@/components/Checker'
 import Menu from '../Menu'
 
-import { Wrapper, LinkWrapper, LinkInput } from '../styles/header'
+import { Wrapper, LinkWrapper, LinkInput } from '../styles/options'
 
 const Header: FC = () => {
   const [reprint, setReprint] = useState(false)

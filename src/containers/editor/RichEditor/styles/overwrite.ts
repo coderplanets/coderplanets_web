@@ -19,6 +19,20 @@ const RichEditorStyle = createGlobalStyle`
     // vertical-align: super !important;
   }
 
+  .ce-paragraph[data-placeholder]:empty::before, 
+  .ce-header-wrapper h1:hover::after, 
+  .ce-header-wrapper h2:hover::after, 
+  .ce-header-wrapper h3:hover::after, 
+  .ce-header-eyebrow-title-input, 
+  .ce-header-footer-title-input {
+    color: ${theme('thread.articleTitle')} !important;
+    opacity: 0.65 !important;
+  }
+  .codex-editor svg {
+    fill: ${theme('thread.articleTitle')} !important;
+    opacity: 0.65 !important;
+  }
+
   @media (min-width: 651px) {
     .codex-editor--narrow .codex-editor__redactor {
       margin-right: 0;
@@ -64,7 +78,7 @@ const RichEditorStyle = createGlobalStyle`
   }
 
   .codex-editor--narrow .ce-toolbox {
-    background: #052630; // ${theme('bodyBg')};
+    background: transparent;
   }
   .ce-toolbar__settings-btn {
     background: ${theme('bodyBg')};
@@ -495,7 +509,7 @@ const RichEditorStyle = createGlobalStyle`
     border-color: ${theme('popover.borderColor')} !important; 
     padding-bottom: 8px;
   }
- 
+
   .embed-tool__addrwrapper-inputwrapper-input {
     background: #012e38 !important;
     color: ${theme('thread.articleTitle')} !important;

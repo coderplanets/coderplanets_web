@@ -3,7 +3,7 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
 import { markStates } from '@/utils/mobx'
@@ -15,9 +15,9 @@ const ArticleEditor = T.model('ArticleEditor', {
   showSubTitle: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
+    // get root() {
+    //   return getParent(self)
+    // },
   }))
   .actions((self) => ({
     mark(sobj) {
@@ -25,4 +25,5 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
   }))
 
+export type TStore = Instance<typeof ArticleEditor>
 export default ArticleEditor
