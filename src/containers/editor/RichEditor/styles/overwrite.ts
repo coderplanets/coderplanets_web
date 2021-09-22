@@ -33,6 +33,10 @@ const RichEditorStyle = createGlobalStyle`
     opacity: 0.65 !important;
   }
 
+  .codex-editor__redactor {
+    padding-bottom: 60px !important;
+  }
+
   @media (min-width: 651px) {
     .codex-editor--narrow .codex-editor__redactor {
       margin-right: 0;

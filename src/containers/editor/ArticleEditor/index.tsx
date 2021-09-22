@@ -14,11 +14,12 @@ import RichEditor from '@/containers/editor/RichEditor'
 
 import TitleInput from './TitleInput'
 import Footer from './Footer'
+import PublishRules from './PublishRules'
 
 // import Settings from './Settings'
 
 import type { TStore } from './store'
-import { Wrapper, InnerWrapper } from './styles'
+import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -40,9 +41,12 @@ const ArticleEditorContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
-        <TitleInput />
-        <RichEditor />
-        <Footer />
+        <ContentWrapper>
+          <TitleInput />
+          <RichEditor />
+          <Footer />
+        </ContentWrapper>
+        <PublishRules />
       </InnerWrapper>
     </Wrapper>
   )

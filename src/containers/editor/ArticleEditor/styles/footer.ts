@@ -14,11 +14,11 @@ export const ArticleFooter = styled.div`
   border-bottom: 1px solid;
   border-bottom-color: #1b4d53;
   margin-bottom: 28px;
-  padding-left: 32px;
+  padding-left: 27px;
 `
 export const PublishFooter = styled.div`
   ${css.flex('align-center', 'justify-between')};
   width: 100%;
-  padding-left: 32px;
+  padding-left: 26px;
   padding-right: 35px;
 `

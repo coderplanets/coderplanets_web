@@ -12,16 +12,13 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-top: 40px;
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
-  ${css.flexColumn('align-center')};
+  ${css.flex('justify-between')};
   width: 100%;
-  min-height: 50vh;
   margin-top: 30px;
   ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const ContentWrapper = styled.div`
-  min-height: 50vh;
-  width: 100%;
-  margin: 20px 0;
+  /* min-height: 40vh; */
 `
 export const Footer = styled.div`
   ${css.flex('align-center', 'justify-end')};
