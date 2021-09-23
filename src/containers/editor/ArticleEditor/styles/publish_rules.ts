@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   font-size: 16px;
   color: ${theme('thread.articleTitle')};
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 `
 export const Ul = styled.ul`
   background-color: #093340;

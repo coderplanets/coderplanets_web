@@ -7,12 +7,12 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   ${css.flex('justify-center')};
   width: 280px;
-  height: 120px;
-  margin-left: 20px;
+  height: 116px;
+  padding-left: 25px;
 `
 export const BadgeWrapper = styled.div`
   ${css.flex('align-center')};
-  padding-bottom: 35px;
+  padding-bottom: 33px;
 `
 export const Logo = styled(Img)`
   ${css.size(32)};
