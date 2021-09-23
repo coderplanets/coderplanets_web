@@ -14,6 +14,8 @@ import RichEditor from '@/containers/editor/RichEditor'
 
 import TitleInput from './TitleInput'
 import Footer from './Footer'
+
+import CommunityBadge from './CommunityBadge'
 import PublishRules from './PublishRules'
 
 // import Settings from './Settings'
@@ -46,7 +48,10 @@ const ArticleEditorContainer: FC<TProps> = ({
           <RichEditor />
           <Footer />
         </ContentWrapper>
-        <PublishRules />
+        <div>
+          <CommunityBadge />
+          <PublishRules />
+        </div>
       </InnerWrapper>
     </Wrapper>
   )

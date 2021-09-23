@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   padding-right: 35px;
   padding-bottom: 20px;
   border-bottom: 1px solid;
-  border-bottom-color: #234d54;
+  border-bottom-color: #1a3a40;
 `
 export const LinkWrapper = styled.div`
   width: 260px;

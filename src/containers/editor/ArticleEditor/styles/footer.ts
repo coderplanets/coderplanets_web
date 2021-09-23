@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
 export const ArticleFooter = styled.div`
   ${css.flex('align-center')};
   padding-bottom: 25px;
-  border-bottom: 1px solid;
-  border-bottom-color: #1b4d53;
+  border-bottom: 3px solid;
+  border-bottom-color: #1a3a40;
   margin-bottom: 28px;
   padding-left: 27px;
 `
