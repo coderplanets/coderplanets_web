@@ -168,34 +168,18 @@ export default class CommunityPage extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
-    const {
-      viewing: { community },
-      route,
-    } = this.props
-
-    const { communityPath, threadPath } = route
-
-    const seoConfig = {
-      url: `${SITE_URL}/${communityPath}/${threadPath}`,
-      title:
-        community.raw === 'home'
-          ? 'coderplanets 社区'
-          : `coderplanets ${community.raw}社区`,
-      description: `${community.desc}`,
-    }
 
     return (
       <Provider store={this.store}>
-        debug
-        {/* <GlobalLayout
+        <GlobalLayout
           page="community"
-          seoConfig={seoConfig}
           errorCode={statusCode}
           errorPath={target}
         >
-          <CommunityBanner />
-          <CommunityContent />
-        </GlobalLayout> */}
+          debug
+          {/* <CommunityBanner />
+          <CommunityContent /> */}
+        </GlobalLayout>
       </Provider>
     )
   }

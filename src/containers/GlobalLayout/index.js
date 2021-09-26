@@ -43,7 +43,6 @@ import { useInit, openDoraemon, queryDoraemon, calcInitWidth } from './logic'
 const GlobalLayoutContainer = ({
   globalLayout,
   page,
-  seoConfig,
   errorCode,
   errorPath,
   children,
@@ -83,7 +82,8 @@ const GlobalLayoutContainer = ({
     <AnalysisService>
       <ThemeWrapper>
         <Wrapper>
-          {errorCode ? (
+          debug global layout
+          {/* {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
             <MultiLanguage>
@@ -110,7 +110,7 @@ const GlobalLayoutContainer = ({
                 </ContentPinWrapper>
               </InnerWrapper>
             </MultiLanguage>
-          )}
+          )} */}
         </Wrapper>
       </ThemeWrapper>
     </AnalysisService>
@@ -120,7 +120,6 @@ const GlobalLayoutContainer = ({
 GlobalLayoutContainer.propTypes = {
   children: T.arrayOf(T.element),
   globalLayout: T.object.isRequired,
-  seoConfig: T.object.isRequired, // TODO:
   noSidebar: T.bool,
   page: T.string.isRequired,
   metric: T.oneOf(['default', 'article']),
