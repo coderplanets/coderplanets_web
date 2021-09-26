@@ -68,21 +68,21 @@ const GlobalLayoutContainer = ({
    */
   const innerWrapperRef = React.createRef()
 
-  useEffect(() => {
-    setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  }, [innerWrapperRef])
+  // useEffect(() => {
+  // setInnerMinWidth(calcInitWidth(innerWrapperRef))
+  // }, [innerWrapperRef])
 
-  useEffect(() => {
-    setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  }, [innerMinWidth, innerWrapperRef])
+  // useEffect(() => {
+  // setInnerMinWidth(calcInitWidth(innerWrapperRef))
+  // }, [innerMinWidth, innerWrapperRef])
 
-  useResize(() => setInnerMinWidth('none'))
+  // useResize(() => setInnerMinWidth('none'))
 
   return (
     <AnalysisService>
       <ThemeWrapper>
         <Wrapper>
-          debug global layout
+          <div>debug global layout</div>
           {/* {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (

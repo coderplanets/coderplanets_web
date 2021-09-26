@@ -32,21 +32,6 @@ export default class AppPage extends App {
     return { pageProps }
   }
 
-  static getDerivedStateFromProps(props, state) {
-    // If there was an error generated within getInitialProps, and we haven't
-    // yet seen an error, we add it to this.state here
-    return {
-      hasError: props.hasError || state.hasError || false,
-      errorEventId: props.errorEventId || state.errorEventId || undefined,
-    }
-  }
-
-  static getDerivedStateFromError() {
-    // React Error Boundary here allows us to set state flagging the error (and
-    // later render a fallback UI).
-    return { hasError: true }
-  }
-
   render() {
     const { Component, pageProps } = this.props
 

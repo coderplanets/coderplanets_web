@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import { PAGE_SIZE, SITE_URL } from '@config'
+import { PAGE_SIZE } from '@config'
 import initRootStore from '@stores/init'
 
 import {
@@ -169,6 +169,7 @@ export default class CommunityPage extends React.Component {
   render() {
     const { statusCode, target } = this.props
 
+    // return <h1>debug</h1>
     return (
       <Provider store={this.store}>
         <GlobalLayout
@@ -176,7 +177,7 @@ export default class CommunityPage extends React.Component {
           errorCode={statusCode}
           errorPath={target}
         >
-          debug
+          <div>GlobalLayout debug</div>
           {/* <CommunityBanner />
           <CommunityContent /> */}
         </GlobalLayout>
