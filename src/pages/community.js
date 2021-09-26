@@ -186,16 +186,16 @@ export default class CommunityPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GlobalLayout
+        debug
+        {/* <GlobalLayout
           page="community"
           seoConfig={seoConfig}
           errorCode={statusCode}
           errorPath={target}
         >
-          debug
-          {/* <CommunityBanner />
-          <CommunityContent /> */}
-        </GlobalLayout>
+          <CommunityBanner />
+          <CommunityContent />
+        </GlobalLayout> */}
       </Provider>
     )
   }
