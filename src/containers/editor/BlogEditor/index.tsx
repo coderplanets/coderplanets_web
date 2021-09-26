@@ -10,9 +10,10 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import RichEditor from '@/containers/editor/RichEditor'
+// import RichEditor from '@/containers/editor/RichEditor'
 
-import TitleInput from './TitleInput'
+import RSSInputer from './RSSInputer'
+import FeedList from './FeedList'
 import Footer from './Footer'
 
 import CommunityBadge from './CommunityBadge'
@@ -25,17 +26,17 @@ import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:ArticleEditor')
+const log = buildLog('C:BlogEditor')
 
 type TProps = {
   testid?: string
-  articleEditor?: TStore
+  blogEditor?: TStore
   metric?: TMetric
 }
 
-const ArticleEditorContainer: FC<TProps> = ({
+const BlogEditorContainer: FC<TProps> = ({
   testid = 'article-editor',
-  articleEditor: store,
+  blogEditor: store,
   metric = METRIC.ARTICLE_EDITOR,
 }) => {
   useInit(store)
@@ -44,8 +45,9 @@ const ArticleEditorContainer: FC<TProps> = ({
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         <ContentWrapper>
-          <TitleInput />
-          <RichEditor />
+          <RSSInputer />
+          <FeedList />
+          {/* <RichEditor /> */}
           <Footer />
         </ContentWrapper>
         <div>
@@ -57,4 +59,4 @@ const ArticleEditorContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleEditorContainer) as FC<TProps>
+export default pluggedIn(BlogEditorContainer) as FC<TProps>

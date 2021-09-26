@@ -113,7 +113,12 @@ router.route('/create/article').get((req, res) => {
   return renderAndCache({ req, res, page: '/create/article' })
 })
 
-// 创建新社区
+// 创建新博客
+router.route('/create/blog').get((req, res) => {
+  return renderAndCache({ req, res, page: '/create/blog' })
+})
+
+// 创建新作品
 router.route('/create/works').get((req, res) => {
   return renderAndCache({ req, res, page: '/create/works' })
 })

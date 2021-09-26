@@ -6,7 +6,7 @@ const PublishRules: FC = () => {
   return (
     <Wrapper>
       <Ul>
-        <Title>发帖规范</Title>
+        <Title>发帖须知</Title>
         <Li>友善是一切有意义讨论的基础和前提。Don&apos;t be an asshole.</Li>
         <Li>
           如果是求助，问答类帖子，请务必提供上下文、需求场景等必要信息。”如何看待

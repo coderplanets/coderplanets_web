@@ -2,6 +2,7 @@ import { FC, memo } from 'react'
 
 import Checker from '@/components/Checker'
 import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
+import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
 
@@ -11,14 +12,10 @@ const Footer: FC = () => {
       <ArticleFooter>社区 / Tags etc ...</ArticleFooter>
       <PublishFooter>
         <Checker size="medium" dimWhenIdle>
-          求助 / 问答类
+          我是该博客作者
         </Checker>
         <div>
-          <YesOrNoButtons
-            cancelText="取消"
-            confirmText="发 布"
-            onCancel={console.log}
-          />
+          <ArrowButton>下一步</ArrowButton>
         </div>
       </PublishFooter>
     </Wrapper>
