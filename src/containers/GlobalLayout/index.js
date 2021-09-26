@@ -82,7 +82,7 @@ const GlobalLayoutContainer = ({
     <AnalysisService>
       <ThemeWrapper>
         <Wrapper>
-          <div>debug global layout</div>
+          <div>debug in global layout</div>
           {/* {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
