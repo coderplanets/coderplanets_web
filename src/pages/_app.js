@@ -1,19 +1,13 @@
 import React from 'react'
 import App from 'next/app'
 
-import { sentry } from '@services'
-
 /**
  * import default seo configuration
  * Using a custom _app.js with next-seo you can set default SEO
  * that will apply to every page. Full info on how the default works
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
-import SEO from '@config/next_seo'
-
-const { Sentry, captureException } = sentry({
-  release: process.env.SENTRY_RELEASE,
-})
+// import SEO from '@config/next_seo'
 
 // const { SENTRY_TOKEN } = process.env
 
@@ -29,23 +23,13 @@ export default class AppPage extends App {
   }
 
   static async getInitialProps({ Component, ctx }) {
-    try {
-      let pageProps = {}
+    let pageProps = {}
 
-      if (Component.getInitialProps) {
-        pageProps = await Component.getInitialProps(ctx)
-      }
-
-      return { pageProps }
-    } catch (error) {
-      // Capture errors that happen during a page's getInitialProps.
-      // This will work on both client and server sides.
-      const errorEventId = captureException(error, ctx)
-      return {
-        hasError: true,
-        errorEventId,
-      }
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
     }
+
+    return { pageProps }
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -63,43 +47,11 @@ export default class AppPage extends App {
     return { hasError: true }
   }
 
-  componentDidCatch(error, errorInfo) {
-    const errorEventId = captureException(error, { errorInfo })
-
-    // Store the event id at this point as we don't have access to it within
-    // `getDerivedStateFromError`.
-    this.setState({ errorEventId })
-  }
-
   render() {
-    const { hasError, errorEventId } = this.state
     const { Component, pageProps } = this.props
 
     /* eslint-disable */
-    return hasError ? (
-      <section>
-        <h1>There was an error!</h1>
-        <p>
-          <a
-            href="#"
-            onClick={() => Sentry.showReportDialog({ eventId: errorEventId })}
-          >
-            📣 Report this error
-          </a>
-        </p>
-        <p>
-          <a
-            href="#"
-            onClick={() => {
-              window.location.reload(true)
-            }}
-          >
-            Or, try reloading the page
-          </a>
-        </p>
-      </section>
-    ) : (
-      /* render normal next.js app */
+    return (
       <React.Fragment>
         <Component {...pageProps} />
       </React.Fragment>
