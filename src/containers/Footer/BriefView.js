@@ -22,7 +22,7 @@ const BriefView = () => (
       <MainInfos>
         <BaseInfo>
           <Item
-            href="http://www.miitbeian.gov.cn"
+            href="https://beian.miit.gov.cn"
             rel="noopener noreferrer"
             target="_blank"
           >
