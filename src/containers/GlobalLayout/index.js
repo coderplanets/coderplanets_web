@@ -30,8 +30,6 @@ import ErrorBox from '@containers/ErrorBox'
 import Footer from '@containers/Footer'
 import ErrorPage from '@components/ErrorPage'
 
-import SEO from './SEO'
-
 import {
   Wrapper,
   InnerWrapper,
@@ -92,7 +90,6 @@ const GlobalLayoutContainer = ({
               <SubCommunitiesExpander onClick={queryDoraemon('/')}>
                 <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
               </SubCommunitiesExpander>
-              <SEO page={page} config={seoConfig} />
               <InnerWrapper
                 sidebarPin={sidebarPin}
                 noSidebar={noSidebar}

@@ -1,6 +1,5 @@
 import React from 'react'
 import App from 'next/app'
-import { DefaultSeo } from 'next-seo'
 
 import { sentry } from '@services'
 
@@ -102,7 +101,6 @@ export default class AppPage extends App {
     ) : (
       /* render normal next.js app */
       <React.Fragment>
-        <DefaultSeo {...SEO} />
         <Component {...pageProps} />
       </React.Fragment>
     )

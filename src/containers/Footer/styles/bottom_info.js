@@ -17,6 +17,9 @@ export const InnerWrapper = styled.div`
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 5vw;
 `
+export const Beian = styled.a`
+  color: ${theme('thread.articleDigest')};
+`
 export const Copyrights = styled.div`
   color: ${theme('thread.articleDigest')};
 `
