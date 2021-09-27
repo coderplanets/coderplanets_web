@@ -7,7 +7,9 @@ RUN npm install -g pm2 --registry=https://registry.npm.taobao.org
 RUN cd /root/web/ && npm install --registry=https://registry.npm.taobao.org
 RUN cd /root/web/ && npm i terser@3.14
 
-RUN mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/bin/jq
+# RUN mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/bin/jq
+RUN mkdir -p ~/bin && chmod +x ./jq-linux64 && mv jq-linux64 ~/bin/jq
+# RUN mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/bin/jq
 RUN export PATH=$PATH:~/bin
 RUN /bin/jq --version
 
