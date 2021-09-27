@@ -170,6 +170,8 @@ export default class CommunityPage extends React.Component {
     const { statusCode, target } = this.props
 
     // return <h1>debug</h1>
+    /* <CommunityBanner />
+          <CommunityContent /> */
     return (
       <Provider store={this.store}>
         <GlobalLayout
@@ -178,8 +180,6 @@ export default class CommunityPage extends React.Component {
           errorPath={target}
         >
           <div>GlobalLayout debug</div>
-          {/* <CommunityBanner />
-          <CommunityContent /> */}
         </GlobalLayout>
       </Provider>
     )
