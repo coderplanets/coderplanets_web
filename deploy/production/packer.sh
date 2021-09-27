@@ -14,10 +14,10 @@ fi
 mkdir "${PACKER_TMP_DIR}"
 
 echo "[Step 2/${TOTAL_STEPS}] cp files to ${PACKER_TMP_DIR} ..."
-cp -rf pages lang src config static utils .babelrc next-seo.config.js server.js "${PACKER_TMP_DIR}"
+cp -rf lang src config static utils .babelrc next-seo.config.js server.js "${PACKER_TMP_DIR}"
 cp Makefile Makefile.include.mk "${PACKER_TMP_DIR}"
-cp package.docker.json "${PACKER_TMP_DIR}/package.json"
-cp next.config.docker.js "${PACKER_TMP_DIR}/next.config.js"
+cp package.json "${PACKER_TMP_DIR}/package.json"
+cp next.config.js "${PACKER_TMP_DIR}/next.config.js"
 
 echo "[Step 3/${TOTAL_STEPS}] creating ${ARCHIVE_NAME} ..."
 cd "${PACKER_TMP_DIR}"
