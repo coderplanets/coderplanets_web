@@ -15,6 +15,8 @@ RUN cd /root/web/ && npm install --registry=https://registry.npm.taobao.org
 RUN cd /root/web/ && npm i terser@3.14
 
 
+ARG SERVE_PORT=8002
+ARG GA_TRACING_ID=UA-39874160-3
 RUN cd /root/web/ && make build.prod
 
 ADD loader.sh /usr/local/bin/loader.sh
