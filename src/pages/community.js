@@ -24,9 +24,10 @@ import {
   parseTheme,
 } from '@utils'
 
-import GlobalLayout from '@containers/GlobalLayout'
-import CommunityBanner from '@containers/banner/CommunityBanner'
-import CommunityContent from '@containers/content/CommunityContent'
+// import GlobalLayout from '@containers/GlobalLayout'
+import FakeMan from '@components/FakeMan'
+// import CommunityBanner from '@containers/banner/CommunityBanner'
+// import CommunityContent from '@containers/content/CommunityContent'
 
 import { P } from '@schemas'
 
@@ -173,13 +174,7 @@ export default class CommunityPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GlobalLayout
-          page="community"
-          errorCode={statusCode}
-          errorPath={target}
-        >
-          <div>where</div>
-        </GlobalLayout>
+        <FakeMan />
       </Provider>
     )
   }
