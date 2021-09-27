@@ -169,19 +169,19 @@ export default class CommunityPage extends React.Component {
   render() {
     const { statusCode, target } = this.props
 
-    // return <h1>debug</h1>
+    return <h1>debug..</h1>
     /* <CommunityBanner />
           <CommunityContent /> */
-    return (
-      <Provider store={this.store}>
-        <GlobalLayout
-          page="community"
-          errorCode={statusCode}
-          errorPath={target}
-        >
-          <div>GlobalLayout debug</div>
-        </GlobalLayout>
-      </Provider>
-    )
+    // return (
+    //   <Provider store={this.store}>
+    //     <GlobalLayout
+    //       page="community"
+    //       errorCode={statusCode}
+    //       errorPath={target}
+    //     >
+    //       <div>GlobalLayout debug</div>
+    //     </GlobalLayout>
+    //   </Provider>
+    // )
   }
 }
