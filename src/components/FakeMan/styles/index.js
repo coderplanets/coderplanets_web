@@ -6,11 +6,11 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('align-both')};
   width: 100vw;
   height: 100vh;
-  background: #003b48;
+  /* background: #003b48; */
+  background-image: linear-gradient(#043b49, #022a35);
 `
 export const InnerWrapper = styled.div`
   ${cs.flexColumn('align-center')};
-  border: 1px solid;
   height: 100%;
   width: 100%;
   color: #90a3a4;
@@ -20,15 +20,18 @@ export const Body = styled.div`
   flex-grow: 1;
 `
 export const Title = styled.div`
+  font-weight: bold;
   font-size: 25px;
   color: #90a3a4;
   margin-bottom: 10px;
 `
 export const Desc = styled.div`
+  text-align: center;
   margin-top: 6px;
   font-size: 15px;
   color: #90a3a4;
   opacity: 0.8;
+  padding: 0 30px;
 `
 export const Link = styled.a`
   font-size: 17px;
