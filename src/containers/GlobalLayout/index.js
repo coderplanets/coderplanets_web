@@ -81,7 +81,8 @@ const GlobalLayoutContainer = ({
   return (
     <AnalysisService>
       <ThemeWrapper>
-        <Wrapper>
+        hello?
+        {/* <Wrapper>
           {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
@@ -109,7 +110,7 @@ const GlobalLayoutContainer = ({
               </InnerWrapper>
             </MultiLanguage>
           )}
-        </Wrapper>
+        </Wrapper> */}
       </ThemeWrapper>
     </AnalysisService>
   )
