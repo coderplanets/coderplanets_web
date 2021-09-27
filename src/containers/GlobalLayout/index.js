@@ -38,7 +38,7 @@ import {
   SubCommunitiesExpander,
   ExpanderIcon,
 } from './styles'
-import { useInit, openDoraemon, queryDoraemon, calcInitWidth } from './logic'
+import { useInit, openDoraemon, queryDoraemon } from './logic'
 
 const GlobalLayoutContainer = ({
   globalLayout,
@@ -49,17 +49,14 @@ const GlobalLayoutContainer = ({
   noSidebar,
   metric,
 }) => {
-  const [innerMinWidth, setInnerMinWidth] = useState('100%')
+  // const { online } = useNetwork()
+  // const media = useMedia()
+  // const platform = usePlatform()
 
-  const { online } = useNetwork()
-
-  const media = useMedia()
-  const platform = usePlatform()
-
-  useInit(globalLayout, { online, media, platform })
+  // useInit(globalLayout, { online, media, platform })
 
   useShortcut('ctrl+p', openDoraemon)
-  const { sidebarPin } = globalLayout
+  // const { sidebarPin } = globalLayout
 
   /*
    * solve page jump when switch beteen threads
@@ -68,21 +65,11 @@ const GlobalLayoutContainer = ({
    */
   // const innerWrapperRef = React.createRef()
 
-  // useEffect(() => {
-  //   setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  // }, [innerWrapperRef])
-
-  // useEffect(() => {
-  //   setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  // }, [innerMinWidth, innerWrapperRef])
-
-  // useResize(() => setInnerMinWidth('none'))
-
   return (
     <AnalysisService>
-      <ThemeWrapper>
-        <h2>debug layout</h2>
-        {/* <Wrapper>
+      <h2>debug layout...</h2>
+      {/* <ThemeWrapper> */}
+      {/* <Wrapper>
           {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
@@ -94,7 +81,7 @@ const GlobalLayoutContainer = ({
                 sidebarPin={sidebarPin}
                 noSidebar={noSidebar}
                 // ref={innerWrapperRef}
-                minWidth={innerMinWidth}
+                minWidth="100%"
               >
                 <Route />
                 {!noSidebar && <Sidebar />}
@@ -112,7 +99,7 @@ const GlobalLayoutContainer = ({
             </MultiLanguage>
           )}
         </Wrapper> */}
-      </ThemeWrapper>
+      {/* </ThemeWrapper> */}
     </AnalysisService>
   )
 }
