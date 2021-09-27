@@ -9604,10 +9604,10 @@
   dependencies:
     "minimist" "0.0.8"
 
-"mobx-react-lite@^2.2.0", "mobx-react-lite@^2.2.1":
-  "integrity" "sha512-SxOuV7Q1MLdj9uRUG8N1x9lBa4cS9c+YwlcrvrBVuCTlNrgRrrHuydfBHW/0f3pALhvGhcg+JEvf1gMWOuej4A=="
-  "resolved" "https://registry.npmjs.org/mobx-react-lite/-/mobx-react-lite-2.2.1.tgz"
-  "version" "2.2.1"
+"mobx-react-lite@^2.2.0", "mobx-react-lite@^2.2.2":
+  "integrity" "sha512-2SlXALHIkyUPDsV4VTKVR9DW7K3Ksh1aaIv3NrNJygTbhXe2A9GrcKHZ2ovIiOp/BXilOcTYemfHHZubP431dg=="
+  "resolved" "https://registry.npmjs.org/mobx-react-lite/-/mobx-react-lite-2.2.2.tgz"
+  "version" "2.2.2"
 
 "mobx-react@6.3":
   "integrity" "sha512-IOxdJGnRSNSJrL2uGpWO5w9JH5q5HoxEqwOF4gye1gmZYdjoYkkMzSGMDnRCUpN/BNzZcFoMdHXrjvkwO7KgaQ=="
