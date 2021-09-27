@@ -16,7 +16,9 @@ RUN cd /root/web/ && npm i terser@3.14
 
 
 ARG SERVE_PORT=8002
+ARG GITHUB_CLIENT_ID=3b4281c5e54ffd801f85
 ARG GA_TRACING_ID=UA-39874160-3
+ARG SENTRY_TOKEN=https://c3736f9e69124719b594e8a746815a26@sentry.io/1260565
 RUN cd /root/web/ && make build.prod
 
 ADD loader.sh /usr/local/bin/loader.sh
