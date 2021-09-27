@@ -49,16 +49,16 @@ const GlobalLayoutContainer = ({
   noSidebar,
   metric,
 }) => {
-  const [innerMinWidth, setInnerMinWidth] = useState('100%')
+  // const [innerMinWidth, setInnerMinWidth] = useState('100%')
 
-  const { online } = useNetwork()
+  // const { online } = useNetwork()
 
-  const media = useMedia()
-  const platform = usePlatform()
+  // const media = useMedia()
+  // const platform = usePlatform()
 
-  useInit(globalLayout, { online, media, platform })
+  // useInit(globalLayout, { online, media, platform })
 
-  useShortcut('ctrl+p', openDoraemon)
+  // useShortcut('ctrl+p', openDoraemon)
   const { sidebarPin } = globalLayout
 
   /*
@@ -92,7 +92,7 @@ const GlobalLayoutContainer = ({
               <InnerWrapper
                 sidebarPin={sidebarPin}
                 noSidebar={noSidebar}
-                minWidth={innerMinWidth}
+                minWidth="100%"
               >
                 <Route />
                 {!noSidebar && <Sidebar />}
