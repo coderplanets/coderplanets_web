@@ -66,8 +66,8 @@ const GlobalLayoutContainer = ({
   // const innerWrapperRef = React.createRef()
 
   return (
-    <AnalysisService>
-      <h2>debug layout...</h2>
+    <div>
+      <h2>debug layout...2</h2>
       {/* <ThemeWrapper> */}
       {/* <Wrapper>
           {errorCode ? (
@@ -100,7 +100,7 @@ const GlobalLayoutContainer = ({
           )}
         </Wrapper> */}
       {/* </ThemeWrapper> */}
-    </AnalysisService>
+    </div>
   )
 }
 

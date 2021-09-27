@@ -165,6 +165,8 @@ export default class CommunityPage extends React.Component {
     this.store = store
     // this.store = initRootStore({ ...props })
   }
+  //    <CommunityBanner />
+  //  <CommunityContent />
 
   render() {
     const { statusCode, target } = this.props
@@ -177,8 +179,6 @@ export default class CommunityPage extends React.Component {
           errorPath={target}
         >
           <div>where</div>
-          {/* <CommunityBanner /> */}
-          {/* <CommunityContent /> */}
         </GlobalLayout>
       </Provider>
     )
