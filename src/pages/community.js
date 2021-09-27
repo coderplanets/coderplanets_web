@@ -176,8 +176,9 @@ export default class CommunityPage extends React.Component {
           errorCode={statusCode}
           errorPath={target}
         >
+          <div>where</div>
           {/* <CommunityBanner /> */}
-          <CommunityContent />
+          {/* <CommunityContent /> */}
         </GlobalLayout>
       </Provider>
     )
