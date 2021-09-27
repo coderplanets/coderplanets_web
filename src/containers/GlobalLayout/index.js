@@ -38,7 +38,7 @@ import {
   SubCommunitiesExpander,
   ExpanderIcon,
 } from './styles'
-import { useInit, openDoraemon, queryDoraemon } from './logic'
+import { useInit, openDoraemon, queryDoraemon, calcInitWidth } from './logic'
 
 const GlobalLayoutContainer = ({
   globalLayout,
@@ -49,16 +49,16 @@ const GlobalLayoutContainer = ({
   noSidebar,
   metric,
 }) => {
-  // const [innerMinWidth, setInnerMinWidth] = useState('100%')
+  const [innerMinWidth, setInnerMinWidth] = useState('100%')
 
-  // const { online } = useNetwork()
+  const { online } = useNetwork()
 
-  // const media = useMedia()
-  // const platform = usePlatform()
+  const media = useMedia()
+  const platform = usePlatform()
 
-  // useInit(globalLayout, { online, media, platform })
+  useInit(globalLayout, { online, media, platform })
 
-  // useShortcut('ctrl+p', openDoraemon)
+  useShortcut('ctrl+p', openDoraemon)
   const { sidebarPin } = globalLayout
 
   /*
@@ -81,7 +81,7 @@ const GlobalLayoutContainer = ({
   return (
     <AnalysisService>
       <ThemeWrapper>
-        hello?
+        <h2>debug layout</h2>
         {/* <Wrapper>
           {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
@@ -93,7 +93,8 @@ const GlobalLayoutContainer = ({
               <InnerWrapper
                 sidebarPin={sidebarPin}
                 noSidebar={noSidebar}
-                minWidth="100%"
+                // ref={innerWrapperRef}
+                minWidth={innerMinWidth}
               >
                 <Route />
                 {!noSidebar && <Sidebar />}
