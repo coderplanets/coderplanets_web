@@ -49,42 +49,40 @@ const GlobalLayoutContainer = ({
   noSidebar,
   metric,
 }) => {
-  // const [innerMinWidth, setInnerMinWidth] = useState('100%')
+  const [innerMinWidth, setInnerMinWidth] = useState('100%')
 
-  // const { online } = useNetwork()
+  const { online } = useNetwork()
 
-  // const media = useMedia()
-  // const platform = usePlatform()
+  const media = useMedia()
+  const platform = usePlatform()
 
-  // useInit(globalLayout, { online, media, platform })
+  useInit(globalLayout, { online, media, platform })
 
-  // useShortcut('ctrl+p', openDoraemon)
-  // const { sidebarPin } = globalLayout
+  useShortcut('ctrl+p', openDoraemon)
+  const { sidebarPin } = globalLayout
 
   /*
    * solve page jump when switch beteen threads
    * 要给 innerWrapper 一个最小宽度，否则在切换不同 Threads
    * 时，由于 loading 效果的不同会导致页面横向跳动
    */
-  // const innerWrapperRef = React.createRef()
+  const innerWrapperRef = React.createRef()
 
-  // useEffect(() => {
-  // setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  // }, [innerWrapperRef])
+  useEffect(() => {
+    setInnerMinWidth(calcInitWidth(innerWrapperRef))
+  }, [innerWrapperRef])
 
-  // useEffect(() => {
-  // setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  // }, [innerMinWidth, innerWrapperRef])
+  useEffect(() => {
+    setInnerMinWidth(calcInitWidth(innerWrapperRef))
+  }, [innerMinWidth, innerWrapperRef])
 
-  // useResize(() => setInnerMinWidth('none'))
+  useResize(() => setInnerMinWidth('none'))
 
   return (
     <AnalysisService>
-      <div>---debug in global layout</div>
-      {/* <ThemeWrapper>
+      <ThemeWrapper>
         <Wrapper>
-          <div>---debug in global layout</div> */}
-      {/* {errorCode ? (
+          {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
             <MultiLanguage>
@@ -111,9 +109,9 @@ const GlobalLayoutContainer = ({
                 </ContentPinWrapper>
               </InnerWrapper>
             </MultiLanguage>
-          )} */}
-      {/* </Wrapper>
-      </ThemeWrapper> */}
+          )}
+        </Wrapper>
+      </ThemeWrapper>
     </AnalysisService>
   )
 }
