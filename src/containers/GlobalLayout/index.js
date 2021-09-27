@@ -49,17 +49,17 @@ const GlobalLayoutContainer = ({
   noSidebar,
   metric,
 }) => {
-  const [innerMinWidth, setInnerMinWidth] = useState('100%')
+  // const [innerMinWidth, setInnerMinWidth] = useState('100%')
 
-  const { online } = useNetwork()
+  // const { online } = useNetwork()
 
-  const media = useMedia()
-  const platform = usePlatform()
+  // const media = useMedia()
+  // const platform = usePlatform()
 
-  useInit(globalLayout, { online, media, platform })
+  // useInit(globalLayout, { online, media, platform })
 
-  useShortcut('ctrl+p', openDoraemon)
-  const { sidebarPin } = globalLayout
+  // useShortcut('ctrl+p', openDoraemon)
+  // const { sidebarPin } = globalLayout
 
   /*
    * solve page jump when switch beteen threads
@@ -80,10 +80,11 @@ const GlobalLayoutContainer = ({
 
   return (
     <AnalysisService>
-      <ThemeWrapper>
+      <div>---debug in global layout</div>
+      {/* <ThemeWrapper>
         <Wrapper>
-          <div>---debug in global layout</div>
-          {/* {errorCode ? (
+          <div>---debug in global layout</div> */}
+      {/* {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
             <MultiLanguage>
@@ -111,8 +112,8 @@ const GlobalLayoutContainer = ({
               </InnerWrapper>
             </MultiLanguage>
           )} */}
-        </Wrapper>
-      </ThemeWrapper>
+      {/* </Wrapper>
+      </ThemeWrapper> */}
     </AnalysisService>
   )
 }
