@@ -9,7 +9,7 @@ RUN cd /root/web/ && npm i terser@3.14
 
 RUN mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/bin/jq
 RUN export PATH=$PATH:~/bin
-RUN jq --version
+RUN /bin/jq --version
 
 RUN cd /root/web/ && make build.prod
 
