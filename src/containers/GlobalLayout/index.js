@@ -38,7 +38,7 @@ import {
   SubCommunitiesExpander,
   ExpanderIcon,
 } from './styles'
-import { useInit, openDoraemon, queryDoraemon, calcInitWidth } from './logic'
+import { useInit, openDoraemon, queryDoraemon } from './logic'
 
 const GlobalLayoutContainer = ({
   globalLayout,
@@ -66,17 +66,17 @@ const GlobalLayoutContainer = ({
    * 要给 innerWrapper 一个最小宽度，否则在切换不同 Threads
    * 时，由于 loading 效果的不同会导致页面横向跳动
    */
-  const innerWrapperRef = React.createRef()
+  // const innerWrapperRef = React.createRef()
 
-  useEffect(() => {
-    setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  }, [innerWrapperRef])
+  // useEffect(() => {
+  //   setInnerMinWidth(calcInitWidth(innerWrapperRef))
+  // }, [innerWrapperRef])
 
-  useEffect(() => {
-    setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  }, [innerMinWidth, innerWrapperRef])
+  // useEffect(() => {
+  //   setInnerMinWidth(calcInitWidth(innerWrapperRef))
+  // }, [innerMinWidth, innerWrapperRef])
 
-  useResize(() => setInnerMinWidth('none'))
+  // useResize(() => setInnerMinWidth('none'))
 
   return (
     <AnalysisService>
@@ -92,7 +92,6 @@ const GlobalLayoutContainer = ({
               <InnerWrapper
                 sidebarPin={sidebarPin}
                 noSidebar={noSidebar}
-                ref={innerWrapperRef}
                 minWidth={innerMinWidth}
               >
                 <Route />
