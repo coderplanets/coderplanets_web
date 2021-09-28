@@ -7,12 +7,21 @@ import {
   HintWrapper,
   Hint,
 } from '../styles/content/rss_inputer'
+import { rssOnChange } from '../logic'
 
-const RSSInputer: FC = () => {
+type TProps = {
+  rss: string
+}
+
+const RSSInputer: FC<TProps> = ({ rss }) => {
   return (
     <Wrapper>
       <Title>请输入博客 RSS 地址</Title>
-      <Inputer placeholder="// 例如：https://example.com/blog/atom.xml" />
+      <Inputer
+        value={rss}
+        placeholder="// 例如：https://example.com/blog/atom.xml"
+        onChange={rssOnChange}
+      />
       <HintWrapper>
         <Hint>支持 RSS 2.0 以及 Atom 格式</Hint>
         <Hint>已提交的博客会同时保存历史 Feed, 方便关联查看。</Hint>

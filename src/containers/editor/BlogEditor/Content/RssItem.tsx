@@ -8,12 +8,14 @@ import IconButton from '@/components/Buttons/IconButton'
 import { Wrapper, Title } from '../styles/content/rss_item'
 import { toStep } from '../logic'
 
-type TProps = TSpace
+type TProps = TSpace & {
+  rss: string
+}
 
-const RSSItem: FC<TProps> = (props) => {
+const RSSItem: FC<TProps> = ({ rss, ...restProps }) => {
   return (
-    <Wrapper {...props}>
-      <Title>https:expdljfie.com/atom.xml</Title>
+    <Wrapper {...restProps}>
+      <Title>{rss}</Title>
       <DotDivider space={5} />
       <IconButton icon={SVG.EDIT_PEN} onClick={() => toStep('STEP_1')} />
     </Wrapper>

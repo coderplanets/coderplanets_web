@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { buildLog } from '@/utils/logger'
+import { updateEditing } from '@/utils/mobx'
 
 // import S from './schma'
 import type { TStore } from './store'
@@ -34,6 +35,10 @@ export const nextStep = (): void => {
   }
 
   store.mark({ step: nextStep })
+}
+
+export const rssOnChange = (e): void => {
+  updateEditing(store, 'rss', e)
 }
 
 export const testRSS = (): void => {

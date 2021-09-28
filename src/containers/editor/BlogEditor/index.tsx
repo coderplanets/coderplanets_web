@@ -37,14 +37,14 @@ const BlogEditorContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE_EDITOR,
 }) => {
   useInit(store)
-  const { step } = store
+  const { step, rss, feedsData } = store
 
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         <div>
           <ContentWrapper>
-            <Content step={step} />
+            <Content step={step} rss={rss} feeds={feedsData} />
           </ContentWrapper>
           <Footer step={step} />
         </div>
