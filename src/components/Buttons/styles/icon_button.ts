@@ -9,6 +9,7 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 import UpvoteIcon from '@/icons/Upvote'
+import EditPenIcon from '@/icons/EditPen'
 import LockIcon from '@/icons/Lock'
 import ExpandIcon from '@/icons/Expand'
 import FoldIcon from '@/icons/Fold'
@@ -47,6 +48,10 @@ export const getIcon = (type: string): FC<TIcon> => {
   switch (type) {
     case SVG.UPVOTE: {
       return getStyledIcon(UpvoteIcon)
+    }
+
+    case SVG.EDIT_PEN: {
+      return getStyledIcon(EditPenIcon)
     }
 
     case SVG.LOCK: {

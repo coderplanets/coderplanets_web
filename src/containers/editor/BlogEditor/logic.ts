@@ -11,6 +11,10 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:BlogEditor')
 
+export const toStep = (step: string): void => {
+  store.mark({ step })
+}
+
 export const nextStep = (): void => {
   const { step: curStep } = store
   let nextStep

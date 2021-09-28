@@ -34,7 +34,7 @@ const Textarea: FC<TProps> = ({
       testid={testid}
       onChange={handleOnChange}
       minRows={1}
-      spellcheck="false"
+      spellCheck="false"
       {...validProps}
     />
   )

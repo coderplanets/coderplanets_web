@@ -1,8 +1,7 @@
 import { FC, memo } from 'react'
 
-import DotDivider from '@/components/DotDivider'
 import FeedItem from './FeedItem'
-import RSSItem from './RssItem'
+import RSSItem from './RSSItem'
 
 import { Wrapper, Inputer, Hint } from '../styles/content/feed_list'
 
@@ -72,7 +71,7 @@ const FeedList: FC = () => {
   return (
     <Wrapper>
       <RSSItem left={12} bottom={14} />
-      <Inputer placeholder="//标题搜索" />
+      <Inputer placeholder="// 按标题搜索" />
       <Hint>请选择你要提交的博客, 可使用标题搜索</Hint>
       {list.map((item) => (
         <FeedItem key={item.id} item={item} />

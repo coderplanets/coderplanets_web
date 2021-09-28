@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import RSSItem from './RssItem'
+import RSSItem from './RSSItem'
 import FeedItem from './FeedItem'
 
 import {

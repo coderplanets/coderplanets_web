@@ -6,7 +6,7 @@ import { theme } from '@/utils/themes'
 
 import { baseInput } from './index'
 
-type TWrapper = TTestable | { spellcheck: string }
+type TWrapper = TTestable | { spellCheck: string }
 
 export const Wrapper = styled(TextareaAutosize).attrs(
   ({ testid }: TTestable) => ({

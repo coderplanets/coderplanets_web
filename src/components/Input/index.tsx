@@ -61,7 +61,7 @@ const Input: FC<TProps> = ({
       <InputWrapper
         onChange={handleOnChange}
         onFocus={handleOnFocus}
-        spellcheck="false"
+        spellCheck="false"
         // prefix={false}
         hasPrefix={!nilOrEmpty(prefixIcon)}
         hasSuffix={!nilOrEmpty(suffixIcon)}

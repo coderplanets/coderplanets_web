@@ -1,25 +1,16 @@
 import styled from 'styled-components'
 import TimeAgo from 'timeago-react'
 
+import type { TActive } from '@/spec'
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
 
 import ReadableDate from '@/components/ReadableDate'
-import EditPenSVG from '@/icons/EditPen'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 100%;
   margin-bottom: 14px;
-`
-export const EditIcon = styled(EditPenSVG)`
-  ${css.size(16)};
-  fill: ${theme('thread.articleDigest')};
-  margin-top: 3px;
-  &:hover {
-    fill: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
 `
 export const Header = styled.div`
   position: relative;
@@ -30,15 +21,18 @@ export const Selector = styled.div`
   top: 3px;
   left: -35px;
 `
-export const Title = styled.div<{ withEdit: boolean }>`
+export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   margin-right: 8px;
   font-size: 16.5px;
+`
+export const HoverTitle = styled(Title)<TActive>`
+  color: ${({ $active }) =>
+    $active ? '#12979a' : theme('thread.articleTitle')};
 
   ${Wrapper}:hover & {
-    color: ${({ withEdit }) =>
-      withEdit ? theme('thread.articleTitle') : '#12979a'};
-    cursor: ${({ withEdit }) => (withEdit ? 'normal' : 'pointer;')};
+    color: #12979a;
+    cursor: pointer;
   }
 `
 export const BlogLink = styled.a`
@@ -62,18 +56,21 @@ export const BlogLink = styled.a`
   transition: 0.2s opacity;
 `
 
-export const PubDateWrapper = styled.div<{ withEdit: boolean }>`
+export const PubDateWrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
   margin-top: 3px;
   margin-right: 10px;
   min-width: 195px;
+`
 
+export const HoverPubDateWrapper = styled(PubDateWrapper)<TActive>`
+  color: ${({ $active }) =>
+    $active ? '#12979a' : theme('thread.articleDigest')};
   ${Wrapper}:hover & {
-    color: ${({ withEdit }) =>
-      withEdit ? theme('thread.articleTitle') : '#12979a'};
-    cursor: ${({ withEdit }) => (withEdit ? 'normal' : 'pointer;')};
+    color: #12979a;
+    cursor: pointer;
   }
 `
 export const AbsDate = styled(ReadableDate)`
@@ -91,15 +88,18 @@ export const RelDate = styled(TimeAgo)`
     content: ')';
   }
 `
-export const Digest = styled.div<{ withEdit: boolean }>`
+export const Digest = styled.div`
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
   margin-top: 5px;
+`
+export const HoverDigest = styled(Digest)<TActive>`
+  color: ${({ $active }) =>
+    $active ? '#12979a' : theme('thread.articleDigest')};
 
   ${Wrapper}:hover & {
-    color: ${({ withEdit }) =>
-      withEdit ? theme('thread.articleTitle') : '#12979a'};
-    cursor: ${({ withEdit }) => (withEdit ? 'normal' : 'pointer;')};
+    color: #12979a;
+    cursor: pointer;
     opacity: 0.8;
   }
 `

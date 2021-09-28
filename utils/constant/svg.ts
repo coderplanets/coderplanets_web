@@ -6,6 +6,7 @@ const SVG = {
   VIEW: 'view',
   COMMENT: 'comment',
   PIN: 'pin',
+  EDIT_PEN: 'EditPen',
 
   // comment
   EMOTION: 'emotion',
