@@ -10,10 +10,7 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-// import RichEditor from '@/containers/editor/RichEditor'
-
-import RSSInputer from './RSSInputer'
-import FeedList from './FeedList'
+import Content from './Content'
 import Footer from './Footer'
 
 import CommunityBadge from './CommunityBadge'
@@ -40,16 +37,17 @@ const BlogEditorContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE_EDITOR,
 }) => {
   useInit(store)
+  const { step } = store
 
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
-        <ContentWrapper>
-          <RSSInputer />
-          <FeedList />
-          {/* <RichEditor /> */}
-          <Footer />
-        </ContentWrapper>
+        <div>
+          <ContentWrapper>
+            <Content step={step} />
+          </ContentWrapper>
+          <Footer step={step} />
+        </div>
         <div>
           <CommunityBadge />
           <PublishRules />

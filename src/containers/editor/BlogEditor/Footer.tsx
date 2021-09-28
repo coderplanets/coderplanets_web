@@ -1,12 +1,17 @@
 import { FC, memo } from 'react'
 
 import Checker from '@/components/Checker'
-import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
+// import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
 import ArrowButton from '@/components/Buttons/ArrowButton'
 
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
+import { nextStep } from './logic'
 
-const Footer: FC = () => {
+type TProps = {
+  step: 'STEP_1' | 'STEP_2' | 'STEP_3'
+}
+
+const Footer: FC<TProps> = ({ step }) => {
   return (
     <Wrapper>
       <ArticleFooter>社区 / Tags etc ...</ArticleFooter>
@@ -15,7 +20,7 @@ const Footer: FC = () => {
           我是该博客作者
         </Checker>
         <div>
-          <ArrowButton>下一步</ArrowButton>
+          <ArrowButton onClick={nextStep}>下一步</ArrowButton>
         </div>
       </PublishFooter>
     </Wrapper>

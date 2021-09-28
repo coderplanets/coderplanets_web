@@ -65,6 +65,7 @@ export type TWorks = TBaseArticle & {
 
 export type TBlog = TBaseArticle & {
   digest?: string
+  published?: string
 }
 
 export type TRadar = TBaseArticle & {

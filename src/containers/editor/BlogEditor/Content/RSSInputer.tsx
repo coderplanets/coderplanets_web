@@ -6,7 +6,7 @@ import {
   Inputer,
   HintWrapper,
   Hint,
-} from './styles/rss_inputer'
+} from '../styles/content/rss_inputer'
 
 const RSSInputer: FC = () => {
   return (

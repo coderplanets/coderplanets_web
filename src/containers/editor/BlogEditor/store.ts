@@ -12,7 +12,9 @@ import { markStates, toJS } from '@/utils/mobx'
 /* eslint-disable-next-line */
 const log = buildLog('S:BlogEditor')
 
-const BlogEditor = T.model('BlogEditor', {})
+const BlogEditor = T.model('BlogEditor', {
+  step: T.optional(T.enumeration(['STEP_1', 'STEP_2', 'STEP_3']), 'STEP_1'),
+})
   .views((self) => ({
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore

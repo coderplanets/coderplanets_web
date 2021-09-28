@@ -36,7 +36,7 @@ export const Inputer = styled(Input)`
 export const HintWrapper = styled.ul`
   list-style: disc;
   margin-left: 24px;
-  margin-top: 18px;
+  margin-top: 36px;
 `
 export const Hint = styled.li`
   color: ${theme('thread.articleDigest')};

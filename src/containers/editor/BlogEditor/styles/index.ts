@@ -18,7 +18,7 @@ export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitContentWidth(metric)};
 `
 export const ContentWrapper = styled.div`
-  /* min-height: 40vh; */
+  min-height: 65vh;
 `
 export const Footer = styled.div`
   ${css.flex('align-center', 'justify-end')};
