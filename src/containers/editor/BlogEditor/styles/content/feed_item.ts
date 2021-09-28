@@ -30,15 +30,15 @@ export const Selector = styled.div`
   top: 3px;
   left: -35px;
 `
-export const Title = styled.div`
+export const Title = styled.div<{ withEdit: boolean }>`
   color: ${theme('thread.articleTitle')};
   margin-right: 8px;
   font-size: 16.5px;
-  cursor: pointer;
 
   ${Wrapper}:hover & {
-    color: #12979a;
-    cursor: pointer;
+    color: ${({ withEdit }) =>
+      withEdit ? theme('thread.articleTitle') : '#12979a'};
+    cursor: ${({ withEdit }) => (withEdit ? 'normal' : 'pointer;')};
   }
 `
 export const BlogLink = styled.a`
@@ -62,7 +62,7 @@ export const BlogLink = styled.a`
   transition: 0.2s opacity;
 `
 
-export const PubDateWrapper = styled.div`
+export const PubDateWrapper = styled.div<{ withEdit: boolean }>`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
@@ -71,8 +71,9 @@ export const PubDateWrapper = styled.div`
   min-width: 195px;
 
   ${Wrapper}:hover & {
-    color: #12979a;
-    cursor: pointer;
+    color: ${({ withEdit }) =>
+      withEdit ? theme('thread.articleTitle') : '#12979a'};
+    cursor: ${({ withEdit }) => (withEdit ? 'normal' : 'pointer;')};
   }
 `
 export const AbsDate = styled(ReadableDate)`
@@ -90,14 +91,15 @@ export const RelDate = styled(TimeAgo)`
     content: ')';
   }
 `
-export const Digest = styled.div`
+export const Digest = styled.div<{ withEdit: boolean }>`
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
   margin-top: 5px;
 
   ${Wrapper}:hover & {
-    color: #12979a;
-    cursor: pointer;
+    color: ${({ withEdit }) =>
+      withEdit ? theme('thread.articleTitle') : '#12979a'};
+    cursor: ${({ withEdit }) => (withEdit ? 'normal' : 'pointer;')};
     opacity: 0.8;
   }
 `

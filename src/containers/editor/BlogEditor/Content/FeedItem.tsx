@@ -35,17 +35,17 @@ const FeedItem: FC<TProps> = ({
           </Selector>
         )}
 
-        <Title>{item.title}</Title>
+        <Title withEdit={withEdit}>{item.title}</Title>
         <BlogLink href={item.linkAddr} target="_blank">
           原文
         </BlogLink>
         {withEdit && <EditIcon />}
       </Header>
-      <PubDateWrapper>
+      <PubDateWrapper withEdit={withEdit}>
         <AbsDate date={item.published} withTime={false} />
         <RelDate datetime={item.published} locale="zh_CN" />
       </PubDateWrapper>
-      <Digest>{item.digest}</Digest>
+      <Digest withEdit={withEdit}>{item.digest}</Digest>
     </Wrapper>
   )
 }
