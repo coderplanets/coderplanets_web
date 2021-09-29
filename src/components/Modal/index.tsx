@@ -79,7 +79,7 @@ const Modal: FC<TProps> = ({
                 show={showCloseBtn}
                 onClick={handleClose}
               />
-              <EscHint>ESC</EscHint>
+              <EscHint mode={mode}>ESC</EscHint>
               <ChildrenWrapper onClick={(e) => e.stopPropagation()}>
                 {children}
               </ChildrenWrapper>

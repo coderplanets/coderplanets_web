@@ -7,11 +7,11 @@ import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumnGrow()};
-  min-height: 80px;
+  min-height: 130px;
   background: ${theme('baseColor.redBg')};
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 50px;
+  filter: ${theme('modal.subPanelShadow')};
+  padding: 20px 30px;
+  margin-bottom: 20px;
 `
 export const TitleWrapper = styled.div`
   ${css.flex('align-center')};
@@ -19,6 +19,7 @@ export const TitleWrapper = styled.div`
 export const Dot = styled(DotDivider)`
   background-color: ${theme('baseColor.red')};
   margin-left: 0;
+  margin-right: 10px;
 `
 export const Title = styled.div`
   color: ${theme('baseColor.red')};

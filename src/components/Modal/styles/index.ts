@@ -68,8 +68,9 @@ export const CloseBtn = styled(Img)<TCloseBtn>`
     cursor: pointer;
   }
 `
-export const EscHint = styled.div`
-  color: ${theme('font')};
+export const EscHint = styled.div<{ mode: string }>`
+  color: ${({ mode }) =>
+    mode === 'default' ? theme('font') : theme('baseColor.red')};
   opacity: 0.7;
   position: absolute;
   top: 38px;

@@ -71,7 +71,7 @@ const DataSolver = [
       store.mark({
         show: true,
         type,
-        operation: operation || 'TODO: missing schema def',
+        operation: operation || '--',
         path,
       })
     },
