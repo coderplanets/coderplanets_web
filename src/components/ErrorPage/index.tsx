@@ -56,8 +56,8 @@ const ErrorPage: FC<TProps> = ({
     <Wrapper testid={testid}>
       <Link href="/" passHref>
         <LogoWrapper testid="site-logo">
-          <SiteLogo src={`${ICON_BASE}/site_logo.svg`} />
-          <SiteTitle>CoderPlanets</SiteTitle>
+          <SiteLogo />
+          <SiteTitle>oderPlanets</SiteTitle>
         </LogoWrapper>
       </Link>
 
