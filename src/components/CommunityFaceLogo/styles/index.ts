@@ -11,5 +11,5 @@ export const Logo = styled(Img)<{ noFill?: boolean }>`
 
 export const HomeLogo = styled(SiteLogo)`
   fill: #007fa8;
-  /* transform: rotate(20deg); */
+  filter: saturate(0.8);
 `
