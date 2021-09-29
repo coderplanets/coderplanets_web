@@ -1,12 +1,21 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
-// import { ICON_CMD } from '@/config'
+import type { TGQError } from '@/spec'
 import { ERR } from '@/constant'
 import GraphqlDetail from './GraphqlDetail'
 
 import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'
 
-const Details = ({
+type TProps = {
+  type: string
+  graphqlType: string
+  timeoutError: string
+  changesetError: TGQError[]
+  parseError: TGQError[]
+  customError: TGQError[]
+}
+
+const Details: FC<TProps> = ({
   type,
   timeoutError,
   graphqlType,
@@ -60,4 +69,4 @@ const Details = ({
   }
 }
 
-export default React.memo(Details)
+export default memo(Details)

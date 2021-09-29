@@ -24,21 +24,12 @@ const formatDetail = (errors) => {
   // NOTE:  eadge case, fix latter
   if (!errors) return {}
 
-  errors.map(({ message, path, key, code }) => {
-    if (Array.isArray(message)) {
-      return message.map((msg) => {
-        return details.push({
-          detail: msg.message,
-          path: path ? join(' |> ', path) : '',
-          key: msg.key || '',
-          code,
-        })
-      })
-    }
+  errors.map(({ originalError }) => {
+    const { message, path, code } = originalError
+
     return details.push({
-      detail: key ? `${key}:${message}` : `${message}`,
+      message,
       path: path ? join(' |> ', path) : '',
-      key: key || '',
       code,
     })
   })

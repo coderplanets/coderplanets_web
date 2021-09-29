@@ -1,6 +1,7 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD, ISSUE_ADDR } from '@/config'
+
 import {
   Wrapper,
   Selector,
@@ -10,7 +11,7 @@ import {
   IssueLinker,
 } from './styles/footer'
 
-const Footer = () => (
+const Footer: FC = () => (
   <Wrapper>
     <Selector />
     <Issue>
@@ -20,7 +21,7 @@ const Footer = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        意见或建议
+        建议和反馈
       </IssueLinker>
       <Divider>|</Divider>
       <IssueLinker
@@ -34,4 +35,4 @@ const Footer = () => (
   </Wrapper>
 )
 
-export default React.memo(Footer)
+export default memo(Footer)

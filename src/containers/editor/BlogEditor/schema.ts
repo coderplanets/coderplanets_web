@@ -1,23 +1,32 @@
 import { gql } from '@urql/core'
 
-const simpleMutation = gql`
-  mutation ($id: ID!) {
-    post(id: $id) {
-      id
-    }
-  }
-`
-const simpleQuery = gql`
-  query ($filter: filter!) {
-    post(id: $id) {
-      id
+const blogRssInfo = gql`
+  query ($rss: String!) {
+    blogRssInfo(rss: $rss) {
+      title
+      subtitle
+      link
+      updated
+      author {
+        name
+        intro
+        github
+        twitter
+      }
+      historyFeed {
+        title
+        digest
+        linkAddr
+        content
+        published
+        updated
+      }
     }
   }
 `
 
 const schema = {
-  simpleMutation,
-  simpleQuery,
+  blogRssInfo,
 }
 
 export default schema

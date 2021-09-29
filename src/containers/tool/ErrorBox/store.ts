@@ -3,20 +3,17 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 
+import type { TGQError } from '@/spec'
 import { ERR } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 
 const Message = T.model('Message', {
   message: T.string,
   key: T.optional(T.string, ''),
+  path: T.optional(T.string, ''),
   code: T.optional(T.number, 0),
-})
-
-const ChangesetError = T.model('ChangesetError', {
-  code: T.maybeNull(T.number),
-  message: T.array(Message),
 })
 
 const ErrorBox = T.model('ErrorBox', {
@@ -36,26 +33,24 @@ const ErrorBox = T.model('ErrorBox', {
   ),
   customError: T.maybeNull(T.array(Message)),
   parseError: T.maybeNull(T.array(Message)),
-  changesetError: T.maybeNull(T.array(ChangesetError)),
+  changesetError: T.maybeNull(T.array(Message)),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-    get changesetErrorData() {
+    get changesetErrorData(): TGQError[] {
       return toJS(self.changesetError)
     },
-    get customErrorData() {
+    get customErrorData(): TGQError[] {
       return toJS(self.customError)
     },
-    get parseErrorData() {
+    get parseErrorData(): TGQError[] {
       return toJS(self.parseError)
     },
   }))
   .actions((self) => ({
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof ErrorBox>
 export default ErrorBox

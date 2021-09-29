@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
@@ -12,19 +12,25 @@ import { pluggedIn } from '@/utils/mobx'
 import Modal from '@/components/Modal'
 import useShortcut from '@/hooks/useShortcut'
 
+import type { TStore } from './store'
+
 import Header from './Header'
 import Details from './Details'
 import Footer from './Footer'
 
 import { Wrapper } from './styles'
-import { useInit, hide, onClose } from './logic'
+import { useInit, onClose } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ErrorBox')
 
-const ErrorBoxContainer = ({ errorBox: store }) => {
+type TProps = {
+  errorBox?: TStore
+}
+
+const ErrorBoxContainer: FC<TProps> = ({ errorBox: store }) => {
   useInit(store)
-  useShortcut(['Control+c', 'Control+g', 'Escape'], hide)
+  useShortcut(['Control+c', 'Control+g', 'Escape'], onClose)
 
   const {
     show,
@@ -68,4 +74,4 @@ const ErrorBoxContainer = ({ errorBox: store }) => {
   )
 }
 
-export default pluggedIn(ErrorBoxContainer)
+export default pluggedIn(ErrorBoxContainer) as FC<TProps>

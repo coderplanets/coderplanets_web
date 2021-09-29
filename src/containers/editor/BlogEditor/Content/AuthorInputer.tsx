@@ -1,5 +1,7 @@
 import { FC, memo } from 'react'
 
+import type { TBlogRSS } from '@/spec'
+
 import RSSItem from './RSSItem'
 import FeedItem from './FeedItem'
 
@@ -21,13 +23,13 @@ const item = {
 }
 
 type TProps = {
-  rss: string
+  rssInfo: TBlogRSS
 }
 
-const AuthorInputer: FC<TProps> = ({ rss }) => {
+const AuthorInputer: FC<TProps> = ({ rssInfo }) => {
   return (
     <Wrapper>
-      <RSSItem bottom={20} rss={rss} />
+      <RSSItem bottom={20} rssInfo={rssInfo} />
       <FeedItem item={item} withSelector={false} withEdit />
       <Hint>
         请填写作者信息，一般位于原博客 &quot;关于&quot; 或 &quot;about&quot;

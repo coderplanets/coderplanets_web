@@ -1,9 +1,11 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TGQError } from '@/spec'
 // import { ICON_CMD } from '@/config'
 // import { Wrapper } from './styles'
 import uid from '@/utils/uid'
 import { nilOrEmpty } from '@/utils/validator'
+
 import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'
 
 const ChangesetMessages = ({ items }) => (
@@ -65,7 +67,14 @@ const CustomDetails = ({ errors }) => (
   </>
 )
 
-const GraphqlDetail = ({
+type TProps = {
+  graphqlType: string
+  changesetError: TGQError[]
+  parseError: TGQError[]
+  customError: TGQError[]
+}
+
+const GraphqlDetail: FC<TProps> = ({
   graphqlType,
   changesetError,
   parseError,
@@ -98,4 +107,4 @@ const GraphqlDetail = ({
   }
 }
 
-export default React.memo(GraphqlDetail)
+export default memo(GraphqlDetail)

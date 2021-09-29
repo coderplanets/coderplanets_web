@@ -1,16 +1,24 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
+import { ERR } from '@/constant'
+
 import { buildLog } from '@/utils/logger'
+import { errRescue } from '@/utils/helper'
+import asyncSuit from '@/utils/async'
 import { updateEditing } from '@/utils/mobx'
 
-// import S from './schma'
+import S from './schema'
 import type { TStore } from './store'
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 let store: TStore | undefined
+let sub$
 
 /* eslint-disable-next-line */
 const log = buildLog('L:BlogEditor')
+
+const sr71$ = new SR71()
 
 export const toStep = (step: string): void => {
   store.mark({ step })
@@ -37,22 +45,61 @@ export const nextStep = (): void => {
   store.mark({ step: nextStep })
 }
 
-export const rssOnChange = (e): void => {
-  updateEditing(store, 'rss', e)
-}
+export const inputOnChange = (e, key: string): void =>
+  updateEditing(store, key, e)
 
-export const testRSS = (): void => {
-  console.log('get rss')
+export const fetchRSSInfo = (): void => {
+  const { rss } = store
+
+  store.mark({ loading: true })
+  sr71$.query(S.blogRssInfo, { rss })
 }
 
 // ###############################
 // init & uninit handlers
 // ###############################
 
+const DataSolver = [
+  {
+    match: asyncRes('blogRssInfo'),
+    action: ({ blogRssInfo }) => {
+      console.log('got blogRssInfo: ', blogRssInfo)
+      store.mark({ rssInfo: blogRssInfo, loading: false, step: 'STEP_2' })
+      // store.markRes({ pagedPosts })
+    },
+  },
+]
+
+const ErrSolver = [
+  {
+    match: asyncErr(ERR.GRAPHQL),
+    action: ({ details }) => {
+      store.mark({ loading: false })
+      errRescue({ type: ERR.GRAPHQL, details, path: 'createBlog' })
+    },
+  },
+  {
+    match: asyncErr(ERR.TIMEOUT),
+    action: ({ details }) => {
+      errRescue({ type: ERR.TIMEOUT, details, path: 'createBlog' })
+    },
+  },
+  {
+    match: asyncErr(ERR.NETWORK),
+    action: (e) => {
+      errRescue({ type: ERR.NETWORK, path: 'createBlog' })
+    },
+  },
+]
+
 export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)
-    // return () => store.reset()
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    return () => {
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
   }, [_store])
 }

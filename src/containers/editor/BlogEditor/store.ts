@@ -3,23 +3,34 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-// import {} from 'ramda'
+import { isEmpty, includes, filter } from 'ramda'
 
-import type { TCommunity, TRootStore, TBlog } from '@/spec'
+import type { TCommunity, TRootStore, TBlogRSS } from '@/spec'
 
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
-import { mockBlogFeeds } from '@/utils/mock'
+import uid from '@/utils/uid'
+// import { mockBlogFeeds } from '@/utils/mock'
 
 import { Blog } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:BlogEditor')
 
+const RSSInfo = T.model('RSSInfo', {
+  title: T.optional(T.string, ''),
+  subtitle: T.optional(T.string, ''),
+  link: T.optional(T.string, ''),
+  updated: T.optional(T.string, ''),
+  historyFeed: T.optional(T.array(Blog), []),
+})
+
 const BlogEditor = T.model('BlogEditor', {
   step: T.optional(T.enumeration(['STEP_1', 'STEP_2', 'STEP_3']), 'STEP_1'),
-  feeds: T.optional(T.array(Blog), mockBlogFeeds()),
+  filterTitle: T.optional(T.string, ''),
   rss: T.optional(T.string, ''),
+  rssInfo: T.optional(RSSInfo, {}),
+  loading: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
@@ -27,9 +38,25 @@ const BlogEditor = T.model('BlogEditor', {
 
       return toJS(root.viewing.community)
     },
+    get rssInfoData(): TBlogRSS {
+      const rssInfoRaw = toJS(self.rssInfo)
+      if (!isEmpty(rssInfoRaw.historyFeed)) {
+        rssInfoRaw.historyFeed = rssInfoRaw.historyFeed.map((item) => ({
+          ...item,
+          id: uid.gen(),
+        }))
+      }
 
-    get feedsData(): TBlog[] {
-      return toJS(self.feeds)
+      const { filterTitle } = self
+      if (!isEmpty(filterTitle)) {
+        rssInfoRaw.historyFeed = filter(
+          // @ts-ignore
+          (item) => includes(filterTitle, item.title),
+          rssInfoRaw.historyFeed,
+        )
+      }
+
+      return rssInfoRaw
     },
   }))
   .actions((self) => ({

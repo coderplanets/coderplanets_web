@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { ERR } from '@/constant'
@@ -13,7 +13,14 @@ const getPath = (path) => {
   return `containers/${path}/logic`
 }
 
-const Header = ({ type, operation, path, graphqlType }) => {
+type TProps = {
+  type: string
+  operation: string
+  path: string
+  graphqlType: string
+}
+
+const Header: FC<TProps> = ({ type, operation, path, graphqlType }) => {
   switch (type) {
     case ERR.NETWORK:
       return (
@@ -50,4 +57,4 @@ const Header = ({ type, operation, path, graphqlType }) => {
   }
 }
 
-export default React.memo(Header)
+export default memo(Header)

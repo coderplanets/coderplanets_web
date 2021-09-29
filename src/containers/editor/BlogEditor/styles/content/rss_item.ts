@@ -14,3 +14,8 @@ export const Title = styled.div`
   font-size: 16px;
   margin-right: 4px;
 `
+export const Subtitle = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 15px;
+  margin-right: 5px;
+`

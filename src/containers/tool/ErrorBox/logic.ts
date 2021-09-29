@@ -1,23 +1,27 @@
 import { has } from 'ramda'
 import { useEffect } from 'react'
 
+import type { TGQError } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, isObject } from '@/utils'
+
+import type { TStore } from './store'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ErrorBox')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.ERR_RESCUE],
 })
 
 let sub$ = null
-let store = null
+let store: TStore | undefined
 
-export const onClose = () => store.mark({ show: false })
+export const onClose = (): void => store.mark({ show: false })
 
-const classifyGQErrors = (errors) => {
+const classifyGQErrors = (errors: TGQError[]): void => {
   if (!Array.isArray(errors)) {
     return log('invalid errors: ', errors)
   }
@@ -37,8 +41,6 @@ const classifyGQErrors = (errors) => {
 
   store.mark({ graphqlType: 'parse', parseError: errors })
 }
-
-export const hide = () => store.mark({ show: false })
 
 // ###############################
 // Data & Error handlers
@@ -81,14 +83,14 @@ const ErrSolver = []
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) =>
+export const useInit = (_store: TStore): void =>
   useEffect(() => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     return () => {
-      if (!sub$) return false
+      if (!sub$) return
       sub$.unsubscribe()
     }
   }, [_store])
