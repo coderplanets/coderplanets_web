@@ -19,7 +19,6 @@ const RichEditorStyle = createGlobalStyle`
     // vertical-align: super !important;
   }
 
-  .ce-paragraph[data-placeholder]:empty::before, 
   .ce-header-wrapper h1:hover::after, 
   .ce-header-wrapper h2:hover::after, 
   .ce-header-wrapper h3:hover::after, 
@@ -625,6 +624,12 @@ const RichEditorStyle = createGlobalStyle`
       background-color: #FCF9D8;
     }
   } */
+  .ce-block--drop-target .ce-block__content{
+    cursor: move !important;
+    outline-style: none !important;
+    border-top: 1px dashed;
+    border-top-color: ${theme('button.primary')} !important;
+  }
 `
 
 export default RichEditorStyle
