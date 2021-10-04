@@ -10,17 +10,22 @@ import {
   PubHint,
   Title,
   ChangeBtn,
+  ArrowLogo,
 } from './styles/community_badge'
 
 const CommunityBadge: FC = () => {
   return (
     <Wrapper>
       <BadgeWrapper>
-        {/* <Logo src={`${ICON_BASE}/pl/javascript.png`} /> */}
         <Intro>
-          <PubHint>发布到</PubHint>
-          <Title>JavaScript</Title>
-          <ChangeBtn>更换社区</ChangeBtn>
+          <PubHint>发布到子社区:</PubHint>
+          <Title>
+            <Logo src={`${ICON_BASE}/pl/javascript.png`} />
+            <div>JavaScript</div>
+            <ChangeBtn>
+              更换 <ArrowLogo />
+            </ChangeBtn>
+          </Title>
         </Intro>
       </BadgeWrapper>
     </Wrapper>

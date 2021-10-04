@@ -15,6 +15,10 @@ const RichEditorStyle = createGlobalStyle`
     line-height: 1.875 !important;
   }
 
+  .ce-paragraph[data-placeholder]:empty::before {
+    color: #4d666c !important;
+  }
+
   .codex-editor svg {
     // vertical-align: super !important;
   }
