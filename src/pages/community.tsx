@@ -28,7 +28,6 @@ const fetchData = async (context, opt = {}) => {
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
   const { community, thread } = ssrParseURL(context.req)
 
-  console.log('## parsed thread: ', thread)
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const curCommunity = gqClient.request(P.community, {

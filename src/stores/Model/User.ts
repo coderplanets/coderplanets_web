@@ -109,7 +109,7 @@ export const User = T.model('User', {
   workBackgrounds: T.optional(T.array(WorkBackground), []),
   sex: T.maybeNull(T.string),
   // social
-  social: T.optional(UserSocial, {}),
+  // social: T.optional(UserSocial, {}),
   fromGithub: T.optional(T.boolean, false),
   /* fromWeixin: T.optional(T.boolean, false), */
   /* subscribedCommunities: T.optional(pagedCommunities, {}), */

@@ -42,6 +42,8 @@ export const ssrBaseStates = (resp) => {
 
 export const ssrFetchPrepare = (context, opt) => {
   const token = ssrFetchToken(context, opt)
+  console.log('# fetched token: ', token)
+
   const gqClient = makeGQClient(token)
   const userHasLogin = !!token
 
@@ -176,5 +178,7 @@ export const validCommunityFilters = [
   'read',
 ]
 
-export const parseTheme = (sessionState) =>
-  sessionState.user ? sessionState.user.customization.theme : DEFAULT_THEME
+export const parseTheme = (sessionState) => {
+  // return sessionState.user ? sessionState.user.customization.theme : DEFAULT_THEME
+  return DEFAULT_THEME
+}
