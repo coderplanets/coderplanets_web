@@ -1,11 +1,13 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
+import { HCN } from '@/constant'
 
 import FollowButton from '@/components/Buttons/FollowButton'
 
 import {
   Wrapper,
+  HomeLogo,
   Icon,
   Name,
   JoinDesc,
@@ -20,7 +22,7 @@ const OriginalCommunity: FC<TProps> = ({ community }) => {
 
   return (
     <Wrapper>
-      <Icon src={community.logo} />
+      {community.raw === HCN ? <HomeLogo /> : <Icon src={community.logo} />}
       <Name>{community.title}</Name>
       <JoinDesc>{community.subscribersCount} 人加入</JoinDesc>
       <FollowButton

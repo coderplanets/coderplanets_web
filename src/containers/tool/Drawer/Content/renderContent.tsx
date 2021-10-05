@@ -9,8 +9,6 @@ import {
   MailsViewer,
   // editors
   AccountEditor,
-  PostEditor,
-  RepoEditor,
   // utils
   C11NSettingPanel,
 } from '../dynamics'
@@ -22,14 +20,8 @@ const renderContent = (type: string, attUser: TUser, mmType?) => {
     case TYPE.DRAWER.ACCOUNT_EDIT:
       return <AccountEditor />
 
-    case TYPE.DRAWER.POST_CREATE:
-      return <PostEditor />
-
-    case TYPE.DRAWER.POST_EDIT:
-      return <PostEditor />
-
-    case TYPE.DRAWER.REPO_CREATE:
-      return <RepoEditor />
+    // case TYPE.DRAWER.REPO_CREATE:
+    //   return <RepoEditor />
 
     case TYPE.DRAWER.MAILS_VIEW:
       return <MailsViewer />

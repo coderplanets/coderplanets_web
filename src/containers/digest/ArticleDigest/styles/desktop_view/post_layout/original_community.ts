@@ -3,15 +3,20 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import SiteLogo from '@/icons/CPLogo'
 
 export const Wrapper = styled.nav`
   ${css.flexColumn('align-both')};
-  margin-top: 2px;
+  margin-top: 1px;
   /* margin-left: 8px;
 
   ${css.media.laptopL`
     margin-left: -40px;
   `} */
+`
+export const HomeLogo = styled(SiteLogo)`
+  ${css.size(32)};
+  fill: #007fa8;
 `
 export const Icon = styled(Img)`
   ${css.size(32)};

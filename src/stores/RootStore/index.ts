@@ -44,7 +44,7 @@ import {
   // footer
   FooterStore,
   // viewers
-  RepoViewerStore,
+  // RepoViewerStore,
   CommentsStore,
   MailsViewerStore,
 
@@ -52,8 +52,7 @@ import {
   DoraemonStore,
   DrawerStore,
   SidebarStore,
-  PostEditorStore,
-  RepoEditorStore,
+  // RepoEditorStore,
   AccountEditorStore,
   MailBoxStore,
   DocUploaderStore,
@@ -121,8 +120,7 @@ const rootStore = T.model({
   sidebar: T.optional(SidebarStore, { menuItems: [] }),
   drawer: T.optional(DrawerStore, { visible: false }),
   doraemon: T.optional(DoraemonStore, {}),
-  postEditor: T.optional(PostEditorStore, {}),
-  repoEditor: T.optional(RepoEditorStore, {}),
+  // repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
   mailBox: T.optional(MailBoxStore, {}),
   docUploader: T.optional(DocUploaderStore, {}),
@@ -162,7 +160,6 @@ const rootStore = T.model({
   cashier: T.optional(CashierStore, {}),
 
   // viewers (for drawer usage)
-  repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),
 
   // user page
