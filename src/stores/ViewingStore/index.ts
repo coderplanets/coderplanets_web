@@ -66,6 +66,23 @@ const ViewingStore = T.model('ViewingStore', {
       const { mark, viewingThread } = self as TStore
       mark({ [viewingThread]: {}, viewingThread: null })
     },
+    updateUpvote(viewerHasUpvoted: boolean): void {
+      const { currentThread } = self as TStore
+
+      if (viewerHasUpvoted) {
+        self[currentThread].upvotesCount += 1
+        self[currentThread].viewerHasUpvoted = true
+      } else {
+        self[currentThread].upvotesCount -= 1
+        self[currentThread].viewerHasUpvoted = false
+      }
+    },
+    updateUpvoteCount(count: number): void {
+      const { currentThread } = self as TStore
+      if (self[currentThread].upvotesCount !== count) {
+        self[currentThread].upvotesCount = count
+      }
+    },
     updateViewingIfNeed(type, sobj): void {
       const { updateViewingUser } = self as TStore
 

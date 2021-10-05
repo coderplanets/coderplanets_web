@@ -23,13 +23,14 @@ const doQuery = (query, variables) => {
 
 const doMutate = (mutation, variables) => {
   return gqClient
-    .mutate(mutation, variables)
+    .mutation(mutation, variables)
     .toPromise()
     .then((res) => {
+      if (res.error) return formatGraphErrors(res.error)
+      return res.data
       // once login user has mutation to server
       // then clear all the cache store in Apollo client.
       // client.clearStore()
-      return res.data
     })
     .catch(formatGraphErrors)
 }

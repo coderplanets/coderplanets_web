@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { EVENT } from '@/constant'
-import { send } from '@/utils/helper'
+import { send, titleCase } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
@@ -31,6 +31,17 @@ export const collectArticle = (): void => {
   })
 }
 
+export const handleUpvote = (viewerHasUpvoted: boolean): void => {
+  store.updateUpvote(viewerHasUpvoted)
+  const { id, meta } = store.viewingArticle
+
+  const upvoteSchema = S[`upvote${titleCase(meta.thread)}`]
+  const undoUpvoteSchema = S[`undoUpvote${titleCase(meta.thread)}`]
+  viewerHasUpvoted
+    ? sr71$.mutate(upvoteSchema, { id })
+    : sr71$.mutate(undoUpvoteSchema, { id })
+}
+
 export const loadPagedCommentsParticipants = (): void => {
   const { viewingArticle: article } = store
 
@@ -43,12 +54,25 @@ export const loadPagedCommentsParticipants = (): void => {
   sr71$.query(S.pagedCommentsParticipants, args)
 }
 
+// update the real upvoteCount after upvote action
+const handleUovoteAfter = ({ upvotesCount }) => {
+  store.updateUpvoteCount(upvotesCount)
+}
+
 const DataSolver = [
   {
     match: asyncRes('pagedCommentsParticipants'),
     action: ({ pagedCommentsParticipants }) => {
       store.mark({ pagedCommentsParticipants })
     },
+  },
+  {
+    match: asyncRes('upvotePost'),
+    action: ({ upvotePost }) => handleUovoteAfter(upvotePost),
+  },
+  {
+    match: asyncRes('undoUpvotePost'),
+    action: ({ undoUpvotePost }) => handleUovoteAfter(undoUpvotePost),
   },
 ]
 const ErrSolver = []

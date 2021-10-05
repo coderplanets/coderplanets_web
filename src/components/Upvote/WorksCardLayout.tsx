@@ -20,19 +20,19 @@ type TProps = {
   testid?: string
   count?: number
   viewerHasUpvoted?: boolean
-  alias?: string // 觉得很赞(default), 觉得很酷(works), 学到了(blog), 感兴趣(meetup), 有意思(Radar)
+  onAction?: (viewerHasUpvoted: boolean) => void
 }
 
 const Upvote: FC<TProps> = ({
   testid = 'upvote',
   count = 0,
   viewerHasUpvoted = false,
-  alias = '觉得很赞',
+  onAction = log,
 }) => {
   return (
     <Wrapper testid={testid}>
       <UpWrapper>
-        <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} />
+        <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} onAction={onAction} />
       </UpWrapper>
       <CountWrapper>
         <AnimatedCount count={count} />
