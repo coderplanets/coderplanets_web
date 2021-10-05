@@ -16,12 +16,18 @@ type TProps = {
 }
 
 const OriginalCommunity: FC<TProps> = ({ community }) => {
+  const hasFollowed = true
+
   return (
     <Wrapper>
       <Icon src={community.logo} />
       <Name>{community.title}</Name>
       <JoinDesc>{community.subscribersCount} 人加入</JoinDesc>
-      <FollowButton size="tiny" fakeLoading />
+      <FollowButton
+        size="tiny"
+        hasFollowed={hasFollowed}
+        followingOffset={-6}
+      />
     </Wrapper>
   )
 }

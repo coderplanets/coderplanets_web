@@ -47,7 +47,6 @@ const CommunityJoinSign: FC = () => {
         followingText="已加入"
         size="tiny"
         hasFollowed={hasFollowed}
-        fakeLoading
       />
     </Wrapper>
   )

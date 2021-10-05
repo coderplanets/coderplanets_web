@@ -15,11 +15,18 @@ import {
 type TProps = {
   size: TSIZE_TSM
   loading: boolean
+  followingOffset: number
   text: string
   onClick: () => void
 }
 
-const FollowingBtn: FC<TProps> = ({ size, loading, text, onClick }) => {
+const FollowingBtn: FC<TProps> = ({
+  size,
+  loading,
+  followingOffset,
+  text,
+  onClick,
+}) => {
   return (
     <>
       {loading ? (
@@ -33,6 +40,7 @@ const FollowingBtn: FC<TProps> = ({ size, loading, text, onClick }) => {
         >
           <FollowingButton
             size={size}
+            followingOffset={followingOffset}
             type="primary"
             ghost
             onClick={onClick}

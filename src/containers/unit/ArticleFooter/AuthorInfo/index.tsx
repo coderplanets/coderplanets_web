@@ -40,6 +40,7 @@ const AuthorInfo: FC<TProps> = ({ testid = 'author-info', author }) => {
     string
   >
 
+  const hasFollowed = false
   return (
     <Wrapper testid={testid}>
       <TextIntro>
@@ -55,7 +56,12 @@ const AuthorInfo: FC<TProps> = ({ testid = 'author-info', author }) => {
           src={author.avatar}
           fallback={<ImgFallback user={author} size={38} bottom={16} />}
         />
-        <FollowButton size="tiny" fakeLoading hasFollowed />
+        <FollowButton
+          size="tiny"
+          followText="&nbsp;关 注&nbsp;"
+          hasFollowed={hasFollowed}
+          followingOffset={-10}
+        />
       </AvatarIntro>
     </Wrapper>
   )

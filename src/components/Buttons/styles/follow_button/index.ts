@@ -47,11 +47,12 @@ export const FollowingIcon = styled(JoinEyeSVG)`
 export const FollowedButton = styled(Button)`
   border-radius: 10px;
 `
-export const FollowingButton = styled(Button)`
+export const FollowingButton = styled(Button)<{ followingOffset: number }>`
   color: ${theme('baseColor.green')};
   font-weight: bold;
   border: none;
   border-radius: 8px;
+  margin-left: ${({ followingOffset }) => `${followingOffset}px` || 0};
   /* background: #034556; */
   padding-top: 2px;
   padding-bottom: 2px;

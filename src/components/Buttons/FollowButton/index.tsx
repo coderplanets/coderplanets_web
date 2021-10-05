@@ -19,9 +19,10 @@ type TProps = {
   userId?: TID
   size?: TSIZE_TSM
   loading?: boolean
-  fakeLoading?: boolean
+  simuLoading?: boolean
   followText?: string
   followingText?: string
+  followingOffset?: number
   onFollow?: (userId: TID) => void
   onUndoFollow?: (userId: TID) => void
 }
@@ -29,38 +30,40 @@ type TProps = {
 const FollowButton: FC<TProps> = ({
   userId,
   size = SIZE.SMALL,
-  fakeLoading = false,
+  simuLoading = true,
   loading = false,
   hasFollowed = false,
   followText = '关 注',
   followingText = '已关注',
+  followingOffset = 0,
   onFollow = log,
   onUndoFollow = log,
 }) => {
-  const [simuLoading, setSimuLoading] = useState(false)
-  const isLoading = fakeLoading ? simuLoading : loading
+  const [fakeLoading, setFakeLoading] = useState(false)
+  const isLoading = simuLoading ? fakeLoading : loading
 
   const handleFollow = useCallback(() => {
-    if (fakeLoading) {
-      setSimuLoading(true)
-      setTimeout(() => setSimuLoading(false), 1500)
+    if (simuLoading) {
+      setFakeLoading(true)
+      setTimeout(() => setFakeLoading(false), 1500)
     }
     onFollow(userId)
-  }, [fakeLoading, onFollow, userId])
+  }, [simuLoading, onFollow, userId])
 
   const handleUndoFollow = useCallback(() => {
-    if (fakeLoading) {
-      setSimuLoading(true)
-      setTimeout(() => setSimuLoading(false), 1500)
+    if (simuLoading) {
+      setFakeLoading(true)
+      setTimeout(() => setFakeLoading(false), 1500)
     }
     onUndoFollow(userId)
-  }, [fakeLoading, onUndoFollow, userId])
+  }, [simuLoading, onUndoFollow, userId])
 
   return (
     <>
       {hasFollowed ? (
         <FollowingBtn
           size={size}
+          followingOffset={followingOffset}
           loading={isLoading}
           text={followingText}
           onClick={handleUndoFollow}
