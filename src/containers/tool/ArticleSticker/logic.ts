@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { EVENT } from '@/constant'
-import { send, titleCase } from '@/utils/helper'
+import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
@@ -35,11 +35,9 @@ export const handleUpvote = (viewerHasUpvoted: boolean): void => {
   store.updateUpvote(viewerHasUpvoted)
   const { id, meta } = store.viewingArticle
 
-  const upvoteSchema = S[`upvote${titleCase(meta.thread)}`]
-  const undoUpvoteSchema = S[`undoUpvote${titleCase(meta.thread)}`]
   viewerHasUpvoted
-    ? sr71$.mutate(upvoteSchema, { id })
-    : sr71$.mutate(undoUpvoteSchema, { id })
+    ? sr71$.mutate(S.getUpvoteSchema(meta.thread), { id })
+    : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread), { id })
 }
 
 export const loadPagedCommentsParticipants = (): void => {
@@ -50,7 +48,7 @@ export const loadPagedCommentsParticipants = (): void => {
     thread: article.meta.thread,
     filter: { page: 1, size: 20 },
   }
-  console.log('query args: ', args)
+  log('load comments query args: ', args)
   sr71$.query(S.pagedCommentsParticipants, args)
 }
 
