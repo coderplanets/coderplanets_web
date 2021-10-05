@@ -110,3 +110,10 @@ export type TFlexRule =
   | 'justify-around'
   | 'justify-evenly'
   | ''
+
+export type TGQError = {
+  message?: string
+  key?: string
+  path?: string
+  code?: number
+}

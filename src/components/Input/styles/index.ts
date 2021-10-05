@@ -8,7 +8,7 @@ import css from '@/utils/css'
 type IInput = {
   hasPrefix: boolean
   hasSuffix: boolean
-  spellcheck: string
+  spellCheck: string
 }
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({

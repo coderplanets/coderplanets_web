@@ -46,7 +46,7 @@ const EmotionSelector: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <SelectedEmotions emotions={emotionsCoverter(emotions)} />
-      <Tooltip content={<Panel />} trigger="click">
+      <Tooltip content={<Panel />} trigger="click" noPadding>
         <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
       </Tooltip>
     </Wrapper>

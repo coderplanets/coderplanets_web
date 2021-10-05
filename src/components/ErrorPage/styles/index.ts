@@ -5,6 +5,9 @@ import css from '@/utils/css'
 
 import type { TTestable } from '@/spec'
 import Img from '@/Img'
+
+import SiteLogoSVG from '@/icons/CPLogo'
+
 // import PromptIcon from '@/components/PromptIcon'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -24,16 +27,16 @@ export const LogoWrapper = styled.a.attrs(({ testid }: TTestable) => ({
   margin-top: 20px;
   text-decoration: none;
 `
-export const SiteLogo = styled(Img)<{ src: string }>`
-  ${css.size(20)};
+export const SiteLogo = styled(SiteLogoSVG)`
+  ${css.size(18)};
   fill: ${theme('thread.articleDigest')};
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 `
 export const SiteTitle = styled.div`
   color: ${theme('thread.articleDigest')};
   font-family: 'Audiowide', cursive;
   font-size: 15px;
-  margin-left: 10px;
+  margin-left: 4px;
 `
 export const IconsWrapper = styled.div`
   ${css.flex('align-center')};

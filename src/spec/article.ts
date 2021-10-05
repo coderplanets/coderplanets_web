@@ -65,6 +65,15 @@ export type TWorks = TBaseArticle & {
 
 export type TBlog = TBaseArticle & {
   digest?: string
+  published?: string
+}
+
+export type TBlogRSS = {
+  title?: string
+  subtitle?: string
+  link?: string
+  updated?: string
+  historyFeed?: TBlog[]
 }
 
 export type TRadar = TBaseArticle & {

@@ -30,7 +30,7 @@ export const SiteTitle = styled.div`
   color: #007fa8;
   font-size: 18px;
   font-weight: bold;
-  margin-left: 4px;
+  margin-left: 3px;
   margin-right: 52px;
   letter-spacing: 1px;
 `

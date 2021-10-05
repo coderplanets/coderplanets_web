@@ -20,7 +20,7 @@ import { insertCode, insertQuote, onUploadImageDone } from './logic'
 
 type TProps = {
   loading: boolean
-  showPreview: boolean
+  showPreview?: boolean
   onCreate: () => void
   onBackEdit: () => void
   onPreview: () => void
@@ -30,7 +30,7 @@ type TProps = {
 
 const EditorFooter: FC<TProps> = ({
   loading,
-  showPreview,
+  showPreview = true,
   onCreate,
   onBackEdit,
   onPreview,

@@ -5,7 +5,7 @@
  */
 
 import { FC, memo } from 'react'
-import QRCode from 'qrcode-react'
+import QRCode from 'qrcode.react'
 
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
@@ -151,4 +151,4 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
   )
 }
 
-export default SupportUS
+export default memo(SupportUS)

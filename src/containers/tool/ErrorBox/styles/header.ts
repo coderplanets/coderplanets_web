@@ -7,12 +7,12 @@ import animate from '@/utils/animations'
 
 export const Wrapper = styled.div`
   ${css.flex()};
-  margin-left: 5px;
+  padding: 15px 22px;
 `
 export const ErrorIcon = styled(Img)`
   fill: ${theme('baseColor.red')};
   ${css.size(40)};
-  margin-right: 8px;
+  margin-right: 15px;
   animation: ${animate.breath} 1.5s linear infinite;
 `
 export const Info = styled.div`

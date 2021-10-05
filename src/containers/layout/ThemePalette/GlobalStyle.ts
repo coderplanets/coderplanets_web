@@ -154,6 +154,7 @@ const GlobalStyle = createGlobalStyle`
 
   /** customize tooltip animation globally */
   .tippy-box[data-state='visible'] {
+    background: ${theme('popover.bg')} !important;
     transition: all 0.2s ease-in-out !important;
   }
   .tippy-box[data-placement^=top][data-state='visible'] {

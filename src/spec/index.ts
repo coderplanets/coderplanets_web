@@ -56,6 +56,7 @@ export type {
   TPaymentUsage,
   TPaymentMethod,
   TFlexRule,
+  TGQError,
 } from './utils'
 
 export type { TGQLError } from './graphql'
@@ -67,6 +68,7 @@ export type {
   TArticle,
   TPost,
   TBlog,
+  TBlogRSS,
   TRadar,
   TJob,
   TWorks,

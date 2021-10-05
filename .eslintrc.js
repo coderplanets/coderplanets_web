@@ -41,6 +41,7 @@ module.exports = {
     },
   },
   rules: {
+    'react/require-default-props': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     'no-setter-return': 0,

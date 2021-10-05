@@ -2,7 +2,6 @@ import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TAccount, TUser, TComment } from '@/spec'
-import { debounce } from '@/utils/helper'
 
 import MarkDownRender from '@/components/MarkDownRender'
 
@@ -18,17 +17,18 @@ import {
 
 import {
   onReplyInputChange,
-  onMention,
-  onMentionSearch,
   createReplyComment,
   replyBackToEditor,
   replyCommentPreview,
 } from './logic'
 
-export const BodyEditor = dynamic(() => import('@/components/MarkdownEditor'), {
-  /* eslint-disable react/display-name */
-  loading: () => <div>loading</div>,
-})
+export const BodyEditor = dynamic(
+  () => import('@/containers/editor/RichEditor'),
+  {
+    /* eslint-disable react/display-name */
+    loading: () => <div>loading</div>,
+  },
+)
 
 type TProps = {
   referUsers: TUser[]
@@ -36,7 +36,6 @@ type TProps = {
   isEdit: boolean
   accountInfo: TAccount
   showReplyPreview: boolean
-  mentionList: TUser[]
 
   restProps: {
     countCurrent: number
@@ -52,7 +51,6 @@ const CommentReplyEditor: FC<TProps> = ({
   isEdit,
   accountInfo,
   showReplyPreview,
-  mentionList,
   restProps: { countCurrent, replyContent, replyToComment, replying },
 }) => {
   return (
@@ -69,13 +67,7 @@ const CommentReplyEditor: FC<TProps> = ({
       {show ? (
         <div className="comment-reply-editor">
           <InputEditorWrapper>
-            <BodyEditor
-              mentionList={mentionList}
-              onChange={debounce(onReplyInputChange, 450)}
-              onMention={onMention}
-              onMentionSearch={onMentionSearch}
-              body={replyContent}
-            />
+            <BodyEditor />
           </InputEditorWrapper>
         </div>
       ) : (

@@ -36,11 +36,13 @@ type TProps = {
 
   onFocus?: (e) => void | null
   onChange?: (e) => void | null
+  onEnter?: () => void | null
 }
 
 const Input: FC<TProps> = ({
   behavior = 'default',
   onChange = null,
+  onEnter = null,
   onFocus = null,
   prefixIcon = null,
   prefixActive = false,
@@ -50,6 +52,15 @@ const Input: FC<TProps> = ({
   ...restProps
 }) => {
   const handleOnChange = useCallback((e) => onChange && onChange(e), [onChange])
+  const handleOnKeydown = useCallback(
+    (e) => {
+      if (e.key === 'Enter' && onEnter) {
+        onEnter()
+      }
+    },
+    [onEnter],
+  )
+
   const handleOnFocus = useCallback((e) => onFocus && onFocus(e), [onFocus])
   const validProps = pickBy((v) => v !== null, restProps)
 
@@ -60,8 +71,9 @@ const Input: FC<TProps> = ({
       </PrefixWrapper>
       <InputWrapper
         onChange={handleOnChange}
+        onKeyDown={handleOnKeydown}
         onFocus={handleOnFocus}
-        spellcheck="false"
+        spellCheck="false"
         // prefix={false}
         hasPrefix={!nilOrEmpty(prefixIcon)}
         hasSuffix={!nilOrEmpty(suffixIcon)}

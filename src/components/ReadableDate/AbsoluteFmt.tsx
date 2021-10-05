@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 
 import { Space } from '@/components/Common'
 import { Wrapper } from './styles/absolute_fmt'
@@ -12,9 +12,10 @@ const calcRange = (hours) => {
 type TProps = {
   datetime: string
   className: string
+  withTime: boolean
 }
 
-const AbsoluteFmt: FC<TProps> = ({ datetime, className }) => {
+const AbsoluteFmt: FC<TProps> = ({ datetime, className, withTime }) => {
   const DateObj = new Date(datetime)
   const [month, date, year] = DateObj.toLocaleDateString().split('/')
 
@@ -32,11 +33,15 @@ const AbsoluteFmt: FC<TProps> = ({ datetime, className }) => {
       <Space right={3} />
       {date}
       <Space right={3} />日
-      <Space right={2} />
-      {range}
-      <Space right={2} />
-      {hour}
-      <Space right={3} />点
+      {withTime && (
+        <Fragment>
+          <Space right={2} />
+          {range}
+          <Space right={2} />
+          {hour}
+          <Space right={3} />点
+        </Fragment>
+      )}
     </Wrapper>
   )
 }

@@ -6,7 +6,7 @@ import { C11N } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import animate from '@/utils/animations'
-import SiteLogo from '@/icons/Comment' // TODO:
+import SiteLogo from '@/icons/CPLogo' // TODO:
 // import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
@@ -18,7 +18,7 @@ export const Breadcrumbs = styled.div`
   `};
 `
 export const Logo = styled(SiteLogo)`
-  fill: #49a5a0;
+  fill: #007fa6;
   ${css.size(16)};
 `
 export const LogoLink = styled.a<{ layout: TC11NLayout }>`
