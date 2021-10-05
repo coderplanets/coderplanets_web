@@ -40,13 +40,13 @@ const CommunityStatesPad: FC<TProps> = ({
   onShowSubscriberList = log,
   withoutFounding = true,
 }) => {
-  const { editorsCount, subscribersCount, viewerHasSubscribed } = community
+  const { editorsCount, subscribersCount } = community
   const { isMobile } = usePlatform()
   const contentsCount = getContentCount(community)
 
   return (
     <Wrapper>
-      <NumberSection active={viewerHasSubscribed}>
+      <NumberSection>
         {!isMobile && <NumberTitle>成员</NumberTitle>}
         <NumberGroup
           count={subscribersCount}

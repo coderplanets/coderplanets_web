@@ -50,7 +50,7 @@ export const TitleWrapper = styled.div`
   ${css.flex('align-center')};
 `
 export const Title = styled.div<{ descExpand: boolean }>`
-  ${css.flex('align-baseline')};
+  ${css.flex('align-center')};
   font-size: ${({ descExpand }) => (descExpand ? '21px' : '18px')};
   color: ${theme('banner.title')};
 `

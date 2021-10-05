@@ -4,10 +4,10 @@
  *
  */
 
-import React, { useState } from 'react'
-import T from 'prop-types'
+import { FC, memo, useState, ReactNode } from 'react'
 
-// import { ICON_CMD } from '@/config'
+import type { TSIZE_SM } from '@/spec'
+
 import { isString } from '@/utils/validator'
 import { buildLog } from '@/utils/logger'
 import { SIZE } from '@/constant'
@@ -19,14 +19,24 @@ import { Wrapper, Icon, Text } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:ExpandIcon:index')
 
-const ExpandIcon = ({
-  icon,
+type TProps = {
+  content: ReactNode
+  text: string
+  icon?: ReactNode | string
+  hideOnClick?: boolean
+  hideTextOnInit?: boolean
+  size?: TSIZE_SM
+  type?: 'default' | 'green'
+}
+
+const ExpandIcon: FC<TProps> = ({
+  icon = '',
   text,
   content,
-  hideOnClick,
-  type,
-  size,
-  hideTextOnInit,
+  hideOnClick = false,
+  type = 'default',
+  size = SIZE.MEDIUM,
+  hideTextOnInit = true,
 }) => {
   const [active, setActive] = useState(false)
 
@@ -45,7 +55,7 @@ const ExpandIcon = ({
         hideTextOnInit={hideTextOnInit}
       >
         {isString(icon) ? (
-          <Icon src={icon} active={active} type={type} size={size} />
+          <Icon src={icon as string} active={active} type={type} size={size} />
         ) : (
           <span>{icon}</span>
         )}
@@ -62,21 +72,4 @@ const ExpandIcon = ({
   )
 }
 
-ExpandIcon.propTypes = {
-  content: T.node.isRequired,
-  text: T.string.isRequired,
-  icon: T.oneOfType([T.string, T.node]).isRequired,
-  hideOnClick: T.oneOf([true, false]),
-  type: T.oneOf(['default', 'green']),
-  size: T.oneOf([SIZE.SMALL, SIZE.MEDIUM]),
-  hideTextOnInit: T.oneOf([true, false]),
-}
-
-ExpandIcon.defaultProps = {
-  hideOnClick: false,
-  type: 'default',
-  size: SIZE.MEDIUM,
-  hideTextOnInit: true,
-}
-
-export default React.memo(ExpandIcon)
+export default memo(ExpandIcon)

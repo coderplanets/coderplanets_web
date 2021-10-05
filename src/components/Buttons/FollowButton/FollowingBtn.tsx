@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
 import { TSIZE_TSM } from '@/spec'
-import { ICON } from '@/config'
 
 import { LavaLampLoading } from '@/components/dynamic'
 import Tooltip from '@/components/Tooltip'
@@ -9,7 +8,7 @@ import Tooltip from '@/components/Tooltip'
 import {
   BtnWrapper,
   Popinfo,
-  CheckedIcon,
+  FollowingIcon,
   FollowingButton,
 } from '../styles/follow_button'
 
@@ -40,7 +39,7 @@ const FollowingBtn: FC<TProps> = ({ size, loading, text, onClick }) => {
             noBorder
           >
             <BtnWrapper>
-              <CheckedIcon src={`${ICON}/shape/checked.svg`} />
+              <FollowingIcon />
               {text}
             </BtnWrapper>
           </FollowingButton>

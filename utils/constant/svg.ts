@@ -19,6 +19,7 @@ const SVG = {
   // utils
   MORE: 'more',
   MOREL: 'more-l',
+  JOIN_EYE: 'JoinEye',
 }
 
 export default SVG

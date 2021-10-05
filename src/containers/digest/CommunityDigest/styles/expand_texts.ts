@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
+// import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -35,17 +35,4 @@ export const Desc = styled.div`
 `
 export const IconWrapper = styled.div`
   margin-left: 8px;
-`
-export const MoreIcon = styled(Img)`
-  fill: #2c8e8b;
-  ${css.size(16)};
-  cursor: pointer;
-  opacity: 0.8;
-  margin-bottom: -2px;
-
-  &:hover {
-    fill: #2c8e8b;
-    opacity: 1;
-  }
-  transition: all 0.25s;
 `
