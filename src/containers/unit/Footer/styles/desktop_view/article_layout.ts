@@ -24,9 +24,10 @@ const Link = styled.a`
   text-decoration: none;
   font-weight: bolder;
   color: ${theme('footer.text')};
-  transition: color 0.3s;
+  transition: color 0.2s;
   &:hover {
     text-decoration: underline;
+    cursor: pointer;
     color: ${theme('footer.hover')};
   }
 `
@@ -35,4 +36,14 @@ export const BaseInfo = styled.div`
 `
 export const Item = styled(Link)`
   margin-right: 25px;
+`
+export const NoLinkItem = styled.div`
+  margin-right: 25px;
+  color: ${theme('footer.text')};
+  transition: color 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    color: ${theme('footer.hover')};
+  }
 `

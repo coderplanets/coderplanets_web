@@ -1,7 +1,8 @@
 import { FC, memo } from 'react'
 
-import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
+import { ISSUE_ADDR, API_SERVER_ADDR, GITHUB } from '@/config'
 import { METRIC } from '@/constant'
+import { joinUS } from '@/utils/helper'
 
 import TopInfo from './TopInfo'
 import BottomInfo from './BottomInfo'
@@ -12,6 +13,7 @@ import {
   MainInfos,
   BaseInfo,
   Item,
+  NoLinkItem,
 } from '../styles/desktop_view/cool_guide_layout'
 
 const CoolGuideLayout: FC = () => {
@@ -31,19 +33,9 @@ const CoolGuideLayout: FC = () => {
             >
               创建社区
             </Item>
-            <Item
-              href="/cps-support/posts"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              加入我们
-            </Item>
-            <Item
-              href={`${API_SERVER_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              OpenSource
+            <NoLinkItem onClick={() => joinUS()}>加入群聊</NoLinkItem>
+            <Item href={`${GITHUB}`} rel="noopener noreferrer" target="_blank">
+              Github
             </Item>
             <Item
               href={`${API_SERVER_ADDR}`}
