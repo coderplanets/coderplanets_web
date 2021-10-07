@@ -4,9 +4,10 @@ import Img from '@/Img'
 // import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div<{ fold: boolean }>`
+type TWrapper = { fold: boolean; mode: 'article' | 'comment' }
+export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-both')};
-  width: 100%;
+  width: ${({ mode }) => (mode === 'article' ? '100%' : '96%')};
   margin-top: 28px;
   margin-bottom: 28px;
   padding: 5px 0;

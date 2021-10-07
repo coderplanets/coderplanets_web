@@ -12,7 +12,11 @@ type TProps = {
 
 const FoldBox: FC<TProps> = ({ fold, onFold, onExpand, mode }) => {
   return (
-    <Wrapper fold={fold} onClick={() => (fold ? onExpand() : onFold())}>
+    <Wrapper
+      fold={fold}
+      mode={mode}
+      onClick={() => (fold ? onExpand() : onFold())}
+    >
       {!fold && (
         <FoldHint mode={mode}>
           折叠
