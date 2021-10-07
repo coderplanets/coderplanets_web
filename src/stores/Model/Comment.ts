@@ -46,6 +46,7 @@ const commentBaseFields = () => {
     meta: T.optional(CommentMeta, {}),
     repliesCount: T.optional(T.number, 0),
 
+    replyToId: T.maybeNull(T.string),
     viewerHasUpvoted: T.maybeNull(T.boolean),
 
     ...timestampFields(),

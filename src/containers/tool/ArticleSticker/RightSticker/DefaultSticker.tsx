@@ -21,7 +21,7 @@ const ArticleSticker: FC<TProps> = ({ show, article }) => {
         count={article.upvotesCount}
         type="article"
         viewerHasUpvoted={article.viewerHasUpvoted}
-        onAction={(did) => handleUpvote(did)}
+        onAction={handleUpvote}
       />
       <IconButton
         path="article/collect-bookmark.svg"

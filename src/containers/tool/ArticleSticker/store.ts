@@ -23,6 +23,10 @@ const ArticleSticker = T.model('ArticleSticker', {
   isLeftStickerLocked: T.optional(T.boolean, false),
 })
   .views((self) => ({
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
+    },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing.viewingArticle)

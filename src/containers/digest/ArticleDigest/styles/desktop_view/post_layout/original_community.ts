@@ -7,9 +7,7 @@ import SiteLogo from '@/icons/CPLogo'
 
 export const Wrapper = styled.nav`
   ${css.flexColumn('align-both')};
-  margin-top: 1px;
-  /* margin-left: 8px;
-
+  /* 
   ${css.media.laptopL`
     margin-left: -40px;
   `} */
@@ -30,5 +28,6 @@ export const Name = styled.div`
 export const JoinDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
+  margin-top: 1px;
   margin-bottom: 10px;
 `

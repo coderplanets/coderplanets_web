@@ -1,6 +1,8 @@
 import React, { ReactNode, useEffect } from 'react'
+import PubSub from 'pubsub-js'
 
 import type { TScrollDirection } from '@/spec'
+import { EVENT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
@@ -67,6 +69,8 @@ export const childrenWithProps = (
   })
 }
 
+const handleAuthWarning = (option): void => store.authWarning(option)
+
 // ###############################
 // init & uninit
 // ###############################
@@ -83,5 +87,12 @@ export const useInit = (_store: TStore, extra): void => {
 
     const { online, isMobile } = extra
     store.mark({ online, isMobile })
+
+    PubSub.unsubscribe(EVENT.AUTH_WARNING)
+    PubSub.subscribe(EVENT.AUTH_WARNING, (e, opt) => handleAuthWarning(opt))
+
+    return () => {
+      PubSub.unsubscribe(EVENT.AUTH_WARNING)
+    }
   }, [_store, extra])
 }

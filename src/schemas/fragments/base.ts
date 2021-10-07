@@ -213,6 +213,7 @@ const commentFields = `
   isArticleAuthor
   viewerHasUpvoted
   repliesCount
+  replyToId
   insertedAt
   updatedAt
 `

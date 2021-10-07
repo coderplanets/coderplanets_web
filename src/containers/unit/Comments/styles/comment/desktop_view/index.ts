@@ -13,8 +13,7 @@ type TWrapper = {
 export const Wrapper = styled.div<TWrapper>`
   position: relative;
   ${css.flex()};
-  margin-left: 2px;
-  margin-right: 5px;
+  margin-left: 1px;
   padding-top: ${({ isPinned }) => (isPinned ? '24px' : '20px')};
   position: relative;
   background: transparent;

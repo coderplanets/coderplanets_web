@@ -1,12 +1,18 @@
 import { useEffect } from 'react'
 import { curry, isEmpty, reject, equals } from 'ramda'
 
-import type { TUser, TID } from '@/spec'
+import type { TUser, TComment, TID } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import BStore from '@/utils/bstore'
-import { send, countWords, extractMentions, errRescue } from '@/utils/helper'
+import {
+  send,
+  countWords,
+  extractMentions,
+  errRescue,
+  authWarn,
+} from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { scrollIntoEle } from '@/utils/dom'
 
@@ -37,7 +43,7 @@ export const loadComments = (): void => {
     mode,
     filter: { page: 1, size: 20 },
   }
-  console.log('query args: ', args)
+  log('query args: ', args)
   store.mark({ loading: true })
   sr71$.query(S.pagedComments, args)
 }
@@ -77,7 +83,7 @@ export const previewReply = (data): void => {
 }
 
 export const openInputBox = (): void => {
-  if (!store.isLogin) return store.authWarning({ hideToast: true })
+  if (!store.isLogin) return authWarn({ hideToast: true })
 
   initDraftTimmer()
   store.mark({
@@ -149,7 +155,7 @@ export const openUpdateEditor = (data): void =>
   })
 
 export const openReplyEditor = (data): void => {
-  if (!store.isLogin) return store.authWarning({})
+  if (!store.isLogin) return authWarn({ hideToast: true })
 
   initDraftTimmer()
   store.mark({
@@ -194,18 +200,29 @@ export const onModeChange = (mode: TMode): void => {
  * @param {comment.id} string
  * @returns
  */
-export const toggleLikeComment = (comment): void => {
-  if (!store.isLogin) return store.authWarning({})
-  log('likeComment: ', comment)
+export const handleUpvote = (
+  comment: TComment,
+  viewerHasUpvoted: boolean,
+): void => {
+  if (!store.isLogin) return authWarn({ hideToast: true })
+  const { id, upvotesCount } = comment
 
-  if (comment.viewerHasLiked) {
-    return sr71$.mutate(S.undoLikeComment, {
-      id: comment.id,
+  console.log('viewerHasUpvoted: ', comment)
+
+  if (viewerHasUpvoted) {
+    store.updateUpvote(comment, {
+      upvotesCount: upvotesCount + 1,
+      viewerHasUpvoted: !viewerHasUpvoted,
     })
+    sr71$.mutate(S.upvoteComment, { id })
+  } else {
+    store.updateUpvote(comment, {
+      upvotesCount: upvotesCount - 1,
+      viewerHasUpvoted: !viewerHasUpvoted,
+    })
+
+    sr71$.mutate(S.undoUpvoteComment, { id })
   }
-  return sr71$.mutate(S.likeComment, {
-    id: comment.id,
-  })
 }
 
 export const onUploadImageDone = (url: string): void =>
@@ -288,6 +305,7 @@ const DataSolver = [
     match: asyncRes('pagedComments'),
     action: ({ pagedComments }) => {
       cancelLoading()
+      log('# pagedComments --> ', pagedComments)
       store.mark({ pagedComments, loading: false })
     },
   },
@@ -336,24 +354,18 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes('likeComment'),
-    action: ({ likeComment }) =>
-      store.updateOneComment(likeComment.id, likeComment),
+    match: asyncRes('upvoteComment'),
+    action: ({ upvoteComment }) => {
+      const { upvotesCount, viewerHasUpvoted } = upvoteComment
+      store.updateUpvote(upvoteComment, { upvotesCount, viewerHasUpvoted })
+    },
   },
   {
-    match: asyncRes('undoLikeComment'),
-    action: ({ undoLikeComment }) =>
-      store.updateOneComment(undoLikeComment.id, undoLikeComment),
-  },
-  {
-    match: asyncRes('dislikeComment'),
-    action: ({ dislikeComment }) =>
-      store.updateOneComment(dislikeComment.id, dislikeComment),
-  },
-  {
-    match: asyncRes('undoDislikeComment'),
-    action: ({ undoDislikeComment }) =>
-      store.updateOneComment(undoDislikeComment.id, undoDislikeComment),
+    match: asyncRes('undoUpvoteComment'),
+    action: ({ undoUpvoteComment }) => {
+      const { upvotesCount, viewerHasUpvoted } = undoUpvoteComment
+      store.updateUpvote(undoUpvoteComment, { upvotesCount, viewerHasUpvoted })
+    },
   },
   {
     match: asyncRes('deleteComment'),

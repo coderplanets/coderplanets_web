@@ -6,6 +6,7 @@ const EVENT = {
   // error
   ERR_RESCUE: 'ERR_RESCUE',
 
+  AUTH_WARNING: 'AUTH_WARNING',
   LOGOUT: 'LOGOUT',
   // drawer
   DRAWER: {

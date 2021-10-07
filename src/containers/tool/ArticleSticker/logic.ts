@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 // import { } from 'ramda'
 
 import { EVENT } from '@/constant'
-import { send } from '@/utils/helper'
+import { send, authWarn } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
@@ -32,6 +32,8 @@ export const collectArticle = (): void => {
 }
 
 export const handleUpvote = (viewerHasUpvoted: boolean): void => {
+  if (!store.isLogin) return authWarn({ hideToast: true })
+
   store.updateUpvote(viewerHasUpvoted)
   const { id, meta } = store.viewingArticle
 

@@ -28,7 +28,7 @@ import {
   BadgePopContent,
   IndentLine,
 } from '../../styles/comment/desktop_view'
-import { foldComment } from '../../logic'
+import { foldComment, handleUpvote } from '../../logic'
 
 const getSelection = () => {
   const selectText = Global.getSelection().toString()
@@ -59,7 +59,12 @@ const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
       <DeleteMask show={data.id === tobeDeleteId} />
       <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
         <SidebarWrapper>
-          <Upvote type="comment" count={data.upvotesCount} />
+          <Upvote
+            type="comment"
+            count={data.upvotesCount}
+            viewerHasUpvoted={data.viewerHasUpvoted}
+            onAction={(did) => handleUpvote(data, did)}
+          />
           {isArticleAuthorUpvoted && (
             <Tooltip
               content={<BadgePopContent>作者顶过</BadgePopContent>}
