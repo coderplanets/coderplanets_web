@@ -13,7 +13,7 @@ import AnimatedCount from '@/components/AnimatedCount'
 
 import EmotionIcon from './EmotionIcon'
 import UsersPanel from './UsersPanel'
-import { getEmotionName } from './helper'
+import { getEmotionName } from '../helper'
 
 import { Wrapper, Count } from '../styles/selected_emotions/emotion_unit'
 
@@ -43,10 +43,13 @@ const EmotionUnit: FC<TProps> = ({ item, onAction }) => {
       }
       noPadding
     >
-      <Wrapper onClick={() => onAction(name as TEmotionType, hasEmotioned)}>
+      <Wrapper
+        $active={hasEmotioned}
+        onClick={() => onAction(name as TEmotionType, hasEmotioned)}
+      >
         <EmotionIcon name={name} />
         <Count>
-          <AnimatedCount count={count} size="tiny" active={false} />
+          <AnimatedCount count={count} size="tiny" active={hasEmotioned} />
         </Count>
       </Wrapper>
     </Tooltip>

@@ -7,8 +7,8 @@ import { buildLog } from '@/utils/logger'
 
 import type { TEmotion, TEmotionType } from '@/spec'
 
+import { getEmotionName } from '../helper'
 import EmotionUnit from './EmotionUnit'
-import { getEmotionName } from './helper'
 /* eslint-disable-next-line */
 const log = buildLog('c:SelectedEmotions:index')
 

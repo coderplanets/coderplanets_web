@@ -3,36 +3,19 @@
  */
 
 import { FC, memo } from 'react'
-import { values, reject, includes } from 'ramda'
 
 import type { TEmotion, TEmotionType } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { titleCase } from '@/utils/helper'
-import { EMOTION } from '@/constant'
 import IconButton from '@/components/Buttons/IconButton'
 import Tooltip from '@/components/Tooltip'
 
+import { emotionsCoverter } from './helper'
 import SelectedEmotions from './SelectedEmotions'
 import Panel from './Panel'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:EmotionSelector:index')
-
-const emotionsCoverter = (selectedEmotions: TEmotion): TEmotion[] => {
-  const converted = []
-  values(EMOTION).forEach((emotion) =>
-    converted.push({
-      [`${emotion}Count`]: selectedEmotions[`${emotion}Count`],
-      [`latest${titleCase(emotion)}Users`]:
-        selectedEmotions[`latest${titleCase(emotion)}Users`],
-      [`viewerHas${titleCase(emotion)}ed`]:
-        selectedEmotions[`viewerHas${titleCase(emotion)}ed`],
-    }),
-  )
-
-  return reject((e) => includes(0, values(e)), converted)
-}
 
 type TProps = {
   testid?: string
@@ -45,13 +28,15 @@ const EmotionSelector: FC<TProps> = ({
   onAction = log,
   emotions,
 }) => {
+  const validEmotions = emotionsCoverter(emotions)
   return (
     <Wrapper testid={testid}>
-      <SelectedEmotions
-        emotions={emotionsCoverter(emotions)}
-        onAction={onAction}
-      />
-      <Tooltip content={<Panel />} trigger="click" noPadding>
+      <SelectedEmotions emotions={validEmotions} onAction={onAction} />
+      <Tooltip
+        content={<Panel emotions={validEmotions} onAction={onAction} />}
+        trigger="click"
+        noPadding
+      >
         <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
       </Tooltip>
     </Wrapper>

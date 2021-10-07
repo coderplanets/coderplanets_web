@@ -201,9 +201,21 @@ export const handleEmotion = (
   name: TEmotionType,
   viewerHasEmotioned: boolean,
 ): void => {
-  console.log('handleEmotion comment: ', comment.id)
+  if (!store.isLogin) return authWarn({ hideToast: true })
+
+  const { id } = comment
+  console.log('handleEmotion comment: ', id)
   console.log('handleEmotion name: ', name)
   console.log('handleEmotion viewerHasEmotioned: ', viewerHasEmotioned)
+  const emotion = name.toUpperCase()
+
+  if (viewerHasEmotioned) {
+    // instantFresh
+    sr71$.mutate(S.undoEmotionToComment, { id, emotion })
+  } else {
+    // instantFresh
+    sr71$.mutate(S.emotionToComment, { id, emotion })
+  }
 }
 
 /**
@@ -372,6 +384,20 @@ const DataSolver = [
     action: ({ undoUpvoteComment }) => {
       const { upvotesCount, viewerHasUpvoted } = undoUpvoteComment
       store.updateUpvote(undoUpvoteComment, { upvotesCount, viewerHasUpvoted })
+    },
+  },
+  {
+    match: asyncRes('emotionToComment'),
+    action: ({ emotionToComment }) => {
+      console.log('emotionToComment -> ', emotionToComment)
+      // store.updateUpvote(undoUpvoteComment, { upvotesCount, viewerHasUpvoted })
+    },
+  },
+  {
+    match: asyncRes('undoEmotionToComment'),
+    action: ({ undoEmotionToComment }) => {
+      console.log('undoEmotionToComment -> ', undoEmotionToComment)
+      // store.updateUpvote(undoUpvoteComment, { upvotesCount, viewerHasUpvoted })
     },
   },
   {

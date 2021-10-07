@@ -1,5 +1,7 @@
 import styled from 'styled-components'
+import { includes } from 'ramda'
 
+import type { TActive } from '@/spec'
 import Img from '@/Img'
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
@@ -14,13 +16,15 @@ export const Item = styled.div<{ name: string }>`
   ${css.flexColumn('align-center', 'justify-center')};
   margin-right: ${({ name }) => (name === 'pill' ? 0 : '15px')};
 `
-export const EIcon = styled(Img)<{ name: string }>`
-  margin-top: ${({ name }) => (name === 'downvote' ? '2px' : 0)};
-  ${({ name }) =>
-    name === 'confused' || name === 'popcorn' ? css.size(21) : css.size(20)};
+type TEIcon = { name: string } & TActive
+export const EIcon = styled(Img)<TEIcon>`
+  margin-top: ${({ name }) =>
+    includes(name, ['downvote', 'beer']) ? '2px' : 0};
+  margin-bottom: ${({ name }) => (name === 'heart' ? '1px' : 0)};
+  ${({ name }) => (name === 'confused' ? css.size(21) : css.size(20))};
 
-  filter: saturate(0.6);
-  opacity: 0.9;
+  filter: ${({ $active }) => ($active ? 'saturate(1)' : 'saturate(0.6)')};
+  opacity: ${({ $active }) => ($active ? 1 : 0.9)};
   z-index: 1;
 
   ${Item}:hover & {
@@ -29,13 +33,14 @@ export const EIcon = styled(Img)<{ name: string }>`
     opacity: 1;
   }
 `
-export const Name = styled.div`
+export const Name = styled.div<TActive>`
   font-size: 11px;
   margin-top: 5px;
-  color: ${theme('thread.articleDigest')};
+  color: ${({ $active }) =>
+    $active ? '#12999B' : theme('thread.articleTitle')};
 
   ${Item}:hover & {
     cursor: pointer;
-    color: ${theme('thread.articleTitle')};
+    color: #12999b;
   }
 `

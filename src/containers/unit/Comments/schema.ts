@@ -97,6 +97,37 @@ const undoUpvoteComment = gql`
     }
   }
 `
+const emotionToComment = gql`
+  mutation ($id: ID!, $emotion: CommentEmotion!) {
+    emotionToComment(id: $id, emotion: $emotion) {
+      id
+      emotions {
+        beerCount
+        viewerHasBeered
+        latestBeerUsers {
+          login
+          nickname
+        }
+      }
+    }
+  }
+`
+const undoEmotionToComment = gql`
+  mutation ($id: ID!, $emotion: CommentEmotion!) {
+    undoEmotionToComment(id: $id, emotion: $emotion) {
+      id
+      emotions {
+        beerCount
+        viewerHasBeered
+        latestBeerUsers {
+          login
+          nickname
+        }
+      }
+    }
+  }
+`
+
 const searchUsers = gql`
   query($name: String!) {
     searchUsers(name: $name) {
@@ -113,9 +144,11 @@ const schema = {
   updateComment,
   replyComment,
   deleteComment,
+  searchUsers,
   upvoteComment,
   undoUpvoteComment,
-  searchUsers,
+  emotionToComment,
+  undoEmotionToComment,
 }
 
 export default schema
