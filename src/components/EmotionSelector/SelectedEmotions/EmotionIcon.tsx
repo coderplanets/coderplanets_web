@@ -2,8 +2,7 @@ import { FC, memo } from 'react'
 import { ICON } from '@/config'
 
 import type { TEmotionType } from '@/spec'
-
-import { EIcon } from '../styles/users_panel'
+import { EIcon } from '../styles/selected_emotions/emotion_icon'
 
 type TProps = {
   name: TEmotionType

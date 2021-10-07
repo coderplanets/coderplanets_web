@@ -15,7 +15,7 @@ import EmotionIcon from './EmotionIcon'
 import UsersPanel from './UsersPanel'
 import { getEmotionName } from './helper'
 
-import { Wrapper, Count } from '../styles/users_panel'
+import { Wrapper, Count } from '../styles/selected_emotions/emotion_unit'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:EmotionUnit:index')

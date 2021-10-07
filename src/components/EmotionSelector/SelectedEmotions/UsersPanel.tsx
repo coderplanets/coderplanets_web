@@ -9,7 +9,12 @@ import type { TSimpleUser, TEmotionType } from '@/spec'
 
 import EmotionIcon from './EmotionIcon'
 
-import { PopHint, PopUsers, Units, Username } from '../styles/users_panel'
+import {
+  Wrapper,
+  UsersWrapper,
+  Units,
+  Username,
+} from '../styles/selected_emotions/users_panel'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:UsersPanel:index')
@@ -25,8 +30,8 @@ const UsersPanel: FC<TProps> = ({ name, count, users, hasEmotioned }) => {
   const showUnit = users.length > count
 
   return (
-    <PopHint>
-      <PopUsers>
+    <Wrapper>
+      <UsersWrapper>
         {users.slice(0, 5).map((u, index) => (
           <Username key={u.login}>
             {u.nickname}
@@ -34,9 +39,9 @@ const UsersPanel: FC<TProps> = ({ name, count, users, hasEmotioned }) => {
           </Username>
         ))}
         {showUnit && <Units>等 {count} 人</Units>}
-      </PopUsers>{' '}
+      </UsersWrapper>{' '}
       <EmotionIcon name={name} />
-    </PopHint>
+    </Wrapper>
   )
 }
 
