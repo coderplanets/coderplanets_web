@@ -5,7 +5,7 @@
 import { FC, memo } from 'react'
 import { values, reject, includes } from 'ramda'
 
-import type { TEmotion } from '@/spec'
+import type { TEmotion, TEmotionType } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { titleCase } from '@/utils/helper'
 import { EMOTION } from '@/constant'
@@ -37,15 +37,20 @@ const emotionsCoverter = (selectedEmotions: TEmotion): TEmotion[] => {
 type TProps = {
   testid?: string
   emotions: TEmotion
+  onAction?: (name: TEmotionType, hasEmotioned: boolean) => void
 }
 
 const EmotionSelector: FC<TProps> = ({
   testid = 'emotion-selector',
+  onAction = log,
   emotions,
 }) => {
   return (
     <Wrapper testid={testid}>
-      <SelectedEmotions emotions={emotionsCoverter(emotions)} />
+      <SelectedEmotions
+        emotions={emotionsCoverter(emotions)}
+        onAction={onAction}
+      />
       <Tooltip content={<Panel />} trigger="click" noPadding>
         <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
       </Tooltip>

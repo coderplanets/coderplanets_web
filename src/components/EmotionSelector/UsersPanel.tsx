@@ -5,7 +5,7 @@
 import { FC, memo } from 'react'
 import { buildLog } from '@/utils/logger'
 
-import type { TSimpleUser } from '@/spec'
+import type { TSimpleUser, TEmotionType } from '@/spec'
 import { ICON } from '@/config'
 
 import Tooltip from '@/components/Tooltip'
@@ -28,9 +28,17 @@ type TProps = {
   name: string
   count: number
   users: TSimpleUser[]
+  hasEmotioned: boolean
+  onAction?: (name: TEmotionType, hasEmotioned: boolean) => void
 }
 
-const UsersPanel: FC<TProps> = ({ name, count, users }) => {
+const UsersPanel: FC<TProps> = ({
+  name,
+  count,
+  users,
+  hasEmotioned,
+  onAction,
+}) => {
   const showUnit = users.length > count
 
   const emotionIcon = (
@@ -55,7 +63,7 @@ const UsersPanel: FC<TProps> = ({ name, count, users }) => {
       }
       noPadding
     >
-      <Wrapper>
+      <Wrapper onClick={() => onAction(name as TEmotionType, hasEmotioned)}>
         {emotionIcon}
         <Count>
           <AnimatedCount count={count} size="tiny" active={false} />

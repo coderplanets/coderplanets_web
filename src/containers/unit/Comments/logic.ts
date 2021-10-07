@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { curry, isEmpty, reject, equals } from 'ramda'
 
-import type { TUser, TComment, TID } from '@/spec'
+import type { TUser, TComment, TID, TEmotionType } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
@@ -194,11 +194,20 @@ export const onModeChange = (mode: TMode): void => {
 }
 
 /**
- * toggle like action
- *
- * @param {object} comment
- * @param {comment.id} string
- * @returns
+ * toggle emotion action
+ */
+export const handleEmotion = (
+  comment: TComment,
+  name: TEmotionType,
+  viewerHasEmotioned: boolean,
+): void => {
+  console.log('handleEmotion comment: ', comment.id)
+  console.log('handleEmotion name: ', name)
+  console.log('handleEmotion viewerHasEmotioned: ', viewerHasEmotioned)
+}
+
+/**
+ * toggle upvote action
  */
 export const handleUpvote = (
   comment: TComment,
@@ -206,8 +215,6 @@ export const handleUpvote = (
 ): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
   const { id, upvotesCount } = comment
-
-  console.log('viewerHasUpvoted: ', comment)
 
   if (viewerHasUpvoted) {
     store.updateUpvote(comment, {
