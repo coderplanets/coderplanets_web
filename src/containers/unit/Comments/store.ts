@@ -28,6 +28,7 @@ import type {
   TID,
   TPagedComments,
   TComment,
+  TEmotion,
 } from '@/spec'
 // import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
@@ -221,6 +222,17 @@ const CommentsStore = T.model('CommentsStore', {
       const index = findIndex(propEq('id', id), entries)
       // @ts-ignore
       self.pagedComments.entries[index] = merge(entries[index], comment)
+    },
+    upvoteEmotion(comment: TComment, emotion: TEmotion): void {
+      const { id, replyToId } = comment
+      const slf = self as TStore
+      const { entries } = slf.pagedCommentsData
+
+      const index = findIndex(propEq('id', id), entries)
+      self.pagedComments.entries[index].emotions = {
+        ...entries[index].emotions,
+        ...emotion,
+      }
     },
     updateUpvote(comment: TComment, info): void {
       const { id, replyToId } = comment

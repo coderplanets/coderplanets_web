@@ -12,6 +12,7 @@ import {
   extractMentions,
   errRescue,
   authWarn,
+  titleCase,
 } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { scrollIntoEle } from '@/utils/dom'
@@ -204,15 +205,28 @@ export const handleEmotion = (
   if (!store.isLogin) return authWarn({ hideToast: true })
 
   const { id } = comment
-  console.log('handleEmotion comment: ', id)
-  console.log('handleEmotion name: ', name)
-  console.log('handleEmotion viewerHasEmotioned: ', viewerHasEmotioned)
+  // console.log('handleEmotion comment: ', id)
+  // console.log('handleEmotion name: ', name)
+  // console.log('handleEmotion viewerHasEmotioned: ', viewerHasEmotioned)
   const emotion = name.toUpperCase()
 
+  // comment.emotions
   if (viewerHasEmotioned) {
     // instantFresh
+    const emotionInfo = {
+      // @ts-ignore
+      [`${name}Count`]: comment.emotions[`${name}Count`] - 1,
+      [`viewerHas${titleCase(name)}ed`]: false,
+    }
+    store.upvoteEmotion(comment, emotionInfo)
     sr71$.mutate(S.undoEmotionToComment, { id, emotion })
   } else {
+    const emotionInfo = {
+      // @ts-ignore
+      [`${name}Count`]: comment.emotions[`${name}Count`] + 1,
+      [`viewerHas${titleCase(name)}ed`]: true,
+    }
+    store.upvoteEmotion(comment, emotionInfo)
     // instantFresh
     sr71$.mutate(S.emotionToComment, { id, emotion })
   }
@@ -390,14 +404,14 @@ const DataSolver = [
     match: asyncRes('emotionToComment'),
     action: ({ emotionToComment }) => {
       console.log('emotionToComment -> ', emotionToComment)
-      // store.updateUpvote(undoUpvoteComment, { upvotesCount, viewerHasUpvoted })
+      store.upvoteEmotion(emotionToComment, emotionToComment.emotions)
     },
   },
   {
     match: asyncRes('undoEmotionToComment'),
     action: ({ undoEmotionToComment }) => {
       console.log('undoEmotionToComment -> ', undoEmotionToComment)
-      // store.updateUpvote(undoUpvoteComment, { upvotesCount, viewerHasUpvoted })
+      store.upvoteEmotion(undoEmotionToComment, undoEmotionToComment.emotions)
     },
   },
   {
