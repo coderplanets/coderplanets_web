@@ -26,7 +26,7 @@ import SEO from './SEO'
 
 import { CustomScroller, Sidebar, Footer, ModeLine } from './dynamic'
 import { Wrapper, InnerWrapper, BodyWrapper, ContentWrapper } from './styles'
-import { onPageScrollDirhange, childrenWithProps } from './logic'
+import { useInit, onPageScrollDirhange, childrenWithProps } from './logic'
 
 const Addon = dynamic(() => import('./Addon'), {
   ssr: false,
@@ -52,7 +52,8 @@ const GlobalLayoutContainer: FC<TProps> = ({
 }) => {
   const { isMobile } = usePlatform()
   // load debug graph
-  // useInit(store, { isMobile })
+  console.log('## G useInit')
+  useInit(store, { isMobile })
 
   const { sidebarPin, c11n, curCommunity } = store
   const { bannerLayout } = c11n

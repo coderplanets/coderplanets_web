@@ -38,6 +38,7 @@ type TBaseArticle = {
   insertedAt?: string
   updatedAt?: string
   viewerHasViewed?: boolean
+  viewerHasUpvoted?: boolean
   commentsCount?: number
   articleTags?: TTag[]
   meta?: TArticleMeta
@@ -121,6 +122,7 @@ export type TComment = {
   repliesCount?: number
   replies?: TComment[]
   replyTo?: TComment
+  replyToId?: TID
   upvotesCount?: number
   viewerHasUpvoted?: boolean
   isArticleAuthor?: boolean

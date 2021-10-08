@@ -35,7 +35,6 @@ const SubscribeBtn: FC<TProps> = ({
       hasFollowed={community.viewerHasSubscribed}
       onFollow={() => subscribe(community.id)}
       onUndoFollow={() => unSubscribe(community.id)}
-      fakeLoading
     />
   )
 }

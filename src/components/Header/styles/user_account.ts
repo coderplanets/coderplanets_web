@@ -29,7 +29,8 @@ export const MenuItem = styled.div`
 export const MenuLink = styled.a`
   padding: 4px 13px;
   color: ${theme('thread.articleTitle')};
-  opacity: 0.9;
+  font-size: 13px;
+  text-decoration: none;
   &:hover {
     background: #113744;
     opacity: 1;
@@ -41,15 +42,17 @@ export const LoginBadge = styled.div`
   padding: 7px 13px;
 `
 export const LoginDesc = styled.div`
+  font-size: 12px;
   color: ${theme('thread.articleDigest')};
 `
 export const LoginName = styled.div`
+  font-size: 12px;
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
 `
 export const LogoutItem = styled.div`
   padding: 5px 13px;
-  padding-bottom: 6px;
+  padding-bottom: 0;
   color: ${theme('thread.articleTitle')};
   &:hover {
     color: ${theme('baseColor.red')};
@@ -59,12 +62,12 @@ export const LogoutItem = styled.div`
 `
 export const MenuDivider = styled.div`
   margin-top: 3px;
-  margin-bottom: 3px;
-  border-bottom: 2px solid;
+  margin-bottom: 6px;
+  border-bottom: 1px solid;
   border-bottom-color: ${theme('banner.numberDivider')};
 `
 export const AvatarIcon = styled.img`
-  ${css.size(20)};
+  ${css.size(16)};
   cursor: pointer;
   border-radius: 3px;
   opacity: ${theme('avatar.opacity')};

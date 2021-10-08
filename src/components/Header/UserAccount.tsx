@@ -34,17 +34,16 @@ const UserAccount: FC = () => {
     <Fragment>
       {account.isLogin ? (
         <Tooltip
-          placement="bottom-start"
+          placement="bottom-end"
           trigger="click"
           hideOnClick={false}
           content={
             <PopMenu>
               <LoginBadge>
-                <LoginDesc>使用 Github 登陆:</LoginDesc>
+                <LoginDesc>Github 登陆:</LoginDesc>
                 <LoginName>{account.user.login}</LoginName>
               </LoginBadge>
               <MenuDivider />
-              <MenuItem>主页面板</MenuItem>
               <MenuLink
                 href={`/user/${account.user.login}`}
                 rel="noopener noreferrer"

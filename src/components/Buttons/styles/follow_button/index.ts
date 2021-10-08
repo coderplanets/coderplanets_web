@@ -6,9 +6,11 @@ import animate from '@/utils/animations'
 import Button from '@/components/Buttons/Button'
 import Img from '@/Img'
 
+import JoinEyeSVG from '@/icons/JoinEye'
+
 export const BtnWrapper = styled.div`
   ${css.flex('align-center')};
-  padding: 2px 5px;
+  padding: 2px 4px;
 `
 const BtnIcon = styled(Img)`
   ${css.size(14)};
@@ -32,23 +34,31 @@ export const LoadingIcon = styled(BtnIcon)<{ light: boolean }>`
   ${css.size(15)};
   animation: ${animate.rotate360} 1s linear infinite;
 `
-export const CheckedIcon = styled(BtnIcon)`
+export const FollowingIcon = styled(JoinEyeSVG)`
   fill: ${theme('baseColor.green')};
+  ${css.size(15)};
+  margin-right: 3px;
+  transform: scaleX(0.9);
+  margin-top: -1px;
+  ${BtnWrapper}:hover & {
+    fill: ${theme('thread.articleTitle')};
+  }
 `
 export const FollowedButton = styled(Button)`
   border-radius: 10px;
 `
-export const FollowingButton = styled(Button)`
-  color: ${theme('thread.articleTitle')};
-  /* color: ${theme('baseColor.green')}; */
+export const FollowingButton = styled(Button)<{ followingOffset: number }>`
+  color: ${theme('baseColor.green')};
+  font-weight: bold;
   border: none;
-  border-radius: 10px;
-  background: #003745;
+  border-radius: 8px;
+  margin-left: ${({ followingOffset }) => `${followingOffset}px` || 0};
+  /* background: #034556; */
   padding-top: 2px;
   padding-bottom: 2px;
 
   &:hover {
-    background: #003745;
-    /* border: 1px solid; */
+    color: ${theme('thread.articleTitle')};
+    background: #034556;
   }
 `

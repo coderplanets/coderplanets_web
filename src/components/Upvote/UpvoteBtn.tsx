@@ -6,7 +6,7 @@
 
 import { FC, memo, useState, useCallback } from 'react'
 
-import type { TUser, TUpvoteLayout } from '@/spec'
+import type { TUpvoteLayout } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import {
@@ -23,22 +23,21 @@ import {
 const log = buildLog('c:Upvote:index')
 
 type TProps = {
-  testid?: string
   type?: TUpvoteLayout
-  num?: number
   viewerHasUpvoted?: boolean
-  alias?: string
-  avatarList?: TUser[]
+  onAction: (viewerHasUpvoted: boolean) => void
 }
 
 const UpvoteBtn: FC<TProps> = ({
   type = 'default',
   viewerHasUpvoted = false,
+  onAction,
 }) => {
   const [showAnimation, setShowAnimation] = useState(false)
   const [num, setNum] = useState(0)
 
   const handleClick = useCallback(() => {
+    onAction(!viewerHasUpvoted)
     if (viewerHasUpvoted) return
     setNum(num + 1)
 
@@ -47,7 +46,7 @@ const UpvoteBtn: FC<TProps> = ({
 
       setTimeout(() => setShowAnimation(false), 950)
     }
-  }, [showAnimation, viewerHasUpvoted, num])
+  }, [showAnimation, viewerHasUpvoted, num, onAction])
 
   return (
     <Wrapper showAnimation={showAnimation} type={type}>

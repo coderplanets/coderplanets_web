@@ -29,6 +29,7 @@ type TProps = {
   viewerHasUpvoted?: boolean
   alias?: string // 觉得很赞(default), 觉得很酷(works), 学到了(blog), 感兴趣(meetup), 有意思(Radar)
   avatarList?: TUser[]
+  onAction?: (did: boolean) => void
 }
 
 const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {

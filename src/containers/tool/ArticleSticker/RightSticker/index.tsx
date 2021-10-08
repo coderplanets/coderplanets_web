@@ -1,5 +1,5 @@
 import { FC, memo } from 'react'
-import type { TArticle, TMetric, TThread } from '@/spec'
+import type { TArticle, TThread } from '@/spec'
 
 import { THREAD } from '@/constant'
 
@@ -9,7 +9,6 @@ import WorksSticker from './WorksSticker'
 type TProps = {
   article: TArticle
   thread: TThread
-  metric?: TMetric
   show?: boolean
 }
 

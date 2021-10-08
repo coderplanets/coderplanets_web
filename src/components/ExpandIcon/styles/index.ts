@@ -21,8 +21,8 @@ type TIcon = {
 
 type TText = {
   active: boolean
-  type: string
-  size: string
+  type?: string
+  size?: string
   hideTextOnInit: boolean
 }
 
@@ -58,7 +58,7 @@ export const Icon = styled(Img)<TIcon>`
     active ? getActiveIconSize(size) : getNormalIconSize(size)};
 
   ${Wrapper}:hover & {
-    fill: ${theme('thread.articleTitle')};
+    /* fill: ${theme('thread.articleTitle')}; */
     width: ${({ active, size }) =>
       active ? getActiveIconSize(size) : getNormalIconSize(size)};
     height: ${({ active, size }) =>

@@ -96,7 +96,7 @@ export type {
 
 export type { TAccountStore, TViewingStore } from './store'
 
-export type { TEmotion } from './emotion'
+export type { TEmotion, TEmotionType } from './emotion'
 
 export type TRoute = {
   communityPath?: string

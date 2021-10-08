@@ -27,8 +27,10 @@ import type {
   TRoute,
   TID,
   TPagedComments,
+  TComment,
+  TEmotion,
 } from '@/spec'
-import { TYPE } from '@/constant'
+// import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 import { Comment, PagedComments, emptyPagi, Mention } from '@/model'
@@ -164,10 +166,6 @@ const CommentsStore = T.model('CommentsStore', {
     },
   }))
   .actions((self) => ({
-    authWarning(options): void {
-      const root = getParent(self) as TRootStore
-      root.authWarning(options)
-    },
     changesetErr(options): void {
       const root = getParent(self) as TRootStore
       root.changesetErr(options)
@@ -224,6 +222,57 @@ const CommentsStore = T.model('CommentsStore', {
       const index = findIndex(propEq('id', id), entries)
       // @ts-ignore
       self.pagedComments.entries[index] = merge(entries[index], comment)
+    },
+    updateUpvote(comment: TComment, info): void {
+      const { id, replyToId } = comment
+      const slf = self as TStore
+      const { entries } = slf.pagedCommentsData
+
+      if (self.mode === MODE.REPLIES && replyToId) {
+        const parentIndex = findIndex(propEq('id', replyToId), entries)
+        if (parentIndex < 0) return
+        const parentComment = entries[parentIndex]
+        const replyIndex = findIndex(propEq('id', id), parentComment.replies)
+        if (replyIndex < 0) return
+        const replyComment = parentComment.replies[replyIndex]
+        self.pagedComments.entries[parentIndex].replies[replyIndex] = {
+          ...replyComment,
+          ...info,
+        }
+      } else {
+        // timeline & replies parent comment
+        const index = findIndex(propEq('id', id), entries)
+
+        if (index < 0) return
+        // @ts-ignore
+        self.pagedComments.entries[index] = { ...entries[index], ...info }
+      }
+    },
+    upvoteEmotion(comment: TComment, emotion: TEmotion): void {
+      const { id, replyToId } = comment
+      const slf = self as TStore
+      const { entries } = slf.pagedCommentsData
+
+      if (self.mode === MODE.REPLIES && replyToId) {
+        const parentIndex = findIndex(propEq('id', replyToId), entries)
+        if (parentIndex < 0) return
+        const parentComment = entries[parentIndex]
+        const replyIndex = findIndex(propEq('id', id), parentComment.replies)
+        if (replyIndex < 0) return
+        const replyComment = parentComment.replies[replyIndex]
+        self.pagedComments.entries[parentIndex].replies[replyIndex].emotions = {
+          ...replyComment.emotions,
+          ...emotion,
+        }
+      } else {
+        const index = findIndex(propEq('id', id), entries)
+        if (index < 0) return
+        // @ts-ignore
+        self.pagedComments.entries[index].emotions = {
+          ...entries[index].emotions,
+          ...emotion,
+        }
+      }
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

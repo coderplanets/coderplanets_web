@@ -1,8 +1,12 @@
 import { FC, memo } from 'react'
 import { values } from 'ramda'
 
+import type { TEmotion, TEmotionType } from '@/spec'
+
 import { EMOTION } from '@/constant'
 import { ICON } from '@/config'
+
+import { isViewerEmotioned } from './helper'
 import { Wrapper, Item, EIcon, Name } from './styles/panel'
 
 const Trans = {
@@ -14,15 +18,33 @@ const Trans = {
   pill: '药丸',
 }
 
-const EmojiPanel: FC = () => {
+type TProps = {
+  emotions: TEmotion[]
+  onAction?: (name: TEmotionType, hasEmotioned: boolean) => void
+}
+
+const EmojiPanel: FC<TProps> = ({ emotions, onAction }) => {
   return (
     <Wrapper>
-      {values(EMOTION).map((item) => (
-        <Item key={item} name={item}>
-          <EIcon src={`${ICON}/emotion/${item}.png`} name={item} noLazy />
-          <Name>{Trans[item]}</Name>
-        </Item>
-      ))}
+      {values(EMOTION).map((name) => {
+        const viewerHasEmotioned = isViewerEmotioned(emotions, name)
+
+        return (
+          <Item
+            key={name}
+            name={name}
+            onClick={() => onAction(name, viewerHasEmotioned)}
+          >
+            <EIcon
+              src={`${ICON}/emotion/${name}.png`}
+              name={name}
+              $active={viewerHasEmotioned}
+              noLazy
+            />
+            <Name $active={viewerHasEmotioned}>{Trans[name]}</Name>
+          </Item>
+        )
+      })}
     </Wrapper>
   )
 }

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
 // import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
@@ -12,11 +11,9 @@ export const Wrapper = styled.div`
     margin-top: -4px;
   `};
 `
-type TNumberSection = TActive & { readOnly?: boolean }
+type TNumberSection = { readOnly?: boolean }
 export const NumberSection = styled.div<TNumberSection>`
   ${css.flexColumn('align-end')};
-  background-color: ${({ active }) =>
-    active ? theme('banner.numberHoverBg') : ''};
 
   padding: 0 5px;
   border-radius: 4px;

@@ -41,15 +41,10 @@ export const AccountEditor = dynamic(
   editorConfig,
 )
 
-export const PostEditor = dynamic(
-  () => import('@/containers/editor/PostEditor'),
-  editorConfig,
-)
-
-export const RepoEditor = dynamic(
-  () => import('@/containers/editor/RepoEditor'),
-  editorConfig,
-)
+// export const RepoEditor = dynamic(
+//   () => import('@/containers/editor/RepoEditor'),
+//   editorConfig,
+// )
 
 // utils
 export const C11NSettingPanel = dynamic(

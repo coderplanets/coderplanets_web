@@ -1,11 +1,13 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
+import { HCN } from '@/constant'
 
 import FollowButton from '@/components/Buttons/FollowButton'
 
 import {
   Wrapper,
+  HomeLogo,
   Icon,
   Name,
   JoinDesc,
@@ -16,12 +18,18 @@ type TProps = {
 }
 
 const OriginalCommunity: FC<TProps> = ({ community }) => {
+  const hasFollowed = true
+
   return (
     <Wrapper>
-      <Icon src={community.logo} />
+      {community.raw === HCN ? <HomeLogo /> : <Icon src={community.logo} />}
       <Name>{community.title}</Name>
       <JoinDesc>{community.subscribersCount} 人加入</JoinDesc>
-      <FollowButton size="tiny" fakeLoading />
+      <FollowButton
+        size="tiny"
+        hasFollowed={hasFollowed}
+        followingOffset={-6}
+      />
     </Wrapper>
   )
 }

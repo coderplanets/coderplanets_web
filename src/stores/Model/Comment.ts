@@ -4,7 +4,7 @@ import { values, reduce, merge } from 'ramda'
 import { EMOTION } from '@/constant'
 import { titleCase } from '@/utils/helper'
 
-import { User, SimpleUser } from './User'
+import { SimpleUser } from './User'
 
 import { pagiFields, timestampFields } from './helper/common'
 
@@ -46,6 +46,7 @@ const commentBaseFields = () => {
     meta: T.optional(CommentMeta, {}),
     repliesCount: T.optional(T.number, 0),
 
+    replyToId: T.maybeNull(T.string),
     viewerHasUpvoted: T.maybeNull(T.boolean),
 
     ...timestampFields(),

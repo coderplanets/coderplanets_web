@@ -34,6 +34,7 @@ type TProps = {
   avatarsRowLimit?: number
   alias?: string // 觉得很赞(default), 觉得很酷(works), 学到了(blog), 感兴趣(meetup), 有意思(Radar)
   avatarList?: TUser[]
+  onAction?: (viewerHasUpvoted: boolean) => void
 }
 
 const Upvote: FC<TProps> = ({
@@ -43,6 +44,7 @@ const Upvote: FC<TProps> = ({
   avatarsRowLimit = 3,
   alias = '觉得很酷',
   avatarList,
+  onAction = log,
 }) => {
   const noOne = count === 0
 
@@ -52,6 +54,7 @@ const Upvote: FC<TProps> = ({
         <UpvoteBtn
           viewerHasUpvoted={viewerHasUpvoted}
           type={UPVOTE_LAYOUT.WORKS_ARTICLE}
+          onAction={onAction}
         />
         <CountWrapper>
           <AnimatedCount count={count} size={SIZE.LARGE} />

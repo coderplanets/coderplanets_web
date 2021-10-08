@@ -41,7 +41,7 @@ const createComment = gql`
 `
 
 const updateComment = gql`
-  mutation($thread: CmsThread!, $id: ID!, $body: String!) {
+  mutation ($thread: CmsThread!, $id: ID!, $body: String!) {
     updateComment(thread: $thread, id: $id, body: $body) {
       id
       body
@@ -70,49 +70,56 @@ const replyComment = gql`
   }
 `
 const deleteComment = gql`
-  mutation($thread: CmsThread, $id: ID!) {
+  mutation ($thread: CmsThread, $id: ID!) {
     deleteComment(thread: $thread, id: $id) {
       id
     }
   }
 `
 
-const likeComment = gql`
-  mutation($thread: CmsThread, $id: ID!) {
-    likeComment(thread: $thread, id: $id) {
+const upvoteComment = gql`
+  mutation ($id: ID!) {
+    upvoteComment(id: $id) {
       id
-      viewerHasLiked
-      likesCount
+      upvotesCount
+      viewerHasUpvoted
+      replyToId
     }
   }
 `
-const undoLikeComment = gql`
-  mutation($thread: CmsThread, $id: ID!) {
-    undoLikeComment(thread: $thread, id: $id) {
+const undoUpvoteComment = gql`
+  mutation ($id: ID!) {
+    undoUpvoteComment(id: $id) {
       id
-      viewerHasLiked
-      likesCount
+      upvotesCount
+      viewerHasUpvoted
+      replyToId
     }
   }
 `
-const dislikeComment = gql`
-  mutation($thread: CmsThread, $id: ID!) {
-    dislikeComment(thread: $thread, id: $id) {
+const emotionToComment = gql`
+  mutation ($id: ID!, $emotion: CommentEmotion!) {
+    emotionToComment(id: $id, emotion: $emotion) {
       id
-      viewerHasDisliked
-      dislikesCount
+      replyToId
+      emotions {
+        ${F.emotionQuery}
+      }
     }
   }
 `
-const undoDislikeComment = gql`
-  mutation($thread: CmsThread, $id: ID!) {
-    undoDislikeComment(thread: $thread, id: $id) {
+const undoEmotionToComment = gql`
+  mutation ($id: ID!, $emotion: CommentEmotion!) {
+    undoEmotionToComment(id: $id, emotion: $emotion) {
       id
-      viewerHasDisliked
-      dislikesCount
+      replyToId
+      emotions {
+        ${F.emotionQuery}
+      }
     }
   }
 `
+
 const searchUsers = gql`
   query($name: String!) {
     searchUsers(name: $name) {
@@ -129,11 +136,11 @@ const schema = {
   updateComment,
   replyComment,
   deleteComment,
-  likeComment,
-  undoLikeComment,
-  dislikeComment,
-  undoDislikeComment,
   searchUsers,
+  upvoteComment,
+  undoUpvoteComment,
+  emotionToComment,
+  undoEmotionToComment,
 }
 
 export default schema

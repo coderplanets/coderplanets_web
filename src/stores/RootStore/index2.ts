@@ -45,7 +45,6 @@ import {
   // footer
   FooterStore,
   // viewers
-  RepoViewerStore,
   CommentsStore,
   MailsViewerStore,
 
@@ -53,8 +52,6 @@ import {
   DoraemonStore,
   DrawerStore,
   SidebarStore,
-  PostEditorStore,
-  RepoEditorStore,
   AccountEditorStore,
   MailBoxStore,
   DocUploaderStore,
@@ -144,7 +141,6 @@ import {
 
 // // toolbox
 // import DocUploaderStore from '@/containers/tool/DocUploader/store'
-// import PostEditorStore from '@/containers/editor/PostEditor/store'
 // import RepoEditorStore from '@/containers/editor/RepoEditor/store'
 // import CommentsStore from '@/containers/unit/Comments/store'
 // import AccountEditorStore from '@/containers/editor/AccountEditor/store'
@@ -210,8 +206,6 @@ const rootStore = T.model({
   drawer: T.optional(DrawerStore, { visible: false }), // gzip + 16kb
   // NOTE: 危险
   doraemon: T.optional(DoraemonStore, {}),
-  postEditor: T.optional(PostEditorStore, {}),
-  repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
   mailBox: T.optional(MailBoxStore, {}),
   docUploader: T.optional(DocUploaderStore, {}),
@@ -234,7 +228,6 @@ const rootStore = T.model({
   girlVerifier: T.optional(GirlVerifierStore, {}),
   cashier: T.optional(CashierStore, {}),
   // viewers (for drawer usage)
-  repoViewer: T.optional(RepoViewerStore, {}),
   mailsViewer: T.optional(MailsViewerStore, {}),
   // user page
   userPublished: T.optional(UserPublishedStore, {}),

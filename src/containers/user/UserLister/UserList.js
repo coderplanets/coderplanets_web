@@ -51,7 +51,6 @@ const UsersTable = ({ entries, accountId }) => (
                 userId={user.id}
                 onFollow={onFollow}
                 onUndoFollow={undoFollow}
-                fakeLoading
               />
             ) : (
               <div>(本尊)</div>

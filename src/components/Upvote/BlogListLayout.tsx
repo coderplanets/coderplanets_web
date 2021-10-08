@@ -20,17 +20,19 @@ type TProps = {
   testid?: string
   count?: number
   viewerHasUpvoted?: boolean
+  onAction?: (viewerHasUpvoted: boolean) => void
 }
 
 const Upvote: FC<TProps> = ({
   testid = 'upvote',
   count = 0,
   viewerHasUpvoted = false,
+  onAction = log,
 }) => {
   return (
     <Wrapper testid={testid}>
       <UpWrapper>
-        <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} />
+        <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} onAction={onAction} />
       </UpWrapper>
       <CountWrapper>
         <AnimatedCount count={count} />

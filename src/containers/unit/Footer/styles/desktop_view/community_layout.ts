@@ -5,6 +5,8 @@ import { C11N } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+export { NoLinkItem } from './article_layout'
+
 type TWrapper = { metric: TMetric; layout: TC11NLayout }
 export const Wrapper = styled.div<TWrapper>`
   ${css.flexColumn('align-end')};

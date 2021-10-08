@@ -23,9 +23,13 @@ const ArticleSticker = T.model('ArticleSticker', {
   isLeftStickerLocked: T.optional(T.boolean, false),
 })
   .views((self) => ({
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
+    },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return root.viewing.viewingArticle
+      return toJS(root.viewing.viewingArticle)
     },
     get activeThread(): TThread {
       const root = getParent(self) as TRootStore
@@ -73,6 +77,14 @@ const ArticleSticker = T.model('ArticleSticker', {
     },
   }))
   .actions((self) => ({
+    updateUpvote(viewerHasUpvoted: boolean): void {
+      const root = getParent(self) as TRootStore
+      return root.viewing.updateUpvote(viewerHasUpvoted)
+    },
+    updateUpvoteCount(count: number): void {
+      const root = getParent(self) as TRootStore
+      return root.viewing.updateUpvoteCount(count)
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

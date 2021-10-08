@@ -180,7 +180,7 @@ export const userContributes = `
   totalCount
 `
 
-const emotionQuery = flatten(
+export const emotionQuery = flatten(
   values(EMOTION).map((emotion) => {
     return [
       `${emotion}Count`,
@@ -213,6 +213,7 @@ const commentFields = `
   isArticleAuthor
   viewerHasUpvoted
   repliesCount
+  replyToId
   insertedAt
   updatedAt
 `

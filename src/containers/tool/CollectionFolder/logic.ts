@@ -205,7 +205,8 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) => {
-      store.changesetErr({ title: '已经存在了', msg: details[0].detail })
+      console.log('collection folder TODO')
+      // store.changesetErr({ title: '已经存在了', msg: details[0].detail })
       markLoading(false)
     },
   },

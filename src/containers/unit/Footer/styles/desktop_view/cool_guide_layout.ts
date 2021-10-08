@@ -4,6 +4,8 @@ import { METRIC } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+export { NoLinkItem } from './article_layout'
+
 export const Wrapper = styled.div`
   ${css.flexColumn('align-start')};
   width: 100%;

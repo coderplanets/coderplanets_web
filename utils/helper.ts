@@ -58,10 +58,12 @@ export const sortByIndex = (source: TSORTABLE_ITEMS): TSORTABLE_ITEMS =>
   sort((a, b) => a.index - b.index, source)
 
 /* eslint-disable */
-const log = (...args) => (data) => {
-  console.log.apply(null, args.concat([data]))
-  return data
-}
+const log =
+  (...args) =>
+  (data) => {
+    console.log.apply(null, args.concat([data]))
+    return data
+  }
 /* eslint-enable */
 
 // reference: https://blog.carbonfive.com/2017/12/20/easy-pipeline-debugging-with-curried-console-log/
@@ -189,6 +191,8 @@ export const mirrorToCommunity = (): void => {
 export const setTag = (): void => {
   send(EVENT.SET_TAG, {})
 }
+
+export const authWarn = (option): void => send(EVENT.AUTH_WARNING, option)
 
 /**
  * send preview article singal to Drawer

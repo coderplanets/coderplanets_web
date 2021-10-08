@@ -1,5 +1,4 @@
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
 import { contains } from 'ramda'
 
 import type { TCommunity } from '@/spec'
@@ -9,6 +8,7 @@ import { HCN, NON_FILL_COMMUNITY } from '@/constant'
 import ExpandTexts from '../ExpandTexts'
 import SocialList from '../SocialList'
 
+import CommunityJoinSign from '@/components/CommunityJoinSign'
 import {
   Wrapper,
   Logo,
@@ -19,12 +19,6 @@ import {
   TitleText,
   LogoHolder,
 } from '../styles/classic_layout/community_brief'
-
-export const VerifiedSign = dynamic(() => import('@/components/VerifiedSign'), {
-  /* eslint-disable react/display-name */
-  loading: () => <div />,
-  ssr: false,
-})
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
@@ -51,7 +45,7 @@ const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
         <TitleWrapper>
           <Title descExpand={descExpand}>
             <TitleText>{community.title}</TitleText>
-            <VerifiedSign />
+            {community.raw !== HCN && <CommunityJoinSign />}
           </Title>
         </TitleWrapper>
         {/* <Desc>{community.desc}</Desc> */}

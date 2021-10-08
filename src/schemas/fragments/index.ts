@@ -22,6 +22,7 @@ import {
   userBackgrounds,
   userContributes,
   comment,
+  emotionQuery,
   commentParent,
   pagedCounts,
 } from './base'
@@ -47,6 +48,7 @@ const F = {
   userContributes,
 
   comment,
+  emotionQuery,
   commentParent,
   pagedCounts,
 }
