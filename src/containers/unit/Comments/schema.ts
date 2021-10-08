@@ -103,18 +103,7 @@ const emotionToComment = gql`
       id
       replyToId
       emotions {
-        beerCount
-        viewerHasBeered
-        latestBeerUsers {
-          login
-          nickname
-        }
-        pillCount
-        viewerHasPilled
-        latestPillUsers {
-          login
-          nickname
-        }
+        ${F.emotionQuery}
       }
     }
   }
@@ -125,18 +114,7 @@ const undoEmotionToComment = gql`
       id
       replyToId
       emotions {
-        beerCount
-        viewerHasBeered
-        latestBeerUsers {
-          login
-          nickname
-        }
-        pillCount
-        viewerHasPilled
-        latestPillUsers {
-          login
-          nickname
-        }
+        ${F.emotionQuery}
       }
     }
   }

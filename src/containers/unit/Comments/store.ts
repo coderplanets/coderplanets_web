@@ -223,17 +223,6 @@ const CommentsStore = T.model('CommentsStore', {
       // @ts-ignore
       self.pagedComments.entries[index] = merge(entries[index], comment)
     },
-    upvoteEmotion(comment: TComment, emotion: TEmotion): void {
-      const { id, replyToId } = comment
-      const slf = self as TStore
-      const { entries } = slf.pagedCommentsData
-
-      const index = findIndex(propEq('id', id), entries)
-      self.pagedComments.entries[index].emotions = {
-        ...entries[index].emotions,
-        ...emotion,
-      }
-    },
     updateUpvote(comment: TComment, info): void {
       const { id, replyToId } = comment
       const slf = self as TStore
@@ -257,6 +246,32 @@ const CommentsStore = T.model('CommentsStore', {
         if (index < 0) return
         // @ts-ignore
         self.pagedComments.entries[index] = { ...entries[index], ...info }
+      }
+    },
+    upvoteEmotion(comment: TComment, emotion: TEmotion): void {
+      const { id, replyToId } = comment
+      const slf = self as TStore
+      const { entries } = slf.pagedCommentsData
+
+      if (self.mode === MODE.REPLIES && replyToId) {
+        const parentIndex = findIndex(propEq('id', replyToId), entries)
+        if (parentIndex < 0) return
+        const parentComment = entries[parentIndex]
+        const replyIndex = findIndex(propEq('id', id), parentComment.replies)
+        if (replyIndex < 0) return
+        const replyComment = parentComment.replies[replyIndex]
+        self.pagedComments.entries[parentIndex].replies[replyIndex].emotions = {
+          ...replyComment.emotions,
+          ...emotion,
+        }
+      } else {
+        const index = findIndex(propEq('id', id), entries)
+        if (index < 0) return
+        // @ts-ignore
+        self.pagedComments.entries[index].emotions = {
+          ...entries[index].emotions,
+          ...emotion,
+        }
       }
     },
     mark(sobj: Record<string, unknown>): void {
