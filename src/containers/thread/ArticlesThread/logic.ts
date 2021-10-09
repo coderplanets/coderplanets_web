@@ -52,10 +52,9 @@ const loadArticles = (page = 1): void => {
 
 // do query paged articles
 const doQuery = (page: number): void => {
-  const endpoint = S[`paged${titleCase(store.curThread)}s`]
   const args = store.getLoadArgs(page)
-  console.log('args: ', args)
-  sr71$.query(endpoint, args)
+  log('args: ', args)
+  sr71$.query(S.getPagedArticlesSchema(store.curThread), args)
 }
 
 /**
@@ -69,10 +68,7 @@ const onPreview = (article: TArticle): void => {
   previewArticle(article)
 }
 
-const handleArticleUpvote = (
-  article: TArticle,
-  viewerHasUpvoted: boolean,
-): void => {
+const handleUpvote = (article: TArticle, viewerHasUpvoted: boolean): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
   const { id, meta } = article
 
@@ -119,7 +115,7 @@ const DataSolver = [
     match: asyncRes(EVENT.UPVOTE_ON_ARTICLE_LIST),
     action: (res) => {
       const { article, viewerHasUpvoted } = res[EVENT.UPVOTE_ON_ARTICLE_LIST]
-      handleArticleUpvote(article, viewerHasUpvoted)
+      handleUpvote(article, viewerHasUpvoted)
     },
   },
   {

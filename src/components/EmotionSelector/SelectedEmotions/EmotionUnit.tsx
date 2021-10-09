@@ -33,14 +33,8 @@ const EmotionUnit: FC<TProps> = ({ item, onAction }) => {
 
   return (
     <Tooltip
-      content={
-        <UsersPanel
-          name={name}
-          count={count}
-          users={users}
-          hasEmotioned={hasEmotioned}
-        />
-      }
+      content={<UsersPanel name={name} count={count} users={users} />}
+      interactive={false}
       noPadding
     >
       <Wrapper

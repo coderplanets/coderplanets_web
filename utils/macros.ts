@@ -2,9 +2,9 @@
 // NOTE: for consistency, function name shoud start with "match"
 
 import type { TThread } from '@/spec'
-import { reject, map, includes, flatten } from 'ramda'
+import { map, values, flatten } from 'ramda'
 
-import { ARTICLE_THREAD, THREAD } from '@/constant'
+import { ARTICLE_THREAD } from '@/constant'
 import { titleCase } from './helper'
 import asyncSuite from './async'
 
@@ -26,11 +26,6 @@ export const matchPagedArticles = (threads: TThread[], callback) => {
  * Works 和 Repo 是处理页面，自行处理相关逻辑
  */
 export const matchArticleUpvotes = (callback) => {
-  const articleThreads = reject(
-    (t) => includes(t, [THREAD.WORKS, THREAD.REPO]),
-    ARTICLE_THREAD,
-  )
-
   // @ts-ignore
   const matches = map((thread) => {
     return [
@@ -43,7 +38,7 @@ export const matchArticleUpvotes = (callback) => {
         action: (res) => callback?.(res[`undoUpvote${titleCase(thread)}`]),
       },
     ]
-  }, articleThreads)
+  }, values(ARTICLE_THREAD))
 
   return flatten(matches)
 }

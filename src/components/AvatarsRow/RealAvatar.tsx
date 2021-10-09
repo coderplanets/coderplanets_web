@@ -18,7 +18,6 @@ import {
 type TProps = {
   user?: TUser
   size?: TAvatarSize
-  scrollPosition?: any
   popCardPlacement?: 'top' | 'bottom'
   onUserSelect: (user: TUser) => void
 }
@@ -36,6 +35,7 @@ const RealAvatar: FC<TProps> = ({
         delay={0}
         contentHeight={getAvatarSize(size, 'number') as string}
         placement={popCardPlacement}
+        interactive={false}
       >
         <InnerWrapper>
           <AvatarsImg

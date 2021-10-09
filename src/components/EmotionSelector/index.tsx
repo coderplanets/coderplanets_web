@@ -10,7 +10,7 @@ import IconButton from '@/components/Buttons/IconButton'
 import Tooltip from '@/components/Tooltip'
 
 import { emotionsCoverter } from './helper'
-import SelectedEmotions from './SelectedEmotions'
+import SelectedEmotions from './SelectedEmotions/index'
 import Panel from './Panel'
 import { Wrapper } from './styles'
 

@@ -5,8 +5,9 @@ import type { TArticle } from '@/spec'
 
 import { EVENT, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { errRescue } from '@/utils/helper'
+import { errRescue, authWarn } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
+import { matchArticleUpvotes } from '@/utils/macros'
 
 import S from './schema'
 import type { TStore } from './store'
@@ -23,7 +24,19 @@ let sub$ = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleViewer')
 
-export const holder = 1
+export const handleUpvote = (
+  article: TArticle,
+  viewerHasUpvoted: boolean,
+): void => {
+  if (!store.isLogin) return authWarn({ hideToast: true })
+  const { id, meta } = article
+
+  store.updateUpvote(viewerHasUpvoted)
+
+  viewerHasUpvoted
+    ? sr71$.mutate(S.getUpvoteSchema(meta.thread), { id })
+    : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread), { id })
+}
 
 const loadArticle = (): void => {
   const userHasLogin = store.isLogin
@@ -31,8 +44,7 @@ const loadArticle = (): void => {
 
   const variables = { id, userHasLogin }
   markLoading()
-  const schema = S[meta.thread.toLowerCase()]
-  return sr71$.query(schema, variables)
+  return sr71$.query(S.getArticleSchema(meta.thread), variables)
 }
 
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
@@ -49,8 +61,16 @@ const handleArticleLoaded = (article: TArticle): void => {
 // ###############################
 // init & uninit handlers
 // ###############################
+const handleUovoteRes = ({ upvotesCount }) => {
+  store.updateUpvoteCount(upvotesCount)
+
+  const { id, meta } = store.viewingArticle
+  const variables = { id, userHasLogin: true }
+  sr71$.query(S.getArticleSchema(meta.thread), variables)
+}
 
 const DataSolver = [
+  ...matchArticleUpvotes(handleUovoteRes),
   {
     match: asyncRes('post'),
     action: ({ post }) => handleArticleLoaded(post),

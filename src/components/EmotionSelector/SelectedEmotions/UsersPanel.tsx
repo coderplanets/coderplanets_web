@@ -3,9 +3,10 @@
  */
 
 import { FC, memo } from 'react'
-import { buildLog } from '@/utils/logger'
 
 import type { TSimpleUser, TEmotionType } from '@/spec'
+import { buildLog } from '@/utils/logger'
+import { cutRest } from '@/utils/helper'
 
 import EmotionIcon from './EmotionIcon'
 
@@ -23,10 +24,9 @@ type TProps = {
   name: TEmotionType
   count: number
   users: TSimpleUser[]
-  hasEmotioned: boolean
 }
 
-const UsersPanel: FC<TProps> = ({ name, count, users, hasEmotioned }) => {
+const UsersPanel: FC<TProps> = ({ name, count, users }) => {
   const showUnit = users.length > count
 
   return (
@@ -34,7 +34,7 @@ const UsersPanel: FC<TProps> = ({ name, count, users, hasEmotioned }) => {
       <UsersWrapper>
         {users.slice(0, 5).map((u, index) => (
           <Username key={u.login}>
-            {u.nickname}
+            {cutRest(u.nickname, 12)}
             {users.length - 1 !== index ? ',' : ''}
           </Username>
         ))}

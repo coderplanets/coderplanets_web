@@ -29,4 +29,4 @@ const SelectedEmotions: FC<TProps> = ({ emotions, onAction }) => {
   )
 }
 
-export default memo(SelectedEmotions)
+export default SelectedEmotions

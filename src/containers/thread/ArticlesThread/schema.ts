@@ -1,18 +1,14 @@
 import { gql } from '@urql/core'
 import { P, F } from '@/schemas'
 
-const pagedPosts = gql`
-  ${P.pagedPosts}
-`
-const pagedJobs = gql`
-  ${P.pagedJobs}
-`
-const pagedBlogs = gql`
-  ${P.pagedBlogs}
-`
-const pagedRadars = gql`
-  ${P.pagedRadars}
-`
+import { titleCase } from '@/utils/helper'
+
+const getPagedArticlesSchema = (thread) => {
+  return gql`
+    ${P[`paged${titleCase(thread)}s`]}
+  `
+}
+
 const pagedArticleTags = gql`
   ${P.pagedArticleTags}
 `
@@ -30,12 +26,9 @@ const pagedCommunities = gql`
 `
 
 const schema = {
-  pagedPosts,
-  pagedJobs,
-  pagedBlogs,
-  pagedRadars,
   pagedArticleTags,
   pagedCommunities,
+  getPagedArticlesSchema,
   getUpvoteSchema: F.getUpvoteSchema,
   getUndoUpvoteSchema: F.getUndoUpvoteSchema,
 }
