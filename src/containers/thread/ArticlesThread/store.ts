@@ -7,6 +7,7 @@ import { merge, isEmpty, findIndex, propEq, pickBy, values } from 'ramda'
 
 import type {
   TRootStore,
+  TID,
   TTag,
   TAccount,
   TArticle,
@@ -42,6 +43,10 @@ const ArticlesThread = T.model('ArticlesThread', {
   ),
 })
   .views((self) => ({
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
+    },
     get curCommunity(): TCommunity {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing.community)
@@ -143,10 +148,36 @@ const ArticlesThread = T.model('ArticlesThread', {
       const { entries } = slf.pagedArticlesData
       const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
 
-      if (index >= 0) {
-        const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
-        self[pagedThreadKey].entries[index].viewerHasViewed = true
-      }
+      if (index < 0) return
+      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
+      self[pagedThreadKey].entries[index].viewerHasViewed = true
+    },
+    updateUpvote(id: TID, viewerHasUpvoted: boolean): void {
+      const slf = self as TStore
+      const { entries } = slf.pagedArticlesData
+
+      const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
+      if (index < 0) return
+
+      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
+      let curUpvotesCount = self[pagedThreadKey].entries[index].upvotesCount
+
+      curUpvotesCount = viewerHasUpvoted
+        ? (curUpvotesCount += 1)
+        : (curUpvotesCount -= 1)
+
+      self[pagedThreadKey].entries[index].upvotesCount = curUpvotesCount
+      self[pagedThreadKey].entries[index].viewerHasUpvoted = viewerHasUpvoted
+    },
+    updateUpvoteCount(id: TID, count: number): void {
+      const slf = self as TStore
+      const { entries } = slf.pagedArticlesData
+
+      const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
+      if (index < 0) return
+
+      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
+      self[pagedThreadKey].entries[index].upvotesCount = count
     },
     markRoute(params): void {
       const query = { ...self.tagQuery, ...self.filtersData, ...params }

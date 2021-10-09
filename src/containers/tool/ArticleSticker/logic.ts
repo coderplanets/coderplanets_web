@@ -5,6 +5,7 @@ import { EVENT } from '@/constant'
 import { send, authWarn } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
+import { matchArticleUpvotes } from '@/utils/macros'
 
 import S from './schema'
 import type { TStore } from './store'
@@ -55,24 +56,17 @@ export const loadPagedCommentsParticipants = (): void => {
 }
 
 // update the real upvoteCount after upvote action
-const handleUovoteAfter = ({ upvotesCount }) => {
+const handleUovoteRes = ({ upvotesCount }) => {
   store.updateUpvoteCount(upvotesCount)
 }
 
 const DataSolver = [
+  ...matchArticleUpvotes(handleUovoteRes),
   {
     match: asyncRes('pagedCommentsParticipants'),
     action: ({ pagedCommentsParticipants }) => {
       store.mark({ pagedCommentsParticipants })
     },
-  },
-  {
-    match: asyncRes('upvotePost'),
-    action: ({ upvotePost }) => handleUovoteAfter(upvotePost),
-  },
-  {
-    match: asyncRes('undoUpvotePost'),
-    action: ({ undoUpvotePost }) => handleUovoteAfter(undoUpvotePost),
   },
 ]
 const ErrSolver = []

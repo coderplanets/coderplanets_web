@@ -20,6 +20,7 @@ export const pagedWorks = `
           ${F.author}
         }
         viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
       }
       ${F.pagedCounts}
     }

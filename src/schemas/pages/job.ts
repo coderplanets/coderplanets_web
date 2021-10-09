@@ -19,6 +19,7 @@ export const pagedJobs = `
         company
         companyLink
         viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
       }
       ${F.pagedCounts}
     }

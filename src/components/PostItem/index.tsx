@@ -5,7 +5,6 @@
  */
 
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
 
 import type { TPost, TUser, TAccount, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
@@ -39,11 +38,7 @@ const PostItem: FC<TProps> = ({
   return (
     <Wrapper entry={entry} c11n={c11n}>
       {!isMobile ? (
-        <DesktopView
-          entry={entry}
-          onUserSelect={onUserSelect}
-          onAuthorSelect={onAuthorSelect}
-        />
+        <DesktopView entry={entry} />
       ) : (
         <MobileView entry={entry} onAuthorSelect={onAuthorSelect} />
       )}

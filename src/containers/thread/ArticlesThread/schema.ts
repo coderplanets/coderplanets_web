@@ -16,7 +16,6 @@ const pagedRadars = gql`
 const pagedArticleTags = gql`
   ${P.pagedArticleTags}
 `
-
 const pagedCommunities = gql`
   query($filter: CommunitiesFilter!) {
     pagedCommunities(filter: $filter) {
@@ -37,6 +36,8 @@ const schema = {
   pagedRadars,
   pagedArticleTags,
   pagedCommunities,
+  getUpvoteSchema: F.getUpvoteSchema,
+  getUndoUpvoteSchema: F.getUndoUpvoteSchema,
 }
 
 export default schema

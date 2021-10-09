@@ -17,6 +17,7 @@ export const pagedRadars = `
         digest
         linkAddr
         viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
       }
       ${F.pagedCounts}
     }

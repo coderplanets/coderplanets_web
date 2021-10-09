@@ -1,6 +1,5 @@
 import { gql } from '@urql/core'
 import { F } from '@/schemas'
-import { titleCase } from '@/utils/helper'
 
 const pagedCommentsParticipants = gql`
   query($id: ID!, $thread: Thread, $filter: PagedFilter!) {
@@ -14,32 +13,10 @@ const pagedCommentsParticipants = gql`
   }
 `
 
-const getUpvoteSchema = (thread) => {
-  return gql`
-    mutation ($id: ID!) {
-      upvote${titleCase(thread)}(id: $id) {
-        id
-        upvotesCount
-      }
-    }
-  `
-}
-
-const getUndoUpvoteSchema = (thread) => {
-  return gql`
-    mutation ($id: ID!) {
-      undoUpvote${titleCase(thread)}(id: $id) {
-        id
-        upvotesCount
-      }
-    }
-  `
-}
-
 const schema = {
   pagedCommentsParticipants,
-  getUpvoteSchema,
-  getUndoUpvoteSchema,
+  getUpvoteSchema: F.getUpvoteSchema,
+  getUndoUpvoteSchema: F.getUndoUpvoteSchema,
 }
 
 export default schema

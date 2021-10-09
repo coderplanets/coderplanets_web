@@ -25,6 +25,8 @@ import {
   emotionQuery,
   commentParent,
   pagedCounts,
+  getUpvoteSchema,
+  getUndoUpvoteSchema,
 } from './base'
 
 import { pagedPosts, pagedJobs, pagedRepos } from './paged'
@@ -51,6 +53,8 @@ const F = {
   emotionQuery,
   commentParent,
   pagedCounts,
+  getUpvoteSchema,
+  getUndoUpvoteSchema,
 }
 
 export default F

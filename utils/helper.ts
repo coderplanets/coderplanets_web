@@ -192,6 +192,16 @@ export const setTag = (): void => {
   send(EVENT.SET_TAG, {})
 }
 
+export const upvoteOnArticleList = (
+  article: TArticle,
+  viewerHasUpvoted: boolean,
+): void => {
+  send(EVENT.UPVOTE_ON_ARTICLE_LIST, {
+    article,
+    viewerHasUpvoted,
+  })
+}
+
 export const authWarn = (option): void => send(EVENT.AUTH_WARNING, option)
 
 /**
