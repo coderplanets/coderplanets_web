@@ -1,4 +1,4 @@
-// is not REAL macros, but some shared hanlder snippets
+// those are not REAL macros, but some shared GraphQL response hanlder snippets
 // NOTE: for consistency, function name shoud start with "match"
 
 import type { TThread } from '@/spec'
@@ -10,23 +10,31 @@ import asyncSuite from './async'
 
 const { asyncRes } = asyncSuite
 
-// handle articles thread general pagedXXX response
+/**
+ * handle general paged articles GQ response
+ */
 export const matchPagedArticles = (threads: TThread[], callback) => {
   return map((thread) => {
+    const resKey = `paged${titleCase(thread)}s`
+
     return {
-      match: asyncRes(`paged${titleCase(thread)}s`),
-      action: (res) => callback?.(thread, res[`paged${titleCase(thread)}s`]),
+      match: asyncRes(resKey),
+      action: (res) => callback?.(thread, res[resKey]),
     }
   }, threads)
 }
 
-//
+/**
+ * handle general article GQ response
+ */
 export const matchArticles = (callback) => {
   // @ts-ignore
   return map((thread) => {
+    const resKey = `${thread.toLowerCase()}`
+
     return {
-      match: asyncRes(`${thread.toLowerCase()}`),
-      action: (res) => callback?.(res[`${thread.toLowerCase()}`]),
+      match: asyncRes(resKey),
+      action: (res) => callback?.(res[resKey]),
     }
   }, values(ARTICLE_THREAD))
 }
@@ -34,19 +42,21 @@ export const matchArticles = (callback) => {
 /**
  * match upvote/undo-upvotes article async response
  * 处理 article 类型的 upvote/undo-upvote GraphQL 返回逻辑
- * Works 和 Repo 是处理页面，自行处理相关逻辑
  */
 export const matchArticleUpvotes = (callback) => {
   // @ts-ignore
   const matches = map((thread) => {
+    const upvoteResKey = `upvote${titleCase(thread)}`
+    const undoUpvoteResKey = `undoUpvote${titleCase(thread)}`
+
     return [
       {
-        match: asyncRes(`upvote${titleCase(thread)}`),
-        action: (res) => callback?.(res[`upvote${titleCase(thread)}`]),
+        match: asyncRes(upvoteResKey),
+        action: (res) => callback?.(res[upvoteResKey]),
       },
       {
-        match: asyncRes(`undoUpvote${titleCase(thread)}`),
-        action: (res) => callback?.(res[`undoUpvote${titleCase(thread)}`]),
+        match: asyncRes(undoUpvoteResKey),
+        action: (res) => callback?.(res[undoUpvoteResKey]),
       },
     ]
   }, values(ARTICLE_THREAD))
