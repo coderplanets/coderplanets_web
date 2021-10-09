@@ -20,6 +20,17 @@ export const matchPagedArticles = (threads: TThread[], callback) => {
   }, threads)
 }
 
+//
+export const matchArticles = (callback) => {
+  // @ts-ignore
+  return map((thread) => {
+    return {
+      match: asyncRes(`${thread.toLowerCase()}`),
+      action: (res) => callback?.(res[`${thread.toLowerCase()}`]),
+    }
+  }, values(ARTICLE_THREAD))
+}
+
 /**
  * match upvote/undo-upvotes article async response
  * 处理 article 类型的 upvote/undo-upvote GraphQL 返回逻辑

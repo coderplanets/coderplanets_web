@@ -94,6 +94,10 @@ const ArticlesThread = T.model('ArticlesThread', {
 
       return !isEmpty(curFilter) || !isEmpty(pagedPosts.entries)
     },
+    get pagedArticleKey(): string {
+      const slf = self as TStore
+      return `paged${titleCase(slf.curThread)}s`
+    },
   }))
   .actions((self) => ({
     // the args pass to server when load articles
@@ -115,20 +119,22 @@ const ArticlesThread = T.model('ArticlesThread', {
 
       slf.mark(res)
     },
-
-    updateArticle(item: TArticle): void {
+    targetArticleIndex(id: TID): number | null {
       const slf = self as TStore
       const { entries } = slf.pagedArticlesData
       // @ts-ignore
-      const index = findIndex(propEq('id', item.id), entries)
-      if (index >= 0) {
-        // TODO:
-        // @ts-ignore
-        self.pagedPosts.entries[index] = merge(
-          toJS(self.pagedPosts.entries[index]),
-          item,
-        )
-      }
+      const index = findIndex(propEq('id', id), entries)
+      if (index < 0) return null
+
+      return index
+    },
+    targetArticle(id: TID): TArticle | null {
+      const slf = self as TStore
+      const { pagedArticleKey } = slf
+      const index = slf.targetArticleIndex(id)
+      if (index < 0) return null
+
+      return toJS(slf[pagedArticleKey].entries[index])
     },
     selectFilter(option: TArticleFilter): void {
       const curfilter = self.filtersData
@@ -143,41 +149,37 @@ const ArticlesThread = T.model('ArticlesThread', {
       const root = getParent(self) as TRootStore
       root.setViewing(sobj)
     },
-    setViewedFlag(id): void {
+    updateArticle(article: TArticle): void {
       const slf = self as TStore
-      const { entries } = slf.pagedArticlesData
-      const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
+      const { pagedArticleKey } = slf
+      const index = slf.targetArticleIndex(article.id)
+      if (index === null) return
+      const targetArticle = toJS(slf[pagedArticleKey].entries[index])
 
-      if (index < 0) return
-      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
-      self[pagedThreadKey].entries[index].viewerHasViewed = true
+      slf[pagedArticleKey].entries[index] = merge(targetArticle, article)
     },
     updateUpvote(id: TID, viewerHasUpvoted: boolean): void {
       const slf = self as TStore
-      const { entries } = slf.pagedArticlesData
+      const { pagedArticleKey } = slf
 
-      const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
-      if (index < 0) return
+      const index = slf.targetArticleIndex(id)
+      if (index === null) return
+      const targetArticle = toJS(slf[pagedArticleKey].entries[index])
 
-      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
-      let curUpvotesCount = self[pagedThreadKey].entries[index].upvotesCount
+      let curCount = targetArticle.upvotesCount
+      curCount = viewerHasUpvoted ? (curCount += 1) : (curCount -= 1)
 
-      curUpvotesCount = viewerHasUpvoted
-        ? (curUpvotesCount += 1)
-        : (curUpvotesCount -= 1)
-
-      self[pagedThreadKey].entries[index].upvotesCount = curUpvotesCount
-      self[pagedThreadKey].entries[index].viewerHasUpvoted = viewerHasUpvoted
+      self[pagedArticleKey].entries[index].upvotesCount = curCount
+      self[pagedArticleKey].entries[index].viewerHasUpvoted = viewerHasUpvoted
     },
     updateUpvoteCount(id: TID, count: number): void {
       const slf = self as TStore
-      const { entries } = slf.pagedArticlesData
+      const { pagedArticleKey } = slf
 
-      const index = findIndex(propEq('id', id), entries as Record<'id', any>[])
-      if (index < 0) return
+      const index = slf.targetArticleIndex(id)
+      if (index === null) return
 
-      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
-      self[pagedThreadKey].entries[index].upvotesCount = count
+      slf[pagedArticleKey].entries[index].upvotesCount = count
     },
     markRoute(params): void {
       const query = { ...self.tagQuery, ...self.filtersData, ...params }

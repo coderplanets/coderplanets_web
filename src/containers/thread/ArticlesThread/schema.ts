@@ -9,26 +9,30 @@ const getPagedArticlesSchema = (thread) => {
   `
 }
 
+const getArticleFreshSchema = (thread) => {
+  // TODO: commentParticipants
+  return gql`
+    query post($id: ID!, $userHasLogin: Boolean!) {
+      post(id: $id) {
+        id
+        views
+        upvotesCount
+        commentsCount
+        viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
+      }
+    }
+  `
+}
+
 const pagedArticleTags = gql`
   ${P.pagedArticleTags}
-`
-const pagedCommunities = gql`
-  query($filter: CommunitiesFilter!) {
-    pagedCommunities(filter: $filter) {
-      entries {
-        ${F.community}
-        contributesDigest
-        subscribersCount
-      }
-      ${F.pagedCounts}
-    }
-  }
 `
 
 const schema = {
   pagedArticleTags,
-  pagedCommunities,
   getPagedArticlesSchema,
+  getArticleFreshSchema,
   getUpvoteSchema: F.getUpvoteSchema,
   getUndoUpvoteSchema: F.getUndoUpvoteSchema,
 }

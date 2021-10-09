@@ -61,9 +61,8 @@ const doQuery = (page: number): void => {
  * prepack then send preview event to drawer
  */
 const onPreview = (article: TArticle): void => {
-  const { setViewedFlag, resState } = store
+  const { resState } = store
   if (resState === TYPE.RES_STATE.LOADING) return
-  setTimeout(() => setViewedFlag(article.id), 1500)
 
   previewArticle(article)
 }

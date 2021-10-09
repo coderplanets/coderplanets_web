@@ -87,13 +87,6 @@ const ReposThread = T.model('ReposThread', {
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
-    setViewedFlag(id) {
-      const { entries } = self.pagedReposData
-      const index = findIndex(propEq('id', id), entries)
-      if (index >= 0) {
-        self.pagedRepos.entries[index].viewerHasViewed = true
-      }
-    },
     updateItem(item) {
       const { entries } = self.pagedReposData
       const index = findIndex(propEq('id', item.id), entries)

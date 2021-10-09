@@ -102,7 +102,7 @@ const ViewingStore = T.model('ViewingStore', {
 
       return mark({ user })
     },
-    syncViewingItem(item: TArticle): void {
+    syncArticle(item: TArticle): void {
       const root = getParent(self) as TRootStore
       root.articlesThread.updateArticle(item)
     },

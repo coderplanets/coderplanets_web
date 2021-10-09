@@ -27,11 +27,6 @@ export const toggleSidebar = (): void => {
 }
 
 export const onPreview = (works: TWorks): void => {
-  const { setViewedFlag } = store
-  // const { setViewedFlag, resState } = store
-  // if (resState === TYPE.RES_STATE.LOADING) return
-  setTimeout(() => setViewedFlag(works.id), 1500)
-
   previewArticle(works)
 }
 

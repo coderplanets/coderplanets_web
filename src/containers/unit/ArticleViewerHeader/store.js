@@ -50,8 +50,8 @@ const ArticleViewerHeader = T.model('ArticleViewerHeader', {
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
-    syncViewingItem(item) {
-      self.root.viewing.syncViewingItem(item)
+    syncArticle(item) {
+      self.root.viewing.syncArticle(item)
     },
     mark(sobj) {
       markStates(sobj, self)
