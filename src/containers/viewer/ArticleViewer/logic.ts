@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { merge, includes } from 'ramda'
+import { merge } from 'ramda'
 
 import type { TArticle } from '@/spec'
 

@@ -11,9 +11,6 @@ import { pluggedIn } from '@/utils/mobx'
 
 import Comments from '@/containers/unit/Comments'
 
-// TODO: remove
-// import ArticleViewerHeader from '@/containers/unit/ArticleViewerHeader'
-
 import Viewer from './Viewer'
 
 import type { TStore } from './store'
