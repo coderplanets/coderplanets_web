@@ -5,7 +5,7 @@ import type { TEmotion } from './emotion'
 
 export type TCopyright = 'cc' | 'approve' | 'forbid'
 
-type TArticleMeta = {
+export type TArticleMeta = {
   thread?: string
   citingCount?: number
   isCommentLocked?: boolean

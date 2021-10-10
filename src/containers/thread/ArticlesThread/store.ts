@@ -11,6 +11,7 @@ import type {
   TTag,
   TAccount,
   TArticle,
+  TArticleMeta,
   TPagedArticles,
   TCommunity,
   TThread,
@@ -172,12 +173,17 @@ const ArticlesThread = T.model('ArticlesThread', {
       self[pagedArticleKey].entries[index].upvotesCount = curCount
       self[pagedArticleKey].entries[index].viewerHasUpvoted = viewerHasUpvoted
     },
-    updateUpvoteCount(id: TID, count: number): void {
+    updateUpvoteCount(id: TID, count: number, meta: TArticleMeta): void {
       const slf = self as TStore
       const { pagedArticleKey } = slf
 
       const index = slf.targetArticleIndex(id)
       if (index === null) return
+
+      if (meta) {
+        slf[pagedArticleKey].entries[index].meta.latestUpvotedUsers =
+          meta.latestUpvotedUsers
+      }
 
       slf[pagedArticleKey].entries[index].upvotesCount = count
     },

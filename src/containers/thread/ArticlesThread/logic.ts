@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { includes } from 'ramda'
 
 import type { TArticle, TThread, TArticleFilter } from '@/spec'
 import { TYPE, EVENT, ERR, THREAD } from '@/constant'
@@ -11,6 +12,7 @@ import { matchPagedArticles, matchArticleUpvotes } from '@/utils/macros'
 
 import type { TStore } from './store'
 import S from './schema'
+import { threadOnChange } from '@/containers/user/UserPublishedComments/logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticlesThread')
@@ -72,17 +74,24 @@ const handleUpvote = (article: TArticle, viewerHasUpvoted: boolean): void => {
   const { id, meta } = article
 
   store.updateUpvote(id, viewerHasUpvoted)
+  const queryLatestUsers = includes(article.meta.thread.toLowerCase(), [
+    THREAD.RADAR,
+    THREAD.JOB,
+  ])
 
   viewerHasUpvoted
-    ? sr71$.mutate(S.getUpvoteSchema(meta.thread), { id })
-    : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread), { id })
+    ? sr71$.mutate(S.getUpvoteSchema(meta.thread, queryLatestUsers), { id })
+    : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread, queryLatestUsers), { id })
 }
 
-const handleUovoteRes = ({ id, upvotesCount }) =>
-  store.updateUpvoteCount(id, upvotesCount)
+const handleUovoteRes = ({ id, upvotesCount, meta }) => {
+  log('# handleUovoteRes: ', meta)
+  store.updateUpvoteCount(id, upvotesCount, meta)
+}
 
 const handlePagedArticlesRes = (thread: TThread, pagedArticles): void => {
   const key = `paged${titleCase(thread)}s`
+  log('pagedArticles -> ', pagedArticles)
   store.markRes({ [key]: pagedArticles })
 }
 

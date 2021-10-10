@@ -18,7 +18,6 @@ export const Wrapper = styled.ul<{ total: number }>`
 `
 export const AvatarsWrapper = styled.div`
   ${css.flex()}
-  flex-direction: row-reverse;
 `
 export const TotalOneOffset = styled.span`
   margin-right: 10px;

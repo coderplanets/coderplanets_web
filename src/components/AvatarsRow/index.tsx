@@ -91,7 +91,7 @@ const AvatarsRow: FC<TProps> = ({
   onTotalSelect = log,
   showMore = true,
   showTotalNumber = false,
-  reverse = true,
+  reverse = false,
   // see https://github.com/Aljullu/react-lazy-load-image-component/issues/42
   scrollPosition = null,
   popCardPlacement = 'bottom',
@@ -103,7 +103,7 @@ const AvatarsRow: FC<TProps> = ({
   const totalCount = total || users.length
 
   users = filter(validUser, getUniqueArray(users, 'login'))
-  const sortedUsers = reverse ? users : reverseFn(users)
+  const sortedUsers = reverse ? reverseFn(users) : users
 
   return (
     <Wrapper total={totalCount}>

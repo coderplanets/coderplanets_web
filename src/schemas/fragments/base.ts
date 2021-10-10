@@ -250,7 +250,22 @@ export const pagedCounts = `
   pageNumber
 `
 
-export const getUpvoteSchema = (thread) => {
+export const getUpvoteSchema = (thread, withLatestUser = true) => {
+  if (withLatestUser) {
+    return gql`
+    mutation ($id: ID!) {
+      upvote${titleCase(thread)}(id: $id) {
+        id
+        upvotesCount
+        meta {
+          latestUpvotedUsers {
+            ${author}
+          }
+        }
+      }
+    }
+  `
+  }
   return gql`
     mutation ($id: ID!) {
       upvote${titleCase(thread)}(id: $id) {
@@ -261,7 +276,22 @@ export const getUpvoteSchema = (thread) => {
   `
 }
 
-export const getUndoUpvoteSchema = (thread) => {
+export const getUndoUpvoteSchema = (thread, withLatestUser = true) => {
+  if (withLatestUser) {
+    return gql`
+    mutation ($id: ID!) {
+      undoUpvote${titleCase(thread)}(id: $id) {
+        id
+        upvotesCount
+        meta {
+          latestUpvotedUsers {
+            ${author}
+          }
+        }
+      }
+    }
+  `
+  }
   return gql`
     mutation ($id: ID!) {
       undoUpvote${titleCase(thread)}(id: $id) {
