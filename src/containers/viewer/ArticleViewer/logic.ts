@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { merge } from 'ramda'
+import { merge, includes } from 'ramda'
 
 import type { TArticle } from '@/spec'
 
@@ -33,9 +33,11 @@ export const handleUpvote = (
 
   store.updateUpvote(viewerHasUpvoted)
 
+  const queryLatestUsers = true
+
   viewerHasUpvoted
-    ? sr71$.mutate(S.getUpvoteSchema(meta.thread), { id })
-    : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread), { id })
+    ? sr71$.mutate(S.getUpvoteSchema(meta.thread, queryLatestUsers), { id })
+    : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread, queryLatestUsers), { id })
 }
 
 const loadArticle = (): void => {
@@ -66,11 +68,16 @@ const handleArticleRes = (article: TArticle): void => {
   })
 }
 
-const handleUovoteRes = ({ upvotesCount }) => {
-  store.updateUpvoteCount(upvotesCount)
+const handleUovoteRes = ({ upvotesCount, meta }) => {
+  store.updateUpvoteCount(upvotesCount, meta)
 
-  const { id, viewerHasUpvoted } = store.viewingArticle
-  store.syncArticle({ id, viewerHasUpvoted, upvotesCount })
+  const {
+    id,
+    viewerHasUpvoted,
+    meta: viewingArticleMeta,
+  } = store.viewingArticle
+  const syncMeta = merge(viewingArticleMeta, meta)
+  store.syncArticle({ id, viewerHasUpvoted, upvotesCount, meta: syncMeta })
 }
 
 // ###############################

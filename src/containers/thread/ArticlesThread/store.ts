@@ -150,14 +150,14 @@ const ArticlesThread = T.model('ArticlesThread', {
       const root = getParent(self) as TRootStore
       root.setViewing(sobj)
     },
-    updateArticle(article: TArticle): void {
+    updateArticle(fields: TArticle): void {
       const slf = self as TStore
       const { pagedArticleKey } = slf
-      const index = slf.targetArticleIndex(article.id)
+      const index = slf.targetArticleIndex(fields.id)
       if (index === null) return
       const targetArticle = toJS(slf[pagedArticleKey].entries[index])
 
-      slf[pagedArticleKey].entries[index] = merge(targetArticle, article)
+      slf[pagedArticleKey].entries[index] = merge(targetArticle, fields)
     },
     updateUpvote(id: TID, viewerHasUpvoted: boolean): void {
       const slf = self as TStore

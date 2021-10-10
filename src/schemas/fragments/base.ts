@@ -250,7 +250,7 @@ export const pagedCounts = `
   pageNumber
 `
 
-export const getUpvoteSchema = (thread, withLatestUser = true) => {
+export const getUpvoteSchema = (thread, withLatestUser = false) => {
   if (withLatestUser) {
     return gql`
     mutation ($id: ID!) {
@@ -276,7 +276,7 @@ export const getUpvoteSchema = (thread, withLatestUser = true) => {
   `
 }
 
-export const getUndoUpvoteSchema = (thread, withLatestUser = true) => {
+export const getUndoUpvoteSchema = (thread, withLatestUser = false) => {
   if (withLatestUser) {
     return gql`
     mutation ($id: ID!) {
