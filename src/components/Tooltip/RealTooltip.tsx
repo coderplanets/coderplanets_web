@@ -58,6 +58,7 @@ type TProps = {
    * 暂时没有精力看 Tippy 的具体实现，小心使用。
    */
   forceZIndex?: boolean
+  interactive?: boolean
 
   onShow?: () => void
   onHide?: () => void
@@ -67,6 +68,7 @@ type TProps = {
 const Tooltip: FC<TProps> = ({
   children,
   noPadding = false,
+  interactive = true,
   onHide,
   onShow,
   placement = 'top',
@@ -151,7 +153,7 @@ const Tooltip: FC<TProps> = ({
     duration,
     trigger,
     // see https://github.com/atomiks/tippyjs/issues/751#issuecomment-611979594 for detail
-    interactive: true,
+    interactive,
 
     onHide: () => {
       setInstance(null)

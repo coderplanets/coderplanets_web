@@ -6,7 +6,14 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values, merge, includes } from 'ramda'
 
-import type { TRootStore, TUser, TArticle, TThread, TAccount } from '@/spec'
+import type {
+  TRootStore,
+  TUser,
+  TArticle,
+  TArticleMeta,
+  TThread,
+  TAccount,
+} from '@/spec'
 import { THREAD, ARTICLE_THREAD } from '@/constant'
 import { markStates } from '@/utils/mobx'
 import { User, Community, Post, Blog, Job, Radar, Works } from '@/model'
@@ -77,11 +84,13 @@ const ViewingStore = T.model('ViewingStore', {
         self[currentThread].viewerHasUpvoted = false
       }
     },
-    updateUpvoteCount(count: number): void {
+    updateUpvoteCount(count: number, meta?: TArticleMeta): void {
       const { currentThread } = self as TStore
-      if (self[currentThread].upvotesCount !== count) {
-        self[currentThread].upvotesCount = count
+      if (meta) {
+        self[currentThread].meta.latestUpvotedUsers = meta.latestUpvotedUsers
       }
+
+      self[currentThread].upvotesCount = count
     },
     updateViewingIfNeed(type, sobj): void {
       const { updateViewingUser } = self as TStore
@@ -102,7 +111,7 @@ const ViewingStore = T.model('ViewingStore', {
 
       return mark({ user })
     },
-    syncViewingItem(item: TArticle): void {
+    syncArticle(item: TArticle): void {
       const root = getParent(self) as TRootStore
       root.articlesThread.updateArticle(item)
     },

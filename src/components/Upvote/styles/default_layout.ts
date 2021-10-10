@@ -20,5 +20,4 @@ export const Text = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   margin-top: 1px;
-  margin-left: 3px;
 `

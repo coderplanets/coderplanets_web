@@ -51,6 +51,7 @@ export const pagedRepos = `
           ${F.tag}
         }
         viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
       }
       ${F.pagedCounts}
     }

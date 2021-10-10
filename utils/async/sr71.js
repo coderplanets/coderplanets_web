@@ -81,9 +81,9 @@ class SR71 {
     // if (isEmptyValue(event)) return false
     // PubSub.unsubscribe(event)
     // avoid duplicate subscribe caused by HMR
-    PubSub.subscribe(event, (event, data) =>
-      this.eventInput$.next({ [event]: data }),
-    )
+    PubSub.subscribe(event, (event, data) => {
+      this.eventInput$.next({ [event]: data })
+    })
   }
 
   stop() {

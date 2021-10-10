@@ -1,15 +1,18 @@
 import { useEffect } from 'react'
+import { includes } from 'ramda'
 
-import type { TArticle, TArticleFilter } from '@/spec'
-import { TYPE, EVENT, ERR } from '@/constant'
+import type { TArticle, TThread, TArticleFilter } from '@/spec'
+import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 
 import { scrollToHeader } from '@/utils/dom'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
-import { errRescue, titleCase, previewArticle } from '@/utils/helper'
+import { errRescue, titleCase, previewArticle, authWarn } from '@/utils/helper'
+import { matchPagedArticles, matchArticleUpvotes } from '@/utils/macros'
 
 import type { TStore } from './store'
 import S from './schema'
+import { threadOnChange } from '@/containers/user/UserPublishedComments/logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticlesThread')
@@ -23,6 +26,7 @@ const sr71$ = new SR71({
     EVENT.ARTICLE_THREAD_CHANGE,
     EVENT.COMMUNITY_CHANGE,
     EVENT.C11N_DENSITY_CHANGE,
+    EVENT.UPVOTE_ON_ARTICLE_LIST,
   ],
 })
 
@@ -50,43 +54,56 @@ const loadArticles = (page = 1): void => {
 
 // do query paged articles
 const doQuery = (page: number): void => {
-  const endpoint = S[`paged${titleCase(store.curThread)}s`]
   const args = store.getLoadArgs(page)
-  console.log('args: ', args)
-  sr71$.query(endpoint, args)
+  log('args: ', args)
+  sr71$.query(S.getPagedArticlesSchema(store.curThread), args)
 }
 
 /**
  * prepack then send preview event to drawer
  */
 const onPreview = (article: TArticle): void => {
-  const { setViewedFlag, resState } = store
+  const { resState } = store
   if (resState === TYPE.RES_STATE.LOADING) return
-  setTimeout(() => setViewedFlag(article.id), 1500)
 
   previewArticle(article)
+}
+
+const handleUpvote = (article: TArticle, viewerHasUpvoted: boolean): void => {
+  if (!store.isLogin) return authWarn({ hideToast: true })
+  const { id, meta } = article
+
+  store.updateUpvote(id, viewerHasUpvoted)
+  const queryLatestUsers = includes(article.meta.thread.toLowerCase(), [
+    THREAD.RADAR,
+    THREAD.JOB,
+  ])
+
+  viewerHasUpvoted
+    ? sr71$.mutate(S.getUpvoteSchema(meta.thread, queryLatestUsers), { id })
+    : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread, queryLatestUsers), { id })
+}
+
+const handleUovoteRes = ({ id, upvotesCount, meta }) => {
+  log('# handleUovoteRes: ', meta)
+  store.updateUpvoteCount(id, upvotesCount, meta)
+}
+
+const handlePagedArticlesRes = (thread: TThread, pagedArticles): void => {
+  const key = `paged${titleCase(thread)}s`
+  log('pagedArticles -> ', pagedArticles)
+  store.markRes({ [key]: pagedArticles })
 }
 
 // ###############################
 // Data & Error handlers
 // ###############################
 const DataSolver = [
-  {
-    match: asyncRes('pagedPosts'),
-    action: ({ pagedPosts }) => store.markRes({ pagedPosts }),
-  },
-  {
-    match: asyncRes('pagedJobs'),
-    action: ({ pagedJobs }) => store.markRes({ pagedJobs }),
-  },
-  {
-    match: asyncRes('pagedBlogs'),
-    action: ({ pagedBlogs }) => store.markRes({ pagedBlogs }),
-  },
-  {
-    match: asyncRes('pagedRadars'),
-    action: ({ pagedRadars }) => store.markRes({ pagedRadars }),
-  },
+  ...matchPagedArticles(
+    [THREAD.POST, THREAD.BLOG, THREAD.JOB, THREAD.RADAR],
+    handlePagedArticlesRes,
+  ),
+  ...matchArticleUpvotes(handleUovoteRes),
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => loadArticles(),
@@ -103,10 +120,15 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes(EVENT.UPVOTE_ON_ARTICLE_LIST),
+    action: (res) => {
+      const { article, viewerHasUpvoted } = res[EVENT.UPVOTE_ON_ARTICLE_LIST]
+      handleUpvote(article, viewerHasUpvoted)
+    },
+  },
+  {
     match: asyncRes(EVENT.REFRESH_ARTICLES),
     action: (res) => {
-      console.log('EVENT.REFRESH_ARTICLES: ', res)
-
       const { page = 1 } = res[EVENT.REFRESH_ARTICLES]
       loadArticles(page)
     },

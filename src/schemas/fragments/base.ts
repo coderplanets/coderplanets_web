@@ -1,3 +1,4 @@
+import { gql } from '@urql/core'
 import { values, flatten } from 'ramda'
 
 import { EMOTION } from '@/constant'
@@ -248,3 +249,55 @@ export const pagedCounts = `
   pageSize
   pageNumber
 `
+
+export const getUpvoteSchema = (thread, withLatestUser = false) => {
+  if (withLatestUser) {
+    return gql`
+    mutation ($id: ID!) {
+      upvote${titleCase(thread)}(id: $id) {
+        id
+        upvotesCount
+        meta {
+          latestUpvotedUsers {
+            ${author}
+          }
+        }
+      }
+    }
+  `
+  }
+  return gql`
+    mutation ($id: ID!) {
+      upvote${titleCase(thread)}(id: $id) {
+        id
+        upvotesCount
+      }
+    }
+  `
+}
+
+export const getUndoUpvoteSchema = (thread, withLatestUser = false) => {
+  if (withLatestUser) {
+    return gql`
+    mutation ($id: ID!) {
+      undoUpvote${titleCase(thread)}(id: $id) {
+        id
+        upvotesCount
+        meta {
+          latestUpvotedUsers {
+            ${author}
+          }
+        }
+      }
+    }
+  `
+  }
+  return gql`
+    mutation ($id: ID!) {
+      undoUpvote${titleCase(thread)}(id: $id) {
+        id
+        upvotesCount
+      }
+    }
+  `
+}

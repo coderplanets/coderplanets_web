@@ -1,10 +1,12 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TPost, TUser, TAccount } from '@/spec'
+import type { TPost } from '@/spec'
 import { UPVOTE_LAYOUT } from '@/constant'
 
+import { upvoteOnArticleList } from '@/utils/helper'
 import TheAvatar from '@/components/TheAvatar'
 import Upvote from '@/components/Upvote'
+
 import { ArticleReadLabel, ArticlePinLabel } from '@/components/dynamic'
 
 import Header from './Header'
@@ -13,11 +15,10 @@ import Body from './Body'
 import { AvatarWrapper, UpvoteWrapper, Main } from '../styles/desktop_view'
 
 type TProps = {
-  active?: TPost | null
   entry: TPost
 
-  onUserSelect?: (obj: TUser) => void
-  onAuthorSelect?: (obj: TAccount) => void
+  // onUserSelect?: (obj: TUser) => void
+  // onAuthorSelect?: (obj: TAccount) => void
 }
 
 const DigestView: FC<TProps> = ({ entry }) => {
@@ -28,7 +29,14 @@ const DigestView: FC<TProps> = ({ entry }) => {
       <AvatarWrapper>
         <TheAvatar user={entry.author} />
         <UpvoteWrapper>
-          <Upvote type={UPVOTE_LAYOUT.POST_LIST} count={entry.upvotesCount} />
+          <Upvote
+            type={UPVOTE_LAYOUT.POST_LIST}
+            count={entry.upvotesCount}
+            viewerHasUpvoted={entry.viewerHasUpvoted}
+            onAction={(viewerHasUpvoted) =>
+              upvoteOnArticleList(entry, viewerHasUpvoted)
+            }
+          />
         </UpvoteWrapper>
       </AvatarWrapper>
       <Main>

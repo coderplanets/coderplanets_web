@@ -63,7 +63,6 @@ export const onPageChange = (page) => {
 }
 
 export const onPreview = (data) => {
-  setTimeout(() => store.setViewedFlag(data.id), 1500)
   send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.REPO_VIEW,
     thread: THREAD.REPO,

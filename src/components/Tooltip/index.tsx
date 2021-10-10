@@ -54,6 +54,7 @@ type TProps = {
    * 暂时没有精力看 Tippy 的具体实现，小心使用。
    */
   forceZIndex?: boolean
+  interactive?: boolean
 
   onShow?: () => void
   onHide?: () => void

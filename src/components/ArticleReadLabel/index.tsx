@@ -29,7 +29,7 @@ const ArticleReadLabel: FC<TProps> = ({ entry, top = 24, left = -30 }) => {
   if (entry.pin) return null
   // return <ReadedLabel top={top} left={left} />
   if (!isLogin) return null
-  if (markViewed && viewerHasViewed) {
+  if (markViewed && !viewerHasViewed) {
     return <ReadedLabel top={top} left={left} />
   }
 

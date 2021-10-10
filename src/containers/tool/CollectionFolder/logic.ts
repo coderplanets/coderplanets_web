@@ -176,7 +176,6 @@ const DataSolver = [
       /* store.updateCategory(cat) */
       const { id } = store.viewingArticle
       const { thread } = store
-      send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
       store.mark({ doing: false })
     },
   },
@@ -187,7 +186,6 @@ const DataSolver = [
       /* store.updateCategory(cat) */
       const { id } = store.viewingArticle
       const { thread } = store
-      send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
       store.mark({ doing: false })
     },
   },

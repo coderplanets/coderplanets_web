@@ -15,13 +15,14 @@ import {
   BaseWrapper,
   UpvoteWrapper,
 } from '../styles/post_viewer/article_info'
+import { handleUpvote } from '../logic'
 
 type TProps = {
   article: TArticle
 }
 
 const ArticleInfo: FC<TProps> = ({ article }) => {
-  const { upvotesCount, meta } = article
+  const { upvotesCount, viewerHasUpvoted, meta } = article
 
   return (
     <Wrapper>
@@ -34,7 +35,14 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
         </CollectWrapper>
       </BaseWrapper>
       <UpvoteWrapper>
-        <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
+        <Upvote
+          count={upvotesCount}
+          avatarList={meta.latestUpvotedUsers}
+          viewerHasUpvoted={viewerHasUpvoted}
+          onAction={(viewerHasUpvoted) =>
+            handleUpvote(article, viewerHasUpvoted)
+          }
+        />
       </UpvoteWrapper>
     </Wrapper>
   )

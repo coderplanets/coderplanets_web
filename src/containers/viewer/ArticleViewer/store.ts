@@ -10,6 +10,7 @@ import type {
   TRootStore,
   TAccount,
   TArticle,
+  TArticleMeta,
   TThread,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
@@ -50,9 +51,17 @@ const ArticleViewer = T.model('ArticleViewer', {
       const root = getParent(self) as TRootStore
       root.setViewing(sobj)
     },
-    syncViewingItem(item): void {
+    syncArticle(item): void {
       const root = getParent(self) as TRootStore
-      root.viewing.syncViewingItem(item)
+      root.articlesThread.updateArticle(item)
+    },
+    updateUpvote(viewerHasUpvoted: boolean): void {
+      const root = getParent(self) as TRootStore
+      return root.viewing.updateUpvote(viewerHasUpvoted)
+    },
+    updateUpvoteCount(count: number, meta: TArticleMeta): void {
+      const root = getParent(self) as TRootStore
+      return root.viewing.updateUpvoteCount(count, meta)
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
