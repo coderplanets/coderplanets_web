@@ -22,6 +22,9 @@ const RichEditorStyle = createGlobalStyle`
   .codex-editor svg {
     // vertical-align: super !important;
   }
+  .ce-settings__button--delete:hover .icon {
+    fill: tomato !important;
+  }
 
   .ce-header-wrapper h1:hover::after, 
   .ce-header-wrapper h2:hover::after, 
