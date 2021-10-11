@@ -104,23 +104,23 @@ router.route('/:community/repo/:id').get((req, res) => {
 })
 
 // 创建新社区
-router.route('/create/community').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/community' })
+router.route('/publish/community').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/community' })
 })
 
 // 创建新帖子
-router.route('/create/post').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/post' })
+router.route('/publish/post').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/post' })
 })
 
 // 创建新博客
-router.route('/create/blog').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/blog' })
+router.route('/publish/blog').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/blog' })
 })
 
 // 创建新作品
-router.route('/create/works').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/works' })
+router.route('/publish/works').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/works' })
 })
 
 // 所有社区
