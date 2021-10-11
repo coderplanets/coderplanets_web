@@ -2,16 +2,18 @@ import styled from 'styled-components'
 
 // import type { TTestable } from '@/spec'
 
-import Img from '@/Img'
+// import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
+import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 200px;
   min-height: 100px;
 `
-export const CommunityLogo = styled(Img)`
+export const CommunityLogo = styled(CommunityFaceLogo)`
   ${css.size(30)};
 `
 export const SubsCount = styled.div`

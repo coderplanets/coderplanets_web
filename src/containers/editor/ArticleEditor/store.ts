@@ -3,14 +3,17 @@
  *
  */
 
-import { types as T, getParent, Instance } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
-import { markStates } from '@/utils/mobx'
+import type { TCommunity } from '@/spec'
+import { markStates, toJS } from '@/utils/mobx'
 
+import { Community } from '@/model/Community'
 import { STEP } from './constant'
 
 const ArticleEditor = T.model('ArticleEditor', {
+  community: T.optional(Community, {}),
   step: T.optional(T.enumeration(values(STEP)), STEP.EDIT),
   showSubTitle: T.optional(T.boolean, false),
 })
@@ -18,9 +21,12 @@ const ArticleEditor = T.model('ArticleEditor', {
     // get root() {
     //   return getParent(self)
     // },
+    get communityData(): TCommunity {
+      return toJS(self.community)
+    },
   }))
   .actions((self) => ({
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))

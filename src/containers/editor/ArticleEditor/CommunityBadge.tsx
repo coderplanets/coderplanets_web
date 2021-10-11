@@ -1,6 +1,11 @@
 import { FC, memo } from 'react'
 
+import type { TCommunity } from '@/spec'
 import { ICON_BASE } from '@/config'
+import { cutRest } from '@/utils/helper'
+
+import Tooltip from '@/components/Tooltip'
+import CommunityCard from '@/components/Cards/CommunityCard'
 
 import {
   Wrapper,
@@ -13,15 +18,24 @@ import {
   ArrowLogo,
 } from './styles/community_badge'
 
-const CommunityBadge: FC = () => {
+type TProps = {
+  community: TCommunity
+}
+
+const CommunityBadge: FC<TProps> = ({ community }) => {
   return (
     <Wrapper>
       <BadgeWrapper>
         <Intro>
           <PubHint>发布到子社区:</PubHint>
           <Title>
-            <Logo src={`${ICON_BASE}/pl/javascript.png`} />
-            <div>JavaScript</div>
+            <Logo src={community.logo} />
+            <Tooltip
+              content={<CommunityCard item={community} />}
+              placement="bottom"
+            >
+              <div>{cutRest(community.title || '--', 15)}</div>
+            </Tooltip>
             <ChangeBtn>
               更换 <ArrowLogo />
             </ChangeBtn>

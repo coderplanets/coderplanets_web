@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
-import Img from '@/Img'
+// import Img from '@/Img'
 import ArrowSVG from '@/icons/ArrowSolid'
+import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
   ${css.flex('justify-center')};
@@ -15,7 +16,7 @@ export const BadgeWrapper = styled.div`
   ${css.flex('align-center')};
   padding-bottom: 33px;
 `
-export const Logo = styled(Img)`
+export const Logo = styled(CommunityFaceLogo)`
   ${css.size(14)};
   margin-right: 8px;
   margin-left: 2px;

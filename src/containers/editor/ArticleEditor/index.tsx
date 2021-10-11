@@ -39,6 +39,7 @@ const ArticleEditorContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE_EDITOR,
 }) => {
   useInit(store)
+  const { communityData } = store
 
   return (
     <Wrapper testid={testid}>
@@ -49,7 +50,7 @@ const ArticleEditorContainer: FC<TProps> = ({
           <Footer />
         </ContentWrapper>
         <div>
-          <CommunityBadge />
+          <CommunityBadge community={communityData} />
           <PublishRules />
         </div>
       </InnerWrapper>
