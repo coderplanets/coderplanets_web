@@ -13,6 +13,10 @@ import { Community } from '@/model/Community'
 import { STEP } from './constant'
 
 const ArticleEditor = T.model('ArticleEditor', {
+  title: T.optional(T.string, ''),
+  body: T.optional(T.string, '{}'),
+  linkAddr: T.optional(T.string, ''),
+  copyRight: T.optional(T.string, ''),
   community: T.optional(Community, {}),
   step: T.optional(T.enumeration(values(STEP)), STEP.EDIT),
   showSubTitle: T.optional(T.boolean, false),
@@ -26,6 +30,10 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
   }))
   .actions((self) => ({
+    updateEditing(sobj): void {
+      const slf = self as TStore
+      slf.mark(sobj)
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

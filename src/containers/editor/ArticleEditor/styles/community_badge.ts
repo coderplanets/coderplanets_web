@@ -35,6 +35,7 @@ export const Intro = styled.div`
 export const PubHint = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
+  margin-left: 2px;
   opacity: 0.85;
   margin-bottom: 8px;
 `

@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { getParameterByName } from '@/utils/route'
+import { updateEditing } from '@/utils/mobx'
 
 import type { TStore } from './store'
 import { STEP } from './constant'
@@ -32,6 +33,10 @@ export const toggleSubTitle = (showSubTitle) => {
 
 export const loadCommunity = (communityRaw: string): void => {
   sr71$.query(S.community, { raw: communityRaw.toLowerCase() })
+}
+
+export const editOnChange = (e, key: string): void => {
+  updateEditing(store, key, e)
 }
 
 // ###############################

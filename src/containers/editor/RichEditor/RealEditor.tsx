@@ -25,6 +25,7 @@ const log = buildLog('C:RichEditor')
 type TProps = {
   richEditor?: TStore
   type?: 'article' | 'works' | 'job' | 'comment' | 'radar'
+  onChange?: (json) => void
 }
 
 const html =
@@ -33,6 +34,7 @@ const html =
 const RichEditorContainer: FC<TProps> = ({
   richEditor: store,
   type = 'article',
+  onChange = log,
 }) => {
   useInit(store)
 
@@ -42,7 +44,7 @@ const RichEditorContainer: FC<TProps> = ({
       <InnerWrapper>
         <Options type={type} />
         <EditorWrapper className="rich-editor">
-          <RichEditor onData={(data) => console.log('.')} />
+          <RichEditor onData={onChange} />
           <OverwriteStyle />
         </EditorWrapper>
       </InnerWrapper>

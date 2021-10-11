@@ -39,14 +39,14 @@ const ArticleEditorContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE_EDITOR,
 }) => {
   useInit(store)
-  const { communityData } = store
+  const { title, communityData } = store
 
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         <ContentWrapper>
-          <TitleInput />
-          <RichEditor />
+          <TitleInput title={title} />
+          <RichEditor onChange={(data) => console.log('rich: ', data)} />
           <Footer />
         </ContentWrapper>
         <div>
