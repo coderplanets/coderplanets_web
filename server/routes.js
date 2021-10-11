@@ -108,9 +108,9 @@ router.route('/create/community').get((req, res) => {
   return renderAndCache({ req, res, page: '/create/community' })
 })
 
-// 创建新内容
-router.route('/create/article').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/article' })
+// 创建新帖子
+router.route('/create/post').get((req, res) => {
+  return renderAndCache({ req, res, page: '/create/post' })
 })
 
 // 创建新博客
