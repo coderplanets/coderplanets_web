@@ -5,10 +5,10 @@ import { ROUTE, THREAD, METRIC } from '@/constant'
 import {
   ssrBaseStates,
   ssrFetchPrepare,
-  ssrParseURL,
   ssrRescue,
   ssrError,
   articleSEO,
+  ssrGetParam,
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
@@ -19,20 +19,13 @@ import ArticleContent from '@/containers/content/ArticleContent'
 import { P } from '@/schemas'
 
 const fetchData = async (context, opt = {}) => {
+  const id = ssrGetParam(context, 'id')
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-
-  // schema
-  const { subPath: id } = ssrParseURL(context.req)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const post = gqClient.request(P.post, { id, userHasLogin })
-  // const pagedComments = gqClient.request(P.pagedComments, {
-  //   id,
-  //   userHasLogin,
-  //   thread: toUpper(THREAD.POST),
-  //   filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
-  // })
+
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -40,7 +33,6 @@ const fetchData = async (context, opt = {}) => {
     },
   })
 
-  // TODO: comments
   return {
     ...(await sessionState),
     ...(await post),

@@ -26,10 +26,6 @@ type TSORTABLE_ITEMS = {
 
 export const Global: any = typeof window !== 'undefined' ? window : {}
 
-// those two function used to encode/decode the value in element dataset
-export const o2s = JSON.stringify
-export const s2o = JSON.parse
-
 // see https://github.com/ramda/ramda/issues/1361
 export const mapKeys = curry((fn, obj) => {
   return reduce(
@@ -441,11 +437,14 @@ export const siteBirthDay = (birthday: string): string => {
   return `${year}年${days}天`
 }
 
-type TCovert = 'titleCase' | null
+type TCovert = 'titleCase' | 'upperCase' | null
 const doCovert = (value: string, opt: TCovert): string => {
   switch (opt) {
     case 'titleCase': {
       return titleCase(value)
+    }
+    case 'upperCase': {
+      return value.toUpperCase()
     }
     default: {
       return value

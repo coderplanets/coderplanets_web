@@ -96,10 +96,18 @@ export const articleSEO = (thread: TThread, article: TArticle): TSEO => {
   }
 }
 
-export const articleEditorSEO = (): TSEO => {
+export const articlePublishSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/todo`,
     title: '发布帖子',
     description: '发布新帖子到社区',
+  }
+}
+
+export const articleUpdateSEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/todo`,
+    title: '编辑帖子',
+    description: '编辑帖子',
   }
 }

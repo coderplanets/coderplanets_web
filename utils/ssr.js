@@ -13,7 +13,12 @@ import { TYPE, ARTICLE_THREAD } from '@/constant'
 import { plural } from './helper'
 
 import { makeGQClient } from './graphql'
-import { ssrParseURL, akaTranslate, queryStringToJSON } from './route'
+import {
+  ssrParseURL,
+  akaTranslate,
+  getQueryFromUrl,
+  queryStringToJSON,
+} from './route'
 
 import { P } from '@/schemas'
 
@@ -38,6 +43,19 @@ export const ssrBaseStates = (resp) => {
       userSubscribedCommunities: resp.subscribedCommunities || null,
     },
   }
+}
+
+/**
+ * NOTE:
+ *
+ * 在 client-side 使用 Link 跳转到 post 时, 不能使用 const { params } = context.req,
+ * 因为从 client 使用 Link 时会有 _next/data 请求，无法区分，需要使用内置的 resolvedUrl 解析
+ *
+ * 而直接从浏览器刷新时，没有 resolvedUrl， 需要用常规的 params.id
+ */
+export const ssrGetParam = (context, key) => {
+  const { resolvedUrl, req } = context
+  return getQueryFromUrl(key, resolvedUrl) || req.params[key]
 }
 
 export const ssrFetchPrepare = (context, opt) => {

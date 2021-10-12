@@ -217,14 +217,6 @@ export const akaTranslate = (communityRaw) => {
   }
 }
 
-export const extractThreadFromPath = (props, uppper = true) => {
-  const pathList = parsePathList(props)
-  const subPath = pathList.length > 1 ? pathList[1] : pathList[0]
-  const thread = endsWith('s', subPath) ? slice(0, -1, subPath) : subPath
-
-  return uppper ? toUpper(thread) : toLower(thread)
-}
-
 const mergePagiQuery = (query = {}, opt = { pagi: 'string' }) => {
   const routeQuery = clone(query)
 

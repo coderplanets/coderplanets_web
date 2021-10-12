@@ -3,20 +3,21 @@ import { GetServerSideProps } from 'next'
 import { merge, toLower } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
-import { METRIC } from '@/constant'
+import { HCN, THREAD, METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
   isArticleThread,
   ssrBaseStates,
   ssrFetchPrepare,
-  ssrParseURL,
   ssrError,
   ssrPagedArticleSchema,
   ssrPagedArticlesFilter,
   ssrParseArticleThread,
   ssrRescue,
   communitySEO,
+  singular,
+  ssrGetParam,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -25,8 +26,12 @@ import CommunityContent from '@/containers/content/CommunityContent'
 import { P } from '@/schemas'
 
 const fetchData = async (context, opt = {}) => {
+  // const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-  const { community, thread } = ssrParseURL(context.req)
+
+  const community = ssrGetParam(context, 'community') || HCN
+  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
+  // const thread = params.thread ? singular(params.thread) : THREAD.POST
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -57,7 +62,7 @@ const fetchData = async (context, opt = {}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { thread, threadPath } = ssrParseURL(context.req)
+  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
 
   let resp
   try {
@@ -82,8 +87,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       route: {
         communityPath: community.raw,
         mainPath: community.raw,
-        threadPath,
-        subPath: threadPath,
+        subPath: thread,
+        thread,
       },
       viewing: {
         community,

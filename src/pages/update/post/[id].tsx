@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
 import { METRIC } from '@/constant'
 import {
-  articlePublishSEO,
+  articleUpdateSEO,
   ssrBaseStates,
   ssrRescue,
   ssrFetchPrepare,
@@ -14,22 +14,19 @@ import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleEditor from '@/containers/editor/ArticleEditor'
 
 const fetchData = async (context, opt = {}) => {
-  const { gqClient } = ssrFetchPrepare(context, opt)
+  const { params } = context.req
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
+  // const { thirdPath: id } = ssrParseURL(context.req)
   const sessionState = gqClient.request(P.sessionState)
+  const post = gqClient.request(P.post, { id: params.id, userHasLogin })
 
   return {
     ...(await sessionState),
+    ...(await post),
   }
 }
 
-/**
- * TODO: know-why
- *
- * 即使不需要这里的数据初始化 store, 这里也必须要放一个 getserverSideProps,
- * 否则 Provider 在 URL 中包含 param 的时候会报错，十分诡异 。。
- * 大概率是 mobx-react 的问题, 真尼玛坑爹。
- */
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let resp
   try {
@@ -40,16 +37,22 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
+  const { post } = resp
+
   const initProps = {
     ...ssrBaseStates(resp),
+    viewing: {
+      post,
+      // activeThread: THREAD.POST,
+    },
   }
 
   return { props: { errorCode: null, ...initProps } }
 }
 
-export const PublishPostPage = (props) => {
+export const UpdatePostPage = (props) => {
   const store = useStore(props)
-  const seoConfig = articlePublishSEO()
+  const seoConfig = articleUpdateSEO()
 
   return (
     <Provider store={store}>
@@ -64,4 +67,4 @@ export const PublishPostPage = (props) => {
   )
 }
 
-export default PublishPostPage
+export default UpdatePostPage
