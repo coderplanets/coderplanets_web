@@ -4,7 +4,7 @@
  */
 
 import { types as T, Instance } from 'mobx-state-tree'
-import { values } from 'ramda'
+import { values, pick } from 'ramda'
 
 import type { TCommunity } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
@@ -16,7 +16,8 @@ const ArticleEditor = T.model('ArticleEditor', {
   title: T.optional(T.string, ''),
   body: T.optional(T.string, '{}'),
   linkAddr: T.optional(T.string, ''),
-  copyRight: T.optional(T.string, ''),
+  copyRight: T.optional(T.string, 'cc'),
+  isQuestion: T.optional(T.boolean, false),
   community: T.optional(Community, {}),
   step: T.optional(T.enumeration(values(STEP)), STEP.EDIT),
   showSubTitle: T.optional(T.boolean, false),
@@ -27,6 +28,9 @@ const ArticleEditor = T.model('ArticleEditor', {
     // },
     get communityData(): TCommunity {
       return toJS(self.community)
+    },
+    get editingData() {
+      return pick(['title', 'body', 'copyRight', 'isQuestion'], self)
     },
   }))
   .actions((self) => ({

@@ -17,7 +17,7 @@ const Header: FC = () => {
 
       {reprint && (
         <LinkWrapper>
-          <LinkInput placeholder="原文地址" />
+          <LinkInput placeholder="原文地址" autoFocus />
         </LinkWrapper>
       )}
 

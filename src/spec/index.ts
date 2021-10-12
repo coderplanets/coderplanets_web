@@ -57,6 +57,7 @@ export type {
   TPaymentMethod,
   TFlexRule,
   TGQError,
+  TEditValue,
 } from './utils'
 
 export type { TGQLError } from './graphql'

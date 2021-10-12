@@ -117,3 +117,5 @@ export type TGQError = {
   path?: string
   code?: number
 }
+
+export type TEditValue = HTMLElement | string | boolean

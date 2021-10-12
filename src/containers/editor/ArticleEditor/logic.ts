@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
+import type { TEditValue } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { getParameterByName } from '@/utils/route'
@@ -23,11 +24,11 @@ export const previousStep = () => {
   store.mark({ step: STEP.EDIT })
 }
 
-export const nextStep = () => {
+export const nextStep = (): void => {
   store.mark({ step: STEP.SETTING })
 }
 
-export const toggleSubTitle = (showSubTitle) => {
+export const toggleSubTitle = (showSubTitle): void => {
   store.mark({ showSubTitle })
 }
 
@@ -35,7 +36,7 @@ export const loadCommunity = (communityRaw: string): void => {
   sr71$.query(S.community, { raw: communityRaw.toLowerCase() })
 }
 
-export const editOnChange = (e, key: string): void => {
+export const editOnChange = (e: TEditValue, key: string): void => {
   updateEditing(store, key, e)
 }
 
