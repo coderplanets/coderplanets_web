@@ -7,14 +7,15 @@ import Checker from '@/components/Checker'
 import { SpaceGrow } from '@/components/Common'
 
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
-import { editOnChange } from './logic'
+import { editOnChange, onPublish, gotoBackToCommunity } from './logic'
 
 type TProps = {
   isQuestion: boolean
   copyRight: string
+  publishing: boolean
 }
 
-const Footer: FC<TProps> = ({ isQuestion, copyRight }) => {
+const Footer: FC<TProps> = ({ isQuestion, copyRight, publishing }) => {
   return (
     <Wrapper>
       <ArticleFooter>
@@ -39,7 +40,9 @@ const Footer: FC<TProps> = ({ isQuestion, copyRight }) => {
           <YesOrNoButtons
             cancelText="取消"
             confirmText="发 布"
-            onCancel={console.log}
+            onConfirm={onPublish}
+            loading={publishing}
+            onCancel={gotoBackToCommunity}
           />
         </div>
       </PublishFooter>

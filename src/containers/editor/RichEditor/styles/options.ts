@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 import Input from '@/components/Input'
-// import { theme } from '@/utils/themes'
+import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import animate from '@/utils/animations'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
@@ -16,6 +17,7 @@ export const Wrapper = styled.div`
   border-bottom-color: #1a3a40;
 `
 export const LinkWrapper = styled.div`
+  position: relative;
   width: 260px;
   margin-left: 15px;
 `
@@ -36,4 +38,11 @@ export const LinkInput = styled(Input)`
     font-size: 12px;
   }
 `
-export const holder = 1
+export const ErrorHint = styled.div`
+  position: absolute;
+  font-size: 13px;
+  right: -68px;
+  top: 1px;
+  color: ${theme('baseColor.red')};
+  animation: ${animate.breath} 2.5s linear infinite;
+`

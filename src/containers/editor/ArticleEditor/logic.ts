@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
+import Router from 'next/router'
 // import { } from 'ramda'
 
+import { HCN } from '@/constant'
 import type { TEditValue } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
@@ -20,16 +22,12 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleEditor')
 
-export const previousStep = () => {
+export const previousStep = (): void => {
   store.mark({ step: STEP.EDIT })
 }
 
 export const nextStep = (): void => {
   store.mark({ step: STEP.SETTING })
-}
-
-export const toggleSubTitle = (showSubTitle): void => {
-  store.mark({ showSubTitle })
 }
 
 export const loadCommunity = (communityRaw: string): void => {
@@ -40,22 +38,44 @@ export const editOnChange = (e: TEditValue, key: string): void => {
   updateEditing(store, key, e)
 }
 
+export const gotoBackToCommunity = (): void => {
+  const { communityData } = store
+  const { raw } = communityData
+
+  const path = raw === HCN ? '/' : `/${raw}`
+  Router.push(path)
+}
+
+export const onPublish = (): void => {
+  const { editingData, communityId } = store
+  console.log('onPublish --> ', editingData)
+  const variables = { communityId, ...editingData }
+
+  store.mark({ publishing: true })
+  sr71$.mutate(S.createPost, variables)
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################
 
 const DataSolver = [
   {
-    match: asyncRes('community'),
-    action: ({ community }) => {
-      console.log('community got: ', community)
-      store.mark({ community })
+    match: asyncRes('createPost'),
+    action: ({ createPost }) => {
+      console.log('after create: ', createPost)
+      store.mark({ publishing: false })
+      gotoBackToCommunity()
     },
+  },
+  {
+    match: asyncRes('community'),
+    action: ({ community }) => store.mark({ community }),
   },
 ]
 const ErrSolver = []
 
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

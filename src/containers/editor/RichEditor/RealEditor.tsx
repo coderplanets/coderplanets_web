@@ -26,6 +26,8 @@ type TProps = {
   richEditor?: TStore
   type?: 'article' | 'works' | 'job' | 'comment' | 'radar'
   onChange?: (json) => void
+  onLinkChange?: (link: string) => void
+  onUseTemplateChange?: (use: boolean) => void
 }
 
 const html =
@@ -35,6 +37,8 @@ const RichEditorContainer: FC<TProps> = ({
   richEditor: store,
   type = 'article',
   onChange = log,
+  onLinkChange = log,
+  onUseTemplateChange = log,
 }) => {
   useInit(store)
 
@@ -42,7 +46,11 @@ const RichEditorContainer: FC<TProps> = ({
   return (
     <Wrapper>
       <InnerWrapper>
-        <Options type={type} />
+        <Options
+          type={type}
+          onLinkChange={onLinkChange}
+          onUseTemplateChange={onUseTemplateChange}
+        />
         <EditorWrapper className="rich-editor">
           <RichEditor onData={onChange} />
           <OverwriteStyle />

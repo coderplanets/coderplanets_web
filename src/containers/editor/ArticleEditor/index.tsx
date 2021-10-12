@@ -39,9 +39,7 @@ const ArticleEditorContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE_EDITOR,
 }) => {
   useInit(store)
-  const { title, copyRight, editingData, isQuestion, communityData } = store
-
-  console.log('editingData --> ', editingData)
+  const { title, copyRight, isQuestion, communityData, publishing } = store
 
   return (
     <Wrapper testid={testid}>
@@ -50,8 +48,13 @@ const ArticleEditorContainer: FC<TProps> = ({
           <TitleInput title={title} />
           <RichEditor
             onChange={(v) => editOnChange(JSON.stringify(v), 'body')}
+            onLinkChange={(v) => editOnChange(v, 'linkAddr')}
           />
-          <Footer copyRight={copyRight} isQuestion={isQuestion} />
+          <Footer
+            copyRight={copyRight}
+            isQuestion={isQuestion}
+            publishing={publishing}
+          />
         </ContentWrapper>
         <div>
           <CommunityBadge community={communityData} />

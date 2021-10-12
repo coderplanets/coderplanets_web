@@ -9,6 +9,7 @@ type TProps = {
   align?: 'center' | 'right'
   cancelText?: string
   confirmText?: string
+  loading?: boolean
   onCancel?: () => void
   onConfirm?: () => void
 }
@@ -19,12 +20,18 @@ const YesOrNoButton: FC<TProps> = ({
   confirmText = '确定',
   onCancel = console.log,
   onConfirm = console.log,
+  loading = false,
 }) => {
   return (
     <Wrapper align={align}>
       <CancelBtn onClick={() => onCancel?.()}>{cancelText}</CancelBtn>
       <Space left={5} right={10} />
-      <Button size="small" type="primary" onClick={() => onConfirm?.()}>
+      <Button
+        size="small"
+        type="primary"
+        loading={loading}
+        onClick={() => onConfirm?.()}
+      >
         {confirmText}
       </Button>
     </Wrapper>

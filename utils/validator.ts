@@ -44,6 +44,26 @@ export const isString = (value: any): boolean => {
   return false
 }
 
+/**
+ * judge if given thing is valid URL
+ * @link https://stackoverflow.com/a/43467144/4050784
+ * @param {string} v
+ * @return {Boolean}
+ * @returns
+ */
+
+export const isURL = (v: string): boolean => {
+  if (trim(v).length === 0) return true
+  let url
+  try {
+    url = new URL(v)
+  } catch (e) {
+    return false
+  }
+
+  return url.protocol === 'http:' || url.protocol === 'https:'
+}
+
 const notNil = compose(not, isNil)
 
 const validObjects = compose(pickBy(notNil), pickBy(isObject))
