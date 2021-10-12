@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { isEmpty } from 'ramda'
 
-import type { TID } from '@/spec'
+import type { TID, TEditValue } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 
 import { errRescue } from '@/utils/helper'
@@ -69,7 +69,7 @@ export const changeSearchStatus = (status): void => store.mark({ ...status })
  * @param {e} htmlEvent
  * @return {void}
  */
-export const searchOnChange = (e): void => {
+export const searchOnChange = (e: TEditValue): void => {
   updateEditing(store, 'searchValue', e)
   searchCommunities()
 }
