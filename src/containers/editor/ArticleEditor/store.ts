@@ -4,22 +4,22 @@
  */
 
 import { types as T, Instance, getParent } from 'mobx-state-tree'
-import { values, pick } from 'ramda'
+import { pick } from 'ramda'
 
-import type { TRootStore, TID, TCommunity, TArticle } from '@/spec'
+import type {
+  TRootStore,
+  TID,
+  TCommunity,
+  TArticle,
+  TTag,
+  TArticleThread,
+} from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
-import { ARTICLE_THREAD } from '@/constant'
 
-import { Community, Post, Job } from '@/model'
+import { Community } from '@/model'
 
 const ArticleEditor = T.model('ArticleEditor', {
   mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
-  thread: T.optional(
-    T.enumeration(values(ARTICLE_THREAD)),
-    ARTICLE_THREAD.POST,
-  ),
-  post: T.optional(Post, {}),
-  job: T.optional(Job, {}),
   title: T.optional(T.string, ''),
   body: T.optional(T.string, '{}'),
   linkAddr: T.optional(T.string, ''),
@@ -34,14 +34,23 @@ const ArticleEditor = T.model('ArticleEditor', {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
     },
+    get viewingArticle(): TArticle {
+      const root = getParent(self) as TRootStore
+      return toJS(root.viewing.viewingArticle)
+    },
+    get thread(): TArticleThread {
+      const root = getParent(self) as TRootStore
+      return toJS(root.viewing.activeThread)
+    },
     get communityData(): TCommunity {
       return toJS(self.community)
     },
     get communityId(): TID {
       return self.community.id
     },
-    get articleData(): TArticle {
-      return toJS(self[self.thread])
+    get tagsData(): TTag[] {
+      const slf = self as TStore
+      return toJS(slf.viewingArticle.articleTags)
     },
     get editingData() {
       return pick(
@@ -51,13 +60,20 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
   }))
   .actions((self) => ({
+    setViewing(article: TArticle): void {
+      const root = getParent(self) as TRootStore
+      const thread = article.meta.thread.toLowerCase()
+
+      return root.viewing.setViewing({
+        viewingThread: thread,
+        [thread]: article,
+      })
+    },
     updateEditing(sobj): void {
       const slf = self as TStore
       slf.mark(sobj)
     },
     loadEditData(article: TArticle): void {
-      self[self.thread] = article
-
       const {
         title,
         copyRight,

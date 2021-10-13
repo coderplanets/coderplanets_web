@@ -33,9 +33,10 @@ export const loadCommunity = (): void => {
 }
 
 export const loadArticle = (): void => {
-  const { thread } = store
+  const { thread, viewingArticle } = store
+  const { id } = viewingArticle
 
-  sr71$.query(S[thread], { id: store[thread].id })
+  sr71$.query(S[thread], { id })
 }
 
 export const editOnChange = (e: TEditValue, key: string): void => {
@@ -67,8 +68,8 @@ const doCreate = () => {
 }
 
 const doUpdate = () => {
-  const { thread, editingData } = store
-  const { id } = store[thread]
+  const { thread, editingData, viewingArticle } = store
+  const { id } = viewingArticle
   const variables = { id, ...editingData }
   log('onUpdate --> ', variables)
 
@@ -81,6 +82,7 @@ const doUpdate = () => {
 // ###############################
 
 const handleArticleRes = (article) => {
+  store.setViewing(article)
   store.loadEditData(article)
 }
 

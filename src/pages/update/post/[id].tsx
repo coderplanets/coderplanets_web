@@ -35,12 +35,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
+  const id = ssrGetParam(context, 'id')
+
   const initProps = {
     ...ssrBaseStates(resp),
     articleEditor: {
-      thread: ARTICLE_THREAD.POST,
       mode: 'update',
-      post: { id: ssrGetParam(context, 'id') },
+    },
+    viewing: {
+      post: { id },
+      viewingThread: ARTICLE_THREAD.POST,
     },
   }
 

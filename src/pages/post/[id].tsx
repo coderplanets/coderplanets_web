@@ -1,7 +1,7 @@
 // import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
 
-import { ROUTE, THREAD, METRIC } from '@/constant'
+import { ROUTE, ARTICLE_THREAD, METRIC } from '@/constant'
 import {
   ssrBaseStates,
   ssrFetchPrepare,
@@ -61,7 +61,7 @@ export const getServerSideProps = async (context) => {
     route: { mainPath: ROUTE.POST, subPath: post.id },
     viewing: {
       post,
-      activeThread: THREAD.POST,
+      activeThread: ARTICLE_THREAD.POST,
     },
     // TODO: load comments on Client
     // comments: { pagedComments },
@@ -75,7 +75,7 @@ const PostPage = (props) => {
   const { viewing } = props
   const { post } = viewing
 
-  const seoConfig = articleSEO(THREAD.POST, post)
+  const seoConfig = articleSEO(ARTICLE_THREAD.POST, post)
 
   return (
     <Provider store={store}>

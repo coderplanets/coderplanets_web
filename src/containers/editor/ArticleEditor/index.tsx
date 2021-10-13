@@ -48,7 +48,7 @@ const ArticleEditorContainer: FC<TProps> = ({
     isQuestion,
     communityData,
     publishing,
-    articleData,
+    tagsData,
   } = store
 
   const initEditor = mode === 'publish' || body !== '{}'
@@ -67,7 +67,7 @@ const ArticleEditorContainer: FC<TProps> = ({
 
           <Footer
             mode={mode}
-            article={articleData}
+            tags={tagsData}
             copyRight={copyRight}
             isQuestion={isQuestion}
             publishing={publishing}

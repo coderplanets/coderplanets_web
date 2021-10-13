@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TArticle, TCopyright, TEditMode } from '@/spec'
+import type { TCopyright, TEditMode, TTag } from '@/spec'
 
 import TagsList from '@/components/TagsList'
 import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
@@ -13,7 +13,7 @@ import { editOnChange, onPublish, gotoBackToCommunity } from './logic'
 
 type TProps = {
   mode: TEditMode
-  article: TArticle
+  tags: TTag[]
   isQuestion: boolean
   copyRight: string
   publishing: boolean
@@ -21,22 +21,17 @@ type TProps = {
 
 const Footer: FC<TProps> = ({
   mode,
-  article,
+  tags,
   isQuestion,
   copyRight,
   publishing,
 }) => {
-  console.log('# article -> ', article.articleTags)
+  console.log('# footer tags  -> ', tags)
 
   return (
     <Wrapper>
       <ArticleFooter>
-        <TagsList
-          items={article.articleTags}
-          mLeft={0}
-          size="medium"
-          withSetter
-        />
+        <TagsList items={tags} mLeft={0} size="medium" withSetter />
         <Checker
           size="medium"
           dimWhenIdle
