@@ -4,7 +4,7 @@
 
 import { FC } from 'react'
 
-import type { TMetric } from '@/spec'
+import type { TMetric, TEditMode } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
@@ -31,15 +31,18 @@ type TProps = {
   testid?: string
   articleEditor?: TStore
   metric?: TMetric
+  mode?: TEditMode
 }
 
 const ArticleEditorContainer: FC<TProps> = ({
   testid = 'article-editor',
   articleEditor: store,
   metric = METRIC.ARTICLE_EDITOR,
+  mode = 'publish',
 }) => {
-  useInit(store)
-  const { title, copyRight, isQuestion, communityData, publishing } = store
+  useInit(store, mode)
+  const { title, body, copyRight, isQuestion, communityData, publishing } =
+    store
 
   return (
     <Wrapper testid={testid}>
@@ -47,6 +50,7 @@ const ArticleEditorContainer: FC<TProps> = ({
         <ContentWrapper>
           <TitleInput title={title} />
           <RichEditor
+            data={body}
             onChange={(v) => editOnChange(JSON.stringify(v), 'body')}
             onLinkChange={(v) => editOnChange(v, 'linkAddr')}
           />
@@ -57,7 +61,7 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         </ContentWrapper>
         <div>
-          <CommunityBadge community={communityData} />
+          <CommunityBadge community={communityData} mode={mode} />
           <PublishRules />
         </div>
       </InnerWrapper>

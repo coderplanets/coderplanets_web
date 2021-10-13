@@ -1,5 +1,3 @@
-import { gql } from '@urql/core'
-
 import { pagedPosts, post } from './post'
 import { pagedJobs, job } from './job'
 import { pagedRadars, radar } from './radar'

@@ -52,6 +52,9 @@ export const ssrBaseStates = (resp) => {
  * 因为从 client 使用 Link 时会有 _next/data 请求，无法区分，需要使用内置的 resolvedUrl 解析
  *
  * 而直接从浏览器刷新时，没有 resolvedUrl， 需要用常规的 params.id
+ *
+ * 另外这个 next 官方的这个 context 的 type 似乎有问题
+ * @link https://github.com/vercel/next.js/blob/v10.2.0/packages/next/types/index.d.ts#L136
  */
 export const ssrGetParam = (context, key) => {
   const { resolvedUrl, req } = context

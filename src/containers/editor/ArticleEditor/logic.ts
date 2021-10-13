@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import Router from 'next/router'
 // import { } from 'ramda'
 
+import type { TEditValue, TEditMode } from '@/spec'
 import { HCN } from '@/constant'
-import type { TEditValue } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { getParameterByName } from '@/utils/route'
@@ -30,8 +30,15 @@ export const nextStep = (): void => {
   store.mark({ step: STEP.SETTING })
 }
 
-export const loadCommunity = (communityRaw: string): void => {
-  sr71$.query(S.community, { raw: communityRaw.toLowerCase() })
+export const loadCommunity = (): void => {
+  const { mode, viewingArticle } = store
+
+  const raw =
+    mode === 'publish'
+      ? getParameterByName('community')?.toLowerCase()
+      : viewingArticle.originalCommunity.raw
+
+  sr71$.query(S.community, { raw })
 }
 
 export const editOnChange = (e: TEditValue, key: string): void => {
@@ -75,14 +82,15 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
-export const useInit = (_store: TStore): void => {
+export const useInit = (_store: TStore, mode: TEditMode): void => {
   useEffect(() => {
     store = _store
+    store.mark({ mode })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     log('useInit: ', store)
 
-    const communityRaw = getParameterByName('community')
-    if (communityRaw) loadCommunity(communityRaw)
+    loadCommunity()
+    if (mode === 'update') store.loadEditData()
 
     // return () => store.reset()
     return () => {
@@ -90,6 +98,5 @@ export const useInit = (_store: TStore): void => {
       sub$.unsubscribe()
       sub$ = null
     }
-    // return () => store.reset()
-  }, [_store])
+  }, [_store, mode])
 }

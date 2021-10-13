@@ -3,16 +3,17 @@
  *
  */
 
-import { types as T, Instance } from 'mobx-state-tree'
+import { types as T, Instance, getParent } from 'mobx-state-tree'
 import { values, pick } from 'ramda'
 
-import type { TID, TCommunity } from '@/spec'
+import type { TRootStore, TID, TCommunity, TArticle } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 
 import { Community } from '@/model/Community'
 import { STEP } from './constant'
 
 const ArticleEditor = T.model('ArticleEditor', {
+  mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
   title: T.optional(T.string, ''),
   body: T.optional(T.string, '{}'),
   linkAddr: T.optional(T.string, ''),
@@ -24,14 +25,15 @@ const ArticleEditor = T.model('ArticleEditor', {
   publishing: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    // get root() {
-    //   return getParent(self)
-    // },
     get communityData(): TCommunity {
       return toJS(self.community)
     },
     get communityId(): TID {
       return self.community.id
+    },
+    get viewingArticle(): TArticle {
+      const root = getParent(self) as TRootStore
+      return toJS(root.viewingArticle)
     },
     get editingData() {
       return pick(
@@ -45,6 +47,20 @@ const ArticleEditor = T.model('ArticleEditor', {
       const slf = self as TStore
       slf.mark(sobj)
     },
+    loadEditData(): void {
+      const { viewingArticle } = self
+      const { title, copyRight, linkAddr, isQuestion, document } =
+        viewingArticle
+
+      self.title = title
+      self.copyRight = copyRight
+
+      if (document?.body) self.body = document.body
+
+      if (linkAddr) self.linkAddr = linkAddr
+      if (isQuestion) self.isQuestion = isQuestion
+    },
+
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

@@ -65,6 +65,7 @@ export const articleDetail = `
 
   document {
     bodyHtml
+    body
   }
 
   commentsParticipants {

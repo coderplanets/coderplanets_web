@@ -115,7 +115,8 @@ router.route('/publish/post').get((req, res) => {
 
 // 编辑新帖子
 router.route('/update/post/:id').get((req, res) => {
-  return renderAndCache({ req, res, page: '/update/post' })
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/update/post/${id}` })
 })
 
 // 创建新博客

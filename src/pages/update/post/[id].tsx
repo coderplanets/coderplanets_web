@@ -6,6 +6,7 @@ import {
   ssrBaseStates,
   ssrRescue,
   ssrFetchPrepare,
+  ssrGetParam,
 } from '@/utils'
 import { P } from '@/schemas'
 
@@ -14,12 +15,12 @@ import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleEditor from '@/containers/editor/ArticleEditor'
 
 const fetchData = async (context, opt = {}) => {
-  const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
+  const id = ssrGetParam(context, 'id')
   // const { thirdPath: id } = ssrParseURL(context.req)
   const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id: params.id, userHasLogin })
+  const post = gqClient.request(P.post, { id, userHasLogin })
 
   return {
     ...(await sessionState),
@@ -38,6 +39,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   const { post } = resp
+  console.log('got post: ', post)
 
   const initProps = {
     ...ssrBaseStates(resp),
@@ -61,7 +63,7 @@ export const UpdatePostPage = (props) => {
         seoConfig={seoConfig}
         noSidebar
       >
-        <ArticleEditor />
+        <ArticleEditor mode="update" />
       </GlobalLayout>
     </Provider>
   )

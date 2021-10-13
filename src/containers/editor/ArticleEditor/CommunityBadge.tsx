@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TCommunity } from '@/spec'
-import { ICON_BASE } from '@/config'
+import type { TCommunity, TEditMode } from '@/spec'
 import { cutRest } from '@/utils/helper'
 
 import Tooltip from '@/components/Tooltip'
@@ -20,14 +19,19 @@ import {
 
 type TProps = {
   community: TCommunity
+  mode: TEditMode
 }
 
-const CommunityBadge: FC<TProps> = ({ community }) => {
+const CommunityBadge: FC<TProps> = ({ community, mode }) => {
   return (
     <Wrapper>
       <BadgeWrapper>
         <Intro>
-          <PubHint>发布到子社区:</PubHint>
+          {mode === 'publish' ? (
+            <PubHint>发布到子社区:</PubHint>
+          ) : (
+            <PubHint>所属社区:</PubHint>
+          )}
           <Title>
             <Logo src={community.logo} />
             <Tooltip
@@ -36,9 +40,11 @@ const CommunityBadge: FC<TProps> = ({ community }) => {
             >
               <div>{cutRest(community.title || '--', 15)}</div>
             </Tooltip>
-            <ChangeBtn>
-              更换 <ArrowLogo />
-            </ChangeBtn>
+            {mode === 'publish' && (
+              <ChangeBtn>
+                更换 <ArrowLogo />
+              </ChangeBtn>
+            )}
           </Title>
         </Intro>
       </BadgeWrapper>
