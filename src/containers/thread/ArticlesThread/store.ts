@@ -56,6 +56,12 @@ const ArticlesThread = T.model('ArticlesThread', {
       const root = getParent(self) as TRootStore
       return root.viewing.activeThread
     },
+    get isEmpty(): boolean {
+      const slf = self as TStore
+      const thread = slf.curThread
+
+      return slf[`paged${titleCase(thread)}s`].totalCount === 0
+    },
     get pagedArticlesData(): TPagedArticles {
       const slf = self as TStore
       const pagedThreadKey = `paged${titleCase(slf.curThread)}s`

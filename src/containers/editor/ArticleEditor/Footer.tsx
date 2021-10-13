@@ -8,15 +8,22 @@ import Copyright from '@/components/Copyright'
 import Checker from '@/components/Checker'
 import { SpaceGrow } from '@/components/Common'
 
-import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
-import { editOnChange, onPublish, gotoBackToCommunity } from './logic'
+import {
+  Wrapper,
+  ArticleFooter,
+  PublishFooter,
+  DonwWrapper,
+  DoneIcon,
+  DoneHint,
+} from './styles/footer'
+import { editOnChange, onPublish, onCancel } from './logic'
 
 type TProps = {
   mode: TEditMode
   tags: TTag[]
   isQuestion: boolean
   copyRight: string
-  publishing: boolean
+  publishState: { publishing: boolean; publishDone: boolean }
 }
 
 const Footer: FC<TProps> = ({
@@ -24,8 +31,9 @@ const Footer: FC<TProps> = ({
   tags,
   isQuestion,
   copyRight,
-  publishing,
+  publishState,
 }) => {
+  const { publishing, publishDone } = publishState
   console.log('# footer tags  -> ', tags)
 
   return (
@@ -49,13 +57,20 @@ const Footer: FC<TProps> = ({
         />
         <SpaceGrow />
         <div>
-          <YesOrNoButtons
-            cancelText="取消"
-            confirmText={mode === 'publish' ? '发 布' : '更 新'}
-            onConfirm={onPublish}
-            loading={publishing}
-            onCancel={gotoBackToCommunity}
-          />
+          {publishDone ? (
+            <DonwWrapper>
+              <DoneIcon />
+              <DoneHint>已完成</DoneHint>
+            </DonwWrapper>
+          ) : (
+            <YesOrNoButtons
+              cancelText="取消"
+              confirmText={mode === 'publish' ? '发 布' : '更 新'}
+              onConfirm={onPublish}
+              loading={publishing}
+              onCancel={onCancel}
+            />
+          )}
         </div>
       </PublishFooter>
     </Wrapper>

@@ -21,7 +21,7 @@ router.route('/oauth/').get((req, res) => renderAndCache({ req, res }))
 // 将首页重定向到 HOME_PAGE
 router
   .route('/')
-  .get((req, res) => renderAndCache({ req, res, path: '/community' }))
+  .get((req, res) => renderAndCache({ req, res, path: '/index' }))
 
 // 来一杯
 router.route('/have-a-drink/:slug?').get((req, res) => {
@@ -143,7 +143,7 @@ router.route('/:community/help-center').get((req, res) => {
 
 // 社区主页
 router.route('/:community/:thread').get((req, res) => {
-  return renderAndCache({ req, res, path: '/community' })
+  return renderAndCache({ req, res, path: '/index' })
 })
 
 router.route('*').get((req, res) => handle(req, res))

@@ -43,7 +43,18 @@ export const editOnChange = (e: TEditValue, key: string): void => {
   updateEditing(store, key, e)
 }
 
-export const gotoBackToCommunity = (): void => {
+export const onCancel = (): void => {
+  const { mode } = store
+
+  mode === 'publish' ? gotoBackToCommunity() : gotoArticleDetail()
+}
+
+const gotoArticleDetail = (): void => {
+  const { viewingArticle, thread } = store
+  Router.push(`/${thread}/${viewingArticle.id}`)
+}
+
+const gotoBackToCommunity = (): void => {
   const { communityData } = store
   const { raw } = communityData
 
@@ -86,9 +97,10 @@ const handleArticleRes = (article) => {
   store.loadEditData(article)
 }
 
-const handleMutateRes = () => {
-  store.mark({ publishing: false })
-  gotoBackToCommunity()
+const handleMutateRes = (): void => {
+  store.mark({ publishing: false, publishDone: true })
+
+  gotoArticleDetail()
 }
 
 const DataSolver = [
@@ -123,6 +135,7 @@ export const useInit = (_store: TStore, mode: TEditMode): void => {
       sr71$.stop()
       sub$.unsubscribe()
       sub$ = null
+      store.reset()
     }
   }, [_store, mode])
 }

@@ -47,7 +47,7 @@ const ArticleEditorContainer: FC<TProps> = ({
     copyRight,
     isQuestion,
     communityData,
-    publishing,
+    publishState,
     tagsData,
   } = store
 
@@ -70,7 +70,7 @@ const ArticleEditorContainer: FC<TProps> = ({
             tags={tagsData}
             copyRight={copyRight}
             isQuestion={isQuestion}
-            publishing={publishing}
+            publishState={publishState}
           />
         </ContentWrapper>
         <div>

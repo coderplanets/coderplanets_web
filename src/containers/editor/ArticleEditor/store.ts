@@ -28,6 +28,7 @@ const ArticleEditor = T.model('ArticleEditor', {
   community: T.optional(Community, {}),
   // showSubTitle: T.optional(T.boolean, false),
   publishing: T.optional(T.boolean, false),
+  publishDone: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -57,6 +58,9 @@ const ArticleEditor = T.model('ArticleEditor', {
         ['title', 'body', 'copyRight', 'isQuestion', 'linkAddr'],
         self,
       )
+    },
+    get publishState() {
+      return pick(['publishing', 'publishDone'], self)
     },
   }))
   .actions((self) => ({
@@ -93,7 +97,17 @@ const ArticleEditor = T.model('ArticleEditor', {
       if (linkAddr) self.linkAddr = linkAddr
       if (isQuestion) self.isQuestion = isQuestion
     },
+    reset(): void {
+      self.mode = 'publish'
+      self.title = ''
+      self.body = '{}'
+      self.linkAddr = ''
+      self.copyRight = 'cc'
+      self.isQuestion = false
 
+      self.publishing = false
+      self.publishDone = false
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
