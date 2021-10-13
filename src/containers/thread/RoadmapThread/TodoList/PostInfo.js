@@ -1,6 +1,6 @@
 import React from 'react'
 
-import InlineTags from '@/components/InlineTags'
+import TagsList from '@/components/TagsList'
 import DotDivider from '@/components/DotDivider'
 
 import {
@@ -25,7 +25,7 @@ const PostInfo = ({ post }) => {
       <Head>
         <Title>{post.title}</Title>
         <TagsWrapper>
-          <InlineTags data={tags} marginLeft={false} />
+          <TagsList data={tags} marginLeft={false} />
         </TagsWrapper>
       </Head>
       <ExtraInfo>

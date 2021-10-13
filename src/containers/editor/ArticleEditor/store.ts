@@ -40,6 +40,9 @@ const ArticleEditor = T.model('ArticleEditor', {
     get communityId(): TID {
       return self.community.id
     },
+    get articleData(): TArticle {
+      return toJS(self[self.thread])
+    },
     get editingData() {
       return pick(
         ['title', 'body', 'copyRight', 'isQuestion', 'linkAddr'],
@@ -53,6 +56,8 @@ const ArticleEditor = T.model('ArticleEditor', {
       slf.mark(sobj)
     },
     loadEditData(article: TArticle): void {
+      self[self.thread] = article
+
       const {
         title,
         copyRight,

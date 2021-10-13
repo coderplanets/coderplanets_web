@@ -4,7 +4,7 @@ import type { TJob, TRadar } from '@/spec'
 import { ICON } from '@/config'
 import { THREAD } from '@/constant'
 import { cutRest } from '@/utils/helper'
-import InlineTags from '@/components/InlineTags'
+import TagsList from '@/components/TagsList'
 import { Br } from '@/components/Common'
 
 import type { TProps as TIndex } from './index'
@@ -33,7 +33,7 @@ const Header: FC<TIndex> = ({ data, thread }) => {
           <Br top={4} />
           <Title>{cutRest(title, 100)}</Title>
           <Br top={6} />
-          <InlineTags items={articleTags} mLeft={0} size="medium" />
+          <TagsList items={articleTags} mLeft={0} size="medium" />
         </Wrapper>
       )
     }
@@ -43,7 +43,7 @@ const Header: FC<TIndex> = ({ data, thread }) => {
 
       return (
         <Wrapper>
-          <InlineTags items={articleTags} mLeft={0} size="medium" />
+          <TagsList items={articleTags} mLeft={0} size="medium" />
           <Br top={10} />
           <Title>
             <ExtraInfo>

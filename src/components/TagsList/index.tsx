@@ -1,7 +1,5 @@
 /*
- *
- * InlineTags
- *
+ * TagsList
  */
 
 import { FC, memo } from 'react'
@@ -12,13 +10,14 @@ import { SIZE } from '@/constant'
 import { sortByColor } from '@/utils/helper'
 import { Trans } from '@/utils/i18n'
 import { buildLog } from '@/utils/logger'
-import Maybe from '@/components/Maybe'
 import Tooltip from '@/components/Tooltip'
+
+import Setter from './Setter'
 
 import { Wrapper, Tag, HashSign, Title, MoreText, PopoverInfo } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:InlineTags:index')
+const log = buildLog('c:TagsList:index')
 
 const FullList = ({ items, mLeft, size }) => {
   return (
@@ -38,13 +37,15 @@ type TProps = {
   max?: number
   mLeft?: number
   size?: TSIZE_TSM
+  withSetter?: boolean
 }
 
-const InlineTags: FC<TProps> = ({
+const TagsList: FC<TProps> = ({
   items,
   max = 3,
   mLeft = 8,
   size = SIZE.TINY,
+  withSetter = false,
 }) => {
   if (items.length > max) {
     return (
@@ -72,10 +73,11 @@ const InlineTags: FC<TProps> = ({
   }
 
   return (
-    <Maybe test={items.length !== 0}>
-      <FullList items={items} mLeft={mLeft} size={size} />
-    </Maybe>
+    <div>
+      {items.length > 0 && <FullList items={items} mLeft={mLeft} size={size} />}
+      {withSetter && <Setter />}
+    </div>
   )
 }
 
-export default memo(InlineTags)
+export default memo(TagsList)

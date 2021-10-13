@@ -41,8 +41,15 @@ const ArticleEditorContainer: FC<TProps> = ({
   mode = 'publish',
 }) => {
   useInit(store, mode)
-  const { title, body, copyRight, isQuestion, communityData, publishing } =
-    store
+  const {
+    title,
+    body,
+    copyRight,
+    isQuestion,
+    communityData,
+    publishing,
+    articleData,
+  } = store
 
   const initEditor = mode === 'publish' || body !== '{}'
   return (
@@ -60,6 +67,7 @@ const ArticleEditorContainer: FC<TProps> = ({
 
           <Footer
             mode={mode}
+            article={articleData}
             copyRight={copyRight}
             isQuestion={isQuestion}
             publishing={publishing}

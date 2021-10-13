@@ -7,7 +7,7 @@ import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils/route'
 
 import AvatarsRow from '@/components/AvatarsRow'
-import InlineTags from '@/components/InlineTags'
+import TagsList from '@/components/TagsList'
 
 import {
   Wrapper,
@@ -36,7 +36,7 @@ const Header: FC<TProps> = ({ item }) => {
           </TitleLink>
         )}
         <TagListWrapper>
-          <InlineTags items={item.articleTags} />
+          <TagsList items={item.articleTags} />
         </TagListWrapper>
       </Brief>
     </Wrapper>
