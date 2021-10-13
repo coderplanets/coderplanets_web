@@ -1,4 +1,5 @@
 import { gql } from '@urql/core'
+import { F } from '@/schemas'
 
 const createPost = gql`
   mutation (
@@ -20,6 +21,26 @@ const createPost = gql`
     }
   }
 `
+const updatePost = gql`
+  mutation (
+    $id: ID!
+    $title: String
+    $body: String
+    $copyRight: String
+    $articleTags: [Id]
+  ) {
+    updatePost(
+      id: $id
+      title: $title
+      body: $body
+      copyRight: $copyRight
+      articleTags: $articleTags
+    ) {
+      id
+      title
+    }
+  }
+`
 
 // viewer_has_subscribed
 const community = gql`
@@ -35,9 +56,39 @@ const community = gql`
   }
 `
 
+const post = gql`
+  query post($id: ID!) {
+    post(id: $id) {
+      id
+      title
+      linkAddr
+      copyRight
+      archivedAt
+      isArchived
+
+      originalCommunity {
+        ${F.community}
+      }
+
+      articleTags {
+        ${F.tag}
+      }
+
+      meta {
+        thread
+      }
+    
+      document {
+        body
+      }
+    }
+  }
+`
 const schema = {
-  community,
+  post,
   createPost,
+  updatePost,
+  community,
 }
 
 export default schema

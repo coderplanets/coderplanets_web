@@ -44,17 +44,22 @@ const ArticleEditorContainer: FC<TProps> = ({
   const { title, body, copyRight, isQuestion, communityData, publishing } =
     store
 
+  const initEditor = mode === 'publish' || body !== '{}'
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         <ContentWrapper>
           <TitleInput title={title} />
-          <RichEditor
-            data={body}
-            onChange={(v) => editOnChange(JSON.stringify(v), 'body')}
-            onLinkChange={(v) => editOnChange(v, 'linkAddr')}
-          />
+          {initEditor && (
+            <RichEditor
+              data={body}
+              onChange={(v) => editOnChange(JSON.stringify(v), 'body')}
+              onLinkChange={(v) => editOnChange(v, 'linkAddr')}
+            />
+          )}
+
           <Footer
+            mode={mode}
             copyRight={copyRight}
             isQuestion={isQuestion}
             publishing={publishing}

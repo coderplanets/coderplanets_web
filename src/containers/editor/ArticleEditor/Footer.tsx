@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TCopyright } from '@/spec'
+import type { TCopyright, TEditMode } from '@/spec'
 import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
 import Copyright from '@/components/Copyright'
 import Checker from '@/components/Checker'
@@ -10,12 +10,13 @@ import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
 import { editOnChange, onPublish, gotoBackToCommunity } from './logic'
 
 type TProps = {
+  mode: TEditMode
   isQuestion: boolean
   copyRight: string
   publishing: boolean
 }
 
-const Footer: FC<TProps> = ({ isQuestion, copyRight, publishing }) => {
+const Footer: FC<TProps> = ({ mode, isQuestion, copyRight, publishing }) => {
   return (
     <Wrapper>
       <ArticleFooter>
@@ -39,7 +40,7 @@ const Footer: FC<TProps> = ({ isQuestion, copyRight, publishing }) => {
         <div>
           <YesOrNoButtons
             cancelText="取消"
-            confirmText="发 布"
+            confirmText={mode === 'publish' ? '发 布' : '更 新'}
             onConfirm={onPublish}
             loading={publishing}
             onCancel={gotoBackToCommunity}

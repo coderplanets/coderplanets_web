@@ -7,10 +7,11 @@ import { HCN } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { getParameterByName } from '@/utils/route'
+import { titleCase } from '@/utils/helper'
 import { updateEditing } from '@/utils/mobx'
+import { matchArticles } from '@/utils/macros'
 
 import type { TStore } from './store'
-import { STEP } from './constant'
 import S from './schema'
 
 const { SR71, $solver, asyncRes } = asyncSuit
@@ -22,23 +23,19 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleEditor')
 
-export const previousStep = (): void => {
-  store.mark({ step: STEP.EDIT })
-}
-
-export const nextStep = (): void => {
-  store.mark({ step: STEP.SETTING })
-}
-
 export const loadCommunity = (): void => {
-  const { mode, viewingArticle } = store
+  const { mode } = store
 
-  const raw =
-    mode === 'publish'
-      ? getParameterByName('community')?.toLowerCase()
-      : viewingArticle.originalCommunity.raw
+  if (mode !== 'publish') return
+  const raw = getParameterByName('community')?.toLowerCase()
 
   sr71$.query(S.community, { raw })
+}
+
+export const loadArticle = (): void => {
+  const { thread } = store
+
+  sr71$.query(S[thread], { id: store[thread].id })
 }
 
 export const editOnChange = (e: TEditValue, key: string): void => {
@@ -54,26 +51,53 @@ export const gotoBackToCommunity = (): void => {
 }
 
 export const onPublish = (): void => {
-  const { editingData, communityId } = store
-  console.log('onPublish --> ', editingData)
-  const variables = { communityId, ...editingData }
-
+  const { mode } = store
   store.mark({ publishing: true })
-  sr71$.mutate(S.createPost, variables)
+
+  mode === 'publish' ? doCreate() : doUpdate()
+}
+
+const doCreate = () => {
+  const { thread, editingData, communityId } = store
+  const variables = { communityId, ...editingData }
+  log('onPublish --> ', variables)
+
+  const schema = S[`create${titleCase(thread)}`]
+  sr71$.mutate(schema, variables)
+}
+
+const doUpdate = () => {
+  const { thread, editingData } = store
+  const { id } = store[thread]
+  const variables = { id, ...editingData }
+  log('onUpdate --> ', variables)
+
+  const schema = S[`update${titleCase(thread)}`]
+  sr71$.mutate(schema, variables)
 }
 
 // ###############################
 // init & uninit handlers
 // ###############################
 
+const handleArticleRes = (article) => {
+  store.loadEditData(article)
+}
+
+const handleMutateRes = () => {
+  store.mark({ publishing: false })
+  gotoBackToCommunity()
+}
+
 const DataSolver = [
+  ...matchArticles(handleArticleRes),
   {
     match: asyncRes('createPost'),
-    action: ({ createPost }) => {
-      console.log('after create: ', createPost)
-      store.mark({ publishing: false })
-      gotoBackToCommunity()
-    },
+    action: handleMutateRes,
+  },
+  {
+    match: asyncRes('updatePost'),
+    action: handleMutateRes,
   },
   {
     match: asyncRes('community'),
@@ -90,7 +114,7 @@ export const useInit = (_store: TStore, mode: TEditMode): void => {
     log('useInit: ', store)
 
     loadCommunity()
-    if (mode === 'update') store.loadEditData()
+    if (mode === 'update') loadArticle()
 
     // return () => store.reset()
     return () => {

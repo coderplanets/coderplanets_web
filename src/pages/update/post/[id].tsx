@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
-import { METRIC } from '@/constant'
+import { METRIC, ARTICLE_THREAD } from '@/constant'
 import {
   articleUpdateSEO,
   ssrBaseStates,
@@ -15,16 +15,13 @@ import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleEditor from '@/containers/editor/ArticleEditor'
 
 const fetchData = async (context, opt = {}) => {
-  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+  const { gqClient } = ssrFetchPrepare(context, opt)
 
-  const id = ssrGetParam(context, 'id')
   // const { thirdPath: id } = ssrParseURL(context.req)
   const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id, userHasLogin })
 
   return {
     ...(await sessionState),
-    ...(await post),
   }
 }
 
@@ -38,14 +35,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  const { post } = resp
-  console.log('got post: ', post)
-
   const initProps = {
     ...ssrBaseStates(resp),
-    viewing: {
-      post,
-      // activeThread: THREAD.POST,
+    articleEditor: {
+      thread: ARTICLE_THREAD.POST,
+      mode: 'update',
+      post: { id: ssrGetParam(context, 'id') },
     },
   }
 
