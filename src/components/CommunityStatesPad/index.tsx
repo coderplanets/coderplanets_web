@@ -56,7 +56,7 @@ const CommunityStatesPad: FC<TProps> = ({
         />
       </NumberSection>
       <NumberDivider />
-      <ContentSection readOnly>
+      <ContentSection>
         <NumberTitle readOnly>内容</NumberTitle>
         <NumberGroup
           subPrefix="add"

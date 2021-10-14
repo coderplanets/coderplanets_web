@@ -7,6 +7,7 @@ import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
 import Copyright from '@/components/Copyright'
 import Checker from '@/components/Checker'
 import { SpaceGrow } from '@/components/Common'
+import WordsCounter from '@/components/WordsCounter'
 
 import {
   Wrapper,
@@ -20,6 +21,7 @@ import { editOnChange, onPublish, onCancel } from './logic'
 
 type TProps = {
   mode: TEditMode
+  body: string
   tags: TTag[]
   isQuestion: boolean
   copyRight: string
@@ -28,18 +30,23 @@ type TProps = {
 
 const Footer: FC<TProps> = ({
   mode,
+  body,
   tags,
   isQuestion,
   copyRight,
   publishState,
 }) => {
   const { publishing, publishDone } = publishState
-  console.log('# footer tags  -> ', tags)
+  // console.log('# footer tags  -> ', tags)
 
   return (
     <Wrapper>
       <ArticleFooter>
         <TagsList items={tags} mLeft={0} size="medium" withSetter />
+        <WordsCounter
+          body={body}
+          onChange={(isValid) => console.log('counter valid?: ', isValid)}
+        />
         <Checker
           size="medium"
           dimWhenIdle

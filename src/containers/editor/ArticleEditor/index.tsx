@@ -68,6 +68,7 @@ const ArticleEditorContainer: FC<TProps> = ({
           <Footer
             mode={mode}
             tags={tagsData}
+            body={body}
             copyRight={copyRight}
             isQuestion={isQuestion}
             publishState={publishState}
