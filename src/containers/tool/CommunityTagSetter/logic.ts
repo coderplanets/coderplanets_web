@@ -95,6 +95,8 @@ const DataSolver = [
     match: asyncRes(EVENT.SET_TAG),
     action: () => {
       console.log('收到 SET_TAG')
+      // store.mark({ show: true, curSetter: SETTER.TAG })
+      store.mark({ show: true, curSetter: SETTER.COMMUNITY })
     },
   },
 ]

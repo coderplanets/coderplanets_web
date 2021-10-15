@@ -10,6 +10,7 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import RichEditor from '@/containers/editor/RichEditor'
 
 import TitleInput from './TitleInput'
@@ -55,6 +56,7 @@ const ArticleEditorContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
+        <CommunityTagSetter />
         <ContentWrapper>
           <TitleInput title={title} />
           {initEditor && (

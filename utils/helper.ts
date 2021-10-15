@@ -210,6 +210,10 @@ export const previewArticle = (article: TArticle): void => {
   send(EVENT.DRAWER.OPEN, { type, data })
 }
 
+export const setArticleTag = (): void => {
+  send(EVENT.SET_TAG)
+}
+
 export const errRescue = ({
   type,
   operation,

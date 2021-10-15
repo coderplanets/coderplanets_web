@@ -3,20 +3,13 @@ import { FC, memo } from 'react'
 import type { TCopyright, TEditMode, TTag } from '@/spec'
 
 import TagsList from '@/components/TagsList'
-import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
+import SubmitButton from '@/components/Buttons/SubmitButton'
 import Copyright from '@/components/Copyright'
 import Checker from '@/components/Checker'
 import { SpaceGrow } from '@/components/Common'
 import WordsCounter from '@/components/WordsCounter'
 
-import {
-  Wrapper,
-  ArticleFooter,
-  PublishFooter,
-  DonwWrapper,
-  DoneIcon,
-  DoneHint,
-} from './styles/footer'
+import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
 import { editOnChange, onPublish, onCancel } from './logic'
 
 type TProps = {
@@ -36,7 +29,6 @@ const Footer: FC<TProps> = ({
   copyRight,
   publishState,
 }) => {
-  const { publishing, publishDone } = publishState
   // console.log('# footer tags  -> ', tags)
 
   return (
@@ -63,22 +55,12 @@ const Footer: FC<TProps> = ({
           onChange={(v) => editOnChange(v, 'copyRight')}
         />
         <SpaceGrow />
-        <div>
-          {publishDone ? (
-            <DonwWrapper>
-              <DoneIcon />
-              <DoneHint>已完成</DoneHint>
-            </DonwWrapper>
-          ) : (
-            <YesOrNoButtons
-              cancelText="取消"
-              confirmText={mode === 'publish' ? '发 布' : '更 新'}
-              onConfirm={onPublish}
-              loading={publishing}
-              onCancel={onCancel}
-            />
-          )}
-        </div>
+        <SubmitButton
+          publishState={publishState}
+          okText={mode === 'publish' ? '发 布' : '更 新'}
+          onPublish={onPublish}
+          onCancel={onCancel}
+        />
       </PublishFooter>
     </Wrapper>
   )
