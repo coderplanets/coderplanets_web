@@ -4,14 +4,14 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ withHover: boolean }>`
   ${css.flex()};
   width: 220px;
   height: 80px;
   background: ${theme('modal.bg')};
   margin-bottom: 15px;
   margin-right: 10px;
-  border: 1px solid;
+  border: ${({ withHover }) => (withHover ? '1px solid' : 'none')};
   border-color: transparent;
   border-radius: 10px;
   padding: 10px;

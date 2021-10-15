@@ -12,10 +12,11 @@ import List from './List'
 import { Wrapper, InnerWrapper, NoticeWrapper } from '../styles/tag_setter/body'
 
 type TProps = {
+  canActOnSeleted: boolean
   communitiesList: TCommunitiesList
 }
 
-const Body: FC<TProps> = ({ communitiesList }) => {
+const Body: FC<TProps> = ({ canActOnSeleted, communitiesList }) => {
   const {
     searching,
     searchValue,
@@ -46,6 +47,7 @@ const Body: FC<TProps> = ({ communitiesList }) => {
             <List
               title="目标社区"
               communities={selectedCommunities}
+              canActOnSeleted={canActOnSeleted}
               highlightTitle
               allChecked
             />

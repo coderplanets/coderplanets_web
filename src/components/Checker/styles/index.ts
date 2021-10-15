@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import type { TActive } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import CheckedSVG from '@/icons/Checked'
 
 import { getIconSize, getFontSize, getBorderRadius } from './metric'
 
-type TItem = { checked: boolean; size: string }
+type TItem = { checked: boolean; size: string; disabled?: boolean }
 
-type TWrapper = { dimWhenIdle: boolean } & TActive
+type TWrapper = { dimWhenIdle: boolean; disabled?: boolean } & TActive
 export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
@@ -18,7 +18,7 @@ export const Wrapper = styled.div<TWrapper>`
   &:hover {
     fill: #00a59b;
     opacity: 1;
-    cursor: pointer;
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   }
 `
 export const IconWrapper = styled.div<TItem>`
@@ -27,13 +27,15 @@ export const IconWrapper = styled.div<TItem>`
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   ${css.flex('align-both')};
-  border: 1px solid;
+
+  border: ${({ disabled }) => (!disabled ? '1px solid' : 'none')};
+
   border-color: ${({ checked }) => (checked ? '#246b8c' : '#1c5975')};
   border-radius: ${({ size }) => getBorderRadius(size)};
 
   transition: all 0.2s;
 `
-export const Icon = styled(Img)<TItem>`
+export const CheckIcon = styled(CheckedSVG)<TItem>`
   position: absolute;
   fill: #327faf;
   display: ${({ checked }) => (checked ? 'block' : 'none')};
@@ -41,12 +43,12 @@ export const Icon = styled(Img)<TItem>`
   height: ${({ size }) => getIconSize(size)};
   top: -1px;
   left: -1px;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `
 export const ChildWrapper = styled.div<TItem>`
   color: ${({ checked }) =>
     checked ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: ${({ size }) => getFontSize(size)};
   margin-left: 6px;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `

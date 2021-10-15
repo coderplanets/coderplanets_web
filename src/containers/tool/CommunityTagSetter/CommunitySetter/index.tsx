@@ -28,14 +28,23 @@ export type TProps = {
   withSetter?: boolean
   view: TCommunityView
   action: TCommunityAction
+  canActOnSeleted: boolean
   communitiesList: TCommunitiesList
 }
 
-const Setter: FC<TProps> = ({ view, action, communitiesList }) => {
+const Setter: FC<TProps> = ({
+  view,
+  action,
+  canActOnSeleted,
+  communitiesList,
+}) => {
   return (
     <Wrapper>
       <Header view={view} action={action} />
-      <Body communitiesList={communitiesList} />
+      <Body
+        canActOnSeleted={canActOnSeleted}
+        communitiesList={communitiesList}
+      />
       <Footer />
     </Wrapper>
   )

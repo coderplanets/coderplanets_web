@@ -23,11 +23,12 @@ import { toggleCommunity } from '../logic'
 type TProps = {
   item: TCommunity
   checked?: boolean
+  canActOnSeleted: boolean
 }
 
-const Community: FC<TProps> = ({ item, checked = false }) => {
+const Community: FC<TProps> = ({ item, canActOnSeleted, checked = false }) => {
   return (
-    <Wrapper key={item.id}>
+    <Wrapper withHover={canActOnSeleted}>
       <Logo src={item.logo} noLazy />
       <Intro>
         <Title>
@@ -40,6 +41,7 @@ const Community: FC<TProps> = ({ item, checked = false }) => {
             <Checker
               checked={checked}
               size="small"
+              disabled={!canActOnSeleted}
               onChange={(checked) => toggleCommunity(item.id, checked)}
             />
           </CheckWrapper>

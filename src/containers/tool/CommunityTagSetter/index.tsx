@@ -25,12 +25,14 @@ const log = buildLog('C:CommunityTagSetter')
 
 type TProps = {
   communityTagSetter?: TStore
+  canActOnSeleted?: boolean
   testid?: string
 }
 
 const CommunityTagSetterContainer: FC<TProps> = ({
   communityTagSetter: store,
   testid = 'community-tag-setter',
+  canActOnSeleted = true,
 }) => {
   useInit(store)
   const {
@@ -48,6 +50,7 @@ const CommunityTagSetterContainer: FC<TProps> = ({
         <CommunitySetter
           view={communityView}
           action={communityAction}
+          canActOnSeleted={canActOnSeleted}
           communitiesList={communitiesList}
         />
       )}
