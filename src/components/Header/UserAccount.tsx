@@ -89,7 +89,7 @@ const UserAccount: FC = () => {
           testid="header-unlogin-user"
           onClick={() => console.log('todo onLogin')}
         >
-          <DefaultUserIcon src={`${ICON}/user/account-solid.svg`} />
+          <DefaultUserIcon />
         </Wrapper>
       )}
 

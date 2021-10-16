@@ -10,7 +10,7 @@ import {
   ExploreWrapper,
   AccountWrapper,
   SiteLogo,
-  MenuLogo,
+  UserLogo,
   ExploreLogo,
   ArrowShape,
   MenuArrowShape,
@@ -58,7 +58,7 @@ export const AccountBlock = () => {
   return (
     <AccountWrapper bgColor={bgColor}>
       <ArrowShapeLeft bgColor={bgColor} />
-      <MenuLogo src={`${ICON}/user/account-solid.svg`} />
+      <UserLogo />
     </AccountWrapper>
   )
 }
