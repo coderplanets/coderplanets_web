@@ -43,6 +43,17 @@ export const Name = styled.div`
 export const Raw = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
+  position: relative;
+  padding-left: 5px;
+
+  &:before {
+    content: '/';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    font-size: 11px;
+    margin-right: 2px;
+  }
 `
 export const Digest = styled.div`
   margin-top: 3px;
