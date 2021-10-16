@@ -39,9 +39,10 @@ export const changeSetter = (type: TType): void => {
   store.mark({ type })
 }
 
-export const communityOnSearch = ({ target: { value } }): void => {
-  console.log('communityOnSearch value: ', value)
-  store.mark({ communitySearchValue: value })
+export const communityOnSearch = (
+  e: Event & { target: HTMLInputElement },
+): void => {
+  store.mark({ communitySearchValue: e.target.value })
   doSearchCommunities()
 }
 
@@ -83,7 +84,6 @@ const doSearchCommunities = () => {
     store.mark({ communitiesSearching: false })
   }
 
-  console.log('query ...: ', args)
   sr71$.query(S.searchCommunities, args)
 }
 
@@ -93,7 +93,6 @@ const DataSolver = [
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: { entries } }) => {
-      console.log('# searchCommunities -> ', entries)
       store.mark({ searchedCommunities: entries, communitiesSearching: false })
     },
   },
@@ -152,9 +151,6 @@ const ErrSolver = [
 // ###############################
 // init & uninit handlers
 // ###############################
-export const useStore = (): TStore => {
-  return store
-}
 
 export const useInit = (_store: TStore): void => {
   useEffect(() => {

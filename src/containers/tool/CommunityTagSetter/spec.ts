@@ -20,6 +20,7 @@ export type TCommunityAction = 'mirror' | 'move'
 export type TLayout = 'create-works' | 'works' | 'guide-contribute'
 
 export type TCommunitiesList = {
+  canActOnSeleted: boolean
   searching: boolean
   searchValue: string
   selectedCommunities: TCommunity[]

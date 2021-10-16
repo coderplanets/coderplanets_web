@@ -11,7 +11,6 @@ import SearchBox from './SearchBox'
 import List from './List'
 
 import { Wrapper, InnerWrapper, NoticeWrapper } from '../styles/tag_setter/body'
-import { useStore } from '../logic'
 
 type TProps = {
   communitiesList: TCommunitiesList
@@ -19,8 +18,8 @@ type TProps = {
 }
 
 const Body: FC<TProps> = ({ communitiesList, onCommunitySelect }) => {
-  const { canActOnSeleted } = useStore()
   const {
+    canActOnSeleted,
     searching,
     searchValue,
     searchedCommunities,

@@ -51,18 +51,20 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
     },
 
     get communitiesList(): TCommunitiesList {
+      const slf = self as TStore
       return {
-        searching: self.communitiesSearching,
-        searchValue: self.communitySearchValue,
-        selectedCommunities: toJS(self.selectedCommunities),
+        canActOnSeleted: slf.canActOnSeleted,
+        searching: slf.communitiesSearching,
+        searchValue: slf.communitySearchValue,
+        selectedCommunities: toJS(slf.selectedCommunities),
         // searchedCommunities: toJS(self.searchedCommunities),
         searchedCommunities: reject(
           (c) =>
             includes(
               c.id,
-              map((s) => s.id, toJS(self.selectedCommunities)),
+              map((s) => s.id, toJS(slf.selectedCommunities)),
             ),
-          toJS(self.searchedCommunities),
+          toJS(slf.searchedCommunities),
         ),
 
         // commonUsedCommunities: toJS(self.commonUsedCommunities),
@@ -70,9 +72,9 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
           (c) =>
             includes(
               c.id,
-              map((s) => s.id, toJS(self.selectedCommunities)),
+              map((s) => s.id, toJS(slf.selectedCommunities)),
             ),
-          toJS(self.commonUsedCommunities),
+          toJS(slf.commonUsedCommunities),
         ),
       }
     },
