@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { isEmpty } from 'ramda'
 
-import type { TCommunity } from '@/spec'
+import type { TCommunity, TInput } from '@/spec'
 import { errRescue } from '@/utils/helper'
 import { ERR, EVENT } from '@/constant'
 import { buildLog } from '@/utils/logger'
@@ -39,9 +39,7 @@ export const changeSetter = (type: TType): void => {
   store.mark({ type })
 }
 
-export const communityOnSearch = (
-  e: Event & { target: HTMLInputElement },
-): void => {
+export const communityOnSearch = (e: TInput): void => {
   store.mark({ communitySearchValue: e.target.value })
   doSearchCommunities()
 }

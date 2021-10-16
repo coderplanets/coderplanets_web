@@ -118,4 +118,5 @@ export type TGQError = {
   code?: number
 }
 
-export type TEditValue = HTMLElement | string | boolean
+export type TInput = Event & { target: HTMLInputElement }
+export type TEditValue = TInput | string | boolean

@@ -57,6 +57,7 @@ export type {
   TPaymentMethod,
   TFlexRule,
   TGQError,
+  TInput,
   TEditValue,
 } from './utils'
 
