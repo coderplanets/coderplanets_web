@@ -59,11 +59,10 @@ const Modal: FC<TProps> = ({
     if (visibleOnPage) {
       toggleGlobalBlur(true)
     }
+    if (visibleOnPage && !show) {
+      toggleGlobalBlur(false)
+    }
   }, [show, visibleOnPage])
-
-  useEffect(() => {
-    if (!show) handleClose()
-  }, [show, handleClose])
 
   return (
     <>

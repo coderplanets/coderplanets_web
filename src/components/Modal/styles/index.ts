@@ -74,6 +74,6 @@ export const EscHint = styled.div<{ mode: string }>`
   opacity: 0.7;
   position: absolute;
   top: 35px;
-  right: -46px;
+  right: -44px;
   font-size: 13px;
 `
