@@ -34,7 +34,7 @@ const Community: FC<TProps> = ({
 }) => {
   return (
     <Wrapper withHover={canActOnSeleted}>
-      <Logo src={item.logo} noLazy />
+      <Logo src={item.logo} raw={item.raw} noLazy />
       <Intro>
         <Title>
           <Name>{item.title}</Name>

@@ -56,7 +56,12 @@ const ArticleEditorContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
-        <CommunityTagSetter onCommunitySelect={changeCommunity} />
+        {communityData.id && (
+          <CommunityTagSetter
+            onCommunitySelect={changeCommunity}
+            selectedCommunities={[communityData]}
+          />
+        )}
         <ContentWrapper>
           <TitleInput title={title} />
           {initEditor && (

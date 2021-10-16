@@ -13,7 +13,6 @@ const CommunityBadge: FC = () => {
   return (
     <Wrapper>
       <BadgeWrapper>
-        {/* <Logo src={`${ICON_BASE}/pl/javascript.png`} /> */}
         <Intro>
           <PubHint>发布到</PubHint>
           <Title>JavaScript</Title>

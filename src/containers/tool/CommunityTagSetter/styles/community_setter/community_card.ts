@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
+import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Wrapper = styled.div<{ withHover: boolean }>`
   ${css.flex()};
@@ -22,7 +23,7 @@ export const Wrapper = styled.div<{ withHover: boolean }>`
     border-color: #0c516e;
   }
 `
-export const Logo = styled(Img)`
+export const Logo = styled(CommunityFaceLogo)`
   ${css.size(30)};
   margin-top: 5px;
   border-radius: 5px;

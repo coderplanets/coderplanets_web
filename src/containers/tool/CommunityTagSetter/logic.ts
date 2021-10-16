@@ -150,11 +150,15 @@ const ErrSolver = [
 // init & uninit handlers
 // ###############################
 
-export const useInit = (_store: TStore): void => {
+export const useInit = (
+  _store: TStore,
+  selectedCommunities: TCommunity[],
+): void => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
+    store.mark({ selectedCommunities })
     log('store init')
 
     return () => {
