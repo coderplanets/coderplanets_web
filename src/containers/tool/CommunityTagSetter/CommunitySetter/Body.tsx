@@ -1,18 +1,25 @@
 import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
+import type { TCommunity } from '@/spec'
 import CustomScroller from '@/components/CustomScroller'
 import NoticeBar from '@/components/NoticeBar'
 import { LavaLampLoading } from '@/components/dynamic'
 
+import type { TCommunitiesList } from '../spec'
 import SearchBox from './SearchBox'
 import List from './List'
 
 import { Wrapper, InnerWrapper, NoticeWrapper } from '../styles/tag_setter/body'
 import { useStore } from '../logic'
 
-const Body: FC = () => {
-  const { canActOnSeleted, communitiesList } = useStore()
+type TProps = {
+  communitiesList: TCommunitiesList
+  onCommunitySelect: (community: TCommunity, select: boolean) => void
+}
+
+const Body: FC<TProps> = ({ communitiesList, onCommunitySelect }) => {
+  const { canActOnSeleted } = useStore()
   const {
     searching,
     searchValue,
@@ -20,6 +27,7 @@ const Body: FC = () => {
     commonUsedCommunities,
     selectedCommunities,
   } = communitiesList
+
   return (
     <Wrapper>
       <InnerWrapper>
@@ -44,6 +52,7 @@ const Body: FC = () => {
               title="目标社区"
               communities={selectedCommunities}
               canActOnSeleted={canActOnSeleted}
+              onCommunitySelect={onCommunitySelect}
               highlightTitle
               allChecked
             />
@@ -52,12 +61,20 @@ const Body: FC = () => {
           {searching && <LavaLampLoading size="small" />}
 
           {isEmpty(searchValue) && (
-            <List title="常用社区" communities={commonUsedCommunities} />
+            <List
+              title="常用社区"
+              communities={commonUsedCommunities}
+              onCommunitySelect={onCommunitySelect}
+            />
           )}
           {!searching &&
             !isEmpty(searchValue) &&
             !isEmpty(searchedCommunities) && (
-              <List title="找到社区" communities={searchedCommunities} />
+              <List
+                title="找到社区"
+                communities={searchedCommunities}
+                onCommunitySelect={onCommunitySelect}
+              />
             )}
         </CustomScroller>
       </InnerWrapper>

@@ -18,23 +18,33 @@ import {
   Digest,
   CheckWrapper,
 } from '../styles/community_setter/community_card'
-import { toggleCommunity } from '../logic'
 
 type TProps = {
   item: TCommunity
   checked?: boolean
   canActOnSeleted: boolean
+  onCommunitySelect: (community: TCommunity, select: boolean) => void
 }
 
-const Community: FC<TProps> = ({ item, canActOnSeleted, checked = false }) => {
+const Community: FC<TProps> = ({
+  item,
+  canActOnSeleted,
+  checked = false,
+  onCommunitySelect,
+}) => {
   return (
     <Wrapper withHover={canActOnSeleted}>
       <Logo src={item.logo} noLazy />
       <Intro>
         <Title>
           <Name>{item.title}</Name>
-          <DotDivider space={5} />
-          <Raw>{item.raw}</Raw>
+          {item.title.length < 8 && (
+            <>
+              <DotDivider space={5} />
+              <Raw>{item.raw}</Raw>
+            </>
+          )}
+
           <SpaceGrow />
 
           <CheckWrapper>
@@ -42,10 +52,15 @@ const Community: FC<TProps> = ({ item, canActOnSeleted, checked = false }) => {
               checked={checked}
               size="small"
               disabled={!canActOnSeleted}
-              onChange={(checked) => toggleCommunity(item, checked)}
+              onChange={(checked) => onCommunitySelect(item, checked)}
             />
           </CheckWrapper>
         </Title>
+        {item.title.length >= 8 && (
+          <>
+            <Raw>{item.raw}</Raw>
+          </>
+        )}
         <Digest>
           {cutRest(item.desc, 24)}
           {/* {cutRest('may be the most sexiest item for developer, ever', 20)} */}

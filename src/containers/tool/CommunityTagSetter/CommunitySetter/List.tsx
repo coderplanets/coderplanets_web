@@ -17,6 +17,7 @@ type TProps = {
   communities: TCommunity[]
   canActOnSeleted?: boolean
   allChecked?: boolean
+  onCommunitySelect?: (community: TCommunity, select: boolean) => void
 }
 
 const CommunitiesList: FC<TProps> = ({
@@ -25,6 +26,7 @@ const CommunitiesList: FC<TProps> = ({
   communities,
   highlightTitle = false,
   allChecked = false,
+  onCommunitySelect,
 }) => {
   return (
     <Wrapper>
@@ -36,6 +38,7 @@ const CommunitiesList: FC<TProps> = ({
             item={item}
             checked={allChecked}
             canActOnSeleted={canActOnSeleted}
+            onCommunitySelect={onCommunitySelect}
           />
         ))}
       </InnerWrapper>

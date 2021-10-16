@@ -19,7 +19,7 @@ import TagSetter from './TagSetter'
 import CommunitySetter from './CommunitySetter'
 
 import { TYPE } from './constant'
-import { useInit, onClose } from './logic'
+import { useInit, onClose, toggleCommunity } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityTagSetter')
@@ -33,14 +33,29 @@ const CommunityTagSetterContainer: FC<TProps> = ({
   communityTagSetter: store,
   onCommunitySelect = log,
 }) => {
-  useInit(store, { onCommunitySelect })
+  useInit(store)
 
-  const { show, type, tagView, communityView, communityAction } = store
+  const {
+    show,
+    type,
+    tagView,
+    communityView,
+    communityAction,
+    communitiesList,
+  } = store
 
   return (
-    <Modal width="500px" show={show} onClose={onClose} showCloseBtn>
+    <Modal width="520px" show={show} onClose={onClose} showCloseBtn>
       {type === TYPE.SELECT_COMMUNITY && (
-        <CommunitySetter view={communityView} action={communityAction} />
+        <CommunitySetter
+          view={communityView}
+          action={communityAction}
+          communitiesList={communitiesList}
+          onCommunitySelect={(community, checked) => {
+            toggleCommunity(community, checked)
+            onCommunitySelect?.(community, checked)
+          }}
+        />
       )}
       {type === TYPE.TAG && <TagSetter view={tagView} />}
     </Modal>

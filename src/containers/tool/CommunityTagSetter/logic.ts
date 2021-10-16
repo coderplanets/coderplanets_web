@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { isEmpty } from 'ramda'
 
 import type { TCommunity } from '@/spec'
-import { debounce, errRescue } from '@/utils/helper'
+import { errRescue } from '@/utils/helper'
 import { ERR, EVENT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
@@ -19,11 +19,6 @@ const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 
 let store: TStore | undefined
 let sub$ = null
-
-// callbacks
-let callbacks = {
-  onCommunitySelect: null,
-}
 
 // @ts-ignore
 const sr71$ = new SR71({
@@ -45,6 +40,7 @@ export const changeSetter = (type: TType): void => {
 }
 
 export const communityOnSearch = ({ target: { value } }): void => {
+  console.log('communityOnSearch value: ', value)
   store.mark({ communitySearchValue: value })
   doSearchCommunities()
 }
@@ -57,7 +53,6 @@ export const toggleCommunity = (
   const { id } = community
 
   checked ? selectCommunity(id) : undoSelectCommunity(id)
-  callbacks.onCommunitySelect?.(community, checked)
 
   if (type === TYPE.SELECT_COMMUNITY) {
     onClose()
@@ -65,14 +60,12 @@ export const toggleCommunity = (
 }
 
 export const onClose = (): void => {
-  callbacks = {
-    onCommunitySelect: null,
-  }
-
   store.mark({
     show: false,
     communitySearchValue: '',
     communitiesSearching: false,
+    searchedCommunities: [],
+    selectedCommunities: [],
   })
 }
 
@@ -80,7 +73,7 @@ export const onClose = (): void => {
  * search communities by current searchValue in store
  * @private
  */
-const doSearchCommunities = debounce(() => {
+const doSearchCommunities = () => {
   const { communitySearchValue: title } = store
   const args = { title }
 
@@ -90,8 +83,9 @@ const doSearchCommunities = debounce(() => {
     store.mark({ communitiesSearching: false })
   }
 
+  console.log('query ...: ', args)
   sr71$.query(S.searchCommunities, args)
-}, 300)
+}
 
 const cancelLoading = () => store.mark({ communitiesSearching: false })
 
@@ -99,6 +93,7 @@ const DataSolver = [
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: { entries } }) => {
+      console.log('# searchCommunities -> ', entries)
       store.mark({ searchedCommunities: entries, communitiesSearching: false })
     },
   },
@@ -161,18 +156,18 @@ export const useStore = (): TStore => {
   return store
 }
 
-export const useInit = (_store: TStore, _callbacks): void => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-    callbacks = _callbacks
+    log('store init')
 
     return () => {
-      // log('effect uninit')
+      log('effect uninit')
       if (!sub$) return
       // log('===== do uninit')
       sub$.unsubscribe()
     }
-  }, [_store, _callbacks])
+  }, [_store])
 }

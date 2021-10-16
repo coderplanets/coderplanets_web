@@ -6,7 +6,7 @@ import Img from '@/Img'
 
 export const Wrapper = styled.div<{ withHover: boolean }>`
   ${css.flex()};
-  width: 220px;
+  width: 235px;
   height: 80px;
   background: ${theme('modal.bg')};
   margin-bottom: 15px;
@@ -43,7 +43,6 @@ export const Raw = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
 `
-
 export const Digest = styled.div`
   margin-top: 3px;
   font-size: 12px;
