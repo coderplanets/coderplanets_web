@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
+import type { TSpace } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TSpace>`
   ${css.flex('align-end')};
+  margin-left: ${({ left }) => `${left}px` || 0};
+  margin-right: ${({ right }) => `${right}px` || 0};
+  margin-top: ${({ top }) => `${top || 0}px`};
+  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
 `
 
 export const Hint = styled.div`

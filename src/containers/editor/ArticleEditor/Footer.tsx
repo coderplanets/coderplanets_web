@@ -37,6 +37,7 @@ const Footer: FC<TProps> = ({
         <TagsList items={tags} mLeft={0} size="medium" withSetter />
         <WordsCounter
           body={body}
+          bottom={3}
           onChange={(isValid) => console.log('counter valid?: ', isValid)}
         />
         <Checker

@@ -16,7 +16,7 @@ export const ArticleFooter = styled.div`
   margin-bottom: 28px;
   padding-left: 27px;
   padding-right: 34px;
-  padding-bottom: 25px;
+  padding-bottom: 20px;
 `
 export const PublishFooter = styled.div`
   ${css.flex('align-center', 'justify-between')};

@@ -72,7 +72,6 @@ const ArticleEditorContainer: FC<TProps> = ({
               onLinkChange={(v) => editOnChange(v, 'linkAddr')}
             />
           )}
-
           <Footer
             mode={mode}
             tags={tagsData}

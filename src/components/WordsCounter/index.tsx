@@ -1,16 +1,23 @@
 import { FC, memo, useEffect } from 'react'
 
+import type { TSpace } from '@/spec'
 import { countWords } from './helper'
 import { Wrapper, Hint, Main, CurNum, Slash, TotalNum } from './styles'
 
-type TProps = {
+type TProps = TSpace & {
   body: string
   max?: number
   min?: number
   onChange?: (isValid: boolean) => void
 }
 
-const WordsCounter: FC<TProps> = ({ body, max = 2000, min = 10, onChange }) => {
+const WordsCounter: FC<TProps> = ({
+  body,
+  max = 2000,
+  min = 10,
+  onChange,
+  ...restProps
+}) => {
   const currentCount = countWords(body)
   const invalid = currentCount < min || currentCount > max
 
@@ -20,7 +27,7 @@ const WordsCounter: FC<TProps> = ({ body, max = 2000, min = 10, onChange }) => {
   }, [currentCount, onChange, min, max])
 
   return (
-    <Wrapper>
+    <Wrapper {...restProps}>
       <Hint>当前</Hint>
       <Main>
         <CurNum invalid={invalid}>{currentCount}</CurNum> <Slash>/</Slash>{' '}
