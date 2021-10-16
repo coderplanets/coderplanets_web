@@ -23,7 +23,7 @@ import PublishRules from './PublishRules'
 
 import type { TStore } from './store'
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
-import { useInit, editOnChange } from './logic'
+import { useInit, editOnChange, changeCommunity } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleEditor')
@@ -56,7 +56,7 @@ const ArticleEditorContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
-        <CommunityTagSetter onCommunitySelect={() => console.log('called?')} />
+        <CommunityTagSetter onCommunitySelect={changeCommunity} />
         <ContentWrapper>
           <TitleInput title={title} />
           {initEditor && (

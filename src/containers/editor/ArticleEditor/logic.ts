@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Router from 'next/router'
 // import { } from 'ramda'
 
-import type { TEditValue, TEditMode } from '@/spec'
+import type { TEditValue, TEditMode, TCommunity } from '@/spec'
 import { HCN } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
@@ -22,6 +22,10 @@ let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleEditor')
+
+export const changeCommunity = (community: TCommunity): void => {
+  store.mark({ community })
+}
 
 export const loadCommunity = (): void => {
   const { mode } = store

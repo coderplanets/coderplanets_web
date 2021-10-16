@@ -27,7 +27,7 @@ const CommunityCard: FC<TProps> = ({
   return (
     <Wrapper key={id}>
       <Header>
-        <CommunityLogo src={logo} />
+        <CommunityLogo src={logo} raw={raw} />
         <Info>
           <Title href={`/${raw}/posts`}>{title}</Title>
           <SubsCount>{subscribersCount} 人已加入</SubsCount>

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity, TEditMode } from '@/spec'
-import { cutRest } from '@/utils/helper'
+import { cutRest, selectCommunity } from '@/utils/helper'
 
 import Tooltip from '@/components/Tooltip'
 import CommunityCard from '@/components/Cards/CommunityCard'
@@ -33,7 +33,7 @@ const CommunityBadge: FC<TProps> = ({ community, mode }) => {
             <PubHint>所属社区:</PubHint>
           )}
           <Title>
-            <Logo src={community.logo} />
+            <Logo src={community.logo} raw={community.raw} />
             <Tooltip
               content={<CommunityCard item={community} />}
               placement="bottom"
@@ -41,7 +41,7 @@ const CommunityBadge: FC<TProps> = ({ community, mode }) => {
               <div>{cutRest(community.title || '--', 15)}</div>
             </Tooltip>
             {mode === 'publish' && (
-              <ChangeBtn>
+              <ChangeBtn onClick={selectCommunity}>
                 更换 <ArrowLogo />
               </ChangeBtn>
             )}
