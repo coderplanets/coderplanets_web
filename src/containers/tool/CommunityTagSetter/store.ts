@@ -11,7 +11,7 @@ import { markStates, toJS } from '@/utils/mobx'
 import { mockCommunities } from '@/utils/mock'
 
 import type { TCommunitiesList } from './spec'
-import { TAG_VIEW, COMMUNITY_VIEW, COMMUNITY_ACTION, SETTER } from './constant'
+import { TAG_VIEW, COMMUNITY_VIEW, COMMUNITY_ACTION, TYPE } from './constant'
 import { Community } from '@/model/Community'
 
 /* eslint-disable-next-line */
@@ -26,7 +26,7 @@ export type TCommunitiesData = {
 // const allCommunities = mockCommunities(5)
 const CommunityTagSetter = T.model('CommunityTagSetter', {
   show: T.optional(T.boolean, false),
-  curSetter: T.optional(T.enumeration(values(SETTER)), SETTER.COMMUNITY),
+  type: T.optional(T.enumeration(values(TYPE)), TYPE.MIRROR_COMMUNITY),
   tagView: T.optional(T.enumeration(values(TAG_VIEW)), TAG_VIEW.SELECT),
   communityView: T.optional(
     T.enumeration(values(COMMUNITY_VIEW)),
@@ -84,6 +84,10 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
         ...toJS(searchedCommunities),
         ...toJS(commonUsedCommunities),
       ])
+    },
+    get canActOnSeleted(): boolean {
+      // if (self.type === TYPE.M)
+      return false
     },
   }))
   .actions((self) => ({

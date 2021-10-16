@@ -26,7 +26,7 @@ import AuthorInfo from './AuthorInfo'
 
 import type { TStore } from './store'
 import { Wrapper, BaseInfo, Divider } from './styles'
-import { useInit } from './logic'
+import { useInit, onChangeCommunity } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleFooter')

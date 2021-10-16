@@ -42,7 +42,7 @@ const Community: FC<TProps> = ({ item, canActOnSeleted, checked = false }) => {
               checked={checked}
               size="small"
               disabled={!canActOnSeleted}
-              onChange={(checked) => toggleCommunity(item.id, checked)}
+              onChange={(checked) => toggleCommunity(item, checked)}
             />
           </CheckWrapper>
         </Title>

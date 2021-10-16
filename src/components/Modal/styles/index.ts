@@ -73,7 +73,7 @@ export const EscHint = styled.div<{ mode: string }>`
     mode === 'default' ? theme('font') : theme('baseColor.red')};
   opacity: 0.7;
   position: absolute;
-  top: 38px;
+  top: 35px;
   right: -46px;
   font-size: 13px;
 `

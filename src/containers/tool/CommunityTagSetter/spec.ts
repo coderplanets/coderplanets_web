@@ -1,6 +1,11 @@
 import type { TCommunity } from '@/spec'
 
-export type TSetter = 'community' | 'tag'
+export type TType =
+  | 'move-community'
+  | 'mirror-community'
+  | 'unmirror-community'
+  | 'select-community'
+  | 'tag'
 
 export type TTagView =
   | 'select'

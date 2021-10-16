@@ -8,6 +8,7 @@
 
 import { FC } from 'react'
 
+import type { TCommunity } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -17,7 +18,7 @@ import type { TStore } from './store'
 import TagSetter from './TagSetter'
 import CommunitySetter from './CommunitySetter'
 
-import { SETTER } from './constant'
+import { TYPE } from './constant'
 import { useInit, onClose } from './logic'
 
 /* eslint-disable-next-line */
@@ -25,36 +26,23 @@ const log = buildLog('C:CommunityTagSetter')
 
 type TProps = {
   communityTagSetter?: TStore
-  canActOnSeleted?: boolean
-  testid?: string
+  onCommunitySelect?: (community: TCommunity, select: boolean) => void
 }
 
 const CommunityTagSetterContainer: FC<TProps> = ({
   communityTagSetter: store,
-  testid = 'community-tag-setter',
-  canActOnSeleted = true,
+  onCommunitySelect = log,
 }) => {
-  useInit(store)
-  const {
-    show,
-    curSetter,
-    tagView,
-    communitiesList,
-    communityView,
-    communityAction,
-  } = store
+  useInit(store, { onCommunitySelect })
+
+  const { show, type, tagView, communityView, communityAction } = store
 
   return (
-    <Modal width="500px" show={show} showCloseBtn onClose={onClose}>
-      {curSetter === SETTER.COMMUNITY && (
-        <CommunitySetter
-          view={communityView}
-          action={communityAction}
-          canActOnSeleted={canActOnSeleted}
-          communitiesList={communitiesList}
-        />
+    <Modal width="500px" show={show} onClose={onClose} showCloseBtn>
+      {type === TYPE.SELECT_COMMUNITY && (
+        <CommunitySetter view={communityView} action={communityAction} />
       )}
-      {curSetter === SETTER.TAG && <TagSetter view={tagView} />}
+      {type === TYPE.TAG && <TagSetter view={tagView} />}
     </Modal>
   )
 }

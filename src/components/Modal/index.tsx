@@ -44,6 +44,7 @@ const Modal: FC<TProps> = ({
   offsetTop = '20%',
 }) => {
   const { Portal } = usePortal()
+  // damn, i forgot why i set this state, fix LATER
   const [visibleOnPage, setVisibleOnPage] = useState(false)
 
   const handleClose = useCallback(() => {
@@ -59,6 +60,10 @@ const Modal: FC<TProps> = ({
       toggleGlobalBlur(true)
     }
   }, [show, visibleOnPage])
+
+  useEffect(() => {
+    if (!show) handleClose()
+  }, [show, handleClose])
 
   return (
     <>
@@ -79,7 +84,7 @@ const Modal: FC<TProps> = ({
                 show={showCloseBtn}
                 onClick={handleClose}
               />
-              <EscHint mode={mode}>ESC</EscHint>
+              <EscHint mode={mode}>Esc</EscHint>
               <ChildrenWrapper onClick={(e) => e.stopPropagation()}>
                 {children}
               </ChildrenWrapper>

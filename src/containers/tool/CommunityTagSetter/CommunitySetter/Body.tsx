@@ -5,18 +5,14 @@ import CustomScroller from '@/components/CustomScroller'
 import NoticeBar from '@/components/NoticeBar'
 import { LavaLampLoading } from '@/components/dynamic'
 
-import type { TCommunitiesList } from '../spec'
 import SearchBox from './SearchBox'
 import List from './List'
 
 import { Wrapper, InnerWrapper, NoticeWrapper } from '../styles/tag_setter/body'
+import { useStore } from '../logic'
 
-type TProps = {
-  canActOnSeleted: boolean
-  communitiesList: TCommunitiesList
-}
-
-const Body: FC<TProps> = ({ canActOnSeleted, communitiesList }) => {
+const Body: FC = () => {
+  const { canActOnSeleted, communitiesList } = useStore()
   const {
     searching,
     searchValue,

@@ -211,7 +211,8 @@ export const previewArticle = (article: TArticle): void => {
 }
 
 export const setArticleTag = (): void => {
-  send(EVENT.SET_TAG)
+  // send(EVENT.SET_TAG)
+  send(EVENT.SELECT_COMMUNITY)
 }
 
 export const errRescue = ({
