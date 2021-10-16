@@ -53,6 +53,7 @@ const ArticleEditorContainer: FC<TProps> = ({
   } = store
 
   const initEditor = mode === 'publish' || body !== '{}'
+
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>

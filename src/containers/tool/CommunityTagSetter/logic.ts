@@ -167,5 +167,5 @@ export const useInit = (
       // log('===== do uninit')
       sub$.unsubscribe()
     }
-  }, [_store])
+  }, [_store, selectedCommunities])
 }
