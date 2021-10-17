@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { isEmpty } from 'ramda'
 
-import type { TCommunity, TInput } from '@/spec'
+import type { TCommunity, TInput, TThread } from '@/spec'
 import { errRescue } from '@/utils/helper'
-import { ERR, EVENT } from '@/constant'
+import { ERR, EVENT, THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
@@ -68,6 +68,17 @@ export const onClose = (): void => {
   })
 }
 
+const loadArticleTags = (community: TCommunity, thread: TThread): void => {
+  store.mark({ tagsLoading: true })
+
+  const args = {
+    filter: { communityId: community.id, thread: thread.toUpperCase() },
+  }
+
+  log('query tags args: ', args)
+  sr71$.query(S.pagedArticleTags, args)
+}
+
 /**
  * search communities by current searchValue in store
  * @private
@@ -95,6 +106,12 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('pagedArticleTags'),
+    action: ({ pagedArticleTags: { entries } }) => {
+      store.mark({ tags: entries, tagsLoading: false })
+    },
+  },
+  {
     match: asyncRes(EVENT.MIRROR_TO_COMMUNITY),
     action: () => {
       console.log('收到 MIRROR_TO_COMMUNITY')
@@ -117,10 +134,11 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.SET_TAG),
-    action: () => {
-      console.log('收到 SET_TAG')
-      // store.mark({ show: true, type: TYPE.TAG })
+    action: (res) => {
+      console.log('收到 SET_TAG: ', res)
+      const { community, thread } = res[EVENT.SET_TAG]
       store.mark({ show: true, type: TYPE.TAG })
+      loadArticleTags(community, thread)
     },
   },
 ]

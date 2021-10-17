@@ -76,6 +76,7 @@ const ArticleEditorContainer: FC<TProps> = ({
             mode={mode}
             tags={tagsData}
             body={body}
+            community={communityData}
             copyRight={copyRight}
             isQuestion={isQuestion}
             publishState={publishState}

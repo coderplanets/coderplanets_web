@@ -44,6 +44,7 @@ const CommunityTagSetterContainer: FC<TProps> = ({
     communityView,
     communityAction,
     communitiesList,
+    tagsList,
   } = store
 
   return (
@@ -59,7 +60,7 @@ const CommunityTagSetterContainer: FC<TProps> = ({
           }}
         />
       )}
-      {type === TYPE.TAG && <TagSetter view={tagView} />}
+      {type === TYPE.TAG && <TagSetter view={tagView} tagsList={tagsList} />}
     </Modal>
   )
 }

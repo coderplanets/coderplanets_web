@@ -10,9 +10,9 @@ import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 import { mockCommunities } from '@/utils/mock'
 
-import type { TCommunitiesList } from './spec'
+import type { TCommunitiesList, TTagsList } from './spec'
 import { TAG_VIEW, COMMUNITY_VIEW, COMMUNITY_ACTION, TYPE } from './constant'
-import { Community } from '@/model/Community'
+import { Community, Tag } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunityTagSetter')
@@ -36,12 +36,17 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
     T.enumeration(values(COMMUNITY_ACTION)),
     COMMUNITY_ACTION.MIRROR,
   ),
+  // communities states
   communitySearchValue: T.optional(T.string, ''),
-  //
   communitiesSearching: T.optional(T.boolean, false),
   selectedCommunities: T.optional(T.array(Community), []),
   searchedCommunities: T.optional(T.array(Community), []),
   commonUsedCommunities: T.optional(T.array(Community), mockCommunities(5)),
+
+  // tags states
+  tagsLoading: T.optional(T.boolean, false),
+  tags: T.optional(T.array(Tag), []),
+  selectedTags: T.optional(T.array(Tag), []),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
@@ -49,7 +54,6 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
 
       return toJS(root.viewing.community)
     },
-
     get communitiesList(): TCommunitiesList {
       const slf = self as TStore
       return {
@@ -78,7 +82,13 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
         ),
       }
     },
-
+    get tagsList(): TTagsList {
+      return {
+        loading: self.tagsLoading,
+        tags: toJS(self.tags),
+        selectedTags: toJS(self.selectedTags),
+      }
+    },
     get selectableCommunities(): TCommunity[] {
       const { commonUsedCommunities, searchedCommunities } = self
 

@@ -4,8 +4,8 @@
 
 import { FC, memo } from 'react'
 
-import type { TTag, TSIZE_TSM } from '@/spec'
-import { SIZE } from '@/constant'
+import type { TTag, TSIZE_TSM, TCommunity, TThread } from '@/spec'
+import { SIZE, THREAD } from '@/constant'
 
 import { sortByColor } from '@/utils/helper'
 import { Trans } from '@/utils/i18n'
@@ -38,6 +38,10 @@ type TProps = {
   mLeft?: number
   size?: TSIZE_TSM
   withSetter?: boolean
+
+  // if withSetter is set to true, MUST have community and thread
+  community?: TCommunity
+  thread?: TThread
 }
 
 const TagsList: FC<TProps> = ({
@@ -46,6 +50,8 @@ const TagsList: FC<TProps> = ({
   mLeft = 8,
   size = SIZE.TINY,
   withSetter = false,
+  community = { raw: 'home' },
+  thread = THREAD.POST,
 }) => {
   if (items.length > max) {
     return (
@@ -64,7 +70,7 @@ const TagsList: FC<TProps> = ({
         >
           <More>...</More>
         </Tooltip>
-        {withSetter && <Setter noEmpty />}
+        {withSetter && <Setter community={community} thread={thread} noEmpty />}
       </Wrapper>
     )
   }
@@ -72,7 +78,13 @@ const TagsList: FC<TProps> = ({
   return (
     <Wrapper>
       {items.length > 0 && <FullList items={items} mLeft={mLeft} size={size} />}
-      {withSetter && <Setter noEmpty={items.length > 0} />}
+      {withSetter && (
+        <Setter
+          community={community}
+          thread={thread}
+          noEmpty={items.length > 0}
+        />
+      )}
     </Wrapper>
   )
 }

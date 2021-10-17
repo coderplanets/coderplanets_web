@@ -14,7 +14,7 @@ import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
 
-import type { TTagView } from '../spec'
+import type { TTagsList, TTagView } from '../spec'
 import { Wrapper } from '../styles/tag_setter'
 
 /* eslint-disable-next-line */
@@ -24,13 +24,14 @@ export type TProps = {
   testid?: string
   withSetter?: boolean
   view: TTagView
+  tagsList: TTagsList
 }
 
-const Setter: FC<TProps> = ({ view }) => {
+const Setter: FC<TProps> = ({ view, tagsList }) => {
   return (
     <Wrapper>
       <Header view={view} />
-      <Body view={view} />
+      <Body view={view} tagsList={tagsList} />
       <Footer />
     </Wrapper>
   )

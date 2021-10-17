@@ -1,6 +1,8 @@
 import { FC, memo } from 'react'
 
-import type { TCopyright, TEditMode, TTag } from '@/spec'
+import type { TCopyright, TEditMode, TTag, TCommunity } from '@/spec'
+
+import { THREAD } from '@/constant'
 
 import TagsList from '@/components/TagsList'
 import SubmitButton from '@/components/Buttons/SubmitButton'
@@ -19,6 +21,7 @@ type TProps = {
   isQuestion: boolean
   copyRight: string
   publishState: { publishing: boolean; publishDone: boolean }
+  community: TCommunity
 }
 
 const Footer: FC<TProps> = ({
@@ -28,13 +31,21 @@ const Footer: FC<TProps> = ({
   isQuestion,
   copyRight,
   publishState,
+  community,
 }) => {
   // console.log('# footer tags  -> ', tags)
 
   return (
     <Wrapper>
       <ArticleFooter>
-        <TagsList items={tags} mLeft={0} size="medium" withSetter />
+        <TagsList
+          items={tags}
+          mLeft={0}
+          size="medium"
+          community={community}
+          thread={THREAD.POST}
+          withSetter
+        />
         <WordsCounter
           body={body}
           bottom={3}

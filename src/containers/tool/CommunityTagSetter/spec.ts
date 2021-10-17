@@ -1,4 +1,4 @@
-import type { TCommunity } from '@/spec'
+import type { TCommunity, TTag } from '@/spec'
 
 export type TType =
   | 'move-community'
@@ -26,4 +26,11 @@ export type TCommunitiesList = {
   selectedCommunities: TCommunity[]
   searchedCommunities: TCommunity[]
   commonUsedCommunities: TCommunity[]
+}
+
+export type TTagsList = {
+  // canActOnSeleted: boolean
+  loading: boolean
+  tags: TTag[]
+  selectedTags: TTag[]
 }
