@@ -23,9 +23,11 @@ import { changeTagView } from '../logic'
 type TProps = {
   tag: TTag
   view: TTagView
+  checked: boolean
+  onTagSelect: (tag: TTag, select: boolean) => void
 }
 
-const Tag: FC<TProps> = ({ tag, view }) => {
+const Tag: FC<TProps> = ({ tag, view, checked, onTagSelect }) => {
   const selectable = view === TAG_VIEW.SELECT
   const deleteable = view === TAG_VIEW.DELETE
   const updateable = view === TAG_VIEW.UPDATE
@@ -39,7 +41,11 @@ const Tag: FC<TProps> = ({ tag, view }) => {
 
         {selectable && (
           <CheckWrapper>
-            <Checker size="small" />
+            <Checker
+              size="small"
+              checked={checked}
+              onChange={(checked) => onTagSelect(tag, checked)}
+            />
           </CheckWrapper>
         )}
 

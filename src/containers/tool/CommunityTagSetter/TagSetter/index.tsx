@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-// import type { TTag } from '@/spec'
+import type { TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import Header from './Header'
@@ -25,13 +25,14 @@ export type TProps = {
   withSetter?: boolean
   view: TTagView
   tagsList: TTagsList
+  onTagSelect: (tag: TTag, select: boolean) => void
 }
 
-const Setter: FC<TProps> = ({ view, tagsList }) => {
+const Setter: FC<TProps> = ({ view, tagsList, onTagSelect }) => {
   return (
     <Wrapper>
       <Header view={view} />
-      <Body view={view} tagsList={tagsList} />
+      <Body view={view} tagsList={tagsList} onTagSelect={onTagSelect} />
       <Footer />
     </Wrapper>
   )

@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
-import { isEmpty } from 'ramda'
+import { isEmpty, reject } from 'ramda'
 
-import type { TCommunity, TInput, TThread } from '@/spec'
+import type { TCommunity, TTag, TInput, TThread } from '@/spec'
 import { errRescue } from '@/utils/helper'
-import { ERR, EVENT, THREAD } from '@/constant'
+import { ERR, EVENT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
@@ -56,6 +56,25 @@ export const toggleCommunity = (
   if (type === TYPE.SELECT_COMMUNITY) {
     onClose()
   }
+}
+
+// only support one tag for now
+export const toggleTag = (tag: TTag, checked: boolean, callback): void => {
+  if (checked) {
+    store.mark({ selectedTags: [tag] })
+    callback([tag], checked)
+    // setTimeout()
+    onClose()
+  }
+  // const { tagsList } = store
+  // const { selectedTags } = tagsList
+
+  // if (checked) {
+  //   store.mark({ selectedTags: [Tag].concat(selectedTags) })
+  //   onClose()
+  //   return
+  // }
+  // store.mark({ selectedTags: reject((t) => t.id === tag.id, selectedTags) })
 }
 
 export const onClose = (): void => {
@@ -136,8 +155,8 @@ const DataSolver = [
     match: asyncRes(EVENT.SET_TAG),
     action: (res) => {
       console.log('收到 SET_TAG: ', res)
-      const { community, thread } = res[EVENT.SET_TAG]
-      store.mark({ show: true, type: TYPE.TAG })
+      const { community, thread, tags } = res[EVENT.SET_TAG]
+      store.mark({ show: true, type: TYPE.TAG, selectedTags: tags })
       loadArticleTags(community, thread)
     },
   },
@@ -176,8 +195,9 @@ export const useInit = (
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
+    log('init - c: ', selectedCommunities)
+
     store.mark({ selectedCommunities })
-    log('store init')
 
     return () => {
       log('effect uninit')

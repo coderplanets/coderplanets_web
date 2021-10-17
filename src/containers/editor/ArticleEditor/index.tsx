@@ -23,7 +23,7 @@ import PublishRules from './PublishRules'
 
 import type { TStore } from './store'
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
-import { useInit, editOnChange, changeCommunity } from './logic'
+import { useInit, editOnChange, changeCommunity, onTagSelect } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleEditor')
@@ -54,13 +54,15 @@ const ArticleEditorContainer: FC<TProps> = ({
 
   const initEditor = mode === 'publish' || body !== '{}'
 
+  console.log('tagsData -> ', tagsData)
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         {communityData.id && (
           <CommunityTagSetter
-            onCommunitySelect={changeCommunity}
             selectedCommunities={[communityData]}
+            onCommunitySelect={changeCommunity}
+            onTagSelect={onTagSelect}
           />
         )}
         <ContentWrapper>

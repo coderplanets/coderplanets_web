@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
-// import type { TTag } from '@/spec'
+import type { TTag } from '@/spec'
 import { groupByKey } from '@/utils/helper'
 
 import { LavaLampLoading } from '@/components/dynamic'
@@ -17,9 +17,11 @@ import { Wrapper, InnerWrapper } from '../styles/tag_setter/body'
 type TProps = {
   view: TTagView
   tagsList: TTagsList
+
+  onTagSelect: (tag: TTag, select: boolean) => void
 }
 
-const Body: FC<TProps> = ({ view, tagsList }) => {
+const Body: FC<TProps> = ({ view, tagsList, onTagSelect }) => {
   switch (view) {
     case TAG_VIEW.CREATE_ITEM: {
       return (
@@ -40,9 +42,12 @@ const Body: FC<TProps> = ({ view, tagsList }) => {
     }
 
     default: {
-      const { tags, loading } = tagsList
+      const { tags, loading, selectedTags } = tagsList
       const groupedTags = groupByKey(tags, 'group')
       const tagFolders = keys(groupedTags) as string[]
+
+      // console.log
+      const selectedIds = selectedTags.map((t) => t.id)
 
       if (loading) {
         return (
@@ -66,6 +71,8 @@ const Body: FC<TProps> = ({ view, tagsList }) => {
                   key={folder}
                   view={view}
                   tags={groupedTags[folder]}
+                  selectedIds={selectedIds}
+                  onTagSelect={onTagSelect}
                   folder={folder}
                 />
               ))}

@@ -70,7 +70,9 @@ const TagsList: FC<TProps> = ({
         >
           <More>...</More>
         </Tooltip>
-        {withSetter && <Setter community={community} thread={thread} noEmpty />}
+        {withSetter && (
+          <Setter community={community} thread={thread} tags={items} noEmpty />
+        )}
       </Wrapper>
     )
   }
@@ -80,6 +82,7 @@ const TagsList: FC<TProps> = ({
       {items.length > 0 && <FullList items={items} mLeft={mLeft} size={size} />}
       {withSetter && (
         <Setter
+          tags={items}
           community={community}
           thread={thread}
           noEmpty={items.length > 0}

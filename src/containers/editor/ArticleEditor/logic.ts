@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import Router from 'next/router'
-// import { } from 'ramda'
 
-import type { TEditValue, TEditMode, TCommunity } from '@/spec'
+import type { TEditValue, TEditMode, TCommunity, TTag } from '@/spec'
 import { HCN } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
@@ -25,6 +24,10 @@ const log = buildLog('L:ArticleEditor')
 
 export const changeCommunity = (community: TCommunity): void => {
   store.mark({ community })
+}
+
+export const onTagSelect = (tags: TTag[], checked: boolean): void => {
+  store.mark({ articleTags: tags })
 }
 
 export const loadCommunity = (): void => {

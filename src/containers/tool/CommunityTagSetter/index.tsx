@@ -8,7 +8,7 @@
 
 import { FC } from 'react'
 
-import type { TCommunity } from '@/spec'
+import type { TCommunity, TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -19,7 +19,7 @@ import TagSetter from './TagSetter'
 import CommunitySetter from './CommunitySetter'
 
 import { TYPE } from './constant'
-import { useInit, onClose, toggleCommunity } from './logic'
+import { useInit, onClose, toggleCommunity, toggleTag } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityTagSetter')
@@ -27,12 +27,15 @@ const log = buildLog('C:CommunityTagSetter')
 type TProps = {
   communityTagSetter?: TStore
   selectedCommunities?: TCommunity[]
+
   onCommunitySelect?: (community: TCommunity, select: boolean) => void
+  onTagSelect?: (tags: TTag[], select: boolean) => void
 }
 
 const CommunityTagSetterContainer: FC<TProps> = ({
   communityTagSetter: store,
   onCommunitySelect = log,
+  onTagSelect = log,
   selectedCommunities = [],
 }) => {
   useInit(store, selectedCommunities)
@@ -60,7 +63,13 @@ const CommunityTagSetterContainer: FC<TProps> = ({
           }}
         />
       )}
-      {type === TYPE.TAG && <TagSetter view={tagView} tagsList={tagsList} />}
+      {type === TYPE.TAG && (
+        <TagSetter
+          view={tagView}
+          tagsList={tagsList}
+          onTagSelect={(tag, checked) => toggleTag(tag, checked, onTagSelect)}
+        />
+      )}
     </Modal>
   )
 }

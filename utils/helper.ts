@@ -10,6 +10,7 @@ import type {
   TPaymentUsage,
   TCommunity,
   TThread,
+  TTag,
 } from '@/spec'
 import { TAG_COLOR_ORDER } from '@/config'
 import { TYPE, EVENT, THREAD } from '@/constant'
@@ -212,12 +213,16 @@ export const previewArticle = (article: TArticle): void => {
   send(EVENT.DRAWER.OPEN, { type, data })
 }
 
-export const setArticleTag = (community: TCommunity, thread: TThread): void => {
+export const setArticleTag = (
+  community: TCommunity,
+  thread: TThread,
+  tags: TTag[],
+): void => {
   if (!community.id) {
     console.error('should set community for tag setter')
     return
   }
-  send(EVENT.SET_TAG, { community, thread })
+  send(EVENT.SET_TAG, { community, thread, tags })
 }
 
 export const selectCommunity = (): void => {

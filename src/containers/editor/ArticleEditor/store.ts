@@ -16,7 +16,7 @@ import type {
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 
-import { Community } from '@/model'
+import { Community, Tag } from '@/model'
 
 const ArticleEditor = T.model('ArticleEditor', {
   mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
@@ -26,6 +26,7 @@ const ArticleEditor = T.model('ArticleEditor', {
   copyRight: T.optional(T.string, 'cc'),
   isQuestion: T.optional(T.boolean, false),
   community: T.optional(Community, {}),
+  articleTags: T.optional(T.array(Tag), []),
   // showSubTitle: T.optional(T.boolean, false),
   publishing: T.optional(T.boolean, false),
   publishDone: T.optional(T.boolean, false),
@@ -50,8 +51,9 @@ const ArticleEditor = T.model('ArticleEditor', {
       return self.community.id
     },
     get tagsData(): TTag[] {
-      const slf = self as TStore
-      return toJS(slf.viewingArticle.articleTags)
+      return toJS(self.articleTags)
+      // const slf = self as TStore
+      // return toJS(slf.viewingArticle.articleTags)
     },
     get editingData() {
       return pick(
