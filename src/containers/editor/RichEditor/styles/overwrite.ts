@@ -103,12 +103,25 @@ const RichEditorStyle = createGlobalStyle`
     &:hover {
       background: #0e3b49; // text placeholder color
       svg {
-        fill: ${mateColor};
+        fill: ${mateColor} !important;
       }
     }
   }
+
+  .ce-inline-tool svg.icon--link, svg.icon--unlink {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .ce-inline-tool  svg.icon--unlink {
+    margin-top: -1px;
+  }
+
   .ce-inline-tool--active {
     color: ${mateColor};
+    svg {
+      fill: ${mateColor} !important;
+    }
   }
   .ce-inline-toolbar {
     background: #03343F;

@@ -9,7 +9,7 @@
 import { types as T, Instance } from 'mobx-state-tree'
 import { merge, pickBy } from 'ramda'
 
-import type { TViewing, TAccount, TRoute, TThread, TArticle } from '@/spec'
+import type { TAccount, TRoute, TThread, TArticle } from '@/spec'
 
 import { EVENT } from '@/constant'
 import { markStates } from '@/utils/mobx'

@@ -10,7 +10,6 @@ import Link from 'next/link'
 
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-import { ICON_BASE } from '@/config'
 import { buildLog } from '@/utils/logger'
 
 import SpinPlanet from './SpinPlanet'

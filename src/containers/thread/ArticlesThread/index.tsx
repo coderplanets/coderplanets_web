@@ -50,6 +50,8 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   const resState = store.resState as TResState
   const { pageNumber, totalCount } = pagedArticlesData
 
+  console.log('## pagedArticlesData: ', pagedArticlesData)
+
   return (
     <Wrapper>
       <MainWrapper thread={curThread}>

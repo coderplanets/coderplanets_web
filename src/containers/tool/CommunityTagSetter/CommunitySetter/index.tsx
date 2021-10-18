@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-// import type { TTag } from '@/spec'
+import type { TCommunity } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import Header from './Header'
@@ -29,16 +29,25 @@ export type TProps = {
   view: TCommunityView
   action: TCommunityAction
   communitiesList: TCommunitiesList
+  onCommunitySelect?: (community: TCommunity, select: boolean) => void
 }
 
-const Setter: FC<TProps> = ({ view, action, communitiesList }) => {
+const CommunitySetter: FC<TProps> = ({
+  view,
+  action,
+  communitiesList,
+  onCommunitySelect,
+}) => {
   return (
     <Wrapper>
       <Header view={view} action={action} />
-      <Body communitiesList={communitiesList} />
+      <Body
+        communitiesList={communitiesList}
+        onCommunitySelect={onCommunitySelect}
+      />
       <Footer />
     </Wrapper>
   )
 }
 
-export default memo(Setter)
+export default memo(CommunitySetter)

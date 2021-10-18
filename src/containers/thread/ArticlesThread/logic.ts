@@ -167,6 +167,8 @@ export const useInit = (_store: TStore): void =>
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    console.log('### see me client side?: ', store.isEmpty)
+    if (store.isEmpty) loadArticles()
 
     return () => {
       if (store.resState === TYPE.RES_STATE.LOADING || !sub$) return

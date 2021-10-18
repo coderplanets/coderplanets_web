@@ -52,7 +52,6 @@ const GlobalLayoutContainer: FC<TProps> = ({
 }) => {
   const { isMobile } = usePlatform()
   // load debug graph
-  console.log('## G useInit')
   useInit(store, { isMobile })
 
   const { sidebarPin, c11n, curCommunity } = store

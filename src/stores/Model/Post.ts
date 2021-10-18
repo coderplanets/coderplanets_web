@@ -5,6 +5,7 @@ import { pagiFields } from './helper/common'
 
 export const Post = T.model('Post', {
   ...articleFields(),
+  isQuestion: T.maybeNull(T.boolean),
 })
 
 export const PagedPosts = T.model('PagedPosts', {

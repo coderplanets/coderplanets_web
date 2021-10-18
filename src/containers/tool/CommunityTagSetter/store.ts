@@ -10,9 +10,9 @@ import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 import { mockCommunities } from '@/utils/mock'
 
-import type { TCommunitiesList } from './spec'
-import { TAG_VIEW, COMMUNITY_VIEW, COMMUNITY_ACTION, SETTER } from './constant'
-import { Community } from '@/model/Community'
+import type { TCommunitiesList, TTagsList } from './spec'
+import { TAG_VIEW, COMMUNITY_VIEW, COMMUNITY_ACTION, TYPE } from './constant'
+import { Community, Tag } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunityTagSetter')
@@ -26,7 +26,7 @@ export type TCommunitiesData = {
 // const allCommunities = mockCommunities(5)
 const CommunityTagSetter = T.model('CommunityTagSetter', {
   show: T.optional(T.boolean, false),
-  curSetter: T.optional(T.enumeration(values(SETTER)), SETTER.COMMUNITY),
+  type: T.optional(T.enumeration(values(TYPE)), TYPE.MIRROR_COMMUNITY),
   tagView: T.optional(T.enumeration(values(TAG_VIEW)), TAG_VIEW.SELECT),
   communityView: T.optional(
     T.enumeration(values(COMMUNITY_VIEW)),
@@ -36,12 +36,17 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
     T.enumeration(values(COMMUNITY_ACTION)),
     COMMUNITY_ACTION.MIRROR,
   ),
+  // communities states
   communitySearchValue: T.optional(T.string, ''),
-  //
   communitiesSearching: T.optional(T.boolean, false),
   selectedCommunities: T.optional(T.array(Community), []),
   searchedCommunities: T.optional(T.array(Community), []),
   commonUsedCommunities: T.optional(T.array(Community), mockCommunities(5)),
+
+  // tags states
+  tagsLoading: T.optional(T.boolean, false),
+  tags: T.optional(T.array(Tag), []),
+  selectedTags: T.optional(T.array(Tag), []),
 })
   .views((self) => ({
     get curCommunity(): TCommunity {
@@ -49,20 +54,21 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
 
       return toJS(root.viewing.community)
     },
-
     get communitiesList(): TCommunitiesList {
+      const slf = self as TStore
       return {
-        searching: self.communitiesSearching,
-        searchValue: self.communitySearchValue,
-        selectedCommunities: toJS(self.selectedCommunities),
+        canActOnSeleted: slf.canActOnSeleted,
+        searching: slf.communitiesSearching,
+        searchValue: slf.communitySearchValue,
+        selectedCommunities: toJS(slf.selectedCommunities),
         // searchedCommunities: toJS(self.searchedCommunities),
         searchedCommunities: reject(
           (c) =>
             includes(
               c.id,
-              map((s) => s.id, toJS(self.selectedCommunities)),
+              map((s) => s.id, toJS(slf.selectedCommunities)),
             ),
-          toJS(self.searchedCommunities),
+          toJS(slf.searchedCommunities),
         ),
 
         // commonUsedCommunities: toJS(self.commonUsedCommunities),
@@ -70,13 +76,19 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
           (c) =>
             includes(
               c.id,
-              map((s) => s.id, toJS(self.selectedCommunities)),
+              map((s) => s.id, toJS(slf.selectedCommunities)),
             ),
-          toJS(self.commonUsedCommunities),
+          toJS(slf.commonUsedCommunities),
         ),
       }
     },
-
+    get tagsList(): TTagsList {
+      return {
+        loading: self.tagsLoading,
+        tags: toJS(self.tags),
+        selectedTags: toJS(self.selectedTags),
+      }
+    },
     get selectableCommunities(): TCommunity[] {
       const { commonUsedCommunities, searchedCommunities } = self
 
@@ -84,6 +96,10 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
         ...toJS(searchedCommunities),
         ...toJS(commonUsedCommunities),
       ])
+    },
+    get canActOnSeleted(): boolean {
+      // if (self.type === TYPE.M)
+      return false
     },
   }))
   .actions((self) => ({

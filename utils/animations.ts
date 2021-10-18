@@ -23,7 +23,7 @@ const shake = keyframes`
 `
 
 const fadeInUp = keyframes`
-from {
+  from {
   opacity: 0;
     transform: translate3d(0, 90%, 0);
   }

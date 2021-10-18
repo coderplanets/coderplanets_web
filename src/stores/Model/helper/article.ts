@@ -20,6 +20,7 @@ const ArticleMeta = T.model('ArticleMeta', {
 
 const Document = T.model('ArticleMeta', {
   bodyHtml: T.optional(T.string, ''),
+  body: T.maybeNull(T.string),
   // toc:
   // body
 })

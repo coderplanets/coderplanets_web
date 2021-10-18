@@ -21,6 +21,7 @@ export type TArticleMeta = {
 
 export type TDocument = {
   bodyHtml?: string
+  body?: string
 }
 
 type TBaseArticle = {
@@ -29,6 +30,8 @@ type TBaseArticle = {
   digest?: string
   body?: string
   views?: number
+  copyRight?: string
+  isQuestion?: boolean
   isPinned?: boolean
   author?: TAccount
   upvotesCount?: number

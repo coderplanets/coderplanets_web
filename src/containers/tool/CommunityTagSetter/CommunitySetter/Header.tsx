@@ -6,7 +6,7 @@ import type { TCommunityView, TCommunityAction } from '../spec'
 import { COMMUNITY_ACTION } from '../constant'
 
 import { Wrapper, Title, Actions } from '../styles/community_setter/header'
-// import { changeTagView } from '../logic'
+// import { useStore } from '../logic'
 
 // import { LavaLampLoading } from '@/components/dynamic'
 
@@ -27,6 +27,8 @@ const getTitle = (action: TCommunityAction): string => {
 }
 
 const Header: FC<TProps> = ({ view, action }) => {
+  // const store = useStore()
+
   return (
     <Wrapper>
       <Title>{getTitle(action)}</Title>

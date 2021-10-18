@@ -4,9 +4,9 @@
  *
  */
 
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
-// import type { TTag } from '@/spec'
+import type { TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import Header from './Header'
@@ -14,7 +14,7 @@ import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
 
-import type { TTagView } from '../spec'
+import type { TTagsList, TTagView } from '../spec'
 import { Wrapper } from '../styles/tag_setter'
 
 /* eslint-disable-next-line */
@@ -24,13 +24,15 @@ export type TProps = {
   testid?: string
   withSetter?: boolean
   view: TTagView
+  tagsList: TTagsList
+  onTagSelect: (tag: TTag, select: boolean) => void
 }
 
-const Setter: FC<TProps> = ({ view }) => {
+const Setter: FC<TProps> = ({ view, tagsList, onTagSelect }) => {
   return (
     <Wrapper>
       <Header view={view} />
-      <Body view={view} />
+      <Body view={view} tagsList={tagsList} onTagSelect={onTagSelect} />
       <Footer />
     </Wrapper>
   )

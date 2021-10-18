@@ -1,13 +1,13 @@
 import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
-// import type { TTag } from '@/spec'
+import type { TTag } from '@/spec'
 import { groupByKey } from '@/utils/helper'
-import { mockTags } from '@/utils/mock'
 
+import { LavaLampLoading } from '@/components/dynamic'
 import CustomScroller from '@/components/CustomScroller'
 
-import type { TTagView } from '../spec'
+import type { TTagView, TTagsList } from '../spec'
 import { TAG_VIEW } from '../constant'
 
 import Creator from './Creator'
@@ -16,9 +16,12 @@ import { Wrapper, InnerWrapper } from '../styles/tag_setter/body'
 
 type TProps = {
   view: TTagView
+  tagsList: TTagsList
+
+  onTagSelect: (tag: TTag, select: boolean) => void
 }
 
-const Body: FC<TProps> = ({ view }) => {
+const Body: FC<TProps> = ({ view, tagsList, onTagSelect }) => {
   switch (view) {
     case TAG_VIEW.CREATE_ITEM: {
       return (
@@ -39,9 +42,20 @@ const Body: FC<TProps> = ({ view }) => {
     }
 
     default: {
-      const allTags = mockTags(16)
-      const groupedTags = groupByKey(allTags, 'group')
+      const { tags, loading, selectedTags } = tagsList
+      const groupedTags = groupByKey(tags, 'group')
       const tagFolders = keys(groupedTags) as string[]
+
+      // console.log
+      const selectedIds = selectedTags.map((t) => t.id)
+
+      if (loading) {
+        return (
+          <Wrapper>
+            <LavaLampLoading />
+          </Wrapper>
+        )
+      }
 
       return (
         <Wrapper>
@@ -57,6 +71,8 @@ const Body: FC<TProps> = ({ view }) => {
                   key={folder}
                   view={view}
                   tags={groupedTags[folder]}
+                  selectedIds={selectedIds}
+                  onTagSelect={onTagSelect}
                   folder={folder}
                 />
               ))}

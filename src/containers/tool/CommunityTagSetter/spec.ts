@@ -1,6 +1,11 @@
-import type { TCommunity } from '@/spec'
+import type { TCommunity, TTag } from '@/spec'
 
-export type TSetter = 'community' | 'tag'
+export type TType =
+  | 'move-community'
+  | 'mirror-community'
+  | 'unmirror-community'
+  | 'select-community'
+  | 'tag'
 
 export type TTagView =
   | 'select'
@@ -15,9 +20,17 @@ export type TCommunityAction = 'mirror' | 'move'
 export type TLayout = 'create-works' | 'works' | 'guide-contribute'
 
 export type TCommunitiesList = {
+  canActOnSeleted: boolean
   searching: boolean
   searchValue: string
   selectedCommunities: TCommunity[]
   searchedCommunities: TCommunity[]
   commonUsedCommunities: TCommunity[]
+}
+
+export type TTagsList = {
+  // canActOnSeleted: boolean
+  loading: boolean
+  tags: TTag[]
+  selectedTags: TTag[]
 }

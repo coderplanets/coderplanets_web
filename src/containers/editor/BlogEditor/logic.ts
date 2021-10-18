@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
+import type { TEditValue } from '@/spec'
 import { ERR } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
@@ -45,7 +46,7 @@ export const nextStep = (): void => {
   store.mark({ step: nextStep })
 }
 
-export const inputOnChange = (e, key: string): void =>
+export const inputOnChange = (e: TEditValue, key: string): void =>
   updateEditing(store, key, e)
 
 export const fetchRSSInfo = (): void => {

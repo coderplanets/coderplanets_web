@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const router = require('express').Router()
-const R = require('ramda')
 
 const app = require('./app')
 const { renderAndCache } = require('./helper')
@@ -22,7 +21,7 @@ router.route('/oauth/').get((req, res) => renderAndCache({ req, res }))
 // 将首页重定向到 HOME_PAGE
 router
   .route('/')
-  .get((req, res) => renderAndCache({ req, res, path: '/community' }))
+  .get((req, res) => renderAndCache({ req, res, path: '/index' }))
 
 // 来一杯
 router.route('/have-a-drink/:slug?').get((req, res) => {
@@ -85,7 +84,8 @@ router.route('/user/:userId').get((req, res) => {
 
 // 帖子页
 router.route('/post/:id').get((req, res) => {
-  return renderAndCache({ req, res, path: '/post' })
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/post/${id}` })
 })
 
 // job 帖子页
@@ -99,28 +99,34 @@ router.route('/:community/video/:id').get((req, res) => {
 })
 
 // repo 帖子页
-router.route('/:community/repo/:id').get((req, res) => {
-  return renderAndCache({ req, res, path: '/repo' })
-})
+// router.route('/:community/repo/:id').get((req, res) => {
+//   return renderAndCache({ req, res, path: '/repo' })
+// })
 
 // 创建新社区
-router.route('/create/community').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/community' })
+router.route('/publish/community').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/community' })
 })
 
-// 创建新内容
-router.route('/create/article').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/article' })
+// 创建新帖子
+router.route('/publish/post').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/post' })
+})
+
+// 编辑新帖子
+router.route('/update/post/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/update/post/${id}` })
 })
 
 // 创建新博客
-router.route('/create/blog').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/blog' })
+router.route('/publish/blog').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/blog' })
 })
 
 // 创建新作品
-router.route('/create/works').get((req, res) => {
-  return renderAndCache({ req, res, page: '/create/works' })
+router.route('/publish/works').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/works' })
 })
 
 // 所有社区
@@ -137,16 +143,7 @@ router.route('/:community/help-center').get((req, res) => {
 
 // 社区主页
 router.route('/:community/:thread').get((req, res) => {
-  if (
-    R.has('preview', req.query) &&
-    R.has('id', req.query) &&
-    R.has('community', req.query)
-  ) {
-    const { community, preview, id } = req.query
-    return res.redirect(`/${community}/${preview}/${id}`)
-  }
-
-  return renderAndCache({ req, res, path: '/community' })
+  return renderAndCache({ req, res, path: '/index' })
 })
 
 router.route('*').get((req, res) => handle(req, res))

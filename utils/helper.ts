@@ -8,6 +8,9 @@ import type {
   TAttInfo,
   TArticle,
   TPaymentUsage,
+  TCommunity,
+  TThread,
+  TTag,
 } from '@/spec'
 import { TAG_COLOR_ORDER } from '@/config'
 import { TYPE, EVENT, THREAD } from '@/constant'
@@ -25,10 +28,6 @@ type TSORTABLE_ITEMS = {
 }[]
 
 export const Global: any = typeof window !== 'undefined' ? window : {}
-
-// those two function used to encode/decode the value in element dataset
-export const o2s = JSON.stringify
-export const s2o = JSON.parse
 
 // see https://github.com/ramda/ramda/issues/1361
 export const mapKeys = curry((fn, obj) => {
@@ -212,6 +211,22 @@ export const previewArticle = (article: TArticle): void => {
   const data = article
 
   send(EVENT.DRAWER.OPEN, { type, data })
+}
+
+export const setArticleTag = (
+  community: TCommunity,
+  thread: TThread,
+  tags: TTag[],
+): void => {
+  if (!community.id) {
+    console.error('should set community for tag setter')
+    return
+  }
+  send(EVENT.SET_TAG, { community, thread, tags })
+}
+
+export const selectCommunity = (): void => {
+  send(EVENT.SELECT_COMMUNITY)
 }
 
 export const errRescue = ({
@@ -441,11 +456,14 @@ export const siteBirthDay = (birthday: string): string => {
   return `${year}年${days}天`
 }
 
-type TCovert = 'titleCase' | null
+type TCovert = 'titleCase' | 'upperCase' | null
 const doCovert = (value: string, opt: TCovert): string => {
   switch (opt) {
     case 'titleCase': {
       return titleCase(value)
+    }
+    case 'upperCase': {
+      return value.toUpperCase()
     }
     default: {
       return value

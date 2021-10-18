@@ -7,13 +7,18 @@ import { FC, memo } from 'react'
 import type { TCommunity } from '@/spec'
 import { cutRest } from '@/utils/helper'
 
+import DotDivider from '@/components/DotDivider'
 import {
   Wrapper,
   CommunityLogo,
   Info,
-  SubsCount,
+  SubInfo,
+  SubsInfo,
+  UserIcon,
+  UserCount,
   Header,
   Title,
+  Raw,
   Desc,
 } from './styles/community_card'
 
@@ -27,10 +32,18 @@ const CommunityCard: FC<TProps> = ({
   return (
     <Wrapper key={id}>
       <Header>
-        <CommunityLogo src={logo} />
+        <CommunityLogo src={logo} raw={raw} />
         <Info>
-          <Title href={`/${raw}/posts`}>{title}</Title>
-          <SubsCount>{subscribersCount} 人已加入</SubsCount>
+          <Title>{title}</Title>
+          <SubInfo>
+            <Raw href={`/${raw}/posts`}>{raw}</Raw>
+            <DotDivider space={6} />
+            <SubsInfo>
+              <UserIcon />
+              {/* <UserCount>{subscribersCount}</UserCount> */}
+              <UserCount>74</UserCount>
+            </SubsInfo>
+          </SubInfo>
         </Info>
       </Header>
       <Desc>{cutRest(desc, 50)}</Desc>

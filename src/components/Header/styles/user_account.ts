@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
+import UserSVG from '@/icons/User'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -72,7 +73,7 @@ export const AvatarIcon = styled.img`
   border-radius: 3px;
   opacity: ${theme('avatar.opacity')};
 `
-export const DefaultUserIcon = styled(Img)`
+export const DefaultUserIcon = styled(UserSVG)`
   fill: ${theme('header.fg')};
   ${css.size(16)};
   cursor: pointer;

@@ -8,6 +8,7 @@
 
 import { FC } from 'react'
 
+import type { TCommunity, TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -17,41 +18,58 @@ import type { TStore } from './store'
 import TagSetter from './TagSetter'
 import CommunitySetter from './CommunitySetter'
 
-import { SETTER } from './constant'
-import { useInit, onClose } from './logic'
+import { TYPE } from './constant'
+import { useInit, onClose, toggleCommunity, toggleTag } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityTagSetter')
 
 type TProps = {
   communityTagSetter?: TStore
-  testid?: string
+  selectedCommunity?: TCommunity
+
+  onCommunitySelect?: (community: TCommunity, select: boolean) => void
+  onTagSelect?: (tags: TTag[], select: boolean) => void
 }
 
 const CommunityTagSetterContainer: FC<TProps> = ({
   communityTagSetter: store,
-  testid = 'community-tag-setter',
+  onCommunitySelect = log,
+  onTagSelect = log,
+  selectedCommunity = { raw: 'home' },
 }) => {
-  useInit(store)
+  useInit(store, selectedCommunity)
+
   const {
     show,
-    curSetter,
+    type,
     tagView,
-    communitiesList,
     communityView,
     communityAction,
+    communitiesList,
+    tagsList,
   } = store
 
   return (
-    <Modal width="500px" show={show} showCloseBtn onClose={onClose}>
-      {curSetter === SETTER.COMMUNITY && (
+    <Modal width="520px" show={show} onClose={onClose} showCloseBtn>
+      {type === TYPE.SELECT_COMMUNITY && (
         <CommunitySetter
           view={communityView}
           action={communityAction}
           communitiesList={communitiesList}
+          onCommunitySelect={(community, checked) => {
+            toggleCommunity(community, checked)
+            onCommunitySelect?.(community, checked)
+          }}
         />
       )}
-      {curSetter === SETTER.TAG && <TagSetter view={tagView} />}
+      {type === TYPE.TAG && (
+        <TagSetter
+          view={tagView}
+          tagsList={tagsList}
+          onTagSelect={(tag, checked) => toggleTag(tag, checked, onTagSelect)}
+        />
+      )}
     </Modal>
   )
 }

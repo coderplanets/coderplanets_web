@@ -1,6 +1,10 @@
 import { FC, memo } from 'react'
 
-import { ICON_BASE } from '@/config'
+import type { TCommunity, TEditMode } from '@/spec'
+import { cutRest, selectCommunity } from '@/utils/helper'
+
+import Tooltip from '@/components/Tooltip'
+import CommunityCard from '@/components/Cards/CommunityCard'
 
 import {
   Wrapper,
@@ -13,18 +17,34 @@ import {
   ArrowLogo,
 } from './styles/community_badge'
 
-const CommunityBadge: FC = () => {
+type TProps = {
+  community: TCommunity
+  mode: TEditMode
+}
+
+const CommunityBadge: FC<TProps> = ({ community, mode }) => {
   return (
     <Wrapper>
       <BadgeWrapper>
         <Intro>
-          <PubHint>发布到子社区:</PubHint>
+          {mode === 'publish' ? (
+            <PubHint>发布到子社区:</PubHint>
+          ) : (
+            <PubHint>所属社区:</PubHint>
+          )}
           <Title>
-            <Logo src={`${ICON_BASE}/pl/javascript.png`} />
-            <div>JavaScript</div>
-            <ChangeBtn>
-              更换 <ArrowLogo />
-            </ChangeBtn>
+            <Logo src={community.logo} raw={community.raw} />
+            <Tooltip
+              content={<CommunityCard item={community} />}
+              placement="bottom"
+            >
+              <div>{cutRest(community.title || '--', 15)}</div>
+            </Tooltip>
+            {mode === 'publish' && (
+              <ChangeBtn onClick={selectCommunity}>
+                更换 <ArrowLogo />
+              </ChangeBtn>
+            )}
           </Title>
         </Intro>
       </BadgeWrapper>

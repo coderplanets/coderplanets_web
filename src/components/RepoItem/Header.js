@@ -5,7 +5,7 @@ import { ICON_CMD } from '@/config'
 import { cutRest, numberWithCommas } from '@/utils/helper'
 import Tooltip from '@/components/Tooltip'
 import { Space } from '@/components/Common'
-import InlineTags from '@/components/InlineTags'
+import TagsList from '@/components/TagsList'
 
 import {
   Wrapper,
@@ -36,7 +36,7 @@ const Header = ({ entry, onPreview }) => {
         <Owner>{entry.ownerName}</Owner>
         <RepoName> / {cutRest(entry.title, 20)}</RepoName>
         <TagsWrapper>
-          <InlineTags data={entry.tags} />
+          <TagsList data={entry.tags} />
         </TagsWrapper>
       </Title>
       <StatusInfo>

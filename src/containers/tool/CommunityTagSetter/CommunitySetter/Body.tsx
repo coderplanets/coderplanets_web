@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
+import type { TCommunity } from '@/spec'
 import CustomScroller from '@/components/CustomScroller'
 import NoticeBar from '@/components/NoticeBar'
 import { LavaLampLoading } from '@/components/dynamic'
@@ -13,16 +14,19 @@ import { Wrapper, InnerWrapper, NoticeWrapper } from '../styles/tag_setter/body'
 
 type TProps = {
   communitiesList: TCommunitiesList
+  onCommunitySelect: (community: TCommunity, select: boolean) => void
 }
 
-const Body: FC<TProps> = ({ communitiesList }) => {
+const Body: FC<TProps> = ({ communitiesList, onCommunitySelect }) => {
   const {
+    canActOnSeleted,
     searching,
     searchValue,
     searchedCommunities,
     commonUsedCommunities,
     selectedCommunities,
   } = communitiesList
+
   return (
     <Wrapper>
       <InnerWrapper>
@@ -46,6 +50,8 @@ const Body: FC<TProps> = ({ communitiesList }) => {
             <List
               title="目标社区"
               communities={selectedCommunities}
+              canActOnSeleted={canActOnSeleted}
+              onCommunitySelect={onCommunitySelect}
               highlightTitle
               allChecked
             />
@@ -54,12 +60,20 @@ const Body: FC<TProps> = ({ communitiesList }) => {
           {searching && <LavaLampLoading size="small" />}
 
           {isEmpty(searchValue) && (
-            <List title="常用社区" communities={commonUsedCommunities} />
+            <List
+              title="常用社区"
+              communities={commonUsedCommunities}
+              onCommunitySelect={onCommunitySelect}
+            />
           )}
           {!searching &&
             !isEmpty(searchValue) &&
             !isEmpty(searchedCommunities) && (
-              <List title="找到社区" communities={searchedCommunities} />
+              <List
+                title="找到社区"
+                communities={searchedCommunities}
+                onCommunitySelect={onCommunitySelect}
+              />
             )}
         </CustomScroller>
       </InnerWrapper>

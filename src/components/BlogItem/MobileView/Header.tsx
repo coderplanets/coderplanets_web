@@ -3,7 +3,7 @@ import TimeAgo from 'timeago-react'
 
 import type { TBlog, TAccount } from '@/spec'
 
-import InlineTags from '@/components/InlineTags'
+import TagsList from '@/components/TagsList'
 import DotDivider from '@/components/DotDivider'
 import ImgFallback from '@/components/ImgFallback'
 
@@ -38,7 +38,7 @@ const Header: FC<TProps> = ({ item, onAuthorSelect }) => {
         </TimeStamp>
       </AuthorInfo>
       <TagListWrapper>
-        <InlineTags items={item.articleTags} />
+        <TagsList items={item.articleTags} />
       </TagListWrapper>
     </Wrapper>
   )

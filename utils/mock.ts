@@ -162,8 +162,8 @@ const tags = [
 const communities = [
   {
     id: '0',
-    title: '首页',
-    raw: 'coderplanets',
+    title: 'CoderPlanets',
+    raw: 'home',
     desc: '可能是最性感的开发者社区',
     logo: SITE_LOGO,
   },

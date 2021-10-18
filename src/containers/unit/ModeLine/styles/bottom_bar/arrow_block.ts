@@ -5,9 +5,14 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import UserSVG from '@/icons/User'
+
 export const MenuLogo = styled(Img)<TActive>`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
   ${css.size(12)};
+`
+export const UserLogo = styled(UserSVG)`
+  ${css.size(14)};
 `
 export const SiteLogo = styled(MenuLogo)`
   ${css.size(15)};

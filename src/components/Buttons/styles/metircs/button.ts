@@ -8,7 +8,7 @@ export const getColor = (ghost: boolean, disabled: boolean): TTheme => {
     return theme('button.primary')
   }
   if (disabled) {
-    return '#83a7bd' // TODO:  same as dimOnIdle background
+    return theme('thread.articleDigest')
   }
 
   return theme('button.fg')
@@ -23,7 +23,7 @@ export const getBackgroundColor = (
     return 'transparent'
   }
   if (disabled) {
-    return '#124b5a' // TODO:  same as dimOnIdle background
+    return '#0D363D' // TODO:  same as dimOnIdle background
   }
 
   return hover ? theme('button.hoverBg') : theme('button.primary')

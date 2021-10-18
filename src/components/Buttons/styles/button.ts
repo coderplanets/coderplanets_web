@@ -75,24 +75,6 @@ export const ChildrenWrapper = styled.div<{ size: TSIZE }>`
   position: relative;
   z-index: 2;
 `
-export const RealChildren = styled.div<{ $loading: boolean }>`
-  ${css.flex('align-both')};
-  opacity: ${({ $loading }) => ($loading ? 0 : 1)};
-`
-export const LoadingText = styled.div<{ $loading: boolean }>`
-  opacity: ${({ $loading }) => (!$loading ? 0 : 1)};
-  position: absolute;
-`
-export const LoadingMask = styled.div<{ width: string }>`
-  position: absolute;
-  width: ${({ width }) => width};
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: ${({ width }) => (width === '100%' ? 'transparent' : '#2c6b94')};
-  z-index: 1;
-  transition: width 0.1s;
-`
 export const RedWrapper = styled(Wrapper)`
   color: ${({ ghost }) => (ghost ? theme('baseColor.red') : 'white')};
   background-color: ${({ ghost }) =>

@@ -1,14 +1,14 @@
 // import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
 
-import { ROUTE, THREAD, METRIC } from '@/constant'
+import { ROUTE, ARTICLE_THREAD, METRIC } from '@/constant'
 import {
   ssrBaseStates,
   ssrFetchPrepare,
-  ssrParseURL,
   ssrRescue,
   ssrError,
   articleSEO,
+  ssrGetParam,
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
@@ -19,20 +19,13 @@ import ArticleContent from '@/containers/content/ArticleContent'
 import { P } from '@/schemas'
 
 const fetchData = async (context, opt = {}) => {
+  const id = ssrGetParam(context, 'id')
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-
-  // schema
-  const { subPath: id } = ssrParseURL(context.req)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const post = gqClient.request(P.post, { id, userHasLogin })
-  // const pagedComments = gqClient.request(P.pagedComments, {
-  //   id,
-  //   userHasLogin,
-  //   thread: toUpper(THREAD.POST),
-  //   filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
-  // })
+
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -40,11 +33,9 @@ const fetchData = async (context, opt = {}) => {
     },
   })
 
-  // TODO: comments
   return {
     ...(await sessionState),
     ...(await post),
-    // ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
@@ -69,7 +60,7 @@ export const getServerSideProps = async (context) => {
     route: { mainPath: ROUTE.POST, subPath: post.id },
     viewing: {
       post,
-      activeThread: THREAD.POST,
+      activeThread: ARTICLE_THREAD.POST,
     },
     // TODO: load comments on Client
     // comments: { pagedComments },
@@ -83,7 +74,7 @@ const PostPage = (props) => {
   const { viewing } = props
   const { post } = viewing
 
-  const seoConfig = articleSEO(THREAD.POST, post)
+  const seoConfig = articleSEO(ARTICLE_THREAD.POST, post)
 
   return (
     <Provider store={store}>

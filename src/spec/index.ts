@@ -57,6 +57,9 @@ export type {
   TPaymentMethod,
   TFlexRule,
   TGQError,
+  TInput,
+  TEditValue,
+  TSubmitState,
 } from './utils'
 
 export type { TGQLError } from './graphql'
@@ -122,3 +125,5 @@ export type TArticleThread =
 export type TThread = TArticleThread | 'cper' | 'setting'
 
 export type TContainer = 'body' | 'drawer'
+
+export type TEditMode = 'publish' | 'update'

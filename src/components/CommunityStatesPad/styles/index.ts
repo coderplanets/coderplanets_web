@@ -11,17 +11,10 @@ export const Wrapper = styled.div`
     margin-top: -4px;
   `};
 `
-type TNumberSection = { readOnly?: boolean }
-export const NumberSection = styled.div<TNumberSection>`
+export const NumberSection = styled.div`
   ${css.flexColumn('align-end')};
 
   padding: 0 5px;
-  border-radius: 4px;
-
-  &:hover {
-    background: ${({ readOnly }) =>
-      readOnly ? '' : theme('banner.numberHoverBg')};
-  }
 `
 export const ContentSection = styled(NumberSection)`
   ${css.media.mobile`display: none`};

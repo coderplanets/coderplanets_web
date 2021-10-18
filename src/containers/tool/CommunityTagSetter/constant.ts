@@ -1,8 +1,11 @@
-import { TTagView, TCommunityView, TCommunityAction, TSetter } from './spec'
+import { TTagView, TCommunityView, TCommunityAction, TType } from './spec'
 
-export const SETTER = {
-  COMMUNITY: 'community' as TSetter,
-  TAG: 'tag' as TSetter,
+export const TYPE = {
+  MOVE_COMMUNITY: 'move-community' as TType,
+  MIRROR_COMMUNITY: 'mirror-community' as TType,
+  UNMIRROR_COMMUNITY: 'unmirror-community' as TType,
+  SELECT_COMMUNITY: 'select-community' as TType,
+  TAG: 'tag' as TType,
 }
 
 export const TAG_VIEW = {

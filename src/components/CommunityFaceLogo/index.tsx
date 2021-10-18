@@ -22,6 +22,7 @@ type TProps = {
   raw?: string
   loading?: boolean | null
   className?: string
+  noLazy?: boolean
 }
 
 const CommunityFaceLogo: FC<TProps> = ({
@@ -30,13 +31,20 @@ const CommunityFaceLogo: FC<TProps> = ({
   raw = HCN,
   loading,
   className = 'community-facelogo-class',
+  noLazy = false,
 }) => {
   if (raw === HCN || isEmpty(src)) {
     return <HomeLogo className={className} />
   }
 
   return (
-    <Logo noFill={noFill} src={src} loading={loading} className={className} />
+    <Logo
+      noFill={noFill}
+      src={src}
+      loading={loading}
+      className={className}
+      noLazy={noLazy}
+    />
   )
 }
 

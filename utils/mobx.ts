@@ -17,6 +17,7 @@ import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import { toJS as toJSON } from 'mobx'
 
+import type { TEditValue } from '@/spec'
 import { isObject } from './validator'
 
 type TStore = {
@@ -173,7 +174,7 @@ export const toJS = (obj: any): any => {
 export const updateEditing = (
   store: TStore,
   part: string,
-  e: HTMLElement,
+  v: TEditValue,
 ): void => {
   if (!store) return
   if (!store.updateEditing) {
@@ -181,12 +182,12 @@ export const updateEditing = (
     return console.warn('Error: updateEditing not found in store: ', store)
   }
 
-  let value = e as HTMLElement
+  let value = v
   // @ts-ignore
-  if (isObject(e) && has('target', e)) {
+  if (isObject(v) && has('target', v)) {
     /* eslint-disable prefer-destructuring */
     // @ts-ignore
-    value = e.target.value
+    value = v.target.value
     /* eslint-enable prefer-destructuring */
   }
 

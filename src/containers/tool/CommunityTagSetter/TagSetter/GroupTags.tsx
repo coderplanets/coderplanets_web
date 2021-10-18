@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
+import { includes } from 'ramda'
 
-import type { TTag } from '@/spec'
+import type { TTag, TID } from '@/spec'
 
 // import Tooltip from '@/components/Tooltip'
 import Tag from './Tag'
@@ -14,16 +15,20 @@ import {
 
 type TProps = {
   tags: TTag[]
+  selectedIds: TID[]
   view: TTagView
   folder: string
   withDelete?: boolean
   withSelect?: boolean
+  onTagSelect: (tag: TTag, select: boolean) => void
 }
 
 const GroupTags: FC<TProps> = ({
   tags,
+  selectedIds,
   folder,
   view,
+  onTagSelect,
   withDelete = false,
   withSelect = false,
 }) => {
@@ -32,7 +37,13 @@ const GroupTags: FC<TProps> = ({
       <HintTitle>{folder}</HintTitle>
       <InnerWrapper>
         {tags.map((tag) => (
-          <Tag key={tag.id} view={view} tag={tag} />
+          <Tag
+            key={tag.id}
+            view={view}
+            tag={tag}
+            checked={includes(tag.id, selectedIds)}
+            onTagSelect={onTagSelect}
+          />
         ))}
       </InnerWrapper>
     </Wrapper>

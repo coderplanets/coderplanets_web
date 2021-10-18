@@ -7,11 +7,10 @@
 import { FC, ReactNode, memo } from 'react'
 
 import type { TSIZE_SM } from '@/spec'
-import { ICON } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import { Wrapper, IconWrapper, Icon, ChildWrapper } from './styles'
+import { Wrapper, IconWrapper, CheckIcon, ChildWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Checker:index')
@@ -22,6 +21,7 @@ type TProps = {
   hiddenMode?: boolean
   size?: TSIZE_SM
   dimWhenIdle?: boolean
+  disabled?: boolean
   onChange?: (checked: boolean) => void
 }
 
@@ -31,6 +31,7 @@ const Checker: FC<TProps> = ({
   hiddenMode = false,
   size = SIZE.MEDIUM,
   children = null,
+  disabled = false,
   dimWhenIdle = false,
 }) => {
   const show = checked || !hiddenMode
@@ -39,12 +40,13 @@ const Checker: FC<TProps> = ({
     <Wrapper
       show={show}
       dimWhenIdle={dimWhenIdle}
-      onClick={() => show && onChange(!checked)}
+      disabled={disabled}
+      onClick={() => show && !disabled && onChange(!checked)}
     >
-      <IconWrapper checked={checked} size={size}>
-        <Icon src={`${ICON}/shape/checked.svg`} checked={checked} size={size} />
+      <IconWrapper checked={checked} size={size} disabled={disabled}>
+        <CheckIcon checked={checked} size={size} disabled={disabled} />
       </IconWrapper>
-      <ChildWrapper checked={checked} size={size}>
+      <ChildWrapper checked={checked} size={size} disabled={disabled}>
         {children}
       </ChildWrapper>
     </Wrapper>

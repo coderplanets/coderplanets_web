@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import InlineTags from '../index'
+// import WordsCounter from '../index'
 
-describe('TODO <InlineTags />', () => {
+describe('TODO <WordsCounter />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })
