@@ -15,12 +15,7 @@ import {
   PreviewWrapper,
 } from './styles/comment_reply_editor'
 
-import {
-  onReplyInputChange,
-  createReplyComment,
-  replyBackToEditor,
-  replyCommentPreview,
-} from './logic'
+import { createReplyComment } from './logic'
 
 export const BodyEditor = dynamic(
   () => import('@/containers/editor/RichEditor'),
@@ -35,14 +30,12 @@ type TProps = {
   show: boolean
   isEdit: boolean
   accountInfo: TAccount
-  showReplyPreview: boolean
 
-  restProps: {
-    countCurrent: number
-    replyContent: string
-    replyToComment: TComment
-    replying: boolean
-  }
+  // restProps: {
+  //   replyContent: string
+  //   replyToComment: TComment
+  //   replying: boolean
+  // }
 }
 
 const CommentReplyEditor: FC<TProps> = ({
@@ -50,38 +43,22 @@ const CommentReplyEditor: FC<TProps> = ({
   show,
   isEdit,
   accountInfo,
-  showReplyPreview,
-  restProps: { countCurrent, replyContent, replyToComment, replying },
+  // restProps: { replyToComment, replying },
 }) => {
   return (
     <Wrapper>
-      <ReplyEditorHeader
-        accountInfo={accountInfo}
-        countCurrent={countCurrent}
-        referUsers={referUsers}
-        showPreview={showReplyPreview}
-      />
+      <ReplyEditorHeader accountInfo={accountInfo} referUsers={referUsers} />
 
-      {!isEdit && <ReplyToBar comment={replyToComment} />}
+      {/* {!isEdit && <ReplyToBar comment={replyToComment} />} */}
 
-      {show ? (
+      {show && (
         <div className="comment-reply-editor">
           <InputEditorWrapper>
             <BodyEditor />
           </InputEditorWrapper>
         </div>
-      ) : (
-        <PreviewWrapper>
-          <MarkDownRender body={replyContent} />
-        </PreviewWrapper>
       )}
-      <EditorFooter
-        loading={replying}
-        showPreview={showReplyPreview}
-        onCreate={createReplyComment}
-        onBackEdit={replyBackToEditor}
-        onPreview={replyCommentPreview}
-      />
+      <EditorFooter loading={false} onCreate={createReplyComment} />
     </Wrapper>
   )
 }

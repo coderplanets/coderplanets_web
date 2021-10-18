@@ -6,10 +6,9 @@ import { ICON, ICON_CMD } from '@/config'
 import AvatarsRow from '@/components/AvatarsRow'
 import { SpaceGrow } from '@/components/Common'
 
-import WordsCounter from './WordsCounter'
-
 import {
   Wrapper,
+  ExpandWrapper,
   UserAvatar,
   LeaveResponseText,
   LeaveResponseUsername,
@@ -24,23 +23,19 @@ import { openInputBox } from './logic'
 type TProps = {
   accountInfo: TAccount
   showInputEditor: boolean
-  showInputPreview: boolean
-  countCurrent: number
   referUsers: TUser[]
 }
 
 const EditorHeader: FC<TProps> = ({
   accountInfo,
   showInputEditor,
-  showInputPreview,
-  countCurrent,
   referUsers,
 }) => {
   if (showInputEditor) {
     return (
-      <Wrapper>
+      <ExpandWrapper>
         <UserAvatar src={accountInfo.avatar} />
-        <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
+        <LeaveResponseUsername>{accountInfo.nickname}:</LeaveResponseUsername>
         {referUsers.length > 0 && (
           <RefUsersWrapper>
             <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />
@@ -55,16 +50,7 @@ const EditorHeader: FC<TProps> = ({
           </RefUsersWrapper>
         )}
         <SpaceGrow />
-        <WordsCounter countCurrent={countCurrent} />
-      </Wrapper>
-    )
-  }
-  if (showInputPreview) {
-    return (
-      <Wrapper>
-        <UserAvatar src={accountInfo.avatar} />
-        <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
-      </Wrapper>
+      </ExpandWrapper>
     )
   }
   return (

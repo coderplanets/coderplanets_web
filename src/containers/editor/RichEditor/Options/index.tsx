@@ -11,6 +11,10 @@ type TProps = {
 
 const Options: FC<TProps> = ({ type, onLinkChange, onUseTemplateChange }) => {
   switch (type) {
+    case 'comment': {
+      return null
+    }
+
     case 'works': {
       return <WorksLayout />
     }

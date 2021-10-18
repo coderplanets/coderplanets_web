@@ -2,19 +2,22 @@ import styled from 'styled-components'
 
 // import Img from '@/Img'
 import type { TActive } from '@/spec'
-import { theme } from '@/utils/themes'
+// import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Container = styled.div<TActive>`
+export const Wrapper = styled.div<TActive>`
   ${css.flexColumn()};
-  /* background: ${theme('drawer.articleBg')}; */
-  background: #013340;
-  min-height: ${({ show }) => (show ? '100px' : '50px')};
+  padding: ${({ show }) => (show ? '10px 0' : '0')};
+  background: ${({ show }) => (show ? 'transparent' : '#013340')};
+  min-height: ${({ show }) => (show ? '300px' : '50px')};
   height: auto;
-  border-color: ${theme('drawer.articleBg')};
+  border-top: 2px solid;
+  border-bottom: 3px solid;
+  border-color: #00424f;
   transition: all 0.3s;
 
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: ${({ show }) =>
+    show ? 'none' : '0 1px 4px rgba(0, 0, 0, 0.04)'};
   border-radius: 3px;
 
   ${css.media.mobile`
@@ -27,9 +30,4 @@ export const InputEditorWrapper = styled.div<{ showInputEditor: boolean }>`
   margin-bottom: 30px;
   display: ${({ showInputEditor }) => (showInputEditor ? 'block' : 'none')};
   font-size: 0.9em;
-`
-
-export const PreviewerWrapper = styled.div`
-  padding: 0 33px;
-  min-height: 150px;
 `

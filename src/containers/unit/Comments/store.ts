@@ -44,14 +44,13 @@ const CommentsStore = T.model('CommentsStore', {
   // toggle main comment box
   showInputBox: T.optional(T.boolean, false),
   // toggle editor inside the comment box
-  showInputEditor: T.optional(T.boolean, false),
+  showInputEditor: T.optional(T.boolean, true),
   // toggle markdown drawer inside the comment box
   showInputPreview: T.optional(T.boolean, false),
 
   // toggle modal editor for reply
   showReplyBox: T.optional(T.boolean, false),
   showReplyEditor: T.optional(T.boolean, false),
-  showReplyPreview: T.optional(T.boolean, false),
 
   // current to be delete comment id, use to target the confirm mask
   tobeDeleteId: T.maybeNull(T.string),

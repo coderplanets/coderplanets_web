@@ -45,9 +45,6 @@ const EVENT = {
   // sync repo
   SYNC_REPO: 'SYNC_REPO',
 
-  // Draft editor
-  DRAFT_INSERT_SNIPPET: 'DRAFT_INSERT_SNIPPET',
-
   // favorites
   SET_FAVORITE_CONTENT: 'SET_FAVORITE_CONTENT',
   // customization

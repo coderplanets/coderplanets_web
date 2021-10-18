@@ -1,14 +1,12 @@
 import { FC, memo } from 'react'
 
 import type { TAccount, TUser } from '@/spec'
-import MarkDownRender from '@/components/MarkDownRender'
 
 import EditorHeader from './EditorHeader'
-import EditorFooter from './EditorFooter'
 import CommentBodyEditor from './CommentBodyEditor'
 
-import { Container, PreviewerWrapper } from './styles/comment_editor'
-import { backToEditor, createCommentPreview } from './logic'
+import { Wrapper } from './styles/comment_editor'
+import { backToEditor } from './logic'
 
 type TProps = {
   referUsers: TUser[]
@@ -18,10 +16,8 @@ type TProps = {
   onCreate?: any
 
   restProps: {
-    countCurrent: number
     showInputBox: boolean
     showInputEditor: boolean
-    showInputPreview: boolean
     editContent: string
     creating: boolean
   }
@@ -32,23 +28,14 @@ const CommentEditor: FC<TProps> = (props) => {
     referUsers,
     accountInfo,
     onCreate,
-    restProps: {
-      countCurrent,
-      showInputBox,
-      showInputEditor,
-      showInputPreview,
-      editContent,
-      creating,
-    },
+    restProps: { showInputBox, showInputEditor, editContent, creating },
   } = props
 
   return (
-    <Container show={showInputBox}>
+    <Wrapper show>
       <EditorHeader
         accountInfo={accountInfo}
         showInputEditor={showInputEditor}
-        showInputPreview={showInputPreview}
-        countCurrent={countCurrent}
         referUsers={referUsers}
       />
       {showInputEditor && (
@@ -58,21 +45,7 @@ const CommentEditor: FC<TProps> = (props) => {
           creating={creating}
         />
       )}
-      {showInputPreview && (
-        <div>
-          <PreviewerWrapper>
-            <MarkDownRender body={editContent} />
-          </PreviewerWrapper>
-          <EditorFooter
-            loading={creating}
-            showPreview={showInputPreview}
-            onCreate={onCreate}
-            onBackEdit={backToEditor}
-            onPreview={createCommentPreview}
-          />
-        </div>
-      )}
-    </Container>
+    </Wrapper>
   )
 }
 

@@ -1,23 +1,10 @@
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
 
-import { InputEditorWrapper } from './styles/comment_editor'
+import RichEditor from '@/containers/editor/RichEditor/RealEditor'
+
 import EditorFooter from './EditorFooter'
 
-import {
-  // onCommentInputChange,
-  backToEditor,
-  createCommentPreview,
-  onCommentInputBlur,
-} from './logic'
-
-export const BodyEditor = dynamic(
-  () => import('@/containers/editor/RichEditor'),
-  {
-    /* eslint-disable react/display-name */
-    loading: () => <div>loading</div>,
-  },
-)
+import { InputEditorWrapper } from './styles/comment_editor'
 
 type TProps = {
   showInputEditor?: boolean
@@ -34,18 +21,13 @@ const CommentBodyEditor: FC<TProps> = ({
 }) => {
   return (
     <div className="comment-editor">
-      <InputEditorWrapper showInputEditor={showInputEditor}>
-        <BodyEditor />
-      </InputEditorWrapper>
-
-      <EditorFooter
-        loading={creating}
-        showFold
-        onCreate={onCreate}
-        onBackEdit={backToEditor}
-        onPreview={createCommentPreview}
-        onFold={onCommentInputBlur}
+      <RichEditor
+        data="{}"
+        type="comment"
+        placeholder="// 评论内容（'Tab' 键快速插入）"
       />
+
+      <EditorFooter loading={creating} showFold onCreate={onCreate} />
     </div>
   )
 }

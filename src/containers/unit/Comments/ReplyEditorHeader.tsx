@@ -6,8 +6,6 @@ import { ICON_CMD } from '@/config'
 import { SpaceGrow } from '@/components/Common'
 import AvatarsRow from '@/components/AvatarsRow'
 
-import WordsCounter from './WordsCounter'
-
 import {
   Wrapper,
   UserAvatar,
@@ -18,32 +16,22 @@ import {
 
 type TProps = {
   accountInfo: TAccount
-  countCurrent: number
   referUsers: TUser[]
-  showPreview: boolean
 }
 
-const ReplyEditorHeader: FC<TProps> = ({
-  accountInfo,
-  countCurrent,
-  referUsers,
-  showPreview,
-}) => (
+const ReplyEditorHeader: FC<TProps> = ({ accountInfo, referUsers }) => (
   <Wrapper>
     <UserAvatar src={accountInfo.avatar} />
     <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
-    {referUsers.length > 0 ? (
+    {referUsers.length > 0 && (
       <div style={{ display: 'flex' }}>
         <ReferToIcon src={`${ICON_CMD}/refer.svg`} />
         <ReplyAvatars>
           <AvatarsRow users={referUsers} total={referUsers.length} />
         </ReplyAvatars>
       </div>
-    ) : (
-      <div />
     )}
     <SpaceGrow />
-    {showPreview ? <div /> : <WordsCounter countCurrent={countCurrent} />}
   </Wrapper>
 )
 

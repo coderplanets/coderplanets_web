@@ -9,6 +9,9 @@ export const Wrapper = styled.div`
   height: 50px;
   margin-left: 10px;
 `
+export const ExpandWrapper = styled(Wrapper)`
+  margin-left: 0;
+`
 export const UserAvatar = styled(Img)`
   ${css.circle(20)};
   fill: ${theme('thread.articleTitle')};

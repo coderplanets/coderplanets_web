@@ -11,11 +11,11 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Modal from '@/components/Modal'
-import NoticeBar from '@/components/NoticeBar'
+// import NoticeBar from '@/components/NoticeBar'
 
 import CommentEditor from './CommentEditor'
 import List from './List'
-// import CommentReplyEditor from './CommentReplyEditor'
+import CommentReplyEditor from './CommentReplyEditor'
 // import LockedMessage from './LockedMessage'
 
 import type { TStore } from './store'
@@ -48,7 +48,6 @@ const CommentsContainer: FC<TProps> = ({
     accountInfo,
     showReplyBox,
     showReplyEditor,
-    showReplyPreview,
     isEdit,
     foldedIds,
     isAllFolded,
@@ -57,16 +56,14 @@ const CommentsContainer: FC<TProps> = ({
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>
-        {/* {showReplyBox && (
+        {showReplyBox && (
           <CommentReplyEditor
             isEdit={isEdit}
             show={showReplyEditor}
             accountInfo={accountInfo}
             referUsers={referUsersData}
-            restProps={{ ...store }}
-            showReplyPreview={showReplyPreview}
           />
-        )} */}
+        )}
       </Modal>
 
       <CommentEditor
@@ -76,14 +73,14 @@ const CommentsContainer: FC<TProps> = ({
         restProps={{ ...store }}
       />
 
-      <br />
+      {/* <br />
       <NoticeBar
         type="lock"
         content="关闭了讨论: 已解决"
         timestamp={new Date().toLocaleDateString()}
         user={{ nickname: 'Bot' }}
         isArticleAuthor={false}
-      />
+      /> */}
 
       <List
         totalCommentsCount={viewingArticle.commentsCount}

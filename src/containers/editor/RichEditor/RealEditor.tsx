@@ -24,6 +24,7 @@ const log = buildLog('C:RichEditor')
 
 type TProps = {
   richEditor?: TStore
+  placeholder?: string
   data?: string
   type?: 'article' | 'works' | 'job' | 'comment' | 'radar'
   reinitOnPropsChange?: boolean
@@ -35,6 +36,7 @@ type TProps = {
 const RichEditorContainer: FC<TProps> = ({
   richEditor: store,
   data,
+  placeholder = "// 正文内容（'Tab' 键快速插入）",
   type = 'article',
   reinitOnPropsChange = false,
   onChange = log,
@@ -46,17 +48,18 @@ const RichEditorContainer: FC<TProps> = ({
   // 使用模板 or 转载或翻译 or 请保持友善
   return (
     <Wrapper>
-      <InnerWrapper>
+      <InnerWrapper type={type}>
         <Options
           type={type}
           onLinkChange={onLinkChange}
           onUseTemplateChange={onUseTemplateChange}
         />
-        <EditorWrapper className="rich-editor">
+        <EditorWrapper className="rich-editor" type={type}>
           <RichEditor
             onData={onChange}
             data={JSON.parse(data || '{}')}
             reinitOnPropsChange={reinitOnPropsChange}
+            placeholder={placeholder}
           />
           <OverwriteStyle />
         </EditorWrapper>

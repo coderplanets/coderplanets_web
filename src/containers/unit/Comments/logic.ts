@@ -6,14 +6,7 @@ import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import BStore from '@/utils/bstore'
-import {
-  send,
-  countWords,
-  extractMentions,
-  errRescue,
-  authWarn,
-  titleCase,
-} from '@/utils/helper'
+import { extractMentions, errRescue, authWarn, titleCase } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { scrollIntoEle } from '@/utils/dom'
 
@@ -66,12 +59,6 @@ export const createComment = curry((cb, e) => {
   sr71$.mutate(S.createComment, args)
   cb()
 })
-
-export const createCommentPreview = (): void =>
-  store.mark({
-    showInputEditor: false,
-    showInputPreview: true,
-  })
 
 export const backToEditor = (): void =>
   store.mark({
@@ -133,14 +120,12 @@ export const createReplyComment = (): void => {
 
 export const onCommentInputChange = (editContent): void =>
   store.mark({
-    countCurrent: countWords(editContent),
     extractMentions: extractMentions(editContent),
     editContent,
   })
 
 export const onReplyInputChange = (replyContent): void =>
   store.mark({
-    countCurrent: countWords(replyContent),
     extractMentions: extractMentions(replyContent),
     replyContent,
   })
@@ -256,19 +241,6 @@ export const handleUpvote = (
 
     sr71$.mutate(S.undoUpvoteComment, { id })
   }
-}
-
-export const onUploadImageDone = (url: string): void =>
-  send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
-
-export const insertQuote = (): void =>
-  send(EVENT.DRAFT_INSERT_SNIPPET, { data: '> ' })
-
-export const insertCode = (): void => {
-  const communityRaw = store.curCommunity.raw
-  const data = `\`\`\`${communityRaw}\n\n\`\`\``
-
-  send(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
 export const onMention = (user: TUser): void => store.addReferUser(user)
