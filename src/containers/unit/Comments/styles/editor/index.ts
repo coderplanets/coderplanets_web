@@ -11,7 +11,6 @@ export const Wrapper = styled.div<TActive>`
   background: ${({ show }) => (show ? 'transparent' : '#013340')};
   min-height: ${({ show }) => (show ? '300px' : '50px')};
   height: auto;
-  border-top: 2px solid;
   border-bottom: 3px solid;
   border-color: #00424f;
   transition: all 0.3s;

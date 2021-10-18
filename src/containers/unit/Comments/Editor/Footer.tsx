@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import WordsCounter from '@/components/WordsCounter'
 import SubmitButton from '@/components/Buttons/SubmitButton'
 
-import { Wrapper } from './styles/editor_footer'
+import { Wrapper } from '../styles/editor/footer'
 
 type TProps = {
   loading: boolean

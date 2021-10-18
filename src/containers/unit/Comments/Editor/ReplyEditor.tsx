@@ -1,29 +1,15 @@
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
 
 import type { TAccount, TUser, TComment } from '@/spec'
 
-import MarkDownRender from '@/components/MarkDownRender'
+import BodyEditor from './BodyEditor'
+// import ReplyToBar from '../ReplyToBar'
+import ReplyHeader from './ReplyHeader'
+import EditorFooter from './Footer'
 
-import ReplyToBar from './ReplyToBar'
-import ReplyEditorHeader from './ReplyEditorHeader'
-import EditorFooter from './EditorFooter'
+import { Wrapper, InputEditorWrapper } from '../styles/editor/reply_editor'
 
-import {
-  Wrapper,
-  InputEditorWrapper,
-  PreviewWrapper,
-} from './styles/comment_reply_editor'
-
-import { createReplyComment } from './logic'
-
-export const BodyEditor = dynamic(
-  () => import('@/containers/editor/RichEditor'),
-  {
-    /* eslint-disable react/display-name */
-    loading: () => <div>loading</div>,
-  },
-)
+import { createReplyComment } from '../logic'
 
 type TProps = {
   referUsers: TUser[]
@@ -47,7 +33,7 @@ const CommentReplyEditor: FC<TProps> = ({
 }) => {
   return (
     <Wrapper>
-      <ReplyEditorHeader accountInfo={accountInfo} referUsers={referUsers} />
+      <ReplyHeader accountInfo={accountInfo} referUsers={referUsers} />
 
       {/* {!isEdit && <ReplyToBar comment={replyToComment} />} */}
 

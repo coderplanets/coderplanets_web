@@ -11,6 +11,15 @@ export const Wrapper = styled.div`
 `
 export const ExpandWrapper = styled(Wrapper)`
   margin-left: 0;
+  position: relative;
+`
+export const HintText = styled.div`
+  position: absolute;
+  top: -25px;
+  left: 3px;
+  font-size: 12px;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
 `
 export const UserAvatar = styled(Img)`
   ${css.circle(20)};

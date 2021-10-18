@@ -2,11 +2,10 @@ import { FC, memo } from 'react'
 
 import type { TAccount, TUser } from '@/spec'
 
-import EditorHeader from './EditorHeader'
-import CommentBodyEditor from './CommentBodyEditor'
+import Header from './Header'
+import BodyEditor from './BodyEditor'
 
-import { Wrapper } from './styles/comment_editor'
-import { backToEditor } from './logic'
+import { Wrapper } from '../styles/editor'
 
 type TProps = {
   referUsers: TUser[]
@@ -33,13 +32,13 @@ const CommentEditor: FC<TProps> = (props) => {
 
   return (
     <Wrapper show>
-      <EditorHeader
+      <Header
         accountInfo={accountInfo}
         showInputEditor={showInputEditor}
         referUsers={referUsers}
       />
       {showInputEditor && (
-        <CommentBodyEditor
+        <BodyEditor
           body={editContent}
           onCreate={onCreate}
           creating={creating}

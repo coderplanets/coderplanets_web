@@ -13,9 +13,9 @@ import { pluggedIn } from '@/utils/mobx'
 import Modal from '@/components/Modal'
 // import NoticeBar from '@/components/NoticeBar'
 
-import CommentEditor from './CommentEditor'
+import Editor from './Editor'
 import List from './List'
-import CommentReplyEditor from './CommentReplyEditor'
+import ReplyEditor from './Editor/ReplyEditor'
 // import LockedMessage from './LockedMessage'
 
 import type { TStore } from './store'
@@ -57,7 +57,7 @@ const CommentsContainer: FC<TProps> = ({
     <Wrapper id={ANCHOR.COMMENTS_ID}>
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>
         {showReplyBox && (
-          <CommentReplyEditor
+          <ReplyEditor
             isEdit={isEdit}
             show={showReplyEditor}
             accountInfo={accountInfo}
@@ -66,7 +66,7 @@ const CommentsContainer: FC<TProps> = ({
         )}
       </Modal>
 
-      <CommentEditor
+      <Editor
         onCreate={createComment(onCreate)}
         accountInfo={accountInfo}
         referUsers={referUsersData}

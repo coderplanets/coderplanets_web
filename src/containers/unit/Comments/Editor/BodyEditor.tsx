@@ -1,16 +1,13 @@
 import { FC, memo } from 'react'
 
 import RichEditor from '@/containers/editor/RichEditor/RealEditor'
-
-import EditorFooter from './EditorFooter'
-
-import { InputEditorWrapper } from './styles/comment_editor'
+import EditorFooter from './Footer'
 
 type TProps = {
   showInputEditor?: boolean
-  body: string
-  onCreate: () => void
-  creating: boolean
+  body?: string
+  onCreate?: () => void
+  creating?: boolean
 }
 
 const CommentBodyEditor: FC<TProps> = ({

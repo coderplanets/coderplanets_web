@@ -22,7 +22,3 @@ export const InputEditorWrapper = styled.div`
   margin-bottom: 10px;
   font-size: 1rem;
 `
-export const PreviewWrapper = styled.div`
-  min-height: 200px;
-  padding: 0 20px;
-`

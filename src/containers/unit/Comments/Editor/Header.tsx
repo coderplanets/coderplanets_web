@@ -9,15 +9,16 @@ import { SpaceGrow } from '@/components/Common'
 import {
   Wrapper,
   ExpandWrapper,
+  HintText,
   UserAvatar,
   LeaveResponseText,
   LeaveResponseUsername,
   RefUsersWrapper,
   RefUserList,
   AtSignIcon,
-} from './styles/editor_header'
+} from '../styles/editor/header'
 
-import { openInputBox } from './logic'
+import { openInputBox } from '../logic'
 // import { Wrapper } from './styles'
 
 type TProps = {
@@ -34,8 +35,9 @@ const EditorHeader: FC<TProps> = ({
   if (showInputEditor) {
     return (
       <ExpandWrapper>
+        <HintText>创建评论:</HintText>
         <UserAvatar src={accountInfo.avatar} />
-        <LeaveResponseUsername>{accountInfo.nickname}:</LeaveResponseUsername>
+        <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
         {referUsers.length > 0 && (
           <RefUsersWrapper>
             <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />
