@@ -59,6 +59,7 @@ export type {
   TGQError,
   TInput,
   TEditValue,
+  TSubmitState,
 } from './utils'
 
 export type { TGQLError } from './graphql'

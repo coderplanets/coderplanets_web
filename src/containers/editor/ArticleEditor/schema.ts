@@ -8,6 +8,7 @@ const createPost = gql`
     $communityId: ID!
     $linkAddr: String
     $isQuestion: Boolean
+    $articleTags: [Id]
   ) {
     createPost(
       title: $title
@@ -15,9 +16,13 @@ const createPost = gql`
       communityId: $communityId
       linkAddr: $linkAddr
       isQuestion: $isQuestion
+      articleTags: $articleTags
     ) {
       id
       title
+      meta {
+        thread
+      }
     }
   }
 `
@@ -38,6 +43,9 @@ const updatePost = gql`
     ) {
       id
       title
+      meta {
+        thread
+      }
     }
   }
 `

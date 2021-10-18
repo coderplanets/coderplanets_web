@@ -13,6 +13,7 @@ import type {
   TArticle,
   TTag,
   TArticleThread,
+  TSubmitState,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 
@@ -30,6 +31,8 @@ const ArticleEditor = T.model('ArticleEditor', {
   // showSubTitle: T.optional(T.boolean, false),
   publishing: T.optional(T.boolean, false),
   publishDone: T.optional(T.boolean, false),
+  //
+  wordsCountReady: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -52,17 +55,29 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get tagsData(): TTag[] {
       return toJS(self.articleTags)
-      // const slf = self as TStore
-      // return toJS(slf.viewingArticle.articleTags)
     },
     get editingData() {
-      return pick(
-        ['title', 'body', 'copyRight', 'isQuestion', 'linkAddr'],
-        self,
-      )
+      const tagsIds = toJS(self.articleTags).map((t) => t.id)
+      const baseFields = [
+        'title',
+        'body',
+        'copyRight',
+        'isQuestion',
+        'linkAddr',
+      ]
+
+      return { ...pick(baseFields, self), articleTags: tagsIds }
     },
-    get publishState() {
-      return pick(['publishing', 'publishDone'], self)
+    get isReady(): boolean {
+      const slf = self as TStore
+      const { wordsCountReady } = slf
+      const titleReady = slf.title.length > 0
+
+      return wordsCountReady && titleReady
+    },
+    get submitState(): TSubmitState {
+      const slf = self as TStore
+      return pick(['publishing', 'publishDone', 'isReady'], slf)
     },
   }))
   .actions((self) => ({
@@ -87,6 +102,7 @@ const ArticleEditor = T.model('ArticleEditor', {
         isQuestion,
         document,
         originalCommunity,
+        articleTags,
       } = article
 
       self.title = title
@@ -98,6 +114,8 @@ const ArticleEditor = T.model('ArticleEditor', {
       if (originalCommunity) self.community = originalCommunity
       if (linkAddr) self.linkAddr = linkAddr
       if (isQuestion) self.isQuestion = isQuestion
+      // @ts-ignore
+      if (articleTags) self.articleTags = articleTags
     },
     reset(): void {
       self.mode = 'publish'

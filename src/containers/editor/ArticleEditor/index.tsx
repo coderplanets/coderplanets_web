@@ -48,19 +48,18 @@ const ArticleEditorContainer: FC<TProps> = ({
     copyRight,
     isQuestion,
     communityData,
-    publishState,
+    submitState,
     tagsData,
   } = store
 
   const initEditor = mode === 'publish' || body !== '{}'
 
-  console.log('tagsData -> ', tagsData)
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         {communityData.id && (
           <CommunityTagSetter
-            selectedCommunities={[communityData]}
+            selectedCommunity={communityData}
             onCommunitySelect={changeCommunity}
             onTagSelect={onTagSelect}
           />
@@ -81,7 +80,7 @@ const ArticleEditorContainer: FC<TProps> = ({
             community={communityData}
             copyRight={copyRight}
             isQuestion={isQuestion}
-            publishState={publishState}
+            submitState={submitState}
           />
         </ContentWrapper>
         <div>

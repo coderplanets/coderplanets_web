@@ -1,6 +1,12 @@
 import { FC, memo } from 'react'
 
-import type { TCopyright, TEditMode, TTag, TCommunity } from '@/spec'
+import type {
+  TCopyright,
+  TEditMode,
+  TTag,
+  TCommunity,
+  TSubmitState,
+} from '@/spec'
 
 import { THREAD } from '@/constant'
 
@@ -12,7 +18,7 @@ import { SpaceGrow } from '@/components/Common'
 import WordsCounter from '@/components/WordsCounter'
 
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
-import { editOnChange, onPublish, onCancel } from './logic'
+import { editOnChange, onPublish, onCancel, setWordsCountState } from './logic'
 
 type TProps = {
   mode: TEditMode
@@ -20,7 +26,7 @@ type TProps = {
   tags: TTag[]
   isQuestion: boolean
   copyRight: string
-  publishState: { publishing: boolean; publishDone: boolean }
+  submitState: TSubmitState
   community: TCommunity
 }
 
@@ -30,10 +36,10 @@ const Footer: FC<TProps> = ({
   tags,
   isQuestion,
   copyRight,
-  publishState,
+  submitState,
   community,
 }) => {
-  // console.log('# footer tags  -> ', tags)
+  console.log('# footer tags  -> ', tags)
 
   return (
     <Wrapper>
@@ -44,12 +50,13 @@ const Footer: FC<TProps> = ({
           size="medium"
           community={community}
           thread={THREAD.POST}
-          withSetter
+          withSetter={mode === 'publish'}
         />
         <WordsCounter
           body={body}
           bottom={3}
-          onChange={(isValid) => console.log('counter valid?: ', isValid)}
+          onChange={setWordsCountState}
+          min={40}
         />
         <Checker
           size="medium"
@@ -68,7 +75,7 @@ const Footer: FC<TProps> = ({
         />
         <SpaceGrow />
         <SubmitButton
-          publishState={publishState}
+          submitState={submitState}
           okText={mode === 'publish' ? '发 布' : '更 新'}
           onPublish={onPublish}
           onCancel={onCancel}

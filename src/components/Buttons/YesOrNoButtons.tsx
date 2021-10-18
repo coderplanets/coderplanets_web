@@ -10,6 +10,7 @@ type TProps = {
   cancelText?: string
   confirmText?: string
   loading?: boolean
+  disabled?: boolean
   onCancel?: () => void
   onConfirm?: () => void
 }
@@ -20,6 +21,7 @@ const YesOrNoButton: FC<TProps> = ({
   confirmText = '确定',
   onCancel = console.log,
   onConfirm = console.log,
+  disabled = false,
   loading = false,
 }) => {
   return (
@@ -33,6 +35,7 @@ const YesOrNoButton: FC<TProps> = ({
         size="small"
         type="primary"
         loading={loading}
+        disabled={disabled}
         onClick={() => onConfirm?.()}
       >
         {confirmText}

@@ -26,7 +26,7 @@ const log = buildLog('C:CommunityTagSetter')
 
 type TProps = {
   communityTagSetter?: TStore
-  selectedCommunities?: TCommunity[]
+  selectedCommunity?: TCommunity
 
   onCommunitySelect?: (community: TCommunity, select: boolean) => void
   onTagSelect?: (tags: TTag[], select: boolean) => void
@@ -36,9 +36,9 @@ const CommunityTagSetterContainer: FC<TProps> = ({
   communityTagSetter: store,
   onCommunitySelect = log,
   onTagSelect = log,
-  selectedCommunities = [],
+  selectedCommunity = { raw: 'home' },
 }) => {
-  useInit(store, selectedCommunities)
+  useInit(store, selectedCommunity)
 
   const {
     show,

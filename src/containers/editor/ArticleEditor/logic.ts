@@ -1,19 +1,20 @@
 import { useEffect } from 'react'
 import Router from 'next/router'
+import { values } from 'ramda'
 
 import type { TEditValue, TEditMode, TCommunity, TTag } from '@/spec'
-import { HCN } from '@/constant'
+import { HCN, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { getParameterByName } from '@/utils/route'
-import { titleCase } from '@/utils/helper'
+import { titleCase, errRescue } from '@/utils/helper'
 import { updateEditing } from '@/utils/mobx'
 import { matchArticles } from '@/utils/macros'
 
 import type { TStore } from './store'
 import S from './schema'
 
-const { SR71, $solver, asyncRes } = asyncSuit
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71()
 
 let sub$ = null
@@ -95,6 +96,10 @@ const doUpdate = () => {
   sr71$.mutate(schema, variables)
 }
 
+export const setWordsCountState = (wordsCountReady: boolean): void => {
+  store?.mark({ wordsCountReady })
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################
@@ -104,8 +109,9 @@ const handleArticleRes = (article) => {
   store.loadEditData(article)
 }
 
-const handleMutateRes = (): void => {
+const handleMutateRes = (data): void => {
   store.mark({ publishing: false, publishDone: true })
+  store.setViewing(values(data)[0])
 
   gotoArticleDetail()
 }
@@ -125,7 +131,17 @@ const DataSolver = [
     action: ({ community }) => store.mark({ community }),
   },
 ]
-const ErrSolver = []
+
+const ErrSolver = [
+  {
+    match: asyncErr(ERR.GRAPHQL),
+    action: ({ details }) => {
+      store.mark({ publishing: false })
+      errRescue({ type: ERR.GRAPHQL, details, path: 'publishPost' })
+      //
+    },
+  },
+]
 
 export const useInit = (_store: TStore, mode: TEditMode): void => {
   useEffect(() => {

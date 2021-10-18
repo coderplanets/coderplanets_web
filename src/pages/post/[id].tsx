@@ -36,7 +36,6 @@ const fetchData = async (context, opt = {}) => {
   return {
     ...(await sessionState),
     ...(await post),
-    // ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }

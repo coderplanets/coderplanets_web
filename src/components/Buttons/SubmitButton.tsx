@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 
+import type { TSubmitState } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import YesOrNoButtons from './YesOrNoButtons'
@@ -10,8 +11,7 @@ const log = buildLog('c:Buttons:SubmitButton')
 
 type TProps = {
   // onClick?: () => void
-  disabled?: boolean
-  publishState?: { publishing: boolean; publishDone: boolean }
+  submitState?: TSubmitState
 
   okText?: string
   cancelText?: string
@@ -20,14 +20,13 @@ type TProps = {
 }
 
 const SubmitButton: FC<TProps> = ({
-  disabled = false,
   okText = '发 布',
   cancelText = '取 消',
   onCancel = log,
   onPublish = log,
-  publishState = { publishing: false, publishDone: false },
+  submitState = { publishing: false, publishDone: false, isReady: false },
 }) => {
-  const { publishing, publishDone } = publishState
+  const { publishing, publishDone, isReady } = submitState
 
   return (
     <div>
@@ -42,6 +41,7 @@ const SubmitButton: FC<TProps> = ({
           confirmText={okText}
           onConfirm={onPublish}
           loading={publishing}
+          disabled={!isReady}
           onCancel={onCancel}
         />
       )}

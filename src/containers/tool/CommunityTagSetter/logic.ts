@@ -154,7 +154,6 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.SET_TAG),
     action: (res) => {
-      console.log('收到 SET_TAG: ', res)
       const { community, thread, tags } = res[EVENT.SET_TAG]
       store.mark({ show: true, type: TYPE.TAG, selectedTags: tags })
       loadArticleTags(community, thread)
@@ -189,15 +188,15 @@ const ErrSolver = [
 
 export const useInit = (
   _store: TStore,
-  selectedCommunities: TCommunity[],
+  selectedCommunity: TCommunity,
 ): void => {
   useEffect(() => {
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-    log('init - c: ', selectedCommunities)
+    log('init: ', selectedCommunity)
 
-    store.mark({ selectedCommunities })
+    store.mark({ selectedCommunities: [selectedCommunity] })
 
     return () => {
       log('effect uninit')
@@ -205,5 +204,5 @@ export const useInit = (
       // log('===== do uninit')
       sub$.unsubscribe()
     }
-  }, [_store, selectedCommunities])
+  }, [_store, selectedCommunity])
 }
