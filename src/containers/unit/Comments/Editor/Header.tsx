@@ -13,26 +13,22 @@ import {
   UserAvatar,
   LeaveResponseText,
   LeaveResponseUsername,
+  PenIcon,
   RefUsersWrapper,
   RefUserList,
   AtSignIcon,
 } from '../styles/editor/header'
 
-import { openInputBox } from '../logic'
-// import { Wrapper } from './styles'
+import { openEditor } from '../logic'
 
 type TProps = {
   accountInfo: TAccount
-  showInputEditor: boolean
+  showEditor: boolean
   referUsers: TUser[]
 }
 
-const EditorHeader: FC<TProps> = ({
-  accountInfo,
-  showInputEditor,
-  referUsers,
-}) => {
-  if (showInputEditor) {
+const EditorHeader: FC<TProps> = ({ accountInfo, showEditor, referUsers }) => {
+  if (showEditor) {
     return (
       <ExpandWrapper>
         <HintText>创建评论:</HintText>
@@ -56,9 +52,11 @@ const EditorHeader: FC<TProps> = ({
     )
   }
   return (
-    <Wrapper>
+    <Wrapper onClick={openEditor}>
       <UserAvatar src={accountInfo.avatar || `${ICON}/edit/publish-pen.svg`} />
-      <LeaveResponseText onClick={openInputBox}>参与讨论</LeaveResponseText>
+      <LeaveResponseText>参与讨论</LeaveResponseText>
+      <SpaceGrow />
+      <PenIcon />
     </Wrapper>
   )
 }

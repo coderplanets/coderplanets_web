@@ -42,11 +42,7 @@ const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 const CommentsStore = T.model('CommentsStore', {
   mode: T.optional(T.enumeration([MODE.REPLIES, MODE.TIMELINE]), MODE.REPLIES),
   // toggle main comment box
-  showInputBox: T.optional(T.boolean, false),
-  // toggle editor inside the comment box
-  showInputEditor: T.optional(T.boolean, true),
-  // toggle markdown drawer inside the comment box
-  showInputPreview: T.optional(T.boolean, false),
+  showEditor: T.optional(T.boolean, false),
 
   // toggle modal editor for reply
   showReplyBox: T.optional(T.boolean, false),

@@ -60,40 +60,17 @@ export const createComment = curry((cb, e) => {
   cb()
 })
 
-export const backToEditor = (): void =>
-  store.mark({
-    showInputEditor: true,
-    showInputPreview: false,
-  })
-
-export const previewReply = (data): void => {
-  log('previewReply --> : ', data)
-}
-
-export const openInputBox = (): void => {
+export const openEditor = (): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
 
   initDraftTimmer()
-  store.mark({
-    showInputBox: true,
-    showInputEditor: true,
-  })
+
+  store.mark({ showEditor: true })
 }
 
-export const openCommentEditor = (): void => {
-  initDraftTimmer()
-
-  store.mark({
-    showInputEditor: true,
-  })
+export const closeEditor = (): void => {
+  store.mark({ showEditor: false })
 }
-
-export const onCommentInputBlur = (): void =>
-  store.mark({
-    showInputBox: false,
-    showInputPreview: false,
-    showInputEditor: false,
-  })
 
 export const createReplyComment = (): void => {
   if (!store.validator('reply')) return
@@ -271,7 +248,7 @@ const cancelLoading = () => store.mark({ loading: false, creating: false })
 
 export const onReplyEditorClose = (): void => {
   closeReplyBox()
-  onCommentInputBlur()
+  // onCommentInputBlur()
 }
 
 const saveDraftIfNeed = (content): void => {
@@ -318,8 +295,7 @@ const DataSolver = [
     match: asyncRes('createComment'),
     action: () => {
       store.mark({
-        showInputBox: false,
-        showInputEditor: false,
+        showEditor: false,
         editContent: '',
         creating: false,
         loading: false,

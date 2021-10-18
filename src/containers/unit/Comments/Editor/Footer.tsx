@@ -4,6 +4,7 @@ import WordsCounter from '@/components/WordsCounter'
 import SubmitButton from '@/components/Buttons/SubmitButton'
 
 import { Wrapper } from '../styles/editor/footer'
+import { closeEditor } from '../logic'
 
 type TProps = {
   loading: boolean
@@ -18,7 +19,7 @@ const EditorFooter: FC<TProps> = ({ loading, onCreate, showFold, onFold }) => (
     <SubmitButton
       okText="发 布"
       onPublish={console.log}
-      onCancel={console.log}
+      onCancel={closeEditor}
     />
   </Wrapper>
 )

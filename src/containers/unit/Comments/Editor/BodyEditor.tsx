@@ -4,18 +4,12 @@ import RichEditor from '@/containers/editor/RichEditor/RealEditor'
 import EditorFooter from './Footer'
 
 type TProps = {
-  showInputEditor?: boolean
   body?: string
   onCreate?: () => void
   creating?: boolean
 }
 
-const CommentBodyEditor: FC<TProps> = ({
-  showInputEditor = true,
-  body,
-  onCreate,
-  creating,
-}) => {
+const CommentBodyEditor: FC<TProps> = ({ body, onCreate, creating }) => {
   return (
     <div className="comment-editor">
       <RichEditor

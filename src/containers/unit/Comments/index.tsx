@@ -53,6 +53,8 @@ const CommentsContainer: FC<TProps> = ({
     isAllFolded,
   } = store
 
+  console.log('showEditor: ', store.showEditor)
+
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>

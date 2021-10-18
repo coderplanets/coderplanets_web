@@ -5,7 +5,7 @@ import type { TAccount, TUser } from '@/spec'
 import Header from './Header'
 import BodyEditor from './BodyEditor'
 
-import { Wrapper } from '../styles/editor'
+import { Wrapper, ExpandWrapper } from '../styles/editor'
 
 type TProps = {
   referUsers: TUser[]
@@ -15,8 +15,7 @@ type TProps = {
   onCreate?: any
 
   restProps: {
-    showInputBox: boolean
-    showInputEditor: boolean
+    showEditor: boolean
     editContent: string
     creating: boolean
   }
@@ -27,24 +26,29 @@ const CommentEditor: FC<TProps> = (props) => {
     referUsers,
     accountInfo,
     onCreate,
-    restProps: { showInputBox, showInputEditor, editContent, creating },
+    restProps: { showEditor, editContent, creating },
   } = props
 
+  if (!showEditor) {
+    return (
+      <Wrapper>
+        <Header
+          accountInfo={accountInfo}
+          showEditor={showEditor}
+          referUsers={referUsers}
+        />
+      </Wrapper>
+    )
+  }
   return (
-    <Wrapper show>
+    <ExpandWrapper>
       <Header
         accountInfo={accountInfo}
-        showInputEditor={showInputEditor}
+        showEditor={showEditor}
         referUsers={referUsers}
       />
-      {showInputEditor && (
-        <BodyEditor
-          body={editContent}
-          onCreate={onCreate}
-          creating={creating}
-        />
-      )}
-    </Wrapper>
+      <BodyEditor body={editContent} onCreate={onCreate} creating={creating} />
+    </ExpandWrapper>
   )
 }
 
