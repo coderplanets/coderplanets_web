@@ -91,7 +91,7 @@ const CommentsStore = T.model('CommentsStore', {
       const slf = self as TStore
 
       return {
-        foldedIds: slf.foldedCommentIds,
+        foldedIds: toJS(slf.foldedCommentIds),
         isAllFolded: slf.isAllFolded,
       }
     },

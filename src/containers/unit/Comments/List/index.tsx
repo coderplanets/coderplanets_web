@@ -41,11 +41,6 @@ const CommentsList: FC<TProps> = ({
         mode={mode}
         loading={loading}
       />
-      {/* {loadingFresh && (
-        <CommentBlock>
-          <CommentLoading />
-        </CommentBlock>
-      )} */}
       <ListsWrapper>
         <List
           mode={mode}
@@ -53,9 +48,6 @@ const CommentsList: FC<TProps> = ({
           foldedIds={foldedIds}
           tobeDeleteId={tobeDeleteId}
         />
-        {/* <CommentBlock>
-            <CommentLoading />
-          </CommentBlock> */}
       </ListsWrapper>
       <Br bottom={50} />
       {!loading && (

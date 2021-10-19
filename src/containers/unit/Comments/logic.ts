@@ -29,14 +29,14 @@ let saveDraftTimmer = null
 let store: TStore | undefined
 
 // variables = %{id: post.id, thread: "POST", filter: %{page: 1, size: page_size}}
-export const loadComments = (): void => {
+export const loadComments = (page = 1): void => {
   const { viewingArticle: article, mode } = store
 
   const args = {
     id: article.id,
     thread: article.meta.thread,
     mode,
-    filter: { page: 1, size: 20 },
+    filter: { page, size: 20 },
   }
   log('query args: ', args)
   store.mark({ loading: true })
@@ -53,7 +53,8 @@ export const createComment = (): void => {
   }
 
   log('createComment args: ', args)
-  // sr71$.mutate(S.createComment, args)
+  store.mark({ publishing: true })
+  sr71$.mutate(S.createComment, args)
 }
 
 export const openEditor = (): void => {
@@ -248,10 +249,12 @@ const saveDraftIfNeed = (content): void => {
 const clearDraft = (): void => BStore.remove('recentDraft')
 
 export const foldComment = (id: TID): void => {
+  console.log('foldComment: ', id)
   store.mark({ foldedCommentIds: [id, ...store.foldedCommentIds] })
 }
 
 export const expandComment = (id: TID): void => {
+  console.log('expandComment: ', id)
   store.mark({ foldedCommentIds: reject(equals(id), store.foldedCommentIds) })
 }
 
@@ -281,17 +284,17 @@ const DataSolver = [
   {
     match: asyncRes('createComment'),
     action: () => {
-      store.mark({
-        showEditor: false,
-        commentBody: '',
-        loading: false,
-      })
+      store.mark({ loading: true, publishing: false, publishDone: true })
+      loadComments()
+      setTimeout(() => {
+        store.mark({
+          showEditor: false,
+          commentBody: '',
+          publishDone: false,
+        })
+      }, 500)
       stopDraftTimmer()
       clearDraft()
-      // loadComents({
-      //   filter: { page: 1, sort: TYPE.DESC_INSERTED },
-      //   fresh: true,
-      // })
     },
   },
   {
