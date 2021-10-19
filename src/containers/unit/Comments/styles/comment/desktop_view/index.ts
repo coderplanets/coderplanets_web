@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import animate from '@/utils/animations'
 
 import PinSVG from '@/icons/Pin'
+import UserBadge from '@/icons/UserBadge'
 
 type TWrapper = {
   isPinned: boolean
@@ -51,11 +53,12 @@ export const BadgePopContent = styled.div`
   padding: 5px 10px;
   font-size: 12px;
 `
-export const AuthorUpvotedIcon = styled(Img)`
-  ${css.size(14)};
+export const AuthorUpvotedIcon = styled(UserBadge)`
+  ${css.size(15)};
   fill: ${theme('comment.icon')};
-  opacity: 0.6;
-  margin-top: 3px;
+  opacity: 0.8;
+  margin-top: 4px;
+  animation: ${animate.zoomIn} 0.2s linear;
 `
 export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
   ${css.size(14)};

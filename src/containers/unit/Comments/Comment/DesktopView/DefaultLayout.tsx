@@ -67,11 +67,11 @@ const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
           />
           {isArticleAuthorUpvoted && (
             <Tooltip
-              content={<BadgePopContent>作者顶过</BadgePopContent>}
+              content={<BadgePopContent>作者赞过</BadgePopContent>}
               placement="bottom"
               noPadding
             >
-              <AuthorUpvotedIcon src={`${ICON}/article/author_upvoted.svg`} />
+              <AuthorUpvotedIcon />
             </Tooltip>
           )}
           {isSolution && (

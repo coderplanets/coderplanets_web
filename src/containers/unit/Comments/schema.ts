@@ -68,6 +68,9 @@ const upvoteComment = gql`
   mutation ($id: ID!) {
     upvoteComment(id: $id) {
       id
+      meta {
+        isArticleAuthorUpvoted
+      }
       upvotesCount
       viewerHasUpvoted
       replyToId
@@ -78,6 +81,9 @@ const undoUpvoteComment = gql`
   mutation ($id: ID!) {
     undoUpvoteComment(id: $id) {
       id
+      meta {
+        isArticleAuthorUpvoted
+      }
       upvotesCount
       viewerHasUpvoted
       replyToId

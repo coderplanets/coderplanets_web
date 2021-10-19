@@ -325,15 +325,23 @@ const DataSolver = [
   {
     match: asyncRes('upvoteComment'),
     action: ({ upvoteComment }) => {
-      const { upvotesCount, viewerHasUpvoted } = upvoteComment
-      store.updateUpvote(upvoteComment, { upvotesCount, viewerHasUpvoted })
+      const { upvotesCount, viewerHasUpvoted, meta } = upvoteComment
+      store.updateUpvote(upvoteComment, {
+        upvotesCount,
+        viewerHasUpvoted,
+        meta,
+      })
     },
   },
   {
     match: asyncRes('undoUpvoteComment'),
     action: ({ undoUpvoteComment }) => {
-      const { upvotesCount, viewerHasUpvoted } = undoUpvoteComment
-      store.updateUpvote(undoUpvoteComment, { upvotesCount, viewerHasUpvoted })
+      const { upvotesCount, viewerHasUpvoted, meta } = undoUpvoteComment
+      store.updateUpvote(undoUpvoteComment, {
+        upvotesCount,
+        viewerHasUpvoted,
+        meta,
+      })
     },
   },
   {

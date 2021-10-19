@@ -224,6 +224,9 @@ const CommentsStore = T.model('CommentsStore', {
         const replyIndex = findIndex(propEq('id', id), parentComment.replies)
         if (replyIndex < 0) return
         const replyComment = parentComment.replies[replyIndex]
+        if (info.meta) {
+          info.meta = { ...replyComment.meta, ...info.meta }
+        }
         self.pagedComments.entries[parentIndex].replies[replyIndex] = {
           ...replyComment,
           ...info,
@@ -233,8 +236,12 @@ const CommentsStore = T.model('CommentsStore', {
         const index = findIndex(propEq('id', id), entries)
 
         if (index < 0) return
+        const comment = entries[index]
+        if (info.meta) {
+          info.meta = { ...comment.meta, ...info.meta }
+        }
         // @ts-ignore
-        self.pagedComments.entries[index] = { ...entries[index], ...info }
+        self.pagedComments.entries[index] = { ...comment, ...info }
       }
     },
     upvoteEmotion(comment: TComment, emotion: TEmotion): void {
