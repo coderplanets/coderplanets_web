@@ -1,24 +1,21 @@
 import { FC, memo } from 'react'
 
-import RichEditor from '@/containers/editor/RichEditor/RealEditor'
-import EditorFooter from './Footer'
+import RichEditor from '@/containers/editor/RichEditor'
 
 type TProps = {
   body?: string
-  onCreate?: () => void
-  creating?: boolean
+  onChange?: (v: string) => void
 }
 
-const CommentBodyEditor: FC<TProps> = ({ body, onCreate, creating }) => {
+const CommentBodyEditor: FC<TProps> = ({ body, onChange }) => {
   return (
     <div className="comment-editor">
       <RichEditor
-        data="{}"
+        data={body}
         type="comment"
         placeholder="// 评论内容（'Tab' 键快速插入）"
+        onChange={(v) => onChange(JSON.stringify(v))}
       />
-
-      <EditorFooter loading={creating} showFold onCreate={onCreate} />
     </div>
   )
 }

@@ -61,14 +61,3 @@ export const PenIcon = styled(PublishSVG)`
 
   transition: all 0.2s;
 `
-export const RefUsersWrapper = styled.div`
-  ${css.flex('align-center')};
-`
-export const AtSignIcon = styled(Img)`
-  fill: ${theme('comment.username')};
-  ${css.size(15)};
-  margin-right: 5px;
-`
-export const RefUserList = styled.div`
-  margin-top: -10px;
-`

@@ -1,24 +1,38 @@
 import { FC, memo } from 'react'
 
+import type { TSubmitState } from '@/spec'
+
 import WordsCounter from '@/components/WordsCounter'
 import SubmitButton from '@/components/Buttons/SubmitButton'
 
 import { Wrapper } from '../styles/editor/footer'
-import { closeEditor } from '../logic'
+import { closeEditor, setWordsCountState } from '../logic'
 
 type TProps = {
-  loading: boolean
-  onCreate: () => void
-  onFold?: () => void
-  showFold?: boolean
+  body: string
+  label?: string
+  submitState: TSubmitState
+  onPublish: () => void
 }
 
-const EditorFooter: FC<TProps> = ({ loading, onCreate, showFold, onFold }) => (
+const EditorFooter: FC<TProps> = ({
+  body,
+  label = '发 布',
+  submitState,
+  onPublish,
+}) => (
   <Wrapper>
-    <WordsCounter body="{}" bottom={3} min={10} />
+    <WordsCounter
+      body={body}
+      bottom={3}
+      min={10}
+      max={1000}
+      onChange={setWordsCountState}
+    />
     <SubmitButton
-      okText="发 布"
-      onPublish={console.log}
+      okText={label}
+      submitState={submitState}
+      onPublish={onPublish}
       onCancel={closeEditor}
     />
   </Wrapper>

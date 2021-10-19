@@ -9,7 +9,6 @@ const renderAndCache = ({ req, res, path }) => {
   // do not cache in dev mode
   if (dev) {
     const pagePath = path || req.path
-    console.log('# pagePath: ', pagePath)
     return app.render(req, res, pagePath, {
       ...req.query,
       ...req.params,

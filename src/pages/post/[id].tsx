@@ -5,10 +5,10 @@ import { ROUTE, ARTICLE_THREAD, METRIC } from '@/constant'
 import {
   ssrBaseStates,
   ssrFetchPrepare,
-  ssrRescue,
   ssrError,
   articleSEO,
   ssrGetParam,
+  refreshIfneed,
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
@@ -44,13 +44,11 @@ export const getServerSideProps = async (context) => {
   let resp
   try {
     resp = await fetchData(context)
+    const { post, sessionState } = resp
+    refreshIfneed(sessionState, `/post/${post.id}`, context)
   } catch (e) {
     console.log('#### error from server: ', e)
-    if (ssrRescue.hasLoginError(e.response?.errors)) {
-      resp = await fetchData(context, { tokenExpired: true })
-    } else {
-      return ssrError(context, 'fetch', 500)
-    }
+    return ssrError(context, 'fetch', 500)
   }
 
   const { post } = resp

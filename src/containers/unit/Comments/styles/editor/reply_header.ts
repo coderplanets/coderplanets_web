@@ -25,12 +25,3 @@ export const LeaveResponseUsername = styled.div`
   color: #96b3b5;
   margin-right: 10px;
 `
-
-export const ReferToIcon = styled(Img)`
-  fill: #b7cfd0;
-  ${css.size(20)};
-  margin-right: 5px;
-  margin-top: 5px;
-`
-
-export const ReplyAvatars = styled.div``

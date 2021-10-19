@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TAccount, TUser, TComment } from '@/spec'
+import type { TAccount, TSubmitState } from '@/spec'
 
 import BodyEditor from './BodyEditor'
 // import ReplyToBar from '../ReplyToBar'
@@ -12,39 +12,40 @@ import { Wrapper, InputEditorWrapper } from '../styles/editor/reply_editor'
 import { createReplyComment } from '../logic'
 
 type TProps = {
-  referUsers: TUser[]
   show: boolean
   isEdit: boolean
   accountInfo: TAccount
 
-  // restProps: {
-  //   replyContent: string
-  //   replyToComment: TComment
-  //   replying: boolean
-  // }
+  body: string
+  submitState: TSubmitState
 }
 
 const CommentReplyEditor: FC<TProps> = ({
-  referUsers,
   show,
   isEdit,
   accountInfo,
+  body,
+  submitState,
   // restProps: { replyToComment, replying },
 }) => {
   return (
     <Wrapper>
-      <ReplyHeader accountInfo={accountInfo} referUsers={referUsers} />
+      <ReplyHeader accountInfo={accountInfo} />
 
       {/* {!isEdit && <ReplyToBar comment={replyToComment} />} */}
 
       {show && (
         <div className="comment-reply-editor">
           <InputEditorWrapper>
-            <BodyEditor />
+            <BodyEditor body={body} />
           </InputEditorWrapper>
         </div>
       )}
-      <EditorFooter loading={false} onCreate={createReplyComment} />
+      <EditorFooter
+        body={body}
+        onPublish={createReplyComment}
+        submitState={submitState}
+      />
     </Wrapper>
   )
 }

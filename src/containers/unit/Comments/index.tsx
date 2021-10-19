@@ -20,7 +20,7 @@ import ReplyEditor from './Editor/ReplyEditor'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
-import { useInit, createComment, onReplyEditorClose } from './logic'
+import { useInit, onReplyEditorClose } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Comments')
@@ -29,14 +29,12 @@ type TProps = {
   comments?: TStore
   ssr?: boolean
   locked?: boolean
-  onCreate?: () => void
 }
 
 const CommentsContainer: FC<TProps> = ({
   comments: store,
   ssr = false,
   locked = false,
-  onCreate = log,
 }) => {
   useInit(store, ssr, locked)
 
@@ -44,16 +42,15 @@ const CommentsContainer: FC<TProps> = ({
     mode,
     viewingArticle,
     pagedCommentsData,
-    referUsersData,
     accountInfo,
     showReplyBox,
     showReplyEditor,
     isEdit,
-    foldedIds,
-    isAllFolded,
+    commentBody,
+    submitState,
+    showEditor,
+    foldState,
   } = store
-
-  console.log('showEditor: ', store.showEditor)
 
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
@@ -61,18 +58,19 @@ const CommentsContainer: FC<TProps> = ({
         {showReplyBox && (
           <ReplyEditor
             isEdit={isEdit}
+            body={commentBody}
             show={showReplyEditor}
             accountInfo={accountInfo}
-            referUsers={referUsersData}
+            submitState={submitState}
           />
         )}
       </Modal>
 
       <Editor
-        onCreate={createComment(onCreate)}
+        body={commentBody}
+        showEditor={showEditor}
         accountInfo={accountInfo}
-        referUsers={referUsersData}
-        restProps={{ ...store }}
+        submitState={submitState}
       />
 
       {/* <br />
@@ -87,8 +85,7 @@ const CommentsContainer: FC<TProps> = ({
       <List
         totalCommentsCount={viewingArticle.commentsCount}
         mode={mode}
-        foldedIds={foldedIds}
-        isAllFolded={isAllFolded}
+        foldState={foldState}
         pagedComments={pagedCommentsData}
         restProps={{ ...store }}
       />

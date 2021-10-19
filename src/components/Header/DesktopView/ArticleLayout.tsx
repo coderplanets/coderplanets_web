@@ -7,9 +7,14 @@
 import { FC } from 'react'
 
 import { ICON } from '@/config'
-import { buildLog } from '@/utils/logger'
 
+import { buildLog } from '@/utils/logger'
+import { authWarn } from '@/utils/helper'
+
+import Tooltip from '@/components/Tooltip'
+import UserCard from '@/components/Cards/UserCard'
 import Navigator from '@/components/Navigator'
+import { useAccount } from '@/hooks'
 
 import type { TProps } from '../index'
 import {
@@ -17,6 +22,7 @@ import {
   InnerWrapper,
   RouterWrapper,
   Operations,
+  LoginHint,
   MoreIcon,
 } from '../styles/desktop_view/article_layout'
 
@@ -24,6 +30,8 @@ import {
 const log = buildLog('C:Header')
 
 const ArticleHeader: FC<TProps> = ({ metric, c11n, community }) => {
+  const { isLogin, user } = useAccount()
+
   return (
     <Wrapper id="whereCallShowDoraemon" testid="header" noBorder>
       <InnerWrapper>
@@ -35,7 +43,20 @@ const ArticleHeader: FC<TProps> = ({ metric, c11n, community }) => {
           />
         </RouterWrapper>
         <Operations metric={metric}>
-          <MoreIcon src={`${ICON}/shape/more-box.svg`} />
+          {!isLogin ? (
+            <LoginHint onClick={() => authWarn({ hideToast: true })}>
+              登入
+            </LoginHint>
+          ) : (
+            <Tooltip
+              content={<UserCard item={user} />}
+              delay={0}
+              placement="bottom"
+              interactive={false}
+            >
+              <MoreIcon src={`${ICON}/shape/more-box.svg`} />
+            </Tooltip>
+          )}
         </Operations>
       </InnerWrapper>
     </Wrapper>

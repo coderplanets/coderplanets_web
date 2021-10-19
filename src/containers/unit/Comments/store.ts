@@ -7,14 +7,13 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import {
   map,
   findIndex,
-  filter,
-  contains,
   clone,
   propEq,
   uniq,
   concat,
   toUpper,
   merge,
+  pick,
 } from 'ramda'
 
 import type {
@@ -29,12 +28,14 @@ import type {
   TPagedComments,
   TComment,
   TEmotion,
+  TSubmitState,
 } from '@/spec'
 // import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
 import { Comment, PagedComments, emptyPagi, Mention } from '@/model'
 
+import type { TFoldState } from './spec'
 import { MODE } from './constant'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
@@ -50,10 +51,10 @@ const CommentsStore = T.model('CommentsStore', {
 
   // current to be delete comment id, use to target the confirm mask
   tobeDeleteId: T.maybeNull(T.string),
-  // words count for current comment (include reply comment)
-  countCurrent: T.optional(T.number, 0),
   // content input of current comment editor
-  editContent: T.optional(T.string, ''),
+  commentBody: T.optional(T.string, '{}'),
+  replyBody: T.optional(T.string, '{}'),
+  wordsCountReady: T.optional(T.boolean, false),
   // content input of current reply comment editor
   replyContent: T.optional(T.string, ''),
   // comments pagination data of current COMMUNITY / PART
@@ -62,21 +63,12 @@ const CommentsStore = T.model('CommentsStore', {
   isEdit: T.optional(T.boolean, false),
   editComment: T.maybeNull(Comment),
 
-  // current "@user" in valid array format
-  referUsers: T.optional(T.array(Mention), []),
-  // current "@user" in string list
-  extractMentions: T.optional(T.array(T.string), []),
-
   // parrent comment of current reply
   replyToComment: T.maybeNull(Comment),
 
-  // mention users in content
-  mentionList: T.optional(T.array(Mention), []),
-
   // toggle loading for creating comment
-  creating: T.optional(T.boolean, false),
-  // toggle loading for creating reply comment
-  replying: T.optional(T.boolean, false),
+  publishing: T.optional(T.boolean, false),
+  publishDone: T.optional(T.boolean, false),
   // toggle loading for comments list
   loading: T.optional(T.boolean, false),
 
@@ -87,18 +79,25 @@ const CommentsStore = T.model('CommentsStore', {
       const root = getParent(self) as TRootStore
       return root.curRoute
     },
+    get isAllFolded(): boolean {
+      const slf = self as TStore
+      const { foldedIds, pagedCommentsData } = slf
+      return foldedIds.length === pagedCommentsData.totalCount
+    },
     get foldedIds(): TID[] {
       return toJS(self.foldedCommentIds)
+    },
+    get foldState(): TFoldState {
+      const slf = self as TStore
+
+      return {
+        foldedIds: slf.foldedCommentIds,
+        isAllFolded: slf.isAllFolded,
+      }
     },
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
-    },
-    get referUsersData(): TUser[] {
-      const referUsers = toJS(self.referUsers)
-      const extractMentions = toJS(self.extractMentions)
-      // @ts-ignore
-      return filter((user) => contains(user.name, extractMentions), referUsers)
     },
     get participators(): TUser[] {
       const root = getParent(self) as TRootStore
@@ -120,9 +119,6 @@ const CommentsStore = T.model('CommentsStore', {
       */
 
       return map(mentionMapper, commentsParticipants)
-    },
-    get mentionListData() {
-      return toJS(self.mentionList)
     },
     get pagedCommentsData(): TPagedComments {
       return toJS(self.pagedComments)
@@ -154,10 +150,15 @@ const CommentsStore = T.model('CommentsStore', {
     get editCommentData() {
       return toJS(self.editComment)
     },
-    get isAllFolded(): boolean {
+    get isReady(): boolean {
       const slf = self as TStore
-      const { foldedIds, pagedCommentsData } = slf
-      return foldedIds.length === pagedCommentsData.totalCount
+      const { wordsCountReady } = slf
+
+      return wordsCountReady
+    },
+    get submitState(): TSubmitState {
+      const slf = self as TStore
+      return pick(['publishing', 'publishDone', 'isReady'], slf)
     },
   }))
   .actions((self) => ({
@@ -166,13 +167,18 @@ const CommentsStore = T.model('CommentsStore', {
       root.changesetErr(options)
     },
 
+    updateEditing(sobj): void {
+      const slf = self as TStore
+      slf.mark(sobj)
+    },
+
     validator(type): boolean {
       const { changesetErr } = self as TStore
       switch (type) {
         case 'create': {
-          const result = changeset({ editContent: self.editContent })
+          const result = changeset({ commentBody: self.commentBody })
             // @ts-ignore
-            .exist({ editContent: '讨论内容' }, changesetErr)
+            .exist({ commentBody: '讨论内容' }, changesetErr)
             .done()
 
           return result.passed
@@ -190,26 +196,14 @@ const CommentsStore = T.model('CommentsStore', {
         }
       }
     },
-    addReferUser(user: TUser): void {
-      const index = findIndex((u) => u.id === String(user.id), self.referUsers)
-      if (index === -1) {
-        self.referUsers.push({
-          id: String(user.id),
-          name: user.name,
-          avatar: user.avatar,
-        })
-      }
-    },
     updateMentionList(mentionArray): void {
-      const curMentionList = clone(self.mentionList)
-      const uniqList = concat(curMentionList, mentionArray)
-      const mentionList = map(mentionMapper, uniqList)
-
-      // log('mentionList: ', mentionList)
-      // log('uniq: ', R.uniq(R.concat(mentionList, self.participators)))
+      console.log('TODO: updateMentionList')
+      // const curMentionList = clone(self.mentionList)
+      // const uniqList = concat(curMentionList, mentionArray)
+      // const mentionList = map(mentionMapper, uniqList)
 
       // @ts-ignore
-      self.mentionList = uniq(concat(mentionList, self.participators))
+      // self.mentionList = uniq(concat(mentionList, self.participators))
     },
     updateOneComment(id, comment = {}): void {
       const { entries } = self.pagedCommentsData

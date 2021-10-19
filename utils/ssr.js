@@ -79,9 +79,26 @@ const ssrFetchToken = (context, opt) => {
 // get jwt from cookie or localStorage
 // props has to be getInitialProps's arg
 export const getJwtToken = (context) => {
-  if (isServerSide) return BStore.cookie.from_req(context.req, 'jwtToken')
+  return BStore.cookie.ssrGet(context, 'jwtToken')
+}
 
-  return BStore.get('token')
+export const isTokenExpired = (sessionState, context) => {
+  if (!sessionState.isValid && getJwtToken(context)) {
+    return true
+  }
+
+  return false
+}
+
+/**
+ * if the token is expired, then clear cookie and refresh
+ */
+export const refreshIfneed = (sessionState, path = '/', context) => {
+  if (isTokenExpired(sessionState, context)) {
+    BStore.cookie.ssrRemove(context, 'jwtToken')
+    context.res.writeHead(302, { Location: path })
+    context.res.end()
+  }
 }
 
 export const ssrPagedArticleSchema = (threadPath) => {

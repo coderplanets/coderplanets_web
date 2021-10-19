@@ -1,14 +1,15 @@
 import { useEffect } from 'react'
-import { curry, isEmpty, reject, equals } from 'ramda'
+import { isEmpty, reject, equals } from 'ramda'
 
-import type { TUser, TComment, TID, TEmotionType } from '@/spec'
+import type { TUser, TComment, TID, TEmotionType, TEditValue } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import BStore from '@/utils/bstore'
-import { extractMentions, errRescue, authWarn, titleCase } from '@/utils/helper'
+import { errRescue, authWarn, titleCase } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { scrollIntoEle } from '@/utils/dom'
+import { updateEditing } from '@/utils/mobx'
 
 import type { TMode } from './spec'
 import type { TStore } from './store'
@@ -42,23 +43,18 @@ export const loadComments = (): void => {
   sr71$.query(S.pagedComments, args)
 }
 
-/* eslint-disable-next-line */
-export const createComment = curry((cb, e) => {
-  if (!store.validator('create')) return false
+export const createComment = (): void => {
+  if (!store.isReady) return
 
-  store.mark({ creating: true })
   const args = {
     id: store.viewingArticle.id,
-    body: store.editContent,
+    body: store.commentBody,
     thread: store.activeThread,
-    community: store.communityRaw,
-    mentionUsers: store.referUsersData.map((user) => ({ id: user.id })),
   }
 
   log('createComment args: ', args)
-  sr71$.mutate(S.createComment, args)
-  cb()
-})
+  // sr71$.mutate(S.createComment, args)
+}
 
 export const openEditor = (): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
@@ -83,29 +79,21 @@ export const createReplyComment = (): void => {
     })
   }
 
-  if (store.replying) return
-
-  store.mark({ replying: true })
   return sr71$.mutate(S.replyComment, {
     id: store.replyToComment.id,
     body: store.replyContent,
     community: store.curCommunity.raw,
     thread: store.activeThread,
-    mentionUsers: store.referUsersData.map((user) => ({ id: user.id })),
   })
 }
 
-export const onCommentInputChange = (editContent): void =>
-  store.mark({
-    extractMentions: extractMentions(editContent),
-    editContent,
-  })
+export const commentOnChange = (e: TEditValue, key: string): void => {
+  updateEditing(store, key, e)
+}
 
-export const onReplyInputChange = (replyContent): void =>
-  store.mark({
-    extractMentions: extractMentions(replyContent),
-    replyContent,
-  })
+export const setWordsCountState = (wordsCountReady: boolean): void => {
+  store?.mark({ wordsCountReady })
+}
 
 export const openUpdateEditor = (data): void =>
   store.mark({
@@ -220,7 +208,6 @@ export const handleUpvote = (
   }
 }
 
-export const onMention = (user: TUser): void => store.addReferUser(user)
 export const onMentionSearch = (name: string): void => {
   if (name?.length >= 1) {
     sr71$.query(S.searchUsers, { name })
@@ -244,7 +231,7 @@ export const pageChange = (page = 1): void => {
   scrollIntoEle('lists-info')
 }
 
-const cancelLoading = () => store.mark({ loading: false, creating: false })
+const cancelLoading = () => store.mark({ loading: false })
 
 export const onReplyEditorClose = (): void => {
   closeReplyBox()
@@ -296,8 +283,7 @@ const DataSolver = [
     action: () => {
       store.mark({
         showEditor: false,
-        editContent: '',
-        creating: false,
+        commentBody: '',
         loading: false,
       })
       stopDraftTimmer()
@@ -313,7 +299,6 @@ const DataSolver = [
     action: () => {
       store.mark({
         showReplyBox: false,
-        replying: false,
         replyToComment: null,
       })
       scrollIntoEle('lists-info')
@@ -411,10 +396,10 @@ const initDraftTimmer = (): void => {
   stopDraftTimmer()
 
   saveDraftTimmer = setInterval(() => {
-    const { showReplyEditor, editContent, replyContent } = store
+    const { showReplyEditor, commentBody, replyContent } = store
 
     if (showReplyEditor) return saveDraftIfNeed(replyContent)
-    saveDraftIfNeed(editContent)
+    saveDraftIfNeed(commentBody)
   }, 3000)
 }
 

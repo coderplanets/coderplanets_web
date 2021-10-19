@@ -20,26 +20,13 @@ const pagedComments = gql`
   }
 `
 const createComment = gql`
-  mutation createComment(
-    $community: String!
-    $thread: CmsThread
-    $id: ID!
-    $body: String!
-    $mentionUsers: [Ids]
-  ) {
-    createComment(
-      community: $community
-      thread: $thread
-      id: $id
-      body: $body
-      mentionUsers: $mentionUsers
-    ) {
+  mutation ($thread: Thread!, $id: ID!, $body: String!) {
+    createComment(thread: $thread, id: $id, body: $body) {
       id
-      body
+      bodyHtml
     }
   }
 `
-
 const updateComment = gql`
   mutation ($thread: CmsThread!, $id: ID!, $body: String!) {
     updateComment(thread: $thread, id: $id, body: $body) {
