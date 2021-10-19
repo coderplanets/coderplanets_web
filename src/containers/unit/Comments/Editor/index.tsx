@@ -4,10 +4,10 @@ import type { TAccount, TSubmitState } from '@/spec'
 
 import Header from './Header'
 import BodyEditor from './BodyEditor'
-import EditorFooter from './Footer'
+import Footer from './Footer'
 
 import { Wrapper, ExpandWrapper } from '../styles/editor'
-import { commentOnChange, createComment } from '../logic'
+import { commentOnChange, createComment, closeEditor } from '../logic'
 
 type TProps = {
   accountInfo: TAccount
@@ -37,10 +37,11 @@ const CommentEditor: FC<TProps> = ({
         onChange={(v) => commentOnChange(v, 'commentBody')}
       />
 
-      <EditorFooter
+      <Footer
         submitState={submitState}
         body={body}
         onPublish={createComment}
+        onCancel={closeEditor}
       />
     </ExpandWrapper>
   )

@@ -6,13 +6,14 @@ import WordsCounter from '@/components/WordsCounter'
 import SubmitButton from '@/components/Buttons/SubmitButton'
 
 import { Wrapper } from '../styles/editor/footer'
-import { closeEditor, setWordsCountState } from '../logic'
+import { setWordsCountState } from '../logic'
 
 type TProps = {
   body: string
   label?: string
   submitState: TSubmitState
   onPublish: () => void
+  onCancel: () => void
 }
 
 const EditorFooter: FC<TProps> = ({
@@ -20,6 +21,7 @@ const EditorFooter: FC<TProps> = ({
   label = '发 布',
   submitState,
   onPublish,
+  onCancel,
 }) => (
   <Wrapper>
     <WordsCounter
@@ -33,7 +35,7 @@ const EditorFooter: FC<TProps> = ({
       okText={label}
       submitState={submitState}
       onPublish={onPublish}
-      onCancel={closeEditor}
+      onCancel={onCancel}
     />
   </Wrapper>
 )

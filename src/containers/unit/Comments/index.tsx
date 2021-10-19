@@ -16,11 +16,12 @@ import Modal from '@/components/Modal'
 import Editor from './Editor'
 import List from './List'
 import ReplyEditor from './Editor/ReplyEditor'
+import UpdateEditor from './Editor/UpdateEditor'
 // import LockedMessage from './LockedMessage'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
-import { useInit, onReplyEditorClose } from './logic'
+import { useInit, onReplyEditorClose, closeUpdateEditor } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Comments')
@@ -47,13 +48,31 @@ const CommentsContainer: FC<TProps> = ({
     showReplyEditor,
     isEdit,
     commentBody,
+    updateId,
+    updateBody,
     submitState,
     showEditor,
+    showUpdateEditor,
     foldState,
   } = store
 
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
+      <Modal
+        show={showUpdateEditor}
+        width="680px"
+        onClose={closeUpdateEditor}
+        showCloseBtn
+      >
+        {showUpdateEditor && (
+          <UpdateEditor
+            id={updateId}
+            body={updateBody}
+            submitState={submitState}
+          />
+        )}
+      </Modal>
+
       <Modal show={showReplyBox} onClose={onReplyEditorClose}>
         {showReplyBox && (
           <ReplyEditor

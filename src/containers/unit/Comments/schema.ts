@@ -35,6 +35,14 @@ const updateComment = gql`
     }
   }
 `
+const oneComment = gql`
+  query ($id: ID!) {
+    oneComment(id: $id) {
+      id
+      body
+    }
+  }
+`
 
 const replyComment = gql`
   mutation replyComment(
@@ -126,6 +134,7 @@ const searchUsers = gql`
 const schema = {
   pagedComments,
   createComment,
+  oneComment,
   updateComment,
   replyComment,
   deleteComment,

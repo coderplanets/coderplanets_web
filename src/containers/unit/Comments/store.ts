@@ -4,17 +4,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import {
-  map,
-  findIndex,
-  clone,
-  propEq,
-  uniq,
-  concat,
-  toUpper,
-  merge,
-  pick,
-} from 'ramda'
+import { values, map, findIndex, propEq, toUpper, merge, pick } from 'ramda'
 
 import type {
   TRootStore,
@@ -33,17 +23,20 @@ import type {
 // import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { changeset } from '@/utils/validator'
-import { Comment, PagedComments, emptyPagi, Mention } from '@/model'
+import { Comment, PagedComments, emptyPagi } from '@/model'
 
 import type { TFoldState } from './spec'
-import { MODE } from './constant'
+import { MODE, EDIT_MODE } from './constant'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
 const CommentsStore = T.model('CommentsStore', {
-  mode: T.optional(T.enumeration([MODE.REPLIES, MODE.TIMELINE]), MODE.REPLIES),
+  mode: T.optional(T.enumeration(values(MODE)), MODE.REPLIES),
+  editMode: T.optional(T.enumeration(values(EDIT_MODE)), EDIT_MODE.CREATE),
+
   // toggle main comment box
   showEditor: T.optional(T.boolean, false),
+  showUpdateEditor: T.optional(T.boolean, false),
 
   // toggle modal editor for reply
   showReplyBox: T.optional(T.boolean, false),
@@ -53,6 +46,8 @@ const CommentsStore = T.model('CommentsStore', {
   tobeDeleteId: T.maybeNull(T.string),
   // content input of current comment editor
   commentBody: T.optional(T.string, '{}'),
+  updateId: T.optional(T.string, ''),
+  updateBody: T.optional(T.string, '{}'),
   replyBody: T.optional(T.string, '{}'),
   wordsCountReady: T.optional(T.boolean, false),
   // content input of current reply comment editor

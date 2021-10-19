@@ -5,7 +5,7 @@ import type { TAccount, TSubmitState } from '@/spec'
 import BodyEditor from './BodyEditor'
 // import ReplyToBar from '../ReplyToBar'
 import ReplyHeader from './ReplyHeader'
-import EditorFooter from './Footer'
+import Footer from './Footer'
 
 import { Wrapper, InputEditorWrapper } from '../styles/editor/reply_editor'
 
@@ -41,10 +41,11 @@ const CommentReplyEditor: FC<TProps> = ({
           </InputEditorWrapper>
         </div>
       )}
-      <EditorFooter
+      <Footer
         body={body}
         onPublish={createReplyComment}
         submitState={submitState}
+        onCancel={console.log}
       />
     </Wrapper>
   )

@@ -1,6 +1,6 @@
 import { FC, memo, useCallback } from 'react'
 
-import type { TAccount, TComment } from '@/spec'
+import type { TComment } from '@/spec'
 import { ICON } from '@/config'
 
 import { useAccount } from '@/hooks'
@@ -16,6 +16,11 @@ type TProps = {
 }
 
 const menuOptions = [
+  // {
+  //   key: 'edit',
+  //   icon: `${ICON}/edit/publish-pen.svg`,
+  //   title: '编辑',
+  // },
   {
     key: 'quote',
     icon: `${ICON}/shape/quote.svg`,
@@ -35,11 +40,10 @@ const menuOptions = [
 
 const Actions: FC<TProps> = ({ data }) => {
   const { user } = useAccount()
-  const accountId = user.id
 
   let extraOptions = []
 
-  if (String(data.author.id) === accountId) {
+  if (data.author.login === user.login) {
     extraOptions = [
       {
         key: 'edit',

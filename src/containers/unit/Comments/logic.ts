@@ -1,7 +1,13 @@
 import { useEffect } from 'react'
 import { isEmpty, reject, equals } from 'ramda'
 
-import type { TUser, TComment, TID, TEmotionType, TEditValue } from '@/spec'
+import type {
+  TComment,
+  TID,
+  TEmotionType,
+  TEditValue,
+  TCommunity,
+} from '@/spec'
 import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
@@ -69,6 +75,15 @@ export const closeEditor = (): void => {
   store.mark({ showEditor: false })
 }
 
+export const openUpdateEditor = (comment: TComment): void => {
+  store.mark({ showUpdateEditor: true })
+  return sr71$.query(S.oneComment, { id: comment.id })
+}
+
+export const closeUpdateEditor = (): void => {
+  store.mark({ showUpdateEditor: false, updateId: '' })
+}
+
 export const createReplyComment = (): void => {
   if (!store.validator('reply')) return
 
@@ -96,16 +111,6 @@ export const setWordsCountState = (wordsCountReady: boolean): void => {
   store?.mark({ wordsCountReady })
 }
 
-export const openUpdateEditor = (data): void =>
-  store.mark({
-    isEdit: true,
-    showReplyBox: true,
-    showReplyEditor: true,
-    showReplyPreview: false,
-    editComment: data,
-    replyContent: data.body,
-  })
-
 export const openReplyEditor = (data): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
 
@@ -113,7 +118,6 @@ export const openReplyEditor = (data): void => {
   store.mark({
     showReplyBox: true,
     showReplyEditor: true,
-    showReplyPreview: false,
     replyToComment: data,
     replyContent: '',
     isEdit: false,
@@ -123,20 +127,17 @@ export const openReplyEditor = (data): void => {
 export const replyCommentPreview = (): void =>
   store.mark({
     showReplyEditor: false,
-    showReplyPreview: true,
   })
 
 export const replyBackToEditor = (): void =>
   store.mark({
     showReplyEditor: true,
-    showReplyPreview: false,
   })
 
 export const closeReplyBox = (): void => {
   store.mark({
     showReplyBox: false,
     showReplyEditor: false,
-    showReplyPreview: false,
   })
 }
 
@@ -273,6 +274,12 @@ export const expandAllComments = (): void => {
 // Data & Error handlers
 // ###############################
 const DataSolver = [
+  {
+    match: asyncRes('oneComment'),
+    action: ({ oneComment }) => {
+      store.mark({ updateId: oneComment.id, updateBody: oneComment.body })
+    },
+  },
   {
     match: asyncRes('pagedComments'),
     action: ({ pagedComments }) => {
