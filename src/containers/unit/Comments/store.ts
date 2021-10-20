@@ -177,7 +177,8 @@ const CommentsStore = T.model('CommentsStore', {
         const replyIndex = findIndex(propEq('id', id), parentComment.replies)
         if (replyIndex < 0) return
         const replyComment = parentComment.replies[replyIndex]
-
+        // @ts-ignore
+        if (fields.meta) fields.meta = { ...replyComment.meta, ...fields.meta }
         // @ts-ignore
         self.pagedComments.entries[parentIndex].replies[replyIndex] = {
           ...replyComment,
@@ -190,47 +191,13 @@ const CommentsStore = T.model('CommentsStore', {
         if (index < 0) return
         const comment = entries[index]
         // @ts-ignore
-        self.pagedComments.entries[index] = { ...comment, ...fields }
-      }
+        if (fields.meta) fields.meta = { ...comment.meta, ...fields.meta }
 
-      // const index = findIndex(propEq('id', id), entries)
-      // if (index < 0) return
-      // const comment = { ...entries[index], ...fields }
-
-      // self.pagedComments.entries[index] = comment
-    },
-    updateUpvote(comment: TComment, fields): void {
-      const { id, replyToId } = comment
-      const slf = self as TStore
-      const { entries } = slf.pagedCommentsData
-
-      if (self.mode === MODE.REPLIES && replyToId) {
-        const parentIndex = findIndex(propEq('id', replyToId), entries)
-        if (parentIndex < 0) return
-        const parentComment = entries[parentIndex]
-        const replyIndex = findIndex(propEq('id', id), parentComment.replies)
-        if (replyIndex < 0) return
-        const replyComment = parentComment.replies[replyIndex]
-        if (fields.meta) {
-          fields.meta = { ...replyComment.meta, ...fields.meta }
-        }
-        self.pagedComments.entries[parentIndex].replies[replyIndex] = {
-          ...replyComment,
-          ...fields,
-        }
-      } else {
-        // timeline & replies parent comment
-        const index = findIndex(propEq('id', id), entries)
-
-        if (index < 0) return
-        const comment = entries[index]
-        if (fields.meta) {
-          fields.meta = { ...comment.meta, ...fields.meta }
-        }
         // @ts-ignore
         self.pagedComments.entries[index] = { ...comment, ...fields }
       }
     },
+
     upvoteEmotion(comment: TComment, emotion: TEmotion): void {
       const { id, replyToId } = comment
       const slf = self as TStore

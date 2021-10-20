@@ -192,13 +192,13 @@ export const handleUpvote = (
   const { id, upvotesCount } = comment
 
   if (viewerHasUpvoted) {
-    store.updateUpvote(comment, {
+    store.updateOneComment(comment, {
       upvotesCount: upvotesCount + 1,
       viewerHasUpvoted: !viewerHasUpvoted,
     })
     sr71$.mutate(S.upvoteComment, { id })
   } else {
-    store.updateUpvote(comment, {
+    store.updateOneComment(comment, {
       upvotesCount: upvotesCount - 1,
       viewerHasUpvoted: !viewerHasUpvoted,
     })
@@ -321,7 +321,7 @@ const DataSolver = [
     match: asyncRes('upvoteComment'),
     action: ({ upvoteComment }) => {
       const { upvotesCount, viewerHasUpvoted, meta } = upvoteComment
-      store.updateUpvote(upvoteComment, {
+      store.updateOneComment(upvoteComment, {
         upvotesCount,
         viewerHasUpvoted,
         meta,
@@ -332,7 +332,7 @@ const DataSolver = [
     match: asyncRes('undoUpvoteComment'),
     action: ({ undoUpvoteComment }) => {
       const { upvotesCount, viewerHasUpvoted, meta } = undoUpvoteComment
-      store.updateUpvote(undoUpvoteComment, {
+      store.updateOneComment(undoUpvoteComment, {
         upvotesCount,
         viewerHasUpvoted,
         meta,
