@@ -24,7 +24,7 @@ import type {
 import { markStates, toJS } from '@/utils/mobx'
 import { Comment, PagedComments, emptyPagi } from '@/model'
 
-import type { TFoldState, TEditMode } from './spec'
+import type { TFoldState, TEditMode, TEditState } from './spec'
 import { MODE, EDIT_MODE } from './constant'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
@@ -88,6 +88,29 @@ const CommentsStore = T.model('CommentsStore', {
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
+    },
+    get commentsCount(): number {
+      const slf = self as TStore
+      return slf.viewingArticle.commentsCount
+    },
+    get editState(): TEditState {
+      const slf = self as TStore
+      const baseFields = pick(
+        [
+          'commentBody',
+          'updateBody',
+          'replyBody',
+          'accountInfo',
+          'showEditor',
+          'showReplyEditor',
+          'showUpdateEditor',
+          'submitState',
+          'updateId',
+        ],
+        slf,
+      )
+
+      return { ...baseFields, replyToComment: slf.replyToCommentData }
     },
     get participators(): TUser[] {
       const root = getParent(self) as TRootStore

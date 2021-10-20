@@ -1,49 +1,74 @@
-import { FC, memo } from 'react'
+import { FC, Fragment, memo } from 'react'
 
-import type { TAccount, TSubmitState } from '@/spec'
+import Modal from '@/components/Modal'
 
-import Header from './Header'
-import BodyEditor from './BodyEditor'
-import Footer from './Footer'
+import ReplyEditor from './ReplyEditor'
+import UpdateEditor from './UpdateEditor'
+import PublishEditor from './PublishEditor'
 
-import { Wrapper, ExpandWrapper } from '../styles/editor'
-import { commentOnChange, createComment, closeEditor } from '../logic'
+import type { TEditState } from '../spec'
+import { closeUpdateEditor, onReplyEditorClose } from '../logic'
 
 type TProps = {
-  accountInfo: TAccount
-  body: string
-  submitState: TSubmitState
-  showEditor: boolean
+  editState: TEditState
 }
 
-const CommentEditor: FC<TProps> = ({
-  accountInfo,
-  submitState,
-  showEditor,
-  body,
-}) => {
-  if (!showEditor) {
-    return (
-      <Wrapper>
-        <Header accountInfo={accountInfo} showEditor={showEditor} />
-      </Wrapper>
-    )
-  }
-  return (
-    <ExpandWrapper>
-      <Header accountInfo={accountInfo} showEditor={showEditor} />
-      <BodyEditor
-        body={body}
-        onChange={(v) => commentOnChange(v, 'commentBody')}
-      />
+const CommentEditor: FC<TProps> = ({ editState }) => {
+  const {
+    // publish
+    commentBody,
+    showEditor,
+    accountInfo,
+    // update
+    showUpdateEditor,
+    updateId,
+    updateBody,
+    // reply
+    showReplyEditor,
+    replyToComment,
+    replyBody,
+    submitState,
+  } = editState
 
-      <Footer
+  return (
+    <Fragment>
+      <Modal
+        show={showUpdateEditor}
+        width="680px"
+        onClose={closeUpdateEditor}
+        showCloseBtn
+      >
+        {showUpdateEditor && (
+          <UpdateEditor
+            id={updateId}
+            body={updateBody}
+            submitState={submitState}
+          />
+        )}
+      </Modal>
+
+      <Modal
+        show={showReplyEditor}
+        width="680px"
+        onClose={onReplyEditorClose}
+        showCloseBtn
+      >
+        {showReplyEditor && (
+          <ReplyEditor
+            replyTo={replyToComment}
+            body={replyBody}
+            submitState={submitState}
+          />
+        )}
+      </Modal>
+
+      <PublishEditor
+        body={commentBody}
+        showEditor={showEditor}
+        accountInfo={accountInfo}
         submitState={submitState}
-        body={body}
-        onPublish={createComment}
-        onCancel={closeEditor}
       />
-    </ExpandWrapper>
+    </Fragment>
   )
 }
 

@@ -15,8 +15,6 @@ import Modal from '@/components/Modal'
 
 import Editor from './Editor'
 import List from './List'
-import ReplyEditor from './Editor/ReplyEditor'
-import UpdateEditor from './Editor/UpdateEditor'
 // import LockedMessage from './LockedMessage'
 
 import type { TStore } from './store'
@@ -41,59 +39,18 @@ const CommentsContainer: FC<TProps> = ({
 
   const {
     mode,
-    viewingArticle,
+    commentsCount,
     pagedCommentsData,
-    accountInfo,
-    showReplyEditor,
-    commentBody,
-    replyBody,
-    replyToCommentData,
-    updateId,
-    updateBody,
-    submitState,
     showEditor,
-    showUpdateEditor,
     foldState,
+    editState,
   } = store
+
+  showEditor
 
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
-      <Modal
-        show={showUpdateEditor}
-        width="680px"
-        onClose={closeUpdateEditor}
-        showCloseBtn
-      >
-        {showUpdateEditor && (
-          <UpdateEditor
-            id={updateId}
-            body={updateBody}
-            submitState={submitState}
-          />
-        )}
-      </Modal>
-
-      <Modal
-        show={showReplyEditor}
-        width="680px"
-        onClose={onReplyEditorClose}
-        showCloseBtn
-      >
-        {showReplyEditor && (
-          <ReplyEditor
-            replyTo={replyToCommentData}
-            body={replyBody}
-            submitState={submitState}
-          />
-        )}
-      </Modal>
-
-      <Editor
-        body={commentBody}
-        showEditor={showEditor}
-        accountInfo={accountInfo}
-        submitState={submitState}
-      />
+      <Editor editState={editState} />
 
       {/* <br />
       <NoticeBar
@@ -105,7 +62,7 @@ const CommentsContainer: FC<TProps> = ({
       /> */}
 
       <List
-        totalCommentsCount={viewingArticle.commentsCount}
+        totalCommentsCount={commentsCount}
         mode={mode}
         foldState={foldState}
         pagedComments={pagedCommentsData}
