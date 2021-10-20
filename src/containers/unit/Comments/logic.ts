@@ -1,13 +1,7 @@
 import { useEffect } from 'react'
 import { isEmpty, reject, equals } from 'ramda'
 
-import type {
-  TComment,
-  TID,
-  TEmotionType,
-  TEditValue,
-  TCommunity,
-} from '@/spec'
+import type { TComment, TID, TEmotionType, TEditValue } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
@@ -63,6 +57,19 @@ export const createComment = (): void => {
   sr71$.mutate(S.createComment, args)
 }
 
+export const updateComment = (): void => {
+  if (!store.isReady) return
+
+  const args = {
+    id: store.updateId,
+    body: store.updateBody,
+  }
+
+  log('updateComment args: ', args)
+  store.mark({ publishing: true })
+  sr71$.mutate(S.updateComment, args)
+}
+
 export const openEditor = (): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
 
@@ -89,7 +96,7 @@ export const createReplyComment = (): void => {
 
   if (store.isEdit) {
     return sr71$.mutate(S.updateComment, {
-      id: store.editCommentData.id,
+      // id: store.editCommentData.id,
       body: store.replyContent,
       thread: store.activeThread,
     })
@@ -319,14 +326,9 @@ const DataSolver = [
   },
   {
     match: asyncRes('updateComment'),
-    action: ({ updateComment: { id, body } }) => {
-      store.mark({
-        showReplyBox: false,
-        isEdit: false,
-        editComment: null,
-        replyContent: '',
-      })
-      store.updateOneComment(id, { body })
+    action: ({ updateComment: { id, bodyHtml } }) => {
+      store.mark({ showUpdateEditor: false })
+      store.updateOneComment(id, { bodyHtml })
     },
   },
   {

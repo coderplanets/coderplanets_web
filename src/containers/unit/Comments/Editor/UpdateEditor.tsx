@@ -14,7 +14,7 @@ import {
   EditorWrapper,
   FooterWrapper,
 } from '../styles/editor/update_editor'
-import { commentOnChange, createComment, closeUpdateEditor } from '../logic'
+import { commentOnChange, updateComment, closeUpdateEditor } from '../logic'
 
 type TProps = {
   body: string
@@ -36,7 +36,7 @@ const UpdateEditor: FC<TProps> = ({ id, body, submitState }) => {
           {id !== '' ? (
             <BodyEditor
               body={body}
-              onChange={(v) => commentOnChange(v, 'commentBody')}
+              onChange={(v) => commentOnChange(v, 'updateBody')}
             />
           ) : (
             <LavaLampLoading top={10} left={30} />
@@ -49,7 +49,7 @@ const UpdateEditor: FC<TProps> = ({ id, body, submitState }) => {
           label="更 新"
           submitState={submitState}
           body={body}
-          onPublish={createComment}
+          onPublish={updateComment}
           onCancel={closeUpdateEditor}
         />
       </FooterWrapper>

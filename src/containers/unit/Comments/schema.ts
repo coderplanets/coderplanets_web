@@ -28,10 +28,10 @@ const createComment = gql`
   }
 `
 const updateComment = gql`
-  mutation ($thread: CmsThread!, $id: ID!, $body: String!) {
-    updateComment(thread: $thread, id: $id, body: $body) {
+  mutation ($id: ID!, $body: String!) {
+    updateComment(id: $id, body: $body) {
       id
-      body
+      bodyHtml
     }
   }
 `

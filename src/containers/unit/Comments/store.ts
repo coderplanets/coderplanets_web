@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values, map, findIndex, propEq, toUpper, merge, pick } from 'ramda'
+import { values, map, findIndex, propEq, toUpper, pick } from 'ramda'
 
 import type {
   TRootStore,
@@ -56,7 +56,6 @@ const CommentsStore = T.model('CommentsStore', {
   pagedComments: T.optional(PagedComments, emptyPagi),
 
   isEdit: T.optional(T.boolean, false),
-  editComment: T.maybeNull(Comment),
 
   // parrent comment of current reply
   replyToComment: T.maybeNull(Comment),
@@ -142,9 +141,6 @@ const CommentsStore = T.model('CommentsStore', {
       const root = getParent(self) as TRootStore
       return root.viewing.viewingArticle
     },
-    get editCommentData() {
-      return toJS(self.editComment)
-    },
     get isReady(): boolean {
       const slf = self as TStore
       const { wordsCountReady } = slf
@@ -200,12 +196,14 @@ const CommentsStore = T.model('CommentsStore', {
       // @ts-ignore
       // self.mentionList = uniq(concat(mentionList, self.participators))
     },
-    updateOneComment(id, comment = {}): void {
+    updateOneComment(id, fields = {}): void {
       const { entries } = self.pagedCommentsData
 
       const index = findIndex(propEq('id', id), entries)
+      if (index < 0) return
+      const comment = { ...entries[index], ...fields }
       // @ts-ignore
-      self.pagedComments.entries[index] = merge(entries[index], comment)
+      self.pagedComments.entries[index] = comment
     },
     updateUpvote(comment: TComment, info): void {
       const { id, replyToId } = comment
