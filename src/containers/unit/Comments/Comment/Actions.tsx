@@ -8,7 +8,7 @@ import IconButton from '@/components/Buttons/IconButton'
 import MenuButton from '@/components/Buttons/MenuButton'
 import { SpaceGrow } from '@/components/Common'
 
-import { Wrapper, ReplyAction } from '../styles/comment/actions'
+import { Wrapper, ReplyAction, MoreWrapper } from '../styles/comment/actions'
 import { openUpdateEditor, openReplyEditor, onDelete } from '../logic'
 
 type TProps = {
@@ -17,15 +17,10 @@ type TProps = {
 
 const menuOptions = [
   // {
-  //   key: 'edit',
-  //   icon: `${ICON}/edit/publish-pen.svg`,
-  //   title: '编辑',
+  //   key: 'quote',
+  //   icon: `${ICON}/shape/quote.svg`,
+  //   title: '引用',
   // },
-  {
-    key: 'quote',
-    icon: `${ICON}/shape/quote.svg`,
-    title: '引用',
-  },
   {
     key: 'share',
     icon: `${ICON}/article/share.svg`,
@@ -94,7 +89,9 @@ const Actions: FC<TProps> = ({ data }) => {
         extraOptions={extraOptions}
         onClick={handleAction}
       >
-        <IconButton path="shape/more.svg" size={16} />
+        <MoreWrapper>
+          <IconButton path="shape/more.svg" size={16} />
+        </MoreWrapper>
       </MenuButton>
     </Wrapper>
   )
