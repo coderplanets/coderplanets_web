@@ -30,7 +30,15 @@ let sub$ = null
 let saveDraftTimmer = null
 let store: TStore | undefined
 
-// variables = %{id: post.id, thread: "POST", filter: %{page: 1, size: page_size}}
+// 回复列表内的翻页页标记录
+let repliesPagiNo = {}
+
+const getRepliesPagiNo = (parentId: TID): number => {
+  const curNo = repliesPagiNo[parentId]
+
+  return curNo ? curNo + 1 : 1
+}
+
 export const loadComments = (page = 1): void => {
   store.mark({ loading: true })
   const { viewingArticle: article, mode } = store
@@ -45,10 +53,10 @@ export const loadComments = (page = 1): void => {
   sr71$.query(S.pagedComments, args)
 }
 
-export const loadCommentReplies = (id: TID, page = 1): void => {
-  // fdTODO:  当某一条评论的回复超过 30 条的时候，这里是有问题的，应该在加个分页机制，目前先放一放。
-  const filter = { page, size: 30 }
+export const loadCommentReplies = (id: TID): void => {
+  const filter = { page: getRepliesPagiNo(id), size: 30 }
   const args = { id, filter }
+
   store.mark({ repliesParentId: id, repliesLoading: true })
   log('loadCommentReplies args: ', args)
   sr71$.query(S.pagedCommentReplies, args)
@@ -228,7 +236,7 @@ export const deleteComment = (): void =>
   })
 
 // show delete confirm
-export const onDelete = (comment): void =>
+export const onDelete = (comment: TComment): void =>
   store.mark({ tobeDeleteId: comment.id })
 export const cancelDelete = (): void => store.mark({ tobeDeleteId: null })
 
@@ -253,12 +261,10 @@ const saveDraftIfNeed = (content): void => {
 const clearDraft = (): void => BStore.remove('recentDraft')
 
 export const foldComment = (id: TID): void => {
-  console.log('foldComment: ', id)
   store.mark({ foldedCommentIds: [id, ...store.foldedCommentIds] })
 }
 
 export const expandComment = (id: TID): void => {
-  console.log('expandComment: ', id)
   store.mark({ foldedCommentIds: reject(equals(id), store.foldedCommentIds) })
 }
 
@@ -288,6 +294,7 @@ const DataSolver = [
     action: ({ pagedComments }) => {
       cancelLoading()
       log('# pagedComments --> ', pagedComments)
+      repliesPagiNo = {}
       store.mark({ pagedComments, loading: false })
     },
   },
@@ -297,6 +304,8 @@ const DataSolver = [
       // cancelLoading()
       log('# pagedCommentReplies --> ', pagedCommentReplies)
       store.addToReplies(pagedCommentReplies.entries)
+
+      repliesPagiNo[store.repliesParentId] = pagedCommentReplies.pageNumber
       store.mark({ repliesParentId: null, repliesLoading: false })
     },
   },
@@ -391,8 +400,8 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {
-      //
+    action: ({ details }) => {
+      errRescue({ type: ERR.GRAPHQL, details, path: 'Comments' })
     },
   },
   {
