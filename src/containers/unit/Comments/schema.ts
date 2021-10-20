@@ -19,6 +19,22 @@ const pagedComments = gql`
     }
   }
 `
+
+const pagedCommentReplies = gql`
+  query($id: ID!, $filter: CommentsFilter!) {
+    pagedCommentReplies(id: $id, filter: $filter) {
+      entries {
+        ${F.commentFields}
+
+        replyTo {
+          ${F.commentFields}
+        }
+      }
+      ${F.pagedCounts}
+    }
+  }
+`
+
 const createComment = gql`
   mutation ($thread: Thread!, $id: ID!, $body: String!) {
     createComment(thread: $thread, id: $id, body: $body) {
@@ -122,6 +138,7 @@ const searchUsers = gql`
 
 const schema = {
   pagedComments,
+  pagedCommentReplies,
   createComment,
   oneComment,
   updateComment,

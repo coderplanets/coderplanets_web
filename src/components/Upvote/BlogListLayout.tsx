@@ -32,7 +32,11 @@ const Upvote: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <UpWrapper>
-        <UpvoteBtn viewerHasUpvoted={viewerHasUpvoted} onAction={onAction} />
+        <UpvoteBtn
+          viewerHasUpvoted={viewerHasUpvoted}
+          onAction={onAction}
+          count={count}
+        />
       </UpWrapper>
       <CountWrapper>
         <AnimatedCount count={count} active={viewerHasUpvoted} />

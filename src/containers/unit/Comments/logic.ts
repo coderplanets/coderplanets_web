@@ -45,6 +45,15 @@ export const loadComments = (page = 1): void => {
   sr71$.query(S.pagedComments, args)
 }
 
+export const loadCommentReplies = (id: TID, page = 1): void => {
+  // fdTODO:  当某一条评论的回复超过 30 条的时候，这里是有问题的，应该在加个分页机制，目前先放一放。
+  const filter = { page, size: 30 }
+  const args = { id, filter }
+  store.mark({ repliesParentId: id, repliesLoading: true })
+  log('loadCommentReplies args: ', args)
+  sr71$.query(S.pagedCommentReplies, args)
+}
+
 export const createComment = (): void => {
   if (!store.isReady) return
 
@@ -154,9 +163,6 @@ export const handleEmotion = (
   if (!store.isLogin) return authWarn({ hideToast: true })
 
   const { id } = comment
-  // console.log('handleEmotion comment: ', id)
-  // console.log('handleEmotion name: ', name)
-  // console.log('handleEmotion viewerHasEmotioned: ', viewerHasEmotioned)
   const emotion = name.toUpperCase()
 
   // comment.emotions
@@ -286,6 +292,16 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('pagedCommentReplies'),
+    action: ({ pagedCommentReplies }) => {
+      // cancelLoading()
+      log('# pagedCommentReplies --> ', pagedCommentReplies)
+      store.addToReplies(pagedCommentReplies.entries)
+      store.mark({ repliesParentId: null, repliesLoading: false })
+    },
+  },
+
+  {
     match: asyncRes('createComment'),
     action: () => {
       loadComments()
@@ -342,14 +358,12 @@ const DataSolver = [
   {
     match: asyncRes('emotionToComment'),
     action: ({ emotionToComment }) => {
-      console.log('emotionToComment -> ', emotionToComment)
       store.upvoteEmotion(emotionToComment, emotionToComment.emotions)
     },
   },
   {
     match: asyncRes('undoEmotionToComment'),
     action: ({ undoEmotionToComment }) => {
-      console.log('undoEmotionToComment -> ', undoEmotionToComment)
       store.upvoteEmotion(undoEmotionToComment, undoEmotionToComment.emotions)
     },
   },

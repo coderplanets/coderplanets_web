@@ -6,7 +6,7 @@ import css from '@/utils/css'
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
-  padding-top: 12px;
+  padding-top: 25px;
   padding-bottom: 18px;
   margin-left: 25px;
 `
@@ -22,8 +22,8 @@ export const DividerLine = styled.div`
   height: 1px;
   background: ${theme('thread.articleDigest')};
   opacity: 0.6;
-  margin-left: 7px;
-  margin-right: 7px;
+  margin-left: 8px;
+  margin-right: 8px;
 `
 export const Text = styled.div`
   font-size: 12px;

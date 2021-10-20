@@ -98,7 +98,7 @@ const DefaultLayout: FC<TProps> = ({
         <CommentBodyInfo onMouseUp={getSelection}>
           <Header data={data} showInnerRef={showInnerRef} />
           <CommentContent>
-            {data.replyTo && <ReplyBar data={data.replyTo} />}
+            {!isReply && data.replyTo && <ReplyBar data={data.replyTo} />}
             <ArtimentBody
               document={{ bodyHtml: data.bodyHtml }}
               mode="comment"

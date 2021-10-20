@@ -1,26 +1,34 @@
 import { FC, memo } from 'react'
-import { find } from 'ramda'
 
 import type { TComment, TID } from '@/spec'
 
+import type { TRepliesState } from '../spec'
 import TogglerButton from './TogglerButton'
 import Comment from '../Comment'
 
 import { RepliesWrapper, RepliesCommentsWrapper } from '../styles/list/list'
+import { loadCommentReplies } from '../logic'
 
 type TProps = {
+  parentId: TID
   entries: TComment[]
   repliesCount: number
   tobeDeleteId: string
+  repliesState: TRepliesState
   foldedIds: TID[]
 }
 
 const RepliesList: FC<TProps> = ({
+  parentId,
   entries,
   repliesCount,
   tobeDeleteId,
+  repliesState,
   foldedIds,
 }) => {
+  const loading =
+    parentId === repliesState.repliesParentId && repliesState.repliesLoading
+
   return (
     <RepliesWrapper>
       {entries.map((comment) => {
@@ -38,7 +46,9 @@ const RepliesList: FC<TProps> = ({
       })}
       {repliesCount > entries.length && (
         <TogglerButton
-          text={`展开更多回复 ( ${repliesCount - entries.length} )`}
+          loading={loading}
+          text={`更多回复 ( ${repliesCount - entries.length} )`}
+          onClick={() => loadCommentReplies(parentId)}
         />
       )}
     </RepliesWrapper>

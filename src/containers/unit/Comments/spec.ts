@@ -17,6 +17,11 @@ export type TEditState = {
   showReplyEditor: boolean
   showUpdateEditor: boolean
   submitState: TSubmitState
-  updateId: string | null
+  updateId: TID | null
   replyToComment: TComment | null
+}
+
+export type TRepliesState = {
+  repliesParentId: TID | null
+  repliesLoading: boolean
 }

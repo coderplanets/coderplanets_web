@@ -25,12 +25,14 @@ const log = buildLog('c:Upvote:index')
 type TProps = {
   type?: TUpvoteLayout
   viewerHasUpvoted?: boolean
+  count?: number
   onAction: (viewerHasUpvoted: boolean) => void
 }
 
 const UpvoteBtn: FC<TProps> = ({
   type = 'default',
   viewerHasUpvoted = false,
+  count = 0,
   onAction,
 }) => {
   const [showAnimation, setShowAnimation] = useState(false)
@@ -58,7 +60,7 @@ const UpvoteBtn: FC<TProps> = ({
           ) : (
             <ShipWindow type={type} />
           )}
-          <UpIcon type={type} $active={viewerHasUpvoted} />
+          <UpIcon type={type} $active={viewerHasUpvoted} count={count} />
         </IconWrapper>
       </ContentWrapper>
     </Wrapper>

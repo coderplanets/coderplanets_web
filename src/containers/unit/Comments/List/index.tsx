@@ -1,22 +1,23 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TID, TPagedComments } from '@/spec'
+import type { TPagedComments } from '@/spec'
 import Pagi from '@/components/Pagi'
 import { Br } from '@/components/Common'
 
 import Header from './Header'
 import List from './List'
 
-import type { TMode, TFoldState } from '../spec'
+import type { TMode, TFoldState, TRepliesState } from '../spec'
 import { pageChange } from '../logic'
 
-import { ListsWrapper, CommentBlock } from '../styles/list'
+import { ListsWrapper } from '../styles/list'
 
 type TProps = {
   totalCommentsCount: number
   pagedComments: TPagedComments
   foldState: TFoldState
   mode: TMode
+  repliesState: TRepliesState
   restProps: {
     loading: boolean
     tobeDeleteId: string
@@ -28,6 +29,7 @@ const CommentsList: FC<TProps> = ({
   pagedComments,
   foldState,
   mode,
+  repliesState,
   restProps: { loading, tobeDeleteId },
 }) => {
   const { entries, totalCount, pageSize, pageNumber } = pagedComments
@@ -45,6 +47,7 @@ const CommentsList: FC<TProps> = ({
         <List
           mode={mode}
           entries={entries}
+          repliesState={repliesState}
           foldedIds={foldedIds}
           tobeDeleteId={tobeDeleteId}
         />

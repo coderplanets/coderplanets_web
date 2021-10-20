@@ -4,7 +4,16 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values, map, findIndex, propEq, toUpper, pick } from 'ramda'
+import {
+  values,
+  map,
+  findIndex,
+  propEq,
+  toUpper,
+  pick,
+  uniqBy,
+  prop,
+} from 'ramda'
 
 import type {
   TRootStore,
@@ -24,7 +33,7 @@ import type {
 import { markStates, toJS } from '@/utils/mobx'
 import { Comment, PagedComments, emptyPagi } from '@/model'
 
-import type { TFoldState, TEditMode, TEditState } from './spec'
+import type { TFoldState, TEditMode, TEditState, TRepliesState } from './spec'
 import { MODE, EDIT_MODE } from './constant'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
@@ -55,6 +64,10 @@ const CommentsStore = T.model('CommentsStore', {
   wordsCountReady: T.optional(T.boolean, false),
   // comments pagination data of current COMMUNITY / PART
   pagedComments: T.optional(PagedComments, emptyPagi),
+
+  // loadPagedReplies
+  repliesParentId: T.maybeNull(T.string),
+  repliesLoading: T.optional(T.boolean, false),
 
   // toggle loading for creating comment
   publishing: T.optional(T.boolean, false),
@@ -111,6 +124,10 @@ const CommentsStore = T.model('CommentsStore', {
       )
 
       return { ...baseFields, replyToComment: slf.replyToCommentData }
+    },
+    get repliesState(): TRepliesState {
+      const slf = self as TStore
+      return pick(['repliesParentId', 'repliesLoading'], slf)
     },
     get participators(): TUser[] {
       const root = getParent(self) as TRootStore
@@ -245,6 +262,22 @@ const CommentsStore = T.model('CommentsStore', {
           ...entries[index].emotions,
           ...emotion,
         }
+      }
+    },
+    addToReplies(replies: TComment[]): void {
+      const slf = self as TStore
+      const { repliesParentId } = slf
+      const { entries } = slf.pagedCommentsData
+
+      if (self.mode === MODE.REPLIES && repliesParentId) {
+        const parentIndex = findIndex(propEq('id', repliesParentId), entries)
+
+        if (parentIndex < 0) return
+        const curReplies = entries[parentIndex].replies
+        const uniqReplies = uniqBy(prop('id'), curReplies.concat(replies))
+
+        // @ts-ignore
+        self.pagedComments.entries[parentIndex].replies = uniqReplies
       }
     },
     published(): void {

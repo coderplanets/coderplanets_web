@@ -13,7 +13,7 @@ const AnimatedCount: FC<TProps> = ({
   active = false,
 }) => {
   return (
-    <Wrapper size={size} $active={active}>
+    <Wrapper size={size} $active={active} count={count}>
       <AnimateOnChange
         animationIn="fadeInUp"
         animationOut="bounceOut"

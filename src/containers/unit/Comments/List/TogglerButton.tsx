@@ -1,4 +1,6 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
+
+import { LavaLampLoading } from '@/components/dynamic'
 
 import {
   Wrapper,
@@ -9,14 +11,24 @@ import {
 
 type TProps = {
   text: string
+  loading: boolean
+  onClick: () => void
 }
 
-const TogglerButton: FC<TProps> = ({ text }) => (
-  <Wrapper>
-    <SlashSign>&#47;&#47;</SlashSign>
-    <DividerLine />
-    <Text>{text}</Text>
-  </Wrapper>
-)
+const TogglerButton: FC<TProps> = ({ text, loading, onClick }) => {
+  return (
+    <Wrapper>
+      <SlashSign>&#47;&#47;</SlashSign>
+      {loading ? (
+        <LavaLampLoading left={18} />
+      ) : (
+        <Fragment>
+          <DividerLine />
+          <Text onClick={onClick}>{text}</Text>
+        </Fragment>
+      )}
+    </Wrapper>
+  )
+}
 
 export default memo(TogglerButton)

@@ -31,7 +31,14 @@ type TProps = {
 
 const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
   useInit(store, locked)
-  const { mode, commentsCount, pagedCommentsData, foldState, editState } = store
+  const {
+    mode,
+    commentsCount,
+    pagedCommentsData,
+    foldState,
+    editState,
+    repliesState,
+  } = store
 
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
@@ -51,6 +58,7 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
         mode={mode}
         foldState={foldState}
         pagedComments={pagedCommentsData}
+        repliesState={repliesState}
         restProps={{ ...store }}
       />
     </Wrapper>

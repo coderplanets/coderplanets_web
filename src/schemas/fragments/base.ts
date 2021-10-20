@@ -194,7 +194,7 @@ export const emotionQuery = flatten(
 
 // comment
 
-const commentFields = `
+export const commentFields = `
   id
   bodyHtml
   author {
