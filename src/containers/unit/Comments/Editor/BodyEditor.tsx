@@ -5,15 +5,20 @@ import RichEditor from '@/containers/editor/RichEditor'
 type TProps = {
   body?: string
   onChange?: (v: string) => void
+  placeholder?: string
 }
 
-const CommentBodyEditor: FC<TProps> = ({ body, onChange }) => {
+const CommentBodyEditor: FC<TProps> = ({
+  body,
+  onChange,
+  placeholder = "// 评论内容（'Tab' 键快速插入）",
+}) => {
   return (
     <div className="comment-editor">
       <RichEditor
         data={body}
         type="comment"
-        placeholder="// 评论内容（'Tab' 键快速插入）"
+        placeholder={placeholder}
         onChange={(v) => onChange(JSON.stringify(v))}
       />
     </div>

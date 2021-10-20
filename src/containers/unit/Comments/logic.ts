@@ -11,6 +11,8 @@ import { buildLog } from '@/utils/logger'
 import { scrollIntoEle } from '@/utils/dom'
 import { updateEditing } from '@/utils/mobx'
 
+import { EDIT_MODE } from './constant'
+
 import type { TMode } from './spec'
 import type { TStore } from './store'
 import S from './schema'
@@ -30,6 +32,7 @@ let store: TStore | undefined
 
 // variables = %{id: post.id, thread: "POST", filter: %{page: 1, size: page_size}}
 export const loadComments = (page = 1): void => {
+  store.mark({ loading: true })
   const { viewingArticle: article, mode } = store
 
   const args = {
@@ -39,7 +42,6 @@ export const loadComments = (page = 1): void => {
     filter: { page, size: 20 },
   }
   log('query args: ', args)
-  store.mark({ loading: true })
   sr71$.query(S.pagedComments, args)
 }
 
@@ -88,26 +90,18 @@ export const openUpdateEditor = (comment: TComment): void => {
 }
 
 export const closeUpdateEditor = (): void => {
-  store.mark({ showUpdateEditor: false, updateId: '' })
+  store.mark({ showUpdateEditor: false, updateId: null })
 }
 
-export const createReplyComment = (): void => {
-  if (!store.validator('reply')) return
+export const closeReplyEditor = (): void => {
+  store.mark({ closeReplyEditor: false, replyToComment: null })
+}
 
-  if (store.isEdit) {
-    return sr71$.mutate(S.updateComment, {
-      // id: store.editCommentData.id,
-      body: store.replyContent,
-      thread: store.activeThread,
-    })
-  }
-
-  return sr71$.mutate(S.replyComment, {
-    id: store.replyToComment.id,
-    body: store.replyContent,
-    community: store.curCommunity.raw,
-    thread: store.activeThread,
-  })
+export const replyComment = (): void => {
+  const { replyToComment, replyBody } = store
+  const variables = { id: replyToComment.id, body: replyBody }
+  store.mark({ publishing: true })
+  return sr71$.mutate(S.replyComment, variables)
 }
 
 export const commentOnChange = (e: TEditValue, key: string): void => {
@@ -118,16 +112,13 @@ export const setWordsCountState = (wordsCountReady: boolean): void => {
   store?.mark({ wordsCountReady })
 }
 
-export const openReplyEditor = (data): void => {
+export const openReplyEditor = (comment: TComment): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
 
   initDraftTimmer()
   store.mark({
-    showReplyBox: true,
     showReplyEditor: true,
-    replyToComment: data,
-    replyContent: '',
-    isEdit: false,
+    replyToComment: comment,
   })
 }
 
@@ -143,7 +134,6 @@ export const replyBackToEditor = (): void =>
 
 export const closeReplyBox = (): void => {
   store.mark({
-    showReplyBox: false,
     showReplyEditor: false,
   })
 }
@@ -298,15 +288,10 @@ const DataSolver = [
   {
     match: asyncRes('createComment'),
     action: () => {
-      store.mark({ loading: true, publishing: false, publishDone: true })
       loadComments()
-      setTimeout(() => {
-        store.mark({
-          showEditor: false,
-          commentBody: '',
-          publishDone: false,
-        })
-      }, 500)
+      store.published()
+      setTimeout(() => store.resetPublish(EDIT_MODE.CREATE), 500)
+
       stopDraftTimmer()
       clearDraft()
     },
@@ -314,21 +299,22 @@ const DataSolver = [
   {
     match: asyncRes('replyComment'),
     action: () => {
-      store.mark({
-        showReplyBox: false,
-        replyToComment: null,
-      })
-      scrollIntoEle('lists-info')
+      loadComments()
+      store.published()
+      setTimeout(() => store.resetPublish(EDIT_MODE.REPLY), 500)
+      // scrollIntoEle('lists-info')
       stopDraftTimmer()
       clearDraft()
-      // loadComents({ filter: { page: 1 }, fresh: true })
     },
   },
   {
     match: asyncRes('updateComment'),
-    action: ({ updateComment: { id, bodyHtml } }) => {
-      store.mark({ showUpdateEditor: false })
-      store.updateOneComment(id, { bodyHtml })
+    action: ({ updateComment }) => {
+      store.published()
+      const { bodyHtml } = updateComment
+      store.updateOneComment(updateComment, { bodyHtml })
+
+      setTimeout(() => store.resetPublish(EDIT_MODE.UPDATE), 500)
     },
   },
   {
@@ -373,7 +359,6 @@ const DataSolver = [
       log('deleteComment', deleteComment)
       store.mark({ tobeDeleteId: null })
       scrollIntoEle('lists-info')
-      // loadComents({ filter: { page: 1 }, fresh: true })
     },
   },
   {
@@ -416,9 +401,9 @@ const initDraftTimmer = (): void => {
   stopDraftTimmer()
 
   saveDraftTimmer = setInterval(() => {
-    const { showReplyEditor, commentBody, replyContent } = store
+    const { showReplyEditor, commentBody } = store
 
-    if (showReplyEditor) return saveDraftIfNeed(replyContent)
+    // if (showReplyEditor) return saveDraftIfNeed(replyContent)
     saveDraftIfNeed(commentBody)
   }, 3000)
 }

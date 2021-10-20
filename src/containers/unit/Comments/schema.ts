@@ -32,6 +32,7 @@ const updateComment = gql`
     updateComment(id: $id, body: $body) {
       id
       bodyHtml
+      replyToId
     }
   }
 `
@@ -45,22 +46,10 @@ const oneComment = gql`
 `
 
 const replyComment = gql`
-  mutation replyComment(
-    $community: String!
-    $thread: CmsThread
-    $id: ID!
-    $body: String!
-    $mentionUsers: [Ids]
-  ) {
-    replyComment(
-      community: $community
-      thread: $thread
-      id: $id
-      body: $body
-      mentionUsers: $mentionUsers
-    ) {
+  mutation ($id: ID!, $body: String!) {
+    replyComment(id: $id, body: $body) {
       id
-      body
+      bodyHtml
     }
   }
 `

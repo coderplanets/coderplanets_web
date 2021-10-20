@@ -22,10 +22,9 @@ import type {
 } from '@/spec'
 // import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { changeset } from '@/utils/validator'
 import { Comment, PagedComments, emptyPagi } from '@/model'
 
-import type { TFoldState } from './spec'
+import type { TFoldState, TEditMode } from './spec'
 import { MODE, EDIT_MODE } from './constant'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
@@ -39,26 +38,23 @@ const CommentsStore = T.model('CommentsStore', {
   showUpdateEditor: T.optional(T.boolean, false),
 
   // toggle modal editor for reply
-  showReplyBox: T.optional(T.boolean, false),
   showReplyEditor: T.optional(T.boolean, false),
 
   // current to be delete comment id, use to target the confirm mask
   tobeDeleteId: T.maybeNull(T.string),
   // content input of current comment editor
   commentBody: T.optional(T.string, '{}'),
-  updateId: T.optional(T.string, ''),
+  // update comment
+  updateId: T.maybeNull(T.string),
   updateBody: T.optional(T.string, '{}'),
-  replyBody: T.optional(T.string, '{}'),
-  wordsCountReady: T.optional(T.boolean, false),
-  // content input of current reply comment editor
-  replyContent: T.optional(T.string, ''),
-  // comments pagination data of current COMMUNITY / PART
-  pagedComments: T.optional(PagedComments, emptyPagi),
-
-  isEdit: T.optional(T.boolean, false),
-
+  // reply comment
   // parrent comment of current reply
   replyToComment: T.maybeNull(Comment),
+  replyBody: T.optional(T.string, '{}'),
+  // content input of current reply comment editor
+  wordsCountReady: T.optional(T.boolean, false),
+  // comments pagination data of current COMMUNITY / PART
+  pagedComments: T.optional(PagedComments, emptyPagi),
 
   // toggle loading for creating comment
   publishing: T.optional(T.boolean, false),
@@ -141,6 +137,9 @@ const CommentsStore = T.model('CommentsStore', {
       const root = getParent(self) as TRootStore
       return root.viewing.viewingArticle
     },
+    get replyToCommentData(): TComment | null {
+      return toJS(self.replyToComment)
+    },
     get isReady(): boolean {
       const slf = self as TStore
       const { wordsCountReady } = slf
@@ -153,40 +152,11 @@ const CommentsStore = T.model('CommentsStore', {
     },
   }))
   .actions((self) => ({
-    changesetErr(options): void {
-      const root = getParent(self) as TRootStore
-      root.changesetErr(options)
-    },
-
     updateEditing(sobj): void {
       const slf = self as TStore
       slf.mark(sobj)
     },
 
-    validator(type): boolean {
-      const { changesetErr } = self as TStore
-      switch (type) {
-        case 'create': {
-          const result = changeset({ commentBody: self.commentBody })
-            // @ts-ignore
-            .exist({ commentBody: '讨论内容' }, changesetErr)
-            .done()
-
-          return result.passed
-        }
-        case 'reply': {
-          const result = changeset({ replyContent: self.replyContent })
-            // @ts-ignore
-            .exist({ replyContent: '回复内容' }, changesetErr)
-            .done()
-
-          return result.passed
-        }
-        default: {
-          return false
-        }
-      }
-    },
     updateMentionList(mentionArray): void {
       console.log('TODO: updateMentionList')
       // const curMentionList = clone(self.mentionList)
@@ -196,16 +166,40 @@ const CommentsStore = T.model('CommentsStore', {
       // @ts-ignore
       // self.mentionList = uniq(concat(mentionList, self.participators))
     },
-    updateOneComment(id, fields = {}): void {
+    updateOneComment(comment: TComment, fields = {}): void {
+      const { id, replyToId } = comment
       const { entries } = self.pagedCommentsData
 
-      const index = findIndex(propEq('id', id), entries)
-      if (index < 0) return
-      const comment = { ...entries[index], ...fields }
-      // @ts-ignore
-      self.pagedComments.entries[index] = comment
+      if (self.mode === MODE.REPLIES && replyToId) {
+        const parentIndex = findIndex(propEq('id', replyToId), entries)
+        if (parentIndex < 0) return
+        const parentComment = entries[parentIndex]
+        const replyIndex = findIndex(propEq('id', id), parentComment.replies)
+        if (replyIndex < 0) return
+        const replyComment = parentComment.replies[replyIndex]
+
+        // @ts-ignore
+        self.pagedComments.entries[parentIndex].replies[replyIndex] = {
+          ...replyComment,
+          ...fields,
+        }
+      } else {
+        // timeline & replies parent comment
+        const index = findIndex(propEq('id', id), entries)
+
+        if (index < 0) return
+        const comment = entries[index]
+        // @ts-ignore
+        self.pagedComments.entries[index] = { ...comment, ...fields }
+      }
+
+      // const index = findIndex(propEq('id', id), entries)
+      // if (index < 0) return
+      // const comment = { ...entries[index], ...fields }
+
+      // self.pagedComments.entries[index] = comment
     },
-    updateUpvote(comment: TComment, info): void {
+    updateUpvote(comment: TComment, fields): void {
       const { id, replyToId } = comment
       const slf = self as TStore
       const { entries } = slf.pagedCommentsData
@@ -217,12 +211,12 @@ const CommentsStore = T.model('CommentsStore', {
         const replyIndex = findIndex(propEq('id', id), parentComment.replies)
         if (replyIndex < 0) return
         const replyComment = parentComment.replies[replyIndex]
-        if (info.meta) {
-          info.meta = { ...replyComment.meta, ...info.meta }
+        if (fields.meta) {
+          fields.meta = { ...replyComment.meta, ...fields.meta }
         }
         self.pagedComments.entries[parentIndex].replies[replyIndex] = {
           ...replyComment,
-          ...info,
+          ...fields,
         }
       } else {
         // timeline & replies parent comment
@@ -230,11 +224,11 @@ const CommentsStore = T.model('CommentsStore', {
 
         if (index < 0) return
         const comment = entries[index]
-        if (info.meta) {
-          info.meta = { ...comment.meta, ...info.meta }
+        if (fields.meta) {
+          fields.meta = { ...comment.meta, ...fields.meta }
         }
         // @ts-ignore
-        self.pagedComments.entries[index] = { ...comment, ...info }
+        self.pagedComments.entries[index] = { ...comment, ...fields }
       }
     },
     upvoteEmotion(comment: TComment, emotion: TEmotion): void {
@@ -260,6 +254,33 @@ const CommentsStore = T.model('CommentsStore', {
         self.pagedComments.entries[index].emotions = {
           ...entries[index].emotions,
           ...emotion,
+        }
+      }
+    },
+    published(): void {
+      self.publishing = false
+      self.publishDone = true
+    },
+    resetPublish(mode: TEditMode): void {
+      switch (mode) {
+        case EDIT_MODE.REPLY: {
+          self.showReplyEditor = false
+          self.replyBody = '{}'
+          self.replyToComment = null
+          self.publishDone = false
+          return
+        }
+        case EDIT_MODE.UPDATE: {
+          self.showUpdateEditor = false
+          self.updateId = null
+          self.updateBody = '{}'
+          self.publishDone = false
+          return
+        }
+        default: {
+          self.showEditor = false
+          self.commentBody = '{}'
+          self.publishDone = false
         }
       }
     },

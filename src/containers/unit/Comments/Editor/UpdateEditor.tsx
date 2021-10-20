@@ -19,7 +19,7 @@ import { commentOnChange, updateComment, closeUpdateEditor } from '../logic'
 type TProps = {
   body: string
   submitState: TSubmitState
-  id: string
+  id: string | null
 }
 
 const UpdateEditor: FC<TProps> = ({ id, body, submitState }) => {
@@ -33,7 +33,7 @@ const UpdateEditor: FC<TProps> = ({ id, body, submitState }) => {
         autoHide={false}
       >
         <EditorWrapper>
-          {id !== '' ? (
+          {id ? (
             <BodyEditor
               body={body}
               onChange={(v) => commentOnChange(v, 'updateBody')}

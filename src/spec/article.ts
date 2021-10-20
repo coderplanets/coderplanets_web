@@ -116,6 +116,7 @@ export type TPagedMeetups = {
 
 export type TComment = {
   id: string
+  thread?: string
   isPinned?: boolean
   floor?: number
   bodyHtml?: string

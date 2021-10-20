@@ -44,10 +44,10 @@ const CommentsContainer: FC<TProps> = ({
     viewingArticle,
     pagedCommentsData,
     accountInfo,
-    showReplyBox,
     showReplyEditor,
-    isEdit,
     commentBody,
+    replyBody,
+    replyToCommentData,
     updateId,
     updateBody,
     submitState,
@@ -73,13 +73,16 @@ const CommentsContainer: FC<TProps> = ({
         )}
       </Modal>
 
-      <Modal show={showReplyBox} onClose={onReplyEditorClose}>
-        {showReplyBox && (
+      <Modal
+        show={showReplyEditor}
+        width="680px"
+        onClose={onReplyEditorClose}
+        showCloseBtn
+      >
+        {showReplyEditor && (
           <ReplyEditor
-            isEdit={isEdit}
-            body={commentBody}
-            show={showReplyEditor}
-            accountInfo={accountInfo}
+            replyTo={replyToCommentData}
+            body={replyBody}
             submitState={submitState}
           />
         )}

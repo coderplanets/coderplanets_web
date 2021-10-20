@@ -14,6 +14,13 @@ export const Wrapper = styled.div`
 `
 export const ReplyAction = styled.div`
   color: ${theme('comment.action')};
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+  }
+
+  transition: all 0.2s;
 `
 export const MoreWrapper = styled.div`
   opacity: 0;

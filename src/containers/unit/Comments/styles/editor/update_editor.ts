@@ -23,6 +23,7 @@ export const Header = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 16px;
 `
+
 export const EditorWrapper = styled.div`
   overflow-x: hidden;
   padding-top: 10px;
