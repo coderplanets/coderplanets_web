@@ -228,6 +228,13 @@ export const comment = `
 
   replies {
     ${commentFields}
+    replyTo {
+      author {
+        login
+        nickname
+      }
+      floor
+    }
   }
 `
 export const commentParent = `

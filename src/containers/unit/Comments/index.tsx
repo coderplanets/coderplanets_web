@@ -19,34 +19,19 @@ import List from './List'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
-import { useInit, onReplyEditorClose, closeUpdateEditor } from './logic'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Comments')
 
 type TProps = {
   comments?: TStore
-  ssr?: boolean
   locked?: boolean
 }
 
-const CommentsContainer: FC<TProps> = ({
-  comments: store,
-  ssr = false,
-  locked = false,
-}) => {
-  useInit(store, ssr, locked)
-
-  const {
-    mode,
-    commentsCount,
-    pagedCommentsData,
-    showEditor,
-    foldState,
-    editState,
-  } = store
-
-  showEditor
+const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
+  useInit(store, locked)
+  const { mode, commentsCount, pagedCommentsData, foldState, editState } = store
 
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>

@@ -13,6 +13,7 @@ type TProps = {
   tobeDeleteId: string
   hasReplies?: boolean
   foldedIds: TID[]
+  showInnerRef?: boolean
 }
 
 const Comment: FC<TProps> = (props) => {

@@ -28,12 +28,12 @@ export const DividerLine = styled.div`
 export const Text = styled.div`
   font-size: 12px;
   opacity: 0.8;
-  color: #00a59b;
+  color: ${theme('button.primary')};
 
   &:hover {
     opacity: 1;
     cursor: pointer;
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

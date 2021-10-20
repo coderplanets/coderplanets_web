@@ -1,4 +1,5 @@
 import { FC, memo } from 'react'
+import { find } from 'ramda'
 
 import type { TComment, TID } from '@/spec'
 
@@ -22,19 +23,22 @@ const RepliesList: FC<TProps> = ({
 }) => {
   return (
     <RepliesWrapper>
-      {entries.map((comment) => (
-        <RepliesCommentsWrapper key={comment.id}>
-          <Comment
-            data={comment}
-            tobeDeleteId={tobeDeleteId}
-            foldedIds={foldedIds}
-            isReply
-          />
-        </RepliesCommentsWrapper>
-      ))}
+      {entries.map((comment) => {
+        return (
+          <RepliesCommentsWrapper key={comment.id}>
+            <Comment
+              data={comment}
+              tobeDeleteId={tobeDeleteId}
+              foldedIds={foldedIds}
+              showInnerRef
+              isReply
+            />
+          </RepliesCommentsWrapper>
+        )
+      })}
       {repliesCount > entries.length && (
         <TogglerButton
-          text={`显示更多回复 ( ${repliesCount - entries.length - 1} )`}
+          text={`展开更多回复 ( ${repliesCount - entries.length} )`}
         />
       )}
     </RepliesWrapper>

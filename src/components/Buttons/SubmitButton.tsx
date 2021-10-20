@@ -33,7 +33,7 @@ const SubmitButton: FC<TProps> = ({
       {publishDone ? (
         <DonwWrapper>
           <DoneIcon />
-          <DoneHint>已完成</DoneHint>
+          <DoneHint>已提交</DoneHint>
         </DonwWrapper>
       ) : (
         <YesOrNoButtons

@@ -7,10 +7,10 @@ import Img from '@/Img'
 
 export const Wrapper = styled.div<TActive>`
   min-height: 100px;
-  margin-left: 42px;
+  margin-left: 120px;
   margin-top: 50px;
   padding-bottom: 0;
-  width: 65%;
+  width: calc(100% - 50px);
   max-width: 200px;
   flex-wrap: wrap;
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};

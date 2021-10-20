@@ -43,8 +43,10 @@ export const PinText = styled.div`
 export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
   ${css.flexGrow()};
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
+  width: 100%;
 `
 export const SidebarWrapper = styled.div`
+  color: ${theme('thread.articleTitle')};
   ${css.flexColumn('align-start')};
   height: 100%;
   min-width: 35px;
@@ -94,8 +96,7 @@ export const CommentBodyInfo = styled.div`
   width: 100%;
 `
 export const CommentContent = styled.div`
-  font-size: 14px;
-  margin-left: 1px;
+  margin-left: 4px;
 `
 export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};

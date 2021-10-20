@@ -41,9 +41,15 @@ type TProps = {
   data: TComment
   tobeDeleteId: string
   isReply?: boolean
+  showInnerRef?: boolean
 }
 
-const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
+const DefaultLayout: FC<TProps> = ({
+  data,
+  tobeDeleteId,
+  isReply = false,
+  showInnerRef = false,
+}) => {
   const { isPinned, meta } = data
   const { isArticleAuthorUpvoted } = meta
   const isSolution = false
@@ -90,7 +96,7 @@ const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
         </SidebarWrapper>
 
         <CommentBodyInfo onMouseUp={getSelection}>
-          <Header data={data} />
+          <Header data={data} showInnerRef={showInnerRef} />
           <CommentContent>
             {data.replyTo && <ReplyBar data={data.replyTo} />}
             <ArtimentBody

@@ -80,7 +80,7 @@ const PostContentContainer: FC<TProps> = ({
             <ArticleFooter />
             <CommentsWrapper>
               {/* @ts-ignore */}
-              <Comments ssr />
+              <Comments />
             </CommentsWrapper>
           </MainWrapper>
         </InnerWrapper>

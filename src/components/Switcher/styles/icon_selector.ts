@@ -52,6 +52,7 @@ export const Label = styled.label`
 `
 export const DescText = styled.div`
   ${css.flex('align-both')};
+  color: ${theme('thread.articleTitle')};
   min-width: 90px;
   padding: 5px 10px;
 `

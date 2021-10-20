@@ -83,7 +83,7 @@ const ArticleContentContainer: FC<TProps> = ({
               onLeave={() => checkAnchor(ref?.current)}
             />
             <CommentsWrapper>
-              <Comments ssr />
+              <Comments />
             </CommentsWrapper>
           </MainWrapper>
           <SidebarWrapper>

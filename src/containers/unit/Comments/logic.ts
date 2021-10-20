@@ -411,18 +411,13 @@ const initDraftTimmer = (): void => {
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (
-  _store: TStore,
-  ssr: boolean,
-  locked: boolean,
-): void => {
+export const useInit = (_store: TStore, locked: boolean): void => {
   useEffect(() => {
     // log('effect init')
     store = _store
     if (!sub$) {
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       loadComments()
-      // if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
     }
 
     return () => {
@@ -434,5 +429,5 @@ export const useInit = (
       sub$.unsubscribe()
       sub$ = null
     }
-  }, [_store, ssr, locked])
+  }, [_store, locked])
 }
