@@ -1,7 +1,9 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
+
+import { getWidth, getMinHeight } from './metric'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};
@@ -9,14 +11,15 @@ export const Wrapper = styled.div`
   width: 100%;
   /* height: 100%; */
 `
-export const InnerWrapper = styled.div`
-  width: 680px;
+export const InnerWrapper = styled.div<{ type: string }>`
+  width: ${({ type }) => getWidth(type)};
 `
-export const EditorWrapper = styled.div.attrs(() => ({
+const EditWrapperBase = styled.div<{ type: string }>``
+export const EditorWrapper = styled(EditWrapperBase).attrs(() => ({
   spellCheck: false,
 }))`
   color: ${theme('thread.articleTitle')};
-  min-height: 390px;
+  min-height: ${({ type }) => getMinHeight(type)};
   //
   // media therdhold is 651
   width: 100%;

@@ -20,7 +20,7 @@ const AnimatedCount = dynamic(() => import('./AnimatedCount'), {
       active: boolean
     }
     return (
-      <Wrapper size={size} $active={active}>
+      <Wrapper size={size} $active={active} count={count}>
         {count}
       </Wrapper>
     )

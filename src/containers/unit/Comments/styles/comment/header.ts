@@ -30,6 +30,7 @@ export const UserBase = styled.div`
 `
 export const Nickname = styled.div`
   font-size: 15px;
+  ${css.cutRest('150px')};
 `
 export const AuthorTag = styled.div`
   font-size: 11px;
@@ -38,7 +39,25 @@ export const AuthorTag = styled.div`
   margin-left: 10px;
   background: #023c4a;
   border-radius: 5px;
-  color: #00a59b;
+  color: ${theme('button.primary')};
+`
+export const RefToOther = styled.div`
+  ${css.flex('align-center')};
+  color: ${theme('comment.username')};
+  margin-left: 8px;
+`
+export const RefLabel = styled.div`
+  font-size: 12px;
+  margin-top: 3px;
+  opacity: 0.8;
+  &:after {
+    content: ': ';
+  }
+`
+export const RefUser = styled.div`
+  font-size: 15px;
+  margin-left: 8px;
+  ${css.cutRest('100px')};
 `
 export const ShortIntro = styled.div`
   color: ${theme('comment.floor')};

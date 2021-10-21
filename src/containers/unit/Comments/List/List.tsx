@@ -2,35 +2,32 @@ import { FC, Fragment, memo } from 'react'
 import { includes } from 'ramda'
 
 import type { TComment, TID } from '@/spec'
-import Comment from '../Comment'
 
+import type { TMode, TRepliesState } from '../spec'
+
+import Comment from '../Comment'
 import RepliesList from './RepliesList'
 import DateDivider from './DateDivider'
 
 import { MODE } from '../constant'
 import { passedDate } from '../helper'
-import type { TMode } from '../spec'
 import { Wrapper, IndentLine } from '../styles/list/list'
 import { foldComment } from '../logic'
 
-// const compareDate = () => {
-// }
-
 type TProps = {
   mode: TMode
+  repliesState: TRepliesState
   entries: TComment[]
-  tobeDeleteId: string
   foldedIds: TID[]
 }
 
-const List: FC<TProps> = ({ mode, entries, tobeDeleteId, foldedIds }) => {
+const List: FC<TProps> = ({ mode, repliesState, entries, foldedIds }) => {
   return (
     <Fragment>
       {entries.map((comment, index) => (
         <Wrapper key={comment.id}>
           <Comment
             data={comment}
-            tobeDeleteId={tobeDeleteId}
             hasReplies={comment.repliesCount > 0}
             foldedIds={foldedIds}
           />
@@ -43,9 +40,10 @@ const List: FC<TProps> = ({ mode, entries, tobeDeleteId, foldedIds }) => {
             comment.replies?.length > 0 &&
             !includes(comment.id, foldedIds) && (
               <RepliesList
+                parentId={comment.id}
                 entries={comment.replies}
                 repliesCount={comment.repliesCount}
-                tobeDeleteId={tobeDeleteId}
+                repliesState={repliesState}
                 foldedIds={foldedIds}
               />
             )}

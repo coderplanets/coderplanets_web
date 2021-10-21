@@ -48,7 +48,7 @@ const ArticleStickerContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE,
 }) => {
   useInit(store)
-  const { pagedCommentsParticipantsData } = store
+  const { commentsState } = store
 
   const {
     showLeftSticker,
@@ -78,7 +78,7 @@ const ArticleStickerContainer: FC<TProps> = ({
               />
               <CommentSticker
                 show={showCommentSticker}
-                participants={pagedCommentsParticipantsData}
+                commentsState={commentsState}
               />
             </MainWrapper>
             <GoTopWrapper show={!isArticleDigestInViewport}>

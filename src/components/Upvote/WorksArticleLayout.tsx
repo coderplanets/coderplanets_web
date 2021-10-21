@@ -55,6 +55,7 @@ const Upvote: FC<TProps> = ({
           viewerHasUpvoted={viewerHasUpvoted}
           type={UPVOTE_LAYOUT.WORKS_ARTICLE}
           onAction={onAction}
+          count={count}
         />
         <CountWrapper>
           <AnimatedCount

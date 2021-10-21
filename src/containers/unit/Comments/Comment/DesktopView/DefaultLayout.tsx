@@ -11,7 +11,6 @@ import ArtimentBody from '@/components/ArtimentBody'
 
 import Header from '../Header'
 import ReplyBar from '../ReplyBar'
-import DeleteMask from '../DeleteMask'
 import Footer from '../Footer'
 
 import {
@@ -39,11 +38,15 @@ const getSelection = () => {
 
 type TProps = {
   data: TComment
-  tobeDeleteId: string
   isReply?: boolean
+  showInnerRef?: boolean
 }
 
-const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
+const DefaultLayout: FC<TProps> = ({
+  data,
+  isReply = false,
+  showInnerRef = false,
+}) => {
   const { isPinned, meta } = data
   const { isArticleAuthorUpvoted } = meta
   const isSolution = false
@@ -56,8 +59,7 @@ const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
           <PinText>置顶讨论</PinText>
         </PinState>
       )}
-      <DeleteMask show={data.id === tobeDeleteId} />
-      <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
+      <CommentWrapper>
         <SidebarWrapper>
           <Upvote
             type="comment"
@@ -67,11 +69,11 @@ const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
           />
           {isArticleAuthorUpvoted && (
             <Tooltip
-              content={<BadgePopContent>作者顶过</BadgePopContent>}
+              content={<BadgePopContent>作者赞过</BadgePopContent>}
               placement="bottom"
               noPadding
             >
-              <AuthorUpvotedIcon src={`${ICON}/article/author_upvoted.svg`} />
+              <AuthorUpvotedIcon />
             </Tooltip>
           )}
           {isSolution && (
@@ -90,9 +92,9 @@ const DefaultLayout: FC<TProps> = ({ data, tobeDeleteId, isReply = false }) => {
         </SidebarWrapper>
 
         <CommentBodyInfo onMouseUp={getSelection}>
-          <Header data={data} />
+          <Header data={data} showInnerRef={showInnerRef} />
           <CommentContent>
-            {data.replyTo && <ReplyBar data={data.replyTo} />}
+            {!isReply && data.replyTo && <ReplyBar data={data.replyTo} />}
             <ArtimentBody
               document={{ bodyHtml: data.bodyHtml }}
               mode="comment"

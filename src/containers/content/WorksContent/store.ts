@@ -4,7 +4,7 @@
  */
 
 import { types as T, Instance } from 'mobx-state-tree'
-import { findIndex, propEq, values } from 'ramda'
+import { values } from 'ramda'
 
 import type { TPagedWorks } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'

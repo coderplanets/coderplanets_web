@@ -77,13 +77,8 @@ const Modal: FC<TProps> = ({
               offsetTop={offsetTop}
             >
               <ViewportTracker onEnter={() => setVisibleOnPage(true)} />
-              <CloseBtn
-                mode={mode}
-                src={`${ICON_CMD}/closeBtn.svg`}
-                show={showCloseBtn}
-                onClick={handleClose}
-              />
-              <EscHint mode={mode}>Esc</EscHint>
+              {showCloseBtn && <CloseBtn mode={mode} onClick={handleClose} />}
+              {showCloseBtn && <EscHint mode={mode}>Esc</EscHint>}
               <ChildrenWrapper onClick={(e) => e.stopPropagation()}>
                 {children}
               </ChildrenWrapper>

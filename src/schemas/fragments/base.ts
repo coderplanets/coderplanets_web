@@ -194,7 +194,7 @@ export const emotionQuery = flatten(
 
 // comment
 
-const commentFields = `
+export const commentFields = `
   id
   bodyHtml
   author {
@@ -228,6 +228,13 @@ export const comment = `
 
   replies {
     ${commentFields}
+    replyTo {
+      author {
+        login
+        nickname
+      }
+      floor
+    }
   }
 `
 export const commentParent = `

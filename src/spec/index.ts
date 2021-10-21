@@ -1,5 +1,5 @@
 import type { TRootStore as RootStoreType } from '@/stores/RootStore'
-import type { TArticle, TArticleMeta } from './article'
+import type { TArticle } from './article'
 import type { TCommunity } from './community'
 
 export type { TMetric } from './metric'
@@ -85,6 +85,7 @@ export type {
   TArticleFilter,
   TCopyright,
   TUpvoteLayout,
+  TCommentsState,
 } from './article'
 
 export type {

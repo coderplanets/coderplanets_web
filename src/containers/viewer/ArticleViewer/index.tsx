@@ -36,7 +36,7 @@ const ArticleViewerContainer: FC<TProps> = ({
     <Wrapper testid={testid}>
       <Viewer article={viewingArticle} loading={loading} />
       <CommentsWrapper>
-        <Comments onCreate={console.log} />
+        <Comments />
       </CommentsWrapper>
     </Wrapper>
   )

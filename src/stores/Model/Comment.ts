@@ -53,8 +53,14 @@ const commentBaseFields = () => {
   }
 }
 
+export const CommentReplyTo = T.model('CommentReplyTo', {
+  author: T.optional(SimpleUser, {}),
+  floor: T.number,
+})
+
 export const CommentReply = T.model('CommentReply', {
   ...commentBaseFields(),
+  replyTo: T.maybeNull(CommentReplyTo),
 })
 
 export const Comment = T.model('Comment', {

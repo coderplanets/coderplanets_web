@@ -5,7 +5,6 @@ import MarkDownRender from '@/components/MarkDownRender'
 import Upvote from '@/components/Upvote'
 
 import ReplyBar from '../ReplyBar'
-import DeleteMask from '../DeleteMask'
 import Footer from '../Footer'
 
 import Header from './Header'
@@ -18,11 +17,10 @@ import {
   CommentBodyInfo,
 } from '../../styles/comment/mobile_view/index'
 
-const MobileView = ({ data, tobeDeleteId, accountInfo }) => {
+const MobileView = ({ data, accountInfo }) => {
   return (
     <Wrapper>
-      <DeleteMask show={data.id === tobeDeleteId} />
-      <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
+      <CommentWrapper>
         <HeaderWrapper>
           <Header data={data} />
         </HeaderWrapper>

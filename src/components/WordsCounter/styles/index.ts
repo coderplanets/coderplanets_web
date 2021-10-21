@@ -36,4 +36,5 @@ export const Slash = styled.div`
 `
 export const TotalNum = styled.div`
   font-size: 12px;
+  color: ${theme('thread.articleDigest')};
 `

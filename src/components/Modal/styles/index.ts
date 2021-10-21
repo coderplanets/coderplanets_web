@@ -5,6 +5,7 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import animate from '@/utils/animations'
 import Img from '@/Img'
+import CloseCrossSVG from '@/icons/CloseCross'
 
 // display: ${props => (props.show ? 'block' : 'none')};
 export const Mask = styled.div<TActive>`
@@ -51,20 +52,18 @@ export const ChildrenWrapper = styled.div`
   height: auto;
   overflow-y: scroll;
 `
-type TCloseBtn = TActive & { mode: string }
-export const CloseBtn = styled(Img)<TCloseBtn>`
-  fill: ${({ mode }) =>
-    mode === 'default' ? theme('font') : theme('baseColor.red')};
+type TCloseBtn = { mode: string }
+export const CloseBtn = styled(CloseCrossSVG)<TCloseBtn>`
   position: absolute;
   top: 0;
   right: -48px;
+  fill: ${({ mode }) =>
+    mode === 'default' ? '#0A658A' : theme('baseColor.red')};
   ${css.size(30)};
-  display: ${({ show }) => (show ? 'block' : 'none')};
   z-index: ${css.zIndex.modalCloseBtn};
 
   &:hover {
-    animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
-    font-weight: bold;
+    animation: ${animate.pulse} 0.3s linear;
     cursor: pointer;
   }
 `

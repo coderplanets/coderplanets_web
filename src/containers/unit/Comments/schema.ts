@@ -19,30 +19,57 @@ const pagedComments = gql`
     }
   }
 `
-const createComment = gql`
-  mutation createComment(
-    $community: String!
-    $thread: CmsThread
-    $id: ID!
-    $body: String!
-    $mentionUsers: [Ids]
-  ) {
-    createComment(
-      community: $community
-      thread: $thread
-      id: $id
-      body: $body
-      mentionUsers: $mentionUsers
-    ) {
-      id
-      body
+
+const pagedCommentReplies = gql`
+  query($id: ID!, $filter: CommentsFilter!) {
+    pagedCommentReplies(id: $id, filter: $filter) {
+      entries {
+        ${F.commentFields}
+
+        replyTo {
+          ${F.commentFields}
+        }
+      }
+      ${F.pagedCounts}
     }
   }
 `
 
+const createComment = gql`
+  mutation ($thread: Thread!, $id: ID!, $body: String!) {
+    createComment(thread: $thread, id: $id, body: $body) {
+      id
+      bodyHtml
+    }
+  }
+`
 const updateComment = gql`
-  mutation ($thread: CmsThread!, $id: ID!, $body: String!) {
-    updateComment(thread: $thread, id: $id, body: $body) {
+  mutation ($id: ID!, $body: String!) {
+    updateComment(id: $id, body: $body) {
+      id
+      bodyHtml
+      replyToId
+    }
+  }
+`
+const commentsState = gql`
+  query ($id: ID!, $thread: Thread, $freshkey: String) {
+    commentsState(id: $id, thread: $thread, freshkey: $freshkey) {
+      totalCount
+      isViewerJoined
+      participantsCount
+
+      participants {
+        login
+        nickname
+        avatar
+      }
+    }
+  }
+`
+const oneComment = gql`
+  query ($id: ID!) {
+    oneComment(id: $id) {
       id
       body
     }
@@ -50,22 +77,10 @@ const updateComment = gql`
 `
 
 const replyComment = gql`
-  mutation replyComment(
-    $community: String!
-    $thread: CmsThread
-    $id: ID!
-    $body: String!
-    $mentionUsers: [Ids]
-  ) {
-    replyComment(
-      community: $community
-      thread: $thread
-      id: $id
-      body: $body
-      mentionUsers: $mentionUsers
-    ) {
+  mutation ($id: ID!, $body: String!) {
+    replyComment(id: $id, body: $body) {
       id
-      body
+      bodyHtml
     }
   }
 `
@@ -81,6 +96,9 @@ const upvoteComment = gql`
   mutation ($id: ID!) {
     upvoteComment(id: $id) {
       id
+      meta {
+        isArticleAuthorUpvoted
+      }
       upvotesCount
       viewerHasUpvoted
       replyToId
@@ -91,6 +109,9 @@ const undoUpvoteComment = gql`
   mutation ($id: ID!) {
     undoUpvoteComment(id: $id) {
       id
+      meta {
+        isArticleAuthorUpvoted
+      }
       upvotesCount
       viewerHasUpvoted
       replyToId
@@ -132,7 +153,10 @@ const searchUsers = gql`
 
 const schema = {
   pagedComments,
+  pagedCommentReplies,
   createComment,
+  oneComment,
+  commentsState,
   updateComment,
   replyComment,
   deleteComment,

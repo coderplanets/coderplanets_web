@@ -28,6 +28,16 @@ export const Operations = styled.div<{ metric: TMetric }>`
   justify-content: ${({ metric }) => getStickerJustify(metric)};
   ${({ metric }) => css.fitStickerWidth(metric)};
 `
+export const LoginHint = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 13px;
+  margin-top: 1px;
+
+  &:hover {
+    color: ${theme('button.primary')};
+    cursor: pointer;
+  }
+`
 export const MoreIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   ${css.size(24)};

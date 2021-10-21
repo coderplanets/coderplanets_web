@@ -5,16 +5,14 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import {
+  values,
   map,
   findIndex,
-  filter,
-  contains,
-  clone,
   propEq,
-  uniq,
-  concat,
   toUpper,
-  merge,
+  pick,
+  uniqBy,
+  prop,
 } from 'ramda'
 
 import type {
@@ -29,81 +27,123 @@ import type {
   TPagedComments,
   TComment,
   TEmotion,
+  TSubmitState,
+  TCommentsState,
 } from '@/spec'
 // import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { changeset } from '@/utils/validator'
-import { Comment, PagedComments, emptyPagi, Mention } from '@/model'
+import { Comment, PagedComments, emptyPagi, SimpleUser } from '@/model'
 
-import { MODE } from './constant'
+import type { TFoldState, TEditMode, TEditState, TRepliesState } from './spec'
+import { MODE, EDIT_MODE } from './constant'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
 const CommentsStore = T.model('CommentsStore', {
-  mode: T.optional(T.enumeration([MODE.REPLIES, MODE.TIMELINE]), MODE.REPLIES),
+  mode: T.optional(T.enumeration(values(MODE)), MODE.REPLIES),
+  editMode: T.optional(T.enumeration(values(EDIT_MODE)), EDIT_MODE.CREATE),
+
   // toggle main comment box
-  showInputBox: T.optional(T.boolean, false),
-  // toggle editor inside the comment box
-  showInputEditor: T.optional(T.boolean, false),
-  // toggle markdown drawer inside the comment box
-  showInputPreview: T.optional(T.boolean, false),
+  showEditor: T.optional(T.boolean, false),
+  showUpdateEditor: T.optional(T.boolean, false),
 
   // toggle modal editor for reply
-  showReplyBox: T.optional(T.boolean, false),
   showReplyEditor: T.optional(T.boolean, false),
-  showReplyPreview: T.optional(T.boolean, false),
 
-  // current to be delete comment id, use to target the confirm mask
-  tobeDeleteId: T.maybeNull(T.string),
-  // words count for current comment (include reply comment)
-  countCurrent: T.optional(T.number, 0),
   // content input of current comment editor
-  editContent: T.optional(T.string, ''),
+  commentBody: T.optional(T.string, '{}'),
+  // update comment
+  updateId: T.maybeNull(T.string),
+  updateBody: T.optional(T.string, '{}'),
+  // reply comment
+  // parrent comment of current reply
+  replyToComment: T.maybeNull(Comment),
+  replyBody: T.optional(T.string, '{}'),
   // content input of current reply comment editor
-  replyContent: T.optional(T.string, ''),
+  wordsCountReady: T.optional(T.boolean, false),
   // comments pagination data of current COMMUNITY / PART
   pagedComments: T.optional(PagedComments, emptyPagi),
 
-  isEdit: T.optional(T.boolean, false),
-  editComment: T.maybeNull(Comment),
-
-  // current "@user" in valid array format
-  referUsers: T.optional(T.array(Mention), []),
-  // current "@user" in string list
-  extractMentions: T.optional(T.array(T.string), []),
-
-  // parrent comment of current reply
-  replyToComment: T.maybeNull(Comment),
-
-  // mention users in content
-  mentionList: T.optional(T.array(Mention), []),
+  // loadPagedReplies
+  repliesParentId: T.maybeNull(T.string),
+  repliesLoading: T.optional(T.boolean, false),
 
   // toggle loading for creating comment
-  creating: T.optional(T.boolean, false),
-  // toggle loading for creating reply comment
-  replying: T.optional(T.boolean, false),
+  publishing: T.optional(T.boolean, false),
+  publishDone: T.optional(T.boolean, false),
   // toggle loading for comments list
   loading: T.optional(T.boolean, false),
 
   foldedCommentIds: T.optional(T.array(T.string), []),
+
+  // basic states
+  needRefreshState: T.optional(T.boolean, true),
+  isViewerJoined: T.optional(T.boolean, false),
+  participantsCount: T.optional(T.number, 0),
+  totalCount: T.optional(T.number, -1),
+  participants: T.optional(T.array(SimpleUser), []),
 })
   .views((self) => ({
+    get basicState(): TCommentsState {
+      const slf = self as TStore
+      const totalCount =
+        self.totalCount === -1
+          ? slf.viewingArticle.commentsCount
+          : self.totalCount
+
+      return {
+        isViewerJoined: self.isViewerJoined,
+        participantsCount: self.participantsCount,
+        totalCount,
+        participants: toJS(self.participants),
+      }
+    },
     get curRoute(): TRoute {
       const root = getParent(self) as TRootStore
       return root.curRoute
     },
+    get isAllFolded(): boolean {
+      const slf = self as TStore
+      const { foldedIds, pagedCommentsData } = slf
+      return foldedIds.length === pagedCommentsData.totalCount
+    },
     get foldedIds(): TID[] {
       return toJS(self.foldedCommentIds)
+    },
+    get foldState(): TFoldState {
+      const slf = self as TStore
+
+      return {
+        foldedIds: toJS(slf.foldedCommentIds),
+        isAllFolded: slf.isAllFolded,
+      }
     },
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
     },
-    get referUsersData(): TUser[] {
-      const referUsers = toJS(self.referUsers)
-      const extractMentions = toJS(self.extractMentions)
-      // @ts-ignore
-      return filter((user) => contains(user.name, extractMentions), referUsers)
+    get editState(): TEditState {
+      const slf = self as TStore
+      const baseFields = pick(
+        [
+          'commentBody',
+          'updateBody',
+          'replyBody',
+          'accountInfo',
+          'showEditor',
+          'showReplyEditor',
+          'showUpdateEditor',
+          'submitState',
+          'updateId',
+        ],
+        slf,
+      )
+
+      return { ...baseFields, replyToComment: slf.replyToCommentData }
+    },
+    get repliesState(): TRepliesState {
+      const slf = self as TStore
+      return pick(['repliesParentId', 'repliesLoading'], slf)
     },
     get participators(): TUser[] {
       const root = getParent(self) as TRootStore
@@ -125,9 +165,6 @@ const CommentsStore = T.model('CommentsStore', {
       */
 
       return map(mentionMapper, commentsParticipants)
-    },
-    get mentionListData() {
-      return toJS(self.mentionList)
     },
     get pagedCommentsData(): TPagedComments {
       return toJS(self.pagedComments)
@@ -156,77 +193,38 @@ const CommentsStore = T.model('CommentsStore', {
       const root = getParent(self) as TRootStore
       return root.viewing.viewingArticle
     },
-    get editCommentData() {
-      return toJS(self.editComment)
+    get replyToCommentData(): TComment | null {
+      return toJS(self.replyToComment)
     },
-    get isAllFolded(): boolean {
+    get isReady(): boolean {
       const slf = self as TStore
-      const { foldedIds, pagedCommentsData } = slf
-      return foldedIds.length === pagedCommentsData.totalCount
+      const { wordsCountReady } = slf
+
+      return wordsCountReady
+    },
+    get submitState(): TSubmitState {
+      const slf = self as TStore
+      return pick(['publishing', 'publishDone', 'isReady'], slf)
     },
   }))
   .actions((self) => ({
-    changesetErr(options): void {
-      const root = getParent(self) as TRootStore
-      root.changesetErr(options)
-    },
-
-    validator(type): boolean {
-      const { changesetErr } = self as TStore
-      switch (type) {
-        case 'create': {
-          const result = changeset({ editContent: self.editContent })
-            // @ts-ignore
-            .exist({ editContent: '讨论内容' }, changesetErr)
-            .done()
-
-          return result.passed
-        }
-        case 'reply': {
-          const result = changeset({ replyContent: self.replyContent })
-            // @ts-ignore
-            .exist({ replyContent: '回复内容' }, changesetErr)
-            .done()
-
-          return result.passed
-        }
-        default: {
-          return false
-        }
-      }
-    },
-    addReferUser(user: TUser): void {
-      const index = findIndex((u) => u.id === String(user.id), self.referUsers)
-      if (index === -1) {
-        self.referUsers.push({
-          id: String(user.id),
-          name: user.name,
-          avatar: user.avatar,
-        })
-      }
-    },
-    updateMentionList(mentionArray): void {
-      const curMentionList = clone(self.mentionList)
-      const uniqList = concat(curMentionList, mentionArray)
-      const mentionList = map(mentionMapper, uniqList)
-
-      // log('mentionList: ', mentionList)
-      // log('uniq: ', R.uniq(R.concat(mentionList, self.participators)))
-
-      // @ts-ignore
-      self.mentionList = uniq(concat(mentionList, self.participators))
-    },
-    updateOneComment(id, comment = {}): void {
-      const { entries } = self.pagedCommentsData
-
-      const index = findIndex(propEq('id', id), entries)
-      // @ts-ignore
-      self.pagedComments.entries[index] = merge(entries[index], comment)
-    },
-    updateUpvote(comment: TComment, info): void {
-      const { id, replyToId } = comment
+    updateEditing(sobj): void {
       const slf = self as TStore
-      const { entries } = slf.pagedCommentsData
+      slf.mark(sobj)
+    },
+
+    updateMentionList(mentionArray): void {
+      console.log('TODO: updateMentionList')
+      // const curMentionList = clone(self.mentionList)
+      // const uniqList = concat(curMentionList, mentionArray)
+      // const mentionList = map(mentionMapper, uniqList)
+
+      // @ts-ignore
+      // self.mentionList = uniq(concat(mentionList, self.participators))
+    },
+    updateOneComment(comment: TComment, fields = {}): void {
+      const { id, replyToId } = comment
+      const { entries } = self.pagedCommentsData
 
       if (self.mode === MODE.REPLIES && replyToId) {
         const parentIndex = findIndex(propEq('id', replyToId), entries)
@@ -235,19 +233,27 @@ const CommentsStore = T.model('CommentsStore', {
         const replyIndex = findIndex(propEq('id', id), parentComment.replies)
         if (replyIndex < 0) return
         const replyComment = parentComment.replies[replyIndex]
+        // @ts-ignore
+        if (fields.meta) fields.meta = { ...replyComment.meta, ...fields.meta }
+        // @ts-ignore
         self.pagedComments.entries[parentIndex].replies[replyIndex] = {
           ...replyComment,
-          ...info,
+          ...fields,
         }
       } else {
         // timeline & replies parent comment
         const index = findIndex(propEq('id', id), entries)
 
         if (index < 0) return
+        const comment = entries[index]
         // @ts-ignore
-        self.pagedComments.entries[index] = { ...entries[index], ...info }
+        if (fields.meta) fields.meta = { ...comment.meta, ...fields.meta }
+
+        // @ts-ignore
+        self.pagedComments.entries[index] = { ...comment, ...fields }
       }
     },
+
     upvoteEmotion(comment: TComment, emotion: TEmotion): void {
       const { id, replyToId } = comment
       const slf = self as TStore
@@ -271,6 +277,49 @@ const CommentsStore = T.model('CommentsStore', {
         self.pagedComments.entries[index].emotions = {
           ...entries[index].emotions,
           ...emotion,
+        }
+      }
+    },
+    addToReplies(replies: TComment[]): void {
+      const slf = self as TStore
+      const { repliesParentId } = slf
+      const { entries } = slf.pagedCommentsData
+
+      if (self.mode === MODE.REPLIES && repliesParentId) {
+        const parentIndex = findIndex(propEq('id', repliesParentId), entries)
+
+        if (parentIndex < 0) return
+        const curReplies = entries[parentIndex].replies
+        const uniqReplies = uniqBy(prop('id'), curReplies.concat(replies))
+
+        // @ts-ignore
+        self.pagedComments.entries[parentIndex].replies = uniqReplies
+      }
+    },
+    published(): void {
+      self.publishing = false
+      self.publishDone = true
+    },
+    resetPublish(mode: TEditMode): void {
+      switch (mode) {
+        case EDIT_MODE.REPLY: {
+          self.showReplyEditor = false
+          self.replyBody = '{}'
+          self.replyToComment = null
+          self.publishDone = false
+          return
+        }
+        case EDIT_MODE.UPDATE: {
+          self.showUpdateEditor = false
+          self.updateId = null
+          self.updateBody = '{}'
+          self.publishDone = false
+          return
+        }
+        default: {
+          self.showEditor = false
+          self.commentBody = '{}'
+          self.publishDone = false
         }
       }
     },

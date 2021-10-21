@@ -42,6 +42,6 @@ export const AvatarIntro = styled.div`
   margin-top: 2px;
 `
 export const Avatar = styled(Img)`
-  ${css.circle(38)};
+  ${css.circle(33)};
   margin-bottom: 16px;
 `

@@ -14,6 +14,7 @@ import {
   getShadowTopOffset,
   getWindowLeftOffset,
   getWindowTopOffset,
+  getIconColor,
 } from './metric'
 
 const topBubbles = keyframes`
@@ -196,10 +197,9 @@ export const ArticleShipWindow = styled(ShipWindow)`
   opacity: 0.5;
 `
 
-type TUpIcon = { type: TUpvoteLayout } & TActive
+type TUpIcon = { type: TUpvoteLayout; count: number } & TActive
 export const UpIcon = styled(UpvoteIcon)<TUpIcon>`
-  fill: ${({ $active }) =>
-    $active ? '#139B9D;' : theme('thread.articleDigest')};
+  fill: ${({ $active, count }) => getIconColor($active, count)};
 
   width: ${({ type }) => getIconSize(type)};
   height: ${({ type }) => getIconSize(type)};

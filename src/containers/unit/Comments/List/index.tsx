@@ -1,74 +1,67 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TID, TPagedComments } from '@/spec'
+import type { TPagedComments, TCommentsState } from '@/spec'
 import Pagi from '@/components/Pagi'
-import { CommentLoading } from '@/components/Loading'
 import { Br } from '@/components/Common'
 
 import Header from './Header'
 import List from './List'
 
-import type { TMode } from '../spec'
-import { pageChange } from '../logic'
+import type { TMode, TFoldState, TRepliesState } from '../spec'
+import { onPageChange } from '../logic'
 
-import { ListsWrapper, CommentBlock } from '../styles/list'
+import { ListsWrapper } from '../styles/list'
 
 type TProps = {
-  totalCommentsCount: number
   pagedComments: TPagedComments
-  foldedIds: TID[]
-  isAllFolded: boolean
+  foldState: TFoldState
   mode: TMode
-  restProps: {
-    loading: boolean
-    tobeDeleteId: string
-  }
+  repliesState: TRepliesState
+  basicState: TCommentsState
+  loading: boolean
 }
 
 const CommentsList: FC<TProps> = ({
-  totalCommentsCount,
-  pagedComments: { entries, totalCount, pageSize, pageNumber },
-  foldedIds,
-  isAllFolded,
+  pagedComments,
+  foldState,
   mode,
-  restProps: { loading, tobeDeleteId },
-}) => (
-  <Fragment>
-    <Header
-      totalCount={totalCommentsCount}
-      isAllFolded={isAllFolded}
-      mode={mode}
-      loading={loading}
-    />
-    {/* {loadingFresh && (
-      <CommentBlock>
-        <CommentLoading />
-      </CommentBlock>
-    )} */}
-    <ListsWrapper>
-      <List
+  repliesState,
+  basicState,
+  loading,
+}) => {
+  const { entries, totalCount, pageSize, pageNumber } = pagedComments
+  const { foldedIds, isAllFolded } = foldState
+
+  return (
+    <Fragment>
+      <Header
+        isAllFolded={isAllFolded}
+        basicState={basicState}
         mode={mode}
-        entries={entries}
-        foldedIds={foldedIds}
-        tobeDeleteId={tobeDeleteId}
+        loading={loading}
       />
-      {/* <CommentBlock>
-          <CommentLoading />
-        </CommentBlock> */}
-    </ListsWrapper>
-    <Br bottom={50} />
-    {!loading && (
-      <Pagi
-        pageNumber={pageNumber}
-        pageSize={pageSize}
-        totalCount={totalCount}
-        onChange={pageChange}
-        showBottomMsg
-        noMoreMsg="没有更多的讨论了"
-        emptyMsg="目前还没有讨论"
-      />
-    )}
-  </Fragment>
-)
+      <ListsWrapper>
+        <List
+          mode={mode}
+          entries={entries}
+          repliesState={repliesState}
+          foldedIds={foldedIds}
+        />
+      </ListsWrapper>
+      <Br bottom={50} />
+      {!loading && (
+        <Pagi
+          pageNumber={pageNumber}
+          pageSize={pageSize}
+          totalCount={totalCount}
+          onChange={onPageChange}
+          showBottomMsg
+          noMoreMsg="没有更多的讨论了"
+          emptyMsg="目前还没有讨论"
+        />
+      )}
+    </Fragment>
+  )
+}
 
 export default memo(CommentsList)

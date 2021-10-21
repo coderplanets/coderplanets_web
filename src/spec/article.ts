@@ -1,5 +1,5 @@
 import type { TCommunity, TTag } from './index'
-import type { TUser, TAccount } from './account'
+import type { TUser, TAccount, TSimpleUser } from './account'
 import type { TID } from './utils'
 import type { TEmotion } from './emotion'
 
@@ -116,6 +116,7 @@ export type TPagedMeetups = {
 
 export type TComment = {
   id: string
+  thread?: string
   isPinned?: boolean
   floor?: number
   bodyHtml?: string
@@ -167,3 +168,10 @@ export type TCollectionFolder = {
 export type TPagedCollectionFolder = {
   entries: TCollectionFolder[]
 } & TPagi
+
+export type TCommentsState = {
+  isViewerJoined: boolean
+  participantsCount: number
+  totalCount: number
+  participants: TSimpleUser[]
+}

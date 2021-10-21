@@ -1,21 +1,19 @@
 import { useEffect } from 'react'
-import { curry, isEmpty, reject, equals } from 'ramda'
+import { isEmpty, reject, equals } from 'ramda'
 
-import type { TUser, TComment, TID, TEmotionType } from '@/spec'
-import { EVENT, ERR } from '@/constant'
+import type { TComment, TID, TEmotionType, TEditValue } from '@/spec'
+import { ANCHOR, EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import BStore from '@/utils/bstore'
-import {
-  send,
-  countWords,
-  extractMentions,
-  errRescue,
-  authWarn,
-  titleCase,
-} from '@/utils/helper'
+import { errRescue, authWarn, titleCase } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { scrollIntoEle } from '@/utils/dom'
+import { updateEditing } from '@/utils/mobx'
+
+import uid from '@/utils/uid'
+
+import { EDIT_MODE } from './constant'
 
 import type { TMode } from './spec'
 import type { TStore } from './store'
@@ -33,164 +31,147 @@ const sr71$ = new SR71({
 let sub$ = null
 let saveDraftTimmer = null
 let store: TStore | undefined
+const PAGI_SIZE = 30
 
-// variables = %{id: post.id, thread: "POST", filter: %{page: 1, size: page_size}}
-export const loadComments = (): void => {
+// 回复列表内的翻页页标记录
+let repliesPagiNo = {}
+
+const getRepliesPagiNo = (parentId: TID): number => {
+  const curNo = repliesPagiNo[parentId]
+
+  return curNo ? curNo + 1 : 1
+}
+
+export const loadCommentsState = (): void => {
+  const { viewingArticle: article } = store
+  const args = {
+    id: article.id,
+    thread: article.meta.thread,
+    freshkey: uid.gen(),
+  }
+
+  log('loadCommentsState args: ', args)
+  sr71$.query(S.commentsState, args)
+}
+
+export const loadComments = (page = 1): void => {
+  store.mark({ loading: true })
   const { viewingArticle: article, mode } = store
 
   const args = {
     id: article.id,
     thread: article.meta.thread,
     mode,
-    filter: { page: 1, size: 20 },
+    filter: { page, size: PAGI_SIZE },
   }
-  log('query args: ', args)
-  store.mark({ loading: true })
+  log('loadComments args: ', args)
   sr71$.query(S.pagedComments, args)
 }
 
-/* eslint-disable-next-line */
-export const createComment = curry((cb, e) => {
-  if (!store.validator('create')) return false
+export const loadCommentReplies = (id: TID): void => {
+  const filter = { page: getRepliesPagiNo(id), size: 30 }
+  const args = { id, filter }
 
-  store.mark({ creating: true })
+  store.mark({ repliesParentId: id, repliesLoading: true })
+  log('loadCommentReplies args: ', args)
+  sr71$.query(S.pagedCommentReplies, args)
+}
+
+export const createComment = (): void => {
+  if (!store.isReady) return
+
   const args = {
     id: store.viewingArticle.id,
-    body: store.editContent,
+    body: store.commentBody,
     thread: store.activeThread,
-    community: store.communityRaw,
-    mentionUsers: store.referUsersData.map((user) => ({ id: user.id })),
   }
 
   log('createComment args: ', args)
+  store.mark({ publishing: true })
   sr71$.mutate(S.createComment, args)
-  cb()
-})
-
-export const createCommentPreview = (): void =>
-  store.mark({
-    showInputEditor: false,
-    showInputPreview: true,
-  })
-
-export const backToEditor = (): void =>
-  store.mark({
-    showInputEditor: true,
-    showInputPreview: false,
-  })
-
-export const previewReply = (data): void => {
-  log('previewReply --> : ', data)
 }
 
-export const openInputBox = (): void => {
-  if (!store.isLogin) return authWarn({ hideToast: true })
+export const updateComment = (): void => {
+  if (!store.isReady) return
 
-  initDraftTimmer()
-  store.mark({
-    showInputBox: true,
-    showInputEditor: true,
-  })
-}
-
-export const openCommentEditor = (): void => {
-  initDraftTimmer()
-
-  store.mark({
-    showInputEditor: true,
-  })
-}
-
-export const onCommentInputBlur = (): void =>
-  store.mark({
-    showInputBox: false,
-    showInputPreview: false,
-    showInputEditor: false,
-  })
-
-export const createReplyComment = (): void => {
-  if (!store.validator('reply')) return
-
-  if (store.isEdit) {
-    return sr71$.mutate(S.updateComment, {
-      id: store.editCommentData.id,
-      body: store.replyContent,
-      thread: store.activeThread,
-    })
+  const args = {
+    id: store.updateId,
+    body: store.updateBody,
   }
 
-  if (store.replying) return
-
-  store.mark({ replying: true })
-  return sr71$.mutate(S.replyComment, {
-    id: store.replyToComment.id,
-    body: store.replyContent,
-    community: store.curCommunity.raw,
-    thread: store.activeThread,
-    mentionUsers: store.referUsersData.map((user) => ({ id: user.id })),
-  })
+  log('updateComment args: ', args)
+  store.mark({ publishing: true })
+  sr71$.mutate(S.updateComment, args)
 }
 
-export const onCommentInputChange = (editContent): void =>
-  store.mark({
-    countCurrent: countWords(editContent),
-    extractMentions: extractMentions(editContent),
-    editContent,
-  })
+export const openEditor = (): void => {
+  if (!store.isLogin) return authWarn({ hideToast: true })
 
-export const onReplyInputChange = (replyContent): void =>
-  store.mark({
-    countCurrent: countWords(replyContent),
-    extractMentions: extractMentions(replyContent),
-    replyContent,
-  })
+  initDraftTimmer()
 
-export const openUpdateEditor = (data): void =>
-  store.mark({
-    isEdit: true,
-    showReplyBox: true,
-    showReplyEditor: true,
-    showReplyPreview: false,
-    editComment: data,
-    replyContent: data.body,
-  })
+  store.mark({ showEditor: true })
+}
 
-export const openReplyEditor = (data): void => {
+export const closeEditor = (): void => {
+  store.mark({ showEditor: false })
+}
+
+export const openUpdateEditor = (comment: TComment): void => {
+  store.mark({ showUpdateEditor: true })
+  return sr71$.query(S.oneComment, { id: comment.id })
+}
+
+export const closeUpdateEditor = (): void => {
+  store.mark({ showUpdateEditor: false, updateId: null })
+}
+
+export const closeReplyEditor = (): void => {
+  store.mark({ closeReplyEditor: false, replyToComment: null })
+}
+
+export const replyComment = (): void => {
+  const { replyToComment, replyBody } = store
+  const variables = { id: replyToComment.id, body: replyBody }
+  store.mark({ publishing: true })
+  return sr71$.mutate(S.replyComment, variables)
+}
+
+export const commentOnChange = (e: TEditValue, key: string): void => {
+  updateEditing(store, key, e)
+}
+
+export const setWordsCountState = (wordsCountReady: boolean): void => {
+  store?.mark({ wordsCountReady })
+}
+
+export const openReplyEditor = (comment: TComment): void => {
   if (!store.isLogin) return authWarn({ hideToast: true })
 
   initDraftTimmer()
   store.mark({
-    showReplyBox: true,
     showReplyEditor: true,
-    showReplyPreview: false,
-    replyToComment: data,
-    replyContent: '',
-    isEdit: false,
+    replyToComment: comment,
   })
 }
 
 export const replyCommentPreview = (): void =>
   store.mark({
     showReplyEditor: false,
-    showReplyPreview: true,
   })
 
 export const replyBackToEditor = (): void =>
   store.mark({
     showReplyEditor: true,
-    showReplyPreview: false,
   })
 
 export const closeReplyBox = (): void => {
   store.mark({
-    showReplyBox: false,
     showReplyEditor: false,
-    showReplyPreview: false,
   })
 }
 
 export const onModeChange = (mode: TMode): void => {
-  store.mark({ mode })
+  store.mark({ mode, needRefreshState: false })
   loadComments()
 }
 
@@ -205,9 +186,6 @@ export const handleEmotion = (
   if (!store.isLogin) return authWarn({ hideToast: true })
 
   const { id } = comment
-  // console.log('handleEmotion comment: ', id)
-  // console.log('handleEmotion name: ', name)
-  // console.log('handleEmotion viewerHasEmotioned: ', viewerHasEmotioned)
   const emotion = name.toUpperCase()
 
   // comment.emotions
@@ -243,13 +221,13 @@ export const handleUpvote = (
   const { id, upvotesCount } = comment
 
   if (viewerHasUpvoted) {
-    store.updateUpvote(comment, {
+    store.updateOneComment(comment, {
       upvotesCount: upvotesCount + 1,
       viewerHasUpvoted: !viewerHasUpvoted,
     })
     sr71$.mutate(S.upvoteComment, { id })
   } else {
-    store.updateUpvote(comment, {
+    store.updateOneComment(comment, {
       upvotesCount: upvotesCount - 1,
       viewerHasUpvoted: !viewerHasUpvoted,
     })
@@ -258,20 +236,6 @@ export const handleUpvote = (
   }
 }
 
-export const onUploadImageDone = (url: string): void =>
-  send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
-
-export const insertQuote = (): void =>
-  send(EVENT.DRAFT_INSERT_SNIPPET, { data: '> ' })
-
-export const insertCode = (): void => {
-  const communityRaw = store.curCommunity.raw
-  const data = `\`\`\`${communityRaw}\n\n\`\`\``
-
-  send(EVENT.DRAFT_INSERT_SNIPPET, { data })
-}
-
-export const onMention = (user: TUser): void => store.addReferUser(user)
 export const onMentionSearch = (name: string): void => {
   if (name?.length >= 1) {
     sr71$.query(S.searchUsers, { name })
@@ -280,26 +244,26 @@ export const onMentionSearch = (name: string): void => {
   }
 }
 
-export const deleteComment = (): void =>
+export const deleteComment = (): void => {
   sr71$.mutate(S.deleteComment, {
-    id: store.tobeDeleteId,
     thread: store.activeThread,
   })
-
-// show delete confirm
-export const onDelete = (comment): void =>
-  store.mark({ tobeDeleteId: comment.id })
-export const cancelDelete = (): void => store.mark({ tobeDeleteId: null })
-
-export const pageChange = (page = 1): void => {
-  scrollIntoEle('lists-info')
 }
 
-const cancelLoading = () => store.mark({ loading: false, creating: false })
+/**
+ * load the same mode when page change
+ */
+export const onPageChange = (page = 1): void => {
+  store.mark({ needRefreshState: false })
+  loadComments(page)
+  scrollIntoEle(ANCHOR.COMMENTS_ID)
+}
+
+const cancelLoading = () => store.mark({ loading: false })
 
 export const onReplyEditorClose = (): void => {
   closeReplyBox()
-  onCommentInputBlur()
+  // onCommentInputBlur()
 }
 
 const saveDraftIfNeed = (content): void => {
@@ -335,82 +299,107 @@ export const expandAllComments = (): void => {
 // ###############################
 const DataSolver = [
   {
+    match: asyncRes('commentsState'),
+    action: ({ commentsState }) => {
+      log('## commentsState -> ', commentsState)
+      store.mark({ ...commentsState })
+    },
+  },
+  {
+    match: asyncRes('oneComment'),
+    action: ({ oneComment }) => {
+      store.mark({ updateId: oneComment.id, updateBody: oneComment.body })
+    },
+  },
+  {
     match: asyncRes('pagedComments'),
     action: ({ pagedComments }) => {
       cancelLoading()
       log('# pagedComments --> ', pagedComments)
+      repliesPagiNo = {}
       store.mark({ pagedComments, loading: false })
+
+      if (store.needRefreshState) {
+        loadCommentsState()
+      }
     },
   },
   {
+    match: asyncRes('pagedCommentReplies'),
+    action: ({ pagedCommentReplies }) => {
+      // cancelLoading()
+      log('# pagedCommentReplies --> ', pagedCommentReplies)
+      store.addToReplies(pagedCommentReplies.entries)
+
+      repliesPagiNo[store.repliesParentId] = pagedCommentReplies.pageNumber
+      store.mark({ repliesParentId: null, repliesLoading: false })
+    },
+  },
+
+  {
     match: asyncRes('createComment'),
     action: () => {
-      store.mark({
-        showInputBox: false,
-        showInputEditor: false,
-        editContent: '',
-        creating: false,
-        loading: false,
-      })
+      store.mark({ needRefreshState: true })
+      loadComments()
+      store.published()
+      setTimeout(() => store.resetPublish(EDIT_MODE.CREATE), 500)
+
       stopDraftTimmer()
       clearDraft()
-      // loadComents({
-      //   filter: { page: 1, sort: TYPE.DESC_INSERTED },
-      //   fresh: true,
-      // })
     },
   },
   {
     match: asyncRes('replyComment'),
     action: () => {
-      store.mark({
-        showReplyBox: false,
-        replying: false,
-        replyToComment: null,
-      })
-      scrollIntoEle('lists-info')
+      store.mark({ needRefreshState: true })
+      loadComments()
+      store.published()
+      setTimeout(() => store.resetPublish(EDIT_MODE.REPLY), 500)
       stopDraftTimmer()
       clearDraft()
-      // loadComents({ filter: { page: 1 }, fresh: true })
     },
   },
   {
     match: asyncRes('updateComment'),
-    action: ({ updateComment: { id, body } }) => {
-      store.mark({
-        showReplyBox: false,
-        isEdit: false,
-        editComment: null,
-        replyContent: '',
-      })
-      store.updateOneComment(id, { body })
+    action: ({ updateComment }) => {
+      store.published()
+      const { bodyHtml } = updateComment
+      store.updateOneComment(updateComment, { bodyHtml })
+
+      setTimeout(() => store.resetPublish(EDIT_MODE.UPDATE), 500)
     },
   },
   {
     match: asyncRes('upvoteComment'),
     action: ({ upvoteComment }) => {
-      const { upvotesCount, viewerHasUpvoted } = upvoteComment
-      store.updateUpvote(upvoteComment, { upvotesCount, viewerHasUpvoted })
+      const { upvotesCount, viewerHasUpvoted, meta } = upvoteComment
+      store.updateOneComment(upvoteComment, {
+        upvotesCount,
+        viewerHasUpvoted,
+        meta,
+      })
     },
   },
   {
     match: asyncRes('undoUpvoteComment'),
     action: ({ undoUpvoteComment }) => {
-      const { upvotesCount, viewerHasUpvoted } = undoUpvoteComment
-      store.updateUpvote(undoUpvoteComment, { upvotesCount, viewerHasUpvoted })
+      const { upvotesCount, viewerHasUpvoted, meta } = undoUpvoteComment
+      store.updateOneComment(undoUpvoteComment, {
+        upvotesCount,
+        viewerHasUpvoted,
+        meta,
+      })
     },
   },
   {
     match: asyncRes('emotionToComment'),
     action: ({ emotionToComment }) => {
-      console.log('emotionToComment -> ', emotionToComment)
       store.upvoteEmotion(emotionToComment, emotionToComment.emotions)
     },
   },
   {
     match: asyncRes('undoEmotionToComment'),
     action: ({ undoEmotionToComment }) => {
-      console.log('undoEmotionToComment -> ', undoEmotionToComment)
       store.upvoteEmotion(undoEmotionToComment, undoEmotionToComment.emotions)
     },
   },
@@ -418,9 +407,7 @@ const DataSolver = [
     match: asyncRes('deleteComment'),
     action: ({ deleteComment }) => {
       log('deleteComment', deleteComment)
-      store.mark({ tobeDeleteId: null })
-      scrollIntoEle('lists-info')
-      // loadComents({ filter: { page: 1 }, fresh: true })
+      scrollIntoEle(ANCHOR.COMMENTS_ID)
     },
   },
   {
@@ -439,8 +426,8 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {
-      //
+    action: ({ details }) => {
+      errRescue({ type: ERR.GRAPHQL, details, path: 'Comments' })
     },
   },
   {
@@ -463,28 +450,23 @@ const initDraftTimmer = (): void => {
   stopDraftTimmer()
 
   saveDraftTimmer = setInterval(() => {
-    const { showReplyEditor, editContent, replyContent } = store
+    const { commentBody } = store
 
-    if (showReplyEditor) return saveDraftIfNeed(replyContent)
-    saveDraftIfNeed(editContent)
+    // if (showReplyEditor) return saveDraftIfNeed(replyContent)
+    saveDraftIfNeed(commentBody)
   }, 3000)
 }
 
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (
-  _store: TStore,
-  ssr: boolean,
-  locked: boolean,
-): void => {
+export const useInit = (_store: TStore, locked: boolean): void => {
   useEffect(() => {
     // log('effect init')
     store = _store
     if (!sub$) {
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       loadComments()
-      // if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
     }
 
     return () => {
@@ -496,5 +478,5 @@ export const useInit = (
       sub$.unsubscribe()
       sub$ = null
     }
-  }, [_store, ssr, locked])
+  }, [_store, locked])
 }

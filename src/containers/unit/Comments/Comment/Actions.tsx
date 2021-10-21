@@ -1,6 +1,6 @@
 import { FC, memo, useCallback } from 'react'
 
-import type { TAccount, TComment } from '@/spec'
+import type { TComment } from '@/spec'
 import { ICON } from '@/config'
 
 import { useAccount } from '@/hooks'
@@ -8,19 +8,19 @@ import IconButton from '@/components/Buttons/IconButton'
 import MenuButton from '@/components/Buttons/MenuButton'
 import { SpaceGrow } from '@/components/Common'
 
-import { Wrapper, ReplyAction } from '../styles/comment/actions'
-import { openUpdateEditor, openReplyEditor, onDelete } from '../logic'
+import { Wrapper, ReplyAction, MoreWrapper } from '../styles/comment/actions'
+import { openUpdateEditor, openReplyEditor } from '../logic'
 
 type TProps = {
   data: TComment
 }
 
 const menuOptions = [
-  {
-    key: 'quote',
-    icon: `${ICON}/shape/quote.svg`,
-    title: '引用',
-  },
+  // {
+  //   key: 'quote',
+  //   icon: `${ICON}/shape/quote.svg`,
+  //   title: '引用',
+  // },
   {
     key: 'share',
     icon: `${ICON}/article/share.svg`,
@@ -35,11 +35,10 @@ const menuOptions = [
 
 const Actions: FC<TProps> = ({ data }) => {
   const { user } = useAccount()
-  const accountId = user.id
 
   let extraOptions = []
 
-  if (String(data.author.id) === accountId) {
+  if (data.author.login === user.login) {
     extraOptions = [
       {
         key: 'edit',
@@ -70,7 +69,7 @@ const Actions: FC<TProps> = ({ data }) => {
           return openUpdateEditor(data)
         }
         case 'delete': {
-          return onDelete(data)
+          return console.log('todo: delete')
         }
         default: {
           // eslint-disable-next-line no-useless-return
@@ -90,7 +89,9 @@ const Actions: FC<TProps> = ({ data }) => {
         extraOptions={extraOptions}
         onClick={handleAction}
       >
-        <IconButton path="shape/more.svg" size={16} />
+        <MoreWrapper>
+          <IconButton path="shape/more.svg" size={16} />
+        </MoreWrapper>
       </MenuButton>
     </Wrapper>
   )

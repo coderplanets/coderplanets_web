@@ -7,10 +7,10 @@ import Img from '@/Img'
 
 export const Wrapper = styled.div<TActive>`
   min-height: 100px;
-  margin-left: 42px;
+  margin-left: 120px;
   margin-top: 50px;
   padding-bottom: 0;
-  width: 65%;
+  width: calc(100% - 50px);
   max-width: 200px;
   flex-wrap: wrap;
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
@@ -21,8 +21,9 @@ export const Title = styled.div`
   margin-bottom: 15px;
   margin-left: 3px;
 `
-export const JoinCount = styled.span`
-  color: ${theme('comment.number')};
+export const TotalNum = styled.span<{ highlight: boolean }>`
+  color: ${({ highlight }) =>
+    highlight ? theme('comment.number') : theme('thread.articleTitle')};
   font-size: 13px;
   margin-left: 4px;
   margin-right: 4px;

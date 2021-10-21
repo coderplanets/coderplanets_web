@@ -8,8 +8,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>``
 
-export const Body = styled.div<{ lineClampNum: number }>`
-  font-size: 16px;
+type TBody = { lineClampNum: number; mode: 'article' | 'comment' }
+export const Body = styled.div<TBody>`
+  font-size: ${({ mode }) => (mode === 'article' ? '16px' : '15px')};
   line-height: 1.85;
   position: relative;
   display: -webkit-box;

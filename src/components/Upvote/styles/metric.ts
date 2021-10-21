@@ -1,10 +1,23 @@
 import type { TUpvoteLayout } from '@/spec'
 import { UPVOTE_LAYOUT } from '@/constant'
 
+import { theme } from '@/utils/themes'
+
+export const getIconColor = ($active: boolean, count: number): string => {
+  if ($active) return '#139B9D;'
+  if (count === 0) return '#4f7478'
+
+  return theme('thread.articleDigest')
+}
+
 export const getIconSize = (type: TUpvoteLayout): string => {
   switch (type) {
     case UPVOTE_LAYOUT.ARTICLE: {
       return '30px;'
+    }
+
+    case UPVOTE_LAYOUT.COMMENT: {
+      return '16px;'
     }
 
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
@@ -59,6 +72,10 @@ export const getShadowTopOffset = (type: TUpvoteLayout): string => {
 
 export const getWindowLeftOffset = (type: TUpvoteLayout): string => {
   switch (type) {
+    case UPVOTE_LAYOUT.COMMENT: {
+      return '6px'
+    }
+
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '8px'
     }
@@ -73,6 +90,10 @@ export const getWindowTopOffset = (type: TUpvoteLayout): string => {
   switch (type) {
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '10px'
+    }
+
+    case UPVOTE_LAYOUT.COMMENT: {
+      return '7px'
     }
 
     default: {

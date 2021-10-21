@@ -12,6 +12,7 @@ export const ReplyBarBase = styled.div`
   margin-left: 8px;
   margin-right: 8px;
   margin-bottom: 8px;
+  max-width: 580px;
 `
 export const ReplyToBodyBase = styled.span`
   color: ${theme('comment.title')};

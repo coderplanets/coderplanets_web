@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import animate from '@/utils/animations'
 
 import PinSVG from '@/icons/Pin'
+import UserBadge from '@/icons/UserBadge'
 
 type TWrapper = {
   isPinned: boolean
@@ -13,7 +15,6 @@ type TWrapper = {
 export const Wrapper = styled.div<TWrapper>`
   position: relative;
   ${css.flex()};
-  margin-left: 1px;
   padding-top: ${({ isPinned }) => (isPinned ? '24px' : '20px')};
   position: relative;
   background: transparent;
@@ -38,24 +39,27 @@ export const PinText = styled.div`
   opacity: 0.8;
 `
 
-export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
+export const CommentWrapper = styled.div`
   ${css.flexGrow()};
-  filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
+  width: 100%;
 `
 export const SidebarWrapper = styled.div`
+  color: ${theme('thread.articleTitle')};
   ${css.flexColumn('align-start')};
   height: 100%;
-  min-width: 35px;
+  min-width: 28px;
 `
 export const BadgePopContent = styled.div`
   padding: 5px 10px;
   font-size: 12px;
 `
-export const AuthorUpvotedIcon = styled(Img)`
+export const AuthorUpvotedIcon = styled(UserBadge)`
   ${css.size(14)};
   fill: ${theme('comment.icon')};
-  opacity: 0.6;
-  margin-top: 3px;
+  opacity: 0.8;
+  margin-top: 4px;
+  margin-left: 1px;
+  animation: ${animate.zoomIn} 0.2s linear;
 `
 export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
   ${css.size(14)};
@@ -65,11 +69,11 @@ export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
 `
 export const IndentLine = styled.div`
   flex-grow: 1;
-  width: 25px;
+  width: 20px;
   height: 100%;
   border-left: 1px dashed;
   border-left-color: ${theme('comment.indentLine')};
-  margin-left: 6px;
+  margin-left: 8px;
   margin-top: 8px;
   opacity: 1;
 
@@ -91,8 +95,7 @@ export const CommentBodyInfo = styled.div`
   width: 100%;
 `
 export const CommentContent = styled.div`
-  font-size: 14px;
-  margin-left: 1px;
+  margin-left: 4px;
 `
 export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};
