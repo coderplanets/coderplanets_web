@@ -16,6 +16,10 @@ export const getIconSize = (type: TUpvoteLayout): string => {
       return '30px;'
     }
 
+    case UPVOTE_LAYOUT.COMMENT: {
+      return '16px;'
+    }
+
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '22px;'
     }
@@ -68,6 +72,10 @@ export const getShadowTopOffset = (type: TUpvoteLayout): string => {
 
 export const getWindowLeftOffset = (type: TUpvoteLayout): string => {
   switch (type) {
+    case UPVOTE_LAYOUT.COMMENT: {
+      return '6px'
+    }
+
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '8px'
     }
@@ -82,6 +90,10 @@ export const getWindowTopOffset = (type: TUpvoteLayout): string => {
   switch (type) {
     case UPVOTE_LAYOUT.WORKS_ARTICLE: {
       return '10px'
+    }
+
+    case UPVOTE_LAYOUT.COMMENT: {
+      return '7px'
     }
 
     default: {

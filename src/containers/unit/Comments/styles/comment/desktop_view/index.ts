@@ -15,7 +15,6 @@ type TWrapper = {
 export const Wrapper = styled.div<TWrapper>`
   position: relative;
   ${css.flex()};
-  margin-left: 1px;
   padding-top: ${({ isPinned }) => (isPinned ? '24px' : '20px')};
   position: relative;
   background: transparent;
@@ -48,17 +47,18 @@ export const SidebarWrapper = styled.div`
   color: ${theme('thread.articleTitle')};
   ${css.flexColumn('align-start')};
   height: 100%;
-  min-width: 35px;
+  min-width: 28px;
 `
 export const BadgePopContent = styled.div`
   padding: 5px 10px;
   font-size: 12px;
 `
 export const AuthorUpvotedIcon = styled(UserBadge)`
-  ${css.size(15)};
+  ${css.size(14)};
   fill: ${theme('comment.icon')};
   opacity: 0.8;
   margin-top: 4px;
+  margin-left: 1px;
   animation: ${animate.zoomIn} 0.2s linear;
 `
 export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
@@ -69,11 +69,11 @@ export const SolutionIcon = styled(Img)<{ isAuthorUpvoted: boolean }>`
 `
 export const IndentLine = styled.div`
   flex-grow: 1;
-  width: 25px;
+  width: 20px;
   height: 100%;
   border-left: 1px dashed;
   border-left-color: ${theme('comment.indentLine')};
-  margin-left: 6px;
+  margin-left: 8px;
   margin-top: 8px;
   opacity: 1;
 

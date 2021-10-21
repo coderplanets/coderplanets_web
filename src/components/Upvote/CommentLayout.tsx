@@ -8,6 +8,7 @@ import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 
+import { UPVOTE_LAYOUT } from '@/constant'
 import AnimatedCount from '@/components/AnimatedCount'
 import UpvoteBtn from './UpvoteBtn'
 
@@ -33,13 +34,14 @@ const Upvote: FC<TProps> = ({
     <Wrapper testid={testid}>
       <UpWrapper>
         <UpvoteBtn
+          type={UPVOTE_LAYOUT.COMMENT}
           viewerHasUpvoted={viewerHasUpvoted}
           onAction={onAction}
           count={count}
         />
       </UpWrapper>
       <CountWrapper>
-        <AnimatedCount count={count} active={viewerHasUpvoted} />
+        <AnimatedCount count={count} active={viewerHasUpvoted} size="tiny" />
       </CountWrapper>
     </Wrapper>
   )

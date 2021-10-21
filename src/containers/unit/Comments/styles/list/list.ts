@@ -17,7 +17,7 @@ export const IndentLine = styled.div<TIndentLine>`
   left: 2px;
   height: ${({ isFold }) =>
     isFold ? 'calc(100% - 62px)' : 'calc(100% - 78px)'};
-  width: 25px;
+  width: 20px;
   border-left: 1px dashed;
   border-left-color: ${theme('comment.indentLine')};
   margin-left: 6px;
@@ -36,6 +36,6 @@ export const RepliesWrapper = styled.div`
   margin-left: 8px;
 `
 export const RepliesCommentsWrapper = styled.div`
-  margin-left: 24px;
+  margin-left: 17.5px;
   padding-left: 4px;
 `
