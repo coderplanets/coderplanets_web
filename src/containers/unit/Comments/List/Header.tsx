@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 
+import type { TCommentsState } from '@/spec'
 import { ICON } from '@/config'
 import { SVG } from '@/constant'
 
@@ -20,10 +21,10 @@ import type { TMode } from '../spec'
 import { foldAllComments, expandAllComments, onModeChange } from '../logic'
 
 type TProps = {
-  totalCount: number
   mode: TMode
   isAllFolded: boolean
   loading: boolean
+  basicState: TCommentsState
 }
 
 const actionIconConfig = {
@@ -44,12 +45,16 @@ const switchItems = [
   },
 ]
 
-const Header: FC<TProps> = ({ totalCount, mode, isAllFolded, loading }) => {
+const Header: FC<TProps> = ({ basicState, mode, isAllFolded, loading }) => {
   return (
     <Wrapper>
       <TotalCountWrapper>
         <TotalTitle>
-          共 <TotalNum>{totalCount}</TotalNum> 条讨论:
+          共{' '}
+          <TotalNum highlight={basicState.isViewerJoined}>
+            {basicState.totalCount}
+          </TotalNum>{' '}
+          条讨论:
         </TotalTitle>
       </TotalCountWrapper>
       <ActionsWrapper>

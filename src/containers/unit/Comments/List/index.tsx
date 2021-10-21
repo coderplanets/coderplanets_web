@@ -1,6 +1,6 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TPagedComments } from '@/spec'
+import type { TPagedComments, TCommentsState } from '@/spec'
 import Pagi from '@/components/Pagi'
 import { Br } from '@/components/Common'
 
@@ -13,20 +13,20 @@ import { onPageChange } from '../logic'
 import { ListsWrapper } from '../styles/list'
 
 type TProps = {
-  totalCommentsCount: number
   pagedComments: TPagedComments
   foldState: TFoldState
   mode: TMode
   repliesState: TRepliesState
+  basicState: TCommentsState
   loading: boolean
 }
 
 const CommentsList: FC<TProps> = ({
-  totalCommentsCount,
   pagedComments,
   foldState,
   mode,
   repliesState,
+  basicState,
   loading,
 }) => {
   const { entries, totalCount, pageSize, pageNumber } = pagedComments
@@ -35,8 +35,8 @@ const CommentsList: FC<TProps> = ({
   return (
     <Fragment>
       <Header
-        totalCount={totalCommentsCount}
         isAllFolded={isAllFolded}
+        basicState={basicState}
         mode={mode}
         loading={loading}
       />

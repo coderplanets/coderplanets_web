@@ -11,6 +11,8 @@ import { buildLog } from '@/utils/logger'
 import { scrollIntoEle } from '@/utils/dom'
 import { updateEditing } from '@/utils/mobx'
 
+import uid from '@/utils/uid'
+
 import { EDIT_MODE } from './constant'
 
 import type { TMode } from './spec'
@@ -40,6 +42,18 @@ const getRepliesPagiNo = (parentId: TID): number => {
   return curNo ? curNo + 1 : 1
 }
 
+export const loadCommentsState = (): void => {
+  const { viewingArticle: article } = store
+  const args = {
+    id: article.id,
+    thread: article.meta.thread,
+    freshkey: uid.gen(),
+  }
+
+  log('loadCommentsState args: ', args)
+  sr71$.query(S.commentsState, args)
+}
+
 export const loadComments = (page = 1): void => {
   store.mark({ loading: true })
   const { viewingArticle: article, mode } = store
@@ -50,7 +64,7 @@ export const loadComments = (page = 1): void => {
     mode,
     filter: { page, size: PAGI_SIZE },
   }
-  log('query args: ', args)
+  log('loadComments args: ', args)
   sr71$.query(S.pagedComments, args)
 }
 
@@ -157,7 +171,7 @@ export const closeReplyBox = (): void => {
 }
 
 export const onModeChange = (mode: TMode): void => {
-  store.mark({ mode })
+  store.mark({ mode, needRefreshState: false })
   loadComments()
 }
 
@@ -240,6 +254,7 @@ export const deleteComment = (): void => {
  * load the same mode when page change
  */
 export const onPageChange = (page = 1): void => {
+  store.mark({ needRefreshState: false })
   loadComments(page)
   scrollIntoEle(ANCHOR.COMMENTS_ID)
 }
@@ -284,6 +299,13 @@ export const expandAllComments = (): void => {
 // ###############################
 const DataSolver = [
   {
+    match: asyncRes('commentsState'),
+    action: ({ commentsState }) => {
+      log('## commentsState -> ', commentsState)
+      store.mark({ ...commentsState })
+    },
+  },
+  {
     match: asyncRes('oneComment'),
     action: ({ oneComment }) => {
       store.mark({ updateId: oneComment.id, updateBody: oneComment.body })
@@ -296,6 +318,10 @@ const DataSolver = [
       log('# pagedComments --> ', pagedComments)
       repliesPagiNo = {}
       store.mark({ pagedComments, loading: false })
+
+      if (store.needRefreshState) {
+        loadCommentsState()
+      }
     },
   },
   {
@@ -313,6 +339,7 @@ const DataSolver = [
   {
     match: asyncRes('createComment'),
     action: () => {
+      store.mark({ needRefreshState: true })
       loadComments()
       store.published()
       setTimeout(() => store.resetPublish(EDIT_MODE.CREATE), 500)
@@ -324,6 +351,7 @@ const DataSolver = [
   {
     match: asyncRes('replyComment'),
     action: () => {
+      store.mark({ needRefreshState: true })
       loadComments()
       store.published()
       setTimeout(() => store.resetPublish(EDIT_MODE.REPLY), 500)

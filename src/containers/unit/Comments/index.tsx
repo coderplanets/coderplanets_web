@@ -32,12 +32,12 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
   useInit(store, locked)
   const {
     mode,
-    commentsCount,
     pagedCommentsData,
     foldState,
     editState,
     repliesState,
     loading,
+    basicState,
   } = store
 
   return (
@@ -54,7 +54,7 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
       /> */}
 
       <List
-        totalCommentsCount={commentsCount}
+        basicState={basicState}
         mode={mode}
         foldState={foldState}
         pagedComments={pagedCommentsData}

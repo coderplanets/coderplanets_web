@@ -12,6 +12,7 @@ import type {
   TScrollDirection,
   TThread,
   TPagedUsers,
+  TCommentsState,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { PagedUsers, emptyPagi } from '@/model'
@@ -72,8 +73,9 @@ const ArticleSticker = T.model('ArticleSticker', {
       return !isArticleInViewport
     },
 
-    get pagedCommentsParticipantsData(): TPagedUsers {
-      return toJS(self.pagedCommentsParticipants)
+    get commentsState(): TCommentsState {
+      const root = getParent(self) as TRootStore
+      return root.comments.basicState
     },
   }))
   .actions((self) => ({

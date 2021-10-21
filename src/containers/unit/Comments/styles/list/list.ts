@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import { theme } from '@/utils/themes'
 
-// min-height: 300px;
+import { theme } from '@/utils/themes'
+// import css from '@/utils/css'
+
 export const Wrapper = styled.div`
   position: relative;
   /* border: 1px solid tomato; */
@@ -29,13 +30,4 @@ export const IndentLine = styled.div<TIndentLine>`
   }
 
   transition: all 0.25s;
-`
-export const RepliesWrapper = styled.div`
-  /* border-left: 1px solid;
-  border-left-color: #004251; */
-  margin-left: 8px;
-`
-export const RepliesCommentsWrapper = styled.div`
-  margin-left: 17.5px;
-  padding-left: 4px;
 `

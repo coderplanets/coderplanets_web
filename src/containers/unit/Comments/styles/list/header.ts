@@ -29,8 +29,9 @@ export const TotalTitle = styled.div`
     padding-left: 5px;
   `};
 `
-export const TotalNum = styled.span`
-  color: ${theme('comment.number')};
+export const TotalNum = styled.span<{ highlight: boolean }>`
+  color: ${({ highlight }) =>
+    highlight ? theme('comment.number') : theme('thread.articleTitle')};
   margin-left: 2px;
   margin-right: 2px;
 `

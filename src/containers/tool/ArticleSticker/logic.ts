@@ -43,17 +43,17 @@ export const handleUpvote = (viewerHasUpvoted: boolean): void => {
     : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread), { id })
 }
 
-export const loadPagedCommentsParticipants = (): void => {
-  const { viewingArticle: article } = store
+// export const loadPagedCommentsParticipants = (): void => {
+//   const { viewingArticle: article } = store
 
-  const args = {
-    id: article.id,
-    thread: article.meta.thread,
-    filter: { page: 1, size: 20 },
-  }
-  log('load comments query args: ', args)
-  sr71$.query(S.pagedCommentsParticipants, args)
-}
+//   const args = {
+//     id: article.id,
+//     thread: article.meta.thread,
+//     filter: { page: 1, size: 20 },
+//   }
+//   log('load comments query args: ', args)
+//   sr71$.query(S.pagedCommentsParticipants, args)
+// }
 
 // update the real upvoteCount after upvote action
 const handleUovoteRes = ({ upvotesCount }) => {

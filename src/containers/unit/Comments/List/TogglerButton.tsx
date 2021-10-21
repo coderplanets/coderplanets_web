@@ -2,12 +2,7 @@ import { FC, memo, Fragment } from 'react'
 
 import { LavaLampLoading } from '@/components/dynamic'
 
-import {
-  Wrapper,
-  SlashSign,
-  DividerLine,
-  Text,
-} from '../styles/list/toggler_button'
+import { Wrapper, SlashSign, Text } from '../styles/list/toggler_button'
 
 type TProps = {
   text: string
@@ -23,7 +18,6 @@ const TogglerButton: FC<TProps> = ({ text, loading, onClick }) => {
         <LavaLampLoading left={18} />
       ) : (
         <Fragment>
-          <DividerLine />
           <Text onClick={onClick}>{text}</Text>
         </Fragment>
       )}

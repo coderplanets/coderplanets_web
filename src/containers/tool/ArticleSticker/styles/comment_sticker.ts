@@ -21,8 +21,9 @@ export const Title = styled.div`
   margin-bottom: 15px;
   margin-left: 3px;
 `
-export const JoinCount = styled.span`
-  color: ${theme('comment.number')};
+export const TotalNum = styled.span<{ highlight: boolean }>`
+  color: ${({ highlight }) =>
+    highlight ? theme('comment.number') : theme('thread.articleTitle')};
   font-size: 13px;
   margin-left: 4px;
   margin-right: 4px;

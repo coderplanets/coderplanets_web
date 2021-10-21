@@ -52,6 +52,21 @@ const updateComment = gql`
     }
   }
 `
+const commentsState = gql`
+  query ($id: ID!, $thread: Thread, $freshkey: String) {
+    commentsState(id: $id, thread: $thread, freshkey: $freshkey) {
+      totalCount
+      isViewerJoined
+      participantsCount
+
+      participants {
+        login
+        nickname
+        avatar
+      }
+    }
+  }
+`
 const oneComment = gql`
   query ($id: ID!) {
     oneComment(id: $id) {
@@ -141,6 +156,7 @@ const schema = {
   pagedCommentReplies,
   createComment,
   oneComment,
+  commentsState,
   updateComment,
   replyComment,
   deleteComment,

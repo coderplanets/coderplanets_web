@@ -4,9 +4,9 @@
  *
  */
 
-import { FC, memo, useEffect } from 'react'
+import { FC, memo } from 'react'
 
-import type { TPagedUsers } from '@/spec'
+import type { TCommentsState } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 
@@ -18,37 +18,33 @@ import UserCard from '@/components/Cards/UserCard'
 import {
   Wrapper,
   Title,
-  JoinCount,
+  TotalNum,
   UsersWrapper,
   Avatar,
   MoreUserWrapper,
   MoreIcon,
   Divider,
 } from './styles/comment_sticker'
-import { loadPagedCommentsParticipants } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:CommentSticker:index')
 
 type TProps = {
   show: boolean
-  participants: TPagedUsers
+  commentsState: TCommentsState
 }
 
-const CommentSticker: FC<TProps> = ({ show, participants }) => {
-  useEffect(() => {
-    if (show) loadPagedCommentsParticipants()
-  }, [show])
-
+const CommentSticker: FC<TProps> = ({ show, commentsState }) => {
+  const { participants, participantsCount, isViewerJoined } = commentsState
   return (
     <Wrapper show={show}>
       <Title>
-        共<JoinCount>{participants.totalCount}</JoinCount>
+        共<TotalNum highlight={isViewerJoined}>{participantsCount}</TotalNum>
         人参与讨论
       </Title>
-      {participants.totalCount !== 0 && (
+      {participantsCount !== 0 && (
         <UsersWrapper>
-          {participants.entries.map((user) => (
+          {participants.map((user) => (
             <Tooltip
               key={user.login}
               placement="bottom"
@@ -64,7 +60,7 @@ const CommentSticker: FC<TProps> = ({ show, participants }) => {
             </Tooltip>
           ))}
 
-          {participants.pageNumber > 1 && (
+          {participants.length > participantsCount && (
             <MoreUserWrapper>
               <MoreIcon src={`${ICON}/shape/more.svg`} />
             </MoreUserWrapper>

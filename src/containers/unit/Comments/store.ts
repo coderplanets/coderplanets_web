@@ -28,10 +28,11 @@ import type {
   TComment,
   TEmotion,
   TSubmitState,
+  TCommentsState,
 } from '@/spec'
 // import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
-import { Comment, PagedComments, emptyPagi } from '@/model'
+import { Comment, PagedComments, emptyPagi, SimpleUser } from '@/model'
 
 import type { TFoldState, TEditMode, TEditState, TRepliesState } from './spec'
 import { MODE, EDIT_MODE } from './constant'
@@ -74,8 +75,29 @@ const CommentsStore = T.model('CommentsStore', {
   loading: T.optional(T.boolean, false),
 
   foldedCommentIds: T.optional(T.array(T.string), []),
+
+  // basic states
+  needRefreshState: T.optional(T.boolean, true),
+  isViewerJoined: T.optional(T.boolean, false),
+  participantsCount: T.optional(T.number, 0),
+  totalCount: T.optional(T.number, -1),
+  participants: T.optional(T.array(SimpleUser), []),
 })
   .views((self) => ({
+    get basicState(): TCommentsState {
+      const slf = self as TStore
+      const totalCount =
+        self.totalCount === -1
+          ? slf.viewingArticle.commentsCount
+          : self.totalCount
+
+      return {
+        isViewerJoined: self.isViewerJoined,
+        participantsCount: self.participantsCount,
+        totalCount,
+        participants: toJS(self.participants),
+      }
+    },
     get curRoute(): TRoute {
       const root = getParent(self) as TRootStore
       return root.curRoute
@@ -99,10 +121,6 @@ const CommentsStore = T.model('CommentsStore', {
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
-    },
-    get commentsCount(): number {
-      const slf = self as TStore
-      return slf.viewingArticle.commentsCount
     },
     get editState(): TEditState {
       const slf = self as TStore

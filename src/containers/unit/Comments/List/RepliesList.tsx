@@ -6,7 +6,14 @@ import type { TRepliesState } from '../spec'
 import TogglerButton from './TogglerButton'
 import Comment from '../Comment'
 
-import { RepliesWrapper, RepliesCommentsWrapper } from '../styles/list/list'
+import {
+  Wrapper,
+  CountHint,
+  SlashSign,
+  CountNum,
+  ListWrapper,
+} from '../styles/list/replies_list'
+
 import { loadCommentReplies } from '../logic'
 
 type TProps = {
@@ -28,17 +35,23 @@ const RepliesList: FC<TProps> = ({
     parentId === repliesState.repliesParentId && repliesState.repliesLoading
 
   return (
-    <RepliesWrapper>
+    <Wrapper>
+      {repliesCount > 0 && (
+        <CountHint>
+          <SlashSign>&#47;&#47;</SlashSign>
+          <CountNum>{repliesCount}</CountNum> 条回复:
+        </CountHint>
+      )}
       {entries.map((comment) => {
         return (
-          <RepliesCommentsWrapper key={comment.id}>
+          <ListWrapper key={comment.id}>
             <Comment
               data={comment}
               foldedIds={foldedIds}
               showInnerRef
               isReply
             />
-          </RepliesCommentsWrapper>
+          </ListWrapper>
         )
       })}
       {repliesCount > entries.length && (
@@ -48,7 +61,7 @@ const RepliesList: FC<TProps> = ({
           onClick={() => loadCommentReplies(parentId)}
         />
       )}
-    </RepliesWrapper>
+    </Wrapper>
   )
 }
 
