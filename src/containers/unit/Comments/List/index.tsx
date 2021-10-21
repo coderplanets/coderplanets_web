@@ -8,7 +8,7 @@ import Header from './Header'
 import List from './List'
 
 import type { TMode, TFoldState, TRepliesState } from '../spec'
-import { pageChange } from '../logic'
+import { onPageChange } from '../logic'
 
 import { ListsWrapper } from '../styles/list'
 
@@ -54,7 +54,7 @@ const CommentsList: FC<TProps> = ({
           pageNumber={pageNumber}
           pageSize={pageSize}
           totalCount={totalCount}
-          onChange={pageChange}
+          onChange={onPageChange}
           showBottomMsg
           noMoreMsg="没有更多的讨论了"
           emptyMsg="目前还没有讨论"

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { isEmpty, reject, equals } from 'ramda'
 
 import type { TComment, TID, TEmotionType, TEditValue } from '@/spec'
-import { EVENT, ERR } from '@/constant'
+import { ANCHOR, EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import BStore from '@/utils/bstore'
@@ -229,13 +229,18 @@ export const onMentionSearch = (name: string): void => {
   }
 }
 
-export const deleteComment = (): void =>
+export const deleteComment = (): void => {
   sr71$.mutate(S.deleteComment, {
     thread: store.activeThread,
   })
+}
 
-export const pageChange = (page = 1): void => {
-  scrollIntoEle('lists-info')
+/**
+ * load the same mode when page change
+ */
+export const onPageChange = (page = 1): void => {
+  loadComments(page)
+  scrollIntoEle(ANCHOR.COMMENTS_ID)
 }
 
 const cancelLoading = () => store.mark({ loading: false })
@@ -321,7 +326,6 @@ const DataSolver = [
       loadComments()
       store.published()
       setTimeout(() => store.resetPublish(EDIT_MODE.REPLY), 500)
-      // scrollIntoEle('lists-info')
       stopDraftTimmer()
       clearDraft()
     },
@@ -374,7 +378,7 @@ const DataSolver = [
     match: asyncRes('deleteComment'),
     action: ({ deleteComment }) => {
       log('deleteComment', deleteComment)
-      scrollIntoEle('lists-info')
+      scrollIntoEle(ANCHOR.COMMENTS_ID)
     },
   },
   {

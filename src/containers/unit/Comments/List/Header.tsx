@@ -48,7 +48,7 @@ const Header: FC<TProps> = ({ totalCount, mode, isAllFolded, loading }) => {
   return (
     <Wrapper>
       <TotalCountWrapper>
-        <TotalTitle id="lists-info">
+        <TotalTitle>
           共 <TotalNum>{totalCount}</TotalNum> 条讨论:
         </TotalTitle>
       </TotalCountWrapper>

@@ -22,16 +22,18 @@ export const EmptyWrapper = styled(Wrapper)`
   ${css.flex('align-both')};
 `
 export const BottomMsg = styled.div`
-  font-size: 1.1rem;
+  font-size: 16px;
   color: ${theme('thread.articleDigest')};
-  opacity: 0.7;
+  opacity: 0.6;
   &:before {
-    content: '~~';
+    content: '\/\\*';
     margin-right: 10px;
+    font-family: monospace;
   }
   &:after {
-    content: '~~';
+    content: '*/';
     margin-left: 10px;
+    font-family: monospace;
   }
 `
 export const CommonCenterArrowIcon = styled(Img)`

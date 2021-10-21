@@ -10,7 +10,6 @@ import { ANCHOR } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Modal from '@/components/Modal'
 // import NoticeBar from '@/components/NoticeBar'
 
 import Editor from './Editor'
