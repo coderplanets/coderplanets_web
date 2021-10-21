@@ -38,6 +38,7 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
     foldState,
     editState,
     repliesState,
+    loading,
   } = store
 
   return (
@@ -59,7 +60,7 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
         foldState={foldState}
         pagedComments={pagedCommentsData}
         repliesState={repliesState}
-        restProps={{ ...store }}
+        loading={loading}
       />
     </Wrapper>
   )

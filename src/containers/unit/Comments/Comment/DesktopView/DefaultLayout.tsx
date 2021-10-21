@@ -11,7 +11,6 @@ import ArtimentBody from '@/components/ArtimentBody'
 
 import Header from '../Header'
 import ReplyBar from '../ReplyBar'
-import DeleteMask from '../DeleteMask'
 import Footer from '../Footer'
 
 import {
@@ -39,14 +38,12 @@ const getSelection = () => {
 
 type TProps = {
   data: TComment
-  tobeDeleteId: string
   isReply?: boolean
   showInnerRef?: boolean
 }
 
 const DefaultLayout: FC<TProps> = ({
   data,
-  tobeDeleteId,
   isReply = false,
   showInnerRef = false,
 }) => {
@@ -62,8 +59,7 @@ const DefaultLayout: FC<TProps> = ({
           <PinText>置顶讨论</PinText>
         </PinState>
       )}
-      <DeleteMask show={data.id === tobeDeleteId} />
-      <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
+      <CommentWrapper>
         <SidebarWrapper>
           <Upvote
             type="comment"

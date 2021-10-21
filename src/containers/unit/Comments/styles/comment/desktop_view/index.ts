@@ -40,9 +40,8 @@ export const PinText = styled.div`
   opacity: 0.8;
 `
 
-export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
+export const CommentWrapper = styled.div`
   ${css.flexGrow()};
-  filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
   width: 100%;
 `
 export const SidebarWrapper = styled.div`

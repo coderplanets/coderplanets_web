@@ -6,7 +6,7 @@
 
 import { FC, memo, useEffect } from 'react'
 
-import type { TArticle, TPagedUsers } from '@/spec'
+import type { TPagedUsers } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 

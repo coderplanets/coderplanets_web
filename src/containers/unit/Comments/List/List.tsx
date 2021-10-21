@@ -14,31 +14,20 @@ import { passedDate } from '../helper'
 import { Wrapper, IndentLine } from '../styles/list/list'
 import { foldComment } from '../logic'
 
-// const compareDate = () => {
-// }
-
 type TProps = {
   mode: TMode
   repliesState: TRepliesState
   entries: TComment[]
-  tobeDeleteId: string
   foldedIds: TID[]
 }
 
-const List: FC<TProps> = ({
-  mode,
-  repliesState,
-  entries,
-  tobeDeleteId,
-  foldedIds,
-}) => {
+const List: FC<TProps> = ({ mode, repliesState, entries, foldedIds }) => {
   return (
     <Fragment>
       {entries.map((comment, index) => (
         <Wrapper key={comment.id}>
           <Comment
             data={comment}
-            tobeDeleteId={tobeDeleteId}
             hasReplies={comment.repliesCount > 0}
             foldedIds={foldedIds}
           />
@@ -55,7 +44,6 @@ const List: FC<TProps> = ({
                 entries={comment.replies}
                 repliesCount={comment.repliesCount}
                 repliesState={repliesState}
-                tobeDeleteId={tobeDeleteId}
                 foldedIds={foldedIds}
               />
             )}

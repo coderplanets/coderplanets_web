@@ -47,7 +47,7 @@ export const loadComments = (page = 1): void => {
     id: article.id,
     thread: article.meta.thread,
     mode,
-    filter: { page, size: 20 },
+    filter: { page, size: 10 },
   }
   log('query args: ', args)
   sr71$.query(S.pagedComments, args)
@@ -231,14 +231,8 @@ export const onMentionSearch = (name: string): void => {
 
 export const deleteComment = (): void =>
   sr71$.mutate(S.deleteComment, {
-    id: store.tobeDeleteId,
     thread: store.activeThread,
   })
-
-// show delete confirm
-export const onDelete = (comment: TComment): void =>
-  store.mark({ tobeDeleteId: comment.id })
-export const cancelDelete = (): void => store.mark({ tobeDeleteId: null })
 
 export const pageChange = (page = 1): void => {
   scrollIntoEle('lists-info')
@@ -380,7 +374,6 @@ const DataSolver = [
     match: asyncRes('deleteComment'),
     action: ({ deleteComment }) => {
       log('deleteComment', deleteComment)
-      store.mark({ tobeDeleteId: null })
       scrollIntoEle('lists-info')
     },
   },

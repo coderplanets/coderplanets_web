@@ -19,8 +19,7 @@ export const Wrapper = styled.div`
   border-bottom-color: #0b4252;
 `
 // filter: blur(3px);
-export const CommentWrapper = styled.div<{ tobeDelete: boolean }>`
-  filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
+export const CommentWrapper = styled.div`
   width: 100%;
 `
 export const HeaderWrapper = styled.div`

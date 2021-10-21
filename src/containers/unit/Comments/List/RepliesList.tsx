@@ -13,7 +13,6 @@ type TProps = {
   parentId: TID
   entries: TComment[]
   repliesCount: number
-  tobeDeleteId: string
   repliesState: TRepliesState
   foldedIds: TID[]
 }
@@ -22,7 +21,6 @@ const RepliesList: FC<TProps> = ({
   parentId,
   entries,
   repliesCount,
-  tobeDeleteId,
   repliesState,
   foldedIds,
 }) => {
@@ -36,7 +34,6 @@ const RepliesList: FC<TProps> = ({
           <RepliesCommentsWrapper key={comment.id}>
             <Comment
               data={comment}
-              tobeDeleteId={tobeDeleteId}
               foldedIds={foldedIds}
               showInnerRef
               isReply

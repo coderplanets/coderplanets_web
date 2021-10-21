@@ -49,8 +49,6 @@ const CommentsStore = T.model('CommentsStore', {
   // toggle modal editor for reply
   showReplyEditor: T.optional(T.boolean, false),
 
-  // current to be delete comment id, use to target the confirm mask
-  tobeDeleteId: T.maybeNull(T.string),
   // content input of current comment editor
   commentBody: T.optional(T.string, '{}'),
   // update comment

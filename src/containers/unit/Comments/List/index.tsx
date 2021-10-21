@@ -18,10 +18,7 @@ type TProps = {
   foldState: TFoldState
   mode: TMode
   repliesState: TRepliesState
-  restProps: {
-    loading: boolean
-    tobeDeleteId: string
-  }
+  loading: boolean
 }
 
 const CommentsList: FC<TProps> = ({
@@ -30,7 +27,7 @@ const CommentsList: FC<TProps> = ({
   foldState,
   mode,
   repliesState,
-  restProps: { loading, tobeDeleteId },
+  loading,
 }) => {
   const { entries, totalCount, pageSize, pageNumber } = pagedComments
   const { foldedIds, isAllFolded } = foldState
@@ -49,7 +46,6 @@ const CommentsList: FC<TProps> = ({
           entries={entries}
           repliesState={repliesState}
           foldedIds={foldedIds}
-          tobeDeleteId={tobeDeleteId}
         />
       </ListsWrapper>
       <Br bottom={50} />

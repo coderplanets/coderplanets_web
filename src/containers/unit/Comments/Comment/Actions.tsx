@@ -9,7 +9,7 @@ import MenuButton from '@/components/Buttons/MenuButton'
 import { SpaceGrow } from '@/components/Common'
 
 import { Wrapper, ReplyAction, MoreWrapper } from '../styles/comment/actions'
-import { openUpdateEditor, openReplyEditor, onDelete } from '../logic'
+import { openUpdateEditor, openReplyEditor } from '../logic'
 
 type TProps = {
   data: TComment
@@ -69,7 +69,7 @@ const Actions: FC<TProps> = ({ data }) => {
           return openUpdateEditor(data)
         }
         case 'delete': {
-          return onDelete(data)
+          return console.log('todo: delete')
         }
         default: {
           // eslint-disable-next-line no-useless-return

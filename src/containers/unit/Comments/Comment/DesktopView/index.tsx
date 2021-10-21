@@ -10,7 +10,6 @@ import FoldLayout from './FoldLayout'
 type TProps = {
   data: TComment
   accountInfo: TAccount
-  tobeDeleteId: string
   hasReplies?: boolean
   foldedIds: TID[]
   showInnerRef?: boolean
