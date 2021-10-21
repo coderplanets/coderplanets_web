@@ -29,6 +29,7 @@ const sr71$ = new SR71({
 let sub$ = null
 let saveDraftTimmer = null
 let store: TStore | undefined
+const PAGI_SIZE = 30
 
 // 回复列表内的翻页页标记录
 let repliesPagiNo = {}
@@ -47,7 +48,7 @@ export const loadComments = (page = 1): void => {
     id: article.id,
     thread: article.meta.thread,
     mode,
-    filter: { page, size: 10 },
+    filter: { page, size: PAGI_SIZE },
   }
   log('query args: ', args)
   sr71$.query(S.pagedComments, args)
@@ -421,7 +422,7 @@ const initDraftTimmer = (): void => {
   stopDraftTimmer()
 
   saveDraftTimmer = setInterval(() => {
-    const { showReplyEditor, commentBody } = store
+    const { commentBody } = store
 
     // if (showReplyEditor) return saveDraftIfNeed(replyContent)
     saveDraftIfNeed(commentBody)
