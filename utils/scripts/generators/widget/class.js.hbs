@@ -1,0 +1,23 @@
+/* * *
+{{properCase name}}
+* */ import React from 'react' import PropTypes from 'prop-types'
+
+{{#if wantStyle}}
+  import { Wrapper } from './styles'
+{{/if}}
+
+import { buildLog } from '@/utils/logger' /* eslint-disable-next-line */ const
+log = buildLog('c:{{properCase name}}:index') class
+{{properCase name}}
+extends React.PureComponent { constructor(props) { super(props) } //
+componentWillUnmount() {} render() { return (
+<div>
+  {{properCase name}}
+  widgets
+</div>
+) } }
+
+{{properCase name}}.propTypes = {}
+
+{{properCase name}}.defaultProps = {} export default
+{{properCase name}}

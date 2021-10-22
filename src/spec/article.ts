@@ -36,6 +36,7 @@ type TBaseArticle = {
   author?: TAccount
   upvotesCount?: number
   originalCommunity?: TCommunity
+  communities?: TCommunity[]
   commentsParticipants?: TUser[]
   commentsParticipantsCount?: number
   insertedAt?: string

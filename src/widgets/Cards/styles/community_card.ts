@@ -28,7 +28,7 @@ export const Info = styled.div`
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

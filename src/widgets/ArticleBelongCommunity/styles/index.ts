@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
+import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import SiteLogo from '@/icons/CPLogo'
 
-export const Wrapper = styled.nav`
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
+  'data-test-id': testid,
+}))<TTestable>`
   ${css.flexColumn('align-both')};
-  /* 
-  ${css.media.laptopL`
-    margin-left: -40px;
-  `} */
+  position: relative;
 `
 export const HomeLogo = styled(SiteLogo)`
   ${css.size(32)};

@@ -4,50 +4,43 @@
 
 import { FC, Fragment, memo } from 'react'
 
-import type { TPost, TMetric } from '@/spec'
+import type { TBlog, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import { SpaceGrow } from '@/widgets/Common'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 import ArticleBelongCommunity from '@/widgets/ArticleBelongCommunity'
-import DotDivider from '@/widgets/DotDivider'
-import ArchivedSign from '@/widgets/ArchivedSign'
 import ArticleMenu from '@/widgets/ArticleMenu'
-import ReadableDate from '@/widgets/ReadableDate'
 
 import {
   Main,
   Header,
-  PublishDateInfo,
+  LinkInfo,
+  LinkIcon,
   Title,
   AuthorName,
   BottomInfo,
   CommunityInfo,
-} from '../../styles/desktop_view/post_layout/index'
+} from '../../styles/desktop_view/blog_layout/index'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
 
 type TProps = {
-  article: TPost
+  article: TBlog
   metric?: TMetric
 }
 
-const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
+const BlogLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
   return (
     <Fragment>
       <Main metric={metric}>
         <Header>
-          <PublishDateInfo>
-            <ReadableDate date={article.insertedAt} fmt="absolute" />
-          </PublishDateInfo>
-          {article.isArchived && (
-            <Fragment>
-              <DotDivider space={8} />
-              <ArchivedSign date={article.archivedAt} />
-            </Fragment>
-          )}
+          <LinkIcon />
+          <LinkInfo href={article.linkAddr} target="_blank">
+            {article.linkAddr}
+          </LinkInfo>
           <SpaceGrow />
           <ArticleMenu />
         </Header>
@@ -64,4 +57,4 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
   )
 }
 
-export default memo(PostLayout)
+export default memo(BlogLayout)

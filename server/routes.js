@@ -88,14 +88,9 @@ router.route('/post/:id').get((req, res) => {
   return renderAndCache({ req, res, path: `/post/${id}` })
 })
 
-// job 帖子页
-router.route('/:community/job/:id').get((req, res) => {
-  return renderAndCache({ req, res, path: '/job' })
-})
-
-// video 帖子页
-router.route('/:community/video/:id').get((req, res) => {
-  return renderAndCache({ req, res, path: '/video' })
+router.route('/blog/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/blog/${id}` })
 })
 
 // repo 帖子页

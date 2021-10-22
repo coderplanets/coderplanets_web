@@ -7,7 +7,7 @@
 
 'use strict'
 
-const componentExists = require('../helper/component_exists')
+const widgetExists = require('../helper/widget_exists')
 
 const TARGET_DIR = '../../../src/widgets'
 
@@ -28,7 +28,7 @@ module.exports = {
       default: 'Button',
       validate: (value) => {
         if (/.+/.test(value)) {
-          return componentExists(value)
+          return widgetExists(value)
             ? `${value} is already exists in 'src/widgets/${value}'`
             : true
         }
@@ -55,11 +55,11 @@ module.exports = {
 
     switch (data.type) {
       case 'Stateless': {
-        componentTemplate = './component/stateless.tsx.hbs'
+        componentTemplate = './widget/stateless.tsx.hbs'
         break
       }
       default: {
-        componentTemplate = './component/class.js.hbs'
+        componentTemplate = './widget/stateless.tsx.hbs'
       }
     }
 
@@ -73,7 +73,7 @@ module.exports = {
       {
         type: 'add',
         path: `${TARGET_DIR}/{{properCase name}}/tests/index.test.ts`,
-        templateFile: './component/test.ts.hbs',
+        templateFile: './widget/test.ts.hbs',
         abortOnFail: true,
       },
     ]
@@ -82,7 +82,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${TARGET_DIR}/{{properCase name}}/styles/index.ts`,
-        templateFile: './component/styles.ts.hbs',
+        templateFile: './widget/styles.ts.hbs',
         abortOnFail: true,
       })
     }

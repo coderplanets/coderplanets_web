@@ -10,3 +10,4 @@ next-env.d.ts
 *.txt
 *.md
 *.ico
+*.hbs

@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 export const SlashSign = styled.div`
   font-size: 10px;
   font-weight: bolder;
-  font-family: cursive;
+  font-family: monospace;
   margin-right: 10px;
   margin-left: 6px;
   opacity: 0.8;
