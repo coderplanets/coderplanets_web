@@ -68,7 +68,7 @@ const TagsList: FC<TProps> = ({
           placement="bottom"
           content={<FullList items={items} mLeft={mLeft} size={size} />}
         >
-          <More>...</More>
+          <More>..</More>
         </Tooltip>
         {withSetter && (
           <Setter community={community} thread={thread} tags={items} noEmpty />

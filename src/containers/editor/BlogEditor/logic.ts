@@ -29,26 +29,27 @@ export const loadCommunity = (): void => {
 }
 
 export const selectBlog = (blog: TBlog): void => {
-  console.log('selectBlog: ', blog)
   store.mark({ activeBlog: blog })
-  setTimeout(() => {
-    nextStep()
-  }, 500)
+  nextStep()
 }
 
 export const toStep = (step: string): void => {
+  store.mark({ isReady: false, publishing: false })
   store.mark({ step })
 }
 
 export const nextStep = (): void => {
   const { step: curStep } = store
   let nextStep
+  store.mark({ isReady: false, publishing: false })
+
   switch (curStep) {
     case 'STEP_1': {
       nextStep = 'STEP_2'
       break
     }
     case 'STEP_2': {
+      store.mark({ isReady: true })
       nextStep = 'STEP_3'
       break
     }
@@ -79,6 +80,21 @@ export const onTagSelect = (tags: TTag[], checked: boolean): void => {
   store.mark({ articleTags: tags })
 }
 
+export const createBlog = (): void => {
+  const { rss, community, activeBlog, tagsData } = store
+
+  const args = {
+    rss,
+    communityId: community.id,
+    title: activeBlog.title,
+    articleTags: tagsData.map((t) => t.id),
+  }
+
+  store.mark({ publishing: true })
+  log('createBlog: ', args)
+  sr71$.mutate(S.createBlog, args)
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################
@@ -87,7 +103,7 @@ const DataSolver = [
   {
     match: asyncRes('blogRssInfo'),
     action: ({ blogRssInfo }) => {
-      console.log('got blogRssInfo: ', blogRssInfo)
+      log('# got blogRssInfo: ', blogRssInfo)
       store.mark({ rssInfo: blogRssInfo, loading: false, step: 'STEP_2' })
       // store.markRes({ pagedPosts })
     },
@@ -95,6 +111,13 @@ const DataSolver = [
   {
     match: asyncRes('community'),
     action: ({ community }) => store.mark({ community }),
+  },
+  {
+    match: asyncRes('createBlog'),
+    action: ({ createBlog }) => {
+      store.mark({ publishDone: true, publishing: false })
+      log('createBlog done: ', createBlog)
+    },
   },
 ]
 
@@ -109,6 +132,7 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
+      store.mark({ loading: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'createBlog' })
     },
   },

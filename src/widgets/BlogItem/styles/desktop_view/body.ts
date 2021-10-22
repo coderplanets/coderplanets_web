@@ -51,6 +51,8 @@ export const AuthorName = styled.div`
   color: ${theme('thread.extraInfo')};
   font-size: 13px;
   opacity: 0.75;
+  ${css.cutRest('100px')};
+
   transition: opacity 0.2s;
 `
 export const PublishTime = styled.div`

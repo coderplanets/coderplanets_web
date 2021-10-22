@@ -9,7 +9,7 @@ import css from '@/utils/css'
 import { getIconSize, getTitleSize } from './metric'
 
 export const Wrapper = styled.div<{ mLeft?: number }>`
-  ${css.flex('align-end')};
+  ${css.flex('align-center')};
   margin-left: ${({ mLeft }) => (mLeft ? `${mLeft}px` : 0)};
   position: relative;
 `
@@ -25,8 +25,10 @@ export const Title = styled.div<{ size: TSIZE_TSM }>`
   word-break: keep-all;
 `
 export const More = styled.div`
+  color: ${theme('thread.articleDigest')};
   font-weight: bold;
   cursor: pointer;
+  margin-top: -3px;
 `
 
 type THashSign = { color: string; size: TSIZE_TSM }

@@ -49,6 +49,7 @@ const BlogEditorContainer: FC<TProps> = ({
     tagsData,
     validState,
     activeBlogData,
+    submitState,
   } = store
 
   return (
@@ -73,7 +74,11 @@ const BlogEditorContainer: FC<TProps> = ({
               activeBlog={activeBlogData}
             />
           </ContentWrapper>
-          <Footer step={step} community={communityData} tags={tagsData} />
+          <Footer
+            community={communityData}
+            tags={tagsData}
+            submitState={submitState}
+          />
         </div>
         <div>
           <CommunityBadgeSelector community={communityData} />

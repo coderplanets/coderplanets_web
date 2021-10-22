@@ -2,21 +2,28 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
+import LinkSVG from '@/icons/Link'
 
 export const Wrapper = styled.div`
   ${css.flex()};
 `
 export const Brief = styled.div`
-  ${css.flexGrow('align-center')};
+  ${css.flexGrow('align-start')};
   margin-bottom: 10px;
   color: ${theme('thread.articleTitle')};
 `
 export const Title = styled.a`
   font-size: 16px;
-  ${css.cutRest('440px')};
   color: ${theme('thread.articleTitle')};
   text-decoration: none;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  max-width: 380px;
+  word-break: break-all;
 
   &:hover {
     ${css.threadTitleHover()};
@@ -24,20 +31,27 @@ export const Title = styled.a`
 
   transition: color 0.1s;
 `
-export const TitleLink = styled.div`
-  position: relative;
-  font-size: 15px;
-  margin-top: -1px;
-  color: ${theme('thread.articleLink')};
-  margin-left: 10px;
-  opacity: 0.8;
-  text-decoration: underline;
+export const AddonInfo = styled.div`
+  ${css.flex('align-center')};
+  margin-top: 4px;
 `
-export const LinkIcon = styled(Img)`
+export const TitleLink = styled.a`
+  ${css.flex('align-center')};
+  position: relative;
+  font-size: 12px;
+  color: ${theme('thread.articleLink')};
+  opacity: 0.8;
+  text-decoration: none;
+
+  &:hover {
+    color: ${theme('thread.articleLink')};
+    opacity: 1;
+    text-decoration: underline;
+  }
+`
+export const LinkIcon = styled(LinkSVG)`
   fill: ${theme('thread.articleLink')};
-  position: absolute;
-  top: 6px;
-  left: -5px;
-  ${css.size(12)};
+  margin-left: 8px;
+  ${css.size(14)};
 `
 export const TagListWrapper = styled.div``

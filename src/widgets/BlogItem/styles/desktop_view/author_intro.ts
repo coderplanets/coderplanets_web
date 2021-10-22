@@ -18,6 +18,7 @@ export const Name = styled.div`
   margin-top: 3px;
   margin-bottom: 5px;
   color: ${theme('thread.articleTitle')};
+  ${css.cutRest('100px')};
 `
 export const Intro = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -30,4 +31,5 @@ export const Intro = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
+  max-width: 200px;
 `

@@ -25,6 +25,25 @@ const blogRssInfo = gql`
   }
 `
 
+const createBlog = gql`
+  mutation (
+    $title: String!
+    $rss: String!
+    $communityId: ID!
+    $articleTags: [Id]
+  ) {
+    createBlog(
+      title: $title
+      rss: $rss
+      communityId: $communityId
+      articleTags: $articleTags
+    ) {
+      id
+      title
+    }
+  }
+`
+
 const community = gql`
   query ($raw: String) {
     community(raw: $raw) {
@@ -41,6 +60,7 @@ const community = gql`
 const schema = {
   blogRssInfo,
   community,
+  createBlog,
 }
 
 export default schema

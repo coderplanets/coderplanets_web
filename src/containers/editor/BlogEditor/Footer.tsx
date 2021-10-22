@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TTag, TCommunity } from '@/spec'
+import type { TTag, TCommunity, TSubmitState } from '@/spec'
 
 import { THREAD } from '@/constant'
 import TagsList from '@/widgets/TagsList'
@@ -9,15 +9,15 @@ import SubmitButton from '@/widgets/Buttons/SubmitButton'
 import { SpaceGrow } from '@/widgets/Common'
 
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
-import { nextStep } from './logic'
+import { createBlog } from './logic'
 
 type TProps = {
-  step: 'STEP_1' | 'STEP_2' | 'STEP_3'
+  submitState: TSubmitState
   community: TCommunity
   tags: TTag[]
 }
 
-const Footer: FC<TProps> = ({ step, community, tags }) => {
+const Footer: FC<TProps> = ({ community, tags, submitState }) => {
   return (
     <Wrapper>
       <ArticleFooter>
@@ -36,9 +36,9 @@ const Footer: FC<TProps> = ({ step, community, tags }) => {
         </Checker>
         <SpaceGrow />
         <SubmitButton
-          // submitState={submitState}
+          submitState={submitState}
           okText="提 交"
-          onPublish={console.log}
+          onPublish={createBlog}
           onCancel={console.log}
         />
       </PublishFooter>

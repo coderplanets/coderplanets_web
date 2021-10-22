@@ -3,9 +3,9 @@
  */
 
 import { types as T, Instance } from 'mobx-state-tree'
-import { isEmpty, includes, filter } from 'ramda'
+import { isEmpty, includes, filter, pick } from 'ramda'
 
-import type { TCommunity, TBlogRSS, TTag, TBlog } from '@/spec'
+import type { TCommunity, TBlogRSS, TTag, TBlog, TSubmitState } from '@/spec'
 
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
@@ -37,8 +37,15 @@ const BlogEditor = T.model('BlogEditor', {
   activeBlog: T.optional(Blog, {}),
   rssInfo: T.optional(RSSInfo, {}),
   loading: T.optional(T.boolean, false),
+
+  publishing: T.optional(T.boolean, false),
+  publishDone: T.optional(T.boolean, false),
+  isReady: T.optional(T.boolean, false),
 })
   .views((self) => ({
+    get submitState(): TSubmitState {
+      return pick(['publishing', 'publishDone', 'isReady'], self)
+    },
     get communityData(): TCommunity {
       return toJS(self.community)
     },

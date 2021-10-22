@@ -40,3 +40,6 @@ export const Hint = styled.div`
   padding-bottom: 20px;
   padding-left: 4px;
 `
+export const ListWrapper = styled.div`
+  margin-left: 5px;
+`

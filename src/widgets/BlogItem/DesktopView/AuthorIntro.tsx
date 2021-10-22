@@ -13,7 +13,7 @@ const AuthorIntro: FC<TProps> = ({ author }) => {
     <Wrapper>
       <Hint>作者简介</Hint>
       <Name>{author.nickname}</Name>
-      <Intro>开源社区 CoderPlanets 作者，开源爱好者，等等</Intro>
+      {/* <Intro>开源社区 CoderPlanets 作者，开源爱好者，等等</Intro> */}
     </Wrapper>
   )
 }
