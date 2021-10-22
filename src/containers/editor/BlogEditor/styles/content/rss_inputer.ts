@@ -15,6 +15,9 @@ export const Title = styled.div`
   margin-bottom: 20px;
   margin-left: 8px;
 `
+export const InputerWrapper = styled.div`
+  position: relative;
+`
 export const Inputer = styled(Input)`
   width: calc(100% - 20px);
   color: ${theme('thread.articleTitle')};

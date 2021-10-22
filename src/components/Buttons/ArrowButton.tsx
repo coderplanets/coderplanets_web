@@ -50,23 +50,13 @@ const ArrowButton: FC<TProps> = ({
     >
       {direction === 'left' ? (
         <>
-          <LeftIcon
-            arrowStyle={arrowStyle}
-            size={size}
-            src={iconSrc}
-            disabled={disabled}
-          />
+          <LeftIcon arrowStyle={arrowStyle} size={size} src={iconSrc} />
           <Text size={size}>{children}</Text>
         </>
       ) : (
         <>
           <Text size={size}>{children}</Text>
-          <RightIcon
-            arrowStyle={arrowStyle}
-            size={size}
-            src={iconSrc}
-            disabled={disabled}
-          />
+          <RightIcon arrowStyle={arrowStyle} size={size} src={iconSrc} />
         </>
       )}
     </Wrapper>

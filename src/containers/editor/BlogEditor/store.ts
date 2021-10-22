@@ -5,14 +5,17 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { isEmpty, includes, filter } from 'ramda'
 
-import type { TCommunity, TRootStore, TBlogRSS } from '@/spec'
+import type { TCommunity, TRootStore, TBlogRSS, TTag } from '@/spec'
 
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
+import { isURL } from '@/utils/validator'
 import uid from '@/utils/uid'
 // import { mockBlogFeeds } from '@/utils/mock'
 
-import { Blog } from '@/model'
+import { Community, Blog, Tag } from '@/model'
+
+import type { TValidState } from './spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:BlogEditor')
@@ -26,6 +29,8 @@ const RSSInfo = T.model('RSSInfo', {
 })
 
 const BlogEditor = T.model('BlogEditor', {
+  community: T.optional(Community, {}),
+  articleTags: T.optional(T.array(Tag), []),
   step: T.optional(T.enumeration(['STEP_1', 'STEP_2', 'STEP_3']), 'STEP_1'),
   filterTitle: T.optional(T.string, ''),
   rss: T.optional(T.string, ''),
@@ -33,10 +38,11 @@ const BlogEditor = T.model('BlogEditor', {
   loading: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get curCommunity(): TCommunity {
-      const root = getParent(self) as TRootStore
-
-      return toJS(root.viewing.community)
+    get communityData(): TCommunity {
+      return toJS(self.community)
+    },
+    get tagsData(): TTag[] {
+      return toJS(self.articleTags)
     },
     get rssInfoData(): TBlogRSS {
       const rssInfoRaw = toJS(self.rssInfo)
@@ -57,6 +63,11 @@ const BlogEditor = T.model('BlogEditor', {
       }
 
       return rssInfoRaw
+    },
+    get validState(): TValidState {
+      return {
+        rss: isURL(self.rss, true),
+      }
     },
   }))
   .actions((self) => ({

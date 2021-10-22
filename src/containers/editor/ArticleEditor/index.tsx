@@ -12,11 +12,11 @@ import { pluggedIn } from '@/utils/mobx'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import RichEditor from '@/containers/editor/RichEditor'
+import CommunityBadgeSelector from '@/components/CommunityBadgeSelector'
 
 import TitleInput from './TitleInput'
 import Footer from './Footer'
 
-import CommunityBadge from './CommunityBadge'
 import PublishRules from './PublishRules'
 
 // import Settings from './Settings'
@@ -84,7 +84,7 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         </ContentWrapper>
         <div>
-          <CommunityBadge community={communityData} mode={mode} />
+          <CommunityBadgeSelector community={communityData} mode={mode} />
           <PublishRules />
         </div>
       </InnerWrapper>

@@ -13,9 +13,11 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 16px;
   margin-right: 4px;
+  ${css.cutRest('250px')};
 `
 export const Subtitle = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 15px;
   margin-right: 5px;
+  ${css.cutRest('340px')};
 `

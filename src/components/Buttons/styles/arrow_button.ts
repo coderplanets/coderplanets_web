@@ -46,7 +46,7 @@ export const Icon = styled(Img)<{ size: string }>`
   display: block;
   transition: all 0.2s;
 `
-type TIcon = { size: string; arrowStyle: string; disabled: boolean }
+type TIcon = { size: string; arrowStyle: string }
 export const LeftIcon = styled(Icon)<TIcon>`
   position: absolute;
   top: ${({ size }) => getArrowTopOffset(size)};
@@ -58,8 +58,7 @@ export const LeftIcon = styled(Icon)<TIcon>`
 
   ${Wrapper}:hover & {
     opacity: 1;
-    left: ${({ size, disabled }) => {
-      if (disabled) return 0
+    left: ${({ size }) => {
       return `-${getArrowMaxWidth(size)}`
     }};
   }
@@ -75,8 +74,7 @@ export const RightIcon = styled(Icon)<TIcon>`
 
   ${Wrapper}:hover & {
     opacity: 1;
-    right: ${({ size, disabled }) => {
-      if (disabled) return 0
+    right: ${({ size }) => {
       return `-${getArrowMaxWidth(size)}`
     }};
   }

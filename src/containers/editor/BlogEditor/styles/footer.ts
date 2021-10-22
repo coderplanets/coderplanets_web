@@ -12,6 +12,7 @@ export const ArticleFooter = styled.div`
   padding-bottom: 25px;
   border-bottom: 3px solid;
   border-bottom-color: #1a3a40;
+  margin-top: 40px;
   margin-bottom: 28px;
   padding-left: 5px;
 `

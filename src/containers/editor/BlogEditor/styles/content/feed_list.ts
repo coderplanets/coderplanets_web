@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   /* ${css.flexColumn('align-center')}; */
   width: calc(100% - 30px);
   min-height: 30vh;
-  margin-left: 8px;
+  margin-left: 10px;
   margin-top: -4px;
 `
 export const Inputer = styled(Input)`

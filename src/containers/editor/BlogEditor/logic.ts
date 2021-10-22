@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import type { TEditValue } from '@/spec'
+import type { TCommunity, TEditValue, TTag } from '@/spec'
 import { ERR } from '@/constant'
 
+import { getParameterByName } from '@/utils/route'
 import { buildLog } from '@/utils/logger'
 import { errRescue } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
@@ -20,6 +21,12 @@ let sub$
 const log = buildLog('L:BlogEditor')
 
 const sr71$ = new SR71()
+
+export const loadCommunity = (): void => {
+  const raw = getParameterByName('community')?.toLowerCase()
+
+  sr71$.query(S.community, { raw })
+}
 
 export const toStep = (step: string): void => {
   store.mark({ step })
@@ -56,6 +63,14 @@ export const fetchRSSInfo = (): void => {
   sr71$.query(S.blogRssInfo, { rss })
 }
 
+export const changeCommunity = (community: TCommunity): void => {
+  store.mark({ community })
+}
+
+export const onTagSelect = (tags: TTag[], checked: boolean): void => {
+  store.mark({ articleTags: tags })
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################
@@ -68,6 +83,10 @@ const DataSolver = [
       store.mark({ rssInfo: blogRssInfo, loading: false, step: 'STEP_2' })
       // store.markRes({ pagedPosts })
     },
+  },
+  {
+    match: asyncRes('community'),
+    action: ({ community }) => store.mark({ community }),
   },
 ]
 
@@ -98,6 +117,9 @@ export const useInit = (_store: TStore): void => {
     store = _store
     log('useInit: ', store)
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+    loadCommunity()
+
     return () => {
       sr71$.stop()
       sub$.unsubscribe()

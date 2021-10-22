@@ -1,27 +1,46 @@
 import { FC, memo } from 'react'
 
+import type { TTag, TCommunity } from '@/spec'
+
+import { THREAD } from '@/constant'
+import TagsList from '@/components/TagsList'
 import Checker from '@/components/Checker'
-// import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
-import ArrowButton from '@/components/Buttons/ArrowButton'
+import SubmitButton from '@/components/Buttons/SubmitButton'
+import { SpaceGrow } from '@/components/Common'
 
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
 import { nextStep } from './logic'
 
 type TProps = {
   step: 'STEP_1' | 'STEP_2' | 'STEP_3'
+  community: TCommunity
+  tags: TTag[]
 }
 
-const Footer: FC<TProps> = ({ step }) => {
+const Footer: FC<TProps> = ({ step, community, tags }) => {
   return (
     <Wrapper>
-      <ArticleFooter>社区 / Tags etc ...</ArticleFooter>
+      <ArticleFooter>
+        <TagsList
+          items={tags}
+          mLeft={0}
+          size="medium"
+          community={community}
+          thread={THREAD.BLOG}
+          withSetter
+        />
+      </ArticleFooter>
       <PublishFooter>
         <Checker size="medium" dimWhenIdle>
           我是该博客作者
         </Checker>
-        <div>
-          <ArrowButton onClick={nextStep}>下一步</ArrowButton>
-        </div>
+        <SpaceGrow />
+        <SubmitButton
+          // submitState={submitState}
+          okText="提 交"
+          onPublish={console.log}
+          onCancel={console.log}
+        />
       </PublishFooter>
     </Wrapper>
   )

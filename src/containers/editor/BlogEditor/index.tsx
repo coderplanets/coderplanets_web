@@ -10,17 +10,19 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
+import CommunityBadgeSelector from '@/components/CommunityBadgeSelector'
+
 import Content from './Content'
 import Footer from './Footer'
 
-import CommunityBadge from './CommunityBadge'
 import PublishRules from './PublishRules'
 
 // import Settings from './Settings'
 
 import type { TStore } from './store'
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
-import { useInit } from './logic'
+import { useInit, changeCommunity, onTagSelect } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:BlogEditor')
@@ -37,11 +39,27 @@ const BlogEditorContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE_EDITOR,
 }) => {
   useInit(store)
-  const { step, rss, loading, rssInfoData, filterTitle } = store
+  const {
+    step,
+    rss,
+    loading,
+    rssInfoData,
+    filterTitle,
+    communityData,
+    tagsData,
+    validState,
+  } = store
 
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
+        {communityData.id && (
+          <CommunityTagSetter
+            selectedCommunity={communityData}
+            onCommunitySelect={changeCommunity}
+            onTagSelect={onTagSelect}
+          />
+        )}
         <div>
           <ContentWrapper>
             <Content
@@ -50,12 +68,13 @@ const BlogEditorContainer: FC<TProps> = ({
               rss={rss}
               rssInfo={rssInfoData}
               filterTitle={filterTitle}
+              validState={validState}
             />
           </ContentWrapper>
-          <Footer step={step} />
+          <Footer step={step} community={communityData} tags={tagsData} />
         </div>
         <div>
-          <CommunityBadge />
+          <CommunityBadgeSelector community={communityData} />
           <PublishRules />
         </div>
       </InnerWrapper>

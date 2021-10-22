@@ -39,8 +39,6 @@ const Footer: FC<TProps> = ({
   submitState,
   community,
 }) => {
-  console.log('# footer tags  -> ', tags)
-
   return (
     <Wrapper>
       <ArticleFooter>

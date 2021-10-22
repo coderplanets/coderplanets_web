@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TBlogRSS } from '@/spec'
+import type { TValidState } from '../spec'
 
 import FeedList from './FeedList'
 import RSSInputer from './RSSInputer'
@@ -12,9 +13,17 @@ type TProps = {
   loading: boolean
   rssInfo: TBlogRSS
   filterTitle: string
+  validState: TValidState
 }
 
-const Content: FC<TProps> = ({ step, rss, loading, rssInfo, filterTitle }) => {
+const Content: FC<TProps> = ({
+  step,
+  rss,
+  loading,
+  rssInfo,
+  filterTitle,
+  validState,
+}) => {
   switch (step) {
     case 'STEP_2': {
       return <FeedList rssInfo={rssInfo} filterTitle={filterTitle} />
@@ -25,7 +34,7 @@ const Content: FC<TProps> = ({ step, rss, loading, rssInfo, filterTitle }) => {
     }
 
     default: {
-      return <RSSInputer rss={rss} loading={loading} />
+      return <RSSInputer rss={rss} loading={loading} validState={validState} />
     }
   }
 }

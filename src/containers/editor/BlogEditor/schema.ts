@@ -25,8 +25,22 @@ const blogRssInfo = gql`
   }
 `
 
+const community = gql`
+  query ($raw: String) {
+    community(raw: $raw) {
+      id
+      logo
+      title
+      raw
+      desc
+      subscribersCount
+    }
+  }
+`
+
 const schema = {
   blogRssInfo,
+  community,
 }
 
 export default schema
