@@ -48,6 +48,7 @@ const BlogEditorContainer: FC<TProps> = ({
     communityData,
     tagsData,
     validState,
+    activeBlogData,
   } = store
 
   return (
@@ -69,6 +70,7 @@ const BlogEditorContainer: FC<TProps> = ({
               rssInfo={rssInfoData}
               filterTitle={filterTitle}
               validState={validState}
+              activeBlog={activeBlogData}
             />
           </ContentWrapper>
           <Footer step={step} community={communityData} tags={tagsData} />

@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 100%;
   margin-bottom: 14px;
+  margin-left: 4px;
 `
 export const Header = styled.div`
   position: relative;

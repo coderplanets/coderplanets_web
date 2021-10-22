@@ -19,31 +19,34 @@ import {
   Digest,
   HoverDigest,
 } from '../styles/content/feed_item'
-import { toStep } from '../logic'
+import { toStep, selectBlog } from '../logic'
 
 type TProps = {
   item: TBlog
   withSelector?: boolean
   withEdit?: boolean
+  active?: boolean
 }
 
 const FeedItem: FC<TProps> = ({
   item,
   withSelector = true,
   withEdit = false,
+  active = false,
 }) => {
-  const active = item.id === '1'
   return (
     <Wrapper>
       <Header>
         {withSelector && (
           <Selector>
-            <Checker checked={false} />
+            <Checker checked={active} onChange={() => selectBlog(item)} />
           </Selector>
         )}
 
         {!withEdit ? (
-          <HoverTitle $active={active}>{item.title}</HoverTitle>
+          <HoverTitle $active={active} onClick={() => selectBlog(item)}>
+            {item.title}
+          </HoverTitle>
         ) : (
           <Title>{item.title}</Title>
         )}
@@ -59,7 +62,7 @@ const FeedItem: FC<TProps> = ({
         )}
       </Header>
       {!withEdit ? (
-        <HoverPubDateWrapper $active={active}>
+        <HoverPubDateWrapper $active={active} onClick={() => selectBlog(item)}>
           <AbsDate date={item.published} withTime={false} />
           <RelDate datetime={item.published} locale="zh_CN" />
         </HoverPubDateWrapper>
@@ -71,7 +74,9 @@ const FeedItem: FC<TProps> = ({
       )}
 
       {!withEdit ? (
-        <HoverDigest $active={active}>{item.digest}</HoverDigest>
+        <HoverDigest $active={active} onClick={() => selectBlog(item)}>
+          {item.digest}
+        </HoverDigest>
       ) : (
         <Digest>{item.digest}</Digest>
       )}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import type { TCommunity, TEditValue, TTag } from '@/spec'
+import type { TCommunity, TEditValue, TTag, TBlog } from '@/spec'
 import { ERR } from '@/constant'
 
 import { getParameterByName } from '@/utils/route'
@@ -26,6 +26,14 @@ export const loadCommunity = (): void => {
   const raw = getParameterByName('community')?.toLowerCase()
 
   sr71$.query(S.community, { raw })
+}
+
+export const selectBlog = (blog: TBlog): void => {
+  console.log('selectBlog: ', blog)
+  store.mark({ activeBlog: blog })
+  setTimeout(() => {
+    nextStep()
+  }, 500)
 }
 
 export const toStep = (step: string): void => {

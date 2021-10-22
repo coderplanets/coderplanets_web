@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TBlogRSS } from '@/spec'
+import type { TBlogRSS, TBlog } from '@/spec'
 import FeedItem from './FeedItem'
 import RSSItem from './RSSItem'
 
@@ -10,9 +10,10 @@ import { inputOnChange } from '../logic'
 type TProps = {
   rssInfo: TBlogRSS
   filterTitle: string
+  activeBlog: TBlog
 }
 
-const FeedList: FC<TProps> = ({ rssInfo, filterTitle }) => {
+const FeedList: FC<TProps> = ({ rssInfo, filterTitle, activeBlog }) => {
   return (
     <Wrapper>
       <RSSItem left={8} bottom={14} rssInfo={rssInfo} />
@@ -23,7 +24,11 @@ const FeedList: FC<TProps> = ({ rssInfo, filterTitle }) => {
       />
       <Hint>请选择你要提交的博客, 可使用标题搜索</Hint>
       {rssInfo.historyFeed.map((item) => (
-        <FeedItem key={item.id} item={item} />
+        <FeedItem
+          key={item.id}
+          item={item}
+          active={activeBlog.id === item.id}
+        />
       ))}
     </Wrapper>
   )

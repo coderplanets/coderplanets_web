@@ -2,10 +2,10 @@
  * BlogEditor store
  */
 
-import { types as T, getParent, Instance } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 import { isEmpty, includes, filter } from 'ramda'
 
-import type { TCommunity, TRootStore, TBlogRSS, TTag } from '@/spec'
+import type { TCommunity, TBlogRSS, TTag, TBlog } from '@/spec'
 
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
@@ -34,6 +34,7 @@ const BlogEditor = T.model('BlogEditor', {
   step: T.optional(T.enumeration(['STEP_1', 'STEP_2', 'STEP_3']), 'STEP_1'),
   filterTitle: T.optional(T.string, ''),
   rss: T.optional(T.string, ''),
+  activeBlog: T.optional(Blog, {}),
   rssInfo: T.optional(RSSInfo, {}),
   loading: T.optional(T.boolean, false),
 })
@@ -43,6 +44,9 @@ const BlogEditor = T.model('BlogEditor', {
     },
     get tagsData(): TTag[] {
       return toJS(self.articleTags)
+    },
+    get activeBlogData(): TBlog {
+      return toJS(self.activeBlog)
     },
     get rssInfoData(): TBlogRSS {
       const rssInfoRaw = toJS(self.rssInfo)

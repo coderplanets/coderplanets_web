@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TBlogRSS } from '@/spec'
+import type { TBlogRSS, TBlog } from '@/spec'
 
 import RSSItem from './RSSItem'
 import FeedItem from './FeedItem'
@@ -13,24 +13,16 @@ import {
   InputMask,
 } from '../styles/content/author_inputer'
 
-const item = {
-  id: '1',
-  title: 'HTML slot 插槽元素深入',
-  digest:
-    '本文应该是目前最深入最细致的介绍 HTML slot 插槽元素的文章了，如果您对Web 组件开发感兴趣，则本文内容不容错过。',
-  link_addr: 'https://www.zhangxinxu.com/wordpress/2021/08/js-weakmap-es6/',
-  published: 'Sun, 15 Aug 2021 04:40:49 +0000',
-}
-
 type TProps = {
   rssInfo: TBlogRSS
+  activeBlog: TBlog
 }
 
-const AuthorInputer: FC<TProps> = ({ rssInfo }) => {
+const AuthorInputer: FC<TProps> = ({ rssInfo, activeBlog }) => {
   return (
     <Wrapper>
       <RSSItem bottom={20} rssInfo={rssInfo} />
-      <FeedItem item={item} withSelector={false} withEdit />
+      <FeedItem item={activeBlog} withSelector={false} withEdit />
       <Hint>
         请填写作者信息，一般位于原博客 &quot;关于&quot; 或 &quot;about&quot;
         链接内。保存后以后若添加同一作者博客将不会重复录入。

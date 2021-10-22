@@ -14,7 +14,7 @@ export const ArticleFooter = styled.div`
   border-bottom-color: #1a3a40;
   margin-top: 40px;
   margin-bottom: 28px;
-  padding-left: 5px;
+  padding-left: 8px;
 `
 export const PublishFooter = styled.div`
   ${css.flex('align-center', 'justify-between')};
