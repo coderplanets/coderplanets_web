@@ -4,10 +4,10 @@ import TimeAgo from 'timeago-react'
 import { TYPE } from '@/constant'
 import { Trans } from '@/utils/i18n'
 
-import Pagi from '@/components/Pagi'
-import EmptyLabel from '@/components/EmptyLabel'
-import MarkDownRender from '@/components/MarkDownRender'
-import { CommentLoading } from '@/components/Loading'
+import Pagi from '@/widgets/Pagi'
+import EmptyLabel from '@/widgets/EmptyLabel'
+import MarkDownRender from '@/widgets/MarkDownRender'
+import { CommentLoading } from '@/widgets/Loading'
 
 import Parent from './Parent'
 

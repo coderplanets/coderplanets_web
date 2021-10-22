@@ -2,9 +2,9 @@ import { memo, FC } from 'react'
 
 import type { TArticle } from '@/spec'
 
-import { SpaceGrow } from '@/components/Common'
-import Tabs from '@/components/Switcher/Tabs'
-import Upvote from '@/components/Upvote'
+import { SpaceGrow } from '@/widgets/Common'
+import Tabs from '@/widgets/Switcher/Tabs'
+import Upvote from '@/widgets/Upvote'
 
 import { Wrapper, TabWrapper } from '../styles/works_viewer/article_info'
 

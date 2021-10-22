@@ -12,9 +12,9 @@ import useScroll from '@/hooks/useScroll'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import ArticleBaseStats from '@/components/ArticleBaseStats'
-import ViewportTracker from '@/components/ViewportTracker'
-import ReadableDate from '@/components/ReadableDate'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
+import ViewportTracker from '@/widgets/ViewportTracker'
+import ReadableDate from '@/widgets/ReadableDate'
 
 import type { TStore } from '../store'
 import {

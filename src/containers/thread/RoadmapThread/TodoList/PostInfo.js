@@ -1,7 +1,7 @@
 import React from 'react'
 
-import TagsList from '@/components/TagsList'
-import DotDivider from '@/components/DotDivider'
+import TagsList from '@/widgets/TagsList'
+import DotDivider from '@/widgets/DotDivider'
 
 import {
   Wrapper,

@@ -14,8 +14,8 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 import { METRIC } from '@/constant'
 
-import Sticky from '@/components/Sticky'
-import GotoTop from '@/components/GotoTop'
+import Sticky from '@/widgets/Sticky'
+import GotoTop from '@/widgets/GotoTop'
 
 import type { TStore } from './store'
 

@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TWorks } from '@/spec'
 import { nilOrEmpty } from '@/utils/validator'
-import ArrowButton from '@/components/Buttons/ArrowButton'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
 import CommonQuestions from './CommonQuestions'
 

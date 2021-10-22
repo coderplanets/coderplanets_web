@@ -19,7 +19,7 @@ import UserSettings from '@/containers/user/UserSettings'
 import UserStared from '@/containers/user/UserStared'
 import UserFavorited from '@/containers/user/UserFavorited'
 
-import TabBar from '@/components/TabBar'
+import TabBar from '@/widgets/TabBar'
 
 import type { TStore } from './store'
 import Sidebar from './Sidebar'

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { VIEW, SIZE } from '@/constant'
-import TabBar from '@/components/TabBar'
+import TabBar from '@/widgets/TabBar'
 
 import {
   Wrapper,

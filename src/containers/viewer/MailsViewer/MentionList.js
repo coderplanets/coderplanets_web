@@ -1,8 +1,8 @@
 import React from 'react'
 import { isEmpty } from 'ramda'
 
-import EmptyLabel from '@/components/EmptyLabel'
-import Pagi from '@/components/Pagi'
+import EmptyLabel from '@/widgets/EmptyLabel'
+import Pagi from '@/widgets/Pagi'
 
 import ToggleInfo from './ToggleInfo'
 

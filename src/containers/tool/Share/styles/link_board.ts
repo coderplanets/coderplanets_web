@@ -4,7 +4,7 @@ import type { TActive } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import Input from '@/components/Input'
+import Input from '@/widgets/Input'
 
 export const Header = styled.div`
   ${css.flex('justify-between', 'align-center')};

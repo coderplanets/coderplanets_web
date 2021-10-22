@@ -10,7 +10,7 @@ import GA from '@/utils/analytics'
  */
 // import { appWithTranslation } from '@/i18n'
 
-// import CrashErrorHint from '@/components/CrashErrorHint'
+// import CrashErrorHint from '@/widgets/CrashErrorHint'
 
 const App = ({ Component, pageProps, err }) => {
   const router = useRouter()

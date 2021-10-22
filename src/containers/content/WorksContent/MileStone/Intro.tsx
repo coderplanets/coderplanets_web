@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import DotDivider from '@/components/DotDivider'
+import DotDivider from '@/widgets/DotDivider'
 // import { ASSETS_ENDPOINT } from '@/config'
 import {
   Wrapper,

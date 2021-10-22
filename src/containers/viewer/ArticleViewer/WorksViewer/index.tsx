@@ -7,9 +7,9 @@ import { FC, memo, Fragment, useCallback, useState } from 'react'
 import type { TPost } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import ViewportTracker from '@/components/ViewportTracker'
-import ArticeBody from '@/components/ArtimentBody'
-import { ArticleContentLoading } from '@/components/Loading'
+import ViewportTracker from '@/widgets/ViewportTracker'
+import ArticeBody from '@/widgets/ArtimentBody'
+import { ArticleContentLoading } from '@/widgets/Loading'
 
 import FixedHeader from './FixedHeader'
 import Header from './Header'

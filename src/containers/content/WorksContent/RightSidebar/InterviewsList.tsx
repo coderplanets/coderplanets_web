@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
-import { SpaceGrow } from '@/components/Common'
-import ImgFallback from '@/components/ImgFallback'
+import { SpaceGrow } from '@/widgets/Common'
+import ImgFallback from '@/widgets/ImgFallback'
 
 import {
   Wrapper,

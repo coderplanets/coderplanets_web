@@ -5,7 +5,7 @@ import { contains } from 'ramda'
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 
-import CustomScroller from '@/components/CustomScroller'
+import CustomScroller from '@/widgets/CustomScroller'
 import SuggestIcon from './SuggestIcon'
 import {
   Wrapper,

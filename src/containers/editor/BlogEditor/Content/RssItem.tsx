@@ -3,8 +3,8 @@ import { isEmpty } from 'ramda'
 
 import type { TSpace, TBlogRSS } from '@/spec'
 import { SVG } from '@/constant'
-import DotDivider from '@/components/DotDivider'
-import IconButton from '@/components/Buttons/IconButton'
+import DotDivider from '@/widgets/DotDivider'
+import IconButton from '@/widgets/Buttons/IconButton'
 
 import { Wrapper, Title, Subtitle } from '../styles/content/rss_item'
 import { toStep } from '../logic'

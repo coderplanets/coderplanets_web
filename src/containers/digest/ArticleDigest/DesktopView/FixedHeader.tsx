@@ -3,8 +3,8 @@ import { FC, memo, Fragment } from 'react'
 import type { TArticle, TMetric, TThread } from '@/spec'
 import { METRIC } from '@/constant'
 
-import Upvote from '@/components/Upvote'
-import DotDivider from '@/components/DotDivider'
+import Upvote from '@/widgets/Upvote'
+import DotDivider from '@/widgets/DotDivider'
 
 import {
   Wrapper,

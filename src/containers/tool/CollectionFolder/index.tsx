@@ -14,8 +14,8 @@ import { ICON_CMD } from '@/config'
 
 import type { TStore } from './store'
 
-import Modal from '@/components/Modal'
-import SectionLabel from '@/components/SectionLabel'
+import Modal from '@/widgets/Modal'
+import SectionLabel from '@/widgets/SectionLabel'
 
 import Creator from './Creator'
 import Updater from './Updater'

@@ -11,7 +11,7 @@ import useScroll from '@/hooks/useScroll'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import ViewportTracker from '@/components/ViewportTracker'
+import ViewportTracker from '@/widgets/ViewportTracker'
 import { CollectionFolder, FixedHeader } from './dynamic'
 import Layout from './Layout'
 

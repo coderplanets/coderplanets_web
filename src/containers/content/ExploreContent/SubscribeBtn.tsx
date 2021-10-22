@@ -5,8 +5,8 @@ import { FC, memo } from 'react'
 
 import type { TCommunity, TID } from '@/spec'
 
-import Button from '@/components/Buttons/Button'
-import FollowButton from '@/components/Buttons/FollowButton'
+import Button from '@/widgets/Buttons/Button'
+import FollowButton from '@/widgets/Buttons/FollowButton'
 
 import { subscribe, unSubscribe } from './logic'
 

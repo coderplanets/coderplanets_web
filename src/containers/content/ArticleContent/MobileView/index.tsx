@@ -13,10 +13,10 @@ import { pluggedIn } from '@/utils/mobx'
 // import Comments from '@/containers/unit/Comments'
 // import ArticleFooter from '@/containers/unit/ArticleFooter'
 
-import { LavaLampLoading } from '@/components/dynamic'
-import Maybe from '@/components/Maybe'
-// import MarkDownRender from '@/components/MarkDownRender'
-import ViewportTracker from '@/components/ViewportTracker'
+import { LavaLampLoading } from '@/widgets/dynamic'
+import Maybe from '@/widgets/Maybe'
+// import MarkDownRender from '@/widgets/MarkDownRender'
+import ViewportTracker from '@/widgets/ViewportTracker'
 
 import type { TStore } from '../store'
 
@@ -38,7 +38,7 @@ export const ArticleFooter = dynamic(
 )
 
 export const MarkDownRender = dynamic(
-  () => import('@/components/MarkDownRender'),
+  () => import('@/widgets/MarkDownRender'),
   {
     ssr: false,
   },

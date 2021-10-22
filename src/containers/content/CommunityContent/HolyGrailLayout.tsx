@@ -13,8 +13,8 @@ import { C11N, EVENT } from '@/constant'
 import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
-import TabBar from '@/components/TabBar'
-import { LavaLampLoading } from '@/components/dynamic'
+import TabBar from '@/widgets/TabBar'
+import { LavaLampLoading } from '@/widgets/dynamic'
 
 import ThreadContent from './ThreadContent'
 import SubscribedList from './SubscribedList'

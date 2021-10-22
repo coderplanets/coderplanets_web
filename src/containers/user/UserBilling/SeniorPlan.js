@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD, SENIOR_AMOUNT_THRESHOLD } from '@/config'
-import Button from '@/components/Buttons/Button'
+import Button from '@/widgets/Buttons/Button'
 
 import {
   Wrapper,

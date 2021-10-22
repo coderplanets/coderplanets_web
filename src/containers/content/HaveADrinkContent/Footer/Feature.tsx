@@ -9,7 +9,7 @@ import { FC, memo } from 'react'
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
 
-import DotDivider from '@/components/DotDivider'
+import DotDivider from '@/widgets/DotDivider'
 
 import { VIEW } from '../constant'
 import { Wrapper, Icon } from '../styles/footer/feature'

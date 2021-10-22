@@ -2,7 +2,7 @@ import { FC, Fragment, memo } from 'react'
 
 import type { TViewing } from '@/spec'
 import { ICON_BASE } from '@/config'
-import Button from '@/components/Buttons/Button'
+import Button from '@/widgets/Buttons/Button'
 
 import {
   ItemWrapper,

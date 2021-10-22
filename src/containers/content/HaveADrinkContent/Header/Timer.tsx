@@ -9,7 +9,7 @@ import { FC, memo } from 'react'
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
 
-import ExpandIcon from '@/components/ExpandIcon'
+import ExpandIcon from '@/widgets/ExpandIcon'
 
 import type { TInterval } from '../spec'
 import RunningTimer from './RunningTimer'

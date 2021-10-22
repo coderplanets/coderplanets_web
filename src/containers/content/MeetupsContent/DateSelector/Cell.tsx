@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { contains } from 'ramda'
 
-import DotDivider from '@/components/DotDivider'
+import DotDivider from '@/widgets/DotDivider'
 
 import {
   Wrapper,

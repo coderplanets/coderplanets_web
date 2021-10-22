@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ThemeSelector from '@/components/ThemeSelector'
+import ThemeSelector from '@/widgets/ThemeSelector'
 
 import { Wrapper } from './styles/theme_settings'
 import { changeTheme } from './logic'

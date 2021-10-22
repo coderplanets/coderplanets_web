@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
-import { LavaLampLoading } from '@/components/dynamic'
-import EnterHint from '@/components/EnterHint'
+import { LavaLampLoading } from '@/widgets/dynamic'
+import EnterHint from '@/widgets/EnterHint'
 
 import type { TValidState } from '../spec'
 

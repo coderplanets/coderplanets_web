@@ -3,9 +3,9 @@ import { FC, memo } from 'react'
 import type { TCommunity } from '@/spec'
 import { cutRest } from '@/utils/helper'
 
-import { SpaceGrow } from '@/components/Common'
-import Checker from '@/components/Checker'
-import DotDivider from '@/components/DotDivider'
+import { SpaceGrow } from '@/widgets/Common'
+import Checker from '@/widgets/Checker'
+import DotDivider from '@/widgets/DotDivider'
 
 // import { TAG_VIEW } from '../constant'
 import {

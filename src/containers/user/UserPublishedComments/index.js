@@ -9,7 +9,7 @@ import React from 'react'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import ThreadSelector from '@/components/ThreadSelector'
+import ThreadSelector from '@/widgets/ThreadSelector'
 import CommentsToContent from './CommentsToContent'
 
 import { ThreadWrapper } from './styles'

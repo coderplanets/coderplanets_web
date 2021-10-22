@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CustomScroller from '@/components/CustomScroller'
-import FeedsBar from '@/components/FeedsBar'
+import CustomScroller from '@/widgets/CustomScroller'
+import FeedsBar from '@/widgets/FeedsBar'
 
 import Footer from './Footer'
 

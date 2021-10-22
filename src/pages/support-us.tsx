@@ -8,7 +8,7 @@ import { ROUTE, METRIC } from '@/constant'
 import { getJwtToken, makeGQClient, ssrRescue, parseTheme } from '@/utils'
 import { P } from '@/schemas'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import SupportUs from '@/components/SupportUs'
+import SupportUs from '@/widgets/SupportUs'
 
 import { useStore } from '@/stores/init'
 

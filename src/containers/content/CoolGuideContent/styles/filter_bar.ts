@@ -5,7 +5,7 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import { WIDTH as NAVI_CATALOG_WIDTH } from '@/components/NaviCatalog/styles/metric'
+import { WIDTH as NAVI_CATALOG_WIDTH } from '@/widgets/NaviCatalog/styles/metric'
 import { SIDEBAR_WIDTH } from './metric'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({

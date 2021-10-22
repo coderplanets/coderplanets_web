@@ -9,7 +9,7 @@
 
 const componentExists = require('../helper/component_exists')
 
-const TARGET_DIR = '../../../src/components'
+const TARGET_DIR = '../../../src/widgets'
 
 module.exports = {
   description: 'Add an unconnected component',
@@ -29,7 +29,7 @@ module.exports = {
       validate: (value) => {
         if (/.+/.test(value)) {
           return componentExists(value)
-            ? `${value} is already exists in 'src/components/${value}'`
+            ? `${value} is already exists in 'src/widgets/${value}'`
             : true
         }
 

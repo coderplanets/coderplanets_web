@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import Sticky from '@/components/Sticky'
+import Sticky from '@/widgets/Sticky'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'

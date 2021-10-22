@@ -2,8 +2,8 @@ import { FC, memo } from 'react'
 
 import type { TBlog } from '@/spec'
 import { SVG } from '@/constant'
-import Checker from '@/components/Checker'
-import IconButton from '@/components/Buttons/IconButton'
+import Checker from '@/widgets/Checker'
+import IconButton from '@/widgets/Buttons/IconButton'
 
 import {
   Wrapper,

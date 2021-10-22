@@ -11,7 +11,7 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
-import CommunityBadgeSelector from '@/components/CommunityBadgeSelector'
+import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
 
 import Content from './Content'
 import Footer from './Footer'

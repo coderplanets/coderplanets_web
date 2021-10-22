@@ -10,8 +10,8 @@ import { THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import PagedArticles from '@/components/PagedArticles'
-import ThreadSelector from '@/components/ThreadSelector'
+import PagedArticles from '@/widgets/PagedArticles'
+import ThreadSelector from '@/widgets/ThreadSelector'
 
 import { ThreadWrapper } from './styles'
 import { useInit, onThreadChange, onReload, onPreview } from './logic'

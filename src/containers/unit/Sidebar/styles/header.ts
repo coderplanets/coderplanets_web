@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Input from '@/components/Input'
+import Input from '@/widgets/Input'
 import Img from '@/Img'
 
 import { theme } from '@/utils/themes'

@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
 
-// import Tooltip from '@/components/Tooltip'
+// import Tooltip from '@/widgets/Tooltip'
 import CommunityCard from './CommunityCard'
 
 import {

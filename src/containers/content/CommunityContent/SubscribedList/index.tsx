@@ -8,9 +8,9 @@ import type { TCommunity } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 
-import DotDivider from '@/components/DotDivider'
-import Tooltip from '@/components/Tooltip'
-import { Br, SpaceGrow } from '@/components/Common'
+import DotDivider from '@/widgets/DotDivider'
+import Tooltip from '@/widgets/Tooltip'
+import { Br, SpaceGrow } from '@/widgets/Common'
 
 import ItemMenu from './ItemMenu'
 import ExpandButton from './ExpandButton'

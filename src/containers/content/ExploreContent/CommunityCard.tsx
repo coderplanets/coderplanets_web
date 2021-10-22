@@ -5,8 +5,8 @@ import type { TCommunity, TID } from '@/spec'
 import { NON_FILL_COMMUNITY } from '@/constant'
 import { prettyNum, cutRest } from '@/utils/helper'
 
-import TrendLine from '@/components/TrendLine'
-// import { CommunityHolder } from '@/components/Loading'
+import TrendLine from '@/widgets/TrendLine'
+// import { CommunityHolder } from '@/widgets/Loading'
 
 import SubscribeBtn from './SubscribeBtn'
 

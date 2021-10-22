@@ -3,8 +3,8 @@ import { FC, memo } from 'react'
 import type { TMeetup } from '@/spec'
 import { ICON_CMD } from '@/config'
 
-import Upvote from '@/components/Upvote'
-import DotDivider from '@/components/DotDivider'
+import Upvote from '@/widgets/Upvote'
+import DotDivider from '@/widgets/DotDivider'
 
 import Date from './Date'
 

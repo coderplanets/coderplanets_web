@@ -3,9 +3,9 @@ import { FC, Fragment, memo } from 'react'
 import { ICON_CMD } from '@/config'
 import { mockNaviCatalogTags } from '@/utils/mock'
 
-import Sticky from '@/components/Sticky'
-import BrandTitle from '@/components/BrandTitle'
-import NaviCatalog from '@/components/NaviCatalog'
+import Sticky from '@/widgets/Sticky'
+import BrandTitle from '@/widgets/BrandTitle'
+import NaviCatalog from '@/widgets/NaviCatalog'
 
 import {
   Wrapper,

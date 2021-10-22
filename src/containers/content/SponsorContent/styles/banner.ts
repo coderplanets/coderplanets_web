@@ -4,7 +4,7 @@ import type { TActive } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import ArrowLink from '@/components/Buttons/ArrowLink'
+import ArrowLink from '@/widgets/Buttons/ArrowLink'
 import Img from '@/Img'
 
 import { getBorderRadius, getBannerHeight, getBackground } from './metric'

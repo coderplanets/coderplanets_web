@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 
-import ThreadSelector from '@/components/ThreadSelector'
+import ThreadSelector from '@/widgets/ThreadSelector'
 
 import {
   Wrapper,

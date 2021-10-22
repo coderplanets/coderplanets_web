@@ -14,12 +14,12 @@ import { EVENT } from '@/constant'
 
 import type { TThread } from '@/spec'
 
-import Sticky from '@/components/Sticky'
-// import FiltersMenu from '@/components/FiltersMenu'
-import PublishButton from '@/components/Buttons/PublishButton'
+import Sticky from '@/widgets/Sticky'
+// import FiltersMenu from '@/widgets/FiltersMenu'
+import PublishButton from '@/widgets/Buttons/PublishButton'
 import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
 import TagsBar from '@/containers/unit/TagsBar'
-// import PromotionList from '@/components/PromotionList'
+// import PromotionList from '@/widgets/PromotionList'
 
 import type { TBaseProps } from '../index'
 

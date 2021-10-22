@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import IconButton from '@/components/Buttons/IconButton'
+import IconButton from '@/widgets/Buttons/IconButton'
 
 import type { TArticleNavi } from '../spec'
 

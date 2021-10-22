@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
-import CustomScroller from '@/components/CustomScroller'
+import CustomScroller from '@/widgets/CustomScroller'
 import MenuBar from './MenuBar'
 
 type TProps = {

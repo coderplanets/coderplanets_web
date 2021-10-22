@@ -11,7 +11,7 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Pagi from '@/components/Pagi'
+import Pagi from '@/widgets/Pagi'
 
 import Banner from './Banner'
 import Sidebar from './Sidebar'

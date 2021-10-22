@@ -3,8 +3,8 @@ import React from 'react'
 import { ICON_CMD } from '@/config'
 
 import useCopyToClipboard from 'react-use/lib/useCopyToClipboard'
-import EmailSubscriber from '@/components/EmailSubscriber'
-import { Br, SpaceGrow } from '@/components/Common'
+import EmailSubscriber from '@/widgets/EmailSubscriber'
+import { Br, SpaceGrow } from '@/widgets/Common'
 // TODO: extract to Email Subscriber
 
 import { Wrapper, Title, Desc, Dot, CopyIcon } from '../styles/actions/detail'

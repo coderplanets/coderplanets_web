@@ -8,9 +8,9 @@ import React from 'react'
 
 import { HCN, GALLERY } from '@/constant'
 
-import Pagi from '@/components/Pagi'
-import { PagiOptionSwitcher } from '@/components/Switcher'
-import { SnippetGallery, ImageGallery } from '@/components/GalleryHub'
+import Pagi from '@/widgets/Pagi'
+import { PagiOptionSwitcher } from '@/widgets/Switcher'
+import { SnippetGallery, ImageGallery } from '@/widgets/GalleryHub'
 
 import Footer from '../Footer'
 

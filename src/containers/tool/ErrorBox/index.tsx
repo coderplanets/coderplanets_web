@@ -9,7 +9,7 @@ import { FC } from 'react'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Modal from '@/components/Modal'
+import Modal from '@/widgets/Modal'
 import useShortcut from '@/hooks/useShortcut'
 
 import type { TStore } from './store'

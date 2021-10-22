@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
 
-import Input from '@/components/Input'
+import Input from '@/widgets/Input'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};

@@ -3,7 +3,7 @@ import TimeAgo from 'timeago-react'
 
 import { Trans } from '@/utils/i18n'
 
-import { ArticleContentLoading } from '@/components/Loading'
+import { ArticleContentLoading } from '@/widgets/Loading'
 import {
   Wrapper,
   TableWrapper,

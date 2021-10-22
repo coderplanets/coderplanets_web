@@ -10,9 +10,9 @@ import { TYPE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import EmptyLabel from '@/components/EmptyLabel'
-import Modal from '@/components/Modal'
-import SearchingLabel from '@/components/SearchingLabel'
+import EmptyLabel from '@/widgets/EmptyLabel'
+import Modal from '@/widgets/Modal'
+import SearchingLabel from '@/widgets/SearchingLabel'
 
 import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import CustomScroller from '@/components/CustomScroller'
-import { SpaceGrow } from '@/components/Common'
+import CustomScroller from '@/widgets/CustomScroller'
+import { SpaceGrow } from '@/widgets/Common'
 
 import ToggleIcon from './ToggleIcon'
 import Options from './Options'

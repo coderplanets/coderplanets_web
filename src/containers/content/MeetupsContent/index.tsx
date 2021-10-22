@@ -12,9 +12,9 @@ import { GALLERY } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Pagi from '@/components/Pagi'
-// import { PagiOptionSwitcher } from '@/components/Switcher'
-import MasonryCards from '@/components/MasonryCards'
+import Pagi from '@/widgets/Pagi'
+// import { PagiOptionSwitcher } from '@/widgets/Switcher'
+import MasonryCards from '@/widgets/MasonryCards'
 
 import type { TStore } from './store'
 

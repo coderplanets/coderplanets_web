@@ -12,12 +12,12 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import ArticleSticker from '@/containers/tool/ArticleSticker'
-import ArtimentBody from '@/components/ArtimentBody'
+import ArtimentBody from '@/widgets/ArtimentBody'
 // import ArticleFooter from '@/containers/unit/ArticleFooter'
 
-import ViewportTracker from '@/components/ViewportTracker'
-import Maybe from '@/components/Maybe'
-import { LavaLampLoading } from '@/components/dynamic'
+import ViewportTracker from '@/widgets/ViewportTracker'
+import Maybe from '@/widgets/Maybe'
+import { LavaLampLoading } from '@/widgets/dynamic'
 
 import type { TStore } from '../store'
 

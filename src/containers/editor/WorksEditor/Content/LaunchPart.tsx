@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { ICON } from '@/config'
 import type { TWorks } from '@/spec'
 
-import ArrowButton from '@/components/Buttons/ArrowButton'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
 import {
   Wrapper,

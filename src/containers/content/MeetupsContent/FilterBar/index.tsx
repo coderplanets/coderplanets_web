@@ -4,12 +4,12 @@ import type { TFiltersMenuItems } from '@/spec'
 
 import { mockFilterMenuTags } from '@/utils/mock'
 
-import BrandTitle from '@/components/BrandTitle'
-import Sticky from '@/components/Sticky'
-import Button from '@/components/Buttons/Button'
-import FiltersMenu from '@/components/FiltersMenu'
-import DotDivider from '@/components/DotDivider'
-import { Br } from '@/components/Common'
+import BrandTitle from '@/widgets/BrandTitle'
+import Sticky from '@/widgets/Sticky'
+import Button from '@/widgets/Buttons/Button'
+import FiltersMenu from '@/widgets/FiltersMenu'
+import DotDivider from '@/widgets/DotDivider'
+import { Br } from '@/widgets/Common'
 
 import { Wrapper, NaviFooter, Terms, TermItem } from '../styles/filter_bar'
 

@@ -1,9 +1,9 @@
 import { FC, memo, useCallback } from 'react'
 import { TID } from '@/spec'
 
-import Button from '@/components/Buttons/Button'
-import { Space } from '@/components/Common'
-import Folder from '@/components/Folder'
+import Button from '@/widgets/Buttons/Button'
+import { Space } from '@/widgets/Common'
+import Folder from '@/widgets/Folder'
 
 import {
   Wrapper,

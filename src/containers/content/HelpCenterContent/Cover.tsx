@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import LinksCard from '@/components/LinksCard'
+import LinksCard from '@/widgets/LinksCard'
 import type { TCommunity } from '@/spec'
 import type { THelpArticle, TVisibles } from './spec'
 

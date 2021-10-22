@@ -13,7 +13,7 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Navigator from '@/components/Navigator'
+import Navigator from '@/widgets/Navigator'
 
 import type { TStore } from '../store'
 import {

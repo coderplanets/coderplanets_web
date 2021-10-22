@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import DotDivider from '@/components/DotDivider'
+import DotDivider from '@/widgets/DotDivider'
 
 import Img from '@/Img'
 import { theme } from '@/utils/themes'

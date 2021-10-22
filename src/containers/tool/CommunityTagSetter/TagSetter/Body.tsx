@@ -4,8 +4,8 @@ import { keys } from 'ramda'
 import type { TTag } from '@/spec'
 import { groupByKey } from '@/utils/helper'
 
-import { LavaLampLoading } from '@/components/dynamic'
-import CustomScroller from '@/components/CustomScroller'
+import { LavaLampLoading } from '@/widgets/dynamic'
+import CustomScroller from '@/widgets/CustomScroller'
 
 import type { TTagView, TTagsList } from '../spec'
 import { TAG_VIEW } from '../constant'

@@ -3,9 +3,9 @@ import { memo, FC } from 'react'
 import type { TArticle } from '@/spec'
 import { ICON } from '@/config'
 
-import DotDivider from '@/components/DotDivider'
-import Upvote from '@/components/Upvote'
-import ArticleBaseStats from '@/components/ArticleBaseStats'
+import DotDivider from '@/widgets/DotDivider'
+import Upvote from '@/widgets/Upvote'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 
 import {
   Wrapper,

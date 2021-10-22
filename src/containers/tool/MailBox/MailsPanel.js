@@ -3,8 +3,8 @@ import { findIndex, propEq } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
-import CustomScroller from '@/components/CustomScroller'
-import TabSelector from '@/components/TabSelector'
+import CustomScroller from '@/widgets/CustomScroller'
+import TabSelector from '@/widgets/TabSelector'
 
 import { Wrapper, ContentWrapper, SeeAllMessages } from './styles/mails_panel'
 import MailLists from './MailLists'

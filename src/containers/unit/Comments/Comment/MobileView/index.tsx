@@ -1,8 +1,8 @@
 import { memo } from 'react'
 
-import { Br } from '@/components/Common'
-import MarkDownRender from '@/components/MarkDownRender'
-import Upvote from '@/components/Upvote'
+import { Br } from '@/widgets/Common'
+import MarkDownRender from '@/widgets/MarkDownRender'
+import Upvote from '@/widgets/Upvote'
 
 import ReplyBar from '../ReplyBar'
 import Footer from '../Footer'

@@ -8,12 +8,12 @@ import type { TPost, TMetric } from '@/spec'
 import { METRIC, UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import ArticleBaseStats from '@/components/ArticleBaseStats'
-import IconButton from '@/components/Buttons/IconButton'
-import Upvote from '@/components/Upvote'
-import Tabs from '@/components/Switcher/Tabs'
-import ArticleMenu from '@/components/ArticleMenu'
-import { SpaceGrow } from '@/components/Common'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
+import IconButton from '@/widgets/Buttons/IconButton'
+import Upvote from '@/widgets/Upvote'
+import Tabs from '@/widgets/Switcher/Tabs'
+import ArticleMenu from '@/widgets/ArticleMenu'
+import { SpaceGrow } from '@/widgets/Common'
 
 import {
   Main,

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import type { TArticle } from '@/spec'
 
-import Upvote from '@/components/Upvote'
+import Upvote from '@/widgets/Upvote'
 import { Wrapper, ArticleTitle } from '../styles/post_viewer/fixed_header'
 import { handleUpvote } from '../logic'
 

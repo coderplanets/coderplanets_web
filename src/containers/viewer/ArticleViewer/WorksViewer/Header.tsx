@@ -3,12 +3,12 @@ import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
 
-import ArticleMenu from '@/components/ArticleMenu'
-import ArticleBaseStats from '@/components/ArticleBaseStats'
-import DotDivider from '@/components/DotDivider'
-import IconButton from '@/components/Buttons/IconButton'
-import { Space } from '@/components/Common'
-import Linker from '@/components/Linker'
+import ArticleMenu from '@/widgets/ArticleMenu'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
+import DotDivider from '@/widgets/DotDivider'
+import IconButton from '@/widgets/Buttons/IconButton'
+import { Space } from '@/widgets/Common'
+import Linker from '@/widgets/Linker'
 
 import {
   Wrapper,

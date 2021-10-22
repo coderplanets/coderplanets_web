@@ -4,11 +4,11 @@ import type { TWorks } from '@/spec'
 
 import { mockUsers } from '@/utils/mock'
 
-import Checker from '@/components/Checker'
-import Select from '@/components/Select'
-import { Space } from '@/components/Common'
-import ArrowButton from '@/components/Buttons/ArrowButton'
-import UserList from '@/components/UserList'
+import Checker from '@/widgets/Checker'
+import Select from '@/widgets/Select'
+import { Space } from '@/widgets/Common'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
+import UserList from '@/widgets/UserList'
 
 import CoverUploader from './CoverUploader'
 

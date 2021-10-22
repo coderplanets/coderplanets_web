@@ -7,13 +7,13 @@
 import { FC, memo } from 'react'
 
 import { GUIDE } from '@/constant'
-import Pagi from '@/components/Pagi'
+import Pagi from '@/widgets/Pagi'
 
 import {
   ProductGallery,
   PeopleGallery,
   ImageGallery,
-} from '@/components/GalleryHub'
+} from '@/widgets/GalleryHub'
 
 import SearchCover from './SearchCover'
 import Footer from './Footer'

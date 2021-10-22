@@ -12,10 +12,10 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
-import Copyright from '@/components/Copyright'
-import { SpaceGrow } from '@/components/Common'
+import Copyright from '@/widgets/Copyright'
+import { SpaceGrow } from '@/widgets/Common'
 
-// import TagList from '@/components/TagList'
+// import TagList from '@/widgets/TagList'
 
 import TagList from './TagList'
 import Actions from './Actions/index'

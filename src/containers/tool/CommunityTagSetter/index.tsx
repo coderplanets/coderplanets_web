@@ -12,7 +12,7 @@ import type { TCommunity, TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Modal from '@/components/Modal'
+import Modal from '@/widgets/Modal'
 
 import type { TStore } from './store'
 import TagSetter from './TagSetter'

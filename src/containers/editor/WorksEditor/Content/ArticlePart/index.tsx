@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import RichEditor from '@/containers/editor/RichEditor'
-import Button from '@/components/Buttons/Button'
+import Button from '@/widgets/Buttons/Button'
 
 import {
   Wrapper,

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import YesOrNoButtons from '@/components/Buttons/YesOrNoButtons'
+import YesOrNoButtons from '@/widgets/Buttons/YesOrNoButtons'
 
 import { Wrapper } from './styles/footer'
 import { goBack } from './logic'

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Input from '@/components/Input'
+import Input from '@/widgets/Input'
 
 import type { TTestable } from '@/spec'
 import { theme } from '@/utils/themes'

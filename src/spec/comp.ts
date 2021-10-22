@@ -1,6 +1,6 @@
 import { TSIZE } from './size'
 
-// @/components/button
+// @/widgets/button
 export type TButton = {
   size?: TSIZE
   active?: boolean
@@ -10,7 +10,7 @@ export type TButton = {
   onClick?: (key?: string) => void
 }
 
-// @/components/FiltersMenu
+// @/widgets/FiltersMenu
 export type TFiltersMenuItems = {
   id: string
   title: string

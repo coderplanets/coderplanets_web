@@ -10,8 +10,8 @@ import { isEmpty, pickBy } from 'ramda'
 import type { TAccount } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import FollowButton from '@/components/Buttons/FollowButton'
-import ImgFallback from '@/components/ImgFallback'
+import FollowButton from '@/widgets/Buttons/FollowButton'
+import ImgFallback from '@/widgets/ImgFallback'
 
 import SocialList from './SocialList'
 

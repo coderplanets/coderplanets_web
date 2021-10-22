@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import CommunityFaceLogo from '@/components/CommunityFaceLogo'
+import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 import css from '@/utils/css'
 
 type TIcon = { reverse: boolean; round: boolean }

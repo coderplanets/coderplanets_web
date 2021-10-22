@@ -8,7 +8,7 @@ const fs = require('fs')
 const path = require('path')
 
 const appComponents = fs.readdirSync(
-  path.join(__dirname, '../../../../src/components'),
+  path.join(__dirname, '../../../../src/widgets'),
 )
 const appPages = fs.readdirSync(path.join(__dirname, '../../../../src/pages'))
 const components = appComponents.concat(appPages)

@@ -12,7 +12,7 @@ import { pluggedIn } from '@/utils/mobx'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import RichEditor from '@/containers/editor/RichEditor'
-import CommunityBadgeSelector from '@/components/CommunityBadgeSelector'
+import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
 
 import TitleInput from './TitleInput'
 import Footer from './Footer'

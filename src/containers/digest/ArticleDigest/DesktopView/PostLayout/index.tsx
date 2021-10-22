@@ -8,12 +8,12 @@ import type { TPost, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import { SpaceGrow } from '@/components/Common'
-import ArticleBaseStats from '@/components/ArticleBaseStats'
-import DotDivider from '@/components/DotDivider'
-import ArchivedSign from '@/components/ArchivedSign'
-import ArticleMenu from '@/components/ArticleMenu'
-import ReadableDate from '@/components/ReadableDate'
+import { SpaceGrow } from '@/widgets/Common'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
+import DotDivider from '@/widgets/DotDivider'
+import ArchivedSign from '@/widgets/ArchivedSign'
+import ArticleMenu from '@/widgets/ArticleMenu'
+import ReadableDate from '@/widgets/ReadableDate'
 
 import OriginalCommunity from './OriginalCommunity'
 

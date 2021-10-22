@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TCommunity } from '@/spec'
 import { HCN } from '@/constant'
 
-import FollowButton from '@/components/Buttons/FollowButton'
+import FollowButton from '@/widgets/Buttons/FollowButton'
 
 import {
   Wrapper,

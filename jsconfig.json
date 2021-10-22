@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/containers/*": ["src/containers/*"],
-      "@/components/*": ["src/components/*"],
+      "@/widgets/*": ["src/widgets/*"],
       "@/services": ["src/services"],
       "@/services/*": ["src/services/*"],
       "@/constant": ["utils/constant"],
@@ -17,9 +17,9 @@
       "@/utils": ["utils"],
       "@/utils/*": ["utils/*"],
       "@/schemas": ["src/schemas"],
-      "@/Img": ["src/components/Img"],
-      "@/SvgIcons/*": ["src/components/SvgIcons/*"],
-      "@/icons/*": ["src/components/icons/*"],
+      "@/Img": ["src/widgets/Img"],
+      "@/SvgIcons/*": ["src/widgets/SvgIcons/*"],
+      "@/icons/*": ["src/widgets/icons/*"],
       "@/i18n": ["i18n"]
     }
   },

@@ -5,9 +5,9 @@ import type { TComment } from '@/spec'
 import { Global } from '@/utils/helper'
 import { ICON } from '@/config'
 
-import Tooltip from '@/components/Tooltip'
-import Upvote from '@/components/Upvote'
-import ArtimentBody from '@/components/ArtimentBody'
+import Tooltip from '@/widgets/Tooltip'
+import Upvote from '@/widgets/Upvote'
+import ArtimentBody from '@/widgets/ArtimentBody'
 
 import Header from '../Header'
 import ReplyBar from '../ReplyBar'

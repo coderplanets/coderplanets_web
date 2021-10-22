@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { ASSETS_ENDPOINT } from '@/config'
-import IconText from '@/components/IconText'
+import IconText from '@/widgets/IconText'
 
 import {
   Wrapper,
