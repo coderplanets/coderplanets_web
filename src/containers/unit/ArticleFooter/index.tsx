@@ -6,12 +6,12 @@
 
 import { FC, useState } from 'react'
 
-import type { TCopyright } from '@/spec'
+import type { TCopyright, TMetric } from '@/spec'
+import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import Copyright from '@/widgets/Copyright'
 import { SpaceGrow } from '@/widgets/Common'
 
@@ -26,7 +26,7 @@ import AuthorInfo from './AuthorInfo'
 
 import type { TStore } from './store'
 import { Wrapper, BaseInfo, Divider } from './styles'
-import { useInit, onChangeCommunity } from './logic'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleFooter')
@@ -34,25 +34,25 @@ const log = buildLog('C:ArticleFooter')
 type TProps = {
   articleFooter?: TStore
   testid?: string
-  showAuthorInfo?: boolean
+  metric?: TMetric
 }
 
 const ArticleFooterContainer: FC<TProps> = ({
   articleFooter: store,
   testid = 'article-footer',
-  showAuthorInfo = true,
+  metric = METRIC.ARTICLE,
 }) => {
   useInit(store)
   const { viewingArticle, showReferenceList, showOperationList } = store
   const { author, articleTags, meta } = viewingArticle
 
   const [copyright, setCopyright] = useState('cc')
+  const showAuthorInfo = metric !== METRIC.BLOG_ARTICLE
 
   return (
     <Wrapper testid={testid}>
       <BaseInfo>
         <TagList items={articleTags} />
-        {/* <CommunityTagSetter /> */}
         <Copyright
           type={copyright as TCopyright}
           mode="readonly"

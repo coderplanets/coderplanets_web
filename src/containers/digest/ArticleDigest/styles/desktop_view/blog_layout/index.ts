@@ -18,7 +18,6 @@ export const LinkInfo = styled.a`
   ${css.flex('align-both')};
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
-  ${css.cutRest('480px')};
   text-decoration: none;
 
   &:hover {
@@ -44,9 +43,10 @@ export const Title = styled.div`
   margin-bottom: 30px;
 `
 export const BottomInfo = styled.div`
+  position: relative;
   ${css.flex('align-end', 'justify-between')};
   margin-top: 15px;
-  padding-bottom: 45px;
+  padding-bottom: 65px;
   border-bottom: 1px solid;
   border-bottom-color: #004251;
   width: 100%;
@@ -55,4 +55,9 @@ export const BottomInfo = styled.div`
 export const AuthorName = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
+`
+export const TabWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: -8px;
 `

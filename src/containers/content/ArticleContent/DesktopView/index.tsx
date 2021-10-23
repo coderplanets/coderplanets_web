@@ -75,7 +75,7 @@ const ArticleContentContainer: FC<TProps> = ({
           <MainWrapper metric={metric}>
             <ArticleWrapper ref={ref}>
               <ArtimentBody document={viewingArticle.document} />
-              <ArticleFooter />
+              <ArticleFooter metric={metric} />
             </ArticleWrapper>
 
             <ViewportTracker

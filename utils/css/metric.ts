@@ -37,6 +37,15 @@ export const WIDTH = {
     STICKER: '260px',
     STICKER_LAPTOPL: '240px',
   },
+  BLOG_ARTICLE: {
+    PAGE: '1460px',
+    CONTENT: '630px',
+    CONTENT_OFFSET: '290px',
+    CONTENT_OFFSET_LAPTOPL: '260px',
+    CONTENT_OFFSET_DESKTOPL: '400px',
+    STICKER: '260px',
+    STICKER_LAPTOPL: '240px',
+  },
   WORKS_ARTICLE: {
     PAGE: '1460px',
     CONTENT: '615px',

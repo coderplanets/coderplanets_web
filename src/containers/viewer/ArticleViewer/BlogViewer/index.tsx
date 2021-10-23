@@ -4,8 +4,9 @@
 
 import { FC, memo, Fragment, useCallback, useState } from 'react'
 
-import type { TPost } from '@/spec'
+import type { TBlog } from '@/spec'
 import { buildLog } from '@/utils/logger'
+import { METRIC } from '@/constant'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
 import { ArticleContentLoading } from '@/widgets/Loading'
@@ -22,7 +23,7 @@ import { Wrapper, BodyWrapper, Title } from '../styles/blog_viewer'
 const log = buildLog('C:ArticleViewer')
 
 type TProps = {
-  article: TPost
+  article: TBlog
   loading: boolean
 }
 
@@ -49,7 +50,7 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
             <ArticeBody document={article.document} />
           </BodyWrapper>
         )}
-        <ArticleFooter showAuthorInfo={false} />
+        <ArticleFooter metric={METRIC.BLOG_ARTICLE} />
       </Wrapper>
     </Fragment>
   )

@@ -75,7 +75,11 @@ const BlogPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.ARTICLE} seoConfig={seoConfig} noSidebar>
+      <GlobalLayout
+        metric={METRIC.BLOG_ARTICLE}
+        seoConfig={seoConfig}
+        noSidebar
+      >
         <ArticleDigest />
         <ArticleContent />
       </GlobalLayout>
