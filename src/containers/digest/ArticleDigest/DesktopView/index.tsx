@@ -40,7 +40,7 @@ const ArticleDigestContainer: FC<TProps> = ({
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
-  const { viewingArticle, inViewport, activeThread } = store
+  const { viewingArticle, inViewport, activeThread, tab } = store
 
   if (isNil(viewingArticle.id)) return null
 
@@ -58,6 +58,7 @@ const ArticleDigestContainer: FC<TProps> = ({
             article={viewingArticle}
             thread={activeThread}
             metric={metric}
+            tab={tab}
           />
         </BannerContent>
       </InnerWrapper>

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import ReactPinField from 'react-pin-field'
 
 import { ICON } from '@/config'

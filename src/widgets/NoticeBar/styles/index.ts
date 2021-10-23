@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TSpace } from '@/spec'
 
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
@@ -8,7 +8,8 @@ import css from '@/utils/css'
 
 type TWrapper = {
   noBg: boolean
-} & TTestable
+} & TTestable &
+  TSpace
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -23,6 +24,11 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   height: 40px;
   background: ${({ noBg }) => (noBg ? 'transparent' : '#00333f')};
   border-radius: 8px;
+
+  margin-top: ${({ top }) => `${top || 0}px`};
+  margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
+  margin-left: ${({ left }) => `${left}px` || 0};
+  margin-right: ${({ right }) => `${right}px` || 0};
 `
 export const Main = styled.div`
   flex-grow: 1;

@@ -4,10 +4,13 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
+import { isEmpty } from 'ramda'
 
-import type { TRootStore, TThread, TArticle } from '@/spec'
+import type { TRootStore, TThread, TArticle, TBlogRSS } from '@/spec'
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
+import uid from '@/utils/uid'
+import { BlogRSSInfo } from '@/model'
 
 const ArticleDigest = T.model('ArticleDigest', {
   loading: T.optional(T.boolean, false),
@@ -20,6 +23,12 @@ const ArticleDigest = T.model('ArticleDigest', {
     'down',
   ),
   inViewport: T.optional(T.boolean, true),
+
+  // blog-spec
+  blogRssInfo: T.optional(BlogRSSInfo, {}),
+
+  // for works or blog article
+  tab: T.optional(T.string, ''),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -45,6 +54,18 @@ const ArticleDigest = T.model('ArticleDigest', {
       const { action, loading } = self
       if (action === TYPE.FAVORITE && loading) return true
       return false
+    },
+
+    get blogRssInfoData(): TBlogRSS {
+      const rssInfoRaw = toJS(self.blogRssInfo)
+      if (!isEmpty(rssInfoRaw.historyFeed)) {
+        rssInfoRaw.historyFeed = rssInfoRaw.historyFeed.map((item) => ({
+          ...item,
+          id: uid.gen(),
+        }))
+      }
+
+      return rssInfoRaw
     },
   }))
   .actions((self) => ({

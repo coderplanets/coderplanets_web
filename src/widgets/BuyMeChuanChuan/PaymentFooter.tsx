@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
-import Button from '@/widgets/Buttons/Button'
+import Button from '../Buttons/Button'
 
 import {
   Wrapper,

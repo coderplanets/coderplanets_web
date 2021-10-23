@@ -8,6 +8,7 @@ import { FC, memo } from 'react'
 import Link from 'next/link'
 import TimeAgo from 'timeago-react'
 
+import type { TSpace } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { ICON } from '@/config'
 
@@ -29,7 +30,7 @@ type TProps = {
   timestamp?: string | null
   explainLink?: string | null
   noBg?: boolean
-}
+} & TSpace
 
 const NoticeBar: FC<TProps> = ({
   testid = 'notice-bar',
@@ -40,9 +41,10 @@ const NoticeBar: FC<TProps> = ({
   timestamp = null,
   explainLink = null,
   noBg = false,
+  ...restProps
 }) => {
   return (
-    <Wrapper testid={testid} noBg={noBg}>
+    <Wrapper testid={testid} noBg={noBg} {...restProps}>
       <Icon type={type} />
       <Main>
         {user && <UserName>{user.nickname}</UserName>}

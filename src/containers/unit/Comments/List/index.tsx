@@ -34,12 +34,14 @@ const CommentsList: FC<TProps> = ({
 
   return (
     <Fragment>
-      <Header
-        isAllFolded={isAllFolded}
-        basicState={basicState}
-        mode={mode}
-        loading={loading}
-      />
+      {totalCount > 0 && (
+        <Header
+          isAllFolded={isAllFolded}
+          basicState={basicState}
+          mode={mode}
+          loading={loading}
+        />
+      )}
       <ListsWrapper>
         <List
           mode={mode}

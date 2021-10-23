@@ -12,7 +12,6 @@ import { pluggedIn } from '@/utils/mobx'
 
 import { ArticleFooter, Comments } from '@/containers/dynamic'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
-import NoticeBar from '@/widgets/NoticeBar'
 import ArtimentBody from '@/widgets/ArtimentBody'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
@@ -60,14 +59,6 @@ const ArticleContentContainer: FC<TProps> = ({
           />
           <MainWrapper metric={metric}>
             <ArticleWrapper ref={ref}>
-              <NoticeBar
-                type="notice"
-                content="历史数据来自该博客公开的 RSS，可能会有滞后。"
-                top={-8}
-                left={-4}
-                bottom={5}
-                noBg
-              />
               <ArtimentBody document={viewingArticle.document} />
               <ArticleFooter metric={metric} />
             </ArticleWrapper>

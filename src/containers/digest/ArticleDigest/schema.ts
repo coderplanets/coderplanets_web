@@ -31,10 +31,36 @@ const repo = gql`
   }
 `
 
+const blogRssInfo = gql`
+  query ($rss: String!) {
+    blogRssInfo(rss: $rss) {
+      title
+      subtitle
+      link
+      updated
+      author {
+        name
+        intro
+        github
+        twitter
+      }
+      historyFeed {
+        title
+        digest
+        linkAddr
+        content
+        published
+        updated
+      }
+    }
+  }
+`
+
 const schema = {
   post,
   job,
   repo,
+  blogRssInfo,
 }
 
 export default schema

@@ -26,6 +26,7 @@ import {
   TabWrapper,
   CommunityInfo,
 } from '../../styles/desktop_view/blog_layout'
+import { onBlogTabChange } from '../../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
@@ -33,6 +34,7 @@ const log = buildLog('C:ArticleDigest')
 type TProps = {
   article: TBlog
   metric?: TMetric
+  tab: string
 }
 
 const tabItems = [
@@ -50,7 +52,7 @@ const tabItems = [
   },
 ]
 
-const BlogLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
+const BlogLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
   return (
     <Fragment>
       <Main metric={metric}>
@@ -70,8 +72,9 @@ const BlogLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
             <Tabs
               items={tabItems}
               size="small"
-              activeKey="digest"
+              activeKey={tab}
               bottomSpace={10}
+              onChange={onBlogTabChange}
             />
           </TabWrapper>
         </BottomInfo>

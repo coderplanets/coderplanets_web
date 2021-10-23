@@ -5,9 +5,11 @@
  */
 
 import { FC, memo, useState } from 'react'
+
 import dynamic from 'next/dynamic'
 import { ICON } from '@/config'
 
+import { Cashier } from '@/containers/dynamic'
 import { PAYMENT_USAGE } from '@/constant'
 import { checkout } from '@/utils/helper'
 
@@ -25,15 +27,14 @@ import {
   LinkIcon,
 } from './styles/blocks'
 
-const Cashier = dynamic(() => import('@/containers/tool/Cashier'), {
-  ssr: false,
-})
+export const BuyMeChuanChuan = dynamic(
+  () => import('@/widgets/BuyMeChuanChuan'),
+  {
+    ssr: false,
+  },
+)
 
-const BuyMeChuanChuan = dynamic(() => import('@/widgets/BuyMeChuanChuan'), {
-  ssr: false,
-})
-
-const Blocks = () => {
+const Blocks: FC = () => {
   const [showChuan, setShowChuan] = useState(false)
 
   return (
@@ -112,4 +113,4 @@ const Blocks = () => {
   )
 }
 
-export default Blocks
+export default memo(Blocks)

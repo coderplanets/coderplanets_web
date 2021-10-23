@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import usePlatform from '@/hooks/usePlatform'
@@ -20,9 +20,7 @@ const Viewer = (props) => {
     }
   }, [isMobile])
 
-  return (
-    <React.Fragment>{CurrentView && <CurrentView {...props} />}</React.Fragment>
-  )
+  return <Fragment>{CurrentView && <CurrentView {...props} />}</Fragment>
 }
 
 export default Viewer

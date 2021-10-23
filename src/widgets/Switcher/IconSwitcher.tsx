@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, ReactNode, memo } from 'react'
+import { FC, ReactNode, memo } from 'react'
 import { findIndex, propEq } from 'ramda'
 
 import { nilOrEmpty } from '@/utils/validator'

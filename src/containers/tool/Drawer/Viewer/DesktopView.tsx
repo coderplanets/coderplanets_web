@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, memo } from 'react'
+import { Fragment, FC, ReactNode, memo } from 'react'
 
 import type { TSwipeOption, TArticleNavi } from '../spec'
 import AddOn from '../AddOn'
@@ -26,7 +26,7 @@ const DesktopView: FC<TProps> = ({
   children,
 }) => {
   return (
-    <React.Fragment>
+    <Fragment>
       <DrawerOverlay visible={visible} onClick={() => closeDrawer()} />
       <DrawerWrapper
         testid={testid}
@@ -39,7 +39,7 @@ const DesktopView: FC<TProps> = ({
         <AddOn type={type} articleNavi={articleNavi} />
         <DrawerContent>{children}</DrawerContent>
       </DrawerWrapper>
-    </React.Fragment>
+    </Fragment>
   )
 }
 

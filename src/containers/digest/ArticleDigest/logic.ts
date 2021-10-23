@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { merge } from 'ramda'
 
 import type { TScrollDirection } from '@/spec'
 import { EVENT, ERR } from '@/constant'
@@ -8,7 +7,7 @@ import { send, errRescue } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
-// import S from './schema'
+import S from './schema'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleDigest')
@@ -27,13 +26,20 @@ export const outAnchor = (): void => {
   if (store) store.mark({ inViewport: false })
 }
 
+export const onBlogTabChange = (tab: string): void => {
+  store.mark({ tab })
+
+  if (tab === 'feeds') {
+    const args = { rss: store.viewingArticle.rss }
+    sr71$.query(S.blogRssInfo, args)
+  }
+}
+
 export const onListReactionUsers = (type, data): void =>
   send(EVENT.USER_LISTER_OPEN, {
     type,
     data: { ...data, thread: store.activeThread },
   })
-
-const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 // ###############################
 // Data & Error handlers
@@ -41,19 +47,10 @@ const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 const DataSolver = [
   {
-    match: asyncRes('post'),
-    action: ({ post }) => {
-      store.setViewing({ post: merge(store.viewingArticle, post) })
-      store.syncArticle(post)
-      markLoading(false)
-    },
-  },
-  {
-    match: asyncRes('job'),
-    action: ({ job }) => {
-      store.setViewing({ job: merge(store.viewingArticle, job) })
-      store.syncArticle(job)
-      markLoading(false)
+    match: asyncRes('blogRssInfo'),
+    action: ({ blogRssInfo }) => {
+      log('blogRssInfo: ', blogRssInfo)
+      store.mark({ blogRssInfo })
     },
   },
 ]

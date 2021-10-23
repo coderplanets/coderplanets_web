@@ -5,6 +5,7 @@ export const blog = `
     blog(id: $id) {
       ${F.article}
       ${F.articleDetail}
+      rss
     }
   }
 `

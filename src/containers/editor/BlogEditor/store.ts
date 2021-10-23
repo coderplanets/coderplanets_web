@@ -13,20 +13,12 @@ import { isURL } from '@/utils/validator'
 import uid from '@/utils/uid'
 // import { mockBlogFeeds } from '@/utils/mock'
 
-import { Community, Blog, Tag } from '@/model'
+import { Community, Blog, Tag, BlogRSSInfo } from '@/model'
 
 import type { TValidState } from './spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:BlogEditor')
-
-const RSSInfo = T.model('RSSInfo', {
-  title: T.optional(T.string, ''),
-  subtitle: T.optional(T.string, ''),
-  link: T.optional(T.string, ''),
-  updated: T.optional(T.string, ''),
-  historyFeed: T.optional(T.array(Blog), []),
-})
 
 const BlogEditor = T.model('BlogEditor', {
   community: T.optional(Community, {}),
@@ -35,7 +27,7 @@ const BlogEditor = T.model('BlogEditor', {
   filterTitle: T.optional(T.string, ''),
   rss: T.optional(T.string, ''),
   activeBlog: T.optional(Blog, {}),
-  rssInfo: T.optional(RSSInfo, {}),
+  rssInfo: T.optional(BlogRSSInfo, {}),
   loading: T.optional(T.boolean, false),
 
   publishing: T.optional(T.boolean, false),

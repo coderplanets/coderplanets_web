@@ -2,7 +2,7 @@
  * ModeLine
  */
 
-import React, { FC, useEffect } from 'react'
+import { Fragment, FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
@@ -47,7 +47,7 @@ const ModeLineContainer: FC<TProps> = ({
   }, [isMobile])
 
   return (
-    <React.Fragment>
+    <Fragment>
       <TopBar
         metric={metric}
         visible={isTopBarVisiable}
@@ -62,7 +62,7 @@ const ModeLineContainer: FC<TProps> = ({
           isCommunityBlockExpand={isCommunityBlockExpand}
         />
       )}
-    </React.Fragment>
+    </Fragment>
   )
 }
 
