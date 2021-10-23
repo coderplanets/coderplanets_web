@@ -24,7 +24,7 @@ import {
   AuthorName,
   BottomInfo,
   CommunityInfo,
-} from '../../styles/desktop_view/post_layout/index'
+} from '../styles/desktop_view/post_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')

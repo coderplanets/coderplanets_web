@@ -9,7 +9,7 @@ const Icon = styled(Img)`
   fill: #a57a32; // ${theme('thread.articleTitle')};
   ${css.size(15)};
   margin-right: 12px;
-  margin-top: 3px;
+  margin-top: 5px;
 `
 export const LockIcon = styled(Icon)`
   fill: #a57a32; // ${theme('thread.articleTitle')};

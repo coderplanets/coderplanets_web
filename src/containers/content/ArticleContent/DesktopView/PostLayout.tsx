@@ -15,7 +15,6 @@ import ArticleSticker from '@/containers/tool/ArticleSticker'
 import ArtimentBody from '@/widgets/ArtimentBody'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
-import Maybe from '@/widgets/Maybe'
 
 import type { TStore } from '../store'
 
@@ -26,7 +25,7 @@ import {
   SidebarWrapper,
   ArticleWrapper,
   CommentsWrapper,
-} from '../styles/desktop_view'
+} from '../styles/desktop_view/post_layout'
 
 import { useInit, checkAnchor } from '../logic'
 
@@ -49,33 +48,33 @@ const ArticleContentContainer: FC<TProps> = ({
   const { viewingArticle } = store
   const ref = useRef()
 
+  if (!viewingArticle.id) return null
+
   return (
     <Wrapper testid={testid}>
-      <Maybe test={!!viewingArticle.id}>
-        <InnerWrapper>
+      <InnerWrapper>
+        <ViewportTracker
+          onEnter={() => checkAnchor(ref?.current)}
+          onLeave={() => checkAnchor(ref?.current)}
+        />
+        <MainWrapper metric={metric}>
+          <ArticleWrapper ref={ref}>
+            <ArtimentBody document={viewingArticle.document} />
+            <ArticleFooter metric={metric} />
+          </ArticleWrapper>
+
           <ViewportTracker
             onEnter={() => checkAnchor(ref?.current)}
             onLeave={() => checkAnchor(ref?.current)}
           />
-          <MainWrapper metric={metric}>
-            <ArticleWrapper ref={ref}>
-              <ArtimentBody document={viewingArticle.document} />
-              <ArticleFooter metric={metric} />
-            </ArticleWrapper>
-
-            <ViewportTracker
-              onEnter={() => checkAnchor(ref?.current)}
-              onLeave={() => checkAnchor(ref?.current)}
-            />
-            <CommentsWrapper>
-              <Comments />
-            </CommentsWrapper>
-          </MainWrapper>
-          <SidebarWrapper>
-            <ArticleSticker metric={metric} />
-          </SidebarWrapper>
-        </InnerWrapper>
-      </Maybe>
+          <CommentsWrapper>
+            <Comments />
+          </CommentsWrapper>
+        </MainWrapper>
+        <SidebarWrapper>
+          <ArticleSticker metric={metric} />
+        </SidebarWrapper>
+      </InnerWrapper>
     </Wrapper>
   )
 }

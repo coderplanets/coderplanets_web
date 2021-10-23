@@ -14,14 +14,15 @@ type TWrapper = {
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
-  ${css.flex()};
-  align-items: ${({ noBg }) => (noBg ? 'flex-start' : 'center')};
+  ${css.flex('align-start')};
   color: ${({ noBg }) =>
     noBg ? theme('thread.articleDigest') : theme('thread.articleTitle')};
   padding-left: ${({ noBg }) => (noBg ? '5px' : '12px')};
   padding-right: 15px;
+  padding-top: 9px;
+  padding-bottom: 8px;
   width: 100%;
-  height: 40px;
+  min-height: 40px;
   background: ${({ noBg }) => (noBg ? 'transparent' : '#00333f')};
   border-radius: 8px;
 
@@ -33,6 +34,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const Main = styled.div`
   flex-grow: 1;
   font-size: 14px;
+  line-height: 1.85;
 `
 export const UserName = styled.span`
   color: ${theme('thread.articleTitle')};

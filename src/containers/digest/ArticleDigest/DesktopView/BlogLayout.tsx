@@ -25,8 +25,8 @@ import {
   BottomInfo,
   TabWrapper,
   CommunityInfo,
-} from '../../styles/desktop_view/blog_layout'
-import { onBlogTabChange } from '../../logic'
+} from '../styles/desktop_view/blog_layout'
+import { onBlogTabChange } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
@@ -47,7 +47,7 @@ const tabItems = [
     raw: 'feeds',
   },
   {
-    title: '作者信息',
+    title: '博客作者',
     raw: 'author',
   },
 ]
