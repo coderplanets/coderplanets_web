@@ -61,7 +61,7 @@ const Header: FC<TProps> = ({ article }) => {
         <BaseWrapper>
           <ArticleBaseStats article={article} container="drawer" />
           <Space right={5} />
-          <ArticleMenu verticalIcon />
+          <ArticleMenu verticalIcon article={article} />
         </BaseWrapper>
       </CommonInfo>
     </Wrapper>

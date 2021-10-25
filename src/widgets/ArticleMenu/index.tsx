@@ -5,11 +5,13 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
+import type { TArticle } from '@/spec'
 // import RealArticleMenu from './RealArticleMenu'
 
 type TProps = {
   testid?: string
   verticalIcon?: boolean
+  article: TArticle
 }
 
 const RealArticleMenu = dynamic(() => import('./RealArticleMenu'), {
@@ -19,8 +21,15 @@ const RealArticleMenu = dynamic(() => import('./RealArticleMenu'), {
 const ArticleMenu: FC<TProps> = ({
   testid = 'artile-menu',
   verticalIcon = false,
+  article,
 }) => {
-  return <RealArticleMenu testid={testid} verticalIcon={verticalIcon} />
+  return (
+    <RealArticleMenu
+      testid={testid}
+      verticalIcon={verticalIcon}
+      article={article}
+    />
+  )
 }
 
 export default memo(ArticleMenu)

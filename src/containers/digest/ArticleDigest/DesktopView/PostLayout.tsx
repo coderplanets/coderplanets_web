@@ -49,7 +49,7 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
             </Fragment>
           )}
           <SpaceGrow />
-          <ArticleMenu />
+          <ArticleMenu article={article} />
         </Header>
         <Title>{article.title}</Title>
         <BottomInfo>

@@ -29,7 +29,7 @@ export const outAnchor = (): void => {
 export const onBlogTabChange = (tab: string): void => {
   store.mark({ tab })
 
-  if (tab === 'feeds') {
+  if ((tab === 'feeds' || tab === 'author') && !store.blogRssInfo.title) {
     const args = { rss: store.viewingArticle.rss }
     sr71$.query(S.blogRssInfo, args)
   }

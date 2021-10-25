@@ -9,14 +9,16 @@ import { FC, memo } from 'react'
 import { ICON } from '@/config'
 import { EVENT } from '@/constant'
 
-import { moveToCommunity, mirrorToCommunity, setTag } from '@/utils/helper'
+import type { TArticle } from '@/spec'
 import MenuButton from '@/widgets/Buttons/MenuButton'
 
 import { Wrapper, MoreIcon } from './styles'
+import { hendleMenu } from './helper'
 
 type TProps = {
   testid?: string
   verticalIcon: boolean
+  article: TArticle
 }
 
 const menuOptions = [
@@ -60,28 +62,10 @@ const extraOptions = [
   },
 ]
 
-const hendleSelect = (key) => {
-  switch (key) {
-    case EVENT.MOVE_TO_COMMUNITY: {
-      return moveToCommunity()
-    }
-    case EVENT.MIRROR_TO_COMMUNITY: {
-      return mirrorToCommunity()
-    }
-    case EVENT.SET_TAG: {
-      return setTag()
-    }
-    default: {
-      // eslint-disable-next-line no-useless-return
-      return
-    }
-  }
-  // moveToCommunity
-}
-
 const ArticleMenu: FC<TProps> = ({
   testid = 'archived-sign',
   verticalIcon,
+  article,
 }) => {
   const icon = verticalIcon
     ? `${ICON}/shape/more-l.svg`
@@ -92,7 +76,7 @@ const ArticleMenu: FC<TProps> = ({
       options={menuOptions}
       extraOptions={extraOptions}
       placement="bottom-end"
-      onClick={hendleSelect}
+      onClick={(key) => hendleMenu(key, article)}
     >
       <Wrapper testid={testid}>
         <MoreIcon src={icon} />

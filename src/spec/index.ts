@@ -23,6 +23,7 @@ export type {
   TSimpleUser,
   TMembership,
   TC11N,
+  TRSSAuthor,
 } from './account'
 export type { TC11NLayout } from './c11n'
 export type {

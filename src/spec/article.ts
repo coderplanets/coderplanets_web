@@ -1,5 +1,5 @@
 import type { TCommunity, TTag } from './index'
-import type { TUser, TAccount, TSimpleUser } from './account'
+import type { TUser, TAccount, TSimpleUser, TRSSAuthor } from './account'
 import type { TID } from './utils'
 import type { TEmotion } from './emotion'
 
@@ -71,6 +71,7 @@ export type TWorks = TBaseArticle & {
 export type TBlog = TBaseArticle & {
   digest?: string
   published?: string
+  rss?: string
 }
 
 export type TBlogRSS = {
@@ -79,6 +80,7 @@ export type TBlogRSS = {
   link?: string
   updated?: string
   historyFeed?: TBlog[]
+  author?: TRSSAuthor
 }
 
 export type TRadar = TBaseArticle & {

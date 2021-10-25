@@ -62,7 +62,7 @@ const BlogLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
             {cutRest(article.linkAddr, 40)}
           </LinkInfo>
           <SpaceGrow />
-          <ArticleMenu />
+          <ArticleMenu article={article} />
         </Header>
         <Title>{article.title}</Title>
         <BottomInfo>

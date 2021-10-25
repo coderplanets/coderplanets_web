@@ -73,7 +73,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
             <Title>
               <WorkName>{title}</WorkName>
               <SpaceGrow />
-              <ArticleMenu />
+              <ArticleMenu article={article} />
             </Title>
             <Desc>可能是最性感的开发者社区, web first, pure ~</Desc>
             <Other>

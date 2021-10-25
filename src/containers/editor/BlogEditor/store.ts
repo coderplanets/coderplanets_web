@@ -5,7 +5,14 @@
 import { types as T, Instance } from 'mobx-state-tree'
 import { isEmpty, includes, filter, pick } from 'ramda'
 
-import type { TCommunity, TBlogRSS, TTag, TBlog, TSubmitState } from '@/spec'
+import type {
+  TCommunity,
+  TBlogRSS,
+  TTag,
+  TBlog,
+  TSubmitState,
+  TRSSAuthor,
+} from '@/spec'
 
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
@@ -15,7 +22,7 @@ import uid from '@/utils/uid'
 
 import { Community, Blog, Tag, BlogRSSInfo } from '@/model'
 
-import type { TValidState, TRSSAuthor } from './spec'
+import type { TValidState } from './spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:BlogEditor')

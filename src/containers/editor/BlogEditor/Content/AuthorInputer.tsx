@@ -1,14 +1,12 @@
 import { FC, memo, Fragment } from 'react'
 
-import type { TBlogRSS, TBlog, TEditMode } from '@/spec'
+import type { TBlogRSS, TBlog, TEditMode, TRSSAuthor } from '@/spec'
 
 import NoticeBar from '@/widgets/NoticeBar'
 import { LavaLampLoading } from '@/widgets/dynamic'
 
 import RSSItem from './RSSItem'
 import FeedItem from './FeedItem'
-
-import type { TRSSAuthor } from '../spec'
 
 import {
   Wrapper,

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
-import type { TBlogRSS, TBlog, TEditMode } from '@/spec'
-import type { TValidState, TRSSAuthor } from '../spec'
+import type { TBlogRSS, TBlog, TEditMode, TRSSAuthor } from '@/spec'
+import type { TValidState } from '../spec'
 
 import FeedList from './FeedList'
 import RSSInputer from './RSSInputer'
