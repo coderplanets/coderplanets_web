@@ -65,6 +65,13 @@ export const Name = styled.a`
     text-decoration: underline;
   }
 `
+export const PreviewName = styled(Name)`
+  &:hover {
+    cursor: text;
+    text-decoration: none;
+  }
+`
+
 export const OSSSign = styled.div`
   ${css.flex('align-center')};
   margin-top: 1px;

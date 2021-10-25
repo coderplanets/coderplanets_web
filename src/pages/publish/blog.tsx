@@ -1,11 +1,11 @@
 // import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
-import { METRIC } from '@/constant'
+import { METRIC, THREAD } from '@/constant'
 
 import {
   articlePublishSEO,
-  ssrBaseStates,
   ssrFetchPrepare,
+  ssrBaseStates,
   refreshIfneed,
   ssrError,
 } from '@/utils'
@@ -46,7 +46,7 @@ export const getServerSideProps = async (context) => {
 
 export const CreateBlogPage = (props) => {
   const store = useStore(props)
-  const seoConfig = articlePublishSEO()
+  const seoConfig = articlePublishSEO(THREAD.BLOG)
 
   return (
     <Provider store={store}>

@@ -6,9 +6,9 @@
 
 import { FC, ReactNode, memo, useRef, useEffect, useState } from 'react'
 
-import type { TSIZE_SM } from '@/spec'
+import type { TSIZE_SM, TSpace } from '@/spec'
 import { SIZE } from '@/constant'
-import { ICON } from '@/config'
+// import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 
 import { Space } from '@/widgets/Common'
@@ -18,9 +18,9 @@ import {
   Text,
   HintWrapper,
   FixedHintWrapper,
-  MediaHintWrapper,
-  HintIcon,
-  HintText,
+  // MediaHintWrapper,
+  // HintIcon,
+  // HintText,
   PreviewWrapper,
   PreviewText,
   ThunderIcon,
@@ -32,23 +32,18 @@ const log = buildLog('c:DigestSentence:index')
 type TProps = {
   testid?: string
   children: ReactNode
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
   size?: TSIZE_SM
+  interactive?: boolean
   onPreview: () => void
-}
+} & TSpace
 
 const DigestSentence: FC<TProps> = ({
   testid = 'digest-sentence',
   children = '可能是最性感的开发者社区，来为你心爱的作品建立...',
   onPreview = log,
-  top = 0,
-  bottom = 0,
-  left = 0,
-  right = 0,
   size = SIZE.SMALL,
+  interactive = true,
+  ...restProps
 }) => {
   const textRef = useRef(null)
   const [fold, setFold] = useState(false)
@@ -69,30 +64,30 @@ const DigestSentence: FC<TProps> = ({
   return (
     <Wrapper
       testid={testid}
-      onClick={onPreview}
-      top={top}
-      bottom={bottom}
-      left={left}
-      right={right}
+      onClick={() => interactive && onPreview()}
       size={size}
+      interactive={interactive}
+      {...restProps}
     >
       <Text ref={textRef}>
         {children}
         <Space left={6} />
-        <Hint>
-          <MediaHintWrapper>
+        {interactive && (
+          <Hint>
+            {/* <MediaHintWrapper>
             <HintIcon src={`${ICON}/shape/image.svg`} />
             <HintText>3</HintText>
           </MediaHintWrapper>
           <MediaHintWrapper>
             <HintIcon src={`${ICON}/shape/video.svg`} />
             <HintText>1</HintText>
-          </MediaHintWrapper>
-          <PreviewWrapper>
-            <PreviewText>预览</PreviewText>
-            <ThunderIcon />
-          </PreviewWrapper>
-        </Hint>
+          </MediaHintWrapper> */}
+            <PreviewWrapper>
+              <PreviewText>预览</PreviewText>
+              <ThunderIcon />
+            </PreviewWrapper>
+          </Hint>
+        )}
       </Text>
     </Wrapper>
   )

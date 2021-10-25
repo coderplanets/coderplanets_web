@@ -3,9 +3,10 @@ import { Provider } from 'mobx-react'
 import { METRIC } from '@/constant'
 import {
   articlePublishSEO,
-  ssrBaseStates,
-  ssrRescue,
   ssrFetchPrepare,
+  ssrBaseStates,
+  refreshIfneed,
+  ssrError,
 } from '@/utils'
 import { P } from '@/schemas'
 
@@ -15,7 +16,6 @@ import ArticleEditor from '@/containers/editor/ArticleEditor'
 
 const fetchData = async (context, opt = {}) => {
   const { gqClient } = ssrFetchPrepare(context, opt)
-
   const sessionState = gqClient.request(P.sessionState)
 
   return {
@@ -34,10 +34,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   let resp
   try {
     resp = await fetchData(context)
-  } catch ({ response: { errors } }) {
-    if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(context, { tokenExpired: true })
-    }
+    const { sessionState } = resp
+    refreshIfneed(sessionState, '/publish/blog', context)
+  } catch (e) {
+    return ssrError(context, 'fetch', 500)
   }
 
   const initProps = {

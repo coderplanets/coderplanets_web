@@ -30,6 +30,7 @@ import {
   Header,
   Title,
   Name,
+  PreviewName,
   OSSSign,
   FooterWrapper,
   BuildWithWrapper,
@@ -57,7 +58,7 @@ const WorksCard: FC<TProps> = ({
 }) => {
   const descLimit = preview ? 20 : 60
 
-  const { id, title, desc, digest, upvotesCount, commentsCount } = item
+  const { id, title, digest, upvotesCount, commentsCount } = item
 
   return (
     <Wrapper testid={testid} preview={preview}>
@@ -71,9 +72,13 @@ const WorksCard: FC<TProps> = ({
         <Header>
           <div>
             <Title>
-              <Link href={`/${THREAD.WORKS}/${id}`} passHref>
-                <Name>{title || '--'}</Name>
-              </Link>
+              {preview ? (
+                <PreviewName as="div">{title || '--'}</PreviewName>
+              ) : (
+                <Link href={`/${THREAD.WORKS}/${id}`} passHref>
+                  <Name>{title || '--'}</Name>
+                </Link>
+              )}
 
               {item.isOSS && (
                 <OSSSign>
@@ -88,16 +93,13 @@ const WorksCard: FC<TProps> = ({
               top={5}
               bottom={15}
               onPreview={() => onPreview(item)}
+              interactive={!preview}
             >
               {cutRest(digest, descLimit)}
             </DigestSentence>
           </div>
 
-          <Upvote
-            type="works-card"
-            count={preview ? 66 : upvotesCount}
-            viewerHasUpvoted={preview}
-          />
+          <Upvote type="works-card" count={preview ? 66 : upvotesCount} />
         </Header>
         <FooterWrapper>
           {item.tag && (
