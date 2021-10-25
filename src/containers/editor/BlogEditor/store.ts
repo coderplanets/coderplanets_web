@@ -15,12 +15,13 @@ import uid from '@/utils/uid'
 
 import { Community, Blog, Tag, BlogRSSInfo } from '@/model'
 
-import type { TValidState } from './spec'
+import type { TValidState, TRSSAuthor } from './spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:BlogEditor')
 
 const BlogEditor = T.model('BlogEditor', {
+  mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
   community: T.optional(Community, {}),
   articleTags: T.optional(T.array(Tag), []),
   step: T.optional(T.enumeration(['STEP_1', 'STEP_2', 'STEP_3']), 'STEP_1'),
@@ -30,12 +31,25 @@ const BlogEditor = T.model('BlogEditor', {
   rssInfo: T.optional(BlogRSSInfo, {}),
   loading: T.optional(T.boolean, false),
 
+  authorName: T.optional(T.string, ''),
+  authorIntro: T.optional(T.string, ''),
+  authorGithub: T.optional(T.string, ''),
+  authorTwitter: T.optional(T.string, ''),
+
   publishing: T.optional(T.boolean, false),
   publishDone: T.optional(T.boolean, false),
   isReady: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get submitState(): TSubmitState {
+      if (self.mode === 'update' && self.authorName?.length > 0) {
+        return {
+          publishing: self.publishing,
+          publishDone: self.publishDone,
+          isReady: true,
+        }
+      }
+
       return pick(['publishing', 'publishDone', 'isReady'], self)
     },
     get communityData(): TCommunity {
@@ -46,6 +60,14 @@ const BlogEditor = T.model('BlogEditor', {
     },
     get activeBlogData(): TBlog {
       return toJS(self.activeBlog)
+    },
+    get rssAuthorData(): TRSSAuthor {
+      return {
+        name: self.authorName,
+        intro: self.authorIntro,
+        github: self.authorGithub,
+        twitter: self.authorTwitter,
+      }
     },
     get rssInfoData(): TBlogRSS {
       const rssInfoRaw = toJS(self.rssInfo)
@@ -74,6 +96,14 @@ const BlogEditor = T.model('BlogEditor', {
     },
   }))
   .actions((self) => ({
+    updateRssAuthor(author): void {
+      if (!author) return
+
+      self.authorName = author.name || ''
+      self.authorIntro = author.intro || ''
+      self.authorGithub = author.github || ''
+      self.authorTwitter = author.twitter || ''
+    },
     updateEditing(sobj): void {
       const slf = self as TStore
       slf.mark(sobj)

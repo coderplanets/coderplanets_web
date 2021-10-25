@@ -4,7 +4,7 @@
 
 import { FC } from 'react'
 
-import type { TMetric } from '@/spec'
+import type { TMetric, TEditMode } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
@@ -12,6 +12,7 @@ import { pluggedIn } from '@/utils/mobx'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
+import { Br } from '@/widgets/Common'
 
 import Content from './Content'
 import Footer from './Footer'
@@ -31,14 +32,17 @@ type TProps = {
   testid?: string
   blogEditor?: TStore
   metric?: TMetric
+  mode?: TEditMode
 }
 
 const BlogEditorContainer: FC<TProps> = ({
   testid = 'article-editor',
   blogEditor: store,
   metric = METRIC.ARTICLE_EDITOR,
+  mode = 'publish',
 }) => {
-  useInit(store)
+  useInit(store, mode)
+
   const {
     step,
     rss,
@@ -50,6 +54,7 @@ const BlogEditorContainer: FC<TProps> = ({
     validState,
     activeBlogData,
     submitState,
+    rssAuthorData,
   } = store
 
   return (
@@ -65,6 +70,7 @@ const BlogEditorContainer: FC<TProps> = ({
         <div>
           <ContentWrapper>
             <Content
+              mode={mode}
               step={step}
               loading={loading}
               rss={rss}
@@ -72,16 +78,22 @@ const BlogEditorContainer: FC<TProps> = ({
               filterTitle={filterTitle}
               validState={validState}
               activeBlog={activeBlogData}
+              authorInfo={rssAuthorData}
             />
           </ContentWrapper>
           <Footer
+            mode={mode}
             community={communityData}
             tags={tagsData}
             submitState={submitState}
           />
         </div>
         <div>
-          <CommunityBadgeSelector community={communityData} />
+          {mode === 'publish' ? (
+            <CommunityBadgeSelector community={communityData} />
+          ) : (
+            <Br top={120} />
+          )}
           <PublishRules />
         </div>
       </InnerWrapper>

@@ -1,13 +1,14 @@
 import { FC, memo } from 'react'
 
-import type { TBlogRSS, TBlog } from '@/spec'
-import type { TValidState } from '../spec'
+import type { TBlogRSS, TBlog, TEditMode } from '@/spec'
+import type { TValidState, TRSSAuthor } from '../spec'
 
 import FeedList from './FeedList'
 import RSSInputer from './RSSInputer'
 import AuthorInputer from './AuthorInputer'
 
 type TProps = {
+  mode: TEditMode
   step: 'STEP_1' | 'STEP_2' | 'STEP_3'
   rss: string
   loading: boolean
@@ -15,9 +16,11 @@ type TProps = {
   filterTitle: string
   validState: TValidState
   activeBlog: TBlog
+  authorInfo: TRSSAuthor
 }
 
 const Content: FC<TProps> = ({
+  mode,
   step,
   rss,
   loading,
@@ -25,6 +28,7 @@ const Content: FC<TProps> = ({
   filterTitle,
   validState,
   activeBlog,
+  authorInfo,
 }) => {
   switch (step) {
     case 'STEP_2': {
@@ -38,7 +42,15 @@ const Content: FC<TProps> = ({
     }
 
     case 'STEP_3': {
-      return <AuthorInputer rssInfo={rssInfo} activeBlog={activeBlog} />
+      return (
+        <AuthorInputer
+          rssInfo={rssInfo}
+          activeBlog={activeBlog}
+          mode={mode}
+          authorInfo={authorInfo}
+          loading={loading}
+        />
+      )
     }
 
     default: {

@@ -21,7 +21,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   padding-right: 15px;
   padding-top: 9px;
   padding-bottom: 8px;
-  width: 100%;
+  /* width: 100%; */
   min-height: 40px;
   background: ${({ noBg }) => (noBg ? 'transparent' : '#00333f')};
   border-radius: 8px;

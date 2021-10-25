@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 import { isEmpty } from 'ramda'
 
 import type { TSpace, TBlogRSS } from '@/spec'
@@ -11,16 +11,21 @@ import { toStep } from '../logic'
 
 type TProps = TSpace & {
   rssInfo: TBlogRSS
+  readonly?: boolean
 }
 
-const RSSItem: FC<TProps> = ({ rssInfo, ...restProps }) => {
+const RSSItem: FC<TProps> = ({ rssInfo, readonly = false, ...restProps }) => {
   return (
     <Wrapper {...restProps}>
       <Title>{rssInfo.title}</Title>
 
       {!isEmpty(rssInfo.subtitle) && <Subtitle>- {rssInfo.subtitle}</Subtitle>}
-      <DotDivider space={5} />
-      <IconButton icon={SVG.EDIT_PEN} onClick={() => toStep('STEP_1')} />
+      {!readonly && (
+        <Fragment>
+          <DotDivider space={5} />
+          <IconButton icon={SVG.EDIT_PEN} onClick={() => toStep('STEP_1')} />
+        </Fragment>
+      )}
     </Wrapper>
   )
 }

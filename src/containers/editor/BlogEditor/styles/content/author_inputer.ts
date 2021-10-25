@@ -24,7 +24,7 @@ export const Hint = styled.div`
 export const InputerWrapper = styled.div`
   ${css.flex('align-center')};
   margin-top: 20px;
-  width: 340px;
+  width: 360px;
 `
 export const InputMask = styled.div`
   font-size: 15px;

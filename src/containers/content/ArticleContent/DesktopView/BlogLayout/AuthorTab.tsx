@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import TimeAgo from 'timeago-react'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'

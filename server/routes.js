@@ -119,6 +119,11 @@ router.route('/publish/blog').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/blog' })
 })
 
+// 编辑 rss 作者
+router.route('/update/rss').get((req, res) => {
+  return renderAndCache({ req, res, path: '/update/rss' })
+})
+
 // 创建新作品
 router.route('/publish/works').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/works' })

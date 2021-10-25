@@ -51,12 +51,12 @@ const extraOptions = [
   {
     key: EVENT.MIRROR_TO_COMMUNITY,
     icon: `${ICON}/article/community-mirror.svg`,
-    title: '镜像到社区',
+    title: '镜像到..',
   },
   {
     key: EVENT.MOVE_TO_COMMUNITY,
     icon: `${ICON}/article/community-move.svg`,
-    title: '移动到社区',
+    title: '移动到..',
   },
 ]
 
