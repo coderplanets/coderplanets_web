@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
 
-import Input from '@/components/Input'
+import Input from '@/widgets/Input'
 
 export const Wrapper = styled.div`
   /* ${css.flexColumn('align-center')}; */
@@ -24,7 +24,7 @@ export const Hint = styled.div`
 export const InputerWrapper = styled.div`
   ${css.flex('align-center')};
   margin-top: 20px;
-  width: 340px;
+  width: 360px;
 `
 export const InputMask = styled.div`
   font-size: 15px;

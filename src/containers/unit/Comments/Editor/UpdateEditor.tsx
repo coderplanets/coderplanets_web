@@ -2,8 +2,8 @@ import { FC, memo } from 'react'
 
 import type { TSubmitState } from '@/spec'
 
-import { LavaLampLoading } from '@/components/dynamic'
-import CustomScroller from '@/components/CustomScroller'
+import { LavaLampLoading } from '@/widgets/dynamic'
+import CustomScroller from '@/widgets/CustomScroller'
 
 import BodyEditor from './BodyEditor'
 import Footer from './Footer'

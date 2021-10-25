@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import Checker from '@/components/Checker'
+import Checker from '@/widgets/Checker'
 import Menu from '../Menu'
 
 import { Wrapper } from '../styles/options'

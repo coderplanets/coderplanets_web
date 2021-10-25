@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
-import Input from '@/components/Input'
-import { Br } from '@/components/Common'
+import Input from '@/widgets/Input'
+import { Br } from '@/widgets/Common'
 
 import type { TREPORT_ITEM } from '../spec'
 import { Wrapper, DetailDesc } from '../styles/report_content/detail'

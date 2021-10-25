@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, memo } from 'react'
 
 import { DRAWER_SCROLLER } from '@/constant'
-import CustomScroller from '@/components/CustomScroller'
+import CustomScroller from '@/widgets/CustomScroller'
 
 import renderContent from './renderContent'
 import { Wrapper } from '../styles/content'

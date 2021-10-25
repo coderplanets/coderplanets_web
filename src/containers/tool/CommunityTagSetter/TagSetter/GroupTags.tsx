@@ -3,7 +3,7 @@ import { includes } from 'ramda'
 
 import type { TTag, TID } from '@/spec'
 
-// import Tooltip from '@/components/Tooltip'
+// import Tooltip from '@/widgets/Tooltip'
 import Tag from './Tag'
 
 import type { TTagView } from '../spec'

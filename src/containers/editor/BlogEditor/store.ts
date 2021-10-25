@@ -2,41 +2,79 @@
  * BlogEditor store
  */
 
-import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { isEmpty, includes, filter } from 'ramda'
+import { types as T, Instance } from 'mobx-state-tree'
+import { isEmpty, includes, filter, pick } from 'ramda'
 
-import type { TCommunity, TRootStore, TBlogRSS } from '@/spec'
+import type {
+  TCommunity,
+  TBlogRSS,
+  TTag,
+  TBlog,
+  TSubmitState,
+  TRSSAuthor,
+} from '@/spec'
 
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
+import { isURL } from '@/utils/validator'
 import uid from '@/utils/uid'
 // import { mockBlogFeeds } from '@/utils/mock'
 
-import { Blog } from '@/model'
+import { Community, Blog, Tag, BlogRSSInfo } from '@/model'
+
+import type { TValidState } from './spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:BlogEditor')
 
-const RSSInfo = T.model('RSSInfo', {
-  title: T.optional(T.string, ''),
-  subtitle: T.optional(T.string, ''),
-  link: T.optional(T.string, ''),
-  updated: T.optional(T.string, ''),
-  historyFeed: T.optional(T.array(Blog), []),
-})
-
 const BlogEditor = T.model('BlogEditor', {
+  mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
+  community: T.optional(Community, {}),
+  articleTags: T.optional(T.array(Tag), []),
   step: T.optional(T.enumeration(['STEP_1', 'STEP_2', 'STEP_3']), 'STEP_1'),
   filterTitle: T.optional(T.string, ''),
   rss: T.optional(T.string, ''),
-  rssInfo: T.optional(RSSInfo, {}),
+  activeBlog: T.optional(Blog, {}),
+  rssInfo: T.optional(BlogRSSInfo, {}),
   loading: T.optional(T.boolean, false),
+
+  authorName: T.optional(T.string, ''),
+  authorIntro: T.optional(T.string, ''),
+  authorGithub: T.optional(T.string, ''),
+  authorTwitter: T.optional(T.string, ''),
+
+  publishing: T.optional(T.boolean, false),
+  publishDone: T.optional(T.boolean, false),
+  isReady: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get curCommunity(): TCommunity {
-      const root = getParent(self) as TRootStore
+    get submitState(): TSubmitState {
+      if (self.mode === 'update' && self.authorName?.length > 0) {
+        return {
+          publishing: self.publishing,
+          publishDone: self.publishDone,
+          isReady: true,
+        }
+      }
 
-      return toJS(root.viewing.community)
+      return pick(['publishing', 'publishDone', 'isReady'], self)
+    },
+    get communityData(): TCommunity {
+      return toJS(self.community)
+    },
+    get tagsData(): TTag[] {
+      return toJS(self.articleTags)
+    },
+    get activeBlogData(): TBlog {
+      return toJS(self.activeBlog)
+    },
+    get rssAuthorData(): TRSSAuthor {
+      return {
+        name: self.authorName,
+        intro: self.authorIntro,
+        github: self.authorGithub,
+        twitter: self.authorTwitter,
+      }
     },
     get rssInfoData(): TBlogRSS {
       const rssInfoRaw = toJS(self.rssInfo)
@@ -58,8 +96,21 @@ const BlogEditor = T.model('BlogEditor', {
 
       return rssInfoRaw
     },
+    get validState(): TValidState {
+      return {
+        rss: isURL(self.rss, true),
+      }
+    },
   }))
   .actions((self) => ({
+    updateRssAuthor(author): void {
+      if (!author) return
+
+      self.authorName = author.name || ''
+      self.authorIntro = author.intro || ''
+      self.authorGithub = author.github || ''
+      self.authorTwitter = author.twitter || ''
+    },
     updateEditing(sobj): void {
       const slf = self as TStore
       slf.mark(sobj)

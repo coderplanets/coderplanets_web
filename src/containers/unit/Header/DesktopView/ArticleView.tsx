@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
@@ -12,7 +12,7 @@ import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Navigator from '@/components/Navigator'
+import Navigator from '@/widgets/Navigator'
 
 import type { TStore } from '../store'
 // import UserAccount from '../UserAccount'

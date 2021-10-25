@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import { ICON } from '@/config'
-// import DivideText from '@/components/DivideText'
+// import DivideText from '@/widgets/DivideText'
 
 import Header from './Header'
 import Content from './Content'

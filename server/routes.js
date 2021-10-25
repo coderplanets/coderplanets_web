@@ -88,14 +88,9 @@ router.route('/post/:id').get((req, res) => {
   return renderAndCache({ req, res, path: `/post/${id}` })
 })
 
-// job 帖子页
-router.route('/:community/job/:id').get((req, res) => {
-  return renderAndCache({ req, res, path: '/job' })
-})
-
-// video 帖子页
-router.route('/:community/video/:id').get((req, res) => {
-  return renderAndCache({ req, res, path: '/video' })
+router.route('/blog/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/blog/${id}` })
 })
 
 // repo 帖子页
@@ -122,6 +117,11 @@ router.route('/update/post/:id').get((req, res) => {
 // 创建新博客
 router.route('/publish/blog').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/blog' })
+})
+
+// 编辑 rss 作者
+router.route('/update/rss').get((req, res) => {
+  return renderAndCache({ req, res, path: '/update/rss' })
 })
 
 // 创建新作品

@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 import { includes } from 'ramda'
 
-import { SpaceGrow } from '@/components/Common'
-import GotoTop from '@/components/GotoTop'
+import { SpaceGrow } from '@/widgets/Common'
+import GotoTop from '@/widgets/GotoTop'
 
 import ArticleNavi from './ArticleNavi'
 

@@ -2,10 +2,10 @@ import { FC, memo } from 'react'
 
 import { ICON, ICON_CMD } from '@/config'
 
-import { Br } from '@/components/Common'
-import DropdownButton from '@/components/Buttons/DropdownButton'
-import SubTitle from '@/components/SubTitle'
-import EmailSubscriber from '@/components/EmailSubscriber'
+import { Br } from '@/widgets/Common'
+import DropdownButton from '@/widgets/Buttons/DropdownButton'
+import SubTitle from '@/widgets/SubTitle'
+import EmailSubscriber from '@/widgets/EmailSubscriber'
 
 import InterviewsList from './InterviewsList'
 import Brand from '../Brand'

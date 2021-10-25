@@ -6,7 +6,7 @@ import { theme } from '@/utils/themes'
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};
   color: ${theme('thread.articleDigest')};
-  width: 280px;
+  width: 268px;
   height: auto;
   margin-left: 20px;
 `

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import FormInput from '@/components/Input'
+import FormInput from '@/widgets/Input'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,

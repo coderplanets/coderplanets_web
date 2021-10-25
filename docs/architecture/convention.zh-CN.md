@@ -36,13 +36,13 @@ Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能,
 ```js
 "alias": {
   "@/containers":"./src/containers",
-  "@/components":"./src/components",
+  "@/widgets":"./src/widgets",
   "@/config":"./src/config",
   "@/stores":"./src/stores",
   "@/schemas":"./src/containers/schemas",
   "@/utils":"./src/utils",
-  "@/Img": "./src/components/Img",
-  "@/SvgIcons": "./src/components/SvgIcons"
+  "@/Img": "./src/widgets/Img",
+  "@/SvgIcons": "./src/widgets/SvgIcons"
 }
 ```
 
@@ -52,7 +52,7 @@ Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能,
 import { ISSUE_WEB } from '@/config'
 import { pluggedIn, buildLog } from '@/utils'
 
-import ArticleEditFooter from '@/components/ArticleEditFooter'
+import ArticleEditFooter from '@/widgets/ArticleEditFooter'
 ...
 ```
 
@@ -72,9 +72,9 @@ import { pluggedIn, buildLog, ROUTE, THREAD } from '@/utils'
 // 3. import global containers
 import TagsBar from '@/containers/unit/TagsBar'
 // 4. import global components
-import Maybe from '@/components/Maybe'
-import PagedContents from '@/components/PagedContents'
-import ContentFilter from '@/components/ContentFilter'
+import Maybe from '@/widgets/Maybe'
+import PagedContents from '@/widgets/PagedContents'
+import ContentFilter from '@/widgets/ContentFilter'
 
 // 5. import local components
 import CityList from './CityList'

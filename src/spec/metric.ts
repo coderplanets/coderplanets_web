@@ -4,6 +4,7 @@ export type TMetric =
   // articles
   | 'ARTICLE'
   | 'WORKS_ARTICLE'
+  | 'BLOG_ARTICLE'
 
   // 版块
   | 'WORKS'

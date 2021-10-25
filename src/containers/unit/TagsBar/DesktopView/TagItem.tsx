@@ -4,7 +4,7 @@ import type { TTag } from '@/spec'
 import { cutRest } from '@/utils/helper'
 import { Trans } from '@/utils/i18n'
 
-// import DotDivider from '@/components/DotDivider'
+// import DotDivider from '@/widgets/DotDivider'
 // import TagCount from './TagCount'
 
 import {

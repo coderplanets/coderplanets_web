@@ -8,7 +8,7 @@ import React from 'react'
 
 import { pluggedIn, buildLog, uid } from '@/utils'
 
-import GithubRepoPage from '@/components/GithubRepoPage'
+import GithubRepoPage from '@/widgets/GithubRepoPage'
 import SearchMan from './SearchMan'
 
 import { Wrapper } from './styles'

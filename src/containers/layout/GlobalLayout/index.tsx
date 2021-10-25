@@ -13,13 +13,13 @@ import { pluggedIn } from '@/utils/mobx'
 import usePlatform from '@/hooks/usePlatform'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-import Header from '@/components/Header'
+import Header from '@/widgets/Header'
 
 // import Header from '@/containers/unit/Header'
 // import ModeLine from '@/containers/unit/ModeLine'
 
 // import Drawer from '@/containers/tool/Drawer'
-// import CustomScroller from '@/components/CustomScroller'
+// import CustomScroller from '@/widgets/CustomScroller'
 
 import type { TStore } from './store'
 import SEO from './SEO'

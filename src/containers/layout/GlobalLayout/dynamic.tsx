@@ -7,7 +7,7 @@ export const Sidebar = dynamic(() => import('@/containers/unit/Sidebar'), {
 })
 
 export const CustomScroller = dynamic(
-  () => import('@/components/CustomScroller'),
+  () => import('@/widgets/CustomScroller'),
   {
     /* eslint-disable react/display-name */
     loading: () => <ScrollHolder />,

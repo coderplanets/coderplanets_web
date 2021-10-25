@@ -1,6 +1,9 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 
-import type { TBlogRSS } from '@/spec'
+import type { TBlogRSS, TBlog, TEditMode, TRSSAuthor } from '@/spec'
+
+import NoticeBar from '@/widgets/NoticeBar'
+import { LavaLampLoading } from '@/widgets/dynamic'
 
 import RSSItem from './RSSItem'
 import FeedItem from './FeedItem'
@@ -12,43 +15,91 @@ import {
   Inputer,
   InputMask,
 } from '../styles/content/author_inputer'
-
-const item = {
-  id: '1',
-  title: 'HTML slot 插槽元素深入',
-  digest:
-    '本文应该是目前最深入最细致的介绍 HTML slot 插槽元素的文章了，如果您对Web 组件开发感兴趣，则本文内容不容错过。',
-  link_addr: 'https://www.zhangxinxu.com/wordpress/2021/08/js-weakmap-es6/',
-  published: 'Sun, 15 Aug 2021 04:40:49 +0000',
-}
+import { inputOnChange } from '../logic'
 
 type TProps = {
   rssInfo: TBlogRSS
+  activeBlog: TBlog
+  mode: TEditMode
+  authorInfo: TRSSAuthor
+  loading: boolean
 }
 
-const AuthorInputer: FC<TProps> = ({ rssInfo }) => {
+const AuthorInputer: FC<TProps> = ({
+  rssInfo,
+  activeBlog,
+  mode,
+  authorInfo,
+  loading,
+}) => {
+  const { name, github, intro, twitter } = authorInfo
+  if (loading) {
+    return (
+      <Wrapper>
+        <LavaLampLoading />
+      </Wrapper>
+    )
+  }
+
   return (
     <Wrapper>
-      <RSSItem bottom={20} rssInfo={rssInfo} />
-      <FeedItem item={item} withSelector={false} withEdit />
-      <Hint>
-        请填写作者信息，一般位于原博客 &quot;关于&quot; 或 &quot;about&quot;
-        链接内。保存后以后若添加同一作者博客将不会重复录入。
-      </Hint>
-      <InputerWrapper>
-        <Inputer placeholder="// 作者名称" />
-      </InputerWrapper>
-      <InputerWrapper>
-        <Inputer placeholder="// 作者简介" behavior="textarea" />
-      </InputerWrapper>
-      <InputerWrapper>
-        <InputMask>https://twitter.com/</InputMask>
-        <Inputer placeholder="// 可选" />
-      </InputerWrapper>
-      <InputerWrapper>
-        <InputMask>https://github.com/</InputMask>
-        <Inputer placeholder="// 可选" />
-      </InputerWrapper>
+      <RSSItem bottom={20} rssInfo={rssInfo} readonly={mode === 'update'} />
+      {mode === 'publish' && (
+        <FeedItem item={activeBlog} withSelector={false} withEdit />
+      )}
+
+      {mode === 'publish' ? (
+        <Hint>作者信息</Hint>
+      ) : (
+        <Hint>
+          作者信息，一般位于原博客「关于」链接内。 请勿填写作者非公开信息。
+        </Hint>
+      )}
+
+      {mode === 'publish' && (
+        <NoticeBar
+          type="notice"
+          content="作者信息会由志愿者稍后填写，所用资料均为原作者公开信息，如有补充或纠错，请在博客评论区留言，感谢提交。"
+          bottom={20}
+          right={35}
+        />
+      )}
+
+      {mode === 'update' && (
+        <Fragment>
+          <InputerWrapper>
+            <Inputer
+              value={name}
+              placeholder="// 作者名字"
+              onChange={(e) => inputOnChange(e, 'authorName')}
+            />
+          </InputerWrapper>
+          <InputerWrapper>
+            <Inputer
+              value={intro}
+              placeholder="// 作者简介"
+              behavior="textarea"
+              onChange={(e) => inputOnChange(e, 'authorIntro')}
+            />
+          </InputerWrapper>
+          <InputerWrapper>
+            <InputMask>https://twitter.com/</InputMask>
+            <Inputer
+              value={twitter}
+              placeholder="// 可选"
+              onChange={(e) => inputOnChange(e, 'authorTwitter')}
+            />
+          </InputerWrapper>
+          <InputerWrapper>
+            <InputMask>https://github.com/</InputMask>
+            <Inputer
+              value={github}
+              placeholder="// 可选"
+              onChange={(e) => inputOnChange(e, 'authorGithub')}
+            />
+          </InputerWrapper>
+        </Fragment>
+      )}
     </Wrapper>
   )
 }

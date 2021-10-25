@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
-import Button from '@/components/Buttons/Button'
-import FormItem from '@/components/FormItem'
+import Button from '@/widgets/Buttons/Button'
+import FormItem from '@/widgets/FormItem'
 
 import type { TProps as TContentProps } from './Content'
 import { Wrapper, Desc, BtnWrapper } from './styles/payment_confirm'

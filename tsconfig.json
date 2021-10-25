@@ -17,7 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@/containers/*": ["src/containers/*"],
-      "@/components/*": ["src/components/*"],
+      "@/widgets/*": ["src/widgets/*"],
       "@/services": ["src/services"],
       "@/services/*": ["src/services/*"],
       "@/constant": ["utils/constant"],
@@ -32,9 +32,9 @@
       "@/utils/*": ["utils/*"],
       "@/schemas": ["src/schemas"],
       "@/spec": ["src/spec"],
-      "@/Img": ["src/components/Img"],
-      "@/SvgIcons/*": ["src/components/SvgIcons/*"],
-      "@/icons/*": ["src/components/Icons/*"],
+      "@/Img": ["src/widgets/Img"],
+      "@/SvgIcons/*": ["src/widgets/SvgIcons/*"],
+      "@/icons/*": ["src/widgets/Icons/*"],
       "@/i18n": ["i18n"]
     },
     "plugins": [

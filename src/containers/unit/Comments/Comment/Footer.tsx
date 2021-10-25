@@ -2,9 +2,9 @@ import { FC, memo } from 'react'
 
 import type { TComment } from '@/spec'
 
-import DotDivider from '@/components/DotDivider'
-import { SpaceGrow } from '@/components/Common'
-import EmotionSelector from '@/components/EmotionSelector'
+import DotDivider from '@/widgets/DotDivider'
+import { SpaceGrow } from '@/widgets/Common'
+import EmotionSelector from '@/widgets/EmotionSelector'
 
 import Actions from './Actions'
 

@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import IconButton from '@/components/Buttons/IconButton'
+import IconButton from '@/widgets/Buttons/IconButton'
 
 import type { TTagView } from '../spec'
 import { TAG_VIEW } from '../constant'
@@ -8,8 +8,8 @@ import { TAG_VIEW } from '../constant'
 import { Wrapper, Title, Actions } from '../styles/tag_setter/header'
 import { changeTagView } from '../logic'
 
-// import DotDivider from '@/components/DotDivider'
-// import { LavaLampLoading } from '@/components/dynamic'
+// import DotDivider from '@/widgets/DotDivider'
+// import { LavaLampLoading } from '@/widgets/dynamic'
 
 type TProps = {
   view: TTagView

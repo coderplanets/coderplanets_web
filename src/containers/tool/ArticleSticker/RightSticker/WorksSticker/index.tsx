@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 
 import type { TArticle } from '@/spec'
 
-import { Br } from '@/components/Common'
+import { Br } from '@/widgets/Common'
 
 import GetMe from './GetMe'
 import Contact from './Contact'

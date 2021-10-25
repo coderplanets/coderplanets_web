@@ -7,6 +7,10 @@ export const getDigestHeight = (metric: TMetric): string => {
       return '220px'
     }
 
+    case METRIC.BLOG_ARTICLE: {
+      return '265px'
+    }
+
     default: {
       return '240px'
     }

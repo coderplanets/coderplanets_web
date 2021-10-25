@@ -13,12 +13,12 @@ import { pluggedIn } from '@/utils/mobx'
 
 import TagsBar from '@/containers/unit/TagsBar'
 
-import Sticky from '@/components/Sticky'
-import PublishButton from '@/components/Buttons/PublishButton'
-import PagedArticles from '@/components/PagedArticles'
-import ArticlesFilter from '@/components/ArticlesFilter'
-import Maybe from '@/components/Maybe'
-import ViewportTracker from '@/components/ViewportTracker'
+import Sticky from '@/widgets/Sticky'
+import PublishButton from '@/widgets/Buttons/PublishButton'
+import PagedArticles from '@/widgets/PagedArticles'
+import ArticlesFilter from '@/widgets/ArticlesFilter'
+import Maybe from '@/widgets/Maybe'
+import ViewportTracker from '@/widgets/ViewportTracker'
 
 import {
   Wrapper,

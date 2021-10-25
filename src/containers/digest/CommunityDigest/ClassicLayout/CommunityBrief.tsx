@@ -8,7 +8,7 @@ import { HCN, NON_FILL_COMMUNITY } from '@/constant'
 import ExpandTexts from '../ExpandTexts'
 import SocialList from '../SocialList'
 
-import CommunityJoinSign from '@/components/CommunityJoinSign'
+import CommunityJoinSign from '@/widgets/CommunityJoinSign'
 import {
   Wrapper,
   Logo,

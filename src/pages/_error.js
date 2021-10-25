@@ -2,7 +2,7 @@ import NextErrorComponent from 'next/error'
 import { Provider } from 'mobx-react'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
-import ErrorPage from '@/components/ErrorPage'
+import ErrorPage from '@/widgets/ErrorPage'
 
 import { useStore } from '@/stores/init'
 

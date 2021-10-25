@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import ArrowButton from '@/components/Buttons/ArrowButton'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
 import { TYPE } from '../constant'
 import { Wrapper } from '../styles/tag_setter/footer'

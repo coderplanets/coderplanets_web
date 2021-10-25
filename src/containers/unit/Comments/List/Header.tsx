@@ -4,9 +4,9 @@ import type { TCommentsState } from '@/spec'
 import { ICON } from '@/config'
 import { SVG } from '@/constant'
 
-import IconButton from '@/components/Buttons/IconButton'
-import { IconSwitcher } from '@/components/Switcher'
-import { LavaLampLoading } from '@/components/dynamic'
+import IconButton from '@/widgets/Buttons/IconButton'
+import { IconSwitcher } from '@/widgets/Switcher'
+import { LavaLampLoading } from '@/widgets/dynamic'
 
 import {
   Wrapper,

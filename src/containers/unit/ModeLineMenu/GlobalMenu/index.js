@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { ICON } from '@/config'
-import MorePanel from '@/components/Navigator/MorePanel'
-import { SpaceGrow } from '@/components/Common'
+import MorePanel from '@/widgets/Navigator/MorePanel'
+import { SpaceGrow } from '@/widgets/Common'
 
 import HomeNavi from './HomeNavi'
 import {

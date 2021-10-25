@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import type { TCommunity } from '@/spec'
 
 import CommunityBrief from './CommunityBrief'
-import { LavaLampLoading } from '@/components/dynamic'
+import { LavaLampLoading } from '@/widgets/dynamic'
 
 import { Wrapper, Divider } from '../styles/holy_grail_layout'
 

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
-import ArrowButton from '@/components/Buttons/ArrowButton'
-import NoticeBar from '@/components/NoticeBar'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
+import NoticeBar from '@/widgets/NoticeBar'
 
 import {
   Wrapper,

@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
-// import Dropdown from '@/components/Dropdown'
+// import Dropdown from '@/widgets/Dropdown'
 
 import {
   Wrapper,

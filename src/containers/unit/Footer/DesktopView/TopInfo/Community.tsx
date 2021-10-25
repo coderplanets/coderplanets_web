@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import BlinkCursor from '@/components/BlinkCursor'
+import BlinkCursor from '@/widgets/BlinkCursor'
 import type { TProps as TTopInfoProps } from './index'
 
 import {

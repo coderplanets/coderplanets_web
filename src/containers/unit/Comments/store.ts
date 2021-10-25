@@ -105,6 +105,7 @@ const CommentsStore = T.model('CommentsStore', {
     get isAllFolded(): boolean {
       const slf = self as TStore
       const { foldedIds, pagedCommentsData } = slf
+      if (pagedCommentsData.totalCount === 0) return false
       return foldedIds.length === pagedCommentsData.totalCount
     },
     get foldedIds(): TID[] {

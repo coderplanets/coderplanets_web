@@ -7,7 +7,7 @@ import { FC, Fragment } from 'react'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Modal from '@/components/Modal'
+import Modal from '@/widgets/Modal'
 
 import Platforms from './Platforms'
 import InfoPanel from './InfoPanel'

@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import ReactPinField from 'react-pin-field'
 
 import { ICON } from '@/config'
 
-import Modal from '@/components/Modal'
+import Modal from '@/widgets/Modal'
 import QA from './QA'
 
 import {

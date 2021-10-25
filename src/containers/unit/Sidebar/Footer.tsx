@@ -2,8 +2,8 @@ import { FC, memo } from 'react'
 
 import { ICON_CMD, ISSUE_ADDR } from '@/config'
 
-import Tooltip from '@/components/Tooltip'
-import DiscussLinker from '@/components/DiscussLinker'
+import Tooltip from '@/widgets/Tooltip'
+import DiscussLinker from '@/widgets/DiscussLinker'
 
 import {
   Wrapper,

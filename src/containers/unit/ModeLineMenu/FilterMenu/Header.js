@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Button from '@/components/Buttons/Button'
-import { Space } from '@/components/Common'
+import Button from '@/widgets/Buttons/Button'
+import { Space } from '@/widgets/Common'
 
 import {
   Wrapper,

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TMetric } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import ArrowLink from '@/components/Buttons/ArrowLink'
+import ArrowLink from '@/widgets/Buttons/ArrowLink'
 
 // import { getPadding } from '../../metrics'
 

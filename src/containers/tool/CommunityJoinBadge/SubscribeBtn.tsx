@@ -3,7 +3,7 @@ import { FC } from 'react'
 import type { TCommunity } from '@/spec'
 import { HCN } from '@/constant'
 
-import Button from '@/components/Buttons/Button'
+import Button from '@/widgets/Buttons/Button'
 
 import { Wrapper, Text } from './styles/subscribe_btn'
 import { onSubscribe, onCancleSubscribe } from './logic'

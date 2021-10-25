@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Provider } from 'mobx-react'
 import { useStore } from '@/stores/init'
 
-import ErrorPage from '@/components/ErrorPage'
+import ErrorPage from '@/widgets/ErrorPage'
 import ThemePalette from '@/containers/layout/ThemePalette'
 
 const Oops: FC = () => {

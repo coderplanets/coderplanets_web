@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import IconButton from '@/components/Buttons/IconButton'
+import IconButton from '@/widgets/Buttons/IconButton'
 import { Wrapper, Normal, Desc, IconWrapper } from './styles/expand_texts'
 import { toggleDescExpand } from './logic'
 

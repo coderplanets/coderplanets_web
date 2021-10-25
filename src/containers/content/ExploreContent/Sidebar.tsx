@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
 
 import type { TCategory, TTag } from '@/spec'
-import Sticky from '@/components/Sticky'
-import { Br } from '@/components/Common'
-import FiltersMenu from '@/components/FiltersMenu'
+import Sticky from '@/widgets/Sticky'
+import { Br } from '@/widgets/Common'
+import FiltersMenu from '@/widgets/FiltersMenu'
 import { mockFilterMenuTags } from '@/utils/mock'
 
 import { Wrapper, Holder } from './styles/sidebar'

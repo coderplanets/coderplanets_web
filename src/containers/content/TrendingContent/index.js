@@ -9,7 +9,7 @@ import React from 'react'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import OrButton from '@/components/Buttons/OrButton'
+import OrButton from '@/widgets/Buttons/OrButton'
 import NewsBoard from './NewsBoard'
 
 import { Wrapper, InnerWrapper, SwitchBtn, ContentWrapper } from './styles'

@@ -3,11 +3,11 @@ import { FC, memo } from 'react'
 import type { TTag } from '@/spec'
 import { ICON } from '@/config'
 
-import Tooltip from '@/components/Tooltip'
+import Tooltip from '@/widgets/Tooltip'
 
-import { SpaceGrow } from '@/components/Common'
-import Checker from '@/components/Checker'
-import IconButton from '@/components/Buttons/IconButton'
+import { SpaceGrow } from '@/widgets/Common'
+import Checker from '@/widgets/Checker'
+import IconButton from '@/widgets/Buttons/IconButton'
 
 import type { TTagView } from '../spec'
 import { TAG_VIEW } from '../constant'

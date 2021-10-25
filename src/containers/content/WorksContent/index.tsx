@@ -10,8 +10,8 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Pagi from '@/components/Pagi'
-import AvatarsRow from '@/components/AvatarsRow'
+import Pagi from '@/widgets/Pagi'
+import AvatarsRow from '@/widgets/AvatarsRow'
 
 import type { TStore } from './store'
 

@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
 
-import Input from '@/components/Input'
+import Input from '@/widgets/Input'
 
 export const Wrapper = styled.div`
   /* ${css.flexColumn('align-center')}; */
   width: calc(100% - 30px);
   min-height: 30vh;
-  margin-left: 8px;
+  margin-left: 10px;
   margin-top: -4px;
 `
 export const Inputer = styled(Input)`
@@ -39,4 +39,7 @@ export const Hint = styled.div`
   margin-bottom: 15px;
   padding-bottom: 20px;
   padding-left: 4px;
+`
+export const ListWrapper = styled.div`
+  margin-left: 5px;
 `

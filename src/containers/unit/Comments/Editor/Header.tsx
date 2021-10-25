@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TAccount } from '@/spec'
 import { ICON } from '@/config'
 
-import { SpaceGrow } from '@/components/Common'
+import { SpaceGrow } from '@/widgets/Common'
 
 import {
   Wrapper,

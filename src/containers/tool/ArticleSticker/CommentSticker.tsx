@@ -10,10 +10,10 @@ import type { TCommentsState } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 
-import NotifyButton from '@/components/Buttons/NotifyButton'
-import Tooltip from '@/components/Tooltip'
-import ImgFallback from '@/components/ImgFallback'
-import UserCard from '@/components/Cards/UserCard'
+import NotifyButton from '@/widgets/Buttons/NotifyButton'
+import Tooltip from '@/widgets/Tooltip'
+import ImgFallback from '@/widgets/ImgFallback'
+import UserCard from '@/widgets/Cards/UserCard'
 
 import {
   Wrapper,

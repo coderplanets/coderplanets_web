@@ -6,6 +6,7 @@ const METRIC = {
   USER: 'USER' as TMetric,
   // article
   ARTICLE: 'ARTICLE' as TMetric,
+  BLOG_ARTICLE: 'BLOG_ARTICLE' as TMetric,
   WORKS_ARTICLE: 'WORKS_ARTICLE' as TMetric,
 
   // 版块

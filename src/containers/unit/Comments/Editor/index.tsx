@@ -1,6 +1,6 @@
 import { FC, Fragment, memo } from 'react'
 
-import Modal from '@/components/Modal'
+import Modal from '@/widgets/Modal'
 
 import ReplyEditor from './ReplyEditor'
 import UpdateEditor from './UpdateEditor'

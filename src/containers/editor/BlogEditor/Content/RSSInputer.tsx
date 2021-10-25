@@ -1,10 +1,15 @@
 import { FC, memo } from 'react'
 
-import { LavaLampLoading } from '@/components/dynamic'
+import { LavaLampLoading } from '@/widgets/dynamic'
+import EnterHint from '@/widgets/EnterHint'
+
+import type { TValidState } from '../spec'
+
 import {
   Wrapper,
   Title,
   Inputer,
+  InputerWrapper,
   HintWrapper,
   Hint,
 } from '../styles/content/rss_inputer'
@@ -13,18 +18,22 @@ import { inputOnChange, fetchRSSInfo } from '../logic'
 type TProps = {
   rss: string
   loading: boolean
+  validState: TValidState
 }
 
-const RSSInputer: FC<TProps> = ({ rss, loading }) => {
+const RSSInputer: FC<TProps> = ({ rss, loading, validState }) => {
   return (
     <Wrapper>
       <Title>请输入博客 RSS 地址</Title>
-      <Inputer
-        value={rss}
-        placeholder="// 例如：https://example.com/blog/atom.xml"
-        onChange={(e) => inputOnChange(e, 'rss')}
-        onEnter={fetchRSSInfo}
-      />
+      <InputerWrapper>
+        <Inputer
+          value={rss}
+          placeholder="// 例如：https://example.com/blog/atom.xml"
+          onChange={(e) => inputOnChange(e, 'rss')}
+          onEnter={() => validState.rss && fetchRSSInfo()}
+        />
+        {validState.rss && <EnterHint bottom={-30} right={30} />}
+      </InputerWrapper>
       {loading ? (
         <LavaLampLoading top={20} left={5} />
       ) : (

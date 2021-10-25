@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { Br } from '@/components/Common'
+import { Br } from '@/widgets/Common'
 
 import Footer from '../Footer'
 import InputBox from './InputBox'

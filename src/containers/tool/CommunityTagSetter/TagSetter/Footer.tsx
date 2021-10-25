@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { Wrapper, ApplyText } from '../styles/tag_setter/footer'
 
-import Button from '@/components/Buttons/Button'
+import Button from '@/widgets/Buttons/Button'
 
 // import type { TTagView } from '../spec'
 

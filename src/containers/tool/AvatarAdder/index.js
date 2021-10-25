@@ -10,7 +10,7 @@ import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import Tooltip from '@/components/Tooltip'
+import Tooltip from '@/widgets/Tooltip'
 
 import AdderPanel from './AdderPanel'
 

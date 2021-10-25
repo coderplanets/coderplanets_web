@@ -5,9 +5,9 @@ import type { TComment } from '@/spec'
 import { cutRest } from '@/utils/helper'
 import { ICON } from '@/config'
 
-import ImgFallback from '@/components/ImgFallback'
-import IconButton from '@/components/Buttons/IconButton'
-import { SpaceGrow } from '@/components/Common'
+import ImgFallback from '@/widgets/ImgFallback'
+import IconButton from '@/widgets/Buttons/IconButton'
+import { SpaceGrow } from '@/widgets/Common'
 
 import {
   Wrapper,

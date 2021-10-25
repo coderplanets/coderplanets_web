@@ -57,3 +57,10 @@ export type TAccount = TUser & {
 }
 
 export type TMembership = 'seniorMember' | 'sponsorMember' | 'donateMember'
+
+export type TRSSAuthor = {
+  name: string
+  intro: string
+  github: string
+  twitter: string
+}

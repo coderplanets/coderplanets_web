@@ -3,10 +3,10 @@ import { memo, FC } from 'react'
 import type { TArticle } from '@/spec'
 import { ICON } from '@/config'
 
-import DotDivider from '@/components/DotDivider'
-import Upvote from '@/components/Upvote'
-import ArticleBaseStats from '@/components/ArticleBaseStats'
-import Tabs from '@/components/Switcher/Tabs'
+import DotDivider from '@/widgets/DotDivider'
+import Upvote from '@/widgets/Upvote'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
+import Tabs from '@/widgets/Switcher/Tabs'
 
 import {
   Wrapper,

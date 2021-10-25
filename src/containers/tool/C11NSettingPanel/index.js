@@ -11,7 +11,7 @@ import { VIEW } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import { Tabs } from '@/components/Switcher'
+import { Tabs } from '@/widgets/Switcher'
 
 import GeneralSettings from './GeneralSettings'
 import ThemeSettings from './ThemeSettings'

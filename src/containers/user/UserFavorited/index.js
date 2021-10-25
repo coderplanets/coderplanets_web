@@ -9,7 +9,7 @@ import React from 'react'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import PagedArticles from '@/components/PagedArticles'
+import PagedArticles from '@/widgets/PagedArticles'
 import Breadcrumbs from './Breadcrumbs'
 
 import {

@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 import { ICON } from '@/config'
 
-import IconButton from '@/components/Buttons/IconButton'
-import MenuButton from '@/components/Buttons/MenuButton'
+import IconButton from '@/widgets/Buttons/IconButton'
+import MenuButton from '@/widgets/Buttons/MenuButton'
 
 const menuOptions = [
   {

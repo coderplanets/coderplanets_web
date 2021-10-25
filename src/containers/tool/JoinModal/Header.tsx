@@ -3,8 +3,8 @@ import { keys } from 'ramda'
 
 import { ICON } from '@/config'
 
-import { SpaceGrow } from '@/components/Common'
-import Tooltip from '@/components/Tooltip'
+import { SpaceGrow } from '@/widgets/Common'
+import Tooltip from '@/widgets/Tooltip'
 
 import { GROUPS } from './constant'
 import {

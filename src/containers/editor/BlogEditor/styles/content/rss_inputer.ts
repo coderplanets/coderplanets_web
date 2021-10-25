@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
 
-import Input from '@/components/Input'
+import Input from '@/widgets/Input'
 
 export const Wrapper = styled.div`
   /* ${css.flexColumn('align-center')}; */
@@ -14,6 +14,9 @@ export const Title = styled.div`
   font-size: 18px;
   margin-bottom: 20px;
   margin-left: 8px;
+`
+export const InputerWrapper = styled.div`
+  position: relative;
 `
 export const Inputer = styled(Input)`
   width: calc(100% - 20px);

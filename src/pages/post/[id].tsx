@@ -1,4 +1,3 @@
-// import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
 
 import { ROUTE, ARTICLE_THREAD, METRIC } from '@/constant'

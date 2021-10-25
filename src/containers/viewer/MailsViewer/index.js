@@ -10,7 +10,7 @@ import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import TabSelector from '@/components/TabSelector'
+import TabSelector from '@/widgets/TabSelector'
 import MailLists from './MailLists'
 
 import { useInit, selectChange } from './logic'

@@ -11,7 +11,7 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Comments from '@/containers/unit/Comments'
-import GithubRepoPage from '@/components/GithubRepoPage'
+import GithubRepoPage from '@/widgets/GithubRepoPage'
 
 import { CommentsWrapper } from './styles'
 import { useInit } from './logic'

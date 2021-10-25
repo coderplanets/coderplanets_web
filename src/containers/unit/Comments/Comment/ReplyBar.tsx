@@ -4,7 +4,7 @@ import type { TComment } from '@/spec'
 import { ICON } from '@/config'
 import { cutRest } from '@/utils/helper'
 
-import { SpaceGrow } from '@/components/Common'
+import { SpaceGrow } from '@/widgets/Common'
 import {
   Wrapper,
   ReplyIcon,

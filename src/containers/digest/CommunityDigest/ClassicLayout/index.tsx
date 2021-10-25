@@ -6,9 +6,9 @@ import usePlatform from '@/hooks/usePlatform'
 import { HCN, EVENT } from '@/constant'
 import { send } from '@/utils/helper'
 
-import TabBar from '@/components/TabBar'
-import ViewportTracker from '@/components/ViewportTracker'
-import CommunityStatesPad from '@/components/CommunityStatesPad'
+import TabBar from '@/widgets/TabBar'
+import ViewportTracker from '@/widgets/ViewportTracker'
+import CommunityStatesPad from '@/widgets/CommunityStatesPad'
 
 import CommunityBrief from './CommunityBrief'
 

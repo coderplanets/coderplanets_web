@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import BrandTitle from '@/components/BrandTitle'
+import BrandTitle from '@/widgets/BrandTitle'
 
 import { Wrapper, Divider } from './styles/brand'
 

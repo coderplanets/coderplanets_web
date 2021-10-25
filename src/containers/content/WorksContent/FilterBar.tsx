@@ -2,8 +2,8 @@ import { FC, memo } from 'react'
 
 import { mockNaviCatalogTags } from '@/utils/mock'
 
-// import FiltersMenu from '@/components/FiltersMenu'
-import NaviCatalog from '@/components/NaviCatalog'
+// import FiltersMenu from '@/widgets/FiltersMenu'
+import NaviCatalog from '@/widgets/NaviCatalog'
 
 // import { VIEW } from './constant'
 

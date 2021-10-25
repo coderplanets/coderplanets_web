@@ -4,8 +4,8 @@ import ReactResizeDetector from 'react-resize-detector'
 import uid from '@/utils/uid'
 import { buildLog } from '@/utils/logger'
 
-import { Br } from '@/components/Common'
-import NoticeBar from '@/components/NoticeBar'
+import { Br } from '@/widgets/Common'
+import NoticeBar from '@/widgets/NoticeBar'
 import fetchGeoData from './geo_data'
 
 import { MapWrapper, RealMap, NoticeWrapper } from './styles'

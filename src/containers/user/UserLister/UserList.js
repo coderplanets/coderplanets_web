@@ -11,8 +11,8 @@ import { ICON_CMD } from '@/config'
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
-import Pagi from '@/components/Pagi'
-import FollowButton from '@/components/Buttons/FollowButton'
+import Pagi from '@/widgets/Pagi'
+import FollowButton from '@/widgets/Buttons/FollowButton'
 
 import {
   TableWrapper,

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import type { TUser } from '@/spec'
-import CommunityList from '@/components/CommunityList'
+import CommunityList from '@/widgets/CommunityList'
 
 import {
   Wrapper,

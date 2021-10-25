@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TAccount, TArticle, TCommunity } from '@/spec'
 import { ICON, ICON_BASE } from '@/config'
 
-import ImgFallback from '@/components/ImgFallback'
+import ImgFallback from '@/widgets/ImgFallback'
 
 import {
   Wrapper,

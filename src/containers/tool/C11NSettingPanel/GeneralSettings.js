@@ -4,19 +4,15 @@ import { contains } from 'ramda'
 import { THREAD, C11N } from '@/constant'
 import usePlatform from '@/hooks/usePlatform'
 
-import { Br } from '@/components/Common'
-import { Radio } from '@/components/Switcher'
+import { Br } from '@/widgets/Common'
+import { Radio } from '@/widgets/Switcher'
 
 import { Wrapper, Title, Desc, Divider } from './styles/gerneral_settings'
 import { onC11NChange } from './logic'
 
 const GeneralSettings = ({ curThread, customization }) => {
-  const {
-    bannerLayout,
-    contentDivider,
-    markViewed,
-    displayDensity,
-  } = customization
+  const { bannerLayout, contentDivider, markViewed, displayDensity } =
+    customization
 
   const { isMobile } = usePlatform()
 

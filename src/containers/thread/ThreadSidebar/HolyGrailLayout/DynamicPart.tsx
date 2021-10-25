@@ -3,10 +3,10 @@ import { FC, Fragment, memo } from 'react'
 import { send } from '@/utils/helper'
 import { EVENT } from '@/constant'
 
-import { Br } from '@/components/Common'
-import Sticky from '@/components/Sticky'
+import { Br } from '@/widgets/Common'
+import Sticky from '@/widgets/Sticky'
 import TagsBar from '@/containers/unit/TagsBar'
-import PublishButton from '@/components/Buttons/PublishButton'
+import PublishButton from '@/widgets/Buttons/PublishButton'
 
 import ExtraInfo from './ExtraInfo'
 

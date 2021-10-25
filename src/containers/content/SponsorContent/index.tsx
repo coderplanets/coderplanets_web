@@ -13,8 +13,8 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import { Br } from '@/components/Common'
-import { SponsorGallery } from '@/components/GalleryHub'
+import { Br } from '@/widgets/Common'
+import { SponsorGallery } from '@/widgets/GalleryHub'
 
 import type { TStore } from './store'
 
@@ -34,8 +34,7 @@ const goldItems = [
     title: 'javascript',
     desc: '最性感的开发者社区',
     level: 'gold',
-    icon:
-      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
+    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
   },
   {
     id: '1',
@@ -49,8 +48,7 @@ const goldItems = [
     id: '2',
     addr: 'clojure-lang.com',
     title: 'clojure',
-    desc:
-      '最性感的开发者社区少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
+    desc: '最性感的开发者社区少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
     level: 'gold',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/clojure.png',
   },
@@ -61,45 +59,36 @@ const items = [
     id: '3',
     addr: 'javascript.com',
     title: 'Teambition',
-    desc:
-      '一切工作都可以从Teambition开始。无论是策划活动、研发软件、制造机器人、建设发电站或者发射卫星,团队成员以更高效的协作方式,为目标不断创造成果。',
-    icon:
-      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
+    desc: '一切工作都可以从Teambition开始。无论是策划活动、研发软件、制造机器人、建设发电站或者发射卫星,团队成员以更高效的协作方式,为目标不断创造成果。',
+    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
   },
   {
     id: '4',
     addr: 'sspai.com',
     title: '少数派',
-    desc:
-      '少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
-    icon:
-      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/editor/embeds/shaoshupai.png',
+    desc: '少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
+    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/editor/embeds/shaoshupai.png',
   },
   {
     id: '5',
     addr: 'whatthefuck.com',
     title: 'whatever',
-    desc:
-      '一切工作都可以从Teambition开始。无论是策划活动、研发软件、制造机器人、建设发电站或者发射卫星,团队成员以更高效的协作方式,为目标不断创造成果。',
+    desc: '一切工作都可以从Teambition开始。无论是策划活动、研发软件、制造机器人、建设发电站或者发射卫星,团队成员以更高效的协作方式,为目标不断创造成果。',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/clojure.png',
   },
   {
     id: '6',
     addr: 'javascript.com',
     title: 'Teambition',
-    desc:
-      '一切工作都可以从Teambition开始。无论是策划活动、研发软件、制造机器人、建设发电站或者发射卫星,团队成员以更高效的协作方式,为目标不断创造成果。',
-    icon:
-      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
+    desc: '一切工作都可以从Teambition开始。无论是策划活动、研发软件、制造机器人、建设发电站或者发射卫星,团队成员以更高效的协作方式,为目标不断创造成果。',
+    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
   },
   {
     id: '7',
     addr: 'sspai.com',
     title: '少数派',
-    desc:
-      '少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
-    icon:
-      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/editor/embeds/shaoshupai.png',
+    desc: '少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
+    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/editor/embeds/shaoshupai.png',
   },
   {
     id: '8',
@@ -112,10 +101,8 @@ const items = [
     id: '9',
     addr: 'sspai.com',
     title: '少数派',
-    desc:
-      '少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
-    icon:
-      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/editor/embeds/shaoshupai.png',
+    desc: '少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
+    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/editor/embeds/shaoshupai.png',
   },
 ]
 
@@ -127,6 +114,7 @@ type TProps = {
 
 const SponsorContentContainer: FC<TProps> = ({
   sponsorContent: store,
+  testid = 'sponsor-content',
   metric,
 }) => {
   useInit(store)
@@ -134,7 +122,7 @@ const SponsorContentContainer: FC<TProps> = ({
   const { bannerVisiable } = store
 
   return (
-    <Wrapper testid="sponsor-content">
+    <Wrapper testid={testid}>
       <Banner />
       <InnerWrapper bannerVisiable={bannerVisiable}>
         <Br top={50} />

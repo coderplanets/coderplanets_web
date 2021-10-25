@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import SectionLabel from '@/components/SectionLabel'
+import SectionLabel from '@/widgets/SectionLabel'
 
 import { ICON_CMD } from '@/config'
 

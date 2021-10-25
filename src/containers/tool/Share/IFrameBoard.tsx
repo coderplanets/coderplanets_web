@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import CopyButton from '@/components/Buttons/CopyButton'
+import CopyButton from '@/widgets/Buttons/CopyButton'
 
 import {
   Wrapper,

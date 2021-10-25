@@ -3,7 +3,7 @@ import { FC, memo, Fragment } from 'react'
 import usePlatform from '@/hooks/usePlatform'
 import { report } from '@/utils/helper'
 
-import DotDivider from '@/components/DotDivider'
+import DotDivider from '@/widgets/DotDivider'
 
 import { Wrapper, Item, ReferNum, Text } from '../styles/actions'
 import { toggleActionPanel } from '../logic'

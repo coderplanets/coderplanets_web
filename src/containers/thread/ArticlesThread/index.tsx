@@ -12,9 +12,9 @@ import { C11N } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import PagedArticles from '@/components/PagedArticles'
-import ViewportTracker from '@/components/ViewportTracker'
-// import ArticlesFilter from '@/components/ArticlesFilter'
+import PagedArticles from '@/widgets/PagedArticles'
+import ViewportTracker from '@/widgets/ViewportTracker'
+// import ArticlesFilter from '@/widgets/ArticlesFilter'
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 
 import type { TStore } from './store'
@@ -22,7 +22,7 @@ import type { TStore } from './store'
 import { Wrapper, MainWrapper, FilterWrapper } from './styles'
 import { useInit, inAnchor, outAnchor, onFilterSelect } from './logic'
 
-const ArticlesFilter = dynamic(() => import('@/components/ArticlesFilter'), {
+const ArticlesFilter = dynamic(() => import('@/widgets/ArticlesFilter'), {
   ssr: false,
 })
 

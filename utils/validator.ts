@@ -52,8 +52,8 @@ export const isString = (value: any): boolean => {
  * @returns
  */
 
-export const isURL = (v: string): boolean => {
-  if (trim(v).length === 0) return true
+export const isURL = (v: string, emptyAsError = false): boolean => {
+  if (trim(v).length === 0) return !emptyAsError
   let url
   try {
     url = new URL(v)

@@ -2,8 +2,8 @@ import { FC, memo, Fragment } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TPost } from '@/spec'
-import DotDivider from '@/components/DotDivider'
-import { Space } from '@/components/Common'
+import DotDivider from '@/widgets/DotDivider'
+import { Space } from '@/widgets/Common'
 
 import {
   Wrapper,

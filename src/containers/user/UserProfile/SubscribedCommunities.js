@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CommunityList from '@/components/CommunityList'
+import CommunityList from '@/widgets/CommunityList'
 
 import { Wrapper, Title, Divider } from './styles/subscribed_communities'
 

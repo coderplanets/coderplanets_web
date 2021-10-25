@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TUser } from '@/spec'
 import { VIEW } from '@/constant'
-import UserBrief from '@/components/UserBrief'
+import UserBrief from '@/widgets/UserBrief'
 import { Wrapper } from '../styles/sidebar'
 
 type TProps = {

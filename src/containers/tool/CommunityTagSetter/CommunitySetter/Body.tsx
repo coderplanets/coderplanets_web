@@ -2,9 +2,9 @@ import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import type { TCommunity } from '@/spec'
-import CustomScroller from '@/components/CustomScroller'
-import NoticeBar from '@/components/NoticeBar'
-import { LavaLampLoading } from '@/components/dynamic'
+import CustomScroller from '@/widgets/CustomScroller'
+import NoticeBar from '@/widgets/NoticeBar'
+import { LavaLampLoading } from '@/widgets/dynamic'
 
 import type { TCommunitiesList } from '../spec'
 import SearchBox from './SearchBox'

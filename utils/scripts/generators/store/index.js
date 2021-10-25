@@ -7,7 +7,7 @@
 'use strict'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const componentExists = require('../helper/component_exists')
+const widgetExists = require('../helper/widget_exists')
 
 module.exports = {
   description: 'Add an store',
@@ -19,7 +19,7 @@ module.exports = {
       default: 'OvenStore',
       validate: (value) => {
         if (/.+/.test(value)) {
-          return componentExists(value)
+          return widgetExists(value)
             ? 'A Store with this name already exists'
             : true
         }

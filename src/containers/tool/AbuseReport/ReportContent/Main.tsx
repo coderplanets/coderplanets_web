@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
-import { SpaceGrow } from '@/components/Common'
-import Checker from '@/components/Checker'
+import { SpaceGrow } from '@/widgets/Common'
+import Checker from '@/widgets/Checker'
 
 import type { TREPORT_ITEM } from '../spec'
 

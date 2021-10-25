@@ -36,13 +36,13 @@ based on [babel-resolver][https://github.com/tleunen/babel-plugin-module-resolve
 ```js
 "alias": {
   "@/containers":"./src/containers",
-  "@/components":"./src/components",
+  "@/widgets":"./src/widgets",
   "@/config":"./src/config",
   "@/stores":"./src/stores",
   "@/schemas":"./src/containers/schemas",
   "@/utils":"./src/utils",
-  "@/Img": "./src/components/Img",
-  "@/SvgIcons": "./src/components/SvgIcons"
+  "@/Img": "./src/widgets/Img",
+  "@/SvgIcons": "./src/widgets/SvgIcons"
 }
 ```
 
@@ -52,7 +52,7 @@ we can easily import files like:
 import { ISSUE_WEB } from '@/config'
 import { pluggedIn, buildLog } from '@/utils'
 
-import ArticleEditFooter from '@/components/ArticleEditFooter'
+import ArticleEditFooter from '@/widgets/ArticleEditFooter'
 ...
 ```
 
@@ -73,9 +73,9 @@ Import { pluggedIn, buildLog, ROUTE, THREAD } from '@/utils'
 // 3. import global containers
 Import TagsBar from '@/containers/unit/TagsBar'
 // 4. import global components
-Import Maybe from '@/components/Maybe'
-Import PagedContents from '@/components/PagedContents'
-Import ContentFilter from '@/components/ContentFilter'
+Import Maybe from '@/widgets/Maybe'
+Import PagedContents from '@/widgets/PagedContents'
+Import ContentFilter from '@/widgets/ContentFilter'
 
 // 5. import local components
 Import CityList from './CityList'

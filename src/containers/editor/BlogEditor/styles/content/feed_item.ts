@@ -5,7 +5,7 @@ import type { TActive } from '@/spec'
 import css from '@/utils/css'
 import { theme } from '@/utils/themes'
 
-import ReadableDate from '@/components/ReadableDate'
+import ReadableDate from '@/widgets/ReadableDate'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};

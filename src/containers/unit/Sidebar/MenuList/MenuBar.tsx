@@ -4,7 +4,7 @@ import { toLower } from 'ramda'
 import type { TCommunity } from '@/spec'
 import { ICON_CMD } from '@/config'
 
-import TrendLine from '@/components/TrendLine'
+import TrendLine from '@/widgets/TrendLine'
 
 import {
   Wrapper,

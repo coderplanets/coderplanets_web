@@ -2,8 +2,8 @@ import React from 'react'
 
 import { THREAD } from '@/constant'
 
-import DotDivider from '@/components/DotDivider'
-import CommunityList from '@/components/CommunityList'
+import DotDivider from '@/widgets/DotDivider'
+import CommunityList from '@/widgets/CommunityList'
 import { Wrapper, Title } from './styles/parent'
 
 import CommentCount from './CommentsCount'

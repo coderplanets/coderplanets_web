@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
 
-import type { TArticle, TC11NLayout, TMetric } from '@/spec'
+import type { TC11NLayout, TMetric } from '@/spec'
 import { SITE_LOGO } from '@/config'
 
-import BlinkCursor from '@/components/BlinkCursor'
+import BlinkCursor from '@/widgets/BlinkCursor'
 
 import {
   Wrapper,
@@ -14,7 +14,7 @@ import {
 } from '../styles/desktop_view/hosting_community_view'
 
 type TProps = {
-  viewingArticle: TArticle
+  // viewingArticle: TArticle
   metric: TMetric
   layout: TC11NLayout
 }

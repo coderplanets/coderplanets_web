@@ -10,7 +10,7 @@ import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import SectionLabel from '@/components/SectionLabel'
+import SectionLabel from '@/widgets/SectionLabel'
 import UpgradeMenu from './UpgradeMenu'
 import BillsTable from './BillsTable'
 import TableSectionDesc from './TableSectionDesc'

@@ -1,4 +1,10 @@
-import React, { ReactNode, useEffect } from 'react'
+import {
+  ReactNode,
+  useEffect,
+  Children,
+  isValidElement,
+  cloneElement,
+} from 'react'
 import PubSub from 'pubsub-js'
 
 import type { TScrollDirection } from '@/spec'
@@ -60,10 +66,10 @@ export const childrenWithProps = (
   children: ReactNode,
   props: Record<string, unknown>,
 ): ReactNode => {
-  return React.Children.map(children, (child) => {
+  return Children.map(children, (child) => {
     // checking isValidElement is the safe way and avoids a typescript error too
-    if (React.isValidElement(child)) {
-      return React.cloneElement(child, { ...props })
+    if (isValidElement(child)) {
+      return cloneElement(child, { ...props })
     }
     return child
   })

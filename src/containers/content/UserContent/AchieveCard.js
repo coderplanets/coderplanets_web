@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FocusLine from '@/components/FocusLine'
+import FocusLine from '@/widgets/FocusLine'
 import { ICON_CMD } from '@/config'
 
 // import CommunityEditorInfo from './CommunityEditorInfo'

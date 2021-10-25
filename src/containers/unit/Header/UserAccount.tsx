@@ -4,8 +4,8 @@ import { useRouter } from 'next/router'
 import type { TAccount } from '@/spec'
 import { ICON } from '@/config'
 import { ROUTE } from '@/constant'
-import Tooltip from '@/components/Tooltip'
-import Button from '@/components/Buttons/Button'
+import Tooltip from '@/widgets/Tooltip'
+import Button from '@/widgets/Buttons/Button'
 
 import { onLogin, onLogout, previewAccount } from './logic'
 

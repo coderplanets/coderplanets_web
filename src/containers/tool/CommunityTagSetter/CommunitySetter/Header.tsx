@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import IconButton from '@/components/Buttons/IconButton'
+import IconButton from '@/widgets/Buttons/IconButton'
 
 import type { TCommunityView, TCommunityAction } from '../spec'
 import { COMMUNITY_ACTION } from '../constant'
@@ -8,7 +8,7 @@ import { COMMUNITY_ACTION } from '../constant'
 import { Wrapper, Title, Actions } from '../styles/community_setter/header'
 // import { useStore } from '../logic'
 
-// import { LavaLampLoading } from '@/components/dynamic'
+// import { LavaLampLoading } from '@/widgets/dynamic'
 
 type TProps = {
   view: TCommunityView

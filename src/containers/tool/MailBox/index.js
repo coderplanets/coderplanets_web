@@ -8,7 +8,7 @@ import React from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
-import Tooltip from '@/components/Tooltip'
+import Tooltip from '@/widgets/Tooltip'
 
 import MailsPanel from './MailsPanel'
 

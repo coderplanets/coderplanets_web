@@ -8,12 +8,12 @@ import type { TPost, TMetric } from '@/spec'
 import { METRIC, UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import ArticleBaseStats from '@/components/ArticleBaseStats'
-import IconButton from '@/components/Buttons/IconButton'
-import Upvote from '@/components/Upvote'
-import Tabs from '@/components/Switcher/Tabs'
-import ArticleMenu from '@/components/ArticleMenu'
-import { SpaceGrow } from '@/components/Common'
+import ArticleBaseStats from '@/widgets/ArticleBaseStats'
+import IconButton from '@/widgets/Buttons/IconButton'
+import Upvote from '@/widgets/Upvote'
+import Tabs from '@/widgets/Switcher/Tabs'
+import ArticleMenu from '@/widgets/ArticleMenu'
+import { SpaceGrow } from '@/widgets/Common'
 
 import {
   Main,
@@ -73,7 +73,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
             <Title>
               <WorkName>{title}</WorkName>
               <SpaceGrow />
-              <ArticleMenu />
+              <ArticleMenu article={article} />
             </Title>
             <Desc>可能是最性感的开发者社区, web first, pure ~</Desc>
             <Other>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 
-import ArrowButton from '@/components/Buttons/ArrowButton'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
 import InputBox from '../InputBox'
 

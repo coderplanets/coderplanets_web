@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Maybe from '@/components/Maybe'
-import GithubUserCard from '@/components/GithubUserCard'
-import SearchingLabel from '@/components/SearchingLabel'
+import Maybe from '@/widgets/Maybe'
+import GithubUserCard from '@/widgets/GithubUserCard'
+import SearchingLabel from '@/widgets/SearchingLabel'
 import { ICON_CMD } from '@/config'
 
 import {

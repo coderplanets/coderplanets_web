@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TWorks } from '@/spec'
 import type { TStep } from './spec'
 
-import WorksCard from '@/components/Cards/WorksCard'
+import WorksCard from '@/widgets/Cards/WorksCard'
 import { STEP } from './constant'
 
 import { Wrapper } from './styles/preview'

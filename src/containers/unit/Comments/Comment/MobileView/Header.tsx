@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TComment } from '@/spec'
-import ImgFallback from '@/components/ImgFallback'
+import ImgFallback from '@/widgets/ImgFallback'
 
 import {
   Wrapper,

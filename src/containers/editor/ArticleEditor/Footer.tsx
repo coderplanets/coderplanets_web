@@ -10,12 +10,12 @@ import type {
 
 import { THREAD } from '@/constant'
 
-import TagsList from '@/components/TagsList'
-import SubmitButton from '@/components/Buttons/SubmitButton'
-import Copyright from '@/components/Copyright'
-import Checker from '@/components/Checker'
-import { SpaceGrow } from '@/components/Common'
-import WordsCounter from '@/components/WordsCounter'
+import TagsList from '@/widgets/TagsList'
+import SubmitButton from '@/widgets/Buttons/SubmitButton'
+import Copyright from '@/widgets/Copyright'
+import Checker from '@/widgets/Checker'
+import { SpaceGrow } from '@/widgets/Common'
+import WordsCounter from '@/widgets/WordsCounter'
 
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
 import { editOnChange, onPublish, onCancel, setWordsCountState } from './logic'
@@ -39,8 +39,6 @@ const Footer: FC<TProps> = ({
   submitState,
   community,
 }) => {
-  console.log('# footer tags  -> ', tags)
-
   return (
     <Wrapper>
       <ArticleFooter>

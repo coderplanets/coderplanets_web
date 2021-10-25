@@ -4,9 +4,9 @@ import { any, equals, values } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
-import DotDivider from '@/components/DotDivider'
-import FollowButton from '@/components/Buttons/FollowButton'
-import { Space } from '@/components/Common'
+import DotDivider from '@/widgets/DotDivider'
+import FollowButton from '@/widgets/Buttons/FollowButton'
+import { Space } from '@/widgets/Common'
 
 import AchieveCard from './AchieveCard'
 import SourceContributeInfo from './SourceContributeInfo'

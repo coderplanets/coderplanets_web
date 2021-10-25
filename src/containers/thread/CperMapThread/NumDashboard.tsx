@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
 import { sort, isEmpty } from 'ramda'
 
-import CustomScroller from '@/components/CustomScroller'
+import CustomScroller from '@/widgets/CustomScroller'
 // import { ICON_CMD } from '../../config'
-import DotDivider from '@/components/DotDivider'
+import DotDivider from '@/widgets/DotDivider'
 
 import {
   Wrapper,

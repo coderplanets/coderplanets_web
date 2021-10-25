@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import CollapseMenu from '@/components/CollapseMenu'
+import CollapseMenu from '@/widgets/CollapseMenu'
 
 import type { TCommunity, TVisibles } from './spec'
 import Footer from './Footer'

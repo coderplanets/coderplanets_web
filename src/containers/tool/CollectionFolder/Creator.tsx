@@ -4,13 +4,13 @@ import { ICON } from '@/config'
 import type { TCollectionFolder } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import Input from '@/components/Input'
-import ArrowButton from '@/components/Buttons/ArrowButton'
-import Button from '@/components/Buttons/Button'
-import { Br, Space, SpaceGrow } from '@/components/Common'
-import Folder from '@/components/Folder'
-import IconText from '@/components/IconText'
-import Checker from '@/components/Checker'
+import Input from '@/widgets/Input'
+import ArrowButton from '@/widgets/Buttons/ArrowButton'
+import Button from '@/widgets/Buttons/Button'
+import { Br, Space, SpaceGrow } from '@/widgets/Common'
+import Folder from '@/widgets/Folder'
+import IconText from '@/widgets/IconText'
+import Checker from '@/widgets/Checker'
 
 import {
   Wrapper,

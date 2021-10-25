@@ -3,9 +3,9 @@ import TimeAgo from 'timeago-react'
 
 import type { TComment } from '@/spec'
 
-import ImgFallback from '@/components/ImgFallback'
-import { Space } from '@/components/Common'
-import DotDivider from '@/components/DotDivider'
+import ImgFallback from '@/widgets/ImgFallback'
+import { Space } from '@/widgets/Common'
+import DotDivider from '@/widgets/DotDivider'
 
 import {
   Wrapper,

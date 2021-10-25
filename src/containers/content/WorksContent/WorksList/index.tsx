@@ -3,9 +3,9 @@ import { FC, memo } from 'react'
 import { ICON } from '@/config'
 import type { TPagedWorks } from '@/spec'
 
-import WorksCard from '@/components/Cards/WorksCard'
-import IconText from '@/components/IconText'
-import MenuButton from '@/components/Buttons/MenuButton'
+import WorksCard from '@/widgets/Cards/WorksCard'
+import IconText from '@/widgets/IconText'
+import MenuButton from '@/widgets/Buttons/MenuButton'
 
 import { LAUNCH } from '../constant'
 import OptionTab from './OptionTab'
