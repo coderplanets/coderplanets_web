@@ -39,6 +39,7 @@ const WorksEditor = T.model('WorksEditor', {
   socialInfo: T.optional(T.array(SocialInfo), [
     { platform: 'github', link: 'https://github.com/' },
   ]),
+  cities: T.optional(T.array(T.string), []),
 })
   .views((self) => ({
     get previewData(): TWorks {
@@ -52,8 +53,9 @@ const WorksEditor = T.model('WorksEditor', {
         self,
       )
       const socialInfo = toJS(self.socialInfo)
+      const cities = toJS(self.cities)
 
-      return { socialInfo, ...basic }
+      return { socialInfo, cities, ...basic }
     },
     get socialOptions(): TSelectOption[] {
       const socialInfo = toJS(self.socialInfo)

@@ -24,7 +24,7 @@ export const SectionHint = styled.div`
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
   font-size: 12px;
-  margin-top: 3px;
+  margin-top: 6px;
   margin-left: 12px;
 `
 export const Label = styled.div`

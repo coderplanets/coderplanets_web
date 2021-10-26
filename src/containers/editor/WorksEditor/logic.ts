@@ -20,6 +20,10 @@ export const inputOnChange = (e: TEditValue, key: string): void => {
   updateEditing(store, key, e)
 }
 
+export const citiesOnChange = (options: TSelectOption[]): void => {
+  store.mark({ cities: options.map((o) => o.value) })
+}
+
 // Radio style checker hanlder
 export const checkerOnChange = (key: string, value: string): void => {
   store.mark({ [key]: value })

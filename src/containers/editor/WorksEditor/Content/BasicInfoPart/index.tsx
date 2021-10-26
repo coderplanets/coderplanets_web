@@ -1,4 +1,5 @@
 import { FC, memo } from 'react'
+import { filter, includes } from 'ramda'
 
 import type { TSelectOption } from '@/spec'
 
@@ -35,6 +36,7 @@ import {
   checkerOnChange,
   nextStep,
   addSocial,
+  citiesOnChange,
 } from '../../logic'
 
 const cityOptions = [
@@ -62,7 +64,8 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
   const valid = true
   const users = mockUsers(5)
 
-  const { homeLink, desc, socialInfo, workingMode, profitMode } = inputData
+  const { homeLink, desc, socialInfo, workingMode, profitMode, cities } =
+    inputData
 
   return (
     <Wrapper>
@@ -178,10 +181,11 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
         </Label>
         <SelectWrapper>
           <Select
+            value={filter((o) => includes(o.value, cities), cityOptions)}
             options={cityOptions}
             closeMenuOnSelect={false}
+            onChange={(c) => citiesOnChange(c as TSelectOption[])}
             isMulti
-            onChange={(c) => console.log('select c: ', c)}
           />
         </SelectWrapper>
         <SectionHint>
@@ -189,6 +193,7 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
         </SectionHint>
       </Section>
 
+      <Br top={10} />
       <Section>
         <Label>团队成员</Label>
         <TeamsWrapper>
