@@ -1,9 +1,10 @@
-import React from 'react'
+import { FC } from 'react'
 import { components } from 'react-select'
 
+import type { TOption } from './spec'
 import { BlinkCursor, OptionRow, OptionTitle, OptionDesc } from './styles'
 
-export const IndicatorsContainer = (props) => {
+export const IndicatorsContainer: FC = (props) => {
   return (
     <div style={{ background: 'transparent' }}>
       <components.IndicatorsContainer {...props} />
@@ -11,7 +12,16 @@ export const IndicatorsContainer = (props) => {
   )
 }
 
-export const Option = (props) => {
+type TSelectOption = {
+  data: TOption
+  selectProps: {
+    value: {
+      value: string
+    }
+  }
+}
+
+export const Option: FC<TSelectOption> = (props) => {
   const { data, selectProps } = props
 
   return (
@@ -26,7 +36,17 @@ export const Option = (props) => {
   )
 }
 
-export const Input = (props) => {
+type TInput = {
+  data: TOption
+  selectProps: {
+    menuIsOpen?: boolean
+    value?: {
+      value: string
+    }
+  }
+}
+
+export const Input: FC<TInput> = (props) => {
   const { selectProps } = props
   const { menuIsOpen } = selectProps
 

@@ -1,8 +1,11 @@
-export const getSelectStyles = (theme) => {
+import type { TThemeMap } from '@/spec'
+
+export const getSelectStyles = (theme: TThemeMap) => {
   return {
     container: (base) => ({
       ...base,
       outline: 'none',
+      zIndex: 3,
       '&:hover': {
         borderColor: '#024759',
       },

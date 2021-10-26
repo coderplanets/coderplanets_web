@@ -5,8 +5,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 import ReactSelect from 'react-select'
 
@@ -14,19 +13,32 @@ import { buildLog } from '@/utils/logger'
 
 import { Input, Option, IndicatorsContainer } from './components'
 
+import type { TOption } from './spec'
 import { Wrapper, getSelectStyles } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Select:index')
 
-const Select = ({
-  testid,
-  placeholder,
+type TProps = {
+  testid?: string
+  placeholder?: string
+  options: TOption[]
+
+  isMulti?: boolean
+  closeMenuOnSelect?: boolean
+  isClearable?: boolean
+
+  onChange?: () => void
+}
+
+const Select: FC<TProps> = ({
+  testid = 'widget-select',
+  placeholder = '请选择..',
   options,
-  isMulti,
-  isClearable,
-  closeMenuOnSelect,
-  onChange,
+  isMulti = false,
+  isClearable = false,
+  closeMenuOnSelect = true,
+  onChange = log,
 }) => {
   const theme = useTheme()
   const styles = getSelectStyles(theme)
@@ -47,29 +59,4 @@ const Select = ({
   )
 }
 
-Select.propTypes = {
-  testid: T.string,
-  placeholder: T.string,
-  options: T.arrayOf(
-    T.shape({
-      value: T.string,
-      label: T.string,
-      desc: T.string,
-    }),
-  ).isRequired,
-  onChange: T.func,
-  isMulti: T.bool,
-  closeMenuOnSelect: T.bool,
-  isClearable: T.bool,
-}
-
-Select.defaultProps = {
-  testid: 'select',
-  placeholder: '请选择运行平台',
-  onChange: log,
-  isMulti: false,
-  closeMenuOnSelect: true,
-  isClearable: true,
-}
-
-export default React.memo(Select)
+export default memo(Select)

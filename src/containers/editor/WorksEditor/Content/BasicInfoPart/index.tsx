@@ -24,17 +24,15 @@ import {
   Footer,
 } from '../../styles/content/basic_info_part'
 
-import { updateWorks, updateOSS, nextStep } from '../../logic'
+import { updateWorks, nextStep } from '../../logic'
 
-const platformOptions = [
-  { value: 'web', label: 'Web', desc: '网站，浏览器扩展等' },
-  { value: 'ios', label: 'iOS', desc: 'App, 平板应用等' },
-  { value: 'android', label: 'Android', desc: 'App, 平板应用等' },
-  { value: 'mac', label: 'Mac' },
-  { value: 'windows', label: 'Windows' },
-  { value: 'cmd', label: '命令行', desc: '终端工具，unix / powershell 等' },
-  { value: 'miniprogram', label: '小程序', desc: '微信小程序，头条小程序等' },
-  { value: 'other', label: '其他' },
+const socialOptions = [
+  { value: 'blog', label: 'Blog', desc: '官方、团队博客' },
+  { value: 'twitter', label: 'Twitter' },
+  { value: 'github', label: 'Github' },
+  { value: 'wechat', label: '微信', desc: 'WeChat' },
+  { value: 'weibo', label: '微博', desc: 'Weibo' },
+  { value: '邮箱', label: 'E-mail' },
 ]
 
 type TProps = {
@@ -51,6 +49,14 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
         <CoverUploader />
       </Section>
       <Section>
+        <Label>主页地址</Label>
+        <Input
+          value={works.desc}
+          placeholder="// 作品主页网址"
+          onChange={(e) => updateWorks('desc', e.target.value)}
+        />
+      </Section>
+      <Section>
         <Label>一句话描述</Label>
         <Input
           value={works.desc}
@@ -60,23 +66,12 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
       </Section>
       <Section>
         <Label>
-          <div>运行平台</div>
-          <Hint>可多选</Hint>
+          <div>联系我们</div>
+          <Hint>添加</Hint>
         </Label>
         <SelectWrapper>
-          <Select options={platformOptions} closeMenuOnSelect={false} isMulti />
+          <Select options={socialOptions} closeMenuOnSelect={false} isMulti />
         </SelectWrapper>
-      </Section>
-      <Section>
-        <Label>标签(两级?)</Label>
-        <Input value="React-Select" />
-      </Section>
-      <Section>
-        <Label>
-          <div>主页地址</div>
-          <Hint>作品主页</Hint>
-        </Label>
-        <Input value="https://" />
       </Section>
       <Section>
         <Label>盈利模式</Label>
@@ -147,23 +142,6 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
         <TeamsWrapper>
           <UserList users={users} layout="create-works" withSetter />
         </TeamsWrapper>
-      </Section>
-      <Section>
-        <Label>Github</Label>
-        <Input
-          value={works.ossAddr}
-          placeholder="// 可选, 格式: https://github.com/your-works"
-          onChange={(e) => updateOSS(e.target.value)}
-        />
-        {/* <CheckWrapper>
-          <Checker
-            checked={works.isOSS}
-            onChange={(checked) => updateWorks('isOSS', checked)}
-            size="small"
-          >
-            已开源
-          </Checker>
-        </CheckWrapper> */}
       </Section>
 
       <Footer>
