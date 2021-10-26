@@ -61,6 +61,7 @@ export type {
   TInput,
   TEditValue,
   TSubmitState,
+  TSelectOption,
 } from './utils'
 
 export type { TGQLError } from './graphql'

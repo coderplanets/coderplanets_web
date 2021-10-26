@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { startsWith } from 'ramda'
 
+import type { TSelectOption } from '@/spec'
+
 import { scrollToTop } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
 import { STEP } from './constant'
@@ -28,6 +30,27 @@ export const updateOSS = (value: string): void => {
   } else {
     updateWorks('isOSS', false)
   }
+}
+
+export const changeSocial = (platform: string, option: TSelectOption): void => {
+  store.updateSocialInfo(platform, option)
+}
+
+export const removeSocial = (platform: string): void => {
+  store.removeSocialInfo(platform)
+}
+
+export const addSocial = (): void => {
+  const { inputData, socialOptions } = store
+  const { socialInfo } = inputData
+  const platform = socialOptions[0].value
+
+  const newSocialInfo = [
+    ...socialInfo,
+    { platform, link: store.getSocialPrefix(platform) },
+  ]
+
+  store.mark({ socialInfo: newSocialInfo })
 }
 
 export const toggleTemplate = (useTemplate: boolean): void => {

@@ -126,3 +126,9 @@ export type TSubmitState = {
   publishDone?: boolean
   isReady?: boolean
 }
+
+export type TSelectOption = {
+  value: string
+  label: string
+  desc?: string
+}

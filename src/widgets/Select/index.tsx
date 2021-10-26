@@ -9,11 +9,11 @@ import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 import ReactSelect from 'react-select'
 
+import type { TSelectOption } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import { Input, Option, IndicatorsContainer } from './components'
 
-import type { TOption } from './spec'
 import { Wrapper, getSelectStyles } from './styles'
 
 /* eslint-disable-next-line */
@@ -22,13 +22,14 @@ const log = buildLog('c:Select:index')
 type TProps = {
   testid?: string
   placeholder?: string
-  options: TOption[]
+  options: TSelectOption[]
 
   isMulti?: boolean
   closeMenuOnSelect?: boolean
   isClearable?: boolean
+  value?: TSelectOption | TSelectOption[] | null
 
-  onChange?: () => void
+  onChange?: (option: TSelectOption | TSelectOption[]) => void
 }
 
 const Select: FC<TProps> = ({
@@ -39,6 +40,7 @@ const Select: FC<TProps> = ({
   isClearable = false,
   closeMenuOnSelect = true,
   onChange = log,
+  value = null,
 }) => {
   const theme = useTheme()
   const styles = getSelectStyles(theme)
@@ -46,6 +48,7 @@ const Select: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <ReactSelect
+        value={value}
         options={options}
         placeholder={placeholder}
         styles={styles}

@@ -1,16 +1,19 @@
 import { FC, memo } from 'react'
 
-import type { TWorks } from '@/spec'
+import type { TWorks, TSelectOption } from '@/spec'
 
 import { mockUsers } from '@/utils/mock'
 
 import Checker from '@/widgets/Checker'
 import Select from '@/widgets/Select'
-import { Space } from '@/widgets/Common'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
+import Button from '@/widgets/Buttons/Button'
+import { Space } from '@/widgets/Common'
 import UserList from '@/widgets/UserList'
 
+import type { TInputData } from '../../spec'
 import CoverUploader from './CoverUploader'
+import ContactField from './ContactField'
 
 import {
   Wrapper,
@@ -21,25 +24,35 @@ import {
   Hint,
   Input,
   SelectWrapper,
+  SectionHint,
   Footer,
 } from '../../styles/content/basic_info_part'
 
-import { updateWorks, nextStep } from '../../logic'
+import { updateWorks, nextStep, addSocial } from '../../logic'
 
-const socialOptions = [
-  { value: 'blog', label: 'Blog', desc: '官方、团队博客' },
-  { value: 'twitter', label: 'Twitter' },
-  { value: 'github', label: 'Github' },
-  { value: 'wechat', label: '微信', desc: 'WeChat' },
-  { value: 'weibo', label: '微博', desc: 'Weibo' },
-  { value: '邮箱', label: 'E-mail' },
+const cityOptions = [
+  { value: 'beijing', label: '北京' },
+  { value: 'shanghai', label: '上海' },
+  { value: 'guangzhou', label: '广州' },
+  { value: 'shenzhen', label: '深圳' },
+  { value: 'hangzhou', label: '杭州' },
+  { value: 'nanjing', label: '南京' },
+  { value: 'chengdu', label: '成都' },
+  { value: 'wuhan', label: '武汉' },
+  { value: 'changsha', label: '长沙' },
+  { value: 'suzhou', label: '苏州' },
+  { value: 'xian', label: '西安' },
+  { value: 'oversea', label: '海外' },
+  { value: 'others', label: '其他' },
 ]
 
 type TProps = {
   works: TWorks
+  inputData: TInputData
+  socialOptions: TSelectOption[]
 }
 
-const BasicInfoPart: FC<TProps> = ({ works }) => {
+const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
   const valid = true
   const users = mockUsers(5)
 
@@ -66,11 +79,16 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
       </Section>
       <Section>
         <Label>
-          <div>联系我们</div>
-          <Hint>添加</Hint>
+          <div>联系渠道</div>
+          <Button size="tiny" ghost noBorder onClick={addSocial}>
+            添加
+          </Button>
         </Label>
         <SelectWrapper>
-          <Select options={socialOptions} closeMenuOnSelect={false} isMulti />
+          <ContactField
+            socialInfo={inputData.socialInfo}
+            socialOptions={socialOptions}
+          />
         </SelectWrapper>
       </Section>
       <Section>
@@ -137,6 +155,25 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
           <Space right={20} />
         </CheckWrapper>
       </Section>
+
+      <Section>
+        <Label>
+          <div>所在城市</div>
+          <Hint>可选</Hint>
+        </Label>
+        <SelectWrapper>
+          <Select
+            options={cityOptions}
+            closeMenuOnSelect={false}
+            isMulti
+            onChange={(c) => console.log('select c: ', c)}
+          />
+        </SelectWrapper>
+        <SectionHint>
+          选择所在城市后，将会在相关城市的子社区中看到该作品
+        </SectionHint>
+      </Section>
+
       <Section>
         <Label>团队成员</Label>
         <TeamsWrapper>

@@ -1,7 +1,8 @@
 import { FC, memo } from 'react'
 
-import { TWorks } from '@/spec'
-import { TStep } from '../spec'
+import { TWorks, TSelectOption } from '@/spec'
+
+import type { TStep, TInputData } from '../spec'
 import { STEP } from '../constant'
 
 import NamePart from './NamePart'
@@ -15,10 +16,18 @@ import { Wrapper } from '../styles/content'
 type TProps = {
   step: TStep
   works: TWorks
+  inputData: TInputData
   useTemplate: boolean
+  socialOptions: TSelectOption[]
 }
 
-const Content: FC<TProps> = ({ step, works, useTemplate }) => {
+const Content: FC<TProps> = ({
+  step,
+  works,
+  inputData,
+  socialOptions,
+  useTemplate,
+}) => {
   let StepComp = null
 
   switch (step) {
@@ -28,7 +37,13 @@ const Content: FC<TProps> = ({ step, works, useTemplate }) => {
     }
 
     case STEP.ONE: {
-      StepComp = <BasicInfoPart works={works} />
+      StepComp = (
+        <BasicInfoPart
+          works={works}
+          inputData={inputData}
+          socialOptions={socialOptions}
+        />
+      )
       break
     }
 
