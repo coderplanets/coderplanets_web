@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, useEffect, useRef } from 'react'
 
 import { nilOrEmpty } from '@/utils/validator'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
@@ -21,9 +21,18 @@ type TProps = {
 const NamePart: FC<TProps> = ({ inputData }) => {
   const { title } = inputData
   const valid = !nilOrEmpty(title)
+  const ref = useRef(null)
+
+  // TODO: autoFocus not working here, fix later
+  useEffect(() => {
+    if (ref?.current) {
+      const input = ref?.current?.querySelector('input')
+      setTimeout(() => input?.focus(), 1000)
+    }
+  }, [ref])
 
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       <Label>你（们）的作品名称是？</Label>
       <Input
         value={title || ''}

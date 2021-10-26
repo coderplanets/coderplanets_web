@@ -8,4 +8,15 @@ export const STEP = {
   FOUR: '4' as TStep,
 }
 
-export const HOLDER = {}
+export const PROFIT_MODE = {
+  AD: 'AD',
+  FREEMIUM: 'FREEMIUM',
+  PRODUCT: 'PRODUCT',
+  FREE: 'FREE',
+  OTHRES: 'OTHERS',
+}
+
+export const WORKING_MODE = {
+  FULLTIME: 'FULLTIME',
+  SIDE_PROJECT: 'SIDE_PROJECT',
+}

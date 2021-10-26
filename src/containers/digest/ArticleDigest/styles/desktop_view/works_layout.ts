@@ -16,6 +16,7 @@ export const WorksWrapper = styled.div`
 export const Intro = styled.div`
   ${css.flexColumn()};
   width: 100%;
+  margin-left: 10px;
 `
 export const Cover = styled(Img)`
   ${css.size(85)};

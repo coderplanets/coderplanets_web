@@ -10,10 +10,10 @@ import type { TWorks, TSelectOption } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
 
-import { STEP } from './constant'
 import { SocialInfo } from '@/model'
 
 import type { TInputData } from './spec'
+import { STEP, PROFIT_MODE, WORKING_MODE } from './constant'
 
 const SOCIAL_OPTIONS = [
   { value: 'github', label: 'Github' },
@@ -34,8 +34,8 @@ const WorksEditor = T.model('WorksEditor', {
   title: T.maybeNull(T.string),
   desc: T.maybeNull(T.string), // backend TODO
   homeLink: T.optional(T.string, 'https://'),
-  profitMode: T.optional(T.string, ''),
-  workingMode: T.optional(T.string, ''),
+  profitMode: T.optional(T.string, PROFIT_MODE.FREEMIUM),
+  workingMode: T.optional(T.string, WORKING_MODE.FULLTIME),
   socialInfo: T.optional(T.array(SocialInfo), [
     { platform: 'github', link: 'https://github.com/' },
   ]),

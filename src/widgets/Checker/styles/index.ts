@@ -51,4 +51,11 @@ export const ChildWrapper = styled.div<TItem>`
   font-size: ${({ size }) => getFontSize(size)};
   margin-left: 6px;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+
+  &:hover {
+    color: ${({ disabled }) =>
+      disabled ? theme('thread.articleDigest') : theme('thread.articleTitle')};
+  }
+
+  transition: color 0.1s;
 `

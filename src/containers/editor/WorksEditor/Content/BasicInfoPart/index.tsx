@@ -8,10 +8,12 @@ import Checker from '@/widgets/Checker'
 import Select from '@/widgets/Select'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import Button from '@/widgets/Buttons/Button'
-import { Space } from '@/widgets/Common'
+import { Space, Br } from '@/widgets/Common'
 import UserList from '@/widgets/UserList'
 
 import type { TInputData } from '../../spec'
+import { PROFIT_MODE, WORKING_MODE } from '../../constant'
+
 import CoverUploader from './CoverUploader'
 import ContactField from './ContactField'
 
@@ -28,7 +30,12 @@ import {
   Footer,
 } from '../../styles/content/basic_info_part'
 
-import { inputOnChange, nextStep, addSocial } from '../../logic'
+import {
+  inputOnChange,
+  checkerOnChange,
+  nextStep,
+  addSocial,
+} from '../../logic'
 
 const cityOptions = [
   { value: 'beijing', label: '北京' },
@@ -55,7 +62,7 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
   const valid = true
   const users = mockUsers(5)
 
-  const { homeLink, desc, socialInfo } = inputData
+  const { homeLink, desc, socialInfo, workingMode, profitMode } = inputData
 
   return (
     <Wrapper>
@@ -90,71 +97,80 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
         </SelectWrapper>
       </Section>
       <Section>
-        <Label>
-          <div>盈利模式</div>
-          <Hint>可多选</Hint>
-        </Label>
+        <Label>主要盈利</Label>
         <CheckWrapper>
           <Checker
-            checked
+            checked={profitMode === PROFIT_MODE.FREEMIUM}
             onChange={(checked) => {
-              console.log('others: ', checked)
+              if (checked) checkerOnChange('profitMode', PROFIT_MODE.FREEMIUM)
             }}
           >
-            广告分成
+            会员增值 / 订阅
           </Checker>
           <Space right={24} />
           <Checker
-            checked
+            checked={profitMode === PROFIT_MODE.AD}
             onChange={(checked) => {
-              console.log('others: ', checked)
+              if (checked) checkerOnChange('profitMode', PROFIT_MODE.AD)
             }}
           >
-            会员增值
+            广告
           </Checker>
           <Space right={24} />
           <Checker
+            checked={profitMode === PROFIT_MODE.PRODUCT}
             onChange={(checked) => {
-              console.log('others: ', checked)
+              if (checked) checkerOnChange('profitMode', PROFIT_MODE.PRODUCT)
             }}
           >
-            SaaS
+            物品交易
           </Checker>
           <Space right={24} />
           <Checker
+            checked={profitMode === PROFIT_MODE.FREE}
             onChange={(checked) => {
-              // 选择后其他都灭灯
-              console.log('others: ', checked)
+              if (checked) checkerOnChange('profitMode', PROFIT_MODE.FREE)
             }}
           >
             用爱发电
           </Checker>
           <Space right={24} />
-          <Checker>其他</Checker>
+          <Checker
+            checked={profitMode === PROFIT_MODE.OTHRES}
+            onChange={(checked) => {
+              if (checked) checkerOnChange('profitMode', PROFIT_MODE.OTHRES)
+            }}
+          >
+            其他
+          </Checker>
         </CheckWrapper>
       </Section>
+      <Br top={5} />
       <Section>
         <Label>项目类型</Label>
         <CheckWrapper>
           <Checker
-            checked
+            checked={workingMode === WORKING_MODE.FULLTIME}
             onChange={(checked) => {
-              console.log('others: ', checked)
+              if (checked) checkerOnChange('workingMode', WORKING_MODE.FULLTIME)
             }}
           >
             全职项目
           </Checker>
           <Space right={24} />
           <Checker
+            checked={workingMode === WORKING_MODE.SIDE_PROJECT}
             onChange={(checked) => {
-              console.log('others: ', checked)
+              if (checked) {
+                checkerOnChange('workingMode', WORKING_MODE.SIDE_PROJECT)
+              }
             }}
           >
             业余项目（Side Project）
           </Checker>
         </CheckWrapper>
       </Section>
-
+      <Br top={14} />
       <Section>
         <Label>
           <div>所在城市</div>
