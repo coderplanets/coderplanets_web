@@ -73,8 +73,9 @@ router.route('/works').get((req, res) => {
   return renderAndCache({ req, res, path: '/works/all' })
 })
 // 单个作品详情
-router.route('/works/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, path: '/works/article' })
+router.route('/works/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/works/${id}` })
 })
 
 // 用户页

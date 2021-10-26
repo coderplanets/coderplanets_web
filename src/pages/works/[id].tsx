@@ -4,12 +4,12 @@ import { Provider } from 'mobx-react'
 import { ROUTE, THREAD, METRIC } from '@/constant'
 
 import {
-  ssrBaseStates,
   ssrFetchPrepare,
-  ssrParseURL,
-  ssrRescue,
   ssrError,
   articleSEO,
+  ssrBaseStates,
+  ssrGetParam,
+  refreshIfneed,
 } from '@/utils'
 
 import { useStore } from '@/stores/init'
@@ -21,10 +21,8 @@ import ArticleContent from '@/containers/content/ArticleContent'
 import { P } from '@/schemas'
 
 const fetchData = async (context, opt = {}) => {
+  const id = ssrGetParam(context, 'id')
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-
-  // schema
-  const { subPath: id } = ssrParseURL(context.req)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -37,11 +35,9 @@ const fetchData = async (context, opt = {}) => {
     },
   })
 
-  // TODO: comments
   return {
     ...(await sessionState),
     ...(await works),
-    // ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
@@ -50,13 +46,11 @@ export const getServerSideProps = async (context) => {
   let resp
   try {
     resp = await fetchData(context)
+    const { works, sessionState } = resp
+    refreshIfneed(sessionState, `/works/${works.id}`, context)
   } catch (e) {
     console.log('#### error from server: ', e)
-    if (ssrRescue.hasLoginError(e.response?.errors)) {
-      resp = await fetchData(context, { tokenExpired: true })
-    } else {
-      return ssrError(context, 'fetch', 500)
-    }
+    return ssrError(context, 'fetch', 500)
   }
 
   const { works } = resp
@@ -68,8 +62,6 @@ export const getServerSideProps = async (context) => {
       works,
       activeThread: THREAD.WORKS,
     },
-    // TODO: load comments on Client
-    // comments: { pagedComments },
   }
 
   return { props: { errorCode: null, ...initProps } }

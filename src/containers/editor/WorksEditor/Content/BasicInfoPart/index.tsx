@@ -120,6 +120,29 @@ const BasicInfoPart: FC<TProps> = ({ works }) => {
         </CheckWrapper>
       </Section>
       <Section>
+        <Label>工作状态</Label>
+        <CheckWrapper>
+          <Checker
+            checked
+            onChange={(checked) => {
+              console.log('others: ', checked)
+            }}
+          >
+            全职
+          </Checker>
+          <Space right={20} />
+          <Checker
+            checked
+            onChange={(checked) => {
+              console.log('others: ', checked)
+            }}
+          >
+            兼职
+          </Checker>
+          <Space right={20} />
+        </CheckWrapper>
+      </Section>
+      <Section>
         <Label>团队成员</Label>
         <TeamsWrapper>
           <UserList users={users} layout="create-works" withSetter />

@@ -4,7 +4,7 @@ import type { TMetric } from '@/spec'
 export const getStickerJustify = (metric: TMetric): string => {
   switch (metric) {
     case METRIC.WORKS_ARTICLE: {
-      return 'flex-start'
+      return 'flex-end'
     }
 
     default: {

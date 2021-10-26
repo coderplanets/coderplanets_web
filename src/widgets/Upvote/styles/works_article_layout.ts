@@ -18,7 +18,7 @@ export const UpWrapper = styled.div`
   margin-top: -2px;
 `
 export const CountWrapper = styled.div`
-  margin-left: 7px;
+  margin-left: 2px;
 `
 export const Avatars = styled.div`
   ${css.flex('align-center')};
