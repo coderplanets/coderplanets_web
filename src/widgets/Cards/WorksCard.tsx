@@ -58,7 +58,7 @@ const WorksCard: FC<TProps> = ({
 }) => {
   const descLimit = preview ? 20 : 60
 
-  const { id, title, digest, upvotesCount, commentsCount } = item
+  const { id, title, desc, upvotesCount, commentsCount } = item
 
   return (
     <Wrapper testid={testid} preview={preview}>
@@ -95,11 +95,11 @@ const WorksCard: FC<TProps> = ({
               onPreview={() => onPreview(item)}
               interactive={!preview}
             >
-              {cutRest(digest, descLimit)}
+              {cutRest(desc, descLimit)}
             </DigestSentence>
           </div>
 
-          <Upvote type="works-card" count={preview ? 66 : upvotesCount} />
+          <Upvote type="works-card" count={upvotesCount} />
         </Header>
         <FooterWrapper>
           {item.tag && (
@@ -138,7 +138,7 @@ const WorksCard: FC<TProps> = ({
             </Fragment>
           )}
           <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
-            {preview ? 99 : commentsCount}
+            {commentsCount}
           </IconText>
           <SpaceGrow />
           {/* {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />} */}

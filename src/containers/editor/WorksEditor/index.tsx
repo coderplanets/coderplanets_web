@@ -35,16 +35,15 @@ const WorksEditorContainer: FC<TProps> = ({
   metric = METRIC.COMMUNITY,
 }) => {
   useInit(store)
-  const { step, worksData, useTemplate, inputData, socialOptions } = store
+  const { step, useTemplate, inputData, previewData, socialOptions } = store
 
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
-        <Preview step={step} works={worksData} />
+        <Preview step={step} works={previewData} />
         <Steps step={step} />
         <Content
           step={step}
-          works={worksData}
           inputData={inputData}
           socialOptions={socialOptions}
           useTemplate={useTemplate}

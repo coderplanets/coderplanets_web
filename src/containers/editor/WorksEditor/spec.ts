@@ -6,6 +6,8 @@ export type TSocialInfo = {
 }
 
 export type TInputData = {
+  title: string
+  desc: string
   homeLink: string
   profitMode: string
   workingMode: string

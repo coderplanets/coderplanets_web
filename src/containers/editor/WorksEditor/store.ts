@@ -24,22 +24,16 @@ const SOCIAL_OPTIONS = [
   { value: '邮箱', label: 'E-mail' },
 ]
 
-const WorksItem = T.model('WorksItem', {
-  title: T.maybeNull(T.string),
-  desc: T.maybeNull(T.string),
-  isOSS: T.optional(T.boolean, false),
-  ossAddr: T.maybeNull(T.string),
-})
-
 const WorksEditor = T.model('WorksEditor', {
-  works: T.optional(WorksItem, {}),
   step: T.optional(
     T.enumeration([STEP.ZERO, STEP.ONE, STEP.TWO, STEP.THREE, STEP.FOUR]),
     STEP.ZERO,
   ),
   useTemplate: T.optional(T.boolean, true),
 
-  homeLink: T.optional(T.string, ''),
+  title: T.maybeNull(T.string),
+  desc: T.maybeNull(T.string), // backend TODO
+  homeLink: T.optional(T.string, 'https://'),
   profitMode: T.optional(T.string, ''),
   workingMode: T.optional(T.string, ''),
   socialInfo: T.optional(T.array(SocialInfo), [
@@ -47,11 +41,16 @@ const WorksEditor = T.model('WorksEditor', {
   ]),
 })
   .views((self) => ({
-    get worksData(): TWorks {
-      return toJS(self.works)
+    get previewData(): TWorks {
+      const basic = pick(['title', 'desc'], self)
+
+      return { id: '0', upvotesCount: 66, commentsCount: 99, ...basic }
     },
     get inputData(): TInputData {
-      const basic = pick(['homeLink', 'profitMode', 'workingMode'], self)
+      const basic = pick(
+        ['title', 'desc', 'homeLink', 'profitMode', 'workingMode'],
+        self,
+      )
       const socialInfo = toJS(self.socialInfo)
 
       return { socialInfo, ...basic }
@@ -64,10 +63,10 @@ const WorksEditor = T.model('WorksEditor', {
     },
     get isCurrentStepValid(): boolean {
       const slf = self as TStore
-      const { step, worksData } = slf
+      const { step, title } = slf
       switch (step) {
         case STEP.ZERO: {
-          return !nilOrEmpty(worksData.title)
+          return !nilOrEmpty(title)
         }
 
         default: {
@@ -111,6 +110,10 @@ const WorksEditor = T.model('WorksEditor', {
 
       slf.socialInfo[index].platform = option.value
       slf.socialInfo[index].link = slf.getSocialPrefix(option.value)
+    },
+    updateEditing(sobj): void {
+      const slf = self as TStore
+      slf.mark(sobj)
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

@@ -15,7 +15,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   position: relative;
-  width: 100%;
 `
 const AddOn = styled.div<TActive>`
   position: absolute;

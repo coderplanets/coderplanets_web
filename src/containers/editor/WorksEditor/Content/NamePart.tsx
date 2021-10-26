@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
 
-import type { TWorks } from '@/spec'
 import { nilOrEmpty } from '@/utils/validator'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
+import type { TInputData } from '../spec'
 import CommonQuestions from './CommonQuestions'
 
 import {
@@ -12,21 +12,22 @@ import {
   Label,
   NextButtonWrapper,
 } from '../styles/content/name_part'
-import { updateWorks, nextStep } from '../logic'
+import { inputOnChange, nextStep } from '../logic'
 
 type TProps = {
-  works: TWorks
+  inputData: TInputData
 }
 
-const NamePart: FC<TProps> = ({ works }) => {
-  const valid = !nilOrEmpty(works.title)
+const NamePart: FC<TProps> = ({ inputData }) => {
+  const { title } = inputData
+  const valid = !nilOrEmpty(title)
 
   return (
     <Wrapper>
       <Label>你（们）的作品名称是？</Label>
       <Input
-        value={works.title}
-        onChange={(e) => updateWorks('title', e.target.value)}
+        value={title || ''}
+        onChange={(e) => inputOnChange(e, 'title')}
         autoFocus
       />
       {!valid && <CommonQuestions />}

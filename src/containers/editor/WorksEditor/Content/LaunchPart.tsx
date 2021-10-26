@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import type { TWorks } from '@/spec'
-
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
+
+import type { TInputData } from '../spec'
 
 import {
   Wrapper,
@@ -19,15 +19,16 @@ import {
 import { nextStep } from '../logic'
 
 type TProps = {
-  works: TWorks
+  inputData: TInputData
 }
 
-const LaunchPart: FC<TProps> = ({ works }) => {
+const LaunchPart: FC<TProps> = ({ inputData }) => {
+  const { title } = inputData
   return (
     <Wrapper>
       <ContentWrapper>
         <PublishIcon src={`${ICON}/edit/publish-rocket.svg`} />
-        <ThxTitle>感谢你将 {works.title} 发布到这里</ThxTitle>
+        <ThxTitle>感谢你将 {title} 发布到这里</ThxTitle>
         <ThxDesc>
           后续如遇到任何问题可以使用下列反馈渠道，我们会在第一时间处理。
         </ThxDesc>
@@ -42,7 +43,7 @@ const LaunchPart: FC<TProps> = ({ works }) => {
         <ArrowButton size="large" direction="left" onClick={nextStep}>
           返回作品集市
         </ArrowButton>
-        <ArrowButton size="large">创建 {works.title} 社区</ArrowButton>
+        <ArrowButton size="large">创建 {title} 社区</ArrowButton>
       </Footer>
     </Wrapper>
   )

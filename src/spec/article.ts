@@ -58,12 +58,12 @@ export type TPost = TBaseArticle & {
 }
 
 export type TWorks = TBaseArticle & {
-  cover: string
-  desc: string
-  tag: { title: string }
-  platform: { title: string }
-  techStack: { icon: string; raw: string }[]
-  isOSS: boolean
+  cover?: string
+  desc?: string
+  tag?: { title: string }
+  platform?: { title: string }
+  techStack?: { icon: string; raw: string }[]
+  isOSS?: boolean
   ossAddr?: string
   digest?: string
 }

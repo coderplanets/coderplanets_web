@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TWorks, TSelectOption } from '@/spec'
+import type { TSelectOption } from '@/spec'
 
 import { mockUsers } from '@/utils/mock'
 
@@ -28,7 +28,7 @@ import {
   Footer,
 } from '../../styles/content/basic_info_part'
 
-import { updateWorks, nextStep, addSocial } from '../../logic'
+import { inputOnChange, nextStep, addSocial } from '../../logic'
 
 const cityOptions = [
   { value: 'beijing', label: '北京' },
@@ -47,14 +47,15 @@ const cityOptions = [
 ]
 
 type TProps = {
-  works: TWorks
   inputData: TInputData
   socialOptions: TSelectOption[]
 }
 
-const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
+const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
   const valid = true
   const users = mockUsers(5)
+
+  const { homeLink, desc, socialInfo } = inputData
 
   return (
     <Wrapper>
@@ -64,17 +65,17 @@ const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
       <Section>
         <Label>主页地址</Label>
         <Input
-          value={works.desc}
+          value={homeLink}
           placeholder="// 作品主页网址"
-          onChange={(e) => updateWorks('desc', e.target.value)}
+          onChange={(e) => inputOnChange(e, 'homeLink')}
         />
       </Section>
       <Section>
         <Label>一句话描述</Label>
         <Input
-          value={works.desc}
+          value={desc}
           placeholder="// 一句话描述"
-          onChange={(e) => updateWorks('desc', e.target.value)}
+          onChange={(e) => inputOnChange(e, 'desc')}
         />
       </Section>
       <Section>
@@ -85,14 +86,14 @@ const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
           </Button>
         </Label>
         <SelectWrapper>
-          <ContactField
-            socialInfo={inputData.socialInfo}
-            socialOptions={socialOptions}
-          />
+          <ContactField socialInfo={socialInfo} socialOptions={socialOptions} />
         </SelectWrapper>
       </Section>
       <Section>
-        <Label>盈利模式</Label>
+        <Label>
+          <div>盈利模式</div>
+          <Hint>可多选</Hint>
+        </Label>
         <CheckWrapper>
           <Checker
             checked
@@ -100,9 +101,9 @@ const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
               console.log('others: ', checked)
             }}
           >
-            广告
+            广告分成
           </Checker>
-          <Space right={20} />
+          <Space right={24} />
           <Checker
             checked
             onChange={(checked) => {
@@ -111,7 +112,7 @@ const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
           >
             会员增值
           </Checker>
-          <Space right={20} />
+          <Space right={24} />
           <Checker
             onChange={(checked) => {
               console.log('others: ', checked)
@@ -119,7 +120,7 @@ const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
           >
             SaaS
           </Checker>
-          <Space right={20} />
+          <Space right={24} />
           <Checker
             onChange={(checked) => {
               // 选择后其他都灭灯
@@ -128,12 +129,12 @@ const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
           >
             用爱发电
           </Checker>
-          <Space right={20} />
+          <Space right={24} />
           <Checker>其他</Checker>
         </CheckWrapper>
       </Section>
       <Section>
-        <Label>工作状态</Label>
+        <Label>项目类型</Label>
         <CheckWrapper>
           <Checker
             checked
@@ -141,18 +142,16 @@ const BasicInfoPart: FC<TProps> = ({ works, inputData, socialOptions }) => {
               console.log('others: ', checked)
             }}
           >
-            全职
+            全职项目
           </Checker>
-          <Space right={20} />
+          <Space right={24} />
           <Checker
-            checked
             onChange={(checked) => {
               console.log('others: ', checked)
             }}
           >
-            兼职
+            业余项目（Side Project）
           </Checker>
-          <Space right={20} />
         </CheckWrapper>
       </Section>
 

@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
-import { startsWith } from 'ramda'
 
-import type { TSelectOption } from '@/spec'
+import type { TSelectOption, TEditValue } from '@/spec'
 
 import { scrollToTop } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
+import { updateEditing } from '@/utils/mobx'
+
 import { STEP } from './constant'
 import type { TStore } from './store'
 import type { TStep } from './spec'
@@ -15,21 +16,8 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:WorksEditor')
 
-export const updateWorks = (part, value): void => {
-  const { worksData } = store
-  store.mark({
-    works: { ...worksData, [part]: value },
-  })
-}
-
-export const updateOSS = (value: string): void => {
-  updateWorks('ossAddr', value)
-
-  if (startsWith('https://github.com', value)) {
-    updateWorks('isOSS', true)
-  } else {
-    updateWorks('isOSS', false)
-  }
+export const inputOnChange = (e: TEditValue, key: string): void => {
+  updateEditing(store, key, e)
 }
 
 export const changeSocial = (platform: string, option: TSelectOption): void => {
