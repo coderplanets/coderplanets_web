@@ -35,7 +35,7 @@ const WorksEditor = T.model('WorksEditor', {
   desc: T.maybeNull(T.string), // backend TODO
   homeLink: T.optional(T.string, 'https://'),
   profitMode: T.optional(T.string, PROFIT_MODE.FREEMIUM),
-  workingMode: T.optional(T.string, WORKING_MODE.FULLTIME),
+  workingMode: T.optional(T.string, WORKING_MODE.SIDE_PROJECT),
   socialInfo: T.optional(T.array(SocialInfo), [
     { platform: 'github', link: 'https://github.com/' },
   ]),

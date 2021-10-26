@@ -153,15 +153,6 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
         <Label>项目类型</Label>
         <CheckWrapper>
           <Checker
-            checked={workingMode === WORKING_MODE.FULLTIME}
-            onChange={(checked) => {
-              if (checked) checkerOnChange('workingMode', WORKING_MODE.FULLTIME)
-            }}
-          >
-            全职项目
-          </Checker>
-          <Space right={24} />
-          <Checker
             checked={workingMode === WORKING_MODE.SIDE_PROJECT}
             onChange={(checked) => {
               if (checked) {
@@ -170,6 +161,15 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
             }}
           >
             业余项目（Side Project）
+          </Checker>
+          <Space right={24} />
+          <Checker
+            checked={workingMode === WORKING_MODE.FULLTIME}
+            onChange={(checked) => {
+              if (checked) checkerOnChange('workingMode', WORKING_MODE.FULLTIME)
+            }}
+          >
+            全职项目
           </Checker>
         </CheckWrapper>
       </Section>
