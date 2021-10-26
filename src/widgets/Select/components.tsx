@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { components } from 'react-select'
 
-import type { TOption } from './spec'
+import type { TOption, TSelectProps } from './spec'
 import { BlinkCursor, OptionRow, OptionTitle, OptionDesc } from './styles'
 
 export const IndicatorsContainer: FC = (props) => {
@@ -14,11 +14,7 @@ export const IndicatorsContainer: FC = (props) => {
 
 type TSelectOption = {
   data: TOption
-  selectProps: {
-    value: {
-      value: string
-    }
-  }
+  selectProps: TSelectProps
 }
 
 export const Option: FC<TSelectOption> = (props) => {
@@ -38,12 +34,7 @@ export const Option: FC<TSelectOption> = (props) => {
 
 type TInput = {
   data: TOption
-  selectProps: {
-    menuIsOpen?: boolean
-    value?: {
-      value: string
-    }
-  }
+  selectProps: TSelectProps
 }
 
 export const Input: FC<TInput> = (props) => {
