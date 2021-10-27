@@ -1,5 +1,4 @@
 import { FC, memo } from 'react'
-import { ICON_BASE } from '@/config'
 
 import type { TCommunity } from '@/spec'
 import {
@@ -9,6 +8,7 @@ import {
   Title,
   AddBlock,
   AddButton,
+  DeleteHint,
 } from '../../styles/content/tech_stack_part/selector_row'
 
 type TProps = {
@@ -22,8 +22,9 @@ const SelectorRow: FC<TProps> = ({ onAdd, techs = [] }) => {
     <Wrapper>
       {techs.map((t) => (
         <Block key={t.raw}>
-          <Logo src={t.logo} />
+          <Logo src={t.logo} raw={t.raw} />
           <Title>{t.title}</Title>
+          <DeleteHint>删除</DeleteHint>
         </Block>
       ))}
       <AddBlock onClick={() => onAdd()}>

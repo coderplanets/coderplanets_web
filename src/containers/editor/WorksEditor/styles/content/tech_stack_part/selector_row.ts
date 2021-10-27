@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
+import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
@@ -13,11 +13,31 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 export const Block = styled.div`
+  ${css.flexColumn('align-both')};
+  position: relative;
   height: 74px;
   width: 76px;
-  ${css.flexColumn('align-both')};
 `
-export const Logo = styled(Img)`
+export const DeleteHint = styled.div`
+  color: ${theme('baseColor.red')};
+  position: absolute;
+  bottom: -8px;
+  left: 27px;
+  opacity: 0;
+  font-size: 12px;
+  cursor: pointer;
+
+  ${Block}:hover & {
+    opacity: 0.7;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  transition: opacity 0.2s;
+`
+export const Logo = styled(CommunityFaceLogo)`
   ${css.size(22)};
   filter: saturate(0.8);
 `
