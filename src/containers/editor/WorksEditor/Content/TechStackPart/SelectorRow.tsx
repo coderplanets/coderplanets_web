@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { ICON_BASE } from '@/config'
 
-import { selectCommunity } from '@/utils/helper'
+import type { TCommunity } from '@/spec'
 import {
   Wrapper,
   Block,
@@ -12,18 +12,21 @@ import {
 } from '../../styles/content/tech_stack_part/selector_row'
 
 type TProps = {
-  langs: string[]
+  techs?: TCommunity[]
+  // langs: string[]
+  onAdd: () => void
 }
 
-/* <Block>
-        <Logo src={`${ICON_BASE}/pl/javascript.png`} />
-        <Title>JavaScript</Title>
-      </Block> */
-
-const SelectorRow: FC = () => {
+const SelectorRow: FC<TProps> = ({ onAdd, techs = [] }) => {
   return (
     <Wrapper>
-      <AddBlock onClick={() => selectCommunity('lang')}>
+      {techs.map((t) => (
+        <Block key={t.raw}>
+          <Logo src={t.logo} />
+          <Title>{t.title}</Title>
+        </Block>
+      ))}
+      <AddBlock onClick={() => onAdd()}>
         <AddButton>+</AddButton>
         <Title>添加</Title>
       </AddBlock>

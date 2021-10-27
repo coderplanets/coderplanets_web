@@ -5,13 +5,13 @@ import {
   CodeIcon,
   DevopsIcon,
   FrameworkIcon,
+  DatabaseIcon,
   DesignIcon,
   Title,
 } from '../../styles/content/tech_stack_part/selector_header'
 
 type TProps = {
   title: string
-  count: number
 }
 
 const Icon: FC<{ title: string }> = ({ title }) => {
@@ -19,11 +19,12 @@ const Icon: FC<{ title: string }> = ({ title }) => {
     case 'DevOps': {
       return <DevopsIcon />
     }
-
     case '框架': {
       return <FrameworkIcon />
     }
-
+    case '数据库': {
+      return <DatabaseIcon />
+    }
     case '设计': {
       return <DesignIcon />
     }
@@ -33,7 +34,7 @@ const Icon: FC<{ title: string }> = ({ title }) => {
   }
 }
 
-const SelectorHeader: FC<TProps> = ({ title, count }) => {
+const SelectorHeader: FC<TProps> = ({ title }) => {
   return (
     <Wrapper>
       <Icon title={title} />

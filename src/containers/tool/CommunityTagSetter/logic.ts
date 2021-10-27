@@ -49,9 +49,9 @@ export const toggleCommunity = (
   checked: boolean,
 ): void => {
   const { type, selectCommunity, undoSelectCommunity } = store
-  const { id } = community
+  const { raw } = community
 
-  checked ? selectCommunity(id) : undoSelectCommunity(id)
+  checked ? selectCommunity(raw) : undoSelectCommunity(raw)
 
   if (type === TYPE.SELECT_COMMUNITY) {
     onClose()
@@ -91,7 +91,7 @@ const loadArticleTags = (community: TCommunity, thread: TThread): void => {
   store.mark({ tagsLoading: true })
 
   const args = {
-    filter: { communityId: community.id, thread: thread.toUpperCase() },
+    filter: { communityId: community.raw, thread: thread.toUpperCase() },
   }
 
   log('query tags args: ', args)

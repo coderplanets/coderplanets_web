@@ -2,8 +2,11 @@ import { FC, memo } from 'react'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 
+import { selectCommunity } from '@/utils/helper'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import NoticeBar from '@/widgets/NoticeBar'
+
+import { mockCommunities } from '@/utils/mock'
 
 import SelectorHeader from './SelectorHeader'
 import SelectorRow from './SelectorRow'
@@ -34,23 +37,34 @@ const TechStackPart: FC = () => {
       />
       <TechsWrapper>
         <TechBlock>
-          <SelectorHeader title="编程语言" count={5} />
-          <SelectorRow />
+          <SelectorHeader title="编程语言" />
+          <SelectorRow
+            onAdd={() => selectCommunity('lang')}
+            techs={mockCommunities(2)}
+          />
         </TechBlock>
 
         <TechBlock>
-          <SelectorHeader title="框架" count={4} />
-          <SelectorRow />
+          <SelectorHeader title="框架" />
+          <SelectorRow
+            onAdd={() => selectCommunity('framework')}
+            techs={mockCommunities(3)}
+          />
         </TechBlock>
 
         <TechBlock>
-          <SelectorHeader title="DevOps" count={4} />
-          <SelectorRow />
+          <SelectorHeader title="数据库" />
+          <SelectorRow onAdd={() => selectCommunity('database')} />
         </TechBlock>
 
         <TechBlock>
-          <SelectorHeader title="设计" count={4} />
-          <SelectorRow />
+          <SelectorHeader title="DevOps" />
+          <SelectorRow onAdd={() => selectCommunity('devOps')} />
+        </TechBlock>
+
+        <TechBlock>
+          <SelectorHeader title="设计" />
+          <SelectorRow onAdd={() => selectCommunity('design')} />
         </TechBlock>
       </TechsWrapper>
       <Footer>

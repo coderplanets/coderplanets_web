@@ -5,6 +5,7 @@ import css from '@/utils/css'
 import CodeSVG from '@/icons/Code'
 import DevopsSVG from '@/icons/Devops'
 import FrameworkSVG from '@/icons/Framework'
+import DatabaseSVG from '@/icons/Database'
 import DesignSVG from '@/icons/Design'
 
 export const Wrapper = styled.div`
@@ -25,6 +26,12 @@ export const DevopsIcon = styled(DevopsSVG)`
   fill: ${theme('thread.articleDigest')};
 `
 export const FrameworkIcon = styled(FrameworkSVG)`
+  ${css.size(20)};
+  margin-bottom: 8px;
+  opacity: 0.7;
+  fill: ${theme('thread.articleDigest')};
+`
+export const DatabaseIcon = styled(DatabaseSVG)`
   ${css.size(20)};
   margin-bottom: 8px;
   opacity: 0.7;

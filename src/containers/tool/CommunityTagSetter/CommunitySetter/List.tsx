@@ -36,7 +36,7 @@ const CommunitiesList: FC<TProps> = ({
       <InnerWrapper>
         {communities.map((item) => (
           <CommunityCard
-            key={item.id}
+            key={item.raw}
             item={item}
             checked={allChecked}
             communityStyle={communityStyle}

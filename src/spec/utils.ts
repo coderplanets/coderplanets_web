@@ -137,5 +137,6 @@ export type TCommunitySetterStyle =
   | 'normal'
   | 'lang'
   | 'framework'
+  | 'database'
   | 'devOps'
   | 'design'

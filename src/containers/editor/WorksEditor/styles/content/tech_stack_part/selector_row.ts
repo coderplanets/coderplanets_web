@@ -27,7 +27,7 @@ export const Title = styled.div`
   margin-top: 7px;
 `
 export const AddBlock = styled(Block)`
-  margin-top: -2.5px;
+  margin-top: -2px;
 `
 export const AddButton = styled.div`
   ${css.size(23)};
