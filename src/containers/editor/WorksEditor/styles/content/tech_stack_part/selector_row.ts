@@ -26,3 +26,20 @@ export const Title = styled.div`
   font-size: 13px;
   margin-top: 7px;
 `
+export const AddBlock = styled(Block)`
+  margin-top: -2.5px;
+`
+export const AddButton = styled.div`
+  ${css.size(23)};
+  ${css.flex('align-both')};
+  background: #00343e;
+  font-size: 18px;
+  color: ${theme('thread.articleDigest')};
+  padding-bottom: 2px;
+
+  ${Block}:hover & {
+    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+  }
+  transition: color 0.1s;
+`

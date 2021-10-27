@@ -11,7 +11,7 @@ import { markStates, toJS } from '@/utils/mobx'
 import { mockCommunities } from '@/utils/mock'
 
 import type { TCommunitiesList, TTagsList } from './spec'
-import { TAG_VIEW, COMMUNITY_VIEW, COMMUNITY_ACTION, TYPE } from './constant'
+import { TAG_VIEW, COMMUNITY_VIEW, TYPE } from './constant'
 import { Community, Tag } from '@/model'
 
 /* eslint-disable-next-line */
@@ -31,10 +31,6 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
   communityView: T.optional(
     T.enumeration(values(COMMUNITY_VIEW)),
     COMMUNITY_VIEW.DEFAULT,
-  ),
-  communityAction: T.optional(
-    T.enumeration(values(COMMUNITY_ACTION)),
-    COMMUNITY_ACTION.MIRROR,
   ),
   // communities states
   communitySearchValue: T.optional(T.string, ''),

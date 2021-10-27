@@ -1,5 +1,7 @@
 import { FC, memo } from 'react'
 
+import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
+
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import NoticeBar from '@/widgets/NoticeBar'
 
@@ -20,6 +22,8 @@ const TechStackPart: FC = () => {
 
   return (
     <Wrapper>
+      <CommunityTagSetter selectedCommunity={{ raw: '' }} />
+
       <NoticeBar
         type="info"
         content="在技术社区，分享技术栈会受到更多关注和欢迎。后续在相关子社区以及统计页面等也会得到更多的提及。"

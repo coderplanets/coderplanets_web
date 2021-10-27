@@ -1,5 +1,5 @@
 import { FC, memo } from 'react'
-import { isEmpty } from 'ramda'
+import { isEmpty, filter } from 'ramda'
 
 import type { TCommunity } from '@/spec'
 import CustomScroller from '@/widgets/CustomScroller'
@@ -10,11 +10,15 @@ import type { TCommunitiesList } from '../spec'
 import SearchBox from './SearchBox'
 import List from './List'
 
-import { Wrapper, InnerWrapper, NoticeWrapper } from '../styles/tag_setter/body'
+import { Wrapper, InnerWrapper } from '../styles/tag_setter/body'
 
 type TProps = {
   communitiesList: TCommunitiesList
   onCommunitySelect: (community: TCommunity, select: boolean) => void
+}
+
+const isValid = (communities: TCommunity[]): boolean => {
+  return filter((c) => !!c.raw, communities).length !== 0
 }
 
 const Body: FC<TProps> = ({ communitiesList, onCommunitySelect }) => {
@@ -31,22 +35,19 @@ const Body: FC<TProps> = ({ communitiesList, onCommunitySelect }) => {
     <Wrapper>
       <InnerWrapper>
         <SearchBox searchValue={searchValue} />
-
-        <NoticeWrapper>
-          <NoticeBar
-            type="notice"
-            content="内测阶段所有人均可发布内容到首页。若测试请发布到「黑洞」。发布恶俗/恶意内容到社区，账号本身将进入「黑洞」，谢谢理解。"
-            noBg
-          />
-        </NoticeWrapper>
-
+        <NoticeBar
+          type="notice"
+          content="内测阶段所有人均可发布内容到首页。若测试请发布到「黑洞」。发布恶俗/恶意内容到社区，账号本身将进入「黑洞」，谢谢理解。"
+          bottom={20}
+          noBg
+        />
         <CustomScroller
           direction="vertical"
           height="250px"
           showShadow={false}
           autoHide={false}
         >
-          {!isEmpty(selectedCommunities) && (
+          {isValid(selectedCommunities) && (
             <List
               title="目标社区"
               communities={selectedCommunities}

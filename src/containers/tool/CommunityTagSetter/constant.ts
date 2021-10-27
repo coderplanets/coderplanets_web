@@ -1,4 +1,4 @@
-import { TTagView, TCommunityView, TCommunityAction, TType } from './spec'
+import { TTagView, TCommunityView, TType } from './spec'
 
 export const TYPE = {
   MOVE_COMMUNITY: 'move-community' as TType,
@@ -21,9 +21,4 @@ export const COMMUNITY_VIEW = {
   SEARCH_ERROR: 'search-error' as TCommunityView,
   RESULT: 'result' as TCommunityView,
   DEFAULT: 'default' as TCommunityView,
-}
-
-export const COMMUNITY_ACTION = {
-  MIRROR: 'mirror' as TCommunityAction,
-  MOVE: 'move' as TCommunityAction,
 }

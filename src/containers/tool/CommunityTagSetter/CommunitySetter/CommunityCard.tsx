@@ -38,7 +38,7 @@ const Community: FC<TProps> = ({
       <Intro>
         <Title>
           <Name>{item.title}</Name>
-          {item.title.length < 8 && (
+          {item?.title?.length < 8 && (
             <>
               <DotDivider space={5} />
               <Raw>{item.raw}</Raw>
@@ -56,7 +56,7 @@ const Community: FC<TProps> = ({
             />
           </CheckWrapper>
         </Title>
-        {item.title.length >= 8 && (
+        {item?.title?.length >= 8 && (
           <>
             <Raw>{item.raw}</Raw>
           </>

@@ -23,7 +23,8 @@ export const Input = styled(BaseInput)`
   text-align: center;
   padding: 3px 15px;
   height: 45px;
-  width: auto;
+  width: calc(100% - 70px);
+  margin-left: 35px;
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 6px;

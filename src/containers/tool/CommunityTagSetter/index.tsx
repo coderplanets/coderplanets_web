@@ -40,22 +40,15 @@ const CommunityTagSetterContainer: FC<TProps> = ({
 }) => {
   useInit(store, selectedCommunity)
 
-  const {
-    show,
-    type,
-    tagView,
-    communityView,
-    communityAction,
-    communitiesList,
-    tagsList,
-  } = store
+  const { show, type, tagView, communityView, communitiesList, tagsList } =
+    store
 
   return (
     <Modal width="520px" show={show} onClose={onClose} showCloseBtn>
       {type === TYPE.SELECT_COMMUNITY && (
         <CommunitySetter
+          type={type}
           view={communityView}
-          action={communityAction}
           communitiesList={communitiesList}
           onCommunitySelect={(community, checked) => {
             toggleCommunity(community, checked)
