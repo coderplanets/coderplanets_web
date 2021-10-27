@@ -8,6 +8,7 @@ import {
   DatabaseIcon,
   DesignIcon,
   Title,
+  Spliter,
 } from '../../styles/content/tech_stack_part/selector_header'
 
 type TProps = {
@@ -39,6 +40,7 @@ const SelectorHeader: FC<TProps> = ({ title }) => {
     <Wrapper>
       <Icon title={title} />
       <Title>{title}</Title>
+      <Spliter />
     </Wrapper>
   )
 }

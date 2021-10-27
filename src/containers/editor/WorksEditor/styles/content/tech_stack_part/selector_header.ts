@@ -12,6 +12,16 @@ export const Wrapper = styled.div`
   ${css.flexColumn('align-start')};
   width: 150px;
   margin-top: 26px;
+  position: relative;
+`
+export const Spliter = styled.div`
+  position: absolute;
+  background: ${theme('thread.articleDigest')};
+  width: 1px;
+  height: 35px;
+  top: 4px;
+  right: 32px;
+  opacity: 0.5;
 `
 export const CodeIcon = styled(CodeSVG)`
   ${css.size(23)};

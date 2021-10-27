@@ -43,6 +43,7 @@ export const Logo = styled(CommunityFaceLogo)`
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
+  ${css.cutRest('64px')};
   font-size: 13px;
   margin-top: 7px;
 `
