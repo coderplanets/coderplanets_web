@@ -10,8 +10,8 @@ import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 import { mockCommunities } from '@/utils/mock'
 
-import type { TCommunitiesList, TTagsList } from './spec'
-import { TAG_VIEW, COMMUNITY_VIEW, TYPE } from './constant'
+import type { TCommunitiesList, TTagsList, TTexts } from './spec'
+import { TAG_VIEW, COMMUNITY_VIEW, COMMUNITY_STYLE, TYPE } from './constant'
 import { Community, Tag } from '@/model'
 
 /* eslint-disable-next-line */
@@ -38,6 +38,11 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
   selectedCommunities: T.optional(T.array(Community), []),
   searchedCommunities: T.optional(T.array(Community), []),
   commonUsedCommunities: T.optional(T.array(Community), mockCommunities(5)),
+
+  communityStyle: T.optional(
+    T.enumeration(values(COMMUNITY_STYLE)),
+    COMMUNITY_STYLE.NORMAL,
+  ),
 
   // tags states
   tagsLoading: T.optional(T.boolean, false),
@@ -96,6 +101,54 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
     get canActOnSeleted(): boolean {
       // if (self.type === TYPE.M)
       return false
+    },
+
+    get selectCommunityTexts(): TTexts {
+      switch (self.communityStyle) {
+        case COMMUNITY_STYLE.LANG: {
+          return {
+            header: '请选择编程语言',
+            searchPlaceholder: '// 搜索编程语言',
+            notice: null,
+            commonUsedHint: '常用编程语言',
+          }
+        }
+        default: {
+          return {
+            header: '请选择子社区',
+            searchPlaceholder: '// 搜索目标社区',
+            notice:
+              '内测阶段所有人均可发布内容到首页。若测试请发布到「黑洞」。发布恶俗/恶意内容到社区，账号本身将进入「黑洞」，谢谢理解。',
+            commonUsedHint: '常用子社区',
+          }
+        }
+      }
+    },
+
+    get texts(): TTexts {
+      const slf = self as TStore
+
+      switch (slf.type) {
+        case TYPE.MIRROR_COMMUNITY: {
+          return {
+            header: '镜像到其他社区',
+            searchPlaceholder: '// 搜索目标社区',
+            commonUsedHint: '常用子社区',
+            notice: '镜像操作会同时保留原社区和目标社区标签，互不干扰。',
+          }
+        }
+        case TYPE.SELECT_COMMUNITY: {
+          return slf.selectCommunityTexts
+        }
+        default: {
+          return {
+            header: '移动到其他社区',
+            searchPlaceholder: '// 搜索目标社区',
+            commonUsedHint: '常用子社区',
+            notice: '移动操作会从原社区中删除相关内容，只保留目标社区信息。',
+          }
+        }
+      }
     },
   }))
   .actions((self) => ({

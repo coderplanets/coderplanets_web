@@ -1,11 +1,12 @@
 import { FC, memo } from 'react'
 
-import type { TCommunity } from '@/spec'
 import { cutRest } from '@/utils/helper'
 
 import { SpaceGrow } from '@/widgets/Common'
 import Checker from '@/widgets/Checker'
 import DotDivider from '@/widgets/DotDivider'
+
+import type { TProps as TBaseProps } from './index'
 
 // import { TAG_VIEW } from '../constant'
 import {
@@ -17,16 +18,11 @@ import {
   Raw,
   Digest,
   CheckWrapper,
-} from '../styles/community_setter/community_card'
+} from '../../styles/community_setter/community_card/normal'
 
-type TProps = {
-  item: TCommunity
-  checked?: boolean
-  canActOnSeleted: boolean
-  onCommunitySelect: (community: TCommunity, select: boolean) => void
-}
+type TProps = Omit<TBaseProps, 'communityStyle'>
 
-const Community: FC<TProps> = ({
+const CommunityCard: FC<TProps> = ({
   item,
   canActOnSeleted,
   checked = false,
@@ -70,4 +66,4 @@ const Community: FC<TProps> = ({
   )
 }
 
-export default memo(Community)
+export default memo(CommunityCard)

@@ -11,7 +11,9 @@ import type {
   TCommunity,
   TThread,
   TTag,
+  TCommunitySetterStyle,
 } from '@/spec'
+
 import { TAG_COLOR_ORDER } from '@/config'
 import { TYPE, EVENT, THREAD } from '@/constant'
 
@@ -225,8 +227,10 @@ export const setArticleTag = (
   send(EVENT.SET_TAG, { community, thread, tags })
 }
 
-export const selectCommunity = (): void => {
-  send(EVENT.SELECT_COMMUNITY)
+export const selectCommunity = (
+  communityStyle?: TCommunitySetterStyle,
+): void => {
+  send(EVENT.SELECT_COMMUNITY, { communityStyle })
 }
 
 export const errRescue = ({

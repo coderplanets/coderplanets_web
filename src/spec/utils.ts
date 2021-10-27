@@ -132,3 +132,10 @@ export type TSelectOption = {
   label: string
   desc?: string
 }
+
+export type TCommunitySetterStyle =
+  | 'normal'
+  | 'lang'
+  | 'framework'
+  | 'devOps'
+  | 'design'

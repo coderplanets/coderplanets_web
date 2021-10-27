@@ -23,7 +23,7 @@ type TProps = {
 const SelectorRow: FC = () => {
   return (
     <Wrapper>
-      <AddBlock onClick={() => selectCommunity()}>
+      <AddBlock onClick={() => selectCommunity('lang')}>
         <AddButton>+</AddButton>
         <Title>添加</Title>
       </AddBlock>

@@ -1,4 +1,5 @@
-import { TTagView, TCommunityView, TType } from './spec'
+import type { TCommunitySetterStyle } from '@/spec'
+import type { TTagView, TCommunityView, TType } from './spec'
 
 export const TYPE = {
   MOVE_COMMUNITY: 'move-community' as TType,
@@ -21,4 +22,12 @@ export const COMMUNITY_VIEW = {
   SEARCH_ERROR: 'search-error' as TCommunityView,
   RESULT: 'result' as TCommunityView,
   DEFAULT: 'default' as TCommunityView,
+}
+
+export const COMMUNITY_STYLE = {
+  NORMAL: 'normal' as TCommunitySetterStyle,
+  LANG: 'lang' as TCommunitySetterStyle,
+  FRAMEWORK: 'framework' as TCommunitySetterStyle,
+  DEVOPS: 'devOps' as TCommunitySetterStyle,
+  DESIGN: 'design' as TCommunitySetterStyle,
 }

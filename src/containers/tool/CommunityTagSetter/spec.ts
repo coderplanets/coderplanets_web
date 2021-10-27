@@ -33,3 +33,10 @@ export type TTagsList = {
   tags: TTag[]
   selectedTags: TTag[]
 }
+
+export type TTexts = {
+  header: string
+  searchPlaceholder: string
+  notice?: string
+  commonUsedHint: string
+}

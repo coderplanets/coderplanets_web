@@ -2,20 +2,19 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
 import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
 export const Wrapper = styled.div<{ withHover: boolean }>`
-  ${css.flex()};
-  width: 235px;
-  height: 80px;
+  ${css.flex('align-center')};
+  width: auto;
+  height: 30px;
   background: ${theme('modal.bg')};
   margin-bottom: 15px;
   margin-right: 10px;
   border: ${({ withHover }) => (withHover ? '1px solid' : 'none')};
   border-color: transparent;
   border-radius: 10px;
-  padding: 10px;
+  padding: 3px 6px;
   padding-right: 2px;
 
   &:hover {
@@ -24,13 +23,11 @@ export const Wrapper = styled.div<{ withHover: boolean }>`
   }
 `
 export const Logo = styled(CommunityFaceLogo)`
-  ${css.size(30)};
-  margin-top: 5px;
-  border-radius: 5px;
+  ${css.size(15)};
 `
 export const Intro = styled.div`
   flex-grow: 1;
-  margin-left: 15px;
+  margin-left: 8px;
 `
 export const Title = styled.div`
   ${css.flex('align-center')};
@@ -39,21 +36,6 @@ export const Title = styled.div`
 export const Name = styled.div`
   font-size: 15px;
   color: ${theme('thread.articleTitle')};
-`
-export const Raw = styled.div`
-  font-size: 13px;
-  color: ${theme('thread.articleDigest')};
-  position: relative;
-  padding-left: 5px;
-
-  &:before {
-    content: '/';
-    position: absolute;
-    top: 1px;
-    left: 0;
-    font-size: 11px;
-    margin-right: 2px;
-  }
 `
 export const Digest = styled.div`
   margin-top: 3px;

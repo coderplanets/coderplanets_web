@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { isEmpty, reject } from 'ramda'
+import { isEmpty } from 'ramda'
 
 import type { TCommunity, TTag, TInput, TThread } from '@/spec'
 import { errRescue } from '@/utils/helper'
@@ -8,7 +8,7 @@ import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
 import S from './schema'
-import { TYPE } from './constant'
+import { TYPE, COMMUNITY_STYLE } from './constant'
 import type { TStore } from './store'
 import type { TType, TTagView } from './spec'
 
@@ -133,22 +133,24 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.MIRROR_TO_COMMUNITY),
     action: () => {
-      console.log('收到 MIRROR_TO_COMMUNITY')
+      log('收到 MIRROR_TO_COMMUNITY')
       store.mark({ show: true, type: TYPE.MIRROR_COMMUNITY })
     },
   },
   {
     match: asyncRes(EVENT.MOVE_TO_COMMUNITY),
     action: () => {
-      console.log('收到 MOVE_TO_COMMUNITY')
+      log('收到 MOVE_TO_COMMUNITY')
       store.mark({ show: true, type: TYPE.MOVE_COMMUNITY })
     },
   },
   {
     match: asyncRes(EVENT.SELECT_COMMUNITY),
-    action: () => {
-      console.log('收到 SELECT_COMMUNITY')
-      store.mark({ show: true, type: TYPE.SELECT_COMMUNITY })
+    action: (data) => {
+      log('收到 SELECT_COMMUNITY: ', data)
+      const communityStyle =
+        data[EVENT.SELECT_COMMUNITY].communityStyle || COMMUNITY_STYLE.NORMAL
+      store.mark({ show: true, type: TYPE.SELECT_COMMUNITY, communityStyle })
     },
   },
   {

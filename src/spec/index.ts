@@ -62,6 +62,7 @@ export type {
   TEditValue,
   TSubmitState,
   TSelectOption,
+  TCommunitySetterStyle,
 } from './utils'
 
 export type { TGQLError } from './graphql'
