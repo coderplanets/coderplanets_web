@@ -27,8 +27,8 @@ const pagedArticleTags = gql`
 `
 
 const searchCommunities = gql`
-  query($title: String!) {
-    searchCommunities(title: $title) {
+  query($title: String!, $category: String) {
+    searchCommunities(title: $title, category: $category) {
       entries {
         ${F.community}
       }

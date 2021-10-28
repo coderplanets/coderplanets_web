@@ -104,8 +104,14 @@ const loadArticleTags = (community: TCommunity, thread: TThread): void => {
  * @private
  */
 const doSearchCommunities = () => {
-  const { communitySearchValue: title } = store
+  const { communitySearchValue: title, communityStyle } = store
+
   const args = { title }
+
+  if (communityStyle !== COMMUNITY_STYLE.NORMAL) {
+    // @ts-ignore
+    args.category = communityStyle
+  }
 
   if (!isEmpty(title)) {
     store.mark({ communitiesSearching: true })
