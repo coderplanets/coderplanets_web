@@ -10,19 +10,10 @@ import type { TWorks, TSelectOption } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
 
-import { SocialInfo } from '@/model'
+import { SocialInfo, Community } from '@/model'
 
-import type { TInputData } from './spec'
-import { STEP, PROFIT_MODE, WORKING_MODE } from './constant'
-
-const SOCIAL_OPTIONS = [
-  { value: 'github', label: 'Github' },
-  { value: 'twitter', label: 'Twitter' },
-  { value: 'blog', label: 'Blog' },
-  { value: 'wechat', label: '微信' },
-  { value: 'weibo', label: '微博' },
-  { value: '邮箱', label: 'E-mail' },
-]
+import type { TInputData, TTechCommunities } from './spec'
+import { STEP, PROFIT_MODE, WORKING_MODE, SOCIAL_OPTIONS } from './constant'
 
 const WorksEditor = T.model('WorksEditor', {
   step: T.optional(
@@ -40,8 +31,25 @@ const WorksEditor = T.model('WorksEditor', {
     { platform: 'github', link: 'https://github.com/' },
   ]),
   cities: T.optional(T.array(T.string), []),
+
+  // used techstacks
+  activeTechCategory: T.optional(T.string, 'lang'),
+  lang: T.optional(T.array(Community), []),
+  framework: T.optional(T.array(Community), []),
+  database: T.optional(T.array(Community), []),
+  devOps: T.optional(T.array(Community), []),
+  design: T.optional(T.array(Community), []),
 })
   .views((self) => ({
+    get techCommunities(): TTechCommunities {
+      return {
+        lang: toJS(self.lang),
+        framework: toJS(self.framework),
+        database: toJS(self.database),
+        devOps: toJS(self.devOps),
+        design: toJS(self.design),
+      }
+    },
     get previewData(): TWorks {
       const basic = pick(['title', 'desc'], self)
 

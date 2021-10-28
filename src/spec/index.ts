@@ -62,6 +62,7 @@ export type {
   TEditValue,
   TSubmitState,
   TSelectOption,
+  TWorksTechStack,
   TCommunitySetterStyle,
 } from './utils'
 

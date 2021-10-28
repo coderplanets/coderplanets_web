@@ -2,12 +2,11 @@ import { FC, memo } from 'react'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 
-import { selectCommunity } from '@/utils/helper'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import NoticeBar from '@/widgets/NoticeBar'
 
-import { mockCommunities } from '@/utils/mock'
-
+import type { TTechCommunities } from '../../spec'
+import { TECHSTACK_CATEGORYS } from '../../constant'
 import SelectorHeader from './SelectorHeader'
 import SelectorRow from './SelectorRow'
 
@@ -18,14 +17,21 @@ import {
   Footer,
 } from '../../styles/content/tech_stack_part'
 
-import { nextStep } from '../../logic'
+import { nextStep, setActiveTechCategory, addTechStack } from '../../logic'
 
-const TechStackPart: FC = () => {
+type TProps = {
+  techCommunities: TTechCommunities
+}
+
+const TechStackPart: FC<TProps> = ({ techCommunities }) => {
   const valid = true
 
   return (
     <Wrapper>
-      <CommunityTagSetter selectedCommunity={{ raw: '' }} />
+      <CommunityTagSetter
+        selectedCommunity={{ raw: '' }}
+        onCommunitySelect={addTechStack}
+      />
 
       <NoticeBar
         type="info"
@@ -36,36 +42,15 @@ const TechStackPart: FC = () => {
         noBg
       />
       <TechsWrapper>
-        <TechBlock>
-          <SelectorHeader title="编程语言" />
-          <SelectorRow
-            onAdd={() => selectCommunity('lang')}
-            techs={mockCommunities(2)}
-          />
-        </TechBlock>
-
-        <TechBlock>
-          <SelectorHeader title="框架" />
-          <SelectorRow
-            onAdd={() => selectCommunity('framework')}
-            techs={mockCommunities(3)}
-          />
-        </TechBlock>
-
-        <TechBlock>
-          <SelectorHeader title="数据库" />
-          <SelectorRow onAdd={() => selectCommunity('database')} />
-        </TechBlock>
-
-        <TechBlock>
-          <SelectorHeader title="DevOps" />
-          <SelectorRow onAdd={() => selectCommunity('devOps')} />
-        </TechBlock>
-
-        <TechBlock>
-          <SelectorHeader title="设计" />
-          <SelectorRow onAdd={() => selectCommunity('design')} />
-        </TechBlock>
+        {TECHSTACK_CATEGORYS.map((category) => (
+          <TechBlock key={category.raw}>
+            <SelectorHeader title={category.title} />
+            <SelectorRow
+              onAdd={() => setActiveTechCategory(category.raw)}
+              techs={techCommunities[category.raw]}
+            />
+          </TechBlock>
+        ))}
       </TechsWrapper>
       <Footer>
         {valid && (

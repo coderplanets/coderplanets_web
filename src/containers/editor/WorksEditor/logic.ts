@@ -1,8 +1,14 @@
 import { useEffect } from 'react'
 
-import type { TSelectOption, TEditValue } from '@/spec'
+import type {
+  TSelectOption,
+  TEditValue,
+  TCommunity,
+  TWorksTechStack,
+} from '@/spec'
 
 import { scrollToTop } from '@/utils/dom'
+import { selectCommunity } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { updateEditing } from '@/utils/mobx'
 
@@ -15,6 +21,21 @@ let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:WorksEditor')
+
+// 当前添加的技术栈类别，因为 CommunitySetter 是一个 container, 只有一个
+export const setActiveTechCategory = (c: TWorksTechStack): void => {
+  store.mark({ activeTechCategory: c })
+  selectCommunity(c)
+}
+
+export const addTechStack = (tech: TCommunity): void => {
+  const { activeTechCategory } = store
+
+  log('addTechStack category: ', activeTechCategory)
+  log('addTechStack tech: ', tech)
+
+  store.mark({ [activeTechCategory]: { tech, ...store[activeTechCategory] } })
+}
 
 export const inputOnChange = (e: TEditValue, key: string): void => {
   updateEditing(store, key, e)

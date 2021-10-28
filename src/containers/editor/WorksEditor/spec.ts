@@ -1,3 +1,5 @@
+import type { TCommunity } from '@/spec'
+
 export type TStep = '0' | '1' | '2' | '3' | '4'
 
 export type TSocialInfo = {
@@ -13,4 +15,12 @@ export type TInputData = {
   profitMode: string
   workingMode: string
   socialInfo: TSocialInfo[]
+}
+
+export type TTechCommunities = {
+  lang: TCommunity[]
+  framework: TCommunity[]
+  database: TCommunity[]
+  devOps: TCommunity[]
+  design: TCommunity[]
 }
