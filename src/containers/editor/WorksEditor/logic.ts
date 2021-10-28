@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { uniqBy, prop, reject } from 'ramda'
 
 import type {
   TSelectOption,
@@ -29,12 +30,25 @@ export const setActiveTechCategory = (c: TWorksTechStack): void => {
 }
 
 export const addTechStack = (tech: TCommunity): void => {
-  const { activeTechCategory } = store
+  const { activeTechCategory, techCommunities } = store
 
-  log('addTechStack category: ', activeTechCategory)
-  log('addTechStack tech: ', tech)
+  const techstacks = uniqBy(
+    prop('raw'),
+    techCommunities[activeTechCategory].concat(tech),
+  )
 
-  store.mark({ [activeTechCategory]: { tech, ...store[activeTechCategory] } })
+  store.mark({ [activeTechCategory]: techstacks })
+}
+
+export const removeTechStack = (tech: TCommunity): void => {
+  const { activeTechCategory, techCommunities } = store
+
+  const techstacks = reject(
+    (t: TCommunity) => t.raw === tech.raw,
+    techCommunities[activeTechCategory],
+  )
+
+  store.mark({ [activeTechCategory]: techstacks })
 }
 
 export const inputOnChange = (e: TEditValue, key: string): void => {

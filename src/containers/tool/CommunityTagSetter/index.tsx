@@ -51,8 +51,6 @@ const CommunityTagSetterContainer: FC<TProps> = ({
     texts,
   } = store
 
-  console.log('# communitiesList: ', communitiesList)
-
   return (
     <Modal width="520px" show={show} onClose={onClose} showCloseBtn>
       {type === TYPE.SELECT_COMMUNITY && (

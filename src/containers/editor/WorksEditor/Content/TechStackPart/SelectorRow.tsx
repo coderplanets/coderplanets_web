@@ -10,6 +10,7 @@ import {
   AddButton,
   DeleteHint,
 } from '../../styles/content/tech_stack_part/selector_row'
+import { removeTechStack } from '../../logic'
 
 type TProps = {
   techs?: TCommunity[]
@@ -24,7 +25,7 @@ const SelectorRow: FC<TProps> = ({ onAdd, techs = [] }) => {
         <Block key={t.raw}>
           <Logo src={t.logo} raw={t.raw} />
           <Title>{t.title}</Title>
-          <DeleteHint>删除</DeleteHint>
+          <DeleteHint onClick={() => removeTechStack(t)}>删除</DeleteHint>
         </Block>
       ))}
       <AddBlock onClick={() => onAdd()}>
