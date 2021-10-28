@@ -21,6 +21,7 @@ export type TLayout = 'create-works' | 'works' | 'guide-contribute'
 export type TCommunitiesList = {
   canActOnSeleted: boolean
   searching: boolean
+  searched: boolean
   searchValue: string
   selectedCommunities: TCommunity[]
   searchedCommunities: TCommunity[]
@@ -39,4 +40,5 @@ export type TTexts = {
   searchPlaceholder: string
   notice?: string
   commonUsedHint: string
+  notFoundHint?: string
 }

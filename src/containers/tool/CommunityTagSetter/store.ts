@@ -35,6 +35,7 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
   // communities states
   communitySearchValue: T.optional(T.string, ''),
   communitiesSearching: T.optional(T.boolean, false),
+  communitiesSearched: T.optional(T.boolean, false),
   selectedCommunities: T.optional(T.array(Community), []),
   searchedCommunities: T.optional(T.array(Community), []),
   // commonUsedCommunities: T.optional(T.array(Community), mockCommunities(5)),
@@ -69,6 +70,7 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
       return {
         canActOnSeleted: slf.canActOnSeleted,
         searching: slf.communitiesSearching,
+        searched: slf.communitiesSearched,
         searchValue: slf.communitySearchValue,
         selectedCommunities,
         // searchedCommunities: toJS(self.searchedCommunities),
@@ -120,6 +122,8 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
             searchPlaceholder: '// 搜索编程语言',
             notice: null,
             commonUsedHint: '常用编程语言',
+            notFoundHint:
+              '抱歉，未找到相关编程语言，请在该评论区或子社区 /feedback 中反馈。',
           }
         }
         case COMMUNITY_STYLE.FRAMEWORK: {
@@ -128,6 +132,8 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
             searchPlaceholder: '// 搜索框架 / 库',
             notice: null,
             commonUsedHint: '常用框架 / 库',
+            notFoundHint:
+              '抱歉，未找到相关框架 / 库，请在该评论区或子社区 /feedback 中反馈。',
           }
         }
         case COMMUNITY_STYLE.DATABASE: {
@@ -136,6 +142,8 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
             searchPlaceholder: '// 搜索数据库',
             notice: null,
             commonUsedHint: '常用数据库',
+            notFoundHint:
+              '抱歉，未找到相关数据库，请在该评论区或子社区 /feedback 中反馈。',
           }
         }
         case COMMUNITY_STYLE.DEVOPS: {
@@ -144,6 +152,8 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
             searchPlaceholder: '// 搜索工具 / 平台',
             notice: null,
             commonUsedHint: '常用工具 / 平台',
+            notFoundHint:
+              '抱歉，未找到相关工具 / 平台，请在该评论区或子社区 /feedback 中反馈。',
           }
         }
         case COMMUNITY_STYLE.DESIGN: {
@@ -152,6 +162,8 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
             searchPlaceholder: '// 设计工具',
             notice: null,
             commonUsedHint: '设计工具',
+            notFoundHint:
+              '抱歉，未找到相关设计工具，请在该评论区或子社区 /feedback 中反馈。',
           }
         }
         default: {
@@ -161,6 +173,8 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
             notice:
               '内测阶段所有人均可发布内容到首页。若测试请发布到「黑洞」。发布恶俗/恶意内容到社区，账号本身将进入「黑洞」，谢谢理解。',
             commonUsedHint: '常用子社区',
+            notFoundHint:
+              '抱歉，未找到相关子社区，请在该评论区或子社区 /feedback 中反馈。',
           }
         }
       }

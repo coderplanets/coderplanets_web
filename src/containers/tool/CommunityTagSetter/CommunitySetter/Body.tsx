@@ -33,6 +33,7 @@ const Body: FC<TProps> = ({
   const {
     canActOnSeleted,
     searching,
+    searched,
     searchValue,
     searchedCommunities,
     commonUsedCommunities,
@@ -68,6 +69,15 @@ const Body: FC<TProps> = ({
           )}
 
           {searching && <LavaLampLoading size="small" />}
+          {searched && isEmpty(searchedCommunities) && (
+            <NoticeBar
+              type="notice"
+              content={texts.notFoundHint}
+              top={-15}
+              bottom={20}
+              noBg
+            />
+          )}
 
           {isEmpty(searchValue) && (
             <List

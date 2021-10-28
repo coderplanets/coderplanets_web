@@ -82,6 +82,7 @@ export const onClose = (): void => {
     show: false,
     communitySearchValue: '',
     communitiesSearching: false,
+    communitiesSearched: false,
     searchedCommunities: [],
     selectedCommunities: [],
   })
@@ -112,6 +113,7 @@ const doSearchCommunities = () => {
     store.mark({ communitiesSearching: false })
   }
 
+  store.mark({ communitiesSearched: false })
   sr71$.query(S.searchCommunities, args)
 }
 
@@ -121,7 +123,11 @@ const DataSolver = [
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: { entries } }) => {
-      store.mark({ searchedCommunities: entries, communitiesSearching: false })
+      store.mark({
+        searchedCommunities: entries,
+        communitiesSearching: false,
+        communitiesSearched: true,
+      })
     },
   },
   {
