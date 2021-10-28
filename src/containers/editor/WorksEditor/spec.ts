@@ -15,6 +15,7 @@ export type TInputData = {
   profitMode: string
   workingMode: string
   socialInfo: TSocialInfo[]
+  techstacks: string[]
 }
 
 export type TTechCommunities = {

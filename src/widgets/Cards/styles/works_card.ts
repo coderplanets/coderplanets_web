@@ -94,6 +94,7 @@ export const Divider = styled.div`
 `
 export const BuildWithWrapper = styled.div`
   ${css.flex('align-center')};
+  margin-left: 3px;
   /* padding: 2px 5px; */
   /* background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0); */
   margin-top: -4px;

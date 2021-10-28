@@ -4,7 +4,7 @@
  */
 
 import { types as T, Instance } from 'mobx-state-tree'
-import { pick, reject, includes, findIndex } from 'ramda'
+import { pick, reject, includes, findIndex, keys } from 'ramda'
 
 import type { TWorks, TSelectOption, TCommunity, TTechStack } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
@@ -73,14 +73,26 @@ const WorksEditor = T.model('WorksEditor', {
     },
 
     get inputData(): TInputData {
+      const slf = self as TStore
+      const { socialInfo, cities, techCommunities } = slf
       const basic = pick(
         ['title', 'desc', 'homeLink', 'profitMode', 'workingMode'],
-        self,
+        slf,
       )
-      const socialInfo = toJS(self.socialInfo)
-      const cities = toJS(self.cities)
 
-      return { socialInfo, cities, ...basic }
+      let techstacks = []
+
+      keys(techCommunities).forEach((key) => {
+        const tech = techCommunities[key].map((t) => t.raw)
+        techstacks = techstacks.concat(tech)
+      })
+
+      return {
+        techstacks,
+        socialInfo: toJS(socialInfo),
+        cities: toJS(cities),
+        ...basic,
+      }
     },
 
     get socialOptions(): TSelectOption[] {
