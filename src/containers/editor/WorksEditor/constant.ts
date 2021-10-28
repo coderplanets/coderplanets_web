@@ -1,4 +1,4 @@
-import type { TWorksTechStack } from '@/spec'
+import type { TTechStackCategory } from '@/spec'
 import type { TStep } from './spec'
 
 export const STEP = {
@@ -34,22 +34,22 @@ export const SOCIAL_OPTIONS = [
 export const TECHSTACK_CATEGORYS = [
   {
     title: '编程语言',
-    raw: 'lang' as TWorksTechStack,
+    raw: 'lang' as TTechStackCategory,
   },
   {
     title: '框架',
-    raw: 'framework' as TWorksTechStack,
+    raw: 'framework' as TTechStackCategory,
   },
   {
     title: '数据库',
-    raw: 'database' as TWorksTechStack,
+    raw: 'database' as TTechStackCategory,
   },
   {
     title: 'devOps',
-    raw: 'devOps' as TWorksTechStack,
+    raw: 'devOps' as TTechStackCategory,
   },
   {
     title: '设计',
-    raw: 'disign' as TWorksTechStack,
+    raw: 'disign' as TTechStackCategory,
   },
 ]

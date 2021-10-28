@@ -1358,19 +1358,19 @@ export const mockWorks = () => {
     techStack: [
       {
         raw: 'javascript',
-        icon: `${ICON_BASE}/pl/javascript.svg`,
+        logo: `${ICON_BASE}/pl/javascript.svg`,
       },
       {
         raw: 'java',
-        icon: `${ICON_BASE}/pl/java.svg`,
+        logo: `${ICON_BASE}/pl/java.svg`,
       },
       {
         raw: 'elixir',
-        icon: `${ICON_BASE}/pl/elxiir.svg`,
+        logo: `${ICON_BASE}/pl/elxiir.svg`,
       },
       {
         raw: 'ruby',
-        icon: `${ICON_BASE}/pl/ruby.svg`,
+        logo: `${ICON_BASE}/pl/ruby.svg`,
       },
     ],
     upvotesCount: 99,

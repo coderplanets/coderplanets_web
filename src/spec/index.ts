@@ -62,7 +62,7 @@ export type {
   TEditValue,
   TSubmitState,
   TSelectOption,
-  TWorksTechStack,
+  TTechStackCategory,
   TCommunitySetterStyle,
 } from './utils'
 
@@ -80,6 +80,7 @@ export type {
   TRadar,
   TJob,
   TWorks,
+  TTechStack,
   TMeetup,
   TPagedWorks,
   TPagedMeetups,

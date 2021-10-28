@@ -133,11 +133,11 @@ export type TSelectOption = {
   desc?: string
 }
 
-export type TWorksTechStack =
+export type TTechStackCategory =
   | 'lang'
   | 'framework'
   | 'database'
   | 'devOps'
   | 'design'
 
-export type TCommunitySetterStyle = 'normal' | TWorksTechStack
+export type TCommunitySetterStyle = 'normal' | TTechStackCategory

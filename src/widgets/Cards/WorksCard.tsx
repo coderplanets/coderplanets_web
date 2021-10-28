@@ -14,6 +14,7 @@ import { THREAD } from '@/constant'
 
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+import { nilOrEmpty } from '@/utils/validator'
 
 import DigestSentence from '@/widgets/DigestSentence'
 import { SpaceGrow } from '@/widgets/Common'
@@ -107,23 +108,21 @@ const WorksCard: FC<TProps> = ({
               {item.tag.title}
             </IconText>
           )}
-          {item.platform && (
+          {/* {item.platform && (
             <Fragment>
               <DotDivider radius={4} space={8} /> {item.platform.title}
             </Fragment>
-          )}
-          {item.techStack && (
+          )} */}
+          {!nilOrEmpty(item.techStack) && (
             <Fragment>
-              <Divider />
+              {item.tag && <Divider />}
               <BuildWithWrapper>
                 {item.techStack.map((tech) => (
-                  <TechIcon key={tech.raw} src={tech.icon} />
+                  <TechIcon key={tech.raw} src={tech.logo} />
                 ))}
               </BuildWithWrapper>
             </Fragment>
           )}
-
-          {preview && <span>&nbsp;</span>}
 
           {!preview && (
             <Fragment>
@@ -140,6 +139,7 @@ const WorksCard: FC<TProps> = ({
           <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
             {commentsCount}
           </IconText>
+
           <SpaceGrow />
           {/* {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />} */}
         </FooterWrapper>

@@ -5,7 +5,7 @@ import type {
   TSelectOption,
   TEditValue,
   TCommunity,
-  TWorksTechStack,
+  TTechStackCategory,
 } from '@/spec'
 
 import { scrollToTop } from '@/utils/dom'
@@ -24,7 +24,7 @@ let store: TStore | undefined
 const log = buildLog('L:WorksEditor')
 
 // 当前添加的技术栈类别，因为 CommunitySetter 是一个 container, 只有一个
-export const setActiveTechCategory = (c: TWorksTechStack): void => {
+export const setActiveTechCategory = (c: TTechStackCategory): void => {
   store.mark({ activeTechCategory: c })
   selectCommunity(c)
 }

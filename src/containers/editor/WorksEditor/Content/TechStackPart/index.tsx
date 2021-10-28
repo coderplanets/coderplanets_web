@@ -26,8 +26,6 @@ type TProps = {
 const TechStackPart: FC<TProps> = ({ techCommunities }) => {
   const valid = true
 
-  console.log('## techCommunities: ', techCommunities)
-
   return (
     <Wrapper>
       <CommunityTagSetter

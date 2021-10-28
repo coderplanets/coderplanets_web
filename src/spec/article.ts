@@ -57,12 +57,13 @@ export type TPost = TBaseArticle & {
   digest?: string
 }
 
+export type TTechStack = { title?: string; logo: string; raw: string }
 export type TWorks = TBaseArticle & {
   cover?: string
   desc?: string
   tag?: { title: string }
   platform?: { title: string }
-  techStack?: { icon: string; raw: string }[]
+  techStack?: TTechStack[]
   isOSS?: boolean
   ossAddr?: string
   digest?: string

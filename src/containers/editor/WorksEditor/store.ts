@@ -6,7 +6,7 @@
 import { types as T, Instance } from 'mobx-state-tree'
 import { pick, reject, includes, findIndex } from 'ramda'
 
-import type { TWorks, TSelectOption } from '@/spec'
+import type { TWorks, TSelectOption, TCommunity, TTechStack } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
 
@@ -14,6 +14,14 @@ import { SocialInfo, Community } from '@/model'
 
 import type { TInputData, TTechCommunities } from './spec'
 import { STEP, PROFIT_MODE, WORKING_MODE, SOCIAL_OPTIONS } from './constant'
+
+const communities2Techs = (communities: TCommunity[]): TTechStack[] => {
+  return communities.map((c) => ({
+    title: c.title,
+    raw: c.raw,
+    logo: c.logo,
+  }))
+}
 
 const WorksEditor = T.model('WorksEditor', {
   step: T.optional(
@@ -42,10 +50,28 @@ const WorksEditor = T.model('WorksEditor', {
 })
   .views((self) => ({
     get previewData(): TWorks {
-      const basic = pick(['title', 'desc'], self)
+      const slf = self as TStore
+      const { techCommunities } = slf
+      const basic = pick(['title', 'desc'], slf)
 
-      return { id: '0', upvotesCount: 66, commentsCount: 99, ...basic }
+      const { lang, framework, database, devOps, design } = techCommunities
+
+      const techStack = []
+        .concat(communities2Techs(lang).slice(0, 2))
+        .concat(communities2Techs(framework).slice(0, 2))
+        .concat(communities2Techs(database).slice(0, 2))
+        .concat(communities2Techs(devOps).slice(0, 2))
+        .concat(communities2Techs(design).slice(0, 2))
+
+      return {
+        id: '0',
+        upvotesCount: 66,
+        commentsCount: 99,
+        techStack,
+        ...basic,
+      }
     },
+
     get inputData(): TInputData {
       const basic = pick(
         ['title', 'desc', 'homeLink', 'profitMode', 'workingMode'],

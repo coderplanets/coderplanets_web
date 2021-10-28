@@ -94,16 +94,16 @@ export const Divider = styled.div`
 `
 export const BuildWithWrapper = styled.div`
   ${css.flex('align-center')};
-  padding: 2px 5px;
-  background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0);
+  /* padding: 2px 5px; */
+  /* background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0); */
   margin-top: -4px;
 `
-const BaseBuildIcon = styled(Img)`
-  ${css.size(14)};
-`
-export const TechIcon = styled(BaseBuildIcon)`
-  margin-right: 5px;
-  filter: saturate(0.8);
+export const TechIcon = styled(Img)`
+  ${css.size(13)};
+  margin-right: 8px;
+  filter: saturate(0.5);
+  opacity: 0.8;
+  border-radius: 3px;
 
   ${Wrapper}:hover & {
     filter: saturate(1);
