@@ -60,13 +60,3 @@ export const TeamsWrapper = styled.div`
   margin-top: 15px;
   margin-left: 13px;
 `
-export const Footer = styled.div`
-  ${css.flex('align-both')};
-  width: 100%;
-  border-top: 2px solid;
-  border-top-color: #03343f;
-  margin-top: 35px;
-  padding-top: 20px;
-  margin-bottom: 60px;
-  margin-left: -20px;
-`

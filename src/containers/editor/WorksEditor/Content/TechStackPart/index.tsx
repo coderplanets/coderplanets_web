@@ -2,7 +2,6 @@ import { FC, memo } from 'react'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 
-import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import NoticeBar from '@/widgets/NoticeBar'
 
 import type { TTechCommunities } from '../../spec'
@@ -14,18 +13,15 @@ import {
   Wrapper,
   TechsWrapper,
   TechBlock,
-  Footer,
 } from '../../styles/content/tech_stack_part'
 
-import { nextStep, setActiveTechCategory, addTechStack } from '../../logic'
+import { setActiveTechCategory, addTechStack } from '../../logic'
 
 type TProps = {
   techCommunities: TTechCommunities
 }
 
 const TechStackPart: FC<TProps> = ({ techCommunities }) => {
-  const valid = true
-
   return (
     <Wrapper>
       <CommunityTagSetter
@@ -36,9 +32,9 @@ const TechStackPart: FC<TProps> = ({ techCommunities }) => {
       <NoticeBar
         type="info"
         content="在技术社区，分享技术栈会受到更多关注和欢迎。后续在相关子社区以及统计页面等也会得到更多的提及。"
-        top={10}
+        top={20}
         left={-8}
-        bottom={30}
+        bottom={20}
         noBg
       />
       <TechsWrapper>
@@ -52,13 +48,6 @@ const TechStackPart: FC<TProps> = ({ techCommunities }) => {
           </TechBlock>
         ))}
       </TechsWrapper>
-      <Footer>
-        {valid && (
-          <ArrowButton size="large" disabled={!valid} onClick={nextStep}>
-            下一步
-          </ArrowButton>
-        )}
-      </Footer>
     </Wrapper>
   )
 }

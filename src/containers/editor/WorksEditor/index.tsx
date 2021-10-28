@@ -8,18 +8,20 @@
 
 import { FC } from 'react'
 
+import { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
+
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Preview from './Preview'
-import Steps from './Steps'
+import StepsBar from './StepsBar'
 import Content from './Content'
+import Footer from './Footer'
 
 import type { TStore } from './store'
 import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'
-import { TMetric } from '@/spec'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:WorksEditor')
@@ -42,13 +44,14 @@ const WorksEditorContainer: FC<TProps> = ({
     previewData,
     socialOptions,
     techCommunities,
+    submitState,
   } = store
 
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         <Preview step={step} works={previewData} />
-        <Steps step={step} />
+        <StepsBar step={step} submitState={submitState} />
         <Content
           step={step}
           inputData={inputData}
@@ -56,6 +59,7 @@ const WorksEditorContainer: FC<TProps> = ({
           techCommunities={techCommunities}
           useTemplate={useTemplate}
         />
+        <Footer step={step} submitState={submitState} />
       </InnerWrapper>
     </Wrapper>
   )

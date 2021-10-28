@@ -1,18 +1,9 @@
 import { FC, memo, useEffect, useRef } from 'react'
 
-import { nilOrEmpty } from '@/utils/validator'
-import ArrowButton from '@/widgets/Buttons/ArrowButton'
-
 import type { TInputData } from '../spec'
-import CommonQuestions from './CommonQuestions'
 
-import {
-  Wrapper,
-  Input,
-  Label,
-  NextButtonWrapper,
-} from '../styles/content/name_part'
-import { inputOnChange, nextStep } from '../logic'
+import { Wrapper, Input, Title, Desc } from '../styles/content/name_part'
+import { inputOnChange } from '../logic'
 
 type TProps = {
   inputData: TInputData
@@ -20,7 +11,6 @@ type TProps = {
 
 const NamePart: FC<TProps> = ({ inputData }) => {
   const { title } = inputData
-  const valid = !nilOrEmpty(title)
   const ref = useRef(null)
 
   // TODO: autoFocus not working here, fix later
@@ -33,21 +23,13 @@ const NamePart: FC<TProps> = ({ inputData }) => {
 
   return (
     <Wrapper ref={ref}>
-      <Label>你（们）的作品名称是？</Label>
+      <Title>发布作品</Title>
+      <Desc>你（们）的作品名称是 ？</Desc>
       <Input
         value={title || ''}
         onChange={(e) => inputOnChange(e, 'title')}
         autoFocus
       />
-      {!valid && <CommonQuestions />}
-
-      {valid && (
-        <NextButtonWrapper>
-          <ArrowButton size="large" onClick={nextStep}>
-            下一步
-          </ArrowButton>
-        </NextButtonWrapper>
-      )}
     </Wrapper>
   )
 }

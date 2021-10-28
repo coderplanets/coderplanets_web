@@ -7,7 +7,6 @@ import { mockUsers } from '@/utils/mock'
 
 import Checker from '@/widgets/Checker'
 import Select from '@/widgets/Select'
-import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import Button from '@/widgets/Buttons/Button'
 import { Space, Br } from '@/widgets/Common'
 import UserList from '@/widgets/UserList'
@@ -28,13 +27,11 @@ import {
   Input,
   SelectWrapper,
   SectionHint,
-  Footer,
 } from '../../styles/content/basic_info_part'
 
 import {
   inputOnChange,
   checkerOnChange,
-  nextStep,
   addSocial,
   citiesOnChange,
 } from '../../logic'
@@ -200,14 +197,6 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
           <UserList users={users} layout="create-works" withSetter />
         </TeamsWrapper>
       </Section>
-
-      <Footer>
-        {valid && (
-          <ArrowButton size="large" disabled={!valid} onClick={nextStep}>
-            下一步
-          </ArrowButton>
-        )}
-      </Footer>
     </Wrapper>
   )
 }

@@ -4,6 +4,7 @@ import type { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import CheckedSVG from '@/icons/Checked'
 
 import { CONTENT_WIDTH } from './metric'
 
@@ -35,10 +36,17 @@ export const Step = styled.div`
 export const FirstStep = styled(Step)`
   align-content: flex-start;
 `
+export const CheckIcon = styled(CheckedSVG)`
+  ${css.size(18)};
+  fill: ${theme('baseColor.green')};
+  z-index: 1;
+  cursor: pointer;
+`
 export const Dot = styled.div<TActive>`
   background-color: ${({ active }) =>
     active ? theme('thread.articleDigest') : '#1c4048'};
-  ${css.circle(10)};
+  ${css.circle(18)};
+  border: 4px solid #002a34;
   z-index: 1;
 
   &:hover {
@@ -65,7 +73,9 @@ export const Hint = styled.div<TActive>`
   transition: opacity 0.2s;
 `
 export const PublishIcon = styled(Img)`
-  ${css.size(16)};
+  ${css.size(15)};
+  margin-bottom: 2px;
+  margin-top: 1px;
   fill: ${theme('thread.articleDigest')};
   margin-left: 3px;
   opacity: 0.6;

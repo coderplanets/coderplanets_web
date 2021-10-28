@@ -12,6 +12,8 @@ import type {
   TThread,
   TTag,
   TCommunitySetterStyle,
+  TToastType,
+  TToastPos,
 } from '@/spec'
 
 import { TAG_COLOR_ORDER } from '@/config'
@@ -204,6 +206,15 @@ export const upvoteOnArticleList = (
 }
 
 export const authWarn = (option): void => send(EVENT.AUTH_WARNING, option)
+
+export const toast = (
+  type: TToastType,
+  title: string,
+  msg: string,
+  position: TToastPos = 'topCenter',
+): void => {
+  send(EVENT.TOAST, { type, title, msg, position })
+}
 
 /**
  * send preview article singal to Drawer

@@ -17,7 +17,7 @@ type TProps = {
 
 const Icon: FC<{ title: string }> = ({ title }) => {
   switch (title) {
-    case 'DevOps': {
+    case 'devOps': {
       return <DevopsIcon />
     }
     case '框架': {

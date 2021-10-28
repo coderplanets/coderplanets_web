@@ -11,7 +11,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn('align-both')};
-  height: 100%;
   width: ${`${CONTENT_WIDTH}px`};
 `
 export const BaseInput = styled(FormInput).attrs(() => ({

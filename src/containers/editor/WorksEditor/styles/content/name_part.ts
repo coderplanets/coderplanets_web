@@ -10,12 +10,16 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexColumn('align-center', 'justify-start')};
   width: 100%;
-  height: 300px;
   color: ${theme('thread.articleDigest')};
 `
-export const Label = styled.div`
+export const Title = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 20px;
+  margin-bottom: 8px;
+`
+export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 15px;
   margin-left: 10px;
 `
@@ -28,8 +32,4 @@ export const Input = styled(BaseInput)`
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 6px;
-`
-export const NextButtonWrapper = styled.div`
-  margin-left: -30px;
-  margin-top: 14px;
 `

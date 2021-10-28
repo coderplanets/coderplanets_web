@@ -24,12 +24,3 @@ export const TechBlock = styled.div`
   margin-top: 8px;
   margin-bottom: 8px;
 `
-export const Footer = styled.div`
-  ${css.flex('align-both')};
-  width: 100%;
-  border-top: 2px solid;
-  border-top-color: #03343f;
-  margin-top: 35px;
-  padding-top: 20px;
-  margin-left: -30px;
-`

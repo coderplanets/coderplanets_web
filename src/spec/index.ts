@@ -64,6 +64,8 @@ export type {
   TSelectOption,
   TTechStackCategory,
   TCommunitySetterStyle,
+  TToastType,
+  TToastPos,
 } from './utils'
 
 export type { TGQLError } from './graphql'

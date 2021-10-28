@@ -6,9 +6,16 @@
 import { types as T, Instance } from 'mobx-state-tree'
 import { pick, reject, includes, findIndex, keys } from 'ramda'
 
-import type { TWorks, TSelectOption, TCommunity, TTechStack } from '@/spec'
+import type {
+  TWorks,
+  TSelectOption,
+  TCommunity,
+  TTechStack,
+  TSubmitState,
+} from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
-import { nilOrEmpty } from '@/utils/validator'
+import { nilOrEmpty, isURL } from '@/utils/validator'
+import { toast } from '@/utils/helper'
 
 import { SocialInfo, Community } from '@/model'
 
@@ -47,6 +54,11 @@ const WorksEditor = T.model('WorksEditor', {
   database: T.optional(T.array(Community), []),
   devOps: T.optional(T.array(Community), []),
   design: T.optional(T.array(Community), []),
+
+  // sumbmit & step states
+  publishing: T.optional(T.boolean, false),
+  publishDone: T.optional(T.boolean, false),
+  wordsCountReady: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get previewData(): TWorks {
@@ -72,13 +84,9 @@ const WorksEditor = T.model('WorksEditor', {
       }
     },
 
-    get inputData(): TInputData {
+    get techstacks(): string[] {
       const slf = self as TStore
-      const { socialInfo, cities, techCommunities } = slf
-      const basic = pick(
-        ['title', 'desc', 'homeLink', 'profitMode', 'workingMode'],
-        slf,
-      )
+      const { techCommunities } = slf
 
       let techstacks = []
 
@@ -86,6 +94,17 @@ const WorksEditor = T.model('WorksEditor', {
         const tech = techCommunities[key].map((t) => t.raw)
         techstacks = techstacks.concat(tech)
       })
+
+      return techstacks
+    },
+
+    get inputData(): TInputData {
+      const slf = self as TStore
+      const { socialInfo, cities, techstacks } = slf
+      const basic = pick(
+        ['title', 'desc', 'homeLink', 'profitMode', 'workingMode'],
+        slf,
+      )
 
       return {
         techstacks,
@@ -114,19 +133,94 @@ const WorksEditor = T.model('WorksEditor', {
 
     get isCurrentStepValid(): boolean {
       const slf = self as TStore
-      const { step, title } = slf
+      const { step } = slf
       switch (step) {
         case STEP.ZERO: {
-          return !nilOrEmpty(title)
+          return slf.isNameValid
         }
-
+        case STEP.ONE: {
+          return slf.isBasicInfoValid
+        }
+        case STEP.TWO: {
+          return slf.isTechStackValid
+        }
+        case STEP.THREE: {
+          return slf.isArticleValid
+        }
         default: {
-          return true
+          return false
         }
       }
     },
+    get isNameValid(): boolean {
+      return !nilOrEmpty(self.title)
+    },
+    get isBasicInfoValid(): boolean {
+      const { homeLink, desc } = self
+
+      return !nilOrEmpty(desc) && isURL(homeLink)
+    },
+    get isTechStackValid(): boolean {
+      const slf = self as TStore
+      const { techstacks } = slf
+
+      return techstacks.length > 0
+    },
+    get isArticleValid(): boolean {
+      // const slf = self as TStore
+      // const { wordsCountReady } = slf
+      // const titleReady = slf.title.length > 0
+
+      // return wordsCountReady && titleReady
+      return false
+    },
+    get isReady(): boolean {
+      return true
+    },
+    get submitState(): TSubmitState {
+      const slf = self as TStore
+      const {
+        isNameValid,
+        isBasicInfoValid,
+        isTechStackValid,
+        isArticleValid,
+      } = slf
+
+      const basic = pick(['publishing', 'publishDone', 'isReady'], slf)
+
+      const stepReady = [
+        isNameValid,
+        isBasicInfoValid,
+        isTechStackValid,
+        isArticleValid,
+      ]
+
+      return { ...basic, stepReady }
+    },
   }))
   .actions((self) => ({
+    setErrorMsgIfNeed(): void {
+      const slf = self as TStore
+      const { step, submitState, homeLink, desc } = slf
+      const { stepReady } = submitState
+
+      switch (step) {
+        case STEP.ONE: {
+          if (stepReady[1]) return
+
+          if (nilOrEmpty(desc)) toast('info', '简介', '请填写作品的一句话简介')
+          if (!isURL(homeLink)) {
+            toast('info', '主页地址', '请填写可用的 URL 地址')
+          }
+        }
+
+        // eslint-disable-next-line no-fallthrough
+        default: {
+          // eslint-disable-next-line no-useless-return
+          return
+        }
+      }
+    },
     getSocialPrefix(platform: string): string {
       switch (platform) {
         case 'github': {

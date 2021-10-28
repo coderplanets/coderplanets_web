@@ -9,7 +9,7 @@ import type {
 } from '@/spec'
 
 import { scrollToTop } from '@/utils/dom'
-import { selectCommunity } from '@/utils/helper'
+import { selectCommunity, toast } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { updateEditing } from '@/utils/mobx'
 
@@ -89,11 +89,37 @@ export const toggleTemplate = (useTemplate: boolean): void => {
   store.mark({ useTemplate })
 }
 
+export const previousStep = (): void => {
+  const { step } = store
+
+  setTimeout(scrollToTop, 300)
+
+  switch (step) {
+    case STEP.ONE: {
+      return store.mark({ step: STEP.ZERO })
+    }
+    case STEP.TWO: {
+      return store.mark({ step: STEP.ONE })
+    }
+    case STEP.THREE: {
+      return store.mark({ step: STEP.TWO })
+    }
+    case STEP.FOUR: {
+      return store.mark({ step: STEP.THREE })
+    }
+    default:
+      // eslint-disable-next-line no-useless-return
+      return
+  }
+}
+
 // to next launch step
 export const nextStep = (): void => {
   const { step, isCurrentStepValid } = store
 
-  if (!isCurrentStepValid) return
+  if (!isCurrentStepValid) {
+    return store.setErrorMsgIfNeed()
+  }
 
   setTimeout(scrollToTop, 300)
 
