@@ -1,23 +1,38 @@
 import { gql } from '@urql/core'
 
-const simpleMutation = gql`
-  mutation($id: ID!) {
-    post(id: $id) {
+const createWorks = gql`
+  mutation (
+    $title: String!
+    $body: String
+    $communityId: ID!
+    $profitMode: ProfitMode
+    $workingMode: WorkingMode
+    $cities: [String]
+    $techstacks: [String]
+    $socialInfo: [SocialInfo]
+    $appStore: [AppStoreInfo]
+    $articleTags: [Id]
+  ) {
+    createWorks(
+      title: $title
+      body: $body
+      communityId: $communityId
+      profitMode: $profitMode
+      workingMode: $workingMode
+      cities: $cities
+      techstacks: $techstacks
+      socialInfo: $socialInfo
+      appStore: $appStore
+      articleTags: $articleTags
+    ) {
       id
-    }
-  }
-`
-const simpleQuery = gql`
-  query($filter: filter!) {
-    post(id: $id) {
-      id
+      title
     }
   }
 `
 
 const schema = {
-  simpleMutation,
-  simpleQuery,
+  createWorks,
 }
 
 export default schema

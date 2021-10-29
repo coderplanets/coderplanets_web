@@ -37,9 +37,9 @@ const WorksEditorContainer: FC<TProps> = ({
   metric = METRIC.COMMUNITY,
 }) => {
   useInit(store)
+
   const {
     step,
-    useTemplate,
     inputData,
     previewData,
     socialOptions,
@@ -57,9 +57,8 @@ const WorksEditorContainer: FC<TProps> = ({
           inputData={inputData}
           socialOptions={socialOptions}
           techCommunities={techCommunities}
-          useTemplate={useTemplate}
         />
-        <Footer step={step} submitState={submitState} />
+        <Footer step={step} inputData={inputData} submitState={submitState} />
       </InnerWrapper>
     </Wrapper>
   )

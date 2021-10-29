@@ -24,6 +24,8 @@ type TProps = {
   users: TUser[]
   withSetter?: boolean
   layout: TLayout
+  onDelete?: (u: TUser) => void
+  onSelect?: (u: TUser) => void
 }
 
 let Setter: FC<TSetter> = () => null
@@ -33,6 +35,8 @@ const UserList: FC<TProps> = ({
   users,
   withSetter = false,
   layout,
+  onDelete = log,
+  onSelect = log,
 }) => {
   const [showSetter, setShowSetter] = useState(false)
 

@@ -3,8 +3,6 @@ import { filter, includes } from 'ramda'
 
 import type { TSelectOption } from '@/spec'
 
-import { mockUsers } from '@/utils/mock'
-
 import Checker from '@/widgets/Checker'
 import Select from '@/widgets/Select'
 import Button from '@/widgets/Buttons/Button'
@@ -58,11 +56,15 @@ type TProps = {
 }
 
 const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
-  const valid = true
-  const users = mockUsers(5)
-
-  const { homeLink, desc, socialInfo, workingMode, profitMode, cities } =
-    inputData
+  const {
+    homeLink,
+    desc,
+    socialInfo,
+    workingMode,
+    profitMode,
+    cities,
+    teammates,
+  } = inputData
 
   return (
     <Wrapper>
@@ -194,7 +196,7 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
       <Section>
         <Label>团队成员</Label>
         <TeamsWrapper>
-          <UserList users={users} layout="create-works" withSetter />
+          <UserList users={teammates} layout="create-works" withSetter />
         </TeamsWrapper>
       </Section>
     </Wrapper>

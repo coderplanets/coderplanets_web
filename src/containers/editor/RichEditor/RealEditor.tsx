@@ -27,7 +27,7 @@ type TProps = {
   placeholder?: string
   data?: string
   type?: 'article' | 'works' | 'job' | 'comment' | 'radar'
-  reinitOnPropsChange?: boolean
+  reinitKey?: string
   onChange?: (json) => void
   onLinkChange?: (link: string) => void
   onUseTemplateChange?: (use: boolean) => void
@@ -36,9 +36,9 @@ type TProps = {
 const RichEditorContainer: FC<TProps> = ({
   richEditor: store,
   data,
-  placeholder = "// 正文内容（'Tab' 键快速插入）",
+  placeholder = "// 正文内容（'Tab' 键插入富文本）",
   type = 'article',
-  reinitOnPropsChange = false,
+  reinitKey = '',
   onChange = log,
   onLinkChange = log,
   onUseTemplateChange = log,
@@ -57,8 +57,8 @@ const RichEditorContainer: FC<TProps> = ({
         <EditorWrapper className="rich-editor" type={type}>
           <RichEditor
             onData={onChange}
+            reinitKey={reinitKey}
             data={JSON.parse(data || '{}')}
-            reinitOnPropsChange={reinitOnPropsChange}
             placeholder={placeholder}
           />
           <OverwriteStyle />

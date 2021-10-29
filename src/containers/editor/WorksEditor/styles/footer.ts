@@ -13,8 +13,28 @@ export const Wrapper = styled.div`
   margin-top: 35px;
   margin-bottom: 60px;
 `
-
 export const FirstStepWrapper = styled.div`
   margin-left: -30px;
   margin-top: 14px;
+`
+export const ArticleWrapper = styled.div`
+  width: 680px;
+  margin-top: 18px;
+  margin-bottom: 60px;
+`
+export const ArticleButtons = styled.div`
+  ${css.flex('align-both', 'justify-between')};
+  width: 100%;
+  padding-top: 25px;
+  padding-left: 15px;
+  padding-right: 20px;
+`
+export const FooterExtra = styled.div`
+  ${css.flex('align-both', 'justify-between')};
+  width: 100%;
+  border-bottom: 4px solid;
+  border-bottom-color: #03343f;
+  padding-bottom: 15px;
+  padding-left: 18px;
+  padding-right: 20px;
 `

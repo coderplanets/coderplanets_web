@@ -3,7 +3,7 @@
  *
  */
 
-import { types as T, Instance } from 'mobx-state-tree'
+import { types as T, Instance, getParent } from 'mobx-state-tree'
 import { pick, reject, includes, findIndex, keys } from 'ramda'
 
 import type {
@@ -12,12 +12,14 @@ import type {
   TCommunity,
   TTechStack,
   TSubmitState,
+  TAccount,
+  TRootStore,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty, isURL } from '@/utils/validator'
 import { toast } from '@/utils/helper'
 
-import { SocialInfo, Community } from '@/model'
+import { SocialInfo, Community, User } from '@/model'
 
 import type { TInputData, TTechCommunities } from './spec'
 import { STEP, PROFIT_MODE, WORKING_MODE, SOCIAL_OPTIONS } from './constant'
@@ -35,9 +37,9 @@ const WorksEditor = T.model('WorksEditor', {
     T.enumeration([STEP.ZERO, STEP.ONE, STEP.TWO, STEP.THREE, STEP.FOUR]),
     STEP.ZERO,
   ),
-  useTemplate: T.optional(T.boolean, true),
 
   title: T.maybeNull(T.string),
+  body: T.optional(T.string, '{}'),
   desc: T.maybeNull(T.string), // backend TODO
   homeLink: T.optional(T.string, 'https://'),
   profitMode: T.optional(T.string, PROFIT_MODE.FREEMIUM),
@@ -46,6 +48,7 @@ const WorksEditor = T.model('WorksEditor', {
     { platform: 'github', link: 'https://github.com/' },
   ]),
   cities: T.optional(T.array(T.string), []),
+  teammates: T.optional(T.array(User), []),
 
   // used techstacks
   activeTechCategory: T.optional(T.string, 'lang'),
@@ -61,6 +64,10 @@ const WorksEditor = T.model('WorksEditor', {
   wordsCountReady: T.optional(T.boolean, false),
 })
   .views((self) => ({
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.accountInfo
+    },
     get previewData(): TWorks {
       const slf = self as TStore
       const { techCommunities } = slf
@@ -100,9 +107,9 @@ const WorksEditor = T.model('WorksEditor', {
 
     get inputData(): TInputData {
       const slf = self as TStore
-      const { socialInfo, cities, techstacks } = slf
+      const { socialInfo, cities, techstacks, teammates } = slf
       const basic = pick(
-        ['title', 'desc', 'homeLink', 'profitMode', 'workingMode'],
+        ['title', 'desc', 'body', 'homeLink', 'profitMode', 'workingMode'],
         slf,
       )
 
@@ -110,6 +117,7 @@ const WorksEditor = T.model('WorksEditor', {
         techstacks,
         socialInfo: toJS(socialInfo),
         cities: toJS(cities),
+        teammates: toJS(teammates),
         ...basic,
       }
     },
@@ -142,7 +150,7 @@ const WorksEditor = T.model('WorksEditor', {
           return slf.isBasicInfoValid
         }
         case STEP.TWO: {
-          return slf.isTechStackValid
+          return true // slf.isTechStackValid
         }
         case STEP.THREE: {
           return slf.isArticleValid
@@ -167,15 +175,15 @@ const WorksEditor = T.model('WorksEditor', {
       return techstacks.length > 0
     },
     get isArticleValid(): boolean {
-      // const slf = self as TStore
-      // const { wordsCountReady } = slf
-      // const titleReady = slf.title.length > 0
+      const { wordsCountReady } = self
 
-      // return wordsCountReady && titleReady
-      return false
+      return wordsCountReady
     },
     get isReady(): boolean {
-      return true
+      const slf = self as TStore
+      const { isNameValid, isBasicInfoValid, isArticleValid } = slf
+
+      return isNameValid && isBasicInfoValid && isArticleValid
     },
     get submitState(): TSubmitState {
       const slf = self as TStore

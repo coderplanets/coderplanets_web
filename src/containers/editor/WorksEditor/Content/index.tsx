@@ -16,7 +16,6 @@ import { Wrapper } from '../styles/content'
 type TProps = {
   step: TStep
   inputData: TInputData
-  useTemplate: boolean
   socialOptions: TSelectOption[]
   techCommunities: TTechCommunities
 }
@@ -25,7 +24,6 @@ const Content: FC<TProps> = ({
   step,
   inputData,
   socialOptions,
-  useTemplate,
   techCommunities,
 }) => {
   let StepComp = null
@@ -49,7 +47,7 @@ const Content: FC<TProps> = ({
     }
 
     case STEP.THREE: {
-      StepComp = <ArticlePart useTemplate={useTemplate} />
+      StepComp = <ArticlePart inputData={inputData} />
       break
     }
 

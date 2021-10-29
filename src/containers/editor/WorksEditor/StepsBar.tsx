@@ -26,7 +26,6 @@ type TProps = {
 
 const Steps: FC<TProps> = ({ step, submitState }) => {
   const { stepReady } = submitState
-  console.log('step stepReady: ', stepReady)
 
   if (step === STEP.ZERO) return <Wrapper />
 

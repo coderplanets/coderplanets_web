@@ -9,7 +9,7 @@ import type {
 } from '@/spec'
 
 import { scrollToTop } from '@/utils/dom'
-import { selectCommunity, toast } from '@/utils/helper'
+import { selectCommunity } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import { updateEditing } from '@/utils/mobx'
 
@@ -85,10 +85,6 @@ export const addSocial = (): void => {
   store.mark({ socialInfo: newSocialInfo })
 }
 
-export const toggleTemplate = (useTemplate: boolean): void => {
-  store.mark({ useTemplate })
-}
-
 export const previousStep = (): void => {
   const { step } = store
 
@@ -143,16 +139,35 @@ export const nextStep = (): void => {
   }
 }
 
-export const gotoStep = (step: TStep): void => store.mark({ step })
+export const gotoStep = (step: TStep): void => {
+  // TODO: if current step is the last, can't go
+  store.mark({ step })
+}
+
+export const setWordsCountState = (wordsCountReady: boolean): void => {
+  store?.mark({ wordsCountReady })
+}
+
+export const onPublish = (): void => {
+  const { inputData } = store
+
+  console.log('# onPublish: ', inputData)
+}
 
 // ###############################
 // init & uninit handlers
 // ###############################
 
+const setDefaultTeammate = (): void => {
+  const { accountInfo, inputData } = store
+  store.mark({ teammates: [accountInfo, ...inputData.techstacks] })
+}
+
 export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)
+    setDefaultTeammate()
     // return () => store.reset()
   }, [_store])
 }
