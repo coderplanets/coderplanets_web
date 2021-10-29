@@ -41,12 +41,14 @@ export const CheckIcon = styled(CheckedSVG)`
   fill: ${theme('baseColor.green')};
   z-index: 1;
   cursor: pointer;
+  background-color: #002a34;
 `
 export const Dot = styled.div<TActive>`
   background-color: ${({ active }) =>
     active ? theme('thread.articleDigest') : '#1c4048'};
   ${css.circle(18)};
-  border: 4px solid #002a34;
+  border: 4px solid;
+  border-color: #002a34;
   z-index: 1;
 
   &:hover {
@@ -79,6 +81,7 @@ export const PublishIcon = styled(Img)<TActive>`
   fill: ${({ active }) =>
     active ? theme('baseColor.green') : theme('thread.articleDigest')};
   margin-left: 3px;
+  background-color: #002a34;
   opacity: 0.9;
   z-index: 2;
 `

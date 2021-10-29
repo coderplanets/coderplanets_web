@@ -31,7 +31,7 @@ export const Label = styled.div`
   ${css.flex('justify-between', 'align-end')};
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   margin-left: 12px;
   margin-right: 10px;
 `

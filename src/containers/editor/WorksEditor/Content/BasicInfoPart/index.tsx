@@ -57,6 +57,7 @@ type TProps = {
 
 const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
   const {
+    title,
     homeLink,
     desc,
     socialInfo,
@@ -75,7 +76,7 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
         <Label>主页地址</Label>
         <Input
           value={homeLink}
-          placeholder="// 作品主页网址"
+          placeholder={`// ${title} 官方网址`}
           onChange={(e) => inputOnChange(e, 'homeLink')}
         />
       </Section>
@@ -83,7 +84,7 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
         <Label>一句话描述</Label>
         <Input
           value={desc}
-          placeholder="// 一句话描述"
+          placeholder={`// 一句话描述 ${title}`}
           onChange={(e) => inputOnChange(e, 'desc')}
         />
       </Section>

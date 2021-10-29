@@ -42,7 +42,7 @@ const WorksEditor = T.model('WorksEditor', {
 
   title: T.maybeNull(T.string),
   body: T.optional(T.string, '{}'),
-  desc: T.maybeNull(T.string), // backend TODO
+  desc: T.optional(T.string, ''),
   homeLink: T.optional(T.string, 'https://'),
   profitMode: T.optional(T.string, PROFIT_MODE.FREEMIUM),
   workingMode: T.optional(T.string, WORKING_MODE.SIDE_PROJECT),
