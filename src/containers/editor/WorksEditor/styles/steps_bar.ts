@@ -72,16 +72,13 @@ export const Hint = styled.div<TActive>`
 
   transition: opacity 0.2s;
 `
-export const PublishIcon = styled(Img)`
+export const PublishIcon = styled(Img)<TActive>`
   ${css.size(15)};
   margin-bottom: 2px;
   margin-top: 1px;
-  fill: ${theme('thread.articleDigest')};
+  fill: ${({ active }) =>
+    active ? theme('baseColor.green') : theme('thread.articleDigest')};
   margin-left: 3px;
-  opacity: 0.6;
+  opacity: 0.9;
   z-index: 2;
-
-  ${Wrapper}:hover & {
-    opacity: 1;
-  }
 `

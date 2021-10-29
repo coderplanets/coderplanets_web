@@ -2,6 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TSubmitState } from '@/spec'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
+import Button from '@/widgets/Buttons/Button'
 import SubmitButton from '@/widgets/Buttons/SubmitButton'
 import WordsCounter from '@/widgets/WordsCounter'
 import TagsList from '@/widgets/TagsList'
@@ -25,8 +26,6 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({ step, inputData, submitState }) => {
-  console.log('# submitState: ', submitState)
-
   const { stepReady } = submitState
 
   switch (step) {
@@ -80,6 +79,19 @@ const Footer: FC<TProps> = ({ step, inputData, submitState }) => {
             />
           </ArticleButtons>
         </ArticleWrapper>
+      )
+    }
+
+    case STEP.FOUR: {
+      return (
+        <Wrapper>
+          <ArrowButton size="medium" direction="left" dimWhenIdle>
+            作品集市
+          </ArrowButton>
+          <Button size="small" ghost noBorder>
+            作品主页
+          </Button>
+        </Wrapper>
       )
     }
 

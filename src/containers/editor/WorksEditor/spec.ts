@@ -1,4 +1,4 @@
-import type { TCommunity, TUser } from '@/spec'
+import type { TCommunity, TUser, TID } from '@/spec'
 
 export type TStep = '0' | '1' | '2' | '3' | '4'
 
@@ -18,6 +18,7 @@ export type TInputData = {
   socialInfo: TSocialInfo[]
   techstacks: string[]
   teammates: TUser[]
+  communityId: TID
 }
 
 export type TTechCommunities = {

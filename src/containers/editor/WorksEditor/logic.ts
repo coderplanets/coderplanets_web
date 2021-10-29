@@ -7,17 +7,25 @@ import type {
   TCommunity,
   TTechStackCategory,
 } from '@/spec'
+import { ERR, HCN } from '@/constant'
 
 import { scrollToTop } from '@/utils/dom'
-import { selectCommunity } from '@/utils/helper'
+import { selectCommunity, errRescue } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+import asyncSuit from '@/utils/async'
 import { updateEditing } from '@/utils/mobx'
+import { getParameterByName } from '@/utils/route'
 
 import { STEP } from './constant'
 import type { TStore } from './store'
 import type { TStep } from './spec'
-// import S from './service'
 
+import S from './schema'
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store: TStore | undefined
 
 /* eslint-disable-next-line */
@@ -87,6 +95,7 @@ export const addSocial = (): void => {
 
 export const previousStep = (): void => {
   const { step } = store
+  if (step === STEP.FOUR) return
 
   setTimeout(scrollToTop, 300)
 
@@ -140,7 +149,8 @@ export const nextStep = (): void => {
 }
 
 export const gotoStep = (step: TStep): void => {
-  // TODO: if current step is the last, can't go
+  // if target step is the last launchpart, , can't go
+  if (step === STEP.FOUR) return
   store.mark({ step })
 }
 
@@ -150,24 +160,68 @@ export const setWordsCountState = (wordsCountReady: boolean): void => {
 
 export const onPublish = (): void => {
   const { inputData } = store
+  const { teammates, ...args } = inputData
 
-  console.log('# onPublish: ', inputData)
+  store.mark({ publishing: true })
+  sr71$.mutate(S.createWorks, args)
 }
 
 // ###############################
 // init & uninit handlers
 // ###############################
 
+const loadCommunity = (): void => {
+  // const { mode } = store
+  // if (mode !== 'publish') return
+  const raw = getParameterByName('community')?.toLowerCase() || HCN
+
+  sr71$.query(S.community, { raw })
+}
+
 const setDefaultTeammate = (): void => {
   const { accountInfo, inputData } = store
   store.mark({ teammates: [accountInfo, ...inputData.techstacks] })
 }
 
+const DataSolver = [
+  {
+    match: asyncRes('createWorks'),
+    action: (data) => {
+      store.mark({ publishing: false, publishDone: true })
+      setTimeout(() => nextStep(), 500)
+    },
+  },
+  {
+    match: asyncRes('community'),
+    action: ({ community }) => store.mark({ community }),
+  },
+]
+
+const ErrSolver = [
+  {
+    match: asyncErr(ERR.GRAPHQL),
+    action: ({ details }) => {
+      store.mark({ publishing: false })
+      errRescue({ type: ERR.GRAPHQL, details, path: 'publishWorks' })
+      //
+    },
+  },
+]
+
 export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)
+
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+    loadCommunity()
     setDefaultTeammate()
-    // return () => store.reset()
+    return () => {
+      sr71$.stop()
+      // sub$.unsubscribe()
+      sub$ = null
+      store.reset()
+    }
   }, [_store])
 }

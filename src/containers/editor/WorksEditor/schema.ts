@@ -31,8 +31,23 @@ const createWorks = gql`
   }
 `
 
+// viewer_has_subscribed
+const community = gql`
+  query ($raw: String) {
+    community(raw: $raw) {
+      id
+      logo
+      title
+      raw
+      desc
+      subscribersCount
+    }
+  }
+`
+
 const schema = {
   createWorks,
+  community,
 }
 
 export default schema

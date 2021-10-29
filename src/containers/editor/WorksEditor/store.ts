@@ -38,6 +38,8 @@ const WorksEditor = T.model('WorksEditor', {
     STEP.ZERO,
   ),
 
+  community: T.optional(Community, {}),
+
   title: T.maybeNull(T.string),
   body: T.optional(T.string, '{}'),
   desc: T.maybeNull(T.string), // backend TODO
@@ -107,13 +109,14 @@ const WorksEditor = T.model('WorksEditor', {
 
     get inputData(): TInputData {
       const slf = self as TStore
-      const { socialInfo, cities, techstacks, teammates } = slf
+      const { socialInfo, cities, techstacks, teammates, community } = slf
       const basic = pick(
         ['title', 'desc', 'body', 'homeLink', 'profitMode', 'workingMode'],
         slf,
       )
 
       return {
+        communityId: community.id,
         techstacks,
         socialInfo: toJS(socialInfo),
         cities: toJS(cities),
@@ -263,6 +266,14 @@ const WorksEditor = T.model('WorksEditor', {
 
       slf.socialInfo[index].platform = option.value
       slf.socialInfo[index].link = slf.getSocialPrefix(option.value)
+    },
+    reset(): void {
+      // self.mode = 'publish'
+      self.title = ''
+      self.body = '{}'
+
+      self.publishing = false
+      self.publishDone = false
     },
     updateEditing(sobj): void {
       const slf = self as TStore
