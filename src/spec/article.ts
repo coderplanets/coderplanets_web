@@ -63,7 +63,7 @@ export type TWorks = TBaseArticle & {
   desc?: string
   tag?: { title: string }
   platform?: { title: string }
-  techStack?: TTechStack[]
+  techstacks?: TTechStack[]
   isOSS?: boolean
   ossAddr?: string
   digest?: string

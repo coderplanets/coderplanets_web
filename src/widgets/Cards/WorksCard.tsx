@@ -57,7 +57,7 @@ const WorksCard: FC<TProps> = ({
   preview = false,
   // item,
 }) => {
-  const descLimit = preview ? 20 : 60
+  const descLimit = preview ? 20 : 35
 
   const { id, title, desc, upvotesCount, commentsCount } = item
 
@@ -114,11 +114,11 @@ const WorksCard: FC<TProps> = ({
               <DotDivider radius={4} space={8} /> {item.platform.title}
             </Fragment>
           )} */}
-          {!nilOrEmpty(item.techStack) && (
+          {!nilOrEmpty(item.techstacks) && (
             <Fragment>
               {item.tag && <Divider />}
               <BuildWithWrapper>
-                {item.techStack.map((tech) => (
+                {item.techstacks.map((tech) => (
                   <TechIcon key={tech.raw} src={tech.logo} />
                 ))}
               </BuildWithWrapper>
@@ -127,7 +127,6 @@ const WorksCard: FC<TProps> = ({
 
           {!preview && (
             <Fragment>
-              <Divider />
               <IconText
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
                 margin="5px"

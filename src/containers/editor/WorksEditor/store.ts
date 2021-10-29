@@ -77,7 +77,7 @@ const WorksEditor = T.model('WorksEditor', {
 
       const { lang, framework, database, devOps, design } = techCommunities
 
-      const techStack = []
+      const techstacks = []
         .concat(communities2Techs(lang).slice(0, 2))
         .concat(communities2Techs(framework).slice(0, 2))
         .concat(communities2Techs(database).slice(0, 2))
@@ -88,7 +88,7 @@ const WorksEditor = T.model('WorksEditor', {
         id: '0',
         upvotesCount: 66,
         commentsCount: 99,
-        techStack,
+        techstacks,
         ...basic,
       }
     },

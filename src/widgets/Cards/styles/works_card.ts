@@ -30,19 +30,19 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   transition: all 0.1s;
 `
 export const IntroImg = styled(Img)`
-  ${css.size(70)};
+  ${css.size(75)};
   border-radius: 5px;
   margin-top: 2px;
 `
 export const IntroImgHolder = styled.div`
-  ${css.size(70)};
+  ${css.size(75)};
   border-radius: 5px;
   margin-top: 2px;
   background-color: #10404e;
 `
 export const IntroWrapper = styled.div`
   ${css.flexColumnGrow('align-start', 'justify-between')};
-  margin-left: 25px;
+  margin-left: 28px;
   /* border: 1px solid green; */
 `
 export const Header = styled.div`
@@ -95,9 +95,10 @@ export const Divider = styled.div`
 export const BuildWithWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 3px;
+  margin-right: 8px;
   /* padding: 2px 5px; */
   /* background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0); */
-  margin-top: -4px;
+  margin-top: -2px;
 `
 export const TechIcon = styled(Img)`
   ${css.size(13)};

@@ -14,8 +14,17 @@ export const pagedWorks = `
       entries {
         ${F.article}
         ${F.pageArticleMeta}
-        linkAddr
-        digest
+        homeLink
+        desc
+        techstacks {
+          raw
+          logo
+          title
+        }
+        socialInfo {
+          platform
+          link
+        }
         commentsParticipants {
           ${F.author}
         }
