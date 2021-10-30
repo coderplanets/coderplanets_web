@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
+import Head from 'next/head'
+import Script from 'next/script'
 import { useRouter } from 'next/router'
 import GA from '@/utils/analytics'
+
+import 'overlayscrollbars/css/OverlayScrollbars.css'
 
 /**
  * import default seo configuration
@@ -10,9 +14,7 @@ import GA from '@/utils/analytics'
  */
 // import { appWithTranslation } from '@/i18n'
 
-// import CrashErrorHint from '@/widgets/CrashErrorHint'
-
-const App = ({ Component, pageProps, err }) => {
+const App = ({ Component, pageProps }) => {
   const router = useRouter()
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -26,15 +28,53 @@ const App = ({ Component, pageProps, err }) => {
 
   return (
     <>
-      {/* see: https://github.com/vercel/next.js/blob/master/errors/no-document-viewport-meta.md */}
-      {err ? (
-        <div>CrashErrorHint</div>
-      ) : (
-        /* render normal next.js app */
-        <>
-          <Component {...pageProps} />
-        </>
-      )}
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="renderer" content="webkit" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <link rel="icon" href="/favicon.ico" />
+
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Audiowide"
+          data-async="true"
+        />
+
+        <link
+          rel="stylesheet"
+          href="https://cdn.staticfile.org/izitoast/1.4.0/css/iziToast.css"
+          data-async="true"
+        />
+      </Head>
+
+      <Script
+        strategy="beforeInteractive"
+        src="https://cdn.staticfile.org/izitoast/1.4.0/js/iziToast.min.js"
+      />
+
+      <Script
+        strategy="beforeInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA.TRACKING_ID}`}
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA.TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+
+      <Component {...pageProps} />
     </>
   )
 }

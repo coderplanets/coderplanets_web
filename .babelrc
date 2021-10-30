@@ -1,22 +1,5 @@
 {
-  "presets": [["next/babel"]],
-  "env": {
-    "production": {
-      "presets": [
-        [
-          "next/babel",
-          {
-            "preset-env": {
-              "useBuiltIns": "usage",
-              "corejs": "3.6.5",
-              "targets": "> 0.25%, not dead",
-              "debug": false
-            }
-          }
-        ]
-      ]
-    }
-  },
+  "presets": ["next/babel"],
   "plugins": [
     "add-react-displayname",
     [

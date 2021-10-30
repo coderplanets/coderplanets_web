@@ -15,6 +15,8 @@ const GlobalStyle = createGlobalStyle`
       position: relative;
    `};
     background-color: ${theme('htmlBg')};
+    margin: 0;
+    overflow-x: hidden;
   }
 
   *::-moz-selection {
