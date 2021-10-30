@@ -9,7 +9,7 @@ import {
   DesignIcon,
   Title,
   Spliter,
-} from '../../styles/content/tech_stack_part/selector_header'
+} from './styles/category'
 
 type TProps = {
   title: string
@@ -39,7 +39,7 @@ const SelectorHeader: FC<TProps> = ({ title }) => {
   return (
     <Wrapper>
       <Icon title={title} />
-      <Title>{title}</Title>
+      <Title>{title === 'devOps' ? 'DevOps' : title}</Title>
       <Spliter />
     </Wrapper>
   )

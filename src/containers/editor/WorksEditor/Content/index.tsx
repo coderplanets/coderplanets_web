@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 
-import { TSelectOption } from '@/spec'
+import { TSelectOption, TTechCommunities } from '@/spec'
 
-import type { TStep, TInputData, TTechCommunities } from '../spec'
+import type { TStep, TInputData } from '../spec'
 import { STEP } from '../constant'
 
 import NamePart from './NamePart'

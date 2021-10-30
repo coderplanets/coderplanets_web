@@ -58,9 +58,3 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
 `
-export const Num = styled.div`
-  ${css.flex('align-center')};
-  font-size: 12px;
-  opacity: 0.9;
-  margin-top: -2px;
-`

@@ -9,23 +9,22 @@ import {
   AddBlock,
   AddButton,
   DeleteHint,
-} from '../../styles/content/tech_stack_part/selector_row'
-import { removeTechStack } from '../../logic'
+} from './styles/row'
 
 type TProps = {
-  techs?: TCommunity[]
-  // langs: string[]
+  items: TCommunity[]
   onAdd: () => void
+  onRemove: (t: TCommunity) => void
 }
 
-const SelectorRow: FC<TProps> = ({ onAdd, techs = [] }) => {
+const ActiveRow: FC<TProps> = ({ onAdd, onRemove, items }) => {
   return (
     <Wrapper>
-      {techs.map((t) => (
+      {items?.map((t) => (
         <Block key={t.raw}>
           <Logo src={t.logo} raw={t.raw} />
           <Title>{t.title}</Title>
-          <DeleteHint onClick={() => removeTechStack(t)}>删除</DeleteHint>
+          <DeleteHint onClick={() => onRemove(t)}>删除</DeleteHint>
         </Block>
       ))}
       <AddBlock onClick={() => onAdd()}>
@@ -36,4 +35,4 @@ const SelectorRow: FC<TProps> = ({ onAdd, techs = [] }) => {
   )
 }
 
-export default memo(SelectorRow)
+export default memo(ActiveRow)

@@ -64,3 +64,10 @@ export const AddButton = styled.div`
   }
   transition: color 0.1s;
 `
+export const NoSetHint = styled.div`
+  font-size: 13px;
+  color: ${theme('thread.articleDigest')};
+  margin-top: 25px;
+  margin-left: 24px;
+  letter-spacing: 2px;
+`

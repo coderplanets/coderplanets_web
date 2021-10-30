@@ -19,8 +19,3 @@ export const TechsWrapper = styled.div`
   min-height: 300px;
   margin-bottom: 25px;
 `
-export const TechBlock = styled.div`
-  ${css.flex('align-start')};
-  margin-top: 8px;
-  margin-bottom: 8px;
-`

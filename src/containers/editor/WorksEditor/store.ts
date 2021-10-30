@@ -14,6 +14,7 @@ import type {
   TSubmitState,
   TAccount,
   TRootStore,
+  TTechCommunities,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty, isURL } from '@/utils/validator'
@@ -21,7 +22,7 @@ import { toast } from '@/utils/helper'
 
 import { SocialInfo, Community, User } from '@/model'
 
-import type { TInputData, TTechCommunities } from './spec'
+import type { TInputData } from './spec'
 import { STEP, PROFIT_MODE, WORKING_MODE, SOCIAL_OPTIONS } from './constant'
 
 const communities2Techs = (communities: TCommunity[]): TTechStack[] => {

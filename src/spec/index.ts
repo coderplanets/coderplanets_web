@@ -82,6 +82,7 @@ export type {
   TRadar,
   TJob,
   TWorks,
+  TTechCommunities,
   TTechStack,
   TMeetup,
   TPagedWorks,

@@ -2,20 +2,13 @@ import { FC, memo } from 'react'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 
+import type { TTechCommunities, TTechStackCategory } from '@/spec'
 import NoticeBar from '@/widgets/NoticeBar'
+import TechStacks from '@/widgets/TechStacks'
 
-import type { TTechCommunities } from '../../spec'
-import { TECHSTACK_CATEGORYS } from '../../constant'
-import SelectorHeader from './SelectorHeader'
-import SelectorRow from './SelectorRow'
+import { Wrapper, TechsWrapper } from '../styles/content/techstack_part'
 
-import {
-  Wrapper,
-  TechsWrapper,
-  TechBlock,
-} from '../../styles/content/tech_stack_part'
-
-import { setActiveTechCategory, addTechStack } from '../../logic'
+import { setActiveTechCategory, addTechStack, removeTechStack } from '../logic'
 
 type TProps = {
   techCommunities: TTechCommunities
@@ -38,15 +31,13 @@ const TechStackPart: FC<TProps> = ({ techCommunities }) => {
         noBg
       />
       <TechsWrapper>
-        {TECHSTACK_CATEGORYS.map((category) => (
-          <TechBlock key={category.raw}>
-            <SelectorHeader title={category.title} />
-            <SelectorRow
-              onAdd={() => setActiveTechCategory(category.raw)}
-              techs={techCommunities[category.raw]}
-            />
-          </TechBlock>
-        ))}
+        <TechStacks
+          techCommunities={techCommunities}
+          onAdd={(category) =>
+            setActiveTechCategory(category.raw as TTechStackCategory)
+          }
+          onRemove={(tech) => removeTechStack(tech)}
+        />
       </TechsWrapper>
     </Wrapper>
   )

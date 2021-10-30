@@ -69,6 +69,14 @@ export type TWorks = TBaseArticle & {
   digest?: string
 }
 
+export type TTechCommunities = {
+  lang?: TCommunity[]
+  framework?: TCommunity[]
+  database?: TCommunity[]
+  devOps?: TCommunity[]
+  design?: TCommunity[]
+}
+
 export type TBlog = TBaseArticle & {
   digest?: string
   published?: string
