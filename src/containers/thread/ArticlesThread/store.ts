@@ -22,12 +22,13 @@ import type {
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
-import { titleCase } from '@/utils/helper'
+import { titleCase, plural } from '@/utils/helper'
 import {
   PagedPosts,
   PagedJobs,
   PagedBlogs,
   PagedRadars,
+  PagedWorks,
   ArticlesFilter,
   emptyPagi,
 } from '@/model'
@@ -37,6 +38,7 @@ const ArticlesThread = T.model('ArticlesThread', {
   pagedJobs: T.optional(PagedJobs, emptyPagi),
   pagedBlogs: T.optional(PagedBlogs, emptyPagi),
   pagedRadars: T.optional(PagedRadars, emptyPagi),
+  pagedWorks: T.optional(PagedWorks, emptyPagi),
   filters: T.optional(ArticlesFilter, {}),
   resState: T.optional(
     T.enumeration('resState', values(TYPE.RES_STATE)),
@@ -64,7 +66,7 @@ const ArticlesThread = T.model('ArticlesThread', {
     },
     get pagedArticlesData(): TPagedArticles {
       const slf = self as TStore
-      const pagedThreadKey = `paged${titleCase(slf.curThread)}s`
+      const pagedThreadKey = `paged${titleCase(plural(slf.curThread))}`
 
       return toJS(slf[pagedThreadKey])
     },

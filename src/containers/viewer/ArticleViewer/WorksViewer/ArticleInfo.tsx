@@ -18,17 +18,17 @@ const tabItems = [
     raw: 'story',
   },
   {
+    title: '项目概况',
+    raw: 'basic',
+  },
+  {
     title: '技术栈',
     raw: 'techstack',
   },
-  {
-    title: '更新',
-    raw: 'update',
-  },
-  {
-    title: '作者访谈',
-    raw: 'interview',
-  },
+  // {
+  //   title: '作者访谈',
+  //   raw: 'interview',
+  // },
   {
     title: '社区',
     raw: 'community',

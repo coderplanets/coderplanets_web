@@ -51,14 +51,15 @@ const App = ({ Component, pageProps }) => {
       </Head>
 
       <Script
-        strategy="beforeInteractive"
-        src="https://cdn.staticfile.org/izitoast/1.4.0/js/iziToast.min.js"
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA.TRACKING_ID}`}
       />
 
       <Script
-        strategy="beforeInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA.TRACKING_ID}`}
+        strategy="afterInteractive"
+        src="https://cdn.staticfile.org/izitoast/1.4.0/js/iziToast.min.js"
       />
+
       <Script
         id="gtag-init"
         strategy="afterInteractive"

@@ -72,7 +72,7 @@ export const lockPage = (): void => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
-    const el = safeDocument.getElementById('body')
+    const el = safeDocument.getElementsByTagName('body')[0]
     el.style.overflowY = 'hidden'
     el.style.position = 'fixed !important'
   }
@@ -86,7 +86,7 @@ export const unlockPage = (): void => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
-    const el = safeDocument.getElementById('body')
+    const el = safeDocument.getElementsByTagName('body')[0]
     el.style.overflowY = 'auto'
     el.style.position = ''
   }

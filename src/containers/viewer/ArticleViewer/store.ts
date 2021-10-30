@@ -5,6 +5,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
+import { THREAD } from '@/constant'
 import type {
   TCommunity,
   TRootStore,
@@ -53,6 +54,10 @@ const ArticleViewer = T.model('ArticleViewer', {
     },
     syncArticle(item): void {
       const root = getParent(self) as TRootStore
+      if (self.activeThread === THREAD.WORKS) {
+        console.log('TODO: syncArticle for WORKS ')
+        return
+      }
       root.articlesThread.updateArticle(item)
     },
     updateUpvote(viewerHasUpvoted: boolean): void {
