@@ -12,3 +12,4 @@ tsconfig.tsbuildinfo
 *.md
 *.ico
 *.hbs
+*.css

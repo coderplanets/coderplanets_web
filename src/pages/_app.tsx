@@ -4,8 +4,6 @@ import Script from 'next/script'
 import { useRouter } from 'next/router'
 import GA from '@/utils/analytics'
 
-import 'overlayscrollbars/css/OverlayScrollbars.css'
-
 /**
  * import default seo configuration
  * Using a custom _app.js with next-seo you can set default SEO
@@ -42,6 +40,7 @@ const App = ({ Component, pageProps }) => {
           href="https://fonts.googleapis.com/css2?family=Audiowide"
           data-async="true"
         />
+        <link rel="stylesheet" href="OverlayScrollbars.css" data-async="true" />
 
         <link
           rel="stylesheet"
@@ -53,11 +52,6 @@ const App = ({ Component, pageProps }) => {
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA.TRACKING_ID}`}
-      />
-
-      <Script
-        strategy="afterInteractive"
-        src="https://cdn.staticfile.org/izitoast/1.4.0/js/iziToast.min.js"
       />
 
       <Script
@@ -73,6 +67,11 @@ const App = ({ Component, pageProps }) => {
             });
           `,
         }}
+      />
+
+      <Script
+        strategy="lazyOnload"
+        src="https://cdn.staticfile.org/izitoast/1.4.0/js/iziToast.min.js"
       />
 
       <Component {...pageProps} />
