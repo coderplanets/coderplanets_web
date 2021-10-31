@@ -8,7 +8,7 @@ import {
   PlatformIntro,
   PlatformDesc,
   PlatformTitle,
-} from '../../../styles/right_sticker/works_sticker/get_me/download_info'
+} from '../styles/about/download'
 
 // type TProps = {
 //   show: boolean

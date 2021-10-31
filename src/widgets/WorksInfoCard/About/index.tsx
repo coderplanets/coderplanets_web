@@ -6,16 +6,13 @@ import { cutRest } from '@/utils/helper'
 import Linker from '@/widgets/Linker'
 // import DownLoadInfo from './DownloadInfo'
 
-import {
-  Wrapper,
-  Desc,
-} from '../../../styles/right_sticker/works_sticker/get_me'
+import { Wrapper, Desc } from '../styles/about'
 
 type TProps = {
   article: TWorks
 }
 
-const GetMe: FC<TProps> = ({ article }) => {
+const About: FC<TProps> = ({ article }) => {
   const { homeLink, desc } = article
 
   return (
@@ -26,4 +23,4 @@ const GetMe: FC<TProps> = ({ article }) => {
   )
 }
 
-export default memo(GetMe)
+export default memo(About)

@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TBlogRSS, TBlog } from '@/spec'
 import FeedItem from './FeedItem'
-import RSSItem from './RSSItem'
+import RSSItem from './TheRSSItem'
 
 import {
   Wrapper,

@@ -3,12 +3,7 @@ import { isEmpty } from 'ramda'
 
 import type { TWorks } from '@/spec'
 import { Trans } from '@/utils/i18n'
-import {
-  Wrapper,
-  Item,
-  Label,
-  Value,
-} from '../../styles/right_sticker/works_sticker/others'
+import { Wrapper, Item, Label, Value } from './styles/others'
 
 type TProps = {
   article: TWorks

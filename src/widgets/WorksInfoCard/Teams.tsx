@@ -1,13 +1,6 @@
 import { FC, memo } from 'react'
 
-import {
-  Wrapper,
-  Member,
-  Avatar,
-  Intro,
-  Name,
-  Bio,
-} from '../../styles/right_sticker/works_sticker/teams'
+import { Wrapper, Member, Avatar, Intro, Name, Bio } from './styles/teams'
 
 // type TProps = {
 //   show: boolean

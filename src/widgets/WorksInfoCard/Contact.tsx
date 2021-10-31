@@ -8,7 +8,7 @@ import {
   SocialWrapper,
   SocialItem,
   SocialIcon,
-} from '../../styles/right_sticker/works_sticker/contact'
+} from './styles/contact'
 
 type TProps = {
   article: TWorks

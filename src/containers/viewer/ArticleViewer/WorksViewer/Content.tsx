@@ -3,9 +3,10 @@ import { groupBy, prop } from 'ramda'
 import type { TWorks } from '@/spec'
 import { METRIC } from '@/constant'
 
+import ArticleFooter from '@/containers/unit/ArticleFooter'
 import ArticeBody from '@/widgets/ArtimentBody'
 import TechStacks from '@/widgets/TechStacks'
-import ArticleFooter from '@/containers/unit/ArticleFooter'
+import WorksInfoCard from '@/widgets/WorksInfoCard'
 
 type TProps = {
   article: TWorks
@@ -24,15 +25,11 @@ const Content: FC<TProps> = ({ article, tab }) => {
 
   switch (tab) {
     case 'basic': {
-      return <div>tab</div>
+      return <WorksInfoCard article={article} />
     }
 
     case 'techstack': {
-      return (
-        <div>
-          <TechStacks techCommunities={groupedTechs} interactive={false} />
-        </div>
-      )
+      return <TechStacks techCommunities={groupedTechs} interactive={false} />
     }
 
     default: {

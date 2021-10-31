@@ -1,50 +1,48 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
+
 import { FC, memo } from 'react'
 
 import type { TWorks } from '@/spec'
+import { buildLog } from '@/utils/logger'
 
 import { Br } from '@/widgets/Common'
 
-import GetMe from './GetMe'
+import About from './About'
 import Contact from './Contact'
 import Teams from './Teams'
-// import TechStacks from './TechStacks'
 import Others from './Others'
 
-import {
-  Wrapper,
-  Row,
-  Title,
-  SlishSign,
-} from '../../styles/right_sticker/works_sticker'
+import { Wrapper, Row, Title, SlishSign, Divider } from './styles'
+
+/* eslint-disable-next-line */
+const log = buildLog('c:WorksInfoCard:index')
 
 type TProps = {
-  show: boolean
   article: TWorks
 }
 
-const WorksSticker: FC<TProps> = ({ show, article }) => {
+const WorksInfoCard: FC<TProps> = ({ article }) => {
   return (
-    <Wrapper show={show}>
+    <Wrapper>
       <Row>
         <SlishSign>//</SlishSign>
         <Title>关于</Title>
       </Row>
-      <GetMe article={article} />
-      <Br top={30} />
+      <About article={article} />
+      <Divider top={20} bottom={18} />
       <Row>
         <SlishSign>//</SlishSign>
         <Title>团队成员</Title>
       </Row>
       <Br top={12} />
       <Teams />
-      <Br top={20} />
+      <Divider top={20} bottom={10} />
       <Row>
         <SlishSign>//</SlishSign>
         <Title>关注我们</Title>
       </Row>
       <Contact article={article} />
-      <Br top={25} />
+      <Divider top={24} bottom={20} />
       <Row>
         <SlishSign>//</SlishSign>
         <Title>其他</Title>
@@ -54,4 +52,4 @@ const WorksSticker: FC<TProps> = ({ show, article }) => {
   )
 }
 
-export default memo(WorksSticker)
+export default memo(WorksInfoCard)
