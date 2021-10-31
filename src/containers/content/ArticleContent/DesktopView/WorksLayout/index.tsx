@@ -7,8 +7,7 @@ import { pluggedIn } from '@/utils/mobx'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
 
 import ArticleTab from './ArticleTab'
-import FeedsTab from './FeedsTab'
-import AuthorTab from './AuthorTab'
+import TechStackTab from './TechStackTab'
 
 import type { TStore } from '../../store'
 
@@ -16,7 +15,7 @@ import {
   Wrapper,
   InnerWrapper,
   SidebarWrapper,
-} from '../../styles/desktop_view/blog_layout'
+} from '../../styles/desktop_view/works_layout'
 
 import { useInit } from '../../logic'
 
@@ -36,26 +35,14 @@ const ArticleContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { viewingArticle, articleTab, blogRssInfoData } = store
+  const { viewingArticle, articleTab } = store
   if (!viewingArticle.id) return null
-  if (articleTab === 'feeds') {
-    return (
-      <Wrapper testid={testid}>
-        <InnerWrapper>
-          <FeedsTab metric={metric} items={blogRssInfoData.historyFeed} />
-          <SidebarWrapper>
-            <ArticleSticker metric={metric} />
-          </SidebarWrapper>
-        </InnerWrapper>
-      </Wrapper>
-    )
-  }
 
-  if (articleTab === 'author') {
+  if (articleTab === 'techstack') {
     return (
       <Wrapper testid={testid}>
         <InnerWrapper>
-          <AuthorTab metric={metric} author={blogRssInfoData.author} />
+          <TechStackTab metric={metric} article={viewingArticle} />
           <SidebarWrapper>
             <ArticleSticker metric={metric} />
           </SidebarWrapper>

@@ -1,6 +1,6 @@
 import { FC, useRef, Fragment } from 'react'
 
-import type { TBlog, TMetric } from '@/spec'
+import type { TWorks, TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import { ArticleFooter, Comments } from '@/containers/dynamic'
@@ -21,7 +21,7 @@ const log = buildLog('C:BlogContent')
 
 type TProps = {
   metric: TMetric
-  article: TBlog
+  article: TWorks
 }
 
 const ArticleTab: FC<TProps> = ({ metric, article }) => {
