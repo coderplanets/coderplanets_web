@@ -152,7 +152,8 @@ export const useInit = (_store: TStore): void => {
     loadArticle()
 
     return () => {
-      // log('effect uninit')
+      log('uninit')
+      store.reset()
       sr71$.stop()
       sub$.unsubscribe()
     }

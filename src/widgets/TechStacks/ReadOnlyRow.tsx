@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
-import { Wrapper, Block, Logo, Title, NoSetHint } from './styles/row'
+import { Wrapper, ReadOnlyBlock, Logo, Title, NoSetHint } from './styles/row'
 
 type TProps = {
   items: TCommunity[]
@@ -12,10 +12,10 @@ const ReadOnlyRow: FC<TProps> = ({ items, noSet }) => {
   return (
     <Wrapper>
       {items?.map((t) => (
-        <Block key={t.raw}>
+        <ReadOnlyBlock key={t.raw}>
           <Logo src={t.logo} raw={t.raw} />
           <Title>{t.title}</Title>
-        </Block>
+        </ReadOnlyBlock>
       ))}
       {noSet && <NoSetHint>保密</NoSetHint>}
     </Wrapper>

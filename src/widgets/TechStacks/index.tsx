@@ -5,11 +5,12 @@
  */
 
 import { FC, memo, Fragment } from 'react'
+import { reduce, merge } from 'ramda'
 
 import type { TTechCommunities, TCommunity } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import { TECHSTACK_CATEGORYS } from './constant'
+import { TECHSTACK_CATEGORYS, CATEGORYS_RAWS } from './constant'
 import Category from './Category'
 import InteractiveRow from './InteractiveRow'
 import ReadOnlyRow from './ReadOnlyRow'
@@ -18,6 +19,12 @@ import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TechStack:index')
+
+const FULL_TECHS = reduce(
+  (acc, key) => ({ ...acc, [key]: [] }),
+  {},
+  CATEGORYS_RAWS,
+)
 
 type TProps = {
   techCommunities: TTechCommunities
@@ -33,6 +40,8 @@ const TechStacks: FC<TProps> = ({
   techCommunities = {},
   interactive = true,
 }) => {
+  const techs = merge(FULL_TECHS, techCommunities)
+
   return (
     <Fragment>
       {TECHSTACK_CATEGORYS.map((category) => (
@@ -42,12 +51,12 @@ const TechStacks: FC<TProps> = ({
             <InteractiveRow
               onAdd={() => onAdd(category)}
               onRemove={onRemove}
-              items={techCommunities[category.raw]}
+              items={techs[category.raw]}
             />
           ) : (
             <ReadOnlyRow
-              items={techCommunities[category.raw]}
-              noSet={techCommunities[category.raw].length === 0}
+              items={techs[category.raw]}
+              noSet={techs[category.raw].length === 0}
             />
           )}
         </Wrapper>

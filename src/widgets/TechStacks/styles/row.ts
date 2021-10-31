@@ -18,6 +18,9 @@ export const Block = styled.div`
   height: 74px;
   width: 76px;
 `
+export const ReadOnlyBlock = styled(Block)`
+  width: 60px;
+`
 export const DeleteHint = styled.div`
   color: ${theme('baseColor.red')};
   position: absolute;
@@ -68,6 +71,6 @@ export const NoSetHint = styled.div`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   margin-top: 25px;
-  margin-left: 24px;
+  margin-left: 16px;
   letter-spacing: 2px;
 `

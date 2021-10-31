@@ -57,7 +57,12 @@ export type TPost = TBaseArticle & {
   digest?: string
 }
 
-export type TTechStack = { title?: string; logo: string; raw: string }
+export type TTechStack = {
+  title?: string
+  logo: string
+  raw: string
+  category?: string
+}
 export type TSocialInfo = { platform: string; link: string }
 export type TWorks = TBaseArticle & {
   cover?: string

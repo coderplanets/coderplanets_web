@@ -32,7 +32,7 @@ const WorksViewer: FC<TProps> = ({ article, loading, tab }) => {
   const hideFixedHeader = useCallback(() => setFixedHeaderVisible(false), [])
   const showFixedHeader = useCallback(() => setFixedHeaderVisible(true), [])
 
-  log('WorksViewer article: ', article)
+  log('WorksViewer article: ', article.techstacks)
 
   return (
     <Fragment>

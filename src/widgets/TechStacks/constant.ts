@@ -1,5 +1,13 @@
 import type { TTechStackCategory } from '@/spec'
 
+export const CATEGORYS_RAWS = [
+  'lang',
+  'framework',
+  'database',
+  'devOps',
+  'design',
+]
+
 export const TECHSTACK_CATEGORYS = [
   {
     title: '编程语言',
@@ -22,5 +30,3 @@ export const TECHSTACK_CATEGORYS = [
     raw: 'design' as TTechStackCategory,
   },
 ]
-
-export const holder = 1

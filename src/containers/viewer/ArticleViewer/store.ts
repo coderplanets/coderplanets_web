@@ -69,6 +69,9 @@ const ArticleViewer = T.model('ArticleViewer', {
       const root = getParent(self) as TRootStore
       return root.viewing.updateUpvoteCount(count, meta)
     },
+    reset(): void {
+      self.tab = ''
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
