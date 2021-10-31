@@ -22,6 +22,7 @@ const log = buildLog('S:ArticleViewer')
 
 const ArticleViewer = T.model('ArticleViewer', {
   loading: T.optional(T.boolean, false),
+  tab: T.optional(T.string, ''),
 })
   .views((self) => ({
     get isLogin(): boolean {

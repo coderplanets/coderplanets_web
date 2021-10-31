@@ -1,15 +1,17 @@
 import { memo, FC } from 'react'
 
-import type { TArticle } from '@/spec'
+import type { TArticle, TWorksTab } from '@/spec'
 
 import { SpaceGrow } from '@/widgets/Common'
 import Tabs from '@/widgets/Switcher/Tabs'
 import Upvote from '@/widgets/Upvote'
 
 import { Wrapper, TabWrapper } from '../styles/works_viewer/article_info'
+import { tabOnChange } from '../logic'
 
 type TProps = {
   article: TArticle
+  tab: TWorksTab
 }
 
 const tabItems = [
@@ -35,8 +37,10 @@ const tabItems = [
   },
 ]
 
-const ArticleInfo: FC<TProps> = ({ article }) => {
+const ArticleInfo: FC<TProps> = ({ article, tab }) => {
   const { upvotesCount, meta } = article
+  // eslint-disable-next-line no-extra-boolean-cast
+  const activeTab = !!tab ? tab : 'story'
 
   return (
     <Wrapper>
@@ -44,8 +48,9 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
         <Tabs
           items={tabItems}
           size="small"
-          activeKey="story"
+          activeKey={activeTab}
           bottomSpace={10}
+          onChange={(tab) => tabOnChange(tab as TWorksTab)}
         />
       </TabWrapper>
       <SpaceGrow />

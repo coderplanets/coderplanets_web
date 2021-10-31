@@ -96,10 +96,6 @@ export const useInit = (_store: TStore, extra): void => {
     // scrollbars: { autoHide: 'scroll', autoHideDelay: 500 },
     // })
 
-    console.log(
-      'global accountInfo isValidSession: ',
-      store.accountInfo.isValidSession,
-    )
     const { online, isMobile } = extra
     store.mark({ online, isMobile })
 

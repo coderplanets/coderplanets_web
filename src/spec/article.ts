@@ -58,16 +58,21 @@ export type TPost = TBaseArticle & {
 }
 
 export type TTechStack = { title?: string; logo: string; raw: string }
+export type TSocialInfo = { platform: string; link: string }
 export type TWorks = TBaseArticle & {
   cover?: string
   desc?: string
+  homeLink?: string
   tag?: { title: string }
-  platform?: { title: string }
   techstacks?: TTechStack[]
+  socialInfo?: TSocialInfo[]
   isOSS?: boolean
   ossAddr?: string
   digest?: string
 }
+
+export type TWorksTab = 'story' | 'basic' | 'techstacks' | 'community'
+export type TBlogTab = 'article' | 'author' | 'history'
 
 export type TTechCommunities = {
   lang?: TCommunity[]

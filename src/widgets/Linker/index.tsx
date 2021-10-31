@@ -9,6 +9,7 @@ import { FC, memo } from 'react'
 import type { TSpace } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
+import { cutRest } from '@/utils/helper'
 
 import { Wrapper, LinkIcon, Source } from './styles'
 
@@ -25,7 +26,7 @@ const Linker: FC<TProps> = ({ testid = 'linker', src, ...restProps }) => {
     <Wrapper testid={testid} {...restProps}>
       <LinkIcon src={`${ICON}/shape/link.svg`} />
       <Source href={src} target="_blank">
-        {src}
+        {cutRest(src, 28)}
       </Source>
     </Wrapper>
   )

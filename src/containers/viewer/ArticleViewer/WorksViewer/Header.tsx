@@ -1,7 +1,7 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 import TimeAgo from 'timeago-react'
 
-import type { TPost } from '@/spec'
+import type { TWorks } from '@/spec'
 
 import ArticleMenu from '@/widgets/ArticleMenu'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
@@ -27,25 +27,32 @@ import {
 } from '../styles/works_viewer/header'
 
 type TProps = {
-  article: TPost
+  article: TWorks
 }
 
 const Header: FC<TProps> = ({ article }) => {
-  const { author, insertedAt } = article
+  const { title, desc, homeLink, meta, author, socialInfo, insertedAt } =
+    article
+
   return (
     <Wrapper>
       <WorksWrapper>
         <Cover src={author.avatar} />
         <Intro>
-          <Title>{article.title}</Title>
-          <Desc>可能是最性感的开发者社区, web first, pure</Desc>
-
+          <Title>{title}</Title>
+          <Desc>{desc}</Desc>
           <ContactWrapper>
-            <Linker src="https://coderplanets.com" right={10} />
-            <IconButton path="social/global.svg" size={13} />
-            <IconButton path="social/github.svg" size={13} />
-            <IconButton path="social/zhihu.svg" size={13} />
-            <IconButton path="social/wechat-solid.svg" size={14} />
+            <Linker src={homeLink} right={10} />
+            {socialInfo.map((social) => (
+              <a
+                key={social.platform}
+                href={social.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconButton path={`social/${social.platform}.svg`} size={13} />
+              </a>
+            ))}
           </ContactWrapper>
         </Intro>
       </WorksWrapper>
@@ -55,8 +62,12 @@ const Header: FC<TProps> = ({ article }) => {
           <PubDate>
             <TimeAgo datetime={insertedAt} locale="zh_CN" />
           </PubDate>
-          <DotDivider space={8} />
-          <EditedHint>修改过</EditedHint>
+          {meta.isEdited && (
+            <Fragment>
+              <DotDivider space={8} />
+              <EditedHint>修改过</EditedHint>
+            </Fragment>
+          )}
         </PublishWrapper>
         <BaseWrapper>
           <ArticleBaseStats article={article} container="drawer" />

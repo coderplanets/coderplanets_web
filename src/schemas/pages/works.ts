@@ -5,6 +5,17 @@ export const works = `
     works(id: $id) {
       ${F.article}
       ${F.articleDetail}
+      desc
+      homeLink
+      techstacks {
+        raw
+        logo
+        title
+      }
+      socialInfo {
+        platform
+        link
+      }
     }
   }
 `
@@ -14,8 +25,8 @@ export const pagedWorks = `
       entries {
         ${F.article}
         ${F.pageArticleMeta}
-        homeLink
         desc
+        homeLink
         techstacks {
           raw
           logo

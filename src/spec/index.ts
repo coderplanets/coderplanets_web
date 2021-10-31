@@ -94,6 +94,8 @@ export type {
   TCopyright,
   TUpvoteLayout,
   TCommentsState,
+  TWorksTab,
+  TBlogTab,
 } from './article'
 
 export type {
