@@ -17,6 +17,14 @@ const I18nDict = {
   company: '公司',
   user: '用户',
   profile: '主页',
+
+  AD: '广告',
+  FREEMIUM: '会员增值 / 订阅',
+  FULLTIME: '全职项目',
+  SIDE_PROJECT: '业余项目',
+  PRODUCT: '物品交易',
+  FREE: '用爱发电',
+  OTHRES: '其他',
 }
 
 export const Trans = (key) => I18nDict[key] || key

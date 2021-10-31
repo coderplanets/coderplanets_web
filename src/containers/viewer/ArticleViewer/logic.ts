@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { merge } from 'ramda'
 
-import type { TArticle, TWorksTab, TBlogTab } from '@/spec'
+import type { TArticle, TWorksTab } from '@/spec'
 
 import { EVENT, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
@@ -24,7 +24,7 @@ let sub$ = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleViewer')
 
-export const tabOnChange = (tab: TWorksTab | TBlogTab): void => {
+export const worksTabOnChange = (tab: TWorksTab): void => {
   store.mark({ tab })
 }
 

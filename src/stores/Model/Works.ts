@@ -15,6 +15,13 @@ export const TechStack = T.model('TechStack', {
   category: T.optional(T.string, ''),
 })
 
+export const City = T.model('City', {
+  title: T.optional(T.string, ''),
+  logo: T.optional(T.string, ''),
+  desc: T.optional(T.string, ''),
+  link: T.optional(T.string, ''),
+})
+
 export const Works = T.model('Works', {
   ...articleFields(),
 
@@ -24,6 +31,7 @@ export const Works = T.model('Works', {
   workingMode: T.optional(T.string, ''),
   socialInfo: T.optional(T.array(SocialInfo), []),
   techstacks: T.optional(T.array(TechStack), []),
+  cities: T.optional(T.array(City), []),
 })
 
 export const PagedWorks = T.model('PagedWorks', {

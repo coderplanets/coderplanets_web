@@ -10,7 +10,7 @@ export const Wrapper = styled.div<TActive>`
 `
 export const Item = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 `
 export const Label = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -20,4 +20,5 @@ export const Label = styled.div`
 export const Value = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 14px;
+  margin-right: 10px;
 `

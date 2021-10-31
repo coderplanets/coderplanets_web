@@ -1,28 +1,27 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
+import type { TWorks } from '@/spec'
+import { cutRest } from '@/utils/helper'
 
-import DownLoadInfo from './DownloadInfo'
+import Linker from '@/widgets/Linker'
+// import DownLoadInfo from './DownloadInfo'
+
 import {
   Wrapper,
-  Row,
-  LinkIcon,
-  LinkAddr,
+  Desc,
 } from '../../../styles/right_sticker/works_sticker/get_me'
 
-// type TProps = {
-//   show: boolean
-//   viewing: TArticle
-// }
+type TProps = {
+  article: TWorks
+}
 
-const GetMe: FC = () => {
+const GetMe: FC<TProps> = ({ article }) => {
+  const { homeLink, desc } = article
+
   return (
     <Wrapper>
-      <Row>
-        <LinkIcon src={`${ICON}/social/global.svg`} />
-        <LinkAddr href="coderplanets.com">coderplanets.com</LinkAddr>
-      </Row>
-      <DownLoadInfo />
+      <Linker src={homeLink} right={10} />
+      <Desc>{cutRest(desc, 100)}</Desc>
     </Wrapper>
   )
 }

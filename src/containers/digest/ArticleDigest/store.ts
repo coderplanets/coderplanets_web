@@ -67,6 +67,9 @@ const ArticleDigest = T.model('ArticleDigest', {
       const root = getParent(self) as TRootStore
       root.viewing.syncArticle(item)
     },
+    reset(): void {
+      self.tab = ''
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

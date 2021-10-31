@@ -7,7 +7,7 @@ import Tabs from '@/widgets/Switcher/Tabs'
 import Upvote from '@/widgets/Upvote'
 
 import { Wrapper, TabWrapper } from '../styles/works_viewer/article_info'
-import { tabOnChange } from '../logic'
+import { worksTabOnChange } from '../logic'
 
 type TProps = {
   article: TArticle
@@ -50,7 +50,7 @@ const ArticleInfo: FC<TProps> = ({ article, tab }) => {
           size="small"
           activeKey={activeTab}
           bottomSpace={10}
-          onChange={(tab) => tabOnChange(tab as TWorksTab)}
+          onChange={(tab) => worksTabOnChange(tab as TWorksTab)}
         />
       </TabWrapper>
       <SpaceGrow />

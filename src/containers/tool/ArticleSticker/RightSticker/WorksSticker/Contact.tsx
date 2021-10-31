@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 
+import type { TWorks } from '@/spec'
 import { ICON } from '@/config'
 
 import {
@@ -9,27 +10,23 @@ import {
   SocialIcon,
 } from '../../styles/right_sticker/works_sticker/contact'
 
-// type TProps = {
-//   show: boolean
-//   viewing: TArticle
-// }
+type TProps = {
+  article: TWorks
+}
 
-const Contact: FC = () => {
+const Contact: FC<TProps> = ({ article }) => {
+  const { socialInfo } = article
+
   return (
     <Wrapper>
       <SocialWrapper>
-        <SocialItem>
-          <SocialIcon src={`${ICON}/social/github.svg`} size={16} />
-        </SocialItem>
-        <SocialItem>
-          <SocialIcon src={`${ICON}/social/twitter.svg`} />
-        </SocialItem>
-        <SocialItem>
-          <SocialIcon src={`${ICON}/social/wechat.svg`} />
-        </SocialItem>
-        <SocialItem>
-          <SocialIcon src={`${ICON}/social/weibo.svg`} />
-        </SocialItem>
+        {socialInfo.map((s) => (
+          <SocialItem key={s.platform}>
+            <a key={s.platform} href={s.link} target="_blank" rel="noreferrer">
+              <SocialIcon src={`${ICON}/social/${s.platform}.svg`} size={16} />
+            </a>
+          </SocialItem>
+        ))}
       </SocialWrapper>
     </Wrapper>
   )

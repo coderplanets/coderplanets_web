@@ -63,14 +63,24 @@ export type TTechStack = {
   raw: string
   category?: string
 }
+type TCity = {
+  title: string
+  logo?: string
+  link: string
+  desc?: string
+}
+
 export type TSocialInfo = { platform: string; link: string }
 export type TWorks = TBaseArticle & {
   cover?: string
   desc?: string
   homeLink?: string
   tag?: { title: string }
+  profitMode?: string
+  workingMode?: string
   techstacks?: TTechStack[]
   socialInfo?: TSocialInfo[]
+  cities?: TCity[]
   isOSS?: boolean
   ossAddr?: string
   digest?: string

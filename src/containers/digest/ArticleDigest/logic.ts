@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import type { TScrollDirection } from '@/spec'
+import type { TScrollDirection, TWorksTab, TBlog } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 import asyncSuit from '@/utils/async'
 import { send, errRescue } from '@/utils/helper'
@@ -15,8 +15,8 @@ const log = buildLog('L:ArticleDigest')
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71()
 
+let store: TStore | undefined
 let sub$ = null
-let store = null
 
 export const inAnchor = (): void => {
   if (store) store.mark({ inViewport: true })
@@ -26,11 +26,16 @@ export const outAnchor = (): void => {
   if (store) store.mark({ inViewport: false })
 }
 
+export const worksTabOnChange = (tab: TWorksTab): void => {
+  store.mark({ tab })
+}
+
 export const onBlogTabChange = (tab: string): void => {
   store.mark({ tab })
+  const blog = store.viewingArticle as TBlog
 
   if ((tab === 'feeds' || tab === 'author') && !store.blogRssInfo.title) {
-    const args = { rss: store.viewingArticle.rss }
+    const args = { rss: blog.rss }
     sr71$.query(S.blogRssInfo, args)
   }
 }
@@ -90,6 +95,7 @@ export const useInit = (
 
     return () => {
       // log('effect uninit')
+      store.reset()
       sr71$.stop()
       sub$.unsubscribe()
     }

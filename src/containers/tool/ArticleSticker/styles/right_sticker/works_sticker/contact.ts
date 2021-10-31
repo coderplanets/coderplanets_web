@@ -13,22 +13,6 @@ export const Wrapper = styled.div<TActive>`
 export const Row = styled.div`
   ${css.flex('align-center')};
 `
-export const LinkIcon = styled(Img)<{ size?: number }>`
-  ${({ size }) => css.size(size || 20)};
-  fill: ${theme('thread.articleDigest')};
-`
-export const LinkAddr = styled.a`
-  display: block;
-  color: #139c9e;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-    color: #139c9e;
-  }
-`
 export const SocialWrapper = styled.div`
   ${css.flex('align-center')};
   flex-wrap: wrap;
@@ -43,11 +27,14 @@ export const SocialItem = styled.div`
   margin-right: 3px;
   border-radius: 5px;
 `
-export const SocialIcon = styled(LinkIcon)`
-  cursor: pointer;
+export const SocialIcon = styled(Img)<{ size?: number }>`
+  ${({ size }) => css.size(size || 20)};
+  fill: ${theme('thread.articleDigest')};
+
   ${SocialItem}:hover & {
     fill: ${theme('thread.articleTitle')};
   }
+  cursor: pointer;
 `
 export const SocialName = styled.div`
   color: ${theme('thread.articleTitle')};

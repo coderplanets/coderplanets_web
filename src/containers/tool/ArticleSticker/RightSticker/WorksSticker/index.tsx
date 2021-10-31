@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import { FC, memo } from 'react'
 
-import type { TArticle } from '@/spec'
+import type { TWorks } from '@/spec'
 
 import { Br } from '@/widgets/Common'
 
@@ -15,41 +15,41 @@ import {
   Wrapper,
   Row,
   Title,
-  CommentSign,
+  SlishSign,
 } from '../../styles/right_sticker/works_sticker'
 
 type TProps = {
   show: boolean
-  article: TArticle
+  article: TWorks
 }
 
 const WorksSticker: FC<TProps> = ({ show, article }) => {
   return (
     <Wrapper show={show}>
       <Row>
-        <CommentSign>//</CommentSign>
+        <SlishSign>//</SlishSign>
         <Title>关于</Title>
       </Row>
-      <GetMe />
+      <GetMe article={article} />
       <Br top={30} />
       <Row>
-        <CommentSign>//</CommentSign>
+        <SlishSign>//</SlishSign>
         <Title>团队成员</Title>
       </Row>
       <Br top={12} />
       <Teams />
       <Br top={20} />
       <Row>
-        <CommentSign>//</CommentSign>
+        <SlishSign>//</SlishSign>
         <Title>关注我们</Title>
       </Row>
-      <Contact />
+      <Contact article={article} />
       <Br top={25} />
       <Row>
-        <CommentSign>//</CommentSign>
+        <SlishSign>//</SlishSign>
         <Title>其他</Title>
       </Row>
-      <Others />
+      <Others article={article} />
     </Wrapper>
   )
 }

@@ -24,14 +24,12 @@ export const Row = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 10px;
 `
-export const CommentSign = styled.div`
-  margin-top: 1px;
-  margin-right: 8px;
-  margin-left: 3px;
-  font-size: 11px;
-  font-weight: 500;
-  color: #0082c1;
-  transform: rotate(12deg);
+export const SlishSign = styled.div`
+  color: ${theme('button.primary')};
+  font-size: 10px;
+  font-weight: bolder;
+  font-family: monospace;
+  margin-right: 6px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};

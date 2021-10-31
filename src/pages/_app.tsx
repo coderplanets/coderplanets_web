@@ -40,7 +40,6 @@ const App = ({ Component, pageProps }) => {
           href="https://fonts.googleapis.com/css2?family=Audiowide"
           data-async="true"
         />
-        <link rel="stylesheet" href="OverlayScrollbars.css" data-async="true" />
 
         <link
           rel="stylesheet"

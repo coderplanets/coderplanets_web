@@ -7,6 +7,8 @@ export const works = `
       ${F.articleDetail}
       desc
       homeLink
+      profitMode
+      workingMode
       techstacks {
         raw
         logo
@@ -14,6 +16,10 @@ export const works = `
       }
       socialInfo {
         platform
+        link
+      }
+      cities {
+        title
         link
       }
     }

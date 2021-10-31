@@ -10,26 +10,10 @@ export const Wrapper = styled.div<TActive>`
   color: ${theme('thread.articleDigest')};
   margin-bottom: 15px;
 `
-export const Row = styled.div`
-  ${css.flex('align-center')};
-`
-export const LinkIcon = styled(Img)`
-  ${css.size(13)};
-  fill: ${theme('thread.articleDigest')};
-  margin-right: 6px;
-  margin-top: 2px;
-`
-export const LinkAddr = styled.a`
-  display: block;
-  color: #139c9e;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-    color: #139c9e;
-  }
+export const Desc = styled.div`
+  font-size: 13px;
+  color: ${theme('thread.articleDigest')};
+  margin-top: 10px;
 `
 export const DownloadWrapper = styled.div`
   ${css.flex('justify-between')};

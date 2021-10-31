@@ -29,6 +29,7 @@ import {
   TabsWrapper,
   SubWrapper,
 } from '../styles/desktop_view/works_layout'
+import { worksTabOnChange } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
@@ -36,6 +37,7 @@ const log = buildLog('C:ArticleDigest')
 type TProps = {
   article: TPost
   metric?: TMetric
+  tab: string
 }
 
 const tabItems = [
@@ -61,9 +63,10 @@ const tabItems = [
   },
 ]
 
-const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
+const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
   const { meta, title, upvotesCount } = article
 
+  const activeTab = !!tab ? tab : 'story'
   return (
     <Fragment>
       <Main metric={metric}>
@@ -90,8 +93,9 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
             <Tabs
               items={tabItems}
               size="small"
-              activeKey="story"
+              activeKey={activeTab}
               bottomSpace={4}
+              onChange={worksTabOnChange}
             />
           </TabsWrapper>
         </BottomInfo>
