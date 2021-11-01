@@ -37,6 +37,7 @@ export const Desc = styled.div`
   font-size: 15px;
   color: ${theme('thread.articleDigest')};
   margin-bottom: 12px;
+  ${css.cutRest('330px')};
 `
 export const Other = styled.div`
   ${css.flex('justify-between', 'align-end')};

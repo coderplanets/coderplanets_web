@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TSubmitState } from '@/spec'
+import type { TSubmitState, TEditMode } from '@/spec'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import Button from '@/widgets/Buttons/Button'
 import SubmitButton from '@/widgets/Buttons/SubmitButton'
@@ -17,15 +17,23 @@ import {
 
 import type { TStep, TInputData } from './spec'
 import { STEP } from './constant'
-import { previousStep, nextStep, setWordsCountState, onPublish } from './logic'
+import {
+  previousStep,
+  nextStep,
+  setWordsCountState,
+  onPublish,
+  gotoArticleDetail,
+  gotoMarket,
+} from './logic'
 
 type TProps = {
   step: TStep
   inputData: TInputData
   submitState: TSubmitState
+  mode: TEditMode
 }
 
-const Footer: FC<TProps> = ({ step, inputData, submitState }) => {
+const Footer: FC<TProps> = ({ step, inputData, submitState, mode }) => {
   const { stepReady } = submitState
 
   switch (step) {
@@ -73,9 +81,8 @@ const Footer: FC<TProps> = ({ step, inputData, submitState }) => {
             <SubmitButton
               withCancel={false}
               submitState={submitState}
-              okText="发 布"
+              okText={mode === 'publish' ? '发 布' : '更 新'}
               onPublish={onPublish}
-              onCancel={console.log}
             />
           </ArticleButtons>
         </ArticleWrapper>
@@ -85,10 +92,20 @@ const Footer: FC<TProps> = ({ step, inputData, submitState }) => {
     case STEP.FOUR: {
       return (
         <Wrapper>
-          <ArrowButton size="medium" direction="left" dimWhenIdle>
+          <ArrowButton
+            size="medium"
+            direction="left"
+            dimWhenIdle
+            onClick={() => gotoMarket()}
+          >
             作品集市
           </ArrowButton>
-          <Button size="small" ghost noBorder>
+          <Button
+            size="small"
+            ghost
+            noBorder
+            onClick={() => gotoArticleDetail()}
+          >
             作品主页
           </Button>
         </Wrapper>
@@ -113,10 +130,6 @@ const Footer: FC<TProps> = ({ step, inputData, submitState }) => {
       )
     }
   }
-
-  // <Button size="medium" disabled={!valid} onClick={nextStep}>
-  //   起飞
-  // </Button>
 }
 
 export default memo(Footer)

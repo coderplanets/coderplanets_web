@@ -12,7 +12,7 @@ export const TechStack = T.model('TechStack', {
   raw: T.optional(T.string, ''),
   title: T.optional(T.string, ''),
   logo: T.optional(T.string, ''),
-  category: T.optional(T.string, ''),
+  category: T.maybeNull(T.string),
 })
 
 export const City = T.model('City', {

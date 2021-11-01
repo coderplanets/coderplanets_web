@@ -1,7 +1,8 @@
 import { FC, memo } from 'react'
-import { groupBy, prop } from 'ramda'
 import type { TWorks } from '@/spec'
 import { METRIC } from '@/constant'
+
+import { classifyTechstack } from '@/utils/helper'
 
 import ArticleFooter from '@/containers/unit/ArticleFooter'
 import ArticeBody from '@/widgets/ArtimentBody'
@@ -14,14 +15,7 @@ type TProps = {
 }
 
 const Content: FC<TProps> = ({ article, tab }) => {
-  const techs = article.techstacks.map((t) => {
-    return {
-      ...t,
-      category: !!t.category ? t.category : 'lang',
-    }
-  })
-
-  const groupedTechs = groupBy(prop('category'), techs)
+  const techCommunities = classifyTechstack(article)
 
   switch (tab) {
     case 'basic': {
@@ -29,7 +23,9 @@ const Content: FC<TProps> = ({ article, tab }) => {
     }
 
     case 'techstack': {
-      return <TechStacks techCommunities={groupedTechs} interactive={false} />
+      return (
+        <TechStacks techCommunities={techCommunities} interactive={false} />
+      )
     }
 
     default: {

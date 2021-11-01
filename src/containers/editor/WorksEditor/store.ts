@@ -34,6 +34,7 @@ const communities2Techs = (communities: TCommunity[]): TTechStack[] => {
 }
 
 const WorksEditor = T.model('WorksEditor', {
+  mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
   step: T.optional(
     T.enumeration([STEP.ZERO, STEP.ONE, STEP.TWO, STEP.THREE, STEP.FOUR]),
     STEP.ZERO,
@@ -41,6 +42,7 @@ const WorksEditor = T.model('WorksEditor', {
 
   community: T.optional(Community, {}),
 
+  id: T.maybeNull(T.string),
   title: T.maybeNull(T.string),
   body: T.optional(T.string, '{}'),
   desc: T.optional(T.string, ''),
@@ -50,7 +52,8 @@ const WorksEditor = T.model('WorksEditor', {
   socialInfo: T.optional(T.array(SocialInfo), [
     { platform: 'github', link: 'https://github.com/' },
   ]),
-  cities: T.optional(T.array(T.string), []),
+  cities: T.optional(T.array(Community), []),
+  // cities: T.optional(T.array(T.string), []),
   teammates: T.optional(T.array(User), []),
 
   // used techstacks
@@ -67,9 +70,17 @@ const WorksEditor = T.model('WorksEditor', {
   wordsCountReady: T.optional(T.boolean, false),
 })
   .views((self) => ({
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
+    },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
       return root.accountInfo
+    },
+    get viewingArticle(): TWorks {
+      const root = getParent(self) as TRootStore
+      return root.viewingArticle as TWorks
     },
     get previewData(): TWorks {
       const slf = self as TStore
@@ -120,7 +131,7 @@ const WorksEditor = T.model('WorksEditor', {
         communityId: community.id,
         techstacks,
         socialInfo: toJS(socialInfo),
-        cities: toJS(cities),
+        cities: toJS(cities).map((c) => c.raw),
         teammates: toJS(teammates),
         ...basic,
       }
@@ -269,7 +280,7 @@ const WorksEditor = T.model('WorksEditor', {
       slf.socialInfo[index].link = slf.getSocialPrefix(option.value)
     },
     reset(): void {
-      // self.mode = 'publish'
+      self.mode = 'publish'
       self.title = ''
       self.body = '{}'
 

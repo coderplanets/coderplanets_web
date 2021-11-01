@@ -39,6 +39,7 @@ const WorksEditorContainer: FC<TProps> = ({
   useInit(store)
 
   const {
+    mode,
     step,
     inputData,
     previewData,
@@ -53,12 +54,18 @@ const WorksEditorContainer: FC<TProps> = ({
         <Preview step={step} works={previewData} />
         <StepsBar step={step} submitState={submitState} />
         <Content
+          mode={mode}
           step={step}
           inputData={inputData}
           socialOptions={socialOptions}
           techCommunities={techCommunities}
         />
-        <Footer step={step} inputData={inputData} submitState={submitState} />
+        <Footer
+          mode={mode}
+          step={step}
+          inputData={inputData}
+          submitState={submitState}
+        />
       </InnerWrapper>
     </Wrapper>
   )

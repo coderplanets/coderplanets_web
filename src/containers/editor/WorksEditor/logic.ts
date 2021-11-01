@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Router from 'next/router'
 import { uniqBy, prop, reject } from 'ramda'
 
 import type {
@@ -10,7 +11,7 @@ import type {
 import { ERR, HCN } from '@/constant'
 
 import { scrollToTop } from '@/utils/dom'
-import { selectCommunity, errRescue } from '@/utils/helper'
+import { selectCommunity, errRescue, classifyTechstack } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { updateEditing } from '@/utils/mobx'
@@ -64,7 +65,7 @@ export const inputOnChange = (e: TEditValue, key: string): void => {
 }
 
 export const citiesOnChange = (options: TSelectOption[]): void => {
-  store.mark({ cities: options.map((o) => o.value) })
+  store.mark({ cities: options.map((o) => ({ raw: o.value })) })
 }
 
 // Radio style checker hanlder
@@ -159,16 +160,43 @@ export const setWordsCountState = (wordsCountReady: boolean): void => {
 }
 
 export const onPublish = (): void => {
+  const { mode } = store
+
+  store.mark({ publishing: true })
+  return mode === 'publish' ? doCreate() : doUpdate()
+}
+
+const doCreate = (): void => {
   const { inputData } = store
   const { teammates, ...args } = inputData
 
-  store.mark({ publishing: true })
   sr71$.mutate(S.createWorks, args)
+}
+
+const doUpdate = (): void => {
+  const { id, inputData } = store
+  const { teammates, ...args } = inputData
+
+  sr71$.mutate(S.updateWorks, { id, ...args })
+}
+
+export const gotoMarket = () => Router.push('/works')
+export const gotoArticleDetail = () => {
+  const { id } = store
+
+  Router.push(`/works/${id}`)
 }
 
 // ###############################
 // init & uninit handlers
 // ###############################
+
+const loadWorks = () => {
+  const { id } = store.viewingArticle
+  const userHasLogin = store.isLogin
+
+  sr71$.query(S.works, { id, userHasLogin })
+}
 
 const loadCommunity = (): void => {
   // const { mode } = store
@@ -186,9 +214,27 @@ const setDefaultTeammate = (): void => {
 const DataSolver = [
   {
     match: asyncRes('createWorks'),
-    action: (data) => {
-      store.mark({ publishing: false, publishDone: true })
+    action: ({ createWorks }) => {
+      log('created works: ', createWorks)
+      store.mark({ id: createWorks.id, publishing: false, publishDone: true })
       setTimeout(() => nextStep(), 500)
+    },
+  },
+  {
+    match: asyncRes('updateWorks'),
+    action: ({ updateWorks }) => {
+      store.mark({ id: updateWorks.id, publishing: false, publishDone: true })
+      gotoArticleDetail()
+    },
+  },
+  {
+    match: asyncRes('works'),
+    action: ({ works }) => {
+      log('load works: ', works)
+      const { body } = works.document
+
+      const worksData = { ...works, ...classifyTechstack(works), body }
+      store.mark({ ...worksData })
     },
   },
   {
@@ -217,6 +263,10 @@ export const useInit = (_store: TStore): void => {
 
     loadCommunity()
     setDefaultTeammate()
+    if (store.mode === 'update') {
+      loadWorks()
+    }
+
     return () => {
       sr71$.stop()
       // sub$.unsubscribe()

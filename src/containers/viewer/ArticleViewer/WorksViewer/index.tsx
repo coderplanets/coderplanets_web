@@ -4,7 +4,7 @@
 
 import { FC, memo, Fragment, useCallback, useState } from 'react'
 
-import type { TPost, TWorks, TWorksTab } from '@/spec'
+import type { TWorks, TWorksTab } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import ViewportTracker from '@/widgets/ViewportTracker'

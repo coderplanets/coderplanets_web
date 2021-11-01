@@ -1,4 +1,14 @@
-import { curry, reduce, keys, sort, uniq, tap, endsWith } from 'ramda'
+import {
+  curry,
+  groupBy,
+  prop,
+  reduce,
+  keys,
+  sort,
+  uniq,
+  tap,
+  endsWith,
+} from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
@@ -14,6 +24,8 @@ import type {
   TCommunitySetterStyle,
   TToastType,
   TToastPos,
+  TWorks,
+  TTechCommunities,
 } from '@/spec'
 
 import { TAG_COLOR_ORDER } from '@/config'
@@ -521,4 +533,16 @@ export const plural = (value: string, opt = null): string => {
       return doCovert(`${value}s`, opt)
     }
   }
+}
+
+/**
+ * classify works's techstacks, make suit for @wigets/TechStacks
+ */
+export const classifyTechstack = (works: TWorks): TTechCommunities => {
+  const techs = works.techstacks.map((t) => ({
+    ...t,
+    category: !!t.category ? t.category : 'lang',
+  }))
+
+  return groupBy(prop('category'), techs)
 }

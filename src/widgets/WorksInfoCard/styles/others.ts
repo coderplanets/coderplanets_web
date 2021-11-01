@@ -9,13 +9,19 @@ export const Wrapper = styled.div<TActive>`
   color: ${theme('thread.articleDigest')};
 `
 export const Item = styled.div`
-  ${css.flex('align-center')};
+  ${css.flex('align-start')};
   margin-bottom: 6px;
 `
 export const Label = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 14px;
-  margin-right: 6px;
+  font-size: 13px;
+  margin-right: 8px;
+  word-break: keep-all;
+  margin-top: 2px;
+`
+export const ValueWrapper = styled.div`
+  ${css.flex()};
+  flex-wrap: wrap;
 `
 export const Value = styled.div`
   color: ${theme('thread.articleTitle')};

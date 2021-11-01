@@ -130,6 +130,12 @@ router.route('/publish/works').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/works' })
 })
 
+// 编辑作品
+router.route('/update/works/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/update/works/${id}` })
+})
+
 // 所有社区
 router.route('/explore').get((req, res) => res.redirect('/explore/pl'))
 

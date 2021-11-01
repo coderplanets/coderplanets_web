@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { TSelectOption, TTechCommunities } from '@/spec'
+import { TSelectOption, TTechCommunities, TEditMode } from '@/spec'
 
 import type { TStep, TInputData } from '../spec'
 import { STEP } from '../constant'
@@ -14,6 +14,7 @@ import LaunchPart from './LaunchPart'
 import { Wrapper } from '../styles/content'
 
 type TProps = {
+  mode: TEditMode
   step: TStep
   inputData: TInputData
   socialOptions: TSelectOption[]
@@ -21,6 +22,7 @@ type TProps = {
 }
 
 const Content: FC<TProps> = ({
+  mode,
   step,
   inputData,
   socialOptions,
@@ -30,7 +32,7 @@ const Content: FC<TProps> = ({
 
   switch (step) {
     case STEP.ZERO: {
-      StepComp = <NamePart inputData={inputData} />
+      StepComp = <NamePart mode={mode} inputData={inputData} />
       break
     }
 

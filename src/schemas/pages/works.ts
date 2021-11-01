@@ -13,6 +13,7 @@ export const works = `
         raw
         logo
         title
+        category
       }
       socialInfo {
         platform
@@ -20,7 +21,7 @@ export const works = `
       }
       cities {
         title
-        link
+        raw
       }
     }
   }

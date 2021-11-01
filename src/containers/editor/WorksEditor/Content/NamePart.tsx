@@ -1,15 +1,17 @@
 import { FC, memo, useEffect, useRef } from 'react'
 
+import { TEditMode } from '@/spec'
 import type { TInputData } from '../spec'
 
 import { Wrapper, Input, Title, Desc } from '../styles/content/name_part'
 import { inputOnChange } from '../logic'
 
 type TProps = {
+  mode: TEditMode
   inputData: TInputData
 }
 
-const NamePart: FC<TProps> = ({ inputData }) => {
+const NamePart: FC<TProps> = ({ mode, inputData }) => {
   const { title } = inputData
   const ref = useRef(null)
 
@@ -23,7 +25,7 @@ const NamePart: FC<TProps> = ({ inputData }) => {
 
   return (
     <Wrapper ref={ref}>
-      <Title>发布作品</Title>
+      {mode === 'publish' ? <Title>发布作品</Title> : <Title>更新作品</Title>}
       <Desc>你（们）的作品名称是 ？</Desc>
       <Input
         value={title || ''}
