@@ -21,6 +21,10 @@ export const WORKING_MODE = {
   SIDE_PROJECT: 'SIDE_PROJECT',
 }
 
+export const DEFAULT_SOCIAL_INFO = [
+  { platform: 'github', link: 'https://github.com/' },
+]
+
 export const SOCIAL_OPTIONS = [
   { value: 'github', label: 'Github' },
   { value: 'twitter', label: 'Twitter' },

@@ -1,4 +1,5 @@
 import { FC, memo } from 'react'
+import { isEmpty } from 'ramda'
 
 import type { TWorks } from '@/spec'
 import { ICON } from '@/config'
@@ -6,6 +7,7 @@ import { ICON } from '@/config'
 import {
   Wrapper,
   SocialWrapper,
+  EmptyHint,
   SocialItem,
   SocialIcon,
 } from './styles/contact'
@@ -20,6 +22,8 @@ const Contact: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <SocialWrapper>
+        {isEmpty(socialInfo) && <EmptyHint>--</EmptyHint>}
+
         {socialInfo.map((s) => (
           <SocialItem key={s.platform}>
             <a key={s.platform} href={s.link} target="_blank" rel="noreferrer">

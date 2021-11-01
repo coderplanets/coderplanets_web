@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import Router from 'next/router'
-import { uniqBy, prop, reject } from 'ramda'
+import { isEmpty, uniqBy, prop, reject } from 'ramda'
 
 import type {
   TSelectOption,
   TEditValue,
+  TInput,
   TCommunity,
   TTechStackCategory,
 } from '@/spec'
@@ -17,7 +18,7 @@ import asyncSuit from '@/utils/async'
 import { updateEditing } from '@/utils/mobx'
 import { getParameterByName } from '@/utils/route'
 
-import { STEP } from './constant'
+import { STEP, DEFAULT_SOCIAL_INFO } from './constant'
 import type { TStore } from './store'
 import type { TStep } from './spec'
 
@@ -73,8 +74,15 @@ export const checkerOnChange = (key: string, value: string): void => {
   store.mark({ [key]: value })
 }
 
-export const changeSocial = (platform: string, option: TSelectOption): void => {
-  store.updateSocialInfo(platform, option)
+export const socialLabelOnChange = (
+  platform: string,
+  option: TSelectOption,
+): void => {
+  store.updateSocialLabel(platform, option)
+}
+
+export const socialValueOnChange = (platform: string, e: TInput): void => {
+  store.updateSocialValue(platform, e.target.value)
 }
 
 export const removeSocial = (platform: string): void => {
@@ -170,14 +178,21 @@ const doCreate = (): void => {
   const { inputData } = store
   const { teammates, ...args } = inputData
 
-  sr71$.mutate(S.createWorks, args)
+  sr71$.mutate(S.createWorks, {
+    ...args,
+    socialInfo: store.cleanupEmptySocial(),
+  })
 }
 
 const doUpdate = (): void => {
   const { id, inputData } = store
   const { teammates, ...args } = inputData
 
-  sr71$.mutate(S.updateWorks, { id, ...args })
+  sr71$.mutate(S.updateWorks, {
+    id,
+    ...args,
+    socialInfo: store.cleanupEmptySocial(),
+  })
 }
 
 export const gotoMarket = () => Router.push('/works')
@@ -232,8 +247,16 @@ const DataSolver = [
     action: ({ works }) => {
       log('load works: ', works)
       const { body } = works.document
+      const socialInfo = !isEmpty(works.socialInfo)
+        ? works.socialInfo
+        : DEFAULT_SOCIAL_INFO
 
-      const worksData = { ...works, ...classifyTechstack(works), body }
+      const worksData = {
+        ...works,
+        ...classifyTechstack(works),
+        body,
+        socialInfo,
+      }
       store.mark({ ...worksData })
     },
   },

@@ -13,7 +13,11 @@ import {
   Input,
   DeleteIcon,
 } from '../../styles/content/basic_info_part/contract_field'
-import { changeSocial, removeSocial } from '../../logic'
+import {
+  socialLabelOnChange,
+  socialValueOnChange,
+  removeSocial,
+} from '../../logic'
 
 type TProps = {
   socialInfo: TSocialInfo[]
@@ -30,12 +34,15 @@ const ContractField: FC<TProps> = ({ socialInfo, socialOptions }) => {
               value={{ label: s.platform, value: s.link }}
               options={socialOptions}
               onChange={(option) =>
-                changeSocial(s.platform, option as TSelectOption)
+                socialLabelOnChange(s.platform, option as TSelectOption)
               }
             />
           </SelectWrapper>
           <InputWrapper>
-            <Input value={s.link} />
+            <Input
+              value={s.link}
+              onChange={(e) => socialValueOnChange(s.platform, e)}
+            />
           </InputWrapper>
           <DeleteIcon onClick={() => removeSocial(s.platform)} />
         </EachWrapper>

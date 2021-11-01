@@ -15,6 +15,7 @@ import type {
   TAccount,
   TRootStore,
   TTechCommunities,
+  TSocialInfo,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty, isURL } from '@/utils/validator'
@@ -23,7 +24,13 @@ import { toast } from '@/utils/helper'
 import { SocialInfo, Community, User } from '@/model'
 
 import type { TInputData } from './spec'
-import { STEP, PROFIT_MODE, WORKING_MODE, SOCIAL_OPTIONS } from './constant'
+import {
+  STEP,
+  PROFIT_MODE,
+  WORKING_MODE,
+  SOCIAL_OPTIONS,
+  DEFAULT_SOCIAL_INFO,
+} from './constant'
 
 const communities2Techs = (communities: TCommunity[]): TTechStack[] => {
   return communities.map((c) => ({
@@ -49,9 +56,7 @@ const WorksEditor = T.model('WorksEditor', {
   homeLink: T.optional(T.string, 'https://'),
   profitMode: T.optional(T.string, PROFIT_MODE.FREEMIUM),
   workingMode: T.optional(T.string, WORKING_MODE.SIDE_PROJECT),
-  socialInfo: T.optional(T.array(SocialInfo), [
-    { platform: 'github', link: 'https://github.com/' },
-  ]),
+  socialInfo: T.optional(T.array(SocialInfo), DEFAULT_SOCIAL_INFO),
   cities: T.optional(T.array(Community), []),
   // cities: T.optional(T.array(T.string), []),
   teammates: T.optional(T.array(User), []),
@@ -260,6 +265,16 @@ const WorksEditor = T.model('WorksEditor', {
         }
       }
     },
+    cleanupEmptySocial(): TSocialInfo {
+      const slf = self as TStore
+      const { socialInfo, getSocialPrefix } = slf
+
+      // @ts-ignore
+      return reject(
+        (s) => s.link.trim() === getSocialPrefix(s.platform),
+        socialInfo,
+      )
+    },
     removeSocialInfo(platform: string): void {
       const slf = self as TStore
       const { inputData } = slf
@@ -268,7 +283,7 @@ const WorksEditor = T.model('WorksEditor', {
       // @ts-ignore
       slf.socialInfo = reject((s) => s.platform === platform, socialInfo)
     },
-    updateSocialInfo(platform: string, option: TSelectOption): void {
+    updateSocialLabel(platform: string, option: TSelectOption): void {
       const slf = self as TStore
       const { inputData } = slf
       const { socialInfo } = inputData
@@ -279,6 +294,18 @@ const WorksEditor = T.model('WorksEditor', {
       slf.socialInfo[index].platform = option.value
       slf.socialInfo[index].link = slf.getSocialPrefix(option.value)
     },
+
+    updateSocialValue(platform: string, value: string): void {
+      const slf = self as TStore
+      const { inputData } = slf
+      const { socialInfo } = inputData
+
+      const index = findIndex((s) => s.platform === platform, socialInfo)
+      if (index < 0) return
+
+      slf.socialInfo[index].link = value
+    },
+
     reset(): void {
       self.mode = 'publish'
       self.title = ''

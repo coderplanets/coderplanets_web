@@ -18,6 +18,11 @@ export const SocialWrapper = styled.div`
   flex-wrap: wrap;
   margin-left: -4px;
 `
+export const EmptyHint = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.articleDigest')};
+  margin-left: 5px;
+`
 export const SocialItem = styled.div`
   ${css.flex('align-center')};
   padding: 1px 5px;
