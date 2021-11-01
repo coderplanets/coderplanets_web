@@ -125,4 +125,23 @@ export type TSubmitState = {
   publishing?: boolean
   publishDone?: boolean
   isReady?: boolean
+  stepReady?: boolean[]
 }
+
+export type TSelectOption = {
+  value: string
+  label: string
+  desc?: string
+}
+
+export type TTechStackCategory =
+  | 'lang'
+  | 'framework'
+  | 'database'
+  | 'devOps'
+  | 'design'
+
+export type TCommunitySetterStyle = 'normal' | TTechStackCategory
+
+export type TToastType = 'info' | 'error'
+export type TToastPos = 'topCenter'

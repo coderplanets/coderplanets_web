@@ -15,7 +15,7 @@ import type {
   TAccount,
 } from '@/spec'
 import { THREAD, ARTICLE_THREAD } from '@/constant'
-import { markStates, toJS } from '@/utils/mobx'
+import { markStates } from '@/utils/mobx'
 import { User, Community, Post, Blog, Job, Radar, Works } from '@/model'
 
 const ViewingStore = T.model('ViewingStore', {

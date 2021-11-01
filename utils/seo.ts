@@ -1,7 +1,7 @@
 import { SITE_URL } from '@/config'
 
 import type { TCommunity, TThread, TArticle } from '@/spec'
-import { ROUTE } from '@/constant'
+import { ROUTE, THREAD } from '@/constant'
 
 import { plural } from './helper'
 
@@ -82,7 +82,10 @@ export const drinkSEO = (): TSEO => {
   }
 }
 
-export const articleSEO = (thread: TThread, article: TArticle): TSEO => {
+export const articleSEO = (
+  thread: TThread = THREAD.POST,
+  article: TArticle,
+): TSEO => {
   const { id, title, insertedAt, updatedAt, author } = article
 
   return {
@@ -96,11 +99,31 @@ export const articleSEO = (thread: TThread, article: TArticle): TSEO => {
   }
 }
 
-export const articlePublishSEO = (): TSEO => {
-  return {
-    url: `${SITE_URL}/todo`,
-    title: '发布帖子',
-    description: '发布新帖子到社区',
+export const articlePublishSEO = (thread: TThread = THREAD.POST): TSEO => {
+  switch (thread) {
+    case THREAD.BLOG: {
+      return {
+        url: `${SITE_URL}/todo`,
+        title: '发布博客',
+        description: '提交新博客到社区',
+      }
+    }
+
+    case THREAD.WORKS: {
+      return {
+        url: `${SITE_URL}/todo`,
+        title: '发布作品',
+        description: '提交新作品到社区',
+      }
+    }
+
+    default: {
+      return {
+        url: `${SITE_URL}/todo`,
+        title: '发布帖子',
+        description: '发布新帖子到社区',
+      }
+    }
   }
 }
 

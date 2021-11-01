@@ -16,9 +16,10 @@ import WorksViewer from './WorksViewer'
 type TProps = {
   article: TArticle
   loading: boolean
+  tab: string
 }
 
-const Viewer: FC<TProps> = ({ article, loading }) => {
+const Viewer: FC<TProps> = ({ article, loading, tab }) => {
   const { meta } = article
 
   switch (meta.thread.toLowerCase()) {
@@ -27,7 +28,7 @@ const Viewer: FC<TProps> = ({ article, loading }) => {
     }
 
     case THREAD.WORKS: {
-      return <WorksViewer article={article} loading={loading} />
+      return <WorksViewer article={article} loading={loading} tab={tab} />
     }
 
     default: {

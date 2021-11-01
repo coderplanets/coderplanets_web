@@ -1,43 +1,37 @@
-import { FC, memo } from 'react'
+import { FC, memo, useEffect, useRef } from 'react'
 
-import type { TWorks } from '@/spec'
-import { nilOrEmpty } from '@/utils/validator'
-import ArrowButton from '@/widgets/Buttons/ArrowButton'
+import { TEditMode } from '@/spec'
+import type { TInputData } from '../spec'
 
-import CommonQuestions from './CommonQuestions'
-
-import {
-  Wrapper,
-  Input,
-  Label,
-  NextButtonWrapper,
-} from '../styles/content/name_part'
-import { updateWorks, nextStep } from '../logic'
+import { Wrapper, Input, Title, Desc } from '../styles/content/name_part'
+import { inputOnChange } from '../logic'
 
 type TProps = {
-  works: TWorks
+  mode: TEditMode
+  inputData: TInputData
 }
 
-const NamePart: FC<TProps> = ({ works }) => {
-  const valid = !nilOrEmpty(works.title)
+const NamePart: FC<TProps> = ({ mode, inputData }) => {
+  const { title } = inputData
+  const ref = useRef(null)
+
+  // TODO: autoFocus not working here, fix later
+  useEffect(() => {
+    if (ref?.current) {
+      const input = ref?.current?.querySelector('input')
+      setTimeout(() => input?.focus(), 1000)
+    }
+  }, [ref])
 
   return (
-    <Wrapper>
-      <Label>你（们）的作品名称是？</Label>
+    <Wrapper ref={ref}>
+      {mode === 'publish' ? <Title>发布作品</Title> : <Title>更新作品</Title>}
+      <Desc>你（们）的作品名称是 ？</Desc>
       <Input
-        value={works.title}
-        onChange={(e) => updateWorks('title', e.target.value)}
+        value={title || ''}
+        onChange={(e) => inputOnChange(e, 'title')}
         autoFocus
       />
-      {!valid && <CommonQuestions />}
-
-      {valid && (
-        <NextButtonWrapper>
-          <ArrowButton size="large" onClick={nextStep}>
-            下一步
-          </ArrowButton>
-        </NextButtonWrapper>
-      )}
     </Wrapper>
   )
 }

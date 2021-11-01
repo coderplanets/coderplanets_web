@@ -17,7 +17,6 @@ import ArticleEditor from '@/containers/editor/ArticleEditor'
 const fetchData = async (context, opt = {}) => {
   const { gqClient } = ssrFetchPrepare(context, opt)
 
-  // const { thirdPath: id } = ssrParseURL(context.req)
   const sessionState = gqClient.request(P.sessionState)
 
   return {

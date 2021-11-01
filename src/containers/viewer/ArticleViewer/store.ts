@@ -5,6 +5,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
+import { THREAD } from '@/constant'
 import type {
   TCommunity,
   TRootStore,
@@ -21,6 +22,7 @@ const log = buildLog('S:ArticleViewer')
 
 const ArticleViewer = T.model('ArticleViewer', {
   loading: T.optional(T.boolean, false),
+  tab: T.optional(T.string, ''),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -53,6 +55,10 @@ const ArticleViewer = T.model('ArticleViewer', {
     },
     syncArticle(item): void {
       const root = getParent(self) as TRootStore
+      if (self.activeThread === THREAD.WORKS) {
+        console.log('TODO: syncArticle for WORKS ')
+        return
+      }
       root.articlesThread.updateArticle(item)
     },
     updateUpvote(viewerHasUpvoted: boolean): void {
@@ -62,6 +68,9 @@ const ArticleViewer = T.model('ArticleViewer', {
     updateUpvoteCount(count: number, meta: TArticleMeta): void {
       const root = getParent(self) as TRootStore
       return root.viewing.updateUpvoteCount(count, meta)
+    },
+    reset(): void {
+      self.tab = ''
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

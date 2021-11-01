@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { METRIC } from '@/constant'
 
 import type { TMetric } from '@/spec'
 import { theme } from '@/utils/themes'
@@ -27,6 +28,9 @@ export const Operations = styled.div<{ metric: TMetric }>`
   ${css.flex('align-center')};
   justify-content: ${({ metric }) => getStickerJustify(metric)};
   ${({ metric }) => css.fitStickerWidth(metric)};
+
+  padding-right: ${({ metric }) =>
+    metric === METRIC.WORKS_ARTICLE ? '28px' : 0};
 `
 export const LoginHint = styled.div`
   color: ${theme('thread.articleTitle')};

@@ -57,12 +57,12 @@ export const onCancel = (): void => {
   mode === 'publish' ? gotoBackToCommunity() : gotoArticleDetail()
 }
 
-const gotoArticleDetail = (): void => {
+const gotoArticleDetail = () => {
   const { viewingArticle, thread } = store
   Router.push(`/${thread}/${viewingArticle.id}`)
 }
 
-const gotoBackToCommunity = (): void => {
+const gotoBackToCommunity = () => {
   const { communityData } = store
   const { raw } = communityData
 

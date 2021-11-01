@@ -16,6 +16,7 @@ export const WorksWrapper = styled.div`
 export const Intro = styled.div`
   ${css.flexColumn()};
   width: 100%;
+  margin-left: 10px;
 `
 export const Cover = styled(Img)`
   ${css.size(85)};
@@ -36,6 +37,7 @@ export const Desc = styled.div`
   font-size: 15px;
   color: ${theme('thread.articleDigest')};
   margin-bottom: 12px;
+  ${css.cutRest('330px')};
 `
 export const Other = styled.div`
   ${css.flex('justify-between', 'align-end')};

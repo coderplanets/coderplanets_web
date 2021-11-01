@@ -57,15 +57,44 @@ export type TPost = TBaseArticle & {
   digest?: string
 }
 
+export type TTechStack = {
+  title?: string
+  logo: string
+  raw: string
+  category?: string
+}
+type TCity = {
+  title: string
+  logo?: string
+  link: string
+  desc?: string
+}
+
+export type TSocialInfo = { platform: string; link: string }
 export type TWorks = TBaseArticle & {
-  cover: string
-  desc: string
-  tag: { title: string }
-  platform: { title: string }
-  techStack: { icon: string; raw: string }[]
-  isOSS: boolean
+  cover?: string
+  desc?: string
+  homeLink?: string
+  tag?: { title: string }
+  profitMode?: string
+  workingMode?: string
+  techstacks?: TTechStack[]
+  socialInfo?: TSocialInfo[]
+  cities?: TCity[]
+  isOSS?: boolean
   ossAddr?: string
   digest?: string
+}
+
+export type TWorksTab = 'story' | 'basic' | 'techstacks' | 'community'
+export type TBlogTab = 'article' | 'author' | 'history'
+
+export type TTechCommunities = {
+  lang?: TCommunity[]
+  framework?: TCommunity[]
+  database?: TCommunity[]
+  devOps?: TCommunity[]
+  design?: TCommunity[]
 }
 
 export type TBlog = TBaseArticle & {

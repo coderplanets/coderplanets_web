@@ -4,29 +4,62 @@ import type { TSubmitState } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import YesOrNoButtons from './YesOrNoButtons'
+import Button from './Button'
 import { DonwWrapper, DoneIcon, DoneHint } from './styles/submit_button'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Buttons:SubmitButton')
 
 type TProps = {
-  // onClick?: () => void
   submitState?: TSubmitState
 
   okText?: string
   cancelText?: string
+  withCancel?: boolean
   onCancel?: () => void
   onPublish?: () => void
+}
+
+const TheButton: FC<TProps> = ({
+  okText,
+  cancelText,
+  withCancel,
+  onCancel,
+  onPublish,
+  submitState,
+}) => {
+  const { publishing, isReady } = submitState
+
+  return withCancel ? (
+    <YesOrNoButtons
+      cancelText={cancelText}
+      confirmText={okText}
+      onConfirm={onPublish}
+      loading={publishing}
+      disabled={!isReady}
+      onCancel={onCancel}
+    />
+  ) : (
+    <Button
+      loading={publishing}
+      onClick={() => onPublish()}
+      size="small"
+      disabled={!isReady}
+    >
+      {okText}
+    </Button>
+  )
 }
 
 const SubmitButton: FC<TProps> = ({
   okText = '发 布',
   cancelText = '取 消',
+  withCancel = false,
   onCancel = log,
   onPublish = log,
   submitState = { publishing: false, publishDone: false, isReady: false },
 }) => {
-  const { publishing, publishDone, isReady } = submitState
+  const { publishDone } = submitState
 
   return (
     <div>
@@ -36,13 +69,13 @@ const SubmitButton: FC<TProps> = ({
           <DoneHint>已提交</DoneHint>
         </DonwWrapper>
       ) : (
-        <YesOrNoButtons
+        <TheButton
+          submitState={submitState}
+          okText={okText}
           cancelText={cancelText}
-          confirmText={okText}
-          onConfirm={onPublish}
-          loading={publishing}
-          disabled={!isReady}
+          withCancel={withCancel}
           onCancel={onCancel}
+          onPublish={onPublish}
         />
       )}
     </div>

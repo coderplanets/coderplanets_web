@@ -23,7 +23,7 @@ export const Wrapper = styled.div<TWrapper>`
 `
 export const IconWrapper = styled.div<TItem>`
   position: relative;
-  background: ${({ checked }) => (checked ? '#0d3d4e' : '#012f3a')};
+  background: ${({ checked }) => (checked ? '#0d3d4e' : '#0b2631')};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   ${css.flex('align-both')};
@@ -51,4 +51,11 @@ export const ChildWrapper = styled.div<TItem>`
   font-size: ${({ size }) => getFontSize(size)};
   margin-left: 6px;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+
+  &:hover {
+    color: ${({ disabled }) =>
+      disabled ? theme('thread.articleDigest') : theme('thread.articleTitle')};
+  }
+
+  transition: color 0.1s;
 `

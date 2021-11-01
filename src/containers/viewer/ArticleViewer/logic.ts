@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { merge } from 'ramda'
 
-import type { TArticle } from '@/spec'
+import type { TArticle, TWorksTab } from '@/spec'
 
 import { EVENT, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
@@ -24,6 +24,10 @@ let sub$ = null
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleViewer')
 
+export const worksTabOnChange = (tab: TWorksTab): void => {
+  store.mark({ tab })
+}
+
 export const handleUpvote = (
   article: TArticle,
   viewerHasUpvoted: boolean,
@@ -41,18 +45,19 @@ export const handleUpvote = (
 }
 
 const loadArticle = (): void => {
+  markLoading()
+
   const userHasLogin = store.isLogin
   const { id, meta } = store.viewingArticle
 
   const variables = { id, userHasLogin }
-  markLoading()
   return sr71$.query(S.getArticleSchema(meta.thread), variables)
 }
 
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 const handleArticleRes = (article: TArticle): void => {
-  console.log('handleArticleRes: ', article)
+  log('handleArticleRes: ', article)
 
   const thread = article.meta.thread.toLowerCase()
   store.setViewing({ [thread]: merge(store.viewingArticle, article) })
@@ -147,7 +152,8 @@ export const useInit = (_store: TStore): void => {
     loadArticle()
 
     return () => {
-      // log('effect uninit')
+      log('uninit')
+      store.reset()
       sr71$.stop()
       sub$.unsubscribe()
     }

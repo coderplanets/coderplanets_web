@@ -22,7 +22,7 @@ const Layout: FC<TProps> = ({
 }) => {
   switch (thread) {
     case THREAD.WORKS: {
-      return <WorksLayout article={article} metric={metric} />
+      return <WorksLayout article={article} metric={metric} tab={tab} />
     }
 
     case THREAD.BLOG: {

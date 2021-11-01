@@ -1,4 +1,14 @@
-import { curry, reduce, keys, sort, uniq, tap, endsWith } from 'ramda'
+import {
+  curry,
+  groupBy,
+  prop,
+  reduce,
+  keys,
+  sort,
+  uniq,
+  tap,
+  endsWith,
+} from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
@@ -11,7 +21,13 @@ import type {
   TCommunity,
   TThread,
   TTag,
+  TCommunitySetterStyle,
+  TToastType,
+  TToastPos,
+  TWorks,
+  TTechCommunities,
 } from '@/spec'
+
 import { TAG_COLOR_ORDER } from '@/config'
 import { TYPE, EVENT, THREAD } from '@/constant'
 
@@ -203,6 +219,15 @@ export const upvoteOnArticleList = (
 
 export const authWarn = (option): void => send(EVENT.AUTH_WARNING, option)
 
+export const toast = (
+  type: TToastType,
+  title: string,
+  msg: string,
+  position: TToastPos = 'topCenter',
+): void => {
+  send(EVENT.TOAST, { type, title, msg, position })
+}
+
 /**
  * send preview article singal to Drawer
  */
@@ -225,8 +250,10 @@ export const setArticleTag = (
   send(EVENT.SET_TAG, { community, thread, tags })
 }
 
-export const selectCommunity = (): void => {
-  send(EVENT.SELECT_COMMUNITY)
+export const selectCommunity = (
+  communityStyle?: TCommunitySetterStyle,
+): void => {
+  send(EVENT.SELECT_COMMUNITY, { communityStyle })
 }
 
 export const errRescue = ({
@@ -506,4 +533,16 @@ export const plural = (value: string, opt = null): string => {
       return doCovert(`${value}s`, opt)
     }
   }
+}
+
+/**
+ * classify works's techstacks, make suit for @wigets/TechStacks
+ */
+export const classifyTechstack = (works: TWorks): TTechCommunities => {
+  const techs = works.techstacks.map((t) => ({
+    ...t,
+    category: !!t.category ? t.category : 'lang',
+  }))
+
+  return groupBy(prop('category'), techs)
 }

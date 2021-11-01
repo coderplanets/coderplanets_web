@@ -14,7 +14,3 @@ export const InnerWrapper = styled.div`
   ${css.flex()};
   flex-wrap: wrap;
 `
-
-export const NoticeWrapper = styled.div`
-  margin-bottom: 24px;
-`

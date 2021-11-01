@@ -4,7 +4,7 @@
 
 import { FC, Fragment, memo } from 'react'
 
-import type { TPost, TMetric } from '@/spec'
+import type { TWorks, TMetric } from '@/spec'
 import { METRIC, UPVOTE_LAYOUT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -29,13 +29,15 @@ import {
   TabsWrapper,
   SubWrapper,
 } from '../styles/desktop_view/works_layout'
+import { worksTabOnChange } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
 
 type TProps = {
-  article: TPost
+  article: TWorks
   metric?: TMetric
+  tab: string
 }
 
 const tabItems = [
@@ -61,9 +63,10 @@ const tabItems = [
   },
 ]
 
-const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
-  const { meta, title, upvotesCount } = article
+const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
+  const { meta, title, desc, upvotesCount } = article
 
+  const activeTab = !!tab ? tab : 'story'
   return (
     <Fragment>
       <Main metric={metric}>
@@ -75,7 +78,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
               <SpaceGrow />
               <ArticleMenu article={article} />
             </Title>
-            <Desc>可能是最性感的开发者社区, web first, pure ~</Desc>
+            <Desc>{desc}</Desc>
             <Other>
               <ArticleBaseStats article={article} />
               <Actions>
@@ -90,8 +93,9 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
             <Tabs
               items={tabItems}
               size="small"
-              activeKey="story"
+              activeKey={activeTab}
               bottomSpace={4}
+              onChange={worksTabOnChange}
             />
           </TabsWrapper>
         </BottomInfo>

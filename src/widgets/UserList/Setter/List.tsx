@@ -22,12 +22,17 @@ type TProps = {
   users: TUser[]
   withDelete: boolean
   withSelect: boolean
+
+  onDelete?: (u: TUser) => void
+  onSelect?: (u: TUser) => void
 }
 
 const List: FC<TProps> = ({
   users,
   withDelete = false,
   withSelect = false,
+  onDelete,
+  onSelect,
 }) => {
   return (
     <Wrapper>
@@ -40,7 +45,10 @@ const List: FC<TProps> = ({
               <SpaceGrow />
               {withSelect && (
                 <CheckWrapper>
-                  <Checker size="small" />
+                  <Checker
+                    size="small"
+                    onChange={(checked) => checked && onSelect(user)}
+                  />
                 </CheckWrapper>
               )}
 
@@ -51,7 +59,10 @@ const List: FC<TProps> = ({
                   placement="left"
                   behavior="delete-confirm"
                 >
-                  <RemoveIcon src={`${ICON}/shape/delete-solid.svg`} />
+                  <RemoveIcon
+                    src={`${ICON}/shape/delete-solid.svg`}
+                    onClick={() => onDelete(user)}
+                  />
                 </Tooltip>
               )}
             </Name>

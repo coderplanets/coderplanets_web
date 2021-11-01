@@ -49,6 +49,7 @@ const Input: FC<TProps> = ({
   suffixIcon = null,
   suffixActive = false,
   testid = 'input',
+  autoFocus = false,
   ...restProps
 }) => {
   const handleOnChange = useCallback((e) => onChange && onChange(e), [onChange])
@@ -77,6 +78,7 @@ const Input: FC<TProps> = ({
         // prefix={false}
         hasPrefix={!nilOrEmpty(prefixIcon)}
         hasSuffix={!nilOrEmpty(suffixIcon)}
+        autoFocus={autoFocus}
         {...validProps}
       />
       <SuffixWrapper show={!nilOrEmpty(suffixIcon)}>

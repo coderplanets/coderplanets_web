@@ -61,6 +61,11 @@ export type {
   TInput,
   TEditValue,
   TSubmitState,
+  TSelectOption,
+  TTechStackCategory,
+  TCommunitySetterStyle,
+  TToastType,
+  TToastPos,
 } from './utils'
 
 export type { TGQLError } from './graphql'
@@ -77,6 +82,9 @@ export type {
   TRadar,
   TJob,
   TWorks,
+  TSocialInfo,
+  TTechCommunities,
+  TTechStack,
   TMeetup,
   TPagedWorks,
   TPagedMeetups,
@@ -87,6 +95,8 @@ export type {
   TCopyright,
   TUpvoteLayout,
   TCommentsState,
+  TWorksTab,
+  TBlogTab,
 } from './article'
 
 export type {

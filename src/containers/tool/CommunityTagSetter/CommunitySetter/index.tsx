@@ -6,18 +6,14 @@
 
 import { FC, memo } from 'react'
 
-import type { TCommunity } from '@/spec'
+import type { TCommunity, TCommunitySetterStyle } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
 
-import type {
-  TCommunityView,
-  TCommunityAction,
-  TCommunitiesList,
-} from '../spec'
+import type { TCommunityView, TCommunitiesList, TType, TTexts } from '../spec'
 import { Wrapper } from '../styles/tag_setter'
 
 /* eslint-disable-next-line */
@@ -26,26 +22,32 @@ const log = buildLog('c:TagList:index')
 export type TProps = {
   testid?: string
   withSetter?: boolean
+  type: TType
+  communityStyle: TCommunitySetterStyle
+  texts: TTexts
   view: TCommunityView
-  action: TCommunityAction
   communitiesList: TCommunitiesList
   onCommunitySelect?: (community: TCommunity, select: boolean) => void
 }
 
 const CommunitySetter: FC<TProps> = ({
   view,
-  action,
+  type,
+  communityStyle,
+  texts,
   communitiesList,
   onCommunitySelect,
 }) => {
   return (
     <Wrapper>
-      <Header view={view} action={action} />
+      <Header view={view} texts={texts} />
       <Body
+        texts={texts}
+        communityStyle={communityStyle}
         communitiesList={communitiesList}
         onCommunitySelect={onCommunitySelect}
       />
-      <Footer />
+      <Footer type={type} />
     </Wrapper>
   )
 }

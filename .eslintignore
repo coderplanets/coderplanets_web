@@ -1,6 +1,7 @@
 !.eslintrc.js
 .gitignore
 next-env.d.ts
+tsconfig.tsbuildinfo
 *.json
 *.lock
 *.hbs
@@ -11,3 +12,4 @@ next-env.d.ts
 *.md
 *.ico
 *.hbs
+*.css

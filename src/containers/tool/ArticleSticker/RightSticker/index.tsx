@@ -4,7 +4,7 @@ import type { TArticle, TThread } from '@/spec'
 import { THREAD } from '@/constant'
 
 import DefaultSticker from './DefaultSticker'
-import WorksSticker from './WorksSticker'
+import WorksSticker from './WorkSticker'
 
 type TProps = {
   article: TArticle

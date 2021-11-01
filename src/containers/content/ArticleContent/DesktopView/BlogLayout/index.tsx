@@ -1,9 +1,3 @@
-/*
- *
- * general ArticleContent for Post, Job, Blog, Radar ..
- *
- */
-
 import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
@@ -43,9 +37,6 @@ const ArticleContentContainer: FC<TProps> = ({
   useInit(store)
 
   const { viewingArticle, articleTab, blogRssInfoData } = store
-  log('>>>## blogRssInfoData: ', blogRssInfoData)
-  log('articleTab: ', articleTab)
-
   if (!viewingArticle.id) return null
   if (articleTab === 'feeds') {
     return (

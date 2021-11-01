@@ -3,26 +3,25 @@
  */
 import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
-import { merge } from 'ramda'
 
-import { SITE_URL } from '@/config'
-import { METRIC } from '@/constant'
-
+import { METRIC, THREAD } from '@/constant'
 import { useStore } from '@/stores/init'
 
-import { getJwtToken, makeGQClient, ssrRescue, parseTheme } from '@/utils'
+import {
+  ssrFetchPrepare,
+  articlePublishSEO,
+  ssrBaseStates,
+  refreshIfneed,
+  ssrError,
+} from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import WorksEditor from '@/containers/editor/WorksEditor'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props, opt = {}) => {
-  const { realname } = merge({ realname: true }, opt)
-
-  const token = realname ? getJwtToken(props) : null
-  const gqClient = makeGQClient(token)
-
+const fetchData = async (context, opt = {}) => {
+  const { gqClient } = ssrFetchPrepare(context, opt)
   const sessionState = gqClient.request(P.sessionState)
 
   return {
@@ -30,39 +29,27 @@ const fetchData = async (props, opt = {}) => {
   }
 }
 
-export const getServerSideProps: GetServerSideProps = async (props) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(props)
-  } catch ({ response: { errors } }) {
-    if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(props, { tokenExpired: true })
-    }
+    resp = await fetchData(context)
+    const { sessionState } = resp
+    refreshIfneed(sessionState, '/publish/blog', context)
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    return ssrError(context, 'fetch', 500)
   }
 
-  const { sessionState } = resp
-
   const initProps = {
-    theme: {
-      curTheme: parseTheme(sessionState),
-    },
-    account: {
-      user: sessionState.user || {},
-      isValidSession: sessionState.isValid,
-    },
+    ...ssrBaseStates(resp),
   }
 
   return { props: { errorCode: null, ...initProps } }
 }
 
-const CreateWorksPage = (props) => {
+const PublishWorksPage = (props) => {
   const store = useStore(props)
-
-  const seoConfig = {
-    url: `${SITE_URL}/create/works`,
-    title: '发布作品 | coderplanets',
-    description: '发布作品',
-  }
+  const seoConfig = articlePublishSEO(THREAD.WORKS)
 
   return (
     <Provider store={store}>
@@ -78,4 +65,4 @@ const CreateWorksPage = (props) => {
   )
 }
 
-export default CreateWorksPage
+export default PublishWorksPage

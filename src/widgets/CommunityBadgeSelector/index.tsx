@@ -48,7 +48,7 @@ const CommunityBadgeSelector: FC<TProps> = ({
               <div>{cutRest(community.title || '--', 15)}</div>
             </Tooltip>
             {mode === 'publish' && (
-              <ChangeBtn onClick={selectCommunity}>
+              <ChangeBtn onClick={() => selectCommunity()}>
                 更换 <ArrowLogo />
               </ChangeBtn>
             )}

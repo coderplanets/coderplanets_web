@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { isEmpty, reject } from 'ramda'
+import { isEmpty } from 'ramda'
 
 import type { TCommunity, TTag, TInput, TThread } from '@/spec'
 import { errRescue } from '@/utils/helper'
@@ -8,7 +8,7 @@ import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 
 import S from './schema'
-import { TYPE } from './constant'
+import { TYPE, COMMUNITY_STYLE } from './constant'
 import type { TStore } from './store'
 import type { TType, TTagView } from './spec'
 
@@ -49,9 +49,9 @@ export const toggleCommunity = (
   checked: boolean,
 ): void => {
   const { type, selectCommunity, undoSelectCommunity } = store
-  const { id } = community
+  const { raw } = community
 
-  checked ? selectCommunity(id) : undoSelectCommunity(id)
+  checked ? selectCommunity(raw) : undoSelectCommunity(raw)
 
   if (type === TYPE.SELECT_COMMUNITY) {
     onClose()
@@ -82,6 +82,7 @@ export const onClose = (): void => {
     show: false,
     communitySearchValue: '',
     communitiesSearching: false,
+    communitiesSearched: false,
     searchedCommunities: [],
     selectedCommunities: [],
   })
@@ -91,7 +92,7 @@ const loadArticleTags = (community: TCommunity, thread: TThread): void => {
   store.mark({ tagsLoading: true })
 
   const args = {
-    filter: { communityId: community.id, thread: thread.toUpperCase() },
+    filter: { communityId: community.raw, thread: thread.toUpperCase() },
   }
 
   log('query tags args: ', args)
@@ -103,8 +104,14 @@ const loadArticleTags = (community: TCommunity, thread: TThread): void => {
  * @private
  */
 const doSearchCommunities = () => {
-  const { communitySearchValue: title } = store
+  const { communitySearchValue: title, communityStyle } = store
+
   const args = { title }
+
+  if (communityStyle !== COMMUNITY_STYLE.NORMAL) {
+    // @ts-ignore
+    args.category = communityStyle
+  }
 
   if (!isEmpty(title)) {
     store.mark({ communitiesSearching: true })
@@ -112,6 +119,7 @@ const doSearchCommunities = () => {
     store.mark({ communitiesSearching: false })
   }
 
+  store.mark({ communitiesSearched: false })
   sr71$.query(S.searchCommunities, args)
 }
 
@@ -121,7 +129,11 @@ const DataSolver = [
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: { entries } }) => {
-      store.mark({ searchedCommunities: entries, communitiesSearching: false })
+      store.mark({
+        searchedCommunities: entries,
+        communitiesSearching: false,
+        communitiesSearched: true,
+      })
     },
   },
   {
@@ -133,22 +145,24 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.MIRROR_TO_COMMUNITY),
     action: () => {
-      console.log('收到 MIRROR_TO_COMMUNITY')
+      log('收到 MIRROR_TO_COMMUNITY')
       store.mark({ show: true, type: TYPE.MIRROR_COMMUNITY })
     },
   },
   {
     match: asyncRes(EVENT.MOVE_TO_COMMUNITY),
     action: () => {
-      console.log('收到 MOVE_TO_COMMUNITY')
+      log('收到 MOVE_TO_COMMUNITY')
       store.mark({ show: true, type: TYPE.MOVE_COMMUNITY })
     },
   },
   {
     match: asyncRes(EVENT.SELECT_COMMUNITY),
-    action: () => {
-      console.log('收到 SELECT_COMMUNITY')
-      store.mark({ show: true, type: TYPE.SELECT_COMMUNITY })
+    action: (data) => {
+      log('收到 SELECT_COMMUNITY: ', data)
+      const communityStyle =
+        data[EVENT.SELECT_COMMUNITY].communityStyle || COMMUNITY_STYLE.NORMAL
+      store.mark({ show: true, type: TYPE.SELECT_COMMUNITY, communityStyle })
     },
   },
   {

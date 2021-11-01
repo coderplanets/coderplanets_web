@@ -9,7 +9,7 @@ import css from '@/utils/css'
 
 import { getFontSize } from './metric'
 
-type TWrapper = TTestable & TSpace & { size: TSIZE_SM }
+type TWrapper = TTestable & TSpace & { size: TSIZE_SM; interactive: boolean }
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TWrapper>`
@@ -23,7 +23,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 
   &:hover {
     color: ${theme('thread.articleTitle')};
-    cursor: pointer;
+    cursor: ${({ interactive }) => (interactive ? 'pointer' : 'text')};
   }
 
   transition: color 0.1s;

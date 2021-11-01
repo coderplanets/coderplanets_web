@@ -12,10 +12,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // next-plugins end
 
 const nextConfig = {
-  webpack: (config, { isServer, buildId }) => {
+  webpack: (config) => {
     config.plugins = config.plugins || []
 
-    config.plugins.push(new webpack.IgnorePlugin(/(?:\/tests|__mocks)/))
     // moment locale size is too big
     config.plugins.push(
       new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /(en)/),

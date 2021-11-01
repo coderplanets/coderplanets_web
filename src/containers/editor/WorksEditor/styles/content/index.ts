@@ -3,16 +3,17 @@ import styled from 'styled-components'
 import type { TTestable } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import FormInput from '@/widgets/Input'
+
 import { CONTENT_WIDTH } from '../metric'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn('align-both')};
-  height: 100%;
   width: ${`${CONTENT_WIDTH}px`};
 `
-export const BaseInput = styled.input.attrs(() => ({
+export const BaseInput = styled(FormInput).attrs(() => ({
   spellCheck: 'false',
   autoComplete: 'off',
   autoCorrect: 'off',

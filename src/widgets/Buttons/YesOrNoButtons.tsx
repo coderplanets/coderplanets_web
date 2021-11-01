@@ -29,8 +29,8 @@ const YesOrNoButton: FC<TProps> = ({
       {!loading && (
         <CancelBtn onClick={() => onCancel?.()}>{cancelText}</CancelBtn>
       )}
-
       <Space left={5} right={10} />
+
       <Button
         size="small"
         type="primary"

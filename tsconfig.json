@@ -42,7 +42,8 @@
         "name": "typescript-styled-plugin",
         "validate": false
       }
-    ]
+    ],
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "**/*.test.ts"]

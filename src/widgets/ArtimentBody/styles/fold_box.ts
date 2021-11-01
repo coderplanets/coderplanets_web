@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-// import { theme } from '@/utils/themes'
+import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 type TWrapper = { fold: boolean; mode: 'article' | 'comment' }
@@ -23,7 +23,7 @@ export const Wrapper = styled.div<TWrapper>`
 `
 export const Hint = styled.div<{ mode: 'article' | 'comment' }>`
   ${css.flex('align-center')};
-  color: #139c9e;
+  color: ${theme('button.primary')};
   font-size: ${({ mode }) => (mode === 'article' ? '15px' : '13px')};
   opacity: 0.8;
 

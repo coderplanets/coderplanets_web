@@ -1,9 +1,3 @@
-/*
- *
- * general ArticleContent for Post, Job, Blog, Radar ..
- *
- */
-
 import { FC, useRef, Fragment } from 'react'
 
 import type { TBlog, TMetric } from '@/spec'

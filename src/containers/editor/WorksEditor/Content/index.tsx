@@ -1,7 +1,8 @@
 import { FC, memo } from 'react'
 
-import { TWorks } from '@/spec'
-import { TStep } from '../spec'
+import { TSelectOption, TTechCommunities, TEditMode } from '@/spec'
+
+import type { TStep, TInputData } from '../spec'
 import { STEP } from '../constant'
 
 import NamePart from './NamePart'
@@ -13,37 +14,47 @@ import LaunchPart from './LaunchPart'
 import { Wrapper } from '../styles/content'
 
 type TProps = {
+  mode: TEditMode
   step: TStep
-  works: TWorks
-  useTemplate: boolean
+  inputData: TInputData
+  socialOptions: TSelectOption[]
+  techCommunities: TTechCommunities
 }
 
-const Content: FC<TProps> = ({ step, works, useTemplate }) => {
+const Content: FC<TProps> = ({
+  mode,
+  step,
+  inputData,
+  socialOptions,
+  techCommunities,
+}) => {
   let StepComp = null
 
   switch (step) {
     case STEP.ZERO: {
-      StepComp = <NamePart works={works} />
+      StepComp = <NamePart mode={mode} inputData={inputData} />
       break
     }
 
     case STEP.ONE: {
-      StepComp = <BasicInfoPart works={works} />
+      StepComp = (
+        <BasicInfoPart inputData={inputData} socialOptions={socialOptions} />
+      )
       break
     }
 
     case STEP.TWO: {
-      StepComp = <TechStackPart />
+      StepComp = <TechStackPart techCommunities={techCommunities} />
       break
     }
 
     case STEP.THREE: {
-      StepComp = <ArticlePart useTemplate={useTemplate} />
+      StepComp = <ArticlePart inputData={inputData} />
       break
     }
 
     case STEP.FOUR: {
-      StepComp = <LaunchPart works={works} />
+      StepComp = <LaunchPart inputData={inputData} />
       break
     }
 

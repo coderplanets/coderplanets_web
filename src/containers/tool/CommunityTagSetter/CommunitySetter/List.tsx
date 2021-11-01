@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TCommunity } from '@/spec'
+import type { TCommunity, TCommunitySetterStyle } from '@/spec'
 
 // import Tooltip from '@/widgets/Tooltip'
 import CommunityCard from './CommunityCard'
@@ -17,6 +17,7 @@ type TProps = {
   communities: TCommunity[]
   canActOnSeleted?: boolean
   allChecked?: boolean
+  communityStyle: TCommunitySetterStyle
   onCommunitySelect?: (community: TCommunity, select: boolean) => void
 }
 
@@ -26,6 +27,7 @@ const CommunitiesList: FC<TProps> = ({
   communities,
   highlightTitle = false,
   allChecked = false,
+  communityStyle,
   onCommunitySelect,
 }) => {
   return (
@@ -34,9 +36,10 @@ const CommunitiesList: FC<TProps> = ({
       <InnerWrapper>
         {communities.map((item) => (
           <CommunityCard
-            key={item.id}
+            key={item.raw}
             item={item}
             checked={allChecked}
+            communityStyle={communityStyle}
             canActOnSeleted={canActOnSeleted}
             onCommunitySelect={onCommunitySelect}
           />

@@ -15,13 +15,13 @@ export type TTagView =
   | 'update-item'
 
 export type TCommunityView = 'searching' | 'search-error' | 'result' | 'default'
-export type TCommunityAction = 'mirror' | 'move'
 
 export type TLayout = 'create-works' | 'works' | 'guide-contribute'
 
 export type TCommunitiesList = {
   canActOnSeleted: boolean
   searching: boolean
+  searched: boolean
   searchValue: string
   selectedCommunities: TCommunity[]
   searchedCommunities: TCommunity[]
@@ -33,4 +33,12 @@ export type TTagsList = {
   loading: boolean
   tags: TTag[]
   selectedTags: TTag[]
+}
+
+export type TTexts = {
+  header: string
+  searchPlaceholder: string
+  notice?: string
+  commonUsedHint: string
+  notFoundHint?: string
 }

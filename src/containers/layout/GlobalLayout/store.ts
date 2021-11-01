@@ -43,6 +43,10 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
     },
   }))
   .actions((self) => ({
+    toast(type, options): void {
+      const root = getParent(self) as TRootStore
+      root.toast(type, options)
+    },
     authWarning(options): void {
       const root = getParent(self) as TRootStore
       root.authWarning(options)

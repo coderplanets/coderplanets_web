@@ -73,8 +73,9 @@ router.route('/works').get((req, res) => {
   return renderAndCache({ req, res, path: '/works/all' })
 })
 // 单个作品详情
-router.route('/works/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, path: '/works/article' })
+router.route('/works/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/works/${id}` })
 })
 
 // 用户页
@@ -127,6 +128,12 @@ router.route('/update/rss').get((req, res) => {
 // 创建新作品
 router.route('/publish/works').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/works' })
+})
+
+// 编辑作品
+router.route('/update/works/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/update/works/${id}` })
 })
 
 // 所有社区

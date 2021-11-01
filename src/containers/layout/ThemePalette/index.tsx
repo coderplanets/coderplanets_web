@@ -7,15 +7,13 @@
 import { FC, ReactNode } from 'react'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
-// import NextNprogress from 'nextjs-progressbar'
 
 import type { TThemeMap } from '@/spec'
 import { ANCHOR } from '@/constant'
 import { pluggedIn } from '@/utils/mobx'
 
-// import NextNprogress from 'nextjs-progressbar'
-// import MarkDownStyle from './MarkDownStyle'
 import ThirdPartyOverWrite from './ThirdPartyOverWrite'
+import ScrollBarStyle from './ScrollBarStyle'
 import GlobalStyle from './GlobalStyle'
 import { NextNprogress, CodeSyxHighlight } from './dynamic'
 
@@ -32,6 +30,8 @@ const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
       <Head>
         <meta name="theme-color" content={themeData.mobileTab} />
       </Head>
+
+      <ScrollBarStyle />
       <NextNprogress
         color={themeData.logoText}
         startPosition={0.3}

@@ -14,3 +14,4 @@ cypress//integration/examples
 .eslintcache
 
 cypress/videos/*
+tsconfig.tsbuildinfo

@@ -5,7 +5,7 @@ import type { TBlogRSS, TBlog, TEditMode, TRSSAuthor } from '@/spec'
 import NoticeBar from '@/widgets/NoticeBar'
 import { LavaLampLoading } from '@/widgets/dynamic'
 
-import RSSItem from './RSSItem'
+import RSSItem from './TheRSSItem'
 import FeedItem from './FeedItem'
 
 import {

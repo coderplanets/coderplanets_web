@@ -1,38 +1,23 @@
 import { FC, memo } from 'react'
 
-import IconButton from '@/widgets/Buttons/IconButton'
+// import IconButton from '@/widgets/Buttons/IconButton'
+import type { TCommunityView, TTexts } from '../spec'
 
-import type { TCommunityView, TCommunityAction } from '../spec'
-import { COMMUNITY_ACTION } from '../constant'
-
-import { Wrapper, Title, Actions } from '../styles/community_setter/header'
+import { Wrapper, Title } from '../styles/community_setter/header'
 // import { useStore } from '../logic'
 
 // import { LavaLampLoading } from '@/widgets/dynamic'
 
 type TProps = {
   view: TCommunityView
-  action: TCommunityAction
+  texts: TTexts
 }
 
-const getTitle = (action: TCommunityAction): string => {
-  switch (action) {
-    case COMMUNITY_ACTION.MIRROR: {
-      return '镜像到其他社区'
-    }
-    default: {
-      return '移动到其他社区'
-    }
-  }
-}
-
-const Header: FC<TProps> = ({ view, action }) => {
-  // const store = useStore()
-
+const Header: FC<TProps> = ({ view, texts }) => {
   return (
     <Wrapper>
-      <Title>{getTitle(action)}</Title>
-      <Actions>
+      <Title>{texts.header}</Title>
+      {/* <Actions>
         <IconButton
           path="article/community-mirror.svg"
           size={18}
@@ -40,7 +25,6 @@ const Header: FC<TProps> = ({ view, action }) => {
           hintDelay={0}
           hint="镜像到其他社区"
           active={action === COMMUNITY_ACTION.MIRROR}
-          // onClick={() => changeTagView(COMMUNITY_VIEW.RESULT)}
         />
         <IconButton
           path="article/community-move.svg"
@@ -49,9 +33,8 @@ const Header: FC<TProps> = ({ view, action }) => {
           hintDelay={0}
           hint="移动到其他社区"
           active={action === COMMUNITY_ACTION.MOVE}
-          // onClick={() => changeTagView(COMMUNITY_VIEW.RESULT)}
         />
-      </Actions>
+      </Actions> */}
     </Wrapper>
   )
 }

@@ -4,47 +4,50 @@
 
 import { FC, memo, Fragment, useCallback, useState } from 'react'
 
-import type { TPost } from '@/spec'
+import type { TWorks, TWorksTab } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
-import ArticeBody from '@/widgets/ArtimentBody'
 import { ArticleContentLoading } from '@/widgets/Loading'
 
 import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
+import Content from './Content'
 
-import { Wrapper, BodyWrapper } from '../styles/works_viewer'
+import { Wrapper, ContentWrapper } from '../styles/works_viewer'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
 
 type TProps = {
-  article: TPost
+  article: TWorks
   loading: boolean
+  tab: string
 }
 
-const WorksViewer: FC<TProps> = ({ article, loading }) => {
+const WorksViewer: FC<TProps> = ({ article, loading, tab }) => {
   const [fixedHeaderVisible, setFixedHeaderVisible] = useState(false)
 
   const hideFixedHeader = useCallback(() => setFixedHeaderVisible(false), [])
   const showFixedHeader = useCallback(() => setFixedHeaderVisible(true), [])
+
+  log('WorksViewer article: ', article.techstacks)
 
   return (
     <Fragment>
       <FixedHeader article={article} visible={fixedHeaderVisible} />
       <Wrapper>
         <Header article={article} />
-        <ArticleInfo article={article} />
+        <ArticleInfo article={article} tab={tab as TWorksTab} />
         <ViewportTracker onEnter={hideFixedHeader} onLeave={showFixedHeader} />
-        <BodyWrapper>
+        <ContentWrapper>
           {loading ? (
             <ArticleContentLoading num={2} />
           ) : (
-            <ArticeBody document={article.document} />
+            <Content tab={tab} article={article} />
           )}
-        </BodyWrapper>
+        </ContentWrapper>
       </Wrapper>
     </Fragment>
   )

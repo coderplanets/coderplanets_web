@@ -15,7 +15,7 @@ export const getMinHeight = (type) => {
       return '250px'
     }
     default: {
-      return '390px'
+      return '360px'
     }
   }
 }

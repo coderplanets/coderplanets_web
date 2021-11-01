@@ -14,6 +14,7 @@ import { THREAD } from '@/constant'
 
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+import { nilOrEmpty } from '@/utils/validator'
 
 import DigestSentence from '@/widgets/DigestSentence'
 import { SpaceGrow } from '@/widgets/Common'
@@ -30,6 +31,7 @@ import {
   Header,
   Title,
   Name,
+  PreviewName,
   OSSSign,
   FooterWrapper,
   BuildWithWrapper,
@@ -55,9 +57,9 @@ const WorksCard: FC<TProps> = ({
   preview = false,
   // item,
 }) => {
-  const descLimit = preview ? 20 : 60
+  const descLimit = preview ? 20 : 35
 
-  const { id, title, desc, digest, upvotesCount, commentsCount } = item
+  const { id, title, desc, upvotesCount, commentsCount } = item
 
   return (
     <Wrapper testid={testid} preview={preview}>
@@ -71,9 +73,13 @@ const WorksCard: FC<TProps> = ({
         <Header>
           <div>
             <Title>
-              <Link href={`/${THREAD.WORKS}/${id}`} passHref>
-                <Name>{title || '--'}</Name>
-              </Link>
+              {preview ? (
+                <PreviewName as="div">{title || '--'}</PreviewName>
+              ) : (
+                <Link href={`/${THREAD.WORKS}/${id}`} passHref>
+                  <Name>{title || '--'}</Name>
+                </Link>
+              )}
 
               {item.isOSS && (
                 <OSSSign>
@@ -87,17 +93,15 @@ const WorksCard: FC<TProps> = ({
             <DigestSentence
               top={5}
               bottom={15}
+              left={-2}
               onPreview={() => onPreview(item)}
+              interactive={!preview}
             >
-              {cutRest(digest, descLimit)}
+              {cutRest(desc, descLimit)}
             </DigestSentence>
           </div>
 
-          <Upvote
-            type="works-card"
-            count={preview ? 66 : upvotesCount}
-            viewerHasUpvoted={preview}
-          />
+          <Upvote type="works-card" count={upvotesCount} />
         </Header>
         <FooterWrapper>
           {item.tag && (
@@ -105,27 +109,24 @@ const WorksCard: FC<TProps> = ({
               {item.tag.title}
             </IconText>
           )}
-          {item.platform && (
+          {/* {item.platform && (
             <Fragment>
               <DotDivider radius={4} space={8} /> {item.platform.title}
             </Fragment>
-          )}
-          {item.techStack && (
+          )} */}
+          {!nilOrEmpty(item.techstacks) && (
             <Fragment>
-              <Divider />
+              {item.tag && <Divider />}
               <BuildWithWrapper>
-                {item.techStack.map((tech) => (
-                  <TechIcon key={tech.raw} src={tech.icon} />
+                {item.techstacks.map((tech) => (
+                  <TechIcon key={tech.raw} src={tech.logo} />
                 ))}
               </BuildWithWrapper>
             </Fragment>
           )}
 
-          {preview && <span>&nbsp;</span>}
-
           {!preview && (
             <Fragment>
-              <Divider />
               <IconText
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
                 margin="5px"
@@ -136,8 +137,9 @@ const WorksCard: FC<TProps> = ({
             </Fragment>
           )}
           <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
-            {preview ? 99 : commentsCount}
+            {commentsCount}
           </IconText>
+
           <SpaceGrow />
           {/* {item.isOSS && <GithubIcon src={`${ICON_CMD}/works/github.svg`} />} */}
         </FooterWrapper>
