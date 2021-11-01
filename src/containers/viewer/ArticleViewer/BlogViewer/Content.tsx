@@ -1,6 +1,7 @@
 import { FC, memo, Fragment } from 'react'
 
 import type { TBlog, TBlogRSS } from '@/spec'
+import { BLOG_TAB } from '@/constant'
 
 import Linker from '@/widgets/Linker'
 import BlogFeedsList from '@/widgets/BlogFeedsList'
@@ -15,10 +16,10 @@ type TProps = {
 
 const Content: FC<TProps> = ({ article, tab, blogRssInfo }) => {
   switch (tab) {
-    case 'feeds': {
+    case BLOG_TAB.FEEDS: {
       return <BlogFeedsList items={blogRssInfo.historyFeed} />
     }
-    case 'author': {
+    case BLOG_TAB.AUTHOR: {
       return <BlogAuthorInfo author={blogRssInfo.author} />
     }
     default: {

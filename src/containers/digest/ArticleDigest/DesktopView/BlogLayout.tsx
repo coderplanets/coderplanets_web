@@ -5,7 +5,7 @@
 import { FC, Fragment, memo } from 'react'
 
 import type { TBlog, TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+import { METRIC, BLOG_TAB } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { cutRest } from '@/utils/helper'
 
@@ -40,15 +40,15 @@ type TProps = {
 const tabItems = [
   {
     title: '摘要',
-    raw: 'digest',
+    raw: BLOG_TAB.DIGEST,
   },
   {
     title: '历史文章',
-    raw: 'feeds',
+    raw: BLOG_TAB.FEEDS,
   },
   {
     title: '博客作者',
-    raw: 'author',
+    raw: BLOG_TAB.AUTHOR,
   },
 ]
 

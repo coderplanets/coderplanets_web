@@ -1,6 +1,7 @@
 import { memo, FC } from 'react'
 
 import type { TArticle } from '@/spec'
+import { BLOG_TAB } from '@/constant'
 import { ICON } from '@/config'
 
 import DotDivider from '@/widgets/DotDivider'
@@ -24,15 +25,15 @@ import { blogTabOnChange } from '../logic'
 const tabItems = [
   {
     title: '摘要',
-    raw: 'digest',
+    raw: BLOG_TAB.DIGEST,
   },
   {
     title: '历史文章',
-    raw: 'feeds',
+    raw: BLOG_TAB.FEEDS,
   },
   {
     title: '博客作者',
-    raw: 'author',
+    raw: BLOG_TAB.AUTHOR,
   },
 ]
 
@@ -43,7 +44,7 @@ type TProps = {
 
 const ArticleInfo: FC<TProps> = ({ article, tab }) => {
   const { upvotesCount, meta } = article
-  const activeTab = !!tab ? tab : 'digest'
+  const activeTab = !!tab ? tab : BLOG_TAB.DIGEST
 
   return (
     <Wrapper>

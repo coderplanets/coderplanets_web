@@ -5,7 +5,7 @@
 import { FC, Fragment, memo } from 'react'
 
 import type { TWorks, TMetric } from '@/spec'
-import { METRIC, UPVOTE_LAYOUT } from '@/constant'
+import { METRIC, UPVOTE_LAYOUT, WORKS_TAB } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
@@ -43,23 +43,23 @@ type TProps = {
 const tabItems = [
   {
     title: '简介',
-    raw: 'story',
+    raw: WORKS_TAB.STORY,
   },
   {
     title: '技术栈',
-    raw: 'techstack',
+    raw: WORKS_TAB.TECHSTACKS,
   },
   {
     title: '更新',
-    raw: 'update',
+    raw: WORKS_TAB.MILESTONE,
   },
   {
     title: '作者访谈',
-    raw: 'interview',
+    raw: WORKS_TAB.INTERVIEW,
   },
   {
     title: '社区',
-    raw: 'community',
+    raw: WORKS_TAB.COMMUNITY,
   },
 ]
 

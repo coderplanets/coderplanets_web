@@ -1,6 +1,7 @@
 import { memo, FC } from 'react'
 
 import type { TArticle, TWorksTab } from '@/spec'
+import { WORKS_TAB } from '@/constant'
 
 import { SpaceGrow } from '@/widgets/Common'
 import Tabs from '@/widgets/Switcher/Tabs'
@@ -17,15 +18,15 @@ type TProps = {
 const tabItems = [
   {
     title: '简介',
-    raw: 'story',
+    raw: WORKS_TAB.STORY,
   },
   {
     title: '项目概况',
-    raw: 'basic',
+    raw: WORKS_TAB.BASIC,
   },
   {
     title: '技术栈',
-    raw: 'techstack',
+    raw: WORKS_TAB.TECHSTACKS,
   },
   // {
   //   title: '作者访谈',
@@ -33,7 +34,7 @@ const tabItems = [
   // },
   {
     title: '社区',
-    raw: 'community',
+    raw: WORKS_TAB.COMMUNITY,
   },
 ]
 

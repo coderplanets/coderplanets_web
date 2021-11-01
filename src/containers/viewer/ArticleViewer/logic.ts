@@ -3,7 +3,7 @@ import { merge } from 'ramda'
 
 import type { TArticle, TWorksTab, TBlogTab, TBlog } from '@/spec'
 
-import { EVENT, ERR } from '@/constant'
+import { EVENT, ERR, BLOG_TAB } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { errRescue, authWarn } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
@@ -32,7 +32,10 @@ export const blogTabOnChange = (tab: TBlogTab): void => {
   store.mark({ tab })
   const blog = store.viewingArticle as TBlog
 
-  if ((tab === 'feeds' || tab === 'author') && !store.blogRssInfo.title) {
+  if (
+    (tab === BLOG_TAB.FEEDS || tab === BLOG_TAB.AUTHOR) &&
+    !store.blogRssInfo.title
+  ) {
     const args = { rss: blog.rss }
     sr71$.query(S.blogRssInfo, args)
   }

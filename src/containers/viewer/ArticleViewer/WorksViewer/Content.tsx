@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 import type { TWorks } from '@/spec'
-import { METRIC } from '@/constant'
+import { METRIC, WORKS_TAB } from '@/constant'
 
 import { classifyTechstack } from '@/utils/helper'
 
@@ -18,11 +18,11 @@ const Content: FC<TProps> = ({ article, tab }) => {
   const techCommunities = classifyTechstack(article)
 
   switch (tab) {
-    case 'basic': {
+    case WORKS_TAB.BASIC: {
       return <WorksInfoCard article={article} />
     }
 
-    case 'techstack': {
+    case WORKS_TAB.TECHSTACKS: {
       return (
         <TechStacks techCommunities={techCommunities} interactive={false} />
       )
