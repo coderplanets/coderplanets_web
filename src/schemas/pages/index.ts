@@ -1,7 +1,7 @@
 import { pagedPosts, post } from './post'
 import { pagedJobs, job } from './job'
 import { pagedRadars, radar } from './radar'
-import { pagedBlogs, blog } from './blog'
+import { pagedBlogs, blog, blogRssInfo } from './blog'
 import { pagedRepos, repo } from './repo'
 import { pagedWorks, works } from './works'
 import { pagedMeetups, meetup } from './meetup'
@@ -40,6 +40,7 @@ const P = {
   // blog
   pagedBlogs,
   blog,
+  blogRssInfo,
   // radar
   pagedRadars,
   radar,

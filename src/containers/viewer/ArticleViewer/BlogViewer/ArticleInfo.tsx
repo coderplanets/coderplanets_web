@@ -19,10 +19,7 @@ import {
   BaseWrapper,
   UpvoteWrapper,
 } from '../styles/blog_viewer/article_info'
-
-type TProps = {
-  article: TArticle
-}
+import { blogTabOnChange } from '../logic'
 
 const tabItems = [
   {
@@ -30,17 +27,23 @@ const tabItems = [
     raw: 'digest',
   },
   {
-    title: '关于作者',
-    raw: 'author',
+    title: '历史文章',
+    raw: 'feeds',
   },
   {
-    title: '历史文章',
-    raw: 'history',
+    title: '博客作者',
+    raw: 'author',
   },
 ]
 
-const ArticleInfo: FC<TProps> = ({ article }) => {
+type TProps = {
+  article: TArticle
+  tab: string
+}
+
+const ArticleInfo: FC<TProps> = ({ article, tab }) => {
   const { upvotesCount, meta } = article
+  const activeTab = !!tab ? tab : 'digest'
 
   return (
     <Wrapper>
@@ -60,8 +63,9 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
           <Tabs
             items={tabItems}
             size="small"
-            activeKey="digest"
+            activeKey={activeTab}
             bottomSpace={10}
+            onChange={blogTabOnChange}
           />
         </TabsWrapper>
         <UpvoteWrapper>

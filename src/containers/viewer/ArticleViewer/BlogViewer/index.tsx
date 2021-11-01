@@ -4,18 +4,19 @@
 
 import { FC, memo, Fragment, useCallback, useState } from 'react'
 
-import type { TBlog } from '@/spec'
+import type { TBlog, TBlogRSS } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { METRIC } from '@/constant'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
 import { ArticleContentLoading } from '@/widgets/Loading'
-import ArticeBody from '@/widgets/ArtimentBody'
 import ArticleFooter from '@/containers/unit/ArticleFooter'
 
 import FixedHeader from './FixedHeader'
 import Header from './Header'
 import ArticleInfo from './ArticleInfo'
+
+import Content from './Content'
 
 import { Wrapper, BodyWrapper, Title } from '../styles/blog_viewer'
 
@@ -25,9 +26,11 @@ const log = buildLog('C:ArticleViewer')
 type TProps = {
   article: TBlog
   loading: boolean
+  tab: string
+  blogRssInfo: TBlogRSS
 }
 
-const PostViewer: FC<TProps> = ({ article, loading }) => {
+const BlogViewer: FC<TProps> = ({ article, loading, tab, blogRssInfo }) => {
   const [fixedHeaderVisible, setFixedHeaderVisible] = useState(false)
 
   const hideFixedHeader = useCallback(() => setFixedHeaderVisible(false), [])
@@ -39,7 +42,7 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
       <Wrapper>
         <Header article={article} />
         <Title>{article.title}</Title>
-        <ArticleInfo article={article} />
+        <ArticleInfo article={article} tab={tab} />
         <ViewportTracker onEnter={hideFixedHeader} onLeave={showFixedHeader} />
 
         {loading && (
@@ -47,7 +50,7 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
         )}
         {!loading && (
           <BodyWrapper>
-            <ArticeBody document={article.document} />
+            <Content article={article} blogRssInfo={blogRssInfo} tab={tab} />
           </BodyWrapper>
         )}
         <ArticleFooter metric={METRIC.BLOG_ARTICLE} />
@@ -56,4 +59,4 @@ const PostViewer: FC<TProps> = ({ article, loading }) => {
   )
 }
 
-export default memo(PostViewer)
+export default memo(BlogViewer)

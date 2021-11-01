@@ -6,8 +6,6 @@ import { theme } from '@/utils/themes'
 import GithubSVG from '@/widgets/Icons/GithubCat'
 import TwitterSVG from '@/icons/Twitter'
 
-export { MainWrapper, ArticleWrapper } from '../index'
-
 export const UserName = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};

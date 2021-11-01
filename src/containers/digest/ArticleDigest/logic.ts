@@ -53,10 +53,7 @@ export const onListReactionUsers = (type, data): void =>
 const DataSolver = [
   {
     match: asyncRes('blogRssInfo'),
-    action: ({ blogRssInfo }) => {
-      log('blogRssInfo: ', blogRssInfo)
-      store.mark({ blogRssInfo })
-    },
+    action: ({ blogRssInfo }) => store.mark({ blogRssInfo }),
   },
 ]
 const ErrSolver = [

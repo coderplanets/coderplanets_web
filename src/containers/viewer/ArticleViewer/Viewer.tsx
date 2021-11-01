@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TArticle } from '@/spec'
+import type { TArticle, TBlogRSS } from '@/spec'
 import { THREAD } from '@/constant'
 
 import PostViewer from './PostViewer'
@@ -17,18 +17,26 @@ type TProps = {
   article: TArticle
   loading: boolean
   tab: string
+  blogRssInfo: TBlogRSS
 }
 
-const Viewer: FC<TProps> = ({ article, loading, tab }) => {
+const Viewer: FC<TProps> = ({ article, loading, tab, blogRssInfo }) => {
   const { meta } = article
 
   switch (meta.thread.toLowerCase()) {
     case THREAD.BLOG: {
-      return <BlogViewer article={article} loading={loading} />
+      return (
+        <BlogViewer
+          tab={tab}
+          article={article}
+          loading={loading}
+          blogRssInfo={blogRssInfo}
+        />
+      )
     }
 
     case THREAD.WORKS: {
-      return <WorksViewer article={article} loading={loading} tab={tab} />
+      return <WorksViewer tab={tab} article={article} loading={loading} />
     }
 
     default: {

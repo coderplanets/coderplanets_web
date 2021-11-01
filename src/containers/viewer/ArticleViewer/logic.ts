@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { merge } from 'ramda'
 
-import type { TArticle, TWorksTab } from '@/spec'
+import type { TArticle, TWorksTab, TBlogTab, TBlog } from '@/spec'
 
 import { EVENT, ERR } from '@/constant'
 import { buildLog } from '@/utils/logger'
@@ -26,6 +26,16 @@ const log = buildLog('L:ArticleViewer')
 
 export const worksTabOnChange = (tab: TWorksTab): void => {
   store.mark({ tab })
+}
+
+export const blogTabOnChange = (tab: TBlogTab): void => {
+  store.mark({ tab })
+  const blog = store.viewingArticle as TBlog
+
+  if ((tab === 'feeds' || tab === 'author') && !store.blogRssInfo.title) {
+    const args = { rss: blog.rss }
+    sr71$.query(S.blogRssInfo, args)
+  }
 }
 
 export const handleUpvote = (
@@ -106,6 +116,15 @@ const DataSolver = [
       markLoading(false)
     },
   },
+
+  {
+    match: asyncRes('blogRssInfo'),
+    action: ({ blogRssInfo }) => {
+      log('blogRssInfo: ', blogRssInfo)
+      store.mark({ blogRssInfo })
+    },
+  },
+
   // {
   //   match: asyncRes('setTag'),
   //   action: () => {

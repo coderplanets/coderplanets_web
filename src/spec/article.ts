@@ -87,7 +87,7 @@ export type TWorks = TBaseArticle & {
 }
 
 export type TWorksTab = 'story' | 'basic' | 'techstacks' | 'community'
-export type TBlogTab = 'article' | 'author' | 'history'
+export type TBlogTab = 'article' | 'author' | 'feeds'
 
 export type TTechCommunities = {
   lang?: TCommunity[]

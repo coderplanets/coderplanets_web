@@ -1,4 +1,5 @@
 import { gql } from '@urql/core'
+import { P } from '@/schemas'
 
 const post = gql`
   query ($id: ID!) {
@@ -32,28 +33,7 @@ const repo = gql`
 `
 
 const blogRssInfo = gql`
-  query ($rss: String!) {
-    blogRssInfo(rss: $rss) {
-      title
-      subtitle
-      link
-      updated
-      author {
-        name
-        intro
-        github
-        twitter
-      }
-      historyFeed {
-        title
-        digest
-        linkAddr
-        content
-        published
-        updated
-      }
-    }
-  }
+  ${P.blogRssInfo}
 `
 
 const schema = {
