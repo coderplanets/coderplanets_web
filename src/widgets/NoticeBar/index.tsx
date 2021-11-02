@@ -14,6 +14,8 @@ import { ICON } from '@/config'
 
 import Icon from './Icon'
 
+import type { TType } from './spec'
+import { TYPE } from './constant'
 import { Wrapper, Main, UserName, AuthorTag, Timestamp, Why } from './styles'
 
 /* eslint-disable-next-line */
@@ -21,7 +23,7 @@ const log = buildLog('c:NoticeBar:index')
 
 type TProps = {
   testid?: string
-  type?: 'lock' | 'notice' | 'bot' | 'info'
+  type?: TType
   user?: {
     nickname: string
   } | null
@@ -34,7 +36,7 @@ type TProps = {
 
 const NoticeBar: FC<TProps> = ({
   testid = 'notice-bar',
-  type = 'notice',
+  type = TYPE.NOTICE,
   user = null,
   isArticleAuthor = false,
   content,

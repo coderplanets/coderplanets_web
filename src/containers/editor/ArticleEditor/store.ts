@@ -24,6 +24,9 @@ import type { TTexts, TEditData } from './spec'
 
 const ArticleEditor = T.model('ArticleEditor', {
   mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
+  isArchived: T.optional(T.boolean, false),
+  archivedAt: T.optional(T.string, ''),
+
   title: T.optional(T.string, ''),
   body: T.optional(T.string, '{}'),
   linkAddr: T.optional(T.string, ''),
@@ -116,7 +119,7 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get submitState(): TSubmitState {
       const slf = self as TStore
-      return pick(['publishing', 'publishDone', 'isReady'], slf)
+      return pick(['publishing', 'publishDone', 'isReady', 'isArchived'], slf)
     },
   }))
   .actions((self) => ({
@@ -146,10 +149,14 @@ const ArticleEditor = T.model('ArticleEditor', {
         company,
         // @ts-ignore
         companyLink,
+        isArchived,
+        archivedAt,
       } = article
 
       self.title = title
       self.copyRight = copyRight
+      self.isArchived = isArchived
+      self.archivedAt = archivedAt
 
       if (document?.body) self.body = document.body
 

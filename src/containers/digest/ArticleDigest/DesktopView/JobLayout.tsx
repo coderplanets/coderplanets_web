@@ -38,9 +38,6 @@ type TProps = {
 }
 
 const JobLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
-  log('company: ', article.company)
-  log('companyLink: ', article.companyLink)
-
   return (
     <Fragment>
       <Main metric={metric}>

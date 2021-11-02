@@ -8,11 +8,11 @@ import type { TPost, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
+import { ArchivedSign } from '@/widgets/dynamic'
 import { SpaceGrow } from '@/widgets/Common'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 import ArticleBelongCommunity from '@/widgets/ArticleBelongCommunity'
 import DotDivider from '@/widgets/DotDivider'
-import ArchivedSign from '@/widgets/ArchivedSign'
 import ArticleMenu from '@/widgets/ArticleMenu'
 import ReadableDate from '@/widgets/ReadableDate'
 

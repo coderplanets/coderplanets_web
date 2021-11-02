@@ -10,6 +10,8 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import { ArchiveAlert } from '@/widgets/dynamic'
+
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import RichEditor from '@/containers/editor/RichEditor'
 import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
@@ -42,6 +44,8 @@ const ArticleEditorContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const {
+    isArchived,
+    archivedAt,
     mode,
     communityData,
     submitState,
@@ -66,6 +70,10 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         )}
         <ContentWrapper>
+          {isArchived && (
+            <ArchiveAlert date={archivedAt} top={12} bottom={20} left={25} />
+          )}
+
           <TitleInput title={title} placeholder={texts.holder.title} />
           {initEditor && (
             <RichEditor

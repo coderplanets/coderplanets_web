@@ -1,22 +1,28 @@
 import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
-import { LockIcon, NoticeIcon, InfoIcon } from './styles/icon'
+import { LockIcon, ArchivedIcon, NoticeIcon, InfoIcon } from './styles/icon'
+
+import type { TType } from './spec'
+import { TYPE } from './constant'
 
 type TProps = {
-  type?: 'lock' | 'notice' | 'bot' | 'info'
+  type: TType
 }
 
-const Icon: FC<TProps> = ({ type = 'notice' }) => {
+const Icon: FC<TProps> = ({ type }) => {
   switch (type) {
-    case 'lock': {
-      return <LockIcon src={`${ICON}/shape/lock.svg`} />
+    case TYPE.ARCHIVED: {
+      return <ArchivedIcon />
     }
-    case 'info': {
-      return <InfoIcon src={`${ICON}/route/light.svg`} />
+    case TYPE.LOCK: {
+      return <LockIcon />
+    }
+    case TYPE.INFO: {
+      return <InfoIcon />
     }
     default: {
-      return <NoticeIcon src={`${ICON}/shape/warning.svg`} />
+      return <NoticeIcon />
     }
   }
 }

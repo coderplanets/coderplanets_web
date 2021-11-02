@@ -13,9 +13,6 @@ const ArticleMeta = T.model('ArticleMeta', {
   lastActiveAt: T.optional(T.string, ''),
   citingCount: T.optional(T.number, 0),
   latestUpvotedUsers: T.optional(T.array(SimpleUser), []),
-
-  archivedAt: T.optional(T.string, ''),
-  isArchived: T.optional(T.boolean, false),
 })
 
 const Document = T.model('ArticleMeta', {
@@ -66,6 +63,9 @@ export const articleFields = () => {
     insertedAt: T.optional(T.string, ''),
     updatedAt: T.optional(T.string, ''),
     activeAt: T.optional(T.string, ''),
+
+    isArchived: T.optional(T.boolean, false),
+    archivedAt: T.optional(T.string, ''),
   }
 }
 
