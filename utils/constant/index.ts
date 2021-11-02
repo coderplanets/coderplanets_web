@@ -27,7 +27,7 @@ export { PAYMENT_USAGE, PAYMENT_METHOD } from './payment'
 export { REPORT, REPORT_TYPE } from './report'
 export { default as SVG } from './svg'
 
-export { WORKS_TAB, BLOG_TAB } from './tab'
+export { WORKS_TAB, WORKS_TAB_ITEMS, BLOG_TAB, BLOG_TAB_ITEMS } from './tab'
 
 /* some svg icon are sensitive to fill color */
 /* some community svg need fill color, like city etc.. */
