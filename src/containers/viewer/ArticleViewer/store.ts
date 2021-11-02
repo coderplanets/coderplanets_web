@@ -3,7 +3,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-// import {} from 'ramda'
+import { isEmpty } from 'ramda'
 
 import { THREAD } from '@/constant'
 import type {
@@ -13,9 +13,13 @@ import type {
   TArticle,
   TArticleMeta,
   TThread,
+  TBlogRSS,
 } from '@/spec'
+
+import uid from '@/utils/uid'
 import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
+import { BlogRSSInfo } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleViewer')
@@ -23,6 +27,8 @@ const log = buildLog('S:ArticleViewer')
 const ArticleViewer = T.model('ArticleViewer', {
   loading: T.optional(T.boolean, false),
   tab: T.optional(T.string, ''),
+  // blog-spec
+  blogRssInfo: T.optional(BlogRSSInfo, {}),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -46,6 +52,18 @@ const ArticleViewer = T.model('ArticleViewer', {
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing.viewingArticle)
+    },
+    get blogRssInfoData(): TBlogRSS {
+      const slf = self as TStore
+      const rssInfoRaw = toJS(slf.blogRssInfo)
+      if (!isEmpty(rssInfoRaw.historyFeed)) {
+        rssInfoRaw.historyFeed = rssInfoRaw.historyFeed.map((item) => ({
+          ...item,
+          id: uid.gen(),
+        }))
+      }
+
+      return rssInfoRaw
     },
   }))
   .actions((self) => ({

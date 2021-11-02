@@ -5,7 +5,7 @@ import { buildLog } from '@/utils/logger'
 
 import { ArticleFooter, Comments } from '@/containers/dynamic'
 import ArtimentBody from '@/widgets/ArtimentBody'
-
+import Linker from '@/widgets/Linker'
 import ViewportTracker from '@/widgets/ViewportTracker'
 
 import {
@@ -35,6 +35,7 @@ const ArticleTab: FC<TProps> = ({ metric, article }) => {
       />
       <MainWrapper metric={metric}>
         <ArticleWrapper ref={ref}>
+          <Linker src={article.linkAddr} right={10} bottom={25} hint="原文:" />
           <ArtimentBody document={article.document} />
           <ArticleFooter metric={metric} />
         </ArticleWrapper>

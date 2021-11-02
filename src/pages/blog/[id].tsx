@@ -59,8 +59,6 @@ export const getServerSideProps = async (context) => {
       blog,
       activeThread: ARTICLE_THREAD.BLOG,
     },
-    // TODO: load comments on Client
-    // comments: { pagedComments },
   }
 
   return { props: { errorCode: null, ...initProps } }

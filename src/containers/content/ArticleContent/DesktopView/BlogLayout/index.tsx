@@ -1,6 +1,8 @@
 import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
+import { BLOG_TAB } from '@/constant'
+
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -38,7 +40,7 @@ const ArticleContentContainer: FC<TProps> = ({
 
   const { viewingArticle, articleTab, blogRssInfoData } = store
   if (!viewingArticle.id) return null
-  if (articleTab === 'feeds') {
+  if (articleTab === BLOG_TAB.FEEDS) {
     return (
       <Wrapper testid={testid}>
         <InnerWrapper>
@@ -51,7 +53,7 @@ const ArticleContentContainer: FC<TProps> = ({
     )
   }
 
-  if (articleTab === 'author') {
+  if (articleTab === BLOG_TAB.AUTHOR) {
     return (
       <Wrapper testid={testid}>
         <InnerWrapper>

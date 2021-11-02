@@ -1,6 +1,7 @@
 import { memo, FC } from 'react'
 
 import type { TArticle, TWorksTab } from '@/spec'
+import { WORKS_TAB_ITEMS } from '@/constant'
 
 import { SpaceGrow } from '@/widgets/Common'
 import Tabs from '@/widgets/Switcher/Tabs'
@@ -14,29 +15,6 @@ type TProps = {
   tab: TWorksTab
 }
 
-const tabItems = [
-  {
-    title: '简介',
-    raw: 'story',
-  },
-  {
-    title: '项目概况',
-    raw: 'basic',
-  },
-  {
-    title: '技术栈',
-    raw: 'techstack',
-  },
-  // {
-  //   title: '作者访谈',
-  //   raw: 'interview',
-  // },
-  {
-    title: '社区',
-    raw: 'community',
-  },
-]
-
 const ArticleInfo: FC<TProps> = ({ article, tab }) => {
   const { upvotesCount, meta } = article
   // eslint-disable-next-line no-extra-boolean-cast
@@ -46,7 +24,7 @@ const ArticleInfo: FC<TProps> = ({ article, tab }) => {
     <Wrapper>
       <TabWrapper>
         <Tabs
-          items={tabItems}
+          items={WORKS_TAB_ITEMS}
           size="small"
           activeKey={activeTab}
           bottomSpace={10}

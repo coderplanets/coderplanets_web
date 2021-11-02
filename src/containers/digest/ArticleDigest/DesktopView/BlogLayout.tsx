@@ -5,7 +5,7 @@
 import { FC, Fragment, memo } from 'react'
 
 import type { TBlog, TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+import { METRIC, BLOG_TAB_ITEMS } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { cutRest } from '@/utils/helper'
 
@@ -37,21 +37,6 @@ type TProps = {
   tab: string
 }
 
-const tabItems = [
-  {
-    title: '摘要',
-    raw: 'digest',
-  },
-  {
-    title: '历史文章',
-    raw: 'feeds',
-  },
-  {
-    title: '博客作者',
-    raw: 'author',
-  },
-]
-
 const BlogLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
   return (
     <Fragment>
@@ -70,7 +55,7 @@ const BlogLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
           <AuthorName>by: {article.author.nickname}</AuthorName>
           <TabWrapper>
             <Tabs
-              items={tabItems}
+              items={BLOG_TAB_ITEMS}
               size="small"
               activeKey={tab}
               bottomSpace={10}

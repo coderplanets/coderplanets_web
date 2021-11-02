@@ -14,10 +14,15 @@ const unsetTag = gql`
   ${P.unsetTag}
 `
 
+const blogRssInfo = gql`
+  ${P.blogRssInfo}
+`
+
 const schema = {
   setTag,
   unsetTag,
   getArticleSchema,
+  blogRssInfo,
   getUpvoteSchema: F.getUpvoteSchema,
   getUndoUpvoteSchema: F.getUndoUpvoteSchema,
 }

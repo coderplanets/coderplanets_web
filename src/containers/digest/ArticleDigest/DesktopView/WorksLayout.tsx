@@ -3,9 +3,10 @@
  */
 
 import { FC, Fragment, memo } from 'react'
+import { reject } from 'ramda'
 
 import type { TWorks, TMetric } from '@/spec'
-import { METRIC, UPVOTE_LAYOUT } from '@/constant'
+import { METRIC, UPVOTE_LAYOUT, WORKS_TAB_ITEMS, WORKS_TAB } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
@@ -40,33 +41,12 @@ type TProps = {
   tab: string
 }
 
-const tabItems = [
-  {
-    title: '简介',
-    raw: 'story',
-  },
-  {
-    title: '技术栈',
-    raw: 'techstack',
-  },
-  {
-    title: '更新',
-    raw: 'update',
-  },
-  {
-    title: '作者访谈',
-    raw: 'interview',
-  },
-  {
-    title: '社区',
-    raw: 'community',
-  },
-]
-
 const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
   const { meta, title, desc, upvotesCount } = article
 
   const activeTab = !!tab ? tab : 'story'
+  const tabItems = reject((t) => t.raw === WORKS_TAB.BASIC, WORKS_TAB_ITEMS)
+
   return (
     <Fragment>
       <Main metric={metric}>

@@ -1,6 +1,8 @@
 import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
+import { WORKS_TAB } from '@/constant'
+
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -38,7 +40,7 @@ const ArticleContentContainer: FC<TProps> = ({
   const { viewingArticle, articleTab } = store
   if (!viewingArticle.id) return null
 
-  if (articleTab === 'techstack') {
+  if (articleTab === WORKS_TAB.TECHSTACKS) {
     return (
       <Wrapper testid={testid}>
         <InnerWrapper>

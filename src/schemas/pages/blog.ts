@@ -9,6 +9,30 @@ export const blog = `
     }
   }
 `
+export const blogRssInfo = `
+  query ($rss: String!) {
+    blogRssInfo(rss: $rss) {
+      title
+      subtitle
+      link
+      updated
+      author {
+        name
+        intro
+        github
+        twitter
+      }
+      historyFeed {
+        title
+        digest
+        linkAddr
+        content
+        published
+        updated
+      }
+    }
+  }
+`
 export const pagedBlogs = `
   query($filter: PagedBlogsFilter, $userHasLogin: Boolean!) {
     pagedBlogs(filter: $filter) {

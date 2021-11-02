@@ -16,6 +16,11 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-top: ${({ top }) => `${top || 0}px`};
   margin-bottom: ${({ bottom }) => `${bottom || 0}px`};
 `
+export const Hint = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.articleDigest')};
+  margin-right: 5px;
+`
 export const LinkIcon = styled(Img)`
   ${css.size(13)};
   fill: ${theme('thread.articleDigest')};
