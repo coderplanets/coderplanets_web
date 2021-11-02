@@ -23,7 +23,7 @@ const fetchData = async (context, opt = {}) => {
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id, userHasLogin })
+  const job = gqClient.request(P.job, { id, userHasLogin })
 
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -34,7 +34,7 @@ const fetchData = async (context, opt = {}) => {
 
   return {
     ...(await sessionState),
-    ...(await post),
+    ...(await job),
     ...(await subscribedCommunities),
   }
 }
@@ -43,32 +43,32 @@ export const getServerSideProps = async (context) => {
   let resp
   try {
     resp = await fetchData(context)
-    const { post, sessionState } = resp
-    refreshIfneed(sessionState, `/post/${post.id}`, context)
+    const { job, sessionState } = resp
+    refreshIfneed(sessionState, `/job/${job.id}`, context)
   } catch (e) {
     console.log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
   }
 
-  const { post } = resp
+  const { job } = resp
 
   const initProps = {
     ...ssrBaseStates(resp),
     viewing: {
-      post,
-      activeThread: ARTICLE_THREAD.POST,
+      job,
+      activeThread: ARTICLE_THREAD.JOB,
     },
   }
 
   return { props: { errorCode: null, ...initProps } }
 }
 
-const PostPage = (props) => {
+const JobPage = (props) => {
   const store = useStore(props)
   const { viewing } = props
-  const { post } = viewing
+  const { job } = viewing
 
-  const seoConfig = articleSEO(ARTICLE_THREAD.POST, post)
+  const seoConfig = articleSEO(ARTICLE_THREAD.JOB, job)
 
   return (
     <Provider store={store}>
@@ -80,4 +80,4 @@ const PostPage = (props) => {
   )
 }
 
-export default PostPage
+export default JobPage

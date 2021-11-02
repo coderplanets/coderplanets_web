@@ -123,6 +123,10 @@ const DataSolver = [
     action: handleMutateRes,
   },
   {
+    match: asyncRes('createJob'),
+    action: handleMutateRes,
+  },
+  {
     match: asyncRes('updatePost'),
     action: handleMutateRes,
   },

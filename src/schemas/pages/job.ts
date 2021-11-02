@@ -5,6 +5,8 @@ export const job = `
     job(id: $id) {
       ${F.article}
       ${F.articleDetail}
+      company
+      companyLink
     }
   }
 `

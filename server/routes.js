@@ -89,6 +89,12 @@ router.route('/post/:id').get((req, res) => {
   return renderAndCache({ req, res, path: `/post/${id}` })
 })
 
+// 工作页
+router.route('/job/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/job/${id}` })
+})
+
 router.route('/blog/:id').get((req, res) => {
   const { id } = req.params
   return renderAndCache({ req, res, path: `/blog/${id}` })

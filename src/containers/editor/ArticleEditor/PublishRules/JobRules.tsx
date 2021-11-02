@@ -22,7 +22,7 @@ const PublishRules: FC = () => {
           标签能提供的信息（比如薪资，城市，技术方向等）在帖子的标题中不必重复。
         </Li>
         <Li>请不要在一篇帖子里同时招聘多种职位，这会被视作猎头行为。</Li>
-        <Li>With all due respect, 猎头勿扰，</Li>
+        <Li>With all due respect, 请勿发布猎头职位，</Li>
       </Ul>
     </Wrapper>
   )
