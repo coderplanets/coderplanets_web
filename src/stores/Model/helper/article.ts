@@ -65,7 +65,7 @@ export const articleFields = () => {
     activeAt: T.optional(T.string, ''),
 
     isArchived: T.optional(T.boolean, false),
-    archivedAt: T.optional(T.string, ''),
+    archivedAt: T.maybeNull(T.string),
   }
 }
 

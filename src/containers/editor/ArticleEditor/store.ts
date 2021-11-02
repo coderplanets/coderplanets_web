@@ -25,7 +25,7 @@ import type { TTexts, TEditData } from './spec'
 const ArticleEditor = T.model('ArticleEditor', {
   mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
   isArchived: T.optional(T.boolean, false),
-  archivedAt: T.optional(T.string, ''),
+  archivedAt: T.maybeNull(T.string),
 
   title: T.optional(T.string, ''),
   body: T.optional(T.string, '{}'),

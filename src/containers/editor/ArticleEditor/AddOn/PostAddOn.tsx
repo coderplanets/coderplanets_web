@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo, useState, useEffect } from 'react'
 
 import { isURL } from '@/utils/validator'
 import Checker from '@/widgets/Checker'
@@ -20,9 +20,23 @@ const PostAddOn: FC<TProps> = ({ editData }) => {
   const [reprint, setReprint] = useState(false)
   const [invalid, setInvalid] = useState(false)
 
+  useEffect(() => {
+    if (!!editData.linkAddr) {
+      setReprint(true)
+    }
+  }, [])
+
   return (
     <Wrapper>
-      <Checker checked={reprint} size="small" dimWhenIdle onChange={setReprint}>
+      <Checker
+        checked={reprint}
+        size="small"
+        dimWhenIdle
+        onChange={(checked) => {
+          setReprint(checked)
+          if (!checked) editOnChange('', 'linkAddr')
+        }}
+      >
         转载 / 翻译
       </Checker>
 

@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const initProps = {
     ...ssrBaseStates(resp),
     viewing: {
-      activeThread: ARTICLE_THREAD.JOB,
+      viewingThread: ARTICLE_THREAD.JOB,
     },
   }
 
