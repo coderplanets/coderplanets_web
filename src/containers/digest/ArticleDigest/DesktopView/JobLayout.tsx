@@ -57,7 +57,7 @@ const JobLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
           <SpaceGrow />
           <ArticleMenu article={article} />
         </Header>
-        <Title>{article.title}-job</Title>
+        <Title>{article.title}</Title>
         <BottomInfo>
           <CompanyWrapper>
             <LaptopIcon />

@@ -77,6 +77,32 @@ const createJob = gql`
   }
 `
 
+const updateJob = gql`
+  mutation (
+    $id: ID!
+    $title: String
+    $company: String!
+    $companyLink: String
+    $body: String
+    $articleTags: [Ids]
+  ) {
+    updateJob(
+      id: $id
+      title: $title
+      company: $company
+      companyLink: $companyLink
+      body: $body
+      articleTags: $articleTags
+    ) {
+      id
+      title
+      meta {
+        thread
+      }
+    }
+  }
+`
+
 // viewer_has_subscribed
 const community = gql`
   query ($raw: String) {
@@ -119,11 +145,42 @@ const post = gql`
     }
   }
 `
+const job = gql`
+  query job($id: ID!) {
+    job(id: $id) {
+      id
+      title
+      company
+      companyLink
+      copyRight
+      archivedAt
+      isArchived
+
+      originalCommunity {
+        ${F.community}
+      }
+
+      articleTags {
+        ${F.tag}
+      }
+
+      meta {
+        thread
+      }
+    
+      document {
+        body
+      }
+    }
+  }
+`
 const schema = {
   post,
+  job,
   createPost,
   updatePost,
   createJob,
+  updateJob,
   community,
 }
 

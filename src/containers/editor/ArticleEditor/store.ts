@@ -53,7 +53,7 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get thread(): TArticleThread {
       const root = getParent(self) as TRootStore
-      return toJS(root.viewing.activeThread)
+      return toJS(root.viewing.viewingThread)
     },
     get communityData(): TCommunity {
       return toJS(self.community)
@@ -142,6 +142,10 @@ const ArticleEditor = T.model('ArticleEditor', {
         document,
         originalCommunity,
         articleTags,
+        // @ts-ignore
+        company,
+        // @ts-ignore
+        companyLink,
       } = article
 
       self.title = title
@@ -155,6 +159,9 @@ const ArticleEditor = T.model('ArticleEditor', {
       if (isQuestion) self.isQuestion = isQuestion
       // @ts-ignore
       if (articleTags) self.articleTags = articleTags
+
+      if (company) self.company = company
+      if (companyLink) self.companyLink = companyLink
     },
     reset(): void {
       self.mode = 'publish'

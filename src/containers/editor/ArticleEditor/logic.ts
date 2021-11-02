@@ -131,6 +131,10 @@ const DataSolver = [
     action: handleMutateRes,
   },
   {
+    match: asyncRes('updateJob'),
+    action: handleMutateRes,
+  },
+  {
     match: asyncRes('community'),
     action: ({ community }) => store.mark({ community }),
   },

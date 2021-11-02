@@ -115,15 +115,21 @@ router.route('/publish/post').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/post' })
 })
 
-// 编辑新帖子
+// 编辑帖子
 router.route('/update/post/:id').get((req, res) => {
   const { id } = req.params
   return renderAndCache({ req, res, path: `/update/post/${id}` })
 })
 
-// 创建新帖子
+// 创建新工作
 router.route('/publish/job').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/job' })
+})
+
+// 编辑工作
+router.route('/update/job/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/update/job/${id}` })
 })
 
 // 创建新博客
