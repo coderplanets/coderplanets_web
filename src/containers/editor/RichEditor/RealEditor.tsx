@@ -4,7 +4,7 @@
  *
  */
 
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 import RichEditor from '@groupher/react-editor'
 
@@ -27,10 +27,9 @@ type TProps = {
   placeholder?: string
   data?: string
   type?: 'article' | 'works' | 'job' | 'comment' | 'radar'
+  addon?: ReactNode
   reinitKey?: string
   onChange?: (json) => void
-  onLinkChange?: (link: string) => void
-  onUseTemplateChange?: (use: boolean) => void
 }
 
 const RichEditorContainer: FC<TProps> = ({
@@ -40,8 +39,7 @@ const RichEditorContainer: FC<TProps> = ({
   type = 'article',
   reinitKey = '',
   onChange = log,
-  onLinkChange = log,
-  onUseTemplateChange = log,
+  addon = <div />,
 }) => {
   useInit(store)
 
@@ -49,11 +47,7 @@ const RichEditorContainer: FC<TProps> = ({
   return (
     <Wrapper>
       <InnerWrapper type={type}>
-        <Options
-          type={type}
-          onLinkChange={onLinkChange}
-          onUseTemplateChange={onUseTemplateChange}
-        />
+        <Options addon={addon} />
         <EditorWrapper className="rich-editor" type={type}>
           <RichEditor
             onData={onChange}

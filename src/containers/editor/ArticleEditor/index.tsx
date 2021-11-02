@@ -15,6 +15,7 @@ import RichEditor from '@/containers/editor/RichEditor'
 import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
 
 import TitleInput from './TitleInput'
+import AddOn from './AddOn'
 import Footer from './Footer'
 
 import PublishRules from './PublishRules'
@@ -71,7 +72,7 @@ const ArticleEditorContainer: FC<TProps> = ({
             <RichEditor
               data={body}
               onChange={(v) => editOnChange(JSON.stringify(v), 'body')}
-              onLinkChange={(v) => editOnChange(v, 'linkAddr')}
+              addon={<AddOn thread={thread} />}
               placeholder={texts.holder.body}
             />
           )}

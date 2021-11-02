@@ -1,12 +1,14 @@
-import { FC, memo, useState, useCallback } from 'react'
+import { FC, memo, useState } from 'react'
 
 import { isURL } from '@/utils/validator'
-import { SpaceGrow } from '@/widgets/Common'
 import Checker from '@/widgets/Checker'
 
-import Menu from '../Menu'
-
-import { Wrapper, LinkWrapper, LinkInput, ErrorHint } from '../styles/options'
+import {
+  Wrapper,
+  LinkWrapper,
+  LinkInput,
+  ErrorHint,
+} from '../styles/addon/post_addon'
 
 type TProps = {
   onLinkChange: (link: string) => void
@@ -27,9 +29,6 @@ const Header: FC<TProps> = ({ onLinkChange }) => {
           <LinkInput
             placeholder="原文地址"
             onChange={(v) => {
-              console.log('v.target.value: ', v.target.value)
-              console.log('isURL: ', isURL(v.target.value))
-
               if (!isURL(v.target.value)) {
                 setInvalid(true)
               } else {
@@ -43,9 +42,6 @@ const Header: FC<TProps> = ({ onLinkChange }) => {
           {invalid && <ErrorHint>无效地址</ErrorHint>}
         </LinkWrapper>
       )}
-
-      <SpaceGrow />
-      <Menu />
     </Wrapper>
   )
 }
