@@ -143,15 +143,14 @@ const ErrSolver = [
   },
 ]
 
-export const useInit = (_store: TStore, mode: TEditMode): void => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
-    store.mark({ mode })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     log('useInit: ', store)
 
     loadCommunity()
-    if (mode === 'update') loadArticle()
+    if (store.mode === 'update') loadArticle()
 
     // return () => store.reset()
     return () => {
@@ -160,5 +159,5 @@ export const useInit = (_store: TStore, mode: TEditMode): void => {
       sub$ = null
       store.reset()
     }
-  }, [_store, mode])
+  }, [_store])
 }

@@ -15,9 +15,12 @@ import type {
   TArticleThread,
   TSubmitState,
 } from '@/spec'
-import { markStates, toJS } from '@/utils/mobx'
+import { ARTICLE_THREAD } from '@/constant'
 
+import { markStates, toJS } from '@/utils/mobx'
 import { Community, Tag } from '@/model'
+
+import type { TTexts } from './spec'
 
 const ArticleEditor = T.model('ArticleEditor', {
   mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
@@ -55,6 +58,30 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get tagsData(): TTag[] {
       return toJS(self.articleTags)
+    },
+    get texts(): TTexts {
+      const slf = self as TStore
+      const { thread } = slf
+
+      switch (thread) {
+        case ARTICLE_THREAD.JOB: {
+          return {
+            holder: {
+              title: '// 职位标题',
+              body: "// 职位描述（'Tab' 键插入富文本）",
+            },
+          }
+        }
+
+        default: {
+          return {
+            holder: {
+              title: '// 帖子标题',
+              body: "// 帖子内容（'Tab' 键插入富文本）",
+            },
+          }
+        }
+      }
     },
     get editingData() {
       const tagsIds = toJS(self.articleTags).map((t) => t.id)

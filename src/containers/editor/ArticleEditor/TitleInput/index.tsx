@@ -5,14 +5,15 @@ import { editOnChange } from '../logic'
 
 type TProps = {
   title: string
+  placeholder: string
 }
 
-const TitleInput: FC<TProps> = ({ title }) => {
+const TitleInput: FC<TProps> = ({ title, placeholder }) => {
   return (
     <Wrapper>
       <Inputer
         value={title}
-        placeholder="// 帖子标题"
+        placeholder={placeholder}
         behavior="textarea"
         onChange={(e) => editOnChange(e, 'title')}
       />

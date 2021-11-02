@@ -1,12 +1,12 @@
 import { FC, memo } from 'react'
 
-import { Wrapper, Title, Ul, Li } from './styles/publish_rules'
+import { Wrapper, Title, Ul, Li } from '../styles/publish_rules'
 
 const PublishRules: FC = () => {
   return (
     <Wrapper>
       <Ul>
-        <Title>发帖须知</Title>
+        <Title>规则与边界</Title>
         <Li>友善是一切有意义讨论的基础和前提。Don&apos;t be an asshole.</Li>
         <Li>
           如果是寻求解答，请务必提供上下文、需求场景等必要信息, 并勾选发布上方的
@@ -19,7 +19,8 @@ const PublishRules: FC = () => {
         </Li>
         <Li>卖课，领资料，公众号引流等一月禁言起步。多次发布，停止服务。</Li>
         <Li>
-          请尊重自己和他人的时间，不要发布无意义的烂梗 / 黑话之类的 trash talk。
+          请尊重自己和他人的时间，不要发布无意义的烂梗 / 黑话, 以及排版糟糕的
+          Trash Talk
         </Li>
         <Li>严禁侵权，勿议国是，不搞沸腾。</Li>
         <Li>如有其他疑问或建议反馈，请发布到 /feetback#publish。</Li>

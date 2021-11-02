@@ -6,9 +6,10 @@ import type {
   TTag,
   TCommunity,
   TSubmitState,
+  TArticleThread,
 } from '@/spec'
 
-import { THREAD } from '@/constant'
+import { ARTICLE_THREAD } from '@/constant'
 
 import TagsList from '@/widgets/TagsList'
 import SubmitButton from '@/widgets/Buttons/SubmitButton'
@@ -21,6 +22,7 @@ import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
 import { editOnChange, onPublish, onCancel, setWordsCountState } from './logic'
 
 type TProps = {
+  thread: TArticleThread
   mode: TEditMode
   body: string
   tags: TTag[]
@@ -31,6 +33,7 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({
+  thread,
   mode,
   body,
   tags,
@@ -47,7 +50,7 @@ const Footer: FC<TProps> = ({
           mLeft={0}
           size="medium"
           community={community}
-          thread={THREAD.POST}
+          thread={ARTICLE_THREAD.POST}
           withSetter={mode === 'publish'}
         />
         <WordsCounter
@@ -56,14 +59,16 @@ const Footer: FC<TProps> = ({
           onChange={setWordsCountState}
           min={40}
         />
-        <Checker
-          size="medium"
-          dimWhenIdle
-          checked={isQuestion}
-          onChange={(v) => editOnChange(v, 'isQuestion')}
-        >
-          求助 / 提问
-        </Checker>
+        {thread === ARTICLE_THREAD.POST && (
+          <Checker
+            size="medium"
+            dimWhenIdle
+            checked={isQuestion}
+            onChange={(v) => editOnChange(v, 'isQuestion')}
+          >
+            求助 / 提问
+          </Checker>
+        )}
       </ArticleFooter>
       <PublishFooter>
         <Copyright

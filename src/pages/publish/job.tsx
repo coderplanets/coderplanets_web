@@ -2,11 +2,11 @@ import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
 import { METRIC, ARTICLE_THREAD } from '@/constant'
 import {
-  articleUpdateSEO,
-  ssrBaseStates,
-  ssrRescue,
+  articlePublishSEO,
   ssrFetchPrepare,
-  ssrGetParam,
+  ssrBaseStates,
+  refreshIfneed,
+  ssrError,
 } from '@/utils'
 import { P } from '@/schemas'
 
@@ -16,7 +16,6 @@ import ArticleEditor from '@/containers/editor/ArticleEditor'
 
 const fetchData = async (context, opt = {}) => {
   const { gqClient } = ssrFetchPrepare(context, opt)
-
   const sessionState = gqClient.request(P.sessionState)
 
   return {
@@ -24,35 +23,36 @@ const fetchData = async (context, opt = {}) => {
   }
 }
 
+/**
+ * TODO: know-why
+ *
+ * 即使不需要这里的数据初始化 store, 这里也必须要放一个 getserverSideProps,
+ * 否则 Provider 在 URL 中包含 param 的时候会报错，十分诡异 。。
+ * 大概率是 mobx-react 的问题, 真尼玛坑爹。
+ */
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let resp
   try {
     resp = await fetchData(context)
-  } catch ({ response: { errors } }) {
-    if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(context, { tokenExpired: true })
-    }
+    const { sessionState } = resp
+    refreshIfneed(sessionState, '/publish/blog', context)
+  } catch (e) {
+    return ssrError(context, 'fetch', 500)
   }
-
-  const id = ssrGetParam(context, 'id')
 
   const initProps = {
     ...ssrBaseStates(resp),
-    articleEditor: {
-      mode: 'update',
-    },
     viewing: {
-      post: { id },
-      viewingThread: ARTICLE_THREAD.POST,
+      activeThread: ARTICLE_THREAD.JOB,
     },
   }
 
   return { props: { errorCode: null, ...initProps } }
 }
 
-export const UpdatePostPage = (props) => {
+export const PublishJobPage = (props) => {
   const store = useStore(props)
-  const seoConfig = articleUpdateSEO()
+  const seoConfig = articlePublishSEO()
 
   return (
     <Provider store={store}>
@@ -67,4 +67,4 @@ export const UpdatePostPage = (props) => {
   )
 }
 
-export default UpdatePostPage
+export default PublishJobPage

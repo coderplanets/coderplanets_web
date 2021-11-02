@@ -4,7 +4,7 @@
 
 import { FC } from 'react'
 
-import type { TMetric, TEditMode } from '@/spec'
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
@@ -32,17 +32,16 @@ type TProps = {
   testid?: string
   articleEditor?: TStore
   metric?: TMetric
-  mode?: TEditMode
 }
 
 const ArticleEditorContainer: FC<TProps> = ({
   testid = 'article-editor',
   articleEditor: store,
   metric = METRIC.ARTICLE_EDITOR,
-  mode = 'publish',
 }) => {
-  useInit(store, mode)
+  useInit(store)
   const {
+    mode,
     title,
     body,
     copyRight,
@@ -50,6 +49,8 @@ const ArticleEditorContainer: FC<TProps> = ({
     communityData,
     submitState,
     tagsData,
+    texts,
+    thread,
   } = store
 
   const initEditor = mode === 'publish' || body !== '{}'
@@ -65,15 +66,17 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         )}
         <ContentWrapper>
-          <TitleInput title={title} />
+          <TitleInput title={title} placeholder={texts.holder.title} />
           {initEditor && (
             <RichEditor
               data={body}
               onChange={(v) => editOnChange(JSON.stringify(v), 'body')}
               onLinkChange={(v) => editOnChange(v, 'linkAddr')}
+              placeholder={texts.holder.body}
             />
           )}
           <Footer
+            thread={thread}
             mode={mode}
             tags={tagsData}
             body={body}
@@ -85,7 +88,7 @@ const ArticleEditorContainer: FC<TProps> = ({
         </ContentWrapper>
         <div>
           <CommunityBadgeSelector community={communityData} mode={mode} />
-          <PublishRules />
+          <PublishRules thread={thread} />
         </div>
       </InnerWrapper>
     </Wrapper>

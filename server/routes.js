@@ -115,6 +115,11 @@ router.route('/update/post/:id').get((req, res) => {
   return renderAndCache({ req, res, path: `/update/post/${id}` })
 })
 
+// 创建新帖子
+router.route('/publish/job').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/job' })
+})
+
 // 创建新博客
 router.route('/publish/blog').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/blog' })

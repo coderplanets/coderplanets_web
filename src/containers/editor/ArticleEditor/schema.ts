@@ -1,6 +1,7 @@
 import { gql } from '@urql/core'
 import { F } from '@/schemas'
 
+// post
 const createPost = gql`
   mutation (
     $title: String!
@@ -39,6 +40,32 @@ const updatePost = gql`
       title: $title
       body: $body
       copyRight: $copyRight
+      articleTags: $articleTags
+    ) {
+      id
+      title
+      meta {
+        thread
+      }
+    }
+  }
+`
+
+const createJob = gql`
+  mutation (
+    $title: String!
+    $body: String!
+    $communityId: ID!
+    $company: String!
+    $companyLink: String
+    $articleTags: [Id]
+  ) {
+    createJob(
+      title: $title
+      body: $body
+      communityId: $communityId
+      company: $company
+      companyLink: $companyLink
       articleTags: $articleTags
     ) {
       id
@@ -96,6 +123,7 @@ const schema = {
   post,
   createPost,
   updatePost,
+  createJob,
   community,
 }
 
