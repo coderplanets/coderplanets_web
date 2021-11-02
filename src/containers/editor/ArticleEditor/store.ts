@@ -20,7 +20,7 @@ import { ARTICLE_THREAD } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { Community, Tag } from '@/model'
 
-import type { TTexts } from './spec'
+import type { TTexts, TEditData } from './spec'
 
 const ArticleEditor = T.model('ArticleEditor', {
   mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
@@ -31,6 +31,11 @@ const ArticleEditor = T.model('ArticleEditor', {
   isQuestion: T.optional(T.boolean, false),
   community: T.optional(Community, {}),
   articleTags: T.optional(T.array(Tag), []),
+
+  // job spec
+  company: T.optional(T.string, ''),
+  companyLink: T.optional(T.string, ''),
+
   // showSubTitle: T.optional(T.boolean, false),
   publishing: T.optional(T.boolean, false),
   publishDone: T.optional(T.boolean, false),
@@ -83,17 +88,24 @@ const ArticleEditor = T.model('ArticleEditor', {
         }
       }
     },
-    get editingData() {
-      const tagsIds = toJS(self.articleTags).map((t) => t.id)
-      const baseFields = [
-        'title',
-        'body',
-        'copyRight',
-        'isQuestion',
-        'linkAddr',
-      ]
+    get editData(): TEditData {
+      const slf = self as TStore
 
-      return { ...pick(baseFields, self), articleTags: tagsIds }
+      const tagsIds = toJS(slf.articleTags).map((t) => t.id)
+      let baseFields
+      switch (slf.thread) {
+        case ARTICLE_THREAD.JOB: {
+          baseFields = ['title', 'body', 'copyRight', 'company', 'companyLink']
+          break
+        }
+
+        default: {
+          baseFields = ['title', 'body', 'copyRight', 'isQuestion', 'linkAddr']
+          break
+        }
+      }
+
+      return { ...pick(baseFields, slf), articleTags: tagsIds }
     },
     get isReady(): boolean {
       const slf = self as TStore

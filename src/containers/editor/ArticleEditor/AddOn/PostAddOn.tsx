@@ -3,18 +3,20 @@ import { FC, memo, useState } from 'react'
 import { isURL } from '@/utils/validator'
 import Checker from '@/widgets/Checker'
 
+import type { TEditData } from '../spec'
 import {
   Wrapper,
   LinkWrapper,
   LinkInput,
-  ErrorHint,
+  LinkIcon,
 } from '../styles/addon/post_addon'
+import { editOnChange } from '../logic'
 
 type TProps = {
-  onLinkChange: (link: string) => void
+  editData: TEditData
 }
 
-const Header: FC<TProps> = ({ onLinkChange }) => {
+const PostAddOn: FC<TProps> = ({ editData }) => {
   const [reprint, setReprint] = useState(false)
   const [invalid, setInvalid] = useState(false)
 
@@ -26,7 +28,10 @@ const Header: FC<TProps> = ({ onLinkChange }) => {
 
       {reprint && (
         <LinkWrapper>
+          <LinkIcon />
           <LinkInput
+            invalid={invalid}
+            value={editData.linkAddr}
             placeholder="原文地址"
             onChange={(v) => {
               if (!isURL(v.target.value)) {
@@ -35,15 +40,14 @@ const Header: FC<TProps> = ({ onLinkChange }) => {
                 setInvalid(false)
               }
 
-              onLinkChange(v)
+              editOnChange(v, 'linkAddr')
             }}
             autoFocus
           />
-          {invalid && <ErrorHint>无效地址</ErrorHint>}
         </LinkWrapper>
       )}
     </Wrapper>
   )
 }
 
-export default memo(Header)
+export default memo(PostAddOn)

@@ -18,16 +18,15 @@ import Checker from '@/widgets/Checker'
 import { SpaceGrow } from '@/widgets/Common'
 import WordsCounter from '@/widgets/WordsCounter'
 
+import type { TEditData } from './spec'
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
 import { editOnChange, onPublish, onCancel, setWordsCountState } from './logic'
 
 type TProps = {
   thread: TArticleThread
   mode: TEditMode
-  body: string
+  editData: TEditData
   tags: TTag[]
-  isQuestion: boolean
-  copyRight: string
   submitState: TSubmitState
   community: TCommunity
 }
@@ -35,13 +34,12 @@ type TProps = {
 const Footer: FC<TProps> = ({
   thread,
   mode,
-  body,
+  editData,
   tags,
-  isQuestion,
-  copyRight,
   submitState,
   community,
 }) => {
+  const { body, isQuestion, copyRight } = editData
   return (
     <Wrapper>
       <ArticleFooter>

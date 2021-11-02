@@ -78,8 +78,8 @@ export const onPublish = (): void => {
 }
 
 const doCreate = () => {
-  const { thread, editingData, communityId } = store
-  const variables = { communityId, ...editingData }
+  const { thread, editData, communityId } = store
+  const variables = { communityId, ...editData }
   log('onPublish --> ', variables)
 
   const schema = S[`create${titleCase(thread)}`]
@@ -87,9 +87,9 @@ const doCreate = () => {
 }
 
 const doUpdate = () => {
-  const { thread, editingData, viewingArticle } = store
+  const { thread, editData, viewingArticle } = store
   const { id } = viewingArticle
-  const variables = { id, ...editingData }
+  const variables = { id, ...editData }
   log('onUpdate --> ', variables)
 
   const schema = S[`update${titleCase(thread)}`]

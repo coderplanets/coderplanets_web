@@ -43,16 +43,15 @@ const ArticleEditorContainer: FC<TProps> = ({
   useInit(store)
   const {
     mode,
-    title,
-    body,
-    copyRight,
-    isQuestion,
     communityData,
     submitState,
     tagsData,
     texts,
     thread,
+    editData,
   } = store
+
+  const { title, body } = editData
 
   const initEditor = mode === 'publish' || body !== '{}'
 
@@ -72,7 +71,7 @@ const ArticleEditorContainer: FC<TProps> = ({
             <RichEditor
               data={body}
               onChange={(v) => editOnChange(JSON.stringify(v), 'body')}
-              addon={<AddOn thread={thread} />}
+              addon={<AddOn thread={thread} editData={editData} />}
               placeholder={texts.holder.body}
             />
           )}
@@ -80,10 +79,8 @@ const ArticleEditorContainer: FC<TProps> = ({
             thread={thread}
             mode={mode}
             tags={tagsData}
-            body={body}
             community={communityData}
-            copyRight={copyRight}
-            isQuestion={isQuestion}
+            editData={editData}
             submitState={submitState}
           />
         </ContentWrapper>

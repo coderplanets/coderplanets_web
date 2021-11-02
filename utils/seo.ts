@@ -103,15 +103,23 @@ export const articlePublishSEO = (thread: TThread = THREAD.POST): TSEO => {
   switch (thread) {
     case THREAD.BLOG: {
       return {
-        url: `${SITE_URL}/todo`,
+        url: `${SITE_URL}/publish/blog`,
         title: '发布博客',
         description: '提交新博客到社区',
       }
     }
 
+    case THREAD.JOB: {
+      return {
+        url: `${SITE_URL}/publish/job`,
+        title: '发布招聘',
+        description: ' 发布招人启事',
+      }
+    }
+
     case THREAD.WORKS: {
       return {
-        url: `${SITE_URL}/todo`,
+        url: `${SITE_URL}/publish/works`,
         title: '发布作品',
         description: '提交新作品到社区',
       }
@@ -119,7 +127,7 @@ export const articlePublishSEO = (thread: TThread = THREAD.POST): TSEO => {
 
     default: {
       return {
-        url: `${SITE_URL}/todo`,
+        url: `${SITE_URL}/publish/post`,
         title: '发布帖子',
         description: '发布新帖子到社区',
       }

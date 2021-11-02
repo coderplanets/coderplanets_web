@@ -52,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 export const PublishJobPage = (props) => {
   const store = useStore(props)
-  const seoConfig = articlePublishSEO()
+  const seoConfig = articlePublishSEO(ARTICLE_THREAD.JOB)
 
   return (
     <Provider store={store}>
