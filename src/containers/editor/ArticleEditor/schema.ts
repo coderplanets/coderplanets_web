@@ -32,6 +32,7 @@ const updatePost = gql`
     $id: ID!
     $title: String
     $body: String
+    $linkAddr: String
     $copyRight: String
     $articleTags: [Id]
   ) {
@@ -39,6 +40,7 @@ const updatePost = gql`
       id: $id
       title: $title
       body: $body
+      linkAddr: $linkAddr
       copyRight: $copyRight
       articleTags: $articleTags
     ) {
@@ -92,6 +94,54 @@ const updateJob = gql`
       company: $company
       companyLink: $companyLink
       body: $body
+      articleTags: $articleTags
+    ) {
+      id
+      title
+      meta {
+        thread
+      }
+    }
+  }
+`
+
+// radar
+const createRadar = gql`
+  mutation (
+    $title: String!
+    $body: String
+    $linkAddr: String!
+    $communityId: ID!
+    $articleTags: [Id]
+  ) {
+    createRadar(
+      title: $title
+      body: $body
+      linkAddr: $linkAddr
+      communityId: $communityId
+      articleTags: $articleTags
+    ) {
+      id
+      title
+      meta {
+        thread
+      }
+    }
+  }
+`
+const updateRadar = gql`
+  mutation (
+    $id: ID!
+    $title: String
+    $body: String
+    $linkAddr: String
+    $articleTags: [Id]
+  ) {
+    updateRadar(
+      id: $id
+      title: $title
+      body: $body
+      linkAddr: $linkAddr
       articleTags: $articleTags
     ) {
       id
@@ -174,13 +224,44 @@ const job = gql`
     }
   }
 `
+const radar = gql`
+  query radar($id: ID!) {
+    radar(id: $id) {
+      id
+      title
+      linkAddr
+      copyRight
+      archivedAt
+      isArchived
+
+      originalCommunity {
+        ${F.community}
+      }
+
+      articleTags {
+        ${F.tag}
+      }
+
+      meta {
+        thread
+      }
+    
+      document {
+        body
+      }
+    }
+  }
+`
 const schema = {
   post,
   job,
+  radar,
   createPost,
   updatePost,
   createJob,
   updateJob,
+  createRadar,
+  updateRadar,
   community,
 }
 

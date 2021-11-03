@@ -5,8 +5,9 @@ import { ARTICLE_THREAD } from '@/constant'
 
 import type { TEditData } from '../spec'
 
-import JobAddOn from './JobAddOn'
 import PostAddOn from './PostAddOn'
+import RadarAddOn from './RadarAddOn'
+import JobAddOn from './JobAddOn'
 
 type TProps = {
   thread: TArticleThread
@@ -18,7 +19,9 @@ const Addon: FC<TProps> = ({ thread, editData }) => {
     case ARTICLE_THREAD.JOB: {
       return <JobAddOn editData={editData} />
     }
-
+    case ARTICLE_THREAD.RADAR: {
+      return <RadarAddOn editData={editData} />
+    }
     default: {
       return <PostAddOn editData={editData} />
     }

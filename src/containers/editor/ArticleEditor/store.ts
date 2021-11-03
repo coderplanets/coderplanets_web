@@ -18,6 +18,7 @@ import type {
 import { ARTICLE_THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
+import { isURL } from '@/utils/validator'
 import { Community, Tag } from '@/model'
 
 import type { TTexts, TEditData } from './spec'
@@ -81,6 +82,15 @@ const ArticleEditor = T.model('ArticleEditor', {
           }
         }
 
+        case ARTICLE_THREAD.RADAR: {
+          return {
+            holder: {
+              title: '// 消息标题',
+              body: "// 消息内容（'Tab' 键插入富文本）",
+            },
+          }
+        }
+
         default: {
           return {
             holder: {
@@ -102,6 +112,11 @@ const ArticleEditor = T.model('ArticleEditor', {
           break
         }
 
+        case ARTICLE_THREAD.RADAR: {
+          baseFields = ['title', 'body', 'copyRight', 'linkAddr']
+          break
+        }
+
         default: {
           baseFields = ['title', 'body', 'copyRight', 'isQuestion', 'linkAddr']
           break
@@ -112,8 +127,12 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get isReady(): boolean {
       const slf = self as TStore
-      const { wordsCountReady } = slf
-      const titleReady = slf.title.length > 0
+      const { title, thread, wordsCountReady, linkAddr } = slf
+      const titleReady = title.length > 0
+
+      if (thread === ARTICLE_THREAD.RADAR) {
+        return wordsCountReady && titleReady && !!isURL(linkAddr, true)
+      }
 
       return wordsCountReady && titleReady
     },

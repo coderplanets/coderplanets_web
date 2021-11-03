@@ -127,11 +127,19 @@ const DataSolver = [
     action: handleMutateRes,
   },
   {
+    match: asyncRes('createRadar'),
+    action: handleMutateRes,
+  },
+  {
     match: asyncRes('updatePost'),
     action: handleMutateRes,
   },
   {
     match: asyncRes('updateJob'),
+    action: handleMutateRes,
+  },
+  {
+    match: asyncRes('updateRadar'),
     action: handleMutateRes,
   },
   {

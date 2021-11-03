@@ -10,5 +10,4 @@ export const Wrapper = styled.div`
 export const LinkWrapper = styled.div`
   ${css.flex('align-center')};
   position: relative;
-  margin-left: 15px;
 `
