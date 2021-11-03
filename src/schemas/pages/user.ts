@@ -45,25 +45,7 @@ export const user = `
       }
 
       subscribedCommunitiesCount
-      subscribedCommunities {
-        entries {
-          ${F.community}
-        }
-        ${F.pagedCounts}
-      }
 
-      editableCommunities {
-        entries {
-          ${F.community}
-        }
-      }
-
-      editableCommunities {
-        entries {
-          ${F.community}
-        }
-        totalCount
-      }
       insertedAt
     }
   }

@@ -1,6 +1,6 @@
 import { SITE_URL } from '@/config'
 
-import type { TCommunity, TThread, TArticle } from '@/spec'
+import type { TCommunity, TThread, TArticle, TUser } from '@/spec'
 import { ROUTE, THREAD } from '@/constant'
 
 import { plural } from './helper'
@@ -14,6 +14,7 @@ type TSEO = {
   dateModified?: string
   authorName?: string
   images?: string[]
+  // user
 }
 
 export const communitySEO = (community: TCommunity, thread: TThread): TSEO => {
@@ -140,5 +141,13 @@ export const articleUpdateSEO = (): TSEO => {
     url: `${SITE_URL}/todo`,
     title: '编辑帖子',
     description: '编辑帖子',
+  }
+}
+
+export const userSEO = (user: TUser): TSEO => {
+  return {
+    title: `${user.nickname}`,
+    url: `${SITE_URL}/${ROUTE.USER}/${user.login}`,
+    description: user.bio,
   }
 }

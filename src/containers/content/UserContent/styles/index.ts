@@ -32,7 +32,7 @@ export const ContentWrapper = styled.div`
 export const TabBarWrapper = styled.div`
   position: absolute;
   bottom: 0;
-  left: 380px;
+  left: 403px;
   width: 100%;
 `
 export const MobileBottom = styled.div`

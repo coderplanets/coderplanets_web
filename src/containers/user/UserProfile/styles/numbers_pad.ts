@@ -3,6 +3,7 @@ import styled from 'styled-components'
 // import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import InfoSVG from '@/icons/Info'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
@@ -18,9 +19,35 @@ export const Section = styled.div`
   width: 100px;
   height: 82px;
 `
+export const NormalSection = styled(Section)`
+  width: 70px;
+`
+export const FollowSection = styled(Section)`
+  width: 130px;
+  padding-right: 10px;
+`
+export const GravitySection = styled(Section)`
+  width: 130px;
+  padding-left: 10px;
+`
 export const Num = styled.div`
   font-size: 18px;
   color: ${theme('thread.articleTitle')};
+`
+export const Gravity = styled.div`
+  ${css.flex('align-center')};
+  color: ${theme('thread.articleDigest')};
+  margin-top: 4px;
+  font-size: 12px;
+  margin-left: 12px;
+`
+export const InfoIcon = styled(InfoSVG)`
+  ${css.size(10)};
+  fill: ${theme('thread.articleDigest')};
+  margin-left: 5px;
+
+  opacity: 0.8;
+  cursor: pointer;
 `
 export const Title = styled.div`
   margin-top: 4px;
@@ -28,28 +55,23 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
 `
-export const IDTitle = styled(Title)`
-  margin-top: 0;
+export const JoinAt = styled(Num)`
+  ${css.flex('align-both')};
+  position: relative;
+  font-size: 14px;
+  margin-top: 1px;
+  margin-bottom: 2px;
+`
+export const JoinSlash = styled.div`
   font-size: 10px;
-`
-export const IDNum = styled(Num)`
-  font-size: 16px;
-`
-export const GradeTitle = styled(Title)`
-  margin-top: 4px;
-  font-size: 12px;
-`
-export const GradeDesc = styled.div`
-  ${css.flex('align-baseline')};
-`
-export const GradeLetter = styled.div`
-  color: ${theme('thread.articleTitle')};
-  font-size: 18px;
-`
-export const GradeText = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 13px;
-  margin-left: 1px;
+  font-weight: bolder;
+  font-family: monospace;
+  margin-right: 3px;
+  margin-left: 3px;
+  opacity: 0.8;
+  transform: rotate(-5deg);
+  margin-top: 2px;
 `
 export const Divider = styled.div`
   height: 40px;

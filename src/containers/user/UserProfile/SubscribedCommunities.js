@@ -5,7 +5,7 @@ import CommunityList from '@/widgets/CommunityList'
 import { Wrapper, Title, Divider } from './styles/subscribed_communities'
 
 const SubscribedCommunities = ({ items }) => {
-  if (!items.entries) return null
+  if (!items?.entries) return null
 
   return (
     <Wrapper>

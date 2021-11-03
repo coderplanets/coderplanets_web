@@ -1,5 +1,5 @@
 const USER_THREAD = {
-  PROFILE: 'PROFILE',
+  PROFILE: 'profile',
   PUBLISH: 'publish',
   COMMENTS: 'comments',
   FAVORITES: 'favorites',

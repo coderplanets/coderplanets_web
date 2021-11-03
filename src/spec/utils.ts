@@ -4,6 +4,8 @@ export type Nullable<T> = T | null
 
 export type TID = string
 
+export type TView = 'desktop' | 'mobile' | 'MODELINE' | 'DRAWER'
+
 export type TTestable = {
   testid?: string
 }

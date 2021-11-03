@@ -66,6 +66,7 @@ export type {
   TCommunitySetterStyle,
   TToastType,
   TToastPos,
+  TView,
 } from './utils'
 
 export type { TGQLError } from './graphql'

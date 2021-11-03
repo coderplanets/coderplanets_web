@@ -15,14 +15,17 @@ export const BriefTextWrapper = styled.div`
 export const UserTitle = styled.div`
   ${css.flex()};
   color: ${theme('thread.articleTitle')};
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-size: 25px;
+  margin-bottom: 2px;
+`
+export const ShortBio = styled.div`
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
 `
 export const Bio = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 13px;
+  font-size: 14px;
 `
-
 type TUserDesc = { clickable: boolean; hide: boolean }
 export const UserDesc = styled.div<TUserDesc>`
   color: ${theme('banner.desc')};

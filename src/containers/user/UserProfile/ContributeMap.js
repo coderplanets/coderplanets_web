@@ -64,7 +64,7 @@ const UserContributeMap = ({ data }) => {
   return (
     <Wrapper className="banner-heatmap">
       <Header>
-        <Title>过去1年共创作 {data.totalCount} 次内容</Title>
+        <Title>过去 1 年共创作 {data.totalCount} 次内容</Title>
         <DotList>
           <DotText>潜水&nbsp;&nbsp;</DotText>
           <ColorDot scale="empty" />
@@ -73,7 +73,7 @@ const UserContributeMap = ({ data }) => {
           <ColorDot scale="3" />
           <ColorDot scale="4" />
           <ColorDot scale="5" />
-          <DotText>&nbsp;高产</DotText>
+          <DotText>&nbsp;活跃</DotText>
         </DotList>
       </Header>
       <Divider />
