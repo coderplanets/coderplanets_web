@@ -61,7 +61,7 @@ export const UpdatePostPage = (props) => {
         seoConfig={seoConfig}
         noSidebar
       >
-        <ArticleEditor mode="update" />
+        <ArticleEditor />
       </GlobalLayout>
     </Provider>
   )

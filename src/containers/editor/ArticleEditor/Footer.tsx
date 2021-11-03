@@ -6,9 +6,10 @@ import type {
   TTag,
   TCommunity,
   TSubmitState,
+  TArticleThread,
 } from '@/spec'
 
-import { THREAD } from '@/constant'
+import { ARTICLE_THREAD } from '@/constant'
 
 import TagsList from '@/widgets/TagsList'
 import SubmitButton from '@/widgets/Buttons/SubmitButton'
@@ -17,28 +18,28 @@ import Checker from '@/widgets/Checker'
 import { SpaceGrow } from '@/widgets/Common'
 import WordsCounter from '@/widgets/WordsCounter'
 
+import type { TEditData } from './spec'
 import { Wrapper, ArticleFooter, PublishFooter } from './styles/footer'
 import { editOnChange, onPublish, onCancel, setWordsCountState } from './logic'
 
 type TProps = {
+  thread: TArticleThread
   mode: TEditMode
-  body: string
+  editData: TEditData
   tags: TTag[]
-  isQuestion: boolean
-  copyRight: string
   submitState: TSubmitState
   community: TCommunity
 }
 
 const Footer: FC<TProps> = ({
+  thread,
   mode,
-  body,
+  editData,
   tags,
-  isQuestion,
-  copyRight,
   submitState,
   community,
 }) => {
+  const { body, isQuestion, copyRight } = editData
   return (
     <Wrapper>
       <ArticleFooter>
@@ -47,7 +48,7 @@ const Footer: FC<TProps> = ({
           mLeft={0}
           size="medium"
           community={community}
-          thread={THREAD.POST}
+          thread={thread}
           withSetter={mode === 'publish'}
         />
         <WordsCounter
@@ -56,14 +57,16 @@ const Footer: FC<TProps> = ({
           onChange={setWordsCountState}
           min={40}
         />
-        <Checker
-          size="medium"
-          dimWhenIdle
-          checked={isQuestion}
-          onChange={(v) => editOnChange(v, 'isQuestion')}
-        >
-          求助 / 提问
-        </Checker>
+        {thread === ARTICLE_THREAD.POST && (
+          <Checker
+            size="medium"
+            dimWhenIdle
+            checked={isQuestion}
+            onChange={(v) => editOnChange(v, 'isQuestion')}
+          >
+            求助 / 提问
+          </Checker>
+        )}
       </ArticleFooter>
       <PublishFooter>
         <Copyright

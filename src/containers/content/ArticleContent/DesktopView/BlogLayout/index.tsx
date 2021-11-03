@@ -38,8 +38,9 @@ const ArticleContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { viewingArticle, articleTab, blogRssInfoData } = store
-  if (!viewingArticle.id) return null
+  const { viewingArticle: article, articleTab, blogRssInfoData } = store
+  if (!article.id) return null
+
   if (articleTab === BLOG_TAB.FEEDS) {
     return (
       <Wrapper testid={testid}>
@@ -69,7 +70,7 @@ const ArticleContentContainer: FC<TProps> = ({
   return (
     <Wrapper testid={testid}>
       <InnerWrapper>
-        <ArticleTab metric={metric} article={viewingArticle} />
+        <ArticleTab metric={metric} article={article} />
         <SidebarWrapper>
           <ArticleSticker metric={metric} />
         </SidebarWrapper>

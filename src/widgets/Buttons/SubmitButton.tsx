@@ -57,9 +57,24 @@ const SubmitButton: FC<TProps> = ({
   withCancel = false,
   onCancel = log,
   onPublish = log,
-  submitState = { publishing: false, publishDone: false, isReady: false },
+  submitState = {
+    publishing: false,
+    publishDone: false,
+    isReady: false,
+    isArchived: false,
+  },
 }) => {
-  const { publishDone } = submitState
+  const { publishDone, isArchived } = submitState
+
+  if (isArchived) {
+    return (
+      <div>
+        <Button size="small" disabled>
+          已存档
+        </Button>
+      </div>
+    )
+  }
 
   return (
     <div>

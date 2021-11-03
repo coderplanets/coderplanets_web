@@ -29,3 +29,9 @@ export const Ul = styled.ul`
 export const Li = styled.li`
   margin-bottom: 8px;
 `
+export const Footer = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.articleTitle')};
+  opacity: 0.6;
+  margin-top: 10px;
+`

@@ -4,17 +4,20 @@
 
 import { FC } from 'react'
 
-import type { TMetric, TEditMode } from '@/spec'
+import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
+
+import { ArchiveAlert } from '@/widgets/dynamic'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import RichEditor from '@/containers/editor/RichEditor'
 import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
 
 import TitleInput from './TitleInput'
+import AddOn from './AddOn'
 import Footer from './Footer'
 
 import PublishRules from './PublishRules'
@@ -32,25 +35,27 @@ type TProps = {
   testid?: string
   articleEditor?: TStore
   metric?: TMetric
-  mode?: TEditMode
 }
 
 const ArticleEditorContainer: FC<TProps> = ({
   testid = 'article-editor',
   articleEditor: store,
   metric = METRIC.ARTICLE_EDITOR,
-  mode = 'publish',
 }) => {
-  useInit(store, mode)
+  useInit(store)
   const {
-    title,
-    body,
-    copyRight,
-    isQuestion,
+    isArchived,
+    archivedAt,
+    mode,
     communityData,
     submitState,
     tagsData,
+    texts,
+    thread,
+    editData,
   } = store
+
+  const { title, body } = editData
 
   const initEditor = mode === 'publish' || body !== '{}'
 
@@ -65,27 +70,31 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         )}
         <ContentWrapper>
-          <TitleInput title={title} />
+          {isArchived && (
+            <ArchiveAlert date={archivedAt} top={12} bottom={20} left={25} />
+          )}
+
+          <TitleInput title={title} placeholder={texts.holder.title} />
           {initEditor && (
             <RichEditor
               data={body}
               onChange={(v) => editOnChange(JSON.stringify(v), 'body')}
-              onLinkChange={(v) => editOnChange(v, 'linkAddr')}
+              addon={<AddOn thread={thread} editData={editData} />}
+              placeholder={texts.holder.body}
             />
           )}
           <Footer
+            thread={thread}
             mode={mode}
             tags={tagsData}
-            body={body}
             community={communityData}
-            copyRight={copyRight}
-            isQuestion={isQuestion}
+            editData={editData}
             submitState={submitState}
           />
         </ContentWrapper>
         <div>
           <CommunityBadgeSelector community={communityData} mode={mode} />
-          <PublishRules />
+          <PublishRules thread={thread} />
         </div>
       </InnerWrapper>
     </Wrapper>

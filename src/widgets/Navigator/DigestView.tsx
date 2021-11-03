@@ -24,7 +24,7 @@ export const BlinkCursor = dynamic(() => import('@/widgets/BlinkCursor'), {
 const renderMainEntries = (metric) => {
   switch (metric) {
     case METRIC.ARTICLE_EDITOR: {
-      return <ActionText>发布帖子</ActionText>
+      return <ActionText>发布内容</ActionText>
     }
 
     default: {

@@ -89,11 +89,21 @@ router.route('/post/:id').get((req, res) => {
   return renderAndCache({ req, res, path: `/post/${id}` })
 })
 
+// 工作页
+router.route('/job/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/job/${id}` })
+})
+
 router.route('/blog/:id').get((req, res) => {
   const { id } = req.params
   return renderAndCache({ req, res, path: `/blog/${id}` })
 })
 
+router.route('/radar/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/radar/${id}` })
+})
 // repo 帖子页
 // router.route('/:community/repo/:id').get((req, res) => {
 //   return renderAndCache({ req, res, path: '/repo' })
@@ -109,10 +119,21 @@ router.route('/publish/post').get((req, res) => {
   return renderAndCache({ req, res, page: '/publish/post' })
 })
 
-// 编辑新帖子
+// 编辑帖子
 router.route('/update/post/:id').get((req, res) => {
   const { id } = req.params
   return renderAndCache({ req, res, path: `/update/post/${id}` })
+})
+
+// 创建新工作
+router.route('/publish/job').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/job' })
+})
+
+// 编辑工作
+router.route('/update/job/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/update/job/${id}` })
 })
 
 // 创建新博客
@@ -134,6 +155,17 @@ router.route('/publish/works').get((req, res) => {
 router.route('/update/works/:id').get((req, res) => {
   const { id } = req.params
   return renderAndCache({ req, res, path: `/update/works/${id}` })
+})
+
+// 创建新雷达
+router.route('/publish/radar').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/radar' })
+})
+
+// 编辑雷达
+router.route('/update/radar/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/update/radar/${id}` })
 })
 
 // 所有社区

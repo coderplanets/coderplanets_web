@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 import { Provider } from 'mobx-react'
-import { METRIC } from '@/constant'
+import { METRIC, ARTICLE_THREAD } from '@/constant'
 import {
   articlePublishSEO,
   ssrFetchPrepare,
@@ -42,6 +42,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const initProps = {
     ...ssrBaseStates(resp),
+    viewing: {
+      viewingThread: ARTICLE_THREAD.POST,
+    },
   }
 
   return { props: { errorCode: null, ...initProps } }

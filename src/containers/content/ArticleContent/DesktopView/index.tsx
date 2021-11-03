@@ -1,6 +1,6 @@
 import { METRIC } from '@/constant'
 
-import PostLayout from './PostLayout'
+import ArticleLayout from './ArticleLayout'
 import BlogLayout from './BlogLayout'
 import WorksLayout from './WorksLayout'
 
@@ -15,7 +15,7 @@ const ArticleContent = (props) => {
       return <WorksLayout {...props} />
     }
     default: {
-      return <PostLayout {...props} />
+      return <ArticleLayout {...props} />
     }
   }
 }

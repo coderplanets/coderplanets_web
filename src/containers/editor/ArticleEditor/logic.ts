@@ -78,8 +78,8 @@ export const onPublish = (): void => {
 }
 
 const doCreate = () => {
-  const { thread, editingData, communityId } = store
-  const variables = { communityId, ...editingData }
+  const { thread, editData, communityId } = store
+  const variables = { communityId, ...editData }
   log('onPublish --> ', variables)
 
   const schema = S[`create${titleCase(thread)}`]
@@ -87,9 +87,9 @@ const doCreate = () => {
 }
 
 const doUpdate = () => {
-  const { thread, editingData, viewingArticle } = store
+  const { thread, editData, viewingArticle } = store
   const { id } = viewingArticle
-  const variables = { id, ...editingData }
+  const variables = { id, ...editData }
   log('onUpdate --> ', variables)
 
   const schema = S[`update${titleCase(thread)}`]
@@ -123,7 +123,23 @@ const DataSolver = [
     action: handleMutateRes,
   },
   {
+    match: asyncRes('createJob'),
+    action: handleMutateRes,
+  },
+  {
+    match: asyncRes('createRadar'),
+    action: handleMutateRes,
+  },
+  {
     match: asyncRes('updatePost'),
+    action: handleMutateRes,
+  },
+  {
+    match: asyncRes('updateJob'),
+    action: handleMutateRes,
+  },
+  {
+    match: asyncRes('updateRadar'),
     action: handleMutateRes,
   },
   {
@@ -143,15 +159,14 @@ const ErrSolver = [
   },
 ]
 
-export const useInit = (_store: TStore, mode: TEditMode): void => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
-    store.mark({ mode })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     log('useInit: ', store)
 
     loadCommunity()
-    if (mode === 'update') loadArticle()
+    if (store.mode === 'update') loadArticle()
 
     // return () => store.reset()
     return () => {
@@ -160,5 +175,5 @@ export const useInit = (_store: TStore, mode: TEditMode): void => {
       sub$ = null
       store.reset()
     }
-  }, [_store, mode])
+  }, [_store])
 }

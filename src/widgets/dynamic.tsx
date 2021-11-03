@@ -14,3 +14,11 @@ export const LavaLampLoading = dynamic(
     ssr: false,
   },
 )
+
+export const ArchiveAlert = dynamic(() => import('./ArchiveAlert'), {
+  ssr: false,
+})
+
+export const ArchivedSign = dynamic(() => import('./ArchivedSign'), {
+  ssr: false,
+})

@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import ArchivedSVG from '@/icons/Archived'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -16,7 +16,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   border-radius: 4px;
   cursor: default;
 `
-export const SignIcon = styled(Img)`
+export const SignIcon = styled(ArchivedSVG)`
   ${css.size(12)};
   fill: ${theme('thread.articleDigest')};
   margin-right: 5px;

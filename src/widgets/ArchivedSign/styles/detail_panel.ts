@@ -5,11 +5,7 @@ import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
-  width: 200px;
-  /* border: 1px solid;
-  border-color: #00424f;
-  padding: 0 8px;
-  border-radius: 4px; */
+  width: 230px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

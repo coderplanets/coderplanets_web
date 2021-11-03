@@ -125,6 +125,7 @@ export type TSubmitState = {
   publishing?: boolean
   publishDone?: boolean
   isReady?: boolean
+  isArchived?: boolean
   stepReady?: boolean[]
 }
 

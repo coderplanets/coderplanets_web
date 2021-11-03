@@ -15,7 +15,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   position: relative;
-  width: 100%;
+  width: auto;
 `
 const AddOn = styled.div<TActive>`
   position: absolute;
@@ -73,7 +73,8 @@ export const InputWrapper = styled.input<IInput>`
   background-color: #0b2631;
   border-color: ${theme('editor.border')};
   ::placeholder {
-    color: ${theme('editor.placeholder')};
+    color: ${theme('thread.articleDigest')};
+    opacity: 0.5;
   }
   &:hover {
     border-color: ${theme('editor.borderActive')};

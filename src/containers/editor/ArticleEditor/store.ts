@@ -15,12 +15,19 @@ import type {
   TArticleThread,
   TSubmitState,
 } from '@/spec'
-import { markStates, toJS } from '@/utils/mobx'
+import { ARTICLE_THREAD } from '@/constant'
 
+import { markStates, toJS } from '@/utils/mobx'
+import { isURL } from '@/utils/validator'
 import { Community, Tag } from '@/model'
+
+import type { TTexts, TEditData } from './spec'
 
 const ArticleEditor = T.model('ArticleEditor', {
   mode: T.optional(T.enumeration(['publish', 'update']), 'publish'),
+  isArchived: T.optional(T.boolean, false),
+  archivedAt: T.maybeNull(T.string),
+
   title: T.optional(T.string, ''),
   body: T.optional(T.string, '{}'),
   linkAddr: T.optional(T.string, ''),
@@ -28,6 +35,11 @@ const ArticleEditor = T.model('ArticleEditor', {
   isQuestion: T.optional(T.boolean, false),
   community: T.optional(Community, {}),
   articleTags: T.optional(T.array(Tag), []),
+
+  // job spec
+  company: T.optional(T.string, ''),
+  companyLink: T.optional(T.string, ''),
+
   // showSubTitle: T.optional(T.boolean, false),
   publishing: T.optional(T.boolean, false),
   publishDone: T.optional(T.boolean, false),
@@ -45,7 +57,7 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get thread(): TArticleThread {
       const root = getParent(self) as TRootStore
-      return toJS(root.viewing.activeThread)
+      return toJS(root.viewing.viewingThread)
     },
     get communityData(): TCommunity {
       return toJS(self.community)
@@ -56,28 +68,77 @@ const ArticleEditor = T.model('ArticleEditor', {
     get tagsData(): TTag[] {
       return toJS(self.articleTags)
     },
-    get editingData() {
-      const tagsIds = toJS(self.articleTags).map((t) => t.id)
-      const baseFields = [
-        'title',
-        'body',
-        'copyRight',
-        'isQuestion',
-        'linkAddr',
-      ]
+    get texts(): TTexts {
+      const slf = self as TStore
+      const { thread } = slf
 
-      return { ...pick(baseFields, self), articleTags: tagsIds }
+      switch (thread) {
+        case ARTICLE_THREAD.JOB: {
+          return {
+            holder: {
+              title: '// 职位标题',
+              body: "// 职位描述（'Tab' 键插入富文本）",
+            },
+          }
+        }
+
+        case ARTICLE_THREAD.RADAR: {
+          return {
+            holder: {
+              title: '// 消息标题',
+              body: "// 消息内容（'Tab' 键插入富文本）",
+            },
+          }
+        }
+
+        default: {
+          return {
+            holder: {
+              title: '// 帖子标题',
+              body: "// 帖子内容（'Tab' 键插入富文本）",
+            },
+          }
+        }
+      }
+    },
+    get editData(): TEditData {
+      const slf = self as TStore
+
+      const tagsIds = toJS(slf.articleTags).map((t) => t.id)
+      let baseFields
+      switch (slf.thread) {
+        case ARTICLE_THREAD.JOB: {
+          baseFields = ['title', 'body', 'copyRight', 'company', 'companyLink']
+          break
+        }
+
+        case ARTICLE_THREAD.RADAR: {
+          baseFields = ['title', 'body', 'copyRight', 'linkAddr']
+          break
+        }
+
+        default: {
+          baseFields = ['title', 'body', 'copyRight', 'isQuestion', 'linkAddr']
+          break
+        }
+      }
+
+      return { ...pick(baseFields, slf), articleTags: tagsIds }
     },
     get isReady(): boolean {
       const slf = self as TStore
-      const { wordsCountReady } = slf
-      const titleReady = slf.title.length > 0
+      const { title, thread, wordsCountReady, linkAddr } = slf
+      const titleReady = title.length > 0
+
+      if (thread === ARTICLE_THREAD.RADAR) {
+        return wordsCountReady && titleReady && !!isURL(linkAddr, true)
+      }
 
       return wordsCountReady && titleReady
     },
     get submitState(): TSubmitState {
       const slf = self as TStore
-      return pick(['publishing', 'publishDone', 'isReady'], slf)
+      return pick(['publishing', 'publishDone', 'isReady', 'isArchived'], slf)
     },
   }))
   .actions((self) => ({
@@ -103,10 +164,18 @@ const ArticleEditor = T.model('ArticleEditor', {
         document,
         originalCommunity,
         articleTags,
+        // @ts-ignore
+        company,
+        // @ts-ignore
+        companyLink,
+        isArchived,
+        archivedAt,
       } = article
 
       self.title = title
       self.copyRight = copyRight
+      self.isArchived = isArchived
+      self.archivedAt = archivedAt
 
       if (document?.body) self.body = document.body
 
@@ -116,6 +185,9 @@ const ArticleEditor = T.model('ArticleEditor', {
       if (isQuestion) self.isQuestion = isQuestion
       // @ts-ignore
       if (articleTags) self.articleTags = articleTags
+
+      if (company) self.company = company
+      if (companyLink) self.companyLink = companyLink
     },
     reset(): void {
       self.mode = 'publish'

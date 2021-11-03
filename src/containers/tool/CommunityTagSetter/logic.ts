@@ -92,7 +92,7 @@ const loadArticleTags = (community: TCommunity, thread: TThread): void => {
   store.mark({ tagsLoading: true })
 
   const args = {
-    filter: { communityId: community.raw, thread: thread.toUpperCase() },
+    filter: { communityId: community.id, thread: thread.toUpperCase() },
   }
 
   log('query tags args: ', args)
