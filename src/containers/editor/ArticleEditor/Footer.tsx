@@ -48,7 +48,7 @@ const Footer: FC<TProps> = ({
           mLeft={0}
           size="medium"
           community={community}
-          thread={ARTICLE_THREAD.POST}
+          thread={thread}
           withSetter={mode === 'publish'}
         />
         <WordsCounter

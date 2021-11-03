@@ -34,7 +34,8 @@ const GroupTags: FC<TProps> = ({
 }) => {
   return (
     <Wrapper>
-      <HintTitle>{folder}</HintTitle>
+      {folder !== 'null' ? <HintTitle>{folder}</HintTitle> : <br />}
+
       <InnerWrapper>
         {tags.map((tag) => (
           <Tag
