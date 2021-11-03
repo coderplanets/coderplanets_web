@@ -27,11 +27,18 @@ export const LinkSrc = styled.a`
     cursor: pointer;
   }
 `
-export const Title = styled.div`
+export const Title = styled.a`
   display: inline;
   color: ${theme('thread.articleTitle')};
   font-size: 17px;
   cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('thread.articleTitle')};
+  }
+
   ${css.media.mobile`
     ${css.cutRest('150px')};
   `};

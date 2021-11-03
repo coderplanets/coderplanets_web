@@ -13,6 +13,7 @@ import { pluggedIn } from '@/utils/mobx'
 import { ArticleFooter, Comments } from '@/containers/dynamic'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
 import ArtimentBody from '@/widgets/ArtimentBody'
+import Linker from '@/widgets/Linker'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
 
@@ -25,7 +26,7 @@ import {
   SidebarWrapper,
   ArticleWrapper,
   CommentsWrapper,
-} from '../styles/desktop_view/post_layout'
+} from '../styles/desktop_view/article_layout'
 
 import { useInit, checkAnchor } from '../logic'
 
@@ -45,10 +46,10 @@ const ArticleContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { viewingArticle } = store
+  const { viewingArticle: article } = store
   const ref = useRef()
 
-  if (!viewingArticle.id) return null
+  if (!article.id) return null
 
   return (
     <Wrapper testid={testid}>
@@ -59,7 +60,10 @@ const ArticleContentContainer: FC<TProps> = ({
         />
         <MainWrapper metric={metric}>
           <ArticleWrapper ref={ref}>
-            <ArtimentBody document={viewingArticle.document} />
+            {!!article.linkAddr && (
+              <Linker src={article.linkAddr} bottom={22} hint="原文:" />
+            )}
+            <ArtimentBody document={article.document} />
             <ArticleFooter metric={metric} />
           </ArticleWrapper>
 

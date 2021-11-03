@@ -20,10 +20,9 @@ const PublishRules: FC = () => {
         <Li>卖课，领资料，公众号引流等一月禁言起步。多次发布，停止服务。</Li>
         <Li>
           请尊重自己和他人的时间，不要发布无意义的烂梗 / 黑话, 以及排版糟糕的
-          Trash Talk
+          Trash Talk.
         </Li>
-        <Li>严禁侵权，勿议国是，不搞沸腾。</Li>
-        <Li>如有其他疑问或建议反馈，请发布到 /feetback#publish。</Li>
+        <Li>严禁侵权，勿议国是，尊重事实，不搞沸腾。</Li>
       </Ul>
     </Wrapper>
   )

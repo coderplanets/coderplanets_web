@@ -100,6 +100,10 @@ router.route('/blog/:id').get((req, res) => {
   return renderAndCache({ req, res, path: `/blog/${id}` })
 })
 
+router.route('/radar/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/radar/${id}` })
+})
 // repo 帖子页
 // router.route('/:community/repo/:id').get((req, res) => {
 //   return renderAndCache({ req, res, path: '/repo' })
@@ -151,6 +155,17 @@ router.route('/publish/works').get((req, res) => {
 router.route('/update/works/:id').get((req, res) => {
   const { id } = req.params
   return renderAndCache({ req, res, path: `/update/works/${id}` })
+})
+
+// 创建新雷达
+router.route('/publish/radar').get((req, res) => {
+  return renderAndCache({ req, res, page: '/publish/radar' })
+})
+
+// 编辑雷达
+router.route('/update/radar/:id').get((req, res) => {
+  const { id } = req.params
+  return renderAndCache({ req, res, path: `/update/radar/${id}` })
 })
 
 // 所有社区
