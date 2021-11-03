@@ -27,8 +27,8 @@ const Header: FC<TIndex> = ({ data, thread }) => {
       return (
         <Wrapper>
           <LinkWraper>
-            {/* <LinkIcon src={`${ICON}/shape/link.svg`} /> */}
-            <LinkIcon src={`${ICON}/social/twitter-share.png`} />
+            {/* <LinkIcon src={`${ICON}/social/twitter-share.png`} /> */}
+            <LinkIcon />
             <LinkSrc>{linkAddr}</LinkSrc>
           </LinkWraper>
           <Br top={4} />

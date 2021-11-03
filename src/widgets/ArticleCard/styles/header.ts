@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
-import Img from '@/Img'
+// import Img from '@/Img'
 import css from '@/utils/css'
+import LinkSVG from '@/icons/Link'
 
 export const Wrapper = styled.div``
 
 export const LinkWraper = styled.div`
   ${css.flex('align-center')};
 `
-export const LinkIcon = styled(Img)`
+export const LinkIcon = styled(LinkSVG)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
 `
@@ -18,7 +19,7 @@ export const LinkSrc = styled.a`
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
-  margin-left: 6px;
+  margin-left: 3px;
 
   &:hover {
     text-decoration: underline;
