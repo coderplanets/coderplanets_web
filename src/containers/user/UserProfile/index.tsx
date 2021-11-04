@@ -6,49 +6,45 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import NumbersPad from './NumbersPad'
 import ContributeMap from './ContributeMap'
-import SubscribedCommunities from './SubscribedCommunities'
 import Activities from './Activities'
 
+import type { TStore } from './store'
 import { Wrapper, ContributesWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:UserProfile')
 
-const UserProfileContainer = ({ userProfile: store, testid }) => {
+type TProps = {
+  userProfile?: TStore
+  testid?: string
+}
+
+const UserProfileContainer: FC<TProps> = ({
+  userProfile: store,
+  testid = 'user-profile',
+}) => {
   useInit(store)
 
   const { viewingUser } = store
-  // console.log('# viewingUser: ', viewingUser)
 
   return (
     <Wrapper testid={testid}>
       <NumbersPad user={viewingUser} />
       <ContributesWrapper>
-        <ContributeMap data={viewingUser.contributes} />
+        <ContributeMap user={viewingUser} />
       </ContributesWrapper>
 
-      <SubscribedCommunities items={viewingUser.subscribedCommunities} />
       <Activities />
     </Wrapper>
   )
 }
 
-UserProfileContainer.propTypes = {
-  userProfile: T.any.isRequired,
-  testid: T.string,
-}
-
-UserProfileContainer.defaultProps = {
-  testid: 'user-profile',
-}
-
-export default pluggedIn(UserProfileContainer)
+export default pluggedIn(UserProfileContainer) as FC<TProps>

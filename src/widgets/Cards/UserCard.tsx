@@ -4,7 +4,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TUser } from '@/spec'
+import type { TAccount, TUser } from '@/spec'
 import { cutRest } from '@/utils/helper'
 
 import {
@@ -20,7 +20,7 @@ import {
 } from './styles/user_card'
 
 type TProps = {
-  item: TUser
+  item: TUser | TAccount
 }
 
 const UserCard: FC<TProps> = ({ item }) => {

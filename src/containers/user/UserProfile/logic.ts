@@ -3,13 +3,14 @@ import { useEffect } from 'react'
 
 import { buildLog } from '@/utils/logger'
 // import S from './service'
+import type { TStore } from './store'
 
-let store = null
+let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserProfile')
 
-export const someMethod = () => {
+export const someMethod = (): void => {
   /* todo */
 }
 
@@ -17,7 +18,7 @@ export const someMethod = () => {
 // init & uninit handlers
 // ###############################
 
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

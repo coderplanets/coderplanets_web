@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   margin-top: -15px;
   margin-bottom: 50px;
 `
-export const Section = styled.div`
+const Section = styled.div`
   ${css.flexColumn('align-both')};
   width: 100px;
   height: 82px;
@@ -29,6 +29,13 @@ export const FollowSection = styled(Section)`
 export const GravitySection = styled(Section)`
   width: 130px;
   padding-left: 10px;
+`
+export const JoinSection = styled(Section)`
+  width: 200px;
+`
+export const CommunitiesWrapper = styled.div`
+  margin-bottom: 5px;
+  margin-top: 4px;
 `
 export const Num = styled.div`
   font-size: 18px;
@@ -55,24 +62,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
 `
-export const JoinAt = styled(Num)`
-  ${css.flex('align-both')};
-  position: relative;
-  font-size: 14px;
-  margin-top: 1px;
-  margin-bottom: 2px;
-`
-export const JoinSlash = styled.div`
-  font-size: 10px;
-  color: ${theme('thread.articleDigest')};
-  font-weight: bolder;
-  font-family: monospace;
-  margin-right: 3px;
-  margin-left: 3px;
-  opacity: 0.8;
-  transform: rotate(-5deg);
-  margin-top: 2px;
-`
+
 export const Divider = styled.div`
   height: 40px;
   width: 1px;

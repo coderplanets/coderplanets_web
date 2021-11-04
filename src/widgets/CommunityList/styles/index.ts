@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { TSpace } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
+import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
@@ -17,56 +17,24 @@ export const Linker = styled.a<TSpace>`
     text-decoration: underline;
   }
 `
-export const Logo = styled(Img)<{ size: string }>`
+export const Logo = styled(CommunityFaceLogo)<{ size: number }>`
   fill: ${theme('thread.articleTitle')};
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
   display: block;
 `
-export const PopoverInfo = styled.div`
-  ${css.flex()};
-  padding: 5px 10px;
-  max-width: 240px;
-`
-export const PopCommunityLogo = styled(Img)`
-  ${css.size(40)};
-  margin-right: 8px;
-`
-export const PopCommunityInfo = styled.div`
-  ${css.flexColumn()};
-`
-export const PopCommunityTitle = styled.div`
-  font-weight: bold;
-  color: ${theme('thread.articleTitle')};
-`
-export const PopCommunityDesc = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 0.8rem;
-`
-type TMoreWrapper = TSpace & { size: string }
-export const MoreWrapper = styled.div<TMoreWrapper>`
+
+export const MoreWrapper = styled.div`
   ${css.flex('align-center')}
-  color: ${theme('thread.articleDigest')};
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
-  margin-bottom: ${({ bottom }) => bottom};
-  margin-left: 5px;
+  color: ${theme('button.primary')};
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: -2px;
+  opacity: 0.8;
 
   &:hover {
-    color: ${theme('thread.articleTitle')};
+    opacity: 1;
     cursor: pointer;
   }
-  transition: all 0.25s;
-`
-export const MoreIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(14)};
-  transform: rotate(180deg);
-  margin-left: 2px;
-
-  ${MoreWrapper}:hover & {
-    fill: ${theme('thread.articleTitle')};
-    margin-left: 4px;
-  }
-  transition: all 0.25s;
+  transition: all 0.1s;
 `

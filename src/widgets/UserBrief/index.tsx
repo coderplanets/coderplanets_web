@@ -14,6 +14,7 @@ import { Br } from '@/widgets/Common'
 // import SocialIcons from './SocialIcons'
 import ExtraInfo from './ExtraInfo'
 import Operators from './Operators'
+import Footer from './Footer'
 // import CommunityEditorInfo from './CommunityEditorInfo'
 
 import Avatar from './Avatar'
@@ -71,9 +72,7 @@ const UserBrief: FC<TProps> = ({
         {/* {user.editableCommunities.length > 0 && <Divider />} */}
         {/* <CommunityEditorInfo user={user} /> */}
         <Divider />
-        {/* <UserDesc>
-          <SocialIcons user={user} />
-        </UserDesc> */}
+        <Footer user={user} />
       </BriefTextWrapper>
     </Wrapper>
   )

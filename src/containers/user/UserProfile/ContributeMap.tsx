@@ -4,10 +4,11 @@
  * TODO: this component use global class as style
  *
  */
-import React from 'react'
+import { FC, memo } from 'react'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
 
+import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import {
   Wrapper,
@@ -60,11 +61,16 @@ const getClass = (value) => {
   }
 }
 
-const UserContributeMap = ({ data }) => {
+type TProps = {
+  user: TUser
+}
+
+const UserContributeMap: FC<TProps> = ({ user }) => {
+  const { contributes } = user
   return (
     <Wrapper className="banner-heatmap">
       <Header>
-        <Title>过去 1 年共创作 {data.totalCount} 次内容</Title>
+        <Title>过去 1 年共创作 {contributes.totalCount} 次内容</Title>
         <DotList>
           <DotText>潜水&nbsp;&nbsp;</DotText>
           <ColorDot scale="empty" />
@@ -78,16 +84,14 @@ const UserContributeMap = ({ data }) => {
       </Header>
       <Divider />
       <CalendarHeatmap
-        // startDate={data.startDate}
-        startDate="2020-01-01"
-        // endDate={data.endDate}
-        endDate="2020-12-30"
+        startDate={contributes.startDate}
+        endDate={contributes.endDate}
         showMonthLabels
         onClick={(value) => log(value)}
         gutterSize={4}
         tooltipDataAttrs={customTooltipDataAttrs}
         monthLabels={monthLabels}
-        values={data.records}
+        values={contributes.records}
         classForValue={getClass}
       />
       <ReactTooltip
@@ -100,4 +104,4 @@ const UserContributeMap = ({ data }) => {
   )
 }
 
-export default React.memo(UserContributeMap)
+export default memo(UserContributeMap)

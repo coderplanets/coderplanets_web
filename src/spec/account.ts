@@ -24,12 +24,25 @@ export type TSimpleUser = {
   avatar?: string
 }
 
+type TContributes = {
+  records?: {
+    date: string
+    count: number
+  }
+  startDate?: string
+  endDate?: string
+  totalCount?: number
+}
+
 export type TUser = TSimpleUser & {
   id?: string
   // TODO: figure it out
   extraId?: string
   editableCommunities?: TPagedCommunities
   social?: TSocial
+  contributes?: TContributes
+  followersCount?: number
+  followingsCount?: number
 }
 
 export type TPagedUsers = {

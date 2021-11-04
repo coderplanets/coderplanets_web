@@ -8,6 +8,7 @@ import { FC } from 'react'
 
 import { ICON } from '@/config'
 
+import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { authWarn } from '@/utils/helper'
 
@@ -49,7 +50,7 @@ const ArticleHeader: FC<TProps> = ({ metric, c11n, community }) => {
             </LoginHint>
           ) : (
             <Tooltip
-              content={<UserCard item={user} />}
+              content={<UserCard item={user as TUser} />}
               delay={0}
               placement="bottom"
               interactive={false}

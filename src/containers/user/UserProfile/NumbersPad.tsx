@@ -1,26 +1,33 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TUser } from '@/spec'
 import FollowButton from '@/widgets/Buttons/FollowButton'
 import Button from '@/widgets/Buttons/Button'
 import { Br } from '@/widgets/Common'
 import Tooltip from '@/widgets/Tooltip'
+import { mockCommunities } from '@/utils/mock'
+
+import CommunityList from '@/widgets/CommunityList'
 
 import {
   Wrapper,
   Divider,
-  Section,
   GravitySection,
   NormalSection,
   FollowSection,
+  JoinSection,
+  CommunitiesWrapper,
   Num,
   Gravity,
   InfoIcon,
   Title,
-  JoinAt,
-  JoinSlash,
 } from './styles/numbers_pad'
 
-const Numberspad = ({ user }) => {
+type TProps = {
+  user: TUser
+}
+
+const Numberspad: FC<TProps> = ({ user }) => {
   return (
     <Wrapper>
       <GravitySection>
@@ -37,39 +44,27 @@ const Numberspad = ({ user }) => {
       </GravitySection>
       <Divider />
       <NormalSection>
-        <Num>37</Num>
+        <Num>{user.followersCount}</Num>
         <Title>关注者</Title>
       </NormalSection>
       <Divider />
       <NormalSection>
-        <Num>8</Num>
+        <Num>{user.followingsCount}</Num>
         <Title>关注了</Title>
       </NormalSection>
-      {/* <Section>
-        <Num>{user.achievement.articlesUpvotesCount}</Num>
-        <Title>收获点赞</Title>
-      </Section>
       <Divider />
-      <Section>
-        <Num>{user.achievement.articlesCollectsCount}</Num>
-        <Title>被收藏</Title>
-      </Section> */}
-      <Divider />
-      <NormalSection>
-        <Num>{user.views}</Num>
-        <Title>主页被浏览</Title>
-      </NormalSection>
-      <Divider />
-      <Section>
-        <JoinAt>
-          20
-          <JoinSlash>/</JoinSlash>
-          13
-          <JoinSlash>/</JoinSlash>
-          02
-        </JoinAt>
-        <Title>注册于</Title>
-      </Section>
+      <JoinSection>
+        <CommunitiesWrapper>
+          <CommunityList
+            items={mockCommunities(7)}
+            size={16}
+            bottom={2}
+            right={8}
+            totalCount={10}
+          />
+        </CommunitiesWrapper>
+        <Title>加入的子社区</Title>
+      </JoinSection>
       <Divider />
       <FollowSection>
         <Br bottom={4} />
@@ -83,4 +78,4 @@ const Numberspad = ({ user }) => {
   )
 }
 
-export default React.memo(Numberspad)
+export default memo(Numberspad)
