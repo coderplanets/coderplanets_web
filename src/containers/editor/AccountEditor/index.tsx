@@ -4,62 +4,37 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 
-import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Button from '@/widgets/Buttons/Button'
 import StatusBox from '@/widgets/StatusBox'
 import FormItem from '@/widgets/FormItem'
-import WorkBackgroundInputer from './WorkBackgroundInputer'
-import EducationBackgroundInputer from './EducationBackgroundInputer'
-import SocialInputer from './SocialInputer'
+// import SocialInputer from './SocialInputer'
 import SexInputer from './SexInputer'
 
-import {
-  Wrapper,
-  BackIcon,
-  AvatarPic,
-  FormsWrapper,
-  Divider,
-  ActionBtns,
-} from './styles'
+import type { TStore } from './store'
 
-import {
-  useInit,
-  goBack,
-  inputOnChange,
-  cancelEdit,
-  updateConfirm,
-} from './logic'
+import { Wrapper, AvatarPic, FormsWrapper, Divider, ActionBtns } from './styles'
+
+import { useInit, inputOnChange, cancelEdit, updateConfirm } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:AccountEditor')
 
-const AccountEditorContainer = ({ accountEditor: store }) => {
+type TProps = {
+  accountEditor?: TStore
+}
+
+const AccountEditorContainer: FC<TProps> = ({ accountEditor: store }) => {
   useInit(store)
 
-  const {
-    showSocials,
-    editUserData,
-    educationBgData,
-    workBgData,
-    updating,
-    success,
-    error,
-    warn,
-    statusMsg,
-    ratKey,
-  } = store
+  const { editUserData, updating, success, error, warn, statusMsg } = store
 
   return (
     <Wrapper className="normal-form">
-      <div onClick={goBack}>
-        <BackIcon src={`${ICON_CMD}/goback.svg`} />
-      </div>
-
       {editUserData.avatar && <AvatarPic src={editUserData.avatar} />}
       <FormsWrapper>
         <FormItem
@@ -73,29 +48,19 @@ const AccountEditorContainer = ({ accountEditor: store }) => {
           onChange={inputOnChange('location')}
         />
 
-        <WorkBackgroundInputer
-          user={editUserData}
-          data={workBgData}
-          ratKey={ratKey}
-        />
-        <EducationBackgroundInputer
-          user={editUserData}
-          data={educationBgData}
-          ratKey={ratKey}
-        />
         <FormItem
           label="邮箱:"
           value={editUserData.email}
           onChange={inputOnChange('email')}
         />
-        <SocialInputer show={showSocials} user={editUserData} />
+        {/* <SocialInputer show={showSocials} user={editUserData} /> */}
         {editUserData.sex && <SexInputer value={editUserData.sex} />}
-        <FormItem
+        {/* <FormItem
           label="简介:"
-          textarea
           value={editUserData.bio}
           onChange={inputOnChange('bio')}
-        />
+          textarea
+        /> */}
 
         <StatusBox
           success={success}
@@ -123,4 +88,4 @@ const AccountEditorContainer = ({ accountEditor: store }) => {
   )
 }
 
-export default pluggedIn(AccountEditorContainer)
+export default pluggedIn(AccountEditorContainer) as FC<TProps>

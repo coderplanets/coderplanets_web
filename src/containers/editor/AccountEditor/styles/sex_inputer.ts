@@ -4,33 +4,33 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import ManSVG from '@/icons/Man'
+import WomanSVG from '@/icons/Woman'
+
 export const Wrapper = styled.div`
   ${css.flex()};
   margin-bottom: 25px;
 `
-const SexIcon = styled(Img)`
+const sexIcon = `
   ${css.size(20)};
-  margin-right: 10px;
+  margin-right: 6px;
   margin-left: 5px;
   cursor: pointer;
 `
-
-/* fill: ${props => */
-/* props.active === props.item ? theme('font', props) : 'grey'}; */
-export const Dude = styled.div``
-export const Girl = styled.div``
-export const DudeIcon = styled(SexIcon)<{ value: string }>`
+export const DudeIcon = styled(ManSVG)<{ value: string }>`
+  ${sexIcon};
   fill: ${({ value }) =>
-    value === 'dude' ? '#869eec' : theme('drawer.divider')};
+    value === 'dude' ? theme('baseColor.blue') : theme('drawer.divider')};
 `
-
-export const GirlIcon = styled(SexIcon)<{ value: string }>`
-  fill: ${({ value }) => (value === 'girl' ? 'pink' : theme('drawer.divider'))};
+export const GirlIcon = styled(WomanSVG)<{ value: string }>`
+  ${sexIcon};
+  fill: ${({ value }) =>
+    value === 'girl' ? theme('baseColor.pink') : theme('drawer.divider')};
   margin-top: 1px;
 `
 export const SexLable = styled.div`
   font-size: 1em;
-  color: ${theme('form.label')};
+  color: ${theme('thread.articleDigest')};
   margin-right: 10px;
 `
 

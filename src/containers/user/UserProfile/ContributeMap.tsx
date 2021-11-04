@@ -84,8 +84,10 @@ const UserContributeMap: FC<TProps> = ({ user }) => {
       </Header>
       <Divider />
       <CalendarHeatmap
-        startDate={contributes.startDate}
-        endDate={contributes.endDate}
+        startDate="2021-01-01"
+        endDate="2021-12-30"
+        // startDate={contributes.startDate}
+        // endDate={contributes.endDate}
         showMonthLabels
         onClick={(value) => log(value)}
         gutterSize={4}

@@ -4,7 +4,15 @@ import dynamic from 'next/dynamic'
 import { LavaLampLoading } from '@/widgets/dynamic'
 import EditorLoading from '@/widgets/Loading/EditorLoading'
 
-const CommonLoading = () => <LavaLampLoading top={200} left={420} />
+import { LavaLoadingWrapper } from './styles'
+
+const CommonLoading = () => {
+  return (
+    <LavaLoadingWrapper>
+      <LavaLampLoading />
+    </LavaLoadingWrapper>
+  )
+}
 
 // common style loading config
 const commonConfig = {
@@ -38,7 +46,7 @@ export const RepoViewer = dynamic(
 // editors
 export const AccountEditor = dynamic(
   () => import('@/containers/editor/AccountEditor'),
-  editorConfig,
+  commonConfig,
 )
 
 // export const RepoEditor = dynamic(

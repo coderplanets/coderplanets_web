@@ -6,10 +6,11 @@
 import { FC, memo } from 'react'
 
 import type { TUser, TView } from '@/spec'
-import { VIEW } from '@/constant'
+import { VIEW, EVENT, TYPE } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
-import { Br } from '@/widgets/Common'
+import { send } from '@/utils/helper'
+import { Br, SpaceGrow } from '@/widgets/Common'
 
 // import SocialIcons from './SocialIcons'
 import ExtraInfo from './ExtraInfo'
@@ -23,6 +24,7 @@ import {
   Wrapper,
   BriefTextWrapper,
   UserTitle,
+  WomanIcon,
   ShortBio,
   Bio,
   // UserDesc,
@@ -35,32 +37,24 @@ const log = buildLog('c:UserBrief')
 type TProps = {
   user: TUser
   view?: TView
-  viewingType?: 'account' | 'user'
-  onEdit?: () => void
-  onLogout?: () => void
 }
 
-const UserBrief: FC<TProps> = ({
-  user,
-  view = VIEW.DESKTOP,
-  onEdit = log,
-  onLogout = log,
-  viewingType = 'user',
-}) => {
+const UserBrief: FC<TProps> = ({ user, view = VIEW.DESKTOP }) => {
   return (
     <Wrapper>
-      <Avatar user={user} view={view} />
+      <Avatar user={user} />
       <BriefTextWrapper>
         <UserTitle>
-          {user.nickname}
-          {viewingType === 'account' && (
-            <Operators
-              passport="owner"
-              ownerId={user.id}
-              onEdit={onEdit}
-              onLogout={onLogout}
-            />
-          )}
+          <div>{user.nickname}</div>
+          <WomanIcon />
+          <SpaceGrow />
+          <Operators
+            passport="owner"
+            ownerId={user.id}
+            onEdit={() => {
+              send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.ACCOUNT_EDIT })
+            }}
+          />
         </UserTitle>
         <ShortBio>开发者@coderplanets</ShortBio>
         <Br top={15} />

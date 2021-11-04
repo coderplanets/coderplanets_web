@@ -13,6 +13,7 @@ import {
   nilOrEmpty,
 } from '@/utils'
 
+import type { TStore } from './store'
 import { S, updateFields } from './schema'
 
 /* eslint-disable-next-line */
@@ -23,8 +24,6 @@ const sr71$ = new SR71()
 
 let store = null
 let sub$ = null
-
-export const goBack = () => console.log('TODO: close drawer')
 
 export const inputOnChange = curry((part, e) => updateEditing(store, part, e))
 /* eslint-disable no-unused-vars */
@@ -38,48 +37,17 @@ export const socialOnChange = curry((part, e) => {
   store.mark({ editUser })
 })
 
-export const updateBackground = curry((key, part, { target: { value } }) =>
-  store.mark({ [key]: merge(store[key], { [part]: value }) }),
-)
-
-/* eslint-disable no-unused-vars */
-export const addBackground = curry((type, e) => store.addBackground(type))
-
-/* eslint-disable no-unused-vars */
-export const removeWorkBackground = curry((company, title, e) => {
-  const { editUserData } = store
-  const { workBackgrounds } = editUserData
-  const newWorkBackgrounds = reject(equals({ company, title }), workBackgrounds)
-  store.updateEditing({ workBackgrounds: newWorkBackgrounds })
-})
-
-/* eslint-disable no-unused-vars */
-export const removeEduBackground = curry((school, major, e) => {
-  const { editUserData } = store
-  const { educationBackgrounds } = editUserData
-  const newEducationBackgrounds = reject(
-    equals({ school, major }),
-    educationBackgrounds,
-  )
-  store.updateEditing({ educationBackgrounds: newEducationBackgrounds })
-})
-
-export const updateConfirm = () => {
-  if (!store.statusClean) return false
+export const updateConfirm = (): void => {
+  if (!store.statusClean) return
   let profile = cast(updateFields, store.editUserData)
 
-  const educationBackgrounds = clone(profile.educationBackgrounds)
-  const workBackgrounds = clone(profile.workBackgrounds)
   const social = reject(nilOrEmpty, clone(profile.social))
 
-  profile = omit(['educationBackgrounds', 'workBackgrounds', 'social'], profile)
+  profile = omit(['social'], profile)
 
   const args = { profile }
 
-  if (!isEmpty(educationBackgrounds)) {
-    args.educationBackgrounds = educationBackgrounds
-  }
-  if (!isEmpty(workBackgrounds)) args.workBackgrounds = workBackgrounds
+  // @ts-ignore
   if (!isEmpty(social)) args.social = social
 
   store.mark({ updating: true })
@@ -87,14 +55,14 @@ export const updateConfirm = () => {
   sr71$.mutate(S.updateProfile, args)
 }
 
-export const cancelEdit = () => send(EVENT.DRAWER.CLOSE)
+export const cancelEdit = (): void => send(EVENT.DRAWER.CLOSE)
 
-export const updateDone = () => {
+export const updateDone = (): void => {
   const editing = cast(updateFields, store.editUserData)
   store.updateAccount(editing)
 }
 
-export const toggleSocials = () =>
+export const toggleSocials = (): void =>
   store.mark({ showSocials: !store.showSocials })
 
 const cancelLoading = () => store.mark({ updating: false })
@@ -138,7 +106,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) =>
+export const useInit = (_store: TStore): void =>
   useEffect(() => {
     store = _store
     // log('effect init')

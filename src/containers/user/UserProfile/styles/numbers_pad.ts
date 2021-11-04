@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
   background: #0f3644;
   border-radius: 8px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
   width: calc(100% + 40px);
   margin-left: -20px;
   margin-top: -15px;

@@ -1,7 +1,8 @@
 import { FC, memo, Fragment } from 'react'
 
 import type { TUser } from '@/spec'
-import { Section, ICON, Desc } from './styles/extra_info'
+
+import { Section, ICON, Desc, LinkValue, BlogLink } from './styles/extra_info'
 
 type TProps = {
   user: TUser
@@ -20,19 +21,21 @@ const ExtraInfo: FC<TProps> = ({ user }) => {
       </Section>
       <Section>
         <ICON.BlogIcon />
-        <Desc>https://mydearxym.qq.com</Desc>
+        <BlogLink href="https://mydearxym.qq.com" target="_blacnk">
+          https://mydearxym.qq.com
+        </BlogLink>
       </Section>
       <Section>
         <ICON.GithubIcon />
-        <Desc>mydearxym</Desc>
+        <LinkValue>mydearxym</LinkValue>
       </Section>
       <Section>
         <ICON.TwitterIcon />
-        <Desc>mydearxym</Desc>
+        <LinkValue>mydearxym</LinkValue>
       </Section>
       <Section>
         <ICON.MailIcon />
-        <Desc>mydearxym@qq.com</Desc>
+        <LinkValue>mydearxym@qq.com</LinkValue>
       </Section>
     </Fragment>
   )

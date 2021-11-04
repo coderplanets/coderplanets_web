@@ -39,7 +39,10 @@ export type TUser = TSimpleUser & {
   // TODO: figure it out
   extraId?: string
   editableCommunities?: TPagedCommunities
+  sex?: string
+  location?: string
   social?: TSocial
+  email?: string
   contributes?: TContributes
   followersCount?: number
   followingsCount?: number

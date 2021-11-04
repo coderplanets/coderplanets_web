@@ -18,6 +18,26 @@ export const Section = styled.div`
 export const Desc = styled.div`
   color: ${theme('thread.articleTitle')};
 `
+export const LinkValue = styled.a`
+  color: ${theme('thread.articleTitle')};
+  text-decoration: none;
+  margin-left: 2px;
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`
+export const BlogLink = styled(LinkValue)`
+  ${css.cutRest('180px')};
+  color: #009395;
+
+  &:hover {
+    color: #009395;
+  }
+`
+
 const iconBase = `
   ${css.size(18)};
   margin-right: 10px;

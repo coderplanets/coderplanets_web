@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import animate from '@/utils/animations'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};
@@ -15,28 +14,12 @@ export const Wrapper = styled.div`
   margin-top: 15px;
   margin-left: 15px;
   margin-right: 15px;
-  background: ${theme('content.cardBg')};
   border-radius: 5px;
   position: relative;
-  animation: ${animate.fadeInRight} 0.2s linear;
 `
 export const AvatarPic = styled(Img)`
   ${css.circle(70)};
   margin-bottom: 30px;
-`
-export const BackIcon = styled(Img)`
-  fill: ${theme('font')};
-  ${css.size(20)};
-  position: absolute;
-  top: 13px;
-  left: 18px;
-  cursor: pointer;
-  opacity: 0.6;
-
-  &:hover {
-    opacity: 1;
-  }
-  transition: opacity 0.2s;
 `
 export const FormsWrapper = styled.div`
   ${css.flexColumn('align-center')};

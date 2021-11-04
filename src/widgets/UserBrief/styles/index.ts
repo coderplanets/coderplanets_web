@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
+import WomanSVG from '@/icons/Woman'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
@@ -13,10 +14,17 @@ export const BriefTextWrapper = styled.div`
   margin-top: 35px;
 `
 export const UserTitle = styled.div`
-  ${css.flex()};
+  ${css.flex('justify-between', 'align-center')};
   color: ${theme('thread.articleTitle')};
-  font-size: 25px;
+  font-size: 24px;
   margin-bottom: 2px;
+  width: 100%;
+`
+export const WomanIcon = styled(WomanSVG)`
+  ${css.size(17)};
+  fill: ${theme('baseColor.pink')};
+  margin-top: 2px;
+  margin-left: 8px;
 `
 export const ShortBio = styled.div`
   color: ${theme('thread.articleDigest')};

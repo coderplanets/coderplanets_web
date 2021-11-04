@@ -141,7 +141,7 @@ const DrawerStore = T.model('DrawerStore', {
   .actions((self) => ({
     open({ type, data, options = {} }): void {
       const slf = self as TStore
-      const thread = data.meta?.thread?.toLowerCase()
+      const thread = data?.meta?.thread?.toLowerCase()
 
       if (type === TYPE.DRAWER.MODELINE_MENU) {
         slf.mmType = data
@@ -162,7 +162,9 @@ const DrawerStore = T.model('DrawerStore', {
         slf.canBeClose = false
       }
 
-      slf.markPreviewURLIfNeed(data)
+      if (type !== TYPE.DRAWER.ACCOUNT_EDIT) {
+        slf.markPreviewURLIfNeed(data)
+      }
     },
     setViewing(sobj: Record<string, unknown>): void {
       const root = getParent(self) as TRootStore
