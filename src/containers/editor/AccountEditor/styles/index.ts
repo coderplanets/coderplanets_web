@@ -4,6 +4,8 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import FormInput from '@/widgets/Input'
+
 export const Wrapper = styled.div`
   ${css.flexColumn('align-center')};
 
@@ -24,11 +26,57 @@ export const AvatarPic = styled(Img)`
 export const FormsWrapper = styled.div`
   ${css.flexColumn('align-center')};
 `
-export const Divider = styled.div`
-  border-top: 1px solid;
-  border-top-color: ${theme('drawer.divider')};
-  margin-top: 15px;
-  width: 75%;
-  margin-bottom: 20px;
+export const Section = styled.div`
+  width: 100%;
+  margin-bottom: 25px;
+  outline: none;
 `
-export const ActionBtns = styled.div``
+export const RowSection = styled.div`
+  ${css.flex('align-center')};
+  margin-bottom: 28px;
+`
+export const LoginSection = styled.div`
+  width: 100%;
+  ${css.flex('align-center')};
+  margin-bottom: 15px;
+`
+export const LoginDesc = styled.div`
+  color: ${theme('thread.articleTitle')};
+  margin-bottom: 8px;
+`
+export const SectionHint = styled.div`
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-left: 12px;
+`
+export const Label = styled.div`
+  ${css.flex('justify-between', 'align-end')};
+  color: ${theme('thread.articleDigest')};
+  font-size: 14px;
+  margin-bottom: 8px;
+  margin-left: 5px;
+  margin-right: 10px;
+`
+export const SexLabel = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 14px;
+  margin-left: 7px;
+  margin-right: 10px;
+`
+export const Input = styled(FormInput)`
+  text-align: left;
+  padding: 5px 5px;
+  padding-left: 12px;
+  height: 36px;
+  width: 280px;
+  font-size: 15px;
+`
+export const TextareaInput = styled(Input)`
+  padding: 10px;
+  padding-left: 12px;
+`
+export const Footer = styled.div`
+  margin-left: -15px;
+`

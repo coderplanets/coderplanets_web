@@ -11,14 +11,12 @@ import {
 import { sexChange } from './logic'
 
 type TProps = {
-  label?: string
   value: string
 }
 
-const SexInputer: FC<TProps> = ({ label = '性别:', value }) => {
+const SexInputer: FC<TProps> = ({ value }) => {
   return (
     <Wrapper>
-      <SexLable>{label}</SexLable>
       <SexInput>
         <DudeIcon value={value} onClick={sexChange('dude')} />
         <GirlIcon value={value} onClick={sexChange('girl')} />

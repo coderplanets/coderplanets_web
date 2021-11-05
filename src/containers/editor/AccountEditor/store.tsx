@@ -4,9 +4,9 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { merge } from 'ramda'
+import { merge, pick } from 'ramda'
 
-import type { TRootStore, TAccount } from '@/spec'
+import type { TRootStore, TAccount, TSubmitState } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { User } from '@/model'
 
@@ -15,16 +15,11 @@ const AccountEditorStore = T.model('AccountEditorStore', {
   editUser: T.optional(User, {}),
 
   updating: T.optional(T.boolean, false),
-  success: T.optional(T.boolean, false),
-  error: T.optional(T.boolean, false),
-  warn: T.optional(T.boolean, false),
-  statusMsg: T.optional(T.string, ''),
+
+  publishing: T.optional(T.boolean, false),
+  publishDone: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get statusClean(): boolean {
-      const { success, error, warn } = self
-      return !success && !error && !warn
-    },
     get editUserData(): TAccount {
       return {
         ...toJS(self.editUser),
@@ -33,6 +28,13 @@ const AccountEditorStore = T.model('AccountEditorStore', {
     get accountOrigin(): TAccount {
       const root = getParent(self) as TRootStore
       return root.account.accountInfo
+    },
+    get isReady(): boolean {
+      return true
+    },
+    get submitState(): TSubmitState {
+      const slf = self as TStore
+      return pick(['publishing', 'publishDone', 'isReady'], slf)
     },
   }))
   .actions((self) => ({

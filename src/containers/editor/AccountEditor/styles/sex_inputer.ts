@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -9,7 +8,6 @@ import WomanSVG from '@/icons/Woman'
 
 export const Wrapper = styled.div`
   ${css.flex()};
-  margin-bottom: 25px;
 `
 const sexIcon = `
   ${css.size(20)};
@@ -20,12 +18,12 @@ const sexIcon = `
 export const DudeIcon = styled(ManSVG)<{ value: string }>`
   ${sexIcon};
   fill: ${({ value }) =>
-    value === 'dude' ? theme('baseColor.blue') : theme('drawer.divider')};
+    value === 'dude' ? theme('baseColor.blue') : theme('thread.articleDigest')};
 `
 export const GirlIcon = styled(WomanSVG)<{ value: string }>`
   ${sexIcon};
   fill: ${({ value }) =>
-    value === 'girl' ? theme('baseColor.pink') : theme('drawer.divider')};
+    value === 'girl' ? theme('baseColor.pink') : theme('thread.articleDigest')};
   margin-top: 1px;
 `
 export const SexLable = styled.div`
