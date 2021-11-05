@@ -5,7 +5,6 @@ export const user = `
     user(login: $login) {
       ${F.author}
       views
-      bio
       sex
       location
       social {

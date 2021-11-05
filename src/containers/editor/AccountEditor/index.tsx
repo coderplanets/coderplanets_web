@@ -35,7 +35,7 @@ import {
   Footer,
 } from './styles'
 
-import { useInit, inputOnChange } from './logic'
+import { useInit, inputOnChange, onUpdate } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:AccountEditor')
@@ -48,10 +48,11 @@ const AccountEditorContainer: FC<TProps> = ({ accountEditor: store }) => {
   useInit(store)
 
   const { login, fromGithub, submitState, editData } = store
+  const { profile } = editData
 
   return (
     <Wrapper className="normal-form">
-      {editData.avatar && <AvatarPic src={editData.avatar} />}
+      {profile.avatar && <AvatarPic src={profile.avatar} />}
       <FormsWrapper>
         <LoginSection>
           <Label>登入名称</Label>
@@ -66,7 +67,7 @@ const AccountEditorContainer: FC<TProps> = ({ accountEditor: store }) => {
         <Section>
           <Label>我的昵称</Label>
           <Input
-            value={editData.nickname}
+            value={profile.nickname}
             placeholder="// 我的昵称"
             onChange={(e) => inputOnChange(e, 'nickname')}
           />
@@ -75,7 +76,7 @@ const AccountEditorContainer: FC<TProps> = ({ accountEditor: store }) => {
         <Section>
           <Label>一句话介绍</Label>
           <Input
-            value={editData.shortbio}
+            value={profile.shortbio}
             placeholder="// 示例：工作@团队"
             onChange={(e) => inputOnChange(e, 'shortbio')}
           />
@@ -83,26 +84,26 @@ const AccountEditorContainer: FC<TProps> = ({ accountEditor: store }) => {
 
         <RowSection>
           <SexLabel>性别</SexLabel>
-          <SexInputer value={editData.sex} />
+          <SexInputer value={profile.sex} />
         </RowSection>
 
         <Section>
           <Label>关于我</Label>
           <TextareaInput
-            value={editData.bio}
+            value={profile.bio}
             placeholder="// 更多介绍"
             behavior="textarea"
             onChange={(e) => inputOnChange(e, 'bio')}
           />
         </Section>
         <Divider top={0} bottom={30} />
-        <SocialInputer account={editData} />
+        <SocialInputer editData={editData} />
         <Divider bottom={30} />
         <Footer>
           <SubmitButton
             submitState={submitState}
             okText="更 新"
-            onPublish={console.log}
+            onPublish={onUpdate}
             onCancel={closeDrawer}
             withCancel
           />

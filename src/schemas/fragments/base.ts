@@ -25,6 +25,7 @@ export const author = `
   nickname
   avatar
   bio
+  shortbio
 `
 export const article = `
   id

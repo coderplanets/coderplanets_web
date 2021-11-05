@@ -91,6 +91,7 @@ export const User = T.model('User', {
   login: T.maybeNull(T.string),
   nickname: T.maybeNull(T.string),
   bio: T.maybeNull(T.string),
+  shortbio: T.maybeNull(T.string),
   avatar: T.maybeNull(T.string),
   views: T.optional(T.number, 0),
   email: T.maybeNull(T.string),

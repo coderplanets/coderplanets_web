@@ -4,9 +4,8 @@
 import { Provider } from 'mobx-react'
 
 import { SITE_URL } from '@/config'
-import { ROUTE, METRIC, USER_THREAD } from '@/constant'
+import { METRIC } from '@/constant'
 import {
-  queryStringToJSON,
   ssrGetParam,
   ssrFetchPrepare,
   ssrBaseStates,

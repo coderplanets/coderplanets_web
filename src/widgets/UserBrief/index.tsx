@@ -20,16 +20,7 @@ import Footer from './Footer'
 
 import Avatar from './Avatar'
 
-import {
-  Wrapper,
-  BriefTextWrapper,
-  UserTitle,
-  WomanIcon,
-  ShortBio,
-  Bio,
-  // UserDesc,
-  Divider,
-} from './styles'
+import { Wrapper, UserTitle, WomanIcon, ShortBio, Bio, Divider } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:UserBrief')
@@ -43,31 +34,26 @@ const UserBrief: FC<TProps> = ({ user, view = VIEW.DESKTOP }) => {
   return (
     <Wrapper>
       <Avatar user={user} />
-      <BriefTextWrapper>
-        <UserTitle>
-          <div>{user.nickname}</div>
-          <WomanIcon />
-          <SpaceGrow />
-          <Operators
-            passport="owner"
-            ownerId={user.id}
-            onEdit={() => {
-              send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.ACCOUNT_EDIT })
-            }}
-          />
-        </UserTitle>
-        <ShortBio>开发者@coderplanets</ShortBio>
-        <Br top={15} />
-        <Bio>{user.bio}</Bio>
-        <Br top={30} />
-        <Divider />
-        <ExtraInfo user={user} />
-
-        {/* {user.editableCommunities.length > 0 && <Divider />} */}
-        {/* <CommunityEditorInfo user={user} /> */}
-        <Divider />
-        <Footer user={user} />
-      </BriefTextWrapper>
+      <Br top={35} />
+      <UserTitle>
+        <div>{user.nickname}</div>
+        {user.sex === 'girl' && <WomanIcon />}
+        <SpaceGrow />
+        <Operators
+          passport="owner"
+          ownerId={user.id}
+          onEdit={() => {
+            send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER.ACCOUNT_EDIT })
+          }}
+        />
+      </UserTitle>
+      <ShortBio>{user.shortbio}</ShortBio>
+      <Br top={15} />
+      <Bio>{user.bio}</Bio>
+      <Divider />
+      <ExtraInfo user={user} />
+      <Divider />
+      <Footer user={user} />
     </Wrapper>
   )
 }

@@ -23,37 +23,16 @@ const user = gql`
 `
 
 const updateProfile = gql`
-  mutation (
-    $profile: UserProfileInput!
-    $social: SocialInput
-    $educationBackgrounds: [EduBackgroundInput]
-    $workBackgrounds: [WorkBackgroundInput]
-  ) {
-    updateProfile(
-      profile: $profile
-      social: $social
-      educationBackgrounds: $educationBackgrounds
-      workBackgrounds: $workBackgrounds
-    ) {
+  mutation ($profile: UserProfileInput!, $social: SocialInput) {
+    updateProfile(profile: $profile, social: $social) {
       id
     }
   }
 `
 
-export const updateFields = [
-  'nickname',
-  'email',
-  'location',
-  'bio',
-  'sex',
-  // social
-  'social',
-  // backgrounds
-  'workBackgrounds',
-  'educationBackgrounds',
-]
-
-export const S = {
+const schema = {
   updateProfile,
   user,
 }
+
+export default schema

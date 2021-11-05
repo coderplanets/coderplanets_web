@@ -4,7 +4,6 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
-  margin-top: 18px;
   color: ${theme('thread.articleDigest')};
 `
 export const Section = styled.div`

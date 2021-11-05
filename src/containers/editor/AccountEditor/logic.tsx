@@ -1,21 +1,13 @@
 import { useEffect } from 'react'
-import { isEmpty, clone, omit, reject } from 'ramda'
 
 import type { TEditValue } from '@/spec'
-import { EVENT, ERR } from '@/constant'
-import {
-  buildLog,
-  asyncSuit,
-  send,
-  cast,
-  meteorState,
-  updateEditing,
-  errRescue,
-  nilOrEmpty,
-} from '@/utils'
+import { ERR } from '@/constant'
+import { closeDrawer } from '@/utils/helper'
+
+import { buildLog, asyncSuit, updateEditing, errRescue } from '@/utils'
 
 import type { TStore } from './store'
-import { S, updateFields } from './schema'
+import S from './schema'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:AccountEditor')
@@ -23,42 +15,22 @@ const log = buildLog('L:AccountEditor')
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71()
 
-let store = null
+let store: TStore | undefined
 let sub$ = null
 
 export const inputOnChange = (e: TEditValue, key: string): void => {
   updateEditing(store, key, e)
 }
 
-export const updateConfirm = (): void => {
-  if (!store.statusClean) return
-  let profile = cast(updateFields, store.editUserData)
+export const onUpdate = (): void => {
+  if (!store.isReady) return
 
-  const social = reject(nilOrEmpty, clone(profile.social))
-
-  profile = omit(['social'], profile)
-
-  const args = { profile }
-
-  // @ts-ignore
-  if (!isEmpty(social)) args.social = social
-
-  store.mark({ updating: true })
-  log('args: ', args)
-  sr71$.mutate(S.updateProfile, args)
+  console.log('onUpdate: ', store.editData)
+  store.mark({ publishing: true })
+  sr71$.mutate(S.updateProfile, store.editData)
 }
 
-export const cancelEdit = (): void => send(EVENT.DRAWER.CLOSE)
-
-export const updateDone = (): void => {
-  const editing = cast(updateFields, store.editUserData)
-  store.updateAccount(editing)
-}
-
-export const toggleSocials = (): void =>
-  store.mark({ showSocials: !store.showSocials })
-
-const cancelLoading = () => store.mark({ updating: false })
+const cancelLoading = () => store.mark({ publishing: false })
 
 const loadUser = () => {
   const { viewingUser } = store
@@ -73,9 +45,9 @@ const DataSolver = [
   {
     match: asyncRes('updateProfile'),
     action: () => {
-      meteorState(store, 'success', 3)
-      updateDone()
-      cancelLoading()
+      store.updateAccount()
+      store.mark({ publishing: false, publishDone: true })
+      closeDrawer()
     },
   },
   {
@@ -117,6 +89,7 @@ export const useInit = (_store: TStore): void =>
 
     return () => {
       // log('effect uninit')
+      store.reset()
       sr71$.stop()
       sub$.unsubscribe()
     }

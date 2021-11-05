@@ -4,11 +4,12 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { reduce, keys, merge, pick } from 'ramda'
+import { reduce, keys, merge, pick, startsWith } from 'ramda'
 
-import type { TRootStore, TAccount, TSubmitState, TUser } from '@/spec'
+import type { TRootStore, TSubmitState, TUser } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 
+import type { TEditData } from './spec'
 import { SEX } from './constant'
 
 const safeMap = (obj) => {
@@ -49,18 +50,15 @@ const AccountEditorStore = T.model('AccountEditorStore', {
   publishDone: T.optional(T.boolean, false),
 })
   .views((self) => ({
-    get editData() {
-      const basic = pick(
-        ['avatar', 'nickname', 'shortbio', 'bio', 'sex', 'location'],
+    get editData(): TEditData {
+      const profile = pick(
+        ['avatar', 'nickname', 'shortbio', 'bio', 'sex', 'location', 'email'],
         self,
       )
-      const social = pick(
-        ['github', 'twitter', 'email', 'company', 'blog'],
-        self,
-      )
+      const social = pick(['github', 'twitter', 'company', 'blog'], self)
 
       return {
-        ...basic,
+        profile,
         social,
       }
     },
@@ -82,9 +80,19 @@ const AccountEditorStore = T.model('AccountEditorStore', {
       const slf = self as TStore
 
       slf.mark({ ...safeMap(social), ...safeMap(rest) })
+
+      if (social.github && startsWith('https://github.com/', social.github)) {
+        self.github = social.github.slice(19)
+      }
     },
-    updateAccount(user: TAccount): void {
+    updateAccount(): void {
+      const slf = self as TStore
       const root = getParent(self) as TRootStore
+
+      const user = {
+        ...slf.editData.profile,
+        social: slf.editData.social,
+      }
 
       root.account.updateAccount(user)
       root.updateViewingIfNeed('user', user)
@@ -93,6 +101,11 @@ const AccountEditorStore = T.model('AccountEditorStore', {
     updateEditing(sobj): void {
       const slf = self as TStore
       slf.mark(sobj)
+    },
+
+    reset(): void {
+      self.publishing = false
+      self.publishDone = false
     },
 
     mark(sobj: Record<string, unknown>): void {

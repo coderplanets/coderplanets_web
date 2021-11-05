@@ -13,6 +13,7 @@ export type TSimpleUser = {
   nickname?: string
   name?: string
   bio?: string
+  shortbio?: string
   avatar?: string
 }
 
