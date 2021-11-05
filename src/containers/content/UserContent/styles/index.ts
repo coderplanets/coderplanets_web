@@ -23,6 +23,7 @@ export const BannerWrapper = styled.div<{ metric: TMetric }>`
   ${({ metric }) => css.fitPageWidth(metric)};
 `
 export const ContentWrapper = styled.div`
+  position: relative;
   flex-grow: 1;
   min-height: 600px;
   padding: 20px;
@@ -31,8 +32,8 @@ export const ContentWrapper = styled.div`
 `
 export const TabBarWrapper = styled.div`
   position: absolute;
-  bottom: 0;
-  left: 403px;
+  top: -66px;
+  left: 15px;
   width: 100%;
 `
 export const MobileBottom = styled.div`

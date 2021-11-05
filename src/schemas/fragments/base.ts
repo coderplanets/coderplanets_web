@@ -122,18 +122,10 @@ export const repo = `
   }
 `
 export const userSocial = `
-  qq
-  weibo
-  weichat
   github
-  zhihu
-  douban
   twitter
-  facebook
-  dribble
-  instagram
-  pinterest
-  huaban
+  company
+  blog
 `
 
 export const user = `

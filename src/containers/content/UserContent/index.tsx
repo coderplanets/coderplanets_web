@@ -23,7 +23,6 @@ import TabBar from '@/widgets/TabBar'
 
 import type { TStore } from './store'
 import Sidebar from './Sidebar'
-// import DigestBoard from './DigestBoard'
 
 import {
   Wrapper,
@@ -31,7 +30,6 @@ import {
   BannerWrapper,
   ContentWrapper,
   TabBarWrapper,
-  // MobileBottom,
 } from './styles'
 
 import { useInit, tabOnChange } from './logic'
@@ -107,36 +105,23 @@ type TProps = {
 const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
   useInit(store)
 
-  const {
-    activeThread,
-    viewingUser,
-    // accountInfo,
-    isSelfViewing,
-    // following,
-  } = store
-
+  const { activeThread, viewingUser, isSelfViewing } = store
   const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
 
   return (
     <Wrapper>
-      <BannerWrapper metric={metric}>
-        <TabBarWrapper className="tabs-with-bottom">
-          <TabBar
-            source={taberSource}
-            onChange={tabOnChange}
-            active={activeThread}
-          />
-        </TabBarWrapper>
-      </BannerWrapper>
+      <BannerWrapper metric={metric} />
       <InnerWrapper metric={metric}>
         <Sidebar viewingUser={viewingUser} isSelfViewing={isSelfViewing} />
         <ContentWrapper>
+          <TabBarWrapper className="tabs-with-bottom">
+            <TabBar
+              source={taberSource}
+              onChange={tabOnChange}
+              active={activeThread}
+            />
+          </TabBarWrapper>
           <TabberContent active={activeThread} />
-          {/* <DigestBoard
-            user={viewingUser}
-            accountId={accountInfo.id}
-            following={following}
-          /> */}
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>

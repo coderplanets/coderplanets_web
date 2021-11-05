@@ -14,7 +14,8 @@ export const Wrapper = styled(TextareaAutosize).attrs(
   }),
 )<TWrapper>`
   ${baseInput};
-  color: ${theme('form.text')};
+  color: ${theme('thread.articleTitle')};
+  opacity: 0.9;
   min-height: 56px;
   padding: 10px;
   background-color: #0b2631;

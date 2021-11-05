@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import { curry, isEmpty, clone, omit, reject, equals, merge } from 'ramda'
+import { isEmpty, clone, omit, reject } from 'ramda'
 
+import type { TEditValue } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 import {
   buildLog,
@@ -25,17 +26,9 @@ const sr71$ = new SR71()
 let store = null
 let sub$ = null
 
-export const inputOnChange = curry((part, e) => updateEditing(store, part, e))
-/* eslint-disable no-unused-vars */
-export const sexChange = curry((sex, e) => store.updateEditing({ sex }))
-
-/* eslint-disable no-unused-vars */
-export const socialOnChange = curry((part, e) => {
-  const { editUserData: editUser } = store
-  editUser.social[part] = e.target.value
-
-  store.mark({ editUser })
-})
+export const inputOnChange = (e: TEditValue, key: string): void => {
+  updateEditing(store, key, e)
+}
 
 export const updateConfirm = (): void => {
   if (!store.statusClean) return
@@ -67,6 +60,11 @@ export const toggleSocials = (): void =>
 
 const cancelLoading = () => store.mark({ updating: false })
 
+const loadUser = () => {
+  const { viewingUser } = store
+  sr71$.query(S.user, { login: viewingUser.login })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -79,6 +77,10 @@ const DataSolver = [
       updateDone()
       cancelLoading()
     },
+  },
+  {
+    match: asyncRes('user'),
+    action: ({ user }) => store.loadUser(user),
   },
 ]
 
@@ -111,7 +113,7 @@ export const useInit = (_store: TStore): void =>
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    store.copyAccountInfo()
+    loadUser()
 
     return () => {
       // log('effect uninit')

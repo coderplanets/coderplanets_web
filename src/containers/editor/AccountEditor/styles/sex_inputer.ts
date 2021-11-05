@@ -6,8 +6,11 @@ import css from '@/utils/css'
 import ManSVG from '@/icons/Man'
 import WomanSVG from '@/icons/Woman'
 
+import { SEX } from '../constant'
+
 export const Wrapper = styled.div`
   ${css.flex()};
+  width: 250px;
 `
 const sexIcon = `
   ${css.size(20)};
@@ -18,21 +21,15 @@ const sexIcon = `
 export const DudeIcon = styled(ManSVG)<{ value: string }>`
   ${sexIcon};
   fill: ${({ value }) =>
-    value === 'dude' ? theme('baseColor.blue') : theme('thread.articleDigest')};
+    value === SEX.DUDE
+      ? theme('baseColor.blue')
+      : theme('thread.articleDigest')};
 `
 export const GirlIcon = styled(WomanSVG)<{ value: string }>`
   ${sexIcon};
   fill: ${({ value }) =>
-    value === 'girl' ? theme('baseColor.pink') : theme('thread.articleDigest')};
+    value === SEX.GIRL
+      ? theme('baseColor.pink')
+      : theme('thread.articleDigest')};
   margin-top: 1px;
-`
-export const SexLable = styled.div`
-  font-size: 1em;
-  color: ${theme('thread.articleDigest')};
-  margin-right: 10px;
-`
-
-export const SexInput = styled.div`
-  ${css.flex()};
-  width: 250px;
 `

@@ -1,14 +1,9 @@
 import { FC, memo } from 'react'
 
-import {
-  Wrapper,
-  SexLable,
-  SexInput,
-  DudeIcon,
-  GirlIcon,
-} from './styles/sex_inputer'
+import { Wrapper, DudeIcon, GirlIcon } from './styles/sex_inputer'
 
-import { sexChange } from './logic'
+import { SEX } from './constant'
+import { inputOnChange } from './logic'
 
 type TProps = {
   value: string
@@ -17,10 +12,8 @@ type TProps = {
 const SexInputer: FC<TProps> = ({ value }) => {
   return (
     <Wrapper>
-      <SexInput>
-        <DudeIcon value={value} onClick={sexChange('dude')} />
-        <GirlIcon value={value} onClick={sexChange('girl')} />
-      </SexInput>
+      <DudeIcon value={value} onClick={() => inputOnChange(SEX.DUDE, 'sex')} />
+      <GirlIcon value={value} onClick={() => inputOnChange(SEX.GIRL, 'sex')} />
     </Wrapper>
   )
 }

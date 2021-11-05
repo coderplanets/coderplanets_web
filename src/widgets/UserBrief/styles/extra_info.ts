@@ -6,7 +6,7 @@ import css from '@/utils/css'
 import MailSVG from '@/icons/Mail'
 import TwitterSVG from '@/icons/Twitter'
 import BlogSVG from '@/icons/Blog'
-import GithubSVG from '@/icons/GithubCat'
+import GithubSVG from '@/icons/Github8'
 import CitySVG from '@/icons/City'
 import CompanySVG from '@/icons/Company'
 
@@ -64,8 +64,8 @@ export const MailIcon = styled(MailSVG)`
 `
 export const GithubIcon = styled(GithubSVG)`
   ${iconBase};
-  ${css.size(13)};
-  margin-left: 3px;
+  ${css.size(15)};
+  margin-left: 2px;
   margin-right: 11px;
   fill: ${theme('thread.articleDigest')};
 `

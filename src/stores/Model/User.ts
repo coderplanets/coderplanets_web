@@ -78,18 +78,10 @@ const Customization = T.model('Customization', {
 })
 
 const UserSocial = T.model('UserSocial', {
-  qq: T.maybeNull(T.string),
-  weibo: T.maybeNull(T.string),
-  weichat: T.maybeNull(T.string),
   github: T.maybeNull(T.string),
-  zhihu: T.maybeNull(T.string),
-  douban: T.maybeNull(T.string),
   twitter: T.maybeNull(T.string),
-  facebook: T.maybeNull(T.string),
-  dribble: T.maybeNull(T.string),
-  instagram: T.maybeNull(T.string),
-  pinterest: T.maybeNull(T.string),
-  huaban: T.maybeNull(T.string),
+  blog: T.maybeNull(T.string),
+  company: T.maybeNull(T.string),
 })
 
 export const User = T.model('User', {
@@ -109,7 +101,7 @@ export const User = T.model('User', {
   workBackgrounds: T.optional(T.array(WorkBackground), []),
   sex: T.maybeNull(T.string),
   // social
-  // social: T.optional(UserSocial, {}),
+  social: T.maybeNull(UserSocial),
   fromGithub: T.optional(T.boolean, false),
   /* fromWeixin: T.optional(T.boolean, false), */
   /* subscribedCommunities: T.optional(pagedCommunities, {}), */

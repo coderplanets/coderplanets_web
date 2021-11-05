@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import { TYPE } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -12,14 +11,14 @@ export const Wrapper = styled.div`
     width: 0;
   `};
 `
-export const TopArea = styled.div<{ type: string }>`
+export const TopArea = styled.div<{ showShare: boolean }>`
   width: 26px;
-  height: 80px;
+  height: ${({ showShare }) => (showShare ? '80px' : '50px')};
+
   position: absolute;
   top: 0;
   left: 34px;
-  display: ${({ type }) =>
-    type === TYPE.DRAWER.ACCOUNT_EDIT ? 'none' : 'block'};
+  display: block;
   background: #002a34;
   border-bottom-left-radius: 15px;
   box-shadow: ${theme('drawer.shadow')};

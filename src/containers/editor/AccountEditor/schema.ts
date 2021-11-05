@@ -1,7 +1,29 @@
 import { gql } from '@urql/core'
 
+const user = gql`
+  query ($login: String!) {
+    user(login: $login) {
+      login
+      avatar
+      nickname
+      bio
+      shortbio
+      email
+      location
+      sex
+      fromGithub
+      social {
+        github
+        blog
+        company
+        twitter
+      }
+    }
+  }
+`
+
 const updateProfile = gql`
-  mutation(
+  mutation (
     $profile: UserProfileInput!
     $social: SocialInput
     $educationBackgrounds: [EduBackgroundInput]
@@ -33,4 +55,5 @@ export const updateFields = [
 
 export const S = {
   updateProfile,
+  user,
 }

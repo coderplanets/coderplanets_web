@@ -4,6 +4,7 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import GithubSVG from '@/icons/Github8'
 import FormInput from '@/widgets/Input'
 
 export const Wrapper = styled.div`
@@ -20,8 +21,12 @@ export const Wrapper = styled.div`
   position: relative;
 `
 export const AvatarPic = styled(Img)`
-  ${css.circle(70)};
-  margin-bottom: 30px;
+  ${css.size(140)};
+  border-radius: 42%;
+  border: 4px solid;
+  border-color: #043443;
+  margin-bottom: 50px;
+  margin-left: -5px;
 `
 export const FormsWrapper = styled.div`
   ${css.flexColumn('align-center')};
@@ -44,6 +49,13 @@ export const LoginDesc = styled.div`
   color: ${theme('thread.articleTitle')};
   margin-bottom: 8px;
 `
+export const GithubIcon = styled(GithubSVG)`
+  ${css.size(15)};
+  fill: ${theme('thread.articleDigest')};
+  opacity: 0.5;
+  margin-right: 20px;
+  margin-bottom: 7px;
+`
 export const SectionHint = styled.div`
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
@@ -58,12 +70,14 @@ export const Label = styled.div`
   margin-bottom: 8px;
   margin-left: 5px;
   margin-right: 10px;
+  opacity: 0.85;
 `
 export const SexLabel = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   margin-left: 7px;
   margin-right: 10px;
+  opacity: 0.85;
 `
 export const Input = styled(FormInput)`
   text-align: left;
@@ -76,6 +90,8 @@ export const Input = styled(FormInput)`
 export const TextareaInput = styled(Input)`
   padding: 10px;
   padding-left: 12px;
+  font-size: 14px;
+  line-height: 1.5;
 `
 export const Footer = styled.div`
   margin-left: -15px;

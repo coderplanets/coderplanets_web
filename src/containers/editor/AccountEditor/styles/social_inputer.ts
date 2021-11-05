@@ -8,7 +8,7 @@ import FormInput from '@/widgets/Input'
 import MailSVG from '@/icons/Mail'
 import TwitterSVG from '@/icons/Twitter'
 import BlogSVG from '@/icons/Blog'
-import GithubSVG from '@/icons/GithubCat'
+import GithubSVG from '@/icons/Github8'
 import CitySVG from '@/icons/City'
 import CompanySVG from '@/icons/Company'
 
@@ -24,7 +24,7 @@ export const Section = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 20px;
   width: 100%;
-  margin-left: 15px;
+  margin-left: 12px;
 `
 const iconBase = `
   ${css.size(18)};
@@ -51,7 +51,7 @@ export const MailIcon = styled(MailSVG)`
 `
 export const GithubIcon = styled(GithubSVG)`
   ${iconBase};
-  ${css.size(13)};
+  ${css.size(15)};
   margin-right: 11px;
   fill: ${theme('thread.articleDigest')};
 `
