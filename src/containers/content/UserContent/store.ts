@@ -53,7 +53,11 @@ const UserContent = T.model('UserContent', {
     get hasContentBg(): boolean {
       const root = getParent(self) as TRootStore
 
-      return root.userPublishedArticles.hasContentBg
+      if (self.activeThread === USER_THREAD.PUBLISH) {
+        return root.userPublishedArticles.hasContentBg
+      }
+
+      return true
     },
   }))
   .actions((self) => ({
