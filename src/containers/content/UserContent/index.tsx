@@ -105,14 +105,25 @@ type TProps = {
 const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
   useInit(store)
 
-  const { activeThread, viewingUser, isSelfViewing } = store
+  const {
+    activeThread,
+    viewingUser,
+    isSelfViewing,
+    pagedWorksData,
+    pagedEditableCommunitiesData,
+  } = store
   const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
 
   return (
     <Wrapper>
       <BannerWrapper metric={metric} />
       <InnerWrapper metric={metric}>
-        <Sidebar viewingUser={viewingUser} isSelfViewing={isSelfViewing} />
+        <Sidebar
+          user={viewingUser}
+          isSelfViewing={isSelfViewing}
+          works={pagedWorksData}
+          editableCommunities={pagedEditableCommunitiesData}
+        />
         <ContentWrapper>
           <TabBarWrapper className="tabs-with-bottom">
             <TabBar

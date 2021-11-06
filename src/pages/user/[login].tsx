@@ -3,11 +3,11 @@
  */
 import { Provider } from 'mobx-react'
 
-import { SITE_URL } from '@/config'
-import { METRIC } from '@/constant'
+import { METRIC, THREAD } from '@/constant'
 import {
   ssrGetParam,
   ssrFetchPrepare,
+  ssrPagedArticleSchema,
   ssrBaseStates,
   ssrError,
   refreshIfneed,
@@ -29,9 +29,16 @@ const fetchData = async (context, opt = {}) => {
   const sessionState = gqClient.request(P.sessionState)
   const user = gqClient.request(P.user, { login, userHasLogin })
 
+  const pagedWorks = gqClient.request(ssrPagedArticleSchema(THREAD.WORKS), {
+    login,
+    filter: { page: 1, size: 10 },
+    userHasLogin,
+  })
+
   return {
     ...(await sessionState),
     ...(await user),
+    ...(await pagedWorks),
   }
 }
 
@@ -48,13 +55,15 @@ export const getServerSideProps = async (context) => {
     return ssrError(context, 'fetch', 500)
   }
 
-  const { user } = resp
+  const { user, pagedWorks } = resp
+  // console.log('pagedArticles works --> ', pagedWorks)
 
   const initProps = {
     ...ssrBaseStates(resp),
     // route: { mainPath: ROUTE.USER, subPath: user.id, query },
     // userContent: { activeThread: query.tab || USER_THREAD.PROFILE },
     viewing: { user },
+    userContent: { pagedWorks },
   }
 
   return {

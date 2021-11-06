@@ -35,7 +35,7 @@ const Numberspad: FC<TProps> = ({ user }) => {
         <Gravity>
           Gravity
           <Tooltip
-            content="Gravity: 是由用户所获得的点赞数，收藏数，创作内容的浏览量等综合因素计算出的影响力值。"
+            content="Gravity: 是由用户所获得的点赞数，收藏数，创作内容的浏览量，以及回答他人问题被采纳的次数等综合因素计算出的影响力值。"
             placement="bottom"
           >
             <InfoIcon />

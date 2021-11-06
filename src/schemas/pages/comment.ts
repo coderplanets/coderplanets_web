@@ -28,7 +28,7 @@ export const pagedComments = `
         }
         repliesCount
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

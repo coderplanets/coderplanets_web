@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import WomanSVG from '@/icons/Woman'
+import { Divider as DividerBase } from '@/widgets/Common'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
@@ -42,12 +43,6 @@ export const UserDesc = styled.div<TUserDesc>`
       clickable ? theme('banner.title') : theme('banner.desc')};
   }
 `
-
-export const Divider = styled.div`
-  border-top: 1px solid;
-  border-color: ${theme('thread.articleDigest')};
-  opacity: 0.3;
+export const Divider = styled(DividerBase)`
   width: 90%;
-  margin-top: 25px;
-  margin-bottom: 25px;
 `

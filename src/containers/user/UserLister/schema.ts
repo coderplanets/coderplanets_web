@@ -8,7 +8,7 @@ const pagedUsers = gql`
         ${F.author}
         location
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `
@@ -21,7 +21,7 @@ const communitySubscribers = gql`
         location
         viewerHasFollowed @include(if: $userHasLogin)
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `
@@ -59,7 +59,7 @@ const communityEditors = gql`
         location
         viewerHasFollowed @include(if: $userHasLogin)
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `
@@ -78,7 +78,7 @@ const reactionUsers = gql`
         geoCity
         viewerHasFollowed @include(if: $userHasLogin)
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

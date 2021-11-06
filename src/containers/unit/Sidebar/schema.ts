@@ -8,13 +8,13 @@ const subscribedCommunities = gql`
         ${F.community}
         contributesDigest
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `
 
 const setCustomization = gql`
-  mutation(
+  mutation (
     $userId: ID
     $customization: CustomizationInput!
     $sidebarCommunitiesIndex: [CommunityIndex]

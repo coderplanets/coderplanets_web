@@ -10,7 +10,7 @@ const pagedCommunities = gql`
         subscribersCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `
@@ -24,7 +24,7 @@ const searchCommunities = gql`
         subscribersCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `
@@ -42,14 +42,14 @@ const subscribeCommunity = gql`
   }
 `
 const unsubscribeCommunity = gql`
-  mutation($communityId: ID!) {
+  mutation ($communityId: ID!) {
     unsubscribeCommunity(communityId: $communityId) {
       id
     }
   }
 `
 const pagedCategories = gql`
-  query($filter: PagedFilter!) {
+  query ($filter: PagedFilter!) {
     pagedCategories(filter: $filter) {
       entries {
         id

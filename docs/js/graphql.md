@@ -30,7 +30,7 @@ const pagedCommunities = gql`
         contributesDigest
         subscribersCount
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

@@ -15,7 +15,7 @@ const pagedComments = gql`
       entries {
         ${F.comment}
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `
@@ -30,7 +30,7 @@ const pagedCommentReplies = gql`
           ${F.commentFields}
         }
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

@@ -3,10 +3,10 @@
  * UserBrief
  *
  */
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 
-import type { TUser, TView } from '@/spec'
-import { VIEW, EVENT, TYPE } from '@/constant'
+import type { TUser, TPagedWorks, TPagedCommunities } from '@/spec'
+import { EVENT, TYPE } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { send } from '@/utils/helper'
@@ -15,6 +15,8 @@ import { Br, SpaceGrow } from '@/widgets/Common'
 // import SocialIcons from './SocialIcons'
 import ExtraInfo from './ExtraInfo'
 import Operators from './Operators'
+import WorksBadge from './WorksBadge'
+import VolunteersBadge from './VolunteersBadge'
 import Footer from './Footer'
 // import CommunityEditorInfo from './CommunityEditorInfo'
 
@@ -27,10 +29,11 @@ const log = buildLog('c:UserBrief')
 
 type TProps = {
   user: TUser
-  view?: TView
+  works: TPagedWorks
+  editableCommunities: TPagedCommunities
 }
 
-const UserBrief: FC<TProps> = ({ user, view = VIEW.DESKTOP }) => {
+const UserBrief: FC<TProps> = ({ user, works, editableCommunities }) => {
   return (
     <Wrapper>
       <Avatar user={user} />
@@ -50,9 +53,21 @@ const UserBrief: FC<TProps> = ({ user, view = VIEW.DESKTOP }) => {
       <ShortBio>{user.shortbio}</ShortBio>
       <Br top={15} />
       <Bio>{user.bio}</Bio>
-      <Divider />
+      <Divider top={25} />
       <ExtraInfo user={user} />
-      <Divider />
+      {works.totalCount && (
+        <Fragment>
+          <Divider bottom={15} />
+          <WorksBadge works={works} />
+        </Fragment>
+      )}
+      <Divider bottom={30} />
+      {editableCommunities.totalCount > 0 && (
+        <Fragment>
+          <VolunteersBadge communities={editableCommunities} />
+          <Divider bottom={30} />
+        </Fragment>
+      )}
       <Footer user={user} />
     </Wrapper>
   )

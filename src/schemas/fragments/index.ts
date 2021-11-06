@@ -25,7 +25,7 @@ import {
   commentFields,
   emotionQuery,
   commentParent,
-  pagedCounts,
+  pagi,
   getUpvoteSchema,
   getUndoUpvoteSchema,
 } from './base'
@@ -54,7 +54,7 @@ const F = {
   commentFields,
   emotionQuery,
   commentParent,
-  pagedCounts,
+  pagi,
   getUpvoteSchema,
   getUndoUpvoteSchema,
 }

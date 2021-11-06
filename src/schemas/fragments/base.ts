@@ -244,7 +244,7 @@ export const commentParent = `
     ${community}
   }
 `
-export const pagedCounts = `
+export const pagi = `
   totalPages
   totalCount
   pageSize

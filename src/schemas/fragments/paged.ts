@@ -1,4 +1,4 @@
-import { article, repo, author, pagedCounts } from './base'
+import { article, repo, author, pagi } from './base'
 
 export const pagedPosts = `
   entries {
@@ -7,7 +7,7 @@ export const pagedPosts = `
       ${author}
     }
   }
-  ${pagedCounts}
+  ${pagi}
 `
 export const pagedJobs = `
   entries {
@@ -15,7 +15,7 @@ export const pagedJobs = `
     company
     companyLink
    }
-  ${pagedCounts}
+  ${pagi}
 `
 
 export const pagedRepos = `
@@ -26,5 +26,5 @@ export const pagedRepos = `
       ${author}
     }
   }
-  ${pagedCounts}
+  ${pagi}
 `

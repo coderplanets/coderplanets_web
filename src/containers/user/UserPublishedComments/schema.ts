@@ -7,7 +7,7 @@ const publishedPostComments = gql`
       entries {
         ${F.comment}
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

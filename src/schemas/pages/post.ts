@@ -24,7 +24,7 @@ export const pagedPosts = `
         viewerHasViewed @include(if: $userHasLogin)
         viewerHasUpvoted @include(if: $userHasLogin)
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

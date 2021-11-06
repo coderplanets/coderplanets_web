@@ -96,12 +96,7 @@ const UserContributeMap: FC<TProps> = ({ user }) => {
         values={contributes.records}
         classForValue={getClass}
       />
-      <ReactTooltip
-        type="error"
-        effect="solid"
-        place="top"
-        id="user_contribute_map"
-      />
+      <ReactTooltip effect="solid" place="top" id="user_contribute_map" />
     </Wrapper>
   )
 }
