@@ -39,6 +39,8 @@ export type TUser = TSimpleUser & {
   contributes?: TContributes
   followersCount?: number
   followingsCount?: number
+  insertedAt?: string
+  views?: number
 }
 
 export type TPagedUsers = {

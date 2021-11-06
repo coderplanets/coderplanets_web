@@ -11,31 +11,13 @@ export const Section = styled.div`
   margin-bottom: 7px;
 `
 export const Text = styled.div`
-  font-size: 11px;
+  ${css.flex('align-center')};
+  font-size: 12px;
   color: ${theme('thread.articleDigest')};
-  margin-right: 5px;
-  opacity: 0.8;
-`
-export const Desc = styled.div`
-  color: ${theme('thread.articleTitle')};
 `
 export const Num = styled.div`
-  font-size: 13px;
-  color: ${theme('thread.articleDigest')};
-`
-export const JoinAt = styled(Num)`
-  ${css.flex('align-both')};
-  position: relative;
   font-size: 12px;
-`
-export const JoinSlash = styled.div`
-  font-size: 10px;
   color: ${theme('thread.articleDigest')};
-  font-weight: bolder;
-  font-family: monospace;
-  margin-right: 3px;
-  margin-left: 3px;
-  opacity: 0.6;
-  transform: rotate(-5deg);
-  margin-top: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
 `
