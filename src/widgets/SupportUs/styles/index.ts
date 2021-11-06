@@ -5,6 +5,7 @@ import type { TTestable, TMetric } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
+import Button from '@/widgets/Buttons/Button'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -55,6 +56,31 @@ export const Desc = styled.div<{ align?: boolean }>`
 `
 export const MainDesc = styled(Desc)`
   text-indent: 32px;
+`
+export const ButtonGroup = styled.div`
+  ${css.flexColumn('align-center')};
+`
+export const Link = styled.a`
+  text-decoration: none;
+`
+export const FeedButton = styled(Button)`
+  color: ${theme('thread.articleTitle')};
+  width: 100px;
+  height: 40px;
+  margin-top: 5px;
+
+  &:hover {
+    color: #139c9e;
+  }
+`
+export const AifadianButton = styled(Button)`
+  ${css.flex('align-both')};
+  width: 200px;
+  height: 40px;
+  background: linear-gradient(90deg, #946ce6, #7e5fd9);
+  border: none;
+  color: #fbfafe;
+  border-radius: 15px;
 `
 export const FocusDesc = styled.div`
   color: ${theme('thread.articleTitle')};

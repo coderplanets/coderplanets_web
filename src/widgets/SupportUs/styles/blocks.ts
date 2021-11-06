@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import type { TTestable, TMetric } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
@@ -8,12 +7,14 @@ import css from '@/utils/css'
 export const Wrapper = styled.div`
   ${css.flex('align-both')};
   flex-wrap: wrap;
-  margin-left: 14px;
+  margin-left: 20px;
+  max-width: 800px;
 `
-export const Block = styled.div`
+export const Block = styled.a`
   width: 300px;
   height: 150px;
   border: 1px solid;
+  text-decoration: none;
   border-color: #004b5e;
   border-radius: 8px;
   margin-right: 28px;

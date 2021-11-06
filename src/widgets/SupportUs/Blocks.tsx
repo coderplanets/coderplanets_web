@@ -4,14 +4,10 @@
  *
  */
 
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 
-import dynamic from 'next/dynamic'
 import { ICON } from '@/config'
-
-import { Cashier } from '@/containers/dynamic'
-import { PAYMENT_USAGE } from '@/constant'
-import { checkout } from '@/utils/helper'
+import { ROUTE } from '@/constant'
 
 import { SpaceGrow } from '@/widgets/Common'
 
@@ -19,7 +15,6 @@ import {
   Wrapper,
   Block,
   Icon,
-  FeedIcon,
   Title,
   Divider,
   Desc,
@@ -27,41 +22,10 @@ import {
   LinkIcon,
 } from './styles/blocks'
 
-export const BuyMeChuanChuan = dynamic(
-  () => import('@/widgets/BuyMeChuanChuan'),
-  {
-    ssr: false,
-  },
-)
-
 const Blocks: FC = () => {
-  const [showChuan, setShowChuan] = useState(false)
-
   return (
     <Wrapper>
-      <Cashier />
-      <BuyMeChuanChuan
-        onClose={() => setShowChuan(false)}
-        onLogin={() => console.log('onLogin')}
-        onPay={(amount) => {
-          console.log('onPay: ', amount)
-          setShowChuan(false)
-          checkout(amount, PAYMENT_USAGE.DONATE)
-        }}
-        show={showChuan}
-      />
-
-      <Block onClick={() => setShowChuan(true)}>
-        <Title>
-          <FeedIcon src={`${ICON}/menu/feed.svg`} />
-          远程撸串
-          <SpaceGrow />
-        </Title>
-
-        <Divider />
-        <Desc>你的远程投喂将有助于开发团队在饱腹状态下工作， 冲！</Desc>
-      </Block>
-      <Block>
+      <Block href={`/${ROUTE.MEMBERSHIP}`} target="_blank">
         <Title>
           <Icon src={`${ICON}/menu/vip.svg`} />
           成为会员
@@ -69,11 +33,9 @@ const Blocks: FC = () => {
           <LinkIcon src={`${ICON}/shape/link.svg`} />
         </Title>
         <Divider />
-        <Desc>
-          成为 CP 付费会员，解锁本站最高质量的体验和服务，同时支持社区持续发展。
-        </Desc>
+        <Desc>成为 CP 付费会员，我们将为你持续提供高质量的服务和体验。</Desc>
       </Block>
-      <Block>
+      <Block href={`/${ROUTE.MEMBERSHIP}`} target="_blank">
         <Title>
           <Icon src={`${ICON}/menu/sponsor.svg`} />
           团队赞助
@@ -97,7 +59,7 @@ const Blocks: FC = () => {
           成为某个你感兴趣的子社区志愿者，协助管理该子社区内容，维护日常站务。
         </Desc>
       </Block>
-      <Block>
+      <Block href="https://github.com/coderplanets" target="_blank">
         <Title>
           <Icon src={`${ICON}/social/github.svg`} />
           参与开发
