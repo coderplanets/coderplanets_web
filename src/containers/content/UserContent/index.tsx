@@ -12,9 +12,9 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import UserProfile from '@/containers/user/UserProfile'
-import UserPublished from '@/containers/user/UserPublished'
+import UserPublishedArticles from '@/containers/user/UserPublishedArticles'
 import UserPublishedComments from '@/containers/user/UserPublishedComments'
-import UserBilling from '@/containers/user/UserBilling'
+// import UserBilling from '@/containers/user/UserBilling'
 import UserSettings from '@/containers/user/UserSettings'
 import UserStared from '@/containers/user/UserStared'
 import UserFavorited from '@/containers/user/UserFavorited'
@@ -62,10 +62,10 @@ const BaseTaberThreads = [
 
 const FullTaberThreads = [
   ...BaseTaberThreads,
-  {
-    title: '账单',
-    raw: 'billing',
-  },
+  // {
+  //   title: '账单',
+  //   raw: 'billing',
+  // },
   {
     title: '设置',
     raw: 'settings',
@@ -86,14 +86,14 @@ const TabberContent = ({ active }) => {
     case USER_THREAD.LINKS:
       return <UserStared />
 
-    case USER_THREAD.BILLING:
-      return <UserBilling />
+    // case USER_THREAD.BILLING:
+    //   return <UserBilling />
 
     case USER_THREAD.SETTINGS:
       return <UserSettings />
 
     default:
-      return <UserPublished />
+      return <UserPublishedArticles />
   }
 }
 

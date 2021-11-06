@@ -56,7 +56,6 @@ export const getServerSideProps = async (context) => {
   }
 
   const { user, pagedWorks } = resp
-  // console.log('pagedArticles works --> ', pagedWorks)
 
   const initProps = {
     ...ssrBaseStates(resp),

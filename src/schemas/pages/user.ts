@@ -10,23 +10,19 @@ export const user = `
       social {
         ${F.userSocial}
       }
+      meta {
+        publishedPostsCount
+        publishedJobsCount
+        publishedBlogsCount
+        publishedWorksCount
+        publishedRadarsCount
+        publishedMeetupsCount
+      }
       followersCount
       followingsCount
       viewerHasFollowed @include(if: $userHasLogin)
       achievement {
         ${F.achievement}
-        sourceContribute {
-          web
-          server
-        }
-      }
-      workBackgrounds {
-        company
-        title
-      }
-      educationBackgrounds {
-        school
-        major
       }
       fromGithub
       githubProfile {

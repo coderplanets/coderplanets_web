@@ -61,7 +61,6 @@ import {
   GirlVerifierStore,
   CashierStore,
   // user page
-  UserPublishedStore,
   UserPublishedCommentsStore,
   UserSettingsStore,
   UserBillingStore,
@@ -230,7 +229,6 @@ const rootStore = T.model({
   // viewers (for drawer usage)
   mailsViewer: T.optional(MailsViewerStore, {}),
   // user page
-  userPublished: T.optional(UserPublishedStore, {}),
   userPublishedComments: T.optional(UserPublishedCommentsStore, {}),
   userBilling: T.optional(UserBillingStore, {}),
   userSettings: T.optional(UserSettingsStore, {}),

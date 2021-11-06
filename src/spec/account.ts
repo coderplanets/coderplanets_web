@@ -41,6 +41,14 @@ export type TUser = TSimpleUser & {
   followingsCount?: number
   insertedAt?: string
   views?: number
+  meta?: {
+    publishedPostsCount: number
+    publishedJobsCount: number
+    publishedBlogsCount: number
+    publishedWorksCount: number | null
+    publishedRadarsCount: number
+    publishedMeetupsCount: number
+  }
 }
 
 export type TPagedUsers = {

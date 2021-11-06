@@ -71,7 +71,7 @@ export { default as HaveADrinkContentStore } from '@/containers/content/HaveADri
 export { default as CoolGuideContentStore } from '@/containers/content/CoolGuideContent/store'
 
 // user page
-export { default as UserPublishedStore } from '@/containers/user/UserPublished/store'
+export { default as UserPublishedArticlesStore } from '@/containers/user/UserPublishedArticles/store'
 export { default as UserPublishedCommentsStore } from '@/containers/user/UserPublishedComments/store'
 export { default as UserStaredStore } from '@/containers/user/UserStared/store'
 export { default as UserBillingStore } from '@/containers/user/UserBilling/store'

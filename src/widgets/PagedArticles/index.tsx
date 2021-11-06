@@ -30,7 +30,6 @@ type TProps = {
   resState: TResState
   // TODO: remove
   emptyPrefix?: string
-  viewingArticle: TArticle
   c11n: TC11N
 }
 
@@ -38,7 +37,6 @@ const PagedArticles: FC<TProps> = ({
   thread,
   data,
   resState,
-  viewingArticle,
   emptyPrefix,
   c11n,
 }) => {
@@ -48,7 +46,6 @@ const PagedArticles: FC<TProps> = ({
     <Fragment>
       <ArticleList
         thread={thread}
-        activeId={viewingArticle.id}
         entries={entries}
         resState={resState}
         emptyPrefix={emptyPrefix}

@@ -28,3 +28,24 @@ export const pagedPosts = `
     }
   }
 `
+
+export const pagedPublishedPosts = `
+  query($login: String!, $filter: PagedFilter!, $userHasLogin: Boolean!) {
+    pagedPublishedPosts(login: $login, filter: $filter) {
+      entries {
+        ${F.article}
+        meta {
+          thread
+        }
+        digest
+        linkAddr
+        commentsParticipants {
+          ${F.author}
+        }
+        viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
+      }
+      ${F.pagi}
+    }
+  }
+`

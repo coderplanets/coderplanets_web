@@ -1,4 +1,4 @@
-import { pagedPosts, post } from './post'
+import { pagedPosts, pagedPublishedPosts, post } from './post'
 import { pagedJobs, job } from './job'
 import { pagedRadars, radar } from './radar'
 import { pagedBlogs, blog, blogRssInfo } from './blog'
@@ -33,6 +33,7 @@ const P = {
   pagedArticleTags,
   // post
   pagedPosts,
+  pagedPublishedPosts,
   post,
   // job
   pagedJobs,

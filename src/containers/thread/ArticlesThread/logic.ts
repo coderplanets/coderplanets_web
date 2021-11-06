@@ -12,7 +12,6 @@ import { matchPagedArticles, matchArticleUpvotes } from '@/utils/macros'
 
 import type { TStore } from './store'
 import S from './schema'
-import { threadOnChange } from '@/containers/user/UserPublishedComments/logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticlesThread')

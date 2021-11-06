@@ -34,11 +34,11 @@ const UserPublishedCommentsContainer = ({ userPublishedComments: store }) => {
           lookLike="box"
         />
       </ThreadWrapper>
-      <CommentsToContent
+      {/* <CommentsToContent
         thread={curThread}
         curView={curView}
         data={pagedCommentsData}
-      />
+      /> */}
     </div>
   )
 }

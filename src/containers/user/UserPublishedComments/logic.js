@@ -86,7 +86,7 @@ export const useInit = (_store) => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    loadPostComments()
+    // loadPostComments()
 
     return () => {
       // log('effect uninit')
