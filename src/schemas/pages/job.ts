@@ -27,3 +27,21 @@ export const pagedJobs = `
     }
   }
 `
+
+export const pagedPublishedJobs = `
+  query($login: String!, $filter: PagedFilter!, $userHasLogin: Boolean!) {
+    pagedPublishedJobs(login: $login, filter: $filter) {
+      entries {
+        ${F.article}
+        ${F.pageArticleMeta}
+        digest
+        linkAddr
+        company
+        companyLink
+        viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
+      }
+      ${F.pagi}
+    }
+  }
+`

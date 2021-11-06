@@ -5,7 +5,7 @@ import type { TThread } from '@/spec'
 import { map, values, flatten } from 'ramda'
 
 import { ARTICLE_THREAD } from '@/constant'
-import { titleCase } from './helper'
+import { titleCase, plural } from './helper'
 import asyncSuite from './async'
 
 const { asyncRes } = asyncSuite
@@ -22,6 +22,21 @@ export const matchPagedArticles = (threads: TThread[], callback) => {
       action: (res) => callback?.(thread, res[resKey]),
     }
   }, threads)
+}
+
+/**
+ * handle general published articles in user page
+ */
+export const matchPublishedArticles = (callback) => {
+  // @ts-ignore
+  return map((thread) => {
+    const resKey = `pagedPublished${plural(titleCase(thread))}`
+
+    return {
+      match: asyncRes(resKey),
+      action: (res) => callback?.(res[resKey]),
+    }
+  }, values(ARTICLE_THREAD))
 }
 
 /**

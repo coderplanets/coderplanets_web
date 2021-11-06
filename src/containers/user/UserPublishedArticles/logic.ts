@@ -1,12 +1,13 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import type { TArticle } from '@/spec'
-import { ERR, EVENT } from '@/constant'
+import type { TArticle, TArticleThread, TPagedArticles } from '@/spec'
+import { TYPE, ERR, EVENT } from '@/constant'
 
-import { previewArticle, errRescue } from '@/utils/helper'
+import { previewArticle, errRescue, titleCase, plural } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
+import { matchPublishedArticles } from '@/utils/macros'
 
 import S from './schema'
 import type { TStore } from './store'
@@ -24,12 +25,18 @@ const sr71$ = new SR71({
   receive: [EVENT.PREVIEW_ARTICLE],
 })
 
+export const changeTab = (thread: TArticleThread): void => {
+  store.mark({ thread })
+  loadPublishedArticles()
+}
+
 export const loadPublishedArticles = (): void => {
-  const { viewingUser: user, isLogin } = store
+  const { viewingUser: user, isLogin, thread } = store
   const filter = { page: 1, size: 20 }
   const userHasLogin = isLogin
 
-  sr71$.query(S.pagedPublishedPosts, {
+  store.mark({ resState: TYPE.RES_STATE.LOADING })
+  sr71$.query(S.getPagedPublishedArticlesSchema(thread), {
     login: user.login,
     filter,
     userHasLogin,
@@ -40,23 +47,23 @@ export const loadPublishedArticles = (): void => {
  * prepack then send preview event to drawer
  */
 const onPreview = (article: TArticle): void => {
-  // const { resState } = store
-  // if (resState === TYPE.RES_STATE.LOADING) return
-  console.log('onPreview article: ', article)
+  const { resState } = store
+  if (resState === TYPE.RES_STATE.LOADING) return
+
   previewArticle(article)
 }
 
 // ###############################
 // init & uninit handlers
 // ###############################
+const handlePagedArticlesRes = (pagedArticles: TPagedArticles): void => {
+  const { thread } = store
+  const key = `paged${plural(titleCase(thread))}`
+  store.markRes({ [key]: pagedArticles })
+}
+
 const DataSolver = [
-  {
-    match: asyncRes('pagedPublishedPosts'),
-    action: ({ pagedPublishedPosts }) => {
-      console.log('pagedPublishedPosts data, ', pagedPublishedPosts)
-      store.mark({ pagedPosts: pagedPublishedPosts })
-    },
-  },
+  ...matchPublishedArticles(handlePagedArticlesRes),
   {
     match: asyncRes(EVENT.PREVIEW_ARTICLE),
     action: (res) => {
@@ -89,6 +96,7 @@ export const useInit = (_store: TStore): void => {
     loadPublishedArticles()
 
     return () => {
+      if (store.resState === TYPE.RES_STATE.LOADING || !sub$) return
       sr71$.stop()
       sub$.unsubscribe()
     }

@@ -2,7 +2,6 @@ import { FC, memo } from 'react'
 import Link from 'next/link'
 
 import type { TJob, TRadar } from '@/spec'
-import { ICON } from '@/config'
 import { ARTICLE_THREAD } from '@/constant'
 import { cutRest } from '@/utils/helper'
 import TagsList from '@/widgets/TagsList'
@@ -49,16 +48,14 @@ const Header: FC<TIndex> = ({ data, thread }) => {
           <TagsList items={articleTags} mLeft={0} size="medium" />
           <Br top={10} />
 
-          <Title>
-            <ExtraInfo>
-              <CompanyLink href={companyLink} target="_blank">
-                {cutRest(company, 12)}
-              </CompanyLink>
-            </ExtraInfo>
-            <Link href={`/${ARTICLE_THREAD.JOB}/${id}`} passHref>
-              {cutRest(title, 100)}
-            </Link>
-          </Title>
+          <ExtraInfo>
+            <CompanyLink href={companyLink} target="_blank">
+              {cutRest(company, 12)}
+            </CompanyLink>
+          </ExtraInfo>
+          <Link href={`/${ARTICLE_THREAD.JOB}/${id}`} passHref>
+            <Title>{cutRest(title, 100)}</Title>
+          </Link>
         </Wrapper>
       )
     }

@@ -111,6 +111,7 @@ const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
     isSelfViewing,
     pagedWorksData,
     pagedEditableCommunitiesData,
+    hasContentBg,
   } = store
   const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
 
@@ -124,7 +125,7 @@ const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
           works={pagedWorksData}
           editableCommunities={pagedEditableCommunitiesData}
         />
-        <ContentWrapper>
+        <ContentWrapper hasContentBg={hasContentBg}>
           <TabBarWrapper className="tabs-with-bottom">
             <TabBar
               source={taberSource}

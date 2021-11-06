@@ -1,12 +1,16 @@
 import { gql } from '@urql/core'
 import { P } from '@/schemas'
 
-const pagedPublishedPosts = gql`
-  ${P.pagedPublishedPosts}
-`
+import { titleCase, plural } from '@/utils/helper'
+
+const getPagedPublishedArticlesSchema = (thread) => {
+  return gql`
+    ${P[`pagedPublished${plural(titleCase(thread))}`]}
+  `
+}
 
 const schema = {
-  pagedPublishedPosts,
+  getPagedPublishedArticlesSchema,
 }
 
 export default schema

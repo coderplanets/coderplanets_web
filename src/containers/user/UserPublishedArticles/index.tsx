@@ -30,16 +30,23 @@ const UserPublishedArticlesContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { viewingUser, pagedArticlesData, c11n, resState } = store
+  const {
+    thread,
+    viewingUser,
+    pagedArticlesData,
+    c11n,
+    resState,
+    hasContentBg,
+  } = store
 
   // console.log('pagedArticlesData: ', pagedArticlesData)
   return (
     <Fragment>
-      <ThreadSelector user={viewingUser} />
-      <ArticlesWrapper>
+      <ThreadSelector thread={thread} user={viewingUser} />
+      <ArticlesWrapper hasContentBg={hasContentBg}>
         <PagedArticles
           data={pagedArticlesData}
-          thread="post"
+          thread={thread}
           resState={resState as TResState}
           c11n={c11n}
         />

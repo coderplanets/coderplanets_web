@@ -22,13 +22,15 @@ export const BannerWrapper = styled.div<{ metric: TMetric }>`
   margin-bottom: 20px;
   ${({ metric }) => css.fitPageWidth(metric)};
 `
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ hasContentBg: boolean }>`
   position: relative;
   flex-grow: 1;
   min-height: 600px;
   padding: 20px;
   padding-top: 15px;
-  background: ${theme('thread.bg')};
+
+  background: ${({ hasContentBg }) =>
+    hasContentBg ? theme('thread.bg') : 'transparent'};
 `
 export const TabBarWrapper = styled.div`
   position: absolute;

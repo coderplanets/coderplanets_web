@@ -3,7 +3,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values } from 'ramda'
+import { values, includes } from 'ramda'
 
 import type {
   TCommunity,
@@ -13,7 +13,7 @@ import type {
   TPagedArticles,
   TC11N,
 } from '@/spec'
-import { TYPE } from '@/constant'
+import { TYPE, ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
 import { titleCase, plural } from '@/utils/helper'
@@ -31,6 +31,10 @@ import {
 const log = buildLog('S:UserPublishedArticles')
 
 const UserPublishedArticles = T.model('UserPublishedArticles', {
+  thread: T.optional(
+    T.enumeration(values(ARTICLE_THREAD)),
+    ARTICLE_THREAD.POST,
+  ),
   pagedPosts: T.optional(PagedPosts, emptyPagi),
   pagedJobs: T.optional(PagedJobs, emptyPagi),
   pagedBlogs: T.optional(PagedBlogs, emptyPagi),
@@ -66,14 +70,27 @@ const UserPublishedArticles = T.model('UserPublishedArticles', {
     },
 
     get pagedArticlesData(): TPagedArticles {
-      const slf = self as TStore
+      const pagedThreadKey = `paged${titleCase(plural(self.thread))}`
+      return toJS(self[pagedThreadKey])
+    },
 
-      const pagedThreadKey = `paged${titleCase(plural(slf.curThread))}`
-
-      return toJS(slf[pagedThreadKey])
+    get hasContentBg(): boolean {
+      return !includes(self.thread, [ARTICLE_THREAD.JOB, ARTICLE_THREAD.RADAR])
     },
   }))
   .actions((self) => ({
+    markRes(res: Record<string, TPagedArticles>): void {
+      const slf = self as TStore
+      const pagedData = values(res)[0] as TPagedArticles
+
+      if (pagedData.totalCount === 0) {
+        slf.resState = TYPE.RES_STATE.EMPTY
+      } else {
+        slf.resState = TYPE.RES_STATE.DONE
+      }
+
+      slf.mark(res)
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

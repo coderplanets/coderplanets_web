@@ -23,3 +23,19 @@ export const pagedRadars = `
     }
   }
 `
+
+export const pagedPublishedRadars = `
+  query($login: String!, $filter: PagedFilter!, $userHasLogin: Boolean!) {
+    pagedPublishedRadars(login: $login, filter: $filter) {
+      entries {
+        ${F.article}
+        ${F.pageArticleMeta}
+        digest
+        linkAddr
+        viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
+      }
+      ${F.pagi}
+    }
+  }
+`

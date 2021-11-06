@@ -28,7 +28,7 @@ export const LinkSrc = styled.a`
     cursor: pointer;
   }
 `
-export const Title = styled.a`
+export const Title = styled.div`
   display: inline;
   color: ${theme('thread.articleTitle')};
   font-size: 17px;

@@ -1,7 +1,7 @@
 import { FC, memo, useState } from 'react'
 import { reduce, add, values } from 'ramda'
 
-import type { TUser } from '@/spec'
+import type { TUser, TArticleThread } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
 import { titleCase, plural } from '@/utils/helper'
 import { Trans } from '@/utils/i18n'
@@ -15,6 +15,7 @@ import {
   SelectLabel,
   SubCount,
 } from './styles/thread_selector'
+import { changeTab } from './logic'
 
 const THREADS = values(ARTICLE_THREAD)
 
@@ -34,11 +35,12 @@ const publishedTotal = (meta) => {
 }
 
 type TProps = {
+  thread: TArticleThread
   user: TUser
 }
 
-const ThreadSelector: FC<TProps> = ({ user }) => {
-  const [activeThread, setActiveThread] = useState(ARTICLE_THREAD.POST)
+const ThreadSelector: FC<TProps> = ({ thread, user }) => {
+  const activeThread = thread
 
   const { meta } = user
   const total = publishedTotal(meta)
@@ -54,7 +56,11 @@ const ThreadSelector: FC<TProps> = ({ user }) => {
           const subCount = getSubCount(meta, t, false)
           if (!!subCount) {
             return (
-              <SelectLabel key={t} $active={activeThread === t}>
+              <SelectLabel
+                key={t}
+                $active={activeThread === t}
+                onClick={() => changeTab(t)}
+              >
                 {Trans(t)}
                 <SubCount>{subCount}</SubCount>
               </SelectLabel>

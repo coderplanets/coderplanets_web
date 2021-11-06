@@ -50,6 +50,11 @@ const UserContent = T.model('UserContent', {
     get pagedEditableCommunitiesData(): TPagedCommunities {
       return toJS(self.pagedEditableCommunities)
     },
+    get hasContentBg(): boolean {
+      const root = getParent(self) as TRootStore
+
+      return root.userPublishedArticles.hasContentBg
+    },
   }))
   .actions((self) => ({
     authWarning(options) {
