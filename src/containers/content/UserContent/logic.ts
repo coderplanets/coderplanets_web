@@ -71,6 +71,13 @@ export const tabOnChange = (activeThread: TThread): void => {
 // Data & Error handlers
 // ###############################
 
+const loadEditableCommunities = () => {
+  const { login } = store.viewingUser
+  const filter = { page: 1, size: 7 }
+
+  sr71$.query(S.editableCommunities, { login, filter })
+}
+
 const DataSolver = [
   {
     match: asyncRes('follow'),
@@ -79,6 +86,12 @@ const DataSolver = [
   {
     match: asyncRes('undoFollow'),
     action: () => getUserFollowStates(),
+  },
+  {
+    match: asyncRes('editableCommunities'),
+    action: ({ editableCommunities }) => {
+      store.mark({ pagedEditableCommunities: editableCommunities })
+    },
   },
   {
     match: asyncRes('user'),
@@ -120,6 +133,8 @@ export const useInit = (_store: TStore): void => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    // TODO: query before judage
+    loadEditableCommunities()
 
     return () => {
       if (!sub$) return

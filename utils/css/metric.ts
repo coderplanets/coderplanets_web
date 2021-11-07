@@ -22,7 +22,7 @@ export const WIDTH = {
     LAPTOP_M_PADDING: '44px',
   },
   USER: {
-    PAGE: '1200px',
+    PAGE: '1380px',
     CONTENT: '1024px',
   },
   EXPLORE: {

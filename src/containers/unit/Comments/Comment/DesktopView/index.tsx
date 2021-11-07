@@ -3,6 +3,7 @@ import { includes } from 'ramda'
 import { TID } from '@/spec'
 
 import type { TAccount, TComment } from '@/spec'
+import type { TAPIMode } from '../../spec'
 
 import DefaultLayout from './DefaultLayout'
 import FoldLayout from './FoldLayout'
@@ -10,6 +11,7 @@ import FoldLayout from './FoldLayout'
 type TProps = {
   data: TComment
   accountInfo: TAccount
+  apiMode: TAPIMode
   hasReplies?: boolean
   foldedIds: TID[]
   showInnerRef?: boolean

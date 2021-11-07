@@ -62,18 +62,15 @@ import {
   GirlVerifierStore,
   CashierStore,
   // user page
-  UserPublishedStore,
-  UserPublishedCommentsStore,
   UserSettingsStore,
   UserBillingStore,
-  UserFavoritedStore,
-  UserStaredStore,
   //
   MeetupsContentStore,
   HaveADrinkContentStore,
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  UserPublishedArticlesStore,
   BlogEditorStore,
   CommunityTagSetterStore,
   CollectionFolderStore,
@@ -163,12 +160,8 @@ const rootStore = T.model({
   mailsViewer: T.optional(MailsViewerStore, {}),
 
   // user page
-  userPublished: T.optional(UserPublishedStore, {}),
-  userPublishedComments: T.optional(UserPublishedCommentsStore, {}),
   userBilling: T.optional(UserBillingStore, {}),
   userSettings: T.optional(UserSettingsStore, {}),
-  userStared: T.optional(UserStaredStore, {}),
-  userFavorited: T.optional(UserFavoritedStore, {}),
 
   // have a drink
   meetupsContent: T.optional(MeetupsContentStore, {}),
@@ -176,6 +169,7 @@ const rootStore = T.model({
   coolGuideContent: T.optional(CoolGuideContentStore, {}),
 
   // GEN: PLUG SUBSTORE TO ROOTSTORE
+  userPublishedArticles: T.optional(UserPublishedArticlesStore, {}),
   blogEditor: T.optional(BlogEditorStore, {}),
   communityTagSetter: T.optional(CommunityTagSetterStore, {}),
   collectionFolder: T.optional(CollectionFolderStore, {}),

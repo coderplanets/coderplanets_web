@@ -109,11 +109,6 @@ const WorksCard: FC<TProps> = ({
               {item.tag.title}
             </IconText>
           )}
-          {/* {item.platform && (
-            <Fragment>
-              <DotDivider radius={4} space={8} /> {item.platform.title}
-            </Fragment>
-          )} */}
           {!nilOrEmpty(item.techstacks) && (
             <Fragment>
               {item.tag && <Divider />}
@@ -127,6 +122,7 @@ const WorksCard: FC<TProps> = ({
 
           {!preview && (
             <Fragment>
+              <Divider />
               <IconText
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
                 margin="5px"

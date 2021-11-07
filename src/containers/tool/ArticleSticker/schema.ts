@@ -7,7 +7,7 @@ import { F } from '@/schemas'
 //       entries {
 //         ${F.author}
 //       }
-//       ${F.pagedCounts}
+//       ${F.pagi}
 
 //     }
 //   }

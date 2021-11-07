@@ -1,16 +1,20 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 /*
  *
  * FriendsContent
  *
  */
 
-import { FC, memo } from 'react'
+import { FC, memo, useState } from 'react'
 import QRCode from 'qrcode.react'
+
+import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
-import { METRIC } from '@/constant'
-import { openShareWindow, Global } from '@/utils/helper'
+import { METRIC, PAYMENT_USAGE } from '@/constant'
+import { openShareWindow, Global, checkout } from '@/utils/helper'
+import { Cashier } from '@/containers/dynamic'
 
 import { Br } from '@/widgets/Common'
 import Tooltip from '@/widgets/Tooltip'
@@ -25,10 +29,18 @@ import {
   Divider,
   Desc,
   MainDesc,
+  ButtonGroup,
+  Link,
+  FeedButton,
+  AifadianButton,
   FocusDesc,
   SocialWrapper,
   SocialIcon,
 } from './styles'
+
+const BuyMeChuanChuan = dynamic(() => import('@/widgets/BuyMeChuanChuan'), {
+  ssr: false,
+})
 
 const url = 'https://coderplanets.com'
 
@@ -86,8 +98,21 @@ type TProps = {
 }
 
 const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
+  const [showChuan, setShowChuan] = useState(false)
+
   return (
     <Wrapper testid="support-us-content">
+      <Cashier />
+      <BuyMeChuanChuan
+        onClose={() => setShowChuan(false)}
+        onLogin={() => console.log('onLogin')}
+        onPay={(amount) => {
+          setShowChuan(false)
+          checkout(amount, PAYMENT_USAGE.DONATE)
+        }}
+        show={showChuan}
+      />
+
       <InnerWrapper metric={metric}>
         <Title>
           <SupportLogo src={`${ICON}/menu/lifebuoy.png`} noLazy />
@@ -99,7 +124,16 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
           编写一个功能完善&nbsp;&amp;&nbsp;{/* eslint-disable-next-line */}
           体验良好的现代社区需要开发者保持长期的专注和付出，论坛的持续打磨和维护，更需要团队投入海量的精力，矛盾的是，现阶段因为缺乏流量等各种资源，难以通过自身造血实现正向循环。你的支持将有助于我们保持独立，在论坛的开发和运营上倾注更多时间。
         </MainDesc>
-        <Br top={81} />
+        <Br top={40} />
+        <ButtonGroup>
+          <Link href="https://afdian.net/@coderplanets" target="_blank">
+            <AifadianButton>⚡ &nbsp;为我们充电</AifadianButton>
+          </Link>
+          <FeedButton ghost noBorder onClick={() => setShowChuan(true)}>
+            远程撸串
+          </FeedButton>
+        </ButtonGroup>
+        <Br top={50} />
         <Blocks />
         <Br top={60} />
 

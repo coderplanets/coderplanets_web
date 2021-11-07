@@ -173,6 +173,16 @@ export type TComment = {
     isArticleAuthorUpvoted?: boolean
     isReplyToOthers?: boolean
   }
+  article?: {
+    id?: string
+    title?: string
+    thread?: string
+    author?: {
+      login
+      nickname
+      avatar
+    }
+  }
 }
 
 export type TPagedComments = {

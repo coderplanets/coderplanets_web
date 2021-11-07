@@ -27,35 +27,10 @@ const GithubProfile = T.model('GithubProfile', {
   htmlUrl: T.string,
 })
 
-export const EduBackground = T.model('EduBackground', {
-  school: T.optional(T.string, ''),
-  major: T.optional(T.string, ''),
-})
-
-export const WorkBackground = T.model('WorkBackground', {
-  company: T.optional(T.string, ''),
-  title: T.maybeNull(T.string),
-})
-
-const SourceContribute = T.model('SourceContribute', {
-  web: T.maybeNull(T.boolean),
-  server: T.maybeNull(T.boolean),
-  mobile: T.maybeNull(T.boolean),
-  weApp: T.maybeNull(T.boolean),
-  h5: T.maybeNull(T.boolean),
-})
-
 export const Achievement = T.model('Achievement', {
   reputation: T.optional(T.number, 0),
   articlesUpvotesCount: T.optional(T.number, 0),
   articlesCollectsCount: T.optional(T.number, 0),
-  sourceContribute: T.optional(SourceContribute, {
-    web: false,
-    server: false,
-    mobile: false,
-    weApp: false,
-    h5: false,
-  }),
   donateMember: T.optional(T.boolean, false),
   seniorMember: T.optional(T.boolean, false),
   sponsorMember: T.optional(T.boolean, false),
@@ -78,38 +53,37 @@ const Customization = T.model('Customization', {
 })
 
 const UserSocial = T.model('UserSocial', {
-  qq: T.maybeNull(T.string),
-  weibo: T.maybeNull(T.string),
-  weichat: T.maybeNull(T.string),
   github: T.maybeNull(T.string),
-  zhihu: T.maybeNull(T.string),
-  douban: T.maybeNull(T.string),
   twitter: T.maybeNull(T.string),
-  facebook: T.maybeNull(T.string),
-  dribble: T.maybeNull(T.string),
-  instagram: T.maybeNull(T.string),
-  pinterest: T.maybeNull(T.string),
-  huaban: T.maybeNull(T.string),
+  blog: T.maybeNull(T.string),
+  company: T.maybeNull(T.string),
+})
+
+const UserMeta = T.model('UserMeta', {
+  publishedBlogsCount: T.optional(T.number, 0),
+  publishedJobsCount: T.optional(T.number, 0),
+  publishedPostsCount: T.optional(T.number, 0),
+  publishedRadarsCount: T.optional(T.number, 0),
+  publishedWorksCount: T.maybeNull(T.number),
+  publishedMeetupsCount: T.optional(T.number, 0),
 })
 
 export const User = T.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
-  /* id: T.optional(T.string, ''), */
   id: T.maybeNull(T.string),
+  meta: T.optional(UserMeta, {}),
   login: T.maybeNull(T.string),
   nickname: T.maybeNull(T.string),
   bio: T.maybeNull(T.string),
+  shortbio: T.maybeNull(T.string),
   avatar: T.maybeNull(T.string),
   views: T.optional(T.number, 0),
   email: T.maybeNull(T.string),
   location: T.maybeNull(T.string),
   geoCity: T.maybeNull(T.string),
-  // TODO: backgrounds
-  educationBackgrounds: T.optional(T.array(EduBackground), []),
-  workBackgrounds: T.optional(T.array(WorkBackground), []),
   sex: T.maybeNull(T.string),
   // social
-  // social: T.optional(UserSocial, {}),
+  social: T.maybeNull(UserSocial),
   fromGithub: T.optional(T.boolean, false),
   /* fromWeixin: T.optional(T.boolean, false), */
   /* subscribedCommunities: T.optional(pagedCommunities, {}), */

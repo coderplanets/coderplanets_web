@@ -23,8 +23,6 @@ export {
   User,
   PagedUsers,
   SimpleUser,
-  EduBackground,
-  WorkBackground,
 } from './User'
 
 export { ArticlesFilter } from './ArticlesFilter'

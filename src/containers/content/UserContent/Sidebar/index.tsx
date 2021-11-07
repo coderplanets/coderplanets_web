@@ -1,19 +1,29 @@
 import { FC, memo } from 'react'
 
-import type { TUser } from '@/spec'
-import { VIEW } from '@/constant'
+import type { TUser, TPagedWorks, TPagedCommunities } from '@/spec'
 import UserBrief from '@/widgets/UserBrief'
 import { Wrapper } from '../styles/sidebar'
 
 type TProps = {
-  viewingUser: TUser
+  user: TUser
   isSelfViewing?: boolean
+  works: TPagedWorks
+  editableCommunities: TPagedCommunities
 }
 
-const Sidebar: FC<TProps> = ({ viewingUser, isSelfViewing = false }) => {
+const Sidebar: FC<TProps> = ({
+  user,
+  works,
+  editableCommunities,
+  isSelfViewing = false,
+}) => {
   return (
     <Wrapper>
-      <UserBrief user={viewingUser} view={VIEW.DESKTOP} />
+      <UserBrief
+        user={user}
+        works={works}
+        editableCommunities={editableCommunities}
+      />
     </Wrapper>
   )
 }

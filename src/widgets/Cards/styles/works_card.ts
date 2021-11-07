@@ -14,6 +14,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('align-center')};
   height: 118px;
   width: 100%;
+  min-width: 360px;
   padding: 6px 20px;
   padding-right: 15px;
   border-radius: 3px;

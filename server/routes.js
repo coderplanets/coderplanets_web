@@ -79,8 +79,15 @@ router.route('/works/:id').get((req, res) => {
 })
 
 // 用户页
-router.route('/user/:userId').get((req, res) => {
-  return renderAndCache({ req, res, path: '/user' })
+router.route('/u/:login').get((req, res) => {
+  const { login } = req.params
+  return renderAndCache({ req, res, path: `/user/${login}` })
+})
+
+router.route('/user/:login').get((req, res) => {
+  const { login } = req.params
+  console.log('hello user ?: ', login)
+  return renderAndCache({ req, res, path: `/user/${login}` })
 })
 
 // 帖子页

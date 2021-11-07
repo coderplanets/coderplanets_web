@@ -16,12 +16,13 @@ import {
   ActionsWrapper,
 } from '../styles/list/header'
 
-import { MODE } from '../constant'
-import type { TMode } from '../spec'
+import { MODE, API_MODE } from '../constant'
+import type { TMode, TAPIMode } from '../spec'
 import { foldAllComments, expandAllComments, onModeChange } from '../logic'
 
 type TProps = {
   mode: TMode
+  apiMode: TAPIMode
   isAllFolded: boolean
   loading: boolean
   basicState: TCommentsState
@@ -45,7 +46,13 @@ const switchItems = [
   },
 ]
 
-const Header: FC<TProps> = ({ basicState, mode, isAllFolded, loading }) => {
+const Header: FC<TProps> = ({
+  basicState,
+  mode,
+  isAllFolded,
+  loading,
+  apiMode,
+}) => {
   return (
     <Wrapper>
       <TotalCountWrapper>
@@ -59,17 +66,21 @@ const Header: FC<TProps> = ({ basicState, mode, isAllFolded, loading }) => {
       </TotalCountWrapper>
       <ActionsWrapper>
         {loading && <LavaLampLoading right={15} />}
-        <IconButton
-          icon={SVG.LOCK}
-          hint="关闭讨论"
-          mTop={-1}
-          {...actionIconConfig}
-        />
-        <IconButton
-          path="article/notify-on.svg"
-          hint="订阅讨论"
-          {...actionIconConfig}
-        />
+        {apiMode === API_MODE.ARTICLE && (
+          <IconButton
+            icon={SVG.LOCK}
+            hint="关闭讨论"
+            mTop={-1}
+            {...actionIconConfig}
+          />
+        )}
+        {apiMode === API_MODE.ARTICLE && (
+          <IconButton
+            path="article/notify-on.svg"
+            hint="订阅讨论"
+            {...actionIconConfig}
+          />
+        )}
 
         {isAllFolded ? (
           <IconButton
@@ -89,11 +100,13 @@ const Header: FC<TProps> = ({ basicState, mode, isAllFolded, loading }) => {
             onClick={foldAllComments}
           />
         )}
-        <IconSwitcher
-          items={switchItems}
-          activeKey={mode}
-          onChange={({ key }) => onModeChange(key as TMode)}
-        />
+        {apiMode === API_MODE.ARTICLE && (
+          <IconSwitcher
+            items={switchItems}
+            activeKey={mode}
+            onChange={({ key }) => onModeChange(key as TMode)}
+          />
+        )}
       </ActionsWrapper>
     </Wrapper>
   )

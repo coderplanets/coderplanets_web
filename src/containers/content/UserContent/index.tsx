@@ -11,19 +11,16 @@ import { USER_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import { Comments } from '@/containers/dynamic'
 import UserProfile from '@/containers/user/UserProfile'
-import UserPublished from '@/containers/user/UserPublished'
-import UserPublishedComments from '@/containers/user/UserPublishedComments'
-import UserBilling from '@/containers/user/UserBilling'
+import UserPublishedArticles from '@/containers/user/UserPublishedArticles'
+// import UserBilling from '@/containers/user/UserBilling'
 import UserSettings from '@/containers/user/UserSettings'
-import UserStared from '@/containers/user/UserStared'
-import UserFavorited from '@/containers/user/UserFavorited'
 
 import TabBar from '@/widgets/TabBar'
 
 import type { TStore } from './store'
 import Sidebar from './Sidebar'
-// import DigestBoard from './DigestBoard'
 
 import {
   Wrapper,
@@ -31,7 +28,7 @@ import {
   BannerWrapper,
   ContentWrapper,
   TabBarWrapper,
-  // MobileBottom,
+  PublishedCommentsWrapper,
 } from './styles'
 
 import { useInit, tabOnChange } from './logic'
@@ -52,22 +49,22 @@ const BaseTaberThreads = [
     title: '讨论',
     raw: 'comments',
   },
-  {
-    title: '收藏',
-    raw: 'favorites',
-  },
-  {
-    title: '喜欢',
-    raw: 'likes',
-  },
+  // {
+  //   title: '收藏',
+  //   raw: 'favorites',
+  // },
+  // {
+  //   title: '喜欢',
+  //   raw: 'likes',
+  // },
 ]
 
 const FullTaberThreads = [
   ...BaseTaberThreads,
-  {
-    title: '账单',
-    raw: 'billing',
-  },
+  // {
+  //   title: '账单',
+  //   raw: 'billing',
+  // },
   {
     title: '设置',
     raw: 'settings',
@@ -80,22 +77,20 @@ const TabberContent = ({ active }) => {
       return <UserProfile />
 
     case USER_THREAD.COMMENTS:
-      return <UserPublishedComments />
+      return (
+        <PublishedCommentsWrapper>
+          <Comments apiMode="user_published" />
+        </PublishedCommentsWrapper>
+      )
 
-    case USER_THREAD.FAVORITES:
-      return <UserFavorited />
-
-    case USER_THREAD.LINKS:
-      return <UserStared />
-
-    case USER_THREAD.BILLING:
-      return <UserBilling />
+    // case USER_THREAD.BILLING:
+    //   return <UserBilling />
 
     case USER_THREAD.SETTINGS:
       return <UserSettings />
 
     default:
-      return <UserPublished />
+      return <UserPublishedArticles />
   }
 }
 
@@ -110,33 +105,32 @@ const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
   const {
     activeThread,
     viewingUser,
-    // accountInfo,
     isSelfViewing,
-    // following,
+    pagedWorksData,
+    pagedEditableCommunitiesData,
+    hasContentBg,
   } = store
-
   const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
 
   return (
     <Wrapper>
-      <BannerWrapper metric={metric}>
-        <TabBarWrapper className="tabs-with-bottom">
-          <TabBar
-            source={taberSource}
-            onChange={tabOnChange}
-            active={activeThread}
-          />
-        </TabBarWrapper>
-      </BannerWrapper>
+      <BannerWrapper metric={metric} />
       <InnerWrapper metric={metric}>
-        <Sidebar viewingUser={viewingUser} isSelfViewing={isSelfViewing} />
-        <ContentWrapper>
+        <Sidebar
+          user={viewingUser}
+          isSelfViewing={isSelfViewing}
+          works={pagedWorksData}
+          editableCommunities={pagedEditableCommunitiesData}
+        />
+        <ContentWrapper hasContentBg={hasContentBg}>
+          <TabBarWrapper className="tabs-with-bottom">
+            <TabBar
+              source={taberSource}
+              onChange={tabOnChange}
+              active={activeThread}
+            />
+          </TabBarWrapper>
           <TabberContent active={activeThread} />
-          {/* <DigestBoard
-            user={viewingUser}
-            accountId={accountInfo.id}
-            following={following}
-          /> */}
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>

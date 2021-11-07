@@ -160,7 +160,7 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
               }
             }}
           >
-            业余项目（Side Project）
+            副业项目（Side Project）
           </Checker>
           <Space right={24} />
           <Checker

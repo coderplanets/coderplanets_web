@@ -21,7 +21,7 @@ export const mentions = `
         community
         read
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

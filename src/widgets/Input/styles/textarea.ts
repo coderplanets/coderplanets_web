@@ -14,9 +14,10 @@ export const Wrapper = styled(TextareaAutosize).attrs(
   }),
 )<TWrapper>`
   ${baseInput};
-  color: ${theme('form.text')};
+  color: ${theme('thread.articleTitle')};
+  opacity: 0.9;
   min-height: 56px;
-  padding: 6px 10px;
+  padding: 10px;
   background-color: #0b2631;
   border: 1px solid;
   border-color: ${theme('editor.border')};
@@ -26,7 +27,9 @@ export const Wrapper = styled(TextareaAutosize).attrs(
 
   border-color: ${theme('editor.border')};
   ::placeholder {
-    color: ${theme('editor.placeholder')};
+    font-size: 14px;
+    color: ${theme('thread.articleDigest')};
+    opacity: 0.5;
   }
   &:hover {
     border-color: ${theme('editor.borderActive')};

@@ -32,6 +32,13 @@ const CommentMeta = T.model('CommentMeta', {
   isReplyToOthers: T.optional(T.boolean, false),
 })
 
+const ParentArticle = T.model('ParentArticle', {
+  id: T.maybeNull(T.string),
+  title: T.optional(T.string, ''),
+  thread: T.optional(T.string, ''),
+  author: T.optional(SimpleUser, {}),
+})
+
 const commentBaseFields = () => {
   return {
     id: T.maybeNull(T.string),
@@ -48,6 +55,8 @@ const commentBaseFields = () => {
 
     replyToId: T.maybeNull(T.string),
     viewerHasUpvoted: T.maybeNull(T.boolean),
+
+    article: T.maybeNull(ParentArticle),
 
     ...timestampFields(),
   }

@@ -25,6 +25,7 @@ export const author = `
   nickname
   avatar
   bio
+  shortbio
 `
 export const article = `
   id
@@ -122,18 +123,10 @@ export const repo = `
   }
 `
 export const userSocial = `
-  qq
-  weibo
-  weichat
   github
-  zhihu
-  douban
   twitter
-  facebook
-  dribble
-  instagram
-  pinterest
-  huaban
+  company
+  blog
 `
 
 export const user = `
@@ -251,7 +244,7 @@ export const commentParent = `
     ${community}
   }
 `
-export const pagedCounts = `
+export const pagi = `
   totalPages
   totalCount
   pageSize

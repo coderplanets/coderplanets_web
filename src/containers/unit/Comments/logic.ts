@@ -13,9 +13,9 @@ import { updateEditing } from '@/utils/mobx'
 
 import uid from '@/utils/uid'
 
-import { EDIT_MODE } from './constant'
+import { API_MODE, EDIT_MODE, MODE } from './constant'
 
-import type { TMode } from './spec'
+import type { TMode, TAPIMode } from './spec'
 import type { TStore } from './store'
 import S from './schema'
 
@@ -52,6 +52,17 @@ export const loadCommentsState = (): void => {
 
   log('loadCommentsState args: ', args)
   sr71$.query(S.commentsState, args)
+}
+
+export const loadPublishedComemnts = (page = 1): void => {
+  store.mark({ loading: true, mode: MODE.TIMELINE })
+
+  const args = {
+    login: store.viewingUser.login,
+    filter: { page, size: PAGI_SIZE },
+  }
+  log('pagedPublishedComments args: ', args)
+  sr71$.query(S.pagedPublishedComments, args)
 }
 
 export const loadComments = (page = 1): void => {
@@ -254,8 +265,14 @@ export const deleteComment = (): void => {
  * load the same mode when page change
  */
 export const onPageChange = (page = 1): void => {
-  store.mark({ needRefreshState: false })
-  loadComments(page)
+  const { apiMode } = store
+  if (apiMode === API_MODE.ARTICLE) {
+    store.mark({ needRefreshState: false })
+    loadComments(page)
+  } else {
+    loadPublishedComemnts(page)
+  }
+
   scrollIntoEle(ANCHOR.COMMENTS_ID)
 }
 
@@ -333,6 +350,16 @@ const DataSolver = [
 
       repliesPagiNo[store.repliesParentId] = pagedCommentReplies.pageNumber
       store.mark({ repliesParentId: null, repliesLoading: false })
+    },
+  },
+
+  {
+    match: asyncRes('pagedPublishedComments'),
+    action: ({ pagedPublishedComments }) => {
+      cancelLoading()
+      log('# pagedPublishedComments --> ', pagedPublishedComments)
+      // repliesPagiNo = {}
+      store.mark({ pagedPublishedComments, loading: false })
     },
   },
 
@@ -460,13 +487,23 @@ const initDraftTimmer = (): void => {
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store: TStore, locked: boolean): void => {
+export const useInit = (
+  _store: TStore,
+  locked: boolean,
+  apiMode: TAPIMode,
+): void => {
   useEffect(() => {
     // log('effect init')
     store = _store
+    store.mark({ apiMode })
+
     if (!sub$) {
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadComments()
+      if (apiMode === API_MODE.ARTICLE) {
+        loadComments()
+      } else {
+        loadPublishedComemnts()
+      }
     }
 
     return () => {
@@ -478,5 +515,5 @@ export const useInit = (_store: TStore, locked: boolean): void => {
       sub$.unsubscribe()
       sub$ = null
     }
-  }, [_store, locked])
+  }, [_store, locked, apiMode])
 }

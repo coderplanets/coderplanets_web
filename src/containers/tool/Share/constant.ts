@@ -9,7 +9,6 @@ export const OUTSIDE_SHARE_TYPE = {
   EMAIL: 'email',
   WECHAT: 'wechat',
   TELEGRAM: 'telegram',
-  // QQ: 'qq',
   WEIBO: 'weibo',
   DOUBAN: 'douban',
   FACEBOOK: 'facebook',

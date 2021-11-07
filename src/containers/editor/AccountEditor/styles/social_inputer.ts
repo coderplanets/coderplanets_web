@@ -1,95 +1,77 @@
 import styled from 'styled-components'
 
-import type { TActive } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div``
-export const InputWrapper = styled.div<TActive>`
-  display: ${({ show }) => (show ? 'block' : 'none')};
-`
+import FormInput from '@/widgets/Input'
 
-export const FormItemWrapper = styled.div`
-  ${css.flex()};
+import MailSVG from '@/icons/Mail'
+import TwitterSVG from '@/icons/Twitter'
+import BlogSVG from '@/icons/Blog'
+import GithubSVG from '@/icons/Github8'
+import CitySVG from '@/icons/City'
+import CompanySVG from '@/icons/Company'
+
+export const Input = styled(FormInput)`
+  text-align: left;
+  padding: 5px 5px;
+  padding-left: 12px;
+  height: 36px;
+  width: 245px;
+  font-size: 15px;
+`
+export const Section = styled.div`
+  ${css.flex('align-center')};
   margin-bottom: 20px;
+  width: 100%;
+  margin-left: 12px;
 `
-export const FormLabel = styled.div`
-  text-align: right;
-  font-size: 0.9rem;
-  color: ${theme('form.label')};
-  margin-right: 10px;
-  margin-top: 5px;
-  width: 75px;
-  margin-left: -35px;
-`
-
-export const FormInput = styled.div`
-  width: 250px;
-`
-export const SocialIconsWrapper = styled.div`
-  ${css.flex()};
-  flex-wrap: wrap;
-  width: 250px;
-`
-export const SocialIcon = styled(Img)<TActive>`
-  fill: ${({ active }) =>
-    active ? theme('banner.title') : theme('banner.desc')};
+const iconBase = `
   ${css.size(18)};
-  margin-right: 8px;
-  transition: fill 0.3s;
-  opacity: ${({ active }) => (active ? 1 : 0.8)};
-`
-export const TogglerWrapper = styled.div<TActive>`
-  display: ${({ show }) => (show ? 'flex' : 'none')};
-`
-export const TogglerLabelWrapper = styled(TogglerWrapper)`
-  margin-left: 5%;
-`
-export const TogglerDivider = styled.div`
-  margin-bottom: 25px;
-  border-bottom: 1px dashed;
-  border-color: ${theme('banner.desc')};
-  opacity: 0.7;
-  width: 32%;
-  margin-top: 8px;
-`
-export const TogglerTextWrapper = styled.div`
-  ${css.flex()};
-  &:hover {
-    cursor: pointer;
-    font-weight: bold;
-  }
-`
-export const TogglerLabelText = styled.div`
-  color: ${theme('banner.desc')};
-  font-size: 0.7rem;
-  border: 1px solid;
-  border-color: ${theme('banner.desc')};
-  border-radius: 2px;
-  align-self: start;
-  margin-left: 10px;
   margin-right: 10px;
-  padding: 0 5px;
-  &:hover {
-    cursor: pointer;
-    border-color: ${theme('banner.title')};
-    color: ${theme('banner.title')};
-  }
-
-  transition: color 0.3s;
 `
-
-export const TogglerText = styled.div`
-  color: ${theme('banner.title')};
+export const CityIcon = styled(CitySVG)`
+  ${iconBase};
+  ${css.size(16)};
+  fill: ${theme('thread.articleDigest')};
+  margin-left: 1px;
+  margin-right: 11px;
 `
-const ToggleIcon = styled(Img)`
-  fill: ${theme('banner.title')};
+export const CompanyIcon = styled(CompanySVG)`
+  ${iconBase};
+  fill: ${theme('thread.articleDigest')};
+`
+export const MailIcon = styled(MailSVG)`
+  ${iconBase};
+  ${css.size(13)};
+  margin-left: 1px;
+  margin-right: 11px;
+  margin-top: 1px;
+  fill: ${theme('thread.articleDigest')};
+`
+export const GithubIcon = styled(GithubSVG)`
+  ${iconBase};
   ${css.size(15)};
-  margin-left: 3px;
-  margin-top: 2px;
+  margin-right: 11px;
+  fill: ${theme('thread.articleDigest')};
 `
-export const UpIcon = styled(ToggleIcon)`
-  transform: rotateX(180deg);
+export const TwitterIcon = styled(TwitterSVG)`
+  ${iconBase};
+  ${css.size(14)};
+  margin-right: 11px;
+  fill: ${theme('thread.articleDigest')};
 `
-export const DownIcon = styled(ToggleIcon)``
+export const BlogIcon = styled(BlogSVG)`
+  ${iconBase};
+  fill: ${theme('thread.articleDigest')};
+  margin-right: 9px;
+  margin-top: -1px;
+`
+export const ICON = {
+  CityIcon,
+  CompanyIcon,
+  MailIcon,
+  GithubIcon,
+  TwitterIcon,
+  BlogIcon,
+}

@@ -8,14 +8,17 @@ import EmotionSelector from '@/widgets/EmotionSelector'
 
 import Actions from './Actions'
 
+import type { TAPIMode } from '../spec'
+import { API_MODE } from '../constant'
 import { Wrapper } from '../styles/comment/footer'
 import { handleEmotion } from '../logic'
 
 type TProps = {
   data: TComment
+  apiMode: TAPIMode
 }
 
-const Footer: FC<TProps> = ({ data }) => {
+const Footer: FC<TProps> = ({ data, apiMode }) => {
   return (
     <Wrapper>
       <EmotionSelector
@@ -24,8 +27,8 @@ const Footer: FC<TProps> = ({ data }) => {
           handleEmotion(data, name, hasEmotioned)
         }
       />
-      <DotDivider radius={3} space={10} />
-      <Actions data={data} />
+      {apiMode === API_MODE.ARTICLE && <DotDivider radius={3} space={10} />}
+      {apiMode === API_MODE.ARTICLE && <Actions data={data} />}
       <SpaceGrow />
     </Wrapper>
   )

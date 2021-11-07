@@ -22,17 +22,20 @@ export const BannerWrapper = styled.div<{ metric: TMetric }>`
   margin-bottom: 20px;
   ${({ metric }) => css.fitPageWidth(metric)};
 `
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ hasContentBg: boolean }>`
+  position: relative;
   flex-grow: 1;
   min-height: 600px;
   padding: 20px;
   padding-top: 15px;
-  background: ${theme('thread.bg')};
+
+  background: ${({ hasContentBg }) =>
+    hasContentBg ? theme('thread.bg') : 'transparent'};
 `
 export const TabBarWrapper = styled.div`
   position: absolute;
-  bottom: 0;
-  left: 380px;
+  top: -66px;
+  left: 15px;
   width: 100%;
 `
 export const MobileBottom = styled.div`
@@ -40,4 +43,10 @@ export const MobileBottom = styled.div`
   border-top-color: ${theme('thread.articleDigest')};
   display: none;
   ${css.media.tablet`display: block`};
+`
+
+export const PublishedCommentsWrapper = styled.div`
+  margin-top: -20px;
+  padding-left: 8px;
+  padding-right: 20px;
 `

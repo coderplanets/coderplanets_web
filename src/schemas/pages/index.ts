@@ -1,7 +1,7 @@
-import { pagedPosts, post } from './post'
-import { pagedJobs, job } from './job'
-import { pagedRadars, radar } from './radar'
-import { pagedBlogs, blog, blogRssInfo } from './blog'
+import { pagedPosts, pagedPublishedPosts, post } from './post'
+import { pagedJobs, job, pagedPublishedJobs } from './job'
+import { pagedRadars, radar, pagedPublishedRadars } from './radar'
+import { pagedBlogs, blog, blogRssInfo, pagedPublishedBlogs } from './blog'
 import { pagedRepos, repo } from './repo'
 import { pagedWorks, works } from './works'
 import { pagedMeetups, meetup } from './meetup'
@@ -33,16 +33,20 @@ const P = {
   pagedArticleTags,
   // post
   pagedPosts,
+  pagedPublishedPosts,
   post,
   // job
   pagedJobs,
+  pagedPublishedJobs,
   job,
   // blog
   pagedBlogs,
+  pagedPublishedBlogs,
   blog,
   blogRssInfo,
   // radar
   pagedRadars,
+  pagedPublishedRadars,
   radar,
   // repo
   pagedRepos,

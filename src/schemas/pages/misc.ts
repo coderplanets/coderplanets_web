@@ -19,7 +19,7 @@ export const pagedCategories = `
         raw
         index
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

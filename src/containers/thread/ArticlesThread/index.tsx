@@ -41,16 +41,11 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     filtersData,
     curThread,
     showFilters,
-    viewingArticle,
     c11n,
+    resState,
   } = store
-
   const { bannerLayout } = c11n
-
-  const resState = store.resState as TResState
   const { pageNumber, totalCount } = pagedArticlesData
-
-  console.log('## pagedArticlesData: ', pagedArticlesData)
 
   return (
     <Wrapper>
@@ -59,7 +54,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
         {showFilters && (
           <FilterWrapper thread={curThread}>
             <ArticlesFilter
-              resState={resState}
+              resState={resState as TResState}
               onSelect={onFilterSelect}
               activeFilter={filtersData}
               pageNumber={pageNumber}
@@ -70,8 +65,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
         <PagedArticles
           data={pagedArticlesData}
           thread={curThread}
-          viewingArticle={viewingArticle}
-          resState={resState}
+          resState={resState as TResState}
           c11n={c11n}
         />
       </MainWrapper>

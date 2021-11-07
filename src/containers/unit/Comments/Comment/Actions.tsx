@@ -11,10 +11,6 @@ import { SpaceGrow } from '@/widgets/Common'
 import { Wrapper, ReplyAction, MoreWrapper } from '../styles/comment/actions'
 import { openUpdateEditor, openReplyEditor } from '../logic'
 
-type TProps = {
-  data: TComment
-}
-
 const menuOptions = [
   // {
   //   key: 'quote',
@@ -32,6 +28,10 @@ const menuOptions = [
     title: '举报',
   },
 ]
+
+type TProps = {
+  data: TComment
+}
 
 const Actions: FC<TProps> = ({ data }) => {
   const { user } = useAccount()

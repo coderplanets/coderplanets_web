@@ -49,7 +49,28 @@ export const pagedBlogs = `
         viewerHasViewed @include(if: $userHasLogin)
         viewerHasUpvoted @include(if: $userHasLogin)
       }
-      ${F.pagedCounts}
+      ${F.pagi}
+    }
+  }
+`
+
+export const pagedPublishedBlogs = `
+  query($login: String!, $filter: PagedFilter!, $userHasLogin: Boolean!) {
+    pagedPublishedBlogs(login: $login, filter: $filter) {
+      entries {
+        ${F.article}
+        meta {
+          thread
+        }
+        digest
+        linkAddr
+        commentsParticipants {
+          ${F.author}
+        }
+        viewerHasViewed @include(if: $userHasLogin)
+        viewerHasUpvoted @include(if: $userHasLogin)
+      }
+      ${F.pagi}
     }
   }
 `

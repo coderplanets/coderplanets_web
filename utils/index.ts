@@ -134,8 +134,6 @@ export {
   themeCoverIndexMap,
 } from './themes'
 
-export { default as SOCIAL_LISTS } from './social'
-
 // helpers
 export { toast, toastBarColor } from './toast'
 export { default as animate } from './animations'
@@ -159,4 +157,5 @@ export {
   articleSEO,
   articlePublishSEO,
   articleUpdateSEO,
+  userSEO,
 } from './seo'

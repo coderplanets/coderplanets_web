@@ -188,6 +188,27 @@ const communities = [
     desc: 'Elixir 是一个基于 Erlang 虚拟机的函数式、面向并行的通用编程语言',
     logo: `${ICON_BASE}/pl/elixir.png`,
   },
+  {
+    id: '4',
+    title: 'JavaScript',
+    raw: 'javascript',
+    desc: 'JavaScript is very cool',
+    logo: `${ICON_BASE}/pl/javascript.png`,
+  },
+  {
+    id: '5',
+    title: 'Ruby',
+    raw: 'ruby',
+    desc: 'Ruby is very cool',
+    logo: `${ICON_BASE}/pl/ruby.png`,
+  },
+  {
+    id: '6',
+    title: 'PHP',
+    raw: 'php',
+    desc: 'PHP is very cool',
+    logo: `${ICON_BASE}/pl/php.png`,
+  },
 ]
 
 const images = [

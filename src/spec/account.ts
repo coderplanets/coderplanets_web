@@ -2,18 +2,10 @@ import type { TPagedCommunities } from './community'
 import type { TC11NLayout } from './c11n'
 
 type TSocial = {
-  qq?: string
-  weibo?: string
-  weichat?: string
   github?: string
-  zhihu?: string
-  douban?: string
   twitter?: string
-  facebook?: string
-  dribble?: string
-  instagram?: string
-  pinterest?: string
-  huaban?: string
+  blog?: string
+  company?: string
 }
 
 export type TSimpleUser = {
@@ -21,7 +13,18 @@ export type TSimpleUser = {
   nickname?: string
   name?: string
   bio?: string
+  shortbio?: string
   avatar?: string
+}
+
+type TContributes = {
+  records?: {
+    date: string
+    count: number
+  }
+  startDate?: string
+  endDate?: string
+  totalCount?: number
 }
 
 export type TUser = TSimpleUser & {
@@ -29,7 +32,23 @@ export type TUser = TSimpleUser & {
   // TODO: figure it out
   extraId?: string
   editableCommunities?: TPagedCommunities
+  sex?: string
+  location?: string
   social?: TSocial
+  email?: string
+  contributes?: TContributes
+  followersCount?: number
+  followingsCount?: number
+  insertedAt?: string
+  views?: number
+  meta?: {
+    publishedPostsCount: number
+    publishedJobsCount: number
+    publishedBlogsCount: number
+    publishedWorksCount: number | null
+    publishedRadarsCount: number
+    publishedMeetupsCount: number
+  }
 }
 
 export type TPagedUsers = {

@@ -17,6 +17,8 @@ import List from './List'
 // import LockedMessage from './LockedMessage'
 
 import type { TStore } from './store'
+import type { TAPIMode } from './spec'
+import { API_MODE } from './constant'
 import { Wrapper } from './styles'
 import { useInit } from './logic'
 
@@ -25,11 +27,17 @@ const log = buildLog('C:Comments')
 
 type TProps = {
   comments?: TStore
+  apiMode?: TAPIMode
   locked?: boolean
 }
 
-const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
-  useInit(store, locked)
+const CommentsContainer: FC<TProps> = ({
+  comments: store,
+  locked = false,
+  apiMode = API_MODE.ARTICLE,
+}) => {
+  useInit(store, locked, apiMode)
+
   const {
     mode,
     pagedCommentsData,
@@ -42,7 +50,7 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
 
   return (
     <Wrapper id={ANCHOR.COMMENTS_ID}>
-      <Editor editState={editState} />
+      {apiMode === API_MODE.ARTICLE && <Editor editState={editState} />}
 
       {/* <br />
       <NoticeBar
@@ -56,6 +64,7 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
       <List
         basicState={basicState}
         mode={mode}
+        apiMode={apiMode}
         foldState={foldState}
         pagedComments={pagedCommentsData}
         repliesState={repliesState}

@@ -125,3 +125,8 @@ export const PreviewHeader = styled.div`
   border-bottom: 1px solid grey;
   line-height: 30px;
 `
+
+export const LavaLoadingWrapper = styled.div`
+  margin-left: 45%;
+  margin-top: 160px;
+`

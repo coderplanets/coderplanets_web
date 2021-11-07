@@ -20,12 +20,13 @@ type TProps = {
 
 const AddOn: FC<TProps> = ({ type, articleNavi }) => {
   const showArticleNavi = includes(type, ARTICLE_VIEWER_TYPES)
+  const showShare = includes(type, ARTICLE_VIEWER_TYPES)
 
   return (
     <Wrapper>
-      <TopArea type={type}>
+      <TopArea showShare={showShare}>
         <CloseButton />
-        <ShareButton />
+        {showShare && <ShareButton />}
       </TopArea>
 
       {showArticleNavi && <ArticleNavi articleNavi={articleNavi} />}

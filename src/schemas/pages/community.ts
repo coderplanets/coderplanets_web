@@ -8,7 +8,7 @@ export const subscribedCommunities = `
         ${F.community}
         contributesDigest
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `
@@ -44,7 +44,7 @@ export const pagedCommunities = `
         subscribersCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
-      ${F.pagedCounts}
+      ${F.pagi}
     }
   }
 `

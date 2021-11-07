@@ -5,29 +5,24 @@ export const user = `
     user(login: $login) {
       ${F.author}
       views
-      bio
       sex
       location
       social {
         ${F.userSocial}
+      }
+      meta {
+        publishedPostsCount
+        publishedJobsCount
+        publishedBlogsCount
+        publishedWorksCount
+        publishedRadarsCount
+        publishedMeetupsCount
       }
       followersCount
       followingsCount
       viewerHasFollowed @include(if: $userHasLogin)
       achievement {
         ${F.achievement}
-        sourceContribute {
-          web
-          server
-        }
-      }
-      workBackgrounds {
-        company
-        title
-      }
-      educationBackgrounds {
-        school
-        major
       }
       fromGithub
       githubProfile {
@@ -45,25 +40,7 @@ export const user = `
       }
 
       subscribedCommunitiesCount
-      subscribedCommunities {
-        entries {
-          ${F.community}
-        }
-        ${F.pagedCounts}
-      }
 
-      editableCommunities {
-        entries {
-          ${F.community}
-        }
-      }
-
-      editableCommunities {
-        entries {
-          ${F.community}
-        }
-        totalCount
-      }
       insertedAt
     }
   }

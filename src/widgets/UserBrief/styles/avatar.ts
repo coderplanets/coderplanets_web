@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-// import { VIEW } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -11,39 +10,15 @@ export const Wrapper = styled.div`
   margin-right: 12px;
   position: relative;
 `
-export const InnerShadow = styled.div`
-  position: absolute;
-  top: 0;
-  left: -4px;
-  width: 200px;
-  height: 200px;
-  display: block;
-  border-radius: 100%;
-  box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 50%) inset;
-  z-index: 2;
-`
 export const Avatar = styled(Img)`
-  ${css.circle(200)};
-  display: block;
+  ${css.size(200)};
+  border-radius: 86px;
   margin-left: -5px;
+  border: 4px solid;
+  border-color: #0a313e;
 `
 export const QuoteAvatar = styled(Avatar)`
   ${css.size(200)};
-  border-radius: 68px;
-  border: 5px solid;
+  border-radius: 86px;
   border-color: ${theme('avatar.quote')};
 `
-export const QuoteShadow = styled(InnerShadow)`
-  top: 5px;
-  left: 0;
-  ${css.size(190)};
-  border-radius: 63px;
-`
-// export const Avatar = styled(Img)`
-//   border-radius: 4px;
-//   width: ${({ view }) => (view === VIEW.DESKTOP ? '120px' : '80px')};
-//   height: ${({ view }) => (view === VIEW.DESKTOP ? '120px' : '80px')};
-//   margin-top: 6px;
-//   margin-bottom: 8px;
-//   cursor: ${({ hover }) => (hover ? 'pointer' : 'default')};
-// `

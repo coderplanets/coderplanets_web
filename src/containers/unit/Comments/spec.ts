@@ -1,6 +1,7 @@
 import type { TAccount, TComment, TID, TSubmitState } from '@/spec'
 
 export type TMode = 'REPLIES' | 'TIMELINE'
+export type TAPIMode = 'article' | 'user_published'
 export type TEditMode = 'CREATE' | 'UPDATE' | 'REPLY'
 
 export type TFoldState = {
