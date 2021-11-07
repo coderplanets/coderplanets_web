@@ -176,6 +176,7 @@ export type TComment = {
   article?: {
     id?: string
     title?: string
+    thread?: string
     author?: {
       login
       nickname

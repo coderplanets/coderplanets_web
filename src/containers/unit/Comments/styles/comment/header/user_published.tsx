@@ -24,14 +24,26 @@ export const ArticleBase = styled.div`
   ${css.flex('align-center')};
   flex-grow: 1;
 `
-export const AuthorTitle = styled.div`
+export const AuthorTitle = styled.a`
   color: ${theme('thread.articleTitle')};
+  text-decoration: none;
   font-size: 15px;
   ${css.cutRest('300px')};
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+  }
 `
-export const AuthorName = styled.div`
+export const AuthorName = styled.a`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
+  text-decoration: none;
+
+  &:hover {
+    color: ${theme('thread.articleDigest')};
+    text-decoration: underline;
+  }
 `
 export const ShortIntro = styled.div`
   color: ${theme('comment.floor')};
@@ -57,5 +69,5 @@ export const CreateDate = styled.div`
   color: ${theme('comment.floor')};
   font-size: 12px;
   opacity: 0.8;
-  margin-top: 3px;
+  margin-top: 5px;
 `

@@ -1,4 +1,5 @@
 import { FC, memo, Fragment } from 'react'
+import Link from 'next/link'
 import TimeAgo from 'timeago-react'
 
 import type { TComment } from '@/spec'
@@ -21,14 +22,20 @@ type TProps = {
 }
 
 const CommentHeader: FC<TProps> = ({ data }) => {
+  const { article } = data
+
   return (
     <Fragment>
       <HeaderBaseInfo>
         <BaseInfo>
           <ArticleBase>
-            <AuthorTitle>{data.article.title}</AuthorTitle>
+            <Link href={`/${article.thread}/${article.id}`} passHref>
+              <AuthorTitle>{article.title}</AuthorTitle>
+            </Link>
             <DotDivider space={8} />
-            <AuthorName>{data.author.nickname}</AuthorName>
+            <Link href={`/u/${article.author.login}`} passHref>
+              <AuthorName>{article.author.nickname}</AuthorName>
+            </Link>
           </ArticleBase>
           <FloorNum>
             #<Space right={2} />
