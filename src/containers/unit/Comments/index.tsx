@@ -32,6 +32,7 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
   useInit(store, locked)
   const {
     mode,
+    apiMode,
     pagedCommentsData,
     foldState,
     editState,
@@ -56,6 +57,7 @@ const CommentsContainer: FC<TProps> = ({ comments: store, locked = false }) => {
       <List
         basicState={basicState}
         mode={mode}
+        apiMode={apiMode}
         foldState={foldState}
         pagedComments={pagedCommentsData}
         repliesState={repliesState}

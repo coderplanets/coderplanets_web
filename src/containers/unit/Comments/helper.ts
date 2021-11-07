@@ -70,7 +70,7 @@ export const passedDate = (
     new Date(curInsertedAt),
     new Date(nextInsertedAt),
   )
-  return `${diffInYears} 年后`
+  return diffInYears !== 0 ? `${diffInYears} 年后` : null
 }
 
 export const holder = 1

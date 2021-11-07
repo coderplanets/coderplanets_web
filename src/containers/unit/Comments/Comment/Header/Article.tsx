@@ -7,6 +7,9 @@ import ImgFallback from '@/widgets/ImgFallback'
 import { Space } from '@/widgets/Common'
 import DotDivider from '@/widgets/DotDivider'
 
+import type { TAPIMode } from '../../spec'
+import { API_MODE } from '../../constant'
+
 import {
   Wrapper,
   FloorNum,
@@ -21,7 +24,7 @@ import {
   RefLabel,
   RefUser,
   ShortIntro,
-} from '../styles/comment/header'
+} from '../../styles/comment/header/article'
 
 type TProps = {
   data: TComment
@@ -41,6 +44,7 @@ const CommentHeader: FC<TProps> = ({ data, showInnerRef }) => {
           <ImgFallback user={data.author} size={avatarSize} right={10} />
         }
       />
+
       <HeaderBaseInfo>
         <BaseInfo>
           <UserBase>

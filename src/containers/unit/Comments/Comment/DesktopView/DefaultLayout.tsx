@@ -13,6 +13,7 @@ import Header from '../Header'
 import ReplyBar from '../ReplyBar'
 import Footer from '../Footer'
 
+import type { TAPIMode } from '../../spec'
 import {
   Wrapper,
   CommentWrapper,
@@ -38,6 +39,7 @@ const getSelection = () => {
 
 type TProps = {
   data: TComment
+  apiMode: TAPIMode
   isReply?: boolean
   showInnerRef?: boolean
 }
@@ -46,6 +48,7 @@ const DefaultLayout: FC<TProps> = ({
   data,
   isReply = false,
   showInnerRef = false,
+  apiMode,
 }) => {
   const { isPinned, meta } = data
   const { isArticleAuthorUpvoted } = meta
@@ -92,7 +95,7 @@ const DefaultLayout: FC<TProps> = ({
         </SidebarWrapper>
 
         <CommentBodyInfo onMouseUp={getSelection}>
-          <Header data={data} showInnerRef={showInnerRef} />
+          <Header data={data} showInnerRef={showInnerRef} apiMode={apiMode} />
           <CommentContent>
             {!isReply && data.replyTo && <ReplyBar data={data.replyTo} />}
             <ArtimentBody

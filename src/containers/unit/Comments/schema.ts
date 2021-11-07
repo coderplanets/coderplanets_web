@@ -151,6 +151,30 @@ const searchUsers = gql`
   }
 `
 
+const pagedPublishedComments = gql`
+  query pagedPublishedComments(
+    $login: String!
+    $thread: Thread,
+    $filter: PagedFilter!
+  ) {
+    pagedPublishedComments(login: $login, thread: $thread, filter: $filter) {
+      entries {
+        ${F.comment}
+        article {
+          id
+          title
+          thread
+          author {
+            nickname
+            login
+          }
+        }
+      }
+      ${F.pagi}
+    }
+  }
+`
+
 const schema = {
   pagedComments,
   pagedCommentReplies,
@@ -165,6 +189,7 @@ const schema = {
   undoUpvoteComment,
   emotionToComment,
   undoEmotionToComment,
+  pagedPublishedComments,
 }
 
 export default schema

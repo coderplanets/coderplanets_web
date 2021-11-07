@@ -3,7 +3,7 @@ import { includes } from 'ramda'
 
 import type { TComment, TID } from '@/spec'
 
-import type { TMode, TRepliesState } from '../spec'
+import type { TMode, TRepliesState, TAPIMode } from '../spec'
 
 import Comment from '../Comment'
 import RepliesList from './RepliesList'
@@ -17,17 +17,25 @@ import { foldComment } from '../logic'
 type TProps = {
   mode: TMode
   repliesState: TRepliesState
+  apiMode: TAPIMode
   entries: TComment[]
   foldedIds: TID[]
 }
 
-const List: FC<TProps> = ({ mode, repliesState, entries, foldedIds }) => {
+const List: FC<TProps> = ({
+  mode,
+  repliesState,
+  apiMode,
+  entries,
+  foldedIds,
+}) => {
   return (
     <Fragment>
       {entries.map((comment, index) => (
         <Wrapper key={comment.id}>
           <Comment
             data={comment}
+            apiMode={apiMode}
             hasReplies={comment.repliesCount > 0}
             foldedIds={foldedIds}
           />

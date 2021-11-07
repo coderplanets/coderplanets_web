@@ -35,12 +35,13 @@ import { markStates, toJS } from '@/utils/mobx'
 import { Comment, PagedComments, emptyPagi, SimpleUser } from '@/model'
 
 import type { TFoldState, TEditMode, TEditState, TRepliesState } from './spec'
-import { MODE, EDIT_MODE } from './constant'
+import { MODE, EDIT_MODE, API_MODE } from './constant'
 
 const mentionMapper = (m) => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
 const CommentsStore = T.model('CommentsStore', {
   mode: T.optional(T.enumeration(values(MODE)), MODE.REPLIES),
+  apiMode: T.optional(T.enumeration(values(API_MODE)), API_MODE.USER_PUBLISHED),
   editMode: T.optional(T.enumeration(values(EDIT_MODE)), EDIT_MODE.CREATE),
 
   // toggle main comment box
@@ -63,6 +64,7 @@ const CommentsStore = T.model('CommentsStore', {
   wordsCountReady: T.optional(T.boolean, false),
   // comments pagination data of current COMMUNITY / PART
   pagedComments: T.optional(PagedComments, emptyPagi),
+  pagedPublishedComments: T.optional(PagedComments, emptyPagi),
 
   // loadPagedReplies
   repliesParentId: T.maybeNull(T.string),
@@ -168,6 +170,9 @@ const CommentsStore = T.model('CommentsStore', {
       return map(mentionMapper, commentsParticipants)
     },
     get pagedCommentsData(): TPagedComments {
+      if (self.apiMode === API_MODE.USER_PUBLISHED) {
+        return toJS(self.pagedPublishedComments)
+      }
       return toJS(self.pagedComments)
     },
     get accountInfo(): TAccount {

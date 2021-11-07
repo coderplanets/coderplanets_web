@@ -13,7 +13,7 @@ import { updateEditing } from '@/utils/mobx'
 
 import uid from '@/utils/uid'
 
-import { EDIT_MODE } from './constant'
+import { EDIT_MODE, MODE } from './constant'
 
 import type { TMode } from './spec'
 import type { TStore } from './store'
@@ -52,6 +52,17 @@ export const loadCommentsState = (): void => {
 
   log('loadCommentsState args: ', args)
   sr71$.query(S.commentsState, args)
+}
+
+export const loadPublishedComemnts = (page = 1): void => {
+  store.mark({ loading: true, mode: MODE.TIMELINE })
+
+  const args = {
+    login: 'cp_bot',
+    filter: { page, size: PAGI_SIZE },
+  }
+  log('pagedPublishedComments args: ', args)
+  sr71$.query(S.pagedPublishedComments, args)
 }
 
 export const loadComments = (page = 1): void => {
@@ -337,6 +348,16 @@ const DataSolver = [
   },
 
   {
+    match: asyncRes('pagedPublishedComments'),
+    action: ({ pagedPublishedComments }) => {
+      cancelLoading()
+      log('# pagedPublishedComments --> ', pagedPublishedComments)
+      // repliesPagiNo = {}
+      store.mark({ pagedPublishedComments, loading: false })
+    },
+  },
+
+  {
     match: asyncRes('createComment'),
     action: () => {
       store.mark({ needRefreshState: true })
@@ -466,7 +487,8 @@ export const useInit = (_store: TStore, locked: boolean): void => {
     store = _store
     if (!sub$) {
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadComments()
+      // loadComments()
+      loadPublishedComemnts()
     }
 
     return () => {

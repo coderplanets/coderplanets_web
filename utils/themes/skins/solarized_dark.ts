@@ -13,6 +13,8 @@ const fontColor = primaryColor
 const sidebarBg = '#001B21'
 const markdownFont = '#687F82'
 
+const articleDigest = '#6c8084'
+
 const descText = '#126682'
 const primaryMate = '#2CB4AA'
 
@@ -75,7 +77,7 @@ const solarizedDark = {
   banner: {
     title: '#889fa0',
     bg: bannerBg,
-    desc: darken(0.03, '#6c8084'), // '#6c8084',
+    desc: articleDigest,
     spliter: darken(0.03, bannerBg),
     number: '#889fa0',
     active: primaryMate,
@@ -89,7 +91,7 @@ const solarizedDark = {
     filterResultHint: descText,
     articleTitle: '#889fa0',
     articleStrip: contentBoxBg,
-    articleDigest: '#6c8084',
+    articleDigest,
     articleTag: primaryColor,
     articleLink: descText,
     articleDivider: '#0B3B4D',

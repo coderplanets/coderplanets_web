@@ -4,12 +4,8 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import { Wrapper as CommentBlock } from './desktop_view'
+import { Wrapper as CommentBlock } from '../desktop_view'
 
-export const Wrapper = styled.div`
-  ${css.flex('align-center')};
-  margin-bottom: 15px;
-`
 export const Avatar = styled(Img)<{ avatarSize: number }>`
   ${({ avatarSize }) => css.circle(avatarSize)};
   opacity: ${theme('avatar.opacity')};
@@ -18,46 +14,24 @@ export const Avatar = styled(Img)<{ avatarSize: number }>`
 export const HeaderBaseInfo = styled.div`
   ${css.flexColumn()};
   width: 100%;
+  margin-left: 5px;
 `
 export const BaseInfo = styled.div`
   ${css.flexGrow('align-center')};
   color: ${theme('comment.username')};
 `
-export const UserBase = styled.div`
-  ${css.flex('align-end')};
-  font-size: 15px;
+export const ArticleBase = styled.div`
+  ${css.flex('align-center')};
   flex-grow: 1;
 `
-export const Nickname = styled.div`
+export const AuthorTitle = styled.div`
+  color: ${theme('thread.articleTitle')};
   font-size: 15px;
-  ${css.cutRest('150px')};
+  ${css.cutRest('300px')};
 `
-export const AuthorTag = styled.div`
-  font-size: 11px;
-  margin-bottom: 2px;
-  padding: 0 8px;
-  margin-left: 10px;
-  background: #023c4a;
-  border-radius: 5px;
-  color: ${theme('button.primary')};
-`
-export const RefToOther = styled.div`
-  ${css.flex('align-center')};
-  color: ${theme('comment.username')};
-  margin-left: 8px;
-`
-export const RefLabel = styled.div`
-  font-size: 12px;
-  margin-top: 3px;
-  opacity: 0.8;
-  &:after {
-    content: ': ';
-  }
-`
-export const RefUser = styled.div`
-  font-size: 15px;
-  margin-left: 8px;
-  ${css.cutRest('100px')};
+export const AuthorName = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 13px;
 `
 export const ShortIntro = styled.div`
   color: ${theme('comment.floor')};
@@ -82,6 +56,6 @@ export const CreateDate = styled.div`
   ${css.flex('align-center')};
   color: ${theme('comment.floor')};
   font-size: 12px;
-  margin-left: 2px;
   opacity: 0.8;
+  margin-top: 3px;
 `
