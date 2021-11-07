@@ -11,13 +11,11 @@ import { USER_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import { Comments } from '@/containers/dynamic'
 import UserProfile from '@/containers/user/UserProfile'
 import UserPublishedArticles from '@/containers/user/UserPublishedArticles'
-import UserPublishedComments from '@/containers/user/UserPublishedComments'
 // import UserBilling from '@/containers/user/UserBilling'
 import UserSettings from '@/containers/user/UserSettings'
-import UserStared from '@/containers/user/UserStared'
-import UserFavorited from '@/containers/user/UserFavorited'
 
 import TabBar from '@/widgets/TabBar'
 
@@ -30,6 +28,7 @@ import {
   BannerWrapper,
   ContentWrapper,
   TabBarWrapper,
+  PublishedCommentsWrapper,
 } from './styles'
 
 import { useInit, tabOnChange } from './logic'
@@ -50,14 +49,14 @@ const BaseTaberThreads = [
     title: '讨论',
     raw: 'comments',
   },
-  {
-    title: '收藏',
-    raw: 'favorites',
-  },
-  {
-    title: '喜欢',
-    raw: 'likes',
-  },
+  // {
+  //   title: '收藏',
+  //   raw: 'favorites',
+  // },
+  // {
+  //   title: '喜欢',
+  //   raw: 'likes',
+  // },
 ]
 
 const FullTaberThreads = [
@@ -78,13 +77,11 @@ const TabberContent = ({ active }) => {
       return <UserProfile />
 
     case USER_THREAD.COMMENTS:
-      return <UserPublishedComments />
-
-    case USER_THREAD.FAVORITES:
-      return <UserFavorited />
-
-    case USER_THREAD.LINKS:
-      return <UserStared />
+      return (
+        <PublishedCommentsWrapper>
+          <Comments apiMode="user_published" />
+        </PublishedCommentsWrapper>
+      )
 
     // case USER_THREAD.BILLING:
     //   return <UserBilling />

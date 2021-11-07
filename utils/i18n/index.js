@@ -17,7 +17,7 @@ const I18nDict = {
   AD: '广告',
   FREEMIUM: '会员增值 / 订阅',
   FULLTIME: '全职项目',
-  SIDE_PROJECT: '业余项目',
+  SIDE_PROJECT: '副业项目',
   PRODUCT: '物品交易',
   FREE: '用爱发电',
   OTHRES: '其他',

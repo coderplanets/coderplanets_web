@@ -3,6 +3,7 @@ import { FC, memo } from 'react'
 import type { TComment } from '@/spec'
 import ImgFallback from '@/widgets/ImgFallback'
 
+import type { TAPIMode } from '../../spec'
 import {
   Wrapper,
   Dot,
@@ -15,9 +16,10 @@ import {
 
 type TProps = {
   data: TComment
+  apiMode: TAPIMode
 }
 
-const CommentHeader: FC<TProps> = ({ data }) => {
+const CommentHeader: FC<TProps> = ({ data, apiMode }) => {
   return (
     <Wrapper>
       <Avatar

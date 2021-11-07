@@ -44,3 +44,9 @@ export const MobileBottom = styled.div`
   display: none;
   ${css.media.tablet`display: block`};
 `
+
+export const PublishedCommentsWrapper = styled.div`
+  margin-top: -20px;
+  padding-left: 8px;
+  padding-right: 20px;
+`

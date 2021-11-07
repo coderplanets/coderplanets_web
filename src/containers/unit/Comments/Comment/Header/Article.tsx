@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TComment } from '@/spec'
@@ -7,11 +7,7 @@ import ImgFallback from '@/widgets/ImgFallback'
 import { Space } from '@/widgets/Common'
 import DotDivider from '@/widgets/DotDivider'
 
-import type { TAPIMode } from '../../spec'
-import { API_MODE } from '../../constant'
-
 import {
-  Wrapper,
   FloorNum,
   CreateDate,
   Avatar,
@@ -36,7 +32,7 @@ const CommentHeader: FC<TProps> = ({ data, showInnerRef }) => {
   const avatarSize = author.bio ? 26 : 24
 
   return (
-    <Wrapper>
+    <Fragment>
       <Avatar
         src={data.author.avatar}
         avatarSize={avatarSize}
@@ -70,7 +66,7 @@ const CommentHeader: FC<TProps> = ({ data, showInnerRef }) => {
 
         {author.bio && <ShortIntro>{author.bio}</ShortIntro>}
       </HeaderBaseInfo>
-    </Wrapper>
+    </Fragment>
   )
 }
 

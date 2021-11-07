@@ -62,11 +62,8 @@ import {
   GirlVerifierStore,
   CashierStore,
   // user page
-  UserPublishedCommentsStore,
   UserSettingsStore,
   UserBillingStore,
-  UserFavoritedStore,
-  UserStaredStore,
   //
   MeetupsContentStore,
   HaveADrinkContentStore,
@@ -163,11 +160,8 @@ const rootStore = T.model({
   mailsViewer: T.optional(MailsViewerStore, {}),
 
   // user page
-  userPublishedComments: T.optional(UserPublishedCommentsStore, {}),
   userBilling: T.optional(UserBillingStore, {}),
   userSettings: T.optional(UserSettingsStore, {}),
-  userStared: T.optional(UserStaredStore, {}),
-  userFavorited: T.optional(UserFavoritedStore, {}),
 
   // have a drink
   meetupsContent: T.optional(MeetupsContentStore, {}),

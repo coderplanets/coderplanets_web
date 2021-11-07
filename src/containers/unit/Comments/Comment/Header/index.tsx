@@ -8,23 +8,25 @@ import UserPublishedHeader from './UserPublished'
 import type { TAPIMode } from '../../spec'
 import { API_MODE } from '../../constant'
 
-import { Wrapper } from '../../styles/comment/header/article'
+import { Wrapper } from '../../styles/comment/header'
 
 type TProps = {
   data: TComment
-  apiMode: TAPIMode
+  apiMode?: TAPIMode
   showInnerRef: boolean
 }
 
-const CommentHeader: FC<TProps> = ({ data, showInnerRef, apiMode }) => {
-  console.log('header apiMode: ', apiMode)
-
+const CommentHeader: FC<TProps> = ({
+  data,
+  showInnerRef,
+  apiMode = API_MODE.ARTICLE,
+}) => {
   return (
     <Wrapper>
-      {apiMode === API_MODE.ARTICLE ? (
-        <ArticleHeader data={data} showInnerRef={showInnerRef} />
-      ) : (
+      {apiMode === API_MODE.USER_PUBLISHED ? (
         <UserPublishedHeader data={data} />
+      ) : (
+        <ArticleHeader data={data} showInnerRef={showInnerRef} />
       )}
     </Wrapper>
   )

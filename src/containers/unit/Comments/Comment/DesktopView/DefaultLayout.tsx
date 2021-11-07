@@ -103,7 +103,7 @@ const DefaultLayout: FC<TProps> = ({
               mode="comment"
             />
           </CommentContent>
-          <Footer data={data} />
+          <Footer data={data} apiMode={apiMode} />
         </CommentBodyInfo>
       </CommentWrapper>
     </Wrapper>

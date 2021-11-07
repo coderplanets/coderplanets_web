@@ -1,9 +1,11 @@
-import { memo } from 'react'
+import { FC, memo } from 'react'
 
+import type { TComment } from '@/spec'
 import { Br } from '@/widgets/Common'
-import MarkDownRender from '@/widgets/MarkDownRender'
 import Upvote from '@/widgets/Upvote'
+import ArtimentBody from '@/widgets/ArtimentBody'
 
+import type { TAPIMode } from '../../spec'
 import ReplyBar from '../ReplyBar'
 import Footer from '../Footer'
 
@@ -17,12 +19,17 @@ import {
   CommentBodyInfo,
 } from '../../styles/comment/mobile_view/index'
 
-const MobileView = ({ data, accountInfo }) => {
+type TProps = {
+  data: TComment
+  apiMode: TAPIMode
+}
+
+const MobileView: FC<TProps> = ({ data, apiMode }) => {
   return (
     <Wrapper>
       <CommentWrapper>
         <HeaderWrapper>
-          <Header data={data} />
+          <Header data={data} apiMode={apiMode} />
         </HeaderWrapper>
         <Br top={16} />
         <CommentBodyInfo>
@@ -33,9 +40,12 @@ const MobileView = ({ data, accountInfo }) => {
                 <Br top={14} />
               </>
             )}
-            <MarkDownRender body={data.body} />
+            <ArtimentBody
+              document={{ bodyHtml: data.bodyHtml }}
+              mode="comment"
+            />
           </CommentContent>
-          <Footer data={data} />
+          <Footer data={data} apiMode={apiMode} />
         </CommentBodyInfo>
       </CommentWrapper>
       <Upvote />
