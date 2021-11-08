@@ -148,3 +148,12 @@ export type TCommunitySetterStyle = 'normal' | TTechStackCategory
 
 export type TToastType = 'info' | 'error'
 export type TToastPos = 'topCenter'
+
+export type TUserActivity = {
+  id?: TID
+  insertedAt?: string
+  articleTitle?: string
+  digest?: string
+  action?: string
+  totalCount?: number
+}

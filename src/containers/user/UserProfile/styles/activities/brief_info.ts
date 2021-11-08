@@ -32,5 +32,5 @@ export const MonthNum = styled.div`
 `
 export const Desc = styled.div`
   font-size: 12px;
-  margin-top: 2px;
+  margin-top: 3px;
 `

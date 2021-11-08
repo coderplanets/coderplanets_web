@@ -18,10 +18,7 @@ export const Linker = styled.a<TSpace>`
   }
 `
 export const Logo = styled(CommunityFaceLogo)<{ size: number }>`
-  fill: ${theme('thread.articleTitle')};
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
-  display: block;
+  ${({ size }) => `${css.size(size)}`};
 `
 
 export const MoreWrapper = styled.div`

@@ -25,6 +25,7 @@ const UserContent = T.model('UserContent', {
   following: T.optional(T.boolean, false),
 
   pagedEditableCommunities: T.optional(PagedCommunities, emptyPagi),
+  subscribedCommunities: T.optional(PagedCommunities, emptyPagi),
   pagedWorks: T.optional(PagedWorks, emptyPagi),
 })
   .views((self) => ({
@@ -50,6 +51,7 @@ const UserContent = T.model('UserContent', {
     get pagedEditableCommunitiesData(): TPagedCommunities {
       return toJS(self.pagedEditableCommunities)
     },
+
     get hasContentBg(): boolean {
       const root = getParent(self) as TRootStore
 

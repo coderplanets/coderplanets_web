@@ -13,6 +13,7 @@ import { buildLog } from '@/utils/logger'
 import {
   Wrapper,
   Title,
+  TitleCount,
   Header,
   Divider,
   DotText,
@@ -70,7 +71,10 @@ const UserContributeMap: FC<TProps> = ({ user }) => {
   return (
     <Wrapper className="banner-heatmap">
       <Header>
-        <Title>过去 1 年共创作 {contributes.totalCount} 次内容</Title>
+        <Title>
+          过去 <TitleCount>1</TitleCount> 年共创作{' '}
+          <TitleCount>{contributes.totalCount}</TitleCount> 次内容
+        </Title>
         <DotList>
           <DotText>潜水&nbsp;&nbsp;</DotText>
           <ColorDot scale="empty" />

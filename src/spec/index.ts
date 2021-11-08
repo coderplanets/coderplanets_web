@@ -67,6 +67,7 @@ export type {
   TToastType,
   TToastPos,
   TView,
+  TUserActivity,
 } from './utils'
 
 export type { TGQLError } from './graphql'
