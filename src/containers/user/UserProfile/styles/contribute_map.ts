@@ -28,10 +28,17 @@ export const Divider = styled.div`
   margin-bottom: 16px;
 `
 export const Title = styled.div`
-  font-size: 14px;
-  color: ${theme('thread.articleTitle')};
+  ${css.flex('align-center')};
+  font-size: 13px;
+  color: ${theme('thread.articleDigest')};
   flex-grow: 1;
   margin-top: -4px;
+`
+export const TitleCount = styled.div`
+  font-size: 13px;
+  color: ${theme('thread.articleTitle')};
+  margin-left: 2px;
+  margin-right: 3px;
 `
 export const DotText = styled.div`
   font-size: 12px;
