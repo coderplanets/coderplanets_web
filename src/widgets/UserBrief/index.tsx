@@ -11,7 +11,6 @@ import { EVENT, TYPE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { send } from '@/utils/helper'
 import { Br, SpaceGrow } from '@/widgets/Common'
-import OSSUploader from '@/widgets/OSSUploader'
 
 import ExtraInfo from './ExtraInfo'
 import Operators from './Operators'
@@ -37,9 +36,7 @@ const UserBrief: FC<TProps> = ({ user, works, editableCommunities }) => {
       <Avatar user={user} />
       <Br top={35} />
       <UserTitle>
-        <OSSUploader>
-          <div>{user.nickname}</div>
-        </OSSUploader>
+        <div>{user.nickname}</div>
         {user.sex === 'girl' && <WomanIcon />}
         <SpaceGrow />
         <Operators

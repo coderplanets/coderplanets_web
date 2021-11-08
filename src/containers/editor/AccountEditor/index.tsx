@@ -12,7 +12,8 @@ import { closeDrawer } from '@/utils/helper'
 
 import SubmitButton from '@/widgets/Buttons/SubmitButton'
 import Tooltip from '@/widgets/Tooltip'
-import { Divider, SpaceGrow } from '@/widgets/Common'
+import { Divider, SpaceGrow, Br } from '@/widgets/Common'
+import OSSUploader from '@/widgets/OSSUploader'
 
 import SexInputer from './SexInputer'
 import SocialInputer from './SocialInputer'
@@ -52,7 +53,12 @@ const AccountEditorContainer: FC<TProps> = ({ accountEditor: store }) => {
 
   return (
     <Wrapper className="normal-form">
-      {profile.avatar && <AvatarPic src={profile.avatar} />}
+      <OSSUploader>
+        {profile.avatar && <AvatarPic src={profile.avatar} />}
+      </OSSUploader>
+
+      <Br bottom={50} />
+
       <FormsWrapper>
         <LoginSection>
           <Label>登入名称</Label>

@@ -2,6 +2,15 @@ import OSS from 'ali-oss'
 import { startsWith } from 'ramda'
 import { ASSETS_ENDPOINT } from '@/config'
 
+const getOSSDir = (): string => {
+  const curDateTime = new Date()
+  const year = curDateTime.getFullYear()
+  const month = curDateTime.getMonth() + 1
+  const day = curDateTime.getDate()
+
+  return `ugc/${year}-${month}-${day}`
+}
+
 export const initOSSClient = (): any => {
   const ossClient = new OSS.Wrapper({
     // region: process.env.NEXT_PUBLIC_ALI_OSS_RESION,
@@ -19,14 +28,24 @@ export const initOSSClient = (): any => {
   return ossClient
 }
 
-export const handleUploadFile = (ossClient, e, onUploadDone): void => {
+export const handleUploadFile = (
+  ossClient,
+  e,
+  filePrefix,
+  onUploadDone,
+): void => {
   const { files } = e.target
   const file = files[0]
 
-  doUploadFile(ossClient, file, onUploadDone)
+  doUploadFile(ossClient, file, filePrefix, onUploadDone)
 }
 
-export const doUploadFile = (ossClient, file, onUploadDone): void => {
+export const doUploadFile = (
+  ossClient,
+  file,
+  filePrefix,
+  onUploadDone,
+): void => {
   if (!file || !startsWith('image/', file.type)) return
 
   const fileSize = file.size / 1024 / 1024
@@ -35,10 +54,14 @@ export const doUploadFile = (ossClient, file, onUploadDone): void => {
 
   // const { onUploadStart, onUploadError } = this.props
 
+  const timestamp = new Date().getTime()
   // onUploadStart()
-  const filename = file.name
-  // const fullpath = `${getOSSDir()}/${getOSSFileName(filename)}`
-  const fullpath = `/ugc/tmp/${filename}`
+
+  const filename = `${timestamp}_${file.name}`
+  const fileFullname = filePrefix ? `${filePrefix}_${filename}` : filename
+  const OSSDir = getOSSDir()
+
+  const fullpath = `${OSSDir}/${fileFullname}`
 
   ossClient
     .multipartUpload(fullpath, file)
