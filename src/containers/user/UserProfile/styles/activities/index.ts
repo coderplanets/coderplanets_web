@@ -7,10 +7,14 @@ export const Wrapper = styled.div`
   margin-top: 50px;
 `
 export const Title = styled.div`
-  font-size: 14px;
-  color: ${theme('thread.articleTitle')};
+  font-size: 13px;
+  color: ${theme('thread.articleDigest')};
   flex-grow: 1;
   margin-top: -4px;
+  padding-left: 3px;
+`
+export const EmptyHint = styled(Title)`
+  margin-top: 20px;
 `
 export const Divider = styled.div`
   width: 100%;

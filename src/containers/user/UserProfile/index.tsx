@@ -33,7 +33,7 @@ const UserProfileContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { viewingUser, pagedSubscribedCommunitiesData } = store
+  const { viewingUser, pagedSubscribedCommunitiesData, activities } = store
 
   return (
     <Wrapper testid={testid}>
@@ -45,7 +45,7 @@ const UserProfileContainer: FC<TProps> = ({
         <ContributeMap user={viewingUser} />
       </ContributesWrapper>
 
-      <Activities />
+      <Activities items={activities} />
     </Wrapper>
   )
 }
