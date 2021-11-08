@@ -4,11 +4,17 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
+import { reject } from 'ramda'
 
-import type { TRootStore, TUser } from '@/spec'
+import type { TRootStore, TUser, TPagedCommunities } from '@/spec'
+import { HCN } from '@/constant'
+
 import { markStates, toJS } from '@/utils/mobx'
+import { PagedCommunities, emptyPagi } from '@/model'
 
-const UserProfile = T.model('UserProfile', {})
+const UserProfile = T.model('UserProfile', {
+  subscribedCommunities: T.optional(PagedCommunities, emptyPagi),
+})
   .views((self) => ({
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
@@ -17,6 +23,21 @@ const UserProfile = T.model('UserProfile', {})
     get viewingUser(): TUser {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing.user)
+    },
+    get pagedSubscribedCommunitiesData(): TPagedCommunities {
+      const { subscribedCommunities } = self
+      const subscribedCommunitiesData = toJS(subscribedCommunities)
+
+      if (subscribedCommunities.totalCount === 1) {
+        return subscribedCommunitiesData
+      }
+
+      const { entries, ...rest } = subscribedCommunitiesData
+
+      return {
+        entries: reject((c) => c.raw === HCN, entries),
+        ...rest,
+      }
     },
   }))
   .actions((self) => ({

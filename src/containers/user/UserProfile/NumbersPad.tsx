@@ -1,11 +1,10 @@
 import { FC, memo } from 'react'
 
-import type { TUser } from '@/spec'
+import type { TUser, TPagedCommunities } from '@/spec'
 import FollowButton from '@/widgets/Buttons/FollowButton'
 import Button from '@/widgets/Buttons/Button'
 import { Br } from '@/widgets/Common'
 import Tooltip from '@/widgets/Tooltip'
-import { mockCommunities } from '@/utils/mock'
 
 import CommunityList from '@/widgets/CommunityList'
 
@@ -25,9 +24,10 @@ import {
 
 type TProps = {
   user: TUser
+  subscribedCommunities: TPagedCommunities
 }
 
-const Numberspad: FC<TProps> = ({ user }) => {
+const Numberspad: FC<TProps> = ({ user, subscribedCommunities }) => {
   return (
     <Wrapper>
       <GravitySection>
@@ -56,14 +56,18 @@ const Numberspad: FC<TProps> = ({ user }) => {
       <JoinSection>
         <CommunitiesWrapper>
           <CommunityList
-            items={mockCommunities(7)}
+            items={subscribedCommunities.entries}
             size={16}
-            bottom={2}
+            bottom={1}
             right={8}
-            totalCount={10}
+            totalCount={subscribedCommunities.totalCount}
           />
         </CommunitiesWrapper>
-        <Title>加入的子社区</Title>
+        {subscribedCommunities.totalCount === 1 ? (
+          <Title>加入的社区</Title>
+        ) : (
+          <Title>加入的子社区</Title>
+        )}
       </JoinSection>
       <Divider />
       <FollowSection>

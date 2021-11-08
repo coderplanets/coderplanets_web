@@ -28,10 +28,15 @@ const fetchData = async (context, opt = {}) => {
 
   const sessionState = gqClient.request(P.sessionState)
   const user = gqClient.request(P.user, { login, userHasLogin })
+  const filter = { page: 1, size: 10 }
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    login,
+    filter,
+  })
 
   const pagedWorks = gqClient.request(ssrPagedArticleSchema(THREAD.WORKS), {
     login,
-    filter: { page: 1, size: 10 },
+    filter,
     userHasLogin,
   })
 
@@ -39,6 +44,7 @@ const fetchData = async (context, opt = {}) => {
     ...(await sessionState),
     ...(await user),
     ...(await pagedWorks),
+    ...(await subscribedCommunities),
   }
 }
 
@@ -55,7 +61,7 @@ export const getServerSideProps = async (context) => {
     return ssrError(context, 'fetch', 500)
   }
 
-  const { user, pagedWorks } = resp
+  const { user, pagedWorks, subscribedCommunities } = resp
 
   const initProps = {
     ...ssrBaseStates(resp),
@@ -63,6 +69,7 @@ export const getServerSideProps = async (context) => {
     // userContent: { activeThread: query.tab || USER_THREAD.PROFILE },
     viewing: { user },
     userContent: { pagedWorks },
+    userProfile: { subscribedCommunities },
   }
 
   return {
