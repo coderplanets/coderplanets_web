@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import DocUploader from '../index'
+// import OssUploader from '../index'
 
-describe('TODO <DocUploader />', () => {
+describe('TODO <OssUploader />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

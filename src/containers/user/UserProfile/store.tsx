@@ -51,6 +51,7 @@ const UserProfile = T.model('UserProfile', {
 
       return toJS(pagedPosts.entries).map((a) => {
         return {
+          id: a.id,
           articleTitle: a.title,
           digest: a.digest,
           insertedAt: a.insertedAt,

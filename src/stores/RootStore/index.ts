@@ -55,7 +55,6 @@ import {
   // RepoEditorStore,
   AccountEditorStore,
   MailBoxStore,
-  DocUploaderStore,
   AvatarAdderStore,
   TagsBarStore,
   UserListerStore,
@@ -120,7 +119,6 @@ const rootStore = T.model({
   // repoEditor: T.optional(RepoEditorStore, {}),
   accountEditor: T.optional(AccountEditorStore, {}),
   mailBox: T.optional(MailBoxStore, {}),
-  docUploader: T.optional(DocUploaderStore, {}),
   avatarAdder: T.optional(AvatarAdderStore, {}),
   // toolbox end
 

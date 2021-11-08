@@ -11,15 +11,13 @@ import { EVENT, TYPE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { send } from '@/utils/helper'
 import { Br, SpaceGrow } from '@/widgets/Common'
+import OSSUploader from '@/widgets/OSSUploader'
 
-// import SocialIcons from './SocialIcons'
 import ExtraInfo from './ExtraInfo'
 import Operators from './Operators'
 import WorksBadge from './WorksBadge'
 import VolunteersBadge from './VolunteersBadge'
 import Footer from './Footer'
-// import CommunityEditorInfo from './CommunityEditorInfo'
-
 import Avatar from './Avatar'
 
 import { Wrapper, UserTitle, WomanIcon, ShortBio, Bio, Divider } from './styles'
@@ -39,7 +37,9 @@ const UserBrief: FC<TProps> = ({ user, works, editableCommunities }) => {
       <Avatar user={user} />
       <Br top={35} />
       <UserTitle>
-        <div>{user.nickname}</div>
+        <OSSUploader>
+          <div>{user.nickname}</div>
+        </OSSUploader>
         {user.sex === 'girl' && <WomanIcon />}
         <SpaceGrow />
         <Operators
