@@ -36,11 +36,27 @@ const editableCommunities = gql`
   }
 `
 
+const pagedPublishedWorks = `
+  query($login: String!, $filter: PagedFilter!) {
+    pagedPublishedWorks(login: $login, filter: $filter) {
+      entries {
+        id
+        title
+        cover
+        desc
+        homeLink
+      }
+      ${F.pagi}
+    }
+  }
+`
+
 const schema = {
   follow,
   undoFollow,
   user,
   editableCommunities,
+  pagedPublishedWorks,
 }
 
 export default schema

@@ -42,6 +42,7 @@ export type TUser = TSimpleUser & {
   insertedAt?: string
   views?: number
   meta?: {
+    isMaker: boolean
     publishedPostsCount: number
     publishedJobsCount: number
     publishedBlogsCount: number

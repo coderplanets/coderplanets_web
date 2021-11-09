@@ -52,7 +52,7 @@ const UserBrief: FC<TProps> = ({ user, works, editableCommunities }) => {
       <Bio>{user.bio}</Bio>
       <Divider top={25} />
       <ExtraInfo user={user} />
-      {works.totalCount && (
+      {works.totalCount !== 0 && (
         <Fragment>
           <Divider bottom={15} />
           <WorksBadge works={works} />

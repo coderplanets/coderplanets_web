@@ -11,6 +11,7 @@ export const user = `
         ${F.userSocial}
       }
       meta {
+        isMaker
         publishedPostsCount
         publishedJobsCount
         publishedBlogsCount

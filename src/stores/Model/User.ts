@@ -60,6 +60,7 @@ const UserSocial = T.model('UserSocial', {
 })
 
 const UserMeta = T.model('UserMeta', {
+  isMaker: T.optional(T.boolean, false),
   publishedBlogsCount: T.optional(T.number, 0),
   publishedJobsCount: T.optional(T.number, 0),
   publishedPostsCount: T.optional(T.number, 0),
