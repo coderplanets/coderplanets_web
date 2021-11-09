@@ -25,7 +25,6 @@ export const AvatarPic = styled(Img)`
   border-radius: 42%;
   border: 4px solid;
   border-color: #043443;
-  margin-bottom: 50px;
   margin-left: -5px;
 `
 export const FormsWrapper = styled.div`

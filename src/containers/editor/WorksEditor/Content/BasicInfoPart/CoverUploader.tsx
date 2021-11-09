@@ -1,25 +1,38 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
+import OSSUploader from '@/widgets/OSSUploader'
+import { nilOrEmpty } from '@/utils/validator'
 
 import {
   Wrapper,
-  IntroImgHolder,
+  HolderWrapper,
   HolderIcon,
+  RealCover,
   Section,
   Title,
   Desc,
 } from '../../styles/content/basic_info_part/cover_uploader'
+import { inputOnChange } from '../../logic'
 
-const CoverUploader: FC = () => {
+type TProps = {
+  cover?: string | null
+}
+
+const CoverUploader: FC<TProps> = ({ cover }) => {
   return (
     <Wrapper>
-      <IntroImgHolder>
-        <HolderIcon src={`${ICON}/shape/add-square.svg`} />
-      </IntroImgHolder>
+      <OSSUploader onUploadDone={(url) => inputOnChange(url, 'cover')}>
+        {nilOrEmpty(cover) ? (
+          <HolderWrapper>
+            <HolderIcon />
+          </HolderWrapper>
+        ) : (
+          <RealCover src={cover} />
+        )}
+      </OSSUploader>
       <Section>
-        <Title>介绍图片</Title>
-        <Desc>上传图片或输入图片URL，请确保图片比例为 1:1，上限 300 KB</Desc>
+        <Title>封面图片</Title>
+        <Desc>展示图片的比例为 1:1, 最大不超过 300 KB, 支持常见图片格式。</Desc>
       </Section>
     </Wrapper>
   )

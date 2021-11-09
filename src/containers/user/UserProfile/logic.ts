@@ -40,7 +40,6 @@ const DataSolver = [
   {
     match: asyncRes('pagedPublishedPosts'),
     action: ({ pagedPublishedPosts }) => {
-      console.log('got it: ', pagedPublishedPosts)
       store.mark({ pagedPosts: pagedPublishedPosts })
     },
   },

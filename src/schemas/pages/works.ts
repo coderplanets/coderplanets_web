@@ -5,6 +5,7 @@ export const works = `
     works(id: $id) {
       ${F.article}
       ${F.articleDetail}
+      cover
       desc
       homeLink
       profitMode
@@ -32,6 +33,7 @@ export const pagedWorks = `
       entries {
         ${F.article}
         ${F.pageArticleMeta}
+        cover
         desc
         homeLink
         techstacks {

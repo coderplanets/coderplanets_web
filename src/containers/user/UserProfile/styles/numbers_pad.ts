@@ -30,7 +30,7 @@ export const FollowSection = styled(Section)`
 `
 export const GravitySection = styled(Section)`
   width: 130px;
-  padding-left: 10px;
+  margin-left: 8px;
 `
 export const JoinSection = styled(Section)`
   width: 200px;
@@ -41,6 +41,7 @@ export const CommunitiesWrapper = styled.div`
 `
 export const Num = styled.div`
   font-size: 18px;
+  margin-left: -18px;
   color: ${theme('thread.articleTitle')};
 `
 export const Gravity = styled.div`
@@ -48,7 +49,7 @@ export const Gravity = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-top: 4px;
   font-size: 12px;
-  margin-left: 12px;
+  margin-left: 6px;
 `
 export const InfoIcon = styled(InfoSVG)`
   ${css.size(10)};

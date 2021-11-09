@@ -12,14 +12,11 @@ import { buildLog } from '@/utils/logger'
 import { send } from '@/utils/helper'
 import { Br, SpaceGrow } from '@/widgets/Common'
 
-// import SocialIcons from './SocialIcons'
 import ExtraInfo from './ExtraInfo'
 import Operators from './Operators'
 import WorksBadge from './WorksBadge'
 import VolunteersBadge from './VolunteersBadge'
 import Footer from './Footer'
-// import CommunityEditorInfo from './CommunityEditorInfo'
-
 import Avatar from './Avatar'
 
 import { Wrapper, UserTitle, WomanIcon, ShortBio, Bio, Divider } from './styles'

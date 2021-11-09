@@ -54,7 +54,6 @@ export { default as RoadmapThreadStore } from '@/containers/thread/RoadmapThread
 export { default as TagsBarStore } from '@/containers/unit/TagsBar/store'
 
 // toolbox
-export { default as DocUploaderStore } from '@/containers/tool/DocUploader/store'
 // export { default as RepoEditorStore } from '@/containers/editor/RepoEditor/store'
 export { default as CommentsStore } from '@/containers/unit/Comments/store'
 export { default as AccountEditorStore } from '@/containers/editor/AccountEditor/store'
