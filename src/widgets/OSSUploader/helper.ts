@@ -28,31 +28,21 @@ export const initOSSClient = (): any => {
   return ossClient
 }
 
-export const handleUploadFile = (
-  ossClient,
-  e,
-  filePrefix,
-  onUploadDone,
-): void => {
+export const handleUploadFile = (ossClient, e, filePrefix, callbacks): void => {
   const { files } = e.target
   const file = files[0]
 
-  doUploadFile(ossClient, file, filePrefix, onUploadDone)
+  doUploadFile(ossClient, file, filePrefix, callbacks)
 }
 
-export const doUploadFile = (
-  ossClient,
-  file,
-  filePrefix,
-  onUploadDone,
-): void => {
+export const doUploadFile = (ossClient, file, filePrefix, callbacks): void => {
   if (!file || !startsWith('image/', file.type)) return
 
   const fileSize = file.size / 1024 / 1024
   // eslint-disable-next-line no-alert
   if (fileSize > 1) return alert('不支持大于 1MB 的文件')
 
-  // const { onUploadStart, onUploadError } = this.props
+  callbacks.onStart()
 
   const timestamp = new Date().getTime()
   // onUploadStart()
@@ -67,9 +57,10 @@ export const doUploadFile = (
     .multipartUpload(fullpath, file)
     .then((result) => {
       const url = `${ASSETS_ENDPOINT}/${result.name}`
-      onUploadDone(url)
+      callbacks.onDone(url)
     })
     .catch((err) => {
+      callbacks.onError('上传失败')
       // onUploadError(err)
       console.error(err)
     })

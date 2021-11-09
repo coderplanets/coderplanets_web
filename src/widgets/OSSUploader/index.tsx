@@ -3,12 +3,20 @@
  * OSSUploader
  */
 
-import { FC, memo, ReactNode, useState, useEffect, useRef } from 'react'
+import {
+  FC,
+  memo,
+  ReactNode,
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+} from 'react'
 
 import { buildLog } from '@/utils/logger'
 import uid from '@/utils/uid'
 
-import { Wrapper, Label, HintIcon, InputFile } from './styles'
+import { Wrapper, Label, HintIcon, TurboIcon, InputFile } from './styles'
 import { initOSSClient, handleUploadFile } from './helper'
 
 /* eslint-disable-next-line */
@@ -28,6 +36,7 @@ const OSSUploader: FC<TProps> = ({
   onUploadDone = log,
 }) => {
   const [uniqueId, setUniqueId] = useState(null)
+  const [loading, setLoading] = useState(false)
   const [ossClient, setOSSClient] = useState(null)
 
   const labelRef = useRef(null)
@@ -39,6 +48,25 @@ const OSSUploader: FC<TProps> = ({
     setUniqueId(uid.gen())
   }, [])
 
+  const onStart = useCallback(() => {
+    setLoading(true)
+  }, [])
+
+  const onDone = useCallback(
+    (url) => {
+      setLoading(false)
+      onUploadDone(url)
+    },
+    [onUploadDone],
+  )
+
+  const onError = useCallback((msg) => {
+    alert(msg)
+    setLoading(false)
+  }, [])
+
+  const callbacks = { onStart, onDone, onError }
+
   return (
     <Wrapper>
       <InputFile
@@ -46,14 +74,14 @@ const OSSUploader: FC<TProps> = ({
         name={`file-${uniqueId}`}
         id={`file-${uniqueId}`}
         accept={fileType}
-        onChange={(e) =>
-          handleUploadFile(ossClient, e, filePrefix, onUploadDone)
-        }
+        onChange={(e) => handleUploadFile(ossClient, e, filePrefix, callbacks)}
       />
-      <Label htmlFor={`file-${uniqueId}`} ref={labelRef}>
+      <Label htmlFor={`file-${uniqueId}`} ref={labelRef} loading={loading}>
         {children}
       </Label>
-      <HintIcon onClick={() => labelRef.current.click()} />
+
+      {!loading && <HintIcon onClick={() => labelRef.current.click()} />}
+      {loading && <TurboIcon />}
     </Wrapper>
   )
 }
