@@ -53,7 +53,7 @@ const AccountEditorContainer: FC<TProps> = ({ accountEditor: store }) => {
 
   return (
     <Wrapper className="normal-form">
-      <OSSUploader>
+      <OSSUploader onUploadDone={(url) => inputOnChange(url, 'avatar')}>
         {profile.avatar && <AvatarPic src={profile.avatar} />}
       </OSSUploader>
 

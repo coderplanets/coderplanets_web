@@ -19,11 +19,11 @@ export const InputFile = styled.input`
   position: absolute;
   z-index: -1;
 `
-export const Label = styled.label<{ loading: boolean }>`
+export const Label = styled.label<{ $loading: boolean }>`
   display: block;
   cursor: pointer;
 
-  filter: ${({ loading }) => (loading ? 'blur(4px)' : 'none')};
+  filter: ${({ $loading }) => ($loading ? 'blur(4px)' : 'none')};
 
   ${Wrapper}:hover & {
     filter: blur(4px);

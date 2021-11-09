@@ -24,7 +24,7 @@ const log = buildLog('c:OSSUploader:index')
 
 type TProps = {
   children: ReactNode
-  onUploadDone?: () => void
+  onUploadDone?: (url: string) => void
   filePrefix?: string | null
   fileType?: string
 }
@@ -76,7 +76,7 @@ const OSSUploader: FC<TProps> = ({
         accept={fileType}
         onChange={(e) => handleUploadFile(ossClient, e, filePrefix, callbacks)}
       />
-      <Label htmlFor={`file-${uniqueId}`} ref={labelRef} loading={loading}>
+      <Label htmlFor={`file-${uniqueId}`} ref={labelRef} $loading={loading}>
         {children}
       </Label>
 
