@@ -26,6 +26,7 @@ export const Works = T.model('Works', {
   ...articleFields(),
 
   desc: T.maybeNull(T.string),
+  cover: T.maybeNull(T.string),
   homeLink: T.maybeNull(T.string),
   profitMode: T.optional(T.string, ''),
   workingMode: T.optional(T.string, ''),

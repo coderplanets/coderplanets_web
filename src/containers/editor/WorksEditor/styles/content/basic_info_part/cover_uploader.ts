@@ -5,6 +5,8 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import WorksHolderSVG from '@/icons/WorksHolder'
+
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
@@ -14,21 +16,24 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   padding: 0 10px;
   margin-bottom: 20px;
 `
-export const IntroImgHolder = styled.div`
+export const RealCover = styled(Img)`
+  ${css.size(70)};
+  border-radius: 6px;
+`
+export const HolderWrapper = styled.div`
   ${css.size(70)};
   ${css.flex('align-both')};
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #03343f;
-  cursor: pointer;
 `
-export const HolderIcon = styled(Img)`
-  ${css.size(30)};
+export const HolderIcon = styled(WorksHolderSVG)`
+  ${css.size(48)};
   fill: ${theme('thread.articleDigest')};
-  opacity: 0.4;
+  opacity: 0.3;
   transform: rotate(90deg);
 
-  ${IntroImgHolder}:hover & {
-    opacity: 0.6;
+  ${HolderWrapper}:hover & {
+    opacity: 0;
   }
   transition: all 0.2s;
 `

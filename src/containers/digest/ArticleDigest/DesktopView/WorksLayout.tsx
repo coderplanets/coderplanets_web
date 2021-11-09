@@ -51,7 +51,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
     <Fragment>
       <Main metric={metric}>
         <WorksWrapper>
-          <Cover src="https://avatars.githubusercontent.com/u/2041385?s=64&v=4" />
+          <Cover src={article.cover} />
           <Intro>
             <Title>
               <WorkName>{title}</WorkName>

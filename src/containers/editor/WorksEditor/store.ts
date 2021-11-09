@@ -50,6 +50,7 @@ const WorksEditor = T.model('WorksEditor', {
   community: T.optional(Community, {}),
 
   id: T.maybeNull(T.string),
+  cover: T.maybeNull(T.string),
   title: T.maybeNull(T.string),
   body: T.optional(T.string, '{}'),
   desc: T.optional(T.string, ''),
@@ -90,7 +91,7 @@ const WorksEditor = T.model('WorksEditor', {
     get previewData(): TWorks {
       const slf = self as TStore
       const { techCommunities } = slf
-      const basic = pick(['title', 'desc'], slf)
+      const basic = pick(['cover', 'title', 'desc'], slf)
 
       const { lang, framework, database, devOps, design } = techCommunities
 
@@ -128,7 +129,15 @@ const WorksEditor = T.model('WorksEditor', {
       const slf = self as TStore
       const { socialInfo, cities, techstacks, teammates, community } = slf
       const basic = pick(
-        ['title', 'desc', 'body', 'homeLink', 'profitMode', 'workingMode'],
+        [
+          'cover',
+          'title',
+          'desc',
+          'body',
+          'homeLink',
+          'profitMode',
+          'workingMode',
+        ],
         slf,
       )
 
@@ -184,9 +193,9 @@ const WorksEditor = T.model('WorksEditor', {
       return !nilOrEmpty(self.title)
     },
     get isBasicInfoValid(): boolean {
-      const { homeLink, desc } = self
+      const { cover, homeLink, desc } = self
 
-      return !nilOrEmpty(desc) && isURL(homeLink)
+      return !nilOrEmpty(cover) && !nilOrEmpty(desc) && isURL(homeLink)
     },
     get isTechStackValid(): boolean {
       const slf = self as TStore
@@ -308,6 +317,7 @@ const WorksEditor = T.model('WorksEditor', {
 
     reset(): void {
       self.mode = 'publish'
+      self.cover = null
       self.title = ''
       self.body = '{}'
 

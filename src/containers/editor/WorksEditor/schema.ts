@@ -3,7 +3,10 @@ import { P } from '@/schemas'
 
 const createWorks = gql`
   mutation (
+    $cover: String!
     $title: String!
+    $homeLink: String!
+    $desc: String
     $body: String
     $communityId: ID!
     $profitMode: ProfitMode
@@ -15,7 +18,10 @@ const createWorks = gql`
     $articleTags: [Id]
   ) {
     createWorks(
+      cover: $cover
       title: $title
+      desc: $desc
+      homeLink: $homeLink
       body: $body
       communityId: $communityId
       profitMode: $profitMode
@@ -36,6 +42,7 @@ const updateWorks = gql`
   mutation (
     $id: ID!
     $title: String
+    $cover: String
     $desc: String
     $homeLink: String
     $body: String
@@ -50,6 +57,7 @@ const updateWorks = gql`
     updateWorks(
       id: $id
       title: $title
+      cover: $cover
       desc: $desc
       homeLink: $homeLink
       body: $body

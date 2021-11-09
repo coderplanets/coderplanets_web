@@ -9,6 +9,7 @@ export type TSocialInfo = {
 
 export type TInputData = {
   title: string
+  cover: string
   desc: string
   body: string
   homeLink: string

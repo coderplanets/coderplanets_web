@@ -57,6 +57,7 @@ type TProps = {
 
 const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
   const {
+    cover,
     title,
     homeLink,
     desc,
@@ -70,7 +71,7 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
   return (
     <Wrapper>
       <Section>
-        <CoverUploader />
+        <CoverUploader cover={cover} />
       </Section>
       <Section>
         <Label>主页地址</Label>
