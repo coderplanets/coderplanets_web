@@ -31,8 +31,7 @@ export const CommentBody = styled.div`
 export const RepliesHint = styled.div`
   color: #139c9e;
   font-size: 12px;
-  margin-left: 10px;
-  margin-top: 2px;
+  margin-right: 6px;
 `
 export const CreateDate = styled(HeaderCreateDate)`
   margin-right: 4px;

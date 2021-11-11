@@ -19,6 +19,7 @@ const log = buildLog('c:EmotionSelector:index')
 
 type TProps = {
   testid?: string
+  isLegal?: boolean
   emotions: TEmotion
   onAction?: (name: TEmotionType, hasEmotioned: boolean) => void
 }
@@ -26,19 +27,22 @@ type TProps = {
 const EmotionSelector: FC<TProps> = ({
   testid = 'emotion-selector',
   onAction = log,
+  isLegal = true,
   emotions,
 }) => {
   const validEmotions = emotionsCoverter(emotions)
   return (
     <Wrapper testid={testid}>
       <SelectedEmotions emotions={validEmotions} onAction={onAction} />
-      <Tooltip
-        content={<Panel emotions={validEmotions} onAction={onAction} />}
-        trigger="click"
-        noPadding
-      >
-        <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
-      </Tooltip>
+      {isLegal && (
+        <Tooltip
+          content={<Panel emotions={validEmotions} onAction={onAction} />}
+          trigger="click"
+          noPadding
+        >
+          <IconButton path="emotion/emotion.svg" mRight={0} mTop={1} />
+        </Tooltip>
+      )}
     </Wrapper>
   )
 }

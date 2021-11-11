@@ -73,7 +73,7 @@ export const IndentLine = styled.div`
   height: 100%;
   border-left: 1px dashed;
   border-left-color: ${theme('comment.indentLine')};
-  margin-left: 8px;
+  margin-left: 7px;
   margin-top: 8px;
   opacity: 1;
 
@@ -96,31 +96,4 @@ export const CommentBodyInfo = styled.div`
 `
 export const CommentContent = styled.div`
   margin-left: 4px;
-`
-export const LikeIcon = styled(Img)`
-  fill: ${theme('comment.icon')};
-  margin-right: 3px;
-  margin-top: 2px;
-  ${css.size(20)};
-`
-export const ReplyIcon = styled(Img)`
-  fill: ${theme('comment.icon')};
-  margin-right: 5px;
-  margin-top: 1px;
-  ${css.size(18)};
-`
-
-export const ReplyAction = styled.div`
-  ${css.flex()};
-  color: ${theme('comment.action')};
-  margin-right: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 2px;
-  opacity: 0;
-
-  ${CommentBodyInfo}:hover & {
-    opacity: 1;
-  }
-  transition: opacity 0.3s;
 `

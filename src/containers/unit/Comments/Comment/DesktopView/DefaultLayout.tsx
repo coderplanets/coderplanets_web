@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 import { isEmpty } from 'ramda'
 
 import type { TComment } from '@/spec'
@@ -12,8 +12,10 @@ import ArtimentBody from '@/widgets/ArtimentBody'
 import Header from '../Header'
 import ReplyBar from '../ReplyBar'
 import Footer from '../Footer'
+import IllegalBar from './IllegalBar'
 
 import type { TAPIMode } from '../../spec'
+
 import {
   Wrapper,
   CommentWrapper,
@@ -51,7 +53,7 @@ const DefaultLayout: FC<TProps> = ({
   apiMode,
 }) => {
   const { isPinned, meta } = data
-  const { isArticleAuthorUpvoted } = meta
+  const { isArticleAuthorUpvoted, isLegal, illegalReason, illegalWords } = meta
   const isSolution = false
 
   return (
@@ -97,11 +99,22 @@ const DefaultLayout: FC<TProps> = ({
         <CommentBodyInfo onMouseUp={getSelection}>
           <Header data={data} showInnerRef={showInnerRef} apiMode={apiMode} />
           <CommentContent>
-            {!isReply && data.replyTo && <ReplyBar data={data.replyTo} />}
-            <ArtimentBody
-              document={{ bodyHtml: data.bodyHtml }}
-              mode="comment"
-            />
+            {isLegal ? (
+              <Fragment>
+                {!isReply && data.replyTo && <ReplyBar data={data.replyTo} />}
+                <ArtimentBody
+                  document={{ bodyHtml: data.bodyHtml }}
+                  mode="comment"
+                />
+              </Fragment>
+            ) : (
+              <IllegalBar
+                illegalReason={illegalReason}
+                illegalWords={illegalWords}
+              />
+            )}
+
+            {/* <IllegalBar /> */}
           </CommentContent>
           <Footer data={data} apiMode={apiMode} />
         </CommentBodyInfo>

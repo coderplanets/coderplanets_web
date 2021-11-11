@@ -82,7 +82,10 @@ const Actions: FC<TProps> = ({ data }) => {
 
   return (
     <Wrapper>
-      <ReplyAction onClick={() => openReplyEditor(data)}>回复</ReplyAction>
+      {data.meta.isLegal && (
+        <ReplyAction onClick={() => openReplyEditor(data)}>回复</ReplyAction>
+      )}
+
       <SpaceGrow />
       <MenuButton
         options={menuOptions}

@@ -49,6 +49,7 @@ const List: FC<TProps> = ({
             !includes(comment.id, foldedIds) && (
               <RepliesList
                 parentId={comment.id}
+                apiMode={apiMode}
                 entries={comment.replies}
                 repliesCount={comment.repliesCount}
                 repliesState={repliesState}

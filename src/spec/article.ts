@@ -172,6 +172,9 @@ export type TComment = {
   meta?: {
     isArticleAuthorUpvoted?: boolean
     isReplyToOthers?: boolean
+    isLegal?: boolean
+    illegalReason?: string[]
+    illegalWords?: string[]
   }
   article?: {
     id?: string
