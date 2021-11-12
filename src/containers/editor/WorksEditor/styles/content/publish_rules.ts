@@ -14,6 +14,20 @@ export const Wrapper = styled.div`
   /* border: 1px solid; */
   padding: 0 10px;
 `
+export const ToggleTitle = styled.div<{ showDetail: boolean }>`
+  color: ${({ showDetail }) =>
+    showDetail ? theme('button.primary') : theme('thread.articleDigest')};
+
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  margin-left: -7px;
+
+  &:hover {
+    color: ${theme('button.primary')};
+  }
+  transition: all 0.2s;
+`
 export const Section = styled.div`
   ${css.flex('align-start')};
   margin-bottom: 20px;

@@ -34,7 +34,7 @@ const NamePart: FC<TProps> = ({ mode, inputData }) => {
         onChange={(e) => inputOnChange(e, 'title')}
         autoFocus
       />
-      <PublishRules />
+      {title.length === 0 && <PublishRules />}
     </Wrapper>
   )
 }
