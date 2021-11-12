@@ -53,13 +53,13 @@ export const Li = styled.li`
   font-size: 14px;
 `
 export const TextLink = styled.a`
-  text-decoration: underline;
-  margin-right: 1px;
+  text-decoration: none;
+  margin-right: 2px;
 
-  color: ${theme('thread.articleDigest')};
+  color: #139c9e;
   &:hover {
     text-decoration: underline;
-    color: ${theme('thread.articleTitle')};
+    color: #139c9e;
   }
 `
 export const Bold = styled.span`

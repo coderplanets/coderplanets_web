@@ -28,7 +28,7 @@ const NamePart: FC<TProps> = ({ mode, inputData }) => {
   return (
     <Wrapper ref={ref}>
       {mode === 'publish' ? <Title>发布作品</Title> : <Title>更新作品</Title>}
-      <Desc>你（们）的作品名称是 ？</Desc>
+      <Desc>你（们）的作品名字是 ？</Desc>
       <Input
         value={title || ''}
         onChange={(e) => inputOnChange(e, 'title')}

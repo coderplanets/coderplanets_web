@@ -35,7 +35,7 @@ const PublishRules: FC = () => {
       {showDetail && (
         <Fragment>
           <Section>
-            <DoTitle>适合发布:</DoTitle>
+            <DoTitle>欢迎发布:</DoTitle>
             <Ul>
               <Li>
                 各平台能提高开发者 / 设计师 / 产品生产力的软件工具，插件或服务。
