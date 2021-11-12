@@ -151,3 +151,11 @@ export const userSEO = (user: TUser): TSEO => {
     description: user.bio,
   }
 }
+
+export const publishCommunitySEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/publish/community`,
+    title: '建立新社区',
+    description: '建立新社区',
+  }
+}

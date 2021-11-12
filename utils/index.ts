@@ -158,4 +158,5 @@ export {
   articlePublishSEO,
   articleUpdateSEO,
   userSEO,
+  publishCommunitySEO,
 } from './seo'
