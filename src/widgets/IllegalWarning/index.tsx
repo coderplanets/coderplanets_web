@@ -2,13 +2,7 @@
 
 import { FC, memo, Fragment } from 'react'
 
-import {
-  Wrapper,
-  Title,
-  Reason,
-  Content,
-  IllegalItem,
-} from './styles/illegal_warning'
+import { Wrapper, Title, Reason, Content, IllegalItem } from './styles'
 
 type TProps = {
   illegalReason: string[]

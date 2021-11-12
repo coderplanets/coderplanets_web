@@ -10,7 +10,7 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import { ArchiveAlert } from '@/widgets/dynamic'
+import { ArchiveAlert, IllegalWarning } from '@/widgets/dynamic'
 
 import NoticeBar from '@/widgets/NoticeBar'
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
@@ -21,7 +21,6 @@ import TitleInput from './TitleInput'
 import AddOn from './AddOn'
 import Footer from './Footer'
 
-import IllegalWarning from './IllegalWarning'
 import PublishRules from './PublishRules'
 
 // import Settings from './Settings'
@@ -108,6 +107,7 @@ const ArticleEditorContainer: FC<TProps> = ({
         </ContentWrapper>
         <div>
           <CommunityBadgeSelector community={communityData} mode={mode} />
+
           {mode === 'update' && !meta.isLegal && (
             <IllegalWarning
               illegalReason={meta.illegalReason}
