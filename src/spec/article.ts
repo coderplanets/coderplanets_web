@@ -17,6 +17,10 @@ export type TArticleMeta = {
     avatar?: string
     bio?: string | null
   }[]
+
+  isLegal?: boolean
+  illegalReason?: string[]
+  illegalWords?: string[]
 }
 
 export type TDocument = {

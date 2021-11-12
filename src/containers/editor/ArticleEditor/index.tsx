@@ -21,6 +21,7 @@ import TitleInput from './TitleInput'
 import AddOn from './AddOn'
 import Footer from './Footer'
 
+import IllegalWarning from './IllegalWarning'
 import PublishRules from './PublishRules'
 
 // import Settings from './Settings'
@@ -55,8 +56,11 @@ const ArticleEditorContainer: FC<TProps> = ({
     thread,
     editData,
     isArticleAuthor,
+    viewingArticle,
   } = store
 
+  const { meta } = viewingArticle
+  console.log('meta: ', meta)
   const { title, body } = editData
 
   const initEditor = mode === 'publish' || body !== '{}'
@@ -104,6 +108,12 @@ const ArticleEditorContainer: FC<TProps> = ({
         </ContentWrapper>
         <div>
           <CommunityBadgeSelector community={communityData} mode={mode} />
+          {mode === 'update' && !meta.isLegal && (
+            <IllegalWarning
+              illegalReason={meta.illegalReason}
+              illegalWords={meta.illegalWords}
+            />
+          )}
           <PublishRules thread={thread} />
         </div>
       </InnerWrapper>

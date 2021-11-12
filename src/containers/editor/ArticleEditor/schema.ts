@@ -190,6 +190,9 @@ const post = gql`
 
       meta {
         thread
+        isLegal
+        illegalReason
+        illegalWords
       }
     
       document {
@@ -223,6 +226,9 @@ const job = gql`
 
       meta {
         thread
+        isLegal
+        illegalReason
+        illegalWords
       }
     
       document {
@@ -251,6 +257,9 @@ const radar = gql`
 
       meta {
         thread
+        isLegal
+        illegalReason
+        illegalWords
       }
     
       document {
