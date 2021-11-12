@@ -57,6 +57,6 @@ export const CheckWrapper = styled.div`
   margin-top: 15px;
 `
 export const TeamsWrapper = styled.div`
-  margin-top: 15px;
-  margin-left: 13px;
+  margin-top: 20px;
+  margin-left: 10px;
 `

@@ -13,6 +13,9 @@ const ArticleMeta = T.model('ArticleMeta', {
   lastActiveAt: T.optional(T.string, ''),
   citingCount: T.optional(T.number, 0),
   latestUpvotedUsers: T.optional(T.array(SimpleUser), []),
+  isLegal: T.optional(T.boolean, true),
+  illegalReason: T.optional(T.array(T.string), []),
+  illegalWords: T.optional(T.array(T.string), []),
 })
 
 const Document = T.model('ArticleMeta', {

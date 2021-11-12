@@ -4,7 +4,7 @@
  *
  */
 
-import { FC, memo, useState } from 'react'
+import { FC, memo, useEffect, useState } from 'react'
 
 import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
@@ -15,7 +15,7 @@ import SearchBox from './SearchBox'
 import List from './List'
 
 import type { TView } from '../spec'
-import { Wrapper } from '../styles/setter'
+import { Wrapper, EmptyHint } from '../styles/setter'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:UserList:index')
@@ -24,12 +24,28 @@ export type TProps = {
   testid?: string
   show: boolean
   users: TUser[]
+  searchedUsers: TUser[]
   withSetter?: boolean
   onClose: () => void
+  onSearch: (username: string) => void
+  onAdd: (u: TUser) => void
+  onRemove: (u: TUser) => void
 }
 
-const Setter: FC<TProps> = ({ show, users, onClose }) => {
+const Setter: FC<TProps> = ({
+  show,
+  users,
+  searchedUsers,
+  onSearch,
+  onClose,
+  onAdd,
+  onRemove,
+}) => {
   const [view, setView] = useState('list') // list or search
+
+  useEffect(() => {
+    return () => setView('list')
+  }, [])
 
   return (
     <>
@@ -40,9 +56,17 @@ const Setter: FC<TProps> = ({ show, users, onClose }) => {
             goBack={() => setView('list')}
             goSearch={() => setView('search')}
           />
-          {view === 'search' && <SearchBox />}
+          {view === 'search' && <SearchBox onSearch={onSearch} />}
+          {view === 'list' && users.length === 0 && (
+            <EmptyHint>当前没有成员，需要添加新成员吗？</EmptyHint>
+          )}
           <List
-            users={users}
+            users={view === 'list' ? users : searchedUsers}
+            onRemove={onRemove}
+            onAdd={(u) => {
+              onAdd(u)
+              setView('list')
+            }}
             withDelete={view === 'list'}
             withSelect={view === 'search'}
           />

@@ -2,10 +2,8 @@ import { FC, Fragment, memo } from 'react'
 
 import { ICON } from '@/config'
 
-import { Wrapper, BackWrapper, PlusIcon } from '../styles/setter/header'
+import { Wrapper, SearchWrapper, PlusIcon } from '../styles/setter/header'
 import Button from '@/widgets/Buttons/Button'
-import ArrowButton from '@/widgets/Buttons/ArrowButton'
-import { LavaLampLoading } from '@/widgets/dynamic'
 
 import type { TView } from '../spec'
 
@@ -28,17 +26,7 @@ const Header: FC<TProps> = ({ view, goBack, goSearch }) => {
         </Fragment>
       )}
 
-      {view === 'search' && (
-        <BackWrapper>
-          <Button size="small" onClick={goBack} ghost noBorder>
-            <ArrowButton size="medium" direction="left" arrowStyle="simple">
-              返回
-            </ArrowButton>
-          </Button>
-
-          <LavaLampLoading size="small" />
-        </BackWrapper>
-      )}
+      {view === 'search' && <SearchWrapper>添加成员</SearchWrapper>}
     </Wrapper>
   )
 }

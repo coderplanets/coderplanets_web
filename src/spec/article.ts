@@ -17,6 +17,10 @@ export type TArticleMeta = {
     avatar?: string
     bio?: string | null
   }[]
+
+  isLegal?: boolean
+  illegalReason?: string[]
+  illegalWords?: string[]
 }
 
 export type TDocument = {
@@ -79,6 +83,7 @@ export type TWorks = TBaseArticle & {
   profitMode?: string
   workingMode?: string
   techstacks?: TTechStack[]
+  teammates?: TUser[]
   socialInfo?: TSocialInfo[]
   cities?: TCity[]
   isOSS?: boolean
@@ -172,6 +177,9 @@ export type TComment = {
   meta?: {
     isArticleAuthorUpvoted?: boolean
     isReplyToOthers?: boolean
+    isLegal?: boolean
+    illegalReason?: string[]
+    illegalWords?: string[]
   }
   article?: {
     id?: string

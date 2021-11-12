@@ -62,17 +62,25 @@ const SubmitButton: FC<TProps> = ({
     publishDone: false,
     isReady: false,
     isArchived: false,
+    mode: 'publish',
+    isArticleAuthor: false,
   },
 }) => {
-  const { publishDone, isArchived } = submitState
+  const { publishDone, isArchived, mode, isArticleAuthor } = submitState
+
+  if (mode === 'update' && !isArticleAuthor) {
+    return (
+      <Button size="small" disabled>
+        无权限
+      </Button>
+    )
+  }
 
   if (isArchived) {
     return (
-      <div>
-        <Button size="small" disabled>
-          已存档
-        </Button>
-      </div>
+      <Button size="small" disabled>
+        已存档
+      </Button>
     )
   }
 

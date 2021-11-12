@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { filter, includes } from 'ramda'
 
-import type { TSelectOption } from '@/spec'
+import type { TSelectOption, TUser } from '@/spec'
 
 import Checker from '@/widgets/Checker'
 import Select from '@/widgets/Select'
@@ -32,6 +32,10 @@ import {
   checkerOnChange,
   addSocial,
   citiesOnChange,
+  searchUser,
+  addTeammate,
+  removeTeammate,
+  closeSearchedUsers,
 } from '../../logic'
 
 const cityOptions = [
@@ -53,9 +57,14 @@ const cityOptions = [
 type TProps = {
   inputData: TInputData
   socialOptions: TSelectOption[]
+  searchedUsers: TUser[]
 }
 
-const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
+const BasicInfoPart: FC<TProps> = ({
+  inputData,
+  socialOptions,
+  searchedUsers,
+}) => {
   const {
     cover,
     title,
@@ -198,7 +207,16 @@ const BasicInfoPart: FC<TProps> = ({ inputData, socialOptions }) => {
       <Section>
         <Label>团队成员</Label>
         <TeamsWrapper>
-          <UserList users={teammates} layout="create-works" withSetter />
+          <UserList
+            users={teammates}
+            layout="create-works"
+            onAdd={addTeammate}
+            onRemove={removeTeammate}
+            onClose={closeSearchedUsers}
+            onSearch={searchUser}
+            searchedUsers={searchedUsers}
+            withSetter
+          />
         </TeamsWrapper>
       </Section>
     </Wrapper>

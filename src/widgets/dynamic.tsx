@@ -22,3 +22,7 @@ export const ArchiveAlert = dynamic(() => import('./ArchiveAlert'), {
 export const ArchivedSign = dynamic(() => import('./ArchivedSign'), {
   ssr: false,
 })
+
+export const IllegalWarning = dynamic(() => import('./IllegalWarning'), {
+  ssr: false,
+})

@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import type { TComment, TID } from '@/spec'
 
-import type { TRepliesState } from '../spec'
+import type { TRepliesState, TAPIMode } from '../spec'
 import TogglerButton from './TogglerButton'
 import Comment from '../Comment'
 
@@ -18,6 +18,7 @@ import { loadCommentReplies } from '../logic'
 
 type TProps = {
   parentId: TID
+  apiMode: TAPIMode
   entries: TComment[]
   repliesCount: number
   repliesState: TRepliesState
@@ -26,6 +27,7 @@ type TProps = {
 
 const RepliesList: FC<TProps> = ({
   parentId,
+  apiMode,
   entries,
   repliesCount,
   repliesState,
@@ -46,6 +48,7 @@ const RepliesList: FC<TProps> = ({
         return (
           <ListWrapper key={comment.id}>
             <Comment
+              apiMode={apiMode}
               data={comment}
               foldedIds={foldedIds}
               showInnerRef

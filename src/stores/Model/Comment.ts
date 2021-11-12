@@ -30,6 +30,9 @@ const CommentEmotion = T.model('CommentEmotion', commentEmotionFields())
 const CommentMeta = T.model('CommentMeta', {
   isArticleAuthorUpvoted: T.optional(T.boolean, false),
   isReplyToOthers: T.optional(T.boolean, false),
+  isLegal: T.optional(T.boolean, true),
+  illegalReason: T.optional(T.array(T.string), []),
+  illegalWords: T.optional(T.array(T.string), []),
 })
 
 const ParentArticle = T.model('ParentArticle', {

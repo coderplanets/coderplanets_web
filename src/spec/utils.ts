@@ -123,12 +123,16 @@ export type TGQError = {
 export type TInput = Event & { target: HTMLInputElement }
 export type TEditValue = TInput | string | boolean
 
+export type TEditMode = 'publish' | 'update'
+
 export type TSubmitState = {
   publishing?: boolean
   publishDone?: boolean
   isReady?: boolean
   isArchived?: boolean
   stepReady?: boolean[]
+  isArticleAuthor?: boolean
+  mode?: TEditMode
 }
 
 export type TSelectOption = {

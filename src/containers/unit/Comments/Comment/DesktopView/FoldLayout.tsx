@@ -2,12 +2,13 @@ import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TComment } from '@/spec'
-import { cutRest } from '@/utils/helper'
 import { ICON } from '@/config'
 
 import ImgFallback from '@/widgets/ImgFallback'
 import IconButton from '@/widgets/Buttons/IconButton'
 import { SpaceGrow } from '@/widgets/Common'
+
+import IllegalBar from './IllegalBar'
 
 import {
   Wrapper,
@@ -25,6 +26,8 @@ type TProps = {
 
 const FoldLayout: FC<TProps> = ({ data }) => {
   const isSolution = false //
+  const { meta } = data
+  const { isLegal, illegalReason, illegalWords } = meta
 
   return (
     <Wrapper onClick={() => expandComment(data.id)}>
@@ -38,16 +41,26 @@ const FoldLayout: FC<TProps> = ({ data }) => {
         src={data.author.avatar}
         fallback={<ImgFallback user={data.author} size={16} right={10} />}
       />
-      <CommentBody
-        dangerouslySetInnerHTML={{
-          __html: data.bodyHtml,
-        }}
-      />
+      {isLegal ? (
+        <CommentBody
+          dangerouslySetInnerHTML={{
+            __html: data.bodyHtml,
+          }}
+        />
+      ) : (
+        <IllegalBar
+          illegalReason={illegalReason}
+          illegalWords={illegalWords}
+          isFold
+        />
+      )}
+
+      <SpaceGrow />
+
       {data.repliesCount > 0 && (
         <RepliesHint>[ {data.repliesCount} 条回复 ]</RepliesHint>
       )}
 
-      <SpaceGrow />
       {isSolution && (
         <SolutionIcon
           isAuthorUpvoted={data.meta.isArticleAuthorUpvoted}

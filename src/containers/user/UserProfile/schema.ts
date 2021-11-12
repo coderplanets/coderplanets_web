@@ -1,5 +1,5 @@
 import { gql } from '@urql/core'
-import { P } from '@/schemas'
+import { P, F } from '@/schemas'
 
 import { titleCase, plural } from '@/utils/helper'
 

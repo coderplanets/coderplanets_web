@@ -10,7 +10,7 @@ export const Wrapper = styled.div<TActive>`
   margin-right: 5px;
   padding: 0 5px;
   border-radius: 5px;
-  margin-left: -5px;
+  margin-left: -1px;
   background: ${({ $active }) => ($active ? '#00333D' : 'transparent')};
 
   &:hover {

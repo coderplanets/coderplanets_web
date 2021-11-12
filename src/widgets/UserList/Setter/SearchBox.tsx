@@ -1,11 +1,24 @@
-import { FC, memo } from 'react'
+import { FC, memo, useState } from 'react'
 
 import { Wrapper, SearchInput } from '../styles/setter/search_box'
 
-const SearchBox: FC = () => {
+type TProps = {
+  onSearch: (username: string) => void
+}
+
+const SearchBox: FC<TProps> = ({ onSearch }) => {
+  const [name, setName] = useState('')
+
   return (
     <Wrapper>
-      <SearchInput placeholder="// 输入用户名查找用户" />
+      <SearchInput
+        placeholder="// 输入用户名查找用户"
+        value={name}
+        onChange={(e) => {
+          setName(e.target.value)
+          onSearch(e.target.value)
+        }}
+      />
     </Wrapper>
   )
 }

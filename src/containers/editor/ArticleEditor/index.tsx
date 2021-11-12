@@ -10,8 +10,9 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import { ArchiveAlert } from '@/widgets/dynamic'
+import { ArchiveAlert, IllegalWarning } from '@/widgets/dynamic'
 
+import NoticeBar from '@/widgets/NoticeBar'
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import RichEditor from '@/containers/editor/RichEditor'
 import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
@@ -53,8 +54,11 @@ const ArticleEditorContainer: FC<TProps> = ({
     texts,
     thread,
     editData,
+    viewingArticle,
+    allowEdit,
   } = store
 
+  const { meta } = viewingArticle
   const { title, body } = editData
 
   const initEditor = mode === 'publish' || body !== '{}'
@@ -70,6 +74,14 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         )}
         <ContentWrapper>
+          {!allowEdit && (
+            <NoticeBar
+              type="notice"
+              content="只有作者可以编辑本内容。"
+              left={25}
+            />
+          )}
+
           {isArchived && (
             <ArchiveAlert date={archivedAt} top={12} bottom={20} left={25} />
           )}
@@ -94,6 +106,13 @@ const ArticleEditorContainer: FC<TProps> = ({
         </ContentWrapper>
         <div>
           <CommunityBadgeSelector community={communityData} mode={mode} />
+
+          {mode === 'update' && !meta.isLegal && (
+            <IllegalWarning
+              illegalReason={meta.illegalReason}
+              illegalWords={meta.illegalWords}
+            />
+          )}
           <PublishRules thread={thread} />
         </div>
       </InnerWrapper>

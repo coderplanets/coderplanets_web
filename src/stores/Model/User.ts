@@ -60,6 +60,7 @@ const UserSocial = T.model('UserSocial', {
 })
 
 const UserMeta = T.model('UserMeta', {
+  isMaker: T.optional(T.boolean, false),
   publishedBlogsCount: T.optional(T.number, 0),
   publishedJobsCount: T.optional(T.number, 0),
   publishedPostsCount: T.optional(T.number, 0),
@@ -110,6 +111,7 @@ export const SimpleUser = T.model('SimpleUser', {
   login: T.maybeNull(T.string),
   nickname: T.maybeNull(T.string),
   bio: T.maybeNull(T.string),
+  shortbio: T.maybeNull(T.string),
   avatar: T.maybeNull(T.string),
 })
 

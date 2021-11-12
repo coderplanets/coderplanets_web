@@ -176,6 +176,9 @@ const post = gql`
       copyRight
       archivedAt
       isArchived
+      author {
+        ${F.author}
+      }
 
       originalCommunity {
         ${F.community}
@@ -187,6 +190,9 @@ const post = gql`
 
       meta {
         thread
+        isLegal
+        illegalReason
+        illegalWords
       }
     
       document {
@@ -206,6 +212,10 @@ const job = gql`
       archivedAt
       isArchived
 
+      author {
+        ${F.author}
+      }
+
       originalCommunity {
         ${F.community}
       }
@@ -216,6 +226,9 @@ const job = gql`
 
       meta {
         thread
+        isLegal
+        illegalReason
+        illegalWords
       }
     
       document {
@@ -244,6 +257,9 @@ const radar = gql`
 
       meta {
         thread
+        isLegal
+        illegalReason
+        illegalWords
       }
     
       document {

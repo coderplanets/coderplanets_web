@@ -2,7 +2,7 @@ import { gql } from '@urql/core'
 import { F } from '@/schemas'
 
 const githubSignin = gql`
-  mutation($code: String!) {
+  mutation ($code: String!) {
     githubSignin(code: $code) {
       token
       user {
@@ -30,7 +30,6 @@ const searchUsers = gql`
     searchUsers(name: $name) {
       entries {
         ${F.author}
-        bio
       }
       totalCount
     }
@@ -54,7 +53,7 @@ const searchPosts = gql`
   }
 `
 const searchJobs = gql`
-  query($title: String!) {
+  query ($title: String!) {
     searchJobs(title: $title) {
       entries {
         id
@@ -70,7 +69,7 @@ const searchJobs = gql`
   }
 `
 const searchRepos = gql`
-  query($title: String!) {
+  query ($title: String!) {
     searchRepos(title: $title) {
       entries {
         id

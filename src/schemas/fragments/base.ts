@@ -194,6 +194,9 @@ export const commentFields = `
     ${author}
   }
   meta {
+    isLegal
+    illegalReason
+    illegalWords
     isArticleAuthorUpvoted
     isReplyToOthers
   }

@@ -14,10 +14,10 @@ export const Wrapper = styled.div`
   padding-left: 20px;
   padding-right: 11px;
 `
-export const BackWrapper = styled.div`
+export const SearchWrapper = styled.div`
   ${css.flex('align-center', 'justify-between')};
-  margin-left: -12px;
-  width: calc(100% + 16px);
+  width: 100%;
+  padding-left: 3px;
 `
 export const PlusIcon = styled(Img)`
   ${css.size(12)};

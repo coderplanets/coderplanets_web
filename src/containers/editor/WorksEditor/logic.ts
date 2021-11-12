@@ -8,6 +8,7 @@ import type {
   TInput,
   TCommunity,
   TTechStackCategory,
+  TUser,
 } from '@/spec'
 import { ERR, HCN } from '@/constant'
 
@@ -167,6 +168,20 @@ export const setWordsCountState = (wordsCountReady: boolean): void => {
   store?.mark({ wordsCountReady })
 }
 
+export const searchUser = (name: string): void => {
+  sr71$.query(S.searchUsers, { name })
+}
+
+export const addTeammate = (user: TUser): void => {
+  store.addTeammates(user)
+}
+
+export const removeTeammate = (user: TUser): void => {
+  store.removeTeammates(user)
+}
+
+export const closeSearchedUsers = (): void => store.mark({ searchedUsers: [] })
+
 export const onPublish = (): void => {
   const { mode } = store
 
@@ -180,6 +195,7 @@ const doCreate = (): void => {
 
   sr71$.mutate(S.createWorks, {
     ...args,
+    teammates: teammates.map((t) => t.login),
     socialInfo: store.cleanupEmptySocial(),
   })
 }
@@ -191,6 +207,7 @@ const doUpdate = (): void => {
   sr71$.mutate(S.updateWorks, {
     id,
     ...args,
+    teammates: teammates.map((t) => t.login),
     socialInfo: store.cleanupEmptySocial(),
   })
 }
@@ -222,8 +239,8 @@ const loadCommunity = (): void => {
 }
 
 const setDefaultTeammate = (): void => {
-  const { accountInfo, inputData } = store
-  store.mark({ teammates: [accountInfo, ...inputData.techstacks] })
+  const { accountInfo } = store
+  store.mark({ teammates: [accountInfo] })
 }
 
 const DataSolver = [
@@ -256,6 +273,7 @@ const DataSolver = [
         ...classifyTechstack(works),
         body,
         socialInfo,
+        author: works.author,
       }
       store.mark({ ...worksData })
     },
@@ -263,6 +281,13 @@ const DataSolver = [
   {
     match: asyncRes('community'),
     action: ({ community }) => store.mark({ community }),
+  },
+  {
+    match: asyncRes('searchUsers'),
+    action: ({ searchUsers }) => {
+      console.log('searchUsers.entries: ', searchUsers.entries)
+      store.mark({ searchedUsers: searchUsers.entries })
+    },
   },
 ]
 
@@ -285,7 +310,10 @@ export const useInit = (_store: TStore): void => {
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     loadCommunity()
-    setDefaultTeammate()
+    if (store.mode === 'publish') {
+      setDefaultTeammate()
+    }
+
     if (store.mode === 'update') {
       loadWorks()
     }

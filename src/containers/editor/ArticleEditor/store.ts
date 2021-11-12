@@ -14,6 +14,7 @@ import type {
   TTag,
   TArticleThread,
   TSubmitState,
+  TAccount,
 } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
 
@@ -51,9 +52,21 @@ const ArticleEditor = T.model('ArticleEditor', {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
     },
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.account.accountInfo
+    },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing.viewingArticle)
+    },
+    get allowEdit(): boolean {
+      const slf = self as TStore
+      const { mode, accountInfo, viewingArticle } = slf
+
+      return (
+        mode === 'update' && accountInfo.login === viewingArticle.author?.login
+      )
     },
     get thread(): TArticleThread {
       const root = getParent(self) as TRootStore
@@ -138,7 +151,17 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get submitState(): TSubmitState {
       const slf = self as TStore
-      return pick(['publishing', 'publishDone', 'isReady', 'isArchived'], slf)
+      return pick(
+        [
+          'publishing',
+          'publishDone',
+          'isReady',
+          'isArchived',
+          'mode',
+          'isArticleAuthor',
+        ],
+        slf,
+      )
     },
   }))
   .actions((self) => ({

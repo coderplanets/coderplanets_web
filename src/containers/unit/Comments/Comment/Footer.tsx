@@ -19,15 +19,20 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({ data, apiMode }) => {
+  const { isLegal } = data.meta
+
   return (
     <Wrapper>
       <EmotionSelector
+        isLegal={isLegal}
         emotions={data.emotions}
         onAction={(name, hasEmotioned) =>
           handleEmotion(data, name, hasEmotioned)
         }
       />
-      {apiMode === API_MODE.ARTICLE && <DotDivider radius={3} space={10} />}
+      {apiMode === API_MODE.ARTICLE && isLegal && (
+        <DotDivider radius={3} space={10} />
+      )}
       {apiMode === API_MODE.ARTICLE && <Actions data={data} />}
       <SpaceGrow />
     </Wrapper>

@@ -21,9 +21,15 @@ export const Avatar = styled(Img)`
 export const Intro = styled.div`
   ${css.flexColumn()};
 `
-export const Name = styled.div`
+export const Name = styled.a`
   color: ${theme('thread.articleTitle')};
+  text-decoration: none;
   font-size: 14px;
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+  }
 `
 export const Bio = styled.div`
   color: ${theme('thread.articleDigest')};

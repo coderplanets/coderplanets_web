@@ -1,8 +1,11 @@
 import { FC, memo, useEffect, useRef } from 'react'
 
 import { TEditMode } from '@/spec'
-import type { TInputData } from '../spec'
+import { nilOrEmpty } from '@/utils/validator'
 
+import PublishRules from './PublishRules'
+
+import type { TInputData } from '../spec'
 import { Wrapper, Input, Title, Desc } from '../styles/content/name_part'
 import { inputOnChange } from '../logic'
 
@@ -26,12 +29,13 @@ const NamePart: FC<TProps> = ({ mode, inputData }) => {
   return (
     <Wrapper ref={ref}>
       {mode === 'publish' ? <Title>发布作品</Title> : <Title>更新作品</Title>}
-      <Desc>你（们）的作品名称是 ？</Desc>
+      <Desc>你（们）的作品名字是 ？</Desc>
       <Input
         value={title || ''}
         onChange={(e) => inputOnChange(e, 'title')}
         autoFocus
       />
+      {nilOrEmpty(title) && <PublishRules />}
     </Wrapper>
   )
 }

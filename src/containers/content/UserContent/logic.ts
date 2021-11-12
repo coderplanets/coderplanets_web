@@ -78,6 +78,14 @@ const loadEditableCommunities = () => {
   sr71$.query(S.editableCommunities, { login, filter })
 }
 
+const loadPublishedWorks = (): void => {
+  const { viewingUser: user } = store
+  if (!user.isMaker) return
+
+  const filter = { page: 1, size: 10 }
+  sr71$.query(S.pagedPublishedWorks, { login: user.login, filter })
+}
+
 const DataSolver = [
   {
     match: asyncRes('follow'),
@@ -91,6 +99,13 @@ const DataSolver = [
     match: asyncRes('editableCommunities'),
     action: ({ editableCommunities }) => {
       store.mark({ pagedEditableCommunities: editableCommunities })
+      loadPublishedWorks()
+    },
+  },
+  {
+    match: asyncRes('pagedPublishedWorks'),
+    action: ({ pagedPublishedWorks }) => {
+      store.mark({ pagedWorks: pagedPublishedWorks })
     },
   },
   {
