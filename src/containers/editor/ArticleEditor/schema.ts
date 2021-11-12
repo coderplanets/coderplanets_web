@@ -176,6 +176,9 @@ const post = gql`
       copyRight
       archivedAt
       isArchived
+      author {
+        ${F.author}
+      }
 
       originalCommunity {
         ${F.community}
@@ -205,6 +208,10 @@ const job = gql`
       copyRight
       archivedAt
       isArchived
+
+      author {
+        ${F.author}
+      }
 
       originalCommunity {
         ${F.community}

@@ -12,6 +12,7 @@ import { pluggedIn } from '@/utils/mobx'
 
 import { ArchiveAlert } from '@/widgets/dynamic'
 
+import NoticeBar from '@/widgets/NoticeBar'
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import RichEditor from '@/containers/editor/RichEditor'
 import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
@@ -53,6 +54,7 @@ const ArticleEditorContainer: FC<TProps> = ({
     texts,
     thread,
     editData,
+    isArticleAuthor,
   } = store
 
   const { title, body } = editData
@@ -70,6 +72,14 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         )}
         <ContentWrapper>
+          {!isArticleAuthor && (
+            <NoticeBar
+              type="notice"
+              content="只有作者可以编辑本内容。"
+              left={25}
+            />
+          )}
+
           {isArchived && (
             <ArchiveAlert date={archivedAt} top={12} bottom={20} left={25} />
           )}
