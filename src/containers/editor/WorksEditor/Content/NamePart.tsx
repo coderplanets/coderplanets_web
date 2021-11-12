@@ -1,6 +1,7 @@
 import { FC, memo, useEffect, useRef } from 'react'
 
 import { TEditMode } from '@/spec'
+import { nilOrEmpty } from '@/utils/validator'
 
 import PublishRules from './PublishRules'
 
@@ -34,7 +35,7 @@ const NamePart: FC<TProps> = ({ mode, inputData }) => {
         onChange={(e) => inputOnChange(e, 'title')}
         autoFocus
       />
-      {title.length === 0 && <PublishRules />}
+      {nilOrEmpty(title) && <PublishRules />}
     </Wrapper>
   )
 }

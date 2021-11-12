@@ -33,7 +33,7 @@ export const Name = styled.div`
   font-size: 16px;
 
   ${UserWrapper}:hover & {
-    color: #139b9d;
+    color: ${theme('button.primary')};
   }
 `
 export const Bio = styled.div`
@@ -41,7 +41,7 @@ export const Bio = styled.div`
   ${css.cutRest('260px')};
 
   ${UserWrapper}:hover & {
-    color: #139b9d;
+    color: ${theme('button.primary')};
     opacity: 0.8;
   }
 `

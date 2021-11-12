@@ -16,6 +16,7 @@ import type {
   TRootStore,
   TTechCommunities,
   TSocialInfo,
+  TUser,
 } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty, isURL } from '@/utils/validator'
@@ -70,6 +71,9 @@ const WorksEditor = T.model('WorksEditor', {
   devOps: T.optional(T.array(Community), []),
   design: T.optional(T.array(Community), []),
 
+  // teammates
+  searchedUsers: T.optional(T.array(User), []),
+
   // sumbmit & step states
   publishing: T.optional(T.boolean, false),
   publishDone: T.optional(T.boolean, false),
@@ -87,6 +91,9 @@ const WorksEditor = T.model('WorksEditor', {
     get viewingArticle(): TWorks {
       const root = getParent(self) as TRootStore
       return root.viewingArticle as TWorks
+    },
+    get searchedUsersData(): TUser[] {
+      return toJS(self.searchedUsers)
     },
     get previewData(): TWorks {
       const slf = self as TStore
@@ -257,6 +264,17 @@ const WorksEditor = T.model('WorksEditor', {
           return
         }
       }
+    },
+    addTeammates(user: TUser): void {
+      // @ts-ignore
+      self.teammates = [user].concat(toJS(self.teammates))
+    },
+    removeTeammates(user: TUser): void {
+      // @ts-ignore
+      self.teammates = reject(
+        (t) => t.login === user.login,
+        toJS(self.teammates),
+      )
     },
     getSocialPrefix(platform: string): string {
       switch (platform) {

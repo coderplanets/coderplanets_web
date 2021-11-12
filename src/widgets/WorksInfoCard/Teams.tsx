@@ -1,42 +1,24 @@
 import { FC, memo } from 'react'
+import Link from 'next/link'
 
+import type { TUser } from '@/spec'
 import { Wrapper, Member, Avatar, Intro, Name, Bio } from './styles/teams'
 
-// type TProps = {
-//   show: boolean
-//   viewing: TArticle
-// }
+type TProps = {
+  teammates: TUser[]
+}
 
-const tmpList = [
-  {
-    id: '1',
-    avatar: 'https://avatars.githubusercontent.com/u/17426470?s=64&v=4',
-    nickname: 'coolMan',
-    bio: '这是一个随机头像，from github',
-  },
-  // {
-  //   id: '2',
-  //   avatar: 'https://avatars.githubusercontent.com/u/5580297?s=64&v=4',
-  //   nickname: 'coolMan',
-  //   bio: '这是一个随机头像，from github',
-  // },
-  // {
-  //   id: '3',
-  //   avatar: 'https://avatars.githubusercontent.com/u/2041385?s=64&v=4',
-  //   nickname: 'coolMan',
-  //   bio: '这是一个随机头像，from github',
-  // },
-]
-
-const Teams: FC = () => {
+const Teams: FC<TProps> = ({ teammates }) => {
   return (
     <Wrapper>
-      {tmpList.map((item) => (
-        <Member key={item.id}>
-          <Avatar src={item.avatar} />
+      {teammates.map((user) => (
+        <Member key={user.login}>
+          <Avatar src={user.avatar} />
           <Intro>
-            <Name>{item.nickname}</Name>
-            <Bio>{item.bio}</Bio>
+            <Link href={`/u/${user.login}`} passHref>
+              <Name>{user.nickname}</Name>
+            </Link>
+            <Bio>{user.bio}</Bio>
           </Intro>
         </Member>
       ))}

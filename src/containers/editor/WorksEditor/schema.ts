@@ -1,5 +1,5 @@
 import { gql } from '@urql/core'
-import { P } from '@/schemas'
+import { P, F } from '@/schemas'
 
 const createWorks = gql`
   mutation (
@@ -13,6 +13,7 @@ const createWorks = gql`
     $workingMode: WorkingMode
     $cities: [String]
     $techstacks: [String]
+    $teammates: [String]
     $socialInfo: [SocialInfo]
     $appStore: [AppStoreInfo]
     $articleTags: [Id]
@@ -28,6 +29,7 @@ const createWorks = gql`
       workingMode: $workingMode
       cities: $cities
       techstacks: $techstacks
+      teammates: $teammates
       socialInfo: $socialInfo
       appStore: $appStore
       articleTags: $articleTags
@@ -50,6 +52,7 @@ const updateWorks = gql`
     $workingMode: WorkingMode
     $cities: [String]
     $techstacks: [String]
+    $teammates: [String]
     $socialInfo: [SocialInfo]
     $appStore: [AppStoreInfo]
     $articleTags: [Ids]
@@ -65,6 +68,7 @@ const updateWorks = gql`
       workingMode: $workingMode
       cities: $cities
       techstacks: $techstacks
+      teammates: $teammates
       socialInfo: $socialInfo
       appStore: $appStore
       articleTags: $articleTags
@@ -93,11 +97,23 @@ const community = gql`
   }
 `
 
+const searchUsers = gql`
+  query($name: String!) {
+    searchUsers(name: $name) {
+      entries {
+        ${F.author}
+      }
+      totalCount
+    }
+  }
+`
+
 const schema = {
   createWorks,
   updateWorks,
   works,
   community,
+  searchUsers,
 }
 
 export default schema

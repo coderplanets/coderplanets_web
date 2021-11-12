@@ -1,5 +1,7 @@
 import { types as T } from 'mobx-state-tree'
 
+import { SimpleUser } from './User'
+
 import { articleFields } from './helper/article'
 import { pagiFields } from './helper/common'
 
@@ -30,6 +32,7 @@ export const Works = T.model('Works', {
   homeLink: T.maybeNull(T.string),
   profitMode: T.optional(T.string, ''),
   workingMode: T.optional(T.string, ''),
+  teammates: T.optional(T.array(SimpleUser), []),
   socialInfo: T.optional(T.array(SocialInfo), []),
   techstacks: T.optional(T.array(TechStack), []),
   cities: T.optional(T.array(City), []),

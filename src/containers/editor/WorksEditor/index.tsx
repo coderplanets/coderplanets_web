@@ -46,7 +46,10 @@ const WorksEditorContainer: FC<TProps> = ({
     socialOptions,
     techCommunities,
     submitState,
+    searchedUsersData,
   } = store
+
+  console.log('searchedUsersData -> ', searchedUsersData)
 
   return (
     <Wrapper testid={testid}>
@@ -59,6 +62,7 @@ const WorksEditorContainer: FC<TProps> = ({
           inputData={inputData}
           socialOptions={socialOptions}
           techCommunities={techCommunities}
+          searchedUsers={searchedUsersData}
         />
         <Footer
           mode={mode}

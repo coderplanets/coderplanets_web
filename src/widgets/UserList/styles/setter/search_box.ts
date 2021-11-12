@@ -11,7 +11,9 @@ export const Wrapper = styled.div`
   margin-top: 20px;
 `
 
-export const SearchInput = styled(Input)``
+export const SearchInput = styled(Input)`
+  width: 360px;
+`
 export const PlusIcon = styled(Img)`
   ${css.size(12)};
   margin-right: 5px;

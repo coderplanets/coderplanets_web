@@ -83,6 +83,7 @@ export type TWorks = TBaseArticle & {
   profitMode?: string
   workingMode?: string
   techstacks?: TTechStack[]
+  teammates?: TUser[]
   socialInfo?: TSocialInfo[]
   cities?: TCity[]
   isOSS?: boolean

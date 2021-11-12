@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { TSelectOption, TTechCommunities, TEditMode } from '@/spec'
+import { TSelectOption, TTechCommunities, TEditMode, TUser } from '@/spec'
 
 import type { TStep, TInputData } from '../spec'
 import { STEP } from '../constant'
@@ -19,6 +19,7 @@ type TProps = {
   inputData: TInputData
   socialOptions: TSelectOption[]
   techCommunities: TTechCommunities
+  searchedUsers: TUser[]
 }
 
 const Content: FC<TProps> = ({
@@ -27,13 +28,18 @@ const Content: FC<TProps> = ({
   inputData,
   socialOptions,
   techCommunities,
+  searchedUsers,
 }) => {
   let StepComp = null
 
   switch (step) {
     case STEP.ONE: {
       StepComp = (
-        <BasicInfoPart inputData={inputData} socialOptions={socialOptions} />
+        <BasicInfoPart
+          inputData={inputData}
+          socialOptions={socialOptions}
+          searchedUsers={searchedUsers}
+        />
       )
       break
     }

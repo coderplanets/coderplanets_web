@@ -24,8 +24,11 @@ type TProps = {
   users: TUser[]
   withSetter?: boolean
   layout: TLayout
-  onDelete?: (u: TUser) => void
-  onSelect?: (u: TUser) => void
+  onRemove?: (u: TUser) => void
+  onAdd?: (u: TUser) => void
+  onClose?: () => void
+  onSearch?: (username: string) => void
+  searchedUsers: TUser[]
 }
 
 let Setter: FC<TSetter> = () => null
@@ -35,8 +38,11 @@ const UserList: FC<TProps> = ({
   users,
   withSetter = false,
   layout,
-  onDelete = log,
-  onSelect = log,
+  onRemove = log,
+  onAdd = log,
+  onSearch = log,
+  onClose = log,
+  searchedUsers = [],
 }) => {
   const [showSetter, setShowSetter] = useState(false)
 
@@ -53,7 +59,14 @@ const UserList: FC<TProps> = ({
       <Setter
         show={showSetter}
         users={users}
-        onClose={() => setShowSetter(false)}
+        onClose={() => {
+          onClose?.()
+          setShowSetter(false)
+        }}
+        onSearch={onSearch}
+        onAdd={onAdd}
+        onRemove={onRemove}
+        searchedUsers={searchedUsers}
       />
       <List
         layout={layout}

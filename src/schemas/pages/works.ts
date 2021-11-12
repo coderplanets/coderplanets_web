@@ -10,6 +10,9 @@ export const works = `
       homeLink
       profitMode
       workingMode
+      teammates {
+        ${F.author}
+      }
       techstacks {
         raw
         logo

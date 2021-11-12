@@ -35,7 +35,7 @@ const WorksInfoCard: FC<TProps> = ({ article }) => {
         <Title>团队成员</Title>
       </Row>
       <Br top={12} />
-      <Teams />
+      <Teams teammates={article.teammates} />
       <Divider top={20} bottom={10} />
       <Row>
         <SlishSign>//</SlishSign>
