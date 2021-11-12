@@ -31,11 +31,6 @@ const Content: FC<TProps> = ({
   let StepComp = null
 
   switch (step) {
-    case STEP.ZERO: {
-      StepComp = <NamePart mode={mode} inputData={inputData} />
-      break
-    }
-
     case STEP.ONE: {
       StepComp = (
         <BasicInfoPart inputData={inputData} socialOptions={socialOptions} />
@@ -59,7 +54,7 @@ const Content: FC<TProps> = ({
     }
 
     default: {
-      StepComp = <div>default step</div>
+      StepComp = <NamePart mode={mode} inputData={inputData} />
       break
     }
   }

@@ -1,8 +1,10 @@
 import { FC, memo, useEffect, useRef } from 'react'
 
 import { TEditMode } from '@/spec'
-import type { TInputData } from '../spec'
 
+import PublishRules from './PublishRules'
+
+import type { TInputData } from '../spec'
 import { Wrapper, Input, Title, Desc } from '../styles/content/name_part'
 import { inputOnChange } from '../logic'
 
@@ -32,6 +34,7 @@ const NamePart: FC<TProps> = ({ mode, inputData }) => {
         onChange={(e) => inputOnChange(e, 'title')}
         autoFocus
       />
+      <PublishRules />
     </Wrapper>
   )
 }
