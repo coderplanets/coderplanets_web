@@ -60,11 +60,13 @@ const ArticleEditor = T.model('ArticleEditor', {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing.viewingArticle)
     },
-    get isArticleAuthor(): boolean {
+    get allowEdit(): boolean {
       const slf = self as TStore
-      const { accountInfo, viewingArticle } = slf
+      const { mode, accountInfo, viewingArticle } = slf
 
-      return accountInfo.login === viewingArticle.author?.login
+      return (
+        mode === 'update' && accountInfo.login === viewingArticle.author?.login
+      )
     },
     get thread(): TArticleThread {
       const root = getParent(self) as TRootStore

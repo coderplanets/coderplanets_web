@@ -273,6 +273,7 @@ const DataSolver = [
         ...classifyTechstack(works),
         body,
         socialInfo,
+        author: works.author,
       }
       store.mark({ ...worksData })
     },

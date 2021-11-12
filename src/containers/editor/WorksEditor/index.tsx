@@ -14,6 +14,8 @@ import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import NoticeBar from '@/widgets/NoticeBar'
+
 import Preview from './Preview'
 import StepsBar from './StepsBar'
 import Content from './Content'
@@ -47,13 +49,20 @@ const WorksEditorContainer: FC<TProps> = ({
     techCommunities,
     submitState,
     searchedUsersData,
+    allowEdit,
   } = store
-
-  console.log('searchedUsersData -> ', searchedUsersData)
 
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
+        {!allowEdit && (
+          <NoticeBar
+            type="notice"
+            content="只有作者可以编辑本内容。"
+            left={25}
+          />
+        )}
+
         <Preview step={step} works={previewData} />
         <StepsBar step={step} submitState={submitState} />
         <Content
@@ -64,12 +73,14 @@ const WorksEditorContainer: FC<TProps> = ({
           techCommunities={techCommunities}
           searchedUsers={searchedUsersData}
         />
-        <Footer
-          mode={mode}
-          step={step}
-          inputData={inputData}
-          submitState={submitState}
-        />
+        {allowEdit && (
+          <Footer
+            mode={mode}
+            step={step}
+            inputData={inputData}
+            submitState={submitState}
+          />
+        )}
       </InnerWrapper>
     </Wrapper>
   )

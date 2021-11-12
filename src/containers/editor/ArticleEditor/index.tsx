@@ -54,12 +54,11 @@ const ArticleEditorContainer: FC<TProps> = ({
     texts,
     thread,
     editData,
-    isArticleAuthor,
     viewingArticle,
+    allowEdit,
   } = store
 
   const { meta } = viewingArticle
-  console.log('meta: ', meta)
   const { title, body } = editData
 
   const initEditor = mode === 'publish' || body !== '{}'
@@ -75,7 +74,7 @@ const ArticleEditorContainer: FC<TProps> = ({
           />
         )}
         <ContentWrapper>
-          {!isArticleAuthor && (
+          {!allowEdit && (
             <NoticeBar
               type="notice"
               content="只有作者可以编辑本内容。"

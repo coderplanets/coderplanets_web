@@ -48,6 +48,7 @@ const WorksEditor = T.model('WorksEditor', {
     STEP.ZERO,
   ),
 
+  author: T.optional(User, {}),
   community: T.optional(Community, {}),
 
   id: T.maybeNull(T.string),
@@ -91,6 +92,12 @@ const WorksEditor = T.model('WorksEditor', {
     get viewingArticle(): TWorks {
       const root = getParent(self) as TRootStore
       return root.viewingArticle as TWorks
+    },
+    get allowEdit(): boolean {
+      const slf = self as TStore
+      const { mode, accountInfo, author } = slf
+
+      return mode === 'update' && accountInfo.login === author.login
     },
     get searchedUsersData(): TUser[] {
       return toJS(self.searchedUsers)
