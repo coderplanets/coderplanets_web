@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
+import { SIZE } from '@/constant'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
@@ -34,14 +35,14 @@ const SetupDomain = ({ status }) => {
       />
       <NextBtn>
         <ArrowButton
-          size="medium"
+          size={SIZE.MEDIUM}
           direction="left"
           onClick={pervStep}
           dimWhenIdle
         >
           上一步
         </ArrowButton>
-        <ArrowButton size="large" onClick={nextStep}>
+        <ArrowButton size={SIZE.MEDIUM} onClick={nextStep}>
           下一步
         </ArrowButton>
       </NextBtn>

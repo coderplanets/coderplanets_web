@@ -20,17 +20,21 @@ export const Box = styled.div<TActive>`
   border: 1px solid;
   border-color: ${theme('thread.articleDigest')};
 
-  border: ${({ active }) =>
-    active ? '1px solid #327faf;' : '1px solid #31576f;'};
+  border: ${({ active }) => (active ? '1px solid' : '1px solid')};
+  border-top: ${({ active }) => (active ? '3px solid' : '1px solid')};
+
+  border-color: ${({ active }) =>
+    active ? theme('button.primary') : '#31576f;'};
   box-shadow: ${({ active }) =>
     active ? '0px 7px 20px 10px rgba(0, 0, 0, 0.15);' : 'none'};
 
   &:hover {
     cursor: pointer;
-    border: 1px solid #327faf;
-    box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15); /* same with the popover */
+    border: 1px solid;
+    border-top: ${({ active }) => (active ? '3px solid' : '1px solid')};
+    border-color: ${theme('button.primary')};
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const HeaderText = styled.div`
   ${css.flex('align-center', 'justify-between')};

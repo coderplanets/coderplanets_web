@@ -13,7 +13,7 @@ export const Community = styled.a`
   ${css.flex('align-center', 'justify-between')};
   height: 30px;
   margin-right: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 
   &:hover {
     cursor: pointer;

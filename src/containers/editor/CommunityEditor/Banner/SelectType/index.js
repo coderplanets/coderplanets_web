@@ -7,6 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
+import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
@@ -30,13 +31,13 @@ const SelectType = ({ status: { communityType } }) => {
     <Wrapper>
       <IntroTitle>
         <AddNewIcon src={`${ICON_CMD}/community_new.svg`} />
-        你想创建一个什么类型的社区?
+        你想创建一个什么类型的子社区?
       </IntroTitle>
       <TypeBoxes communityType={communityType} />
 
       {communityType && (
         <NextBtn>
-          <ArrowButton size="large" onClick={nextStep}>
+          <ArrowButton size={SIZE.MEDIUM} onClick={nextStep}>
             下一步
           </ArrowButton>
         </NextBtn>

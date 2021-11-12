@@ -25,7 +25,7 @@ const TypeBoxes = ({ communityType }) => {
           <div>免费</div>
           <Checker checked={communityType === STANDER} hiddenMode />
         </HeaderText>
-        <MainText>标准型</MainText>
+        <MainText>公共型</MainText>
         <FooterText>已有 114 +</FooterText>
       </Box>
       <Box

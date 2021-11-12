@@ -7,6 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@/config'
+import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
@@ -45,7 +46,7 @@ const SelectType = ({ status: { communityType } }) => {
         </Header>
         <Desc>{intro.desc}</Desc>
         <br />
-        <ArrowButton size="small" dimWhenIdle>
+        <ArrowButton size={SIZE.SMALL} dimWhenIdle>
           了解更多
         </ArrowButton>
       </LeftBlock>
@@ -63,7 +64,7 @@ const SelectType = ({ status: { communityType } }) => {
             />
           ))}
         </CommunityDemoWrapper>
-        <ArrowButton size="small" dimWhenIdle>
+        <ArrowButton size={SIZE.SMALL} dimWhenIdle>
           探索更多
         </ArrowButton>
       </RightBlock>

@@ -27,7 +27,7 @@ export const Wrapper = styled.div<TWrapper>`
     dimWhenIdle || disabled ? '0.65' : 1};
   justify-content: ${({ direction }) =>
     direction === 'left' ? 'flex-end' : 'flex-start'};
-  margin-left: ${({ size }) => getArrowMaxWidth(size)};
+  /* margin-left: ${({ size }) => getArrowMaxWidth(size)}; */
 
   &:hover {
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
@@ -72,6 +72,7 @@ export const RightIcon = styled(Icon)<TIcon>`
   margin-left: ${({ size, arrowStyle }) =>
     arrowStyle === 'default' ? getMargin(size) : getSimpleMargin(size)};
 
+  /* 多个组件同时使用的时候，这个语法有 bug, 参考 CommunityEditor 组件 */
   ${Wrapper}:hover & {
     opacity: 1;
     right: ${({ size }) => {

@@ -11,9 +11,9 @@ export const Wrapper = styled.div`
   min-height: 300px;
 `
 const Block = styled.div`
+  ${css.flexColumn('align-start')};
   padding: 15px;
   width: 45%;
-  ${css.flexColumn('align-start')};
 `
 export const LeftBlock = styled(Block)`
   padding-left: 0;
