@@ -5,8 +5,9 @@ import css from '@/utils/css'
 
 import { InputBar } from './input_box'
 
-import ApplySVG from '@/icons/Apply'
 import Img from '@/Img'
+import ApplySVG from '@/icons/Apply'
+import WorksHolderSVG from '@/icons/WorksHolder'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -24,6 +25,35 @@ export const IntroTitle = styled.div`
   font-size: 18px;
   margin-bottom: 20px;
   margin-left: -10px;
+`
+export const InfoWrapper = styled.div`
+  ${css.flex('align-center')};
+`
+export const RealCover = styled(Img)`
+  ${css.size(80)};
+  border-radius: 6px;
+`
+export const HolderWrapper = styled.div`
+  ${css.size(80)};
+  ${css.flex('align-both')};
+  border-radius: 6px;
+  background: #0c2631;
+`
+
+export const HolderIcon = styled(WorksHolderSVG)`
+  ${css.size(58)};
+  fill: #043b49;
+  opacity: 0.6;
+  transform: rotate(90deg);
+
+  ${HolderWrapper}:hover & {
+    opacity: 0;
+  }
+  transition: all 0.2s;
+`
+
+export const InputsWrapper = styled.div`
+  margin-left: 15px;
 `
 export const InputBox = styled(InputBar)`
   width: 300px;

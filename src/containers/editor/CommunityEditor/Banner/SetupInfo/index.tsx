@@ -1,7 +1,9 @@
 import { FC, memo } from 'react'
 
 import { SIZE } from '@/constant'
+import { nilOrEmpty } from '@/utils/validator'
 
+import OSSUploader from '@/widgets/OSSUploader'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import { Br } from '@/widgets/Common'
 
@@ -11,6 +13,11 @@ import {
   ApplyIcon,
   StepHint,
   NextBtn,
+  InfoWrapper,
+  HolderWrapper,
+  HolderIcon,
+  RealCover,
+  InputsWrapper,
   InputBox,
 } from '../../styles/banner/setup_info'
 
@@ -25,6 +32,7 @@ type TProps = {
 
 const SetupInfo: FC<TProps> = ({ status }) => {
   const { titleValue, descValue } = status
+  const cover = null
 
   return (
     <Wrapper>
@@ -33,17 +41,31 @@ const SetupInfo: FC<TProps> = ({ status }) => {
         社区基本信息
         <StepHint>3 / 4</StepHint>
       </IntroTitle>
-      <InputBox
-        value={titleValue}
-        placeholder="社区名称"
-        onChange={(e) => inputOnChange(e, 'titleValue')}
-      />
-      <Br bottom={10} />
-      <InputBox
-        value={descValue}
-        placeholder="社区一句话描述"
-        onChange={(e) => inputOnChange(e, 'descValue')}
-      />
+      <InfoWrapper>
+        <OSSUploader onUploadDone={(url) => console.log(url)}>
+          {nilOrEmpty(cover) ? (
+            <HolderWrapper>
+              <HolderIcon />
+            </HolderWrapper>
+          ) : (
+            <RealCover src={cover} />
+          )}
+        </OSSUploader>
+        <InputsWrapper>
+          <InputBox
+            value={titleValue}
+            placeholder="社区名称"
+            onChange={(e) => inputOnChange(e, 'titleValue')}
+          />
+          <Br bottom={10} />
+          <InputBox
+            value={descValue}
+            placeholder="社区一句话描述"
+            onChange={(e) => inputOnChange(e, 'descValue')}
+          />
+        </InputsWrapper>
+      </InfoWrapper>
+
       <NextBtn>
         <ArrowButton
           size={SIZE.MEDIUM}
