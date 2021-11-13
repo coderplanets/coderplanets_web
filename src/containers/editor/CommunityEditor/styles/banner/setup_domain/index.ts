@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import Img from '@/Img'
+import DomainSVG from '@/icons/Domain'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -22,8 +22,7 @@ export const IntroTitle = styled.div`
   margin-bottom: 20px;
   margin-left: -10px;
 `
-
-export const TitleIcon = styled(Img)`
+export const DomainIcon = styled(DomainSVG)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(18)};
   margin-right: 10px;

@@ -5,6 +5,7 @@ import css from '@/utils/css'
 
 import { InputBar } from './input_box'
 
+import ApplySVG from '@/icons/Apply'
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
@@ -37,8 +38,7 @@ export const InputBox = styled(InputBar)`
     font-size: 13px;
   }
 `
-
-export const TitleIcon = styled(Img)`
+export const ApplyIcon = styled(ApplySVG)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(18)};
   margin-right: 10px;

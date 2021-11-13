@@ -5,6 +5,8 @@ import { ICON_CMD } from '@/config'
 
 import Content from './Content'
 
+import type { TCommunityType } from '../../spec'
+
 import {
   Wrapper,
   Header,
@@ -25,6 +27,7 @@ type TProps = {
   title?: string
   desc?: string
   showContent?: boolean
+  communityType?: TCommunityType
 }
 
 const FakeBrowser: FC<TProps> = ({
@@ -32,6 +35,7 @@ const FakeBrowser: FC<TProps> = ({
   title = '',
   desc = '',
   showContent = false,
+  communityType = null,
 }) => {
   const tabTitle = title || domain || 'coderplanets'
 
@@ -74,7 +78,9 @@ const FakeBrowser: FC<TProps> = ({
           <ToolIcon src={`${ICON_CMD}/new_community/more.svg`} />
         </ToolbarWrapper>
       </AddressBar>
-      {showContent && <Content title={title} desc={desc} />}
+      {showContent && (
+        <Content title={title} desc={desc} communityType={communityType} />
+      )}
     </Wrapper>
   )
 }

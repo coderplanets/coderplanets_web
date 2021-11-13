@@ -1,6 +1,5 @@
 import { FC, memo } from 'react'
 
-import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
@@ -9,7 +8,7 @@ import { Br } from '@/widgets/Common'
 import {
   Wrapper,
   IntroTitle,
-  TitleIcon,
+  ApplyIcon,
   StepHint,
   NextBtn,
   InputBox,
@@ -30,7 +29,7 @@ const SetupInfo: FC<TProps> = ({ status }) => {
   return (
     <Wrapper>
       <IntroTitle>
-        <TitleIcon src={`${ICON_CMD}/new_community/domain.svg`} />
+        <ApplyIcon />
         社区基本信息
         <StepHint>3 / 4</StepHint>
       </IntroTitle>

@@ -32,7 +32,7 @@ type TProps = {
   setupInfoStatus: TSetupInfoStatus
 }
 
-const Content = ({
+const Content: FC<TProps> = ({
   step,
   selectTypeStatus,
   setupDomainStatus,
@@ -49,12 +49,14 @@ const Content = ({
       stepComp = <SetupDomain status={setupDomainStatus} />
       break
     }
-    case STEP.SETUP_INFO: {
-      stepComp = <SetupInfo status={setupInfoStatus} />
-      break
-    }
     default: {
-      stepComp = <div>unknow step</div>
+      stepComp = (
+        <SetupInfo
+          status={setupInfoStatus}
+          communityType={selectTypeStatus.communityType}
+        />
+      )
+      break
     }
   }
 

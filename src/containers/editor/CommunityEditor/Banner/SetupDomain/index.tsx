@@ -1,6 +1,5 @@
 import { FC, memo } from 'react'
 
-import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
@@ -10,7 +9,7 @@ import InputBox from '../InputBox'
 import {
   Wrapper,
   IntroTitle,
-  TitleIcon,
+  DomainIcon,
   StepHint,
   NextBtn,
 } from '../../styles/banner/setup_domain'
@@ -27,7 +26,7 @@ const SetupDomain: FC<TProps> = ({ status }) => {
   return (
     <Wrapper>
       <IntroTitle>
-        <TitleIcon src={`${ICON_CMD}/new_community/domain.svg`} />
+        <DomainIcon />
         社区的子域名
         <StepHint>2 / 4</StepHint>
       </IntroTitle>

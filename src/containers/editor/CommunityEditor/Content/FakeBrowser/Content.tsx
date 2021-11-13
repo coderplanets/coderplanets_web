@@ -1,5 +1,8 @@
 import { FC, memo } from 'react'
 
+import type { TCommunityType } from '../../spec'
+import communityIntros from '../communityIntros'
+
 import {
   Wrapper,
   BannerWrapper,
@@ -16,9 +19,10 @@ import {
 type TProps = {
   title?: string
   desc?: string
+  communityType: TCommunityType
 }
 
-const Content: FC<TProps> = ({ title = '', desc = '' }) => {
+const Content: FC<TProps> = ({ title = '', desc = '', communityType }) => {
   return (
     <Wrapper>
       <BannerWrapper>
@@ -27,14 +31,13 @@ const Content: FC<TProps> = ({ title = '', desc = '' }) => {
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
         </Intro>
-        <ThreadWrapper>
-          <ThreadItem>帖子</ThreadItem>
-          <ThreadItem>雷达</ThreadItem>
-          <ThreadItem>博客</ThreadItem>
-          <ThreadItem>成员分布</ThreadItem>
-          <ThreadItem>工作</ThreadItem>
-          <ThreadItem>酷导航</ThreadItem>
-        </ThreadWrapper>
+        {communityType && (
+          <ThreadWrapper>
+            {communityIntros[communityType].threads.map((thread) => (
+              <ThreadItem key={thread}>{thread}</ThreadItem>
+            ))}
+          </ThreadWrapper>
+        )}
       </BannerWrapper>
       <FeedWrapper>
         <Feed width="50%" />
