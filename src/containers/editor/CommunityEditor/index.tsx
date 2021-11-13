@@ -32,7 +32,13 @@ const CommunityEditorContainer: FC<TProps> = ({
   metric = METRIC.COMMUNITY_EDITOR,
 }) => {
   useInit(store)
-  const { step, selectTypeStatus, setupDomainStatus, setupInfoStatus } = store
+  const {
+    step,
+    selectTypeStatus,
+    setupDomainStatus,
+    setupInfoStatus,
+    validState,
+  } = store
 
   return (
     <Wrapper metric={metric}>
@@ -41,6 +47,7 @@ const CommunityEditorContainer: FC<TProps> = ({
         selectTypeStatus={selectTypeStatus}
         setupDomainStatus={setupDomainStatus}
         setupInfoStatus={setupInfoStatus}
+        validState={validState}
       />
       <InnerWrapper metric={metric}>
         <ContentWrapper>

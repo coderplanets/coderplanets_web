@@ -89,6 +89,10 @@ export const NextBtn = styled.div`
   position: absolute;
   ${css.flex('align-center', 'justify-around')};
   width: 200px;
-  bottom: 5px;
-  margin-left: -2px;
+  bottom: 0px;
+`
+export const CommunityName = styled.span`
+  ${css.cutRest('50px')};
+  margin-left: 1px;
+  margin-right: 1px;
 `

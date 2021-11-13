@@ -43,6 +43,12 @@ export const NextBtn = styled.div`
   position: absolute;
   ${css.flex('align-center', 'justify-around')};
   width: 200px;
-  bottom: 5px;
+  bottom: 25px;
   margin-left: -2px;
+`
+export const ErrorMsg = styled.div`
+  position: absolute;
+  bottom: 70px;
+  color: ${theme('baseColor.red')};
+  font-size: 13px;
 `

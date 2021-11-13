@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import type { TInput } from '@/spec'
+import type { TEditValue } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue, updateEditing } from '@/utils'
 
@@ -65,7 +65,7 @@ export const communityTypeOnChange = (communityType: TCommunityType): void => {
  * @param {e} htmlEvent
  * @public
  */
-export const inputOnChange = (e: TInput, part: string): void => {
+export const inputOnChange = (e: TEditValue, part: string): void => {
   updateEditing(store, part, e)
 }
 

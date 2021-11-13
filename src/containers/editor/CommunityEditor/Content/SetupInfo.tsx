@@ -10,19 +10,21 @@ type TProps = {
   communityType: TCommunityType
 }
 
-const SetupDomain: FC<TProps> = ({ status, communityType }) => {
-  const { domainValue: domain, titleValue: title, descValue: desc } = status
+const SetupInfo: FC<TProps> = ({ status, communityType }) => {
+  const { raw, title, desc, logo } = status
+
   return (
     <Wrapper>
       <FakeBrowser
-        domain={domain}
+        domain={raw}
         communityType={communityType}
-        title={title || '社区名称'}
-        desc={desc || '社区一句话描述'}
+        title={title || '// 社区名称'}
+        desc={desc || '// 社区一句话描述'}
+        logo={logo}
         showContent
       />
     </Wrapper>
   )
 }
 
-export default memo(SetupDomain)
+export default memo(SetupInfo)

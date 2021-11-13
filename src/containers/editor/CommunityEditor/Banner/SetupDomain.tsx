@@ -1,10 +1,11 @@
 import { FC, memo } from 'react'
+import { isEmpty } from 'ramda'
 
 import { SIZE } from '@/constant'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
-import InputBox from '../InputBox'
+import InputBox from './InputBox'
 
 import {
   Wrapper,
@@ -12,16 +13,19 @@ import {
   DomainIcon,
   StepHint,
   NextBtn,
-} from '../../styles/banner/setup_domain'
+  ErrorMsg,
+} from '../styles/banner/setup_domain'
 
-import type { TSetupDomainStatus } from '../../spec'
-import { pervStep, nextStep, inputOnChange } from '../../logic'
+import type { TSetupDomainStatus, TValidState } from '../spec'
+import { pervStep, nextStep, inputOnChange } from '../logic'
 
 type TProps = {
   status: TSetupDomainStatus
+  validState: TValidState
 }
-const SetupDomain: FC<TProps> = ({ status }) => {
-  const { domainValue } = status
+const SetupDomain: FC<TProps> = ({ status, validState }) => {
+  const { raw } = status
+  const { isRawValid } = validState
 
   return (
     <Wrapper>
@@ -31,10 +35,13 @@ const SetupDomain: FC<TProps> = ({ status }) => {
         <StepHint>2 / 4</StepHint>
       </IntroTitle>
       <InputBox
-        value={domainValue}
+        value={raw}
         placeholder="your-domain"
-        onChange={(e) => inputOnChange(e, 'domainValue')}
+        onChange={(e) => inputOnChange(e, 'raw')}
       />
+      {!isEmpty(raw) && !isRawValid && (
+        <ErrorMsg>仅支持英文、拼音或数字组合</ErrorMsg>
+      )}
       <NextBtn>
         <ArrowButton
           size={SIZE.MEDIUM}
@@ -44,7 +51,11 @@ const SetupDomain: FC<TProps> = ({ status }) => {
         >
           上一步
         </ArrowButton>
-        <ArrowButton size={SIZE.MEDIUM} onClick={nextStep}>
+        <ArrowButton
+          size={SIZE.MEDIUM}
+          onClick={nextStep}
+          disabled={!isRawValid}
+        >
           下一步
         </ArrowButton>
       </NextBtn>

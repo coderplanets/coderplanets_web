@@ -5,6 +5,7 @@ import { nilOrEmpty } from '@/utils/validator'
 
 import OSSUploader from '@/widgets/OSSUploader'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
+import Button from '@/widgets/Buttons/Button'
 import { Br } from '@/widgets/Common'
 
 import {
@@ -19,49 +20,51 @@ import {
   RealCover,
   InputsWrapper,
   InputBox,
-} from '../../styles/banner/setup_info'
+  CommunityName,
+} from '../styles/banner/setup_info'
 
-import { pervStep, nextStep, inputOnChange } from '../../logic'
+import type { TSetupInfoStatus, TValidState } from '../spec'
+import { pervStep, nextStep, inputOnChange } from '../logic'
 
 type TProps = {
-  status: {
-    titleValue: string
-    descValue: string
-  }
+  status: TSetupInfoStatus
+  validState: TValidState
 }
 
-const SetupInfo: FC<TProps> = ({ status }) => {
-  const { titleValue, descValue } = status
-  const cover = null
+const SetupInfo: FC<TProps> = ({ status, validState }) => {
+  const { title, desc, logo } = status
+
+  const { isTitleValid, isDescValid, isLogoValid } = validState
+  const isValid = isTitleValid && isDescValid && isLogoValid
 
   return (
     <Wrapper>
       <IntroTitle>
         <ApplyIcon />
-        社区基本信息
+        基本信息
         <StepHint>3 / 4</StepHint>
       </IntroTitle>
       <InfoWrapper>
-        <OSSUploader onUploadDone={(url) => console.log(url)}>
-          {nilOrEmpty(cover) ? (
+        <OSSUploader onUploadDone={(url) => inputOnChange(url, 'logo')}>
+          {nilOrEmpty(logo) ? (
             <HolderWrapper>
               <HolderIcon />
             </HolderWrapper>
           ) : (
-            <RealCover src={cover} />
+            <RealCover src={logo} />
           )}
         </OSSUploader>
         <InputsWrapper>
           <InputBox
-            value={titleValue}
-            placeholder="社区名称"
-            onChange={(e) => inputOnChange(e, 'titleValue')}
+            value={title}
+            placeholder="// 社区名称"
+            onChange={(e) => inputOnChange(e, 'title')}
           />
           <Br bottom={10} />
           <InputBox
-            value={descValue}
-            placeholder="社区一句话描述"
-            onChange={(e) => inputOnChange(e, 'descValue')}
+            value={desc}
+            placeholder="// 社区一句话描述"
+            onChange={(e) => inputOnChange(e, 'desc')}
           />
         </InputsWrapper>
       </InfoWrapper>
@@ -75,9 +78,9 @@ const SetupInfo: FC<TProps> = ({ status }) => {
         >
           上一步
         </ArrowButton>
-        <ArrowButton size={SIZE.MEDIUM} onClick={nextStep}>
-          下一步
-        </ArrowButton>
+        <Button size={SIZE.SMALL} onClick={nextStep} disabled={!isValid}>
+          创建<CommunityName>{title}</CommunityName>社区
+        </Button>
       </NextBtn>
     </Wrapper>
   )

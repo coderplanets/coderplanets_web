@@ -7,11 +7,19 @@ export type TSelectTypeStatus = {
 }
 
 export type TSetupDomainStatus = {
-  domainValue: string
+  raw: string
 }
 
 export type TSetupInfoStatus = {
-  domainValue: string
-  titleValue: string
-  descValue: string
+  raw: string
+  title: string
+  desc: string
+  logo: string
+}
+
+export type TValidState = {
+  isRawValid: boolean
+  isTitleValid: boolean
+  isDescValid: boolean
+  isLogoValid: boolean
 }

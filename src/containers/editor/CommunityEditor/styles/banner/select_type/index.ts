@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 340px;
+  height: 440px;
 `
 export const IntroTitle = styled.div`
   ${css.flex('align-center')};

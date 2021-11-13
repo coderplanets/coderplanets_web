@@ -7,6 +7,7 @@ import {
   Wrapper,
   BannerWrapper,
   IconBlock,
+  RealLogo,
   Intro,
   Title,
   Desc,
@@ -19,14 +20,20 @@ import {
 type TProps = {
   title?: string
   desc?: string
+  logo?: string | null
   communityType: TCommunityType
 }
 
-const Content: FC<TProps> = ({ title = '', desc = '', communityType }) => {
+const Content: FC<TProps> = ({
+  title = '',
+  desc = '',
+  logo,
+  communityType,
+}) => {
   return (
     <Wrapper>
       <BannerWrapper>
-        <IconBlock />
+        {logo ? <RealLogo src={logo} /> : <IconBlock />}
         <Intro>
           <Title>{title}</Title>
           <Desc>{desc}</Desc>

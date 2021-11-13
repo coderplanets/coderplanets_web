@@ -3,6 +3,7 @@ import { isEmpty } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
+import Favicon from './Favicon'
 import Content from './Content'
 
 import type { TCommunityType } from '../../spec'
@@ -11,7 +12,6 @@ import {
   Wrapper,
   Header,
   Tab,
-  TabIcon,
   TabContent,
   AddressBar,
   ToolbarWrapper,
@@ -26,6 +26,7 @@ type TProps = {
   domain?: string
   title?: string
   desc?: string
+  logo?: string | null
   showContent?: boolean
   communityType?: TCommunityType
 }
@@ -34,6 +35,7 @@ const FakeBrowser: FC<TProps> = ({
   domain = '',
   title = '',
   desc = '',
+  logo = null,
   showContent = false,
   communityType = null,
 }) => {
@@ -43,7 +45,7 @@ const FakeBrowser: FC<TProps> = ({
     <Wrapper>
       <Header>
         <Tab>
-          {title && <TabIcon />}
+          <Favicon title={title} logo={logo} />
           <TabContent>{tabTitle}</TabContent>
         </Tab>
       </Header>
@@ -79,7 +81,12 @@ const FakeBrowser: FC<TProps> = ({
         </ToolbarWrapper>
       </AddressBar>
       {showContent && (
-        <Content title={title} desc={desc} communityType={communityType} />
+        <Content
+          title={title}
+          desc={desc}
+          logo={logo}
+          communityType={communityType}
+        />
       )}
     </Wrapper>
   )

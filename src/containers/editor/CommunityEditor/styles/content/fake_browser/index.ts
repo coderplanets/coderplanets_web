@@ -71,12 +71,7 @@ export const Tab = styled.div`
     transform-origin: right top;
   }
 `
-export const TabIcon = styled.div`
-  ${css.size(14)};
-  border-radius: 3px;
-  background: ${headerBg};
-  margin-left: 15px;
-`
+
 export const TabContent = styled.div`
   z-index: 100;
   flex-grow: 1;

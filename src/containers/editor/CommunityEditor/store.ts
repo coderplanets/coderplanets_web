@@ -4,7 +4,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-import { values } from 'ramda'
+import { pick, values, isEmpty } from 'ramda'
 
 import type { TRootStore, TRoute } from '@/spec'
 // toJS
@@ -14,6 +14,7 @@ import type {
   TSelectTypeStatus,
   TSetupDomainStatus,
   TSetupInfoStatus,
+  TValidState,
 } from './spec'
 import { STEP, COMMUNITY_TYPE } from './constant'
 
@@ -25,9 +26,10 @@ const CommunityEditor = T.model('CommunityEditorStore', {
 
   communityType: T.maybeNull(T.enumeration(values(COMMUNITY_TYPE))),
 
-  domainValue: T.optional(T.string, ''),
-  titleValue: T.optional(T.string, ''),
-  descValue: T.optional(T.string, ''),
+  raw: T.optional(T.string, ''),
+  logo: T.maybeNull(T.string),
+  title: T.optional(T.string, ''),
+  desc: T.optional(T.string, ''),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -44,17 +46,35 @@ const CommunityEditor = T.model('CommunityEditorStore', {
       return { communityType }
     },
     get setupDomainStatus(): TSetupDomainStatus {
-      const { domainValue } = self
+      const { raw } = self
 
-      return { domainValue }
+      return { raw }
     },
     get setupInfoStatus(): TSetupInfoStatus {
-      const { domainValue, titleValue, descValue } = self
+      const { raw, title, desc, logo } = self
 
-      return { domainValue, titleValue, descValue }
+      return { raw, title, desc, logo }
     },
-    get searchStatus() {
-      return {}
+    get isRawValid(): boolean {
+      const rule = /^[0-9a-zA-Z]+$/
+      return rule.test(self.raw)
+    },
+    get isTitleValid(): boolean {
+      return !isEmpty(self.raw)
+    },
+    get isDescValid(): boolean {
+      return !isEmpty(self.desc)
+    },
+    get isLogoValid(): boolean {
+      return self.logo && !isEmpty(self.logo)
+    },
+    get validState(): TValidState {
+      const slf = self as TStore
+
+      return pick(
+        ['isRawValid', 'isTitleValid', 'isDescValid', 'isLogoValid'],
+        slf,
+      )
     },
   }))
   .actions((self) => ({

@@ -19,6 +19,7 @@ import type {
   TSelectTypeStatus,
   TSetupDomainStatus,
   TSetupInfoStatus,
+  TValidState,
 } from '../spec'
 import { STEP } from '../constant'
 
@@ -30,6 +31,7 @@ type TProps = {
   selectTypeStatus: TSelectTypeStatus
   setupDomainStatus: TSetupDomainStatus
   setupInfoStatus: TSetupInfoStatus
+  validState: TValidState
 }
 
 const Banner: FC<TProps> = ({
@@ -37,6 +39,7 @@ const Banner: FC<TProps> = ({
   selectTypeStatus,
   setupDomainStatus,
   setupInfoStatus,
+  validState,
 }) => {
   let stepComp
 
@@ -46,11 +49,14 @@ const Banner: FC<TProps> = ({
       break
     }
     case STEP.SETUP_INFO: {
-      stepComp = <SetupInfo status={setupInfoStatus} />
+      stepComp = <SetupInfo status={setupInfoStatus} validState={validState} />
       break
     }
     default: {
-      stepComp = <SetupDomain status={setupDomainStatus} />
+      stepComp = (
+        <SetupDomain status={setupDomainStatus} validState={validState} />
+      )
+      break
     }
   }
 
