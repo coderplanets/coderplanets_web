@@ -1,24 +1,36 @@
 /*
  *
- * ExploreContent
+ * CommunityEditor
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import type { TMetric } from '@/spec'
+import { METRIC } from '@/constant'
+
 import Banner from './Banner'
 import Content from './Content'
 
+import type { TStore } from './store'
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:ExploreContent')
+const log = buildLog('C:CommunityEditor')
 
-const CommunityEditorContainer = ({ communityEditor: store, metric }) => {
+type TProps = {
+  communityEditor?: TStore
+  metric?: TMetric
+}
+
+const CommunityEditorContainer: FC<TProps> = ({
+  communityEditor: store,
+  metric = METRIC.COMMUNITY_EDITOR,
+}) => {
   useInit(store)
   const { step, selectTypeStatus, setupDomainStatus, setupInfoStatus } = store
 
@@ -44,8 +56,4 @@ const CommunityEditorContainer = ({ communityEditor: store, metric }) => {
   )
 }
 
-CommunityEditorContainer.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
-})
-
-export default pluggedIn(CommunityEditorContainer)
+export default pluggedIn(CommunityEditorContainer) as FC<TProps>

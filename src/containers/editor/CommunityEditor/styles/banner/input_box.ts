@@ -9,21 +9,10 @@ export const Wrapper = styled.div`
   display: flex;
   margin-bottom: 10px;
 `
-export const InputWrapper = styled.div<{ noRound: boolean }>`
+export const InputWrapper = styled.div`
   position: relative;
   ${css.flex('align-center')};
-  border-radius: ${({ noRound }) => (noRound ? '6px' : '20px')};
-  padding: 10px 18px;
-  background-color: ${theme('content.cardBg')};
   margin-bottom: 8px;
-  opacity: 0.8;
-  border: 1px solid;
-  border-color: ${theme('content.cardBg')};
-  &:hover {
-    background-color: ${theme('content.cardBg')};
-    opacity: 1;
-    border: 1px solid #1e6184;
-  }
 
   transition: all 0.25s ease-in;
 
@@ -59,13 +48,20 @@ export const InputBar = styled.input.attrs(() => ({
   width: auto;
   min-width: 420px;
   outline: none;
-  color: #33b7b3;
-  font-size: 1.1rem;
+  color: ${theme('thread.articleTitle')};
+  font-size: 18px;
   max-height: none;
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
+  background-color: #0b2631;
+  padding: 10px 18px;
+  border-radius: 15px;
   transition: all 400ms ease;
+
+  border: 1px solid;
+  border-color: ${theme('content.cardBg')};
+  &:hover {
+    opacity: 1;
+    border-color: ${theme('button.primary')};
+  }
 
   ::placeholder {
     color: #135868;

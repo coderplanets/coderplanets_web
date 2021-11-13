@@ -52,3 +52,16 @@ export const CommunityDemoWrapper = styled.div`
   flex-wrap: wrap;
   margin-bottom: 10px;
 `
+export const MoreLink = styled.a`
+  font-size: 13px;
+  color: #139c9e;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+    color: #139c9e;
+  }
+`

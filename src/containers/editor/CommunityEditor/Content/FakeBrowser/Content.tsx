@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import {
   Wrapper,
@@ -14,7 +13,12 @@ import {
   Feed,
 } from '../../styles/content/fake_browser/content'
 
-const Content = ({ title, desc }) => {
+type TProps = {
+  title?: string
+  desc?: string
+}
+
+const Content: FC<TProps> = ({ title = '', desc = '' }) => {
   return (
     <Wrapper>
       <BannerWrapper>
@@ -25,12 +29,11 @@ const Content = ({ title, desc }) => {
         </Intro>
         <ThreadWrapper>
           <ThreadItem>帖子</ThreadItem>
-          <ThreadItem>周报</ThreadItem>
-          <ThreadItem>导航</ThreadItem>
-          <ThreadItem>小技巧</ThreadItem>
-          <ThreadItem>地图</ThreadItem>
-          <ThreadItem>酷团队</ThreadItem>
+          <ThreadItem>雷达</ThreadItem>
+          <ThreadItem>博客</ThreadItem>
+          <ThreadItem>成员分布</ThreadItem>
           <ThreadItem>工作</ThreadItem>
+          <ThreadItem>酷导航</ThreadItem>
         </ThreadWrapper>
       </BannerWrapper>
       <FeedWrapper>
@@ -43,14 +46,4 @@ const Content = ({ title, desc }) => {
   )
 }
 
-Content.propTypes = {
-  title: T.string,
-  desc: T.string,
-}
-
-Content.defaultProps = {
-  title: '',
-  desc: '',
-}
-
-export default React.memo(Content)
+export default memo(Content)

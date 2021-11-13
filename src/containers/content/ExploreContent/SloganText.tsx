@@ -3,8 +3,8 @@ import { AnimateOnChange } from 'react-animation'
 
 import { SloganTextWrapper } from './styles/banner'
 
-const coolThings = ['心爱的作品', '骄傲的团队', '沉淀的知识']
-const SWITCH_INTERVAL = 3000
+const coolThings = ['心爱的作品', '骄傲的团队', '想聊的领域']
+const SWITCH_INTERVAL = 4000
 
 /*
   this line is a hack for AnimateOnChange bug

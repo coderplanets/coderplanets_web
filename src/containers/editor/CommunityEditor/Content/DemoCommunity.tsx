@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_BASE } from '@/config'
 import { buildLog } from '@/utils/logger'
@@ -23,8 +23,15 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:NewExploreContent')
 
-const DemoCommunity = ({ title, type = 'pl' }) => {
+type TProps = {
+  title: string
+  type?: 'pl'
+}
+
+const DemoCommunity: FC<TProps> = ({ title, type = 'pl' }) => {
+  // @ts-ignore
   const unit = type === 'city' ? 'svg' : 'png'
+
   return (
     <Wrapper>
       <Community>
@@ -35,4 +42,4 @@ const DemoCommunity = ({ title, type = 'pl' }) => {
   )
 }
 
-export default React.memo(DemoCommunity)
+export default memo(DemoCommunity)

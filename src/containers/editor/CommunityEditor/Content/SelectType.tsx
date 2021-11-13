@@ -4,16 +4,16 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
+import Link from 'next/link'
 import { ICON_CMD } from '@/config'
-import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
-import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import DemoCommunity from './DemoCommunity'
-
 import COMMUNITY_INTRO from './communityIntros'
+import type { TSelectTypeStatus } from '../spec'
+
 // import SearchBox from './SearchBox'
 import {
   Wrapper,
@@ -25,16 +25,17 @@ import {
   Title,
   Desc,
   CommunityDemoWrapper,
+  MoreLink,
 } from '../styles/content/select_type'
-
-// import { searchOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:NewExploreContent')
 
-// import { LN } from '../logic'
+type TProps = {
+  status: TSelectTypeStatus
+}
 
-const SelectType = ({ status: { communityType } }) => {
+const SelectType: FC<TProps> = ({ status: { communityType } }) => {
   if (!communityType) return null
   const intro = COMMUNITY_INTRO[communityType]
   return (
@@ -46,9 +47,9 @@ const SelectType = ({ status: { communityType } }) => {
         </Header>
         <Desc>{intro.desc}</Desc>
         <br />
-        <ArrowButton size={SIZE.SMALL} dimWhenIdle>
-          了解更多
-        </ArrowButton>
+        <Link href="/explore" passHref>
+          <MoreLink>查看详细</MoreLink>
+        </Link>
       </LeftBlock>
       <RightBlock>
         <Header>
@@ -64,12 +65,13 @@ const SelectType = ({ status: { communityType } }) => {
             />
           ))}
         </CommunityDemoWrapper>
-        <ArrowButton size={SIZE.SMALL} dimWhenIdle>
-          探索更多
-        </ArrowButton>
+
+        <Link href="/explore" passHref>
+          <MoreLink>查看更多</MoreLink>
+        </Link>
       </RightBlock>
     </Wrapper>
   )
 }
 
-export default React.memo(SelectType)
+export default memo(SelectType)

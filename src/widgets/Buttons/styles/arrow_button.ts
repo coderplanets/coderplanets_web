@@ -33,6 +33,7 @@ export const Wrapper = styled.div<TWrapper>`
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     opacity: ${({ disabled }) => (disabled ? 0.65 : 1)};
   }
+
   transition: all 0.2s;
 `
 export const Text = styled.div<{ size: string }>`

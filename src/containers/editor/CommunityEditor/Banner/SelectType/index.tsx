@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
@@ -12,6 +12,7 @@ import { buildLog } from '@/utils/logger'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
+import type { TCommunityType } from '../../spec'
 import TypeBoxes from './TypeBoxes'
 
 import {
@@ -26,7 +27,13 @@ import { nextStep } from '../../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
-const SelectType = ({ status: { communityType } }) => {
+type TProps = {
+  status: {
+    communityType: TCommunityType
+  }
+}
+
+const SelectType: FC<TProps> = ({ status: { communityType } }) => {
   return (
     <Wrapper>
       <IntroTitle>
@@ -46,4 +53,4 @@ const SelectType = ({ status: { communityType } }) => {
   )
 }
 
-export default React.memo(SelectType)
+export default memo(SelectType)

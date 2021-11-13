@@ -14,12 +14,12 @@ export const InputWrapper = styled.div`
   ${css.flex('align-center')};
   border-radius: 20px;
   padding: 10px 18px;
-  background-color: ${theme('content.cardBg')};
+  background-color: #0b2631;
   margin-bottom: 8px;
   opacity: 0.8;
   border: 1px solid #1e6184;
   &:hover {
-    background-color: ${theme('content.cardBg')};
+    background-color: #0b2631;
     opacity: 1;
     border: 1px solid #327faf;
   }

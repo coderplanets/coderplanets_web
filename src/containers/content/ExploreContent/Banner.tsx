@@ -77,7 +77,7 @@ const Banner: FC<TProps> = ({
           <IntroDesc>
             或者，来为你
             <SloganText />
-            <Link href="/create/community" passHref>
+            <Link href="/publish/community" passHref>
               <CreateCommunityLink>建立一个社区</CreateCommunityLink>
             </Link>
             吧！

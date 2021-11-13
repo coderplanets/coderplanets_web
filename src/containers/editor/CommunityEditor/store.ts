@@ -4,47 +4,30 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
+import { values } from 'ramda'
 
 import type { TRootStore, TRoute } from '@/spec'
 // toJS
 import { markStates } from '@/utils/mobx'
-import { LN } from './constant'
+
+import type {
+  TSelectTypeStatus,
+  TSetupDomainStatus,
+  TSetupInfoStatus,
+} from './spec'
+import { STEP, COMMUNITY_TYPE } from './constant'
 
 const CommunityEditor = T.model('CommunityEditorStore', {
   step: T.optional(
-    T.enumeration([
-      LN.STEP.SELECT_TYPE,
-      LN.STEP.SETUP_DOMAIN,
-      LN.STEP.SETUP_INFO,
-    ]),
-    LN.STEP.SELECT_TYPE, // SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
+    T.enumeration(values(STEP)),
+    STEP.SELECT_TYPE, // SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
   ),
 
-  communityType: T.maybeNull(
-    T.enumeration([
-      LN.COMMUNITY_TYPE.STANDER,
-      LN.COMMUNITY_TYPE.CITY,
-      LN.COMMUNITY_TYPE.WORK,
-      LN.COMMUNITY_TYPE.TEAM,
-    ]),
-  ),
+  communityType: T.maybeNull(T.enumeration(values(COMMUNITY_TYPE))),
 
   domainValue: T.optional(T.string, ''),
   titleValue: T.optional(T.string, ''),
   descValue: T.optional(T.string, ''),
-
-  // current active sidbar menu id
-  // cur active category
-
-  // search status
-  // searching: T.optional(T.boolean, false),
-  // isSearchMode: T.optional(T.boolean, false),
-  // searchResultCount: T.optional(T.number, 0),
-  // searchValue: T.optional(T.string, ''),
-  // showSearchMask: T.optional(T.boolean, true),
-  // showCreateHint: T.optional(T.boolean, true),
-  // showSearchHint: T.optional(T.boolean, false),
-  // searchfocused: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -55,17 +38,17 @@ const CommunityEditor = T.model('CommunityEditorStore', {
       const root = getParent(self) as TRootStore
       return root.curRoute
     },
-    get selectTypeStatus() {
+    get selectTypeStatus(): TSelectTypeStatus {
       const { communityType } = self
 
       return { communityType }
     },
-    get setupDomainStatus() {
+    get setupDomainStatus(): TSetupDomainStatus {
       const { domainValue } = self
 
       return { domainValue }
     },
-    get setupInfoStatus() {
+    get setupInfoStatus(): TSetupInfoStatus {
       const { domainValue, titleValue, descValue } = self
 
       return { domainValue, titleValue, descValue }

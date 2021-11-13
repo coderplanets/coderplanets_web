@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
@@ -15,30 +15,26 @@ import {
   NextBtn,
 } from '../../styles/banner/setup_domain'
 
+import type { TSetupDomainStatus } from '../../spec'
 import { pervStep, nextStep, inputOnChange } from '../../logic'
 
-const SetupInfo = ({ status }) => {
-  const { titleValue, descValue } = status
+type TProps = {
+  status: TSetupDomainStatus
+}
+const SetupDomain: FC<TProps> = ({ status }) => {
+  const { domainValue } = status
 
   return (
     <Wrapper>
       <IntroTitle>
         <TitleIcon src={`${ICON_CMD}/new_community/domain.svg`} />
-        请填写社区基本信息
-        <StepHint>3 / 4</StepHint>
+        请填写一个社区的子域名
+        <StepHint>2 / 4</StepHint>
       </IntroTitle>
       <InputBox
-        value={titleValue}
-        placeholder="社区名称"
-        onChange={inputOnChange('titleValue')}
-        autoFocus
-        noRound
-      />
-      <InputBox
-        value={descValue}
-        placeholder="社区一句话描述"
-        onChange={inputOnChange('descValue')}
-        noRound
+        value={domainValue}
+        placeholder="your-domain"
+        onChange={(e) => inputOnChange(e, 'domainValue')}
       />
       <NextBtn>
         <ArrowButton
@@ -57,4 +53,4 @@ const SetupInfo = ({ status }) => {
   )
 }
 
-export default React.memo(SetupInfo)
+export default memo(SetupDomain)

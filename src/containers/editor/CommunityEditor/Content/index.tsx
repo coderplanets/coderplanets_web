@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 
@@ -13,10 +13,24 @@ import SetupDomain from './SetupDomain'
 import SetupInfo from './SetupInfo'
 
 import { Wrapper } from '../styles/content'
-import { LN } from '../constant'
+
+import type {
+  TStep,
+  TSelectTypeStatus,
+  TSetupDomainStatus,
+  TSetupInfoStatus,
+} from '../spec'
+import { STEP } from '../constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:NewExploreContent')
+
+type TProps = {
+  step: TStep
+  selectTypeStatus: TSelectTypeStatus
+  setupDomainStatus: TSetupDomainStatus
+  setupInfoStatus: TSetupInfoStatus
+}
 
 const Content = ({
   step,
@@ -24,7 +38,6 @@ const Content = ({
   setupDomainStatus,
   setupInfoStatus,
 }) => {
-  const { STEP } = LN
   let stepComp
 
   switch (step) {
@@ -48,4 +61,4 @@ const Content = ({
   return <Wrapper>{stepComp}</Wrapper>
 }
 
-export default React.memo(Content)
+export default memo(Content)

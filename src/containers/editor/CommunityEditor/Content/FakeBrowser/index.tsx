@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import { ICON_CMD } from '@/config'
@@ -21,7 +20,19 @@ import {
   DomainText,
 } from '../../styles/content/fake_browser'
 
-const FakeBrowser = ({ domain, title, desc, showContent }) => {
+type TProps = {
+  domain?: string
+  title?: string
+  desc?: string
+  showContent?: boolean
+}
+
+const FakeBrowser: FC<TProps> = ({
+  domain = '',
+  title = '',
+  desc = '',
+  showContent = false,
+}) => {
   const tabTitle = title || domain || 'coderplanets'
 
   return (
@@ -48,10 +59,10 @@ const FakeBrowser = ({ domain, title, desc, showContent }) => {
           </ToolbarWrapper>
           <Input>
             {isEmpty(domain) ? (
-              <div>https://coderplanets.com</div>
+              <div>coderplanets.com</div>
             ) : (
               <div>
-                https://<DomainText>{domain}</DomainText>.coderplanets.com
+                coderplanets.com/<DomainText>{domain.toLowerCase()}</DomainText>
               </div>
             )}
           </Input>
@@ -68,18 +79,4 @@ const FakeBrowser = ({ domain, title, desc, showContent }) => {
   )
 }
 
-FakeBrowser.propTypes = {
-  domain: T.string,
-  title: T.string,
-  desc: T.string,
-  showContent: T.bool,
-}
-
-FakeBrowser.defaultProps = {
-  domain: '',
-  title: '',
-  desc: '',
-  showContent: false,
-}
-
-export default React.memo(FakeBrowser)
+export default memo(FakeBrowser)

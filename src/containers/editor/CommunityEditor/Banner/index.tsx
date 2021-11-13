@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 
@@ -14,18 +14,30 @@ import SetupDomain from './SetupDomain'
 import SetupInfo from './SetupInfo'
 
 import { Wrapper } from '../styles/banner'
-import { LN } from '../constant'
+import type {
+  TStep,
+  TSelectTypeStatus,
+  TSetupDomainStatus,
+  TSetupInfoStatus,
+} from '../spec'
+import { STEP } from '../constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CreateCommunityBanner')
 
-const Banner = ({
+type TProps = {
+  step: TStep
+  selectTypeStatus: TSelectTypeStatus
+  setupDomainStatus: TSetupDomainStatus
+  setupInfoStatus: TSetupInfoStatus
+}
+
+const Banner: FC<TProps> = ({
   step,
   selectTypeStatus,
   setupDomainStatus,
   setupInfoStatus,
 }) => {
-  const { STEP } = LN
   let stepComp
 
   switch (step) {
@@ -45,4 +57,4 @@ const Banner = ({
   return <Wrapper testid="create-community-digest">{stepComp}</Wrapper>
 }
 
-export default React.memo(Banner)
+export default memo(Banner)

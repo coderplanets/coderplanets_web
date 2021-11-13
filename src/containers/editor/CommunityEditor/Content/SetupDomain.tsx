@@ -1,9 +1,15 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import FakeBrowser from './FakeBrowser'
+
+import type { TSetupDomainStatus } from '../spec'
 import { Wrapper } from '../styles/content/setup_domain'
 
-const SetupDomain = ({ status }) => {
+type TProps = {
+  status: TSetupDomainStatus
+}
+
+const SetupDomain: FC<TProps> = ({ status }) => {
   const { domainValue: domain } = status
   return (
     <Wrapper>
@@ -12,4 +18,4 @@ const SetupDomain = ({ status }) => {
   )
 }
 
-export default React.memo(SetupDomain)
+export default memo(SetupDomain)

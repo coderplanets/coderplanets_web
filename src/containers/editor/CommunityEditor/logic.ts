@@ -1,21 +1,25 @@
 import { useEffect } from 'react'
-import { curry } from 'ramda'
 
+import type { TInput } from '@/spec'
 import { EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue, updateEditing } from '@/utils'
-import { LN } from './constant'
 
-import S from './schema'
+import type { TStore } from './store'
+import type { TCommunityType } from './spec'
+import { COMMUNITY_TYPE, STEP } from './constant'
+
+// import S from './schema'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ExploreContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.LOGOUT, EVENT.LOGIN],
 })
 
-let store = null
+let store: TStore | undefined
 let sub$ = null
 
 /**
@@ -23,11 +27,10 @@ let sub$ = null
  * 当前流程的上一步流程
  * @public
  */
-export const pervStep = () => {
-  const { COMMUNITY_TYPE, STEP } = LN
+export const pervStep = (): void => {
   const { step, communityType } = store
 
-  if (communityType === COMMUNITY_TYPE.WORK) {
+  if (communityType === COMMUNITY_TYPE.WORKS) {
     if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SELECT_TYPE })
     if (step === STEP.SETUP_INFO) store.mark({ step: STEP.SETUP_DOMAIN })
   }
@@ -38,11 +41,10 @@ export const pervStep = () => {
  * 当前流程的下一步流程
  * @public
  */
-export const nextStep = () => {
-  const { COMMUNITY_TYPE, STEP } = LN
+export const nextStep = (): void => {
   const { step, communityType } = store
 
-  if (communityType === COMMUNITY_TYPE.WORK) {
+  if (communityType === COMMUNITY_TYPE.WORKS) {
     if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
     if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SETUP_INFO })
   }
@@ -53,8 +55,9 @@ export const nextStep = () => {
  * 改变创建社区类型
  * @public
  */
-export const communityTypeOnChange = (communityType) =>
+export const communityTypeOnChange = (communityType: TCommunityType): void => {
   store.mark({ communityType })
+}
 
 /**
  * handle input field change
@@ -62,21 +65,8 @@ export const communityTypeOnChange = (communityType) =>
  * @param {e} htmlEvent
  * @public
  */
-export const inputOnChange = curry((part, e) => {
-  console.log('== inputOnChange e: ', e)
-
+export const inputOnChange = (e: TInput, part: string): void => {
   updateEditing(store, part, e)
-})
-
-/**
- * search communities by current searchValue in store
- * @private
- */
-export const searchCommunities = () => {
-  const { searchValue: title } = store
-  const args = { title, userHasLogin: store.isLogin }
-
-  sr71$.query(S.searchCommunities, args)
 }
 
 /* when error occured cancel all the loading state */
@@ -118,7 +108,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     // log('effect init')
@@ -126,7 +116,7 @@ export const useInit = (_store) => {
 
     return () => {
       // log('effect uninit')
-      if (!sub$) return false
+      if (!sub$) return
       // log('===== do uninit')
       sub$.unsubscribe()
     }
