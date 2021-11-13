@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 280px;
+  height: 330px;
 `
 export const IntroTitle = styled.div`
   position: relative;

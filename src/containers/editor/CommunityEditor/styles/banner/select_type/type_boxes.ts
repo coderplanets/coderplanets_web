@@ -43,7 +43,7 @@ export const HeaderText = styled.div`
 `
 export const MainText = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 `
 export const FooterText = styled.div`

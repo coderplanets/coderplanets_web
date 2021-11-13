@@ -3,6 +3,7 @@ import { FC, memo } from 'react'
 import FakeBrowser from './FakeBrowser'
 
 import { TSetupInfoStatus, TCommunityType } from '../spec'
+import { STEP } from '../constant'
 import { Wrapper } from '../styles/content/setup_domain'
 
 type TProps = {
@@ -21,7 +22,7 @@ const SetupInfo: FC<TProps> = ({ status, communityType }) => {
         title={title || '// 社区名称'}
         desc={desc || '// 社区一句话描述'}
         logo={logo}
-        showContent
+        step={STEP.SETUP_INFO}
       />
     </Wrapper>
   )

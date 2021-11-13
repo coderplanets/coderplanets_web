@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 280px;
+  height: 320px;
 `
 export const IntroTitle = styled.div`
   position: relative;
@@ -22,11 +22,7 @@ export const IntroTitle = styled.div`
   margin-bottom: 20px;
   margin-left: -10px;
 `
-export const DomainIcon = styled(DomainSVG)`
-  fill: ${theme('thread.articleTitle')};
-  ${css.size(18)};
-  margin-right: 10px;
-`
+
 export const Title = styled.div`
   color: ${theme('banner.title')};
   font-size: 1.1rem;
@@ -39,16 +35,21 @@ export const StepHint = styled.div`
   left: 41%;
   opacity: 0.5;
 `
+export const DomainIcon = styled(DomainSVG)`
+  fill: ${theme('thread.articleTitle')};
+  ${css.size(18)};
+  margin-right: 10px;
+`
 export const NextBtn = styled.div`
   position: absolute;
   ${css.flex('align-center', 'justify-around')};
   width: 200px;
-  bottom: 25px;
+  bottom: 42px;
   margin-left: -2px;
 `
 export const ErrorMsg = styled.div`
   position: absolute;
-  bottom: 70px;
+  bottom: 85px;
   color: ${theme('baseColor.red')};
   font-size: 13px;
 `

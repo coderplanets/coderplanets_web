@@ -49,6 +49,10 @@ const Content: FC<TProps> = ({
       stepComp = <SetupDomain status={setupDomainStatus} />
       break
     }
+    case STEP.FINISHED: {
+      stepComp = null
+      break
+    }
     default: {
       stepComp = (
         <SetupInfo

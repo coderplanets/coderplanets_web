@@ -1,7 +1,10 @@
 import { FC, memo } from 'react'
 
-import type { TCommunityType } from '../../spec'
+import NoticeBar from '@/widgets/NoticeBar'
 import communityIntros from '../communityIntros'
+
+import type { TStep, TCommunityType } from '../../spec'
+import { STEP } from '../../constant'
 
 import {
   Wrapper,
@@ -18,18 +21,39 @@ import {
 } from '../../styles/content/fake_browser/content'
 
 type TProps = {
+  step: TStep
   title?: string
   desc?: string
   logo?: string | null
+  domain?: string | null
   communityType: TCommunityType
 }
 
 const Content: FC<TProps> = ({
+  step,
   title = '',
   desc = '',
   logo,
+  domain = null,
   communityType,
 }) => {
+  if (step === STEP.SETUP_DOMAIN) {
+    const customDomain = domain || 'my-domain'
+
+    return (
+      <Wrapper>
+        <NoticeBar
+          type="info"
+          content={`绑定域名功能正在开发中，届时所有社区功能将开放给自定义域名，比如：forum.${customDomain}.com, 敬请期待。`}
+          top={8}
+          left={95}
+          right={30}
+          noBg
+        />
+      </Wrapper>
+    )
+  }
+
   return (
     <Wrapper>
       <BannerWrapper>

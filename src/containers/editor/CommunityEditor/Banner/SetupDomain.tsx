@@ -36,7 +36,7 @@ const SetupDomain: FC<TProps> = ({ status, validState }) => {
       </IntroTitle>
       <InputBox
         value={raw}
-        placeholder="your-domain"
+        placeholder="my-domain"
         onChange={(e) => inputOnChange(e, 'raw')}
       />
       {!isEmpty(raw) && !isRawValid && (

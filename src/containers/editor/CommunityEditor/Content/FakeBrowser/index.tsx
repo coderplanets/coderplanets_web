@@ -6,7 +6,7 @@ import { ICON_CMD } from '@/config'
 import Favicon from './Favicon'
 import Content from './Content'
 
-import type { TCommunityType } from '../../spec'
+import type { TStep, TCommunityType } from '../../spec'
 
 import {
   Wrapper,
@@ -23,20 +23,20 @@ import {
 } from '../../styles/content/fake_browser'
 
 type TProps = {
+  step: TStep
   domain?: string
   title?: string
   desc?: string
   logo?: string | null
-  showContent?: boolean
   communityType?: TCommunityType
 }
 
 const FakeBrowser: FC<TProps> = ({
+  step,
   domain = '',
   title = '',
   desc = '',
   logo = null,
-  showContent = false,
   communityType = null,
 }) => {
   const tabTitle = title || domain || 'coderplanets'
@@ -80,14 +80,14 @@ const FakeBrowser: FC<TProps> = ({
           <ToolIcon src={`${ICON_CMD}/new_community/more.svg`} />
         </ToolbarWrapper>
       </AddressBar>
-      {showContent && (
-        <Content
-          title={title}
-          desc={desc}
-          logo={logo}
-          communityType={communityType}
-        />
-      )}
+      <Content
+        step={step}
+        title={title}
+        desc={desc}
+        logo={logo}
+        domain={domain}
+        communityType={communityType}
+      />
     </Wrapper>
   )
 }

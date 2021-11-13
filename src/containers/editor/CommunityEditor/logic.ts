@@ -47,6 +47,7 @@ export const nextStep = (): void => {
   if (communityType === COMMUNITY_TYPE.WORKS) {
     if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
     if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SETUP_INFO })
+    if (step === STEP.SETUP_INFO) store.mark({ step: STEP.FINISHED })
   }
 }
 
