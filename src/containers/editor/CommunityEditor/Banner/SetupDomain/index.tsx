@@ -28,7 +28,7 @@ const SetupDomain: FC<TProps> = ({ status }) => {
     <Wrapper>
       <IntroTitle>
         <TitleIcon src={`${ICON_CMD}/new_community/domain.svg`} />
-        请填写一个社区的子域名
+        社区的子域名
         <StepHint>2 / 4</StepHint>
       </IntroTitle>
       <InputBox

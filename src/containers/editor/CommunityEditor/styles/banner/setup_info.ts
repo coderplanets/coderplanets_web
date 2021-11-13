@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import { InputBar } from './input_box'
+
 import Img from '@/Img'
 
 export const Wrapper = styled.div`
@@ -21,6 +23,19 @@ export const IntroTitle = styled.div`
   font-size: 18px;
   margin-bottom: 20px;
   margin-left: -10px;
+`
+export const InputBox = styled(InputBar)`
+  width: 300px;
+  min-width: 300px;
+  font-size: 16px;
+  text-align: left;
+  padding: 6px 18px;
+  border-radius: 8px;
+  height: 38px;
+  flex-grow: 0;
+  ::placeholder {
+    font-size: 13px;
+  }
 `
 
 export const TitleIcon = styled(Img)`

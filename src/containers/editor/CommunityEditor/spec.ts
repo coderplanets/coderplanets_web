@@ -1,4 +1,4 @@
-export type TCommunityType = 'STANDER' | 'CITY' | 'WORKS' | 'TEAM'
+export type TCommunityType = 'STANDER' | 'CITY' | 'WORKS' | 'TEAM' | null
 
 export type TStep = 'SELECT_TYPE' | 'SETUP_DOMAIN' | 'SETUP_INFO'
 

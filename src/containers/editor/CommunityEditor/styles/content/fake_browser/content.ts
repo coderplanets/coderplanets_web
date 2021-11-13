@@ -26,22 +26,23 @@ export const IconBlock = styled.div`
 `
 export const Intro = styled.div`
   ${css.flexColumn('align-start')};
-  margin-top: -20px;
+  margin-top: -23px;
 `
 export const Title = styled.div`
-  /* color: ${theme('banner.title')}; */
-  font-size: 17px;
+  color: ${theme('thread.articleTitle')};
+  font-size: 16px;
   margin-bottom: 4px;
 `
 export const Desc = styled.div`
   font-size: 14px;
-  /* color: ${theme('banner.desc')}; */
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
 `
 export const ThreadWrapper = styled.div`
   position: absolute;
   ${css.flex('align-center')};
   height: 20px;
-  bottom: 5px;
+  bottom: 8px;
 `
 export const ThreadItem = styled.div`
   margin-right: 32px;

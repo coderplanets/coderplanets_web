@@ -4,8 +4,7 @@ import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
-
-import InputBox from '../InputBox'
+import { Br } from '@/widgets/Common'
 
 import {
   Wrapper,
@@ -13,7 +12,8 @@ import {
   TitleIcon,
   StepHint,
   NextBtn,
-} from '../../styles/banner/setup_domain'
+  InputBox,
+} from '../../styles/banner/setup_info'
 
 import { pervStep, nextStep, inputOnChange } from '../../logic'
 
@@ -31,7 +31,7 @@ const SetupInfo: FC<TProps> = ({ status }) => {
     <Wrapper>
       <IntroTitle>
         <TitleIcon src={`${ICON_CMD}/new_community/domain.svg`} />
-        请填写社区基本信息
+        社区基本信息
         <StepHint>3 / 4</StepHint>
       </IntroTitle>
       <InputBox
@@ -39,6 +39,7 @@ const SetupInfo: FC<TProps> = ({ status }) => {
         placeholder="社区名称"
         onChange={(e) => inputOnChange(e, 'titleValue')}
       />
+      <Br bottom={10} />
       <InputBox
         value={descValue}
         placeholder="社区一句话描述"

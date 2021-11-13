@@ -38,6 +38,7 @@ type TProps = {
 const SelectType: FC<TProps> = ({ status: { communityType } }) => {
   if (!communityType) return null
   const intro = COMMUNITY_INTRO[communityType]
+
   return (
     <Wrapper>
       <LeftBlock>
