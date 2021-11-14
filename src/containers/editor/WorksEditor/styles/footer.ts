@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   border-top: 2px solid;
   border-top-color: #03343f;
   padding-top: 20px;
-  padding-left: 35px;
+  padding-left: 58px;
   padding-right: 58px;
   margin-top: 35px;
   margin-bottom: 60px;
@@ -25,7 +25,7 @@ export const ArticleButtons = styled.div`
   ${css.flex('align-both', 'justify-between')};
   width: 100%;
   padding-top: 25px;
-  padding-left: 15px;
+  padding-left: 28px;
   padding-right: 20px;
 `
 export const FooterExtra = styled.div`
