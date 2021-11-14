@@ -14,8 +14,7 @@ export const Wrapper = styled.div`
   margin-bottom: 60px;
 `
 export const FirstStepWrapper = styled.div`
-  margin-left: -30px;
-  margin-top: 14px;
+  margin-top: 15px;
 `
 export const ArticleWrapper = styled.div`
   width: 680px;
