@@ -96,8 +96,9 @@ const WorksEditor = T.model('WorksEditor', {
     get allowEdit(): boolean {
       const slf = self as TStore
       const { mode, accountInfo, author } = slf
+      if (mode === 'publish') return true
 
-      return mode === 'update' && accountInfo.login === author.login
+      return accountInfo.login === author.login
     },
     get searchedUsersData(): TUser[] {
       return toJS(self.searchedUsers)

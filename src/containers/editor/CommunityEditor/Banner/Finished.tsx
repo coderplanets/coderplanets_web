@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 
 import { Wrapper, Title, Desc } from '../styles/banner/finished'
 
-import type { TSetupDomainStatus, TValidState } from '../spec'
+// import type { TSetupDomainStatus, TValidState } from '../spec'
 
 const Finished: FC = () => {
   return (

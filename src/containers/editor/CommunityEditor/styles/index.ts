@@ -16,6 +16,5 @@ export const InnerWrapper = styled.div<{ metric: TMetric }>`
 `
 export const ContentWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
-  min-height: calc(100vh - 350px); /* 350 is the banner max height */
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

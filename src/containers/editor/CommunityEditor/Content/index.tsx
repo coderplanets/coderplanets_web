@@ -38,6 +38,8 @@ const Content: FC<TProps> = ({
   setupDomainStatus,
   setupInfoStatus,
 }) => {
+  if (step === STEP.FINISHED) return null
+
   let stepComp
 
   switch (step) {
@@ -47,10 +49,6 @@ const Content: FC<TProps> = ({
     }
     case STEP.SETUP_DOMAIN: {
       stepComp = <SetupDomain status={setupDomainStatus} />
-      break
-    }
-    case STEP.FINISHED: {
-      stepComp = null
       break
     }
     default: {
