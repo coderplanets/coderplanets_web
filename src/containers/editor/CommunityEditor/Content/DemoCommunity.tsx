@@ -5,10 +5,10 @@
  */
 
 import { FC, memo } from 'react'
+import Link from 'next/link'
 
-import { ICON_BASE } from '@/config'
+import type { TCommunity } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { Trans } from '@/utils/i18n'
 
 // import SearchBox from './SearchBox'
 import {
@@ -24,19 +24,17 @@ import {
 const log = buildLog('C:NewExploreContent')
 
 type TProps = {
-  title: string
-  type?: 'pl'
+  item: TCommunity
 }
 
-const DemoCommunity: FC<TProps> = ({ title, type = 'pl' }) => {
-  // @ts-ignore
-  const unit = type === 'city' ? 'svg' : 'png'
-
+const DemoCommunity: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Community>
-        <Logo src={`${ICON_BASE}/${type}/${title}.${unit}`} />
-        <Title>{Trans(title)}</Title>
+        <Logo src={item.logo} raw={item.raw} />
+        <Link href={`/${item.raw}`} passHref>
+          <Title>{item.title}</Title>
+        </Link>
       </Community>
     </Wrapper>
   )

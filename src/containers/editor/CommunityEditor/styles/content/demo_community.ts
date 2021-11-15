@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
+import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
@@ -21,12 +21,18 @@ export const Community = styled.a`
     text-decoration-color: ${theme('thread.articleDigest')};
   }
 `
-export const Logo = styled(Img)`
+export const Logo = styled(CommunityFaceLogo)`
   fill: #317faf;
   ${css.circle(18)};
   filter: saturate(0.6);
 `
-export const Title = styled.div`
+export const Title = styled.a`
   color: ${theme('thread.articleDigest')};
+  text-decoration: none;
   margin-left: 7px;
+
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('thread.articleTitle')};
+  }
 `

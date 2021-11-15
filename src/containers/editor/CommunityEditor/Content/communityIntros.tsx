@@ -1,3 +1,6 @@
+import { ICON_BASE } from '@/config'
+import { HCN } from '@/constant'
+
 const COMMUNITY_INTRO = {
   STANDER: {
     title: '什么是公共社区?',
@@ -6,20 +9,28 @@ const COMMUNITY_INTRO = {
     demos: [
       {
         title: 'javascript',
+        raw: 'JavaScript',
+        logo: `${ICON_BASE}/pl/javascript.png`,
       },
       {
-        title: 'react',
-        type: 'framework',
+        title: 'React',
+        raw: 'react',
+        logo: `${ICON_BASE}/framework/react.png`,
       },
       {
-        title: 'phoenix',
-        type: 'framework',
+        title: 'Phoenix',
+        raw: 'phoneix',
+        logo: `${ICON_BASE}/framework/phoenix.png`,
       },
       {
-        title: 'elixir',
+        title: 'Elixir',
+        raw: 'elixir',
+        logo: `${ICON_BASE}/pl/elixir.png`,
       },
       {
-        title: 'nim',
+        title: 'Nim',
+        raw: 'Nim',
+        logo: `${ICON_BASE}/pl/nim.png`,
       },
     ],
   },
@@ -30,7 +41,8 @@ const COMMUNITY_INTRO = {
     demos: [
       {
         title: 'CoderPlaents',
-        type: 'feedback',
+        raw: HCN,
+        logo: '',
       },
     ],
   },
@@ -40,8 +52,8 @@ const COMMUNITY_INTRO = {
     threads: ['帖子', '博客', '作品', '技术栈', '工作'],
     demos: [
       {
-        title: 'nanjing',
-        type: 'city',
+        title: 'CP-feedback',
+        raw: HCN,
       },
     ],
   },
@@ -51,24 +63,30 @@ const COMMUNITY_INTRO = {
     threads: ['帖子', '酷团队', '作品', '工作'],
     demos: [
       {
-        title: 'beijing',
-        type: 'city',
+        title: '北京',
+        raw: 'beijing',
+        logo: `${ICON_BASE}/city/beijing.svg`,
       },
       {
-        title: 'shanghai',
-        type: 'city',
+        title: '上海',
+        raw: 'shanghai',
+        logo: `${ICON_BASE}/city/shanghai.svg`,
       },
       {
-        title: 'shenzhen',
-        type: 'city',
+        title: '杭州',
+        raw: 'hangzhou',
+        logo: `${ICON_BASE}/city/hangzhou.svg`,
       },
       {
-        title: 'chengdu',
-        type: 'city',
+        title: '深圳',
+        raw: 'shenzhen',
+        logo: `${ICON_BASE}/city/shenzhen.svg`,
       },
+
       {
-        title: 'xiamen',
-        type: 'city',
+        title: '成都',
+        raw: 'chengdu',
+        logo: `${ICON_BASE}/city/chengdu.svg`,
       },
     ],
   },

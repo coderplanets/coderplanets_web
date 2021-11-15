@@ -59,11 +59,7 @@ const SelectType: FC<TProps> = ({ status: { communityType } }) => {
         </Header>
         <CommunityDemoWrapper>
           {intro.demos.map((item) => (
-            <DemoCommunity
-              key={item.title}
-              title={item.title}
-              type={item.type}
-            />
+            <DemoCommunity key={item.raw} item={item} />
           ))}
         </CommunityDemoWrapper>
 
