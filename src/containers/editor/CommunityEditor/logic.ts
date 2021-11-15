@@ -8,7 +8,7 @@ import type { TStore } from './store'
 import type { TCommunityType } from './spec'
 import { COMMUNITY_TYPE, STEP } from './constant'
 
-// import S from './schema'
+import S from './schema'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ExploreContent')
@@ -44,11 +44,25 @@ export const pervStep = (): void => {
 export const nextStep = (): void => {
   const { step, communityType } = store
 
-  if (communityType === COMMUNITY_TYPE.WORKS) {
-    if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
-    if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SETUP_INFO })
-    if (step === STEP.SETUP_INFO) store.mark({ step: STEP.FINISHED })
+  if (communityType !== COMMUNITY_TYPE.WORKS) return
+
+  if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
+  if (step === STEP.SETUP_DOMAIN) {
+    // do exist check
+    checkIfCommunityExist()
   }
+  if (step === STEP.SETUP_INFO) store.mark({ step: STEP.FINISHED })
+}
+
+const checkIfCommunityExist = () => {
+  const { raw } = store
+
+  store.mark({ checking: true, communityExist: false })
+  sr71$.query(S.isCommunityExist, { raw })
+}
+
+const checkPendingApply = () => {
+  sr71$.query(S.hasPendingCommunityApply, {})
 }
 
 /**
@@ -67,6 +81,9 @@ export const communityTypeOnChange = (communityType: TCommunityType): void => {
  * @public
  */
 export const inputOnChange = (e: TEditValue, part: string): void => {
+  if (part === 'raw') {
+    store.mark({ communityExist: false })
+  }
   updateEditing(store, part, e)
 }
 
@@ -82,6 +99,22 @@ const DataSolver = [
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: pagedCommunities }) =>
       store.mark({ pagedCommunities, searching: false }),
+  },
+  {
+    match: asyncRes('isCommunityExist'),
+    action: ({ isCommunityExist }) => {
+      store.mark({ checking: false, communityExist: isCommunityExist.exist })
+
+      if (!isCommunityExist.exist) {
+        store.mark({ step: STEP.SETUP_INFO })
+      }
+    },
+  },
+  {
+    match: asyncRes('hasPendingCommunityApply'),
+    action: ({ hasPendingCommunityApply }) => {
+      store.mark({ hasPendingApply: hasPendingCommunityApply.exist })
+    },
   },
 ]
 
@@ -114,6 +147,10 @@ export const useInit = (_store: TStore): void => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+    if (store.isLogin) {
+      checkPendingApply()
+    }
 
     return () => {
       // log('effect uninit')

@@ -46,7 +46,9 @@ const Banner: FC<TProps> = ({
 
   switch (step) {
     case STEP.SELECT_TYPE: {
-      stepComp = <SelectType status={selectTypeStatus} />
+      stepComp = (
+        <SelectType status={selectTypeStatus} validState={validState} />
+      )
       break
     }
     case STEP.SETUP_INFO: {

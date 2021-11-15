@@ -41,6 +41,16 @@ export const Title = styled.div`
   font-size: 1.1rem;
 `
 export const NextBtn = styled.div`
+  ${css.flex('justify-center')};
   position: absolute;
+  width: 280px;
   bottom: 5px;
+`
+export const ErrorMsg = styled.div`
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 45px;
+  color: ${theme('baseColor.red')};
+  font-size: 13px;
 `

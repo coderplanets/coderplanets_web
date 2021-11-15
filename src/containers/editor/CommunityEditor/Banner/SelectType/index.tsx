@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 
-import type { TCommunityType } from '../../spec'
+import type { TCommunityType, TValidState } from '../../spec'
 import TypeBoxes from './TypeBoxes'
 
 import {
@@ -20,8 +20,8 @@ import {
   IntroTitle,
   AddNewIcon,
   NextBtn,
+  ErrorMsg,
 } from '../../styles/banner/select_type'
-
 import { nextStep } from '../../logic'
 
 /* eslint-disable-next-line */
@@ -31,9 +31,10 @@ type TProps = {
   status: {
     communityType: TCommunityType
   }
+  validState: TValidState
 }
 
-const SelectType: FC<TProps> = ({ status: { communityType } }) => {
+const SelectType: FC<TProps> = ({ status: { communityType }, validState }) => {
   return (
     <Wrapper>
       <IntroTitle>
@@ -44,7 +45,20 @@ const SelectType: FC<TProps> = ({ status: { communityType } }) => {
 
       {communityType && (
         <NextBtn>
-          <ArrowButton size={SIZE.MEDIUM} onClick={nextStep}>
+          {!validState.hasPendingApply && !validState.isLogin && (
+            <ErrorMsg>创建社区需要先登录</ErrorMsg>
+          )}
+          {validState.isLogin && validState.hasPendingApply && (
+            <ErrorMsg>
+              你上次申请的创建请求还在处理中，请等待处理后再次创建，谢谢!
+            </ErrorMsg>
+          )}
+
+          <ArrowButton
+            size={SIZE.MEDIUM}
+            onClick={nextStep}
+            disabled={!validState.isCommunityTypeValid}
+          >
             下一步
           </ArrowButton>
         </NextBtn>

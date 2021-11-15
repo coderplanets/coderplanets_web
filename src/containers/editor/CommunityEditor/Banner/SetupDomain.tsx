@@ -2,8 +2,10 @@ import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import { SIZE } from '@/constant'
+import { cutRest } from '@/utils/helper'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
+import { LavaLampLoading } from '@/widgets/dynamic'
 
 import InputBox from './InputBox'
 
@@ -25,7 +27,7 @@ type TProps = {
 }
 const SetupDomain: FC<TProps> = ({ status, validState }) => {
   const { raw } = status
-  const { isRawValid } = validState
+  const { isRawValid, checking, communityExist } = validState
 
   return (
     <Wrapper>
@@ -39,8 +41,14 @@ const SetupDomain: FC<TProps> = ({ status, validState }) => {
         placeholder="my-domain"
         onChange={(e) => inputOnChange(e, 'raw')}
       />
-      {!isEmpty(raw) && !isRawValid && (
+      {!isEmpty(raw) && !communityExist && !isRawValid && (
         <ErrorMsg>仅支持英文、拼音或数字组合</ErrorMsg>
+      )}
+
+      {!checking && communityExist && (
+        <ErrorMsg>
+          {cutRest(raw, 8)} 已存在（或他人在申请中），请尝试其他域名
+        </ErrorMsg>
       )}
       <NextBtn>
         <ArrowButton
@@ -51,13 +59,18 @@ const SetupDomain: FC<TProps> = ({ status, validState }) => {
         >
           上一步
         </ArrowButton>
-        <ArrowButton
-          size={SIZE.MEDIUM}
-          onClick={nextStep}
-          disabled={!isRawValid}
-        >
-          下一步
-        </ArrowButton>
+
+        {checking ? (
+          <LavaLampLoading />
+        ) : (
+          <ArrowButton
+            size={SIZE.MEDIUM}
+            onClick={nextStep}
+            disabled={!isRawValid}
+          >
+            下一步
+          </ArrowButton>
+        )}
       </NextBtn>
     </Wrapper>
   )

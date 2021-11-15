@@ -18,8 +18,13 @@ export type TSetupInfoStatus = {
 }
 
 export type TValidState = {
+  isCommunityTypeValid: boolean
   isRawValid: boolean
   isTitleValid: boolean
   isDescValid: boolean
   isLogoValid: boolean
+  checking: boolean
+  communityExist: boolean
+  hasPendingApply: boolean
+  isLogin: boolean
 }

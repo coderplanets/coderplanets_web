@@ -44,7 +44,7 @@ const Content: FC<TProps> = ({
       <Wrapper>
         <NoticeBar
           type="info"
-          content={`绑定域名功能正在开发中，届时所有社区功能将开放给自定义域名，比如：forum.${customDomain}.com, 敬请期待。`}
+          content={`绑定域名功能即将开放，届时社区功能会开放给你的自主域名，比如：forum.${customDomain}.com, 敬请期待。`}
           top={8}
           left={95}
           right={30}

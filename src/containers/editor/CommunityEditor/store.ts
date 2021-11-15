@@ -25,7 +25,13 @@ const CommunityEditor = T.model('CommunityEditorStore', {
   ),
 
   communityType: T.maybeNull(T.enumeration(values(COMMUNITY_TYPE))),
+  // if community exist / has pending apply
+  checking: T.optional(T.boolean, false),
 
+  communityExist: T.optional(T.boolean, false),
+  hasPendingApply: T.optional(T.boolean, false),
+
+  //
   raw: T.optional(T.string, ''),
   logo: T.maybeNull(T.string),
   title: T.optional(T.string, ''),
@@ -55,7 +61,15 @@ const CommunityEditor = T.model('CommunityEditorStore', {
 
       return { raw, title, desc, logo }
     },
+    get isCommunityTypeValid(): boolean {
+      const slf = self as TStore
+      if (!slf.isLogin) return false
+
+      return !slf.hasPendingApply
+    },
     get isRawValid(): boolean {
+      if (self.communityExist) return false
+
       const rule = /^[0-9a-zA-Z]+$/
       return rule.test(self.raw)
     },
@@ -72,7 +86,17 @@ const CommunityEditor = T.model('CommunityEditorStore', {
       const slf = self as TStore
 
       return pick(
-        ['isRawValid', 'isTitleValid', 'isDescValid', 'isLogoValid'],
+        [
+          'isCommunityTypeValid',
+          'isRawValid',
+          'isTitleValid',
+          'isDescValid',
+          'isLogoValid',
+          'checking',
+          'communityExist',
+          'hasPendingApply',
+          'isLogin',
+        ],
         slf,
       )
     },

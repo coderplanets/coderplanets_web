@@ -65,12 +65,30 @@ const pagedCategories = gql`
   }
 `
 
+const hasPendingCommunityApply = gql`
+  query {
+    hasPendingCommunityApply {
+      exist
+    }
+  }
+`
+
+const isCommunityExist = gql`
+  query ($raw: String!) {
+    isCommunityExist(raw: $raw) {
+      exist
+    }
+  }
+`
+
 const schema = {
   pagedCommunities,
   searchCommunities,
   subscribeCommunity,
   unsubscribeCommunity,
   pagedCategories,
+  hasPendingCommunityApply,
+  isCommunityExist,
 }
 
 export default schema
