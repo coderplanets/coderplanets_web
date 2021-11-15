@@ -11,6 +11,7 @@ import { buildLog } from '@/utils/logger'
 import SelectType from './SelectType'
 import SetupDomain from './SetupDomain'
 import SetupInfo from './SetupInfo'
+import MoreInfo from './MoreInfo'
 
 import { Wrapper } from '../styles/content'
 
@@ -49,6 +50,10 @@ const Content: FC<TProps> = ({
     }
     case STEP.SETUP_DOMAIN: {
       stepComp = <SetupDomain status={setupDomainStatus} />
+      break
+    }
+    case STEP.MORE_INFO: {
+      stepComp = <MoreInfo status={setupInfoStatus} />
       break
     }
     default: {

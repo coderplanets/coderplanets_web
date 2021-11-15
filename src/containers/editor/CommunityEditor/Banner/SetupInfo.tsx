@@ -5,8 +5,7 @@ import { nilOrEmpty } from '@/utils/validator'
 
 import OSSUploader from '@/widgets/OSSUploader'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
-import Button from '@/widgets/Buttons/Button'
-import { Br } from '@/widgets/Common'
+import { Br, Space } from '@/widgets/Common'
 
 import {
   Wrapper,
@@ -20,11 +19,10 @@ import {
   RealCover,
   InputsWrapper,
   InputBox,
-  CommunityName,
 } from '../styles/banner/setup_info'
 
 import type { TSetupInfoStatus, TValidState } from '../spec'
-import { pervStep, applyCommunity, inputOnChange } from '../logic'
+import { pervStep, nextStep, inputOnChange } from '../logic'
 
 type TProps = {
   status: TSetupInfoStatus
@@ -78,14 +76,10 @@ const SetupInfo: FC<TProps> = ({ status, validState }) => {
         >
           上一步
         </ArrowButton>
-        <Button
-          size={SIZE.SMALL}
-          onClick={() => applyCommunity()}
-          loading={submitting}
-          disabled={!isValid}
-        >
-          创建<CommunityName>{title}</CommunityName>社区
-        </Button>
+        <Space right={30} />
+        <ArrowButton size={SIZE.MEDIUM} onClick={nextStep} disabled={!isValid}>
+          下一步
+        </ArrowButton>
       </NextBtn>
     </Wrapper>
   )

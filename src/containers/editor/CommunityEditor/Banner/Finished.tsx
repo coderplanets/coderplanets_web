@@ -9,7 +9,7 @@ const Finished: FC = () => {
   return (
     <Wrapper>
       <Title>👏🏻 &nbsp;&nbsp;感谢你的信任</Title>
-      <Desc>申请将在一个工作日内被处理，结果将以邮件形式告知。</Desc>
+      <Desc>申请将尽快被处理，结果将以邮件等形式告知。</Desc>
     </Wrapper>
   )
 }

@@ -19,11 +19,7 @@ import type {
 import { STEP, COMMUNITY_TYPE } from './constant'
 
 const CommunityEditor = T.model('CommunityEditorStore', {
-  step: T.optional(
-    T.enumeration(values(STEP)),
-    STEP.SELECT_TYPE, // SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
-  ),
-
+  step: T.optional(T.enumeration(values(STEP)), STEP.SELECT_TYPE),
   communityType: T.maybeNull(T.enumeration(values(COMMUNITY_TYPE))),
   // if community exist / has pending apply
   checking: T.optional(T.boolean, false),

@@ -3,11 +3,8 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import { InputBar } from './input_box'
-
-import Img from '@/Img'
+import Input from '@/widgets/Input'
 import ApplySVG from '@/icons/Apply'
-import WorksHolderSVG from '@/icons/WorksHolder'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -16,7 +13,7 @@ export const Wrapper = styled.div`
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 350px;
+  height: 430px;
 `
 export const IntroTitle = styled.div`
   position: relative;
@@ -26,56 +23,38 @@ export const IntroTitle = styled.div`
   margin-bottom: 20px;
   margin-left: -10px;
 `
-export const InfoWrapper = styled.div`
-  ${css.flex('align-center')};
-`
-export const RealCover = styled(Img)`
-  ${css.size(80)};
-  border-radius: 6px;
-`
-export const HolderWrapper = styled.div`
-  ${css.size(80)};
-  ${css.flex('align-both')};
-  border-radius: 6px;
-  background: #0c2631;
-`
-
-export const HolderIcon = styled(WorksHolderSVG)`
-  ${css.size(58)};
-  fill: #043b49;
-  opacity: 0.6;
-  transform: rotate(90deg);
-
-  ${HolderWrapper}:hover & {
-    opacity: 0;
-  }
-  transition: all 0.2s;
-`
-
 export const InputsWrapper = styled.div`
+  ${css.flexColumn('align-both')};
   margin-left: 15px;
 `
-export const InputBox = styled(InputBar)`
-  width: 300px;
-  min-width: 300px;
-  font-size: 16px;
-  text-align: left;
-  padding: 6px 18px;
-  border-radius: 8px;
-  height: 38px;
-  flex-grow: 0;
+export const InputBox = styled(Input)`
+  width: 400px;
+  border-radius: 10px;
   ::placeholder {
     font-size: 13px;
+  }
+`
+export const Notes = styled.div`
+  width: 400px;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+  padding: 14px 10px;
+`
+export const NoteLink = styled.a`
+  text-decoration: none;
+  color: #139c9e;
+  margin-left: 2px;
+  margin-right: 2px;
+
+  &:hover {
+    color: #139c9e;
+    text-decoration: underline;
   }
 `
 export const ApplyIcon = styled(ApplySVG)`
   fill: ${theme('thread.articleTitle')};
   ${css.size(18)};
   margin-right: 10px;
-`
-export const Title = styled.div`
-  color: ${theme('banner.title')};
-  font-size: 1.1rem;
 `
 export const StepHint = styled.div`
   position: absolute;
@@ -88,6 +67,11 @@ export const StepHint = styled.div`
 export const NextBtn = styled.div`
   position: absolute;
   ${css.flex('align-center', 'justify-center')};
-  width: 200px;
-  bottom: 30px;
+  width: 300px;
+  bottom: 40px;
+`
+export const CommunityName = styled.span`
+  ${css.cutRest('50px')};
+  margin-left: 1px;
+  margin-right: 1px;
 `

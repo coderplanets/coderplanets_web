@@ -31,10 +31,11 @@ let sub$ = null
 export const pervStep = (): void => {
   const { step, communityType } = store
 
-  if (communityType === COMMUNITY_TYPE.WORKS) {
-    if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SELECT_TYPE })
-    if (step === STEP.SETUP_INFO) store.mark({ step: STEP.SETUP_DOMAIN })
-  }
+  if (communityType !== COMMUNITY_TYPE.WORKS) return
+
+  if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SELECT_TYPE })
+  if (step === STEP.SETUP_INFO) store.mark({ step: STEP.SETUP_DOMAIN })
+  if (step === STEP.MORE_INFO) store.mark({ step: STEP.SETUP_INFO })
 }
 
 /**
@@ -50,6 +51,9 @@ export const nextStep = (): void => {
   if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
   if (step === STEP.SETUP_DOMAIN) {
     checkIfCommunityExist()
+  }
+  if (step === STEP.SETUP_INFO) {
+    store.mark({ step: STEP.MORE_INFO })
   }
 }
 
@@ -160,7 +164,7 @@ export const useInit = (_store: TStore): void => {
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     if (store.isLogin) {
-      checkPendingApply()
+      // checkPendingApply()
     }
 
     return () => {

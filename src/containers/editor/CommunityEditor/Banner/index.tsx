@@ -12,6 +12,7 @@ import { buildLog } from '@/utils/logger'
 import SelectType from './SelectType'
 import SetupDomain from './SetupDomain'
 import SetupInfo from './SetupInfo'
+import MoreInfo from './MoreInfo'
 import Finished from './Finished'
 
 import { Wrapper } from '../styles/banner'
@@ -53,6 +54,15 @@ const Banner: FC<TProps> = ({
     }
     case STEP.SETUP_INFO: {
       stepComp = <SetupInfo status={setupInfoStatus} validState={validState} />
+      break
+    }
+    case STEP.MORE_INFO: {
+      stepComp = (
+        <MoreInfo
+          validState={validState}
+          communityType={selectTypeStatus.communityType}
+        />
+      )
       break
     }
     case STEP.FINISHED: {
