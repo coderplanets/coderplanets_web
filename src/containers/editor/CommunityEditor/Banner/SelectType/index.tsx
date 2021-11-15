@@ -21,6 +21,7 @@ import {
   AddNewIcon,
   NextBtn,
   ErrorMsg,
+  InfoMsg,
 } from '../../styles/banner/select_type'
 import { nextStep } from '../../logic'
 
@@ -49,18 +50,20 @@ const SelectType: FC<TProps> = ({ status: { communityType }, validState }) => {
             <ErrorMsg>创建社区需要先登录</ErrorMsg>
           )}
           {validState.isLogin && validState.hasPendingApply && (
-            <ErrorMsg>
+            <InfoMsg>
               你上次申请的创建请求还在处理中，请等待处理后再次创建，谢谢!
-            </ErrorMsg>
+            </InfoMsg>
           )}
 
-          <ArrowButton
-            size={SIZE.MEDIUM}
-            onClick={nextStep}
-            disabled={!validState.isCommunityTypeValid}
-          >
-            下一步
-          </ArrowButton>
+          {!validState.hasPendingApply && (
+            <ArrowButton
+              size={SIZE.MEDIUM}
+              onClick={nextStep}
+              disabled={!validState.isCommunityTypeValid}
+            >
+              下一步
+            </ArrowButton>
+          )}
         </NextBtn>
       )}
     </Wrapper>

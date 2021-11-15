@@ -81,6 +81,15 @@ const isCommunityExist = gql`
   }
 `
 
+const applyCommunity = gql`
+  mutation ($title: String!, $desc: String!, $logo: String!, $raw: String!) {
+    applyCommunity(title: $title, desc: $desc, logo: $logo, raw: $raw) {
+      id
+      pending
+    }
+  }
+`
+
 const schema = {
   pagedCommunities,
   searchCommunities,
@@ -89,6 +98,7 @@ const schema = {
   pagedCategories,
   hasPendingCommunityApply,
   isCommunityExist,
+  applyCommunity,
 }
 
 export default schema

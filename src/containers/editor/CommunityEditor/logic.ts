@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { pick } from 'ramda'
 
 import type { TEditValue } from '@/spec'
 import { EVENT, ERR } from '@/constant'
@@ -48,10 +49,8 @@ export const nextStep = (): void => {
 
   if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
   if (step === STEP.SETUP_DOMAIN) {
-    // do exist check
     checkIfCommunityExist()
   }
-  if (step === STEP.SETUP_INFO) store.mark({ step: STEP.FINISHED })
 }
 
 const checkIfCommunityExist = () => {
@@ -72,6 +71,14 @@ const checkPendingApply = () => {
  */
 export const communityTypeOnChange = (communityType: TCommunityType): void => {
   store.mark({ communityType })
+}
+
+export const applyCommunity = (): void => {
+  const args = pick(['title', 'logo', 'desc', 'raw'], store)
+
+  console.log('args --> ', args)
+  store.mark({ submitting: true })
+  sr71$.mutate(S.applyCommunity, args)
 }
 
 /**
@@ -115,6 +122,10 @@ const DataSolver = [
     action: ({ hasPendingCommunityApply }) => {
       store.mark({ hasPendingApply: hasPendingCommunityApply.exist })
     },
+  },
+  {
+    match: asyncRes('applyCommunity'),
+    action: () => store.mark({ step: STEP.FINISHED }),
   },
 ]
 

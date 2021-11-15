@@ -24,7 +24,7 @@ import {
 } from '../styles/banner/setup_info'
 
 import type { TSetupInfoStatus, TValidState } from '../spec'
-import { pervStep, nextStep, inputOnChange } from '../logic'
+import { pervStep, applyCommunity, inputOnChange } from '../logic'
 
 type TProps = {
   status: TSetupInfoStatus
@@ -34,7 +34,7 @@ type TProps = {
 const SetupInfo: FC<TProps> = ({ status, validState }) => {
   const { title, desc, logo } = status
 
-  const { isTitleValid, isDescValid, isLogoValid } = validState
+  const { isTitleValid, isDescValid, isLogoValid, submitting } = validState
   const isValid = isTitleValid && isDescValid && isLogoValid
 
   return (
@@ -78,7 +78,12 @@ const SetupInfo: FC<TProps> = ({ status, validState }) => {
         >
           上一步
         </ArrowButton>
-        <Button size={SIZE.SMALL} onClick={nextStep} disabled={!isValid}>
+        <Button
+          size={SIZE.SMALL}
+          onClick={() => applyCommunity()}
+          loading={submitting}
+          disabled={!isValid}
+        >
           创建<CommunityName>{title}</CommunityName>社区
         </Button>
       </NextBtn>

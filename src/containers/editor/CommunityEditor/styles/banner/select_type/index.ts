@@ -54,3 +54,7 @@ export const ErrorMsg = styled.div`
   color: ${theme('baseColor.red')};
   font-size: 13px;
 `
+
+export const InfoMsg = styled(ErrorMsg)`
+  color: ${theme('button.primary')};
+`

@@ -27,4 +27,5 @@ export type TValidState = {
   communityExist: boolean
   hasPendingApply: boolean
   isLogin: boolean
+  submitting: boolean
 }

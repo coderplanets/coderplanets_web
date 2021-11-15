@@ -9,17 +9,11 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
 `
 /* header bg */
-export const Community = styled.a`
+export const Community = styled.div`
   ${css.flex('align-center', 'justify-between')};
   height: 30px;
   margin-right: 16px;
   margin-bottom: 5px;
-
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    text-decoration-color: ${theme('thread.articleDigest')};
-  }
 `
 export const Logo = styled(CommunityFaceLogo)`
   fill: #317faf;

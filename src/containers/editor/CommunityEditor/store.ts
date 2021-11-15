@@ -27,6 +27,7 @@ const CommunityEditor = T.model('CommunityEditorStore', {
   communityType: T.maybeNull(T.enumeration(values(COMMUNITY_TYPE))),
   // if community exist / has pending apply
   checking: T.optional(T.boolean, false),
+  submitting: T.optional(T.boolean, false),
 
   communityExist: T.optional(T.boolean, false),
   hasPendingApply: T.optional(T.boolean, false),
@@ -96,6 +97,7 @@ const CommunityEditor = T.model('CommunityEditorStore', {
           'communityExist',
           'hasPendingApply',
           'isLogin',
+          'submitting',
         ],
         slf,
       )
