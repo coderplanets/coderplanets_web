@@ -7,12 +7,12 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
-// import Dropdown from '@/widgets/Dropdown'
 
 import {
   Wrapper,
   Text,
   UnderlineBtn,
+  CurNum,
   TotalNum,
   Divider,
 } from '../styles/header/index_status'
@@ -25,7 +25,7 @@ const IndexStatus: FC = () => {
   return (
     <Wrapper>
       <Text>共&nbsp;</Text>
-      <UnderlineBtn>56</UnderlineBtn>
+      <CurNum>56</CurNum>
       <Divider>/</Divider>
       <TotalNum>8430</TotalNum>
       <Text>杯</Text>

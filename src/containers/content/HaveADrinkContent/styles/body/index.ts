@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div``
+export const SentenceWrapper = styled.div`
   ${css.flexColumn('align-both')}
-  width: 80%;
   margin-top: 4%;
   margin-bottom: 3%;
 `

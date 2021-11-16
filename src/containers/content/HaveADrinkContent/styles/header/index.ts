@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
+// import Img from '@/Img'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
@@ -9,25 +9,5 @@ export const Wrapper = styled.div`
 `
 export const GoBackWrapper = styled.div`
   ${css.flex('align-center')};
-`
-export const BackIcon = styled(Img)`
-  fill: #708b96;
-  ${css.size(16)};
-  margin-right: 10px;
-
-  ${GoBackWrapper}:hover & {
-    fill: #327faf;
-    cursor: pointer;
-    margin-right: 6px;
-  }
-  transition: all 0.25s;
-`
-export const BackText = styled.div`
-  color: #708b96;
-  font-size: 16px;
-
-  ${GoBackWrapper}:hover & {
-    color: #327faf;
-    cursor: pointer;
-  }
+  margin-left: 15px;
 `

@@ -14,7 +14,7 @@ import Catalog from './Catalog'
 import Setting from './Setting'
 import About from './About'
 
-import { Wrapper, Sentence, Hint } from '../styles/body'
+import { Wrapper, SentenceWrapper, Sentence, Hint } from '../styles/body'
 import { VIEW } from '../constant'
 
 /* eslint-disable-next-line */
@@ -50,7 +50,7 @@ const View: FC<TViewProps> = ({ view, sentence, settingOptions }) => {
     }
     default: {
       return (
-        <>
+        <SentenceWrapper>
           <Sentence fontSize={settingOptions.fontSize}>
             <AnimateOnChange {...animate[settingOptions.animateType]}>
               {sentence}
@@ -58,7 +58,7 @@ const View: FC<TViewProps> = ({ view, sentence, settingOptions }) => {
           </Sentence>
 
           <Hint>按「空格」键或「点击」刷新</Hint>
-        </>
+        </SentenceWrapper>
       )
     }
   }
