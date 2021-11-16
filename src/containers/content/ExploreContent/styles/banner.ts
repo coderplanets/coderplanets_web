@@ -51,8 +51,9 @@ export const SloganTextWrapper = styled.div<{ highlight?: boolean }>`
     highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
 `
 export const CreateCommunityLink = styled.a`
-  color: #327faf;
+  color: ${theme('button.primary')};
   margin-right: 3px;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;

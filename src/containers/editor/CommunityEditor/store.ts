@@ -4,47 +4,36 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
+import { pick, values, isEmpty } from 'ramda'
 
 import type { TRootStore, TRoute } from '@/spec'
 // toJS
 import { markStates } from '@/utils/mobx'
-import { LN } from './constant'
+
+import type {
+  TSelectTypeStatus,
+  TSetupDomainStatus,
+  TSetupInfoStatus,
+  TValidState,
+} from './spec'
+import { STEP, COMMUNITY_TYPE } from './constant'
 
 const CommunityEditor = T.model('CommunityEditorStore', {
-  step: T.optional(
-    T.enumeration([
-      LN.STEP.SELECT_TYPE,
-      LN.STEP.SETUP_DOMAIN,
-      LN.STEP.SETUP_INFO,
-    ]),
-    LN.STEP.SELECT_TYPE, // SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
-  ),
+  step: T.optional(T.enumeration(values(STEP)), STEP.SELECT_TYPE),
+  communityType: T.maybeNull(T.enumeration(values(COMMUNITY_TYPE))),
+  // if community exist / has pending apply
+  checking: T.optional(T.boolean, false),
+  submitting: T.optional(T.boolean, false),
 
-  communityType: T.maybeNull(
-    T.enumeration([
-      LN.COMMUNITY_TYPE.STANDER,
-      LN.COMMUNITY_TYPE.CITY,
-      LN.COMMUNITY_TYPE.WORK,
-      LN.COMMUNITY_TYPE.TEAM,
-    ]),
-  ),
+  communityExist: T.optional(T.boolean, false),
+  hasPendingApply: T.optional(T.boolean, false),
 
-  domainValue: T.optional(T.string, ''),
-  titleValue: T.optional(T.string, ''),
-  descValue: T.optional(T.string, ''),
-
-  // current active sidbar menu id
-  // cur active category
-
-  // search status
-  // searching: T.optional(T.boolean, false),
-  // isSearchMode: T.optional(T.boolean, false),
-  // searchResultCount: T.optional(T.number, 0),
-  // searchValue: T.optional(T.string, ''),
-  // showSearchMask: T.optional(T.boolean, true),
-  // showCreateHint: T.optional(T.boolean, true),
-  // showSearchHint: T.optional(T.boolean, false),
-  // searchfocused: T.optional(T.boolean, false),
+  //
+  raw: T.optional(T.string, ''),
+  logo: T.maybeNull(T.string),
+  title: T.optional(T.string, ''),
+  desc: T.optional(T.string, ''),
+  applyMsg: T.optional(T.string, ''),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -55,23 +44,60 @@ const CommunityEditor = T.model('CommunityEditorStore', {
       const root = getParent(self) as TRootStore
       return root.curRoute
     },
-    get selectTypeStatus() {
+    get selectTypeStatus(): TSelectTypeStatus {
       const { communityType } = self
 
       return { communityType }
     },
-    get setupDomainStatus() {
-      const { domainValue } = self
+    get setupDomainStatus(): TSetupDomainStatus {
+      const { raw } = self
 
-      return { domainValue }
+      return { raw }
     },
-    get setupInfoStatus() {
-      const { domainValue, titleValue, descValue } = self
+    get setupInfoStatus(): TSetupInfoStatus {
+      const { raw, title, desc, logo, applyMsg } = self
 
-      return { domainValue, titleValue, descValue }
+      return { raw, title, desc, logo, applyMsg }
     },
-    get searchStatus() {
-      return {}
+    get isCommunityTypeValid(): boolean {
+      const slf = self as TStore
+      if (!slf.isLogin) return false
+
+      return !slf.hasPendingApply
+    },
+    get isRawValid(): boolean {
+      if (self.communityExist) return false
+
+      const rule = /^[0-9a-zA-Z]+$/
+      return rule.test(self.raw)
+    },
+    get isTitleValid(): boolean {
+      return !isEmpty(self.raw)
+    },
+    get isDescValid(): boolean {
+      return !isEmpty(self.desc)
+    },
+    get isLogoValid(): boolean {
+      return self.logo && !isEmpty(self.logo)
+    },
+    get validState(): TValidState {
+      const slf = self as TStore
+
+      return pick(
+        [
+          'isCommunityTypeValid',
+          'isRawValid',
+          'isTitleValid',
+          'isDescValid',
+          'isLogoValid',
+          'checking',
+          'communityExist',
+          'hasPendingApply',
+          'isLogin',
+          'submitting',
+        ],
+        slf,
+      )
     },
   }))
   .actions((self) => ({

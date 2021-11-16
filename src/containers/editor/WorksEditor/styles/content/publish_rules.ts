@@ -32,10 +32,25 @@ export const Section = styled.div`
   ${css.flex('align-start')};
   margin-bottom: 20px;
 `
-const Title = styled.div`
-  font-size: 14px;
+export const TitleSection = styled.div`
   width: 120px;
   min-width: 120px;
+`
+const Title = styled.span`
+  font-size: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: -15px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  filter: saturate(0.6);
+
+  background: linear-gradient(
+    to top,
+    #01404d 35%,
+    transparent 35%,
+    transparent 80%
+  );
 `
 export const DoTitle = styled(Title)`
   color: ${theme('baseColor.green')};

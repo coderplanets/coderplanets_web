@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 340px;
+  height: 440px;
 `
 export const IntroTitle = styled.div`
   ${css.flex('align-center')};
@@ -41,6 +41,20 @@ export const Title = styled.div`
   font-size: 1.1rem;
 `
 export const NextBtn = styled.div`
+  ${css.flex('justify-center')};
   position: absolute;
+  width: 280px;
   bottom: 5px;
+`
+export const ErrorMsg = styled.div`
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 45px;
+  color: ${theme('baseColor.red')};
+  font-size: 13px;
+`
+export const InfoMsg = styled(ErrorMsg)`
+  color: ${theme('button.primary')};
+  bottom: 35px;
 `

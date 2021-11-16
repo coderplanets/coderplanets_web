@@ -4,27 +4,43 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 
 import SelectType from './SelectType'
 import SetupDomain from './SetupDomain'
 import SetupInfo from './SetupInfo'
+import MoreInfo from './MoreInfo'
 
 import { Wrapper } from '../styles/content'
-import { LN } from '../constant'
+
+import type {
+  TStep,
+  TSelectTypeStatus,
+  TSetupDomainStatus,
+  TSetupInfoStatus,
+} from '../spec'
+import { STEP } from '../constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:NewExploreContent')
 
-const Content = ({
+type TProps = {
+  step: TStep
+  selectTypeStatus: TSelectTypeStatus
+  setupDomainStatus: TSetupDomainStatus
+  setupInfoStatus: TSetupInfoStatus
+}
+
+const Content: FC<TProps> = ({
   step,
   selectTypeStatus,
   setupDomainStatus,
   setupInfoStatus,
 }) => {
-  const { STEP } = LN
+  if (step === STEP.FINISHED) return null
+
   let stepComp
 
   switch (step) {
@@ -36,16 +52,22 @@ const Content = ({
       stepComp = <SetupDomain status={setupDomainStatus} />
       break
     }
-    case STEP.SETUP_INFO: {
-      stepComp = <SetupInfo status={setupInfoStatus} />
+    case STEP.MORE_INFO: {
+      stepComp = <MoreInfo status={setupInfoStatus} />
       break
     }
     default: {
-      stepComp = <div>unknow step</div>
+      stepComp = (
+        <SetupInfo
+          status={setupInfoStatus}
+          communityType={selectTypeStatus.communityType}
+        />
+      )
+      break
     }
   }
 
   return <Wrapper>{stepComp}</Wrapper>
 }
 
-export default React.memo(Content)
+export default memo(Content)

@@ -65,12 +65,54 @@ const pagedCategories = gql`
   }
 `
 
+const hasPendingCommunityApply = gql`
+  query {
+    hasPendingCommunityApply {
+      exist
+    }
+  }
+`
+
+const isCommunityExist = gql`
+  query ($raw: String!) {
+    isCommunityExist(raw: $raw) {
+      exist
+    }
+  }
+`
+
+const applyCommunity = gql`
+  mutation (
+    $title: String!
+    $desc: String!
+    $logo: String!
+    $raw: String!
+    $applyMsg: String
+    $applyCategory: String
+  ) {
+    applyCommunity(
+      title: $title
+      desc: $desc
+      logo: $logo
+      raw: $raw
+      applyMsg: $applyMsg
+      applyCategory: $applyCategory
+    ) {
+      id
+      pending
+    }
+  }
+`
+
 const schema = {
   pagedCommunities,
   searchCommunities,
   subscribeCommunity,
   unsubscribeCommunity,
   pagedCategories,
+  hasPendingCommunityApply,
+  isCommunityExist,
+  applyCommunity,
 }
 
 export default schema

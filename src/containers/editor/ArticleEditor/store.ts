@@ -64,9 +64,9 @@ const ArticleEditor = T.model('ArticleEditor', {
       const slf = self as TStore
       const { mode, accountInfo, viewingArticle } = slf
 
-      return (
-        mode === 'update' && accountInfo.login === viewingArticle.author?.login
-      )
+      if (mode === 'publish') return true
+
+      return accountInfo.login === viewingArticle.author?.login
     },
     get thread(): TArticleThread {
       const root = getParent(self) as TRootStore

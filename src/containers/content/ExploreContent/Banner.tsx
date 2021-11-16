@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic'
 
 import type { TSearchState } from './spec'
 import { ICON_CMD } from '@/config'
+import { ROUTE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import SearchBox from './SearchBox'
@@ -77,7 +78,7 @@ const Banner: FC<TProps> = ({
           <IntroDesc>
             或者，来为你
             <SloganText />
-            <Link href="/create/community" passHref>
+            <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>
               <CreateCommunityLink>建立一个社区</CreateCommunityLink>
             </Link>
             吧！

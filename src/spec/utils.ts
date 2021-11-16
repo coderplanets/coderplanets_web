@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, ChangeEvent } from 'react'
 // c# like
 export type Nullable<T> = T | null
 
@@ -120,7 +120,9 @@ export type TGQError = {
   code?: number
 }
 
-export type TInput = Event & { target: HTMLInputElement }
+export type TInput =
+  | (Event & { target: HTMLInputElement })
+  | ChangeEvent<HTMLInputElement>
 export type TEditValue = TInput | string | boolean
 
 export type TEditMode = 'publish' | 'update'

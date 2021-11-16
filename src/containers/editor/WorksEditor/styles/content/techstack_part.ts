@@ -12,6 +12,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   min-height: 480px;
   color: ${theme('thread.articleDigest')};
   padding: 20px 0;
+  padding-left: 8px;
   padding-top: 0;
 `
 export const TechsWrapper = styled.div`

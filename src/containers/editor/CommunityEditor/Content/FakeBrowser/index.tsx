@@ -1,16 +1,17 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
 
 import { ICON_CMD } from '@/config'
 
+import Favicon from './Favicon'
 import Content from './Content'
+
+import type { TStep, TCommunityType } from '../../spec'
 
 import {
   Wrapper,
   Header,
   Tab,
-  TabIcon,
   TabContent,
   AddressBar,
   ToolbarWrapper,
@@ -21,14 +22,30 @@ import {
   DomainText,
 } from '../../styles/content/fake_browser'
 
-const FakeBrowser = ({ domain, title, desc, showContent }) => {
+type TProps = {
+  step: TStep
+  domain?: string
+  title?: string
+  desc?: string
+  logo?: string | null
+  communityType?: TCommunityType
+}
+
+const FakeBrowser: FC<TProps> = ({
+  step,
+  domain = '',
+  title = '',
+  desc = '',
+  logo = null,
+  communityType = null,
+}) => {
   const tabTitle = title || domain || 'coderplanets'
 
   return (
     <Wrapper>
       <Header>
         <Tab>
-          {title && <TabIcon />}
+          <Favicon title={title} logo={logo} />
           <TabContent>{tabTitle}</TabContent>
         </Tab>
       </Header>
@@ -48,10 +65,10 @@ const FakeBrowser = ({ domain, title, desc, showContent }) => {
           </ToolbarWrapper>
           <Input>
             {isEmpty(domain) ? (
-              <div>https://coderplanets.com</div>
+              <div>coderplanets.com</div>
             ) : (
               <div>
-                https://<DomainText>{domain}</DomainText>.coderplanets.com
+                coderplanets.com/<DomainText>{domain.toLowerCase()}</DomainText>
               </div>
             )}
           </Input>
@@ -63,23 +80,16 @@ const FakeBrowser = ({ domain, title, desc, showContent }) => {
           <ToolIcon src={`${ICON_CMD}/new_community/more.svg`} />
         </ToolbarWrapper>
       </AddressBar>
-      {showContent && <Content title={title} desc={desc} />}
+      <Content
+        step={step}
+        title={title}
+        desc={desc}
+        logo={logo}
+        domain={domain}
+        communityType={communityType}
+      />
     </Wrapper>
   )
 }
 
-FakeBrowser.propTypes = {
-  domain: T.string,
-  title: T.string,
-  desc: T.string,
-  showContent: T.bool,
-}
-
-FakeBrowser.defaultProps = {
-  domain: '',
-  title: '',
-  desc: '',
-  showContent: false,
-}
-
-export default React.memo(FakeBrowser)
+export default memo(FakeBrowser)

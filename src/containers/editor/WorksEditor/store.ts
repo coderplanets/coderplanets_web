@@ -96,8 +96,9 @@ const WorksEditor = T.model('WorksEditor', {
     get allowEdit(): boolean {
       const slf = self as TStore
       const { mode, accountInfo, author } = slf
+      if (mode === 'publish') return true
 
-      return mode === 'update' && accountInfo.login === author.login
+      return accountInfo.login === author.login
     },
     get searchedUsersData(): TUser[] {
       return toJS(self.searchedUsers)
@@ -252,16 +253,22 @@ const WorksEditor = T.model('WorksEditor', {
   .actions((self) => ({
     setErrorMsgIfNeed(): void {
       const slf = self as TStore
-      const { step, submitState, homeLink, desc } = slf
+      const { step, submitState, cover, homeLink, desc } = slf
       const { stepReady } = submitState
 
       switch (step) {
         case STEP.ONE: {
           if (stepReady[1]) return
 
-          if (nilOrEmpty(desc)) toast('info', '简介', '请填写作品的一句话简介')
-          if (!isURL(homeLink)) {
-            toast('info', '主页地址', '请填写可用的 URL 地址')
+          const toastTitle = '请完善必填项'
+          let toastDesc = ''
+
+          if (nilOrEmpty(cover)) toastDesc = toastDesc.concat('封面图片')
+          if (!isURL(homeLink)) toastDesc = toastDesc.concat('、主页地址')
+          if (nilOrEmpty(desc)) toastDesc = toastDesc.concat('、一句话简介')
+
+          if (!!toastDesc) {
+            toast('info', toastTitle, toastDesc)
           }
         }
 

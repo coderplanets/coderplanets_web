@@ -4,11 +4,11 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
+import Link from 'next/link'
 
-import { ICON_BASE } from '@/config'
+import type { TCommunity } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { Trans } from '@/utils/i18n'
 
 // import SearchBox from './SearchBox'
 import {
@@ -23,16 +23,21 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:NewExploreContent')
 
-const DemoCommunity = ({ title, type = 'pl' }) => {
-  const unit = type === 'city' ? 'svg' : 'png'
+type TProps = {
+  item: TCommunity
+}
+
+const DemoCommunity: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Community>
-        <Logo src={`${ICON_BASE}/${type}/${title}.${unit}`} />
-        <Title>{Trans(title)}</Title>
+        <Logo src={item.logo} raw={item.raw} />
+        <Link href={`/${item.raw}`} passHref>
+          <Title>{item.title}</Title>
+        </Link>
       </Community>
     </Wrapper>
   )
 }
 
-export default React.memo(DemoCommunity)
+export default memo(DemoCommunity)
