@@ -8,6 +8,7 @@ const demo = [
     total: '224',
     desc: '各种产品或服务中的彩蛋和用心细节，情怀改变世界。',
     updatedAt: '3天前',
+    upvoteAlias: '爱了',
     entries: [
       '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
       '一个人如果没有梦想，跟无忧无虑有什么区别呢？',
@@ -21,6 +22,7 @@ const demo = [
     total: '224',
     desc: 'IT 发展史上少为人知的奇闻轶事，散落天涯的江湖传说。',
     updatedAt: '3天前',
+    upvoteAlias: '学到了',
     entries: [
       '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
       '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
@@ -35,6 +37,7 @@ const demo = [
     total: '224',
     desc: '自黑自嘲自爱自爆，程序员趣图，IT / 职场各种梗图',
     updatedAt: '3天前',
+    upvoteAlias: '喜欢',
   },
   {
     id: '3',
@@ -43,6 +46,7 @@ const demo = [
     total: '224',
     desc: '数据胜千言，Data 会说话。',
     updatedAt: '3天前',
+    upvoteAlias: '喜欢',
     active: true,
   },
   {
@@ -52,6 +56,7 @@ const demo = [
     total: '224',
     desc: '工业界，工作中的那些优雅传神的命名和概念。',
     updatedAt: '3天前',
+    upvoteAlias: '喜欢',
     entries: [
       '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
       '一个人如果没有梦想，跟无忧无虑有什么区别呢？',
@@ -65,6 +70,7 @@ const demo = [
     total: '22',
     desc: '互联网厕所，专门记录那些令人作呕的产品及使用体验。',
     updatedAt: '3天前',
+    upvoteAlias: '吐了',
   },
   {
     id: '6',
@@ -73,6 +79,7 @@ const demo = [
     total: '224',
     desc: '免费加油站，比鸡汤更励志，比汽油劲更大。',
     updatedAt: '3天前',
+    upvoteAlias: '回血了',
   },
   {
     id: '7',
@@ -81,6 +88,7 @@ const demo = [
     total: '224',
     desc: '各种冷门语言的小众特性，代码，还可以这么写 ~',
     updatedAt: '3天前',
+    upvoteAlias: '学到了',
   },
   {
     id: '8',
@@ -89,6 +97,7 @@ const demo = [
     total: '224',
     desc: '工作台与装备展示，极客的 DeskPorn ~ ',
     updatedAt: '3天前',
+    upvoteAlias: '喜欢',
   },
   {
     id: '9',
@@ -97,14 +106,16 @@ const demo = [
     total: '224',
     desc: '应用市场那些奇葩诡异、莫名其妙、哭笑不得的被拒理由。 ',
     updatedAt: '3天前',
+    upvoteAlias: '惊呆了',
   },
   {
     id: '10',
     icon: `${ICON_CMD}/drink/chicken.svg`,
-    title: '我的编辑器',
+    title: '编辑器圣战',
     total: '224',
-    desc: '编辑器圣战，分享主题，配置，使用技巧。',
+    desc: '晒主题，分享配置，使用技巧。',
     updatedAt: '3天前',
+    upvoteAlias: '喜欢',
   },
   {
     id: '11',
@@ -113,6 +124,7 @@ const demo = [
     total: '224',
     desc: '好喝没营养，一直喝一直爽。',
     updatedAt: '3天前',
+    upvoteAlias: '干了',
     entries: [
       '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
       '一个人如果没有梦想，跟无忧无虑有什么区别呢？',
@@ -127,6 +139,7 @@ const demo = [
     total: '22',
     desc: '各大社交平台上给人启发思考的见解言论。',
     updatedAt: '3天前',
+    upvoteAlias: '赞同',
   },
   {
     id: '13',
@@ -134,6 +147,7 @@ const demo = [
     title: '交个朋友',
     total: '22',
     desc: '不是直播间，是化学实验室 ❤️',
+    upvoteAlias: '有感觉',
     updatedAt: '3天前',
   },
 ]

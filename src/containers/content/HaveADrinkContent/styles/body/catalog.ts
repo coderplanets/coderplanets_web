@@ -29,7 +29,7 @@ export const Note = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
   padding: 0 15px;
-  line-height: 1.6;
+  line-height: 1.8;
 `
 export const Content = styled.div`
   ${css.flex('align-center')}
