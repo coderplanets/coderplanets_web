@@ -1,10 +1,11 @@
 import { FC, memo } from 'react'
+import { includes } from 'ramda'
 
 import NoticeBar from '@/widgets/NoticeBar'
 import communityIntros from '../communityIntros'
 
 import type { TStep, TCommunityType } from '../../spec'
-import { STEP } from '../../constant'
+import { STEP, COMMUNITY_TYPE } from '../../constant'
 
 import {
   Wrapper,
@@ -37,7 +38,10 @@ const Content: FC<TProps> = ({
   domain = null,
   communityType,
 }) => {
-  if (step === STEP.SETUP_DOMAIN) {
+  if (
+    includes(communityType, [COMMUNITY_TYPE.WORKS, COMMUNITY_TYPE.TEAM]) &&
+    step === STEP.SETUP_DOMAIN
+  ) {
     const customDomain = domain || 'my-domain'
 
     return (

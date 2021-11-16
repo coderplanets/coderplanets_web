@@ -29,9 +29,7 @@ let sub$ = null
  * @public
  */
 export const pervStep = (): void => {
-  const { step, communityType } = store
-
-  if (communityType !== COMMUNITY_TYPE.WORKS) return
+  const { step } = store
 
   if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SELECT_TYPE })
   if (step === STEP.SETUP_INFO) store.mark({ step: STEP.SETUP_DOMAIN })
@@ -44,9 +42,7 @@ export const pervStep = (): void => {
  * @public
  */
 export const nextStep = (): void => {
-  const { step, communityType } = store
-
-  if (communityType !== COMMUNITY_TYPE.WORKS) return
+  const { step } = store
 
   if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
   if (step === STEP.SETUP_DOMAIN) {

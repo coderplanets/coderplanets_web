@@ -20,8 +20,48 @@ import {
 } from '../styles/banner/more_info'
 
 import type { TSetupInfoStatus, TValidState, TCommunityType } from '../spec'
-import { TRANS } from '../constant'
+import { TRANS, COMMUNITY_TYPE } from '../constant'
 import { pervStep, applyCommunity, inputOnChange } from '../logic'
+
+type TNote = {
+  communityType: TCommunityType
+}
+
+const TheNotes: FC<TNote> = ({ communityType }) => {
+  switch (communityType) {
+    case COMMUNITY_TYPE.PUBLIC: {
+      return <Notes>官网 / github 主页等介绍性信息。</Notes>
+    }
+
+    case COMMUNITY_TYPE.CITY: {
+      return <Notes>目前仅支持 IT / 创意产业较为发达的地区城市。</Notes>
+    }
+
+    case COMMUNITY_TYPE.TEAM: {
+      return (
+        <Notes>
+          团队主页 / github 或相关社交平台链接，如果已经在
+          <Link href={`/${ROUTE.WORKS}`} passHref>
+            <NoteLink target="_blank">作品集市</NoteLink>
+          </Link>
+          发布过作品，请一并附上。
+        </Notes>
+      )
+    }
+
+    default: {
+      return (
+        <Notes>
+          作品主页或相关社交平台链接，如果你已经在
+          <Link href={`/${ROUTE.WORKS}`} passHref>
+            <NoteLink target="_blank">作品集市</NoteLink>
+          </Link>
+          发布过作品，请一并附上。
+        </Notes>
+      )
+    }
+  }
+}
 
 type TProps = {
   status: TSetupInfoStatus
@@ -47,13 +87,7 @@ const MoreInfo: FC<TProps> = ({ status, validState, communityType }) => {
           behavior="textarea"
           onChange={(e) => inputOnChange(e, 'applyMsg')}
         />
-        <Notes>
-          作品主页或相关社交平台链接，如果你已经在
-          <Link href={`/${ROUTE.WORKS}`} passHref>
-            <NoteLink target="_blank">作品集市</NoteLink>
-          </Link>
-          发布过作品，请一并附上。
-        </Notes>
+        <TheNotes communityType={communityType} />
       </InputsWrapper>
 
       <NextBtn>
