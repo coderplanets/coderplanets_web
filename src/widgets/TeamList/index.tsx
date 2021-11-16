@@ -1,6 +1,6 @@
 /*
  *
- * UserList
+ * TeamList
  *
  */
 
@@ -17,7 +17,7 @@ import List from './List'
 // import { Wrapper, Avatar, SettingWrapper, SettingIcon } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:UserList:index')
+const log = buildLog('c:TeamList:index')
 
 type TProps = {
   testid?: string
@@ -33,7 +33,7 @@ type TProps = {
 
 let Setter: FC<TSetter> = () => null
 
-const UserList: FC<TProps> = ({
+const TeamList: FC<TProps> = ({
   testid = 'user-list',
   users,
   withSetter = false,
@@ -78,4 +78,4 @@ const UserList: FC<TProps> = ({
   )
 }
 
-export default memo(UserList)
+export default memo(TeamList)

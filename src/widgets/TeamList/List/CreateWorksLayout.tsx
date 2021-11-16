@@ -1,6 +1,6 @@
 /*
  *
- * UserList
+ * TeamList
  *
  */
 
@@ -19,7 +19,7 @@ import {
 } from '../styles/list/create_works_layout'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:UserList:index')
+const log = buildLog('c:TeamList:index')
 
 type TProps = {
   users: TUser[]

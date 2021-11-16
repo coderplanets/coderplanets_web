@@ -1,6 +1,6 @@
 /*
  *
- * UserList
+ * TeamList
  *
  */
 
@@ -18,7 +18,7 @@ import type { TView } from '../spec'
 import { Wrapper, EmptyHint } from '../styles/setter'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:UserList:index')
+const log = buildLog('c:TeamList:index')
 
 export type TProps = {
   testid?: string
