@@ -82,8 +82,22 @@ const isCommunityExist = gql`
 `
 
 const applyCommunity = gql`
-  mutation ($title: String!, $desc: String!, $logo: String!, $raw: String!) {
-    applyCommunity(title: $title, desc: $desc, logo: $logo, raw: $raw) {
+  mutation (
+    $title: String!
+    $desc: String!
+    $logo: String!
+    $raw: String!
+    $applyMsg: String
+    $applyCategory: String
+  ) {
+    applyCommunity(
+      title: $title
+      desc: $desc
+      logo: $logo
+      raw: $raw
+      applyMsg: $applyMsg
+      applyCategory: $applyCategory
+    ) {
       id
       pending
     }

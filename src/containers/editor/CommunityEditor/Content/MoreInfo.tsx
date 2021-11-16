@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { TSetupInfoStatus, TCommunityType } from '../spec'
+import { TSetupInfoStatus } from '../spec'
 import {
   Wrapper,
   LineDivider,
@@ -9,7 +9,7 @@ import {
   Intro,
   Title,
   Desc,
-} from '../styles/content/setup_domain'
+} from '../styles/content/more_info'
 
 type TProps = {
   status: TSetupInfoStatus

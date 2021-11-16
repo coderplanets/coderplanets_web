@@ -59,6 +59,7 @@ const Banner: FC<TProps> = ({
     case STEP.MORE_INFO: {
       stepComp = (
         <MoreInfo
+          status={setupInfoStatus}
           validState={validState}
           communityType={selectTypeStatus.communityType}
         />

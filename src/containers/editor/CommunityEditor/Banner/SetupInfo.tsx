@@ -32,7 +32,7 @@ type TProps = {
 const SetupInfo: FC<TProps> = ({ status, validState }) => {
   const { title, desc, logo } = status
 
-  const { isTitleValid, isDescValid, isLogoValid, submitting } = validState
+  const { isTitleValid, isDescValid, isLogoValid } = validState
   const isValid = isTitleValid && isDescValid && isLogoValid
 
   return (

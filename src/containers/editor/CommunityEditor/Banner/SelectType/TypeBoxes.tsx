@@ -18,17 +18,17 @@ type TProps = {
 }
 
 const TypeBoxes: FC<TProps> = ({ communityType }) => {
-  const { STANDER, CITY, WORKS, TEAM } = COMMUNITY_TYPE
+  const { PUBLIC, CITY, WORKS, TEAM } = COMMUNITY_TYPE
 
   return (
     <Wrapper>
       <Box
-        active={communityType === STANDER}
-        onClick={() => communityTypeOnChange(STANDER)}
+        active={communityType === PUBLIC}
+        onClick={() => communityTypeOnChange(PUBLIC)}
       >
         <HeaderText>
           <div>免费</div>
-          <Checker checked={communityType === STANDER} hiddenMode />
+          <Checker checked={communityType === PUBLIC} hiddenMode />
         </HeaderText>
         <MainText>公共社区</MainText>
         <FooterText>已有 114 +</FooterText>

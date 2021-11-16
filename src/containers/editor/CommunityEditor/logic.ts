@@ -78,11 +78,13 @@ export const communityTypeOnChange = (communityType: TCommunityType): void => {
 }
 
 export const applyCommunity = (): void => {
-  const args = pick(['title', 'logo', 'desc', 'raw'], store)
+  const args = pick(['title', 'logo', 'desc', 'raw', 'applyMsg'], store)
 
-  console.log('args --> ', args)
   store.mark({ submitting: true })
-  sr71$.mutate(S.applyCommunity, args)
+  sr71$.mutate(S.applyCommunity, {
+    applyCategory: store.communityType,
+    ...args,
+  })
 }
 
 /**
@@ -164,7 +166,7 @@ export const useInit = (_store: TStore): void => {
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     if (store.isLogin) {
-      // checkPendingApply()
+      checkPendingApply()
     }
 
     return () => {

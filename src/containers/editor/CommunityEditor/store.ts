@@ -33,6 +33,7 @@ const CommunityEditor = T.model('CommunityEditorStore', {
   logo: T.maybeNull(T.string),
   title: T.optional(T.string, ''),
   desc: T.optional(T.string, ''),
+  applyMsg: T.optional(T.string, ''),
 })
   .views((self) => ({
     get isLogin(): boolean {
@@ -54,9 +55,9 @@ const CommunityEditor = T.model('CommunityEditorStore', {
       return { raw }
     },
     get setupInfoStatus(): TSetupInfoStatus {
-      const { raw, title, desc, logo } = self
+      const { raw, title, desc, logo, applyMsg } = self
 
-      return { raw, title, desc, logo }
+      return { raw, title, desc, logo, applyMsg }
     },
     get isCommunityTypeValid(): boolean {
       const slf = self as TStore

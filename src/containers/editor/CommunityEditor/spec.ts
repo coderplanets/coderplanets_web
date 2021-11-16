@@ -1,4 +1,4 @@
-export type TCommunityType = 'STANDER' | 'CITY' | 'WORKS' | 'TEAM' | null
+export type TCommunityType = 'PUBLIC' | 'CITY' | 'WORKS' | 'TEAM' | null
 
 export type TStep =
   | 'SELECT_TYPE'
@@ -20,6 +20,7 @@ export type TSetupInfoStatus = {
   title: string
   desc: string
   logo: string
+  applyMsg: string
 }
 
 export type TValidState = {

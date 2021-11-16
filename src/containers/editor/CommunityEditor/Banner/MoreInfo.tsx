@@ -19,16 +19,18 @@ import {
   InputBox,
 } from '../styles/banner/more_info'
 
-import type { TValidState, TCommunityType } from '../spec'
+import type { TSetupInfoStatus, TValidState, TCommunityType } from '../spec'
 import { TRANS } from '../constant'
 import { pervStep, applyCommunity, inputOnChange } from '../logic'
 
 type TProps = {
+  status: TSetupInfoStatus
   validState: TValidState
   communityType: TCommunityType
 }
 
-const MoreInfo: FC<TProps> = ({ validState, communityType }) => {
+const MoreInfo: FC<TProps> = ({ status, validState, communityType }) => {
+  const { applyMsg } = status
   const { submitting } = validState
 
   return (
@@ -40,10 +42,10 @@ const MoreInfo: FC<TProps> = ({ validState, communityType }) => {
       </IntroTitle>
       <InputsWrapper>
         <InputBox
-          value="TODO"
+          value={applyMsg}
           placeholder="// 更多信息"
           behavior="textarea"
-          onChange={(e) => inputOnChange(e, 'title')}
+          onChange={(e) => inputOnChange(e, 'applyMsg')}
         />
         <Notes>
           作品主页或相关社交平台链接，如果你已经在

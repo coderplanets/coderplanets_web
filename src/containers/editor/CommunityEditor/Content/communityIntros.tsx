@@ -2,7 +2,7 @@ import { ICON_BASE } from '@/config'
 import { HCN } from '@/constant'
 
 const COMMUNITY_INTRO = {
-  STANDER: {
+  PUBLIC: {
     title: '什么是公共社区?',
     desc: '编程语言，编程框架，DevOps 等公共领域的社区，包含帖子，雷达，博客, 101，分布地图，招聘等版块。',
     threads: ['帖子', '雷达', '博客', '酷导航', '成员分布', '工作'],
