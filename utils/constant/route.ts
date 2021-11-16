@@ -27,6 +27,7 @@ const ROUTE = {
   MEMBERSHIP: 'membership',
 
   HELP_CENTER: 'help-center',
+  APPLY_COMMUNITY: 'apply/community',
 }
 
 export default ROUTE

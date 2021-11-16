@@ -116,9 +116,9 @@ router.route('/radar/:id').get((req, res) => {
 //   return renderAndCache({ req, res, path: '/repo' })
 // })
 
-// 创建新社区
-router.route('/publish/community').get((req, res) => {
-  return renderAndCache({ req, res, page: '/publish/community' })
+// 申请新社区
+router.route('/apply/community').get((req, res) => {
+  return renderAndCache({ req, res, page: '/apply/community' })
 })
 
 // 创建新帖子

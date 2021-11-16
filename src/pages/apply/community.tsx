@@ -3,7 +3,7 @@
  */
 import { Provider } from 'mobx-react'
 
-import { METRIC } from '@/constant'
+import { METRIC, ROUTE } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
@@ -34,7 +34,7 @@ export const getServerSideProps = async (context) => {
   try {
     resp = await fetchData(context)
     const { sessionState } = resp
-    refreshIfneed(sessionState, '/publish/community', context)
+    refreshIfneed(sessionState, `/${ROUTE.APPLY_COMMUNITY}`, context)
   } catch (e) {
     console.log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
@@ -47,7 +47,7 @@ export const getServerSideProps = async (context) => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const PublishCommunityPage = (props) => {
+const ApplyCommunityPage = (props) => {
   const store = useStore(props)
   const seoConfig = publishCommunitySEO()
 
@@ -64,4 +64,4 @@ const PublishCommunityPage = (props) => {
   )
 }
 
-export default PublishCommunityPage
+export default ApplyCommunityPage
