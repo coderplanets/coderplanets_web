@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
+import InfoSVG from '@/icons/Info'
+import SettingSVG from '@/icons/Setting'
+import EditPenSVG from '@/icons/EditPen'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')}
   width: 20%;
-  padding-left: 6px;
 `
-export const Icon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  display: block;
-  ${css.size(18)};
+const icon = `
+  ${css.size(14)};
   opacity: 0.8;
 
   &:hover {
@@ -21,4 +21,16 @@ export const Icon = styled(Img)`
     opacity: 1;
   }
   transition: all 0.2s;
+`
+export const InfoIcon = styled(InfoSVG)`
+  fill: ${theme('thread.articleDigest')};
+  ${icon};
+`
+export const SettingIcon = styled(SettingSVG)`
+  fill: ${theme('thread.articleDigest')};
+  ${icon};
+`
+export const EditPenIcon = styled(EditPenSVG)`
+  fill: ${theme('thread.articleDigest')};
+  ${icon};
 `

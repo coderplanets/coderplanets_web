@@ -13,6 +13,7 @@ import type { TView, TSettingOption } from '../spec'
 import Catalog from './Catalog'
 import Setting from './Setting'
 import About from './About'
+import Publish from './Publish'
 
 import { Wrapper, SentenceWrapper, Sentence, Hint } from '../styles/body'
 import { VIEW } from '../constant'
@@ -47,6 +48,9 @@ const View: FC<TViewProps> = ({ view, sentence, settingOptions }) => {
     }
     case VIEW.ABOUT: {
       return <About />
+    }
+    case VIEW.EDIT: {
+      return <Publish />
     }
     default: {
       return (

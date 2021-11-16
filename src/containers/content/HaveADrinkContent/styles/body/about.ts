@@ -15,10 +15,15 @@ export const Title = styled.div`
   font-size: 20px;
 `
 export const Body = styled.div`
-  margin-top: 20px;
   color: ${theme('thread.articleDigest')};
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 500px;
   font-size: 16px;
-  margin-left: 10%;
-  margin-right: 10%;
-  line-height: 32px;
+  line-height: 1.8;
+`
+
+// text-indent conflict with display: inline-flex
+export const Indent = styled.span`
+  padding-left: 30px;
 `

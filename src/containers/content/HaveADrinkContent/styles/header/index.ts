@@ -4,10 +4,11 @@ import styled from 'styled-components'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
-  ${css.flex('justify-between')}
   width: 100%;
+  padding: 0 30px;
 `
-export const GoBackWrapper = styled.div`
-  ${css.flex('align-center')};
-  margin-left: 15px;
+export const InnerWrapper = styled.div`
+  position: relative;
+  ${css.flex('align-center', 'justify-between')};
+  width: 100%;
 `

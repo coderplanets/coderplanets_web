@@ -50,7 +50,7 @@ const Catalog: FC = () => {
         </BackHeader>
         <LineDivider />
         <Note>
-          目前是内测阶段，前端仅作产品层面展示。在针对条目的富文本编辑、协同管理等方面还有很多细节需要完善，如果你哟任何意见欢迎反馈至
+          目前确定的分类已全部列出，如果你对现有分类有建议或有更适合的分类，欢迎参与
           <Linker
             src="/feedback"
             external={false}

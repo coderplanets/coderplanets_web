@@ -17,10 +17,10 @@ export const Sentence = styled.div<{ fontSize: string }>`
 `
 export const Hint = styled.p`
   color: ${theme('haveADrinkPage.hint')};
-  margin-top: 10px;
+  margin-top: 20px;
   border-top: 1px solid;
   border-top-color: ${theme('haveADrinkPage.divider')};
-  padding-top: 5px;
+  padding-top: 6px;
   padding-left: 10px;
   padding-right: 10px;
 `

@@ -17,7 +17,11 @@ const BStore = {
     ssrSet: (context, key, value): void => {
       return setCookies(key, value, context)
     },
-    ssrRemove: (context, key) => removeCookies(key, context),
+    ssrRemove: (context, key) => {
+      const { req, res } = context
+
+      removeCookies(key, { req, res })
+    },
     set: (key, value) => setCookies(key, value),
     remove: (key) => removeCookies(key),
   },

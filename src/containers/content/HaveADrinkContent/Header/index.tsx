@@ -13,7 +13,7 @@ import Timer from './Timer'
 import Reaction from './Reaction'
 
 import { VIEW } from '../constant'
-import { Wrapper } from '../styles/header'
+import { Wrapper, InnerWrapper } from '../styles/header'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
@@ -22,12 +22,12 @@ const View = ({ view, ...restProps }) => {
   switch (view) {
     case VIEW.DEFAULT: {
       return (
-        <>
+        <InnerWrapper>
           <IndexStatus />
           {/* @ts-ignore */}
           <Timer {...restProps} />
           <Reaction />
-        </>
+        </InnerWrapper>
       )
     }
 

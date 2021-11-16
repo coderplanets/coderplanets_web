@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 200px;
   min-height: 100px;
+  padding: 5px 10px;
 `
 export const Avatar = styled(Img)`
   ${css.circle(40)};

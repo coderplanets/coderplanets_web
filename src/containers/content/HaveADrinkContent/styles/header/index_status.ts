@@ -7,11 +7,9 @@ import css from '@/utils/css'
 export const Wrapper = styled.div`
   ${css.flex('align-center')}
   color: ${theme('thread.articleDigest')};
-  width: 40%;
 `
 export const Text = styled.span`
   opacity: 0.8;
-  font-size: 12px;
 `
 export const CurNum = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -25,10 +23,9 @@ export const TotalNum = styled.span`
 export const Divider = styled.div`
   margin-left: 5px;
   margin-right: 2px;
-  margin-top: -2px;
 `
 export const UnderlineBtn = styled.div`
-  color: #139c9e;
+  color: ${theme('button.primary')};
   margin-left: 2px;
   margin-right: 2px;
 
