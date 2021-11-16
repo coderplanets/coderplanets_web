@@ -72,7 +72,7 @@ const Catalog: FC = () => {
             </Header>
             <Body>
               <Title>{item.title}</Title>
-              <Desc>{cutRest(item.desc, 13)}</Desc>
+              <Desc>{item.desc}</Desc>
             </Body>
           </Block>
         ))}

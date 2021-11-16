@@ -4,9 +4,9 @@ const demo = [
   {
     id: '0',
     icon: `${ICON_CMD}/drink/it-cold.svg`,
-    title: '细节魔鬼',
+    title: '魔鬼细节',
     total: '224',
-    desc: '各种产品中的彩蛋和用心细节',
+    desc: '各种产品或服务中的彩蛋和用心细节，情怀改变世界。',
     updatedAt: '3天前',
     entries: [
       '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
@@ -19,7 +19,7 @@ const demo = [
     icon: `${ICON_CMD}/drink/it-cold.svg`,
     title: 'IT 冷知识',
     total: '224',
-    desc: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    desc: 'IT 发展史上少为人知的奇闻轶事，散落天涯的江湖传说。',
     updatedAt: '3天前',
     entries: [
       '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
@@ -33,7 +33,7 @@ const demo = [
     icon: `${ICON_CMD}/drink/driver.svg`,
     title: '可视化段子',
     total: '224',
-    desc: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    desc: '自黑自嘲自爱自爆，程序员趣图，IT / 职场各种梗图',
     updatedAt: '3天前',
   },
   {
@@ -41,7 +41,7 @@ const demo = [
     icon: `${ICON_CMD}/drink/number.svg`,
     title: '数据酷',
     total: '224',
-    desc: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    desc: '数据胜千言，Data 会说话。',
     updatedAt: '3天前',
     active: true,
   },
@@ -50,7 +50,7 @@ const demo = [
     icon: `${ICON_CMD}/drink/naming.svg`,
     title: '传神命名',
     total: '224',
-    desc: '业内、工作中那些优雅传神的命名',
+    desc: '工业界，工作中的那些优雅传神的命名和概念。',
     updatedAt: '3天前',
     entries: [
       '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
@@ -60,23 +60,18 @@ const demo = [
   },
   {
     id: '5',
-    icon: `${ICON_CMD}/drink/chicken.svg`,
-    title: '毒鸡汤',
-    total: '224',
-    desc: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    icon: `${ICON_CMD}/drink/rap.svg`,
+    title: '流氓产品',
+    total: '22',
+    desc: '互联网厕所，专门记录那些令人作呕的产品及使用体验。',
     updatedAt: '3天前',
-    entries: [
-      '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
-      '一个人如果没有梦想，跟无忧无虑有什么区别呢？',
-      '比你优秀的人还在努力，你努力有什么用呢 ？',
-    ],
   },
   {
     id: '6',
     icon: `${ICON_CMD}/drink/muscle.svg`,
     title: '励志柴油',
     total: '224',
-    desc: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    desc: '免费加油站，比鸡汤更励志，比汽油劲更大。',
     updatedAt: '3天前',
   },
   {
@@ -84,7 +79,7 @@ const demo = [
     icon: `${ICON_CMD}/drink/zhihu.svg`,
     title: 'Oh My Lang',
     total: '224',
-    desc: '你所知的小众编程语言特性',
+    desc: '各种冷门语言的小众特性，代码，还可以这么写 ~',
     updatedAt: '3天前',
   },
   {
@@ -92,7 +87,7 @@ const demo = [
     icon: `${ICON_CMD}/drink/smile.svg`,
     title: '晒工台',
     total: '224',
-    desc: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    desc: '工作台与装备展示，极客的 DeskPorn ~ ',
     updatedAt: '3天前',
   },
   {
@@ -100,7 +95,7 @@ const demo = [
     icon: `${ICON_CMD}/drink/brain.svg`,
     title: 'APP 下架奇谈',
     total: '224',
-    desc: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    desc: '应用市场那些奇葩诡异、莫名其妙、哭笑不得的被拒理由。 ',
     updatedAt: '3天前',
   },
   {
@@ -108,23 +103,29 @@ const demo = [
     icon: `${ICON_CMD}/drink/chicken.svg`,
     title: '我的编辑器',
     total: '224',
-    desc: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    desc: '编辑器圣战，分享主题，配置，使用技巧。',
     updatedAt: '3天前',
   },
   {
     id: '11',
-    icon: `${ICON_CMD}/drink/rap.svg`,
-    title: '流氓产品',
-    total: '22',
-    desc: '太阳不起我不起 老子就是了不起',
+    icon: `${ICON_CMD}/drink/chicken.svg`,
+    title: '毒鸡汤',
+    total: '224',
+    desc: '好喝没营养，一直喝一直爽。',
     updatedAt: '3天前',
+    entries: [
+      '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
+      '一个人如果没有梦想，跟无忧无虑有什么区别呢？',
+      '比你优秀的人还在努力，你努力有什么用呢 ？',
+    ],
   },
+
   {
     id: '12',
     icon: `${ICON_CMD}/drink/rap.svg`,
     title: '言论收集簿',
     total: '22',
-    desc: '太阳不起我不起 老子就是了不起',
+    desc: '各大社交平台上给人启发思考的见解言论。',
     updatedAt: '3天前',
   },
   {
@@ -132,7 +133,7 @@ const demo = [
     icon: `${ICON_CMD}/drink/rap.svg`,
     title: '交个朋友',
     total: '22',
-    desc: '不是直播间，是化学实验室。❤️',
+    desc: '不是直播间，是化学实验室 ❤️',
     updatedAt: '3天前',
   },
 ]

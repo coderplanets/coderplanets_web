@@ -85,7 +85,15 @@ export const Title = styled.div`
   font-weight: bold;
 `
 export const Desc = styled.div`
-  color: #577079;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
   font-size: 13px;
   margin-top: 5px;
+
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 `
