@@ -12,16 +12,30 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   min-height: 70vh;
   padding-right: 10%;
 `
-export const Header = styled.div`
-  ${css.flexColumn('align-center')};
-  margin-bottom: 20px;
-`
 export const Title = styled.div`
-  font-size: 20px;
+  font-size: 17px;
   color: ${theme('thread.articleTitle')};
+  margin-bottom: 12px;
 `
-export const Slogan = styled.div`
-  font-size: 15px;
+export const Desc = styled.div`
+  font-size: 14px;
   color: ${theme('thread.articleDigest')};
-  margin-top: 5px;
+`
+export const Block = styled.div`
+  ${css.flexColumn()};
+  margin-bottom: 30px;
+`
+export const Ul = styled.ul`
+  width: 360px;
+  list-style: disc;
+  color: ${theme('thread.articleDigest')};
+`
+export const Li = styled.li`
+  margin-bottom: 8px;
+  line-height: 1.6;
+  font-size: 14px;
+`
+export const Bold = styled.span`
+  color: ${theme('thread.articleTitle')};
+  font-weight: bold;
 `
