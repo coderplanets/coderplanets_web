@@ -22,13 +22,13 @@ const SearchCover: FC<TProps> = ({ testid = 'search-cover' }) => {
             这里收集各种和开发设计群体直接间接相关的，具有一定水准的工具，产品、资源以及服务。
           </Li>
           <Li>
-            每个条目都会有中立的描述介绍、使用场景、公认的一些优缺点等等。
+            每个条目都会有客观的帖子介绍基本概况、使用场景、公认的一些优缺点等等。
           </Li>
           <Li>
             是否收录与所在地域，是否开源，免费或付费等因素无关，但会列出。
           </Li>
           <Li>
-            大多数目录的收录标准只有一个：<Bold>The Best of The Best</Bold>
+            大多数目录的收录标准只有一个：<Bold>The best or the unique</Bold>
           </Li>
           <Li>不恰烂钱，不讲人情，你行你上。</Li>
         </Ul>
@@ -37,7 +37,7 @@ const SearchCover: FC<TProps> = ({ testid = 'search-cover' }) => {
         <Title>当前状态</Title>
         <Ul>
           <Li>
-            👈 初始分类已经完成，欢迎体验后
+            👈 初始分类及 UI 部分已完成，欢迎体验后
             <Linker
               src="/feedback"
               external={false}

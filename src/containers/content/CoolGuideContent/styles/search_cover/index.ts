@@ -11,6 +11,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   width: 100%;
   min-height: 70vh;
   padding-right: 10%;
+  margin-top: 3px;
 `
 export const Title = styled.div`
   font-size: 17px;
@@ -26,7 +27,7 @@ export const Block = styled.div`
   margin-bottom: 30px;
 `
 export const Ul = styled.ul`
-  width: 360px;
+  width: 375px;
   list-style: disc;
   color: ${theme('thread.articleDigest')};
 `
