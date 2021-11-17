@@ -24,10 +24,11 @@ const log = buildLog('C:HaveADrinkContent')
 type TViewProps = {
   view: TView
   sentence: string
+  category: string
   settingOptions: TSettingOption
 }
 
-const View: FC<TViewProps> = ({ view, sentence, settingOptions }) => {
+const View: FC<TViewProps> = ({ view, category, sentence, settingOptions }) => {
   const animate = {
     fade: {
       durationOut: 200,
@@ -41,7 +42,7 @@ const View: FC<TViewProps> = ({ view, sentence, settingOptions }) => {
 
   switch (view) {
     case VIEW.CATALOG: {
-      return <Catalog />
+      return <Catalog category={category} />
     }
     case VIEW.SETTING: {
       return <Setting settingOptions={settingOptions} />

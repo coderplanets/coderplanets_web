@@ -6,7 +6,6 @@
 
 import { FC, memo } from 'react'
 
-import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
@@ -28,14 +27,18 @@ import {
   Desc,
   Icon,
 } from '../styles/body/catalog'
-import { setView } from '../logic'
+import { setView, changeCategory } from '../logic'
 
 import demo from '../demo'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const Catalog: FC = () => {
+type TProps = {
+  category: string
+}
+
+const Catalog: FC<TProps> = ({ category }) => {
   return (
     <Wrapper>
       <BackWrapper>
@@ -62,7 +65,11 @@ const Catalog: FC = () => {
       </BackWrapper>
       <Content>
         {demo.map((item) => (
-          <Block key={item.id} active={item.active}>
+          <Block
+            key={item.id}
+            active={category === item.title}
+            onClick={() => changeCategory(item.title)}
+          >
             <Header>
               <Intro>
                 <Icon src={item.icon} />

@@ -21,7 +21,11 @@ import { setView } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const IndexStatus: FC = () => {
+type TProps = {
+  category: string
+}
+
+const IndexStatus: FC<TProps> = ({ category }) => {
   return (
     <Wrapper>
       <Text>共&nbsp;</Text>
@@ -30,7 +34,7 @@ const IndexStatus: FC = () => {
       <TotalNum>8430</TotalNum>
       <Text>杯</Text>
       &nbsp;
-      <UnderlineBtn onClick={() => setView('catalog')}>it 冷知识</UnderlineBtn>
+      <UnderlineBtn onClick={() => setView('catalog')}>{category}</UnderlineBtn>
     </Wrapper>
   )
 }

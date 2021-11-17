@@ -53,7 +53,8 @@ const HaveADrinkContentContainer: FC<TProps> = ({
     setTimeout(() => unlockPage(), 1000)
   })
 
-  const { view, timer, timerInterval, curSentence, settingOptions } = store
+  const { view, timer, category, timerInterval, curSentence, settingOptions } =
+    store
 
   return (
     <Wrapper>
@@ -63,9 +64,11 @@ const HaveADrinkContentContainer: FC<TProps> = ({
           timer={timer}
           timerInterval={timerInterval}
           settingOptions={settingOptions}
+          category={category}
         />
         <Body
           view={view}
+          category={category}
           sentence={curSentence}
           settingOptions={settingOptions}
         />

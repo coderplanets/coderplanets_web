@@ -4,13 +4,20 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  width: 100%;
+`
 export const SentenceWrapper = styled.div`
   ${css.flexColumn('align-both')}
   margin-top: 4%;
   margin-bottom: 3%;
+  padding-left: 8%;
+  padding-right: 8%;
+  text-align: left;
 `
 export const Sentence = styled.div<{ fontSize: string }>`
+  text-align: center;
+  width: 100%;
   color: ${theme('haveADrinkPage.sentence')};
   font-size: 24px;
   font-size: ${({ fontSize }) => fontSize};
