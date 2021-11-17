@@ -6,6 +6,7 @@ import { ERR } from '@/constant'
 import { errRescue } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
+import { scrollToTop, lockPage, unlockPage } from '@/utils/dom'
 
 import { ANIMATE_TIMER_CLASS, VIEW } from './constant'
 import type { TDrinkCategory } from './spec'
@@ -133,7 +134,10 @@ export const refreshDrink = (): void => {
   }
 
   store.mark({ drinkIdx: nextDrinkIdx })
-  // return  pool[drinkIdx]
+
+  scrollToTop()
+  lockPage()
+  setTimeout(() => unlockPage(), 1000)
 }
 
 // ###############################

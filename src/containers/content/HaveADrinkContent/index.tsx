@@ -8,7 +8,6 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
-import { scrollToTop, lockPage, unlockPage } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -46,12 +45,7 @@ const HaveADrinkContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  useShortcut('Space', () => {
-    scrollToTop()
-    lockPage()
-    refreshDrink()
-    setTimeout(() => unlockPage(), 1000)
-  })
+  useShortcut('Space', () => refreshDrink())
 
   const {
     view,
