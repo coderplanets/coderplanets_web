@@ -5,9 +5,7 @@ const demo = [
     id: '0',
     icon: `${ICON_CMD}/drink/it-cold.svg`,
     title: '魔鬼细节',
-    total: '224',
     desc: '各种产品或服务中的彩蛋和用心细节，情怀改变世界。',
-    updatedAt: '3天前',
     upvoteAlias: '爱了',
     entries: [
       {
@@ -37,9 +35,7 @@ const demo = [
     id: '1',
     icon: `${ICON_CMD}/drink/it-cold.svg`,
     title: 'IT 冷知识',
-    total: '224',
     desc: 'IT 发展史上少为人知的奇闻轶事，散落天涯的江湖传说。',
-    updatedAt: '3天前',
     upvoteAlias: '学到了',
     entries: [
       {
@@ -69,27 +65,31 @@ const demo = [
     id: '2',
     icon: `${ICON_CMD}/drink/driver.svg`,
     title: '可视化段子',
-    total: '224',
     desc: '自黑自嘲自爱自爆，程序员趣图，IT / 职场各种梗图',
-    updatedAt: '3天前',
     upvoteAlias: '喜欢',
+    entries: [
+      {
+        text: '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
+      },
+    ],
   },
   {
     id: '3',
     icon: `${ICON_CMD}/drink/number.svg`,
     title: '数据酷',
-    total: '224',
     desc: '数据胜千言，Data 会说话。',
-    updatedAt: '3天前',
     upvoteAlias: '喜欢',
+    entries: [
+      {
+        text: '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
+      },
+    ],
   },
   {
     id: '4',
     icon: `${ICON_CMD}/drink/naming.svg`,
     title: '传神命名',
-    total: '224',
     desc: '工业界，工作中的那些优雅传神的命名和概念。',
-    updatedAt: '3天前',
     upvoteAlias: '喜欢',
     entries: [
       {
@@ -114,9 +114,7 @@ const demo = [
     id: '5',
     icon: `${ICON_CMD}/drink/rap.svg`,
     title: '流氓产品',
-    total: '22',
     desc: '互联网厕所，专门记录那些令人作呕的产品及使用体验。',
-    updatedAt: '3天前',
     upvoteAlias: '吐了',
     entries: [
       {
@@ -129,9 +127,7 @@ const demo = [
     id: '6',
     icon: `${ICON_CMD}/drink/muscle.svg`,
     title: '励志柴油',
-    total: '224',
     desc: '免费加油站，比鸡汤更励志，比汽油劲更大。',
-    updatedAt: '3天前',
     upvoteAlias: '回血了',
     entries: [
       {
@@ -144,9 +140,7 @@ const demo = [
     id: '7',
     icon: `${ICON_CMD}/drink/zhihu.svg`,
     title: 'Oh My Lang',
-    total: '224',
     desc: '各种小众语言的巧妙设计有趣特性 ~',
-    updatedAt: '3天前',
     upvoteAlias: '学到了',
     entries: [
       {
@@ -159,9 +153,7 @@ const demo = [
     id: '8',
     icon: `${ICON_CMD}/drink/smile.svg`,
     title: '晒工台',
-    total: '224',
     desc: '工作台与装备展示，极客的 DeskPorn ~ ',
-    updatedAt: '3天前',
     upvoteAlias: '喜欢',
     entries: [
       {
@@ -175,9 +167,7 @@ const demo = [
     id: '9',
     icon: `${ICON_CMD}/drink/brain.svg`,
     title: 'APP 下架奇谈',
-    total: '224',
     desc: '应用市场那些奇葩诡异、莫名其妙、哭笑不得的被拒理由。 ',
-    updatedAt: '3天前',
     upvoteAlias: '惊呆了',
     entries: [
       {
@@ -191,9 +181,7 @@ const demo = [
     id: '10',
     icon: `${ICON_CMD}/drink/chicken.svg`,
     title: '编辑器圣战',
-    total: '224',
     desc: '晒主题，分享配置，使用技巧。',
-    updatedAt: '3天前',
     upvoteAlias: '喜欢',
     entries: [
       {
@@ -207,9 +195,7 @@ const demo = [
     id: '11',
     icon: `${ICON_CMD}/drink/chicken.svg`,
     title: '毒鸡汤',
-    total: '224',
     desc: '好喝没营养，一直喝一直爽。',
-    updatedAt: '3天前',
     upvoteAlias: '干了',
     entries: [
       {
@@ -228,9 +214,7 @@ const demo = [
     id: '12',
     icon: `${ICON_CMD}/drink/rap.svg`,
     title: '言论收集簿',
-    total: '22',
     desc: '各大社交平台上给人启发思考的见解言论。',
-    updatedAt: '3天前',
     upvoteAlias: '赞同',
     entries: [
       {
@@ -243,10 +227,8 @@ const demo = [
     id: '13',
     icon: `${ICON_CMD}/drink/rap.svg`,
     title: '交个朋友',
-    total: '22',
     desc: '不是直播间，是化学实验室 ❤️',
     upvoteAlias: '有感觉',
-    updatedAt: '3天前',
     entries: [
       {
         text: '成华区小龙女',

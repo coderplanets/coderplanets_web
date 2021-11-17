@@ -4,6 +4,7 @@ import type { TActive } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import MoreSVG from '@/icons/More'
 
 import { Divider } from '@/widgets/Common'
 
@@ -72,7 +73,14 @@ export const Icon = styled(Img)`
   ${css.size(16)};
   margin-right: 8px;
 `
-export const Timestamp = styled.div``
+export const MoreIcon = styled(MoreSVG)`
+  ${css.size(15)};
+  fill: ${theme('thread.articleDigest')};
+
+  &:hover {
+    fill: ${theme('thread.articleTitle')};
+  }
+`
 
 export const Body = styled.div`
   ${css.flexColumn('justify-center')};

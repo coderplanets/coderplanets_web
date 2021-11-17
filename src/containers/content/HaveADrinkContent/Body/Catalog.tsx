@@ -7,10 +7,13 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
+import { ICON } from '@/config'
 
+import MenuButton from '@/widgets/Buttons/MenuButton'
 import ArrowButton from '@/widgets/Buttons/ArrowButton'
 import Linker from '@/widgets/Linker'
 
+import { VIEW } from '../constant'
 import {
   Wrapper,
   BackWrapper,
@@ -21,7 +24,7 @@ import {
   Block,
   Header,
   Intro,
-  Timestamp,
+  MoreIcon,
   Body,
   Title,
   Desc,
@@ -33,6 +36,19 @@ import demo from '../demo'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
+
+const menuOptions = [
+  {
+    key: 'time',
+    icon: `${ICON}/edit/publish-pen.svg`,
+    title: '参与编辑',
+  },
+  {
+    key: 'hot',
+    icon: `${ICON}/menu/hot.svg`,
+    title: '贡献者',
+  },
+]
 
 type TProps = {
   category: string
@@ -46,7 +62,7 @@ const Catalog: FC<TProps> = ({ category }) => {
           <ArrowButton
             size="medium"
             direction="left"
-            onClick={() => setView('default')}
+            onClick={() => setView(VIEW.DEFAULT)}
           >
             返回
           </ArrowButton>
@@ -65,19 +81,21 @@ const Catalog: FC<TProps> = ({ category }) => {
       </BackWrapper>
       <Content>
         {demo.map((item) => (
-          <Block
-            key={item.id}
-            active={category === item.title}
-            onClick={() => changeCategory(item.title)}
-          >
+          <Block key={item.id} active={category === item.title}>
             <Header>
               <Intro>
                 <Icon src={item.icon} />
-                {item.total} 条
+                {item.entries?.length} 条
               </Intro>
-              <Timestamp>{item.updatedAt}</Timestamp>
+              <MenuButton
+                placement="bottom-end"
+                options={menuOptions}
+                onClick={() => setView(VIEW.EDIT)}
+              >
+                <MoreIcon />
+              </MenuButton>
             </Header>
-            <Body>
+            <Body onClick={() => changeCategory(item.title)}>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
             </Body>

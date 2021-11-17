@@ -26,7 +26,7 @@ const View = ({ category, view, ...restProps }) => {
           <IndexStatus category={category} />
           {/* @ts-ignore */}
           <Timer {...restProps} />
-          <Reaction />
+          <Reaction category={category} />
         </InnerWrapper>
       )
     }

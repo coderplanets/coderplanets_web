@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { find, propEq } from 'ramda'
 
 import { ERR } from '@/constant'
 
@@ -7,6 +8,8 @@ import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
 
 import { ANIMATE_TIMER_CLASS, VIEW } from './constant'
+import type { TDrinkCategory } from './spec'
+import demo from './demo'
 import type { TStore } from './store'
 
 const { SR71, $solver, asyncErr } = asyncSuit
@@ -23,6 +26,10 @@ const log = buildLog('L:HaveADrinkContent')
 export const changeCategory = (category: string): void => {
   store.mark({ category })
   setView(VIEW.DEFAULT)
+}
+
+export const getCategoryByTitle = (title: string): TDrinkCategory => {
+  return find(propEq('title', title), demo) as TDrinkCategory
 }
 
 /**

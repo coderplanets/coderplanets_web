@@ -21,5 +21,5 @@ export const CommentIcon = styled(CommentSVG)`
 export const Count = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
-  margin-left: 3px;
+  margin-left: 5px;
 `
