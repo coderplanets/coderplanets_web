@@ -37,7 +37,7 @@ const SearchCover: FC<TProps> = ({ testid = 'search-cover' }) => {
         <Title>当前状态</Title>
         <Ul>
           <Li>
-            👈 初始分类及 UI 部分已完成，欢迎体验后
+            👈 &nbsp;初始分类及 UI 雏形已完成，欢迎体验后
             <Linker
               src="/feedback"
               external={false}

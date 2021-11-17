@@ -373,6 +373,7 @@ export const mockFilterMenuTags = (): TFilterTag[] => {
 
 export const mockNaviCatalogTags = (): TNaviTag[] => {
   return [
+    // 生产力 start
     {
       id: uid.gen(),
       raw: 'productivity',
@@ -424,6 +425,19 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       title: '格式转换',
       extra: ['生产力', '工作效率', ''],
     },
+    // 生产力 end
+    // ----------------
+    // 技术选型 start
+    {
+      id: uid.gen(),
+      raw: 'techstack',
+      title: '技术选型',
+      icon: `${ICON_CMD}/navi/tool.svg`,
+      extra: ['技术选型'],
+    },
+    // 技术选型 start
+    // ----------------
+    // 设计灵感 start
     {
       id: uid.gen(),
       raw: 'design-idea',
@@ -445,6 +459,97 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       title: '建筑之美',
       icon: `${ICON_CMD}/navi/bricks.svg`,
       extra: ['设计灵感', '建筑之美'],
+    },
+
+    // 设计灵感 end
+    // ----------------
+    // 酷团队 start
+    {
+      id: 'ktd',
+      raw: 'ktd',
+      title: '酷团队',
+      icon: `${ICON_CMD}/navi/group.svg`,
+      extra: ['酷团队'],
+    },
+    // 酷团队 end
+    // ----------------
+    // 计算机名人堂 start
+    {
+      id: 'hall-of-fame',
+      raw: 'hall-of-fame',
+      title: '计算机名人堂',
+      icon: `${ICON_CMD}/navi/lighthouse.svg`,
+      extra: ['计算机名人堂'],
+    },
+    // 计算机名人堂 end
+    // ----------------
+    // 博物馆 start
+    {
+      id: 'museum',
+      raw: 'museum',
+      title: 'IT 博物馆',
+      icon: `${ICON_CMD}/navi/lighthouse.svg`,
+      extra: ['博物馆'],
+    },
+    // 博物馆 end
+    // ----------------
+    // 教程 / 101 start
+    {
+      id: '101',
+      raw: '101',
+      title: '教程 / 101', // 技术书籍，中文文档, 翻译(放标签里吧), 国外网校, 比如 https://web.stanford.edu/class/cs224n/
+      icon: `${ICON_CMD}/navi/glasses.svg`,
+      extra: ['101'],
+    },
+    // 教程 / 101 end
+    // ----------------
+    // 领域发现 start
+    {
+      id: 'domain', // uid.gen(),
+      raw: 'domain',
+      title: '跨界发现',
+      icon: `${ICON_CMD}/navi/door.svg`,
+      extra: ['domain'],
+    },
+    // 领域发现 end
+    // ----------------
+    // 优质信息源 start
+    {
+      id: 'source',
+      raw: 'source',
+      title: '优质信息源',
+      icon: `${ICON_CMD}/navi/subscribe.svg`,
+      extra: ['source'],
+    },
+    // 优质信息源 end
+    // ----------------
+    // Conf / Talks start
+    {
+      id: 'talks',
+      raw: 'talks',
+      title: 'Conf / Talks',
+      icon: `${ICON_CMD}/navi/movie.svg`,
+      extra: ['source'],
+    },
+    // Conf / Talks end
+    // ----------------
+    // TopN start
+    {
+      id: 'topn',
+      raw: 'topn',
+      title: 'TopN',
+      icon: `${ICON_CMD}/navi/subscribe.svg`,
+      extra: ['topn'],
+    },
+    // TopN end
+    // ----------------
+    // 下班后 start
+    {
+      id: 'afterwork',
+      raw: 'afterwork',
+      title: '下班后',
+      icon: `${ICON_CMD}/navi/subscribe.svg`,
+      extra: ['afterwork'],
     },
   ]
 }
@@ -1094,13 +1199,13 @@ export const mockNaviCatalogMenu = (): TNaviTag[] => {
         },
       ],
     },
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '独立开发者',
-      icon: `${ICON_CMD}/navi/hammer.svg`,
-      childMenu: [],
-    },
+    // {
+    //   id: uid.gen(),
+    //   raw: uid.gen(),
+    //   title: '独立开发者',
+    //   icon: `${ICON_CMD}/navi/hammer.svg`,
+    //   childMenu: [],
+    // },
     {
       id: uid.gen(),
       raw: uid.gen(),

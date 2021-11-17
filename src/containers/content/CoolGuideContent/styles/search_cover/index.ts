@@ -14,9 +14,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   margin-top: 3px;
 `
 export const Title = styled.div`
-  font-size: 17px;
+  font-size: 16px;
   color: ${theme('thread.articleTitle')};
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 `
 export const Desc = styled.div`
   font-size: 14px;
