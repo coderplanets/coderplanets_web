@@ -7,7 +7,7 @@ import Checker from '@/widgets/Checker'
 import Select from '@/widgets/Select'
 import Button from '@/widgets/Buttons/Button'
 import { Space, Br } from '@/widgets/Common'
-import UserList from '@/widgets/UserList'
+import TeamList from '@/widgets/TeamList'
 
 import type { TInputData } from '../../spec'
 import { PROFIT_MODE, WORKING_MODE } from '../../constant'
@@ -207,7 +207,7 @@ const BasicInfoPart: FC<TProps> = ({
       <Section>
         <Label>团队成员</Label>
         <TeamsWrapper>
-          <UserList
+          <TeamList
             users={teammates}
             layout="create-works"
             onAdd={addTeammate}

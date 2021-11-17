@@ -67,16 +67,6 @@ export const Li = styled.li`
   line-height: 1.6;
   font-size: 14px;
 `
-export const TextLink = styled.a`
-  text-decoration: none;
-  margin-right: 2px;
-
-  color: #139c9e;
-  &:hover {
-    text-decoration: underline;
-    color: #139c9e;
-  }
-`
 export const Bold = styled.span`
   color: ${theme('thread.articleTitle')};
   font-weight: bold;

@@ -72,6 +72,7 @@ export const WIDTH = {
 
   HAVE_A_DRINK: {
     CONTENT: '1120px',
+    LAPTOP_M_PADDING: '15px',
   },
   TREADING: {
     CONTENT: '1120px',

@@ -6,11 +6,12 @@
 
 import { FC, memo } from 'react'
 
-import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
+import DotDivider from '@/widgets/DotDivider'
 
-import { Wrapper, Icon } from '../styles/footer/share'
-// import { useInit } from './logic'
+import { VIEW } from '../constant'
+import { Wrapper, ShareIcon, CollectIcon } from '../styles/footer/share'
+import { setView } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
@@ -18,7 +19,9 @@ const log = buildLog('C:HaveADrinkContent')
 const Reaction: FC = () => {
   return (
     <Wrapper>
-      <Icon src={`${ICON_CMD}/drink_share.svg`} />
+      <CollectIcon onClick={() => setView(VIEW.EDIT)} />
+      <DotDivider space={10} radius={3} />
+      <ShareIcon onClick={() => setView(VIEW.EDIT)} />
     </Wrapper>
   )
 }

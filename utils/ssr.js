@@ -95,9 +95,11 @@ export const isTokenExpired = (sessionState, context) => {
  */
 export const refreshIfneed = (sessionState, path = '/', context) => {
   if (isTokenExpired(sessionState, context)) {
+    console.log('DO REMOVE jwtToken Cookie')
     BStore.cookie.ssrRemove(context, 'jwtToken')
-    context.res.writeHead(302, { Location: path })
-    context.res.end()
+
+    // context.res.writeHead(200, { Location: path })
+    // context.res.end()
   }
 }
 

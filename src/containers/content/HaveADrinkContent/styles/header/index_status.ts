@@ -5,29 +5,27 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
-  ${css.flex('align-start')}
+  ${css.flex('align-center')}
   color: ${theme('thread.articleDigest')};
-  width: 40%;
 `
 export const Text = styled.span`
-  color: ${theme('thread.articleDigest')};
-  opacity: 0.7;
-  font-size: 12px;
+  opacity: 0.8;
+`
+export const CurNum = styled.div`
+  color: ${theme('thread.articleTitle')};
+  margin-left: 2px;
 `
 export const TotalNum = styled.span`
-  margin-top: -2px;
   margin-left: 4px;
   margin-right: 5px;
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
 `
 export const Divider = styled.div`
   margin-left: 5px;
   margin-right: 2px;
-  margin-top: -2px;
 `
 export const UnderlineBtn = styled.div`
-  border-bottom: 1px dashed grey;
-  margin-top: -2px;
+  color: ${theme('button.primary')};
   margin-left: 2px;
   margin-right: 2px;
 

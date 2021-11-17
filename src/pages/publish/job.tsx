@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
     resp = await fetchData(context)
     const { sessionState } = resp
-    refreshIfneed(sessionState, '/publish/blog', context)
+    refreshIfneed(sessionState, '/publish/job', context)
   } catch (e) {
     return ssrError(context, 'fetch', 500)
   }

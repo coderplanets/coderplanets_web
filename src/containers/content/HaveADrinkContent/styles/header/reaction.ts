@@ -1,12 +1,25 @@
 import styled from 'styled-components'
 
-// import Img from '@/Img'
+import CommentSVG from '@/icons/Comment'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-end')};
   color: ${theme('thread.articleDigest')};
-  width: 40%;
 `
-export const holder = styled.div``
+export const Row = styled.div`
+  ${css.flex('align-center')};
+  cursor: pointer;
+`
+export const CommentIcon = styled(CommentSVG)`
+  ${css.size(16)};
+  fill: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+  margin-top: 1px;
+`
+export const Count = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 15px;
+  margin-left: 5px;
+`

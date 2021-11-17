@@ -1,0 +1,32 @@
+import styled from 'styled-components'
+
+import css from '@/utils/css'
+import { theme } from '@/utils/themes'
+
+import LinkSVG from '@/icons/Link'
+
+export const Hint = styled.div`
+  font-size: 12px;
+  color: ${theme('thread.articleDigest')};
+  margin-right: 5px;
+`
+export const LinkIcon = styled(LinkSVG)`
+  ${css.size(15)};
+  fill: ${theme('thread.articleDigest')};
+`
+export const Source = styled.a`
+  color: #119396;
+  font-size: 13px;
+  margin-left: 3px;
+  text-decoration: none;
+
+  &:hover {
+    color: #119396;
+    text-decoration: underline;
+  }
+`
+export const PopHint = styled.div`
+  font-size: 12px;
+  padding: 4px 10px;
+  color: ${theme('thread.articleTitle')};
+`

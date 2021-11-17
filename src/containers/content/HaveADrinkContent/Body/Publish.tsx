@@ -12,23 +12,21 @@ import Linker from '@/widgets/Linker'
 import { Wrapper, Title, Body, Indent } from '../styles/body/about'
 import { setView } from '../logic'
 
-const About: FC = () => {
+const Publish: FC = () => {
   return (
     <Wrapper>
-      <Title>关于「来一杯」</Title>
+      <Title>参与「来一杯」</Title>
       <Body>
         <Indent />
-        来一杯版块是对碎片知识呈现与互动的一个尝试，目前还在雏形阶段。所收集的片段、案列、黑料等都与本行业相关，大多来自网络。
-        如果你对此有任何建议请到
+        目前是内测阶段，前端仅作产品层面展示，还无法编辑或互动 --
+        在针对条目的富文本编辑、协同管理等方面还有很多细节有待梳理完善，欢迎任何形式的参与:
         <Linker
           src="/feedback"
           external={false}
-          text="Feedback"
-          left={4}
-          right={4}
+          text="feedback"
           inline
+          left={2}
         />
-        参与讨论。
       </Body>
 
       <Button size="medium" onClick={() => setView('default')} noBorder ghost>
@@ -38,4 +36,4 @@ const About: FC = () => {
   )
 }
 
-export default memo(About)
+export default memo(Publish)

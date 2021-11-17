@@ -1,0 +1,239 @@
+import { ASSETS_ENDPOINT, ICON_CMD } from '@/config'
+
+const demo = [
+  {
+    id: '0',
+    icon: `${ICON_CMD}/drink/it-cold.svg`,
+    title: '魔鬼细节',
+    desc: '各种产品或服务中的彩蛋和用心细节，情怀改变世界。',
+    upvoteAlias: '爱了',
+    entries: [
+      {
+        text: 'CoderPlanets 的 Upvote 默认文案是「某某」觉得很赞，但在不同的板块中也会根据内容显示为：喜欢、赞同、惊呆了、干了、有感觉、学到了、回血了、吐了等等',
+        reference: '',
+        images: [],
+      },
+      {
+        text: 'CoderPlanets 成员在不同的子社区有不同的昵称，比如在首页叫 CPer，Elixir 社区叫 Alchemist， Rust 社区叫  Rustacean 等等。',
+      },
+      {
+        text: 'CoderPlanets 评论表情包中的感谢概念，是一个由爱心抽象出来的大螃蟹钳子，谐音为「谢谢」。',
+      },
+      {
+        text: 'CoderPlanets 的分享模块，除了常见的第三方社交平台，还有程序员常用的 MD, 以及 Org-Mode 格式。',
+      },
+      {
+        text: 'CoderPlanets 遵循中文排版原则，后端会自动为中英文间插入空格，中文的引号转义为「」等等。',
+      },
+      {
+        text: 'CoderPlanets 开发时没有使用任何流行的「UI组件库」，几乎所有模块都是量身定制，基本上没有撞衫的可能。',
+      },
+    ],
+  },
+  {
+    id: '1',
+    icon: `${ICON_CMD}/drink/it-cold.svg`,
+    title: 'IT 冷知识',
+    desc: 'IT 发展史上少为人知的奇闻轶事，散落天涯的江湖传说。',
+    upvoteAlias: '学到了',
+    entries: [
+      {
+        text: 'MySQL 的 My 是创始人 Michael Widenius 之女的名字，不是「我的」',
+        reference: 'https://en.wikipedia.org/wiki/MySQL',
+        images: [],
+      },
+      {
+        text: 'Wiki 不是英语，它源自夏威夷语，意思是 fast, quick',
+        reference: 'https://www.dictionary.com/e/wikileaks-wikipedia/',
+      },
+      {
+        text: '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
+        reference: 'https://en.wikipedia.org/wiki/Lenna',
+        images: [`${ASSETS_ENDPOINT}/ugc/tmp/drink_1.jpg`],
+      },
+      {
+        text: '早期限于算力，都是用这种没有存储和 OS 的设备连接到中央计算机，现在的 Terminal 就来源于此。',
+        reference: 'https://qr.ae/pGmnPF',
+        images: [`${ASSETS_ENDPOINT}/ugc/tmp/Pasted Graphic.png`],
+      },
+    ],
+  },
+  {
+    id: '2',
+    icon: `${ICON_CMD}/drink/driver.svg`,
+    title: '可视化段子',
+    desc: '自黑自嘲自爱自爆，程序员趣图，IT / 职场各种梗图',
+    upvoteAlias: '喜欢',
+    entries: [
+      {
+        text: '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
+      },
+    ],
+  },
+  {
+    id: '3',
+    icon: `${ICON_CMD}/drink/number.svg`,
+    title: '数据酷',
+    desc: '数据胜千言，Data 会说话。',
+    upvoteAlias: '喜欢',
+    entries: [
+      {
+        text: '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
+      },
+    ],
+  },
+  {
+    id: '4',
+    icon: `${ICON_CMD}/drink/naming.svg`,
+    title: '传神命名',
+    desc: '工业界，工作中的那些优雅传神的命名和概念。',
+    upvoteAlias: '喜欢',
+    entries: [
+      {
+        text: 'why called Tree-Shaking',
+        reference: '',
+      },
+      {
+        text: 'why called Cookies',
+        reference: '',
+      },
+      {
+        text: 'why called Tor',
+        reference: '',
+      },
+      {
+        text: 'why called Google',
+        reference: '',
+      },
+    ],
+  },
+  {
+    id: '5',
+    icon: `${ICON_CMD}/drink/rap.svg`,
+    title: '流氓产品',
+    desc: '互联网厕所，专门记录那些令人作呕的产品及使用体验。',
+    upvoteAlias: '吐了',
+    entries: [
+      {
+        text: 'CSDN red-poket rain',
+        reference: '',
+      },
+    ],
+  },
+  {
+    id: '6',
+    icon: `${ICON_CMD}/drink/muscle.svg`,
+    title: '励志柴油',
+    desc: '免费加油站，比鸡汤更励志，比汽油劲更大。',
+    upvoteAlias: '回血了',
+    entries: [
+      {
+        text: 'People can t do something themselfs, they',
+        reference: '',
+      },
+    ],
+  },
+  {
+    id: '7',
+    icon: `${ICON_CMD}/drink/zhihu.svg`,
+    title: 'Oh My Lang',
+    desc: '各种小众语言的巧妙设计有趣特性 ~',
+    upvoteAlias: '学到了',
+    entries: [
+      {
+        text: 'Elixir 中, Pipe',
+        reference: '',
+      },
+    ],
+  },
+  {
+    id: '8',
+    icon: `${ICON_CMD}/drink/smile.svg`,
+    title: '晒工台',
+    desc: '工作台与装备展示，极客的 DeskPorn ~ ',
+    upvoteAlias: '喜欢',
+    entries: [
+      {
+        text: 'Awesome',
+        reference: '',
+        images: [],
+      },
+    ],
+  },
+  {
+    id: '9',
+    icon: `${ICON_CMD}/drink/brain.svg`,
+    title: 'APP 下架奇谈',
+    desc: '应用市场那些奇葩诡异、莫名其妙、哭笑不得的被拒理由。 ',
+    upvoteAlias: '惊呆了',
+    entries: [
+      {
+        text: 'Fuck',
+        reference: '',
+        images: [],
+      },
+    ],
+  },
+  {
+    id: '10',
+    icon: `${ICON_CMD}/drink/chicken.svg`,
+    title: '编辑器圣战',
+    desc: '晒主题，分享配置，使用技巧。',
+    upvoteAlias: '喜欢',
+    entries: [
+      {
+        text: 'Awesome',
+        reference: '',
+        images: [],
+      },
+    ],
+  },
+  {
+    id: '11',
+    icon: `${ICON_CMD}/drink/chicken.svg`,
+    title: '毒鸡汤',
+    desc: '好喝没营养，一直喝一直爽。',
+    upvoteAlias: '干了',
+    entries: [
+      {
+        text: '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
+      },
+      {
+        text: '一个人如果没有梦想，跟无忧无虑有什么区别呢？',
+      },
+      {
+        text: '比你优秀的人还在努力，你努力有什么用呢？',
+      },
+    ],
+  },
+
+  {
+    id: '12',
+    icon: `${ICON_CMD}/drink/rap.svg`,
+    title: '言论收集簿',
+    desc: '各大社交平台上给人启发思考的见解言论。',
+    upvoteAlias: '赞同',
+    entries: [
+      {
+        text: 'Google 退出中国，百度是最大的受害者。',
+        reference: '',
+      },
+    ],
+  },
+  {
+    id: '13',
+    icon: `${ICON_CMD}/drink/rap.svg`,
+    title: '交个朋友',
+    desc: '不是直播间，是化学实验室 ❤️',
+    upvoteAlias: '有感觉',
+    entries: [
+      {
+        text: '成华区小龙女',
+        reference: '',
+        images: [],
+      },
+    ],
+  },
+]
+
+export default demo

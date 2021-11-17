@@ -1,7 +1,7 @@
 import { FC, memo, useState, Fragment, useCallback } from 'react'
-import Link from 'next/link'
 
 import { ROUTE } from '@/constant'
+import Linker from '@/widgets/Linker'
 
 import {
   Wrapper,
@@ -14,7 +14,6 @@ import {
   Li,
   Bold,
   Strike,
-  TextLink,
 } from '../styles/content/publish_rules'
 
 const PublishRules: FC = () => {
@@ -77,18 +76,27 @@ const PublishRules: FC = () => {
               </Li>
               <Li>
                 肝了“三天”的 <Strike>Demo</Strike> 项目。idea 或超早期 MVP
-                请移步&nbsp;
-                <Link href="/makers" passHref>
-                  <TextLink>Makers</TextLink>
-                </Link>
+                请移步
+                <Linker
+                  src="/makers"
+                  external={false}
+                  text="Makers"
+                  inline
+                  left={4}
+                  right={4}
+                />
                 发帖讨论。
               </Li>
               <Li>
                 <Bold>你没有参与的项目</Bold>
                 。如果你是个喜欢收集各种工具或服务的 Hunter，
-                <Link href={`/${ROUTE.COOL_GUIDE}`} passHref>
-                  <TextLink>酷导航</TextLink>
-                </Link>
+                <Linker
+                  src={`/${ROUTE.COOL_GUIDE}`}
+                  external={false}
+                  text="酷导航"
+                  inline
+                  right={4}
+                />
                 是更合适的地方。
               </Li>
             </Ul>

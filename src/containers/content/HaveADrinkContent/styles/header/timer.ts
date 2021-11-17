@@ -5,9 +5,10 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
-  ${css.flexGrow('align-both')}
-  width: 20%;
-  padding-left: 6px;
+  ${css.flex('align-both')}
+  position: absolute;
+  left: calc(50% - 10px);
+  top: 4px;
 `
 export const SettingPanelWrapper = styled.div`
   width: 120px;
@@ -16,6 +17,7 @@ export const SettingItem = styled.div`
   ${css.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
   margin-bottom: 4px;
+  padding: 4px 5px;
 
   &:hover {
     color: ${theme('thread.articleTitle')};

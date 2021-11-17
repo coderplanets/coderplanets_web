@@ -6,13 +6,16 @@
 
 import { FC, memo } from 'react'
 
-import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
-
 import DotDivider from '@/widgets/DotDivider'
 
 import { VIEW } from '../constant'
-import { Wrapper, Icon } from '../styles/footer/feature'
+import {
+  Wrapper,
+  InfoIcon,
+  SettingIcon,
+  EditPenIcon,
+} from '../styles/footer/feature'
 import { setView } from '../logic'
 // import { useInit } from './logic'
 
@@ -23,14 +26,16 @@ const Feature: FC = () => {
   return (
     <Wrapper>
       <div onClick={() => setView(VIEW.ABOUT)}>
-        <Icon src={`${ICON_CMD}/drink_info.svg`} />
+        <InfoIcon />
       </div>
-      <DotDivider space={10} radius={3} />
+      <DotDivider space={10} radius={2} />
       <div onClick={() => setView(VIEW.SETTING)}>
-        <Icon src={`${ICON_CMD}/drink_setting.svg`} />
+        <SettingIcon />
       </div>
-      <DotDivider space={10} radius={3} />
-      <Icon src={`${ICON_CMD}/drink_write.svg`} />
+      <DotDivider space={10} radius={2} />
+      <div onClick={() => setView(VIEW.EDIT)}>
+        <EditPenIcon />
+      </div>
     </Wrapper>
   )
 }

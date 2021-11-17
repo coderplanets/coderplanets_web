@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import ShareSVG from '@/icons/Share'
+import CollectSVG from '@/icons/CollectionBookmark'
+
 export const Wrapper = styled.div`
   ${css.flex('align-center', 'justify-end')};
-  width: 40%;
   color: ${theme('thread.articleDigest')};
 `
-export const Icon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  ${css.size(20)};
+const icon = `
+${css.size(18)};
   opacity: 0.8;
 
   &:hover {
@@ -20,4 +20,12 @@ export const Icon = styled(Img)`
     opacity: 1;
   }
   transition: all 0.2s;
+`
+export const ShareIcon = styled(ShareSVG)`
+  fill: ${theme('thread.articleDigest')};
+  ${icon};
+`
+export const CollectIcon = styled(CollectSVG)`
+  fill: ${theme('thread.articleDigest')};
+  ${icon};
 `

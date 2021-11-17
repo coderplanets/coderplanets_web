@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { find, propEq } from 'ramda'
 
 import { ERR } from '@/constant'
 
@@ -6,7 +7,9 @@ import { errRescue } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
 
-import { ANIMATE_TIMER_CLASS } from './constant'
+import { ANIMATE_TIMER_CLASS, VIEW } from './constant'
+import type { TDrinkCategory } from './spec'
+import demo from './demo'
 import type { TStore } from './store'
 
 const { SR71, $solver, asyncErr } = asyncSuit
@@ -19,6 +22,15 @@ let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:HaveADrinkContent')
+
+export const changeCategory = (category: string): void => {
+  store.mark({ category, drinkIdx: 0 })
+  setView(VIEW.DEFAULT)
+}
+
+export const getCategoryByTitle = (title: string): TDrinkCategory => {
+  return find(propEq('title', title), demo) as TDrinkCategory
+}
 
 /**
  * change the main view type, and stop timer
@@ -73,7 +85,7 @@ const startTimer = (): void => {
 
   // @ts-ignore
   timer = setInterval(() => {
-    refreshSentence()
+    refreshDrink()
   }, timerIntervalVal)
 
   store.mark({ timer })
@@ -110,18 +122,18 @@ export const setTimerInterval = (timerInterval: string): void => {
   startTimer()
 }
 
-export const refreshSentence = (): void => {
-  const { pool, poolIdx } = store
+export const refreshDrink = (): void => {
+  const { drinks, drinkIdx } = store
 
-  let nextPoolIdx
-  if (poolIdx >= pool.length - 1) {
-    nextPoolIdx = 0
+  let nextDrinkIdx
+  if (drinkIdx >= drinks.length - 1) {
+    nextDrinkIdx = 0
   } else {
-    nextPoolIdx = poolIdx + 1 // pool.length
+    nextDrinkIdx = drinkIdx + 1 // pool.length
   }
 
-  store.mark({ poolIdx: nextPoolIdx })
-  // return  pool[poolIdx]
+  store.mark({ drinkIdx: nextDrinkIdx })
+  // return  pool[drinkIdx]
 }
 
 // ###############################

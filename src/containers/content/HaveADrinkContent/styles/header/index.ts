@@ -1,33 +1,14 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
+// import Img from '@/Img'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
-  ${css.flex('justify-between')}
   width: 100%;
+  padding: 0 30px;
 `
-export const GoBackWrapper = styled.div`
-  ${css.flex('align-center')};
-`
-export const BackIcon = styled(Img)`
-  fill: #708b96;
-  ${css.size(16)};
-  margin-right: 10px;
-
-  ${GoBackWrapper}:hover & {
-    fill: #327faf;
-    cursor: pointer;
-    margin-right: 6px;
-  }
-  transition: all 0.25s;
-`
-export const BackText = styled.div`
-  color: #708b96;
-  font-size: 16px;
-
-  ${GoBackWrapper}:hover & {
-    color: #327faf;
-    cursor: pointer;
-  }
+export const InnerWrapper = styled.div`
+  position: relative;
+  ${css.flex('align-center', 'justify-between')};
+  width: 100%;
 `

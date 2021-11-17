@@ -4,11 +4,18 @@
  */
 
 import { types as T, Instance } from 'mobx-state-tree'
+import { find, propEq } from 'ramda'
 
 import { markStates } from '@/utils/mobx'
 
-import type { TSettingOption } from './spec'
+import type {
+  TSettingOption,
+  TDrinkCategory,
+  TDrinkItem,
+  TPagiState,
+} from './spec'
 import { VIEW } from './constant'
+import demo from './demo'
 
 const HaveADrinkContent = T.model('HaveADrinkContent', {
   // current sub-view of the drink page
@@ -24,16 +31,10 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
     ]),
     VIEW.DEFAULT,
   ),
+  category: T.optional(T.string, 'IT 冷知识'),
+
   // refresh timer
-  pool: T.optional(T.array(T.string), [
-    '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
-    '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
-    '傻人有傻福，但是傻逼没有。',
-    '一个人如果没有梦想，跟无忧无虑有什么区别呢？',
-    '好看的皮囊千篇一律，有趣的灵魂两百多斤',
-    '比你优秀的人还在努力，你努力有什么用呢 ？',
-  ]),
-  poolIdx: T.optional(T.number, 0),
+  drinkIdx: T.optional(T.number, 0),
   // setting
   fontSize: T.optional(T.enumeration(['24px', '27px']), '24px'),
   animateType: T.optional(T.enumeration(['fade', 'bounce']), 'fade'),
@@ -45,10 +46,30 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
   ),
 })
   .views((self) => ({
-    get curSentence(): string {
-      const { pool, poolIdx } = self
+    get drinks(): TDrinkItem[] {
+      const { category } = self
 
-      return pool[poolIdx]
+      const targetCategory = find(
+        propEq('title', category),
+        demo,
+      ) as TDrinkCategory
+
+      return targetCategory.entries
+    },
+    get curDrink(): TDrinkItem {
+      const slf = self as TStore
+      const { drinks, drinkIdx } = slf
+
+      return drinks[drinkIdx]
+    },
+    get pagiState(): TPagiState {
+      const slf = self as TStore
+      const { drinks, drinkIdx } = slf
+
+      return {
+        curIdx: drinkIdx + 1,
+        total: drinks.length,
+      }
     },
     get settingOptions(): TSettingOption {
       const { fontSize, animateType } = self
