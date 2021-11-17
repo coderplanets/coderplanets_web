@@ -8,7 +8,9 @@ import LinkSVG from '@/icons/Link'
 export const Hint = styled.div`
   font-size: 12px;
   color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
   margin-right: 5px;
+  margin-top: 2px;
 `
 export const LinkIcon = styled(LinkSVG)`
   ${css.size(15)};
