@@ -154,8 +154,6 @@ const NaviCatalog: FC<TProps> = ({
 
   const handleMenuItemSelect = useCallback(
     (item) => {
-      console.log('handleMenuItemSelect item: ', item)
-
       // 如果重复点击，则忽略
       if (find(propEq('id', item.id), viewPath)) return
 

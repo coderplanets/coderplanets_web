@@ -38,12 +38,10 @@ const Desc: FC<TProps> = ({
     <DescWrapper>
       {!noOne && !onlyOne && count > avatarsRowLimit && (
         <DescWrapper>
-          <Space left={3} />
           <Text>等</Text>
           <Maybe test={showCount}>
             <Space left={4} />
             <AnimatedCount count={count} active={viewerHasUpvoted} />
-            <Space left={4} />
             <Text>人</Text>
           </Maybe>
         </DescWrapper>
