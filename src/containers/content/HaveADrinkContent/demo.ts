@@ -3,7 +3,7 @@ import { ASSETS_ENDPOINT, ICON_CMD } from '@/config'
 const demo = [
   {
     id: '0',
-    icon: `${ICON_CMD}/drink/it-cold.svg`,
+    icon: `${ICON_CMD}/drink/egg.svg`,
     title: '魔鬼细节',
     desc: '各种产品或服务中的彩蛋和用心细节，情怀改变世界。',
     upvoteAlias: '爱了',
@@ -14,7 +14,7 @@ const demo = [
         images: [],
       },
       {
-        text: 'CoderPlanets 成员在不同的子社区有不同的昵称，比如在首页叫 CPer，Elixir 社区叫 Alchemist， Rust 社区叫  Rustacean 等等。',
+        text: 'CoderPlanets 成员在不同的子社区有不同的昵称，比如在首页叫 CPer，在 Elixir 社区叫 Alchemist， 在 Rust 社区叫  Rustacean 等等。',
       },
       {
         text: 'CoderPlanets 评论表情包中的感谢概念，是一个由爱心抽象出来的大螃蟹钳子，谐音为「谢谢」。',
@@ -26,13 +26,13 @@ const demo = [
         text: 'CoderPlanets 遵循中文排版原则，后端会自动为中英文间插入空格，中文的引号转义为「」等等。',
       },
       {
-        text: 'CoderPlanets 开发时没有使用任何流行的「UI组件库」，几乎所有模块都是量身定制，基本上没有撞衫的可能。',
+        text: 'CoderPlanets 的前端没有使用任何流行的「UI 组件库」，几乎所有组件都是量身定制，基本上没有撞衫的可能。',
       },
     ],
   },
   {
     id: '1',
-    icon: `${ICON_CMD}/drink/it-cold.svg`,
+    icon: `${ICON_CMD}/drink/freeze.svg`,
     title: 'IT 冷知识',
     desc: 'IT 发展史上少为人知的奇闻轶事，散落天涯的江湖传说。',
     upvoteAlias: '学到了',
@@ -52,7 +52,7 @@ const demo = [
         images: [`${ASSETS_ENDPOINT}/ugc/tmp/drink_1.jpg`],
       },
       {
-        text: '早期限于算力，都是用这种没有存储和 OS 的设备连接到中央计算机，现在的 Terminal 就来源于此。',
+        text: '早期限于算力，都是用这种没有存储和 OS 的设备连接到中央计算机，现在我们使用的 Terminal 概念就来源于此。',
         reference: 'https://qr.ae/pGmnPF',
         images: [`${ASSETS_ENDPOINT}/ugc/tmp/Pasted Graphic.png`],
       },
@@ -66,19 +66,19 @@ const demo = [
     upvoteAlias: '喜欢',
     entries: [
       {
-        text: '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
+        text: '抱歉，该条目下还没有内容，欢迎任何形式的参与',
       },
     ],
   },
   {
     id: '3',
-    icon: `${ICON_CMD}/drink/number.svg`,
+    icon: `${ICON_CMD}/drink/chart.svg`,
     title: '数据酷',
     desc: '数据胜千言，Data 会说话。',
     upvoteAlias: '喜欢',
     entries: [
       {
-        text: '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
+        text: '抱歉，该条目下还没有内容，欢迎任何形式的参与',
       },
     ],
   },
@@ -90,33 +90,40 @@ const demo = [
     upvoteAlias: '喜欢',
     entries: [
       {
-        text: 'why called Tree-Shaking',
-        reference: '',
+        text: 'Tree-Shaking, 通常用于描述移除 JavaScript 上下文中的未引用代码(dead-code) — 即通过「摇树」把多余的叶子摇下来 ~',
+        reference: 'https://webpack.js.org/guides/tree-shaking/',
       },
       {
-        text: 'why called Cookies',
-        reference: '',
+        text: 'Bread Crumbs, 网站上常见的「面包屑」导航。这个概念来自于儿童故事《糖果屋》，他们留下实实在在的面包屑来找到回家的路。',
+        reference: 'https://www.inlife.co.uk/why-are-cookies-called-cookies/',
       },
       {
-        text: 'why called Tor',
-        reference: '',
+        text: 'Tor (The Onion Router), 洋葱路由的缩写, 它使用像洋葱一样的层状模型保证了匿名和不可追踪，是「暗网」的基础设施之一。',
+        reference: 'https://zh.wikipedia.org/wiki/Tor',
       },
       {
-        text: 'why called Google',
-        reference: '',
+        text: 'Cookies, 网站用于追踪用户行踪的一种机制，就像可以通过分析地上的曲奇饼干碎找出你去过那些地方一样。',
+        reference: 'https://zh.wikipedia.org/zh-hans/Cookie',
+      },
+      {
+        text: 'googol, Google 名称的来源，指的是 10 的 100 次幂，用来代表在互联网上可以获得的海量的资源。',
+      },
+      {
+        text: 'Batteries Included, 意指一件产品包含了所有必要的东西，开箱即用，最早来源于 Python 社区。',
+        reference: 'https://qr.ae/pGmyXB',
       },
     ],
   },
   {
     id: '5',
-    icon: `${ICON_CMD}/drink/rap.svg`,
+    icon: `${ICON_CMD}/drink/tu.png`,
     title: '流氓产品',
     desc: '互联网厕所，专门记录那些令人作呕的产品及使用体验。',
     upvoteAlias: '吐了',
     entries: [
       {
-        text: 'CSDN red-poket rain',
-        reference: '',
+        text: 'CS*N 会在用户访问该网站后下起满屏幕的红包雨。',
+        images: [`${ASSETS_ENDPOINT}/ugc/tmp/drink_4.png`],
       },
     ],
   },
@@ -128,63 +135,63 @@ const demo = [
     upvoteAlias: '回血了',
     entries: [
       {
-        text: 'People can t do something themselfs, they',
-        reference: '',
+        text: '有梦就去追，没死就别停!',
+      },
+      {
+        text: 'You got a dream, you got to protect it. People can’t do something themselves, they want to tell you you can’t do it. You want something, go get it. Period.',
+        reference:
+          'https://www.goodreads.com/author/quotes/7242582.Pursuit_of_Happyness',
+      },
+      {
+        text: '遇到闪电记得要微笑，因为那是天空在给你拍照。',
       },
     ],
   },
   {
     id: '7',
-    icon: `${ICON_CMD}/drink/zhihu.svg`,
+    icon: `${ICON_CMD}/drink/magic-trick.svg`,
     title: 'Oh My Lang',
     desc: '各种小众语言的巧妙设计有趣特性 ~',
     upvoteAlias: '学到了',
     entries: [
       {
-        text: 'Elixir 中, Pipe',
-        reference: '',
+        text: '抱歉，该条目下还没有内容，欢迎任何形式的参与',
       },
     ],
   },
   {
     id: '8',
-    icon: `${ICON_CMD}/drink/smile.svg`,
+    icon: `${ICON_CMD}/drink/desk-lamp.svg`,
     title: '晒工台',
     desc: '工作台与装备展示，极客的 DeskPorn ~ ',
     upvoteAlias: '喜欢',
     entries: [
       {
-        text: 'Awesome',
-        reference: '',
-        images: [],
+        text: '抱歉，该条目下还没有内容，欢迎任何形式的参与',
       },
     ],
   },
   {
     id: '9',
-    icon: `${ICON_CMD}/drink/brain.svg`,
+    icon: `${ICON_CMD}/drink/number.svg`,
     title: 'APP 下架奇谈',
     desc: '应用市场那些奇葩诡异、莫名其妙、哭笑不得的被拒理由。 ',
     upvoteAlias: '惊呆了',
     entries: [
       {
-        text: 'Fuck',
-        reference: '',
-        images: [],
+        text: '抱歉，该条目下还没有内容，欢迎任何形式的参与',
       },
     ],
   },
   {
     id: '10',
-    icon: `${ICON_CMD}/drink/chicken.svg`,
+    icon: `${ICON_CMD}/drink/editor.svg`,
     title: '编辑器圣战',
     desc: '晒主题，分享配置，使用技巧。',
     upvoteAlias: '喜欢',
     entries: [
       {
-        text: 'Awesome',
-        reference: '',
-        images: [],
+        text: '抱歉，该条目下还没有内容，欢迎任何形式的参与',
       },
     ],
   },
@@ -204,12 +211,46 @@ const demo = [
       {
         text: '比你优秀的人还在努力，你努力有什么用呢？',
       },
+
+      {
+        text: '不要看别人表面上一帆风顺，实际上他们背地里，也是一帆风顺。',
+      },
+      {
+        text: '哪有什么选择恐惧症，还不是因为穷。',
+      },
+      {
+        text: '长得丑就是病，不然整形医院怎么叫医院。',
+      },
+      {
+        text: '做事一定要考虑别人的感受，千万不能让他们太开心了。',
+      },
+      {
+        text: '昨天我去看心理医生，医生说我不是抑郁症，我是真的惨。',
+      },
+      {
+        text: '最好别收拾房间，当房间收拾干净时，你就是房间里唯一的垃圾。',
+      },
+      {
+        text: '只要坚持不走出舒适圈，你就能一直舒适下去。',
+      },
+      {
+        text: '找对象的时候，不要光看对方外表，得先看看自己外表',
+      },
+      {
+        text: '遇到你之前，我的世界是黑白的，遇见你之后全黑了。',
+      },
+      {
+        text: '因为没有钱才上班，现在上了班也没钱，难道有中间商赚差价？',
+      },
+      {
+        text: '以前十块钱能买很多东西，现在不行了，有监控。',
+      },
     ],
   },
 
   {
     id: '12',
-    icon: `${ICON_CMD}/drink/rap.svg`,
+    icon: `${ICON_CMD}/drink/talk.svg`,
     title: '言论收集簿',
     desc: '各大社交平台上给人启发思考的见解言论。',
     upvoteAlias: '赞同',
@@ -222,15 +263,20 @@ const demo = [
   },
   {
     id: '13',
-    icon: `${ICON_CMD}/drink/rap.svg`,
+    icon: `${ICON_CMD}/drink/cupid.svg`,
     title: '交个朋友',
     desc: '不是直播间，是化学实验室 ❤️',
     upvoteAlias: '有感觉',
     entries: [
       {
-        text: '成华区小龙女',
+        text: '我是成华区小龙女，羽毛球爱好者，爱做饭但不爱吃饭。',
         reference: '',
-        images: [],
+        images: [`${ASSETS_ENDPOINT}/ugc/tmp/drink_gugu.png`],
+      },
+      {
+        text: '我是高新区杨过，喜欢骑车，爱好科幻，很高兴认识你。',
+        reference: '',
+        images: [`${ASSETS_ENDPOINT}/ugc/tmp/drink_yangguo.png`],
       },
     ],
   },

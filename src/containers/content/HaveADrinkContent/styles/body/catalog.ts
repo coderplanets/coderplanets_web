@@ -67,11 +67,13 @@ export const Header = styled.div`
 `
 export const Intro = styled.div`
   ${css.flex('align-center')};
+  padding-left: 4px;
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  ${css.size(16)};
+  ${css.size(14)};
   margin-right: 8px;
+  filter: saturate(0.5);
 `
 export const MoreIcon = styled(MoreSVG)`
   ${css.size(15)};
