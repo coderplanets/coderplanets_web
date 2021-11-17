@@ -1,4 +1,4 @@
-import { ICON_CMD } from '@/config'
+import { ASSETS_ENDPOINT, ICON_CMD } from '@/config'
 
 const demo = [
   {
@@ -38,25 +38,23 @@ const demo = [
     upvoteAlias: '学到了',
     entries: [
       {
+        text: 'MySQL 的 My 是创始人 Michael Widenius 之女的名字，不是「我的」',
+        reference: 'https://en.wikipedia.org/wiki/MySQL',
+        images: [],
+      },
+      {
+        text: 'Wiki 不是英语，它源自夏威夷语，意思是 fast, quick',
+        reference: 'https://www.dictionary.com/e/wikileaks-wikipedia/',
+      },
+      {
         text: '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
-        reference:
-          'https://www.quora.com/Why-is-the-terminal-in-Linux-or-MacOSX-called-Terminal',
-        images: [],
+        reference: 'https://en.wikipedia.org/wiki/Lenna',
+        images: [`${ASSETS_ENDPOINT}/ugc/tmp/drink_1.jpg`],
       },
       {
-        text: 'why called Terminal',
-        reference: '',
-        images: [],
-      },
-      {
-        text: 'why called MySQL',
-        reference: '',
-        images: [],
-      },
-      {
-        text: 'why called Wiki',
-        reference: '',
-        images: [],
+        text: '早期限于算力，都是用这种没有存储和 OS 的设备连接到中央计算机，现在的 Terminal 就来源于此。',
+        reference: 'https://qr.ae/pGmnPF',
+        images: [`${ASSETS_ENDPOINT}/ugc/tmp/Pasted Graphic.png`],
       },
     ],
   },

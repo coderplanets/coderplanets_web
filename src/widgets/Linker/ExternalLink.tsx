@@ -21,16 +21,16 @@ const ExternalLink: FC<TProps> = ({ src, hint }) => {
           {cutRest(src, 28)}
         </Source>
       ) : (
-        <Tooltip
-          content={<PopHint>{src}</PopHint>}
-          placement="bottom"
-          hideOnClick={false}
-          noPadding
-        >
-          <Source href={src} target="_blank">
+        <Source href={src} target="_blank">
+          <Tooltip
+            content={<PopHint>{src}</PopHint>}
+            placement="bottom"
+            hideOnClick={false}
+            noPadding
+          >
             {cutRest(src, 28)}
-          </Source>
-        </Tooltip>
+          </Tooltip>
+        </Source>
       )}
     </Fragment>
   )

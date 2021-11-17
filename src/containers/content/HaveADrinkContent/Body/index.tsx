@@ -16,6 +16,7 @@ import Catalog from './Catalog'
 import Setting from './Setting'
 import About from './About'
 import Publish from './Publish'
+import Content from './Content'
 
 import { Wrapper, SentenceWrapper, Sentence, Hint } from '../styles/body'
 
@@ -59,7 +60,7 @@ const View: FC<TViewProps> = ({ view, category, drink, settingOptions }) => {
         <SentenceWrapper>
           <Sentence fontSize={settingOptions.fontSize}>
             <AnimateOnChange {...animate[settingOptions.animateType]}>
-              {drink.text}
+              <Content item={drink} />
             </AnimateOnChange>
           </Sentence>
 
