@@ -4,11 +4,18 @@
  */
 
 import { types as T, Instance } from 'mobx-state-tree'
+import { find, propEq } from 'ramda'
 
 import { markStates } from '@/utils/mobx'
 
-import type { TSettingOption } from './spec'
+import type {
+  TSettingOption,
+  TDrinkCategory,
+  TDrinkItem,
+  TPagiState,
+} from './spec'
 import { VIEW } from './constant'
+import demo from './demo'
 
 const HaveADrinkContent = T.model('HaveADrinkContent', {
   // current sub-view of the drink page
@@ -27,15 +34,7 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
   category: T.optional(T.string, 'IT 冷知识'),
 
   // refresh timer
-  pool: T.optional(T.array(T.string), [
-    '本站开发时没有使用任何流行的「UI组件库」，所有模块都是笨办法量身定制。',
-    '本站的 Upvote 默认文案是「某某」觉得很赞，但在不同的板块中也会根据内容显示为：喜欢、赞同、惊呆了、干了、有感觉、学到了、回血了、觉得很酷、吐了等等',
-    '傻人有傻福，但是傻逼没有。',
-    '一个人如果没有梦想，跟无忧无虑有什么区别呢？',
-    '本站评论表情包中的感谢，是一个由爱心抽象出来的大螃蟹钳子，寓意「谢谢」。',
-    '比你优秀的人还在努力，你努力有什么用呢 ？',
-  ]),
-  poolIdx: T.optional(T.number, 0),
+  drinkIdx: T.optional(T.number, 0),
   // setting
   fontSize: T.optional(T.enumeration(['24px', '27px']), '24px'),
   animateType: T.optional(T.enumeration(['fade', 'bounce']), 'fade'),
@@ -47,10 +46,30 @@ const HaveADrinkContent = T.model('HaveADrinkContent', {
   ),
 })
   .views((self) => ({
-    get curSentence(): string {
-      const { pool, poolIdx } = self
+    get drinks(): TDrinkItem[] {
+      const { category } = self
 
-      return pool[poolIdx]
+      const targetCategory = find(
+        propEq('title', category),
+        demo,
+      ) as TDrinkCategory
+
+      return targetCategory.entries
+    },
+    get curDrink(): TDrinkItem {
+      const slf = self as TStore
+      const { drinks, drinkIdx } = slf
+
+      return drinks[drinkIdx]
+    },
+    get pagiState(): TPagiState {
+      const slf = self as TStore
+      const { drinks, drinkIdx } = slf
+
+      return {
+        curIdx: drinkIdx + 1,
+        total: drinks.length,
+      }
     },
     get settingOptions(): TSettingOption {
       const { fontSize, animateType } = self

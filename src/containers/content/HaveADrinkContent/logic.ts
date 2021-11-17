@@ -24,7 +24,7 @@ let store: TStore | undefined
 const log = buildLog('L:HaveADrinkContent')
 
 export const changeCategory = (category: string): void => {
-  store.mark({ category })
+  store.mark({ category, drinkIdx: 0 })
   setView(VIEW.DEFAULT)
 }
 
@@ -85,7 +85,7 @@ const startTimer = (): void => {
 
   // @ts-ignore
   timer = setInterval(() => {
-    refreshSentence()
+    refreshDrink()
   }, timerIntervalVal)
 
   store.mark({ timer })
@@ -122,18 +122,18 @@ export const setTimerInterval = (timerInterval: string): void => {
   startTimer()
 }
 
-export const refreshSentence = (): void => {
-  const { pool, poolIdx } = store
+export const refreshDrink = (): void => {
+  const { drinks, drinkIdx } = store
 
-  let nextPoolIdx
-  if (poolIdx >= pool.length - 1) {
-    nextPoolIdx = 0
+  let nextDrinkIdx
+  if (drinkIdx >= drinks.length - 1) {
+    nextDrinkIdx = 0
   } else {
-    nextPoolIdx = poolIdx + 1 // pool.length
+    nextDrinkIdx = drinkIdx + 1 // pool.length
   }
 
-  store.mark({ poolIdx: nextPoolIdx })
-  // return  pool[poolIdx]
+  store.mark({ drinkIdx: nextDrinkIdx })
+  // return  pool[drinkIdx]
 }
 
 // ###############################

@@ -9,25 +9,24 @@ const demo = [
     upvoteAlias: '爱了',
     entries: [
       {
-        text: '本站的 Upvote 默认文案是「某某」觉得很赞，但在不同的板块中也会根据内容显示为：喜欢、赞同、惊呆了、干了、有感觉、学到了、回血了、很酷、吐了等等',
-        reference:
-          'https://www.quora.com/Why-is-the-terminal-in-Linux-or-MacOSX-called-Terminal',
+        text: 'CoderPlanets 的 Upvote 默认文案是「某某」觉得很赞，但在不同的板块中也会根据内容显示为：喜欢、赞同、惊呆了、干了、有感觉、学到了、回血了、吐了等等',
+        reference: '',
         images: [],
       },
       {
-        text: '本站的地图分布模块，不同的社区对于成员有不同的昵谓，比如在首页叫 CPer,  Elixir 社区叫 Alchemist， Rust 社区叫  Rustacean 等等。',
+        text: 'CoderPlanets 成员在不同的子社区有不同的昵称，比如在首页叫 CPer，Elixir 社区叫 Alchemist， Rust 社区叫  Rustacean 等等。',
       },
       {
-        text: '本站评论表情包中的感谢，是一个由爱心抽象出来的大螃蟹钳子，寓意「谢谢」。',
+        text: 'CoderPlanets 评论表情包中的感谢概念，是一个由爱心抽象出来的大螃蟹钳子，谐音为「谢谢」。',
       },
       {
-        text: '本站的分享模块，除了常见的第三方社交平台，还有程序员常用的 MD, 以及 Org-Mode 格式。',
+        text: 'CoderPlanets 的分享模块，除了常见的第三方社交平台，还有程序员常用的 MD, 以及 Org-Mode 格式。',
       },
       {
-        text: '本站遵循中文排版原则，后端会自动为中英文间插入空格，中文的引号转义为「」等等。',
+        text: 'CoderPlanets 遵循中文排版原则，后端会自动为中英文间插入空格，中文的引号转义为「」等等。',
       },
       {
-        text: '本站开发时没有使用任何流行的「UI组件库」，几乎所有模块都是量身定制。',
+        text: 'CoderPlanets 开发时没有使用任何流行的「UI组件库」，几乎所有模块都是量身定制，基本上没有撞衫的可能。',
       },
     ],
   },

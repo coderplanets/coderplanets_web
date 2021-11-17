@@ -9,26 +9,27 @@ import { AnimateOnChange } from 'react-animation'
 
 import { buildLog } from '@/utils/logger'
 
-import type { TView, TSettingOption } from '../spec'
+import type { TView, TDrinkItem, TSettingOption } from '../spec'
+import { VIEW } from '../constant'
+
 import Catalog from './Catalog'
 import Setting from './Setting'
 import About from './About'
 import Publish from './Publish'
 
 import { Wrapper, SentenceWrapper, Sentence, Hint } from '../styles/body'
-import { VIEW } from '../constant'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
 type TViewProps = {
   view: TView
-  sentence: string
+  drink: TDrinkItem
   category: string
   settingOptions: TSettingOption
 }
 
-const View: FC<TViewProps> = ({ view, category, sentence, settingOptions }) => {
+const View: FC<TViewProps> = ({ view, category, drink, settingOptions }) => {
   const animate = {
     fade: {
       durationOut: 200,
@@ -58,7 +59,7 @@ const View: FC<TViewProps> = ({ view, category, sentence, settingOptions }) => {
         <SentenceWrapper>
           <Sentence fontSize={settingOptions.fontSize}>
             <AnimateOnChange {...animate[settingOptions.animateType]}>
-              {sentence}
+              {drink.text}
             </AnimateOnChange>
           </Sentence>
 

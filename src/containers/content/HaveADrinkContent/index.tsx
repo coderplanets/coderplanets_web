@@ -19,7 +19,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 import { Wrapper, InnerWrapper, LoadingSentence } from './styles'
-import { useInit, refreshSentence } from './logic'
+import { useInit, refreshDrink } from './logic'
 
 export const Body = dynamic(() => import('./Body'), {
   /* eslint-disable react/display-name */
@@ -49,12 +49,19 @@ const HaveADrinkContentContainer: FC<TProps> = ({
   useShortcut('Space', () => {
     scrollToTop()
     lockPage()
-    refreshSentence()
+    refreshDrink()
     setTimeout(() => unlockPage(), 1000)
   })
 
-  const { view, timer, category, timerInterval, curSentence, settingOptions } =
-    store
+  const {
+    view,
+    timer,
+    category,
+    timerInterval,
+    curDrink,
+    settingOptions,
+    pagiState,
+  } = store
 
   return (
     <Wrapper>
@@ -65,11 +72,12 @@ const HaveADrinkContentContainer: FC<TProps> = ({
           timerInterval={timerInterval}
           settingOptions={settingOptions}
           category={category}
+          pagiState={pagiState}
         />
         <Body
           view={view}
           category={category}
-          sentence={curSentence}
+          drink={curDrink}
           settingOptions={settingOptions}
         />
         <Footer view={view} />

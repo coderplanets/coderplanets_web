@@ -23,3 +23,8 @@ export type TDrinkCategory = {
   upvoteAlias: string
   entries: TDrinkItem[]
 }
+
+export type TPagiState = {
+  curIdx: number
+  total: number
+}

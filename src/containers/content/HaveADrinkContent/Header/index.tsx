@@ -18,12 +18,12 @@ import { Wrapper, InnerWrapper } from '../styles/header'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const View = ({ category, view, ...restProps }) => {
+const View = ({ pagiState, category, view, ...restProps }) => {
   switch (view) {
     case VIEW.DEFAULT: {
       return (
         <InnerWrapper>
-          <IndexStatus category={category} />
+          <IndexStatus category={category} pagiState={pagiState} />
           {/* @ts-ignore */}
           <Timer {...restProps} />
           <Reaction category={category} />
