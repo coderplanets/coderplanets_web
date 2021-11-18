@@ -375,61 +375,149 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
   return [
     // 生产力 start
     {
-      id: uid.gen(),
+      id: 'productivity',
       raw: 'productivity',
       title: '生产力',
       icon: `${ICON_CMD}/navi/tool.svg`,
       extra: ['生产力'],
     },
     {
-      id: uid.gen(),
+      id: 'efficiency',
+      raw: 'efficiency',
+      title: '效率工具',
+      extra: ['生产力', '效率工具'],
+    },
+    {
+      id: 'manage',
+      raw: 'manage',
+      title: '项目管理',
+      extra: ['生产力', '效率工具', '项目管理'],
+    },
+    {
+      id: 'remote',
+      raw: 'remote',
+      title: '远程协作',
+      extra: ['生产力', '效率工具', '远程协作'],
+    },
+    {
+      id: 'browser',
+      raw: 'browser',
+      title: '浏览器插件',
+      extra: ['生产力', '效率工具', '浏览器插件'],
+    },
+    {
+      id: 'diagram',
+      raw: 'diagram',
+      title: '流程图',
+      extra: ['生产力', '效率工具', '流程图'],
+    },
+    {
+      id: 'GTD',
+      raw: 'GTD',
+      title: 'GTD',
+      extra: ['生产力', '效率工具', 'GTD'],
+    },
+    {
+      id: 'notes',
+      raw: 'notes',
+      title: '写作 / 笔记',
+      extra: ['生产力', '效率工具', '写作 / 笔记'],
+    },
+
+    {
+      id: 'mate',
+      raw: 'mate',
+      title: '开发伴侣',
+      extra: ['生产力', '开发伴侣'],
+    },
+    {
+      id: 'cmd',
       raw: 'cmd',
       title: '命令行',
       icon: `${ICON_CMD}/navi/shell.svg`,
-      extra: ['生产力', '命令行'],
+      extra: ['生产力', '开发伴侣', '命令行'],
     },
     {
-      id: uid.gen(),
-      raw: 'efficiency-tools',
-      title: '工作效率',
-      icon: `${ICON_CMD}/navi/timer.svg`,
-      extra: ['生产力', '工作效率'],
-    },
-    {
-      id: uid.gen(),
-      raw: 'gtd',
-      title: 'GTD 工具',
-      extra: ['生产力', '工作效率', 'GTD 工具'],
-    },
-    {
-      id: uid.gen(),
-      raw: 'manage',
-      title: '项目管理',
-      extra: ['生产力', '工作效率', '项目管理'],
-    },
-    {
-      id: uid.gen(),
-      raw: 'editor',
-      title: '编辑器',
-      extra: ['生产力', '工作效率', '编辑器'],
-    },
-    {
-      id: uid.gen(),
-      raw: 'writing',
-      title: '写作 / 笔记',
-      extra: ['生产力', '工作效率', '写作 / 笔记'],
-    },
-    {
-      id: uid.gen(),
+      id: 'convert',
       raw: 'convert',
       title: '格式转换',
-      extra: ['生产力', '工作效率', '格式转换'],
+      extra: ['生产力', '开发伴侣', '格式转换'],
+    },
+
+    {
+      id: 'editor',
+      raw: 'editor',
+      title: '编辑器',
+      extra: ['生产力', '开发伴侣', '编辑器'],
+    },
+
+    {
+      id: 'docs',
+      raw: 'docs',
+      title: '文档生成',
+      extra: ['生产力', '开发伴侣', '文档生成'],
+    },
+
+    {
+      id: 'capture',
+      raw: 'capture',
+      title: '抓包工具',
+      extra: ['生产力', '开发伴侣', '抓包工具'],
+    },
+
+    {
+      id: 'radar',
+      raw: 'radar',
+      title: '信息获取',
+      extra: ['生产力', '信息获取'],
+    },
+
+    {
+      id: 'email',
+      raw: 'email',
+      title: '邮件管理',
+      extra: ['生产力', '信息获取', '邮件管理'],
+    },
+
+    {
+      id: 'podcast',
+      raw: 'podcast',
+      title: '播客',
+      extra: ['生产力', '信息获取', '播客'],
+    },
+
+    {
+      id: 'ref',
+      raw: 'ref',
+      title: '论文 / 文献',
+      extra: ['生产力', '信息获取', '论文 / 文献'],
+    },
+
+    {
+      id: 'privacy',
+      raw: 'privacy',
+      title: '隐私 & 安全',
+      extra: ['生产力', '隐私 & 安全'],
+    },
+
+    {
+      id: 'design',
+      raw: 'design',
+      title: '设计工具',
+      extra: ['生产力', '设计工具'],
+    },
+
+    {
+      id: 'opendata',
+      raw: 'opendata',
+      title: '公共数据',
+      extra: ['生产力', '公共数据'],
     },
     // 生产力 end
     // ----------------
     // 设计灵感 start
     {
-      id: uid.gen(),
+      id: 'design-idea',
       raw: 'design-idea',
       title: '设计灵感',
       icon: `${ICON_CMD}/navi/light.svg`,
@@ -848,10 +936,34 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       extra: ['技术选型', '网站开发', '运维分析'],
     },
     {
-      id: 'sitesass',
-      raw: 'sitesass',
+      id: 'buildsite',
+      raw: 'buildsite',
       title: '建站工具',
-      extra: ['技术选型', '网站开发', '建站工具'],
+      extra: ['技术选型', '建站工具'],
+    },
+    {
+      id: 'blog',
+      raw: 'blog',
+      title: '博客',
+      extra: ['技术选型', '建站工具', '博客'],
+    },
+    {
+      id: 'home',
+      raw: 'home',
+      title: '官网',
+      extra: ['技术选型', '建站工具', '官网'],
+    },
+    {
+      id: 'cms',
+      raw: 'cms',
+      title: 'CMS',
+      extra: ['技术选型', '建站工具', 'CMS'],
+    },
+    {
+      id: 'forum',
+      raw: 'forum',
+      title: '社区',
+      extra: ['技术选型', '建站工具', '社区'],
     },
     {
       id: 'app',
@@ -1262,430 +1374,6 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       raw: 'others',
       title: '奇奇怪怪',
       extra: ['下班后', '摸鱼指南', '奇奇怪怪'],
-    },
-  ]
-}
-
-export const mockNaviCatalogMenu = (): TNaviTag[] => {
-  return [
-    {
-      id: 'aa', // uid.gen(),
-      raw: uid.gen(),
-      title: '生产力',
-      icon: `${ICON_CMD}/navi/tool.svg`,
-      childMenu: [
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '命令行',
-          icon: `${ICON_CMD}/navi/shell.svg`,
-          childMenu: [],
-        },
-        {
-          id: 'bb', // uid.gen(),
-          raw: uid.gen(),
-          title: '工作效率',
-          icon: `${ICON_CMD}/navi/timer.svg`,
-          childMenu: [
-            {
-              id: 'cc', // uid.gen(),
-              raw: uid.gen(),
-              title: 'GTD 工具',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '项目管理',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '编辑器圣战',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: 'Github',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '写作 / 笔记',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '格式转换',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '信息获取',
-          icon: `${ICON_CMD}/navi/grab_info.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: 'RSS',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '电子邮件',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '播客',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '搜索引擎',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '翻译工具',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '隐私 & 安全',
-          icon: `${ICON_CMD}/navi/awesome.svg`,
-          childMenu: [],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '界面设计',
-          icon: `${ICON_CMD}/navi/ruler.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '原型设计',
-              icon: `${ICON_CMD}/navi/china.svg`,
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '幻灯片制作',
-              icon: `${ICON_CMD}/navi/china.svg`,
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '图标',
-              icon: `${ICON_CMD}/navi/china.svg`,
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '配色',
-              icon: `${ICON_CMD}/navi/china.svg`,
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '字体',
-              icon: `${ICON_CMD}/navi/china.svg`,
-            },
-          ],
-        },
-
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '建站工具',
-          icon: `${ICON_CMD}/navi/cloud.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '博客',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: 'CMS',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '官网',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '论坛',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '公共数据源',
-          icon: `${ICON_CMD}/navi/data.svg`,
-          childMenu: [],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '运营分析',
-          icon: `${ICON_CMD}/navi/monitor.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '访问统计',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '问卷调查',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '多媒体',
-          icon: `${ICON_CMD}/navi/media.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '视频',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '音频',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '奇奇怪怪',
-          icon: `${ICON_CMD}/navi/webapp.svg`,
-          childMenu: [],
-        },
-      ],
-    },
-    {
-      // 非 IT，设计类的网站
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '设计灵感',
-      icon: `${ICON_CMD}/navi/light.svg`,
-      childMenu: [
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '文字与排版',
-          icon: `${ICON_CMD}/navi/text.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '文章排版',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '店铺招牌',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '标语条幅', // 脱欧大巴等等
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '车机系统',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: 'LOGO',
-          icon: `${ICON_CMD}/navi/logo.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: 'Pattens',
-          icon: `${ICON_CMD}/navi/pattern.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '地毯',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '彩色玻璃',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '背景图案',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '微生物',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '滑雪 | 冲浪板',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '足球',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '迷彩',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '雪花',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '宇宙空间',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '奇奇怪怪',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '创意广告',
-          icon: `${ICON_CMD}/navi/ad.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '工业设计',
-          icon: `${ICON_CMD}/navi/industry_design.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '日用品',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '球鞋',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '奇奇怪怪',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '机械迷',
-          icon: `${ICON_CMD}/navi/mechanical.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '汽车', // 工程车，特种车，F1...
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '摩托',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '航天器', // 月球车
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '战斗机',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '发动机',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '奇奇怪怪',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '魔鬼细节',
-          icon: `${ICON_CMD}/navi/ghost.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '网站 / App',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '奇奇怪怪',
-          icon: `${ICON_CMD}/navi/others.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '地图控',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '车机系统',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '涂鸦',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '井盖',
-            },
-          ],
-        },
-      ],
     },
   ]
 }
