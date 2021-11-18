@@ -90,26 +90,32 @@ const demo = [
     upvoteAlias: '喜欢',
     entries: [
       {
-        text: 'Tree-Shaking, 通常用于描述移除 JavaScript 上下文中的未引用代码(dead-code) — 即通过「摇树」把多余的叶子摇下来 ~',
+        title: 'Tree-Shaking',
+        text: '通常用于描述移除 JavaScript 上下文中的未引用代码(dead-code) — 即通过「摇树」把多余的叶子摇下来 ~',
         reference: 'https://webpack.js.org/guides/tree-shaking/',
       },
       {
-        text: 'Bread Crumbs, 网站上常见的「面包屑」导航。这个概念来自于儿童故事《糖果屋》，他们留下实实在在的面包屑来找到回家的路。',
+        title: 'Bread Crumbs',
+        text: '网站上常见的「面包屑」导航。这个概念来自于儿童故事《糖果屋》，他们留下实实在在的面包屑来找到回家的路。',
         reference: 'https://www.inlife.co.uk/why-are-cookies-called-cookies/',
       },
       {
-        text: 'Tor (The Onion Router), 洋葱路由的缩写, 它使用像洋葱一样的层状模型保证了匿名和不可追踪，是「暗网」的基础设施之一。',
+        title: 'Tor',
+        text: 'The Onion Router, 洋葱路由的缩写, 它使用像洋葱一样的层状模型保证了匿名和不可追踪，是「暗网」的基础设施之一。',
         reference: 'https://zh.wikipedia.org/wiki/Tor',
       },
       {
+        title: 'Cookies',
         text: 'Cookies, 网站用于追踪用户行踪的一种机制，就像可以通过分析地上的曲奇饼干碎找出你去过那些地方一样。',
         reference: 'https://zh.wikipedia.org/zh-hans/Cookie',
       },
       {
-        text: 'googol, Google 名称的来源，指的是 10 的 100 次幂，用来代表在互联网上可以获得的海量的资源。',
+        title: 'Googol',
+        text: 'Google 名称的来源，指的是 10 的 100 次幂，用来代表在互联网上可以获得的海量的资源。',
       },
       {
-        text: 'Batteries Included, 意指一件产品包含了所有必要的东西，开箱即用，最早来源于 Python 社区。',
+        title: 'Batteries Included',
+        text: '意指一件产品包含了所有必要的东西，开箱即用，最早来源于 Python 社区。',
         reference: 'https://qr.ae/pGmyXB',
       },
     ],

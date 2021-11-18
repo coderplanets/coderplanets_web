@@ -10,6 +10,7 @@ export type TSettingOption = {
 export type TInterval = '3s' | '5s' | '10s'
 
 export type TDrinkItem = {
+  title?: string
   text: string
   reference?: string
   images?: string[]
