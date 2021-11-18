@@ -154,6 +154,7 @@ export {
   sponsorSEO,
   trendingSEO,
   drinkSEO,
+  coolGuideSEO,
   articleSEO,
   articlePublishSEO,
   articleUpdateSEO,
