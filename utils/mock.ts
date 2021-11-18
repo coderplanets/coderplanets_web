@@ -399,43 +399,33 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       id: uid.gen(),
       raw: 'gtd',
       title: 'GTD 工具',
-      extra: ['生产力', '工作效率', ''],
+      extra: ['生产力', '工作效率', 'GTD 工具'],
     },
     {
       id: uid.gen(),
       raw: 'manage',
       title: '项目管理',
-      extra: ['生产力', '工作效率', ''],
+      extra: ['生产力', '工作效率', '项目管理'],
     },
     {
       id: uid.gen(),
       raw: 'editor',
-      title: '编辑器圣战',
-      extra: ['生产力', '工作效率', ''],
+      title: '编辑器',
+      extra: ['生产力', '工作效率', '编辑器'],
     },
     {
       id: uid.gen(),
       raw: 'writing',
       title: '写作 / 笔记',
-      extra: ['生产力', '工作效率', ''],
+      extra: ['生产力', '工作效率', '写作 / 笔记'],
     },
     {
       id: uid.gen(),
       raw: 'convert',
       title: '格式转换',
-      extra: ['生产力', '工作效率', ''],
+      extra: ['生产力', '工作效率', '格式转换'],
     },
     // 生产力 end
-    // ----------------
-    // 技术选型 start
-    {
-      id: uid.gen(),
-      raw: 'techstack',
-      title: '技术选型',
-      icon: `${ICON_CMD}/navi/tool.svg`,
-      extra: ['技术选型'],
-    },
-    // 技术选型 start
     // ----------------
     // 设计灵感 start
     {
@@ -446,27 +436,519 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       extra: ['设计灵感'],
     },
     {
-      id: uid.gen(),
+      id: 'ixd',
+      raw: 'ixd',
+      title: '人机交互',
+      icon: `${ICON_CMD}/navi/light.svg`,
+      extra: ['设计灵感', '人机交互'],
+    },
+    {
+      id: 'sci-fi',
       raw: 'sci-fi',
       title: '科幻世界',
       icon: `${ICON_CMD}/navi/sci-fi.svg`,
       // displayType: 'IMAGE',
-      extra: ['设计灵感', '科幻世界'],
+      extra: ['设计灵感', '人机交互', '科电视界'],
     },
     {
-      id: uid.gen(),
+      id: 'software',
+      raw: 'software',
+      title: '软件交互',
+      extra: ['设计灵感', '人机交互', '软件交互'],
+    },
+    {
+      id: 'board',
+      raw: 'board',
+      title: '仪表盘',
+      extra: ['设计灵感', '人机交互', '仪表盘'],
+    },
+    {
+      id: 'map',
+      raw: 'map',
+      title: '地图导航',
+      extra: ['设计灵感', '人机交互', '地图导航'],
+    },
+    {
+      id: 'others',
+      raw: 'others',
+      title: '奇奇怪怪',
+      extra: ['设计灵感', '人机交互', '奇奇怪怪'],
+    },
+    {
+      id: 'font',
+      raw: 'font',
+      title: '字体与排版',
+      extra: ['设计灵感', '字体与排版'],
+    },
+    {
+      id: 'sign',
+      raw: 'sign',
+      title: '店铺招牌',
+      extra: ['设计灵感', '字体与排版', '店铺招牌'],
+    },
+    {
+      id: 'slogan',
+      raw: 'slogan',
+      title: '标语横幅',
+      extra: ['设计灵感', '字体与排版', '标语横幅'],
+    },
+    {
+      id: 'draft',
+      raw: 'draft',
+      title: '设计手稿',
+      extra: ['设计灵感', '字体与排版', '设计手稿'],
+    },
+    {
+      id: 'columns',
+      raw: 'columns',
+      title: '画报杂志',
+      extra: ['设计灵感', '字体与排版', '画报杂志'],
+    },
+    {
+      id: 'logo',
+      raw: 'logo',
+      title: 'Logo 与徽章',
+      extra: ['设计灵感', 'Logo 与徽章'],
+    },
+    {
+      id: 'logo',
+      raw: 'logo',
+      title: '赛事 / 活动',
+      extra: ['设计灵感', 'Logo 与徽章', '赛事活动'],
+    },
+    {
+      id: 'logo',
+      raw: 'logo',
+      title: '商业品牌',
+      extra: ['设计灵感', 'Logo 与徽章', '商业品牌'],
+    },
+    {
+      id: 'badge',
+      raw: 'badge',
+      title: '队徽',
+      extra: ['设计灵感', 'Logo 与徽章', '队徽'],
+    },
+    {
+      id: 'badge2',
+      raw: 'badge2',
+      title: '家族徽章',
+      extra: ['设计灵感', 'Logo 与徽章', '家族徽章'],
+    },
+    {
+      id: 'badge3',
+      raw: 'badge3',
+      title: '行业证章',
+      extra: ['设计灵感', 'Logo 与徽章', '行业证章'],
+    },
+    {
+      id: 'Partten',
+      raw: 'Partten',
+      title: 'Partten',
+      extra: ['设计灵感', 'Partten'],
+    },
+    {
+      id: 'carpet',
+      raw: 'carpet',
+      title: '地毯',
+      extra: ['设计灵感', 'Partten', '地毯'],
+    },
+    {
+      id: 'glass',
+      raw: 'glass',
+      title: '彩色玻璃',
+      extra: ['设计灵感', 'Partten', '彩色玻璃'],
+    },
+    {
+      id: 'footbal',
+      raw: 'football',
+      title: '足球',
+      extra: ['设计灵感', 'Partten', '足球'],
+    },
+    {
+      id: 'board',
+      raw: 'board',
+      title: '冲浪 / 滑雪板',
+      extra: ['设计灵感', 'Partten', '冲浪 / 滑雪板'],
+    },
+    {
+      id: 'CropCircles',
+      raw: 'CropCircles',
+      title: '麦田怪圈',
+      extra: ['设计灵感', 'Partten', '麦田怪圈'],
+    },
+    {
+      id: 'rpartten',
+      raw: 'rpartten',
+      title: '背景图样',
+      extra: ['设计灵感', 'Partten', '背景图样'],
+    },
+    {
+      id: 'camouflage',
+      raw: 'camouflage',
+      title: '迷彩',
+      extra: ['设计灵感', 'Partten', '迷彩'],
+    },
+    {
+      id: 'snowflake',
+      raw: 'snowflake',
+      title: '雪花',
+      extra: ['设计灵感', 'Partten', '雪花'],
+    },
+    {
+      id: 'space',
+      raw: 'space',
+      title: '宇宙空间',
+      extra: ['设计灵感', 'Partten', '宇宙空间'],
+    },
+    {
+      id: 'others',
+      raw: 'others',
+      title: '奇奇怪怪',
+      extra: ['设计灵感', 'Partten', '奇奇怪怪'],
+    },
+    {
+      id: 'arch',
       raw: 'arch',
       title: '建筑之美',
       icon: `${ICON_CMD}/navi/bricks.svg`,
       extra: ['设计灵感', '建筑之美'],
     },
-
+    {
+      id: 'religion',
+      raw: 'religion',
+      title: '宗教建筑',
+      extra: ['设计灵感', '建筑之美', '宗教建筑'],
+    },
+    {
+      id: 'landmark',
+      raw: 'landmark',
+      title: '城市地标',
+      extra: ['设计灵感', '建筑之美', '城市地标'],
+    },
+    {
+      id: 'arena',
+      raw: 'arena',
+      title: '竞技场',
+      extra: ['设计灵感', '建筑之美', '竞技场'],
+    },
+    {
+      id: 'house',
+      raw: 'house',
+      title: '乡村',
+      extra: ['设计灵感', '建筑之美', '乡村'],
+    },
+    {
+      id: 'museum',
+      raw: 'museum',
+      title: '博物馆',
+      extra: ['设计灵感', '建筑之美', '博物馆'],
+    },
+    {
+      id: 'briage',
+      raw: 'briage',
+      title: '桥梁',
+      extra: ['设计灵感', '建筑之美', '桥梁'],
+    },
+    {
+      id: 'briage',
+      raw: 'future',
+      title: '概念设计',
+      extra: ['设计灵感', '建筑之美', '概念设计'],
+    },
+    {
+      id: 'briage',
+      raw: 'future',
+      title: '未来主义',
+      extra: ['设计灵感', '建筑之美', '未来主义'],
+    },
+    {
+      id: 'space',
+      raw: 'space',
+      title: '公共空间',
+      extra: ['设计灵感', '公共空间'],
+    },
+    {
+      id: 'library',
+      raw: 'library',
+      title: '公共空间',
+      extra: ['设计灵感', '公共空间', '图书馆'],
+    },
+    {
+      id: 'rest',
+      raw: 'rest',
+      title: '餐厅',
+      extra: ['设计灵感', '公共空间', '餐厅'],
+    },
+    {
+      id: 'office',
+      raw: 'office',
+      title: '办公室',
+      extra: ['设计灵感', '公共空间', '办公室'],
+    },
+    {
+      id: 'designset',
+      raw: 'designset',
+      title: '美剧布景',
+      extra: ['设计灵感', '公共空间', '美剧布景'],
+    },
+    {
+      id: 'hotel',
+      raw: 'hotel',
+      title: '酒店大堂',
+      extra: ['设计灵感', '公共空间', '酒店大堂'],
+    },
+    {
+      id: 'palace',
+      raw: 'palace',
+      title: '宫殿',
+      extra: ['设计灵感', '公共空间', '宫殿'],
+    },
+    {
+      id: 'cloth',
+      raw: 'cloth',
+      title: '服饰控',
+      icon: `${ICON_CMD}/navi/cloth.svg`,
+      extra: ['设计灵感', '服饰控'],
+    },
+    {
+      id: 'ancient',
+      raw: 'ancient',
+      title: '中世纪',
+      extra: ['设计灵感', '服饰控', '中世纪'],
+    },
+    {
+      id: 'ancient',
+      raw: 'ancient',
+      title: '中世纪',
+      extra: ['设计灵感', '服饰控', '中世纪'],
+    },
+    {
+      id: 'uniform',
+      raw: 'uniform',
+      title: '行业制服',
+      extra: ['设计灵感', '服饰控', '行业制服'], // '军装', '足球队服'
+    },
+    {
+      id: 'mechanical',
+      raw: 'mechanical',
+      title: '机械迷',
+      extra: ['设计灵感', '机械迷'],
+    },
+    {
+      id: 'car',
+      raw: 'car',
+      title: '机械迷',
+      extra: ['设计灵感', '机械迷', '汽车'],
+    },
+    {
+      id: 'moto',
+      raw: 'moto',
+      title: '机械迷',
+      extra: ['设计灵感', '机械迷', '摩托'],
+    },
+    {
+      id: 'spacei',
+      raw: 'spacei',
+      title: '航天器',
+      extra: ['设计灵感', '机械迷', '航天器'],
+    },
+    {
+      id: 'aireforce',
+      raw: 'aireforce',
+      title: '战斗机',
+      extra: ['设计灵感', '机械迷', '战斗机'],
+    },
+    {
+      id: 'muscle',
+      raw: 'muscle',
+      title: '工程机械',
+      extra: ['设计灵感', '机械迷', '工程机械'],
+    },
+    {
+      id: 'id',
+      raw: 'id',
+      title: '工业设计',
+      extra: ['设计灵感', '工业设计'],
+    },
+    {
+      id: 'shoe',
+      raw: 'shoe',
+      title: '球鞋',
+      extra: ['设计灵感', '工业设计', '球鞋'],
+    },
+    {
+      id: 'kitchen',
+      raw: 'kitchen',
+      title: '厨具',
+      extra: ['设计灵感', '工业设计', '厨具'],
+    },
+    {
+      id: 'hardware',
+      raw: 'hardware',
+      title: '五金工具',
+      extra: ['设计灵感', '工业设计', '五金工具'],
+    },
+    {
+      id: 'video',
+      raw: 'video',
+      title: '视频短片',
+      extra: ['设计灵感', '视频短片'],
+    },
+    {
+      id: 'ad',
+      raw: 'ad',
+      title: '优秀广告',
+      extra: ['设计灵感', '视频短片', '优秀广告'],
+    },
+    {
+      id: 'tv',
+      raw: 'tv',
+      title: '美剧片头',
+      extra: ['设计灵感', '视频短片', '美剧片头'],
+    },
     // 设计灵感 end
+    // ----------------
+    // 技术选型 start
+    {
+      id: 'techselection',
+      raw: 'techselection',
+      title: '技术选型',
+      icon: `${ICON_CMD}/navi/tool.svg`,
+      extra: ['技术选型'],
+    },
+    {
+      id: 'web',
+      raw: 'web',
+      title: '网站开发',
+      icon: `${ICON_CMD}/navi/tool.svg`,
+      extra: ['技术选型', '网站开发'],
+    },
+    {
+      id: 'ue',
+      raw: 'ue',
+      title: '界面框架',
+      extra: ['技术选型', '网站开发', '界面框架'],
+    },
+    {
+      id: 'richeditor',
+      raw: 'richeditor',
+      title: '富文本编辑',
+      extra: ['技术选型', '网站开发', '富文本编辑'],
+    },
+    {
+      id: 'visualization',
+      raw: 'visualization',
+      title: '可视化',
+      extra: ['技术选型', '网站开发', '可视化'],
+    },
+    {
+      id: 'devops',
+      raw: 'devops',
+      title: '运维分析',
+      extra: ['技术选型', '网站开发', '运维分析'],
+    },
+    {
+      id: 'sitesass',
+      raw: 'sitesass',
+      title: '建站工具',
+      extra: ['技术选型', '网站开发', '建站工具'],
+    },
+    {
+      id: 'app',
+      raw: 'app',
+      title: '移动 App',
+      extra: ['技术选型', '移动 App'],
+    },
+    {
+      id: 'ai',
+      raw: 'ai',
+      title: '人工智能',
+      extra: ['技术选型', '人工智能'],
+    },
+    {
+      id: 'ml',
+      raw: 'ml',
+      title: '机器学习',
+      extra: ['技术选型', '人工智能', '机器学习'],
+    },
+    {
+      id: 'picprocess',
+      raw: 'picprocess',
+      title: '图像处理',
+      extra: ['技术选型', '人工智能', '图像处理'],
+    },
+    {
+      id: 'voice',
+      raw: 'voice',
+      title: '语音识别',
+      extra: ['技术选型', '人工智能', '语音识别'],
+    },
+    {
+      id: 'nlp',
+      raw: 'nlp',
+      title: '自然语言处理',
+      extra: ['技术选型', '人工智能', '自然语言处理'],
+    },
+    {
+      id: 'db',
+      raw: 'db',
+      title: '数据库',
+      extra: ['技术选型', '数据库'],
+    },
+    {
+      id: 'db1',
+      raw: 'db1',
+      title: '数据库',
+      extra: ['技术选型', '数据库', '关系型数据库'],
+    },
+    {
+      id: 'db2',
+      raw: 'db2',
+      title: '数据库',
+      extra: ['技术选型', '数据库', '文档数据库'],
+    },
+    {
+      id: 'db3',
+      raw: 'db3',
+      title: '数据库',
+      extra: ['技术选型', '数据库', '图数据库'],
+    },
+    {
+      id: 'db4',
+      raw: 'db5',
+      title: '数据库',
+      extra: ['技术选型', '数据库', '时序数据库'],
+    },
+    {
+      id: 'dataanalysis',
+      raw: 'dataanalysis',
+      title: '数据分析',
+      extra: ['技术选型', '数据分析'],
+    },
+    {
+      id: 'devops',
+      raw: 'devops',
+      title: '测试运维',
+      extra: ['技术选型', '测试运维'],
+    },
+    {
+      id: 'embed',
+      raw: 'embed',
+      title: '嵌入式',
+      extra: ['技术选型', '嵌入式'],
+    },
+    {
+      id: 'blockchain',
+      raw: 'blockchain',
+      title: '区块链',
+      extra: ['技术选型', '区块链'],
+    },
+    // 技术选型 end
     // ----------------
     // 酷团队 start
     {
-      id: 'ktd',
-      raw: 'ktd',
+      id: 'teams',
+      raw: 'teams',
       title: '酷团队',
       icon: `${ICON_CMD}/navi/group.svg`,
       extra: ['酷团队'],
@@ -481,6 +963,77 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       icon: `${ICON_CMD}/navi/lighthouse.svg`,
       extra: ['计算机名人堂'],
     },
+    {
+      id: 'TuringAward',
+      raw: 'TuringAward',
+      title: '图灵奖',
+      displayType: 'FAME_PEOPLE',
+      icon: `${ICON_CMD}/navi/crown.svg`,
+      extra: ['计算机名人堂', '图灵奖'],
+    },
+    {
+      id: 'topCoder',
+      raw: 'topCoder',
+      title: 'TopCoder',
+      icon: `${ICON_CMD}/navi/top.svg`,
+      extra: ['计算机名人堂', 'TopCoder'],
+    },
+    {
+      id: 'fatherOf',
+      raw: 'fatherOf',
+      title: '语言之父',
+      icon: `${ICON_CMD}/navi/founder.svg`,
+      extra: ['计算机名人堂', '语言之父'],
+    },
+    {
+      id: 'edu',
+      raw: 'edu',
+      title: '学术界',
+      icon: `${ICON_CMD}/navi/phd.svg`,
+      extra: ['计算机名人堂', '学术界'],
+    },
+    {
+      id: 'industry',
+      raw: 'industry',
+      title: '工业界',
+      icon: `${ICON_CMD}/navi/industry.svg`,
+      extra: ['计算机名人堂', '工业界'],
+    },
+    {
+      id: 'frontend',
+      raw: 'frontend',
+      title: '前端',
+      icon: `${ICON_CMD}/navi/hammer.svg`,
+      extra: ['计算机名人堂', '工业界', '前端'],
+    },
+    {
+      id: 'backend',
+      raw: 'backend',
+      title: '后端',
+      icon: `${ICON_CMD}/navi/hammer.svg`,
+      extra: ['计算机名人堂', '工业界', '后端'],
+    },
+    {
+      id: 'client',
+      raw: 'client',
+      title: '客户端',
+      icon: `${ICON_CMD}/navi/hammer.svg`,
+      extra: ['计算机名人堂', '工业界', '客户端'],
+    },
+    {
+      id: 'hacker',
+      raw: 'hacker',
+      title: '黑客列传',
+      icon: `${ICON_CMD}/navi/hacker.svg`,
+      extra: ['计算机名人堂', '黑客列传'],
+    },
+    {
+      id: 'leader',
+      raw: 'leader',
+      title: '商业领袖',
+      icon: `${ICON_CMD}/navi/leader.svg`,
+      extra: ['计算机名人堂', '商业领袖'],
+    },
     // 计算机名人堂 end
     // ----------------
     // 博物馆 start
@@ -494,34 +1047,51 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
     // 博物馆 end
     // ----------------
     // 教程 / 101 start
+    // 路线图谱，视频课程，技术书籍，社区文档, 高校教学，新手项目, 比如 https://web.stanford.edu/class/cs224n/
     {
       id: '101',
       raw: '101',
-      title: '教程 / 101', // 技术书籍，中文文档, 翻译(放标签里吧), 国外网校, 比如 https://web.stanford.edu/class/cs224n/
-      icon: `${ICON_CMD}/navi/glasses.svg`,
+      title: '教程 / 101',
+      icon: `${ICON_CMD}/navi/phd.svg`,
       extra: ['101'],
     },
+    {
+      id: 'roadmap',
+      raw: 'roadmap',
+      title: '路线图谱',
+      extra: ['101', '路线图谱'],
+    },
+    {
+      id: 'video',
+      raw: 'video',
+      title: '视频课程',
+      extra: ['101', '视频课程'],
+    },
+    {
+      id: 'book',
+      raw: 'book',
+      title: '技术书籍',
+      extra: ['101', '技术书籍'],
+    },
+    {
+      id: 'docs',
+      raw: 'docs',
+      title: '社区文档',
+      extra: ['101', '社区文档'],
+    },
+    {
+      id: 'edu',
+      raw: 'edu',
+      title: '高校教学',
+      extra: ['101', '高校教学'],
+    },
+    {
+      id: 'bootstrap',
+      raw: 'bootstrap',
+      title: '新手项目',
+      extra: ['101', '新手项目'],
+    },
     // 教程 / 101 end
-    // ----------------
-    // 领域发现 start
-    {
-      id: 'domain', // uid.gen(),
-      raw: 'domain',
-      title: '跨界发现',
-      icon: `${ICON_CMD}/navi/door.svg`,
-      extra: ['domain'],
-    },
-    // 领域发现 end
-    // ----------------
-    // 优质信息源 start
-    {
-      id: 'source',
-      raw: 'source',
-      title: '优质信息源',
-      icon: `${ICON_CMD}/navi/subscribe.svg`,
-      extra: ['source'],
-    },
-    // 优质信息源 end
     // ----------------
     // Conf / Talks start
     {
@@ -532,6 +1102,100 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       extra: ['source'],
     },
     // Conf / Talks end
+    // ----------------
+
+    // 优质信息源 start
+    {
+      id: 'source',
+      raw: 'source',
+      title: '优质信息源',
+      icon: `${ICON_CMD}/navi/subscribe.svg`,
+      extra: ['优质信息源'],
+    },
+    {
+      id: 'blog',
+      raw: 'blog',
+      title: '个人博客',
+      icon: `${ICON_CMD}/navi/blog.svg`,
+      extra: ['优质信息源', '个人博客'],
+    },
+    {
+      id: 'media',
+      raw: 'media',
+      title: '科技媒体',
+      icon: `${ICON_CMD}/navi/macphone.svg`,
+      extra: ['优质信息源', '科技媒体'],
+    },
+    {
+      id: 'twitter',
+      raw: 'twitter',
+      title: 'Twitter',
+      icon: `${ICON_CMD}/navi/twitter.svg`,
+      extra: ['优质信息源', 'Twitter'],
+    },
+    {
+      id: 'weekly',
+      raw: 'weekly',
+      title: '周刊 / 月报',
+      icon: `${ICON_CMD}/navi/news-paper.svg`,
+      extra: ['优质信息源', '周刊 / 月报'],
+    },
+    {
+      id: 'podcast',
+      raw: 'podcast',
+      title: '播客',
+      icon: `${ICON_CMD}/navi/podcast.svg`,
+      extra: ['优质信息源', '播客'],
+    },
+
+    // 优质信息源 end
+    // ----------------
+    // 领域发现 start
+    {
+      id: 'domain', // uid.gen(),
+      raw: 'domain',
+      title: '跨界发现',
+      icon: `${ICON_CMD}/navi/door.svg`,
+      extra: ['跨界发现'],
+    },
+    {
+      id: 'industry',
+      raw: 'industry',
+      title: '工业软件',
+      extra: ['跨界发现', '工业软件'],
+    },
+    {
+      id: 'sport',
+      raw: 'sport',
+      title: '体育产业',
+      extra: ['跨界发现', '体育产业'],
+    },
+    {
+      id: 'cg',
+      raw: 'cg',
+      title: 'CG 动画',
+      extra: ['跨界发现', 'CG 动画'],
+    },
+    {
+      id: 'game',
+      raw: 'game',
+      title: '游戏制作',
+      extra: ['跨界发现', '游戏制作'],
+    },
+    {
+      id: 'si',
+      raw: 'si',
+      title: '科学研究',
+      extra: ['跨界发现', '科学研究'],
+    },
+    {
+      id: 'others',
+      raw: 'others',
+      title: '奇奇怪怪',
+      extra: ['跨界发现', '奇奇怪怪'],
+    },
+
+    // 领域发现 end
     // ----------------
     // TopN start
     {
@@ -549,7 +1213,55 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       raw: 'afterwork',
       title: '下班后',
       icon: `${ICON_CMD}/navi/subscribe.svg`,
-      extra: ['afterwork'],
+      extra: ['下班后'],
+    },
+    {
+      id: 'sideproject',
+      raw: 'sideproject',
+      title: '副业组队',
+      extra: ['下班后', '副业组队'],
+    },
+    {
+      id: 'sport',
+      raw: 'sport',
+      title: '体育运动',
+      extra: ['下班后', '体育运动'],
+    },
+    {
+      id: 'fun',
+      raw: 'fun',
+      title: '摸鱼指南',
+      extra: ['下班后', '摸鱼指南'],
+    },
+    {
+      id: 'urbanlegend',
+      raw: 'urbanlegend',
+      title: '都市传说',
+      extra: ['下班后', '摸鱼指南', '都市传说'],
+    },
+    {
+      id: 'ereview',
+      raw: 'review',
+      title: '数码测评',
+      extra: ['下班后', '摸鱼指南', '数码测评'],
+    },
+    {
+      id: 'mreview',
+      raw: 'review',
+      title: '影 / 剧评',
+      extra: ['下班后', '摸鱼指南', '影 / 剧评'],
+    },
+    {
+      id: 'eat',
+      raw: 'eat',
+      title: '逛吃',
+      extra: ['下班后', '摸鱼指南', '逛吃'],
+    },
+    {
+      id: 'others',
+      raw: 'others',
+      title: '奇奇怪怪',
+      extra: ['下班后', '摸鱼指南', '奇奇怪怪'],
     },
   ]
 }
@@ -776,151 +1488,6 @@ export const mockNaviCatalogMenu = (): TNaviTag[] => {
         {
           id: uid.gen(),
           raw: uid.gen(),
-          title: '科幻世界',
-          icon: `${ICON_CMD}/navi/sci-fi.svg`,
-          displayType: 'IMAGE',
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '建筑之美',
-          icon: `${ICON_CMD}/navi/bricks.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '宗教建筑',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '乡村',
-              childMenu: [
-                {
-                  id: uid.gen(),
-                  raw: uid.gen(),
-                  icon: `${ICON_CMD}/navi/bricks.svg`,
-                  title: '小卖部',
-                },
-              ],
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '城市地标',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '竞技场',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '博物馆',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '火车站',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '桥梁',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '未来主义',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '奇奇怪怪',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '公共空间',
-          icon: `${ICON_CMD}/navi/space_in.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              // https://www.zhihu.com/search?type=content&q=%E5%9B%BE%E4%B9%A6%E9%A6%86%20%E5%86%85%E9%83%A8%E8%AE%BE%E8%AE%A1
-              title: '图书馆',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '餐厅', // 酒店内，游艇内，等等, google、亚马逊，微软 办公室等等
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '办公室', // google、亚马逊，微软 办公室等等
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '美剧布景',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '酒店大堂',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '宫殿',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '会展中心',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '超级工厂',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '飞机场',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '服饰控',
-          icon: `${ICON_CMD}/navi/cloth.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '中国风',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '古罗马',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '军装',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
           title: '文字与排版',
           icon: `${ICON_CMD}/navi/text.svg`,
           childMenu: [
@@ -1119,351 +1686,6 @@ export const mockNaviCatalogMenu = (): TNaviTag[] => {
           ],
         },
       ],
-    },
-    {
-      id: 'ktd',
-      raw: 'ktd',
-      title: '酷团队',
-      icon: `${ICON_CMD}/navi/group.svg`,
-      childMenu: [],
-    },
-
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '计算机名人堂',
-      icon: `${ICON_CMD}/navi/lighthouse.svg`,
-      childMenu: [
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '图灵奖',
-          displayType: 'FAME_PEOPLE',
-          icon: `${ICON_CMD}/navi/crown.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: 'TopCoder',
-          icon: `${ICON_CMD}/navi/top.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '语言之父',
-          icon: `${ICON_CMD}/navi/founder.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '商业领袖',
-          icon: `${ICON_CMD}/navi/leader.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '学术界',
-          icon: `${ICON_CMD}/navi/phd.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '工业界',
-          icon: `${ICON_CMD}/navi/industry.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '前端',
-              icon: `${ICON_CMD}/navi/hammer.svg`,
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '后端',
-              icon: `${ICON_CMD}/navi/hammer.svg`,
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: 'xx端',
-              icon: `${ICON_CMD}/navi/hammer.svg`,
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '黑客列传',
-          icon: `${ICON_CMD}/navi/hacker.svg`,
-        },
-      ],
-    },
-    // {
-    //   id: uid.gen(),
-    //   raw: uid.gen(),
-    //   title: '独立开发者',
-    //   icon: `${ICON_CMD}/navi/hammer.svg`,
-    //   childMenu: [],
-    // },
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '教程 / 101', // 技术书籍，中文文档, 翻译(放标签里吧), 国外网校, 比如 https://web.stanford.edu/class/cs224n/
-      icon: `${ICON_CMD}/navi/glasses.svg`,
-      childMenu: [
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '前端',
-          icon: `${ICON_CMD}/navi/translate.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: 'iOS',
-          icon: `${ICON_CMD}/navi/translate.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: 'Android',
-          icon: `${ICON_CMD}/navi/translate.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '后端',
-          icon: `${ICON_CMD}/navi/translate.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '设计',
-          icon: `${ICON_CMD}/navi/translate.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '产品',
-          icon: `${ICON_CMD}/navi/translate.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '奇奇怪怪',
-          icon: `${ICON_CMD}/navi/others.svg`,
-        },
-      ],
-    },
-    {
-      id: 'ac', // uid.gen(),
-      raw: 'toto',
-      title: '领域发现',
-      icon: `${ICON_CMD}/navi/door.svg`,
-      childMenu: [
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '设计师',
-          icon: `${ICON_CMD}/navi/sci-fi.svg`,
-          displayType: 'IMAGE',
-          // 归类: https://tympanus.net/codrops/
-          // css tricks ...
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '开发者社区',
-          icon: `${ICON_CMD}/navi/sci-fi.svg`,
-          displayType: 'IMAGE',
-        },
-      ],
-    },
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '优质信息源',
-      icon: `${ICON_CMD}/navi/subscribe.svg`,
-      childMenu: [
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '周刊 / 月报',
-          icon: `${ICON_CMD}/navi/news-paper.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: 'Medium',
-          icon: `${ICON_CMD}/navi/medium.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: 'Twitter',
-          icon: `${ICON_CMD}/navi/twitter.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '专栏类',
-          icon: `${ICON_CMD}/navi/columns.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '知乎',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '网易？',
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '播客类',
-          icon: `${ICON_CMD}/navi/podcast.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '技术类',
-              icon: `${ICON_CMD}/navi/tips.svg`,
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '设计类',
-              icon: `${ICON_CMD}/navi/tips.svg`,
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '杂谈类',
-              icon: `${ICON_CMD}/navi/tips.svg`,
-            },
-          ],
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '视频类',
-          icon: `${ICON_CMD}/navi/twitter.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '独立博客',
-          icon: `${ICON_CMD}/navi/blog.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '团队博客',
-          icon: `${ICON_CMD}/navi/team.svg`,
-          childMenu: [
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '全部',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '大前端',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: '设计师',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: 'iOS',
-            },
-            {
-              id: uid.gen(),
-              raw: uid.gen(),
-              title: 'Android',
-            },
-          ],
-        },
-        // {
-        //   id: uid.gen(),
-        // raw: uid.gen(),
-        //   title: '微信公众号',
-        //   icon: `${ICON_CMD}/navi/weichat_gzh.svg`,
-        // },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '泛科技媒体',
-          icon: `${ICON_CMD}/navi/macphone.svg`,
-        },
-      ],
-    },
-    {
-      id: '41',
-      title: 'IT 博物馆',
-      raw: 'raw',
-      icon: `${ICON_CMD}/navi_translate.svg`,
-      childMenu: [],
-    },
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '酷发明',
-      icon: `${ICON_CMD}/navi/experiment.svg`,
-      childMenu: [],
-    },
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '排行榜',
-      icon: `${ICON_CMD}/navi/experiment.svg`,
-      childMenu: [],
-    },
-
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '影剧 / Talks',
-      icon: `${ICON_CMD}/navi/movie.svg`,
-      childMenu: [],
-    },
-
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '找到组织', // 红蓝粉
-      icon: `${ICON_CMD}/navi/sport.svg`,
-      childMenu: [
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '足球',
-          icon: `${ICON_CMD}/navi/sport.svg`,
-        },
-        {
-          id: uid.gen(),
-          raw: uid.gen(),
-          title: '篮球',
-          icon: `${ICON_CMD}/navi/sport.svg`,
-        },
-      ],
-    },
-
-    {
-      id: uid.gen(),
-      raw: uid.gen(),
-      title: '摸鱼指南',
-      icon: `${ICON_CMD}/navi/sport.svg`,
-      childMenu: [],
     },
   ]
 }

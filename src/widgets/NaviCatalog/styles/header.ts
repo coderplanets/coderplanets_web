@@ -56,4 +56,5 @@ export const ResetIcon = styled(Img)`
 export const HelpHint = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
+  padding: 2px 5px;
 `

@@ -9,9 +9,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexColumn('align-both')};
   width: 100%;
+  padding-right: 2%;
   min-height: 70vh;
-  padding-right: 10%;
-  margin-top: 3px;
+  margin-top: 30px;
 `
 export const Title = styled.div`
   font-size: 16px;
