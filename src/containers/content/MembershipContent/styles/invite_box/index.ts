@@ -11,11 +11,16 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   color: ${theme('thread.articleDigest')};
   ${css.flexColumn('align-center')};
   width: 100%;
-  padding: 20px;
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 22px;
+  filter: ${theme('modal.subPanelShadow')};
+  margin-bottom: 15px;
+  padding-top: 12px;
+`
+export const Content = styled.div`
+  background: ${theme('modal.subPanel')};
+  padding-top: 20px;
 `
 export const HandIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};

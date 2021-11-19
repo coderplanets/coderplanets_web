@@ -32,10 +32,23 @@ export const Content = styled.div`
 export const QTitle = styled.div`
   font-size: 16px;
   color: ${theme('thread.articleTitle')};
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 `
 export const ABody = styled.div`
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
   margin-bottom: 30px;
+  line-height: 1.6;
+`
+export const Ul = styled.ul`
+  list-style: disc;
+  margin-left: 16px;
+`
+export const Li = styled.li`
+  margin-bottom: 3px;
+  line-height: 1.6;
+`
+export const Bold = styled.span`
+  color: ${theme('thread.articleTitle')};
+  font-weight: bold;
 `

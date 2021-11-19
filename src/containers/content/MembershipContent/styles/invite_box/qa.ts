@@ -11,6 +11,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flexColumn('align-start')};
   width: 100%;
   margin-top: 30px;
+  margin-bottom: 30px;
   padding: 0 25px;
 `
 export const Title = styled.div`

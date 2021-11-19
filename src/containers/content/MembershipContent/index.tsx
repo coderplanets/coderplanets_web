@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 /*
  *
  * MembershipContent
@@ -10,8 +11,9 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 import OrButton from '@/widgets/Buttons/OrButton'
-import Button from '@/widgets/Buttons/Button'
+// import Button from '@/widgets/Buttons/Button'
 import Checker from '@/widgets/Checker'
+import NoticeBar from '@/widgets/NoticeBar'
 
 import type { TStore } from './store'
 import { PAY, PACKAGE } from './constant'
@@ -52,21 +54,21 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:MembershipContent')
 
-const PayButton = ({ pkgType, payType }) => {
-  if (pkgType === PACKAGE.GIRL) {
-    return (
-      <Button type="primary" ghost>
-        验证
-      </Button>
-    )
-  }
+// const PayButton = ({ pkgType, payType }) => {
+//   if (pkgType === PACKAGE.GIRL) {
+//     return (
+//       <Button type="primary" ghost>
+//         验证
+//       </Button>
+//     )
+//   }
 
-  return (
-    <Button type="primary" ghost>
-      {payType === PAY.YEARLY ? '扫码' : '试试看'}
-    </Button>
-  )
-}
+//   return (
+//     <Button type="primary" ghost>
+//       {payType === PAY.YEARLY ? '扫码' : '试试看'}
+//     </Button>
+//   )
+// }
 
 type TProps = {
   membershipContent?: TStore
@@ -87,7 +89,7 @@ const MembershipContentContainer: FC<TProps> = ({
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
         <BannerWrapper>
-          <Title>Hi, mydearxym</Title>
+          <Title>Hi，你好哇 👋</Title>
           <Desc>欢迎来到 CoderPlanets，选择一个适合你的会员类型吧</Desc>
           <PayButtonWrapper>
             <OrButton
@@ -149,7 +151,13 @@ const MembershipContentContainer: FC<TProps> = ({
                 {item.pkgType === PACKAGE.FREE ? (
                   <FreeNote>当前为免费账户无需支付</FreeNote>
                 ) : (
-                  <PayButton pkgType={item.pkgType} payType={payType} />
+                  <NoticeBar
+                    type="info"
+                    content="内测阶段开放"
+                    right={10}
+                    noBg
+                  />
+                  // <PayButton pkgType={item.pkgType} payType={payType} />
                 )}
               </PayBtnWrapper>
             </Dashboard>

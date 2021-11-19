@@ -12,6 +12,7 @@ import {
   Header,
   HandIcon,
   Title,
+  Content,
 } from '../styles/invite_box'
 import { closeInviteBox } from '../logic'
 
@@ -39,16 +40,18 @@ const InviteBox: FC<TProps> = ({ testid = 'membership-invite-box', show }) => {
       <Wrapper testid={testid}>
         <Header>
           <HandIcon src={`${ICON}/shape/handshake.svg`} />
-          <Title>朋友码</Title>
+          <Title>交个朋友</Title>
         </Header>
-        <PinCodeWrapper>
-          <ReactPinField
-            ref={ref}
-            length={6}
-            onChange={(v) => console.log('v: ', v)}
-          />
-        </PinCodeWrapper>
-        <QA />
+        <Content>
+          <PinCodeWrapper>
+            <ReactPinField
+              ref={ref}
+              length={6}
+              onChange={(v) => console.log('v: ', v)}
+            />
+          </PinCodeWrapper>
+          <QA />
+        </Content>
       </Wrapper>
     </Modal>
   )

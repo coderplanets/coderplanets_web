@@ -64,7 +64,7 @@ export const Dashboard = styled.div<TActive>`
   padding-bottom: 30px;
   border: 2px solid;
   border-color: ${({ active }) =>
-    active ? theme('banner.desc') : 'transparent'};
+    active ? theme('button.primary') : 'transparent'};
   border-radius: 5px;
   box-shadow: ${({ active }) =>
     active ? '1px 1px 20px 0px rgb(37 37 37 / 42%)' : 'none'};
