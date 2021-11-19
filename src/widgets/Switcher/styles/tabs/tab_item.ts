@@ -37,7 +37,7 @@ export const Wrapper = styled.div<TTab>`
     margin-right: ${() => getMarginRight('', true, false)};
   `};
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const ActiveLineWrapper = styled.div`
   position: absolute;

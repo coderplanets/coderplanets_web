@@ -33,7 +33,7 @@ export const Block = styled.div<TBlock>`
     border-color: ${({ clickable }) => (clickable ? '#074c61' : '#0d4353')};
     cursor: ${({ clickable }) => (clickable ? 'pointer' : 'normal')};
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Header = styled.div`
   ${css.flexColumn()};

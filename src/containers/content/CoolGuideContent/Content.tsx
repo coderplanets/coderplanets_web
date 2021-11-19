@@ -14,8 +14,9 @@ import {
   PeopleGallery,
   ImageGallery,
 } from '@/widgets/GalleryHub'
+import NoticeBar from '@/widgets/NoticeBar'
 
-import SearchCover from './SearchCover'
+import HomeCover from './HomeCover'
 import Footer from './Footer'
 
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
@@ -28,10 +29,10 @@ const Content: FC<TProps> = ({ displayType }) => {
   let DisplayContent
 
   switch (displayType) {
-    case GUIDE.PREVIEW: {
+    case GUIDE.HOME: {
       DisplayContent = (
         <NormalListWrapper>
-          <SearchCover />
+          <HomeCover />
         </NormalListWrapper>
       )
       break
@@ -70,7 +71,7 @@ const Content: FC<TProps> = ({ displayType }) => {
       DisplayContent = (
         <NormalListWrapper>
           <ProductGallery />
-          <Pagi margin={{ top: '40px', bottom: '60px' }} />
+          <Pagi margin={{ top: '20px', bottom: '20px' }} />
           <Footer />
           <br />
         </NormalListWrapper>
@@ -81,6 +82,14 @@ const Content: FC<TProps> = ({ displayType }) => {
 
   return (
     <Wrapper>
+      {displayType !== GUIDE.HOME && (
+        <NoticeBar
+          type="info"
+          content="当前条目仅作无分类无立场 UI 展示，协作编辑系统、模板等功能仍在开发调试中，欢迎任何形式的参与。"
+          bottom={15}
+          right={10}
+        />
+      )}
       <InnerWrapper>{DisplayContent}</InnerWrapper>
     </Wrapper>
   )

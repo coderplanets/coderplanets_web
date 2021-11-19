@@ -85,7 +85,7 @@ const Catalog: FC<TProps> = ({ category }) => {
             <Header>
               <Intro>
                 <Icon src={item.icon} />
-                {item.entries?.length} 条
+                {item.entries?.length} 杯
               </Intro>
               <MenuButton
                 placement="bottom-end"

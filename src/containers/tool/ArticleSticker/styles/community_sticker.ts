@@ -11,7 +11,7 @@ export const ItemWrapper = styled.div`
 `
 const Icon = styled(Img)`
   ${css.size(22)};
-  transition: all 0.25s;
+  transition: all 0.2s;
   cursor: pointer;
 `
 export const CommunityIcon = styled(Icon)``

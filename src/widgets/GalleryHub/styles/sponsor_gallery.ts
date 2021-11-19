@@ -32,7 +32,7 @@ export const Block = styled.div<TBlock>`
     cursor: pointer;
     padding-top: 12px;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
   transition-delay: 0.2s;
 `
 export const Header = styled.div`
@@ -60,7 +60,7 @@ export const Title = styled.div<{ level: string }>`
     padding-top: 0;
     border-color: transparent;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
   transition-delay: 0.2s;
 `
 export const IntroImg = styled(Img)`
@@ -89,6 +89,6 @@ export const LinkWrapper = styled.div`
   ${Block}:hover & {
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
   transition-delay: 0.2s;
 `

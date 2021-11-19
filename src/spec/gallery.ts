@@ -1,8 +1,25 @@
-export type TGALLERY_DEFAULT = 'default'
-export type TGALLERY_LIST = 'list'
-export type TGALLERY_MASONRY_COLUMN = 'masonry_column'
-export type TGALLERY_MAIN_COLUMN = 'main_column'
-export type TGALLERY_TWO_COLUMN = 'two_column'
-export type TGALLERY_THREE_COLUMN = 'three_column'
-export type TGALLERY_TEXT_ONLY = 'text_only'
-export type TGALLERY_TEXT_WITH_IMAGE = 'text_with_image'
+import type { TID } from '@/spec'
+
+export type TGalleryDefault = 'default'
+export type TGalleryList = 'list'
+export type TGalleryMasonryCollumn = 'masonry_column'
+export type TGalleryMainColumn = 'main_column'
+export type TGallery2Column = 'two_column'
+export type TGallery3Column = 'three_column'
+export type TGalleryTextOnly = 'text_only'
+export type TGalleryTextWithImage = 'text_with_image'
+
+export type TGallery = {
+  id: TID
+  homeLink?: string
+  title: string
+  desc?: string
+  icon?: string
+  tags?: string[]
+  // people
+  birthPlace?: string
+  nation?: string
+  nationName?: string
+  birthday?: string
+  aka?: string
+}

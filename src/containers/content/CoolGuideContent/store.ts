@@ -14,7 +14,7 @@ const CoolGuideContent = T.model('CoolGuideContent', {
   activeMenuId: T.maybeNull(T.string),
   // initActiveMenuId: T.optional(T.string, ''),
   topFilter: T.optional(T.string, 'all'),
-  displayType: T.optional(T.enumeration(values(GUIDE)), GUIDE.PREVIEW),
+  displayType: T.optional(T.enumeration(values(GUIDE)), GUIDE.HOME),
 }).actions((self) => ({
   markRoute(query): void {
     const root = getParent(self) as TRootStore

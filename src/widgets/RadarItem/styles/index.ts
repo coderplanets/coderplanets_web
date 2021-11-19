@@ -24,7 +24,7 @@ export const Wrapper = styled.article<TWrapper>`
   padding-top: 16px;
   opacity: ${({ entry, c11n }) => getOpacity(entry, c11n)};
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 
   &:hover {
     border-color: #124d61;

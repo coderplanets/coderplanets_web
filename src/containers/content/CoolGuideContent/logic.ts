@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { ERR } from '@/constant'
+import { ERR, GUIDE } from '@/constant'
 import { errRescue } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
@@ -28,6 +28,10 @@ export const menuOnSelect = (
   displayType = 'DEFAULT',
 ): void => {
   store.mark({ activeMenuId, displayType })
+}
+
+export const goHomeContent = (): void => {
+  store.mark({ displayType: GUIDE.HOME })
 }
 
 /**

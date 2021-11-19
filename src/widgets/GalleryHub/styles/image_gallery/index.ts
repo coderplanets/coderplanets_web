@@ -33,7 +33,7 @@ export const BlockBase = styled.div<{ borderTop: boolean }>`
     background: #04313e;
     border-color: #074c61;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const ImageWrapper = styled.div`
   height: 240px;
@@ -51,7 +51,7 @@ export const ImageBase = styled(Img)`
     color: ${theme('thread.articleTitle')};
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const IntroBase = styled.div`
   ${css.flexColumn()};

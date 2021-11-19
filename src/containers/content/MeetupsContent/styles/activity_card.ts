@@ -30,7 +30,7 @@ export const Wrapper = styled.div<{ finished: boolean }>`
     box-shadow: ${({ finished }) =>
       finished ? 'none' : '0px 7px 20px 10px rgba(0, 0, 0, 0.15)'};
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const DatetimeWrapper = styled.div`
   ${css.flexColumn('align-both')}

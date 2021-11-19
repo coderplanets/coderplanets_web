@@ -15,7 +15,7 @@ export const Wrapper = styled.nav.attrs(({ testid }: TTestable) => ({
   font-size: 13px;
   margin-top: 20px;
   min-height: 75px;
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Nav = styled(NavBase)`
   overflow-x: scroll;

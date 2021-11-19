@@ -14,6 +14,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 `
 export const Title = styled.div`
   ${css.flex()};
+  cursor: pointer;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};

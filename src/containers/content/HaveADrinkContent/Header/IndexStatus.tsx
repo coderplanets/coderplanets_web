@@ -12,11 +12,13 @@ import type { TPagiState } from '../spec'
 import {
   Wrapper,
   Text,
-  UnderlineBtn,
   CurNum,
   TotalNum,
   Divider,
+  CategoryBtn,
+  ArrowIcon,
 } from '../styles/header/index_status'
+
 import { setView } from '../logic'
 
 /* eslint-disable-next-line */
@@ -37,7 +39,10 @@ const IndexStatus: FC<TProps> = ({ pagiState, category }) => {
       <TotalNum>{total}</TotalNum>
       <Text>杯</Text>
       &nbsp;
-      <UnderlineBtn onClick={() => setView('catalog')}>{category}</UnderlineBtn>
+      <CategoryBtn onClick={() => setView('catalog')}>
+        {category}
+        <ArrowIcon />
+      </CategoryBtn>
     </Wrapper>
   )
 }

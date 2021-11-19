@@ -1,4 +1,3 @@
-import React from 'react'
 import { Provider } from 'mobx-react'
 
 import { METRIC } from '@/constant'

@@ -1,8 +1,12 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { Wrapper, Tag } from './styles/inline_tags'
 
-const InlineTags = ({ items }) => {
+type TProps = {
+  items: string[]
+}
+
+const InlineTags: FC<TProps> = ({ items }) => {
   return (
     <Wrapper>
       {items.map((item) => (
@@ -12,4 +16,4 @@ const InlineTags = ({ items }) => {
   )
 }
 
-export default React.memo(InlineTags)
+export default memo(InlineTags)

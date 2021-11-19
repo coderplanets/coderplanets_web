@@ -3,6 +3,7 @@ import styled from 'styled-components'
 // import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import ArrowSVG from '@/icons/ArrowSolid'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')}
@@ -24,13 +25,26 @@ export const Divider = styled.div`
   margin-left: 5px;
   margin-right: 2px;
 `
-export const UnderlineBtn = styled.div`
+export const CategoryBtn = styled.div`
+  ${css.flex('align-center')};
   color: ${theme('button.primary')};
   margin-left: 2px;
   margin-right: 2px;
 
   &:hover {
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
+  }
+`
+export const ArrowIcon = styled(ArrowSVG)`
+  ${css.size(12)};
+  margin-top: 2px;
+  fill: ${theme('button.primary')};
+  margin-left: 4px;
+  transform: rotate(90deg);
+  opacity: 0.6;
+
+  ${CategoryBtn}:hover & {
+    opacity: 1;
   }
 `

@@ -30,7 +30,7 @@ export const Block = styled.div<{ column: number }>`
     cursor: pointer;
     padding-top: 8px;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
   transition-delay: 0.2s;
 `
 export const Header = styled.div`
@@ -57,7 +57,7 @@ export const Title = styled.div`
     padding-top: 0;
     border-color: transparent;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
   transition-delay: 0.2s;
 `
 export const LinkWrapper = styled.div`
@@ -67,6 +67,6 @@ export const LinkWrapper = styled.div`
   ${Block}:hover & {
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
   transition-delay: 0.2s;
 `

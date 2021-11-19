@@ -1,9 +1,12 @@
-import React from 'react'
-
+import { FC, memo } from 'react'
 import { getRandomInt } from '@/utils/helper'
 import { Wrapper, Count, ChartBar } from '../styles/desktop_view/tag_count'
 
-const TagCount = ({ num }) => {
+type TProps = {
+  num: number
+}
+
+const TagCount: FC<TProps> = ({ num }) => {
   const percent = getRandomInt(5, 100) / 100
   return (
     <Wrapper>
@@ -14,4 +17,4 @@ const TagCount = ({ num }) => {
 }
 // <div>只看/不看</div>
 
-export default React.memo(TagCount)
+export default memo(TagCount)

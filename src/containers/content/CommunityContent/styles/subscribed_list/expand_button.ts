@@ -16,7 +16,7 @@ export const ArrowIcon = styled(Img)<{ reverse?: boolean }>`
     fill: ${theme('thread.articleTitle')};
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Text = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -27,5 +27,5 @@ export const Text = styled.div`
     fill: ${theme('thread.articleTitle')};
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

@@ -103,14 +103,15 @@ export type {
 } from './article'
 
 export type {
-  TGALLERY_DEFAULT,
-  TGALLERY_LIST,
-  TGALLERY_MASONRY_COLUMN,
-  TGALLERY_MAIN_COLUMN,
-  TGALLERY_TWO_COLUMN,
-  TGALLERY_THREE_COLUMN,
-  TGALLERY_TEXT_ONLY,
-  TGALLERY_TEXT_WITH_IMAGE,
+  TGallery,
+  TGalleryDefault,
+  TGalleryList,
+  TGalleryMasonryCollumn,
+  TGalleryMainColumn,
+  TGallery2Column,
+  TGallery3Column,
+  TGalleryTextOnly,
+  TGalleryTextWithImage,
 } from './gallery'
 
 export type { TAccountStore, TViewingStore } from './store'

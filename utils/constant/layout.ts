@@ -8,6 +8,7 @@ export const UPVOTE_LAYOUT = {
   BLOG_LIST: 'blog-list' as TUpvoteLayout,
   WORKS_ARTICLE: 'works-article' as TUpvoteLayout,
   WORKS_CARD: 'works-card' as TUpvoteLayout,
+  GUIDE_LIST: 'guide-list' as TUpvoteLayout,
 }
 
 export const holder = 1

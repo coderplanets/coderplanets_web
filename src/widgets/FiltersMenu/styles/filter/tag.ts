@@ -51,5 +51,5 @@ export const Title = styled.div<TTitle>`
       active ? activeColor : theme('thread.articleTitle')};
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

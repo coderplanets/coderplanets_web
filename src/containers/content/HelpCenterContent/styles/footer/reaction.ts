@@ -90,5 +90,5 @@ export const ShareIcon = styled(Img)`
     cursor: pointer;
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

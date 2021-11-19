@@ -7,9 +7,10 @@ import Tooltip from '@/widgets/Tooltip'
 type TProps = {
   src: string
   hint?: string | null
+  plainColor: boolean
 }
 
-const ExternalLink: FC<TProps> = ({ src, hint }) => {
+const ExternalLink: FC<TProps> = ({ src, hint, plainColor }) => {
   const displayLimit = 25
 
   return (
@@ -17,11 +18,11 @@ const ExternalLink: FC<TProps> = ({ src, hint }) => {
       {hint && <Hint>{hint}</Hint>}
       <LinkIcon />
       {src.length < displayLimit ? (
-        <Source href={src} target="_blank">
+        <Source href={src} target="_blank" plainColor={plainColor}>
           {cutRest(src, 28)}
         </Source>
       ) : (
-        <Source href={src} target="_blank">
+        <Source href={src} target="_blank" plainColor={plainColor}>
           <Tooltip
             content={<PopHint>{src}</PopHint>}
             placement="bottom"

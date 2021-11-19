@@ -37,17 +37,24 @@ export const ContributorsWrapper = styled.div`
   ${css.flex()};
   margin-top: -35px;
 `
-export const Avatar = styled(Img)`
-  ${css.size(20)};
-  margin-right: 10px;
-  border-radius: 100%;
-`
+
 export const Desc = styled.div`
+  color: ${theme('thread.articleDigest')};
   margin-top: -10px;
-  opacity: 0.6;
+  opacity: 0.8;
+
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 
   ${Block}:hover & {
-    opacity: 0.8;
+    opacity: 1;
   }
   transition: opacity 0.2s;
+`
+export const ButtomWraper = styled.div`
+  ${css.flex('align-center')};
 `

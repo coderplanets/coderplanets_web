@@ -38,7 +38,7 @@ export const Option = styled.div<TActive>`
     cursor: pointer;
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const OptionItem = styled.div`
   flex-grow: 1;
@@ -47,7 +47,7 @@ const OptionIconBase = styled(Img)<TActive>`
   ${css.size(12)};
   opacity: ${({ active }) => (active ? '1' : '0')};
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const FavoriteIcon = styled(OptionIconBase)`
   fill: ${theme('baseColor.red')};

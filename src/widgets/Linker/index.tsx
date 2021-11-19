@@ -25,6 +25,7 @@ type TProps = TSpace & {
   external?: boolean
   openInNewTab?: boolean
   inline?: boolean
+  plainColor?: boolean
 }
 
 const Linker: FC<TProps> = ({
@@ -35,12 +36,13 @@ const Linker: FC<TProps> = ({
   external = true,
   openInNewTab = true,
   inline = false,
+  plainColor = false,
   ...restProps
 }) => {
   return (
     <Wrapper testid={testid} inline={inline} {...restProps}>
       {external ? (
-        <ExternalLink src={src} hint={hint} />
+        <ExternalLink src={src} hint={hint} plainColor={plainColor} />
       ) : (
         <InternalLink src={src} text={text} openInNewTab={openInNewTab} />
       )}

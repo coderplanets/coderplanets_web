@@ -1,23 +1,23 @@
 import type {
-  TGALLERY_DEFAULT,
-  TGALLERY_LIST,
-  TGALLERY_MASONRY_COLUMN,
-  TGALLERY_MAIN_COLUMN,
-  TGALLERY_TWO_COLUMN,
-  TGALLERY_THREE_COLUMN,
-  TGALLERY_TEXT_ONLY,
-  TGALLERY_TEXT_WITH_IMAGE,
+  TGalleryDefault,
+  TGalleryList,
+  TGalleryMasonryCollumn,
+  TGalleryMainColumn,
+  TGallery2Column,
+  TGallery3Column,
+  TGalleryTextOnly,
+  TGalleryTextWithImage,
 } from '@/spec'
 
 const GALLERY = {
-  DEFAULT: 'default' as TGALLERY_DEFAULT,
-  LIST: 'list' as TGALLERY_LIST,
-  MASONRY_COLUMN: 'masonry_column' as TGALLERY_MASONRY_COLUMN,
-  MAIN_COLUMN: 'main_column' as TGALLERY_MAIN_COLUMN,
-  TWO_COLUMN: 'two_column' as TGALLERY_TWO_COLUMN,
-  THREE_COLUMN: 'three_column' as TGALLERY_THREE_COLUMN,
-  TEXT_ONLY: 'text_only' as TGALLERY_TEXT_ONLY,
-  TEXT_WITH_IMAGE: 'text_with_image' as TGALLERY_TEXT_WITH_IMAGE,
+  DEFAULT: 'default' as TGalleryDefault,
+  LIST: 'list' as TGalleryList,
+  MASONRY_COLUMN: 'masonry_column' as TGalleryMasonryCollumn,
+  MAIN_COLUMN: 'main_column' as TGalleryMainColumn,
+  TWO_COLUMN: 'two_column' as TGallery2Column,
+  THREE_COLUMN: 'three_column' as TGallery3Column,
+  TEXT_ONLY: 'text_only' as TGalleryTextOnly,
+  TEXT_WITH_IMAGE: 'text_with_image' as TGalleryTextWithImage,
 }
 
 export default GALLERY

@@ -32,7 +32,7 @@ export const NaviInfo = styled.div<{ disabled?: boolean }>`
     margin-left: ${({ disabled }) => (disabled ? '8px' : '14px')};
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 
   ${css.media.mobile`
     margin-left: 5px;

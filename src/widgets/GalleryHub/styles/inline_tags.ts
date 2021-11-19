@@ -6,10 +6,10 @@ import css from '@/utils/css'
 export const Wrapper = styled.div`
   ${css.flex()};
   flex-wrap: wrap;
-  min-height: 64px;
+  margin-top: 18px;
 `
 export const Tag = styled.div`
-  font-size: 14px;
+  font-size: 13px;
   margin-right: 10px;
   margin-bottom: 10px;
   border: 1px solid;

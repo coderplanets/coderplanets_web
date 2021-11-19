@@ -47,7 +47,7 @@ export const Title = styled.div`
   ${Wrapper}:hover & {
     font-weight: bold;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 // color: #cecece;
 // padding: 8px 10px;

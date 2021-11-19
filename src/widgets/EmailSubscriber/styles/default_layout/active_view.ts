@@ -69,7 +69,7 @@ export const SubscribeBtnWrapper = styled.div`
   margin-left: -15px;
 `
 export const SubscribeBtn = styled(Button)`
-  transition: all 0.25s;
+  transition: all 0.2s;
   margin-left: 14px;
 `
 export const Cancel = styled.div`

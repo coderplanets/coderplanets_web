@@ -209,7 +209,7 @@ const BasicInfoPart: FC<TProps> = ({
         <TeamsWrapper>
           <TeamList
             users={teammates}
-            layout="create-works"
+            layout="edit-works"
             onAdd={addTeammate}
             onRemove={removeTeammate}
             onClose={closeSearchedUsers}

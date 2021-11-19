@@ -1,4 +1,6 @@
-import React from 'react'
+import { FC, memo } from 'react'
+
+import type { TGallery } from '@/spec'
 
 import { ICON, ASSETS_ENDPOINT } from '@/config'
 import Tooltip from '@/widgets/Tooltip'
@@ -7,21 +9,29 @@ import {
   Wrapper,
   NationsWrapper,
   NationFlag,
+  NationName,
   MoreIcon,
   MenuItem,
 } from '../styles/people_gallery/card_header'
 
-const CardHeader = ({ item }) => {
+type TProps = {
+  item: TGallery
+}
+
+const CardHeader: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <NationsWrapper>
         <NationFlag
           src={`${ASSETS_ENDPOINT}/navi/nation/${item.birthPlace}.png`}
-          marginRight={item.birthPlace !== item.nationality}
         />
-        {item.birthPlace !== item.nationality && (
+        {item.birthPlace === item.nation && (
+          <NationName>{item.nationName}</NationName>
+        )}
+
+        {item.birthPlace !== item.nation && (
           <NationFlag
-            src={`${ASSETS_ENDPOINT}/navi/nation/${item.nationality}.png`}
+            src={`${ASSETS_ENDPOINT}/navi/nation/${item.nation}.png`}
           />
         )}
       </NationsWrapper>
@@ -41,4 +51,4 @@ const CardHeader = ({ item }) => {
   )
 }
 
-export default React.memo(CardHeader)
+export default memo(CardHeader)

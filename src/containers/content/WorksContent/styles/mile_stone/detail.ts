@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   ${Block}:hover & {
     border-left: 1px solid #2d7eb1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Main = styled.div`
   ${css.flexColumn()};

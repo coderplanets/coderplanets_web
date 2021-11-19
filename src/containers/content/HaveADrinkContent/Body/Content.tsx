@@ -5,6 +5,8 @@ import Linker from '@/widgets/Linker'
 import type { TDrinkItem } from '../spec'
 import {
   Wrapper,
+  Title,
+  Desc,
   TextWrapper,
   ImageContentWrapper,
   Image,
@@ -27,6 +29,16 @@ const Content: FC<TProps> = ({ item }) => {
         {refLink && <Linker src={refLink} hint="参考" top={8} />}
         <Text>{item.text}</Text>
       </ImageContentWrapper>
+    )
+  }
+
+  if (item.title) {
+    return (
+      <Wrapper>
+        <Title>{item.title}</Title>
+        <Desc>{item.text}</Desc>
+        {refLink && <Linker src={refLink} hint="参考" top={8} />}
+      </Wrapper>
     )
   }
 

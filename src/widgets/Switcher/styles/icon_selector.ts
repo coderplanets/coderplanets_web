@@ -37,7 +37,7 @@ export const Tabs = styled.div`
   ${AccessZone}:hover & {
     border-color: #003b4a;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Label = styled.label`
   ${css.flex('align-both')};
@@ -62,7 +62,7 @@ export const Icon = styled(Img)<{ checked: boolean }>`
   width: ${({ checked }) => (checked ? '14px' : '12px')};
   height: ${({ checked }) => (checked ? '14px' : '12px')};
   display: block;
-  transition: all 0.25s;
+  transition: all 0.2s;
 
   &:hover {
     fill: #66b5e8;

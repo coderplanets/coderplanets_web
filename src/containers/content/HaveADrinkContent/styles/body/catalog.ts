@@ -55,7 +55,7 @@ export const Block = styled.div<TActive>`
     border: 1px solid #327faf;
     box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15); /* same with the popover */
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 
 export const Header = styled.div`
@@ -67,11 +67,13 @@ export const Header = styled.div`
 `
 export const Intro = styled.div`
   ${css.flex('align-center')};
+  padding-left: 4px;
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  ${css.size(16)};
+  ${css.size(14)};
   margin-right: 8px;
+  filter: saturate(0.5);
 `
 export const MoreIcon = styled(MoreSVG)`
   ${css.size(15)};

@@ -37,5 +37,5 @@ export const ArrowIcon = styled(Img)<{ isPulled: boolean }>`
     fill: ${theme('thread.articleTitle')};
     ${css.size(25)};
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

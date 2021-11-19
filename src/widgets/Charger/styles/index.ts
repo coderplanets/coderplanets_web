@@ -205,5 +205,5 @@ export const MoneySign = styled(Img)`
     ${css.size(12)};
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

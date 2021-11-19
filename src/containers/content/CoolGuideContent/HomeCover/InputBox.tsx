@@ -6,7 +6,7 @@ import {
   InputMask,
   MaskNumer,
   InputBar,
-} from '../styles/search_cover/input_box'
+} from '../styles/home_cover/input_box'
 
 type TProps = {
   showMask?: boolean

@@ -83,6 +83,14 @@ export const drinkSEO = (): TSEO => {
   }
 }
 
+export const coolGuideSEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/${ROUTE.COOL_GUIDE}`,
+    title: '酷导航 | CP',
+    description: 'IT 导航界的特斯拉',
+  }
+}
+
 export const articleSEO = (
   thread: TThread = THREAD.POST,
   article: TArticle,

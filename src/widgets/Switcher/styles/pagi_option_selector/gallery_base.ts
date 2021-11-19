@@ -20,5 +20,5 @@ export const SwitchBarBase = styled.div<TActive>`
     background: #3680ad;
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

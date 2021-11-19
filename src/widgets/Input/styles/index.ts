@@ -57,7 +57,7 @@ export const baseInput = `
   background-image: none;
   border: 1px solid;
   border-radius: 5px;
-  transition: all 0.25s;
+  transition: all 0.2s;
   -webkit-appearance: none; 
 `
 export const InputWrapper = styled.input<IInput>`

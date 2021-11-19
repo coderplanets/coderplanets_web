@@ -49,7 +49,7 @@ export const Community = styled.div`
   :last-child {
     margin-right: 0;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 
   ${css.media.mobile`
     margin-right: 12px;
