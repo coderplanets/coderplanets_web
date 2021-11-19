@@ -26,7 +26,7 @@ export const LinkCardWrapper = styled.div`
     cursor: pointer;
     border-color: #135b74;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Digest = styled.div`
   ${css.flexColumnGrow('align-start')};

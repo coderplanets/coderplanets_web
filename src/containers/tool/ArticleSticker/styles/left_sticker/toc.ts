@@ -28,7 +28,7 @@ export const TocIcon = styled(Img)`
     fill: ${theme('thread.articleTitle')};
     cursor: pointer;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const TocTitle = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -39,7 +39,7 @@ export const TocTitle = styled.div`
     color: ${theme('thread.articleTitle')};
     cursor: pointer;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 const MenuIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
@@ -50,7 +50,7 @@ const MenuIcon = styled(Img)`
     fill: ${theme('thread.articleTitle')};
     cursor: pointer;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const MenuClosedIcon = styled(MenuIcon)`
   margin-top: -3px;

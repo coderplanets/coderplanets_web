@@ -11,15 +11,20 @@ export const Wrapper = styled.div`
 `
 export const NationsWrapper = styled.div`
   ${css.flex('align-center')};
-  opacity: 0.8;
+  margin-left: 5px;
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
-export const NationFlag = styled(Img)<{ marginRight: boolean }>`
+export const NationFlag = styled(Img)`
   width: 16px;
   display: block;
   border-radius: 3px;
-  margin-right: ${({ marginRight }) => (marginRight ? '5px' : '0')};
+  margin-right: 8px;
+  filter: saturate(0.5);
+`
+export const NationName = styled.div`
+  font-size: 12px;
+  fill: ${theme('thread.articleDigest')};
 `
 export const MoreIcon = styled(Img)`
   ${css.size(16)};

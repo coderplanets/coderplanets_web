@@ -15,7 +15,7 @@ export const Wrapper = styled.article<{ opacity: number }>`
   border-bottom-color: ${theme('thread.articleSpliter')};
   opacity: ${({ opacity }) => opacity};
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const BodyDigest = styled.li`
   color: ${theme('thread.articleDigest')};

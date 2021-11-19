@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   position: relative;
   z-index: ${css.zIndex.sidebar + 1};
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const ActiveBar = styled.div<TActive>`
   position: absolute;

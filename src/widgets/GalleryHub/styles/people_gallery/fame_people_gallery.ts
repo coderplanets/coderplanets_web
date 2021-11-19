@@ -24,6 +24,7 @@ export const Body = styled.div`
 `
 export const Avatar = styled(Img)`
   ${css.circle(60)};
+  object-fit: cover;
 `
 export const Intro = styled.div`
   ${css.flexColumn()};
@@ -46,19 +47,24 @@ export const Birthday = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const Digest = styled.div`
-  flex-grow: 1;
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  height: 65px;
   opacity: 0.9;
   margin-top: 20px;
   cursor: pointer;
+
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 
   ${Block}:hover & {
     color: ${theme('thread.articleTitle')};
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Footer = styled(FooterBase)`
   opacity: 0.8;
@@ -66,4 +72,8 @@ export const Footer = styled(FooterBase)`
   ${Block}:hover & {
     opacity: 1;
   }
+`
+
+export const CommentWrapper = styled.div`
+  margin-bottom: 3px;
 `

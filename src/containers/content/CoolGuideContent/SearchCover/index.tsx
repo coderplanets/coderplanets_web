@@ -6,7 +6,15 @@ import Linker from '@/widgets/Linker'
 // import Footer from '../Footer'
 // import InputBox from './InputBox'
 
-import { Wrapper, Block, Title, Ul, Li, Bold } from '../styles/search_cover'
+import {
+  Wrapper,
+  Block,
+  Title,
+  Ul,
+  Li,
+  Strike,
+  Bold,
+} from '../styles/search_cover'
 
 type TProps = {
   testid?: string
@@ -19,7 +27,8 @@ const SearchCover: FC<TProps> = ({ testid = 'search-cover' }) => {
         <Title>关于酷导航</Title>
         <Ul>
           <Li>
-            这里收集各种和开发设计群体直接间接相关的，具有一定水准的工具、产品、资源以及视角。
+            这里收集各种和开发设计群体直接间接相关的，有<Strike>逼格</Strike>
+            一定水准的工具、产品、资源以及视角。
           </Li>
           <Li>
             每个条目都会有客观的帖子介绍基本概况、使用场景、公认的一些优缺点等等。

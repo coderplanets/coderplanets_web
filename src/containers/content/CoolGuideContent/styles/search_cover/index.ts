@@ -36,6 +36,11 @@ export const Li = styled.li`
   line-height: 1.6;
   font-size: 14px;
 `
+export const Strike = styled.span`
+  text-decoration: line-through;
+  margin-left: 1px;
+  margin-right: 1px;
+`
 export const Bold = styled.span`
   color: ${theme('thread.articleTitle')};
   font-weight: bold;

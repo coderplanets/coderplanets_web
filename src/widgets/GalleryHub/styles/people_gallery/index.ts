@@ -22,7 +22,7 @@ export const Block = styled.div<TBlock>`
     background: #04313e;
     border-color: #074c61;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 
 export const Footer = styled.div`

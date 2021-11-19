@@ -1,6 +1,6 @@
 /*
  *
- * ProductGallery
+ * FamePeopleList
  *
  */
 
@@ -8,29 +8,29 @@ import { FC, memo } from 'react'
 
 import type { TGallery } from '@/spec'
 import { ICON } from '@/config'
-import { cutRest, getRandomInt } from '@/utils/helper'
+import { getRandomInt } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
-import Linker from '@/widgets/Linker'
 import Upvote from '@/widgets/Upvote'
 import IconText from '@/widgets/IconText'
 import { SpaceGrow } from '@/widgets/Common'
 
-import InlineTags from './InlineTags'
+import { mockFameous } from '../mock'
+import CardHeader from './CardHeader'
 
-import { mockProducts } from './mock'
 import {
   Wrapper,
   Block,
-  Header,
-  LinkHead,
-  IntroHead,
-  Icon,
+  Body,
+  Intro,
+  Avatar,
   Title,
-  Desc,
+  Birthday,
+  AKA,
+  Digest,
   Footer,
   CommentWrapper,
-} from './styles/product_gallery'
+} from '../styles/people_gallery/fame_people_gallery'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ProductGallery:index')
@@ -39,7 +39,7 @@ type TProps = {
   items?: TGallery[]
 }
 
-const ProductGallery: FC<TProps> = ({ items = mockProducts() }) => {
+const FamePeopleList: FC<TProps> = ({ items = mockFameous() }) => {
   return (
     <Wrapper>
       {items.map((item, index) => (
@@ -48,19 +48,19 @@ const ProductGallery: FC<TProps> = ({ items = mockProducts() }) => {
           borderTop={index <= 2}
           borderRight={(index + 1) % 3 !== 0}
         >
-          <Header>
-            <LinkHead>
-              <Linker src={item.homeLink} plainColor />
-            </LinkHead>
-            <IntroHead>
-              <Icon src={item.icon} />
+          <CardHeader item={item} />
+          <Body>
+            <Avatar src={item.icon} />
+            <Intro>
               <Title>{item.title}</Title>
-            </IntroHead>
-          </Header>
+              <AKA>({item.aka})</AKA>
+              <Birthday>{item.birthday}</Birthday>
+            </Intro>
+          </Body>
 
-          {item.desc && <Desc>{cutRest(item.desc, 50)}</Desc>}
-          {item.tags && <InlineTags items={item.tags} />}
+          <Digest>{item.desc}</Digest>
           <SpaceGrow />
+
           <Footer>
             <Upvote
               count={getRandomInt(10, 100)}
@@ -79,4 +79,4 @@ const ProductGallery: FC<TProps> = ({ items = mockProducts() }) => {
   )
 }
 
-export default memo(ProductGallery) as FC<TProps>
+export default memo(FamePeopleList)

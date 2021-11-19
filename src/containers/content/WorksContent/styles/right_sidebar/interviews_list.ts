@@ -24,7 +24,7 @@ export const InterviewWrapper = styled.div`
     border-radius: 3px;
     cursor: pointer;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Avatar = styled(Img)`
   ${css.circle(20)};

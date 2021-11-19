@@ -4,14 +4,16 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
+import type { TGallery } from '@/spec'
 import { ICON, ASSETS_ENDPOINT } from '@/config'
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import IconText from '@/widgets/IconText'
+
+import { mockDevelopers } from '../mock'
 import CardHeader from './CardHeader'
 
 import {
@@ -31,42 +33,11 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:ProductGallery:index')
 
-const tmpItems = [
-  {
-    id: '0',
-    birthPlace: 'china',
-    nationality: 'american',
-    title: '姚期智',
-    desc: '图灵奖首位的华人学者，主要研究计算理论及其在密码学和量子计算中的应用',
-    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/fame-people/yao-qi-zhi.jpg',
-  },
-  {
-    id: '1',
-    birthPlace: 'american',
-    nationality: 'american',
-    title: 'Charles P. Thacker',
-    desc: '程序员，架构师，working at @Groupher',
-    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/fame-people/yao-qi-zhi.jpg',
-  },
-  {
-    id: '2',
-    birthPlace: 'american',
-    nationality: 'american',
-    title: 'Richard Matthew Stallman',
-    desc: '最性感的开发者社区',
-    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/fame-people/rms.png',
-  },
-  {
-    id: '3',
-    birthPlace: 'american',
-    nationality: 'american',
-    title: 'Richard Matthew Stallman',
-    desc: '最性感的开发者社区',
-    icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/fame-people/rms.png',
-  },
-]
+type TProps = {
+  items?: TGallery[]
+}
 
-const DeveloperGallery = ({ items }) => {
+const DeveloperGallery: FC<TProps> = ({ items = mockDevelopers() }) => {
   return (
     <Wrapper>
       {items.map((item, index) => (
@@ -98,12 +69,4 @@ const DeveloperGallery = ({ items }) => {
   )
 }
 
-DeveloperGallery.propTypes = {
-  items: T.arrayOf(T.object),
-}
-
-DeveloperGallery.defaultProps = {
-  items: tmpItems,
-}
-
-export default React.memo(DeveloperGallery)
+export default memo(DeveloperGallery)

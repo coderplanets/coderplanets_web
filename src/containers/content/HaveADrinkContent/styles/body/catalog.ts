@@ -55,7 +55,7 @@ export const Block = styled.div<TActive>`
     border: 1px solid #327faf;
     box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15); /* same with the popover */
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 
 export const Header = styled.div`

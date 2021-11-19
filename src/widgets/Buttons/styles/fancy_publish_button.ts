@@ -113,5 +113,5 @@ export const Icon = styled(Img)`
     width: 18px;
     height: 18px;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

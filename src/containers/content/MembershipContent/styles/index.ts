@@ -70,7 +70,7 @@ export const Dashboard = styled.div<TActive>`
     active ? '1px 1px 20px 0px rgb(37 37 37 / 42%)' : 'none'};
 
   cursor: pointer;
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const CheckerWrapper = styled.div`
   position: absolute;
@@ -90,7 +90,7 @@ export const TypeDesc = styled.div<TActive>`
     opacity: 1;
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const TitleDivider = styled.div`
   border-bottom: 1px solid;

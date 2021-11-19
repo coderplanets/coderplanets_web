@@ -44,7 +44,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     border-radius: 5px;
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Icon = styled(Img)<TIcon>`
   fill: ${({ active, type }) =>
@@ -64,7 +64,7 @@ export const Icon = styled(Img)<TIcon>`
     height: ${({ active, size }) =>
       active ? getActiveIconSize(size) : getNormalIconSize(size)};
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 
 export const Text = styled.div<TText>`
@@ -82,5 +82,5 @@ export const Text = styled.div<TText>`
     /* opacity: 1; */
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

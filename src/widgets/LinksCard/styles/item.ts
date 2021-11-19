@@ -25,7 +25,7 @@ export const Reaction = styled.div`
   ${Wrapper}:hover & {
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Icon = styled(Img)`
   fill: ${theme('banner.desc')};

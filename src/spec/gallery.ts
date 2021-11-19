@@ -16,4 +16,10 @@ export type TGallery = {
   desc?: string
   icon?: string
   tags?: string[]
+  // people
+  birthPlace?: string
+  nation?: string
+  nationName?: string
+  birthday?: string
+  aka?: string
 }

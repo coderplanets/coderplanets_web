@@ -30,7 +30,7 @@ export const Block = styled.div<TBlock>`
     background: #04313e;
     border-color: #074c61;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Header = styled.div`
   ${css.flexColumn()};
@@ -48,19 +48,24 @@ export const IntroHead = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle(20)};
+  ${css.size(20)};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 20px;
-  margin-left: 8px;
+  margin-left: 10px;
   cursor: pointer;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  margin-top: -15px;
-  height: 65px;
+  margin-top: 15px;
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
   opacity: 0.9;
   cursor: pointer;
 
@@ -68,7 +73,7 @@ export const Desc = styled.div`
     color: ${theme('thread.articleTitle')};
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Footer = styled.div`
   ${css.flex('align-end', 'justify-between')};

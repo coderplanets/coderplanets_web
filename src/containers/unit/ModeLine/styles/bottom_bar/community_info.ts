@@ -12,7 +12,7 @@ export const Logo = styled(Img)<{ isExpand: boolean }>`
   margin-top: -1px;
   display: block;
   margin-right: ${({ isExpand }) => (isExpand ? '0' : '10px')};
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Title = styled.div<{ isSubscribed: boolean }>`
   ${css.cutRest('50px')};

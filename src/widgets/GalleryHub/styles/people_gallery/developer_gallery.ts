@@ -48,7 +48,7 @@ export const Digest = styled.div`
     color: ${theme('thread.articleTitle')};
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const SocialWrapper = styled.div`
   margin-top: 8px;
@@ -59,7 +59,7 @@ export const SocialWrapper = styled.div`
     color: ${theme('thread.articleTitle')};
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const WorksWrapper = styled.div`
   ${css.flex('align-center')}

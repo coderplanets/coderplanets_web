@@ -29,5 +29,5 @@ export const IndentLine = styled.div<TIndentLine>`
     border-left-color: ${theme('comment.indentActive')};
   }
 
-  transition: all 0.25s;
+  transition: all 0.2s;
 `

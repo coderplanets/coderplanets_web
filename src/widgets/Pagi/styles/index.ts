@@ -39,7 +39,7 @@ export const BottomMsg = styled.div`
 export const CommonCenterArrowIcon = styled(Img)`
   fill: #196780;
   ${css.size(30)};
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const CommonBottomArrowIcon = styled(Img)`
   fill: #196780;

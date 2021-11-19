@@ -11,7 +11,7 @@ export const ContentWrapper = styled.div<{ center: boolean }>`
   ${css.flex('align-both')};
   margin-top: 45px;
   margin-left: ${({ center }) => (center ? '5%' : 'none')};
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex()};
@@ -22,6 +22,6 @@ export const InnerWrapper = styled.div<{ metric: TMetric }>`
 export const ContentsWrapper = styled.div<{ center: boolean }>`
   ${css.flexColumn('justify-center')};
   width: ${({ center }) => (center ? '100%' : 'calc(100% - 140px)')};
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
 export const Text = styled.div``

@@ -534,7 +534,7 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       raw: 'sci-fi',
       title: '科幻世界',
       icon: `${ICON_CMD}/navi/sci-fi.svg`,
-      // displayType: 'IMAGE',
+      displayType: 'IMAGE',
       extra: ['设计灵感', '人机交互', '科电视界'],
     },
     {
@@ -1068,8 +1068,8 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
     // ----------------
     // 计算机名人堂 start
     {
-      id: 'hall-of-fame',
-      raw: 'hall-of-fame',
+      id: 'hallOfFame',
+      raw: 'hallOfFame',
       title: '计算机名人堂',
       icon: `${ICON_CMD}/navi/lighthouse.svg`,
       extra: ['计算机名人堂'],
@@ -1087,12 +1087,14 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       raw: 'topCoder',
       title: 'TopCoder',
       icon: `${ICON_CMD}/navi/top.svg`,
+      displayType: 'FAME_PEOPLE',
       extra: ['计算机名人堂', 'TopCoder'],
     },
     {
       id: 'fatherOf',
       raw: 'fatherOf',
       title: '语言之父',
+      displayType: 'FAME_PEOPLE',
       icon: `${ICON_CMD}/navi/founder.svg`,
       extra: ['计算机名人堂', '语言之父'],
     },
@@ -1101,6 +1103,7 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       raw: 'edu',
       title: '学术界',
       icon: `${ICON_CMD}/navi/phd.svg`,
+      displayType: 'FAME_PEOPLE',
       extra: ['计算机名人堂', '学术界'],
     },
     {
@@ -1108,27 +1111,28 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       raw: 'industry',
       title: '工业界',
       icon: `${ICON_CMD}/navi/industry.svg`,
+      displayType: 'FAME_PEOPLE',
       extra: ['计算机名人堂', '工业界'],
     },
     {
       id: 'frontend',
       raw: 'frontend',
       title: '前端',
-      icon: `${ICON_CMD}/navi/hammer.svg`,
+      displayType: 'FAME_PEOPLE',
       extra: ['计算机名人堂', '工业界', '前端'],
     },
     {
       id: 'backend',
       raw: 'backend',
       title: '后端',
-      icon: `${ICON_CMD}/navi/hammer.svg`,
+      displayType: 'FAME_PEOPLE',
       extra: ['计算机名人堂', '工业界', '后端'],
     },
     {
       id: 'client',
       raw: 'client',
       title: '客户端',
-      icon: `${ICON_CMD}/navi/hammer.svg`,
+      displayType: 'FAME_PEOPLE',
       extra: ['计算机名人堂', '工业界', '客户端'],
     },
     {
@@ -1136,6 +1140,7 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       raw: 'hacker',
       title: '黑客列传',
       icon: `${ICON_CMD}/navi/hacker.svg`,
+      displayType: 'FAME_PEOPLE',
       extra: ['计算机名人堂', '黑客列传'],
     },
     {
@@ -1143,6 +1148,7 @@ export const mockNaviCatalogTags = (): TNaviTag[] => {
       raw: 'leader',
       title: '商业领袖',
       icon: `${ICON_CMD}/navi/leader.svg`,
+      displayType: 'FAME_PEOPLE',
       extra: ['计算机名人堂', '商业领袖'],
     },
     // 计算机名人堂 end

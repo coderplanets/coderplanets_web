@@ -29,5 +29,5 @@ export const MoreHint = styled.div`
   ${Header}:hover & {
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.2s;
 `
