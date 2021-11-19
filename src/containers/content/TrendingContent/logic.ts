@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 
 import { buildLog } from '@/utils/logger'
+
+import type { TStore } from './store'
 // import S from './service'
 
 let store = null
@@ -16,7 +18,7 @@ export const someMethod = () => {
 // init & uninit handlers
 // ###############################
 
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

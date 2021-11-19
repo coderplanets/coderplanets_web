@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
@@ -19,7 +18,11 @@ import { Wrapper, Header, FunctionIcon, Title } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:FeedsBar:index')
 
-const FeedsBar = ({ title }) => {
+type TProps = {
+  title: string
+}
+
+const FeedsBar: FC<TProps> = ({ title }) => {
   return (
     <Wrapper>
       <Header>
@@ -33,10 +36,4 @@ const FeedsBar = ({ title }) => {
   )
 }
 
-FeedsBar.propTypes = {
-  title: T.string.isRequired,
-}
-
-FeedsBar.defaultProps = {}
-
-export default React.memo(FeedsBar)
+export default memo(FeedsBar)

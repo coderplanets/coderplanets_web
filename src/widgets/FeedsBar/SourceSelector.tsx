@@ -4,19 +4,20 @@
  *
  */
 
-import React from 'react'
-// import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import CustomScroller from '@/widgets/CustomScroller'
 import { Wrapper, Icon, Block, Title } from './styles/source_selector'
 
-import sources from './fakeSources'
+import { mockSource } from './mock'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:SourceSelector:index')
 
-const SourceSelector = () => {
+const SourceSelector: FC = () => {
+  const items = mockSource()
+
   return (
     <Wrapper>
       <CustomScroller
@@ -24,7 +25,7 @@ const SourceSelector = () => {
         innerHeight="70px"
         shadowSize="small"
       >
-        {sources.map((item) => (
+        {items.map((item) => (
           <Block key={item.id}>
             <Icon src={item.icon} />
             <Title>{item.title}</Title>
@@ -35,10 +36,4 @@ const SourceSelector = () => {
   )
 }
 
-SourceSelector.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-}
-
-SourceSelector.defaultProps = {}
-
-export default React.memo(SourceSelector)
+export default memo(SourceSelector)
