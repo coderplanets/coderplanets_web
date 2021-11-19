@@ -13,7 +13,7 @@ import {
 type TProps = Omit<TButtonProps, 'direction'>
 
 const HorizontalButton: FC<TProps> = ({
-  onClick,
+  onClick = console.log,
   size = SIZE.SMALL,
   activeKey,
   group = [

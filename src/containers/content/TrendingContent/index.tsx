@@ -4,7 +4,10 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
+
+import type { TMetric } from '@/spec'
+import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
@@ -12,13 +15,22 @@ import { pluggedIn } from '@/utils/mobx'
 import OrButton from '@/widgets/Buttons/OrButton'
 import NewsBoard from './NewsBoard'
 
+import type { TStore } from './store'
 import { Wrapper, InnerWrapper, SwitchBtn, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:TrendingContent')
 
-const TrendingContentContainer = ({ trendingContent: store, metric }) => {
+type TProps = {
+  trendingContent?: TStore
+  metric?: TMetric
+}
+
+const TrendingContentContainer: FC<TProps> = ({
+  trendingContent: store,
+  metric = METRIC.TRENDING,
+}) => {
   useInit(store)
 
   return (
@@ -27,16 +39,15 @@ const TrendingContentContainer = ({ trendingContent: store, metric }) => {
         <SwitchBtn>
           <OrButton
             direction="column"
-            type="primary"
-            activeKey="inside"
+            activeKey="outside"
             group={[
-              {
-                key: 'inside',
-                title: '站内',
-              },
               {
                 key: 'outside',
                 title: '站外',
+              },
+              {
+                key: 'inside',
+                title: '站内',
               },
             ]}
           />
@@ -49,4 +60,4 @@ const TrendingContentContainer = ({ trendingContent: store, metric }) => {
   )
 }
 
-export default pluggedIn(TrendingContentContainer)
+export default pluggedIn(TrendingContentContainer) as FC<TProps>

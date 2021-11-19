@@ -21,6 +21,7 @@ export const Header = styled.div`
 // padding: 10px 2px;
 export const Block = styled.div`
   ${css.flexColumn('align-both')};
+  margin-right: 5px;
 
   &:hover {
     cursor: pointer;
@@ -28,10 +29,10 @@ export const Block = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${css.circle(34)};
+  ${css.circle(30)};
 `
 export const Title = styled.div`
-  ${css.cutRest('60px')};
+  ${css.cutRest('50px')};
   text-align: center;
   padding-left: 5px;
   color: ${theme('thread.articleDigest')};

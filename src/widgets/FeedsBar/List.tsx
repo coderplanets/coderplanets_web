@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
@@ -12,7 +12,7 @@ import { buildLog } from '@/utils/logger'
 import CustomScroller from '@/widgets/CustomScroller'
 import { SpaceGrow } from '@/widgets/Common'
 
-import fakeSourceList from './fakeSourceList'
+import { mockList } from './mock'
 
 import {
   ListItemWrapper,
@@ -26,10 +26,11 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:FeedsBar:index')
 
-const List = () => {
+const List: FC = () => {
   // list header(with lable) - 40px
   // source select - 75px
-  const listHeadHeight = '115px'
+  const listHeadHeight = '105px'
+  const items = mockList()
 
   return (
     <CustomScroller
@@ -37,7 +38,7 @@ const List = () => {
       height={`calc(90vh - ${listHeadHeight})`}
       autoHide
     >
-      {fakeSourceList.map((item) => (
+      {items.map((item) => (
         <ListItemWrapper key={item.id}>
           <Header>
             <Icon src={item.icon} />
@@ -53,4 +54,4 @@ const List = () => {
   )
 }
 
-export default React.memo(List)
+export default memo(List)

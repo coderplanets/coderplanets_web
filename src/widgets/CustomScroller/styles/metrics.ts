@@ -96,6 +96,9 @@ const horizontalScrollbarHeight = (type: string): string => {
     case SIZE.MEDIUM: {
       return '8px;'
     }
+    case SIZE.LARGE: {
+      return '12px;'
+    }
     // default
     default: {
       return '10px'

@@ -9,7 +9,7 @@ export type TProps = {
   direction?: 'row' | 'column'
   size?: TSIZE_SM
   activeKey: string
-  onClick: (key: string) => void
+  onClick?: (key: string) => void
   group: {
     key: string
     title: string

@@ -3,15 +3,15 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 
 import { markStates } from '@/utils/mobx'
 
 const TrendingContent = T.model('TrendingContent', {})
   .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
+    // get root() {
+    //   return getParent(self)
+    // },
   }))
   .actions((self) => ({
     mark(sobj) {
@@ -19,4 +19,5 @@ const TrendingContent = T.model('TrendingContent', {})
     },
   }))
 
+export type TStore = Instance<typeof TrendingContent>
 export default TrendingContent
