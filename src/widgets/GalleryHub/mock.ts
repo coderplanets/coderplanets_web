@@ -91,7 +91,7 @@ export const mockFameous = (): TGallery[] => {
       nationName: '荷兰',
       title: 'Bram Moolenaar',
       birthday: '1961 / 60 岁',
-      desc: '他是vim、A-A-P的作者，也是编程语言Zimbu 的开发者。他也协助CAcert的开发。',
+      desc: 'vim、A-A-P 作者，也是编程语言Zimbu 的开发者。他也协助CAcert的开发。',
       icon: `${ASSETS_ENDPOINT}/ugc/tmp/guide-people-bm.jpeg`,
     },
     {

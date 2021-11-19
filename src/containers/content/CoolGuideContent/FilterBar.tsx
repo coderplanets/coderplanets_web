@@ -13,11 +13,10 @@ import {
   TopFilter,
   Option,
   OptionItem,
-  // FavoriteIcon,
   ClockIcon,
 } from './styles/filter_bar'
 
-import { topFilterOnChange } from './logic'
+import { topFilterOnChange, goHomeContent } from './logic'
 
 type TProps = {
   topFilter: string
@@ -28,21 +27,18 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
   return (
     <Wrapper testid="filter-bar">
       <TopFilter>
-        <BrandTitle title="酷导航" desc="实用指南，启发灵感，找到有趣" />
+        <BrandTitle
+          title="酷导航"
+          desc="实用指南，启发灵感，找到有趣"
+          onClick={() => goHomeContent()}
+        />
         <Divider />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>全部</Option>
         )}
-        {/* <Option
-          active={topFilter === 'favorite'}
-          onClick={() => topFilterOnChange('favorite')}
-        >
+        <Option>
           <OptionItem>我的收藏</OptionItem>
-          <FavoriteIcon
-            src={`${ICON_CMD}/navi/heart.svg`}
-            active={topFilter === 'favorite'}
-          />
-        </Option> */}
+        </Option>
         <Option
           active={topFilter === 'latest'}
           onClick={() => topFilterOnChange('latest')}
@@ -59,7 +55,9 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
         <Fragment>
           <NaviCatalog
             title="类别"
-            onSelect={(id: string, type: string) => menuOnSelect(id, type)}
+            onSelect={(id: string, type: string) => {
+              menuOnSelect(id, type)
+            }}
             withDivider={false}
             tags={mockNaviCatalogTags()}
           />

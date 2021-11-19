@@ -20,6 +20,7 @@ type TProps = {
   desc?: string
   mBottom?: number
   fontSize?: number
+  onClick?: () => void
 }
 
 const BrandTitle: FC<TProps> = ({
@@ -28,9 +29,10 @@ const BrandTitle: FC<TProps> = ({
   desc = 'what for?',
   mBottom = 10,
   fontSize = 18,
+  onClick = log,
 }) => {
   return (
-    <Wrapper testid={testid} mBottom={mBottom}>
+    <Wrapper testid={testid} mBottom={mBottom} onClick={() => onClick?.()}>
       <Title>
         <BrandText fontSize={fontSize}>{title}</BrandText>
         <SpaceGrow />

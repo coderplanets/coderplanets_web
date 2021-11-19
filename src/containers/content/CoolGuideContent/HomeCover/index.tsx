@@ -14,13 +14,13 @@ import {
   Li,
   Strike,
   Bold,
-} from '../styles/search_cover'
+} from '../styles/home_cover'
 
 type TProps = {
   testid?: string
 }
 
-const SearchCover: FC<TProps> = ({ testid = 'search-cover' }) => {
+const HomeCover: FC<TProps> = ({ testid = 'search-cover' }) => {
   return (
     <Wrapper testid={testid}>
       <Block>
@@ -90,4 +90,4 @@ const SearchCover: FC<TProps> = ({ testid = 'search-cover' }) => {
   )
 }
 
-export default memo(SearchCover)
+export default memo(HomeCover)
