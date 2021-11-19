@@ -1,22 +1,13 @@
 import { FC, Fragment, memo } from 'react'
 
-import { ICON, ICON_CMD } from '@/config'
+import { ICON } from '@/config'
 
 import {
   PkgItem,
   PkgItemTitle,
   PkgItemYesIcon,
-  PkgItemNoIcon,
   ArrowIcon,
 } from './styles/support'
-
-const MarkIcon = ({ not }) => {
-  return not ? (
-    <PkgItemNoIcon src={`${ICON_CMD}/cross.svg`} />
-  ) : (
-    <PkgItemYesIcon src={`${ICON_CMD}/check.svg`} />
-  )
-}
 
 type TProps = {
   active: boolean
@@ -35,7 +26,7 @@ const Support: FC<TProps> = ({ active, items, not, pkgType }) => (
     )}
     {items.map((item) => (
       <PkgItem key={item.title} active={active}>
-        <MarkIcon not={not} />
+        <PkgItemYesIcon />
         <PkgItemTitle not={not}>{item.title}</PkgItemTitle>
       </PkgItem>
     ))}

@@ -12,7 +12,7 @@ const QA: FC<TProps> = ({ testid = 'membership-qa' }) => {
     <Wrapper testid={testid}>
       <Title>说明：</Title>
       <Desc>
-        内侧阶段，所有新注册用户都会收到一个额外的朋友码，欢迎将它分享给身边的朋友。
+        内侧阶段所有功能开放，此阶段注册的用户还会收到一个额外的朋友码，欢迎将它分享给身边的朋友。
       </Desc>
       <Br top={2} />
       <Desc>验证通过后将自动升级为高级账户，为期一年。</Desc>

@@ -5,6 +5,8 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import CheckedSVG from '@/icons/Checked'
+
 import { Dashboard } from './index'
 
 export const PkgItem = styled.div<TActive>`
@@ -24,23 +26,14 @@ export const PkgItemTitle = styled.div<{ not: boolean }>`
     !not ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: 14px;
 `
-const PkgItemIcon = styled(Img)`
+export const PkgItemYesIcon = styled(CheckedSVG)`
+  fill: ${theme('baseColor.green')};
+  ${css.size(15)};
   margin-right: 6px;
 `
-export const PkgItemYesIcon = styled(PkgItemIcon)`
-  fill: ${theme('baseColor.green')};
-  ${css.size(12)};
-  margin-right: 8px;
-`
-export const ArrowIcon = styled(PkgItemIcon)`
+export const ArrowIcon = styled(Img)`
   ${css.size(15)};
   fill: ${theme('baseColor.green')};
-  margin-left: -2px;
-`
-export const PkgItemNoIcon = styled(PkgItemIcon)`
-  fill: ${theme('baseColor.red')};
-  width: 12px;
-  height: 10px;
-  margin-right: 6px;
-  opacity: 0.6;
+  margin-left: -1px;
+  margin-right: 7px;
 `
