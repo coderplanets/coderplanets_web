@@ -40,15 +40,7 @@ export const LinkHead = styled.div`
   font-size: 12px;
   margin-bottom: 5px;
 `
-export const LinkerWrapper = styled.div`
-  width: 70px;
-  opacity: 0;
 
-  ${LinkHead}:hover & {
-    opacity: 1;
-  }
-  transition: opacity 0.3s;
-`
 export const IntroHead = styled.div`
   ${css.flex('align-center')};
   &:hover {
@@ -79,8 +71,8 @@ export const Desc = styled.div`
   transition: all 0.25s;
 `
 export const Footer = styled.div`
-  ${css.flex('align-center', 'justify-between')};
-  &:hover {
-    cursor: pointer;
-  }
+  ${css.flex('align-end', 'justify-between')};
+`
+export const CommentWrapper = styled.div`
+  margin-bottom: 3px;
 `

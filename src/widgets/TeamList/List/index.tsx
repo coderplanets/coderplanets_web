@@ -2,9 +2,11 @@ import { FC } from 'react'
 
 import type { TUser } from '@/spec'
 import type { TLayout } from '../spec'
+import { LAYOUT } from '../constant'
 
-import CreateWorksLayout from './CreateWorksLayout'
+import EditWorksLayout from './EditWorksLayout'
 import WorksLayout from './WorksLayout'
+import GuideLayout from './GuideLayout'
 // create-works, works, guide-contribute
 
 type TProps = {
@@ -16,7 +18,7 @@ type TProps = {
 
 const Layout: FC<TProps> = ({ layout, users, withSetter, onSetting }) => {
   switch (layout) {
-    case 'works': {
+    case LAYOUT.WORKS: {
       return (
         <WorksLayout
           users={users}
@@ -26,9 +28,19 @@ const Layout: FC<TProps> = ({ layout, users, withSetter, onSetting }) => {
       )
     }
 
+    case LAYOUT.GUIDE_CONTRIBUTE: {
+      return (
+        <GuideLayout
+          users={users}
+          withSetter={withSetter}
+          onSetting={onSetting}
+        />
+      )
+    }
+
     default: {
       return (
-        <CreateWorksLayout
+        <EditWorksLayout
           users={users}
           withSetter={withSetter}
           onSetting={onSetting}

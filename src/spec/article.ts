@@ -211,6 +211,7 @@ export type TUpvoteLayout =
   | 'post-list'
   | 'works-article'
   | 'works-card'
+  | 'guide-list'
 
 export type TCollectionFolder = {
   id: TID

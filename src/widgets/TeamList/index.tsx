@@ -28,7 +28,7 @@ type TProps = {
   onAdd?: (u: TUser) => void
   onClose?: () => void
   onSearch?: (username: string) => void
-  searchedUsers: TUser[]
+  searchedUsers?: TUser[]
 }
 
 let Setter: FC<TSetter> = () => null

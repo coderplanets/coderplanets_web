@@ -13,6 +13,7 @@ import { buildLog } from '@/utils/logger'
 import DefaultLayout from './DefaultLayout'
 import CommentLayout from './CommentLayout'
 import PostListLayout from './PostListLayout'
+import GuideListLayout from './GuideListLayout'
 import BlogListLayout from './BlogListLayout'
 import ArticleLayout from './ArticleLayout'
 import WorksArticleLayout from './WorksArticleLayout'
@@ -39,6 +40,9 @@ const Upvote: FC<TProps> = ({ type = UPVOTE_LAYOUT.DEFAULT, ...restProps }) => {
     }
     case UPVOTE_LAYOUT.POST_LIST: {
       return <PostListLayout {...restProps} />
+    }
+    case UPVOTE_LAYOUT.GUIDE_LIST: {
+      return <GuideListLayout {...restProps} />
     }
     case UPVOTE_LAYOUT.BLOG_LIST: {
       return <BlogListLayout {...restProps} />

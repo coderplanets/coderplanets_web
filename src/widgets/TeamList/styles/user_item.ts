@@ -40,17 +40,3 @@ export const Bio = styled.div`
     opacity: 0.8;
   }
 `
-export const CheckWrapper = styled.div`
-  margin-top: 5px;
-`
-export const RemoveIcon = styled(Img)`
-  ${css.size(14)};
-  fill: ${theme('baseColor.red')};
-  margin-top: 5px;
-  opacity: 0.8;
-
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-`

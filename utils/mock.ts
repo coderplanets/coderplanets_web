@@ -1,6 +1,5 @@
 import type { TUser, TTag, TCommunity, TFilterTag, TNaviTag } from '@/spec'
 import { SITE_LOGO, ICON, ICON_BASE, ICON_CMD, ASSETS_ENDPOINT } from '@/config'
-import uid from '@/utils/uid'
 
 import { getRandomInt } from './helper'
 

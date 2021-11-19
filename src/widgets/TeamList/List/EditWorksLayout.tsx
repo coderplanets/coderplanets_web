@@ -16,7 +16,7 @@ import {
   Avatar,
   SettingWrapper,
   SettingIcon,
-} from '../styles/list/create_works_layout'
+} from '../styles/list/edit_works_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TeamList:index')
@@ -27,7 +27,7 @@ type TProps = {
   onSetting: () => void
 }
 
-const CreateWorksLayout: FC<TProps> = ({
+const EditWorksLayout: FC<TProps> = ({
   users,
   withSetter = false,
   onSetting,
@@ -46,4 +46,4 @@ const CreateWorksLayout: FC<TProps> = ({
   )
 }
 
-export default memo(CreateWorksLayout)
+export default memo(EditWorksLayout)

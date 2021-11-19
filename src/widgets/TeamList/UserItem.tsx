@@ -6,15 +6,7 @@ import { ICON } from '@/config'
 import { SpaceGrow } from '@/widgets/Common'
 import Tooltip from '@/widgets/Tooltip'
 
-import {
-  Wrapper,
-  Avatar,
-  Intro,
-  Name,
-  Bio,
-  CheckWrapper,
-  RemoveIcon,
-} from './styles/user_item'
+import { Wrapper, Avatar, Intro, Name, Bio } from './styles/user_item'
 
 type TProps = {
   user: TUser

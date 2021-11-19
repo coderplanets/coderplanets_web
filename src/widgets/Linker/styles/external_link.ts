@@ -16,8 +16,9 @@ export const LinkIcon = styled(LinkSVG)`
   ${css.size(15)};
   fill: ${theme('thread.articleDigest')};
 `
-export const Source = styled.a`
-  color: #119396;
+export const Source = styled.a<{ plainColor: boolean }>`
+  color: ${({ plainColor }) =>
+    plainColor ? theme('thread.articleDigest') : '#119396'};
   font-size: 13px;
   margin-left: 3px;
   text-decoration: none;

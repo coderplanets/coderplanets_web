@@ -55,10 +55,10 @@ const FilterBar: FC<TProps> = ({ topFilter, menuOnSelect }) => {
         </Option>
       </TopFilter>
       <Divider />
-      <Sticky offsetTop={30}>
+      <Sticky offsetTop={100}>
         <Fragment>
           <NaviCatalog
-            title="分类"
+            title="类别"
             onSelect={(id: string, type: string) => menuOnSelect(id, type)}
             withDivider={false}
             tags={mockNaviCatalogTags()}
