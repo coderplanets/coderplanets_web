@@ -25,7 +25,7 @@ const Content: FC<TProps> = ({ item }) => {
 
     return (
       <ImageContentWrapper>
-        <Image src={imageSrc} />
+        <Image src={imageSrc} size={item.imageSize} />
         {refLink && <Linker src={refLink} hint="参考" top={8} />}
         <Text>{item.text}</Text>
       </ImageContentWrapper>

@@ -11,14 +11,12 @@ export const Wrapper = styled.div<{ center: boolean }>`
   color: ${theme('thread.articleDigest')};
   width: 100%;
 `
-type TBlock = { level: string; column: number }
+type TBlock = { level: string }
 export const Block = styled.div<TBlock>`
   ${css.flexColumn('justify-between')};
-  width: ${({ column }) => (column === 3 ? '33%' : '25%')};
+  width: ${({ level }) => (level === 'gold' ? '20%' : '25%')};
   height: ${({ level }) => (level === 'gold' ? '280px' : '130px')};
-  border: none;
   padding: ${({ level }) => (level === 'gold' ? '25px 25px' : '18px 25px')};
-  border-radius: 2px;
   border: 1px solid transparent;
   margin-bottom: ${({ level }) => (level === 'gold' ? '20px' : '10px')};
 
@@ -45,8 +43,10 @@ export const IntroHead = styled.div`
     cursor: pointer;
   }
 `
-export const Icon = styled(Img)`
-  ${css.circle(20)};
+export const Icon = styled.div`
+  ${css.size(20)};
+  background: #024b59;
+  border-radius: 4px;
 `
 export const Title = styled.div<{ level: string }>`
   color: ${theme('thread.articleTitle')};
@@ -62,6 +62,11 @@ export const Title = styled.div<{ level: string }>`
   }
   transition: all 0.2s;
   transition-delay: 0.2s;
+`
+export const IntroGoldHolder = styled.div`
+  background: #003a47;
+  width: 100%;
+  height: 100px;
 `
 export const IntroImg = styled(Img)`
   width: 100%;

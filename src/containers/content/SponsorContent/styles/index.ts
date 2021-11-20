@@ -25,8 +25,8 @@ export const ContentWrapper = styled.div<{ metric: TMetric }>`
   ${css.flexColumn('align-center')};
   ${({ metric }) => css.fitContentWidth(metric)};
 `
-export const Footer = styled.div`
-  font-size: 13px;
+export const DonateTitle = styled.div`
+  font-size: 14px;
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
   margin-top: 50px;
@@ -38,4 +38,16 @@ export const Footer = styled.div`
     content: '-';
     margin-left: 8px;
   }
+`
+export const DonateWrapper = styled.div`
+  ${css.flex('justify-center')};
+  margin-top: 40px;
+`
+export const DonateAvatar = styled.div`
+  color: ${theme('thread.articleDigest')};
+  ${css.circle(30)};
+  ${css.flex('align-both')};
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background: #0c3744;
 `

@@ -60,6 +60,7 @@
     "cookies-next": "^2.0.3",
     "core-js": "3.6.5",
     "cross-env": "^7.0.2",
+    "css-doodle": "^0.21.6",
     "express": "^4.16.4",
     "glob": "^7.1.2",
     "graphql": "^15.5.1",

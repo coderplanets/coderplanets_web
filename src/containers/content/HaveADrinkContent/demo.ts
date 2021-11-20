@@ -14,16 +14,23 @@ const demo = [
         images: [],
       },
       {
-        text: 'CoderPlanets 成员在不同的子社区有不同的昵称，比如在首页叫 CPer，在 Elixir 社区叫 Alchemist， 在 Rust 社区叫  Rustacean 等等。',
+        text: 'CoderPlanets 的用户在不同子社区中有对应的昵称，比如在首页叫 CPer，在 Elixir 社区叫 Alchemist， 在 Rust 社区叫  Rustacean 等等。',
+        reference: 'https://coderplanets.com/elixir',
       },
       {
         text: 'CoderPlanets 评论表情包中的感谢概念，是一个由爱心抽象出来的大螃蟹钳子，谐音为「谢谢」。',
+        images: [`${ASSETS_ENDPOINT}/ugc/tmp/drink-crabheart.png`],
+        imageSize: 'small',
       },
       {
-        text: 'CoderPlanets 的分享模块，除了常见的第三方社交平台，还有程序员常用的 MD, 以及 Org-Mode 格式。',
+        text: 'CoderPlanets 中的链接分享，除了常见的第三方社交平台，还有程序员常用的 Markdown，Org-Mode 等格式。',
       },
       {
         text: 'CoderPlanets 遵循中文排版原则，后端会自动为中英文间插入空格，中文的引号转义为「」等等。',
+      },
+      {
+        text: 'CoderPlanets 会员升级页面的招呼「你好哇」，来自「程序员」王小波给李银河的情书集 —《爱你就像爱生命》。',
+        reference: 'https://coderplanets.com/membership',
       },
       {
         text: 'CoderPlanets 的前端没有使用任何流行的「UI 组件库」，几乎所有组件都是量身定制，基本上没有撞衫的可能。',

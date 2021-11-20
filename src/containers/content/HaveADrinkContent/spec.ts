@@ -14,6 +14,7 @@ export type TDrinkItem = {
   text: string
   reference?: string
   images?: string[]
+  imageSize?: string
 }
 
 export type TDrinkCategory = {

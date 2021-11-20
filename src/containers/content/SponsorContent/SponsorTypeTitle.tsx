@@ -1,11 +1,15 @@
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
 import { Wrapper, Title, PrefixIcon } from './styles/sponsor_type_title'
 
-const SponsorTitle = ({ title, type }) => {
+type TProps = {
+  title: string
+  type?: string
+}
+
+const SponsorTitle: FC<TProps> = ({ title, type = 'gold' }) => {
   const iconSrc =
     type === 'gold' ? `${ICON}/shape/wing.svg` : `${ICON}/shape/candy.svg`
 
@@ -18,13 +22,4 @@ const SponsorTitle = ({ title, type }) => {
   )
 }
 
-SponsorTitle.propTypes = {
-  type: T.oneOf(['gold', 'heart']),
-  title: T.string.isRequired,
-}
-
-SponsorTitle.defaultProps = {
-  type: 'gold',
-}
-
-export default React.memo(SponsorTitle)
+export default memo(SponsorTitle)
