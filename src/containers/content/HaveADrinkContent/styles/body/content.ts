@@ -25,8 +25,8 @@ export const ImageContentWrapper = styled(Wrapper)`
   ${css.flexColumn('align-both')}
   margin-top: -30px;
 `
-export const Image = styled(Img)`
-  height: 200px;
+export const Image = styled(Img)<{ size: string }>`
+  height: ${({ size }) => (size === 'small' ? '60px' : '200px')};
   object-fit: cover;
   border-radius: 8px;
 `
