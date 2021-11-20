@@ -7,13 +7,11 @@
 import { FC, ReactNode, useEffect, useState, useCallback, memo } from 'react'
 import usePortal from 'react-useportal'
 
-import { ICON_CMD } from '@/config'
 import { toggleGlobalBlur } from '@/utils/dom'
 import { buildLog } from '@/utils/logger'
 import useShortcut from '@/hooks/useShortcut'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
-import Belt from './Belt'
 
 import { Mask, Wrapper, CloseBtn, EscHint, ChildrenWrapper } from './styles'
 
@@ -69,7 +67,6 @@ const Modal: FC<TProps> = ({
       {show && (
         <Portal>
           <Mask show={show} onClick={handleClose}>
-            {showBelt && <Belt />}
             <Wrapper
               width={width}
               mode={mode}

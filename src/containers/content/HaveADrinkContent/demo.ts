@@ -14,7 +14,7 @@ const demo = [
         images: [],
       },
       {
-        text: 'CoderPlanets 成员在不同的子社区有不同的昵称，比如在首页叫 CPer，在 Elixir 社区叫 Alchemist， 在 Rust 社区叫  Rustacean 等等。',
+        text: 'CoderPlanets 的用户在不同子社区中有对应的昵称，比如在首页叫 CPer，在 Elixir 社区叫 Alchemist， 在 Rust 社区叫  Rustacean 等等。',
         reference: 'https://coderplanets.com/elixir',
       },
       {

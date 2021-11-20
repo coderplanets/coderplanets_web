@@ -6,7 +6,8 @@
  *
  */
 
-import React, { useState } from 'react'
+import { FC, memo, useState, Fragment } from 'react'
+import Link from 'next/link'
 
 import { buildLog } from '@/utils/logger'
 import ViewportTracker from '@/widgets/ViewportTracker'
@@ -27,7 +28,7 @@ import { toggleBannerVisiable } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:SponsorContent')
 
-const Banner = () => {
+const Banner: FC = () => {
   const [anchorHEnter, setAnchorHEnter] = useState(false)
   const [anchorMEnter, setAnchorMEnter] = useState(false)
   const [anchorLEnter, setAnchorLEnter] = useState(false)
@@ -40,7 +41,7 @@ const Banner = () => {
   }
 
   return (
-    <React.Fragment>
+    <Fragment>
       <AnchorH>
         <ViewportTracker
           onEnter={() => setAnchorHEnter(true)}
@@ -73,16 +74,18 @@ const Banner = () => {
         <LogosWrapper>
           <SponsorText>2020</SponsorText>
         </LogosWrapper>
-        <SupportTitle>感谢以下团队、个人对本站的特别赞助</SupportTitle>
+        <SupportTitle>感谢以下团队、个人对本项目的特别赞助</SupportTitle>
         {anchorMEnter && (
-          <SponsorBtn {...linkColors} show={anchorLEnter}>
-            我要赞助
-          </SponsorBtn>
+          <Link href="mailto:coderplanets@outlook.com" passHref>
+            <SponsorBtn {...linkColors} show={anchorLEnter}>
+              我要赞助
+            </SponsorBtn>
+          </Link>
         )}
         {!anchorMEnter && <Divider />}
       </SmileWrapper>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-export default Banner
+export default memo(Banner)

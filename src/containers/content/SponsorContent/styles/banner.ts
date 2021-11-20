@@ -4,7 +4,6 @@ import type { TActive } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-import ArrowLink from '@/widgets/Buttons/ArrowLink'
 import Img from '@/Img'
 
 import { getBorderRadius, getBannerHeight, getBackground } from './metric'
@@ -15,7 +14,7 @@ type TAnchors = {
     anchorMEnter: boolean
     anchorLEnter: boolean
   }
-  reverse: boolean
+  reverse?: boolean
 }
 
 export const SmileWrapper = styled.div<TAnchors>`
@@ -68,12 +67,18 @@ export const AnchorM = styled(Anchor)`
 export const AnchorL = styled(Anchor)`
   top: 80px;
 `
-export const SponsorBtn = styled(ArrowLink)<TActive>`
-  margin-left: 20px;
+export const SponsorBtn = styled.a<TActive>`
+  font-size: 18px;
+  color: ${theme('button.primary')};
+  text-decoration: none;
   opacity: ${({ show }) => (show ? '1' : '0')};
 
   transition: opacity 0.25s;
   transition-delay: 0.4s;
+
+  &:hover {
+    text-decoration: none;
+  }
 `
 export const Divider = styled.div`
   margin-top: 10px;

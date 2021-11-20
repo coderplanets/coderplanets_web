@@ -16,7 +16,7 @@ export const Title = styled.div`
   margin-left: 10px;
   margin-right: 10px;
 `
-export const PrefixIcon = styled(Img)<{ reverse: boolean }>`
+export const PrefixIcon = styled(Img)<{ reverse?: boolean }>`
   fill: ${theme('thread.articleDigest')};
   ${css.size(15)};
 

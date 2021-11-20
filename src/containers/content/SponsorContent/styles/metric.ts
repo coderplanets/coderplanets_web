@@ -1,7 +1,7 @@
 import { theme } from '@/utils/themes'
 
 // see details in https://9elements.github.io/fancy-border-radius/
-export const getBorderRadius = (anchors) => {
+export const getBorderRadius = (anchors): string => {
   const { anchorHEnter, anchorMEnter } = anchors
 
   if (anchorHEnter) return '0% 100% 49% 51% / 57% 0% 100% 43%'
@@ -10,7 +10,7 @@ export const getBorderRadius = (anchors) => {
   return '100% 0% 49% 51% / 100% 100% 0% 0%'
 }
 
-export const getBannerHeight = (anchors) => {
+export const getBannerHeight = (anchors): string => {
   const { anchorMEnter, anchorLEnter } = anchors
   if (!anchorLEnter) return '20vh'
   if (!anchorMEnter) return '30vh'
@@ -18,7 +18,7 @@ export const getBannerHeight = (anchors) => {
   return '40vh'
 }
 
-export const getBackground = (anchors) => {
+export const getBackground = (anchors): string => {
   const { anchorMEnter } = anchors
   if (!anchorMEnter) return 'transparent'
 
