@@ -9,9 +9,10 @@ export { NoLinkItem } from './article_layout'
 export const Wrapper = styled.div`
   ${css.flexColumn('align-start')};
   width: 100%;
-  ${css.fitContentWidth(METRIC.COOL_GUIDE)};
+  ${css.fitContentWidth(METRIC.WORKS)};
 `
 export const InnerWrapper = styled.div`
+  ${css.flex('align-center', 'justify-between')};
   width: 100%;
 `
 export const MainInfos = styled.footer`

@@ -8,6 +8,8 @@ import HomeCommunity from './HomeCommunity'
 import Article from './Article'
 import WorksArticle from './WorksArticle'
 import CoolGuide from './CoolGuide'
+import Works from './Works'
+import Drink from './Drink'
 
 export type TProps = {
   metric?: TMetric
@@ -29,6 +31,14 @@ const TopInfo: FC<TProps> = ({ metric = METRIC.COMMUNITY, ...restProps }) => {
     }
     case METRIC.COOL_GUIDE: {
       return <CoolGuide />
+    }
+
+    case METRIC.WORKS: {
+      return <Works />
+    }
+
+    case METRIC.HAVE_A_DRINK: {
+      return <Drink />
     }
 
     // case VIEW.HOSTING_COMMUNITY: {
