@@ -19,7 +19,6 @@ import Publish from './Publish'
 import Content from './Content'
 
 import { Wrapper, SentenceWrapper, Sentence, Hint } from '../styles/body'
-import { refreshDrink } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
@@ -74,7 +73,7 @@ const View: FC<TViewProps> = ({ view, category, drink, settingOptions }) => {
 
 const Body = (props) => {
   return (
-    <Wrapper onClick={() => refreshDrink()}>
+    <Wrapper>
       <View {...props} />
     </Wrapper>
   )

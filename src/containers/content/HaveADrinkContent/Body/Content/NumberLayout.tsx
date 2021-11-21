@@ -3,6 +3,7 @@ import { FC, memo } from 'react'
 import Linker from '@/widgets/Linker'
 
 import type { TDrinkItem } from '../../spec'
+import { refreshDrink } from '../../logic'
 
 import {
   Wrapper,
@@ -20,11 +21,11 @@ const NumberLayout: FC<TProps> = ({ item }) => {
 
   return (
     <Wrapper>
-      <NumWrapper>
+      <NumWrapper onClick={() => refreshDrink()}>
         <Num>{num}</Num>
         <Unit>{unit}</Unit>
       </NumWrapper>
-      <Desc>{text}</Desc>
+      <Desc onClick={() => refreshDrink()}>{text}</Desc>
       {reference && <Linker src={reference} hint="参考" top={8} />}
     </Wrapper>
   )

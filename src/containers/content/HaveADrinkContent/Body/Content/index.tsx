@@ -7,6 +7,7 @@ import NumberLayout from './NumberLayout'
 import TitleLayout from './TitleLayout'
 
 import type { TDrinkItem } from '../../spec'
+import { refreshDrink } from '../../logic'
 
 import { Wrapper, TextWrapper } from '../../styles/body/content'
 
@@ -32,7 +33,7 @@ const Content: FC<TProps> = ({ item }) => {
   // default layout
   return (
     <Wrapper>
-      <TextWrapper>{text}</TextWrapper>
+      <TextWrapper onClick={() => refreshDrink()}>{text}</TextWrapper>
       {reference && <Linker src={reference} hint="参考" top={8} />}
     </Wrapper>
   )

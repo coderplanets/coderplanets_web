@@ -3,6 +3,7 @@ import { FC, memo } from 'react'
 import Linker from '@/widgets/Linker'
 
 import type { TDrinkItem } from '../../spec'
+import { refreshDrink } from '../../logic'
 
 import { Wrapper, Image, Desc } from '../../styles/body/content/image_layout'
 
@@ -15,9 +16,9 @@ const ImageLayout: FC<TProps> = ({ item }) => {
 
   return (
     <Wrapper>
-      <Image src={imageSrc} size={imageSize} />
+      <Image src={imageSrc} size={imageSize} onClick={() => refreshDrink()} />
       {reference && <Linker src={reference} hint="参考" top={8} />}
-      <Desc>{text}</Desc>
+      <Desc onClick={() => refreshDrink()}>{text}</Desc>
     </Wrapper>
   )
 }
