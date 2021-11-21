@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 
+import type { TMetric } from '@/spec'
 import { ISSUE_ADDR, API_SERVER_ADDR, GITHUB } from '@/config'
-import { METRIC } from '@/constant'
 import { joinUS } from '@/utils/helper'
 
 import TopInfo from './TopInfo'
@@ -14,13 +14,17 @@ import {
   BaseInfo,
   Item,
   NoLinkItem,
-} from '../styles/desktop_view/cool_guide_layout'
+} from '../styles/desktop_view/general_layout'
 
-const CoolGuideLayout: FC = () => {
+type TProps = {
+  metric: TMetric
+}
+
+const GeneralLayout: FC<TProps> = ({ metric }) => {
   return (
     <Wrapper>
       <InnerWrapper>
-        <TopInfo metric={METRIC.COOL_GUIDE} noBottomBorder />
+        <TopInfo metric={metric} noBottomBorder />
         <MainInfos>
           <BaseInfo>
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
@@ -54,9 +58,9 @@ const CoolGuideLayout: FC = () => {
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>
-      <BottomInfo metric={METRIC.COOL_GUIDE} />
+      <BottomInfo metric={metric} />
     </Wrapper>
   )
 }
 
-export default memo(CoolGuideLayout)
+export default memo(GeneralLayout)
