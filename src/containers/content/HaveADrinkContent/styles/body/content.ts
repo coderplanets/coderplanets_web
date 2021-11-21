@@ -21,6 +21,27 @@ export const Desc = styled.div`
 
 export const TextWrapper = styled.div``
 
+export const NumberContentWrapper = styled.div`
+  ${css.flexColumn('align-both')}
+  margin-top: -50px;
+`
+export const NumberWrapper = styled.div`
+  position: relative;
+  margin-bottom: 15px;
+  color: #139c9e;
+`
+export const Number = styled.div`
+  font-size: 45px;
+  font-weight: bold;
+`
+export const Unit = styled.div`
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.6;
+  bottom: 14px;
+  right: -22px;
+`
 export const ImageContentWrapper = styled(Wrapper)`
   ${css.flexColumn('align-both')}
   margin-top: -30px;

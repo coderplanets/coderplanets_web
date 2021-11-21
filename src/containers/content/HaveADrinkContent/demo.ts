@@ -85,7 +85,31 @@ const demo = [
     upvoteAlias: '喜欢',
     entries: [
       {
-        text: '抱歉，该条目下还没有内容，欢迎任何形式的参与',
+        num: '755',
+        unit: '万',
+        reference:
+          'https://octoverse.github.com/#lets-look-back-at-the-code-and-communities-built-on-git-hub-this-year',
+        text: '根据 2021 Github Octoverse 公布的数据，全球共有 7300 万用户，其中中国开发者 755 万， 位居全球第二，仅次于美国的 1350 万。',
+      },
+      {
+        num: '217',
+        unit: '个',
+        reference: 'https://github.com/e3b0c442/keywords',
+        text: '据统计主流语言中关键字数目最多的是 Visual Basic，其包含 217 个语言关键字, 最少的是 Elixir, 数量为 15 个。',
+      },
+      {
+        num: '3500',
+        unit: '个',
+        reference:
+          'https://www.cnbc.com/2021/10/05/tesla-shares-higher-in-past-month-oppenheimer-charts-stock-moves.html?utm_term=Autofeed&utm_medium=Social&utm_content=Main&utm_source=Twitter#Echobox=1633454183',
+        text: '据 CNBC 采访报道，每辆特斯拉有 3500 个或更多芯片，而传统引擎有 1000 个芯片。',
+      },
+      {
+        num: '64.67',
+        unit: '%',
+        reference:
+          'https://gs.statcounter.com/browser-market-share#monthly-202106-202106-bar',
+        text: '截止 2021 年底，Google 的 Chrome 浏览器已占据超 6 成全球浏览器市场份额，苹果的 Safari(18.3%) 和 微软的 Edge(3.4%) 分列 2，3 位。',
       },
     ],
   },

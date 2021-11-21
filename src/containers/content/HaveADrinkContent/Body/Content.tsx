@@ -9,6 +9,10 @@ import {
   Desc,
   TextWrapper,
   ImageContentWrapper,
+  NumberContentWrapper,
+  NumberWrapper,
+  Number,
+  Unit,
   Image,
   Text,
 } from '../styles/body/content'
@@ -19,6 +23,21 @@ type TProps = {
 
 const Content: FC<TProps> = ({ item }) => {
   const refLink = item.reference
+
+  if (item.num) {
+    const { num, unit } = item
+
+    return (
+      <NumberContentWrapper>
+        <NumberWrapper>
+          <Number>{num}</Number>
+          <Unit>{unit}</Unit>
+        </NumberWrapper>
+        <Desc>{item.text}</Desc>
+        {refLink && <Linker src={refLink} hint="参考" top={8} />}
+      </NumberContentWrapper>
+    )
+  }
 
   if (item.images && item.images.length === 1) {
     const imageSrc = item.images[0]
