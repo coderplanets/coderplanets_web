@@ -370,6 +370,144 @@ export const mockFilterMenuTags = (): TFilterTag[] => {
   ]
 }
 
+export const mockWorksNaviCatalogTags = (): TNaviTag[] => {
+  return [
+    // 生产力 start
+    {
+      id: 'efficiency',
+      raw: 'efficiency',
+      title: '效率工具',
+      extra: ['效率工具'],
+    },
+    {
+      id: 'manage',
+      raw: 'manage',
+      title: '项目管理',
+      extra: ['效率工具', '项目管理'],
+    },
+    {
+      id: 'remote',
+      raw: 'remote',
+      title: '远程协作',
+      extra: ['效率工具', '远程协作'],
+    },
+    {
+      id: 'browser',
+      raw: 'browser',
+      title: '浏览器插件',
+      extra: ['效率工具', '浏览器插件'],
+    },
+    {
+      id: 'diagram',
+      raw: 'diagram',
+      title: '流程图',
+      extra: ['效率工具', '流程图'],
+    },
+    {
+      id: 'GTD',
+      raw: 'GTD',
+      title: 'GTD',
+      extra: ['效率工具', 'GTD'],
+    },
+    {
+      id: 'notes',
+      raw: 'notes',
+      title: '写作 / 笔记',
+      extra: ['效率工具', '写作 / 笔记'],
+    },
+
+    {
+      id: 'mate',
+      raw: 'mate',
+      title: '开发伴侣',
+      extra: ['开发伴侣'],
+    },
+    {
+      id: 'cmd',
+      raw: 'cmd',
+      title: '命令行',
+      icon: `${ICON_CMD}/navi/shell.svg`,
+      extra: ['开发伴侣', '命令行'],
+    },
+    {
+      id: 'convert',
+      raw: 'convert',
+      title: '格式转换',
+      extra: ['开发伴侣', '格式转换'],
+    },
+
+    {
+      id: 'editor',
+      raw: 'editor',
+      title: '编辑器',
+      extra: ['开发伴侣', '编辑器'],
+    },
+
+    {
+      id: 'docs',
+      raw: 'docs',
+      title: '文档生成',
+      extra: ['开发伴侣', '文档生成'],
+    },
+
+    {
+      id: 'capture',
+      raw: 'capture',
+      title: '抓包工具',
+      extra: ['开发伴侣', '抓包工具'],
+    },
+
+    {
+      id: 'radar',
+      raw: 'radar',
+      title: '信息获取',
+      extra: ['信息获取'],
+    },
+
+    {
+      id: 'email',
+      raw: 'email',
+      title: '邮件管理',
+      extra: ['信息获取', '邮件管理'],
+    },
+
+    {
+      id: 'podcast',
+      raw: 'podcast',
+      title: '播客',
+      extra: ['信息获取', '播客'],
+    },
+
+    {
+      id: 'ref',
+      raw: 'ref',
+      title: '论文 / 文献',
+      extra: ['信息获取', '论文 / 文献'],
+    },
+
+    {
+      id: 'privacy',
+      raw: 'privacy',
+      title: '隐私 & 安全',
+      extra: ['隐私 & 安全'],
+    },
+
+    {
+      id: 'design',
+      raw: 'design',
+      title: '设计工具',
+      extra: ['设计工具'],
+    },
+
+    {
+      id: 'opendata',
+      raw: 'opendata',
+      title: '公共数据',
+      extra: ['公共数据'],
+    },
+  ]
+}
+
 export const mockNaviCatalogTags = (): TNaviTag[] => {
   return [
     // 生产力 start
