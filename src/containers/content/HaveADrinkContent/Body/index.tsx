@@ -4,7 +4,7 @@
  *
  */
 
-import { FC, memo, useCallback } from 'react'
+import { FC, memo } from 'react'
 import { AnimateOnChange } from 'react-animation'
 
 import { buildLog } from '@/utils/logger'
