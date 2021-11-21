@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 
-import { mockNaviCatalogTags } from '@/utils/mock'
+import { mockWorksNaviCatalogTags } from '@/utils/mock'
 
-// import FiltersMenu from '@/widgets/FiltersMenu'
+import NoticeBar from '@/widgets/NoticeBar'
 import NaviCatalog from '@/widgets/NaviCatalog'
 
 // import { VIEW } from './constant'
@@ -19,11 +19,18 @@ type TProps = {
 const FilterBar: FC<TProps> = ({ activeView }) => {
   return (
     <Wrapper>
+      <NoticeBar
+        type="notice"
+        content="因作品数量有限，当前分类仅做参考展示。"
+        bottom={15}
+        left={-25}
+        noBg
+      />
       <FilterWrapper>
         <NaviCatalog
           title="类别筛选"
           withDivider={false}
-          tags={mockNaviCatalogTags()}
+          tags={mockWorksNaviCatalogTags()}
         />
       </FilterWrapper>
       {/* <Br bottom={40} /> */}
