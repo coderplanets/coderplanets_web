@@ -1,9 +1,8 @@
 import { FC, memo } from 'react'
 
-import { ICON, ICON_CMD } from '@/config'
-
+import { THREAD } from '@/constant'
 import { Br } from '@/widgets/Common'
-import DropdownButton from '@/widgets/Buttons/DropdownButton'
+import PublishButton from '@/widgets/Buttons/PublishButton'
 import SubTitle from '@/widgets/SubTitle'
 import EmailSubscriber from '@/widgets/EmailSubscriber'
 
@@ -15,27 +14,11 @@ import {
   Wrapper,
   SubDesc,
   Divider,
-  PublishIcon,
   PublishBtnWrapper,
   InterviewsWrapper,
   SubscribeWrapper,
   Footer,
 } from '../styles/right_sidebar/index'
-
-const options = [
-  {
-    key: '0',
-    icon: `${ICON_CMD}/common_check.svg`,
-    title: '发布作品',
-    desc: '像世界分享你的创意 ..',
-  },
-  {
-    key: '1',
-    icon: `${ICON_CMD}/common_link.svg`,
-    title: '发布限制',
-    desc: '原则上不欢迎此类内容',
-  },
-]
 
 type TProps = {
   testid?: string
@@ -52,15 +35,10 @@ const RightSidebar: FC<TProps> = ({
       {/* <Linkers /> */}
       {/* <Divider top={18} bottom={22} /> */}
       <PublishBtnWrapper>
-        <DropdownButton
-          options={options}
-          onClick={(key) => {
-            console.log('key: ', key)
-          }}
-        >
-          <PublishIcon src={`${ICON}/edit/publish-rocket.svg`} />
-          {showSidebar ? '发 布' : '发布新作品'}
-        </DropdownButton>
+        <PublishButton
+          thread={THREAD.WORKS}
+          text={showSidebar ? '发 布' : '发布新作品'}
+        />
       </PublishBtnWrapper>
       <Br top={16} bottom={20} />
       <InterviewsWrapper>

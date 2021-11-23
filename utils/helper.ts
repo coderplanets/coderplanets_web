@@ -217,7 +217,7 @@ export const upvoteOnArticleList = (
   })
 }
 
-export const authWarn = (option): void => send(EVENT.AUTH_WARNING, option)
+export const authWarn = (option = {}): void => send(EVENT.AUTH_WARNING, option)
 
 export const toast = (
   type: TToastType,

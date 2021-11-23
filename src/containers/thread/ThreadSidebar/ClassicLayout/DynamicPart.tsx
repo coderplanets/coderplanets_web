@@ -8,11 +8,11 @@
 
 import { FC, memo } from 'react'
 
+import type { TThread, TCommunity } from '@/spec'
+
 import { buildLog } from '@/utils/logger'
 import { send } from '@/utils/helper'
 import { EVENT } from '@/constant'
-
-import type { TThread } from '@/spec'
 
 import Sticky from '@/widgets/Sticky'
 // import FiltersMenu from '@/widgets/FiltersMenu'
@@ -21,25 +21,30 @@ import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
 import TagsBar from '@/containers/unit/TagsBar'
 // import PromotionList from '@/widgets/PromotionList'
 
-import type { TBaseProps } from '../index'
-
 import {
   BadgeWrapper,
   TagsBarWrapper,
   PublishWrapper,
 } from '../styles/classic_layout'
-import { onCreate } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ClassicSidebar')
 
-type TProps = { showCommunityBadge: boolean; thread: TThread } & TBaseProps
+export type TProps = {
+  showCommunityBadge: boolean
+  thread: TThread
+  community: TCommunity
+}
 
-const ClassicLayout: FC<TProps> = ({ showCommunityBadge, thread }) => {
+const ClassicLayout: FC<TProps> = ({
+  community,
+  thread,
+  showCommunityBadge,
+}) => {
   return (
     <Sticky offsetTop={50}>
       <PublishWrapper show={showCommunityBadge}>
-        <PublishButton thread={thread} onCreate={onCreate} />
+        <PublishButton thread={thread} community={community.raw} />
       </PublishWrapper>
       <BadgeWrapper show={!showCommunityBadge}>
         <CommunityJoinBadge />
