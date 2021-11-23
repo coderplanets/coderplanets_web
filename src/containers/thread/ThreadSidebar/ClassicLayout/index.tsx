@@ -9,7 +9,7 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
-import type { TThread } from '@/spec'
+import type { TThread, TCommunity } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import { LavaLampLoading } from '@/widgets/dynamic'
@@ -33,12 +33,24 @@ export const DynamicPart = dynamic(() => import('./DynamicPart'), {
   ssr: false,
 })
 
-type TProps = { showCommunityBadge: boolean; thread: TThread } & TBaseProps
+export type TProps = {
+  showCommunityBadge: boolean
+  thread: TThread
+  community: TCommunity
+} & TBaseProps
 
-const ClassicLayout: FC<TProps> = ({ showCommunityBadge, thread }) => {
+const ClassicLayout: FC<TProps> = ({
+  showCommunityBadge,
+  thread,
+  community,
+}) => {
   return (
     <Wrapper testid="thread-sidebar">
-      <DynamicPart thread={thread} showCommunityBadge={showCommunityBadge} />
+      <DynamicPart
+        community={community}
+        thread={thread}
+        showCommunityBadge={showCommunityBadge}
+      />
     </Wrapper>
   )
 }

@@ -35,6 +35,7 @@ export const Main = styled.div`
   flex-grow: 1;
   font-size: 14px;
   line-height: 1.85;
+  width: calc(100% - 18px);
 `
 export const UserName = styled.span`
   color: ${theme('thread.articleTitle')};

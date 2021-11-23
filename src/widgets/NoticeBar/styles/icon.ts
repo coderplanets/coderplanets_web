@@ -10,7 +10,7 @@ import LightSVG from '@/icons/Light'
 
 const baseIcon = `
   ${css.size(15)};
-  margin-right: 12px;
+  margin-right: 10px;
   margin-top: 5px;
 `
 export const LockIcon = styled(LockSVG)`

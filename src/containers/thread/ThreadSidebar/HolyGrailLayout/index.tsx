@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
-import type { TCommunity } from '@/spec'
+import type { TCommunity, TThread } from '@/spec'
 
 import CommunityBrief from './CommunityBrief'
 import { LavaLampLoading } from '@/widgets/dynamic'
@@ -16,16 +16,17 @@ export const DynamicPart = dynamic(() => import('./DynamicPart'), {
   ssr: false,
 })
 
-type TProps = {
+export type TProps = {
+  thread: TThread
   community: TCommunity
 }
 
-const HolyGrailLayout: FC<TProps> = ({ community }) => {
+const HolyGrailLayout: FC<TProps> = ({ community, thread }) => {
   return (
     <Wrapper testid="community-digest">
       <CommunityBrief community={community} />
       <Divider />
-      <DynamicPart />
+      <DynamicPart community={community} thread={thread} />
     </Wrapper>
   )
 }

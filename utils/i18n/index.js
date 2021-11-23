@@ -11,6 +11,7 @@ const I18nDict = {
   jobs: '工作',
   job: '工作',
   blog: '博客',
+  works: '作品',
   user: '用户',
   profile: '主页',
 

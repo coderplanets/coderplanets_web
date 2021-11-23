@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import type { TTestable, TSpace } from '@/spec'
-import Img from '@/Img'
+// import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -33,11 +33,7 @@ export const Divider = styled.div<TSpace>`
   margin-bottom: ${({ bottom }) => `${bottom}px` || '15px'};
   opacity: 0.6;
 `
-export const PublishIcon = styled(Img)`
-  fill: ${theme('button.fg')};
-  ${css.size(16)};
-  margin-right: 10px;
-`
+
 export const PublishBtnWrapper = styled.div`
   margin-left: 2px;
   margin-right: 2px;

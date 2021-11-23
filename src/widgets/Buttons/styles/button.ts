@@ -71,6 +71,7 @@ export const Wrapper = styled.button<TButton>`
 `
 export const ChildrenWrapper = styled.div<{ size: TSIZE }>`
   ${css.flex('align-both')};
+  width: 100%;
   font-size: ${({ size }) => getFontSize(size)};
   position: relative;
   z-index: 2;

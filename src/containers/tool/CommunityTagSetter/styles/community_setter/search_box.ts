@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   padding-right: 20px;
 `
 export const SearchInput = styled(Input)`
-  width: 100%;
+  width: 480px;
 `
 export const PlusIcon = styled(Img)`
   ${css.size(12)};

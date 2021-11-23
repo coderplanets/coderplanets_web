@@ -171,7 +171,7 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
             header: '请选择子社区',
             searchPlaceholder: '// 搜索目标社区',
             notice:
-              '内测阶段所有人均可发布内容到首页。若测试请发布到「黑洞」。发布恶俗/恶意内容到社区，账号本身将进入「黑洞」，谢谢理解。',
+              '内测阶段所有人均可发布内容到首页。若测试请发布到「黑洞」。发布恶俗 / 恶意内容到社区，账号本身将进入「黑洞」，谢谢理解。',
             commonUsedHint: '常用子社区',
             notFoundHint:
               '抱歉，未找到相关子社区，请在该评论区或子社区 /feedback 中反馈。',

@@ -45,7 +45,7 @@ const Body: FC<TProps> = ({
       <InnerWrapper>
         <SearchBox searchValue={searchValue} texts={texts} />
         {texts.notice ? (
-          <NoticeBar type="notice" content={texts.notice} bottom={20} noBg />
+          <NoticeBar type="notice" content={texts.notice} bottom={5} noBg />
         ) : (
           <Br bottom={0}>&nbsp;</Br>
         )}

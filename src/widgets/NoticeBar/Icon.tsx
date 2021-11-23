@@ -1,6 +1,5 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
 import { LockIcon, ArchivedIcon, NoticeIcon, InfoIcon } from './styles/icon'
 
 import type { TType } from './spec'

@@ -38,9 +38,10 @@ const ThreadSidebarContainer: FC<TProps> = ({ threadSidebar: store }) => {
         <ClassicLayout
           showCommunityBadge={isCommunityDigestInViewport}
           thread={curThread}
+          community={curCommunity}
         />
       ) : (
-        <HolyGrailLayout community={curCommunity} />
+        <HolyGrailLayout community={curCommunity} thread={curThread} />
       )}
     </Fragment>
   )

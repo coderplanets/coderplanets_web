@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { TYPE, EVENT } from '@/constant'
-import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 // import S from './service'
@@ -13,13 +11,7 @@ let store: TStore | undefined
 /* eslint-disable-next-line */
 const log = buildLog('L:ThreadSidebar')
 
-export const onCreate = (): void => {
-  const { isLogin, curThread, authWarning } = store
-  if (!isLogin) return authWarning()
-  const cmd = `${curThread.toUpperCase()}_CREATE`
-
-  send(EVENT.DRAWER.OPEN, { type: TYPE.DRAWER[cmd] })
-}
+export const holder = 1
 
 // ###############################
 // init & uninit handlers
