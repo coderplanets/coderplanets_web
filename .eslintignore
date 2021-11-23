@@ -13,3 +13,4 @@ tsconfig.tsbuildinfo
 *.ico
 *.hbs
 *.css
+./deploy*
