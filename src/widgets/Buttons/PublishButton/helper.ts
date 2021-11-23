@@ -2,15 +2,7 @@ import type { TThread } from '@/spec'
 import { THREAD } from '@/constant'
 
 export const getTargetPage = (community: string, thread: TThread): string => {
-  switch (thread) {
-    case THREAD.JOB: {
-      return `/publish/${thread}?community=todo`
-    }
-
-    default: {
-      return `/publish/${thread}?community=${community}`
-    }
-  }
+  return `/publish/${thread}?community=${community}`
 }
 
 export const getText = (thread: TThread): string => {
