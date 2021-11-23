@@ -1,4 +1,4 @@
-const webpack = require('webpack')
+// const webpack = require('webpack')
 
 // next-plugins
 const withPlugins = require('next-compose-plugins')
@@ -11,18 +11,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 // next-plugins end
 
-const nextConfig = {
-  webpack: (config) => {
-    config.plugins = config.plugins || []
-
-    // moment locale size is too big
-    config.plugins.push(
-      new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /(en)/),
-    )
-
-    return config
-  },
-}
+const nextConfig = {}
 
 module.exports = withPlugins(
   // [withBundleAnalyzer, withSourceMaps, [withOffline, offlineConfig]],
