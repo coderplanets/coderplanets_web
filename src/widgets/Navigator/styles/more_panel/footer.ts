@@ -9,10 +9,10 @@ import { Wip } from './index'
 export const Wrapper = styled.div`
   ${css.flexColumn('align-start')};
   width: 100%;
-  min-height: 90px;
+  min-height: 80px;
   background: #023a48;
-  padding: 26px 20px;
-  padding-bottom: 5px;
+  padding: 22px 20px;
+  padding-bottom: 2px;
 `
 export const Entry = styled.div`
   ${css.flex('align-center')};
@@ -41,6 +41,7 @@ export const SupportLogo = styled(Img)`
 
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
+  font-size: 13px;
   font-weight: bold;
   margin-left: 12px;
 

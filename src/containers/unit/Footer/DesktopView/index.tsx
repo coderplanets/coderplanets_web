@@ -57,6 +57,12 @@ const FooterContainer: FC<TProps> = ({
       )}
       {metric === METRIC.MEETUPS && <GeneralLayout metric={METRIC.MEETUPS} />}
       {metric === METRIC.WORKS && <GeneralLayout metric={METRIC.WORKS} />}
+      {metric === METRIC.SUPPORT_US && (
+        <GeneralLayout metric={METRIC.SUPPORT_US} />
+      )}
+      {metric === METRIC.SUBSCRIBE && (
+        <GeneralLayout metric={METRIC.SUBSCRIBE} />
+      )}
       {metric === METRIC.HAVE_A_DRINK && (
         <GeneralLayout metric={METRIC.HAVE_A_DRINK} />
       )}

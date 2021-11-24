@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 
@@ -7,18 +7,16 @@ import EmailSubscriber from '@/widgets/EmailSubscriber'
 import { Br, SpaceGrow } from '@/widgets/Common'
 // TODO: extract to Email Subscriber
 
-import { Wrapper, Title, Desc, Dot, CopyIcon } from '../styles/actions/detail'
+import { Wrapper, Title, Desc, CopyIcon } from '../styles/actions/detail'
 import { notifyCopy } from '../logic'
 
-const Detail = () => {
+const Detail: FC = () => {
   const [copyState, copyToClipboard] = useCopyToClipboard()
 
-  const rss = 'https://coderplanets.com/rss/javascript'
+  const rss = 'https://coderplanets.com/javascript/rss'
   return (
     <Wrapper>
-      <Title>
-        <Dot /> Email 订阅
-      </Title>
+      <Title>Email 订阅</Title>
       <Desc>
         <EmailSubscriber
           activeByDefault
@@ -28,7 +26,6 @@ const Detail = () => {
       </Desc>
       <Br top={50} />
       <Title>
-        <Dot />
         RSS 订阅
         <SpaceGrow />
         <div
@@ -45,4 +42,4 @@ const Detail = () => {
   )
 }
 
-export default Detail
+export default memo(Detail)

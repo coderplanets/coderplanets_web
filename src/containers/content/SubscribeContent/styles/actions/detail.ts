@@ -1,29 +1,23 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
-import DotDivider from '@/widgets/DotDivider'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
+  margin-top: 100px;
 `
 export const Title = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 8px;
-  padding-left: 8px;
-`
-export const Dot = styled(DotDivider)`
-  background: ${theme('thread.articleTitle')};
-  margin-right: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
-  padding-left: 25px;
   word-break: break-all;
 `
 export const CopyIcon = styled(Img)`

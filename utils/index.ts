@@ -160,4 +160,6 @@ export {
   articleUpdateSEO,
   userSEO,
   publishCommunitySEO,
+  supportUsSEO,
+  subscribeSEO,
 } from './seo'

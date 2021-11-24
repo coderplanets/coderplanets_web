@@ -1,50 +1,49 @@
-//
-
 /*
  *
  * SubscribeContent
  *
  */
+import { FC } from 'react'
 
-import React from 'react'
-import T from 'prop-types'
-
+import type { TMetric } from '@/spec'
+import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Content from './Content'
 import Actions from './Actions'
 
+import type { TStore } from './store'
 import { Wrapper, InnerWrapper, StickyWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:SubscribeContent')
 
-const SubscribeContentContainer = ({ subscribeContent: store, testid }) => {
-  useInit(store)
+type TProps = {
+  subscribeContent?: TStore
+  testid?: string
+  metric?: TMetric
+}
 
-  const { subscribeView } = store
+const SubscribeContentContainer = ({
+  subscribeContent: store,
+  testid = 'subscribe-content',
+  metric = METRIC.SUBSCRIBE,
+}) => {
+  useInit(store)
 
   return (
     <Wrapper testid={testid}>
-      <InnerWrapper>
+      <InnerWrapper metric={metric}>
         <Content />
         <StickyWrapper offsetTop={200}>
-          <Actions view={subscribeView} />
+          <Actions />
         </StickyWrapper>
       </InnerWrapper>
     </Wrapper>
   )
 }
 
-SubscribeContentContainer.propTypes = {
-  subscribeContent: T.any.isRequired,
-  testid: T.string,
-}
-
-SubscribeContentContainer.defaultProps = {
-  testid: 'subscribe-content',
-}
-
-export default pluggedIn(SubscribeContentContainer)
+// @ts-ignore
+export default pluggedIn(SubscribeContentContainer) as FC<TProps>

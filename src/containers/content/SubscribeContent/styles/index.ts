@@ -1,29 +1,25 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TMetric } from '@/spec'
 import Sticky from '@/widgets/Sticky'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import { WIDTH } from '@/utils/css/metric'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
-  ${css.flexColumn('align-start')};
+  ${css.flexColumn('align-center', 'justify-start')}
   width: 100%;
-  /* 130 means height of (header + footer) */
-  min-height: calc(100vh - 130px);
-  margin-bottom: 50px;
+  min-height: 80vh;
   background-image: ${theme('banner.linearGradient')};
 `
-export const InnerWrapper = styled.div`
-  ${css.flex('align-start')}
-  max-width: ${WIDTH.COMMUNITY.PAGE};
+export const InnerWrapper = styled.div<{ metric: TMetric }>`
+  ${css.flex('align-both', 'justify-between')};
+  ${({ metric }) => css.fitContentWidth(metric)};
   width: 100%;
   color: ${theme('thread.articleDigest')};
 `
 export const StickyWrapper = styled(Sticky)`
   ${css.flex('justify-center')}
-  width: 40%;
 `

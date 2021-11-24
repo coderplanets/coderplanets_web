@@ -3,7 +3,7 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, Instance } from 'mobx-state-tree'
 // import {} from 'ramda'
 
 import { markStates } from '@/utils/mobx'
@@ -11,18 +11,12 @@ import { markStates } from '@/utils/mobx'
 const SubscribeContent = T.model('SubscribeContent', {
   subscribeView: T.optional(T.enumeration(['default', 'detail']), 'default'),
 })
-  .views((self) => ({
-    get root() {
-      return getParent(self)
-    },
-  }))
+  .views((self) => ({}))
   .actions((self) => ({
-    toast(type, options) {
-      self.root.toast(type, options)
-    },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof SubscribeContent>
 export default SubscribeContent

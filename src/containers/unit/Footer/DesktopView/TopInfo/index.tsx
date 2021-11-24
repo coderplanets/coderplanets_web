@@ -7,9 +7,7 @@ import HomeCommunity from './HomeCommunity'
 // import Community from './Community'
 import Article from './Article'
 import WorksArticle from './WorksArticle'
-import CoolGuide from './CoolGuide'
-import Works from './Works'
-import Drink from './Drink'
+import General from './General'
 
 export type TProps = {
   metric?: TMetric
@@ -30,15 +28,23 @@ const TopInfo: FC<TProps> = ({ metric = METRIC.COMMUNITY, ...restProps }) => {
       return <WorksArticle {...restProps} />
     }
     case METRIC.COOL_GUIDE: {
-      return <CoolGuide />
+      return <General title="酷导航" />
     }
 
     case METRIC.WORKS: {
-      return <Works />
+      return <General title="作品集市" />
+    }
+
+    case METRIC.SUPPORT_US: {
+      return <General title="支持我们" />
+    }
+
+    case METRIC.SUBSCRIBE: {
+      return <General title="内容订阅" />
     }
 
     case METRIC.HAVE_A_DRINK: {
-      return <Drink />
+      return <General title="来一杯" />
     }
 
     // case VIEW.HOSTING_COMMUNITY: {

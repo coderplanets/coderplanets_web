@@ -10,16 +10,20 @@ import {
   Logo,
 } from '../../styles/desktop_view/top_info/article'
 
-const Drink: FC = () => {
+type TProps = {
+  title: string
+}
+
+const General: FC<TProps> = ({ title }) => {
   return (
     <Wrapper noBottomBorder>
       <InfoBar>
         <Logo />
       </InfoBar>
       <ArrowDividerIcon src={`${ICON}/shape/arrow-simple.svg`} />
-      <CommunityTitle>来一杯</CommunityTitle>
+      <CommunityTitle>{title}</CommunityTitle>
     </Wrapper>
   )
 }
 
-export default memo(Drink)
+export default memo(General)

@@ -1,14 +1,11 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import Button from '@/widgets/Buttons/Button'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
-  'data-test-id': testid,
-}))<TTestable>`
+export const Wrapper = styled.div`
   ${css.flex('align-both')};
   padding-left: 5%;
   margin-top: 10%;

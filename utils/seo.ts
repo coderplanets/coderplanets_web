@@ -67,6 +67,22 @@ export const sponsorSEO = (): TSEO => {
   }
 }
 
+export const supportUsSEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/${ROUTE.SPONSOR}`,
+    title: '帮助我们 | CP',
+    description: '帮助我们共建 CoderPlanets 社区',
+  }
+}
+
+export const subscribeSEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/${ROUTE.SUBSCRIBE}`,
+    title: '订阅内容 | CP',
+    description: '订阅 CoderPlanets 首页或各个子社区的内容',
+  }
+}
+
 export const trendingSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.TRENDING}`,

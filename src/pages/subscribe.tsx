@@ -7,13 +7,12 @@ import {
   ssrBaseStates,
   ssrFetchPrepare,
   refreshIfneed,
-  supportUsSEO,
+  subscribeSEO,
   ssrError,
 } from '@/utils'
-
 import { P } from '@/schemas'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import SupportUs from '@/widgets/SupportUs'
+import SubscribeContent from '@/containers/content/SubscribeContent'
 
 import { useStore } from '@/stores/init'
 
@@ -32,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     resp = await fetchData(context)
     const { sessionState } = resp
 
-    refreshIfneed(sessionState, '/support-us', context)
+    refreshIfneed(sessionState, '/subscribe', context)
   } catch (e) {
     console.log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
@@ -45,18 +44,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return { props: { errorCode: null, ...initProps } }
 }
 
-const SupportUSPage = (props) => {
+const SubscribePage = (props) => {
   const store = useStore(props)
 
-  const seoConfig = supportUsSEO()
+  const seoConfig = subscribeSEO()
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.SUPPORT_US} seoConfig={seoConfig} noSidebar>
-        <SupportUs />
+      <GlobalLayout metric={METRIC.SUBSCRIBE} seoConfig={seoConfig} noSidebar>
+        <SubscribeContent />
       </GlobalLayout>
     </Provider>
   )
 }
 
-export default SupportUSPage
+export default SubscribePage

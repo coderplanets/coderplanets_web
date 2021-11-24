@@ -1,11 +1,14 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { cutRest } from '@/utils/helper'
+import { CopyToClipboardState } from 'react-use/lib/useCopyToClipboard'
+import { cutRest, toast } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 // import S from './service'
 
-let store = null
+import type { TStore } from './store'
+
+let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:SubscribeContent')
@@ -15,7 +18,7 @@ const log = buildLog('L:SubscribeContent')
  *
  * @param {String} view - view type default | detail
  */
-export const changeView = (view) => {
+export const changeView = (view: string): void => {
   store.mark({ subscribeView: view })
 }
 
@@ -24,19 +27,18 @@ export const changeView = (view) => {
  *
  * @param {*} { error, value }
  */
-export const notifyCopy = ({ error, value }) => {
-  const type = !error ? 'info' : 'error'
-  const title = !error ? '已复制到剪切板' : '复制到剪切板出错'
-  const msg = !error ? cutRest(value, 10) : error
+export const notifyCopy = ({ error, value }: CopyToClipboardState): void => {
+  const toastTitle = !error ? '已复制到剪切板' : '复制到剪切板出错'
+  const toastDesc = !error ? cutRest(value, 10) : error
 
-  store.toast(type, { title, msg, position: 'topCenter' })
+  toast('info', toastTitle, toastDesc as string)
 }
 
 // ###############################
 // init & uninit handlers
 // ###############################
 
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)
