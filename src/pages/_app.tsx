@@ -54,6 +54,12 @@ const App = ({ Component, pageProps }) => {
       />
 
       <Script
+        strategy="afterInteractive"
+        data-domain="coderplanets.com"
+        src="https://plausible.io/js/plausible.js"
+      />
+
+      <Script
         id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
