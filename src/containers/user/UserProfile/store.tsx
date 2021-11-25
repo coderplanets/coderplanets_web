@@ -41,6 +41,7 @@ const UserProfile = T.model('UserProfile', {
       const { entries, ...rest } = subscribedCommunitiesData
 
       return {
+        // @ts-ignore
         entries: reject((c) => c.raw === HCN, entries),
         ...rest,
       }
