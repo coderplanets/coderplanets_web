@@ -311,6 +311,7 @@ const WorksEditor = T.model('WorksEditor', {
 
       // @ts-ignore
       return reject(
+        // @ts-ignore
         (s) => s.link.trim() === getSocialPrefix(s.platform),
         socialInfo,
       )
