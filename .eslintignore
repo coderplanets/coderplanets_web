@@ -14,3 +14,4 @@ tsconfig.tsbuildinfo
 *.hbs
 *.css
 ./deploy*
+*.tar.gz
