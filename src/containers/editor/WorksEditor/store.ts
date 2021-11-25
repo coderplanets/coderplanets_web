@@ -285,11 +285,9 @@ const WorksEditor = T.model('WorksEditor', {
       self.teammates = [user].concat(toJS(self.teammates))
     },
     removeTeammates(user: TUser): void {
+      const teammates = toJS(self.teammates)
       // @ts-ignore
-      self.teammates = reject(
-        (t) => t.login === user.login,
-        toJS(self.teammates),
-      )
+      self.teammates = reject((t) => t.login === user.login, teammates)
     },
     getSocialPrefix(platform: string): string {
       switch (platform) {
