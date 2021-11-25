@@ -1,6 +1,6 @@
 import { FC, memo, Fragment } from 'react'
 
-import type { TArticle, TMetric, TThread } from '@/spec'
+import type { TArticle, TWorks, TMetric, TThread } from '@/spec'
 import { METRIC } from '@/constant'
 
 import Upvote from '@/widgets/Upvote'
@@ -22,12 +22,13 @@ const TitleContent: FC<{ article: TArticle; metric: TMetric }> = ({
 }) => {
   switch (metric) {
     case METRIC.WORKS_ARTICLE: {
+      const works = article as TWorks
       return (
         <Fragment>
-          <Cover src="https://avatars.githubusercontent.com/u/2041385?s=64&v=4" />
-          <Title>CoderPlanets</Title>
+          <Cover src={works.cover} />
+          <Title>{works.title}</Title>
           <DotDivider space={10} />
-          <Desc>可能是最性感的开发者社区, 可能是最性感的开发者社区</Desc>
+          <Desc>{works.desc}</Desc>
         </Fragment>
       )
     }

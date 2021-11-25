@@ -4,7 +4,7 @@ import { FC, memo } from 'react'
 import Link from 'next/link'
 
 import type { TArticle, TC11NLayout, TMetric } from '@/spec'
-import { GITHUB } from '@/config'
+import { ICON, GITHUB } from '@/config'
 import { METRIC, ROUTE } from '@/constant'
 import { joinUS } from '@/utils/helper'
 
@@ -18,6 +18,7 @@ import {
   BaseInfo,
   Item,
   NoLinkItem,
+  HeartCrabIcon,
 } from '../styles/desktop_view/article_layout'
 
 type TProps = {
@@ -44,11 +45,14 @@ const BriefView: FC<TProps> = ({ metric, article, layout }) => {
             <Item href={`${GITHUB}`} rel="noopener noreferrer" target="_blank">
               Github
             </Item>
-            <Link href={`/${ROUTE.SPONSOR}`} passHref>
-              <Item>❤️&nbsp;特别感谢</Item>
-            </Link>
             <Link href="/feedback" passHref>
-              <Item>反馈与建议</Item>
+              <Item>反馈 &amp; 建议</Item>
+            </Link>
+            <Link href={`/${ROUTE.SPONSOR}`} passHref>
+              <Item>
+                <HeartCrabIcon src={`${ICON}/emotion/heart.png`} noLazy />
+                特别感谢
+              </Item>
             </Link>
           </BaseInfo>
         </MainInfos>

@@ -5,6 +5,8 @@ import { C11N } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+export { HeartCrabIcon } from './home_layout'
+
 type TWrapper = { metric: TMetric; layout: TC11NLayout }
 export const Wrapper = styled.div<TWrapper>`
   ${css.flexColumn('align-end')};
@@ -35,6 +37,7 @@ export const BaseInfo = styled.div`
   ${css.flex()};
 `
 export const Item = styled(Link)`
+  ${css.flex('align-center')};
   margin-right: 25px;
 `
 export const NoLinkItem = styled.div`

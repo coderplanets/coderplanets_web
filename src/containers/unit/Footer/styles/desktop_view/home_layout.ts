@@ -78,6 +78,6 @@ export const ItemGitSource = styled.div`
 
 export const HeartCrabIcon = styled(Img)`
   ${css.size(13)};
-  margin-right: 5px;
+  margin-right: 7px;
   filter: saturate(0.6);
 `

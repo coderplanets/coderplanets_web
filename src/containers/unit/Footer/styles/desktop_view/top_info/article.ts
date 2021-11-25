@@ -16,18 +16,19 @@ export const InfoBar = styled(DefaultInfoBar)``
 export const Logo = styled(DefaultLogo)`
   ${css.size(16)};
   margin-right: 5px;
-  margin-top: -2px;
+  margin-top: -4px;
 `
 export const ArticleTitle = styled(DefaultSiteTitle)`
   color: ${theme('footer.title')};
   ${css.cutRest('300px')};
   font-size: 15px;
   font-weight: normal;
-  margin-top: -2px;
+  margin-top: -1px;
 `
 export const CommunityTitle = styled(ArticleTitle)`
   margin-right: 6px;
   text-decoration: none;
+  margin-top: 0;
   &:hover {
     color: ${theme('footer.title')};
     cursor: pointer;

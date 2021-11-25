@@ -1,8 +1,9 @@
 import { FC, memo } from 'react'
 
+import Link from 'next/link'
 import type { TArticle } from '@/spec'
-import { ISSUE_ADDR, API_SERVER_ADDR, GITHUB } from '@/config'
-import { METRIC } from '@/constant'
+import { ICON, GITHUB } from '@/config'
+import { METRIC, ROUTE } from '@/constant'
 import { joinUS } from '@/utils/helper'
 
 import TopInfo from './TopInfo'
@@ -15,6 +16,7 @@ import {
   BaseInfo,
   Item,
   NoLinkItem,
+  HeartCrabIcon,
 } from '../styles/desktop_view/works_article_layout'
 
 type TProps = {
@@ -32,34 +34,25 @@ const WorksArticleLayout: FC<TProps> = ({ viewingArticle }) => {
         />
         <MainInfos>
           <BaseInfo>
-            <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
-              关于
-            </Item>
-            <Item
-              href="/cps-support/posts"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              创建社区
-            </Item>
+            <Link href="/home/post/1" passHref>
+              <Item>关于</Item>
+            </Link>
+            <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>
+              <Item>创建社区</Item>
+            </Link>
             <NoLinkItem onClick={() => joinUS()}>加入群聊</NoLinkItem>
             <Item href={`${GITHUB}`} rel="noopener noreferrer" target="_blank">
               Github
             </Item>
-            <Item
-              href={`${API_SERVER_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              特别感谢
-            </Item>
-            <Item
-              href={`${ISSUE_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              反馈与建议
-            </Item>
+            <Link href="/feedback" passHref>
+              <Item>反馈 &amp; 建议</Item>
+            </Link>
+            <Link href={`/${ROUTE.SPONSOR}`} passHref>
+              <Item>
+                <HeartCrabIcon src={`${ICON}/emotion/heart.png`} noLazy />
+                特别感谢
+              </Item>
+            </Link>
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>

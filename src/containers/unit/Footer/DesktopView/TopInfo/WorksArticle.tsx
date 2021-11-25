@@ -8,21 +8,23 @@ import {
   Wrapper,
   InfoBar,
   CommunityTitle,
+  ArticleTitle,
   Logo,
 } from '../../styles/desktop_view/top_info/article'
 
-type TProps = Pick<TTopInfoProps, 'noBottomBorder'>
+type TProps = TTopInfoProps
 
-const Article: FC<TProps> = ({ noBottomBorder = false }) => {
+const WorksArticle: FC<TProps> = ({ article, noBottomBorder = false }) => {
   return (
     <Wrapper noBottomBorder={noBottomBorder}>
       <InfoBar>
         <Logo />
       </InfoBar>
-      <BlinkCursor duration={2} />
       <CommunityTitle>作品集市</CommunityTitle>
+      <BlinkCursor duration={2} top={0} />
+      <ArticleTitle>{article.title}</ArticleTitle>
     </Wrapper>
   )
 }
 
-export default memo(Article)
+export default memo(WorksArticle)

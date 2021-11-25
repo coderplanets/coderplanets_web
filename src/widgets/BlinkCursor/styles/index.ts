@@ -1,16 +1,14 @@
 import styled from 'styled-components'
 
-import type { TTestable } from '@/spec'
+import type { TTestable, TSpace } from '@/spec'
 
 import animate from '@/utils/animations'
 
-export type TWrapper = TTestable & {
-  height: number
-  top: number
-  left: number
-  right: number
-  duration: number
-}
+export type TWrapper = TTestable &
+  TSpace & {
+    height: number
+    duration: number
+  }
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,

@@ -5,6 +5,7 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export { NoLinkItem } from './article_layout'
+export { HeartCrabIcon } from './home_layout'
 
 export const Wrapper = styled.div`
   ${css.flexColumn('align-end')};
@@ -32,5 +33,6 @@ export const BaseInfo = styled.div`
   ${css.flex()};
 `
 export const Item = styled(Link)`
+  ${css.flex('align-center')};
   margin-right: 25px;
 `

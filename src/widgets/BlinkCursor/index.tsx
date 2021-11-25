@@ -8,6 +8,7 @@ import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 
+import type { TSpace } from '@/spec'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
@@ -16,11 +17,8 @@ const log = buildLog('c:BlinkCursor:index')
 type TProps = {
   testid?: string
   height?: number
-  top?: number
-  left?: number
-  right?: number
   duration?: number
-}
+} & TSpace
 
 const BlinkCursor: FC<TProps> = ({
   testid = 'blink-cursor',
