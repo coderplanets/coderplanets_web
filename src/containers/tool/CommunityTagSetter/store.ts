@@ -87,6 +87,7 @@ const CommunityTagSetter = T.model('CommunityTagSetter', {
         commonUsedCommunities: reject(
           (c) =>
             includes(
+              // @ts-ignore
               c.raw,
               map((s) => s.raw, selectedCommunities),
             ),
