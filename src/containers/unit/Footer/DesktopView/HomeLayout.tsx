@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap, TC11NLayout, TMetric } from '@/spec'
-import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR, BUILD_VERSION } from '@/config'
+import { GITHUB, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 import { siteBirthDay } from '@/utils/helper'
 
@@ -42,22 +42,22 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
           <Column>
             <Title>网站地图</Title>
             <Body>
-              <LinkItem href="/home/post/1" {...linkColors}>
+              <LinkItem href={`${ROUTE.EXPLORE}`} {...linkColors}>
                 子社区
               </LinkItem>
-              <LinkItem href={`${ISSUE_ADDR}`} {...linkColors}>
+              <LinkItem href={`${ROUTE.WORKS}`} {...linkColors}>
                 作品集市
               </LinkItem>
-              <LinkItem href="https://github.com/coderplanets" {...linkColors}>
+              <LinkItem href={`${ROUTE.COOL_GUIDE}`} {...linkColors}>
                 酷导航
               </LinkItem>
-              <LinkItem href="/cps-support/posts" {...linkColors}>
+              <LinkItem href={`${ROUTE.HAVE_A_DRINK}`} {...linkColors}>
                 来一杯
               </LinkItem>
-              <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
+              <LinkItem href={`${ROUTE.MEETUPS}`} {...linkColors}>
                 小聚
               </LinkItem>
-              <LinkItem href={`${ROUTE.SUPPORT_US}`} {...linkColors}>
+              <LinkItem href="/makers" {...linkColors}>
                 Makers
               </LinkItem>
             </Body>
@@ -90,16 +90,16 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
               <Item as="span" normal>
                 开发计划
               </Item>
-              <LinkItem href="/cps-support/post/42" {...linkColors}>
+              <LinkItem href="/feedback" {...linkColors}>
                 文档中心
               </LinkItem>
               <LinkItem href={`${GITHUB}`} {...linkColors}>
                 技术栈
               </LinkItem>
-              <LinkItem href={`${API_SERVER_ADDR}`} {...linkColors}>
+              <LinkItem href={`${GITHUB}`} {...linkColors}>
                 API
               </LinkItem>
-              <LinkItem href={`${API_SERVER_ADDR}`} {...linkColors}>
+              <LinkItem href={`${GITHUB}`} {...linkColors}>
                 Github
               </LinkItem>
             </Body>

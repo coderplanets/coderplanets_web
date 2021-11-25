@@ -1,29 +1,50 @@
 import { FC, memo } from 'react'
 
+import Link from 'next/link'
+import { ICON } from '@/config'
+import { ROUTE } from '@/constant'
+import { Space, SpaceGrow } from '@/widgets/Common'
+
 import type { TProps as TTopInfoProps } from './index'
 
 import {
   Wrapper,
   InfoBar,
   SiteTitle,
-  Linker,
+  Beta,
+  Item,
+  HeartCrabIcon,
   Logo,
 } from '../../styles/desktop_view/top_info'
 
-type TProps = Pick<TTopInfoProps, 'title'>
-
-const HomeCommunity: FC<TProps> = ({ title = 'oderPlanets' }) => {
+const HomeCommunity: FC = () => {
   return (
     <Wrapper>
       <InfoBar>
         <Logo />
       </InfoBar>
-      <SiteTitle>{title}</SiteTitle>
-      <Linker>关于</Linker>
-      <Linker>支持我们</Linker>
-      <Linker>特别感谢</Linker>
-      <Linker>反馈 &amp; 建议</Linker>
-      <Linker>访问统计</Linker>
+      <SiteTitle>
+        oderPlanets
+        <Beta>beta</Beta>
+      </SiteTitle>
+      <SpaceGrow />
+      <Item>关于</Item>
+      <Link href={`/${ROUTE.SUPPORT_US}`} passHref>
+        <Item>支持我们</Item>
+      </Link>
+      <Link href="/feedback" passHref>
+        <Item>反馈 &amp; 建议</Item>
+      </Link>
+      <Link href={`/${ROUTE.SPONSOR}`} passHref>
+        <Item>
+          <HeartCrabIcon src={`${ICON}/emotion/heart.png`} noLazy />
+          特别感谢
+        </Item>
+      </Link>
+      <Item href="https://plausible.io/coderplanets.com" target="_blank">
+        访问统计
+      </Item>
+      <Space right={80} />
     </Wrapper>
   )
 }

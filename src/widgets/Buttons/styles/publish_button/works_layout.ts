@@ -5,9 +5,7 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import RocketSVG from '@/icons/PublishRocket'
 
-import Button from '../../Button'
-
-export const Wrapper = styled(Button)`
+export const Wrapper = styled.div`
   ${css.flex('justify-center')};
   width: 100%;
 `

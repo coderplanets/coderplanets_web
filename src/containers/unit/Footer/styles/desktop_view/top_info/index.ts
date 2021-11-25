@@ -6,6 +6,8 @@ import Img from '@/Img'
 
 import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
+export { HeartCrabIcon } from '../home_layout'
+
 type TWrapper = { noBottomBorder?: boolean }
 export const Wrapper = styled.div<TWrapper>`
   ${css.flex('align-center')};
@@ -22,17 +24,29 @@ export const InfoBar = styled.div`
 `
 export const Logo = styled(CommunityFaceLogo)`
   ${css.size(18)};
-  margin-top: -6px;
+  margin-top: -4px;
   margin-left: 2px;
   cursor: pointer;
 `
 export const SiteTitle = styled.div`
+  position: relative;
   color: #007fa8;
   font-size: 18px;
   font-weight: bold;
+  opacity: 0.8;
   margin-left: 3px;
   margin-right: 52px;
   letter-spacing: 1px;
+`
+export const Beta = styled.div`
+  position: absolute;
+  font-size: 11px;
+  color: #876d8e;
+  font-weight: normal;
+  border-radius: 2px;
+  padding: 0 3px;
+  top: 2px;
+  right: -35px;
 `
 export const ArrowDividerIcon = styled(Img)`
   fill: ${theme('footer.text')};
@@ -40,9 +54,9 @@ export const ArrowDividerIcon = styled(Img)`
   transform: rotate(180deg);
   margin-right: 6px;
 `
-export const Linker = styled.a`
+export const Item = styled.a`
+  ${css.flex('align-center')};
   color: ${theme('footer.title')};
-  display: block;
   text-decoration: none;
   margin-left: 24px;
   opacity: 0.8;

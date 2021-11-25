@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import { FC, memo } from 'react'
 
+import Link from 'next/link'
+
 import type { TArticle, TC11NLayout, TMetric } from '@/spec'
-import { ISSUE_ADDR, GITHUB, API_SERVER_ADDR } from '@/config'
-import { METRIC } from '@/constant'
+import { GITHUB } from '@/config'
+import { METRIC, ROUTE } from '@/constant'
 import { joinUS } from '@/utils/helper'
 
 import TopInfo from './TopInfo'
@@ -30,34 +33,23 @@ const BriefView: FC<TProps> = ({ metric, article, layout }) => {
         <TopInfo metric={METRIC.ARTICLE} article={article} noBottomBorder />
         <MainInfos>
           <BaseInfo>
-            <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
-              关于
-            </Item>
-            <Item
-              href="/cps-support/posts"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              创建社区
-            </Item>
+            <Link href="/home/post/1" passHref>
+              <Item>关于</Item>
+            </Link>
+
+            <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>
+              <Item>创建社区</Item>
+            </Link>
             <NoLinkItem onClick={() => joinUS()}>加入群聊</NoLinkItem>
             <Item href={`${GITHUB}`} rel="noopener noreferrer" target="_blank">
               Github
             </Item>
-            <Item
-              href={`${API_SERVER_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              特别感谢
-            </Item>
-            <Item
-              href={`${ISSUE_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              反馈与建议
-            </Item>
+            <Link href={`/${ROUTE.SPONSOR}`} passHref>
+              <Item>❤️&nbsp;特别感谢</Item>
+            </Link>
+            <Link href="/feedback" passHref>
+              <Item>反馈与建议</Item>
+            </Link>
           </BaseInfo>
         </MainInfos>
       </InnerWrapper>

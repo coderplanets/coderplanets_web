@@ -10,7 +10,7 @@ import { FC } from 'react'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 import type { TMetric } from '@/spec'
-import { METRIC } from '@/constant'
+import { HCN, METRIC } from '@/constant'
 
 import JoinModal from '@/containers/tool/JoinModal'
 
@@ -41,13 +41,17 @@ const FooterContainer: FC<TProps> = ({
 }) => {
   useInit(store, metric)
 
-  const { viewingArticle, c11n } = store
+  const { viewingArticle, curCommunity, c11n } = store
+  const isHome = curCommunity.raw === HCN
 
   return (
     <Wrapper testid={testid} layout={c11n.bannerLayout} metric={metric}>
       <JoinModal />
-      {metric === METRIC.COMMUNITY && (
+      {metric === METRIC.COMMUNITY && isHome && (
         <HomeLayout metric={metric} layout={c11n.bannerLayout} />
+      )}
+      {metric === METRIC.COMMUNITY && !isHome && (
+        <GeneralLayout metric={METRIC.COMMUNITY} title={curCommunity.title} />
       )}
       {metric === METRIC.WORKS_ARTICLE && (
         <WorksArticleLayout viewingArticle={viewingArticle} />

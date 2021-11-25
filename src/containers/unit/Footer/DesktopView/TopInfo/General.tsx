@@ -1,12 +1,9 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
-
+import BlinkCursor from '@/widgets/BlinkCursor'
 import {
   Wrapper,
-  InfoBar,
   CommunityTitle,
-  ArrowDividerIcon,
   Logo,
 } from '../../styles/desktop_view/top_info/article'
 
@@ -17,10 +14,8 @@ type TProps = {
 const General: FC<TProps> = ({ title }) => {
   return (
     <Wrapper noBottomBorder>
-      <InfoBar>
-        <Logo />
-      </InfoBar>
-      <ArrowDividerIcon src={`${ICON}/shape/arrow-simple.svg`} />
+      <Logo />
+      <BlinkCursor duration={2} />
       <CommunityTitle>{title}</CommunityTitle>
     </Wrapper>
   )

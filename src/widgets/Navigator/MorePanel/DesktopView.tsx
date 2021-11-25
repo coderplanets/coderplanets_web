@@ -63,7 +63,7 @@ const MoreContent: FC = () => {
           <Desc>创作者经验交流，开发者访谈</Desc>
         </Entry>
         <Entry>
-          <Link href="/apply/community" passHref>
+          <Link href={`${ROUTE.APPLY_COMMUNITY}`} passHref>
             <Main>
               <Logo src={`${ICON}/menu/snippets.svg`} />
               <Title>创建子社区</Title>

@@ -6,6 +6,7 @@ import { METRIC } from '@/constant'
 import HomeCommunity from './HomeCommunity'
 // import Community from './Community'
 import Article from './Article'
+import Community from './Community'
 import WorksArticle from './WorksArticle'
 import General from './General'
 
@@ -16,14 +17,19 @@ export type TProps = {
   noBottomBorder?: boolean
 }
 
-const TopInfo: FC<TProps> = ({ metric = METRIC.COMMUNITY, ...restProps }) => {
+const TopInfo: FC<TProps> = ({
+  metric = METRIC.COMMUNITY,
+  title = '',
+  ...restProps
+}) => {
+  if (METRIC.COMMUNITY && title !== '') {
+    return <Community title={title} />
+  }
+
   switch (metric) {
     case METRIC.COMMUNITY: {
-      return <HomeCommunity {...restProps} />
+      return <HomeCommunity />
     }
-    // case VIEW.COMMUNITY: {
-    //   return <Community {...restProps} />
-    // }
     case METRIC.WORKS_ARTICLE: {
       return <WorksArticle {...restProps} />
     }
@@ -46,7 +52,6 @@ const TopInfo: FC<TProps> = ({ metric = METRIC.COMMUNITY, ...restProps }) => {
     case METRIC.HAVE_A_DRINK: {
       return <General title="来一杯" />
     }
-
     // case VIEW.HOSTING_COMMUNITY: {
     //   return <Community {...restProps} />
     // }
@@ -54,7 +59,7 @@ const TopInfo: FC<TProps> = ({ metric = METRIC.COMMUNITY, ...restProps }) => {
       return <Article {...restProps} />
     }
     default:
-      return <HomeCommunity {...restProps} />
+      return <HomeCommunity />
   }
 }
 

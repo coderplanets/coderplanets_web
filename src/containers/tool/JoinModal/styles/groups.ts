@@ -41,6 +41,6 @@ export const LI = styled.li`
 export const Focus = styled.span`
   color: ${theme('thread.articleTitle')};
   font-size: 14px;
-  margin-left: 3px;
-  margin-right: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
 `

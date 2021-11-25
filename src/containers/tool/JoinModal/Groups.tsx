@@ -1,5 +1,7 @@
 import { FC, useState } from 'react'
 
+import Linker from '@/widgets/Linker'
+
 import Footer from './Footer'
 import {
   Wrapper,
@@ -30,15 +32,25 @@ export const INGroup: FC<TProps> = ({ qr }) => {
               本群内<Focus>仅限于</Focus>讨论和「CoderPlanets」相关的话题。
             </LI>
             <LI>
-              除自我介绍外，在本群内<Focus>摸鱼吹水等同于自我退群声明</Focus>。
+              除可选的自我介绍外，在本群内
+              <Focus>摸鱼吹水等同于自我退群声明</Focus>。
             </LI>
             <LI>
-              本群<Focus>不欢迎潜水</Focus>
-              ，每月会不定期清理潜水人员以保持低水位，请确保你对本社区有持续的兴趣。
+              本群<Focus>不欢迎潜水员</Focus>
+              ，每月会不定期清理潜水人员以保持低水位，请确保你对社区建设本身有持续的兴趣。
             </LI>
             <LI>
               群内有价值的内容会<Focus>定期同步</Focus>
-              到反馈建议子社区，你不会因为不在群里而错过任何有价值的内容。
+              到
+              <Linker
+                src="/feedback"
+                external={false}
+                text="反馈建议子社区"
+                inline
+                left={4}
+                right={4}
+              />
+              ，你不会因为不在群里而错过任何有价值的内容。
             </LI>
           </UL>
         </DescWrapper>
@@ -64,10 +76,11 @@ export const RGroup: FC<TProps> = ({ qr }) => {
               讨论信息（源）搜集等「雷达」相关的话题。
             </LI>
             <LI>
-              除自我介绍外，在本群内<Focus>摸鱼吹水等同于自我退群声明</Focus>。
+              除可选的自我介绍外，在本群内
+              <Focus>摸鱼吹水等同于自我退群声明</Focus>。
             </LI>
             <LI>
-              本群<Focus>不欢迎潜水</Focus>
+              本群<Focus>不欢迎潜水员</Focus>
               ，每月会不定期清理潜水人员以保持低水位，请确保你对本社区有持续的兴趣。
             </LI>
             <LI>

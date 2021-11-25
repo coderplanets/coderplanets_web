@@ -4,24 +4,26 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 import {
-  Wrapper as DefaultWrapper,
   Logo as DefaultLogo,
   SiteTitle as DefaultSiteTitle,
-  InfoBar as DefaultInfoBar,
   MainInfos as DefaultMainInfos,
 } from './index'
 
-export const Wrapper = styled(DefaultWrapper)``
-export const InfoBar = styled(DefaultInfoBar)``
+export const Wrapper = styled.div`
+  ${css.flex('align-center')};
+  margin-bottom: 18px;
+  margin-left: 25px;
+`
 export const Logo = styled(DefaultLogo)`
   ${css.size(16)};
   margin-right: 8px;
 `
 export const ShortName = styled.div`
   color: #005364;
-  font-size: 16px;
-  font-weight: bolder;
+  font-size: 14px;
+  font-weight: bold;
   font-style: italic;
+  margin-top: 1px;
 `
 export const SiteTitle = styled(DefaultSiteTitle)`
   color: #007fa8;

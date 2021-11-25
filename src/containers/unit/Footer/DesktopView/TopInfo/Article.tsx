@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import Link from 'next/link'
 
-import { ICON } from '@/config'
+import BlinkCursor from '@/widgets/BlinkCursor'
 import type { TProps as TTopInfoProps } from './index'
 
 import {
@@ -9,7 +9,6 @@ import {
   InfoBar,
   CommunityTitle,
   ArticleTitle,
-  ArrowDividerIcon,
   Logo,
 } from '../../styles/desktop_view/top_info/article'
 
@@ -23,11 +22,10 @@ const Article: FC<TProps> = ({ article, noBottomBorder = false }) => {
       <InfoBar>
         <Logo />
       </InfoBar>
-      <ArrowDividerIcon src={`${ICON}/shape/arrow-simple.svg`} />
       <Link href={`/${originalCommunity.raw}`} passHref>
         <CommunityTitle as="a">{originalCommunity.title}</CommunityTitle>
       </Link>
-      <ArrowDividerIcon src={`${ICON}/shape/arrow-simple.svg`} />
+      <BlinkCursor />
       <ArticleTitle>{title}</ArticleTitle>
     </Wrapper>
   )

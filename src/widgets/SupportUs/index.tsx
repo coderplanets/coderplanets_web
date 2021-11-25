@@ -127,7 +127,7 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
         <Br top={40} />
         <ButtonGroup>
           <Link href="https://afdian.net/@coderplanets" target="_blank">
-            <AifadianButton>⚡ &nbsp;为我们充电</AifadianButton>
+            <AifadianButton>⚡ &nbsp;电击我们&nbsp;⚡</AifadianButton>
           </Link>
           <FeedButton ghost noBorder onClick={() => setShowChuan(true)}>
             远程撸串

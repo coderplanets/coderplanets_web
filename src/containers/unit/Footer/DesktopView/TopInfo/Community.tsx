@@ -5,22 +5,16 @@ import type { TProps as TTopInfoProps } from './index'
 
 import {
   Wrapper,
-  InfoBar,
   SiteTitle,
   ShortName,
 } from '../../styles/desktop_view/top_info/community'
 
-type TProps = Pick<TTopInfoProps, 'title' | 'noBottomBorder'>
+type TProps = Pick<TTopInfoProps, 'title'>
 
-const Community: FC<TProps> = ({
-  title = 'javascript',
-  noBottomBorder = false,
-}) => {
+const Community: FC<TProps> = ({ title = 'javascript' }) => {
   return (
-    <Wrapper noBottomBorder={noBottomBorder}>
-      <InfoBar>
-        <ShortName>CP</ShortName>
-      </InfoBar>
+    <Wrapper>
+      <ShortName>CP</ShortName>
       <BlinkCursor duration={2} />
       <SiteTitle>{title}</SiteTitle>
     </Wrapper>

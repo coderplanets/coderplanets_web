@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import Img from '@/Img'
 import type { TMetric } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
@@ -73,4 +74,10 @@ export const LinkItem = styled(ArrowLink)`
 `
 export const ItemGitSource = styled.div`
   ${css.flex('align-center')};
+`
+
+export const HeartCrabIcon = styled(Img)`
+  ${css.size(13)};
+  margin-right: 5px;
+  filter: saturate(0.6);
 `

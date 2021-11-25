@@ -2,21 +2,21 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
 
 import {
   Wrapper as DefaultWrapper,
   Logo as DefaultLogo,
-  SiteTitle as DefaultSiteTitle,
   InfoBar as DefaultInfoBar,
+  SiteTitle as DefaultSiteTitle,
   MainInfos as DefaultMainInfos,
 } from './index'
 
 export const Wrapper = styled(DefaultWrapper)``
 export const InfoBar = styled(DefaultInfoBar)``
 export const Logo = styled(DefaultLogo)`
-  ${css.size(18)};
-  margin-right: 8px;
+  ${css.size(16)};
+  margin-right: 5px;
+  margin-top: -2px;
 `
 export const ArticleTitle = styled(DefaultSiteTitle)`
   color: ${theme('footer.title')};
@@ -33,12 +33,6 @@ export const CommunityTitle = styled(ArticleTitle)`
     cursor: pointer;
     text-decoration: underline;
   }
-`
-export const ArrowDividerIcon = styled(Img)`
-  fill: ${theme('footer.text')};
-  ${css.size(20)};
-  transform: rotate(180deg);
-  margin-right: 6px;
 `
 export const Linker = styled.a`
   color: ${theme('footer.title')};
