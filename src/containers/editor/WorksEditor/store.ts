@@ -170,6 +170,7 @@ const WorksEditor = T.model('WorksEditor', {
       const socialInfo = toJS(self.socialInfo)
       const selectedPlatforms = socialInfo.map((s) => s.platform)
 
+      // @ts-ignore
       return reject((o) => includes(o.value, selectedPlatforms), SOCIAL_OPTIONS)
     },
 
