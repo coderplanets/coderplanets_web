@@ -45,6 +45,7 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
   const { meta, title, desc, upvotesCount } = article
 
   const activeTab = !!tab ? tab : 'story'
+  // @ts-ignore
   const tabItems = reject((t) => t.raw === WORKS_TAB.BASIC, WORKS_TAB_ITEMS)
 
   return (
