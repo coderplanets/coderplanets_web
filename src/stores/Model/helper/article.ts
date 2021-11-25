@@ -36,7 +36,8 @@ export const articleFields = () => {
     digest: T.maybeNull(T.string),
     author: T.maybeNull(User),
 
-    meta: T.optional(ArticleMeta, {}),
+    // meta: T.optional(ArticleMeta, {}),
+    meta: T.maybeNull(ArticleMeta),
 
     linkAddr: T.maybeNull(T.string),
     copyRight: T.maybeNull(T.string),
@@ -65,7 +66,8 @@ export const articleFields = () => {
 
     insertedAt: T.optional(T.string, ''),
     updatedAt: T.optional(T.string, ''),
-    activeAt: T.optional(T.string, ''),
+    // activeAt: T.optional(T.string, ''),
+    activeAt: T.maybeNull(T.string),
 
     isArchived: T.optional(T.boolean, false),
     archivedAt: T.maybeNull(T.string),

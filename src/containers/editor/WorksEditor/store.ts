@@ -170,6 +170,7 @@ const WorksEditor = T.model('WorksEditor', {
       const socialInfo = toJS(self.socialInfo)
       const selectedPlatforms = socialInfo.map((s) => s.platform)
 
+      // @ts-ignore
       return reject((o) => includes(o.value, selectedPlatforms), SOCIAL_OPTIONS)
     },
 
@@ -284,11 +285,9 @@ const WorksEditor = T.model('WorksEditor', {
       self.teammates = [user].concat(toJS(self.teammates))
     },
     removeTeammates(user: TUser): void {
+      const teammates = toJS(self.teammates)
       // @ts-ignore
-      self.teammates = reject(
-        (t) => t.login === user.login,
-        toJS(self.teammates),
-      )
+      self.teammates = reject((t) => t.login === user.login, teammates)
     },
     getSocialPrefix(platform: string): string {
       switch (platform) {
@@ -312,6 +311,7 @@ const WorksEditor = T.model('WorksEditor', {
 
       // @ts-ignore
       return reject(
+        // @ts-ignore
         (s) => s.link.trim() === getSocialPrefix(s.platform),
         socialInfo,
       )

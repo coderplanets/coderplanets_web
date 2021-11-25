@@ -21,6 +21,7 @@ export const emotionsCoverter = (selectedEmotions: TEmotion): TEmotion[] => {
     }),
   )
 
+  // @ts-ignore
   return reject((e) => includes(0, values(e)), converted)
 }
 
