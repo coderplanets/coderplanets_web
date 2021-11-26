@@ -24,7 +24,7 @@ export const InfoBar = styled.div`
 `
 export const Logo = styled(CommunityFaceLogo)`
   ${css.size(18)};
-  margin-top: -4px;
+  margin-top: -1;
   margin-left: 2px;
   cursor: pointer;
 `

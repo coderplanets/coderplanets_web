@@ -9,6 +9,8 @@ import {
   ClassicWrapper,
   HolyGrailWrapper,
   BeianLink,
+  PowerByWrapper,
+  PowerByLink,
 } from '../styles/desktop_view/bottom_info'
 
 type TProps = {
@@ -24,6 +26,12 @@ const BottomInfo: FC<TProps> = ({ metric, layout }) => {
           <BeianLink href="http://beian.miit.gov.cn">
             蜀ICP备17043722号-4
           </BeianLink>
+          <PowerByWrapper>
+            Powered by
+            <PowerByLink href="http://github.com/groupher">
+              Groupher
+            </PowerByLink>
+          </PowerByWrapper>
         </InnerWrapper>
       </RawWrapper>
     )
@@ -37,6 +45,10 @@ const BottomInfo: FC<TProps> = ({ metric, layout }) => {
         <BeianLink href="http://beian.miit.gov.cn">
           蜀ICP备17043722号-4
         </BeianLink>
+        <PowerByWrapper>
+          Powered by
+          <PowerByLink href="http://github.com/groupher">Groupher</PowerByLink>
+        </PowerByWrapper>
       </InnerWrapper>
     </Wrapper>
   )

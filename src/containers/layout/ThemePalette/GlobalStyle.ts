@@ -139,7 +139,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #nprogress .spinner {
-    top: 10px !important;
+    top: 8px !important;
   }
 
   // masonry cards styles

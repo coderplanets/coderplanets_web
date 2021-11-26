@@ -15,7 +15,7 @@ const General: FC<TProps> = ({ title }) => {
   return (
     <Wrapper noBottomBorder>
       <Logo />
-      <BlinkCursor duration={2} />
+      <BlinkCursor duration={2} top={1} />
       <CommunityTitle>{title}</CommunityTitle>
     </Wrapper>
   )

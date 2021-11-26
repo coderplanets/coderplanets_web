@@ -16,7 +16,7 @@ export const InfoBar = styled(DefaultInfoBar)``
 export const Logo = styled(DefaultLogo)`
   ${css.size(16)};
   margin-right: 5px;
-  margin-top: -4px;
+  margin-top: -1px;
 `
 export const ArticleTitle = styled(DefaultSiteTitle)`
   color: ${theme('footer.title')};
