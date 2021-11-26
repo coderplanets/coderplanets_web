@@ -14,7 +14,7 @@ export const ContentWrapper = styled.div<{ center: boolean }>`
   transition: all 0.2s;
 `
 export const InnerWrapper = styled.div<{ metric: TMetric }>`
-  ${css.flex()};
+  ${css.flex('justify-center')};
   width: 100%;
   height: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
