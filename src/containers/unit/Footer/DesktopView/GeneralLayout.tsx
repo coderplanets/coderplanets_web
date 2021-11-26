@@ -26,6 +26,7 @@ type TProps = {
 }
 
 const GeneralLayout: FC<TProps> = ({ metric, title = '' }) => {
+  console.log('the fuck GeneralLayout: ', metric)
   return (
     <Wrapper>
       <InnerWrapper metric={metric}>
