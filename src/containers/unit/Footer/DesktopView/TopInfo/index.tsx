@@ -41,6 +41,10 @@ const TopInfo: FC<TProps> = ({
       return <General title="作品集市" />
     }
 
+    case METRIC.MEETUPS: {
+      return <General title="小聚" />
+    }
+
     case METRIC.SUPPORT_US: {
       return <General title="支持我们" />
     }
