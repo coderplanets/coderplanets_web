@@ -18,11 +18,10 @@ import type { TStore } from './store'
 
 import FilterBar from './FilterBar'
 import DateSelector from './DateSelector'
-// import ActivityCard from './ActivityCard'
 import Card from './Card'
+import About from './About'
 
 import filtersItems from './fakeFiltersItems'
-// import meetups from './fakeMeetups'
 
 import { Wrapper, InnerWrapper, ContentWrapper, CardsWrapper } from './styles'
 import { useInit } from './logic'
@@ -58,6 +57,7 @@ const MeetupsContentContainer: FC<TProps> = ({
               ))}
             </MasonryCards>
           </CardsWrapper>
+          <About />
 
           <Pagi margin={{ top: '60px', bottom: '80px' }} />
         </ContentWrapper>
