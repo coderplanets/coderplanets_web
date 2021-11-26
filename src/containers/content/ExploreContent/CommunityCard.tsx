@@ -1,18 +1,24 @@
 import { FC, memo } from 'react'
-import { contains } from 'ramda'
+import { isEmpty, contains } from 'ramda'
+import Link from 'next/link'
 
 import type { TCommunity, TID } from '@/spec'
 import { NON_FILL_COMMUNITY } from '@/constant'
 import { prettyNum, cutRest } from '@/utils/helper'
 
 import TrendLine from '@/widgets/TrendLine'
-// import { CommunityHolder } from '@/widgets/Loading'
+import { SpaceGrow } from '@/widgets/Common'
 
 import SubscribeBtn from './SubscribeBtn'
 
 import {
   Wrapper,
+  Left,
+  Right,
   CommunityIcon,
+  Raw,
+  ContentWrapper,
+  JoinWrapper,
   Title,
   Desc,
   ActivitySpark,
@@ -30,37 +36,44 @@ const CommunityCard: FC<TProps> = ({
   subscribing,
   subscribingId,
 }) => {
+  const trendData = isEmpty(community.contributesDigest)
+    ? [0, 0, 0, 0, 0]
+    : community.contributesDigest
+
   return (
     <Wrapper>
-      <a
-        href={`/${community.raw}/posts`}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+      <Left>
         <CommunityIcon
           nonFill={contains(community.raw, NON_FILL_COMMUNITY)}
           src={community.logo}
-          // loading={<CommunityHolder text={community.raw} place="discovery" />}
         />
-      </a>
-      <Title>{community.title}</Title>
-      <Desc>{cutRest(community.desc, 20)}</Desc>
-      <ActivitySpark>
-        <TrendLine data={community.contributesDigest} />
-      </ActivitySpark>
-      <Footer>
-        <>
-          {/* TODO: number color should be different when number grow large */}
-          {prettyNum(community.subscribersCount)}{' '}
-          {community.subscribersCount < 1000 ? '人加入' : '加入'}
-        </>
-
-        <SubscribeBtn
-          community={community}
-          subscribing={subscribing}
-          subscribingId={subscribingId}
-        />
-      </Footer>
+        <Raw>{community.raw}</Raw>
+        <ActivitySpark>
+          <TrendLine data={trendData} />
+          {/* <TrendLine data={[3, 4, 7, 5, 4, 10, 6]} /> */}
+        </ActivitySpark>
+        <SpaceGrow />
+        <ContentWrapper>
+          内容&nbsp;{prettyNum(community.subscribersCount)}
+        </ContentWrapper>
+      </Left>
+      <Right>
+        <Link href={`/${community.raw}`} passHref>
+          <Title>{community.title}</Title>
+        </Link>
+        <Desc>{cutRest(community.desc, 20)}</Desc>
+        <SpaceGrow />
+        <Footer>
+          <JoinWrapper>
+            {prettyNum(community.subscribersCount)}&nbsp;加入
+          </JoinWrapper>
+          <SubscribeBtn
+            community={community}
+            subscribing={subscribing}
+            subscribingId={subscribingId}
+          />
+        </Footer>
+      </Right>
     </Wrapper>
   )
 }

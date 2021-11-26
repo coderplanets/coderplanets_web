@@ -33,14 +33,15 @@ const TopInfo: FC<TProps> = ({
     case METRIC.WORKS_ARTICLE: {
       return <WorksArticle {...restProps} />
     }
+    case METRIC.EXPLORE: {
+      return <General title="发现社区" />
+    }
     case METRIC.COOL_GUIDE: {
       return <General title="酷导航" />
     }
-
     case METRIC.WORKS: {
       return <General title="作品集市" />
     }
-
     case METRIC.MEETUPS: {
       return <General title="小聚" />
     }
@@ -48,7 +49,6 @@ const TopInfo: FC<TProps> = ({
     case METRIC.SUPPORT_US: {
       return <General title="支持我们" />
     }
-
     case METRIC.SUBSCRIBE: {
       return <General title="内容订阅" />
     }

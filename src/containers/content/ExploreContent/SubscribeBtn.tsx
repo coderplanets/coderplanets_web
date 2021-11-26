@@ -23,13 +23,14 @@ const SubscribeBtn: FC<TProps> = ({
 }) => {
   if (subscribing && community.id === subscribingId) {
     return (
-      <Button size="small" type="primary">
+      <Button size="tiny" type="primary">
         加入 ..
       </Button>
     )
   }
   return (
     <FollowButton
+      size="tiny"
       followText="加 入"
       followingText="已加入"
       hasFollowed={community.viewerHasSubscribed}

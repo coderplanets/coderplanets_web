@@ -76,10 +76,8 @@ const ExploreContentContainer: FC<TProps> = ({
                 <Pagi
                   {...pagiInfo}
                   onChange={pageOnChange}
-                  margin={{ bottom: '60px' }}
-                >
-                  <div>社区行动指南</div>
-                </Pagi>
+                  margin={{ top: '30px', bottom: '40px' }}
+                />
               </>
             ) : (
               <NotFound searchValue={searchValue} />

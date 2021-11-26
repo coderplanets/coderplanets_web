@@ -10,6 +10,7 @@ import {
   queryStringToJSON,
   ssrParseURL,
   ssrRescue,
+  refreshIfneed,
   exploreSEO,
   ssrError,
 } from '@/utils'
@@ -57,16 +58,15 @@ const fetchData = async (context, opt = {}) => {
 }
 
 export const getServerSideProps = async (context) => {
-  // const { communityPath, thread } = ssrParseURL(props.req)
   let resp
   try {
     resp = await fetchData(context)
-  } catch ({ response: { errors } }) {
-    if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(context, { tokenExpired: true })
-    } else {
-      return ssrError(context, 'fetch', 500)
-    }
+    const { sessionState } = resp
+
+    refreshIfneed(sessionState, '/explore', context)
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    return ssrError(context, 'fetch', 500)
   }
 
   const { pagedCategories, pagedCommunities } = resp
@@ -88,7 +88,7 @@ const ExplorePage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig}>
+      <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig} noSidebar>
         <ExploreContent />
       </GlobalLayout>
     </Provider>

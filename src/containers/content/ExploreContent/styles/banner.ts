@@ -12,21 +12,22 @@ export const BannerContainer = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flexColumn('justify-center')};
 
   position: relative;
-  min-height: 170px;
+  min-height: 220px;
   border-bottom: 1px solid;
   /* background: ${theme('banner.bg')}; */
   border-bottom: ${theme('banner.spliter')};
   @media (max-height: 800px) {
-    min-height: 160px;
+    min-height: 200px;
   }
 `
 export const IntroWrapper = styled.div`
   ${css.flexColumn('align-both')};
+  padding-top: 30px;
   color: ${theme('thread.articleDigest')};
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 250px;
+  height: 300px;
 `
 export const IntroTitle = styled.div`
   ${css.flex('align-center')};
