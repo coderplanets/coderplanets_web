@@ -2,16 +2,21 @@ import { FC } from 'react'
 
 import type { TFiltersMenuItems } from '@/spec'
 
-import { mockFilterMenuTags } from '@/utils/mock'
+import { mockMeetupsFilterTags } from '@/utils/mock'
 
 import BrandTitle from '@/widgets/BrandTitle'
 import Sticky from '@/widgets/Sticky'
 import Button from '@/widgets/Buttons/Button'
 import FiltersMenu from '@/widgets/FiltersMenu'
 import DotDivider from '@/widgets/DotDivider'
-import { Br } from '@/widgets/Common'
 
-import { Wrapper, NaviFooter, Terms, TermItem } from '../styles/filter_bar'
+import {
+  Wrapper,
+  FilterWrapper,
+  NaviFooter,
+  Terms,
+  TermItem,
+} from '../styles/filter_bar'
 
 type TProps = {
   filtersItems: TFiltersMenuItems
@@ -20,23 +25,24 @@ type TProps = {
 const FilterBar: FC<TProps> = ({ filtersItems }) => {
   return (
     <Wrapper>
+      <BrandTitle
+        title="Meetups"
+        fontSize={23}
+        mBottom={25}
+        desc="来和志同道合的伙伴们一起聊聊吧 !"
+      />
       <Sticky offsetTop={26}>
-        <Br top={12} />
-        <BrandTitle
-          title="Meetups"
-          fontSize={23}
-          mBottom={45}
-          desc="来和志同道合的朋友们一起聊聊?"
-        />
-        <FiltersMenu tags={mockFilterMenuTags()} revert />
+        <FilterWrapper>
+          <FiltersMenu tags={mockMeetupsFilterTags()} revert />
+        </FilterWrapper>
         <NaviFooter>
           <Button type="primary" size="small" ghost>
             + 发起小聚
           </Button>
 
           <Terms>
-            <TermItem>关于</TermItem> <DotDivider radius={3} />{' '}
-            <TermItem>建议</TermItem> <DotDivider radius={3} />{' '}
+            <TermItem>关于</TermItem> <DotDivider space={6} radius={3} />{' '}
+            <TermItem>建议</TermItem> <DotDivider space={6} radius={3} />{' '}
             <TermItem>举报</TermItem>
           </Terms>
         </NaviFooter>

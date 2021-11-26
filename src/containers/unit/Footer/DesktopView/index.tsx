@@ -5,6 +5,7 @@
  */
 
 import { FC } from 'react'
+import { includes } from 'ramda'
 // import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
@@ -43,6 +44,15 @@ const FooterContainer: FC<TProps> = ({
 
   const { viewingArticle, curCommunity, c11n } = store
   const isHome = curCommunity.raw === HCN
+  const isGeneral = includes(metric, [
+    METRIC.WORKS_ARTICLE,
+    METRIC.COOL_GUIDE,
+    METRIC.MEETUPS,
+    METRIC.WORKS,
+    METRIC.SUBSCRIBE,
+    METRIC.SUPPORT_US,
+    METRIC.HAVE_A_DRINK,
+  ])
 
   return (
     <Wrapper testid={testid} layout={c11n.bannerLayout} metric={metric}>
@@ -50,29 +60,17 @@ const FooterContainer: FC<TProps> = ({
       {metric === METRIC.COMMUNITY && isHome && (
         <HomeLayout metric={metric} layout={c11n.bannerLayout} />
       )}
+
       {metric === METRIC.COMMUNITY && !isHome && (
-        <GeneralLayout metric={METRIC.COMMUNITY} title={curCommunity.title} />
+        <GeneralLayout metric={metric} title={curCommunity.title} />
       )}
+
       {metric === METRIC.WORKS_ARTICLE && (
         <WorksArticleLayout viewingArticle={viewingArticle} />
       )}
-      {metric === METRIC.COOL_GUIDE && (
-        <GeneralLayout metric={METRIC.COOL_GUIDE} />
-      )}
-      {metric === METRIC.MEETUPS && <GeneralLayout metric={METRIC.MEETUPS} />}
-      {metric === METRIC.WORKS && <GeneralLayout metric={METRIC.WORKS} />}
-      {metric === METRIC.SUPPORT_US && (
-        <GeneralLayout metric={METRIC.SUPPORT_US} />
-      )}
-      {metric === METRIC.SUBSCRIBE && (
-        <GeneralLayout metric={METRIC.SUBSCRIBE} />
-      )}
-      {metric === METRIC.HAVE_A_DRINK && (
-        <GeneralLayout metric={METRIC.HAVE_A_DRINK} />
-      )}
-      {/* {type === VIEW.HOME && (
-        <CommunityView metric={metric} layout={bannerLayout} />
-      )} */}
+
+      {isGeneral && <GeneralLayout metric={metric} />}
+
       {/* {type === VIEW.HOME && (
         <HostingCommunityView metric={metric} layout={bannerLayout} />
       )} */}

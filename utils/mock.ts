@@ -370,6 +370,108 @@ export const mockFilterMenuTags = (): TFilterTag[] => {
   ]
 }
 
+export const mockMeetupsFilterTags = (): TFilterTag[] => {
+  return [
+    {
+      id: '1',
+      raw: 'beijing',
+      title: '北京',
+      group: '城市',
+    },
+    {
+      id: '2',
+      raw: 'shanghai',
+      title: '上海',
+      group: '城市',
+    },
+    {
+      id: '2-1',
+      raw: 'hangzhou',
+      title: '杭州',
+      group: '城市',
+    },
+    {
+      id: '3',
+      raw: 'shenzhen',
+      title: '深圳',
+      group: '城市',
+    },
+    {
+      id: '4',
+      raw: 'wuhan',
+      title: '武汉',
+      group: '城市',
+    },
+    {
+      id: '5',
+      raw: 'chengdu',
+      title: '成都',
+      group: '城市',
+    },
+    {
+      id: '6',
+      raw: 'xiamen',
+      title: '厦门',
+      group: '城市',
+    },
+    {
+      id: '7',
+      raw: 'oversea',
+      title: '海外',
+      group: '城市',
+    },
+    {
+      id: '8',
+      raw: 'remote',
+      title: '远程',
+      group: '城市',
+    },
+    //
+    {
+      id: '10',
+      raw: 'web',
+      title: 'web',
+      group: '话题',
+    },
+    {
+      id: '11',
+      raw: 'backend',
+      title: '后端开发',
+      group: '话题',
+    },
+    {
+      id: '12',
+      raw: 'mobile',
+      title: '移动端',
+      group: '话题',
+    },
+    {
+      id: '13',
+      raw: 'ai',
+      title: '人工智能',
+      group: '话题',
+    },
+    {
+      id: '14',
+      raw: 'devops',
+      title: 'DevOps',
+      group: '话题',
+    },
+    {
+      id: '15',
+      raw: 'securty',
+      title: '安全',
+      group: '话题',
+    },
+    {
+      id: '16',
+      raw: 'ama',
+      title: '我的产品',
+      group: '话题',
+    },
+  ]
+}
+
 export const mockWorksNaviCatalogTags = (): TNaviTag[] => {
   return [
     // 生产力 start

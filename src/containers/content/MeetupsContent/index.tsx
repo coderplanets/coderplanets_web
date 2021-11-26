@@ -7,8 +7,6 @@
 import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
-import { ASSETS_ENDPOINT } from '@/config'
-import { GALLERY } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -20,11 +18,10 @@ import type { TStore } from './store'
 
 import FilterBar from './FilterBar'
 import DateSelector from './DateSelector'
-// import ActivityCard from './ActivityCard'
 import Card from './Card'
+import About from './About'
 
 import filtersItems from './fakeFiltersItems'
-// import meetups from './fakeMeetups'
 
 import { Wrapper, InnerWrapper, ContentWrapper, CardsWrapper } from './styles'
 import { useInit } from './logic'
@@ -47,8 +44,6 @@ const MeetupsContentContainer: FC<TProps> = ({
 
   const { pagedMeetupsData } = store
 
-  console.log('## pagedMeetupsData: ', pagedMeetupsData.entries)
-
   return (
     <Wrapper testid={testid}>
       <InnerWrapper metric={metric}>
@@ -62,6 +57,7 @@ const MeetupsContentContainer: FC<TProps> = ({
               ))}
             </MasonryCards>
           </CardsWrapper>
+          <About />
 
           <Pagi margin={{ top: '60px', bottom: '80px' }} />
         </ContentWrapper>

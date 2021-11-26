@@ -14,6 +14,7 @@ export const ItemWrapper = styled.div<{ withDivider: boolean }>`
   border-bottom: ${({ withDivider }) => (withDivider ? '1px solid' : 'none')};
   border-bottom-color: ${({ withDivider }) =>
     withDivider ? '#094354' : 'none'};
+  margin-bottom: 10px;
 
   :last-child {
     border-bottom: none;
@@ -28,9 +29,7 @@ type TItem = TActive & {
 export const Item = styled.div<TItem>`
   ${css.flex('align-center')};
   justify-content: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
-  fill: ${theme('thread.articleDigest')};
-  color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  color: ${theme('thread.articleTitle')};
   font-size: ${({ active }) => (active ? '15px' : '14px')};
   padding: 8px 6px;
   padding-bottom: ${({ noFilter }) => (noFilter ? '10px' : '5px')};
@@ -47,6 +46,7 @@ export const Item = styled.div<TItem>`
   transition: margin-top 0.25s;
 `
 export const Icon = styled(Img)<TActive>`
+  fill: ${theme('thread.articleDigest')};
   opacity: ${({ active }) => (active ? 1 : 0)};
   ${css.size(15)};
 

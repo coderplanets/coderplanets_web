@@ -18,6 +18,7 @@ export const Title = styled.div`
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
   font-size: 13px;
   margin-top: 15px;
 `
