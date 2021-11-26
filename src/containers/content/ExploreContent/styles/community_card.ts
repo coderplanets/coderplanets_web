@@ -9,16 +9,16 @@ const BaseCard = styled.div`
 
   position: relative;
   padding: 15px 20px;
-  width: 250px;
+  width: 260px;
   height: 150px;
-  margin-right: 30px;
+  margin-right: 25px;
   background: #0c3442; // ${theme('content.cardBg')};
   border: 1px solid;
   border-color: ${theme('content.cardBorder')};
-  border-radius: 12px;
+  border-radius: 8px;
 `
 export const Wrapper = styled(BaseCard)`
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 
   &:hover {
     cursor: pointer;
