@@ -11,11 +11,15 @@ export const tags2Options = (tags: TTag[]): TMenu => {
   const formated = []
 
   keys(groupedTags).forEach((group, index) => {
+    const icon =
+      group === '城市'
+        ? `${ICON_CMD}/navi/location.svg`
+        : `${ICON_CMD}/navi/topic.svg`
     formated.push({
       id: index,
       title: group,
-      icon: `${ICON_CMD}/navi/location.svg`,
-      options: [{ id: '', title: '全部' }, ...groupedTags[group]],
+      icon,
+      options: [{ id: '', title: '不限' }, ...groupedTags[group]],
     })
   })
 

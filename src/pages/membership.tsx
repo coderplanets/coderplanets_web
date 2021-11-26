@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     resp = await fetchData(context)
     const { sessionState } = resp
 
-    refreshIfneed(sessionState, '/trending', context)
+    refreshIfneed(sessionState, '/membership', context)
   } catch (e) {
     console.log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)

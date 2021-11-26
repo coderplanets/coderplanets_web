@@ -7,8 +7,6 @@
 import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
-import { ASSETS_ENDPOINT } from '@/config'
-import { GALLERY } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -46,8 +44,6 @@ const MeetupsContentContainer: FC<TProps> = ({
   useInit(store)
 
   const { pagedMeetupsData } = store
-
-  console.log('## pagedMeetupsData: ', pagedMeetupsData.entries)
 
   return (
     <Wrapper testid={testid}>

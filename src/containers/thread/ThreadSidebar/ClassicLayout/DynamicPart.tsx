@@ -51,7 +51,6 @@ const ClassicLayout: FC<TProps> = ({
       </BadgeWrapper>
       <TagsBarWrapper>
         <TagsBar onSelect={() => send(EVENT.REFRESH_ARTICLES)} />
-        {/* <FiltersMenu tags={mockFilterMenuTags()} revert /> */}
       </TagsBarWrapper>
     </Sticky>
   )

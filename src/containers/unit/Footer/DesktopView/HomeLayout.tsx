@@ -131,7 +131,7 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
           </Column>
 
           <Column>
-            <Title>Brand</Title>
+            <Title>品牌</Title>
             <Body>
               <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
                 价值观

@@ -3,12 +3,12 @@ import { Provider } from 'mobx-react'
 import { METRIC, THREAD } from '@/constant'
 
 import {
-  ssrBaseStates,
-  ssrFetchPrepare,
   ssrHomePagedArticlesFilter,
   ssrPagedArticleSchema,
   ssrParseArticleThread,
-  ssrRescue,
+  ssrBaseStates,
+  ssrFetchPrepare,
+  refreshIfneed,
   meetupsSEO,
   ssrError,
 } from '@/utils'
@@ -29,17 +29,10 @@ const fetchData = async (context, opt = {}) => {
     filter,
   )
   const sessionState = gqClient.request(P.sessionState)
-  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
-    filter: {
-      page: 1,
-      size: 30,
-    },
-  })
 
   return {
     filter,
     ...(await sessionState),
-    ...(await subscribedCommunities),
     ...(await pagedArticles),
   }
 }
@@ -48,12 +41,12 @@ export const getServerSideProps = async (context) => {
   let resp
   try {
     resp = await fetchData(context)
-  } catch ({ response: { errors } }) {
-    if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(context, { tokenExpired: true })
-    } else {
-      return ssrError(context, 'fetch', 500)
-    }
+    const { sessionState } = resp
+
+    refreshIfneed(sessionState, '/meetups', context)
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    return ssrError(context, 'fetch', 500)
   }
 
   const { filter } = resp

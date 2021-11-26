@@ -17,15 +17,16 @@ export const Wrapper = styled.div`
   margin-bottom: 20px;
 
   color: ${theme('thread.articleDigest')};
-  border-top: 2px solid;
-  border-top-color: transparent;
+  border: 1px solid;
+  border-top: 3px solid;
+  border-color: transparent;
 
   background: #0d3644;
 
   &:hover {
-    border-top-color: #2380aa;
+    border-color: ${theme('button.primary')};
   }
-  transition: border-top 0.1s;
+  transition: all 0.1s;
 `
 export const ContentsWrapper = styled.div`
   ${css.flexColumn()};
