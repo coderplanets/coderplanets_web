@@ -88,7 +88,7 @@ const ExplorePage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig}>
+      <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig} noSidebar>
         <ExploreContent />
       </GlobalLayout>
     </Provider>
