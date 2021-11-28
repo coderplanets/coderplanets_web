@@ -27,6 +27,7 @@ const NON_STANDARD_COMMUNITIES = [HCN, 'feedback']
 
 type TProps = {
   community: TCommunity
+  realtimeVisitors: number
   descExpand: boolean
   activeThread: TThread
   layout: TC11NLayout
@@ -35,6 +36,7 @@ type TProps = {
 
 const ClassicLayout: FC<TProps> = ({
   community,
+  realtimeVisitors,
   descExpand,
   activeThread,
   layout,
@@ -62,6 +64,7 @@ const ClassicLayout: FC<TProps> = ({
               community={community}
               onShowEditorList={onShowEditorList}
               onShowSubscriberList={onShowSubscriberList}
+              realtimeVisitors={realtimeVisitors}
             />
           </CommunityBaseInfo>
           <TabBarWrapper>

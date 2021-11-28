@@ -33,6 +33,7 @@ const CommunityDigestContainer: FC<TProps> = ({
     accountInfo: {
       customization: { bannerLayout },
     },
+    realtimeVisitors,
     curThread,
     curCommunity,
     descExpand,
@@ -41,6 +42,7 @@ const CommunityDigestContainer: FC<TProps> = ({
   return (
     <ClassicLayout
       metric={metric}
+      realtimeVisitors={realtimeVisitors}
       community={curCommunity}
       activeThread={curThread}
       layout={bannerLayout}

@@ -14,6 +14,8 @@ import { markStates, toJS } from '@/utils/mobx'
 const FooterStore = T.model('FooterStore', {
   showSponsor: T.optional(T.boolean, false),
   metric: T.optional(T.string, METRIC.COMMUNITY),
+  // online-status
+  realtimeVisitors: T.optional(T.number, 1),
 })
   .views((self) => ({
     get isLogin(): boolean {

@@ -34,6 +34,10 @@ const CommunityDigest = T.model('CommunityDigest', {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing)
     },
+    get realtimeVisitors(): number {
+      const root = getParent(self) as TRootStore
+      return root.footer.realtimeVisitors
+    },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
       return root.accountInfo

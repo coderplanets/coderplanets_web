@@ -1,19 +1,20 @@
 import { useEffect } from 'react'
 
 import type { TMetric } from '@/spec'
-import { EVENT, PAYMENT_USAGE } from '@/constant'
+import { EVENT } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
-// import S from './schema'
+import uid from '@/utils/uid'
+import S from './schema'
 
 import type { TStore } from './store'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Footer2')
 
-const { SR71, $solver } = asyncSuit
+const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71()
 
 let sub$ = null
@@ -25,11 +26,27 @@ export const toggleSponsorHelper = (): void =>
 export const onLogin = (): void => store.authWarning({ hideToast: true })
 export const queryDoraemon = (data): void => send(EVENT.QUERY_DORAMON, { data })
 
+const getOnlineStatus = (): void => {
+  sr71$.query(S.onlineStatus, { freshkey: uid.gen() })
+
+  setInterval(() => {
+    sr71$.query(S.onlineStatus, { freshkey: uid.gen() })
+  }, 10000)
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
+const DataSolver = [
+  {
+    match: asyncRes('onlineStatus'),
+    action: ({ onlineStatus }): void => {
+      const { realtimeVisitors } = onlineStatus
+      store.mark({ realtimeVisitors })
+    },
+  },
+]
 const ErrSolver = []
 
 // ###############################
@@ -40,6 +57,7 @@ export const useInit = (_store: TStore, metric: TMetric): void => {
     store = _store
     store.mark({ metric })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    getOnlineStatus()
 
     return () => {
       sub$.unsubscribe()
