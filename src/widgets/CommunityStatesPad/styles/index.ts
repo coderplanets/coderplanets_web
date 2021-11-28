@@ -54,3 +54,7 @@ export const NumberDivider = styled.div`
   `};
   ${css.media.mobile`display: none`};
 `
+
+export const PopHint = styled.div`
+  width: 200px;
+`

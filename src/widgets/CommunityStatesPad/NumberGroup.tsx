@@ -2,12 +2,14 @@ import { FC, memo } from 'react'
 
 import { prettyNum } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+import AnimatedCount from '@/widgets/AnimatedCount'
 
 import {
   Wrapper,
   NumberItem,
   LargeNumberItem,
   SubNumberWrapper,
+  SubNum,
   GreenDot,
   PlusSign,
 } from './styles/number_group'
@@ -32,7 +34,7 @@ const NumberGroup: FC<TProps> = ({
 }) => {
   return (
     <Wrapper>
-      {subCount ? (
+      {subCount >= 0 ? (
         <NumberItem readOnly={readOnly} onClick={onClick}>
           {prettyNum(count)}
         </NumberItem>
@@ -42,11 +44,13 @@ const NumberGroup: FC<TProps> = ({
         </LargeNumberItem>
       )}
 
-      {subCount && (
+      {subCount >= 0 && (
         <SubNumberWrapper>
           {subPrefix === 'online' && <GreenDot />}
           {subPrefix === 'add' && <PlusSign>+</PlusSign>}
-          {subCount}
+          <SubNum>
+            <AnimatedCount count={subCount} size="tiny" />
+          </SubNum>
         </SubNumberWrapper>
       )}
     </Wrapper>

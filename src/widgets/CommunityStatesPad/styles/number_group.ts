@@ -11,8 +11,10 @@ export const SubNumberWrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('banner.numberDesc')};
   font-size: 13px;
-  margin-right: 0.5px;
   margin-top: -1px;
+`
+export const SubNum = styled.div`
+  opacity: 0.6;
 `
 export const GreenDot = styled.div`
   background: ${theme('baseColor.green')};

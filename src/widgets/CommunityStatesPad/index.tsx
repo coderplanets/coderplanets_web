@@ -9,6 +9,8 @@ import { FC, memo } from 'react'
 import type { TCommunity } from '@/spec'
 import usePlatform from '@/hooks/usePlatform'
 import { buildLog } from '@/utils/logger'
+import { getRandomInt } from '@/utils/helper'
+import Tooltip from '@/widgets/Tooltip'
 
 import Charger from '@/widgets/Charger'
 
@@ -22,6 +24,7 @@ import {
   ChargeSection,
   NumberDivider,
   NumberTitle,
+  PopHint,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -29,6 +32,7 @@ const log = buildLog('c:CommunityStatesPad:index')
 
 type TProps = {
   community: TCommunity
+  realtimeVisitors?: number
   withoutFounding?: boolean
   onShowEditorList?: () => void
   onShowSubscriberList?: () => void
@@ -36,6 +40,7 @@ type TProps = {
 
 const CommunityStatesPad: FC<TProps> = ({
   community,
+  realtimeVisitors = 1,
   onShowEditorList = log,
   onShowSubscriberList = log,
   withoutFounding = true,
@@ -48,22 +53,35 @@ const CommunityStatesPad: FC<TProps> = ({
     <Wrapper>
       <NumberSection>
         {!isMobile && <NumberTitle>成员</NumberTitle>}
-        <NumberGroup
-          count={subscribersCount}
-          subCount={12}
-          onClick={onShowSubscriberList}
-          subPrefix="online"
-        />
+        <Tooltip
+          content={
+            <PopHint>
+              实时在线人数，后续会单独统计每个子社区的实时在线人数。
+            </PopHint>
+          }
+          placement="bottom"
+        >
+          <NumberGroup
+            count={subscribersCount}
+            subCount={realtimeVisitors}
+            onClick={onShowSubscriberList}
+            subPrefix="online"
+          />
+        </Tooltip>
       </NumberSection>
       <NumberDivider />
       <ContentSection>
         <NumberTitle readOnly>内容</NumberTitle>
-        <NumberGroup
-          subPrefix="add"
-          count={contentsCount}
-          subCount={4}
-          readOnly
-        />
+        <Tooltip
+          content={<PopHint>较前一天新增内容，功能开发中</PopHint>}
+          placement="bottom"
+        >
+          <NumberGroup
+            subPrefix="add"
+            count={contentsCount}
+            subCount={getRandomInt(1, 8)}
+          />
+        </Tooltip>
       </ContentSection>
       <NumberDivider />
       <VolunteerSection alignCenter={editorsCount < 99}>
