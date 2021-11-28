@@ -25,7 +25,7 @@ import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   // const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
@@ -66,12 +66,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   let resp
   try {
-    resp = await fetchData(context)
+    resp = await loader(context)
   } catch (e) {
     console.log('#### error from server: ', e)
     if (ssrRescue.hasLoginError(e.response?.errors)) {
       // token 过期了，重新用匿名方式请求一次
-      await fetchData(context, { tokenExpired: true })
+      await loader(context, { tokenExpired: true })
     } else {
       return ssrError(context, 'fetch', 500)
     }

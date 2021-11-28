@@ -12,7 +12,7 @@ import GlobalLayout from '@/containers/layout/GlobalLayout'
 import RecipesContent from '@/containers/content/RecipesContent'
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt) => {
+const loader = async (props, opt) => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -35,10 +35,10 @@ const fetchData = async (props, opt) => {
 export const getServerSideProps = async (props) => {
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await loader(props)
   } catch ({ response: { errors } }) {
     if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(props, { tokenExpired: true })
+      resp = await loader(props, { tokenExpired: true })
     }
   }
 
