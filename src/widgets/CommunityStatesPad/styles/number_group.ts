@@ -5,6 +5,7 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
+  position: relative;
   ${css.flexColumn('align-end')};
 `
 export const SubNumberWrapper = styled.div`
@@ -23,8 +24,12 @@ export const GreenDot = styled.div`
   border-radius: 50%;
   margin-right: 5px;
 `
-export const PlusSign = styled.div`
-  margin-right: 2px;
+export const ActivitySpark = styled.div`
+  position: absolute;
+  bottom: -38px;
+  right: -14px;
+  width: 50px;
+  height: 40px;
 `
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberItem = styled.div<{ readOnly: boolean }>`
@@ -40,8 +45,4 @@ export const NumberItem = styled.div<{ readOnly: boolean }>`
     font-size: 16px;
     margin-bottom: 2px;
   `};
-`
-export const LargeNumberItem = styled(NumberItem)`
-  font-size: 24px;
-  margin-top: -4px;
 `

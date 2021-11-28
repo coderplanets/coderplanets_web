@@ -65,6 +65,7 @@ const CommunityStatesPad: FC<TProps> = ({
             count={subscribersCount}
             subCount={realtimeVisitors}
             onClick={onShowSubscriberList}
+            contributesDigest={community.contributesDigest}
             subPrefix="online"
           />
         </Tooltip>
@@ -72,16 +73,11 @@ const CommunityStatesPad: FC<TProps> = ({
       <NumberDivider />
       <ContentSection>
         <NumberTitle readOnly>内容</NumberTitle>
-        <Tooltip
-          content={<PopHint>较前一天新增内容，功能开发中</PopHint>}
-          placement="bottom"
-        >
-          <NumberGroup
-            subPrefix="add"
-            count={contentsCount}
-            subCount={getRandomInt(1, 8)}
-          />
-        </Tooltip>
+        <NumberGroup
+          subPrefix="contributes"
+          count={contentsCount}
+          subCount={getRandomInt(1, 8)}
+        />
       </ContentSection>
       <NumberDivider />
       <VolunteerSection alignCenter={editorsCount < 99}>

@@ -4,18 +4,25 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 import Trend from 'react-trend'
 import { useTheme } from 'styled-components'
 
+import type { TThemeMap } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TrendLine:index')
 
-const TrendLine = ({ data, radius, width }) => {
-  const theme = useTheme()
+type TProps = {
+  data: number[]
+  radius?: number
+  width?: number
+}
+
+const TrendLine: FC<TProps> = ({ data, radius = 15, width = 5 }) => {
+  const theme = useTheme() as TThemeMap
+
   const {
     heatmap: { activityLow, activityHight },
   } = theme
@@ -32,17 +39,4 @@ const TrendLine = ({ data, radius, width }) => {
   )
 }
 
-TrendLine.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  data: T.array,
-  width: T.number,
-  radius: T.number,
-}
-
-TrendLine.defaultProps = {
-  data: [],
-  radius: 15,
-  width: 3,
-}
-
-export default TrendLine
+export default memo(TrendLine)

@@ -26,3 +26,7 @@ export const ArchivedSign = dynamic(() => import('./ArchivedSign'), {
 export const IllegalWarning = dynamic(() => import('./IllegalWarning'), {
   ssr: false,
 })
+
+export const TrendLine = dynamic(() => import('./TrendLine'), {
+  ssr: false,
+})
