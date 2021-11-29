@@ -173,7 +173,7 @@ class LocationMap extends React.Component {
         <RealMap id={this.chartId} />
         <NoticeWrapper>
           地理坐标信息由注册用户 IP
-          地址根据第三方地图服务商获得（城市定位仅限国内）。由科学上网等因素导致的误差后期会专门提供手动矫正措施。全球范围内的访问数据可
+          地址根据第三方地图服务商获得（城市定位仅限国内）。由定位失败或科学上网等因素导致的误差后期会专门提供手动矫正措施。全球范围内的访问数据可
           <TheLink
             href="https://plausible.io/coderplanets.com/countries"
             target="_blank"
