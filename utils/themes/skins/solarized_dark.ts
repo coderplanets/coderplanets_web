@@ -216,7 +216,7 @@ const solarizedDark = {
   geoMap: {
     oceanColor: '#002D39',
     regionBg: '#024a5d',
-    restRegionBg: '#003B49',
+    restRegionBg: darken(0.01, bannerBg),
     borderStroke: descText,
     markerBg: darken(0.08, '#41c7bd'),
     markerShadow: darken(0.08, '#41c7bd'),

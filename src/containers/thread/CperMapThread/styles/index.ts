@@ -25,12 +25,7 @@ export const MapWrapper = styled.div`
   min-height: 620px;
   ${css.media.mobile`width: 250%;`};
 `
-export const RealMap = styled.div`
-  /* border-radius: 10px; */
-  border: 1px solid;
-  border-color: #003b49;
-  border-bottom: none;
-`
+export const RealMap = styled.div``
 export const NoticeWrapper = styled.div`
   width: 100%;
   padding-left: 35px;
