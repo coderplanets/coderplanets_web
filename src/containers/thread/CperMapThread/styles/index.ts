@@ -25,7 +25,6 @@ export const MapWrapper = styled.div`
   min-height: 620px;
   ${css.media.mobile`width: 250%;`};
 `
-
 export const RealMap = styled.div`
   /* border-radius: 10px; */
   border: 1px solid;
@@ -34,18 +33,19 @@ export const RealMap = styled.div`
 `
 export const NoticeWrapper = styled.div`
   width: 100%;
-  ${css.flex('justify-center')};
+  padding-left: 35px;
+  padding-right: 70px;
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
   margin-top: 30px;
   opacity: 0.8;
 `
-
 export const TheLink = styled.a`
   color: #139c9e;
   text-decoration: none;
   margin-left: 1px;
   margin-right: 1px;
+  word-break: break-all;
 
   &:hover {
     color: #139c9e;
