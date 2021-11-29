@@ -9,12 +9,14 @@ import { FC, memo } from 'react'
 import type { TCommunity } from '@/spec'
 import usePlatform from '@/hooks/usePlatform'
 import { buildLog } from '@/utils/logger'
-import { getRandomInt } from '@/utils/helper'
 import Tooltip from '@/widgets/Tooltip'
 
 import Charger from '@/widgets/Charger'
 
-import NumberGroup from './NumberGroup'
+import SubscribeStatus from './SubscribeStatus'
+import ContentStatus from './ContentStatus'
+import VolunteerStatus from './VolunteerStatus'
+
 import {
   Wrapper,
   NumberSection,
@@ -44,7 +46,8 @@ const CommunityStatesPad: FC<TProps> = ({
   onShowSubscriberList = log,
   withoutFounding = true,
 }) => {
-  const { editorsCount, subscribersCount, articlesCount } = community
+  const { editorsCount, subscribersCount, contributesDigest, articlesCount } =
+    community
   const { isMobile } = usePlatform()
 
   return (
@@ -59,28 +62,25 @@ const CommunityStatesPad: FC<TProps> = ({
           }
           placement="bottom"
         >
-          <NumberGroup
+          <SubscribeStatus
             count={subscribersCount}
             subCount={realtimeVisitors}
             onClick={onShowSubscriberList}
-            contributesDigest={community.contributesDigest}
-            subPrefix="online"
           />
         </Tooltip>
       </NumberSection>
       <NumberDivider />
       <ContentSection>
         <NumberTitle readOnly>内容</NumberTitle>
-        <NumberGroup
-          subPrefix="contributes"
+        <ContentStatus
           count={articlesCount}
-          subCount={getRandomInt(1, 8)}
+          contributesDigest={contributesDigest}
         />
       </ContentSection>
       <NumberDivider />
       <VolunteerSection alignCenter={editorsCount < 99}>
         <NumberTitle readOnly>志愿者</NumberTitle>
-        <NumberGroup onClick={onShowEditorList} count={editorsCount} />
+        <VolunteerStatus count={editorsCount} onClick={onShowEditorList} />
       </VolunteerSection>
       {!withoutFounding && (
         <>

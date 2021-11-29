@@ -173,14 +173,21 @@ class LocationMap extends React.Component {
         <RealMap id={this.chartId} />
         <NoticeWrapper>
           地理数据由注册用户 IP
-          地址根据第三方地图服务商获得（港澳台地区地区可能会有误差，不涉及任何政治立场）。由科学上网等因素导致的误差后期会专门提供手动矫正措施。全球范围内的访问数据可通过
+          地址根据第三方地图服务商获得（城市定位仅限国内）。由科学上网等因素导致的误差后期会专门提供手动矫正措施。全球范围内的访问数据可
           <TheLink
             href="https://plausible.io/coderplanets.com/countries"
             target="_blank"
           >
-            这里查看
+            参考这里
           </TheLink>
-          。
+          （台湾地区单独统计，
+          <TheLink
+            href="https://en.wikipedia.org/wiki/ISO_3166-2:TW"
+            target="_blank"
+          >
+            非技术原因
+          </TheLink>
+          ，本站不持任何政治立场）。
         </NoticeWrapper>
       </MapWrapper>
     )

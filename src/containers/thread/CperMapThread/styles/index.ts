@@ -29,7 +29,7 @@ export const RealMap = styled.div``
 export const NoticeWrapper = styled.div`
   width: 100%;
   padding-left: 35px;
-  padding-right: 70px;
+  padding-right: 80px;
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
   margin-top: 30px;
