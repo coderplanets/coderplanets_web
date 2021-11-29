@@ -1,5 +1,5 @@
 /*
-   this page is for /create/community
+   this page is for /apply/community
  */
 import { Provider } from 'mobx-react'
 

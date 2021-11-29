@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
+import Link from 'next/link'
 
 import type { TMetric } from '@/spec'
 
@@ -29,9 +30,9 @@ const NotFoundMessage: FC<TProps> = ({ metric, path }) => {
         <HintTitle testid="community-error-title">
           未找到社区
           {!isEmpty(path) && <span>: {path}</span>}, 欢迎
-          <IssueLink href="/create/community" rel="noopener noreferrer">
-            参与创建
-          </IssueLink>
+          <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>
+            <IssueLink>参与创建</IssueLink>
+          </Link>
         </HintTitle>
       )
 

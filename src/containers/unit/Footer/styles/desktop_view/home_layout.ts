@@ -40,7 +40,7 @@ export const MainInfos = styled.div`
 `
 export const Column = styled.div<{ margin?: string }>`
   ${css.flexColumn()};
-  min-width: 100px;
+  min-width: 105px;
   margin-right: ${({ margin }) => margin || '50px'};
 `
 export const Title = styled.div`
