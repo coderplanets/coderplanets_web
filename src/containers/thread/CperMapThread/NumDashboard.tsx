@@ -3,16 +3,12 @@ import { sort, isEmpty } from 'ramda'
 
 import CustomScroller from '@/widgets/CustomScroller'
 // import { ICON_CMD } from '../../config'
-import DotDivider from '@/widgets/DotDivider'
 
 import {
   Wrapper,
-  SumWrapper,
-  DetailText,
   DashItem,
   Divider,
   Title,
-  Num,
   Chart,
   ChartBar,
 } from './styles/num_dashboard'
@@ -45,16 +41,14 @@ const NumDashboard: FC<TProps> = ({ total, geoData }) => {
       </SumWrapper> */}
       <CustomScroller
         direction="vertical"
-        height="200px"
+        height="250px"
         showShadow={false}
-        autoHide
+        autoHide={false}
       >
         {sortGeo.map((item, idx) => (
           <div key={item.value + item.city}>
             <DashItem>
               <Title active={idx <= 2}>{item.city}</Title>
-              {/* <DotDivider radius={3} space={3} />
-              <Num>{item.value}人</Num> */}
               <Chart>
                 <ChartBar
                   width={`${Math.floor((item.value / maxValue) * 100)}%`}

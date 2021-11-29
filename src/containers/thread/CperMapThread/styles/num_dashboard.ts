@@ -16,17 +16,7 @@ export const Wrapper = styled.div`
   width: 150px;
   transition: width 0.2s linear;
 `
-export const SumWrapper = styled.div`
-  ${css.flex('align-both')};
-  color: ${theme('thread.articleDigest')};
-`
-export const DetailText = styled.div`
-  color: ${theme('thread.articleDigest')};
-  &:hover {
-    color: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
-`
+
 export const DashItem = styled.div`
   ${css.flex('align-center')};
 `
@@ -45,12 +35,6 @@ export const Divider = styled.div<TActive>`
   width: 80%;
   margin-left: 8%;
   opacity: 0.5;
-`
-
-export const Num = styled.div`
-  color: ${theme('thread.articleDigest')};
-  width: 50px;
-  text-align: left;
 `
 export const Chart = styled.div`
   ${css.flexGrow()};
