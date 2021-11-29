@@ -110,6 +110,14 @@ const DrawerStore = T.model('DrawerStore', {
     },
     get articleNavi(): TArticleNavi {
       const slf = self as TStore
+
+      if (!contains(slf.curThread, values(ARTICLE_THREAD))) {
+        return {
+          previous: null,
+          next: null,
+        }
+      }
+
       const root = getParent(self) as TRootStore
       const viewingArticleId = slf.viewingArticle.id
 

@@ -5,7 +5,7 @@
  */
 
 import { FC } from 'react'
-import { keys } from 'ramda'
+import { keys, reverse } from 'ramda'
 
 import { pluggedIn } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
@@ -33,7 +33,7 @@ const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
     maxDisplayCount,
     totalCountThrold,
   } = store
-  const groupsKeys = keys(groupedTags) as string[]
+  const groupsKeys = reverse(keys(groupedTags)) as string[]
 
   return (
     <Wrapper>

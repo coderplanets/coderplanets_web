@@ -40,3 +40,16 @@ export const NoticeWrapper = styled.div`
   margin-top: 30px;
   opacity: 0.8;
 `
+
+export const TheLink = styled.a`
+  color: #139c9e;
+  text-decoration: none;
+  margin-left: 1px;
+  margin-right: 1px;
+
+  &:hover {
+    color: #139c9e;
+    cursor: pointer;
+    text-decoration: none;
+  }
+`

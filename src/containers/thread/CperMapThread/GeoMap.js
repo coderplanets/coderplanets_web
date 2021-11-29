@@ -4,11 +4,9 @@ import ReactResizeDetector from 'react-resize-detector'
 import uid from '@/utils/uid'
 import { buildLog } from '@/utils/logger'
 
-import { Br } from '@/widgets/Common'
-import NoticeBar from '@/widgets/NoticeBar'
 import fetchGeoData from './geo_data'
 
-import { MapWrapper, RealMap, NoticeWrapper } from './styles'
+import { MapWrapper, RealMap, NoticeWrapper, TheLink } from './styles'
 
 // TODO import it globaly, g2 is too big to load in time (> 400KB)
 // import G2 from 'g2'
@@ -159,8 +157,8 @@ class LocationMap extends React.Component {
       })
       .catch((ex) => log('parsing failed', ex))
   }
-  /* eslint-enable no-undef */
 
+  /* eslint-enable no-undef */
   render() {
     return (
       <MapWrapper>
@@ -174,8 +172,15 @@ class LocationMap extends React.Component {
         />
         <RealMap id={this.chartId} />
         <NoticeWrapper>
-          上图显示数据为本站已注册用户在中国境内的分布范围，数据由 IP
-          地址根据第三方地图服务商获得，仅供参考。
+          地理数据由注册用户 IP
+          地址根据第三方地图服务商获得（仅国内），后期会提供手动矫正。全球范围内的访问数据可通过
+          <TheLink
+            href="https://plausible.io/coderplanets.com/countries"
+            target="_blank"
+          >
+            这里查看
+          </TheLink>
+          。
         </NoticeWrapper>
       </MapWrapper>
     )
