@@ -23,7 +23,6 @@ export const community = `
         index
       }
       contributesDigest
-      subscribersCount
       editorsCount
       meta {
         postsCount
@@ -41,7 +40,6 @@ export const pagedCommunities = `
       entries {
         ${F.community}
         contributesDigest
-        subscribersCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
       ${F.pagi}

@@ -8,6 +8,7 @@ const pagedCommunities = gql`
         ${F.community}
         contributesDigest
         subscribersCount
+        articlesCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
       ${F.pagi}
@@ -22,6 +23,7 @@ const searchCommunities = gql`
         ${F.community}
         contributesDigest
         subscribersCount
+        articlesCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
       ${F.pagi}

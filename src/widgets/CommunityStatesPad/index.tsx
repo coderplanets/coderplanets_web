@@ -15,7 +15,6 @@ import Tooltip from '@/widgets/Tooltip'
 import Charger from '@/widgets/Charger'
 
 import NumberGroup from './NumberGroup'
-import { getContentCount } from './helper'
 import {
   Wrapper,
   NumberSection,
@@ -45,9 +44,8 @@ const CommunityStatesPad: FC<TProps> = ({
   onShowSubscriberList = log,
   withoutFounding = true,
 }) => {
-  const { editorsCount, subscribersCount } = community
+  const { editorsCount, subscribersCount, articlesCount } = community
   const { isMobile } = usePlatform()
-  const contentsCount = getContentCount(community)
 
   return (
     <Wrapper>
@@ -75,7 +73,7 @@ const CommunityStatesPad: FC<TProps> = ({
         <NumberTitle readOnly>内容</NumberTitle>
         <NumberGroup
           subPrefix="contributes"
-          count={contentsCount}
+          count={articlesCount}
           subCount={getRandomInt(1, 8)}
         />
       </ContentSection>
