@@ -9,7 +9,6 @@ import { FC, memo } from 'react'
 import type { TCommunity } from '@/spec'
 import usePlatform from '@/hooks/usePlatform'
 import { buildLog } from '@/utils/logger'
-import Tooltip from '@/widgets/Tooltip'
 
 import Charger from '@/widgets/Charger'
 
@@ -25,7 +24,6 @@ import {
   ChargeSection,
   NumberDivider,
   NumberTitle,
-  PopHint,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -54,20 +52,12 @@ const CommunityStatesPad: FC<TProps> = ({
     <Wrapper>
       <NumberSection>
         {!isMobile && <NumberTitle>成员</NumberTitle>}
-        <Tooltip
-          content={
-            <PopHint>
-              实时在线人数，后续会单独统计每个子社区的实时在线人数。
-            </PopHint>
-          }
-          placement="bottom"
-        >
-          <SubscribeStatus
-            count={subscribersCount}
-            subCount={realtimeVisitors}
-            onClick={onShowSubscriberList}
-          />
-        </Tooltip>
+
+        <SubscribeStatus
+          count={subscribersCount}
+          subCount={realtimeVisitors}
+          onClick={onShowSubscriberList}
+        />
       </NumberSection>
       <NumberDivider />
       <ContentSection>

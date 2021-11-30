@@ -46,6 +46,7 @@ export const FollowingIcon = styled(JoinEyeSVG)`
 `
 export const FollowedButton = styled(Button)`
   border-radius: 10px;
+  padding-top: 3px;
 `
 export const FollowingButton = styled(Button)<{ followingOffset: number }>`
   color: ${theme('baseColor.green')};

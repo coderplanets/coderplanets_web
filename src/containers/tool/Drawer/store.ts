@@ -53,10 +53,12 @@ const DrawerStore = T.model('DrawerStore', {
       //
       TYPE.DRAWER.C11N_SETTINGS,
       TYPE.DRAWER.MODELINE_MENU,
+      TYPE.DRAWER.USER_LISTER,
       ...ARTICLE_THREAD_CURD_TYPES,
     ]),
   ),
   attUser: T.maybeNull(User),
+  userListerType: T.optional(T.string, ''),
 
   // shortcut for modelineMenuType
   mmType: T.optional(
@@ -153,6 +155,9 @@ const DrawerStore = T.model('DrawerStore', {
 
       if (type === TYPE.DRAWER.MODELINE_MENU) {
         slf.mmType = data
+      }
+      if (type === TYPE.DRAWER.USER_LISTER) {
+        slf.userListerType = data
       }
 
       if (contains(thread, values(ARTICLE_THREAD))) {

@@ -207,6 +207,11 @@ export const setTag = (): void => {
   send(EVENT.SET_TAG, {})
 }
 
+export const listUsers = (data): void => {
+  const type = TYPE.DRAWER.USER_LISTER
+  send(EVENT.DRAWER.OPEN, { type, data })
+}
+
 export const upvoteOnArticleList = (
   article: TArticle,
   viewerHasUpvoted: boolean,

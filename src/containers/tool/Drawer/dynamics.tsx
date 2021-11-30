@@ -49,6 +49,12 @@ export const AccountEditor = dynamic(
   commonConfig,
 )
 
+// user lister
+export const UserLister = dynamic(
+  () => import('@/containers/user/UserLister'),
+  commonConfig,
+)
+
 // export const RepoEditor = dynamic(
 //   () => import('@/containers/editor/RepoEditor'),
 //   editorConfig,

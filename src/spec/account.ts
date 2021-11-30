@@ -34,6 +34,8 @@ export type TUser = TSimpleUser & {
   editableCommunities?: TPagedCommunities
   sex?: string
   location?: string
+  geoCity?: string
+  viewerHasFollowed?: boolean
   social?: TSocial
   email?: string
   contributes?: TContributes

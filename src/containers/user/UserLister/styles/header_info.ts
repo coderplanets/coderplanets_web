@@ -6,7 +6,8 @@ import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  margin-left: 4px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -22,21 +23,17 @@ export const DescIcon = styled(Img)`
   margin-right: 5px;
 `
 export const DescLink = styled.a`
-  color: ${theme('thread.articleTitle')};
-  text-decoration: underline;
+  color: #139c9e;
+  text-decoration: none;
+  margin-left: 25px;
 
   &:hover {
-    color: ${theme('banner.title')};
+    color: #139c9e;
     cursor: pointer;
     text-decoration: underline;
   }
-  transition: color 0.3s;
+  transition: color 0.2s;
 `
-export const EditorIcon = styled(DescIcon)`
-  ${css.size(15)};
-  fill: ${theme('thread.articleTitle')};
-`
-
 export const DescText = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 0.9rem;

@@ -3,15 +3,16 @@
  *
  */
 
-import { types as T, getParent } from 'mobx-state-tree'
+import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
 
+import type { TRootStore, TID, TCommunity, TPagedUsers, TAccount } from '@/spec'
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { PagedUsers, emptyPagi } from '@/model'
 
 const UserLister = T.model('UserLister', {
-  show: T.optional(T.boolean, false),
+  loading: T.optional(T.boolean, false),
   curView: T.optional(
     T.enumeration('curView', [TYPE.RESULT, TYPE.LOADING, TYPE.RESULT_EMPTY]),
     TYPE.LOADING,
@@ -34,35 +35,40 @@ const UserLister = T.model('UserLister', {
   brief: T.optional(T.string, ''),
 })
   .views((self) => ({
-    get root() {
-      return getParent(self)
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
     },
-    get isLogin() {
-      return self.root.account.isLogin
+    get accountInfo(): TAccount {
+      const root = getParent(self) as TRootStore
+      return root.accountInfo
     },
-    get accountInfo() {
-      return self.root.accountInfo
-    },
-    get pagedUsersData() {
+    get pagedUsersData(): TPagedUsers {
       return toJS(self.pagedUsers)
     },
-    get curCommunity() {
-      return toJS(self.root.viewing.community)
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+      return toJS(root.viewing.community)
     },
   }))
   .actions((self) => ({
-    toggleHasFollow(userId) {
+    reset(): void {
+      //
+    },
+    toggleHasFollow(userId: TID): void {
       const { entries } = self.pagedUsersData
 
+      // @ts-ignore
       const index = findIndex(propEq('id', userId), entries)
-      if (index >= 0) {
-        const curIsFollow = self.pagedUsers.entries[index].viewerHasFollowed
-        self.pagedUsers.entries[index].viewerHasFollowed = !curIsFollow
-      }
+      if (index < 0) return
+
+      const curIsFollow = self.pagedUsers.entries[index].viewerHasFollowed
+      self.pagedUsers.entries[index].viewerHasFollowed = !curIsFollow
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))
 
+export type TStore = Instance<typeof UserLister>
 export default UserLister

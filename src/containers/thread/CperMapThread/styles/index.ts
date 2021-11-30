@@ -20,8 +20,8 @@ export const MapWrapper = styled.div`
   /* 
    * magic number, if set 100% the map will jump in laptop screen 
    */
-  width: 1000px;
-  height: 625px;
+  width: 100%;
+  height: 100%;
   min-height: 620px;
   ${css.media.mobile`width: 250%;`};
 `
