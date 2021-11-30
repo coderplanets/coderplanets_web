@@ -46,3 +46,7 @@ export const NumberItem = styled.div<{ readOnly: boolean }>`
     margin-bottom: 2px;
   `};
 `
+
+export const PopHint = styled.div`
+  width: 200px;
+`

@@ -1,19 +1,27 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
+import type { TCommunity } from '@/spec'
 import { ICON_CMD, EMAIL_SUPPORT } from '@/config'
 import { TYPE } from '@/constant'
+
+import NoticeBar from '@/widgets/NoticeBar'
 
 import {
   Wrapper,
   Title,
   DescLabel,
   DescIcon,
-  EditorIcon,
   DescText,
   DescLink,
 } from './styles/header_info'
 
-const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
+type TProps = {
+  type: string
+  totalCount: number
+  curCommunity: TCommunity
+}
+
+const HeaderInfo: FC<TProps> = ({ type, totalCount, curCommunity }) => {
   switch (type) {
     case TYPE.USER_LISTER_FAVORITES:
       return (
@@ -24,7 +32,7 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
           </Title>
           <DescLabel>
             <DescIcon src={`${ICON_CMD}/paper.svg`} />
-            <DescText> {brief}</DescText>
+            <DescText> --</DescText>
           </DescLabel>
         </Wrapper>
       )
@@ -38,7 +46,7 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
           </Title>
           <DescLabel>
             <DescIcon src={`${ICON_CMD}/paper.svg`} />
-            <DescText> {brief}</DescText>
+            <DescText> --</DescText>
           </DescLabel>
         </Wrapper>
       )
@@ -51,7 +59,7 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
             人)
           </Title>
           <DescLabel>
-            <DescText>关注 {brief} 的人 </DescText>
+            <DescText>关注 -- 的人 </DescText>
           </DescLabel>
         </Wrapper>
       )
@@ -64,7 +72,7 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
             人)
           </Title>
           <DescLabel>
-            <DescText>{brief} 关注的人 </DescText>
+            <DescText>-- 关注的人 </DescText>
           </DescLabel>
         </Wrapper>
       )
@@ -73,11 +81,11 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
       return (
         <Wrapper>
           <Title>
-            关注中 ({totalCount}
+            已加入 ({totalCount}
             人)
           </Title>
           <DescLabel>
-            <DescText>关注 {brief} 社区的人 </DescText>
+            <DescText>他们加入了 {curCommunity.title} 社区 </DescText>
           </DescLabel>
         </Wrapper>
       )
@@ -86,20 +94,22 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
       return (
         <Wrapper>
           <Title>
-            {brief} 社区编辑 ({totalCount}
+            {curCommunity.title} 社区志愿者 ({totalCount}
             人)
           </Title>
+          <NoticeBar
+            type="info"
+            content="志愿者为具有对应社区日常管理权限的用户，如果有你认为合适的人选，欢迎推荐或自荐 🙏🏻 。"
+            bottom={15}
+            left={-6}
+            noBg
+          />
           <DescLabel>
-            <EditorIcon src={`${ICON_CMD}/co_editor.svg`} />
-            <DescText>
-              {brief} 社区编辑面向所有用户开放，
-              <DescLink
-                href={`mailto:${EMAIL_SUPPORT}?subject=申请成为 ${curCommunity.raw} 社区编辑&body=感谢您的关注,成为社区编辑后,您将获得本社区范围内各种内容的删帖管理等权限,协助社区的健康发展. 因此本着对社区成员负责任的态度，我需要知道关于你的以下信息 (最终正文请删除本行): %0A%0A%0A你是谁? (包括但不限于 weibo / zhihu / jianshu / twitter 等社交账号) %0A%0A%0A你做过什么? (包括但不限于 github / stackoverflow / 个人网站(博客) 等技术社区账号) %0A%0A%0A你在 coderplanets 上的账号是?`}
-              >
-                申请成为社区编辑
-              </DescLink>
-              。
-            </DescText>
+            <DescLink
+              href={`mailto:${EMAIL_SUPPORT}?subject=申请成为 ${curCommunity.raw} 社区编辑&body=感谢您的关注,成为社区编辑后,您将获得本社区范围内各种内容的删帖管理等权限,协助社区的健康发展. 因此本着对社区成员负责任的态度，我需要知道关于你的以下信息 (最终正文请删除本行): %0A%0A%0A你是谁? (包括但不限于 weibo / zhihu / jianshu / twitter 等社交账号) %0A%0A%0A你做过什么? (包括但不限于 github / stackoverflow / 个人网站(博客) 等技术社区账号) %0A%0A%0A你在 coderplanets 上的账号是?`}
+            >
+              申请成为社区志愿者
+            </DescLink>
           </DescLabel>
         </Wrapper>
       )
@@ -109,4 +119,4 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
   }
 }
 
-export default React.memo(HeaderInfo)
+export default memo(HeaderInfo)

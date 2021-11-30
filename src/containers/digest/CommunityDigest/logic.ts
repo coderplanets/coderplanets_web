@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { TYPE, EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
-import { send, errRescue, singular } from '@/utils/helper'
+import { send, errRescue, singular, listUsers } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
@@ -28,24 +28,20 @@ const loadCommunity = (): void => {
   sr71$.query(S.community, { raw, userHasLogin })
 }
 
+// 查看当前社区志愿者列表
 export const onShowEditorList = (): void => {
-  const type = TYPE.USER_LISTER_COMMUNITY_EDITORS
-  const data = {
-    id: store.curCommunity.id,
-    brief: store.curCommunity.title,
-  }
-
-  send(EVENT.USER_LISTER_OPEN, { type, data })
+  listUsers(TYPE.USER_LISTER_COMMUNITY_EDITORS)
 }
 
 export const onShowSubscriberList = (): void => {
-  const type = TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS
-  const data = {
-    id: store.curCommunity.id,
-    brief: store.curCommunity.title,
-  }
+  // const type = TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS
+  // const data = {
+  //   id: store.curCommunity.id,
+  //   brief: store.curCommunity.title,
+  // }
+  // send(EVENT.USER_LISTER_OPEN, { type, data })
 
-  send(EVENT.USER_LISTER_OPEN, { type, data })
+  listUsers(TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS)
 }
 
 export const toggleDescExpand = (): void => {

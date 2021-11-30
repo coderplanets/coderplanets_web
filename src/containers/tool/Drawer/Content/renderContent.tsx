@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import { TYPE } from '@/constant'
 import ModeLineMenu from '@/containers/unit/ModeLineMenu'
 import type { TUser } from '@/spec'
@@ -11,9 +12,16 @@ import {
   AccountEditor,
   // utils
   C11NSettingPanel,
+  // userlister
+  UserLister,
 } from '../dynamics'
 
-const renderContent = (type: string, attUser: TUser, mmType?) => {
+const renderContent = (
+  type: string,
+  attUser: TUser,
+  userListerType: string,
+  mmType?,
+) => {
   if (!type) return <div />
 
   switch (type) {
@@ -32,6 +40,10 @@ const renderContent = (type: string, attUser: TUser, mmType?) => {
     case TYPE.DRAWER.MODELINE_MENU:
       // @ts-ignore
       return <ModeLineMenu type={mmType} />
+
+    case TYPE.DRAWER.USER_LISTER: {
+      return <UserLister type={userListerType} />
+    }
 
     default:
       // TYPE.DRAWER.[ARTICLE]_VIEW:

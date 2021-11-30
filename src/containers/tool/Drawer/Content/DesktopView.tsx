@@ -10,9 +10,10 @@ type TProps = {
   visible: boolean
   type: string // TODO:
   attUser: any // TODO:
+  userListerType: string
 }
 
-const Content: FC<TProps> = ({ visible, type, attUser }) => {
+const Content: FC<TProps> = ({ visible, type, attUser, userListerType }) => {
   const ref = useRef(null)
 
   /*
@@ -34,7 +35,7 @@ const Content: FC<TProps> = ({ visible, type, attUser }) => {
         shadowSize="small"
         showShadow={false}
       >
-        {renderContent(type, attUser)}
+        {renderContent(type, attUser, userListerType)}
       </CustomScroller>
     </Wrapper>
   )

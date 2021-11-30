@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
-import { merge, toUpper } from 'ramda'
 
+import type { TID } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 import { TYPE, EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, lockPage, unlockPage, errRescue } from '@/utils'
+import { asyncSuit, buildLog, errRescue } from '@/utils'
 
+import type { TStore } from './store'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -12,71 +13,72 @@ const log = buildLog('L:UserLister')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.USER_LISTER_OPEN],
 })
 
 let sub$ = null
 let store = null
 
-export const onClose = () => {
-  store.mark({ show: false })
-  unlockPage()
-}
+export const onFollow = (userId: TID): void =>
+  sr71$.mutate(S.follow, { userId })
+export const undoFollow = (userId: TID): void =>
+  sr71$.mutate(S.undoFollow, { userId })
 
-export const onFollow = (userId) => sr71$.mutate(S.follow, { userId })
-export const undoFollow = (userId) => sr71$.mutate(S.undoFollow, { userId })
-
-const loadUsers = (type, data, page = 1) => {
+const loadUsers = (type, page = 1): void => {
   // log('loadUsers type: ', type)
 
+  // TODO: use simple loading
   store.mark({ curView: TYPE.LOADING })
   switch (type) {
-    case TYPE.USER_LISTER_FAVORITES:
-    case TYPE.USER_LISTER_STARS: {
-      const args = merge(
-        { ...data },
-        {
-          thread: toUpper(data.thread),
-          filter: { page, size: PAGE_SIZE.D },
-          userHasLogin: store.isLogin,
-        },
-      )
+    // case TYPE.USER_LISTER_FAVORITES:
+    // case TYPE.USER_LISTER_STARS: {
+    //   const args = merge(
+    //     { ...data },
+    //     {
+    //       thread: toUpper(data.thread),
+    //       filter: { page, size: PAGE_SIZE.D },
+    //       userHasLogin: store.isLogin,
+    //     },
+    //   )
 
-      return sr71$.query(S.reactionUsers, args)
-    }
-    case TYPE.USER_LISTER_FOLLOWINGS: {
-      const args = {
-        userId: data.id,
-        filter: { page, size: PAGE_SIZE.D },
-        userHasLogin: store.isLogin,
-      }
-      return sr71$.query(S.pagedFollowings, args)
-    }
-    case TYPE.USER_LISTER_FOLLOWERS: {
-      const args = {
-        userId: data.id,
-        filter: { page, size: PAGE_SIZE.D },
-        userHasLogin: store.isLogin,
-      }
-      return sr71$.query(S.pagedFollowers, args)
-    }
+    //   return sr71$.query(S.reactionUsers, args)
+    // }
+    // case TYPE.USER_LISTER_FOLLOWINGS: {
+    //   const args = {
+    //     userId: data.id,
+    //     filter: { page, size: PAGE_SIZE.D },
+    //     userHasLogin: store.isLogin,
+    //   }
+    //   return sr71$.query(S.pagedFollowings, args)
+    // }
+    // case TYPE.USER_LISTER_FOLLOWERS: {
+    //   const args = {
+    //     userId: data.id,
+    //     filter: { page, size: PAGE_SIZE.D },
+    //     userHasLogin: store.isLogin,
+    //   }
+    //   return sr71$.query(S.pagedFollowers, args)
+    // }
     case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
+      const { id } = store.curCommunity
       const args = {
-        ...data,
+        id,
         filter: { page, size: PAGE_SIZE.D },
         userHasLogin: store.isLogin,
       }
 
-      return sr71$.query(S.communityEditors, args)
+      return sr71$.query(S.pagedCommunityEditors, args)
     }
     case TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS: {
+      const { id } = store.curCommunity
       const args = {
-        ...data,
+        id,
         filter: { page, size: PAGE_SIZE.D },
         userHasLogin: store.isLogin,
       }
 
-      return sr71$.query(S.communitySubscribers, args)
+      return sr71$.query(S.pagedCommunitySubscribers, args)
     }
     default: {
       return sr71$.query(S.pagedUsers, {
@@ -86,9 +88,9 @@ const loadUsers = (type, data, page = 1) => {
   }
 }
 
-export const onPageChange = (page) => {
-  const { type, id, action, thread } = store
-  loadUsers(type, { id, action, thread }, page)
+export const onPageChange = (page = 1): void => {
+  const { type } = store
+  loadUsers(type, page)
 }
 
 const handleUsersRes = (pagedUsers) => {
@@ -99,15 +101,6 @@ const handleUsersRes = (pagedUsers) => {
 // Data & Error handlers
 // ###############################
 const DataSolver = [
-  {
-    match: asyncRes(EVENT.USER_LISTER_OPEN),
-    action: (res) => {
-      const { type, data } = res.USER_LISTER_OPEN
-      store.mark({ show: true, type, ...data })
-      loadUsers(type, data)
-      lockPage()
-    },
-  },
   {
     match: asyncRes('reactionUsers'),
     action: ({ reactionUsers: pagedUsers }) => handleUsersRes(pagedUsers),
@@ -121,12 +114,13 @@ const DataSolver = [
     action: ({ pagedFollowers: pagedUsers }) => handleUsersRes(pagedUsers),
   },
   {
-    match: asyncRes('communityEditors'),
-    action: ({ communityEditors: pagedUsers }) => handleUsersRes(pagedUsers),
+    match: asyncRes('pagedCommunityEditors'),
+    action: ({ pagedCommunityEditors: pagedUsers }) =>
+      handleUsersRes(pagedUsers),
   },
   {
-    match: asyncRes('communitySubscribers'),
-    action: ({ communitySubscribers: pagedUsers }) =>
+    match: asyncRes('pagedCommunitySubscribers'),
+    action: ({ pagedCommunitySubscribers: pagedUsers }) =>
       handleUsersRes(pagedUsers),
   },
   {
@@ -145,7 +139,9 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      //
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
@@ -161,16 +157,17 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store) => {
+export const useInit = (_store: TStore, type: string): void => {
   useEffect(() => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadUsers(type)
 
     return () => {
       // log('effect uninit')
       sr71$.stop()
       sub$.unsubscribe()
     }
-  }, [_store])
+  }, [_store, type])
 }

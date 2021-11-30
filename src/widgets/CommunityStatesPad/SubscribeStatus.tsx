@@ -2,7 +2,9 @@ import { FC, memo } from 'react'
 
 import { prettyNum } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+
 import AnimatedCount from '@/widgets/AnimatedCount'
+import Tooltip from '@/widgets/Tooltip'
 
 import {
   Wrapper,
@@ -10,6 +12,7 @@ import {
   SubNumberWrapper,
   SubNum,
   GreenDot,
+  PopHint,
 } from './styles/subscribe_status'
 
 /* eslint-disable-next-line */
@@ -32,12 +35,21 @@ const SubscribeStatus: FC<TProps> = ({
         {prettyNum(count)}
       </NumberItem>
 
-      <SubNumberWrapper>
-        <GreenDot />
-        <SubNum>
-          <AnimatedCount count={subCount} size="tiny" />
-        </SubNum>
-      </SubNumberWrapper>
+      <Tooltip
+        content={
+          <PopHint>
+            实时在线人数，后续会单独统计每个子社区的实时在线人数。
+          </PopHint>
+        }
+        placement="bottom"
+      >
+        <SubNumberWrapper>
+          <GreenDot />
+          <SubNum>
+            <AnimatedCount count={subCount} size="tiny" />
+          </SubNum>
+        </SubNumberWrapper>
+      </Tooltip>
     </Wrapper>
   )
 }

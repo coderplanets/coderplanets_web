@@ -13,9 +13,9 @@ const pagedUsers = gql`
   }
 `
 
-const communitySubscribers = gql`
+const pagedCommunitySubscribers = gql`
   query($id: ID, $community: String, $filter: PagedFilter!, $userHasLogin: Boolean!) {
-    communitySubscribers(id: $id, community: $community, filter: $filter) {
+    pagedCommunitySubscribers(id: $id, community: $community, filter: $filter) {
       entries {
         ${F.author}
         location
@@ -51,31 +51,12 @@ const pagedFollowings = gql`
     }
   }
 `
-const communityEditors = gql`
+const pagedCommunityEditors = gql`
   query($id: ID!, $filter: PagedFilter!, $userHasLogin: Boolean!) {
-    communityEditors(id: $id, filter: $filter) {
+    pagedCommunityEditors(id: $id, filter: $filter) {
       entries {
         ${F.author}
         location
-        viewerHasFollowed @include(if: $userHasLogin)
-      }
-      ${F.pagi}
-    }
-  }
-`
-const reactionUsers = gql`
-  query(
-    $id: ID!
-    $thread: ReactThread
-    $action: ReactAction!
-    $filter: PagedFilter!
-    $userHasLogin: Boolean!
-  ) {
-    reactionUsers(id: $id, thread: $thread, action: $action, filter: $filter) {
-      entries {
-        ${F.author}
-        location
-        geoCity
         viewerHasFollowed @include(if: $userHasLogin)
       }
       ${F.pagi}
@@ -93,11 +74,10 @@ const undoFollow = gql`
 
 const schema = {
   pagedUsers,
-  communitySubscribers,
-  reactionUsers,
+  pagedCommunitySubscribers,
   pagedFollowers,
   pagedFollowings,
-  communityEditors,
+  pagedCommunityEditors,
 
   follow,
   undoFollow,

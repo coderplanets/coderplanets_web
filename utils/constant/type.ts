@@ -47,6 +47,9 @@ const TYPE = {
     // c11n settings
     C11N_SETTINGS: 'C11N_SETTINGS',
 
+    // user lister
+    USER_LISTER: 'USER_LISTER',
+
     // modeline
     MODELINE_MENU: 'MODELINE_MENU',
   },
