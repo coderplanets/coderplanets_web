@@ -11,7 +11,7 @@ import {
   Title,
   Chart,
   ChartBar,
-} from './styles/num_dashboard'
+} from './styles/raning_board'
 
 type TMarker = {
   city: string
@@ -28,7 +28,7 @@ type TProps = {
   geoData: TMarker[]
 }
 
-const NumDashboard: FC<TProps> = ({ total, geoData }) => {
+const RankingBoard: FC<TProps> = ({ total, geoData }) => {
   if (isEmpty(geoData)) return null
 
   const sortGeo = sortByValue(geoData) || []
@@ -64,4 +64,4 @@ const NumDashboard: FC<TProps> = ({ total, geoData }) => {
   )
 }
 
-export default memo(NumDashboard)
+export default memo(RankingBoard)

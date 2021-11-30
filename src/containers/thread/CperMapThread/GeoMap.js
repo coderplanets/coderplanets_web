@@ -5,21 +5,18 @@ import uid from '@/utils/uid'
 import { buildLog } from '@/utils/logger'
 
 import fetchGeoData from './geo_data'
-
 import { MapWrapper, RealMap, NoticeWrapper, TheLink } from './styles'
 
-// TODO import it globaly, g2 is too big to load in time (> 400KB)
-// import G2 from 'g2'
+import G2 from 'g2'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:LocationMap')
 
+// see example at https://antv.vision/old-site/g2/demo/10-map/map-projection.html
 class LocationMap extends React.Component {
   constructor(props) {
     super(props)
     this.chart = null
-    // if id start with number, is not valid
-    // see https://stackoverflow.com/questions/20306204/using-queryselector-with-ids-that-are-numbers
     this.chartId = `id-${uid.gen()}`
 
     const { curTheme } = props
@@ -66,7 +63,7 @@ class LocationMap extends React.Component {
     G2.track(false)
 
     this.chart.forceFit()
-    // animate it's to "dragy"
+    // animate it's to0 "dragy"
     this.chart.animate(false)
     this.chart.legend(false)
     this.chart.tooltip({ title: null })

@@ -4,29 +4,49 @@
  *
  */
 
-import { FC, memo } from 'react'
+import { FC } from 'react'
 import dynamic from 'next/dynamic'
+import { useTheme } from 'styled-components'
 
 import { buildLog } from '@/utils/logger'
+import { pluggedIn } from '@/utils/mobx'
+
+import RankingBoard from './RankingBoard'
 import MapLoading from './MapLoading'
 
 import { Wrapper } from './styles'
+import type { TStore } from './store'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CperMapThread')
 
-export const RealMap = dynamic(() => import('./RealMap'), {
-  /* eslint-disable react/display-name */
-  loading: () => <MapLoading />,
+const GeoMap = dynamic(() => import('./GeoMap'), {
   ssr: false,
 })
 
-const CperMapThread: FC = () => {
+type TProps = {
+  cperMapThread?: TStore
+}
+
+const CperMapThreadContainer: FC<TProps> = ({ cperMapThread: store }) => {
+  useInit(store)
+  const theme = useTheme()
+
+  const { geoInfosData, geoDataLoading, curCommunity, curTheme } = store
+  const ready = !geoDataLoading
+  const markers = geoDataLoading ? [] : geoInfosData
+
+  if (!ready) {
+    return <MapLoading />
+  }
+
   return (
     <Wrapper>
-      <RealMap />
+      <RankingBoard total={curCommunity.subscribersCount} geoData={markers} />
+      <GeoMap markers={markers} curTheme={curTheme} theme={theme} />
     </Wrapper>
   )
 }
 
-export default memo(CperMapThread)
+export default pluggedIn(CperMapThreadContainer) as FC<TProps>

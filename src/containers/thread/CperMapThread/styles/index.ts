@@ -20,12 +20,15 @@ export const MapWrapper = styled.div`
   /* 
    * magic number, if set 100% the map will jump in laptop screen 
    */
-  width: 100%;
-  height: 100%;
+  width: 1000px;
+  height: 625px;
   min-height: 620px;
   ${css.media.mobile`width: 250%;`};
 `
-export const RealMap = styled.div``
+export const RealMap = styled.div`
+  width: 1000px;
+  height: 625px;
+`
 export const NoticeWrapper = styled.div`
   width: 100%;
   padding-left: 35px;
