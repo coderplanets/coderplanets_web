@@ -22,7 +22,7 @@ import ExploreContent from '@/containers/content/ExploreContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
   const { subPath } = ssrParseURL(context.req)
   const category = subPath !== '' ? subPath : 'pl'
@@ -60,7 +60,7 @@ const fetchData = async (context, opt = {}) => {
 export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(context)
+    resp = await loader(context)
     const { sessionState } = resp
 
     refreshIfneed(sessionState, '/explore', context)

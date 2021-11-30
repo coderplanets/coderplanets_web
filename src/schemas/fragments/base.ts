@@ -12,6 +12,7 @@ export const community = `
   desc
   logo
   subscribersCount
+  articlesCount
 `
 export const tag = `
   title

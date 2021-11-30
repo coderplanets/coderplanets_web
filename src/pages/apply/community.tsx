@@ -1,5 +1,5 @@
 /*
-   this page is for /create/community
+   this page is for /apply/community
  */
 import { Provider } from 'mobx-react'
 
@@ -19,7 +19,7 @@ import CommunityEditor from '@/containers/editor/CommunityEditor'
 
 import { P } from '@/schemas'
 
-const fetchData = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   const { gqClient } = ssrFetchPrepare(context, opt)
 
   const sessionState = gqClient.request(P.sessionState)
@@ -32,7 +32,7 @@ const fetchData = async (context, opt = {}) => {
 export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(context)
+    resp = await loader(context)
     const { sessionState } = resp
     refreshIfneed(sessionState, `/${ROUTE.APPLY_COMMUNITY}`, context)
   } catch (e) {

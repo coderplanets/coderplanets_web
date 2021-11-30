@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 import Link from 'next/link'
 
+import { ROUTE } from '@/constant'
 import { cutRest } from '@/utils/helper'
 
 import {
@@ -26,7 +27,7 @@ const NotFound: FC<TProps> = ({ searchValue }) => {
         </EmptyTitle>
         <EmptyDesc>
           若没有你感兴趣的社区, 你可以
-          <Link href="/create/community" passHref>
+          <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>
             <IssueLink>参与创建</IssueLink>
           </Link>
         </EmptyDesc>

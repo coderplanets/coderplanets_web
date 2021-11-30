@@ -1,5 +1,6 @@
 import type { TCommunity } from '@/spec'
 
+// use articlesCount instead
 export const getContentCount = (community: TCommunity): number => {
   const { meta } = community
   if (!meta) return 0

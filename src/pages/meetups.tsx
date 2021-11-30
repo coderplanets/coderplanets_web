@@ -20,7 +20,7 @@ import MeetupsContent from '@/containers/content/MeetupsContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
   const filter = ssrHomePagedArticlesFilter(context, userHasLogin)
 
@@ -40,7 +40,7 @@ const fetchData = async (context, opt = {}) => {
 export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(context)
+    resp = await loader(context)
     const { sessionState } = resp
 
     refreshIfneed(sessionState, '/meetups', context)

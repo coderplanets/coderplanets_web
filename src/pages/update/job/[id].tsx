@@ -14,7 +14,7 @@ import { useStore } from '@/stores/init'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleEditor from '@/containers/editor/ArticleEditor'
 
-const fetchData = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   const { gqClient } = ssrFetchPrepare(context, opt)
 
   const sessionState = gqClient.request(P.sessionState)
@@ -27,10 +27,10 @@ const fetchData = async (context, opt = {}) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(context)
+    resp = await loader(context)
   } catch ({ response: { errors } }) {
     if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(context, { tokenExpired: true })
+      resp = await loader(context, { tokenExpired: true })
     }
   }
 

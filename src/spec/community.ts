@@ -5,6 +5,7 @@ export type TCommunity = {
   logo?: string
   raw: string
   subscribersCount?: number
+  articlesCount?: number
   viewerHasSubscribed?: boolean
   contributesDigest?: number[]
   editorsCount?: number

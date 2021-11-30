@@ -55,4 +55,5 @@ export type TThemeMap = {
   }
   mobileTab?: string
   logoText?: string
+  heatmap?: { activityLow: string; activityHight: string }
 }

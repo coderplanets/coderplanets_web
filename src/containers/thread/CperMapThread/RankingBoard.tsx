@@ -2,20 +2,17 @@ import { FC, memo } from 'react'
 import { sort, isEmpty } from 'ramda'
 
 import CustomScroller from '@/widgets/CustomScroller'
-// import { ICON_CMD } from '../../config'
-import DotDivider from '@/widgets/DotDivider'
 
 import {
   Wrapper,
-  SumWrapper,
-  DetailText,
   DashItem,
   Divider,
   Title,
-  Num,
   Chart,
   ChartBar,
-} from './styles/num_dashboard'
+  TotalWrapper,
+  TotalNum,
+} from './styles/raning_board'
 
 type TMarker = {
   city: string
@@ -32,42 +29,56 @@ type TProps = {
   geoData: TMarker[]
 }
 
-const NumDashboard: FC<TProps> = ({ total, geoData }) => {
+const RankingBoard: FC<TProps> = ({ total, geoData }) => {
   if (isEmpty(geoData)) return null
 
   const sortGeo = sortByValue(geoData) || []
   const maxValue = sortGeo[0].value || 0
+  const topList = sortGeo.slice(0, 3)
+  const restList = sortGeo.slice(3)
 
   return (
     <Wrapper>
-      {/* <SumWrapper>
-        总人数: {total} <DotDivider />{' '}
-      </SumWrapper> */}
+      {topList.map((item) => (
+        <div key={item.value + item.city}>
+          <DashItem>
+            <Title active>{item.city}</Title>
+            <Chart>
+              <ChartBar
+                width={`${Math.floor((item.value / maxValue) * 100)}%`}
+                active
+              />
+            </Chart>
+          </DashItem>
+        </div>
+      ))}
+      <Divider />
+
       <CustomScroller
         direction="vertical"
-        height="200px"
+        height="180px"
         showShadow={false}
-        autoHide
+        autoHide={false}
       >
-        {sortGeo.map((item, idx) => (
+        {restList.map((item) => (
           <div key={item.value + item.city}>
             <DashItem>
-              <Title active={idx <= 2}>{item.city}</Title>
-              {/* <DotDivider radius={3} space={3} />
-              <Num>{item.value}人</Num> */}
+              <Title>{item.city}</Title>
               <Chart>
                 <ChartBar
                   width={`${Math.floor((item.value / maxValue) * 100)}%`}
-                  active={idx <= 2}
                 />
               </Chart>
             </DashItem>
-            <Divider show={idx === 2} />
           </div>
         ))}
       </CustomScroller>
+      <Divider />
+      <TotalWrapper>
+        总数: <TotalNum>{total}</TotalNum>
+      </TotalWrapper>
     </Wrapper>
   )
 }
 
-export default memo(NumDashboard)
+export default memo(RankingBoard)

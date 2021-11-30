@@ -14,14 +14,14 @@ import {
   Beta,
   Item,
   HeartCrabIcon,
-  Logo,
+  HomeLogo,
 } from '../../styles/desktop_view/top_info'
 
 const HomeCommunity: FC = () => {
   return (
     <Wrapper>
       <InfoBar>
-        <Logo />
+        <HomeLogo />
       </InfoBar>
       <SiteTitle>
         oderPlanets

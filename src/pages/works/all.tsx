@@ -21,7 +21,7 @@ import WorksContent from '@/containers/content/WorksContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
   const filter = ssrHomePagedArticlesFilter(context, userHasLogin)
 
@@ -48,11 +48,11 @@ const fetchData = async (context, opt = {}) => {
 export const getServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(context)
+    resp = await loader(context)
   } catch (e) {
     console.log('#### error from server: ', e)
     if (ssrRescue.hasLoginError(e.response?.errors)) {
-      resp = await fetchData(context, { tokenExpired: true })
+      resp = await loader(context, { tokenExpired: true })
     } else {
       return ssrError(context, 'fetch', 500)
     }

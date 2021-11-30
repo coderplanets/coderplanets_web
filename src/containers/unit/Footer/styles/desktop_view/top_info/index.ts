@@ -28,6 +28,13 @@ export const Logo = styled(CommunityFaceLogo)`
   margin-left: 2px;
   cursor: pointer;
 `
+export const HomeLogo = styled(CommunityFaceLogo)`
+  ${css.size(16)};
+  margin-top: -4px;
+  margin-left: 2px;
+  cursor: pointer;
+  transform: rotate(-8deg);
+`
 export const SiteTitle = styled.div`
   position: relative;
   color: #007fa8;

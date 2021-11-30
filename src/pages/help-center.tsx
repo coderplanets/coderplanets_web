@@ -22,7 +22,7 @@ import HelpCenterContent from '@/containers/content/HelpCenterContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (props, opt = {}): Promise<Record<string, unknown>> => {
+const loader = async (props, opt = {}): Promise<Record<string, unknown>> => {
   const { realname } = merge({ realname: true }, opt)
 
   const token = realname ? getJwtToken(props) : null
@@ -53,13 +53,13 @@ export const getServerSideProps: GetServerSideProps = async (props) => {
 
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await loader(props)
   } catch (e) {
     const {
       response: { errors },
     } = e
     if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(props, { tokenExpired: true })
+      resp = await loader(props, { tokenExpired: true })
     } else {
       return {
         props: {

@@ -37,6 +37,7 @@ export const loadTags = (): void => {
   const thread = toUpper(curThread)
 
   const args = { filter: { communityId, thread } }
+  console.log('load tags args: ', args)
 
   store.mark({ loading: true })
   sr71$.query(S.pagedArticleTags, args)

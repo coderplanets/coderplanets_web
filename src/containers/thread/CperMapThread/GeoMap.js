@@ -4,24 +4,19 @@ import ReactResizeDetector from 'react-resize-detector'
 import uid from '@/utils/uid'
 import { buildLog } from '@/utils/logger'
 
-import { Br } from '@/widgets/Common'
-import NoticeBar from '@/widgets/NoticeBar'
 import fetchGeoData from './geo_data'
+import { MapWrapper, RealMap, NoticeWrapper, TheLink } from './styles'
 
-import { MapWrapper, RealMap, NoticeWrapper } from './styles'
-
-// TODO import it globaly, g2 is too big to load in time (> 400KB)
-// import G2 from 'g2'
+import G2 from 'g2'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:LocationMap')
 
+// see example at https://antv.vision/old-site/g2/demo/10-map/map-projection.html
 class LocationMap extends React.Component {
   constructor(props) {
     super(props)
     this.chart = null
-    // if id start with number, is not valid
-    // see https://stackoverflow.com/questions/20306204/using-queryselector-with-ids-that-are-numbers
     this.chartId = `id-${uid.gen()}`
 
     const { curTheme } = props
@@ -68,7 +63,7 @@ class LocationMap extends React.Component {
     G2.track(false)
 
     this.chart.forceFit()
-    // animate it's to "dragy"
+    // animate it's to0 "dragy"
     this.chart.animate(false)
     this.chart.legend(false)
     this.chart.tooltip({ title: null })
@@ -159,8 +154,8 @@ class LocationMap extends React.Component {
       })
       .catch((ex) => log('parsing failed', ex))
   }
-  /* eslint-enable no-undef */
 
+  /* eslint-enable no-undef */
   render() {
     return (
       <MapWrapper>
@@ -174,8 +169,22 @@ class LocationMap extends React.Component {
         />
         <RealMap id={this.chartId} />
         <NoticeWrapper>
-          上图显示数据为本站已注册用户在中国境内的分布范围，数据由 IP
-          地址根据第三方地图服务商获得，仅供参考。
+          地理坐标信息由注册用户 IP
+          地址根据第三方地图服务商获得（城市定位仅限国内）。由定位失败或科学上网等因素导致的误差后期会专门提供手动矫正措施。全球范围内的访问数据可
+          <TheLink
+            href="https://plausible.io/coderplanets.com/countries"
+            target="_blank"
+          >
+            参考这里
+          </TheLink>
+          （台湾地区单独统计，
+          <TheLink
+            href="https://en.wikipedia.org/wiki/ISO_3166-2:TW"
+            target="_blank"
+          >
+            非技术原因
+          </TheLink>
+          ，本站不持任何政治立场）。
         </NoticeWrapper>
       </MapWrapper>
     )

@@ -18,7 +18,7 @@ import CoolGuideContent from '@/containers/content/CoolGuideContent'
 
 import { useStore } from '@/stores/init'
 
-const fetchData = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   const { gqClient } = ssrFetchPrepare(context, opt)
   const sessionState = gqClient.request(P.sessionState)
 
@@ -30,7 +30,7 @@ const fetchData = async (context, opt = {}) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let resp
   try {
-    resp = await fetchData(context)
+    resp = await loader(context)
     const { sessionState } = resp
 
     refreshIfneed(sessionState, '/cool-guide', context)

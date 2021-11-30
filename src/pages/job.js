@@ -20,7 +20,7 @@ import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (props) => {
+const loader = async (props) => {
   const token = getJwtToken(props)
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
@@ -57,10 +57,10 @@ export const getServerSideProps = async (props) => {
 
   let resp
   try {
-    resp = await fetchData(props)
+    resp = await loader(props)
   } catch ({ response: { errors } }) {
     if (ssrRescue.hasLoginError(errors)) {
-      resp = await fetchData(props, { tokenExpired: true })
+      resp = await loader(props, { tokenExpired: true })
     } else {
       return { props: { errorCode: 404 } }
     }

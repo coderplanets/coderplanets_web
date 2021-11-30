@@ -20,7 +20,7 @@ import UserContent from '@/containers/content/UserContent'
 
 import { P } from '@/schemas'
 
-const fetchData = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   const login = ssrGetParam(context, 'login')
 
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
@@ -45,7 +45,7 @@ export const getServerSideProps = async (context) => {
 
   let resp
   try {
-    resp = await fetchData(context)
+    resp = await loader(context)
     const { user, sessionState } = resp
     refreshIfneed(sessionState, `/user/${user.login}`, context)
   } catch (e) {
