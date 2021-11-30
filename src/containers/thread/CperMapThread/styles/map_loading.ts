@@ -13,9 +13,11 @@ export const Wrapper = styled.div`
 export const LoadingIcon = styled(GeoMapSVG)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(120)};
+  opacity: 0.6;
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 16px;
-  margin-top: 15px;
+  font-size: 15px;
+  margin-top: 16px;
+  opacity: 0.6;
 `

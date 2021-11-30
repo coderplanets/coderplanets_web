@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { LavaLampLoading } from '@/widgets/dynamic'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import { Wrapper, LoadingIcon, Desc } from './styles/map_loading'
 
 const MapLoading: FC = () => (
