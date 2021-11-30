@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   position: absolute;
   z-index: 1;
   left: 37px;
-  bottom: 60px;
+  bottom: 100px;
   border-radius: 5px;
   width: 150px;
   transition: width 0.2s linear;
