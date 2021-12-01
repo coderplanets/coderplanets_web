@@ -69,6 +69,7 @@ export type {
   TView,
   TUserActivity,
   TEditMode,
+  TOnlineStatus,
 } from './utils'
 
 export type { TGQLError } from './graphql'

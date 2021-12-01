@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
-import type { TThemeMap, TC11NLayout, TMetric } from '@/spec'
+import type { TThemeMap, TC11NLayout, TMetric, TOnlineStatus } from '@/spec'
 import { GITHUB, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 import { siteBirthDay } from '@/utils/helper'
@@ -24,9 +24,10 @@ import {
 type TProps = {
   metric: TMetric
   layout: TC11NLayout
+  onlineStatus: TOnlineStatus
 }
 
-const HomeView: FC<TProps> = ({ metric, layout }) => {
+const HomeView: FC<TProps> = ({ metric, layout, onlineStatus }) => {
   const theme = useTheme() as TThemeMap
 
   const linkColors = {
@@ -119,10 +120,10 @@ const HomeView: FC<TProps> = ({ metric, layout }) => {
             <Title>用户</Title>
             <Body>
               <Item as="span" normal>
-                注册人数: --
+                注册人数: {onlineStatus.totalSubscribes}
               </Item>
               <Item as="span" normal>
-                在线人数: --
+                在线人数: {onlineStatus.realtimeVisitors}
               </Item>
               <Item as="span" normal>
                 黑洞: --

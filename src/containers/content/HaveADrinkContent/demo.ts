@@ -149,6 +149,11 @@ const demo = [
         text: '意指一件产品包含了所有必要的东西，开箱即用，最早来源于 Python 社区。',
         reference: 'https://qr.ae/pGmyXB',
       },
+      {
+        title: 'Snowflake ID',
+        text: 'Twitter 开发的用于标识 tweets 的分布式算法，特点之一是发布时间相近的 tweet, 其生成的 ID 也相近。',
+        reference: 'https://en.wikipedia.org/wiki/Snowflake_ID',
+      },
     ],
   },
   {

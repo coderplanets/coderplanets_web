@@ -1,6 +1,6 @@
 import { FC, useState, useRef, useEffect } from 'react'
 
-import { findIndex } from 'ramda'
+import { findIndex, reverse } from 'ramda'
 
 import { ICON } from '@/config'
 import { sortByColor } from '@/utils/helper'
@@ -52,7 +52,7 @@ const Folder: FC<TProps> = ({
   const [isFolderOpen, toggleFolder] = useState(true)
   const [curDisplayCount, setCurDisplayCount] = useState(initDisplayCount)
 
-  const sortedTags = sortByColor(groupTags)
+  const sortedTags = reverse(sortByColor(groupTags))
 
   const isActiveTagInFolder =
     // @ts-ignore

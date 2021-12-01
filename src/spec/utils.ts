@@ -163,3 +163,8 @@ export type TUserActivity = {
   action?: string
   totalCount?: number
 }
+
+export type TOnlineStatus = {
+  totalSubscribes?: number
+  realtimeVisitors?: number
+}

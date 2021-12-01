@@ -5,8 +5,15 @@
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 
-import type { TRootStore, TAccount, TC11N, TArticle, TCommunity } from '@/spec'
-import { METRIC } from '@/constant'
+import type {
+  TRootStore,
+  TAccount,
+  TC11N,
+  TArticle,
+  TCommunity,
+  TOnlineStatus,
+} from '@/spec'
+import { METRIC, HCN } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 
 // import { VIEW, TFooterView } from './constants'
@@ -40,6 +47,22 @@ const FooterStore = T.model('FooterStore', {
       return toJS(root.viewing.community)
     },
 
+    get totalSubscribes(): number {
+      const slf = self as TStore
+      const { curCommunity } = slf
+
+      if (curCommunity.raw === HCN) {
+        return curCommunity.subscribersCount
+      }
+
+      return 0
+    },
+    get onlineStatus(): TOnlineStatus {
+      const slf = self as TStore
+      const { totalSubscribes, realtimeVisitors } = slf
+
+      return { totalSubscribes, realtimeVisitors }
+    },
     // get type(): TFooterView {
     //   const root = getParent(self) as TRootStore
     //   if (root.viewing.community.raw === HCN) return VIEW.HOME
