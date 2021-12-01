@@ -5,6 +5,7 @@
  */
 
 import { FC } from 'react'
+import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
@@ -20,6 +21,13 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleViewer')
 
+const CollectionFolder = dynamic(
+  () => import('@/containers/tool/CollectionFolder'),
+  {
+    ssr: false,
+  },
+)
+
 type TProps = {
   articleViewer?: TStore
   testid?: string
@@ -34,6 +42,7 @@ const ArticleViewerContainer: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
+      <CollectionFolder />
       <Viewer
         article={viewingArticle}
         loading={loading}

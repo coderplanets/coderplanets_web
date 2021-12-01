@@ -39,7 +39,7 @@ const Actions: FC<TProps> = ({
         <Text active={showOperationList}>日志</Text>
       </Item> */}
       {/* <DotDivider space={8} /> */}
-      <Item onClick={() => report('USER')}>
+      <Item onClick={() => report('ARTICLE')}>
         <Text>举报</Text>
       </Item>
     </Wrapper>

@@ -77,6 +77,7 @@ const CollectionFolderContainer: FC<TProps> = ({
           <Setter
             // entries={entries}
             show={isSetterView}
+            article={viewingArticle}
             selectedId="1"
           />
           <Creator data={editCategoryData} show={isCreatorView} />

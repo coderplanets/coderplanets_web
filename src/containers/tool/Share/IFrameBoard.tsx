@@ -12,7 +12,7 @@ import {
 
 const IFrameBoard: FC = () => {
   const code =
-    '<iframe width="560" height="315" src="https://www.youtube.com/embed/5KnkUBBVqis" title="YouTube video player" frameborder="0"></iframe>'
+    '<iframe width="560" height="315" src="https://coderplanets.com/embed/example" title="example" frameborder="0"></iframe>'
   return (
     <Wrapper>
       <Header>

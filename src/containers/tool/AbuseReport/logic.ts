@@ -37,7 +37,7 @@ export const selectItem = (checkedItemRaw: string): void => {
   store.mark({ checkedItemRaw, view: 'detail' })
 }
 
-export const close = (): void => store.mark({ show: false, view: 'main' })
+export const close = (): void => store.reset()
 
 const DataResolver = [
   {
@@ -79,6 +79,7 @@ export const useInit = (_store: TStore): void => {
     log('useInit: ', store)
     return () => {
       if (!sub$) return
+
       sr71$.stop()
       sub$.unsubscribe()
       sub$ = null

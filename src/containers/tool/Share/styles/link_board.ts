@@ -32,4 +32,6 @@ export const BoxWrapper = styled.div`
   margin-top: 8px;
   margin-left: -8px;
 `
-export const Inputer = styled(Input)``
+export const Inputer = styled(Input)`
+  width: 380px;
+`

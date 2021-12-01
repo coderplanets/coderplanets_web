@@ -35,7 +35,7 @@ const Main: FC<TProps> = ({ items, activeItem }) => {
             </Option>
           ))}
       </OptionsWrapper>
-      <FooterPanel>感谢你用实际行动为社区净化作出贡献。</FooterPanel>
+      <FooterPanel>感谢你为社区净化作出贡献，我们将尽快处理。</FooterPanel>
     </Wrapper>
   )
 }

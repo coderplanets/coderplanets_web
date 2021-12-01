@@ -180,6 +180,12 @@ export const checkout = (amount: number, usage: TPaymentUsage): void =>
  */
 export const shareTo = (): void => send(EVENT.SHARE, {})
 
+export const addCollection = (): void => {
+  send(EVENT.SET_FAVORITE_CONTENT, {
+    data: { thread: THREAD.POST },
+  })
+}
+
 /**
  * report content
  */

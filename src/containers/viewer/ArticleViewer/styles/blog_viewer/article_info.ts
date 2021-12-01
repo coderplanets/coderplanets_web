@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import CollectionSVG from '@/icons/CollectionBookmark'
 
 export const Wrapper = styled.div`
   border-bottom: 1px solid;
@@ -23,7 +23,7 @@ export const CollectWrapper = styled.div`
   ${css.flex('align-center')};
   cursor: pointer;
 `
-export const CollectIcon = styled(Img)`
+export const CollectIcon = styled(CollectionSVG)`
   ${css.size(16)};
   fill: ${theme('thread.articleDigest')};
 
