@@ -22,18 +22,27 @@ export const LeftPart = styled.div`
   ${css.flex('align-center')};
 `
 
-export const CommunityLabel = styled.div`
+export const CommunityLabel = styled.a`
+  color: inherit;
   padding-left: 14px;
   position: relative;
   font-weight: bold;
   opacity: 0.8;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   transition: opacity 0.2s;
 
   &:before {
     content: '';
     position: absolute;
     left: 1px;
-    top: 3px;
+    top: 2px;
     width: 6px;
     height: 11px;
     border-radius: 4px;
@@ -45,13 +54,24 @@ export const LabelDivider = styled.div`
   height: 8px;
   margin-left: 10px;
   margin-right: 12px;
-  background-color: #49a5a0;
+  background-color: ${theme('thread.articleDigest')};
   transform: rotate(12deg);
 `
-export const AuthorName = styled.div`
+export const AuthorName = styled.a<{ darker: boolean }>`
+  display: block;
   color: ${theme('thread.extraInfo')};
   font-size: 13px;
-  opacity: 0.75;
+  opacity: ${({ darker }) => (darker ? 0.75 : 0.9)};
+  margin-bottom: 1px;
+
+  text-decoration: none;
+
+  &:hover {
+    color: ${theme('thread.extraInfo')};
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   transition: opacity 0.2s;
 `
 export const PublishTime = styled.div`
@@ -60,7 +80,7 @@ export const PublishTime = styled.div`
   transition: opacity 0.2s;
 `
 export const Dot = styled(DotDivider)`
-  background: ${theme('thread.extraInfo')};
+  background-color: ${theme('thread.articleDigest')};
   margin-right: 8px;
 `
 export const ItemWrapper = styled.div`

@@ -8,10 +8,10 @@ import { Fragment, FC, memo } from 'react'
 import Pagi from '@/widgets/Pagi'
 
 import type {
+  TCommunity,
   TThread,
   TPagedArticles,
   TResState,
-  TArticle,
   TC11N,
 } from '@/spec'
 import { EVENT } from '@/constant'
@@ -25,6 +25,7 @@ import ArticleList from './ArticleList'
 const log = buildLog('c:PagedArticles:index')
 
 type TProps = {
+  curCommunity?: TCommunity | null
   thread: TThread
   data: TPagedArticles
   resState: TResState
@@ -34,6 +35,7 @@ type TProps = {
 }
 
 const PagedArticles: FC<TProps> = ({
+  curCommunity = null,
   thread,
   data,
   resState,
@@ -45,6 +47,7 @@ const PagedArticles: FC<TProps> = ({
   return (
     <Fragment>
       <ArticleList
+        curCommunity={curCommunity}
         thread={thread}
         entries={entries}
         resState={resState}
