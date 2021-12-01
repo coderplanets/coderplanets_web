@@ -1,6 +1,7 @@
 import { FC, memo, useCallback } from 'react'
-import { TID } from '@/spec'
+import { TID, TArticle } from '@/spec'
 
+import NoticeBar from '@/widgets/NoticeBar'
 import Button from '@/widgets/Buttons/Button'
 import { Space } from '@/widgets/Common'
 import Folder from '@/widgets/Folder'
@@ -15,8 +16,8 @@ import {
 } from './styles/setter'
 
 import {
-  setContent,
-  unSetContent,
+  // setContent,
+  // unSetContent,
   switchToCreator,
   switchToUpdater,
 } from './logic'
@@ -24,9 +25,10 @@ import {
 type TProps = {
   show: boolean
   selectedId: TID
+  article: TArticle
 }
 
-const Setter: FC<TProps> = ({ show, selectedId }) => {
+const Setter: FC<TProps> = ({ show, selectedId, article }) => {
   const handleMenu = useCallback((key) => {
     if (key === 'edit') switchToUpdater()
   }, [])
@@ -34,33 +36,21 @@ const Setter: FC<TProps> = ({ show, selectedId }) => {
   return (
     <Wrapper show={show}>
       <Header>
-        添加<Artiment>某篇文章或讨论</Artiment>到收藏夹
+        添加<Artiment>{article.title}</Artiment>到收藏夹
       </Header>
+      <NoticeBar
+        type="notice"
+        content="抱歉，收藏功能前端部分尚未完成，暂不可用。如果你对 UI/UX 或功能有建议，欢迎移步 /feedback 参与讨论。"
+        bottom={20}
+        top={20}
+      />
       <ListWrapper>
         <FolderWrapper>
           <Folder onMenuClick={handleMenu} lock />
         </FolderWrapper>
 
         <FolderWrapper>
-          <Folder lock />
-        </FolderWrapper>
-        <FolderWrapper>
-          <Folder lock />
-        </FolderWrapper>
-        <FolderWrapper>
-          <Folder lock />
-        </FolderWrapper>
-        <FolderWrapper>
-          <Folder lock />
-        </FolderWrapper>
-        <FolderWrapper>
-          <Folder lock />
-        </FolderWrapper>
-        <FolderWrapper>
-          <Folder lock />
-        </FolderWrapper>
-        <FolderWrapper>
-          <Folder lock />
+          <Folder />
         </FolderWrapper>
       </ListWrapper>
       <Footer>

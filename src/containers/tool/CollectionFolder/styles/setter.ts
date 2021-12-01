@@ -27,6 +27,7 @@ export const Header = styled.div`
 `
 export const Artiment = styled.div`
   color: ${theme('thread.articleTitle')};
+  ${css.cutRest('200px')};
   font-size: 15px;
   margin-left: 5px;
   margin-right: 5px;
