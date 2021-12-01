@@ -42,6 +42,7 @@ const MobileView: FC<TProps> = ({ data, apiMode }) => {
             )}
             <ArtimentBody
               document={{ bodyHtml: data.bodyHtml }}
+              initLineClampNum={6}
               mode="comment"
             />
           </CommentContent>

@@ -14,6 +14,9 @@ import LockIcon from '@/icons/Lock'
 import ExpandIcon from '@/icons/Expand'
 import FoldIcon from '@/icons/Fold'
 
+import CollectionIcon from '@/icons/CollectionBookmark'
+import ShareIcon from '@/icons/Share'
+
 import type { TProps as TIconButtonProps } from '../IconButton'
 
 type TWrapper = Omit<TIconButtonProps, 'path'>
@@ -64,6 +67,14 @@ export const getIcon = (type: string): FC<TIcon> => {
 
     case SVG.FOLD: {
       return getStyledIcon(FoldIcon)
+    }
+
+    case SVG.COLLECTION: {
+      return getStyledIcon(CollectionIcon)
+    }
+
+    case SVG.SHARE: {
+      return getStyledIcon(ShareIcon)
     }
 
     default: {

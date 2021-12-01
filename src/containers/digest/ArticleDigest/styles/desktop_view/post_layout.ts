@@ -36,7 +36,15 @@ export const BottomInfo = styled.div`
   width: 100%;
   color: ${theme('thread.articleDigest')};
 `
-export const AuthorName = styled.div`
+export const AuthorName = styled.a`
   color: ${theme('thread.articleDigest')};
+  text-decoration: none;
   font-size: 14px;
+  margin-bottom: 1px;
+
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('thread.articleDigest')};
+    cursor: pointer;
+  }
 `

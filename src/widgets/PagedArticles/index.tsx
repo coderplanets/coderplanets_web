@@ -57,7 +57,6 @@ const PagedArticles: FC<TProps> = ({
         onChange={(page) => send(EVENT.REFRESH_ARTICLES, { page })}
         margin={{ bottom: '60px', top: '60px' }}
       >
-        <div>todo</div>
         {/* <CommunityRecommends /> */}
       </Pagi>
     </Fragment>

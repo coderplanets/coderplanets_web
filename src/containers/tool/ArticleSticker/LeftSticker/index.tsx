@@ -30,7 +30,7 @@ const LeftSticker: FC<TProps> = ({
     <Wrapper show={show} testid={testid}>
       <BackWrapper>
         <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
-        <BackText>Elixir 社区</BackText>
+        <BackText>返回社区</BackText>
       </BackWrapper>
       <ArticleTitle>{cutRest(title, 30)}</ArticleTitle>
       <Toc show={isTocMenuOpened} />

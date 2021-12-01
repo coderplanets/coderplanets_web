@@ -6,7 +6,39 @@ import { theme } from '@/utils/themes'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
-}))<TTestable>``
+}))<TTestable>`
+  .article-viewer-wrapper {
+    a {
+      color: #139c9e;
+      text-decoration: none;
+      filter: saturate(0.6);
+      &:hover {
+        color: #139c9e;
+        text-decoration: underline;
+        filter: saturate(1);
+        cursor: pointer;
+      }
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .image-wrapper {
+      margin-bottom: 20px;
+    }
+  }
+`
 
 type TBody = { lineClampNum: number; mode: 'article' | 'comment' }
 export const Body = styled.div<TBody>`
