@@ -28,7 +28,7 @@ const items = [
       '包括但不限于盗版话题讨论，未授权转载，人身攻击，无根据造谣等内容。',
   },
   {
-    title: '坏问题',
+    title: '劣质问题',
     raw: REPORT.ARTICLE.BAD_QUESTION,
     checked: false,
     detail:

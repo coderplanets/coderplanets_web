@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 
+import type { TArticle } from '@/spec'
 import { REPORT_TYPE } from '@/constant'
 import { ICON } from '@/config'
 
@@ -27,9 +28,10 @@ type TProps = {
   type: string
   view: 'main' | 'detail'
   activeItem: TREPORT_ITEM
+  article: TArticle
 }
 
-const Header: FC<TProps> = ({ type, view, activeItem }) => {
+const Header: FC<TProps> = ({ type, view, activeItem, article }) => {
   return (
     <Wrapper showShadow={view === 'detail'}>
       <ReportIcon src={`${ICON}/article/report-solid.svg`} />
@@ -38,7 +40,7 @@ const Header: FC<TProps> = ({ type, view, activeItem }) => {
       ) : (
         <Text>举报{getCustomTitle(type)}</Text>
       )}
-      <ContentTitle>这是一首简单的小情歌</ContentTitle>
+      <ContentTitle>{article.title}</ContentTitle>
     </Wrapper>
   )
 }

@@ -33,12 +33,17 @@ const AbuseReportContainer: FC<TProps> = ({
   testid = 'abuse-report',
 }) => {
   useInit(store)
-  const { show, type, view, itemsData, activeItem } = store
+  const { show, type, view, itemsData, activeItem, viewingArticle } = store
 
   return (
     <Modal width="500px" show={show} showCloseBtn onClose={() => close()}>
       <Wrapper testid={testid}>
-        <Header type={type} view={view} activeItem={activeItem} />
+        <Header
+          type={type}
+          view={view}
+          activeItem={activeItem}
+          article={viewingArticle}
+        />
         <ReportContent view={view} items={itemsData} activeItem={activeItem} />
         <Footer view={view} />
       </Wrapper>
