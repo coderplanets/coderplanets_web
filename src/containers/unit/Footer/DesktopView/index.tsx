@@ -42,7 +42,7 @@ const FooterContainer: FC<TProps> = ({
 }) => {
   useInit(store, metric)
 
-  const { viewingArticle, curCommunity, c11n } = store
+  const { viewingArticle, curCommunity, c11n, onlineStatus } = store
   const isHome = curCommunity.raw === HCN
   const isGeneral = includes(metric, [
     METRIC.WORKS_ARTICLE,
@@ -59,7 +59,11 @@ const FooterContainer: FC<TProps> = ({
     <Wrapper testid={testid} layout={c11n.bannerLayout} metric={metric}>
       <JoinModal />
       {metric === METRIC.COMMUNITY && isHome && (
-        <HomeLayout metric={metric} layout={c11n.bannerLayout} />
+        <HomeLayout
+          metric={metric}
+          layout={c11n.bannerLayout}
+          onlineStatus={onlineStatus}
+        />
       )}
 
       {metric === METRIC.COMMUNITY && !isHome && (
