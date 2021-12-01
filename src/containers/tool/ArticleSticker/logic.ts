@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { EVENT } from '@/constant'
-import { send, authWarn } from '@/utils/helper'
+import { authWarn } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { matchArticleUpvotes } from '@/utils/macros'
@@ -24,12 +23,6 @@ export const toggleTocMenu = (): void => {
   const isLeftStickerLocked = isTocMenuOpened
 
   store.mark({ isTocMenuOpened, isLeftStickerLocked })
-}
-
-export const collectArticle = (): void => {
-  send(EVENT.SET_FAVORITE_CONTENT, {
-    data: { thread: store.activeThread },
-  })
 }
 
 export const handleUpvote = (viewerHasUpvoted: boolean): void => {

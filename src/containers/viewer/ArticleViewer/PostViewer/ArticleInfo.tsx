@@ -1,8 +1,8 @@
 import { memo, FC } from 'react'
 
 import type { TArticle } from '@/spec'
-import { ICON } from '@/config'
 
+import { addCollection } from '@/utils/helper'
 import DotDivider from '@/widgets/DotDivider'
 import Upvote from '@/widgets/Upvote'
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
@@ -29,8 +29,8 @@ const ArticleInfo: FC<TProps> = ({ article }) => {
       <BaseWrapper>
         <ArticleBaseStats article={article} container="drawer" />
         <DotDivider space={10} />
-        <CollectWrapper>
-          <CollectIcon src={`${ICON}/article/collect-bookmark.svg`} />
+        <CollectWrapper onClick={() => addCollection()}>
+          <CollectIcon />
           <CollectText>收藏</CollectText>
         </CollectWrapper>
       </BaseWrapper>
