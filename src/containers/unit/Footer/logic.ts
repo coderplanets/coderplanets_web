@@ -15,7 +15,8 @@ import type { TStore } from './store'
 const log = buildLog('L:Footer2')
 
 const { SR71, $solver, asyncRes } = asyncSuit
-const sr71$ = new SR71()
+// @ts-ignore
+const sr71$ = new SR71({ receive: [EVENT.COMMUNITY_CHANGE_BEFORE] })
 
 let sub$ = null
 let store: TStore | undefined
@@ -44,6 +45,15 @@ const DataSolver = [
     action: ({ onlineStatus }): void => {
       const { realtimeVisitors } = onlineStatus
       store.mark({ realtimeVisitors })
+    },
+  },
+  {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE_BEFORE),
+    action: (data): void => {
+      const { path } = data[EVENT.COMMUNITY_CHANGE_BEFORE]
+      console.log('EVENT.COMMUNITY_CHANGE_BEFORE: ', path)
+      store.changeCommunity(path)
+      send(EVENT.COMMUNITY_CHANGE)
     },
   },
 ]

@@ -2,7 +2,7 @@ import { contains, startsWith } from 'ramda'
 
 import { EVENT, TYPE, ROUTE, THREAD } from '@/constant'
 
-import { Global, send, plural } from '@/utils/helper'
+import { Global, send } from '@/utils/helper'
 
 export const jumpToCommunity = (store, communityRaw) => {
   const { mainPath, subPath } = store.curRoute
@@ -15,18 +15,7 @@ export const jumpToCommunity = (store, communityRaw) => {
     return false
   }
 
-  store.setViewing({
-    community: { raw: communityRaw },
-    activeThread: THREAD.POST,
-    post: {},
-  })
-
-  store.markRoute({
-    mainPath: communityRaw,
-    subPath: plural(THREAD.POST),
-  })
-
-  send(EVENT.COMMUNITY_CHANGE)
+  send(EVENT.COMMUNITY_CHANGE_BEFORE, { path: communityRaw })
 }
 
 export const jumpToContent = (store) => {

@@ -89,18 +89,12 @@ export const useInit = (_store: TStore, extra): void => {
   useEffect(() => {
     store = _store
 
-    // FIXME:  do not show body scrollbar on mac
-    /* eslint-disable no-undef */
-    // OverlayScrollbars(document.querySelectorAll('body'), {
-    // NOT WORK!
-    // scrollbars: { autoHide: 'scroll', autoHideDelay: 500 },
-    // })
-
     const { online, isMobile } = extra
     store.mark({ online, isMobile })
 
     PubSub.unsubscribe(EVENT.AUTH_WARNING)
     PubSub.unsubscribe(EVENT.TOAST)
+
     PubSub.subscribe(EVENT.AUTH_WARNING, (e, opt) => handleAuthWarning(opt))
     PubSub.subscribe(EVENT.TOAST, (e, opt) => handleToast(opt))
 

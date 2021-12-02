@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next'
 import { merge, toLower } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
-import { HCN, THREAD, METRIC } from '@/constant'
+import { THREAD, METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
@@ -29,9 +29,8 @@ const loader = async (context, opt = {}) => {
   // const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
-  const community = ssrGetParam(context, 'community') || HCN
-  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
-  // const thread = params.thread ? singular(params.thread) : THREAD.POST
+  const community = ssrGetParam(context, 'community')
+  const thread = singular(THREAD.POST)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -63,10 +62,9 @@ const loader = async (context, opt = {}) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   if (context.query?.isServerSide === 'false') {
-    console.log('ClientSide same route')
     return { props: { errorCode: null } }
   }
-  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
+  const thread = singular(THREAD.POST)
 
   let resp
   try {

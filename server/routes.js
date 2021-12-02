@@ -194,7 +194,8 @@ router.route('/:community/:thread').get((req, res) => {
 
 // 社区主页
 router.route('/:community').get((req, res) => {
-  return renderAndCache({ req, res, path: '/index' })
+  const { community } = req.params
+  return renderAndCache({ req, res, path: `/${community}` })
 })
 
 router.route('*').get((req, res) => handle(req, res))

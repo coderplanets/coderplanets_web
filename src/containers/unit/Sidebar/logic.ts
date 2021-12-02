@@ -45,14 +45,7 @@ export const onCommunitySelect = (community: TCommunity): void => {
     return
   }
 
-  store.setViewing({ community, activeThread: THREAD.POST, post: {} })
-
-  store.markRoute({
-    mainPath: community.raw,
-    subPath: plural(THREAD.POST),
-  })
-
-  send(EVENT.COMMUNITY_CHANGE)
+  send(EVENT.COMMUNITY_CHANGE_BEFORE, { path: community.raw })
 }
 
 export const sortBtnOnClick = (): void => {

@@ -72,7 +72,7 @@ const ClassicLayout: FC<TProps> = ({
           <TabBarWrapper>
             <TabBar
               source={community.threads}
-              onChange={(data) => send(EVENT.COMMUNITY_TAB_CHANGE, { data })}
+              onChange={(data) => send(EVENT.COMMUNITY_THREAD_CHANGE, { data })}
               active={activeThread}
               layout={layout}
               communityRaw={community.raw}
