@@ -2,7 +2,7 @@ import { contains, startsWith } from 'ramda'
 
 import { EVENT, TYPE, ROUTE, THREAD } from '@/constant'
 
-import { Global, send } from '@/utils/helper'
+import { Global, send, changeToCommunity } from '@/utils/helper'
 
 export const jumpToCommunity = (store, communityRaw) => {
   const { mainPath, subPath } = store.curRoute
@@ -15,7 +15,7 @@ export const jumpToCommunity = (store, communityRaw) => {
     return false
   }
 
-  send(EVENT.COMMUNITY_CHANGE_BEFORE, { path: communityRaw })
+  changeToCommunity(communityRaw)
 }
 
 export const jumpToContent = (store) => {

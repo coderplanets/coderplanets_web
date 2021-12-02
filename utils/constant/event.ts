@@ -31,10 +31,13 @@ const EVENT = {
   PREVIEW_ARTICLE: 'PREVIEW_ARTICLE',
 
   // TAB
+  // 社区的 Thread 改变（包含所有类型的 Thread）
   COMMUNITY_THREAD_CHANGE: 'COMMUNITY_THREAD_CHANGE',
+  // 文章类型的 Thread 改变
   ARTICLE_THREAD_CHANGE: 'ARTICLE_THREAD_CHANGE',
-  // old
+  // 切换社区前 (主要设置路由和 ViewingCommunity 的 Raw 值)
   COMMUNITY_CHANGE_BEFORE: 'COMMUNITY_CHANGE_BEFORE',
+  // 切换社区
   COMMUNITY_CHANGE: 'COMMUNITY_CHANGE',
 
   // refresh

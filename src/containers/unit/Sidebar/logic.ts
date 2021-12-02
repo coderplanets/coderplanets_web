@@ -3,9 +3,9 @@ import { arrayMove } from 'react-sortable-hoc'
 import { addIndex, map, reject, propEq, contains } from 'ramda'
 
 import type { TCommunity } from '@/spec'
-import { HCN, EVENT, ERR, THREAD, ROUTE } from '@/constant'
+import { HCN, EVENT, ERR, ROUTE } from '@/constant'
 
-import { Global, send, errRescue, plural } from '@/utils/helper'
+import { Global, errRescue, changeToCommunity } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
 
@@ -45,7 +45,7 @@ export const onCommunitySelect = (community: TCommunity): void => {
     return
   }
 
-  send(EVENT.COMMUNITY_CHANGE_BEFORE, { path: community.raw })
+  changeToCommunity(community.raw)
 }
 
 export const sortBtnOnClick = (): void => {

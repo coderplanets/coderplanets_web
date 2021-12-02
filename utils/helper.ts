@@ -239,6 +239,10 @@ export const toast = (
   send(EVENT.TOAST, { type, title, msg, position })
 }
 
+export const changeToCommunity = (raw: string): void => {
+  send(EVENT.COMMUNITY_CHANGE_BEFORE, { path: raw })
+}
+
 /**
  * send preview article singal to Drawer
  */

@@ -5,10 +5,8 @@ import {
   isValidElement,
   cloneElement,
 } from 'react'
-import PubSub from 'pubsub-js'
 
 import type { TScrollDirection } from '@/spec'
-import { EVENT } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
 import type { TStore } from './store'
@@ -75,13 +73,6 @@ export const childrenWithProps = (
   })
 }
 
-const handleAuthWarning = (option): void => store.authWarning(option)
-
-const handleToast = (data): void => {
-  const { type, ...rest } = data
-  store.toast(type, rest)
-}
-
 // ###############################
 // init & uninit
 // ###############################
@@ -91,16 +82,5 @@ export const useInit = (_store: TStore, extra): void => {
 
     const { online, isMobile } = extra
     store.mark({ online, isMobile })
-
-    PubSub.unsubscribe(EVENT.AUTH_WARNING)
-    PubSub.unsubscribe(EVENT.TOAST)
-
-    PubSub.subscribe(EVENT.AUTH_WARNING, (e, opt) => handleAuthWarning(opt))
-    PubSub.subscribe(EVENT.TOAST, (e, opt) => handleToast(opt))
-
-    return () => {
-      PubSub.unsubscribe(EVENT.AUTH_WARNING)
-      PubSub.unsubscribe(EVENT.TOAST)
-    }
   }, [_store, extra])
 }
