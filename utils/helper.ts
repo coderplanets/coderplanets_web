@@ -539,7 +539,9 @@ export const plural = (value: string, opt = null): string => {
     case THREAD.WORKS: {
       return doCovert(THREAD.WORKS, opt)
     }
-
+    // case THREAD.RADAR: {
+    //   return doCovert(THREAD.RADAR, opt)
+    // }
     default: {
       return doCovert(`${value}s`, opt)
     }

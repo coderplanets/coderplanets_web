@@ -51,7 +51,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
                 placement="bottom-start"
                 delay={1500}
               >
-                <Link href={`/${originalCommunity.raw}/posts`} passHref>
+                <Link href={`/${originalCommunity.raw}`} passHref>
                   <CommunityLabel>{originalCommunity.title}</CommunityLabel>
                 </Link>
               </Tooltip>

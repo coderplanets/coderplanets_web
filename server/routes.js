@@ -7,7 +7,7 @@ const { renderAndCache } = require('./helper')
 
 const handle = app.getRequestHandler()
 
-// const HOME_PAGE = '/home/posts'
+// const HOME_PAGE = '/home'
 
 router.route('/_next/:page?').get((req, res) => handle(req, res))
 
@@ -189,6 +189,11 @@ router.route('/:community/help-center').get((req, res) => {
 
 // 社区主页
 router.route('/:community/:thread').get((req, res) => {
+  return renderAndCache({ req, res, path: '/index' })
+})
+
+// 社区主页
+router.route('/:community').get((req, res) => {
   return renderAndCache({ req, res, path: '/index' })
 })
 

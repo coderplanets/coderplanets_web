@@ -30,7 +30,8 @@ const tabOnChange = (activeThread: TThread): void => {
   const { curCommunity } = store
 
   const mainPath = curCommunity.raw
-  const subPath = plural(activeThread)
+  const subPath =
+    activeThread !== ARTICLE_THREAD.POST ? plural(activeThread) : ''
 
   store.markRoute({ mainPath, subPath })
   // store.setViewing({ activeThread })

@@ -1,5 +1,5 @@
 import { FC, memo } from 'react'
-import { contains } from 'ramda'
+// import { contains } from 'ramda'
 
 import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
 import usePlatform from '@/hooks/usePlatform'
@@ -23,7 +23,7 @@ import {
 import { onShowEditorList, onShowSubscriberList, setViewport } from '../logic'
 
 // 没有各种外链接，打赏信息等的官方社区
-const NON_STANDARD_COMMUNITIES = [HCN, 'feedback']
+// const NON_STANDARD_COMMUNITIES = [HCN, 'feedback']
 
 type TProps = {
   community: TCommunity
@@ -48,13 +48,15 @@ const ClassicLayout: FC<TProps> = ({
     <Wrapper
       testid="community-digest"
       descExpand={descExpand}
-      noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+      // noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+      noSocial
       isMobile={isMobile}
     >
       <InnerWrapper
         metric={metric}
         descExpand={descExpand}
-        noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+        // noSocial={contains(community.raw, NON_STANDARD_COMMUNITIES)}
+        noSocial
         isMobile={isMobile}
       >
         <BannerContentWrapper descExpand={descExpand}>

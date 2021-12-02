@@ -36,7 +36,7 @@ const CommunityCard: FC<TProps> = ({
         <Info>
           <Title>{title}</Title>
           <SubInfo>
-            <Raw href={`/${raw}/posts`}>{raw}</Raw>
+            <Raw href={`/${raw}`}>{raw}</Raw>
             <DotDivider space={6} />
             <SubsInfo>
               <UserIcon />

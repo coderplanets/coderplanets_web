@@ -32,11 +32,7 @@ const CommunityView: FC<TProps> = ({ metric, layout }) => {
             <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
               关于
             </Item>
-            <Item
-              href="/cps-support/posts"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <Item href="/feedback" rel="noopener noreferrer" target="_blank">
               创建社区
             </Item>
             <NoLinkItem onClick={() => joinUS()}>加入群聊</NoLinkItem>

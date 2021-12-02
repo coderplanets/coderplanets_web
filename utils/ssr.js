@@ -13,12 +13,7 @@ import { TYPE, ARTICLE_THREAD } from '@/constant'
 import { plural } from './helper'
 
 import { makeGQClient } from './graphql'
-import {
-  ssrParseURL,
-  akaTranslate,
-  getQueryFromUrl,
-  queryStringToJSON,
-} from './route'
+import { akaTranslate, getQueryFromUrl } from './route'
 
 import { P } from '@/schemas'
 
@@ -111,9 +106,9 @@ export const ssrPagedArticleSchema = (threadPath) => {
 
 // for works, drinks, meetups etc
 export const ssrHomePagedArticlesFilter = (context, userHasLogin) => {
+  const { query } = context
   const filter = pick(validCommunityFilters, {
-    // @ts-ignore TODO:
-    ...queryStringToJSON(context.req.url, { pagi: 'number' }),
+    ...query,
     community: 'home',
   })
 
@@ -122,22 +117,26 @@ export const ssrHomePagedArticlesFilter = (context, userHasLogin) => {
     delete filter.tag
   }
 
+  if (filter.page) {
+    filter.page = parseInt(filter.page, 10)
+  }
+
   return { filter, userHasLogin }
 }
 
 export const ssrPagedArticlesFilter = (context, userHasLogin) => {
-  const { communityPath } = ssrParseURL(context.req)
+  const { query } = context
+  const { community: communityPath } = query
   const community = akaTranslate(communityPath)
 
-  const filter = pick(validCommunityFilters, {
-    // @ts-ignore TODO:
-    ...queryStringToJSON(context.req.url, { pagi: 'number' }),
-    community,
-  })
+  const filter = pick(validCommunityFilters, { ...query, community })
 
   if (filter.tag) {
     filter.articleTag = filter.tag
     delete filter.tag
+  }
+  if (filter.page) {
+    filter.page = parseInt(filter.page, 10)
   }
 
   return { filter, userHasLogin }

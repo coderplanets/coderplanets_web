@@ -11,7 +11,7 @@ export const jumpToCommunity = (store, communityRaw) => {
     contains(mainPath, [ROUTE.USER, ROUTE.EXPLORE]) ||
     contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.REPO])
   ) {
-    Global.location.href = `/${communityRaw}/posts`
+    Global.location.href = `/${communityRaw}`
     return false
   }
 

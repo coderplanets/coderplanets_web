@@ -40,7 +40,7 @@ const BriefView: FC<TProps> = ({ community }) => {
             content={<CardPopover community={community} />}
           >
             <CommunityInfo>
-              <LogoText href="/home/posts">coderplanets</LogoText>
+              <LogoText href="/home">coderplanets</LogoText>
               <CommunityTitle>{community.title}</CommunityTitle>
             </CommunityInfo>
           </Tooltip>

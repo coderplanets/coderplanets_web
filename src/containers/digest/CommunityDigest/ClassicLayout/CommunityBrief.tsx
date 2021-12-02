@@ -6,7 +6,7 @@ import { ICON_CMD } from '@/config'
 import { HCN, NON_FILL_COMMUNITY } from '@/constant'
 
 import ExpandTexts from '../ExpandTexts'
-import SocialList from '../SocialList'
+// import SocialList from '../SocialList'
 
 import CommunityJoinSign from '@/widgets/CommunityJoinSign'
 import {
@@ -50,7 +50,7 @@ const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
         </TitleWrapper>
         {/* <Desc>{community.desc}</Desc> */}
         <ExpandTexts descExpand={descExpand} desc={community.desc} />
-        {community.raw !== HCN && <SocialList />}
+        {/* {community.raw !== HCN && <SocialList />} */}
       </CommunityInfo>
     </Wrapper>
   )

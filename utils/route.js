@@ -11,7 +11,6 @@ import {
   slice,
   clone,
   toUpper,
-  toLower,
   merge,
 } from 'ramda'
 
