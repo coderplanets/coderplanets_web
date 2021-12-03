@@ -28,6 +28,7 @@ export const Desc = styled.div`
   font-size: 12px;
   color: ${theme('thread.articleDigest')};
   margin-top: 5px;
+  margin-bottom: 10px;
 `
 export const BtnWrapper = styled.div`
   margin-top: 12px;

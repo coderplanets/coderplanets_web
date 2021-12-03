@@ -9,7 +9,7 @@ import { FC } from 'react'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import SubscribeBtn from './SubscribeBtn'
+import FollowButton from '@/widgets/Buttons/FollowButton'
 
 import { Wrapper, Title, Desc, BottomLine } from './styles'
 import type { TStore } from './store'
@@ -29,17 +29,21 @@ const CommunityJoinBadgeContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { curCommunity, subscribeLoading } = store
-  const { title, desc } = curCommunity
+  const { curCommunity } = store
+  const { title, desc, viewerHasSubscribed } = curCommunity
 
   return (
     <Wrapper testid={testid}>
       <Title>{title}</Title>
       <Desc>{desc}</Desc>
 
-      <SubscribeBtn
-        community={curCommunity}
-        subscribeLoading={subscribeLoading}
+      <FollowButton
+        size="tiny"
+        followText="加 入"
+        followingText="已加入"
+        hasFollowed={viewerHasSubscribed}
+        // onFollow={() => subscribe(community.id)}
+        // onUndoFollow={() => unSubscribe(community.id)}
       />
 
       <BottomLine />
