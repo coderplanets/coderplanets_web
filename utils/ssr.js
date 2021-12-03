@@ -126,7 +126,6 @@ export const ssrHomePagedArticlesFilter = (context, userHasLogin) => {
 
 export const ssrPagedArticlesFilter = (context, userHasLogin) => {
   const { query } = context
-  console.log('the query: ', query)
   const { community: communityPath } = query
   const community = akaTranslate(communityPath || 'home')
 

@@ -40,6 +40,10 @@ const loader = async (context, opt = {}) => {
     userHasLogin,
   })
 
+  const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
+    filter: { communityRaw: community, thread: singular(thread, 'upperCase') },
+  })
+
   const filter = ssrPagedArticlesFilter(context, userHasLogin)
   const pagedArticles = isArticleThread(thread)
     ? gqClient.request(ssrPagedArticleSchema(thread), filter)
@@ -54,6 +58,7 @@ const loader = async (context, opt = {}) => {
 
   return {
     filter,
+    ...(await pagedArticleTags),
     ...(await sessionState),
     ...(await curCommunity),
     ...(await pagedArticles),
@@ -62,10 +67,6 @@ const loader = async (context, opt = {}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  if (context.query?.isServerSide === 'false') {
-    console.log('ClientSide same route')
-    return { props: { errorCode: null } }
-  }
   const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
 
   let resp
@@ -81,7 +82,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  const { filter, community } = resp
+  const { filter, community, pagedArticleTags } = resp
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
   // console.log('articleThread: ', articleThread.articlesThread.pagedJobs.entries)
@@ -93,6 +94,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         mainPath: community.raw,
         subPath: thread,
         thread,
+      },
+      tagsBar: {
+        tags: pagedArticleTags.entries,
       },
       viewing: {
         community,

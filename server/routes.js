@@ -10,6 +10,9 @@ const handle = app.getRequestHandler()
 // const HOME_PAGE = '/home'
 
 router.route('/_next/:page?').get((req, res) => handle(req, res))
+router
+  .route('/__nextjs_original-stack-frame')
+  .get((req, res) => handle(req, res))
 
 router
   .route('/service-worker.js')
@@ -18,10 +21,14 @@ router
 // oauth popup window
 router.route('/oauth/').get((req, res) => renderAndCache({ req, res }))
 
-// 将首页重定向到 HOME_PAGE
-router
-  .route('/')
-  .get((req, res) => renderAndCache({ req, res, path: '/index' }))
+// // 将首页重定向到 HOME_PAGE
+// router
+//   .route('/')
+//   .get((req, res) => renderAndCache({ req, res, path: '/index' }))
+
+router.route('/').get((req, res) => {
+  return renderAndCache({ req, res, path: '/index' })
+})
 
 // 来一杯
 router.route('/have-a-drink/:slug?').get((req, res) => {
@@ -86,7 +93,6 @@ router.route('/u/:login').get((req, res) => {
 
 router.route('/user/:login').get((req, res) => {
   const { login } = req.params
-  console.log('hello user ?: ', login)
   return renderAndCache({ req, res, path: `/user/${login}` })
 })
 

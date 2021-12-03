@@ -35,8 +35,6 @@ const TabBar: FC<TProps> = ({
   const aliasSource = aliasMapIfNeed(communityRaw, source)
   const sortedSource = sortByIndex(aliasSource)
 
-  console.log('#> source: ', source)
-
   return (
     <div id={ANCHOR.GLOBAL_TABBER_ID}>
       <NormalView

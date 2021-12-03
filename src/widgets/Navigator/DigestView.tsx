@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
 import type { TMetric, TC11NLayout } from '@/spec'
+import { changeToCommunity } from '@/utils/helper'
 
 import { METRIC } from '@/constant'
 // import useNetwork from 'react-use/lib/useNetwork'
@@ -50,6 +51,8 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, layout }) => {
           {showLogoText && <LogoText>oderPlanets</LogoText>}
         </LogoLink>
       </Link>
+
+      <LogoText onClick={() => changeToCommunity('elixir')}>elixir</LogoText>
 
       <BlinkCursor duration={1.6} height={14} left={5} right={2} />
 
