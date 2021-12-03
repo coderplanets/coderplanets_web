@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `
 export const ContentWrapper = styled.div<{ center: boolean }>`
   ${css.flex('align-both')};
-  margin-top: 45px;
+  margin-top: -160px;
   margin-left: ${({ center }) => (center ? '5%' : 'none')};
   transition: all 0.2s;
 `

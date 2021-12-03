@@ -51,7 +51,7 @@ const ExploreContentContainer: FC<TProps> = ({
     subscribingId,
   } = store
 
-  const { isSearchMode, searchValue } = searchStatus
+  const { isSearchMode } = searchStatus
 
   return (
     <Wrapper>
