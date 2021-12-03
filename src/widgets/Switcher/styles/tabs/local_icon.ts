@@ -38,12 +38,20 @@ const commonIcon = (comp) => {
   `
 }
 
-export const PostIcon = commonIcon(PostSVG)
+// export const PostIcon = commonIcon(PostSVG)
 export const RadarIcon = commonIcon(RadarSVG)
 export const CPerIcon = commonIcon(CPerSVG)
 export const BlogIcon = commonIcon(BlogSVG)
 export const JobIcon = commonIcon(JobSVG)
 export const CityIcon = commonIcon(CitySVG)
+export const PostIcon = styled(PostSVG)<TCommonIcon>`
+  fill: ${({ $active }: { $active: boolean }) =>
+    $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+  width: ${({ $small }: { $small: boolean }) => ($small ? '14px' : '15px')};
+  height: 16px;
+  margin-right: 8px;
+  display: block;
+`
 export const WorksIcon = styled(WorksSVG)<TCommonIcon>`
   fill: ${({ $active }: { $active: boolean }) =>
     $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
