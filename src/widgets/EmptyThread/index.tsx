@@ -5,10 +5,13 @@
  */
 
 import { FC, memo } from 'react'
+import { includes } from 'ramda'
 import Link from 'next/link'
 
 import { buildLog } from '@/utils/logger'
 import { Trans } from '@/utils/i18n'
+
+import { THREAD } from '@/constant'
 import {
   Icon404,
   Wrapper,
@@ -29,7 +32,7 @@ type TProps = {
 }
 
 const EmptyThread: FC<TProps> = ({ thread }) => (
-  <Wrapper>
+  <Wrapper noShiftRight={includes(thread, [THREAD.POST, THREAD.BLOG])}>
     <Icon>
       <Icon404 />
     </Icon>
@@ -40,7 +43,7 @@ const EmptyThread: FC<TProps> = ({ thread }) => (
         信息
       </Title>
       <DescWrapper>
-        <Desc>如果你有相关的内容 ，欢迎一起分享交流</Desc>
+        <Desc>如果你有相关的内容，欢迎一起和大家一起分享交流</Desc>
         <Desc>
           建议或遇到问题请
           <Link href="/feedback" passHref>

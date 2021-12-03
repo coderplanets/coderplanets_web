@@ -6,7 +6,7 @@ import css from '@/utils/css'
 import EditPenSVG from '@/icons/EditPen'
 
 export const Wrapper = styled.div`
-  ${css.flex('justify-between')};
+  ${css.flex('justify-between', 'align-center')};
   width: 100%;
 `
 export const Title = styled.div`

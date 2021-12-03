@@ -4,13 +4,12 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import PromptIcon from '@/widgets/PromptIcon'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ noShiftRight: boolean }>`
   ${css.flexColumn('align-center')};
   width: 100%;
-  margin-top: 5%;
-  margin-bottom: 30px;
+  margin-top: 8%;
+  padding-right: ${({ noShiftRight }) => (noShiftRight ? '10px' : '15%')};
 `
-
 // TODO: media size
 export const Icon404 = styled(PromptIcon)`
   width: 320px;
@@ -21,7 +20,6 @@ export const Icon404 = styled(PromptIcon)`
     height: 200px;
 `};
 `
-
 export const Icon = styled.div``
 export const Text = styled.div`
   text-align: center;
@@ -30,7 +28,7 @@ export const Text = styled.div`
 // border-bottom: 1px solid;
 // border-bottom-color: ${theme('thread.articleDigest')}
 export const Title = styled.div`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('thread.articleTitle')};
   margin-bottom: 15px;
   margin-top: 10px;
   font-size: 17px;
