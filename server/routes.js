@@ -176,11 +176,14 @@ router.route('/update/radar/:id').get((req, res) => {
 })
 
 // 所有社区
-router.route('/explore').get((req, res) => res.redirect('/explore/pl'))
-
-router.route('/explore/:category').get((req, res) => {
+router.route('/explore').get((req, res) => {
   return renderAndCache({ req, res, path: '/explore' })
 })
+// router.route('/explore').get((req, res) => res.redirect('/explore/pl'))
+
+// router.route('/explore/:category').get((req, res) => {
+//   return renderAndCache({ req, res, path: '/explore' })
+// })
 
 // 帮助中心
 router.route('/:community/help-center').get((req, res) => {

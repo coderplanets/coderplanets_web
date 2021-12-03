@@ -22,8 +22,8 @@ const Sidebar: FC<TProps> = ({ show, onItemClick, activeid, items }) => {
   return (
     <Wrapper show={show}>
       <Sticky offsetTop={60}>
+        <Br bottom={15} />
         <NaviCatalog title="类别筛选" tags={categories} withDivider />
-        <Br bottom={50} />
       </Sticky>
       {/* without Holder the Sticky will not work because the
       Sticky  Content's Height is too long */}

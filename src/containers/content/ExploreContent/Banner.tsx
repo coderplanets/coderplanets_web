@@ -16,7 +16,7 @@ import { buildLog } from '@/utils/logger'
 import SearchBox from './SearchBox'
 
 import {
-  BannerContainer,
+  Wrapper,
   IntroWrapper,
   IntroTitle,
   IntroDesc,
@@ -51,7 +51,7 @@ const Banner: FC<TProps> = ({
   },
 }) => {
   return (
-    <BannerContainer testid="explore-banner">
+    <Wrapper testid="explore-banner">
       <IntroWrapper>
         <IntroTitle>
           <SearchIcon src={`${ICON_CMD}/search.svg`} />
@@ -85,7 +85,7 @@ const Banner: FC<TProps> = ({
           </IntroDesc>
         )}
       </IntroWrapper>
-    </BannerContainer>
+    </Wrapper>
   )
 }
 

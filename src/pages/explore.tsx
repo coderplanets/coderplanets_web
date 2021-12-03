@@ -4,12 +4,12 @@
 import { Provider } from 'mobx-react'
 import { METRIC } from '@/constant'
 
+import { PAGE_SIZE } from '@/config'
 import {
   ssrBaseStates,
   ssrFetchPrepare,
   queryStringToJSON,
   ssrParseURL,
-  ssrRescue,
   refreshIfneed,
   exploreSEO,
   ssrError,
@@ -24,19 +24,15 @@ import { P } from '@/schemas'
 
 const loader = async (context, opt = {}) => {
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-  const { subPath } = ssrParseURL(context.req)
-  const category = subPath !== '' ? subPath : 'pl'
 
   const filter = {
-    ...queryStringToJSON(context.req.url, {
-      noPagiInfo: false,
-      pagi: 'number',
-    }),
+    page: 1,
+    size: PAGE_SIZE.M,
   }
 
   const sessionState = gqClient.request(P.sessionState)
   const pagedCommunities = gqClient.request(P.pagedCommunities, {
-    filter: { ...filter, category },
+    filter,
     userHasLogin,
   })
   const pagedCategories = gqClient.request(P.pagedCategories, { filter })
@@ -49,7 +45,6 @@ const loader = async (context, opt = {}) => {
   })
 
   return {
-    category,
     ...(await sessionState),
     ...(await pagedCategories),
     ...(await pagedCommunities),

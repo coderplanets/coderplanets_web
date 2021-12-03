@@ -6,11 +6,12 @@ import css from '@/utils/css'
 
 import Img from '@/Img'
 
-export const BannerContainer = styled.div.attrs(({ testid }: TTestable) => ({
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn('justify-center')};
 
+  padding-left: 20px;
   position: relative;
   min-height: 220px;
   border-bottom: 1px solid;
