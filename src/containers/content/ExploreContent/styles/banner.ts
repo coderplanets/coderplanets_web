@@ -11,7 +11,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexColumn('justify-center')};
 
-  padding-left: 20px;
   position: relative;
   min-height: 220px;
   border-bottom: 1px solid;
@@ -24,6 +23,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 export const IntroWrapper = styled.div`
   ${css.flexColumn('align-both')};
   padding-top: 30px;
+  padding-left: 50px;
   color: ${theme('thread.articleDigest')};
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};

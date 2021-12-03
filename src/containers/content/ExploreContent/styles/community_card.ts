@@ -49,13 +49,18 @@ export const CommunityIcon = styled(Img)<{ nonFill: boolean }>`
   }
 `
 export const Raw = styled.div`
+  position: relative;
+  padding-left: 2px;
   font-size: 13px;
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
 
   &:before {
     content: '/';
-    margin-right: 2px;
+    position: absolute;
+    top: 2px;
+    left: -2px;
+    font-size: 10px;
   }
 `
 export const JoinWrapper = styled.div`
@@ -70,6 +75,7 @@ export const JoinNum = styled.div`
 `
 export const ContentWrapper = styled(JoinWrapper)`
   margin-top: -30px;
+  margin-left: -3px;
 `
 export const Title = styled.a`
   margin-top: -2px;

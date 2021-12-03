@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   /* margin-right: -30px; */
 `
 export const InnerWrapper = styled.div`
-  ${css.flex('justify-start')};
+  ${css.flex('justify-end')};
   flex-wrap: wrap;
 `
 export const holder = 1

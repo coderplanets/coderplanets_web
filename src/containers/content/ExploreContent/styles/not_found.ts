@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div`
-  margin-left: 85px;
-  margin-top: -200px;
+export const Wrapper = styled.div<{ showSearchNote: boolean }>`
+  margin-top: ${({ showSearchNote }) => (showSearchNote ? 0 : '-200px')};
+  margin-left: ${({ showSearchNote }) => (showSearchNote ? '75px' : '105px')};
 `
 export const EmptyCard = styled.div`
   ${css.flexColumn('align-center')};

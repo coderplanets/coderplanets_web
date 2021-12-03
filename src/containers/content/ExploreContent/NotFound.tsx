@@ -12,12 +12,12 @@ import {
 } from './styles/not_found'
 
 type TProps = {
-  searchValue: string
+  showSearchNote: boolean
 }
 
-const NotFound: FC<TProps> = ({ searchValue }) => {
+const NotFound: FC<TProps> = ({ showSearchNote }) => {
   return (
-    <Wrapper>
+    <Wrapper showSearchNote={showSearchNote}>
       <EmptyCard>
         <EmptyTitle>没有找到相关社区</EmptyTitle>
         <EmptyDesc>

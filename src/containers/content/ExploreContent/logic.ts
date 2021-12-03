@@ -69,6 +69,9 @@ export const changeSearchStatus = (status): void => store.mark({ ...status })
 export const searchOnChange = (e: TEditValue): void => {
   updateEditing(store, 'searchValue', e)
   searchCommunities()
+  // if (store.activeCatalog !== null) {
+  //   store.mark({ activeCatalog: null })
+  // }
 }
 
 /**

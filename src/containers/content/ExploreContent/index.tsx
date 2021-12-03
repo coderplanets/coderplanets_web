@@ -58,7 +58,11 @@ const ExploreContentContainer: FC<TProps> = ({
       <Banner searchStatus={searchStatus} />
       <ContentWrapper center={isSearchMode}>
         <InnerWrapper metric={metric}>
-          <Sidebar show={showFilterSidebar} items={pagedCategoriesData} />
+          <Sidebar
+            showSearchNote={!showFilterSidebar}
+            searchStatus={searchStatus}
+            items={pagedCategoriesData}
+          />
           <ContentsWrapper center={isSearchMode}>
             {!isEmpty(pagedCommunitiesData.entries) ? (
               <>
@@ -74,7 +78,7 @@ const ExploreContentContainer: FC<TProps> = ({
                 />
               </>
             ) : (
-              <NotFound searchValue={searchValue} />
+              <NotFound showSearchNote={!showFilterSidebar} />
             )}
           </ContentsWrapper>
         </InnerWrapper>
