@@ -1,10 +1,10 @@
 import { FC, memo } from 'react'
 
 import type { TCategory, TTag } from '@/spec'
+
 import Sticky from '@/widgets/Sticky'
 import { Br } from '@/widgets/Common'
-import FiltersMenu from '@/widgets/FiltersMenu'
-import { mockFilterMenuTags } from '@/utils/mock'
+import NaviCatalog from '@/widgets/NaviCatalog'
 
 import { Wrapper, Holder } from './styles/sidebar'
 import { TID } from '@/spec'
@@ -17,18 +17,13 @@ type TProps = {
 }
 
 const Sidebar: FC<TProps> = ({ show, onItemClick, activeid, items }) => {
+  const categories = items.map((c) => ({ ...c, extra: [c.title] }))
+
   return (
     <Wrapper show={show}>
       <Sticky offsetTop={60}>
-        <FiltersMenu
-          tags={mockFilterMenuTags()}
-          // onSelect={onItemClick}
-          activeid={activeid}
-          itemBgHighlight={false}
-          noFilter
-          revert
-        />
-        <Br bottom={150} />
+        <NaviCatalog title="类别筛选" tags={categories} withDivider />
+        <Br bottom={50} />
       </Sticky>
       {/* without Holder the Sticky will not work because the
       Sticky  Content's Height is too long */}

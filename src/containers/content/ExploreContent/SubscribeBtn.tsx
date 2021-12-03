@@ -5,29 +5,15 @@ import { FC, memo } from 'react'
 
 import type { TCommunity, TID } from '@/spec'
 
-import Button from '@/widgets/Buttons/Button'
 import FollowButton from '@/widgets/Buttons/FollowButton'
 
 import { subscribe, unSubscribe } from './logic'
 
 type TProps = {
-  subscribing: boolean
-  subscribingId: TID
   community: TCommunity
 }
 
-const SubscribeBtn: FC<TProps> = ({
-  community,
-  subscribing,
-  subscribingId,
-}) => {
-  if (subscribing && community.id === subscribingId) {
-    return (
-      <Button size="tiny" type="primary">
-        加入 ..
-      </Button>
-    )
-  }
+const SubscribeBtn: FC<TProps> = ({ community }) => {
   return (
     <FollowButton
       size="tiny"

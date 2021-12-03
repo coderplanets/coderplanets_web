@@ -1,3 +1,5 @@
+import type { TID } from './utils'
+
 export type TCommunity = {
   id?: string
   index?: number
@@ -70,6 +72,7 @@ export type TGroupedTags = {
 }[]
 
 export type TCategory = {
+  id: TID
   title: string
   raw: string
   index: number

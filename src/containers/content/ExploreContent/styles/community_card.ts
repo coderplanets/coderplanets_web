@@ -61,7 +61,12 @@ export const Raw = styled.div`
 export const JoinWrapper = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
-  font-size: 13px;
+  font-size: 12px;
+`
+
+export const JoinNum = styled.div`
+  color: ${theme('thread.articleTitle')};
+  margin-right: 4px;
 `
 export const ContentWrapper = styled(JoinWrapper)`
   margin-top: -30px;
