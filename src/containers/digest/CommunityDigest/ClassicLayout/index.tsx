@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
 import usePlatform from '@/hooks/usePlatform'
 import { EVENT } from '@/constant'
-import { send, aliasMapIfNeed } from '@/utils/helper'
+import { send } from '@/utils/helper'
 
 import TabBar from '@/widgets/TabBar'
 import ViewportTracker from '@/widgets/ViewportTracker'
@@ -70,7 +70,7 @@ const ClassicLayout: FC<TProps> = ({
           </CommunityBaseInfo>
           <TabBarWrapper>
             <TabBar
-              source={aliasMapIfNeed(community.raw, community.threads)}
+              source={community.threads}
               onChange={(data) => send(EVENT.COMMUNITY_THREAD_CHANGE, { data })}
               active={activeThread}
               layout={layout}
