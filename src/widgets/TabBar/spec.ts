@@ -6,4 +6,5 @@ export type TTabItem = {
   alias?: string
   icon?: string | ReactNode
   localIcon?: string
+  index?: number
 }

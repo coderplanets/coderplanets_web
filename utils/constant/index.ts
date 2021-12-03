@@ -29,6 +29,8 @@ export { default as SVG } from './svg'
 
 export { WORKS_TAB, WORKS_TAB_ITEMS, BLOG_TAB, BLOG_TAB_ITEMS } from './tab'
 
+export { COMMUNITY_MAP_ALIAS } from './alias'
+
 /* some svg icon are sensitive to fill color */
 /* some community svg need fill color, like city etc.. */
 export const NON_FILL_COMMUNITY = ['javascript']

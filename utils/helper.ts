@@ -8,6 +8,8 @@ import {
   uniq,
   tap,
   endsWith,
+  includes,
+  findIndex,
 } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
@@ -26,10 +28,11 @@ import type {
   TToastPos,
   TWorks,
   TTechCommunities,
+  TTabItem,
 } from '@/spec'
 
 import { TAG_COLOR_ORDER } from '@/config'
-import { TYPE, EVENT, THREAD } from '@/constant'
+import { TYPE, EVENT, THREAD, COMMUNITY_MAP_ALIAS } from '@/constant'
 
 import { scrollToHeader } from './dom'
 import { isString } from './validator'
@@ -562,4 +565,17 @@ export const classifyTechstack = (works: TWorks): TTechCommunities => {
   }))
 
   return groupBy(prop('category'), techs)
+}
+
+// 给 Thread 的 Map 取别名
+export const aliasMapIfNeed = (
+  communityRaw: string,
+  threads: TTabItem[],
+): TTabItem[] => {
+  if (includes(communityRaw, keys(COMMUNITY_MAP_ALIAS))) {
+    const index = findIndex((t) => t.raw === 'map', threads)
+    if (index >= 0) threads[index].title = COMMUNITY_MAP_ALIAS[communityRaw]
+  }
+
+  return threads
 }
