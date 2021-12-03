@@ -41,11 +41,13 @@ const SlogenText: FC = () => {
 
   return (
     <>
+      「
       <AnimateOnChange durationOut={500}>
         <SloganTextWrapper highlight onClick={fixAnimationStockIfNeed}>
           {coolThings[index]}
         </SloganTextWrapper>
       </AnimateOnChange>
+      」
     </>
   )
 }

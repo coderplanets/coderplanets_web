@@ -23,7 +23,7 @@ const Sidebar: FC<TProps> = ({ showSearchNote, searchStatus, items }) => {
   return (
     <Wrapper>
       <Sticky offsetTop={60}>
-        <Br bottom={15} />
+        <Br bottom={8} />
         {showSearchNote ? (
           <SearchHint>
             <SearchTitle>搜索结果: </SearchTitle>
