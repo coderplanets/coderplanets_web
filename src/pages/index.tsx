@@ -30,6 +30,7 @@ const loader = async (context, opt = {}) => {
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
   const community = ssrGetParam(context, 'community') || HCN
+  console.log('ssrGetParam community: ', community)
   const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
   // const thread = params.thread ? singular(params.thread) : THREAD.POST
 
