@@ -7,7 +7,7 @@ import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import { scrollToHeader } from '@/utils/dom'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
-import { errRescue, titleCase, previewArticle, authWarn } from '@/utils/helper'
+import { errRescue, plural, previewArticle, authWarn } from '@/utils/helper'
 import { matchPagedArticles, matchArticleUpvotes } from '@/utils/macros'
 
 import type { TStore } from './store'
@@ -89,7 +89,7 @@ const handleUovoteRes = ({ id, upvotesCount, meta }) => {
 }
 
 const handlePagedArticlesRes = (thread: TThread, pagedArticles): void => {
-  const key = `paged${titleCase(thread)}s`
+  const key = `paged${plural(thread, 'titleCase')}`
   log('pagedArticles -> ', pagedArticles)
   store.markRes({ [key]: pagedArticles })
 }
@@ -99,7 +99,7 @@ const handlePagedArticlesRes = (thread: TThread, pagedArticles): void => {
 // ###############################
 const DataSolver = [
   ...matchPagedArticles(
-    [THREAD.POST, THREAD.BLOG, THREAD.JOB, THREAD.RADAR],
+    [THREAD.POST, THREAD.BLOG, THREAD.JOB, THREAD.RADAR, THREAD.WORKS],
     handlePagedArticlesRes,
   ),
   ...matchArticleUpvotes(handleUovoteRes),

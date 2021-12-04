@@ -37,6 +37,10 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
       return <WipThread title="酷导航" />
     }
 
+    case THREAD.ACCOUNT: {
+      return <WipThread title="违规账户信息" />
+    }
+
     case THREAD.CPER:
       return <CperMapThread />
     case THREAD.MAP:

@@ -148,6 +148,7 @@ export type TThread =
   | 'product'
   | 'team'
   | 'interview'
+  | 'account'
   | 'guide'
 
 export type TContainer = 'body' | 'drawer'

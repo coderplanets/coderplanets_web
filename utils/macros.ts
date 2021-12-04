@@ -15,7 +15,7 @@ const { asyncRes } = asyncSuite
  */
 export const matchPagedArticles = (threads: TThread[], callback) => {
   return map((thread) => {
-    const resKey = `paged${titleCase(thread)}s`
+    const resKey = `paged${plural(thread, 'titleCase')}`
 
     return {
       match: asyncRes(resKey),
@@ -30,7 +30,7 @@ export const matchPagedArticles = (threads: TThread[], callback) => {
 export const matchPublishedArticles = (callback) => {
   // @ts-ignore
   return map((thread) => {
-    const resKey = `pagedPublished${plural(titleCase(thread))}`
+    const resKey = `pagedPublished${plural(thread, 'titleCase')}`
 
     return {
       match: asyncRes(resKey),

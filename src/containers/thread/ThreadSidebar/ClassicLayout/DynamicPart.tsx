@@ -23,6 +23,7 @@ import TagsBar from '@/containers/unit/TagsBar'
 
 import {
   BadgeWrapper,
+  NoteWrapper,
   TagsBarWrapper,
   PublishWrapper,
 } from '../styles/classic_layout'
@@ -44,7 +45,13 @@ const ClassicLayout: FC<TProps> = ({
   return (
     <Sticky offsetTop={50}>
       <PublishWrapper show={showCommunityBadge}>
-        <PublishButton thread={thread} community={community.raw} />
+        {community.raw !== 'blackhole' ? (
+          <PublishButton thread={thread} community={community.raw} />
+        ) : (
+          <NoteWrapper>
+            这里的内容将不会被开放给搜索引擎，只进不出。如果有异议，可联系志愿者移出。
+          </NoteWrapper>
+        )}
       </PublishWrapper>
       <BadgeWrapper show={!showCommunityBadge}>
         <CommunityJoinBadge />

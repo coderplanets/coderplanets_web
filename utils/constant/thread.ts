@@ -25,5 +25,6 @@ export const THREAD = {
   TEAM: 'team',
   PRODUCT: 'product',
   GUIDE: 'guide',
+  ACCOUNT: 'account',
   SETTING: 'setting',
 } as Record<Uppercase<TThread>, TThread>
