@@ -16,6 +16,8 @@ import {
   Left,
   Right,
   CommunityIcon,
+  RawWrapper,
+  Slash,
   Raw,
   ContentWrapper,
   JoinWrapper,
@@ -48,7 +50,10 @@ const CommunityCard: FC<TProps> = ({
           nonFill={contains(community.raw, NON_FILL_COMMUNITY)}
           src={community.logo}
         />
-        <Raw>{community.raw}</Raw>
+        <RawWrapper>
+          <Slash>/</Slash>
+          <Raw>{community.raw}</Raw>
+        </RawWrapper>
         <ActivitySpark>
           <TrendLine data={trendData} />
           {/* <TrendLine data={[3, 4, 7, 5, 4, 10, 6]} /> */}

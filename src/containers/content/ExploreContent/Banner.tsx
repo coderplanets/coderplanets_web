@@ -11,6 +11,7 @@ import dynamic from 'next/dynamic'
 import { ICON_CMD } from '@/config'
 import { ROUTE } from '@/constant'
 import { buildLog } from '@/utils/logger'
+import { Space } from '@/widgets/Common'
 
 import type { TSearchState } from './spec'
 import SearchBox from './SearchBox'
@@ -71,6 +72,7 @@ const Banner: FC<TProps> = ({
 
         {showCreateHint && (
           <IntroDesc>
+            <Space right={24} />
             或者，来为你
             <SloganText />
             <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>

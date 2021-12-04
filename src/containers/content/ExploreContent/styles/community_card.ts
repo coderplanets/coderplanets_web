@@ -48,20 +48,26 @@ export const CommunityIcon = styled(Img)<{ nonFill: boolean }>`
     fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.title'))};
   }
 `
-export const Raw = styled.div`
-  position: relative;
-  padding-left: 2px;
-  font-size: 13px;
+export const RawWrapper = styled.div`
+  ${css.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
-
-  &:before {
-    content: '/';
-    position: absolute;
-    top: 2px;
-    left: -2px;
-    font-size: 10px;
-  }
+  font-size: 13px;
+  margin-left: -1px;
+`
+export const Slash = styled.div`
+  color: ${theme('thread.articleDigest')};
+  font-size: 8px;
+  margin-right: 2px;
+  font-weight: bold;
+`
+export const Raw = styled.div`
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 `
 export const JoinWrapper = styled.div`
   ${css.flex('align-center')};
