@@ -2,6 +2,7 @@ import Document from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 /* eslint-disable */
+// @ts-ignore
 export default class DocumentPage extends Document {
   static async getInitialProps({ renderPage }) {
     // const sheet = new ServerStyleSheet()
