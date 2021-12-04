@@ -27,7 +27,9 @@ import { P } from '@/schemas'
 
 const loader = async (context, opt = {}) => {
   // const { params } = context.req
+  console.log('# index loader')
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+  console.log('# index ssrFetchPrepare')
 
   const community = ssrGetParam(context, 'community') || HCN
   console.log('ssrGetParam community: ', community)
