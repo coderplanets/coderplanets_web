@@ -95,7 +95,9 @@ const FooterStore = T.model('FooterStore', {
     },
     changeCommunity(raw): void {
       const root = getParent(self) as TRootStore
-      root.markRoute({ mainPath: raw, subPath: '' })
+      const mainPath = raw === HCN ? '' : raw
+
+      root.markRoute({ mainPath, subPath: '' })
       root.viewing.changeCommunity(raw)
     },
     sponsorHepler(): void {

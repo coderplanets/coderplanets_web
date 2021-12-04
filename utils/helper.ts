@@ -1,9 +1,12 @@
+import Router from 'next/router'
+
 import {
   curry,
   groupBy,
   prop,
   reduce,
   keys,
+  values,
   sort,
   uniq,
   tap,
@@ -32,7 +35,14 @@ import type {
 } from '@/spec'
 
 import { TAG_COLOR_ORDER } from '@/config'
-import { TYPE, EVENT, THREAD, COMMUNITY_MAP_ALIAS } from '@/constant'
+import {
+  HCN,
+  TYPE,
+  EVENT,
+  THREAD,
+  COMMUNITY_MAP_ALIAS,
+  NON_COMMUNITY_ROUTE,
+} from '@/constant'
 
 import { scrollToHeader } from './dom'
 import { isString } from './validator'
@@ -242,7 +252,23 @@ export const toast = (
   send(EVENT.TOAST, { type, title, msg, position })
 }
 
-export const changeToCommunity = (raw: string): void => {
+/**
+ * 跳转到某个社区
+ * - 如果已经在子社区，只需要重新加载数据
+ * - 如果在其他页面，那么需要重新请求页面
+ */
+export const changeToCommunity = (raw = ''): void => {
+  const isClient = typeof window === 'object'
+  if (!isClient) return
+
+  const curPath = window.location.pathname.slice(1)
+
+  if (includes(curPath, values(NON_COMMUNITY_ROUTE))) {
+    const target = raw === HCN ? '' : raw
+    Router.push(`/${target}`)
+    return
+  }
+
   send(EVENT.COMMUNITY_CHANGE_BEFORE, { path: raw })
 }
 
