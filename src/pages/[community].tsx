@@ -32,7 +32,6 @@ const loader = async (context, opt = {}) => {
   // 线上环境会直接跳过 index 到这里，有待排查。。
   const community = ssrGetParam(context, 'community') || HCN
   const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
-  console.log('# community thread: ', thread)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)

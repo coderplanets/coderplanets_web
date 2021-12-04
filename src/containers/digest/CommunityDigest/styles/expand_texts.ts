@@ -29,6 +29,7 @@ export const Normal = styled.div<{ margin?: boolean }>`
 `
 export const Desc = styled.div`
   ${css.cutRest('360px')};
+  font-size: 13px;
   /* white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; */

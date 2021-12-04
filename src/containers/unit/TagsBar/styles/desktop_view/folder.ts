@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 import { TActive } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import ArrowSVG from '@/icons/ArrowSimple'
+import MoreSVG from '@/icons/MoreL'
 
 export const Wrapper = styled.div``
 export const Header = styled.div<TActive>`
@@ -14,7 +15,7 @@ export const Header = styled.div<TActive>`
     cursor: pointer;
   }
 `
-export const ArrowIcon = styled(Img)<{ isOpen: boolean }>`
+export const ArrowIcon = styled(ArrowSVG)<{ isOpen: boolean }>`
   fill: ${theme('tags.text')};
   ${css.size(16)};
   opacity: 0.5;
@@ -81,7 +82,7 @@ export const SubToggleTitle = styled.div`
   padding: 2px;
   border-radius: 5px;
 `
-export const SubTogglePrefixIcon = styled(Img)`
+export const SubTogglePrefixIcon = styled(MoreSVG)`
   fill: ${theme('tags.text')};
   ${css.size(13)};
 `

@@ -1,11 +1,8 @@
 import { FC, useState, useRef, useEffect } from 'react'
-
 import { findIndex, reverse } from 'ramda'
 
-import { ICON } from '@/config'
-import { sortByColor } from '@/utils/helper'
-
 import type { TTag } from '@/spec'
+import { sortByColor } from '@/utils/helper'
 
 import TagItem from './TagItem'
 
@@ -80,11 +77,7 @@ const Folder: FC<TProps> = ({
           }
         }}
       >
-        <ArrowIcon
-          isOpen={isFolderOpen}
-          src={`${ICON}/shape/arrow-simple.svg`}
-        />
-
+        <ArrowIcon isOpen={isFolderOpen} />
         <Title>
           <FolderTitle>{title}</FolderTitle>
           {!isFolderOpen && <Count>{sortedTags.length}</Count>}
@@ -116,7 +109,7 @@ const Folder: FC<TProps> = ({
               )
             }}
           >
-            <SubTogglePrefixIcon src={`${ICON}/shape/more-l.svg`} />
+            <SubTogglePrefixIcon />
             <SubToggleTitle>
               {curDisplayCount === maxDisplayCount ? '展开更多' : '收起'}
             </SubToggleTitle>

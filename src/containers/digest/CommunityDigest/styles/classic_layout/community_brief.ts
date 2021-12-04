@@ -13,11 +13,11 @@ export const Wrapper = styled.div<{ descExpand: boolean }>`
 `
 export const LogoWrapper = styled.div`
   position: relative;
-  width: 40px;
-  margin-top: -4px;
+  width: 38px;
+  margin-top: -6px;
 
   ${css.media.mobile`
-    width: 45px;
+    width: 30px;
     margin-top: -2px;
   `};
 `
@@ -45,7 +45,8 @@ export const TitleWrapper = styled.div`
 `
 export const Title = styled.div<{ descExpand: boolean }>`
   ${css.flex('align-center')};
-  font-size: ${({ descExpand }) => (descExpand ? '21px' : '18px')};
+  font-size: ${({ descExpand }) => (descExpand ? '18px' : '16px')};
+  margin-bottom: 3px;
   color: ${theme('banner.title')};
 `
 export const TitleText = styled.span`

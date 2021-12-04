@@ -34,7 +34,7 @@ const Linker: FC<TProps> = ({
   text = '',
   hint = null,
   external = true,
-  openInNewTab = true,
+  openInNewTab = false,
   inline = false,
   plainColor = false,
   ...restProps
