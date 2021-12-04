@@ -45,6 +45,8 @@ const loader = async (context, opt = {}) => {
   })
 
   const filter = ssrPagedArticlesFilter(context, userHasLogin)
+  console.log('got filter: ', filter)
+
   const pagedArticles = isArticleThread(thread)
     ? gqClient.request(ssrPagedArticleSchema(thread), filter)
     : {}
@@ -83,6 +85,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   const { filter, community, pagedArticleTags } = resp
+  // console.log('iii got resp: ', resp)
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
   const initProps = merge(

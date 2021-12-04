@@ -9,7 +9,7 @@ import {
 } from 'ramda'
 
 import { DEFAULT_THEME } from '@/config'
-import { TYPE, ARTICLE_THREAD } from '@/constant'
+import { HCN, TYPE, ARTICLE_THREAD } from '@/constant'
 import { plural } from './helper'
 
 import { makeGQClient } from './graphql'
@@ -127,7 +127,7 @@ export const ssrHomePagedArticlesFilter = (context, userHasLogin) => {
 export const ssrPagedArticlesFilter = (context, userHasLogin) => {
   const { query } = context
   const { community: communityPath } = query
-  const community = akaTranslate(communityPath || 'home')
+  const community = akaTranslate(communityPath) || HCN
 
   const filter = pick(validCommunityFilters, { ...query, community })
 
