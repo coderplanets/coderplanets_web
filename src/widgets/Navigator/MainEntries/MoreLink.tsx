@@ -1,13 +1,13 @@
 import { FC, memo } from 'react'
-
-import { ICON_CMD } from '@/config'
+import dynamic from 'next/dynamic'
 
 import Tooltip from '@/widgets/Tooltip'
 
-import MorePanel from '../MorePanel'
-import { SiteLink, Icon } from '../styles/more_links'
+import { SiteLink, ArrowIcon } from '../styles/more_links'
 
-const DesktopView: FC = () => {
+const MorePanel = dynamic(() => import('../MorePanel'), { ssr: false })
+
+const MoreLink: FC = () => {
   return (
     <Tooltip
       content={<MorePanel />}
@@ -16,11 +16,11 @@ const DesktopView: FC = () => {
       trigger="click"
       noPadding
     >
-      <SiteLink testid="header-more-link">
-        更多 <Icon src={`${ICON_CMD}/arrow_down.svg`} />
+      <SiteLink as="div" testid="header-more-link">
+        更多 <ArrowIcon />
       </SiteLink>
     </Tooltip>
   )
 }
 
-export default memo(DesktopView)
+export default memo(MoreLink)
