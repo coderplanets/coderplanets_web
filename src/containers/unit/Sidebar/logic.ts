@@ -3,9 +3,9 @@ import { arrayMove } from 'react-sortable-hoc'
 import { addIndex, map, reject, propEq, contains } from 'ramda'
 
 import type { TCommunity } from '@/spec'
-import { HCN, EVENT, ERR, THREAD, ROUTE } from '@/constant'
+import { HCN, EVENT, ERR, ROUTE } from '@/constant'
 
-import { Global, send, errRescue, plural } from '@/utils/helper'
+import { Global, errRescue, changeToCommunity } from '@/utils/helper'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
 
@@ -41,18 +41,11 @@ export const onCommunitySelect = (community: TCommunity): void => {
   // NOTE: check page, if current it's from communities then redirect whole page
   const { mainPath } = store.curRoute
   if (contains(mainPath, [ROUTE.EXPLORE])) {
-    Global.location.href = `/${community.raw}/posts`
+    Global.location.href = `/${community.raw}`
     return
   }
 
-  store.setViewing({ community, activeThread: THREAD.POST, post: {} })
-
-  store.markRoute({
-    mainPath: community.raw,
-    subPath: plural(THREAD.POST),
-  })
-
-  send(EVENT.COMMUNITY_CHANGE)
+  changeToCommunity(community.raw)
 }
 
 export const sortBtnOnClick = (): void => {

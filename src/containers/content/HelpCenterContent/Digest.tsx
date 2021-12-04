@@ -25,7 +25,7 @@ const Digest: FC<TProps> = ({ metric, community }) => {
         <BreadCrumbs>
           <Community>
             <CommunityLogo src={community.logo} />
-            <CommunityTitle href={`/${community.raw}/posts`}>
+            <CommunityTitle href={`/${community.raw}`}>
               {community.title}
             </CommunityTitle>
           </Community>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { EVENT, ERR } from '@/constant'
+import { EVENT, ERR, ARTICLE_THREAD } from '@/constant'
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
 import { singular, errRescue } from '@/utils/helper'
@@ -59,7 +59,7 @@ const DataSolver = [
       markLoading(false)
       const { subPath } = store.curRoute
       log('community: ', community)
-      const activeThread = singular(subPath)
+      const activeThread = singular(subPath) || ARTICLE_THREAD.POST
       store.setViewing({ community, activeThread })
     },
   },

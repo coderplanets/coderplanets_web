@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { isEmpty } from 'ramda'
 
 import type { TID, TEditValue } from '@/spec'
 import { EVENT, ERR } from '@/constant'
@@ -31,15 +30,13 @@ let sub$ = null
  * @ppublic
  */
 export const loadCommunities = (page = 1): void => {
-  const { subPath } = store.curRoute
-  const category = !isEmpty(subPath) ? subPath : 'pl'
+  const category = store.activeCatalog
 
   const args = {
     filter: { ...pagedFilter(page), category },
     userHasLogin: store.isLogin,
   }
 
-  // log('.')
   log('loadCommunities ', args)
   sr71$.query(S.pagedCommunities, args)
 }
@@ -72,6 +69,9 @@ export const changeSearchStatus = (status): void => store.mark({ ...status })
 export const searchOnChange = (e: TEditValue): void => {
   updateEditing(store, 'searchValue', e)
   searchCommunities()
+  // if (store.activeCatalog !== null) {
+  //   store.mark({ activeCatalog: null })
+  // }
 }
 
 /**
@@ -81,10 +81,9 @@ export const searchOnChange = (e: TEditValue): void => {
  * @param {item.raw} string
  * @public
  */
-export const menuOnChange = ({ id, raw }): void => {
-  store.markRoute({ subPath: raw })
+export const categoryOnChange = (activeCatalog: string): void => {
+  store.mark({ activeCatalog })
   loadCommunities()
-  store.mark({ activeCatalogId: id })
 }
 
 /**

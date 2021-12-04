@@ -65,8 +65,8 @@ const RouteStore = T.model('RouteStore', {
       const { mainPath, subPath, page } = query
       query = pickBy((v) => !isEmpty(v), query)
 
-      if (mainPath) self.mainPath = mainPath
-      if (subPath) self.subPath = subPath
+      if (mainPath || mainPath === '') self.mainPath = mainPath
+      if (subPath || subPath === '') self.subPath = subPath
 
       if (page && String(page) === '1') query = omit(['page'], query)
 
@@ -76,6 +76,10 @@ const RouteStore = T.model('RouteStore', {
       let asPath
       if (self.mainPath && self.subPath) {
         asPath = `/${self.mainPath}/${self.subPath}${queryString}`
+      } else if (self.mainPath && subPath === '') {
+        asPath = `/${self.mainPath}${queryString}`
+      } else if (self.mainPath === '' && subPath === '') {
+        asPath = '/'
       } else {
         asPath = `${queryString}`
       }

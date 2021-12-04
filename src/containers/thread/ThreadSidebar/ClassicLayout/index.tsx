@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic'
 import type { TThread, TCommunity } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import { LavaLampLoading } from '@/widgets/dynamic'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 // import DynamicPart from './DynamicPart'
 
 import type { TBaseProps } from '../index'

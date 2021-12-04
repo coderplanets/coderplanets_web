@@ -46,6 +46,7 @@ export const article = `
   }
   originalCommunity {
     ${community}
+    viewerHasSubscribed
   }
   communities {
     ${community}

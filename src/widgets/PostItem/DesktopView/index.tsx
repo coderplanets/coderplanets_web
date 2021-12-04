@@ -1,6 +1,6 @@
 import { FC, Fragment, memo } from 'react'
 
-import type { TPost } from '@/spec'
+import type { TCommunity, TPost } from '@/spec'
 import { UPVOTE_LAYOUT } from '@/constant'
 
 import { upvoteOnArticleList } from '@/utils/helper'
@@ -15,13 +15,14 @@ import Body from './Body'
 import { AvatarWrapper, UpvoteWrapper, Main } from '../styles/desktop_view'
 
 type TProps = {
+  curCommunity: TCommunity | null
   entry: TPost
 
   // onUserSelect?: (obj: TUser) => void
   // onAuthorSelect?: (obj: TAccount) => void
 }
 
-const DigestView: FC<TProps> = ({ entry }) => {
+const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
   return (
     <Fragment>
       <ArticleReadLabel entry={entry} />
@@ -41,7 +42,7 @@ const DigestView: FC<TProps> = ({ entry }) => {
       </AvatarWrapper>
       <Main>
         <Header item={entry} />
-        <Body item={entry} />
+        <Body item={entry} curCommunity={curCommunity} />
       </Main>
     </Fragment>
   )

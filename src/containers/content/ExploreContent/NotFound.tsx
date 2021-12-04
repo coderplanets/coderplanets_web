@@ -2,7 +2,6 @@ import { FC, memo } from 'react'
 import Link from 'next/link'
 
 import { ROUTE } from '@/constant'
-import { cutRest } from '@/utils/helper'
 
 import {
   Wrapper,
@@ -10,23 +9,19 @@ import {
   EmptyTitle,
   EmptyDesc,
   IssueLink,
-  SearchValueFocus,
 } from './styles/not_found'
 
 type TProps = {
-  searchValue: string
+  showSearchNote: boolean
 }
 
-const NotFound: FC<TProps> = ({ searchValue }) => {
+const NotFound: FC<TProps> = ({ showSearchNote }) => {
   return (
-    <Wrapper>
+    <Wrapper showSearchNote={showSearchNote}>
       <EmptyCard>
-        <EmptyTitle>
-          没有找到包含{' '}
-          <SearchValueFocus>{cutRest(searchValue, 10)}</SearchValueFocus> 的社区
-        </EmptyTitle>
+        <EmptyTitle>没有找到相关社区</EmptyTitle>
         <EmptyDesc>
-          若没有你感兴趣的社区, 你可以
+          若没有你感兴趣的社区, 欢迎
           <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>
             <IssueLink>参与创建</IssueLink>
           </Link>

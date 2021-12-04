@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
   ${css.flexColumn()};
   width: 200px;
   min-height: 100px;
+  padding-left: 8px;
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
   ${css.size(30)};

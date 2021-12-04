@@ -12,7 +12,7 @@ import MasonryCards from '@/widgets/MasonryCards'
 import { LavaLampLoading, EmptyThread } from './dynamic'
 
 const ArticleList = (props) => {
-  const { thread, resState, entries, c11n } = props
+  const { curCommunity, thread, resState, entries, c11n } = props
 
   // switch between threads
   if (resState === TYPE.RES_STATE.LOADING && entries.length === 0) {
@@ -56,7 +56,12 @@ const ArticleList = (props) => {
       return (
         <Fragment>
           {entries.map((entry) => (
-            <PostItem key={entry.id} entry={entry} c11n={c11n} />
+            <PostItem
+              key={entry.id}
+              entry={entry}
+              c11n={c11n}
+              curCommunity={curCommunity}
+            />
           ))}
         </Fragment>
       )

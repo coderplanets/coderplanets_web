@@ -57,7 +57,7 @@ const HolyGrailLayout: FC<TProps> = ({
           <TabsWrapper>
             <TabBar
               source={community.threads}
-              onChange={(data) => send(EVENT.COMMUNITY_TAB_CHANGE, { data })}
+              onChange={(data) => send(EVENT.COMMUNITY_THREAD_CHANGE, { data })}
               active={thread}
               layout={C11N.HOLY_GRAIL}
               communityRaw={community.raw}

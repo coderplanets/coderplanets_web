@@ -20,7 +20,7 @@ const HelpInfo: FC<TProps> = ({ community }) => {
       <Title>当前问答都解决不了我的问题?</Title>
       <div>
         您可以在 {community.title} 社区{' '}
-        <PostLink href={`/${community.raw}/posts`}>[发帖询问]</PostLink>
+        <PostLink href={`/${community.raw}`}>[发帖询问]</PostLink>
         ，或通过官方渠道联系我们:
       </div>
       <ContactsWrapper>

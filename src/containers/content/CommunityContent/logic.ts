@@ -17,7 +17,7 @@ const log = buildLog('L:CommunityContent')
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   // @ts-ignore
-  receive: [EVENT.COMMUNITY_TAB_CHANGE],
+  receive: [EVENT.COMMUNITY_THREAD_CHANGE],
 })
 
 let store: TStore | undefined
@@ -30,7 +30,8 @@ const tabOnChange = (activeThread: TThread): void => {
   const { curCommunity } = store
 
   const mainPath = curCommunity.raw
-  const subPath = plural(activeThread)
+  const subPath =
+    activeThread !== ARTICLE_THREAD.POST ? plural(activeThread) : ''
 
   store.markRoute({ mainPath, subPath })
   // store.setViewing({ activeThread })
@@ -43,9 +44,9 @@ const tabOnChange = (activeThread: TThread): void => {
 
 const DataSolver = [
   {
-    match: asyncRes(EVENT.COMMUNITY_TAB_CHANGE),
+    match: asyncRes(EVENT.COMMUNITY_THREAD_CHANGE),
     action: (res) => {
-      const { data } = res[EVENT.COMMUNITY_TAB_CHANGE]
+      const { data } = res[EVENT.COMMUNITY_THREAD_CHANGE]
       tabOnChange(data)
 
       if (includes(data, values(ARTICLE_THREAD))) {

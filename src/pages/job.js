@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { toUpper } from 'ramda'
 
 import { PAGE_SIZE, SITE_URL } from '@/config'
-import { TYPE, ROUTE, METRIC, THREAD } from '@/constant'
+import { TYPE, METRIC, THREAD } from '@/constant'
 import {
   getJwtToken,
   makeGQClient,
@@ -78,7 +78,7 @@ export const getServerSideProps = async (props) => {
       isValidSession: sessionState.isValid,
       userSubscribedCommunities: subscribedCommunities,
     },
-    route: { mainPath, subPath: ROUTE.JOB },
+    route: { mainPath, subPath: THREAD.JOB },
     viewing: {
       job: viewingContent,
       activeThread: THREAD.JOB,

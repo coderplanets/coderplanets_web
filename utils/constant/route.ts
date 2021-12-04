@@ -1,20 +1,5 @@
-const ROUTE = {
-  // NOTE: the lower-case is MUST
-  HOME: 'home',
-  // this page is not exist on url, but serves default community page
-  COMMUNITY: 'community',
+export const NON_COMMUNITY_ROUTE = {
   EXPLORE: 'explore',
-  POSTS: 'posts',
-  BLOGS: 'blogs',
-  JOBS: 'jobs',
-  REPOS: 'repos',
-
-  POST: 'post',
-  BLOG: 'blog',
-  USER: 'user',
-  JOB: 'job',
-  REPO: 'repo',
-
   MEETUPS: 'meetups',
   HAVE_A_DRINK: 'have-a-drink',
   COOL_GUIDE: 'cool-guide',
@@ -30,4 +15,14 @@ const ROUTE = {
   APPLY_COMMUNITY: 'apply/community',
 }
 
-export default ROUTE
+export const ROUTE = {
+  // NOTE: the lower-case is MUST
+  HOME: 'home',
+
+  POST: 'post',
+  BLOG: 'blog',
+  USER: 'user',
+  JOB: 'job',
+
+  ...NON_COMMUNITY_ROUTE,
+}

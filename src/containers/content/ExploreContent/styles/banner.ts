@@ -6,7 +6,7 @@ import css from '@/utils/css'
 
 import Img from '@/Img'
 
-export const BannerContainer = styled.div.attrs(({ testid }: TTestable) => ({
+export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   ${css.flexColumn('justify-center')};
@@ -23,11 +23,13 @@ export const BannerContainer = styled.div.attrs(({ testid }: TTestable) => ({
 export const IntroWrapper = styled.div`
   ${css.flexColumn('align-both')};
   padding-top: 30px;
+  padding-left: 50px;
   color: ${theme('thread.articleDigest')};
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 300px;
+  height: 500px;
+  padding-bottom: 200px;
 `
 export const IntroTitle = styled.div`
   ${css.flex('align-center')};
@@ -47,7 +49,6 @@ export const SloganTextWrapper = styled.div<{ highlight?: boolean }>`
   margin-left: 3px;
   margin-right: 3px;
 
-  font-weight: ${({ highlight }) => (highlight ? 'bold' : '')};
   color: ${({ highlight }) =>
     highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
 `

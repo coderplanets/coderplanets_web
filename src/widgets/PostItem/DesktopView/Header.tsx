@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 
 import type { TPost } from '@/spec'
-import { ROUTE } from '@/constant'
+import { ARTICLE_THREAD } from '@/constant'
 import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils/route'
 
@@ -27,7 +27,7 @@ const Header: FC<TProps> = ({ item }) => {
   return (
     <Wrapper>
       <Brief>
-        <Link href={`/${ROUTE.POST}/${item.id}`} passHref>
+        <Link href={`/${ARTICLE_THREAD.POST}/${item.id}`} passHref>
           <Title>{item.title}</Title>
         </Link>
         {item.linkAddr && (

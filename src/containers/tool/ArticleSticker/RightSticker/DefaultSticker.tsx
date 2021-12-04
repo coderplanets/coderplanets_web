@@ -1,8 +1,9 @@
 import { FC, memo } from 'react'
 
 import type { TArticle } from '@/spec'
-import { shareTo, addCollection } from '@/utils/helper'
+import { SVG } from '@/constant'
 
+import { shareTo, addCollection } from '@/utils/helper'
 import IconButton from '@/widgets/Buttons/IconButton'
 import Upvote from '@/widgets/Upvote'
 
@@ -24,7 +25,7 @@ const ArticleSticker: FC<TProps> = ({ show, article }) => {
         onAction={handleUpvote}
       />
       <IconButton
-        path="article/collect-bookmark.svg"
+        icon={SVG.COLLECTION}
         onClick={() => addCollection()}
         size={23}
         mLeft={2}
@@ -32,7 +33,7 @@ const ArticleSticker: FC<TProps> = ({ show, article }) => {
         mRight={0}
       />
       <IconButton
-        path="article/share-solid.svg"
+        icon={SVG.SHARE}
         onClick={shareTo}
         size={20}
         mLeft={4}

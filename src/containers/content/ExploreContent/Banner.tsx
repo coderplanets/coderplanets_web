@@ -8,15 +8,15 @@ import { FC, memo } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
-import type { TSearchState } from './spec'
 import { ICON_CMD } from '@/config'
 import { ROUTE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
+import type { TSearchState } from './spec'
 import SearchBox from './SearchBox'
 
 import {
-  BannerContainer,
+  Wrapper,
   IntroWrapper,
   IntroTitle,
   IntroDesc,
@@ -47,11 +47,10 @@ const Banner: FC<TProps> = ({
     showCreateHint,
     showSearchHint,
     showSearchResultHint,
-    searchResultCount,
   },
 }) => {
   return (
-    <BannerContainer testid="explore-banner">
+    <Wrapper testid="explore-banner">
       <IntroWrapper>
         <IntroTitle>
           <SearchIcon src={`${ICON_CMD}/search.svg`} />
@@ -63,11 +62,7 @@ const Banner: FC<TProps> = ({
           value={searchValue}
         />
 
-        {showSearchResultHint && (
-          <IntroDesc>
-            共找到 &apos;{searchValue} &apos; 相关社区 {searchResultCount} 个
-          </IntroDesc>
-        )}
+        {showSearchResultHint && <IntroDesc>支持中文以及英文大小写</IntroDesc>}
         {showSearchHint && (
           <IntroDesc>
             可用关键字搜索社区，比如: &apos;react&apos;, &apos;elixir&apos; 等
@@ -85,7 +80,7 @@ const Banner: FC<TProps> = ({
           </IntroDesc>
         )}
       </IntroWrapper>
-    </BannerContainer>
+    </Wrapper>
   )
 }
 

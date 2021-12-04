@@ -25,7 +25,7 @@ import {
   InnerWrapper,
   ContentsWrapper,
 } from './styles'
-import { useInit, pageOnChange, menuOnChange } from './logic'
+import { useInit, pageOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ExploreContent')
@@ -45,14 +45,13 @@ const ExploreContentContainer: FC<TProps> = ({
     searchStatus,
     pagedCommunitiesData,
     pagedCategoriesData,
-    activeMenuId,
     pagiInfo,
     showFilterSidebar,
     subscribing,
     subscribingId,
   } = store
 
-  const { isSearchMode, searchValue } = searchStatus
+  const { isSearchMode } = searchStatus
 
   return (
     <Wrapper>
@@ -60,10 +59,9 @@ const ExploreContentContainer: FC<TProps> = ({
       <ContentWrapper center={isSearchMode}>
         <InnerWrapper metric={metric}>
           <Sidebar
-            show={showFilterSidebar}
+            showSearchNote={!showFilterSidebar}
+            searchStatus={searchStatus}
             items={pagedCategoriesData}
-            onItemClick={menuOnChange}
-            activeid={activeMenuId}
           />
           <ContentsWrapper center={isSearchMode}>
             {!isEmpty(pagedCommunitiesData.entries) ? (
@@ -80,7 +78,7 @@ const ExploreContentContainer: FC<TProps> = ({
                 />
               </>
             ) : (
-              <NotFound searchValue={searchValue} />
+              <NotFound showSearchNote={!showFilterSidebar} />
             )}
           </ContentsWrapper>
         </InnerWrapper>

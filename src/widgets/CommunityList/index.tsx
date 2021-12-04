@@ -48,11 +48,7 @@ const CommunityList: FC<TProps> = ({
           placement="bottom"
           content={<CommunityCard item={community} />}
         >
-          <Linker
-            href={`/${community.raw}/posts`}
-            bottom={bottom}
-            right={right}
-          >
+          <Linker href={`/${community.raw}`} bottom={bottom} right={right}>
             <Logo src={community.logo} size={size} raw={community.raw} />
           </Linker>
         </Tooltip>

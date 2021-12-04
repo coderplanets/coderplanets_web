@@ -1,13 +1,18 @@
+import Router from 'next/router'
+
 import {
   curry,
   groupBy,
   prop,
   reduce,
   keys,
+  values,
   sort,
   uniq,
   tap,
   endsWith,
+  includes,
+  findIndex,
 } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
@@ -26,10 +31,18 @@ import type {
   TToastPos,
   TWorks,
   TTechCommunities,
+  TTabItem,
 } from '@/spec'
 
 import { TAG_COLOR_ORDER } from '@/config'
-import { TYPE, EVENT, THREAD } from '@/constant'
+import {
+  HCN,
+  TYPE,
+  EVENT,
+  THREAD,
+  COMMUNITY_MAP_ALIAS,
+  NON_COMMUNITY_ROUTE,
+} from '@/constant'
 
 import { scrollToHeader } from './dom'
 import { isString } from './validator'
@@ -237,6 +250,26 @@ export const toast = (
   position: TToastPos = 'topCenter',
 ): void => {
   send(EVENT.TOAST, { type, title, msg, position })
+}
+
+/**
+ * 跳转到某个社区
+ * - 如果已经在子社区，只需要重新加载数据
+ * - 如果在其他页面，那么需要重新请求页面
+ */
+export const changeToCommunity = (raw = ''): void => {
+  const isClient = typeof window === 'object'
+  if (!isClient) return
+
+  const curPath = window.location.pathname.slice(1)
+
+  if (includes(curPath, values(NON_COMMUNITY_ROUTE))) {
+    const target = raw === HCN ? '' : raw
+    Router.push(`/${target}`)
+    return
+  }
+
+  send(EVENT.COMMUNITY_CHANGE_BEFORE, { path: raw })
 }
 
 /**
@@ -539,7 +572,9 @@ export const plural = (value: string, opt = null): string => {
     case THREAD.WORKS: {
       return doCovert(THREAD.WORKS, opt)
     }
-
+    // case THREAD.RADAR: {
+    //   return doCovert(THREAD.RADAR, opt)
+    // }
     default: {
       return doCovert(`${value}s`, opt)
     }
@@ -556,4 +591,17 @@ export const classifyTechstack = (works: TWorks): TTechCommunities => {
   }))
 
   return groupBy(prop('category'), techs)
+}
+
+// 给 Thread 的 Map 取别名
+export const aliasMapIfNeed = (
+  communityRaw: string,
+  threads: TTabItem[],
+): TTabItem[] => {
+  if (includes(communityRaw, keys(COMMUNITY_MAP_ALIAS))) {
+    const index = findIndex((t) => t.raw === 'map', threads)
+    if (index >= 0) threads[index].title = COMMUNITY_MAP_ALIAS[communityRaw]
+  }
+
+  return threads
 }

@@ -19,6 +19,7 @@ import {
   Raw,
   ContentWrapper,
   JoinWrapper,
+  JoinNum,
   Title,
   Desc,
   ActivitySpark,
@@ -65,12 +66,13 @@ const CommunityCard: FC<TProps> = ({
         <SpaceGrow />
         <Footer>
           <JoinWrapper>
-            {prettyNum(community.subscribersCount)}&nbsp;加入
+            <JoinNum>{prettyNum(community.subscribersCount)}</JoinNum>
+            人加入
           </JoinWrapper>
           <SubscribeBtn
             community={community}
-            subscribing={subscribing}
-            subscribingId={subscribingId}
+            // subscribing={subscribing}
+            // subscribingId={subscribingId}
           />
         </Footer>
       </Right>

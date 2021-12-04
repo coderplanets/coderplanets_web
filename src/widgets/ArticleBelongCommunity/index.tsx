@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 import { filter } from 'ramda'
+import Link from 'next/link'
 
 import type { TArticle, TCommunity } from '@/spec'
 import { HCN } from '@/constant'
@@ -14,7 +15,6 @@ type TProps = {
 }
 
 const ArticleBelongCommunity: FC<TProps> = ({ article }) => {
-  const hasFollowed = true
   const { originalCommunity: oc, communities } = article
 
   // @ts-ignore
@@ -27,11 +27,13 @@ const ArticleBelongCommunity: FC<TProps> = ({ article }) => {
       {hasMirror && (
         <MirrorHint communities={mirrorCommunities as TCommunity[]} />
       )}
-      <Name>{oc.title}</Name>
+      <Link href={`/${oc.raw}`} passHref>
+        <Name>{oc.title}</Name>
+      </Link>
       <JoinDesc>{oc.subscribersCount} 人加入</JoinDesc>
       <FollowButton
         size="tiny"
-        hasFollowed={hasFollowed}
+        hasFollowed={oc.viewerHasSubscribed}
         followingOffset={-6}
       />
     </Wrapper>

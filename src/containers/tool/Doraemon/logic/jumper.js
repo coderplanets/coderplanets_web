@@ -2,7 +2,7 @@ import { contains, startsWith } from 'ramda'
 
 import { EVENT, TYPE, ROUTE, THREAD } from '@/constant'
 
-import { Global, send, plural } from '@/utils/helper'
+import { Global, send, changeToCommunity } from '@/utils/helper'
 
 export const jumpToCommunity = (store, communityRaw) => {
   const { mainPath, subPath } = store.curRoute
@@ -11,22 +11,11 @@ export const jumpToCommunity = (store, communityRaw) => {
     contains(mainPath, [ROUTE.USER, ROUTE.EXPLORE]) ||
     contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.REPO])
   ) {
-    Global.location.href = `/${communityRaw}/posts`
+    Global.location.href = `/${communityRaw}`
     return false
   }
 
-  store.setViewing({
-    community: { raw: communityRaw },
-    activeThread: THREAD.POST,
-    post: {},
-  })
-
-  store.markRoute({
-    mainPath: communityRaw,
-    subPath: plural(THREAD.POST),
-  })
-
-  send(EVENT.COMMUNITY_CHANGE)
+  changeToCommunity(communityRaw)
 }
 
 export const jumpToContent = (store) => {

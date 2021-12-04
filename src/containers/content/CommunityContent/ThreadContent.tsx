@@ -18,6 +18,8 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
 
     case THREAD.CPER:
       return <CperMapThread />
+    case THREAD.MAP:
+      return <CperMapThread />
 
     default:
       return <ArticlesThread />

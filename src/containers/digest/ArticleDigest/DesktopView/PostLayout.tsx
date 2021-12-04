@@ -3,6 +3,7 @@
  */
 
 import { FC, Fragment, memo } from 'react'
+import Link from 'next/link'
 
 import type { TPost, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
@@ -35,6 +36,8 @@ type TProps = {
 }
 
 const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
+  const { author } = article
+
   return (
     <Fragment>
       <Main metric={metric}>
@@ -54,7 +57,9 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
         <Title>{article.title}</Title>
         <BottomInfo>
           <ArticleBaseStats article={article} />
-          <AuthorName>by: {article.author.nickname}</AuthorName>
+          <Link href={`/u/${author.login}`} passHref>
+            <AuthorName>&#9865; &nbsp;{author.nickname}</AuthorName>
+          </Link>
         </BottomInfo>
       </Main>
       <CommunityInfo>

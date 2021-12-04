@@ -6,7 +6,7 @@ export const DRAWER_SCROLLER = 'drawer-scroller'
 export { default as TYPE } from './type'
 export { default as EVENT } from './event'
 export { default as ERR } from './err'
-export { default as ROUTE } from './route'
+export { NON_COMMUNITY_ROUTE, ROUTE } from './route'
 export { ARTICLE_THREAD, CARD_THREAD, THREAD } from './thread'
 export { default as USER_THREAD } from './user_thread'
 export { default as FILTER } from './filter'
@@ -28,6 +28,8 @@ export { REPORT, REPORT_TYPE } from './report'
 export { default as SVG } from './svg'
 
 export { WORKS_TAB, WORKS_TAB_ITEMS, BLOG_TAB, BLOG_TAB_ITEMS } from './tab'
+
+export { COMMUNITY_MAP_ALIAS } from './alias'
 
 /* some svg icon are sensitive to fill color */
 /* some community svg need fill color, like city etc.. */

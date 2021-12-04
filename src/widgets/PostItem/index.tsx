@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TPost, TUser, TAccount, TC11N } from '@/spec'
+import type { TCommunity, TPost, TUser, TAccount, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import usePlatform from '@/hooks/usePlatform'
 
@@ -20,6 +20,7 @@ import { Wrapper } from './styles'
 const log = buildLog('c:PostItem:index')
 
 type TProps = {
+  curCommunity: TCommunity | null
   entry: TPost
   c11n: TC11N
 
@@ -28,6 +29,7 @@ type TProps = {
 }
 
 const PostItem: FC<TProps> = ({
+  curCommunity,
   entry,
   onUserSelect = log,
   onAuthorSelect = log,
@@ -38,7 +40,7 @@ const PostItem: FC<TProps> = ({
   return (
     <Wrapper entry={entry} c11n={c11n}>
       {!isMobile ? (
-        <DesktopView entry={entry} />
+        <DesktopView entry={entry} curCommunity={curCommunity} />
       ) : (
         <MobileView entry={entry} onAuthorSelect={onAuthorSelect} />
       )}

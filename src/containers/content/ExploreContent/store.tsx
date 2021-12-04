@@ -7,13 +7,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { propEq, findIndex } from 'ramda'
 
 import { ICON_CMD } from '@/config'
-import type {
-  TRootStore,
-  TCommunity,
-  TRoute,
-  TID,
-  TPagedCommunities,
-} from '@/spec'
+import type { TRootStore, TCommunity, TRoute, TPagedCommunities } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { Trans } from '@/utils/i18n'
 import { PagedCommunities, PagedCategories, emptyPagi } from '@/model'
@@ -28,7 +22,7 @@ type TPagiInfo = {
 
 const ExploreContentStore = T.model('ExploreContentStore', {
   // current active sidbar menu id
-  activeCatalogId: T.maybeNull(T.string),
+  activeCatalog: T.maybeNull(T.string),
   pagedCommunities: T.optional(PagedCommunities, emptyPagi),
   searching: T.optional(T.boolean, false),
   // cur active category
@@ -97,10 +91,6 @@ const ExploreContentStore = T.model('ExploreContentStore', {
         pageSize,
         totalCount,
       }
-    },
-    get activeMenuId(): TID {
-      const { entries } = toJS(self.pagedCategories)
-      return self.activeCatalogId || entries[0].id
     },
     get pagedCategoriesData() {
       const { entries } = toJS(self.pagedCategories)

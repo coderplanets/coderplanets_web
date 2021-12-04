@@ -1,7 +1,9 @@
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 import TimeAgo from 'timeago-react'
 
-import type { TPost } from '@/spec'
+import Link from 'next/link'
+
+import type { TCommunity, TPost } from '@/spec'
 import { ICON } from '@/config'
 import { EVENT } from '@/constant'
 import { send } from '@/utils/helper'
@@ -28,31 +30,45 @@ import {
 } from '../styles/desktop_view/body'
 
 type TProps = {
+  curCommunity: TCommunity | null
   item: TPost
 }
 
-const Body: FC<TProps> = ({ item }) => {
+const Body: FC<TProps> = ({ item, curCommunity }) => {
   // console.log('# originalCommunity: ', originalCommunity)
   const { originalCommunity, author } = item
+  const showOriginalCommunity =
+    curCommunity === null || curCommunity.raw !== originalCommunity.raw
 
   return (
     <Wrapper>
       <Extra>
         <LeftPart>
-          <Tooltip
-            content={<CommunityCard item={originalCommunity} />}
-            placement="bottom-start"
-            delay={500}
-          >
-            <CommunityLabel>{originalCommunity.title}</CommunityLabel>
-          </Tooltip>
-          <LabelDivider />
+          {showOriginalCommunity && (
+            <Fragment>
+              <Tooltip
+                content={<CommunityCard item={originalCommunity} />}
+                placement="bottom-start"
+                delay={1500}
+              >
+                <Link href={`/${originalCommunity.raw}`} passHref>
+                  <CommunityLabel>{originalCommunity.title}</CommunityLabel>
+                </Link>
+              </Tooltip>
+              <LabelDivider />
+            </Fragment>
+          )}
+
           <Tooltip
             content={<UserCard item={author} />}
             placement="bottom-start"
             delay={500}
           >
-            <AuthorName>{author.nickname}</AuthorName>
+            <Link href={`/u/${author.login}`} passHref>
+              <AuthorName darker={showOriginalCommunity}>
+                {author.nickname}
+              </AuthorName>
+            </Link>
           </Tooltip>
 
           <Dot radius={3} space={10} />

@@ -66,6 +66,9 @@ const ViewingStore = T.model('ViewingStore', {
       const { mark } = self as TStore
       mark(sobj)
     },
+    changeCommunity(raw): void {
+      self.community.raw = raw
+    },
     setCurThread(thread: TThread): void {
       self.activeThread = thread
     },

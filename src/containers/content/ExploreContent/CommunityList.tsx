@@ -2,8 +2,9 @@ import { FC, memo } from 'react'
 import type { TCommunity, TID } from '@/spec'
 
 import CommunityCard from './CommunityCard'
+import { SpaceGrow } from '@/widgets/Common'
 
-import { Wrapper } from './styles/community_list'
+import { Wrapper, InnerWrapper } from './styles/community_list'
 
 type TProps = {
   entries: TCommunity[]
@@ -14,14 +15,16 @@ type TProps = {
 const CommnityList: FC<TProps> = ({ entries, subscribing, subscribingId }) => {
   return (
     <Wrapper>
-      {entries.map((community) => (
-        <CommunityCard
-          key={community.raw}
-          community={community}
-          subscribing={subscribing}
-          subscribingId={subscribingId}
-        />
-      ))}
+      <InnerWrapper>
+        {entries.map((community) => (
+          <CommunityCard
+            key={community.raw}
+            community={community}
+            subscribing={subscribing}
+            subscribingId={subscribingId}
+          />
+        ))}
+      </InnerWrapper>
     </Wrapper>
   )
 }

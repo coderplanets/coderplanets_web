@@ -35,8 +35,7 @@ const Toc: FC<TProps> = ({ show, testid = 'article-sticker-toc' }) => {
       </HeaderWrapper>
       {show && (
         <TocContentWrapper>
-          <div>hello world</div>
-          <div>hello world2</div>
+          <div>目录功能尚待开发</div>
         </TocContentWrapper>
       )}
     </Wrapper>

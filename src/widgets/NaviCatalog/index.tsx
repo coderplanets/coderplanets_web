@@ -43,6 +43,7 @@ type TProps = {
   showItemTotal?: boolean
   testid?: string
   tags: TNaviTag[]
+  headerUtils?: boolean
 
   onSelect?: (id: string, type: string) => void
   onShowMore?: () => void
@@ -58,6 +59,7 @@ const NaviCatalog: FC<TProps> = ({
   showMoreItem = false,
   showItemTotal = false,
   onShowMore = null,
+  headerUtils = true,
 }) => {
   // console.log('the tags: ', tags)
   const items = tags2Menu(tags)
@@ -185,14 +187,16 @@ const NaviCatalog: FC<TProps> = ({
 
   return (
     <Wrapper testid={testid}>
-      <Header
-        title={title}
-        activeCatalogId={activeCatalogId}
-        goHome={handleGoHome}
-        onLocate={handleLocate}
-        onReset={handleReset}
-        viewPath={viewPath}
-      />
+      {headerUtils && (
+        <Header
+          title={title}
+          activeCatalogId={activeCatalogId}
+          goHome={handleGoHome}
+          onLocate={handleLocate}
+          onReset={handleReset}
+          viewPath={viewPath}
+        />
+      )}
       <Dashboard viewPath={viewPath} goCatalog={handleGoCatalog} />
       <List
         menuMode={menuMode}

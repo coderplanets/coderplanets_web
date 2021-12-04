@@ -3,54 +3,36 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div`
-  ${css.flex('justify-center')};
-  flex-wrap: wrap;
-`
-export const SearchValueFocus = styled.span`
-  color: ${theme('banner.title')};
-  &:before {
-    content: '"';
-  }
-
-  &:after {
-    content: '"';
-  }
+export const Wrapper = styled.div<{ showSearchNote: boolean }>`
+  margin-top: ${({ showSearchNote }) => (showSearchNote ? 0 : '-200px')};
+  margin-left: ${({ showSearchNote }) => (showSearchNote ? '75px' : '105px')};
 `
 export const EmptyCard = styled.div`
   ${css.flexColumn('align-center')};
   position: relative;
-  padding-top: 2%;
   width: 500px;
-  height: 250px;
-  background: ${theme('content.cardBg')};
-  border: 1px solid;
-  border-color: ${theme('content.cardBorder')};
-  border-radius: 3px;
-  margin-left: -5%;
-  margin-bottom: 10%;
+  height: 200px;
 `
 export const EmptyTitle = styled.div`
-  margin-top: 30px;
   color: ${theme('thread.articleTitle')};
-  font-size: 1.2rem;
+  font-size: 16px;
 `
 export const EmptyDesc = styled.div`
-  margin-top: 30px;
+  margin-top: 10px;
   color: ${theme('thread.articleDigest')};
-  font-size: 1rem;
+  font-size: 15px;
 `
 
 export const IssueLink = styled.a`
-  color: ${theme('banner.title')};
+  color: ${theme('button.primary')};
   margin-left: 3px;
   margin-right: 3px;
-
-  transition: color 0.3s;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;
-    color: ${theme('banner.title')};
+    color: ${theme('button.primary')};
     text-decoration: underline;
   }
+  transition: color 0.2s;
 `

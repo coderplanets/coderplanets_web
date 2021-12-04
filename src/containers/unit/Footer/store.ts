@@ -85,9 +85,20 @@ const FooterStore = T.model('FooterStore', {
     // },
   }))
   .actions((self) => ({
+    toast(type, options): void {
+      const root = getParent(self) as TRootStore
+      root.toast(type, options)
+    },
     authWarning(options?: Record<string, unknown>): void {
       const root = getParent(self) as TRootStore
       root.authWarning(options)
+    },
+    changeCommunity(raw): void {
+      const root = getParent(self) as TRootStore
+      const mainPath = raw === HCN ? '' : raw
+
+      root.markRoute({ mainPath, subPath: '' })
+      root.viewing.changeCommunity(raw)
     },
     sponsorHepler(): void {
       self.showSponsor = true

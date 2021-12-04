@@ -31,7 +31,7 @@ export const Item = styled.div<TItem>`
   border-bottom-color: ${({ withDivider }) =>
     withDivider ? '#094354' : 'none'};
 
-  padding: ${({ withDivider }) => (withDivider ? '8px 6px' : '6px 8px')};
+  padding: ${({ withDivider }) => (withDivider ? '11px 6px' : '6px 8px')};
   padding-left: ${({ isRootMenu }) => (isRootMenu ? '4px' : '8px')};
 
   &:hover {

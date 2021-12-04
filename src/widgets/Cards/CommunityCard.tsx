@@ -27,16 +27,16 @@ type TProps = {
 }
 
 const CommunityCard: FC<TProps> = ({
-  item: { id, logo, title, raw, desc, subscribersCount },
+  item: { logo, title, raw, desc, subscribersCount },
 }) => {
   return (
-    <Wrapper key={id}>
+    <Wrapper key={raw}>
       <Header>
         <CommunityLogo src={logo} raw={raw} />
         <Info>
           <Title>{title}</Title>
           <SubInfo>
-            <Raw href={`/${raw}/posts`}>{raw}</Raw>
+            <Raw href={`/${raw}`}>{raw}</Raw>
             <DotDivider space={6} />
             <SubsInfo>
               <UserIcon />

@@ -15,7 +15,10 @@ import type { TStore } from './store'
 const log = buildLog('L:Footer2')
 
 const { SR71, $solver, asyncRes } = asyncSuit
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  // @ts-ignore
+  receive: [EVENT.COMMUNITY_CHANGE_BEFORE, EVENT.AUTH_WARNING, EVENT.TOAST],
+})
 
 let sub$ = null
 let store: TStore | undefined
@@ -38,12 +41,41 @@ const getOnlineStatus = (): void => {
 // Data & Error handlers
 // ###############################
 
+const handleAuthWarning = (option): void => store.authWarning(option)
+
+const handleToast = (data): void => {
+  const { type, ...rest } = data
+  store.toast(type, rest)
+}
+
 const DataSolver = [
   {
     match: asyncRes('onlineStatus'),
     action: ({ onlineStatus }): void => {
       const { realtimeVisitors } = onlineStatus
       store.mark({ realtimeVisitors })
+    },
+  },
+  {
+    match: asyncRes(EVENT.AUTH_WARNING),
+    action: (data): void => {
+      const opt = data[EVENT.AUTH_WARNING]
+      handleAuthWarning(opt)
+    },
+  },
+  {
+    match: asyncRes(EVENT.TOAST),
+    action: (data): void => {
+      const opt = data[EVENT.TOAST]
+      handleToast(opt)
+    },
+  },
+  {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE_BEFORE),
+    action: (data): void => {
+      const { path } = data[EVENT.COMMUNITY_CHANGE_BEFORE]
+      store.changeCommunity(path)
+      send(EVENT.COMMUNITY_CHANGE)
     },
   },
 ]

@@ -26,7 +26,7 @@ type TProps = {
 const ArtimentBody: FC<TProps> = ({
   testid = 'article-body',
   document,
-  initLineClampNum = 5,
+  initLineClampNum = 15,
   mode = 'article',
 }) => {
   const bodyRef = useRef(null)
