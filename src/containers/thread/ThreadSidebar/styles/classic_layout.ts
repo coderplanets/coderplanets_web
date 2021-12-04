@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import type { TActive, TTestable } from '@/spec'
+import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
@@ -17,6 +18,14 @@ export const PublishWrapper = styled.div<TActive>`
   width: 160px;
   max-width: 180px;
   margin-left: 16px;
+`
+export const NoteWrapper = styled.div`
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+  font-size: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+  border-bottom-color: #003b49;
 `
 export const BadgeWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};

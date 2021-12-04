@@ -20,5 +20,11 @@ export const THREAD = {
   ...ARTICLE_THREAD,
   CPER: 'cper',
   MAP: 'map',
+  KANBAN: 'kanban',
+  INTERVIEW: 'interview',
+  TEAM: 'team',
+  PRODUCT: 'product',
+  GUIDE: 'guide',
+  ACCOUNT: 'account',
   SETTING: 'setting',
 } as Record<Uppercase<TThread>, TThread>

@@ -11,7 +11,7 @@ import { TYPE, ARTICLE_THREAD, THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
 import { toggleGlobalBlur, lockPage, unlockPage } from '@/utils/dom'
-import { Global, titleCase } from '@/utils/helper'
+import { Global, plural } from '@/utils/helper'
 import { WIDTH, mediaBreakPoints } from '@/utils/css/metric'
 import { User } from '@/model'
 
@@ -132,7 +132,7 @@ const DrawerStore = T.model('DrawerStore', {
 
         default: {
           pagedArticles = toJS(
-            root.articlesThread[`paged${titleCase(slf.curThread)}s`],
+            root.articlesThread[`paged${plural(slf.curThread, 'titleCase')}`],
           )
           break
         }

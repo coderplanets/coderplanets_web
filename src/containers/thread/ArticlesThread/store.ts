@@ -22,7 +22,7 @@ import type {
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { nilOrEmpty } from '@/utils/validator'
-import { titleCase, plural } from '@/utils/helper'
+import { plural } from '@/utils/helper'
 import {
   PagedPosts,
   PagedJobs,
@@ -62,11 +62,11 @@ const ArticlesThread = T.model('ArticlesThread', {
       const slf = self as TStore
       const thread = slf.curThread
 
-      return slf[`paged${titleCase(thread)}s`].totalCount === 0
+      return slf[`paged${plural(thread, 'titleCase')}`].totalCount === 0
     },
     get pagedArticlesData(): TPagedArticles {
       const slf = self as TStore
-      const pagedThreadKey = `paged${titleCase(plural(slf.curThread))}`
+      const pagedThreadKey = `paged${plural(slf.curThread, 'titleCase')}`
 
       return toJS(slf[pagedThreadKey])
     },
@@ -105,7 +105,7 @@ const ArticlesThread = T.model('ArticlesThread', {
     },
     get pagedArticleKey(): string {
       const slf = self as TStore
-      return `paged${titleCase(slf.curThread)}s`
+      return `paged${plural(slf.curThread, 'titleCase')}`
     },
   }))
   .actions((self) => ({

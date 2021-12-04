@@ -16,7 +16,7 @@ import type {
 import { TYPE, ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { markStates, toJS } from '@/utils/mobx'
-import { titleCase, plural } from '@/utils/helper'
+import { plural } from '@/utils/helper'
 
 import {
   PagedPosts,
@@ -70,7 +70,7 @@ const UserPublishedArticles = T.model('UserPublishedArticles', {
     },
 
     get pagedArticlesData(): TPagedArticles {
-      const pagedThreadKey = `paged${titleCase(plural(self.thread))}`
+      const pagedThreadKey = `paged${plural(self.thread, 'titleCase')}`
       return toJS(self[pagedThreadKey])
     },
 

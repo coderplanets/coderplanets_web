@@ -2,16 +2,18 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
+import ArrowSVG from '@/icons/ArrowSolid'
 
 export { SiteLink } from './main_entries'
 
-export const Icon = styled(Img)`
+export const ArrowIcon = styled(ArrowSVG)`
   fill: ${theme('banner.desc')};
   margin-left: 5px;
   ${css.size(10)};
+  transform: rotate(90deg);
 `
-export const MobileIcon = styled(Icon)`
+export const MobileIcon = styled(ArrowSVG)`
   margin-left: 5px;
   ${css.size(14)};
+  transform: rotate(90deg);
 `

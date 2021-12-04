@@ -1,11 +1,11 @@
 import { gql } from '@urql/core'
 import { P, F } from '@/schemas'
 
-import { titleCase } from '@/utils/helper'
+import { plural } from '@/utils/helper'
 
 const getPagedArticlesSchema = (thread) => {
   return gql`
-    ${P[`paged${titleCase(thread)}s`]}
+    ${P[`paged${plural(thread, 'titleCase')}`]}
   `
 }
 

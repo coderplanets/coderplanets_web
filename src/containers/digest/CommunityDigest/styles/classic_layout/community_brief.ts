@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import { HCN } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
@@ -12,15 +11,10 @@ export const Wrapper = styled.div<{ descExpand: boolean }>`
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
   transition: all 0.5s;
 `
-export const LogoWrapper = styled.div<{ raw: string }>`
+export const LogoWrapper = styled.div`
   position: relative;
-  width: 55px;
-  /*  TODO:  use new logo */
-  margin-top: ${({ raw }) => (raw === HCN ? '-10px' : 0)};
-
-  @media (max-height: 800px) {
-    margin-top: ${({ raw }) => (raw === HCN ? '-8px' : 0)};
-  }
+  width: 40px;
+  margin-top: -4px;
 
   ${css.media.mobile`
     width: 45px;
@@ -28,19 +22,19 @@ export const LogoWrapper = styled.div<{ raw: string }>`
   `};
 `
 export const Logo = styled(CommunityFaceLogo)`
-  ${css.size(45)};
+  ${css.size(36)};
   border-radius: 5px;
 
   ${css.media.mobile`
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   `};
 `
 export const CommunityInfo = styled.div`
   ${css.flexColumn('justify-center')};
 
   margin-top: -6px;
-  margin-left: 12px;
+  margin-left: 14px;
 
   ${css.media.mobile`
     margin-left: ${({ descExpand }) => (descExpand ? '12px' : '3px')};

@@ -56,7 +56,7 @@ const MoreContent: FC = () => {
         <Entry>
           <Link href="/makers" passHref>
             <Main>
-              <Logo src={`${ICON}/menu/makers.svg`} />
+              <Logo src={`${ICON}/menu/makers2.svg`} />
               <Title>Makers</Title>
             </Main>
           </Link>
@@ -83,9 +83,9 @@ const MoreContent: FC = () => {
         <Entry>
           <Main href="https://plausible.io/coderplanets.com" target="_blank">
             <ChartLogo src={`${ICON}/menu/chart.svg`} />
-            <Title offset="8px">社区统计</Title>
+            <Title offset="8px">访问统计</Title>
           </Main>
-          <Desc>社区各项统计数据</Desc>
+          <Desc>多维度访问统计，透明开放</Desc>
         </Entry>
       </BodyWrapper>
       <Footer />

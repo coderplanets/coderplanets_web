@@ -1,14 +1,12 @@
 import { FC, memo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 
 import { ROUTE } from '@/constant'
 import { getRouteMainPath } from '@/utils/route'
 
+import MoreLink from './MoreLink'
 import { Wrapper, DotDivider, SiteLink } from '../styles/main_entries'
-
-const MoreLink = dynamic(() => import('./MoreLink'), { ssr: false })
 
 const splitMargin = 7
 

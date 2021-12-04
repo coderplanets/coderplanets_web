@@ -139,6 +139,16 @@ export type TArticleThread =
   | 'radar'
   | 'works'
 
-export type TThread = TArticleThread | 'cper' | 'setting' | 'map'
+export type TThread =
+  | TArticleThread
+  | 'cper'
+  | 'setting'
+  | 'map'
+  | 'kanban'
+  | 'product'
+  | 'team'
+  | 'interview'
+  | 'account'
+  | 'guide'
 
 export type TContainer = 'body' | 'drawer'

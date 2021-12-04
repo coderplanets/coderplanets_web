@@ -30,7 +30,7 @@ type TProps = {
 const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
   return (
     <Wrapper descExpand={descExpand}>
-      <LogoWrapper raw={community.raw}>
+      <LogoWrapper>
         {community.logo ? (
           <Logo
             noFill={contains(community.raw, NON_FILL_COMMUNITY)}
