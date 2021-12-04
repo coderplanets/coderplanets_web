@@ -21,5 +21,9 @@ export const THREAD = {
   CPER: 'cper',
   MAP: 'map',
   KANBAN: 'kanban',
+  INTERVIEW: 'interview',
+  TEAM: 'team',
+  PRODUCT: 'product',
+  GUIDE: 'guide',
   SETTING: 'setting',
 } as Record<Uppercase<TThread>, TThread>

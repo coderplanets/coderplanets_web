@@ -14,13 +14,18 @@ import {
   InnerLinker,
 } from './styles/wip_thread'
 
-const WipThread: FC = () => {
+type TProps = {
+  title?: string
+}
+
+const WipThread: FC<TProps> = ({ title = '该' }) => {
   return (
     <Wrapper>
       <WipIcon />
-      <Title>Oops，看板功能施工中</Title>
+      <Title>Oops，{title}版块设计施工中 ...</Title>
       <Desc>
-        该功能预计在内测阶段完成，如果你有兴趣或建议，欢迎在以下渠道以任何形式参与共建：
+        该功能预计在内测阶段完成，如果你有兴趣或建议，欢迎在以下渠道参与共建 /
+        内测：
       </Desc>
       <Ul>
         <Li>

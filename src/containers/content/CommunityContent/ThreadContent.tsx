@@ -18,7 +18,23 @@ const ThreadContent: FC<TProps> = ({ thread }) => {
     // case THREAD.REPO:
     // return <ReposThread />
     case THREAD.KANBAN: {
-      return <WipThread />
+      return <WipThread title="看板" />
+    }
+
+    case THREAD.INTERVIEW: {
+      return <WipThread title="开发者访谈" />
+    }
+
+    case THREAD.TEAM: {
+      return <WipThread title="团队" />
+    }
+
+    case THREAD.PRODUCT: {
+      return <WipThread title="作品展示" />
+    }
+
+    case THREAD.GUIDE: {
+      return <WipThread title="酷导航" />
     }
 
     case THREAD.CPER:
