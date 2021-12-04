@@ -4,7 +4,6 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 import type { TTestable } from '@/spec'
-import Img from '@/Img'
 
 import SiteLogoSVG from '@/icons/CPLogo'
 
@@ -87,18 +86,4 @@ export const HintDesc = styled.div`
 export const FooterWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-bottom: 5%;
-`
-export const IssueLink = styled.a`
-  text-decoration: underline;
-  font-weight: bold;
-  color: ${theme('thread.articleDigest')};
-  margin-left: 3px;
-  margin-right: 3px;
-
-  &:hover {
-    color: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
-
-  transition: color 0.2s;
 `

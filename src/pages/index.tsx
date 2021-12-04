@@ -1,6 +1,6 @@
 import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
-import { merge, toLower } from 'ramda'
+import { merge } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
 import { HCN, THREAD, METRIC } from '@/constant'
@@ -27,12 +27,8 @@ import { P } from '@/schemas'
 
 const loader = async (context, opt = {}) => {
   // const { params } = context.req
-  console.log('# index loader')
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-  console.log('# index ssrFetchPrepare')
-
   const community = ssrGetParam(context, 'community') || HCN
-  console.log('ssrGetParam community: ', community)
   const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
   // const thread = params.thread ? singular(params.thread) : THREAD.POST
 
@@ -75,8 +71,6 @@ const loader = async (context, opt = {}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
-
   let resp
   try {
     resp = await loader(context)
@@ -92,24 +86,24 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const { filter, community, pagedArticleTags } = resp
 
-  const articleThread = ssrParseArticleThread(resp, thread, filter)
+  const articleThread = ssrParseArticleThread(resp, THREAD.POST, filter)
 
   // console.log('articleThread: ', articleThread.articlesThread.pagedJobs.entries)
   const initProps = merge(
     {
       ...ssrBaseStates(resp),
       route: {
-        communityPath: community.raw,
-        mainPath: community.raw,
-        subPath: thread,
-        thread,
+        communityPath: HCN,
+        mainPath: HCN,
+        subPath: THREAD.POST,
+        thread: THREAD.POST,
       },
       tagsBar: {
         tags: pagedArticleTags?.entries || [],
       },
       viewing: {
         community,
-        activeThread: toLower(thread),
+        activeThread: THREAD.POST,
       },
     },
     articleThread,

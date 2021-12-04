@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next'
 import { merge, toLower } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
-import { THREAD, METRIC } from '@/constant'
+import { HCN, THREAD, METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
@@ -29,7 +29,8 @@ const loader = async (context, opt = {}) => {
   // const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
-  const community = ssrGetParam(context, 'community')
+  // 线上环境会直接跳过 index 到这里，有待排查。。
+  const community = ssrGetParam(context, 'community') || HCN
   const thread = singular(THREAD.POST)
 
   // query data
@@ -89,8 +90,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       ...ssrBaseStates(resp),
       route: {
         communityPath: community.raw,
-        mainPath: community.raw,
-        subPath: thread,
+        mainPath: community.raw === HCN ? '' : community.raw,
+        subPath: thread === THREAD.POST ? '' : thread,
         thread,
       },
       tagsBar: {

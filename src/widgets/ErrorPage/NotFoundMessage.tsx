@@ -1,11 +1,11 @@
 import { FC, memo } from 'react'
 import { isEmpty } from 'ramda'
-import Link from 'next/link'
+import Linker from '@/widgets/Linker'
 
 import type { TMetric } from '@/spec'
 
 import { METRIC, ROUTE } from '@/constant'
-import { HintTitle, IssueLink } from './styles'
+import { HintTitle } from './styles'
 
 type TProps = {
   metric: TMetric
@@ -30,9 +30,14 @@ const NotFoundMessage: FC<TProps> = ({ metric, path }) => {
         <HintTitle testid="community-error-title">
           未找到社区
           {!isEmpty(path) && <span>: {path}</span>}, 欢迎
-          <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>
-            <IssueLink>参与创建</IssueLink>
-          </Link>
+          <Linker
+            src={`/${ROUTE.APPLY_COMMUNITY}`}
+            external={false}
+            text="参与创建"
+            inline
+            left={3}
+            right={3}
+          />
         </HintTitle>
       )
 
