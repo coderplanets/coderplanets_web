@@ -31,8 +31,8 @@ const loader = async (context, opt = {}) => {
 
   // 线上环境会直接跳过 index 到这里，有待排查。。
   const community = ssrGetParam(context, 'community') || HCN
-  console.log('# got community: ', community)
-  const thread = singular(THREAD.POST)
+  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
+  console.log('# community thread: ', thread)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -46,7 +46,6 @@ const loader = async (context, opt = {}) => {
   })
 
   const filter = ssrPagedArticlesFilter(context, userHasLogin)
-  console.log('# got filter: ', filter)
 
   const pagedArticles = isArticleThread(thread)
     ? gqClient.request(ssrPagedArticleSchema(thread), filter)
@@ -70,7 +69,7 @@ const loader = async (context, opt = {}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const thread = singular(THREAD.POST)
+  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
 
   let resp
   try {
