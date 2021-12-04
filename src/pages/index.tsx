@@ -71,6 +71,8 @@ const loader = async (context, opt = {}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
+
   let resp
   try {
     resp = await loader(context)
@@ -93,10 +95,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     {
       ...ssrBaseStates(resp),
       route: {
-        communityPath: HCN,
-        mainPath: HCN,
-        subPath: THREAD.POST,
-        thread: THREAD.POST,
+        communityPath: community.raw,
+        mainPath: community.raw === HCN ? '' : community.raw,
+        subPath: thread === THREAD.POST ? '' : thread,
+        thread,
       },
       tagsBar: {
         tags: pagedArticleTags?.entries || [],

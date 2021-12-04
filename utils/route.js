@@ -14,7 +14,7 @@ import {
   merge,
 } from 'ramda'
 
-import { THREAD, ROUTE } from '@/constant'
+import { HCN, THREAD, ROUTE } from '@/constant'
 import { nilOrEmpty } from './validator'
 import { Global } from './helper'
 // import { isServerSide } from './ssr'
@@ -210,6 +210,10 @@ export const akaTranslate = (communityRaw) => {
 
     case 'rn':
       return 'react-native'
+
+    // 生产环境首页的诡异问题， fix later
+    case 'index':
+      return HCN
 
     default:
       return communityRaw

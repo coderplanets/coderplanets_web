@@ -57,7 +57,6 @@ export const getServerSideProps = async (context) => {
 
   const initProps = {
     ...ssrBaseStates(resp),
-    // route: { mainPath: ROUTE.USER, subPath: user.id, query },
     // userContent: { activeThread: query.tab || USER_THREAD.PROFILE },
     viewing: { user },
     userProfile: { subscribedCommunities },
