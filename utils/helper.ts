@@ -572,6 +572,9 @@ export const plural = (value: string, opt = null): string => {
     case THREAD.WORKS: {
       return doCovert(THREAD.WORKS, opt)
     }
+    case THREAD.KANBAN: {
+      return doCovert(THREAD.KANBAN, opt)
+    }
     // case THREAD.RADAR: {
     //   return doCovert(THREAD.RADAR, opt)
     // }
