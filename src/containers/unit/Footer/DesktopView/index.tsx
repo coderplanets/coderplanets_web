@@ -53,6 +53,7 @@ const FooterContainer: FC<TProps> = ({
     METRIC.SUPPORT_US,
     METRIC.HAVE_A_DRINK,
     METRIC.EXPLORE,
+    METRIC.FRIENDS,
   ])
 
   return (
