@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   filter: saturate(0.8);
-  opacity: 0.8;
+  opacity: 0.5;
 `
 export const Block = styled.div`
   height: 100px;

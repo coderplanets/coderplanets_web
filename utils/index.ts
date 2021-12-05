@@ -152,6 +152,7 @@ export {
   membershipSEO,
   meetupsSEO,
   sponsorSEO,
+  friendsSEO,
   trendingSEO,
   drinkSEO,
   coolGuideSEO,

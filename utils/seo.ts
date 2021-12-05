@@ -67,6 +67,14 @@ export const sponsorSEO = (): TSEO => {
   }
 }
 
+export const friendsSEO = (): TSEO => {
+  return {
+    url: `${SITE_URL}/${ROUTE.FRIENDS}`,
+    title: '友情链接 | CP',
+    description: 'CoderPlanets 的朋友们',
+  }
+}
+
 export const supportUsSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.SPONSOR}`,
