@@ -33,13 +33,16 @@ const HomeCommunity: FC = () => {
         <Item>支持我们</Item>
       </Link>
       <Link href="/feedback" passHref>
-        <Item>反馈 &amp; 建议</Item>
+        <Item>反馈建议</Item>
       </Link>
       <Link href={`/${ROUTE.SPONSOR}`} passHref>
         <Item>
           <HeartCrabIcon src={`${ICON}/emotion/heart.png`} noLazy />
           特别感谢
         </Item>
+      </Link>
+      <Link href={`/${ROUTE.FRIENDS}`} passHref>
+        <Item>友链</Item>
       </Link>
       <Item href="https://plausible.io/coderplanets.com" target="_blank">
         访问统计

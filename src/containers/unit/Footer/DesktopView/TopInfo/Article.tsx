@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 import Link from 'next/link'
 
+import { HCN } from '@/constant'
 import BlinkCursor from '@/widgets/BlinkCursor'
 import type { TProps as TTopInfoProps } from './index'
 
@@ -22,9 +23,11 @@ const Article: FC<TProps> = ({ article, noBottomBorder = false }) => {
       <InfoBar>
         <Logo />
       </InfoBar>
-      <Link href={`/${originalCommunity.raw}`} passHref>
-        <CommunityTitle as="a">{originalCommunity.title}</CommunityTitle>
-      </Link>
+      {originalCommunity.raw !== HCN && (
+        <Link href={`/${originalCommunity.raw}`} passHref>
+          <CommunityTitle as="a">{originalCommunity.title}</CommunityTitle>
+        </Link>
+      )}
       <BlinkCursor />
       <ArticleTitle>{title}</ArticleTitle>
     </Wrapper>
