@@ -13,6 +13,7 @@ import {
   endsWith,
   includes,
   findIndex,
+  startsWith,
 } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
@@ -42,6 +43,7 @@ import {
   THREAD,
   COMMUNITY_MAP_ALIAS,
   NON_COMMUNITY_ROUTE,
+  ARTICLE_THREAD,
 } from '@/constant'
 
 import { scrollToHeader } from './dom'
@@ -261,9 +263,12 @@ export const changeToCommunity = (raw = ''): void => {
   const isClient = typeof window === 'object'
   if (!isClient) return
 
-  const curPath = window.location.pathname.slice(1)
+  const { pathname } = window.location
+  const curPath = pathname.slice(1)
+  const isNonCommunityPage = includes(curPath, values(NON_COMMUNITY_ROUTE))
+  const isArticlePage = includes(curPath.split('/')[0], values(ARTICLE_THREAD))
 
-  if (includes(curPath, values(NON_COMMUNITY_ROUTE))) {
+  if (isNonCommunityPage || isArticlePage) {
     const target = raw === HCN ? '' : raw
     Router.push(`/${target}`)
     return

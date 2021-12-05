@@ -44,7 +44,13 @@ const DigestView: FC<TProps> = ({ metric, showLogoText, layout }) => {
   // const { online } = useNetwork()
   return (
     <Breadcrumbs>
-      <LogoLink layout={layout} onClick={() => changeToCommunity('home')}>
+      <LogoLink
+        layout={layout}
+        onClick={() => {
+          console.log('# navi to home')
+          changeToCommunity('home')
+        }}
+      >
         <Logo />
         {showLogoText && <LogoText>oderPlanets</LogoText>}
       </LogoLink>
