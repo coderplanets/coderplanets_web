@@ -46,7 +46,10 @@ const LaunchPart: FC<TProps> = ({ inputData }) => {
             反馈论坛
           </FeedLink>
           <Space right={20} />
-          <FeedLink href="mailto://coderplanets@outlook.com" target="_blank">
+          <FeedLink
+            href="mailto:coderplanets@outlook.com?subject=作品集市"
+            target="_blank"
+          >
             电子邮件
           </FeedLink>
         </FeedBacks>

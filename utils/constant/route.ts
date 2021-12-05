@@ -6,6 +6,7 @@ export const NON_COMMUNITY_ROUTE = {
   WORKS: 'works',
   TRENDING: 'trending',
   SPONSOR: 'sponsor',
+  FRIENDS: 'friends',
   SUPPORT_US: 'support-us',
   RECIPES: 'recipes',
   SUBSCRIBE: 'subscribe',

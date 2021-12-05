@@ -42,37 +42,42 @@ router.route('/trending/:slug?').get((req, res) => {
 })
 
 // 赞助与广告
-router.route('/sponsor/:slug?').get((req, res) => {
+router.route('/sponsor').get((req, res) => {
   return renderAndCache({ req, res, path: '/sponsor' })
 })
 
+// 友情链接
+router.route('/friends').get((req, res) => {
+  return renderAndCache({ req, res, path: '/friends' })
+})
+
 // 支持我们
-router.route('/support-us/:slug?').get((req, res) => {
+router.route('/support-us').get((req, res) => {
   return renderAndCache({ req, res, path: '/support-us' })
 })
 
 // 升级账户
-router.route('/membership/:slug?').get((req, res) => {
+router.route('/membership').get((req, res) => {
   return renderAndCache({ req, res, path: '/membership' })
 })
 
 // 社区订阅
-router.route('/subscribe/:slug?').get((req, res) => {
+router.route('/subscribe').get((req, res) => {
   return renderAndCache({ req, res, path: '/subscribe' })
 })
 
-// 代码片段
-router.route('/recipes/:slug?').get((req, res) => {
-  return renderAndCache({ req, res, path: '/recipes' })
-})
+// // 代码片段
+// router.route('/recipes').get((req, res) => {
+//   return renderAndCache({ req, res, path: '/recipes' })
+// })
 
 // 小聚
-router.route('/meetups/:slug?').get((req, res) => {
+router.route('/meetups').get((req, res) => {
   return renderAndCache({ req, res, path: '/meetups' })
 })
 
 // 酷导航
-router.route('/cool-guide/:slug?').get((req, res) => {
+router.route('/cool-guide').get((req, res) => {
   return renderAndCache({ req, res, path: '/cool-guide' })
 })
 

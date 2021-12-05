@@ -19,7 +19,7 @@ import {
   IntroHead,
   Icon,
   Title,
-  IntroImg,
+  // IntroImg,
   Desc,
   LinkWrapper,
 } from '../styles/sponsor_gallery'
