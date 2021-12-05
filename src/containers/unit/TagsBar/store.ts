@@ -62,7 +62,7 @@ const TagsBar = T.model('TagsBar', {
       }
     },
     get totalCountThrold(): number {
-      return 15
+      return 12
     },
   }))
   .actions((self) => ({

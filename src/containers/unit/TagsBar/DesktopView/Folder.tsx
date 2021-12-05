@@ -111,7 +111,7 @@ const Folder: FC<TProps> = ({
           >
             <SubTogglePrefixIcon />
             <SubToggleTitle>
-              {curDisplayCount === maxDisplayCount ? '展开更多' : '收起'}
+              {curDisplayCount === maxDisplayCount ? '展开全部' : '收起'}
             </SubToggleTitle>
           </SubToggle>
         )}

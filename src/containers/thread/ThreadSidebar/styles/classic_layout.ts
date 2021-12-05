@@ -13,6 +13,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 
   ${css.media.tablet`display: none;`};
 `
+export const StickyWrapper = styled.div`
+  ${css.flexColumn()};
+`
 export const PublishWrapper = styled.div<TActive>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   width: 160px;

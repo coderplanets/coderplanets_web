@@ -24,12 +24,7 @@ const log = buildLog('c:ClassicSidebar')
 
 export const DynamicPart = dynamic(() => import('./DynamicPart'), {
   /* eslint-disable react/display-name */
-  loading: () => (
-    <>
-      <br />
-      <LavaLampLoading size="small" />
-    </>
-  ),
+  loading: () => <LavaLampLoading size="small" top={30} />,
   ssr: false,
 })
 

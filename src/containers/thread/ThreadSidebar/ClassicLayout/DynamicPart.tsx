@@ -15,6 +15,7 @@ import { send } from '@/utils/helper'
 import { EVENT } from '@/constant'
 
 import Sticky from '@/widgets/Sticky'
+import { SpaceGrow } from '@/widgets/Common'
 // import FiltersMenu from '@/widgets/FiltersMenu'
 import PublishButton from '@/widgets/Buttons/PublishButton'
 import CommunityJoinBadge from '@/containers/tool/CommunityJoinBadge'
@@ -25,6 +26,7 @@ import {
   BadgeWrapper,
   NoteWrapper,
   TagsBarWrapper,
+  StickyWrapper,
   PublishWrapper,
 } from '../styles/classic_layout'
 
@@ -44,21 +46,24 @@ const ClassicLayout: FC<TProps> = ({
 }) => {
   return (
     <Sticky offsetTop={50}>
-      <PublishWrapper show={showCommunityBadge}>
-        {community.raw !== 'blackhole' ? (
-          <PublishButton thread={thread} community={community.raw} />
-        ) : (
-          <NoteWrapper>
-            这里的内容将不会被开放给搜索引擎，只进不出。如果有异议，可联系志愿者移出。
-          </NoteWrapper>
-        )}
-      </PublishWrapper>
-      <BadgeWrapper show={!showCommunityBadge}>
-        <CommunityJoinBadge />
-      </BadgeWrapper>
-      <TagsBarWrapper>
-        <TagsBar onSelect={() => send(EVENT.REFRESH_ARTICLES)} />
-      </TagsBarWrapper>
+      <StickyWrapper>
+        <PublishWrapper show={showCommunityBadge}>
+          {community.raw !== 'blackhole' ? (
+            <PublishButton thread={thread} community={community.raw} />
+          ) : (
+            <NoteWrapper>
+              这里的内容将不会被开放给搜索引擎，只进不出。如果有异议，可联系志愿者移出。
+            </NoteWrapper>
+          )}
+        </PublishWrapper>
+        <BadgeWrapper show={!showCommunityBadge}>
+          <CommunityJoinBadge />
+        </BadgeWrapper>
+        <TagsBarWrapper>
+          <TagsBar onSelect={() => send(EVENT.REFRESH_ARTICLES)} />
+        </TagsBarWrapper>
+        <SpaceGrow />
+      </StickyWrapper>
     </Sticky>
   )
 }
