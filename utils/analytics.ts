@@ -2,12 +2,18 @@ import type { TGAEvent } from '@/spec'
 
 import { Global } from './helper'
 
+// see: https://github.com/vercel/next.js/discussions/14980
+const gtag = (): void => {
+  // @ts-ignore
+  Global.dataLayer && Global.dataLayer.push(arguments)
+}
+
 // https://analytics.google.com/analytics/web/?hl=zh-CN&pli=1#/embed/report-home/a39874160w174341184p173551323
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 const pageview = (url: string): void => {
   // @ts-ignore
-  Global.gtag?.('config', process.env.NEXT_PUBLIC_GA_TRACING_ID, {
+  gtag?.('config', process.env.NEXT_PUBLIC_GA_TRACING_ID, {
     page_path: url,
   })
 }
@@ -25,7 +31,7 @@ const event = (e: TGAEvent): void => {
   const { action, category, label, value } = e
 
   // @ts-ignore
-  Global.gtag?.('event', action, {
+  gtag?.('event', action, {
     event_category: category,
     event_label: label,
     value,
