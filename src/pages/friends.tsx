@@ -13,7 +13,7 @@ import {
 
 import { P } from '@/schemas'
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import SponsorContent from '@/containers/content/SponsorContent'
+import FriendsContent from '@/containers/content/FriendsContent'
 
 import { useStore } from '@/stores/init'
 
@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     resp = await loader(context)
     const { sessionState } = resp
 
-    refreshIfneed(sessionState, '/sponsor', context)
+    refreshIfneed(sessionState, '/friends', context)
   } catch (e) {
     console.log('#### error from server: ', e)
     return ssrError(context, 'fetch', 500)
@@ -51,8 +51,8 @@ const FriendsPage = (props) => {
 
   return (
     <Provider store={store}>
-      <GlobalLayout metric={METRIC.SPONSOR} seoConfig={seoConfig} noSidebar>
-        <SponsorContent />
+      <GlobalLayout metric={METRIC.FRIENDS} seoConfig={seoConfig} noSidebar>
+        <FriendsContent />
       </GlobalLayout>
     </Provider>
   )

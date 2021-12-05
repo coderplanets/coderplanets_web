@@ -22,6 +22,7 @@ export const Source = styled.a<{ plainColor: boolean }>`
   font-size: 13px;
   margin-left: 3px;
   text-decoration: none;
+  word-break: break-all;
 
   &:hover {
     color: #119396;

@@ -10,6 +10,7 @@ export type TMetric =
   | 'WORKS'
   | 'EXPLORE'
   | 'SPONSOR'
+  | 'FRIENDS'
   | 'SUPPORT_US'
   | 'SUBSCRIBE'
   | 'MEETUPS'

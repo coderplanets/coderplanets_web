@@ -8,10 +8,11 @@ type TProps = {
   src: string
   hint?: string | null
   plainColor: boolean
+  maxLength: number
 }
 
-const ExternalLink: FC<TProps> = ({ src, hint, plainColor }) => {
-  const displayLimit = 25
+const ExternalLink: FC<TProps> = ({ src, hint, plainColor, maxLength }) => {
+  const displayLimit = maxLength
 
   return (
     <Fragment>
@@ -19,7 +20,7 @@ const ExternalLink: FC<TProps> = ({ src, hint, plainColor }) => {
       <LinkIcon />
       {src.length < displayLimit ? (
         <Source href={src} target="_blank" plainColor={plainColor}>
-          {cutRest(src, 28)}
+          {cutRest(src, displayLimit + 3)}
         </Source>
       ) : (
         <Source href={src} target="_blank" plainColor={plainColor}>
@@ -29,7 +30,7 @@ const ExternalLink: FC<TProps> = ({ src, hint, plainColor }) => {
             hideOnClick={false}
             noPadding
           >
-            {cutRest(src, 28)}
+            {cutRest(src, displayLimit + 3)}
           </Tooltip>
         </Source>
       )}
