@@ -15,11 +15,12 @@ export const Header = styled.div<TActive>`
     cursor: pointer;
   }
 `
-export const ArrowIcon = styled(ArrowSVG)<{ isOpen: boolean }>`
+export const ArrowIcon = styled(ArrowSVG)<{ $isOpen: boolean }>`
   fill: ${theme('tags.text')};
   ${css.size(16)};
   opacity: 0.5;
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(270deg)' : 'rotate(180deg)')};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? 'rotate(270deg)' : 'rotate(180deg)'};
   transition: transform 0.5s;
   ${Header}:hover & {
     opacity: 0.65;
@@ -59,8 +60,8 @@ export const Count = styled.div`
   }
 `
 
-export const Content = styled.div<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+export const Content = styled.div<{ $isOpen: boolean }>`
+  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   width: 100%;
   margin-bottom: 15px;
 `

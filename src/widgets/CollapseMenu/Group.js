@@ -68,13 +68,13 @@ const Group = ({
         }}
       >
         <ArrowIcon
-          isOpen={isFolderOpen}
+          $isOpen={isFolderOpen}
           src={`${ICON}/shape/arrow-simple.svg`}
         />
         <Title>{title}</Title>
       </Header>
 
-      <Content isOpen={isFolderOpen}>
+      <Content $isOpen={isFolderOpen}>
         <TagsWrapper>
           {sortedItems.slice(0, curDisplayCount).map((item) => (
             <Item

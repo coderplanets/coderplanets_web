@@ -77,7 +77,7 @@ const Folder: FC<TProps> = ({
           }
         }}
       >
-        <ArrowIcon isOpen={isFolderOpen} />
+        <ArrowIcon $isOpen={isFolderOpen} />
         <Title>
           <FolderTitle>{title}</FolderTitle>
           {!isFolderOpen && <Count>{sortedTags.length}</Count>}
@@ -87,7 +87,7 @@ const Folder: FC<TProps> = ({
         )}
       </Header>
 
-      <Content isOpen={isFolderOpen}>
+      <Content $isOpen={isFolderOpen}>
         <TagsWrapper>
           {sortedTags.slice(0, curDisplayCount).map((tag) => (
             <TagItem
