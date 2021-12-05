@@ -7,7 +7,7 @@ import { Global } from './helper'
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 const pageview = (url: string): void => {
   // @ts-ignore
-  Global.gtag('config', process.env.NEXT_PUBLIC_GA_TRACING_ID, {
+  Global.gtag?.('config', process.env.NEXT_PUBLIC_GA_TRACING_ID, {
     page_path: url,
   })
 }
@@ -25,7 +25,7 @@ const event = (e: TGAEvent): void => {
   const { action, category, label, value } = e
 
   // @ts-ignore
-  Global.gtag('event', action, {
+  Global.gtag?.('event', action, {
     event_category: category,
     event_label: label,
     value,
