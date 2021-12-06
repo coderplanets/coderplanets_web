@@ -93,6 +93,10 @@ const FooterStore = T.model('FooterStore', {
       const root = getParent(self) as TRootStore
       root.authWarning(options)
     },
+    updateSession(state): void {
+      const root = getParent(self) as TRootStore
+      root.account.updateSession(state)
+    },
     changeCommunity(raw): void {
       const root = getParent(self) as TRootStore
       const mainPath = raw === HCN ? '' : raw
