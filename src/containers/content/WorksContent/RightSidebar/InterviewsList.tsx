@@ -23,7 +23,7 @@ const Interview: React.FC = () => {
         fallback={<ImgFallback user={{ nickname: 'fake' }} size={20} top={1} />}
       />
       <Intro>
-        <Title>groupher</Title>
+        <Title>CoderPlanets</Title>
       </Intro>
       <SpaceGrow />
       {/* upvote */}
@@ -44,9 +44,6 @@ const InterviewsList: FC<TProps> = ({
 }) => {
   return (
     <Wrapper testid={testid}>
-      <Interview />
-      <Interview />
-      <Interview />
       <Interview />
       <Interview />
     </Wrapper>
