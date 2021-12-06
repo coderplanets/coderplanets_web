@@ -41,7 +41,12 @@ const hasNoBorder = (metric: TMetric): boolean =>
     METRIC.HELP_CENTER,
   ])
 
-const CommunityView: FC<TProps> = ({ metric, c11n, community }) => {
+const CommunityView: FC<TProps> = ({
+  metric,
+  c11n,
+  community,
+  accountInfo,
+}) => {
   const InnerWrapper =
     c11n.bannerLayout === C11N.CLASSIC
       ? ClassicInnerWrapper
@@ -61,7 +66,7 @@ const CommunityView: FC<TProps> = ({ metric, c11n, community }) => {
             metric={metric}
           />
         </RouterWrapper>
-        <AddOns />
+        <AddOns accountInfo={accountInfo} />
       </InnerWrapper>
     </Wrapper>
   )

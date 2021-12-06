@@ -1,9 +1,9 @@
 import { Fragment, FC, memo } from 'react'
 import { useRouter } from 'next/router'
 
-import { ICON } from '@/config'
+import type { TAccount } from '@/spec'
+
 import { ROUTE } from '@/constant'
-import { useAccount } from '@/stores/init'
 
 import Tooltip from '@/widgets/Tooltip'
 import Button from '@/widgets/Buttons/Button'
@@ -26,13 +26,16 @@ import {
   MembershipHint,
 } from './styles/user_account'
 
-const UserAccount: FC = () => {
+type TProps = {
+  accountInfo: TAccount
+}
+
+const UserAccount: FC<TProps> = ({ accountInfo }) => {
   const router = useRouter()
-  const account = useAccount()
 
   return (
     <Fragment>
-      {account.isLogin ? (
+      {accountInfo.isLogin ? (
         <Tooltip
           placement="bottom-end"
           trigger="click"
@@ -41,38 +44,38 @@ const UserAccount: FC = () => {
             <PopMenu>
               <LoginBadge>
                 <LoginDesc>Github 登陆:</LoginDesc>
-                <LoginName>{account.user.login}</LoginName>
+                <LoginName>{accountInfo.login}</LoginName>
               </LoginBadge>
               <MenuDivider />
               <MenuLink
-                href={`/user/${account.user.login}`}
+                href={`/u/${accountInfo.login}`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 我的主页
               </MenuLink>
-              <MenuLink
-                href={`/user/${account.user.login}?tab=favorites`}
+              {/* <MenuLink
+                href={`/u/${accountInfo.login}?tab=favorites`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 我的收藏
               </MenuLink>
               <MenuLink
-                href={`/user/${account.user.login}?tab=billing`}
+                href={`/user/${accountInfo.login}?tab=billing`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 我的账单
-              </MenuLink>
-              <MenuDivider />
+              </MenuLink> */}
+              {/* <MenuDivider />
               <MenuLink
                 href={`/user/${account.user.login}?tab=settings`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 设置
-              </MenuLink>
+              </MenuLink> */}
               <MenuItem>帮助</MenuItem>
               <LogoutItem onClick={() => console.log('onLogout')}>
                 登出
@@ -81,7 +84,7 @@ const UserAccount: FC = () => {
           }
         >
           <Wrapper testid="header-login-user">
-            <AvatarIcon src={account.user.avatar} />
+            <AvatarIcon src={accountInfo.avatar} />
           </Wrapper>
         </Tooltip>
       ) : (

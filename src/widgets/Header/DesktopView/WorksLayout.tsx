@@ -40,7 +40,7 @@ const hasNoBorder = (metric: TMetric): boolean =>
     METRIC.HELP_CENTER,
   ])
 
-const WorksHeader: FC<TProps> = ({ metric, c11n, community }) => {
+const WorksHeader: FC<TProps> = ({ metric, c11n, community, accountInfo }) => {
   return (
     <Wrapper
       id="whereCallShowDoraemon"
@@ -55,7 +55,7 @@ const WorksHeader: FC<TProps> = ({ metric, c11n, community }) => {
             metric={metric}
           />
         </RouterWrapper>
-        <AddOns />
+        <AddOns accountInfo={accountInfo} />
       </InnerWrapper>
     </Wrapper>
   )
