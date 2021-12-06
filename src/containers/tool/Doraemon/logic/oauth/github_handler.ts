@@ -17,14 +17,13 @@ const githubLoginHandler = (store, sr71$): void => {
     if (e.origin === Global.location.origin) {
       if (e.data.from_oauth_window) {
         const code = getQueryFromUrl('code', e.data.from_oauth_window)
-        console.log('getQueryFromUrl -> ', code)
 
         store.toast('info', {
           title: '正在同步您的 github 账户信息',
           msg: '请稍等。',
           position: 'topCenter',
         })
-        // sr71$.mutate(S.githubSignin, { code })
+        sr71$.mutate(S.githubSignin, { code })
         Global.postMessage({ from_parent: true }, Global.location.href)
       }
     }
