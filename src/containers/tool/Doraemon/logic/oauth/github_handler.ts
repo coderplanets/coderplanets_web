@@ -24,7 +24,7 @@ const githubLoginHandler = (store, sr71$): void => {
           msg: '请稍等。',
           position: 'topCenter',
         })
-        sr71$.mutate(S.githubSignin, { code })
+        // sr71$.mutate(S.githubSignin, { code })
         Global.postMessage({ from_parent: true }, Global.location.href)
       }
     }

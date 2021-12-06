@@ -7,13 +7,13 @@
  */
 
 import { FC, memo } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 
 import type { TThread, TCommunity } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
-// import DynamicPart from './DynamicPart'
+// import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
+import DynamicPart from './DynamicPart'
 
 import type { TBaseProps } from '../index'
 
@@ -22,11 +22,11 @@ import { Wrapper } from '../styles/classic_layout'
 /* eslint-disable-next-line */
 const log = buildLog('c:ClassicSidebar')
 
-export const DynamicPart = dynamic(() => import('./DynamicPart'), {
-  /* eslint-disable react/display-name */
-  loading: () => <LavaLampLoading size="small" top={30} />,
-  ssr: false,
-})
+// export const DynamicPart = dynamic(() => import('./DynamicPart'), {
+/* eslint-disable react/display-name */
+//   loading: () => <LavaLampLoading size="small" top={30} />,
+//   ssr: false,
+// })
 
 export type TProps = {
   showCommunityBadge: boolean
