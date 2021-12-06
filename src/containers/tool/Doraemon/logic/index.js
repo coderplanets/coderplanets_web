@@ -181,9 +181,6 @@ const DataSolver = [
   {
     match: asyncRes('githubSignin'),
     action: ({ githubSignin: { user, token } }) => {
-      console.log('githubSignin user: ', user)
-      console.log('githubSignin token: ', token)
-
       store.setSession(user, token)
       Global.location.reload()
     },
