@@ -72,9 +72,9 @@ const loader = async (context, opt = {}) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
-  console.log('# index thread: ', thread)
 
   let resp
+
   try {
     resp = await loader(context)
   } catch (e) {

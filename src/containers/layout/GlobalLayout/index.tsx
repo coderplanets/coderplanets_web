@@ -54,7 +54,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
   // load debug graph
   useInit(store, { isMobile })
 
-  const { sidebarPin, c11n, curCommunity } = store
+  const { sidebarPin, c11n, curCommunity, accountInfo } = store
   const { bannerLayout } = c11n
 
   return (
@@ -78,7 +78,12 @@ const GlobalLayoutContainer: FC<TProps> = ({
                 onScrollDirectionChange={onPageScrollDirhange}
                 autoHide
               >
-                <Header metric={metric} c11n={c11n} community={curCommunity} />
+                <Header
+                  metric={metric}
+                  c11n={c11n}
+                  accountInfo={accountInfo}
+                  community={curCommunity}
+                />
                 <BodyWrapper layout={bannerLayout} isMobile={isMobile}>
                   {childrenWithProps(children, { metric })}
                 </BodyWrapper>

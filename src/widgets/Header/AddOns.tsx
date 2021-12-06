@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 
+import type { TAccount } from '@/spec'
 import { ICON_CMD } from '@/config'
 import { EVENT } from '@/constant'
 
@@ -16,7 +17,10 @@ import {
   HeaderSearchIcon,
 } from './styles/addons'
 
-const AddOns: FC = () => {
+type TProps = {
+  accountInfo: TAccount
+}
+const AddOns: FC<TProps> = ({ accountInfo }) => {
   // TODO: move the login logic to MailBox itself
   // useEffect(() => {
   //   if (isLogin) {
@@ -43,7 +47,7 @@ const AddOns: FC = () => {
         </Search>
 
         {/* {MailBox && <MailBox />} */}
-        <UserAccount />
+        <UserAccount accountInfo={accountInfo} />
       </Operations>
     </Wrapper>
   )

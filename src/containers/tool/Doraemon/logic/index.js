@@ -286,7 +286,10 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => store.mark({ searching: false }),
+    action: (data) => {
+      console.log('got oauth error: ', data)
+      store.mark({ searching: false })
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),

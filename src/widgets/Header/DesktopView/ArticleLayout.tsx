@@ -15,7 +15,6 @@ import { authWarn } from '@/utils/helper'
 import Tooltip from '@/widgets/Tooltip'
 import UserCard from '@/widgets/Cards/UserCard'
 import Navigator from '@/widgets/Navigator'
-import { useAccount } from '@/hooks'
 
 import type { TProps } from '../index'
 import {
@@ -30,9 +29,12 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('C:Header')
 
-const ArticleHeader: FC<TProps> = ({ metric, c11n, community }) => {
-  const { isLogin, user } = useAccount()
-
+const ArticleHeader: FC<TProps> = ({
+  metric,
+  c11n,
+  community,
+  accountInfo,
+}) => {
   return (
     <Wrapper id="whereCallShowDoraemon" testid="header" noBorder>
       <InnerWrapper>
@@ -44,13 +46,13 @@ const ArticleHeader: FC<TProps> = ({ metric, c11n, community }) => {
           />
         </RouterWrapper>
         <Operations metric={metric}>
-          {!isLogin ? (
+          {!accountInfo.login ? (
             <LoginHint onClick={() => authWarn({ hideToast: true })}>
               登入
             </LoginHint>
           ) : (
             <Tooltip
-              content={<UserCard item={user as TUser} />}
+              content={<UserCard item={accountInfo as TUser} />}
               delay={0}
               placement="bottom"
               interactive={false}

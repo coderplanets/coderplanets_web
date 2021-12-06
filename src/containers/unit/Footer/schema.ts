@@ -1,4 +1,5 @@
 import { gql } from '@urql/core'
+import { P } from '@/schemas'
 
 const onlineStatus = gql`
   query ($freshkey: String) {
@@ -8,8 +9,13 @@ const onlineStatus = gql`
   }
 `
 
+const sessionState = gql`
+  ${P.sessionState}
+`
+
 const schema = {
   onlineStatus,
+  sessionState,
 }
 
 export default schema

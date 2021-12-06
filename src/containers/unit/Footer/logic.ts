@@ -37,6 +37,8 @@ const getOnlineStatus = (): void => {
   }, 10000)
 }
 
+export const checkSessionState = (): void => sr71$.query(S.sessionState, {})
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -49,6 +51,17 @@ const handleToast = (data): void => {
 }
 
 const DataSolver = [
+  {
+    match: asyncRes('sessionState'),
+    action: ({ sessionState: state }) => {
+      console.log('sessionState: ', state)
+
+      store.updateSession(state)
+      if (state.isValid !== store.accountInfo.isValidSession) {
+        send(EVENT.SESSION_ROUTINE)
+      }
+    },
+  },
   {
     match: asyncRes('onlineStatus'),
     action: ({ onlineStatus }): void => {
@@ -90,6 +103,7 @@ export const useInit = (_store: TStore, metric: TMetric): void => {
     store.mark({ metric })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     getOnlineStatus()
+    checkSessionState()
 
     return () => {
       sub$.unsubscribe()

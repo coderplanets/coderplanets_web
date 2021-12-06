@@ -18,7 +18,12 @@ import {
   MoreIcon,
 } from '../styles/desktop_view/article_editor_layout'
 
-const ArticleEditorHeader: FC<TProps> = ({ metric, c11n, community }) => {
+const ArticleEditorHeader: FC<TProps> = ({
+  metric,
+  c11n,
+  community,
+  accountInfo,
+}) => {
   return (
     <Wrapper id="whereCallShowDoraemon" testid="header" noBorder>
       <InnerWrapper>
