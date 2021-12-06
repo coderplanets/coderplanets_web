@@ -54,8 +54,8 @@ const RightSidebar: FC<TProps> = ({
           desc="定期推送优秀产品介绍、榜单等，可随时取消，欢迎订阅。"
         />
       </SubscribeWrapper>
-      <Divider top={30} bottom={12} />
-      <Footer>关于，统计，反馈</Footer>
+      {/* <Divider top={30} bottom={12} />
+      <Footer>关于，统计，反馈</Footer> */}
     </Wrapper>
   )
 }

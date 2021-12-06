@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 
 import { ICON } from '@/config'
 import type { TPagedWorks } from '@/spec'
@@ -7,7 +7,9 @@ import WorksCard from '@/widgets/Cards/WorksCard'
 import IconText from '@/widgets/IconText'
 import MenuButton from '@/widgets/Buttons/MenuButton'
 
-import { LAUNCH } from '../constant'
+import WipThread from '@/containers/content/CommunityContent/WipThread'
+
+import { VIEW } from '../constant'
 import OptionTab from './OptionTab'
 
 import { Wrapper, TabWrapper, FilterWrapper } from '../styles/works_list'
@@ -16,20 +18,20 @@ import { toggleSidebar, onPreview } from '../logic'
 const options = [
   {
     title: '作品',
-    raw: LAUNCH.ALL,
+    raw: VIEW.WORKS,
   },
   {
     title: '讨论',
-    raw: LAUNCH.PUBLISHED,
+    raw: VIEW.DISCUSS,
   },
   {
     title: '创作者',
-    raw: LAUNCH.PRE_PUBLISH,
+    raw: VIEW.MAKERS,
   },
-  // {
-  //   title: '里程碑',
-  //   raw: LAUNCH.PRE_PUBLISH,
-  // },
+  {
+    title: '里程碑',
+    raw: VIEW.RELEASE,
+  },
 ]
 
 const menuOptions = [
@@ -55,16 +57,16 @@ const extraOptions = [
 
 type TProps = {
   data: TPagedWorks
+  activeView: string
 }
 
-const WorksList: FC<TProps> = ({ data }) => {
+const WorksList: FC<TProps> = ({ data, activeView }) => {
   const { entries } = data
 
   return (
     <Wrapper>
       <TabWrapper>
-        <OptionTab items={options} activeKey="all" />
-
+        <OptionTab items={options} activeKey={activeView} />
         <FilterWrapper>
           <MenuButton
             options={menuOptions}
@@ -77,9 +79,18 @@ const WorksList: FC<TProps> = ({ data }) => {
           </MenuButton>
         </FilterWrapper>
       </TabWrapper>
-      {entries.map((item) => (
-        <WorksCard key={item.id} item={item} onPreview={onPreview} />
-      ))}
+
+      {activeView === VIEW.WORKS && (
+        <Fragment>
+          {entries.map((item) => (
+            <WorksCard key={item.id} item={item} onPreview={onPreview} />
+          ))}
+        </Fragment>
+      )}
+
+      {activeView === VIEW.DISCUSS && <WipThread title="讨论" />}
+      {activeView === VIEW.MAKERS && <WipThread title="创作者" />}
+      {activeView === VIEW.RELEASE && <WipThread title="里程碑" />}
     </Wrapper>
   )
 }

@@ -4,6 +4,7 @@ export const NON_COMMUNITY_ROUTE = {
   HAVE_A_DRINK: 'have-a-drink',
   COOL_GUIDE: 'cool-guide',
   WORKS: 'works',
+  PLAZA: 'plaza',
   TRENDING: 'trending',
   SPONSOR: 'sponsor',
   FRIENDS: 'friends',

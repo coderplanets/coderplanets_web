@@ -3,6 +3,8 @@
 // next-plugins
 const withPlugins = require('next-compose-plugins')
 const withSourceMaps = require('@zeit/next-source-maps')()
+const withPWA = require('next-pwa')
+
 // const withOffline = require('next-offline')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -15,6 +17,15 @@ const nextConfig = {}
 
 module.exports = withPlugins(
   // [withBundleAnalyzer, withSourceMaps, [withOffline, offlineConfig]],
-  [withBundleAnalyzer, withSourceMaps],
+  [
+    [
+      withPWA,
+      {
+        dest: 'public',
+      },
+    ],
+    withBundleAnalyzer,
+    withSourceMaps,
+  ],
   nextConfig,
 )

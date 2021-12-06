@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const router = require('express').Router()
+const { parse } = require('url')
 
 const app = require('./app')
 const { renderAndCache } = require('./helper')
@@ -15,8 +16,25 @@ router
   .get((req, res) => handle(req, res))
 
 router
-  .route('/service-worker.js')
-  .get((req, res) => res.sendFile('.next/service-worker.js', { root: '.' }))
+  .route(/^\/service-worker\.js$/)
+  .get((req, res) => res.sendFile('.next/sw.js', { root: '.' }))
+
+router
+  .route(/^\/service-worker\.js.map$/)
+  .get((req, res) => res.sendFile('.next/sw.js.map', { root: '.' }))
+
+// PWA, service-work Staff
+router
+  .route(
+    /^\/sw\.js$|^\/sw\.js.map$|^\/(workbox|worker|fallback)-\w+\.js$|^\/(workbox|worker|fallback)-\w+\.js.map$/,
+  )
+  .get((req, res) => {
+    const parsedUrl = parse(req.url, true)
+    const { pathname } = parsedUrl
+    const filePath = `.next${pathname}`
+
+    res.sendFile(filePath, { root: '.' })
+  })
 
 // oauth popup window
 router.route('/oauth/').get((req, res) => renderAndCache({ req, res }))
@@ -27,7 +45,6 @@ router.route('/oauth/').get((req, res) => renderAndCache({ req, res }))
 //   .get((req, res) => renderAndCache({ req, res, path: '/index' }))
 
 router.route('/').get((req, res) => {
-  console.log('# router index')
   return renderAndCache({ req, res, path: '/index' })
 })
 
@@ -82,13 +99,13 @@ router.route('/cool-guide').get((req, res) => {
 })
 
 // 作品集市
-router.route('/works').get((req, res) => {
-  return renderAndCache({ req, res, path: '/works/all' })
+router.route('/plaza').get((req, res) => {
+  return renderAndCache({ req, res, path: '/plaza' })
 })
 // 单个作品详情
 router.route('/works/:id').get((req, res) => {
   const { id } = req.params
-  return renderAndCache({ req, res, path: `/works/${id}` })
+  return renderAndCache({ req, res, path: `/w/${id}` })
 })
 
 // 用户页

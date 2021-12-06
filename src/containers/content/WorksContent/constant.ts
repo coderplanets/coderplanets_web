@@ -1,15 +1,11 @@
 export const VIEW = {
   WORKS: 'works',
-  MILESTONE: 'milestone',
+  DISCUSS: 'discuss',
+  MAKERS: 'makers',
+  RELEASE: 'release',
 }
 
 export const BEST = {
   MONTH: 'month',
   WEEK: 'week',
-}
-
-export const LAUNCH = {
-  ALL: 'all',
-  PUBLISHED: 'published',
-  PRE_PUBLISH: 'pre-publish',
 }

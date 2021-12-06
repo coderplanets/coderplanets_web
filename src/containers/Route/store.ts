@@ -84,6 +84,9 @@ const RouteStore = T.model('RouteStore', {
         asPath = `${queryString}`
       }
 
+      // 为空不会改变路由
+      if (asPath === '') asPath = '/'
+
       // NOTE: shallow option only works for same page url
       // if page is diffrent, it will cause page reload
       /* console.log('push url: ', url) */

@@ -24,7 +24,7 @@ const CalendarCard: FC = () => {
           <YearUnit>年</YearUnit>
         </YearWrapper>
         <MonthWrapper>
-          <MonthVal>09</MonthVal>
+          <MonthVal>12</MonthVal>
           <MonthUnit>月</MonthUnit>
         </MonthWrapper>
       </SelectorRow>

@@ -24,5 +24,6 @@ export const CardsWrapper = styled.div`
   ${css.flex('align-center')};
   flex-wrap: wrap;
   width: 100%;
+  min-height: 50vh;
   margin-top: 12px;
 `

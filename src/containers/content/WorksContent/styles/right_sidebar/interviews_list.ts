@@ -10,7 +10,6 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
   width: 100%;
-  min-height: 200px;
   margin-top: 18px;
 `
 export const InterviewWrapper = styled.div`
