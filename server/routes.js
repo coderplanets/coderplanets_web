@@ -27,7 +27,6 @@ router.route('/oauth/').get((req, res) => renderAndCache({ req, res }))
 //   .get((req, res) => renderAndCache({ req, res, path: '/index' }))
 
 router.route('/').get((req, res) => {
-  console.log('# router index')
   return renderAndCache({ req, res, path: '/index' })
 })
 
