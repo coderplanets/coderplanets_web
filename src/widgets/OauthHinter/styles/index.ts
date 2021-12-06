@@ -3,50 +3,40 @@ import styled from 'styled-components'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import animate from '@/utils/animations'
-import Img from '@/Img'
+import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
+import LinkSVG from '@/icons/Link'
+import GithubSVG from '@/icons/GithubCat'
 
-export const Container = styled.div`
-  ${css.flexColumn('justify-between', 'align-center')};
+export const Wrapper = styled.div`
+  ${css.flexColumn('align-both')};
 
   height: 100vh;
   background: ${theme('banner.bg')};
-  background-image: url('https://www.transparenttextures.com/patterns/transparent-square-tiles.png');
   border-top: 4px solid;
   border-top-color: ${theme('drawer.topLine')};
-`
-
-export const CPSMdLogoWrapper = styled.div`
-  align-self: center;
-  margin-right: -5px;
-  margin-top: 5px;
-`
-export const CPSMdLogo = styled(Img)`
-  width: 200px;
 `
 export const IconsWrapper = styled.div`
   ${css.flex('justify-center')};
 `
-
 export const TextWrapper = styled.div`
   ${css.flexColumn('align-center')};
   margin-top: 15px;
 `
 export const HintTitle = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 1.2rem;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 6px;
 `
 export const HintDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-top: 4px;
 `
-
 // fill: ${theme('font')};
-export const CPSLogoIcon = styled(Img)`
-  width: 53px;
-  height: 53px;
-  margin-top: -5px;
+export const HomeLogoIcon = styled(CommunityFaceLogo)`
+  ${css.size(48)};
 `
-export const LinkIcon = styled(Img)`
+export const LinkIcon = styled(LinkSVG)`
   fill: #6e967f;
   width: 23px;
   height: 23px;
@@ -55,28 +45,15 @@ export const LinkIcon = styled(Img)`
   margin-top: 16px;
   animation: ${animate.rotate360} 1s linear infinite;
 `
-export const GithubLogoIcon = styled(Img)`
-  fill: ${theme('sidebar.bg')};
-  width: 50px;
-  height: 50px;
+export const GithubLogoIcon = styled(GithubSVG)`
+  fill: ${theme('thread.articleTitle')};
+  ${css.size(50)};
 `
 export const HintWrapper = styled.div`
   ${css.flexColumn()};
-  margin-top: -15%;
   color: ${theme('banner.title')};
 `
 export const FooterWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-bottom: 10px;
-`
-export const IssueLink = styled.a`
-  text-decoration: underline;
-  font-weight: bolder;
-  transition: color 0.3s;
-  color: ${theme('thread.articleDigest')};
-
-  &:hover {
-    color: ${theme('banner.title')};
-    cursor: pointer;
-  }
 `
