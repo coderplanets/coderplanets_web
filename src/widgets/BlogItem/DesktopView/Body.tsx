@@ -23,6 +23,7 @@ import {
   AuthorName,
   ItemWrapper,
   ViewsIcon,
+  CommentIcon,
 } from '../styles/desktop_view/body'
 
 type TProps = {
@@ -59,12 +60,12 @@ const Body: FC<TProps> = ({ item }) => {
           </PublishTime>
           <Dot radius={3} space={10} />
           <ItemWrapper>
-            <ViewsIcon src={`${ICON}/article/viewed.svg`} />
+            <ViewsIcon />
             {item.views}
           </ItemWrapper>
           <Dot radius={3} space={10} />
           <ItemWrapper>
-            <ViewsIcon src={`${ICON}/article/comment.svg`} />
+            <CommentIcon />
             {item.commentsCount}
           </ItemWrapper>
         </LeftPart>

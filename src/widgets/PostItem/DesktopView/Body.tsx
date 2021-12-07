@@ -4,7 +4,6 @@ import TimeAgo from 'timeago-react'
 import Link from 'next/link'
 
 import type { TCommunity, TPost } from '@/spec'
-import { ICON } from '@/config'
 import { EVENT } from '@/constant'
 import { send } from '@/utils/helper'
 
@@ -77,7 +76,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
           </PublishTime>
           <Dot radius={3} space={10} />
           <ItemWrapper>
-            <ViewsIcon src={`${ICON}/article/viewed.svg`} />
+            <ViewsIcon />
             {item.views}
           </ItemWrapper>
         </LeftPart>
