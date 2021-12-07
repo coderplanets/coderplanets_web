@@ -1,6 +1,10 @@
-import React from 'react'
+import { FC } from 'react'
 
-import { ICON, ICON_BASE } from '@/config'
+import Link from 'next/link'
+
+import type { TCommunity } from '@/spec'
+import { ICON } from '@/config'
+import { ROUTE } from '@/constant'
 
 import CommunityInfo from './CommunityInfo'
 
@@ -9,7 +13,7 @@ import {
   CommunityWrapper,
   ExploreWrapper,
   AccountWrapper,
-  SiteLogo,
+  HomeLogo,
   UserLogo,
   ExploreLogo,
   ArrowShape,
@@ -17,42 +21,56 @@ import {
   ArrowShapeLeft,
 } from '../styles/bottom_bar/arrow_block'
 
-export const MenuBlock = ({ active, onClick }) => {
+type TMenuBlock = {
+  onClick: () => void
+}
+export const MenuBlock: FC<TMenuBlock> = ({ onClick }) => {
   const bgColor = '#071f27'
 
   return (
     <MenuWrapper bgColor={bgColor} onClick={onClick}>
-      <SiteLogo src={`${ICON_BASE}/site_logo.svg`} active={active} />
+      <HomeLogo />
       <MenuArrowShape bgColor={bgColor} />
     </MenuWrapper>
   )
 }
 
-export const CommunityBlock = ({ isExpand }) => {
+type TCommunityBlock = {
+  community: TCommunity
+  isExpand: boolean
+}
+
+export const CommunityBlock: FC<TCommunityBlock> = ({
+  community,
+  isExpand,
+}) => {
   const bgColor = '#194d5f'
   const activeBgColor = '#196f70'
-  const isSubscribed = false
+
+  const { viewerHasSubscribed } = community
 
   return (
-    <CommunityWrapper bgColor={isSubscribed ? activeBgColor : bgColor}>
-      <CommunityInfo isSubscribed={isSubscribed} isExpand={isExpand} />
-      <ArrowShape bgColor={isSubscribed ? activeBgColor : bgColor} />
+    <CommunityWrapper bgColor={viewerHasSubscribed ? activeBgColor : bgColor}>
+      <CommunityInfo community={community} isExpand={isExpand} />
+      <ArrowShape bgColor={viewerHasSubscribed ? activeBgColor : bgColor} />
     </CommunityWrapper>
   )
 }
 
-export const ExploreBlock = () => {
+export const ExploreBlock: FC = () => {
   const bgColor = '#071f27'
 
   return (
-    <ExploreWrapper bgColor={bgColor}>
-      <ArrowShapeLeft bgColor={bgColor} />
-      <ExploreLogo src={`${ICON}/discover.svg`} />
-    </ExploreWrapper>
+    <Link href={ROUTE.EXPLORE}>
+      <ExploreWrapper bgColor={bgColor}>
+        <ArrowShapeLeft bgColor={bgColor} />
+        <ExploreLogo src={`${ICON}/discover.svg`} />
+      </ExploreWrapper>
+    </Link>
   )
 }
 
-export const AccountBlock = () => {
+export const AccountBlock: FC = () => {
   const bgColor = '#013B49'
 
   return (

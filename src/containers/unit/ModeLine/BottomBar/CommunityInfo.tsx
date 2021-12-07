@@ -1,19 +1,27 @@
 import { FC, memo } from 'react'
 
-import { ICON_BASE } from '@/config'
+import type { TCommunity } from '@/spec'
+import { HCN } from '@/constant'
 
 import { Wrapper, Logo, Title } from '../styles/bottom_bar/community_info'
 
 type TProps = {
-  isSubscribed: boolean
+  community: TCommunity
   isExpand: boolean
 }
 
-const CommunityInfo: FC<TProps> = ({ isSubscribed, isExpand }) => {
+const CommunityInfo: FC<TProps> = ({ community, isExpand }) => {
   return (
     <Wrapper>
-      <Logo src={`${ICON_BASE}/pl/javascript.png`} isExpand={isExpand} />
-      {isExpand && <Title isSubscribed={isSubscribed}>javascript</Title>}
+      {community.raw !== HCN && (
+        <Logo src={community.logo} isExpand={isExpand} />
+      )}
+
+      {isExpand && (
+        <Title isSubscribed={community.viewerHasSubscribed}>
+          {community.title}
+        </Title>
+      )}
     </Wrapper>
   )
 }

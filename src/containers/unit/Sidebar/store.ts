@@ -18,7 +18,7 @@ const SidebarStore = T.model('SidebarStore', {
   // after user click custom sort option in footer
   sortOptActive: T.optional(T.boolean, false),
 
-  isPulled: T.optional(T.boolean, false),
+  ispulled: T.optional(T.boolean, false),
 })
   .views((self) => ({
     get curRoute(): TRoute {

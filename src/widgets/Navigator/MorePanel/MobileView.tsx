@@ -11,67 +11,56 @@ import {
   Logo,
   Intro,
   Title,
-  Desc,
-  Wip,
 } from '../styles/more_panel/mobile_view'
 
 const items = [
   {
-    icon: `${ICON}/route/light.svg`,
+    icon: `${ICON}/menu/shop.svg`,
     title: '作品集市',
-    desc: '作品，产品的跳蚤集市',
-    href: `/${ROUTE.EXPLORE}`,
+    href: `/${ROUTE.PLAZA}`,
     raw: 11,
   },
   {
     icon: `${ICON}/route/cool-guide.svg`,
     title: '酷导航',
-    desc: '发现有意思的东西',
-    href: `/${ROUTE.EXPLORE}`,
+    href: `/${ROUTE.COOL_GUIDE}`,
     raw: 12,
-  },
-  {
-    icon: `${ICON}/route/job.svg`,
-    title: '工作',
-    desc: '找工作？来这里看看',
-    href: `/${ROUTE.EXPLORE}`,
-    raw: 13,
   },
   {
     icon: `${ICON}/route/cup.svg`,
     title: '来一杯',
-    desc: '渴了累了来一杯？',
     href: `/${ROUTE.EXPLORE}`,
     raw: 14,
   },
   {
     icon: `${ICON}/route/meetup.svg`,
-    title: '活动',
-    desc: '来线下和同行聊聊?',
-    href: `/${ROUTE.EXPLORE}`,
+    title: '小聚',
+    href: `/${ROUTE.MEETUPS}`,
     raw: 15,
   },
   {
     icon: `${ICON_CMD}/header/more_data.svg`,
     title: 'Trending',
-    desc: '各社区近期精华内容',
     href: `/${ROUTE.TRENDING}`,
     raw: 8,
   },
   {
-    icon: `${ICON_CMD}/header/more_indie.svg`,
-    title: '独立开发者',
-    desc: '经验交流，开发者访谈',
-    href: `/${ROUTE.RECIPES}`,
+    icon: `${ICON}/menu/makers2.svg`,
+    title: 'Makers',
+    href: '/makers',
     raw: 2,
   },
   {
-    icon: `${ICON_CMD}/header/more_snippets.svg`,
-    title: '代码片段',
-    desc: '各语言实用 Snippets，小技巧',
-    wip: true,
-    href: '',
-    raw: 3,
+    icon: `${ICON}/menu/vip.svg`,
+    title: '会员',
+    href: `/${ROUTE.MEMBERSHIP}`,
+    raw: 28,
+  },
+  {
+    icon: `${ICON}/menu/ear.svg`,
+    title: '建议反馈',
+    href: '/feedback',
+    raw: 30,
   },
 ]
 
@@ -80,14 +69,11 @@ const MoreContent: FC = () => {
     <Wrapper mobile>
       <BodyWrapper>
         {items.map((item, index) => (
-          <Link key={item.raw} href={`/${ROUTE.TRENDING}`} passHref>
+          <Link key={item.href} href={item.href} passHref>
             <Entry index={index} mobile>
               <Logo src={item.icon} />
               <Intro>
-                <Title>
-                  {item.title} {item.wip && <Wip>开发中</Wip>}{' '}
-                </Title>
-                <Desc>{item.desc}</Desc>
+                <Title>{item.title}</Title>
               </Intro>
             </Entry>
           </Link>

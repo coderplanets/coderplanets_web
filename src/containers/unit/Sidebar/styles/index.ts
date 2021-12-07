@@ -7,7 +7,7 @@ import { getMainWidth, getShadow, SIDEBAR_WIDTH } from './metric'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751
-type TWrapper = { isPulled: boolean }
+type TWrapper = { ispulled: boolean }
 export const Wrapper = styled.aside<TWrapper>`
   position: fixed;
   top: 0;
@@ -17,15 +17,15 @@ export const Wrapper = styled.aside<TWrapper>`
   border-color: ${theme('sidebar.borderColor')};
   z-index: ${css.zIndex.sidebar};
 
-  transform: ${({ isPulled }) =>
-    isPulled ? 'translateX(0)' : `translateX(-${SIDEBAR_WIDTH})`};
+  transform: ${({ ispulled }) =>
+    ispulled ? 'translateX(0)' : `translateX(-${SIDEBAR_WIDTH})`};
 
   ${css.media.maxContent`
     left: 0;
   `};
   ${css.media.tablet`display: none`};
 `
-type TMainWrapper = { pin: boolean; isPulled?: boolean; testid: string }
+type TMainWrapper = { pin: boolean; ispulled?: boolean; testid: string }
 export const MainWrapper = styled.div.attrs(
   ({ pin, testid }: TMainWrapper) => ({
     style: {
@@ -35,7 +35,7 @@ export const MainWrapper = styled.div.attrs(
     },
   }),
 )<TMainWrapper>`
-  display: ${({ isPulled }) => (isPulled ? 'flex' : 'none')};
+  display: ${({ ispulled }) => (ispulled ? 'flex' : 'none')};
   flex-direction: column;
 
   height: 100vh;

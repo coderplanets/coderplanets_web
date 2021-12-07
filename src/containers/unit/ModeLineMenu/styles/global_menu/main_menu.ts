@@ -41,6 +41,7 @@ export const ArrowIcon = styled(ArrowSVG)`
   ${css.size(14)};
   transform: rotate(180deg);
   margin-left: 5px;
+  margin-top: -2px;
   &:active {
     fill: #0d969e;
   }

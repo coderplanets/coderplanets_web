@@ -7,8 +7,8 @@ import HomeNavi from './HomeNavi'
 import {
   Wrapper,
   HomeBlock,
-  JoinLink,
-  ArrowIcon,
+  // JoinLink,
+  // ArrowIcon,
 } from '../styles/global_menu/main_menu'
 
 const GlobalMenu: FC = () => {
@@ -17,10 +17,10 @@ const GlobalMenu: FC = () => {
       <HomeBlock>
         <HomeNavi />
         <SpaceGrow />
-        <JoinLink>
-          参与建设
+        {/* <JoinLink>
+          <div>参与共建</div>
           <ArrowIcon />
-        </JoinLink>
+        </JoinLink> */}
       </HomeBlock>
       <MorePanel />
     </Wrapper>

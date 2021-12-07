@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
-import type { TRootStore, TViewing, TArticle } from '@/spec'
+import type { TRootStore, TViewing, TCommunity, TArticle } from '@/spec'
 import { TYPE, METRIC } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 
@@ -20,6 +20,13 @@ const ModeLine = T.model('ModeLine', {
       const root = getParent(self) as TRootStore
       return root.isMobile
     },
+
+    get curCommunity(): TCommunity {
+      const root = getParent(self) as TRootStore
+
+      return toJS(root.viewing.community)
+    },
+
     get viewing(): TViewing {
       const root = getParent(self) as TRootStore
       return toJS(root.viewing)

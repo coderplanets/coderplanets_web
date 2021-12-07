@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TArticle, TMetric, TModelineType } from '@/spec'
+import type { TArticle, TCommunity, TMetric, TModelineType } from '@/spec'
 import { METRIC, TYPE } from '@/constant'
 import { multiClick } from '@/utils/helper'
 
@@ -27,12 +27,14 @@ type TProps = {
   activeMenu: TModelineType
   isCommunityBlockExpand?: boolean
   article: TArticle | null
+  community: TCommunity
 }
 
 const BottomBar: FC<TProps> = ({
   testid = 'modeline-bottom-bar',
   metric,
   article = null,
+  community,
   activeMenu,
   isCommunityBlockExpand = false,
 }) => {
@@ -45,9 +47,10 @@ const BottomBar: FC<TProps> = ({
     <Wrapper testid={testid} isMenuActive={!!activeMenu}>
       <MenuBlock
         active={activeMenu === TYPE.MM_TYPE.GLOBAL_MENU}
+        // @ts-ignore
         onClick={multiClick(() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
       />
-      <CommunityBlock isExpand={isCommunityBlockExpand} />
+      <CommunityBlock community={community} isExpand={isCommunityBlockExpand} />
       <ItemsWrapper>
         {menus.map((item) => (
           <MenuItem

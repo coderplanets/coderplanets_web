@@ -5,7 +5,7 @@ import {
   Logo,
   Block,
   Title,
-  ArrowIcon,
+  // ArrowIcon,
 } from '../styles/global_menu/home_navi'
 
 const HomeNavi: FC = () => {
@@ -14,7 +14,6 @@ const HomeNavi: FC = () => {
       <Logo />
       <Block>
         <Title>coderplanets</Title>
-        <ArrowIcon />
       </Block>
     </Wrapper>
   )
