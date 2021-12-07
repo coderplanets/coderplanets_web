@@ -2,6 +2,7 @@ import { FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 
 import type { TArticle } from '@/spec'
+import { SVG } from '@/constant'
 import IconButton from '@/widgets/Buttons/IconButton'
 import ReadableDate from '@/widgets/ReadableDate'
 
@@ -13,12 +14,12 @@ type TProps = {
 
 const ActiveBadge: FC<TProps> = ({ item }) => {
   const isArchived = item.commentsCount === 24
-  const path = isArchived ? 'article/archived.svg' : 'shape/activity.svg'
+  const icon = isArchived ? SVG.ARCHIVED : SVG.ACTIVITY
 
   return (
     <Wrapper hasComments={item.commentsCount > 0}>
       <IconButton
-        path={path}
+        icon={icon}
         size={14}
         hint={
           <Hint>

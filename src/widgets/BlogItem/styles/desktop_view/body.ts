@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
+
+import ViewedSVG from '@/icons/article/Viewed'
+import CommonSVG from '@/icons/Comment'
 import DotDivider from '@/widgets/DotDivider'
 
 export const Wrapper = styled.div`
@@ -69,7 +71,14 @@ export const ItemWrapper = styled.div`
   opacity: 0.7;
   transition: opacity 0.2s;
 `
-export const ViewsIcon = styled(Img)`
+export const ViewsIcon = styled(ViewedSVG)`
+  fill: ${theme('thread.extraInfo')};
+  ${css.size(12)};
+  opacity: 0.6;
+  margin-right: 3px;
+`
+
+export const CommentIcon = styled(CommonSVG)`
   fill: ${theme('thread.extraInfo')};
   ${css.size(12)};
   opacity: 0.6;

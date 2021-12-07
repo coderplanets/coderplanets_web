@@ -8,6 +8,10 @@ const SVG = {
   PIN: 'pin',
   EDIT_PEN: 'EditPen',
 
+  ACTIVITY: 'activity',
+  ARCHIVED: 'archived',
+
+  CLOSE: 'close',
   // comment
   EMOTION: 'emotion',
   LOCK: 'lock',
@@ -16,6 +20,7 @@ const SVG = {
   EXPAND: 'expand',
   FOLD: 'fold',
 
+  TO_TOP: 'to_top',
   // utils
   MORE: 'more',
   MOREL: 'more-l',

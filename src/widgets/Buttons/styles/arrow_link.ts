@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import Img from '@/Img'
 import css from '@/utils/css'
+import ArrowSVG from '@/icons/Arrow'
 
 import { getTextSize, getIconSize } from './metircs/arrow_link'
 
@@ -22,16 +23,24 @@ export const Text = styled.div<TText>`
     visibility: visible;
   }
 `
-type TIcon = { color: string; size: string }
-const Icon = styled(Img)<TIcon>`
+// type TIcon = { color: string; size: string }
+// const Icon = styled(Img)<TIcon>`
+//   fill: ${({ color }) => color || '#327ca1'};
+//   width: ${({ size }) => getIconSize(size)};
+//   height: ${({ size }) => getIconSize(size)};
+//   display: block;
+//   transition: all 0.2s;
+//   opacity: 0.8;
+// `
+type TIcon = { color: string; size: string; hoverColor: string }
+export const RightIcon = styled(ArrowSVG)<TIcon>`
   fill: ${({ color }) => color || '#327ca1'};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
   display: block;
   transition: all 0.2s;
   opacity: 0.8;
-`
-export const RightIcon = styled(Icon)<{ hoverColor: string }>`
+
   transform: rotate(180deg);
   margin-left: 6px;
   visibility: hidden;

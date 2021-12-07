@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
+
+import FeedbackSVG from '@/icons/menu/Feedback'
+import GithubSVG from '@/icons/Github8'
 
 import { Wip } from './index'
 
@@ -23,21 +25,30 @@ export const Main = styled.a`
   ${css.flex('align-center')};
   text-decoration: none;
 `
-export const Logo = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
+const baseIcon = `
   ${css.size(18)};
+  margin-top: -2px;
 
   ${Main}:hover & {
-    fill: #2d7eb1;
+    fill: ${theme('button.primary')};
     cursor: pointer;
   }
 `
-export const SupportLogo = styled(Img)`
-  ${css.size(19)};
-  cursor: pointer;
-  filter: saturate(0.7);
-  transform: rotate(-18deg);
+
+const Feedback = styled(FeedbackSVG)`
+  ${baseIcon};
+  fill: ${theme('thread.articleTitle')};
 `
+const Github = styled(GithubSVG)`
+  ${baseIcon};
+  ${css.size(16)};
+  margin-left: 2px;
+  fill: ${theme('thread.articleTitle')};
+`
+export const Icon = {
+  Feedback,
+  Github,
+}
 
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

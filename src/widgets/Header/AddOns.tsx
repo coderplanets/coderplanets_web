@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
 import type { TAccount } from '@/spec'
-import { ICON_CMD } from '@/config'
 import { EVENT } from '@/constant'
 
 import { send } from '@/utils/helper'
@@ -35,7 +34,7 @@ const AddOns: FC<TProps> = ({ accountInfo }) => {
   return (
     <Wrapper>
       <div onClick={() => console.log('todo openC11NPanel')}>
-        <SettingIcon src={`${ICON_CMD}/magic-setting.svg`} />
+        <SettingIcon />
       </div>
       <Divider>&nbsp;</Divider>
       <Operations>

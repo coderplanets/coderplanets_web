@@ -122,7 +122,7 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
         <MainDesc align>
           {/* eslint-disable-next-line */}
           编写一个功能完善&nbsp;&amp;&nbsp;{/* eslint-disable-next-line */}
-          体验良好的现代社区需要开发者保持长期的专注和付出，论坛的持续打磨和维护，更需要团队投入海量的精力，矛盾的是，现阶段因为缺乏流量等各种资源，难以通过自身造血实现正向循环。你的支持将有助于我们保持独立，在论坛的开发和运营上倾注更多时间。
+          体验良好的现代社区需要开发者保持长期的专注和付出，论坛的持续打磨和维护，更需要团队投入海量的精力，矛盾的是，现阶段因为缺乏人力、流量等各种资源，难以通过自身造血实现正向循环。你的支持将有助于我们保持独立，在论坛的开发和运营上倾注更多时间。
         </MainDesc>
         <Br top={40} />
         <ButtonGroup>
@@ -138,12 +138,13 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
         <Br top={60} />
 
         <Desc align>
-          开源项目的健康发展无法仅靠情怀支撑，所受钱款将全部用于支付本项目所使用的基础设施、第三方服务、资源以及开发人员生计等产生的必要费用，确保社区稳定、可持续，谢谢理解。
+          开源项目的健康发展无法仅靠情怀支撑，所受钱款将全部用于支付本项目所使用的基础设施、第三方服务、资源以及开发人员生计等产生的必要费用，确保社区高质量、可持续，谢谢理解。
         </Desc>
         <Br top={20} />
         <Desc>
           最后，如果你喜欢这里，还请高抬贵指将本社区转发给你身边的开发者朋友，以及各种社交媒体平台：
         </Desc>
+        <Br top={15} />
         <SocialWrapper>
           <Tooltip content={<QRCode value={url} size={100} />} placement="top">
             <SocialIcon src={`${ICON}/social/wechat-share.png`} />
@@ -178,7 +179,7 @@ const SupportUS: FC<TProps> = ({ metric = METRIC.SUPPORT_US }) => {
             onClick={() => toPlatform('facebook')}
           />
         </SocialWrapper>
-        <FocusDesc>Don’t tell me , tell the world ~</FocusDesc>
+        <FocusDesc>Don’t tell me, tell the world ~</FocusDesc>
       </InnerWrapper>
     </Wrapper>
   )

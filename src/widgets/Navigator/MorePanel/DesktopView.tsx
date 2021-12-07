@@ -11,8 +11,7 @@ import {
   BodyWrapper,
   Entry,
   Logo,
-  SubscribeLogo,
-  ChartLogo,
+  Icon,
   Main,
   Title,
   Desc,
@@ -47,7 +46,7 @@ const MoreContent: FC = () => {
         <Entry>
           <Link href={`/${ROUTE.TRENDING}`} passHref>
             <Main>
-              <Logo src={`${ICON}/menu/hot.svg`} />
+              <Icon.Hot />
               <Title>热门讨论</Title>
             </Main>
           </Link>
@@ -56,7 +55,7 @@ const MoreContent: FC = () => {
         <Entry>
           <Link href="/makers" passHref>
             <Main>
-              <Logo src={`${ICON}/menu/makers2.svg`} />
+              <Icon.Makers />
               <Title>Makers</Title>
             </Main>
           </Link>
@@ -65,7 +64,7 @@ const MoreContent: FC = () => {
         <Entry>
           <Link href={`${ROUTE.APPLY_COMMUNITY}`} passHref>
             <Main>
-              <Logo src={`${ICON}/menu/snippets.svg`} />
+              <Icon.Piece />
               <Title>创建子社区</Title>
             </Main>
           </Link>
@@ -74,7 +73,7 @@ const MoreContent: FC = () => {
         <Entry>
           <Link href={`/${ROUTE.SUBSCRIBE}`} passHref>
             <Main>
-              <SubscribeLogo src={`${ICON}/menu/subscribe.svg`} />
+              <Icon.Subscribe />
               <Title offset="6px">内容订阅</Title>
             </Main>
           </Link>
@@ -82,7 +81,7 @@ const MoreContent: FC = () => {
         </Entry>
         <Entry>
           <Main href="https://plausible.io/coderplanets.com" target="_blank">
-            <ChartLogo src={`${ICON}/menu/chart.svg`} />
+            <Icon.Chart />
             <Title offset="8px">访问统计</Title>
           </Main>
           <Desc>多维度访问统计，透明开放</Desc>

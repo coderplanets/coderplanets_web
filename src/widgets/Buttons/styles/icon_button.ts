@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import dynamic from 'next/dynamic'
 import styled from 'styled-components'
 
 import type { TActive, TSpace } from '@/spec'
@@ -14,10 +15,24 @@ import LockIcon from '@/icons/Lock'
 import ExpandIcon from '@/icons/Expand'
 import FoldIcon from '@/icons/Fold'
 
+import ActivityIcon from '@/icons/article/Activity'
+import ArchivedIcon from '@/icons/article/Archived'
+
 import CollectionIcon from '@/icons/CollectionBookmark'
 import ShareIcon from '@/icons/Share'
 
+// import CloseCross from '@/icons/CloseCross'
+// import AirBalloon from '@/icons/AirBalloon'
+
 import type { TProps as TIconButtonProps } from '../IconButton'
+
+const CloseCross = dynamic(() => import('@/icons/CloseCross'), {
+  ssr: false,
+})
+
+const AirBalloon = dynamic(() => import('@/icons/AirBalloon'), {
+  ssr: false,
+})
 
 type TWrapper = Omit<TIconButtonProps, 'path'>
 export const Wrapper = styled.div<TWrapper>`
@@ -75,6 +90,24 @@ export const getIcon = (type: string): FC<TIcon> => {
 
     case SVG.SHARE: {
       return getStyledIcon(ShareIcon)
+    }
+
+    case SVG.ARCHIVED: {
+      return getStyledIcon(ArchivedIcon)
+    }
+
+    case SVG.ACTIVITY: {
+      return getStyledIcon(ActivityIcon)
+    }
+
+    case SVG.CLOSE: {
+      // @ts-ignore
+      return getStyledIcon(CloseCross)
+    }
+
+    case SVG.TO_TOP: {
+      // @ts-ignore
+      return getStyledIcon(AirBalloon)
     }
 
     default: {

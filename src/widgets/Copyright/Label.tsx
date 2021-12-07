@@ -1,6 +1,5 @@
 import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
 import { Wrapper, Icon, Text } from './styles/label'
 
 type TProps = {
@@ -12,7 +11,7 @@ const Label: FC<TProps> = ({ type }) => {
     case 'approve': {
       return (
         <Wrapper>
-          <Icon src={`${ICON}/article/copyright-approve.svg`} />
+          <Icon.CCApprove />
           <Text>转载需授权</Text>
         </Wrapper>
       )
@@ -21,7 +20,7 @@ const Label: FC<TProps> = ({ type }) => {
     case 'forbid': {
       return (
         <Wrapper>
-          <Icon src={`${ICON}/article/copyright-forbid.svg`} />
+          <Icon.CCForbid />
           <Text>禁止转载</Text>
         </Wrapper>
       )
@@ -30,7 +29,7 @@ const Label: FC<TProps> = ({ type }) => {
     default: {
       return (
         <Wrapper>
-          <Icon src={`${ICON}/article/cc-raw.svg`} />
+          <Icon.CCApprove />
           <Text>知识共享 4.0</Text>
         </Wrapper>
       )

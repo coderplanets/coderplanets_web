@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import { GITHUB, ICON_CMD, EMAIL_SUPPORT } from '@/config'
+import { GITHUB, EMAIL_SUPPORT } from '@/config'
 import { joinUS } from '@/utils/helper'
 
 import { Wrapper, Item, Icon } from './styles/contact_list'
@@ -9,17 +9,17 @@ const SocialList: FC = () => (
   <Wrapper>
     <a href={`mailto:${EMAIL_SUPPORT}`}>
       <Item>
-        <Icon src={`${ICON_CMD}/social_email.svg`} />
+        <Icon.Email />
       </Item>
     </a>
 
     <Item onClick={() => joinUS()}>
-      <Icon src={`${ICON_CMD}/footer_weixin.svg`} />
+      <Icon.WeiChat />
     </Item>
 
     <a href={`${GITHUB}`} rel="noopener noreferrer" target="_blank">
       <Item>
-        <Icon src={`${ICON_CMD}/github.svg`} />
+        <Icon.Github />
       </Item>
     </a>
   </Wrapper>

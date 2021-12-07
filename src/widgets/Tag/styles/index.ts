@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
+import CloseSVG from '@/icons/CloseCross'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -33,8 +34,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   cursor: pointer;
   white-space: nowrap;
 `
-export const CloseIcon = styled(Img)`
+export const CloseIcon = styled(CloseSVG)`
   fill: ${theme('tagger.text')};
-  ${css.size(14)};
-  margin-left: 2px;
+  ${css.size(12)};
+  opacity: 0.8;
+  margin-left: 4px;
 `

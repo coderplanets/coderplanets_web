@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import IconText from '@/widgets/IconText'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
+export { Icon } from './label'
 
 export const Wrapper = styled.div`
   ${css.flexColumn()};
@@ -13,10 +14,6 @@ export const Wrapper = styled.div`
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
-`
-export const Icon = styled(Img)`
-  ${css.size(18)};
-  fill: ${theme('thread.articleTitle')};
 `
 export const Title = styled.div`
   font-size: 16px;

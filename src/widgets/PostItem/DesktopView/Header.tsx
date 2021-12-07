@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import type { TPost } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
-import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils/route'
 
 import AvatarsRow from '@/widgets/AvatarsRow'
@@ -32,7 +31,7 @@ const Header: FC<TProps> = ({ item }) => {
         </Link>
         {item.linkAddr && (
           <TitleLink>
-            <LinkIcon src={`${ICON_CMD}/link.svg`} />
+            <LinkIcon />
             <span style={{ marginLeft: 9 }}>{parseDomain(item.linkAddr)}</span>
           </TitleLink>
         )}

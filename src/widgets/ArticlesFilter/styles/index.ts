@@ -32,7 +32,7 @@ export const LabelDivider = styled.div`
   width: 90%;
   margin-top: 5px;
   margin-bottom: 10px;
-  opacity: 0.6;
+  opacity: 0.3;
 `
 export const SelectIcon = styled(Img)<{ reverse?: boolean }>`
   fill: ${theme('banner.title')};
@@ -42,9 +42,8 @@ export const SelectIcon = styled(Img)<{ reverse?: boolean }>`
 `
 export const SelectTitle = styled.div`
   color: ${theme('banner.title')};
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: bold;
-  width: 80%;
 `
 export const LeftAlignWrapper = styled.div<{ offset: string }>`
   text-align: left;

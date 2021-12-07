@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import MagicStickSVG from '@/icons/MagicStick'
 import HeaderSearchSVG from '@/icons/HeaderSearch'
 
 export const Wrapper = styled.div`
   ${css.flex('align-center')};
 `
-export const SettingIcon = styled(Img)`
+export const SettingIcon = styled(MagicStickSVG)`
   fill: ${theme('header.fg')};
   ${css.size(16)};
   margin-top: -2px;

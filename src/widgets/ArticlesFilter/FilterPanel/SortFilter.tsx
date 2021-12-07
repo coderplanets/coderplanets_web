@@ -1,14 +1,12 @@
 import { FC, memo } from 'react'
 
 import type { TArticleFilter } from '@/spec'
-import { ICON_CMD } from '@/config'
 import { FILTER } from '@/constant'
 
 import {
   ColumnWrapper,
   SelectLabel,
   LabelDivider,
-  SelectIcon,
   SelectTitle,
   SelectItem,
 } from '../styles'
@@ -21,7 +19,6 @@ type TProps = {
 const SortFilter: FC<TProps> = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLabel>
-      <SelectIcon src={`${ICON_CMD}/click.svg`} />
       <SelectTitle>排序</SelectTitle>
     </SelectLabel>
     <LabelDivider />
