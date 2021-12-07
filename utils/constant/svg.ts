@@ -20,6 +20,7 @@ const SVG = {
   EXPAND: 'expand',
   FOLD: 'fold',
 
+  TO_TOP: 'to_top',
   // utils
   MORE: 'more',
   MOREL: 'more-l',

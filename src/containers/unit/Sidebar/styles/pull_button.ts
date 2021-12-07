@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
+import PullShapeSVG from '@/icons/PullShape'
+import ArrowSVG from '@/icons/ArrowSimple'
 
 export const Wrapper = styled.div`
   cursor: pointer;
@@ -14,7 +16,7 @@ export const Wrapper = styled.div`
   height: 120px;
   cursor: pointer;
 `
-export const Shape = styled(Img)`
+export const Shape = styled(PullShapeSVG)`
   fill: ${theme('sidebar.bg')};
   width: 120px;
   height: 40px;
@@ -23,7 +25,7 @@ export const Shape = styled(Img)`
   left: -48px;
   transform: rotate(90deg);
 `
-export const ArrowIcon = styled(Img)<{ isPulled: boolean }>`
+export const ArrowIcon = styled(ArrowSVG)<{ isPulled: boolean }>`
   position: absolute;
   top: 44px;
   left: 0;

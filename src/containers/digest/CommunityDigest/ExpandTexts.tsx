@@ -16,9 +16,9 @@ const ExpandTexts: FC<TProps> = ({ descExpand, desc = placeholder }) => {
     <Wrapper>
       <Normal>
         <Desc>{desc}</Desc>
-        <IconWrapper onClick={toggleDescExpand}>
+        {/* <IconWrapper onClick={toggleDescExpand}>
           <IconButton path="article/readme-solid.svg" size={16} />
-        </IconWrapper>
+        </IconWrapper> */}
       </Normal>
     </Wrapper>
   )

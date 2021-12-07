@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   ${css.flex('align-center')};
   cursor: pointer;
 `
-export const icon = `
+const icon = `
   ${css.size(13)};
 
   ${Wrapper}:hover & {
