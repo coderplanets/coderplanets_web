@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
+import LinkSVG from '@/icons/Link'
 
 export const Wrapper = styled.div`
   ${css.flexGrow('align-center')};
@@ -29,7 +29,7 @@ export const TitleLink = styled.div`
   opacity: 0.8;
   text-decoration: underline;
 `
-export const LinkIcon = styled(Img)`
+export const LinkIcon = styled(LinkSVG)`
   fill: ${theme('thread.articleLink')};
   position: absolute;
   top: 6px;

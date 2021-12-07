@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 
 import type { TPost } from '@/spec'
-import { ICON_CMD } from '@/config'
 import { parseDomain } from '@/utils/route'
 
 import { Wrapper, TitleLink, LinkIcon, Title } from '../styles/mobile_view/body'
@@ -17,7 +16,7 @@ const Body: FC<TProps> = ({ item, onPreview }) => {
       <Title>{item.title}</Title>
       {item.linkAddr && (
         <TitleLink>
-          <LinkIcon src={`${ICON_CMD}/link.svg`} />
+          <LinkIcon />
           <span style={{ marginLeft: 9 }}>{parseDomain(item.linkAddr)}</span>
         </TitleLink>
       )}
