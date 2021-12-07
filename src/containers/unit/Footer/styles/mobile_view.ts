@@ -4,6 +4,7 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import SiteLogo from '@/icons/CPLogo'
 import DotDivider from '@/widgets/DotDivider'
 
 export const Wrapper = styled.div`
@@ -16,23 +17,27 @@ export const SiteWrapper = styled.div`
   height: 40px;
   margin-top: 20px;
 `
-export const Logo = styled(Img)`
+export const Logo = styled(SiteLogo)`
   fill: #196f71;
-  ${css.size(18)};
+  ${css.size(12)};
 `
 export const SiteTitle = styled.div`
   font-size: 14px;
   color: #196f71;
-  margin-left: 10px;
-  margin-top: 1px;
+  margin-left: 2px;
+  margin-bottom: 1px;
 `
 export const SiteInfoWrapper = styled.div`
   ${css.flex('align-both')};
 `
-export const Item = styled.div`
+export const Item = styled.a`
   ${css.flex('align-center')};
   color: ${theme('footer.text')};
+  text-decoration: none;
   font-size: 12px;
+  &:hover {
+    color: ${theme('footer.text')};
+  }
 `
 export const ItemIcon = styled(Img)`
   fill: ${theme('baseColor.red')};

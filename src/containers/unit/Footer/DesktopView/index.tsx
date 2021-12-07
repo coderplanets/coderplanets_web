@@ -19,7 +19,6 @@ import HomeLayout from './HomeLayout'
 import ArticleLayout from './ArticleLayout'
 import WorksArticleLayout from './WorksArticleLayout'
 import GeneralLayout from './GeneralLayout'
-// import CommunityView from './CommunityView'
 // import HostingCommunityView from './HostingCommunityView'
 
 import type { TStore } from '../store'
