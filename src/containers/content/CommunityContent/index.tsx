@@ -24,7 +24,7 @@ const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   const { isMobile } = usePlatform()
 
   const { curThread, curCommunity, c11n, subscribedCommunitiesData } = store
-  const isClassicLayout = !isMobile && c11n.bannerLayout === C11N.CLASSIC
+  const isClassicLayout = isMobile || c11n.bannerLayout === C11N.CLASSIC
 
   return (
     <Fragment>

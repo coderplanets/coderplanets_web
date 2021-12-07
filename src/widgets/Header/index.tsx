@@ -22,6 +22,7 @@ export type TProps = {
 
 const HeaderContainer: FC<TProps> = (props) => {
   const { isMobile } = usePlatform()
+
   return (
     <Wrapper id={ANCHOR.GLOBAL_HEADER_ID} testid="">
       {!isMobile ? <DesktopView {...props} /> : <MobileWrapper />}
