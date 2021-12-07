@@ -6,7 +6,9 @@ import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 // import S from './service'
 
-let store = null
+import type { TStore } from './store'
+
+let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ModeLineMenu')
@@ -16,14 +18,14 @@ const log = buildLog('L:ModeLineMenu')
 //
 // 如果当前 Menu 里面有自己的 CustomScroller, 就需要暂时先禁用 Drawer 自身的
 // 否则下滑时会触发下拉关闭
-export const disableDrawerContentDrag = () => {
+export const disableDrawerContentDrag = (): void => {
   send(EVENT.DRAWER.CONTENT_DRAGABLE, {
     data: true,
   })
 }
 
 // 延迟是防止快速滑动
-export const restoreDrawerContentDrag = () => {
+export const restoreDrawerContentDrag = (): void => {
   setTimeout(() => {
     send(EVENT.DRAWER.CONTENT_DRAGABLE, {
       data: false,
@@ -35,7 +37,7 @@ export const restoreDrawerContentDrag = () => {
 // init & uninit handlers
 // ###############################
 
-export const useInit = (_store) => {
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

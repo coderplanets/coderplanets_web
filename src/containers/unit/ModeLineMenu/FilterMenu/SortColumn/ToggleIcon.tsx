@@ -1,19 +1,23 @@
-import React from 'react'
+import { FC, memo, Fragment } from 'react'
 
 import { ICON } from '@/config'
 
 import { OpenedIcon, ClosedIcon } from '../../styles/filter_menu/sort_column'
 
-const ToggleIcon = ({ active }) => {
+type TProps = {
+  active: boolean
+}
+
+const ToggleIcon: FC<TProps> = ({ active }) => {
   return (
-    <React.Fragment>
+    <Fragment>
       {active ? (
         <OpenedIcon src={`${ICON}/shape/menu-opened.svg`} />
       ) : (
         <ClosedIcon src={`${ICON}/shape/menu-closed.svg`} />
       )}
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-export default ToggleIcon
+export default memo(ToggleIcon)

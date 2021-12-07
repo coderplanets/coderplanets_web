@@ -4,6 +4,8 @@ import type { TTestable } from '@/spec'
 import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import SiteLogo from '@/icons/CPLogo'
+import ArrowSVG from '@/icons/ArrowSimple'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -11,7 +13,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('align-center')};
   width: 100%;
 `
-export const Logo = styled(Img)`
+export const Logo = styled(SiteLogo)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(16)};
   margin-top: -2px;
@@ -26,7 +28,7 @@ export const Title = styled.div`
   margin-top: -2px;
   font-weight: bold;
 `
-export const ArrowIcon = styled(Img)`
+export const ArrowIcon = styled(ArrowSVG)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
   transform: rotate(180deg);

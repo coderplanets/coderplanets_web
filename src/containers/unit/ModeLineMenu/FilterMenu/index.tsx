@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 // import { ICON } from '@/config'
 // import DivideText from '@/widgets/DivideText'
@@ -7,8 +7,13 @@ import Header from './Header'
 import Content from './Content'
 
 import { Wrapper } from '../styles/filter_menu'
+import type { TCurActive } from '../spec'
 
-const FilterMenu = ({ curActive }) => {
+type TProps = {
+  curActive: TCurActive
+}
+
+const FilterMenu: FC<TProps> = ({ curActive }) => {
   return (
     <Wrapper>
       <Header />
@@ -17,4 +22,4 @@ const FilterMenu = ({ curActive }) => {
   )
 }
 
-export default React.memo(FilterMenu)
+export default memo(FilterMenu)

@@ -1,10 +1,12 @@
-import React, { useCallback } from 'react'
+import { FC, memo, useCallback } from 'react'
 
 import { ICON } from '@/config'
 import { Trans } from '@/utils/i18n'
 
 import CustomScroller from '@/widgets/CustomScroller'
+
 import SortColumn from './SortColumn/index'
+import type { TCurActive } from '../spec'
 
 import {
   Wrapper,
@@ -20,7 +22,11 @@ import { getFilterMenuScrollHeight } from '../styles/metrics/filter_menu'
 
 import { disableDrawerContentDrag, restoreDrawerContentDrag } from '../logic'
 
-const Content = ({ curActive }) => {
+type TProps = {
+  curActive: TCurActive
+}
+
+const Content: FC<TProps> = ({ curActive }) => {
   const { community, thread } = curActive
 
   const scrollableHeight = getFilterMenuScrollHeight()
@@ -37,6 +43,7 @@ const Content = ({ curActive }) => {
     <Wrapper>
       <SortColumn />
       <CustomScroller
+        direction="horizontal"
         width="calc(68vw - 40px)"
         autoHide={false}
         barSize="medium"
@@ -112,4 +119,4 @@ const Content = ({ curActive }) => {
   )
 }
 
-export default Content
+export default memo(Content)

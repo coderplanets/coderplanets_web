@@ -5,6 +5,8 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import ArrowSVG from '@/icons/ArrowSimple'
+
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>`
@@ -53,7 +55,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
 `
-export const ArrowIcon = styled(Img)`
+export const ArrowIcon = styled(ArrowSVG)`
   fill: ${theme('thread.articleDigest')};
   /* fill: #1f6377; */
   ${css.size(14)};

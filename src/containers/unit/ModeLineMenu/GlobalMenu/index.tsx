@@ -1,6 +1,5 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
-import { ICON } from '@/config'
 import MorePanel from '@/widgets/Navigator/MorePanel'
 import { SpaceGrow } from '@/widgets/Common'
 
@@ -12,7 +11,7 @@ import {
   ArrowIcon,
 } from '../styles/global_menu/main_menu'
 
-const GlobalMenu = () => {
+const GlobalMenu: FC = () => {
   return (
     <Wrapper>
       <HomeBlock>
@@ -20,7 +19,7 @@ const GlobalMenu = () => {
         <SpaceGrow />
         <JoinLink>
           参与建设
-          <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
+          <ArrowIcon />
         </JoinLink>
       </HomeBlock>
       <MorePanel />
@@ -28,4 +27,4 @@ const GlobalMenu = () => {
   )
 }
 
-export default GlobalMenu
+export default memo(GlobalMenu)

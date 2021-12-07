@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import {
@@ -8,8 +8,9 @@ import {
   UnSelectDot,
 } from '../../styles/filter_menu/sort_column/options'
 
-const Options = () => {
+const Options: FC = () => {
   const active = true
+
   return (
     <Wrapper>
       <Title>
@@ -36,4 +37,4 @@ const Options = () => {
   )
 }
 
-export default Options
+export default memo(Options)

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { FC, memo, useState } from 'react'
 
 import CustomScroller from '@/widgets/CustomScroller'
 import { SpaceGrow } from '@/widgets/Common'
@@ -13,7 +13,7 @@ import {
   Desc,
 } from '../../styles/filter_menu/sort_column'
 
-const SortColumn = () => {
+const SortColumn: FC = () => {
   const [activeBar, setActiveBar] = useState(null)
 
   return (
@@ -73,4 +73,4 @@ const SortColumn = () => {
   )
 }
 
-export default React.memo(SortColumn)
+export default memo(SortColumn)
