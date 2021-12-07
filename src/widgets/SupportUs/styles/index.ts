@@ -83,7 +83,7 @@ export const AifadianButton = styled(Button)`
   border-radius: 15px;
 `
 export const FocusDesc = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.articleDigest')};
   text-align: center;
   padding-left: 10px;
   font-size: 16px;

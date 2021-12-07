@@ -106,7 +106,7 @@ const HeaderInfo: FC<TProps> = ({ type, totalCount, curCommunity }) => {
           />
           <DescLabel>
             <DescLink
-              href={`mailto:${EMAIL_SUPPORT}?subject=申请成为 ${curCommunity.raw} 社区编辑&body=感谢您的关注,成为社区编辑后,您将获得本社区范围内各种内容的删帖管理等权限,协助社区的健康发展. 因此本着对社区成员负责任的态度，我需要知道关于你的以下信息 (最终正文请删除本行): %0A%0A%0A你是谁? (包括但不限于 weibo / zhihu / jianshu / twitter 等社交账号) %0A%0A%0A你做过什么? (包括但不限于 github / stackoverflow / 个人网站(博客) 等技术社区账号) %0A%0A%0A你在 coderplanets 上的账号是?`}
+              href={`mailto:${EMAIL_SUPPORT}?subject=申请成为 ${curCommunity.raw} 社区志愿者&body=感谢您的关注，成为子社区志愿者后，您将获得对应社区的各种维护管理等服务大家的权限，协助社区的健康发展. %0A本着对社区成员负责任的态度，我们需要简单了解一下你的背景 (最终正文请删除本行): %0A%0A%0A你是谁? (请提供必要的社交账号，包括但不限于 twitter / zhihu / weibo 等) %0A%0A%0A你做过什么? (包括但不限于 github / stackoverflow / 个人网站(博客) 等技术社区账号) %0A%0A%0A你对 CoderPlanets 的志愿者自治有什么建议吗?`}
             >
               申请成为社区志愿者
             </DescLink>

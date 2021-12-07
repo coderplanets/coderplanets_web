@@ -1,8 +1,14 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
+import GithubSVG from '@/icons/GithubCat'
+import EmailSVG from '@/icons/social/Email'
+import VipSVG from '@/icons/menu/Vip'
+import SponsorSVG from '@/icons/menu/Sponsor'
+import VolunteerSVG from '@/icons/menu/Volunteer'
+import LinkSVG from '@/icons/Link'
 
 export const Wrapper = styled.div`
   ${css.flex('align-both')};
@@ -31,30 +37,49 @@ export const Block = styled.a`
 
   transition: all 0.1s;
 `
-export const Icon = styled(Img)`
-  ${css.size(16)};
-  margin-right: 10px;
-  fill: ${theme('thread.articleDigest')};
-`
-export const FeedIcon = styled(Icon)`
-  transform: rotate(-30deg);
-`
 export const Title = styled.div`
   ${css.flex('justify-between', 'align-center')}
   color: ${theme('thread.articleTitle')};
-  font-size: 18px;
+  font-size: 16px;
 `
-export const LinkIcon = styled(Img)`
+const icon = `
   ${css.size(18)};
-  fill: ${theme('button.primary')};
-  opacity: 0;
-
-  ${Block}:hover & {
-    opacity: 1;
-  }
+  margin-right: 10px;
+  fill: ${theme('thread.articleDigest')};
 `
-export const MailIcon = styled(LinkIcon)`
-  ${css.size(16)};
+
+const Github = styled(GithubSVG)`
+  ${icon};
+  fill: ${theme('thread.articleDigest')};
+`
+const Email = styled(EmailSVG)`
+  ${css.size(14)};
+  margin-right: 4px;
+  fill: ${theme('thread.articleDigest')};
+`
+const VIP = styled(VipSVG)`
+  ${icon};
+  fill: ${theme('thread.articleDigest')};
+`
+const Volunteer = styled(VolunteerSVG)`
+  ${icon};
+  fill: ${theme('thread.articleDigest')};
+`
+const Sponsor = styled(SponsorSVG)`
+  ${icon};
+  fill: ${theme('thread.articleDigest')};
+`
+export const Icon = {
+  Github,
+  Email,
+  VIP,
+  Volunteer,
+  Sponsor,
+}
+
+export const LinkIcon = styled(LinkSVG)`
+  ${css.size(18)};
+  fill: ${theme('thread.articleDigest')};
 `
 export const Divider = styled.div`
   width: 100%;

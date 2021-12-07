@@ -4,7 +4,7 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 import FeedbackSVG from '@/icons/menu/Feedback'
-import GithubSVG from '@/icons/GithubCat'
+import GithubSVG from '@/icons/Github8'
 
 import { Wip } from './index'
 
