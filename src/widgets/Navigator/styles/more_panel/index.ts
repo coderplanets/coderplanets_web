@@ -4,6 +4,12 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
 
+import MakersSVG from '@/icons/menu/Makers'
+import HotSVG from '@/icons/menu/Hot'
+import PieceSVG from '@/icons/menu/Piece'
+import ChartSVG from '@/icons/menu/Chart'
+import SubscribeSVG from '@/icons/menu/Subscribe'
+
 export const Wrapper = styled.div<{ mobile?: boolean }>`
   ${css.flexColumn('align-center')};
   width: ${({ mobile }) => (!mobile ? '430px' : '100%')};
@@ -52,6 +58,45 @@ export const Logo = styled(Img)`
     cursor: pointer;
   }
 `
+
+const baseIcon = `
+  ${css.size(18)};
+  margin-top: 4px;
+
+  ${Main}:hover & {
+    fill: ${theme('button.primary')};
+    cursor: pointer;
+  }
+`
+const Hot = styled(HotSVG)`
+  ${baseIcon};
+  fill: ${theme('thread.articleTitle')};
+`
+const Makers = styled(MakersSVG)`
+  ${baseIcon};
+  fill: ${theme('thread.articleTitle')};
+`
+const Piece = styled(PieceSVG)`
+  ${baseIcon};
+  fill: ${theme('thread.articleTitle')};
+`
+const Subscribe = styled(SubscribeSVG)`
+  ${baseIcon};
+  fill: ${theme('thread.articleTitle')};
+`
+const Chart = styled(ChartSVG)`
+  ${baseIcon};
+  fill: ${theme('thread.articleTitle')};
+`
+
+export const Icon = {
+  Hot,
+  Makers,
+  Piece,
+  Subscribe,
+  Chart,
+}
+
 export const SubscribeLogo = styled(Logo)`
   ${css.size(24)};
   margin-top: 0;

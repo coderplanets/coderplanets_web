@@ -1,15 +1,14 @@
 import { FC, memo } from 'react'
 import Link from 'next/link'
 
-import { ICON, GITHUB } from '@/config'
-import { ROUTE } from '@/constant'
+import { GITHUB } from '@/config'
 
 // import DiscussLinker from '@/widgets/DiscussLinker'
 
 import {
   Wrapper,
   Entry,
-  Logo,
+  Icon,
   Main,
   Title,
   Desc,
@@ -21,7 +20,7 @@ const MoreContent: FC = () => {
       <Entry>
         <Link href={`${GITHUB}`} passHref>
           <Main>
-            <Logo src={`${ICON}/menu/github.svg`} />
+            <Icon.Github />
             <Title>源代码</Title>
           </Main>
         </Link>
@@ -31,7 +30,7 @@ const MoreContent: FC = () => {
       <Entry>
         <Link href="/feedback" passHref>
           <Main>
-            <Logo src={`${ICON}/menu/ear.svg`} noLazy />
+            <Icon.Feedback />
             <Title>建议与反馈</Title>
           </Main>
         </Link>
