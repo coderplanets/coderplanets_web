@@ -82,6 +82,7 @@ const Piece = styled(PieceSVG)`
 `
 const Subscribe = styled(SubscribeSVG)`
   ${baseIcon};
+  ${css.size(20)};
   fill: ${theme('thread.articleTitle')};
 `
 const Chart = styled(ChartSVG)`

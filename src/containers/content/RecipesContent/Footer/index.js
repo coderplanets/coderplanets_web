@@ -18,7 +18,7 @@ import {
 } from '../styles/footer'
 
 const FAKE_AVATAR =
-  'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd/hot/hackernews.jpeg'
+  'https://assets.coderplanets.com/icons/cmd/hot/hackernews.jpeg'
 
 const Footer = () => {
   return (
