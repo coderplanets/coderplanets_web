@@ -7,7 +7,6 @@
 import { FC, ReactNode, memo } from 'react'
 
 import type { TSIZE } from '@/spec'
-import { ICON_CMD } from '@/config'
 import { SIZE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 
@@ -45,12 +44,7 @@ const ArrowLink: FC<TProps> = ({
       <Text size={size} color={color} hoverColor={hoverColor}>
         {children}
       </Text>
-      <RightIcon
-        size={size}
-        color={color}
-        hoverColor={hoverColor}
-        src={`${ICON_CMD}/navi/navi_back.svg`}
-      />
+      <RightIcon size={size} color={color} hoverColor={hoverColor} />
     </Wrapper>
   )
 }

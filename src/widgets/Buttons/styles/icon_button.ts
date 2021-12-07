@@ -20,6 +20,8 @@ import ArchivedIcon from '@/icons/article/Archived'
 import CollectionIcon from '@/icons/CollectionBookmark'
 import ShareIcon from '@/icons/Share'
 
+import CloseCross from '@/icons/CloseCross'
+
 import type { TProps as TIconButtonProps } from '../IconButton'
 
 type TWrapper = Omit<TIconButtonProps, 'path'>
@@ -86,6 +88,10 @@ export const getIcon = (type: string): FC<TIcon> => {
 
     case SVG.ACTIVITY: {
       return getStyledIcon(ActivityIcon)
+    }
+
+    case SVG.CLOSE: {
+      return getStyledIcon(CloseCross)
     }
 
     default: {

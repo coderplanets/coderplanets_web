@@ -11,6 +11,7 @@ const SVG = {
   ACTIVITY: 'activity',
   ARCHIVED: 'archived',
 
+  CLOSE: 'close',
   // comment
   EMOTION: 'emotion',
   LOCK: 'lock',
