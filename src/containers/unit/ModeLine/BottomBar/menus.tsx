@@ -1,5 +1,6 @@
 import { TYPE } from '@/constant'
 import { ICON } from '@/config'
+import type { TArticle } from '@/spec'
 
 export const communityPageMenus = [
   {
@@ -24,6 +25,14 @@ export const communityPageMenus = [
   },
 ]
 
+type TArticleMenuItem = {
+  title?: string
+  desc?: string
+  raw?: string
+  icon?: string
+  iconTheme?: string
+}
+
 const articlePageMenus = [
   {
     title: '喜欢',
@@ -47,13 +56,13 @@ const articlePageMenus = [
   },
 ]
 
-export const getArticlePageMenus = (article) => {
+export const getArticlePageMenus = (article: TArticle): TArticleMenuItem[] => {
   if (!article) return articlePageMenus
 
   const { upvotesCount, commentsCount, viewerHasUpvoted, viewerHasCollected } =
     article
 
-  const articlePageMenusData = [...articlePageMenus]
+  const articlePageMenusData = [...articlePageMenus] as TArticleMenuItem[]
 
   articlePageMenusData[0].desc = `${articlePageMenusData[0].title} ${upvotesCount}`
   articlePageMenusData[1].desc = `${articlePageMenusData[0].title} ${commentsCount}`

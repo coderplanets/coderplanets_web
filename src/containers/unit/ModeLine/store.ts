@@ -25,12 +25,8 @@ const ModeLine = T.model('ModeLine', {
       return toJS(root.viewing)
     },
     get isTopBarVisiable(): boolean {
-      const {
-        isMobile,
-        topBarVisiable,
-        metric,
-        isArticleDigestInViewport,
-      } = self
+      const { isMobile, topBarVisiable, metric, isArticleDigestInViewport } =
+        self
       const root = getParent(self) as TRootStore
       const { bodyScrollDirection } = root.globalLayout
 
@@ -101,7 +97,7 @@ const ModeLine = T.model('ModeLine', {
       const root = getParent(self) as TRootStore
       root.markRoute(query, {})
     },
-    mark(sobj) {
+    mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },
   }))

@@ -13,6 +13,7 @@ export const MenuLogo = styled(Img)<TActive>`
 `
 export const UserLogo = styled(UserSVG)`
   ${css.size(14)};
+  fill: ${theme('thread.articleDigest')};
 `
 export const SiteLogo = styled(MenuLogo)`
   ${css.size(15)};

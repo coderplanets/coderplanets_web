@@ -1,10 +1,15 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON_BASE } from '@/config'
 
 import { Wrapper, Logo, Title } from '../styles/bottom_bar/community_info'
 
-const CommunityInfo = ({ isSubscribed, isExpand }) => {
+type TProps = {
+  isSubscribed: boolean
+  isExpand: boolean
+}
+
+const CommunityInfo: FC<TProps> = ({ isSubscribed, isExpand }) => {
   return (
     <Wrapper>
       <Logo src={`${ICON_BASE}/pl/javascript.png`} isExpand={isExpand} />
@@ -13,4 +18,4 @@ const CommunityInfo = ({ isSubscribed, isExpand }) => {
   )
 }
 
-export default CommunityInfo
+export default memo(CommunityInfo)
