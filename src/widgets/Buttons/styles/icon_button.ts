@@ -14,6 +14,9 @@ import LockIcon from '@/icons/Lock'
 import ExpandIcon from '@/icons/Expand'
 import FoldIcon from '@/icons/Fold'
 
+import ActivityIcon from '@/icons/article/Activity'
+import ArchivedIcon from '@/icons/article/Archived'
+
 import CollectionIcon from '@/icons/CollectionBookmark'
 import ShareIcon from '@/icons/Share'
 
@@ -75,6 +78,14 @@ export const getIcon = (type: string): FC<TIcon> => {
 
     case SVG.SHARE: {
       return getStyledIcon(ShareIcon)
+    }
+
+    case SVG.ARCHIVED: {
+      return getStyledIcon(ArchivedIcon)
+    }
+
+    case SVG.ACTIVITY: {
+      return getStyledIcon(ActivityIcon)
     }
 
     default: {

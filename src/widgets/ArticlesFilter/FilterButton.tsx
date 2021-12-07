@@ -2,8 +2,6 @@ import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TThread, TArticleFilter } from '@/spec'
-import { ICON_CMD } from '@/config'
-
 import Tooltip from '@/widgets/Tooltip'
 
 import {
@@ -45,7 +43,7 @@ const FilterButton: FC<TProps> = ({ thread, onSelect, activeFilter }) => {
         <ButtonWrapper size="small" type="primary" ghost>
           <InnerBtnWrapper>
             默认排序
-            <FilterIcon src={`${ICON_CMD}/dropdown_arrow.svg`} />
+            <FilterIcon />
           </InnerBtnWrapper>
         </ButtonWrapper>
       </Tooltip>

@@ -8,6 +8,9 @@ const SVG = {
   PIN: 'pin',
   EDIT_PEN: 'EditPen',
 
+  ACTIVITY: 'activity',
+  ARCHIVED: 'archived',
+
   // comment
   EMOTION: 'emotion',
   LOCK: 'lock',
