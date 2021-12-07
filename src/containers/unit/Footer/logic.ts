@@ -4,7 +4,7 @@ import type { TMetric } from '@/spec'
 import { EVENT } from '@/constant'
 
 import asyncSuit from '@/utils/async'
-import { send } from '@/utils/helper'
+import { send, Global } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import uid from '@/utils/uid'
 import S from './schema'
@@ -17,7 +17,12 @@ const log = buildLog('L:Footer2')
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   // @ts-ignore
-  receive: [EVENT.COMMUNITY_CHANGE_BEFORE, EVENT.AUTH_WARNING, EVENT.TOAST],
+  receive: [
+    EVENT.COMMUNITY_CHANGE_BEFORE,
+    EVENT.AUTH_WARNING,
+    EVENT.TOAST,
+    EVENT.LOGOUT,
+  ],
 })
 
 let sub$ = null
@@ -50,12 +55,18 @@ const handleToast = (data): void => {
   store.toast(type, rest)
 }
 
+export const handleLogout = (): void => {
+  store.logout()
+
+  setTimeout(() => {
+    Global.location.reload(false)
+  }, 1000)
+}
+
 const DataSolver = [
   {
     match: asyncRes('sessionState'),
     action: ({ sessionState: state }) => {
-      console.log('sessionState: ', state)
-
       store.updateSession(state)
       if (state.isValid !== store.accountInfo.isValidSession) {
         send(EVENT.SESSION_ROUTINE)
@@ -82,6 +93,10 @@ const DataSolver = [
       const opt = data[EVENT.TOAST]
       handleToast(opt)
     },
+  },
+  {
+    match: asyncRes(EVENT.LOGOUT),
+    action: (): void => handleLogout(),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE_BEFORE),

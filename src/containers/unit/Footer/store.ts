@@ -85,6 +85,10 @@ const FooterStore = T.model('FooterStore', {
     // },
   }))
   .actions((self) => ({
+    logout(): void {
+      const root = getParent(self) as TRootStore
+      root.account.logout()
+    },
     toast(type, options): void {
       const root = getParent(self) as TRootStore
       root.toast(type, options)

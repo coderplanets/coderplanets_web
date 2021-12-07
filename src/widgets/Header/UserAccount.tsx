@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import type { TAccount } from '@/spec'
 
+import { authWarn, logout } from '@/utils/helper'
 import { ROUTE } from '@/constant'
 
 import Tooltip from '@/widgets/Tooltip'
@@ -77,9 +78,7 @@ const UserAccount: FC<TProps> = ({ accountInfo }) => {
                 设置
               </MenuLink> */}
               <MenuItem>帮助</MenuItem>
-              <LogoutItem onClick={() => console.log('onLogout')}>
-                登出
-              </LogoutItem>
+              <LogoutItem onClick={() => logout()}>登出</LogoutItem>
             </PopMenu>
           }
         >
@@ -88,10 +87,7 @@ const UserAccount: FC<TProps> = ({ accountInfo }) => {
           </Wrapper>
         </Tooltip>
       ) : (
-        <Wrapper
-          testid="header-unlogin-user"
-          onClick={() => console.log('todo onLogin')}
-        >
+        <Wrapper testid="header-unlogin-user" onClick={() => authWarn()}>
           <DefaultUserIcon />
         </Wrapper>
       )}

@@ -13,7 +13,6 @@ import {
   endsWith,
   includes,
   findIndex,
-  startsWith,
 } from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
@@ -175,6 +174,13 @@ export const send = (msg: string, data = {}): void => {
   // TODO: check the msg is valid
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
+}
+
+/**
+ * shortcut for logout
+ */
+export const logout = (type = ''): void => {
+  send(EVENT.LOGOUT)
 }
 
 /**
