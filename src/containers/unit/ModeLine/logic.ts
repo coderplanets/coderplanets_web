@@ -15,7 +15,7 @@ const { SR71, $solver, asyncRes } = asyncSuit
 
 const sr71$ = new SR71({
   // @ts-ignore
-  receive: [EVENT.DRAWER.CLOSE],
+  receive: [EVENT.DRAWER.AFTER_CLOSE],
 })
 
 let sub$ = null
@@ -36,8 +36,6 @@ export const tabOnChange = (activeThread: TThread): void => {
 }
 
 export const openMenu = (activeMenu: string): void => {
-  console.log('openMenu: ', activeMenu)
-
   store.mark({ activeMenu })
 
   switch (activeMenu) {
@@ -121,7 +119,7 @@ const openMoreMenu = () => {
 
 const DataSolver = [
   {
-    match: asyncRes(EVENT.DRAWER.CLOSE),
+    match: asyncRes(EVENT.DRAWER.AFTER_CLOSE),
     action: () => store.mark({ activeMenu: '' }),
   },
 ]

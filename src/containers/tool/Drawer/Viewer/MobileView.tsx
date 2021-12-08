@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useState, memo } from 'react'
+import { FC, ReactNode, useEffect, useState, memo, useRef } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
@@ -51,19 +51,23 @@ const Viewer: FC<TProps> = ({
   const [swipeDownY, setSwipeDownY] = useState(null)
   const [swipeUpY, setSwipeUpY] = useState(null)
 
+  const overlayRef = useRef(null)
+
   // NOTE: important: reset swipe position when drawer closed
   useEffect(() => {
     if (visible) {
-      setTimeout(() => {
-        window.scrollTo(0, 1)
-      }, 0)
+      if (overlayRef) {
+        setTimeout(() => {
+          overlayRef.current.scrollTo(0, 10)
+        }, 200)
+      }
     }
     if (!visible) {
       setSwipeDownY(null)
       setSwipeUpY(null)
       resetSwipeAviliable()
     }
-  }, [visible])
+  }, [visible, overlayRef])
 
   /**
    * 注意这里有一个坑，在进入 Drawer 滑动到最底部快速往上滑动时
@@ -84,7 +88,11 @@ const Viewer: FC<TProps> = ({
 
   return (
     <div>
-      <DrawerOverlay visible={visible} onClick={() => closeDrawer()} />
+      <DrawerOverlay
+        ref={overlayRef}
+        visible={visible}
+        onClick={() => closeDrawer()}
+      />
       <DrawerWrapper
         testid={testid}
         visible={visible}

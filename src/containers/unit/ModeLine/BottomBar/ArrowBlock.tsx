@@ -51,8 +51,6 @@ export const CommunityBlock: FC<TCommunityBlock> = ({
 
   const { viewerHasSubscribed } = community
 
-  console.log('#> community: ', community)
-
   return (
     <CommunityWrapper bgColor={viewerHasSubscribed ? activeBgColor : bgColor}>
       <CommunityInfo
