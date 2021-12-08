@@ -8,11 +8,12 @@ import MobileView from './MobileView/index'
 const Comment = (props) => {
   const { isMobile } = usePlatform()
 
-  return (
-    <Fragment>
-      {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
-    </Fragment>
-  )
+  return <DesktopView {...props} />
+  // return (
+  //   <Fragment>
+  //     {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
+  //   </Fragment>
+  // )
 }
 
 export default memo(Comment)
