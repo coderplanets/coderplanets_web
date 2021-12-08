@@ -10,6 +10,11 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TTestable>`
   ${css.flexColumn('align-start')};
   margin-top: 80px;
+
+  ${css.media.mobile`
+    width: 100%;
+    padding: 0 30px;
+  `};
 `
 export const Icon = styled(Img)`
   ${css.size(26)};
@@ -28,6 +33,10 @@ export const Header = styled.div`
 export const Content = styled.div`
   width: 540px;
   min-height: 200px;
+
+  ${css.media.mobile`
+    width: 100%;
+  `};
 `
 export const QTitle = styled.div`
   font-size: 16px;

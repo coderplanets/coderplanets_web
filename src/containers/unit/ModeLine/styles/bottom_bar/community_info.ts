@@ -19,8 +19,11 @@ export const Title = styled.div<{ isSubscribed?: boolean }>`
   color: ${({ isSubscribed }) => (isSubscribed ? '#b4e1e2' : '#a0bebf')};
   font-size: 12px;
   margin-left: 8px;
+  margin-right: 8px;
 `
 export const HomeTitle = styled(Title)`
   margin-left: 0;
-  margin-right: 3px;
+`
+export const DefaultTitle = styled(Title)`
+  margin-left: 0;
 `

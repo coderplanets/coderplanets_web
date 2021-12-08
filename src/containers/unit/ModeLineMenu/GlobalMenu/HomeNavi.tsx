@@ -1,5 +1,7 @@
 import { FC, memo } from 'react'
 
+import Link from 'next/link'
+
 import {
   Wrapper,
   Logo,
@@ -10,12 +12,14 @@ import {
 
 const HomeNavi: FC = () => {
   return (
-    <Wrapper>
-      <Logo />
-      <Block>
-        <Title>coderplanets</Title>
-      </Block>
-    </Wrapper>
+    <Link href="/">
+      <Wrapper>
+        <Logo />
+        <Block>
+          <Title>oderPlanets</Title>
+        </Block>
+      </Wrapper>
+    </Link>
   )
 }
 

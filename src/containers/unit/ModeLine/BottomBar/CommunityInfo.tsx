@@ -8,6 +8,7 @@ import {
   Logo,
   Title,
   HomeTitle,
+  DefaultTitle,
 } from '../styles/bottom_bar/community_info'
 
 type TProps = {
@@ -23,17 +24,18 @@ const CommunityInfo: FC<TProps> = ({
 }) => {
   return (
     <Wrapper>
-      {community.raw !== HCN && (
+      {community.raw && community.raw !== HCN && (
         <Logo src={community.logo} isExpand={isExpand} />
       )}
-
-      {isArticle && community.raw === HCN && <HomeTitle>首页</HomeTitle>}
-
-      {isExpand && community.raw !== HCN && (
+      {isArticle && community.raw && community.raw === HCN && (
+        <HomeTitle>首页</HomeTitle>
+      )}
+      {isExpand && community.raw && community.raw !== HCN && (
         <Title isSubscribed={community.viewerHasSubscribed}>
           {community.title}
         </Title>
       )}
+      {!community.raw && <DefaultTitle>CoderPlanets</DefaultTitle>}
     </Wrapper>
   )
 }

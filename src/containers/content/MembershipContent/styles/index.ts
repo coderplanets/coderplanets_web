@@ -34,6 +34,12 @@ export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 15px;
   margin-bottom: 15px;
+
+  ${css.media.mobile`
+    text-align: center;
+    padding: 0 50px;
+    margin-bottom: 30px;
+  `};
 `
 export const PayButtonWrapper = styled.div`
   position: relative;
@@ -54,6 +60,13 @@ export const ContentWrapper = styled.div<{ metric: TMetric }>`
   ${css.flex('justify-between')};
   width: 100%;
   ${({ metric }) => css.fitContentWidth(metric)};
+
+  ${css.media.mobile`
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow-x: scroll;
+  `};
 `
 export const Dashboard = styled.div<TActive>`
   position: relative;
