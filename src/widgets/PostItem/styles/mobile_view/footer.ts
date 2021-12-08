@@ -7,14 +7,32 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   margin-top: -10px;
 `
-export const CommunityInfo = styled.div`
-  color: ${theme('thread.articleTitle')};
-  background: #133f4e;
-  font-size: 11px;
-  border-radius: 5px;
-  padding: 0 5px;
-  margin-bottom: 1px;
-  margin-left: -4px;
+export const CommunityLabel = styled.a`
+  color: inherit;
+  padding-left: 14px;
+  position: relative;
+  font-weight: bold;
+  opacity: 0.8;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  transition: opacity 0.2s;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 4px;
+    width: 6px;
+    height: 11px;
+    border-radius: 4px;
+    background-color: #49a5a0;
+  }
 `
 export const Extra = styled.li`
   ${css.flex('align-center')};

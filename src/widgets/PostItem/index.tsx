@@ -42,7 +42,11 @@ const PostItem: FC<TProps> = ({
       {!isMobile ? (
         <DesktopView entry={entry} curCommunity={curCommunity} />
       ) : (
-        <MobileView entry={entry} onAuthorSelect={onAuthorSelect} />
+        <MobileView
+          entry={entry}
+          curCommunity={curCommunity}
+          onAuthorSelect={onAuthorSelect}
+        />
       )}
     </Wrapper>
   )
