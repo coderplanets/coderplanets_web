@@ -12,6 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Pagi from '@/widgets/Pagi'
+import usePlatform from '@/hooks/usePlatform'
 
 import Banner from './Banner'
 import Sidebar from './Sidebar'
@@ -51,6 +52,7 @@ const ExploreContentContainer: FC<TProps> = ({
     subscribingId,
   } = store
 
+  const { isMobile } = usePlatform()
   const { isSearchMode } = searchStatus
 
   return (
@@ -58,11 +60,14 @@ const ExploreContentContainer: FC<TProps> = ({
       <Banner searchStatus={searchStatus} />
       <ContentWrapper center={isSearchMode}>
         <InnerWrapper metric={metric}>
-          <Sidebar
-            showSearchNote={!showFilterSidebar}
-            searchStatus={searchStatus}
-            items={pagedCategoriesData}
-          />
+          {!isMobile && (
+            <Sidebar
+              showSearchNote={!showFilterSidebar}
+              searchStatus={searchStatus}
+              items={pagedCategoriesData}
+            />
+          )}
+
           <ContentsWrapper center={isSearchMode}>
             {!isEmpty(pagedCommunitiesData.entries) ? (
               <>

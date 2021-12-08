@@ -13,6 +13,8 @@ import { ROUTE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { Space } from '@/widgets/Common'
 
+import usePlatform from '@/hooks/usePlatform'
+
 import type { TSearchState } from './spec'
 import SearchBox from './SearchBox'
 
@@ -50,6 +52,8 @@ const Banner: FC<TProps> = ({
     showSearchResultHint,
   },
 }) => {
+  const { isMobile } = usePlatform()
+
   return (
     <Wrapper testid="explore-banner">
       <IntroWrapper>
@@ -70,7 +74,7 @@ const Banner: FC<TProps> = ({
           </IntroDesc>
         )}
 
-        {showCreateHint && (
+        {showCreateHint && !isMobile && (
           <IntroDesc>
             <Space right={24} />
             或者，来为你

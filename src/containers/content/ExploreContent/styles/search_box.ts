@@ -27,8 +27,7 @@ export const InputWrapper = styled.div`
   transition: all 0.25s ease-in;
 
   ${css.media.mobile`
-    width: 70%;
-    margin-left: 15%;
+    width: 230px;
     padding: 8px;
   `};
 `
@@ -40,6 +39,11 @@ export const InputMask = styled.div<TActive>`
   left: 18px;
   width: 400px;
   height: 40px;
+
+  ${css.media.mobile`
+    width: 230px;
+    left: 0px;
+  `};
 `
 export const MaskNumer = styled.span`
   color: #327faf;

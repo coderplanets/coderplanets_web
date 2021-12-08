@@ -30,6 +30,10 @@ export const IntroWrapper = styled.div`
   width: 100%;
   height: 500px;
   padding-bottom: 200px;
+
+  ${css.media.mobile`
+    padding-left: 0;
+  `};
 `
 export const IntroTitle = styled.div`
   ${css.flex('align-center')};

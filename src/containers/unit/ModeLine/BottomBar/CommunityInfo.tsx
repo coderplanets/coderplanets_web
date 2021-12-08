@@ -25,6 +25,9 @@ const getDefaultTitle = (pathname: string): string => {
   if (pathname === `/${ROUTE.HAVE_A_DRINK}`) {
     return '来一杯'
   }
+  if (pathname === `/${ROUTE.EXPLORE}`) {
+    return '发现'
+  }
   return 'CoderPlanets'
 }
 
