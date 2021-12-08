@@ -35,24 +35,24 @@ type TArticleMenuItem = {
 
 const articlePageMenus = [
   {
-    title: '喜欢',
-    raw: TYPE.MM_TYPE.FILTER,
-    icon: `${ICON}/article/heart.svg`,
+    title: '',
+    raw: TYPE.MM_TYPE.UPVOTE,
+    icon: `${ICON}/article/upvote-modeline.svg`,
   },
   {
-    title: '讨论',
+    title: '',
     raw: TYPE.MM_TYPE.SEARCH,
-    icon: `${ICON}/article/comment-modeline.svg`,
+    icon: `${ICON}/article/comment.svg`,
   },
   {
-    title: '收藏',
+    title: '',
     raw: TYPE.MM_TYPE.PUBLISH,
     icon: `${ICON}/article/collect-modeline.svg`,
   },
   {
-    title: '更多',
+    title: '',
     raw: TYPE.MM_TYPE.MORE,
-    icon: `${ICON}/more.svg`,
+    icon: `${ICON}/article/more.svg`,
   },
 ]
 
@@ -64,8 +64,8 @@ export const getArticlePageMenus = (article: TArticle): TArticleMenuItem[] => {
 
   const articlePageMenusData = [...articlePageMenus] as TArticleMenuItem[]
 
-  articlePageMenusData[0].desc = `${articlePageMenusData[0].title} ${upvotesCount}`
-  articlePageMenusData[1].desc = `${articlePageMenusData[0].title} ${commentsCount}`
+  articlePageMenusData[0].title = `${upvotesCount}`
+  articlePageMenusData[1].title = `${commentsCount}`
 
   if (viewerHasUpvoted) {
     articlePageMenusData[0].icon = `${ICON}/article/heart-solid.svg`

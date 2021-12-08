@@ -3,7 +3,7 @@ import { Fragment, memo } from 'react'
 import usePlatform from '@/hooks/usePlatform'
 
 import DesktopView from './DesktopView'
-import MobileView from './MobileView/index'
+// import MobileView from './MobileView/index'
 
 const Comment = (props) => {
   const { isMobile } = usePlatform()

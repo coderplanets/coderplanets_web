@@ -43,6 +43,8 @@ const BottomBar: FC<TProps> = ({
       ? getArticlePageMenus(article)
       : communityPageMenus
 
+  const communityInfo = article ? article.originalCommunity : community
+
   return (
     <Wrapper testid={testid} isMenuActive={!!activeMenu}>
       <MenuBlock
@@ -50,7 +52,11 @@ const BottomBar: FC<TProps> = ({
         // @ts-ignore
         onClick={multiClick(() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
       />
-      <CommunityBlock community={community} isExpand={isCommunityBlockExpand} />
+      <CommunityBlock
+        community={communityInfo}
+        isArticle={!!article}
+        isExpand={isCommunityBlockExpand}
+      />
       <ItemsWrapper>
         {menus.map((item) => (
           <MenuItem
@@ -61,10 +67,11 @@ const BottomBar: FC<TProps> = ({
             <MenuIcon
               src={item.icon}
               colorTheme={item.iconTheme}
+              raw={item.raw}
               active={activeMenu === item.raw}
             />
-            {!isCommunityBlockExpand && item.desc && (
-              <MenuDesc>{item.desc}</MenuDesc>
+            {!isCommunityBlockExpand && item.title && (
+              <MenuDesc>{item.title}</MenuDesc>
             )}
           </MenuItem>
         ))}

@@ -38,11 +38,13 @@ export const MenuBlock: FC<TMenuBlock> = ({ onClick }) => {
 type TCommunityBlock = {
   community: TCommunity
   isExpand: boolean
+  isArticle?: boolean
 }
 
 export const CommunityBlock: FC<TCommunityBlock> = ({
   community,
   isExpand,
+  isArticle = false,
 }) => {
   const bgColor = '#194d5f'
   const activeBgColor = '#196f70'
@@ -51,7 +53,11 @@ export const CommunityBlock: FC<TCommunityBlock> = ({
 
   return (
     <CommunityWrapper bgColor={viewerHasSubscribed ? activeBgColor : bgColor}>
-      <CommunityInfo community={community} isExpand={isExpand} />
+      <CommunityInfo
+        community={community}
+        isExpand={isExpand}
+        isArticle={isArticle}
+      />
       <ArrowShape bgColor={viewerHasSubscribed ? activeBgColor : bgColor} />
     </CommunityWrapper>
   )

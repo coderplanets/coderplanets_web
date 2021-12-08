@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 import Img from '@/Img'
+import { TYPE } from '@/constant'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-type IMenuIcon = { active: boolean; colorTheme: string }
+type TMenuIcon = { active: boolean; colorTheme: string; raw?: string }
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -35,13 +36,16 @@ export const MenuItem = styled.div`
   ${css.flex('align-center')};
 `
 
-export const MenuIcon = styled(Img)<IMenuIcon>`
-  fill: ${({ active, colorTheme }: IMenuIcon) => {
+export const MenuIcon = styled(Img)<TMenuIcon>`
+  fill: ${({ active, colorTheme }: TMenuIcon) => {
     if (colorTheme) return theme(colorTheme)
-    return active ? '#2ca1a2' : theme('thread.articleTitle')
+    return active ? '#2ca1a2' : theme('thread.articleDigest')
   }};
 
-  ${css.size(15)};
+  ${({ raw }) => {
+    if (raw === TYPE.MM_TYPE.UPVOTE) return css.size(10)
+    return css.size(14)
+  }};
 
   :last-child {
     margin-right: 0;
@@ -49,6 +53,7 @@ export const MenuIcon = styled(Img)<IMenuIcon>`
 `
 export const MenuDesc = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 10px;
-  margin-left: 3px;
+  font-size: 12px;
+  margin-left: 5px;
+  margin-top: -1px;
 `
