@@ -37,6 +37,9 @@ export const closeDrawer = (): void => {
   setTimeout(() => {
     send(EVENT.DRAWER.AFTER_CLOSE)
     store.resetViewing()
+
+    // 偶尔会有没有关闭的情况，确保关闭模糊
+    toggleGlobalBlur(false)
   }, 200)
 }
 
