@@ -43,7 +43,9 @@ const BottomBar: FC<TProps> = ({
       ? getArticlePageMenus(article)
       : communityPageMenus
 
-  const communityInfo = article ? article.originalCommunity : community
+  const communityInfo = article?.originalCommunity?.raw
+    ? article.originalCommunity
+    : community
 
   return (
     <Wrapper testid={testid} isMenuActive={!!activeMenu}>

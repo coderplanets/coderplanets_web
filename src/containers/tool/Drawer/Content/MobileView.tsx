@@ -90,7 +90,7 @@ const Content: FC<TProps> = ({ visible, options, type, attUser, mmType }) => {
       onBottomLeave={() => toggleSwipeAviliable('up', false)}
       autoHide
     >
-      <Wrapper ref={ref}>{renderContent(type, attUser, mmType)}</Wrapper>
+      <Wrapper ref={ref}>{renderContent(type, attUser, '', mmType)}</Wrapper>
     </CustomScroller>
   )
 }

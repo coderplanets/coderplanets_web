@@ -29,7 +29,7 @@ const CommunityInfo: FC<TProps> = ({
 
       {isArticle && community.raw === HCN && <HomeTitle>首页</HomeTitle>}
 
-      {isExpand && (
+      {isExpand && community.raw !== HCN && (
         <Title isSubscribed={community.viewerHasSubscribed}>
           {community.title}
         </Title>

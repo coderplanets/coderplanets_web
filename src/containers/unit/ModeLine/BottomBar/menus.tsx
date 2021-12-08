@@ -16,7 +16,7 @@ export const communityPageMenus = [
   {
     //  '发布',
     raw: TYPE.MM_TYPE.PUBLISH,
-    icon: `${ICON}/edit/publish-pen.svg`,
+    icon: `${ICON}/article/more.svg`,
   },
   {
     // '更多',

@@ -36,7 +36,10 @@ export const tabOnChange = (activeThread: TThread): void => {
 }
 
 export const openMenu = (activeMenu: string): void => {
+  console.log('openMenu: ', activeMenu)
+
   store.mark({ activeMenu })
+
   switch (activeMenu) {
     case TYPE.MM_TYPE.GLOBAL_MENU: {
       return openGlobalMenu()

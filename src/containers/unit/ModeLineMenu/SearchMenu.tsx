@@ -23,7 +23,7 @@ const SearchMenu: FC = () => {
         <Placeholder>搜索更多内容</Placeholder>
       </SearchBoxWrapper>
       <NoteWrapper>
-        <DivideText>常见问题</DivideText>
+        <DivideText>常见问题 (wip)</DivideText>
       </NoteWrapper>
       <ContentWrapper>
         <Item>
@@ -39,7 +39,7 @@ const SearchMenu: FC = () => {
           <ArrowIcon />
         </Item>
         <Item>
-          <Title>是否支持插件系统?</Title>
+          <Title>插件系统的集成</Title>
           <ArrowIcon />
         </Item>
       </ContentWrapper>
