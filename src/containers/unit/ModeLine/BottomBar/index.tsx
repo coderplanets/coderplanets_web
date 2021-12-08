@@ -1,7 +1,6 @@
-import React from 'react'
-import T from 'prop-types'
-import { values } from 'ramda'
+import { FC, memo } from 'react'
 
+import type { TArticle, TCommunity, TMetric, TModelineType } from '@/spec'
 import { METRIC, TYPE } from '@/constant'
 import { multiClick } from '@/utils/helper'
 
@@ -22,38 +21,59 @@ import {
 import { openMenu } from '../logic'
 import { communityPageMenus, getArticlePageMenus } from './menus'
 
-const BottomBar = ({
-  testid,
+type TProps = {
+  testid?: string
+  metric: TMetric
+  activeMenu: TModelineType
+  isCommunityBlockExpand?: boolean
+  article: TArticle | null
+  community: TCommunity
+}
+
+const BottomBar: FC<TProps> = ({
+  testid = 'modeline-bottom-bar',
   metric,
-  article,
+  article = null,
+  community,
   activeMenu,
-  isCommunityBlockExpand,
+  isCommunityBlockExpand = false,
 }) => {
   const menus =
     metric === METRIC.ARTICLE
       ? getArticlePageMenus(article)
       : communityPageMenus
 
+  const communityInfo = article?.originalCommunity?.raw
+    ? article.originalCommunity
+    : community
+
   return (
-    <Wrapper testid={testid} isMenuActive={activeMenu !== ''}>
+    <Wrapper testid={testid} isMenuActive={!!activeMenu}>
       <MenuBlock
         active={activeMenu === TYPE.MM_TYPE.GLOBAL_MENU}
+        // @ts-ignore
         onClick={multiClick(() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
       />
-      <CommunityBlock isExpand={isCommunityBlockExpand} />
+      <CommunityBlock
+        community={communityInfo}
+        isArticle={!!article}
+        isExpand={isCommunityBlockExpand}
+      />
       <ItemsWrapper>
         {menus.map((item) => (
           <MenuItem
             key={item.raw}
+            // @ts-ignore
             onClick={multiClick(() => openMenu(item.raw))}
           >
             <MenuIcon
               src={item.icon}
               colorTheme={item.iconTheme}
+              raw={item.raw}
               active={activeMenu === item.raw}
             />
-            {!isCommunityBlockExpand && item.desc && (
-              <MenuDesc>{item.desc}</MenuDesc>
+            {!isCommunityBlockExpand && item.title && (
+              <MenuDesc>{item.title}</MenuDesc>
             )}
           </MenuItem>
         ))}
@@ -64,26 +84,4 @@ const BottomBar = ({
   )
 }
 
-BottomBar.propTypes = {
-  testid: T.string,
-  metric: T.oneOf(values(METRIC)).isRequired,
-  article: T.any, // TODO
-  activeMenu: T.oneOf([
-    TYPE.MM_TYPE.GLOBAL_MENU,
-    TYPE.MM_TYPE.COMMUNITY,
-    TYPE.MM_TYPE.FILTER,
-    TYPE.MM_TYPE.DISCOVER,
-    TYPE.MM_TYPE.PUBLISH,
-    TYPE.MM_TYPE.MORE,
-    '',
-  ]).isRequired,
-  isCommunityBlockExpand: T.bool,
-}
-
-BottomBar.defaultProps = {
-  testid: 'modeline-bottom-bar',
-  isCommunityBlockExpand: false,
-  article: null,
-}
-
-export default BottomBar
+export default memo(BottomBar)

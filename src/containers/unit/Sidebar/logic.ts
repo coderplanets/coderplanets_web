@@ -113,7 +113,7 @@ const refreshSubedCommunitiesIfNeed = () => {
 }
 
 export const togglePulled = (): void =>
-  store.mark({ isPulled: !store.isPulled })
+  store.mark({ ispulled: !store.ispulled })
 
 const DataSolver = [
   {

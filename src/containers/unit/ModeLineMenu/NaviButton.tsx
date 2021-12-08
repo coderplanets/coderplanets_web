@@ -1,9 +1,10 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { Wrapper, Icon, Text } from './styles/navi_button'
 
 const NaviButton = ({ item }) => {
   const { icon, title } = item
+
   return (
     <Wrapper>
       <Icon src={icon} />
@@ -12,4 +13,4 @@ const NaviButton = ({ item }) => {
   )
 }
 
-export default NaviButton
+export default memo(NaviButton)

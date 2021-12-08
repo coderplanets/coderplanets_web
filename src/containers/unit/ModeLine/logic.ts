@@ -1,26 +1,30 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
+import type { TThread, TModelineType } from '@/spec'
 import { TYPE, EVENT } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import { send, plural } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
+
+import type { TStore } from './store'
 // import S from './service'
 
 const { SR71, $solver, asyncRes } = asyncSuit
 
 const sr71$ = new SR71({
+  // @ts-ignore
   receive: [EVENT.DRAWER.CLOSE],
 })
 
 let sub$ = null
-let store = null
+let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ModeLine')
 
-export const tabOnChange = (activeThread) => {
+export const tabOnChange = (activeThread: TThread): void => {
   const subPath = plural(activeThread)
   // log('EVENT.activeThread -----> ', activeThread)
   // log('EVENT.subPath -----> ', subPath)
@@ -31,8 +35,11 @@ export const tabOnChange = (activeThread) => {
   send(EVENT.ARTICLE_THREAD_CHANGE, { data: { activeThread } })
 }
 
-export const openMenu = (activeMenu) => {
+export const openMenu = (activeMenu: string): void => {
+  console.log('openMenu: ', activeMenu)
+
   store.mark({ activeMenu })
+
   switch (activeMenu) {
     case TYPE.MM_TYPE.GLOBAL_MENU: {
       return openGlobalMenu()
@@ -119,7 +126,7 @@ const DataSolver = [
   },
 ]
 
-export const useInit = (_store, metric) => {
+export const useInit = (_store: TStore, metric): void => {
   useEffect(() => {
     store = _store
     log('useInit: ', store)

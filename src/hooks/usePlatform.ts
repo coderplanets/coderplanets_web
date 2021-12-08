@@ -49,7 +49,7 @@ const usePlatform = (/* { breakpoint } */): TPlatform => {
     const isMacOS = Global.navigator.appVersion.indexOf('Mac') != -1
     /* eslint-enable */
 
-    const isMobile = Global.innerWidth <= 800 && window.innerHeight <= 600
+    const isMobile = Global.innerWidth <= 800
 
     setPlatform(
       merge(initPlatform, {

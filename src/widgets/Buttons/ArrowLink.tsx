@@ -41,10 +41,10 @@ const ArrowLink: FC<TProps> = ({
       rel="noopener noreferrer"
       target={target}
     >
-      <Text size={size} color={color} hoverColor={hoverColor}>
+      <Text size={size} color={color} $hoverColor={hoverColor}>
         {children}
       </Text>
-      <RightIcon size={size} color={color} hoverColor={hoverColor} />
+      <RightIcon size={size} color={color} $hoverColor={hoverColor} />
     </Wrapper>
   )
 }

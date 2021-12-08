@@ -10,6 +10,8 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import usePlatform from '@/hooks/usePlatform'
+
 import { ArticleFooter, Comments } from '@/containers/dynamic'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
 import ArtimentBody from '@/widgets/ArtimentBody'
@@ -45,6 +47,7 @@ const ArticleContentContainer: FC<TProps> = ({
   testid,
 }) => {
   useInit(store)
+  const { isMobile } = usePlatform()
 
   const { viewingArticle: article } = store
   const ref = useRef()
@@ -75,9 +78,11 @@ const ArticleContentContainer: FC<TProps> = ({
             <Comments />
           </CommentsWrapper>
         </MainWrapper>
-        <SidebarWrapper>
-          <ArticleSticker metric={metric} />
-        </SidebarWrapper>
+        {!isMobile && (
+          <SidebarWrapper>
+            <ArticleSticker metric={metric} />
+          </SidebarWrapper>
+        )}
       </InnerWrapper>
     </Wrapper>
   )

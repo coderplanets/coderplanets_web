@@ -70,6 +70,7 @@ export type {
   TUserActivity,
   TEditMode,
   TOnlineStatus,
+  TModelineType,
 } from './utils'
 
 export type { TGQLError } from './graphql'

@@ -3,14 +3,14 @@ import { FC, memo } from 'react'
 import { Wrapper, Shape, ArrowIcon } from './styles/pull_button'
 
 type TProps = {
-  isPulled: boolean
+  ispulled: boolean
   onClick: () => void
 }
 
-const PullButton: FC<TProps> = ({ onClick, isPulled }) => {
+const PullButton: FC<TProps> = ({ onClick, ispulled }) => {
   return (
     <Wrapper onClick={onClick}>
-      <ArrowIcon isPulled={isPulled} />
+      <ArrowIcon ispulled={ispulled} />
       <Shape />
     </Wrapper>
   )

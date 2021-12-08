@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import css from '@/utils/css'
 import ArrowSVG from '@/icons/Arrow'
 
@@ -13,13 +12,13 @@ export const Wrapper = styled.a`
 
   transition: all 0.2s;
 `
-type TText = { hoverColor: string; size: string }
+type TText = { $hoverColor: string; size: string }
 export const Text = styled.div<TText>`
   color: ${({ color }) => color || '#327ca1'};
   font-size: ${({ size }) => getTextSize(size)};
 
   ${Wrapper}:hover & {
-    color: ${({ hoverColor }) => hoverColor || '#327ca1'};
+    color: ${({ $hoverColor }) => $hoverColor || '#327ca1'};
     visibility: visible;
   }
 `
@@ -32,7 +31,7 @@ export const Text = styled.div<TText>`
 //   transition: all 0.2s;
 //   opacity: 0.8;
 // `
-type TIcon = { color: string; size: string; hoverColor: string }
+type TIcon = { color: string; size: string; $hoverColor: string }
 export const RightIcon = styled(ArrowSVG)<TIcon>`
   fill: ${({ color }) => color || '#327ca1'};
   width: ${({ size }) => getIconSize(size)};
@@ -46,7 +45,7 @@ export const RightIcon = styled(ArrowSVG)<TIcon>`
   visibility: hidden;
 
   ${Wrapper}:hover & {
-    fill: ${({ hoverColor }) => hoverColor || '#327ca1'};
+    fill: ${({ $hoverColor }) => $hoverColor || '#327ca1'};
     margin-left: 10px;
     visibility: visible;
   }

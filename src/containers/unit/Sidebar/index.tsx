@@ -29,13 +29,13 @@ type TProps = {
 const SidebarContainer: FC<TProps> = ({ sidebar: store }) => {
   useInit(store)
   const [loaded, setLoaded] = useState(false)
-  const { isPulled, pin } = store
+  const { ispulled, pin } = store
 
   const ref = useRef(null)
 
   useEffect(() => {
     const loadSidebar = async () => {
-      if (isPulled && !RealSidebar) {
+      if (ispulled && !RealSidebar) {
         // eslint-disable-next-line require-atomic-updates
         RealSidebar = await dynamic(() => import('./RealSidebar'), {
           /* eslint-disable react/display-name */
@@ -46,11 +46,11 @@ const SidebarContainer: FC<TProps> = ({ sidebar: store }) => {
       }
     }
     loadSidebar()
-  }, [isPulled])
+  }, [ispulled])
 
   return (
-    <Wrapper ref={ref} isPulled={isPulled}>
-      {!pin && <PullButton onClick={togglePulled} isPulled={isPulled} />}
+    <Wrapper ref={ref} ispulled={ispulled}>
+      {!pin && <PullButton onClick={togglePulled} ispulled={ispulled} />}
       {loaded && <RealSidebar />}
     </Wrapper>
   )

@@ -4,9 +4,10 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.nav`
-  ${css.flexColumn('justify-center')};
+  ${css.flexColumn('justify-start')};
+  width: 100%;
   position: relative;
-  padding: 30px 25px;
+  padding: 30px 22px;
   padding-bottom: 20px;
   min-height: 150px;
 `

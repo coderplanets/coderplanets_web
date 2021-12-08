@@ -18,6 +18,10 @@ export const Wrapper = styled.article.attrs(({ testid }: TTestable) => ({
   ${css.media.tablet`
     padding: 8px 0;
   `};
+  ${css.media.mobile`
+    padding: 0;
+    max-width: 100%;
+  `};
 `
 export const InnerWrapper = styled.div`
   ${css.flex()};
@@ -28,6 +32,12 @@ export const InnerWrapper = styled.div`
 export const MainWrapper = styled.div<{ metric: TMetric }>`
   flex-grow: 1;
   ${({ metric }) => css.fitContentWidth(metric)};
+
+  ${css.media.mobile`
+    padding: 0 20px;
+    margin: 0;
+    max-width: 100%;
+  `};
 `
 export const SidebarWrapper = styled.div``
 /* background: ${theme('drawer.articleBg')}; */

@@ -9,16 +9,14 @@ export const Wrapper = styled.div`
   margin-bottom: 10px;
   color: ${theme('thread.articleTitle')};
 `
-export const Title = styled.div`
+export const Title = styled.a`
+  color: ${theme('thread.articleTitle')};
+  text-decoration: none;
   font-size: 15.5px;
-  @media (max-width: 1450px) {
-    max-width: 500px;
-  }
-  @media (max-width: 1250px) {
-    max-width: 450px;
-  }
-  @media (max-width: 1100px) {
-    max-width: 350px;
+
+  &:hover {
+    text-decoration: none;
+    color: ${theme('thread.articleTitle')};
   }
 `
 export const TitleLink = styled.div`

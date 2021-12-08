@@ -37,7 +37,7 @@ const SidebarContainer: FC<TProps> = ({ sidebar: store }) => {
     searchCommunityValue,
     sortOptActive,
     communitiesData,
-    isPulled,
+    ispulled,
   } = store
 
   // onMouseLeave={logic.leaveSidebar}
@@ -53,7 +53,7 @@ const SidebarContainer: FC<TProps> = ({ sidebar: store }) => {
       testid="sidebar"
       pin={pin}
       className={ANCHOR.GLOBAL_BLUR_CLASS}
-      isPulled={isPulled}
+      ispulled={ispulled}
     >
       <Header pin={pin} searchCommunityValue={searchCommunityValue} />
       {/* move home community out of menulist to avoid rerender */}

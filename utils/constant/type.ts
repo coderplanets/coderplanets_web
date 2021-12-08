@@ -70,6 +70,7 @@ const TYPE = {
     PUBLISH: 'publish',
     SEARCH: 'search',
     MORE: 'more',
+    UPVOTE: 'upvote',
   },
   RES_STATE: {
     LOADING: 'LOADING',

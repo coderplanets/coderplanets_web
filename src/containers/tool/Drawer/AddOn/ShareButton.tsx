@@ -8,8 +8,8 @@ const ShareButton: FC = () => {
     <IconButton
       onClick={shareTo}
       path="article/share.svg"
-      size={18}
-      mTop={8}
+      size={16}
+      mTop={10}
       mLeft={-1}
       hint="分享内容"
       hintPlacement="bottom"

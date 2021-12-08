@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+
+import ArrowSVG from '@/icons/ArrowSimple'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -35,11 +36,12 @@ export const JoinLink = styled.div`
     color: #0d969e;
   }
 `
-export const ArrowIcon = styled(Img)`
+export const ArrowIcon = styled(ArrowSVG)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(14)};
   transform: rotate(180deg);
   margin-left: 5px;
+  margin-top: -2px;
   &:active {
     fill: #0d969e;
   }

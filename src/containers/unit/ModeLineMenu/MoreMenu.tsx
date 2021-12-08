@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 
@@ -29,7 +29,7 @@ const menus = [
   },
 ]
 
-const MoreMenu = () => {
+const MoreMenu: FC = () => {
   return (
     <Wrapper>
       {menus.map((item) => (
@@ -39,4 +39,4 @@ const MoreMenu = () => {
   )
 }
 
-export default MoreMenu
+export default memo(MoreMenu)

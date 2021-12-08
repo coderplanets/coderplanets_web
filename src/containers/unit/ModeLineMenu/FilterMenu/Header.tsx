@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo, FC } from 'react'
 
 import Button from '@/widgets/Buttons/Button'
 import { Space } from '@/widgets/Common'
@@ -11,7 +11,7 @@ import {
   ResetBtn,
 } from '../styles/filter_menu/header'
 
-const Header = () => {
+const Header: FC = () => {
   return (
     <Wrapper>
       <Title>筛选内容</Title>
@@ -28,4 +28,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)

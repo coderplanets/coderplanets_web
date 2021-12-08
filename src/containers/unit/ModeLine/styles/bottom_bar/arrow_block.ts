@@ -5,6 +5,7 @@ import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
+import SiteLogo from '@/icons/CPLogo'
 import UserSVG from '@/icons/User'
 
 export const MenuLogo = styled(Img)<TActive>`
@@ -13,8 +14,10 @@ export const MenuLogo = styled(Img)<TActive>`
 `
 export const UserLogo = styled(UserSVG)`
   ${css.size(14)};
+  fill: ${theme('thread.articleDigest')};
 `
-export const SiteLogo = styled(MenuLogo)`
+export const HomeLogo = styled(SiteLogo)`
+  fill: ${theme('button.primary')};
   ${css.size(15)};
   margin-top: -1px;
 `

@@ -25,7 +25,7 @@ export const Shape = styled(PullShapeSVG)`
   left: -48px;
   transform: rotate(90deg);
 `
-export const ArrowIcon = styled(ArrowSVG)<{ isPulled: boolean }>`
+export const ArrowIcon = styled(ArrowSVG)<{ ispulled: boolean }>`
   position: absolute;
   top: 44px;
   left: 0;
@@ -33,7 +33,7 @@ export const ArrowIcon = styled(ArrowSVG)<{ isPulled: boolean }>`
   fill: ${theme('thread.articleDigest')};
   z-index: 1;
 
-  transform: ${({ isPulled }) => (isPulled ? 'rotate(0)' : 'rotate(180deg)')};
+  transform: ${({ ispulled }) => (ispulled ? 'rotate(0)' : 'rotate(180deg)')};
 
   ${Wrapper}:hover & {
     fill: ${theme('thread.articleTitle')};

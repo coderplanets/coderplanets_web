@@ -1,15 +1,12 @@
-//
-
 /*
  *
  * ModeLineMenu
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
-import { values } from 'ramda'
+import { FC } from 'react'
 
+import type { TModelineType } from '@/spec'
 import { TYPE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
@@ -19,6 +16,7 @@ import SearchMenu from './SearchMenu'
 import MoreMenu from './MoreMenu'
 import FilterMenu from './FilterMenu'
 
+import type { TStore } from './store'
 import { Wrapper } from './styles'
 import { useInit } from './logic'
 
@@ -45,21 +43,21 @@ const renderMenus = (type, curActive) => {
   }
 }
 
-const ModeLineMenuContainer = ({ modeLineMenu: store, testid, type }) => {
+type TProps = {
+  modeLineMenu?: TStore
+  type?: TModelineType
+  testid?: string
+}
+
+const ModeLineMenuContainer: FC<TProps> = ({
+  modeLineMenu: store,
+  testid = 'mode-line-menu',
+  type = TYPE.MM_TYPE.GLOBAL_MENU,
+}) => {
   useInit(store)
   const { curActive } = store
 
   return <Wrapper testid={testid}>{renderMenus(type, curActive)}</Wrapper>
 }
 
-ModeLineMenuContainer.propTypes = {
-  modeLineMenu: T.any.isRequired,
-  type: T.oneOf([values(TYPE.MM_TYPE)]).isRequired,
-  testid: T.string,
-}
-
-ModeLineMenuContainer.defaultProps = {
-  testid: 'mode-line-menu',
-}
-
-export default pluggedIn(ModeLineMenuContainer)
+export default pluggedIn(ModeLineMenuContainer) as FC<TProps>

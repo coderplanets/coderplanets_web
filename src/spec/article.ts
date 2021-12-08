@@ -46,6 +46,7 @@ type TBaseArticle = {
   insertedAt?: string
   updatedAt?: string
   viewerHasViewed?: boolean
+  viewerHasCollected?: boolean
   viewerHasUpvoted?: boolean
   commentsCount?: number
   articleTags?: TTag[]

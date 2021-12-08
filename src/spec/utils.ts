@@ -168,3 +168,14 @@ export type TOnlineStatus = {
   totalSubscribes?: number
   realtimeVisitors?: number
 }
+
+// modeline
+
+export type TModelineType =
+  | 'global_menu'
+  | 'community'
+  | 'filter'
+  | 'discover'
+  | 'publish'
+  | 'search'
+  | 'more'

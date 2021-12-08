@@ -37,6 +37,10 @@ export const InnerWrapper = styled.div<TWrapper>`
   padding-left: ${pixelAdd(WIDTH.COMMUNITY.CONTENT_OFFSET, 70)};
   ${({ metric }) => css.fitPageWidth(metric)};
   transition: min-height 0.25s;
+
+  ${css.media.mobile`
+     padding-left: 0;
+  `};
 `
 export const BaseBannerContent = styled.div`
   ${css.flexColumn('align-center')};
@@ -75,4 +79,8 @@ export const CommunityBaseInfo = styled.div`
   width: 100%;
   // 60 是经典布局为缩小帖子列表"视觉宽度"手动缩小的值
   padding-right: 60px;
+
+  ${css.media.mobile`
+    padding-right: 0;
+  `};
 `

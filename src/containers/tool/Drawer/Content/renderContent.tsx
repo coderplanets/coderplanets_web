@@ -24,6 +24,8 @@ const renderContent = (
 ) => {
   if (!type) return <div />
 
+  console.log('# mmType -> ', mmType)
+
   switch (type) {
     case TYPE.DRAWER.ACCOUNT_EDIT:
       return <AccountEditor />

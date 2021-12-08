@@ -14,9 +14,16 @@ export const Logo = styled(Img)<{ isExpand: boolean }>`
   margin-right: ${({ isExpand }) => (isExpand ? '0' : '10px')};
   transition: all 0.2s;
 `
-export const Title = styled.div<{ isSubscribed: boolean }>`
+export const Title = styled.div<{ isSubscribed?: boolean }>`
   ${css.cutRest('50px')};
   color: ${({ isSubscribed }) => (isSubscribed ? '#b4e1e2' : '#a0bebf')};
   font-size: 12px;
   margin-left: 8px;
+  margin-right: 8px;
+`
+export const HomeTitle = styled(Title)`
+  margin-left: 0;
+`
+export const DefaultTitle = styled(Title)`
+  margin-left: 0;
 `

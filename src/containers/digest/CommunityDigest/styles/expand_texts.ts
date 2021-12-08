@@ -33,6 +33,9 @@ export const Desc = styled.div`
   /* white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; */
+  ${css.media.mobile`
+    ${css.cutRest('220px')};
+  `};
 `
 export const IconWrapper = styled.div`
   margin-left: 8px;

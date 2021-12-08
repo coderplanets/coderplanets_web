@@ -1,5 +1,6 @@
 import { TYPE } from '@/constant'
 import { ICON } from '@/config'
+import type { TArticle } from '@/spec'
 
 export const communityPageMenus = [
   {
@@ -15,7 +16,7 @@ export const communityPageMenus = [
   {
     //  '发布',
     raw: TYPE.MM_TYPE.PUBLISH,
-    icon: `${ICON}/edit/publish-pen.svg`,
+    icon: `${ICON}/article/more.svg`,
   },
   {
     // '更多',
@@ -24,39 +25,47 @@ export const communityPageMenus = [
   },
 ]
 
+type TArticleMenuItem = {
+  title?: string
+  desc?: string
+  raw?: string
+  icon?: string
+  iconTheme?: string
+}
+
 const articlePageMenus = [
   {
-    title: '喜欢',
-    raw: TYPE.MM_TYPE.FILTER,
-    icon: `${ICON}/article/heart.svg`,
+    title: '',
+    raw: TYPE.MM_TYPE.UPVOTE,
+    icon: `${ICON}/article/upvote-modeline.svg`,
   },
   {
-    title: '讨论',
+    title: '',
     raw: TYPE.MM_TYPE.SEARCH,
-    icon: `${ICON}/article/comment-modeline.svg`,
+    icon: `${ICON}/article/comment.svg`,
   },
   {
-    title: '收藏',
+    title: '',
     raw: TYPE.MM_TYPE.PUBLISH,
     icon: `${ICON}/article/collect-modeline.svg`,
   },
   {
-    title: '更多',
+    title: '',
     raw: TYPE.MM_TYPE.MORE,
-    icon: `${ICON}/more.svg`,
+    icon: `${ICON}/article/more.svg`,
   },
 ]
 
-export const getArticlePageMenus = (article) => {
+export const getArticlePageMenus = (article: TArticle): TArticleMenuItem[] => {
   if (!article) return articlePageMenus
 
   const { upvotesCount, commentsCount, viewerHasUpvoted, viewerHasCollected } =
     article
 
-  const articlePageMenusData = [...articlePageMenus]
+  const articlePageMenusData = [...articlePageMenus] as TArticleMenuItem[]
 
-  articlePageMenusData[0].desc = `${articlePageMenusData[0].title} ${upvotesCount}`
-  articlePageMenusData[1].desc = `${articlePageMenusData[0].title} ${commentsCount}`
+  articlePageMenusData[0].title = `${upvotesCount}`
+  articlePageMenusData[1].title = `${commentsCount}`
 
   if (viewerHasUpvoted) {
     articlePageMenusData[0].icon = `${ICON}/article/heart-solid.svg`

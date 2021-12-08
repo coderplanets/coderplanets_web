@@ -4,11 +4,7 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 import Img from '@/Img'
 
-import {
-  Wrapper as WrapperBase,
-  Entry as EntryBase,
-  Wip as WipBase,
-} from './index'
+import { Wrapper as WrapperBase, Entry as EntryBase } from './index'
 
 export const Wrapper = styled(WrapperBase)`
   width: 100%;
@@ -38,7 +34,7 @@ export const Logo = styled(Img)`
 `
 export const Intro = styled.div`
   ${css.flexColumn('align-start')};
-  margin-left: 10px;
+  margin-top: 8px;
 `
 export const Title = styled.div`
   ${css.flex('align-center')};
@@ -56,4 +52,3 @@ export const Desc = styled.div`
   font-size: 11px;
   margin-top: 2px;
 `
-export const Wip = styled(WipBase)``

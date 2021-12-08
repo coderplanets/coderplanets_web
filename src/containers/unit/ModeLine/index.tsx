@@ -38,6 +38,7 @@ const ModeLineContainer: FC<TProps> = ({
     viewingArticle,
     activeMenu,
     isCommunityBlockExpand,
+    curCommunity,
   } = store
 
   // viewing: { community, activeThread },
@@ -58,6 +59,7 @@ const ModeLineContainer: FC<TProps> = ({
         <BottomBar
           metric={metric}
           article={viewingArticle}
+          community={curCommunity}
           activeMenu={activeMenu}
           isCommunityBlockExpand={isCommunityBlockExpand}
         />

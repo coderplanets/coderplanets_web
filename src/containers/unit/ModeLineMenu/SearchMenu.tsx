@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
 import { ICON } from '@/config'
 import DivideText from '@/widgets/DivideText'
@@ -15,7 +15,7 @@ import {
   ArrowIcon,
 } from './styles/search_menu'
 
-const SearchMenu = () => {
+const SearchMenu: FC = () => {
   return (
     <Wrapper>
       <SearchBoxWrapper>
@@ -23,28 +23,28 @@ const SearchMenu = () => {
         <Placeholder>搜索更多内容</Placeholder>
       </SearchBoxWrapper>
       <NoteWrapper>
-        <DivideText>常见问题</DivideText>
+        <DivideText>常见问题 (wip)</DivideText>
       </NoteWrapper>
       <ContentWrapper>
         <Item>
           <Title>主题色要怎么改？</Title>
-          <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
+          <ArrowIcon />
         </Item>
         <Item>
           <Title>登陆方式都支持哪些？</Title>
-          <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
+          <ArrowIcon />
         </Item>
         <Item>
           <Title>数据支持导出吗？</Title>
-          <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
+          <ArrowIcon />
         </Item>
         <Item>
-          <Title>是否支持插件系统?</Title>
-          <ArrowIcon src={`${ICON}/shape/arrow-simple.svg`} />
+          <Title>插件系统的集成</Title>
+          <ArrowIcon />
         </Item>
       </ContentWrapper>
     </Wrapper>
   )
 }
 
-export default React.memo(SearchMenu)
+export default memo(SearchMenu)

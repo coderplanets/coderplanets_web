@@ -29,6 +29,11 @@ export const MainWrapper = styled.div<{ thread: TThread }>`
     includes(thread, values(CARD_THREAD)) ? 0 : '24px'};
   margin-right: ${({ thread }) =>
     includes(thread, values(CARD_THREAD)) ? '35px' : '42px'};
+
+  ${css.media.mobile`
+     padding: 10px 15px;
+     margin-right: 0;
+  `};
 `
 export const FilterWrapper = styled.div<{ thread: TThread }>`
   ${css.flex('align-center')};

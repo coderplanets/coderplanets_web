@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
     border-bottom-color: #0b4252;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    overflow: hidden;
   `};
 `
 export const TotalCountWrapper = styled.div`
