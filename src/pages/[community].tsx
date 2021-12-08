@@ -26,6 +26,7 @@ import CommunityContent from '@/containers/content/CommunityContent'
 import { P } from '@/schemas'
 
 const loader = async (context, opt = {}) => {
+  console.log('# community index')
   // const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 

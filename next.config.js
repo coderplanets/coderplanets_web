@@ -18,12 +18,12 @@ const nextConfig = {}
 module.exports = withPlugins(
   // [withBundleAnalyzer, withSourceMaps, [withOffline, offlineConfig]],
   [
-    // [
-    //   withPWA,
-    //   {
-    //     dest: 'public',
-    //   },
-    // ],
+    [
+      withPWA,
+      {
+        dest: 'public',
+      },
+    ],
     withBundleAnalyzer,
     withSourceMaps,
   ],
