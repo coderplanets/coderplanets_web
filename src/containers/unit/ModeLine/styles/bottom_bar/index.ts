@@ -17,7 +17,7 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   width: 100%;
-  height: 28px;
+  height: 32px;
   background: #0e3b4a;
   z-index: ${css.zIndex.modeLine};
   box-shadow: ${({ isMenuActive }) =>

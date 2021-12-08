@@ -138,6 +138,13 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme('searchHighlight.doramonFg')};
   }
 
+
+  #nprogress .bar, #nprogress .spinner {
+    ${css.media.mobile`
+      position: fixed !important;
+   `};
+  }
+
   #nprogress .spinner {
     top: 8px !important;
   }

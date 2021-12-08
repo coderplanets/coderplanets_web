@@ -45,20 +45,20 @@ export const ArrowShape = styled.div<{ bgColor: string }>`
   z-index: 1;
 `
 export const MenuWrapper = styled(Block)`
-  padding-left: 10px;
-  padding-right: 6px;
+  padding-left: 15px;
+  padding-right: 12px;
 `
 export const CommunityWrapper = styled(Block)`
   padding-left: 18px;
   padding-right: 0;
 `
 export const ExploreWrapper = styled(Block)`
-  padding-left: 8px;
-  padding-right: 15px;
+  padding-left: 12px;
+  padding-right: 18px;
 `
 export const AccountWrapper = styled(Block)`
-  padding-left: 6px;
-  padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 15px;
 `
 export const MenuArrowShape = styled(ArrowShape)<{ bgColor: string }>`
   right: -6px;

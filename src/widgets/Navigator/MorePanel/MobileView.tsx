@@ -29,7 +29,7 @@ const items = [
   {
     icon: `${ICON}/route/cup.svg`,
     title: '来一杯',
-    href: `/${ROUTE.EXPLORE}`,
+    href: `/${ROUTE.HAVE_A_DRINK}`,
     raw: 14,
   },
   {
