@@ -20,7 +20,7 @@ export const BackWrapper = styled.div`
   margin-right: 15px;
 `
 export const MobileBackWrapper = styled.div`
-  width: 80px;
+  width: 50px;
   height: 100%;
 `
 export const BackHeader = styled.div`
