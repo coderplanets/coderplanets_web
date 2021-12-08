@@ -19,6 +19,10 @@ export const InnerWrapper = styled.div<{ metric: TMetric }>`
   background: ${theme('haveADrinkPage.bg')};
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
   ${({ metric }) => css.fitContentWidth(metric)};
+
+  ${css.media.mobile`
+    width: calc(100% - 30px);
+  `};
 `
 export const LoadingSentence = styled.div`
   font-size: 18px;

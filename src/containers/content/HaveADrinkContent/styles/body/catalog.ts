@@ -19,6 +19,10 @@ export const BackWrapper = styled.div`
   height: 100%;
   margin-right: 15px;
 `
+export const MobileBackWrapper = styled.div`
+  width: 50px;
+  height: 100%;
+`
 export const BackHeader = styled.div`
   ${css.flex('align-center')};
   padding-left: 38px;

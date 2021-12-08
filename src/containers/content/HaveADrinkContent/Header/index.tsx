@@ -5,6 +5,7 @@
  */
 
 import { memo } from 'react'
+import usePlatform from '@/hooks/usePlatform'
 
 import { buildLog } from '@/utils/logger'
 
@@ -19,13 +20,20 @@ import { Wrapper, InnerWrapper } from '../styles/header'
 const log = buildLog('C:HaveADrinkContent')
 
 const View = ({ pagiState, category, view, ...restProps }) => {
+  const { isMobile } = usePlatform()
+
   switch (view) {
     case VIEW.DEFAULT: {
       return (
         <InnerWrapper>
           <IndexStatus category={category} pagiState={pagiState} />
-          {/* @ts-ignore */}
-          <Timer {...restProps} />
+          {!isMobile && (
+            <>
+              {/* @ts-ignore */}
+              <Timer {...restProps} />
+            </>
+          )}
+
           <Reaction category={category} />
         </InnerWrapper>
       )

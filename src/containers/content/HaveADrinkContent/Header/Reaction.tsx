@@ -5,6 +5,7 @@
  */
 
 import { FC, memo } from 'react'
+import usePlatform from '@/hooks/usePlatform'
 
 import { buildLog } from '@/utils/logger'
 import { getRandomInt } from '@/utils/helper'
@@ -27,6 +28,7 @@ type TProps = {
 }
 
 const Reaction: FC<TProps> = ({ category }) => {
+  const { isMobile } = usePlatform()
   const targetCategory = getCategoryByTitle(category)
 
   return (
@@ -37,11 +39,15 @@ const Reaction: FC<TProps> = ({ category }) => {
         alias={targetCategory.upvoteAlias}
         onAction={() => setView(VIEW.EDIT)}
       />
-      <DotDivider space={8} />
-      <Row onClick={() => setView(VIEW.EDIT)}>
-        <CommentIcon />
-        <Count>{getRandomInt(5, 99)}</Count>
-      </Row>
+      {!isMobile && (
+        <>
+          <DotDivider space={8} />
+          <Row onClick={() => setView(VIEW.EDIT)}>
+            <CommentIcon />
+            <Count>{getRandomInt(5, 99)}</Count>
+          </Row>
+        </>
+      )}
     </Wrapper>
   )
 }

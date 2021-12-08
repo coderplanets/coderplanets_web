@@ -1,7 +1,8 @@
 import { FC, memo } from 'react'
+import { useRouter } from 'next/router'
 
 import type { TCommunity } from '@/spec'
-import { HCN } from '@/constant'
+import { HCN, ROUTE } from '@/constant'
 
 import {
   Wrapper,
@@ -17,11 +18,23 @@ type TProps = {
   isArticle?: boolean
 }
 
+const getDefaultTitle = (pathname: string): string => {
+  if (pathname === `/${ROUTE.COOL_GUIDE}`) {
+    return '酷导航'
+  }
+  if (pathname === `/${ROUTE.HAVE_A_DRINK}`) {
+    return '来一杯'
+  }
+  return 'CoderPlanets'
+}
+
 const CommunityInfo: FC<TProps> = ({
   community,
   isExpand,
   isArticle = false,
 }) => {
+  const router = useRouter()
+
   return (
     <Wrapper>
       {community.raw && community.raw !== HCN && (
@@ -35,7 +48,9 @@ const CommunityInfo: FC<TProps> = ({
           {community.title}
         </Title>
       )}
-      {!community.raw && <DefaultTitle>CoderPlanets</DefaultTitle>}
+      {!community.raw && (
+        <DefaultTitle>{getDefaultTitle(router.pathname)}</DefaultTitle>
+      )}
     </Wrapper>
   )
 }

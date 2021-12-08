@@ -1,14 +1,15 @@
 import { FC } from 'react'
 
-import type { TPost } from '@/spec'
+import type { TPost, TCommunity } from '@/spec'
 import { cutRest } from '@/utils/helper'
 import { ICON_CMD } from '@/config'
+import Link from 'next/link'
 
 import DotDivider from '@/widgets/DotDivider'
 
 import {
   Wrapper,
-  CommunityInfo,
+  CommunityLabel,
   Extra,
   ExtraIcon,
   ExtraTexts,
@@ -17,14 +18,25 @@ import {
 
 type TProps = {
   item: TPost
+  curCommunity: TCommunity
 }
 
-const Footer: FC<TProps> = ({ item }) => {
+const Footer: FC<TProps> = ({ item, curCommunity }) => {
+  const { originalCommunity } = item
+  const showOriginalCommunity =
+    curCommunity === null || curCommunity?.raw !== originalCommunity.raw
+
   return (
     <Wrapper>
       <Extra>
-        <CommunityInfo>React</CommunityInfo>
-        <DotDivider radius={3} space={6} />
+        {showOriginalCommunity && (
+          <Link href={`/${originalCommunity.raw}`} passHref>
+            <CommunityLabel>{originalCommunity.title}</CommunityLabel>
+          </Link>
+        )}
+
+        {showOriginalCommunity && <DotDivider radius={3} space={6} />}
+
         <ExtraTexts>
           <ExtraIcon src={`${ICON_CMD}/view_solid.svg`} />
           {item.views}
