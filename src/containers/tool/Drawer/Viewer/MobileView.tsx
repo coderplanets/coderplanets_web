@@ -53,6 +53,11 @@ const Viewer: FC<TProps> = ({
 
   // NOTE: important: reset swipe position when drawer closed
   useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        window.scrollTo(0, 1)
+      }, 0)
+    }
     if (!visible) {
       setSwipeDownY(null)
       setSwipeUpY(null)
