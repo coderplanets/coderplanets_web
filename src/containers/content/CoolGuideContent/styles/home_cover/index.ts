@@ -12,6 +12,12 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   padding-right: 2%;
   min-height: 70vh;
   margin-top: 30px;
+
+  ${css.media.mobile`
+    padding-right: 0;
+    margin-top: 10px;
+    align-items: flex-start;
+  `};
 `
 export const Title = styled.div`
   font-size: 16px;
@@ -30,6 +36,10 @@ export const Ul = styled.ul`
   width: 375px;
   list-style: disc;
   color: ${theme('thread.articleDigest')};
+
+  ${css.media.mobile`
+    width: 100%;
+  `};
 `
 export const Li = styled.li`
   margin-bottom: 8px;

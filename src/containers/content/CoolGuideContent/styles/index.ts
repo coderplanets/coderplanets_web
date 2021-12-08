@@ -18,8 +18,17 @@ export const InnerWrapper = styled.div<{ metric: TMetric }>`
   width: 100%;
 
   ${({ metric }) => css.fitContentWidth(metric)};
+
+  ${css.media.mobile`
+    padding: 0 60px;
+    width: 100%;
+  `};
 `
 export const ContentWrapper = styled.div`
   ${css.flexColumnGrow()};
   max-width: ${() => `calc(100% - ${SIDEBAR_WIDTH})`};
+
+  ${css.media.mobile`
+    max-width: 100%;
+  `};
 `

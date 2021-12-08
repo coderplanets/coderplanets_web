@@ -65,7 +65,7 @@ const HomeCover: FC<TProps> = ({ testid = 'search-cover' }) => {
         </Ul>
       </Block>
       <Block>
-        <Title>开发计划</Title>
+        {/* <Title>开发计划</Title> */}
         <Ul>
           <Li>
             收集社区
