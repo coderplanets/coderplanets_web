@@ -26,10 +26,13 @@ import CommunityContent from '@/containers/content/CommunityContent'
 import { P } from '@/schemas'
 
 const loader = async (context, opt = {}) => {
-  console.log('# pages index')
   // const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-  const community = ssrGetParam(context, 'community') || HCN
+  let community = ssrGetParam(context, 'community') || HCN
+  console.log('# pages index: ', community)
+  // 生产环境，从其他页面返回时后有这种情况，需要单独判断
+  if (community === 'index') community = 'home'
+
   const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
   // const thread = params.thread ? singular(params.thread) : THREAD.POST
 
