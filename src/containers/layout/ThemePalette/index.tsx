@@ -25,10 +25,20 @@ type TProps = {
 }
 
 const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
+  // see https://css-tricks.com/meta-theme-color-and-trickery/
   return (
     <ThemeProvider theme={themeData}>
       <Head>
-        <meta name="theme-color" content={themeData.mobileTab} />
+        <meta
+          name="theme-color"
+          content={themeData.mobileTab}
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content={themeData.mobileTab}
+          media="(prefers-color-scheme: dark)"
+        />
       </Head>
 
       <ScrollBarStyle />
