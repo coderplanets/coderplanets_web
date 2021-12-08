@@ -10,15 +10,14 @@ import { Wrapper } from '../styles/mobile_view'
 
 type TProps = {
   entry: TPost
-  onPreview?: (obj: TPost) => void
   onAuthorSelect?: (obj: TAccount) => void
 }
 
-const MobileView: FC<TProps> = ({ entry, onPreview, onAuthorSelect }) => {
+const MobileView: FC<TProps> = ({ entry, onAuthorSelect }) => {
   return (
     <Wrapper>
       <Header item={entry} onAuthorSelect={onAuthorSelect} />
-      <Body item={entry} onPreview={onPreview} />
+      <Body item={entry} />
       <Footer item={entry} />
     </Wrapper>
   )

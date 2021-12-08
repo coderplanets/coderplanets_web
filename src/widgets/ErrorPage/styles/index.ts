@@ -41,6 +41,10 @@ export const IconsWrapper = styled.div`
   ${css.flex('align-center')};
   width: 380px;
   margin-left: 50px;
+  ${css.media.mobile`
+    width: 320px;
+    margin-left: 30px;
+  `};
 `
 export const Planet1Wrapper = styled.div`
   margin-top: -48px;
@@ -63,6 +67,10 @@ export const TextWrapper = styled.div`
   ${css.flexColumn('align-center')};
   margin-top: 80px;
   width: 520px;
+
+  ${css.media.mobile`
+    width: 320px;
+  `};
 `
 export const HintWrapper = styled.div`
   ${css.flexColumn('align-center')};

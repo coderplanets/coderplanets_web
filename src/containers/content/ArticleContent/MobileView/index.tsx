@@ -37,13 +37,13 @@ export const MarkDownRender = dynamic(
 const log = buildLog('C:PostContent')
 
 type TProps = {
-  postContent?: TStore
+  articleContent?: TStore
   testid?: string
 }
 
-const PostContentContainer: FC<TProps> = ({
-  postContent: store,
-  testid = 'post-content',
+const ArticleContentContainer: FC<TProps> = ({
+  articleContent: store,
+  testid = 'article-content',
 }) => {
   useInit(store)
   const { viewingArticle } = store
@@ -72,4 +72,4 @@ const PostContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(PostContentContainer) as FC<TProps>
+export default pluggedIn(ArticleContentContainer) as FC<TProps>

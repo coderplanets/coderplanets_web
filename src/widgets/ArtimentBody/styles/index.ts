@@ -36,6 +36,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 
     .image-wrapper {
       margin-bottom: 20px;
+      .single-image img {
+        width: 100%;
+      }
     }
   }
 `

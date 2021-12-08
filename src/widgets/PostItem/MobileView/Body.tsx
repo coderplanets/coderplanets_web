@@ -1,19 +1,22 @@
 import { FC, memo } from 'react'
 
+import Link from 'next/link'
 import type { TPost } from '@/spec'
 import { parseDomain } from '@/utils/route'
+import { ARTICLE_THREAD } from '@/constant'
 
 import { Wrapper, TitleLink, LinkIcon, Title } from '../styles/mobile_view/body'
 
 type TProps = {
   item: TPost
-  onPreview?: (obj: TPost) => void
 }
 
-const Body: FC<TProps> = ({ item, onPreview }) => {
+const Body: FC<TProps> = ({ item }) => {
   return (
-    <Wrapper onClick={() => onPreview(item)}>
-      <Title>{item.title}</Title>
+    <Wrapper>
+      <Link href={`/${ARTICLE_THREAD.POST}/${item.id}`} passHref>
+        <Title>{item.title}</Title>
+      </Link>
       {item.linkAddr && (
         <TitleLink>
           <LinkIcon />

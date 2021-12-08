@@ -14,11 +14,12 @@ import MobileView from './MobileView'
 const ArticleContent = (props) => {
   const { isMobile } = usePlatform()
 
-  return (
-    <Fragment>
-      {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
-    </Fragment>
-  )
+  return <DesktopView />
+  // return (
+  //   <Fragment>
+  //     {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}
+  //   </Fragment>
+  // )
 }
 
 export default ArticleContent
