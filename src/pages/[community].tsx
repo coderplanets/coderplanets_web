@@ -26,7 +26,6 @@ import CommunityContent from '@/containers/content/CommunityContent'
 import { P } from '@/schemas'
 
 const loader = async (context, opt = {}) => {
-  console.log('# community index')
   // const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
@@ -69,6 +68,13 @@ const loader = async (context, opt = {}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { res } = context
+
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59',
+  )
+
   const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
 
   let resp

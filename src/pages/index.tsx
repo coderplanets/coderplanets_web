@@ -29,7 +29,6 @@ const loader = async (context, opt = {}) => {
   // const { params } = context.req
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
   let community = ssrGetParam(context, 'community') || HCN
-  console.log('# pages index: ', community)
   // 生产环境，从其他页面返回时后有这种情况，需要单独判断
   if (community === 'index') community = 'home'
 
@@ -75,10 +74,15 @@ const loader = async (context, opt = {}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { res } = context
+
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59',
+  )
+
   const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
-
   let resp
-
   try {
     resp = await loader(context)
   } catch (e) {
