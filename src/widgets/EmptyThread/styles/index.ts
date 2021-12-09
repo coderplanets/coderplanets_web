@@ -9,6 +9,11 @@ export const Wrapper = styled.div<{ noShiftRight: boolean }>`
   width: 100%;
   margin-top: 8%;
   padding-right: ${({ noShiftRight }) => (noShiftRight ? '10px' : '15%')};
+
+  ${css.media.mobile`
+    margin-top: 25%;
+    padding-right: 0;
+  `};
 `
 // TODO: media size
 export const Icon404 = styled(PromptIcon)`
