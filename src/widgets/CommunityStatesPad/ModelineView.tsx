@@ -7,10 +7,7 @@
 import { FC, memo } from 'react'
 
 import type { TCommunity } from '@/spec'
-import usePlatform from '@/hooks/usePlatform'
 import { buildLog } from '@/utils/logger'
-
-// import Charger from '@/widgets/Charger'
 
 import SubscribeStatus from './SubscribeStatus'
 import ContentStatus from './ContentStatus'
@@ -21,10 +18,9 @@ import {
   NumberSection,
   ContentSection,
   VolunteerSection,
-  // ChargeSection,
   NumberDivider,
   NumberTitle,
-} from './styles'
+} from './styles/modeline_view'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:CommunityStatesPad:index')
@@ -46,13 +42,11 @@ const CommunityStatesPad: FC<TProps> = ({
 }) => {
   const { editorsCount, subscribersCount, contributesDigest, articlesCount } =
     community
-  const { isMobile } = usePlatform()
 
   return (
     <Wrapper>
       <NumberSection>
-        {!isMobile && <NumberTitle>成员</NumberTitle>}
-
+        <NumberTitle>成员</NumberTitle>
         <SubscribeStatus
           count={subscribersCount}
           subCount={realtimeVisitors}
@@ -60,34 +54,20 @@ const CommunityStatesPad: FC<TProps> = ({
         />
       </NumberSection>
       <NumberDivider />
-      {!isMobile && (
-        <ContentSection>
-          <NumberTitle readOnly>内容</NumberTitle>
-          <ContentStatus
-            count={articlesCount}
-            contributesDigest={contributesDigest}
-          />
-        </ContentSection>
-      )}
+      <ContentSection>
+        <NumberTitle readOnly>内容</NumberTitle>
+        <ContentStatus
+          count={articlesCount}
+          contributesDigest={contributesDigest}
+        />
+      </ContentSection>
 
-      {!isMobile && <NumberDivider />}
+      <NumberDivider />
 
-      {!isMobile && (
-        <VolunteerSection alignCenter={editorsCount < 99}>
-          <NumberTitle readOnly>志愿者</NumberTitle>
-          <VolunteerStatus count={editorsCount} onClick={onShowEditorList} />
-        </VolunteerSection>
-      )}
-
-      {/* {!withoutFounding && (
-        <>
-          <NumberDivider />
-          <ChargeSection>
-            <NumberTitle>打赏</NumberTitle>
-            <Charger />
-          </ChargeSection>
-        </>
-      )} */}
+      <VolunteerSection alignCenter={editorsCount < 99}>
+        <NumberTitle readOnly>志愿者</NumberTitle>
+        <VolunteerStatus count={editorsCount} onClick={onShowEditorList} />
+      </VolunteerSection>
     </Wrapper>
   )
 }

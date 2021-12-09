@@ -55,6 +55,7 @@ const BottomBar: FC<TProps> = ({
         onClick={multiClick(() => openMenu(TYPE.MM_TYPE.GLOBAL_MENU))}
       />
       <CommunityBlock
+        onClick={() => openMenu(TYPE.MM_TYPE.COMMUNITY)}
         community={communityInfo}
         isArticle={!!article}
         isExpand={isCommunityBlockExpand}
