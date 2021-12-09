@@ -1,0 +1,33 @@
+{
+  "name": "CoderPlanets",
+  "short_name": "CP",
+  "description": "可能是最性感的开发者社区",
+  "icons": [
+    {
+      "src": "/pwa/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pwa/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#002B36",
+  "background_color": "#002B36",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
