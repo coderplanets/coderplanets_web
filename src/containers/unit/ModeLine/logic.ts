@@ -36,6 +36,8 @@ export const tabOnChange = (activeThread: TThread): void => {
 }
 
 export const openMenu = (activeMenu: string): void => {
+  console.log('openMenu: ', activeMenu)
+
   store.mark({ activeMenu })
 
   switch (activeMenu) {
@@ -49,6 +51,10 @@ export const openMenu = (activeMenu: string): void => {
 
     case TYPE.MM_TYPE.FILTER: {
       return openFilterMenu()
+    }
+
+    case TYPE.MM_TYPE.COMMUNITY: {
+      return openCommunityMenu()
     }
 
     default: {
@@ -92,6 +98,20 @@ const openFilterMenu = () => {
   send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.FILTER,
+    options: {
+      direction: 'bottom',
+      position: 'M',
+    },
+  })
+}
+
+/**
+ * open community menu on mobile
+ */
+const openCommunityMenu = () => {
+  send(EVENT.DRAWER.OPEN, {
+    type: TYPE.DRAWER.MODELINE_MENU,
+    data: TYPE.MM_TYPE.COMMUNITY,
     options: {
       direction: 'bottom',
       position: 'M',

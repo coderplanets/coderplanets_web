@@ -15,6 +15,7 @@ import GlobalMenu from './GlobalMenu/index'
 import SearchMenu from './SearchMenu'
 import MoreMenu from './MoreMenu'
 import FilterMenu from './FilterMenu'
+import CommunityMenu from './CommunityMenu'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -35,6 +36,10 @@ const renderMenus = (type, curActive) => {
 
     case TYPE.MM_TYPE.FILTER: {
       return <FilterMenu curActive={curActive} />
+    }
+
+    case TYPE.MM_TYPE.COMMUNITY: {
+      return <CommunityMenu community={curActive.community} />
     }
 
     default: {

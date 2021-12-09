@@ -39,12 +39,14 @@ type TCommunityBlock = {
   community: TCommunity
   isExpand: boolean
   isArticle?: boolean
+  onClick: () => void
 }
 
 export const CommunityBlock: FC<TCommunityBlock> = ({
   community,
   isExpand,
   isArticle = false,
+  onClick,
 }) => {
   const bgColor = '#194d5f'
   const activeBgColor = '#196f70'
@@ -52,7 +54,10 @@ export const CommunityBlock: FC<TCommunityBlock> = ({
   const { viewerHasSubscribed } = community
 
   return (
-    <CommunityWrapper bgColor={viewerHasSubscribed ? activeBgColor : bgColor}>
+    <CommunityWrapper
+      bgColor={viewerHasSubscribed ? activeBgColor : bgColor}
+      onClick={() => onClick()}
+    >
       <CommunityInfo
         community={community}
         isExpand={isExpand}

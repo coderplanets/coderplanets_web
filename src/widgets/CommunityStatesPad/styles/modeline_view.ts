@@ -5,11 +5,9 @@ import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
 export const Wrapper = styled.div`
-  ${css.flex()};
-  text-align: center;
-  ${css.media.mobile`
-    margin-top: -4px;
-  `};
+  ${css.flex('justify-around')};
+  width: 100%;
+  padding: 0 45px;
 `
 export const NumberSection = styled.div`
   ${css.flexColumn('align-end')};
@@ -20,10 +18,7 @@ export const ContentSection = styled(NumberSection)``
 export const VolunteerSection = styled(NumberSection)<{ alignCenter: boolean }>`
   align-items: ${({ alignCenter }) => (alignCenter ? 'center' : 'flex-end')};
 `
-export const ChargeSection = styled(NumberSection)`
-  ${css.flexColumn('align-center', 'justify-between')};
-  ${css.media.mobile`display: none`};
-`
+
 type TNumberTitle = { small?: boolean; readOnly?: boolean }
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberTitle = styled.div<TNumberTitle>`
@@ -38,16 +33,9 @@ export const NumberTitle = styled.div<TNumberTitle>`
 `
 export const NumberDivider = styled.div`
   border: 1px solid;
-  border-color: ${theme('banner.numberDivider')};
+  border-color: ${theme('thread.articleDigest')};
+  opacity: 0.3;
   height: 20px;
   align-self: flex-end;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 15px;
-
-  ${css.media.tablet`
-    margin-left: 5px;
-    margin-right: 5px;
-  `};
-  ${css.media.mobile`display: none`};
+  margin-bottom: 23px;
 `
