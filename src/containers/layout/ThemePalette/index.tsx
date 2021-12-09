@@ -5,7 +5,7 @@
  */
 
 import { FC, ReactNode } from 'react'
-import Head from 'next/head'
+// import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
@@ -26,9 +26,10 @@ type TProps = {
 
 const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
   // see https://css-tricks.com/meta-theme-color-and-trickery/
+  // theme seems conflict with manifest
   return (
     <ThemeProvider theme={themeData}>
-      <Head>
+      {/* <Head>
         <meta
           name="theme-color"
           content={themeData.mobileTab}
@@ -39,7 +40,7 @@ const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
           content={themeData.mobileTab}
           media="(prefers-color-scheme: dark)"
         />
-      </Head>
+      </Head> */}
 
       <ScrollBarStyle />
       <NextNprogress
