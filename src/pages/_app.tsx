@@ -42,6 +42,7 @@ const App = ({ Component, pageProps }) => {
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="icon" href="/favicon.ico" />
 
+        <link rel="manifest" href="/manifest.json" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Audiowide"
