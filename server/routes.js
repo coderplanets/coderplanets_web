@@ -105,7 +105,7 @@ router.route('/plaza').get((req, res) => {
 // 单个作品详情
 router.route('/works/:id').get((req, res) => {
   const { id } = req.params
-  return renderAndCache({ req, res, path: `/w/${id}` })
+  return renderAndCache({ req, res, path: `/works/${id}` })
 })
 
 // 用户页

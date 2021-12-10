@@ -26,7 +26,12 @@ const Contact: FC<TProps> = ({ article }) => {
 
         {socialInfo.map((s) => (
           <SocialItem key={s.platform}>
-            <a key={s.platform} href={s.link} target="_blank" rel="noreferrer">
+            <a
+              key={s.platform}
+              href={s.platform === '邮箱' ? `mailto:${s.link}` : s.link}
+              target="_blank"
+              rel="noreferrer"
+            >
               <SocialIcon src={`${ICON}/social/${s.platform}.svg`} size={16} />
             </a>
           </SocialItem>

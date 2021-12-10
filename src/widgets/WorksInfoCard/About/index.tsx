@@ -17,7 +17,7 @@ const About: FC<TProps> = ({ article }) => {
 
   return (
     <Wrapper>
-      <Linker src={homeLink} right={10} />
+      <Linker src={homeLink} right={10} left={-3} />
       <Desc>{cutRest(desc, 100)}</Desc>
     </Wrapper>
   )

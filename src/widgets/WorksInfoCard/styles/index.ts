@@ -19,6 +19,7 @@ export const SlishSign = styled.div`
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
+  opacity: 0.8;
 `
 export const Divider = styled.div<TSpace>`
   margin-top: ${({ top }) => `${top}px`};

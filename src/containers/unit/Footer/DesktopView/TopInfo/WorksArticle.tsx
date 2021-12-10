@@ -22,7 +22,7 @@ const WorksArticle: FC<TProps> = ({ article, noBottomBorder = false }) => {
       </InfoBar>
       <CommunityTitle>作品集市</CommunityTitle>
       <BlinkCursor duration={2} top={0} />
-      <ArticleTitle>{article.title}</ArticleTitle>
+      <ArticleTitle>{article?.title}</ArticleTitle>
     </Wrapper>
   )
 }

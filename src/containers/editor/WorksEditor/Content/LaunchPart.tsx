@@ -1,4 +1,5 @@
 import { FC, memo } from 'react'
+import Link from 'next/link'
 
 import { Space } from '@/widgets/Common'
 import Button from '@/widgets/Buttons/Button'
@@ -42,9 +43,9 @@ const LaunchPart: FC<TProps> = ({ inputData }) => {
           后续如遇到任何问题可以使用下列反馈渠道，我们会在第一时间处理。
         </ThxDesc>
         <FeedBacks>
-          <FeedLink href="/feedback" target="_blank">
-            反馈论坛
-          </FeedLink>
+          <Link href="/feedback" passHref>
+            <FeedLink target="_blank">反馈论坛</FeedLink>
+          </Link>
           <Space right={20} />
           <FeedLink
             href="mailto:coderplanets@outlook.com?subject=作品集市"
@@ -60,9 +61,9 @@ const LaunchPart: FC<TProps> = ({ inputData }) => {
             用于用户的讨论，收集需求，获取反馈等.
           </NextDesc>
           <NextButtons>
-            <FeedLink href="/groupher" target="_blank">
-              查看示例
-            </FeedLink>
+            <Link href="/feedback" passHref>
+              <FeedLink target="_blank">查看示例</FeedLink>
+            </Link>
             <Space right={20} />
             <Button size="small">现在创建</Button>
           </NextButtons>
