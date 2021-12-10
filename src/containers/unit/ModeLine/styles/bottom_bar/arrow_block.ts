@@ -18,8 +18,9 @@ export const UserLogo = styled(UserSVG)`
 `
 export const HomeLogo = styled(SiteLogo)`
   fill: ${theme('button.primary')};
-  ${css.size(15)};
+  ${css.size(16)};
   margin-top: -1px;
+  margin-left: 2px;
 `
 export const ExploreLogo = styled(Img)<TActive>`
   fill: ${({ active }) => (active ? '#2ca1a2' : theme('thread.articleTitle'))};
