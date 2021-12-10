@@ -25,7 +25,7 @@ const Contact: FC<TProps> = ({ article }) => {
         {isEmpty(socialInfo) && <EmptyHint>--</EmptyHint>}
 
         {socialInfo.map((s) => (
-          <SocialItem key={s.platform}>
+          <SocialItem key={s.platform} isEmail={s.platform === '邮箱'}>
             <a
               key={s.platform}
               href={s.platform === '邮箱' ? `mailto:${s.link}` : s.link}

@@ -9,6 +9,7 @@ export const Wrapper = styled.div<TActive>`
   ${css.flexColumn()};
   color: ${theme('thread.articleDigest')};
   margin-bottom: 15px;
+  margin-top: 16px;
 `
 export const Row = styled.div`
   ${css.flex('align-center')};
@@ -23,14 +24,13 @@ export const EmptyHint = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-left: 5px;
 `
-export const SocialItem = styled.div`
+export const SocialItem = styled.div<{ isEmail: boolean }>`
   ${css.flex('align-center')};
   padding: 1px 5px;
   background: #00333e;
   color: ${theme('thread.articleTitle')};
-  margin-top: 5px;
-  margin-right: 3px;
-  border-radius: 5px;
+
+  margin-top: ${({ isEmail }) => (isEmail ? '3px' : 0)};
 `
 export const SocialIcon = styled(Img)<{ size?: number }>`
   ${({ size }) => css.size(size || 20)};
