@@ -114,7 +114,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       },
       viewing: {
         community,
-        activeThread: THREAD.POST,
+        activeThread: thread,
       },
     },
     articleThread,
