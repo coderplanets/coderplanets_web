@@ -66,7 +66,7 @@ const TYPE = {
     GLOBAL_MENU: 'global_menu',
     COMMUNITY: 'community',
     FILTER: 'filter',
-    DISCOVER: 'discover',
+    EXPLORE: 'explore',
     PUBLISH: 'publish',
     SEARCH: 'search',
     MORE: 'more',

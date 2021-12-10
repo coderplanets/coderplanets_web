@@ -95,7 +95,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  const { filter, community, pagedArticleTags } = resp
+  const { filter, community, pagedArticleTags, subscribedCommunities } = resp
 
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
@@ -103,9 +103,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const initProps = merge(
     {
       ...ssrBaseStates(resp),
+      account: {
+        userSubscribedCommunities: subscribedCommunities,
+      },
       route: {
         communityPath: community.raw,
-        mainPath: community.raw === HCN ? '' : community.raw,
+        mainPath:
+          community.raw === HCN && thread === THREAD.POST ? '' : community.raw,
         subPath: thread === THREAD.POST ? '' : thread,
         thread,
       },
