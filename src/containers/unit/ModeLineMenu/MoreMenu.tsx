@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { FC, memo } from 'react'
 import Link from 'next/link'
 
@@ -12,6 +13,7 @@ const menus = [
     title: '反馈',
     raw: 'feedback',
     link: '/feedback',
+    target: '_self',
   },
   {
     icon: `${ICON}/social/github.svg`,
@@ -38,8 +40,10 @@ const MoreMenu: FC = () => {
   return (
     <Wrapper>
       {menus.map((item) => (
-        <Link key={item.raw} href={item.link}>
-          <NaviButton item={item} />
+        <Link key={item.raw} href={item.link} passHref>
+          <a target={item.target || '_blank'}>
+            <NaviButton item={item} />
+          </a>
         </Link>
       ))}
     </Wrapper>

@@ -31,6 +31,7 @@ export const CommunityWrapper = styled.div`
   ${css.flex('align-center')};
   flex-wrap: wrap;
   margin-top: 8px;
+  margin-bottom: 50px;
 `
 export const CommunityCard = styled.div<{ margin: boolean }>`
   ${css.flex('align-center')};

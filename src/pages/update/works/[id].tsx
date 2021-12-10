@@ -67,7 +67,6 @@ const UpdateWorksPage = (props) => {
         metric={METRIC.WORKS_EDITOR}
         seoConfig={seoConfig}
         noSidebar
-        noFooter
       >
         <WorksEditor />
       </GlobalLayout>
