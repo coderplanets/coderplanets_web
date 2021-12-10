@@ -11,11 +11,13 @@ import { TYPE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+// TODO: 全部动态加载
 import GlobalMenu from './GlobalMenu/index'
 import SearchMenu from './SearchMenu'
 import MoreMenu from './MoreMenu'
 import FilterMenu from './FilterMenu'
 import CommunityMenu from './CommunityMenu'
+import ExploreMenu from './ExploreMenu'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -24,7 +26,7 @@ import { useInit } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:ModeLineMenu')
 
-const renderMenus = (type, curActive) => {
+const renderMenus = (type, curActive, subscribedCommunities) => {
   switch (type) {
     case TYPE.MM_TYPE.MORE: {
       return <MoreMenu />
@@ -40,6 +42,10 @@ const renderMenus = (type, curActive) => {
 
     case TYPE.MM_TYPE.COMMUNITY: {
       return <CommunityMenu community={curActive.community} />
+    }
+
+    case TYPE.MM_TYPE.EXPLORE: {
+      return <ExploreMenu communities={subscribedCommunities} />
     }
 
     default: {
@@ -60,9 +66,13 @@ const ModeLineMenuContainer: FC<TProps> = ({
   type = TYPE.MM_TYPE.GLOBAL_MENU,
 }) => {
   useInit(store)
-  const { curActive } = store
+  const { curActive, subscribedCommunities } = store
 
-  return <Wrapper testid={testid}>{renderMenus(type, curActive)}</Wrapper>
+  return (
+    <Wrapper testid={testid}>
+      {renderMenus(type, curActive, subscribedCommunities)}
+    </Wrapper>
+  )
 }
 
 export default pluggedIn(ModeLineMenuContainer) as FC<TProps>

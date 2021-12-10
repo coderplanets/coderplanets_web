@@ -4,14 +4,18 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
-// import {} from 'ramda'
+import { prop, trim, filter, contains } from 'ramda'
 
-import type { TRootStore } from '@/spec'
+import type { TRootStore, TCommunity } from '@/spec'
+import { sortByIndex } from '@/utils/helper'
 import { markStates, toJS } from '@/utils/mobx'
+import { notEmpty } from '@/utils/validator'
 
 import { TCurActive } from './spec'
 
-const ModeLineMenu = T.model('ModeLineMenu', {})
+const ModeLineMenu = T.model('ModeLineMenu', {
+  searchCommunityValue: T.optional(T.string, ''),
+})
   .views((self) => ({
     get curActive(): TCurActive {
       const root = getParent(self) as TRootStore
@@ -20,6 +24,23 @@ const ModeLineMenu = T.model('ModeLineMenu', {})
         community: toJS(root.viewing.community),
         thread: root.viewing.activeThread,
       }
+    },
+    get subscribedCommunities(): TCommunity[] {
+      const root = getParent(self) as TRootStore
+      const { subscribedCommunities } = root.account
+      const { searchCommunityValue } = self as TStore
+
+      if (notEmpty(trim(searchCommunityValue))) {
+        return filter(
+          // @ts-ignore
+          (item) => contains(searchCommunityValue, prop('title', item)),
+          subscribedCommunities.entries,
+        )
+      }
+
+      return subscribedCommunities
+        ? sortByIndex(subscribedCommunities.entries)
+        : []
     },
   }))
   .actions((self) => ({

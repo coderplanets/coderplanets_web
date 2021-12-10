@@ -1,10 +1,8 @@
 import { FC } from 'react'
 
-import Link from 'next/link'
-
 import type { TCommunity } from '@/spec'
 import { ICON } from '@/config'
-import { ROUTE } from '@/constant'
+import { TYPE } from '@/constant'
 
 import CommunityInfo from './CommunityInfo'
 
@@ -20,6 +18,7 @@ import {
   MenuArrowShape,
   ArrowShapeLeft,
 } from '../styles/bottom_bar/arrow_block'
+import { openMenu } from '../logic'
 
 type TMenuBlock = {
   onClick: () => void
@@ -72,12 +71,13 @@ export const ExploreBlock: FC = () => {
   const bgColor = '#071f27'
 
   return (
-    <Link href={ROUTE.EXPLORE}>
-      <ExploreWrapper bgColor={bgColor}>
-        <ArrowShapeLeft bgColor={bgColor} />
-        <ExploreLogo src={`${ICON}/discover.svg`} />
-      </ExploreWrapper>
-    </Link>
+    <ExploreWrapper
+      bgColor={bgColor}
+      onClick={() => openMenu(TYPE.MM_TYPE.EXPLORE)}
+    >
+      <ArrowShapeLeft bgColor={bgColor} />
+      <ExploreLogo src={`${ICON}/discover.svg`} />
+    </ExploreWrapper>
   )
 }
 

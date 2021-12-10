@@ -21,5 +21,5 @@ export const Icon = styled(Img)`
 export const Text = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 12px;
-  margin-top: 4px;
+  margin-top: 8px;
 `

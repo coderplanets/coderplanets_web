@@ -13,7 +13,7 @@ export const Wrapper = styled.div<TActive>`
   /* TODO: move namespace to modeline */
   background: ${theme('header.fixed')};
   opacity: ${({ visible }) => (visible ? 1 : '0')};
-  height: 32px;
+  height: 35px;
   padding-left: 5vw;
 
   transition: top 0.3s;

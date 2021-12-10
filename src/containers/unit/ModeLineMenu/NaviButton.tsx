@@ -2,7 +2,14 @@ import { FC, memo } from 'react'
 
 import { Wrapper, Icon, Text } from './styles/navi_button'
 
-const NaviButton = ({ item }) => {
+type TProps = {
+  item: {
+    icon: string
+    title: string
+  }
+}
+
+const NaviButton: FC<TProps> = ({ item }) => {
   const { icon, title } = item
 
   return (
