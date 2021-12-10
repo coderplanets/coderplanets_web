@@ -140,6 +140,7 @@ export const nextStep = (): void => {
 
   switch (step) {
     case STEP.ZERO: {
+      setDefaultTeammate()
       return store.mark({ step: STEP.ONE })
     }
 
@@ -238,9 +239,13 @@ const loadCommunity = (): void => {
   sr71$.query(S.community, { raw })
 }
 
+// 这里有一个坑，不能再 useInit 里调用，因为这是 Footer 里的用户信息还没有回来
 const setDefaultTeammate = (): void => {
-  const { accountInfo } = store
-  store.mark({ teammates: [accountInfo] })
+  const { accountInfo, inputData } = store
+
+  if (inputData.teammates.length === 0) {
+    store.mark({ teammates: [accountInfo] })
+  }
 }
 
 const DataSolver = [
@@ -310,9 +315,9 @@ export const useInit = (_store: TStore): void => {
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     loadCommunity()
-    if (store.mode === 'publish') {
-      setDefaultTeammate()
-    }
+    // if (store.mode === 'publish') {
+    //   setDefaultTeammate()
+    // }
 
     if (store.mode === 'update') {
       loadWorks()
