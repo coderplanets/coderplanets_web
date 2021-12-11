@@ -5,6 +5,7 @@ import { ICON } from '@/config'
 import { TYPE } from '@/constant'
 
 import CommunityInfo from './CommunityInfo'
+import MainBlockInfo from './MainBlockInfo'
 
 import {
   MenuWrapper,
@@ -63,6 +64,17 @@ export const CommunityBlock: FC<TCommunityBlock> = ({
         isArticle={isArticle}
       />
       <ArrowShape bgColor={viewerHasSubscribed ? activeBgColor : bgColor} />
+    </CommunityWrapper>
+  )
+}
+
+export const MainBlock: FC = () => {
+  const bgColor = '#194d5f'
+
+  return (
+    <CommunityWrapper bgColor={bgColor}>
+      <MainBlockInfo />
+      <ArrowShape bgColor={bgColor} />
     </CommunityWrapper>
   )
 }

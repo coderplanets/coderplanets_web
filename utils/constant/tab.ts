@@ -34,10 +34,10 @@ export const WORKS_TAB_ITEMS = [
   //   title: '作者访谈',
   //   raw: WORKS_TAB.INTERVIEW,
   // },
-  {
-    title: '社区',
-    raw: WORKS_TAB.COMMUNITY,
-  },
+  // {
+  //   title: '社区',
+  //   raw: WORKS_TAB.COMMUNITY,
+  // },
 ]
 
 export const BLOG_TAB = {

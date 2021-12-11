@@ -12,18 +12,15 @@ import useScroll from '@/hooks/useScroll'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import ArticleBaseStats from '@/widgets/ArticleBaseStats'
 import ViewportTracker from '@/widgets/ViewportTracker'
-import ReadableDate from '@/widgets/ReadableDate'
+
+import Layout from './Layout'
 
 import type { TStore } from '../store'
 import {
   Wrapper,
   InnerWrapper,
   BannerContent,
-  PublishDateInfo,
-  Title,
-  Brief,
 } from '../styles/mobile_view/index'
 import { useInit, inAnchor, outAnchor } from '../logic'
 
@@ -38,7 +35,7 @@ const ArticleDigestContainer: FC<TProps> = ({ articleDigest: store }) => {
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
-  const { viewingArticle: article } = store
+  const { viewingArticle: article, activeThread, tab } = store
 
   if (isNil(article.id)) return null
 
@@ -46,13 +43,7 @@ const ArticleDigestContainer: FC<TProps> = ({ articleDigest: store }) => {
     <Wrapper>
       <InnerWrapper>
         <BannerContent>
-          <Brief>
-            <PublishDateInfo>
-              <ReadableDate date={article.insertedAt} fmt="absolute" />
-            </PublishDateInfo>
-            <Title>{article.title}</Title>
-            <ArticleBaseStats article={article} />
-          </Brief>
+          <Layout article={article} thread={activeThread} tab={tab} />
         </BannerContent>
       </InnerWrapper>
       <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />

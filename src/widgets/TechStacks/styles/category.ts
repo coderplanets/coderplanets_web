@@ -57,4 +57,9 @@ export const Title = styled.div`
   ${css.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 15px;
+
+  ${css.media.mobile`
+    font-size: 13px;
+    margin-top: 3px;
+  `};
 `

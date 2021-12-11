@@ -31,26 +31,29 @@ type TProps = {
 }
 
 const Header: FC<TProps> = ({ article }) => {
-  const { title, desc, homeLink, meta, author, socialInfo, insertedAt } =
-    article
+  const { title, cover, desc, homeLink, meta, socialInfo, insertedAt } = article
 
   return (
     <Wrapper>
       <WorksWrapper>
-        <Cover src={author.avatar} />
+        <Cover src={cover} />
         <Intro>
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
           <ContactWrapper>
             <Linker src={homeLink} right={10} />
-            {socialInfo.map((social) => (
+            {socialInfo.map((s) => (
               <a
-                key={social.platform}
-                href={social.link}
+                key={s.platform}
+                href={s.platform === '邮箱' ? `mailto:${s.link}` : s.link}
                 target="_blank"
                 rel="noreferrer"
               >
-                <IconButton path={`social/${social.platform}.svg`} size={13} />
+                <IconButton
+                  path={`social/${s.platform}.svg`}
+                  size={13}
+                  mTop={s.platform === '邮箱' ? 2 : 0}
+                />
               </a>
             ))}
           </ContactWrapper>

@@ -34,17 +34,30 @@ export const IntroImg = styled(Img)`
   ${css.size(75)};
   border-radius: 5px;
   margin-top: 2px;
+
+  ${css.media.mobile`
+    ${css.size(42)};
+    margin-top: -20px;
+  `};
 `
 export const IntroImgHolder = styled.div`
   ${css.size(75)};
   border-radius: 5px;
   margin-top: 2px;
   background-color: #10404e;
+
+  ${css.media.mobile`
+    ${css.size(42)};
+    margin-top: -20px;
+  `};
 `
 export const IntroWrapper = styled.div`
   ${css.flexColumnGrow('align-start', 'justify-between')};
   margin-left: 28px;
   /* border: 1px solid green; */
+  ${css.media.mobile`
+    margin-left: 15px;
+  `};
 `
 export const Header = styled.div`
   ${css.flex('justify-between', 'align-start')};
@@ -96,7 +109,7 @@ export const Divider = styled.div`
 export const BuildWithWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 3px;
-  margin-right: 8px;
+  margin-right: 6px;
   /* padding: 2px 5px; */
   /* background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0); */
   margin-top: -2px;
@@ -115,4 +128,8 @@ export const TechIcon = styled(Img)`
 export const GithubIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(10)};
+`
+export const PublishWrapper = styled.div`
+  margin-top: -1px;
+  margin-right: 15px;
 `

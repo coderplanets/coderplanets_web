@@ -6,30 +6,27 @@ import ImgFallback from '@/widgets/ImgFallback'
 import {
   Wrapper,
   InterviewWrapper,
-  Avatar,
+  AvatarHolder,
   Intro,
   Title,
   UpvoteWrapper,
   UpvoteIcon,
 } from '../styles/right_sidebar/interviews_list'
 
-const icon = 'https://assets.coderplanets.com/works/market1.jpeg'
+// const icon = 'https://assets.coderplanets.com/works/market1.jpeg'
 
 const Interview: React.FC = () => {
   return (
     <InterviewWrapper>
-      <Avatar
-        src={icon}
-        fallback={<ImgFallback user={{ nickname: 'fake' }} size={20} top={1} />}
-      />
+      <AvatarHolder />
       <Intro>
-        <Title>CoderPlanets</Title>
+        <Title>征集中...</Title>
       </Intro>
       <SpaceGrow />
       {/* upvote */}
       <UpvoteWrapper>
         <UpvoteIcon />
-        17
+        99
       </UpvoteWrapper>
     </InterviewWrapper>
   )

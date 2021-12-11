@@ -1,5 +1,5 @@
 import { FC, memo } from 'react'
-import type { TArticle } from '@/spec'
+import type { TWorks } from '@/spec'
 
 import Upvote from '@/widgets/Upvote'
 import {
@@ -11,19 +11,19 @@ import {
 } from '../styles/works_viewer/fixed_header'
 
 type TProps = {
-  article: TArticle
+  article: TWorks
   visible?: boolean
 }
 
 const FixedHeader: FC<TProps> = ({ article, visible }) => {
-  const { upvotesCount, meta } = article
+  const { title, desc, upvotesCount, meta } = article
 
   return (
     <Wrapper visible={visible}>
       <ArticleWrapper>
         <Cover src={article.author.avatar} />
-        <Title>CoderPlanets</Title>
-        <Desc>可能是最性感的开发者社区，web first, pure</Desc>
+        <Title>{title}</Title>
+        <Desc>{desc}</Desc>
       </ArticleWrapper>
       <Upvote count={upvotesCount} avatarList={meta.latestUpvotedUsers} />
     </Wrapper>

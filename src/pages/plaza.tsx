@@ -59,6 +59,7 @@ export const getServerSideProps = async (context) => {
   }
 
   const { filter } = resp
+
   const { articlesThread } = ssrParseArticleThread(resp, THREAD.WORKS, filter)
   const { pagedWorks } = articlesThread
 

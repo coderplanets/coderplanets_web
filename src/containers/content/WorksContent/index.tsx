@@ -10,6 +10,7 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import usePlatform from '@/hooks/usePlatform'
 import Pagi from '@/widgets/Pagi'
 // import AvatarsRow from '@/widgets/AvatarsRow'
 
@@ -47,6 +48,7 @@ const WorksContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { activeView, showSidebar, pagedWorksData } = store
+  const { isMobile } = usePlatform()
 
   // console.log('## pagedWorksData -> ', pagedWorksData)
 
@@ -60,14 +62,13 @@ const WorksContentContainer: FC<TProps> = ({
         )}
         <MainContent>
           <WorksList data={pagedWorksData} activeView={activeView} />
-
           <Pagi margin={{ top: '60px', bottom: '80px' }} />
           {/* <PagiInfo>
               <PagiInfoTitle>活跃用户</PagiInfoTitle>
               <AvatarsRow users={tmpUsers} total={10} showTotalNumber />
             </PagiInfo> */}
         </MainContent>
-        <RightSidebar showSidebar={showSidebar} />
+        {!isMobile && <RightSidebar showSidebar={showSidebar} />}
       </ContentWrapper>
     </Wrapper>
   )

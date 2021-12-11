@@ -7,6 +7,7 @@ import WorksCard from '@/widgets/Cards/WorksCard'
 import IconText from '@/widgets/IconText'
 import MenuButton from '@/widgets/Buttons/MenuButton'
 
+import usePlatform from '@/hooks/usePlatform'
 import WipThread from '@/containers/content/CommunityContent/WipThread'
 
 import { VIEW } from '../constant'
@@ -62,22 +63,25 @@ type TProps = {
 
 const WorksList: FC<TProps> = ({ data, activeView }) => {
   const { entries } = data
+  const { isMobile } = usePlatform()
 
   return (
     <Wrapper>
       <TabWrapper>
         <OptionTab items={options} activeKey={activeView} />
-        <FilterWrapper>
-          <MenuButton
-            options={menuOptions}
-            extraOptions={extraOptions}
-            onClick={() => toggleSidebar()}
-          >
-            <IconText iconSrc={`${ICON}/filter.svg`} dimWhenIdle>
-              默认排序
-            </IconText>
-          </MenuButton>
-        </FilterWrapper>
+        {!isMobile && (
+          <FilterWrapper>
+            <MenuButton
+              options={menuOptions}
+              extraOptions={extraOptions}
+              onClick={() => toggleSidebar()}
+            >
+              <IconText iconSrc={`${ICON}/filter.svg`} dimWhenIdle>
+                默认排序
+              </IconText>
+            </MenuButton>
+          </FilterWrapper>
+        )}
       </TabWrapper>
 
       {activeView === VIEW.WORKS && (

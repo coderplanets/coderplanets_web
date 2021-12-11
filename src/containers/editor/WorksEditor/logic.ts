@@ -13,7 +13,12 @@ import type {
 import { ERR, HCN } from '@/constant'
 
 import { scrollToTop } from '@/utils/dom'
-import { selectCommunity, errRescue, classifyTechstack } from '@/utils/helper'
+import {
+  selectCommunity,
+  errRescue,
+  classifyTechstack,
+  authWarn,
+} from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { updateEditing } from '@/utils/mobx'
@@ -130,7 +135,8 @@ export const previousStep = (): void => {
 
 // to next launch step
 export const nextStep = (): void => {
-  const { step, isCurrentStepValid } = store
+  const { step, isCurrentStepValid, isLogin } = store
+  if (!isLogin) return authWarn()
 
   if (!isCurrentStepValid) {
     return store.setErrorMsgIfNeed()
