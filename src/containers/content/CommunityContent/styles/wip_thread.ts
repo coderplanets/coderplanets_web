@@ -10,6 +10,11 @@ export const Wrapper = styled.div`
   height: 300px;
   padding: 60px;
   padding-top: 40px;
+
+  ${css.media.mobile`
+    padding-left: 15px;
+    padding-right: 15px;
+  `};
 `
 export const WipIcon = styled(WipSVG)`
   ${css.size(80)};
