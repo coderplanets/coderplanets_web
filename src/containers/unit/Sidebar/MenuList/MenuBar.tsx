@@ -1,5 +1,5 @@
 import { FC, memo, useCallback } from 'react'
-import { toLower } from 'ramda'
+import { toLower, isEmpty } from 'ramda'
 
 import type { TCommunity } from '@/spec'
 import { ICON_CMD } from '@/config'
@@ -33,6 +33,9 @@ const MenuBar: FC<TProps> = ({
   activeRaw,
 }) => {
   const handleSelect = useCallback(() => onCommunitySelect(item), [item])
+  const contributesDigest = !isEmpty(item.contributesDigest)
+    ? item.contributesDigest
+    : [0, 0, 0, 0, 0, 0]
 
   return (
     <Wrapper onClick={handleSelect}>
@@ -54,7 +57,7 @@ const MenuBar: FC<TProps> = ({
           <MiniChartWrapper pin={pin}>
             <TrendLine
               key={item.raw}
-              data={item.contributesDigest}
+              data={contributesDigest}
               radius={15}
               width={7}
             />
