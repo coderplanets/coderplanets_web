@@ -189,7 +189,7 @@ const WorksEditor = T.model('WorksEditor', {
       const { step } = slf
       switch (step) {
         case STEP.ZERO: {
-          return slf.isNameValid
+          return slf.isNameValid && slf.isLogin
         }
         case STEP.ONE: {
           return slf.isBasicInfoValid

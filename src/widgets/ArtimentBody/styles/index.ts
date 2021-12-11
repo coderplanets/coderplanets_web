@@ -29,16 +29,28 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
       font-weight: bold;
     }
 
+    h1,
+    h2,
+    h3 {
+      color: ${theme('thread.articleTitle')};
+    }
+
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 25px;
+      font-size: 20px;
+    }
+
     h2 {
       margin-top: 20px;
       margin-bottom: 20px;
-      font-size: 20px;
+      font-size: 18px;
     }
 
     h3 {
       margin-top: 15px;
       margin-bottom: 15px;
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .image-wrapper {
