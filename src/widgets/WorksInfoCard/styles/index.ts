@@ -4,7 +4,11 @@ import type { TSpace } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  ${css.media.mobile`
+    padding-left: 30px;
+  `};
+`
 export const Row = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 10px;

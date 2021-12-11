@@ -18,23 +18,10 @@ export const InnerWrapper = styled.div`
   border-bottom-color: #0b4252;
   padding-bottom: 15px;
 `
-export const Title = styled.div`
-  font-size: 18px;
-  color: ${theme('thread.articleTitle')};
-  margin-bottom: 10px;
-`
-export const PublishDateInfo = styled.div`
-  font-size: 12px;
-  color: ${theme('thread.articleDigest')};
-`
 export const BannerContent = styled.div`
   ${css.flex()};
   height: 100%;
   width: 100%;
-`
-export const Brief = styled.div`
-  ${css.flexColumnGrow()};
-  width: 100%%;
 `
 export const Avatar = styled.img`
   ${css.circle(25)};

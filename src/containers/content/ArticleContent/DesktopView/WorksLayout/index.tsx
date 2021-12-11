@@ -5,8 +5,10 @@ import { WORKS_TAB } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
+import usePlatform from '@/hooks/usePlatform'
 
 import ArticleSticker from '@/containers/tool/ArticleSticker'
+import WorksInfoCard from '@/widgets/WorksInfoCard'
 
 import ArticleTab from './ArticleTab'
 import TechStackTab from './TechStackTab'
@@ -36,6 +38,7 @@ const ArticleContentContainer: FC<TProps> = ({
   testid,
 }) => {
   useInit(store)
+  const { isMobile } = usePlatform()
 
   const { viewingArticle: works, articleTab } = store
   if (!works.id) return null
@@ -45,9 +48,20 @@ const ArticleContentContainer: FC<TProps> = ({
       <Wrapper testid={testid}>
         <InnerWrapper>
           <TechStackTab metric={metric} article={works} />
-          <SidebarWrapper>
-            <ArticleSticker metric={metric} />
-          </SidebarWrapper>
+          {!isMobile && (
+            <SidebarWrapper>
+              <ArticleSticker metric={metric} />
+            </SidebarWrapper>
+          )}
+        </InnerWrapper>
+      </Wrapper>
+    )
+  }
+  if (articleTab === WORKS_TAB.BASIC && isMobile) {
+    return (
+      <Wrapper testid={testid}>
+        <InnerWrapper>
+          <WorksInfoCard article={works} />
         </InnerWrapper>
       </Wrapper>
     )
@@ -57,9 +71,11 @@ const ArticleContentContainer: FC<TProps> = ({
     <Wrapper testid={testid}>
       <InnerWrapper>
         <ArticleTab metric={metric} article={works} />
-        <SidebarWrapper>
-          <ArticleSticker metric={metric} />
-        </SidebarWrapper>
+        {!isMobile && (
+          <SidebarWrapper>
+            <ArticleSticker metric={metric} />
+          </SidebarWrapper>
+        )}
       </InnerWrapper>
     </Wrapper>
   )

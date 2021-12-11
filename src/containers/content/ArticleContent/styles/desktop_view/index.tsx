@@ -35,6 +35,7 @@ export const MainWrapper = styled.div<{ metric: TMetric }>`
 
   ${css.media.mobile`
     padding: 0 20px;
+    padding-left: 30px;
     margin: 0;
     max-width: 100%;
   `};
