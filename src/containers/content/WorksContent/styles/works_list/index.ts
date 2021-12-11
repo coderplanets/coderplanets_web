@@ -13,6 +13,10 @@ export const TabWrapper = styled.div`
   ${css.flex('align-center')};
   padding-left: 20px;
   padding-right: 10px;
+
+  ${css.media.mobile`
+    padding-left: 0;
+  `};
 `
 export const FilterWrapper = styled.div`
   ${css.flex('justify-end')};

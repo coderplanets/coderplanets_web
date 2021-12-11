@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import Link from 'next/link'
 
-import { ICON, GITHUB, BUILD_VERSION } from '@/config'
+import { ICON, GITHUB, BUILD_VERSION, ABOUT_LINK } from '@/config'
 
 import {
   Wrapper,
@@ -24,7 +24,7 @@ const MobileView: FC = () => (
     </SiteWrapper>
 
     <SiteInfoWrapper>
-      <Link href="/post/1" passHref>
+      <Link href={`${ABOUT_LINK}`} passHref>
         <Item>关于</Item>
       </Link>
       <Divider space={8} radius={3} />

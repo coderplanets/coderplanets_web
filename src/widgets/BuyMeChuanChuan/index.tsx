@@ -6,7 +6,7 @@
 
 import { FC, useState, memo } from 'react'
 
-import { ICON_CMD, GITHUB_CPS_TEAM } from '@/config'
+import { ICON_CMD, GITHUB } from '@/config'
 import { buildLog } from '@/utils/logger'
 import { useAccount } from '@/stores/init'
 
@@ -67,11 +67,7 @@ const BuyMeChuanChuan: FC<TProps> = ({
           <ChuanChuanSelect>
             <SelectTitle>
               请{' '}
-              <TeamName
-                href={GITHUB_CPS_TEAM}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <TeamName href={GITHUB} target="_blank" rel="noopener noreferrer">
                 开发者们
                 <NameLinkIcon src={`${ICON_CMD}/link2.svg`} />
               </TeamName>{' '}

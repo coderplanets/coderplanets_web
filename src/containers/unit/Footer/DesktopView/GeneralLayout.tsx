@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 
 import Link from 'next/link'
 import type { TMetric } from '@/spec'
-import { ICON, GITHUB } from '@/config'
+import { ICON, GITHUB, ABOUT_LINK } from '@/config'
 import { ROUTE } from '@/constant'
 import { joinUS } from '@/utils/helper'
 
@@ -32,7 +32,7 @@ const GeneralLayout: FC<TProps> = ({ metric, title = '' }) => {
         <TopInfo metric={metric} title={title} noBottomBorder />
         <MainInfos>
           <BaseInfo>
-            <Link href="/home/post/1" passHref>
+            <Link href={`${ABOUT_LINK}`} passHref>
               <Item>关于</Item>
             </Link>
             <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>

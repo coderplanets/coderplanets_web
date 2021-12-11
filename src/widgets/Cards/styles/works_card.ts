@@ -28,6 +28,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
     border-bottom: none;
   }
 
+  ${css.media.mobile`
+    padding-left: 2px;
+  `};
   transition: all 0.1s;
 `
 export const IntroImg = styled(Img)`
@@ -62,6 +65,9 @@ export const IntroWrapper = styled.div`
 export const Header = styled.div`
   ${css.flex('justify-between', 'align-start')};
   width: 100%;
+  ${css.media.mobile`
+    padding-right: 3px;
+  `};
 `
 export const Title = styled.div`
   ${css.flex('align-center')};

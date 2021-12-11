@@ -1,5 +1,6 @@
 import { FC, Fragment, memo } from 'react'
 
+import type { TSpace } from '@/spec'
 import { getRandomInt } from '@/utils/helper'
 import { Wrapper, Row, Dice } from './styles/work'
 
@@ -129,10 +130,14 @@ const rollTheDice = () => {
 
 type TProps = {
   testid?: string
-}
+} & TSpace
 
-const Work: FC<TProps> = ({ testid = 'image-fallbak-work' }) => {
-  return <Wrapper testid={testid}>{rollTheDice()}</Wrapper>
+const Work: FC<TProps> = ({ testid = 'image-fallbak-work', ...restProps }) => {
+  return (
+    <Wrapper testid={testid} {...restProps}>
+      {rollTheDice()}
+    </Wrapper>
+  )
 }
 
 export default memo(Work)

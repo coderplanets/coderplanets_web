@@ -6,7 +6,7 @@
 
 import { FC, memo } from 'react'
 
-import type { TUser } from '@/spec'
+import type { TUser, TSpace } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
 import Work from './Work'
@@ -20,12 +20,8 @@ export type TAvatarProps = {
   className?: string
   user?: TUser
   size?: number
-  left?: number
-  right?: number
-  top?: number
-  bottom?: number
   quote?: boolean
-}
+} & TSpace
 
 type TProps = {
   type?: 'avatar' | 'work'
@@ -34,7 +30,7 @@ type TProps = {
 const ImgFallback: FC<TProps> = ({ type = 'avatar', ...restProps }) => {
   switch (type) {
     case 'work': {
-      return <Work />
+      return <Work {...restProps} />
     }
 
     default:

@@ -1,11 +1,9 @@
 import { FC, memo } from 'react'
 
 import Link from 'next/link'
-import { ICON } from '@/config'
+import { ICON, ABOUT_LINK } from '@/config'
 import { ROUTE } from '@/constant'
 import { Space, SpaceGrow } from '@/widgets/Common'
-
-import type { TProps as TTopInfoProps } from './index'
 
 import {
   Wrapper,
@@ -28,7 +26,9 @@ const HomeCommunity: FC = () => {
         <Beta>beta</Beta>
       </SiteTitle>
       <SpaceGrow />
-      <Item>关于</Item>
+      <Link href={`${ABOUT_LINK}`} passHref>
+        <Item>关于</Item>
+      </Link>
       <Link href={`/${ROUTE.SUPPORT_US}`} passHref>
         <Item>支持我们</Item>
       </Link>

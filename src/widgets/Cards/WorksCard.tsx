@@ -67,7 +67,10 @@ const WorksCard: FC<TProps> = ({
   return (
     <Wrapper testid={testid} preview={preview}>
       {item.cover ? (
-        <IntroImg src={item.cover} fallback={<ImgFallback type="work" />} />
+        <IntroImg
+          src={item.cover}
+          fallback={<ImgFallback type="work" top={isMobile ? -20 : 0} />}
+        />
       ) : (
         <IntroImgHolder />
       )}
@@ -94,7 +97,7 @@ const WorksCard: FC<TProps> = ({
               )}
             </Title>
             <DigestSentence
-              top={5}
+              top={isMobile ? 2 : 5}
               bottom={isMobile ? 5 : 15}
               left={-2}
               onPreview={() => onPreview(item)}

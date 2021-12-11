@@ -7,11 +7,15 @@ import css from '@/utils/css'
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable & TSpace>`
+  ${css.size(70)};
   ${css.flexColumn('align-center', 'justify-between')};
-  width: 70px;
-  height: 70px;
   border-radius: 5px;
   padding: 12px;
+
+  ${css.media.mobile`
+    ${css.size(42)};
+    display: flex;
+  `};
 
   background: #003b49;
 
@@ -27,4 +31,8 @@ export const Row = styled.div`
 export const Dice = styled.div`
   ${css.circle(12)};
   background: #2f5257;
+
+  ${css.media.mobile`
+    ${css.circle(6)};
+  `};
 `

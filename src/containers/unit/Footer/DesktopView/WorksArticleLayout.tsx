@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import Link from 'next/link'
 import type { TArticle } from '@/spec'
-import { ICON, GITHUB } from '@/config'
+import { ICON, GITHUB, ABOUT_LINK } from '@/config'
 import { METRIC, ROUTE } from '@/constant'
 import { joinUS } from '@/utils/helper'
 
@@ -34,7 +34,7 @@ const WorksArticleLayout: FC<TProps> = ({ viewingArticle }) => {
         />
         <MainInfos>
           <BaseInfo>
-            <Link href="/home/post/1" passHref>
+            <Link href={`${ABOUT_LINK}`} passHref>
               <Item>关于</Item>
             </Link>
             <Link href={`/${ROUTE.APPLY_COMMUNITY}`} passHref>

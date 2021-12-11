@@ -4,7 +4,7 @@ import { FC, memo } from 'react'
 import Link from 'next/link'
 
 import type { TArticle, TC11NLayout, TMetric } from '@/spec'
-import { ICON, GITHUB } from '@/config'
+import { ICON, GITHUB, ABOUT_LINK } from '@/config'
 import { METRIC, ROUTE } from '@/constant'
 import { joinUS } from '@/utils/helper'
 
@@ -34,7 +34,7 @@ const BriefView: FC<TProps> = ({ metric, article, layout }) => {
         <TopInfo metric={METRIC.ARTICLE} article={article} noBottomBorder />
         <MainInfos>
           <BaseInfo>
-            <Link href="/home/post/1" passHref>
+            <Link href={`${ABOUT_LINK}`} passHref>
               <Item>关于</Item>
             </Link>
 
