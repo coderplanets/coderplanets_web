@@ -34,17 +34,30 @@ export const IntroImg = styled(Img)`
   ${css.size(75)};
   border-radius: 5px;
   margin-top: 2px;
+
+  ${css.media.mobile`
+    ${css.size(42)};
+    margin-top: -20px;
+  `};
 `
 export const IntroImgHolder = styled.div`
   ${css.size(75)};
   border-radius: 5px;
   margin-top: 2px;
   background-color: #10404e;
+
+  ${css.media.mobile`
+    ${css.size(42)};
+    margin-top: -20px;
+  `};
 `
 export const IntroWrapper = styled.div`
   ${css.flexColumnGrow('align-start', 'justify-between')};
   margin-left: 28px;
   /* border: 1px solid green; */
+  ${css.media.mobile`
+    margin-left: 15px;
+  `};
 `
 export const Header = styled.div`
   ${css.flex('justify-between', 'align-start')};

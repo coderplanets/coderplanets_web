@@ -51,6 +51,16 @@ const MainBlockInfo: FC = () => {
     )
   }
 
+  if (pathname === `/${ROUTE.PLAZA}`) {
+    return (
+      <Wrapper>
+        <Link href={asPath} passHref>
+          <Title>作品集市</Title>
+        </Link>
+      </Wrapper>
+    )
+  }
+
   if (pathname === '/works/[id]') {
     return (
       <Wrapper>

@@ -11,6 +11,7 @@ import Link from 'next/link'
 import type { TWorks } from '@/spec'
 import { ICON, ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
+import usePlatform from '@/hooks/usePlatform'
 
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
@@ -60,6 +61,7 @@ const WorksCard: FC<TProps> = ({
 }) => {
   const descLimit = preview ? 20 : 35
 
+  const { isMobile } = usePlatform()
   const { id, title, desc, upvotesCount, commentsCount } = item
 
   return (
@@ -93,7 +95,7 @@ const WorksCard: FC<TProps> = ({
             </Title>
             <DigestSentence
               top={5}
-              bottom={15}
+              bottom={isMobile ? 5 : 15}
               left={-2}
               onPreview={() => onPreview(item)}
               interactive={!preview}
@@ -121,7 +123,7 @@ const WorksCard: FC<TProps> = ({
             </Fragment>
           )}
 
-          {!preview && (
+          {!preview && !isMobile && (
             <PublishWrapper>
               <IconText
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}

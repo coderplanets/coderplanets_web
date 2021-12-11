@@ -27,6 +27,7 @@ import { communityPageMenus, getArticlePageMenus } from './menus'
 const isNotBelongToCommunityRoute = (pathname: string): boolean => {
   return includes(pathname, [
     `/${ROUTE.MEETUPS}`,
+    `/${ROUTE.PLAZA}`,
     `/${ROUTE.COOL_GUIDE}`,
     `/${ROUTE.HAVE_A_DRINK}`,
     `/${ROUTE.EXPLORE}`,
