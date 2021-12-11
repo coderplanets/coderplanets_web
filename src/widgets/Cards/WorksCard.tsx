@@ -36,6 +36,7 @@ import {
   FooterWrapper,
   BuildWithWrapper,
   TechIcon,
+  PublishWrapper,
   Divider,
   GithubIcon,
 } from './styles/works_card'
@@ -121,16 +122,14 @@ const WorksCard: FC<TProps> = ({
           )}
 
           {!preview && (
-            <Fragment>
-              <Divider />
+            <PublishWrapper>
               <IconText
                 iconSrc={`${ICON}/edit/publish-rocket.svg`}
                 margin="5px"
               >
                 <TimeAgo datetime={item.insertedAt} locale="zh_CN" />
               </IconText>
-              <Divider />
-            </Fragment>
+            </PublishWrapper>
           )}
           <IconText iconSrc={`${ICON}/article/comment.svg`} margin="5px">
             {commentsCount}

@@ -33,6 +33,7 @@ export const Title = styled.div`
 export const Desc = styled.div`
   font-size: 14px;
   margin-top: 3px;
+  margin-left: 10px;
   color: ${theme('thread.articleDigest')};
   ${css.cutRest('240px')};
 `

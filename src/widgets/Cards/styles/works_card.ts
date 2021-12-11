@@ -96,7 +96,7 @@ export const Divider = styled.div`
 export const BuildWithWrapper = styled.div`
   ${css.flex('align-center')};
   margin-left: 3px;
-  margin-right: 8px;
+  margin-right: 6px;
   /* padding: 2px 5px; */
   /* background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0); */
   margin-top: -2px;
@@ -115,4 +115,8 @@ export const TechIcon = styled(Img)`
 export const GithubIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(10)};
+`
+export const PublishWrapper = styled.div`
+  margin-top: -1px;
+  margin-right: 15px;
 `

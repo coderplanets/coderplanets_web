@@ -29,6 +29,12 @@ export const Avatar = styled(Img)`
   ${css.circle(20)};
   margin-top: 1px;
 `
+export const AvatarHolder = styled.div`
+  background: #003b49;
+  ${css.size(16)};
+  border-radius: 5px;
+`
+
 export const Intro = styled.div`
   ${css.flexColumn()};
   margin-left: 8px;
@@ -39,7 +45,6 @@ export const Title = styled.div`
 `
 export const UpvoteWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-top: 2px;
 `
 export const UpvoteIcon = styled(UpvoteSVG)`
   ${css.size(13)};

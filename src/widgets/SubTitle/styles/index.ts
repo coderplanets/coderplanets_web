@@ -16,10 +16,11 @@ export const Title = styled.div`
   font-size: 14px;
 `
 export const OptionWrapper = styled.div`
-  opacity: 0.6;
+  opacity: 0.8;
+  padding-right: 5px;
 
   ${Wrapper}:hover & {
     opacity: 1;
   }
-  transition: opacity 0.25s;
+  transition: opacity 0.2s;
 `

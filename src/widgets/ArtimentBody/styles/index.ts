@@ -24,14 +24,21 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
       margin-bottom: 18px;
     }
 
+    b {
+      color: ${theme('thread.articleTitle')};
+      font-weight: bold;
+    }
+
     h2 {
       margin-top: 20px;
       margin-bottom: 20px;
+      font-size: 20px;
     }
 
     h3 {
       margin-top: 15px;
       margin-bottom: 15px;
+      font-size: 17px;
     }
 
     .image-wrapper {
@@ -56,6 +63,5 @@ export const Body = styled.div<TBody>`
   -webkit-box-orient: vertical;
 `
 export const HTML = styled.div`
-  color: ${theme('thread.articleTitle')};
-  opacity: 0.9;
+  color: #7b9091; // ${theme('thread.articleTitle')};
 `
