@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ICON, GITHUB } from '@/config'
 
 import NaviButton from './NaviButton'
-import { Wrapper } from './styles/more_menu'
+import { Wrapper, A } from './styles/more_menu'
 
 const menus = [
   {
@@ -41,9 +41,9 @@ const MoreMenu: FC = () => {
     <Wrapper>
       {menus.map((item) => (
         <Link key={item.raw} href={item.link} passHref>
-          <a target={item.target || '_blank'}>
+          <A target={item.target || '_blank'}>
             <NaviButton item={item} />
-          </a>
+          </A>
         </Link>
       ))}
     </Wrapper>

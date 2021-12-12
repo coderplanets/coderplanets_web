@@ -22,11 +22,10 @@ export const Avatar = styled.img`
   ${css.circle(25)};
   margin-right: 5px;
 `
-
 export const Intro = styled.div`
   ${css.flexColumn()};
   width: 100%;
-  margin-left: 12px;
+  margin-left: 16px;
 `
 export const Cover = styled(Img)`
   ${css.size(45)};

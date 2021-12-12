@@ -102,6 +102,7 @@ router.route('/cool-guide').get((req, res) => {
 router.route('/plaza').get((req, res) => {
   return renderAndCache({ req, res, path: '/plaza' })
 })
+
 // 单个作品详情
 router.route('/works/:id').get((req, res) => {
   const { id } = req.params
