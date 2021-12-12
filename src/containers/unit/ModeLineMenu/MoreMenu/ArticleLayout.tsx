@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FC, memo } from 'react'
 
+import type { TArticle } from '@/spec'
 import { ICON } from '@/config'
 import { TYPE } from '@/constant'
 
@@ -17,25 +18,36 @@ const menus = [
   {
     icon: `${ICON}/article/report.svg`,
     title: '举报',
-    menu: '2',
-  },
-  {
-    icon: `${ICON}/pulse.svg`,
-    title: '关于作者',
-    menu: '3',
+    menu: 'report',
   },
 ]
 
-const MoreMenu: FC = () => {
+type TProps = {
+  article: TArticle
+}
+
+const ArticleLayout: FC<TProps> = ({ article }) => {
+  const { author } = article
+  const menuItems = [
+    ...menus,
+    {
+      icon: author.avatar,
+      title: author.nickname,
+      menu: '-',
+      type: 'avatar',
+      desc: '(作者)',
+    },
+  ]
+
   return (
     <Wrapper>
-      {menus.map((item) => (
+      {menuItems.map((item) => (
         <Title key={item.menu} onClick={() => openMenu(item.menu)}>
-          <NaviButton item={item} />
+          <NaviButton {...item} />
         </Title>
       ))}
     </Wrapper>
   )
 }
 
-export default memo(MoreMenu)
+export default memo(ArticleLayout)

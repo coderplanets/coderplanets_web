@@ -11,10 +11,8 @@ type TProps = {
 }
 
 const MoreMenu: FC<TProps> = ({ curActive }) => {
-  console.log('-# > curActive -> ', curActive)
-
   if (curActive.article?.id) {
-    return <ArticleLayout />
+    return <ArticleLayout article={curActive.article} />
   }
 
   return <CommunityLayout />

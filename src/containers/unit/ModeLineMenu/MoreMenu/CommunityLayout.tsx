@@ -42,7 +42,7 @@ const MoreMenu: FC = () => {
       {menus.map((item) => (
         <Link key={item.raw} href={item.link} passHref>
           <A target={item.target || '_blank'}>
-            <NaviButton item={item} />
+            <NaviButton {...item} />
           </A>
         </Link>
       ))}
