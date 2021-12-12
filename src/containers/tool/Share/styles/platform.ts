@@ -40,18 +40,32 @@ export const Article = styled.div`
 export const InnerWrapper = styled.div`
   ${css.flex()};
   flex-wrap: wrap;
+
+  ${css.media.mobile`
+    justify-content: space-between;
+  `};
 `
 export const Media = styled.div`
   ${css.size(80)};
   ${css.flexColumn('align-both')};
   margin-bottom: 18px;
   cursor: pointer;
+
+  ${css.media.mobile`
+    ${css.size(70)};
+    ${css.flexColumn('align-both')};
+    margin-bottom: 12px;
+  `};
 `
 export const LogoWrapper = styled.div<{ noBg: boolean }>`
   ${css.circle(38)};
   ${css.flex('align-both')};
   background: ${({ noBg }) => (noBg ? 'transparent' : '#184b56')};
   margin-bottom: 5px;
+
+  ${css.media.mobile`
+    transform: scale(0.8);
+  `};
 `
 export const Logo = styled(Img)<{ small: boolean }>`
   fill: ${theme('thread.articleTitle')};
@@ -72,4 +86,9 @@ export const Title = styled.div`
   ${Media}:hover & {
     color: #129698;
   }
+
+  ${css.media.mobile`
+    margin-top: 3px;
+    font-size: 13px;
+  `};
 `
