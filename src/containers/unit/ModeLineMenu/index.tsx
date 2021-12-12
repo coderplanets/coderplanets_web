@@ -19,6 +19,7 @@ import FilterMenu from './FilterMenu'
 import CommunityMenu from './CommunityMenu'
 import ExploreMenu from './ExploreMenu'
 import ShareMenu from './ShareMenu'
+import CollectMenu from './CollectMenu'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -30,7 +31,7 @@ const log = buildLog('C:ModeLineMenu')
 const renderMenus = (type, curActive, subscribedCommunities) => {
   switch (type) {
     case TYPE.MM_TYPE.MORE: {
-      return <MoreMenu />
+      return <MoreMenu curActive={curActive} />
     }
 
     case TYPE.MM_TYPE.SEARCH: {
@@ -51,6 +52,10 @@ const renderMenus = (type, curActive, subscribedCommunities) => {
 
     case TYPE.MM_TYPE.SHARE: {
       return <ShareMenu />
+    }
+
+    case TYPE.MM_TYPE.COLLECT: {
+      return <CollectMenu />
     }
 
     default: {

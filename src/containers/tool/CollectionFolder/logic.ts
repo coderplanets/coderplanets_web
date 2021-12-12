@@ -7,7 +7,7 @@ import { EVENT, ERR } from '@/constant'
 
 import asyncSuit from '@/utils/async'
 import { buildLog } from '@/utils/logger'
-import { send, errRescue } from '@/utils/helper'
+import { errRescue } from '@/utils/helper'
 import { updateEditing } from '@/utils/mobx'
 
 import type { TStore } from './store'
@@ -231,17 +231,21 @@ const load = (): void => {
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store: TStore): void => {
+export const useInit = (_store: TStore, isMobile: boolean): void => {
   useEffect(() => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     load()
 
+    if (isMobile) {
+      store.changeViewTo('setter')
+    }
+
     return () => {
       // log('effect uninit')
       sr71$.stop()
       sub$.unsubscribe()
     }
-  }, [_store])
+  }, [_store, isMobile])
 }

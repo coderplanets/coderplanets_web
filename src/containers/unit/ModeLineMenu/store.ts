@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { prop, trim, filter, contains } from 'ramda'
 
-import type { TRootStore, TCommunity } from '@/spec'
+import type { TRootStore, TArticle, TCommunity } from '@/spec'
 import { sortByIndex } from '@/utils/helper'
 import { markStates, toJS } from '@/utils/mobx'
 import { notEmpty } from '@/utils/validator'
@@ -17,12 +17,18 @@ const ModeLineMenu = T.model('ModeLineMenu', {
   searchCommunityValue: T.optional(T.string, ''),
 })
   .views((self) => ({
+    get viewingArticle(): TArticle {
+      const root = getParent(self) as TRootStore
+      return toJS(root.viewingArticle)
+    },
     get curActive(): TCurActive {
       const root = getParent(self) as TRootStore
+      const slf = self as TStore
 
       return {
         community: toJS(root.viewing.community),
         thread: root.viewing.activeThread,
+        article: toJS(slf.viewingArticle),
       }
     },
     get subscribedCommunities(): TCommunity[] {

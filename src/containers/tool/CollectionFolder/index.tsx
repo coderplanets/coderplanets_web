@@ -12,11 +12,12 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 import { ICON_CMD } from '@/config'
 
-import type { TStore } from './store'
+import usePlatform from '@/hooks/usePlatform'
 
 import Modal from '@/widgets/Modal'
 import SectionLabel from '@/widgets/SectionLabel'
 
+import type { TStore } from './store'
 import Creator from './Creator'
 import Updater from './Updater'
 import Setter from './Setter'
@@ -38,7 +39,8 @@ const CollectionFolderContainer: FC<TProps> = ({
   testid = 'collection-folder',
   onSelect = log,
 }) => {
-  useInit(store)
+  const { isMobile } = usePlatform()
+  useInit(store, isMobile)
 
   const {
     viewingArticle,
@@ -53,6 +55,21 @@ const CollectionFolderContainer: FC<TProps> = ({
   } = store
 
   const { entries } = pagedCategoriesData
+
+  if (isMobile) {
+    return (
+      <Wrapper>
+        <Setter
+          // entries={entries}
+          show={isSetterView}
+          article={viewingArticle}
+          selectedId="1"
+        />
+        {/* <Creator data={editCategoryData} show={isCreatorView} />
+        <Updater data={editCategoryData} show={isUpdaterView} /> */}
+      </Wrapper>
+    )
+  }
 
   return (
     <Fragment>

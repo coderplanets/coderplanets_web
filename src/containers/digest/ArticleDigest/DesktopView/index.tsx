@@ -8,6 +8,8 @@ import { isNil } from 'ramda'
 import type { TScrollDirection, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import useScroll from '@/hooks/useScroll'
+import usePlatform from '@/hooks/usePlatform'
+
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
@@ -40,13 +42,15 @@ const ArticleDigestContainer: FC<TProps> = ({
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
+  const { isMobile } = usePlatform()
   const { viewingArticle, inViewport, activeThread, tab } = store
 
   if (isNil(viewingArticle.id)) return null
 
   return (
     <Wrapper testid={testid} metric={metric}>
-      <CollectionFolder />
+      {!isMobile && <CollectionFolder />}
+
       <FixedHeader
         show={!inViewport}
         article={viewingArticle}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { EVENT } from '@/constant'
+import { EVENT, TYPE } from '@/constant'
 import { send } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 // import S from './service'
@@ -12,6 +12,35 @@ let store: TStore | undefined
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ModeLineMenu')
+
+export const openMenu = (activeMenu: string): void => {
+  console.log('mm openMenu: ', activeMenu)
+
+  switch (activeMenu) {
+    case TYPE.MM_TYPE.COLLECT: {
+      return openCollectionMenu()
+    }
+
+    default: {
+      // eslint-disable-next-line no-useless-return
+      return
+    }
+  }
+}
+
+/**
+ * open global navi menu on mobile
+ */
+const openCollectionMenu = () => {
+  send(EVENT.DRAWER.OPEN, {
+    type: TYPE.DRAWER.MODELINE_MENU,
+    data: TYPE.MM_TYPE.COLLECT,
+    options: {
+      direction: 'bottom',
+      position: 'M',
+    },
+  })
+}
 
 // if current menu has inside panel which has it's own CustomScroller
 // then should disableable the Drawer's contnet drag handler

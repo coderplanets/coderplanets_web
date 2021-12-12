@@ -69,6 +69,7 @@ const TYPE = {
     EXPLORE: 'explore',
     PUBLISH: 'publish',
     SHARE: 'share',
+    COLLECT: 'collect',
     SEARCH: 'search',
     MORE: 'more',
     UPVOTE: 'upvote',

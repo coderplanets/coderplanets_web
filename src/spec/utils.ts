@@ -178,5 +178,6 @@ export type TModelineType =
   | 'discover'
   | 'publish'
   | 'share'
+  | 'collect'
   | 'search'
   | 'more'

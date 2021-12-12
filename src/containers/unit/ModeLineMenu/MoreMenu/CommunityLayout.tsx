@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 import { ICON, GITHUB } from '@/config'
 
-import NaviButton from './NaviButton'
-import { Wrapper, A } from './styles/more_menu'
+import NaviButton from '../NaviButton'
+import { Wrapper, A } from '../styles/more_menu'
 
 const menus = [
   {
