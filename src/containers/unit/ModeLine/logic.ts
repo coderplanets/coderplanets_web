@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import type { TThread, TModelineType } from '@/spec'
+import type { TThread } from '@/spec'
 import { TYPE, EVENT } from '@/constant'
 
 import asyncSuit from '@/utils/async'
@@ -59,6 +59,10 @@ export const openMenu = (activeMenu: string): void => {
       return openExploreMenu()
     }
 
+    case TYPE.MM_TYPE.SHARE: {
+      return openShareMenu()
+    }
+
     default: {
       return openMoreMenu()
     }
@@ -86,6 +90,20 @@ const openSearchMenu = () => {
   send(EVENT.DRAWER.OPEN, {
     type: TYPE.DRAWER.MODELINE_MENU,
     data: TYPE.MM_TYPE.SEARCH,
+    options: {
+      direction: 'bottom',
+      position: 'M',
+    },
+  })
+}
+
+/**
+ * open article share menu
+ */
+const openShareMenu = () => {
+  send(EVENT.DRAWER.OPEN, {
+    type: TYPE.DRAWER.MODELINE_MENU,
+    data: TYPE.MM_TYPE.SHARE,
     options: {
       direction: 'bottom',
       position: 'M',

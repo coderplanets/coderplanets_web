@@ -6,6 +6,7 @@ import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { values } from 'ramda'
 
 import { SITE_URL_SHORT } from '@/config'
+import { THREAD } from '@/constant'
 import type { TArticle, TCommunity, TRootStore, TThread } from '@/spec'
 import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
@@ -62,7 +63,8 @@ const Share = T.model('Share', {
 
       const articleId = slf.viewingArticle.id
       const articleTitle = slf.viewingArticle.title
-      const thread = 'post' // TODO: use articles' own thread
+      const thread =
+        slf.viewingArticle.meta?.thread.toLowerCase() || THREAD.POST
 
       const link = `${SITE_URL_SHORT}/${thread}/${articleId}`
 

@@ -10,5 +10,9 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 }))<TWrapper>`
   ${css.flexColumn('justify-between')};
   height: auto;
+
+  ${css.media.mobile`
+    width: 100%;
+  `};
 `
 export const Title = styled.div``

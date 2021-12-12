@@ -6,7 +6,14 @@ import { FC, Fragment, memo } from 'react'
 import { reject } from 'ramda'
 
 import type { TWorks, TMetric } from '@/spec'
-import { METRIC, UPVOTE_LAYOUT, WORKS_TAB_ITEMS, WORKS_TAB } from '@/constant'
+import {
+  METRIC,
+  UPVOTE_LAYOUT,
+  WORKS_TAB_ITEMS,
+  WORKS_TAB,
+  SVG,
+} from '@/constant'
+import { shareTo, addCollection } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import ArticleBaseStats from '@/widgets/ArticleBaseStats'
@@ -63,8 +70,12 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
             <Other>
               <ArticleBaseStats article={article} />
               <Actions>
-                <IconButton path="article/collect-bookmark.svg" size={18} />
-                <IconButton path="article/share-solid.svg" size={18} />
+                <IconButton
+                  icon={SVG.COLLECTION}
+                  size={18}
+                  onClick={() => addCollection()}
+                />
+                <IconButton icon={SVG.SHARE} size={18} onClick={shareTo} />
               </Actions>
             </Other>
           </Intro>

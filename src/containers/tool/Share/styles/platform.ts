@@ -12,6 +12,13 @@ export const Wrapper = styled.div`
   background: ${theme('modal.bg')};
   filter: ${theme('modal.subPanelShadow')};
   transition: min-height 0.2s;
+
+  ${css.media.mobile`
+    background: transparent;
+    filter: none;
+    padding-left: 0;
+    padding-right: 0;
+  `};
 `
 export const Header = styled.div`
   ${css.flex('align-end')};
@@ -28,6 +35,7 @@ export const Article = styled.div`
   ${css.cutRest('180px')};
   font-size: 14px;
   margin-left: 5px;
+  margin-right: 5px;
 `
 export const InnerWrapper = styled.div`
   ${css.flex()};

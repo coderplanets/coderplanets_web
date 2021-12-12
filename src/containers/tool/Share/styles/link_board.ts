@@ -34,4 +34,8 @@ export const BoxWrapper = styled.div`
 `
 export const Inputer = styled(Input)`
   width: 380px;
+
+  ${css.media.mobile`
+    width: 310px;
+  `};
 `

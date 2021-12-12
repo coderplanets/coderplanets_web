@@ -18,6 +18,7 @@ import MoreMenu from './MoreMenu'
 import FilterMenu from './FilterMenu'
 import CommunityMenu from './CommunityMenu'
 import ExploreMenu from './ExploreMenu'
+import ShareMenu from './ShareMenu'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -46,6 +47,10 @@ const renderMenus = (type, curActive, subscribedCommunities) => {
 
     case TYPE.MM_TYPE.EXPLORE: {
       return <ExploreMenu communities={subscribedCommunities} />
+    }
+
+    case TYPE.MM_TYPE.SHARE: {
+      return <ShareMenu />
     }
 
     default: {

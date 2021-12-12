@@ -6,6 +6,7 @@ import { FC, Fragment } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
+import usePlatform from '@/hooks/usePlatform'
 
 import Modal from '@/widgets/Modal'
 
@@ -27,6 +28,18 @@ type TProps = {
 const ShareContainer: FC<TProps> = ({ share: store, testid }) => {
   useInit(store)
   const { show, siteShareType, linksData, viewingArticle } = store
+  const { isMobile } = usePlatform()
+
+  if (isMobile) {
+    return (
+      <Fragment>
+        <Wrapper testid={testid} type={siteShareType}>
+          <Platforms article={viewingArticle} />
+          <InfoPanel type={siteShareType} linksData={linksData} />
+        </Wrapper>
+      </Fragment>
+    )
+  }
 
   return (
     <Fragment>
