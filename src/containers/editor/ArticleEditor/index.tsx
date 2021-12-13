@@ -61,6 +61,8 @@ const ArticleEditorContainer: FC<TProps> = ({
   const { meta } = viewingArticle
   const { title, body } = editData
 
+  console.log('# > meta: ', meta)
+
   const initEditor = mode === 'publish' || body !== '{}'
 
   return (
@@ -107,7 +109,7 @@ const ArticleEditorContainer: FC<TProps> = ({
         <div>
           <CommunityBadgeSelector community={communityData} mode={mode} />
 
-          {mode === 'update' && !meta.isLegal && (
+          {mode === 'update' && meta && !meta.isLegal && (
             <IllegalWarning
               illegalReason={meta.illegalReason}
               illegalWords={meta.illegalWords}

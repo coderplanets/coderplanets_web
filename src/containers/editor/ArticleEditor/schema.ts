@@ -48,6 +48,7 @@ const updatePost = gql`
       title
       meta {
         thread
+        isLegal
       }
     }
   }

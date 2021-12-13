@@ -184,7 +184,7 @@ class LocationMap extends React.Component {
           >
             非技术原因
           </TheLink>
-          ，本站不持政治立场）。
+          ，本站不讨论政治）。
         </NoticeWrapper>
       </MapWrapper>
     )

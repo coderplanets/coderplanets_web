@@ -53,6 +53,38 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
       font-size: 16px;
     }
 
+    .list-item {
+      display: flex;
+      align-items: baseline;
+      box-sizing: content-box;
+      position: relative;
+      width: 100%;
+
+      .list__item-unorder-prefix {
+        position: relative;
+        margin-right: 26px;
+      }
+
+      .list__item-unorder-prefix::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: ${theme('thread.articleTitle')};
+        border-radius: 50%;
+        top: -8px;
+        left: 0;
+      }
+
+      .list-item-text {
+        font-size: 15px;
+        outline: none;
+        flex-grow: 1;
+        padding: 5px 0;
+        word-break: break-all;
+      }
+    }
+
     .image-wrapper {
       margin-bottom: 20px;
       .single-image img {
