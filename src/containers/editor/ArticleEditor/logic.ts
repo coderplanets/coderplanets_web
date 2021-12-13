@@ -106,6 +106,7 @@ export const setWordsCountState = (wordsCountReady: boolean): void => {
 
 const handleArticleRes = (article) => {
   store.setViewing(article)
+
   store.loadEditData(article)
 }
 

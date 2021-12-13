@@ -46,9 +46,14 @@ const updatePost = gql`
     ) {
       id
       title
+      author {
+        ${F.author}
+      }
       meta {
         thread
         isLegal
+        illegalReason
+        illegalWords
       }
     }
   }
@@ -99,8 +104,14 @@ const updateJob = gql`
     ) {
       id
       title
+      author {
+        ${F.author}
+      }
       meta {
         thread
+        isLegal
+        illegalReason
+        illegalWords
       }
     }
   }
@@ -147,8 +158,14 @@ const updateRadar = gql`
     ) {
       id
       title
+      author {
+        ${F.author}
+      }
       meta {
         thread
+        isLegal
+        illegalReason
+        illegalWords
       }
     }
   }

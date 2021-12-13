@@ -20,7 +20,7 @@ import { ARTICLE_THREAD } from '@/constant'
 
 import { markStates, toJS } from '@/utils/mobx'
 import { isURL } from '@/utils/validator'
-import { Community, Tag } from '@/model'
+import { Community, Tag, User } from '@/model'
 
 import type { TTexts, TEditData } from './spec'
 
@@ -30,6 +30,7 @@ const ArticleEditor = T.model('ArticleEditor', {
   archivedAt: T.maybeNull(T.string),
 
   title: T.optional(T.string, ''),
+  author: T.maybeNull(User),
   body: T.optional(T.string, '{}'),
   linkAddr: T.optional(T.string, ''),
   copyRight: T.optional(T.string, 'cc'),
@@ -62,11 +63,11 @@ const ArticleEditor = T.model('ArticleEditor', {
     },
     get allowEdit(): boolean {
       const slf = self as TStore
-      const { mode, accountInfo, viewingArticle } = slf
+      const { mode, accountInfo } = slf
 
       if (mode === 'publish') return true
 
-      return accountInfo.login === viewingArticle.author?.login
+      return accountInfo.login === slf.author?.login
     },
     get thread(): TArticleThread {
       const root = getParent(self) as TRootStore
@@ -149,6 +150,10 @@ const ArticleEditor = T.model('ArticleEditor', {
 
       return wordsCountReady && titleReady
     },
+    get isArticleAuthor(): boolean {
+      const slf = self as TStore
+      return slf.allowEdit
+    },
     get submitState(): TSubmitState {
       const slf = self as TStore
       return pick(
@@ -181,6 +186,7 @@ const ArticleEditor = T.model('ArticleEditor', {
     loadEditData(article: TArticle): void {
       const {
         title,
+        author,
         copyRight,
         linkAddr,
         isQuestion,
@@ -199,6 +205,8 @@ const ArticleEditor = T.model('ArticleEditor', {
       self.copyRight = copyRight
       self.isArchived = isArchived
       self.archivedAt = archivedAt
+      // @ts-ignore
+      self.author = author
 
       if (document?.body) self.body = document.body
 
