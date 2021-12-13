@@ -18,6 +18,7 @@ export const HomeLogo = styled(SiteLogo)`
 `
 export const Icon = styled(Img)`
   ${css.size(32)};
+  fill: ${theme('thread.articleDigest')};
 `
 export const Name = styled.a`
   text-decoration: none;

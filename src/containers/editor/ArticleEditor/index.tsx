@@ -61,8 +61,6 @@ const ArticleEditorContainer: FC<TProps> = ({
   const { meta } = viewingArticle
   const { title, body } = editData
 
-  console.log('# > meta: ', meta)
-
   const initEditor = mode === 'publish' || body !== '{}'
 
   return (
