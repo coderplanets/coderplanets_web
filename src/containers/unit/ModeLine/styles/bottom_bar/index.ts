@@ -29,13 +29,12 @@ export const ItemsWrapper = styled.div`
   width: auto;
   flex-grow: 1;
   height: 100%;
-  margin-left: 25px;
+  margin-left: 18px;
   margin-right: 18px;
 `
 export const MenuItem = styled.div`
   ${css.flex('align-center')};
 `
-
 export const MenuIcon = styled(Img)<TMenuIcon>`
   fill: ${({ active, colorTheme }: TMenuIcon) => {
     if (colorTheme) return theme(colorTheme)

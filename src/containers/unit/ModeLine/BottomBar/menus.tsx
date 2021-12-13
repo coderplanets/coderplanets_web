@@ -46,8 +46,8 @@ const articlePageMenus = [
   },
   {
     title: '',
-    raw: TYPE.MM_TYPE.PUBLISH,
-    icon: `${ICON}/article/collect-modeline.svg`,
+    raw: TYPE.MM_TYPE.SHARE,
+    icon: `${ICON}/article/share.svg`,
   },
   {
     title: '',

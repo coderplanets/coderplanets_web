@@ -13,6 +13,11 @@ export const OptionsWrapper = styled.div`
   padding-right: 20px;
   background: ${theme('modal.bg')};
   filter: ${theme('modal.subPanelShadow')};
+
+  ${css.media.mobile`
+    background: transparent;
+    padding: 0;
+  `};
 `
 export const FooterPanel = styled.div`
   ${css.flex('align-center')};
@@ -23,6 +28,12 @@ export const FooterPanel = styled.div`
   height: 56px;
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
+
+  ${css.media.mobile`
+    background: transparent;
+    margin-bottom: 40px;
+    padding: 0;
+  `};
 `
 export const Option = styled.div`
   ${css.flex('align-center')};

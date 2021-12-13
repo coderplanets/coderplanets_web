@@ -13,6 +13,11 @@ export const Wrapper = styled.div<{ showShadow: boolean }>`
   filter: ${({ showShadow }) =>
     showShadow ? theme('modal.subPanelShadow') : ''};
   z-index: 1;
+
+  ${css.media.mobile`
+    background: transparent;
+    padding: 12px 2px;
+  `};
 `
 export const ReportIcon = styled(Img)`
   ${css.size(16)};

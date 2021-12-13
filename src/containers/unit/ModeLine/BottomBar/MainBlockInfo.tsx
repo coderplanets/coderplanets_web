@@ -2,7 +2,6 @@ import { FC, memo } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import type { TCommunity } from '@/spec'
 import { ROUTE } from '@/constant'
 
 import { Wrapper, Title } from '../styles/bottom_bar/main_block_info'
@@ -64,7 +63,7 @@ const MainBlockInfo: FC = () => {
   if (pathname === '/works/[id]') {
     return (
       <Wrapper>
-        <Link href={asPath} passHref>
+        <Link href={`/${ROUTE.PLAZA}`} passHref>
           <Title>作品集市</Title>
         </Link>
       </Wrapper>

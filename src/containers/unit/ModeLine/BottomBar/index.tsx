@@ -95,9 +95,7 @@ const BottomBar: FC<TProps> = ({
               raw={item.raw}
               active={activeMenu === item.raw}
             />
-            {!isCommunityBlockExpand && item.title && (
-              <MenuDesc>{item.title}</MenuDesc>
-            )}
+            {item.title && <MenuDesc>{item.title}</MenuDesc>}
           </MenuItem>
         ))}
       </ItemsWrapper>

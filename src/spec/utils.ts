@@ -177,5 +177,8 @@ export type TModelineType =
   | 'filter'
   | 'discover'
   | 'publish'
+  | 'share'
+  | 'report'
+  | 'collect'
   | 'search'
   | 'more'

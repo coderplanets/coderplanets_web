@@ -24,6 +24,13 @@ export const Header = styled.div`
   height: 50px;
   width: 100%;
   z-index: 1;
+
+  ${css.media.mobile`
+    padding: 0;
+    background: transparent;
+    margin-top: -15px;
+    padding-left: 10px;
+  `};
 `
 export const Artiment = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -42,6 +49,13 @@ export const ListWrapper = styled.div`
   padding-bottom: 0;
   background: ${theme('modal.bg')};
   filter: ${theme('modal.subPanelShadow')};
+
+  ${css.media.mobile`
+    padding: 0;
+    margin-top: 10px;
+    margin-left: -15px;
+    background: transparent;
+  `};
 `
 export const FolderWrapper = styled.div`
   margin-left: 20px;
