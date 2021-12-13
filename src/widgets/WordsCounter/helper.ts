@@ -5,40 +5,60 @@ const countChinese = (str: string): number => {
   return !m ? 0 : m.length
 }
 
-const countEnglishWords = (str: string): number => {
+const countLatinWords = (str: string): number => {
   return str.split(/\b\W+\b/).length
 }
 
-const extractParagraph = ({ text }) => {
+const sanitizeText = (text: string): string => {
   return sanitizeHtml(text, {
     allowedTags: [],
     allowedAttributes: {},
   })
 }
+
+const parsePureTextForParagraph = ({ text }): string => {
+  return sanitizeText(text)
+}
+
+const parsePureTextForList = ({ items }): string => {
+  let preText = ''
+
+  for (let i = 0; i < items.length; i += 1) {
+    preText = preText.concat(sanitizeText(items[i].text))
+  }
+  return preText
+}
+
+/**
+ * extract sanitized texts from editor papare for count
+ */
 const extractWords = (body: string): string => {
   // console.log('extractWords parse: ', JSON.parse(body))
   const { blocks } = JSON.parse(body)
   if (!blocks) return ''
-  let textToCount = ''
+  let pureText = ''
 
   for (let i = 0; i < blocks.length; i += 1) {
-    const block = blocks[i]
+    const { type, data } = blocks[i]
 
-    if (block.type === 'paragraph') {
+    if (type === 'list') {
+      pureText = pureText.concat(parsePureTextForList(data))
+    }
+
+    if (type === 'paragraph') {
       // extractParagraph
-      textToCount = textToCount.concat(extractParagraph(block.data))
+      pureText = pureText.concat(parsePureTextForParagraph(data))
     }
   }
 
-  // console.log('extract words: ', textToCount)
-  return textToCount
+  return pureText
 }
 
 export const countWords = (body: string): number => {
   const str = extractWords(body)
   if (str.length === 0) return 0
 
-  return countChinese(str) + countEnglishWords(str)
+  return countChinese(str) + countLatinWords(str)
 }
 
 export const holder = 1
