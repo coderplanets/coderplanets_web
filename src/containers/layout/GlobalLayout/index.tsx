@@ -4,7 +4,7 @@
  *
  */
 
-import { FC, Fragment, ReactNode } from 'react'
+import { FC, Fragment, ReactNode, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import type { TSEO, TMetric } from '@/spec'
@@ -92,7 +92,7 @@ const GlobalLayoutContainer: FC<TProps> = ({
             </ContentWrapper>
           </InnerWrapper>
         </Fragment>
-        <ModeLine metric={metric} />
+        {isMobile && <ModeLine metric={metric} />}
       </Wrapper>
     </ThemePalette>
   )

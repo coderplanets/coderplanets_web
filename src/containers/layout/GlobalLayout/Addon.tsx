@@ -4,13 +4,11 @@ import useShortcut from '@/hooks/useShortcut'
 import usePlatform from '@/hooks/usePlatform'
 
 import { openDoraemon, logBuddha } from './logic'
-
-import { AbuseReport, Drawer, Doraemon, ErrorBox, Share } from './dynamic'
+import { AbuseReport, Doraemon, Share, Drawer, ErrorBox } from './dynamic'
 
 const Addon: FC = () => {
-  useShortcut('Control+P', openDoraemon)
   useEffect(() => logBuddha(), [])
-
+  useShortcut('Control+P', openDoraemon)
   const { isMobile } = usePlatform()
 
   return (
@@ -18,7 +16,7 @@ const Addon: FC = () => {
       {!isMobile && <AbuseReport />}
       <Drawer />
       {!isMobile && <Share />}
-      <Doraemon />
+      {!isMobile && <Doraemon />}
       <ErrorBox />
     </Fragment>
   )
