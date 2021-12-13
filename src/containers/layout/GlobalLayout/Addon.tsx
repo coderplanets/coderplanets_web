@@ -15,7 +15,7 @@ const Addon: FC = () => {
 
   return (
     <Fragment>
-      <AbuseReport />
+      {!isMobile && <AbuseReport />}
       <Drawer />
       {!isMobile && <Share />}
       <Doraemon />

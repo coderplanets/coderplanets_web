@@ -18,7 +18,7 @@ const menus = [
   {
     icon: `${ICON}/article/report.svg`,
     title: '举报',
-    menu: 'report',
+    menu: TYPE.MM_TYPE.REPORT,
   },
 ]
 

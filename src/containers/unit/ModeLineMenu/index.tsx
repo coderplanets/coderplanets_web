@@ -20,6 +20,7 @@ import CommunityMenu from './CommunityMenu'
 import ExploreMenu from './ExploreMenu'
 import ShareMenu from './ShareMenu'
 import CollectMenu from './CollectMenu'
+import ReportMenu from './ReportMenu'
 
 import type { TStore } from './store'
 import { Wrapper } from './styles'
@@ -58,6 +59,10 @@ const renderMenus = (type, curActive, subscribedCommunities) => {
       return <CollectMenu />
     }
 
+    case TYPE.MM_TYPE.REPORT: {
+      return <ReportMenu />
+    }
+
     default: {
       return <GlobalMenu />
     }
@@ -77,6 +82,8 @@ const ModeLineMenuContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { curActive, subscribedCommunities } = store
+
+  console.log('# type: ', type)
 
   return (
     <Wrapper testid={testid}>

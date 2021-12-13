@@ -14,7 +14,8 @@ import type { TStore } from './store'
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  receive: EVENT.REPORT,
+  // @ts-ignore
+  receive: [EVENT.REPORT],
 })
 
 let store: TStore | undefined
@@ -80,6 +81,7 @@ export const useInit = (_store: TStore): void => {
     return () => {
       if (!sub$) return
 
+      store.reset()
       sr71$.stop()
       sub$.unsubscribe()
       sub$ = null

@@ -10,6 +10,8 @@ import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
+
+import usePlatform from '@/hooks/usePlatform'
 import Modal from '@/widgets/Modal'
 
 import Header from './Header'
@@ -34,6 +36,23 @@ const AbuseReportContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { show, type, view, itemsData, activeItem, viewingArticle } = store
+
+  const { isMobile } = usePlatform()
+
+  if (isMobile) {
+    return (
+      <Wrapper testid={testid}>
+        <Header
+          type={type}
+          view={view}
+          activeItem={activeItem}
+          article={viewingArticle}
+        />
+        <ReportContent view={view} items={itemsData} activeItem={activeItem} />
+        <Footer view={view} />
+      </Wrapper>
+    )
+  }
 
   return (
     <Modal width="500px" show={show} showCloseBtn onClose={() => close()}>
