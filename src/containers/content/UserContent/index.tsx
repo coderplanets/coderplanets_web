@@ -11,6 +11,7 @@ import { USER_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import usePlatform from '@/hooks/usePlatform'
 import { Comments } from '@/containers/dynamic'
 import UserProfile from '@/containers/user/UserProfile'
 import UserPublishedArticles from '@/containers/user/UserPublishedArticles'
@@ -102,6 +103,8 @@ type TProps = {
 const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
   useInit(store)
 
+  const { isMobile } = usePlatform()
+
   const {
     activeThread,
     viewingUser,
@@ -116,12 +119,15 @@ const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
     <Wrapper>
       <BannerWrapper metric={metric} />
       <InnerWrapper metric={metric}>
-        <Sidebar
-          user={viewingUser}
-          isSelfViewing={isSelfViewing}
-          works={pagedWorksData}
-          editableCommunities={pagedEditableCommunitiesData}
-        />
+        {!isMobile && (
+          <Sidebar
+            user={viewingUser}
+            isSelfViewing={isSelfViewing}
+            works={pagedWorksData}
+            editableCommunities={pagedEditableCommunitiesData}
+          />
+        )}
+
         <ContentWrapper hasContentBg={hasContentBg}>
           <TabBarWrapper className="tabs-with-bottom">
             <TabBar

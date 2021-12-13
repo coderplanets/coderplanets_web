@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   filter: ${theme('modal.subPanelShadow')};
   padding: 20px 30px;
   margin-bottom: 20px;
+  overflow-y: hidden;
 `
 export const TitleWrapper = styled.div`
   ${css.flex('align-center')};

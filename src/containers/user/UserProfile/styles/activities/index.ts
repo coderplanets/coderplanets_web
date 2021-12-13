@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
+import css from '@/utils/css'
 
 export const Wrapper = styled.div`
   padding: 0 10px;
   margin-top: 50px;
+
+  ${css.media.mobile`
+    padding: 0 15px;
+  `};
 `
 export const Title = styled.div`
   font-size: 13px;

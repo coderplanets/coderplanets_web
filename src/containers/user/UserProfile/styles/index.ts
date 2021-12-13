@@ -1,15 +1,21 @@
 import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
+import css from '@/utils/css'
 import { theme } from '@/utils/themes'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
 }))<TTestable>``
+
 export const ContributesWrapper = styled.div`
   width: 100%;
   max-width: 800px;
   margin-top: 10px;
+
+  ${css.media.mobile`
+    padding: 0 15px;
+  `};
 `
 export const Divider = styled.div`
   width: 100%;

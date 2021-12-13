@@ -27,11 +27,17 @@ export const AuthorTitle = styled.a`
     color: ${theme('thread.articleTitle')};
     text-decoration: underline;
   }
+
+  ${css.media.mobile`
+    ${css.cutRest('260px')};
+  `};
 `
 export const AuthorName = styled.a`
   color: ${theme('thread.articleDigest')};
   font-size: 13px;
   text-decoration: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
 
   &:hover {
     color: ${theme('thread.articleDigest')};

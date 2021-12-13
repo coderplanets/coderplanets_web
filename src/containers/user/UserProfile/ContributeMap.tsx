@@ -16,6 +16,8 @@ import {
   TitleCount,
   Header,
   Divider,
+  CalendarWrapper,
+  CalendarInnerWrapper,
   DotText,
   ColorDot,
   DotList,
@@ -87,19 +89,23 @@ const UserContributeMap: FC<TProps> = ({ user }) => {
         </DotList>
       </Header>
       <Divider />
-      <CalendarHeatmap
-        startDate="2021-01-01"
-        endDate="2021-12-30"
-        // startDate={contributes.startDate}
-        // endDate={contributes.endDate}
-        showMonthLabels
-        onClick={(value) => log(value)}
-        gutterSize={4}
-        tooltipDataAttrs={customTooltipDataAttrs}
-        monthLabels={monthLabels}
-        values={contributes.records}
-        classForValue={getClass}
-      />
+      <CalendarWrapper>
+        <CalendarInnerWrapper>
+          <CalendarHeatmap
+            startDate="2021-01-01"
+            endDate="2021-12-30"
+            // startDate={contributes.startDate}
+            // endDate={contributes.endDate}
+            showMonthLabels
+            onClick={(value) => log(value)}
+            gutterSize={4}
+            tooltipDataAttrs={customTooltipDataAttrs}
+            monthLabels={monthLabels}
+            values={contributes.records}
+            classForValue={getClass}
+          />
+        </CalendarInnerWrapper>
+      </CalendarWrapper>
       <ReactTooltip effect="solid" place="top" id="user_contribute_map" />
     </Wrapper>
   )

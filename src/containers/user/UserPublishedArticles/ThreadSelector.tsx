@@ -47,7 +47,7 @@ const ThreadSelector: FC<TProps> = ({ thread, user }) => {
 
   return (
     <Wrapper>
-      <Text>累计共发布内容</Text>
+      <Text>共发布</Text>
       <Count>{total}</Count>
       <Text>篇</Text>
       <SpaceGrow />

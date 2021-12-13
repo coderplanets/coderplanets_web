@@ -15,11 +15,22 @@ export const Wrapper = styled.div`
   margin-left: -20px;
   margin-top: -15px;
   margin-bottom: 50px;
+
+  ${css.media.mobile`
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 35px;
+    margin-left: 0;
+  `};
 `
 const Section = styled.div`
   ${css.flexColumn('align-both')};
   width: 100px;
   height: 82px;
+
+  ${css.media.mobile`
+    width: 70px;
+  `};
 `
 export const NormalSection = styled(Section)`
   width: 70px;
@@ -27,13 +38,26 @@ export const NormalSection = styled(Section)`
 export const FollowSection = styled(Section)`
   width: 130px;
   padding-right: 10px;
+
+  ${css.media.mobile`
+    width: 80px;
+  `};
 `
 export const GravitySection = styled(Section)`
   width: 130px;
   margin-left: 8px;
+
+  ${css.media.mobile`
+    margin-left: 5px;
+    width: 80px;
+  `};
 `
 export const JoinSection = styled(Section)`
   width: 200px;
+
+  ${css.media.mobile`
+    width: 150px;
+  `};
 `
 export const CommunitiesWrapper = styled.div`
   margin-bottom: 5px;

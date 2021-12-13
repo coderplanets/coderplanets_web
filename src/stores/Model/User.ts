@@ -89,13 +89,13 @@ export const User = T.model('User', {
   /* fromWeixin: T.optional(T.boolean, false), */
   /* subscribedCommunities: T.optional(pagedCommunities, {}), */
   subscribedCommunities: T.maybeNull(PagedCommunities),
-  subscribedCommunitiesCount: T.optional(T.number, 0),
+  subscribedCommunitiesCount: T.maybeNull(T.number),
   contributes: T.optional(Contributes, {}),
   githubProfile: T.maybeNull(GithubProfile),
   // cmsPassportString: T.optional(T.string, '{}'),
 
-  followingsCount: T.optional(T.number, 0),
-  followersCount: T.optional(T.number, 0),
+  followingsCount: T.maybeNull(T.number),
+  followersCount: T.maybeNull(T.number),
 
   achievement: T.maybeNull(Achievement),
   editableCommunities: T.maybeNull(PagedCommunities),

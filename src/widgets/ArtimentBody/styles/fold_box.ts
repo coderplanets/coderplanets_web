@@ -19,6 +19,11 @@ export const Wrapper = styled.div<TWrapper>`
     background: #00333e;
   }
 
+  ${css.media.mobile`
+    margin-top: 18px;
+    margin-bottom: 18px;
+  `};
+
   transition: all 0.2s;
 `
 export const Hint = styled.div<{ mode: 'article' | 'comment' }>`

@@ -10,6 +10,11 @@ export const Wrapper = styled.div<{ first: boolean }>`
   padding-left: 0;
   color: ${theme('thread.articleDigest')};
   width: 100px;
+
+  ${css.media.mobile`
+    padding-right: 0;
+    width: 80px;
+  `};
 `
 export const DateInfo = styled.div`
   ${css.flex('align-end')};

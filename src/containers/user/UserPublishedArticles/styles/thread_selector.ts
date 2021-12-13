@@ -16,6 +16,13 @@ export const Wrapper = styled.div`
   margin-top: -15px;
   padding: 10px 20px;
   padding-left: 30px;
+
+  ${css.media.mobile`
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    height: 45px;
+  `};
 `
 export const Text = styled.div`
   color: ${theme('thread.articleDigest')};

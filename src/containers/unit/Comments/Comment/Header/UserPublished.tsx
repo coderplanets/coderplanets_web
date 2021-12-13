@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { FC, memo, Fragment } from 'react'
 import Link from 'next/link'
 import TimeAgo from 'timeago-react'
@@ -32,10 +33,6 @@ const CommentHeader: FC<TProps> = ({ data }) => {
             <Link href={`/${article.thread}/${article.id}`} passHref>
               <AuthorTitle>{article.title}</AuthorTitle>
             </Link>
-            <DotDivider space={8} />
-            <Link href={`/u/${article.author.login}`} passHref>
-              <AuthorName>{article.author.nickname}</AuthorName>
-            </Link>
           </ArticleBase>
           <FloorNum>
             #<Space right={2} />
@@ -43,9 +40,12 @@ const CommentHeader: FC<TProps> = ({ data }) => {
           </FloorNum>
           <Space right={10} />
         </BaseInfo>
+        <Link href={`/u/${article.author.login}`} passHref>
+          <AuthorName>{article.author.nickname}</AuthorName>
+        </Link>
 
         <CreateDate>
-          评论于: <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
+          // 评论于: <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
         </CreateDate>
       </HeaderBaseInfo>
     </Fragment>

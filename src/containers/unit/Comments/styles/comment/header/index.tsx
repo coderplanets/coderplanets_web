@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -13,6 +12,7 @@ export const Wrapper = styled.div`
 export const HeaderBaseInfo = styled.div`
   ${css.flexColumn()};
   width: 100%;
+  margin-left: 5px;
 `
 export const BaseInfo = styled.div`
   ${css.flexGrow('align-center')};

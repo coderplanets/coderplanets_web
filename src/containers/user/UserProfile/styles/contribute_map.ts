@@ -14,6 +14,12 @@ const dotColor = (scale: string): TTheme => {
 
 export const Wrapper = styled.div`
   padding: 0 10px;
+
+  ${css.media.mobile`
+    padding: 0 4px;
+    width: 350px;
+    overflow-x: hidden;
+  `};
 `
 export const Header = styled.div`
   ${css.flex('align-center')};
@@ -26,6 +32,17 @@ export const Divider = styled.div`
   opacity: 0.2;
   margin-top: 12px;
   margin-bottom: 16px;
+`
+export const CalendarWrapper = styled.div`
+  ${css.media.mobile`
+    width: 330px;
+    overflow-x: scroll;
+  `};
+`
+export const CalendarInnerWrapper = styled.div`
+  ${css.media.mobile`
+    width: 650px;
+  `};
 `
 export const Title = styled.div`
   ${css.flex('align-center')};

@@ -1,6 +1,8 @@
-import { FC, memo } from 'react'
+import { FC, memo, Fragment } from 'react'
 
 import type { TUser, TPagedCommunities } from '@/spec'
+import usePlatform from '@/hooks/usePlatform'
+
 import FollowButton from '@/widgets/Buttons/FollowButton'
 import Button from '@/widgets/Buttons/Button'
 import { Br } from '@/widgets/Common'
@@ -28,6 +30,8 @@ type TProps = {
 }
 
 const Numberspad: FC<TProps> = ({ user, subscribedCommunities }) => {
+  const { isMobile } = usePlatform()
+
   return (
     <Wrapper>
       <GravitySection>
@@ -44,19 +48,19 @@ const Numberspad: FC<TProps> = ({ user, subscribedCommunities }) => {
       </GravitySection>
       <Divider />
       <NormalSection>
-        <Num>{user.followersCount}</Num>
+        <Num>{user.followersCount || 0}</Num>
         <Title>关注者</Title>
       </NormalSection>
       <Divider />
       <NormalSection>
-        <Num>{user.followingsCount}</Num>
+        <Num>{user.followingsCount || 0}</Num>
         <Title>关注了</Title>
       </NormalSection>
       <Divider />
       <JoinSection>
         <CommunitiesWrapper>
           <CommunityList
-            items={subscribedCommunities.entries}
+            items={subscribedCommunities.entries.slice(0, isMobile ? 3 : 7)}
             size={16}
             bottom={1}
             right={8}
@@ -69,15 +73,23 @@ const Numberspad: FC<TProps> = ({ user, subscribedCommunities }) => {
           <Title>加入的子社区</Title>
         )}
       </JoinSection>
-      <Divider />
-      <FollowSection>
-        <Br bottom={4} />
-        <FollowButton size="small" hasFollowed={false} followingOffset={-6} />
-        <Br bottom={6} />
-        <Button size="tiny" ghost noBorder>
-          违规举报
-        </Button>
-      </FollowSection>
+      {!isMobile && (
+        <Fragment>
+          <Divider />
+          <FollowSection>
+            <Br bottom={4} />
+            <FollowButton
+              size="small"
+              hasFollowed={false}
+              followingOffset={-6}
+            />
+            <Br bottom={6} />
+            <Button size="tiny" ghost noBorder>
+              违规举报
+            </Button>
+          </FollowSection>
+        </Fragment>
+      )}
     </Wrapper>
   )
 }

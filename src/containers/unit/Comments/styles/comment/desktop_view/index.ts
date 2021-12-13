@@ -93,6 +93,10 @@ export const IndentLine = styled.div`
 export const CommentBodyInfo = styled.div`
   ${css.flexColumn()};
   width: 100%;
+
+  ${css.media.mobile`
+    max-width: 310px;
+  `};
 `
 export const CommentContent = styled.div`
   margin-left: 4px;

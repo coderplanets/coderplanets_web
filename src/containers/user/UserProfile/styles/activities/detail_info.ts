@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
-import Img from '@/Img'
 import EditPenSVG from '@/icons/EditPen'
 
 export const Wrapper = styled.div<{ first: boolean }>`
@@ -32,10 +31,18 @@ export const Content = styled.div``
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 14px;
+
+  ${css.media.mobile`
+    ${css.cutRest('200px')};
+  `};
 `
 export const Digest = styled.div`
   color: ${theme('thread.articleDigest')};
   ${css.cutRest('400px')};
   font-size: 13px;
   padding-top: 4px;
+
+  ${css.media.mobile`
+    ${css.cutRest('200px')};
+  `};
 `
