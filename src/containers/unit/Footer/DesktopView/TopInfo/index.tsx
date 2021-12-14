@@ -51,6 +51,9 @@ const TopInfo: FC<TProps> = ({
     case METRIC.SUPPORT_US: {
       return <General title="支持我们" />
     }
+    case METRIC.SPONSOR: {
+      return <General title="特别感谢" />
+    }
     case METRIC.SUBSCRIBE: {
       return <General title="内容订阅" />
     }
