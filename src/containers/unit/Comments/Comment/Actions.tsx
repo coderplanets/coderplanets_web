@@ -2,8 +2,10 @@ import { FC, memo, useCallback } from 'react'
 
 import type { TComment } from '@/spec'
 import { ICON } from '@/config'
-
 import { useAccount } from '@/hooks'
+
+import { authWarn } from '@/utils/helper'
+
 import IconButton from '@/widgets/Buttons/IconButton'
 import MenuButton from '@/widgets/Buttons/MenuButton'
 import { SpaceGrow } from '@/widgets/Common'
@@ -34,7 +36,7 @@ type TProps = {
 }
 
 const Actions: FC<TProps> = ({ data }) => {
-  const { user } = useAccount()
+  const { user, isValidSession } = useAccount()
 
   let extraOptions = []
 
@@ -55,21 +57,23 @@ const Actions: FC<TProps> = ({ data }) => {
 
   const handleAction = useCallback(
     (key) => {
+      if (!isValidSession) return authWarn()
+
       switch (key) {
         case 'share': {
-          return console.log('todo: share')
+          return alert('todo: share')
         }
         case 'quote': {
-          return console.log('todo: quote')
+          return alert('todo: quote')
         }
         case 'report': {
-          return console.log('todo: report')
+          return alert('todo: report')
         }
         case 'edit': {
           return openUpdateEditor(data)
         }
         case 'delete': {
-          return console.log('todo: delete')
+          return alert('todo: delete')
         }
         default: {
           // eslint-disable-next-line no-useless-return
@@ -77,13 +81,21 @@ const Actions: FC<TProps> = ({ data }) => {
         }
       }
     },
-    [data],
+    [data, isValidSession],
   )
 
   return (
     <Wrapper>
       {data.meta.isLegal && (
-        <ReplyAction onClick={() => openReplyEditor(data)}>回复</ReplyAction>
+        <ReplyAction
+          onClick={() => {
+            if (!isValidSession) return authWarn()
+
+            openReplyEditor(data)
+          }}
+        >
+          回复
+        </ReplyAction>
       )}
 
       <SpaceGrow />

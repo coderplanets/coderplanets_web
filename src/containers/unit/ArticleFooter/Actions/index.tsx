@@ -1,7 +1,8 @@
 import { FC, memo, Fragment } from 'react'
 
 import usePlatform from '@/hooks/usePlatform'
-import { report } from '@/utils/helper'
+import { report, authWarn } from '@/utils/helper'
+import { useAccount } from '@/hooks'
 
 import DotDivider from '@/widgets/DotDivider'
 
@@ -20,6 +21,8 @@ const Actions: FC<TProps> = ({
   showOperationList,
 }) => {
   const { isMobile } = usePlatform()
+  const { isValidSession } = useAccount()
+
   return (
     <Wrapper>
       {citingCount !== 0 && (
@@ -39,7 +42,13 @@ const Actions: FC<TProps> = ({
         <Text active={showOperationList}>日志</Text>
       </Item> */}
       {/* <DotDivider space={8} /> */}
-      <Item onClick={() => report('ARTICLE')}>
+      <Item
+        onClick={() => {
+          if (!isValidSession) return authWarn()
+
+          report('ARTICLE')
+        }}
+      >
         <Text>举报</Text>
       </Item>
     </Wrapper>

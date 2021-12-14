@@ -3,12 +3,12 @@ import { FC, memo } from 'react'
 import type { TArticle } from '@/spec'
 import { SVG } from '@/constant'
 
-import { shareTo, addCollection } from '@/utils/helper'
+import { shareTo } from '@/utils/helper'
 import IconButton from '@/widgets/Buttons/IconButton'
 import Upvote from '@/widgets/Upvote'
 
 import { Wrapper } from '../styles/right_sticker/default_sticker'
-import { handleUpvote } from '../logic'
+import { handleUpvote, handleCollect } from '../logic'
 
 type TProps = {
   show: boolean
@@ -26,7 +26,7 @@ const ArticleSticker: FC<TProps> = ({ show, article }) => {
       />
       <IconButton
         icon={SVG.COLLECTION}
-        onClick={() => addCollection()}
+        onClick={() => handleCollect()}
         size={23}
         mLeft={2}
         mTop={18}

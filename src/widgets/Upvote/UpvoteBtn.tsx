@@ -5,6 +5,8 @@
  */
 
 import { FC, memo, useState, useCallback } from 'react'
+import { authWarn } from '@/utils/helper'
+import { useAccount } from '@/hooks'
 
 import type { TUpvoteLayout } from '@/spec'
 import { buildLog } from '@/utils/logger'
@@ -38,7 +40,11 @@ const UpvoteBtn: FC<TProps> = ({
   const [showAnimation, setShowAnimation] = useState(false)
   const [num, setNum] = useState(0)
 
+  const { isValidSession } = useAccount()
+
   const handleClick = useCallback(() => {
+    if (!isValidSession) return authWarn()
+
     onAction(!viewerHasUpvoted)
     if (viewerHasUpvoted) return
     setNum(num + 1)
@@ -48,7 +54,7 @@ const UpvoteBtn: FC<TProps> = ({
 
       setTimeout(() => setShowAnimation(false), 950)
     }
-  }, [showAnimation, viewerHasUpvoted, num, onAction])
+  }, [showAnimation, viewerHasUpvoted, num, onAction, isValidSession])
 
   return (
     <Wrapper showAnimation={showAnimation} type={type}>

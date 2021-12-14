@@ -1,6 +1,9 @@
 import { FC, memo } from 'react'
 
 import type { TComment } from '@/spec'
+import { useAccount } from '@/hooks'
+
+import { authWarn } from '@/utils/helper'
 
 import DotDivider from '@/widgets/DotDivider'
 import { SpaceGrow } from '@/widgets/Common'
@@ -19,6 +22,7 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({ data, apiMode }) => {
+  const { isValidSession } = useAccount()
   const { isLegal } = data.meta
 
   return (
@@ -26,9 +30,10 @@ const Footer: FC<TProps> = ({ data, apiMode }) => {
       <EmotionSelector
         isLegal={isLegal}
         emotions={data.emotions}
-        onAction={(name, hasEmotioned) =>
+        onAction={(name, hasEmotioned) => {
+          if (!isValidSession) return authWarn()
           handleEmotion(data, name, hasEmotioned)
-        }
+        }}
       />
       {apiMode === API_MODE.ARTICLE && isLegal && (
         <DotDivider radius={3} space={10} />
