@@ -34,14 +34,13 @@ const PublishButton: FC<TProps> = ({
   community = HCN,
   text = getText(thread),
 }) => {
-  const { c11n } = useAccount()
-  const { isLogin } = c11n
+  const { isValidSession } = useAccount()
 
   return (
     <Wrapper>
       <PubButton
         onClick={() => {
-          if (!isLogin) return authWarn()
+          if (!isValidSession) return authWarn()
           const url = getTargetPage(community, thread)
           Router.push(url)
         }}
