@@ -13,6 +13,8 @@ import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import usePlatform from '@/hooks/usePlatform'
+
 import { Br } from '@/widgets/Common'
 import { SponsorGallery } from '@/widgets/GalleryHub'
 
@@ -101,6 +103,7 @@ const SponsorContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
+  const { isMobile } = usePlatform()
   const { bannerVisiable } = store
 
   return (
@@ -109,11 +112,12 @@ const SponsorContentContainer: FC<TProps> = ({
       <InnerWrapper bannerVisiable={bannerVisiable}>
         <Br top={50} />
         <SponsorTypeTitle title="天使赞助" />
-        <Br top={45} />
+        <Br top={isMobile ? 20 : 45} />
         <SponsorGallery items={goldItems} level="gold" />
+        <Br top={isMobile ? 45 : 0} />
         <ContentWrapper metric={metric}>
           <SponsorTypeTitle title="友情赞助" type="heart" />
-          <Br top={50} />
+          <Br top={isMobile ? 15 : 50} />
           <SponsorGallery items={items} level="silver" />
         </ContentWrapper>
         <DonateTitle>感谢各位好心人热心打赏</DonateTitle>
