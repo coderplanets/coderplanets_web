@@ -11,6 +11,7 @@ import { USER_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import MobileBanner from './MobileBanner'
 import usePlatform from '@/hooks/usePlatform'
 import { Comments } from '@/containers/dynamic'
 import UserProfile from '@/containers/user/UserProfile'
@@ -117,7 +118,9 @@ const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
 
   return (
     <Wrapper>
-      <BannerWrapper metric={metric} />
+      <BannerWrapper metric={metric}>
+        {isMobile && <MobileBanner user={viewingUser} />}
+      </BannerWrapper>
       <InnerWrapper metric={metric}>
         {!isMobile && (
           <Sidebar
