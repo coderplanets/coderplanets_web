@@ -95,7 +95,7 @@ export const CommentBodyInfo = styled.div`
   width: 100%;
 
   ${css.media.mobile`
-    max-width: 310px;
+    width: calc(100vw - 60px);
   `};
 `
 export const CommentContent = styled.div`

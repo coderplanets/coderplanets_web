@@ -26,7 +26,7 @@ const GlobalLayout = T.model('GlobalLayoutStore', {
   .views((self) => ({
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore
-      return root.accountInfo
+      return root.account.accountInfo
     },
     get c11n(): TC11N {
       const root = getParent(self) as TRootStore

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
-import { authWarn } from '@/utils/helper'
+import { authWarn, addCollection } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
 import { matchArticleUpvotes } from '@/utils/macros'
@@ -34,6 +34,11 @@ export const handleUpvote = (viewerHasUpvoted: boolean): void => {
   viewerHasUpvoted
     ? sr71$.mutate(S.getUpvoteSchema(meta.thread), { id })
     : sr71$.mutate(S.getUndoUpvoteSchema(meta.thread), { id })
+}
+
+export const handleCollect = (): void => {
+  if (!store.isLogin) return authWarn({ hideToast: true })
+  addCollection()
 }
 
 // export const loadPagedCommentsParticipants = (): void => {

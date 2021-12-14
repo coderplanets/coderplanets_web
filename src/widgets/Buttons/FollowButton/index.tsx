@@ -5,8 +5,11 @@
 import { FC, memo, useState, useCallback } from 'react'
 
 import { TID, TSIZE_TSM } from '@/spec'
-import { buildLog } from '@/utils/logger'
 import { SIZE } from '@/constant'
+import { buildLog } from '@/utils/logger'
+
+import { authWarn } from '@/utils/helper'
+import { useAccount } from '@/hooks'
 
 import FollowingBtn from './FollowingBtn'
 import FollowedBtn from './FollowedBtn'
@@ -42,21 +45,27 @@ const FollowButton: FC<TProps> = ({
   const [fakeLoading, setFakeLoading] = useState(false)
   const isLoading = simuLoading ? fakeLoading : loading
 
+  const { isValidSession } = useAccount()
+
   const handleFollow = useCallback(() => {
+    if (!isValidSession) return authWarn()
+
     if (simuLoading) {
       setFakeLoading(true)
       setTimeout(() => setFakeLoading(false), 1500)
     }
     onFollow(userId)
-  }, [simuLoading, onFollow, userId])
+  }, [simuLoading, onFollow, userId, isValidSession])
 
   const handleUndoFollow = useCallback(() => {
+    if (!isValidSession) return authWarn()
+
     if (simuLoading) {
       setFakeLoading(true)
       setTimeout(() => setFakeLoading(false), 1500)
     }
     onUndoFollow(userId)
-  }, [simuLoading, onUndoFollow, userId])
+  }, [simuLoading, onUndoFollow, userId, isValidSession])
 
   return (
     <>
