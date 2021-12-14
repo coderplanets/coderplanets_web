@@ -21,7 +21,7 @@ export const UserWrapper = styled.div`
   border-bottom-color: ${theme('drawer.divider')};
 `
 export const UserAvatar = styled(Img)`
-  ${css.size(42)};
+  ${css.size(32)};
   border-radius: 42%;
   margin-top: 4px;
 

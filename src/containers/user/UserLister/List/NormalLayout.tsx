@@ -4,6 +4,7 @@ import type { TUser } from '@/spec'
 import Link from 'next/link'
 
 import { useAccount } from '@/hooks'
+import { cutRest } from '@/utils/helper'
 import FollowButton from '@/widgets/Buttons/FollowButton'
 
 import {
@@ -36,7 +37,7 @@ const NormalLayout: FC<TProps> = ({ users }) => {
           <UserBrief>
             <Title>
               <Link href={`/u/${user.login}`} passHref>
-                <Nickname>{user.nickname}</Nickname>
+                <Nickname>{cutRest(user.nickname, 15)}</Nickname>
               </Link>
               <Location>
                 <CityIcon />
@@ -44,7 +45,7 @@ const NormalLayout: FC<TProps> = ({ users }) => {
               </Location>
             </Title>
             <Action>
-              {isLogin && account.id === user.id ? (
+              {isLogin && account.login === user.login ? (
                 <div>(本尊)</div>
               ) : (
                 <FollowButton

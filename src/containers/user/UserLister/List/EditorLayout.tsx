@@ -46,7 +46,7 @@ const EditorLayout: FC<TProps> = ({ users }) => {
             </Title>
             <Desc>{user.bio}</Desc>
             <Action>
-              {isLogin && account.id === user.id ? (
+              {isLogin && account.login === user.login ? (
                 <div>(本尊)</div>
               ) : (
                 <FollowButton
