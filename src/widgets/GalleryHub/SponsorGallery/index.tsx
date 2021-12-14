@@ -7,6 +7,7 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
 
+import usePlatform from '@/hooks/usePlatform'
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
@@ -45,6 +46,8 @@ type TProps = {
 }
 
 const SponsorGallery: FC<TProps> = ({ items, level = 'gold' }) => {
+  const { isMobile } = usePlatform()
+
   return (
     <Wrapper center={level === 'gold'}>
       {items.map((item, index) => (
@@ -52,7 +55,7 @@ const SponsorGallery: FC<TProps> = ({ items, level = 'gold' }) => {
           <Header>
             <IntroHead>
               <Title level={level}>{item.title}</Title>
-              {level === 'silver' && <Icon />}
+              {level === 'silver' && !isMobile && <Icon />}
             </IntroHead>
           </Header>
           {level === 'gold' && (
@@ -60,9 +63,11 @@ const SponsorGallery: FC<TProps> = ({ items, level = 'gold' }) => {
             // <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
           )}
           {item.desc && <Desc level={level}>{cutRest(item.desc, 30)}</Desc>}
-          <LinkWrapper>
-            <Linker src={item.addr} left={-5} />
-          </LinkWrapper>
+          {!isMobile && (
+            <LinkWrapper>
+              <Linker src={item.addr} left={-5} />
+            </LinkWrapper>
+          )}
         </Block>
       ))}
     </Wrapper>

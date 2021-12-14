@@ -10,6 +10,10 @@ export const Wrapper = styled.div<{ center: boolean }>`
   flex-wrap: wrap;
   color: ${theme('thread.articleDigest')};
   width: 100%;
+
+  ${css.media.mobile`
+    padding: 0 30px;
+  `};
 `
 type TBlock = { level: string }
 export const Block = styled.div<TBlock>`
@@ -32,6 +36,11 @@ export const Block = styled.div<TBlock>`
   }
   transition: all 0.2s;
   transition-delay: 0.2s;
+
+  ${css.media.mobile`
+    width: 50%;
+    padding: 0;
+  `};
 `
 export const Header = styled.div`
   ${css.flexColumn()};
@@ -42,6 +51,12 @@ export const IntroHead = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  ${css.media.mobile`
+    ${css.flex('align-both')};
+    padding-right: 20%;
+    margin-top: 45px;
+  `};
 `
 export const Icon = styled.div`
   ${css.size(20)};
@@ -81,6 +96,18 @@ export const Desc = styled.div<{ level: string }>`
   cursor: pointer;
   height: 45px;
   margin-top: ${({ level }) => (level === 'gold' ? '3px' : '5px')};
+
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+
+  ${css.media.mobile`
+    padding-right: 20px;
+    height: auto;
+  `};
 
   ${Block}:hover & {
     color: ${theme('thread.articleTitle')};

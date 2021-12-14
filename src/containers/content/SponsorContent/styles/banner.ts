@@ -50,6 +50,11 @@ export const SupportTitle = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 20px;
   margin-bottom: 20px;
+
+  ${css.media.mobile`
+    padding: 0 40px;
+    text-align: center;
+  `};
 `
 
 const Anchor = styled.div`
