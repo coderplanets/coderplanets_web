@@ -19,6 +19,7 @@ import {
   TitleText,
   LogoHolder,
 } from '../styles/classic_layout/community_brief'
+import { subscribeCommunity, unsubscribeCommunity } from '../logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
@@ -45,7 +46,13 @@ const CommunityBrief: FC<TProps> = ({ community, descExpand }) => {
         <TitleWrapper>
           <Title descExpand={descExpand}>
             <TitleText>{community.title}</TitleText>
-            {community.raw !== HCN && <CommunityJoinSign />}
+            {community.raw !== HCN && (
+              <CommunityJoinSign
+                onFollow={() => subscribeCommunity(community.id)}
+                onUndoFollow={() => unsubscribeCommunity(community.id)}
+                hasFollowed={community.viewerHasSubscribed}
+              />
+            )}
           </Title>
         </TitleWrapper>
         {/* <Desc>{community.desc}</Desc> */}

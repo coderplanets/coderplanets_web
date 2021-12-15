@@ -2,12 +2,13 @@ import { FC, memo } from 'react'
 
 import { TSIZE_TSM } from '@/spec'
 
-import { LavaLampLoading } from '@/widgets/dynamic'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import Tooltip from '@/widgets/Tooltip'
 
 import {
   BtnWrapper,
   Popinfo,
+  BtnText,
   FollowingIcon,
   FollowingButton,
 } from '../styles/follow_button'
@@ -48,7 +49,7 @@ const FollowingBtn: FC<TProps> = ({
           >
             <BtnWrapper>
               <FollowingIcon />
-              {text}
+              <BtnText>{text}</BtnText>
             </BtnWrapper>
           </FollowingButton>
         </Tooltip>

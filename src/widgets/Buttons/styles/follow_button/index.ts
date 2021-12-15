@@ -22,8 +22,12 @@ export const WatchIcon = styled(BtnIcon)`
 export const WatchedIcon = styled(BtnIcon)`
   fill: ${theme('banner.title')};
 `
+export const BtnText = styled.div`
+  padding-top: 2px;
+`
 export const Popinfo = styled.div`
   color: ${theme('thread.articleTitle')};
+  font-size: 12px;
   padding: 5px 8px;
 `
 
