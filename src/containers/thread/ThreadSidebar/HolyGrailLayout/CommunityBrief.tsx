@@ -4,8 +4,9 @@ import { contains } from 'ramda'
 import type { TCommunity } from '@/spec'
 import { NON_FILL_COMMUNITY } from '@/constant'
 
+import CommunityStatesPad from '@/widgets/CommunityStatesPad'
 import FollowButton from '@/widgets/Buttons/FollowButton'
-import SocialList from '@/widgets/SocialList'
+// import SocialList from '@/widgets/SocialList'
 
 import {
   Wrapper,
@@ -15,12 +16,19 @@ import {
   TitleWrapper,
   TitleText,
 } from '../styles/holy_grail_layout/community_brief'
+import {
+  subscribeCommunity,
+  unsubscribeCommunity,
+  onShowEditorList,
+  onShowSubscriberList,
+} from '../logic'
 
 type TProps = {
   community: TCommunity
+  realtimeVisitors: number
 }
 
-const CommunityBrief: FC<TProps> = ({ community }) => {
+const CommunityBrief: FC<TProps> = ({ community, realtimeVisitors }) => {
   return (
     <Wrapper>
       <Header>
@@ -29,20 +37,26 @@ const CommunityBrief: FC<TProps> = ({ community }) => {
           src={community.logo}
           raw={community.raw}
         />
-        <FollowButton
-          hasFollowed
-          userId="todo"
-          onFollow={console.log}
-          onUndoFollow={console.log}
-          size="tiny"
-        />
+
+        <CommunityInfo>
+          <TitleWrapper>
+            <TitleText>{community.title}</TitleText>
+          </TitleWrapper>
+
+          <FollowButton
+            hasFollowed={community.viewerHasSubscribed}
+            onFollow={() => subscribeCommunity(community.id)}
+            onUndoFollow={() => unsubscribeCommunity(community.id)}
+            size="tiny"
+          />
+        </CommunityInfo>
       </Header>
-      <CommunityInfo>
-        <TitleWrapper>
-          <TitleText>{community.title}</TitleText>
-        </TitleWrapper>
-        <SocialList size="small" />
-      </CommunityInfo>
+      <CommunityStatesPad
+        community={community}
+        onShowEditorList={onShowEditorList}
+        onShowSubscriberList={onShowSubscriberList}
+        realtimeVisitors={realtimeVisitors}
+      />
     </Wrapper>
   )
 }

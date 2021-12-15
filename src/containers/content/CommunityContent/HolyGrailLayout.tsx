@@ -52,7 +52,10 @@ const HolyGrailLayout: FC<TProps> = ({
   return (
     <Wrapper testid="community-content">
       <InnerWrapper>
-        <SubscribedList communities={subscribedCommunities} />
+        <SubscribedList
+          community={community}
+          communities={subscribedCommunities}
+        />
         <ContentWrapper>
           <TabsWrapper>
             <TabBar

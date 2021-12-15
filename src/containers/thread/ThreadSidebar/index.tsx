@@ -30,7 +30,13 @@ export type TProps = { threadSidebar?: TStore } & TBaseProps
 
 const ThreadSidebarContainer: FC<TProps> = ({ threadSidebar: store }) => {
   useInit(store)
-  const { c11n, curCommunity, isCommunityDigestInViewport, curThread } = store
+  const {
+    c11n,
+    curCommunity,
+    isCommunityDigestInViewport,
+    curThread,
+    realtimeVisitors,
+  } = store
 
   return (
     <Fragment>
@@ -41,7 +47,11 @@ const ThreadSidebarContainer: FC<TProps> = ({ threadSidebar: store }) => {
           community={curCommunity}
         />
       ) : (
-        <HolyGrailLayout community={curCommunity} thread={curThread} />
+        <HolyGrailLayout
+          community={curCommunity}
+          thread={curThread}
+          realtimeVisitors={realtimeVisitors}
+        />
       )}
     </Fragment>
   )

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import type { TCommunity, TThread } from '@/spec'
 
 import CommunityBrief from './CommunityBrief'
-import { LavaLampLoading } from '@/widgets/dynamic'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import { Wrapper, Divider } from '../styles/holy_grail_layout'
 
@@ -19,12 +19,20 @@ export const DynamicPart = dynamic(() => import('./DynamicPart'), {
 export type TProps = {
   thread: TThread
   community: TCommunity
+  realtimeVisitors?: number
 }
 
-const HolyGrailLayout: FC<TProps> = ({ community, thread }) => {
+const HolyGrailLayout: FC<TProps> = ({
+  community,
+  thread,
+  realtimeVisitors = 1,
+}) => {
   return (
     <Wrapper testid="community-digest">
-      <CommunityBrief community={community} />
+      <CommunityBrief
+        community={community}
+        realtimeVisitors={realtimeVisitors}
+      />
       <Divider />
       <DynamicPart community={community} thread={thread} />
     </Wrapper>

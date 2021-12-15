@@ -31,6 +31,8 @@ export const NumberTitle = styled.div<TNumberTitle>`
   font-size: ${({ small }) => (small ? '11px' : '12px')};
   margin-top: ${({ small }) => (small ? '4px' : '0')};
   margin-bottom: 2px;
+  word-break: keep-all;
+
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : theme('banner.active'))};
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
