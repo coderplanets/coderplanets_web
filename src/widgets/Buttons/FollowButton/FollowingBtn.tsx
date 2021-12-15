@@ -6,7 +6,7 @@ import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 import Tooltip from '@/widgets/Tooltip'
 
 import {
-  BtnWrapper,
+  FollowingBtnWrapper,
   Popinfo,
   BtnText,
   FollowingIcon,
@@ -47,10 +47,10 @@ const FollowingBtn: FC<TProps> = ({
             onClick={onClick}
             noBorder
           >
-            <BtnWrapper>
+            <FollowingBtnWrapper>
               <FollowingIcon />
               <BtnText>{text}</BtnText>
-            </BtnWrapper>
+            </FollowingBtnWrapper>
           </FollowingButton>
         </Tooltip>
       )}

@@ -1,6 +1,15 @@
 import { gql } from '@urql/core'
 import { P } from '@/schemas'
 
+const community = gql`
+  query community($raw: String) {
+    community(raw: $raw) {
+      viewerHasSubscribed
+      subscribersCount
+    }
+  }
+`
+
 const post = gql`
   query ($id: ID!) {
     post(id: $id) {
@@ -36,11 +45,31 @@ const blogRssInfo = gql`
   ${P.blogRssInfo}
 `
 
+const subscribeCommunity = gql`
+  mutation ($communityId: ID!) {
+    subscribeCommunity(communityId: $communityId) {
+      id
+      raw
+    }
+  }
+`
+const unsubscribeCommunity = gql`
+  mutation ($communityId: ID!) {
+    unsubscribeCommunity(communityId: $communityId) {
+      id
+      raw
+    }
+  }
+`
+
 const schema = {
+  community,
   post,
   job,
   repo,
   blogRssInfo,
+  subscribeCommunity,
+  unsubscribeCommunity,
 }
 
 export default schema

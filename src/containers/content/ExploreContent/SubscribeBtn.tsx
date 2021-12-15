@@ -24,6 +24,7 @@ const SubscribeBtn: FC<TProps> = ({ community }) => {
       size="tiny"
       followText="加 入"
       followingText="已加入"
+      followingOffset={10}
       hasFollowed={community.viewerHasSubscribed}
       onFollow={() => subscribe(community.id)}
       onUndoFollow={() => unSubscribe(community.id)}

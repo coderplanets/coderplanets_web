@@ -28,6 +28,7 @@ import {
   LaptopIcon,
   CompanyName,
 } from '../styles/desktop_view/job_layout'
+import { subscribeCommunity, unsubscribeCommunity } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
@@ -65,7 +66,11 @@ const JobLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
         </BottomInfo>
       </Main>
       <CommunityInfo>
-        <ArticleBelongCommunity article={article} />
+        <ArticleBelongCommunity
+          article={article}
+          onFollow={() => subscribeCommunity()}
+          onUndoFollow={() => unsubscribeCommunity()}
+        />
       </CommunityInfo>
     </Fragment>
   )

@@ -28,10 +28,23 @@ export const toggleActionPanel = (curActionPanelType): void => {
   }
 }
 
-export const onFollow = (login: string): void =>
+export const onFollow = (login: string): void => {
   sr71$.mutate(S.follow, { login })
-export const undoFollow = (login: string): void =>
+}
+
+export const undoFollow = (login: string): void => {
   sr71$.mutate(S.undoFollow, { login })
+}
+
+const loadArticleAuthor = (): void => {
+  const { viewingArticle, isLogin } = store
+
+  if (!isLogin) return
+
+  const { author } = viewingArticle
+
+  sr71$.query(S.user, { login: author.login })
+}
 
 // ###############################
 // init & uninit handlers
@@ -40,11 +53,17 @@ export const undoFollow = (login: string): void =>
 const DataSolver = [
   {
     match: asyncRes('follow'),
-    action: () => store.mark({ hasFollowedAuthor: true }),
+    action: () => loadArticleAuthor(),
   },
   {
     match: asyncRes('undoFollow'),
-    action: () => store.mark({ hasFollowedAuthor: false }),
+    action: () => loadArticleAuthor(),
+  },
+  {
+    match: asyncRes('user'),
+    action: ({ user }) => {
+      store.mark({ hasFollowedAuthor: user.viewerHasFollowed })
+    },
   },
 ]
 
@@ -71,6 +90,8 @@ export const useInit = (_store: TStore): void => {
     store = _store
     log('useInit: ', store)
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+    loadArticleAuthor()
     // return () => store.reset()
     return () => {
       // log('effect uninit')

@@ -12,6 +12,10 @@ export const BtnWrapper = styled.div`
   ${css.flex('align-center')};
   padding: 2px 4px;
 `
+export const FollowingBtnWrapper = styled.div`
+  ${css.flex('align-center')};
+  padding: 2px 0px;
+`
 const BtnIcon = styled(Img)`
   ${css.size(14)};
   margin-right: 2px;

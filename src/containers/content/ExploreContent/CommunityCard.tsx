@@ -55,7 +55,7 @@ const CommunityCard: FC<TProps> = ({ community }) => {
         </ActivitySpark>
         <SpaceGrow />
         <ContentWrapper>
-          内容&nbsp;{prettyNum(community.subscribersCount)}
+          内容&nbsp;{prettyNum(community.articlesCount)}
         </ContentWrapper>
       </Left>
       <Right>

@@ -9,7 +9,16 @@ const undoFollow = gql`
   ${P.undoFollow}
 `
 
+const user = gql`
+  query user($login: String) {
+    user(login: $login) {
+      viewerHasFollowed
+    }
+  }
+`
+
 const schema = {
+  user,
   follow,
   undoFollow,
 }
