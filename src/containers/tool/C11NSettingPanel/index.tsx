@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import { FC } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { VIEW } from '@/constant'
@@ -12,6 +12,7 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import { Tabs } from '@/widgets/Switcher'
+import type { TStore } from './store'
 
 import GeneralSettings from './GeneralSettings'
 import ThemeSettings from './ThemeSettings'
@@ -35,10 +36,12 @@ const TAB_OPTIONS = [
   },
 ]
 
-const Content = ({ activeTab, curTheme, ...restProps }) => {
+const Content = ({ activeTab, curTheme, curThread, customization }) => {
   switch (activeTab) {
     case 'general': {
-      return <GeneralSettings {...restProps} />
+      return (
+        <GeneralSettings curThread={curThread} customization={customization} />
+      )
     }
     case 'theme': {
       return <ThemeSettings curTheme={curTheme} />
@@ -49,7 +52,11 @@ const Content = ({ activeTab, curTheme, ...restProps }) => {
   }
 }
 
-const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
+type TProps = {
+  c11NSettingPanel?: TStore
+}
+
+const C11NSettingPanelContainer: FC<TProps> = ({ c11NSettingPanel: store }) => {
   useInit(store)
 
   const { activeTab, accountInfo, curThread, curTheme } = store
@@ -79,4 +86,4 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel: store }) => {
   )
 }
 
-export default pluggedIn(C11NSettingPanelContainer)
+export default pluggedIn(C11NSettingPanelContainer) as FC<TProps>
