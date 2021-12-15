@@ -13,6 +13,7 @@ export const Wrapper = styled.div<{ center: boolean }>`
 
   ${css.media.mobile`
     padding: 0 30px;
+    overflow-x: hidden;
   `};
 `
 type TBlock = { level: string }

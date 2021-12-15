@@ -3,6 +3,7 @@ import { FC, memo } from 'react'
 import Link from 'next/link'
 
 import { ICON, GITHUB, BUILD_VERSION, ABOUT_LINK } from '@/config'
+import { ROUTE } from '@/constant'
 
 import {
   Wrapper,
@@ -32,12 +33,14 @@ const MobileView: FC = () => (
         <Item>建议反馈</Item>
       </Link>
       <Divider space={8} radius={3} />
-      <Item>
-        特别感谢 <ItemIcon src={`${ICON}/emotion/heart.png`} />
-      </Item>
+      <Link href={`/${ROUTE.SPONSOR}`} passHref>
+        <Item>
+          特别感谢 <ItemIcon src={`${ICON}/emotion/heart.png`} />
+        </Item>
+      </Link>
       <Divider space={8} radius={3} />
       <Link href={GITHUB} passHref>
-        <Item>Github</Item>
+        <Item target="_blank">Github</Item>
       </Link>
     </SiteInfoWrapper>
     <VersionWrapper>
