@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 
-import type { TID } from '@/spec'
 import { PAGE_SIZE } from '@/config'
 import { TYPE, EVENT, ERR } from '@/constant'
-import { asyncSuit, buildLog, errRescue } from '@/utils'
+
+import { errRescue } from '@/utils/helper'
+import { buildLog } from '@/utils/logger'
+import asyncSuit from '@/utils/async'
 
 import type { TStore } from './store'
 import S from './schema'
@@ -18,12 +20,12 @@ const sr71$ = new SR71({
 })
 
 let sub$ = null
-let store = null
+let store: TStore | undefined
 
-export const onFollow = (userId: TID): void =>
-  sr71$.mutate(S.follow, { userId })
-export const undoFollow = (userId: TID): void =>
-  sr71$.mutate(S.undoFollow, { userId })
+export const onFollow = (login: string): void =>
+  sr71$.mutate(S.follow, { login })
+export const undoFollow = (login: string): void =>
+  sr71$.mutate(S.undoFollow, { login })
 
 const loadUsers = (type, page = 1): void => {
   // log('loadUsers type: ', type)
@@ -129,11 +131,11 @@ const DataSolver = [
   },
   {
     match: asyncRes('follow'),
-    action: ({ follow: { id } }) => store.toggleHasFollow(id),
+    action: ({ follow: { login } }) => store.toggleHasFollow(login),
   },
   {
     match: asyncRes('undoFollow'),
-    action: ({ undoFollow: { id } }) => store.toggleHasFollow(id),
+    action: ({ undoFollow: { login } }) => store.toggleHasFollow(login),
   },
 ]
 const ErrSolver = [

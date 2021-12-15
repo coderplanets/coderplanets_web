@@ -11,6 +11,7 @@ import { markStates } from '@/utils/mobx'
 
 const ArticleFooter = T.model('ArticleFooter', {
   showActionPanel: T.optional(T.boolean, false),
+  hasFollowedAuthor: T.maybeNull(T.boolean),
   actionPanelType: T.optional(
     T.enumeration(['reference-list', 'operation-list']),
     'operation-list',
@@ -33,6 +34,9 @@ const ArticleFooter = T.model('ArticleFooter', {
     },
   }))
   .actions((self) => ({
+    reset(): void {
+      self.hasFollowedAuthor = null
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

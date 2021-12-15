@@ -52,7 +52,7 @@ const EditorLayout: FC<TProps> = ({ users }) => {
                 <FollowButton
                   size="tiny"
                   hasFollowed={user.viewerHasFollowed}
-                  userId={user.id}
+                  userLogin={user.login}
                   onFollow={onFollow}
                   onUndoFollow={undoFollow}
                 />

@@ -35,18 +35,18 @@ export const unsetTag = `
 `
 
 export const follow = `
-  mutation($userId: ID!) {
-    follow(userId: $userId) {
-      id
+  mutation($login: String!) {
+    follow(login: $login) {
+      login
       viewerHasFollowed
     }
   }
 `
 
 export const undoFollow = `
-  mutation($userId: ID!) {
-    undoFollow(userId: $userId) {
-      id
+  mutation($login: String!) {
+    undoFollow(login: $login) {
+      login
       viewerHasFollowed
     }
   }

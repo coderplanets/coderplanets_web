@@ -43,7 +43,12 @@ const ArticleFooterContainer: FC<TProps> = ({
   metric = METRIC.ARTICLE,
 }) => {
   useInit(store)
-  const { viewingArticle, showReferenceList, showOperationList } = store
+  const {
+    viewingArticle,
+    showReferenceList,
+    showOperationList,
+    hasFollowedAuthor,
+  } = store
   const { author, articleTags, meta } = viewingArticle
 
   const [copyright, setCopyright] = useState('cc')
@@ -70,7 +75,9 @@ const ArticleFooterContainer: FC<TProps> = ({
       {showOperationList && <OperationPanel />}
 
       {!showAuthorInfo && <Divider />}
-      {showAuthorInfo && <AuthorInfo author={author} />}
+      {showAuthorInfo && (
+        <AuthorInfo author={author} hasFollowedAuthor={hasFollowedAuthor} />
+      )}
     </Wrapper>
   )
 }
