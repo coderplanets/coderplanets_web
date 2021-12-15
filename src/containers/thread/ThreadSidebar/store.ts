@@ -43,11 +43,28 @@ const ThreadSidebar = T.model('ThreadSidebar', {
       const root = getParent(self) as TRootStore
       return root.communityDigest.inViewport
     },
+
+    get realtimeVisitors(): number {
+      const root = getParent(self) as TRootStore
+      return root.footer.realtimeVisitors
+    },
   }))
   .actions((self) => ({
     authWarning(options = {}): void {
       const root = getParent(self) as TRootStore
       root.authWarning(options)
+    },
+    setViewing(sobj): void {
+      const root = getParent(self) as TRootStore
+      root.setViewing(sobj)
+    },
+    addSubscribedCommunity(community: TCommunity): void {
+      const root = getParent(self) as TRootStore
+      root.account.addSubscribedCommunity(community)
+    },
+    removeSubscribedCommunity(community: TCommunity): void {
+      const root = getParent(self) as TRootStore
+      root.account.removeSubscribedCommunity(community)
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

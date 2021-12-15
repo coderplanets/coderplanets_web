@@ -6,6 +6,9 @@ import { FC, memo, Fragment, useState } from 'react'
 
 import type { TCommunity } from '@/spec'
 import { ICON } from '@/config'
+import { HCN } from '@/constant'
+
+import { changeToCommunity } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
 import DotDivider from '@/widgets/DotDivider'
@@ -18,6 +21,7 @@ import ExpandButton from './ExpandButton'
 import {
   Wrapper,
   Item,
+  ActiveDot,
   Logo,
   Title,
   HeadTitle,
@@ -31,10 +35,12 @@ const log = buildLog('C:CommunityContent')
 
 type TProps = {
   communities: TCommunity[]
+  community: TCommunity
 }
 
-const SubscribedList: FC<TProps> = ({ communities }) => {
+const SubscribedList: FC<TProps> = ({ community, communities }) => {
   const [expand, setExpand] = useState(false)
+  const activeCommunity = community
 
   return (
     <Wrapper>
@@ -44,15 +50,22 @@ const SubscribedList: FC<TProps> = ({ communities }) => {
         <HeadNum>{communities.length}</HeadNum>
       </HeadTitle>
       <Br top={24} />
-      <Item>
+      <Item onClick={() => changeToCommunity(HCN)}>
         <Logo src={`${ICON}/shape/home.svg`} />
         首页
       </Item>
       {communities.slice(0, 15).map((community) => (
         <Fragment key={community.id}>
           <Item>
+            {community.raw === activeCommunity.raw && <ActiveDot />}
+
             <Logo src={community.logo} />
-            <Title>{community.title}</Title>
+            <Title
+              $active={community.raw === activeCommunity.raw}
+              onClick={() => changeToCommunity(community.raw)}
+            >
+              {community.title}
+            </Title>
             <SpaceGrow />
             <Tooltip
               content={<ItemMenu community={community} />}

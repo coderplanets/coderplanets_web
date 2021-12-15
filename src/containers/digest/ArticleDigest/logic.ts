@@ -6,6 +6,8 @@ import asyncSuit from '@/utils/async'
 import { send, errRescue } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
+import uid from '@/utils/uid'
+
 import type { TStore } from './store'
 import S from './schema'
 
@@ -49,14 +51,51 @@ export const onListReactionUsers = (type, data): void =>
     data: { ...data, thread: store.activeThread },
   })
 
+export const subscribeCommunity = (): void => {
+  const { viewingArticle } = store
+  const communityId = viewingArticle.originalCommunity.id
+
+  sr71$.mutate(S.subscribeCommunity, { communityId })
+}
+
+export const unsubscribeCommunity = (): void => {
+  const { viewingArticle } = store
+  const communityId = viewingArticle.originalCommunity.id
+  sr71$.mutate(S.unsubscribeCommunity, { communityId })
+}
+
+export const loadCommunity = (): void => {
+  const { viewingArticle, isLogin } = store
+  if (!isLogin) return
+
+  const { raw } = viewingArticle.originalCommunity
+  sr71$.query(S.community, { raw })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
 
 const DataSolver = [
   {
+    match: asyncRes('community'),
+    action: ({ community }) => {
+      const { viewerHasSubscribed, subscribersCount } = community
+      store.mark({ viewerHasSubscribed, subscribersCount })
+    },
+  },
+
+  {
     match: asyncRes('blogRssInfo'),
     action: ({ blogRssInfo }) => store.mark({ blogRssInfo }),
+  },
+  {
+    match: asyncRes('subscribeCommunity'),
+    action: () => loadCommunity(),
+  },
+  {
+    match: asyncRes('unsubscribeCommunity'),
+    action: () => loadCommunity(),
   },
 ]
 const ErrSolver = [
@@ -91,6 +130,7 @@ export const useInit = (
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     }
 
+    loadCommunity()
     store.mark({ scrollDirection })
 
     return () => {

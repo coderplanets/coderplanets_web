@@ -44,6 +44,7 @@ export const getServerSideProps = async (context) => {
   try {
     resp = await loader(context)
     const { post, sessionState } = resp
+
     refreshIfneed(sessionState, `/post/${post.id}`, context)
   } catch (e) {
     console.log('#### error from server: ', e)

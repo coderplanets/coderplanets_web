@@ -98,14 +98,8 @@ export const pageOnChange = (page: number): void => loadCommunities(page)
  * @param {id} string
  * @public
  */
-export const subscribe = (id: TID): void => {
-  if (!store.isLogin) return store.authWarning()
-
-  sr71$.mutate(S.subscribeCommunity, { communityId: id })
-  store.mark({
-    subscribing: true,
-    subscribingId: id,
-  })
+export const subscribe = (communityId: TID): void => {
+  sr71$.mutate(S.subscribeCommunity, { communityId })
 }
 
 /**
@@ -113,14 +107,8 @@ export const subscribe = (id: TID): void => {
  * @param {id} string
  * @public
  */
-export const unSubscribe = (id: TID): void => {
-  if (!store.isLogin) return store.authWarning()
-
-  sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
-  store.mark({
-    subscribing: true,
-    subscribingId: id,
-  })
+export const unSubscribe = (communityId: TID): void => {
+  sr71$.mutate(S.unsubscribeCommunity, { communityId })
 }
 
 /* when error occured cancel all the loading state */

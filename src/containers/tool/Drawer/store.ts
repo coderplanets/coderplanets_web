@@ -175,7 +175,10 @@ const DrawerStore = T.model('DrawerStore', {
         slf.canBeClose = false
       }
 
-      if (type !== TYPE.DRAWER.ACCOUNT_EDIT) {
+      if (
+        type !== TYPE.DRAWER.ACCOUNT_EDIT &&
+        type !== TYPE.DRAWER.C11N_SETTINGS
+      ) {
         slf.markPreviewURLIfNeed(data)
       }
     },

@@ -26,7 +26,11 @@ import {
   TabWrapper,
   CommunityInfo,
 } from '../styles/desktop_view/blog_layout'
-import { onBlogTabChange } from '../logic'
+import {
+  onBlogTabChange,
+  subscribeCommunity,
+  unsubscribeCommunity,
+} from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
@@ -65,7 +69,11 @@ const BlogLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
         </BottomInfo>
       </Main>
       <CommunityInfo>
-        <ArticleBelongCommunity article={article} />
+        <ArticleBelongCommunity
+          article={article}
+          onFollow={() => subscribeCommunity()}
+          onUndoFollow={() => unsubscribeCommunity()}
+        />
       </CommunityInfo>
     </Fragment>
   )

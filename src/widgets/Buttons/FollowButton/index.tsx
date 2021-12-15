@@ -19,19 +19,19 @@ const log = buildLog('c:FollowButton:index')
 
 type TProps = {
   hasFollowed?: boolean
-  userId?: TID
+  userLogin?: TID
   size?: TSIZE_TSM
   loading?: boolean
   simuLoading?: boolean
   followText?: string
   followingText?: string
   followingOffset?: number
-  onFollow?: (userId: TID) => void
-  onUndoFollow?: (userId: TID) => void
+  onFollow?: (userLogin: TID) => void
+  onUndoFollow?: (userLogin: TID) => void
 }
 
 const FollowButton: FC<TProps> = ({
-  userId,
+  userLogin,
   size = SIZE.SMALL,
   simuLoading = true,
   loading = false,
@@ -54,8 +54,8 @@ const FollowButton: FC<TProps> = ({
       setFakeLoading(true)
       setTimeout(() => setFakeLoading(false), 1500)
     }
-    onFollow(userId)
-  }, [simuLoading, onFollow, userId, isValidSession])
+    onFollow(userLogin)
+  }, [simuLoading, onFollow, userLogin, isValidSession])
 
   const handleUndoFollow = useCallback(() => {
     if (!isValidSession) return authWarn()
@@ -64,8 +64,8 @@ const FollowButton: FC<TProps> = ({
       setFakeLoading(true)
       setTimeout(() => setFakeLoading(false), 1500)
     }
-    onUndoFollow(userId)
-  }, [simuLoading, onUndoFollow, userId, isValidSession])
+    onUndoFollow(userLogin)
+  }, [simuLoading, onUndoFollow, userLogin, isValidSession])
 
   return (
     <>

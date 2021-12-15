@@ -48,8 +48,6 @@ const ExploreContentContainer: FC<TProps> = ({
     pagedCategoriesData,
     pagiInfo,
     showFilterSidebar,
-    subscribing,
-    subscribingId,
   } = store
 
   const { isMobile } = usePlatform()
@@ -71,11 +69,7 @@ const ExploreContentContainer: FC<TProps> = ({
           <ContentsWrapper center={isSearchMode}>
             {!isEmpty(pagedCommunitiesData.entries) ? (
               <>
-                <CommunityList
-                  entries={pagedCommunitiesData.entries}
-                  subscribing={subscribing}
-                  subscribingId={subscribingId}
-                />
+                <CommunityList entries={pagedCommunitiesData.entries} />
                 <Pagi
                   {...pagiInfo}
                   onChange={pageOnChange}

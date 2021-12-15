@@ -12,6 +12,10 @@ export const BtnWrapper = styled.div`
   ${css.flex('align-center')};
   padding: 2px 4px;
 `
+export const FollowingBtnWrapper = styled.div`
+  ${css.flex('align-center')};
+  padding: 2px 0px;
+`
 const BtnIcon = styled(Img)`
   ${css.size(14)};
   margin-right: 2px;
@@ -22,8 +26,12 @@ export const WatchIcon = styled(BtnIcon)`
 export const WatchedIcon = styled(BtnIcon)`
   fill: ${theme('banner.title')};
 `
+export const BtnText = styled.div`
+  padding-top: 2px;
+`
 export const Popinfo = styled.div`
   color: ${theme('thread.articleTitle')};
+  font-size: 12px;
   padding: 5px 8px;
 `
 

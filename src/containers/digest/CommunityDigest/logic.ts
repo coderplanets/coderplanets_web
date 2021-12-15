@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import type { TID } from '@/spec'
 import { TYPE, EVENT, ERR, ARTICLE_THREAD } from '@/constant'
 
 import asyncSuit from '@/utils/async'
@@ -18,6 +19,14 @@ const sr71$ = new SR71({ receive: [EVENT.COMMUNITY_CHANGE] })
 
 let sub$ = null
 let store: TStore | undefined
+
+export const subscribeCommunity = (communityId: TID): void => {
+  sr71$.mutate(S.subscribeCommunity, { communityId })
+}
+
+export const unsubscribeCommunity = (communityId: TID): void => {
+  sr71$.mutate(S.unsubscribeCommunity, { communityId })
+}
 
 const loadCommunity = (): void => {
   const userHasLogin = store.isLogin

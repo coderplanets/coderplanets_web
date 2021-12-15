@@ -12,9 +12,15 @@ import { Wrapper, HomeLogo, Icon, Name, JoinDesc } from './styles'
 
 type TProps = {
   article: TArticle
+  onFollow: () => void
+  onUndoFollow: () => void
 }
 
-const ArticleBelongCommunity: FC<TProps> = ({ article }) => {
+const ArticleBelongCommunity: FC<TProps> = ({
+  article,
+  onFollow,
+  onUndoFollow,
+}) => {
   const { originalCommunity: oc, communities } = article
 
   // @ts-ignore
@@ -33,8 +39,13 @@ const ArticleBelongCommunity: FC<TProps> = ({ article }) => {
       <JoinDesc>{oc.subscribersCount} 人加入</JoinDesc>
       <FollowButton
         size="tiny"
-        hasFollowed={oc.viewerHasSubscribed}
+        hasFollowed={oc.raw !== HCN ? oc.viewerHasSubscribed : true}
         followingOffset={-6}
+        onFollow={onFollow}
+        onUndoFollow={() => {
+          if (oc.raw === HCN) return
+          onUndoFollow()
+        }}
       />
     </Wrapper>
   )

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-import Img from '@/Img'
+// import Img from '@/Img'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import CommunityFaceLogo from '@/widgets/CommunityFaceLogo'
 
 const BaseCard = styled.div`
   ${css.flex()};
@@ -40,7 +41,7 @@ export const Right = styled.div`
   flex-flow: 1;
 `
 // fill only works for non-colored svgs
-export const CommunityIcon = styled(Img)<{ nonFill: boolean }>`
+export const CommunityIcon = styled(CommunityFaceLogo)<{ nonFill: boolean }>`
   ${css.size(26)};
   fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
   margin-bottom: 8px;

@@ -6,7 +6,7 @@
 import { types as T, getParent, Instance } from 'mobx-state-tree'
 import { findIndex, propEq } from 'ramda'
 
-import type { TRootStore, TID, TCommunity, TPagedUsers, TAccount } from '@/spec'
+import type { TRootStore, TCommunity, TPagedUsers, TAccount } from '@/spec'
 import { TYPE } from '@/constant'
 import { markStates, toJS } from '@/utils/mobx'
 import { PagedUsers, emptyPagi } from '@/model'
@@ -55,11 +55,11 @@ const UserLister = T.model('UserLister', {
     reset(): void {
       //
     },
-    toggleHasFollow(userId: TID): void {
+    toggleHasFollow(login: string): void {
       const { entries } = self.pagedUsersData
 
       // @ts-ignore
-      const index = findIndex(propEq('id', userId), entries)
+      const index = findIndex(propEq('login', login), entries)
       if (index < 0) return
 
       const curIsFollow = self.pagedUsers.entries[index].viewerHasFollowed

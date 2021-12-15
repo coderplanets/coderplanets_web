@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@/Img'
+import type { TActive } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
 
@@ -34,6 +35,7 @@ export const Divider = styled.div`
   margin-bottom: 10px;
 `
 export const Item = styled.div`
+  position: relative;
   ${css.flex('align-center')};
   font-size: 14px;
   margin-bottom: 15px;
@@ -42,6 +44,13 @@ export const Item = styled.div`
     cursor: pointer;
   }
 `
+export const ActiveDot = styled.div`
+  ${css.circle(5)};
+  position: absolute;
+  left: -20px;
+  top: 8px;
+  background: #139c9e;
+`
 export const Logo = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   ${css.size(18)};
@@ -49,11 +58,14 @@ export const Logo = styled(Img)`
   margin-right: 7px;
   filter: saturate(0.5);
 `
-export const Title = styled.div`
+export const Title = styled.div<TActive>`
   ${css.cutRest('70px')};
+  color: ${({ $active }) =>
+    $active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
 
   ${Item}:hover & {
     color: ${theme('thread.articleTitle')};
+    cursor: pointer;
   }
 `
 

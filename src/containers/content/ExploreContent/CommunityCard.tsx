@@ -30,15 +30,9 @@ import {
 
 type TProps = {
   community: TCommunity
-  subscribing: boolean
-  subscribingId: TID
 }
 
-const CommunityCard: FC<TProps> = ({
-  community,
-  subscribing,
-  subscribingId,
-}) => {
+const CommunityCard: FC<TProps> = ({ community }) => {
   const trendData = isEmpty(community.contributesDigest)
     ? [0, 0, 0, 0, 0]
     : community.contributesDigest
@@ -49,6 +43,7 @@ const CommunityCard: FC<TProps> = ({
         <CommunityIcon
           nonFill={contains(community.raw, NON_FILL_COMMUNITY)}
           src={community.logo}
+          raw={community.raw}
         />
         <RawWrapper>
           <Slash>/</Slash>
@@ -60,7 +55,7 @@ const CommunityCard: FC<TProps> = ({
         </ActivitySpark>
         <SpaceGrow />
         <ContentWrapper>
-          内容&nbsp;{prettyNum(community.subscribersCount)}
+          内容&nbsp;{prettyNum(community.articlesCount)}
         </ContentWrapper>
       </Left>
       <Right>
@@ -74,11 +69,7 @@ const CommunityCard: FC<TProps> = ({
             <JoinNum>{prettyNum(community.subscribersCount)}</JoinNum>
             人加入
           </JoinWrapper>
-          <SubscribeBtn
-            community={community}
-            // subscribing={subscribing}
-            // subscribingId={subscribingId}
-          />
+          <SubscribeBtn community={community} />
         </Footer>
       </Right>
     </Wrapper>

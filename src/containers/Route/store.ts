@@ -80,6 +80,8 @@ const RouteStore = T.model('RouteStore', {
         asPath = `/${self.mainPath}${queryString}`
       } else if (self.mainPath === '' && subPath === '') {
         asPath = '/'
+      } else if (self.mainPath && !subPath) {
+        asPath = `/${self.mainPath}`
       } else {
         asPath = `${queryString}`
       }

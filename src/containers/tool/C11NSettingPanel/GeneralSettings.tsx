@@ -1,6 +1,7 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { contains } from 'ramda'
 
+import type { TThread, TC11N } from '@/spec'
 import { THREAD, C11N } from '@/constant'
 import usePlatform from '@/hooks/usePlatform'
 
@@ -10,7 +11,12 @@ import { Radio } from '@/widgets/Switcher'
 import { Wrapper, Title, Desc, Divider } from './styles/gerneral_settings'
 import { onC11NChange } from './logic'
 
-const GeneralSettings = ({ curThread, customization }) => {
+type TProps = {
+  curThread: TThread
+  customization: TC11N
+}
+
+const GeneralSettings: FC<TProps> = ({ curThread, customization }) => {
   const { bannerLayout, contentDivider, markViewed, displayDensity } =
     customization
 
@@ -123,4 +129,4 @@ const GeneralSettings = ({ curThread, customization }) => {
   )
 }
 
-export default GeneralSettings
+export default memo(GeneralSettings)

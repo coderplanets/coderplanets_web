@@ -7,6 +7,7 @@ import css from '@/utils/css'
 export const Wrapper = styled.div<{ hasFollowed: boolean }>`
   ${css.flex('align-center')};
   margin-left: ${({ hasFollowed }) => (hasFollowed ? '-8px' : '5px')};
+  margin-top: 1px;
 `
 export const PopContentWrapper = styled.div`
   text-align: left;

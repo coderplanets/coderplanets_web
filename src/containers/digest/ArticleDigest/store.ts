@@ -4,6 +4,7 @@
  */
 
 import { types as T, getParent, Instance } from 'mobx-state-tree'
+import { merge } from 'ramda'
 
 import type { TRootStore, TThread, TArticle } from '@/spec'
 import { TYPE } from '@/constant'
@@ -12,6 +13,9 @@ import { BlogRSSInfo } from '@/model'
 
 const ArticleDigest = T.model('ArticleDigest', {
   loading: T.optional(T.boolean, false),
+  viewerHasSubscribed: T.optional(T.boolean, false),
+  subscribersCount: T.optional(T.number, -1),
+
   action: T.optional(
     T.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
     TYPE.FAVORITE,
@@ -35,7 +39,24 @@ const ArticleDigest = T.model('ArticleDigest', {
     },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
-      return toJS(root.viewingArticle)
+      const article = toJS(root.viewing.viewingArticle)
+      const slf = self as TStore
+
+      if (!slf.isLogin) {
+        return toJS(article)
+      }
+
+      const { viewerHasSubscribed, subscribersCount } = self
+      const originalCommunity = merge(article.originalCommunity, {
+        viewerHasSubscribed,
+        subscribersCount:
+          subscribersCount === -1
+            ? article.originalCommunity.subscribersCount
+            : subscribersCount,
+      })
+
+      // @ts-ignore
+      return merge(article, { originalCommunity })
     },
     get activeThread(): TThread {
       const root = getParent(self) as TRootStore
@@ -69,6 +90,8 @@ const ArticleDigest = T.model('ArticleDigest', {
     },
     reset(): void {
       self.tab = ''
+      self.subscribersCount = -1
+      self.viewerHasSubscribed = false
     },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)

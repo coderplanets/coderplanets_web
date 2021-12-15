@@ -14,24 +14,25 @@ export const Wrapper = styled.div`
   margin-bottom: 5px;
 `
 export const Header = styled.div`
-  ${css.flex('align-center', 'justify-between')};
+  ${css.flex('align-center')};
   width: 100%;
+  margin-bottom: 18px;
 `
 export const Logo = styled(CommunityFaceLogo)`
   ${css.size(35)};
-  margin-right: 12px;
+  margin-right: 8px;
   border-radius: 5px;
 `
 export const CommunityInfo = styled.div`
   ${css.flexColumn('justify-center')};
-  margin-top: 12px;
 `
 export const TitleWrapper = styled.div`
   ${css.flex('align-center')};
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 `
 export const TitleText = styled.span`
-  font-size: 18px;
+  font-size: 16px;
+  margin-left: 10px;
   ${css.cutRest('140px')};
   color: ${theme('banner.title')};
 `

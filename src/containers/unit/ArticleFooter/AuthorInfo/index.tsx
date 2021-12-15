@@ -26,21 +26,30 @@ import {
   Avatar,
 } from '../styles/author_info'
 
+import { onFollow, undoFollow } from '../logic'
+
 /* eslint-disable-next-line */
 const log = buildLog('c:AuthorInfo:index')
 
 type TProps = {
   testid?: string
+  hasFollowedAuthor: boolean | null
   author: TAccount
 }
 
-const AuthorInfo: FC<TProps> = ({ testid = 'author-info', author }) => {
+const AuthorInfo: FC<TProps> = ({
+  testid = 'author-info',
+  author,
+  hasFollowedAuthor = null,
+}) => {
   const socialItems = pickBy((v) => !!v, author.social) as Record<
     string,
     string
   >
 
-  const hasFollowed = false
+  const hasFollowed =
+    hasFollowedAuthor === null ? author.viewerHasFollowed : hasFollowedAuthor
+
   return (
     <Wrapper testid={testid}>
       <TextIntro>
@@ -61,6 +70,9 @@ const AuthorInfo: FC<TProps> = ({ testid = 'author-info', author }) => {
           followText="&nbsp;关 注&nbsp;"
           hasFollowed={hasFollowed}
           followingOffset={-10}
+          userLogin={author.login}
+          onFollow={onFollow}
+          onUndoFollow={undoFollow}
         />
       </AvatarIntro>
     </Wrapper>

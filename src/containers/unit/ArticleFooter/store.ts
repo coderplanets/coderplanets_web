@@ -11,12 +11,17 @@ import { markStates } from '@/utils/mobx'
 
 const ArticleFooter = T.model('ArticleFooter', {
   showActionPanel: T.optional(T.boolean, false),
+  hasFollowedAuthor: T.optional(T.boolean, false),
   actionPanelType: T.optional(
     T.enumeration(['reference-list', 'operation-list']),
     'operation-list',
   ),
 })
   .views((self) => ({
+    get isLogin(): boolean {
+      const root = getParent(self) as TRootStore
+      return root.account.isLogin
+    },
     get viewingArticle(): TArticle {
       const root = getParent(self) as TRootStore
       return root.viewingArticle
@@ -33,6 +38,9 @@ const ArticleFooter = T.model('ArticleFooter', {
     },
   }))
   .actions((self) => ({
+    reset(): void {
+      self.hasFollowedAuthor = false
+    },
     mark(sobj: Record<string, unknown>): void {
       markStates(sobj, self)
     },

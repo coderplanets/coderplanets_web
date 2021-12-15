@@ -26,6 +26,7 @@ import {
   BottomInfo,
   CommunityInfo,
 } from '../styles/desktop_view/post_layout'
+import { subscribeCommunity, unsubscribeCommunity } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
@@ -63,7 +64,11 @@ const PostLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article }) => {
         </BottomInfo>
       </Main>
       <CommunityInfo>
-        <ArticleBelongCommunity article={article} />
+        <ArticleBelongCommunity
+          article={article}
+          onFollow={() => subscribeCommunity()}
+          onUndoFollow={() => unsubscribeCommunity()}
+        />
       </CommunityInfo>
     </Fragment>
   )

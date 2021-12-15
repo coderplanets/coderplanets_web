@@ -9,14 +9,14 @@ import TagsBar from '@/containers/unit/TagsBar'
 import PublishButton from '@/widgets/Buttons/PublishButton'
 
 import type { TProps } from './index'
-import ExtraInfo from './ExtraInfo'
+// import ExtraInfo from './ExtraInfo'
 
 // 没有各种外链接，打赏信息等的官方社区
 
 const DynamicPart: FC<TProps> = ({ thread, community }) => {
   return (
     <Fragment>
-      <ExtraInfo />
+      {/* <ExtraInfo /> */}
       <Br bottom={20} />
       <PublishButton thread={thread} community={community.raw} />
       <Br bottom={25} />
