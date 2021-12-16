@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.com/coderplanets/coderplanets_web.svg?branch=dev)](https://travis-ci.com/coderplanets/coderplanets_web)
-[![dev status](https://david-dm.org/coderplanets/coderplanets_web.svg)](https://david-dm.org/coderplanets/coderplanets_web)
 [![plausible badge](https://badgen.net/badge/analytics/on%20plausible/9cb77b)](https://plausible.io/coderplanets.com) 
 
 ---
