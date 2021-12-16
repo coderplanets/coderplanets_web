@@ -1,11 +1,6 @@
-![CPS Brand](https://github.com/mydearxym/mastani_server/blob/dev/docs/snapshots/cps_logo_md.png?raw=true)
-
 [![Build Status](https://travis-ci.com/coderplanets/coderplanets_web.svg?branch=dev)](https://travis-ci.com/coderplanets/coderplanets_web)
-[![codecov](https://codecov.io/gh/coderplanets/coderplanets_web/branch/dev/graph/badge.svg)](https://codecov.io/gh/coderplanets/coderplanets_web)
 [![dev status](https://david-dm.org/coderplanets/coderplanets_web.svg)](https://david-dm.org/coderplanets/coderplanets_web)
-[![CodeFactor](https://www.codefactor.io/repository/github/coderplanets/coderplanets_web/badge)](https://www.codefactor.io/repository/github/coderplanets/coderplanets_web)
-[![Powerd by](https://badgen.now.sh/badge/mastani/powered/a871c1)](https://github.com/mastani-stack)
-[![cpsbadge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://coderplanets.com)
+[![plausible badge](https://badgen.net/badge/analytics/on%20plausible/9cb77b)](https://plausible.io/coderplanets.com) 
 
 ---
 
