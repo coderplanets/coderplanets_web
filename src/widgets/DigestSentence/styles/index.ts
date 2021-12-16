@@ -28,10 +28,10 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
 
   transition: color 0.1s;
 `
-export const Text = styled.div`
+export const Text = styled.div<{ lineClamp: number }>`
   position: relative;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: ${({ lineClamp }) => lineClamp};
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
