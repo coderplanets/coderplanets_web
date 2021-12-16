@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/coderplanets/coderplanets_web.svg?branch=dev)](https://travis-ci.com/coderplanets/coderplanets_web)
+[![Build Status](https://github.com/coderplanets/coderplanets_web/workflows/CI/badge.svg)](https://github.com/coderplanets/coderplanets_web/actions?query=workflow%3ACI)
 [![plausible badge](https://badgen.net/badge/analytics/on%20plausible/9cb77b)](https://plausible.io/coderplanets.com) 
 
 ---
