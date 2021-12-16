@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 
-import type { TBlog, TAccount } from '@/spec'
+import type { TBlog, TAccount, TCommunity } from '@/spec'
 
 import Header from './Header'
 import Body from './Body'
@@ -12,14 +12,20 @@ type TProps = {
   entry: TBlog
   onPreview?: (obj: TBlog) => void
   onAuthorSelect?: (obj: TAccount) => void
+  curCommunity: TCommunity | null
 }
 
-const MobileView: FC<TProps> = ({ entry, onPreview, onAuthorSelect }) => {
+const MobileView: FC<TProps> = ({
+  entry,
+  onPreview,
+  onAuthorSelect,
+  curCommunity,
+}) => {
   return (
     <Wrapper>
       <Header item={entry} onAuthorSelect={onAuthorSelect} />
       <Body item={entry} onPreview={onPreview} />
-      <Footer item={entry} />
+      <Footer item={entry} curCommunity={curCommunity} />
     </Wrapper>
   )
 }

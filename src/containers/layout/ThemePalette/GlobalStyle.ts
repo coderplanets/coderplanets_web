@@ -155,10 +155,18 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     margin-left: -20px; /* gutter size offset */
     width: auto;
+
+    ${css.media.mobile`
+      margin-left: 0;
+    `};
   }
   .masonry-cards-grid_column {
     padding-left: 20px; /* gutter size */
     background-clip: padding-box;
+
+    ${css.media.mobile`
+      padding-left: 10px;
+    `};
   }
 
   /** customize tooltip animation globally */

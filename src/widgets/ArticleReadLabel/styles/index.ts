@@ -14,9 +14,9 @@ export const ReadedLabel = styled.div<TPos>`
   top: ${({ top }) => `${top}px`};
   left: ${({ left }) => `${left}px`};
   opacity: 0.5;
+
   ${css.media.mobile`
-    left: -12px;
-    font-size: 0.8rem;
+    ${css.circle(6)};
   `};
 `
 export const PinIcon = styled(PinSVG)<TPos>`

@@ -35,6 +35,10 @@ export const MainWrapper = styled.div<{ thread: TThread }>`
      margin-right: 0;
   `};
 `
+export const MobileCardsMainWrapper = styled(MainWrapper)`
+  padding: 0;
+  padding-right: 10px;
+`
 export const FilterWrapper = styled.div<{ thread: TThread }>`
   ${css.flex('align-center')};
   margin-bottom: 3px;

@@ -7,7 +7,9 @@
 import { FC, memo } from 'react'
 
 import type { TJob, TC11N } from '@/spec'
+
 import { buildLog } from '@/utils/logger'
+// import usePlatform from '@/hooks/usePlatform'
 
 import ArticleCard from '@/widgets/ArticleCard'
 import { ArticleReadLabel, ArticlePinLabel } from '@/widgets/dynamic'
@@ -23,6 +25,8 @@ type TProps = {
 }
 
 const JobItem: FC<TProps> = ({ entry, c11n }) => {
+  // const { isMobile } = usePlatform()
+
   return (
     <Wrapper entry={entry} c11n={c11n}>
       <ArticleReadLabel entry={entry} top={-3} left={-3} />

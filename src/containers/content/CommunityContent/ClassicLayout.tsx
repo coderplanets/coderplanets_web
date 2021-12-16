@@ -5,13 +5,22 @@
  */
 
 import { FC, memo } from 'react'
+import { includes } from 'ramda'
 
 import { TThread } from '@/spec'
+import { ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import CommunityDigest from '@/containers/digest/CommunityDigest'
 
+import usePlatform from '@/hooks/usePlatform'
+
 import ThreadContent from './ThreadContent'
-import { Wrapper, InnerWrapper, ContentWrapper } from './styles/classic_layout'
+import {
+  Wrapper,
+  InnerWrapper,
+  ContentWrapper,
+  MobileCardsWrapper,
+} from './styles/classic_layout'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunityContent:ClassicView')
@@ -21,14 +30,26 @@ type TProps = {
 }
 
 const ClassicLayout: FC<TProps> = ({ thread }) => {
+  const { isMobile } = usePlatform()
+  const isMobileCardsView =
+    isMobile && includes(thread, [ARTICLE_THREAD.JOB, ARTICLE_THREAD.RADAR])
+
   return (
     <Wrapper testid="community-content">
       <CommunityDigest />
-      <InnerWrapper>
-        <ContentWrapper>
-          <ThreadContent thread={thread} />
-        </ContentWrapper>
-      </InnerWrapper>
+      {isMobileCardsView ? (
+        <MobileCardsWrapper>
+          <ContentWrapper>
+            <ThreadContent thread={thread} />
+          </ContentWrapper>
+        </MobileCardsWrapper>
+      ) : (
+        <InnerWrapper>
+          <ContentWrapper>
+            <ThreadContent thread={thread} />
+          </ContentWrapper>
+        </InnerWrapper>
+      )}
     </Wrapper>
   )
 }

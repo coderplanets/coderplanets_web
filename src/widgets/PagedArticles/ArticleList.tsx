@@ -37,7 +37,12 @@ const ArticleList = (props) => {
       return (
         <Fragment>
           {entries.map((entry) => (
-            <BlogItem key={entry.id} entry={entry} c11n={c11n} />
+            <BlogItem
+              key={entry.id}
+              entry={entry}
+              c11n={c11n}
+              curCommunity={curCommunity}
+            />
           ))}
         </Fragment>
       )
