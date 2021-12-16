@@ -18,6 +18,7 @@ import { markStates, toJS } from '@/utils/mobx'
 import { PagedCommunities, emptyPagi, PagedPosts } from '@/model'
 
 const UserProfile = T.model('UserProfile', {
+  hasFollowedUser: T.maybeNull(T.boolean),
   subscribedCommunities: T.optional(PagedCommunities, emptyPagi),
   pagedPosts: T.optional(PagedPosts, emptyPagi),
 })
@@ -61,6 +62,9 @@ const UserProfile = T.model('UserProfile', {
     },
   }))
   .actions((self) => ({
+    reset(): void {
+      self.hasFollowedUser = null
+    },
     setViewing(sobj): void {
       const root = getParent(self) as TRootStore
       root.setViewing(sobj)
