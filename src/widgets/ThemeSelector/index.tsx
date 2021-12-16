@@ -4,8 +4,7 @@
  *
  */
 
-import React from 'react'
-import T from 'prop-types'
+import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
 
@@ -16,7 +15,13 @@ import GallerySelector from './GallerySelector'
 /* eslint-disable-next-line */
 const log = buildLog('c:ThemeSelector:index')
 
-const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
+type TProps = {
+  curTheme?: string
+  displayStyle?: 'default' | 'card' | 'gallery'
+  changeTheme?: (theme: string) => void
+}
+
+const ThemeSelector: FC<TProps> = ({ displayStyle, curTheme, changeTheme }) => {
   switch (displayStyle) {
     case 'card': {
       return <CardSelector curTheme={curTheme} changeTheme={changeTheme} />
@@ -30,16 +35,4 @@ const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
   }
 }
 
-ThemeSelector.propTypes = {
-  curTheme: T.string,
-  displayStyle: T.oneOf(['default', 'card', 'gallery']),
-  changeTheme: T.func.isRequired,
-  // https://www.npmjs.com/package/prop-types
-}
-
-ThemeSelector.defaultProps = {
-  curTheme: '',
-  displayStyle: 'default',
-}
-
-export default React.memo(ThemeSelector)
+export default memo(ThemeSelector)

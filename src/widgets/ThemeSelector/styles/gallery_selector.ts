@@ -73,4 +73,11 @@ export const ThemeDesc = styled.div<TActive>`
   color: #7b8f90;
   opacity: ${({ active }) => (active ? '1' : '0.6')};
   cursor: pointer;
+
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 `
