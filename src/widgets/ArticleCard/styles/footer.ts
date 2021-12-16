@@ -11,7 +11,17 @@ export const PublishWrapper = styled.div`
   margin-left: 3px;
   margin-bottom: 8px;
   font-size: 13px;
+
+  ${css.media.mobile`
+    font-size: 12px;
+  `};
 `
 export const Bottom = styled.div`
   ${css.flex('justify-between', 'align-center')};
+
+  ${css.media.mobile`
+    transform: scale(0.9);
+    width: 109%;
+    margin-left: -8px;
+  `};
 `

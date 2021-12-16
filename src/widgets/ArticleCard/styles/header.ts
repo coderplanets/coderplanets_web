@@ -27,6 +27,11 @@ export const LinkSrc = styled.a`
     opacity: 1;
     cursor: pointer;
   }
+
+  ${css.media.mobile`
+    font-size: 12px;
+    ${css.cutRest('100px')};
+  `};
 `
 export const Title = styled.div`
   display: inline;
@@ -41,7 +46,13 @@ export const Title = styled.div`
   }
 
   ${css.media.mobile`
-    ${css.cutRest('150px')};
+    font-size: 14px;
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
   `};
 `
 export const ExtraInfo = styled.span`

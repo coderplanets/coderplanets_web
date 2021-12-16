@@ -6,12 +6,14 @@
 
 import { FC } from 'react'
 import dynamic from 'next/dynamic'
+import { includes } from 'ramda'
 
 import type { TResState } from '@/spec'
-import { C11N } from '@/constant'
+import { C11N, ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
+import usePlatform from '@/hooks/usePlatform'
 import PagedArticles from '@/widgets/PagedArticles'
 import ViewportTracker from '@/widgets/ViewportTracker'
 // import ArticlesFilter from '@/widgets/ArticlesFilter'
@@ -19,7 +21,12 @@ import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 
 import type { TStore } from './store'
 
-import { Wrapper, MainWrapper, FilterWrapper } from './styles'
+import {
+  Wrapper,
+  MainWrapper,
+  MobileCardsMainWrapper,
+  FilterWrapper,
+} from './styles'
 import { useInit, inAnchor, outAnchor, onFilterSelect } from './logic'
 
 const ArticlesFilter = dynamic(() => import('@/widgets/ArticlesFilter'), {
@@ -35,6 +42,7 @@ type TProps = {
 
 const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   useInit(store)
+  const { isMobile } = usePlatform()
 
   const {
     pagedArticlesData,
@@ -48,9 +56,16 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   const { bannerLayout } = c11n
   const { pageNumber, totalCount } = pagedArticlesData
 
+  const isMobileCardsView =
+    isMobile && includes(curThread, [ARTICLE_THREAD.JOB, ARTICLE_THREAD.RADAR])
+
+  const TheMainWrapper = isMobileCardsView
+    ? MobileCardsMainWrapper
+    : MainWrapper
+
   return (
     <Wrapper>
-      <MainWrapper thread={curThread}>
+      <TheMainWrapper thread={curThread}>
         <ViewportTracker onEnter={inAnchor} onLeave={outAnchor} />
         {showFilters && (
           <FilterWrapper thread={curThread}>
@@ -70,7 +85,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
           resState={resState as TResState}
           c11n={c11n}
         />
-      </MainWrapper>
+      </TheMainWrapper>
 
       {bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
     </Wrapper>

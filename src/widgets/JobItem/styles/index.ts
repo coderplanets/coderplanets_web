@@ -30,6 +30,13 @@ export const Wrapper = styled.article<TWrapper>`
   &:hover {
     border-color: #124d61;
   }
+
+  ${css.media.mobile`
+    padding: 8px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  `};
 `
 
 export const holder = 1

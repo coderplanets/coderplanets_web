@@ -4,6 +4,8 @@ import Link from 'next/link'
 import type { TJob, TRadar } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
 import { cutRest } from '@/utils/helper'
+
+import usePlatform from '@/hooks/usePlatform'
 import TagsList from '@/widgets/TagsList'
 import { Br } from '@/widgets/Common'
 
@@ -19,6 +21,8 @@ import {
 } from './styles/header'
 
 const Header: FC<TIndex> = ({ data, thread }) => {
+  const { isMobile } = usePlatform()
+
   switch (thread) {
     case ARTICLE_THREAD.RADAR: {
       const { id, title, articleTags, linkAddr } = data as TRadar
@@ -35,7 +39,11 @@ const Header: FC<TIndex> = ({ data, thread }) => {
             <Title>{cutRest(title, 100)}</Title>
           </Link>
           <Br top={6} />
-          <TagsList items={articleTags} mLeft={0} size="medium" />
+          <TagsList
+            items={articleTags}
+            mLeft={0}
+            size={isMobile ? 'small' : 'medium'}
+          />
         </Wrapper>
       )
     }
@@ -45,14 +53,19 @@ const Header: FC<TIndex> = ({ data, thread }) => {
 
       return (
         <Wrapper>
-          <TagsList items={articleTags} mLeft={0} size="medium" />
-          <Br top={10} />
-
-          <ExtraInfo>
-            <CompanyLink href={companyLink} target="_blank">
-              {cutRest(company, 12)}
-            </CompanyLink>
-          </ExtraInfo>
+          <TagsList
+            items={articleTags}
+            mLeft={0}
+            size={isMobile ? 'small' : 'medium'}
+          />
+          <Br top={isMobile ? '4px' : '10px'} />
+          {!isMobile && (
+            <ExtraInfo>
+              <CompanyLink href={companyLink} target="_blank">
+                {cutRest(company, 12)}
+              </CompanyLink>
+            </ExtraInfo>
+          )}
           <Link href={`/${ARTICLE_THREAD.JOB}/${id}`} passHref>
             <Title>{cutRest(title, 100)}</Title>
           </Link>

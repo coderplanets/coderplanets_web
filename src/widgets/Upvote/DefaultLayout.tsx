@@ -8,6 +8,7 @@ import { FC, memo } from 'react'
 
 import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
+import usePlatform from '@/hooks/usePlatform'
 
 import AvatarsRow from '@/widgets/AvatarsRow'
 
@@ -39,6 +40,7 @@ const Upvote: FC<TProps> = ({
   avatarList,
 }) => {
   const noOne = count === 0
+  const { isMobile } = usePlatform()
 
   return (
     <Wrapper testid={testid}>
@@ -48,7 +50,9 @@ const Upvote: FC<TProps> = ({
         count={count}
       />
 
-      {!noOne && <AvatarsRow users={avatarList} showMore={false} />}
+      {!noOne && !isMobile && (
+        <AvatarsRow users={avatarList} showMore={false} />
+      )}
 
       <Desc
         noOne={noOne}

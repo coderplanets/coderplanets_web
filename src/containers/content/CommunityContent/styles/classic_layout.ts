@@ -13,6 +13,12 @@ export const Wrapper = styled(BaseWrapper)`
     padding-left: 0;
   `};
 `
+export const MobileCardsWrapper = styled.div`
+  ${css.flexColumn()};
+  width: 100%;
+  padding: 0;
+  margin: 0;
+`
 export const InnerWrapper = styled(BaseInnerWrapper)`
   ${css.flexColumn()};
 
