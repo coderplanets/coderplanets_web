@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
 
 import type { TThemeMap, TC11NLayout, TMetric, TOnlineStatus } from '@/spec'
-import { GITHUB, BUILD_VERSION } from '@/config'
+import { GITHUB, ABOUT_LINK, BUILD_VERSION } from '@/config'
 import { ROUTE } from '@/constant'
 import { siteBirthDay } from '@/utils/helper'
 
@@ -67,19 +67,19 @@ const HomeView: FC<TProps> = ({ metric, layout, onlineStatus }) => {
           <Column>
             <Title>使用指南</Title>
             <Body>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+              <LinkItem href={`${ABOUT_LINK}`} {...linkColors}>
                 发帖须知
               </LinkItem>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+              <LinkItem href={`${ABOUT_LINK}`} {...linkColors}>
                 会员福利
               </LinkItem>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+              <LinkItem href={`${ABOUT_LINK}`} {...linkColors}>
                 隐私说明
               </LinkItem>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+              <LinkItem href={`${ABOUT_LINK}`} {...linkColors}>
                 存档规则
               </LinkItem>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+              <LinkItem href={`${ABOUT_LINK}`} {...linkColors}>
                 免责声明
               </LinkItem>
             </Body>
@@ -134,13 +134,13 @@ const HomeView: FC<TProps> = ({ metric, layout, onlineStatus }) => {
           <Column>
             <Title>品牌</Title>
             <Body>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+              <LinkItem href={`${ABOUT_LINK}`} {...linkColors}>
                 价值观
               </LinkItem>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+              <LinkItem href={`${ABOUT_LINK}`} {...linkColors}>
                 名词解释
               </LinkItem>
-              <LinkItem href={`${ROUTE.MEMBERSHIP}`} {...linkColors}>
+              <LinkItem href={`${ABOUT_LINK}`} {...linkColors}>
                 Logo &amp; 资源
               </LinkItem>
             </Body>
