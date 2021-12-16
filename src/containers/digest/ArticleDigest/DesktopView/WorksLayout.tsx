@@ -37,7 +37,7 @@ import {
   TabsWrapper,
   SubWrapper,
 } from '../styles/desktop_view/works_layout'
-import { worksTabOnChange } from '../logic'
+import { worksTabOnChange, handleWorksUpvote } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleDigest')
@@ -49,7 +49,7 @@ type TProps = {
 }
 
 const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
-  const { meta, title, desc, upvotesCount } = article
+  const { meta, title, desc, upvotesCount, viewerHasUpvoted } = article
 
   const activeTab = !!tab ? tab : 'story'
   // @ts-ignore
@@ -96,7 +96,9 @@ const WorksLayout: FC<TProps> = ({ metric = METRIC.ARTICLE, article, tab }) => {
         <Upvote
           count={upvotesCount}
           avatarList={meta.latestUpvotedUsers}
+          viewerHasUpvoted={viewerHasUpvoted}
           type={UPVOTE_LAYOUT.WORKS_ARTICLE}
+          onAction={handleWorksUpvote}
         />
       </SubWrapper>
     </Fragment>
