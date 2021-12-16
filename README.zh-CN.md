@@ -1,14 +1,7 @@
 ![CPS Brand](https://github.com/mydearxym/mastani_server/blob/dev/docs/snapshots/cps_logo_md.png?raw=true)
 =========
 [![Build Status](https://travis-ci.org/coderplanets/coderplanets_web.svg?branch=dev)](https://travis-ci.org/coderplanets/coderplanets_web)
-[![codecov](https://codecov.io/gh/coderplanets/coderplanets_web/branch/dev/graph/badge.svg)](https://codecov.io/gh/coderplanets/coderplanets_web)
-[![dev status](https://david-dm.org/coderplanets/coderplanets_web.svg)](https://david-dm.org/coderplanets/coderplanets_web)
-[![CodeFactor](https://www.codefactor.io/repository/github/coderplanets/coderplanets_web/badge)](https://www.codefactor.io/repository/github/coderplanets/coderplanets_web)
-[![Powerd by](https://badgen.now.sh/badge/mastani/powered/a871c1)](https://github.com/mastani-stack)
-[![cpsbadge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://coderplanets.com)
-
-
-#### 插播广告: 作者正在找工作，如果贵团伙有成都或远程的坑位，求收留 :)
+[![plausible badge](https://badgen.net/badge/analytics/on%20plausible/9cb77b)](https://plausible.io/coderplanets.com) 
 
 [English](https://github.com/coderplanets/coderplanets_web/blob/docs/README.md) | 中文 
 
@@ -52,15 +45,10 @@
 - [常见错误](docs/Troubleshooting.zh-CN.md)
 
 
-## credit 
+## 免责声明：
 
-[网站
-logo](https://www.flaticon.com/free-icon/keyboard_211884#term=keyboard&page=8&position=88)
-由作者
-[freepik](https://www.flaticon.com/authors/freepik) 分享于
-[flaticon](https://www.flaticon.com), 协议为 [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0)
+鉴于国内的特殊环境，<b>目前</b>本项目源代码仅供参考，不鼓励，不支持商业用途。原作者不对任何人完全或部分地依据本项目的全部或部分内容从事的任何事情和因其任何作为或不作为造成的后果承担任何责任。
 
-## 协议
+特此声明。
 
-本项目使用 GNU General Public License v3.0 协议, 详细内容请查看 [LICENSE.md](https://github.com/coderplanets/coderplanets_web/blob/docs/LICENSE)
 
