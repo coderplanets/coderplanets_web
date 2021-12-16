@@ -18,7 +18,7 @@ const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
 // const nextI18next = require('../i18n')
 
 const app = require('./app')
-const { redirectToNakedUrl } = require('./helper')
+const { redirectToNakedUrl, redirectToHttpsMiddleware } = require('./helper')
 
 const CONFIG = require('../config/config.json')
 
@@ -32,6 +32,8 @@ mobxReact.enableStaticRendering(true)
   await app.prepare()
   const server = express()
 
+  server.set('trust proxy', true)
+  server.use(redirectToHttpsMiddleware)
   // const server = express()
   /* eslint-disable-next-line */
   server.use(cookieParser())

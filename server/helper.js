@@ -50,7 +50,21 @@ const redirectToNakedUrl = (req, res, next) => {
   next()
 }
 
+const redirectToHttpsMiddleware = (request, response, next) => {
+  const { protocol, hostname, url } = request
+  if (
+    protocol === 'http' &&
+    hostname !== 'localhost' &&
+    hostname !== '127.0.0.1'
+  ) {
+    response.redirect(`https://${hostname}${url}`)
+    return
+  }
+  next()
+}
+
 module.exports = {
   renderAndCache,
   redirectToNakedUrl,
+  redirectToHttpsMiddleware,
 }
