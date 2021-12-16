@@ -24,6 +24,33 @@ export const Extra = styled.li`
   font-size: 13px;
   color: ${theme('thread.extraInfo')};
 `
+export const CommunityLabel = styled.a`
+  color: inherit;
+  padding-left: 14px;
+  position: relative;
+  font-weight: bold;
+  opacity: 0.8;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  transition: opacity 0.2s;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 4px;
+    width: 6px;
+    height: 11px;
+    border-radius: 4px;
+    background-color: #49a5a0;
+  }
+`
 export const ExtraIcon = styled(Img)`
   ${css.size(15)};
   fill: #28a49b;
