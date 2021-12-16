@@ -99,6 +99,7 @@ const WorksCard: FC<TProps> = ({
             <DigestSentence
               top={isMobile ? 2 : 5}
               bottom={isMobile ? 5 : 15}
+              lineClamp={1}
               left={-2}
               onPreview={() => onPreview(item)}
               interactive={!preview}

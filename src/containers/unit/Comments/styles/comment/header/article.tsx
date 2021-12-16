@@ -10,6 +10,9 @@ export const Avatar = styled(Img)<{ avatarSize: number }>`
   ${({ avatarSize }) => css.circle(avatarSize)};
   opacity: ${theme('avatar.opacity')};
   margin-right: 13px;
+  ${css.media.mobile`
+    margin-right: 5px;
+  `}
 `
 export const UserBase = styled.div`
   ${css.flex('align-end')};
@@ -19,6 +22,10 @@ export const UserBase = styled.div`
 export const Nickname = styled.div`
   font-size: 15px;
   ${css.cutRest('150px')};
+
+  ${css.media.mobile`
+    ${css.cutRest('80px')};
+  `}
 `
 export const AuthorTag = styled.div`
   font-size: 11px;
@@ -28,6 +35,11 @@ export const AuthorTag = styled.div`
   background: #023c4a;
   border-radius: 5px;
   color: ${theme('button.primary')};
+
+  ${css.media.mobile`
+    margin-left: 5px;
+    padding: 0 4px;
+  `}
 `
 export const RefToOther = styled.div`
   ${css.flex('align-center')};
@@ -53,6 +65,10 @@ export const ShortIntro = styled.div`
   font-size: 13px;
   opacity: 0.8;
   margin-top: 1px;
+
+  ${css.media.mobile`
+    ${css.cutRest('200px')};
+  `};
 `
 export const CreateDate = styled.div`
   ${css.flex('align-center')};

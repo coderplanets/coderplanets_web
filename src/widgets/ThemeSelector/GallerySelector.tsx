@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
 import { themeMeta } from '@/utils/themes'
@@ -12,7 +12,12 @@ import {
   ThemeDesc,
 } from './styles/gallery_selector'
 
-const GallerySelector = ({ curTheme, changeTheme }) => {
+type TProps = {
+  curTheme?: string
+  changeTheme?: (theme: string) => void
+}
+
+const GallerySelector: FC<TProps> = ({ curTheme, changeTheme }) => {
   return (
     <Wrapper>
       {keys(themeMeta).map((name, index) => (
@@ -32,7 +37,6 @@ const GallerySelector = ({ curTheme, changeTheme }) => {
             </ThemeDesc>
           </IntroDesc>
           <ThemeDot
-            large
             active={curTheme === name}
             name={name}
             onClick={() => changeTheme(name)}
@@ -43,4 +47,4 @@ const GallerySelector = ({ curTheme, changeTheme }) => {
   )
 }
 
-export default React.memo(GallerySelector)
+export default memo(GallerySelector)

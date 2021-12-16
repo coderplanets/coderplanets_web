@@ -1,10 +1,15 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
 import { themeMeta } from '@/utils/themes'
 import { Wrapper, ThemeDot } from './styles/dot_selector'
 
-const DotSelector = ({ curTheme, changeTheme }) => (
+type TProps = {
+  curTheme?: string
+  changeTheme?: (theme: string) => void
+}
+
+const DotSelector: FC<TProps> = ({ curTheme, changeTheme }) => (
   <Wrapper>
     {keys(themeMeta).map((name) => (
       <ThemeDot
@@ -17,4 +22,4 @@ const DotSelector = ({ curTheme, changeTheme }) => (
   </Wrapper>
 )
 
-export default React.memo(DotSelector)
+export default memo(DotSelector)

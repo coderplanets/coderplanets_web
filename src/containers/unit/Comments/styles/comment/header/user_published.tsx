@@ -50,8 +50,11 @@ export const ShortIntro = styled.div`
   font-size: 13px;
   opacity: 0.8;
   margin-top: 1px;
-`
 
+  ${css.media.mobile`
+    ${css.cutRest('200px')};
+  `};
+`
 export const CreateDate = styled.div`
   ${css.flex('align-center')};
   color: ${theme('comment.floor')};

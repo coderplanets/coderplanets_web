@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { keys } from 'ramda'
 
 import { ICON_CMD } from '@/config'
@@ -16,12 +16,16 @@ import {
   AuthorName,
 } from './styles/card_selector'
 
-const CardSelector = ({ curTheme, changeTheme }) => (
+type TProps = {
+  curTheme?: string
+  changeTheme?: (theme: string) => void
+}
+
+const CardSelector: FC<TProps> = ({ curTheme, changeTheme }) => (
   <Wrapper>
     {keys(themeMeta).map((name) => (
       <IntroBox key={name} active={curTheme === name}>
         <ThemeDot
-          large
           active={curTheme === name}
           name={name}
           onClick={() => changeTheme(name)}
@@ -52,4 +56,4 @@ const CardSelector = ({ curTheme, changeTheme }) => (
   </Wrapper>
 )
 
-export default React.memo(CardSelector)
+export default memo(CardSelector)
