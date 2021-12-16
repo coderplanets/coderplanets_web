@@ -3,6 +3,8 @@ import TimeAgo from 'timeago-react'
 
 import type { TComment } from '@/spec'
 
+import usePlatform from '@/hooks/usePlatform'
+
 import ImgFallback from '@/widgets/ImgFallback'
 import { Space } from '@/widgets/Common'
 import DotDivider from '@/widgets/DotDivider'
@@ -30,6 +32,7 @@ type TProps = {
 const CommentHeader: FC<TProps> = ({ data, showInnerRef }) => {
   const { author, meta } = data
   const avatarSize = author.bio ? 26 : 24
+  const { isMobile } = usePlatform()
 
   return (
     <Fragment>
@@ -46,6 +49,7 @@ const CommentHeader: FC<TProps> = ({ data, showInnerRef }) => {
           <UserBase>
             <Nickname>{author.nickname}</Nickname>
             {data.isArticleAuthor && <AuthorTag>作者</AuthorTag>}
+            <AuthorTag>作者</AuthorTag>
             {showInnerRef && meta.isReplyToOthers && (
               <RefToOther>
                 <RefLabel>回复</RefLabel>
@@ -53,7 +57,7 @@ const CommentHeader: FC<TProps> = ({ data, showInnerRef }) => {
               </RefToOther>
             )}
             <CreateDate>
-              <DotDivider space={8} />
+              <DotDivider space={isMobile ? 4 : 8} />
               <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
             </CreateDate>
           </UserBase>

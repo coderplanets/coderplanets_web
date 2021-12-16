@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 `
 export const ExpandWrapper = styled.div`
   ${css.flex('align-center')};
-  height: 50px;
+  height: 60px;
   margin-left: 0;
   position: relative;
 `

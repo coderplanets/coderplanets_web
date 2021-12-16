@@ -13,6 +13,7 @@ type TProps = {
 
 const ExternalLink: FC<TProps> = ({ src, hint, plainColor, maxLength }) => {
   const displayLimit = maxLength
+  if (!src) return null
 
   return (
     <Fragment>
