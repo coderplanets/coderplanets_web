@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 // import { } from 'ramda'
 
+import { EVENT } from '@/constant'
+
 import { authWarn, addCollection } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import asyncSuit from '@/utils/async'
@@ -10,7 +12,10 @@ import S from './schema'
 import type { TStore } from './store'
 
 const { SR71, $solver, asyncRes } = asyncSuit
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  // @ts-ignore
+  receive: [EVENT.WORKS_UPVOTE],
+})
 
 let sub$ = null
 let store: TStore | undefined
@@ -64,6 +69,13 @@ const DataSolver = [
     match: asyncRes('pagedCommentsParticipants'),
     action: ({ pagedCommentsParticipants }) => {
       store.mark({ pagedCommentsParticipants })
+    },
+  },
+  {
+    match: asyncRes(EVENT.WORKS_UPVOTE),
+    action: (data) => {
+      const { viewerHasUpvoted } = data[EVENT.WORKS_UPVOTE].data
+      handleUpvote(viewerHasUpvoted)
     },
   },
 ]

@@ -72,6 +72,10 @@ export const loadCommunity = (): void => {
   sr71$.query(S.community, { raw })
 }
 
+export const handleWorksUpvote = (viewerHasUpvoted: boolean): void => {
+  send(EVENT.WORKS_UPVOTE, { data: { viewerHasUpvoted } })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
