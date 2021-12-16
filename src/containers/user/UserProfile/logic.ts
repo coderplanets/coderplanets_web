@@ -32,15 +32,48 @@ export const loadPublishedArticles = (): void => {
   })
 }
 
+export const onFollow = (login: string): void => {
+  sr71$.mutate(S.follow, { login })
+}
+
+export const undoFollow = (login: string): void => {
+  sr71$.mutate(S.undoFollow, { login })
+}
+
+const loadViewerUser = (): void => {
+  const { isLogin, viewingUser } = store
+  if (!isLogin) return
+
+  sr71$.query(S.user, { login: viewingUser.login })
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################
 
 const DataSolver = [
   {
+    match: asyncRes('follow'),
+    action: () => loadViewerUser(),
+  },
+  {
+    match: asyncRes('undoFollow'),
+    action: () => loadViewerUser(),
+  },
+  {
     match: asyncRes('pagedPublishedPosts'),
     action: ({ pagedPublishedPosts }) => {
       store.mark({ pagedPosts: pagedPublishedPosts })
+      if (store.hasFollowedUser === null) {
+        loadViewerUser()
+      }
+    },
+  },
+  {
+    match: asyncRes('user'),
+    action: ({ user }) => {
+      console.log('got user: ', user)
+      store.mark({ hasFollowedUser: user.viewerHasFollowed })
     },
   },
 ]
@@ -67,6 +100,7 @@ export const useInit = (_store: TStore): void => {
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     loadPublishedArticles()
+
     return () => {
       sr71$.stop()
       sub$.unsubscribe()

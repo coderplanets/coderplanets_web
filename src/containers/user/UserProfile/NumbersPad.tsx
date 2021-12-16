@@ -23,13 +23,19 @@ import {
   InfoIcon,
   Title,
 } from './styles/numbers_pad'
+import { onFollow, undoFollow } from './logic'
 
 type TProps = {
   user: TUser
   subscribedCommunities: TPagedCommunities
+  hasFollowedUser: boolean | null
 }
 
-const Numberspad: FC<TProps> = ({ user, subscribedCommunities }) => {
+const Numberspad: FC<TProps> = ({
+  user,
+  subscribedCommunities,
+  hasFollowedUser,
+}) => {
   const { isMobile } = usePlatform()
 
   return (
@@ -80,8 +86,11 @@ const Numberspad: FC<TProps> = ({ user, subscribedCommunities }) => {
             <Br bottom={4} />
             <FollowButton
               size="small"
-              hasFollowed={false}
+              hasFollowed={!!hasFollowedUser}
               followingOffset={-6}
+              userLogin={user.login}
+              onFollow={onFollow}
+              onUndoFollow={undoFollow}
             />
             <Br bottom={6} />
             <Button size="tiny" ghost noBorder>

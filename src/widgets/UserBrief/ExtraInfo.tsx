@@ -44,7 +44,7 @@ const ExtraInfo: FC<TProps> = ({ user }) => {
         </Section>
       )}
 
-      {user.social.github && (
+      {user.social?.github && (
         <Section>
           <ICON.GithubIcon />
           <LinkValue
@@ -56,7 +56,7 @@ const ExtraInfo: FC<TProps> = ({ user }) => {
         </Section>
       )}
 
-      {user.social.twitter && (
+      {user.social?.twitter && (
         <Section>
           <ICON.TwitterIcon />
           <LinkValue
