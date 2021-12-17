@@ -57,23 +57,17 @@ const MembershipContent = T.model('MembershipContent', {
         },
         {
           pkgType: PACKAGE.GIRL,
-          desc: '女生福利，高级会员的所有服务',
+          desc: '女生福利，高级会员的所有服务。',
           yearlyPrice: '19.9',
           monthlyPrice: '0.99',
           illustration: PACKAGE.GIRL,
-          serviceItems: [
-            { title: '女生头像标识' },
-            { title: '发起投票' },
-            { title: '需求优先响应' },
-            { title: '个别场景更高权重' },
-            { title: '不定期周边礼品' },
-          ],
+          serviceItems: [{ title: '头像标识(可选)' }],
         },
         {
           pkgType: PACKAGE.TEAM,
           desc: '社区 SaaS 服务。适合独立开发者、小团队等需要独立社区的场景',
-          yearlyPrice: '1999',
-          monthlyPrice: '199.9',
+          yearlyPrice: '--',
+          monthlyPrice: '--',
           illustration: PACKAGE.TEAM,
           serviceItems: [
             {
