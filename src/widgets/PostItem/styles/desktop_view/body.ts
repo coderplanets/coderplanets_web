@@ -23,7 +23,7 @@ export const LeftPart = styled.div`
   ${css.flex('align-center')};
 `
 
-export const CommunityLabel = styled.a`
+export const CommunityLabel = styled.div`
   color: inherit;
   padding-left: 14px;
   position: relative;

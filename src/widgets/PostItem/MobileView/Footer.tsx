@@ -1,9 +1,8 @@
 import { FC } from 'react'
 
 import type { TPost, TCommunity } from '@/spec'
-import { cutRest } from '@/utils/helper'
+import { cutRest, changeToCommunity } from '@/utils/helper'
 import { ICON_CMD } from '@/config'
-import Link from 'next/link'
 
 import DotDivider from '@/widgets/DotDivider'
 
@@ -30,9 +29,11 @@ const Footer: FC<TProps> = ({ item, curCommunity }) => {
     <Wrapper>
       <Extra>
         {showOriginalCommunity && (
-          <Link href={`/${originalCommunity.raw}`} passHref>
-            <CommunityLabel>{originalCommunity.title}</CommunityLabel>
-          </Link>
+          <CommunityLabel
+            onClick={() => changeToCommunity(originalCommunity.raw)}
+          >
+            {originalCommunity.title}
+          </CommunityLabel>
         )}
 
         {showOriginalCommunity && <DotDivider radius={3} space={6} />}

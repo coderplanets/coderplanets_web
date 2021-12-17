@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import type { TCommunity, TPost } from '@/spec'
 import { EVENT } from '@/constant'
-import { send } from '@/utils/helper'
+import { send, changeToCommunity } from '@/utils/helper'
 
 import { SpaceGrow } from '@/widgets/Common'
 import DigestSentence from '@/widgets/DigestSentence'
@@ -50,9 +50,11 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
                 placement="bottom-start"
                 delay={1500}
               >
-                <Link href={`/${originalCommunity.raw}`} passHref>
-                  <CommunityLabel>{originalCommunity.title}</CommunityLabel>
-                </Link>
+                <CommunityLabel
+                  onClick={() => changeToCommunity(originalCommunity.raw)}
+                >
+                  {originalCommunity.title}
+                </CommunityLabel>
               </Tooltip>
               <LabelDivider />
             </Fragment>

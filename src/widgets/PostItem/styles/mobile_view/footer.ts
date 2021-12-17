@@ -7,7 +7,7 @@ import Img from '@/Img'
 export const Wrapper = styled.div`
   margin-top: -10px;
 `
-export const CommunityLabel = styled.a`
+export const CommunityLabel = styled.div`
   color: inherit;
   padding-left: 14px;
   position: relative;
