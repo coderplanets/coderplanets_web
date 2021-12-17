@@ -117,7 +117,7 @@ export const useInit = (_store: TStore, metric: TMetric): void => {
     store = _store
     store.mark({ metric })
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    // getOnlineStatus()
+    getOnlineStatus()
     checkSessionState()
 
     return () => {
