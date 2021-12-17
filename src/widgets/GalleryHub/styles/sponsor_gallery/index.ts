@@ -89,7 +89,6 @@ export const IntroImg = styled(Img)`
   height: 100px;
   object-fit: cover;
   display: block;
-  filter: saturate(0.5);
 `
 export const Desc = styled.div<{ level: string }>`
   color: ${theme('thread.articleDigest')};

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import type { TTestable, TMetric } from '@/spec'
 import { theme } from '@/utils/themes'
 import css from '@/utils/css'
+import Img from '@/Img'
 
 export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   'data-test-id': testid,
@@ -30,6 +31,8 @@ export const DonateTitle = styled.div`
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
   margin-top: 50px;
+  padding: 0 40px;
+  text-align: center;
   &:before {
     content: '-';
     margin-right: 8px;
@@ -41,7 +44,13 @@ export const DonateTitle = styled.div`
 `
 export const DonateWrapper = styled.div`
   ${css.flex('justify-center')};
+  flex-wrap: wrap;
   margin-top: 40px;
+  padding: 0 40px;
+`
+export const RealDonateAvatar = styled(Img)`
+  ${css.circle(30)};
+  margin-right: 15px;
 `
 export const DonateAvatar = styled.div`
   color: ${theme('thread.articleDigest')};

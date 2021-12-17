@@ -20,7 +20,7 @@ import {
   IntroHead,
   Icon,
   Title,
-  // IntroImg,
+  IntroImg,
   Desc,
   LinkWrapper,
 } from '../styles/sponsor_gallery'
@@ -41,6 +41,7 @@ type TProps = {
     addr: string
     desc: string
     icon?: string
+    cover?: string
   }[]
   level?: 'gold' | 'silver'
 }
@@ -58,10 +59,8 @@ const SponsorGallery: FC<TProps> = ({ items, level = 'gold' }) => {
               {level === 'silver' && !isMobile && <Icon />}
             </IntroHead>
           </Header>
-          {level === 'gold' && (
-            <Patterns index={index} />
-            // <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
-          )}
+          {level === 'gold' && !item.cover && <Patterns index={index} />}
+          {level === 'gold' && item.cover && <IntroImg src={item.cover} />}
           {item.desc && <Desc level={level}>{cutRest(item.desc, 30)}</Desc>}
           {!isMobile && (
             <LinkWrapper>
