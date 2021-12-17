@@ -90,7 +90,7 @@ const MembershipContentContainer: FC<TProps> = ({
       <InnerWrapper metric={metric}>
         <BannerWrapper>
           <Title>Hi，你好哇 👋</Title>
-          <Desc>欢迎来到 CoderPlanets，选择一个适合你的会员类型吧</Desc>
+          <Desc>欢迎来到 CoderPlanets，会员系统暂未开放，仅做展示。</Desc>
           <PayButtonWrapper>
             <OrButton
               size="small"
