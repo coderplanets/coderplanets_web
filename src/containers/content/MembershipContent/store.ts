@@ -39,8 +39,8 @@ const MembershipContent = T.model('MembershipContent', {
         {
           pkgType: PACKAGE.ADVANCE,
           desc: '更好更全面的阅读、交互体验。更丰富的交流工具',
-          yearlyPrice: '19.9',
-          monthlyPrice: '0.99',
+          yearlyPrice: '1',
+          monthlyPrice: '0.1',
           illustration: PACKAGE.ADVANCE,
           serviceItems: [
             { title: '主题设置' },
@@ -57,11 +57,11 @@ const MembershipContent = T.model('MembershipContent', {
         },
         {
           pkgType: PACKAGE.GIRL,
-          desc: '女生福利，高级会员的所有服务。',
-          yearlyPrice: '19.9',
-          monthlyPrice: '0.99',
+          desc: '支持性别平权，鼓励更多女性加入开发者群体。',
+          yearlyPrice: '1',
+          monthlyPrice: '0.1',
           illustration: PACKAGE.GIRL,
-          serviceItems: [{ title: '头像标识(可选)' }],
+          serviceItems: [{ title: '头像标识（可选）' }],
         },
         {
           pkgType: PACKAGE.TEAM,

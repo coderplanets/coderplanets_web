@@ -79,7 +79,6 @@ const DataSolver = [
     action: ({ community }) => {
       markLoading(false)
       const { subPath } = store.curRoute
-      log('community: ', community)
       const activeThread = singular(subPath) || ARTICLE_THREAD.POST
       store.setViewing({ community, activeThread })
     },
@@ -100,7 +99,9 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadCommunity(),
+    action: () => {
+      loadCommunity()
+    },
   },
 ]
 const ErrSolver = [

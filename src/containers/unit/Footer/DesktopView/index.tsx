@@ -8,9 +8,9 @@ import { FC } from 'react'
 import { includes } from 'ramda'
 // import dynamic from 'next/dynamic'
 
+import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
-import type { TMetric } from '@/spec'
 import { HCN, METRIC } from '@/constant'
 
 import JoinModal from '@/containers/tool/JoinModal'

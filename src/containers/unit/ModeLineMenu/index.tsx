@@ -83,8 +83,6 @@ const ModeLineMenuContainer: FC<TProps> = ({
   useInit(store)
   const { curActive, subscribedCommunities } = store
 
-  console.log('# type: ', type)
-
   return (
     <Wrapper testid={testid}>
       {renderMenus(type, curActive, subscribedCommunities)}

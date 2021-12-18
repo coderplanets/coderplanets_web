@@ -102,6 +102,7 @@ const DataSolver = [
     match: asyncRes(EVENT.COMMUNITY_CHANGE_BEFORE),
     action: (data): void => {
       const { path } = data[EVENT.COMMUNITY_CHANGE_BEFORE]
+      send(EVENT.DRAWER.CLOSE)
       store.changeCommunity(path)
       send(EVENT.COMMUNITY_CHANGE)
     },
@@ -121,6 +122,7 @@ export const useInit = (_store: TStore, metric: TMetric): void => {
     checkSessionState()
 
     return () => {
+      if (!sub$) return
       sub$.unsubscribe()
     }
   }, [_store, metric])

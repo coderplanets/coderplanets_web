@@ -277,8 +277,9 @@ export const changeToCommunity = (raw = ''): void => {
   const curPath = pathname.slice(1)
   const isNonCommunityPage = includes(curPath, values(NON_COMMUNITY_ROUTE))
   const isArticlePage = includes(curPath.split('/')[0], values(ARTICLE_THREAD))
+  const isTargetNonCommunityPage = includes(raw, values(NON_COMMUNITY_ROUTE))
 
-  if (isNonCommunityPage || isArticlePage) {
+  if (isNonCommunityPage || isArticlePage || isTargetNonCommunityPage) {
     const target = raw === HCN ? '' : raw
     Router.push(`/${target}`)
     return

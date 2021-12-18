@@ -74,7 +74,9 @@ const MoreContent: FC = () => {
             key={item.target}
             index={index}
             mobile
-            onClick={() => changeToCommunity(item.target)}
+            onClick={() => {
+              changeToCommunity(item.target)
+            }}
           >
             <Logo src={item.icon} />
             <Intro>
