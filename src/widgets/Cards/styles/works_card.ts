@@ -29,7 +29,10 @@ export const Wrapper = styled.div.attrs(({ testid }: TTestable) => ({
   }
 
   ${css.media.mobile`
+    height: 102px;
     padding-left: 2px;
+    padding-top: 0;
+    padding-bottom: 0;
   `};
   transition: all 0.1s;
 `
