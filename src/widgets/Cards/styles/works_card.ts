@@ -84,6 +84,10 @@ export const Name = styled.a`
     cursor: pointer;
     text-decoration: underline;
   }
+
+  ${css.media.mobile`
+    ${css.cutRest('200px')};
+  `};
 `
 export const PreviewName = styled(Name)`
   &:hover {

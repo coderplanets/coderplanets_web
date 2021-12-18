@@ -48,7 +48,7 @@ const items = [
   {
     icon: `${ICON}/menu/makers2.svg`,
     title: 'Makers',
-    target: 'markers',
+    target: 'makers',
     raw: 2,
   },
   {
