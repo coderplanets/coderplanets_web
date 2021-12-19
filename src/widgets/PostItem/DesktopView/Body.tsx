@@ -47,7 +47,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
             <Fragment>
               <Tooltip
                 content={<CommunityCard item={originalCommunity} />}
-                placement="bottom-start"
+                placement="right"
                 delay={1500}
               >
                 <CommunityLabel
@@ -62,7 +62,7 @@ const Body: FC<TProps> = ({ item, curCommunity }) => {
 
           <Tooltip
             content={<UserCard item={author} />}
-            placement="bottom-start"
+            placement="right"
             delay={500}
           >
             <Link href={`/u/${author.login}`} passHref>

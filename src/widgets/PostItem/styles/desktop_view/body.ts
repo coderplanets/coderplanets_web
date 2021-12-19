@@ -43,7 +43,7 @@ export const CommunityLabel = styled.div`
     content: '';
     position: absolute;
     left: 1px;
-    top: 2px;
+    top: 3px;
     width: 6px;
     height: 11px;
     border-radius: 4px;
