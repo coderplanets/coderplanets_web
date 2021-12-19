@@ -18,7 +18,7 @@ const ArticleMeta = T.model('ArticleMeta', {
   illegalWords: T.optional(T.array(T.string), []),
 })
 
-const Document = T.model('ArticleMeta', {
+export const Document = T.model('ArticleMeta', {
   bodyHtml: T.optional(T.string, ''),
   body: T.maybeNull(T.string),
   // toc:

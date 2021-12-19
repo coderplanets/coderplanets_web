@@ -14,12 +14,13 @@ import type {
   TArticleMeta,
   TThread,
   TBlogRSS,
+  TDocument,
 } from '@/spec'
 
 import uid from '@/utils/uid'
 import { markStates, toJS } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
-import { BlogRSSInfo } from '@/model'
+import { BlogRSSInfo, Document } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleViewer')
@@ -29,11 +30,15 @@ const ArticleViewer = T.model('ArticleViewer', {
   tab: T.optional(T.string, ''),
   // blog-spec
   blogRssInfo: T.optional(BlogRSSInfo, {}),
+  document: T.optional(Document, {}),
 })
   .views((self) => ({
     get isLogin(): boolean {
       const root = getParent(self) as TRootStore
       return root.account.isLogin
+    },
+    get documentData(): TDocument {
+      return toJS(self.document)
     },
     get accountInfo(): TAccount {
       const root = getParent(self) as TRootStore

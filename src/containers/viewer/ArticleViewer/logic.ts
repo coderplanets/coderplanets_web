@@ -70,20 +70,24 @@ const loadArticle = (): void => {
 const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 const handleArticleRes = (article: TArticle): void => {
-  log('handleArticleRes: ', article)
-
-  const thread = article.meta.thread.toLowerCase()
-  store.setViewing({ [thread]: merge(store.viewingArticle, article) })
+  log('# handleArticleRes: ', article)
   markLoading(false)
 
-  const { id, viewerHasUpvoted, views, upvotesCount } = article
-  store.syncArticle({
-    id,
-    viewerHasUpvoted,
-    views,
-    upvotesCount,
-    viewerHasViewed: true,
-  })
+  const thread = article.meta.thread.toLowerCase()
+  const { document, ...restArticle } = article
+  store.mark({ document })
+  store.setViewing({ [thread]: merge(store.viewingArticle, restArticle) })
+
+  setTimeout(() => {
+    const { id, viewerHasUpvoted, views, upvotesCount } = article
+    store.syncArticle({
+      id,
+      viewerHasUpvoted,
+      views,
+      upvotesCount,
+      viewerHasViewed: true,
+    })
+  }, 2000)
 }
 
 const handleUovoteRes = ({ upvotesCount, meta }) => {
@@ -169,12 +173,10 @@ const ErrSolver = [
 export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
-    // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     loadArticle()
 
     return () => {
-      log('uninit')
       store.reset()
       sr71$.stop()
       sub$.unsubscribe()
