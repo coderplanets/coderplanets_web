@@ -21,7 +21,7 @@ export const Logo = styled(SiteLogo)`
 `
 export const Block = styled.div`
   ${css.flex('align-center')};
-  margin-left: 2px;
+  margin-left: 8px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

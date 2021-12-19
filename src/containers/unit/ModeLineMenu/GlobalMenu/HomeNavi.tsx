@@ -1,25 +1,18 @@
 import { FC, memo } from 'react'
 
-import Link from 'next/link'
+import { HCN } from '@/constant'
+import { changeToCommunity } from '@/utils/helper'
 
-import {
-  Wrapper,
-  Logo,
-  Block,
-  Title,
-  // ArrowIcon,
-} from '../styles/global_menu/home_navi'
+import { Wrapper, Logo, Block, Title } from '../styles/global_menu/home_navi'
 
 const HomeNavi: FC = () => {
   return (
-    <Link href="/">
-      <Wrapper>
-        <Logo />
-        <Block>
-          <Title>oderPlanets</Title>
-        </Block>
-      </Wrapper>
-    </Link>
+    <Wrapper onClick={() => changeToCommunity(HCN)}>
+      <Logo />
+      <Block>
+        <Title>首页</Title>
+      </Block>
+    </Wrapper>
   )
 }
 
