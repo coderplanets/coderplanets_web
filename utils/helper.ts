@@ -282,10 +282,12 @@ export const changeToCommunity = (raw = ''): void => {
   if (isNonCommunityPage || isArticlePage || isTargetNonCommunityPage) {
     const target = raw === HCN ? '' : raw
     Router.push(`/${target}`)
+    send(EVENT.DRAWER.CLOSE)
     return
   }
 
   send(EVENT.COMMUNITY_CHANGE_BEFORE, { path: raw })
+  send(EVENT.DRAWER.CLOSE)
 }
 
 /**
