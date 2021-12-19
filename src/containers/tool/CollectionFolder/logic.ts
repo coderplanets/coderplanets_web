@@ -236,7 +236,7 @@ export const useInit = (_store: TStore, isMobile: boolean): void => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-    load()
+    // load()
 
     if (isMobile) {
       store.changeViewTo('setter')
