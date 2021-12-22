@@ -15,3 +15,4 @@ tsconfig.tsbuildinfo
 *.css
 ./deploy*
 *.tar.gz
+*.xml
