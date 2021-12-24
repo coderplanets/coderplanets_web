@@ -17,7 +17,6 @@ import {
   ssrRescue,
   communitySEO,
   singular,
-  ssrGetParam,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -26,12 +25,12 @@ import CommunityContent from '@/containers/content/CommunityContent'
 import { P } from '@/schemas'
 
 const loader = async (context, opt = {}) => {
-  // const { params } = context.req
+  const { query } = context
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
   // 线上环境会直接跳过 index 到这里，有待排查。。
-  const community = ssrGetParam(context, 'community') || HCN
-  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
+  const community = query.community || HCN
+  const thread = singular(query.thread || THREAD.POST)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -68,14 +67,14 @@ const loader = async (context, opt = {}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { res } = context
+  const { res, query } = context
 
   res.setHeader(
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=59',
   )
 
-  const thread = singular(ssrGetParam(context, 'thread') || THREAD.POST)
+  const thread = singular((query.thread as string) || THREAD.POST)
 
   let resp
   try {
