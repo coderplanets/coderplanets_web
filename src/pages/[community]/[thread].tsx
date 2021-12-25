@@ -1,6 +1,6 @@
 import { Provider } from 'mobx-react'
 import { GetServerSideProps } from 'next'
-import { merge } from 'ramda'
+import { merge, toLower } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
 import { HCN, THREAD, METRIC } from '@/constant'
@@ -17,7 +17,6 @@ import {
   ssrRescue,
   communitySEO,
   singular,
-  ssrGetParam,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -27,14 +26,11 @@ import { P } from '@/schemas'
 
 const loader = async (context, opt = {}) => {
   const { query } = context
-
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-  let community = query.community || HCN
-  // 生产环境，从其他页面返回时后有这种情况，需要单独判断
-  if (community === 'index') community = 'home'
 
+  // 线上环境会直接跳过 index 到这里，有待排查。。
+  const community = query.community || HCN
   const thread = singular(query.thread || THREAD.POST)
-  // const thread = params.thread ? singular(params.thread) : THREAD.POST
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -43,16 +39,12 @@ const loader = async (context, opt = {}) => {
     userHasLogin,
   })
 
-  const pagedArticleTags = isArticleThread(thread)
-    ? gqClient.request(P.pagedArticleTags, {
-        filter: {
-          communityRaw: community,
-          thread: singular(thread, 'upperCase'),
-        },
-      })
-    : {}
+  const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
+    filter: { communityRaw: community, thread: singular(thread, 'upperCase') },
+  })
 
   const filter = ssrPagedArticlesFilter(context, userHasLogin)
+
   const pagedArticles = isArticleThread(thread)
     ? gqClient.request(ssrPagedArticleSchema(thread), filter)
     : {}
@@ -83,8 +75,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   )
 
   const thread = singular((query.thread as string) || THREAD.POST)
-
-  console.log('page index, thread: ', thread)
+  console.log('page community, thread(radar): ', thread)
 
   let resp
   try {
@@ -100,26 +91,24 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   const { filter, community, pagedArticleTags } = resp
-
+  // console.log('iii got resp: ', resp)
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
-  // console.log('articleThread: ', articleThread.articlesThread.pagedJobs.entries)
   const initProps = merge(
     {
       ...ssrBaseStates(resp),
       route: {
         communityPath: community.raw,
-        mainPath:
-          community.raw === HCN && thread === THREAD.POST ? '' : community.raw,
+        mainPath: community.raw === HCN ? '' : community.raw,
         subPath: thread === THREAD.POST ? '' : thread,
         thread,
       },
       tagsBar: {
-        tags: pagedArticleTags?.entries || [],
+        tags: pagedArticleTags.entries,
       },
       viewing: {
         community,
-        activeThread: thread,
+        activeThread: toLower(thread),
       },
     },
     articleThread,

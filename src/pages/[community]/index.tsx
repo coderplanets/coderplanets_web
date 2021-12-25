@@ -75,6 +75,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   )
 
   const thread = singular((query.thread as string) || THREAD.POST)
+  console.log('page community, thread: ', thread)
 
   let resp
   try {
