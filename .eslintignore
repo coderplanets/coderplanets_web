@@ -16,3 +16,4 @@ tsconfig.tsbuildinfo
 ./deploy*
 *.tar.gz
 *.xml
+public/*

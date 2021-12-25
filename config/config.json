@@ -48,7 +48,7 @@
   "ICON_CMD": "https://assets.coderplanets.com/icons/cmd",
   "DEFAULT_ICON": "https://assets.coderplanets.com/icons/cmd/cheatsheet.svg",
   "DEFAULT_USER_AVATAR": "https://assets.coderplanets.com/icons/cmd/alien_user3.svg",
-  "GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql",
+  "GRAPHQL_ENDPOINT": "https://api.coderplanets.com/graphiql",
   "SITE_URL": "https://coderplanets.com",
   "SITE_URL_SHORT": "https://coderplanets.com",
   "GITHUB": "https://github.com/coderplanets",
@@ -59,7 +59,7 @@
   "//--- contact configs ---//": "",
   "EMAIL_SUPPORT": "coderplanets@outlook.com",
   "// GRAPHQL_ENDPOINT": "https://api.coderplanets.com/graphiql",
-  "BUILD_VERSION": "v2.0.98",
+  "BUILD_VERSION": "v2.0.99",
   "// 1000 * 60 * 10 = 10 mins": "",
   "SSR_CACHE_TIME": 60000
 }

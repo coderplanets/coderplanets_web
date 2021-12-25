@@ -5,27 +5,22 @@ const withPlugins = require('next-compose-plugins')
 const withSourceMaps = require('@zeit/next-source-maps')()
 const withPWA = require('next-pwa')
 
-// const withOffline = require('next-offline')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
-// const offlineConfig = require('./config/next_offline')
 
 // next-plugins end
 
-const nextConfig = {}
+// if move pwa config to witPlugins, it will not work
+const nextConfig = withPWA({
+  productionBrowserSourceMaps: false,
+  pwa: {
+    dest: 'public',
+    disable: process.env.NODE_ENV !== 'production',
+    register: true,
+    // scope: '/cp',
+    sw: 'sw.js',
+  },
+})
 
-module.exports = withPlugins(
-  // [withBundleAnalyzer, withSourceMaps, [withOffline, offlineConfig]],
-  [
-    [
-      withPWA,
-      {
-        dest: 'public',
-      },
-    ],
-    withBundleAnalyzer,
-    withSourceMaps,
-  ],
-  nextConfig,
-)
+module.exports = withPlugins([withBundleAnalyzer, withSourceMaps], nextConfig)
