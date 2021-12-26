@@ -124,7 +124,24 @@ export const ssrHomePagedArticlesFilter = (context, userHasLogin) => {
   return { filter, userHasLogin }
 }
 
-export const ssrPagedArticlesFilter = (context, userHasLogin) => {
+export const isrPagedArticlesFilter = (params) => {
+  const { community: communityPath } = params
+  const community = akaTranslate(communityPath) || HCN
+
+  const filter = pick(validCommunityFilters, { ...params, community })
+
+  if (filter.tag) {
+    filter.articleTag = filter.tag
+    delete filter.tag
+  }
+  if (filter.page) {
+    filter.page = parseInt(filter.page, 10)
+  }
+
+  return { filter, userHasLogin: false }
+}
+
+export const ssrPagedArticlesFilter = (context, userHasLogin = false) => {
   const { query } = context
   const { community: communityPath } = query
   const community = akaTranslate(communityPath) || HCN

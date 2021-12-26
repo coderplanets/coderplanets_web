@@ -96,6 +96,7 @@ export {
   ssrFetchPrepare,
   ssrPagedArticleSchema,
   ssrPagedArticlesFilter,
+  isrPagedArticlesFilter,
   ssrHomePagedArticlesFilter,
   ssrError,
   ssrParseArticleThread,

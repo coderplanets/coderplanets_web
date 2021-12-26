@@ -1,6 +1,5 @@
 import { Provider } from 'mobx-react'
-import { useRouter } from 'next/router'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { merge, toLower } from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
@@ -13,12 +12,11 @@ import {
   ssrFetchPrepare,
   ssrError,
   ssrPagedArticleSchema,
-  isrPagedArticlesFilter,
+  ssrPagedArticlesFilter,
   ssrParseArticleThread,
   ssrRescue,
   communitySEO,
   singular,
-  makeGQClient,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -26,47 +24,71 @@ import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
 
-const loader = async (query) => {
-  const gqClient = makeGQClient('')
+const loader = async (context, opt = {}) => {
+  const { query } = context
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
   // 线上环境会直接跳过 index 到这里，有待排查。。
   const community = query.community || HCN
   const thread = singular(query.thread || THREAD.POST)
 
   // query data
+  const sessionState = gqClient.request(P.sessionState)
   const curCommunity = gqClient.request(P.community, {
     raw: community,
-    userHasLogin: false,
+    userHasLogin,
   })
 
   const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
     filter: { communityRaw: community, thread: singular(thread, 'upperCase') },
   })
 
-  const filter = isrPagedArticlesFilter(query)
+  const filter = ssrPagedArticlesFilter(context, userHasLogin)
 
   const pagedArticles = isArticleThread(thread)
     ? gqClient.request(ssrPagedArticleSchema(thread), filter)
     : {}
 
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: PAGE_SIZE.M,
+    },
+  })
+
   return {
     filter,
     ...(await pagedArticleTags),
+    ...(await sessionState),
     ...(await curCommunity),
     ...(await pagedArticles),
+    ...(await subscribedCommunities),
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return { paths: [], fallback: true }
-}
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { res, query } = context
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { params } = ctx
-  console.log('params: ', params)
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59',
+  )
 
-  const thread = singular((params.thread as string) || THREAD.POST)
-  const resp = await loader(params)
+  const thread = singular((query.thread as string) || THREAD.POST)
+  console.log('page community, thread: ', thread)
+
+  let resp
+  try {
+    resp = await loader(context)
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    if (ssrRescue.hasLoginError(e.response?.errors)) {
+      // token 过期了，重新用匿名方式请求一次
+      await loader(context, { tokenExpired: true })
+    } else {
+      return ssrError(context, 'fetch', 500)
+    }
+  }
 
   const { filter, community, pagedArticleTags } = resp
   // console.log('iii got resp: ', resp)
@@ -74,7 +96,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const initProps = merge(
     {
-      // ...ssrBaseStates(resp),
+      ...ssrBaseStates(resp),
       route: {
         communityPath: community.raw,
         mainPath: community.raw === HCN ? '' : community.raw,
@@ -92,14 +114,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     articleThread,
   )
 
-  return { props: { errorCode: null, ...initProps }, revalidate: 10 }
+  return { props: { errorCode: null, ...initProps } }
 }
 
 const CommunityPage = (props) => {
   const store = useStore(props)
-
-  const { isFallback } = useRouter()
-  if (isFallback) return <h3>loading ...</h3>
 
   const { viewing } = store
   const { community, activeThread } = viewing

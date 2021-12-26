@@ -1,9 +1,6 @@
 import { Provider } from 'mobx-react'
-import { useRouter } from 'next/router'
-import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { ARTICLE_THREAD, METRIC } from '@/constant'
-
 import {
   ssrBaseStates,
   ssrFetchPrepare,
@@ -11,7 +8,6 @@ import {
   articleSEO,
   ssrGetParam,
   refreshIfneed,
-  makeGQClient,
 } from '@/utils'
 import { useStore } from '@/stores/init'
 
@@ -21,7 +17,7 @@ import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
 
-const loader2 = async (context, opt = {}) => {
+const loader = async (context, opt = {}) => {
   const id = ssrGetParam(context, 'id')
   const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
@@ -43,50 +39,37 @@ const loader2 = async (context, opt = {}) => {
   }
 }
 
-const loader = async (params) => {
-  const gqClient = makeGQClient('')
-  const { id } = params
+export const getServerSideProps = async (context) => {
+  let resp
+  try {
+    resp = await loader(context)
+    const { post, sessionState } = resp
 
-  const post = gqClient.request(P.post, { id, userHasLogin: false })
-
-  return {
-    ...(await post),
+    refreshIfneed(sessionState, `/post/${post.id}`, context)
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    return ssrError(context, 'fetch', 500)
   }
-}
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return { paths: [], fallback: true }
-}
+  const { post } = resp
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  console.log('ctx: ', ctx)
-  const { params } = ctx
-
-  const resp = await loader(params)
-  // console.log('resp: ', resp)
-
-  return {
-    props: {
-      viewing: {
-        post: resp.post,
-        activeThread: ARTICLE_THREAD.POST,
-      },
+  const initProps = {
+    ...ssrBaseStates(resp),
+    viewing: {
+      post,
+      activeThread: ARTICLE_THREAD.POST,
     },
-    revalidate: 5,
   }
+
+  return { props: { errorCode: null, ...initProps } }
 }
 
 const PostPage = (props) => {
   const store = useStore(props)
-
-  const { isFallback } = useRouter()
-  if (isFallback) return <h3>loading ...</h3>
-
   const { viewing } = props
   const { post } = viewing
 
   const seoConfig = articleSEO(ARTICLE_THREAD.POST, post)
-  // console.log('## init store: ', store)
 
   return (
     <Provider store={store}>

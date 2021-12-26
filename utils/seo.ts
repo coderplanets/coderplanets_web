@@ -22,7 +22,7 @@ export const communitySEO = (community: TCommunity, thread: TThread): TSEO => {
 
   return {
     url: `${SITE_URL}/${raw}/${plural(thread)}`,
-    title: raw === 'home' ? 'CoderPlanets' : `${title} | CP`,
+    title: raw === 'home' ? 'CoderPlanets' : `${title} | 中文社区`,
     description: `${desc}`,
   }
 }
@@ -30,7 +30,7 @@ export const communitySEO = (community: TCommunity, thread: TThread): TSEO => {
 export const exploreSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.EXPLORE}`,
-    title: '社区索引 | CP',
+    title: '社区索引',
     description: 'coderplanets 子社区索引',
   }
 }
@@ -38,7 +38,7 @@ export const exploreSEO = (): TSEO => {
 export const worksSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.WORKS}`,
-    title: '作品集市 | coderplanets',
+    title: '作品集市',
     description: '有趣有爱的作品分享',
   }
 }
@@ -46,7 +46,7 @@ export const worksSEO = (): TSEO => {
 export const membershipSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.MEMBERSHIP}`,
-    title: '升舱 | CP',
+    title: '升舱',
     description: '升级高级账户',
   }
 }
@@ -54,7 +54,7 @@ export const membershipSEO = (): TSEO => {
 export const meetupsSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.MEETUPS}`,
-    title: '小聚 | CP',
+    title: '小聚',
     description: '来和志同道合的朋友一起聊聊',
   }
 }
@@ -62,7 +62,7 @@ export const meetupsSEO = (): TSEO => {
 export const sponsorSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.SPONSOR}`,
-    title: '赞助商 | CP',
+    title: '赞助商',
     description: '赞助商',
   }
 }
@@ -70,7 +70,7 @@ export const sponsorSEO = (): TSEO => {
 export const friendsSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.FRIENDS}`,
-    title: '友情链接 | CP',
+    title: '友情链接',
     description: 'CoderPlanets 的朋友们',
   }
 }
@@ -78,7 +78,7 @@ export const friendsSEO = (): TSEO => {
 export const supportUsSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.SPONSOR}`,
-    title: '帮助我们 | CP',
+    title: '帮助我们',
     description: '帮助我们共建 CoderPlanets 社区',
   }
 }
@@ -86,7 +86,7 @@ export const supportUsSEO = (): TSEO => {
 export const subscribeSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.SUBSCRIBE}`,
-    title: '订阅内容 | CP',
+    title: '订阅内容',
     description: '订阅 CoderPlanets 首页或各个子社区的内容',
   }
 }
@@ -94,7 +94,7 @@ export const subscribeSEO = (): TSEO => {
 export const trendingSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.TRENDING}`,
-    title: '热点趋势 | CP',
+    title: '热点趋势',
     description: '站内外热门讨论',
   }
 }
@@ -102,7 +102,7 @@ export const trendingSEO = (): TSEO => {
 export const drinkSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.HAVE_A_DRINK}`,
-    title: '来一杯 | CP',
+    title: '来一杯',
     description: 'IT冷知识，细节魔鬼，毒鸡汤',
   }
 }
@@ -110,7 +110,7 @@ export const drinkSEO = (): TSEO => {
 export const coolGuideSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.COOL_GUIDE}`,
-    title: '酷导航 | CP',
+    title: '酷导航',
     description: 'IT 导航界的特斯拉',
   }
 }
