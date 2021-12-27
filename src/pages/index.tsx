@@ -1,23 +1,19 @@
 import { Provider } from 'mobx-react'
-import { GetServerSideProps } from 'next'
-import { merge } from 'ramda'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { merge, toLower } from 'ramda'
 
-import { PAGE_SIZE } from '@/config'
+// import { PAGE_SIZE } from '@/config'
 import { HCN, THREAD, METRIC } from '@/constant'
 import { useStore } from '@/stores/init'
 
 import {
   isArticleThread,
-  ssrBaseStates,
-  ssrFetchPrepare,
-  ssrError,
   ssrPagedArticleSchema,
-  ssrPagedArticlesFilter,
+  isrPagedArticlesFilter,
   ssrParseArticleThread,
-  ssrRescue,
   communitySEO,
   singular,
-  ssrGetParam,
+  makeGQClient,
 } from '@/utils'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -25,107 +21,68 @@ import CommunityContent from '@/containers/content/CommunityContent'
 
 import { P } from '@/schemas'
 
-const loader = async (context, opt = {}) => {
-  const { query } = context
+const loader = async () => {
+  const gqClient = makeGQClient('')
 
-  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-  let community = query.community || HCN
-  // 生产环境，从其他页面返回时后有这种情况，需要单独判断
-  if (community === 'index') community = 'home'
-
-  const thread = singular(query.thread || THREAD.POST)
-  // const thread = params.thread ? singular(params.thread) : THREAD.POST
+  // 线上环境会直接跳过 index 到这里，有待排查。。
+  const community = HCN
+  const thread = THREAD.POST
 
   // query data
-  const sessionState = gqClient.request(P.sessionState)
   const curCommunity = gqClient.request(P.community, {
     raw: community,
-    userHasLogin,
+    userHasLogin: false,
   })
 
-  const pagedArticleTags = isArticleThread(thread)
-    ? gqClient.request(P.pagedArticleTags, {
-        filter: {
-          communityRaw: community,
-          thread: singular(thread, 'upperCase'),
-        },
-      })
-    : {}
+  const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
+    filter: { communityRaw: community, thread: singular(thread, 'upperCase') },
+  })
 
-  const filter = ssrPagedArticlesFilter(context, userHasLogin)
+  const filter = isrPagedArticlesFilter({})
+
   const pagedArticles = isArticleThread(thread)
     ? gqClient.request(ssrPagedArticleSchema(thread), filter)
     : {}
 
-  // const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
-  //   filter: {
-  //     page: 1,
-  //     size: PAGE_SIZE.M,
-  //   },
-  // })
-
   return {
     filter,
     ...(await pagedArticleTags),
-    ...(await sessionState),
     ...(await curCommunity),
     ...(await pagedArticles),
-    // ...(await subscribedCommunities),
   }
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { res, query } = context
+export const getStaticProps: GetStaticProps = async () => {
+  console.log('index params: ')
 
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59',
-  )
-
-  const thread = singular((query.thread as string) || THREAD.POST)
-
-  console.log('page index, thread: ', thread)
-
-  let resp
-  try {
-    resp = await loader(context)
-  } catch (e) {
-    console.log('#### error from server: ', e)
-    if (ssrRescue.hasLoginError(e.response?.errors)) {
-      // token 过期了，重新用匿名方式请求一次
-      await loader(context, { tokenExpired: true })
-    } else {
-      return ssrError(context, 'fetch', 500)
-    }
-  }
+  const thread = THREAD.POST
+  const resp = await loader()
 
   const { filter, community, pagedArticleTags } = resp
-
+  // console.log('iii got resp: ', resp)
   const articleThread = ssrParseArticleThread(resp, thread, filter)
 
-  // console.log('articleThread: ', articleThread.articlesThread.pagedJobs.entries)
   const initProps = merge(
     {
-      ...ssrBaseStates(resp),
+      // ...ssrBaseStates(resp),
       route: {
         communityPath: community.raw,
-        mainPath:
-          community.raw === HCN && thread === THREAD.POST ? '' : community.raw,
+        mainPath: community.raw === HCN ? '' : community.raw,
         subPath: thread === THREAD.POST ? '' : thread,
         thread,
       },
       tagsBar: {
-        tags: pagedArticleTags?.entries || [],
+        tags: pagedArticleTags.entries,
       },
       viewing: {
         community,
-        activeThread: thread,
+        activeThread: toLower(thread),
       },
     },
     articleThread,
   )
 
-  return { props: { errorCode: null, ...initProps } }
+  return { props: { errorCode: null, ...initProps }, revalidate: 10 }
 }
 
 const CommunityPage = (props) => {
