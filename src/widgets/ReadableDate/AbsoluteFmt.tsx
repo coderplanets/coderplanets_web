@@ -17,7 +17,7 @@ type TProps = {
 
 const AbsoluteFmt: FC<TProps> = ({ datetime, className, withTime }) => {
   const DateObj = new Date(datetime)
-  const [month, date, year] = DateObj.toLocaleDateString().split('/')
+  const [year, month, day] = DateObj.toLocaleDateString().split('/')
 
   const hours = DateObj.getHours()
   const range = calcRange(hours)
@@ -31,7 +31,7 @@ const AbsoluteFmt: FC<TProps> = ({ datetime, className, withTime }) => {
       {month}
       <Space right={3} />月
       <Space right={3} />
-      {date}
+      {day}
       <Space right={3} />日
       {withTime && (
         <Fragment>
