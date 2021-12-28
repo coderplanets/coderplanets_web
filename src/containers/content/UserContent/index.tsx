@@ -5,6 +5,7 @@
  */
 
 import { FC } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { USER_THREAD } from '@/constant'
@@ -12,7 +13,6 @@ import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import MobileBanner from './MobileBanner'
-import usePlatform from '@/hooks/usePlatform'
 import { Comments } from '@/containers/dynamic'
 import UserProfile from '@/containers/user/UserProfile'
 import UserPublishedArticles from '@/containers/user/UserPublishedArticles'
@@ -103,8 +103,6 @@ type TProps = {
 
 const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
   useInit(store)
-
-  const { isMobile } = usePlatform()
 
   const {
     activeThread,

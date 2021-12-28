@@ -48,11 +48,9 @@ const DataSolver = [
     action: (res) => {
       const { data } = res[EVENT.COMMUNITY_THREAD_CHANGE]
       tabOnChange(data)
-
       if (includes(data, values(ARTICLE_THREAD))) {
         return send(EVENT.ARTICLE_THREAD_CHANGE, { data })
       }
-
       // TODO: other THREAD
     },
   },

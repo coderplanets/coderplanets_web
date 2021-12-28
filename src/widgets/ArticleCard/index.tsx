@@ -1,9 +1,8 @@
 import { FC, memo } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TArticle, TThread } from '@/spec'
 import { SIZE, THREAD, EVENT } from '@/constant'
-
-import usePlatform from '@/hooks/usePlatform'
 
 import { cutRest, send } from '@/utils/helper'
 import DigestSentence from '@/widgets/DigestSentence'
@@ -21,8 +20,6 @@ export type TProps = {
 }
 
 const ArticleCard: FC<TProps> = ({ data, thread = THREAD.JOB }) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper>
       <Header data={data} thread={thread} />

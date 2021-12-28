@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
 import { contains } from 'ramda'
+import { isMobile } from 'react-device-detect'
 
 import type { TThread, TC11N } from '@/spec'
 import { THREAD, C11N } from '@/constant'
-import usePlatform from '@/hooks/usePlatform'
 
 import { Br } from '@/widgets/Common'
 import { Radio } from '@/widgets/Switcher'
@@ -19,8 +19,6 @@ type TProps = {
 const GeneralSettings: FC<TProps> = ({ curThread, customization }) => {
   const { bannerLayout, contentDivider, markViewed, displayDensity } =
     customization
-
-  const { isMobile } = usePlatform()
 
   return (
     <Wrapper>

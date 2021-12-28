@@ -1,6 +1,6 @@
 import { FC, memo, Fragment } from 'react'
+import { isMobile } from 'react-device-detect'
 
-import usePlatform from '@/hooks/usePlatform'
 import { report, authWarn } from '@/utils/helper'
 import { useAccount } from '@/hooks'
 
@@ -20,7 +20,6 @@ const Actions: FC<TProps> = ({
   showReferenceList,
   showOperationList,
 }) => {
-  const { isMobile } = usePlatform()
   const { isValidSession } = useAccount()
 
   return (

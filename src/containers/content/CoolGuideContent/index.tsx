@@ -5,12 +5,11 @@
  */
 
 import { FC } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
-
-import usePlatform from '@/hooks/usePlatform'
 
 import FilterBar from './FilterBar'
 import Content from './Content'
@@ -35,7 +34,6 @@ const CoolGuideContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
 
-  const { isMobile } = usePlatform()
   const { topFilter, displayType } = store
 
   return (

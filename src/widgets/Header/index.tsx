@@ -5,10 +5,11 @@
  */
 
 import { FC } from 'react'
-import { ANCHOR } from '@/constant'
-import usePlatform from '@/hooks/usePlatform'
+import { isMobile } from 'react-device-detect'
 
 import type { TC11N, TMetric, TCommunity, TAccount } from '@/spec'
+import { ANCHOR } from '@/constant'
+
 import DesktopView from './DesktopView'
 
 import { Wrapper, MobileWrapper } from './styles'
@@ -21,8 +22,6 @@ export type TProps = {
 }
 
 const HeaderContainer: FC<TProps> = (props) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper id={ANCHOR.GLOBAL_HEADER_ID} testid="">
       {!isMobile ? <DesktopView {...props} /> : <MobileWrapper />}

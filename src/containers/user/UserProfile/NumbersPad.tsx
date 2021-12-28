@@ -1,7 +1,7 @@
 import { FC, memo, Fragment } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TUser, TPagedCommunities } from '@/spec'
-import usePlatform from '@/hooks/usePlatform'
 
 import FollowButton from '@/widgets/Buttons/FollowButton'
 import Button from '@/widgets/Buttons/Button'
@@ -36,8 +36,6 @@ const Numberspad: FC<TProps> = ({
   subscribedCommunities,
   hasFollowedUser,
 }) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper>
       <GravitySection>

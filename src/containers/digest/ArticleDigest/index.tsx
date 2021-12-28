@@ -5,15 +5,12 @@
  */
 
 import { Fragment } from 'react'
-
-import usePlatform from '@/hooks/usePlatform'
+import { isMobile } from 'react-device-detect'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView/index'
 
 const ArticleDigest = (props) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Fragment key={String(isMobile)}>
       {!isMobile ? <DesktopView {...props} /> : <MobileView {...props} />}

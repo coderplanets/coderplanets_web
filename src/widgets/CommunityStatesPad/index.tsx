@@ -5,9 +5,9 @@
  */
 
 import { FC, memo } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TCommunity } from '@/spec'
-import usePlatform from '@/hooks/usePlatform'
 import { buildLog } from '@/utils/logger'
 
 // import Charger from '@/widgets/Charger'
@@ -46,7 +46,6 @@ const CommunityStatesPad: FC<TProps> = ({
 }) => {
   const { editorsCount, subscribersCount, contributesDigest, articlesCount } =
     community
-  const { isMobile } = usePlatform()
 
   return (
     <Wrapper>

@@ -5,7 +5,7 @@
  */
 
 import { memo } from 'react'
-import usePlatform from '@/hooks/usePlatform'
+import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
 
@@ -20,8 +20,6 @@ import { Wrapper, InnerWrapper } from '../styles/header'
 const log = buildLog('C:HaveADrinkContent')
 
 const View = ({ pagiState, category, view, ...restProps }) => {
-  const { isMobile } = usePlatform()
-
   switch (view) {
     case VIEW.DEFAULT: {
       return (

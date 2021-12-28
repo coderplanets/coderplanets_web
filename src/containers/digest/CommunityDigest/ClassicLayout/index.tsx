@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TC11NLayout, TThread, TCommunity, TMetric } from '@/spec'
-import usePlatform from '@/hooks/usePlatform'
 import { EVENT } from '@/constant'
 import { send } from '@/utils/helper'
 
@@ -41,8 +41,6 @@ const ClassicLayout: FC<TProps> = ({
   layout,
   metric,
 }) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper
       testid="community-digest"

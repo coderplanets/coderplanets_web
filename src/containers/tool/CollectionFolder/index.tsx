@@ -7,12 +7,11 @@
  */
 
 import { FC, Fragment } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 import { ICON_CMD } from '@/config'
-
-import usePlatform from '@/hooks/usePlatform'
 
 import Modal from '@/widgets/Modal'
 import SectionLabel from '@/widgets/SectionLabel'
@@ -39,7 +38,6 @@ const CollectionFolderContainer: FC<TProps> = ({
   testid = 'collection-folder',
   onSelect = log,
 }) => {
-  const { isMobile } = usePlatform()
   useInit(store, isMobile)
 
   const {

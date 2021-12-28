@@ -1,14 +1,11 @@
 import { Provider } from 'mobx-react'
+import { useRouter } from 'next/router'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { ARTICLE_THREAD, METRIC } from '@/constant'
-import {
-  ssrBaseStates,
-  ssrFetchPrepare,
-  ssrError,
-  articleSEO,
-  ssrGetParam,
-  refreshIfneed,
-} from '@/utils'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
+
+import { ssrFetchPrepare, articleSEO, ssrGetParam, makeGQClient } from '@/utils'
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -17,59 +14,50 @@ import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
 
-const loader = async (context, opt = {}) => {
-  const id = ssrGetParam(context, 'id')
-  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+const loader = async (params) => {
+  const gqClient = makeGQClient('')
+  const { id } = params
 
-  // query data
-  const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id, userHasLogin })
-
-  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
-    filter: {
-      page: 1,
-      size: 30,
-    },
-  })
+  const post = gqClient.request(P.post, { id, userHasLogin: false })
 
   return {
-    ...(await sessionState),
     ...(await post),
-    ...(await subscribedCommunities),
   }
 }
 
-export const getServerSideProps = async (context) => {
-  let resp
-  try {
-    resp = await loader(context)
-    const { post, sessionState } = resp
+export const getStaticPaths: GetStaticPaths = async () => {
+  return { paths: [], fallback: true }
+}
 
-    refreshIfneed(sessionState, `/post/${post.id}`, context)
-  } catch (e) {
-    console.log('#### error from server: ', e)
-    return ssrError(context, 'fetch', 500)
-  }
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  console.log('ctx: ', ctx)
+  const { params } = ctx
 
-  const { post } = resp
+  const resp = await loader(params)
+  // console.log('resp: ', resp)
 
-  const initProps = {
-    ...ssrBaseStates(resp),
-    viewing: {
-      post,
-      activeThread: ARTICLE_THREAD.POST,
+  return {
+    props: {
+      viewing: {
+        post: resp.post,
+        activeThread: ARTICLE_THREAD.POST,
+      },
     },
+    revalidate: 5,
   }
-
-  return { props: { errorCode: null, ...initProps } }
 }
 
 const PostPage = (props) => {
   const store = useStore(props)
+
+  const { isFallback } = useRouter()
+  if (isFallback) return <LavaLampLoading top={20} left={30} />
+
   const { viewing } = props
   const { post } = viewing
 
   const seoConfig = articleSEO(ARTICLE_THREAD.POST, post)
+  // console.log('## init store: ', store)
 
   return (
     <Provider store={store}>

@@ -5,7 +5,7 @@
  */
 
 import { FC, memo } from 'react'
-import usePlatform from '@/hooks/usePlatform'
+import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
 import { ICON } from '@/config'
@@ -58,8 +58,6 @@ type TProps = {
 }
 
 const Catalog: FC<TProps> = ({ category }) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper>
       {isMobile && (

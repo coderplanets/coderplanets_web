@@ -9,7 +9,8 @@ import BlogItem from '@/widgets/BlogItem'
 import RadarItem from '@/widgets/RadarItem'
 
 import MasonryCards from '@/widgets/MasonryCards'
-import { LavaLampLoading, EmptyThread } from './dynamic'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
+import { EmptyThread } from './dynamic'
 
 const ArticleList = (props) => {
   const { curCommunity, thread, resState, entries, c11n } = props

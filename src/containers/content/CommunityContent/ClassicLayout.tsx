@@ -6,13 +6,12 @@
 
 import { FC, memo } from 'react'
 import { includes } from 'ramda'
+import { isMobile } from 'react-device-detect'
 
 import { TThread } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import CommunityDigest from '@/containers/digest/CommunityDigest'
-
-import usePlatform from '@/hooks/usePlatform'
 
 import ThreadContent from './ThreadContent'
 import {
@@ -30,7 +29,6 @@ type TProps = {
 }
 
 const ClassicLayout: FC<TProps> = ({ thread }) => {
-  const { isMobile } = usePlatform()
   const isMobileCardsView =
     isMobile && includes(thread, [ARTICLE_THREAD.JOB, ARTICLE_THREAD.RADAR])
 
