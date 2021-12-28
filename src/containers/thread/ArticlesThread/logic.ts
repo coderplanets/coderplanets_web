@@ -107,7 +107,7 @@ const DataSolver = [
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => {
       log('EVENT.COMMUNITY_CHANGE')
-      if (store.isEmpty) loadArticles()
+      loadArticles()
     },
   },
   {
