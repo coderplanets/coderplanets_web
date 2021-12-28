@@ -2,17 +2,17 @@
  * ModeLine
  */
 
-import { Fragment, FC, useEffect } from 'react'
+import { Fragment, FC, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
+import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
-import usePlatform from '@/hooks/usePlatform'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import type { TStore } from './store'
-import TopBar from './TopBar'
+// import TopBar from './TopBar'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -30,11 +30,11 @@ const ModeLineContainer: FC<TProps> = ({
   metric = METRIC.COMMUNITY,
 }) => {
   useInit(store, metric)
-  const { isMobile } = usePlatform()
+  const [showBottomBar, setShowBottomBar] = useState(false)
 
   const {
-    isTopBarVisiable,
-    viewing,
+    // isTopBarVisiable,
+    // viewing,
     viewingArticle,
     activeMenu,
     isCommunityBlockExpand,
@@ -44,18 +44,21 @@ const ModeLineContainer: FC<TProps> = ({
   // viewing: { community, activeThread },
   useEffect(() => {
     // only load BottomBar on mobile view
-    BottomBar = dynamic(() => import('./BottomBar'), { ssr: false })
-  }, [isMobile])
+    if (isMobile) {
+      BottomBar = dynamic(() => import('./BottomBar'), { ssr: false })
+      setShowBottomBar(true)
+    }
+  }, [showBottomBar])
 
   return (
     <Fragment>
-      <TopBar
+      {/* <TopBar
         metric={metric}
         visible={isTopBarVisiable}
         viewing={viewing}
         viewingArticle={viewingArticle}
-      />
-      {BottomBar && isMobile && (
+      /> */}
+      {showBottomBar && BottomBar && isMobile && (
         <BottomBar
           metric={metric}
           article={viewingArticle}

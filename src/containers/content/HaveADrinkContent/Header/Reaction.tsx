@@ -5,7 +5,7 @@
  */
 
 import { FC, memo } from 'react'
-import usePlatform from '@/hooks/usePlatform'
+import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
 import { getRandomInt } from '@/utils/helper'
@@ -28,7 +28,6 @@ type TProps = {
 }
 
 const Reaction: FC<TProps> = ({ category }) => {
-  const { isMobile } = usePlatform()
   const targetCategory = getCategoryByTitle(category)
 
   return (

@@ -6,13 +6,13 @@
 
 import { FC } from 'react'
 import { isEmpty } from 'ramda'
+import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
 import Pagi from '@/widgets/Pagi'
-import usePlatform from '@/hooks/usePlatform'
 
 import Banner from './Banner'
 import Sidebar from './Sidebar'
@@ -50,7 +50,6 @@ const ExploreContentContainer: FC<TProps> = ({
     showFilterSidebar,
   } = store
 
-  const { isMobile } = usePlatform()
   const { isSearchMode } = searchStatus
 
   return (

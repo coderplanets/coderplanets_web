@@ -5,12 +5,11 @@
  */
 
 import { FC, useRef } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
-
-import usePlatform from '@/hooks/usePlatform'
 
 import { ArticleFooter, Comments } from '@/containers/dynamic'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
@@ -47,7 +46,6 @@ const ArticleContentContainer: FC<TProps> = ({
   testid,
 }) => {
   useInit(store)
-  const { isMobile } = usePlatform()
 
   const { viewingArticle: article } = store
   const ref = useRef()

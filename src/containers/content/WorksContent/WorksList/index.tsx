@@ -1,4 +1,5 @@
 import { FC, memo, Fragment } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import { ICON } from '@/config'
 import type { TPagedWorks } from '@/spec'
@@ -7,7 +8,6 @@ import WorksCard from '@/widgets/Cards/WorksCard'
 import IconText from '@/widgets/IconText'
 import MenuButton from '@/widgets/Buttons/MenuButton'
 
-import usePlatform from '@/hooks/usePlatform'
 import WipThread from '@/containers/content/CommunityContent/WipThread'
 
 import { VIEW } from '../constant'
@@ -63,7 +63,6 @@ type TProps = {
 
 const WorksList: FC<TProps> = ({ data, activeView }) => {
   const { entries } = data
-  const { isMobile } = usePlatform()
 
   return (
     <Wrapper>

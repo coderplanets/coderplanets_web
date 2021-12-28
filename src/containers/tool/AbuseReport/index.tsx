@@ -7,11 +7,11 @@
  */
 
 import { FC } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import usePlatform from '@/hooks/usePlatform'
 import Modal from '@/widgets/Modal'
 
 import Header from './Header'
@@ -36,8 +36,6 @@ const AbuseReportContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { show, type, view, itemsData, activeItem, viewingArticle } = store
-
-  const { isMobile } = usePlatform()
 
   if (isMobile) {
     return (

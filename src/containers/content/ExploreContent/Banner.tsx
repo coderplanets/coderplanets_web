@@ -7,13 +7,12 @@
 import { FC, memo } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { isMobile } from 'react-device-detect'
 
 import { ICON_CMD } from '@/config'
 import { ROUTE } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { Space } from '@/widgets/Common'
-
-import usePlatform from '@/hooks/usePlatform'
 
 import type { TSearchState } from './spec'
 import SearchBox from './SearchBox'
@@ -52,8 +51,6 @@ const Banner: FC<TProps> = ({
     showSearchResultHint,
   },
 }) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper testid="explore-banner">
       <IntroWrapper>

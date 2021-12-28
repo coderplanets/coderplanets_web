@@ -1,9 +1,8 @@
 import { FC, memo, Fragment } from 'react'
 import TimeAgo from 'timeago-react'
+import { isMobile } from 'react-device-detect'
 
 import type { TComment } from '@/spec'
-
-import usePlatform from '@/hooks/usePlatform'
 
 import ImgFallback from '@/widgets/ImgFallback'
 import { Space } from '@/widgets/Common'
@@ -32,7 +31,6 @@ type TProps = {
 const CommentHeader: FC<TProps> = ({ data, showInnerRef }) => {
   const { author, meta } = data
   const avatarSize = author.bio ? 26 : 24
-  const { isMobile } = usePlatform()
 
   return (
     <Fragment>

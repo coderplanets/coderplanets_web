@@ -5,12 +5,12 @@
  */
 
 import { FC } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import usePlatform from '@/hooks/usePlatform'
 import Pagi from '@/widgets/Pagi'
 // import AvatarsRow from '@/widgets/AvatarsRow'
 
@@ -48,7 +48,6 @@ const WorksContentContainer: FC<TProps> = ({
 }) => {
   useInit(store)
   const { activeView, showSidebar, pagedWorksData } = store
-  const { isMobile } = usePlatform()
 
   // console.log('## pagedWorksData -> ', pagedWorksData)
 

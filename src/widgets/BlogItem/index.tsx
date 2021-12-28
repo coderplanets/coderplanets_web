@@ -5,11 +5,11 @@
  */
 
 import { FC, memo } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TCommunity, TBlog, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
 
-import usePlatform from '@/hooks/usePlatform'
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 
@@ -26,8 +26,6 @@ type TProps = {
 }
 
 const BlogItem: FC<TProps> = ({ entry, c11n, curCommunity = null }) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper entry={entry} c11n={c11n}>
       {!isMobile ? (

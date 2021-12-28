@@ -90,7 +90,7 @@ const handleUovoteRes = ({ id, upvotesCount, meta }) => {
 
 const handlePagedArticlesRes = (thread: TThread, pagedArticles): void => {
   const key = `paged${plural(thread, 'titleCase')}`
-  log('pagedArticles -> ', pagedArticles)
+  log('>> pagedArticles -> ', pagedArticles)
   store.markRes({ [key]: pagedArticles })
 }
 
@@ -105,11 +105,18 @@ const DataSolver = [
   ...matchArticleUpvotes(handleUovoteRes),
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadArticles(),
+    action: () => {
+      log('EVENT.COMMUNITY_CHANGE')
+      if (store.isEmpty) loadArticles()
+    },
   },
   {
     match: asyncRes(EVENT.ARTICLE_THREAD_CHANGE),
-    action: () => loadArticles(),
+    action: () => {
+      log('EVENT.ARTICLE_THREAD_CHANGE')
+      // 之前如果请求过，那么 GraphQL 会被缓存，不必重复请求
+      if (store.isEmpty) loadArticles()
+    },
   },
   {
     match: asyncRes(EVENT.PREVIEW_ARTICLE),
@@ -167,7 +174,7 @@ export const useInit = (_store: TStore): void =>
     store = _store
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-    if (store.isEmpty) loadArticles()
+    // if (store.isEmpty) loadArticles()
 
     return () => {
       if (store.resState === TYPE.RES_STATE.LOADING || !sub$) return

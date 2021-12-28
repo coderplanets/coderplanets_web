@@ -7,11 +7,11 @@
 import { Fragment, FC, memo } from 'react'
 import TimeAgo from 'timeago-react'
 import Link from 'next/link'
+import { isMobile } from 'react-device-detect'
 
 import type { TWorks } from '@/spec'
 import { ICON, ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
-import usePlatform from '@/hooks/usePlatform'
 
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
@@ -61,7 +61,6 @@ const WorksCard: FC<TProps> = ({
 }) => {
   const descLimit = preview ? 20 : 35
 
-  const { isMobile } = usePlatform()
   const { id, title, desc, upvotesCount, commentsCount } = item
 
   return (

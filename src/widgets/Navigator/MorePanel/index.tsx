@@ -1,12 +1,10 @@
 import { Fragment, memo } from 'react'
-
-import usePlatform from '@/hooks/usePlatform'
+import { isMobile } from 'react-device-detect'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
 
 const MoreContent = () => {
-  const { isMobile } = usePlatform()
   return <Fragment>{!isMobile ? <DesktopView /> : <MobileView />}</Fragment>
 }
 

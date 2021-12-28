@@ -1,11 +1,11 @@
 import { FC, memo } from 'react'
 import Link from 'next/link'
+import { isMobile } from 'react-device-detect'
 
 import type { TJob, TRadar } from '@/spec'
 import { ARTICLE_THREAD } from '@/constant'
 import { cutRest } from '@/utils/helper'
 
-import usePlatform from '@/hooks/usePlatform'
 import TagsList from '@/widgets/TagsList'
 import { Br } from '@/widgets/Common'
 
@@ -21,8 +21,6 @@ import {
 } from './styles/header'
 
 const Header: FC<TIndex> = ({ data, thread }) => {
-  const { isMobile } = usePlatform()
-
   switch (thread) {
     case ARTICLE_THREAD.RADAR: {
       const { id, title, articleTags, linkAddr } = data as TRadar

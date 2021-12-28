@@ -7,16 +7,15 @@
 import { FC } from 'react'
 import dynamic from 'next/dynamic'
 import { includes } from 'ramda'
+import { isMobile } from 'react-device-detect'
 
 import type { TResState } from '@/spec'
 import { C11N, ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
 
-import usePlatform from '@/hooks/usePlatform'
 import PagedArticles from '@/widgets/PagedArticles'
 import ViewportTracker from '@/widgets/ViewportTracker'
-// import ArticlesFilter from '@/widgets/ArticlesFilter'
 import ThreadSidebar from '@/containers/thread/ThreadSidebar'
 
 import type { TStore } from './store'
@@ -42,7 +41,6 @@ type TProps = {
 
 const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   useInit(store)
-  const { isMobile } = usePlatform()
 
   const {
     pagedArticlesData,
@@ -62,6 +60,8 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   const TheMainWrapper = isMobileCardsView
     ? MobileCardsMainWrapper
     : MainWrapper
+
+  console.log('# got pagedArticlesData: ', pagedArticlesData)
 
   return (
     <Wrapper>
@@ -87,7 +87,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
         />
       </TheMainWrapper>
 
-      {bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
+      {!isMobile && bannerLayout === C11N.CLASSIC && <ThreadSidebar />}
     </Wrapper>
   )
 }

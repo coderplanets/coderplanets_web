@@ -1,11 +1,11 @@
 import { FC } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { WORKS_TAB } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
-import usePlatform from '@/hooks/usePlatform'
 
 import ArticleSticker from '@/containers/tool/ArticleSticker'
 import WorksInfoCard from '@/widgets/WorksInfoCard'
@@ -38,7 +38,6 @@ const ArticleContentContainer: FC<TProps> = ({
   testid,
 }) => {
   useInit(store)
-  const { isMobile } = usePlatform()
 
   const { viewingArticle: works, articleTab } = store
   if (!works.id) return null

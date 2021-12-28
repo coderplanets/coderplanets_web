@@ -4,11 +4,11 @@
 
 import { FC } from 'react'
 import { isNil } from 'ramda'
+import { isMobile } from 'react-device-detect'
 
 import type { TScrollDirection, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import useScroll from '@/hooks/useScroll'
-import usePlatform from '@/hooks/usePlatform'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
@@ -42,7 +42,6 @@ const ArticleDigestContainer: FC<TProps> = ({
   const { direction: scrollDirection } = useScroll()
   useInit(store, scrollDirection as TScrollDirection)
 
-  const { isMobile } = usePlatform()
   const { viewingArticle, inViewport, activeThread, tab } = store
 
   if (isNil(viewingArticle.id)) return null

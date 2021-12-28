@@ -8,14 +8,13 @@
 
 // import { FC } from 'react'
 import { FC } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { ASSETS_ENDPOINT } from '@/config'
 
 import { buildLog } from '@/utils/logger'
 import { pluggedIn } from '@/utils/mobx'
-
-import usePlatform from '@/hooks/usePlatform'
 
 import { Br } from '@/widgets/Common'
 import { SponsorGallery } from '@/widgets/GalleryHub'
@@ -106,8 +105,6 @@ const SponsorContentContainer: FC<TProps> = ({
   metric,
 }) => {
   useInit(store)
-
-  const { isMobile } = usePlatform()
   const { bannerVisiable } = store
 
   return (

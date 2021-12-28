@@ -3,10 +3,10 @@
  */
 
 import { FC, memo } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
 
-import usePlatform from '@/hooks/usePlatform'
 import { Space } from '@/widgets/Common'
 import Maybe from '@/widgets/Maybe'
 import AnimatedCount from '@/widgets/AnimatedCount'
@@ -34,7 +34,6 @@ const Desc: FC<TProps> = ({
   alias = '觉得很赞',
 }) => {
   const onlyOne = count === 1
-  const { isMobile } = usePlatform()
 
   if (isMobile) {
     return (

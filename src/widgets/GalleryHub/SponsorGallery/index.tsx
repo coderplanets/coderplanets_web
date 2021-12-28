@@ -6,8 +6,8 @@
 
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
+import { isMobile } from 'react-device-detect'
 
-import usePlatform from '@/hooks/usePlatform'
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 
@@ -47,8 +47,6 @@ type TProps = {
 }
 
 const SponsorGallery: FC<TProps> = ({ items, level = 'gold' }) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper center={level === 'gold'}>
       {items.map((item, index) => (

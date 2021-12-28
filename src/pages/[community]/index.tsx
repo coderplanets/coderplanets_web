@@ -18,6 +18,7 @@ import {
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import CommunityContent from '@/containers/content/CommunityContent'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import { P } from '@/schemas'
 
@@ -94,7 +95,7 @@ const CommunityPage = (props) => {
   const store = useStore(props)
 
   const { isFallback } = useRouter()
-  if (isFallback) return <h3>loading ...</h3>
+  if (isFallback) return <LavaLampLoading top={20} left={30} />
 
   const { viewing } = store
   const { community, activeThread } = viewing

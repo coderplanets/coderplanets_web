@@ -8,7 +8,7 @@ import { FC, memo } from 'react'
 
 import type { TCommunity, TPost, TUser, TAccount, TC11N } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import usePlatform from '@/hooks/usePlatform'
+import { isMobile } from 'react-device-detect'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
@@ -35,8 +35,6 @@ const PostItem: FC<TProps> = ({
   onAuthorSelect = log,
   c11n,
 }) => {
-  const { isMobile } = usePlatform()
-
   return (
     <Wrapper entry={entry} c11n={c11n}>
       {!isMobile ? (

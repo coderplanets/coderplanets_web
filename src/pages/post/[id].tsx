@@ -3,16 +3,9 @@ import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { ARTICLE_THREAD, METRIC } from '@/constant'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
-import {
-  ssrBaseStates,
-  ssrFetchPrepare,
-  ssrError,
-  articleSEO,
-  ssrGetParam,
-  refreshIfneed,
-  makeGQClient,
-} from '@/utils'
+import { ssrFetchPrepare, articleSEO, ssrGetParam, makeGQClient } from '@/utils'
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
@@ -20,28 +13,6 @@ import ArticleDigest from '@/containers/digest/ArticleDigest'
 import ArticleContent from '@/containers/content/ArticleContent'
 
 import { P } from '@/schemas'
-
-const loader2 = async (context, opt = {}) => {
-  const id = ssrGetParam(context, 'id')
-  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-
-  // query data
-  const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id, userHasLogin })
-
-  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
-    filter: {
-      page: 1,
-      size: 30,
-    },
-  })
-
-  return {
-    ...(await sessionState),
-    ...(await post),
-    ...(await subscribedCommunities),
-  }
-}
 
 const loader = async (params) => {
   const gqClient = makeGQClient('')
@@ -80,7 +51,7 @@ const PostPage = (props) => {
   const store = useStore(props)
 
   const { isFallback } = useRouter()
-  if (isFallback) return <h3>loading ...</h3>
+  if (isFallback) return <LavaLampLoading top={20} left={30} />
 
   const { viewing } = props
   const { post } = viewing

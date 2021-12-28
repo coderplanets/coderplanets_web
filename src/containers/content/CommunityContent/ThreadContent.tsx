@@ -14,6 +14,8 @@ type TProps = {
 }
 
 const ThreadContent: FC<TProps> = ({ thread }) => {
+  console.log('# thread: ', thread)
+
   switch (thread) {
     // case THREAD.REPO:
     // return <ReposThread />

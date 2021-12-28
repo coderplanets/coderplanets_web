@@ -4,13 +4,13 @@
  *
  */
 
-import { FC, Fragment, ReactNode, useEffect } from 'react'
+import { FC, Fragment, ReactNode } from 'react'
 import dynamic from 'next/dynamic'
+import { isMobile } from 'react-device-detect'
 
 import type { TSEO, TMetric } from '@/spec'
 import { ANCHOR, SIZE, C11N, BODY_SCROLLER } from '@/constant'
 import { pluggedIn } from '@/utils/mobx'
-import usePlatform from '@/hooks/usePlatform'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/widgets/Header'
@@ -50,7 +50,6 @@ const GlobalLayoutContainer: FC<TProps> = ({
   noFooter = false,
   metric,
 }) => {
-  const { isMobile } = usePlatform()
   // load debug graph
   useInit(store, { isMobile })
 

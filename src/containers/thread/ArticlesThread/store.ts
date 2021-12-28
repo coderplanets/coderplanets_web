@@ -111,7 +111,7 @@ const ArticlesThread = T.model('ArticlesThread', {
   .actions((self) => ({
     // the args pass to server when load articles
     getLoadArgs(page = 1): Record<string, unknown> {
-      self.resState = TYPE.RES_STATE.LOADING
+      // self.resState = TYPE.RES_STATE.LOADING
 
       const root = getParent(self) as TRootStore
       return root.getPagedArticleArgs(page, self.filtersData)
@@ -121,9 +121,9 @@ const ArticlesThread = T.model('ArticlesThread', {
       const pagedData = values(res)[0] as TPagedArticles
 
       if (pagedData.totalCount === 0) {
-        slf.resState = TYPE.RES_STATE.EMPTY
+        // slf.resState = TYPE.RES_STATE.EMPTY
       } else {
-        slf.resState = TYPE.RES_STATE.DONE
+        // slf.resState = TYPE.RES_STATE.DONE
       }
 
       slf.mark(res)

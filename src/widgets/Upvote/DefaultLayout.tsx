@@ -5,10 +5,10 @@
  */
 
 import { FC, memo } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import type { TUser } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import usePlatform from '@/hooks/usePlatform'
 
 import AvatarsRow from '@/widgets/AvatarsRow'
 
@@ -40,7 +40,6 @@ const Upvote: FC<TProps> = ({
   avatarList,
 }) => {
   const noOne = count === 0
-  const { isMobile } = usePlatform()
 
   return (
     <Wrapper testid={testid}>
