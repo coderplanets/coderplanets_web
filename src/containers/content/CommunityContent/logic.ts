@@ -36,6 +36,10 @@ const tabOnChange = (activeThread: TThread): void => {
   store.markRoute({ mainPath, subPath })
   // store.setViewing({ activeThread })
   store.setCurThread(activeThread)
+  // 确保 Tab 动画先完成 ~
+  // setTimeout(() => {
+  //   store.setCurThread(activeThread)
+  // }, 50)
 }
 
 // ###############################

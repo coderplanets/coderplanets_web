@@ -20,7 +20,11 @@ const ArticleList = (props) => {
     return <LavaLampLoading top={20} left={30} />
   }
 
-  if (resState === TYPE.RES_STATE.EMPTY) {
+  // 加入 length 的判断是因为 Graphql 客户端如果有缓存的话会导致 RES_STATE 没有更新（因为没有请求）
+  if (
+    (resState === TYPE.RES_STATE.EMPTY && entries.length === 0) ||
+    (resState === TYPE.RES_STATE.DONE && entries.length === 0)
+  ) {
     return <EmptyThread thread={thread} />
   }
 
@@ -59,6 +63,7 @@ const ArticleList = (props) => {
 
     default:
       // common post
+      // return <h3>PostItems</h3>
       return (
         <Fragment>
           {entries.map((entry) => (

@@ -42,7 +42,7 @@ const ArticlesThread = T.model('ArticlesThread', {
   filters: T.optional(ArticlesFilter, {}),
   resState: T.optional(
     T.enumeration('resState', values(TYPE.RES_STATE)),
-    TYPE.RES_STATE.DONE,
+    TYPE.RES_STATE.LOADING,
   ),
 })
   .views((self) => ({
@@ -109,9 +109,21 @@ const ArticlesThread = T.model('ArticlesThread', {
     },
   }))
   .actions((self) => ({
+    afterInitLoading(): void {
+      const slf = self as TStore
+      const { totalCount } = slf.pagedArticlesData
+
+      console.log('totalCount -> ', totalCount)
+
+      if (totalCount === 0) {
+        self.resState = TYPE.RES_STATE.EMPTY
+      } else {
+        self.resState = TYPE.RES_STATE.DONE
+      }
+    },
     // the args pass to server when load articles
     getLoadArgs(page = 1): Record<string, unknown> {
-      // self.resState = TYPE.RES_STATE.LOADING
+      self.resState = TYPE.RES_STATE.LOADING
 
       const root = getParent(self) as TRootStore
       return root.getPagedArticleArgs(page, self.filtersData)
@@ -121,9 +133,9 @@ const ArticlesThread = T.model('ArticlesThread', {
       const pagedData = values(res)[0] as TPagedArticles
 
       if (pagedData.totalCount === 0) {
-        // slf.resState = TYPE.RES_STATE.EMPTY
+        slf.resState = TYPE.RES_STATE.EMPTY
       } else {
-        // slf.resState = TYPE.RES_STATE.DONE
+        slf.resState = TYPE.RES_STATE.DONE
       }
 
       slf.mark(res)

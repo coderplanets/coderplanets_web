@@ -19,10 +19,14 @@ type TProps = {
 }
 
 const PostItemAvatar: FC<TProps> = ({ user, onSelect }) => {
-  const quoteLogin = 'laury2'
+  // const quoteLogin = 'laury2'
   return (
     <Wrapper onClick={() => onSelect(user)}>
-      {user.login === quoteLogin ? (
+      <Avatar
+        src={user.avatar}
+        fallback={<ImgFallback user={user} size={30} top={-2} left={0} />}
+      />
+      {/* {user.login === quoteLogin ? (
         <QuoteAvatar
           src={user.avatar}
           fallback={
@@ -34,11 +38,11 @@ const PostItemAvatar: FC<TProps> = ({ user, onSelect }) => {
           src={user.avatar}
           fallback={<ImgFallback user={user} size={30} top={-2} left={0} />}
         />
-      )}
-      {user.login === quoteLogin ? <QuoteShadow /> : <InnerShadow />}
-      {user.login === quoteLogin && (
+      )} */}
+      {/* {user.login === quoteLogin ? <QuoteShadow /> : <InnerShadow />} */}
+      {/* {user.login === quoteLogin && (
         <MaskIcon src={`${ICON}/user/mute-mask.svg`} />
-      )}
+      )} */}
     </Wrapper>
   )
 }

@@ -61,7 +61,7 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
     ? MobileCardsMainWrapper
     : MainWrapper
 
-  console.log('# got pagedArticlesData: ', pagedArticlesData)
+  log('# got pagedArticlesData: ', pagedArticlesData)
 
   return (
     <Wrapper>
