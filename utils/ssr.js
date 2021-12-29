@@ -53,7 +53,9 @@ export const ssrBaseStates = (resp) => {
  */
 export const ssrGetParam = (context, key) => {
   const { resolvedUrl, req } = context
-  return getQueryFromUrl(key, resolvedUrl) || req.params[key]
+  const params = req.params || {}
+
+  return getQueryFromUrl(key, resolvedUrl) || params[key]
 }
 
 export const ssrFetchPrepare = (context, opt) => {
