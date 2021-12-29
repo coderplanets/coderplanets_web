@@ -1,4 +1,5 @@
 import { FC, Fragment } from 'react'
+import dynamic from 'next/dynamic'
 import TimeAgo from 'timeago-react'
 
 import Link from 'next/link'
@@ -9,11 +10,11 @@ import { send, changeToCommunity } from '@/utils/helper'
 
 import { SpaceGrow } from '@/widgets/Common'
 import DigestSentence from '@/widgets/DigestSentence'
-import CommunityCard from '@/widgets/Cards/CommunityCard'
-import UserCard from '@/widgets/Cards/UserCard'
+// import CommunityCard from '@/widgets/Cards/CommunityCard'
+// import UserCard from '@/widgets/Cards/UserCard'
 import Tooltip from '@/widgets/Tooltip'
 
-import ActiveBadge from './ActiveBadge'
+// import ActiveBadge from './ActiveBadge'
 
 import {
   Wrapper,
@@ -27,6 +28,18 @@ import {
   ItemWrapper,
   ViewsIcon,
 } from '../styles/desktop_view/body'
+
+const CommunityCard = dynamic(() => import('@/widgets/Cards/CommunityCard'), {
+  ssr: false,
+})
+
+const UserCard = dynamic(() => import('@/widgets/Cards/UserCard'), {
+  ssr: false,
+})
+
+const ActiveBadge = dynamic(() => import('./ActiveBadge'), {
+  ssr: false,
+})
 
 type TProps = {
   curCommunity: TCommunity | null

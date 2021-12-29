@@ -113,7 +113,6 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.ARTICLE_THREAD_CHANGE),
     action: () => {
-      log('EVENT.ARTICLE_THREAD_CHANGE')
       // 之前如果请求过，那么 GraphQL 会被缓存，不必重复请求
       if (store.isEmpty) loadArticles()
     },
@@ -169,9 +168,10 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = (_store: TStore): void =>
+export const useInit = (_store: TStore): void => {
   useEffect(() => {
     store = _store
+    store.afterInitLoading()
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
     // if (store.isEmpty) loadArticles()
@@ -183,3 +183,4 @@ export const useInit = (_store: TStore): void =>
       sub$.unsubscribe()
     }
   }, [_store])
+}

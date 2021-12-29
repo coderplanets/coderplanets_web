@@ -59,11 +59,10 @@ const PagedArticles: FC<TProps> = ({
         {...pagi}
         onChange={(page) => send(EVENT.REFRESH_ARTICLES, { page })}
         margin={{ bottom: '60px', top: '60px' }}
-      >
-        {/* <CommunityRecommends /> */}
-      </Pagi>
+      />
     </Fragment>
   )
 }
 
+/* <CommunityRecommends /> */
 export default memo(PagedArticles)
