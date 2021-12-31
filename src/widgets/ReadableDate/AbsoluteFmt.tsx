@@ -17,8 +17,10 @@ type TProps = {
 
 const AbsoluteFmt: FC<TProps> = ({ datetime, className, withTime }) => {
   const DateObj = new Date(datetime)
-  const [year, month, day] = DateObj.toLocaleDateString().split('/')
 
+  const year = DateObj.getFullYear()
+  const month = DateObj.getMonth() + 1
+  const day = DateObj.getDate()
   const hours = DateObj.getHours()
   const range = calcRange(hours)
   const hour = hours > 12 ? hours - 12 : hours
