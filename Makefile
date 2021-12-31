@@ -21,11 +21,10 @@ init:
 dep:
 	npm install # for commitizen
 
-# shortcut for serve.local
 dev: before_action
-	@$(JSON_CLI) -s '.[0] * .[1]' config/config.json config/config.local.json > /tmp/config.json
+	@$(JSON_CLI) -s '.[0] * .[1]' config/config.json config/config.dev.json > /tmp/config.json
 	@cp /tmp/config.json ./config/config.json
-	npm run local
+	npm run dev
 
 build:
 	npm build
@@ -46,8 +45,6 @@ serve.help:
 serve:
 	$(call serve.help)
 	@echo "\n"
-serve.local:
-	npm run local
 serve.dev:
 	npm run serve.dev
 serve.prod:

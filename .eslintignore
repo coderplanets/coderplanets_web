@@ -17,3 +17,4 @@ tsconfig.tsbuildinfo
 *.tar.gz
 *.xml
 public/*
+Makefile
