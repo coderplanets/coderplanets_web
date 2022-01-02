@@ -33,9 +33,9 @@ const TopInfo: FC<TProps> = ({
     case METRIC.WORKS_ARTICLE: {
       return <WorksArticle {...restProps} />
     }
-    case METRIC.EXPLORE: {
-      return <General title="发现社区" />
-    }
+    // case METRIC.EXPLORE: {
+    //   return <General title="发现社区" />
+    // }
     case METRIC.COOL_GUIDE: {
       return <General title="酷导航" />
     }
