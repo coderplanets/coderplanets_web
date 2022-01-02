@@ -10,9 +10,9 @@ const BaseCard = styled.div`
 
   position: relative;
   padding: 15px 20px;
-  width: 260px;
+  width: 268px;
   height: 150px;
-  margin-right: 25px;
+  margin-left: 25px;
   background: #0c3442; // ${theme('content.cardBg')};
   border: 1px solid;
   border-color: ${theme('content.cardBorder')};

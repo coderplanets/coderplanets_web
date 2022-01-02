@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   width: 120px;
   min-width: 120px;
   margin-right: 70px;
-  margin-left: 30px;
+  margin-left: 12px;
 `
 export const Holder = styled.div`
   flex-grow: 1;

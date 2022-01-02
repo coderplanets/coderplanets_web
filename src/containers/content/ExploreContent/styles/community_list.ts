@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   ${css.flex('justify-start')};
   flex-wrap: wrap;
-  margin-left: 20px;
 
   ${css.media.mobile`
     margin-left: -10px;
