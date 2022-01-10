@@ -1,106 +1,101 @@
+/*
+   this page is for /explore
+ */
 import { Provider } from 'mobx-react'
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { merge, toLower } from 'ramda'
+import { clone } from 'ramda'
+import { METRIC } from '@/constant'
 
-// import { PAGE_SIZE } from '@/config'
-import { HCN, THREAD, METRIC } from '@/constant'
-import { useStore } from '@/stores/init'
-
+import { PAGE_SIZE } from '@/config'
 import {
-  isArticleThread,
-  ssrPagedArticleSchema,
-  isrPagedArticlesFilter,
-  ssrParseArticleThread,
-  communitySEO,
-  singular,
-  makeGQClient,
+  ssrBaseStates,
+  ssrFetchPrepare,
+  ssrGetParam,
+  refreshIfneed,
+  exploreSEO,
+  ssrError,
 } from '@/utils'
 
+import { useStore } from '@/stores/init'
+
 import GlobalLayout from '@/containers/layout/GlobalLayout'
-import CommunityContent from '@/containers/content/CommunityContent'
+import ExploreContent from '@/containers/content/ExploreContent'
 
 import { P } from '@/schemas'
 
-const loader = async () => {
-  const gqClient = makeGQClient('')
+const loader = async (context, opt = {}) => {
+  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
 
-  // 线上环境会直接跳过 index 到这里，有待排查。。
-  const community = HCN
-  const thread = THREAD.POST
+  const category = ssrGetParam(context, 'nc_path')
+  const page = ssrGetParam(context, 'page')
 
-  // query data
-  const curCommunity = gqClient.request(P.community, {
-    raw: community,
-    userHasLogin: false,
+  const filter = {
+    page: 1,
+    size: PAGE_SIZE.M,
+  }
+
+  const communitiesFilter = clone(filter)
+  // @ts-ignore
+  if (category) communitiesFilter.category = category
+  if (page) communitiesFilter.page = parseInt(page, 10)
+
+  const sessionState = gqClient.request(P.sessionState)
+  const pagedCommunities = gqClient.request(P.pagedCommunities, {
+    filter: communitiesFilter,
+    userHasLogin,
   })
+  const pagedCategories = gqClient.request(P.pagedCategories, { filter })
 
-  const pagedArticleTags = gqClient.request(P.pagedArticleTags, {
-    filter: { communityRaw: community, thread: singular(thread, 'upperCase') },
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: 30,
+    },
   })
-
-  const filter = isrPagedArticlesFilter({})
-
-  const pagedArticles = isArticleThread(thread)
-    ? gqClient.request(ssrPagedArticleSchema(thread), filter)
-    : {}
 
   return {
-    filter,
-    ...(await pagedArticleTags),
-    ...(await curCommunity),
-    ...(await pagedArticles),
+    ...(await sessionState),
+    ...(await pagedCategories),
+    ...(await pagedCommunities),
+    ...(await subscribedCommunities),
   }
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  console.log('index params: ')
+export const getServerSideProps = async (context) => {
+  let resp
+  try {
+    resp = await loader(context)
+    const { sessionState } = resp
 
-  const thread = THREAD.POST
-  const resp = await loader()
+    refreshIfneed(sessionState, '/explore', context)
+  } catch (e) {
+    console.log('#### error from server: ', e)
+    return ssrError(context, 'fetch', 500)
+  }
 
-  const { filter, community, pagedArticleTags } = resp
-  // console.log('iii got resp: ', resp)
-  const articleThread = ssrParseArticleThread(resp, thread, filter)
+  const { pagedCategories, pagedCommunities } = resp
 
-  const initProps = merge(
-    {
-      // ...ssrBaseStates(resp),
-      route: {
-        communityPath: community.raw,
-        mainPath: community.raw === HCN ? '' : community.raw,
-        subPath: thread === THREAD.POST ? '' : thread,
-        thread,
-      },
-      tagsBar: {
-        tags: pagedArticleTags.entries,
-      },
-      viewing: {
-        community,
-        activeThread: toLower(thread),
-      },
+  const initProps = {
+    ...ssrBaseStates(resp),
+    exploreContent: {
+      pagedCommunities,
+      pagedCategories,
     },
-    articleThread,
-  )
+  }
 
-  return { props: { errorCode: null, ...initProps }, revalidate: 10 }
+  return { props: { errorCode: null, ...initProps } }
 }
 
-const CommunityPage = (props) => {
+const ExplorePage = (props) => {
   const store = useStore(props)
-
-  const { viewing } = store
-  const { community, activeThread } = viewing
+  const seoConfig = exploreSEO()
 
   return (
     <Provider store={store}>
-      <GlobalLayout
-        metric={METRIC.COMMUNITY}
-        seoConfig={communitySEO(community, activeThread)}
-      >
-        <CommunityContent />
+      <GlobalLayout metric={METRIC.EXPLORE} seoConfig={seoConfig} noSidebar>
+        <ExploreContent />
       </GlobalLayout>
     </Provider>
   )
 }
 
-export default CommunityPage
+export default ExplorePage

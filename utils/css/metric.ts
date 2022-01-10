@@ -19,7 +19,7 @@ export const WIDTH = {
     PAGE: '1460px',
     CONTENT: '1024px',
     CONTENT_OFFSET: '34px',
-    LAPTOP_M_PADDING: '44px',
+    LAPTOP_M_PADDING: '0',
   },
   USER: {
     PAGE: '1380px',

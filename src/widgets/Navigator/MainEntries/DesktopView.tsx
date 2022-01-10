@@ -20,18 +20,18 @@ const DesktopView: FC<TProps> = ({ type }) => {
 
   return (
     <Wrapper type={type}>
-      <Link href={`/${ROUTE.EXPLORE}`} passHref>
-        <SiteLink
-          active={mainPath === ROUTE.EXPLORE}
-          testid="header-explore-link"
-        >
-          发现
+      <Link href={`/${ROUTE.HOT}`} passHref>
+        <SiteLink active={mainPath === ROUTE.HOT} testid="header-explore-link">
+          热门讨论
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
-      <Link href={`/${ROUTE.PLAZA}`} passHref>
-        <SiteLink active={mainPath === ROUTE.PLAZA} testid="header-works-link">
-          作品集市
+      <Link href={`/${ROUTE.GALLERY}`} passHref>
+        <SiteLink
+          active={mainPath === ROUTE.GALLERY}
+          testid="header-works-link"
+        >
+          作品
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />

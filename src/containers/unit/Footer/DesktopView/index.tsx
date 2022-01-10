@@ -52,14 +52,13 @@ const FooterContainer: FC<TProps> = ({
     METRIC.SPONSOR,
     METRIC.SUPPORT_US,
     METRIC.HAVE_A_DRINK,
-    METRIC.EXPLORE,
     METRIC.FRIENDS,
   ])
 
   return (
     <Wrapper testid={testid} layout={c11n.bannerLayout} metric={metric}>
       <JoinModal />
-      {metric === METRIC.COMMUNITY && isHome && (
+      {metric === METRIC.EXPLORE && (
         <HomeLayout
           metric={metric}
           layout={c11n.bannerLayout}
@@ -67,7 +66,7 @@ const FooterContainer: FC<TProps> = ({
         />
       )}
 
-      {metric === METRIC.COMMUNITY && !isHome && (
+      {metric === METRIC.COMMUNITY && (
         <GeneralLayout metric={metric} title={curCommunity.title} />
       )}
 

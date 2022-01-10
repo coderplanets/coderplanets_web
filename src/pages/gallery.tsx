@@ -30,17 +30,10 @@ const loader = async (context, opt = {}) => {
     filter,
   )
   const sessionState = gqClient.request(P.sessionState)
-  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
-    filter: {
-      page: 1,
-      size: 30,
-    },
-  })
 
   return {
     filter,
     ...(await sessionState),
-    ...(await subscribedCommunities),
     ...(await pagedArticles),
   }
 }
@@ -78,7 +71,7 @@ export const getServerSideProps = async (context) => {
   }
 }
 
-const WorksListPage = (props) => {
+const GalleryPage = (props) => {
   const store = useStore(props)
   const seoConfig = worksSEO()
 
@@ -91,4 +84,4 @@ const WorksListPage = (props) => {
   )
 }
 
-export default WorksListPage
+export default GalleryPage

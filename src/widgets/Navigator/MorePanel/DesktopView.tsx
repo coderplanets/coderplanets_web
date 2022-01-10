@@ -43,7 +43,7 @@ const MoreContent: FC = () => {
           </Link>
           <Desc>帮助我们一起共建社区</Desc>
         </Entry>
-        <Entry>
+        {/* <Entry>
           <Link href={`/${ROUTE.TRENDING}`} passHref>
             <Main>
               <Icon.Hot />
@@ -51,7 +51,7 @@ const MoreContent: FC = () => {
             </Main>
           </Link>
           <Desc>站内外近期热门讨论</Desc>
-        </Entry>
+        </Entry> */}
         <Entry>
           <Link href="/makers" passHref>
             <Main>
