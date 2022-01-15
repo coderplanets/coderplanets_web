@@ -39,11 +39,11 @@ const UpvoteBtn: FC<TProps> = ({
 }) => {
   const [showAnimation, setShowAnimation] = useState(false)
   const [num, setNum] = useState(0)
-
-  const { isValidSession } = useAccount()
+  const accountInfo = useAccount()
+  const isLogin = !!accountInfo
 
   const handleClick = useCallback(() => {
-    if (!isValidSession) return authWarn()
+    if (!isLogin) return authWarn()
 
     onAction(!viewerHasUpvoted)
     if (viewerHasUpvoted) return
@@ -54,7 +54,7 @@ const UpvoteBtn: FC<TProps> = ({
 
       setTimeout(() => setShowAnimation(false), 950)
     }
-  }, [showAnimation, viewerHasUpvoted, num, onAction, isValidSession])
+  }, [showAnimation, viewerHasUpvoted, num, onAction, isLogin])
 
   return (
     <Wrapper showAnimation={showAnimation} type={type}>

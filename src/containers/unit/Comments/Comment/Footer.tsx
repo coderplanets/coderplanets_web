@@ -22,7 +22,7 @@ type TProps = {
 }
 
 const Footer: FC<TProps> = ({ data, apiMode }) => {
-  const { isValidSession } = useAccount()
+  const accountInfo = useAccount()
   const { isLegal } = data.meta
 
   return (
@@ -31,7 +31,7 @@ const Footer: FC<TProps> = ({ data, apiMode }) => {
         isLegal={isLegal}
         emotions={data.emotions}
         onAction={(name, hasEmotioned) => {
-          if (!isValidSession) return authWarn()
+          if (!accountInfo) return authWarn()
           handleEmotion(data, name, hasEmotioned)
         }}
       />

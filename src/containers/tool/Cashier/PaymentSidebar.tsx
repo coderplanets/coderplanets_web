@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { ICON_CMD } from '@/config'
 import { PAYMENT_METHOD } from '@/constant'
-import { useAccount } from '@/stores/init'
+import { useAccount } from '@/hooks'
 
 import type { TProps as TContentProps } from './Content'
 import {
@@ -36,12 +36,12 @@ const PaymentSidebar: FC<TProps> = ({
 }) => {
   const accountInfo = useAccount()
 
-  if (!accountInfo.isLogin) return null
+  if (!accountInfo) return null
 
   return (
     <Wrapper>
       <TransWrapper>
-        <AccountIcon src={accountInfo.user.avatar} />
+        <AccountIcon src={accountInfo.avatar} />
         <TransIcon src={`${ICON_CMD}/payment_transfer.svg`} />
         <SiteLogo src={`${ICON_CMD}/keyboard_logo.png`} />
       </TransWrapper>

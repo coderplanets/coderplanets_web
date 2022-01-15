@@ -32,6 +32,7 @@ import type {
   TWorks,
   TTechCommunities,
   TTabItem,
+  TUser,
 } from '@/spec'
 
 import { TAG_COLOR_ORDER } from '@/config'
@@ -44,6 +45,8 @@ import {
   NON_COMMUNITY_ROUTE,
   ARTICLE_THREAD,
 } from '@/constant'
+
+import BStore from './bstore'
 
 import { scrollToHeader } from './dom'
 import { isString } from './validator'
@@ -181,6 +184,16 @@ export const send = (msg: string, data = {}): void => {
  */
 export const logout = (type = ''): void => {
   send(EVENT.LOGOUT)
+}
+
+/**
+ * handle user account state change
+ */
+export const sessionChanged = (user: TUser): void => {
+  send(EVENT.SESSION_CHANGED)
+  BStore.set('accountInfo', user as string)
+  // see: https://stackoverflow.com/a/55349670/4050784
+  Global.dispatchEvent(new Event('storage'))
 }
 
 /**

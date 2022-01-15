@@ -45,7 +45,8 @@ const FollowButton: FC<TProps> = ({
   const [fakeLoading, setFakeLoading] = useState(false)
   const isLoading = simuLoading ? fakeLoading : loading
 
-  const { isValidSession } = useAccount()
+  const accountInfo = useAccount()
+  const isValidSession = !!accountInfo
 
   const handleFollow = useCallback(() => {
     if (!isValidSession) return authWarn()

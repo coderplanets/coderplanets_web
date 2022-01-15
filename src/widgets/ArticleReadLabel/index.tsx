@@ -21,14 +21,14 @@ export type TProps = {
   }
 }
 const ArticleReadLabel: FC<TProps> = ({ entry, top = 24, left = -30 }) => {
-  const { c11n } = useAccount()
-  const { isLogin, markViewed } = c11n
+  const accountInfo = useAccount()
 
+  if (!accountInfo || entry.pin) return null
+
+  const { markViewed } = accountInfo.customization
   const { viewerHasViewed } = entry
 
-  if (entry.pin) return null
   // return <ReadedLabel top={top} left={left} />
-  if (!isLogin) return null
   if (markViewed && !viewerHasViewed) {
     return <ReadedLabel top={top} left={left} />
   }

@@ -36,11 +36,11 @@ type TProps = {
 }
 
 const Actions: FC<TProps> = ({ data }) => {
-  const { user, isValidSession } = useAccount()
+  const accountInfo = useAccount()
 
   let extraOptions = []
 
-  if (data.author.login === user.login) {
+  if (data.author.login === accountInfo?.login) {
     extraOptions = [
       {
         key: 'edit',
@@ -57,7 +57,7 @@ const Actions: FC<TProps> = ({ data }) => {
 
   const handleAction = useCallback(
     (key) => {
-      if (!isValidSession) return authWarn()
+      if (!accountInfo) return authWarn()
 
       switch (key) {
         case 'share': {
@@ -81,7 +81,7 @@ const Actions: FC<TProps> = ({ data }) => {
         }
       }
     },
-    [data, isValidSession],
+    [data, accountInfo],
   )
 
   return (
@@ -89,7 +89,7 @@ const Actions: FC<TProps> = ({ data }) => {
       {data.meta.isLegal && (
         <ReplyAction
           onClick={() => {
-            if (!isValidSession) return authWarn()
+            if (accountInfo) return authWarn()
 
             openReplyEditor(data)
           }}

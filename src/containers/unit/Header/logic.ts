@@ -61,7 +61,7 @@ const DataSolver = [
     action: ({ sessionState: state }) => {
       store.updateSession(state)
       if (state.isValid !== store.accountInfo.isValidSession) {
-        send(EVENT.SESSION_ROUTINE)
+        send(EVENT.SESSION_CHANGED)
       }
     },
   },

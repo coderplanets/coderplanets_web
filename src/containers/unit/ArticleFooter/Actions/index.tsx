@@ -20,7 +20,7 @@ const Actions: FC<TProps> = ({
   showReferenceList,
   showOperationList,
 }) => {
-  const { isValidSession } = useAccount()
+  const accountInfo = useAccount()
 
   return (
     <Wrapper>
@@ -43,7 +43,7 @@ const Actions: FC<TProps> = ({
       {/* <DotDivider space={8} /> */}
       <Item
         onClick={() => {
-          if (!isValidSession) return authWarn()
+          if (!accountInfo) return authWarn()
 
           report('ARTICLE')
         }}

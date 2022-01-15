@@ -26,8 +26,7 @@ type TProps = {
 }
 
 const NormalLayout: FC<TProps> = ({ users }) => {
-  const { c11n, user: account } = useAccount()
-  const { isLogin } = c11n
+  const accountInfo = useAccount()
 
   return (
     <Wrapper>
@@ -45,7 +44,7 @@ const NormalLayout: FC<TProps> = ({ users }) => {
               </Location>
             </Title>
             <Action>
-              {isLogin && account.login === user.login ? (
+              {!!accountInfo && accountInfo.login === user.login ? (
                 <div>(本尊)</div>
               ) : (
                 <FollowButton

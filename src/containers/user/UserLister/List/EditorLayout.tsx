@@ -26,8 +26,7 @@ type TProps = {
 }
 
 const EditorLayout: FC<TProps> = ({ users }) => {
-  const { c11n, user: account } = useAccount()
-  const { isLogin } = c11n
+  const accountInfo = useAccount()
 
   return (
     <Wrapper>
@@ -46,7 +45,7 @@ const EditorLayout: FC<TProps> = ({ users }) => {
             </Title>
             <Desc>{user.bio}</Desc>
             <Action>
-              {isLogin && account.login === user.login ? (
+              {!!accountInfo && accountInfo.login === user.login ? (
                 <div>(本尊)</div>
               ) : (
                 <FollowButton
