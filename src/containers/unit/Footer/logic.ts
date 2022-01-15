@@ -4,7 +4,7 @@ import type { TMetric } from '@/spec'
 import { EVENT } from '@/constant'
 
 import asyncSuit from '@/utils/async'
-import { send, Global } from '@/utils/helper'
+import { send, Global, sessionChanged } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
 import uid from '@/utils/uid'
 import S from './schema'
@@ -68,9 +68,10 @@ const DataSolver = [
     match: asyncRes('sessionState'),
     action: ({ sessionState: state }) => {
       store.updateSession(state)
-      if (state.isValid !== store.accountInfo.isValidSession) {
-        send(EVENT.SESSION_ROUTINE)
-      }
+      sessionChanged(state.user)
+      // if (state.isValid !== store.accountInfo.isValidSession) {
+      //   sessionChanged(state)
+      // }
     },
   },
   {

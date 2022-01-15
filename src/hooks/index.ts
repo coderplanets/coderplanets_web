@@ -7,10 +7,11 @@ export { default as useCustomScroll } from './useCustomScroll'
 export { default as useOutsideClick } from './useOutsideClick'
 export { default as useLangPress } from './useLangPress'
 export { default as useTrans } from './useTrans'
+export { default as useAccount } from './useAccount'
 
 export { default as useNetwork } from 'react-use/lib/useNetwork'
 export { default as useCopyToClipboard } from 'react-use/lib/useCopyToClipboard'
 export { default as useInterval } from 'react-use/lib/useInterval'
 
 export { useSwipeable as useSwipe } from 'react-swipeable'
-export { useViewing, useAccount } from '@/stores/init'
+export { useViewing } from '@/stores/init'

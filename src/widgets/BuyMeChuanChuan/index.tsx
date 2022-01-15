@@ -8,7 +8,7 @@ import { FC, useState, memo } from 'react'
 
 import { ICON_CMD, GITHUB } from '@/config'
 import { buildLog } from '@/utils/logger'
-import { useAccount } from '@/stores/init'
+import { useAccount } from '@/hooks'
 
 import Modal from '@/widgets/Modal'
 import UserCell from '@/widgets/UserCell'

@@ -1,7 +1,5 @@
 import { FC, memo } from 'react'
 
-import { useAccount } from '@/stores/init'
-
 import PaymentSidebar from './PaymentSidebar'
 import QuestionSidebar from './QuestionSidebar'
 
@@ -20,8 +18,6 @@ const Sidebar: FC<TProps> = ({
   paymentMethod,
   subContentView,
 }) => {
-  const accountInfo = useAccount()
-
   switch (sidebarView) {
     case 'question':
       return (

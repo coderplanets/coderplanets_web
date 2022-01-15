@@ -19,7 +19,7 @@ type TProps = {
 }
 
 const FilterPanel: FC<TProps> = ({ thread, activeFilter, onSelect }) => {
-  const { isLogin } = useAccount()
+  const accountInfo = useAccount()
 
   switch (thread) {
     case THREAD.POST:
@@ -28,7 +28,7 @@ const FilterPanel: FC<TProps> = ({ thread, activeFilter, onSelect }) => {
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
-          {isLogin && (
+          {accountInfo && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}
         </FilterPanelWrapper>
@@ -39,7 +39,7 @@ const FilterPanel: FC<TProps> = ({ thread, activeFilter, onSelect }) => {
         <FilterPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <RepoSortFilter activeFilter={activeFilter} onSelect={onSelect} />
-          {isLogin && (
+          {accountInfo && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}
         </FilterPanelWrapper>
@@ -50,7 +50,7 @@ const FilterPanel: FC<TProps> = ({ thread, activeFilter, onSelect }) => {
         <FilterPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
-          {isLogin && (
+          {accountInfo && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
           )}
         </FilterPanelWrapper>

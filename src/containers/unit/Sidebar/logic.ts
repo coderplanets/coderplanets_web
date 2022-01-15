@@ -19,7 +19,7 @@ const log = buildLog('L:Sidebar')
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   // @ts-ignore
-  receive: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSION_ROUTINE],
+  receive: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSION_CHANGED],
 })
 
 let store: TStore | undefined
@@ -134,7 +134,7 @@ const DataSolver = [
     action: () => loadCommunities(),
   },
   {
-    match: asyncRes(EVENT.SESSION_ROUTINE),
+    match: asyncRes(EVENT.SESSION_CHANGED),
     action: () => refreshSubedCommunitiesIfNeed(),
   },
 ]

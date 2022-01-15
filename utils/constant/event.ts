@@ -1,6 +1,6 @@
 const EVENT = {
   // every time when session come back
-  SESSION_ROUTINE: 'SESSION_ROUTINE',
+  SESSION_CHANGED: 'SESSION_CHANGED',
   LOGIN_PANEL: 'LOGIN_PANEL',
   LOGIN: 'LOGIN',
   // error
