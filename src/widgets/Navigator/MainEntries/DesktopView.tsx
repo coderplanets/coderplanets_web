@@ -22,7 +22,7 @@ const DesktopView: FC<TProps> = ({ type }) => {
     <Wrapper type={type}>
       <Link href={`/${ROUTE.HOT}`} passHref>
         <SiteLink active={mainPath === ROUTE.HOT} testid="header-explore-link">
-          热门讨论
+          讨论
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />

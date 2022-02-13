@@ -5,6 +5,7 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
+import { nilOrEmpty } from '@/utils/validator'
 import { useAccount } from '@/hooks'
 
 import { ReadedLabel } from './styles'
@@ -23,7 +24,7 @@ export type TProps = {
 const ArticleReadLabel: FC<TProps> = ({ entry, top = 24, left = -30 }) => {
   const accountInfo = useAccount()
 
-  if (!accountInfo || entry.pin) return null
+  if (nilOrEmpty(accountInfo) || entry.pin) return null
 
   const { markViewed } = accountInfo.customization
   const { viewerHasViewed } = entry
