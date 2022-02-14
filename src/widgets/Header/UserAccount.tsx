@@ -92,7 +92,7 @@ const UserAccount: FC<TProps> = ({ accountInfo }) => {
         </Wrapper>
       )}
 
-      <Space left={12} />
+      {/* <Space left={12} />
       <Button
         size="tiny"
         type="primary"
@@ -100,7 +100,7 @@ const UserAccount: FC<TProps> = ({ accountInfo }) => {
         onClick={() => router.push(`/${ROUTE.MEMBERSHIP}`)}
       >
         <MembershipHint>升舱</MembershipHint>
-      </Button>
+      </Button> */}
     </Fragment>
   )
 }
