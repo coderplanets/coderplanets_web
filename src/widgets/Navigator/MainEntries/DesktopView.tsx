@@ -20,8 +20,11 @@ const DesktopView: FC<TProps> = ({ type }) => {
 
   return (
     <Wrapper type={type}>
-      <Link href={`/${ROUTE.HOT}`} passHref>
-        <SiteLink active={mainPath === ROUTE.HOT} testid="header-explore-link">
+      <Link href={`/${ROUTE.TOPICS}`} passHref>
+        <SiteLink
+          active={mainPath === ROUTE.TOPICS}
+          testid="header-explore-link"
+        >
           讨论
         </SiteLink>
       </Link>

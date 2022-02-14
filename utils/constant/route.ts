@@ -7,7 +7,7 @@ export const NON_COMMUNITY_ROUTE = {
   PLAZA: 'plaza',
   GALLERY: 'gallery',
   TRENDING: 'trending',
-  HOT: 'hot',
+  TOPICS: 'topics',
   SPONSOR: 'sponsor',
   FRIENDS: 'friends',
   SUPPORT_US: 'support-us',

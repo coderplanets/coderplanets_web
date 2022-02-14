@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       // ...ssrBaseStates(resp),
       route: {
         communityPath: community.raw,
-        mainPath: ROUTE.HOT,
+        mainPath: ROUTE.TOPICS,
         subPath: thread === THREAD.POST ? '' : thread,
         thread,
       },
