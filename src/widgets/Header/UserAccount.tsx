@@ -4,11 +4,11 @@ import { useRouter } from 'next/router'
 import type { TAccount } from '@/spec'
 
 import { authWarn, logout } from '@/utils/helper'
-import { ROUTE } from '@/constant'
+// import { ROUTE } from '@/constant'
 
 import Tooltip from '@/widgets/Tooltip'
-import Button from '@/widgets/Buttons/Button'
-import { Space } from '@/widgets/Common'
+// import Button from '@/widgets/Buttons/Button'
+// import { Space } from '@/widgets/Common'
 
 // import { onLogin, onLogout, previewAccount } from './logic'
 
@@ -24,7 +24,7 @@ import {
   LogoutItem,
   AvatarIcon,
   MenuDivider,
-  MembershipHint,
+  // MembershipHint,
 } from './styles/user_account'
 
 type TProps = {
@@ -32,7 +32,7 @@ type TProps = {
 }
 
 const UserAccount: FC<TProps> = ({ accountInfo }) => {
-  const router = useRouter()
+  // const router = useRouter()
 
   return (
     <Fragment>
@@ -55,28 +55,6 @@ const UserAccount: FC<TProps> = ({ accountInfo }) => {
               >
                 我的主页
               </MenuLink>
-              {/* <MenuLink
-                href={`/u/${accountInfo.login}?tab=favorites`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                我的收藏
-              </MenuLink>
-              <MenuLink
-                href={`/user/${accountInfo.login}?tab=billing`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                我的账单
-              </MenuLink> */}
-              {/* <MenuDivider />
-              <MenuLink
-                href={`/user/${account.user.login}?tab=settings`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                设置
-              </MenuLink> */}
               <MenuItem>帮助</MenuItem>
               <LogoutItem onClick={() => logout()}>登出</LogoutItem>
             </PopMenu>
