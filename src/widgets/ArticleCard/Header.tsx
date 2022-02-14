@@ -1,5 +1,5 @@
-import { FC, memo } from 'react'
-import Link from 'next/link'
+import { FC, memo, useCallback } from 'react'
+import Router from 'next/router'
 import { isMobile } from 'react-device-detect'
 
 import type { TJob, TRadar } from '@/spec'
@@ -21,9 +21,13 @@ import {
 } from './styles/header'
 
 const Header: FC<TIndex> = ({ data, thread }) => {
+  const gotoArticle = useCallback(() => {
+    Router.push(`/${thread}/${data.id}`)
+  }, [data.id, thread])
+
   switch (thread) {
     case ARTICLE_THREAD.RADAR: {
-      const { id, title, articleTags, linkAddr } = data as TRadar
+      const { title, articleTags, linkAddr } = data as TRadar
 
       return (
         <Wrapper>
@@ -33,9 +37,7 @@ const Header: FC<TIndex> = ({ data, thread }) => {
             <LinkSrc>{linkAddr}</LinkSrc>
           </LinkWraper>
           <Br top={4} />
-          <Link href={`/${ARTICLE_THREAD.RADAR}/${id}`} passHref>
-            <Title>{cutRest(title, 100)}</Title>
-          </Link>
+          <Title onClick={gotoArticle}>{cutRest(title, 100)}</Title>
           <Br top={6} />
           <TagsList
             items={articleTags}
@@ -47,7 +49,7 @@ const Header: FC<TIndex> = ({ data, thread }) => {
     }
 
     default: {
-      const { id, title, articleTags, company, companyLink } = data as TJob
+      const { title, articleTags, company, companyLink } = data as TJob
 
       return (
         <Wrapper>
@@ -64,9 +66,7 @@ const Header: FC<TIndex> = ({ data, thread }) => {
               </CompanyLink>
             </ExtraInfo>
           )}
-          <Link href={`/${ARTICLE_THREAD.JOB}/${id}`} passHref>
-            <Title>{cutRest(title, 100)}</Title>
-          </Link>
+          <Title onClick={gotoArticle}>{cutRest(title, 100)}</Title>
         </Wrapper>
       )
     }

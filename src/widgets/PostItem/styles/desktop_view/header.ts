@@ -13,7 +13,7 @@ export const Brief = styled.div`
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
 `
-export const Title = styled.a`
+export const Title = styled.div`
   font-size: 15.5px;
   color: ${theme('thread.articleTitle')};
   text-decoration: none;
