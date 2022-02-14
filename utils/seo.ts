@@ -5,6 +5,9 @@ import { ROUTE, THREAD } from '@/constant'
 
 import { plural } from './helper'
 
+const SLOGAN =
+  '小众开发者社区，专注小众编程语言，框架以及各种奇奇怪怪话题的讨论与分享。'
+
 type TSEO = {
   url: string
   title: string
@@ -22,16 +25,16 @@ export const communitySEO = (community: TCommunity, thread: TThread): TSEO => {
 
   return {
     url: `${SITE_URL}/${raw}/${plural(thread)}`,
-    title: raw === 'home' ? 'CoderPlanets' : `${title} | 中文社区`,
-    description: `${desc}`,
+    title: raw === 'home' ? 'CoderPlanets' : `${title} 中文社区`,
+    description: raw === 'home' ? SLOGAN : `${desc}`,
   }
 }
 
 export const exploreSEO = (): TSEO => {
   return {
     url: `${SITE_URL}/${ROUTE.EXPLORE}`,
-    title: '社区索引',
-    description: 'coderplanets 子社区索引',
+    title: 'CoderPlanets',
+    description: SLOGAN,
   }
 }
 
