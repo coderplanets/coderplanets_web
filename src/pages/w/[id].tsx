@@ -1,78 +1,63 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
 // import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 import { Provider } from 'mobx-react'
 
-import { ROUTE, THREAD, METRIC } from '@/constant'
-
-import {
-  ssrFetchPrepare,
-  ssrError,
-  articleSEO,
-  ssrBaseStates,
-  ssrGetParam,
-  refreshIfneed,
-} from '@/utils'
+import { ARTICLE_THREAD, METRIC } from '@/constant'
+import { articleSEO, makeGQClient } from '@/utils'
 
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleDigest from '@/containers/digest/ArticleDigest'
 import ArticleContent from '@/containers/content/ArticleContent'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import { P } from '@/schemas'
 
-const loader = async (context, opt = {}) => {
-  const id = ssrGetParam(context, 'id')
-  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
+const loader = async (params) => {
+  const gqClient = makeGQClient('')
+  const { id } = params
 
-  // query data
-  const sessionState = gqClient.request(P.sessionState)
-  const works = gqClient.request(P.works, { id, userHasLogin })
-
-  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
-    filter: {
-      page: 1,
-      size: 30,
-    },
-  })
+  const works = gqClient.request(P.works, { id, userHasLogin: false })
 
   return {
-    ...(await sessionState),
     ...(await works),
-    ...(await subscribedCommunities),
   }
 }
 
-export const getServerSideProps = async (context) => {
-  let resp
-  try {
-    resp = await loader(context)
-    const { works, sessionState } = resp
-    refreshIfneed(sessionState, `/works/${works.id}`, context)
-  } catch (e) {
-    console.log('#### error from server: ', e)
-    return ssrError(context, 'fetch', 500)
-  }
+export const getStaticPaths: GetStaticPaths = async () => {
+  return { paths: [], fallback: true }
+}
 
-  const { works } = resp
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  console.log('ctx: ', ctx)
+  const { params } = ctx
 
-  const initProps = {
-    ...ssrBaseStates(resp),
-    route: { mainPath: ROUTE.WORKS, subPath: works.id },
-    viewing: {
-      works,
-      activeThread: THREAD.WORKS,
+  const resp = await loader(params)
+  // console.log('resp: ', resp)
+
+  return {
+    props: {
+      viewing: {
+        works: resp.works,
+        activeThread: ARTICLE_THREAD.WORKS,
+      },
     },
+    revalidate: 5,
   }
-
-  return { props: { errorCode: null, ...initProps } }
 }
 
 const WorksArticlePage = (props) => {
   const store = useStore(props)
+
+  const { isFallback } = useRouter()
+  if (isFallback) return <LavaLampLoading top={20} left={30} />
+
   const { viewing } = props
   const { works } = viewing
 
-  const seoConfig = articleSEO(THREAD.WORKS, works)
+  const seoConfig = articleSEO(ARTICLE_THREAD.WORKS, works)
 
   return (
     <Provider store={store}>

@@ -1,16 +1,16 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { Provider } from 'mobx-react'
 import { useRouter } from 'next/router'
-import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { ARTICLE_THREAD, METRIC } from '@/constant'
-import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
-import { ssrFetchPrepare, articleSEO, ssrGetParam, makeGQClient } from '@/utils'
+import { articleSEO, makeGQClient } from '@/utils'
 import { useStore } from '@/stores/init'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import ArticleDigest from '@/containers/digest/ArticleDigest'
 import ArticleContent from '@/containers/content/ArticleContent'
+import LavaLampLoading from '@/widgets/Loading/LavaLampLoading'
 
 import { P } from '@/schemas'
 
