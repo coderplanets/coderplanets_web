@@ -71,7 +71,7 @@ export const getServerSideProps = async (context) => {
   }
 }
 
-const GalleryPage = (props) => {
+const WorksPage = (props) => {
   const store = useStore(props)
   const seoConfig = worksSEO()
 
@@ -84,4 +84,4 @@ const GalleryPage = (props) => {
   )
 }
 
-export default GalleryPage
+export default WorksPage

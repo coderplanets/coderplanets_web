@@ -11,7 +11,7 @@ import { isMobile } from 'react-device-detect'
 
 import type { TWorks } from '@/spec'
 import { ICON, ICON_CMD } from '@/config'
-import { THREAD } from '@/constant'
+import { ROUTE } from '@/constant'
 
 import { cutRest } from '@/utils/helper'
 import { buildLog } from '@/utils/logger'
@@ -81,7 +81,7 @@ const WorksCard: FC<TProps> = ({
               {preview ? (
                 <PreviewName as="div">{title || '--'}</PreviewName>
               ) : (
-                <Link href={`/${THREAD.WORKS}/${id}`} passHref>
+                <Link href={`/${ROUTE.W}/${id}`} passHref prefetch={false}>
                   <Name>{title || '--'}</Name>
                 </Link>
               )}

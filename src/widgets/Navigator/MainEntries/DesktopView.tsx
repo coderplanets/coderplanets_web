@@ -29,11 +29,8 @@ const DesktopView: FC<TProps> = ({ type }) => {
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
-      <Link href={`/${ROUTE.GALLERY}`} passHref>
-        <SiteLink
-          active={mainPath === ROUTE.GALLERY}
-          testid="header-works-link"
-        >
+      <Link href={`/${ROUTE.WORKS}`} passHref>
+        <SiteLink active={mainPath === ROUTE.WORKS} testid="header-works-link">
           作品
         </SiteLink>
       </Link>
