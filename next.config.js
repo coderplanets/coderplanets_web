@@ -13,7 +13,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 // if move pwa config to witPlugins, it will not work
 const nextConfig = withPWA({
-  swcMinify: false,
+  // swcMinify: false,
   productionBrowserSourceMaps: false,
   pwa: {
     dest: 'public',
@@ -22,10 +22,10 @@ const nextConfig = withPWA({
     // scope: '/cp',
     sw: 'sw.js',
   },
-  compiler: {
-    // ssr and displayName are configured by default
-    styledComponents: true,
-  },
+  // compiler: {
+  // ssr and displayName are configured by default
+  // styledComponents: true,
+  // },
   // experimental: {
   //   outputStandalone: true,
   // },
