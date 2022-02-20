@@ -13,7 +13,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 // if move pwa config to witPlugins, it will not work
 const nextConfig = withPWA({
-  swcMinify: true,
+  swcMinify: false,
   productionBrowserSourceMaps: false,
   pwa: {
     dest: 'public',
@@ -26,9 +26,9 @@ const nextConfig = withPWA({
     // ssr and displayName are configured by default
     styledComponents: true,
   },
-  experimental: {
-    outputStandalone: true,
-  },
+  // experimental: {
+  //   outputStandalone: true,
+  // },
 })
 
 module.exports = withPlugins([withBundleAnalyzer, withSourceMaps], nextConfig)
