@@ -40,7 +40,6 @@
     }
   },
   "dependencies": {
-    "@babel/core": "^7.13.14",
     "@groupher/react-editor": "^1.1.30",
     "@next-boost/hybrid-disk-cache": "^0.3.0",
     "@next-boost/next-boost": "^0.15.1",
@@ -141,8 +140,6 @@
     "@types/styled-components": "^5.1.8",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
-    "babel-eslint": "^10.0.2",
-    "babel-jest": "^23.6.0",
     "bundlewatch": "^0.2.7",
     "commitizen": "3.1.2",
     "coveralls": "3.0.14",
