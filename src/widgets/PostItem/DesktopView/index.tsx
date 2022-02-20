@@ -31,11 +31,13 @@ const DigestView: FC<TProps> = ({ curCommunity, entry }) => {
   // 尤其是在 Tab 切换的时候。手机端因为目前没有这些组件，性能暂无问题。
   // 本不应该存在的无聊问题，蛋疼的解决办法，
   useEffect(() => {
-    const cfg = { ssr: false }
-
-    Upvote = dynamic(() => import('@/widgets/Upvote'), cfg)
-    ArticleReadLabel = dynamic(() => import('@/widgets/ArticleReadLabel'), cfg)
-    ArticlePinLabel = dynamic(() => import('@/widgets/ArticlePinLabel'), cfg)
+    Upvote = dynamic(() => import('@/widgets/Upvote'), { ssr: false })
+    ArticleReadLabel = dynamic(() => import('@/widgets/ArticleReadLabel'), {
+      ssr: false,
+    })
+    ArticlePinLabel = dynamic(() => import('@/widgets/ArticlePinLabel'), {
+      ssr: false,
+    })
 
     setTimeout(() => {
       setLoaded(true)

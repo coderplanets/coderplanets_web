@@ -81,7 +81,7 @@ export const pluggedIn = (
   if (store) {
     subStoreName = store
   } else {
-    const cname = head(split('Container', container.displayName))
+    const cname = head(split('Container', container.name))
     subStoreName = toLower(head(cname)) + cname.slice(1)
   }
 
