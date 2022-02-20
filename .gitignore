@@ -14,4 +14,8 @@ cypress//integration/examples
 .eslintcache
 
 cypress/videos/*
+tsconfig.tsbuildinfopublic/sw.js
+public/sw.js
+public/sw.js.map
+public/workbox-*
 tsconfig.tsbuildinfo

@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic'
 
 import { LavaLampLoading } from '@/widgets/dynamic'
-import EditorLoading from '@/widgets/Loading/EditorLoading'
+// import EditorLoading from '@/widgets/Loading/EditorLoading'
 
 import { LavaLoadingWrapper } from './styles'
 
@@ -21,38 +21,53 @@ const commonConfig = {
 }
 
 // editor style loading config
-const editorConfig = {
-  // @ts-ignore
-  loading: () => <EditorLoading />,
-  ssr: false,
-}
+// const editorConfig = {
+//   // @ts-ignore
+//   loading: () => <EditorLoading />,
+//   ssr: false,
+// }
 
 // viewers
 export const ArticleViewer = dynamic(
   () => import('@/containers/viewer/ArticleViewer'),
-  commonConfig,
+  {
+    loading: () => <CommonLoading />,
+    ssr: false,
+  },
 )
 
 export const MailsViewer = dynamic(
   () => import('@/containers/viewer/MailsViewer'),
-  commonConfig,
+  {
+    loading: () => <CommonLoading />,
+    ssr: false,
+  },
 )
 
 export const RepoViewer = dynamic(
   () => import('@/containers/viewer/RepoViewer'),
-  commonConfig,
+  {
+    loading: () => <CommonLoading />,
+    ssr: false,
+  },
 )
 
 // editors
 export const AccountEditor = dynamic(
   () => import('@/containers/editor/AccountEditor'),
-  commonConfig,
+  {
+    loading: () => <CommonLoading />,
+    ssr: false,
+  },
 )
 
 // user lister
 export const UserLister = dynamic(
   () => import('@/containers/user/UserLister'),
-  commonConfig,
+  {
+    loading: () => <CommonLoading />,
+    ssr: false,
+  },
 )
 
 // export const RepoEditor = dynamic(
@@ -63,5 +78,8 @@ export const UserLister = dynamic(
 // utils
 export const C11NSettingPanel = dynamic(
   () => import('@/containers/tool/C11NSettingPanel'),
-  commonConfig,
+  {
+    loading: () => <CommonLoading />,
+    ssr: false,
+  },
 )
