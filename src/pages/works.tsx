@@ -1,65 +1,53 @@
 /*
    this page is for /works
  */
+
 import { Provider } from 'mobx-react'
+import { GetStaticProps } from 'next'
 
 import { METRIC, THREAD } from '@/constant'
 import {
-  ssrFetchPrepare,
-  ssrHomePagedArticlesFilter,
+  isrPagedArticlesFilter,
   ssrPagedArticleSchema,
-  ssrBaseStates,
   ssrParseArticleThread,
-  ssrRescue,
   worksSEO,
-  ssrError,
+  makeGQClient,
 } from '@/utils'
-import { P } from '@/schemas'
+// import { P } from '@/schemas'
 
 import GlobalLayout from '@/containers/layout/GlobalLayout'
 import WorksContent from '@/containers/content/WorksContent'
 
 import { useStore } from '@/stores/init'
 
-const loader = async (context, opt = {}) => {
-  const { gqClient, userHasLogin } = ssrFetchPrepare(context, opt)
-  const filter = ssrHomePagedArticlesFilter(context, userHasLogin)
+const loader = async () => {
+  const gqClient = makeGQClient('')
+  const filter = isrPagedArticlesFilter({})
 
   const pagedArticles = gqClient.request(
     ssrPagedArticleSchema(THREAD.WORKS),
     filter,
   )
-  const sessionState = gqClient.request(P.sessionState)
 
   return {
     filter,
-    ...(await sessionState),
     ...(await pagedArticles),
   }
 }
 
-export const getServerSideProps = async (context) => {
-  let resp
-  try {
-    resp = await loader(context)
-  } catch (e) {
-    console.log('#### error from server: ', e)
-    if (ssrRescue.hasLoginError(e.response?.errors)) {
-      resp = await loader(context, { tokenExpired: true })
-    } else {
-      return ssrError(context, 'fetch', 500)
-    }
-  }
+export const getStaticProps: GetStaticProps = async () => {
+  const thread = THREAD.WORKS
+  const resp = await loader()
 
   const { filter } = resp
-
-  const { articlesThread } = ssrParseArticleThread(resp, THREAD.WORKS, filter)
-  const { pagedWorks } = articlesThread
+  // console.log('iii got resp: ', resp)
+  const {
+    articlesThread: { pagedWorks },
+  } = ssrParseArticleThread(resp, thread, filter)
 
   const initProps = {
-    ...ssrBaseStates(resp),
     viewing: {
-      activeThread: THREAD.WORKS,
+      activeThread: thread,
     },
     worksContent: {
       pagedWorks,

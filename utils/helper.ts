@@ -289,7 +289,11 @@ export const changeToCommunity = (raw = ''): void => {
   const { pathname } = window.location
   const curPath = pathname.slice(1)
   const isNonCommunityPage = includes(curPath, values(NON_COMMUNITY_ROUTE))
-  const isArticlePage = includes(curPath.split('/')[0], values(ARTICLE_THREAD))
+  const isArticlePage = includes(curPath.split('/')[0], [
+    values(ARTICLE_THREAD),
+    // works detail page
+    'w',
+  ])
   const isTargetNonCommunityPage = includes(raw, values(NON_COMMUNITY_ROUTE))
 
   if (isNonCommunityPage || isArticlePage || isTargetNonCommunityPage) {
