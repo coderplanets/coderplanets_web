@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import useShortcut from '@/hooks/useShortcut'
 
@@ -80,4 +80,7 @@ const HaveADrinkContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(HaveADrinkContentContainer) as FC<TProps>
+export default bond(
+  HaveADrinkContentContainer,
+  'haveADrinkContent',
+) as FC<TProps>

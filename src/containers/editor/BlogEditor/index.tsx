@@ -8,7 +8,7 @@ import type { TMetric, TEditMode } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import CommunityTagSetter from '@/containers/tool/CommunityTagSetter'
 import CommunityBadgeSelector from '@/widgets/CommunityBadgeSelector'
@@ -101,4 +101,4 @@ const BlogEditorContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(BlogEditorContainer) as FC<TProps>
+export default bond(BlogEditorContainer, 'blogEditor') as FC<TProps>

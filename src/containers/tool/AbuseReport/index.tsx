@@ -10,7 +10,7 @@ import { FC } from 'react'
 import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
 
@@ -68,4 +68,4 @@ const AbuseReportContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(AbuseReportContainer) as FC<TProps>
+export default bond(AbuseReportContainer, 'abuseReport') as FC<TProps>

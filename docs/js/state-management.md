@@ -8,10 +8,10 @@ The root state tree is a combination of the child-state-tree (store.js) scattere
 
 #### child state tree
 
-The substate tree exists only in the container component, named store.js, and is connected to the root state tree via [pluggedIn](https://github.com/coderplanets/coderplanets_web/blob/dev/utils/mobx_helper.js#L37) Take the PostEditor container as an example:
+The substate tree exists only in the container component, named store.js, and is connected to the root state tree via [bond](https://github.com/coderplanets/coderplanets_web/blob/dev/utils/mobx_helper.js#L37) Take the PostEditor container as an example:
 
 ```js
-export default pluggedIn(PostEditorContainer)
+export default bond(PostEditorContainer)
 ```
 
 Containers/PostEditor/store.js in the same directory only contains the state required by the PostEditor container, and the state can only be changed by the method method exposed in the store, which is changed by the method call in logic.js in the same directory. The view layer cannot be directly Change the status.

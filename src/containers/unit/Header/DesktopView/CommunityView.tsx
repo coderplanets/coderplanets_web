@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic'
 import type { TMetric } from '@/spec'
 import { C11N, METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Navigator from '@/widgets/Navigator'
 
@@ -101,4 +101,4 @@ const CommunityHeaderContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CommunityHeaderContainer, 'header') as FC<TProps>
+export default bond(CommunityHeaderContainer, 'header') as FC<TProps>

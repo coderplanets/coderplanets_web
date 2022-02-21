@@ -9,7 +9,7 @@ import { FC } from 'react'
 import type { TModelineType } from '@/spec'
 import { TYPE } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 // TODO: 全部动态加载
 import GlobalMenu from './GlobalMenu/index'
@@ -90,4 +90,4 @@ const ModeLineMenuContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ModeLineMenuContainer) as FC<TProps>
+export default bond(ModeLineMenuContainer, 'modeLineMenu') as FC<TProps>

@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import Tooltip from '@/widgets/Tooltip'
 
 import MailsPanel from './MailsPanel'
@@ -45,4 +45,4 @@ const MailBoxContainer = ({ mailBox: store }) => {
   )
 }
 
-export default pluggedIn(MailBoxContainer)
+export default bond(MailBoxContainer, 'mailBox')

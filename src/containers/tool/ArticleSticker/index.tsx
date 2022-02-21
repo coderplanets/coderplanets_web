@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { METRIC } from '@/constant'
 
 import Sticky from '@/widgets/Sticky'
@@ -91,4 +91,4 @@ const ArticleStickerContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleStickerContainer) as FC<TProps>
+export default bond(ArticleStickerContainer, 'articleSticker') as FC<TProps>

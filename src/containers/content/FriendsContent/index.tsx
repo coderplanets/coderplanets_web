@@ -11,7 +11,7 @@ import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import { Br } from '@/widgets/Common'
 import { FriendsGallery } from '@/widgets/GalleryHub'
@@ -79,4 +79,4 @@ const FriendsContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(FriendsContentContainer) as FC<TProps>
+export default bond(FriendsContentContainer, 'friendsContent') as FC<TProps>

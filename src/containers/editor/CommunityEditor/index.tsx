@@ -7,7 +7,7 @@
 import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
@@ -63,4 +63,4 @@ const CommunityEditorContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CommunityEditorContainer) as FC<TProps>
+export default bond(CommunityEditorContainer, 'communityEditor') as FC<TProps>

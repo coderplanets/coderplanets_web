@@ -11,7 +11,7 @@ import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Navigator from '@/widgets/Navigator'
 
@@ -75,4 +75,4 @@ const ArticleEditorHeader: FC<TProps> = ({ header: store, metric }) => {
   )
 }
 
-export default pluggedIn(ArticleEditorHeader, 'header') as FC<TProps>
+export default bond(ArticleEditorHeader, 'header') as FC<TProps>

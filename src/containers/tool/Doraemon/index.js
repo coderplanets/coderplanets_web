@@ -8,7 +8,7 @@ import { Fragment, useEffect } from 'react'
 import usePortal from 'react-useportal'
 
 import { toggleGlobalBlur } from '@/utils/dom'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'
@@ -78,4 +78,4 @@ const DoraemonContainer = ({ doraemon: store }) => {
   )
 }
 
-export default pluggedIn(DoraemonContainer)
+export default bond(DoraemonContainer, 'doraemon')

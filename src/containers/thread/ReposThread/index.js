@@ -9,7 +9,7 @@ import React from 'react'
 import { ICON_CMD } from '@/config'
 import { THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import TagsBar from '@/containers/unit/TagsBar'
 
@@ -106,4 +106,4 @@ const ReposThreadContainer = ({ reposThread: store }) => {
   )
 }
 
-export default pluggedIn(ReposThreadContainer)
+export default bond(ReposThreadContainer, 'reposThread')

@@ -1,47 +1,25 @@
-//
-
-/*
- *
- * {{ properCase name }}
- *
- */
-
-import { FC } from 'react'
-
-import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+// /* * *
+{{properCase name}}
+* */ import { FC } from 'react' import { buildLog } from '@/utils/logger' import
+{ bond } from '@/utils/mobx'
 {{#if wantI18n}}
-import { useTrans } from '@/hooks'
+  import { useTrans } from '@/hooks'
 {{/if}}
 
-import type { TStore } from './store'
-
-import { Wrapper } from './styles'
-import { useInit } from './logic'
-
-/* eslint-disable-next-line */
-const log = buildLog('C:{{ properCase name }}')
-
-type TProps = {
-  {{ camelCase name }}?: TStore
-  testid: string
-}
-
-const {{ properCase name }}Container: FC<TProps> = ({{preCurly ""}} 
-  {{ camelCase name}}: store, 
-  testid,
-{{afterCurly ""}}) => {
-  useInit(store)
-  {{#if wantI18n}}
+import type { TStore } from './store' import { Wrapper } from './styles' import
+{ useInit } from './logic' /* eslint-disable-next-line */ const log =
+buildLog('C:{{properCase name}}') type TProps = {
+{{camelCase name}}?: TStore testid: string } const
+{{properCase name}}Container = ({{preCurly ''}}
+{{camelCase name}}: store, testid,
+{{afterCurly ''}}) => { useInit(store)
+{{#if wantI18n}}
   const { t } = useTrans()
-  {{/if}}
+{{/if}}
 
-  return (
-    <Wrapper testid={testid}>
-      <h2>{{ properCase name }} hooks container!</h2>
-      <div>impress me!</div>
-    </Wrapper>
-  )
-}
-
-export default pluggedIn({{ properCase name }}Container) as FC<TProps>
+return (
+<Wrapper testid='{testid}'>
+  <h2>{{properCase name}} hooks container!</h2>
+  <div>impress me!</div>
+</Wrapper>
+) } export default bond({{properCase name}}Container, "{{camelCase name}}")

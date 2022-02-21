@@ -6,7 +6,9 @@
 
 import React from 'react'
 
-import { pluggedIn, buildLog, uid } from '@/utils'
+import { bond } from '@/utils/mobx'
+import { buildLog } from '@/utils/logger'
+import uid from '@/utils/uid'
 
 import GithubRepoPage from '@/widgets/GithubRepoPage'
 import SearchMan from './SearchMan'
@@ -81,4 +83,4 @@ const RepoEditorContainer = ({ repoEditor: store }) => {
   )
 }
 
-export default pluggedIn(RepoEditorContainer)
+export default bond(RepoEditorContainer, 'repoEditor')

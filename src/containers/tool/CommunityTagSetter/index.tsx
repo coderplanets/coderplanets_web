@@ -10,7 +10,7 @@ import { FC } from 'react'
 
 import type { TCommunity, TTag } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
 
@@ -77,4 +77,7 @@ const CommunityTagSetterContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CommunityTagSetterContainer) as FC<TProps>
+export default bond(
+  CommunityTagSetterContainer,
+  'communityTagSetter',
+) as FC<TProps>

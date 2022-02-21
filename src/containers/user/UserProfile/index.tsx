@@ -9,7 +9,7 @@
 import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import NumbersPad from './NumbersPad'
 import ContributeMap from './ContributeMap'
@@ -56,4 +56,4 @@ const UserProfileContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(UserProfileContainer) as FC<TProps>
+export default bond(UserProfileContainer, 'userProfile') as FC<TProps>

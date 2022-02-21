@@ -9,7 +9,7 @@ import React from 'react'
 import { ICON_CMD } from '@/config'
 import { C11N } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import { Br } from '@/widgets/Common'
 import { Radio } from '@/widgets/Switcher'
@@ -158,4 +158,4 @@ const UserSettingsContainer = ({ userSettings: store }) => {
   )
 }
 
-export default pluggedIn(UserSettingsContainer)
+export default bond(UserSettingsContainer, 'userSettings')

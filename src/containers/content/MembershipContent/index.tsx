@@ -9,7 +9,7 @@ import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import OrButton from '@/widgets/Buttons/OrButton'
 // import Button from '@/widgets/Buttons/Button'
 import Checker from '@/widgets/Checker'
@@ -169,4 +169,7 @@ const MembershipContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(MembershipContentContainer) as FC<TProps>
+export default bond(
+  MembershipContentContainer,
+  'membershipContent',
+) as FC<TProps>

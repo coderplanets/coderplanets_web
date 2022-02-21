@@ -78,8 +78,7 @@ export {
 } from './route'
 
 export {
-  pluggedIn,
-  storePlug,
+  bond,
   markStates,
   flashState,
   meteorState,

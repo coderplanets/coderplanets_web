@@ -10,7 +10,7 @@ import { isNil } from 'ramda'
 import type { TScrollDirection } from '@/spec'
 import useScroll from '@/hooks/useScroll'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
 
@@ -51,4 +51,4 @@ const ArticleDigestContainer: FC<TProps> = ({ articleDigest: store }) => {
   )
 }
 
-export default pluggedIn(ArticleDigestContainer) as FC<TProps>
+export default bond(ArticleDigestContainer, 'articleDigest') as FC<TProps>

@@ -10,7 +10,7 @@ import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import OrButton from '@/widgets/Buttons/OrButton'
 import NewsBoard from './NewsBoard'
@@ -60,4 +60,4 @@ const TrendingContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(TrendingContentContainer) as FC<TProps>
+export default bond(TrendingContentContainer, 'trendingContent') as FC<TProps>

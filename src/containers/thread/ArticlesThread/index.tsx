@@ -12,7 +12,7 @@ import { isMobile } from 'react-device-detect'
 import type { TResState } from '@/spec'
 import { C11N, ARTICLE_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import PagedArticles from '@/widgets/PagedArticles'
 import ViewportTracker from '@/widgets/ViewportTracker'
@@ -92,4 +92,4 @@ const ArticlesThreadContainer: FC<TProps> = ({ articlesThread: store }) => {
   )
 }
 
-export default pluggedIn(ArticlesThreadContainer) as FC<TProps>
+export default bond(ArticlesThreadContainer, 'articlesThread') as FC<TProps>

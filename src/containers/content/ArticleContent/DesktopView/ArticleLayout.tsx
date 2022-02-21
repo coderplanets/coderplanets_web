@@ -9,7 +9,7 @@ import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import { ArticleFooter, Comments } from '@/containers/dynamic'
 import ArticleSticker from '@/containers/tool/ArticleSticker'
@@ -86,4 +86,4 @@ const ArticleContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleContentContainer) as FC<TProps>
+export default bond(ArticleContentContainer, 'articleContent') as FC<TProps>

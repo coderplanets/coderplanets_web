@@ -8,7 +8,7 @@ import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import { ArchiveAlert, IllegalWarning } from '@/widgets/dynamic'
 
@@ -120,4 +120,4 @@ const ArticleEditorContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleEditorContainer) as FC<TProps>
+export default bond(ArticleEditorContainer, 'articleEditor') as FC<TProps>

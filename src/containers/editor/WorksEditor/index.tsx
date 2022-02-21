@@ -1,5 +1,3 @@
-//
-
 /*
  *
  * WorksEditor
@@ -12,7 +10,7 @@ import { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import NoticeBar from '@/widgets/NoticeBar'
 
@@ -86,4 +84,4 @@ const WorksEditorContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(WorksEditorContainer) as FC<TProps>
+export default bond(WorksEditorContainer, 'worksEditor') as FC<TProps>

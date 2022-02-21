@@ -10,7 +10,7 @@ import { includes } from 'ramda'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { HCN, METRIC } from '@/constant'
 
 import JoinModal from '@/containers/tool/JoinModal'
@@ -90,4 +90,4 @@ const FooterContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(FooterContainer) as FC<TProps>
+export default bond(FooterContainer, 'footer') as FC<TProps>

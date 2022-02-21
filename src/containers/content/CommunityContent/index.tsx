@@ -6,7 +6,7 @@ import { FC, Fragment } from 'react'
 import { isMobile } from 'react-device-detect'
 
 import { C11N } from '@/constant'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import ClassicLayout from './ClassicLayout'
 import HolyGrailLayout from './HolyGrailLayout'
@@ -39,4 +39,4 @@ const CommunityContentContainer: FC<TProps> = ({ communityContent: store }) => {
   )
 }
 
-export default pluggedIn(CommunityContentContainer) as FC<TProps>
+export default bond(CommunityContentContainer, 'communityContent') as FC<TProps>

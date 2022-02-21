@@ -9,7 +9,7 @@ import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import FilterBar from './FilterBar'
 import Content from './Content'
@@ -51,4 +51,4 @@ const CoolGuideContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CoolGuideContentContainer) as FC<TProps>
+export default bond(CoolGuideContentContainer, 'coolGuideContent') as FC<TProps>

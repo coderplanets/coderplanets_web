@@ -4,9 +4,6 @@ import {
   path,
   has,
   curry,
-  head,
-  split,
-  toLower,
   forEachObjIndexed,
   keys,
   isEmpty,
@@ -35,29 +32,13 @@ type TStore = {
  * 一个容器组件只能连接到一个和它相关的子状态树
  *
  */
-const storeFilter = curry((selectedStore, props) => ({
-  [selectedStore]: path(['store', selectedStore], props),
-}))
-
-// TODO: remove it
-export const storePlug = curry((selectedStore, props) => ({
+const storeSelector = curry((selectedStore, props) => ({
   [selectedStore]: path(['store', selectedStore], props),
 }))
 
 /*
- * inject sub-store to container
- * e.g: pluggedIn(HelloWorldContainer)
-   will make HelloWorldContainer connect to 'helloWorld' sub-store
- *
- * 将传入的 container 链接到相对应的子状态树
- * 比如: onnectStore(HelloWorldContainer)
- * 会将 HelloWorldContainer 链接到 'helloWorld' 的子状态树
- *
- * NOTE: container should be naming as XxxContainer (end with Container)
- * 注意： 容器组件的命名需遵守 XxxContainer 的约定规则 (以 Container 结尾)
- *
- * NOTE:  consider use useAccount or useViewing in @/hooks if you want to access those spec store
- * 注意: 如果是获取 account 或 viewing 的数据，考虑使用 @/hooks 中的 useAccount 或者 useViewing
+ * inject sub-store to container base on second args
+ * 根据第二个参数绑定子状态树
  *
  * NOTE: KNOWN ISSUE:
  * because the type information of the incoming container cannot be obtained,
@@ -65,27 +46,15 @@ export const storePlug = curry((selectedStore, props) => ({
  * the place where this container is used, and it needs to be manually exported where it
  * is used, such as:
  *
- * export default pluggedIn(HelpCenterContentContainer) as FC<TProps>
+ * export default bond(ShareContainer, "share")
  * ---
  * 因为无法获取传入的 container 的类型信息，导致这里只能返回一个空的 React.FC,这
  * 会导致使用这个 container 的地方出现类型报错，需要在使用的地方手动导出，比如:
  *
- * export default pluggedIn(HelpCenterContentContainer) as FC<TProps>
+ * export default bond(ShareContainer, "share") as FC<TProps>
  */
-export const pluggedIn = (
-  // container: React.FC<typeof container>,
-  container: React.FC,
-  store = '',
-): FC => {
-  let subStoreName = ''
-  if (store) {
-    subStoreName = store
-  } else {
-    const cname = head(split('Container', container.displayName))
-    subStoreName = toLower(head(cname)) + cname.slice(1)
-  }
-
-  return inject(storeFilter(subStoreName))(observer(container))
+export const bond = (container: FC, subStore: string): FC => {
+  return inject(storeSelector(subStore))(observer(container))
 }
 
 /*

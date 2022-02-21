@@ -8,7 +8,7 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Comments from '@/containers/unit/Comments'
 
@@ -57,4 +57,4 @@ const ArticleViewerContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleViewerContainer) as FC<TProps>
+export default bond(ArticleViewerContainer, 'articleViewer') as FC<TProps>

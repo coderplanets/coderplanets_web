@@ -12,7 +12,7 @@ import Contact from './Contact'
 import Teams from './Teams'
 import Others from './Others'
 
-import { Wrapper, Row, Title, SlishSign, Divider } from './styles'
+import { Wrapper, Row, Title, SlashSign, Divider } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:WorksInfoCard:index')
@@ -25,26 +25,26 @@ const WorksInfoCard: FC<TProps> = ({ article }) => {
   return (
     <Wrapper>
       <Row>
-        <SlishSign>//</SlishSign>
+        <SlashSign>//</SlashSign>
         <Title>关于</Title>
       </Row>
       <About article={article} />
       <Divider top={20} bottom={18} />
       <Row>
-        <SlishSign>//</SlishSign>
+        <SlashSign>//</SlashSign>
         <Title>团队成员</Title>
       </Row>
       <Br top={12} />
       <Teams teammates={article.teammates} />
       <Divider top={20} bottom={10} />
       <Row>
-        <SlishSign>//</SlishSign>
+        <SlashSign>//</SlashSign>
         <Title>关注我们</Title>
       </Row>
       <Contact article={article} />
       <Divider top={24} bottom={20} />
       <Row>
-        <SlishSign>//</SlishSign>
+        <SlashSign>//</SlashSign>
         <Title>其他</Title>
       </Row>
       <Others article={article} />

@@ -9,7 +9,7 @@
 import React from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import TodoList from './TodoList'
 
@@ -30,4 +30,4 @@ const RoadmapThreadContainer = ({ roadmapThread: store }) => {
   )
 }
 
-export default pluggedIn(RoadmapThreadContainer)
+export default bond(RoadmapThreadContainer, 'roadmapThread')

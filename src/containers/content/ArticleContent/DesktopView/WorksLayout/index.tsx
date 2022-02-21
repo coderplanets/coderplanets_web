@@ -5,7 +5,7 @@ import type { TMetric } from '@/spec'
 import { WORKS_TAB } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import ArticleSticker from '@/containers/tool/ArticleSticker'
 import WorksInfoCard from '@/widgets/WorksInfoCard'
@@ -80,4 +80,4 @@ const ArticleContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleContentContainer) as FC<TProps>
+export default bond(ArticleContentContainer, 'articleContent') as FC<TProps>

@@ -7,7 +7,7 @@
 import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { useShortcut, useResize } from '@/hooks'
 
 import type { TStore } from './store'
@@ -68,4 +68,4 @@ const DrawerContainer: FC<TProps> = ({ drawer: store }) => {
   )
 }
 
-export default pluggedIn(DrawerContainer)
+export default bond(DrawerContainer, 'drawer')

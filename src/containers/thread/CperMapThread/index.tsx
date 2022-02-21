@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import { useTheme } from 'styled-components'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import RankingBoard from './RankingBoard'
 import MapLoading from './MapLoading'
@@ -49,4 +49,4 @@ const CperMapThreadContainer: FC<TProps> = ({ cperMapThread: store }) => {
   )
 }
 
-export default pluggedIn(CperMapThreadContainer) as FC<TProps>
+export default bond(CperMapThreadContainer, 'cperMapThread') as FC<TProps>

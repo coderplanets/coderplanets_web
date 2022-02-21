@@ -9,7 +9,7 @@ import { isMobile } from 'react-device-detect'
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import type { TStore } from './store'
 // import TopBar from './TopBar'
@@ -71,4 +71,4 @@ const ModeLineContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ModeLineContainer) as FC<TProps>
+export default bond(ModeLineContainer, 'modeLine') as FC<TProps>

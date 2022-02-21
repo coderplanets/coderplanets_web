@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import type { TMetric } from '@/spec'
 import { ICON, GITHUB, BUILD_VERSION, ABOUT_LINK } from '@/config'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { ROUTE } from '@/constant'
 
 import type { TStore } from '../store'
@@ -62,4 +62,4 @@ const FooterContainer: FC<TProps> = ({ footer: store, metric }) => {
   )
 }
 
-export default pluggedIn(FooterContainer) as FC
+export default bond(FooterContainer, 'footer') as FC

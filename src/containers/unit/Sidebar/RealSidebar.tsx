@@ -10,7 +10,7 @@ import { filter, propEq } from 'ramda'
 import type { TCommunity } from '@/spec'
 import { HCN, ANCHOR } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Header from './Header'
 import MenuList from './MenuList/index'
@@ -70,4 +70,4 @@ const SidebarContainer: FC<TProps> = ({ sidebar: store }) => {
   )
 }
 
-export default pluggedIn(SidebarContainer) as FC<TProps>
+export default bond(SidebarContainer, 'sidebar') as FC<TProps>

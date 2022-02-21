@@ -8,7 +8,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import SectionLabel from '@/widgets/SectionLabel'
 import UpgradeMenu from './UpgradeMenu'
@@ -46,4 +46,4 @@ const UserBillingContainer = ({ userBilling: store }) => {
   )
 }
 
-export default pluggedIn(UserBillingContainer)
+export default bond(UserBillingContainer, 'userBilling')

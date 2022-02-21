@@ -8,7 +8,7 @@ import T from 'prop-types'
 
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Tooltip from '@/widgets/Tooltip'
 
@@ -57,4 +57,4 @@ AvatarAdderContainer.defaultProps = {
   onConfirm: log,
 }
 
-export default pluggedIn(AvatarAdderContainer)
+export default bond(AvatarAdderContainer, 'avatarAdder')
