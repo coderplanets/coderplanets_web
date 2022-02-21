@@ -1,19 +1,30 @@
-/* * *
-{{properCase name}}
-* */ import React from 'react' import { buildLog } from '@/utils/logger' import
-{ bond } from '@/utils/mobx' // import { } from './styles' import * as logic
-from './logic' /* eslint-disable-next-line */ const log = buildLog('C:{{properCase
-  name
-}}') class
-{{properCase name}}Container extends React.Component { componentDidMount() {
-const
-{{preCurly ''}}
-{{camelCase name}}
-{{afterCurly ''}}
-= this.props logic.init({{camelCase name}}) } componentWillUnmount() {
-logic.uninit() } render() { return (
-<div>
-  <h2>{{properCase name}} container!</h2>
-  <div>impress me!</div>
-</div>
-) } } export default bond({{properCase name}}Container)
+/* * 
+* {{properCase name}}
+* */ 
+
+import React from 'react' 
+import { buildLog } from '@/utils/logger' 
+import { bond } from '@/utils/mobx' 
+
+// import { } from './styles' 
+import * as logic from './logic' 
+/* eslint-disable-next-line */ 
+
+const log = buildLog('C:{{properCase name }}') 
+
+class {{properCase name}}Container extends React.Component { componentDidMount() {
+  const {{preCurly ''}}{{camelCase name}} {{afterCurly ''}} = this.props 
+  logic.init({{camelCase name}}) } 
+
+  componentWillUnmount() {
+    logic.uninit() 
+  } 
+  
+  render() { return (
+    <div>
+      <h2>{{properCase name}} container!</h2>
+      <div>impress me!</div>
+    </div>
+)}} 
+
+export default bond({{properCase name}}Container)
