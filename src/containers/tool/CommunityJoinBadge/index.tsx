@@ -7,7 +7,7 @@
 import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import FollowButton from '@/widgets/Buttons/FollowButton'
 
@@ -51,4 +51,7 @@ const CommunityJoinBadgeContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CommunityJoinBadgeContainer) as FC<TProps>
+export default bond(
+  CommunityJoinBadgeContainer,
+  'communityJoinBadge',
+) as FC<TProps>

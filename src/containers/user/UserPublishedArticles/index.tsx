@@ -9,7 +9,7 @@ import { FC, Fragment } from 'react'
 import type { TResState } from '@/spec'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import PagedArticles from '@/widgets/PagedArticles'
 import ThreadSelector from './ThreadSelector'
@@ -55,4 +55,7 @@ const UserPublishedArticlesContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(UserPublishedArticlesContainer) as FC<TProps>
+export default bond(
+  UserPublishedArticlesContainer,
+  'userPublishedArticles',
+) as FC<TProps>

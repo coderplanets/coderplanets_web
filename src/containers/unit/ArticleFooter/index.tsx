@@ -10,7 +10,7 @@ import type { TCopyright, TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Copyright from '@/widgets/Copyright'
 import { SpaceGrow } from '@/widgets/Common'
@@ -82,4 +82,4 @@ const ArticleFooterContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleFooterContainer) as FC<TProps>
+export default bond(ArticleFooterContainer, 'articleFooter') as FC<TProps>

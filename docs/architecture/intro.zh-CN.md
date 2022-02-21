@@ -151,7 +151,7 @@ import Editor from './Editor'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { pluggedIn, buildLog } from '@/utils'
+import { bond, buildLog } from '@/utils'
 import { useInit, changeView, onPublish, cancelPublish } from './logic'
 
 const PostEditorContainer = ({ postEditor: store, attachment }) =>{
@@ -178,13 +178,13 @@ const PostEditorContainer = ({ postEditor: store, attachment }) =>{
   )
 }
 
-export default pluggedIn(PostEditorContainer)
+export default bond(PostEditorContainer)
 ```
 
 根据我自己的一些经验和项目一年来演进的实际情况，我认为局部状态是糟糕的。所以所有的状态都交于外部的状态管理工具 [Mobx-State-Tree](https://github.com/mobxjs/mobx-state-tree), 然后通过下面函数将该容器与整个项目状态树中相对应的子状态树链接起来：
 
 ```js
-export default pluggedIn(PostEditorContainer)
+export default bond(PostEditorContainer)
 ```
 
 #### store.js

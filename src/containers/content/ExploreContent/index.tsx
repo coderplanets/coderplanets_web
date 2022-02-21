@@ -10,7 +10,7 @@ import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Pagi from '@/widgets/Pagi'
 
@@ -85,4 +85,4 @@ const ExploreContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ExploreContentContainer) as FC<TProps>
+export default bond(ExploreContentContainer, 'exploreContent') as FC<TProps>

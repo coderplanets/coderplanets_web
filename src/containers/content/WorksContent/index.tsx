@@ -9,7 +9,7 @@ import { isMobile } from 'react-device-detect'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Pagi from '@/widgets/Pagi'
 // import AvatarsRow from '@/widgets/AvatarsRow'
@@ -73,4 +73,4 @@ const WorksContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(WorksContentContainer) as FC<TProps>
+export default bond(WorksContentContainer, 'worksContent') as FC<TProps>

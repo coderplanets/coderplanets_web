@@ -7,7 +7,7 @@
 import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { closeDrawer } from '@/utils/helper'
 
 import SubmitButton from '@/widgets/Buttons/SubmitButton'
@@ -119,4 +119,4 @@ const AccountEditorContainer: FC<TProps> = ({ accountEditor: store }) => {
   )
 }
 
-export default pluggedIn(AccountEditorContainer) as FC<TProps>
+export default bond(AccountEditorContainer, 'accountEditor') as FC<TProps>

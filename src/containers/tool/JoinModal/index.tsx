@@ -5,7 +5,7 @@
 import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
 
@@ -38,4 +38,4 @@ const JoinModalContainer: FC<TProps> = ({ joinModal: store }) => {
   )
 }
 
-export default pluggedIn(JoinModalContainer) as FC<TProps>
+export default bond(JoinModalContainer, 'joinModal') as FC<TProps>

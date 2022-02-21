@@ -6,7 +6,7 @@ import { FC, Fragment } from 'react'
 import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
 
@@ -51,4 +51,4 @@ const ShareContainer: FC<TProps> = ({ share: store, testid }) => {
   )
 }
 
-export default pluggedIn(ShareContainer) as FC<TProps>
+export default bond(ShareContainer, 'share') as FC<TProps>

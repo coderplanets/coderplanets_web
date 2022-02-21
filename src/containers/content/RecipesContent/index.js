@@ -9,7 +9,7 @@
 import React from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { RECIPE } from '@/constant'
 
 import Snippets from './Snippets'
@@ -48,4 +48,4 @@ const RecipesContentContainer = ({ recipesContent: store, metric }) => {
   )
 }
 
-export default pluggedIn(RecipesContentContainer)
+export default bond(RecipesContentContainer, 'recipesContent')

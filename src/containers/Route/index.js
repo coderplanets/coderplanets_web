@@ -7,7 +7,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { useInit } from './logic'
 
 const RouteContainer = ({ route }) => {
@@ -17,4 +17,4 @@ const RouteContainer = ({ route }) => {
   return <div />
 }
 
-export default pluggedIn(RouteContainer)
+export default bond(RouteContainer, 'route')

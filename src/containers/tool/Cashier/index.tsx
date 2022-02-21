@@ -7,7 +7,7 @@
 import { FC, memo } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
 import Sidebar from './Sidebar'
@@ -58,4 +58,4 @@ const CashierContainer: FC<TProps> = ({ cashier: store }) => {
   )
 }
 
-export default pluggedIn(CashierContainer) as FC<TProps>
+export default bond(CashierContainer, 'cashier') as FC<TProps>

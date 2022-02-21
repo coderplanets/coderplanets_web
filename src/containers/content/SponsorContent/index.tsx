@@ -14,7 +14,7 @@ import type { TMetric } from '@/spec'
 import { ASSETS_ENDPOINT } from '@/config'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import { Br } from '@/widgets/Common'
 import { SponsorGallery } from '@/widgets/GalleryHub'
@@ -143,4 +143,4 @@ const SponsorContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(SponsorContentContainer)
+export default bond(SponsorContentContainer, 'sponsorContent') as FC<TProps>

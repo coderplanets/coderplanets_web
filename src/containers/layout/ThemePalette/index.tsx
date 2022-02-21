@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components'
 
 import type { TThemeMap } from '@/spec'
 import { ANCHOR } from '@/constant'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import ThirdPartyOverWrite from './ThirdPartyOverWrite'
 import ScrollBarStyle from './ScrollBarStyle'
@@ -62,7 +62,7 @@ const ThemeContainer: FC<TProps> = ({ children, theme: { themeData } }) => {
   )
 }
 
-export default pluggedIn(ThemeContainer) as FC<TProps>
+export default bond(ThemeContainer, 'theme') as FC<TProps>
 
 // about meta theme-color
 // see: https://stackoverflow.com/questions/26960703/how-to-change-the-color-of-header-bar-and-address-bar-in-newest-chrome-version-o

@@ -9,7 +9,7 @@ import { FC } from 'react'
 import { ICON_CMD } from '@/config'
 import { VIEW } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import { Tabs } from '@/widgets/Switcher'
 import type { TStore } from './store'
@@ -86,4 +86,4 @@ const C11NSettingPanelContainer: FC<TProps> = ({ c11NSettingPanel: store }) => {
   )
 }
 
-export default pluggedIn(C11NSettingPanelContainer) as FC<TProps>
+export default bond(C11NSettingPanelContainer, 'c11nSettingPanel') as FC<TProps>

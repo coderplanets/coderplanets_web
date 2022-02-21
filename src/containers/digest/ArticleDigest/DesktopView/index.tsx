@@ -11,7 +11,7 @@ import { METRIC } from '@/constant'
 import useScroll from '@/hooks/useScroll'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import ViewportTracker from '@/widgets/ViewportTracker'
 import { CollectionFolder, FixedHeader } from './dynamic'
@@ -70,4 +70,4 @@ const ArticleDigestContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(ArticleDigestContainer) as FC<TProps>
+export default bond(ArticleDigestContainer, 'articleDigest') as FC<TProps>

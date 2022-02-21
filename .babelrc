@@ -1,7 +1,6 @@
 {
   "presets": ["next/babel"],
   "plugins": [
-    "add-react-displayname",
     [
       "babel-plugin-styled-components",
       {

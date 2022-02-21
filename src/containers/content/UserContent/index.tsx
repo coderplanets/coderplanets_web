@@ -10,7 +10,7 @@ import { isMobile } from 'react-device-detect'
 import type { TMetric } from '@/spec'
 import { USER_THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import MobileBanner from './MobileBanner'
 import { Comments } from '@/containers/dynamic'
@@ -97,8 +97,8 @@ const TabberContent = ({ active }) => {
 }
 
 type TProps = {
-  userContent: TStore
-  metric: TMetric
+  userContent?: TStore
+  metric?: TMetric
 }
 
 const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
@@ -144,4 +144,4 @@ const UserContentContainer: FC<TProps> = ({ userContent: store, metric }) => {
   )
 }
 
-export default pluggedIn(UserContentContainer)
+export default bond(UserContentContainer, 'userContent') as FC<TProps>

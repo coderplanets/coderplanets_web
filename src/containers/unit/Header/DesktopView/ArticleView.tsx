@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic'
 import type { TMetric } from '@/spec'
 import { ICON } from '@/config'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Navigator from '@/widgets/Navigator'
 
@@ -75,4 +75,4 @@ const ArticleHeaderContainer: FC<TProps> = ({ header: store, metric }) => {
   )
 }
 
-export default pluggedIn(ArticleHeaderContainer, 'header') as FC<TProps>
+export default bond(ArticleHeaderContainer, 'header') as FC<TProps>

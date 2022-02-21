@@ -7,7 +7,7 @@
 import { FC } from 'react'
 import { keys, reverse } from 'ramda'
 
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { buildLog } from '@/utils/logger'
 
 import type { TProps as TTagProps } from '../index'
@@ -64,4 +64,4 @@ const TagsBarContainer: FC<TProps> = ({ tagsBar: store, onSelect }) => {
   )
 }
 
-export default pluggedIn(TagsBarContainer) as FC<TProps>
+export default bond(TagsBarContainer, 'tagsBar') as FC<TProps>

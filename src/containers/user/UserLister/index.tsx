@@ -8,7 +8,7 @@ import { FC } from 'react'
 
 import { TYPE } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import EmptyLabel from '@/widgets/EmptyLabel'
 import { LavaLampLoading } from '@/widgets/dynamic'
@@ -67,4 +67,4 @@ const UserListerContainer: FC<TProps> = ({ userLister: store, type }) => {
   )
 }
 
-export default pluggedIn(UserListerContainer) as FC<TProps>
+export default bond(UserListerContainer, 'userLister') as FC<TProps>

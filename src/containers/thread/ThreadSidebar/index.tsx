@@ -11,7 +11,7 @@ import { FC, Fragment } from 'react'
 import type { TTag } from '@/spec'
 import { C11N } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import ClassicLayout from './ClassicLayout'
 import HolyGrailLayout from './HolyGrailLayout'
@@ -57,4 +57,4 @@ const ThreadSidebarContainer: FC<TProps> = ({ threadSidebar: store }) => {
   )
 }
 
-export default pluggedIn(ThreadSidebarContainer) as FC<TProps>
+export default bond(ThreadSidebarContainer, 'threadSidebar') as FC<TProps>

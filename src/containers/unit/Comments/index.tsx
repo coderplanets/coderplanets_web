@@ -8,7 +8,7 @@ import { FC } from 'react'
 
 import { ANCHOR } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 // import NoticeBar from '@/widgets/NoticeBar'
 
@@ -74,4 +74,4 @@ const CommentsContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CommentsContainer) as FC<TProps>
+export default bond(CommentsContainer, 'comments') as FC<TProps>

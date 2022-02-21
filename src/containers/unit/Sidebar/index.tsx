@@ -8,7 +8,7 @@ import { FC, useRef, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import LoadingBlocks from './LoadingBlocks'
 import PullButton from './PullButton'
@@ -56,4 +56,4 @@ const SidebarContainer: FC<TProps> = ({ sidebar: store }) => {
   )
 }
 
-export default pluggedIn(SidebarContainer) as FC<TProps>
+export default bond(SidebarContainer, 'sidebar') as FC<TProps>

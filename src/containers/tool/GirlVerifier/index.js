@@ -11,7 +11,7 @@ import Button from '@/widgets/Buttons/Button'
 
 import { ICON_CMD } from '@/config'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import { Space } from '@/widgets/Common'
 import Modal from '@/widgets/Modal'
@@ -62,4 +62,4 @@ const GirlVerifierContainer = ({ girlVerifier: store }) => {
   )
 }
 
-export default pluggedIn(GirlVerifierContainer)
+export default bond(GirlVerifierContainer, 'girlVerifier')

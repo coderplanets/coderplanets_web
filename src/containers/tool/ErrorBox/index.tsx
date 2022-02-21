@@ -7,7 +7,7 @@
 import { FC } from 'react'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Modal from '@/widgets/Modal'
 import useShortcut from '@/hooks/useShortcut'
@@ -74,4 +74,4 @@ const ErrorBoxContainer: FC<TProps> = ({ errorBox: store }) => {
   )
 }
 
-export default pluggedIn(ErrorBoxContainer) as FC<TProps>
+export default bond(ErrorBoxContainer, 'errorBox') as FC<TProps>

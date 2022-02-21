@@ -8,7 +8,7 @@ import React from 'react'
 
 // import { THREAD } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Comments from '@/containers/unit/Comments'
 import GithubRepoPage from '@/widgets/GithubRepoPage'
@@ -39,4 +39,4 @@ const RepoViewerContainer = ({ repoViewer: store, attachment }) => {
   )
 }
 
-export default pluggedIn(RepoViewerContainer)
+export default bond(RepoViewerContainer, 'repoViewer')

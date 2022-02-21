@@ -8,7 +8,7 @@ import { FC } from 'react'
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import ClassicLayout from './ClassicLayout'
 
@@ -51,4 +51,4 @@ const CommunityDigestContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CommunityDigestContainer) as FC<TProps>
+export default bond(CommunityDigestContainer, 'communityDigest') as FC<TProps>

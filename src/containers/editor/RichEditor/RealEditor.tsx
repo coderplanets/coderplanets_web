@@ -9,7 +9,7 @@ import { FC, ReactNode } from 'react'
 import RichEditor from '@groupher/react-editor'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Options from './Options'
 
@@ -63,4 +63,4 @@ const RichEditorContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(RichEditorContainer) as FC<TProps>
+export default bond(RichEditorContainer, 'richEditor') as FC<TProps>

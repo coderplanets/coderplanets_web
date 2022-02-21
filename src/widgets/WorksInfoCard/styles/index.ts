@@ -13,7 +13,7 @@ export const Row = styled.div`
   ${css.flex('align-center')};
   margin-bottom: 10px;
 `
-export const SlishSign = styled.div`
+export const SlashSign = styled.div`
   color: ${theme('button.primary')};
   font-size: 10px;
   font-weight: bolder;

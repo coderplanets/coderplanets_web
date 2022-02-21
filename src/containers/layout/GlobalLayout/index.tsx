@@ -10,7 +10,7 @@ import { isMobile } from 'react-device-detect'
 
 import type { TSEO, TMetric } from '@/spec'
 import { ANCHOR, SIZE, C11N, BODY_SCROLLER } from '@/constant'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import ThemePalette from '@/containers/layout/ThemePalette'
 import Header from '@/widgets/Header'
@@ -97,4 +97,4 @@ const GlobalLayoutContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(GlobalLayoutContainer) as FC<TProps>
+export default bond(GlobalLayoutContainer, 'globalLayout') as FC<TProps>

@@ -10,7 +10,7 @@ import { FC, Fragment } from 'react'
 import { isMobile } from 'react-device-detect'
 
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 import { ICON_CMD } from '@/config'
 
 import Modal from '@/widgets/Modal'
@@ -103,4 +103,4 @@ const CollectionFolderContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(CollectionFolderContainer) as FC<TProps>
+export default bond(CollectionFolderContainer, 'collectionFolder') as FC<TProps>

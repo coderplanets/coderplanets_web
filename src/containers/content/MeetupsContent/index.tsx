@@ -8,7 +8,7 @@ import { FC } from 'react'
 
 import type { TMetric } from '@/spec'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Pagi from '@/widgets/Pagi'
 // import { PagiOptionSwitcher } from '@/widgets/Switcher'
@@ -66,4 +66,4 @@ const MeetupsContentContainer: FC<TProps> = ({
   )
 }
 
-export default pluggedIn(MeetupsContentContainer) as FC<TProps>
+export default bond(MeetupsContentContainer, 'meetupContent') as FC<TProps>

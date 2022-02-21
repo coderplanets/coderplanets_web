@@ -8,7 +8,7 @@ import { FC } from 'react'
 import type { TMetric } from '@/spec'
 import { METRIC } from '@/constant'
 import { buildLog } from '@/utils/logger'
-import { pluggedIn } from '@/utils/mobx'
+import { bond } from '@/utils/mobx'
 
 import Content from './Content'
 import Actions from './Actions'
@@ -46,4 +46,4 @@ const SubscribeContentContainer = ({
 }
 
 // @ts-ignore
-export default pluggedIn(SubscribeContentContainer) as FC<TProps>
+export default bond(SubscribeContentContainer, 'subscribeContent') as FC<TProps>
