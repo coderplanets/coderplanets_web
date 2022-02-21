@@ -57,8 +57,6 @@ const loader = async () => {
 // }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  console.log('hot params: ', ctx)
-
   const thread = THREAD.POST
   const resp = await loader()
 
