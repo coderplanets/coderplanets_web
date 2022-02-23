@@ -72,6 +72,7 @@ export const Label = styled.span<TLabel>`
   margin-bottom: ${({ bottomSpace }) => `${bottomSpace}px`};
 
   opacity: ${({ active }) => (active ? 1 : 0.9)};
+  font-weight: ${({ active }) => (active ? 600 : 400)};
 
   &:hover {
     color: ${theme('thread.articleTitle')};

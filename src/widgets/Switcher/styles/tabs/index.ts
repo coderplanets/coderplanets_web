@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import type { TTestable } from '@/spec'
 import css from '@/utils/css'
-import { theme } from '@/utils/themes'
+// import { theme } from '@/utils/themes'
 
 type TSlipBar = {
   slipHeight: string
@@ -30,7 +30,7 @@ export const SlipBar = styled.span<TSlipBar>`
   position: absolute;
   ${css.flex('justify-center')};
   width: ${({ width }) => width};
-  bottom: 1px;
+  bottom: 0;
   left: 0;
   height: ${({ slipHeight }) => slipHeight};
 
@@ -40,9 +40,9 @@ export const SlipBar = styled.span<TSlipBar>`
 type TRealBar = { width: string }
 export const RealBar = styled.span<TRealBar>`
   width: ${({ width }) => width};
-  height: 3px;
-  border-radius: 3px;
-  background: #327faf;
+  height: 1px;
+  /* border-radius: 3px; */
+  background: #3d4349; // to-theme
 `
 // transform: ${({ active }) =>
 //     active ? 'translate3d(0,0,0);' : 'translate3d(0, 150%, 0);'};

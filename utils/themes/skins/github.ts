@@ -279,7 +279,7 @@ const github = {
     boxShadow: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.4,
+    dotOpacity: 0.7,
     text: descText,
   },
   tagger: {
